@@ -227,7 +227,6 @@
 
 	can_block_movement = TRUE
 
-	appearance_flags = TILE_BOUND
 
 	///the mob's tgui player panel
 	var/datum/player_panel/mob_panel
