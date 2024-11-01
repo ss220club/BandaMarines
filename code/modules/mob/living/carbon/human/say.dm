@@ -16,7 +16,7 @@
 				i--
 				break
 			.["modes"] += GLOB.department_radio_keys[":[current_channel]"]
-		.["message_and_language"] = copytext_char(message, i+1)
+		.["message_and_language"] = copytext_char(message, i+1) // SS220 EDIT - RU fix
 		var/multibroadcast_cooldown = 0
 		for(var/obj/item/device/radio/headset/headset in list(wear_l_ear, wear_r_ear))
 			if(world.time - headset.last_multi_broadcast < headset.multibroadcast_cooldown)
