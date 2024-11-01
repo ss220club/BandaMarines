@@ -139,7 +139,7 @@ for it but just ignore it.
 
 /mob/proc/say_quote(message, datum/language/speaking = null)
 		var/verb = "says"
-		var/ending = copytext_char(message, length(message))
+		var/ending = copytext_char(message, length(message)) // SS220 EDIT - RU fix
 		if(ending=="!")
 				verb=pick("exclaims","shouts","yells")
 		else if(ending=="?")

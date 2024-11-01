@@ -123,7 +123,7 @@ GLOBAL_LIST_INIT(limb_types_by_name, list(
 	var/message_length = length(message)
 	var/index = 1
 	while(index <= message_length)
-		var/char = copytext_char(message, index, index + 1)
+		var/char = copytext_char(message, index, index + 1) // SS220 EDIT - RU fix
 		if(char == " " || prob(clear_char_probability))
 			output_message += char
 		else
