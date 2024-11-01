@@ -6,7 +6,7 @@ GREEN="\033[0;32m"
 BLUE="\033[0;34m"
 NC="\033[0m" # No Color
 
-echo -e "${BLUE}Re-running grep checks, but looking in modular_bandastation...${NC}"
+echo -e "${BLUE}Re-running grep checks, but looking in modular...${NC}"
 
 # Run the linters again, but modular bandastation code.
-sed "s|code/\*\*/\*\.dm|modular_bandastation/\*\*/\*\.dm|g" <tools/ci/check_grep.sh | bash
+sed "s|code/\*\*/\*\.dm|modular/\*\*/\*\.dm|g" <tools/ci/check_grep.sh | bash
