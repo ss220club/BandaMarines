@@ -1,6 +1,6 @@
 SUBSYSTEM_DEF(tts220)
 	name = "Text-to-Speech 220"
-	init_order = INIT_ORDER_DEFAULT
+	init_order = SS_INIT_UNSPECIFIED
 	wait = 1 SECONDS
 	runlevels = RUNLEVEL_LOBBY | RUNLEVELS_DEFAULT
 
