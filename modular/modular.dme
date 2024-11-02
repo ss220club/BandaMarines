@@ -7,3 +7,4 @@
 #include "_singletons/_singletons.dme"
 
 #include "tts/_tts.dme"
+#include "world_topics/_world_topics.dme"
