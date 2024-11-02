@@ -1,5 +1,5 @@
 /*
-!!!!!!!!! Используется для установки, аля:
+!!!!!!!!! Используется для установки, аля из Парадайзера:
 
 /datum/announcement_configuration/comms_console
 	default_title = "Priority Announcement"

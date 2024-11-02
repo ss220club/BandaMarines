@@ -1,7 +1,10 @@
+/*
+Определено в: code\__DEFINES\misc.dm
 #define SHELLEO_ERRORLEVEL 1
 #define SHELLEO_STDOUT 2
 #define SHELLEO_STDERR 3
 
+Определено в: code\__HELPERS\shell.dm
 #define SHELLEO_NAME "data/shelleo."
 #define SHELLEO_ERR ".err"
 #define SHELLEO_OUT ".out"
@@ -59,6 +62,7 @@
 	while(bad_chars)
 	. = scrubbed_url
 
+*/
 
 
 /proc/apply_sound_effect(effect, filename_input, filename_output)
@@ -93,6 +97,7 @@
 		return FALSE
 	return TRUE
 
+/*
 #undef SHELLEO_ERRORLEVEL
 #undef SHELLEO_STDOUT
 #undef SHELLEO_STDERR
@@ -100,3 +105,4 @@
 #undef SHELLEO_NAME
 #undef SHELLEO_ERR
 #undef SHELLEO_OUT
+*/
