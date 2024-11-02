@@ -1,0 +1,8 @@
+#include "_tts.dm"
+
+#include "code/client/preferences.dm"
+#include "code/controllers/game_options.dm"
+#include "code/controllers/subsystem_tts.dm"
+#include "code/human.dm"
+#include "code/soundOutput.dm"
+#include "code/species.dm"

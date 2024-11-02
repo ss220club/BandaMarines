@@ -381,6 +381,10 @@
 		add_verb(H, inherent_verbs)
 
 /datum/species/proc/handle_post_spawn(mob/living/carbon/human/H) //Handles anything not already covered by basic species assignment.
+	// SS220 EDIT START - TTS
+	if(!has_tts_voice)
+		H.tts_voice = null
+	// SS220 EDIT END - TTS
 	add_inherent_verbs(H)
 	apply_signals(H)
 

@@ -223,6 +223,12 @@
 	S["chat_display_preferences"] >> chat_display_preferences
 	S["toggles_ghost"] >> toggles_ghost
 	S["toggles_langchat"] >> toggles_langchat
+
+// SS220 EDIT START - TTS
+	S["tts_mode"] >> tts_mode
+	S["tts_hivemind_mode"] >> tts_hivemind_mode
+// SS220 EDIT END - TTS
+
 	S["toggles_sound"] >> toggles_sound
 	S["toggle_prefs"] >> toggle_prefs
 	S["xeno_ability_click_mode"] >> xeno_ability_click_mode
@@ -249,6 +255,12 @@
 
 	S["xeno_prefix"] >> xeno_prefix
 	S["xeno_postfix"] >> xeno_postfix
+
+// SS220 EDIT START - TTS
+	S["xeno_pitch"] >> xeno_pitch
+	S["xeno_voice"] >> xeno_voice
+// SS220 EDIT END - TTS
+
 	S["xeno_name_ban"] >> xeno_name_ban
 	S["playtime_perks"] >> playtime_perks
 	S["show_queen_name"] >> show_queen_name
@@ -259,6 +271,12 @@
 	S["pref_job_slots"] >> pref_job_slots
 
 	S["synth_name"] >> synthetic_name
+
+// SS220 EDIT START - TTS
+	S["synth_voice"] >> synth_voice
+	S["synth_pitch"] >> synth_pitch
+// SS220 EDIT END - TTS
+
 	S["synth_type"] >> synthetic_type
 	S["pred_name"] >> predator_name
 	S["pred_gender"] >> predator_gender
@@ -374,6 +392,17 @@
 	custom_cursors = sanitize_integer(custom_cursors, FALSE, TRUE, TRUE)
 	pref_special_job_options = sanitize_islist(pref_special_job_options, list())
 	pref_job_slots = sanitize_islist(pref_job_slots, list())
+
+// SS220 EDIT START - TTS
+	if(SStts.tts_enabled)
+		synth_voice = sanitize_inlist(synth_voice, SStts.available_speakers, pick(SStts.available_speakers))
+		xeno_voice = sanitize_inlist(xeno_voice, SStts.available_speakers, pick(SStts.available_speakers))
+	synth_pitch = sanitize_integer(synth_pitch, -12, 12, 0)
+	xeno_pitch = sanitize_integer(xeno_pitch, -12, 12, 0)
+	tts_mode = sanitize_inlist(tts_mode, list(TTS_SOUND_ENABLED, TTS_SOUND_BLIPS, TTS_SOUND_OFF), TTS_SOUND_ENABLED)
+	tts_hivemind_mode = sanitize_integer(tts_hivemind_mode, TTS_HIVEMIND_OFF, TTS_HIVEMIND_ALL, TTS_HIVEMIND_LEADERS)
+// SS220 EDIT END - TTS
+
 	vars["fps"] = fps
 
 	check_keybindings()
@@ -433,6 +462,12 @@
 	S["chat_display_preferences"] << chat_display_preferences
 	S["toggles_ghost"] << toggles_ghost
 	S["toggles_langchat"] << toggles_langchat
+
+// SS220 EDIT START - TTS
+	S["tts_mode"] << tts_mode
+	S["tts_hivemind_mode"] << tts_hivemind_mode
+// SS220 EDIT END - TTS
+
 	S["toggles_sound"] << toggles_sound
 	S["toggle_prefs"] << toggle_prefs
 	S["xeno_ability_click_mode"] << xeno_ability_click_mode
@@ -450,6 +485,12 @@
 
 	S["xeno_prefix"] << xeno_prefix
 	S["xeno_postfix"] << xeno_postfix
+
+// SS220 EDIT START - TTS
+	S["xeno_voice"] << xeno_voice
+	S["xeno_pitch"] << xeno_pitch
+// SS220 EDIT END - TTS
+
 	S["xeno_name_ban"] << xeno_name_ban
 	S["xeno_vision_level_pref"] << xeno_vision_level_pref
 	S["playtime_perks"] << playtime_perks
@@ -461,6 +502,12 @@
 	S["pref_job_slots"] << pref_job_slots
 
 	S["synth_name"] << synthetic_name
+
+// SS220 EDIT START - TTS
+	S["synth_voice"] << synth_voice
+	S["synth_pitch"] << synth_pitch
+// SS220 EDIT END - TTS
+
 	S["synth_type"] << synthetic_type
 	S["pred_name"] << predator_name
 	S["pred_gender"] << predator_gender
@@ -531,6 +578,11 @@
 	S["body_size"] >> body_size
 	S["language"] >> language
 	S["spawnpoint"] >> spawnpoint
+
+// SS220 EDIT START - TTS
+	S["human_voice"] >> voice
+	S["human_pitch"] >> voice_pitch
+// SS220 EDIT END - TTS
 
 	//colors to be consolidated into hex strings (requires some work with dna code)
 	S["hair_red"] >> r_hair
@@ -636,6 +688,13 @@
 	undershirt = sanitize_inlist(undershirt, gender == MALE ? GLOB.undershirt_m : GLOB.undershirt_f, initial(undershirt))
 	backbag = sanitize_integer(backbag, 1, length(GLOB.backbaglist), initial(backbag))
 	preferred_armor = sanitize_inlist(preferred_armor, GLOB.armor_style_list, "Random")
+
+// SS220 EDIT START - TTS
+	if(SStts.tts_enabled)
+		voice = sanitize_inlist(voice, SStts.available_speakers, pick(SStts.available_speakers))
+	voice_pitch = sanitize_integer(voice_pitch, -12, 12, 0)
+// SS220 EDIT END - TTS
+
 	//b_type = sanitize_text(b_type, initial(b_type))
 
 	alternate_option = sanitize_integer(alternate_option, 0, 3, initial(alternate_option))
@@ -701,6 +760,12 @@
 	S["underwear"] << underwear
 	S["undershirt"] << undershirt
 	S["backbag"] << backbag
+
+// SS220 EDIT START - TTS
+	S["human_voice"] << voice
+	S["human_pitch"] << voice_pitch
+// SS220 EDIT END - TTS
+
 	//S["b_type"] << b_type
 	S["spawnpoint"] << spawnpoint
 

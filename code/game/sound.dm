@@ -37,11 +37,18 @@
 //status: the regular 4 sound flags
 //falloff: max range till sound volume starts dropping as distance increases
 
+/*
+========= SS220 EDIT - TTS =========
 /proc/playsound(atom/source, sound/soundin, vol = 100, vary = FALSE, sound_range, vol_cat = VOLUME_SFX, channel = 0, status, falloff = 1, list/echo, y_s_offset, x_s_offset)
 	if(isarea(source))
 		error("[source] is an area and is trying to make the sound: [soundin]")
 		return FALSE
+*/
 
+// ======================
+// SS220 EDIT - TTS
+/proc/get_sound_template(sound/soundin, vol = 100, vary = FALSE, vol_cat = VOLUME_SFX, channel = 0, status, falloff = 1, list/echo, y_s_offset, x_s_offset)
+// ======================
 	var/datum/sound_template/template = new()
 	if(istype(soundin))
 		template.file = soundin.file
@@ -65,6 +72,20 @@
 			template.frequency = vary
 		else
 			template.frequency = GET_RANDOM_FREQ // Same frequency for everybody
+
+// ======================
+// SS220 EDIT START - TTS
+
+	return template
+
+/proc/playsound(atom/source, soundin, vol = 100, vary = FALSE, sound_range, vol_cat = VOLUME_SFX, channel = 0, status, falloff = 1, list/echo, y_s_offset, x_s_offset)
+	if(isarea(source))
+		error("[source] is an area and is trying to make the sound: [soundin]")
+		return FALSE
+	var/datum/sound_template/template = get_sound_template(soundin, vol, vary, vol_cat, channel, status, falloff, echo, y_s_offset, x_s_offset)
+
+// SS220 EDIT END - TTS
+// ======================
 
 	if(!sound_range)
 		sound_range = floor(0.25*vol) //if no specific range, the max range is equal to a quarter of the volume.
@@ -105,6 +126,10 @@
 
 //This is the replacement for playsound_local. Use this for sending sounds directly to a client
 /proc/playsound_client(client/client, sound/soundin, atom/origin, vol = 100, random_freq, vol_cat = VOLUME_SFX, channel = 0, status, list/echo, y_s_offset, x_s_offset)
+
+// ======================
+// SS220 EDIT START - TTS
+/*
 	if(!istype(client) || !client.soundOutput)
 		return FALSE
 
@@ -135,6 +160,12 @@
 	template.y_s_offset = y_s_offset
 	template.x_s_offset = x_s_offset
 	SSsound.queue(template, list(client))
+*/
+	SSsound.queue(get_sound_template(soundin, vol, random_freq, vol_cat, channel, status, 1, echo, y_s_offset, x_s_offset), list(client))
+
+// SS220 EDIT END - TTS
+// ======================
+
 
 /// Plays sound to all mobs that are map-level contents of an area
 /proc/playsound_area(area/A, soundin, vol = 100, channel = 0, status, vol_cat = VOLUME_SFX, list/echo, y_s_offset, x_s_offset)

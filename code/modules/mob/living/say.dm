@@ -94,7 +94,22 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 /mob/living/proc/remove_speech_bubble(mutable_appearance/speech_bubble, list_of_mobs)
 	overlays -= speech_bubble
 
-/mob/living/say(message, datum/language/speaking = null, verb="says", alt_name="", italics=0, message_range = GLOB.world_view_size, sound/speech_sound, sound_vol, nolog = 0, message_mode = null, bubble_type = bubble_icon)
+// SS220 EDIT START - TTS
+/proc/treat_tts_message(tts_message)
+	var/static/regex/length_regex = regex(@"(.+)\1\1\1", "gi")
+	while(length_regex.Find(tts_message))
+		var/replacement = tts_message[length_regex.index]+tts_message[length_regex.index]+tts_message[length_regex.index]
+		tts_message = replacetext(tts_message, length_regex.match, replacement, length_regex.index)
+
+	// removes repeated consonants at the start of a word: ex: sss
+	var/static/regex/word_start_regex = regex(@"\b([^aeiou\L])\1", "gi")
+	while(word_start_regex.Find(tts_message))
+		var/replacement = tts_message[word_start_regex.index]
+		tts_message = replacetext(tts_message, word_start_regex.match, replacement, word_start_regex.index)
+	return tts_message
+
+/mob/living/say(message, datum/language/speaking = null, verb="says", alt_name="", italics=0, message_range = GLOB.world_view_size, sound/speech_sound, sound_vol, nolog = 0, message_mode = null, bubble_type = bubble_icon, tts_message = null, tts_temp_filter = null)
+// SS220 EDIT END - TTS
 	var/turf/T
 
 	if(!filter_message(src, message))
@@ -102,12 +117,18 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 
 	if(SEND_SIGNAL(src, COMSIG_LIVING_SPEAK, message, speaking, verb, alt_name, italics, message_range, speech_sound, sound_vol, nolog, message_mode) & COMPONENT_OVERRIDE_SPEAK) return
 
-	message = process_chat_markup(message, list("~", "_"))
+// SS220 EDIT START - TTS
+	if(isnull(tts_message))
+		tts_message = message
+// SS220 EDIT END - TTS
 
-	for(var/dst=0; dst<=1; dst++) //Will run twice if src has a clone
+	message = process_chat_markup(message, list("~", "_"))
+		var/mob/tts_target = src // SS220 EDIT - TTS
 		if(!dst && src.clone) //Will speak in src's location and the clone's
+			tts_target = src.clone // SS220 EDIT - TTS
 			T = locate(src.loc.x + src.clone.proj_x, src.loc.y + src.clone.proj_y, src.loc.z)
 		else
+			tts_target = src
 			T = get_turf(src)
 			dst++ //Only speak once
 
@@ -169,6 +190,19 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 			langchat_speech(message, listening, speaking)
 		for(var/mob/M as anything in listening)
 			M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
+
+// SS220 EDIT START - TTS
+		var/compiled_filter = tts_voice_filter
+		if(tts_temp_filter)
+			if(compiled_filter && compiled_filter == "")
+				compiled_filter = "[tts_voice_filter],[tts_temp_filter]"
+			else
+				compiled_filter = tts_temp_filter
+
+		if(tts_voice && tts_message != "" && length(listening))
+			INVOKE_ASYNC_DIRECT(SStts, TYPE_PROC_REF(/datum/controller/subsystem/tts, queue_tts_message), tts_target, treat_tts_message(html_decode(tts_message)), speaking, tts_voice, compiled_filter, listening, FALSE, message_range, 0, tts_voice_pitch, start_noise = speaking_noise)
+// SS220 EDIT END - TTS
+
 		overlays += speech_bubble
 
 		addtimer(CALLBACK(src, PROC_REF(remove_speech_bubble), speech_bubble), 3 SECONDS)

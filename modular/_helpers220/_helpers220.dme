@@ -1,3 +1,5 @@
 #include "_helpers220.dm"
 
 #include "code/unsorted.dm"
+#include "code/heap.dm"
+#include "code/tts.dm"

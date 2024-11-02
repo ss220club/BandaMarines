@@ -28,6 +28,13 @@
 	var/final_name = "David"
 	if(new_human.client && new_human.client.prefs)
 		final_name = new_human.client.prefs.synthetic_name
+
+// SS220 EDIT START - TTS
+		if(SStts.tts_enabled)
+			new_human.tts_voice = sanitize_inlist(new_human.client.prefs.synth_voice, SStts.available_speakers, pick(SStts.available_speakers))
+			new_human.tts_voice_pitch = new_human.client.prefs.synth_pitch
+// SS220 EDIT END - TTS
+
 		if(!final_name || final_name == "Undefined")
 			final_name = "David"
 	new_human.change_real_name(new_human, final_name)

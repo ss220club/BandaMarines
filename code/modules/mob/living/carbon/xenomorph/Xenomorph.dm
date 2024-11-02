@@ -75,7 +75,7 @@
 	//////////////////////////////////////////////////////////////////
 	var/datum/caste_datum/caste // Used to extract determine ALL Xeno stats.
 	var/speaking_key = "x"
-	var/speaking_noise = "alien_talk"
+	speaking_noise = "alien_talk" // SS220 EDIT - TTS
 	slash_verb = "slash"
 	slashes_verb = "slashes"
 	var/slash_sound = "alien_claw_flesh"

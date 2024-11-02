@@ -1,3 +1,10 @@
+// SS220 EDIT START - TTS
+#define SPEECH_PROBLEMS_MESSAGE 1
+#define SPEECH_PROBLEMS_VERB 2
+#define SPEECH_PROBLEMS_TTS_MESSAGE 3
+#define SPEECH_PROBLEMS_TTS_FILTER 4
+// SS220 EDIT END - TTS
+
 /mob/living/carbon/human/proc/parse_say_modes(message)
 	. = list("message_and_language", "modes" = list())
 	if(length(message) >= 1 && message[1] == ";")
@@ -123,11 +130,17 @@
 		return
 
 	message = capitalize(trim(message))
-	message = process_chat_markup(message, list("~", "_"))
+	// SS220 EDIT START - TTS
+	//message = process_chat_markup(message, list("~", "_"))
 
 	var/list/handle_r = handle_speech_problems(message)
-	message = handle_r[1]
-	verb = handle_r[2]
+	//message = handle_r[1]
+	//verb = handle_r[2]
+	message = process_chat_markup(handle_r[SPEECH_PROBLEMS_MESSAGE], list("~", "_"))
+	verb = handle_r[SPEECH_PROBLEMS_VERB]
+	var/tts_message = handle_r[SPEECH_PROBLEMS_TTS_MESSAGE]
+	var/tts_filter = handle_r[SPEECH_PROBLEMS_TTS_FILTER]
+	// SS220 EDIT END - TTS
 	if(!message)
 		return
 
@@ -136,6 +149,7 @@
 		if(!(copytext_char(message, -1) in ENDING_PUNCT)) // SS220 EDIT - RU fix
 			message += "."
 
+	var/spoken_count = 0 // SS220 EDIT - TTS
 	for(var/message_mode in parsed["modes"])
 		var/list/obj/item/used_radios = list()
 		switch(message_mode)
@@ -176,7 +190,16 @@
 			italics = 1
 			message_range = 2
 
-		..(message, speaking, verb, alt_name, italics, message_range, speech_sound, sound_vol, 0, message_mode) //ohgod we should really be passing a datum here.
+		// SS220 EDIT START - TTS
+		// ..(message, speaking, verb, alt_name, italics, message_range, speech_sound, sound_vol, 0, message_mode) //ohgod we should really be passing a datum here.
+		var/tts_pass_msg = tts_message
+		if(spoken_count >= 1)
+			tts_pass_msg = ""
+
+		// This code is so painfully bad, why is it calling it 4 times when you do ,abcd??
+		..(message, speaking, verb, alt_name, italics, message_range, speech_sound, sound_vol, 0, message_mode, tts_message = tts_pass_msg, tts_temp_filter = tts_filter) //ohgod we should really be passing a datum here.
+		spoken_count++
+		// SS220 EDIT END - TTS
 
 		INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/carbon/human, say_to_radios), used_radios, message, message_mode, verb, speaking)
 
@@ -268,7 +291,9 @@ for it but just ignore it.
 	return verb
 
 /mob/living/carbon/human/proc/handle_speech_problems(message)
-	var/list/returns[2]
+	var/list/returns[4] // SS220 EDIT - TTS - 2 => 4
+	var/tts_message = message // SS220 EDIT - TTS
+	var/tts_filter = "" // SS220 EDIT - TTS
 	var/verb = "says"
 	if(silent)
 		message = ""
@@ -279,16 +304,20 @@ for it but just ignore it.
 		msg_admin_niche("[key_name(src)] stuttered while saying: \"[message]\"") //Messages that get modified by the 4 reasons below have their original message logged too
 	if(slurring)
 		message = slur(message)
+		tts_filter = "tremolo=f=10:d=0.8,rubberband=tempo=0.5" // SS220 EDIT - TTS
 		verb = pick("stammers","stutters")
 	if(stuttering)
 		message = NewStutter(message)
+		tts_filter = "tremolo=f=10:d=0.8,rubberband=tempo=0.5" // SS220 EDIT - TTS
 		verb = pick("stammers", "stutters")
 	if(HAS_TRAIT(src, TRAIT_DAZED))
 		message = DazedText(message)
+		tts_filter = "tremolo=f=10:d=0.8,rubberband=tempo=0.5" // SS220 EDIT - TTS
 		verb = pick("mumbles", "babbles")
 	if(braindam >= 60)
 		if(prob(braindam/4))
 			message = stutter(message, stuttering)
+			tts_filter = "tremolo=f=10:d=0.8,rubberband=tempo=0.5" // SS220 EDIT - TTS
 			verb = pick("stammers", "stutters")
 		if(prob(braindam))
 			message = uppertext(message)
@@ -296,11 +325,19 @@ for it but just ignore it.
 	if(HAS_TRAIT(src, TRAIT_LISPING))
 		var/old_message = message
 		message = lisp_replace(message)
+		tts_message = message // SS220 EDIT - TTS
 		if(old_message != message)
 			verb = "lisps"
 
-	returns[1] = message
-	returns[2] = verb
+	// SS220 EDIT START - TTS
+	// returns[1] = message
+	// returns[2] = verb
+	returns[SPEECH_PROBLEMS_MESSAGE] = message
+	returns[SPEECH_PROBLEMS_VERB] = verb
+	returns[SPEECH_PROBLEMS_TTS_MESSAGE] = tts_message
+	returns[SPEECH_PROBLEMS_TTS_FILTER] = tts_filter
+	// SS220 EDIT END - TTS
+
 	return returns
 
 /mob/living/carbon/human/hear_apollo()
@@ -310,3 +347,10 @@ for it but just ignore it.
 	for(var/datum/language/apollo/link in languages)
 		return TRUE
 	return FALSE
+
+// SS220 EDIT START - TTS
+#undef SPEECH_PROBLEMS_MESSAGE
+#undef SPEECH_PROBLEMS_VERB
+#undef SPEECH_PROBLEMS_TTS_MESSAGE
+#undef SPEECH_PROBLEMS_TTS_FILTER
+// SS220 EDIT END - TTS
