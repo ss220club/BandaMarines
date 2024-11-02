@@ -1,5 +1,7 @@
 #define VV_HK_SELECT_TTS_VOICE "select_tts_voice"
 
+#define VV_HK_MODIFY_TRAITS "changetts"
+
 #define TTS_TRAIT_PITCH_WHISPER (1<<1)
 #define TTS_TRAIT_RATE_FASTER (1<<2)
 #define TTS_TRAIT_RATE_MEDIUM (1<<3)
