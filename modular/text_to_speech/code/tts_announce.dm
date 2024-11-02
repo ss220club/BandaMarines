@@ -1,3 +1,17 @@
+/*
+!!!!!!!!! Используется для установки, аля:
+
+/datum/announcement_configuration/comms_console
+	default_title = "Priority Announcement"
+	add_log = TRUE
+	log_name = ANNOUNCE_KIND_PRIORITY
+	sound = sound('sound/misc/announce.ogg')
+	style = "major"
+
+
+
+// !!!!!! Сам код:
+
 /datum/announcement_configuration
 	var/tts_seed
 
@@ -33,3 +47,5 @@
 		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), null, M, message_tts, config.tts_seed, FALSE, SOUND_EFFECT_NONE, TTS_TRAIT_RATE_MEDIUM)
 	for(var/mob/M in garbled_receivers)
 		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), null, M, garbled_message_tts, config.tts_seed, FALSE, SOUND_EFFECT_NONE, TTS_TRAIT_RATE_MEDIUM)
+
+*/
