@@ -25,7 +25,7 @@
 	tts_voice = sanitize_inlist(client.prefs?.xeno_voice, SStts.available_speakers, pick(SStts.available_speakers))
 	tts_voice_pitch = client.prefs?.xeno_pitch
 
-/mob/living/carbon/xenomorph/proc/generate_name()
+/mob/living/carbon/xenomorph/generate_name()
 	. = ..()
 	init_voice()
 

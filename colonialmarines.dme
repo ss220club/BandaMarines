@@ -161,6 +161,8 @@
 #include "code\__DEFINES\typecheck\items.dm"
 #include "code\__DEFINES\typecheck\mobs_generic.dm"
 #include "code\__DEFINES\typecheck\xenos.dm"
+#include "modular/_defines220/_defines220.dme" // SS220 ADD - MODULAR
+#include "modular/_signals220/_signals220.dme" // SS220 ADD - MODULAR
 #include "code\__HELPERS\#maths.dm"
 #include "code\__HELPERS\_lists.dm"
 #include "code\__HELPERS\_time.dm"
@@ -196,6 +198,7 @@
 #include "code\__HELPERS\verb_helpers.dm"
 #include "code\__HELPERS\sorts\_Main.dm"
 #include "code\__HELPERS\sorts\TimSort.dm"
+#include "modular/_helpers220/_helpers220.dme" // SS220 ADD - MODULAR
 #include "code\_globalvars\bitfields.dm"
 #include "code\_globalvars\combat_defines.dm"
 #include "code\_globalvars\configuration.dm"
@@ -2505,6 +2508,5 @@
 #include "interface\skin.dmf"
 #include "maps\_basemap.dm"
 
-#include "code\__DEFINES\ss220_modular_tts.dm" // BANDASTATION EDIT
 #include "modular\modular.dme" // BANDASTATION EDIT
 // END_INCLUDE

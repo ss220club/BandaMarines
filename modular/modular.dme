@@ -1,9 +1,10 @@
 #include "_modpack.dm"
 #include "_modpacks.dm"
 
-#include "_defines220/_defines220.dme"
-#include "_helpers220/_helpers220.dme"
-#include "_signals220/_signals220.dme"
+// Инициализированы в КОРе
+// #include "_defines220/_defines220.dme"
+// #include "_helpers220/_helpers220.dme"
+// #include "_signals220/_signals220.dme"
 #include "_singletons/_singletons.dme"
 
 #include "tts/_tts.dme"

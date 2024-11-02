@@ -123,6 +123,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 // SS220 EDIT END - TTS
 
 	message = process_chat_markup(message, list("~", "_"))
+	for(var/dst=0; dst<=1; dst++) //Will run twice if src has a clone
 		var/mob/tts_target = src // SS220 EDIT - TTS
 		if(!dst && src.clone) //Will speak in src's location and the clone's
 			tts_target = src.clone // SS220 EDIT - TTS
