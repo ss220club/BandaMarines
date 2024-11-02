@@ -448,6 +448,14 @@ GLOBAL_LIST_INIT(bgstate_options, list(
 			else
 				dat += "<b>Records:</b> <a href=\"byond://?src=\ref[user];preference=records;record=1\"><b>Character Records</b></a><br>"
 
+			// SS220 ADDITION START - TTS220
+			if(GLOB.configuration.tts.tts_enabled)
+				dat += {"
+				<h2>Text-to-Speech</h2>
+				<b>Выбор голоса:</b> <a href='byond://?_src_=prefs;preference=tts_seed;task=input'>Эксплорер TTS голосов</a><br>
+				"}
+			// SS220 ADDITION END
+
 			dat += "<b>Flavor Text:</b> <a href='byond://?src=\ref[user];preference=flavor_text;task=open'><b>[TextPreview(flavor_texts["general"], 15)]</b></a><br>"
 			dat += "</div>"
 
