@@ -266,7 +266,7 @@ SUBSYSTEM_DEF(tts220)
 	tts_seeds_names = sortTim(tts_seeds_names, /proc/cmp_text_asc)
 
 /datum/controller/subsystem/tts220/Initialize(start_timeofday)
-	is_enabled = GLOB.configuration.tts.tts_enabled
+	is_enabled = CONFIG_GET(flag/tts_enabled)
 	if(!is_enabled)
 		flags |= SS_NO_FIRE
 
@@ -417,7 +417,7 @@ SUBSYSTEM_DEF(tts220)
 
 	rustutils_file_write_b64decode(voice, "[filename].ogg")
 
-	if(!GLOB.configuration.tts.tts_cache_enabled)
+	if(!(CONFIG_GET(flag/tts_cache_enabled)))
 		addtimer(CALLBACK(src, PROC_REF(cleanup_tts_file), "[filename].ogg"), 30 SECONDS)
 
 	for(var/datum/callback/cb in tts_queue[filename])
