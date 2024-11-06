@@ -1,7 +1,7 @@
 /datum/preferences
 	var/static/list/explorer_users = list()
 
-/datum/preferences/New(client/C, datum/db_query/Q)
+/datum/preferences/New(client/C)
 	. = ..()
 	volume_mixer |= (list(
 		"[CHANNEL_TTS_RADIO]" = 20, // CHANNEL_TTS_RADIO
