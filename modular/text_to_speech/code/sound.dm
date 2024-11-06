@@ -70,8 +70,8 @@
 		CRASH("Invalid sound effect chosen.")
 
 	var/taskset
-	if(GLOB.configuration.tts.ffmpeg_cpuaffinity)
-		taskset = "taskset -ac [GLOB.configuration.tts.ffmpeg_cpuaffinity]"
+	if((CONFIG_GET(string/ffmpeg_cpuaffinity)))
+		taskset = "taskset -ac [CONFIG_GET(string/ffmpeg_cpuaffinity)]"
 
 	var/list/output
 	switch(effect)

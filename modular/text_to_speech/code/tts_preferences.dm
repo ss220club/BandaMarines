@@ -98,7 +98,7 @@
 			return FALSE
 
 /mob/new_player/proc/check_tts_seed_ready()
-	if(GLOB.configuration.tts.tts_enabled)
+	if((CONFIG_GET(flag/tts_enabled)))
 		if(!client.prefs.active_character.tts_seed)
 			to_chat(usr, span_danger("Вам необходимо настроить голос персонажа! Не забудьте сохранить настройки."))
 			client.prefs.ShowChoices(src)

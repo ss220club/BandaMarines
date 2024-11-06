@@ -9,7 +9,7 @@
 	var/ssml_text = {"<speak>[text]</speak>"}
 
 	var/list/req_body = list()
-	req_body["api_token"] = GLOB.configuration.tts.tts_token_silero
+	req_body["api_token"] = (CONFIG_GET(string/tts_token_silero))
 	req_body["text"] = ssml_text
 	req_body["sample_rate"] = 24000
 	req_body["ssml"] = TRUE
@@ -22,8 +22,23 @@
 	req_body["format"] = "ogg"
 	req_body["word_ts"] = FALSE
 
-	SShttp.create_async_request(RUSTG_HTTP_METHOD_POST, GLOB.configuration.tts.tts_api_url_silero , json_encode(req_body), list("content-type" = "application/json"), proc_callback)
-
+	/*INVOKE_ASYNC(
+	src,
+	TYPE_PROC_REF(/mob/living/carbon/human, say_to_radios),
+	used_radios,
+	message,
+	message_mode,
+	verb,
+	speaking)
+	*/
+	//SShttp.create_async_request(RUSTG_HTTP_METHOD_POST, (CONFIG_GET(string/tts_api_url_silero)), json_encode(req_body), list("content-type" = "application/json"), proc_callback)
+	INVOKE_ASYNC(
+		RUSTG_HTTP_METHOD_POST,
+		CONFIG_GET(string/tts_api_url_silero),
+		json_encode(req_body),
+		list("content-type" = "application/json"),
+		proc_callback
+	);
 	return TRUE
 
 /datum/tts_provider/silero/process_response(datum/http_response/response)
