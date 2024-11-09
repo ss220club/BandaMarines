@@ -1,25 +1,3 @@
-/datum/preferences
-	var/static/list/explorer_users = list()
-
-/datum/preferences/New(client/C)
-	. = ..()
-	volume_mixer |= (list(
-		"[CHANNEL_TTS_RADIO]" = 20, // CHANNEL_TTS_RADIO
-		"[CHANNEL_TTS_LOCAL]" = 50, // CHANNEL_TTS_LOCAL
-	))
-
-/datum/character_save
-	var/tts_seed
-
-/datum/character_save/copy_to(mob/living/carbon/human/character)
-	. = ..()
-	if(tts_seed)
-		var/datum/tts_seed/new_tts_seed = SStts220.tts_seeds[tts_seed]
-		character.AddComponent(/datum/component/tts_component, new_tts_seed)
-		character.tts_seed = new_tts_seed
-
-
-
 
 /datum/ui_module/tts_seeds_explorer
 	name = "Эксплорер TTS голосов"
