@@ -466,10 +466,10 @@ SUBSYSTEM_DEF(tts220)
 	var/volume = 100
 	var/channel = CHANNEL_TTS_RADIO
 	if(is_local)
-		volume *= listener.client.prefs.get_channel_volume(CHANNEL_TTS_LOCAL)
+		volume *= listener?.client.volume_preferences[VOLUME_TTS_LOCAL]
 		channel = get_local_channel_by_owner(speaker)
 	else
-		volume *= listener.client.prefs.get_channel_volume(CHANNEL_TTS_RADIO)
+		volume *= listener?.client.volume_preferences[VOLUME_TTS_RADIO]
 		channel = CHANNEL_TTS_RADIO
 
 	var/sound/output = sound(voice)
@@ -478,7 +478,7 @@ SUBSYSTEM_DEF(tts220)
 	if(isnull(speaker))
 		output.wait = TRUE
 		output.channel = channel
-		output.volume = volume * listener.client.prefs.get_channel_volume(channel)
+		output.volume = volume // * listener.client.prefs.get_channel_volume(channel)
 		output.environment = -1
 
 		if(output.volume <= 0)
@@ -513,7 +513,7 @@ SUBSYSTEM_DEF(tts220)
 /datum/controller/subsystem/tts220/proc/get_local_channel_by_owner(owner)
 	var/channel = tts_local_channels_by_owner[owner]
 	if(isnull(channel))
-		channel = SSsounds.reserve_sound_channel_datumless()
+		channel = get_free_channel()
 		tts_local_channels_by_owner[owner] = channel
 	return channel
 

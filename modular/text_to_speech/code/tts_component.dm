@@ -140,7 +140,7 @@
 
 	if(!message)
 		return
-	if(!(listener?.client) || !listener.can_hear())
+	if(!(listener?.client) || listener.ear_deaf)
 		return
 	if(!speaker)
 		speaker = parent
