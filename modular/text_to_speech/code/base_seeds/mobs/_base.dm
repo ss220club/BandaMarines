@@ -9,7 +9,6 @@
 /mob/living/silicon/add_tts_component()
 	AddComponent(/datum/component/tts_component, null, TTS_TRAIT_ROBOTIZE)
 
-/mob/living/carbon/human/Initialize(mapload, datum/species/new_species)
+/mob/living/carbon/Initialize()
 	. = ..()
-	if(dna)
-		dna.tts_seed_dna = get_tts_seed()
+	tts_seed = get_tts_seed()

@@ -16,7 +16,7 @@
 	if(tts_seed)
 		var/datum/tts_seed/new_tts_seed = SStts220.tts_seeds[tts_seed]
 		character.AddComponent(/datum/component/tts_component, new_tts_seed)
-		character.dna.tts_seed_dna = new_tts_seed
+		character.tts_seed = new_tts_seed
 
 
 
