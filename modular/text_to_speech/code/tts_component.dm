@@ -99,7 +99,7 @@
 	tts_seed = new_tts_seed
 	if(iscarbon(being_changed))
 		var/mob/living/carbon/carbon = being_changed
-		carbon.dna?.tts_seed_dna = tts_seed
+		carbon.tts_seed = tts_seed
 
 /datum/component/tts_component/proc/get_random_tts_seed_by_gender()
 	var/tts_gender = get_converted_tts_seed_gender()
