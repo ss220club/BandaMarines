@@ -1,3 +1,21 @@
+/client/New(TopicData)
+	// Пример работы: S.volume = 100 * owner.volume_preferences[VOLUME_AMB]
+	volume_preferences |= (list(
+		1, // Local - VOLUME_TTS_LOCAL (5) - у ОФФов это тупо сделано, но как есть...
+		0.5 // Radio - VOLUME_TTS_RADIO (6)
+	))
+	. = ..()
+
+/client/verb/adjust_volume_tts_local()
+	set name = "Громкость TTS (Говор)"
+	set category = "Preferences.Sound"
+	adjust_volume_prefs(VOLUME_TTS_LOCAL, "Громкость TTS в радиусе слышимости", CHANNEL_TTS_LOCAL)
+
+/client/verb/adjust_volume_tts_radio()
+	set name = "Громкость TTS (Радио)"
+	set category = "Preferences.Sound"
+	adjust_volume_prefs(VOLUME_TTS_LOCAL, "Громкость TTS в радио", CHANNEL_TTS_RADIO)
+
 /*
 Определено в: code\__DEFINES\misc.dm
 #define SHELLEO_ERRORLEVEL 1
