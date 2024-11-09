@@ -18,6 +18,9 @@
 		character.AddComponent(/datum/component/tts_component, new_tts_seed)
 		character.dna.tts_seed_dna = new_tts_seed
 
+
+
+
 /datum/ui_module/tts_seeds_explorer
 	name = "Эксплорер TTS голосов"
 	var/phrases = TTS_PHRASES

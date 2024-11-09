@@ -38,12 +38,6 @@
 #define RUST_G (__rust_g || __detect_rust_g())
 #endif
 
-// Handle 515 call() -> call_ext() changes
-#if DM_VERSION >= 515
-#define RUSTG_CALL call_ext
-#else
-#define RUSTG_CALL call
-#endif
 
 /// Gets the version of rust_g
 /proc/rustg_get_version() return RUSTG_CALL(RUST_G, "get_version")()
@@ -92,24 +86,6 @@
  */
 #define rustg_acreplace_with_replacements(key, text, replacements) RUSTG_CALL(RUST_G, "acreplace_with_replacements")(key, text, json_encode(replacements))
 
-// Cellular Noise //
-
-/**
- * This proc generates a cellular automata noise grid which can be used in procedural generation methods.
- *
- * Returns a single string that goes row by row, with values of 1 representing an alive cell, and a value of 0 representing a dead cell.
- *
- * Arguments:
- * * percentage: The chance of a turf starting closed
- * * smoothing_iterations: The amount of iterations the cellular automata simulates before returning the results
- * * birth_limit: If the number of neighboring cells is higher than this amount, a cell is born
- * * death_limit: If the number of neighboring cells is lower than this amount, a cell dies
- * * width: The width of the grid.
- * * height: The height of the grid.
- */
-#define rustg_cnoise_generate(percentage, smoothing_iterations, birth_limit, death_limit, width, height) \
-	RUSTG_CALL(RUST_G, "cnoise_generate")(percentage, smoothing_iterations, birth_limit, death_limit, width, height)
-
 // Grid Perlin Noise //
 
 /**
@@ -128,12 +104,6 @@
 #define rustg_dbp_generate(seed, accuracy, stamp_size, world_size, lower_range, upper_range) \
 	RUSTG_CALL(RUST_G, "dbp_generate")(seed, accuracy, stamp_size, world_size, lower_range, upper_range)
 
-
-// DMI Operations //
-
-#define rustg_dmi_strip_metadata(fname) RUSTG_CALL(RUST_G, "dmi_strip_metadata")(fname)
-#define rustg_dmi_create_png(path, width, height, data) RUSTG_CALL(RUST_G, "dmi_create_png")(path, width, height, data)
-#define rustg_dmi_resize_png(path, width, height, resizetype) RUSTG_CALL(RUST_G, "dmi_resize_png")(path, width, height, resizetype)
 /**
  * input: must be a path, not an /icon; you have to do your own handling if it is one, as icon objects can't be directly passed to rustg.
  *
@@ -141,24 +111,10 @@
  */
 #define rustg_dmi_icon_states(fname) RUSTG_CALL(RUST_G, "dmi_icon_states")(fname)
 
-// File Operations //
-
-#define rustg_file_read(fname) RUSTG_CALL(RUST_G, "file_read")(fname)
-#define rustg_file_exists(fname) RUSTG_CALL(RUST_G, "file_exists")(fname)
-#define rustg_file_write(text, fname) RUSTG_CALL(RUST_G, "file_write")(text, fname)
-#define rustg_file_append(text, fname) RUSTG_CALL(RUST_G, "file_append")(text, fname)
-#define rustg_file_get_line_count(fname) text2num(RUSTG_CALL(RUST_G, "file_get_line_count")(fname))
-#define rustg_file_seek_line(fname, line) RUSTG_CALL(RUST_G, "file_seek_line")(fname, "[line]")
-
 #ifdef RUSTG_OVERRIDE_BUILTINS
 	#define file2text(fname) rustg_file_read("[fname]")
 	#define text2file(text, fname) rustg_file_append(text, "[fname]")
 #endif
-
-// Git Operations //
-
-#define rustg_git_revparse(rev) RUSTG_CALL(RUST_G, "rg_git_revparse")(rev)
-#define rustg_git_commit_date(rev) RUSTG_CALL(RUST_G, "rg_git_commit_date")(rev)
 
 // Hashing Functions //
 
@@ -179,37 +135,8 @@
 #endif
 
 // HTTP Operations //
-
-#define RUSTG_HTTP_METHOD_GET "get"
-#define RUSTG_HTTP_METHOD_PUT "put"
-#define RUSTG_HTTP_METHOD_DELETE "delete"
-#define RUSTG_HTTP_METHOD_PATCH "patch"
-#define RUSTG_HTTP_METHOD_HEAD "head"
-#define RUSTG_HTTP_METHOD_POST "post"
-#define rustg_http_request_blocking(method, url, body, headers, options) RUSTG_CALL(RUST_G, "http_request_blocking")(method, url, body, headers, options)
-#define rustg_http_request_async(method, url, body, headers, options) RUSTG_CALL(RUST_G, "http_request_async")(method, url, body, headers, options)
-#define rustg_http_check_request(req_id) RUSTG_CALL(RUST_G, "http_check_request")(req_id)
 /proc/rustg_create_async_http_client() return RUSTG_CALL(RUST_G, "start_http_client")()
 /proc/rustg_close_async_http_client() return RUSTG_CALL(RUST_G, "shutdown_http_client")()
-
-// Jobs Defines //
-
-#define RUSTG_JOB_NO_RESULTS_YET "NO RESULTS YET"
-#define RUSTG_JOB_NO_SUCH_JOB "NO SUCH JOB"
-#define RUSTG_JOB_ERROR "JOB PANICKED"
-
-// JSON Operations //
-
-#define rustg_json_is_valid(text) (RUSTG_CALL(RUST_G, "json_is_valid")(text) == "true")
-
-// Logging Operations //
-
-#define rustg_log_write(fname, text) RUSTG_CALL(RUST_G, "log_write")(fname, text)
-/proc/rustg_log_close_all() return RUSTG_CALL(RUST_G, "log_close_all")()
-
-// Noise Operations //
-
-#define rustg_noise_get_at_coordinates(seed, x, y) RUSTG_CALL(RUST_G, "noise_get_at_coordinates")(seed, x, y)
 
 // AStar Operations //
 
@@ -245,16 +172,6 @@
  * Compute the shortest path between start_node and goal_node using A*. Heuristic used is simple geometric distance
  */
 #define rustg_generate_path_astar(start_node_id, goal_node_id) RUSTG_CALL(RUST_G, "generate_path_astar")(start_node_id, goal_node_id)
-
-// Redis PubSub Operations //
-
-#define RUSTG_REDIS_ERROR_CHANNEL "RUSTG_REDIS_ERROR_CHANNEL"
-
-#define rustg_redis_connect(addr) RUSTG_CALL(RUST_G, "redis_connect")(addr)
-/proc/rustg_redis_disconnect() return RUSTG_CALL(RUST_G, "redis_disconnect")()
-#define rustg_redis_subscribe(channel) RUSTG_CALL(RUST_G, "redis_subscribe")(channel)
-/proc/rustg_redis_get_messages() return RUSTG_CALL(RUST_G, "redis_get_messages")()
-#define rustg_redis_publish(channel, message) RUSTG_CALL(RUST_G, "redis_publish")(channel, message)
 
 /**
  * Connects to a given redis server.
@@ -295,58 +212,15 @@
  */
 #define rustg_redis_lpop(key, count) RUSTG_CALL(RUST_G, "redis_lpop")(key, count)
 
-// SQL Operations //
-
-#define rustg_sql_connect_pool(options) RUSTG_CALL(RUST_G, "sql_connect_pool")(options)
-#define rustg_sql_query_async(handle, query, params) RUSTG_CALL(RUST_G, "sql_query_async")(handle, query, params)
-#define rustg_sql_query_blocking(handle, query, params) RUSTG_CALL(RUST_G, "sql_query_blocking")(handle, query, params)
-#define rustg_sql_connected(handle) RUSTG_CALL(RUST_G, "sql_connected")(handle)
-#define rustg_sql_disconnect_pool(handle) RUSTG_CALL(RUST_G, "sql_disconnect_pool")(handle)
-#define rustg_sql_check_query(job_id) RUSTG_CALL(RUST_G, "sql_check_query")("[job_id]")
-
-// Time Tracking Functions //
-
-#define rustg_time_microseconds(id) text2num(RUSTG_CALL(RUST_G, "time_microseconds")(id))
-#define rustg_time_milliseconds(id) text2num(RUSTG_CALL(RUST_G, "time_milliseconds")(id))
-#define rustg_time_reset(id) RUSTG_CALL(RUST_G, "time_reset")(id)
-
-/// Returns the timestamp as a string
-/proc/rustg_unix_timestamp()
-	return RUSTG_CALL(RUST_G, "unix_timestamp")()
-
 // Toast Operations //
 
 #define rustg_create_toast(title, body) RUSTG_CALL(RUST_G, "create_toast")(title, body)
 
-// TOML Operations //
-
-#define rustg_raw_read_toml_file(path) json_decode(RUSTG_CALL(RUST_G, "toml_file_to_json")(path) || "null")
-
-/proc/rustg_read_toml_file(path)
-	var/list/output = rustg_raw_read_toml_file(path)
-	if(output["success"])
-		return json_decode(output["content"])
-	else
-		CRASH(output["content"])
-
-#define rustg_raw_toml_encode(value) json_decode(RUSTG_CALL(RUST_G, "toml_encode")(json_encode(value)))
-
-/proc/rustg_toml_encode(value)
-	var/list/output = rustg_raw_toml_encode(value)
-	if(output["success"])
-		return output["content"]
-	else
-		CRASH(output["content"])
-
-// ZIP File Operations //
 
 #define rustg_unzip_download_async(url, unzip_directory) RUSTG_CALL(RUST_G, "unzip_download_async")(url, unzip_directory)
 #define rustg_unzip_check(job_id) RUSTG_CALL(RUST_G, "unzip_check")("[job_id]")
 
 // URL Operations //
-
-#define rustg_url_encode(text) RUSTG_CALL(RUST_G, "url_encode")("[text]")
-#define rustg_url_decode(text) RUSTG_CALL(RUST_G, "url_decode")(text)
 
 #ifdef RUSTG_OVERRIDE_BUILTINS
 	#define url_encode(text) rustg_url_encode(text)
