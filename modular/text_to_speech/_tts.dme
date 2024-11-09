@@ -16,7 +16,6 @@
 #include "code/tts_seed.dm"
 #include "code/tts_subsystem.dm"
 #include "code/tts_surgery.dm"
-#include "code/tts_megaphone.dm"
 #include "code/tts_vv.dm"
 
 #include "code/base_seeds/mobs/_base.dm"
