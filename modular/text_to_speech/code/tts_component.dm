@@ -200,10 +200,14 @@
 
 // Component usage
 
+/*
 /client/create_response_team_part_1(new_gender, new_species, role, turf/spawn_location)
 	. = ..()
 	var/mob/living/ert_member = .
 	ert_member.change_tts_seed(src.mob)
+
+// можно заменить под: /datum/emergency_call/proc/create_member(datum/mind/M, turf/override_spawn_loc) //This is the parent, each type spawns its own variety.
+*/
 
 /mob/living/silicon/verb/synth_change_voice()
 	set name = "Смена голоса"
