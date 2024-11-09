@@ -31,6 +31,11 @@
 #define SOUND_CHANNEL_LOBBY 1023
 #define SOUND_CHANNEL_Z 1024
 
+// SS220 ADDITION START
+#define CHANNEL_TTS_RADIO 1010
+#define CHANNEL_TTS_LOCAL 1009
+// SS220 ADDITION END
+
 
 //default byond sound echo list index positions.
 //ECHO_DIRECT and ECHO_ROOM are the only two that actually appear to do anything, and represent the dry and wet channels of the environment effects, respectively.
