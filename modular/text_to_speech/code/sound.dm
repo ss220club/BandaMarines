@@ -16,72 +16,71 @@
 	set category = "Preferences.Sound"
 	adjust_volume_prefs(VOLUME_TTS_LOCAL, "Громкость TTS в радио", CHANNEL_TTS_RADIO)
 
-/*
-Определено в: code\__DEFINES\misc.dm
-#define SHELLEO_ERRORLEVEL 1
-#define SHELLEO_STDOUT 2
-#define SHELLEO_STDERR 3
+/proc/get_rand_frequency()
+	return rand(32000, 55000) //Frequency stuff only works with 45kbps oggs.
 
-Определено в: code\__HELPERS\shell.dm
-#define SHELLEO_NAME "data/shelleo."
-#define SHELLEO_ERR ".err"
-#define SHELLEO_OUT ".out"
+/mob/proc/playsound_local(turf/turf_source, soundin, vol as num, vary, frequency, falloff_exponent = SOUND_FALLOFF_EXPONENT, channel = 0, pressure_affected = TRUE, sound/S, max_distance, falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE, distance_multiplier = 1, use_reverb = TRUE, wait = FALSE) // SS220 EDIT
+	if(!client || ear_deaf)
+		return
 
-/world/proc/shelleo(command)
-	var/static/list/shelleo_ids = list()
-	var/stdout = ""
-	var/stderr = ""
-	var/errorcode = 1
-	var/shelleo_id
-	var/out_file = ""
-	var/err_file = ""
-	var/static/list/interpreters = list("[MS_WINDOWS]" = "cmd /c", "[UNIX]" = "sh -c")
-	var/interpreter = interpreters["[world.system_type]"]
-	if(interpreter)
-		for(var/seo_id in shelleo_ids)
-			if(!shelleo_ids[seo_id])
-				shelleo_ids[seo_id] = TRUE
-				shelleo_id = "[seo_id]"
-				break
-		if(!shelleo_id)
-			shelleo_id = "[shelleo_ids.len + 1]"
-			shelleo_ids += shelleo_id
-			shelleo_ids[shelleo_id] = TRUE
-		out_file = "[SHELLEO_NAME][shelleo_id][SHELLEO_OUT]"
-		err_file = "[SHELLEO_NAME][shelleo_id][SHELLEO_ERR]"
-		if(world.system_type == UNIX)
-			errorcode = shell("[interpreter] \"[replacetext(command, "\"", "\\\"")]\" > [out_file] 2> [err_file]")
+	if(!S)
+		S = sound(get_sfx(soundin))
+
+	S.wait = wait
+	S.channel = channel || get_free_channel()
+	S.volume = vol
+
+	if(vary)
+		if(frequency)
+			S.frequency = frequency
 		else
-			errorcode = shell("[interpreter] \"[command]\" > [out_file] 2> [err_file]")
-		if(fexists(out_file))
-			stdout = file2text(out_file)
-			fdel(out_file)
-		if(fexists(err_file))
-			stderr = file2text(err_file)
-			fdel(err_file)
-		shelleo_ids[shelleo_id] = FALSE
-	else
-		CRASH("Operating System: [world.system_type] not supported") // If you encounter this error, you are encouraged to update this proc with support for the new operating system
-	. = list(errorcode, stdout, stderr)
+			S.frequency = get_rand_frequency()
 
-/proc/shell_url_scrub(url)
-	var/static/regex/bad_chars_regex = regex("\[^#%&./:=?\\w]*", "g")
-	var/scrubbed_url = ""
-	var/bad_match = ""
-	var/last_good = 1
-	var/bad_chars = 1
-	do
-		bad_chars = bad_chars_regex.Find(url)
-		scrubbed_url += copytext(url, last_good, bad_chars)
-		if(bad_chars)
-			bad_match = url_encode(bad_chars_regex.match)
-			scrubbed_url += bad_match
-			last_good = bad_chars + length(bad_chars_regex.match)
-	while(bad_chars)
-	. = scrubbed_url
+	if(isturf(turf_source))
+		var/turf/T = get_turf(src)
 
-*/
+		//sound volume falloff with distance
+		var/distance = get_dist(T, turf_source)
 
+		distance *= distance_multiplier
+
+		if(max_distance && distance > falloff_distance) //If theres no max_distance we're not a 3D sound, so no falloff.
+			S.volume -= (max(distance - falloff_distance, 0) ** (1 / falloff_exponent)) / ((max(max_distance, distance) - falloff_distance) ** (1 / falloff_exponent)) * S.volume
+			//https://www.desmos.com/calculator/sqdfl8ipgf
+
+		if(S.volume <= 0)
+			return //No sound
+
+		var/dx = turf_source.x - T.x // Hearing from the right/left
+		S.x = dx * distance_multiplier
+		var/dz = turf_source.y - T.y // Hearing from infront/behind
+		S.z = dz * distance_multiplier
+		// The y value is for above your head, but there is no ceiling in 2d spessmens.
+		S.y = 1
+
+		S.falloff = max_distance || 1 //use max_distance, else just use 1 as we are a direct sound so falloff isnt relevant.
+
+		// Sounds can't have their own environment. A sound's environment will be:
+		// 1. the mob's
+		// 2. the area's (defaults to SOUND_ENVRIONMENT_NONE)
+		if(sound_environment_override != SOUND_ENVIRONMENT_NONE)
+			S.environment = sound_environment_override
+		else
+			var/area/A = get_area(src)
+			S.environment = A.sound_environment
+
+		if(use_reverb && S.environment != SOUND_ENVIRONMENT_NONE) //We have reverb, reset our echo setting
+			// Check that the user has reverb enabled in their prefs
+			//if(!(client?.prefs?.toggles2 & PREFTOGGLE_2_REVERB_DISABLE))
+			S.echo[3] = 0 //Room setting, 0 means normal reverb
+			S.echo[4] = 0 //RoomHF setting, 0 means normal reverb.
+
+	// S.volume *= USER_VOLUME(src, CHANNEL_GENERAL)
+	// if(channel)
+	// 	S.volume *= USER_VOLUME(src, channel)
+	S.volume *= client.volume_preferences[VOLUME_TTS_LOCAL]
+
+	SEND_SOUND(src, S)
 
 /proc/apply_sound_effect(effect, filename_input, filename_output)
 	if(!effect)
@@ -114,13 +113,3 @@
 		log_debug("apply_sound_effect([effect], [filename_input], [filename_output]) STDERR: [stderr]")
 		return FALSE
 	return TRUE
-
-/*
-#undef SHELLEO_ERRORLEVEL
-#undef SHELLEO_STDOUT
-#undef SHELLEO_STDERR
-
-#undef SHELLEO_NAME
-#undef SHELLEO_ERR
-#undef SHELLEO_OUT
-*/
