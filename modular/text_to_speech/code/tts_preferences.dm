@@ -38,7 +38,7 @@
 /datum/ui_module/tts_seeds_explorer/ui_data(mob/user)
 	var/list/data = list()
 	data["selected_seed"] = user.client.prefs.active_character.tts_seed
-	data["donator_level"] = user.client.donator_level
+	// data["donator_level"] = user.client.donator_level
 	data["character_gender"] = user.client.prefs.active_character.gender
 
 	return data
@@ -64,7 +64,7 @@
 			"category" = seed.category,
 			"gender" = seed.gender,
 			"provider" = initial(seed.provider.name),
-			"required_donator_level" = seed.required_donator_level,
+			// "required_donator_level" = seed.required_donator_level,
 		))
 	data["seeds"] = seeds
 	data["phrases"] = phrases
@@ -93,8 +93,8 @@
 			if(!(seed_name in SStts220.tts_seeds))
 				return
 			var/datum/tts_seed/seed = SStts220.tts_seeds[seed_name]
-			if(usr.client.donator_level < seed.required_donator_level)
-				return
+			// if(usr.client.donator_level < seed.required_donator_level)
+			// 	return
 
 			usr.client.prefs.active_character.tts_seed = seed_name
 		else
@@ -112,6 +112,7 @@
 			client.prefs.ShowChoices(src)
 			return FALSE
 
+		/*
 		switch(client.donator_level)
 			if(LITTLE_WORKER_TIER)
 				if(LITTLE_WORKER_TTS_LEVEL >= seed.required_donator_level)
@@ -124,4 +125,5 @@
 			to_chat(usr, span_danger("Выбранный голос персонажа более недоступен на текущем уровне подписки!"))
 			client.prefs.ShowChoices(src)
 			return FALSE
+		*/
 	return TRUE
