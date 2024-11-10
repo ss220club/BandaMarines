@@ -5,7 +5,7 @@
 
 // /datum/config_entry/flag/tts_enabled/New()
 // 	. = ..()
-// 	tts_enabled = CONFIG_GET(string/tts_token_silero) && CONFIG_GET(flag/tts_enabled)
+// 	tts_enabled = CONFIG_GET(string/tts_token_silero) && SStts220.is_enabled
 
 
 /// TTS API token for silero provider

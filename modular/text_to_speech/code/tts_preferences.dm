@@ -16,7 +16,7 @@
 		character.tts_seed = new_tts_seed
 
 /mob/new_player/proc/check_tts_seed_ready()
-	if((CONFIG_GET(flag/tts_enabled)))
+	if((SStts220.is_enabled))
 		if(!client.prefs.tts_seed)
 			to_chat(usr, span_danger("Вам необходимо настроить голос персонажа! Не забудьте сохранить настройки."))
 			client.prefs.ShowChoices(src)

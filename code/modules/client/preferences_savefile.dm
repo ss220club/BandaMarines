@@ -715,7 +715,7 @@
 
 	// =================================
 	// SS220 EDIT - TTS
-	if(CONFIG_GET(flag/tts_enabled))
+	if(SStts220.is_enabled)
 		S["tts_seed"] >> tts_seed
 	// =================================
 
@@ -800,7 +800,7 @@
 
 	// =================================
 	// SS220 EDIT - TTS
-	if(CONFIG_GET(flag/tts_enabled))
+	if(SStts220.is_enabled)
 		S["tts_seed"] << tts_seed
 	// =================================
 
