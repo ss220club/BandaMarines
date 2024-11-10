@@ -452,7 +452,7 @@ GLOBAL_LIST_INIT(bgstate_options, list(
 			if((SStts220.is_enabled))
 				dat += {"
 				<h2>Text-to-Speech</h2>
-				<b>Выбор голоса:</b> <a href='byond://?_src_=prefs;preference=tts_seed;task=input'>Эксплорер TTS голосов</a><br>
+				<b>Выбор голоса:</b> <a href='byond://?_src_=prefs;preference=tts_seed;task=open'>Эксплорер TTS голосов</a><br>
 				"}
 			// SS220 ADDITION END
 
@@ -1155,6 +1155,15 @@ GLOBAL_LIST_INIT(bgstate_options, list(
 
 		if("cycle_bg")
 			bg_state = next_in_list(bg_state, GLOB.bgstate_options)
+
+
+		// SS220 ADDITION START - TTS220
+		if("tts_seed")
+			switch(href_list["task"])
+				if("open")
+					var/datum/tts_seeds_explorer/explorer = new
+					explorer.tgui_interact(user)
+		// SS220 ADDITION END
 
 	switch (href_list["task"])
 		if ("random")
