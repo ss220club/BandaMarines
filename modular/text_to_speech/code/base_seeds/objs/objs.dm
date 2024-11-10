@@ -15,11 +15,3 @@
 
 /obj/item/ttsdevice/add_tts_component()
 	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/xenia, TTS_TRAIT_ROBOTIZE)
-
-/obj/structure/mirror/magic/Initialize(mapload, newdir, building)
-	. = ..()
-	options |= list("Voice TTS")
-
-/obj/structure/mirror/magic/proc/tts_choose(choice, mob/living/carbon/human/human_to_update)
-	if(choice == "Voice TTS")
-		human_to_update.change_tts_seed(human_to_update, TRUE, TRUE)
