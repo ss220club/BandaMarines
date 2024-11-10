@@ -46,7 +46,7 @@
 	var/datum/tts_seed/new_tts_seed
 
 	if(chooser == being_changed)
-		var/datum/character_save/active_character = chooser.client?.prefs.active_character
+		var/datum/character_save/active_character = chooser.client?.prefs
 		if(being_changed.gender == active_character.gender)
 			if(alert(chooser, "Оставляем голос вашего персонажа [active_character.real_name] - [active_character.tts_seed]?", "Выбор голоса", "Нет", "Да") ==  "Да")
 				if(!SStts220.tts_seeds[active_character.tts_seed])
