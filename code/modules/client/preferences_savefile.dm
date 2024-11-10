@@ -713,6 +713,12 @@
 	if(!religion) religion = RELIGION_AGNOSTICISM
 	if(!preferred_squad) preferred_squad = "None"
 
+	// =================================
+	// SS220 EDIT - TTS
+	if(CONFIG_GET(flag/tts_enabled))
+		S["tts_seed"] >> tts_seed
+	// =================================
+
 	return 1
 
 /datum/preferences/proc/save_character()
@@ -791,6 +797,12 @@
 
 	S["uplinklocation"] << uplinklocation
 	S["exploit_record"] << exploit_record
+
+	// =================================
+	// SS220 EDIT - TTS
+	if(CONFIG_GET(flag/tts_enabled))
+		S["tts_seed"] << tts_seed
+	// =================================
 
 	return 1
 
