@@ -149,7 +149,8 @@
 	if(islist(message))
 		if(!ismob(speaker))
 			return
-		message = combine_message_tts(message, speaker, listener)
+		//message = combine_message_tts(message, speaker, listener)
+		message = treat_tts_message(message)
 	if(effect == SOUND_EFFECT_RADIO)
 		if(listener == speaker && !isSilicon(parent)) // don't hear both radio and whisper from yourself
 			return
@@ -158,6 +159,20 @@
 
 	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), location, listener, message, tts_seed, is_local, effect, traits, preSFX, postSFX)
 
+/datum/component/tts_component/proc/treat_tts_message(tts_message)
+	var/static/regex/length_regex = regex(@"(.+)\1\1\1", "gi")
+	while(length_regex.Find(tts_message))
+		var/replacement = tts_message[length_regex.index]+tts_message[length_regex.index]+tts_message[length_regex.index]
+		tts_message = replacetext(tts_message, length_regex.match, replacement, length_regex.index)
+
+	// removes repeated consonants at the start of a word: ex: sss
+	var/static/regex/word_start_regex = regex(@"\b([^aeiou\L])\1", "gi")
+	while(word_start_regex.Find(tts_message))
+		var/replacement = tts_message[word_start_regex.index]
+		tts_message = replacetext(tts_message, word_start_regex.match, replacement, word_start_regex.index)
+	return tts_message
+
+/*
 /datum/component/tts_component/proc/combine_message_tts(list/message_pieces, mob/speaker, mob/listener)
 	var/iteration_count = 0
 	var/msg = ""
@@ -185,6 +200,7 @@
 				continue
 		msg += (piece + " ")
 	return trim(msg)
+*/
 
 /datum/component/tts_component/proc/tts_trait_add(atom/user, trait)
 	SIGNAL_HANDLER
