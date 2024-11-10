@@ -1,3 +1,16 @@
+/datum/preferences/proc/copy_appearance_to(mob/living/carbon/human/character, safety = 0)
+	. = ..()
+	if(tts_seed)
+		var/datum/tts_seed/new_tts_seed = SStts220.tts_seeds[tts_seed]
+		character.AddComponent(/datum/component/tts_component, new_tts_seed)
+		character.tts_seed = new_tts_seed
+
+/datum/preferences/proc/copy_all_to(mob/living/carbon/human/character, job_title, is_late_join = FALSE, check_datacore = FALSE)
+	. = ..()
+	if(tts_seed)
+		var/datum/tts_seed/new_tts_seed = SStts220.tts_seeds[tts_seed]
+		character.AddComponent(/datum/component/tts_component, new_tts_seed)
+		character.tts_seed = new_tts_seed
 
 /datum/ui_module/tts_seeds_explorer
 	name = "Эксплорер TTS голосов"
