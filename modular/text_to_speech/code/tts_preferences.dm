@@ -17,11 +17,11 @@
 
 /mob/new_player/proc/check_tts_seed_ready()
 	if((CONFIG_GET(flag/tts_enabled)))
-		if(!client.prefs.active_character.tts_seed)
+		if(!client.prefs.tts_seed)
 			to_chat(usr, span_danger("Вам необходимо настроить голос персонажа! Не забудьте сохранить настройки."))
 			client.prefs.ShowChoices(src)
 			return FALSE
-		var/datum/tts_seed/seed = SStts220.tts_seeds[client.prefs.active_character.tts_seed]
+		var/datum/tts_seed/seed = SStts220.tts_seeds[client.prefs.tts_seed]
 		if(!seed)
 			to_chat(usr, span_danger("Выбранный голос персонажа недоступен!"))
 			client.prefs.ShowChoices(src)

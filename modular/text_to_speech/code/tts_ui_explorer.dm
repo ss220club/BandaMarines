@@ -14,9 +14,9 @@
 
 /datum/tts_seeds_explorer/ui_data(mob/user)
 	var/list/data = list()
-	data["selected_seed"] = user.client.prefs.active_character.tts_seed
+	data["selected_seed"] = user.client.prefs.tts_seed
 	// data["donator_level"] = user.client.donator_level
-	data["character_gender"] = user.client.prefs.active_character.gender
+	data["character_gender"] = user.client.prefs.gender
 
 	return data
 
@@ -69,10 +69,10 @@
 
 			if(!(seed_name in SStts220.tts_seeds))
 				return
-			var/datum/tts_seed/seed = SStts220.tts_seeds[seed_name]
+			// var/datum/tts_seed/seed = SStts220.tts_seeds[seed_name]
 			// if(usr.client.donator_level < seed.required_donator_level)
 			// 	return
 
-			usr.client.prefs.active_character.tts_seed = seed_name
+			usr.client.prefs.tts_seed = seed_name
 		else
 			return FALSE
