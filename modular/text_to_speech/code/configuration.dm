@@ -3,9 +3,10 @@
 	config_entry_value = FALSE
 	protection = CONFIG_ENTRY_HIDDEN
 
-/datum/config_entry/flag/tts_enabled/New()
-	. = ..()
-	tts_enabled = tts_token_silero && tts_enabled
+// /datum/config_entry/flag/tts_enabled/New()
+// 	. = ..()
+// 	tts_enabled = CONFIG_GET(string/tts_token_silero) && CONFIG_GET(flag/tts_enabled)
+
 
 /// TTS API token for silero provider
 /datum/config_entry/string/tts_token_silero
@@ -24,10 +25,11 @@
 
 /// What cpu threads should ffmpeg use
 /datum/config_entry/string/ffmpeg_cpuaffinity
+	config_entry_value = ""
 	protection = CONFIG_ENTRY_HIDDEN
 
 /datum/config_entry/string/ffmpeg_cpuaffinity/New()
 	. = ..()
-	var/sanitized = regex(@"[^0-9,-]", "g").Replace(ffmpeg_cpuaffinity, "")
-	if(ffmpeg_cpuaffinity != sanitized)
+	var/sanitized = regex(@"[^0-9,-]", "g").Replace(config_entry_value, "")
+	if(config_entry_value != sanitized)
 		log_config("Wrong value for ffmpeg_cpuaffinity. Check out taskset man page.")
