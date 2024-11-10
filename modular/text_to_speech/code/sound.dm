@@ -1,3 +1,8 @@
+///Percentage of sound's range where no falloff is applied
+#define SOUND_DEFAULT_FALLOFF_DISTANCE 1 //For a normal sound this would be 1 tile of no falloff
+///The default exponent of sound falloff
+#define SOUND_FALLOFF_EXPONENT 6
+
 /client/New(TopicData)
 	// Пример работы: S.volume = 100 * owner.volume_preferences[VOLUME_AMB]
 	volume_preferences |= (list(
