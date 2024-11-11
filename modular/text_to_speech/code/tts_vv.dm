@@ -1,10 +1,9 @@
-/client/view_var_Topic(href, href_list, hsrc)
+/mob/vv_do_topic(list/href_list)
 	. = ..()
 	if(href_list[VV_HK_MODIFY_TTS_TRAITS])
 		if(!check_rights(R_VAREDIT))
 			return
-		var/atom/A = locate(href_list[VV_HK_MODIFY_TTS_TRAITS])
-		A.change_tts_seed(src.mob, TRUE, TRUE)
+		usr.change_tts_seed(src, TRUE, TRUE)
 
 /atom/vv_get_dropdown()
 	. = ..()
