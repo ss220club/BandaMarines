@@ -11,11 +11,17 @@
 		return
 	speaker.cast_tts(src, message_pieces)
 
-/mob/hear_radio(list/message_pieces, verb, part_a, part_b, mob/speaker, hard_to_hear = 0, vname, atom/follow_target, check_name_against)
+/mob/hear_radio(
+	message, verb="says",
+	datum/language/language=null,
+	part_a, part_b,
+	mob/speaker = null,
+	hard_to_hear = 0, vname ="",
+	command = 0, no_paygrade = FALSE)
 	. = ..()
 	if(hard_to_hear || !speaker)
 		return
-	speaker.cast_tts(src, message_pieces, src, FALSE, SOUND_EFFECT_RADIO, postSFX = 'modular/text_to_speech/code/sound/radio_chatter.ogg')
+	speaker.cast_tts(src, message, src, FALSE, SOUND_EFFECT_RADIO, postSFX = 'modular/text_to_speech/code/sound/radio_chatter.ogg')
 
 /*
 /atom/atom_say(message)
