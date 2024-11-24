@@ -6,39 +6,36 @@
 	if(throttle_check())
 		return FALSE
 
-	var/ssml_text = {"<speak>[text]</speak>"}
+	var/url = CONFIG_GET(string/tts_api_url_silero)
+	var/token = CONFIG_GET(string/tts_token_silero)
 
-	var/list/req_body = list()
-	req_body["api_token"] = (CONFIG_GET(string/tts_token_silero))
-	req_body["text"] = ssml_text
-	req_body["sample_rate"] = 24000
-	req_body["ssml"] = TRUE
-	req_body["speaker"] = seed.value
-	req_body["lang"] = "ru"
-	req_body["remote_id"] = "[world.port]"
-	req_body["put_accent"] = TRUE
-	req_body["put_yo"] = FALSE
-	req_body["symbol_durs"] = list()
-	req_body["format"] = "ogg"
-	req_body["word_ts"] = FALSE
+	if(!token || !url)
+		log_game("The configuration is not set for the TTS API.")
+		return FALSE
 
-	/*INVOKE_ASYNC(
-	src,
-	TYPE_PROC_REF(/mob/living/carbon/human, say_to_radios),
-	used_radios,
-	message,
-	message_mode,
-	verb,
-	speaking)
-	*/
-	//SShttp.create_async_request(RUSTG_HTTP_METHOD_POST, (CONFIG_GET(string/tts_api_url_silero)), json_encode(req_body), list("content-type" = "application/json"), proc_callback)
-	INVOKE_ASYNC(
-		RUSTG_HTTP_METHOD_POST,
-		CONFIG_GET(string/tts_api_url_silero),
-		json_encode(req_body),
-		list("content-type" = "application/json"),
-		proc_callback
-	);
+	var/list/headers = list()
+	headers["Authorization"] = "Bearer [token]"
+	headers["Content-Type"] = "application/json"
+	headers["Accept"] = "application/json"
+
+	var/list/req_body = list(
+		"api_token" = token,
+		"text" = "<speak>[text]</speak>",
+		"sample_rate" = 24000,
+		"ssml" = TRUE,
+		"speaker" = seed.value,
+		"lang" = "ru",
+		"remote_id" = "[world.port]",
+		"put_accent" = TRUE,
+		"put_yo" = FALSE,
+		"symbol_durs" = list(),
+		"format" = "ogg",
+		"word_ts" = FALSE
+	)
+
+	var/datum/http_request/request = new()
+	request.prepare(RUSTG_HTTP_METHOD_POST, url, json_encode(req_body), headers)
+	request.begin_async()
 	return TRUE
 
 /datum/tts_provider/silero/process_response(datum/http_response/response)
