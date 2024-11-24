@@ -269,6 +269,7 @@ SUBSYSTEM_DEF(tts220)
 	is_enabled = SStts220.is_enabled
 	if(!is_enabled)
 		flags |= SS_NO_FIRE
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/tts220/fire()
 	tts_rps = tts_rps_counter
