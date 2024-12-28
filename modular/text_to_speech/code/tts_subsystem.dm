@@ -467,10 +467,10 @@ SUBSYSTEM_DEF(tts220)
 	var/volume = 100
 	var/channel = CHANNEL_TTS_RADIO
 	if(is_local)
-		volume *= listener?.client.volume_preferences[VOLUME_TTS_LOCAL]
+		volume *= listener?.client.prefs.volume_preferences[VOLUME_TTS_LOCAL]
 		channel = get_local_channel_by_owner(speaker)
 	else
-		volume *= listener?.client.volume_preferences[VOLUME_TTS_RADIO]
+		volume *= listener?.client.prefs.volume_preferences[VOLUME_TTS_RADIO]
 		channel = CHANNEL_TTS_RADIO
 
 	var/sound/output = sound(voice)

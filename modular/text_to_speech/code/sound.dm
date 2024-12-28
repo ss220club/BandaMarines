@@ -3,12 +3,16 @@
 ///The default exponent of sound falloff
 #define SOUND_FALLOFF_EXPONENT 6
 
-/client/New(TopicData)
+/datum/preferences/New(TopicData)
 	// Пример работы: S.volume = 100 * owner.volume_preferences[VOLUME_AMB]
 	volume_preferences |= (list(
 		1, // Local - VOLUME_TTS_LOCAL (5) - у ОФФов это тупо сделано, но как есть...
 		0.5 // Radio - VOLUME_TTS_RADIO (6)
 	))
+
+	// А еще они зачем-то засунули это сюда (дубликат и брейнрот):
+	// 	code/modules/client/preferences_savefile.dm
+
 	. = ..()
 
 /client/verb/adjust_volume_tts_local()
@@ -83,7 +87,7 @@
 	// S.volume *= USER_VOLUME(src, CHANNEL_GENERAL)
 	// if(channel)
 	// 	S.volume *= USER_VOLUME(src, channel)
-	S.volume *= client.volume_preferences[VOLUME_TTS_LOCAL]
+	S.volume *= client.prefs.volume_preferences[VOLUME_TTS_LOCAL]
 
 	SEND_SOUND(src, S)
 
