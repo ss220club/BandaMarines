@@ -6,21 +6,11 @@
 	if(throttle_check())
 		return FALSE
 
-	var/url = CONFIG_GET(string/tts_api_url_silero)
-	var/token = CONFIG_GET(string/tts_token_silero)
-
-	if(!token || !url)
-		log_game("The configuration is not set for the TTS API.")
-		return FALSE
-
-	var/list/headers = list()
-	headers["Authorization"] = "Bearer [token]"
-	headers["Content-Type"] = "application/json"
-	headers["Accept"] = "application/json"
+	var/ssml_text = "<speak>[text]</speak>"
 
 	var/list/req_body = list(
-		"api_token" = token,
-		"text" = "<speak>[text]</speak>",
+		"api_token" = CONFIG_GET(string/tts_token_silero),
+		"text" = ssml_text,
 		"sample_rate" = 24000,
 		"ssml" = TRUE,
 		"speaker" = seed.value,
@@ -33,9 +23,14 @@
 		"word_ts" = FALSE
 	)
 
-	var/datum/http_request/request = new()
-	request.prepare(RUSTG_HTTP_METHOD_POST, url, json_encode(req_body), headers)
-	request.begin_async()
+	SShttp.create_async_request(
+		RUSTG_HTTP_METHOD_POST,
+		CONFIG_GET(string/tts_api_url_silero),
+		json_encode(req_body),
+		list("Content-Type" = "application/json"),
+		proc_callback
+	)
+
 	return TRUE
 
 /datum/tts_provider/silero/process_response(datum/http_response/response)

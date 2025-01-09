@@ -1,6 +1,6 @@
 /// Is TTS enabled
 /datum/config_entry/flag/tts_enabled
-	config_entry_value = FALSE
+	config_entry_value = TRUE
 	protection = CONFIG_ENTRY_HIDDEN
 
 // /datum/config_entry/flag/tts_enabled/New()
@@ -20,7 +20,7 @@
 
 /// Should oggs be cached
 /datum/config_entry/flag/tts_cache_enabled
-	config_entry_value = FALSE
+	config_entry_value = TRUE
 	protection = CONFIG_ENTRY_HIDDEN
 
 /// What cpu threads should ffmpeg use
