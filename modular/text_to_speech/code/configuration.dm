@@ -1,6 +1,6 @@
 /// Is TTS enabled
 /datum/config_entry/flag/tts_enabled
-	config_entry_value = FALSE
+	config_entry_value = TRUE
 	protection = CONFIG_ENTRY_HIDDEN
 
 // /datum/config_entry/flag/tts_enabled/New()
@@ -15,12 +15,12 @@
 
 /// TTS API url for silero provide
 /datum/config_entry/string/tts_api_url_silero
-	config_entry_value = "http://s2.ss220.club:9999/voice"
+	config_entry_value = "http://127.0.0.1:5000/tts/"
 	protection = CONFIG_ENTRY_HIDDEN
 
 /// Should oggs be cached
 /datum/config_entry/flag/tts_cache_enabled
-	config_entry_value = FALSE
+	config_entry_value = TRUE
 	protection = CONFIG_ENTRY_HIDDEN
 
 /// What cpu threads should ffmpeg use

@@ -5,11 +5,11 @@
 	return replace_characters(., list("+"))
 */
 
-/mob/hear_say(list/message_pieces, verb, italics, mob/speaker, sound/speech_sound, sound_vol, sound_frequency, use_voice)
+/mob/hear_say(message, verb = "says", datum/language/language = null, alt_name = "", italics = 0, mob/speaker = null, sound/speech_sound, sound_vol, tts_heard_list)
 	. = ..()
 	if(!speaker)
 		return
-	speaker.cast_tts(src, message_pieces)
+	speaker.cast_tts(src, message, src, FALSE, null, null)
 
 /mob/hear_radio(
 	message, verb="says",
