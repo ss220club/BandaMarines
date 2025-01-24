@@ -12,6 +12,7 @@ SUBSYSTEM_DEF(http)
 	var/logging_enabled = FALSE
 	/// Total requests the SS has processed in a round
 	var/total_requests
+
 /datum/controller/subsystem/http/PreInit()
 	. = ..()
 	rustg_create_async_http_client() // Open the door
