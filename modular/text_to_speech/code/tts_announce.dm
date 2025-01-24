@@ -13,8 +13,8 @@
 		return
 	var/message_tts = message
 	var/garbled_message_tts = garbled_message
-	message = message.Join("+")
-	garbled_message = garbled_message.Join("+")
+	//message = message.Join("+")
+	//garbled_message = garbled_message.Join("+")
 
 	if(ammouncer)
 		for(var/mob/M in receivers)
