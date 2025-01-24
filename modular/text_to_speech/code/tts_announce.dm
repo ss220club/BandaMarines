@@ -1,51 +1,43 @@
-/*
-!!!!!!!!! Используется для установки, аля из Парадайзера:
-
-/datum/announcement_configuration/comms_console
-	default_title = "Priority Announcement"
-	add_log = TRUE
-	log_name = ANNOUNCE_KIND_PRIORITY
-	sound = sound('sound/misc/announce.ogg')
-	style = "major"
-
-
-
-// !!!!!! Сам код:
-
-/datum/announcement_configuration
-	var/tts_seed
-
-/datum/announcement_configuration/requests_console
-	tts_seed = /datum/tts_seed/silero/glados
-
-/datum/announcement_configuration/comms_console
-	tts_seed = /datum/tts_seed/silero/glados
+#define TTS_SEED_DEFAULT_ANNOUNCE /datum/tts_seed/silero/kalechos_echo
+#define TTS_SEED_ARES_ANNOUNCE /datum/tts_seed/silero/neltharion_echo
+#define TTS_SEED_YAUTJA_ANNOUNCE /datum/tts_seed/silero/wrathion_echo
+#define TTS_SEED_QUEEN_MOTHER_ANNOUNCE /datum/tts_seed/silero/alextraza_echo
 
 /datum/announcer
-	var/mob/living/silicon/ai/ai
+	var/tts_seed = TTS_SEED_DEFAULT_ANNOUNCE
+	var/sound_effect = SOUND_EFFECT_NONE
+	var/mob/ammouncer
 
-/mob/living/silicon/ai/Initialize(mapload)
-	. = ..()
-	announcer.ai = src
-
-/datum/announcer/Message(message, garbled_message, receivers, garbled_receivers)
-	if(!config.tts_seed)
+/datum/announcer/proc/Message(message, garbled_message, receivers, garbled_receivers)
+	if(!tts_seed)
 		return ..()
 	var/message_tts = message
 	var/garbled_message_tts = garbled_message
 	message = replace_characters(message, list("+"))
 	garbled_message = replace_characters(garbled_message, list("+"))
 	. = ..()
-	if(ai)
+	if(ammouncer)
 		for(var/mob/M in receivers)
-			ai.cast_tts(M, message_tts, M, FALSE)
+			ammouncer.cast_tts(M, message_tts, M, FALSE)
 		for(var/mob/M in garbled_receivers)
-			ai.cast_tts(M, garbled_message_tts, M, FALSE)
+			ammouncer.cast_tts(M, garbled_message_tts, M, FALSE)
 		return
 
 	for(var/mob/M in receivers)
-		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), null, M, message_tts, config.tts_seed, FALSE, SOUND_EFFECT_NONE, TTS_TRAIT_RATE_MEDIUM)
+		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), null, M, message_tts, tts_seed, FALSE, sound_effect, TTS_TRAIT_RATE_MEDIUM)
 	for(var/mob/M in garbled_receivers)
-		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), null, M, garbled_message_tts, config.tts_seed, FALSE, SOUND_EFFECT_NONE, TTS_TRAIT_RATE_MEDIUM)
+		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), null, M, garbled_message_tts, tts_seed, FALSE, sound_effect, TTS_TRAIT_RATE_MEDIUM)
 
-*/
+
+// Announcers
+
+/datum/announcer/ares
+	tts_seed = TTS_SEED_ARES_ANNOUNCE
+	sound_effect = SOUND_EFFECT_RADIO_ROBOT
+
+/datum/announcer/queen_mother
+	tts_seed = TTS_SEED_QUEEN_MOTHER_ANNOUNCE
+
+/datum/announcer/yautja
+	tts_seed = TTS_SEED_YAUTJA_ANNOUNCE
+	sound_effect = SOUND_EFFECT_ROBOT

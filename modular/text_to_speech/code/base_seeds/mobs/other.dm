@@ -2,8 +2,9 @@
 /mob/living/silicon/ai/add_tts_component()
 	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/glados, TTS_TRAIT_ROBOTIZE)
 
-/mob/living/simple_animal/slime/add_tts_component()
-	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/chen)
+/mob/living/silicon/decoy/ship_ai/add_tts_component()
+	AddComponent(/datum/component/tts_component, TTS_SEED_ARES_ANNOUNCE, TTS_TRAIT_ROBOTIZE)
+
 
 /mob/living/carbon/human/monkey/add_tts_component()
 	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/sniper)
