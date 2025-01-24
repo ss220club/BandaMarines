@@ -179,8 +179,8 @@
 			continue
 		playsound_client(T.client, sound_to_play, T, vol = 45)
 
-	// SS220 ADD START - TTS
-	if(isobserver(T) && !(T.client?.prefs?.toggles_sound & SOUND_OBSERVER_ANNOUNCEMENTS))
-		continue
-	announcer.Message(message = message, receivers = targets)
-	// SS220 ADD END - TTS
+		// SS220 ADD START - TTS
+		if(isobserver(T) && !(T.client?.prefs?.toggles_sound & SOUND_OBSERVER_ANNOUNCEMENTS))
+			continue
+		announcer.Message(message = message, receivers = list(T))
+		// SS220 ADD END - TTS
