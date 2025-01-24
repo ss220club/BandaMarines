@@ -10,12 +10,12 @@
 
 /datum/announcer/proc/Message(message, garbled_message, receivers, garbled_receivers)
 	if(!tts_seed)
-		return ..()
+		return
 	var/message_tts = message
 	var/garbled_message_tts = garbled_message
-	message = replace_characters(message, list("+"))
-	garbled_message = replace_characters(garbled_message, list("+"))
-	. = ..()
+	message = message.Join("+")
+	garbled_message = garbled_message.Join("+")
+
 	if(ammouncer)
 		for(var/mob/M in receivers)
 			ammouncer.cast_tts(M, message_tts, M, FALSE)
