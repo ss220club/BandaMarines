@@ -26,7 +26,7 @@
 	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/tracer)
 
 /mob/living/carbon/xenomorph/runner/add_tts_component()
-//	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/)
+	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/wendy)
 
 
 // Tier 2
@@ -37,7 +37,7 @@
 	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/janna)
 
 /mob/living/carbon/xenomorph/hivelord/add_tts_component()
-//	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/)
+	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/whitemane)
 
 /mob/living/carbon/xenomorph/carrier/add_tts_component()
 	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/stargazer)
@@ -57,7 +57,7 @@
 	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/ysera)
 
 /mob/living/carbon/xenomorph/praetorian/add_tts_component()
-//	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/)
+	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/tyrande_hs)
 
 /mob/living/carbon/xenomorph/ravager/add_tts_component()
 	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/zarya)
@@ -68,7 +68,7 @@
 	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/alexstraza)
 
 /mob/living/carbon/xenomorph/king/add_tts_component()
-	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/malchezaar) // !!! чекнуть
+	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/malchezaar)
 
 
 // Tier Special
