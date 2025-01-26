@@ -1083,7 +1083,7 @@ can cause issues with ammo types getting mixed up during the burst.
 
 /obj/item/weapon/gun/shotgun/pump
 	name = "\improper M37A2 pump shotgun"
-	desc = "An Armat Battlefield Systems classic design, the M37A2 combines close-range firepower with long term reliability. Requires a pump, which is a Unique Action."
+	desc = "Модель M37A2, выполненная в классическом стиле Armat Battlefield Systems, сочетает в себе огневую мощь на ближней дистанции и надежность в течение длительного времени. Для работы требуется насос, что является уникальным свойством."
 	icon = 'icons/obj/items/weapons/guns/guns_by_faction/USCM/shotguns.dmi'
 	icon_state = "m37"
 	item_state = "m37"

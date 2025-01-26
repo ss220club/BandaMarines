@@ -428,7 +428,7 @@
 //M4A3 Service Pistol
 /obj/item/storage/box/guncase/m4a3
 	name = "\improper M4A3 Service Pistol case"
-	desc = "A gun case containing an M4A3 Service Pistol."
+	desc = "Кейс для оружия, в котором находился служебный пистолет M4A3."
 	storage_slots = 8
 	can_hold = list(/obj/item/attachable/flashlight, /obj/item/weapon/gun/pistol/m4a3, /obj/item/ammo_magazine/pistol)
 

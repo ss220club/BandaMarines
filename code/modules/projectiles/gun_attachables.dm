@@ -253,7 +253,7 @@ Defined in conflicts.dm of the #defines folder.
 
 /obj/item/attachable/suppressor
 	name = "suppressor"
-	desc = "A small tube with exhaust ports to expel noise and gas.\n Does not completely silence a weapon, but does make it much quieter and a little more accurate and stable at the cost of slightly reduced damage."
+	desc = "Небольшая трубка с выпускными отверстиями для удаления шума и газов.\n Не делает оружие полностью бесшумным, но делает его намного тише и немного более точным и стабильным за счет небольшого уменьшения урона."
 	icon = 'icons/obj/items/weapons/guns/attachments/barrel.dmi'
 	icon_state = "suppressor"
 	slot = "muzzle"
@@ -387,7 +387,7 @@ Defined in conflicts.dm of the #defines folder.
 
 /obj/item/attachable/extended_barrel
 	name = "extended barrel"
-	desc = "The lengthened barrel speeds up and stabilizes the bullet, increasing velocity and accuracy."
+	desc = "Удлиненный ствол ускоряет и стабилизирует полет пули, повышая скорость и точность стрельбы."
 	slot = "muzzle"
 	icon = 'icons/obj/items/weapons/guns/attachments/barrel.dmi'
 	icon_state = "ebarrel"
@@ -426,7 +426,7 @@ Defined in conflicts.dm of the #defines folder.
 
 /obj/item/attachable/compensator
 	name = "recoil compensator"
-	desc = "A muzzle attachment that reduces recoil by diverting expelled gasses upwards. \nIncreases accuracy and reduces recoil, at the cost of a small amount of weapon damage."
+	desc = "Насадка для дульного среза, уменьшающая отдачу за счет отвода выхлопных газов вверх. \n Повышает точность и уменьшает отдачу за счет небольшого урона, наносимого оружием."
 	slot = "muzzle"
 	icon = 'icons/obj/items/weapons/guns/attachments/barrel.dmi'
 	icon_state = "comp"

@@ -298,7 +298,7 @@
 
 /obj/item/weapon/gun/revolver/m44
 	name = "\improper M44 combat revolver"
-	desc = "A bulky revolver, occasionally carried by assault troops and officers in the Colonial Marines, as well as civilian law enforcement. Fires .44 Magnum rounds."
+	desc = "Громоздкий револьвер, который иногда носят штурмовики и офицеры колониальных морпехов, а также гражданские правоохранительные органы. Стреляет патронами ""Магнум"" 44-го калибра."
 	icon = 'icons/obj/items/weapons/guns/guns_by_faction/USCM/revolvers.dmi'
 	icon_state = "m44r"
 	item_state = "m44r"

@@ -53,7 +53,7 @@
 
 /obj/item/weapon/gun/pistol/m4a3
 	name = "\improper M4A3 service pistol"
-	desc = "An M4A3 Service Pistol, once the standard issue sidearm of the Colonial Marines but has recently been replaced with the 88 Mod 4 combat pistol. Fires 9mm pistol rounds."
+	desc = "Служебный пистолет M4A3, который когда-то был стандартным оружием колониальных морпехов, но недавно был заменен на боевой пистолет 88-й модели 4. Стреляет пистолетными патронами калибра 9 мм."
 	icon = 'icons/obj/items/weapons/guns/guns_by_faction/USCM/pistols.dmi'
 	icon_state = "m4a3"
 	item_state = "m4a3"
@@ -588,7 +588,7 @@
 
 /obj/item/weapon/gun/pistol/mod88
 	name = "\improper 88 Mod 4 combat pistol"
-	desc = "Standard issue USCM firearm. Also found in the hands of Weyland-Yutani PMC teams. Fires 9mm armor shredding rounds and is capable of 3-round burst."
+	desc = "Стандартное огнестрельное оружие USCM. Также находится в руках команд ЧВК ""Вейланд-Ютани"". Стреляет 9-миллиметровыми пулями, пробивающими броню, и может стрелять очередью из трех патронов."
 	icon = 'icons/obj/items/weapons/guns/guns_by_faction/WY/pistols.dmi'
 	icon_state = "_88m4" // to comply with css standards
 	item_state = "_88m4"
@@ -889,7 +889,7 @@ Unlike other pistols, it can be equipped with limited mods (small muzzle, underb
 
 /obj/item/weapon/gun/pistol/m10
 	name = "\improper M10 auto pistol"
-	desc = "The Armat Battlefield Systems M10 Auto Pistol, a compact, rapid-firing sidearm designed for close-quarters defense. With a 40-round magazine, it emphasizes fire rate over precision, providing effective suppressive fire in short-range engagements."
+	desc = "Автоматический пистолет Armat Battlefield Systems M10 - компактное, скорострельное ручное оружие, предназначенное для обороны в ближнем бою. Магазин на 40 патронов делает упор на скорострельность, а не на точность стрельбы, обеспечивая эффективную подавляющую стрельбу на малых дистанциях."
 	icon = 'icons/obj/items/weapons/guns/guns_by_map/classic/guns_obj.dmi'
 	icon_state = "m10"
 	item_state = "m10"

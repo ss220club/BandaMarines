@@ -43,7 +43,7 @@
 
 /obj/item/weapon/gun/rifle/m41a
 	name = "\improper M41A pulse rifle MK2"
-	desc = "The standard issue rifle of the Colonial Marines. Commonly carried by most combat personnel. Uses 10x24mm caseless ammunition."
+	desc = "Стандартная винтовка колониальных морпехов. Обычно используется большинством военнослужащих. Использует безгильзовые боеприпасы калибра 10х24 мм."
 	icon = 'icons/obj/items/weapons/guns/guns_by_faction/USCM/assault_rifles.dmi'
 	icon_state = "m41a"
 	item_state = "m41a"
@@ -1585,7 +1585,7 @@
 
 /obj/item/weapon/gun/rifle/m4ra
 	name = "\improper M4RA battle rifle"
-	desc = "The M4RA battle rifle is a designated marksman rifle in service with the USCM. Sporting a bullpup configuration, the M4RA battle rifle is perfect for reconnaissance and fire support teams.\nTakes *only* non-high-velocity M4RA magazines."
+	desc = "Боевая винтовка M4RA - это специальная стрелковая винтовка, состоящая на вооружении американской компании USCM. Боевая винтовка M4RA, выполненная в форме булл-пап, идеально подходит для разведки и огневой поддержки.\n В нее входят *только* магазины M4RA с невысокой скоростью стрельбы."
 	icon_state = "m4ra"
 	item_state = "m4ra"
 	icon = 'icons/obj/items/weapons/guns/guns_by_faction/USCM/marksman_rifles.dmi'
