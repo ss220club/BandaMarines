@@ -387,7 +387,7 @@ Defined in conflicts.dm of the #defines folder.
 
 /obj/item/attachable/extended_barrel
 	name = "extended barrel"
-	desc = "Удлиненный ствол ускоряет и стабилизирует полет пули, повышая скорость и точность стрельбы."
+	desc = "Удлинённый ствол ускоряет и стабилизирует полет пули, повышая скорость и точность стрельбы."
 	slot = "muzzle"
 	icon = 'icons/obj/items/weapons/guns/attachments/barrel.dmi'
 	icon_state = "ebarrel"
