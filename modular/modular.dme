@@ -7,6 +7,7 @@
 #include "_signals220/_signals220.dme"
 #include "_singletons/_singletons.dme"
 #include "translate/translate.dme"
+#include "speech_filter/_speech_filter.dme"
 #include "text_to_speech/_tts.dme"
 // BEGIN_INTERNALS
 // END_INTERNALS
