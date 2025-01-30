@@ -32,10 +32,13 @@
 	SEND_SOUND(user, sound('sound/effects/adminhelp_new.ogg'))
 	log_admin("[user.ckey] попытался сказать запретное слово: [original_message].")
 
-	var/mob/M = user.mob
-	if(M)
-		M.emote("drool")
-		to_chat(M, SPAN_PSYTALK(pick(brainrot_notifications)))
+	if(ishuman(user))
+		var/mob/living/L = user
+		L.apply_stamina_damage(300)
+		L.adjustOxyLoss(50)
+		L.adjustBrainLoss(5)
+		L.emote("drool")
+		to_chat(L, SPAN_PSYTALK(pick(brainrot_notifications)))
 
 	return FALSE
 
