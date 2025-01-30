@@ -6,5 +6,14 @@
 //#include "_rust_utils/_rust_utils.dme"
 #include "_signals220/_signals220.dme"
 #include "_singletons/_singletons.dme"
-
+#include "translate/_translate.dme"
 #include "text_to_speech/_tts.dme"
+// BEGIN_INTERNALS
+// END_INTERNALS
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+// END_FILE_DIR
+// BEGIN_PREFERENCES
+// END_PREFERENCES
+// BEGIN_INCLUDE
+// END_INCLUDE
