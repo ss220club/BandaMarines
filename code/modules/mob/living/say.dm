@@ -66,7 +66,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 
 /proc/filter_message(client/user, message)
 
-	return filter_speech(client/user, message) // SS220 ADD - Cyrillic Speach Filter
+	return config.filter_speech(user, message) // SS220 ADD - Cyrillic Speach Filter
 
 	if(!config.word_filter_regex)
 		return TRUE
