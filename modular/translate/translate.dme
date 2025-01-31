@@ -1,3 +1,3 @@
-#include "_translate.dm"
+#include "translate.dm"
 
 #include "code/translate.dm"
