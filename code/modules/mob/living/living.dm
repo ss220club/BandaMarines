@@ -402,11 +402,11 @@
 				L.add_temp_pass_flags(PASS_MOB_THRU)
 				add_temp_pass_flags(PASS_MOB_THRU)
 
-			Move(oldLloc)
-			if(moving_diagonally)
-				moving_diagonally = FALSE
-			if(mob_swap == SWAPPING)
-				L.Move(oldloc)
+				Move(oldLloc)
+				if(moving_diagonally)
+					moving_diagonally = FALSE
+				if(mob_swap == SWAPPING)
+					L.Move(oldloc)
 
 				remove_temp_pass_flags(PASS_MOB_THRU)
 				L.remove_temp_pass_flags(PASS_MOB_THRU)
