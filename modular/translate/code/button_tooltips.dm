@@ -12,6 +12,5 @@
 		openToolTip(usr, src, params, title = name, content = desc)
 
 /atom/movable/screen/action_button/MouseExited(location, control, params)
-	. = ..()
 	closeToolTip(usr)
 	return ..()
