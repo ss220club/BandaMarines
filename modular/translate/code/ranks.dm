@@ -44,7 +44,7 @@
 	// prefix = "SgtMaj"
 
 /datum/paygrade/marine/e9c
-	name = "Главный сержант корпуса колониальной морской пехоты" // Sergeant Major of the Colonial Marine Corps
+	name = "Главный сержант ККМП" // Sergeant Major of the Colonial Marine Corps
 	// prefix = "SMCMC"
 
 // COMMISSIONED PAYGRADES
@@ -110,4 +110,4 @@
 //Historical Background: Combat Dogs were given the lowest officer rank possible, they have no notional command but if someone were to abuse the animal, the offender could be charged with assaulting an officer.
 /datum/paygrade/marine/k9
 	name = "Боевой пёс-лейтенант" // Хороший песик xdd
-	prefix = "2ndLt Combat Lifesaver"
+	// prefix = "2ndLt Combat Lifesaver"
