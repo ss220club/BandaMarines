@@ -1,3 +1,4 @@
 #include "_translate.dm"
 
-#include "code/translate.dm"
+#include "code/weapons.dm"
+#include "code/ranks.dm"
