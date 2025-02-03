@@ -1,6 +1,0 @@
-#include "_translate.dm"
-
-#include "code/button_tooltips.dm"
-#include "code/weapons.dm"
-#include "code/ranks.dm"
-
