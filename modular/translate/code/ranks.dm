@@ -66,7 +66,7 @@
 	// prefix = "Maj"
 
 /datum/paygrade/marine/o5
-	name = "Лейтенант-полковник" // Lieutenant Colonel
+	name = "Подполковник" // Lieutenant Colonel
 	// prefix = "LtCol"
 
 //Platoon Commander
@@ -79,7 +79,7 @@
 	// prefix = "Snr Col."
 
 /datum/paygrade/marine/o6c
-	name = "Полковник дивизии" // Division Colonel
+	name = "Дивизионный полковник" // Division Colonel
 	// prefix = "Div Col."
 
 //High Command
@@ -100,14 +100,14 @@
 	// prefix = "Gen"
 
 /datum/paygrade/marine/o10c
-	name = "Помощник коменданта корпуса морской пехоты" // Assistant Commandant of the Marine Corps
+	name = "Помощник коменданта ККМП" // Assistant Commandant of the Marine Corps
 	// prefix = "ACMC"
 
 /datum/paygrade/marine/o10s
-	name = "Комендант корпуса морской пехоты" // Commandant of the Marine Corps
+	name = "Комендант ККМП" // Commandant of the Marine Corps
 	// prefix = "CMC"
 
 //Historical Background: Combat Dogs were given the lowest officer rank possible, they have no notional command but if someone were to abuse the animal, the offender could be charged with assaulting an officer.
 /datum/paygrade/marine/k9
-	name = "Second Lieutenant Combat Lifesaver" // Хороший песик xdd
+	name = "Боевой пёс-лейтенант" // Хороший песик xdd
 	prefix = "2ndLt Combat Lifesaver"
