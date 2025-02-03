@@ -20,7 +20,7 @@
 	// prefix = "Sgt"
 
 /datum/paygrade/marine/e6
-	name = "Штаб-сержант" // Staff Sergeant
+	name = "Старший сержант" // Staff Sergeant
 	// prefix = "SSgt"
 
 /datum/paygrade/marine/e7
@@ -44,7 +44,7 @@
 	// prefix = "SgtMaj"
 
 /datum/paygrade/marine/e9c
-	name = "Главный сержант ККМП" // Sergeant Major of the Colonial Marine Corps
+	name = "Сержант-майор ККМП" // Sergeant Major of the Colonial Marine Corps
 	// prefix = "SMCMC"
 
 // COMMISSIONED PAYGRADES
