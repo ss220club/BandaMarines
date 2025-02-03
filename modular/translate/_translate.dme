@@ -2,3 +2,6 @@
 
 #include "code/button_tooltips.dm"
 #include "code/translate.dm"
+
+// Xeno Abilities
+#include "code/xeno_abilities/general_abilities.dm"
