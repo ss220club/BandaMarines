@@ -52,7 +52,7 @@
 /datum/action/xeno_action/onclick/evolve
 	desc = "Эволюционировать в следующий уровень. Количество доступных слотов можно посмотреть в Hive Status."
 
-/datum/action/xeno_action/onclick/tacmapы
+/datum/action/xeno_action/onclick/tacmap
 	desc = "Тактическая карта с двумя режимами - режимом прямого эфира с текущим положением сестёр, а также режим планирования, где Королева может рисовать план."
 
 /datum/action/xeno_action/active_toggle/toggle_meson_vision
