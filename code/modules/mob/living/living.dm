@@ -386,7 +386,7 @@
 		//restrained people act if they were on 'help' intent to prevent a person being pulled from being separated from their puller
 		else if((living_mob.is_mob_restrained() || living_mob.a_intent == INTENT_HELP) && (is_mob_restrained() || a_intent == INTENT_HELP))
 			mob_swap = SWAPPING // SS220 EDIT
-		if(moving_diagonally && (get_dir(src, L) in GLOB.cardinals) && get_step(src, dir).Enter(src, loc)) // SS220 ADD
+		if(moving_diagonally && (get_dir(src, living_mob) in GLOB.cardinals) && get_step(src, dir).Enter(src, loc)) // SS220 ADD
 			mob_swap = PHASING // SS220 EDIT
 		if(mob_swap)
 			//switch our position with L
@@ -408,7 +408,7 @@
 				if(moving_diagonally)
 					moving_diagonally = FALSE
 				if(mob_swap == SWAPPING)
-					L.Move(oldloc)
+					living_mob.Move(oldloc)
 				// SS220 ADD End
 
 				remove_temp_pass_flags(PASS_MOB_THRU)
