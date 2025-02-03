@@ -1,23 +1,23 @@
 // MARK: USMC
 /datum/paygrade/marine/e1
 	name = "Рядовой" // Private
-	prefix = "Ряд." // PVT
+	prefix = "Рядовой" // PVT
 
 /datum/paygrade/marine/e2
 	name = "Рядовой 1-го класса" // Private First Class
-	prefix = "Ряд. 1кл." // PFC
+	prefix = "Ряд. 1-го кл." // PFC
 
 /datum/paygrade/marine/e3
 	name = "Младший капрал" // Lance Corporal
-	prefix = "Мл. кпрл." // LCpl
+	prefix = "Мл. Капрал" // LCpl
 
 /datum/paygrade/marine/e4
 	name = "Капрал" // Corporal
-	prefix = "Кпрл." // Cpl
+	prefix = "Капрал" // Cpl
 
 /datum/paygrade/marine/e5
 	name = "Сержант" // Sergeant
-	prefix = "Серж." // Sgt
+	prefix = "Сержант" // Sgt
 
 /datum/paygrade/marine/e6
 	name = "Старший сержант" // Staff Sergeant
@@ -41,11 +41,11 @@
 
 /datum/paygrade/marine/e9e
 	name = "Сержант-майор" // Sergeant Major
-	prefix = "Серж.-май." // SgtMaj
+	prefix = "Серж. майор" // SgtMaj
 
 /datum/paygrade/marine/e9c
 	name = "Сержант-майор ККМП" // Sergeant Major of the Colonial Marine Corps
-	prefix = "Серж.-май. ККМП" // SMCMC
+	prefix = "Серж. майор ККМП" // SMCMC
 
 // COMMISSIONED PAYGRADES
 /datum/paygrade/marine/o1
@@ -58,7 +58,7 @@
 
 /datum/paygrade/marine/o3
 	name = "Капитан" // Captain
-	prefix = "Кап." // Capt
+	prefix = "Капитан" // Capt
 
 /datum/paygrade/marine/o4
 	name = "Майор" // Major
@@ -86,15 +86,15 @@
 
 /datum/paygrade/marine/o8
 	name = "Генерал-майор" // Major General
-	prefix = "Ген.-май." // MajGen
+	prefix = "Ген. майор" // MajGen
 
 /datum/paygrade/marine/o9
 	name = "Генерал-лейтенант" // Lieutenant General
-	prefix = "Ген.-лейт." // LtGen
+	prefix = "Ген. лейт." // LtGen
 
 /datum/paygrade/marine/o10
 	name = "Генерал" // General
-	prefix = "Ген." // Gen
+	prefix = "Генерал" // Gen
 
 /datum/paygrade/marine/o10c
 	name = "Помощник коменданта КМП" // Assistant Commandant of the Marine Corps
