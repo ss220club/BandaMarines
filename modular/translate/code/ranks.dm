@@ -100,11 +100,11 @@
 	// prefix = "Gen"
 
 /datum/paygrade/marine/o10c
-	name = "Помощник коменданта ККМП" // Assistant Commandant of the Marine Corps
+	name = "Помощник коменданта КМП" // Assistant Commandant of the Marine Corps
 	// prefix = "ACMC"
 
 /datum/paygrade/marine/o10s
-	name = "Комендант ККМП" // Commandant of the Marine Corps
+	name = "Комендант КМП" // Commandant of the Marine Corps
 	// prefix = "CMC"
 
 //Historical Background: Combat Dogs were given the lowest officer rank possible, they have no notional command but if someone were to abuse the animal, the offender could be charged with assaulting an officer.
