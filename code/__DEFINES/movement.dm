@@ -58,7 +58,7 @@
 #define PASS_FLAGS_FLAME (PASS_AROUND|PASS_UNDER|PASS_MOB_THRU|PASS_THROUGH|PASS_OVER_FIRE)
 #define PASS_FLAGS_SMOKE (PASS_HIGH_OVER|PASS_AROUND|PASS_UNDER|PASS_MOB_THRU|PASS_THROUGH)
 #define PASS_FLAGS_CRAWLER (PASS_TYPE_CRAWLER|PASS_UNDER)
-
+// SS220 ADD Start
 /// The minimum for glide_size to be clamped to.
 #define MIN_GLIDE_SIZE 1
 /// The maximum for glide_size to be clamped to.
@@ -90,3 +90,4 @@ GLOBAL_VAR_INIT(glide_size_multiplier, 1.0)
 #define FIRST_DIAG_STEP 1
 /// The second step of the diagnonal movement
 #define SECOND_DIAG_STEP 2
+// SS220 ADD End

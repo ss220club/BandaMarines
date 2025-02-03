@@ -55,19 +55,21 @@
 
 	return NO_BLOCKED_MOVEMENT
 
-/atom/movable/Move(NewLoc, direct, glide_size_override)
+/atom/movable/Move(NewLoc, direct, glide_size_override) // SS220 Edit
 	// If Move is not valid, exit
 	if (SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_MOVE, NewLoc) & COMPONENT_CANCEL_MOVE)
 		return FALSE
 
 	var/atom/oldloc = loc
 	var/old_dir = dir
-
+	// SS220 ADD Start
 	if(glide_size_override)
 		set_glide_size(glide_size_override)
 
 	if (!(direct & (direct - 1))) //Cardinal move
+	// SS220 ADD End
 		. = ..()
+	// SS220 ADD Start
 	else //Diagonal move, split it into cardinal moves
 		moving_diagonally = FIRST_DIAG_STEP
 		var/first_step_dir
@@ -118,13 +120,15 @@
 				setDir(first_step_dir)
 		moving_diagonally = 0
 		return
-
+		// SS220 ADD End
 	if (flags_atom & DIRLOCK)
 		setDir(old_dir)
 	else if(old_dir != direct)
 		setDir(direct)
+	// SS220 ADD Start
 	if(glide_size_override)
 		set_glide_size(glide_size_override)
+	// SS220 ADD End
 	l_move_time = world.time
 	if ((oldloc != loc && oldloc && oldloc.z == z))
 		last_move_dir = get_dir(oldloc, loc)

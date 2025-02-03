@@ -103,7 +103,7 @@
 	next_move_dir_add = 0
 	next_move_dir_sub = 0
 
-	var/old_move_delay = next_movement
+	var/old_move_delay = next_movement // SS220 ADD
 
 	next_movement = world.time + world.tick_lag
 
@@ -128,6 +128,7 @@
 		return
 
 	if(isobserver(mob)) //Ghosts are snowflakes unfortunately
+		// next_movement = world.time + move_delay // SS220 REMOVE
 		return mob.Move(n, direct)
 
 	if(SEND_SIGNAL(mob, COMSIG_CLIENT_MOB_MOVE, n, direct) & COMPONENT_OVERRIDE_MOVE)
@@ -211,7 +212,7 @@
 		if(mob.confused)
 			mob.Move(get_step(mob, pick(GLOB.cardinals)))
 		else
-
+			// SS220 ADD Start
 			var/new_glide_size = DELAY_TO_GLIDE_SIZE(move_delay * ( (NSCOMPONENT(direct) && EWCOMPONENT(direct)) ? sqrt(2) : 1 ) )
 			mob.set_glide_size(new_glide_size) // set it now in case of pulled objects
 
@@ -223,14 +224,15 @@
 				next_movement = old_move_delay
 			else
 				next_movement = world.time
-
+			// SS220 ADD End
 			. = ..()
-
+			// SS220 ADD Start
 			if((direct & (direct - 1)) && mob.loc == n) //moved diagonally successfully
 				move_delay *= sqrt(2)
 
 			var/after_glide = DELAY_TO_GLIDE_SIZE(move_delay)
 			mob.set_glide_size(after_glide)
+			// SS220 ADD End
 
 			if (mob.tile_contents)
 				mob.tile_contents = list()
@@ -241,7 +243,7 @@
 				mob.update_clone()
 		mob.move_intentionally = FALSE
 		moving = FALSE
-		next_movement += move_delay
+		next_movement += move_delay // SS220 Edit
 	return
 
 ///Process_Spacemove

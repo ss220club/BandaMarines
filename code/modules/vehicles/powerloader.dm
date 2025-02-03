@@ -47,13 +47,14 @@
 		return
 	if(world.time > l_move_time + move_delay)
 		if(dir != direction)
+			// l_move_time = world.time // SS220 REMOVE
 			setDir(direction)
 			handle_rotation()
-			if(!(dir & (dir - 1))) // too much noise when moving diagonally, otherwise
+			if(!(dir & (dir - 1))) // SS220 ADD too much noise when moving diagonally, otherwise
 				pick(playsound(src.loc, 'sound/mecha/powerloader_turn.ogg', 25, 1), playsound(src.loc, 'sound/mecha/powerloader_turn2.ogg', 25, 1))
 			. = TRUE
 		else
-			set_glide_size(DELAY_TO_GLIDE_SIZE(move_delay + 1))
+			set_glide_size(DELAY_TO_GLIDE_SIZE(move_delay + 1)) // SS220 ADD
 			. = step(src, direction)
 			if(.)
 				pick(playsound(loc, 'sound/mecha/powerloader_step.ogg', 25), playsound(loc, 'sound/mecha/powerloader_step2.ogg', 25))
@@ -61,12 +62,12 @@
 /obj/vehicle/powerloader/handle_rotation()
 	if(buckled_mob)
 		buckled_mob.setDir(dir)
-		if(dir & EAST)
+		if(dir & EAST) // SS220 EDIT
 			buckled_mob.pixel_x = 7
-			return
-		if(dir & WEST)
+			return // SS220 EDIT
+		if(dir & WEST) // SS220 EDIT
 			buckled_mob.pixel_x = -7
-			return
+			return // SS220 EDIT
 		buckled_mob.pixel_x = 0
 
 /obj/vehicle/powerloader/explode()

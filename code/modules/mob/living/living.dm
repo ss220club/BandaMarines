@@ -154,7 +154,7 @@
 
 	return
 
-/mob/living/Move(NewLoc, direct, glide_size_override)
+/mob/living/Move(NewLoc, direct, glide_size_override) // SS220 EDIT
 	if(lying_angle != 0)
 		lying_angle_on_movement(direct)
 	if (buckled && buckled.loc != NewLoc) //not updating position
@@ -194,7 +194,7 @@
 		else if(get_dist(src, pulling) > 1 || ((pull_dir - 1) & pull_dir)) //puller and pullee more than one tile away or in diagonal position
 			var/pulling_dir = get_dir(pulling, T)
 			pulling.Move(T, pulling_dir) //the pullee tries to reach our previous position
-			if(pulling && get_dist(src, pulling) > 1 && !moving_diagonally) //the pullee couldn't keep up
+			if(pulling && get_dist(src, pulling) > 1 && !moving_diagonally) //the pullee couldn't keep up // SS220 EDIT
 				stop_pulling()
 			else
 				var/mob/living/pmob = pulling
@@ -320,8 +320,8 @@
 	if(.)
 		reset_view(destination)
 
-#define SWAPPING 1
-#define PHASING 2
+#define SWAPPING 1 // SS220 ADD
+#define PHASING 2 // SS220 ADD
 
 /mob/living/Collide(atom/movable/AM)
 	if(buckled || now_pushing)
@@ -379,15 +379,15 @@
 			return
 
 	if(!L.buckled && !L.anchored)
-		var/mob_swap = NONE
+		var/mob_swap = NONE // SS220 EDIT
 		//the puller can always swap with its victim if on grab intent
 		if(L.pulledby == src && a_intent == INTENT_GRAB)
-			mob_swap = SWAPPING
+			mob_swap = SWAPPING // SS220 EDIT
 		//restrained people act if they were on 'help' intent to prevent a person being pulled from being separated from their puller
 		else if((L.is_mob_restrained() || L.a_intent == INTENT_HELP) && (is_mob_restrained() || a_intent == INTENT_HELP))
-			mob_swap = SWAPPING
-		if(moving_diagonally && (get_dir(src, L) in GLOB.cardinals) && get_step(src, dir).Enter(src, loc))
-			mob_swap = PHASING
+			mob_swap = SWAPPING // SS220 EDIT
+		if(moving_diagonally && (get_dir(src, L) in GLOB.cardinals) && get_step(src, dir).Enter(src, loc)) // SS220 ADD
+			mob_swap = PHASING // SS220 EDIT
 		if(mob_swap)
 			//switch our position with L
 			if(loc && !loc.Adjacent(L.loc))
@@ -403,10 +403,12 @@
 				add_temp_pass_flags(PASS_MOB_THRU)
 
 				Move(oldLloc)
+				// SS220 ADD Start
 				if(moving_diagonally)
 					moving_diagonally = FALSE
 				if(mob_swap == SWAPPING)
 					L.Move(oldloc)
+				// SS220 ADD End
 
 				remove_temp_pass_flags(PASS_MOB_THRU)
 				L.remove_temp_pass_flags(PASS_MOB_THRU)
@@ -416,13 +418,13 @@
 
 	now_pushing = FALSE
 
-	if(!(L.status_flags & CANPUSH) || moving_diagonally)
+	if(!(L.status_flags & CANPUSH) || moving_diagonally) // SS220 EDIT
 		return
 
 	..()
 
-#undef SWAPPING
-#undef PHASING
+#undef SWAPPING // SS220 ADD
+#undef PHASING // SS220 ADD
 
 /mob/living/launch_towards(datum/launch_metadata/LM)
 	if(src)

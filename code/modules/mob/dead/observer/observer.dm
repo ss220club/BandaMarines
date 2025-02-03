@@ -568,7 +568,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			ghost.can_reenter_corpse = FALSE
 			nest.ghost_of_buckled_mob = ghost
 
-/mob/dead/observer/Move(atom/newloc, direct, glide_size_override = 32)
+/mob/dead/observer/Move(atom/newloc, direct, glide_size_override = 32) // SS220 EDIT
 	following = null
 	var/area/last_area = get_area(loc)
 	if(updatedir)
