@@ -2,3 +2,4 @@
 	name = "Переводы"
 	desc = "Переводы."
 	author = "pavlovvn, mirahell"
+

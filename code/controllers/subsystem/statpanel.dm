@@ -184,7 +184,7 @@ SUBSYSTEM_DEF(statpanels)
 			continue
 		// We already have it. Success!
 		if(existing_image)
-			turf_items[++turf_items.len] = list("[turf_item.name]", REF(turf_item), existing_image)
+			turf_items[++turf_items.len] = list("[turf_item.declent_ru(NOMINATIVE)]", REF(turf_item), existing_image) // BANDAMARINES EDIT - translastions
 			continue
 		// Now, we're gonna queue image generation out of those refs
 		to_make += turf_item
@@ -418,7 +418,7 @@ SUBSYSTEM_DEF(statpanels)
 	set hidden = TRUE
 
 	if (!current_fontsize)
-		current_fontsize = 12
+		current_fontsize = 14
 
 	var/datum/statbrowser_options/options_panel = statbrowser_options
 	if(!options_panel)
