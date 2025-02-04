@@ -128,7 +128,7 @@
 
 	//gloves
 	if(gloves && !skipgloves)
-		msg += "[t_He] [gloves.get_examine_line(user)] [gloves.get_examine_location(src, user, WEAR_HANDS, t_He, t_his, t_him)].\n"
+		msg += "[t_He] носит [gloves.get_examine_line(user)] [gloves.get_examine_location(src, user, WEAR_HANDS, t_He, t_his, t_him)].\n"
 	else if(hands_blood_color)
 		msg += SPAN_WARNING("У [t_him] [(hands_blood_color != COLOR_OIL) ? "окровавленные" : "замасленные"] руки!\n")
 
@@ -187,7 +187,7 @@
 		if(o)
 			var/list/damage = list()
 			if(o.status & LIMB_SPLINTED)
-				damage += "шину"
+				damage += "шина"
 
 			var/limb_incision = o.get_incision_depth()
 			if(limb_incision)
