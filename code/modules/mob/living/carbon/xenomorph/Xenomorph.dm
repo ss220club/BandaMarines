@@ -463,6 +463,7 @@
 	toggle_xeno_mobhud() //This is a verb, but fuck it, it just werks
 
 	. = ..()
+	generate_name() // BANDASTATION ADDITION
 
 					//Set leader to the new mob
 	if(old_xeno && hive && IS_XENO_LEADER(old_xeno))
@@ -602,7 +603,7 @@
 	ru_names_rename(ru_names_toml(caste.display_name || caste.caste_type, prefix = "[name_prefix][number_decorator][age_display]", suffix = "[name_display]")) // BANDAMARINES ADDITION
 
 	//Update linked data so they show up properly
-	change_real_name(src, declent_ru(NOMINATIVE))
+	change_real_name(src, name)
 
 	// Since we updated our name we should update the info in the UI
 	in_hive.hive_ui.update_xeno_info()

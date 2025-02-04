@@ -227,7 +227,7 @@ Also handles the "Mature / Bloody naming convention. Call this to update the nam
 	ru_names_rename(ru_names_toml("Larva", prefix = "[name_prefix][progress]", suffix = " ([nicknumber])"))
 
 	//Update linked data so they show up properly
-	change_real_name(src, declent_ru(NOMINATIVE))
+	change_real_name(src, name)
 	//Update the hive status UI
 	if(hive)
 		var/datum/hive_status/hive_status = hive
