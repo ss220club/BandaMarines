@@ -408,7 +408,7 @@ GLOBAL_LIST_INIT(job_command_roles, JOB_COMMAND_ROLES_LIST)
 /// This root job should never appear ingame, it's used to select the character slot.
 #define JOB_FAX_RESPONDER "Секретарь на Факсе"
 #define JOB_FAX_RESPONDER_USCM_HC "ККМП-ВК Офицер Связи"
-#define JOB_FAX_RESPONDER_USCM_PVST "Provost Офицер Связи"
+#define JOB_FAX_RESPONDER_USCM_PVST "Проректор-Офицер Связи"
 #define JOB_FAX_RESPONDER_WY "ВЮ Связной Исполнитель"
 #define JOB_FAX_RESPONDER_UPP "СПН Офицер Связи"
 #define JOB_FAX_RESPONDER_TWE "ИТМ Офицер Связи"
