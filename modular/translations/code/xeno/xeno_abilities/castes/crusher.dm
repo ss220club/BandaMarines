@@ -25,7 +25,7 @@
 	desc = "Сильно топтать по земле вокруг. Носители, оказавшиеся под нами, получают огромный урон (%DAMAGE%) и замедляются (%SLOWTIME%)."
 
 /datum/action/xeno_action/onclick/crusher_shield
-	desc = "Создаёт поглощающий урон щит (%SHIELD%, %TIME%). Щит снижает получаемый урон на %DEFENES%. Даёт иммунитет к взрывам (%EXPL_IMM%)."
+	desc = "Создаёт поглощающий урон щит (%SHIELD%, %TIME%). Щит снижает получаемый урон на %DEFENSE%. Даёт иммунитет к взрывам (%EXPL_IMM%)."
 
 /datum/action/xeno_action/onclick/crusher_shield/apply_replaces_in_desc()
 	replace_in_desc("%SHIELD%", shield_amount)
