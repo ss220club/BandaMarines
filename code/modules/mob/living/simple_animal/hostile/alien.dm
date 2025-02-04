@@ -56,7 +56,11 @@
 	vis_contents += wound_icon_holder
 
 /mob/living/simple_animal/hostile/alien/proc/generate_name()
-	change_real_name(src, "[caste_name] (BD-[rand(1, 999)])")
+	// BANDASTATION EDIT START
+	var/number = rand(1, 999)
+	ru_names_rename(ru_names_toml(caste_name, suffix = " (BD-[number])"))
+	change_real_name(src, declent_ru(NOMINATIVE))
+	// BANDASTATION EDIT END
 
 /mob/living/simple_animal/hostile/alien/proc/handle_icon()
 	icon_state = "Normal [caste_name] Running"
