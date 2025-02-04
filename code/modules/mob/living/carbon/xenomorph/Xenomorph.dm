@@ -598,6 +598,7 @@
 		number_decorator = "Infernal "
 	if(show_name_numbers)
 		name_display = show_only_numbers ? " ([nicknumber])" : " ([name_client_prefix][nicknumber][name_client_postfix])"
+	ru_names_rename(ru_names_toml(caste.display_name || caste.caste_type, prefix = "[name_prefix][number_decorator][age_display]", suffix = "[name_display]")) // BANDAMARINES ADDITION
 	name = "[name_prefix][number_decorator][age_display][caste.display_name || caste.caste_type][name_display]"
 
 	//Update linked data so they show up properly
