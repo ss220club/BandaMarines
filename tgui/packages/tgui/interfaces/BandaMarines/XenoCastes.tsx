@@ -15,7 +15,7 @@ const CASTES_RU = {
   Sentinel: 'Страж',
   Defender: 'Защитник',
   Burrower: 'Копатель',
-  Carrier: 'Переносчик',
+  Carrier: 'Носитель',
   Hivelord: 'Повелитель улья',
   Lurker: 'Охотник',
   Warrior: 'Воин',
