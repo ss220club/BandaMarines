@@ -24,7 +24,7 @@
 		else if(chestburst == 2)
 			msg += "Грудолом вырвался из этого существа.\n"
 		if(istype(wear_mask, /obj/item/clothing/mask/facehugger))
-			msg += "На голове данного существа находится лицехват.\n"
+			msg += "Лицехват уже уселся на лице существа.\n"
 		if(on_fire)
 			msg += "Оно горит!\n"
 		if(stat == DEAD)
