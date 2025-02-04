@@ -28,7 +28,7 @@
 		if(on_fire)
 			msg += "Оно горит!\n"
 		if(stat == DEAD)
-			msg += "<span style='font-weight: bold; color: purple;'>Вы чуствуете, что это существо мертво.\n</span>"
+			msg += "<span style='font-weight: bold; color: purple;'>Вы чувствуете, что это существо мертво.\n</span>"
 		else if(stat || !client)
 			msg += SPAN_XENOWARNING("Оно без сознания.\n")
 		msg += "</span>"
