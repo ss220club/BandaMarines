@@ -1,3 +1,6 @@
+// Weyland-Yutani Corporation
+// Корпорация Вейланд Ютани
+
 /datum/paygrade/wy_ranks/wyc1
 	name = "Стажёр"
 	prefix = "Стжр."

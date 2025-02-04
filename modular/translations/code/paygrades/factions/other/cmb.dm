@@ -3,23 +3,23 @@
 // Ебаные бюрократы. Ивент роли.
 
 /datum/paygrade/cmb/standard
-	name = "КМБ Депути"
-	prefix = "Деп."
+	name = "КМБ Оперуполномоченный"
+	prefix = "Опер."
 
 /datum/paygrade/cmb/leader
 	name = "КМБ Маршал"
 	prefix = "Маршал"
 
 /datum/paygrade/cmb/syn
-	name = "КМБ Расследователь-Синтетик"
+	name = "КМБ Синтетик Расследования"
 	prefix = "Синт."
 
 /datum/paygrade/cmb/syn/riot
-	name = "КМБ Синтетик Контроля Порядка"
+	name = "КМБ Синтетик-Блюститель Порядка"
 	prefix = "Синт."
 
 /datum/paygrade/cmb/riot
-	name = "КМБ Офицер Контроля Порядка"
+	name = "КМБ Офицер-Блюститель Порядка"
 	prefix = "Офф."
 
 /datum/paygrade/cmb/med
@@ -39,8 +39,8 @@
 	prefix = "Комис."
 
 /datum/paygrade/cmb/icc/liaison
-	name = "Корпоративный Представитель Комиссии Межзвездной Торговли"
+	name = "Представитель Корпорации по Комиссии Межзвездной Торговли"
 	prefix = "Пред. Комис."
 
 /datum/paygrade/cmb/observer
-	name = "Межзвездный Учетчик Прав Человека"
+	name = "Межзвездный Наблюдатель Прав Человека"

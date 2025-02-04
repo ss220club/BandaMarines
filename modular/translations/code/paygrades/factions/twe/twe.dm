@@ -1,3 +1,6 @@
+// TWE - Three World Empire
+// ИТМ - Империя Трёх Миров
+
 //RMC Emlisted
 /datum/paygrade/twe/e1
 	name = "Морпех"

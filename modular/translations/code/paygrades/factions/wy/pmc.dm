@@ -12,7 +12,7 @@
 
 //PMC Field Specialists
 /datum/paygrade/pmc/vehicle
-	name = "Технический Специалист"
+	name = "Техник-Специалист"
 	prefix = "ТЕХ.СП."
 
 /datum/paygrade/pmc/support
@@ -20,7 +20,7 @@
 	prefix = "ПОД.СП."
 
 /datum/paygrade/pmc/medic
-	name = "Медицинский Специалист"
+	name = "Медик-Специалист"
 	prefix = "МЕД.СП."
 
 /datum/paygrade/pmc/spec
@@ -37,7 +37,7 @@
 	prefix = "Док."
 
 /datum/paygrade/pmc/engineer
-	name = "Корпоративный Техник"
+	name = "Техник Корпорации"
 	prefix = "ТЕХ."
 
 //PMC Elite

@@ -23,7 +23,7 @@
 	prefix = "Прдст."
 
 /datum/paygrade/civillian/officer
-	name = "Оффицер"
+	name = "Офицер"
 	prefix = "Офф."
 
 /datum/paygrade/civillian/officer/senior

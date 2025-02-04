@@ -1,3 +1,6 @@
+// ККМП - Корпус Колониальной Морской Пехоты
+// При это это морпехи, но морские звания моряков находятся в navy.dm
+
 /datum/paygrade/marine
 	name = "Морпех"
 
@@ -56,15 +59,15 @@
 
 // COMMISSIONED PAYGRADES
 
-/datum/paygrade/marine/o1	// Оффицеры: Медбей, ГСБ, СЕ, Пилоты, ИО,
+/datum/paygrade/marine/o1	// Офицеры: Медбей, ГСБ, СЕ, Пилоты, ИО,
 	name = "Лейтенант"
 	prefix = "ЛЕЙТ"
 
-/datum/paygrade/marine/o2	// Оффицеры поддержки, FAX'еры
+/datum/paygrade/marine/o2	// Офицеры поддержки, FAX'еры
 	name = "Старший Лейтенант"
 	prefix = "СтЛЕЙТ"
 
-/datum/paygrade/marine/o3	// XO (Executive), Оффицер, повышенный офицер поддержки
+/datum/paygrade/marine/o3	// XO (Executive), Офицер, повышенный офицер поддержки
 	name = "Капитан"
 	prefix = "КАПТ"
 

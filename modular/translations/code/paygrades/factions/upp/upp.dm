@@ -1,3 +1,6 @@
+// UPP - Union of Progressive Peoples
+// СПН - Союз Прогрессивных Народов
+
 //UPP Enlisted
 /datum/paygrade/upp/ue0
 	name = "Призывник"

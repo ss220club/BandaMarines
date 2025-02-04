@@ -10,7 +10,7 @@
 	prefix = "Наем."
 
 /datum/paygrade/contractors/med
-	name = "ВЭИ Медицинский Специалист"
+	name = "ВЭИ Медик-Специалист"
 	prefix = "Мед."
 
 /datum/paygrade/contractors/mg
@@ -18,7 +18,7 @@
 	prefix = "Пул."
 
 /datum/paygrade/contractors/engi
-	name = "ВЭИ Инженерный Специалист"
+	name = "ВЭИ Инженер-Специалист"
 	prefix = "Инж."
 
 /datum/paygrade/contractors/syn
