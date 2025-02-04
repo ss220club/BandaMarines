@@ -17,7 +17,7 @@
 				else if(gender && gender == MALE)
 					NP = "Г-н "		// SS220 EDIT
 				else
-					NP = "В.А. " //inclusivity win!	// SS220 EDIT - Вертолет Апачи
+					NP = "В-а " //inclusivity win!	// SS220 EDIT - Вертолет Апачи
 		return NP
 	else
 		if(!P)//For custom admin-made paygrades to not cause runtimes.
