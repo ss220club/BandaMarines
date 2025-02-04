@@ -97,7 +97,7 @@
 
 	if(id_paygrade)
 		msg += "<EM>[rank_display] </EM>"
-	msg += "<EM>[src]</EM>!\n"
+	msg += "<EM>[declent_ru(NOMINATIVE)]</EM>!\n"
 
 	//uniform
 	if(w_uniform && !skipjumpsuit)
