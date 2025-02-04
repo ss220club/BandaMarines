@@ -6,8 +6,6 @@
 #include "code/ru_weapon_desc.dm"
 #include "code/ru_names/ru_name_base.dm"
 
-#include "code/~undefs.dm"
-
 // Xeno Abilities
 #include "code/xeno/castes_age.dm"
 #include "code/xeno/xeno_abilities/general_abilities.dm"
@@ -28,3 +26,5 @@
 #include "code/xeno/xeno_abilities/castes/sentinel.dm"
 #include "code/xeno/xeno_abilities/castes/spitter.dm"
 #include "code/xeno/xeno_abilities/castes/warrior.dm"
+
+#include "code/~undefs.dm"
