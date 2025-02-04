@@ -125,7 +125,7 @@
 		if(WEAR_WAIST)
 			return "на поясе"
 		if(WEAR_ID)
-			return "носит [get_examine_line(examiner)]"
+			return "[get_examine_line(examiner)]"
 		if(WEAR_BACK)
 			return "на спине"
 		if(WEAR_J_STORE)
