@@ -177,7 +177,7 @@
 		if(jitteriness >= 300)
 			msg += SPAN_WARNING("<B>[t_He] бьется в конвульсиях!</B>\n")
 		else if(jitteriness >= 200)
-			msg += SPAN_WARNING("[t_He] сильно дергивается.\n")
+			msg += SPAN_WARNING("[t_He] сильно дергается.\n")
 		else if(jitteriness >= 100)
 			msg += SPAN_WARNING("[t_He] слегка подергивается.\n")
 
@@ -187,7 +187,7 @@
 		if(o)
 			var/list/damage = list()
 			if(o.status & LIMB_SPLINTED)
-				damage += "a splint"
+				damage += "шину"
 
 			var/limb_incision = o.get_incision_depth()
 			if(limb_incision)
@@ -198,7 +198,7 @@
 				damage += limb_surgeries
 
 			if(length(damage))
-				msg += SPAN_WARNING("[t_He] [english_list(damage, final_comma_text = ",")] на [t_his] [o.display_name]!\n")
+				msg += SPAN_WARNING("У [t_him] [english_list(damage, final_comma_text = ",")] на [t_his] [o.display_name]!\n")
 
 	if(holo_card_color)
 		msg += "У [t_him] [holo_card_color] голокарта на груди.\n"
@@ -224,7 +224,7 @@
 
 	if((species && !species.has_organ["brain"] || has_brain()) && stat != DEAD && stat != CONSCIOUS)
 		if(!key)
-			msg += SPAN_DEADSAY("[t_He] сразу заснуд. Не похоже, что он скоро проснется.\n")
+			msg += SPAN_DEADSAY("[t_He] глубоко спит. Не похоже, что [t_him] скоро проснется.\n")
 		else if(!client)
 			msg += "[t_He] внезапно засыпает.\n"
 
