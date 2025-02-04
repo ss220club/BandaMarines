@@ -19,4 +19,4 @@
 /datum/action/xeno_action/activable/warrior_punch/apply_replaces_in_desc()
 	replace_in_desc("%PUNCH_DAMAGE_MIN%", base_damage)
 	replace_in_desc("%PUNCH_DAMAGE_MAX%", base_damage + damage_variance)
-	replace_in_desc("%PUNCH_SLOWDOWN%", convert_effect_time(3, SLOW)) // Hardcoded
+	replace_in_desc("%PUNCH_SLOWDOWN%", convert_effect_time(3, SLOW), DESCRIPTION_REPLACEMENT_TIME) // Hardcoded
