@@ -139,7 +139,6 @@
 		if(WEAR_FEET)
 			return "на [t_his] ногах"
 	return "...где-то?"
-//BANDAMARINES EDIT END
 
 /obj/proc/updateUsrDialog(mob/user)
 	if(!user)
