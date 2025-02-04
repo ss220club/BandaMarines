@@ -1,5 +1,5 @@
 /datum/action/xeno_action/activable/xeno_spit/spitter
-	desc = "Плевок кислоты, наносящий %DAMAGE% урона на расстоянии %RANGE%"
+	desc = "Плевок кислоты, наносящий %DAMAGE% урона на расстоянии %RANGE% Урон падает с расстоянием."
 
 /datum/action/xeno_action/activable/xeno_spit/spitter/apply_replaces_in_desc()
 	replace_in_desc("%DAMAGE%", /datum/ammo/xeno/acid::damage)
