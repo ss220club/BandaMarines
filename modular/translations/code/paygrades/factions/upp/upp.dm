@@ -15,7 +15,7 @@
 
 /datum/paygrade/upp/ue3
 	name = "Младший Сержант"
-	prefix = "МлСерж."
+	prefix = "Мл. Серж."
 
 /datum/paygrade/upp/ue4
 	name = "Сержант"
@@ -23,16 +23,16 @@
 
 /datum/paygrade/upp/ue5
 	name = "Старший Сержант"
-	prefix = "СтСерж."
+	prefix = "Ст. Серж."
 
 /datum/paygrade/upp/ue6
 	name = "Старшина"
-	prefix = "Стрш."
+	prefix = "Ст. рш."
 
 //UPP Commandos
 /datum/paygrade/upp/uc1
 	name = "Младший Коммандос"
-	prefix = "МлКОМС"
+	prefix = "Мл. КОМС"
 
 /datum/paygrade/upp/uc2
 	name = "Коммандос"
@@ -40,7 +40,7 @@
 
 /datum/paygrade/upp/uc3
 	name = "Старший Коммандос"
-	prefix = "СтКОМС"
+	prefix = "Ст. КОМС"
 
 //UPP Officers
 /datum/paygrade/upp/uo1
@@ -49,7 +49,7 @@
 
 /datum/paygrade/upp/uo2
 	name = "Старший Лейтенант"
-	prefix = "СтЛейт."
+	prefix = "Ст. Лейт."
 
 /datum/paygrade/upp/uo3
 	name = "Капитан"

@@ -24,5 +24,5 @@
 
 /datum/paygrade/dutch/arnold
 	name = "Майор"
-	prefix = "МАЙР."
+	prefix = "Майр."
 

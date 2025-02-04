@@ -12,7 +12,7 @@
 
 /datum/paygrade/navy/e3
 	name = "Старший Матрос"
-	prefix = "СтМТ."
+	prefix = "Ст. МТ."
 
 /datum/paygrade/navy/e4
 	name = "Старшина 2-й статьи"
@@ -24,7 +24,7 @@
 
 /datum/paygrade/navy/e6
 	name = "Главный Старшина"
-	prefix = "ГлСТАР."
+	prefix = "Гл. Стар."
 
 /datum/paygrade/navy/e7
 	name = "Главный корабельный старшина"
@@ -32,45 +32,45 @@
 
 /datum/paygrade/navy/e8
 	name = "Мичман"
-	prefix = "МИЧМ."
+	prefix = "Мичм."
 
 /datum/paygrade/navy/e8c
 	name = "Старший Мичман"
-	prefix = "СтМИЧМ."
+	prefix = "Ст. Мичм."
 
 /datum/paygrade/navy/e9
 	name = "Младший Лейтенант"
-	prefix = "МлЛЕЙТ."
+	prefix = "Мл. Лейт."
 
 /datum/paygrade/navy/e9c
 	name = "Лейтенант"
-	prefix = "ЛЕЙТ."
+	prefix = "Лейт."
 
 // COMMISSIONED PAYGRADES
 
 /datum/paygrade/navy/o1
 	name = "Мичман"
-	prefix = "МИЧ."
+	prefix = "Мич."
 
 /datum/paygrade/navy/o2
 	name = "Старший Мичман"
-	prefix = "СтМИЧ."
+	prefix = "Ст. Мич."
 
 /datum/paygrade/navy/o3
 	name = "Лейтенант"
-	prefix = "ЛЕЙТ."
+	prefix = "Лейт."
 
 /datum/paygrade/navy/o4
 	name = "Старший Лейтенант"
-	prefix = "СтЛЕЙТ."
+	prefix = "Ст. Лейт."
 
 /datum/paygrade/navy/o5
 	name = "Капитан-Лейтенант"
-	prefix = "КАПЛейт."
+	prefix = "Кап-Лейт."
 
 /datum/paygrade/navy/o6
 	name = "Капитан"
-	prefix = "КАП."
+	prefix = "Кап."
 
 /datum/paygrade/navy/o6e
 	name = "Капитан 3-го ранга"
