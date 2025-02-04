@@ -359,7 +359,7 @@ const XenoList = (props) => {
         <Table.Row header className="xenoListRow">
           <Table.Cell width="5%" className="noPadCell" />
           <Table.Cell>Имя</Table.Cell>
-          <Table.Cell width="15%">Strain</Table.Cell>
+          <Table.Cell width="15%">Подвид</Table.Cell>
           <Table.Cell>Местоположение</Table.Cell>
           <Table.Cell width="75px">Здоровье</Table.Cell>
           <Table.Cell width="100px" />
