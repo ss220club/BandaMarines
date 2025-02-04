@@ -420,7 +420,7 @@
 						msg += SPAN_WARNING("Кровь течет из-под [t_his] <b>правой перчатки</b>!\n")
 
 		if (display_groin && display_leg_left && display_leg_right && display_foot_left && display_foot_right)
-			msg += SPAN_WARNING("Кровь капает через [t_his] одежду <b>всего живота и ног</b>!\n") //?
+			msg += SPAN_WARNING("Кровь капает через [t_his] одежду <b>с нижней половины тела</b>!\n") //?
 		else
 			if (display_groin)
 				msg += SPAN_WARNING("Кровь течет из [t_his] <b>паха</b>!\n")
