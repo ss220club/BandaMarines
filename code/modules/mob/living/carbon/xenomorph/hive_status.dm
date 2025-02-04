@@ -207,11 +207,11 @@
 
 	var/list/castes_available = list()
 	for(var/datum/caste_datum/current_caste as anything in available_castes)
-		castes_available += initial(current_caste.caste_type)
+		castes_available += declent_ru_initial(current_caste.caste_type, NOMINATIVE, current_caste.caste_type)
 
 	var/castes = castes_available.Join(", ")
-	xeno_message(SPAN_XENOANNOUNCE("The Hive is now strong enough to support: [castes]"))
-	xeno_maptext("The Hive can now support: [castes]", "Hive Strengthening")
+	xeno_message(SPAN_XENOANNOUNCE("Улей теперь достаточно силён, чтобы поддержать: [castes]"))
+	xeno_maptext("Улей теперь может поддерживать: [castes]", "Улей укрепляется")
 
 
 // Adds a xeno to this hive
@@ -532,9 +532,9 @@
 		// goddamn fucking larvas with their weird ass maturing system
 		// its name updates with its icon, unlike other castes which only update the mature/elder, etc. prefix on evolve
 		if(istype(X, /mob/living/carbon/xenomorph/larva))
-			xeno_name = "Larva ([X.nicknumber])"
+			xeno_name = "[declent_ru_initial("Larva", NOMINATIVE, "Larva")] ([X.nicknumber])"
 		xenos["[X.nicknumber]"] = list(
-			"name" = xeno_name,
+			"name" = X.declent_ru(NOMINATIVE),
 			"strain" = X.get_strain_name(),
 			"ref" = "\ref[X]"
 		)

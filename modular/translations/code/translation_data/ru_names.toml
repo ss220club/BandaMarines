@@ -1045,6 +1045,77 @@ instrumental = "принцессой Чужих"
 prepositional = "принцессе Чужих"
 gender = "female"
 
+# ВНИМАНИЕ!!! Если вы собираетесь меня перевод для чужих снизу, синхронизируйте перевод с:
+# tgui\packages\tgui\interfaces\BandaMarines\XenoCastes.tsx
+["Larva"]
+nominative = "Грудолом"
+
+["Predalien Larva"]
+nominative = "Грудолом чужехищника"
+
+["Facehugger"]
+nominative = "Лицехват"
+
+["Lesser Drone"]
+nominative = "Младший дрон"
+
+["Drone"]
+nominative = "Дрон"
+
+["Runner"]
+nominative = "Бегун"
+
+["Sentinel"]
+nominative = "Страж"
+
+["Defender"]
+nominative = "Защитник"
+
+["Burrower"]
+nominative = "Копатель"
+
+["Carrier"]
+nominative = "Переносчик"
+
+["Hivelord"]
+nominative = "Повелитель улья"
+
+["Lurker"]
+nominative = "Скрытень"
+
+["Warrior"]
+nominative = "Воин"
+
+["Spitter"]
+nominative = "Плевун"
+
+["Boiler"]
+nominative = "Бойлер"
+
+["Praetorian"]
+nominative = "Преторианец"
+
+["Crusher"]
+nominative = "Крушитель"
+
+["Ravager"]
+nominative = "Разоритель"
+
+["King"]
+nominative = "Король"
+
+["Queen"]
+nominative = "Королева"
+
+["Predalien"]
+nominative = "Чужехищник"
+
+["Hellhound"]
+nominative = "Адская гончая"
+
+["Abomination"]
+nominative = "Абоминация"
+
 # MARK: Security
 ["handcuffs"]
 nominative = "наручники"
