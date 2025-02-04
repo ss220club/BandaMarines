@@ -102,7 +102,7 @@ GLOBAL_LIST_INIT(job_command_roles, JOB_COMMAND_ROLES_LIST)
 
 #define JOB_CHIEF_ENGINEER "Старший Инженер"
 #define JOB_MAINT_TECH "Техник Обслуживания"
-#define JOB_ORDNANCE_TECH "Техник Вооружения"
+#define JOB_ORDNANCE_TECH "Оружейный Техник"
 #define JOB_ENGINEER_ROLES   /datum/timelock/engineer
 #define JOB_ENGINEER_ROLES_LIST  list(JOB_SQUAD_ENGI, JOB_MAINT_TECH, JOB_ORDNANCE_TECH, JOB_CHIEF_ENGINEER)
 
