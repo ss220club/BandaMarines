@@ -7,7 +7,7 @@ GLOBAL_LIST_EMPTY(ru_emote_messages)
 /datum/modpack/translations
 	name = "Переводы"
 	desc = "Добавляет переводы."
-	author = "Vallat, larentoun, pavlovvn, ROdenFL"
+	author = "Vallat, larentoun, pavlovvn, ROdenFL, PhantomRU"
 
 /datum/modpack/translations/post_initialize()
 	// Verbs
