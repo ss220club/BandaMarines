@@ -46,7 +46,7 @@
 
 /datum/paygrade/twe/o3
 	name = "Майор"
-	prefix = "Майр."
+	prefix = "Майор"
 
 /datum/paygrade/twe/o4
 	name = "Подполковник"
@@ -62,7 +62,7 @@
 
 /datum/paygrade/twe/o7
 	name = "Генерал-Майор"
-	prefix = "Ген-Майр."
+	prefix = "Ген-Майор"
 
 /datum/paygrade/twe/o8
 	name = "Генерал-Лейтенант"

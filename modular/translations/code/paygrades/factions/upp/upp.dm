@@ -57,7 +57,7 @@
 
 /datum/paygrade/upp/uo4
 	name = "Майор"
-	prefix = "Майр."
+	prefix = "Майор"
 
 /datum/paygrade/upp/uo4p
 	name = "Политрук"
@@ -73,7 +73,7 @@
 
 /datum/paygrade/upp/uo7
 	name = "Генерал-Майор"
-	prefix = "Ген-Майр."
+	prefix = "Ген-Майор"
 
 /datum/paygrade/upp/uo8
 	name = "Генерал-Лейтенант"

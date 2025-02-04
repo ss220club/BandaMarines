@@ -1,5 +1,5 @@
 // ККМП - Корпус Колониальной Морской Пехоты
-// При это это морпехи, но морские звания моряков находятся в navy.dm
+// При это это морпехи, но морские звания моряков находятся в navydm
 
 /datum/paygrade/marine
 	name = "Морпех"
@@ -8,57 +8,57 @@
 
 /datum/paygrade/marine/e1
 	name = "Рядовой"
-	prefix = "Ряд."
+	prefix = "Ряд"
 
-/datum/paygrade/marine/e2	// Медики, техники, каргонцы, повышенные рядовые.
+/datum/paygrade/marine/e2	// Медики, техники, каргонцы, повышенные рядовые
 	name = "Ефрейтор"
-	prefix = "Ефр."
+	prefix = "Ефр"
 
 /datum/paygrade/marine/e3	// Промежуточный, повышение
 	name = "Младший Сержант"
-	prefix = "Мл. Серж."
+	prefix = "МлСерж"
 
 /datum/paygrade/marine/e4	// Выдается крювманам, SG, ФТЛ, Спекам, корреспонденту, военной полиции
 	name = "Сержант"
-	prefix = "Серж."
+	prefix = "Серж"
 
 /datum/paygrade/marine/e5	// Выдается сквадным, Вардену
 	name = "Старший Сержант"
-	prefix = "Ст. Серж."
+	prefix = "СтСерж"
 
 /datum/paygrade/marine/e6	// Промежуточный
 	name = "Старшина"
-	prefix = "Стрш."
+	prefix = "Стрш"
 
 /datum/paygrade/marine/e7	// Квартирмейстер, советник
 	name = "Орудийный-Старшина"
-	prefix = "Оруд-Стрш."
+	prefix = "Оруд-Стрш"
 
 /datum/paygrade/marine/e8	// Синты-поддержки, старшие квартирмейстеры
 	name = "Мастер-Старшина"
-	prefix = "Маст-Стрш."
+	prefix = "Маст-Стрш"
 
 /datum/paygrade/marine/e8e	// Ивент, щитспавн-советники
 	name = "Младший Лейтенант"
-	prefix = "Мл. Лейт."
+	prefix = "МлЛейт"
 
 /datum/paygrade/marine/e9	// Ивент, щитспавн
 	name = "Капитан"
-	prefix = "Капт."
+	prefix = "Капт"
 
 /datum/paygrade/marine/e9e	// Ивент, щитспавн
 	name = "Майор"
-	prefix = "Майр."
+	prefix = "Майор"
 
 /datum/paygrade/marine/e9c	// Не используется
 	name = "Майор Корпуса Колонильных Морпехов"
-	prefix = "Майр. ККМ"
+	prefix = "Майор ККМ"
 
 // COMMISSIONED PAYGRADES
 
 /datum/paygrade/marine/o1	// Офицеры: Медбей, ГСБ, СЕ, Пилоты, ИО,
 	name = "Лейтенант"
-	prefix = "Лейт."
+	prefix = "Лейт"
 
 /datum/paygrade/marine/o2	// Офицеры поддержки, FAX'еры
 	name = "Старший Лейтенант"
@@ -66,49 +66,49 @@
 
 /datum/paygrade/marine/o3	// XO (Executive), Офицер, повышенный офицер поддержки
 	name = "Капитан"
-	prefix = "Капт."
+	prefix = "Капт"
 
 /datum/paygrade/marine/o4	// CO (Commanding), ВЛ
 	name = "Майор"
-	prefix = "Майр."
+	prefix = "Майор"
 
 /datum/paygrade/marine/o5	// CO+, щитспавн
 	name = "Подполковник"
-	prefix = "Подполк."
+	prefix = "Подполк"
 
 //Platoon Commander
 /datum/paygrade/marine/o6	// CO++, щитспавн, ивент
 	name = "Полковник"
-	prefix = "Полк."
+	prefix = "Полк"
 
 /datum/paygrade/marine/o6e	// Ивент
 	name = "Старший Полковник"
-	prefix = "Ст. Полк"
+	prefix = "СтПолк"
 
 /datum/paygrade/marine/o6c	// Ивент
 	name = "Полковник Дивизии"
-	prefix = "Полк. Див."
+	prefix = "ПолкДив"
 
 //High Command	----  Ивенты
 /datum/paygrade/marine/o7
 	name = "Генерал-Бригадир"
-	prefix = "Ген-Бриг."
+	prefix = "Ген-Бриг"
 
 /datum/paygrade/marine/o8
 	name = "Генерал-Майор"
-	prefix = "Ген-Майр."
+	prefix = "Ген-Майор"
 
 /datum/paygrade/marine/o9
 	name = "Генерал-Лейтенант"
-	prefix = "Ген-Лейт."
+	prefix = "Ген-Лейт"
 
 /datum/paygrade/marine/o10
 	name = "Генерал"
-	prefix = "Ген."
+	prefix = "Ген"
 
 /datum/paygrade/marine/o10c
 	name = "Помощник коменданта Корпуса Морской Пехоты"
-	prefix = "Пом. ККМП"
+	prefix = "ПомККМП"
 
 /datum/paygrade/marine/o10s
 	name = "Комендант Корпуса Морской Пехота"
@@ -116,7 +116,7 @@
 
 // Historical Background: Боевым собакам присвоено самое низкое офицерское звание из возможных,
 // у них нет формального командования, но если кто-то жестоко обращался с животным,
-// нарушителю могло быть предъявлено обвинение в нападении на офицера.
+// нарушителю могло быть предъявлено обвинение в нападении на офицера
 /datum/paygrade/marine/k9	// Ивент
 	name = "Младший лейтенант, Боевой Спаситель"
-	prefix = "МлЛейт., Боевой Спаситель"
+	prefix = "МлЛейт, Боевой Спаситель"
