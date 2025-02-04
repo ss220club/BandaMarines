@@ -100,7 +100,6 @@
 /obj/proc/set_pixel_location()
 	return
 
-//BANDAMARINES EDIT START
 /obj/item/proc/get_examine_line(mob/user)
 	if(blood_color)
 		. = SPAN_WARNING("[icon2html(src, user)] <font color='[blood_color]'>окровавленн[genderize_ru(gender, "ый", "ая", "ое", "ые")]</font> [declent_ru(ACCUSATIVE)]")
