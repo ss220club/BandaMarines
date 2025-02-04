@@ -495,7 +495,7 @@
 	color = hive.color
 
 	//Update linked data so they show up properly
-	change_real_name(src, name)
+	change_real_name(src, declent_ru(NOMINATIVE))
 
 /mob/living/carbon/xenomorph/queen/set_hive_and_update(new_hivenumber)
 	if(!..())
