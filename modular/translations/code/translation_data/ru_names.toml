@@ -1080,7 +1080,7 @@ nominative = "Защитник"
 gender = "female"
 
 ["Burrower"]
-nominative = "Роевик"
+nominative = "Копатель"
 gender = "female"
 
 ["Carrier"]
@@ -1104,7 +1104,7 @@ nominative = "Плевун"
 gender = "female"
 
 ["Boiler"]
-nominative = "Кипятильник"
+nominative = "Бойлер"
 gender = "female"
 
 ["Praetorian"]
