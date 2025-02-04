@@ -58,8 +58,8 @@
 /mob/living/simple_animal/hostile/alien/proc/generate_name()
 	// BANDASTATION EDIT START
 	var/number = rand(1, 999)
+	change_real_name(src, "[caste_name] (BD-[number])")
 	ru_names_rename(ru_names_toml(caste_name, suffix = " (BD-[number])"))
-	change_real_name(src, declent_ru(NOMINATIVE))
 	// BANDASTATION EDIT END
 
 /mob/living/simple_animal/hostile/alien/proc/handle_icon()
