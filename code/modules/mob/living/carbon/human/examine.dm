@@ -148,7 +148,7 @@
 
 	//eyes
 	if(glasses && !skipeyes)
-		msg += "[glasses.get_examine_line(user)] [glasses.get_examine_location(src, user, WEAR_EYES, t_He, t_his, t_him)].\n"
+		msg += "[t_He] носит [glasses.get_examine_line(user)] [glasses.get_examine_location(src, user, WEAR_EYES, t_He, t_his, t_him)].\n"
 
 	//ears
 	if(!skipears)

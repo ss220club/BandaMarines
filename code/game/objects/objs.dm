@@ -115,7 +115,7 @@
 		if(WEAR_R_EAR)
 			return "на правом ухе"
 		if(WEAR_EYES)
-			return "закрывает [t_his] глаза"
+			return "на глазах"
 		if(WEAR_FACE)
 			return "на лице"
 		if(WEAR_BODY)
