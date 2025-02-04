@@ -226,7 +226,7 @@
 		if(!key)
 			msg += SPAN_DEADSAY("[t_He] сразу заснуд. Не похоже, что он скоро проснется.\n")
 		else if(!client)
-			msg += "[t_He] внезапно заснул.\n"
+			msg += "[t_He] внезапно засыпает.\n"
 
 	if(fire_stacks > 0)
 		msg += "[t_He] покрыт[genderize_ru(gender, "", "а", "о", "ы")] чем-то легковоспламеняющимся.\n"
