@@ -17,7 +17,7 @@
 
 /datum/action/xeno_action/onclick/crusher_stomp/apply_replaces_in_desc()
 	replace_in_desc("%DAMAGE%", 60)
-	replace_in_desc("%SLOWTIME%", effect_duration / 10, DESCRIPTION_REPLACEMENT_TIME) // It's decimeters
+	replace_in_desc("%SLOWTIME%", effect_duration / 10, DESCRIPTION_REPLACEMENT_TIME) // It's deciseconds
 	replace_in_desc("%KNOCKDOWN%", convert_effect_time(0.2, WEAKEN), DESCRIPTION_REPLACEMENT_TIME)
 	replace_in_desc("%KNOCKDOWN_DISTANCE%", distance, DESCRIPTION_REPLACEMENT_DISTANCE)
 

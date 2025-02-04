@@ -36,6 +36,6 @@
 		if(STUN, DAZE, WEAKEN)
 			return amount * GLOBAL_STATUS_MULTIPLIER / 10
 		if(SLOW, SUPERSLOW, SLUR, STUTTER)
-			// SLOW STATUS EFFECT IS DIFFERENT. It uses decimeters.
+			// SLOW STATUS EFFECT IS DIFFERENT. It uses deciseconds.
 			return amount * /datum/controller/subsystem/human::wait / 10
 	return amount
