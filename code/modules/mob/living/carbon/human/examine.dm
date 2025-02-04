@@ -231,7 +231,7 @@
 	if(fire_stacks > 0)
 		msg += "[t_He] покрыт[genderize_ru(gender, "", "а", "о", "ы")] чем-то легковоспламеняющимся.\n"
 	if(fire_stacks < 0)
-		msg += "[t_He] промок.\n"
+		msg += "[t_He] промок[genderize_ru(gender, "", "ла", "ло", "ли")].\n"
 	if(on_fire)
 		msg += SPAN_WARNING("[t_He] горит!\n")
 
