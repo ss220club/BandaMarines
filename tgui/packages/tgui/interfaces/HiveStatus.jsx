@@ -150,7 +150,7 @@ const GeneralInformation = (props) => {
         <i>Всего сестёр: {total_xenos}</i>
       </Flex.Item>
       <Flex.Item>
-        <i>Burrowed larvae: {burrowed_larva}</i>
+        <i>Закопавшиеся грудоломы: {burrowed_larva}</i>
       </Flex.Item>
       <Flex.Item>
         <i>Evilution: {evilution_level}</i>
@@ -185,7 +185,7 @@ const XenoCounts = (props) => {
             <Flex direction="column">
               <Flex.Item>
                 <center>
-                  <h1 className="whiteTitle">Tier {tier}</h1>
+                  <h1 className="whiteTitle">Уровень {tier}</h1>
                   {tier >= 2 && (
                     <i>
                       <div>

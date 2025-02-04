@@ -17,7 +17,7 @@ const CASTES_RU = {
   Burrower: 'Копатель',
   Carrier: 'Переносчик',
   Hivelord: 'Повелитель улья',
-  Lurker: 'Скрытень',
+  Lurker: 'Охотник',
   Warrior: 'Воин',
   Spitter: 'Плевун',
   Boiler: 'Бойлер',
