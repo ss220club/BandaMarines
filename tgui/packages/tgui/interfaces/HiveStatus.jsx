@@ -196,8 +196,7 @@ const XenoCounts = (props) => {
                         >
                           {tier_slots[tier_str].open_slots}
                         </span>
-                        осталось мест
-                        {tier_slots[tier_str].open_slots !== 1 && 's'}
+                        мест осталось
                       </div>
                       {guaranteed_slots && (
                         <div>
