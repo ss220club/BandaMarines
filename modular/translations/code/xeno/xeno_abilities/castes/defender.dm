@@ -32,7 +32,7 @@
 
 /datum/action/xeno_action/activable/fortify
 	desc = "Занять позицию укрепления, увеличивая защиту на %ARMOR% (вдвое больше от взрывов). Не даёт вас опрокинуть. \
-		Также даёт %EXTRA_FRONT_ARMOR% спереди. Нельзя использовать большинство способностей и двигаться в укреплении."
+		Также даёт %EXTRA_FRONT_ARMOR% спереди. Нельзя использовать способности и двигаться в укреплении, но удар хвостом всё ещё доступен."
 
 /datum/action/xeno_action/activable/fortify/apply_replaces_in_desc()
 	replace_in_desc("%EXTRA_FRONT_ARMOR%", frontal_armor)
