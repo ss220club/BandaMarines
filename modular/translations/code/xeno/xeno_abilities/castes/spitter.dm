@@ -21,7 +21,7 @@
 /datum/action/xeno_action/activable/spray_acid/spitter
 	desc = "Спрей из линии кислоты, наносящий %DAMAGE% урона на расстоянии %RANGE% \
 		Если на цели имеется кислота, она получает дополнительно %DAMAGE_BONUS% урона, а также усиливает кислоту на цели. \
-		Если кислота была усилена, цель будет оглушена (%KNOCKDOWN_BONUS%)"
+		Если кислота была усилена, цель будет оглушена (%KNOCKDOWN_BONUS%)."
 
 /datum/action/xeno_action/activable/spray_acid/spitter/apply_replaces_in_desc()
 	replace_in_desc("%RANGE%", spray_distance, DESCRIPTION_REPLACEMENT_DISTANCE)
