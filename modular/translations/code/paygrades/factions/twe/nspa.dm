@@ -25,7 +25,7 @@
 
 /datum/paygrade/nspa/commander
 	name = "Коммандор"
-	prefix = "Кмндр."
+	prefix = "Кмдр."
 
 /datum/paygrade/nspa/deputy_commissioner
 	name = "Заместитель Коммисара"

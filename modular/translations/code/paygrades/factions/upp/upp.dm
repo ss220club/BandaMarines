@@ -49,7 +49,7 @@
 
 /datum/paygrade/upp/uo2
 	name = "Старший Лейтенант"
-	prefix = "Ст. Лейт."
+	prefix = "Старлей"
 
 /datum/paygrade/upp/uo3
 	name = "Капитан"

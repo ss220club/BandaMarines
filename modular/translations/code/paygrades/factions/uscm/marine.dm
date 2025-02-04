@@ -25,9 +25,6 @@
 /datum/paygrade/marine/e5	// Выдается сквадным, Вардену
 	name = "Старший Сержант"
 	prefix = "Ст. Серж."
-	rank_pin = /obj/item/clothing/accessory/ranks/marine/e5
-	ranking = 4
-	pay_multiplier = 2.2
 
 /datum/paygrade/marine/e6	// Промежуточный
 	name = "Старшина"
@@ -65,7 +62,7 @@
 
 /datum/paygrade/marine/o2	// Офицеры поддержки, FAX'еры
 	name = "Старший Лейтенант"
-	prefix = "СтЛейт."
+	prefix = "Старлей"
 
 /datum/paygrade/marine/o3	// XO (Executive), Офицер, повышенный офицер поддержки
 	name = "Капитан"

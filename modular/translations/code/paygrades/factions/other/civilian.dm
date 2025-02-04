@@ -7,8 +7,8 @@
 	prefix = "Мед."
 
 /datum/paygrade/civilian/paramedic
-	name = "Парамедик"
-	prefix = "Парамед."
+	name = "Фельдшер"
+	prefix = "Фельд."
 
 /datum/paygrade/civilian/doctor
 	name = "Доктор"
@@ -24,15 +24,15 @@
 
 /datum/paygrade/civillian/officer
 	name = "Офицер"
-	prefix = "Офф."
+	prefix = "Офц."
 
 /datum/paygrade/civillian/officer/senior
 	name = "Старший Офицер"
-	prefix = "Ст. Офф."
+	prefix = "Ст. Офц."
 
 /datum/paygrade/civilian/rebel
 	name = "Повстанец"
 
 /datum/paygrade/civilian/rebel/leader
 	name = "Коммандор Повстанцев"
-	prefix = "КМНДР."
+	prefix = "КМДР."

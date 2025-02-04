@@ -20,7 +20,7 @@
 
 /datum/paygrade/cmb/riot
 	name = "КМБ Офицер-Блюститель Порядка"
-	prefix = "Офф."
+	prefix = "Офц."
 
 /datum/paygrade/cmb/med
 	name = "КМБ Медицинский Техник"

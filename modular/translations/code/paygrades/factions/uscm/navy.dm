@@ -62,7 +62,7 @@
 
 /datum/paygrade/navy/o4
 	name = "Старший Лейтенант"
-	prefix = "Ст. Лейт."
+	prefix = "Старлей"
 
 /datum/paygrade/navy/o5
 	name = "Капитан-Лейтенант"
