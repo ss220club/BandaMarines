@@ -11,32 +11,32 @@
 	prefix = "Ряд"
 
 /datum/paygrade/marine/e2	// Медики, техники, каргонцы, повышенные рядовые
-	name = "Ефрейтор"
-	prefix = "Ефр"
+	name = "Рядовой Первого Класса"
+	prefix = "РядПк"
 
 /datum/paygrade/marine/e3	// Промежуточный, повышение
-	name = "Младший Сержант"
-	prefix = "МлСерж"
+	name = "Младший Капрал"
+	prefix = "МлКпл"
 
 /datum/paygrade/marine/e4	// Выдается крювманам, SG, ФТЛ, Спекам, корреспонденту, военной полиции
+	name = "Капрал"
+	prefix = "Кпл"
+
+/datum/paygrade/marine/e5	// Выдается сквадным, Вардену
 	name = "Сержант"
 	prefix = "Серж"
 
-/datum/paygrade/marine/e5	// Выдается сквадным, Вардену
+/datum/paygrade/marine/e6	// Промежуточный
 	name = "Старший Сержант"
 	prefix = "СтСерж"
 
-/datum/paygrade/marine/e6	// Промежуточный
-	name = "Старшина"
-	prefix = "Стрш"
-
 /datum/paygrade/marine/e7	// Квартирмейстер, советник
-	name = "Орудийный-Старшина"
-	prefix = "Оруд-Стрш"
+	name = "Орудийный-Сержант"
+	prefix = "Орд-Серж"
 
 /datum/paygrade/marine/e8	// Синты-поддержки, старшие квартирмейстеры
-	name = "Мастер-Старшина"
-	prefix = "Маст-Стрш"
+	name = "Мастер-Сержант"
+	prefix = "Мст-Серж"
 
 /datum/paygrade/marine/e8e	// Ивент, щитспавн-советники
 	name = "Младший Лейтенант"
