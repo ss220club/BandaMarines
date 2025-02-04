@@ -100,45 +100,47 @@
 /obj/proc/set_pixel_location()
 	return
 
+//BANDAMARINES EDIT START
 /obj/item/proc/get_examine_line(mob/user)
 	if(blood_color)
-		. = SPAN_WARNING("[icon2html(src, user)] [gender==PLURAL?"some":"a"] <font color='[blood_color]'>stained</font> [src.name]")
+		. = SPAN_WARNING("[icon2html(src, user)] <font color='[blood_color]'>окровавленн[genderize_ru(gender, "ый", "ая", "ое", "ые")]</font> [declent_ru(ACCUSATIVE)]")
 	else
-		. = "[icon2html(src, user)] \a [src]"
+		. = "[icon2html(src, user)] [declent_ru(ACCUSATIVE)]"
 
-/obj/item/proc/get_examine_location(mob/living/carbon/human/wearer, mob/examiner, slot, t_He = "They", t_his = "their", t_him = "them", t_has = "have", t_is = "are")
+/obj/item/proc/get_examine_location(mob/living/carbon/human/wearer, mob/examiner, slot, t_He = "Он", t_his = "его", t_him = "он", t_has = "have", t_is = "are")
 	switch(slot)
 		if(WEAR_HEAD)
-			return "on [t_his] head"
+			return "на [t_his] голове"
 		if(WEAR_L_EAR)
-			return "on [t_his] left ear"
+			return "на [t_his] левом ухе"
 		if(WEAR_R_EAR)
-			return "on [t_his] right ear"
+			return "on [t_his] правом ухе"
 		if(WEAR_EYES)
-			return "covering [t_his] eyes"
+			return "закрывает [t_his] глаза"
 		if(WEAR_FACE)
-			return "on [t_his] face"
+			return "на [t_his] лице"
 		if(WEAR_BODY)
-			return "wearing [get_examine_line(examiner)]"
+			return "[get_examine_line(examiner)]"
 		if(WEAR_JACKET)
-			return "wearing [get_examine_line(examiner)]"
+			return "[get_examine_line(examiner)]"
 		if(WEAR_WAIST)
-			return "about [t_his] waist"
+			return "на поясе"
 		if(WEAR_ID)
-			return "wearing [get_examine_line(examiner)]"
+			return "носит [get_examine_line(examiner)]"
 		if(WEAR_BACK)
-			return "on [t_his] back"
+			return "на [t_his] спине"
 		if(WEAR_J_STORE)
-			return "[wearer.wear_suit ? "on [t_his] [wearer.wear_suit.name]" : "around [t_his] back"]"
+			return "[wearer.wear_suit ? "на [t_his] [wearer.wear_suit.declent_ru(PREPOSITIONAL)]" : "на спине"]"
 		if(WEAR_HANDS)
-			return "on [t_his] hands"
+			return "на [t_his] руках"
 		if(WEAR_L_HAND)
-			return "in [t_his] left hand"
+			return "в [t_his] левой руке"
 		if(WEAR_R_HAND)
-			return "in [t_his] right hand"
+			return "в [t_his] правой руке"
 		if(WEAR_FEET)
-			return "on [t_his] feet"
-	return "...somewhere?"
+			return "на [t_his] ногах"
+	return "...где-то?"
+//BANDAMARINES EDIT END
 
 /obj/proc/updateUsrDialog(mob/user)
 	if(!user)
