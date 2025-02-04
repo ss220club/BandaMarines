@@ -27,7 +27,7 @@
 	prefix = "Офф."
 
 /datum/paygrade/civillian/officer/senior
-	name = "Старший Оффийер"
+	name = "Старший Офицер"
 	prefix = "Ст. Офф."
 
 /datum/paygrade/civilian/rebel
