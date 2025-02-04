@@ -106,7 +106,7 @@
 	else
 		. = "[icon2html(src, user)] [declent_ru(ACCUSATIVE)]"
 
-/obj/item/proc/get_examine_location(mob/living/carbon/human/wearer, mob/examiner, slot, t_He = "Он", t_his = "его", t_him = "он", t_has = "have", t_is = "are")
+/obj/item/proc/get_examine_location(mob/living/carbon/human/wearer, mob/examiner, slot, t_He = "Он", t_his = "его", t_him = "он")
 	switch(slot)
 		if(WEAR_HEAD)
 			return "на [t_his] голове"
