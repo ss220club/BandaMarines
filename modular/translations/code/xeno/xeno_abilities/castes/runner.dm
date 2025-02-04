@@ -24,7 +24,7 @@
 /datum/action/xeno_action/activable/acider_for_the_hive
 	desc = "Начинает таймер в %TIMER%, после которого вы взорветесь и обольете всё кислотой вокруг себя. Урон и расстояние зависит от накопленной плазмы (макс. %MAX_ACID%). \
 		Максимальная дальность кислоты равна %MAX_RANGE%; максимальный ожоговый урон носителям равен %MAX_BURN_DAMAGE%, а дальность урона носителям %MAX_BURN_RANGE%. Урон падает с расстоянием. \
-		Вы можете отменить таймер в любой момент ценой %CANCEL_COST% кислоты. Вы будете издавать звук во время таймера."
+		Вы можете отменить таймер в любой момент ценой %CANCEL_COST% кислоты. Вы будете издавать звук во время таймера. Также, при взрыве вы будете воскрешены в виде нового грудолома."
 
 /datum/action/xeno_action/activable/acider_for_the_hive/apply_replaces_in_desc()
 	replace_in_desc("%TIMER%", /datum/behavior_delegate/runner_acider::caboom_timer, DESCRIPTION_REPLACEMENT_TIME)
