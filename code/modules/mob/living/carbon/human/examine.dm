@@ -211,7 +211,7 @@
 		if(stat == DEAD && distance <= 3)
 			msg += SPAN_WARNING("[t_He] не дышит.\n")
 		if(paralyzed > 1 && distance <= 3)
-			msg += SPAN_WARNING("[t_He] совершенно не подвижен.\n")
+			msg += SPAN_WARNING("[t_He] совершенно неподвижен.\n")
 		if(ishuman(user) && !user.stat && Adjacent(user))
 			user.visible_message("<b>[user]</b> проверяет [t_him] пульс.", "Вы проверили [t_him] пульс.", null, 4)
 		spawn(15)
