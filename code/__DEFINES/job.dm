@@ -3,17 +3,17 @@
 #define GET_DEFAULT_ROLE(title) (GLOB.RoleAuthority?.default_roles[title] ? GLOB.RoleAuthority.default_roles[title] : title)
 
 // Squad name defines
-#define SQUAD_MARINE_1 "Альфа"
-#define SQUAD_MARINE_2 "Браво"
-#define SQUAD_MARINE_3 "Чарли"
-#define SQUAD_MARINE_4 "Дельта"
-#define SQUAD_MARINE_5 "Эхо"
-#define SQUAD_MARINE_CRYO "Фоксрот"
-#define SQUAD_MARINE_INTEL "Интел"
+#define SQUAD_MARINE_1 "Alpha"
+#define SQUAD_MARINE_2 "Bravo"
+#define SQUAD_MARINE_3 "Charlie"
+#define SQUAD_MARINE_4 "Delta"
+#define SQUAD_MARINE_5 "Echo"
+#define SQUAD_MARINE_CRYO "Foxtrot"
+#define SQUAD_MARINE_INTEL "Intel"
 #define SQUAD_SOF "SOF"
 #define SQUAD_CBRN "CBRN"
-#define SQUAD_FORECON "РАЗВЕДКА"
-#define SQUAD_SOLAR "Дьяволы Солнца"
+#define SQUAD_FORECON "FORECON"
+#define SQUAD_SOLAR "Solar Devils"
 
 // Job name defines
 #define JOB_SQUAD_MARINE "Стрелок"
@@ -420,9 +420,9 @@ GLOBAL_LIST_INIT(job_command_roles, JOB_COMMAND_ROLES_LIST)
 
 
 //---------- ANTAG ----------//
-#define JOB_PREDATOR "Хищник"
-#define JOB_XENOMORPH    "Ксеноморф"
-#define JOB_XENOMORPH_QUEEN  "Королева"
+#define JOB_PREDATOR "Predator"
+#define JOB_XENOMORPH    "Xenomorph"
+#define JOB_XENOMORPH_QUEEN  "Queen"
 
 // For coloring the ranks in the statistics menu
 #define JOB_PLAYTIME_TIER_0  (0 HOURS)		// SS220 EDIT
@@ -446,7 +446,7 @@ GLOBAL_LIST_INIT(job_command_roles, JOB_COMMAND_ROLES_LIST)
 #define XENO_PRIME 5
 
 /// For monthly time tracking
-#define JOB_OBSERVER "Наблюдатель"
+#define JOB_OBSERVER "Observer"
 #define TIMELOCK_JOB(role_id, hours) new/datum/timelock(role_id, hours, role_id)
 
 //For displaying groups of jobs. Used by new player's latejoin menu and by crew manifest.
