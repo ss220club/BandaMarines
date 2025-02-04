@@ -3,7 +3,7 @@
 		return list(desc)
 
 	if(user.sdisabilities & DISABILITY_BLIND || user.blinded || user.stat==UNCONSCIOUS)
-		return list(SPAN_NOTICE("Тут что-то есть, но вы не видите это!"))
+		return list(SPAN_NOTICE("Тут что-то есть, но вы не можете разглядеть."))
 
 	var/mob/dead/observer/observer
 	if(isobserver(user))
