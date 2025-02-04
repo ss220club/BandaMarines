@@ -1080,7 +1080,7 @@ nominative = "Защитник"
 gender = "female"
 
 ["Burrower"]
-nominative = "Копатель"
+nominative = "Роевик"
 gender = "female"
 
 ["Carrier"]
@@ -1088,7 +1088,7 @@ nominative = "Носитель"
 gender = "female"
 
 ["Hivelord"]
-nominative = "Повелитель улья"
+nominative = "Владыка улья"
 gender = "female"
 
 ["Lurker"]
@@ -1104,7 +1104,7 @@ nominative = "Плевун"
 gender = "female"
 
 ["Boiler"]
-nominative = "Бойлер"
+nominative = "Кипятильник"
 gender = "female"
 
 ["Praetorian"]
@@ -1116,7 +1116,7 @@ nominative = "Крушитель"
 gender = "female"
 
 ["Ravager"]
-nominative = "Разоритель"
+nominative = "Опустошитель"
 gender = "female"
 
 ["King"]
