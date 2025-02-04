@@ -1,4 +1,3 @@
-//BANDAMARINES EDIT START
 /mob/living/carbon/human/get_examine_text(mob/user)
 	if(HAS_TRAIT(src, TRAIT_SIMPLE_DESC))
 		return list(desc)
