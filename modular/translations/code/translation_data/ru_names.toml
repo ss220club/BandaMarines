@@ -1116,6 +1116,9 @@ nominative = "Адская гончая"
 ["Abomination"]
 nominative = "Абоминация"
 
+["Empress"]
+nominative = "Императрица"
+
 # MARK: Security
 ["handcuffs"]
 nominative = "наручники"
