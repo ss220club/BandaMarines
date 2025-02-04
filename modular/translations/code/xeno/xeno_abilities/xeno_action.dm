@@ -29,3 +29,12 @@
 		desc += "<br>Перезарядка: [round(xeno_cooldown / 10, 0.1)] сек."
 	if(charge_time)
 		desc += "<br>Задержка перед активацией: [round(charge_time / 10, 0.1)] сек."
+
+/// Helper proc to make time make sense
+/datum/action/xeno_action/proc/convert_effect_time(amount, status)
+	switch(status)
+		if(STUN, DAZE, WEAKEN)
+			return amount * GLOBAL_STATUS_MULTIPLIER / 10
+		if(SLOW, SUPERSLOW, SLUR, STUTTER)
+			return amount * /datum/controller/subsystem/human::wait / 10
+	return amount
