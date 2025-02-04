@@ -9,7 +9,7 @@ const CASTES_RU = {
   Larva: 'Грудолом',
   'Predalien Larva': 'Грудолом чужехищника',
   Facehugger: 'Лицехват',
-  'Lesser Drone': 'Младший дрон',
+  'Lesser Drone': 'Трутень',
   Drone: 'Дрон',
   Runner: 'Бегун',
   Sentinel: 'Страж',
