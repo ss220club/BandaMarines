@@ -446,7 +446,7 @@
 		msg += SPAN_WARNING("<b>У [t_him] огромное отверстие в груди!</b>\n")
 
 	for(var/implant in get_visible_implants())
-		msg += SPAN_WARNING("<b>[implant] торчит из-под [t_his] кожи!</b>\n")
+		msg += SPAN_WARNING("<b>[capitalize(implant.declent_ru(NOMINATIVE))] торчит из-под [t_his] кожи!</b>\n")
 
 	if(hasHUD(user,"security") || (observer && observer.HUD_toggled["Security HUD"]))
 		var/perpref
