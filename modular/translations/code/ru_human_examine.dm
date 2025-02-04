@@ -144,22 +144,22 @@
 
 	//mask
 	if(wear_mask && !skipmask)
-		msg += "[t_He] [wear_mask.get_examine_line(user)] [wear_mask.get_examine_location(src, user, WEAR_FACE, t_He, t_his, t_him)].\n"
+		msg += "[t_He] носит [wear_mask.get_examine_line(user)] [wear_mask.get_examine_location(src, user, WEAR_FACE, t_He, t_his, t_him)].\n"
 
 	//eyes
 	if(glasses && !skipeyes)
-		msg += "[t_He] [glasses.get_examine_line(user)] [glasses.get_examine_location(src, user, WEAR_EYES, t_He, t_his, t_him)].\n"
+		msg += "[glasses.get_examine_line(user)] [glasses.get_examine_location(src, user, WEAR_EYES, t_He, t_his, t_him)].\n"
 
 	//ears
 	if(!skipears)
 		if(wear_l_ear)
-			msg += "[t_He] [wear_l_ear.get_examine_line(user)] [wear_l_ear.get_examine_location(src, user, WEAR_L_EAR, t_He, t_his, t_him)].\n"
+			msg += "[t_He] носит [wear_l_ear.get_examine_line(user)] [wear_l_ear.get_examine_location(src, user, WEAR_L_EAR, t_He, t_his, t_him)].\n"
 		if(wear_r_ear)
-			msg += "[t_He] [wear_r_ear.get_examine_line(user)] [wear_r_ear.get_examine_location(src, user, WEAR_R_EAR, t_He, t_his, t_him)].\n"
+			msg += "[t_He] носит [wear_r_ear.get_examine_line(user)] [wear_r_ear.get_examine_location(src, user, WEAR_R_EAR, t_He, t_his, t_him)].\n"
 
 	//ID
 	if(wear_id)
-		msg += "[t_He] [wear_id.get_examine_location(src, user, WEAR_ID, t_He, t_his, t_him)].\n"
+		msg += "[t_He] носит [wear_id.get_examine_location(src, user, WEAR_ID, t_He, t_his, t_him)].\n"
 
 	//Restraints
 	if(handcuffed)
