@@ -53,7 +53,7 @@
 
 /datum/paygrade/upp/uo3
 	name = "Капитан"
-	prefix = "Капт."
+	prefix = "Капитан"
 
 /datum/paygrade/upp/uo4
 	name = "Майор"

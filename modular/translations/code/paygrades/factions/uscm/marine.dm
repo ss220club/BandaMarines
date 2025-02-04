@@ -44,7 +44,7 @@
 
 /datum/paygrade/marine/e9	// Ивент, щитспавн
 	name = "Капитан"
-	prefix = "Капт"
+	prefix = "Капитан"
 
 /datum/paygrade/marine/e9e	// Ивент, щитспавн
 	name = "Майор"
@@ -66,7 +66,7 @@
 
 /datum/paygrade/marine/o3	// XO (Executive), Офицер, повышенный офицер поддержки
 	name = "Капитан"
-	prefix = "Капт"
+	prefix = "Капитан"
 
 /datum/paygrade/marine/o4	// CO (Commanding), ВЛ
 	name = "Майор"

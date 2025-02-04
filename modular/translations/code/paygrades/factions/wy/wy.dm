@@ -11,7 +11,7 @@
 
 /datum/paygrade/wy_ranks/wycPO
 	name = "Капитан"
-	prefix = "Капт"
+	prefix = "Капитан"
 
 /datum/paygrade/wy_ranks/wyc3
 	name = "Исполнитель"

@@ -42,7 +42,7 @@
 
 /datum/paygrade/twe/o2
 	name = "Капитан"
-	prefix = "Капт."
+	prefix = "Капитан"
 
 /datum/paygrade/twe/o3
 	name = "Майор"
