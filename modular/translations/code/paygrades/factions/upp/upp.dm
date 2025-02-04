@@ -7,32 +7,32 @@
 
 /datum/paygrade/upp/ue1
 	name = "Рядовой"
-	prefix = "Ряд."
+	prefix = "Ряд"
 
 /datum/paygrade/upp/ue2
 	name = "Ефрейтор"
-	prefix = "Ефр."
+	prefix = "Ефр"
 
 /datum/paygrade/upp/ue3
 	name = "Младший Сержант"
-	prefix = "Мл. Серж."
+	prefix = "МлСерж"
 
 /datum/paygrade/upp/ue4
 	name = "Сержант"
-	prefix = "Серж."
+	prefix = "Серж"
 
 /datum/paygrade/upp/ue5
 	name = "Старший Сержант"
-	prefix = "Ст. Серж."
+	prefix = "СтСерж"
 
 /datum/paygrade/upp/ue6
 	name = "Старшина"
-	prefix = "Ст. рш."
+	prefix = "Стрш"
 
 //UPP Commandos
 /datum/paygrade/upp/uc1
 	name = "Младший Коммандос"
-	prefix = "Мл. КОМС"
+	prefix = "МлКОМС"
 
 /datum/paygrade/upp/uc2
 	name = "Коммандос"
@@ -40,12 +40,12 @@
 
 /datum/paygrade/upp/uc3
 	name = "Старший Коммандос"
-	prefix = "Ст. КОМС"
+	prefix = "СтКОМС"
 
 //UPP Officers
 /datum/paygrade/upp/uo1
 	name = "Младший Лейтенант"
-	prefix = "МлЛейт."
+	prefix = "МлЛейт"
 
 /datum/paygrade/upp/uo2
 	name = "Старший Лейтенант"
@@ -61,15 +61,15 @@
 
 /datum/paygrade/upp/uo4p
 	name = "Политрук"
-	prefix = "Пол."
+	prefix = "Пол"
 
 /datum/paygrade/upp/uo5
 	name = "Подполковник"
-	prefix = "Подполк."
+	prefix = "Подполк"
 
 /datum/paygrade/upp/uo6
 	name = "Полковник"
-	prefix = "Полк."
+	prefix = "Полк"
 
 /datum/paygrade/upp/uo7
 	name = "Генерал-Майор"
@@ -77,11 +77,11 @@
 
 /datum/paygrade/upp/uo8
 	name = "Генерал-Лейтенант"
-	prefix = "Ген-Лейт."
+	prefix = "Ген-Лейт"
 
 /datum/paygrade/upp/uo9
 	name = "Генерал-Полковник"
-	prefix = "Ген-Полк."
+	prefix = "Ген-Полк"
 
 /datum/paygrade/upp/uo10
 	name = "Генерал Армии"

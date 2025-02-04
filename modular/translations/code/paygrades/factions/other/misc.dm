@@ -1,6 +1,6 @@
 /datum/paygrade/misc/operative
 	name = "Оператор"
-	prefix = "ОПР."
+	prefix = "ОПР"
 
 /datum/paygrade/misc/codenamed
 	name = "Оперативник"

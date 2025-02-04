@@ -1,18 +1,18 @@
 
-// Provost = Проректор. Является вторым по значению после президента (ректора).
+// Provost = ПроректорЯвляется вторым по значению после президента (ректора).
 // Отвечают за исследовательскую деятельность
 
 /datum/paygrade/provost/inspector
 	name = "Проректор-Инспектор"
-	prefix = "Инсп."
+	prefix = "Инсп"
 
 /datum/paygrade/provost/inspector/chief
 	name = "Ректор-Иснпектор"
-	prefix = "Глав. Инсп."
+	prefix = "ГлавИнсп"
 
 /datum/paygrade/provost/marshal/deputy
 	name = "Проректор-Маршал"
-	prefix = "Зам. Маршал"
+	prefix = "ЗамМаршал"
 
 /datum/paygrade/provost/marshal
 	name = "Ректор-Маршал"
@@ -20,7 +20,7 @@
 
 /datum/paygrade/provost/sectormarshal
 	name = "Проректор-Маршал Сектора"
-	prefix = "Ст. Маршал"
+	prefix = "СтМаршал"
 
 /datum/paygrade/provost/chiefmarshal
 	name = "Ректор-Маршал Сектора"

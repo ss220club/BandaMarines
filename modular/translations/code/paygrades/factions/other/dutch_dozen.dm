@@ -5,22 +5,22 @@
 // большинство из них имеют одну общую цель — устранить гуманоидно-инопланетные фигуры в районе операций.
 
 /datum/paygrade/dutch
-	fprefix = "ДАЧ."
+	fprefix = "ДАЧ"
 
 /datum/paygrade/dutch/standard
 	name = "Наемник Дюжины Датча"
 
 /datum/paygrade/dutch/medic
 	name = "Медик Дюжины Датча"
-	prefix = "МЕД."
+	prefix = "МЕД"
 
 /datum/paygrade/dutch/specialist_flamer
 	name = "Специалист-Огнеметчик Дюжины Датча"
-	prefix = "СПЕЦ."
+	prefix = "СПЕЦ"
 
 /datum/paygrade/dutch/specialist_minigunner
 	name = "Пулеметчик Дюжины Датча"
-	prefix = "ПУЛ."
+	prefix = "ПУЛ"
 
 /datum/paygrade/dutch/arnold
 	name = "Майор"
