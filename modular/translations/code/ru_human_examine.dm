@@ -229,7 +229,7 @@
 			msg += "[t_He] внезапно заснул.\n"
 
 	if(fire_stacks > 0)
-		msg += "[t_He] покрыт[genderize_ru(gender, "", "а", "о")] чем-то легковоспламеняющимся.\n"
+		msg += "[t_He] покрыт[genderize_ru(gender, "", "а", "о", "ы")] чем-то легковоспламеняющимся.\n"
 	if(fire_stacks < 0)
 		msg += "[t_He] промок.\n"
 	if(on_fire)
@@ -539,7 +539,7 @@
 
 /obj/item/get_examine_line(mob/user)
 	if(blood_color)
-		. = SPAN_WARNING("[icon2html(src, user)] <font color='[blood_color]'>окровавленн[genderize_ru(gender, "ый", "ая", "ое")]</font> [declent_ru(ACCUSATIVE)]")
+		. = SPAN_WARNING("[icon2html(src, user)] <font color='[blood_color]'>окровавленн[genderize_ru(gender, "ый", "ая", "ое", "ые")]</font> [declent_ru(ACCUSATIVE)]")
 	else
 		. = "[icon2html(src, user)] [declent_ru(ACCUSATIVE)]"
 
