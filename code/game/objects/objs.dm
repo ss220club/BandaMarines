@@ -109,15 +109,15 @@
 /obj/item/proc/get_examine_location(mob/living/carbon/human/wearer, mob/examiner, slot, t_He = "Он", t_his = "его", t_him = "он")
 	switch(slot)
 		if(WEAR_HEAD)
-			return "на [t_his] голове"
+			return "на голове"
 		if(WEAR_L_EAR)
-			return "на [t_his] левом ухе"
+			return "на левом ухе"
 		if(WEAR_R_EAR)
-			return "на [t_his] правом ухе"
+			return "на правом ухе"
 		if(WEAR_EYES)
 			return "закрывает [t_his] глаза"
 		if(WEAR_FACE)
-			return "на [t_his] лице"
+			return "на лице"
 		if(WEAR_BODY)
 			return "[get_examine_line(examiner)]"
 		if(WEAR_JACKET)
@@ -127,17 +127,17 @@
 		if(WEAR_ID)
 			return "носит [get_examine_line(examiner)]"
 		if(WEAR_BACK)
-			return "на [t_his] спине"
+			return "на спине"
 		if(WEAR_J_STORE)
-			return "[wearer.wear_suit ? "на [t_his] [wearer.wear_suit.declent_ru(PREPOSITIONAL)]" : "на спине"]"
+			return "[wearer.wear_suit ? "на [wearer.wear_suit.declent_ru(PREPOSITIONAL)]" : "на спине"]"
 		if(WEAR_HANDS)
-			return "на [t_his] руках"
+			return "на руках"
 		if(WEAR_L_HAND)
-			return "в [t_his] левой руке"
+			return "в левой руке"
 		if(WEAR_R_HAND)
-			return "в [t_his] правой руке"
+			return "в правой руке"
 		if(WEAR_FEET)
-			return "на [t_his] ногах"
+			return "на ногах"
 	return "...где-то?"
 
 /obj/proc/updateUsrDialog(mob/user)
