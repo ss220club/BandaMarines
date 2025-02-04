@@ -213,7 +213,7 @@
 		if(paralyzed > 1 && distance <= 3)
 			msg += SPAN_WARNING("[t_He] совершенно неподвижен.\n")
 		if(ishuman(user) && !user.stat && Adjacent(user))
-			user.visible_message("<b>[user]</b> проверяет [t_him] пульс.", "Вы проверили [t_him] пульс.", null, 4)
+			user.visible_message("<b>[capitalize(user.declent_ru(NOMINATIVE))]</b> проверяет [t_him] пульс.", "Вы проверили [t_him] пульс.", null, 4)
 		spawn(15)
 			if(user && src && distance <= 1)
 				get_pulse(GETPULSE_HAND) // to update it
