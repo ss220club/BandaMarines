@@ -39,7 +39,9 @@
 #define JOB_DOCTOR_RU "Доктор"
 #define JOB_SURGEON_RU "Хирург"
 
-#define JOB_NURSE_RU "Медработник" // т.к. нет зависимости от пола, из-за чего нельзя медсестра/медбрат
+#define JOB_NURSE_RU "Медработник"
+#define JOB_NURSE_RU_MALE "Медбрат"
+#define JOB_NURSE_RU_FEMALE "Медсестра"
 #define JOB_RESEARCHER_RU "Исследователь"
 #define JOB_CORPORATE_LIAISON_RU "Связной Корпорации"
 
