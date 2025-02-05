@@ -6902,6 +6902,98 @@ instrumental = "компонентом сухого пайка"
 prepositional = "компоненте сухого пайка"
 gender = "male"
 
+["boneless pork ribs"]
+nominative = "свинные ребрышки"
+gender = "plural"
+
+["grilled chicken"]
+nominative = "курочка-гриль"
+gender = "female"
+
+["pizza square"]
+nominative = "квадратная пицца"
+gender = "male"
+
+["spaghetti chunks"]
+nominative = "кусочки спагетти"
+gender = "plural"
+
+["spaghetti chunks"]
+nominative = "кусочки спагетти"
+gender = "plural"
+
+["cracker"]
+nominative = "сухари"
+gender = "plural"
+
+["cheese spread"]
+nominative = "сырная паста"
+gender = "female"
+
+["rice onigiri"]
+nominative = "онигири"
+gender = "plural"
+
+["mashed potatoes"]
+nominative = "картофельное пюрэ"
+gender = "neuter"
+
+["risotto"]
+nominative = "ризотто"
+gender = "male"
+
+["biscuit"]
+nominative = "бисквит"
+gender = "male"
+
+["meatballs"]
+nominative = "фрикадельки"
+gender = "plural"
+
+["pretzels"]
+nominative = "крендельки"
+gender = "plural"
+
+["peanuts"]
+nominative = "арахис"
+gender = "male"
+
+["sushi"]
+nominative = "суши"
+gender = "plural"
+
+["spiced apples"]
+nominative = "яблочные дольки"
+gender = "plural"
+
+["chocolate brownie"]
+nominative = "шоколадный брауни"
+gender = "male"
+
+["sugar cookie"]
+nominative = "сладкое печенье"
+gender = "neuter"
+
+["coco bar"]
+nominative = "кокосовый балончик"
+gender = "male"
+
+["coco bar"]
+nominative = "кокосовый балончик"
+gender = "male"
+
+["flan"]
+nominative = "пирог"
+gender = "male"
+
+["honey flan"]
+nominative = "медовик"
+gender = "male"
+
+["chicken tender"]
+nominative = "куриные палочки"
+gender = "plural"
+
 # MARK: Botany
 
 ["watering can"]

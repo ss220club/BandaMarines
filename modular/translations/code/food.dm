@@ -31,13 +31,5 @@
 /obj/item/reagent_container/food/drinks/flask/canteen
 	desc = "Вы делаете глоток из своей верной фляжки ККМП..."
 
-GLOBAL_LIST_INIT(ru_mre_components, list(
-	"boneless pork ribs" = "свинные ребрышки", "grilled chicken" = "курочка-гриль", "pizza square" = "квадратная пицаа", "кусочки спагетти",
-	"куриные палочки", "cracker" = "сухари", "cheese spread" = "сырная паста", "rice onigiri" = "онигири", "mashed potatoes" = "картофельное пюрэ",
-	"risotto" = "ризотто", "biscuit" = "бисквит", "meatballs" = "фрикадельки", "pretzels" = "крендельки", "peanuts" = "арахис",
-	"sushi" = "суши", "spiced apples" = "яблочные дольки", "chocolate brownie" = "шоколадный брауни", "sugar cookie" = "сладкое печенье",
-	"coco bar" = "кокосовый балончик", "flan" = "пирог", "honey flan" = "медовик"
-	))
-
 /obj/item/storage/box/MRE
 	desc = "Готовая к употреблению пища. Одноразовый армейский рацион, предназначенный для снабжения солдата необходимым уровнем питательных веществ для целого дня напряженной работы. Срок годности по меньшей мере на 20 лет превышает ожидаемый срок службы."
