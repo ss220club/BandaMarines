@@ -1,4 +1,4 @@
-/datum/action/xeno_action/New(Target, override_icon_state)
+/datum/action/xeno_action/give_to(mob/living/L)
 	. = ..()
 	update_desc()
 
@@ -31,7 +31,7 @@
 		desc += "<br>Задержка перед активацией: [round(charge_time / 10, 0.1)] сек."
 
 /// Helper proc to make time make sense
-/datum/action/xeno_action/proc/convert_effect_time(amount, status)
+/proc/convert_effect_time(amount, status)
 	switch(status)
 		if(STUN, DAZE, WEAKEN)
 			return amount * GLOBAL_STATUS_MULTIPLIER / 10

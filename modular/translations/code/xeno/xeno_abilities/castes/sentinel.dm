@@ -1,9 +1,11 @@
 /datum/action/xeno_action/activable/slowing_spit
-	desc = "Слабый нейротоксин ограниченной дистанции (%DISTANCE%). Значительно замедляет цель (%SLOWDOWN%). Носитель может устоять от нейротоксина."
+	desc = "Слабый нейротоксин, носитель может устоять. Значительно замедляет цель (%SLOWDOWN%)."
 
 /datum/action/xeno_action/activable/slowing_spit/apply_replaces_in_desc()
-	replace_in_desc("%DISTANCE%", /datum/ammo/xeno/toxin::max_range, DESCRIPTION_REPLACEMENT_DISTANCE)
 	replace_in_desc("%SLOWDOWN%", convert_effect_time(4, SUPERSLOW), DESCRIPTION_REPLACEMENT_TIME)
+	var/mob/living/carbon/xenomorph/xeno = owner
+	var/datum/ammo/xeno/spit = xeno.ammo || GLOB.ammo_list[xeno.caste.spit_types[1]]
+	desc += "<br><br>Характеристики [spit.get_description()]"
 
 /datum/action/xeno_action/activable/scattered_spit
 	desc = "Слабый нейротоксин ограниченной дистанции (%DISTANCE%), стреляющий веером. Кратковременно оглушает цель (%STUN%). Носитель может устоять от нейротоксина."
