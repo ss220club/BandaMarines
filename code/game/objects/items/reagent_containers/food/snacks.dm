@@ -3572,27 +3572,32 @@
 	..()
 /obj/item/reagent_container/food/snacks/packaged_meal/proc/determinetype(newflavor)
 	name = "\improper MRE component ([newflavor])"
-	flavor = newflavor
+	// BANDAMARINES EDIT START
+	for(var/declension in GLOB.declensions)
+		if(ru_names[declension])
+			ru_names[declension] = "[ru_names[declension]] ([GLOB.ru_mre_components[newflavor] ? GLOB.ru_mre_components[newflavor] : newflavor ])"
+	// BANDAMARINES EDIT END
+	flavor = GLOB.ru_mre_components[newflavor] ? GLOB.ru_mre_components[newflavor] : newflavor
 
 	switch(newflavor)
 		if("boneless pork ribs", "grilled chicken", "pizza square", "spaghetti chunks", "chicken tender")
 			icon_state = "entree"
-			desc = "An MRE entree component. Contains the main course for nutrients. This one is [flavor]."
+			desc = "Основное блюдо сухого пойка. Это [flavor]."
 			reagents.add_reagent("nutriment", 14)
 			reagents.add_reagent("sodiumchloride", 6)
 		if("cracker", "cheese spread", "rice onigiri", "mashed potatoes", "risotto")
 			icon_state = "side"
-			desc = "An MRE side component. Contains a side, to be eaten alongside the main. This one is [flavor]."
+			desc = "Гарнит к основному блюду сухого пойка. Это [flavor]."
 			reagents.add_reagent("nutriment", 6)
 			reagents.add_reagent("sodiumchloride", 2)
 		if("biscuit", "meatballs", "pretzels", "peanuts", "sushi")
 			icon_state = "snack"
-			desc = "An MRE snack component. Contains a light snack in case you weren't feeling terribly hungry. This one is [flavor]."
+			desc = "Компонент сухого пойка, рассчитанный на лёгкий перекус. Это [flavor]."
 			reagents.add_reagent("nutriment", 4)
 			reagents.add_reagent("sodiumchloride", 2)
 		if("spiced apples", "chocolate brownie", "sugar cookie", "coco bar", "flan", "honey flan")
 			icon_state = "dessert"
-			desc = "An MRE side component. Contains a sweet dessert, to be eaten after the main (or before, if you're rebellious). This one is [flavor]."
+			desc = "Сладкий десерт, который можно съесть после основного блюда (или до него, если вы бунтарь). Это [flavor]."
 			reagents.add_reagent("nutriment", 2)
 			reagents.add_reagent("sugar", 2)
 			reagents.add_reagent("coco", 1)

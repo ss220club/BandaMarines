@@ -13,3 +13,5 @@
 #define INSTRUMENTAL "творительный"
 /// Предложный: Прохладная история о ком? О клоуне и об ассистухе.
 #define PREPOSITIONAL "предложный"
+
+GLOBAL_VAR_INIT(declensions, list(NOMINATIVE, GENITIVE, DATIVE, ACCUSATIVE, INSTRUMENTAL, PREPOSITIONAL))

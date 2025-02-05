@@ -4138,6 +4138,15 @@ instrumental = "торговым автоматом игрушек Donksoft"
 prepositional = "торговом автомате игрушек Donksoft"
 gender = "male"
 
+["ColMarTech Food Vendor"]
+nominative = "раздатчик еды ColMarTech"
+genitive = "раздатчика еды ColMarTech"
+dative = "раздатчику еды ColMarTech"
+accusative = "раздатчик еды ColMarTech"
+instrumental = "раздатчиком еды ColMarTech"
+prepositional = "раздатчике еды ColMarTech"
+gender = "male"
+
 ["Donksoft Toy Vendor Refill"] # Unique Design Name
 nominative = "пополнитель торгового автомата игрушек Donksoft"
 
@@ -5403,6 +5412,42 @@ dative = "фляге"
 accusative = "флягу"
 instrumental = "флягой"
 prepositional = "фляге"
+gender = "female"
+
+["canteen"]
+nominative = "фляга"
+genitive = "фляги"
+dative = "фляге"
+accusative = "флягу"
+instrumental = "флягой"
+prepositional = "фляге"
+gender = "female"
+
+["metal flask"]
+nominative = "металлическая фляга"
+genitive = "металлической фляги"
+dative = "металлической фляге"
+accusative = "металлическую флягу"
+instrumental = "металлической флягой"
+prepositional = "металлической фляге"
+gender = "female"
+
+["USCM flask"]
+nominative = "фляга ККМП"
+genitive = "фляги ККМП"
+dative = "фляге ККМП"
+accusative = "флягу ККМП"
+instrumental = "флягой ККМП"
+prepositional = "фляге ККМП"
+gender = "female"
+
+["Weyland-Yutani flask"]
+nominative = "фляга Вейланд-Ютани"
+genitive = "фляги Вейланд-Ютани"
+dative = "фляге Вейланд-Ютани"
+accusative = "флягу Вейланд-Ютани"
+instrumental = "флягой Вейланд-Ютани"
+prepositional = "фляге Вейланд-Ютани"
 gender = "female"
 
 ["glass bottle"]
@@ -6774,6 +6819,87 @@ dative = "бургеру с беконом"
 accusative = "бургер с беконом"
 instrumental = "бургером с беконом"
 prepositional = "бургере с беконом"
+gender = "male"
+
+["USCM Prepared Meal (chicken)"]
+nominative = "готовое блюдо ККМП (курица)"
+genitive = "готового блюда ККМП (курица)"
+dative = "готовому блюду ККМП (курица)"
+accusative = "готовое блюдо ККМП (курица)"
+instrumental = "готовым блюдом ККМП (курица)"
+prepositional = "готовом блюде ККМП (курица)"
+gender = "neuter"
+
+["USCM Prepared Meal (cornbread)"]
+nominative = "готовое блюдо ККМП (кукурузный хлеб)"
+genitive = "готового блюда ККМП (кукурузный хлеб)"
+dative = "готовому блюду ККМП (кукурузный хлеб)"
+accusative = "готовое блюдо ККМП (кукурузный хлеб)"
+instrumental = "готовым блюдом ККМП (кукурузный хлеб)"
+prepositional = "готовом блюде ККМП (кукурузный хлеб)"
+gender = "neuter"
+
+["USCM Prepared Meal (pasta)"]
+nominative = "готовое блюдо ККМП (паста)"
+genitive = "готового блюда ККМП (паста)"
+dative = "готовому блюду ККМП (паста)"
+accusative = "готовое блюдо ККМП (паста)"
+instrumental = "готовым блюдом ККМП (паста)"
+prepositional = "готовом блюде ККМП (паста)"
+gender = "neuter"
+
+["USCM Prepared Meal (pizza)"]
+nominative = "готовое блюдо ККМП (пицца)"
+genitive = "готового блюда ККМП (пицца)"
+dative = "готовому блюду ККМП (пицца)"
+accusative = "готовое блюдо ККМП (пицца)"
+instrumental = "готовым блюдом ККМП (пицца)"
+prepositional = "готовом блюде ККМП (пицца)"
+gender = "neuter"
+
+["USCM Prepared Meal (pork)"]
+nominative = "готовое блюдо ККМП (свинина)"
+genitive = "готового блюда ККМП (свинина)"
+dative = "готовому блюду ККМП (свинина)"
+accusative = "готовое блюдо ККМП (свинина)"
+instrumental = "готовым блюдом ККМП (свинина)"
+prepositional = "готовом блюде ККМП (свинина)"
+gender = "neuter"
+
+["USCM Prepared Meal (tofu)"]
+nominative = "готовое блюдо ККМП (тофу)"
+genitive = "готового блюда ККМП (тофу)"
+dative = "готовому блюду ККМП (тофу)"
+accusative = "готовое блюдо ККМП (тофу)"
+instrumental = "готовым блюдом ККМП (тофу)"
+prepositional = "готовом блюде ККМП (тофу)"
+gender = "neuter"
+
+["stale USCM protein bar"]
+nominative = "черствый протеиновый батончик ККМП"
+genitive = "черствого протеинового батончика ККМП"
+dative = "черствому протеиновому батончику ККМП"
+accusative = "черствый протеиновый батончик ККМП"
+instrumental = "черствым протеиновым батончиком ККМП"
+prepositional = "черством протеиновом батончике ККМП"
+gender = "male"
+
+["USCM MRE"]
+nominative = "сухой паёк ККМП"
+genitive = "сухого пайка ККМП"
+dative = "сухому пайку ККМП"
+accusative = "сухой паёк ККМП"
+instrumental = "сухим пайком ККМП"
+prepositional = "сухом пайке ККМП"
+gender = "male"
+
+["MRE component"]
+nominative = "компонент сухого пайка"
+genitive = "компонента сухого пайка"
+dative = "компоненту сухого пайка"
+accusative = "компонент сухого пайка"
+instrumental = "компонентом сухого пайка"
+prepositional = "компоненте сухого пайка"
 gender = "male"
 
 # MARK: Botany
