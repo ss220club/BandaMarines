@@ -42,7 +42,7 @@
 /datum/ammo/xeno/boiler_gas/get_description()
 	var/desc = ""
 	var/neurodose = /obj/effect/particle_effect/smoke/xeno_weak::neuro_dose
-	desc += "Радиус взрыва: <b>[smokerange] кл.</b>\
+	desc += "<br>Радиус взрыва: <b>[smokerange] кл.</b>\
 		<br>Замедляет носителей в области, медленно ослабляет и душит их. Затуманивает зрение. Накладывает <b>[neurodose]</b> стаков нейротоксина каждую секунду.\
 		<br>Нейротоксин постепенно ослабевает цель, наносит урон токсинами, вызывает галлюцинации, а при <b>19</b> стаках ослепляет, и при <b>50</b> стаках убивает."
 	desc += ..()
@@ -51,7 +51,7 @@
 /datum/ammo/xeno/boiler_gas/acid/get_description()
 	var/desc = ""
 	var/damage = /obj/effect/particle_effect/smoke/xeno_burn::gas_damage
-	desc += "Радиус взрыва: <b>[smokerange] кл.</b>\
+	desc += "<br>Радиус взрыва: <b>[smokerange] кл.</b>\
 		<br>Накладывает кислоту на барикады в области.\
 		<br>Наносит [damage] урона в секунду при вдыхании носителями, а также дополнительно <b>15-20</b> урона в секунду по телу."
 	desc += call(src, /datum/ammo/xeno::get_description())()
