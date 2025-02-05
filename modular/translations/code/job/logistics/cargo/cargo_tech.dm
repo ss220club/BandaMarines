@@ -1,4 +1,7 @@
 /datum/job/logistics/cargo
 	disp_title = JOB_CARGO_TECH_RU
 	supervisors = "офицером поставок"
-	entry_message_body = "<a href='"+WIKI_PLACEHOLDER+"'>Your job</a> is to dispense supplies to the marines, including weapon attachments. Stay in your department when possible to ensure the marines have full access to the supplies they may require. Listen to the radio in case someone requests a supply drop via the overwatch system."
+	entry_message_body = "<a href='"+WIKI_PLACEHOLDER+"'>Ваша задача</a> — распределять поставки морпехам, \
+	включая оружейные обвесы. Оставайтесь в своем отделе, если это возможно, чтобы обеспечить морпехам полный доступ \
+	к необходимым им припасам. Держите связь и слушайте радио на случай, если кто-то запросит сброс припасов \
+	через систему наблюдения."

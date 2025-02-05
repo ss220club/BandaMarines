@@ -2,10 +2,6 @@
 	disp_title = JOB_FAX_RESPONDER
 	supervisors = "OOC-Администрация SS220"
 
-/datum/job/fax_responder/on_config_load()
-	entry_message_body = "<a href='[CONFIG_GET(string/wikiarticleurl)]/[URL_WIKI_FAX_RESPONDER]'>Your job</a> is to answer faxes sent to your fax machine. You are answering on behalf of the CMSS13 staff team and are therefore expected to behave appropriately. Failure to adhere to expectations may result in loss of the role or a server ban. Non-staff players of this role are not able to authorise ERTs through their faxes."
-	return ..()
-
 /datum/job/fax_responder/uscm_hc
 	disp_title = JOB_FAX_RESPONDER_USCM_HC_RU
 

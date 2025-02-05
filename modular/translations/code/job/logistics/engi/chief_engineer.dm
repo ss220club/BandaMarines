@@ -1,3 +1,5 @@
 /datum/job/logistics/engineering
 	disp_title = JOB_CHIEF_ENGINEER_RU
-	entry_message_body = "<a href='"+WIKI_PLACEHOLDER+"'>Your job</a> is to maintain your department and keep your technicians in check. You are responsible for engineering, power, ordnance, and the orbital cannon. Should the commanding and executive officer be unavailable, you are next in the chain of command."
+	entry_message_body = "<a href='"+WIKI_PLACEHOLDER+"'>Ваша задача</a> — поддерживать свой отдел и держать \
+	под контролем своих техников. Вы отвечаете за инженерию, энергетику, боеприпасы и орбитальную пушку. \
+	Если командующий и исполнительный офицер недоступны, вы — следующий в цепочке командования."

@@ -2,4 +2,9 @@
 /datum/job/command/warden
 	disp_title = JOB_WARDEN_RU
 	supervisors = "шефом военной полиции"
-	entry_message_body = "<a href='"+WIKI_PLACEHOLDER+"'>You</a> are held by a higher standard and are required to obey not only the server rules but the <a href='"+LAW_PLACEHOLDER+"'>Marine Law</a>. Failure to do so may result in a job ban or server ban. Your primary job is to maintain peace and stability aboard the ship. Marines can get rowdy after a few weeks of cryosleep! In addition, you are tasked with the mainting security records and overwatching any prisoners in Brig."
+	entry_message_body = "<a href='"+WIKI_PLACEHOLDER+"'>Вы</a> придерживаетесь более высоких стандартов и \
+	обязаны соблюдать не только правила сервера, но и <a href="+LAW_PLACEHOLDER+"'>Законы Морпехов</a>. \
+	Невыполнение этого требования может привести к джобану и бану на сервере. \
+	Ваша основная задача — поддерживать мир и стабильность на борту корабля. Морпехи могут \
+	стать буйными после нескольких недель криосна! Кроме того, вам поручено вести записи о безопасности \
+	и следить за всеми заключенными в Бриг."

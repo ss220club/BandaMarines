@@ -1,4 +1,4 @@
 /datum/job/command/pilot/cas_pilot
 	disp_title = JOB_CAS_PILOT_RU
 	supervisors = "офицером поддержки"
-	entry_message_body = "<a href='"+WIKI_PLACEHOLDER+"'>Your job is to fly, protect, and maintain the ship's gunship.</a> While you are an officer, your authority is limited to the dropship, where you have authority over the enlisted personnel."
+	entry_message_body = "<a href='"+WIKI_PLACEHOLDER+"'>Ваша задача — управлять, защищать и обслуживать боевой корабль.</a> Пока вы офицер, ваши полномочия ограничены десантным кораблем, где вы имеете власть над рядовым составом."

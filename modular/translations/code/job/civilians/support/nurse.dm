@@ -1,7 +1,7 @@
 /datum/job/civilian/nurse
 	disp_title = JOB_NURSE_RU
 	supervisors = "главным врачом"
-	entry_message_body = "<a href='"+WIKI_PLACEHOLDER+"'>You are tasked with keeping the Marines healthy and strong.</a> You are also an expert when it comes to medication and treatment, and can do minor surgical procedures. Focus on assisting doctors and triaging wounded marines."
+	entry_message_body = "<a href='"+WIKI_PLACEHOLDER+"'>Ваша задача — поддерживать здоровье и силу морпехов.</a> Вы также являетесь экспертом в вопросах лекарств и лечения и можете проводить небольшие хирургические операции. Сосредоточьтесь на оказании помощи врачам и сортировке раненых морпехов."
 
 // Разделение на Гендеры Медсестра/Медбрат
 /datum/equipment_preset/uscm_ship/uscm_medical/nurse/male

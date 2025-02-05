@@ -38,6 +38,8 @@
 #define JOB_CMO_RU "Главрач"
 #define JOB_DOCTOR_RU "Доктор"
 #define JOB_SURGEON_RU "Хирург"
+#define DOCTOR_VARIANT_RU "Доктор"
+#define SURGEON_VARIANT_RU "Хирург"
 
 #define JOB_NURSE_RU "Медработник"
 #define JOB_NURSE_RU_MALE "Медбрат"
@@ -46,11 +48,15 @@
 #define JOB_CORPORATE_LIAISON_RU "Связной Корпорации"
 
 #define JOB_COMBAT_REPORTER_RU "Полевой Корреспондент"
+#define COMBAT_REPORTER_MILITARY_VARIANT "Военный Корреспондент"
+#define COMBAT_REPORTER_CIVILIAN_VARIANT "Гражданский Корреспондент"
 
 #define JOB_MESS_SERGEANT_RU "Обслуживающий Персонал"
 #define JOB_SYNTH_RU "Синтетик"
 #define JOB_SYNTH_K9_RU "Синтетик K9"
 #define JOB_WORKING_JOE_RU "Рабочий Джо"
+#define WORKING_JOE_STANDARD_VARIANT "Рабочий Джо"
+#define WORKING_JOE_HAZMAT_VARIANT "Хазмат Джо"
 
 #define JOB_CO_RU "Коммандующий Офицер"
 #define JOB_XO_RU "Исполнительный Офицер"

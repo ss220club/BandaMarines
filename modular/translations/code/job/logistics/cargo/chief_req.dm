@@ -1,3 +1,8 @@
 /datum/job/logistics/requisition
 	disp_title = JOB_CHIEF_REQUISITION_RU
-	entry_message_body = "<a href='"+WIKI_PLACEHOLDER+"'>Your job</a> is to dispense supplies to the marines, including weapon attachments. Your cargo techs can help you out, but you have final say in your department. Make sure they're not goofing off. While you may request paperwork for supplies, do not go out of your way to screw with marines, unless you want to get deposed. A happy ship is a well-functioning ship."
+	entry_message_body = "<a href='"+WIKI_PLACEHOLDER+"'>Ваша работа</a> заключается в том, \
+	чтобы распределять поставки среди морских пехотинцев, включая оружейные обвесы. \
+	Ваши грузовые техники могут вам помочь, но последнее слово в вашем отделе за вами. \
+	Убедитесь, что они не бездельничают. Хотя вы можете запросить документы на поставки, \
+	не ругайтесь с Морпехами лишний раз и не насаливайте им, если не хотите получить отставку. \
+	Счастливый корабль — это хорошо функционирующий корабль."

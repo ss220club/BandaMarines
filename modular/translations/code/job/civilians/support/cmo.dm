@@ -1,5 +1,5 @@
 /datum/job/civilian/professor
 	disp_title = JOB_CMO_RU
 	supervisors = "исполняющий обязанности командующего офицера"
-	entry_message_body = "You're a commissioned officer of the USCM. <a href='"+WIKI_PLACEHOLDER+"'>You have authority over everything related to Medbay and Research</a>, only able to be overridden by the XO and CO. You are in charge of medical staff, surgery, chemistry, stimulants and keeping the marines healthy overall."
+	entry_message_body = "Вы — уполномоченный офицер ККМП. <a href="+WIKI_PLACEHOLDER+"'>У вас есть полномочия по всем вопросам, связанным с медицинским отделом и исследованиями</a>, которые могут быть отменены только Исполнительным Офицером и Командующим Офицером. Вы отвечаете за медицинский персонал, хирургию, химию, стимуляторы и поддержание общего здоровья морпехов."
 

@@ -1,4 +1,10 @@
 //Chief MP
 /datum/job/command/warrant
 	disp_title = JOB_CHIEF_POLICE_RU
-	entry_message_body = "<a href='"+WIKI_PLACEHOLDER+"'>You</a> are held by a higher standard and are required to obey not only the server rules but the <a href='"+LAW_PLACEHOLDER+"'>Marine Law</a>. Failure to do so may result in a job ban or server ban. You lead the Military Police, ensure your officers maintain peace and stability aboard the ship. Marines can get rowdy after a few weeks of cryosleep! In addition, you are tasked with the security of high-ranking personnel, including the command staff. Keep them safe!"
+	entry_message_body = "<a href='"+WIKI_PLACEHOLDER+"'>Вы</a> придерживаетесь более высоких стандартов \
+	и обязаны соблюдать не только правила сервера, но и <a href="+LAW_PLACEHOLDER+"'>Законы Морпехов</a>. \
+	Невыполнение этого требования может привести к джобану и бану на сервере. \
+	Вы возглавляете военную полицию, следите за тем, чтобы ваши офицеры поддерживали мир и стабильность \
+	на борту корабля. Морские пехотинцы могут стать буйными после нескольких недель криосна! \
+	Кроме того, вам поручено обеспечивать безопасность высокопоставленного персонала, включая командный состав. \
+	Обеспечьте их безопасность!"

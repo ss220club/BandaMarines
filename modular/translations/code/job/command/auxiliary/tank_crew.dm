@@ -1,4 +1,4 @@
 /datum/job/command/tank_crew
 	disp_title = JOB_TANK_CREW_RU
 	supervisors = "исполняющий обязанности командующего офицера"
-	entry_message_body = "Your job is to operate and maintain the ship's armored vehicles. You are in charge of representing the armored presence amongst the marines during the operation, as well as maintaining and repairing your own vehicles."
+	entry_message_body = "Ваша задача — эксплуатировать и обслуживать бронетехнику с корабля. Вы отвечаете за сопровождение бронетехникой Морпехов во время операции, а также за обслуживание и ремонт собственных транспортных средств."

@@ -3,4 +3,4 @@
 /datum/job/civilian/researcher
 	disp_title = JOB_RESEARCHER_RU
 	supervisors = "главным врачом"
-	entry_message_body = "You're a commissioned officer of the USCM. You are tasked with <a href='"+WIKI_PLACEHOLDER+"'>researching</a> and developing new medical treatments, helping your fellow doctors, and generally learning new things. Your role involves a lot of roleplaying, but you can perform the function of a regular doctor. Do not hand out things to Marines without getting permission from your supervisor."
+	entry_message_body = "Вы уполномоченный офицер ККМП. Вам поручено <a href="+WIKI_PLACEHOLDER+"'>исследовать</a> и разрабатывать новые методы лечения, помогать коллегам-врачам и узнавать что-то новое. Ваша роль предполагает много ролевой игры, но вы можете выполнять функции обычного врача. Не раздавайте вещи морским пехотинцам без разрешения вашего руководителя."

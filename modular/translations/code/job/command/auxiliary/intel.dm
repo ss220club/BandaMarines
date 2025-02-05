@@ -3,4 +3,4 @@
 	disp_title = JOB_INTEL_RU
 	supervisors = "офицером поддержки"
 	//gear_preset = "USCM Intelligence Officer (IO) (Cryo)"
-	entry_message_body = "<a href='"+WIKI_PLACEHOLDER+"'>Your job is to assist the marines in collecting intelligence related</a> to the current operation to better inform command of their opposition. You are in charge of gathering any data disks, folders, and notes you may find on the operational grounds and decrypt them to grant the USCM additional resources."
+	entry_message_body = "<a href='"+WIKI_PLACEHOLDER+"'>Ваша задача — помогать Морпехам собирать разведданные, связанные с текущей операцией, чтобы лучше информировать командование о сопротивлении. Вы отвечаете за сбор любых дисков с данными, папок и заметок, которые вы можете найти на операционных площадках, и расшифровываете их, чтобы предоставить ККМП дополнительные ресурсы."
