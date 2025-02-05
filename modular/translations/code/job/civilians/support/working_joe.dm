@@ -2,7 +2,7 @@
 #define HAZMAT_VARIANT "Hazmat Joe"
 
 /datum/job/civilian/working_joe
-	title = JOB_WORKING_JOE
+	disp_title = JOB_WORKING_JOE_RU
 	supervisors = "ARES and APOLLO"
 	job_options = list(STANDARD_VARIANT = "JOE", HAZMAT_VARIANT = "HAZ")
 
@@ -14,7 +14,7 @@
 
 
 /datum/job/antag/upp/dzho_automaton
-	title = JOB_UPP_JOE
+	disp_title = JOB_UPP_JOE_RU
 	supervisors = "1VAN/3 and UPP command staff"
 
 /datum/job/antag/upp/dzho_automaton/generate_entry_message(mob/living/carbon/human/H)

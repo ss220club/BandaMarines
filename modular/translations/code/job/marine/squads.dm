@@ -1,12 +1,14 @@
 //This datum keeps track of individual squads. New squads can be added without any problem but to give them
 //access you must add them individually to access.dm with the other squads. Just look for "access_alpha" and add the new one
 
+/*
 /datum/squad_type //Majority of this is for a follow-on PR to fully flesh the system out and add more bits for other factions.
 	var/name = "Squad Type"
 	var/lead_name
 	var/lead_icon
 	var/sub_squad
 	var/sub_leader
+*/
 
 /datum/squad_type/marine_squad
 	name = "Squad"

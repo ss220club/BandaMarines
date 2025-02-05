@@ -1,5 +1,5 @@
 /datum/job/command/senior
-	title = JOB_SEA
+	disp_title = JOB_SEA_RU
 	job_options = list("Gunnery Sergeant" = "GySGT", "Master Sergeant" = "MSgt", "First Sergeant" = "1Sgt", "Master Gunnery Sergeant" = "MGySgt", "Sergeant Major" = "SgtMaj")
 
 /datum/job/command/senior/on_config_load()

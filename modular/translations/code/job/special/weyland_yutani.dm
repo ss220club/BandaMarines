@@ -1,38 +1,38 @@
 /datum/job/special/wey_yu
 	supervisors = "Weyland-Yutani Corporate Office"
-	title = "Weyland-Yutani Representative"
+	disp_title = JOB_WY_REPRESENTATIVE_RU
 
 /datum/job/special/wey_yu/corporate/trainee
-	title = JOB_TRAINEE
+	disp_title = JOB_TRAINEE_RU
 
 /datum/job/special/wey_yu/corporate/junior_exec
-	title = JOB_JUNIOR_EXECUTIVE
+	disp_title = JOB_JUNIOR_EXECUTIVE_RU
 
 /datum/job/special/wey_yu/corporate/exec
-	title = JOB_EXECUTIVE
+	disp_title = JOB_EXECUTIVE_RU
 
 /datum/job/special/wey_yu/corporate/senior_exec
-	title = JOB_SENIOR_EXECUTIVE
+	disp_title = JOB_SENIOR_EXECUTIVE_RU
 
 /datum/job/special/wey_yu/corporate/exec_spec
-	title = JOB_EXECUTIVE_SPECIALIST
+	disp_title = JOB_EXECUTIVE_SPECIALIST_RU
 
 /datum/job/special/wey_yu/corporate/exec_supr
-	title = JOB_EXECUTIVE_SUPERVISOR
+	disp_title = JOB_EXECUTIVE_SUPERVISOR_RU
 
 /datum/job/special/wey_yu/corporate/assist_man
-	title = JOB_ASSISTANT_MANAGER
+	disp_title = JOB_ASSISTANT_MANAGER_RU
 
 /datum/job/special/wey_yu/corporate/div_man
-	title = JOB_DIVISION_MANAGER
+	disp_title = JOB_DIVISION_MANAGER_RU
 	supervisors = "Weyland-Yutani Directorate"
 
 /datum/job/special/wey_yu/corporate/chief_exec
-	title = JOB_CHIEF_EXECUTIVE
+	disp_title = JOB_CHIEF_EXECUTIVE_RU
 	supervisors = "Weyland-Yutani Directorate"
 
 /datum/job/special/wey_yu/corporate/director
-	title = JOB_DIRECTOR
+	disp_title = JOB_DIRECTOR_RU
 	supervisors = "Weyland-Yutani Directorate"
 
 
@@ -41,43 +41,43 @@
 	supervisors = "Weyland-Yutani PMC Dispatch"
 
 /datum/job/special/wey_yu/pmc/standard
-	title = JOB_PMC_STANDARD
+	disp_title = JOB_PMC_STANDARD_RU
 
 /datum/job/special/wey_yu/pmc/medic
-	title = JOB_PMC_MEDIC
+	disp_title = JOB_PMC_MEDIC_RU
 
 /datum/job/special/wey_yu/pmc/engineer
-	title = JOB_PMC_ENGINEER
+	disp_title = JOB_PMC_ENGINEER_RU
 
 /datum/job/special/wey_yu/pmc/gunner
-	title = JOB_PMC_GUNNER
+	disp_title = JOB_PMC_GUNNER_RU
 
 /datum/job/special/wey_yu/pmc/sniper
-	title = JOB_PMC_SNIPER
+	disp_title = JOB_PMC_SNIPER_RU
 
 /datum/job/special/wey_yu/pmc/leader
-	title = JOB_PMC_LEADER
+	disp_title = JOB_PMC_LEADER_RU
 
 /datum/job/special/wey_yu/pmc/investigator
-	title = JOB_PMC_INVESTIGATOR
+	disp_title = JOB_PMC_INVESTIGATOR_RU
 
 /datum/job/special/wey_yu/pmc/lead_invest
-	title = JOB_PMC_LEAD_INVEST
+	disp_title = JOB_PMC_LEAD_INVEST_RU
 
 /datum/job/special/wey_yu/pmc/detainer
-	title = JOB_PMC_DETAINER
+	disp_title = JOB_PMC_DETAINER_RU
 
 /datum/job/special/wey_yu/pmc/crewman
-	title = JOB_PMC_CREWMAN
+	disp_title = JOB_PMC_CREWMAN_RU
 
 /datum/job/special/wey_yu/pmc/doctor
-	title = JOB_PMC_DOCTOR
+	disp_title = JOB_PMC_DOCTOR_RU
 
 /datum/job/special/wey_yu/pmc/handler
-	title = JOB_PMC_XENO_HANDLER
+	disp_title = JOB_PMC_XENO_HANDLER_RU
 
 /datum/job/special/wey_yu/pmc/synth
-	title = JOB_PMC_SYNTH
+	disp_title = JOB_PMC_SYNTH_RU
 
 /datum/job/special/wey_yu/pmc/director
-	title = JOB_PMC_DIRECTOR
+	disp_title = JOB_PMC_DIRECTOR_RU

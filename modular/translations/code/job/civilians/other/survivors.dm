@@ -1,5 +1,5 @@
 /datum/job/civilian/survivor
-	title = JOB_SURVIVOR
+	disp_title = JOB_SURVIVOR_RU
 	job_options = SURVIVOR_VARIANT_LIST
 
 /datum/job/civilian/survivor/announce_entry_message(mob/living/carbon/human/survivor, datum/money_account/account, whitelist_status) //The actual message that is displayed to the mob when they enter the game as a new player.
@@ -13,7 +13,7 @@
 		to_chat_spaced(survivor, html = entrydisplay)
 
 /datum/job/civilian/survivor/synth
-	title = JOB_SYNTH_SURVIVOR
+	disp_title = JOB_SYNTH_SURVIVOR_RU
 
 /datum/job/civilian/survivor/commanding_officer
-	title = JOB_CO_SURVIVOR
+	disp_title = JOB_CO_SURVIVOR_RU

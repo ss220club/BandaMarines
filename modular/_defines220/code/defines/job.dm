@@ -161,6 +161,8 @@
 #define JOB_CHIEF_EXECUTIVE_RU "Руководитель Корпорации"
 #define JOB_DIRECTOR_RU "В-Ю Директор"
 
+#define JOB_WY_REPRESENTATIVE_RU "Представитель Вэйланд-Ютани"
+
 //-------- WY Goons --------//
 #define JOB_WY_GOON_RU "ВЮ Безопасник Корпорации"
 #define JOB_WY_GOON_TECH_RU "ВЮ Технический Безопасник Корпорации"

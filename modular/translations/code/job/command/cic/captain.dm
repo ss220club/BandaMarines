@@ -1,6 +1,6 @@
 //Commander
 /datum/job/command/commander
-	title = JOB_CO
+	disp_title = JOB_CO_RU
 	supervisors = "USCM high command"
 	gear_preset = /datum/equipment_preset/uscm_ship/commander
 

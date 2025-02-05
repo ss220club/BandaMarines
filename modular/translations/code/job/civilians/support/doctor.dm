@@ -5,7 +5,7 @@
 
 // Doctor
 /datum/job/civilian/doctor
-	title = JOB_DOCTOR
+	disp_title = JOB_DOCTOR_RU
 	supervisors = "the chief medical officer"
 	job_options = list(DOCTOR_VARIANT = "Doc", SURGEON_VARIANT = "Sur")
 

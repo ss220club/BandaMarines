@@ -1,35 +1,35 @@
 //Provost Enforcer
 /datum/job/special/provost/enforcer
-	title = JOB_PROVOST_ENFORCER
+	disp_title = JOB_PROVOST_ENFORCER_RU
 
 //Provost Team Leader
 /datum/job/special/provost/tml
-	title = JOB_PROVOST_TML
+	disp_title = JOB_PROVOST_TML_RU
 
 //Provost Advisor
 /datum/job/special/provost/advisor
-	title = JOB_PROVOST_ADVISOR
+	disp_title = JOB_PROVOST_ADVISOR_RU
 
 //Provost Inspector
 /datum/job/special/provost/inspector
-	title = JOB_PROVOST_INSPECTOR
+	disp_title = JOB_PROVOST_INSPECTOR_RU
 
 //Provost Inspector
 /datum/job/special/provost/inspector/chief
-	title = JOB_PROVOST_CINSPECTOR
+	disp_title = JOB_PROVOST_CINSPECTOR_RU
 
 //Provost Marshal
 /datum/job/special/provost/marshal/deputy
-	title = JOB_PROVOST_DMARSHAL
+	disp_title = JOB_PROVOST_DMARSHAL_RU
 
 //Provost Marshal
 /datum/job/special/provost/marshal
-	title = JOB_PROVOST_MARSHAL
+	disp_title = JOB_PROVOST_MARSHAL_RU
 
 //Provost Sector
 /datum/job/special/provost/marshal/sector
-	title = JOB_PROVOST_SMARSHAL
+	disp_title = JOB_PROVOST_SMARSHAL_RU
 
 //Provost Chief Marshal
 /datum/job/special/provost/marshal/chief
-	title = JOB_PROVOST_CMARSHAL
+	disp_title = JOB_PROVOST_CMARSHAL_RU

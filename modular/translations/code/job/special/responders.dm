@@ -1,5 +1,5 @@
 /datum/job/fax_responder
-	title = JOB_FAX_RESPONDER
+	disp_title = JOB_FAX_RESPONDER
 	supervisors = "CMSS13 Administration Staff"
 
 /datum/job/fax_responder/on_config_load()
@@ -7,25 +7,25 @@
 	return ..()
 
 /datum/job/fax_responder/uscm_hc
-	title = JOB_FAX_RESPONDER_USCM_HC
+	disp_title = JOB_FAX_RESPONDER_USCM_HC_RU
 
 /datum/job/fax_responder/uscm_pvst
-	title = JOB_FAX_RESPONDER_USCM_PVST
+	disp_title = JOB_FAX_RESPONDER_USCM_PVST
 
 /datum/job/fax_responder/wy
-	title = JOB_FAX_RESPONDER_WY
+	disp_title = JOB_FAX_RESPONDER_WY
 
 /datum/job/fax_responder/upp
-	title = JOB_FAX_RESPONDER_UPP
+	disp_title = JOB_FAX_RESPONDER_UPP
 
 /datum/job/fax_responder/twe
-	title = JOB_FAX_RESPONDER_TWE
+	disp_title = JOB_FAX_RESPONDER_TWE
 
 /datum/job/fax_responder/clf
-	title = JOB_FAX_RESPONDER_CLF
+	disp_title = JOB_FAX_RESPONDER_CLF
 
 /datum/job/fax_responder/cmb
-	title = JOB_FAX_RESPONDER_CMB
+	disp_title = JOB_FAX_RESPONDER_CMB
 
 /datum/job/fax_responder/press
-	title = JOB_FAX_RESPONDER_PRESS
+	disp_title = JOB_FAX_RESPONDER_PRESS

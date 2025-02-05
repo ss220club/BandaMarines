@@ -2,7 +2,7 @@
 #define CIVILIAN_VARIANT "Civilian Correspondent"
 
 /datum/job/civilian/reporter
-	title = JOB_COMBAT_REPORTER
+	disp_title = JOB_COMBAT_REPORTER_RU
 	supervisors = "the acting commanding officer"
 	job_options = list(CIVILIAN_VARIANT = "Civ", MILITARY_VARIANT = "Mil")
 

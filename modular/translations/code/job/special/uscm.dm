@@ -1,26 +1,26 @@
 /datum/job/special/uscm/colonel
-	title = JOB_COLONEL
+	disp_title = JOB_COLONEL_RU
 
 /datum/job/special/uscm/observer
-	title = JOB_USCM_OBSV
+	disp_title = JOB_USCM_OBSV_RU
 
 /datum/job/special/uscm/general
-	title = JOB_GENERAL
+	disp_title = JOB_GENERAL_RU
 
 /datum/job/special/uscm/acmc
-	title = JOB_ACMC
+	disp_title = JOB_ACMC_RU
 
 /datum/job/special/uscm/cmc
-	title = JOB_CMC
+	disp_title = JOB_CMC_RU
 
 /datum/job/special/uscm/sof
-	title = JOB_MARINE_RAIDER
+	disp_title = JOB_MARINE_RAIDER_RU
 
 /datum/job/special/uscm/riot
-	title = JOB_RIOT
+	disp_title = JOB_RIOT_RU
 
 /datum/job/special/uscm/riot/chief
-	title = JOB_RIOT_CHIEF
+	disp_title = JOB_RIOT_CHIEF_RU
 
 /datum/job/special/uscm/tech
-	title = JOB_SQUAD_TECH
+	disp_title = JOB_SQUAD_TECH_RU

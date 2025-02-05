@@ -1,39 +1,39 @@
 // CMB Deputy
 /datum/job/special/cmb/deputy
-	title = JOB_CMB
+	disp_title = JOB_CMB_RU
 
 // CMB Marshal
 /datum/job/special/cmb/marshal
-	title = JOB_CMB_TL
+	disp_title = JOB_CMB_TL_RU
 
 // CMB Riot Control Officer
 /datum/job/special/cmb/riot
-	title = JOB_CMB_RIOT
+	disp_title = JOB_CMB_RIOT_RU
 
 // CMB Medical Technician
 /datum/job/special/cmb/medical
-	title = JOB_CMB_MED
+	disp_title = JOB_CMB_MED_RU
 
 // CMB Breaching Technician
 /datum/job/special/cmb/engi
-	title = JOB_CMB_ENG
+	disp_title = JOB_CMB_ENG_RU
 
 // CMB SWAT Specialist
 /datum/job/special/cmb/spec
-	title = JOB_CMB_SWAT
+	disp_title = JOB_CMB_SWAT_RU
 
 // CMB Investigative Synthetic
 /datum/job/special/cmb/synthetic
-	title = JOB_CMB_SYN
+	disp_title = JOB_CMB_SYN_RU
 
 // CMB Riot Control Synthetic
 /datum/job/special/cmb/synthetic/riot
-	title = JOB_CMB_RSYN
+	disp_title = JOB_CMB_RSYN_RU
 
 // Interstellar Commerce Commission Corporate Liaison
 /datum/job/special/cmb/icc_liaison
-	title = JOB_CMB_ICC
+	disp_title = JOB_CMB_ICC_RU
 
 // Interstellar Human Rights Observer
 /datum/job/special/cmb/observer
-	title = JOB_CMB_OBS
+	disp_title = JOB_CMB_OBS_RU

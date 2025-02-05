@@ -1,5 +1,5 @@
 /datum/job/civilian/nurse
-	title = JOB_NURSE
+	disp_title = JOB_NURSE_RU
 	supervisors = "the chief medical officer"
 	entry_message_body = "<a href='"+WIKI_PLACEHOLDER+"'>You are tasked with keeping the Marines healthy and strong.</a> You are also an expert when it comes to medication and treatment, and can do minor surgical procedures. Focus on assisting doctors and triaging wounded marines."
 

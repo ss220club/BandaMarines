@@ -1,3 +1,3 @@
 /datum/job/antag/xenos/queen
-	title = JOB_XENOMORPH_QUEEN
+	disp_title = JOB_XENOMORPH_QUEEN_RU
 	supervisors = "Queen Mother"
