@@ -1,5 +1,5 @@
 /datum/job/command
-	supervisors = "the acting commanding officer"
+	supervisors = "исполняющий обязанности командующего офицера"
 
 /datum/timelock/command
 	name = "Command Roles"

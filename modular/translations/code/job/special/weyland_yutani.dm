@@ -1,5 +1,5 @@
 /datum/job/special/wey_yu
-	supervisors = "Weyland-Yutani Corporate Office"
+	supervisors = "Корпоративный офис Вейланд-Ютани"
 	disp_title = JOB_WY_REPRESENTATIVE_RU
 
 /datum/job/special/wey_yu/corporate/trainee
@@ -25,20 +25,20 @@
 
 /datum/job/special/wey_yu/corporate/div_man
 	disp_title = JOB_DIVISION_MANAGER_RU
-	supervisors = "Weyland-Yutani Directorate"
+	supervisors = "Директорат Вейланд-Ютани"
 
 /datum/job/special/wey_yu/corporate/chief_exec
 	disp_title = JOB_CHIEF_EXECUTIVE_RU
-	supervisors = "Weyland-Yutani Directorate"
+	supervisors = "Директорат Вейланд-Ютани"
 
 /datum/job/special/wey_yu/corporate/director
 	disp_title = JOB_DIRECTOR_RU
-	supervisors = "Weyland-Yutani Directorate"
+	supervisors = "Директорат Вейланд-Ютани"
 
 
 // PMCS //
 /datum/job/special/wey_yu/pmc
-	supervisors = "Weyland-Yutani PMC Dispatch"
+	supervisors = "Диспетчерская ЧВК Вейланд-Ютани"
 
 /datum/job/special/wey_yu/pmc/standard
 	disp_title = JOB_PMC_STANDARD_RU

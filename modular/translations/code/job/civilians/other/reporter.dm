@@ -3,7 +3,7 @@
 
 /datum/job/civilian/reporter
 	disp_title = JOB_COMBAT_REPORTER_RU
-	supervisors = "the acting commanding officer"
+	supervisors = "исполняющий обязанности командующего офицера"
 	job_options = list(CIVILIAN_VARIANT = "Civ", MILITARY_VARIANT = "Mil")
 
 	// ??? Тут надо глянуть по префам опшинов

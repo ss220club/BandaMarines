@@ -1,5 +1,5 @@
 /datum/job/marine
-	supervisors = "the acting squad leader"
+	supervisors = "исполняющий обязанности командира отряда"
 
 /datum/job/marine/generate_entry_message(mob/living/carbon/human/current_human)
 	if(current_human.assigned_squad)

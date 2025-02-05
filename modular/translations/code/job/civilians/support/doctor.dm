@@ -6,7 +6,7 @@
 // Doctor
 /datum/job/civilian/doctor
 	disp_title = JOB_DOCTOR_RU
-	supervisors = "the chief medical officer"
+	supervisors = "главным врачом"
 	job_options = list(DOCTOR_VARIANT = "Doc", SURGEON_VARIANT = "Sur")
 
 //check what job option you took and generate the corresponding the good texte.

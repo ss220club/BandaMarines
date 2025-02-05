@@ -1,6 +1,6 @@
 /datum/job/civilian/nurse
 	disp_title = JOB_NURSE_RU
-	supervisors = "the chief medical officer"
+	supervisors = "главным врачом"
 	entry_message_body = "<a href='"+WIKI_PLACEHOLDER+"'>You are tasked with keeping the Marines healthy and strong.</a> You are also an expert when it comes to medication and treatment, and can do minor surgical procedures. Focus on assisting doctors and triaging wounded marines."
 
 // Разделение на Гендеры Медсестра/Медбрат

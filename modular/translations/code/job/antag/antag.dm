@@ -1,5 +1,5 @@
 /datum/job/antag
-	supervisors = "antagonists"
+	supervisors = "антагонизмом"
 
 /datum/timelock/xeno
 	name = "Xenomorph"

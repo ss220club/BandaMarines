@@ -1,7 +1,7 @@
 //Commander
 /datum/job/command/commander
 	disp_title = JOB_CO_RU
-	supervisors = "USCM high command"
+	supervisors = "верховным командованием ККМП"
 	gear_preset = /datum/equipment_preset/uscm_ship/commander
 
 /datum/job/command/commander/generate_entry_message()

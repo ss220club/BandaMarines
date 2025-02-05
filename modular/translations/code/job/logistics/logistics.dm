@@ -1,5 +1,5 @@
 /datum/job/logistics
-	supervisors = "the auxiliary support officer"
+	supervisors = "офицером поддержки"
 
 /datum/timelock/engineer
 	name = "Engineering Roles"

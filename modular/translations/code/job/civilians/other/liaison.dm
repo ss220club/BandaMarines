@@ -1,4 +1,4 @@
 /datum/job/civilian/liaison
 	disp_title = JOB_CORPORATE_LIAISON_RU
-	supervisors = "the Wey-Yu corporate office"
+	supervisors = "корпоративным офисом Вей-Ю"
 	entry_message_body = "As a <a href='"+WIKI_PLACEHOLDER+"'>representative of Weyland-Yutani Corporation</a>, your job requires you to stay in character at all times. While in the AO (Area of Operation), you are subject to orders given by military personnel. On ship, you are subject to orders only by the Command and Security departments. You are not required to follow any orders but you can be arrested if you do not. Your primary job is to observe and report back your findings to Weyland-Yutani. Follow regular game rules unless told otherwise by your superiors. Use your office fax machine to communicate with corporate headquarters or to acquire new directives. You may not receive anything back, and this is normal."
