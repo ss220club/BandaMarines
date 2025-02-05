@@ -35,7 +35,6 @@
 		// Agony
 		if(debilitate[8])
 			desc += "<br>- Боль: <b>[debilitate[8]]</b>."
-		desc += "<br>"
 	desc += "<br><br>"
 	return desc
 
