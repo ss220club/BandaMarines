@@ -170,7 +170,7 @@
 #define JOB_WY_GOON_RESEARCHER_RU "ВЮ Исследовательский Консультант"
 
 //---- Contractors ----//
-#define JOB_CONTRACTOR_RU "ВЭИЧВК Наемник"
+#define JOB_CONTRACTOR_RU "ВЭИЧВК Контрактник"
 #define JOB_CONTRACTOR_ST_RU "ВЭИЧВК Наемник"
 #define JOB_CONTRACTOR_MEDIC_RU "ВЭИМС Медик-Специалист"
 #define JOB_CONTRACTOR_ENGI_RU "ВЭИЧВК Инженер-Специалист"
@@ -273,9 +273,11 @@
 #define JOB_TWE_REPRESENTATIVE_RU "ИТМ Представитель"
 
 //RMC	// Royal Marine Command - Королевский Морпех Командования
+#define JOB_TWE_RMC_RU "Королевский Морпех"
 #define JOB_TWE_RMC_RIFLEMAN_RU "КМК Стрелок"
 #define JOB_TWE_RMC_MARKSMAN_RU "КМК Старший Стрелок"
 #define JOB_TWE_RMC_SMARTGUNNER_RU "КМК Смартганнер"
+#define JOB_TWE_RMC_SPEC_RU "КМК Спезназ"
 #define JOB_TWE_RMC_BREACHER_RU "КМК Прорывник"
 #define JOB_TWE_RMC_MEDIC_RU "КМК Санитар"
 #define JOB_TWE_RMC_TEAMLEADER_RU "КМК Командир"
@@ -283,6 +285,7 @@
 #define JOB_TWE_RMC_CAPTAIN_RU "КМК Капитан"
 #define JOB_TWE_RMC_MAJOR_RU "КМК Майор"
 #define JOB_TWE_RMC_COMMANDER_RU "КМК Коммандор"
+
 
 #define JOB_TWE_SEAMAN_RU "ИТМ Матрос"
 #define JOB_TWE_LSEAMAN_RU "ИТМ Мичман"

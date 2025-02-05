@@ -1,11 +1,9 @@
 /datum/equipment_preset/uscm/cbrn
 	name = "Generic CBRN" //Parent type for easier gear
 	assignment = JOB_SQUAD_MARINE_RU
-	role_comm_title = "CBRN ТЕСТ"
 
 /datum/equipment_preset/uscm/cbrn/standard
 	name = "CBRN Rifleman"
-	role_comm_title = "RFN ТЕСТ"
 
 /datum/equipment_preset/uscm/cbrn/engineer
 	name = "CBRN Combat Technician"
