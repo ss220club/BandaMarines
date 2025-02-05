@@ -54,7 +54,7 @@
 	desc = "Позволяет смотреть вдаль."
 
 /datum/action/xeno_action/activable/spray_acid
-	desc = "Спрей из линии кислоты, наносящий %DAMAGE% урона на расстоянии %RANGE%."
+	desc = "Спрей из линии кислоты, наносящий %DAMAGE% урона на расстоянии %RANGE%"
 
 /datum/action/xeno_action/activable/spray_acid/apply_replaces_in_desc()
 	replace_in_desc("%RANGE%", spray_distance, DESCRIPTION_REPLACEMENT_DISTANCE)
