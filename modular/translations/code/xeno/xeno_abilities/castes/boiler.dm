@@ -1,15 +1,8 @@
 // Handled by basic version
 /datum/action/xeno_action/onclick/toggle_long_range/boiler
 
-/* Not used
-/datum/action/xeno_action/activable/acid_lance
-	desc = "Начинает накапливать кислоту. Используйте снова, чтобы выстрелить потоком кислоты по линии. Урон зависит от длительности накапливания. \
-		Мини"
-
-/datum/action/xeno_action/activable/acid_lance/apply_replaces_in_desc()
-	replace_in_desc("%MAX_DAMAGE%", max_stacks * 15)
-	replace_in_desc("%BASE_DAMAGE%", base_damage)
-*/
+// Not used
+// /datum/action/xeno_action/activable/acid_lance
 
 /datum/action/xeno_action/onclick/shift_spits/boiler
 	desc = "Переключает между газами."

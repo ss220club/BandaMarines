@@ -11,30 +11,30 @@
 		desc += "<br>Накладывает статус-эффекты:"
 		// Stun
 		if(debilitate[1])
-			desc += "<br>   Оглушение: [convert_effect_time(debilitate[1], STUN)] <b>сек.</b>"
+			desc += "<br>- Оглушение: <b>[convert_effect_time(debilitate[1], STUN)] сек.</b>"
 		// Weaken
 		if(debilitate[2])
-			desc += "<br>   Опрокидывание: [convert_effect_time(debilitate[2], WEAKEN)] <b>сек.</b>"
+			desc += "<br>- Опрокидывание: <b>[convert_effect_time(debilitate[2], WEAKEN)] сек.</b>"
 		// Sleep
 		if(debilitate[3])
-			desc += "<br>   Нокаут: [convert_effect_time(debilitate[3], WEAKEN)] <b>сек.</b>"
+			desc += "<br>- Нокаут: <b>[convert_effect_time(debilitate[3], WEAKEN)] сек.</b>"
 		// Irradiate
 		/* Not used
 		if(debilitate[4])
-			desc += "<br>Оглушает на [convert_effect_time(debilitate[4], STUN)] <b>сек.</b>"
+			desc += "<br>- Оглушает на <b>[convert_effect_time(debilitate[4], STUN)] <b>сек.</b>"
 		*/
 		// Stutter
 		if(debilitate[5])
-			desc += "<br>   Заикание: [convert_effect_time(debilitate[5], STUN)] <b>сек.</b>"
+			desc += "<br>- Заикание: <b>[convert_effect_time(debilitate[5], STUN)] сек.</b>"
 		// Eyeblur
 		if(debilitate[6])
-			desc += "<br>   Затуманивает зрения: [convert_effect_time(debilitate[6], STUN)] <b>сек.</b>"
+			desc += "<br>- Затуманивает зрения: <b>[convert_effect_time(debilitate[6], STUN)] сек.</b>"
 		// Drowsy
 		if(debilitate[7])
-			desc += "<br>   Сонность: [convert_effect_time(debilitate[7], STUN)] <b>сек.</b>"
+			desc += "<br>- Сонность: <b>[convert_effect_time(debilitate[7], STUN)] сек.</b>"
 		// Agony
 		if(debilitate[8])
-			desc += "<br>   Боль: [debilitate[8]]."
+			desc += "<br>- Боль: <b>[debilitate[8]]</b>."
 		desc += "<br>"
 
 	return desc
@@ -42,12 +42,15 @@
 /datum/ammo/xeno/boiler_gas/get_description()
 	var/desc = ..()
 	var/neurodose = /obj/effect/particle_effect/smoke/xeno_weak::neuro_dose
-	desc += "<br>Радиус взрыва: [smokerange]. Замедляет носителей в области, медленно ослабляет и душит их. Затуманивает зрение. Накладывает <b>[neurodose]</b> стаков нейротоксина каждую секунду. \
+	desc += "<br>Радиус взрыва: [smokerange].\
+		<br>Замедляет носителей в области, медленно ослабляет и душит их. Затуманивает зрение. Накладывает <b>[neurodose]</b> стаков нейротоксина каждую секунду.\
 		<br>Нейротоксин постепенно ослабевает цель, наносит урон токсинами, вызывает галлюцинации, а при <b>19</b> стаках ослепляет, и при <b>50</b> стаках убивает."
 	return desc
 
 /datum/ammo/xeno/boiler_gas/acid/get_description()
 	var/desc = call(src, /datum/ammo/xeno::get_description())()
 	var/damage = /obj/effect/particle_effect/smoke/xeno_burn::gas_damage
-	desc += "<br>Радиус взрыва: [smokerange]. Накладывает кислоту на барикады в области. Наносит [damage] урона в секунду при вдыхании носителями, а также дополнительно <b>15-20</b> урона в секунду по телу."
+	desc += "<br>Радиус взрыва: [smokerange].\
+		<br>Накладывает кислоту на барикады в области.\
+		<br>Наносит [damage] урона в секунду при вдыхании носителями, а также дополнительно <b>15-20</b> урона в секунду по телу."
 	return desc

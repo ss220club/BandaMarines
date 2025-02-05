@@ -3,8 +3,7 @@
 
 /datum/action/xeno_action/activable/slowing_spit/apply_replaces_in_desc()
 	replace_in_desc("%SLOWDOWN%", convert_effect_time(4, SUPERSLOW), DESCRIPTION_REPLACEMENT_TIME)
-	var/mob/living/carbon/xenomorph/xeno = owner
-	var/datum/ammo/xeno/spit = xeno.ammo || GLOB.ammo_list[xeno.caste.spit_types[1]]
+	var/datum/ammo/xeno/spit = GLOB.ammo_list[/datum/ammo/xeno/toxin] // hardcoded
 	desc += "<br><br>Характеристики [spit.get_description()]"
 
 /datum/action/xeno_action/activable/scattered_spit
