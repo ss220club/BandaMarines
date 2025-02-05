@@ -35,7 +35,7 @@
 		// Agony
 		if(debilitate[8])
 			desc += "<br>- Боль: <b>[debilitate[8]]</b>."
-	desc += "<br><br>"
+	desc += "<br>"
 	return desc
 
 /datum/ammo/xeno/boiler_gas/get_description()
