@@ -34,4 +34,4 @@
 
 /datum/action/xeno_action/activable/tail_stab/spitter/apply_replaces_in_desc()
 	. = ..()
-	desc += "Вводит <b>2</b> единицы [/datum/reagent/toxin/molecular_acid::name] (всего <b>26.5</b> урона)."
+	desc += "<br>Вводит <b>2</b> единицы [/datum/reagent/toxin/molecular_acid::name] (всего <b>26.5</b> урона)."
