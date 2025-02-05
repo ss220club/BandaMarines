@@ -100,15 +100,15 @@
 		var/msg_holder = "-"
 		if(frenzy_aura)
 			msg_holder = get_pheromone_aura_strength(frenzy_aura)
-		. += "Безумие: [msg_holder]"
+		. += "Феромоны безумия: [msg_holder]"
 		msg_holder = "-"
 		if(warding_aura)
 			msg_holder = get_pheromone_aura_strength(warding_aura)
-		. += "Защита: [msg_holder]"
+		. += "Феромоны защиты: [msg_holder]"
 		msg_holder = "-"
 		if(recovery_aura)
 			msg_holder = get_pheromone_aura_strength(recovery_aura)
-		. += "Восстановление: [msg_holder]"
+		. += "Феромоны восстановления: [msg_holder]"
 		. += ""
 
 	if(hive)
@@ -611,17 +611,17 @@
 /proc/get_pheromone_aura_strength(aura)
 	switch(aura)
 		if(-INFINITY to 0.9)
-			return "Очень слабая"
+			return "Очень слабые"
 		if(1 to 1.9)
-			return "Weak"
+			return "Слабые"
 		if(2 to 2.9)
-			return "Moderate"
+			return "Умеренные"
 		if(3 to 3.9)
-			return "Strong"
+			return "Сильные"
 		if(4 to 4.9)
-			return "Very Strong"
+			return "Очень сильные"
 		if(4.9 to INFINITY)
-			return "Overwhelming"
+			return "Переполняющие"
 
 /mob/living/carbon/xenomorph/proc/start_tracking_resin_mark(obj/effect/alien/resin/marker/target)
 	if(!target)
