@@ -1,6 +1,6 @@
 /datum/ammo/xeno/proc/get_description()
-	var/desc = "<br><br>Характеристики [name]"
-	desc += "<br>Дальность: <b>[max_range] кл.</b>."
+	var/desc = "<br><br>Характеристики [name]."
+	desc += "<br>Дальность: <b>[max_range] кл.</b>"
 	desc += "<br>Урон: <b>[damage ? "[damage] [damage_type]" : "отсутствует"]</b>."
 	if(damage && damage_falloff)
 		desc += " Уменьшается на [damage_falloff] за каждую пройденную клетку."
@@ -35,8 +35,8 @@
 		// Agony
 		if(debilitate[8])
 			desc += "<br>- Боль: <b>[debilitate[8]]</b>."
-		desc += "<br><br>"
-
+		desc += "<br>"
+	desc += "<br><br>"
 	return desc
 
 /datum/ammo/xeno/boiler_gas/get_description()
