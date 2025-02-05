@@ -74,7 +74,7 @@
 /datum/action/xeno_action/activable/xeno_spit/apply_replaces_in_desc()
 	var/mob/living/carbon/xenomorph/xeno = owner
 	var/datum/ammo/xeno/spit = xeno.ammo || GLOB.ammo_list[xeno.caste.spit_types[1]]
-	desc += "<br><br>Характеристики [spit.get_description()]"
+	desc += "[spit.get_description()]"
 
 /datum/action/xeno_action/activable/tail_stab
 	desc = "Удар хвостом на расстоянии 2-х клеток, который наносит на 20% больше урона, чем удар когтями, а также дезориентирирует цель."

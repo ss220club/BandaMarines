@@ -6,7 +6,7 @@
 /datum/action/xeno_action/activable/slowing_spit/apply_replaces_in_desc()
 	replace_in_desc("%SLOWDOWN%", convert_effect_time(4, SUPERSLOW), DESCRIPTION_REPLACEMENT_TIME)
 	var/datum/ammo/xeno/spit = GLOB.ammo_list[/datum/ammo/xeno/toxin] // hardcoded
-	desc += "<br><br>Характеристики [spit.get_description()]"
+	desc += "[spit.get_description()]"
 
 /datum/action/xeno_action/activable/scattered_spit
 	desc = "Слабый нейротоксин ограниченной дистанции (%DISTANCE%), стреляющий веером.\
