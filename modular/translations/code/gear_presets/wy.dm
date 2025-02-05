@@ -1,6 +1,6 @@
 /datum/equipment_preset/wy
 	//name = "WY"
-	assignment = FACTION_WY_RU
+	//assignment = FACTION_WY_RU
 
 /datum/equipment_preset/wy/trainee
 	//name = "Corporate - A - Trainee"
@@ -36,7 +36,6 @@
 
 /datum/equipment_preset/wy/manager
 	//name = "Manager"
-	assignment = FACTION_WY_RU
 
 /datum/equipment_preset/wy/manager/assistant_manager
 	//name = "Corporate - G - Assistant Manager"

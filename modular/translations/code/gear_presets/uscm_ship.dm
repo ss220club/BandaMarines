@@ -1,6 +1,6 @@
 /datum/equipment_preset/uscm_ship
 	//name = "USCM (ship roles)"
-	assignment = FACTION_MARINE_RU
+	//assignment = FACTION_MARINE_RU
 
 /datum/equipment_preset/uscm_ship/liaison
 	//name = "USCM Corporate Liaison (CL)"

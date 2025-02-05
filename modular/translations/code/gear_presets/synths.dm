@@ -4,11 +4,9 @@
 
 /datum/equipment_preset/synth/uscm/councillor
 //	name = "USCM Synthetic Councillor"
-	assignment = JOB_SYNTH_COUNCILLOR_RU
 
 /datum/equipment_preset/synth/uscm/wo
 //	name = "WO Support Synthetic"
-	assignment = JOB_WO_SUPPORT_SYNTH_RU
 
 //*****************************************************************************************************/
 /datum/equipment_preset/synth/working_joe

@@ -145,19 +145,19 @@
 
 //############ Solar Devils (PvE Marines) #############
 /datum/equipment_preset/uscm/rifleman_pve
-	name = "//USCM Solar Devils Rifleman"
+	//name = "USCM Solar Devils Rifleman"
 	assignment = JOB_SQUAD_MARINE_RU
 
 /datum/equipment_preset/uscm/medic_pve
-	name = "//USCM Solar Devils Platoon Corpsman"
+	//name = "USCM Solar Devils Platoon Corpsman"
 	assignment = JOB_PLT_MED_RU
 
 /datum/equipment_preset/uscm/sg_pve
-	name = "//USCM Solar Devils Smartgunner"
+	//name = "USCM Solar Devils Smartgunner"
 	assignment = JOB_SQUAD_SMARTGUN_RU
 
 /datum/equipment_preset/uscm/tl_pve
-	name = "//USCM Solar Devils Team Leader"
+	//name = "USCM Solar Devils Team Leader"
 	assignment = JOB_SQUAD_TEAM_LEADER_RU
 
 //## Squad Leader ##//

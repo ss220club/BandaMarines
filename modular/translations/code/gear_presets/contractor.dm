@@ -1,6 +1,6 @@
 /datum/equipment_preset/contractor
 	//name = "Military Contractor"
-	assignment = JOB_CONTRACTOR__RU
+	assignment = JOB_CONTRACTOR_RU
 
 /datum/equipment_preset/contractor/duty/standard
 	//name = "Military Contractor (Standard)"

@@ -1,6 +1,6 @@
 /datum/equipment_preset/wo
 	//name = "WO"
-	assignment = WO_RU
+	assignment = "Пыльные Рейдеры"
 
 /datum/equipment_preset/wo/commander
 	//name = "WO Commanding Officer"
@@ -64,28 +64,28 @@
 
 /datum/equipment_preset/wo/marine
 	//name = "WO Dust Raider"
-	assignment = MARINE_RU
+	assignment = JOB_WO_SQUAD_MARINE_RU
 
 /datum/equipment_preset/wo/marine/sl
 	//name = "WO Dust Raider Squad Leader"
-	assignment = JOB_SQUAD_LEADER_RU
+	assignment = JOB_WO_SQUAD_LEADER_RU
 
 /datum/equipment_preset/wo/marine/spec
 	//name = "WO Dust Raider Squad Weapons Specialist"
-	assignment = JOB_SQUAD_SPECIALIST_RU
+	assignment = JOB_WO_SQUAD_SPECIALIST_RU
 
 /datum/equipment_preset/wo/marine/sg
 	//name = "WO Dust Raider Squad Smartgunner"
-	assignment = JOB_SQUAD_SMARTGUN_RU
+	assignment = JOB_WO_SQUAD_SMARTGUNNER_RU
 
 /datum/equipment_preset/wo/marine/engineer
 	//name = "WO Dust Raider Squad Combat Technician"
-	assignment = JOB_SQUAD_ENGI_RU
+	assignment = JOB_WO_SQUAD_ENGINEER_RU
 
 /datum/equipment_preset/wo/marine/medic
 	//name = "WO Dust Raider Hospital Corpsman"
-	assignment = JOB_SQUAD_MEDIC_RU
+	assignment = JOB_WO_SQUAD_MEDIC_RU
 
 /datum/equipment_preset/wo/marine/pfc
 	//name = "WO Dust Raider Rifleman (PFC)"
-	assignment = JOB_SQUAD_MARINE_RU
+	assignment = JOB_WO_SQUAD_MARINE_RU

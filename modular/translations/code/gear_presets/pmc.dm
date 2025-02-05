@@ -1,6 +1,6 @@
 
-/datum/equipment_preset/pmc
-	assignment = JOB_PMC
+// /datum/equipment_preset/pmc
+// 	assignment = JOB_PMC
 
 /datum/equipment_preset/pmc/pmc_standard
 	//name = "Weyland-Yutani PMC (Standard)"

@@ -1,6 +1,6 @@
 /datum/equipment_preset/goon
 	//name = "WY Goons"
-	assignment = FACTION_WY_RU
+	//assignment = FACTION_WY_RU
 
 /datum/equipment_preset/goon/standard
 	//name = "Weyland-Yutani Corporate Security (Goon)"

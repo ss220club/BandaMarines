@@ -1,3 +1,5 @@
+// Кто-нибудь разберитесь с этим
+/*
 /datum/equipment_preset/yautja
 	name = "Yautja"
 	idtype = null //No IDs for Yautja!
@@ -151,3 +153,4 @@
 /datum/equipment_preset/yautja/ancient/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/device/radio/headset/yautja/elder(new_human), WEAR_L_EAR)
 	return ..()
+*/
