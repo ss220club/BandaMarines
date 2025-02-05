@@ -38,7 +38,7 @@
 			desc += " Этот удар наносит на %SLASH_BONUS% урона больше."
 	replace_in_desc("%SLASH_BONUS%", slash_bonus_damage)
 	if(freeze_self)
-		desc += " После остановки вы не сможете двигаться %FREEZE_TIME%"
+		desc += " При попадании по цели, вы не сможете двигаться %FREEZE_TIME%"
 	replace_in_desc("%FREEZE_TIME%", freeze_time / 10, DESCRIPTION_REPLACEMENT_TIME)
 	if(windup)
 		desc += " ВНИМАНИЕ: имеется задержка перед прыжком в %WINDUP_TIME%"

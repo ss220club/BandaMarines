@@ -2,9 +2,8 @@
 
 /datum/action/xeno_action/activable/pounce/lurker/apply_replaces_in_desc()
 	. = ..()
-	desc += "<br><br>При прыжке с невидимости, вы оглушаете цель (%KNOCKDOWN_DURATION%) и не сможете двигаться %FREEZE_TIME%. Вы сможете двигаться раньше, когда нанесёте удар когтями."
+	desc += "<br><br>Вы сможете двигаться раньше, когда нанесёте удар когтями. При прыжке с невидимости, вы оглушаете цель (%KNOCKDOWN_DURATION%)."
 	replace_in_desc("%KNOCKDOWN_DURATION%", convert_effect_time(knockdown_duration, WEAKEN), DESCRIPTION_REPLACEMENT_TIME)
-	replace_in_desc("%FREEZE_TIME%", freeze_time / 10, DESCRIPTION_REPLACEMENT_TIME)
 
 /datum/action/xeno_action/onclick/lurker_invisibility
 	desc = "Войти в невидимость на %INV_DURATION% Будучи в невидимости, вас будет крайне сложно заметить, и вы будете передвигаться быстрее."
@@ -13,7 +12,7 @@
 	replace_in_desc("%INV_DURATION%", duration / 10, DESCRIPTION_REPLACEMENT_TIME)
 
 /datum/action/xeno_action/onclick/lurker_assassinate
-	desc = "Увеличивает урон от вашего следующего удара когтями на %BUFF_DAMAGE%%. Этот удар также значительно замедлит цель (%SLOW_DURATION%)."
+	desc = "Увеличивает урон от вашего следующего удара на %BUFF_DAMAGE%%. Этот удар также значительно замедлит цель (%SLOW_DURATION%). Активация сбрасывает перезарядку между ударами."
 
 /datum/action/xeno_action/onclick/lurker_assassinate/apply_replaces_in_desc()
 	replace_in_desc("%BUFF_DURATION%", buff_duration / 10, DESCRIPTION_REPLACEMENT_TIME)
@@ -28,7 +27,7 @@
 	replace_in_desc("%DAMAGE_RUSH%", /datum/caste_datum/lurker::melee_damage_upper)
 
 /datum/action/xeno_action/activable/flurry
-	desc = "Провести шквал ударов когтями уголком, наносит %DAMAGE_FLURRY% урона каждой цели. Также лечит %HEAL_FLURRY% здоровья за каждую цель."
+	desc = "Провести шквал ударов когтями перед вами размером 1x3, наносит %DAMAGE_FLURRY% урона каждой цели. Также лечит %HEAL_FLURRY% здоровья за каждую цель."
 
 /datum/action/xeno_action/activable/flurry/apply_replaces_in_desc()
 	replace_in_desc("%DAMAGE_FLURRY%", /datum/caste_datum/lurker::melee_damage_upper)
@@ -42,7 +41,7 @@
 	replace_in_desc("%TAIL_DISTANCE%", 2, DESCRIPTION_REPLACEMENT_DISTANCE)
 	replace_in_desc("%TAIL_DAMAGE%", /datum/caste_datum/lurker::melee_damage_upper)
 	replace_in_desc("%TAIL_DAMAGE_DIRECT%", 15)
-	replace_in_desc("%SLOWDOWN_DURATION%", convert_effect_time(0.5, SLOW))
+	replace_in_desc("%SLOWDOWN_DURATION%", convert_effect_time(0.5, SLOW), DESCRIPTION_REPLACEMENT_DISTANCE)
 	replace_in_desc("%THROW_DAMAGE%", MELEE_FORCE_TIER_2)
 
 /datum/action/xeno_action/activable/headbite
