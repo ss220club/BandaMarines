@@ -7,6 +7,7 @@
 /datum/action/xeno_action/onclick/shift_spits/boiler
 	desc = "Переключить вид газа."
 
+// Handled by basic version
 /datum/action/xeno_action/activable/spray_acid/boiler
 
 /datum/action/xeno_action/activable/xeno_spit/bombard
