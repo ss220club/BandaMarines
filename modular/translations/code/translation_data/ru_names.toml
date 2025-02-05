@@ -6918,10 +6918,6 @@ gender = "male"
 nominative = "кусочки спагетти"
 gender = "plural"
 
-["spaghetti chunks"]
-nominative = "кусочки спагетти"
-gender = "plural"
-
 ["cracker"]
 nominative = "сухари"
 gender = "plural"
@@ -6973,10 +6969,6 @@ gender = "male"
 ["sugar cookie"]
 nominative = "сладкое печенье"
 gender = "neuter"
-
-["coco bar"]
-nominative = "кокосовый балончик"
-gender = "male"
 
 ["coco bar"]
 nominative = "кокосовый балончик"
