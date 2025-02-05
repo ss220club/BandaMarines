@@ -7,7 +7,7 @@
 	job_options = list("Gunnery Sergeant" = "GySGT", "Master Sergeant" = "MSgt", "First Sergeant" = "1Sgt", "Master Gunnery Sergeant" = "MGySgt", "Sergeant Major" = "SgtMaj")
 
 /datum/job/command/senior/on_config_load()
-	entry_message_body = "<a href='"+WIKI_PLACEHOLDER+'">Вы</a> придерживаетесь более высоких стандартов и обязаны соблюдать не только Правила сервера, но и <a href='"+LAW_PLACEHOLDER+'">Законы Морпехов</a> и <a href='[CONFIG_GET(string/wikiarticleurl)]/[URL_WIKI_SOP]'>Стандартную рабочую процедуру</a>. Невыполнение этого требования может привести к отстранению от наставничества. Ваша основная задача — обучать других игре и ее механике, а также давать советы всем отделам и персоналу ККМП на борту."	// SS220 EDIT TRANSLATE
+	entry_message_body = "<a href='"+WIKI_PLACEHOLDER+"'>Вы</a> придерживаетесь более высоких стандартов и обязаны соблюдать не только Правила сервера, но и <a href='"+LAW_PLACEHOLDER+"'>Законы Морпехов</a> и <a href='[CONFIG_GET(string/wikiarticleurl)]/[URL_WIKI_SOP]'>Стандартные Рабочие Процедуры</a>. Невыполнение этого требования может привести к отстранению от наставничества. Ваша основная задача — обучать других игре и ее механике, а также давать советы всем отделам и персоналу ККМП на борту."	// SS220 EDIT TRANSLATE
 	return ..()
 
 /datum/job/command/senior/announce_entry_message(mob/living/carbon/human/H)

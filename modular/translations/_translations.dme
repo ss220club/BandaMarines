@@ -75,6 +75,9 @@
 #include "code/job/special/uscm.dm"
 #include "code/job/special/weyland_yutani.dm"
 
+// Gear Presets
+#include "code/gear_presets/cbrn.dm"
+
 // Xeno Abilities
 #include "code/xeno/castes_age.dm"
 #include "code/xeno/xeno_abilities/general_abilities.dm"
