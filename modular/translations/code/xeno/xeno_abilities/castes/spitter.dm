@@ -31,3 +31,7 @@
 
 // Need to update tail first
 /datum/action/xeno_action/activable/tail_stab/spitter
+
+/datum/action/xeno_action/activable/tail_stab/spitter/replace_in_desc(what_to_replace, replace_with, type)
+	. = ..()
+	desc += "Вводит <b>2</b> единицы [/datum/reagent/toxin/molecular_acid::name] (всего <b>26.5</b> урона)."
