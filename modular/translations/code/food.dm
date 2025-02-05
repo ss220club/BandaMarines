@@ -41,19 +41,3 @@ GLOBAL_LIST_INIT(ru_mre_components, list(
 
 /obj/item/storage/box/MRE
 	desc = "Готовая к употреблению пища. Одноразовый армейский рацион, предназначенный для снабжения солдата необходимым уровнем питательных веществ для целого дня напряженной работы. Срок годности по меньшей мере на 20 лет превышает ожидаемый срок службы."
-
-/obj/item/storage/box/MRE/declent_ru(declent)
-	. = name
-	if(declent == "gender")
-		. = gender
-	if(!length(ru_names))
-		return .
-	return get_declented_value(ru_names, declent, .)
-
-/obj/item/reagent_container/food/snacks/packaged_meal/declent_ru(declent)
-	. = name
-	if(declent == "gender")
-		. = gender
-	if(!length(ru_names))
-		return .
-	return get_declented_value(ru_names, declent, .)

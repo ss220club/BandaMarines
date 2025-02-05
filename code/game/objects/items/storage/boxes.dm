@@ -882,9 +882,10 @@
 	var/desert = pick("spiced apples", "chocolate brownie", "sugar cookie", "coco bar", "flan", "honey flan")
 	name = "[initial(name)] ([main])"
 	// BANDAMARINES EDIT START
+	var/new_ru_names = list("base" = name, "gender" = gender)
 	for(var/declension in GLOB.declensions)
-		if(ru_names[declension])
-			ru_names[declension] = "[ru_names[declension]] ([GLOB.ru_mre_components[main] ? GLOB.ru_mre_components[main] : main])"
+		new_ru_names[declension] = "[ru_names[declension]] ([GLOB.ru_mre_components[main]])"
+	ru_names_rename(new_ru_names)
 	// BANDAMARINES EDIT END
 	//1 in 3 chance of getting a fortune cookie
 	var/cookie = rand(1,3)

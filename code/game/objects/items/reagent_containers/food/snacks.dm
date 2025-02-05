@@ -3573,9 +3573,10 @@
 /obj/item/reagent_container/food/snacks/packaged_meal/proc/determinetype(newflavor)
 	name = "\improper MRE component ([newflavor])"
 	// BANDAMARINES EDIT START
+	var/new_ru_names = list("base" = name, "gender" = gender)
 	for(var/declension in GLOB.declensions)
-		if(ru_names[declension])
-			ru_names[declension] = "[ru_names[declension]] ([GLOB.ru_mre_components[newflavor] ? GLOB.ru_mre_components[newflavor] : newflavor ])"
+		new_ru_names[declension] = "[ru_names[declension]] ([GLOB.ru_mre_components[newflavor]])"
+	ru_names_rename(new_ru_names)
 	// BANDAMARINES EDIT END
 	flavor = GLOB.ru_mre_components[newflavor] ? GLOB.ru_mre_components[newflavor] : newflavor
 
