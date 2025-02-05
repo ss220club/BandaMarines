@@ -1,7 +1,7 @@
 /datum/ammo/xeno/proc/get_description()
 	var/desc = "[name]"
 	desc += "<br>Дальность: <b>[max_range] кл.</b>."
-	desc += "<br>Урон: [damage ? "[damage] [damage_type]" : "отсутствует"]."
+	desc += "<br>Урон: <b>[damage ? "[damage] [damage_type]" : "отсутствует"]</b>."
 	if(damage && damage_falloff)
 		desc += " Уменьшается на [damage_falloff] за каждую пройденную клетку."
 
