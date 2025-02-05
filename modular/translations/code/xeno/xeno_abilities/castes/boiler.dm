@@ -5,7 +5,7 @@
 // /datum/action/xeno_action/activable/acid_lance
 
 /datum/action/xeno_action/onclick/shift_spits/boiler
-	desc = "Переключиться между газами."
+	desc = "Переключить вид газа."
 
 /datum/action/xeno_action/activable/spray_acid/boiler
 

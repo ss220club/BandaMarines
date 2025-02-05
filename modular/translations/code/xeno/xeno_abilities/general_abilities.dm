@@ -5,7 +5,7 @@
 	desc = "Отдых позволяет быстрее регенерировать здоровье."
 
 /datum/action/xeno_action/onclick/shift_spits
-	desc = "Переключает вид плевка."
+	desc = "Переключить вид плевка."
 
 /datum/action/xeno_action/onclick/shift_spits/use_ability(atom/A)
 	. = ..()
