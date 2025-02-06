@@ -6,10 +6,25 @@
 #include "code/pronouns.dm"
 #include "code/ru_weapon_desc.dm"
 #include "code/ru_names/ru_name_base.dm"
-#include "code/translate_emotes.dm"
-#include "code/translate_verbs.dm"
 #include "code/ru_ammunition_desc.dm"
 
+<<<<<<< Updated upstream
+// paygrades
+#include "code/paygrades/factions/other/civilian.dm"
+#include "code/paygrades/factions/other/cmb.dm"
+#include "code/paygrades/factions/other/contractors.dm"
+#include "code/paygrades/factions/other/dutch_dozen.dm"
+#include "code/paygrades/factions/other/freelancer.dm"
+#include "code/paygrades/factions/other/misc.dm"
+#include "code/paygrades/factions/twe/nspa.dm"
+#include "code/paygrades/factions/twe/twe.dm"
+#include "code/paygrades/factions/upp/upp.dm"
+#include "code/paygrades/factions/uscm/marine.dm"
+#include "code/paygrades/factions/uscm/navy.dm"
+#include "code/paygrades/factions/uscm/provost.dm"
+#include "code/paygrades/factions/wy/pmc.dm"
+#include "code/paygrades/factions/wy/wy.dm"
+=======
 // faction_rank translate
 #include "code/faction_rank/other/civilian.dm"
 #include "code/faction_rank/other/cmb.dm"
@@ -27,6 +42,7 @@
 #include "code/faction_rank/wy/wy.dm"
 
 // jobs
+#include "code/job/job.dm"
 #include "code/job/antag/other/pred.dm"
 #include "code/job/antag/xeno/queen.dm"
 #include "code/job/antag/xeno/xenomorph.dm"
@@ -107,12 +123,12 @@
 #include "code/gear_presets/wy_goons.dm"
 #include "code/gear_presets/wy.dm"
 #include "code/gear_presets/yautja.dm"
+>>>>>>> Stashed changes
 
 // Xeno Abilities
 #include "code/xeno/castes_age.dm"
 #include "code/xeno/xeno_abilities/general_abilities.dm"
 #include "code/xeno/xeno_abilities/xeno_action.dm"
-#include "code/xeno/xeno_abilities/xeno_projectiles.dm"
 #include "code/xeno/xeno_abilities/castes/boiler.dm"
 #include "code/xeno/xeno_abilities/castes/burrower.dm"
 #include "code/xeno/xeno_abilities/castes/carrier.dm"

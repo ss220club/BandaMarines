@@ -2,7 +2,10 @@
 
 #include "code/signals_atom.dm"
 #include "code/signals_item.dm"
-#include "code/defines/job.dm"
+<<<<<<< Updated upstream
+=======
+// #include "code/defines/job.dm" ==> перенесено в code/__DEFINES/bandamarines/ru_jobs.dm
+>>>>>>> Stashed changes
 #include "code/defines/keybindings.dm"
 #include "code/defines/misc.dm"
 #include "code/defines/spans.dm"
