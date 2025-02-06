@@ -41,7 +41,6 @@
 		radio.listening = FALSE
 
 	human_to_transform.job = title
-	human_to_transform.job_ru = disp_title	// SS220 EDIT TRANSLATE
 	human_to_transform.apply_damage(50, BRUTE)
 	human_to_transform.spawned_corpse = TRUE
 

@@ -1,2 +1,2 @@
-/mob
-	var/job_ru = null	// Титульник. Не датум.
+// /mob
+// 	var/job_ru = null	// Титульник. Не датум.

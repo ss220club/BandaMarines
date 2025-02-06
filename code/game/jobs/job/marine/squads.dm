@@ -511,12 +511,9 @@
 
 	// SS220 EDIT START	 TRANSLATE
 	var/assignment = target_mob.job
-	if(target_mob.job_ru)
-		assignment = target_mob.job_ru
-	else
-		var/datum/job/job_temp = GET_MAPPED_ROLE(target_mob.job)
-		if(job_temp && job_temp.disp_title)
-			assignment = job_temp.disp_title
+	var/datum/job/job_temp = GET_MAPPED_ROLE(target_mob.job)
+	if(job_temp && job_temp.disp_title)
+		assignment = job_temp.disp_title
 	// SS220 EDIT END	 TRANSLATE
 	var/paygrade
 
@@ -542,7 +539,7 @@
 				var/old_lead = squad_leader
 				demote_squad_leader() //replaced by the real one
 				SStracking.start_tracking(tracking_id, old_lead)
-			assignment = "Командир " + squad_type	// SS220 EDIT TRANSLATE
+			assignment = "Командир " + squad_type_ru	// SS220 EDIT TRANSLATE
 			squad_leader = target_mob
 			SStracking.set_leader(tracking_id, target_mob)
 			SStracking.start_tracking("marine_sl", target_mob)
@@ -560,7 +557,7 @@
 				var/old_lead = squad_leader
 				demote_squad_leader() //replaced by the real one
 				SStracking.start_tracking(tracking_id, old_lead)
-			assignment = "Командир " + squad_type	// SS220 EDIT TRANSLATE
+			assignment = "Командир " + squad_type_ru	// SS220 EDIT TRANSLATE
 			squad_leader = target_mob
 			SStracking.set_leader(tracking_id, target_mob)
 			SStracking.start_tracking("marine_sl", target_mob)
@@ -576,7 +573,7 @@
 					var/old_lead = squad_leader
 					demote_squad_leader() //replaced by the real one
 					SStracking.start_tracking(tracking_id, old_lead)
-				assignment = "Командир " + squad_type	// SS220 EDIT TRANSLATE
+				assignment = "Командир " + squad_type_ru	// SS220 EDIT TRANSLATE
 				squad_leader = target_mob
 				SStracking.set_leader(tracking_id, target_mob)
 				SStracking.start_tracking("marine_sl", target_mob)
@@ -602,7 +599,7 @@
 	target_mob.assigned_squad = src //Add them to the squad
 	id_card.access += (src.access + extra_access) //Add their squad access to their ID
 	if(prepend_squad_name_to_assignment)
-		id_card.assignment = "[assignment] [name_ru]"	// SS220 EDIT TRANSLATE
+		id_card.assignment = "[assignment] [get_name_ru()]"	// SS220 EDIT TRANSLATE
 	else
 		id_card.assignment = assignment
 

@@ -1,11 +1,17 @@
+/datum/squad_type
+	var/name_ru
+
+/datum/squad_type/proc/get_name_ru()
+	return name_ru ? name_ru : name
+
 /datum/squad_type/marine_squad
-	name = "Отряда"
+	name_ru = "Отряда"
 	lead_name = "Командир Отряда"
 	sub_squad = "Боевой Группы"
 	sub_leader = "Лидер Боевой Группы"
 
 /datum/squad_type/marsoc_team
-	name = "Команды"
+	name_ru = "Команды"
 	lead_name = "Лидер Команды"
 	sub_squad = "Ударной Группы"
 	sub_leader = "Ударный Лидер"
@@ -14,7 +20,7 @@
 // 			SQUADS
 // ======================
 /datum/squad
-	squad_type = "Отряда"
+	var/squad_type_ru = "Отряда"
 	var/name_ru
 
 /datum/squad/proc/get_name_ru()
@@ -71,14 +77,14 @@
 	name_ru = SQUAD_UPP_4_RU
 
 /datum/squad/upp/kdo
-	squad_type = "Команды"
+	squad_type_ru = "Команды"
 	name_ru = SQUAD_UPP_5_RU
 
 
 // PMC
 
 /datum/squad/pmc
-	squad_type = "Команды"
+	squad_type_ru = "Команды"
 
 /datum/squad/pmc/one
 	name_ru = "Команда Эпсилон"
@@ -93,7 +99,7 @@
 // CLF
 
 /datum/squad/clf
-	squad_type = "Ячейки"
+	squad_type_ru = "Ячейки"
 
 /datum/squad/clf/one
 	name_ru = "Питон"
