@@ -14,6 +14,7 @@
 // 			SQUADS
 // ======================
 /datum/squad
+	squad_type = "Отряда"
 	var/name_ru
 
 /datum/squad/proc/get_name_ru()
@@ -70,8 +71,8 @@
 	name_ru = SQUAD_UPP_4_RU
 
 /datum/squad/upp/kdo
-	name_ru = SQUAD_UPP_5_RU
 	squad_type = "Команды"
+	name_ru = SQUAD_UPP_5_RU
 
 
 // PMC
