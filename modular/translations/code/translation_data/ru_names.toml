@@ -6912,7 +6912,7 @@ gender = "female"
 
 ["pizza square"]
 nominative = "квадратная пицца"
-gender = "male"
+gender = "female"
 
 ["spaghetti chunks"]
 nominative = "кусочки спагетти"
@@ -6931,12 +6931,12 @@ nominative = "онигири"
 gender = "plural"
 
 ["mashed potatoes"]
-nominative = "картофельное пюрэ"
+nominative = "картофельное пюрe"
 gender = "neuter"
 
 ["risotto"]
 nominative = "ризотто"
-gender = "male"
+gender = "neuter"
 
 ["biscuit"]
 nominative = "бисквит"
@@ -6971,7 +6971,7 @@ nominative = "сладкое печенье"
 gender = "neuter"
 
 ["coco bar"]
-nominative = "кокосовый балончик"
+nominative = "кокосовый батончик"
 gender = "male"
 
 ["flan"]
