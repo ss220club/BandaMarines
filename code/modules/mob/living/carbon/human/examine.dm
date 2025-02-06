@@ -412,28 +412,28 @@
 					if (display_arm_right)
 						msg += SPAN_WARNING("Кровь капает через [t_his] <b>правый рукав</b>!\n")
 				if (display_hand_left && display_hand_right)
-					msg += SPAN_WARNING("Кровь течет из-под [t_his] <b>перчаток</b>!\n")
+					msg += SPAN_WARNING("Кровь течёт из-под [t_his] <b>перчаток</b>!\n")
 				else
 					if (display_hand_left)
-						msg += SPAN_WARNING("Кровь течет из-под [t_his] <b>левой перчатки</b>!\n")
+						msg += SPAN_WARNING("Кровь течёт из-под [t_his] <b>левой перчатки</b>!\n")
 					if (display_hand_right)
-						msg += SPAN_WARNING("Кровь течет из-под [t_his] <b>правой перчатки</b>!\n")
+						msg += SPAN_WARNING("Кровь течёт из-под [t_his] <b>правой перчатки</b>!\n")
 
 		if (display_groin && display_leg_left && display_leg_right && display_foot_left && display_foot_right)
 			msg += SPAN_WARNING("Кровь капает через [t_his] одежду <b>с нижней половины тела</b>!\n") //?
 		else
 			if (display_groin)
-				msg += SPAN_WARNING("Кровь течет из [t_his] <b>паха</b>!\n")
+				msg += SPAN_WARNING("Кровь течёт из [t_his] <b>паха</b>!\n")
 			if (display_leg_left && display_leg_right && display_foot_left && display_foot_right)
-				msg += SPAN_WARNING("Кровь течет из [t_his] <b>штанов</b> и <b>ботинок</b>!\n")
+				msg += SPAN_WARNING("Кровь течёт из [t_his] <b>штанов</b> и <b>ботинок</b>!\n")
 			else
 				if (display_leg_left && display_leg_right)
-					msg += SPAN_WARNING("Кровь течет из [t_his] <b>штанов</b>!\n")
+					msg += SPAN_WARNING("Кровь течёт из [t_his] <b>штанов</b>!\n")
 				else
 					if (display_leg_left)
-						msg += SPAN_WARNING("Кровь течет из [t_his] <b>левой штанины</b>!\n")
+						msg += SPAN_WARNING("Кровь течёт из [t_his] <b>левой штанины</b>!\n")
 					if (display_leg_right)
-						msg += SPAN_WARNING("Кровь течет из [t_his] <b>правой штанины</b>!\n")
+						msg += SPAN_WARNING("Кровь течёт из [t_his] <b>правой штанины</b>!\n")
 				if (display_foot_left && display_foot_right)
 					msg += SPAN_WARNING("Кровь собирается вокруг [t_his] <b>ботинок</b>!\n")
 				else
