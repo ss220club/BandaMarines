@@ -1,5 +1,5 @@
-#define MILITARY_VARIANT "Military Correspondent"
-#define CIVILIAN_VARIANT "Civilian Correspondent"
+#define MILITARY_VARIANT JOB_MILITARY_REPORTER_RU	// SS220 EDIT TRANSLATE
+#define CIVILIAN_VARIANT JOB_CIVILIAN_REPORTER_RU	// SS220 EDIT TRANSLATE
 
 /datum/job/civilian/reporter
 	title = JOB_COMBAT_REPORTER
@@ -11,7 +11,7 @@
 	flags_startup_parameters = ROLE_ADD_TO_DEFAULT
 	selection_class = "job_cl"
 
-	job_options = list(CIVILIAN_VARIANT = "Civ", MILITARY_VARIANT = "Mil")
+	job_options = list(CIVILIAN_VARIANT = "Грж", MILITARY_VARIANT = "Бой")
 	/// If this job is a military variant of the reporter role
 	var/military = FALSE
 
