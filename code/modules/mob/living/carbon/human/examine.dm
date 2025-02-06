@@ -76,10 +76,10 @@
 	var/msg = "<span class='info'>\nЭто "
 
 	if(skipjumpsuit && skipface) //big suits/masks/helmets make it hard to tell their gender
-		t_He = ru_p_they(TRUE, MALE)
-		t_His = ru_p_them(TRUE, MALE)
-		t_his = ru_p_them(temp_gender = MALE)
-		t_him = ru_p_them(temp_gender = MALE)
+		t_He = ru_p_they(TRUE)
+		t_His = ru_p_them(TRUE)
+		t_his = ru_p_them()
+		t_him = ru_p_them()
 		// t_has = "have"
 		// t_is = "are"
 	else
@@ -207,7 +207,7 @@
 	if(istype(user, /mob/dead/observer) || user.stat == DEAD) // ghosts can see anything
 		distance = 1
 	if (stat || status_flags & FAKEDEATH)
-		msg += SPAN_WARNING("[t_He] не реагирует на [t_him] окружение и, кажется, спит.\n")
+		msg += SPAN_WARNING("[t_He] не реагирует на окружение, и, кажется, спит.\n")
 		if(stat == DEAD && distance <= 3)
 			msg += SPAN_WARNING("[t_He] не дышит.\n")
 		if(paralyzed > 1 && distance <= 3)
