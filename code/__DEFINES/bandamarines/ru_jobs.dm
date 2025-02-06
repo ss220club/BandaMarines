@@ -4,7 +4,7 @@
 #define SQUAD_MARINE_3_RU "Чарли"
 #define SQUAD_MARINE_4_RU "Дельта"
 #define SQUAD_MARINE_5_RU "Эхо"
-#define SQUAD_MARINE_CRYO_RU "Фоксрот"
+#define SQUAD_MARINE_CRYO_RU "Фокстрот"
 #define SQUAD_MARINE_INTEL_RU "Интел"
 #define SQUAD_SOF_RU "SOF"
 #define SQUAD_CBRN_RU "CBRN"
