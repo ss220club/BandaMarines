@@ -61,7 +61,7 @@
 
 	// BANDAMARINES EDIT START
 	if(speaker_name == speaker.name)
-		speaker_name = declent_ru(NOMINATIVE)
+		speaker_name = speaker.declent_ru(NOMINATIVE)
 	// BANDAMARINES EDIT END
 
 	to_chat(src, "<span class='game say'><span class='name'>[comm_paygrade][speaker_name]</span>[alt_name] [track][ru_say_verb(verb)], <span class='message'><span class='[style]'>\"[message]\"</span></span></span>")

@@ -41,7 +41,7 @@
 
 	// BANDAMARINES EDIT START
 	if(speaker_name == speaker.name)
-		speaker_name = declent_ru(NOMINATIVE)
+		speaker_name = speaker.declent_ru(NOMINATIVE)
 	// BANDAMARINES EDIT END
 
 	if(sdisabilities & DISABILITY_DEAF || ear_deaf)
@@ -126,7 +126,7 @@
 
 	// BANDAMARINES EDIT START
 	if(speaker_name == speaker.name)
-		speaker_name = declent_ru(NOMINATIVE)
+		speaker_name = speaker.declent_ru(NOMINATIVE)
 	// BANDAMARINES EDIT END
 
 	if(sdisabilities & DISABILITY_DEAF || ear_deaf)
