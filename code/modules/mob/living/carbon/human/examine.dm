@@ -431,9 +431,9 @@
 					msg += SPAN_WARNING("Кровь течет из [t_his] <b>штанов</b>!\n")
 				else
 					if (display_leg_left)
-						msg += SPAN_WARNING("Кровь течет из [t_his] <b>левой штанины/b>!\n")
+						msg += SPAN_WARNING("Кровь течет из [t_his] <b>левой штанины</b>!\n")
 					if (display_leg_right)
-						msg += SPAN_WARNING("Кровь течет из [t_his] <b>правой штанины/b>!\n")
+						msg += SPAN_WARNING("Кровь течет из [t_his] <b>правой штанины</b>!\n")
 				if (display_foot_left && display_foot_right)
 					msg += SPAN_WARNING("Кровь собирается вокруг [t_his] <b>ботинок</b>!\n")
 				else
