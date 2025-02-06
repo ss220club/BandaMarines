@@ -881,9 +881,7 @@
 	var/side = pick("biscuit", "meatballs", "pretzels", "peanuts", "sushi")
 	var/desert = pick("spiced apples", "chocolate brownie", "sugar cookie", "coco bar", "flan", "honey flan")
 	name = "[initial(name)] ([main])"
-	// BANDAMARINES EDIT START
 	ru_names_rename(ru_names_toml("\improper MRE component", suffix = " ([declent_ru_initial(main, NOMINATIVE, main)])", override_base = name))
-	// BANDAMARINES EDIT END
 	//1 in 3 chance of getting a fortune cookie
 	var/cookie = rand(1,3)
 	var/matches_type = rand(1, 5)

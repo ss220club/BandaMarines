@@ -3572,10 +3572,8 @@
 	..()
 /obj/item/reagent_container/food/snacks/packaged_meal/proc/determinetype(newflavor)
 	name = "\improper MRE component ([newflavor])"
-	// BANDAMARINES EDIT START
-	flavor = declent_ru_initial(newflavor, NOMINATIVE, newflavor)
+	flavor = declent_ru_initial(newflavor, NOMINATIVE, newflavor) // BANDAMARINES EDIT
 	ru_names_rename(ru_names_toml("\improper MRE component", suffix = " ([flavor])", override_base = name))
-	// BANDAMARINES EDIT END
 
 	switch(newflavor)
 		if("boneless pork ribs", "grilled chicken", "pizza square", "spaghetti chunks", "chicken tender")
