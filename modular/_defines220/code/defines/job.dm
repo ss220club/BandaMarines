@@ -185,6 +185,8 @@
 #define JOB_CONTRACTOR_COVTL_RU "ВЭИОФ Team Leader"
 #define JOB_CONTRACTOR_COVSYN_RU "ВЭИОФ Синтетик Поддержки"
 
+#define JOB_MERCENARY_RU "Наёмник"
+
 //-------- CMB --------//
 #define JOB_CMB_RU "КМБ Оперумолномоченный"
 #define JOB_CMB_TL_RU "КМБ Маршал"

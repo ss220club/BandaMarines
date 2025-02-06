@@ -1,12 +1,7 @@
 //job options for doctors surgeon pharmacy technician(preparation of medecine and distribution)
 
-<<<<<<< Updated upstream
-#define DOCTOR_VARIANT "Doctor"
-#define SURGEON_VARIANT "Surgeon"
-=======
 #define DOCTOR_VARIANT JOB_DOCTOR_RU	// SS220 EDIT TRANSLATE
 #define SURGEON_VARIANT JOB_SURGEON_RU	// SS220 EDIT TRANSLATE
->>>>>>> Stashed changes
 
 // Doctor
 /datum/job/civilian/doctor

@@ -509,7 +509,15 @@
 	if(!istype(id_card))
 		return FALSE //No ID found
 
+	// SS220 EDIT START	 TRANSLATE
 	var/assignment = target_mob.job
+	if(target_mob.job_ru)
+		assignment = target_mob.job_ru
+	else
+		var/datum/job/job_temp = GET_MAPPED_ROLE(target_mob.job)
+		if(job_temp && job_temp.disp_title)
+			assignment = job_temp.disp_title
+	// SS220 EDIT END	 TRANSLATE
 	var/paygrade
 
 	var/list/extra_access = list()
@@ -594,7 +602,7 @@
 	target_mob.assigned_squad = src //Add them to the squad
 	id_card.access += (src.access + extra_access) //Add their squad access to their ID
 	if(prepend_squad_name_to_assignment)
-		id_card.assignment = "[assignment] [name_ru]"
+		id_card.assignment = "[assignment] [name_ru]"	// SS220 EDIT TRANSLATE
 	else
 		id_card.assignment = assignment
 

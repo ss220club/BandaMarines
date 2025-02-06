@@ -1,10 +1,5 @@
-<<<<<<< Updated upstream
-#define MILITARY_VARIANT "Military Correspondent"
-#define CIVILIAN_VARIANT "Civilian Correspondent"
-=======
 #define MILITARY_VARIANT JOB_MILITARY_REPORTER_RU	// SS220 EDIT TRANSLATE
 #define CIVILIAN_VARIANT JOB_CIVILIAN_REPORTER_RU	// SS220 EDIT TRANSLATE
->>>>>>> Stashed changes
 
 /datum/job/civilian/reporter
 	title = JOB_COMBAT_REPORTER

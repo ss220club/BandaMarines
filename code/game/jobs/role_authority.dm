@@ -361,6 +361,7 @@ I hope it's easier to tell what the heck this proc is even doing, unlike previou
 	if(ismob(M) && istype(J))
 		if(check_role_entry(M, J, latejoin))
 			M.job = J.title
+			M.job_ru = J.disp_title		// SS220 EDIT TRANSLATE
 			J.current_positions++
 			return TRUE
 
@@ -453,6 +454,7 @@ I hope it's easier to tell what the heck this proc is even doing, unlike previou
 		job_whitelist = "[new_job.title][whitelist_status]"
 
 	new_human.job = new_job.title //TODO Why is this a mob variable at all?
+	new_human.job_ru = new_job.disp_title	// SS220 EDIT TRANSLATE
 
 	if(new_job.gear_preset_whitelist[job_whitelist])
 		arm_equipment(new_human, new_job.gear_preset_whitelist[job_whitelist], FALSE, TRUE)

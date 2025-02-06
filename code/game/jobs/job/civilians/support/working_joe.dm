@@ -1,10 +1,5 @@
-<<<<<<< Updated upstream
-#define STANDARD_VARIANT "Working Joe"
-#define HAZMAT_VARIANT "Hazmat Joe"
-=======
 #define STANDARD_VARIANT JOB_WORKING_JOE_RU // SS220 EDIT TRANSLATE
 #define HAZMAT_VARIANT JOB_HAZMAT_JOE_RU // SS220 EDIT TRANSLATE
->>>>>>> Stashed changes
 
 /datum/job/civilian/working_joe
 	title = JOB_WORKING_JOE
