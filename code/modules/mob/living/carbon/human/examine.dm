@@ -438,9 +438,9 @@
 					msg += SPAN_WARNING("Кровь собирается вокруг [t_his] <b>ботинок</b>!\n")
 				else
 					if (display_foot_left)
-						msg += SPAN_WARNING("Кровь собирается вокруг [t_his] <b>левого ботинока</b>!\n")
+						msg += SPAN_WARNING("Кровь собирается вокруг [t_his] <b>левого ботинка</b>!\n")
 					if (display_foot_right)
-						msg += SPAN_WARNING("Кровь собирается вокруг [t_his] <b>правого ботинока</b>!\n")
+						msg += SPAN_WARNING("Кровь собирается вокруг [t_his] <b>правого ботинка</b>!\n")
 
 	if(chestburst == 2)
 		msg += SPAN_WARNING("<b>У [t_him] огромное отверстие в груди!</b>\n")
