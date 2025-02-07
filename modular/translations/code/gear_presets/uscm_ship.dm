@@ -21,6 +21,7 @@
 /datum/equipment_preset/uscm_ship/reporter/field/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/jacket/marine/reporter/blue(new_human), WEAR_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/soft/trucker(new_human), WEAR_HEAD)
+	. = ..()
 
 /datum/equipment_preset/uscm_ship/chief_engineer
 	//name = "USCM Chief Engineer (CE)"
