@@ -19,22 +19,6 @@
 	},
 /turf/open/floor/prison/sterile_white/southwest,
 /area/fiorina/tumor/ice_lab)
-"aad" = (
-/obj/structure/machinery/power/apc/power/north,
-/turf/open/floor/prison/bluefull,
-/area/fiorina/station/power_ring)
-"aae" = (
-/obj/structure/machinery/power/apc/power/south,
-/turf/open/floor/prison/floor_plate,
-/area/fiorina/station/civres_blue)
-"aaf" = (
-/obj/structure/machinery/power/apc/no_power/north,
-/turf/open/floor/prison/darkpurple2/north,
-/area/fiorina/tumor/servers)
-"aag" = (
-/obj/structure/machinery/power/apc/power/north,
-/turf/open/floor/prison/whitegreenfull/southwest,
-/area/fiorina/tumor/ice_lab)
 "aak" = (
 /obj/effect/decal/hefa_cult_decals/d32{
 	icon_state = "4"
@@ -47551,7 +47535,7 @@ rqG
 pQs
 pQs
 pQs
-aae
+bNE
 rja
 lMq
 jYK
@@ -49638,7 +49622,7 @@ kPf
 kPf
 kPf
 jXz
-aaf
+jnU
 jHz
 oiV
 eSH
@@ -61075,7 +61059,7 @@ jFP
 phz
 sWb
 xLi
-aag
+mvp
 cer
 kpq
 azZ
@@ -70443,7 +70427,7 @@ cIa
 mVE
 sEK
 cIa
-urw
+nVK
 jii
 apg
 cIa
@@ -72126,7 +72110,7 @@ cIa
 fna
 moQ
 cIa
-nVK
+urw
 jii
 vwX
 cIa
@@ -76863,7 +76847,7 @@ brR
 vDO
 tUs
 mxQ
-aad
+pYB
 tOM
 gbf
 tOM
