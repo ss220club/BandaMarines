@@ -1,5 +1,6 @@
 /datum/emergency_call/show_join_message()
-	if(!..())
+	. = ..()
+	if(!mob_max || !SSticker.mode) //Just a supply drop, don't bother.
 		return
 
 	for(var/mob/dead/observer/M in GLOB.observer_list)
