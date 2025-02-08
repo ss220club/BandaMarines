@@ -405,7 +405,7 @@
 		list("S4 2x Telescopic Mini-Scope", 4.5, /obj/item/attachable/scope/mini, VENDOR_ITEM_REGULAR),
 		list("S5 Red-Dot Sight", 15.5, /obj/item/attachable/reddot, VENDOR_ITEM_REGULAR),	// SS220 EDIT - Balance attachments
 		list("S6 Reflex Sight", 15.5, /obj/item/attachable/reflex, VENDOR_ITEM_REGULAR),	// SS220 EDIT - Balance attachments
-		list("S8 4x Telescopic Scope", 9.5, /obj/item/attachable/scope, VENDOR_ITEM_REGULAR),
+		list("S8 4x Telescopic Scope", 4.5, /obj/item/attachable/scope, VENDOR_ITEM_REGULAR),
 
 		list("UNDERBARREL", -1, null, null),
 		list("Angled Grip", 6.5, /obj/item/attachable/angledgrip, VENDOR_ITEM_REGULAR),
