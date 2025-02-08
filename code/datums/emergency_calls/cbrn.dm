@@ -41,7 +41,7 @@
 
 /datum/emergency_call/cbrn/ert
 	name = "CBRN (Distress)"
-	arrival_message = "Внимание, это корабль КСШ \"Курц\", мы направили отряд РХБЗ на ваш корабль в соответствии с вашим сигналом бедствия. Приготовьтесь к прибытию."
+	arrival_message = "Внимание, это КСШ \"Курц\", мы направили отряд РХБЗ на ваш корабль в соответствии с вашим сигналом бедствия. Ожидайте прибытия."
 	probability = 10
 
 /datum/emergency_call/cbrn/ert/New()
@@ -58,7 +58,7 @@
 /datum/emergency_call/cbrn/specialists/New()
 	var/cbrn_ship_name = "Unit [pick(GLOB.nato_phonetic_alphabet)]-[rand(1, 99)]"
 	arrival_message = "[MAIN_SHIP_NAME], к вам был отправлен на подмогу [cbrn_ship_name] с отрядом РХБЗ. Выполняйте все приказы, отданные [cbrn_ship_name]."
-	objectives = "Вы - команда специалистов на корабле [cbrn_name_ship], направленная для устранения угрозы на [MAIN_SHIP_NAME]. Могут быть получены дополнительные приказы."
+	objectives = "Вы - команда специалистов на корабле [cbrn_ship_name], направленная для устранения угрозы на [MAIN_SHIP_NAME]. Могут быть получены дополнительные приказы."
 
 /datum/emergency_call/cbrn/specialists/create_member(datum/mind/new_mind, turf/override_spawn_loc)
 	var/turf/spawn_loc = override_spawn_loc ? override_spawn_loc : get_spawn_point()

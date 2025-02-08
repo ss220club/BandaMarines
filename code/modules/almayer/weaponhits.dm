@@ -36,7 +36,7 @@
 	)
 
 /datum/space_weapon/rail_gun/shot_message(quantity, hit_eta)
-	shipwide_ai_announcement("ОПАСНОСТЬ: ОБНАРУЖЕНО ИЗЛУЧЕНИЕ РЕЛЬСОТРОНА, ЗАРЯД[quantity > 1 ? "Ы" : ""] ПРИБЛИЖА[quanity > 1 ? "ЮТСЯ" : "ЕТСЯ"]. ПРИГОТОВИТЬСЯ, ПРИГОТОВИТЬСЯ, ПРИГОТОВИТЬСЯ. [quantity > 1 ? "РАЗМЕР ЗАЛПА: [quantity]," : ""] РАСЧЕТНОЕ ВРЕМЯ: [hit_eta] СЕКУНД." , MAIN_AI_SYSTEM, 'sound/effects/missile_warning.ogg')
+	shipwide_ai_announcement("ОПАСНОСТЬ: ОБНАРУЖЕНО ИЗЛУЧЕНИЕ РЕЛЬСОТРОНА, ЗАРЯД[quantity > 1 ? "Ы" : ""] ПРИБЛИЖА[quantity > 1 ? "ЮТСЯ" : "ЕТСЯ"]. ПРИГОТОВИТЬСЯ, ПРИГОТОВИТЬСЯ, ПРИГОТОВИТЬСЯ. [quantity > 1 ? "РАЗМЕР ЗАЛПА: [quantity]," : ""] РАСЧЕТНОЕ ВРЕМЯ: [hit_eta] СЕКУНД." , MAIN_AI_SYSTEM, 'sound/effects/missile_warning.ogg')
 
 /datum/space_weapon/rocket_launcher
 	name = "Rocket Launcher"

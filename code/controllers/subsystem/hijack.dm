@@ -224,7 +224,7 @@ SUBSYSTEM_DEF(hijack)
 		if(3)
 			marine_announcement("Экстренное восполнение запасов топлива составляет 75 процентов.[marine_warning_areas ? "\nЧтобы увеличить скорость, восстановите питание в следующих зонах: [marine_warning_areas]" : " Все заправочные станции работают в штатном режиме."]", HIJACK_ANNOUNCE)
 		if(4)
-			marine_announcement("Экстренное восполнение запасов топлива составляет 100 процентов. Safe utilization of lifeboats and pods is now possible.", HIJACK_ANNOUNCE)
+			marine_announcement("Экстренное восполнение запасов топлива составляет 100 процентов. Обеспечивается безопасная эксплуатация спасательных подов и капсул.", HIJACK_ANNOUNCE)
 			if(!admin_sd_blocked)
 				addtimer(CALLBACK(src, PROC_REF(unlock_self_destruct)), 8 SECONDS)
 
