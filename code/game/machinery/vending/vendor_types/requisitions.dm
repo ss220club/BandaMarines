@@ -401,7 +401,7 @@
 		list("RAIL", -1, null, null),
 		list("B8 Smart-Scope", 6.5, /obj/item/attachable/scope/mini_iff, VENDOR_ITEM_REGULAR),	// SS220 EDIT - Balance attachments
 		list("Magnetic Harness", 16.5, /obj/item/attachable/magnetic_harness, VENDOR_ITEM_REGULAR),	// SS220 EDIT - Balance attachments
-		list("Rail Flashlight", 10.5, /obj/item/attachable/flashlight, VENDOR_ITEM_REGULAR),	// SS220 EDIT - Balance attachments
+		list("Rail Flashlight", 10.5, /obj/item/attachable/flashlight, VENDOR_ITEM_REGULAR),
 		list("S4 2x Telescopic Mini-Scope", 4.5, /obj/item/attachable/scope/mini, VENDOR_ITEM_REGULAR),
 		list("S5 Red-Dot Sight", 15.5, /obj/item/attachable/reddot, VENDOR_ITEM_REGULAR),	// SS220 EDIT - Balance attachments
 		list("S6 Reflex Sight", 15.5, /obj/item/attachable/reflex, VENDOR_ITEM_REGULAR),	// SS220 EDIT - Balance attachments
