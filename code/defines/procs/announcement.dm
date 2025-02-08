@@ -84,7 +84,7 @@
 				targets.Remove(H)
 
 	if(!isnull(signature))
-		message += "<br><br><i> Signed by, <br> [signature]</i>"
+		message += "<br><br><i> Авторизация, <br> [signature]</i>"
 
 	announcement_helper(message, title, targets, sound_to_play, announcer = TTS_ARES_ANNOUNCER) // SS220 EDIT - TTS
 
@@ -143,7 +143,7 @@
 			targets.Remove(target)
 
 	if(!isnull(signature))
-		message += "<br><br><i> Signed by, <br> [signature]</i>"
+		message += "<br><br><i> Авторизация, <br> [signature]</i>"
 	switch(ares_logging)
 		if(ARES_LOG_MAIN)
 			log_ares_announcement(title, message, signature)
