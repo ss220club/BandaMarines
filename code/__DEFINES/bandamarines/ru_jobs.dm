@@ -49,8 +49,8 @@
 #define JOB_CORPORATE_LIAISON_RU "Связной Корпорации"
 
 #define JOB_COMBAT_REPORTER_RU "Полевой Корреспондент"
-#define JOB_CIVILIAN_REPORTER_RU "Полевой Корреспондент"
-#define JOB_MILITARY_REPORTER_RU "Полевой Корреспондент"
+#define JOB_CIVILIAN_REPORTER_RU "Гражданский Корреспондент"
+#define JOB_MILITARY_REPORTER_RU "Военный Корреспондент"
 
 #define JOB_MESS_SERGEANT_RU "Обслуживающий Персонал"
 #define JOB_SYNTH_RU "Синтетик"
@@ -270,7 +270,7 @@
 #define JOB_UPP_COMMISSAR_RU "СПН Политрук"
 
 //-------- CLF --------//
-#define JOB_CLF_RU "КОФ Бугай"	// КОФ - Колониальный Освободительный Фронт
+#define JOB_CLF_RU "КОФ Партизан"	// КОФ - Колониальный Освободительный Фронт
 #define JOB_CLF_ENGI_RU "КОФ Полевой Технарь"
 #define JOB_CLF_MEDIC_RU "КОФ Полевой Врач"
 #define JOB_CLF_SPECIALIST_RU "КОФ Полевой Специалист"

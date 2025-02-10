@@ -138,8 +138,8 @@ GLOBAL_VAR_INIT(next_admin_bioscan, 30 MINUTES)
 		return
 	active_lz = console
 	// The announcement to all Humans.
-	var/name = "[MAIN_AI_SYSTEM] Operation Staging Order"
-	var/input = "Command Order Issued.\n\n[active_lz.loc.loc] has been designated as the primary landing zone."
+	var/name = "[MAIN_AI_SYSTEM]: Приказ о постановке операции"
+	var/input = "Приказ командования отдан.\n\n[active_lz.loc.loc] назначен основной зоной высадки."
 	marine_announcement(input, name)
 
 /datum/game_mode/proc/announce_bioscans()
@@ -236,7 +236,7 @@ GLOBAL_VAR_INIT(next_admin_bioscan, 30 MINUTES)
 	for(var/mob/living/carbon/human/current_human as anything in GLOB.alive_human_list)
 		if(!(current_human.z && (current_human.z in z_levels) && !istype(current_human.loc, /turf/open/space) && !istype(current_human.loc, /area/adminlevel/ert_station/fax_response_station)))
 			continue
-		if((current_human.faction in FACTION_LIST_WY) || current_human.job == "Corporate Liaison") //The CL is assigned the USCM faction for gameplay purposes
+		if(current_human.faction in FACTION_LIST_WY)
 			num_WY++
 			num_headcount++
 			continue
