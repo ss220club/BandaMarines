@@ -360,7 +360,7 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 			hive = GLOB.hive_datum[hivenumber]
 			if(!length(hive.totalXenos))
 				continue
-			xeno_announcement(SPAN_XENOANNOUNCE("Люди развернули убийцу ульев в [get_area_name(loc)]! Остановите их любой ценой!"), hive.hivenumber, XENO_GENERAL_ANNOUNCE)
+			xeno_announcement(SPAN_XENOANNOUNCE("Носители развернули убийцу ульев в [get_area_name(loc)]! Остановите их любой ценой!"), hive.hivenumber, XENO_GENERAL_ANNOUNCE)
 	else
 		announcement_helper("ВНИМАНИЕ.\n\nЯДЕРНЫЙ ЗАРЯД ДЕАКТИВИРОВАН.", "[MAIN_AI_SYSTEM]: Датчик ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
 		announcement_helper("ВНИМАНИЕ.\n\nЯДЕРНЫЙ ЗАРЯД ДЕАКТИВИРОВАН.", "HQ Intel Division", humans_other, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
@@ -620,7 +620,7 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 			hive = GLOB.hive_datum[hivenumber]
 			if(!length(hive.totalXenos))
 				continue
-			xeno_announcement(SPAN_XENOANNOUNCE("Люди приступили к начальной фазе уничтожения улья в [get_area_name(loc)]! У вас есть [time_left], чтобы уничтожить хотя бы одно коммуникационное реле!"), hive.hivenumber, XENO_GENERAL_ANNOUNCE)
+			xeno_announcement(SPAN_XENOANNOUNCE("Носители приступили к подготовительной фазе уничтожения улья в [get_area_name(loc)]! У вас есть [time_left], чтобы уничтожить хотя бы одно коммуникационное реле!"), hive.hivenumber, XENO_GENERAL_ANNOUNCE)
 		return
 
 	announcement_helper("ВНИМАНИЕ.\n\nДЕШИФРОВКА ЯДЕРНОГО ЗАРЯДА ОСТАНОВЛЕНА.", "[MAIN_AI_SYSTEM]: Мониторинг ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
@@ -630,7 +630,7 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 		hive = GLOB.hive_datum[hivenumber]
 		if(!length(hive.totalXenos))
 			continue
-		xeno_announcement(SPAN_XENOANNOUNCE("Начальная фаза убийцы ульев была прервана! Возрадуемся!"), hive.hivenumber, XENO_GENERAL_ANNOUNCE)
+		xeno_announcement(SPAN_XENOANNOUNCE("Подготовительная фаза убийцы ульев была прервана! Возрадуемся!"), hive.hivenumber, XENO_GENERAL_ANNOUNCE)
 
 /obj/structure/machinery/nuclearbomb/tech/proc/connected_comm_shutdown(obj/structure/machinery/telecomms/relay/preset/tower/telecomm_unit)
 	SIGNAL_HANDLER

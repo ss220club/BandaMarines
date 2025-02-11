@@ -208,13 +208,13 @@ SUBSYSTEM_DEF(hijack)
 
 		switch(announce)
 			if(1)
-				xeno_announcement(SPAN_XENOANNOUNCE("Люди находятся на четверти пути к своей цели. Отключите следующие области: [xeno_warning_areas]"), hive.hivenumber, XENO_HIJACK_ANNOUNCE)
+				xeno_announcement(SPAN_XENOANNOUNCE("Носители находятся на четверти пути к своей цели. Отключите следующие области: [xeno_warning_areas]"), hive.hivenumber, XENO_HIJACK_ANNOUNCE)
 			if(2)
-				xeno_announcement(SPAN_XENOANNOUNCE("Люди находятся на полпути к своей цели. Отключите следующие области: [xeno_warning_areas]"), hive.hivenumber, XENO_HIJACK_ANNOUNCE)
+				xeno_announcement(SPAN_XENOANNOUNCE("Носители находятся на полпути к своей цели. Отключите следующие области: [xeno_warning_areas]"), hive.hivenumber, XENO_HIJACK_ANNOUNCE)
 			if(3)
-				xeno_announcement(SPAN_XENOANNOUNCE("Люди почти достигли своей цели! Отключите следующие области: [xeno_warning_areas]"), hive.hivenumber, XENO_HIJACK_ANNOUNCE)
+				xeno_announcement(SPAN_XENOANNOUNCE("Носители почти достигли своей цели! Отключите следующие области: [xeno_warning_areas]"), hive.hivenumber, XENO_HIJACK_ANNOUNCE)
 			if(4)
-				xeno_announcement(SPAN_XENOANNOUNCE("Люди достигли своей цели!"), hive.hivenumber, XENO_HIJACK_ANNOUNCE)
+				xeno_announcement(SPAN_XENOANNOUNCE("Носители достигли своей цели!"), hive.hivenumber, XENO_HIJACK_ANNOUNCE)
 
 	switch(announce)
 		if(1)
@@ -312,7 +312,7 @@ SUBSYSTEM_DEF(hijack)
 			if(!length(hive.totalXenos))
 				continue
 
-			xeno_announcement(SPAN_XENOANNOUNCE("Похоже люди пытаются уничтожить свой корабль вместе с собой в Инженерном отсеке, остановите их!"), hive.hivenumber, XENO_HIJACK_ANNOUNCE)
+			xeno_announcement(SPAN_XENOANNOUNCE("Похоже носители пытаются уничтожить свой корабль вместе с собой в Инженерном отсеке, остановите их!"), hive.hivenumber, XENO_HIJACK_ANNOUNCE)
 
 	adjust_generator_overload_count(new_overloading ? 1 : -1)
 
