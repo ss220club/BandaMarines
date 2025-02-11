@@ -62,6 +62,7 @@
 		skipface |= wear_mask.flags_inv_hide & HIDEFACE
 
 	var/t_He = ru_p_they(TRUE)
+	var/t_he = ru_p_they()
 	var/t_His = ru_p_them(TRUE)
 	var/t_his = ru_p_them()
 	var/t_theirs = ru_p_theirs()
@@ -75,25 +76,9 @@
 	var/rank_display = get_paygrades(id_paygrade, FALSE, gender)
 	var/msg = "<span class='info'>\nЭто "
 
-	if(skipjumpsuit && skipface) //big suits/masks/helmets make it hard to tell their gender
-		t_He = ru_p_they(TRUE)
-		t_His = ru_p_them(TRUE)
-		t_his = ru_p_them()
-		t_theirs = ru_p_them()
-		// t_has = "have"
-		// t_is = "are"
-	else
+	if(!skipjumpsuit || !skipface) //big suits/masks/helmets make it hard to tell their gender
 		if(icon)
 			msg += "[icon2html(src, user)] "
-		// switch(gender)
-		// 	if(MALE)
-		// 		t_He = "He"
-		// 		t_his = "his"
-		// 		t_theirs = "him"
-		// 	if(FEMALE)
-		// 		t_He = "She"
-		// 		t_his = "her"
-		// 		t_theirs = "her"
 
 	if(id_paygrade)
 		msg += "<EM>[rank_display] </EM>"
@@ -247,7 +232,7 @@
 			if(temp.status & (LIMB_ROBOT|LIMB_SYNTHSKIN))
 				if(!(temp.brute_dam + temp.burn_dam))
 					if(!(temp.status & LIMB_SYNTHSKIN) && !(species && species.flags & IS_SYNTHETIC))
-						wound_flavor_text["[temp.display_name]"] = SPAN_WARNING("У [t_theirs] [temp.status & LIMB_UNCALIBRATED_PROSTHETIC ? " сломанный" : ""] протез [temp.declension_ru(GENITIVE)]!\n")
+						wound_flavor_text["[temp.display_name]"] = SPAN_WARNING("У [t_theirs] [temp.status & LIMB_UNCALIBRATED_PROSTHETIC ? " сломанный" : ""] протез [temp.declent_ru(GENITIVE)]!\n")
 						continue
 				else
 					wound_flavor_text["[temp.display_name]"] = SPAN_WARNING("У [t_theirs] [temp.status & LIMB_UNCALIBRATED_PROSTHETIC ? " сломанный" : ""] [temp.status & LIMB_SYNTHSKIN ? "синтетический" : "кибернетический"] протез [temp.declent_ru(GENITIVE)]. У него")
@@ -270,19 +255,19 @@
 				for(var/datum/wound/W as anything in temp.wounds)
 					if(W.internal && incision_depths[temp.name] == SURGERY_DEPTH_SURFACE)
 						continue // can't see internal wounds normally.
-					var/this_wound_desc = W.declent_ru(NOMINATIVE)
+					var/this_wound_desc = ru_wounds_desc(W.desc, W.amount > 1 ? GENITIVE : NOMINATIVE, W.amount > 1)
 					if(W.damage_type == BURN)
 						switch(W.salved & (WOUND_BANDAGED|WOUND_SUTURED))
 							if(WOUND_BANDAGED)
-								this_wound_desc = "обработанн[genderize_ru(W.declent_ru("gender"), "ый", "ая", "ое", "ые")] [this_wound_desc]"
+								this_wound_desc = "обработанн[genderize_ru(W.declent_ru("gender"), "ый", "ая", "ое", "ыx")] [this_wound_desc]"
 							if(WOUND_SUTURED, (WOUND_BANDAGED|WOUND_SUTURED)) //Grafting has priority.
-								this_wound_desc = "пересаженн[genderize_ru(W.declent_ru("gender"), "ый", "ая", "ое", "ые")] [this_wound_desc]" //??????!
+								this_wound_desc = "пересаженн[genderize_ru(W.declent_ru("gender"), "ый", "ая", "ое", "ыx")] [this_wound_desc]" //??????!
 					else
 						switch(W.bandaged & (WOUND_BANDAGED|WOUND_SUTURED))
 							if(WOUND_BANDAGED, (WOUND_BANDAGED|WOUND_SUTURED)) //Bandages go over the top.
-								this_wound_desc = "перевязанн[genderize_ru(W.declent_ru("gender"), "ый", "ая", "ое", "ые")] [this_wound_desc]"
+								this_wound_desc = "перевязанн[genderize_ru(W.declent_ru("gender"), "ый", "ая", "ое", "ыx")] [this_wound_desc]"
 							if(WOUND_SUTURED)
-								this_wound_desc = "зашит[genderize_ru(W.declent_ru("gender"), "ый", "ая", "ое", "ые")] [this_wound_desc]"
+								this_wound_desc = "зашит[genderize_ru(W.declent_ru("gender"), "ый", "ая", "ое", "ыx")] [this_wound_desc]"
 
 					if(wound_descriptors[this_wound_desc])
 						wound_descriptors[this_wound_desc] += W.amount
@@ -290,38 +275,38 @@
 					wound_descriptors[this_wound_desc] = W.amount
 				if(length(wound_descriptors))
 					var/list/flavor_text = list()
-					var/list/no_exclude = ru_wounds_desc_list(list("gaping wound", "big gaping wound", "massive wound", "large bruise",\
-					"huge bruise", "massive bruise", "severe burn", "large burn", "deep burn", "carbonised area"))
+					// var/list/no_exclude = ru_wounds_desc_list(list("gaping wound", "big gaping wound", "massive wound", "large bruise",\
+					// "huge bruise", "massive bruise", "severe burn", "large burn", "deep burn", "carbonised area"))
 					for(var/wound in wound_descriptors)
 						switch(wound_descriptors[wound])
 							if(1)
 								if(!length(flavor_text))
-									flavor_text += SPAN_WARNING("У [t_theirs][prob(10) && !(wound in no_exclude)  ? " what might be" : ""] [wound]")
+									flavor_text += SPAN_WARNING("У [t_theirs] [wound]")
 								else
-									flavor_text += "[prob(10) && !(wound in no_exclude) ? " what might be" : ""] a [wound]"
+									flavor_text += " [wound]"
 							if(2)
 								if(!length(flavor_text))
-									flavor_text += SPAN_WARNING("[t_He] has[prob(10) && !(wound in no_exclude) ? " what might be" : ""] a pair of [wound]s")
+									flavor_text += SPAN_WARNING("У [t_theirs] пара [wound]")
 								else
-									flavor_text += "[prob(10) && !(wound in no_exclude) ? " what might be" : ""] a pair of [wound]s"
+									flavor_text += " пара [wound]"
 							if(3 to 5)
 								if(!length(flavor_text))
-									flavor_text += SPAN_WARNING("[t_He] has several [wound]s")
+									flavor_text += SPAN_WARNING("У [t_theirs] несколько [wound]")
 								else
-									flavor_text += " several [wound]s"
+									flavor_text += " нескольно [wound]"
 							if(6 to INFINITY)
 								if(!length(flavor_text))
-									flavor_text += SPAN_WARNING("[t_He] has a bunch of [wound]s")
+									flavor_text += SPAN_WARNING("У [t_theirs] множество [wound]")
 								else
-									flavor_text += " a ton of [wound]\s"
+									flavor_text += " множество [wound]"
 					var/flavor_text_string = ""
 					for(var/text = 1, text <= length(flavor_text), text++)
 						if(text == length(flavor_text) && length(flavor_text) > 1)
-							flavor_text_string += ", and"
+							flavor_text_string += ", а также"
 						else if(length(flavor_text) > 1 && text > 1)
 							flavor_text_string += ","
 						flavor_text_string += flavor_text[text]
-					flavor_text_string += " on [t_his] [temp.display_name].</span><br>"
+					flavor_text_string += " на [t_his] [temp.declent_ru(PREPOSITIONAL)].</span><br>"
 					wound_flavor_text["[temp.display_name]"] = flavor_text_string
 				else
 					wound_flavor_text["[temp.display_name]"] = ""
