@@ -345,7 +345,7 @@
 	desc = "Provides 5 larva instantly to the hive."
 	radial_icon = "larba"
 
-	engage_flavourmessage = "Королева приобрела дополнительно 5 личинок, чтобы пополнить улей!"
+	engage_flavourmessage = "Королева приобрела дополнительно 5 грудоломов, чтобы пополнить улей!"
 	cost = 5
 	number_of_required_pylons = 1
 	is_reusable = FALSE
