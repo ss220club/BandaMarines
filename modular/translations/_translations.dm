@@ -3,6 +3,7 @@ GLOBAL_LIST_EMPTY(ru_eat_verbs)
 GLOBAL_LIST_EMPTY(ru_say_verb)
 GLOBAL_LIST_EMPTY(ru_emote_names)
 GLOBAL_LIST_EMPTY(ru_emote_messages)
+GLOBAL_LIST_EMPTY(ru_wound_descs)
 
 /datum/modpack/translations
 	name = "Переводы"
@@ -49,3 +50,12 @@ GLOBAL_LIST_EMPTY(ru_emote_messages)
 			if(!istype(emote_kb))
 				continue
 			emote_kb.update_to_ru()
+
+	// Wounds
+	var/wound_path = "[PATH_TO_TRANSLATE_DATA]/ru_wounds.toml"
+	if(fexists(file(emote_path)))
+		var/list/wounds_toml_list = rustg_read_toml_file(wound_path)
+		for(var/desc in wounds_toml_list)
+			GLOB.ru_wound_descs += list("[desc]" = wounds_toml_list[desc])
+
+

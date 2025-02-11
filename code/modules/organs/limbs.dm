@@ -105,6 +105,8 @@
 	if(owner)
 		forceMove(owner)
 
+	ru_names_rename(ru_names_toml(display_name, override_base = display_name)) // BANDAMARINES EDIT
+
 /obj/limb/Destroy()
 	if(parent)
 		parent.children -= src
