@@ -217,7 +217,7 @@
 	if(!ishuman_strict(user))
 		return
 
-	var/pain_message = pick("АУ!!", "АГХ!!", "МГХ!!", "АУЧ!!", "АГХ!!", "УФ!")
+	var/pain_message = pick("АУ!!", "АГХ!!", "МГХ!!", "АУЧ!!", "АХ!!", "УФ!")
 	user.langchat_speech(pain_message, group, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_yell"))
 
 /datum/emote/living/carbon/human/salute
