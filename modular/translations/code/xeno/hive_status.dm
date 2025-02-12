@@ -46,7 +46,7 @@
 // Marks
 
 /datum/xeno_mark_define/fortify
-	name = "Укрепление"
+	name = "Укрепиться"
 	desc = "Укрепите эту область!"
 
 /datum/xeno_mark_define/weeds
