@@ -1006,7 +1006,7 @@ This function completely restores a damaged organ to perfect condition.
 ///Returns a description of active surgeries.
 /obj/limb/proc/get_active_limb_surgeries()
 	if(owner.active_surgeries[name])
-		return "an incomplete surgical operation"
+		return "незавершённой хирургической операции"
 
 /obj/limb/proc/release_restraints()
 	if(!owner)

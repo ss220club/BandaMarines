@@ -49,15 +49,15 @@ nominative = "свежая кожа"
 gender = "female"
 
 ["ugly ripped flesh wound"]
-nominative = "уродливая рваная рана на плоти"
+nominative = "уродливая рваная рана"
 gender = "female"
 
 ["ugly flesh wound"]
-nominative = "уродливая рана на плоти"
+nominative = "уродливая рана"
 gender = "female"
 
 ["flesh wound"]
-nominative = "рана на плоти"
+nominative = "рана"
 gender = "female"
 
 ["blood soaked clot"]
@@ -81,7 +81,7 @@ nominative = "большой сгусток"
 gender = "male"
 
 ["small angry scar"]
-nominative = "маленький гневный шрам"
+nominative = "маленький красный шрам"
 gender = "male"
 
 ["small straight scar"]
@@ -97,7 +97,7 @@ nominative = "заживающая зияющая рана"
 gender = "female"
 
 ["large angry scar"]
-nominative = "большой гневный шрам"
+nominative = "большой красный шрам"
 gender = "male"
 
 ["large straight scar"]
@@ -113,7 +113,7 @@ nominative = "массивная заживающая рана"
 gender = "female"
 
 ["massive angry scar"]
-nominative = "массивный гневный шрам"
+nominative = "массивный красный шрам"
 gender = "male"
 
 ["massive jagged scar"]
@@ -288,19 +288,19 @@ gender = "plural"
 genitive = "корост"
 
 ["ugly ripped flesh wounds"]
-nominative = "уродливые рваные раны на плоти"
+nominative = "уродливые рваные раны"
 gender = "plural"
-genitive = "уродливых рваных ран на плоти"
+genitive = "уродливых рваных ран"
 
 ["ugly flesh wounds"]
-nominative = "уродливые раны на плоти"
+nominative = "уродливые раны"
 gender = "plural"
-genitive = "уродливых ран на плоти"
+genitive = "уродливых ран"
 
 ["flesh wounds"]
-nominative = "раны на плоти"
+nominative = "раны"
 gender = "plural"
-genitive = "ран на плоти"
+genitive = "ран"
 
 ["blood soaked clots"]
 nominative = "пропитанные кровью сгустки"
@@ -328,9 +328,9 @@ gender = "plural"
 genitive = "больших сгустков"
 
 ["small angry scars"]
-nominative = "маленькие гневные шрамы"
+nominative = "маленькие красные шрамы"
 gender = "plural"
-genitive = "маленьких гневных шрамов"
+genitive = "маленьких красных шрамов"
 
 ["small straight scars"]
 nominative = "маленькие прямые шрамы"
@@ -348,9 +348,9 @@ gender = "plural"
 genitive = "заживающих зияющих ран"
 
 ["large angry scars"]
-nominative = "большие гневные шрамы"
+nominative = "большие красные шрамы"
 gender = "plural"
-genitive = "больших гневных шрамов"
+genitive = "больших красных шрамов"
 
 ["large straight scars"]
 nominative = "большие прямые шрамы"
@@ -368,9 +368,9 @@ gender = "plural"
 genitive = "массивных заживающих ран"
 
 ["massive angry scars"]
-nominative = "массивные гневные шрамы"
+nominative = "массивные красные шрамы"
 gender = "plural"
-genitive = "массивных гневных шрамов"
+genitive = "массивных красных шрамов"
 
 ["massive jagged scars"]
 nominative = "массивные неровные шрамы"

@@ -229,8 +229,8 @@
 	playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
 
 /mob/living/carbon/human/proc/check_for_injuries()
-	visible_message(SPAN_NOTICE("[src] examines [gender==MALE?"himself":"herself"]."),
-	SPAN_NOTICE("You check yourself for injuries."), null, 3)
+	visible_message(SPAN_NOTICE("[src] осматривает себя."),
+	SPAN_NOTICE("Вы осматриваете себя на наличие травм."), null, 3)
 
 	var/list/limb_message = list()
 	for(var/obj/limb/org in limbs)
@@ -238,71 +238,71 @@
 		var/brutedamage = org.brute_dam
 		var/burndamage = org.burn_dam
 		if(org.status & LIMB_DESTROYED)
-			status += "MISSING!"
+			status += "ОТСУТСТВУЕТ!"
 		else if(org.status & (LIMB_ROBOT|LIMB_SYNTHSKIN))
 			switch(brutedamage)
 				if(1 to 20)
-					status += "dented"
+					status += "помят[genderize_ru(org.gender, "", "а", "о", "ы")]"
 				if(20 to 40)
-					status += "battered"
+					status += "деформирован[genderize_ru(org.gender, "", "а", "о", "ы")]"
 				if(40 to INFINITY)
-					status += "mangled"
+					status += "сильно деформирован[genderize_ru(org.gender, "", "а", "о", "ы")]"
 
 			switch(burndamage)
 				if(1 to 10)
-					status += "singed"
+					status += "обгорел[genderize_ru(org.gender, "", "а", "о", "ы")]"
 				if(10 to 40)
-					status += "scorched"
+					status += "обуглен[genderize_ru(org.gender, "", "а", "о", "ы")]"
 				if(40 to INFINITY)
-					status += "charred"
+					status += "сильно обуглен[genderize_ru(org.gender, "", "а", "о", "ы")]"
 
 		else
 			if(org.status & LIMB_MUTATED)
-				status += "weirdly shaped"
+				status += "странной формы"
 			if(halloss > 0)
-				status += "tingling"
+				status += "покалыва[genderize_ru(org.gender, "ет", "ет", "ет", "ют")]"
 			switch(brutedamage)
 				if(1 to 20)
-					status += "bruised"
+					status += "ушиблен[genderize_ru(org.gender, "", "а", "о", "ы")]"
 				if(20 to 40)
-					status += "battered"
+					status += "избит[genderize_ru(org.gender, "", "а", "о", "ы")]"
 				if(40 to INFINITY)
-					status += "mangled"
+					status += "сильно избит[genderize_ru(org.gender, "", "а", "о", "ы")]"
 
 			switch(burndamage)
 				if(1 to 10)
-					status += "numb"
+					status += "онемел[genderize_ru(org.gender, "", "а", "о", "и")]"
 				if(10 to 40)
-					status += "blistered"
+					status += "покрыт[genderize_ru(org.gender, "", "а", "о", "ы")] волдырями"
 				if(40 to INFINITY)
-					status += "peeling away"
+					status += "облеза[genderize_ru(org.gender, "ет", "ет", "ет", "ют")]"
 
 		if(org.get_incision_depth()) //Unindented because robotic and severed limbs may also have surgeries performed upon them.
-			status += "cut open"
+			status += "вскрыт[genderize_ru(org.gender, "", "а", "о", "ы")]"
 
 		for(var/datum/effects/bleeding/external/E in org.bleeding_effects_list)
-			status += "bleeding"
+			status += "кровоточ[genderize_ru(org.gender, "ит", "ит", "ит", "ат")]"
 			break
 
 		var/limb_surgeries = org.get_active_limb_surgeries()
 		if(limb_surgeries)
-			status += "undergoing [limb_surgeries]"
+			status += "наход[genderize_ru(org.gender, "ит", "ит", "ит", "ят")]ся в процессе [limb_surgeries]"
 
 		if(!length(status))
 			status += "OK"
 
 		var/postscript
 		if(org.status & LIMB_UNCALIBRATED_PROSTHETIC)
-			postscript += " <b>(NONFUNCTIONAL)</b>"
+			postscript += " <b>(НЕ ФУНКЦИОНИРУЕТ)</b>"
 		if(org.status & LIMB_BROKEN)
-			postscript += " <b>(BROKEN)</b>"
+			postscript += " <b>(ПЕРЕЛОМ)</b>"
 		if(org.status & LIMB_SPLINTED_INDESTRUCTIBLE)
-			postscript += " <b>(NANOSPLINTED)</b>"
+			postscript += " <b>(ШИНА)</b>"
 		else if(org.status & LIMB_SPLINTED)
-			postscript += " <b>(SPLINTED)</b>"
+			postscript += " <b>(НАНОШИНА)</b>"
 
 		if(postscript)
-			limb_message += "\t My [org.display_name] is [SPAN_WARNING("[english_list(status, final_comma_text = ",")].[postscript]")]"
+			limb_message += "\t [capitalize(org.declent_ru(NOMINATIVE))] [SPAN_WARNING("[english_list(status, and_text = " и ")].[postscript]")]"
 		else
-			limb_message += "\t My [org.display_name] is [status[1] == "OK" ? SPAN_NOTICE("OK.") : SPAN_WARNING("[english_list(status, final_comma_text = ",")].")]"
+			limb_message += "\t [capitalize(org.declent_ru(NOMINATIVE))] [status[1] == "OK" ? SPAN_NOTICE("в полном порядке.") : SPAN_WARNING("[english_list(status, and_text = " и ")].")]"
 	to_chat(src, examine_block(limb_message.Join("\n")))

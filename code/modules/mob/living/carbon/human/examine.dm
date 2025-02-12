@@ -232,13 +232,13 @@
 			if(temp.status & (LIMB_ROBOT|LIMB_SYNTHSKIN))
 				if(!(temp.brute_dam + temp.burn_dam))
 					if(!(temp.status & LIMB_SYNTHSKIN) && !(species && species.flags & IS_SYNTHETIC))
-						wound_flavor_text["[temp.display_name]"] = SPAN_WARNING("У [t_theirs] [temp.status & LIMB_UNCALIBRATED_PROSTHETIC ? " сломанный" : ""] протез [temp.declent_ru(GENITIVE)]!\n")
+						wound_flavor_text["[temp.display_name]"] = SPAN_WARNING("У [t_theirs] [temp.status & LIMB_UNCALIBRATED_PROSTHETIC ? " нефункционирующий" : ""] протез [temp.declent_ru(GENITIVE)]!\n")
 						continue
 				else
-					wound_flavor_text["[temp.display_name]"] = SPAN_WARNING("У [t_theirs] [temp.status & LIMB_UNCALIBRATED_PROSTHETIC ? " сломанный" : ""] [temp.status & LIMB_SYNTHSKIN ? "синтетический" : "кибернетический"] протез [temp.declent_ru(GENITIVE)]. У него")
+					wound_flavor_text["[temp.display_name]"] = SPAN_WARNING("У [t_theirs] [temp.status & LIMB_UNCALIBRATED_PROSTHETIC ? " нефункционирующий" : ""] [temp.status & LIMB_SYNTHSKIN ? "синтетический" : "кибернетический"] протез [temp.declent_ru(GENITIVE)]. У него")
 				if(temp.brute_dam) switch(temp.brute_dam)
 					if(0 to 20)
-						wound_flavor_text["[temp.display_name]"] += SPAN_WARNING(" малочисленные [temp.status & LIMB_SYNTHSKIN ? "повреждения поверхности" : "вмяти"]")
+						wound_flavor_text["[temp.display_name]"] += SPAN_WARNING(" малочисленные [temp.status & LIMB_SYNTHSKIN ? "повреждения поверхности" : "вмятины"]")
 					if(21 to INFINITY)
 						wound_flavor_text["[temp.display_name]"] += temp.status & LIMB_SYNTHSKIN ? SPAN_WARNING(pick(" многочисленные повреждения поверхности", " серьезные повреждения поверхности")) : SPAN_WARNING(pick(" многочисленные вмятины"," глубокие вмятины"))
 				if(temp.brute_dam && temp.burn_dam)
