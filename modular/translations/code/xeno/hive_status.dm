@@ -78,7 +78,7 @@
 	desc = "Соберитесь здесь!"
 
 /datum/xeno_mark_define/hold
-	name = "Удержание"
+	name = "Удерживать"
 	desc = "Удерживайте эту область!"
 
 /datum/xeno_mark_define/ambush

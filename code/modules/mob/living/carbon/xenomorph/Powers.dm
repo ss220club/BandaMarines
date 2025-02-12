@@ -42,15 +42,15 @@
 			var/turf/closed/wall/resin/wall = target
 
 			if(istype(target, /turf/closed/wall/resin/weak))
-				to_chat(src, SPAN_XENOWARNING("[wall] слишком хлипкое, чтобы это можно было укрепить."))
+				to_chat(src, SPAN_XENOWARNING("[capitalize(wall.declent_ru(NOMINATIVE))] слишком хлипкое, чтобы это можно было укрепить."))
 				return SECRETE_RESIN_FAIL
 
 			for(var/datum/effects/xeno_structure_reinforcement/sf in wall.effects_list)
-				to_chat(src, SPAN_XENOWARNING("Лишняя смола мешает нам укрепить [wall]. Подождите, пока она не пропадет."))
+				to_chat(src, SPAN_XENOWARNING("Лишняя смола мешает нам укрепить [capitalize(wall.declent_ru(NOMINATIVE))]. Подождите, пока она не пропадет."))
 				return SECRETE_RESIN_FAIL
 
 			if (wall.hivenumber != hivenumber)
-				to_chat(src, SPAN_XENOWARNING("[wall] не принадлежит вашему улью!"))
+				to_chat(src, SPAN_XENOWARNING("[capitalize(wall.declent_ru(NOMINATIVE))] не принадлежит вашему улью!"))
 				return SECRETE_RESIN_FAIL
 
 			if(wall.type == /turf/closed/wall/resin)
@@ -60,18 +60,18 @@
 				wall.ChangeTurf(/turf/closed/wall/resin/membrane/thick)
 				total_resin_cost = XENO_THICKEN_MEMBRANE_COST
 			else
-				to_chat(src, SPAN_XENOWARNING("[wall] нельзя сделать плотнее."))
+				to_chat(src, SPAN_XENOWARNING("[capitalize(wall.declent_ru(NOMINATIVE))] нельзя сделать плотнее."))
 				return SECRETE_RESIN_FAIL
 			thickened = TRUE
 
 		else if(istype(target, /obj/structure/mineral_door/resin))
 			var/obj/structure/mineral_door/resin/door = target
 			if (door.hivenumber != hivenumber)
-				to_chat(src, SPAN_XENOWARNING("[door] не принадлежит вашему улью!"))
+				to_chat(src, SPAN_XENOWARNING("[capitalize(door.declent_ru(NOMINATIVE))] не принадлежит вашему улью!"))
 				return SECRETE_RESIN_FAIL
 
 			for(var/datum/effects/xeno_structure_reinforcement/sf in door.effects_list)
-				to_chat(src, SPAN_XENOWARNING("Лишняя смола мешает нам укрепить [door]. Подождите, пока она не пропадет."))
+				to_chat(src, SPAN_XENOWARNING("Лишняя смола мешает нам укрепить [door.declent_ru(ACCUSATIVE)]. Подождите, пока она не пропадет."))
 				return SECRETE_RESIN_FAIL
 
 			if(door.hardness == 1.5) //non thickened
@@ -80,14 +80,14 @@
 				new /obj/structure/mineral_door/resin/thick (oldloc, door.hivenumber)
 				total_resin_cost = XENO_THICKEN_DOOR_COST
 			else
-				to_chat(src, SPAN_XENOWARNING("[door] нельзя сделать плотнее."))
+				to_chat(src, SPAN_XENOWARNING("[capitalize(door.declent_ru(NOMINATIVE))] нельзя сделать плотнее."))
 				return SECRETE_RESIN_FAIL
 			thickened = TRUE
 
 		if(thickened)
 			if(message)
-				visible_message(SPAN_XENONOTICE("[src] извергает густую субстанцию и уплотняет [target]."),
-					SPAN_XENONOTICE("Мы извергаем немного резины и уплотняет [target], используя [total_resin_cost] плазмы."), null, 5)
+				visible_message(SPAN_XENONOTICE("[capitalize(src.declent_ru(NOMINATIVE))] извергает густую субстанцию и уплотняет [target.declent_ru(ACCUSATIVE)]."),
+					SPAN_XENONOTICE("Мы извергаем немного смолы и уплотняем [target.declent_ru(NOMINATIVE)], используя [total_resin_cost] плазмы."), null, 5)
 				if(use_plasma)
 					use_plasma(total_resin_cost)
 				playsound(loc, "alien_resin_build", 25)
@@ -140,8 +140,8 @@
 	if(use_plasma)
 		use_plasma(total_resin_cost)
 	if(message)
-		visible_message(SPAN_XENONOTICE("[src] извергает густую субстанцию и придает ей форму \a [resin_construct.construction_name]!"),
-			SPAN_XENONOTICE("Мы извергаем немного резины и придаем ей форму \a [resin_construct.construction_name][use_plasma ? " используя [total_resin_cost] плазмы" : ""]."), null, 5)
+		visible_message(SPAN_XENONOTICE("[capitalize(src.declent_ru(NOMINATIVE))] извергает густую субстанцию и придает ей форму [declent_ru_initial(resin_construct.construction_name, GENITIVE, resin_construct.construction_name)]!"),
+			SPAN_XENONOTICE("Мы извергаем немного смолы и придаем ей форму [declent_ru_initial(resin_construct.construction_name, GENITIVE, resin_construct.construction_name)][use_plasma ? ", используя [total_resin_cost] плазмы" : ""]."), null, 5)
 		playsound(loc, "alien_resin_build", 25)
 
 	var/atom/new_resin = resin_construct.build(current_turf, hivenumber, src)
@@ -179,12 +179,12 @@
 
 	var/max_constructions = hive.hive_structures_limit[structure_template.name]
 	var/remaining_constructions = max_constructions - hive.get_structure_count(structure_template.name)
-	visible_message(SPAN_XENONOTICE("Из земли появляется густая субстанция и принимает форму \a [new_structure]."),
-		SPAN_XENONOTICE("Мы обозначаем новую [structure_template] конструкцию. ([remaining_constructions]/[max_constructions] осталось)"), null, 5)
+	visible_message(SPAN_XENONOTICE("Из земли появляется густая субстанция и принимает форму [new_structure.declent_ru(GENITIVE)]."),
+		SPAN_XENONOTICE("Мы обозначаем новую [structure_template.declent_ru(ACCUSATIVE)] конструкцию. ([remaining_constructions]/[max_constructions] осталось)"), null, 5)
 	playsound(new_structure, "alien_resin_build", 25)
 
 	if(hive.living_xeno_queen)
-		xeno_message("Улей: Новая <b>[structure_template]<b> начинает строиться в [sanitize_area(current_area_name)]!", 3, hivenumber)
+		xeno_message("Улей: Новая <b>[structure_template.declent_ru(NOMINATIVE)]<b> начинает строиться в [sanitize_area(current_area_name)]!", 3, hivenumber)
 
 /mob/living/carbon/xenomorph/proc/make_marker(turf/target_turf)
 	if(!target_turf)
