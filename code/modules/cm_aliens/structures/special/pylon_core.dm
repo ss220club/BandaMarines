@@ -172,9 +172,9 @@
 				continue
 
 			if(checked_hive == linked_hive)
-				xeno_announcement(SPAN_XENOANNOUNCE("Мы потеряли контроль над коммуникационным реле людей в [get_area_name(src)]."), hivenumber, XENO_GENERAL_ANNOUNCE)
+				xeno_announcement(SPAN_XENOANNOUNCE("Мы потеряли контроль над коммуникационным реле носителей в [get_area_name(src)]."), hivenumber, XENO_GENERAL_ANNOUNCE)
 			else
-				xeno_announcement(SPAN_XENOANNOUNCE("Другой улей потерял контроль над коммуникационным реле людей в [get_area_name(src)]."), hivenumber, XENO_GENERAL_ANNOUNCE)
+				xeno_announcement(SPAN_XENOANNOUNCE("Другой улей потерял контроль над коммуникационным реле носителей в [get_area_name(src)]."), hivenumber, XENO_GENERAL_ANNOUNCE)
 		linked_hive.hive_ui.update_pylon_status()
 	return ..()
 
@@ -188,9 +188,9 @@
 			continue
 
 		if(checked_hive == linked_hive)
-			xeno_announcement(SPAN_XENOANNOUNCE("Мы захватили коммуникационное реле людей в [get_area_name(src)].\n\nТеперь мы будем выращивать королевскую смолу из этого пилона. Удерживайте его!"), hivenumber, XENO_GENERAL_ANNOUNCE)
+			xeno_announcement(SPAN_XENOANNOUNCE("Мы захватили коммуникационное реле носителей в [get_area_name(src)].\n\nТеперь мы будем выращивать королевскую смолу из этого пилона. Удерживайте его!"), hivenumber, XENO_GENERAL_ANNOUNCE)
 		else
-			xeno_announcement(SPAN_XENOANNOUNCE("Другой улей захватил коммуникационное реле людей в [get_area_name(src)].[linked_hive.faction_is_ally(checked_hive.name) ? "" : " Остановите их!"]"), hivenumber, XENO_GENERAL_ANNOUNCE)
+			xeno_announcement(SPAN_XENOANNOUNCE("Другой улей захватил коммуникационное реле носителей в [get_area_name(src)].[linked_hive.faction_is_ally(checked_hive.name) ? "" : " Остановите их!"]"), hivenumber, XENO_GENERAL_ANNOUNCE)
 
 	activated = TRUE
 	linked_hive.check_if_hit_larva_from_pylon_limit()
