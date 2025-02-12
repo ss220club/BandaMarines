@@ -236,18 +236,20 @@
 						continue
 				else
 					wound_flavor_text["[temp.display_name]"] = SPAN_WARNING("У [t_theirs] [temp.status & LIMB_UNCALIBRATED_PROSTHETIC ? " нефункционирующий" : ""] [temp.status & LIMB_SYNTHSKIN ? "синтетический" : "кибернетический"] протез [temp.declent_ru(GENITIVE)]. У него")
-				if(temp.brute_dam) switch(temp.brute_dam)
-					if(0 to 20)
-						wound_flavor_text["[temp.display_name]"] += SPAN_WARNING(" малочисленные [temp.status & LIMB_SYNTHSKIN ? "повреждения поверхности" : "вмятины"]")
-					if(21 to INFINITY)
-						wound_flavor_text["[temp.display_name]"] += temp.status & LIMB_SYNTHSKIN ? SPAN_WARNING(pick(" многочисленные повреждения поверхности", " серьезные повреждения поверхности")) : SPAN_WARNING(pick(" многочисленные вмятины"," глубокие вмятины"))
+				if(temp.brute_dam)
+					switch(temp.brute_dam)
+						if(0 to 20)
+							wound_flavor_text["[temp.display_name]"] += SPAN_WARNING(" малочисленные [temp.status & LIMB_SYNTHSKIN ? "повреждения поверхности" : "вмятины"]")
+						if(21 to INFINITY)
+							wound_flavor_text["[temp.display_name]"] += temp.status & LIMB_SYNTHSKIN ? SPAN_WARNING(pick(" многочисленные повреждения поверхности", " серьезные повреждения поверхности")) : SPAN_WARNING(pick(" многочисленные вмятины"," глубокие вмятины"))
 				if(temp.brute_dam && temp.burn_dam)
 					wound_flavor_text["[temp.display_name]"] += SPAN_WARNING(" и")
-				if(temp.burn_dam) switch(temp.burn_dam)
-					if(0 to 20)
-						wound_flavor_text["[temp.display_name]"] += SPAN_WARNING(" малочисленные ожоги")
-					if(21 to INFINITY)
-						wound_flavor_text["[temp.display_name]"] += SPAN_WARNING(pick(" многочисленные ожоги"," серьезные ожоги"))
+				if(temp.burn_dam)
+					switch(temp.burn_dam)
+						if(0 to 20)
+							wound_flavor_text["[temp.display_name]"] += SPAN_WARNING(" малочисленные ожоги")
+						if(21 to INFINITY)
+							wound_flavor_text["[temp.display_name]"] += SPAN_WARNING(pick(" многочисленные ожоги"," серьезные ожоги"))
 				if(wound_flavor_text["[temp.display_name]"])
 					wound_flavor_text["[temp.display_name]"] += SPAN_WARNING("!\n")
 			else if(length(temp.wounds) > 0)
@@ -275,8 +277,6 @@
 					wound_descriptors[this_wound_desc] = W.amount
 				if(length(wound_descriptors))
 					var/list/flavor_text = list()
-					// var/list/no_exclude = ru_wounds_desc_list(list("gaping wound", "big gaping wound", "massive wound", "large bruise",\
-					// "huge bruise", "massive bruise", "severe burn", "large burn", "deep burn", "carbonised area"))
 					for(var/wound in wound_descriptors)
 						switch(wound_descriptors[wound])
 							if(1)
@@ -461,7 +461,8 @@
 				msg += "\n"
 	if(hasHUD(user,"medical"))
 		var/cardcolor = holo_card_color
-		if(!cardcolor) cardcolor = "none"
+		if(!cardcolor)
+			cardcolor = "none"
 		msg += "<span class = 'deptradio'>Triage holo card:</span> <a href='byond://?src=\ref[src];medholocard=1'>\[[cardcolor]\]</a> - "
 
 		// scan reports

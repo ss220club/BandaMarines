@@ -33,6 +33,10 @@
 	var/fixed = FALSE
 	/// if true, blows up the shell immediately
 	var/ship_side = FALSE
+	/// The max range the mortar can fire at
+	var/max_range = 75
+	/// The min range the mortar can fire at
+	var/min_range = 25
 
 	var/obj/structure/machinery/computer/cameras/mortar/internal_camera
 
@@ -352,8 +356,8 @@
 		else
 			relative_dir = Get_Compass_Dir(mob, target)
 		mob.show_message( \
-			SPAN_DANGER("СНАРЯД ПАДАЕТ [SPAN_UNDERLINE(relative_dir ? uppertext(("НА " + dir2text_ru(relative_dir, INSTRUMENTAL) + " ОТ ВАС")) : uppertext("ПРЯМО НА ВАС"))]!"), SHOW_MESSAGE_VISIBLE, \
-			SPAN_DANGER("ВЫ СЛЫШИТЕ, КАК ЧТО-ТО ПАДАЕТ [SPAN_UNDERLINE(relative_dir ? uppertext(("НА " + dir2text_ru(relative_dir, INSTRUMENTAL))) : uppertext("ПРЯМО НА ВАС"))]!"), SHOW_MESSAGE_AUDIBLE \
+			SPAN_DANGER("СНАРЯД ПАДАЕТ [SPAN_UNDERLINE(relative_dir ? uppertext(("НА " + dir2text_ru(relative_dir, PREPOSITIONAL) + " ОТ ВАС")) : uppertext("ПРЯМО НА ВАС"))]!"), SHOW_MESSAGE_VISIBLE, \
+			SPAN_DANGER("ВЫ СЛЫШИТЕ, КАК ЧТО-ТО ПАДАЕТ [SPAN_UNDERLINE(relative_dir ? uppertext(("НА " + dir2text_ru(relative_dir, PREPOSITIONAL))) : uppertext("ПРЯМО НА ВАС"))]!"), SHOW_MESSAGE_AUDIBLE \
 		)
 	sleep(2.5 SECONDS) // Sleep a bit to give a message
 	for(var/mob/mob in range(10, target))
@@ -362,8 +366,8 @@
 		else
 			relative_dir = Get_Compass_Dir(mob, target)
 		mob.show_message( \
-			SPAN_HIGHDANGER("СНАРЯД ВОТ-ВОТ УПАДЁТ [SPAN_UNDERLINE(relative_dir ? uppertext(("НА " + dir2text_ru(relative_dir, INSTRUMENTAL) + " ОТ ВАС")) : uppertext("ПРЯМО НА ВАС"))]!"), SHOW_MESSAGE_VISIBLE, \
-			SPAN_HIGHDANGER("ВЫ СЛЫШИТЕ, КАК ЧТО-ТО ВОТ-ВОТ УПАДЁТ [SPAN_UNDERLINE(relative_dir ? uppertext(("НА " + dir2text_ru(relative_dir, INSTRUMENTAL) + " ОТ ВАС")) : uppertext("ПРЯМО НА ВАС"))]!"), SHOW_MESSAGE_AUDIBLE \
+			SPAN_HIGHDANGER("СНАРЯД ВОТ-ВОТ УПАДЁТ [SPAN_UNDERLINE(relative_dir ? uppertext(("НА " + dir2text_ru(relative_dir, PREPOSITIONAL) + " ОТ ВАС")) : uppertext("ПРЯМО НА ВАС"))]!"), SHOW_MESSAGE_VISIBLE, \
+			SPAN_HIGHDANGER("ВЫ СЛЫШИТЕ, КАК ЧТО-ТО ВОТ-ВОТ УПАДЁТ [SPAN_UNDERLINE(relative_dir ? uppertext(("НА " + dir2text_ru(relative_dir, PREPOSITIONAL) + " ОТ ВАС")) : uppertext("ПРЯМО НА ВАС"))]!"), SHOW_MESSAGE_AUDIBLE \
 		)
 	if(MODE_HAS_MODIFIER(/datum/gamemode_modifier/mortar_laser_warning))
 		new /obj/effect/overlay/temp/blinking_laser(target)
@@ -388,8 +392,11 @@
 	if(test_dial_y + test_targ_y > world.maxy || test_dial_y + test_targ_y < 0)
 		to_chat(user, SPAN_WARNING("You cannot [dialing ? "dial to" : "aim at"] this coordinate, it is outside of the area of operations."))
 		return FALSE
-	if(get_dist(src, locate(test_targ_x + test_dial_x, test_targ_y + test_dial_y, z)) < 10)
+	if(get_dist(src, locate(test_targ_x + test_dial_x, test_targ_y + test_dial_y, z)) < min_range)
 		to_chat(user, SPAN_WARNING("You cannot [dialing ? "dial to" : "aim at"] this coordinate, it is too close to your mortar."))
+		return FALSE
+	if(get_dist(src, locate(test_targ_x + test_dial_x, test_targ_y + test_dial_y, z)) > max_range)
+		to_chat(user, SPAN_WARNING("You cannot [dialing ? "dial to" : "aim at"] this coordinate, it is too far from your mortar."))
 		return FALSE
 	if(busy)
 		to_chat(user, SPAN_WARNING("Someone else is currently using this mortar."))
@@ -403,6 +410,7 @@
 /obj/structure/mortar/wo
 	fixed = TRUE
 	offset_per_turfs = 50 // The mortar is located at the edge of the map in WO, This to to prevent mass FF
+	max_range = 999
 
 //The portable mortar item
 /obj/item/mortar_kit
