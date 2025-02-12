@@ -4139,12 +4139,12 @@ prepositional = "торговом автомате игрушек Donksoft"
 gender = "male"
 
 ["ColMarTech Food Vendor"]
-nominative = "раздатчик еды ColMarTech"
-genitive = "раздатчика еды ColMarTech"
-dative = "раздатчику еды ColMarTech"
-accusative = "раздатчик еды ColMarTech"
-instrumental = "раздатчиком еды ColMarTech"
-prepositional = "раздатчике еды ColMarTech"
+nominative = "раздатчик еды КолМорТех"
+genitive = "раздатчика еды КолМорТех"
+dative = "раздатчику еды КолМорТех"
+accusative = "раздатчик еды КолМорТех"
+instrumental = "раздатчиком еды КолМорТех"
+prepositional = "раздатчике еды КолМорТех"
 gender = "male"
 
 ["Donksoft Toy Vendor Refill"] # Unique Design Name
