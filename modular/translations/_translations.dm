@@ -50,19 +50,3 @@ GLOBAL_LIST_EMPTY(ru_wound_descs)
 			if(!istype(emote_kb))
 				continue
 			emote_kb.update_to_ru()
-
-	// Wounds
-	var/wound_path = "[PATH_TO_TRANSLATE_DATA]/ru_wounds.toml"
-	if(fexists(file(wound_path)))
-		var/list/wounds_toml_list = rustg_read_toml_file(wound_path)
-		for(var/desc in wounds_toml_list)
-			var/ru_list = wounds_toml_list[desc]
-			GLOB.ru_wound_descs += list("[desc]" = list(
-				NOMINATIVE = ru_list["nominative"], GENITIVE = ru_list["genitive"],
-				DATIVE = ru_list["dative"], ACCUSATIVE = ru_list["accusative"],
-				INSTRUMENTAL = ru_list["instrumental"], PREPOSITIONAL = ru_list["prepositional"],
-				"gender" = ru_list["gender"]
-				)
-			)
-
-

@@ -10,7 +10,6 @@
 #include "code/translate_dirs.dm"
 #include "code/translate_emotes.dm"
 #include "code/translate_verbs.dm"
-#include "code/translate_wounds.dm"
 
 // faction_rank translate
 #include "code/faction_rank/other/civilian.dm"

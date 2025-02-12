@@ -257,7 +257,7 @@
 				for(var/datum/wound/W as anything in temp.wounds)
 					if(W.internal && incision_depths[temp.name] == SURGERY_DEPTH_SURFACE)
 						continue // can't see internal wounds normally.
-					var/this_wound_desc = ru_wounds_desc(W.desc, W.amount > 1 ? GENITIVE : NOMINATIVE, W.amount > 1)
+					var/this_wound_desc = declent_ru_initial(W.amount > 1 ? "[W.desc]s" : W.desc, W.amount > 1 ? GENITIVE : NOMINATIVE)
 					if(W.damage_type == BURN)
 						switch(W.salved & (WOUND_BANDAGED|WOUND_SUTURED))
 							if(WOUND_BANDAGED)
