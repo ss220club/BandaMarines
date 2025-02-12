@@ -857,7 +857,7 @@
 
 /obj/item/storage/box/MRE
 	name = "\improper USCM MRE"
-	desc = "A Meal, Ready-to-Eat. A single-meal combat ration designed to provide a soldier with enough nutrients for a day of strenuous work. Its expiration date is at least 20 years ahead of your combat life expectancy."
+	desc = "Готовая к употреблению пища. Одноразовый армейский рацион, предназначенный для снабжения солдата необходимым уровнем питательных веществ для целого дня напряженной работы. Срок годности по меньшей мере на 20 лет превышает ожидаемый срок службы."
 	icon_state = "mealpack"
 	item_state = "mealpack"
 	icon = 'icons/obj/items/storage/mre.dmi'
