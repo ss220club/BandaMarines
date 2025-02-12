@@ -229,7 +229,7 @@
 	playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
 
 /mob/living/carbon/human/proc/check_for_injuries()
-	visible_message(SPAN_NOTICE("[src] осматривает себя."),
+	visible_message(SPAN_NOTICE("[declent_ru(NOMINATIVE)] осматривает себя."),
 	SPAN_NOTICE("Вы осматриваете себя на наличие травм."), null, 3)
 
 	var/list/limb_message = list()
@@ -242,51 +242,51 @@
 		else if(org.status & (LIMB_ROBOT|LIMB_SYNTHSKIN))
 			switch(brutedamage)
 				if(1 to 20)
-					status += "помят[genderize_ru(org.gender, "", "а", "о", "ы")]"
+					status += "помята"
 				if(20 to 40)
-					status += "деформирован[genderize_ru(org.gender, "", "а", "о", "ы")]"
+					status += "деформирована"
 				if(40 to INFINITY)
-					status += "сильно деформирован[genderize_ru(org.gender, "", "а", "о", "ы")]"
+					status += "сильно деформирована"
 
 			switch(burndamage)
 				if(1 to 10)
-					status += "обгорел[genderize_ru(org.gender, "", "а", "о", "ы")]"
+					status += "обгорела"
 				if(10 to 40)
-					status += "обуглен[genderize_ru(org.gender, "", "а", "о", "ы")]"
+					status += "обуглена"
 				if(40 to INFINITY)
-					status += "сильно обуглен[genderize_ru(org.gender, "", "а", "о", "ы")]"
+					status += "сильно обуглена"
 
 		else
 			if(org.status & LIMB_MUTATED)
 				status += "странной формы"
 			if(halloss > 0)
-				status += "покалыва[genderize_ru(org.gender, "ет", "ет", "ет", "ют")]"
+				status += "покалывает"
 			switch(brutedamage)
 				if(1 to 20)
-					status += "ушиблен[genderize_ru(org.gender, "", "а", "о", "ы")]"
+					status += "ушиблена"
 				if(20 to 40)
-					status += "избит[genderize_ru(org.gender, "", "а", "о", "ы")]"
+					status += "избита"
 				if(40 to INFINITY)
-					status += "сильно избит[genderize_ru(org.gender, "", "а", "о", "ы")]"
+					status += "сильно избита"
 
 			switch(burndamage)
 				if(1 to 10)
-					status += "онемел[genderize_ru(org.gender, "", "а", "о", "и")]"
+					status += "онемела"
 				if(10 to 40)
-					status += "покрыт[genderize_ru(org.gender, "", "а", "о", "ы")] волдырями"
+					status += "покрыта волдырями"
 				if(40 to INFINITY)
-					status += "облеза[genderize_ru(org.gender, "ет", "ет", "ет", "ют")]"
+					status += "облезает"
 
 		if(org.get_incision_depth()) //Unindented because robotic and severed limbs may also have surgeries performed upon them.
-			status += "вскрыт[genderize_ru(org.gender, "", "а", "о", "ы")]"
+			status += "вскрыта"
 
 		for(var/datum/effects/bleeding/external/E in org.bleeding_effects_list)
-			status += "кровоточ[genderize_ru(org.gender, "ит", "ит", "ит", "ат")]"
+			status += "кровоточит"
 			break
 
 		var/limb_surgeries = org.get_active_limb_surgeries()
 		if(limb_surgeries)
-			status += "наход[genderize_ru(org.gender, "ит", "ит", "ит", "ят")]ся в процессе [limb_surgeries]"
+			status += "находится в процессе [limb_surgeries]"
 
 		if(!length(status))
 			status += "OK"
