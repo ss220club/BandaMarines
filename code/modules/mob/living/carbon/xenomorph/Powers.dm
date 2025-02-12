@@ -179,12 +179,12 @@
 
 	var/max_constructions = hive.hive_structures_limit[structure_template.name]
 	var/remaining_constructions = max_constructions - hive.get_structure_count(structure_template.name)
-	visible_message(SPAN_XENONOTICE("Из земли появляется густая субстанция и принимает форму [new_structure.declent_ru(GENITIVE)]."),
-		SPAN_XENONOTICE("Мы обозначаем новую [structure_template.declent_ru(ACCUSATIVE)] конструкцию. ([remaining_constructions]/[max_constructions] осталось)"), null, 5)
+	visible_message(SPAN_XENONOTICE("Из земли появляется густая субстанция и принимает форму [declent_ru_initial(structure_template.name, GENITIVE, structure_template.name)]."),
+		SPAN_XENONOTICE("Мы обозначаем [declent_ru_initial(structure_template.name, ACCUSATIVE, structure_template.name)]. ([remaining_constructions]/[max_constructions] осталось)"), null, 5)
 	playsound(new_structure, "alien_resin_build", 25)
 
 	if(hive.living_xeno_queen)
-		xeno_message("Улей: Новая <b>[structure_template.declent_ru(NOMINATIVE)]<b> начинает строиться в [sanitize_area(current_area_name)]!", 3, hivenumber)
+		xeno_message("Улей: <b>[declent_ru_initial(structure_template.name, NOMINATIVE, structure_template.name)]<b> начинает строиться в [sanitize_area(current_area_name)]!", 3, hivenumber)
 
 /mob/living/carbon/xenomorph/proc/make_marker(turf/target_turf)
 	if(!target_turf)

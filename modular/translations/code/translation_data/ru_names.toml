@@ -22570,3 +22570,59 @@ dative = "смоляным шипу"
 accusative = "смоляной шип"
 instrumental = "смоляным шипом"
 prepositional = "смоляном шипе"
+
+["hive core"]
+nominative = "ядро улья"
+genitive = "ядра улья"
+dative = "ядеру улья"
+accusative = "ядро улья"
+instrumental = "ядром улья"
+prepositional = "ядре улья"
+
+["hive cluster"]
+nominative = "кластер улья"
+genitive = "кластера улья"
+dative = "кластеру улья"
+accusative = "кластер улья"
+instrumental = "кластером улья"
+prepositional = "кластере улья"
+
+["hive pylon"]
+nominative = "пилон улья"
+genitive = "пилона улья"
+dative = "пилону улья"
+accusative = "пилон улья"
+instrumental = "пилоном улья"
+prepositional = "пилоне улья"
+
+["egg morpher"]
+nominative = "морфер яиц"
+genitive = "морфера яиц"
+dative = "морферу яиц"
+accusative = "морфер яиц"
+instrumental = "морфером яиц"
+prepositional = "морфере яиц"
+
+["recovery node"]
+nominative = "узел восстановления"
+genitive = "узла восстановления"
+dative = "узлу восстановления"
+accusative = "узел восстановления"
+instrumental = "узлом восстановления"
+prepositional = "узле восстановления"
+
+["thick resin nest"]
+nominative = "плотное смоляное гнездо"
+genitive = "плотного смоляного гнезда"
+dative = "плотному смоляное гнезду"
+accusative = "плотное смоляное гнездо"
+instrumental = "плотным смоляным гнездом"
+prepositional = "плотном смоляном гнезде"
+
+["construction node"]
+nominative = "конструкционный узел"
+genitive = "конструкционного узла"
+dative = "конструкционному узлу"
+accusative = "конструкционный узел"
+instrumental = "конструкционным узлом"
+prepositional = "конструкционном узле"
