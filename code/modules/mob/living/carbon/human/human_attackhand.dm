@@ -297,9 +297,9 @@
 		if(org.status & LIMB_BROKEN)
 			postscript += " <b>(ПЕРЕЛОМ)</b>"
 		if(org.status & LIMB_SPLINTED_INDESTRUCTIBLE)
-			postscript += " <b>(ШИНА)</b>"
-		else if(org.status & LIMB_SPLINTED)
 			postscript += " <b>(НАНОШИНА)</b>"
+		else if(org.status & LIMB_SPLINTED)
+			postscript += " <b>(ШИНА)</b>"
 
 		if(postscript)
 			limb_message += "\t [capitalize(org.declent_ru(NOMINATIVE))] [SPAN_WARNING("[english_list(status, and_text = " и ")].[postscript]")]"
