@@ -1,5 +1,6 @@
 // Hives
 /datum/hive_status
+	name = "Нормальный улей"
 	var/prefix_fem
 
 /datum/hive_status/corrupted
@@ -42,50 +43,4 @@
 	name = "Прирученный улей"
 	prefix = "Прирученный "
 	prefix_fem ="Прирученная "
-
-// Marks
-
-/datum/xeno_mark_define/fortify
-	name = "Укрепиться"
-	desc = "Укрепите эту область!"
-
-/datum/xeno_mark_define/weeds
-	name = "Нужна трава"
-	desc = "Здесь нужна трава!"
-
-/datum/xeno_mark_define/nest
-	name = "Гнездо"
-	desc = "Разместите хостов здесь!"
-
-/datum/xeno_mark_define/hosts
-	name = "Хосты"
-	desc = "Здесь хосты!"
-
-/datum/xeno_mark_define/aide
-	name = "Помощь"
-	desc = "Здесь нужна помощь!"
-
-/datum/xeno_mark_define/defend
-	name = "Защита"
-	desc = "Защитите улей!"
-
-/datum/xeno_mark_define/danger
-	name = "Опасность"
-	desc = "Осторожно, здесь опасность!"
-
-/datum/xeno_mark_define/rally
-	name = "Сбор"
-	desc = "Соберитесь здесь!"
-
-/datum/xeno_mark_define/hold
-	name = "Удерживать"
-	desc = "Удерживайте эту область!"
-
-/datum/xeno_mark_define/ambush
-	name = "Засада"
-	desc = "Засада на врага здесь!"
-
-/datum/xeno_mark_define/attack
-	name = "Атака"
-	desc = "Атакуйте врага здесь!"
 
