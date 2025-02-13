@@ -393,6 +393,7 @@
 /obj/structure/machinery/cm_vending/sorted/attachments/populate_product_list(scale)
 	listed_products = list(
 		list("BARREL", -1, null, null),
+		list("Barrel Charger", 2.5, /obj/item/attachable/heavy_barrel, VENDOR_ITEM_REGULAR),
 		list("Extended Barrel", 6.5, /obj/item/attachable/extended_barrel, VENDOR_ITEM_REGULAR),
 		list("M5 Bayonet", 10.5, /obj/item/attachable/bayonet, VENDOR_ITEM_REGULAR),
 		list("Recoil Compensator", 6.5, /obj/item/attachable/compensator, VENDOR_ITEM_REGULAR),
