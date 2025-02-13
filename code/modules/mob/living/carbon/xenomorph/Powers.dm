@@ -42,11 +42,11 @@
 			var/turf/closed/wall/resin/wall = target
 
 			if(istype(target, /turf/closed/wall/resin/weak))
-				to_chat(src, SPAN_XENOWARNING("[capitalize(wall.declent_ru(NOMINATIVE))] слишком хлипкое, чтобы это можно было укрепить."))
+				to_chat(src, SPAN_XENOWARNING("[capitalize(wall.declent_ru(NOMINATIVE))] слишком хлипкая, чтобы ее можно было укрепить."))
 				return SECRETE_RESIN_FAIL
 
 			for(var/datum/effects/xeno_structure_reinforcement/sf in wall.effects_list)
-				to_chat(src, SPAN_XENOWARNING("Лишняя смола мешает нам укрепить [capitalize(wall.declent_ru(NOMINATIVE))]. Подождите, пока она не пропадет."))
+				to_chat(src, SPAN_XENOWARNING("Лишняя смола мешает нам укрепить [wall.declent_ru(NOMINATIVE)]. Подождите, пока она не пропадет."))
 				return SECRETE_RESIN_FAIL
 
 			if (wall.hivenumber != hivenumber)
