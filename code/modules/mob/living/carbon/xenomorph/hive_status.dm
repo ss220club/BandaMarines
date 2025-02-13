@@ -1499,7 +1499,7 @@
 
 /datum/xeno_mark_define/nest
 	name = "Гнездо"
-	desc = "Разместите хостов здесь!"
+	desc = "Разместите носителей здесь!"
 	icon_state = "nest"
 
 /datum/xeno_mark_define/hosts
