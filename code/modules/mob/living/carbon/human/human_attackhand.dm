@@ -229,7 +229,7 @@
 	playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
 
 /mob/living/carbon/human/proc/check_for_injuries()
-	visible_message(SPAN_NOTICE("[declent_ru(NOMINATIVE)] осматривает себя."),
+	visible_message(SPAN_NOTICE("[capitalize(declent_ru(NOMINATIVE))] осматривает себя."),
 	SPAN_NOTICE("Вы осматриваете себя на наличие травм."), null, 3)
 
 	var/list/limb_message = list()
@@ -302,7 +302,7 @@
 			postscript += " <b>(ШИНА)</b>"
 
 		if(postscript)
-			limb_message += "\t [capitalize(org.declent_ru(NOMINATIVE))] [SPAN_WARNING("[english_list(status, and_text = " и ")].[postscript]")]"
+			limb_message += "\t [capitalize(org.declent_ru(NOMINATIVE))] [SPAN_WARNING("[english_list(status)].[postscript]")]"
 		else
-			limb_message += "\t [capitalize(org.declent_ru(NOMINATIVE))] [status[1] == "OK" ? SPAN_NOTICE("в полном порядке.") : SPAN_WARNING("[english_list(status, and_text = " и ")].")]"
+			limb_message += "\t [capitalize(org.declent_ru(NOMINATIVE))] [status[1] == "OK" ? SPAN_NOTICE("в полном порядке.") : SPAN_WARNING("[english_list(status)].")]"
 	to_chat(src, examine_block(limb_message.Join("\n")))
