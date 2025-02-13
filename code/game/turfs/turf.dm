@@ -65,6 +65,9 @@
 	///hybrid lights affecting this turf
 	var/tmp/list/atom/movable/lighting_mask/hybrid_lights_affecting
 
+	/// Is fishing allowed on this turf
+	var/fishing_allowed = FALSE
+
 /turf/Initialize(mapload)
 	SHOULD_CALL_PARENT(FALSE) // this doesn't parent call for optimisation reasons
 	if(flags_atom & INITIALIZED)
@@ -220,7 +223,7 @@
 			return FALSE
 
 	// if we are thrown, moved, dragged, or in any other way abused by code - check our diagonals
-	if(!mover.move_intentionally)
+	if(!mover.move_intentionally || (fdir == NORTHEAST || fdir == NORTHWEST || fdir == SOUTHEAST || fdir == SOUTHWEST)) // SS220 EDIT
 		// Check objects in adjacent turf EAST/WEST
 		if(fd1 && fd1 != fdir)
 			T = get_step(mover, fd1)
@@ -580,13 +583,13 @@
 		if(CEILING_GLASS)
 			return "The ceiling above is glass. That's not going to stop anything."
 		if(CEILING_METAL)
-			return "The ceiling above is metal. You can't see through it with a camera from above, but that's not going to stop anything."
+			return "The ceiling above is metal. You can't see through it with a camera from above. It will likely stop medevac pickups but not CAS."
 		if(CEILING_UNDERGROUND_ALLOW_CAS)
-			return "It is underground. A thin cavern roof lies above. Doesn't look like it's going to stop much."
+			return "It is underground. A thin cavern roof lies above. It will likely stop medevac pickups but not CAS."
 		if(CEILING_UNDERGROUND_BLOCK_CAS)
 			return "It is underground. The cavern roof lies above. Can probably stop most ordnance."
 		if(CEILING_UNDERGROUND_METAL_ALLOW_CAS)
-			return "It is underground. The ceiling above is made of thin metal. Doesn't look like it's going to stop much."
+			return "It is underground. The ceiling above is made of thin metal. It will likely stop medevac pickups but not CAS."
 		if(CEILING_UNDERGROUND_METAL_BLOCK_CAS)
 			return "It is underground. The ceiling above is made of metal.  Can probably stop most ordnance."
 		if(CEILING_DEEP_UNDERGROUND)
