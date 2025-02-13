@@ -5,7 +5,7 @@
 	return GLOB.ru_emote_messages[emote_message] || emote_message
 
 /datum/emote
-	var/name
+	var/name = "s"
 
 /datum/emote/proc/update_to_ru()
 	name = ru_emote_name(name || key)
