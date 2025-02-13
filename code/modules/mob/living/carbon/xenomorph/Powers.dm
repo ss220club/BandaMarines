@@ -46,7 +46,7 @@
 				return SECRETE_RESIN_FAIL
 
 			for(var/datum/effects/xeno_structure_reinforcement/sf in wall.effects_list)
-				to_chat(src, SPAN_XENOWARNING("Лишняя смола мешает нам укрепить [wall.declent_ru(NOMINATIVE)]. Подождите, пока она не пропадет."))
+				to_chat(src, SPAN_XENOWARNING("Лишняя смола мешает нам укрепить [wall.declent_ru(ACCUSATIVE)]. Подождите, пока она не пропадет."))
 				return SECRETE_RESIN_FAIL
 
 			if (wall.hivenumber != hivenumber)
@@ -60,7 +60,7 @@
 				wall.ChangeTurf(/turf/closed/wall/resin/membrane/thick)
 				total_resin_cost = XENO_THICKEN_MEMBRANE_COST
 			else
-				to_chat(src, SPAN_XENOWARNING("[capitalize(wall.declent_ru(NOMINATIVE))] нельзя сделать плотнее."))
+				to_chat(src, SPAN_XENOWARNING("[capitalize(wall.declent_ru(ACCUSATIVE))] нельзя сделать плотнее."))
 				return SECRETE_RESIN_FAIL
 			thickened = TRUE
 
@@ -80,7 +80,7 @@
 				new /obj/structure/mineral_door/resin/thick (oldloc, door.hivenumber)
 				total_resin_cost = XENO_THICKEN_DOOR_COST
 			else
-				to_chat(src, SPAN_XENOWARNING("[capitalize(door.declent_ru(NOMINATIVE))] нельзя сделать плотнее."))
+				to_chat(src, SPAN_XENOWARNING("[capitalize(door.declent_ru(ACCUSATIVE))] нельзя сделать плотнее."))
 				return SECRETE_RESIN_FAIL
 			thickened = TRUE
 
