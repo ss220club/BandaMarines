@@ -5,6 +5,7 @@
 	var/bump_action_path
 	///Action used to turn bump attack on/off manually
 	var/datum/action/xeno_action/bump_attack_toggle/toggle_action
+	var/toggle_action_path = /datum/action/xeno_action/bump_attack_toggle
 
 /datum/component/bump_attack/Initialize(enabled = TRUE, has_button = TRUE, silent_activation = FALSE)
 	. = ..()
@@ -21,7 +22,7 @@
 	else
 		bump_action_path = PROC_REF(living_bump_action)
 	if(has_button)
-		toggle_action = give_action(parent, toggle_action::type)
+		toggle_action = give_action(parent, toggle_action_path)
 		toggle_action.attacking = active
 		toggle_action.update_button_icon()
 		RegisterSignal(toggle_action, COMSIG_ACTION_ACTIVATED, PROC_REF(living_activation_toggle))
@@ -29,7 +30,7 @@
 
 /datum/component/bump_attack/UnregisterFromParent()
 	if(toggle_action)
-		remove_action(parent, toggle_action::type)
+		remove_action(parent, toggle_action_path)
 	UnregisterSignal(parent, COMSIG_LIVING_PRE_COLLIDE)
 
 /datum/component/bump_attack/Destroy(force, silent)
