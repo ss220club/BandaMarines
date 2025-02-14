@@ -237,7 +237,6 @@ export class ChangelogBandaMarines extends Component {
 
     const footer_cm = (
       <Section>
-        {dateDropdown}
         <h3>CM 13 Development Team</h3>
         <h3>Colonial Marines Space Station 13 License</h3>
         <p>
