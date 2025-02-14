@@ -65,10 +65,11 @@ window "mapwindow"
 		size = 640x480
 		anchor1 = 0,0
 		anchor2 = 100,100
-		font-family = "Arial"
-		font-size = 7
+		font-family = "Grand9K Pixel"
+		font-size = 6pt
 		is-default = true
 		saved-params = "zoom;letterbox;zoom-mode;icon-size;text-mode"
+		style = ".center { text-align: center; } .maptext { font-family: 'Grand9K Pixel'; font-size: 6pt; -dm-text-outline: 1px black; color: white; line-height: 1.0; } .langchat { font-family: 'Grand9K Pixel'; font-size: 6pt; -dm-text-outline: 1px black; } .langchat_small { font-family: 'Spess Font'; font-size: 6pt; line-height: 1.4; } .langchat_yell { font-family: 'Pix Cyrillic'; font-size: 12pt; } .langchat_bolded { font-size: 8pt; } .langchat_announce { font-size: 12pt; } .langchat_bolditalicbig { font-family: 'Spess Font'; font-size: 24pt; } .langchat_italic { font-family: 'Spess Font'; font-size: 6pt; line-height: 1.4; }"
 	elem "lobby_browser"
 		type = BROWSER
 		pos = 0,0
