@@ -155,6 +155,6 @@
 	// TIMER_COOLDOWN_START(src, COOLDOWN_BUMP_ATTACK, bumper.xeno_caste.attack_delay)
 	return COMPONENT_LIVING_COLLIDE_HANDLED
 
-/mob/living/carbon/xenomorph/Initialize(mapload, mob/living/carbon/xenomorph/old_xeno, hivenumber)
-	. = ..()
+/mob/living/carbon/xenomorph/add_abilities()
 	AddComponent(/datum/component/bump_attack)
+	. = ..()
