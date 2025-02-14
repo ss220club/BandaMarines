@@ -84,7 +84,7 @@
 	containername = "extended barrel attachment crate"
 	group = "Attachments"
 
-// SS220 ADD Start - Return barrel charger
+// SS220 ADD Start - Barrel charger return
 /datum/supply_packs/muzzle_heavy
 	name = "barrel charger attachment crate (x2)"
 	contains = list(
@@ -95,7 +95,7 @@
 	containertype = /obj/structure/closet/crate
 	containername = "heavy barrel attachment crate"
 	group = "Attachments"
-// SS220 ADD End - Return barrel charger
+// SS220 ADD End - Barrel charger return
 
 /datum/supply_packs/muzzle_compensator
 	name = "compensator attachment crate (x6)"
