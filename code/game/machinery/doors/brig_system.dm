@@ -153,7 +153,7 @@
 	// Sentence complete.
 	var/datum/crime_incident/incident = active_report.incident
 	if(REALTIMEOFDAY > incident.time_to_release)
-		ai_silent_announcement("ОТЧЁТНАЯ СИСТЕМА БРИГА: Срок отбыт: [incident.criminal_name]. Камера: [src]. Требуется освобождение.", ":p")
+		ai_silent_announcement("ОТЧЁТНАЯ СИСТЕМА БРИГА: Срок отбыт: [incident.criminal_name]. Камера: [declent_ru(NOMINATIVE)]. Требуется освобождение.", ":p")
 		timer_end()
 
 	update_icon()
@@ -268,7 +268,7 @@
 
 	message_admins("[key_name(user, 1)][ADMIN_JMP_USER(user)] has reset the jail timer of [incident.criminal_name].")
 	log_admin("[key_name(user)] reset the jail timer of [incident.criminal_name], [incident.charges_to_string()].")
-	ai_silent_announcement("ОТЧЁТНАЯ СИСТЕМА БРИГА: Срок заключения [incident.criminal_name] был сокращён пользователем [user].", ":p")
+	ai_silent_announcement("ОТЧЁТНАЯ СИСТЕМА БРИГА: Срок заключения [incident.criminal_name] был сокращён пользователем [user.declent_ru(INSTRUMENTAL)].", ":p")
 
 	update_icon()
 

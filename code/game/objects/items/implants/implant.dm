@@ -432,7 +432,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 			qdel(a)
 		else
 			var/obj/item/device/radio/headset/a = new /obj/item/device/radio/headset(null)
-			ai_silent_announcement("Зафиксирована гибель [mobname] в-в-в...", "Датчик смерти [mobname]")
+			ai_silent_announcement("Заф-ф-фиксирован-н-на гибель [mobname] в-в-в...", "Датчик смерти [mobname]")
 			qdel(a)
 			STOP_PROCESSING(SSobj, src)
 
