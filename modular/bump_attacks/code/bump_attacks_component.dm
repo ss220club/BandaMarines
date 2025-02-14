@@ -42,7 +42,7 @@
 		return
 	var/mob/living/bumper = parent
 	if(!silent_activation)
-		bumper.balloon_alert(bumper, "Will now [should_enable ? "attack" : "push"] enemies in your way.")
+		bumper.balloon_alert(bumper, "Вы теперь будете [should_enable ? "атаковать" : "толкать"] врагов на пути.")
 	toggle_action?.attacking = active
 	toggle_action?.update_button_icon()
 	if(should_enable)
@@ -153,3 +153,7 @@
 	// SSblackbox.record_feedback("tally", "round_statistics", 1, "xeno_bump_attacks")
 	// TIMER_COOLDOWN_START(src, COOLDOWN_BUMP_ATTACK, bumper.xeno_caste.attack_delay)
 	return COMPONENT_LIVING_COLLIDE_HANDLED
+
+/mob/living/carbon/xenomorph/Initialize(mapload, mob/living/carbon/xenomorph/old_xeno, hivenumber)
+	. = ..()
+	AddComponent(/datum/component/bump_attack)
