@@ -97,7 +97,7 @@ if os.path.isfile(old_changelog_cache):
         # Remove the old changelog cache, as we won't use it anymore
         print("Removing old changelog cache...")
         os.remove(old_changelog_cache)
-        old_changelog_html = os.path.join(args.ymlDir, '..', 'changelog_bandastation.html')
+        old_changelog_html = os.path.join(args.ymlDir, '..', 'changelog_bandamarines.html')
         if os.path.isfile(old_changelog_html):
             print("Removing old changelog html...")
             os.remove(old_changelog_html)
