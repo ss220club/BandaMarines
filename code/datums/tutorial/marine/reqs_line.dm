@@ -10,8 +10,8 @@
 
 /// Simulates the Requisitions Line experience for newcomers
 /datum/tutorial/marine/reqs_line
-	name = "Marine - Requistions Line"
-	desc = "Learn how to tend to the requisitions line as a Cargo Technician."
+	name = "Морпехи - Линия реквизиций"
+	desc = "Узнайте, как работать с заявками в качестве карго специалиста."
 	icon_state = "cargotech"
 	tutorial_id = "marine_req_1"
 	tutorial_template = /datum/map_template/tutorial/reqs_line
@@ -228,7 +228,7 @@
 	for(var/agent_i in 1 to agents_to_spawn)
 		var/items_requested = 1 + survival_wave * survival_difficulty * 0.5
 		items_requested *= (1 + survival_request_random_factor * rand())
-		spawn_survival_agent(round(items_requested, 1))
+		spawn_survival_agent(round(items_requested))
 
 /// Called to generate a single agent and request
 /datum/tutorial/marine/reqs_line/proc/spawn_survival_agent(items_to_request)
@@ -257,8 +257,8 @@
 		return
 	restock_vendors()
 	var/speech = verbalize_request(request)
-	var/greeting = pick("Hello! ", "hi, ", "hey, ", "Good day. ", "I need ", "Please give me ", "", "") // Yes, no greeting is a greeting option for real world accuracy
-	var/trailing = pick("", "", ", please.", " - please and thank you", ", thanks.", ", hurry")
+	var/greeting = pick("Дароу! ", "привет, ", "привееет, ", "Доброго дня. ", "Мне нужно ", "Пожалуйста, дай мне ", "", "") // Yes, no greeting is a greeting option for real world accuracy
+	var/trailing = pick("", "", ", пожалуйста", " - пожалуйста и спасибо тебе", ", спасибо.", ", шевелись")
 	challenger.say("[greeting][speech][trailing]") // Pleasantries for the first exchange only
 	remind_timer = addtimer(CALLBACK(src, PROC_REF(remind_request)), 15 SECONDS, TIMER_STOPPABLE)
 	hint_timer = addtimer(CALLBACK(src, PROC_REF(send_hints)), 3 SECONDS, TIMER_STOPPABLE)
@@ -310,7 +310,7 @@
 		confused_types |= item_type
 		if(COOLDOWN_FINISHED(src, confused_cooldown))
 			COOLDOWN_START(src, confused_cooldown, 5 SECONDS)
-			active_agent.say("Huh?")
+			active_agent.say("А?")
 		QDEL_IN(item, 30 SECONDS)
 		return
 
@@ -354,7 +354,7 @@
 		return // Nani?
 
 	if(success && prob(80))
-		var/speech = pick("Thanks!", "Thanks", "Thanks bro", "Thank you.", "Bye", "Nice.")
+		var/speech = pick("Спасибо!", "Спасибоу", "Спасибо бро", "Спасибо.", "Пока", "Круто.")
 		active_agent.say(speech)
 
 	// Immediately step the agent through the turnstile and towards exit
@@ -393,20 +393,20 @@
 		if(TUTORIAL_REQS_LINE_STAGE_ATTACHIES)
 			TUTORIAL_ATOM_FROM_TRACKING(/obj/structure/machinery/cm_vending/sorted/attachments/blend/tutorial, attachies_vendor)
 			add_highlight(attachies_vendor)
-			message_to_player("This marine wants 'attachies' for their weapon. You can find them in the leftmost vendor.")
-			update_objective("Serve the marine's request using the vendors.")
+			message_to_player("Этот морпех хочет немного 'атачментов' к его оружию. Вы можете найти их в самом левом автомате.")
+			update_objective("Дайте морпеху то что он хочет из автомата.")
 		if(TUTORIAL_REQS_LINE_STAGE_GEARBOX)
 			TUTORIAL_ATOM_FROM_TRACKING(/obj/structure/machinery/cm_vending/sorted/cargo_guns/cargo/blend/tutorial, gear_vendor)
 			add_highlight(gear_vendor)
-			message_to_player("This marine wants items from the gear vendor in the middle. You can use the search function at top right to find things more easily.")
-			update_objective("Serve the marine's request using the middle vendor. This one has a lot of things, you might want to use the search bar.")
+			message_to_player("Этот морпех хочет получить предметы со среднего автомата. Вы можете использовать функцию поиска справа сверху что бы побыстрее найти предмет.")
+			update_objective("Дайте морпеху то, что он хочет, из среднего автомата. В нём очень много вещей, так что воспользуйтесь функцией поиска.")
 		if(TUTORIAL_REQS_LINE_STAGE_MIXED)
 			TUTORIAL_ATOM_FROM_TRACKING(/obj/structure/machinery/cm_vending/sorted/cargo_ammo/cargo/blend/tutorial, ammo_vendor)
 			add_highlight(ammo_vendor)
 			add_highlight(loser_agent)
-			loser_agent.say("Wait! I really NEED a Mk2 Extended Mag. Throw me one!")
-			message_to_player("Seems the marine wanted ammo too. Grab some and high-toss it over to him, with <b>[retrieve_bind("toggle_high_throw_mode")]</b>.")
-			update_objective("Get the M41 Extended magazine and perform a high toss to give it to the forgetful marine.")
+			loser_agent.say("Стоять! Мне РЕАЛЬНО нужен Mk2 Extended Mag. Брось ка мне один!")
+			message_to_player("Видимо этот морпех забыл про патроны. Возьми магазин, и высоко подбрось его ему при помощи клавиши <b>[retrieve_bind("toggle_high_throw_mode")]</b>.")
+			update_objective("Достань M41 Extended magazine и высоко подбрось его забывчевому морпеху.")
 
 /datum/tutorial/marine/reqs_line/start_tutorial(mob/starting_mob)
 	. = ..()
@@ -416,8 +416,8 @@
 	init_mob()
 	START_PROCESSING(SSfastobj, src)
 
-	message_to_player("Welcome to Requisitions Line tutorial. Come in and have a seat.")
-	update_objective("Reach the line window to begin!")
+	message_to_player("Добро пожаловать в туториал по линии реквизиции. Проходи и присаживайся.")
+	update_objective("Дойди до окна выдачи что бы начать!")
 	var/turf/target_turf = loc_from_corner(3, 6)
 	RegisterSignal(target_turf, COMSIG_TURF_ENTERED, PROC_REF(user_in_position))
 
@@ -435,7 +435,7 @@
 /datum/tutorial/marine/reqs_line/proc/continue_stage_gearbox()
 	TUTORIAL_ATOM_FROM_TRACKING(/obj/structure/machinery/cm_vending/sorted/attachments/blend/tutorial, attachies_vendor)
 	remove_highlight(attachies_vendor)
-	message_to_player("Success!")
+	message_to_player("Успех!")
 	stage = TUTORIAL_REQS_LINE_STAGE_GEARBOX
 	var/list/request = list(/obj/item/storage/box/guncase/lmg, /obj/item/explosive/grenade/high_explosive)
 	spawn_agent(request)
@@ -444,7 +444,7 @@
 	loser_agent = active_agent
 	TUTORIAL_ATOM_FROM_TRACKING(/obj/structure/machinery/cm_vending/sorted/cargo_guns/cargo/blend/tutorial, gear_vendor)
 	remove_highlight(gear_vendor)
-	message_to_player("Success!")
+	message_to_player("Успех!")
 	stage = TUTORIAL_REQS_LINE_STAGE_MIXED
 	var/list/request = list(/obj/item/attachable/gyro, /obj/item/storage/box/guncase/m41aMK1, /obj/item/explosive/grenade/high_explosive)
 	spawn_agent(request)
@@ -457,7 +457,7 @@
 	if(prop.original_type != /obj/item/ammo_magazine/rifle/extended)
 		return
 	qdel(prop)
-	loser_agent.say("Nice.")
+	loser_agent.say("Круто.")
 	remove_highlight(loser_agent)
 	TUTORIAL_ATOM_FROM_TRACKING(/obj/structure/machinery/cm_vending/sorted/cargo_ammo/cargo/blend/tutorial, ammo_vendor)
 	remove_highlight(ammo_vendor)
@@ -471,13 +471,13 @@
 
 /datum/tutorial/marine/reqs_line/proc/continue_stage_survival()
 	mark_completed()
-	message_to_player("Success! You have completed the tutorial!")
-	update_objective("You have finished the tutorial! But there's more if you want to practice.")
-	addtimer(CALLBACK(src, PROC_REF(message_to_player), "You may stay to practice with random orders, or quit with the button at top left."), 3 SECONDS)
+	message_to_player("Молодцы. Вы завершили туториал!")
+	update_objective("Вы завершили туториал! Но будут ещё морпехи, на случай, если вы захотите ещё попрактиковаться.")
+	addtimer(CALLBACK(src, PROC_REF(message_to_player), "Вы можете побыть ещё с рандомными морпехами, или выйти нажав на кнопку слева вверху."), 3 SECONDS)
 	addtimer(CALLBACK(src, PROC_REF(engage_survival_mode)), 12 SECONDS)
 
 /datum/tutorial/marine/reqs_line/proc/engage_survival_mode()
-	update_objective("Keep practicing with increasingly complex orders, or leave at any time with the button at top left.")
+	update_objective("Продолжайте практиковаться с очень сложными запросами, или выйдите из туториала нажав кнопку слева сверху.")
 	stage = TUTORIAL_REQS_LINE_STAGE_SURVIVAL
 
 /datum/map_template/tutorial/reqs_line

@@ -13,18 +13,18 @@
 		return
 
 	init_mob()
-	message_to_player("This is the tutorial for the basics of medical that you will need to know for playing a marine role.")
+	message_to_player("Это базовый туториал по медицине для твое игры на роли морпеха.")
 	addtimer(CALLBACK(src, PROC_REF(brute_tutorial)), 4 SECONDS)
 
 /datum/tutorial/marine/medical_basic/proc/brute_tutorial()
-	message_to_player("The first kind of damage is <b>Brute</b>, the most common kind. It represents physical trauma from things like punches, weapons, or guns.")
+	message_to_player("Первый тип урона - <b>Брут</b>, самый обыкновенный. Это травмы, которые вы получили от ударов, оружий, или пушек.")
 	var/mob/living/living_mob = tutorial_mob
 	living_mob.adjustBruteLoss(10)
 	addtimer(CALLBACK(src, PROC_REF(brute_tutorial_2)), 4 SECONDS)
 
 /datum/tutorial/marine/medical_basic/proc/brute_tutorial_2()
-	message_to_player("You can observe if you have <b>Brute</b> or <b>Burn</b> damage by clicking on yourself with an empty hand on help intent.")
-	update_objective("Click on yourself with an empty hand.")
+	message_to_player("Вы можете посмотреть есть ли у вас <b>Брут</b> или <b>Ожог</b> урон нажав по себе пустой рукой в интенте помощи.")
+	update_objective("Нажми на себя пустой рукой.")
 	RegisterSignal(tutorial_mob, COMSIG_LIVING_ATTACKHAND_HUMAN, PROC_REF(on_health_examine))
 
 /datum/tutorial/marine/medical_basic/proc/on_health_examine(datum/source, mob/living/carbon/human/attacked_mob)
@@ -34,8 +34,8 @@
 		return
 
 	UnregisterSignal(tutorial_mob, COMSIG_LIVING_ATTACKHAND_HUMAN)
-	message_to_player("Good. Now, you have taken some brute damage. <b>Bicaridine</b> is used to fix brute over time. Pick up the <b>bicaridine EZ autoinjector</b> and use it in-hand.")
-	update_objective("Inject yourself with the bicaridine injector.")
+	message_to_player("Отлично. Теперь у тебя есть немного брута. <b>Бикадрин</b> исцеляет брут со временем. Подними <b>бикадриновый автоинъектор</b> и используй его в руке.")
+	update_objective("Вкольни в себя бикадриновый инъектор.")
 	var/obj/item/reagent_container/hypospray/autoinjector/bicaridine/skillless/one_use/brute_injector = new(loc_from_corner(0, 4))
 	add_to_tracking_atoms(brute_injector)
 	add_highlight(brute_injector)
@@ -50,15 +50,15 @@
 	UnregisterSignal(tutorial_mob, COMSIG_LIVING_HYPOSPRAY_INJECTED)
 	TUTORIAL_ATOM_FROM_TRACKING(/obj/item/reagent_container/hypospray/autoinjector/bicaridine/skillless/one_use, brute_injector)
 	remove_highlight(brute_injector)
-	message_to_player("All medicines take time to work after injection. Next is <b>Burn</b> damage. It is obtained from things like acid or being set on fire.")
+	message_to_player("Каждая медицина требует время перед тем, как подействует. Следующий тип урона - <b>Ожоги</b>. Его можно получить, если в вас плюнули кислотой, или если вы подгорели.")
 	update_objective("")
 	var/mob/living/living_mob = tutorial_mob
 	living_mob.adjustFireLoss(10)
 	addtimer(CALLBACK(src, PROC_REF(burn_tutorial)), 4 SECONDS)
 
 /datum/tutorial/marine/medical_basic/proc/burn_tutorial()
-	message_to_player("<b>Kelotane</b> is used to fix burn over time. Inject yourself with the <b>kelotane EZ autoinjector</b>.")
-	update_objective("Inject yourself with the kelotane injector.")
+	message_to_player("<b>Келотан</b> используется что бы вылечить ваши ожоги. Вкольните в себя <b>келотановый автоинъектор</b>.")
+	update_objective("Вкольните в себя келотановый инъектор.")
 	var/obj/item/reagent_container/hypospray/autoinjector/kelotane/skillless/one_use/burn_injector = new(loc_from_corner(0, 4))
 	add_to_tracking_atoms(burn_injector)
 	add_highlight(burn_injector)
@@ -74,15 +74,15 @@
 	UnregisterSignal(tutorial_mob, COMSIG_LIVING_HYPOSPRAY_INJECTED)
 	TUTORIAL_ATOM_FROM_TRACKING(/obj/item/reagent_container/hypospray/autoinjector/kelotane/skillless/one_use, burn_injector)
 	remove_highlight(burn_injector)
-	message_to_player("Good. Now, when you normally take damage, you will also feel <b>pain</b>. Pain slows you down and can knock you out if left unchecked.")
+	message_to_player("Отлично. Когда вы получаете урон, вы также почуствуете <b>боль</b>. Боль замедляет вас и может вырубить, если ее не остановить.")
 	update_objective("")
 	var/mob/living/living_mob = tutorial_mob
 	living_mob.pain.apply_pain(PAIN_CHESTBURST_STRONG)
 	addtimer(CALLBACK(src, PROC_REF(pain_tutorial)), 4 SECONDS)
 
 /datum/tutorial/marine/medical_basic/proc/pain_tutorial()
-	message_to_player("<b>Tramadol</b> is used to reduce your pain. Inject yourself with the <b>tramadol EZ autoinjector</b>.")
-	update_objective("Inject yourself with the tramadol injector.")
+	message_to_player("<b>Трамадол</b> используется, что бы уменшить боль. Вкольните в себя <b>трамадоловый автоинъектор</b>.")
+	update_objective("Вкольните в себя трамадоловый автоинъектор.")
 	var/obj/item/reagent_container/hypospray/autoinjector/tramadol/skillless/one_use/pain_injector = new(loc_from_corner(0, 4))
 	add_to_tracking_atoms(pain_injector)
 	add_highlight(pain_injector)
@@ -97,14 +97,14 @@
 	UnregisterSignal(tutorial_mob, COMSIG_LIVING_HYPOSPRAY_INJECTED)
 	TUTORIAL_ATOM_FROM_TRACKING(/obj/item/reagent_container/hypospray/autoinjector/tramadol/skillless/one_use, pain_injector)
 	remove_highlight(pain_injector)
-	message_to_player("Good. Keep in mind that you can overdose on chemicals, so don't inject yourself with the same chemical too much too often. In the field, injectors have 3 uses.")
-	update_objective("Don't overdose! Generally, 3 injections of a chemical will overdose you.")
+	message_to_player("Хорошо. Держите в уме то, что вы можете словить передоз от химикатов, так что не втыкайте в себя одни и те же химикаты много раз. В поле боя у инъекторов есть 3 раза которые можно использовать.")
+	update_objective("Не словите передоз! В общем, из-за трёх инъекции одного и того же химиката вы словите передоз.")
 	var/mob/living/living_mob = tutorial_mob
 	living_mob.pain.apply_pain(-PAIN_CHESTBURST_STRONG) // just to make sure
 	addtimer(CALLBACK(src, PROC_REF(bleed_tutorial)), 4 SECONDS)
 
 /datum/tutorial/marine/medical_basic/proc/bleed_tutorial()
-	message_to_player("You can sometimes start <b>bleeding</b> from things like bullets or slashes. Losing blood will accumulate <b>oxygen</b> damage, eventually causing death.")
+	message_to_player("Вы иногда можете <b>потечь</b> от таких вещей, как пули или порезы. Потеря крови приведёт к урону <b>воздуха</b> который вызывает смерть.")
 	update_objective("")
 	var/mob/living/carbon/human/human_mob = tutorial_mob
 	var/obj/limb/chest/mob_chest = locate(/obj/limb/chest) in human_mob.limbs
@@ -112,8 +112,8 @@
 	addtimer(CALLBACK(src, PROC_REF(bleed_tutorial_2)), 4 SECONDS)
 
 /datum/tutorial/marine/medical_basic/proc/bleed_tutorial_2()
-	message_to_player("Bleeding wounds can clot themselves over time, or you can fix it quickly with <b>gauze</b>. Pick up the gauze and click on yourself while targeting your <b>chest</b>.")
-	update_objective("Gauze your chest, or let it clot on its own.")
+	message_to_player("Кровоточащие раны со временем могут затянуться, или затяните их при помощи <b>марлевой повязки</b>. Поднимите повязку и нажмите на себя с прицелом на <b>грудь</b>.")
+	update_objective("Замотайте свою грудь, или ждите, пока рана затянется.")
 	var/obj/item/stack/medical/bruise_pack/two/bandage = new(loc_from_corner(0, 4))
 	add_to_tracking_atoms(bandage)
 	add_highlight(bandage)
@@ -137,8 +137,8 @@
 	remove_highlight(bandage)
 	qdel(bandage)
 
-	message_to_player("Good. Sometimes, a bullet or bone shard can result in you getting <b>shrapnel</b>, dealing damage over time. Pick up the <b>knife</b> and use it in-hand to remove the shrapnel.")
-	update_objective("Remove your shrapnel by using the knife in-hand.")
+	message_to_player("Хорошо. Иногда из-за пули или взрыва у вас может остаться <b>осколок</b>, который наносит вам урон со временем. Поднимите <b>нож</b> и используйте его в руке что бы вытащить осколок.")
+	update_objective("Удалите осколок используя нож в правой руке.")
 	var/mob/living/living_mob = tutorial_mob
 	living_mob.pain.feels_pain = FALSE
 
@@ -157,8 +157,8 @@
 	UnregisterSignal(tutorial_mob, COMSIG_HUMAN_SHRAPNEL_REMOVED)
 	TUTORIAL_ATOM_FROM_TRACKING(/obj/item/attachable/bayonet, knife)
 	remove_highlight(knife)
-	message_to_player("Good. This is the end of the basic marine medical tutorial. The tutorial will end shortly.")
-	update_objective("Tutorial completed.")
+	message_to_player("Отлично. Это вся база которую вы должны знать по медицине, этот туториал скоро закончится.")
+	update_objective("Туториал завершён.")
 	tutorial_end_in(5 SECONDS)
 
 // END OF SCRIPTING
