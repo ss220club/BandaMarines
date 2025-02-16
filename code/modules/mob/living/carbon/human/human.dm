@@ -1747,6 +1747,15 @@
 	target.name = new_player.real_name
 	target.voice = new_player.real_name
 
+	// BANDASTATION EDIT START - Respawn
+	if(is_late_join)
+		for(var/datum/data/record/record in GLOB.data_core.general)
+			if(record.fields["name"] == target.name)
+				var/new_random_name = random_name(target.gender)
+				target.name = new_random_name
+				target.voice = new_random_name
+	// BANDASTATION EDIT END - Respawn
+
 	if(new_player.mind)
 		new_player.mind_initialize()
 		new_player.mind.transfer_to(target, TRUE)
