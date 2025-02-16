@@ -13,11 +13,11 @@
 		return
 
 	init_mob()
-	message_to_player("Это базовый туториал по медицине для твое игры на роли морпеха.")
+	message_to_player("Это базовый туториал по медицине для твоей игры на роли морпеха.")
 	addtimer(CALLBACK(src, PROC_REF(brute_tutorial)), 4 SECONDS)
 
 /datum/tutorial/marine/medical_basic/proc/brute_tutorial()
-	message_to_player("Первый тип урона - <b>Брут</b>, самый обыкновенный. Это травмы, которые вы получили от ударов, оружий, или пушек.")
+	message_to_player("Первый тип урона - <b>Ушиб</b>, самый обыкновенный. Это травмы, которые вы получили от ударов, оружий, или пушек.")
 	var/mob/living/living_mob = tutorial_mob
 	living_mob.adjustBruteLoss(10)
 	addtimer(CALLBACK(src, PROC_REF(brute_tutorial_2)), 4 SECONDS)
@@ -104,7 +104,7 @@
 	addtimer(CALLBACK(src, PROC_REF(bleed_tutorial)), 4 SECONDS)
 
 /datum/tutorial/marine/medical_basic/proc/bleed_tutorial()
-	message_to_player("Вы иногда можете <b>потечь</b> от таких вещей, как пули или порезы. Потеря крови приведёт к урону <b>воздуха</b> который вызывает смерть.")
+	message_to_player("У вас иногда может пойти <b>кровотечение</b> от таких вещей, как пули или порезы. Потеря крови приведёт к урону <b>воздуха</b> который вызывает смерть.")
 	update_objective("")
 	var/mob/living/carbon/human/human_mob = tutorial_mob
 	var/obj/limb/chest/mob_chest = locate(/obj/limb/chest) in human_mob.limbs

@@ -393,7 +393,7 @@
 		if(TUTORIAL_REQS_LINE_STAGE_ATTACHIES)
 			TUTORIAL_ATOM_FROM_TRACKING(/obj/structure/machinery/cm_vending/sorted/attachments/blend/tutorial, attachies_vendor)
 			add_highlight(attachies_vendor)
-			message_to_player("Этот морпех хочет немного 'атачментов' к его оружию. Вы можете найти их в самом левом автомате.")
+			message_to_player("Этот морпех хочет немного 'модулей' к его оружию. Вы можете найти их в самом левом автомате.")
 			update_objective("Дайте морпеху то что он хочет из автомата.")
 		if(TUTORIAL_REQS_LINE_STAGE_GEARBOX)
 			TUTORIAL_ATOM_FROM_TRACKING(/obj/structure/machinery/cm_vending/sorted/cargo_guns/cargo/blend/tutorial, gear_vendor)

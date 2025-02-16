@@ -1,6 +1,6 @@
 /datum/tutorial/marine/basic
 	name = "Морпехи - База"
-	desc = "Туториал познакомит вас с ролью обычного наземного пехотинца."
+	desc = "Обучение познакомит вас с ролью обычного наземного морпеха."
 	tutorial_id = "marine_basic_1"
 	tutorial_template = /datum/map_template/tutorial/s8x9/no_baselight
 	/// How many items need to be vended from the clothing vendor for the script to continue, if something vends 2 items (for example), increase this number by 2.
@@ -153,7 +153,7 @@
 	SIGNAL_HANDLER
 
 	UnregisterSignal(tutorial_mob, COMSIG_MOB_GUN_EMPTY)
-	message_to_player("У твоего оружия закончились патроны. Возьми ещё из <b>Автомата с Оружиями</b> и убей <b>Ксеноморфа</b>.")
+	message_to_player("У твоего оружия закончились патроны. Возьми ещё из <b>Weaponry Vendor</b> и убей <b>Ксеноморфа</b>.")
 	TUTORIAL_ATOM_FROM_TRACKING(/obj/structure/machinery/cm_vending/sorted/cargo_guns/squad_prep/tutorial, gun_vendor)
 	gun_vendor.req_access = list()
 	gun_vendor.load_ammo() // 99 magazines, to make sure that the xeno dies
@@ -166,7 +166,7 @@
 	UnregisterSignal(tutorial_mob, COMSIG_MOB_GUN_EMPTY)
 	remove_highlight(xeno_dummy)
 	addtimer(CALLBACK(src, PROC_REF(disappear_xeno)), 2.5 SECONDS)
-	message_to_player("Очень хорошо. Это конец туториала, включи следующий туториал, что бы узнать базу <b>Медицины</b>. Ты скоро вернёшься на экран лобби.")
+	message_to_player("Очень хорошо. Это конец туториала, включи следующий туториал, что бы узнать основы <b>Медицины</b>. Ты скоро вернёшься на экран лобби.")
 	update_objective("")
 	tutorial_end_in(7.5 SECONDS, TRUE)
 
