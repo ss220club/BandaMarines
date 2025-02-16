@@ -275,4 +275,80 @@ CLIENT_ERROR_VERSION 514
 #ffmpeg_cpuaffinity
 #tts_api_url_silero
 
+## Walkman
+playlist_path config/music/walkman/playlist.txt
+
+blue_side1 config/music/walkman/pop1/1-1-1.ogg
+blue_side1 config/music/walkman/pop1/1-1-2.ogg
+blue_side1 config/music/walkman/pop1/1-1-3.ogg
+blue_side2 config/music/walkman/pop1/1-2-1.ogg
+blue_side2 config/music/walkman/pop1/1-2-1.ogg
+blue_side2 config/music/walkman/pop1/1-2-1.ogg
+
+rainbow_side1 config/music/walkman/pop2/2-1-1.ogg
+rainbow_side1 config/music/walkman/pop2/2-1-2.ogg
+rainbow_side1 config/music/walkman/pop2/2-1-3.ogg
+rainbow_side2 config/music/walkman/pop2/2-2-1.ogg
+rainbow_side2 config/music/walkman/pop2/2-2-2.ogg
+rainbow_side2 config/music/walkman/pop2/2-2-3.ogg
+
+orange_side1 config/music/walkman/pop3/3-1-1.ogg
+orange_side1 config/music/walkman/pop3/3-1-2.ogg
+orange_side1 config/music/walkman/pop3/3-1-3.ogg
+orange_side2 config/music/walkman/pop3/3-2-1.ogg
+orange_side2 config/music/walkman/pop3/3-2-2.ogg
+orange_side2 config/music/walkman/pop3/3-2-3.ogg
+
+pink_side1 config/music/walkman/pop4/4-1-1.ogg
+pink_side1 config/music/walkman/pop4/4-1-2.ogg
+pink_side1 config/music/walkman/pop4/4-1-3.ogg
+pink_side2 config/music/walkman/pop4/4-2-1.ogg
+pink_side2 config/music/walkman/pop4/4-2-2.ogg
+pink_side2 config/music/walkman/pop4/4-2-3.ogg
+
+redblack_side1 config/music/walkman/heavymetal/5-1-1.ogg
+redblack_side1 config/music/walkman/heavymetal/5-1-2.ogg
+redblack_side1 config/music/walkman/heavymetal/5-1-3.ogg
+redblack_side2 config/music/walkman/heavymetal/5-2-1.ogg
+redblack_side2 config/music/walkman/heavymetal/5-2-2.ogg
+redblack_side2 config/music/walkman/heavymetal/5-2-3.ogg
+
+redstripe_side1 config/music/walkman/hairmetal/6-1-1.ogg
+redstripe_side1 config/music/walkman/hairmetal/6-1-2.ogg
+redstripe_side1 config/music/walkman/hairmetal/6-1-3.ogg
+redstripe_side2 config/music/walkman/hairmetal/6-2-1.ogg
+redstripe_side2 config/music/walkman/hairmetal/6-2-2.ogg
+redstripe_side2 config/music/walkman/hairmetal/6-2-3.ogg
+
+risingsun_side1 config/music/walkman/indie/7-1-1.ogg
+risingsun_side1 config/music/walkman/indie/7-1-2.ogg
+risingsun_side1 config/music/walkman/indie/7-1-3.ogg
+risingsun_side2 config/music/walkman/indie/7-2-1.ogg
+risingsun_side2 config/music/walkman/indie/7-2-2.ogg
+risingsun_side2 config/music/walkman/indie/7-2-3.ogg
+
+bluestripe_side1 config/music/walkman/hiphop/8-1-1.ogg
+bluestripe_side1 config/music/walkman/hiphop/8-1-2.ogg
+bluestripe_side1 config/music/walkman/hiphop/8-1-3.ogg
+bluestripe_side2 config/music/walkman/hiphop/8-2-1.ogg
+bluestripe_side2 config/music/walkman/hiphop/8-2-2.ogg
+bluestripe_side2 config/music/walkman/hiphop/8-2-3.ogg
+
+green_side1 config/music/walkman/nam/9-1-1.ogg
+green_side1 config/music/walkman/nam/9-1-2.ogg
+green_side1 config/music/walkman/nam/9-1-3.ogg
+green_side2 config/music/walkman/nam/9-2-1.ogg
+green_side2 config/music/walkman/nam/9-2-2.ogg
+green_side2 config/music/walkman/nam/9-2-3.ogg
+
+ocean_side1 config/music/walkman/surf/10-1-1.ogg
+ocean_side1 config/music/walkman/surf/10-1-2.ogg
+ocean_side1 config/music/walkman/surf/10-1-3.ogg
+ocean_side1 config/music/walkman/surf/10-1-4.ogg
+ocean_side2 config/music/walkman/surf/10-2-1.ogg
+ocean_side2 config/music/walkman/surf/10-2-2.ogg
+ocean_side2 config/music/walkman/surf/10-2-3.ogg
+ocean_side2 config/music/walkman/surf/10-2-4.ogg
+
+
 ## =====================================
