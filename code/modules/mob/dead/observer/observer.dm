@@ -580,8 +580,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(updatedir)
 		setDir(direct)//only update dir if we actually need it, so overlays won't spin on base sprites that don't have directions of their own
 
+	// SS220 ADD Start
 	if(glide_size_override)
 		set_glide_size(glide_size_override)
+	// SS220 ADD Start
 
 	if(newloc)
 		abstract_move(newloc)
