@@ -211,7 +211,13 @@
 		if(mob.confused)
 			mob.Move(get_step(mob, pick(GLOB.cardinals)))
 		else
+			// SS220 ADD Start
+			var/new_glide_size = DELAY_TO_GLIDE_SIZE(move_delay * ( (NSCOMPONENT(direct) && EWCOMPONENT(direct)) ? sqrt(2) : 1 ) )
+			mob.set_glide_size(new_glide_size) // set it now in case of pulled objects
 			. = ..()
+			var/after_glide = DELAY_TO_GLIDE_SIZE(move_delay)
+			mob.set_glide_size(after_glide)
+			// SS220 ADD End
 
 			if (mob.tile_contents)
 				mob.tile_contents = list()

@@ -1,5 +1,7 @@
 /atom/movable
 	layer = OBJ_LAYER
+	appearance_flags = TILE_BOUND|PIXEL_SCALE|LONG_GLIDE // SS220 ADD
+	glide_size = 8 // SS220 ADD
 	var/last_move_dir = null
 	var/anchored = FALSE
 	var/drag_delay = 3 //delay (in deciseconds) added to mob's move_delay when pulling it.
@@ -350,3 +352,21 @@
 	set_light_range(range)
 	set_light_power(power)
 	set_light_color(color)
+
+// SS220 ADD Start
+/atom/movable/proc/set_glide_size(target = 8)
+	SEND_SIGNAL(src, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE, target)
+	glide_size = target
+
+/mob/set_glide_size(target)
+	. = ..()
+
+	if(pulling)
+		pulling.set_glide_size(target)
+
+/obj/set_glide_size(target)
+	. = ..()
+
+	if(buckled_mob)
+		buckled_mob.set_glide_size(target)
+// SS220 ADD End
