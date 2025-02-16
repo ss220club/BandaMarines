@@ -104,8 +104,6 @@
 	next_move_dir_add = 0
 	next_move_dir_sub = 0
 
-	var/old_move_delay = next_movement // SS220 ADD
-
 	next_movement = world.time + world.tick_lag
 
 	if(!direct)
@@ -129,7 +127,7 @@
 		return
 
 	if(isobserver(mob)) //Ghosts are snowflakes unfortunately
-		// next_movement = world.time + move_delay // SS220 REMOVE
+		next_movement = world.time + move_delay
 		return mob.Move(n, direct)
 
 	if(SEND_SIGNAL(mob, COMSIG_CLIENT_MOB_MOVE, n, direct) & COMPONENT_OVERRIDE_MOVE)
@@ -213,27 +211,7 @@
 		if(mob.confused)
 			mob.Move(get_step(mob, pick(GLOB.cardinals)))
 		else
-			// SS220 ADD Start
-			var/new_glide_size = DELAY_TO_GLIDE_SIZE(move_delay * ( (NSCOMPONENT(direct) && EWCOMPONENT(direct)) ? sqrt(2) : 1 ) )
-			mob.set_glide_size(new_glide_size) // set it now in case of pulled objects
-
-			//If the move was recent, count using old_move_delay
-			//We want fractional behavior and all
-			if(old_move_delay + world.tick_lag > world.time)
-				//Yes this makes smooth movement stutter if add_delay is too fractional
-				//Yes this is better then the alternative
-				next_movement = old_move_delay
-			else
-				next_movement = world.time
-			// SS220 ADD End
 			. = ..()
-			// SS220 ADD Start
-			if((direct & (direct - 1)) && mob.loc == n) //moved diagonally successfully
-				move_delay *= 2
-
-			var/after_glide = DELAY_TO_GLIDE_SIZE(move_delay)
-			mob.set_glide_size(after_glide)
-			// SS220 ADD End
 
 			if (mob.tile_contents)
 				mob.tile_contents = list()
@@ -244,7 +222,7 @@
 				mob.update_clone()
 		mob.move_intentionally = FALSE
 		moving = FALSE
-		next_movement += move_delay // SS220 Edit
+		next_movement = world.time + move_delay
 	return
 
 ///Process_Spacemove
