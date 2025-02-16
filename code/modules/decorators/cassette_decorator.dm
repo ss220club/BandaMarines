@@ -1,10 +1,8 @@
 /datum/decorator/cassette
 	var/list/cassette_data
 
-/datum/config_entry/string/playlist_path
-
 /datum/decorator/cassette/is_active_decor()
-	cassette_data = file2list(CONFIG_GET(string/playlist_path))
+	cassette_data = file2list("config/music/walkman/playlist.txt")
 	return length(cassette_data) > 0
 
 /datum/decorator/cassette/get_decor_types()

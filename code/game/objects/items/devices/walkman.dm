@@ -351,39 +351,19 @@
 	set src in usr
 
 	attack_self()
-//ss220 edit
-/datum/config_entry/str_list/blue_side1
-/datum/config_entry/str_list/blue_side2
-/datum/config_entry/str_list/rainbow_side1
-/datum/config_entry/str_list/rainbow_side2
-/datum/config_entry/str_list/orange_side1
-/datum/config_entry/str_list/orange_side2
-/datum/config_entry/str_list/pink_side1
-/datum/config_entry/str_list/pink_side2
-/datum/config_entry/str_list/redblack_side1
-/datum/config_entry/str_list/redblack_side2
-/datum/config_entry/str_list/redstripe_side1
-/datum/config_entry/str_list/redstripe_side2
-/datum/config_entry/str_list/risingsun_side1
-/datum/config_entry/str_list/risingsun_side2
-/datum/config_entry/str_list/bluestripe_side1
-/datum/config_entry/str_list/bluestripe_side2
-/datum/config_entry/str_list/green_side1
-/datum/config_entry/str_list/green_side2
-/datum/config_entry/str_list/ocean_side1
-/datum/config_entry/str_list/ocean_side2
-//ss220	edit
+
 /obj/item/device/cassette_tape/pop1
 	name = "blue cassette"
 	id = 2
 	desc = "A plastic cassette tape with a blue sticker."
 	icon_state = "cassette_blue"
 	side1_icon = "cassette_blue"
-
-/obj/item/device/cassette_tape/pop1/Initialize(mapload, ...)
-	. = ..()
-	songs = list("side1" = CONFIG_GET(str_list/blue_side1), "side2" = CONFIG_GET(str_list/blue_side2))
-
+	songs = list("side1" = list('config/music/walkman/pop1/1-1-1.ogg',\
+								'config/music/walkman/pop1/1-1-2.ogg',\
+								'config/music/walkman/pop1/1-1-3.ogg'),\
+				"side2" = list('config/music/walkman/pop1/1-2-1.ogg',\
+								'config/music/walkman/pop1/1-2-2.ogg',\
+								'config/music/walkman/pop1/1-2-3.ogg'))
 
 /obj/item/device/cassette_tape/pop2
 	name = "rainbow cassette"
@@ -391,10 +371,12 @@
 	desc = "A plastic cassette tape with a rainbow-colored sticker."
 	icon_state = "cassette_rainbow"
 	side1_icon = "cassette_rainbow"
-
-/obj/item/device/cassette_tape/pop2/Initialize(mapload, ...)
-	. = ..()
-	songs = list("side1" = CONFIG_GET(str_list/rainbow_side1), "side2" = CONFIG_GET(str_list/rainbow_side2))
+	songs = list("side1" = list('config/music/walkman/pop2/2-1-1.ogg',\
+								'config/music/walkman/pop2/2-1-2.ogg',\
+								'config/music/walkman/pop2/2-1-3.ogg'),\
+				"side2" = list('config/music/walkman/pop2/2-2-1.ogg',\
+								'config/music/walkman/pop2/2-2-2.ogg',\
+								'config/music/walkman/pop2/2-2-3.ogg'))
 
 /obj/item/device/cassette_tape/pop3
 	name = "orange cassette"
@@ -402,10 +384,12 @@
 	desc = "A plastic cassette tape with an orange sticker."
 	icon_state = "cassette_orange"
 	side1_icon = "cassette_orange"
-
-/obj/item/device/cassette_tape/pop3/Initialize(mapload, ...)
-	. = ..()
-	songs = list("side1" = CONFIG_GET(str_list/orange_side1), "side2" = CONFIG_GET(str_list/orange_side2))
+	songs = list("side1" = list('config/music/walkman/pop3/3-1-1.ogg',\
+								'config/music/walkman/pop3/3-1-2.ogg',\
+								'config/music/walkman/pop3/3-1-3.ogg'),\
+				"side2" = list('config/music/walkman/pop3/3-2-1.ogg',\
+								'config/music/walkman/pop3/3-2-2.ogg',\
+								'config/music/walkman/pop3/3-2-3.ogg'))
 
 /obj/item/device/cassette_tape/pop4
 	name = "pink cassette"
@@ -413,10 +397,12 @@
 	desc = "A plastic cassette tape with a pink striped sticker."
 	icon_state = "cassette_pink_stripe"
 	side1_icon = "cassette_pink_stripe"
-
-/obj/item/device/cassette_tape/pop4/Initialize(mapload, ...)
-	. = ..()
-	songs = list("side1" = CONFIG_GET(str_list/pink_side1), "side2" = CONFIG_GET(str_list/pink_side2))
+	songs = list("side1" = list('config/music/walkman/pop4/4-1-1.ogg',\
+								'config/music/walkman/pop4/4-1-2.ogg',\
+								'config/music/walkman/pop4/4-1-3.ogg'),\
+				"side2" = list('config/music/walkman/pop4/4-2-1.ogg',\
+								'config/music/walkman/pop4/4-2-2.ogg',\
+								'config/music/walkman/pop4/4-2-3.ogg'))
 
 /obj/item/device/cassette_tape/heavymetal
 	name = "red-black cassette"
@@ -424,10 +410,12 @@
 	desc = "A plastic cassette tape with a red and black sticker."
 	icon_state = "cassette_red_black"
 	side1_icon = "cassette_red_black"
-
-/obj/item/device/cassette_tape/heavymetal/Initialize(mapload, ...)
-	. = ..()
-	songs = list("side1" = CONFIG_GET(str_list/redblack_side1), "side2" = CONFIG_GET(str_list/redblack_side2))
+	songs = list("side1" = list('config/music/walkman/heavymetal/5-1-1.ogg',\
+								'config/music/walkman/heavymetal/5-1-2.ogg',\
+								'config/music/walkman/heavymetal/5-1-3.ogg'),\
+				"side2" = list('config/music/walkman/heavymetal/5-2-1.ogg',\
+								'config/music/walkman/heavymetal/5-2-2.ogg',\
+								'config/music/walkman/heavymetal/5-2-3.ogg'))
 
 /obj/item/device/cassette_tape/hairmetal
 	name = "red striped cassette"
@@ -435,10 +423,12 @@
 	desc = "A plastic cassette tape with a gray sticker with red stripes."
 	icon_state = "cassette_red_stripe"
 	side1_icon = "cassette_red_stripe"
-
-/obj/item/device/cassette_tape/hairmetal/Initialize(mapload, ...)
-	. = ..()
-	songs = list("side1" = CONFIG_GET(str_list/redstripe_side1), "side2" = CONFIG_GET(str_list/redstripe_side2))
+	songs = list("side1" = list('config/music/walkman/hairmetal/6-1-1.ogg',\
+								'config/music/walkman/hairmetal/6-1-2.ogg',\
+								'config/music/walkman/hairmetal/6-1-3.ogg'),\
+				"side2" = list('config/music/walkman/hairmetal/6-2-1.ogg',\
+								'config/music/walkman/hairmetal/6-2-2.ogg',\
+								'config/music/walkman/hairmetal/6-2-3.ogg'))
 
 /obj/item/device/cassette_tape/indie
 	name = "rising sun cassette"
@@ -446,10 +436,12 @@
 	desc = "A plastic cassette tape with the Japanese Rising Sun."
 	icon_state = "cassette_rising_sun"
 	side1_icon = "cassette_rising_sun"
-
-/obj/item/device/cassette_tape/indie/Initialize(mapload, ...)
-	. = ..()
-	songs = list("side1" = CONFIG_GET(str_list/risingsun_side1), "side2" = CONFIG_GET(str_list/risingsun_side2))
+	songs = list("side1" = list('config/music/walkman/indie/7-1-1.ogg',\
+								'config/music/walkman/indie/7-1-2.ogg',\
+								'config/music/walkman/indie/7-1-3.ogg'),\
+				"side2" = list('config/music/walkman/indie/7-2-1.ogg',\
+								'config/music/walkman/indie/7-2-2.ogg',\
+								'config/music/walkman/indie/7-2-3.ogg'))
 
 /obj/item/device/cassette_tape/hiphop
 	name = "blue stripe cassette"
@@ -457,10 +449,12 @@
 	desc = "An orange plastic cassette tape with a blue stripe."
 	icon_state = "cassette_orange_blue"
 	side1_icon = "cassette_orange_blue"
-
-/obj/item/device/cassette_tape/hiphop/Initialize(mapload, ...)
-	. = ..()
-	songs = list("side1" = CONFIG_GET(str_list/bluestripe_side1), "side2" = CONFIG_GET(str_list/bluestripe_side2))
+	songs = list("side1" = list('config/music/walkman/hiphop/8-1-1.ogg',\
+								'config/music/walkman/hiphop/8-1-2.ogg',\
+								'config/music/walkman/hiphop/8-1-3.ogg'),\
+				"side2" = list('config/music/walkman/hiphop/8-2-1.ogg',\
+								'config/music/walkman/hiphop/8-2-2.ogg',\
+								'config/music/walkman/hiphop/8-2-3.ogg'))
 
 /obj/item/device/cassette_tape/nam
 	name = "green cassette"
@@ -468,10 +462,12 @@
 	desc = "A green plastic cassette tape."
 	icon_state = "cassette_green"
 	side1_icon = "cassette_green"
-
-/obj/item/device/cassette_tape/nam/Initialize(mapload, ...)
-	. = ..()
-	songs = list("side1" = CONFIG_GET(str_list/green_side1), "side2" = CONFIG_GET(str_list/green_side2))
+	songs = list("side1" = list('config/music/walkman/nam/9-1-1.ogg',\
+								'config/music/walkman/nam/9-1-2.ogg',\
+								'config/music/walkman/nam/9-1-3.ogg'),\
+				"side2" = list('config/music/walkman/nam/9-2-1.ogg',\
+								'config/music/walkman/nam/9-2-2.ogg',\
+								'config/music/walkman/nam/9-2-3.ogg'))
 
 /obj/item/device/cassette_tape/ocean
 	name = "ocean cassette"
@@ -479,11 +475,14 @@
 	desc = "A blue and white plastic cassette tape."
 	icon_state = "cassette_ocean"
 	side1_icon = "cassette_ocean"
-
-/obj/item/device/cassette_tape/ocean/Initialize(mapload, ...)
-	. = ..()
-	songs = list("side1" = CONFIG_GET(str_list/ocean_side1), "side2" = CONFIG_GET(str_list/ocean_side2))
-
+	songs = list("side1" = list('config/music/walkman/surf/10-1-1.ogg',\
+								'config/music/walkman/surf/10-1-2.ogg',\
+								'config/music/walkman/surf/10-1-3.ogg',\
+								'config/music/walkman/surf/10-1-4.ogg'),\
+				"side2" = list('config/music/walkman/surf/10-2-1.ogg',\
+								'config/music/walkman/surf/10-2-2.ogg',\
+								'config/music/walkman/surf/10-2-3.ogg',\
+								'config/music/walkman/surf/10-2-4.ogg'))
 // hotline reference
 /obj/item/device/cassette_tape/aesthetic
 	name = "aesthetic cassette"
