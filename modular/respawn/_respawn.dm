@@ -5,6 +5,6 @@
 
 /*
 Изменено:
-code\modules\mob\living\carbon\human\human.dm - proc/setup_human()
+code\modules\client\preferences.dm - proc/copy_all_to()
 code\modules\mob\mob_verbs.dm - proc/abandon_mob()
 */
