@@ -111,13 +111,13 @@
 		is_admin = 1
 
 	if (!CONFIG_GET(flag/respawn) && !is_admin)
-		to_chat(usr, SPAN_NOTICE(" Возврат в лобби отключен."))
+		to_chat(usr, SPAN_NOTICE("Возврат в лобби отключен."))
 		return
 	if (stat != 2)
-		to_chat(usr, SPAN_NOTICE(" <B>Вы должны быть мертвы!</B>"))
+		to_chat(usr, SPAN_NOTICE("<B>Вы должны быть мертвы!</B>"))
 		return
 	if (SSticker.mode && (SSticker.mode.name == "meteor" || SSticker.mode.name == "epidemic")) //BS12 EDIT
-		to_chat(usr, SPAN_NOTICE(" Возврат в лобби отключен для данного режима."))
+		to_chat(usr, SPAN_NOTICE("Возврат в лобби отключен для данного режима."))
 		return
 	//BANDASTATION EDIT START - Respawn
 	/*
@@ -138,7 +138,8 @@
 	var/respawn_time = CONFIG_GET(number/respawn_time)
 	var/remaining_time = respawn_time - death_time
 	if(!is_admin && death_time < respawn_time)
-		to_chat(usr, SPAN_NOTICE(" Вы должны быть мертвы [DisplayTimeText(respawn_time)], чтобы вернуться в лобби. Осталось: [DisplayTimeText(remaining_time)]"))
+		to_chat(usr, SPAN_NOTICE("Вы должны быть мертвы [DisplayTimeText(respawn_time)], чтобы вернуться в лобби. Осталось: [DisplayTimeText(remaining_time)]"))
+		return
 	//BANDASTATION EDIT END - Respawn
 
 	if(tgui_alert(usr, "Вы уверены, что хотите вернуться в лобби?", "Возврат в лобби", list("Да","Нет")) != "Да")
