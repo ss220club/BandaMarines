@@ -146,7 +146,7 @@
 
 	log_game("[usr.name]/[usr.key] used abandon mob.")
 
-	to_chat(usr, SPAN_NOTICE(" <B>Выберите нового персонажа, или ваше имя будет выбрано случайно!</B>"))
+	to_chat(usr, SPAN_NOTICE("<B>Выберите нового персонажа, или ваше имя и внешность будут выбраны случайно!</B>"))
 
 	if(!client)
 		log_game("[usr.key] AM failed due to disconnect.")
