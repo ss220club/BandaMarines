@@ -1,4 +1,4 @@
-/datum/config_entry/flag/diagonal_move // SS220 ADD
+
 
 // You might be wondering why this isn't client level. If focus is null, we don't want you to move.
 // Only way to do that is to tie the behavior into the focus's keyLoop().
@@ -29,6 +29,9 @@
 		user.Move(get_step(src, movement_dir), movement_dir)
 
 // SS220 ADD start - diagonal movement config
+
+/datum/config_entry/flag/diagonal_move
+
 /atom/movable/proc/diagonal_move(client/user, movement_dir)
 	for(var/_key in user.keys_held)
 		movement_dir = movement_dir | user.movement_keys[_key]
