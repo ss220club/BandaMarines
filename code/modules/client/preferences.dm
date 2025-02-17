@@ -377,13 +377,21 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 
 			dat += "<h2><b><u>Physical Information:</u></b>"
 			dat += "<a href='byond://?_src_=prefs;preference=all;task=random'>&reg;</A></h2>"
+			// // SS220 ADDITION START - SPECIES
+
+			dat += "<b>Вид:</b> <a href='byond://?_src_=prefs;preference=species;task=input'><b>[species]</b></a><br>"
+
+			// // SS220 ADDITION END
 			dat += "<b>Age:</b> <a href='byond://?_src_=prefs;preference=age;task=input'><b>[age]</b></a><br>"
 			dat += "<b>Gender:</b> <a href='byond://?_src_=prefs;preference=gender'><b>[gender == MALE ? "Male" : "Female"]</b></a><br><br>"
 
-			dat += "<b>Skin Color:</b> [skin_color]<br>"
-			dat += "<b>Body Size:</b> [body_size]<br>"
-			dat += "<b>Body Muscularity:</b> [body_type]<br>"
-			dat += "<b>Edit Body:</b> <a href='byond://?_src_=prefs;preference=body;task=input'><b>Picker</b></a><br><br>"
+			if(species == "Human")
+				dat += "<b>Skin Color:</b> [skin_color]<br>"
+				dat += "<b>Body Size:</b> [body_size]<br>"
+				dat += "<b>Body Muscularity:</b> [body_type]<br>"
+				dat += "<b>Edit Body:</b> <a href='byond://?_src_=prefs;preference=body;task=input'><b>Picker</b></a><br><br>"
+			if(species == "Vulpkanin")
+				dat += "<b>Ururu:</b> [body_size]<br>"
 
 			dat += "<b>Traits:</b> <a href='byond://?src=\ref[user];preference=traits'><b>Character Traits</b></a>"
 			dat += "<br>"
@@ -1340,6 +1348,12 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 						return
 					predator_flavor_text = strip_html(pred_flv_raw, MAX_MESSAGE_LEN)
 
+				if("species")
+					var/new_species = input(user, "Выберете расу.", "Раса")  as null|anything in list("Human", "Vulpkanin")
+					if(new_species)
+						species = new_species
+						update_preview_icon()
+
 				if("commander_status")
 					var/list/options = list("Normal" = WHITELIST_NORMAL)
 
@@ -2062,6 +2076,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	character.body_type = body_type
 	character.body_size = body_size
 	character.body_presentation = get_body_presentation()
+	character.set_species(species)
 
 	character.r_eyes = r_eyes
 	character.g_eyes = g_eyes
@@ -2144,6 +2159,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	character.body_type = body_type
 	character.body_size = body_size
 	character.body_presentation = get_body_presentation()
+	character.set_species(species)
 
 	character.r_eyes = r_eyes
 	character.g_eyes = g_eyes

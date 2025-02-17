@@ -1,0 +1,3 @@
+#include "code/vulpkanin.dm"
+#include "code/organs/vulpkanin_organs.dm"
+//#include "code/vulpkanin_hair.dm"
