@@ -1,6 +1,6 @@
 /datum/tutorial/ss13/intents
-	name = "Space Station 13 - Intents"
-	desc = "Learn how the intent interaction system works."
+	name = "Космическая Станция 13 - Интенты."
+	desc = "Узнайте, как работает система взаимодействия."
 	icon_state = "intents"
 	tutorial_id = "ss13_intents_1"
 	tutorial_template = /datum/map_template/tutorial/s7x7
@@ -14,7 +14,7 @@
 		return
 
 	init_mob()
-	message_to_player("This is the tutorial for the <b>intents</b> system of Space Station 13. The highlighted UI element in the bottom-right corner is your current intent.")
+	message_to_player("Это туториал по <b>интентам</b> в Космической Станции 13. Выделенный UI элемент справа снизу это твой текущий интент.")
 	var/datum/hud/human/human_hud = tutorial_mob.hud_used
 	add_highlight(human_hud.action_intent)
 
@@ -22,8 +22,8 @@
 
 /datum/tutorial/ss13/intents/proc/require_help()
 	tutorial_mob.a_intent_change(INTENT_DISARM)
-	message_to_player("Your intent has been changed off of <b>help</b>. Change back to it by pressing <b>[retrieve_bind("select_help_intent")]</b>.")
-	update_objective("Change to help intent by pressing [retrieve_bind("select_help_intent")].")
+	message_to_player("Твой интент был изменён с <b>помощи</b>. Поменяй его обратно, нажав <b>[retrieve_bind("select_help_intent")]</b>.")
+	update_objective("Верни интент помощи нажав [retrieve_bind("select_help_intent")].")
 
 	RegisterSignal(tutorial_mob, COMSIG_MOB_INTENT_CHANGE, PROC_REF(on_help_intent))
 
@@ -38,8 +38,8 @@
 	var/mob/living/carbon/human/dummy/tutorial/tutorial_dummy = new(loc_from_corner(2, 3))
 	add_to_tracking_atoms(tutorial_dummy)
 
-	message_to_player("The first of the intents is <b>help</b> intent. It is used to harmlessly touch others, put out fire, give CPR, and similar. Click on the <b>Test Dummy</b> to give them a pat on the back.")
-	update_objective("Click on the dummy on help intent.")
+	message_to_player("Первый из интентов это интент <b>помощи</b>. Он используется что бы без вреда трогать других, тушить людей, давать исскуственное дыхание, и похожее. Нажми на <b>Тестовую Куклу</b> что бы похлопать её по спине.")
+	update_objective("Нажми на куклу в интенте помощи.")
 
 	RegisterSignal(tutorial_mob, COMSIG_LIVING_ATTACKHAND_HUMAN, PROC_REF(on_help_attack))
 
@@ -54,9 +54,8 @@
 	tutorial_dummy.status_flags = DEFAULT_MOB_STATUS_FLAGS
 	REMOVE_TRAIT(tutorial_dummy, TRAIT_IMMOBILIZED, TRAIT_SOURCE_TUTORIAL)
 	tutorial_dummy.anchored = FALSE
-
-	message_to_player("The second intent is <b>disarm</b>, selectable with <b>[retrieve_bind("select_disarm_intent")]</b>. Disarm is used to shove people, which can make them drop items or fall to the ground. Shove the <b>Test Dummy</b> until it falls over.")
-	update_objective("Switch to disarm intent by pressing [retrieve_bind("select_disarm_intent")] and shove the dummy to the ground.")
+	message_to_player("Второй интент это <b>обезоруживание</b>, который можно поставить с <b>[retrieve_bind("select_disarm_intent")]</b>. Обезоруживание используется в основном, что бы толкать людей, из-за чего они могут выронить то что носили или упасть. Толкай <b>Тестовую куклу</b> пока она не упадёт.")
+	update_objective("Поменяй свой интент на обезоруживание при помощи [retrieve_bind("select_disarm_intent")] и повали куклу на землю.")
 
 	RegisterSignal(tutorial_dummy, COMSIG_LIVING_APPLY_EFFECT, PROC_REF(on_shove_down))
 
@@ -70,8 +69,8 @@
 	UnregisterSignal(tutorial_dummy, COMSIG_LIVING_APPLY_EFFECT)
 	tutorial_dummy.rejuvenate()
 
-	message_to_player("The third intent is <b>grab</b>. Grab is used to grab people in either a passive, aggressive, or chokehold grab. Grab successively to \"upgrade\" your grab. Aggressively grab the <b>Test Dummy</b>.")
-	update_objective("Aggressively grab the dummy by grabbing them twice.")
+	message_to_player("Третий интент это <b>захват</b>. Захват используется для того, что бы взять людей спокойно, агресивно, или удушающе. Хватай по нескольку раз, что бы \"обновить\" свой захват. Агресивно возьми <b>Тестовую Куклу</b>.")
+	update_objective("Агресивно возьми куклу 2 раза нажав по ней.")
 
 
 	RegisterSignal(tutorial_dummy, COMSIG_MOB_AGGRESSIVELY_GRABBED, PROC_REF(on_aggrograb))
@@ -82,8 +81,8 @@
 	TUTORIAL_ATOM_FROM_TRACKING(/mob/living/carbon/human/dummy/tutorial, tutorial_dummy)
 	UnregisterSignal(tutorial_dummy, COMSIG_MOB_AGGRESSIVELY_GRABBED)
 
-	message_to_player("The final intent is <b>harm</b>. Harm is used to injure people with your fists or a melee weapon. Punch the <b>Test Dummy</b> with an empty hand.")
-	update_objective("Attack the dummy with an empty hand.")
+	message_to_player("Последний интент это <b>вред</b>. Вред используется что бы бить людей своим оружием или руками. Ударь <b>Тестовую Куклу</b> пустой рукой.")
+	update_objective("Атакуй куклу пустой рукой.")
 
 	RegisterSignal(tutorial_mob, COMSIG_LIVING_ATTACKHAND_HUMAN, PROC_REF(on_harm_attack))
 
@@ -97,7 +96,7 @@
 	TUTORIAL_ATOM_FROM_TRACKING(/mob/living/carbon/human/dummy/tutorial, tutorial_dummy)
 	tutorial_dummy.status_flags = GODMODE
 
-	message_to_player("Excellent. Those are the basics of the intent system. The tutorial will end shortly.")
+	message_to_player("Отлично. Это вся база которую тебе надо знать. Этот туториал закончится скоро.")
 	update_objective("")
 
 	tutorial_end_in(5 SECONDS, TRUE)
