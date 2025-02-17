@@ -1,13 +1,10 @@
-/datum/config_entry/flag/diagonal_move // here for now, will be moved to modular config as it merged
-
-// You might be wondering why this isn't client level. If focus is null, we don't want you to move.
-// Only way to do that is to tie the behavior into the focus's keyLoop().
+/datum/config_entry/flag/diagonal_move // SS220 ADD
 
 // You might be wondering why this isn't client level. If focus is null, we don't want you to move.
 // Only way to do that is to tie the behavior into the focus's keyLoop().
 /atom/movable/keyLoop(client/user) // SS220 EDIT
 	var/movement_dir = NONE
-	if(CONFIG_GET(flag/diagonal_move))
+	if(CONFIG_GET(flag/diagonal_move)) // SS220 EDIT - diagonal movement config
 		movement_dir = diagonal_move(user)
 	else
 		movement_dir = cardinal_move(user)
@@ -31,6 +28,7 @@
 	else
 		user.Move(get_step(src, movement_dir), movement_dir)
 
+// SS220 ADD start - diagonal movement config
 /atom/movable/proc/diagonal_move(client/user, movement_dir)
 	for(var/_key in user.keys_held)
 		movement_dir = movement_dir | user.movement_keys[_key]
@@ -50,3 +48,4 @@
 	// 	movement_dir &= ~user.next_move_dir_sub
 
 	return movement_dir
+// SS220 ADD end - diagonal movement config

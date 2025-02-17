@@ -276,6 +276,4 @@ CLIENT_ERROR_VERSION 514
 #ffmpeg_cpuaffinity
 #tts_api_url_silero
 
-#diagonal_move
-
 ## =====================================
