@@ -571,4 +571,13 @@
 #define PERF_TOGGLE_TECHWEBS (1<<4)
 
 /// Maptext styles
-#define MAP_STYLESHEET ".maptext { font-family: 'Small Fonts'; font-size: 7px; -dm-text-outline: 1px black; color: white; line-height: 1.1; } .center { text-align: center; } .langchat { font-family: 'Small Fonts'; font-size: 7px; -dm-text-outline: 1px black; } .langchat_small { font-size: 6px; } .langchat_yell { font-weight: bold; font-size: 10px; } .langchat_bolded { font-weight: bold; font-size: 8px; } .langchat_announce { font-weight: bold; font-size: 12px; } .langchat_bolditalicbig {font-weight: bold; font-size: 24px; font-style: italic; } .langchat_italic {font-style: italic; }"
+#define MAP_STYLESHEET "\
+.center { text-align: center; } \
+.maptext { font-family: 'Grand9K Pixel'; font-size: 6pt; -dm-text-outline: 1px black; color: white; line-height: 1.0; } \
+.langchat { font-family: 'Grand9K Pixel'; font-size: 6pt; -dm-text-outline: 1px black; } \
+.langchat_small { font-family: 'Spess Font'; font-size: 6pt; line-height: 1.4; } \
+.langchat_yell { font-family: 'Pix Cyrillic'; font-size: 12pt; } \
+.langchat_bolded { font-size: 8pt; } \
+.langchat_announce { font-size: 12pt; } \
+.langchat_bolditalicbig { font-family: 'Spess Font'; font-size: 24pt; } \
+.langchat_italic { font-family: 'Spess Font'; font-size: 6pt; line-height: 1.4; }"
