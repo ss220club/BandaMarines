@@ -10,18 +10,20 @@
 	if(!movement_dir)
 		return
 
-	/*
 	if(user.next_move_dir_add)
-		movement_dir |= user.next_move_dir_add
+		movement_dir = user.next_move_dir_add
+	/*
 	if(user.next_move_dir_sub)
-		movement_dir &= ~user.next_move_dir_sub*/
+		movement_dir &= ~user.next_move_dir_sub
+	*/
 	// Sanity checks in case you hold left and right and up to make sure you only go up
 	if((movement_dir & NORTH) && (movement_dir & SOUTH))
 		movement_dir &= ~(NORTH|SOUTH)
 	if((movement_dir & EAST) && (movement_dir & WEST))
 		movement_dir &= ~(EAST|WEST)
 
-	movement_dir = turn(movement_dir, -dir2angle(user.dir)) //By doing this we ensure that our input direction is offset by the client (camera) direction
+	if(user.dir != NORTH && movement_dir) //If we're not moving, don't compensate, as byond will auto-fill dir otherwise
+		movement_dir = turn(movement_dir, -dir2angle(user.dir)) //By doing this we ensure that our input direction is offset by the client (camera) direction
 
 	// This is called from Subsystem, and as such usr is unset.
 	// You hopefully don't it but it might go against legacy code expectations.
