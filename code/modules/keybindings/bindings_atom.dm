@@ -8,9 +8,9 @@
 /atom/movable/keyLoop(client/user) // SS220 EDIT
 	var/movement_dir = NONE
 	if(CONFIG_GET(flag/diagonal_move))
-		movement_dir = diagonal_move(user, movement_dir)
+		movement_dir = diagonal_move(user)
 	else
-		movement_dir = cardinal_move(user, movement_dir)
+		movement_dir = cardinal_move(user)
 
 	if(!movement_dir)
 		return
