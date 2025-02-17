@@ -22,7 +22,8 @@ DISCORD_TAG_EMOJI = {
     "refactor": ":tools:",
     "config": ":gear:",
     "admin": ":magic_wand:",
-    "server": ":shield:"
+    "server": ":shield:",
+    "ui": ":eye:"
 }
 
 
