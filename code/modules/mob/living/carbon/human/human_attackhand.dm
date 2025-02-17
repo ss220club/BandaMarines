@@ -305,4 +305,4 @@
 			limb_message += "\t [capitalize(org.declent_ru(NOMINATIVE))] [SPAN_WARNING("[english_list(status)].[postscript]")]"
 		else
 			limb_message += "\t [capitalize(org.declent_ru(NOMINATIVE))] [status[1] == "OK" ? SPAN_NOTICE("в полном порядке.") : SPAN_WARNING("[english_list(status)].")]"
-	to_chat(src, examine_block(limb_message.Join("\n")))
+	to_chat(src, boxed_message(limb_message.Join("\n")))
