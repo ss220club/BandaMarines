@@ -1,11 +1,13 @@
 // You might be wondering why this isn't client level. If focus is null, we don't want you to move.
 // Only way to do that is to tie the behavior into the focus's keyLoop().
-/atom/movable/keyLoop(client/user) // SS220 EDIT
+/atom/movable/keyLoop(client/user)
 	var/movement_dir = NONE
-	if(CONFIG_GET(flag/diagonal_move)) // SS220 EDIT - diagonal movement config
+	// SS220 EDIT start - diagonal movement config
+	if(CONFIG_GET(flag/diagonal_move))
 		movement_dir = diagonal_move(user)
 	else
 		movement_dir = cardinal_move(user)
+	// SS220 EDIT end - diagonal movement config
 
 	if(!movement_dir)
 		return
@@ -27,7 +29,6 @@
 		user.Move(get_step(src, movement_dir), movement_dir)
 
 // SS220 ADD start - diagonal movement config
-
 /datum/config_entry/flag/diagonal_move
 
 /atom/movable/proc/diagonal_move(client/user, movement_dir)
