@@ -1,6 +1,6 @@
 /datum/tutorial/marine/medical_basic
-	name = "Marine - Medical (Basic)"
-	desc = "Learn how to treat common injuries you may face as a marine."
+	name = "Морпехи - Медицина (Основы)"
+	desc = "Научитесь, что делать с травмами ваших колег на поле боя."
 	tutorial_id = "marine_medical_1"
 	tutorial_template = /datum/map_template/tutorial/s7x7
 	required_tutorial = "marine_basic_1"

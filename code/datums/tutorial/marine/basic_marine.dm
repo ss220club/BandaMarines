@@ -1,5 +1,5 @@
 /datum/tutorial/marine/basic
-	name = "Морпехи - База"
+	name = "Морпехи - Основа"
 	desc = "Обучение познакомит вас с ролью обычного наземного морпеха."
 	tutorial_id = "marine_basic_1"
 	tutorial_template = /datum/map_template/tutorial/s8x9/no_baselight
