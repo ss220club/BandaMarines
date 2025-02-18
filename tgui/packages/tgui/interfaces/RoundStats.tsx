@@ -44,63 +44,63 @@ export const RoundStatsContent = (props, context) => {
           {stats.map((stat) => (
             <Collapsible key={stat.title} title={stat.title}>
               <LabeledList>
-                {stat.steps_walked ? (
+                {!!stat.steps_walked && (
                   <LabeledList.Item label="Шагов сделано">
                     {stat.steps_walked}
                   </LabeledList.Item>
-                ) : null}
-                {stat.total_kills ? (
+                )}
+                {!!stat.total_kills && (
                   <LabeledList.Item label="Всего убито">
                     {stat.total_kills}
                   </LabeledList.Item>
-                ) : null}
-                {stat.humans_killed ? (
+                )}
+                {!!stat.humans_killed && (
                   <LabeledList.Item label="Убито людей">
                     {stat.humans_killed}
                   </LabeledList.Item>
-                ) : null}
-                {stat.xenos_killed ? (
+                )}
+                {!!stat.xenos_killed && (
                   <LabeledList.Item label="Убито ксеноморфов">
                     {stat.xenos_killed}
                   </LabeledList.Item>
-                ) : null}
-                {stat.total_shots ? (
+                )}
+                {!!stat.total_shots && (
                   <LabeledList.Item label="Выстрелов сделано">
                     {stat.total_shots}
                   </LabeledList.Item>
-                ) : null}
-                {stat.total_shots ? (
+                )}
+                {!!stat.total_shots && (
                   <LabeledList.Item label="Точность">
                     {Math.round(
                       (stat.total_shots_hit / stat.total_shots) * 100,
                     ) + `%`}
                   </LabeledList.Item>
-                ) : null}
-                {stat.total_friendly_fire ? (
+                )}
+                {!!stat.total_friendly_fire && (
                   <LabeledList.Item label="Попаданий по своим">
                     {stat.total_friendly_fire}
                   </LabeledList.Item>
-                ) : null}
-                {stat.total_deaths ? (
+                )}
+                {!!stat.total_deaths && (
                   <LabeledList.Item label="Количество смертей">
                     {stat.total_deaths}
                   </LabeledList.Item>
-                ) : null}
-                {stat.total_revives ? (
+                )}
+                {!!stat.total_revives && (
                   <LabeledList.Item label="Количество воскрешений">
                     {stat.total_revives}
                   </LabeledList.Item>
-                ) : null}
-                {stat.total_lives_saved ? (
+                )}
+                {!!stat.total_lives_saved && (
                   <LabeledList.Item label="Людей реанимировано">
                     {stat.total_lives_saved}
                   </LabeledList.Item>
-                ) : null}
-                {stat.total_hits ? (
+                )}
+                {!!stat.total_hits && (
                   <LabeledList.Item label="Попаданий когтями">
                     {stat.total_hits}
                   </LabeledList.Item>
-                ) : null}
+                )}
               </LabeledList>
             </Collapsible>
           ))}
