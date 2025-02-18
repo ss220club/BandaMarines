@@ -71,7 +71,9 @@ export const RoundStatsContent = (props, context) => {
                 ) : null}
                 {stat.total_shots ? (
                   <LabeledList.Item label="Точность">
-                    {Math.round(stat.total_shots_hit / stat.total_shots) + `%`}
+                    {Math.round(
+                      (stat.total_shots_hit / stat.total_shots) * 100,
+                    ) + `%`}
                   </LabeledList.Item>
                 ) : null}
                 {stat.total_friendly_fire ? (
