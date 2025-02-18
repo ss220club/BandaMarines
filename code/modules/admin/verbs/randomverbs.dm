@@ -9,38 +9,31 @@
 
 	if(!admin_holder)
 		to_chat(src, "You do not have permission to use this.")
-		return
-
-	if(!CLIENT_IS_STAFF(src))
-		if(!CLIENT_IS_MENTOR(src))
-			to_chat(src, "Only staff members have permission to use this.")
-			return
 		if(!CONFIG_GET(flag/mentor_tools))
 			to_chat(src, "Mentors do not have permission to use this.")
 
-	var/age = input(src, "Show accounts younger than ___ days", "Age check") as num|null
-	if(isnull(age))
-		age = -1
+	var/age = alert(src, "Age check", "Show accounts up to how many days old ?", "7", "30" , "All")
+
+	if(age == "All")
+		age = 9999999
+	else
+		age = text2num(age)
 
 	var/missing_ages = FALSE
 	var/msg = ""
 
 	for(var/client/C in GLOB.clients)
-		if(CLIENT_IS_STEALTHED(src) && !CLIENT_IS_STAFF(src))
-			continue // Skip those in stealth mode if an admin isn't viewing the panel
 		if(C.player_age == "Requires database")
-			missing_ages = TRUE
+			missing_ages = 1
 			continue
-		if(isnum(C.player_age) && C.player_age < age)
+		if(C.player_age < age)
 			msg += "[key_name(C, 1, 1, CLIENT_IS_STAFF(src))]: account is [C.player_age] days old<br>"
 
 	if(missing_ages)
-		to_chat(src, "Some accounts did not have proper ages set in their clients. This function requires database to be present.")
+		to_chat(src, "Some accounts did not have proper ages set in their clients.  This function requires database to be present")
 
 	if(msg != "")
 		show_browser(src, msg, "Check New Players", "Player_age_check")
-	else
-		to_chat(src, "No matches for that age range found.")
 
 /proc/cmd_admin_mute(mob/M as mob, mute_type, automute = 0)
 	if(automute && !CONFIG_GET(flag/automute_on))
