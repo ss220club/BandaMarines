@@ -156,5 +156,5 @@
 	return COMPONENT_LIVING_COLLIDE_HANDLED
 
 /mob/living/carbon/xenomorph/add_abilities()
-	// AddComponent(/datum/component/bump_attack) // Bump attacks removed
+	AddComponent(/datum/component/bump_attack)
 	. = ..()
