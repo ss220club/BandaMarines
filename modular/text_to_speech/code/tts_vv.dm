@@ -3,7 +3,7 @@
 	if(href_list[VV_HK_MODIFY_TTS_TRAITS])
 		if(!check_rights(R_VAREDIT))
 			return
-		usr.change_tts_seed(src, TRUE, TRUE)
+		src.change_tts_seed(usr, TRUE, TRUE)
 
 /atom/vv_get_dropdown()
 	. = ..()
