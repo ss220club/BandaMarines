@@ -13,7 +13,7 @@
 		return
 
 	init_mob()
-	message_to_player("Это базовый туториал по медицине для твоей игры на роли морпеха.")
+	message_to_player("Это базовое обучение по медицине для твоей игры на роли морпеха.")
 	addtimer(CALLBACK(src, PROC_REF(brute_tutorial)), 4 SECONDS)
 
 /datum/tutorial/marine/medical_basic/proc/brute_tutorial()
@@ -157,8 +157,8 @@
 	UnregisterSignal(tutorial_mob, COMSIG_HUMAN_SHRAPNEL_REMOVED)
 	TUTORIAL_ATOM_FROM_TRACKING(/obj/item/attachable/bayonet, knife)
 	remove_highlight(knife)
-	message_to_player("Отлично. Это вся база которую вы должны знать по медицине, этот туториал скоро закончится.")
-	update_objective("Туториал завершён.")
+	message_to_player("Отлично. Это все основы, которые вы должны знать по медицине, это обучение скоро закончится.")
+	update_objective("Обучение завершено.")
 	tutorial_end_in(5 SECONDS)
 
 // END OF SCRIPTING

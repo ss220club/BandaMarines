@@ -1,5 +1,5 @@
 /datum/tutorial/ss13/basic
-	name = "Космическая Станция 13 - база."
+	name = "Космическая Станция 13 - основы."
 	desc = "Изучите базу игры Космическая Станция 13. Рекомендуется для игроков, которые вообще в неё не играли."
 	tutorial_id = "ss13_basic_1"
 	tutorial_template = /datum/map_template/tutorial/s7x7
@@ -12,7 +12,7 @@
 		return
 
 	init_mob()
-	message_to_player("Этот туториал для полных новичков в <b>космической станции 13</b>. Все инструкции, которые вы видите, можно найти справа вверху, в панели статуса.")
+	message_to_player("Это обучение для полных новичков в <b>космической станции 13</b>. Все инструкции, которые вы видите, можно найти справа вверху, в панели статуса.")
 	update_objective("Вот где они будут!")
 
 	addtimer(CALLBACK(src, PROC_REF(require_move)), 4 SECONDS) // check if this is a good amount of time
@@ -67,7 +67,7 @@
 	SIGNAL_HANDLER
 
 	UnregisterSignal(tutorial_mob, COMSIG_LIVING_SPEAK)
-	message_to_player("Отлично. Следуйщий туториал раскроет тебе мир <b>интентов</b>. Этот туториал окончится скоро.")
+	message_to_player("Отлично. Следуйщее обучение раскроет тебе мир <b>интентов</b>. Это обучение окончится скоро.")
 	update_objective("")
 	tutorial_end_in(5 SECONDS, TRUE)
 

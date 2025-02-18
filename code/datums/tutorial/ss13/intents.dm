@@ -14,7 +14,7 @@
 		return
 
 	init_mob()
-	message_to_player("Это туториал по <b>интентам</b> в Космической Станции 13. Выделенный UI элемент справа снизу это твой текущий интент.")
+	message_to_player("Это обучение по <b>интентам</b> в Космической Станции 13. Выделенный UI элемент справа снизу это твой текущий интент.")
 	var/datum/hud/human/human_hud = tutorial_mob.hud_used
 	add_highlight(human_hud.action_intent)
 
@@ -96,7 +96,7 @@
 	TUTORIAL_ATOM_FROM_TRACKING(/mob/living/carbon/human/dummy/tutorial, tutorial_dummy)
 	tutorial_dummy.status_flags = GODMODE
 
-	message_to_player("Отлично. Это вся база которую тебе надо знать. Этот туториал закончится скоро.")
+	message_to_player("Отлично. Это все основы которые тебе надо знать. Это обучение закончится скоро.")
 	update_objective("")
 
 	tutorial_end_in(5 SECONDS, TRUE)

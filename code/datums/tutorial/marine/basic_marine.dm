@@ -25,7 +25,7 @@
 	add_to_tracking_atoms(flashlight)
 
 	init_mob()
-	message_to_player("Это туториал за игру за стрелка морпехов. Покиньте криопод используя клавишу <b>[retrieve_bind("North")]</b> или <b>[retrieve_bind("East")]</b> что бы продолжить.")
+	message_to_player("Это обучение за игру за стрелка морпехов. Покиньте криопод используя клавишу <b>[retrieve_bind("North")]</b> или <b>[retrieve_bind("East")]</b> что бы продолжить.")
 	update_objective("Выйдите из криопода используя клавишу [retrieve_bind("North")] или [retrieve_bind("East")].")
 	RegisterSignal(tracking_atoms[/obj/structure/machinery/cryopod/tutorial], COMSIG_CRYOPOD_GO_OUT, PROC_REF(on_cryopod_exit))
 
@@ -166,7 +166,7 @@
 	UnregisterSignal(tutorial_mob, COMSIG_MOB_GUN_EMPTY)
 	remove_highlight(xeno_dummy)
 	addtimer(CALLBACK(src, PROC_REF(disappear_xeno)), 2.5 SECONDS)
-	message_to_player("Очень хорошо. Это конец туториала, включи следующий туториал, что бы узнать основы <b>Медицины</b>. Ты скоро вернёшься на экран лобби.")
+	message_to_player("Очень хорошо. Это конец обучения, включи следующее обучение, что бы узнать основы <b>Медицины</b>. Ты скоро вернёшься на экран лобби.")
 	update_objective("")
 	tutorial_end_in(7.5 SECONDS, TRUE)
 

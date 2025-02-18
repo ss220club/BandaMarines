@@ -416,7 +416,7 @@
 	init_mob()
 	START_PROCESSING(SSfastobj, src)
 
-	message_to_player("Добро пожаловать в туториал по линии реквизиции. Проходи и присаживайся.")
+	message_to_player("Добро пожаловать в обучение по линии реквизиции. Проходи и присаживайся.")
 	update_objective("Дойди до окна выдачи что бы начать!")
 	var/turf/target_turf = loc_from_corner(3, 6)
 	RegisterSignal(target_turf, COMSIG_TURF_ENTERED, PROC_REF(user_in_position))
@@ -471,13 +471,13 @@
 
 /datum/tutorial/marine/reqs_line/proc/continue_stage_survival()
 	mark_completed()
-	message_to_player("Молодцы. Вы завершили туториал!")
-	update_objective("Вы завершили туториал! Но будут ещё морпехи, на случай, если вы захотите ещё попрактиковаться.")
+	message_to_player("Молодцы. Вы завершили обучение!")
+	update_objective("Вы завершили обучение! Но будут ещё морпехи, на случай, если вы захотите ещё попрактиковаться.")
 	addtimer(CALLBACK(src, PROC_REF(message_to_player), "Вы можете побыть ещё с рандомными морпехами, или выйти нажав на кнопку слева вверху."), 3 SECONDS)
 	addtimer(CALLBACK(src, PROC_REF(engage_survival_mode)), 12 SECONDS)
 
 /datum/tutorial/marine/reqs_line/proc/engage_survival_mode()
-	update_objective("Продолжайте практиковаться с очень сложными запросами, или выйдите из туториала нажав кнопку слева сверху.")
+	update_objective("Продолжайте практиковаться с очень сложными запросами, или выйдите из обучения нажав кнопку слева сверху.")
 	stage = TUTORIAL_REQS_LINE_STAGE_SURVIVAL
 
 /datum/map_template/tutorial/reqs_line

@@ -1,8 +1,8 @@
 #define WAITING_HEALTH_THRESHOLD 300
 
 /datum/tutorial/xenomorph/basic
-	name = "Ксеноморфы - База"
-	desc = "Туториал познакомит вас с базой за игру за ксеноморфа."
+	name = "Ксеноморфы - основы"
+	desc = "Обучение познакомит вас с основами за игру за ксеноморфа."
 	icon_state = "xeno"
 	tutorial_id = "xeno_basic_1"
 	tutorial_template = /datum/map_template/tutorial/s12x12
@@ -24,7 +24,7 @@
 	xeno.melee_damage_upper = 40
 	xeno.lock_evolve = TRUE
 
-	message_to_player("Добро пожаловать в базовый туториал за ксеноморфов. Вы [xeno.name], дрон, работяга улья.")
+	message_to_player("Добро пожаловать в основное обучение за ксеноморфов. Вы [xeno.name], дрон, работяга улья.")
 
 	addtimer(CALLBACK(src, PROC_REF(on_stretch_legs)), 10 SECONDS)
 
@@ -140,7 +140,7 @@
 	ADD_TRAIT(human_dummy, TRAIT_FLOORED, TRAIT_SOURCE_TUTORIAL)
 	xeno.melee_damage_lower = 0
 	xeno.melee_damage_upper = 0
-	message_to_player("Отлично. В реальном поле боя вам понадобиться валить человека постоянно, что бы он не вырвался, но ради этого туториала, мы сделаем так, что бы он не смог встать.")
+	message_to_player("Отлично. В реальном поле боя вам понадобиться валить человека постоянно, что бы он не вырвался, но ради этого обучения, мы сделаем так, что бы он не смог встать.")
 	update_objective("")
 	addtimer(CALLBACK(src, PROC_REF(cap_phase)), 10 SECONDS)
 
@@ -186,7 +186,7 @@
 	UnregisterSignal(hugger, COMSIG_PARENT_QDELETING)
 	remove_highlight(hugger)
 
-	message_to_player("Мы должны поместить заражённого человека в гнезд, что бы он точно не убежал.")
+	message_to_player("Мы должны поместить заражённого человека в гнездо, что бы он точно не убежал.")
 	message_to_player("Люди не смогут убежать без помощи, а наше гнездо сможет продержать их достаточно долго, что бы родилась новая сестра.")
 	update_objective("")
 	addtimer(CALLBACK(src, PROC_REF(nest_cap_phase_two)), 10 SECONDS)
@@ -240,8 +240,8 @@
 	TUTORIAL_ATOM_FROM_TRACKING(/mob/living/carbon/human, human_dummy)
 	UnregisterSignal(human_dummy, COMSIG_MOB_NESTED)
 
-	message_to_player("Отлично. Вот вся база которую вам надо знать за игру за ксеноморфа.")
-	message_to_player("Этот туториал закончиться скоро.")
+	message_to_player("Отлично. Вот все основы которые вам надо знать за игру за ксеноморфа.")
+	message_to_player("Это обучение закончиться скоро.")
 	tutorial_end_in(10 SECONDS)
 
 // END OF SCRIPTING
