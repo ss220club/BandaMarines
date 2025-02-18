@@ -17,7 +17,7 @@
 	if(istype(target, /atom/movable/screen)){\
 		return;\
 	}\
-	if(user?:selected_ability == src){\
+	if(user.get_selected_ability() == src){\
 		call(src, /datum/action::action_activate())();\
 	}\else{\
 		. = ..();\
