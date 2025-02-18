@@ -655,6 +655,10 @@ GLOBAL_LIST_INIT(limb_types_by_name, list(
 			return "right click"
 		if(XENO_ABILITY_CLICK_SHIFT)
 			return "shift click"
+		// BANDAMARINES EDIT START
+		if(XENO_ABILITY_CLICK_INSTANT)
+			return "quick cast"
+		// BANDAMARINES EDIT END
 	return "middle click"
 
 /mob/proc/get_ability_mouse_name()

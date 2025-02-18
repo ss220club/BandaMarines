@@ -6,9 +6,12 @@
 #define XENO_ABILITY_CLICK_MIDDLE 1
 #define XENO_ABILITY_CLICK_SHIFT 2
 #define XENO_ABILITY_CLICK_RIGHT 3
+// BANDAMARINES EDIT START
+#define XENO_ABILITY_CLICK_INSTANT 4
+// BANDAMARINES EDIT END
 
 /// Update this to whatever the largest value of the XENO_ABILITY_CLICK_* defines is.
-#define XENO_ABILITY_CLICK_MAX 3
+#define XENO_ABILITY_CLICK_MAX 4 // BANDAMARINES EDIT - 3 -> 4
 
 //toggle_prefs bits from /datum/preferences
 #define TOGGLE_IGNORE_SELF (1<<0) // Determines whether you will not hurt yourself when clicking yourself
