@@ -16,8 +16,18 @@ export const ModpacksList = (props, context) => {
   );
 };
 
+type ModpacksData = {
+  modpacks: Modpack[];
+};
+
+type Modpack = {
+  name: string;
+  desc: string;
+  author: string;
+};
+
 export const ModpacksListContent = (props, context) => {
-  const { act, data } = useBackend();
+  const { act, data } = useBackend<ModpacksData>();
   const { modpacks } = data;
 
   const [searchText, setSearchText] = useState('');
