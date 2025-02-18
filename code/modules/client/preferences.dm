@@ -1223,6 +1223,9 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 					ghost_vision_pref = choice
 				if("mouse_button_activation")
 					var/static/list/mouse_button_list = list(
+						// BANDAMARINES EDIT START
+						xeno_ability_mouse_pref_to_string(XENO_ABILITY_CLICK_INSTANT) = XENO_ABILITY_CLICK_INSTANT,
+						// BANDAMARINES EDIT END
 						xeno_ability_mouse_pref_to_string(XENO_ABILITY_CLICK_MIDDLE) = XENO_ABILITY_CLICK_MIDDLE,
 						xeno_ability_mouse_pref_to_string(XENO_ABILITY_CLICK_SHIFT) = XENO_ABILITY_CLICK_SHIFT,
 						xeno_ability_mouse_pref_to_string(XENO_ABILITY_CLICK_RIGHT) = XENO_ABILITY_CLICK_RIGHT
