@@ -1,67 +1,76 @@
-/mob/proc/view_round_stats()
+/mob/verb/view_round_stats()
 	set name = "View My Stats"
 	set category = "OOC"
 
-	_view_round_stats()
+	if(!client)
+		return
+	var/datum/round_stats/round_stats = new()
+	round_stats.tgui_interact(src)
 
-/mob/proc/_view_round_stats()
-	var/list/datum/entity/statistic/death/death_list = list()
-	// Find all our deaths
-	if(length(GLOB.round_statistics.death_stats_list))
-		var/datum/entity/player/player = get_player_from_key("[ckey]")
-		for(var/datum/entity/statistic/death/death in GLOB.round_statistics.death_stats_list)
-			if(death.player_id != player.id)
-				continue
-			death_list += death
+/datum/round_stats
 
+/datum/round_stats/tgui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "RoundStats", "Round Stats")
+		ui.open()
+
+/datum/round_stats/ui_close(mob/user)
+	. = ..()
+	qdel(src)
+
+/datum/round_stats/ui_state(mob/user)
+	return GLOB.always_state
+
+/datum/round_stats/ui_static_data(mob/user)
 	var/list/data = list()
-	if(length(death_list))
-		for(var/datum/entity/statistic/death/death in death_list)
-			data["[death.mob_name]"] = death.get_round_stats(data["[death.mob_name]"])
-
-		to_chat(src, "Your death stats are:")
-		for(var/key in data)
-			to_chat(src, "Character: [key]")
-			to_chat(src, "Total steps: [data[key]["total_steps"]]")
-			to_chat(src, "Total kills: [data[key]["total_kills"]]")
-			to_chat(src, "Total time alive: [data[key]["total_time_alive"]]")
-			to_chat(src, "Total damage taken: [data[key]["total_damage_taken"]]")
-			to_chat(src, "Total revives done: [data[key]["total_revives_done"]]")
-			to_chat(src, "Total ib fixed: [data[key]["total_ib_fixed"]]")
-
-	get_living_round_stats()
-
-/datum/entity/statistic/death/proc/get_round_stats(list/append_data = list())
-	var/list/data = list()
-	data["total_steps"] = total_steps + append_data["total_steps"]
-	data["total_kills"] = total_kills + append_data["total_kills"]
-	data["total_time_alive"] = total_time_alive + append_data["total_time_alive"]
-	data["total_damage_taken"] = total_damage_taken + append_data["total_damage_taken"]
-	data["total_revives_done"] = total_revives_done + append_data["total_revives_done"]
-	data["total_ib_fixed"] = total_ib_fixed + append_data["total_ib_fixed"]
+	var/datum/entity/player_entity/player_entity = GLOB.player_entities["[user.ckey]"]
+	if(!player_entity)
+		to_chat(user, SPAN_WARNING("Что-то произошло не так при попытке получения ваших данных, позовите кодера!"))
+		qdel(src)
+	data = player_entity.get_player_round_stat()
+	if(!length(data))
+		to_chat(user, SPAN_WARNING("Вам нужно участвовать в игре, чтобы получить данные о себе!"))
+		qdel(src)
 	return data
 
-/mob/proc/get_living_round_stats()
-	return
+// Player's holder, has data for all the player's characters who participated in the round
+/datum/entity/player_entity/proc/get_player_round_stat()
+	if(!length(player_stats))
+		return
+	var/list/data = list()
+	for(var/key in player_stats)
+		var/datum/entity/player_stats/stats = player_stats[key]
+		data["stats"] += list(stats.get_player_stat())
+	return data
 
-/mob/living/carbon/human/get_living_round_stats()
-	to_chat(src, "Your living stats are:")
-	to_chat(src, "Character: [real_name]")
-	to_chat(src, "Total steps: [life_steps_total]")
-	to_chat(src, "Total kills: [life_kills_total]")
-	to_chat(src, "Total time alive: [world.time - life_time_start]")
-	to_chat(src, "Total damage taken: [life_damage_taken_total]")
-	to_chat(src, "Total revives done: [life_revives_total]")
-	to_chat(src, "Total ib fixed: [life_ib_total]")
+// Per faction player's stats for who participated in the round. Linked to a specific player
+/datum/entity/player_stats/proc/get_player_stat()
+	var/list/data = list()
+	data["title"] = "CALL THE CODER"
+	data["total_kills"] = total_kills
+	data["total_deaths"] = total_deaths
+	data["steps_walked"] = steps_walked
+	data["humans_killed"] = length(humans_killed)
+	data["xenos_killed"] = length(xenos_killed)
+	return data
 
-/mob/living/carbon/xenomorph/get_living_round_stats()
-	to_chat(src, "Your living stats are:")
-	to_chat(src, "Character: [real_name]")
-	to_chat(src, "Total steps: [life_steps_total]")
-	to_chat(src, "Total kills: [life_kills_total]")
-	to_chat(src, "Total time alive: [world.time - life_time_start]")
-	to_chat(src, "Total damage taken: [life_damage_taken_total]")
-	to_chat(src, "Total revives done: [life_revives_total]")
-	to_chat(src, "Total ib fixed: [life_ib_total]")
+/datum/entity/player_stats/human/get_player_stat()
+	var/list/data = ..()
+	data["title"] = "Human"
+	data["total_friendly_fire"] = total_friendly_fire
+	data["total_revives"] = total_revives
+	data["total_lives_saved"] = total_lives_saved
+	data["total_shots"] = total_shots
+	data["total_shots_hit"] = total_shots_hit
+	// TODO220: Show per job (mob)
+	return data
+
+/datum/entity/player_stats/xeno/get_player_stat()
+	var/list/data = ..()
+	data["title"] = "Xeno"
+	data["total_hits"] = total_hits
+	// TODO220: Show per caste (mob)
+	return data
 
 // show_end_statistics
