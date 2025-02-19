@@ -23,32 +23,27 @@ type Stats = {
   total_kills: number;
   total_deaths: number;
   steps_walked: number;
-  humans_killed: number;
-  xenos_killed: number;
   total_friendly_fire: number;
   total_revives: number;
   total_lives_saved: number;
   total_shots: number;
   total_shots_hit: number;
   total_hits: number;
-  niche_stats: NicheStat[];
-  castes: Caste[];
+  niche_stats: Statistic[];
+  castes: CasteStat[];
+  abilities_used: Statistic[];
+  human_kill_feed: Statistic[];
+  xeno_kill_feed: Statistic[];
 };
 
-type NicheStat = {
+type Statistic = {
   name: string;
   value: number;
 };
 
-type Caste = {
-  abilities_used: AbilityStat[];
-  total_hits: number;
+type CasteStat = {
+  name: string;
   stats: Stats;
-};
-
-type AbilityStat = {
-  name: string;
-  value: number;
 };
 
 export const RoundStatsContent = (props, context) => {
@@ -66,9 +61,9 @@ export const RoundStatsContent = (props, context) => {
                   total_kills={stat.total_kills}
                   total_deaths={stat.total_deaths}
                   steps_walked={stat.steps_walked}
-                  humans_killed={stat.humans_killed}
-                  xenos_killed={stat.xenos_killed}
                   niche_stats={stat.niche_stats}
+                  human_kill_feed={stat.human_kill_feed}
+                  xeno_kill_feed={stat.xeno_kill_feed}
                 />
               </Section>
               {stat.castes ? (
@@ -96,13 +91,13 @@ const RegularStatData = (props, context) => {
     total_kills,
     total_deaths,
     steps_walked,
-    humans_killed,
-    xenos_killed,
     niche_stats,
+    human_kill_feed,
+    xeno_kill_feed,
   } = props;
 
   return (
-    <Collapsible title="Общая статистика4" open>
+    <Collapsible title="Общая статистика" open>
       <LabeledList>
         {steps_walked && (
           <LabeledList.Item label="Шагов сделано">
@@ -112,27 +107,46 @@ const RegularStatData = (props, context) => {
         {!!total_kills && (
           <LabeledList.Item label="Всего убито">{total_kills}</LabeledList.Item>
         )}
-        {!!humans_killed && (
-          <LabeledList.Item label="Убито людей">
-            {humans_killed}
-          </LabeledList.Item>
+        {!!human_kill_feed && (
+          <KillFeedData
+            title={'Убито людей: ' + human_kill_feed.length}
+            killfeed={human_kill_feed}
+          />
         )}
-        {!!xenos_killed && (
-          <LabeledList.Item label="Убито ксеноморфов">
-            {xenos_killed}
-          </LabeledList.Item>
+        {!!xeno_kill_feed && (
+          <KillFeedData
+            title={'Убито ксеноморфов: ' + xeno_kill_feed.length}
+            killfeed={xeno_kill_feed}
+          />
         )}
         {!!total_deaths && (
           <LabeledList.Item label="Количество смертей">
             {total_deaths}
           </LabeledList.Item>
         )}
-        {/* {!!niche_stats &&
+        {!!niche_stats &&
           niche_stats.map((niche_stat) => (
             <LabeledList.Item key={niche_stat.name} label={niche_stat.name}>
               {niche_stat.value}
             </LabeledList.Item>
-          ))} */}
+          ))}
+      </LabeledList>
+    </Collapsible>
+  );
+};
+
+const KillFeedData = (props, context) => {
+  const { data } = useBackend<Statistic>();
+  const { title, killfeed } = props;
+
+  return (
+    <Collapsible title={title}>
+      <LabeledList>
+        {killfeed.map((kills) => (
+          <LabeledList.Item key={kills.name} label={kills.name}>
+            {kills.value}
+          </LabeledList.Item>
+        ))}
       </LabeledList>
     </Collapsible>
   );
