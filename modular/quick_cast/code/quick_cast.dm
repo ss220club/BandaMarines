@@ -1,23 +1,19 @@
 #define QUICK_CAST_OVERRIDE(subtype)\
 /datum/action##subtype/action_activate(){\
-	var/mob/living/carbon/user = owner;\
-	if(!istype(user)){\
-		return;\
-	}\
 	if(hidden){\
 		return ..();\
 	}\
-	if(user.get_ability_mouse_key() != XENO_ABILITY_CLICK_INSTANT){\
+	if(owner.get_ability_mouse_key() != XENO_ABILITY_CLICK_INSTANT){\
 		return ..();\
 	}\
-	var/atom/target = user.client.hovered_over;\
+	var/atom/target = owner.client.hovered_over;\
 	if(!target){\
 		return;\
 	}\
 	if(istype(target, /atom/movable/screen)){\
 		return;\
 	}\
-	if(user.get_selected_ability() == src){\
+	if(owner.get_selected_ability() == src){\
 		call(src, /datum/action::action_activate())();\
 	}\else{\
 		. = ..();\

@@ -1,4 +1,4 @@
-/mob/living/carbon/proc/get_selected_ability()
+/mob/proc/get_selected_ability()
 	return
 
 /mob/living/carbon/human/get_selected_ability()
