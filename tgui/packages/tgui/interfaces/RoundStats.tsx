@@ -67,7 +67,10 @@ export const RoundStatsContent = (props, context) => {
                 />
               </Section>
               {stat.castes ? (
-                <XenoStatData />
+                <XenoStatData
+                  total_hits={stat.total_hits}
+                  castes={stat.castes}
+                />
               ) : (
                 <HumanStatData
                   total_friendly_fire={stat.total_friendly_fire}
@@ -197,7 +200,7 @@ const HumanStatData = (props, context) => {
 
 const XenoStatData = (props, context) => {
   const { data } = useBackend<Stats>();
-  const { total_hits } = data;
+  const { total_hits, castes } = props;
 
   return (
     <Collapsible title="Статистика ксеноморфа" open>
@@ -208,22 +211,46 @@ const XenoStatData = (props, context) => {
           </LabeledList.Item>
         )}
       </LabeledList>
+      {!!castes &&
+        castes.map((caste) => (
+          <XenoCasteStats
+            key={caste.name}
+            caste_name={caste.name}
+            stats={caste.stats}
+          />
+        ))}
     </Collapsible>
   );
 };
 
 const XenoCasteStats = (props, context) => {
   const { data } = useBackend<Stats>();
-  const { total_hits } = data;
+  const { caste_name, stats } = props;
 
   return (
-    <LabeledList>
-      <RegularStatData />
-      {!!total_hits && (
+    <Collapsible title={caste_name}>
+      <RegularStatData
+        total_kills={stats.total_kills}
+        total_deaths={stats.total_deaths}
+        steps_walked={stats.steps_walked}
+        niche_stats={stats.niche_stats}
+        human_kill_feed={stats.human_kill_feed}
+        xeno_kill_feed={stats.xeno_kill_feed}
+      />
+      {!!stats.total_hits && (
         <LabeledList.Item label="Попаданий когтями">
-          {total_hits}
+          {stats.total_hits}
         </LabeledList.Item>
       )}
-    </LabeledList>
+      {!!stats.abilities_used && (
+        <Collapsible title="Способности">
+          {stats.abilities_used.map((ability) => (
+            <LabeledList.Item key={ability.name} label={ability.name}>
+              {ability.value}
+            </LabeledList.Item>
+          ))}
+        </Collapsible>
+      )}
+    </Collapsible>
   );
 };
