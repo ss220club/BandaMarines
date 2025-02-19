@@ -9,9 +9,9 @@
 
 	if(href_list[VV_HK_MODIFY_TTS_TRAITS_PLAYER_CHOICE])
 		if(!client)
-			to_chat(usr, SPAN_WARNING("У моба нет клиента"))
+			to_chat(usr, SPAN_WARNING("<b>У [src] нет клиента</b>"))
 			return
-		to_chat(usr, SPAN_NOTICE("Игроку предложен выбор голоса"))
+		to_chat(usr, SPAN_NOTICE("<b>[src] предложен выбор голоса</b>"))
 		change_tts_seed(src, TRUE, TRUE)
 
 /atom/vv_get_dropdown()
