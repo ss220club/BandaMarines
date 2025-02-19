@@ -21,6 +21,8 @@ type StatsData = {
 type Stats = {
   title: string;
   total_kills: number;
+  human_kills_total: number;
+  xeno_kills_total: number;
   total_deaths: number;
   steps_walked: number;
   total_friendly_fire: number;
@@ -59,6 +61,8 @@ export const RoundStatsContent = (props, context) => {
               <Section>
                 <RegularStatData
                   total_kills={stat.total_kills}
+                  human_kills_total={stat.human_kills_total}
+                  xeno_kills_total={stat.xeno_kills_total}
                   total_deaths={stat.total_deaths}
                   steps_walked={stat.steps_walked}
                   niche_stats={stat.niche_stats}
@@ -92,6 +96,8 @@ const RegularStatData = (props, context) => {
   const { data } = useBackend<Stats>();
   const {
     total_kills,
+    human_kills_total,
+    xeno_kills_total,
     total_deaths,
     steps_walked,
     niche_stats,
@@ -112,13 +118,13 @@ const RegularStatData = (props, context) => {
         )}
         {!!human_kill_feed && (
           <KillFeedData
-            title={'Убито людей: ' + human_kill_feed.length}
+            title={'Убито людей: ' + human_kills_total}
             killfeed={human_kill_feed}
           />
         )}
         {!!xeno_kill_feed && (
           <KillFeedData
-            title={'Убито ксеноморфов: ' + xeno_kill_feed.length}
+            title={'Убито ксеноморфов: ' + xeno_kills_total}
             killfeed={xeno_kill_feed}
           />
         )}
@@ -231,6 +237,8 @@ const XenoCasteStats = (props, context) => {
     <Collapsible title={caste_name}>
       <RegularStatData
         total_kills={stats.total_kills}
+        human_kills_total={stats.human_kills_total}
+        xeno_kills_total={stats.xeno_kills_total}
         total_deaths={stats.total_deaths}
         steps_walked={stats.steps_walked}
         niche_stats={stats.niche_stats}

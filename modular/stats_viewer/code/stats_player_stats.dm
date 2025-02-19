@@ -25,6 +25,7 @@
 				"name" = name,
 				"value" = human_kill_feed["[name]"],
 			))
+		data["human_kills_total"] = human_kills_total
 	if(length(xeno_kill_feed))
 		var/xeno_kills_total = 0
 		for(var/name in xeno_kill_feed)
@@ -33,6 +34,7 @@
 				"name" = name,
 				"value" = xeno_kill_feed["[name]"],
 			))
+		data["xeno_kills_total"] = xeno_kills_total
 	if(length(niche_stats))
 		for(var/key in niche_stats)
 			var/datum/entity/statistic/stat = niche_stats[key]
