@@ -42,7 +42,7 @@ export const RoundStatsContent = (props, context) => {
       <Stack fill vertical>
         <Stack.Item grow>
           {stats.map((stat) => (
-            <Collapsible key={stat.title} title={stat.title}>
+            <Collapsible key={stat.title} title={stat.title} open>
               <LabeledList>
                 {!!stat.steps_walked && (
                   <LabeledList.Item label="Шагов сделано">
