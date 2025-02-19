@@ -15,7 +15,7 @@
 	if(cause_data?.ckey)
 		var/datum/entity/player_entity/killer = GLOB.player_entities["[cause_data.ckey]"]
 		var/datum/entity/player_stats/stats
-		if(cause_data.faction in ALL_XENO_HIVES)
+		if(cause_data.role in ALL_XENO_CASTES)
 			stats = killer.setup_xeno_stats()
 		else
 			stats = killer.setup_human_stats()
@@ -27,7 +27,7 @@
 	if(cause_data?.ckey)
 		var/datum/entity/player_entity/killer = GLOB.player_entities["[cause_data.ckey]"]
 		var/datum/entity/player_stats/stats
-		if(cause_data.faction in ALL_XENO_HIVES)
+		if(cause_data.role in ALL_XENO_CASTES)
 			stats = killer.setup_xeno_stats()
 		else
 			stats = killer.setup_human_stats()
