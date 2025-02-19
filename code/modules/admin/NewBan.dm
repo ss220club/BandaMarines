@@ -322,7 +322,7 @@ GLOBAL_DATUM(Banlist, /savefile)
 
 	// BANDAMARINES ADD - START
 	if(HAS_CIRILLIC(reason) || HAS_CIRILLIC(message) || HAS_CIRILLIC(identifier))
-		to_chat(usr, SPAN_DANGER("<b>Причина, сообщение и идентификатор стикибана не должны содержать кириллицу!</b>"))
+		tgui_alert(usr, "Причина, сообщение и идентификатор стикибана не должны содержать кириллицу!")
 		return
 	// BANDAMARINES ADD - END
 
