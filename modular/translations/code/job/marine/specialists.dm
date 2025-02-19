@@ -3,7 +3,7 @@
 
 /datum/specialist_set/sadar
 	//name = "Demolitionist Set"
-	role_name_ru = "Подрывник"
+	role_name_ru = "Гранатометчик"
 
 /datum/specialist_set/scout
 	//name = "Scout Set"
