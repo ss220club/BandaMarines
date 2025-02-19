@@ -11,6 +11,7 @@
 		if(!client)
 			to_chat(usr, SPAN_WARNING("У моба нет клиента"))
 			return
+		to_chat(usr, SPAN_NOTICE("Игроку предложен выбор голоса"))
 		change_tts_seed(src, TRUE, TRUE)
 
 /atom/vv_get_dropdown()
