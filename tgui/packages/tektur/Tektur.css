@@ -1,0 +1,13 @@
+@font-face {
+  font-family: tektur-regular;
+  src:
+    url('./tektur-regular.woff2') format('woff2'),
+    url('./tektur-regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: tektur-bold;
+  src:
+    url('./tektur-bold.woff2') format('woff2'),
+    url('./tektur-bold.ttf') format('truetype');
+}

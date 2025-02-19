@@ -1,0 +1,6 @@
+@font-face {
+  font-family: PixCyrillic;
+  src:
+    url('./PixCyrillic.woff2') format('woff2'),
+    url('./PixCyrillic.ttf') format('truetype');
+}
