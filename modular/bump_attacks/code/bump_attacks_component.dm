@@ -154,7 +154,3 @@
 	// SSblackbox.record_feedback("tally", "round_statistics", 1, "xeno_bump_attacks")
 	// TIMER_COOLDOWN_START(src, COOLDOWN_BUMP_ATTACK, bumper.xeno_caste.attack_delay)
 	return COMPONENT_LIVING_COLLIDE_HANDLED
-
-/mob/living/carbon/xenomorph/add_abilities()
-	AddComponent(/datum/component/bump_attack)
-	. = ..()
