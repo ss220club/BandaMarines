@@ -174,7 +174,7 @@
 
 	if(mob.looc_overhead || GLOB.ooc_allowed)
 		var/transmit_language = isxeno(mob) ? LANGUAGE_XENOMORPH : LANGUAGE_ENGLISH
-		mob.langchat_speech(msg, heard, GLOB.all_languages[transmit_language], "#ff47d7")
+		mob.langchat_speech("LOOC: [msg]", heard, GLOB.all_languages[transmit_language], "#ff47d7") // BANDAMARINES EDIT
 
 	// Now handle admins
 	display_name = S.key
