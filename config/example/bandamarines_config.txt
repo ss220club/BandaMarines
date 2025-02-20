@@ -6,3 +6,6 @@
 
 ## Enables diagonal movement
 # DIAGONAL_MOVE
+
+## Enables Bump Attacks
+# BUMP_ATTACKS
