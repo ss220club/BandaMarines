@@ -9,7 +9,7 @@
 		return
 
 	var/confirm = tgui_alert(usr, "Вы уверены, что хотите [CONFIG_GET(flag/bump_attacks) ? "выключить" : "включить"] Bump Attacks?", "Toggle Bump Attacks", list("Да", "Нет"))
-	if(confirm == "Нет")
+	if(confirm != "Да")
 		return
 
 	CONFIG_SET(flag/bump_attacks, !CONFIG_GET(flag/bump_attacks))
