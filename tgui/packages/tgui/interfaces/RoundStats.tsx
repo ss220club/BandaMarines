@@ -48,7 +48,7 @@ type CasteStat = {
 export const RoundStats = (props) => {
   const { data } = useBackend<StatsData>();
   const { stats } = data;
-  const [tab, setTab] = useState(stats[0]);
+  const [tab, setTab] = useState(!!stats && stats[0]);
   const [modal, setModal] = useState();
 
   const typeToIcon = (type: string) => {
@@ -64,40 +64,44 @@ export const RoundStats = (props) => {
     <Window
       width={400}
       height={500}
-      theme={tab.title === 'Человек' ? 'crtgreen' : 'crtyellow'}
+      theme={tab.title === 'Человек' ? 'crtgreen' : 'crtxeno'}
     >
-      <Window.Content>
-        {!!modal && (
-          <KillFeedData
-            title={modal[0]}
-            killfeed={modal[1]}
-            setModal={setModal}
-          />
-        )}
-        <Stack fill vertical>
-          <Stack.Item>
-            <Tabs p={0} fluid textAlign="center">
-              {stats.map((stat) => (
-                <Tabs.Tab
-                  key={stat.title}
-                  icon={typeToIcon(stat.title)}
-                  selected={stat === tab}
-                  onClick={() => setTab(stat)}
-                >
-                  {stat.title}
-                </Tabs.Tab>
-              ))}
-            </Tabs>
-          </Stack.Item>
-          <Stack.Item grow overflowY="auto">
-            <RoundStatsContent
-              selectedTab={tab}
-              modal={modal}
+      {!stats ? (
+        <Window.Content>Увы... Статистики нет.</Window.Content>
+      ) : (
+        <Window.Content>
+          {!!modal && (
+            <KillFeedData
+              title={modal[0]}
+              killfeed={modal[1]}
               setModal={setModal}
             />
-          </Stack.Item>
-        </Stack>
-      </Window.Content>
+          )}
+          <Stack fill vertical>
+            <Stack.Item>
+              <Tabs p={0} fluid textAlign="center">
+                {stats.map((stat) => (
+                  <Tabs.Tab
+                    key={stat.title}
+                    icon={typeToIcon(stat.title)}
+                    selected={stat === tab}
+                    onClick={() => setTab(stat)}
+                  >
+                    {stat.title}
+                  </Tabs.Tab>
+                ))}
+              </Tabs>
+            </Stack.Item>
+            <Stack.Item grow overflowY="auto">
+              <RoundStatsContent
+                selectedTab={tab}
+                modal={modal}
+                setModal={setModal}
+              />
+            </Stack.Item>
+          </Stack>
+        </Window.Content>
+      )}
     </Window>
   );
 };
@@ -332,6 +336,11 @@ const XenoCasteStats = (props) => {
 
   return (
     <Stack fill vertical m={1}>
+      {!!stats.total_hits && (
+        <LabeledList.Item label="Попаданий когтями">
+          {stats.total_hits}
+        </LabeledList.Item>
+      )}
       <RegularStatData
         total_kills={stats.total_kills}
         human_kills_total={stats.human_kills_total}
@@ -342,12 +351,6 @@ const XenoCasteStats = (props) => {
         human_kill_feed={stats.human_kill_feed}
         xeno_kill_feed={stats.xeno_kill_feed}
       />
-      {!!stats.total_hits && (
-        <LabeledList.Item label="Попаданий когтями">
-          {stats.total_hits}
-        </LabeledList.Item>
-      )}
-
       {!!stats.abilities_used && (
         <Section title="Способности">
           <Stack fill vertical mt={-1} mb={-1.33}>
