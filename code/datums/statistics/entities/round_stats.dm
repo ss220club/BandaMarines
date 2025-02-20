@@ -88,7 +88,8 @@
 		"total_projectiles_hit_human" = DB_FIELDTYPE_INT,
 		"total_projectiles_hit_xeno" = DB_FIELDTYPE_INT,
 		"total_friendly_fire_instances" = DB_FIELDTYPE_INT,
-		"total_slashes" = DB_FIELDTYPE_INT
+		"total_slashes" = DB_FIELDTYPE_INT,
+		"xeno_bump_attacks" = DB_FIELDTYPE_INT, // BANDAMARINES EDIT - Bump Attacks
 	)
 
 /datum/game_mode/proc/setup_round_stats()

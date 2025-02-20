@@ -750,5 +750,6 @@
 		"death_stats_list" = new_death_stats_list,
 		"weapon_stats_list" = new_weapon_stats_list,
 		"job_stats_list" = new_job_stats_list,
-		"caste_stats_list" = new_caste_stats_list
+		"caste_stats_list" = new_caste_stats_list,
+		"xeno_bump_attacks" = xeno_bump_attacks, // BANDAMARINES EDIT - Bump Attacks
 	)
