@@ -6,7 +6,7 @@
 	///Action used to turn bump attack on/off manually
 	var/datum/action/xeno_action/bump_attack_toggle/toggle_action
 	var/toggle_action_path = /datum/action/xeno_action/bump_attack_toggle
-	var/movement_delay_on_bump = 0.2 SECONDS
+	var/movement_delay_on_bump = 0.5 SECONDS
 
 /datum/component/bump_attack/Initialize(enabled = TRUE, has_button = TRUE, silent_activation = FALSE)
 	. = ..()
