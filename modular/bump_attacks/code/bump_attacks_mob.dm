@@ -1,5 +1,5 @@
 /mob/proc/remove_bump_attacks()
-	var/datum/component/bump_attacks/component = player.GetComponent(/datum/component/bump_attack)
+	var/datum/component/bump_attack/component = GetComponent(/datum/component/bump_attack)
 	if(component)
 		qdel(component)
 
