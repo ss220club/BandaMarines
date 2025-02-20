@@ -6,6 +6,7 @@
 	///Action used to turn bump attack on/off manually
 	var/datum/action/xeno_action/bump_attack_toggle/toggle_action
 	var/toggle_action_path = /datum/action/xeno_action/bump_attack_toggle
+	var/movement_delay_on_bump = 0.2 SECONDS
 
 /datum/component/bump_attack/Initialize(enabled = TRUE, has_button = TRUE, silent_activation = FALSE)
 	. = ..()
@@ -63,7 +64,7 @@
 		return NONE
 	var/mob/living/bumper = parent
 	if(bumper.a_intent != INTENT_HARM)
-		return
+		return NONE
 	if(!(target.flags_atom & BUMP_ATTACKABLE) || bumper.throwing || bumper.is_mob_incapacitated())
 		return NONE
 
@@ -152,7 +153,8 @@
 	if(bumper.next_move > world.time)
 		return COMPONENT_LIVING_COLLIDE_HANDLED //We don't want to push people while on attack cooldown.
 	bumper.UnarmedAttack(target, TRUE)
-	// GLOB.round_statistics.xeno_bump_attacks++
+	bumper.client?.next_movement += movement_delay_on_bump
+	GLOB.round_statistics.xeno_bump_attacks++
 	// SSblackbox.record_feedback("tally", "round_statistics", 1, "xeno_bump_attacks")
 	// TIMER_COOLDOWN_START(src, COOLDOWN_BUMP_ATTACK, bumper.xeno_caste.attack_delay)
 	return COMPONENT_LIVING_COLLIDE_HANDLED
