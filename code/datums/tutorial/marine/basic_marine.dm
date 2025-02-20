@@ -26,7 +26,7 @@
 
 	init_mob()
 	message_to_player("Это обучение за игру за стрелка морпехов. Покиньте криопод используя клавишу <b>[retrieve_bind("North")]</b> или <b>[retrieve_bind("East")]</b>, чтобы продолжить.")
-	update_objective("Выйдите из криопода используя клавишу [retrieve_bind("North")] или [retrieve_bind("East")].")
+	update_objective("Выйдите из криопода, используя клавишу [retrieve_bind("North")] или [retrieve_bind("East")].")
 	RegisterSignal(tracking_atoms[/obj/structure/machinery/cryopod/tutorial], COMSIG_CRYOPOD_GO_OUT, PROC_REF(on_cryopod_exit))
 
 /datum/tutorial/marine/basic/proc/on_cryopod_exit()
