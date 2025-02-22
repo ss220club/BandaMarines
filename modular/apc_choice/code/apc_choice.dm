@@ -27,7 +27,7 @@
 	name = "M577-MED Armored Personnel Carrier"
 	ordered_vehicle = /obj/effect/vehicle_spawner/apc_med/plain
 
-/datum/vehicle_order/apc/cmd/plain/plain
+/datum/vehicle_order/apc/cmd/plain
 	name = "M577-CMD Armored Personnel Carrier"
 	ordered_vehicle = /obj/effect/vehicle_spawner/apc_cmd/plain
 
