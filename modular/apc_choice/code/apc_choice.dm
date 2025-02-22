@@ -16,7 +16,7 @@
 /obj/structure/machinery/cm_vending/gear/vehicle_crew/populate_products(datum/source, obj/effect/vehicle_spawner/spawner)
 	selected_vehicle = spawner.category
 	if(selected_vehicle == "APC")
-		marine_announcement("В поддержку наземных сил операции вам будет предоставлен APC.")
+		marine_announcement("В поддержку наземных сил операции вам будет предоставлен БТР.")
 	. = ..()
 
 /datum/vehicle_order/apc/plain
