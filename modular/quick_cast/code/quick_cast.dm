@@ -3,12 +3,16 @@
 	if(hidden){\
 		return ..();\
 	}\
-	if(owner.get_ability_mouse_key() != XENO_ABILITY_CLICK_INSTANT){\
+	var/client/client = owner.client;\
+	if(!client.prefs.quick_cast){\
 		return ..();\
 	}\
-	var/atom/target = owner.client.hovered_over;\
+	var/atom/target = client.hovered_over;\
 	if(!target){\
 		return;\
+	}\
+	if(istype(target, /atom/movable/screen/action_button)){\
+		return ..();\
 	}\
 	if(istype(target, /atom/movable/screen)){\
 		return;\
@@ -18,7 +22,7 @@
 	}\else{\
 		. = ..();\
 	}\
-	use_ability(target);\
+	use_ability(target, params2list(client.last_hover_over_params));\
 }
 
 QUICK_CAST_OVERRIDE(/xeno_action/activable)
