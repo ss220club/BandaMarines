@@ -1,0 +1,6 @@
+#include "_vehicles.dm"
+
+#include "code/vehicle.dm"
+
+#include "code/motorbike/motorbike.dm"
+#include "code/stroller/stroller.dm"
