@@ -31,10 +31,12 @@
 // ==========================================
 // ============ Коннект с байком ============
 
-/obj/structure/bed/chair/stroller/New(loc)
+/obj/structure/bed/chair/stroller/New(loc, skin)
 	. = ..()
 	if(isobj(loc))
 		connected = loc
+	if(skin)
+		icon_skin = skin
 	if(connected)
 		connect()
 	else

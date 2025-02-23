@@ -17,7 +17,7 @@
 
 /obj/vehicle/motorbike/Initialize()
 	. = ..()
-	stroller = new(src)
+	stroller = new(src, skin)
 	update_stroller(TRUE)
 	update_overlay()
 
