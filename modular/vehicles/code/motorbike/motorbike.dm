@@ -49,7 +49,7 @@
 			stroller.disconnect()
 			stroller = null
 		else
-			if(!try_connect())
+			if(!try_connect(user))
 				return ..()
 		to_chat(user, SPAN_NOTICE("Вы [anchored ? "присоединили" : "отсоединили"] коляску."))
 		return TRUE
@@ -64,7 +64,7 @@
 	return TRUE
 
 // Ищем и выдаем нужный объект для коннекта
-/obj/vehicle/motorbike/proc/get_before_connect()
+/obj/vehicle/motorbike/proc/get_before_connect(mob/user)
 	for(var/obj/structure/bed/chair/stroller/S in range(1))
 		if(S.health <= S.maxhealth)
 			to_chat(user, SPAN_DANGER("[S] повреждена и требует ремонта."))
