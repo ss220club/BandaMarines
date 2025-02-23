@@ -16,6 +16,7 @@ import {
 import { Window } from 'tgui/layouts';
 
 import { JobsRu } from '../BandaMarines/MarineJobs';
+import { CastesRu } from '../BandaMarines/XenoCastes';
 import {
   getDisplayName,
   getHealthColor,
@@ -154,13 +155,13 @@ const xenoSplitter = (members: Array<Observable>) => {
     }
   });
   const squads = [
-    buildSquadObservable('Thunderdome', 'xeno', tdomeHive),
-    buildSquadObservable('Prime', 'xeno', primeHive),
-    buildSquadObservable('Corrupted', 'green', corruptedHive),
-    buildSquadObservable('Forsaken', 'grey', forsakenHive),
-    buildSquadObservable('Mutated', 'pink', mutatedHive),
-    buildSquadObservable('Other', 'light-grey', otherHives),
-    buildSquadObservable('Yautja', 'green', yautjaHive),
+    buildSquadObservable(CastesRu('Thunderdome'), 'xeno', tdomeHive),
+    buildSquadObservable(CastesRu('Prime'), 'xeno', primeHive),
+    buildSquadObservable(CastesRu('Corrupted'), 'green', corruptedHive),
+    buildSquadObservable(CastesRu('Forsaken'), 'grey', forsakenHive),
+    buildSquadObservable(CastesRu('Mutated'), 'pink', mutatedHive),
+    buildSquadObservable(CastesRu('Other'), 'light-grey', otherHives),
+    buildSquadObservable(CastesRu('Yautja'), 'green', yautjaHive),
   ];
   return squads;
 };
@@ -323,7 +324,7 @@ const uppSplitter = (members: Array<Observable>) => {
     buildSquadObservable(JobsRu('Chayka'), 'purple', chaykaSquad),
     buildSquadObservable(JobsRu('Delfin'), 'blue', delfinSquad),
     buildSquadObservable(JobsRu('UPPKdo'), 'red', UPPKdoSquad),
-    buildSquadObservable('Other', 'grey', other),
+    buildSquadObservable(JobsRu('Other'), 'grey', other),
   ];
   return squads;
 };

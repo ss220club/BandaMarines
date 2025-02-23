@@ -24,6 +24,8 @@ const JOBS_RU = {
   Chayka: 'Чайка',
   Delfin: 'Дельфин',
   UPPKdo: 'СПНКом',
+  Corporate: 'Корпораты',
+  Other: 'Другое',
   // MARK: Factions
   Marines: 'Морпехи',
   Humans: 'Люди',
@@ -58,6 +60,7 @@ const JOBS_RU = {
   'Weapons Specialist': 'Оружейный Специалист',
   'Fireteam Leader': 'Командир Боевой Группы',
   Smartgunner: 'Смартганнер',
+  // Survivors
   Colonist: 'Колонист',
   Passenger: 'Пассажир',
   Survivor: 'Выживший',
@@ -65,8 +68,6 @@ const JOBS_RU = {
   'CO Survivor': 'Выживший КО',
   'Any Survivor': 'Любой Выживший',
   'Civilian Survivor': 'Выживший Гражданский',
-
-  // Additional roles from input_ru.txt
   'Security Survivor': 'Выживший Безопасник',
   'Scientist Survivor': 'Выживший Ученый',
   'Medical Survivor': 'Выживший Медик',
