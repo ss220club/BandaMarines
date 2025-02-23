@@ -13,6 +13,12 @@
 /obj/effect/vehicle_spawner/apc_cmd
 	category = "APC"
 
+/area/interior/vehicle/apc/med/Initialize(mapload, ...)
+	. = ..()
+
+	for(var/turf/open/turf in src)
+		turf.supports_surgery = TRUE
+
 /obj/structure/machinery/cm_vending/gear/vehicle_crew/populate_products(datum/source, obj/effect/vehicle_spawner/spawner)
 	selected_vehicle = spawner.category
 	if(selected_vehicle == "APC")
