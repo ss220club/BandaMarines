@@ -14,23 +14,8 @@
 	var/layer_west = LYING_BETWEEN_MOB_LAYER
 	var/layer_above = ABOVE_MOB_LAYER
 
-/obj/structure/bed/chair/stroller/buckle_mob(mob/living/carbon/human/mob, mob/user)
-	if (mob.mob_size == MOB_SIZE_XENO && (mob.a_intent == INTENT_GRAB || mob.stat == DEAD))	// Мы можем посадить небольшого ксеноса, если он будет помогать лапками в граб интенте. Как на кровати.
-	else if (mob.mob_size == MOB_SIZE_XENO_SMALL &&  (mob.a_intent == INTENT_HELP || mob.a_intent == INTENT_GRAB || mob.stat == DEAD))	// мы сможем украсть руню или ящерку, если они не особо сопротивляться будут
-	else if (mob.mob_size <= MOB_SIZE_XENO_VERY_SMALL)	// Lesser Drones, Люди
-		do_buckle(mob, user)
-		if(mob.loc == src.loc && buckling_sound && mob.buckled)
-			playsound(src, buckling_sound, 20)
-		return TRUE
-	. = ..()
-
-/obj/structure/bed/chair/stroller/do_buckle(mob/living/target, mob/user)
-	if(..())
-		update_buckle_mob()
-
-/obj/structure/bed/chair/stroller/unbuckle()
-	reload_buckle_mob()
-	. = ..()
+// ==========================================
+// ================ Движение  ===============
 
 /obj/structure/bed/chair/stroller/proc/update_position(atom/target = null, force_update = FALSE)
 	forceMove(get_turf(target))	// Тащим привязанного моба с нами
@@ -68,6 +53,27 @@
 	else
 		buckled_mob.layer = initial(buckled_mob.layer)
 
+// ==========================================
+// =============== Усаживание ===============
+
+/obj/structure/bed/chair/stroller/buckle_mob(mob/living/carbon/human/mob, mob/user)
+	if (mob.mob_size == MOB_SIZE_XENO && (mob.a_intent == INTENT_GRAB || mob.stat == DEAD))	// Мы можем посадить небольшого ксеноса, если он будет помогать лапками в граб интенте. Как на кровати.
+	else if (mob.mob_size == MOB_SIZE_XENO_SMALL &&  (mob.a_intent == INTENT_HELP || mob.a_intent == INTENT_GRAB || mob.stat == DEAD))	// мы сможем украсть руню или ящерку, если они не особо сопротивляться будут
+	else if (mob.mob_size <= MOB_SIZE_XENO_VERY_SMALL)	// Lesser Drones, Люди
+		do_buckle(mob, user)
+		if(mob.loc == src.loc && buckling_sound && mob.buckled)
+			playsound(src, buckling_sound, 20)
+		return TRUE
+	. = ..()
+
+/obj/structure/bed/chair/stroller/do_buckle(mob/living/target, mob/user)
+	if(..())
+		update_buckle_mob()
+
+/obj/structure/bed/chair/stroller/unbuckle()
+	reload_buckle_mob()
+	. = ..()
+
 /obj/structure/bed/chair/stroller/proc/reload_buckle_mob()
 	if(!buckled_mob)
 		return
@@ -76,6 +82,9 @@
 	buckled_mob.density = initial(buckled_mob.density)
 	buckled_mob.layer = initial(buckled_mob.layer)
 	buckled_mob.update_layer()	// Обновляем, если с персонажем "что-то случилось"
+
+// ==========================================
+// ================ Коллизия ================
 
 /obj/structure/bed/chair/stroller/BlockedPassDirs(atom/movable/mover, target_dir)
 	if(connected)	// Не колизируем больше ни с чем, если приконектились
@@ -86,3 +95,5 @@
 	if(connected)
 		return NO_BLOCKED_MOVEMENT
 	return ..()
+
+// ==========================================

@@ -5,3 +5,4 @@
 #include "code/motorbike/motorbike.dm"
 #include "code/stroller/stroller.dm"
 #include "code/stroller/stroller_movement.dm"
+#include "code/motorbike/motorbike_skins.dm"

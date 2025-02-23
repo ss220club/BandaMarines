@@ -1,4 +1,4 @@
-// стул на колесиках
+// стул на колесиках, по другому "сайдкар"
 /obj/structure/bed/chair/stroller
 	name = "Коляска"
 	icon = 'modular/vehicles/icons/moto48x48.dmi'
@@ -9,10 +9,11 @@
 	density = FALSE	// При коннекте - У нас уже есть колизия с мотоциклом
 	anchored = TRUE	// При коннекте - Нехай трогать и перемещать
 	health = 800 // Тележка прочнее мотоцикла. Увы, но это просто кусок металла.
-	maxhealth = 800
+	var/maxhealth = 800
 	can_buckle = TRUE
 
 	var/obj/connected
+	var/destroyed = FALSE
 
 /obj/structure/bed/chair/stroller/Initialize()
 	. = ..()
@@ -27,6 +28,9 @@
 	var/image/I = new(icon = 'modular/vehicles/icons/moto48x48.dmi', icon_state = "[icon_state]-overlay", layer = layer_above) //over mobs
 	overlays += I
 
+// ==========================================
+// ============ Коннект с байком ============
+
 /obj/structure/bed/chair/stroller/New(loc)
 	. = ..()
 	if(isobj(loc))
@@ -36,22 +40,16 @@
 	else
 		disconnect()
 
-/obj/structure/machinery/faxmachine/attackby(obj/item/O as obj, mob/user as mob)
-	if(HAS_TRAIT(O, TRAIT_TOOL_WRENCH))
-		playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
-		if(connected)
-			disconnect()
-		else
-			connect()
-		to_chat(user, SPAN_NOTICE("Вы [anchored ? "присоединили" : "отсоединили"] коляску."))
-	. = ..()
-
 /obj/structure/bed/chair/stroller/proc/connect()
 	density = initial(density)
 	anchored = initial(anchored)
 	drag_delay = FALSE
+	//connected - выставляется через привязь в motorbike
 
 /obj/structure/bed/chair/stroller/proc/disconnect()
 	density = !density
 	anchored = !anchored
 	drag_delay = initial(drag_delay)
+	connected = null
+
+// ==========================================
