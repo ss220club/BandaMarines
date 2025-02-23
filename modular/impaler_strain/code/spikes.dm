@@ -1,5 +1,4 @@
 /obj/effect/xenomorph/ground_spike
-	name = "???"
 	desc = ""
 	icon = 'modular/impaler_strain/icons/effects.dmi'
 	icon_state = "ground_spike"
