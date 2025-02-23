@@ -14,7 +14,7 @@
 /mob/living/carbon/xenomorph/burrower/ex_act(severity)
 	if(HAS_TRAIT(src, TRAIT_ABILITY_BURROWED) && !istype(strain, /datum/xeno_strain/impaler))
 		return
-	else if(HAS_TRAIT(src, TRAIT_ABILITY_BURROWED))
+	if(HAS_TRAIT(src, TRAIT_ABILITY_BURROWED))
 		var/powerfactor_value = round(severity * 0.05, 1)
 		powerfactor_value = min(powerfactor_value,20)
 		if(powerfactor_value > 0)
