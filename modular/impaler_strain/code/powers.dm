@@ -136,6 +136,7 @@
 	INVOKE_ASYNC(src, PROC_REF(handle_damage), xeno, target, damage)
 	if(reinforced_modified)
 		recursive_spread(target, reinforced_spread_range, reinforced_spread_range, damage, target)
+		addtimer(CALLBACK(src, GLOBAL_PROC_REF(playsound), xeno.loc, 'modular/impaler_strain/sound/burrower_attack.ogg', 25), windup_delay)
 
 	apply_cooldown()
 	return ..()
@@ -179,7 +180,6 @@
 	if(turf != original_turf)
 		addtimer(CALLBACK(src, PROC_REF(warning_circle), turf, owner), ((windup_delay/2)*(orig_depth - dist_left)))
 		addtimer(CALLBACK(src, PROC_REF(handle_damage), owner, turf, (damage - reinforced_damage_bonus), TRUE), (((windup_delay/2)*(orig_depth - dist_left))+5))
-		addtimer(CALLBACK(src, GLOBAL_PROC_REF(playsound), turf, 'modular/impaler_strain/sound/burrower_attack1.ogg', 20), ((windup_delay)*(orig_depth - dist_left)))
 
 	for(var/dirn in GLOB.alldirs)
 		recursive_spread(get_step(turf, dirn), dist_left - 1, orig_depth, damage)
@@ -263,8 +263,8 @@
 		button.icon_state = "template_active"
 		to_chat(xeno, SPAN_XENOWARNING("You dig in halfway into the weeds."))
 		playsound(turf, 'modular/impaler_strain/sound/burrowing_s.ogg', 25)
-		xeno.armor_deflection_buff += 25
-		xeno.armor_explosive_buff += 50
+		xeno.armor_deflection_buff += armor_deflection_buff
+		xeno.armor_explosive_buff += armor_explosive_buff
 		xeno.add_traits(list(TRAIT_UNDENSE, TRAIT_IMMOBILIZED), TRAIT_SOURCE_ABILITY("Ensconce"))
 		xeno.anchored = TRUE
 		xeno.small_explosives_stun = FALSE

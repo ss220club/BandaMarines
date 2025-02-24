@@ -34,11 +34,11 @@
 /datum/behavior_delegate/burrower_impaler/on_update_icons()
 	if(bound_xeno.stat == DEAD)
 		return
-/*
-	if(HAS_TRAIT(src, TRAIT_ABILITY_BURROWED))
+
+	if(HAS_TRAIT(bound_xeno, TRAIT_ABILITY_BURROWED))
 		bound_xeno.icon_state = "Impaler Burrower Burrowed"
 		return TRUE
-*/
+
 	if(bound_xeno.fortify)
 		bound_xeno.icon_state = "Impaler Burrower Fortify"
 		return TRUE

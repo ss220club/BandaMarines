@@ -67,3 +67,6 @@
 	/// Ability stats config
 	var/windup_delay = 1 SECONDS
 	var/reinforced_vision_range = 10
+
+	var/armor_deflection_buff = 25
+	var/armor_explosive_buff = 50
