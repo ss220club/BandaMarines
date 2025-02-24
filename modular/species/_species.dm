@@ -1,4 +1,4 @@
 /datum/modpack/species
-	name = "Новые расы"
-	desc = "Добавляем новые расы"
-	author = "Legendaxe"
+	name = "Species modpack"
+	desc = "New roundstart races"
+	author = "nlaysi"
