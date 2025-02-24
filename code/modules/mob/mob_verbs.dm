@@ -111,14 +111,16 @@
 		is_admin = 1
 
 	if (!CONFIG_GET(flag/respawn) && !is_admin)
-		to_chat(usr, SPAN_NOTICE(" Respawn is disabled."))
+		to_chat(usr, SPAN_NOTICE("Возврат в лобби отключен."))
 		return
 	if (stat != 2)
-		to_chat(usr, SPAN_NOTICE(" <B>You must be dead to use this!</B>"))
+		to_chat(usr, SPAN_NOTICE("<B>Вы должны быть мертвы!</B>"))
 		return
 	if (SSticker.mode && (SSticker.mode.name == "meteor" || SSticker.mode.name == "epidemic")) //BS12 EDIT
-		to_chat(usr, SPAN_NOTICE(" Respawn is disabled for this roundtype."))
+		to_chat(usr, SPAN_NOTICE("Возврат в лобби отключен для данного режима."))
 		return
+	//BANDASTATION EDIT START - Respawn
+	/*
 	else
 		var/deathtime = world.time - src.timeofdeath
 		var/deathtimeminutes = floor(deathtime / 600)
@@ -131,13 +133,21 @@
 			pluralcheck = " [deathtimeminutes] minutes and"
 		var/deathtimeseconds = round((deathtime - deathtimeminutes * 600) / 10,1)
 		to_chat(usr, "You have been dead for[pluralcheck] [deathtimeseconds] seconds.")
+	*/
+	var/death_time = world.time - timeofdeath
+	var/respawn_time = CONFIG_GET(number/respawn_time)
+	var/remaining_time = respawn_time - death_time
+	if(!is_admin && death_time < respawn_time)
+		to_chat(usr, SPAN_NOTICE("Вы должны быть мертвы [DisplayTimeText(respawn_time)], чтобы вернуться в лобби. Осталось: [DisplayTimeText(remaining_time)]"))
+		return
+	//BANDASTATION EDIT END - Respawn
 
-	if(alert("Are you sure you want to respawn?",,"Yes","No") != "Yes")
+	if(tgui_alert(usr, "Вы уверены, что хотите вернуться в лобби?", "Возврат в лобби", list("Да","Нет")) != "Да")
 		return
 
 	log_game("[usr.name]/[usr.key] used abandon mob.")
 
-	to_chat(usr, SPAN_NOTICE(" <B>Make sure to play a different character, and please roleplay correctly!</B>"))
+	to_chat(usr, SPAN_NOTICE("<B>Выберите нового персонажа, или ваше имя и внешность будут выбраны случайно!</B>"))
 
 	if(!client)
 		log_game("[usr.key] AM failed due to disconnect.")
@@ -245,3 +255,23 @@
 				//so we must undo it here so the victim can move right away
 				M.client.next_movement = world.time
 			M.update_transform(TRUE)
+
+/mob/living/verb/look_up()
+	set name = "Look Up"
+	set category = "IC"
+
+	if(observed_atom)
+		var/atom/to_delete = observed_atom
+		observed_atom = null
+		qdel(to_delete)
+		return
+
+	var/turf/above = locate(x, y, z+1)
+
+	if(!istype(above, /turf/open_space))
+		to_chat(src, SPAN_WARNING("You cannot look up here."))
+		return
+
+	var/mob/hologram/look_up/observed_hologram = new(above, src)
+
+	observed_atom = observed_hologram

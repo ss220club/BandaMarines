@@ -508,7 +508,8 @@
 		WEAR_HANDS = /obj/item/clothing/gloves/marine/veteran,
 		WEAR_R_HAND = /obj/item/storage/pouch/flare/full,
 		WEAR_FEET = /obj/item/clothing/shoes/marine/upp/knife,
-		WEAR_L_HAND = /obj/item/storage/large_holster/katana/full
+		WEAR_L_HAND = /obj/item/storage/large_holster/katana/full,
+		WEAR_ACCESSORY = /obj/item/clothing/accessory/patch/freelancer_patch
 	)
 
 /datum/equipment_preset/synth/survivor/surveyor_synth
@@ -793,6 +794,8 @@
 	new_human.r_facial = 255
 	new_human.g_facial = 255
 	new_human.b_facial = 255
+
+	new_human.remove_tts_component() // BANDAMARINES ADD
 
 /datum/equipment_preset/synth/working_joe/load_vanity(mob/living/carbon/human/new_human)
 	return

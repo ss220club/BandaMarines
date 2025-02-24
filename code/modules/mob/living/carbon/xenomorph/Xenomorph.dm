@@ -89,8 +89,6 @@
 	melee_damage_upper = 10
 	var/melee_vehicle_damage = 10
 	var/claw_type = CLAW_TYPE_NORMAL
-	var/burn_damage_lower = 0
-	var/burn_damage_upper = 0
 	var/plasma_stored = 10
 	var/plasma_max = 10
 	var/plasma_gain = 5
@@ -174,7 +172,7 @@
 
 	/// List of actions (typepaths) that a
 	/// xenomorph type is given upon spawn
-	var/base_actions
+	var/list/base_actions = list() // BANDASTATION EDIT - Bump Attacks. it's a list!
 
 	/// this is the resin mark that is currently being tracked by the xeno
 	var/obj/effect/alien/resin/marker/tracked_marker
@@ -1133,3 +1131,12 @@
 	if(new_player.mind)
 		new_player.mind_initialize()
 		new_player.mind.transfer_to(target, TRUE)
+
+/mob/living/carbon/xenomorph/onZImpact(turf/impact_turf, height)
+	if(mob_size >= MOB_SIZE_BIG)
+		KnockDown(height * 5)
+		Stun(height * 5)
+
+		var/total_damage = (60 * height) ** 1.3
+		apply_damage(total_damage / 2, BRUTE)
+		playsound(impact_turf.loc, "slam", 50, 1)
