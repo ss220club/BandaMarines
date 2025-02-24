@@ -44,7 +44,7 @@
 /obj/structure/bed/chair/stroller/proc/update_buckle_mob()
 	if(!buckled_mob)
 		return
-	buckled_mob.pixel_x = pixel_x - initial(pixel_x)
+	buckled_mob.pixel_x = pixel_x - initial(pixel_x) - 1
 	buckled_mob.pixel_y = pixel_y - initial(pixel_y) + buckling_y
 	buckled_mob.setDir(dir)
 	buckled_mob.density = FALSE

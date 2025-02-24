@@ -5,6 +5,9 @@
 /obj/vehicle/motorbike/desert
 	icon_skin = "desert"
 
+	health = 100
+	maxhealth = 1000
+
 /obj/structure/bed/chair/stroller/desert
 	icon_skin = "desert"
 
