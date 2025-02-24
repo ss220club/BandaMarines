@@ -278,8 +278,8 @@
 		button.icon_state = "template"
 		to_chat(xeno, SPAN_XENOWARNING("You resume your normal stance."))
 		playsound(turf, 'sound/effects/burrowoff.ogg', 25)
-		xeno.armor_deflection_buff -= 25
-		xeno.armor_explosive_buff -= 50
+		xeno.armor_deflection_buff -= armor_deflection_buff
+		xeno.armor_explosive_buff -= armor_explosive_buff
 		xeno.remove_traits(list(TRAIT_UNDENSE, TRAIT_IMMOBILIZED), TRAIT_SOURCE_ABILITY("Ensconce"))
 		xeno.anchored = FALSE
 		xeno.small_explosives_stun = TRUE

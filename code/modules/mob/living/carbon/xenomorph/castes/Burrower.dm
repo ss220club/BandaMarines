@@ -172,7 +172,7 @@
 		addtimer(CALLBACK(src, PROC_REF(do_burrow_cooldown)), (caste ? caste.burrow_cooldown : 5 SECONDS))
 		process_burrow_impaler()
 		return
-
+		// BANDAMARINES EDIT END
 	to_chat(src, SPAN_XENOWARNING("We begin burrowing ourselves into the ground."))
 	if(!do_after(src, 1.5 SECONDS, INTERRUPT_ALL, BUSY_ICON_HOSTILE))
 		addtimer(CALLBACK(src, PROC_REF(do_burrow_cooldown)), (caste ? caste.burrow_cooldown : 5 SECONDS))
@@ -194,7 +194,6 @@
 	addtimer(CALLBACK(src, PROC_REF(do_burrow_cooldown)), (caste ? caste.burrow_cooldown : 5 SECONDS))
 	burrow_timer = world.time + 90 // How long we can be burrowed
 	process_burrow()
-	// BANDAMARINES EDIT END
 
 /mob/living/carbon/xenomorph/proc/process_burrow()
 	if(!HAS_TRAIT(src, TRAIT_ABILITY_BURROWED))
