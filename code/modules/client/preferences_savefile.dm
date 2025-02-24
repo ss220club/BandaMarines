@@ -761,45 +761,6 @@
 	// SS220 EDIT - TTS
 	if(SStts220.is_enabled)
 		S["tts_seed"] >> tts_seed
-
-	// SS220 EDIT - SPECIES
-	S["species"] >> species
-	if(isnull(species))
-		species = "Human"
-
-	S["r_fur"] >> r_fur
-	S["g_fur"] >> g_fur
-	S["b_fur"] >> b_fur
-
-	r_fur = sanitize_integer(r_fur, 0, 255, initial(r_fur))
-	g_fur = sanitize_integer(g_fur, 0, 255, initial(g_fur))
-	b_fur = sanitize_integer(b_fur, 0, 255, initial(b_fur))
-
-	S["vulpkanin_body_markings"] >> vulpkanin_body_markings
-	if(isnull(vulpkanin_body_markings))
-		vulpkanin_body_markings = "None"
-	S["vulpkanin_head_accessory"] >> vulpkanin_head_accessory
-	if(isnull(vulpkanin_head_accessory))
-		vulpkanin_head_accessory = "None"
-	S["vulpkanin_head_marking"] >> vulpkanin_head_marking
-	if(isnull(vulpkanin_head_marking))
-		vulpkanin_head_marking = "None"
-	S["vulpkanin_facial_hair"] >> vulpkanin_facial_hair
-	if(isnull(vulpkanin_facial_hair))
-		vulpkanin_facial_hair = "None"
-
-	S["vulpkanin_body_markings_color"] >> vulpkanin_body_markings_color
-	if(isnull(vulpkanin_body_markings_color))
-		vulpkanin_body_markings_color = COLOR_WHITE
-	S["vulpkanin_head_accessory_color"] >> vulpkanin_head_accessory_color
-	if(isnull(vulpkanin_head_accessory_color))
-		vulpkanin_head_accessory_color = COLOR_WHITE
-	S["vulpkanin_head_marking_color"] >> vulpkanin_head_marking_color
-	if(isnull(vulpkanin_head_marking_color))
-		vulpkanin_head_marking_color = COLOR_WHITE
-	S["vulpkanin_facial_hair_color"] >> vulpkanin_facial_hair_color
-	if(isnull(vulpkanin_facial_hair_color))
-		vulpkanin_facial_hair_color = COLOR_WHITE
 	// =================================
 
 	return 1
@@ -888,22 +849,6 @@
 	// SS220 EDIT - TTS
 	if(SStts220.is_enabled)
 		S["tts_seed"] << tts_seed
-
-	// SS220 EDIT - SPECIES
-	S["species"] << species
-
-	S["r_fur"] << r_fur
-	S["g_fur"] << g_fur
-	S["b_fur"] << b_fur
-
-	S["vulpkanin_body_markings"] << vulpkanin_body_markings
-	S["vulpkanin_head_accessory"] << vulpkanin_head_accessory
-	S["vulpkanin_head_marking"] << vulpkanin_head_marking
-	S["vulpkanin_facial_hair"] << vulpkanin_facial_hair
-	S["vulpkanin_body_markings_color"] << vulpkanin_body_markings_color
-	S["vulpkanin_head_accessory_color"] << vulpkanin_head_accessory_color
-	S["vulpkanin_head_marking_color"] << vulpkanin_head_marking_color
-	S["vulpkanin_facial_hair_color"] << vulpkanin_facial_hair_color
 	// =================================
 
 	return 1

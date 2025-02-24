@@ -715,23 +715,13 @@ Applied by gun suicide and high impact bullet executions, removed by rejuvenate,
 
 
 /mob/living/carbon/human/proc/update_tail_showing()
-	remove_overlay(BODYPARTS_BACK_LAYER)
 	remove_overlay(TAIL_LAYER)
 
 	var/species_tail = species.get_tail(src)
 
 	if(species_tail && !(wear_suit && wear_suit.flags_inv_hide & HIDETAIL))
 		var/icon/tail_s = get_tail_icon()
-
-		var/icon_name = "[species_tail]_[tail_wagging ? "w" : "s"]"
-
-		overlays_standing[BODYPARTS_BACK_LAYER] = image(tail_s, icon_state = icon_name, "layer" = -BODYPARTS_BACK_LAYER)
-		overlays_standing[TAIL_LAYER] = image(tail_s, icon_state = "[icon_name]_f", "layer" = -TAIL_LAYER)
-		if(species.draw_grayscale)
-			overlays_standing[BODYPARTS_BACK_LAYER].color = draw_color
-			overlays_standing[TAIL_LAYER].color = draw_color
-
-		apply_overlay(BODYPARTS_BACK_LAYER)
+		overlays_standing[TAIL_LAYER] = image(tail_s, icon_state = "[species_tail]_s", "layer" = -TAIL_LAYER)
 		apply_overlay(TAIL_LAYER)
 
 

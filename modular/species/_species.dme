@@ -1,7 +1,3 @@
-#include "code/species.dm"
+#include "_species.dm"
+
 #include "code/vulpkanin.dm"
-#include "code/organs/vulpkanin_organs.dm"
-#include "code/vulpkanin_hair.dm"
-#include "code/emote.dm"
-#include "code/vulpkanin/markings.dm"
-//#include "code/vulpkanin/head_markings_picker.dm"

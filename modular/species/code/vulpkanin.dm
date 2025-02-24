@@ -1,22 +1,23 @@
-/datum/species/vulpkanin
-	name = "Vulpkanin"
-	name_plural = "Vulpkanin"
-	icobase = 'modular/species/icons/body.dmi'
-	draw_grayscale = TRUE
-	// primitive_form = /datum/species/monkey/vulpkanin
-	tail = "vulptail"
-	unarmed_type = /datum/unarmed_attack/claws
-	flesh_color = "#966464"
-	base_color = "#CF4D2F"
+/*
+**«Гений в свитере с оленями»**
 
-	has_organ = list(
-		"heart" =    /datum/internal_organ/heart/vulpkanin,
-		"lungs" =    /datum/internal_organ/lungs/vulpkanin,
-		"liver" =    /datum/internal_organ/liver/vulpkanin,
-		"kidneys" =  /datum/internal_organ/kidneys/vulpkanin,
-		"brain" =    /datum/internal_organ/brain/vulpkanin,
-		"eyes" =     /datum/internal_organ/eyes/vulpkanin /*Most Vulpkanin see in full colour as a result of genetic augmentation, although it cost them their darksight (darksight = 2)												unless they choose otherwise by selecting the colourblind disability in character creation (darksight = 8 but colourblind).*/
-		)
+Галерея современного искусства «Арт-Вакуум» встретила посетителей тишиной, запахом латте и инсталляцией из старых клавиатур, подвешенных к потолку. В центре зала стоял Максимилиан фон Штольц — критик, чей острый язык, как поговаривали, был заточен в том же цеху, где ковали его диплом по кинологии. Он щурился на абстрактную композицию: красный квадрат с белой стрелкой в центре.
 
-/mob/living/carbon/human/vulpkanin/Initialize(mapload)
-	. = ..(mapload, new_species = "Vulpkanin")
+— Поразительная банальность! — провозгласил он, поправляя очки в золотой оправе. — Очевидно, автор иронизирует над консьюмеризмом, используя язык дорожных знаков. Это пародия на общество, где даже искусство стало инструкцией!
+
+Зрители закивали. Одна студентка даже достала блокнот. Штольц, окрыленный, продолжил:
+
+— Красный — цвет агрессии, стрелка — символ слепого следования. Но где глубина? Где провокация? Это даже Пикассо не спас бы, если бы он, конечно, рисовал пальцем левой ноги…
+
+Тут к нему подошла куратор выставки, женщина в очках толщиной с иллюминатор.
+
+— Это пожарный указатель, — мягко сказала она. — Его повесили вчера, потому что посетители постоянно теряли выход.
+
+Тишина повисла гуще, чем запах латте. Штольц покраснел, как квадрат на стене, но через секунду уже фыркнул:
+
+— Типично! Современные «творцы» прячутся за утилитарностью, потому что боятся настоящей критики!
+
+Публика засмеялась, но через пять минут его цитаты уже гуляли в сторис под хештегом #ИскусствоИлиПожарныйВыход. А указатель тем временем скромно делал свое дело — указывал путь тем, кто действительно хотел выбраться из лабиринта претенциозности.
+
+Мораль? Иногда красная стрелка — это просто стрелка. А единственное, что стоит критиковать, не вникая в суть, — инструкцию к микроволновке. Но даже там есть риск обнаружить метафору.
+*/

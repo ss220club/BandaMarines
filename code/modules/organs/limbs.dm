@@ -763,18 +763,7 @@ This function completely restores a damaged organ to perfect condition.
 	limb.icon = species.icobase
 	limb.icon_state = "[get_limb_icon_name(species, body_size, body_type, limb_gender, icon_name, skin_color)]"
 
-	// SS220 EDIT - SPECIES --------------------------------------------
-	if(species.draw_grayscale == TRUE && owner.draw_color)
-		limb.color = owner.draw_color
-
 	. += limb
-
-	if(species.draw_grayscale == TRUE && owner.draw_color && owner.vulpkanin_body_markings && owner.vulpkanin_body_markings != "None")
-		var/state = "[GLOB.vulpkanin_body_markings_list[owner.vulpkanin_body_markings].icon_state]_[limb.icon_state]"
-		var/image/marking = image('modular/species/icons/vulpkanin/body_markings.dmi', state, layer = -BODYPARTS_FRONT_LAYER)
-		marking.color = owner.vulpkanin_body_markings_color
-		. += marking
-	//------------------------------------------------------------------
 
 	return
 
@@ -1490,21 +1479,6 @@ treat_grafted var tells it to apply to grafted but unsalved wounds, for burn kit
 	if(lip_style && (species && species.flags & HAS_LIPS))
 		var/image/lips = image('icons/mob/humans/onmob/human_face.dmi', "paint_[lip_style]", layer = -BODYPARTS_LAYER)
 		. += lips
-
-	if(species.draw_grayscale == TRUE && owner.draw_color && owner.vulpkanin_head_accessory && owner.vulpkanin_head_accessory != "None")
-		var/image/marking = image('modular/species/icons/facial_hair.dmi', GLOB.vulpkanin_head_accessories_list[owner.vulpkanin_head_accessory].icon_state, layer = -BODYPARTS_LAYER)
-		marking.color = owner.vulpkanin_head_accessory_color
-		. += marking
-
-	if(species.draw_grayscale == TRUE && owner.draw_color && owner.vulpkanin_head_marking && owner.vulpkanin_head_marking != "None")
-		var/image/marking = image('modular/species/icons/head_markings.dmi', GLOB.vulpkanin_head_markings_list[owner.vulpkanin_head_marking].icon_state, layer = -BODYPARTS_LAYER)
-		marking.color = owner.vulpkanin_head_marking_color
-		. += marking
-
-	if(species.draw_grayscale == TRUE && owner.draw_color && owner.vulpkanin_facial_hair && owner.vulpkanin_facial_hair != "None")
-		var/image/marking = image('modular/species/icons/facial_hair.dmi', GLOB.vulpkanin_facial_hair_list[owner.vulpkanin_facial_hair].icon_state, layer = -BODYPARTS_LAYER)
-		marking.color = owner.vulpkanin_facial_hair_color
-		. += marking
 
 /obj/limb/head/get_limb_icon_key()
 	. = ..()
