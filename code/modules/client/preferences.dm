@@ -288,6 +288,19 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	/// If this client has auto observe enabled, used by /datum/orbit_menu
 	var/auto_observe = TRUE
 
+	var/r_fur = 128 //Skin color
+	var/g_fur = 128 //Skin color
+	var/b_fur = 128 //Skin color
+
+	var/vulpkanin_body_markings = "None"
+	var/vulpkanin_head_accessory = "None"
+	var/vulpkanin_head_marking = "None"
+	var/vulpkanin_facial_hair = "None"
+	var/vulpkanin_body_markings_color = COLOR_WHITE
+	var/vulpkanin_head_accessory_color = COLOR_WHITE
+	var/vulpkanin_head_marking_color = COLOR_WHITE
+	var/vulpkanin_facial_hair_color = COLOR_WHITE
+
 /datum/preferences/New(client/C)
 	key_bindings = deep_copy_list(GLOB.hotkey_keybinding_list_by_key) // give them default keybinds and update their movement keys
 	macros = new(C, src)
@@ -391,7 +404,31 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 				dat += "<b>Body Muscularity:</b> [body_type]<br>"
 				dat += "<b>Edit Body:</b> <a href='byond://?_src_=prefs;preference=body;task=input'><b>Picker</b></a><br><br>"
 			if(species == "Vulpkanin")
-				dat += "<b>Ururu:</b> [body_size]<br>"
+				dat += "<b>Цвет шерсти:</b> "
+				dat += "<a href='byond://?_src_=prefs;preference=fur_color;task=input'>"
+				dat += "<b>Color</b> <span class='square' style='background-color: #[num2hex(r_fur, 2)][num2hex(g_fur, 2)][num2hex(b_fur)];'></span>"
+				dat += "</a>"
+				dat += "<br><br>"
+
+				dat += "<b>Раскраска тела:</b><br><a href='byond://?_src_=prefs;preference=vulpkanin_body_markings;task=input'><b>[vulpkanin_body_markings]</b></a>"
+				dat += "<a href='byond://?_src_=prefs;preference=vulpkanin_body_markings_color;task=input'>"
+				dat += "<b>Цвет&nbsp;</b><span class='square' style='background-color: [vulpkanin_body_markings_color];'></span>"
+				dat += "</a><br>"
+
+				dat += "<b>Раскраска головы:</b><br><a href='byond://?_src_=prefs;preference=vulpkanin_head_accessories;task=input'><b>[vulpkanin_head_accessory]</b></a>"
+				dat += "<a href='byond://?_src_=prefs;preference=vulpkanin_head_accessory_color;task=input'>"
+				dat += "<b>Цвет&nbsp;</b><span class='square' style='background-color: [vulpkanin_head_accessory_color];'></span>"
+				dat += "</a><br>"
+
+				dat += "<b>Кастомизация головы:</b><br><a href='byond://?_src_=prefs;preference=vulpkanin_head_markings;task=input'><b>[vulpkanin_head_marking]</b></a>"
+				dat += "<a href='byond://?_src_=prefs;preference=vulpkanin_head_marking_color;task=input'>"
+				dat += "<b>Цвет&nbsp;</b><span class='square' style='background-color: [vulpkanin_head_marking_color];'></span>"
+				dat += "</a><br>"
+
+				dat += "<b>Волосы на лице:</b><br><a href='byond://?_src_=prefs;preference=vulpkanin_facial_hairs;task=input'><b>[vulpkanin_facial_hair]</b></a>"
+				dat += "<a href='byond://?_src_=prefs;preference=vulpkanin_facial_hair_color;task=input'>"
+				dat += "<b>Цвет&nbsp;</b><span class='square' style='background-color: [vulpkanin_facial_hair_color];'></span>"
+				dat += "</a><br>"
 
 			dat += "<b>Traits:</b> <a href='byond://?src=\ref[user];preference=traits'><b>Character Traits</b></a>"
 			dat += "<br>"
@@ -1354,6 +1391,70 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 						species = new_species
 						update_preview_icon()
 
+				if("fur_color")
+					var/fur_color = tgui_color_picker(user, "Выберете цвет шерсти:", "Character Preference", rgb(r_fur, g_fur, b_fur))
+					if(fur_color)
+						r_fur = hex2num(copytext(fur_color, 2, 4))
+						g_fur = hex2num(copytext(fur_color, 4, 6))
+						b_fur = hex2num(copytext(fur_color, 6, 8))
+						if(r_fur < 35)
+							r_fur = 35
+						if(g_fur < 35)
+							g_fur = 35
+						if(b_fur < 35)
+							b_fur = 35
+
+				if("vulpkanin_body_markings")
+					var/new_markings = input(user, "vulpkanin_body_markings:", "Раскраска тела") as null|anything in GLOB.vulpkanin_body_markings_list
+					if(!new_markings)
+						return
+					vulpkanin_body_markings = new_markings
+
+				if("vulpkanin_head_accessories")
+					var/new_markings = input(user, "vulpkanin_head_accessories:", "Раскраска головы") as null|anything in GLOB.vulpkanin_head_accessories_list
+					if(!new_markings)
+						return
+					vulpkanin_head_accessory = new_markings
+
+				if("vulpkanin_head_markings")
+					var/new_markings = input(user, "vulpkanin_head_markings:", "Раскраска головы") as null|anything in GLOB.vulpkanin_head_markings_list
+					if(!new_markings)
+						return
+					vulpkanin_head_marking = new_markings
+
+				if("vulpkanin_facial_hairs")
+					var/new_markings = input(user, "vulpkanin_facial_hair:", "Раскраска головы") as null|anything in GLOB.vulpkanin_facial_hair_list
+					if(!new_markings)
+						return
+					vulpkanin_facial_hair = new_markings
+
+//vulpkanin_body_markings_color
+
+				if("vulpkanin_body_markings_color")
+					var/new_vulpkanin_body_markings_color = tgui_color_picker(user, "Выберете цвет шерсти:", "Character Preference", vulpkanin_body_markings_color)
+					if(!new_vulpkanin_body_markings_color)
+						return
+					vulpkanin_body_markings_color = new_vulpkanin_body_markings_color
+
+
+				if("vulpkanin_head_accessory_color")
+					var/new_vulpkanin_head_accessory_color = tgui_color_picker(user, "Выберете цвет шерсти:", "Character Preference", vulpkanin_head_accessory_color)
+					if(!new_vulpkanin_head_accessory_color)
+						return
+					vulpkanin_head_accessory_color = new_vulpkanin_head_accessory_color
+
+				if("vulpkanin_head_marking_color")
+					var/new_vulpkanin_head_marking_color = tgui_color_picker(user, "Выберете цвет шерсти:", "Character Preference", vulpkanin_head_marking_color)
+					if(!new_vulpkanin_head_marking_color)
+						return
+					vulpkanin_head_marking_color = new_vulpkanin_head_marking_color
+
+				if("vulpkanin_facial_hair_color")
+					var/new_vulpkanin_facial_hair_color = tgui_color_picker(user, "Выберете цвет шерсти:", "Character Preference", vulpkanin_facial_hair_color)
+					if(!new_vulpkanin_facial_hair_color)
+						return
+					vulpkanin_facial_hair_color = new_vulpkanin_facial_hair_color
+
 				if("commander_status")
 					var/list/options = list("Normal" = WHITELIST_NORMAL)
 
@@ -2076,7 +2177,6 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	character.body_type = body_type
 	character.body_size = body_size
 	character.body_presentation = get_body_presentation()
-	character.set_species(species)
 
 	character.r_eyes = r_eyes
 	character.g_eyes = g_eyes
@@ -2111,6 +2211,17 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	character.origin = origin
 	character.personal_faction = faction
 	character.religion = religion
+
+	character.draw_color = rgb(r_fur, g_fur, b_fur)
+	character.vulpkanin_body_markings = vulpkanin_body_markings
+	character.vulpkanin_head_accessory = vulpkanin_head_accessory
+	character.vulpkanin_head_marking = vulpkanin_head_marking
+	character.vulpkanin_facial_hair = vulpkanin_facial_hair
+	character.vulpkanin_body_markings_color = vulpkanin_body_markings_color
+	character.vulpkanin_head_accessory_color = vulpkanin_head_accessory_color
+	character.vulpkanin_head_marking_color = vulpkanin_head_marking_color
+	character.vulpkanin_facial_hair_color = vulpkanin_facial_hair_color
+	character.set_species(species)
 
 	// Destroy/cyborgize organs
 
@@ -2159,7 +2270,6 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	character.body_type = body_type
 	character.body_size = body_size
 	character.body_presentation = get_body_presentation()
-	character.set_species(species)
 
 	character.r_eyes = r_eyes
 	character.g_eyes = g_eyes
@@ -2190,6 +2300,17 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 
 	character.h_style = h_style
 	character.f_style = f_style
+
+	character.draw_color = rgb(r_fur, g_fur, b_fur)
+	character.vulpkanin_body_markings = vulpkanin_body_markings
+	character.vulpkanin_head_accessory = vulpkanin_head_accessory
+	character.vulpkanin_head_marking = vulpkanin_head_marking
+	character.vulpkanin_facial_hair = vulpkanin_facial_hair
+	character.vulpkanin_body_markings_color = vulpkanin_body_markings_color
+	character.vulpkanin_head_accessory_color = vulpkanin_head_accessory_color
+	character.vulpkanin_head_marking_color = vulpkanin_head_marking_color
+	character.vulpkanin_facial_hair_color = vulpkanin_facial_hair_color
+	character.set_species(species)
 
 	// Destroy/cyborgize organs
 
