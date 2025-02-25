@@ -47,8 +47,8 @@
 	UnregisterSignal(food_vendor, COMSIG_VENDOR_SUCCESSFUL_VEND)
 	remove_highlight(food_vendor)
 	food_vendor.req_access = list(ACCESS_TUTORIAL_LOCKED)
-	message_to_player("Теперь кликните на своего персонажа с <b>Протеиновым Батончиком ККМП</b> в руках пока не съедите его полностью. Если вы случайно поменяли руки, поменяйте их обратно при помощи клавиши <b>[retrieve_bind("swap_hands")]</b>.")
-	update_objective("Скушайте Протеиновый Батончик ККМП кликая на себя, пока не съедите его полностью.")
+	message_to_player("Теперь кликните на своего персонажа с <b>Протеиновым Батончиком ККМП</b> в руках, пока не съедите его полностью. Если вы случайно поменяли руки, поменяйте их обратно при помощи клавиши <b>[retrieve_bind("swap_hands")]</b>.")
+	update_objective("Скушайте Протеиновый Батончик ККМП, кликая на себя, пока не съедите его полностью.")
 	RegisterSignal(tutorial_mob, COMSIG_MOB_EATEN_SNACK, PROC_REF(on_foodbar_eaten))
 
 /datum/tutorial/marine/basic/proc/on_foodbar_eaten(datum/source, obj/item/reagent_container/food/snacks/eaten_food)
@@ -74,8 +74,8 @@
 		UnregisterSignal(clothing_vendor, COMSIG_VENDOR_SUCCESSFUL_VEND)
 		clothing_vendor.req_access = list(ACCESS_TUTORIAL_LOCKED)
 		remove_highlight(clothing_vendor)
-		message_to_player("Теперь, комната потемнела. Возьмите <b>сигнальный огонь</b> из вашей <b>сумки с сигнальными огнями</b> кликая на неё пустой рукой, и потом используйте его в вашей руке при помощи клавиши<b>[retrieve_bind("activate_inhand")]</b>.")
-		update_objective("Кликните на вашу сумку с сигнальными огнями что бы достать оттуда огонь и используйте его в вашей руке что бы он загорелся.")
+		message_to_player("Теперь, комната потемнела. Возьмите <b>сигнальный огонь</b> из вашей <b>сумки с сигнальными огнями</b>, кликая на неё пустой рукой, и потом используйте его в вашей руке при помощи клавиши<b>[retrieve_bind("activate_inhand")]</b>.")
+		update_objective("Кликните на вашу сумку с сигнальными огнями, что бы достать оттуда огонь и используйте его в вашей руке что бы он загорелся.")
 		var/obj/item/storage/pouch/flare/flare_pouch = locate(/obj/item/storage/pouch/flare) in tutorial_mob.contents
 		if(flare_pouch)
 			add_highlight(flare_pouch)
@@ -93,8 +93,8 @@
 	if(flare_pouch)
 		remove_highlight(flare_pouch)
 
-	message_to_player("Теперь бросьте <b>сигнальный огонь</b> <b>кликая</b> на ближайший тайл, или нажмите на <b>[retrieve_bind("drop_item")]</b>.")
-	update_objective("Бросьте сигнальный огонь кликая на ближайший тайл, или уроните его используя клавшишу [retrieve_bind("drop_item")].")
+	message_to_player("Теперь, бросьте <b>сигнальный огонь</b> <b>кликая</b> на ближайший тайл, или нажмите на <b>[retrieve_bind("drop_item")]</b>.")
+	update_objective("Бросьте сигнальный огонь, кликая на ближайший тайл, или уроните его используя клавшишу [retrieve_bind("drop_item")].")
 	RegisterSignal(tutorial_mob, COMSIG_MOB_ITEM_DROPPED, PROC_REF(on_flare_throw))
 
 /datum/tutorial/marine/basic/proc/on_flare_throw(datum/source, obj/item/thrown)
@@ -121,7 +121,7 @@
 		gun_vendor.req_access = list(ACCESS_TUTORIAL_LOCKED)
 		remove_highlight(gun_vendor)
 		UnregisterSignal(gun_vendor, COMSIG_VENDOR_SUCCESSFUL_VEND)
-		message_to_player("Теперь вставьте <b>магазин</b> в <b>M41A Pulse Rifle</b> просто ударив <b>магазином</b> в вашей руке по <b>Пульсовой Винтовке</b>.Если он в другой руке, смените руки клавишой <b>[retrieve_bind("swap_hands")]</b>.")
+		message_to_player("Теперь, вставьте <b>магазин</b> в <b>M41A Pulse Rifle</b> просто ударив <b>магазином</b> в вашей руке по <b>Пульсовой Винтовке</b>.Если он в другой руке, смените руки клавишой <b>[retrieve_bind("swap_hands")]</b>.")
 		update_objective("Вставьте магазин M41A просто ударив магазином по M41A Pulse Rifle.")
 		RegisterSignal(tutorial_mob, COMSIG_MOB_RELOADED_GUN, PROC_REF(on_magazine_insert))
 
@@ -130,7 +130,7 @@
 
 	UnregisterSignal(tutorial_mob, COMSIG_MOB_RELOADED_GUN)
 	message_to_player("Хорошо. Теперь возьми своё оружие в две руки используя клавишу <b>[retrieve_bind("activate_inhand")]</b>.")
-	update_objective("Схвати своё оружие обеими руками используя клавишу [retrieve_bind("activate_inhand")] с винтовкой в твоей активной руке.")
+	update_objective("Схвати своё оружие обеими руками используя клавишу [retrieve_bind("activate_inhand")], с винтовкой в твоей активной руке.")
 	RegisterSignal(tutorial_mob, COMSIG_MOB_ITEM_ATTACK_SELF, PROC_REF(on_gun_wield))
 
 /datum/tutorial/marine/basic/proc/on_gun_wield(datum/source, obj/item/used)
@@ -141,7 +141,7 @@
 
 	UnregisterSignal(tutorial_mob, COMSIG_MOB_ITEM_ATTACK_SELF)
 	message_to_player("Теперь, стреляй в выделенного <b>Ксеноморфа</b> пока он не умрёт.")
-	update_objective("Стреляй в ксеноморфа пока он не умрёт.")
+	update_objective("Стреляй в ксеноморфа, пока он не умрёт.")
 	var/mob/living/carbon/xenomorph/drone/tutorial/xeno_dummy = new(loc_from_corner(4, 5))
 	add_to_tracking_atoms(xeno_dummy)
 	add_highlight(xeno_dummy, COLOR_VIVID_RED)

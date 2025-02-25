@@ -23,7 +23,7 @@
 	addtimer(CALLBACK(src, PROC_REF(brute_tutorial_2)), 4 SECONDS)
 
 /datum/tutorial/marine/medical_basic/proc/brute_tutorial_2()
-	message_to_player("Вы можете посмотреть есть ли у вас <b>Брут</b> или <b>Ожог</b> урон нажав по себе пустой рукой в интенте помощи.")
+	message_to_player("Вы можете посмотреть есть ли у вас <b>Ушиб</b> или <b>Ожоговый</b> урон нажав по себе пустой рукой в интенте помощи.")
 	update_objective("Нажми на себя пустой рукой.")
 	RegisterSignal(tutorial_mob, COMSIG_LIVING_ATTACKHAND_HUMAN, PROC_REF(on_health_examine))
 
@@ -34,7 +34,7 @@
 		return
 
 	UnregisterSignal(tutorial_mob, COMSIG_LIVING_ATTACKHAND_HUMAN)
-	message_to_player("Отлично. Теперь у тебя есть немного брута. <b>Бикадрин</b> исцеляет брут со временем. Подними <b>бикадриновый автоинъектор</b> и используй его в руке.")
+	message_to_player("Отлично. Теперь у тебя есть немного ушибов. <b>Бикадрин</b> исцеляет ушибы со временем. Подними <b>бикадриновый автоинъектор</b> и используй его в руке.")
 	update_objective("Вкольни в себя бикадриновый инъектор.")
 	var/obj/item/reagent_container/hypospray/autoinjector/bicaridine/skillless/one_use/brute_injector = new(loc_from_corner(0, 4))
 	add_to_tracking_atoms(brute_injector)
