@@ -97,7 +97,7 @@
 	UnregisterSignal(tutorial_mob, COMSIG_LIVING_HYPOSPRAY_INJECTED)
 	TUTORIAL_ATOM_FROM_TRACKING(/obj/item/reagent_container/hypospray/autoinjector/tramadol/skillless/one_use, pain_injector)
 	remove_highlight(pain_injector)
-	message_to_player("Хорошо. Держите в уме то, что вы можете словить передоз от химикатов, так что не втыкайте в себя одни и те же химикаты много раз. В поле боя у инъекторов есть 3 раза которые можно использовать.")
+	message_to_player("Хорошо. Держите в уме то, что вы можете словить передозировку от химикатов, так что не втыкайте в себя одни и те же химикаты много раз. В поле боя у инъекторов есть 3 использования.")
 	update_objective("Не словите передоз! В общем, из-за трёх инъекции одного и того же химиката вы словите передоз.")
 	var/mob/living/living_mob = tutorial_mob
 	living_mob.pain.apply_pain(-PAIN_CHESTBURST_STRONG) // just to make sure
