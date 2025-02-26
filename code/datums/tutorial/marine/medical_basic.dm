@@ -57,7 +57,7 @@
 	addtimer(CALLBACK(src, PROC_REF(burn_tutorial)), 4 SECONDS)
 
 /datum/tutorial/marine/medical_basic/proc/burn_tutorial()
-	message_to_player("<b>Келотан</b> используется что бы вылечить ваши ожоги. Вкольните в себя <b>келотановый автоинъектор</b>.")
+	message_to_player("<b>Kelotane</b> используется, чтобы вылечить ваши ожоги. Вкольните в себя <b>инъектор с Kelotane</b>.")
 	update_objective("Вкольните в себя келотановый инъектор.")
 	var/obj/item/reagent_container/hypospray/autoinjector/kelotane/skillless/one_use/burn_injector = new(loc_from_corner(0, 4))
 	add_to_tracking_atoms(burn_injector)
