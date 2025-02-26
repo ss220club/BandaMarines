@@ -140,7 +140,7 @@
 		return
 
 	UnregisterSignal(tutorial_mob, COMSIG_MOB_ITEM_ATTACK_SELF)
-	message_to_player("Теперь, стреляйте в выделенного <b>Ксеноморфа</b> пока он не умрёт.")
+	message_to_player("Теперь, стреляйте в выделенного <b>Ксеноморфа</b>, пока он не умрёт.")
 	update_objective("Стреляйте в ксеноморфа, пока он не умрёт.")
 	var/mob/living/carbon/xenomorph/drone/tutorial/xeno_dummy = new(loc_from_corner(4, 5))
 	add_to_tracking_atoms(xeno_dummy)
