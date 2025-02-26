@@ -40,7 +40,7 @@
 
 	UnregisterSignal(tutorial_mob, COMSIG_MOB_SWAPPED_HAND)
 
-	message_to_player("Хорошо. Теперь возьми свою <b>сумку</b> которая только что появилась и надень её при помощи <b>[retrieve_bind("quick_equip")]</b>.")
+	message_to_player("Хорошо. Теперь возьмите свою <b>сумку</b> которая только что появилась и наденьте её при помощи <b>[retrieve_bind("quick_equip")]</b>.")
 	update_objective("Поднимите сумку и наденьте её при помоши [retrieve_bind("quick_equip")].")
 
 	var/obj/item/storage/backpack/marine/satchel/satchel = new(loc_from_corner(2, 2))
@@ -58,8 +58,8 @@
 	UnregisterSignal(tutorial_mob, COMSIG_HUMAN_EQUIPPED_ITEM)
 	TUTORIAL_ATOM_FROM_TRACKING(/obj/item/storage/backpack/marine/satchel, satchel)
 	remove_highlight(satchel)
-	message_to_player("Теперь, скажи что то, используя <b>[retrieve_bind("Say")]</b>.")
-	update_objective("Скажи что то, используя [retrieve_bind("Say")].")
+	message_to_player("Теперь, скажите что то, используя <b>[retrieve_bind("Say")]</b>.")
+	update_objective("Скажите что то, используя [retrieve_bind("Say")].")
 
 	RegisterSignal(tutorial_mob, COMSIG_LIVING_SPEAK, PROC_REF(on_speak))
 
@@ -67,7 +67,7 @@
 	SIGNAL_HANDLER
 
 	UnregisterSignal(tutorial_mob, COMSIG_LIVING_SPEAK)
-	message_to_player("Отлично. Следуйщее обучение раскроет тебе мир <b>интентов</b>. Это обучение окончится скоро.")
+	message_to_player("Отлично. Следуйщее обучение раскроет вам мир <b>интентов</b>. Это обучение окончится скоро.")
 	update_objective("")
 	tutorial_end_in(5 SECONDS, TRUE)
 

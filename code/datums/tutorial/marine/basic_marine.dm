@@ -129,8 +129,8 @@
 	SIGNAL_HANDLER
 
 	UnregisterSignal(tutorial_mob, COMSIG_MOB_RELOADED_GUN)
-	message_to_player("Хорошо. Теперь возьми своё оружие в две руки используя клавишу <b>[retrieve_bind("activate_inhand")]</b>.")
-	update_objective("Схвати своё оружие обеими руками используя клавишу [retrieve_bind("activate_inhand")], с винтовкой в твоей активной руке.")
+	message_to_player("Хорошо. Теперь возьмите своё оружие в две руки используя клавишу <b>[retrieve_bind("activate_inhand")]</b>.")
+	update_objective("Схватите своё оружие обеими руками используя клавишу [retrieve_bind("activate_inhand")], с винтовкой в вашей активной руке.")
 	RegisterSignal(tutorial_mob, COMSIG_MOB_ITEM_ATTACK_SELF, PROC_REF(on_gun_wield))
 
 /datum/tutorial/marine/basic/proc/on_gun_wield(datum/source, obj/item/used)
@@ -140,8 +140,8 @@
 		return
 
 	UnregisterSignal(tutorial_mob, COMSIG_MOB_ITEM_ATTACK_SELF)
-	message_to_player("Теперь, стреляй в выделенного <b>Ксеноморфа</b> пока он не умрёт.")
-	update_objective("Стреляй в ксеноморфа, пока он не умрёт.")
+	message_to_player("Теперь, стреляйте в выделенного <b>Ксеноморфа</b> пока он не умрёт.")
+	update_objective("Стреляйте в ксеноморфа, пока он не умрёт.")
 	var/mob/living/carbon/xenomorph/drone/tutorial/xeno_dummy = new(loc_from_corner(4, 5))
 	add_to_tracking_atoms(xeno_dummy)
 	add_highlight(xeno_dummy, COLOR_VIVID_RED)
@@ -153,7 +153,7 @@
 	SIGNAL_HANDLER
 
 	UnregisterSignal(tutorial_mob, COMSIG_MOB_GUN_EMPTY)
-	message_to_player("У твоего оружия закончились патроны. Возьми ещё из <b>Weaponry Vendor</b> и убей <b>Ксеноморфа</b>.")
+	message_to_player("У вашего оружия закончились патроны. Возьмите ещё из <b>Weaponry Vendor</b> и убейте <b>Ксеноморфа</b>.")
 	TUTORIAL_ATOM_FROM_TRACKING(/obj/structure/machinery/cm_vending/sorted/cargo_guns/squad_prep/tutorial, gun_vendor)
 	gun_vendor.req_access = list()
 	gun_vendor.load_ammo() // 99 magazines, to make sure that the xeno dies
@@ -166,7 +166,7 @@
 	UnregisterSignal(tutorial_mob, COMSIG_MOB_GUN_EMPTY)
 	remove_highlight(xeno_dummy)
 	addtimer(CALLBACK(src, PROC_REF(disappear_xeno)), 2.5 SECONDS)
-	message_to_player("Очень хорошо. Это конец обучения, включи следующее обучение, что бы узнать основы <b>Медицины</b>. Ты скоро вернёшься на экран лобби.")
+	message_to_player("Очень хорошо. Это конец обучения, включите следующее обучение, что бы узнать основы <b>Медицины</b>. Вы скоро вернётесь на экран лобби.")
 	update_objective("")
 	tutorial_end_in(7.5 SECONDS, TRUE)
 

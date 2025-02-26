@@ -405,8 +405,8 @@
 			add_highlight(ammo_vendor)
 			add_highlight(loser_agent)
 			loser_agent.say("Стоять! Мне РЕАЛЬНО нужен Mk2 Extended Mag. Брось ка мне один!")
-			message_to_player("Видимо этот морпех забыл про патроны. Возьми магазин, и высоко подбрось его ему при помощи клавиши <b>[retrieve_bind("toggle_high_throw_mode")]</b>.")
-			update_objective("Достань M41 Extended magazine и высоко подбрось его забывчевому морпеху.")
+			message_to_player("Видимо этот морпех забыл про патроны. Возьмите магазин, и высоко подбросьте его ему при помощи клавиши <b>[retrieve_bind("toggle_high_throw_mode")]</b>.")
+			update_objective("Достаньте M41 Extended magazine и высоко подбросьте его забывчевому морпеху.")
 
 /datum/tutorial/marine/reqs_line/start_tutorial(mob/starting_mob)
 	. = ..()
@@ -416,8 +416,8 @@
 	init_mob()
 	START_PROCESSING(SSfastobj, src)
 
-	message_to_player("Добро пожаловать в обучение по линии реквизиции. Проходи и присаживайся.")
-	update_objective("Дойди до окна выдачи что бы начать!")
+	message_to_player("Добро пожаловать в обучение по линии реквизиции. Проходите и присаживайтесь.")
+	update_objective("Дойдите до окна выдачи что бы начать!")
 	var/turf/target_turf = loc_from_corner(3, 6)
 	RegisterSignal(target_turf, COMSIG_TURF_ENTERED, PROC_REF(user_in_position))
 

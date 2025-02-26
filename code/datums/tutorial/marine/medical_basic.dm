@@ -13,7 +13,7 @@
 		return
 
 	init_mob()
-	message_to_player("Это базовое обучение по медицине для твоей игры на роли морпеха.")
+	message_to_player("Это базовое обучение по медицине для вашей игры на роли морпеха.")
 	addtimer(CALLBACK(src, PROC_REF(brute_tutorial)), 4 SECONDS)
 
 /datum/tutorial/marine/medical_basic/proc/brute_tutorial()
@@ -24,7 +24,7 @@
 
 /datum/tutorial/marine/medical_basic/proc/brute_tutorial_2()
 	message_to_player("Вы можете посмотреть есть ли у вас <b>Ушиб</b> или <b>Ожоговый</b> урон нажав по себе пустой рукой в интенте помощи.")
-	update_objective("Нажми на себя пустой рукой.")
+	update_objective("Нажмите на себя пустой рукой.")
 	RegisterSignal(tutorial_mob, COMSIG_LIVING_ATTACKHAND_HUMAN, PROC_REF(on_health_examine))
 
 /datum/tutorial/marine/medical_basic/proc/on_health_examine(datum/source, mob/living/carbon/human/attacked_mob)
@@ -34,8 +34,8 @@
 		return
 
 	UnregisterSignal(tutorial_mob, COMSIG_LIVING_ATTACKHAND_HUMAN)
-	message_to_player("Отлично. Теперь у тебя есть немного ушибов. <b>Бикадрин</b> исцеляет ушибы со временем. Подними <b>бикадриновый автоинъектор</b> и используй его в руке.")
-	update_objective("Вкольни в себя бикадриновый инъектор.")
+	message_to_player("Отлично. Теперь у вас есть немного ушибов. <b>Бикадрин</b> исцеляет ушибы со временем. Поднимите <b>бикадриновый автоинъектор</b> и используйте его в руке.")
+	update_objective("Вкольните в себя бикадриновый инъектор.")
 	var/obj/item/reagent_container/hypospray/autoinjector/bicaridine/skillless/one_use/brute_injector = new(loc_from_corner(0, 4))
 	add_to_tracking_atoms(brute_injector)
 	add_highlight(brute_injector)
