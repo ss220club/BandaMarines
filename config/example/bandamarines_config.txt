@@ -6,3 +6,10 @@
 
 ## Enables diagonal movement
 # DIAGONAL_MOVE
+
+## A maximum amount of clients who can be connected
+# LIMIT_PLAYERS 0
+
+## List of players who are whitelisted to pass through the player limit
+# LIMIT_PLAYER_BYPASS example_ckey
+# LIMIT_PLAYER_BYPASS example_ckey_2
