@@ -75,7 +75,7 @@
 		clothing_vendor.req_access = list(ACCESS_TUTORIAL_LOCKED)
 		remove_highlight(clothing_vendor)
 		message_to_player("Теперь, комната потемнела. Возьмите <b>сигнальный огонь</b> из вашей <b>сумки с сигнальными огнями</b>, кликая на неё пустой рукой, и потом используйте его в вашей руке при помощи клавиши<b>[retrieve_bind("activate_inhand")]</b>.")
-		update_objective("Кликните на вашу сумку с сигнальными огнями, что бы достать оттуда огонь и используйте его в вашей руке что бы он загорелся.")
+		update_objective("Кликните на вашу сумку с сигнальными огнями, чтобы достать оттуда огонь и используйте его в вашей руке, чтобы он загорелся.")
 		var/obj/item/storage/pouch/flare/flare_pouch = locate(/obj/item/storage/pouch/flare) in tutorial_mob.contents
 		if(flare_pouch)
 			add_highlight(flare_pouch)
