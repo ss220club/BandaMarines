@@ -398,7 +398,7 @@
 		if(TUTORIAL_REQS_LINE_STAGE_GEARBOX)
 			TUTORIAL_ATOM_FROM_TRACKING(/obj/structure/machinery/cm_vending/sorted/cargo_guns/cargo/blend/tutorial, gear_vendor)
 			add_highlight(gear_vendor)
-			message_to_player("Этот морпех хочет получить предметы со среднего автомата. Вы можете использовать функцию поиска справа сверху, что бы побыстрее найти предмет.")
+			message_to_player("Этот морпех хочет получить предметы с центрального вендора. Вы можете использовать функцию поиска справа сверху, чтобы побыстрее найти предмет.")
 			update_objective("Дайте морпеху то, что он хочет, из среднего автомата. В нём очень много вещей, так что воспользуйтесь функцией поиска.")
 		if(TUTORIAL_REQS_LINE_STAGE_MIXED)
 			TUTORIAL_ATOM_FROM_TRACKING(/obj/structure/machinery/cm_vending/sorted/cargo_ammo/cargo/blend/tutorial, ammo_vendor)
