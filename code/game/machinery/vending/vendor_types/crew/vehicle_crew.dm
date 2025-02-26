@@ -370,7 +370,7 @@ GLOBAL_LIST_INIT(cm_vending_clothing_vehicle_crew, list(
 		/obj/item/ammo_magazine/hardpoint/ltb_cannon,
 		/obj/item/ammo_magazine/hardpoint/ltb_cannon,
 		/obj/item/ammo_magazine/hardpoint/ltb_cannon,
-		// /obj/item/ammo_magazine/hardpoint/ltb_cannon, BANDAMARINES REMOVAL
+		/obj/item/ammo_magazine/hardpoint/ltb_cannon,
 	)
 
 /obj/effect/essentials_set/tank/gatling
