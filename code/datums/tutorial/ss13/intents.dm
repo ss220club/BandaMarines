@@ -38,7 +38,7 @@
 	var/mob/living/carbon/human/dummy/tutorial/tutorial_dummy = new(loc_from_corner(2, 3))
 	add_to_tracking_atoms(tutorial_dummy)
 
-	message_to_player("Первый из интентов это интент <b>помощи</b>. Он используется что бы без вреда трогать других, тушить людей, давать исскуственное дыхание, и похожее. Нажми на <b>Тестовую Куклу</b> что бы похлопать её по спине.")
+	message_to_player("Первый из интентов это интент <b>помощи</b>. Он используется что бы без вреда трогать других, тушить людей, давать исскуственное дыхание, и похожее. Нажми на <b>Тестовую Куклу</b>, что бы похлопать её по спине.")
 	update_objective("Нажми на куклу в интенте помощи.")
 
 	RegisterSignal(tutorial_mob, COMSIG_LIVING_ATTACKHAND_HUMAN, PROC_REF(on_help_attack))
