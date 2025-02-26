@@ -22,6 +22,11 @@
 	if(GLOB.admin_datums[ckey] && (GLOB.admin_datums[ckey].rights & R_MOD))
 		return ..()
 
+	// BANDAMARINES EDIT START
+	if(ckey in CONFIG_GET(str_list/limit_player_bypass))
+		return // These are super-whitelisted people
+	// BANDAMARINES EDIT END
+
 	if(CONFIG_GET(number/limit_players) && CONFIG_GET(number/limit_players) < length(GLOB.clients))
 		return list("reason"="POP CAPPED", "desc"="\nReason: Server is pop capped at the moment at [CONFIG_GET(number/limit_players)] players. Attempt reconnection in 2-3 minutes.")
 
@@ -32,3 +37,15 @@
 
 
 #endif
+
+// BANDAMARINES ADDITION START
+/datum/config_entry/str_list/limit_player_bypass
+
+/datum/config_entry/str_list/limit_player_bypass/ValidateAndSet(str_val)
+	if(!VASProcCallGuard(str_val))
+		return FALSE
+	str_val = trim(str_val)
+	if(str_val != "")
+		config_entry_value += ckey(str_val)
+	return TRUE
+// BANDAMARINES ADDITION END
