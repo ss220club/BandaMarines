@@ -8,6 +8,11 @@
 		/obj/item/ammo_magazine/hardpoint/ltb_cannon,
 		/obj/item/ammo_magazine/hardpoint/ltb_cannon,
 		/obj/item/ammo_magazine/hardpoint/ltb_cannon,
+		/* BANDAMARINES REMOVAL BEGINS
+		/obj/item/ammo_magazine/hardpoint/ltb_cannon,
+		/obj/item/ammo_magazine/hardpoint/ltb_cannon,
+		/obj/item/ammo_magazine/hardpoint/ltb_cannon,
+		BANDAMARINES REMOVAL ENDS */
 	)
 	cost = 30
 	containertype = /obj/structure/closet/crate/ammo

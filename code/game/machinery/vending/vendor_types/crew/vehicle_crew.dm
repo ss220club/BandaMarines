@@ -137,7 +137,7 @@ GLOBAL_LIST_INIT(cm_vending_vehicle_crew_tank, list(
 	list("M34A2-A Multipurpose Turret", 0, /obj/effect/essentials_set/tank/turret, VEHICLE_INTEGRAL_AVAILABLE, VENDOR_ITEM_MANDATORY),
 
 	list("PRIMARY WEAPON", 0, null, null, null),
-	list("LTB Canon 86mm", 0, /obj/effect/essentials_set/tank/ltb, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_RECOMMENDED),
+	list("LTB Canon 86mm", 0, /obj/effect/essentials_set/tank/ltb, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_RECOMMENDED), //BANDAMARINES EDIT
 	list("AC3-E Autocannon", 0, /obj/effect/essentials_set/tank/autocannon, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_REGULAR),
 	list("DRG-N Offensive Flamer Unit", 0, /obj/effect/essentials_set/tank/dragonflamer, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_REGULAR),
 	list("LTAA-AP Minigun", 0, /obj/effect/essentials_set/tank/gatling, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_REGULAR),
@@ -370,6 +370,7 @@ GLOBAL_LIST_INIT(cm_vending_clothing_vehicle_crew, list(
 		/obj/item/ammo_magazine/hardpoint/ltb_cannon,
 		/obj/item/ammo_magazine/hardpoint/ltb_cannon,
 		/obj/item/ammo_magazine/hardpoint/ltb_cannon,
+		// /obj/item/ammo_magazine/hardpoint/ltb_cannon, BANDAMARINES REMOVAL
 	)
 
 /obj/effect/essentials_set/tank/gatling
