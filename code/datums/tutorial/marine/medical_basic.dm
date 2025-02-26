@@ -138,7 +138,7 @@
 	qdel(bandage)
 
 	message_to_player("Хорошо. Иногда из-за пули или взрыва у вас может остаться <b>осколок</b>, который наносит вам урон со временем. Поднимите <b>нож</b> и используйте его в руке что бы вытащить осколок.")
-	update_objective("Удалите осколок используя нож в правой руке.")
+	update_objective("Удалите осколок, используя нож в правой руке.")
 	var/mob/living/living_mob = tutorial_mob
 	living_mob.pain.feels_pain = FALSE
 
