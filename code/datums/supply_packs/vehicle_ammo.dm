@@ -3,11 +3,8 @@
 //*******************************************************************************/
 
 /datum/supply_packs/ammo_ltb_cannon
-	name = "LTB Cannon magazines (x6)"
+	name = "LTB Cannon magazines (x3)"
 	contains = list(
-		/obj/item/ammo_magazine/hardpoint/ltb_cannon,
-		/obj/item/ammo_magazine/hardpoint/ltb_cannon,
-		/obj/item/ammo_magazine/hardpoint/ltb_cannon,
 		/obj/item/ammo_magazine/hardpoint/ltb_cannon,
 		/obj/item/ammo_magazine/hardpoint/ltb_cannon,
 		/obj/item/ammo_magazine/hardpoint/ltb_cannon,
