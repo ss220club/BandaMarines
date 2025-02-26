@@ -166,7 +166,7 @@
 	UnregisterSignal(tutorial_mob, COMSIG_MOB_GUN_EMPTY)
 	remove_highlight(xeno_dummy)
 	addtimer(CALLBACK(src, PROC_REF(disappear_xeno)), 2.5 SECONDS)
-	message_to_player("Очень хорошо. Это конец обучения, включите следующее обучение, что бы узнать основы <b>Медицины</b>. Вы скоро вернётесь на экран лобби.")
+	message_to_player("Очень хорошо. Это конец обучения, включите следующее обучение, чтобы узнать основы <b>Медицины</b>. Вы скоро вернётесь на экран лобби.")
 	update_objective("")
 	tutorial_end_in(7.5 SECONDS, TRUE)
 
