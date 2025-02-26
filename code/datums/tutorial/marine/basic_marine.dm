@@ -121,7 +121,7 @@
 		gun_vendor.req_access = list(ACCESS_TUTORIAL_LOCKED)
 		remove_highlight(gun_vendor)
 		UnregisterSignal(gun_vendor, COMSIG_VENDOR_SUCCESSFUL_VEND)
-		message_to_player("Теперь, вставьте <b>магазин</b> в <b>M41A Pulse Rifle</b> просто ударив <b>магазином</b> в вашей руке по <b>Пульсовой Винтовке</b>.Если он в другой руке, смените руки клавишой <b>[retrieve_bind("swap_hands")]</b>.")
+		message_to_player("Теперь, вставьте <b>магазин</b> в <b>M41A Pulse Rifle</b> просто ударив <b>магазином</b> в вашей руке по <b>Пульсовой Винтовке</b>. Если он в другой руке, смените руки клавишой <b>[retrieve_bind("swap_hands")]</b>.")
 		update_objective("Вставьте магазин M41A просто ударив магазином по M41A Pulse Rifle.")
 		RegisterSignal(tutorial_mob, COMSIG_MOB_RELOADED_GUN, PROC_REF(on_magazine_insert))
 
