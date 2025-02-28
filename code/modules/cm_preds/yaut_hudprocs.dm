@@ -85,7 +85,7 @@
 	// List all possible preys
 	// We only target living humans and xenos
 	var/list/target_list = list()
-	for(var/mob/living/prey in view(7, usr.client))
+	for(var/mob/living/prey in range(7, usr.client))
 /*
 		if((ishuman_strict(prey) || isxeno(prey)) && prey.stat != DEAD)
 */
@@ -157,7 +157,7 @@
 		return
 
 	var/list/target_list = list()
-	for(var/mob/living/carbon/target in view(7, usr.client))
+	for(var/mob/living/carbon/target in range(7, usr.client))
 		if(ishuman_strict(target) && (target.stat != DEAD))
 			target_list += target
 
@@ -194,7 +194,7 @@
 		return
 
 	var/list/target_list = list()
-	for(var/mob/living/carbon/target in view(7, usr.client))
+	for(var/mob/living/carbon/target in range(7, usr.client))
 		if(ishuman_strict(target))
 			if(target.hunter_data.honored)
 				target_list += target
@@ -231,7 +231,7 @@
 		return
 
 	var/list/target_list = list()
-	for(var/mob/living/carbon/target in view(7, usr.client))
+	for(var/mob/living/carbon/target in range(7, usr.client))
 		if((ishuman_strict(target) || isxeno(target)) && target.stat != DEAD)
 			target_list += target
 
@@ -271,7 +271,7 @@
 		return
 
 	var/list/target_list = list()
-	for(var/mob/living/carbon/target in view(7, usr.client))
+	for(var/mob/living/carbon/target in range(7, usr.client))
 		if(ishuman_strict(target) || isxeno(target))
 			if(target.job != "Predalien" && target.job != "Predalien Larva")
 				if(target.hunter_data.dishonored)
@@ -312,7 +312,7 @@
 		return
 
 	var/list/target_list = list()
-	for(var/mob/living/carbon/target in view(7, usr.client))
+	for(var/mob/living/carbon/target in range(7, usr.client))
 		if(ishuman(target))
 			target_list += target
 
@@ -343,7 +343,7 @@
 		return
 
 	var/list/target_list = list()
-	for(var/mob/living/carbon/target in view(7, usr.client))
+	for(var/mob/living/carbon/target in range(7, usr.client))
 		if(ishuman(target))
 			if(target.hunter_data.gear)
 				target_list += target
@@ -381,7 +381,7 @@
 	// List all possible targets
 	// We only target living humans
 	var/list/target_list = list()
-	for(var/mob/living/carbon/target in view(7, usr.client))
+	for(var/mob/living/carbon/target in range(7, usr.client))
 		if(ishuman_strict(target) && target.stat != DEAD)
 			target_list += target
 
@@ -420,7 +420,7 @@
 	// List all possible targets
 	// We only target living humans
 	var/list/target_list = list()
-	for(var/mob/living/carbon/target in view(7, usr.client))
+	for(var/mob/living/carbon/target in range(7, usr.client))
 		if(ishuman_strict(target))
 			if(target.hunter_data.thralled)
 				target_list += target
