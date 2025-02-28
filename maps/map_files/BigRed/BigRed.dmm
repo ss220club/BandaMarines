@@ -1155,11 +1155,6 @@
 /obj/structure/machinery/computer/cameras/wooden_tv,
 /turf/open/floor/wood,
 /area/bigredv2/outside/marshal_office)
-"aet" = (
-/obj/structure/flora/grass/desert/lightgrass_7,
-/obj/structure/machinery/power/apc/power/north,
-/turf/open/floor/plating,
-/area/bigredv2/outside/eta)
 "aeu" = (
 /obj/item/clothing/accessory/storage/holster/armpit,
 /turf/open/floor/wood,
@@ -1274,18 +1269,6 @@
 	},
 /turf/open/floor/whitepurple/northeast,
 /area/bigredv2/caves/lambda/xenobiology)
-"aeR" = (
-/obj/effect/decal/warning_stripes{
-	icon_state = "W";
-	pixel_x = -1
-	},
-/obj/effect/decal/warning_stripes{
-	icon_state = "E";
-	pixel_x = 1
-	},
-/obj/structure/machinery/power/apc/no_power/north,
-/turf/open/floor/plating,
-/area/bigredv2/outside/telecomm/lz2_cave)
 "aeS" = (
 /obj/structure/closet/crate/freezer,
 /turf/open/floor/freezerfloor,
@@ -25435,6 +25418,18 @@
 	},
 /turf/open/asphalt/cement_sunbleached/cement_sunbleached3,
 /area/bigredv2/outside/s)
+"kjY" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "W";
+	pixel_x = -1
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "E";
+	pixel_x = 1
+	},
+/obj/structure/machinery/power/apc/no_power/north,
+/turf/open/floor/plating,
+/area/bigredv2/outside/telecomm/lz2_cave)
 "kkF" = (
 /obj/structure/machinery/camera/autoname,
 /obj/structure/bed,
@@ -28006,9 +28001,6 @@
 /area/bigredv2/caves/mining)
 "mYo" = (
 /obj/effect/decal/strata_decals/grime/grime3,
-/obj/effect/landmark/nightmare{
-	insert_tag = "cargo_containers"
-	},
 /turf/open/asphalt/cement_sunbleached/cement_sunbleached1,
 /area/bigredv2/outside/w)
 "mYp" = (
@@ -28676,6 +28668,11 @@
 /obj/effect/decal/cleanable/generic,
 /turf/open/mars_cave/mars_cave_9,
 /area/bigredv2/outside/nw)
+"nJu" = (
+/obj/structure/flora/grass/desert/lightgrass_7,
+/obj/structure/machinery/power/apc/power/north,
+/turf/open/floor/plating,
+/area/bigredv2/outside/eta)
 "nKL" = (
 /obj/structure/prop/invuln/minecart_tracks{
 	desc = "An exchange valve";
@@ -57582,7 +57579,7 @@ aBR
 eTj
 bhi
 dbi
-aeR
+kjY
 dZL
 olK
 abb
@@ -60657,7 +60654,7 @@ tYm
 bjA
 bjA
 azO
-aet
+nJu
 meT
 vrt
 ydn
