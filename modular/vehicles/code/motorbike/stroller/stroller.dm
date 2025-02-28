@@ -90,10 +90,11 @@
 	drag_delay = FALSE
 
 /obj/structure/bed/chair/stroller/proc/disconnect()
+	reload_connected()
 	connected = null
 	density = !density
 	anchored = !anchored
-	drag_delay = initial(drag_delay)
+	update_drag_delay()
 	update_position(src, TRUE)
 	push_to_left_side(src)
 

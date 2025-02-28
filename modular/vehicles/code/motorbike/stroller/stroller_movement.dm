@@ -1,5 +1,6 @@
 /obj/structure/bed/chair/stroller
 	drag_delay = 2 //На колесах хоть и удобно таскать, но эта байдура тяжеленькая.
+	drag_delay_buckled = 4 // Тяжеленько. Хотите пулеметную точку? Хотите и таскать медленно.
 	can_block_movement = FALSE
 	can_rotate = FALSE
 
@@ -15,6 +16,31 @@
 	layer = LYING_LIVING_MOB_LAYER
 	var/layer_west = LYING_BETWEEN_MOB_LAYER
 	var/layer_above = ABOVE_MOB_LAYER
+
+// ==========================================
+// =============== Усаживание ===============
+
+/obj/structure/bed/chair/stroller/buckle_mob(mob/living/carbon/human/mob, mob/user)
+	if (mob.mob_size == MOB_SIZE_XENO && (mob.a_intent == INTENT_GRAB || mob.stat == DEAD))	// Мы можем посадить небольшого ксеноса, если он будет помогать лапками в граб интенте. Как на кровати.
+	else if (mob.mob_size == MOB_SIZE_XENO_SMALL &&  (mob.a_intent == INTENT_HELP || mob.a_intent == INTENT_GRAB || mob.stat == DEAD))	// мы сможем украсть руню или ящерку, если они не особо сопротивляться будут
+	else if (mob.mob_size <= MOB_SIZE_XENO_VERY_SMALL)	// Lesser Drones, Люди
+		do_buckle(mob, user)
+		if(mob.loc == src.loc && buckling_sound && mob.buckled)
+			playsound(src, buckling_sound, 20)
+		return TRUE
+	. = ..()
+
+/obj/structure/bed/chair/stroller/do_buckle(mob/living/target, mob/user)
+	if(..())
+		update_buckle_mob()
+		update_drag_delay()
+
+/obj/structure/bed/chair/stroller/unbuckle()
+	reload_buckle_mob()
+	if(connected)
+		push_to_left_side(buckled_mob)
+	update_drag_delay()
+	. = ..()
 
 // ==========================================
 // =============== Позиционка  ==============
@@ -65,9 +91,7 @@
 		return
 	if(!connected)	// централизация только при коннекте
 		return
-	if(connected.buckled_mob)
-		connected.buckled_mob.pixel_x = initial(connected.buckled_mob.pixel_x)
-	connected.pixel_x = initial(connected.pixel_x)
+	reload_connected()
 	switch(dir)	// движок не хочет константно их сохранять в словарь по DIR'ам
 		if(NORTH, SOUTH)
 			var/ndir = dir == NORTH ? -1 : 1	// На севере нам нужно проделать всё "в другую сторону"
@@ -89,27 +113,7 @@
 	return pixel_y - initial(pixel_y) + buckling_y
 
 // ==========================================
-// =============== Усаживание ===============
-
-/obj/structure/bed/chair/stroller/buckle_mob(mob/living/carbon/human/mob, mob/user)
-	if (mob.mob_size == MOB_SIZE_XENO && (mob.a_intent == INTENT_GRAB || mob.stat == DEAD))	// Мы можем посадить небольшого ксеноса, если он будет помогать лапками в граб интенте. Как на кровати.
-	else if (mob.mob_size == MOB_SIZE_XENO_SMALL &&  (mob.a_intent == INTENT_HELP || mob.a_intent == INTENT_GRAB || mob.stat == DEAD))	// мы сможем украсть руню или ящерку, если они не особо сопротивляться будут
-	else if (mob.mob_size <= MOB_SIZE_XENO_VERY_SMALL)	// Lesser Drones, Люди
-		do_buckle(mob, user)
-		if(mob.loc == src.loc && buckling_sound && mob.buckled)
-			playsound(src, buckling_sound, 20)
-		return TRUE
-	. = ..()
-
-/obj/structure/bed/chair/stroller/do_buckle(mob/living/target, mob/user)
-	if(..())
-		update_buckle_mob()
-
-/obj/structure/bed/chair/stroller/unbuckle()
-	reload_buckle_mob()
-	if(connected)
-		push_to_left_side(buckled_mob)
-	. = ..()
+// ============== Нормализация ==============
 
 /obj/structure/bed/chair/stroller/proc/reload_buckle_mob()
 	if(!buckled_mob)
@@ -119,6 +123,11 @@
 	buckled_mob.density = initial(buckled_mob.density)
 	buckled_mob.layer = initial(buckled_mob.layer)
 	buckled_mob.update_layer()	// Обновляем, если с персонажем "что-то случилось"
+
+/obj/structure/bed/chair/stroller/proc/reload_connected()
+	if(connected.buckled_mob)
+		connected.buckled_mob.pixel_x = initial(connected.buckled_mob.pixel_x)
+	connected.pixel_x = initial(connected.pixel_x)
 
 // ==========================================
 // ================ Коллизия ================
@@ -149,5 +158,8 @@
 	setDir(old_dir)
 	if(buckled_mob)
 		buckled_mob.setDir(old_dir)
+
+/obj/structure/bed/chair/stroller/proc/update_drag_delay()
+	drag_delay = buckled_mob ? drag_delay_buckled : initial(drag_delay)
 
 // ==========================================
