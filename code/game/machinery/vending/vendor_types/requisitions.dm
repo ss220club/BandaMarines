@@ -404,6 +404,7 @@
 		list("Barrel Charger", 1.5, /obj/item/attachable/heavy_barrel, VENDOR_ITEM_REGULAR),
 		list("Upgraded Barrel Charger", 0.5, /obj/item/attachable/heavy_barrel/upgraded, VENDOR_ITEM_REGULAR),
 //RUCM END
+		list("Shotgun Choke", 4.5, /obj/item/attachable/shotgun_choke, VENDOR_ITEM_REGULAR),
 
 		list("RAIL", -1, null, null),
 		list("B8 Smart-Scope", 3.5, /obj/item/attachable/scope/mini_iff, VENDOR_ITEM_REGULAR),
