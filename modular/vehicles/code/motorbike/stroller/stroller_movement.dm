@@ -5,6 +5,7 @@
 
 	pixel_x = -8	// Центрируем
 	buckling_y = 8	// можно было б 4, но увы, оно слишком выпирает
+	var/pixel_x_sides = 10 // Смещение для выравнивания на тайле, когда приконекчен
 
 	// Смещение при коннекте
 	var/list/pixel_north = list(-14, -4)
@@ -28,6 +29,7 @@
 	if(target != src)
 		update_connected(target)
 	update_buckle_mob()
+	centralize_to_turf()
 
 /obj/structure/bed/chair/stroller/proc/update_connected(atom/target)
 	setDir(target.dir)
@@ -49,14 +51,41 @@
 /obj/structure/bed/chair/stroller/proc/update_buckle_mob()
 	if(!buckled_mob)
 		return
-	buckled_mob.pixel_x = pixel_x - initial(pixel_x) - 1
-	buckled_mob.pixel_y = pixel_y - initial(pixel_y) + buckling_y
+	buckled_mob.pixel_x = get_buckled_mob_pixel_x()
+	buckled_mob.pixel_y = get_buckled_mob_pixel_y()
 	buckled_mob.setDir(dir)
 	buckled_mob.density = FALSE
 	if(dir == WEST)
 		buckled_mob.layer = layer_west
 	else
 		buckled_mob.layer = initial(buckled_mob.layer)
+
+/obj/structure/bed/chair/stroller/proc/centralize_to_turf()
+	if(!pixel_x_sides)
+		return
+	if(!connected)	// централизация только при коннекте
+		return
+	if(connected.buckled_mob)
+		connected.buckled_mob.pixel_x = initial(connected.buckled_mob.pixel_x)
+	connected.pixel_x = initial(connected.pixel_x)
+	switch(dir)	// движок не хочет константно их сохранять в словарь по DIR'ам
+		if(NORTH, SOUTH)
+			pixel_x += pixel_x_sides // Централизуем коляску
+			if(buckled_mob)
+				buckled_mob.pixel_x += pixel_x_sides	// Сидящего
+			if(connected)
+				connected.pixel_x += pixel_x_sides	// Приконекченное мото
+				if(connected.buckled_mob)	// Приконекченного сидящего в мото
+					connected.buckled_mob.pixel_x += pixel_x_sides
+		if(EAST, WEST)
+			if(buckled_mob)
+				buckled_mob.pixel_x = get_buckled_mob_pixel_x()
+
+/obj/structure/bed/chair/stroller/proc/get_buckled_mob_pixel_x()
+	return buckled_mob.pixel_x = pixel_x - initial(pixel_x) - 1
+
+/obj/structure/bed/chair/stroller/proc/get_buckled_mob_pixel_y()
+	return pixel_y - initial(pixel_y) + buckling_y
 
 // ==========================================
 // =============== Усаживание ===============
@@ -105,15 +134,15 @@
 
 /obj/structure/bed/chair/stroller/proc/push_to_left_side(atom/A)
 	var/old_dir = dir
-	var/temp_dir = dir	// Выбираем сторону СЛЕВА от нашей техники
+	var/temp_dir = dir	// Выбираем сторону коннекта нашей тележки
 	if(temp_dir == NORTH)
 		temp_dir = WEST
 	else if(temp_dir == WEST)
-		temp_dir = SOUTH
-	else if(temp_dir == SOUTH)
-		temp_dir = EAST
-	else if(temp_dir == EAST)
 		temp_dir = NORTH
+	else if(temp_dir == SOUTH)
+		temp_dir = WEST
+	else if(temp_dir == EAST)
+		temp_dir = SOUTH
 	setDir(temp_dir)
 	step(A, temp_dir)	// Толкаем в сторону, если на пути стена, то "шаг" не совершится
 	setDir(old_dir)

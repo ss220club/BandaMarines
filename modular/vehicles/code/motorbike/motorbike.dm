@@ -8,7 +8,6 @@
 	pixel_x = -8	// спрайт 48х48, центрируем.
 	buckling_y = 7
 	layer = ABOVE_LYING_MOB_LAYER //Allows it to drive over people, but is below the driver.
-	var/pixel_x_sides = 10// !!!!!!!!!! pixel_x = 10 --- сделать смещение для выравнивания на тайле, когда приконекчен stroller
 
 	move_delay = 1.5
 	projectile_coverage = PROJECTILE_COVERAGE_LOW
@@ -64,6 +63,11 @@
 /obj/vehicle/motorbike/proc/update_stroller(force_update = FALSE)
 	if(stroller)
 		stroller.update_position(src, force_update)
+
+
+/obj/vehicle/motorbike/do_buckle(mob/living/target, mob/user)
+	if(..() && stroller)
+		stroller.update_position(src)
 
 // ==========================================
 // ======== Действия с инструментами ========
