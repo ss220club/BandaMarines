@@ -200,7 +200,7 @@
 			debriscooldown = 6
 		debriscooldown--
 	sleep(11) //speed of sound simulation
-	playsound(impact, 'sound/effects/gau.ogg',100,1,60)
+	playsound(impact, 'modular/aesthetics_sounds/sound/dropship_gau.ogg', 100, 1, 60) // BANDAMARINES EDIT - Dropship soundeffects update
 
 
 /obj/structure/ship_ammo/heavygun/antitank
