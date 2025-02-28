@@ -44,7 +44,7 @@
 	if(!isxeno(user))
 		var/spare_text = get_spare_text()
 		if(spare_text)
-		. += SPAN_NOTICE(spare_text)
+			. += SPAN_NOTICE(spare_text)
 
 // ==========================================
 // ================= Сборка =================

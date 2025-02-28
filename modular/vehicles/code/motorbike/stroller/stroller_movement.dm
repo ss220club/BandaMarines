@@ -6,6 +6,7 @@
 	pixel_x = -8	// Центрируем
 	buckling_y = 8	// можно было б 4, но увы, оно слишком выпирает
 
+	// Смещение при коннекте
 	var/list/pixel_north = list(-14, -4)
 	var/list/pixel_south = list(-14, -4)
 	var/list/pixel_east = list(2, -9)
@@ -15,16 +16,21 @@
 	var/layer_above = ABOVE_MOB_LAYER
 
 // ==========================================
-// ================ Движение  ===============
+// =============== Позиционка  ==============
 
 /obj/structure/bed/chair/stroller/proc/update_position(atom/target = null, force_update = FALSE)
 	forceMove(get_turf(target))	// Тащим привязанного моба с нами
 	if(dir == target.dir && !force_update)
 		return
-	setDir(target.dir)
-	layer = initial(layer)
 	pixel_x = initial(pixel_x)
 	pixel_y = initial(pixel_y)
+	layer = initial(layer)
+	if(target != src)
+		update_connected(target)
+	update_buckle_mob()
+
+/obj/structure/bed/chair/stroller/proc/update_connected(atom/target)
+	setDir(target.dir)
 	switch(dir)	// движок не хочет константно их сохранять в словарь по DIR'ам
 		if(NORTH)
 			pixel_x += pixel_north[1]
@@ -39,7 +45,6 @@
 			pixel_x += pixel_west[1]
 			pixel_y += pixel_west[2]
 			layer = layer_west - 0.01
-	update_buckle_mob()
 
 /obj/structure/bed/chair/stroller/proc/update_buckle_mob()
 	if(!buckled_mob)

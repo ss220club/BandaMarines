@@ -11,10 +11,12 @@
 	var/pixel_x_sides = 10// !!!!!!!!!! pixel_x = 10 --- сделать смещение для выравнивания на тайле, когда приконекчен stroller
 
 	move_delay = 1.5
+	projectile_coverage = PROJECTILE_COVERAGE_LOW
 	health = 600
 	maxhealth = 600
 	var/welder_health = 35	// Восстановление прочности за 1 топливо из сварки
 	var/welder_time = 1 SECONDS	// Время требуемое для сварки
+	var/wrehcn_time = 10 SECONDS // Время коннекта при закручивании
 
 	var/obj/structure/bed/chair/stroller/stroller = null // привязанная тележка
 
@@ -69,8 +71,16 @@
 /obj/vehicle/motorbike/attackby(obj/item/O as obj, mob/user as mob)
 
 	// Присоединение
-	if(HAS_TRAIT(O, TRAIT_TOOL_WRENCH))
+	if(HAS_TRAIT(O, TRAIT_TOOL_WRENCH))		// !!!!!!!!!!! НЕ РАБОТАЕТ
+		var/mob/living/L = user
 		playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
+		L.animation_attack_on(src)
+		to_chat(user, SPAN_NOTICE("Вы начинаете крутить крепежи..."))
+		if(!do_after(user, wrehcn_time, INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
+			to_chat(user, SPAN_WARNING("Крутка крипежей прервана."))
+			return FALSE
+		playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
+		L.animation_attack_on(src)
 		if(stroller)
 			stroller.disconnect()
 			stroller = null
@@ -78,9 +88,6 @@
 			if(!try_connect(user))
 				return ..()
 		to_chat(user, SPAN_NOTICE("Вы [anchored ? "присоединили" : "отсоединили"] коляску."))
-		if(isliving(user))
-			var/mob/living/L = user
-			L.animation_attack_on(src)
 		return TRUE
 
 	// Ремонт корпуса
@@ -124,14 +131,19 @@
 
 // Ищем и выдаем нужный объект для коннекта
 /obj/vehicle/motorbike/proc/get_before_connect(mob/user)
-	for(var/obj/structure/bed/chair/stroller/S in range(1))
-		if(S.health <= S.maxhealth)
+	for(var/obj/structure/bed/chair/stroller/S in range(1, get_turf(user)))
+		if(S.connected)
+			to_chat(user, SPAN_DANGER("[S] уже закреплена."))
+			continue
+		if(S.health < S.maxhealth - 100)
 			to_chat(user, SPAN_DANGER("[S] повреждена и требует ремонта."))
-			return FALSE
+			continue
 		return S
+	to_chat(user, SPAN_DANGER("Вы прокрутили крепежи и осознали, что рядом с вами нет коляски..."))
+	return FALSE
 
 // Завершаем конект в коляске
 /obj/vehicle/motorbike/proc/connect()
-	stroller.connect()
+	stroller.connect(src)
 
 // ==========================================

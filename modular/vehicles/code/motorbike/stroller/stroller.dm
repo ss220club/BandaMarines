@@ -8,6 +8,7 @@
 	desc = "Для детишек."
 	density = FALSE	// При коннекте - У нас уже есть колизия с мотоциклом
 	anchored = TRUE	// При коннекте - Нехай трогать и перемещать
+	projectile_coverage = PROJECTILE_COVERAGE_MEDIUM
 	health = 800 // Тележка прочнее мотоцикла. Увы, но это просто кусок металла.
 	var/maxhealth = 800
 	var/welder_health = 35	// Восстановление прочности за 1 топливо из сварки
@@ -29,7 +30,7 @@
 	if(isobj(loc))
 		connected = loc
 	if(connected)
-		connect()
+		connect(connected)
 	else
 		disconnect()
 
@@ -81,16 +82,36 @@
 // ==========================================
 // ============ Коннект с байком ============
 
-/obj/structure/bed/chair/stroller/proc/connect()
+/obj/structure/bed/chair/stroller/proc/connect(atom/connection)
+	connected = connection
 	density = initial(density)
 	anchored = initial(anchored)
+	update_position(connected, TRUE)
 	drag_delay = FALSE
-	//connected - выставляется через привязь в motorbike
 
 /obj/structure/bed/chair/stroller/proc/disconnect()
 	density = !density
 	anchored = !anchored
 	drag_delay = initial(drag_delay)
+	update_position(src, TRUE)
+	push_to_left_side()
 	connected = null
+
+/obj/structure/bed/chair/stroller/proc/push_to_left_side()
+	var/old_dir = dir
+	var/temp_dir = dir	// Выбираем сторону СЛЕВА от нашей техники
+	if(temp_dir == NORTH)
+		temp_dir = WEST
+	else if(temp_dir == WEST)
+		temp_dir = SOUTH
+	else if(temp_dir == SOUTH)
+		temp_dir = EAST
+	else if(temp_dir == EAST)
+		temp_dir = NORTH
+	setDir(temp_dir)
+	step(src, temp_dir)	// Толкаем в сторону, если на пути стена, то "шаг" не совершится
+	setDir(old_dir)
+	if(buckled_mob)
+		buckled_mob.setDir(old_dir)
 
 // ==========================================
