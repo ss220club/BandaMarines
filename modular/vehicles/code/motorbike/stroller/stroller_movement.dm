@@ -1,5 +1,5 @@
 /obj/structure/bed/chair/stroller
-	drag_delay = 1 //pulling something on wheels is easy
+	drag_delay = 2 //На колесах хоть и удобно таскать, но эта байдура тяжеленькая.
 	can_block_movement = FALSE
 	can_rotate = FALSE
 
@@ -77,6 +77,8 @@
 
 /obj/structure/bed/chair/stroller/unbuckle()
 	reload_buckle_mob()
+	if(connected)
+		push_to_left_side(buckled_mob)
 	. = ..()
 
 /obj/structure/bed/chair/stroller/proc/reload_buckle_mob()
@@ -100,5 +102,22 @@
 	if(connected)
 		return NO_BLOCKED_MOVEMENT
 	return ..()
+
+/obj/structure/bed/chair/stroller/proc/push_to_left_side(atom/A)
+	var/old_dir = dir
+	var/temp_dir = dir	// Выбираем сторону СЛЕВА от нашей техники
+	if(temp_dir == NORTH)
+		temp_dir = WEST
+	else if(temp_dir == WEST)
+		temp_dir = SOUTH
+	else if(temp_dir == SOUTH)
+		temp_dir = EAST
+	else if(temp_dir == EAST)
+		temp_dir = NORTH
+	setDir(temp_dir)
+	step(A, temp_dir)	// Толкаем в сторону, если на пути стена, то "шаг" не совершится
+	setDir(old_dir)
+	if(buckled_mob)
+		buckled_mob.setDir(old_dir)
 
 // ==========================================

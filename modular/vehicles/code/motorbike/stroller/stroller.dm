@@ -94,24 +94,7 @@
 	anchored = !anchored
 	drag_delay = initial(drag_delay)
 	update_position(src, TRUE)
-	push_to_left_side()
+	push_to_left_side(src)
 	connected = null
-
-/obj/structure/bed/chair/stroller/proc/push_to_left_side()
-	var/old_dir = dir
-	var/temp_dir = dir	// Выбираем сторону СЛЕВА от нашей техники
-	if(temp_dir == NORTH)
-		temp_dir = WEST
-	else if(temp_dir == WEST)
-		temp_dir = SOUTH
-	else if(temp_dir == SOUTH)
-		temp_dir = EAST
-	else if(temp_dir == EAST)
-		temp_dir = NORTH
-	setDir(temp_dir)
-	step(src, temp_dir)	// Толкаем в сторону, если на пути стена, то "шаг" не совершится
-	setDir(old_dir)
-	if(buckled_mob)
-		buckled_mob.setDir(old_dir)
 
 // ==========================================
