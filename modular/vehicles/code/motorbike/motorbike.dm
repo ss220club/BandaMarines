@@ -15,6 +15,7 @@
 	maxhealth = 700
 	var/welder_health = 35	// Восстановление прочности за 1 топливо из сварки
 	var/welder_time = 1 SECONDS	// Время требуемое для сварки
+	var/is_welded = FALSE	// Сейчас происходит процесс варки?
 	var/wrehcn_time = 10 SECONDS // Время коннекта при закручивании
 
 	var/obj/structure/bed/chair/stroller/stroller = null // привязанная тележка
@@ -96,6 +97,8 @@
 
 	// Ремонт корпуса
 	if (iswelder(O))
+		if(is_welded)
+			to_chat(user, SPAN_WARNING("Вы уже варите!"))
 		if(!HAS_TRAIT(O, TRAIT_TOOL_BLOWTORCH))
 			to_chat(user, SPAN_WARNING("[O] недостаточен для ремонта корпуса!"))
 			return FALSE
@@ -104,12 +107,16 @@
 			return TRUE
 		var/obj/item/tool/weldingtool/WT = O
 		if(WT.remove_fuel(1, user))
+			is_welded = TRUE
 			if(!do_after(user, welder_time, INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
 				to_chat(user, SPAN_NOTICE("Вы прервали сварку корпуса [src.name] с помощью [O]."))
+				is_welded = FALSE
 				return FALSE
 			if(!src || !WT.isOn())
 				to_chat(user, SPAN_NOTICE("Сварка корпуса [src.name] прервана из-за непригодных обстоятельств."))
+				is_welded = FALSE
 				return FALSE
+			is_welded = FALSE
 			var/procent = round((health / maxhealth) * 100)
 			to_chat(user, SPAN_NOTICE("Вы сварили корпус [src.name] с помощью [O]. Сварено на [procent]%"))
 			health = min(health + welder_health, maxhealth)

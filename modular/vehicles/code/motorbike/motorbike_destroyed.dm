@@ -52,7 +52,7 @@
 	// Ремонт корпуса
 	var/mob/living/L = user
 	if(iswelder(O))
-		if(!is_welded)
+		if(is_welded)
 			to_chat(user, SPAN_WARNING("Вы уже варите!"))
 		if(metal_stored < metal_need)
 			to_chat(user, SPAN_WARNING("Сначала приложите листы металла, нужно еще [metal_need - metal_stored] листов!"))
