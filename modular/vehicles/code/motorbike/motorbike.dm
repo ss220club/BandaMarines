@@ -11,8 +11,8 @@
 
 	move_delay = 1.5
 	projectile_coverage = PROJECTILE_COVERAGE_LOW
-	health = 600
-	maxhealth = 600
+	health = 700
+	maxhealth = 700
 	var/welder_health = 35	// Восстановление прочности за 1 топливо из сварки
 	var/welder_time = 1 SECONDS	// Время требуемое для сварки
 	var/wrehcn_time = 10 SECONDS // Время коннекта при закручивании
