@@ -489,10 +489,12 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/almayer/command/cic)
 "abl" = (
-/obj/structure/surface/rack,
-/obj/item/storage/box/spec/mortar,
-/turf/open/floor/almayer/cargo,
-/area/almayer/squads/req)
+/obj/effect/landmark/start/doctor,
+/obj/effect/landmark/late_join/doctor,
+/obj/effect/landmark/start/field_doctor,
+/obj/effect/landmark/late_join/field_doctor,
+/turf/open/floor/plating/plating_catwalk,
+/area/almayer/living/offices)
 "abn" = (
 /obj/structure/machinery/light{
 	dir = 4
@@ -67948,6 +67950,11 @@
 	},
 /turf/open/floor/almayer/plate,
 /area/almayer/maint/hull/lower/p_bow)
+"xId" = (
+/obj/structure/surface/rack,
+/obj/item/storage/box/spec/mortar,
+/turf/open/floor/almayer/cargo,
+/area/almayer/squads/req)
 "xIj" = (
 /turf/open/floor/almayer,
 /area/almayer/hallways/upper/midship_hallway)
@@ -99940,7 +99947,7 @@ bwG
 rUq
 rUq
 sab
-sab
+abl
 izk
 pQc
 cWr
@@ -111529,7 +111536,7 @@ bdl
 brp
 bZr
 bmD
-abl
+xId
 pjG
 boz
 bpR
