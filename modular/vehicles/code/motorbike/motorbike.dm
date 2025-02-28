@@ -66,8 +66,8 @@
 
 
 /obj/vehicle/motorbike/do_buckle(mob/living/target, mob/user)
-	if(..() && stroller)
-		stroller.update_position(src)
+	if(..())
+		update_stroller(src, TRUE)
 
 // ==========================================
 // ======== Действия с инструментами ========
