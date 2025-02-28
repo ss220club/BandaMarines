@@ -10,7 +10,7 @@
 
 /datum/action/xeno_action/activable/pounce/prae_dash/apply_replaces_in_desc()
 	. = ..()
-	desc += "<br><br>Используйте повторно в течении %TIMEOU%, чтобы нанести %DAMAGE% урона всем вокруг вас. Попадание по %SHIELD_TARGETS% целям возвращает ваш щит."
+	desc += "<br><br>Используйте повторно в течении %TIMEOUT%, чтобы нанести %DAMAGE% урона всем вокруг вас. Попадание по %SHIELD_TARGETS% целям возвращает ваш щит."
 	replace_in_desc("%DAMAGE%", damage)
 	replace_in_desc("%SHIELD_TARGETS%", shield_regen_threshold)
 	replace_in_desc("%TIMEOUT%", time_until_timeout / 10, DESCRIPTION_REPLACEMENT_TIME)
@@ -31,10 +31,10 @@
 
 // Handled by basic version
 /datum/action/xeno_action/activable/tail_stab/tail_seize
-	desc = "Удар хвостом на расстоянии %DISTANCE%, наносящий %DAMAGE% урона. При попадании замедляет цель (%SLOW%) и не даёт ей двигаться (%ROOT%)."
+	desc = "Удар хвостом на расстоянии %DISTANCE%, наносящий %DAMAGE% урона. При попадании притягивает цель, замедляет её (%SLOW%) и не даёт ей двигаться (%ROOT%)."
 
 /datum/action/xeno_action/activable/tail_stab/tail_seize/apply_replaces_in_desc()
-	replace_in_desc("%DISTANCE%", /datum/ammo/xeno/oppressor_tail::max_range, DESCRIPTION_REPLACEMENT_DISTANCE)
+	replace_in_desc("%DISTANCE%", /datum/ammo/xeno/oppressor_tail::max_range - 1, DESCRIPTION_REPLACEMENT_DISTANCE)
 	replace_in_desc("%DAMAGE%", /datum/ammo/xeno/oppressor_tail::damage)
 	replace_in_desc("%SLOW%", 0.5, DESCRIPTION_REPLACEMENT_TIME)
 	replace_in_desc("%ROOT%", 0.5, DESCRIPTION_REPLACEMENT_TIME)
