@@ -668,6 +668,7 @@
 	name = "Tool Webbing"
 	desc = "A brown synthcotton webbing that is similar in function to civilian tool aprons, but is more durable for field usage."
 	hold = /obj/item/storage/internal/accessory/tool_webbing
+	icon_state = "vest_brown"
 
 /obj/item/clothing/accessory/storage/tool_webbing/small
 	name = "Small Tool Webbing"
@@ -689,6 +690,7 @@
 /* RUCM REMOVE
 		/obj/item/device/defibrillator/synthetic,
 */
+		/obj/item/stack/rods,
 	)
 
 /obj/item/storage/internal/accessory/tool_webbing/small

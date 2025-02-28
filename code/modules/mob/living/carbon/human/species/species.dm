@@ -410,7 +410,8 @@
 	if(flags & IS_SYNTHETIC)
 		H.h_style = ""
 		spawn(100)
-			if(!H) return
+			if(!H)
+				return
 			H.update_hair()
 	return
 */
