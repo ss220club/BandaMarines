@@ -88,6 +88,7 @@
 		/obj/item/attachable/attached_gun/flamer/advanced,
 		/obj/item/attachable/attached_gun/shotgun,
 		/obj/item/attachable/attached_gun/extinguisher,
+		/obj/item/attachable/alt_iff_scope,
 		/obj/item/attachable/scope,
 		/obj/item/attachable/scope/mini,
 	)
@@ -1814,7 +1815,7 @@
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/scope,
 		/obj/item/attachable/scope/mini,
-		/obj/item/attachable/scope/mini_iff,
+		/obj/item/attachable/alt_iff_scope,
 		/obj/item/attachable/flashlight/grip,
 	)
 
@@ -1900,7 +1901,7 @@
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/scope,
 		/obj/item/attachable/scope/mini,
-		/obj/item/attachable/scope/mini_iff,
+		/obj/item/attachable/alt_iff_scope,
 		/obj/item/attachable/flashlight/grip,
 	)
 
