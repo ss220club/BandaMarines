@@ -8,7 +8,7 @@
 	var/pixel_x_sides = 10 // Смещение для выравнивания на тайле, когда приконекчен
 
 	// Смещение при коннекте
-	var/list/pixel_north = list(-14, -4)
+	var/list/pixel_north = list(14, -4)
 	var/list/pixel_south = list(-14, -4)
 	var/list/pixel_east = list(2, -9)
 	var/list/pixel_west = list(-2, 0)
@@ -70,13 +70,14 @@
 	connected.pixel_x = initial(connected.pixel_x)
 	switch(dir)	// движок не хочет константно их сохранять в словарь по DIR'ам
 		if(NORTH, SOUTH)
-			pixel_x += pixel_x_sides // Централизуем коляску
+			var/ndir = dir == NORTH ? -1 : 1	// На севере нам нужно проделать всё "в другую сторону"
+			pixel_x += pixel_x_sides * ndir // Централизуем коляску
 			if(buckled_mob)
-				buckled_mob.pixel_x += pixel_x_sides	// Сидящего
+				buckled_mob.pixel_x += pixel_x_sides * ndir	// Сидящего
 			if(connected)
-				connected.pixel_x += pixel_x_sides	// Приконекченное мото
+				connected.pixel_x += pixel_x_sides * ndir	// Приконекченное мото
 				if(connected.buckled_mob)	// Приконекченного сидящего в мото
-					connected.buckled_mob.pixel_x += pixel_x_sides
+					connected.buckled_mob.pixel_x += pixel_x_sides * ndir
 		if(EAST, WEST)
 			if(buckled_mob)
 				buckled_mob.pixel_x = get_buckled_mob_pixel_x()
@@ -135,14 +136,14 @@
 /obj/structure/bed/chair/stroller/proc/push_to_left_side(atom/A)
 	var/old_dir = dir
 	var/temp_dir = dir	// Выбираем сторону коннекта нашей тележки
-	if(temp_dir == NORTH)
+	if(temp_dir == NORTH)// !!!!!!!!! Коляска должна быть на востоке, а она почему-то на западе (не только тут эта вина)
+		temp_dir = EAST
+	else if(temp_dir == EAST)
+		temp_dir = SOUTH
+	else if(temp_dir == SOUTH)
 		temp_dir = WEST
 	else if(temp_dir == WEST)
 		temp_dir = NORTH
-	else if(temp_dir == SOUTH)
-		temp_dir = WEST
-	else if(temp_dir == EAST)
-		temp_dir = SOUTH
 	setDir(temp_dir)
 	step(A, temp_dir)	// Толкаем в сторону, если на пути стена, то "шаг" не совершится
 	setDir(old_dir)
