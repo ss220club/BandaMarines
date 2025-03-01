@@ -1,6 +1,6 @@
 /obj/structure/bed/chair/stroller
 	drag_delay = 2 //На колесах хоть и удобно таскать, но эта байдура тяжеленькая.
-	drag_delay_buckled = 4 // Тяжеленько. Хотите пулеметную точку? Хотите и таскать медленно.
+	var/drag_delay_buckled = 4 // Тяжеленько. Хотите пулеметную точку? Хотите и таскать медленно.
 	can_block_movement = FALSE
 	can_rotate = FALSE
 
@@ -125,6 +125,8 @@
 	buckled_mob.update_layer()	// Обновляем, если с персонажем "что-то случилось"
 
 /obj/structure/bed/chair/stroller/proc/reload_connected()
+	if(!connected)
+		return
 	if(connected.buckled_mob)
 		connected.buckled_mob.pixel_x = initial(connected.buckled_mob.pixel_x)
 	connected.pixel_x = initial(connected.pixel_x)
