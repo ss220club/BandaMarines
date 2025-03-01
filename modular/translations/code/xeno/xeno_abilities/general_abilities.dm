@@ -44,7 +44,7 @@
 
 /datum/action/xeno_action/onclick/emit_pheromones/apply_replaces_in_desc()
 	var/mob/living/carbon/xenomorph/xeno = owner
-	replace_in_desc("%STRENGTH%", get_pheromone_aura_strength(xeno.caste.aura_strength))
+	replace_in_desc("%STRENGTH%", get_pheromone_aura_strength(xeno.caste.aura_strength + xeno.phero_modifier))
 
 /datum/action/xeno_action/activable/pounce
 	desc = "Наброситься на клетку (%DISTANCE%)."
