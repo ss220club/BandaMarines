@@ -132,6 +132,12 @@
 	desc = "A standard USCM Command Tent. This one comes equipped with a self-powered Overwatch Console and a Telephone. Unfold in a suitable location to maximize usefulness. Staff Officer not included. ENTRANCE TO THE SOUTH."
 	template_preset = "tent_cmd"
 
+/obj/item/folded_tent/eng
+	name = "folded USCM Engineering Tent"
+	icon_state = "eng"
+	desc = "A standard USCM Engineering Tent. This one comes equipped with a an electronics vendor and two geothermal generators. Unfold in a suitable location to maximize usefulness. Staff Officer not included. ENTRANCE TO THE SOUTH."
+	template_preset = "tent_eng"
+
 /obj/item/folded_tent/med
 	name = "folded USCM Medical Tent"
 	icon_state = "med"
