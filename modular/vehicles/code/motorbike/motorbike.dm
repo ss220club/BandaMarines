@@ -5,14 +5,23 @@
 	icon_state = "moto_ural"
 	var/icon_skin = "classic"
 
+	health = 700
+	maxhealth = 700
 	pixel_x = -8	// спрайт 48х48, центрируем.
 	buckling_y = 7
 	layer = ABOVE_LYING_MOB_LAYER //Allows it to drive over people, but is below the driver.
 
-	move_delay = 1.5
-	projectile_coverage = PROJECTILE_COVERAGE_LOW
-	health = 700
-	maxhealth = 700
+	move_delay = 1.5	// Скорость
+	projectile_coverage = PROJECTILE_COVERAGE_LOW // Шанс попадания проджектайлов
+
+	// Система света
+	light_system = MOVABLE_LIGHT
+	light_range = 5
+	var/atom/movable/vehicle_light_holder/lighting_holder
+	var/vehicle_light_range = 5
+	var/vehicle_light_power = 2
+
+	// Ремонт, коннекты, действия
 	var/welder_health = 35	// Восстановление прочности за 1 топливо из сварки
 	var/welder_time = 1 SECONDS	// Время требуемое для сварки
 	var/is_welded = FALSE	// Сейчас происходит процесс варки?
@@ -22,6 +31,14 @@
 	var/hit_chance_connected = PROJECTILE_COVERAGE_MEDIUM // prob шанс задеть тележку или сидящего при попадании
 	var/hit_chance_buckled = PROJECTILE_COVERAGE_MINIMAL // Шанс попасть по сидящему
 
+	var/can_drive_when_hands_full = FALSE // Не надо водить когда хотя бы одна рука не свободна, лучше 2 // !!!!!!!!!!1 ДОДЕЛАТЬ
+	/* // На будущее потеря контроля когда не можешь водить
+	var/chance_lost_drive_control_when_one_hand = 10 // Ездишь с одной рукой - имеешь шанс нахуй потерять драйв контрол
+	var/lost_drive_control_dir					 // Направление по которому начинает ездить машина потерявшее управление
+	var/lost_drive_control_time_min = 2 SECONDS	 // Нижняя граница времени движения при потере контроля
+	var/lost_drive_control_time_max	= 6 SECONDS // Верхняя граница времени движения при потере контроля
+	var/lost_drive_control_time_temp = 0		 // "Когда" потеря контроля закончится по глобал тайму
+	*/
 /obj/vehicle/motorbike/New(loc, skin, create_stroller = TRUE)
 	if(skin)
 		icon_skin = skin
@@ -34,6 +51,13 @@
 /obj/vehicle/motorbike/Initialize()
 	. = ..()
 	update_overlay()
+	if(bound_width > world.icon_size || bound_height > world.icon_size)
+		lighting_holder = new(src)
+		lighting_holder.set_light_range(vehicle_light_range)
+		lighting_holder.set_light_power(vehicle_light_power)
+		lighting_holder.set_light_on(vehicle_light_range || vehicle_light_power)
+	else if(light_range)
+		set_light_on(TRUE)
 
 /obj/vehicle/motorbike/proc/update_overlay()
 	overlays.Cut()
@@ -54,6 +78,10 @@
 /obj/vehicle/motorbike/proc/check_and_try_disasemble(damage = 0)
 	if(health - damage <= 0)
 		stroller.disconnect()
+		//vehicle is dead, no more lights
+		if(lighting_holder.light_range)
+			lighting_holder.set_light_on(FALSE)
+		QDEL_NULL(lighting_holder)
 		new /obj/motorbike_destroyed(src.loc, icon_skin)
 
 
@@ -129,6 +157,9 @@
 				return FALSE
 			is_welded = FALSE
 			var/procent = round((health / maxhealth) * 100)
+			if(!lighting_holder.light)
+				lighting_holder.set_light_on(TRUE)
+				lighting_holder.set_light_range(vehicle_light_range)
 			to_chat(user, SPAN_NOTICE("Вы сварили корпус [src.name] с помощью [O]. Сварено на [procent]%"))
 			health = min(health + welder_health, maxhealth)
 			playsound(src.loc, 'sound/items/Welder.ogg', 25, 1)
