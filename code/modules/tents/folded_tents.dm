@@ -133,9 +133,9 @@
 	template_preset = "tent_cmd"
 
 /obj/item/folded_tent/eng
-	name = "folded USCM Engineering Tent"
+	name = "Складная USCM Инженерная палатка"
 	icon_state = "eng"
-	desc = "A standard USCM Engineering Tent. This one comes equipped with a an electronics vendor and two geothermal generators. Unfold in a suitable location to maximize usefulness. Staff Officer not included. ENTRANCE TO THE SOUTH."
+	desc = "Стандартная инженерная палатка. В неё входят: автомат с интсрументами, автомат с техникой для полевых техников, телефон, и зарядник батарей. Разложите в подходящем месте, чтобы извлечь максимальную пользу. Офицер состава не прилагается. ВХОД С ЮГА."
 	template_preset = "tent_eng"
 
 /obj/item/folded_tent/med
