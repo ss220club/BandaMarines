@@ -39,7 +39,12 @@
 			replace_in_desc("%POWER%", "Необычная кислота")
 
 /datum/action/xeno_action/onclick/emit_pheromones
-	desc = "Выбрать излучаемые феромоны. Феромоны одного типа не стакаются; если имеется несколько доступных феромонов одного типа, выбирается сильнейший."
+	desc = "Выбрать излучаемые феромоны. Если имеется несколько доступных феромонов одного типа, выбирается сильнейший.\
+		<br><br>Сила ваших феромонов: %STRENGTH%"
+
+/datum/action/xeno_action/onclick/emit_pheromones/apply_replaces_in_desc()
+	var/mob/living/carbon/xenomorph/xeno = owner
+	replace_in_desc("%STRENGTH%", get_pheromone_aura_strength(xeno.caste.aura_strength))
 
 /datum/action/xeno_action/activable/pounce
 	desc = "Наброситься на клетку (%DISTANCE%)."
@@ -95,7 +100,7 @@
 	desc = "Прятаться под объектами окружения."
 
 /datum/action/xeno_action/onclick/place_trap
-	desc = "Поставить ловушку на траве. Необходимо её заполнить кислотой, газом или лицехватом после установки. Активируется при приближении."
+	desc = "Поставить ловушку на траве. Её можно заполнить кислотой, газом или лицехватом. Активируется при приближении."
 
 /datum/action/xeno_action/activable/place_construction
 	desc = "Построить продвинутые структуры. Требуется усиленная трава с Hive Core/Hive Cluster, а также свободное пространство вокруг точки установки."
@@ -109,13 +114,13 @@
 	desc += "[spit.get_description()]"
 
 /datum/action/xeno_action/activable/tail_stab
-	desc = "Удар хвостом на расстоянии %TAIL_DISTANCE%, наносящий %TAIL_DAMAGE%, а также дезориентирирует цель (%TAIL_DAZE%)."
+	desc = "Удар хвостом на расстоянии %TAIL_DISTANCE%, наносящий %TAIL_DAMAGE% урона, а также дезориентирирует цель (%TAIL_DAZE%)."
 
 /datum/action/xeno_action/activable/tail_stab/apply_replaces_in_desc()
 	var/mob/living/carbon/xenomorph/xeno = owner
 	replace_in_desc("%TAIL_DAMAGE%", xeno.melee_damage_upper * TAILSTAB_MOB_DAMAGE_MULTIPLIER)
-	replace_in_desc("%TAIL_DISTANCE%", stab_range)
-	replace_in_desc("%TAIL_DAZE%", xeno.mob_size >= MOB_SIZE_BIG ? convert_effect_time(3, DAZE) : convert_effect_time(1, DAZE))
+	replace_in_desc("%TAIL_DISTANCE%", stab_range, DESCRIPTION_REPLACEMENT_DISTANCE)
+	replace_in_desc("%TAIL_DAZE%", xeno.mob_size >= MOB_SIZE_BIG ? convert_effect_time(3, DAZE) : convert_effect_time(1, DAZE), DESCRIPTION_REPLACEMENT_TIME)
 
 /datum/action/xeno_action/onclick/evolve
 	desc = "Эволюционировать в следующий уровень. Количество доступных слотов можно посмотреть в Hive Status."
