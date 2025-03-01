@@ -33,14 +33,6 @@
 	var/hit_chance_connected = PROJECTILE_COVERAGE_MEDIUM // prob шанс задеть тележку или сидящего при попадании
 	var/hit_chance_buckled = PROJECTILE_COVERAGE_MINIMAL // Шанс попасть по сидящему
 
-	var/can_drive_when_hands_full = FALSE // Не надо водить когда хотя бы одна рука не свободна, лучше 2 // !!!!!!!!!!1 ДОДЕЛАТЬ
-	/* // На будущее потеря контроля когда не можешь водить
-	var/chance_lost_drive_control_when_one_hand = 10 // Ездишь с одной рукой - имеешь шанс нахуй потерять драйв контрол
-	var/lost_drive_control_dir					 // Направление по которому начинает ездить машина потерявшее управление
-	var/lost_drive_control_time_min = 2 SECONDS	 // Нижняя граница времени движения при потере контроля
-	var/lost_drive_control_time_max	= 6 SECONDS // Верхняя граница времени движения при потере контроля
-	var/lost_drive_control_time_temp = 0		 // "Когда" потеря контроля закончится по глобал тайму
-	*/
 
 /obj/vehicle/motorbike/New(loc, skin, create_stroller = TRUE)
 	if(skin)
@@ -61,6 +53,7 @@
 		lighting_holder.set_light_on(vehicle_light_range || vehicle_light_power)
 	else if(light_range)
 		set_light_on(TRUE)
+	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(on_move))
 
 /obj/vehicle/motorbike/proc/update_overlay()
 	overlays.Cut()
