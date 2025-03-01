@@ -44,3 +44,31 @@
 			// SLOW STATUS EFFECT IS DIFFERENT. It uses deciseconds.
 			return amount * /datum/controller/subsystem/human::wait / 10
 	return amount
+
+// Show cooldown on abilities
+/datum/action/xeno_action/Destroy()
+	STOP_PROCESSING(SSfasteffects, src)
+	. = ..()
+
+/datum/action/xeno_action/apply_cooldown(cooldown_modifier)
+	. = ..()
+	if(cooldown_timer_id == TIMER_ID_NULL)
+		return
+	START_PROCESSING(SSfasteffects, src)
+
+/datum/action/xeno_action/apply_cooldown_override(cooldown_duration)
+	. = ..()
+	if(cooldown_timer_id == TIMER_ID_NULL)
+		return
+	START_PROCESSING(SSfasteffects, src)
+
+/datum/action/xeno_action/process(delta_time)
+	return update_cooldown_visual()
+
+/datum/action/xeno_action/proc/update_cooldown_visual()
+	var/time_left = max(current_cooldown_start_time + current_cooldown_duration - world.time, 0)
+	if(!owner || time_left <= 0 || time_left >= 180 SECONDS || cooldown_timer_id == TIMER_ID_NULL)
+		button.set_maptext()
+		return PROCESS_KILL
+	else
+		button.set_maptext(SMALL_FONTS_COLOR(7, round(time_left/10, 0.1), "#e69d00"), 4, 4)
