@@ -20,7 +20,7 @@
 	playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
 	L.animation_attack_on(src)
 	to_chat(user, SPAN_NOTICE("Вы начинаете крутить крепежи..."))
-	if(!do_after(user, wrench_time, INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
+	if(!do_after(user, wrench_time, INTERRUPT_ALL, BUSY_ICON_BUILD))
 		to_chat(user, SPAN_WARNING("Крутка крипежей прервана."))
 		return FALSE
 	playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
@@ -47,7 +47,7 @@
 	var/obj/item/tool/weldingtool/WT = O
 	if(WT.remove_fuel(1, user))
 		is_welded = TRUE
-		if(!do_after(user, welder_time, INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
+		if(!do_after(user, welder_time, INTERRUPT_ALL, BUSY_ICON_BUILD))
 			to_chat(user, SPAN_NOTICE("Вы прервали сварку корпуса [src.name] с помощью [O]."))
 			is_welded = FALSE
 			return FALSE

@@ -65,7 +65,7 @@
 			return TRUE
 		if(WT.remove_fuel(1, user))
 			is_welded = TRUE
-			if(!do_after(user, welder_time, INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
+			if(!do_after(user, welder_time, INTERRUPT_ALL, BUSY_ICON_BUILD))
 				to_chat(user, SPAN_NOTICE("Вы прервали сварку корпуса [src.name] с помощью [O]."))
 				is_welded = FALSE
 				return FALSE
@@ -114,7 +114,7 @@
 		to_chat(user, SPAN_WARNING("Вы вкручиваете болты у [src]. Ожидайте."))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, 1)
 		L.animation_attack_on(src)
-		if(!do_after(user, screw_time, INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
+		if(!do_after(user, screw_time, INTERRUPT_ALL, BUSY_ICON_BUILD))
 			return FALSE
 		to_chat(user, SPAN_NOTICE("Вы вкрутили болты у [src]."))
 		playsound(src.loc, 'sound/items/Screwdriver2.ogg', 25, 1)

@@ -49,12 +49,16 @@
 
 /obj/structure/bed/chair/stroller/proc/connect(atom/connection)
 	connected = connection
+	forceMove(connected.loc) // Обновляем местоположение, мы ж не хотим видеть коляску в чмстилище
+	RegisterSignal(connected, COMSIG_MOVABLE_MOVED, PROC_REF(handle_parent_move))
+	// Доп параметры для корректной обработки состояния "ОНО КАК ОБЪЕКТ НО СУКА НЕ ОБЪЕКТ"
 	density = initial(density)
 	anchored = initial(anchored)
 	update_position(connected, TRUE)
 	drag_delay = FALSE
 
 /obj/structure/bed/chair/stroller/proc/disconnect()
+	UnregisterSignal(connected, COMSIG_MOVABLE_MOVED)
 	reload_connected()
 	connected = null
 	density = !density
@@ -62,5 +66,10 @@
 	update_drag_delay()
 	update_position(src, TRUE)
 	push_to_left_side(src)
+
+/obj/structure/bed/chair/stroller/proc/handle_parent_move(atom/movable/mover, atom/oldloc, direction)
+	SIGNAL_HANDLER
+
+	forceMove(get_turf(mover))
 
 // ==========================================

@@ -48,7 +48,6 @@
 // =============== Позиционка  ==============
 
 /obj/structure/bed/chair/stroller/proc/update_position(atom/target = null, force_update = FALSE)
-	forceMove(get_turf(target))	// Тащим привязанного моба с нами
 	if(dir == target.dir && !force_update)
 		return
 	pixel_x = initial(pixel_x)
@@ -149,7 +148,7 @@
 /obj/structure/bed/chair/stroller/proc/push_to_left_side(atom/A)
 	var/old_dir = dir
 	var/temp_dir = dir	// Выбираем сторону коннекта нашей тележки
-	if(temp_dir == NORTH)// !!!!!!!!! Коляска должна быть на востоке, а она почему-то на западе (не только тут эта вина)
+	if(temp_dir == NORTH)
 		temp_dir = EAST
 	else if(temp_dir == EAST)
 		temp_dir = SOUTH
