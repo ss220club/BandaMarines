@@ -17,6 +17,7 @@
 
 	can_buckle = TRUE
 	var/obj/connected
+	var/hit_chance_buckled = PROJECTILE_COVERAGE_MINIMAL // Шанс попасть по сидящему
 
 /obj/structure/bed/chair/stroller/Initialize()
 	. = ..()

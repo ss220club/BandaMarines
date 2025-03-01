@@ -19,6 +19,8 @@
 	var/wrehcn_time = 10 SECONDS // Время коннекта при закручивании
 
 	var/obj/structure/bed/chair/stroller/stroller = null // привязанная тележка
+	var/hit_chance_connected = PROJECTILE_COVERAGE_MEDIUM // prob шанс задеть тележку или сидящего при попадании
+	var/hit_chance_buckled = PROJECTILE_COVERAGE_MINIMAL // Шанс попасть по сидящему
 
 /obj/vehicle/motorbike/New(loc, skin, create_stroller = TRUE)
 	if(skin)
@@ -53,6 +55,15 @@
 	if(health - damage <= 0)
 		stroller.disconnect()
 		new /obj/motorbike_destroyed(src.loc, icon_skin)
+
+
+/obj/vehicle/motorbike/bullet_act(obj/projectile/P)
+	if(stroller && prob(hit_chance_connected) && stroller.get_projectile_hit_boolean(P))
+		return stroller.bullet_act(P)	// Приконекченная тележка задевается если задевать и мотоцикл
+	if(buckled_mob && prob(hit_chance_buckled) && buckled_mob.get_projectile_hit_chance(P))
+		return buckled_mob.bullet_act(P)	// Сидящие тоже могут получить пулю в задницу
+	. = ..()
+
 
 // ==========================================
 // ========== Движение с коляской ==========
