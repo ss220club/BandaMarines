@@ -8,7 +8,7 @@
 "P" = (/turf/template_noop,/area/template_noop)
 "T" = (/obj/structure/blocker/tent{dir = 1},/turf/template_noop,/area/template_noop)
 "X" = (/obj/structure/blocker/tent,/obj/structure/blocker/tent{dir = 4},/obj/structure/machinery/cm_vending/sorted/tech/comtech_tools,/turf/template_noop,/area/template_noop)
-"Y" = (/obj/structure/tent/reqs,/obj/structure/blocker/tent{dir = 8},/obj/structure/tent_curtain,/obj/structure/surface/table,/obj/structure/machinery/recharger,/turf/template_noop,/area/template_noop)
+"Y" = (/obj/structure/blocker/tent{dir = 8},/obj/structure/tent_curtain,/obj/structure/surface/table,/obj/structure/machinery/recharger,/obj/structure/tent/eng,/turf/template_noop,/area/template_noop)
 
 (1,1,1) = {"
 pppp
