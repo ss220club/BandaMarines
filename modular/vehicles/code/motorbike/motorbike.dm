@@ -27,7 +27,7 @@
 	var/welder_health = 35	// Восстановление прочности за 1 топливо из сварки
 	var/welder_time = 1 SECONDS	// Время требуемое для сварки
 	var/is_welded = FALSE	// Сейчас происходит процесс варки?
-	var/wrehcn_time = 10 SECONDS // Время коннекта при закручивании
+	var/wrench_time = 10 SECONDS // Время коннекта при закручивании
 
 	var/obj/structure/bed/chair/stroller/stroller = null // привязанная тележка
 	var/hit_chance_connected = PROJECTILE_COVERAGE_MEDIUM // prob шанс задеть тележку или сидящего при попадании
@@ -126,7 +126,7 @@
 		playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
 		L.animation_attack_on(src)
 		to_chat(user, SPAN_NOTICE("Вы начинаете крутить крепежи..."))
-		if(!do_after(user, wrehcn_time, INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
+		if(!do_after(user, wrench_time, INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
 			to_chat(user, SPAN_WARNING("Крутка крипежей прервана."))
 			return FALSE
 		playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
