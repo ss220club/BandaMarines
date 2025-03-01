@@ -7,6 +7,8 @@
 
 	health = 700
 	maxhealth = 700
+	var/required_skill = SKILL_VEHICLE_SMALL
+
 	pixel_x = -8	// спрайт 48х48, центрируем.
 	buckling_y = 7
 	layer = ABOVE_LYING_MOB_LAYER //Allows it to drive over people, but is below the driver.
@@ -106,6 +108,10 @@
 
 
 /obj/vehicle/motorbike/do_buckle(mob/living/target, mob/user)
+	if(!skillcheck(target, SKILL_VEHICLE, required_skill))
+		if(target == user)
+			to_chat(user, SPAN_WARNING("Вы без понятия как им управлять!"))
+		return FALSE
 	if(..())
 		update_stroller(src, TRUE)
 
