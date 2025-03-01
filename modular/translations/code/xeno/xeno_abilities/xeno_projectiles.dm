@@ -61,5 +61,5 @@
 /datum/ammo/xeno/bone_chips/get_description()
 	var/desc = ""
 	desc += ..()
-	desc += "<br>Замедляет цель на [convert_effect_time(3, SLOW)] сек."
+	desc += "Замедляет цель на [convert_effect_time(3, SLOW)] сек."
 	return desc
