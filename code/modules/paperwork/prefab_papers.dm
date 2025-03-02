@@ -123,23 +123,23 @@ GLOBAL_REFERENCE_LIST_INDEXED(prefab_papers, /obj/item/paper/prefab, document_ti
 	document_category = PAPER_CATEGORY_MP
 
 /obj/item/paper/prefab/carbon/military_police/ops_report
-	document_title = "PR201 - Operations Report"
+	document_title = "PR201 - Отчет об операции"
 	doc_datum_type = /datum/prefab_document/provost/mp/ops_report
 
 /obj/item/paper/prefab/carbon/military_police/appeal_form
-	document_title = "PR301a - Appeals Form"
+	document_title = "PR301a - Апелляционная форма"
 	doc_datum_type = /datum/prefab_document/provost/mp/appeal_form
 
 /obj/item/paper/prefab/carbon/military_police/dao_request
-	document_title = "PR301b - Delayed Action Order"
+	document_title = "PR301b - Задержанный приказ на действие"
 	doc_datum_type = /datum/prefab_document/provost/mp/dao_request
 
 /obj/item/paper/prefab/carbon/military_police/confiscation_receipt
-	document_title = "PR356 - Confiscation Receipt"
+	document_title = "PR356 - Расписка о конфискации"
 	doc_datum_type = /datum/prefab_document/provost/mp/confiscation_receipt
 
 /obj/item/paper/prefab/carbon/military_police/apology_notice
-	document_title = "NJ910 - Apology Notice"
+	document_title = "NJ910 - Уведомление об извинениях"
 	doc_datum_type = /datum/prefab_document/provost/mp/apology_notice
 
 // ########## Provost HC Forms  ########## \\
@@ -149,19 +149,19 @@ GLOBAL_REFERENCE_LIST_INDEXED(prefab_papers, /obj/item/paper/prefab, document_ti
 	document_category = PAPER_CATEGORY_PROVOST
 
 /obj/item/paper/prefab/provost/standard
-	document_title = "PR202 - Provost Missive"
+	document_title = "PR202 - Сообщение администрации"
 	doc_datum_type = /datum/prefab_document/provost/highcom/standard
 
 /obj/item/paper/prefab/provost/arrest_warrant
-	document_title = "PR211 - Arrest Warrant"
+	document_title = "PR211 - Ордер на арест"
 	doc_datum_type = /datum/prefab_document/provost/highcom/arrest_warrant
 
 /obj/item/paper/prefab/provost/custody_transfer
-	document_title = "PR238 - Custody Transfer Order"
+	document_title = "PR238 - Приказ о передаче под стражу"
 	doc_datum_type = /datum/prefab_document/provost/highcom/custody_transfer
 
 /obj/item/paper/prefab/provost/dao_response
-	document_title = "PR301c - Delayed Action Order"
+	document_title = "PR301c - Задержанный приказ на действие"
 	doc_datum_type = /datum/prefab_document/provost/highcom/dao_response
 
 // ########## USCM Standard Forms  ########## \\
@@ -181,15 +181,15 @@ GLOBAL_REFERENCE_LIST_INDEXED(prefab_papers, /obj/item/paper/prefab, document_ti
 	document_category = PAPER_CATEGORY_USCM_HC
 
 /obj/item/paper/prefab/uscm_highcom/arrest_warrant
-	document_title = "UAM211 - Arrest Warrant"
+	document_title = "UAM211 - Ордер на арест"
 	doc_datum_type = /datum/prefab_document/uscm/highcom/arrest_warrant
 
 /obj/item/paper/prefab/uscm_highcom/custody_transfer
-	document_title = "UAM238 - Custody Transfer Order"
+	document_title = "UAM238 - Приказ о передаче под стражу"
 	doc_datum_type = /datum/prefab_document/uscm/highcom/custody_transfer
 
 /obj/item/paper/prefab/uscm_highcom/standard
-	document_title = "UAM422 - USCM High Command Missive"
+	document_title = "UAM422 - Сообщение Верховного Командования USCM"
 	doc_datum_type = /datum/prefab_document/uscm/highcom/standard
 
 // ########## Wey-Yu Liaison Forms  ########## \\
@@ -199,23 +199,23 @@ GLOBAL_REFERENCE_LIST_INDEXED(prefab_papers, /obj/item/paper/prefab, document_ti
 	document_category = PAPER_CATEGORY_LIAISON
 
 /obj/item/paper/prefab/liaison/ops_report
-	document_title = "WY435 - Liaison Operations Report"
+	document_title = "WY435 - Отчет связного"
 	doc_datum_type = /datum/prefab_document/wey_yu/liaison/ops_report
 
 /obj/item/paper/prefab/liaison/preserve_intent
-	document_title = "WY439 - Affidavit of Intent to Preserve"
+	document_title = "WY439 - Заявление о намерении сохранить"
 	doc_datum_type = /datum/prefab_document/wey_yu/liaison/preserve_intent
 
 /obj/item/paper/prefab/liaison/liability
-	document_title = "WY440 - Affidavit of Liability"
+	document_title = "WY440 - Заявление об ответственности"
 	doc_datum_type = /datum/prefab_document/wey_yu/liaison/liability
 
 /obj/item/paper/prefab/liaison/nda_short
-	document_title = "WY441 - Confidentiality Agreement"
+	document_title = "WY441 - Соглашение о конфиденциальности"
 	doc_datum_type = /datum/prefab_document/wey_yu/liaison/nda_short
 
 /obj/item/paper/prefab/liaison/nda_long
-	document_title = "WY442 - Non Disclosure Agreement"
+	document_title = "WY442 - Соглашение о неразглашении"
 	doc_datum_type = /datum/prefab_document/wey_yu/liaison/nda_long
 
 // ########## Wey-Yu HC Forms  ########## \\
@@ -225,5 +225,5 @@ GLOBAL_REFERENCE_LIST_INDEXED(prefab_papers, /obj/item/paper/prefab, document_ti
 	document_category = PAPER_CATEGORY_WEYYU_HC
 
 /obj/item/paper/prefab/wey_yu/standard
-	document_title = "WY101 - Directorate Communication"
+	document_title = "WY101 - Сообщение Директората"
 	doc_datum_type = /datum/prefab_document/wey_yu/highcom/standard
