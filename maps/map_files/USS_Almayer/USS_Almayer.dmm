@@ -30528,7 +30528,6 @@
 /area/almayer/maint/hull/upper/u_m_p)
 "iKb" = (
 /obj/structure/surface/table/almayer,
-/obj/item/folded_tent/eng,
 /turf/open/floor/almayer/orange,
 /area/almayer/hallways/hangar)
 "iKc" = (
