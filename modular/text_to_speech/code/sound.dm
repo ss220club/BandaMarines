@@ -27,7 +27,7 @@
 	adjust_volume_prefs(VOLUME_TTS_RADIO, "Громкость TTS в радио", CHANNEL_TTS_RADIO)
 
 /client/verb/adjust_volume_tts_announce()
-	set name = "Громкость TTS (Радио)"
+	set name = "Громкость TTS (Анонсы)"
 	set category = "Preferences.Sound"
 	adjust_volume_prefs(VOLUME_TTS_ANNOUNCE, "Громкость TTS в анонсах", CHANNEL_TTS_RADIO)
 
