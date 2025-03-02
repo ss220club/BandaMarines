@@ -7,17 +7,21 @@
 
 /datum/font/vcr_osd_mono
 	name = "VCR OSD Mono"
-	font_family = 'interface/Grand9K_Pixel_Rus.ttf' // VCR_OSD_Mono.ttf' // SS220 EDIT - Cyrillic fixes
+	font_family = 'interface/Grand9K_Pixel.ttf' // VCR_OSD_Mono.ttf' // SS220 EDIT - Cyrillic fixes
 
 // SS220 ADDITION - new fonts
-/datum/font/pixcyrillic
+/datum/font/grand9k_pixel
+	name = "Grand9K Pixel"
+	font_family = 'interface/Grand9K_Pixel.ttf'
+
+/datum/font/pix_cyrillic
 	name = "Pix Cyrillic"
-	font_family = 'interface/PixCyrillic.ttf'
+	font_family = 'interface/Pix_Cyrillic.ttf'
 
 /datum/font/spessfont
 	name = "Spess Font"
-	font_family = 'interface/SpessFontRus.ttf'
+	font_family = 'interface/Spess_Font.ttf'
 
 /datum/font/tiny_unicode
 	name = "TinyUnicode"
-	font_family = 'interface/TinyUnicodeRus.ttf'
+	font_family = 'interface/TinyUnicode.ttf'

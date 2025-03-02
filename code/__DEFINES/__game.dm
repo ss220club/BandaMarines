@@ -573,11 +573,11 @@
 /// Maptext styles
 #define MAP_STYLESHEET "\
 .center { text-align: center; } \
-.maptext { font-family: 'Grand9K Pixel'; font-size: 6pt; -dm-text-outline: 1px black; color: white; line-height: 1.0; } \
-.langchat { font-family: 'Grand9K Pixel'; font-size: 6pt; -dm-text-outline: 1px black; } \
-.langchat_small { font-family: 'Spess Font'; font-size: 6pt; line-height: 1.4; } \
-.langchat_yell { font-family: 'Pix Cyrillic'; font-size: 12pt; } \
-.langchat_bolded { font-size: 8pt; } \
-.langchat_announce { font-size: 12pt; } \
-.langchat_bolditalicbig { font-family: 'Spess Font'; font-size: 24pt; } \
-.langchat_italic { font-family: 'Spess Font'; font-size: 6pt; line-height: 1.4; }"
+.maptext { font-family: 'Grand9K Pixel'; font-size: 6pt; -dm-text-outline: 1pt black; color: white; line-height: 1.0; } \
+.langchat { font-family: 'Grand9K Pixel'; font-size: 6pt; -dm-text-outline: 1pt black; } \
+.langchat_small { font-family: 'Spess Font'; font-size: 6pt; } \
+.langchat_yell { font-family: 'Grand9K Pixel'; font-size: 12pt; } \
+.langchat_bolded { font-family: 'Pix Cyrillic'; font-size: 12pt; } \
+.langchat_announce { font-family: 'Pix Cyrillic'; font-size: 12pt; } \
+.langchat_bolditalicbig { font-family: 'TinyUnicode'; font-size: 24pt; } \
+.langchat_italic { font-family: 'TinyUnicode'; font-size: 12pt; }"
