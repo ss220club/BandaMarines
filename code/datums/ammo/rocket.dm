@@ -153,8 +153,8 @@
 	flags_ammo_behavior = AMMO_EXPLOSIVE|AMMO_ROCKET|AMMO_STRIKES_SURFACE
 
 	accuracy = HIT_ACCURACY_TIER_3
-	accurate_range = 9 //BANDAMARINES EDIT
-	max_range = 9 //BANDAMARINES EDIT
+	accurate_range = 32
+	max_range = 32
 	damage = 25
 	shell_speed = AMMO_SPEED_TIER_3
 

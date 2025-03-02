@@ -28,4 +28,5 @@
 	)
 
 	scatter = 2
-	fire_delay = 20.0 SECONDS //BANDAMARINES EDIT
+	fire_delay = 20.0 SECONDS
+
