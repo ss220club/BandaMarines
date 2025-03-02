@@ -7,7 +7,7 @@ SUBSYSTEM_DEF(perf_logging)
 	flags = SS_NO_INIT | SS_KEEP_TIMING
 */
 //RUCM START
-	init_order = SS_INIT_PREF_LOGGING
+	init_order = SS_INIT_PERF_LOGGING
 	flags = SS_KEEP_TIMING
 //RUCM END
 	priority = SS_PRIORITY_PERFLOGGING
@@ -24,7 +24,6 @@ SUBSYSTEM_DEF(perf_logging)
 //RUCM END
 
 /datum/controller/subsystem/perf_logging/fire(resumed = FALSE)
-/* RUCM REMOVE
 	if(SSticker?.current_state < GAME_STATE_PLAYING)
 		return // Not started yet
 	if(!SSentity_manager?.ready)
@@ -32,7 +31,6 @@ SUBSYSTEM_DEF(perf_logging)
 	if(!round) // Init
 		start_logging()
 		return
-*/
 	if(!resumed)
 		ord++
 		tcost = 0
@@ -55,7 +53,7 @@ SUBSYSTEM_DEF(perf_logging)
 /// Setup to begin performance logging when game starts
 /datum/controller/subsystem/perf_logging/proc/start_logging()
 	SHOULD_NOT_SLEEP(TRUE)
-	var/datum/map_config/ground = SSmapping.configs[GROUND_MAP]
+	var/datum/map_config/ground = SSmapping.configs?[GROUND_MAP]
 	if(!ground)
 		return
 	ord = 0

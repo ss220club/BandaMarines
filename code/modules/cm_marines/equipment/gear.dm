@@ -352,7 +352,7 @@
 		camera.c_tag = "Unknown"
 	..()
 
-/obj/item/device/overwatch_camera/hear_talk(mob/living/sourcemob, message, verb, datum/language/language, italics)
+/obj/item/device/overwatch_camera/hear_talk(mob/living/sourcemob, message, verb, datum/language/language, italics, tts_heard_list)
 	SEND_SIGNAL(src, COMSIG_BROADCAST_HEAR_TALK, sourcemob, message, verb, language, italics, loc == sourcemob)
 
 /obj/item/device/overwatch_camera/see_emote(mob/living/sourcemob, emote, audible)
