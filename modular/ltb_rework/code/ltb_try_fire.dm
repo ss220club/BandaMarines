@@ -26,7 +26,7 @@
         to_chat(user, SPAN_WARNING("Наводим орудие на цель"))
         playsound(owner,'modular/ltb_rework/sound/turret.ogg', 80, TRUE, 8)
         spawn(10)
-            playsound(target, 'modular/ltb_rework/sound/shell.ogg', 70, FALSE, 5)
+            playsound(target_turf, 'modular/ltb_rework/sound/shell.ogg', 70, FALSE, 5)
         spawn(20)
         {
             making_shot = FALSE
