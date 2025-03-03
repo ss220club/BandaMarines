@@ -21,6 +21,8 @@
 		"back_right" = list(0, 2)
 	)
 
+	movement_sound = 'sound/vehicles/tank_driving.ogg'
+
 	hardpoints_allowed = list(
 		/obj/item/hardpoint/locomotion/treads/arm,
 	)
