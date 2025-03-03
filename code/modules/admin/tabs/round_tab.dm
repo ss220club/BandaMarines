@@ -143,12 +143,6 @@
 
 	if(!check_rights(R_SERVER) || !SSticker.mode)
 		return
-
-	if(alert("Are you sure you want to end the round?",,"Yes","No") != "Yes")
-		return
-	// trying to end the round before it even starts. bruh
-	if(!SSticker.mode)
-		return
 	// BANDAMARINES EDIT START
 	var/who_won = MODE_INFESTATION_DRAW_DEATH
 	if(istype(SSticker.mode, /datum/game_mode/colonialmarines))
@@ -160,8 +154,13 @@
 			MODE_INFESTATION_DRAW_DEATH,
 		)
 		who_won = tgui_input_list(usr, "Какая сторона должна победить?", "End Round", win_conditions, default = MODE_INFESTATION_DRAW_DEATH)
-	SSticker.mode.round_finished = who_won
+		if(who_won == null)
+			return
 	// BANDAMARINES EDIT END
+	// trying to end the round before it even starts. bruh
+	if(!SSticker.mode)
+		return
+	SSticker.mode.round_finished = who_won // BANDAMARINES EDIT
 	message_admins("[key_name(usr)] has made the round end early.")
 	for(var/client/C in GLOB.admins)
 		to_chat(C, {"
