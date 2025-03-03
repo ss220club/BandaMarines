@@ -33,6 +33,7 @@
             playsound(target_turf, 'modular/ltb_rework/sound/shell.ogg', 70, FALSE, 5)
         spawn(20)
             making_shot = FALSE
-            return handle_fire(target_turf, user, params)
+            handle_fire(target_turf, user, params)
+        return NONE
     else if(!making_shot)
         return ..()
