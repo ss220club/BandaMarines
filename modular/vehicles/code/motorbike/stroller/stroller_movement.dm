@@ -23,9 +23,9 @@
 /obj/structure/bed/chair/stroller/buckle_mob(mob/living/carbon/human/mob, mob/user)
 	if(!do_after(mob, buckle_time, INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
 		return FALSE
-	if (mob.mob_size == MOB_SIZE_XENO && (mob.a_intent == INTENT_GRAB || mob.stat == DEAD))	// Мы можем посадить небольшого ксеноса, если он будет помогать лапками в граб интенте. Как на кровати.
-	else if (mob.mob_size == MOB_SIZE_XENO_SMALL &&  (mob.a_intent == INTENT_HELP || mob.a_intent == INTENT_GRAB || mob.stat == DEAD))	// мы сможем украсть руню или ящерку, если они не особо сопротивляться будут
-	else if (mob.mob_size <= MOB_SIZE_XENO_VERY_SMALL)	// Lesser Drones, Люди
+	if(mob.mob_size == MOB_SIZE_XENO && (mob.a_intent == INTENT_GRAB || mob.stat == DEAD))	// Мы можем посадить небольшого ксеноса, если он будет помогать лапками в граб интенте. Как на кровати.
+	else if(mob.mob_size == MOB_SIZE_XENO_SMALL &&  (mob.a_intent == INTENT_HELP || mob.a_intent == INTENT_GRAB || mob.stat == DEAD))	// мы сможем украсть руню или ящерку, если они не особо сопротивляться будут
+	else if(mob.mob_size <= MOB_SIZE_XENO_VERY_SMALL)	// Lesser Drones, Люди
 		do_buckle(mob, user)
 		if(mob.loc == src.loc && buckling_sound && mob.buckled)
 			playsound(src, buckling_sound, 20)
