@@ -20,6 +20,7 @@
 
         var/target_turf = get_turf(target)
         making_shot = TRUE
+
         var/datum/beam/laser_beam = owner.beam(target_turf, "laser_green", 'icons/effects/beam.dmi', 1 SECONDS, beam_type = /obj/effect/ebeam)
         laser_beam.visuals.alpha = 50
 
@@ -33,6 +34,7 @@
             return handle_fire(target_turf, user, params)
         }
     }
-    else
-        if(!making_shot)
-            return ..()
+    else if(!making_shot)
+    {
+        return ..()
+    }
