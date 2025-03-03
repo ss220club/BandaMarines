@@ -117,7 +117,7 @@
 
 	dat += "<div class=\"message-body-text\">"
 	dat += "<b>Дата:</b> <font face=\"Times New Roman\"><i>[time2text(REALTIMEOFDAY, "Day DD Month [GLOB.game_year]")]</i></font><br>"
-	dat += "<b>По приказу Офиса Провоста,</b><br><br>"
+	dat += "<b>По приказу Главного управления Военной Полиции,</b><br><br>"
 	dat += "<p>Ответчик, указанный в этом письме, должен сдаться под арест военной полиции по следующим обвинениям:</p>"
 	dat += "<p><span class=\"paper_field\"></span></p>"
 	dat += "<hr style=\"margin-bottom:-40px; margin-top:-10px;\">"
@@ -128,7 +128,7 @@
 	dat += "<b>Звание:</b> <span class=\"paper_field\"></span><br>"
 	dat += "<b>Станция:</b> <span class=\"paper_field\"></span><br>"
 	dat += "<hr style=\"margin-bottom:-3px; margin-top:3px;\">"
-	dat += "<b>Уполномоченный Офицер Провоста</b><br>"
+	dat += "<b>Уполномоченный Офицер Главного управления Военной Полиции</b><br>"
 	dat += "<b>Имя:</b> <span class=\"paper_field\"></span><br>"
 	dat += "<b>Подпись:</b> <span class=\"paper_field\"></span><br>"
 	dat += "</div> <!-- /message-body-text -->"

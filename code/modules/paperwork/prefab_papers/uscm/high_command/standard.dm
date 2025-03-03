@@ -110,7 +110,7 @@
 	dat += "<!--Header Info here-->"
 	dat += "<div class=\"message-header-text\">"
 	dat += "<hr style=\"margin-top:5px; margin-bottom:-15px;\">"
-	dat += "<p class=\"header-title\">Сообщение Верховного Командования USCM</p>"
+	dat += "<p class=\"header-title\">Сообщение Верховного Командования КМП</p>"
 	dat += "<p class=\"header-subtitle\">UAM422</p>"
 	dat += "<hr style=\"margin-top:-15px; margin-bottom:15px;\">"
 	dat += "</div> <!-- /Heasder Info -->"

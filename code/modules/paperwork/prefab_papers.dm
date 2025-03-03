@@ -149,7 +149,7 @@ GLOBAL_REFERENCE_LIST_INDEXED(prefab_papers, /obj/item/paper/prefab, document_ti
 	document_category = PAPER_CATEGORY_PROVOST
 
 /obj/item/paper/prefab/provost/standard
-	document_title = "PR202 - Сообщение администрации"
+	document_title = "PR202 - Сообщение главного управления Военной Полиции"
 	doc_datum_type = /datum/prefab_document/provost/highcom/standard
 
 /obj/item/paper/prefab/provost/arrest_warrant
@@ -189,7 +189,7 @@ GLOBAL_REFERENCE_LIST_INDEXED(prefab_papers, /obj/item/paper/prefab, document_ti
 	doc_datum_type = /datum/prefab_document/uscm/highcom/custody_transfer
 
 /obj/item/paper/prefab/uscm_highcom/standard
-	document_title = "UAM422 - Сообщение Верховного Командования USCM"
+	document_title = "UAM422 - Сообщение Верховного Командования КМП"
 	doc_datum_type = /datum/prefab_document/uscm/highcom/standard
 
 // ########## Wey-Yu Liaison Forms  ########## \\

@@ -106,7 +106,7 @@
 	dat += "<br><br>"
 	dat += "<b>Конфискованные предметы:</b><br><span class=\"paper_field\"></span>"
 	dat += "<br><br>"
-	dat += "<b>Подпись выдающего офицера:</b><br><span class=\"paper_field\"></span>"
+	dat += "<b>Подпись ответственного офицера:</b><br><span class=\"paper_field\"></span>"
 	dat += ""
 	dat += ""
 	dat += "</div> <!-- /message-body-text -->"

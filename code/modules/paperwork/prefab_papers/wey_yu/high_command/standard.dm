@@ -110,7 +110,7 @@
 	dat += ""
 	dat += "<!--Header Info here-->"
 	dat += "<div class='message-header-text'>"
-	dat += "<p class='header-title'>Директорат связи</p>"
+	dat += "<p class='header-title'>Сообщение Директората</p>"
 	dat += "<p class='header-subtitle'>WY101</p>"
 	dat += "<hr style='margin-top:5px; margin-bottom:15px;''>"
 	dat += "</div> <!-- /Header Info -->"

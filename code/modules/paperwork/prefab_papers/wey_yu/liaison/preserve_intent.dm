@@ -120,7 +120,7 @@
 	dat += ""
 	dat += "<!-- Message -->"
 	dat += "<div class=\"message-body-text\">"
-	dat += "<p>Я, <span class=\"paper_field\"></span>, настоящим клянусь и подтверждаю, что буду делать всё возможное для сохранения и защиты целостности и ценности всех корпоративных активов Корпорации Вейланд Ютани (Космической) на поверхности или над поверхностью<span class=\"paper_field\"></span>.</p>"
+	dat += "<p>Я, <span class=\"paper_field\"></span>, настоящим клянусь и подтверждаю, что буду делать всё возможное для сохранения и защиты целостности и ценности всех корпоративных активов Корпорации Вейланд-Ютани на поверхности или над поверхностью<span class=\"paper_field\"></span>.</p>"
 	dat += "<p>Подпись: <span class=\"paper_field\"></span><br>Подпись связного: <span class=\"paper_field\"></span><br>Дата: <font face=\"Times New Roman\"><i>[time2text(REALTIMEOFDAY, "Day DD Month [GLOB.game_year]")]</i></font></p>"
 	dat += "</div> <!-- /message-body-text -->"
 	dat += ""
