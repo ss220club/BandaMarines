@@ -160,6 +160,7 @@
 	// trying to end the round before it even starts. bruh
 	if(!SSticker.mode)
 		return
+
 	SSticker.mode.round_finished = who_won // BANDAMARINES EDIT
 	message_admins("[key_name(usr)] has made the round end early.")
 	for(var/client/C in GLOB.admins)
