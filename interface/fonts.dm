@@ -7,7 +7,7 @@
 
 /datum/font/vcr_osd_mono
 	name = "VCR OSD Mono"
-	font_family = 'interface/Grand9K_Pixel.ttf' // VCR_OSD_Mono.ttf' // SS220 EDIT - Cyrillic fixes
+	font_family = 'interface/VCR_OSD_Mono.ttf'
 
 // SS220 ADDITION - new fonts
 // 6pt based
