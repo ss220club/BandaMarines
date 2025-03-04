@@ -1,0 +1,15 @@
+
+// BEGIN_INTERNALS
+// END_INTERNALS
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+// END_FILE_DIR
+// BEGIN_PREFERENCES
+// END_PREFERENCES
+// BEGIN_INCLUDE
+#include "_arm.dm"
+#include "code\arm.dm"
+#include "code\interior.dm"
+#include "code\treads.dm"
+#include "maps\interior\arm.dmm"
+// END_INCLUDE
