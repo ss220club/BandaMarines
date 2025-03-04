@@ -107,3 +107,14 @@
 
 	if(user != seats[VEHICLE_GUNNER])
 		return FALSE
+
+/datum/map_template/interior/arm
+	name = "ARM"
+	interior_id = "arm"
+
+/area/interior/vehicle/arm
+	name = "\improper ARM interior"
+	icon = 'icons/turf/areas_interiors.dmi'
+	icon_state = "arm"
+
+

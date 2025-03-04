@@ -1,6 +1,6 @@
 "b" = (/obj/effect/landmark/interior/spawn/entrance{dir = 8; exit_type = /obj/structure/interior_exit/vehicle/apc/rear/right; pixel_x = -32; tag = "back_right"},/obj/structure/bed/chair/vehicle{pixel_x = -5; pixel_y = 3; dir = 1},/obj/structure/bed/chair/vehicle{pixel_x = 11; pixel_y = 3; dir = 1},/turf/open/floor,/area/interior/vehicle/arm)
 "e" = (/obj/effect/landmark/interior/spawn/interior_viewport{pixel_x = -17; pixel_y = 23},/obj/structure/bed/chair/vehicle{pixel_x = -5; pixel_y = 17; buckling_x = -5; buckling_y = 17},/obj/structure/bed/chair/vehicle{pixel_x = 11; pixel_y = 17},/turf/open/floor,/area/interior/vehicle/arm)
-"g" = (/turf/open/void/vehicle,/area/space,/area/space)
+"g" = (/turf/open/void/vehicle,/area/space)
 "h" = (/obj/effect/landmark/interior/spawn/entrance{alpha = 50; exit_type = /obj/structure/interior_exit/vehicle/arc; name = "ARC exit door"; pixel_y = -11; tag = "right"; pixel_x = -13},/obj/structure/bed/chair/comfy{dir = 4; pixel_x = -8; pixel_y = 7},/turf/open/floor,/area/interior/vehicle/arm)
 "r" = (/obj/structure/bed/chair/vehicle{pixel_x = -5; pixel_y = 17},/turf/open/floor,/area/interior/vehicle/arm)
 "v" = (/obj/structure/prop/vehicle/arm{pixel_x = 9; pixel_y = -10},/turf/open/void/vehicle,/area/interior/vehicle/arm)
