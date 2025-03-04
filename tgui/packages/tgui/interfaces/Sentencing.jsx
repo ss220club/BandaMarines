@@ -38,7 +38,9 @@ const MainMenu = (props) => {
       mt="-3rem"
       bold
     >
-      <Box fontFamily="monospace">Юрисдикционная Автоматизированная Система</Box>
+      <Box fontFamily="monospace">
+        Юрисдикционная Автоматизированная Система
+      </Box>
       <Box mb="2rem" fontFamily="monospace">
         WY-DOS Executive
       </Box>
