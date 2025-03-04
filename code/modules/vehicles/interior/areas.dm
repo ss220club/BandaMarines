@@ -29,6 +29,10 @@
 	name = "van interior"
 	icon_state = "van"
 
+/area/interior/vehicle/arm
+	name = "\improper ARM interior"
+	icon_state = "arm"
+
 /area/interior/vehicle/box_van
 	name = "box-van interior"
 	icon_state = "van"

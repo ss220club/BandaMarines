@@ -11,5 +11,4 @@
 #include "code\arm.dm"
 #include "code\interior.dm"
 #include "code\treads.dm"
-#include "maps\interior\arm.dmm"
 // END_INCLUDE

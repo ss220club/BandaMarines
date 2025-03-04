@@ -107,10 +107,3 @@
 
 	if(user != seats[VEHICLE_GUNNER])
 		return FALSE
-
-/area/interior/vehicle/arm
-	name = "\improper ARM interior"
-	icon = 'icons/turf/areas_interiors.dmi'
-	icon_state = "arm"
-
-
