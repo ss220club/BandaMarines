@@ -2,8 +2,8 @@
 // ======== Действия с инструментами ========
 
 /obj/structure/bed/chair/stroller/attackby(obj/item/O as obj, mob/user as mob)
-	if(is_action)
-		to_chat(user, SPAN_WARNING("Вы уже работаете над [src.name]!"))
+	if(action_busy)
+		to_chat(user, SPAN_WARNING("Вы уже чем-то заняты!"))
 		return
 
 	// Присоединение
@@ -28,12 +28,9 @@
 		return TRUE
 	var/obj/item/tool/weldingtool/WT = O
 	if(WT.remove_fuel(1, user))
-		is_action = TRUE
 		if(!do_after(user, welder_time * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL, BUSY_ICON_BUILD))
 			to_chat(user, SPAN_NOTICE("Вы прервали сварку корпуса [src.name] с помощью [O]."))
-			is_action = FALSE
 			return FALSE
-		is_action = FALSE
 		if(!src || !WT.isOn())
 			to_chat(user, SPAN_NOTICE("Сварка корпуса [src.name] прервана из-за непригодных обстоятельств."))
 			return FALSE

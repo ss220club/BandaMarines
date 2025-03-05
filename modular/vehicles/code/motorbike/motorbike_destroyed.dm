@@ -23,7 +23,6 @@
 	var/screw_need = TRUE
 	var/screw_step = FALSE
 	var/screw_time = 20 SECONDS
-	var/is_action = FALSE // Совершается ли сейчас действие требуемое времени
 
 /obj/motorbike_destroyed/stroller
 	name = "Раздолбанная коляска"
@@ -51,8 +50,8 @@
 // ================= Сборка =================
 /obj/motorbike_destroyed/attackby(obj/item/O as obj, mob/user as mob)
 	// Ремонт корпуса
-	if(is_action)
-		to_chat(user, SPAN_WARNING("Вы уже работаете над [src.name]!"))
+	if(action_busy)
+		to_chat(user, SPAN_WARNING("Вы уже чем-то заняты!"))
 		return
 	var/mob/living/L = user
 	if(iswelder(O))
@@ -67,12 +66,9 @@
 			to_chat(user, SPAN_NOTICE("Корпус [src.name] в починке не нуждается!"))
 			return TRUE
 		if(WT.remove_fuel(1, user))
-			is_action = TRUE
 			if(!do_after(user, welder_time * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL, BUSY_ICON_BUILD))
 				to_chat(user, SPAN_NOTICE("Вы прервали сварку корпуса [src.name] с помощью [O]."))
-				is_action = FALSE
 				return FALSE
-			is_action = FALSE
 			if(!src || !WT.isOn())
 				to_chat(user, SPAN_NOTICE("Сварка корпуса [src.name] прервана из-за непригодных обстоятельств."))
 				return FALSE
@@ -88,12 +84,9 @@
 		if(metal_stored >= metal_need)
 			to_chat(user, SPAN_NOTICE("На [src] наложено достаточно листов металла!"))
 			return
-		is_action = TRUE
 		if(!do_after(user, metal_add_time * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL, BUSY_ICON_BUILD))
 			to_chat(user, SPAN_NOTICE("Вы прервали наложение листов металлов на [src.name]."))
-			is_action = FALSE
 			return FALSE
-		is_action = FALSE
 		var/obj/item/stack/sheet/metal/M = O
 		var/sheets_to_add = min(M.amount, metal_need - metal_stored)
 		metal_stored += sheets_to_add
@@ -109,12 +102,9 @@
 		if(wires_stored >= wires_need)
 			to_chat(user, SPAN_NOTICE("На [src] наложено достаточно кабеля!"))
 			return
-		is_action = TRUE
 		if(!do_after(user, wires_add_time * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL, BUSY_ICON_BUILD))
 			to_chat(user, SPAN_NOTICE("Вы прервали наложение листов металлов на [src.name]."))
-			is_action = FALSE
 			return FALSE
-		is_action = FALSE
 		var/obj/item/stack/cable_coil/C = O
 		var/cables_to_add = min(C.amount, wires_need - wires_stored)
 		wires_stored += cables_to_add
@@ -130,11 +120,8 @@
 		to_chat(user, SPAN_WARNING("Вы вкручиваете болты у [src]. Ожидайте."))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, 1)
 		L.animation_attack_on(src)
-		is_action = TRUE
 		if(!do_after(user, screw_time * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
-			is_action = FALSE
 			return FALSE
-		is_action = FALSE
 		to_chat(user, SPAN_NOTICE("Вы вкрутили болты у [src]."))
 		playsound(src.loc, 'sound/items/Screwdriver2.ogg', 25, 1)
 		screw_step = TRUE
