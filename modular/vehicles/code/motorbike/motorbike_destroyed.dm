@@ -50,7 +50,7 @@
 // ================= Сборка =================
 /obj/motorbike_destroyed/attackby(obj/item/O as obj, mob/user as mob)
 	// Ремонт корпуса
-	if(action_busy)
+	if(user.action_busy)
 		to_chat(user, SPAN_WARNING("Вы уже чем-то заняты!"))
 		return
 	var/mob/living/L = user

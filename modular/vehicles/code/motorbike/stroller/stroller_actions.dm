@@ -2,7 +2,7 @@
 // ======== Действия с инструментами ========
 
 /obj/structure/bed/chair/stroller/attackby(obj/item/O as obj, mob/user as mob)
-	if(action_busy)
+	if(user.action_busy)
 		to_chat(user, SPAN_WARNING("Вы уже чем-то заняты!"))
 		return
 
