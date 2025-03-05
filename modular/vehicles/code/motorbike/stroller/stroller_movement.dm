@@ -21,7 +21,7 @@
 // =============== Усаживание ===============
 
 /obj/structure/bed/chair/stroller/buckle_mob(mob/living/carbon/human/mob, mob/user)
-	if(!do_after(mob, buckle_time, INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
+	if(!do_after(mob, buckle_time * user.get_skill_duration_multiplier(SKILL_VEHICLE), INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
 		return FALSE
 	if(mob.mob_size == MOB_SIZE_XENO && (mob.a_intent == INTENT_GRAB || mob.stat == DEAD))	// Мы можем посадить небольшого ксеноса, если он будет помогать лапками в граб интенте. Как на кровати.
 	else if(mob.mob_size == MOB_SIZE_XENO_SMALL && (mob.a_intent == INTENT_HELP || mob.a_intent == INTENT_GRAB || mob.stat == DEAD))	// мы сможем украсть руню или ящерку, если они не особо сопротивляться будут

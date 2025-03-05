@@ -22,7 +22,8 @@
 		if(user.l_hand || user.r_hand)
 			if(!lost_drive_control_time_temp && prob(chance_lost_drive_control_when_one_hand))
 				lost_drive_control_dir = turn(old_dir, (prob(50) ? 90 : -90))
-				lost_drive_control_time_temp = world.time + rand(lost_drive_control_time_min, lost_drive_control_time_max)
+				var/lost_control_time = rand(lost_drive_control_time_min, lost_drive_control_time_max) * user.get_skill_duration_multiplier(SKILL_VEHICLE)
+				lost_drive_control_time_temp = world.time + lost_control_time
 				to_chat(user, SPAN_WARNING("Вы потеряли управление!"))
 			if(world.time < lost_drive_control_time_temp)
 				//. = step(src, lost_drive_control_dir)

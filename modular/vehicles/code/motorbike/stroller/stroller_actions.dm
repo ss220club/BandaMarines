@@ -28,7 +28,7 @@
 	var/obj/item/tool/weldingtool/WT = O
 	if(WT.remove_fuel(1, user))
 		is_welded = TRUE
-		if(!do_after(user, welder_time, INTERRUPT_ALL, BUSY_ICON_BUILD))
+		if(!do_after(user, welder_time * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL, BUSY_ICON_BUILD))
 			to_chat(user, SPAN_NOTICE("Вы прервали сварку корпуса [src.name] с помощью [O]."))
 			is_welded = FALSE
 			return FALSE
