@@ -4,6 +4,9 @@
 		disconnect()
 		// После уничтожения - создается разрушенный каркас
 		new /obj/motorbike_destroyed/stroller(src.loc, icon_skin)
+		if(mounted)
+			mounted.forceMove(src.loc)
+			mounted.update_health(mounted.health) // Разрушенный каркас, патроны и тому подобное
 		qdel(src)
 
 /obj/structure/bed/chair/stroller/update_health(damage = 0)
