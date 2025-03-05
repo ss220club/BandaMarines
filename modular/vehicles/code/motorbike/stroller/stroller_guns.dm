@@ -48,6 +48,7 @@
 
 // Сборка
 /obj/structure/bed/chair/stroller/proc/assemble(obj/item/O, mob/user)
+	to_chat(user, "Вы устанавливаете [mounted] на коляску...")
 	if(!do_after(user, mounted_time_to_assemble * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
 		return FALSE
 
@@ -81,7 +82,7 @@
 /obj/structure/bed/chair/stroller/proc/dissasemble(obj/item/O, mob/user)
 	if(!mounted)
 		return FALSE
-	if(!mounted.locked)
+	if(mounted.locked)
 		to_chat(user, "Установленное [mounted] невозможно отсоединить...")
 		return FALSE
 	to_chat(user, "Вы отсоединяете [mounted] на коляске...")
@@ -95,7 +96,6 @@
 	mounted.transfer_label_component(HMG)
 	HMG.rounds = mounted.rounds
 	HMG.health = mounted.health
-	HMG.has_mount = TRUE
 	HMG.update_icon()
 
 	qdel(mounted)
