@@ -2,6 +2,10 @@
 // ======== Действия с инструментами ========
 
 /obj/structure/bed/chair/stroller/attackby(obj/item/O as obj, mob/user as mob)
+	if(is_action)
+		to_chat(user, SPAN_WARNING("Вы уже работаете над [src.name]!"))
+		return
+
 	// Присоединение
 	if(HAS_TRAIT(O, TRAIT_TOOL_WRENCH))
 		to_chat(user, SPAN_WARNING("Коляску можно [connected ? "от" : "при"]соединить только через мотоцикл."))
@@ -16,9 +20,6 @@
 	. = ..()
 
 /obj/structure/bed/chair/stroller/proc/handle_welder(obj/item/O, mob/user)
-	if(is_welded)
-		to_chat(user, SPAN_WARNING("Вы уже варите!"))
-		return FALSE
 	if(!HAS_TRAIT(O, TRAIT_TOOL_BLOWTORCH))
 		to_chat(user, SPAN_WARNING("[O] недостаточен для ремонта корпуса!"))
 		return FALSE
@@ -27,16 +28,15 @@
 		return TRUE
 	var/obj/item/tool/weldingtool/WT = O
 	if(WT.remove_fuel(1, user))
-		is_welded = TRUE
+		is_action = TRUE
 		if(!do_after(user, welder_time * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL, BUSY_ICON_BUILD))
 			to_chat(user, SPAN_NOTICE("Вы прервали сварку корпуса [src.name] с помощью [O]."))
-			is_welded = FALSE
+			is_action = FALSE
 			return FALSE
+		is_action = FALSE
 		if(!src || !WT.isOn())
 			to_chat(user, SPAN_NOTICE("Сварка корпуса [src.name] прервана из-за непригодных обстоятельств."))
-			is_welded = FALSE
 			return FALSE
-		is_welded = FALSE
 		var/procent = round((health / maxhealth) * 100)
 		to_chat(user, SPAN_NOTICE("Вы сварили корпус [src.name] с помощью [O]. Сварено на [procent]%"))
 		health = min(health + welder_health, maxhealth)

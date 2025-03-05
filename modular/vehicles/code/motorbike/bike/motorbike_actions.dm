@@ -2,6 +2,10 @@
 // ======== Действия с инструментами ========
 
 /obj/vehicle/motorbike/attackby(obj/item/O as obj, mob/user as mob)
+	if(is_action)
+		to_chat(user, SPAN_WARNING("Вы уже работаете над [src.name]!"))
+		return
+
 	// Присоединение
 	if(HAS_TRAIT(O, TRAIT_TOOL_WRENCH))
 		return handle_wrench(O, user)
@@ -20,9 +24,12 @@
 	playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
 	L.animation_attack_on(src)
 	to_chat(user, SPAN_NOTICE("Вы начинаете крутить крепежи..."))
+	is_action = TRUE
 	if(!do_after(user, wrench_time * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
 		to_chat(user, SPAN_WARNING("Крутка крипежей прервана."))
+		is_action = FALSE
 		return FALSE
+	is_action = FALSE
 	playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
 	L.animation_attack_on(src)
 	if(stroller)
@@ -35,9 +42,6 @@
 	return TRUE
 
 /obj/vehicle/motorbike/proc/handle_welder(obj/item/O, mob/user)
-	if(is_welded)
-		to_chat(user, SPAN_WARNING("Вы уже варите!"))
-		return FALSE
 	if(!HAS_TRAIT(O, TRAIT_TOOL_BLOWTORCH))
 		to_chat(user, SPAN_WARNING("[O] недостаточен для ремонта корпуса!"))
 		return FALSE
@@ -46,16 +50,15 @@
 		return TRUE
 	var/obj/item/tool/weldingtool/WT = O
 	if(WT.remove_fuel(1, user))
-		is_welded = TRUE
+		is_action = TRUE
 		if(!do_after(user, welder_time * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL, BUSY_ICON_BUILD))
 			to_chat(user, SPAN_NOTICE("Вы прервали сварку корпуса [src.name] с помощью [O]."))
-			is_welded = FALSE
+			is_action = FALSE
 			return FALSE
+		is_action = FALSE
 		if(!src || !WT.isOn())
 			to_chat(user, SPAN_NOTICE("Сварка корпуса [src.name] прервана из-за непригодных обстоятельств."))
-			is_welded = FALSE
 			return FALSE
-		is_welded = FALSE
 		var/procent = round((health / maxhealth) * 100)
 		if(!lighting_holder.light)
 			lighting_holder.set_light_on(TRUE)
