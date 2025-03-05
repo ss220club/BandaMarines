@@ -89,8 +89,6 @@
 	melee_damage_upper = 10
 	var/melee_vehicle_damage = 10
 	var/claw_type = CLAW_TYPE_NORMAL
-	var/burn_damage_lower = 0
-	var/burn_damage_upper = 0
 	var/plasma_stored = 10
 	var/plasma_max = 10
 	var/plasma_gain = 5
@@ -174,7 +172,7 @@
 
 	/// List of actions (typepaths) that a
 	/// xenomorph type is given upon spawn
-	var/base_actions
+	var/list/base_actions = list() // BANDASTATION EDIT - Bump Attacks. it's a list!
 
 	/// this is the resin mark that is currently being tracked by the xeno
 	var/obj/effect/alien/resin/marker/tracked_marker

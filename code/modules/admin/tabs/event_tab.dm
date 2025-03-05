@@ -518,7 +518,7 @@
 	new_order.approvedby = MAIN_AI_SYSTEM
 	GLOB.supply_controller.shoppinglist += new_order
 
-	marine_announcement("Ядерное устройство было подготовлено и доставлено по заявкам через ASRS.", "ПОЛУЧЕНИЕ ЯДЕРНОГО АРСЕНАЛА", 'sound/misc/notice2.ogg')
+	marine_announcement("Ядерное устройство было подготовлено и доставлено в Requisitions через систему ASRS.", "ПОЛУЧЕНИЕ ЯДЕРНОГО АРСЕНАЛА", 'sound/misc/notice2.ogg')
 	message_admins("[key_name_admin(usr)] admin-spawned \a [encrypt] nuke.")
 	log_game("[key_name_admin(usr)] admin-spawned \a [encrypt] nuke.")
 
@@ -945,6 +945,8 @@
 			custom = FALSE
 			var/list/warheads = subtypesof(/obj/structure/ob_ammo/warhead/)
 			var/choice = tgui_input_list(usr, "Select the warhead:", "Warhead to use", warheads)
+			if(!choice)
+				return
 			warhead = new choice
 		if("Custom HE")
 			var/obj/structure/ob_ammo/warhead/explosive/OBShell = new
@@ -1031,6 +1033,8 @@
 			warhead = OBShell
 
 	if(custom)
+		if(!warhead)
+			return
 		if(alert(usr, statsmessage, "Confirm Stats", "Yes", "No") != "Yes")
 			qdel(warhead)
 			return

@@ -262,32 +262,6 @@
 			X.set_hive_and_update(hivenumber)
 
 	/////////////////////////////////////new ban stuff
-	else if(href_list["unbanf"])
-		var/datum/entity/player/P = get_player_from_key(href_list["unbanf"])
-		switch(alert("Are you sure you want to remove timed ban from [P.ckey]?", , "Yes", "No"))
-			if("No")
-				return
-		if(!P.remove_timed_ban())
-			alert(usr, "This ban has already been lifted / does not exist.", "Error", "Ok")
-		unbanpanel()
-
-	else if(href_list["unban_perma"])
-		var/datum/entity/player/unban_player = get_player_from_key(href_list["unban_perma"])
-		if(!(tgui_alert(owner, "Do you want to unban [unban_player.ckey]? They are currently permabanned for: [unban_player.permaban_reason], since [unban_player.permaban_date].", "Unban Player", list("Yes", "No")) == "Yes"))
-			return
-
-		if(!unban_player.is_permabanned)
-			to_chat(owner, "The player is not currently permabanned.")
-
-		unban_player.is_permabanned = FALSE
-		unban_player.permaban_admin_id = null
-		unban_player.permaban_date = null
-		unban_player.permaban_reason = null
-
-		unban_player.save()
-
-		message_admins("[key_name_admin(owner)] has removed the permanent ban on [unban_player.ckey].")
-		important_message_external("[owner] has removed the permanent ban on [unban_player.ckey].", "Permaban Removed")
 
 	else if(href_list["sticky"])
 		if(href_list["view_all_ckeys"])
@@ -2051,7 +2025,7 @@
 		//Can no longer request a nuke
 		GLOB.ares_datacore.nuke_available = FALSE
 
-		marine_announcement("Ядерный снаряд был одобрен Верховным командованием КМП и будет доставлен по заявкам через систему ASRS.", "ЯДЕРНЫЕ СНАРЯДЫ ОДОБРЕНЫ", 'sound/misc/notice2.ogg', logging = ARES_LOG_MAIN)
+		marine_announcement("Ядерное устройство было авторизовано Верховным командованием КМП и будет доставлено в Requisitions через систему ASRS.", "ЯДЕРНЫЙ АРСЕНАЛ ОДОБРЕН", 'sound/misc/notice2.ogg', logging = ARES_LOG_MAIN)
 		log_game("[key_name_admin(usr)] has authorized \a [nuketype], requested by [key_name_admin(ref_person)]")
 		message_admins("[key_name_admin(usr)] has authorized \a [nuketype], requested by [key_name_admin(ref_person)]")
 
@@ -2059,7 +2033,7 @@
 		var/mob/ref_person = locate(href_list["nukedeny"])
 		if(!istype(ref_person))
 			return FALSE
-		marine_announcement("Ваш запрос на размещение ядерных снарядов был рассмотрен и отклонен Верховным командованием КМП по соображениям эксплуатационной безопасности и сохранения колониального наследия. Хорошего дня.", "ЯДЕРНЫЕ СНАРЯДЫ ОТКЛОНЕНЫ", 'sound/misc/notice2.ogg', logging = ARES_LOG_MAIN)
+		marine_announcement("Ваш запрос на размещение ядерного устройства был рассмотрен и отклонен Верховным командованием КМП по соображениям эксплуатационной безопасности и сохранения колониального наследия. Хорошего дня.", "ЯДЕРНЫЙ АРСЕНАЛ ОТКЛОНЕН", 'sound/misc/notice2.ogg', logging = ARES_LOG_MAIN)
 		log_game("[key_name_admin(usr)] has denied nuclear ordnance, requested by [key_name_admin(ref_person)]")
 		message_admins("[key_name_admin(usr)] has dnied nuclear ordnance, requested by [key_name_admin(ref_person)]")
 
@@ -2350,7 +2324,7 @@
 					target_fax.langchat_speech("beeps with a priority message", get_mobs_in_view(GLOB.world_view_size, target_fax), GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
 					target_fax.visible_message("[SPAN_BOLD(target_fax)] beeps with a priority message.")
 					if(target_fax.radio_alert_tag != null)
-						ai_silent_announcement("COMMUNICATIONS REPORT: Fax Machine [target_fax.machine_id_tag], [target_fax.sub_name ? "[target_fax.sub_name]" : ""], now receiving priority fax.", "[target_fax.radio_alert_tag]")
+						ai_silent_announcement("ОТЧЁТНАЯ СИСТЕМА КОММУНИКАЦИЙ: Факс-машина [target_fax.machine_id_tag], [target_fax.sub_name ? "[target_fax.sub_name]" : ""], теперь получает приоритетные факсы.", "[target_fax.radio_alert_tag]")
 
 			to_chat(src.owner, "Message reply to transmitted successfully.")
 			message_admins(SPAN_STAFF_IC("[key_name_admin(src.owner)] replied to a fax message from [key_name_admin(target_human)]"), 1)
