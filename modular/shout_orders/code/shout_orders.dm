@@ -9,6 +9,9 @@
 /datum/action/human_action/issue_order/action_activate()
 	. = ..()
 
+	if(owner.stat != CONSCIOUS)
+		return
+
 	var/client/client = owner.client
 	if(!client.prefs.shout_orders)
 		return
