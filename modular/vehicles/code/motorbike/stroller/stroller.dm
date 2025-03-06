@@ -43,6 +43,15 @@
 	icon_state = "[icon_state]_[icon_skin]"
 	var/image/I = new(icon = 'modular/vehicles/icons/moto48x48.dmi', icon_state = "[icon_state]-overlay", layer = layer_above) //over mobs
 	overlays += I
+	if(mounted)
+		var/gun_overlay = "m56d"
+		if(istype(mounted, /obj/item/device/m2c_gun))
+			gun_overlay = "m2c"
+		if(mounted.rounds <= 0)
+			gun_overlay += "_e"
+		var/image/I_gun = new(icon = 'modular/vehicles/icons/moto48x48.dmi', icon_state = "moto_ural_[gun_overlay]", layer = layer_above) //over mobs
+		overlays += I_gun
+
 
 // ==========================================
 // ============ Коннект с байком ============

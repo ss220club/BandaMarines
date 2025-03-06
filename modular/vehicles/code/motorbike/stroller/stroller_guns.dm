@@ -7,8 +7,8 @@
 		/obj/item/ammo_magazine/m56d,
 		/obj/item/ammo_magazine/m2c)
 	var/mounted_type
-	var/mounted_time_to_disassemble = 20 SECONDS
-	var/mounted_time_to_assemble = 7 SECONDS
+	var/mounted_time_to_disassembly = 20 SECONDS
+	var/mounted_time_to_assembly = 7 SECONDS
 
 
 // !!!!!!!! Стрельба через: try_fire( - но она нигде не установлена
@@ -28,7 +28,7 @@
 	// Установка пулеметов
 	for(var/allowed_type in allowed_types_to_mount)
 		if(istype(O, allowed_type))
-			assemble(O, user)
+			assembly(O, user)
 			return TRUE
 
 	if(!mounted)
@@ -47,9 +47,9 @@
 	. = ..()
 
 // Сборка
-/obj/structure/bed/chair/stroller/proc/assemble(obj/item/O, mob/user)
+/obj/structure/bed/chair/stroller/proc/assembly(obj/item/O, mob/user)
 	to_chat(user, "Вы устанавливаете [mounted] на коляску...")
-	if(!do_after(user, mounted_time_to_assemble * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
+	if(!do_after(user, mounted_time_to_assembly * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
 		return FALSE
 
 	var/rounds_temp = 0
@@ -76,6 +76,7 @@
 		mounted.anchored = TRUE
 		O.transfer_label_component(mounted)
 		to_chat(user, SPAN_NOTICE("Вы установили [O] на коляску."))
+		update_overlay()
 		qdel(O)
 
 // Разборка
@@ -86,7 +87,7 @@
 		to_chat(user, "Установленное [mounted] невозможно отсоединить...")
 		return FALSE
 	to_chat(user, "Вы отсоединяете [mounted] на коляске...")
-	if(!do_after(user, mounted_time_to_disassemble * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
+	if(!do_after(user, mounted_time_to_disassembly * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
 		to_chat(user, SPAN_DANGER("Вы прекратили отсоединение [O] на коляске."))
 		return FALSE
 	user.visible_message(SPAN_NOTICE("[user] отсоединил [O] от [src.name]!"), SPAN_NOTICE("Вы отсоединили [O] от [src.name]!"))
@@ -100,6 +101,7 @@
 
 	qdel(mounted)
 	mounted = null
+	update_overlay()
 	return TRUE
 
 // Перезарядка
@@ -108,4 +110,6 @@
 		to_chat(user, SPAN_WARNING("Вы недостаточно натренированы чтобы работать с этим калибром!"))
 		return
 	// Тыкаем магазином в них же и совершаем "перезарядку"
+	// Он должен тыканьем заполненного магазина менять магазин внутри.
 	mounted.attackby(O, user)
+	update_overlay()
