@@ -34,9 +34,11 @@
 	name = "Van"
 	interior_id = "van"
 
+// SS220 ADD - START
 /datum/map_template/interior/arm
 	name = "ARM"
 	interior_id = "arm"
+// SS220 ADD - END
 
 /datum/map_template/interior/box_van
 	name = "Box Van"
