@@ -278,9 +278,9 @@ SUBSYSTEM_DEF(tts220)
 	tts_seeds_names = sortTim(tts_seeds_names, /proc/cmp_text_asc)
 
 /datum/controller/subsystem/tts220/Initialize(start_timeofday)
-	is_enabled = SStts220.is_enabled
-	if(!is_enabled)
-		flags |= SS_NO_FIRE
+	if(!CONFIG_GET(flag/tts_enabled))
+		is_enabled = FALSE
+		return SS_INIT_NO_NEED
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/tts220/fire()
@@ -457,6 +457,8 @@ SUBSYSTEM_DEF(tts220)
 			voice = "[filename]_megaphone.ogg"
 		if(SOUND_EFFECT_MEGAPHONE_ROBOT)
 			voice = "[filename]_megaphone_robot.ogg"
+		if(SOUND_EFFECT_HIVEMIND)
+			voice = "[filename]_hivemind.ogg"
 		else
 			CRASH("Invalid sound effect chosen.")
 	if(effect != SOUND_EFFECT_NONE)
