@@ -36,12 +36,14 @@
 	if(..())
 		update_buckle_mob()
 		update_drag_delay()
+		update_mob_gun_signal()
 
 /obj/structure/bed/chair/stroller/unbuckle()
 	reload_buckle_mob()
 	if(connected)
 		push_to_left_side(buckled_mob)
 	update_drag_delay()
+	update_mob_gun_signal()
 	. = ..()
 
 // ==========================================
@@ -60,6 +62,7 @@
 
 /obj/structure/bed/chair/stroller/proc/update_connected(atom/target)
 	setDir(target.dir)
+
 	switch(dir)	// движок не хочет константно их сохранять в словарь по DIR'ам
 		if(NORTH)
 			pixel_x += pixel_north[1]

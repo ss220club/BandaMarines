@@ -9,17 +9,7 @@
 	var/mounted_type
 	var/mounted_time_to_disassembly = 20 SECONDS
 	var/mounted_time_to_assembly = 7 SECONDS
-
-
-// !!!!!!!! Стрельба через: try_fire( - но она нигде не установлена
-//	start_fire( -- база
-//	fire_shot( -- хотя бы используется
-
-// 		Похоже всё работает через сигналы:
-//		RegisterSignal(gun_user, COMSIG_MOB_MOUSEDOWN, PROC_REF(start_fire))
-//		RegisterSignal(gun_user, COMSIG_MOB_MOUSEDRAG, PROC_REF(change_target))
-//		RegisterSignal(gun_user, COMSIG_MOB_MOUSEUP, PROC_REF(stop_fire))
-
+	var/buckled_mob_last_signal // Для контроля сигналов.
 
 /obj/structure/bed/chair/stroller/attackby(obj/item/O as obj, mob/user as mob)
 	if(!ishuman(user) && !HAS_TRAIT(user, TRAIT_OPPOSABLE_THUMBS))
@@ -79,6 +69,7 @@
 		update_overlay()
 		qdel(O)
 
+
 // Разборка
 /obj/structure/bed/chair/stroller/proc/dissasemble(obj/item/O, mob/user)
 	if(!mounted)
@@ -113,3 +104,39 @@
 	// Он должен тыканьем заполненного магазина менять магазин внутри.
 	mounted.attackby(O, user)
 	update_overlay()
+
+#define COMSIG_MOB_MG_ENTER "mob_mg_enter"
+
+// Стрельба
+/obj/structure/bed/chair/stroller/proc/update_mob_gun_signal()
+	if(mounted && buckled_mob)
+		buckled_mob_last_signal = buckled_mob
+		on_set_gun_interaction()
+		give_action(buckled_mob, /datum/action/human_action/mg_enter)
+		RegisterSignal(buckled_mob, COMSIG_MOB_MG_ENTER, PROC_REF(on_set_gun_interaction))	// Теперь мы можем перезайти за пулемет
+	else if (buckled_mob_last_signal)
+		mounted.on_unset_interaction(buckled_mob_last_signal)
+		remove_action(buckled_mob, /datum/action/human_action/mg_enter)
+		UnregisterSignal(buckled_mob, COMSIG_MOB_MG_ENTER)
+
+/obj/structure/bed/chair/stroller/proc/on_set_gun_interaction()
+	SIGNAL_HANDLER
+	mounted.on_set_interaction(buckled_mob)
+
+/obj/structure/bed/chair/stroller/proc/update_gun_dir()
+	mounted.setDir(dir)
+
+// Действие для захода за пулемет обратно
+/datum/action/human_action/mg_enter
+	name = "Enter MG"
+	action_icon_state = "frontline_toggle_on"
+
+/datum/action/human_action/mg_enter/action_activate()
+	. = ..()
+	if(!can_use_action())
+		return
+
+	var/mob/living/carbon/human/human_user = owner
+	SEND_SIGNAL(human_user, COMSIG_MOB_MG_ENTER)
+
+#undef COMSIG_MOB_MG_EXIT
