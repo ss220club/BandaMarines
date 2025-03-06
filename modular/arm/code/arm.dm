@@ -79,7 +79,7 @@
 	ARM.update_icon()
 
 /obj/effect/vehicle_spawner/arm/decrepit/spawn_vehicle()
-	var/obj/vehicle/multitile/box_van/ARM = new (loc)
+	var/obj/vehicle/multitile/arm/ARM = new (loc)
 
 	load_misc(ARM)
 	load_hardpoints(ARM)
@@ -87,7 +87,7 @@
 	load_damage(ARM)
 	ARM.update_icon()
 
-/obj/effect/vehicle_spawner/box_van/decrepit/load_hardpoints(obj/vehicle/multitile/arm/V)
+/obj/effect/vehicle_spawner/arm/decrepit/load_hardpoints(obj/vehicle/multitile/arm/V)
 	V.add_hardpoint(new /obj/item/hardpoint/locomotion/treads/arm)
 
 /obj/effect/vehicle_spawner/arm/fixed/spawn_vehicle()
