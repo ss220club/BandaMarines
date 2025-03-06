@@ -4,7 +4,8 @@
 /obj/item/hardpoint/primary/cannon/try_fire(atom/target, mob/living/user, params)
 
     var/obj/item/hardpoint/support/artillery_module/module = owner.find_hardpoint("\improper Artillery Module")
-    if(module.is_active && !making_shot && get_dist(owner, target) > 8)
+
+    if(module && module.is_active && !making_shot && get_dist(owner, target) > 8)
         if(health <= 0)
             to_chat(user, SPAN_WARNING("<b>\The [name] is broken!</b>"))
             return NONE
