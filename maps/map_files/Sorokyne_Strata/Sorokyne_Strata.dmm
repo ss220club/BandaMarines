@@ -98,9 +98,9 @@
 /turf/open/floor/strata/floor3,
 /area/strata/ug/interior/jungle/structures/research/old_tunnels)
 "aau" = (
-/obj/structure/machinery/power/apc/no_power/east,
-/turf/open/floor/strata/floor3/east,
-/area/strata/ag/exterior/paths/north_outpost)
+/obj/item/storage/box/mre/upp,
+/turf/open/floor/almayer/plate,
+/area/strata/ag/exterior/marsh/crash)
 "aav" = (
 /obj/structure/largecrate/random/barrel/green,
 /turf/open/auto_turf/snow/brown_base/layer3,
@@ -162,9 +162,17 @@
 /turf/open/floor/interior/plastic,
 /area/strata/ag/interior/outside/wooden_hospital)
 "aaE" = (
-/obj/item/storage/box/mre/upp,
-/turf/open/floor/almayer/plate,
-/area/strata/ag/exterior/marsh/crash)
+/obj/structure/surface/table/reinforced/prison,
+/obj/item/tool/kitchen/utensil/pfork{
+	pixel_x = 6;
+	pixel_y = 7
+	},
+/obj/item/reagent_container/food/drinks/cans/food/upp/meat{
+	pixel_y = 8;
+	pixel_x = -7
+	},
+/turf/open/floor/strata/orange_cover,
+/area/strata/ag/interior/outpost/canteen)
 "aaF" = (
 /obj/structure/largecrate/random/barrel/green,
 /turf/open/auto_turf/snow/brown_base/layer1,
@@ -177,17 +185,25 @@
 /turf/open/auto_turf/snow/brown_base/layer0,
 /area/strata/ag/interior/outside/bball/cave)
 "aaH" = (
-/obj/structure/surface/table/reinforced/prison,
-/obj/item/tool/kitchen/utensil/pfork{
+/obj/structure/surface/rack,
+/obj/item/reagent_container/food/drinks/cans/food/upp/speck{
 	pixel_x = 6;
-	pixel_y = 7
+	pixel_y = -2
 	},
-/obj/item/reagent_container/food/drinks/cans/food/upp/meat{
-	pixel_y = 8;
-	pixel_x = -7
+/obj/item/reagent_container/food/drinks/cans/food/upp/speck{
+	pixel_x = -6;
+	pixel_y = -2
 	},
-/turf/open/floor/strata/orange_cover,
-/area/strata/ag/interior/outpost/canteen)
+/obj/item/reagent_container/food/drinks/cans/food/upp/speck{
+	pixel_x = 6;
+	pixel_y = 10
+	},
+/obj/item/reagent_container/food/drinks/cans/food/upp/speck{
+	pixel_x = -6;
+	pixel_y = 10
+	},
+/turf/open/floor/strata/multi_tiles/west,
+/area/strata/ag/interior/mining_outpost/maintenance)
 "aaI" = (
 /obj/effect/blocker/sorokyne_cold_water,
 /turf/open/gm/river,
@@ -212,25 +228,9 @@
 /turf/open/auto_turf/snow/brown_base/layer0,
 /area/strata/ag/exterior/paths/far_north_outpost)
 "aaN" = (
-/obj/structure/surface/rack,
-/obj/item/reagent_container/food/drinks/cans/food/upp/speck{
-	pixel_x = 6;
-	pixel_y = -2
-	},
-/obj/item/reagent_container/food/drinks/cans/food/upp/speck{
-	pixel_x = -6;
-	pixel_y = -2
-	},
-/obj/item/reagent_container/food/drinks/cans/food/upp/speck{
-	pixel_x = 6;
-	pixel_y = 10
-	},
-/obj/item/reagent_container/food/drinks/cans/food/upp/speck{
-	pixel_x = -6;
-	pixel_y = 10
-	},
-/turf/open/floor/strata/multi_tiles/west,
-/area/strata/ag/interior/mining_outpost/maintenance)
+/obj/structure/machinery/power/apc/no_power/east,
+/turf/open/floor/strata/floor3/east,
+/area/strata/ag/exterior/paths/north_outpost)
 "aaO" = (
 /obj/structure/surface/rack,
 /obj/item/tool/shovel/snow,
@@ -36740,7 +36740,7 @@ gZp
 oeA
 oeA
 mKX
-aaE
+aau
 cXU
 bhO
 bhO
@@ -43502,7 +43502,7 @@ ajt
 ajt
 aHq
 aqD
-aaN
+aaH
 ajt
 aHq
 aHq
@@ -50667,7 +50667,7 @@ aac
 aac
 aac
 bLj
-aau
+aaN
 awA
 ayw
 awJ
@@ -59968,7 +59968,7 @@ nap
 ckN
 nGk
 jBG
-aaH
+aaE
 xSL
 ffS
 aJe

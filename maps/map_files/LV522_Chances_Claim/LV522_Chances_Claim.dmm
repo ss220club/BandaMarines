@@ -605,6 +605,9 @@
 	},
 /turf/open/floor/corsat/squares,
 /area/lv522/atmos/east_reactor/south)
+"aco" = (
+/turf/open/floor/prison/darkbrownfull2,
+/area/lv522/indoors/lone_buildings/storage_blocks/south)
 "acp" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
@@ -614,82 +617,79 @@
 /turf/closed/wall/strata_ice/dirty,
 /area/lv522/oob)
 "acr" = (
-/turf/open/floor/prison/darkbrownfull2,
-/area/lv522/indoors/lone_buildings/storage_blocks/south)
+/obj/structure/machinery/power/apc/power/east,
+/turf/open/floor/prison/floor_plate,
+/area/lv522/outdoors/colony_streets/south_west_street)
 "acs" = (
+/turf/open/floor/prison/floor_plate,
+/area/lv522/outdoors/colony_streets/south_street)
+"act" = (
 /turf/closed/wall/shiva/prefabricated/reinforced,
 /area/lv522/indoors/lone_buildings/storage_blocks/east)
-"act" = (
+"acu" = (
 /obj/effect/landmark/lv624/fog_blocker/short,
 /obj/structure/machinery/power/apc/power/east,
 /turf/open/floor/prison/floor_plate,
 /area/lv522/landing_zone_1)
-"acu" = (
-/obj/effect/decal/warning_stripes{
-	icon_state = "W"
-	},
-/turf/open/auto_turf/sand_white/layer0,
-/area/lv522/indoors/lone_buildings/storage_blocks/east)
 "acv" = (
 /obj/structure/cargo_container/ferret/left,
 /turf/open/auto_turf/sand_white/layer0,
 /area/lv522/outdoors/colony_streets/containers)
 "acw" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/turf/open/auto_turf/sand_white/layer0,
+/area/lv522/indoors/lone_buildings/storage_blocks/east)
+"acx" = (
+/turf/open/floor/prison/floor_plate,
+/area/lv522/outdoors/colony_streets/central_streets)
+"acy" = (
 /obj/structure/machinery/power/apc/power/north,
 /turf/open/floor/prison/floor_plate,
 /area/lv522/indoors/lone_buildings/storage_blocks/east)
-"acx" = (
+"acz" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/power/apc/power/north{
 	start_charge = 20
 	},
 /turf/open/floor/prison/greenfull/east,
 /area/lv522/indoors/b_block/hydro/glass)
-"acy" = (
+"acA" = (
 /turf/closed/wall/strata_outpost,
 /area/lv522/indoors/b_block/hydro/glass)
-"acz" = (
+"acB" = (
 /obj/structure/machinery/power/apc/power/east,
 /turf/open/floor/prison/floor_plate,
 /area/lv522/outdoors/colony_streets/central_streets)
-"acA" = (
+"acC" = (
 /obj/structure/machinery/power/apc/power/north,
 /turf/open/floor/prison/floor_plate,
 /area/lv522/outdoors/colony_streets/north_west_street)
-"acB" = (
-/turf/closed/wall/shiva/prefabricated/reinforced,
-/area/lv522/indoors/lone_buildings/storage_blocks/north_west)
-"acC" = (
-/turf/open/floor/prison,
-/area/lv522/indoors/lone_buildings/storage_blocks/north_west)
 "acD" = (
-/turf/open/floor/prison/floor_plate,
+/turf/closed/wall/shiva/prefabricated/reinforced,
 /area/lv522/indoors/lone_buildings/storage_blocks/north_west)
 "acE" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/lv522/indoors/c_block/bridge)
 "acF" = (
+/turf/open/floor/prison,
+/area/lv522/indoors/lone_buildings/storage_blocks/north_west)
+"acG" = (
+/turf/open/floor/prison/floor_plate,
+/area/lv522/indoors/lone_buildings/storage_blocks/north_west)
+"acH" = (
 /obj/structure/machinery/power/apc/power/south,
 /turf/open/floor/prison/floor_plate,
 /area/lv522/outdoors/colony_streets/north_east_street)
-"acG" = (
+"acI" = (
 /turf/open/asphalt/cement/cement1,
 /area/lv522/atmos/filt)
-"acH" = (
+"acJ" = (
 /obj/structure/machinery/power/apc/power/north,
 /turf/open/floor/prison/floor_marked,
 /area/lv522/outdoors/nw_rockies)
-"acI" = (
-/obj/structure/machinery/power/apc/power/east,
-/turf/open/floor/prison/floor_plate,
-/area/lv522/outdoors/colony_streets/south_west_street)
-"acJ" = (
-/turf/open/floor/prison/floor_plate,
-/area/lv522/outdoors/colony_streets/south_street)
-"acK" = (
-/turf/open/floor/prison/floor_plate,
-/area/lv522/outdoors/colony_streets/central_streets)
 "adk" = (
 /obj/structure/surface/table/almayer,
 /obj/item/trash/plate,
@@ -51378,13 +51378,13 @@ hJZ
 hJZ
 clY
 aTP
-acB
-acB
-acB
-acB
-acB
-acB
-acB
+acD
+acD
+acD
+acD
+acD
+acD
+acD
 sjY
 clY
 clY
@@ -51583,15 +51583,15 @@ wRz
 wBA
 wBA
 kYm
-acB
-acB
+acD
+acD
 vBM
 ssn
 sxU
 hLl
 fcd
-acB
-acB
+acD
+acD
 clY
 clY
 ien
@@ -51789,15 +51789,15 @@ hJZ
 hJZ
 nlz
 oRU
-acB
+acD
 wHi
 rus
 saQ
-acC
+acF
 saQ
 sHy
 sNk
-acB
+acD
 clY
 clY
 ien
@@ -52000,10 +52000,10 @@ icE
 djm
 pCn
 qJK
-acC
+acF
 sDf
 sNQ
-acB
+acD
 sjY
 clY
 ien
@@ -52202,14 +52202,14 @@ rsM
 rGi
 hJZ
 iPD
-acD
+acG
 spI
 suS
 dGK
-acC
+acF
 sDf
 sPH
-acB
+acD
 sjY
 clY
 ien
@@ -52407,15 +52407,15 @@ sIS
 sIS
 sIS
 sIS
-acB
 acD
+acG
 rSs
 qpc
 dGK
 sCP
 sKU
 sRx
-acB
+acD
 clY
 clY
 ien
@@ -52613,15 +52613,15 @@ hJZ
 hJZ
 hJZ
 hJZ
-acB
-acB
+acD
+acD
 cOA
 sOm
 jUk
 sDf
 sLZ
-acB
-acB
+acD
+acD
 sIS
 sIS
 ien
@@ -52820,13 +52820,13 @@ hJZ
 hJZ
 hJZ
 hJZ
-acB
-acB
+acD
+acD
 svW
 sBH
 svW
-acB
-acB
+acD
+acD
 hJZ
 hJZ
 hJZ
@@ -53079,7 +53079,7 @@ max
 osN
 sSQ
 vGo
-act
+acu
 jZD
 jZD
 jZD
@@ -54065,7 +54065,7 @@ xXP
 tNa
 luu
 nLm
-acA
+acC
 hJZ
 hJZ
 hJZ
@@ -55447,7 +55447,7 @@ tiQ
 tiQ
 tiQ
 vtc
-acH
+acJ
 gat
 gsZ
 uWO
@@ -59254,8 +59254,8 @@ dGB
 fnA
 fnA
 tSL
-acy
-acx
+acA
+acz
 tne
 yfR
 tSL
@@ -61325,7 +61325,7 @@ tSL
 tSL
 tSL
 fnA
-acI
+acr
 uOd
 fnA
 wIr
@@ -64594,31 +64594,31 @@ wdy
 rMF
 jmG
 jmG
-acK
-acK
+acx
+acx
 jmG
 jmG
-acK
-acK
+acx
+acx
 jmG
 jmG
-acK
-acK
+acx
+acx
 jmG
 rSX
 six
 ndK
 jmG
-acz
-acK
+acB
+acx
 jmG
 jmG
-acK
-acK
+acx
+acx
 jmG
 jmG
-acJ
-acJ
+acs
+acs
 jmG
 jmG
 pqR
@@ -65255,7 +65255,7 @@ dyS
 nax
 glO
 vOb
-acr
+aco
 yfu
 yfu
 eaG
@@ -73265,11 +73265,11 @@ xvB
 otS
 hMz
 qjO
-acs
-acs
-acs
-acs
-acs
+act
+act
+act
+act
+act
 ivy
 uwT
 xRn
@@ -73471,11 +73471,11 @@ xvB
 otS
 hMz
 qjO
-acs
+act
 byR
 atL
 sGj
-acs
+act
 yaf
 uwT
 fWG
@@ -73677,11 +73677,11 @@ xvl
 otS
 hMz
 qjO
-acs
+act
 sGj
 ttC
 byR
-acs
+act
 mkm
 uwT
 fWG
@@ -73887,7 +73887,7 @@ jOF
 oiR
 pLs
 sED
-acs
+act
 mkm
 uwT
 oTD
@@ -74089,11 +74089,11 @@ xvB
 otS
 hMz
 qjO
-acs
-acw
+act
+acy
 nqw
 hYf
-acs
+act
 syB
 uwT
 xbk
@@ -74295,11 +74295,11 @@ xvB
 otS
 hMz
 qjO
-acs
-acs
+act
+act
 ycb
-acs
-acs
+act
+act
 syB
 uwT
 qTI
@@ -74503,7 +74503,7 @@ hMz
 gBy
 mUr
 kSm
-acu
+acw
 kSm
 mUr
 fvV
@@ -76456,13 +76456,13 @@ cpy
 cpy
 cpy
 cpy
-acG
+acI
 gzF
-acG
-acG
-acG
-acG
-acG
+acI
+acI
+acI
+acI
+acI
 fPc
 ien
 ien
@@ -76905,7 +76905,7 @@ vGp
 cpy
 cpy
 pZo
-acF
+acH
 tDS
 nLe
 yke
