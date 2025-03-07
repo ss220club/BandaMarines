@@ -1,8 +1,3 @@
-/obj/structure/interior_exit/vehicle/arm
-	name = "ARM side door"
-	icon = 'modular/arm/icons/obj/vehicles/interiors/arc.dmi'
-	icon_state = "exit_door"
-
 /obj/structure/prop/vehicle/arm
 	name = "ARM chassis"
 
