@@ -76,8 +76,7 @@
 			if (istype(M, /mob/new_player))
 				continue
 			else if((M.stat == DEAD || isobserver(M)) &&  M.client.prefs.toggles_chat & CHAT_GHOSTEARS)
-				if(M.client)
-					to_chat(M, "<b>[src]</b> transmits, \")[message]\"")
+				if(M.client) to_chat(M, "<b>[src]</b> transmits, \")[message]\"")
 		return
 
 	switch(message_mode)

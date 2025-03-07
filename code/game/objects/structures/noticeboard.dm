@@ -97,8 +97,7 @@
 			return TRUE
 
 /obj/structure/noticeboard/proc/update_overlays()
-	if(overlays)
-		overlays.Cut()
+	if(overlays) overlays.Cut()
 	if(notices)
 		overlays += image(icon, "notices_[notices]")
 

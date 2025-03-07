@@ -82,8 +82,7 @@
 
 /obj/structure/machinery/power/smes/proc/updateicon()
 	overlays.Cut()
-	if(stat & BROKEN)
-		return
+	if(stat & BROKEN) return
 
 	overlays += image('icons/obj/structures/machinery/power.dmi', "smes_op[outputting]")
 
@@ -253,8 +252,8 @@
 			return 0
 		building_terminal = 0
 		CC.use(10)
-		user.visible_message(
-				SPAN_NOTICE("[user.name] has added cables to \the [src]."),
+		user.visible_message(\
+				SPAN_NOTICE("[user.name] has added cables to \the [src]."),\
 				SPAN_NOTICE("You added cables to \the [src]."))
 		terminal.connect_to_network()
 		stat = 0
@@ -277,8 +276,8 @@
 						building_terminal = 0
 						return 0
 					new /obj/item/stack/cable_coil(loc,10)
-					user.visible_message(
-						SPAN_NOTICE("[user.name] cut the cables and dismantled the power terminal."),
+					user.visible_message(\
+						SPAN_NOTICE("[user.name] cut the cables and dismantled the power terminal."),\
 						SPAN_NOTICE("You cut the cables and dismantle the power terminal."))
 					qdel(terminal)
 					terminal = null
@@ -434,8 +433,7 @@
 /proc/rate_control(S, V, C, Min=1, Max=5, Limit=null)
 	var/href = "<A href='byond://?src=\ref[S];rate control=1;[V]"
 	var/rate = "[href]=-[Max]'>-</A>[href]=-[Min]'>-</A> [(C?C : 0)] [href]=[Min]'>+</A>[href]=[Max]'>+</A>"
-	if(Limit)
-		return "[href]=-[Limit]'>-</A>"+rate+"[href]=[Limit]'>+</A>"
+	if(Limit) return "[href]=-[Limit]'>-</A>"+rate+"[href]=[Limit]'>+</A>"
 	return rate
 
 

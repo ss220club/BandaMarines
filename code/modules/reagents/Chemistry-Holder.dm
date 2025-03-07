@@ -42,13 +42,10 @@
 	current_list_element = rand(1,length(reagent_list))
 
 	while(total_transfered != amount)
-		if(total_transfered >= amount)
-			break
-		if(total_volume <= 0 || !length(reagent_list))
-			break
+		if(total_transfered >= amount) break
+		if(total_volume <= 0 || !length(reagent_list)) break
 
-		if(current_list_element > length(reagent_list))
-			current_list_element = 1
+		if(current_list_element > length(reagent_list)) current_list_element = 1
 		var/datum/reagent/current_reagent = reagent_list[current_list_element]
 
 		remove_reagent(current_reagent.id, 1)
@@ -68,18 +65,14 @@
 	current_list_element = rand(1, length(reagent_list))
 
 	while(total_transfered != amount)
-		if(total_transfered >= amount)
-			break
-		if(total_volume <= 0 || !length(reagent_list))
-			break
+		if(total_transfered >= amount) break
+		if(total_volume <= 0 || !length(reagent_list)) break
 
-		if(current_list_element > length(reagent_list))
-			current_list_element = 1
+		if(current_list_element > length(reagent_list)) current_list_element = 1
 		var/datum/reagent/current_reagent = reagent_list[current_list_element]
 
 		if(current_reagent.id == reagent_to_ignore)
-			if(length(reagent_list) == 1)
-				break //if the reagent to be avoided is the only one in the list, we're done here.
+			if(length(reagent_list) == 1) break //if the reagent to be avoided is the only one in the list, we're done here.
 			if(current_list_element == 1)
 				current_reagent = reagent_list[current_list_element + 1] //if the selected reagent was number 1, we don't want it trying to draw id.0, so we add 1
 			else
@@ -485,8 +478,7 @@
 /datum/reagents/proc/get_reagents()
 	var/res = ""
 	for(var/datum/reagent/A in reagent_list)
-		if(res != "")
-			res += ","
+		if(res != "") res += ","
 		res += A.name
 
 	return res
@@ -556,7 +548,7 @@
 	var/ex_falloff = base_ex_falloff
 	var/ex_falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR
 	var/dir = null
-	var/shrapnel_spread = 360
+	var/angle = 360
 	//For chemical fire
 	var/radius = 0
 	var/intensity = 0
@@ -564,8 +556,6 @@
 	var/supplemented = 0 //for determining fire shape. Intensifying chems add, moderating chems remove.
 	var/smokerad = 0
 	var/fire_penetrating = FALSE
-	var/hit_angle
-
 	var/list/supplements = list()
 	for(var/datum/reagent/R in reagent_list)
 		if(R.explosive)
@@ -586,8 +576,7 @@
 	if(istype(my_atom, /obj/item/explosive))
 		var/obj/item/explosive/E = my_atom
 		ex_falloff_shape = E.falloff_mode
-		shrapnel_spread = E.shrapnel_spread
-		hit_angle = E.hit_angle
+		angle = E.angle
 		if(E.use_dir)
 			if(E.last_move_dir) // Higher precision for grenade and what not.
 				dir = E.last_move_dir
@@ -599,7 +588,7 @@
 	intensity = floor(intensity)
 	duration = floor(duration)
 	if(ex_power > 0)
-		explode(sourceturf, ex_power, ex_falloff, ex_falloff_shape, dir, shrapnel_spread, hit_angle)
+		explode(sourceturf, ex_power, ex_falloff, ex_falloff_shape, dir, angle)
 	if(intensity > 0)
 		var/firecolor = mix_burn_colors(supplements)
 		combust(sourceturf, radius, intensity, duration, supplemented, firecolor, smokerad, fire_penetrating) // TODO: Implement directional flames
@@ -609,7 +598,7 @@
 	trigger_volatiles = FALSE
 	return exploded
 
-/datum/reagents/proc/explode(turf/sourceturf, ex_power, ex_falloff, ex_falloff_shape, dir, shrapnel_angle, hit_angle)
+/datum/reagents/proc/explode(turf/sourceturf, ex_power, ex_falloff, ex_falloff_shape, dir, angle)
 	if(!sourceturf)
 		return
 	if(sourceturf.chemexploded)
@@ -655,7 +644,7 @@
 
 		//Note: No need to log here as that is done in cell_explosion()
 		var/datum/cause_data/cause_data = create_cause_data("chemical explosion", source_atom)
-		create_shrapnel(sourceturf, shards, isnum(hit_angle) ? hit_angle : dir, shrapnel_angle, shard_type, cause_data, FALSE, 0.15, isnum(hit_angle))
+		create_shrapnel(sourceturf, shards, dir, angle, shard_type, cause_data)
 		if((istype(my_atom, /obj/item/explosive/plastic) || istype(my_atom, /obj/item/explosive/grenade)) && (ismob(my_atom.loc) || isStructure(my_atom.loc)))
 			addtimer(CALLBACK(my_atom.loc, TYPE_PROC_REF(/atom, ex_act), ex_power), 0.2 SECONDS)
 			ex_power = ex_power / 2

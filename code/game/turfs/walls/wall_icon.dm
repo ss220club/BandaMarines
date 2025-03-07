@@ -113,8 +113,7 @@
 #define CORNER_CLOCKWISE 4
 
 /proc/dirs_to_corner_states(list/dirs)
-	if(!istype(dirs))
-		return
+	if(!istype(dirs)) return
 
 	var/list/ret = list(NORTHWEST, SOUTHEAST, NORTHEAST, SOUTHWEST)
 

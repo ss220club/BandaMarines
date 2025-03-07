@@ -163,8 +163,6 @@
 #define TRAIT_TEMPORARILY_MUTED "temporarily_muted"
 /// Mob wont get hit by stray projectiles
 #define TRAIT_NO_STRAY "trait_no_stray"
-// only used by valkyrie
-#define TRAIT_VALKYRIE_ARMORED "trait_valkyrie_armored"
 
 // SPECIES TRAITS
 /// Knowledge of Yautja technology
@@ -377,7 +375,6 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 		"TRAIT_ABILITY_OVIPOSITOR" = TRAIT_ABILITY_OVIPOSITOR,
 		"TRAIT_OPPOSABLE_THUMBS" = TRAIT_OPPOSABLE_THUMBS,
 		"TRAIT_INTERFERENCE" = TRAIT_HIVEMIND_INTERFERENCE,
-		"TRAIT_VALKYRIE_ARMOR" = TRAIT_VALKYRIE_ARMORED,
 	),
 	/datum/hive_status = list(
 		"TRAIT_XENONID" = TRAIT_XENONID,
@@ -516,5 +513,3 @@ GLOBAL_LIST(trait_name_map)
 #define HACKED_TRAIT "hacked"
 /// traits from chloroform usage
 #define CHLOROFORM_TRAIT "chloroform"
-/// traits transparent turf
-#define TURF_Z_TRANSPARENT_TRAIT "turf_z_transparent"

@@ -16,7 +16,6 @@
 	idtype = /obj/item/card/id/lanyard
 
 	paygrades = list(PAY_SHORT_CIV = JOB_PLAYTIME_TIER_0)
-	languages = ALL_HUMAN_LANGUAGES
 
 	var/obj/item/device/radio/headset/headset_type = /obj/item/device/radio/headset
 
@@ -205,7 +204,6 @@
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/colonist/clf(new_human), WEAR_BODY)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(new_human), WEAR_HANDS)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/marine/upp(new_human), WEAR_FEET)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/patch/clf_patch, WEAR_ACCESSORY)
 
 	new_human.equip_to_slot_or_del(new /obj/item/notepad/black(new_human), WEAR_R_STORE)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/glasses/hud/health, WEAR_EYES)
@@ -221,7 +219,7 @@
 	faction_group = list(FACTION_FAX, FACTION_MARINE, FACTION_MARSHAL)
 	headset_type = /obj/item/device/radio/headset/distress/CMB
 	idtype = /obj/item/card/id/marshal
-	paygrades = list(PAY_SHORT_CMBD = JOB_PLAYTIME_TIER_0, PAY_SHORT_CMBM = JOB_PLAYTIME_TIER_2)
+	paygrades = list(PAY_SHORT_CMBM = JOB_PLAYTIME_TIER_0)
 
 /datum/equipment_preset/fax_responder/cmb/New()
 	. = ..()

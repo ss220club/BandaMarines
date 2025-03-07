@@ -106,7 +106,7 @@ SUBSYSTEM_DEF(mapping)
 			unused_turfs["[T.z]"] |= T
 			//var/area/old_area = T.loc
 			//old_area.turfs_to_uncontain += T
-			T.turf_flags |= UNUSED_RESERVATION_TURF
+			T.turf_flags = UNUSED_RESERVATION_TURF
 			//world_contents += T
 			//world_turf_contents += T
 			packet.len--
@@ -235,7 +235,12 @@ SUBSYSTEM_DEF(mapping)
 		ground_base_path = "data/"
 	Loadground(FailedZs, ground_map.map_name, ground_map.map_path, ground_map.map_file, ground_map.traits, ZTRAITS_GROUND, override_map_path = ground_base_path)
 
+/*
 	if(!ground_map.disable_ship_map)
+*/
+//RUCM START
+	if(!ground_map.disable_ship_map && !MODE_HAS_FLAG(MODE_NO_SHIP_MAP))
+//RUCM END
 		var/datum/map_config/ship_map = configs[SHIP_MAP]
 		var/ship_base_path = "maps/"
 		if(ship_map.override_map)
@@ -375,7 +380,7 @@ SUBSYSTEM_DEF(mapping)
 	var/block = block(SHUTTLE_TRANSIT_BORDER, SHUTTLE_TRANSIT_BORDER, z, world.maxx - SHUTTLE_TRANSIT_BORDER, world.maxy - SHUTTLE_TRANSIT_BORDER, z)
 	for(var/turf/T as anything in block)
 		// No need to empty() these, because they just got created and are already /turf/open/space/basic.
-		T.turf_flags |= UNUSED_RESERVATION_TURF
+		T.turf_flags = UNUSED_RESERVATION_TURF
 		CHECK_TICK
 
 	// Gotta create these suckers if we've not done so already

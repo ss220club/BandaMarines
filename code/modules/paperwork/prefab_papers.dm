@@ -109,12 +109,13 @@ GLOBAL_REFERENCE_LIST_INDEXED(prefab_papers, /obj/item/paper/prefab, document_ti
 //########################################
 //########################################
 //########################################
-/obj/item/paper/prefab // Abstract type (document_title and doc_datum_type are null)
+/obj/item/paper/prefab
 	is_prefab = TRUE
+	document_title = "BLANK"
 
 /obj/item/paper/prefab/Initialize()
 	. = ..()
-	name = document_title || "BLANK"
+	name = document_title
 
 // ########## Provost MP Forms  ########## \\
 

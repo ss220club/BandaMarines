@@ -27,8 +27,7 @@
 
 /obj/item/weapon/gun/minigun/Initialize(mapload, spawn_empty)
 	. = ..()
-	if(current_mag && current_mag.current_rounds > 0)
-		load_into_chamber()
+	if(current_mag && current_mag.current_rounds > 0) load_into_chamber()
 
 /obj/item/weapon/gun/minigun/set_gun_config_values()
 	..()

@@ -132,8 +132,7 @@
 			return
 
 	if(istype(I, /obj/item/grab))
-		if(isxeno(user))
-			return
+		if(isxeno(user)) return
 		var/obj/item/grab/G = I
 
 		if(isliving(G.grabbed_thing))

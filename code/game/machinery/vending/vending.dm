@@ -150,8 +150,7 @@ GLOBAL_LIST_EMPTY_TYPED(total_vending_machines, /obj/structure/machinery/vending
 	for(var/typepath in productlist)
 		var/amount = productlist[typepath]
 		var/price = prices[typepath]
-		if(isnull(amount))
-			amount = 1
+		if(isnull(amount)) amount = 1
 
 		var/obj/item/temp_path = typepath
 		var/datum/data/vending_product/product = new /datum/data/vending_product()
@@ -299,12 +298,10 @@ GLOBAL_LIST_EMPTY_TYPED(total_vending_machines, /obj/structure/machinery/vending
 			to_chat(user, SPAN_WARNING("[msg]"))
 			return
 	else if(HAS_TRAIT(item, TRAIT_TOOL_WRENCH))
-		if(!wrenchable)
-			return
+		if(!wrenchable) return
 
 		if(do_after(user, 20, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
-			if(!src)
-				return
+			if(!src) return
 			playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
 			switch (anchored)
 				if (0)
@@ -339,8 +336,7 @@ GLOBAL_LIST_EMPTY_TYPED(total_vending_machines, /obj/structure/machinery/vending
 	. = ..()
 
 /obj/structure/machinery/vending/proc/scan_card(obj/item/card/card)
-	if(!currently_vending)
-		return
+	if(!currently_vending) return
 	if (istype(card, /obj/item/card/id))
 		visible_message(SPAN_INFO("[usr] swipes a card through [src]."))
 		var/datum/money_account/CH = get_account(card.associated_account_number)

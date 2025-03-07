@@ -27,8 +27,7 @@
 
 /obj/item/clothing/head/helmet/marine/fluff/verb/toggle_squad_markings()
 	set src in usr
-	if(!ishuman(usr))
-		return
+	if(!ishuman(usr)) return
 
 	if(usr.is_mob_incapacitated() || !isturf(usr.loc))
 		to_chat(usr, SPAN_WARNING("Not right now!"))
@@ -40,8 +39,7 @@
 
 /obj/item/clothing/head/helmet/marine/fluff/verb/toggle_garb_overlay()
 	set src in usr
-	if(!ishuman(usr))
-		return
+	if(!ishuman(usr)) return
 
 	if(usr.is_mob_incapacitated() || !isturf(usr.loc))
 		to_chat(usr, SPAN_WARNING("Not right now!"))
@@ -107,8 +105,7 @@
 
 /obj/item/clothing/suit/storage/marine/fluff/verb/toggle_squad_markings()
 	set src in usr
-	if(!ishuman(usr))
-		return
+	if(!ishuman(usr)) return
 
 	if(usr.is_mob_incapacitated() || !isturf(usr.loc))
 		to_chat(usr, SPAN_WARNING("Not right now!"))
@@ -120,8 +117,7 @@
 
 /obj/item/clothing/suit/storage/marine/fluff/verb/toggle_shoulder_lamp()
 	set src in usr
-	if(!ishuman(usr))
-		return
+	if(!ishuman(usr)) return
 
 	if(usr.is_mob_incapacitated() || !isturf(usr.loc))
 		to_chat(usr, SPAN_WARNING("Not right now!"))

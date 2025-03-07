@@ -1,6 +1,5 @@
 /proc/get_paygrades(paygrade, size, gender)
-	if(!paygrade)
-		return
+	if(!paygrade) return
 
 	var/datum/paygrade/P = GLOB.paygrades[paygrade]
 
@@ -33,8 +32,7 @@
 			return paygrade_id
 
 /proc/get_rank_pins(paygrade)
-	if(!paygrade)
-		return null
+	if(!paygrade) return null
 
 	if(!(paygrade in GLOB.paygrades))
 		return null

@@ -9,7 +9,7 @@
 	unacidable = TRUE
 
 	var/obj/structure/machinery/camera/cam = null
-	var/obj/item/camera_holder = null
+	var/obj/item/clothing/head/helmet/marine/helm = null
 	var/datum/squad/current_squad = null
 
 	var/datum/tacmap/tacmap
@@ -44,22 +44,12 @@
 	QDEL_NULL(cam)
 	current_squad = null
 	concurrent_users = null
-	if(!camera_holder)
+	if(!helm)
 		return ..()
-	disconnect_holder()
+	helm.overwatch_consoles -= WEAKREF(src)
+	if(length(helm.overwatch_consoles) == 0)
+		helm.flags_atom &= ~(USES_HEARING|USES_SEEING)
 	return ..()
-
-/obj/structure/machinery/computer/groundside_operations/proc/connect_holder(new_holder)
-	camera_holder = new_holder
-	SEND_SIGNAL(camera_holder, COMSIG_OW_CONSOLE_OBSERVE_START, WEAKREF(src))
-	RegisterSignal(camera_holder, COMSIG_BROADCAST_HEAR_TALK, PROC_REF(transfer_talk))
-	RegisterSignal(camera_holder, COMSIG_BROADCAST_SEE_EMOTE, PROC_REF(transfer_emote))
-
-/obj/structure/machinery/computer/groundside_operations/proc/disconnect_holder()
-	SEND_SIGNAL(camera_holder, COMSIG_OW_CONSOLE_OBSERVE_END, WEAKREF(src))
-	UnregisterSignal(camera_holder, COMSIG_BROADCAST_HEAR_TALK)
-	UnregisterSignal(camera_holder, COMSIG_BROADCAST_SEE_EMOTE)
-	camera_holder = null
 
 /obj/structure/machinery/computer/groundside_operations/proc/disable_pmc()
 	if(MODE_HAS_FLAG(MODE_FACTION_CLASH))
@@ -194,7 +184,7 @@
 				almayer_count++
 				continue
 
-			if(!H.get_camera_holder())
+			if(!istype(H.head, /obj/item/clothing/head/helmet/marine))
 				helmetless_count++
 				continue
 
@@ -210,8 +200,8 @@
 		else
 			misc_text += marine_infos
 	dat += "<b>Total: [total_count] Deployed</b><BR>"
-	dat += "<b>Marines detected: [living_count] ([helmetless_count] no camera, [SSD_count] SSD, [almayer_count] on Almayer)</b><BR>"
-	dat += "<center><b>Search:</b> <input type='text' id='filter' value='' onkeyup='updateSearch();' style='width:300px;'></center>"
+	dat += "<b>Marines detected: [living_count] ([helmetless_count] no helmet, [SSD_count] SSD, [almayer_count] on Almayer)</b><BR>"
+	dat += "<center><b>Search:</b> <input type='search' id='filter' value='' onkeyup='updateSearch()' onblur='updateSearch()' style='width:300px;'></center>"
 	dat += "<table id='marine_list' border='2px' style='width: 100%; border-collapse: collapse;' align='center'><tr>"
 	dat += "<th>Name</th><th>Role</th><th>State</th><th>Location</th></tr>"
 	for(var/job in job_order)
@@ -319,31 +309,41 @@
 				return
 
 			if(current_squad || show_command_squad)
-				var/mob/living/carbon/human/cam_target = locate(href_list["cam_target"])
-				var/obj/item/new_holder = cam_target.get_camera_holder()
-				var/obj/structure/machinery/camera/new_cam
-				if(new_holder)
-					new_cam = new_holder.get_camera()
+				var/mob/cam_target = locate(href_list["cam_target"])
+				var/obj/item/clothing/head/helmet/marine/new_helm = get_helm_from_target(cam_target)
+				var/obj/structure/machinery/camera/new_cam = new_helm?.camera
 				if(!new_cam || !new_cam.can_use())
-					to_chat(usr, "[icon2html(src, usr)] [SPAN_WARNING("Searching for camera. No camera found for this marine! Tell your squad to put their cameras on!")]")
+					to_chat(usr, "[icon2html(src, usr)] [SPAN_WARNING("Searching for helmet cam. No helmet cam found for this marine! Tell your squad to put their helmets on!")]")
 				else if(cam && cam == new_cam)//click the camera you're watching a second time to stop watching.
-					visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("Stopping camera view of [cam_target].")]")
+					visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("Stopping helmet cam view of [cam_target].")]")
 					usr.UnregisterSignal(cam, COMSIG_PARENT_QDELETING)
-					disconnect_holder()
+					UnregisterSignal(helm, COMSIG_BROADCAST_HEAR_TALK)
+					UnregisterSignal(helm, COMSIG_BROADCAST_SEE_EMOTE)
+					helm.overwatch_consoles -= WEAKREF(src)
+					if(length(helm.overwatch_consoles) == 0)
+						helm.flags_atom &= ~(USES_HEARING|USES_SEEING)
 					cam = null
+					helm = null
 					usr.reset_view(null)
 				else if(usr.client.view != GLOB.world_view_size)
 					to_chat(usr, SPAN_WARNING("You're too busy peering through binoculars."))
 				else
 					if(cam)
 						usr.UnregisterSignal(cam, COMSIG_PARENT_QDELETING)
-					if(camera_holder)
-						disconnect_holder()
+					if(helm)
+						UnregisterSignal(helm, COMSIG_BROADCAST_HEAR_TALK)
+						UnregisterSignal(helm, COMSIG_BROADCAST_SEE_EMOTE)
+						helm.overwatch_consoles -= WEAKREF(src)
+						if(length(helm.overwatch_consoles) == 0)
+							helm.flags_atom &= ~(USES_HEARING|USES_SEEING)
 
 					cam = new_cam
-					connect_holder(new_holder)
+					helm = new_helm
+					helm.flags_atom |= (USES_HEARING|USES_SEEING)
 					usr.reset_view(cam)
 					usr.RegisterSignal(cam, COMSIG_PARENT_QDELETING, TYPE_PROC_REF(/mob, reset_observer_view_on_deletion))
+					RegisterSignal(helm, COMSIG_BROADCAST_HEAR_TALK, PROC_REF(transfer_talk))
+					RegisterSignal(helm, COMSIG_BROADCAST_SEE_EMOTE, PROC_REF(transfer_emote))
 
 		if("activate_echo")
 			var/mob/living/carbon/human/human_user = usr
@@ -362,8 +362,7 @@
 			var/reason = strip_html(input(usr, "What is the purpose of Echo Squad?", "Activation Reason"))
 			if(!reason)
 				return
-			if(alert(usr, "Confirm activation of Echo Squad for [reason]", "Confirm Activation", "Yes", "No") != "Yes")
-				return
+			if(alert(usr, "Confirm activation of Echo Squad for [reason]", "Confirm Activation", "Yes", "No") != "Yes") return
 			var/datum/squad/marine/echo/echo_squad = locate() in GLOB.RoleAuthority.squads
 			if(!echo_squad)
 				visible_message(SPAN_BOLDNOTICE("ERROR: Unable to locate Echo Squad database."))
@@ -389,9 +388,14 @@
 		cam = null
 		user.reset_view(null)
 		concurrent_users -= WEAKREF(user)
-		if(!camera_holder)
+		if(!helm)
 			return
-		disconnect_holder()
+		UnregisterSignal(helm, COMSIG_BROADCAST_HEAR_TALK)
+		UnregisterSignal(helm, COMSIG_BROADCAST_SEE_EMOTE)
+		helm.overwatch_consoles -= WEAKREF(src)
+		if(length(helm.overwatch_consoles) == 0)
+			helm.flags_atom &= ~(USES_HEARING|USES_SEEING)
+		helm = null
 
 /obj/structure/machinery/computer/groundside_operations/proc/transfer_talk(obj/item/camera, mob/living/sourcemob, message, verb = "says", datum/language/language, italics = FALSE, show_message_above_tv = FALSE)
 	SIGNAL_HANDLER
@@ -420,6 +424,15 @@
 		var/mob/user = user_ref.resolve()
 		if(user?.client?.prefs && (user.client.prefs.toggles_langchat & LANGCHAT_SEE_EMOTES) && (!audible || !user.ear_deaf))
 			sourcemob.langchat_display_image(user)
+
+//returns the helmet the human is wearing
+/obj/structure/machinery/computer/groundside_operations/proc/get_helm_from_target(mob/living/carbon/human/target)
+	if(!current_squad && !show_command_squad)
+		return
+
+	if(istype(target) && istype(target.head, /obj/item/clothing/head/helmet/marine))
+		var/obj/item/clothing/head/helmet/marine/helm = target.head
+		return helm
 
 /obj/structure/machinery/computer/groundside_operations/upp
 	announcement_title = UPP_COMMAND_ANNOUNCE

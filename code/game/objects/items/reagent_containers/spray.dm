@@ -187,8 +187,7 @@
 /obj/item/reagent_container/spray/chemsprayer/Spray_at(atom/A as mob|obj)
 	var/Sprays[3]
 	for(var/i=1, i<=3, i++) // intialize sprays
-		if(src.reagents.total_volume < 1)
-			break
+		if(src.reagents.total_volume < 1) break
 		var/obj/effect/decal/chempuff/D = new/obj/effect/decal/chempuff(get_turf(src))
 		D.create_reagents(amount_per_transfer_from_this)
 		src.reagents.trans_to(D, amount_per_transfer_from_this)
@@ -206,8 +205,7 @@
 	for(var/i=1, i<=length(Sprays), i++)
 		spawn()
 			var/obj/effect/decal/chempuff/D = Sprays[i]
-			if(!D)
-				continue
+			if(!D) continue
 
 			// Spreads the sprays a little bit
 			var/turf/my_target = pick(the_targets)
@@ -242,8 +240,7 @@
 
 
 /obj/item/reagent_container/spray/plantbgone/afterattack(atom/A, mob/user, proximity)
-	if(!proximity)
-		return
+	if(!proximity) return
 	..()
 
 //ammonia spray

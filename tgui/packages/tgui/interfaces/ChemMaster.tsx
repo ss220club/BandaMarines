@@ -15,17 +15,14 @@ import {
 } from '../components';
 import { Window } from '../layouts';
 
-type PillBottleType = {
-  size: number;
-  max_size: number;
-  label?: string;
-  icon_state: string;
-  isNeedsToBeFilled: boolean;
-};
-
 type ChemMasterData = {
   is_connected: boolean;
-  pill_bottles: PillBottleType[];
+  pill_bottle?: {
+    size: number;
+    max_size: number;
+    label?: string;
+    icon_state: string;
+  };
   color_pill: {
     icon: string;
     colors: { [key: string]: string };
@@ -229,105 +226,70 @@ const PillBottle = (props: { readonly setPicker: (_) => void }) => {
 
   const { setPicker } = props;
 
-  const { pill_bottles, is_connected, color_pill } = data;
+  const { pill_bottle, is_connected, color_pill } = data;
 
   const [tag, setTag] = useState('');
 
   return (
     <Stack>
       <Stack.Item>
-        <Box>Pill Bottle{pill_bottles.length > 1 ? 's' : ''}:</Box>
+        <Box>Pill Bottle:</Box>
       </Stack.Item>
       <Stack.Item grow>
-        {pill_bottles.length ? (
-          pill_bottles.map((pill_bottle, index) => (
-            <Stack key={index} justify="space-between">
-              <Stack.Item>
-                <Stack>
-                  {pill_bottles.length > 1 && (
-                    <Stack.Item>
-                      <Button.Checkbox
-                        width="100%"
-                        checked={pill_bottle.isNeedsToBeFilled}
-                        onClick={() =>
-                          act('check_pill_bottle', {
-                            bottleIndex: index,
-                            value: !pill_bottle.isNeedsToBeFilled,
-                          })
-                        }
-                      >
-                        Fill bottle
-                      </Button.Checkbox>
-                    </Stack.Item>
-                  )}
-                  <Stack.Item>
-                    <Box>
-                      {pill_bottle.size} / {pill_bottle.max_size}
-                    </Box>
-                  </Stack.Item>
-                  <Stack.Item>
-                    {pill_bottle.label && <Box>({pill_bottle.label})</Box>}
-                  </Stack.Item>
-                </Stack>
-              </Stack.Item>
-              {index === 0 ? (
-                <Stack>
-                  <Stack.Item>
-                    <Button.Input
-                      onCommit={(_, value) => {
-                        act('label_pill', { text: value, bottleIndex: index });
-                      }}
-                    >
-                      <Icon name={'tag'} /> Label
-                    </Button.Input>
-                  </Stack.Item>
-                  <Stack.Item>
-                    <Button onClick={() => setPicker(true)} height="1.75rem">
-                      <DmIcon
-                        mt={-1.5}
-                        icon={color_pill.icon}
-                        icon_state={pill_bottle.icon_state}
-                      />
-                    </Button>
-                  </Stack.Item>
-                </Stack>
-              ) : (
-                <Stack>
-                  <Stack.Item>
-                    <DmIcon
-                      mt={-1.5}
-                      icon={color_pill.icon}
-                      icon_state={pill_bottle.icon_state}
-                    />
-                  </Stack.Item>
-                </Stack>
-              )}
+        {pill_bottle ? (
+          <Stack justify="space-between">
+            <Stack.Item>
               <Stack>
-                {!!is_connected && (
-                  <Stack.Item>
-                    <Button
-                      icon={'arrow-up'}
-                      onClick={() =>
-                        act('transfer_pill', { bottleIndex: index })
-                      }
-                    >
-                      Transfer
-                    </Button>
-                  </Stack.Item>
-                )}
                 <Stack.Item>
-                  <Button
-                    icon={'eject'}
-                    onClick={() => act('eject_pill', { bottleIndex: index })}
-                  >
-                    Eject
-                  </Button>
+                  <Box>
+                    {pill_bottle.size} / {pill_bottle.max_size}
+                  </Box>
+                </Stack.Item>
+                <Stack.Item>
+                  {pill_bottle.label && <Box>({pill_bottle.label})</Box>}
                 </Stack.Item>
               </Stack>
+            </Stack.Item>
+            <Stack>
+              <Stack.Item>
+                <Button.Input
+                  onCommit={(_, value) => {
+                    act('label_pill', { text: value });
+                  }}
+                >
+                  <Icon name={'tag'} /> Label
+                </Button.Input>
+              </Stack.Item>
+              <Stack.Item>
+                <Button onClick={() => setPicker(true)} height="1.75rem">
+                  <DmIcon
+                    mt={-1.5}
+                    icon={color_pill.icon}
+                    icon_state={pill_bottle.icon_state}
+                  />
+                </Button>
+              </Stack.Item>
             </Stack>
-          ))
+            <Stack>
+              {!!is_connected && (
+                <Stack.Item>
+                  <Button
+                    icon={'arrow-up'}
+                    onClick={() => act('transfer_pill')}
+                  >
+                    Transfer
+                  </Button>
+                </Stack.Item>
+              )}
+              <Stack.Item>
+                <Button icon={'eject'} onClick={() => act('eject_pill')}>
+                  Eject
+                </Button>
+              </Stack.Item>
+            </Stack>
+          </Stack>
         ) : (
-          <NoticeBox info>No pill bottles inserted.</NoticeBox>
+          <NoticeBox info>No pill bottle inserted.</NoticeBox>
         )}
       </Stack.Item>
     </Stack>
@@ -349,7 +311,6 @@ const Glassware = (props: { readonly setPicker: (type) => void }) => {
     bottlesprite,
     internal_reagent_name,
     buffer,
-    pill_bottles,
   } = data;
 
   const [numPills, setNumPills] = useSharedState('pillNum', 16);
@@ -363,10 +324,7 @@ const Glassware = (props: { readonly setPicker: (type) => void }) => {
               <Stack>
                 <Button
                   lineHeight={'35px'}
-                  disabled={
-                    !buffer ||
-                    !pill_bottles.some((bottle) => bottle.isNeedsToBeFilled)
-                  }
+                  disabled={!buffer}
                   onClick={() => act('create_pill', { number: numPills })}
                 >
                   Create Pill{numPills > 1 ? 's' : ''}

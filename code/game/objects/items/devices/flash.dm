@@ -120,10 +120,8 @@
 //targeted flash
 
 /obj/item/device/flash/attack(mob/living/M, mob/user)
-	if(!user || !M)
-		return //sanity
-	if(!istype(M))
-		return
+	if(!user || !M) return //sanity
+	if(!istype(M)) return
 
 	if(check_if_can_use_flash(user))
 		if(isxeno(M))
@@ -151,8 +149,7 @@
 
 /obj/item/device/flash/emp_act(severity)
 	. = ..()
-	if(broken)
-		return
+	if(broken) return
 	switch(flashes_stored)
 		if(0 to 5)
 			if(prob(20 - (2*flashes_stored)))

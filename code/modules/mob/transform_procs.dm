@@ -107,8 +107,7 @@
 
 	new_xeno.a_intent = INTENT_HARM
 	new_xeno.key = key
-	if(new_xeno.client)
-		new_xeno.client.change_view(GLOB.world_view_size)
+	if(new_xeno.client) new_xeno.client.change_view(GLOB.world_view_size)
 
 	to_chat(new_xeno, "<B>You are now an alien.</B>")
 	qdel(src)
@@ -140,8 +139,7 @@
 	var/mob/new_mob = new mobpath(src.loc)
 
 	new_mob.key = key
-	if(new_mob.client)
-		new_mob.client.change_view(GLOB.world_view_size)
+	if(new_mob.client) new_mob.client.change_view(GLOB.world_view_size)
 	new_mob.a_intent = INTENT_HARM
 
 
@@ -161,8 +159,7 @@
 	var/mob/new_mob = new mobpath(src.loc)
 
 	new_mob.key = key
-	if(new_mob.client)
-		new_mob.client.change_view(GLOB.world_view_size)
+	if(new_mob.client) new_mob.client.change_view(GLOB.world_view_size)
 	new_mob.a_intent = INTENT_HARM
 	to_chat(new_mob, "You feel more... animalistic")
 

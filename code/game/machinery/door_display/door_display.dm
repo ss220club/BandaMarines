@@ -44,12 +44,10 @@
 
 // Opens and locks doors, power check
 /obj/structure/machinery/door_display/proc/open_door()
-	if(inoperable())
-		return FALSE
+	if(inoperable()) return FALSE
 
 	for(var/obj/structure/machinery/door/D in targets)
-		if(!D.density)
-			continue
+		if(!D.density) continue
 		INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/structure/machinery/door, open))
 
 	return TRUE
@@ -57,12 +55,10 @@
 
 // Closes and unlocks doors, power check
 /obj/structure/machinery/door_display/proc/close_door()
-	if(inoperable())
-		return FALSE
+	if(inoperable()) return FALSE
 
 	for(var/obj/structure/machinery/door/D in targets)
-		if(D.density)
-			continue
+		if(D.density) continue
 		INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/structure/machinery/door, close))
 
 	return TRUE

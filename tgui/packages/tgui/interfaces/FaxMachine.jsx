@@ -16,8 +16,8 @@ export const FaxMachine = () => {
   const { act, data } = useBackend();
   const { idcard } = data;
   const body = idcard ? <FaxMain /> : <FaxEmpty />;
-  const windowWidth = idcard ? 800 : 400;
-  const windowHeight = idcard ? 440 : 215;
+  const windowWidth = idcard ? 600 : 400;
+  const windowHeight = idcard ? 340 : 215;
 
   return (
     <Window width={windowWidth} height={windowHeight} theme="weyland">
@@ -33,7 +33,6 @@ const FaxMain = (props) => {
     <>
       <FaxId />
       <FaxSelect />
-      <ConfirmSend />
       <NoticeBox color="grey" textAlign="center">
         The machine identification is {machine_id_tag}.
       </NoticeBox>
@@ -88,15 +87,15 @@ const FaxSelect = (props) => {
   const { act, data } = useBackend();
   const {
     paper,
+    paper_name,
     authenticated,
     target_department,
-    can_send_priority,
-    is_priority_fax,
-    is_single_sending,
-    target_machine,
-    highcom_dept,
-    sending_to_specific,
+    worldtime,
+    nextfaxtime,
+    faxcooldown,
   } = data;
+
+  const timeLeft = nextfaxtime - worldtime;
 
   return (
     <Section title="Department selection">
@@ -105,8 +104,7 @@ const FaxSelect = (props) => {
           <Button
             icon="list"
             disabled={!authenticated}
-            onClick={() => act('select_dept')}
-            width="220px"
+            onClick={() => act('select')}
           >
             Select department to send to
           </Button>
@@ -116,68 +114,7 @@ const FaxSelect = (props) => {
             {'Currently sending to : ' + target_department + '.'}
           </Button>
         </Stack.Item>
-        <Stack.Item>
-          <Button
-            icon={is_single_sending ? 'user' : 'users'}
-            fluid
-            onClick={() => act('toggle_single_send')}
-            color={is_single_sending ? 'purple' : 'blue'}
-            disabled={
-              !paper ||
-              !!highcom_dept ||
-              !authenticated ||
-              !!sending_to_specific
-            }
-            tooltip="Toggle sending to a specific machine in the department."
-          />
-        </Stack.Item>
       </Stack>
-      <Box width="600px" height="5px" />
-      <Stack>
-        <Stack.Item>
-          <Button
-            icon="list"
-            disabled={
-              !authenticated || !is_single_sending || !!sending_to_specific
-            }
-            onClick={() => act('select_machine')}
-            width="220px"
-          >
-            Select machine to send to
-          </Button>
-        </Stack.Item>
-        <Stack.Item grow>
-          <Button
-            icon="fax"
-            fluid
-            disabled={
-              !authenticated || !is_single_sending || !!sending_to_specific
-            }
-          >
-            {'Currently sending to : ' + target_machine + '.'}
-          </Button>
-        </Stack.Item>
-      </Stack>
-    </Section>
-  );
-};
-
-const ConfirmSend = (props) => {
-  const { act, data } = useBackend();
-  const {
-    paper,
-    paper_name,
-    authenticated,
-    worldtime,
-    nextfaxtime,
-    can_send_priority,
-    is_priority_fax,
-  } = data;
-
-  const timeLeft = nextfaxtime - worldtime;
-
-  return (
-    <Section title="Send Confirmation">
       <Box width="600px" height="5px" />
       <Stack>
         <Stack.Item>
@@ -206,18 +143,6 @@ const ConfirmSend = (props) => {
             </Button>
           )}
         </Stack.Item>
-        {!!can_send_priority && (
-          <Stack.Item>
-            <Button
-              icon={is_priority_fax ? 'bell' : 'bell-slash'}
-              fluid
-              onClick={() => act('toggle_priority')}
-              color={is_priority_fax ? 'green' : 'red'}
-              disabled={!paper || !can_send_priority || !authenticated}
-              tooltip="Toggle priority alert."
-            />
-          </Stack.Item>
-        )}
       </Stack>
     </Section>
   );
