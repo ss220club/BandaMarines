@@ -27,8 +27,7 @@
 		name_of_spawn = /obj/effect/landmark/ert_spawns/distress_wo
 	var/turf/spawn_loc = override_spawn_loc ? override_spawn_loc : get_spawn_point()
 
-	if(!istype(spawn_loc))
-		return //Didn't find a useable spawn point.
+	if(!istype(spawn_loc)) return //Didn't find a useable spawn point.
 
 	var/mob/living/carbon/human/human = new(spawn_loc)
 

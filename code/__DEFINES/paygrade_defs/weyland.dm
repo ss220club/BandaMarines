@@ -31,11 +31,8 @@
 /// WYC9, Chief Executive
 #define PAY_SHORT_WYC9 "WYC9"
 
-/// WYC10, Deputy Director
+/// WYC10, Director
 #define PAY_SHORT_WYC10 "WYC10"
-
-/// WYC11, Director
-#define PAY_SHORT_WYC11 "WYC11"
 
 // Weyland Yutani Private Military
 /// PMC-OP, Operator, standard PMC.

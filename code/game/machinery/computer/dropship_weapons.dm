@@ -18,7 +18,7 @@
 	var/firemission_signal //id of the signal
 	var/in_firemission_mode = FALSE
 	var/upgraded = MATRIX_DEFAULT // we transport upgrade var from matrixdm
-	var/matrix_color = NV_COLOR_GREEN //color of matrix, only used when we upgrade to nv
+	var/matrixcol //color of matrix, only used when we upgrade to nv
 	var/power //level of the property
 	var/datum/cas_signal/selected_cas_signal
 	var/datum/simulator/simulation
@@ -92,6 +92,7 @@
 			W.forceMove(src)
 			to_chat(user, SPAN_NOTICE("You swap the matrix in the dropship guidance camera system, destroying the older part in the process"))
 			upgraded = matrix.upgrade
+			matrixcol = matrix.matrixcol
 			power = matrix.power
 
 		else
@@ -440,9 +441,7 @@
 			if(upgraded != MATRIX_NVG)
 				to_chat(user, SPAN_WARNING("The matrix is not upgraded with night vision."))
 				return FALSE
-			if(user.client?.prefs?.night_vision_preference)
-				matrix_color = user.client.prefs.nv_color_list[user.client.prefs.night_vision_preference]
-			SEND_SIGNAL(src, COMSIG_CAMERA_SET_NVG, 5, matrix_color)
+			SEND_SIGNAL(src, COMSIG_CAMERA_SET_NVG, 5, "#7aff7a")
 			return TRUE
 
 		if("nvg-disable")

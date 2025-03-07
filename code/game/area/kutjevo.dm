@@ -39,7 +39,6 @@
 	name = "Kutjevo - Out Of Bounds"
 	ceiling = CEILING_MAX
 	icon_state = "oob"
-	requires_power = FALSE
 	is_resin_allowed = FALSE
 	flags_area = AREA_NOTUNNEL|AREA_UNWEEDABLE
 
@@ -254,18 +253,6 @@
 	icon_state = "construction_int"
 	unoviable_timer = FALSE
 
-/area/kutjevo/interior/construction/north
-	name = "Kutjevo - Northern Abandoned Construction Interior"
-	icon_state = "construction"
-
-/area/kutjevo/interior/construction/east
-	name = "Kutjevo - Eastern Abandoned Construction Interior"
-	icon_state = "construction"
-
-/area/kutjevo/interior/construction/signal_tower
-	name = "Kutjevo - Abandoned Signal Tower"
-	icon_state = "construction2"
-
 /area/kutjevo/interior/foremans_office
 	name = "Kutjevo - Foreman's Office"
 	ceiling = CEILING_METAL
@@ -302,30 +289,30 @@
 
 /area/kutjevo/interior/colony_north
 	name = "Kutjevo - North Colony Caves"
-	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
+	ceiling = CEILING_DEEP_UNDERGROUND
 	icon_state = "colony_caves_1"
 	unoviable_timer = FALSE
 
-/area/kutjevo/interior/colony_southeast
-	name = "Kutjevo - Southeast Colony Caves"
-	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
+/area/kutjevo/interior/colony_S_East
+	name = "Kutjevo - North East Colony Caves"
+	ceiling = CEILING_DEEP_UNDERGROUND
 	icon_state = "colony_caves_2"
 	unoviable_timer = FALSE
 
-/area/kutjevo/interior/colony_northeast
-	name = "Kutjevo - Northeast Colony Caves"
-	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
+/area/kutjevo/interior/colony_N_East
+	name = "Kutjevo - South East Colony Caves"
+	ceiling = CEILING_DEEP_UNDERGROUND
 	icon_state = "colony_caves_2"
 	unoviable_timer = FALSE
 
-/area/kutjevo/interior/colony_south
+/area/kutjevo/interior/colony_South
 	name = "Kutjevo - South Colony Caves"
-	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
+	ceiling = CEILING_DEEP_UNDERGROUND
 	icon_state = "colony_caves_3"
 
-/area/kutjevo/interior/colony_south/power2
+/area/kutjevo/interior/colony_South/power2
 	name = "Kutjevo - South Colony Treatment Plant"
-	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
+	ceiling = CEILING_DEEP_UNDERGROUND
 	icon_state = "colony_caves_3"
 	minimap_color = MINIMAP_AREA_ENGI_CAVE
 	unoviable_timer = FALSE

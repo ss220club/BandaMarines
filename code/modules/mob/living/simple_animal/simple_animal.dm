@@ -265,8 +265,7 @@
 	return 1
 
 /mob/living/simple_animal/Collided(atom/movable/AM)
-	if(!AM)
-		return
+	if(!AM) return
 
 	if(resting || buckled)
 		return
@@ -282,8 +281,7 @@
 
 /mob/living/simple_animal/death()
 	. = ..()
-	if(!.)
-		return //was already dead
+	if(!.) return //was already dead
 	SSmob.living_misc_mobs -= src
 	icon_state = icon_dead
 	black_market_value = dead_black_market_value

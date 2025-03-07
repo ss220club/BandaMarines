@@ -579,6 +579,8 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 		GLOB.admin_datums[ckey].associate(src, GLOB.db_admin_datums[ckey])
 	notify_login()
 //RUCM END
+	if(!player_data.discord_link_id)
+		add_verb(src, /client/proc/discord_connect)
 	if(!player_data.last_login)
 		player_data.first_join_date = "[time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")]"
 	if(!player_data.first_join_date)

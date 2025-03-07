@@ -150,7 +150,10 @@
 			no_remains = TRUE
 
 	if(!no_remains)
-		new /obj/effect/decal/remains/xeno(get_turf(src), icon, "gibbed-a-corpse", pixel_x)
+		var/obj/effect/decal/remains/xeno/remains = new(get_turf(src))
+		remains.pixel_x = pixel_x //For 2x2.
+		remains.icon_state = "gibbed-a-corpse"
+		remains.icon = icon
 
 	check_blood_splash(35, BURN, 65, 2) //Some testing numbers. 35 burn, 65 chance.
 

@@ -40,6 +40,13 @@
 	var/action_name = "Abduct"
 	handle_xeno_macro(src, action_name)
 
+/datum/action/xeno_action/verb/verb_prae_retrieve()
+	set category = "Alien"
+	set name = "Retrieve"
+	set hidden = TRUE
+	var/action_name = "Retrieve"
+	handle_xeno_macro(src, action_name)
+
 /datum/action/xeno_action/verb/verb_oppressor_punch()
 	set category = "Alien"
 	set name = "Dislocate"
@@ -75,31 +82,9 @@
 	var/action_name = "tail trip"
 	handle_xeno_macro(src, action_name)
 
-
-/datum/action/xeno_action/verb/verb_prae_rage()
+/datum/action/xeno_action/verb/verb_prae_switch_heal_types()
 	set category = "Alien"
-	set name = "Tantrum"
+	set name = "Praetorian Switch Heal Types"
 	set hidden = TRUE
-	var/action_name = "Tantrum"
-	handle_xeno_macro(src, action_name)
-
-/datum/action/xeno_action/verb/verb_prae_high_gallop()
-	set category = "Alien"
-	set name = "High Gallop"
-	set hidden = TRUE
-	var/action_name = "High Gallop"
-	handle_xeno_macro(src, action_name)
-
-/datum/action/xeno_action/verb/verb_prae_fight_or_flight()
-	set category = "Alien"
-	set name = "Fight or Flight"
-	set hidden = TRUE
-	var/action_name = "Fight or Flight"
-	handle_xeno_macro(src, action_name)
-
-/datum/action/xeno_action/verb/verb_prae_retrieve()
-	set category = "Alien"
-	set name = "Retrieve"
-	set hidden = TRUE
-	var/action_name = "Retrieve"
+	var/action_name = "Toggle Heal Type"
 	handle_xeno_macro(src, action_name)

@@ -180,7 +180,6 @@ export function Input(props: Props) {
         onKeyDown={handleKeyDown}
         placeholder={placeholder}
         ref={inputRef}
-        spellCheck="false"
       />
     </Box>
   );

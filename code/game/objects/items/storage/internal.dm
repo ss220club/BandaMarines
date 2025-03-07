@@ -42,8 +42,7 @@
 			return FALSE //If we are not in an item, do nothing more.
 
 		var/obj/item/master_item = master_object
-		if(master_item.flags_item & NODROP)
-			return
+		if(master_item.flags_item & NODROP) return
 
 		if(!istype(over_object, /atom/movable/screen))
 			return TRUE

@@ -56,7 +56,7 @@
 		list("M74 AGM-Smoke Airburst Grenade", floor(scale * 4), /obj/item/explosive/grenade/smokebomb/airburst, VENDOR_ITEM_REGULAR),
 		list("M74 AGM-Star Shell", floor(scale * 2), /obj/item/explosive/grenade/high_explosive/airburst/starshell, VENDOR_ITEM_REGULAR),
 		list("M74 AGM-Hornet Shell", floor(scale * 4), /obj/item/explosive/grenade/high_explosive/airburst/hornet_shell, VENDOR_ITEM_REGULAR),
-		list("G2 Electroshock Grenade", floor(scale * 5), /obj/item/explosive/grenade/sebb, VENDOR_ITEM_REGULAR),
+		list("G2 Electroshock Grenade", round(scale * 5), /obj/item/explosive/grenade/sebb, VENDOR_ITEM_REGULAR),
 		list("M40 HIRR Baton Slug", floor(scale * 8), /obj/item/explosive/grenade/slug/baton, VENDOR_ITEM_REGULAR),
 		list("M40 MFHS Metal Foam Grenade", floor(scale * 6), /obj/item/explosive/grenade/metal_foam, VENDOR_ITEM_REGULAR),
 		list("Plastic Explosives", floor(scale * 3), /obj/item/explosive/plastic, VENDOR_ITEM_REGULAR),
@@ -67,7 +67,6 @@
 		list("Brown Webbing Vest", floor(scale * 2), /obj/item/clothing/accessory/storage/black_vest/brown_vest, VENDOR_ITEM_REGULAR),
 		list("Shoulder Holster", floor(scale * 1.5), /obj/item/clothing/accessory/storage/holster, VENDOR_ITEM_REGULAR),
 		list("Webbing", floor(scale * 5), /obj/item/clothing/accessory/storage/webbing, VENDOR_ITEM_REGULAR),
-		list("Black Webbing", floor(scale * 5), /obj/item/clothing/accessory/storage/webbing/black, VENDOR_ITEM_REGULAR),
 		list("Knife Webbing", floor(scale * 1), /obj/item/clothing/accessory/storage/knifeharness, VENDOR_ITEM_REGULAR),
 		list("Drop Pouch", floor(scale * 2), /obj/item/clothing/accessory/storage/droppouch, VENDOR_ITEM_REGULAR),
 		list("External Webbing", floor(scale * 5), /obj/item/clothing/suit/storage/webbing, VENDOR_ITEM_REGULAR),
@@ -405,10 +404,9 @@
 		list("Barrel Charger", 1.5, /obj/item/attachable/heavy_barrel, VENDOR_ITEM_REGULAR),
 		list("Upgraded Barrel Charger", 0.5, /obj/item/attachable/heavy_barrel/upgraded, VENDOR_ITEM_REGULAR),
 //RUCM END
-		list("Shotgun Choke", 4.5, /obj/item/attachable/shotgun_choke, VENDOR_ITEM_REGULAR),
 
 		list("RAIL", -1, null, null),
-		list("B8 Smart-Scope", 3.5, /obj/item/attachable/alt_iff_scope, VENDOR_ITEM_REGULAR),
+		list("B8 Smart-Scope", 3.5, /obj/item/attachable/scope/mini_iff, VENDOR_ITEM_REGULAR),
 		list("Magnetic Harness", 8.5, /obj/item/attachable/magnetic_harness, VENDOR_ITEM_REGULAR),
 		list("Rail Flashlight", 10.5, /obj/item/attachable/flashlight, VENDOR_ITEM_REGULAR),
 		list("S4 2x Telescopic Mini-Scope", 4.5, /obj/item/attachable/scope/mini, VENDOR_ITEM_REGULAR),
@@ -470,8 +468,6 @@
 		list("Marine Combat Boots", 20, /obj/item/clothing/shoes/marine, VENDOR_ITEM_REGULAR),
 		list("Marine Brown Combat Boots", 5, /obj/item/clothing/shoes/marine/brown, VENDOR_ITEM_REGULAR),
 		list("Marine Jungle Combat Boots", 5, /obj/item/clothing/shoes/marine/jungle, VENDOR_ITEM_REGULAR),
-		list("Marine Grey Combat Boots", 5, /obj/item/clothing/shoes/marine/grey, VENDOR_ITEM_REGULAR),
-		list("Marine Urban Combat Boots", 5, /obj/item/clothing/shoes/marine/urban, VENDOR_ITEM_REGULAR),
 
 		list("BACKPACKS", -1, null, null),
 		list("Lightweight IMP Backpack", 20, /obj/item/storage/backpack/marine, VENDOR_ITEM_REGULAR),
@@ -499,7 +495,6 @@
 		list("Marine Combat Gloves", 40, /obj/item/clothing/gloves/marine, VENDOR_ITEM_REGULAR),
 		list("Marine Black Combat Gloves", 40, /obj/item/clothing/gloves/marine/black, VENDOR_ITEM_REGULAR),
 		list("Marine Brown Combat Gloves", 20, /obj/item/clothing/gloves/marine/brown, VENDOR_ITEM_REGULAR),
-		list("Marine Grey Combat Gloves", 20, /obj/item/clothing/gloves/marine/grey, VENDOR_ITEM_REGULAR),
 
 		list("RADIO", -1, null, null),
 		list("Alpha Squad Radio Encryption Key", 5, /obj/item/device/encryptionkey/alpha, VENDOR_ITEM_REGULAR),
@@ -521,7 +516,6 @@
 
 		list("MISCELLANEOUS", -1, null, null),
 		list("Bedroll", 30, /obj/item/roller/bedroll, VENDOR_ITEM_REGULAR),
-		list("M5 Camera Gear", 3, /obj/item/device/overwatch_camera, VENDOR_ITEM_REGULAR),
 		)
 
 /obj/structure/machinery/cm_vending/sorted/uniform_supply/ui_state(mob/user)

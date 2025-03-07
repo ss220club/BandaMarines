@@ -31,8 +31,7 @@
 
 		handle_trace_chems()
 
-	else
-		nutrition = NUTRITION_NORMAL //synthetics are never hungry
+	else nutrition = NUTRITION_NORMAL //synthetics are never hungry
 
 	return //TODO: DEFERRED
 

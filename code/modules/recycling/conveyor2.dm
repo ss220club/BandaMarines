@@ -150,8 +150,7 @@
 	if(id != match_id)
 		return
 	operable = op
-	if(operable)
-		start_processing()
+	if(operable) start_processing()
 
 	update()
 	var/obj/structure/machinery/conveyor/C = locate() in get_step(src, stepdir)

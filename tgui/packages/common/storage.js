@@ -9,7 +9,6 @@
 export const IMPL_MEMORY = 0;
 export const IMPL_HUB_STORAGE = 1;
 export const IMPL_INDEXED_DB = 2;
-export const IMPL_IFRAME_INDEXED_DB = 3;
 
 const INDEXED_DB_VERSION = 1;
 const INDEXED_DB_NAME = 'cm-tgui';
@@ -85,51 +84,6 @@ class HubStorageBackend {
   }
 }
 
-class IFrameIndexedDbBackend {
-  constructor() {
-    this.impl = IMPL_IFRAME_INDEXED_DB;
-  }
-
-  async ready() {
-    const iframe = document.createElement('iframe');
-    iframe.style.display = 'none';
-    iframe.src = Byond.storageCdn;
-
-    const completePromise = new Promise((resolve) => {
-      iframe.onload = () => resolve(this);
-    });
-
-    this.iframeWindow = document.body.appendChild(iframe).contentWindow;
-
-    return completePromise;
-  }
-
-  async get(key) {
-    const promise = new Promise((resolve) => {
-      window.addEventListener('message', (message) => {
-        if (message.data.key === key) {
-          resolve(message.data.value);
-        }
-      });
-    });
-
-    this.iframeWindow.postMessage({ type: 'get', key: key }, '*');
-    return promise;
-  }
-
-  async set(key, value) {
-    this.iframeWindow.postMessage({ type: 'set', key: key, value: value }, '*');
-  }
-
-  async remove(key) {
-    this.iframeWindow.postMessage({ type: 'remove', key: key }, '*');
-  }
-
-  async clear() {
-    this.iframeWindow.postMessage({ type: 'clear' }, '*');
-  }
-}
-
 class IndexedDbBackend {
   // TODO: Remove with 516
   constructor() {
@@ -191,16 +145,10 @@ class IndexedDbBackend {
  * Web Storage Proxy object, which selects the best backend available
  * depending on the environment.
  */
-export class StorageProxy {
-  constructor(chat) {
+class StorageProxy {
+  constructor() {
     this.backendPromise = (async () => {
       if (!Byond.TRIDENT) {
-        if (chat) {
-          const iframe = new IFrameIndexedDbBackend();
-          await iframe.ready();
-          return iframe;
-        }
-
         if (!testHubStorage()) {
           return new Promise((resolve) => {
             const listener = () => {

@@ -30,7 +30,7 @@
 
 /datum/supply_packs/ammo_mortar_he
 	name = "M402 mortar shells crate (x6 HE)"
-	cost = 15
+	cost = 20
 	contains = list(
 		/obj/item/mortar_shell/he,
 		/obj/item/mortar_shell/he,
@@ -45,7 +45,7 @@
 
 /datum/supply_packs/ammo_mortar_incend
 	name = "M402 mortar shells crate (x6 Incend)"
-	cost = 15
+	cost = 20
 	contains = list(
 		/obj/item/mortar_shell/incendiary,
 		/obj/item/mortar_shell/incendiary,
@@ -60,7 +60,7 @@
 
 /datum/supply_packs/ammo_mortar_flare
 	name = "M402 mortar shells crate (x6 Flare/Camera)"
-	cost = 10
+	cost = 20
 	contains = list(
 		/obj/item/mortar_shell/flare,
 		/obj/item/mortar_shell/flare,
@@ -75,7 +75,7 @@
 
 /datum/supply_packs/ammo_mortar_frag
 	name = "M402 mortar shells crate (x6 Frag)"
-	cost = 10
+	cost = 20
 	contains = list(
 		/obj/item/mortar_shell/frag,
 		/obj/item/mortar_shell/frag,

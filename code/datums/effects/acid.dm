@@ -95,8 +95,7 @@
 	acid_goopiness--
 	if(acid_goopiness <= 0)
 		return TRUE
-	else
-		return FALSE
+	else return FALSE
 
 /datum/effects/acid/proc/handle_weather()
 	SIGNAL_HANDLER

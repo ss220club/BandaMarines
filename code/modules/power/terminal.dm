@@ -18,8 +18,7 @@
 /obj/structure/machinery/power/terminal/Initialize()
 	. = ..()
 	var/turf/T = src.loc
-	if(level==1)
-		hide(T.intact_tile)
+	if(level==1) hide(T.intact_tile)
 
 /obj/structure/machinery/power/terminal/Destroy()
 	if(master)

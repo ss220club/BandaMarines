@@ -54,8 +54,7 @@
 
 
 /obj/item/tool/mop/afterattack(atom/A, mob/living/user, proximity)
-	if(!proximity)
-		return
+	if(!proximity) return
 	if(istype(A, /turf) || istype(A, /obj/effect/decal/cleanable) || istype(A, /obj/effect/overlay))
 		if(reagents.total_volume < 1)
 			to_chat(user, SPAN_NOTICE("Your mop is dry!"))
@@ -144,8 +143,7 @@
 		C.slip("soap", 3, 2)
 
 /obj/item/tool/soap/afterattack(atom/target, mob/user as mob, proximity)
-	if(!proximity)
-		return
+	if(!proximity) return
 	//I couldn't feasibly  fix the overlay bugs caused by cleaning items we are wearing.
 	//So this is a workaround. This also makes more sense from an IC standpoint. ~Carn
 	if(user.client && (target in user.client.screen))

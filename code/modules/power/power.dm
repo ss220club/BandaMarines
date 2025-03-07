@@ -134,13 +134,11 @@
 ///// Z-Level Stuff
 // world.log << "d=[d] fdir=[fdir]"
 	for(var/AM in T)
-		if(AM == source)
-			continue //we don't want to return source
+		if(AM == source) continue //we don't want to return source
 
 		if(istype(AM,/obj/structure/machinery/power))
 			var/obj/structure/machinery/power/P = AM
-			if(P.powernet == 0)
-				continue // exclude APCs which have powernet=0
+			if(P.powernet == 0) continue // exclude APCs which have powernet=0
 
 			if(!unmarked || !P.powernet) //if unmarked=1 we only return things with no powernet
 				if(P.directwired || (d == 0))
@@ -230,8 +228,7 @@
 		cdir = get_dir(T,loc)
 
 		for(var/obj/structure/cable/C in T)
-			if(C.powernet)
-				continue
+			if(C.powernet) continue
 			if(C.d1 == cdir || C.d2 == cdir)
 				. += C
 	return .
@@ -239,8 +236,7 @@
 /obj/structure/machinery/power/proc/get_indirect_connections()
 	. = list()
 	for(var/obj/structure/cable/C in loc)
-		if(C.powernet)
-			continue
+		if(C.powernet) continue
 		if(C.d1 == 0)
 			. += C
 	return .

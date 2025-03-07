@@ -1,5 +1,6 @@
-/datum/job/special/wey_yu // Abstract type (null title)
+/datum/job/special/wey_yu
 	supervisors = "Weyland-Yutani Corporate Office"
+	title = "Weyland-Yutani Representative"
 	selection_class = "job_cl"
 	flags_startup_parameters = ROLE_CUSTOM_SPAWN
 	gear_preset = /datum/equipment_preset/wy/trainee
@@ -42,11 +43,6 @@
 	gear_preset = /datum/equipment_preset/wy/manager/chief_executive
 	supervisors = "Weyland-Yutani Directorate"
 
-/datum/job/special/wey_yu/corporate/deputy_director
-	title = JOB_DEPUTY_DIRECTOR
-	gear_preset = /datum/equipment_preset/wy/manager/director/deputy
-	supervisors = "Weyland-Yutani Directorate"
-
 /datum/job/special/wey_yu/corporate/director
 	title = JOB_DIRECTOR
 	gear_preset = /datum/equipment_preset/wy/manager/director
@@ -54,7 +50,7 @@
 
 
 // PMCS //
-/datum/job/special/wey_yu/pmc // Abstract type (null title)
+/datum/job/special/wey_yu/pmc
 	supervisors = "Weyland-Yutani PMC Dispatch"
 
 /datum/job/special/wey_yu/pmc/standard

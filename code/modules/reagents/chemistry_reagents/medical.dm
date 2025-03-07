@@ -35,7 +35,7 @@
 	overdose = HIGH_REAGENTS_OVERDOSE
 	overdose_critical = HIGH_REAGENTS_OVERDOSE_CRITICAL
 	chemclass = CHEM_CLASS_UNCOMMON
-	properties = list(PROPERTY_PAINKILLING = 1)
+	properties = list(PROPERTY_PAINKILLING = 2)
 
 /datum/reagent/medical/tramadol
 	name = "Tramadol"
@@ -47,9 +47,8 @@
 	overdose = REAGENTS_OVERDOSE
 	overdose_critical = REAGENTS_OVERDOSE_CRITICAL
 	chemclass = CHEM_CLASS_COMMON
-	properties = list(PROPERTY_PAINKILLING = 2.5)
+	properties = list(PROPERTY_PAINKILLING = 5)
 
-//Changed to Common so turing will dispense. definition of common chem class "Chemicals which recipe is commonly known and made". Oxycodone is such being avaliable from med dispenser
 /datum/reagent/medical/oxycodone
 	name = "Oxycodone"
 	id = "oxycodone"
@@ -59,8 +58,8 @@
 	custom_metabolism = AMOUNT_PER_TIME(15, 5 MINUTES) // Lasts 5 minutes for 15 units
 	overdose = MED_REAGENTS_OVERDOSE
 	overdose_critical = MED_REAGENTS_OVERDOSE_CRITICAL
-	chemclass = CHEM_CLASS_COMMON
-	properties = list(PROPERTY_PAINKILLING = 4)
+	chemclass = CHEM_CLASS_UNCOMMON
+	properties = list(PROPERTY_PAINKILLING = 8)
 
 /datum/reagent/medical/sterilizine
 	name = "Sterilizine"
@@ -283,7 +282,7 @@
 	overdose_critical = LOWM_REAGENTS_OVERDOSE_CRITICAL
 	custom_metabolism = AMOUNT_PER_TIME(1, 5 SECONDS)
 	chemclass = CHEM_CLASS_COMMON
-	properties = list(PROPERTY_PAINKILLING = 0.75, PROPERTY_ELECTROGENETIC = 2, PROPERTY_INTRAVENOUS = 1)
+	properties = list(PROPERTY_PAINKILLING = 1.5, PROPERTY_ELECTROGENETIC = 4, PROPERTY_INTRAVENOUS = 1)
 	flags = REAGENT_TYPE_MEDICAL | REAGENT_SCANNABLE
 
 /datum/reagent/medical/ultrazine
@@ -323,9 +322,8 @@
 
 /datum/reagent/medical/cryoxadone/on_mob_life(mob/living/M)
 	. = ..()
-	if(!.)
-		return
-	if(M.bodytemperature < BODYTEMP_CRYO_LIQUID_THRESHOLD)
+	if(!.) return
+	if(M.bodytemperature < 170)
 		M.adjustCloneLoss(-1)
 		M.apply_damage(-1, OXY)
 		M.heal_limb_damage(1,1)

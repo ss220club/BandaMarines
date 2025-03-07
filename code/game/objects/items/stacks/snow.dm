@@ -56,8 +56,7 @@ GLOBAL_LIST_INIT(snow_recipes, list(
 
 
 /obj/item/stack/snow/afterattack(atom/target, mob/user, proximity)
-	if(!proximity)
-		return
+	if(!proximity) return
 	if(istype(target, /turf/open))
 		if(user.action_busy)
 			return

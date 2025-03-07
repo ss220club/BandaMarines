@@ -562,6 +562,9 @@
 /obj/effect/landmark/survivor_spawner,
 /turf/open/floor,
 /area/bigredv2/outside/marshal_office)
+"dj" = (
+/turf/closed/wall/solaris/reinforced,
+/area/bigredv2/outside/medical)
 "dk" = (
 /obj/structure/pipes/standard/simple/hidden/green,
 /obj/structure/machinery/door/airlock/multi_tile/almayer/generic{
@@ -956,8 +959,9 @@
 /area/bigredv2/outside/marshal_office)
 "yY" = (
 /obj/item/ammo_casing/shell,
-/obj/item/storage/box/mre/wy{
-	pixel_y = 10
+/obj/item/storage/box/MRE{
+	pixel_x = -1;
+	pixel_y = -6
 	},
 /turf/open/floor/dark,
 /area/bigredv2/outside/marshal_office)
@@ -1192,7 +1196,7 @@
 	name = "\improper Marshal Offices Shutters"
 	},
 /turf/open/floor/plating,
-/area/bigredv2/outside/marshal_office)
+/area/bigredv2/outside/medical)
 "MS" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -1304,8 +1308,9 @@
 /area/bigredv2/outside/marshal_office)
 "UU" = (
 /obj/item/ammo_casing/shell,
-/obj/item/storage/box/mre/wy{
-	pixel_x = 10
+/obj/item/storage/box/MRE{
+	pixel_x = 3;
+	pixel_y = 3
 	},
 /turf/open/floor/vault2/west,
 /area/bigredv2/outside/marshal_office)
@@ -1370,7 +1375,7 @@ cN
 ah
 ah
 ah
-ah
+dj
 "}
 (2,1,1) = {"
 ab
@@ -1394,7 +1399,7 @@ bi
 bG
 cZ
 gJ
-ah
+dj
 "}
 (3,1,1) = {"
 ab
@@ -1418,7 +1423,7 @@ cO
 cU
 cZ
 ci
-ah
+dj
 "}
 (4,1,1) = {"
 ac
@@ -1442,7 +1447,7 @@ cP
 bG
 cZ
 df
-ah
+dj
 "}
 (5,1,1) = {"
 ab
@@ -1466,7 +1471,7 @@ bk
 ah
 ah
 ah
-ah
+dj
 "}
 (6,1,1) = {"
 zv
@@ -1490,7 +1495,7 @@ bk
 bG
 cZ
 ix
-ah
+dj
 "}
 (7,1,1) = {"
 ac
@@ -1514,7 +1519,7 @@ bk
 cV
 cZ
 ci
-ah
+dj
 "}
 (8,1,1) = {"
 af
@@ -1538,7 +1543,7 @@ wm
 bG
 cZ
 df
-ah
+dj
 "}
 (9,1,1) = {"
 aa
@@ -1562,7 +1567,7 @@ bi
 ah
 ah
 ah
-ah
+dj
 "}
 (10,1,1) = {"
 VX
@@ -1586,7 +1591,7 @@ bi
 bG
 cZ
 de
-ah
+dj
 "}
 (11,1,1) = {"
 ah
@@ -1610,7 +1615,7 @@ bi
 Px
 cZ
 ci
-ah
+dj
 "}
 (12,1,1) = {"
 ah
@@ -1634,7 +1639,7 @@ cR
 bG
 cZ
 qm
-ah
+dj
 "}
 (13,1,1) = {"
 ah
@@ -1658,7 +1663,7 @@ cS
 ah
 ah
 ah
-ah
+dj
 "}
 (14,1,1) = {"
 ai
@@ -1682,7 +1687,7 @@ FK
 bG
 cZ
 de
-ah
+dj
 "}
 (15,1,1) = {"
 aj
@@ -1706,7 +1711,7 @@ bk
 cV
 cZ
 ci
-ah
+dj
 "}
 (16,1,1) = {"
 aj
@@ -1730,7 +1735,7 @@ bk
 bG
 cZ
 df
-ah
+dj
 "}
 (17,1,1) = {"
 aj
@@ -1754,7 +1759,7 @@ bk
 ah
 ah
 ah
-ah
+dj
 "}
 (18,1,1) = {"
 aj
@@ -1826,7 +1831,7 @@ bk
 ah
 bG
 bG
-ah
+dj
 "}
 (21,1,1) = {"
 cb
