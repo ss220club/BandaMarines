@@ -262,7 +262,7 @@
 				if(!istype(turf, /turf/closed/wall))
 					continue
 				var/turf/closed/wall/wall = turf
-				if(wall.hull)
+				if(wall.turf_flags & TURF_HULL)
 					continue
 			lz_smoke += new /obj/effect/particle_effect/smoke/miasma(turf, null, new_cause_data)
 
@@ -312,7 +312,7 @@
 				if(!istype(turf, /turf/closed/wall))
 					continue
 				var/turf/closed/wall/wall = turf
-				if(wall.hull)
+				if(wall.turf_flags & TURF_HULL)
 					continue
 			new /obj/effect/particle_effect/smoke/weedkiller(turf, null, cause_data)
 
@@ -504,7 +504,8 @@
 /datum/game_mode/colonialmarines/check_win()
 	if(SSticker.current_state != GAME_STATE_PLAYING)
 		return
-
+	if(ROUND_TIME < 10 MINUTES)
+		return
 	var/living_player_list[] = count_humans_and_xenos(get_affected_zlevels())
 	var/num_humans = living_player_list[1]
 	var/num_xenos = living_player_list[2]
@@ -574,7 +575,8 @@
 //Checks if the round is over//
 ///////////////////////////////
 /datum/game_mode/colonialmarines/check_finished()
-	if(round_finished) return 1
+	if(round_finished)
+		return 1
 
 //////////////////////////////////////////////////////////////////////
 //Announces the end of the game with all relevant information stated//

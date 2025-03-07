@@ -599,7 +599,6 @@
 /obj/structure/machinery/keycard_auth{
 	pixel_x = -23
 	},
-/obj/structure/machinery/cm_vending/clothing/synth/snowflake,
 /turf/open/floor/almayer/uscm/directional/northwest,
 /area/shuttle/uss_crash)
 "bE" = (

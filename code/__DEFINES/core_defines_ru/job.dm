@@ -1,6 +1,6 @@
 #define JOB_CRASH_CO "Special Commander"
 #define JOB_CRASH_CHIEF_ENGINEER "Emergency Ship Crew Master"
-#define JOB_CRASH_CMO "Head Surgeon"
+#define JOB_CRASH_CMO "Head Doctor"
 #define JOB_CRASH_SYNTH "Ship Support Synthetic"
 #define JOB_CRASH_SQUAD_MARINE "Ash Squad Marine"
 #define JOB_CRASH_SQUAD_LEADER "Ash Squad Leader"

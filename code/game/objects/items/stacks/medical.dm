@@ -295,7 +295,8 @@
 		update_icon()
 
 /obj/item/stack/medical/splint/attack(mob/living/carbon/M, mob/user)
-	if(..()) return 1
+	if(..())
+		return 1
 
 	if(user.action_busy)
 		return
