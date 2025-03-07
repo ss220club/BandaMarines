@@ -388,7 +388,8 @@ GLOBAL_LIST_INIT(mentor_verbs, list(
 	set category = "OOC.OOC"
 	set name = "OOC Text Color - Self"
 /*
-	if(!admin_holder && !donator) return
+	if(!admin_holder && !donator)
+		return
 */
 //RUCM START
 	if(!check_rights(R_COLOR) && !player_data.donator_info?.patreon_function_available("ooc_color"))
@@ -405,9 +406,11 @@ GLOBAL_LIST_INIT(mentor_verbs, list(
 #define AUTOBANTIME 10
 
 /client/proc/warn(warned_ckey)
-	if(!check_rights(R_ADMIN)) return
+	if(!check_rights(R_ADMIN))
+		return
 
-	if(!warned_ckey || !istext(warned_ckey)) return
+	if(!warned_ckey || !istext(warned_ckey))
+		return
 	if(warned_ckey in GLOB.admin_datums)
 		to_chat(usr, "<font color='red'>Error: warn(): You can't warn admins.</font>")
 		return
@@ -442,7 +445,8 @@ GLOBAL_LIST_INIT(mentor_verbs, list(
 	for(var/v in GLOB.diseases)
 		disease_names.Add(copytext("[v]", 16, 0))
 	var/datum/disease/D = tgui_input_list(usr, "Choose the disease to give to that guy", "ACHOO", disease_names)
-	if(!D) return
+	if(!D)
+		return
 	var/path = text2path("/datum/disease/[D]")
 	T.contract_disease(new path, 1)
 
@@ -463,7 +467,8 @@ GLOBAL_LIST_INIT(mentor_verbs, list(
 /client/proc/toggle_log_hrefs()
 	set name = "Toggle href Logging"
 	set category = "Server"
-	if(!admin_holder) return
+	if(!admin_holder)
+		return
 	if(config)
 		if(CONFIG_GET(flag/log_hrefs))
 			CONFIG_SET(flag/log_hrefs, FALSE)
@@ -477,7 +482,8 @@ GLOBAL_LIST_INIT(mentor_verbs, list(
 	set name = "Edit Appearance"
 	set category = null
 
-	if(!check_rights(R_ADMIN)) return
+	if(!check_rights(R_ADMIN))
+		return
 
 	if(!istype(M, /mob/living/carbon/human))
 		to_chat(usr, SPAN_DANGER("You can only do this to humans!"))
