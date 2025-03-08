@@ -171,7 +171,7 @@ GLOBAL_REFERENCE_LIST_INDEXED(prefab_papers, /obj/item/paper/prefab, document_ti
 	document_category = PAPER_CATEGORY_USCM
 
 /obj/item/paper/prefab/uscm/ops_report
-	document_title = "UAM421 - Operations Report"
+	document_title = "UAM421 - Отчет об операции"
 	doc_datum_type = /datum/prefab_document/uscm/ops_report
 
 // ########## USCM HC Forms  ########## \\
