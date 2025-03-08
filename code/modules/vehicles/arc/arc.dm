@@ -26,7 +26,7 @@
 
 	entrance_speed = 0.5 SECONDS
 
-	required_skill = SKILL_VEHICLE_LARGE
+	required_skill = SKILL_VEHICLE_DEFAULT
 
 	movement_sound = 'sound/vehicles/tank_driving.ogg'
 
