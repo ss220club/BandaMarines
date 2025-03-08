@@ -324,6 +324,97 @@
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(cell_explosion), impact, 450, 100, EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL, null, create_cause_data(initial(name), source_mob)), 0.5 SECONDS) //Insane fall off combined with insane damage makes the Keeper useful for single targets, but very bad against multiple.
 	QDEL_IN(src, 0.5 SECONDS)
 
+/obj/structure/ship_ammo/rocket/custom_missile
+	name = "\improper Экспериментальная ракета 'SV-1-N"
+	desc = "Экспериментальная ракета, созданная для того чтобы доставлять большое количество созданных в Оружейной Мастерской веществ."
+	icon_state = "custom_missile"
+	ammo_name = "rocket"
+	ammo_id = "cc"
+	travelling_time = 100
+	point_cost = 0
+	fire_mission_delay = 0 //direct bombard only
+	/// the limits of the custom missile
+	var/list/reaction_limits = list( "max_ex_power" = 300, "base_ex_falloff" = 140, "max_ex_shards" = 200,
+							"max_fire_rad" = 8, "max_fire_int" = 60, "max_fire_dur" = 48,
+							"min_fire_rad" = 3, "min_fire_int" = 5, "min_fire_dur" = 5
+	)
+	/// current assembly state of the missile
+	var/assembly_stage = ASSEMBLY_UNLOCKED
+	/// the maximum volume allowed in the rocket
+	var/max_container_volume = 240
+	/// the current total volume
+	var/current_container_volume = 0
+	/// the containers inside the rocket
+	var/list/obj/item/reagent_container/glass/containers = list()
+	var/list/allowed_containers = list(/obj/item/reagent_container/glass/beaker, /obj/item/reagent_container/glass/bucket, /obj/item/reagent_container/glass/bottle, /obj/item/reagent_container/glass/bucket/mopbucket)
+
+/obj/structure/ship_ammo/rocket/custom_missile/attackby(obj/item/item as obj, mob/user as mob)
+	if(HAS_TRAIT(item, TRAIT_TOOL_SCREWDRIVER))
+		if(assembly_stage == ASSEMBLY_UNLOCKED)
+			to_chat(user, SPAN_NOTICE("Ты заблокировал [name]."))
+			playsound(loc, 'sound/items/Screwdriver.ogg', 25, 0, 6)
+			assembly_stage = ASSEMBLY_LOCKED
+			icon_state = "custom_missile_ready"
+		else if(assembly_stage == ASSEMBLY_LOCKED)
+			to_chat(user, SPAN_NOTICE("Ты разблокировал [name]."))
+			playsound(loc, 'sound/items/Screwdriver.ogg', 25, 0, 6)
+			assembly_stage = ASSEMBLY_UNLOCKED
+			icon_state = "custom_missile"
+	else if(is_type_in_list(item, allowed_containers) && (!assembly_stage || assembly_stage == ASSEMBLY_UNLOCKED))
+		if(current_container_volume >= max_container_volume)
+			to_chat(user, SPAN_DANGER("В [name] нет места. "))
+		else
+			if(item.reagents.total_volume)
+				if(item.reagents.maximum_volume + current_container_volume > max_container_volume)
+					to_chat(user, SPAN_DANGER(" [item] слишком большой для [name]."))
+					return
+				if(user.temp_drop_inv_item(item))
+					to_chat(user, SPAN_NOTICE("Ты добавил [item] в [name]."))
+					item.forceMove(src)
+					containers += item
+					current_container_volume += item.reagents.maximum_volume
+					assembly_stage = ASSEMBLY_UNLOCKED
+			else
+				to_chat(user, SPAN_DANGER(" [item] пуст."))
+	else if(HAS_TRAIT(item, TRAIT_TOOL_CROWBAR))
+		if(assembly_stage == ASSEMBLY_UNLOCKED)
+			if(!length(containers))
+				to_chat(user, SPAN_DANGER("В [name] нет контейнеров."))
+				return
+			for(var/obj/container in containers)
+				containers -= container
+				user.put_in_hands(container)
+			current_container_volume = 0
+	else return ..()
+
+/obj/structure/ship_ammo/rocket/custom_missile/get_examine_text(mob/user)
+	. = ..()
+	. += SPAN_NOTICE("Содержит [containers.len] контейнер")
+	switch(assembly_stage)
+		if(ASSEMBLY_LOCKED)
+			. += SPAN_NOTICE("Ракета заблокирована.")
+		if(ASSEMBLY_UNLOCKED)
+			. += SPAN_NOTICE("Ракета разблокирована.")
+
+/obj/structure/ship_ammo/rocket/custom_missile/detonate_on(turf/impact, obj/structure/dropship_equipment/weapon/fired_from)
+	if(assembly_stage == ASSEMBLY_UNLOCKED || containers.len == 0) //shitty explosion if left unlocked or no containers
+		impact.ceiling_debris_check(3)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(cell_explosion), impact, 60, 30, EXPLOSION_FALLOFF_SHAPE_LINEAR, null, create_cause_data(initial(name)), source_mob), 0.5 SECONDS)
+	else if(assembly_stage == ASSEMBLY_LOCKED)
+		impact.ceiling_debris_check(3)
+		var/obj/item/explosive/bomb = new()
+		bomb.create_reagents(1000)
+		for(var/limit in bomb.reaction_limits)
+			bomb.reagents.vars[limit] = reaction_limits[limit]
+		for(var/obj/container in containers)
+			container.forceMove(bomb)
+			bomb.containers += container
+		bomb.forceMove(impact)
+		bomb.allow_star_shape = FALSE
+		bomb.cause_data = create_cause_data(initial(name), source_mob)
+		bomb.prime(TRUE)
+	QDEL_IN(src, 0.5 SECONDS)
+	
 /obj/structure/ship_ammo/rocket/harpoon
 	name = "\improper AGM-184 'Harpoon II'"
 	desc = "The AGM-184 Harpoon II is an Anti-Ship Missile, designed and used to effectively take down enemy ships with a huge blast wave with low explosive power. This one is modified to use ground signals and can be seen as a cheaper alternative to conventional ordnance. Can be loaded into the LAU-444 Guided Missile Launcher."

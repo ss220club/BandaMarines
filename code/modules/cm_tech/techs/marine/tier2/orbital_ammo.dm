@@ -54,3 +54,19 @@
 	flags = TREE_FLAG_MARINE
 
 	type_to_give = "OB Incendiary Crate"
+
+///BANDASTATION CODE
+
+/datum/tech/repeatable/ob/casot
+	name = "Экспериментальная ракета SV-1-N"
+	desc = "Ракета SV-1-N позволяеет использовать любую доступную оружейному отделу взрывчатку для использования КАСом."
+	icon_state = "cas_ot"
+
+	required_points = 2
+	increase_per_purchase = 1
+
+	announce_message = "В Requisitions' ASRS была доставлена экспериментальная ракета SV-1-N"
+
+	flags = TREE_FLAG_MARINE
+
+	type_to_give = "Экспериментальная ракета SV1N"

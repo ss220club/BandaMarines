@@ -99,3 +99,10 @@
 	containername = "weapons specialist kits crate"
 	buyable = 0
 	group = "Operations"
+
+/datum/supply_packs/otcasrockets
+	name = "Экспериментальная ракета SV1N"
+	cost = 0
+	containertype = /obj/structure/ship_ammo/rocket/custom_missile
+	buyable = 0
+	group = "Operations"
