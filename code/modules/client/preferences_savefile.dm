@@ -616,7 +616,7 @@
 
 	// BANDAMARINES EDIT START
 	S["quick_cast"] << quick_cast
-	S["shout_orders"] << quick_cast
+	S["shout_orders"] << shout_orders
 	// BANDAMARINES EDIT END
 
 	return TRUE

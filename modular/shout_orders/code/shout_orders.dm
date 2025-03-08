@@ -1,5 +1,16 @@
+#define SHOUT_ORDERS (1<<0)
+#define TOGGLES_SHOUT_ORDERS_DEFAULT (SHOUT_ORDERS)
+
 /datum/preferences
-	var/shout_orders
+	var/shout_orders = TOGGLES_SHOUT_ORDERS_DEFAULT
+
+/client/proc/toggle_shout_orders()
+	set name = "Toggle Shout Orders"
+	set category = "Preferences.Chat"
+
+	prefs.shout_orders ^= SHOUT_ORDERS
+	prefs.save_preferences()
+	to_chat(usr, "Теперь вы [prefs.shout_orders & SHOUT_ORDERS ? "" : "не "]будете выкрикивать фразы при отдавании приказа.")
 
 /datum/preferences/process_link(mob/user, list/href_list)
 	if(href_list["preference"] == "shout_orders")
@@ -27,3 +38,6 @@
 
 	if(message)
 		owner.say(message)
+
+#undef SHOUT_ORDERS
+#undef TOGGLES_SHOUT_ORDERS_DEFAULT
