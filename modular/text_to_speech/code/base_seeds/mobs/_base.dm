@@ -19,7 +19,7 @@
 	tts_seed = get_tts_seed()
 
 /mob/living/carbon/proc/change_tts_seed_ask()
-	var/alert = tgui_alert(src, "Хотите поменять свой голос? Текущий - [src.tts_seed.name]", "Смена TTS", list("Да","Нет"))
+	var/alert = tgui_alert(src, "Хотите поменять свой голос? Текущий - [src.tts_seed]", "Смена TTS", list("Да","Нет"))
 	if(alert != "Да")
 		return
 	change_tts_seed(src, TRUE, TRUE)
