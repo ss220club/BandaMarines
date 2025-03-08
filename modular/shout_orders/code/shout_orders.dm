@@ -12,11 +12,6 @@
 	prefs.save_preferences()
 	to_chat(usr, "Теперь вы [prefs.shout_orders & SHOUT_ORDERS ? "" : "не "]будете выкрикивать фразы при отдавании приказа.")
 
-/datum/preferences/process_link(mob/user, list/href_list)
-	if(href_list["preference"] == "shout_orders")
-		shout_orders = !shout_orders
-	. = ..()
-
 /datum/action/human_action/issue_order/action_activate()
 	. = ..()
 
