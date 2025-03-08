@@ -11,6 +11,8 @@
 #include "quick_cast/_quick_cast.dme"
 #include "respawn/_respawn.dme"
 #include "sounds/_sounds.dme"
+#include "metaserver/_metaserver.dme"
+#include "discord_link/_discord_link.dme"
 #include "translations/_translations.dme"
 #include "stats_viewer/_stats_viewer.dme"
 #include "speech_filter/_speech_filter.dme"
