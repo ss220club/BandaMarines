@@ -26,6 +26,10 @@
 	name = "APC - No FPW"
 	interior_id = "apc_no_fpw"
 
+/datum/map_template/interior/arm
+	name = "ARM"
+	interior_id = "arm"
+
 /datum/map_template/interior/tank
 	name = "Tank"
 	interior_id = "tank"
