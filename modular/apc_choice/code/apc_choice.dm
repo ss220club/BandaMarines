@@ -37,5 +37,5 @@
 	vehicles |= list(
 		new /datum/vehicle_order/apc/plain,
 		new /datum/vehicle_order/apc/med/plain,
-		new /datum/vehicle_order/apc/cmd/plain
+		new /datum/vehicle_order/apc/cmd/plain,
 	)
