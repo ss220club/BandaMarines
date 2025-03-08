@@ -120,6 +120,13 @@
 		else
 			return TTS_GENDER_ANY
 
+/datum/component/tts_component/proc/correct_tts_gender()
+	var/new_seed = get_random_tts_seed_by_gender()
+	tts_seed = new_seed
+	if(iscarbon(parent))
+		var/mob/living/carbon/carbon = parent
+		carbon.tts_seed = new_seed
+
 /datum/component/tts_component/proc/get_effect(effect)
 	. = effect
 	switch(.)
