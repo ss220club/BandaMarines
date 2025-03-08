@@ -96,7 +96,8 @@
 	. = ..()
 
 	. += ""
-	. += "Security Level: [uppertext(get_security_level())]"
+	if(ishumansynth_strict(src)) // So that yautja or other species dont see the ships security alert
+		. += "Security Level: [uppertext(get_security_level())]"
 
 	if(species?.has_species_tab_items)
 		var/list/species_tab_items = species.get_status_tab_items(src)
@@ -1826,4 +1827,4 @@
 			return method ? ">250" : "extremely weak and fast, patient's artery feels like a thread"
 // output for machines^ ^^^^^^^output for people^^^^^^^^^
 
-	
+
