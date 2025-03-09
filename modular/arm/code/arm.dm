@@ -2,7 +2,7 @@
 	name = "\improper АРМ"
 	desc = "АРМ-540. Используется на большинствах колоний как грузовое транспортное средство."
 
-	icon_file = 'modular/arm/icons/arm.dmi'
+	icon = 'modular/arm/icons/arm.dmi'
 	icon_state = "arm_base"
 	pixel_x = -15
 	pixel_y = 0
@@ -63,7 +63,7 @@
 
 /obj/effect/vehicle_spawner/arm
 	name = "Arm Spawner"
-	icon_file = 'modular/arm/icons/arm.dmi'
+	icon = 'modular/arm/icons/arm.dmi'
 	icon_state = "arm_base"
 
 /obj/effect/vehicle_spawner/arm/Initialize()
