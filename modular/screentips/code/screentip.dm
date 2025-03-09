@@ -6,4 +6,4 @@
 	maptext_height = 480
 	maptext_width = 480
 	maptext = ""
-	layer = ABOVE_HUD_LAYER
+	layer = ABOVE_HUD_LAYER + 1
