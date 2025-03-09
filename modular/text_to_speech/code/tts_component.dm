@@ -55,7 +55,7 @@
 				new_tts_seed = SStts220.tts_seeds[active_character.tts_seed]
 				if(new_traits)
 					traits = new_traits
-				INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), null, chooser, tts_test_str, new_tts_seed, TTS_LOCALYZE_RADIO, get_effect())
+				INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), chooser, chooser, tts_test_str, new_tts_seed, TTS_LOCALYZE_LOCAL, get_effect())
 				return new_tts_seed
 
 	var/tts_seeds
@@ -81,10 +81,10 @@
 		traits = new_traits
 
 	if(!silent_target && being_changed != chooser && ismob(being_changed))
-		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), null, being_changed, tts_test_str, new_tts_seed, TTS_LOCALYZE_RADIO, get_effect())
+		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), being_changed, being_changed, tts_test_str, new_tts_seed, TTS_LOCALYZE_LOCAL, get_effect())
 
 	if(chooser)
-		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), null, chooser, tts_test_str, new_tts_seed, TTS_LOCALYZE_RADIO, get_effect())
+		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), chooser, chooser, tts_test_str, new_tts_seed, TTS_LOCALYZE_LOCAL, get_effect())
 
 	return new_tts_seed
 

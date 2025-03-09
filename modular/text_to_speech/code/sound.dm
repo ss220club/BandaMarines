@@ -3,19 +3,6 @@
 ///The default exponent of sound falloff
 #define SOUND_FALLOFF_EXPONENT 6
 
-/datum/preferences/New(TopicData)
-	// Пример работы: S.volume = 100 * owner.volume_preferences[VOLUME_AMB]
-	volume_preferences |= (list(
-		1, // Local - VOLUME_TTS_LOCAL (5) - у ОФФов это тупо сделано, но как есть...
-		0.5, // Radio - VOLUME_TTS_RADIO (6)
-		0.5 // Announces - VOLUME_TTS_ANNOUNCES (7)
-	))
-
-	// А еще они зачем-то засунули это сюда (дубликат и брейнрот):
-	// 	code/modules/client/preferences_savefile.dm
-
-	. = ..()
-
 /client/verb/adjust_volume_tts_local()
 	set name = "Громкость TTS (Говор)"
 	set category = "Preferences.Sound"
