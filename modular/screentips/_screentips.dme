@@ -1,6 +1,7 @@
 #include "_screentips.dm"
 
 #include "code/atom.dm"
+#include "code/blacklisted_atoms.dm"
 #include "code/hud.dm"
 #include "code/preferences.dm"
 #include "code/screentip.dm"
