@@ -23,7 +23,3 @@
 /datum/hud/Destroy()
 	QDEL_NULL(screentip_text)
 	. = ..()
-
-/client/change_view(new_size, atom/source)
-	. = ..()
-	mob.hud_used.screentip_text.update_view()
