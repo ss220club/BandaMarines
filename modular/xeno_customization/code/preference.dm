@@ -1,5 +1,3 @@
-
-
 /datum/preferences
 	var/xeno_customization_visibility
 

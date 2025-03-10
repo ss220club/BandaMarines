@@ -57,7 +57,7 @@
 	user.client.images -= to_show
 
 /datum/component/xeno_customization/proc/remove_from_everyone_view()
-	for(var/mob/player in GLOB.player_list)
+	for(var/mob/player in seeables)
 		remove_from_player_view(player)
 
 /datum/component/xeno_customization/proc/on_viewer_destroy(mob/user)
