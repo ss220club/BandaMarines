@@ -7,6 +7,8 @@ GLOBAL_LIST_INIT_TYPED(xeno_customizations, /datum/xeno_customization_option, se
 		var/datum/xeno_customization_option/select = new customization
 		if(!select.caste)
 			continue
+		if(!select.icon_path)
+			continue
 		data["[select.caste]"] += list("[select.name]" = select)
 	return data
 
@@ -51,6 +53,24 @@ GLOBAL_LIST_INIT_TYPED(xeno_customizations, /datum/xeno_customization_option, se
 	customization_type = XENO_CUSTOMIZATION_NON_LORE_FRIENDLY
 	icon_path = 'modular/xeno_customization/icons/lurker/socks.dmi'
 	caste = XENO_CASTE_LURKER
+
+/datum/xeno_customization_option/praetorian_socks
+	name = "Чулочки"
+	customization_type = XENO_CUSTOMIZATION_NON_LORE_FRIENDLY
+	icon_path = 'modular/xeno_customization/icons/praetorian/socks.dmi'
+	caste = XENO_CASTE_PRAETORIAN
+
+/datum/xeno_customization_option/queen_socks
+	name = "Чулочки"
+	customization_type = XENO_CUSTOMIZATION_NON_LORE_FRIENDLY
+	icon_path = 'modular/xeno_customization/icons/queen/socks.dmi'
+	caste = XENO_CASTE_QUEEN
+
+/datum/xeno_customization_option/queen_dress
+	name = "Чулочки"
+	customization_type = XENO_CUSTOMIZATION_NON_LORE_FRIENDLY
+	icon_path = 'modular/xeno_customization/icons/queen/dress.dmi'
+	caste = XENO_CASTE_QUEEN
 
 /datum/xeno_customization_option/ravager_socks
 	name = "Чулочки"
