@@ -131,7 +131,7 @@ GLOBAL_REFERENCE_LIST_INDEXED(prefab_papers, /obj/item/paper/prefab, document_ti
 	doc_datum_type = /datum/prefab_document/provost/mp/appeal_form
 
 /obj/item/paper/prefab/carbon/military_police/dao_request
-	document_title = "PR301b - Задержанный приказ на действие"
+	document_title = "PR301b - Приказ на отложенное действие"
 	doc_datum_type = /datum/prefab_document/provost/mp/dao_request
 
 /obj/item/paper/prefab/carbon/military_police/confiscation_receipt
