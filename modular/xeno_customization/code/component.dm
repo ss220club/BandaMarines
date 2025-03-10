@@ -1,17 +1,17 @@
 /datum/component/xeno_customization
 	dupe_mode = COMPONENT_DUPE_ALLOWED
-	var/customization_type
-	var/icon_path = null
-	var/image/customization
+	/// The thing to show
+	var/datum/xeno_customization_option/option
+	/// What is actually showed
+	var/image/to_show
 	/// List of players who are ready/already see customization
 	var/list/mob/seeables = list()
 
-/datum/component/xeno_customization/Initialize(customization_type = XENO_CUSTOMIZATION_NON_LORE_FRIENDLY, icon_path)
+/datum/component/xeno_customization/Initialize(datum/xeno_customization_option/option)
 	if(!isxeno(parent))
 		return COMPONENT_INCOMPATIBLE
-	src.customization_type = customization_type
-	src.icon_path = icon_path
-	customization = image(icon_path, parent)
+	src.option = option
+	to_show = image(option.icon_path, parent)
 	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_LOGGED_IN, PROC_REF(on_new_player_login))
 	for(var/mob/player in GLOB.player_list)
 		add_to_player_view(player)
@@ -23,7 +23,7 @@
 	UnregisterSignal(parent, COMSIG_XENO_UPDATE_ICONS)
 
 /datum/component/xeno_customization/Destroy(force, silent)
-	qdel(customization)
+	qdel(to_show)
 	. = ..()
 
 /datum/component/xeno_customization/proc/on_new_player_login(subsystem, mob/user)
@@ -43,14 +43,14 @@
 	if(!check_visibility_pref(user))
 		remove_from_player_view(user)
 		return
-	user.client.images |= customization
+	user.client.images |= to_show
 
 /datum/component/xeno_customization/proc/remove_from_player_view(mob/user)
 	SIGNAL_HANDLER
 
 	if(!user.client)
 		return
-	user.client.images -= customization
+	user.client.images -= to_show
 
 /datum/component/xeno_customization/proc/on_viewer_destroy(mob/user)
 	SIGNAL_HANDLER
@@ -66,7 +66,7 @@
 		if(XENO_CUSTOMIZATION_SHOW_NONE)
 			return FALSE
 		if(XENO_CUSTOMIZATION_SHOW_LORE_FRIENDLY)
-			if(customization_type == XENO_CUSTOMIZATION_NON_LORE_FRIENDLY)
+			if(option.customization_type == XENO_CUSTOMIZATION_NON_LORE_FRIENDLY)
 				return FALSE
 			return TRUE
 	return TRUE
@@ -85,4 +85,4 @@
 		state = "Dead"
 	else if(findtext_char(icon_state, "Sleeping"))
 		state = "Sleeping"
-	customization.icon_state = state
+	to_show.icon_state = state

@@ -1,5 +1,6 @@
 #include "_xeno_customization.dm"
 
 #include "code/component.dm"
+#include "code/customization_datum.dm"
 #include "code/preference.dm"
 #include "code/xenomorph.dm"
