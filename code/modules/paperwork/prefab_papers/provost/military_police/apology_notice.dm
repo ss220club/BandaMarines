@@ -95,7 +95,7 @@
 	dat += "<!--Header Info here-->"
 	dat += "<div class=\"message-header-text\">"
 	dat += "<hr style=\"margin-top:5px; margin-bottom:-15px;\">"
-	dat += "<p class=\"header-title\">Уведомление о формальном извинении</p>"
+	dat += "<p class=\"header-title\">Официальное извинение</p>"
 	dat += "<p class=\"header-subtitle\">NJ910</p>"
 	dat += "<hr style=\"margin-top:-15px; margin-bottom:15px;\">"
 	dat += "</div> <!-- /Heasder Info -->"
