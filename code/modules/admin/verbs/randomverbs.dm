@@ -14,7 +14,7 @@
 	if(!CLIENT_IS_STAFF(src))
 		if(!CLIENT_IS_MENTOR(src))
 			to_chat(src, "Only staff members have permission to use this.")
-		return
+			return
 		if(!CONFIG_GET(flag/mentor_tools))
 			to_chat(src, "Mentors do not have permission to use this.")
 
