@@ -33,3 +33,11 @@
 /datum/font/press_start_2p
 	name = "Press Start 2P"
 	font_family = 'interface/PressStart2P.ttf'
+
+/datum/font/pixappinter
+	name = "PixAppinter"
+	font_family = 'interface/PixAppinter.ttf'
+
+/datum/font/fontover
+	name = "FontOver"
+	font_family = 'interface/FontOver.ttf'
