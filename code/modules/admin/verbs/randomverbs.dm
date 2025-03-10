@@ -4,43 +4,43 @@
 #define ANTIGRIEF_OPTION_DISABLED "Disabled"
 
 /client/proc/cmd_mentor_check_new_players() //Allows mentors / admins to determine who the newer players are.
-    set category = "Admin"
-    set name = "Check New Players"
+	set category = "Admin"
+	set name = "Check New Players"
 
-    if(!check_rights(R_ADMIN))
-        return
+	if(!check_rights(R_ADMIN))
+		return
 
-    var/age = tgui_input_number(src, "Show accounts younger than ___ days", "Age check")
-    var/playtime_hours = tgui_input_number(src, "Show accounts with less than ___ hours", "Playtime check")
+	var/age = tgui_input_number(src, "Show accounts younger than ___ days", "Age check")
+	var/playtime_hours = tgui_input_number(src, "Show accounts with less than ___ hours", "Playtime check")
 
-    age = isnull(age) ? -1 : age
-    playtime_hours = isnull(playtime_hours) ? -1 : playtime_hours
-    if(age <= 0 && playtime_hours <= 0)
-        return
+	age = isnull(age) ? -1 : age
+	playtime_hours = isnull(playtime_hours) ? -1 : playtime_hours
+	if(age <= 0 && playtime_hours <= 0)
+		return
 
-    var/missing_ages = FALSE
-    var/msg = ""
+	var/missing_ages = FALSE
+	var/msg = ""
 
-    for(var/client/client in GLOB.clients)
-        // Skip stealth clients if the user is not an admin
-        if(CLIENT_IS_STEALTHED(client) && !CLIENT_IS_STAFF(src))
-            continue
+	for(var/client/client in GLOB.clients)
+		// Skip stealth clients if the user is not an admin
+		if(CLIENT_IS_STEALTHED(client) && !CLIENT_IS_STAFF(src))
+			continue
 
-        if(!isnum(client.player_age))
-            missing_ages = TRUE
-            continue
+		if(!isnum(client.player_age))
+			missing_ages = TRUE
+			continue
 
-        if(client.player_age < age)
-            msg += "[key_name(client, 1, 1, CLIENT_IS_STAFF(client))]: account is [client.player_age] days old. First join: [client.player_data.first_join_date]. BYOND Account Age: [client.player_data.byond_account_age]<br>"
-            var/client_hours = get_total_living_playtime(client)
-            msg += "[key_name(client, 1, 1, CLIENT_IS_STAFF(client))]: [client_hours] living + ghost hours<br>"
+		if(client.player_age < age)
+			msg += "[key_name(client, 1, 1, CLIENT_IS_STAFF(client))]: account is [client.player_age] days old. First join: [client.player_data.first_join_date]. BYOND Account Age: [client.player_data.byond_account_age]<br>"
+			var/client_hours = get_total_living_playtime(client)
+			msg += "[key_name(client, 1, 1, CLIENT_IS_STAFF(client))]: [client_hours] living + ghost hours<br>"
 
-    if(missing_ages)
-        to_chat(src, "Some accounts did not have proper ages set in their clients. This function requires a database to be present.")
-    if(msg != "")
-        show_browser(src, msg, "Check New Players", "Player_age_check")
-    else
-        to_chat(src, "No matches for that age range found.")
+	if(missing_ages)
+		to_chat(src, "Some accounts did not have proper ages set in their clients. This function requires a database to be present.")
+	if(msg != "")
+		show_browser(src, msg, "Check New Players", "Player_age_check")
+	else
+		to_chat(src, "No matches for that age range found.")
 
 /proc/cmd_admin_mute(mob/M as mob, mute_type, automute = 0)
 	if(automute && !CONFIG_GET(flag/automute_on))
