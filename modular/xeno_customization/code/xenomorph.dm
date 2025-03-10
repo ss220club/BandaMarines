@@ -11,7 +11,7 @@
 		to_chat(usr, SPAN_NOTICE("Извините, нет доступных кастомизаций!"))
 		return
 
-	var/choice = tgui_input_list(usr, "Какую кастомизацию добавить?", "астомизация Ксеноморфа", available_skins)
+	var/choice = tgui_input_list(usr, "Какую кастомизацию добавить?", "Кастомизация Ксеноморфа", available_skins)
 	if(!choice)
 		return
 	var/datum/xeno_customization_option/choosen_customization = GLOB.xeno_customizations[caste.caste_type][choice]

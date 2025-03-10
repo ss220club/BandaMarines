@@ -14,7 +14,7 @@
 
 	src.option = option
 	to_show = image(option.icon_path, parent)
-	to_show.layer = xeno.layer
+	to_show.layer = xeno::layer // Think something for Hide abilities?
 	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_LOGGED_IN, PROC_REF(on_new_player_login))
 	for(var/mob/player in GLOB.player_list)
 		add_to_player_view(player)
