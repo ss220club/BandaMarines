@@ -10,15 +10,14 @@
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/age = tgui_input_number(src, "Show accounts younger than ___ days", "Age check")
-	var/playtime_hours = tgui_input_number(src, "Show accounts with less than ___ hours", "Playtime check")
+	var/age = tgui_input_number(src, "Show accounts joined earlier than __ days", "Age check")
+	var/playtime_hours = tgui_input_number(src, "Show accounts with less than __ playtime hours", "Playtime check")
 
 	age = isnull(age) ? -1 : age
 	playtime_hours = isnull(playtime_hours) ? -1 : playtime_hours
 	if(age <= 0 && playtime_hours <= 0)
 		return
 
-	var/missing_ages = FALSE
 	var/msg = ""
 
 	for(var/client/client in GLOB.clients)
@@ -26,17 +25,13 @@
 		if(CLIENT_IS_STEALTHED(client) && !CLIENT_IS_STAFF(src))
 			continue
 
-		if(!isnum(client.player_age))
-			missing_ages = TRUE
-			continue
+		var/time_first_join = text2time(client.player_data.first_join_date)
+		var/days_first_join = floor(days_from_time(time_first_join))
 
-		if(client.player_age < age)
-			msg += "[key_name(client, 1, 1, CLIENT_IS_STAFF(client))]: account is [client.player_age] days old. First join: [client.player_data.first_join_date]. BYOND Account Age: [client.player_data.byond_account_age]<br>"
-			var/client_hours = get_total_living_playtime(client)
-			msg += "[key_name(client, 1, 1, CLIENT_IS_STAFF(client))]: [client_hours] living + ghost hours<br>"
+		var/client_hours = round(client.get_total_human_playtime() DECISECONDS_TO_HOURS, 0.1) + round(client.get_total_xeno_playtime() DECISECONDS_TO_HOURS, 0.1)
+		if((client_hours < playtime_hours) && (days_first_join < age))
+			msg += "[key_name(client, 1, 1, CLIENT_IS_STAFF(client))]: [client_hours] hours living. First join: [client.player_data.first_join_date], [days_first_join] days ago. BYOND Account Age: [client.player_data.byond_account_age]<br>"
 
-	if(missing_ages)
-		to_chat(src, "Some accounts did not have proper ages set in their clients. This function requires a database to be present.")
 	if(msg != "")
 		show_browser(src, msg, "Check New Players", "Player_age_check")
 	else
