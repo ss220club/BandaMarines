@@ -1,7 +1,3 @@
-/mob/living/carbon/xenomorph/update_icons()
-	. = ..()
-	SEND_SIGNAL(src, COMSIG_XENO_UPDATE_ICONS, icon_state)
-
 /mob/living/carbon/xenomorph/verb/apply_skin()
 	set name = "Добавить кастомизацию"
 	set category = "Alien.Customization"

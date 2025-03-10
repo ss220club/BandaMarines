@@ -70,6 +70,7 @@
 /datum/behavior_delegate/crusher_charger/on_update_icons()
 	if(HAS_TRAIT(bound_xeno, TRAIT_CHARGING) && bound_xeno.body_position == STANDING_UP)
 		bound_xeno.icon_state = "[bound_xeno.get_strain_icon()] Crusher Charging"
+		SEND_SIGNAL(bound_xeno, COMSIG_XENO_UPDATE_ICONS_STATE, "Charging") // BANDAMARINES ADDITION - Xeno Customization
 		return TRUE
 
 // Fallback proc for shit that doesn't have a collision def

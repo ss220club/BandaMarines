@@ -69,20 +69,24 @@
 		icon_state = "[mutation_caste_state] Dead"
 		if(!(icon_state in icon_states(icon_xeno)))
 			icon_state = "Normal [caste.caste_type] Dead"
+		SEND_SIGNAL(src, COMSIG_XENO_UPDATE_ICONS_STATE, "Dead") // BANDAMARINES ADDITION - Xeno Customization
 	else if(body_position == LYING_DOWN)
 		if(!HAS_TRAIT(src, TRAIT_INCAPACITATED) && !HAS_TRAIT(src, TRAIT_FLOORED))
 			icon_state = "[mutation_caste_state] Sleeping"
 			if(!(icon_state in icon_states(icon_xeno)))
 				icon_state = "Normal [caste.caste_type] Sleeping"
+			SEND_SIGNAL(src, COMSIG_XENO_UPDATE_ICONS_STATE, "Sleeping") // BANDAMARINES ADDITION - Xeno Customization
 		else
 			icon_state = "[mutation_caste_state] Knocked Down"
 			if(!(icon_state in icon_states(icon_xeno)))
 				icon_state = "Normal [caste.caste_type] Knocked Down"
+			SEND_SIGNAL(src, COMSIG_XENO_UPDATE_ICONS_STATE, "Knocked Down") // BANDAMARINES ADDITION - Xeno Customization
 	else
 		var/movement_state = m_intent != MOVE_INTENT_RUN && has_walking_icon_state ? "Walking" : "Running"
 		icon_state = "[mutation_caste_state] [movement_state]"
 		if(!(icon_state in icon_states(icon_xeno)))
 			icon_state = "Normal [caste.caste_type] [movement_state]"
+		SEND_SIGNAL(src, COMSIG_XENO_UPDATE_ICONS_STATE, movement_state) // BANDAMARINES ADDITION - Xeno Customization
 
 
 /mob/living/carbon/xenomorph/regenerate_icons()

@@ -20,10 +20,10 @@
 		add_to_player_view(player)
 
 /datum/component/xeno_customization/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_XENO_UPDATE_ICONS, PROC_REF(update_customization_icons))
+	RegisterSignal(parent, COMSIG_XENO_UPDATE_ICONS_STATE, PROC_REF(update_customization_icons))
 
 /datum/component/xeno_customization/UnregisterFromParent()
-	UnregisterSignal(parent, COMSIG_XENO_UPDATE_ICONS)
+	UnregisterSignal(parent, COMSIG_XENO_UPDATE_ICONS_STATE)
 
 /datum/component/xeno_customization/Destroy(force, silent)
 	remove_from_everyone_view()
@@ -79,18 +79,7 @@
 			return TRUE
 	return TRUE
 
-/datum/component/xeno_customization/proc/update_customization_icons(mob/living/carbon/xenomorph/xeno, icon_state)
+/datum/component/xeno_customization/proc/update_customization_icons(mob/living/carbon/xenomorph/xeno, status_state)
 	SIGNAL_HANDLER
 
-	var/state
-	if(findtext_char(icon_state, "Walking"))
-		state = "Walking"
-	else if(findtext_char(icon_state, "Running"))
-		state = "Running"
-	else if(findtext_char(icon_state, "Knocked Down"))
-		state = "Knocked Down"
-	else if(findtext_char(icon_state, "Dead"))
-		state = "Dead"
-	else if(findtext_char(icon_state, "Sleeping"))
-		state = "Sleeping"
-	to_show.icon_state = state
+	to_show.icon_state = status_state
