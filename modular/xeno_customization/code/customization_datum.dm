@@ -24,6 +24,14 @@ GLOBAL_LIST_INIT_TYPED(xeno_customizations, /datum/xeno_customization_option, se
 	var/icon_path
 	var/caste
 	var/slot
+	var/donation_level
+
+/datum/xeno_customization_option/proc/is_locked(mob/user)
+	// Do it later when SSCentral is active
+	if(donation_level)
+		to_chat(user, SPAN_WARNING("У вас не хватает уровня подписки!"))
+		return TRUE
+	return FALSE
 
 /datum/xeno_customization_option/boiler_socks
 	name = "Чулочки"
@@ -31,6 +39,7 @@ GLOBAL_LIST_INIT_TYPED(xeno_customizations, /datum/xeno_customization_option, se
 	icon_path = 'modular/xeno_customization/icons/boiler/socks.dmi'
 	caste = XENO_CASTE_BOILER
 	slot = CUSTOMIZATION_SLOT_LEGS
+	donation_level = 5
 
 /datum/xeno_customization_option/carrier_socks
 	name = "Чулочки"
@@ -38,6 +47,7 @@ GLOBAL_LIST_INIT_TYPED(xeno_customizations, /datum/xeno_customization_option, se
 	icon_path = 'modular/xeno_customization/icons/carrier/socks.dmi'
 	caste = XENO_CASTE_CARRIER
 	slot = CUSTOMIZATION_SLOT_LEGS
+	donation_level = 5
 
 /datum/xeno_customization_option/defender_socks
 	name = "Чулочки"
@@ -45,6 +55,7 @@ GLOBAL_LIST_INIT_TYPED(xeno_customizations, /datum/xeno_customization_option, se
 	icon_path = 'modular/xeno_customization/icons/defender/socks.dmi'
 	caste = XENO_CASTE_DEFENDER
 	slot = CUSTOMIZATION_SLOT_LEGS
+	donation_level = 5
 
 /datum/xeno_customization_option/drone_socks
 	name = "Чулочки"
@@ -52,6 +63,7 @@ GLOBAL_LIST_INIT_TYPED(xeno_customizations, /datum/xeno_customization_option, se
 	icon_path = 'modular/xeno_customization/icons/drone/socks.dmi'
 	caste = XENO_CASTE_DRONE
 	slot = CUSTOMIZATION_SLOT_LEGS
+	donation_level = 5
 
 /datum/xeno_customization_option/hivelord_socks
 	name = "Чулочки"
@@ -59,6 +71,7 @@ GLOBAL_LIST_INIT_TYPED(xeno_customizations, /datum/xeno_customization_option, se
 	icon_path = 'modular/xeno_customization/icons/hivelord/socks.dmi'
 	caste = XENO_CASTE_HIVELORD
 	slot = CUSTOMIZATION_SLOT_LEGS
+	donation_level = 5
 
 /datum/xeno_customization_option/lurker_socks
 	name = "Чулочки"
@@ -66,6 +79,7 @@ GLOBAL_LIST_INIT_TYPED(xeno_customizations, /datum/xeno_customization_option, se
 	icon_path = 'modular/xeno_customization/icons/lurker/socks.dmi'
 	caste = XENO_CASTE_LURKER
 	slot = CUSTOMIZATION_SLOT_LEGS
+	donation_level = 5
 
 /datum/xeno_customization_option/praetorian_socks
 	name = "Чулочки"
@@ -73,6 +87,7 @@ GLOBAL_LIST_INIT_TYPED(xeno_customizations, /datum/xeno_customization_option, se
 	icon_path = 'modular/xeno_customization/icons/praetorian/socks.dmi'
 	caste = XENO_CASTE_PRAETORIAN
 	slot = CUSTOMIZATION_SLOT_LEGS
+	donation_level = 5
 
 /datum/xeno_customization_option/queen_socks
 	name = "Чулочки"
@@ -80,6 +95,7 @@ GLOBAL_LIST_INIT_TYPED(xeno_customizations, /datum/xeno_customization_option, se
 	icon_path = 'modular/xeno_customization/icons/queen/socks.dmi'
 	caste = XENO_CASTE_QUEEN
 	slot = CUSTOMIZATION_SLOT_LEGS
+	donation_level = 5
 
 /datum/xeno_customization_option/queen_dress
 	name = "Платье"
@@ -87,6 +103,7 @@ GLOBAL_LIST_INIT_TYPED(xeno_customizations, /datum/xeno_customization_option, se
 	icon_path = 'modular/xeno_customization/icons/queen/dress.dmi'
 	caste = XENO_CASTE_QUEEN
 	slot = CUSTOMIZATION_SLOT_LEGS|CUSTOMIZATION_SLOT_BODY|CUSTOMIZATION_SLOT_ARMS|CUSTOMIZATION_SLOT_HEAD
+	donation_level = 5
 
 /datum/xeno_customization_option/ravager_socks
 	name = "Чулочки"
@@ -94,6 +111,7 @@ GLOBAL_LIST_INIT_TYPED(xeno_customizations, /datum/xeno_customization_option, se
 	icon_path = 'modular/xeno_customization/icons/ravager/socks.dmi'
 	caste = XENO_CASTE_RAVAGER
 	slot = CUSTOMIZATION_SLOT_LEGS
+	donation_level = 5
 
 /datum/xeno_customization_option/spitter_socks
 	name = "Чулочки"
@@ -101,13 +119,15 @@ GLOBAL_LIST_INIT_TYPED(xeno_customizations, /datum/xeno_customization_option, se
 	icon_path = 'modular/xeno_customization/icons/spitter/socks.dmi'
 	caste = XENO_CASTE_SPITTER
 	slot = CUSTOMIZATION_SLOT_LEGS
+	donation_level = 5
 
 /datum/xeno_customization_option/warrior_socks
 	name = "Чулочки"
 	customization_type = XENO_CUSTOMIZATION_NON_LORE_FRIENDLY
 	icon_path = 'modular/xeno_customization/icons/warrior/socks.dmi'
-	caste = XENO_CASTE_BOILER
+	caste = XENO_CASTE_WARRIOR
 	slot = CUSTOMIZATION_SLOT_LEGS
+	donation_level = 5
 
 #undef CUSTOMIZATION_SLOT_LEGS
 #undef CUSTOMIZATION_SLOT_BODY
