@@ -6,6 +6,7 @@
 #include "_signals220/_signals220.dme"
 #include "_singletons/_singletons.dme"
 #include "changelog/_changelog.dme"
+#include "xeno_customization/_xeno_customization.dme"
 // #include "bump_attacks/_bump_attacks.dme"
 #include "apc_choice/_apc_choice.dme"
 #include "cyrillic_fixes/_cyrillic_fixes.dme"
@@ -18,4 +19,3 @@
 #include "speech_filter/_speech_filter.dme"
 #include "text_to_speech/_tts.dme"
 #include "attachments/_attachments.dme"
-#include "xeno_customization/_xeno_customization.dme"
