@@ -602,6 +602,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 			// BANDAMARINES EDIT START
 			dat += "<b>Xeno Customization Visibility:</b> <a href='byond://?_src_=prefs;preference=xeno_customization_visibility;task=input'><b>[xeno_customization_visibility]</b></a><br>"
 			dat += "<b>Instant Ability Cast:</b> <a href='byond://?_src_=prefs;preference=quick_cast'><b>[(quick_cast) ? "Yes" : "No"]</b></a><br>"
+			dat += "<b>Show Screentips:</b> <a href='byond://?_src_=prefs;preference=screentips'><b>[(screentips) ? "Yes" : "No"]</b></a><br>"
 			// BANDAMARINES EDIT END
 			dat += "<a href='byond://?src=\ref[src];action=proccall;procpath=/client/proc/receive_random_tip'>Read Random Tip of the Round</a><br>"
 			if(CONFIG_GET(flag/allow_Metadata))

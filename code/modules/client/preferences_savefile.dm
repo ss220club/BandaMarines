@@ -496,6 +496,8 @@
 	shout_orders = sanitize_integer(shout_orders, FALSE, TRUE, TRUE)
 	S["quick_cast"] >> quick_cast
 	quick_cast = sanitize_integer(quick_cast, FALSE, TRUE, FALSE)
+	S["screentips"] >> screentips
+	screentips = sanitize_integer(screentips, FALSE, TRUE, TRUE)
 	// BANDAMARINES EDIT END
 
 	return 1
@@ -620,6 +622,7 @@
 	S["xeno_customization_visibility"] << xeno_customization_visibility
 	S["quick_cast"] << quick_cast
 	S["shout_orders"] << shout_orders
+	S["screentips"] << screentips
 	// BANDAMARINES EDIT END
 
 	return TRUE
