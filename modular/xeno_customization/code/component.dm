@@ -82,15 +82,8 @@
 /datum/component/xeno_customization/proc/update_customization_icons(mob/living/carbon/xenomorph/xeno, icon_state)
 	SIGNAL_HANDLER
 
-	var/state
-	if(findtext_char(icon_state, "Walking"))
-		state = "Walking"
-	else if(findtext_char(icon_state, "Running"))
-		state = "Running"
-	else if(findtext_char(icon_state, "Knocked Down"))
-		state = "Knocked Down"
-	else if(findtext_char(icon_state, "Dead"))
-		state = "Dead"
-	else if(findtext_char(icon_state, "Sleeping"))
-		state = "Sleeping"
-	to_show.icon_state = state
+	var/list/split = splittext(icon_state, " ")
+	var/xeno_state = split[length(split)]
+	if(xeno_state == "Down" && split[length(split) - 1] == "Knocked")
+		xeno_state = "Knocked Down"
+	to_show.icon_state = xeno_state
