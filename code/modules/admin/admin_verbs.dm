@@ -75,7 +75,7 @@ GLOBAL_LIST_INIT(admin_verbs_default, list(
 	/client/proc/add_known_alt,
 	/client/proc/remove_known_alt,
 	/client/proc/toogle_door_control,
-	/client/proc/cmd_mentor_check_new_players,
+	/client/proc/cmd_mentor_check_new_players, // SS220 EDIT
 	))
 
 GLOBAL_LIST_INIT(admin_verbs_admin, list(
