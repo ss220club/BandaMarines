@@ -979,7 +979,6 @@
 	if(Queen.ovipositor)
 		Queen.icon = Queen.queen_ovipositor_icon
 		Queen.icon_state = "[Queen.get_strain_name()] Queen Ovipositor"
-		SEND_SIGNAL(bound_xeno, COMSIG_XENO_UPDATE_ICONS_STATE, "Ovipositor") // BANDAMARINES ADDITION - Xeno Customization
 		return TRUE
 
 	// Switch icon back and then let normal icon behavior happen

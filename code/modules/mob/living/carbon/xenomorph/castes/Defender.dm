@@ -90,11 +90,9 @@
 
 	if(bound_xeno.fortify && bound_xeno.health > 0)
 		bound_xeno.icon_state = "[bound_xeno.get_strain_icon()] Defender Fortify"
-		SEND_SIGNAL(bound_xeno, COMSIG_XENO_UPDATE_ICONS_STATE, "Fortify") // BANDAMARINES ADDITION - Xeno Customization
 		return TRUE
 	if(bound_xeno.crest_defense && bound_xeno.health > 0)
 		bound_xeno.icon_state = "[bound_xeno.get_strain_icon()] Defender Crest"
-		SEND_SIGNAL(bound_xeno, COMSIG_XENO_UPDATE_ICONS_STATE, "Crest") // BANDAMARINES ADDITION - Xeno Customization
 		return TRUE
 
 
