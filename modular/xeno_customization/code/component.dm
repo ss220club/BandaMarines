@@ -10,8 +10,11 @@
 /datum/component/xeno_customization/Initialize(datum/xeno_customization_option/option)
 	if(!isxeno(parent))
 		return COMPONENT_INCOMPATIBLE
+	var/mob/living/carbon/xenomorph/xeno = parent
+
 	src.option = option
 	to_show = image(option.icon_path, parent)
+	to_show.layer = xeno.layer
 	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_LOGGED_IN, PROC_REF(on_new_player_login))
 	for(var/mob/player in GLOB.player_list)
 		add_to_player_view(player)
@@ -23,6 +26,7 @@
 	UnregisterSignal(parent, COMSIG_XENO_UPDATE_ICONS)
 
 /datum/component/xeno_customization/Destroy(force, silent)
+	remove_from_everyone_view()
 	qdel(to_show)
 	. = ..()
 
@@ -51,6 +55,10 @@
 	if(!user.client)
 		return
 	user.client.images -= to_show
+
+/datum/component/xeno_customization/proc/remove_from_everyone_view()
+	for(var/mob/player in GLOB.player_list)
+		remove_from_player_view(player)
 
 /datum/component/xeno_customization/proc/on_viewer_destroy(mob/user)
 	SIGNAL_HANDLER
