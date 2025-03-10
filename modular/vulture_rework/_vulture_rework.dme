@@ -1,0 +1,4 @@
+#include "_vulture_rework.dm"
+
+#include "code/vending.dm"
+#include "code/pamphlets.dm"
