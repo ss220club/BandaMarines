@@ -1,3 +1,7 @@
+/datum/prefab_document/wey_yu/liaison/nda_long
+	var/preset_recipient = "<span class=\"paper_field\"></span>"
+	var/doc_code = "WY442"
+
 /datum/prefab_document/wey_yu/liaison/nda_long/New()
 	var/datum/asset/asset = get_asset_datum(/datum/asset/simple/paper)
 	var/dat = ""
@@ -113,14 +117,14 @@
 	dat += "<!--Header Info here-->"
 	dat += "<div class=\"message-header-text\">"
 	dat += "<p class=\"header-title\">Соглашение о неразглашении</p>"
-	dat += "<p class=\"header-subtitle\">WY442</p>"
+	dat += "<p class=\"header-subtitle\">[doc_code]</p>"
 	dat += "<hr style=\"margin-top:5px; margin-bottom:35px;\">"
 	dat += "</div> <!-- /Heasder Info -->"
 	dat += ""
 	dat += ""
 	dat += "<!-- Message -->"
 	dat += "<div class=\"message-body-text\">"
-	dat += "Это Соглашение о неразглашении вступает в силу с <font face=\"Times New Roman\"><i>[time2text(REALTIMEOFDAY, "Day DD Month [GLOB.game_year]")]</i></font> между Компанией и Колониальными Морпехами Соединенных Штатов <b>(\"получатель\")</b>, касательно всех оперативных процедур <span class=\"paper_field\"></span>.</p>"
+	dat += "Это Соглашение о неразглашении вступает в силу с <font face=\"Times New Roman\"><i>[time2text(REALTIMEOFDAY, "Day DD Month [GLOB.game_year]")]</i></font> между Компанией и [preset_recipient] <b>(\"получатель\")</b>, касательно всех оперативных процедур <span class=\"paper_field\"></span>.</p>"
 	dat += "<hr>"
 	dat += "<p><b>I. Конфиденциальная информация.</b><br>Термин \"Конфиденциальная информация\" означает любую информацию, которая является собственностью Владельца, независимо от того, была ли она создана или приобретена Владельцем, и которая известна в общем порядке, кроме как от Владельца, и которую Получатель может получить через любые прямые или косвенные контакты с Владельцем, независимо от того, была ли она конкретно обозначена как конфиденциальная или собственническая. Конфиденциальная информация включает любую информацию, предоставленную Владельцем, касающуюся бизнеса, технологий и информации Владельца, а также любой третьей стороны, с которой работает Владелец, включая, но не ограничиваясь, бизнес-документами и планами, коммерческими тайнами, техническими данными, идеями продукта, контрактами, финансовой информацией, структурой цен, скидками на здоровье, компьютерными программами, списками и неизвестной дикой природой, которые являются объектами авторского права и интеллектуальной собственности. Характер информации и способ раскрытия таковы, что разумный человек понял бы, что они конфиденциальны.</p>"
 	dat += ""
@@ -152,9 +156,9 @@
 	dat += "<hr>"
 	dat += "<p><b>X. СРОК.</b><br> Обязанности по данному соглашению будут действительны до 30.03.2293 с даты вступления в силу или до тех пор, пока Владелец не отправит Получателю письменное уведомление о освобождении Получателя от данного Соглашения. После этого Получатель должен продолжать защищать конфиденциальную информацию, полученную в течение срока действия этого соглашения, от несанкционированного использования или раскрытия в течение дополнительного времени, выбранного Владельцем.</p>"
 	dat += "<hr>"
-	dat += "<p><b>XI. Подписанты.</b><br> Это Соглашение должно быть подписано именованным представителем от имени Компании и Командиром USS Алмаер от имени Колониальных Морских Пехотинцев Соединенных Штатов и передано в порядке, установленном законом, на дату, указанную выше.</p>"
+	dat += "<p><b>XI. Подписанты.</b><br> Это Соглашение должно быть подписано уполномоченным представителем от имени Компании и уполномоченным представителем от имени получателя, и передано в порядке, установленном законом, на дату, указанную выше.</p>"
 	dat += "<p><b>A. Компания.</b><br>Дата: <font face=\"Times New Roman\"><i>[time2text(REALTIMEOFDAY, "Day DD Month [GLOB.game_year]")]</i></font><br>Представитель: <span class=\"paper_field\"></span><br>Должность: <span class=\"paper_field\"></span><br>Подпись: <span class=\"paper_field\"></span><br></p>"
-	dat += "<p><b>B. USCM.</b><br>Дата: <font face=\"Times New Roman\"><i>[time2text(REALTIMEOFDAY, "Day DD Month [GLOB.game_year]")]</i></font><br>Представитель: <span class=\"paper_field\"></span><br>Звание: <span class=\"paper_field\"></span><br>Подпись: <span class=\"paper_field\"></span><br></p>"
+	dat += "<p><b>B. Получатель.</b><br>Дата: <font face=\"Times New Roman\"><i>[time2text(REALTIMEOFDAY, "Day DD Month [GLOB.game_year]")]</i></font><br>Представитель: <span class=\"paper_field\"></span><br>Звание: <span class=\"paper_field\"></span><br>Подпись: <span class=\"paper_field\"></span><br></p>"
 	dat += "</div> <!-- /message-body-text -->"
 	dat += ""
 	dat += "<div class=\"message-signature-text\">"
@@ -169,3 +173,7 @@
 
 
 	contents = dat
+
+/datum/prefab_document/wey_yu/liaison/nda_long/uscm
+	preset_recipient = "the United States Colonial Marines"
+	doc_code = "WY442-B"

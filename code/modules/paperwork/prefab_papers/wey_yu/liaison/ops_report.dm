@@ -111,7 +111,7 @@
 	dat += ""
 	dat += "<!--Header Info here-->"
 	dat += "<div class='message-header-text'>"
-	dat += "<p class='header-title'>Отчет связного</p>"
+	dat += "<p class='header-title'>Отчет о локальных операциях</p>"
 	dat += "<p class='header-subtitle'>WY435</p>"
 	dat += "<hr style='margin-top:5px; margin-bottom:15px;''>"
 	dat += "</div> <!-- /Header Info -->"
