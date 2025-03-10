@@ -5,32 +5,38 @@
 
 /client/proc/cmd_mentor_check_new_players() //Allows mentors / admins to determine who the newer players are.
 	set category = "Admin"
-	set name = "Check New Players"
+	set name = "Check new Players"
 
-	if(!check_rights(R_ADMIN))
+	if(!admin_holder)
+		to_chat(src, "You do not have permission to use this.")
 		return
 
-	var/age = tgui_input_number(src, "Show accounts joined earlier than __ days", "Age check")
-	var/playtime_hours = tgui_input_number(src, "Show accounts with less than __ playtime hours", "Playtime check")
-
-	age = isnull(age) ? -1 : age
-	playtime_hours = isnull(playtime_hours) ? -1 : playtime_hours
-	if(age <= 0 && playtime_hours <= 0)
+	if(!CLIENT_IS_STAFF(src))
+		if(!CLIENT_IS_MENTOR(src))
+			to_chat(src, "Only staff members have permission to use this.")
 		return
+		if(!CONFIG_GET(flag/mentor_tools))
+			to_chat(src, "Mentors do not have permission to use this.")
 
+	var/age = alert(src, "Age check", "Show accounts up to how many days old ?", "7", "30" , "All")
+
+	if(age == "All")
+		age = 9999999
+	else
+		age = text2num(age)
+
+	var/missing_ages = FALSE
 	var/msg = ""
 
-	for(var/client/client in GLOB.clients)
-		// Skip stealth clients if the user is not an admin
-		if(CLIENT_IS_STEALTHED(client) && !CLIENT_IS_STAFF(src))
+	for(var/client/C in GLOB.clients)
+		if(C.player_age == "Requires database")
+			missing_ages = 1
 			continue
+		if(C.player_age < age)
+			msg += "[key_name(C, 1, 1, CLIENT_IS_STAFF(src))]: account is [C.player_age] days old<br>"
 
-		var/time_first_join = text2time(client.player_data.first_join_date)
-		var/days_first_join = floor(days_from_time(time_first_join))
-
-		var/client_hours = round(client.get_total_human_playtime() DECISECONDS_TO_HOURS, 0.1) + round(client.get_total_xeno_playtime() DECISECONDS_TO_HOURS, 0.1)
-		if((client_hours < playtime_hours) && (days_first_join < age))
-			msg += "[key_name(client, 1, 1, CLIENT_IS_STAFF(client))]: [client_hours] hours living. First join: [client.player_data.first_join_date], [days_first_join] days ago. BYOND Account Age: [client.player_data.byond_account_age]<br>"
+	if(missing_ages)
+		to_chat(src, "Some accounts did not have proper ages set in their clients.  This function requires database to be present")
 
 	if(msg != "")
 		show_browser(src, msg, "Check New Players", "Player_age_check")
