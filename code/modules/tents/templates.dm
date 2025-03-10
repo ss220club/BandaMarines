@@ -10,6 +10,10 @@
 	name = "CMD Tent"
 	map_id = "tent_cmd"
 
+/datum/map_template/tent/eng
+	name = "ENG Tent"
+	map_id = "tent_eng"
+
 /datum/map_template/tent/med
 	name = "MED Tent"
 	map_id = "tent_med"
