@@ -19,10 +19,8 @@
 	var/total_days = 0
 
 	for(var/y = 2000 to year - 1)
-	{
 		total_days += 365
 		if(is_leap_year(y)) total_days++
-	}
 
 	var/days_in_month = list(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
 	if(is_leap_year(year)) days_in_month[2] = 29
