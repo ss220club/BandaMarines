@@ -1,0 +1,7 @@
+/datum/xeno_customization_option/warrior_socks
+	name = "Чулочки"
+	customization_type = XENO_CUSTOMIZATION_NON_LORE_FRIENDLY
+	icon_path = 'modular/xeno_customization/icons/warrior/socks.dmi'
+	caste = XENO_CASTE_WARRIOR
+	slot = CUSTOMIZATION_SLOT_LEGS
+	donation_level = 5
