@@ -76,7 +76,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	var/toggles_ert = TOGGLES_ERT_DEFAULT
 	var/toggles_ert_pred = TOGGLES_ERT_GROUNDS
 	var/list/volume_preferences = list(1, 0.5, 1, 0.6, //Game, music, admin midis, lobby music
-	1, 0.5) // SS220 TTS EDIT
+	1, 0.5, 0.5) //Local, Radio,  Announces - SS220 TTS EDIT
 	var/chat_display_preferences = CHAT_TYPE_ALL
 	var/item_animation_pref_level = SHOW_ITEM_ANIMATIONS_ALL
 	var/pain_overlay_pref_level = PAIN_OVERLAY_BLURRY
@@ -258,6 +258,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 
 	var/tgui_fancy = TRUE
 	var/tgui_lock = FALSE
+	var/tgui_scale = TRUE
 
 	var/hear_vox = TRUE
 
@@ -587,6 +588,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 			dat += "<b>Tooltips:</b> <a href='byond://?_src_=prefs;preference=tooltips'><b>[tooltips ? "Enabled" : "Disabled"]</b></a><br>"
 			dat += "<b>tgui Window Mode:</b> <a href='byond://?_src_=prefs;preference=tgui_fancy'><b>[(tgui_fancy) ? "Fancy (default)" : "Compatible (slower)"]</b></a><br>"
 			dat += "<b>tgui Window Placement:</b> <a href='byond://?_src_=prefs;preference=tgui_lock'><b>[(tgui_lock) ? "Primary monitor" : "Free (default)"]</b></a><br>"
+			dat += "<b>tgui Scaling:</b> <a href='byond://?_src_=prefs;preference=tgui_scale'><b>[tgui_scale ? "Larger windows (default)" : "Smaller zoom"]</b></a><br>"
 			dat += "<b>Play Admin Sounds:</b> <a href='byond://?_src_=prefs;preference=hear_admin_sounds'><b>[(toggles_sound & SOUND_MIDI) ? "Yes" : "No"]</b></a><br>"
 			dat += "<b>Play Announcement Sounds As Ghost:</b> <a href='byond://?_src_=prefs;preference=hear_observer_announcements'><b>[(toggles_sound & SOUND_OBSERVER_ANNOUNCEMENTS) ? "Yes" : "No"]</b></a><br>"
 			dat += "<b>Play Fax Sounds As Ghost:</b> <a href='byond://?_src_=prefs;preference=hear_faxes'><b>[(toggles_sound & SOUND_FAX_MACHINE) ? "Yes" : "No"]</b></a><br>"
@@ -601,6 +603,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 			dat += "<b>Button To Activate Xenomorph Abilities:</b> <a href='byond://?_src_=prefs;preference=mouse_button_activation;task=input'><b>[xeno_ability_mouse_pref_to_string(xeno_ability_click_mode)]</b></a><br>"
 			// BANDAMARINES EDIT START
 			dat += "<b>Instant Ability Cast:</b> <a href='byond://?_src_=prefs;preference=quick_cast'><b>[(quick_cast) ? "Yes" : "No"]</b></a><br>"
+			dat += "<b>Show Screentips:</b> <a href='byond://?_src_=prefs;preference=screentips'><b>[(screentips) ? "Yes" : "No"]</b></a><br>"
 			// BANDAMARINES EDIT END
 			dat += "<a href='byond://?src=\ref[src];action=proccall;procpath=/client/proc/receive_random_tip'>Read Random Tip of the Round</a><br>"
 			if(CONFIG_GET(flag/allow_Metadata))
@@ -2009,6 +2012,8 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 					tgui_fancy = !tgui_fancy
 				if("tgui_lock")
 					tgui_lock = !tgui_lock
+				if("tgui_scale")
+					tgui_scale = !tgui_scale
 
 				if("change_menu")
 					current_menu = href_list["menu"]

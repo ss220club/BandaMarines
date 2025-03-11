@@ -361,6 +361,10 @@
 	S["tooltips"] >> tooltips
 	S["key_bindings"] >> key_bindings
 
+	S["tgui_lock"] >> tgui_lock
+	S["tgui_fancy"] >> tgui_fancy
+	S["tgui_scale"] >> tgui_scale
+
 	var/tutorial_string = ""
 	S["completed_tutorials"] >> tutorial_string
 	tutorial_savestring_to_list(tutorial_string)
@@ -440,6 +444,10 @@
 	yautja_status = sanitize_inlist(yautja_status, GLOB.whitelist_hierarchy + list("Elder"), initial(yautja_status))
 	synth_status = sanitize_inlist(synth_status, GLOB.whitelist_hierarchy, initial(synth_status))
 
+	tgui_scale = sanitize_integer(tgui_scale, FALSE, TRUE, initial(tgui_scale))
+	tgui_lock = sanitize_integer(tgui_lock, FALSE, TRUE, initial(tgui_lock))
+	tgui_fancy = sanitize_integer(tgui_fancy, FALSE, TRUE, initial(tgui_fancy))
+
 	fax_name_uscm = fax_name_uscm ? sanitize_text(fax_name_uscm, initial(fax_name_uscm)) : generate_name(FACTION_MARINE)
 	fax_name_pvst = fax_name_pvst ? sanitize_text(fax_name_pvst, initial(fax_name_pvst)) : generate_name(FACTION_MARINE)
 	fax_name_wy = fax_name_wy ? sanitize_text(fax_name_wy, initial(fax_name_wy)) : generate_name(FACTION_WY)
@@ -487,11 +495,15 @@
 		observer_huds = list("Medical HUD" = FALSE, "Security HUD" = FALSE, "Squad HUD" = FALSE, "Xeno Status HUD" = FALSE, HUD_MENTOR_SIGHT = FALSE)
 
 	volume_preferences = sanitize_volume_preferences(volume_preferences, list(1, 0.5, 1, 0.6, // Game, music, admin midis, lobby music
-		1, 0.5)) // SS220 TTS EDIT from "modular/text_to_speech/code/sound.dm"
+		1, 0.5, 0.5)) // Local, Radio,  Announces - SS220 TTS EDIT from "modular/text_to_speech/code/sound.dm"
 
 	// BANDAMARINES EDIT START
+	S["shout_orders"] >> shout_orders
+	shout_orders = sanitize_integer(shout_orders, FALSE, TRUE, TRUE)
 	S["quick_cast"] >> quick_cast
 	quick_cast = sanitize_integer(quick_cast, FALSE, TRUE, FALSE)
+	S["screentips"] >> screentips
+	screentips = sanitize_integer(screentips, FALSE, TRUE, TRUE)
 	// BANDAMARINES EDIT END
 
 	return 1
@@ -612,8 +624,14 @@
 	S["job_loadout"] << save_loadout(loadout)
 	S["job_loadout_names"] << loadout_slot_names
 
+	S["tgui_fancy"] << tgui_fancy
+	S["tgui_lock"] << tgui_lock
+	S["tgui_scale"] << tgui_scale
+
 	// BANDAMARINES EDIT START
 	S["quick_cast"] << quick_cast
+	S["shout_orders"] << shout_orders
+	S["screentips"] << screentips
 	// BANDAMARINES EDIT END
 
 	return TRUE
