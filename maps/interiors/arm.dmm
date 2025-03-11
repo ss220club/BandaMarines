@@ -14,7 +14,7 @@
 	dir = 1
 	},
 /turf/open/floor,
-/area/space)
+/area/interior/vehicle/arm)
 "h" = (
 /obj/effect/landmark/interior/spawn/entrance{
 	alpha = 0;
@@ -35,7 +35,7 @@
 	pixel_y = 30
 	},
 /turf/open/floor,
-/area/space)
+/area/interior/vehicle/arm)
 "F" = (
 /obj/effect/landmark/interior/spawn/interior_viewport{
 	pixel_x = -17;
@@ -52,14 +52,14 @@
 	pixel_y = 17
 	},
 /turf/open/floor,
-/area/space)
+/area/interior/vehicle/arm)
 "G" = (
 /obj/structure/bed/chair/vehicle{
 	pixel_x = -5;
 	pixel_y = 17
 	},
 /turf/open/floor,
-/area/space)
+/area/interior/vehicle/arm)
 "J" = (
 /obj/structure/bed/chair/vehicle{
 	pixel_x = -5;
@@ -79,7 +79,7 @@
 	tag = "back_left"
 	},
 /turf/open/floor,
-/area/space)
+/area/interior/vehicle/arm)
 "K" = (
 /obj/structure/prop/vehicle/arm{
 	pixel_x = 9;
@@ -102,7 +102,7 @@
 	pixel_y = 7
 	},
 /turf/open/floor,
-/area/space)
+/area/interior/vehicle/arm)
 "R" = (
 /obj/effect/landmark/interior/spawn/entrance{
 	dir = 8;
@@ -121,7 +121,7 @@
 	dir = 1
 	},
 /turf/open/floor,
-/area/space)
+/area/interior/vehicle/arm)
 "Z" = (
 /obj/structure/bed/chair/vehicle{
 	pixel_x = -5;
@@ -129,7 +129,7 @@
 	dir = 1
 	},
 /turf/open/floor,
-/area/space)
+/area/interior/vehicle/arm)
 
 (1,1,1) = {"
 a
