@@ -1,5 +1,5 @@
 /client/proc/check_new_players()
-	set name = "Check New Players TGUI"
+	set name = "Check New Players"
 	set category = "Admin"
 
 	if(!check_rights(R_MOD))
