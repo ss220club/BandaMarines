@@ -70,7 +70,7 @@
 				if(target.ckey != chosen_ckey)
 					continue
 				if(target.mob)
-					observer.do_observe(target)
+					observer.do_observe(target.mob)
 				break
 		if("update")
 			ui.send_full_update()
