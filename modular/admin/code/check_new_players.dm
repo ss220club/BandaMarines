@@ -11,8 +11,8 @@
 	check_new_players.tgui_interact(owner.mob)
 
 /datum/check_new_players
-	var/search_age
-	var/search_hours
+	// var/search_age
+	// var/search_hours
 
 /datum/check_new_players/tgui_interact(mob/user, datum/tgui/ui)
 	. = ..()
@@ -28,34 +28,39 @@
 /datum/check_new_players/ui_data(mob/user)
 	. = ..()
 
+	// var/max_age = tgui_input_number(user, "Show accounts joined earlier than __ days", "Age check")
+	// var/max_hours = tgui_input_number(user, "Show accounts with less than __ playtime hours", "Playtime check")
+	// max_age = isnull(max_age) ? -1 : max_age
+	// max_hours = isnull(max_hours) ? -1 : max_hours
+	// if(max_hours <= 0 && max_hours <= 0)
+	// 	return
+
 	.["new_players"] = list()
 	for(var/client/client in GLOB.clients)
 		var/time_first_join = text2time(client.player_data.first_join_date)
 		var/days_first_join = floor(days_from_time(time_first_join))
 		var/client_hours = round(client.get_total_human_playtime() DECISECONDS_TO_HOURS, 0.1) + round(client.get_total_xeno_playtime() DECISECONDS_TO_HOURS, 0.1)
 		.["new_players"] += list(
+			list(
 			"ckey" = client.ckey,
 			"client_hours" = client_hours,
 			"first_join" = client.player_data.first_join_date,
 			"days_first_join" = days_first_join,
 			"byond_account_age" = client.player_data.byond_account_age,
+			)
 		)
-	.["search"] = list(
-		"search_age" = search_age,
-		"search_hours" = search_hours,
-	)
 
 /datum/check_new_players/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 
 	// var/mob/user = ui.user
 
-	switch(action)
-		if("change_search")
-			var/new_age_search = params["age_search"]
-			var/new_hours_search = params["hours_search"]
-			if(!length(new_age_search) || !length(new_hours_search))
-				return
-			search_age = new_age_search
-			search_hours = new_hours_search
-			return TRUE
+	// switch(action)
+	// 	if("change_search")
+	// 		var/new_age_search = params["age_search"]
+	// 		var/new_hours_search = params["hours_search"]
+	// 		if(!length(new_age_search) || !length(new_hours_search))
+	// 			return
+	// 		search_age = new_age_search
+	// 		search_hours = new_hours_search
+	// 		return TRUE
