@@ -95,6 +95,8 @@
 /datum/component/xeno_customization/proc/check_visibility_pref(mob/user)
 	switch(user.client.prefs.xeno_customization_visibility)
 		if(XENO_CUSTOMIZATION_SHOW_ALL)
+			if(option.customization_type == XENO_CUSTOMIZATION_NON_LORE_FRIENDLY && !(isxeno(user) || isobserver(user)))
+				return FALSE
 			return TRUE
 		if(XENO_CUSTOMIZATION_SHOW_NONE)
 			return FALSE
