@@ -94,7 +94,16 @@ export const CheckNewPlayers = () => {
   return (
     <Window width={1000} height={600}>
       <Window.Content scrollable>
-        <Section title="Filters">
+        <Section
+          title="Filters"
+          buttons={
+            <Button
+              icon="sync"
+              onClick={() => act('update')}
+              tooltip="Update"
+            />
+          }
+        >
           <Stack>
             <Stack.Item grow>
               <LabeledList>

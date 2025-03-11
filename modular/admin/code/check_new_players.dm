@@ -22,6 +22,7 @@
 	if (!ui)
 		ui = new(user, src, "CheckNewPlayers", "Check New Players")
 		ui.open()
+		ui.set_autoupdate(FALSE)
 
 /datum/check_new_players/ui_state(mob/user)
 	return GLOB.admin_state
@@ -59,5 +60,7 @@
 				if(target.mob)
 					GLOB.admin_datums[ui.user.client.ckey].show_player_panel(target.mob)
 				break
+		if("update")
+			ui.send_full_update()
 		else
 			tgui_alert(ui.user, "Fuck")
