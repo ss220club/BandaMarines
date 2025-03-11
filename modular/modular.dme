@@ -19,3 +19,4 @@
 #include "speech_filter/_speech_filter.dme"
 #include "text_to_speech/_tts.dme"
 #include "attachments/_attachments.dme"
+#include "better_player_limit/better_player_limit.dme"
