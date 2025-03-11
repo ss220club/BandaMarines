@@ -5,6 +5,10 @@
 	. = ..()
 	SEND_SIGNAL(src, COMSIG_XENO_UPDATE_ICONS, icon_state)
 
+/mob/living/carbon/xenomorph/alter_ghost(mob/dead/observer/ghost)
+	. = ..()
+	SEND_SIGNAL(src, COMSIG_ALTER_GHOST, ghost)
+
 /mob/living/carbon/xenomorph/proc/apply_skin(mob/user, datum/xeno_customization_option/to_apply, force)
 	if(!istype(to_apply))
 		to_chat(user, SPAN_WARNING("Данная кастомизация не существует!"))

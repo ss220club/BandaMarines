@@ -6,6 +6,7 @@ GLOBAL_LIST_INIT_TYPED(xeno_customizations, /datum/xeno_customization_option, se
 #define CUSTOMIZATION_SLOT_ARMS (1<<2)
 #define CUSTOMIZATION_SLOT_HEAD (1<<3)
 #define CUSTOMIZATION_SLOT_TAIL (1<<4)
+#define CUSTOMIZATION_SLOT_ALL (CUSTOMIZATION_SLOT_LEGS|CUSTOMIZATION_SLOT_BODY|CUSTOMIZATION_SLOT_ARMS|CUSTOMIZATION_SLOT_HEAD|CUSTOMIZATION_SLOT_TAIL)
 
 /proc/setup_all_xeno_customizations()
 	var/list/data = list()
@@ -25,6 +26,7 @@ GLOBAL_LIST_INIT_TYPED(xeno_customizations, /datum/xeno_customization_option, se
 	var/caste
 	var/slot
 	var/donation_level
+	var/full_body_customization = FALSE
 
 /datum/xeno_customization_option/proc/is_locked(mob/user)
 	// Do it later when SSCentral is active
@@ -129,8 +131,18 @@ GLOBAL_LIST_INIT_TYPED(xeno_customizations, /datum/xeno_customization_option, se
 	slot = CUSTOMIZATION_SLOT_LEGS
 	donation_level = 5
 
+/datum/xeno_customization_option/roony
+	name = "Rouny"
+	customization_type = XENO_CUSTOMIZATION_NON_LORE_FRIENDLY
+	icon_path = 'modular/xeno_customization/icons/runner/rouny.dmi'
+	caste = XENO_CASTE_RUNNER
+	slot = CUSTOMIZATION_SLOT_ALL
+	full_body_customization = TRUE
+	donation_level = 5
+
 #undef CUSTOMIZATION_SLOT_LEGS
 #undef CUSTOMIZATION_SLOT_BODY
 #undef CUSTOMIZATION_SLOT_ARMS
 #undef CUSTOMIZATION_SLOT_HEAD
 #undef CUSTOMIZATION_SLOT_TAIL
+#undef CUSTOMIZATION_SLOT_ALL
