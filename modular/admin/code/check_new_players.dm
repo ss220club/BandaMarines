@@ -60,6 +60,18 @@
 				if(target.mob)
 					GLOB.admin_datums[ui.user.client.ckey].show_player_panel(target.mob)
 				break
+		if("follow")
+			if(!isobserver(ui.user))
+				tgui_alert(ui.user, "Нужно быть гостом","Follow")
+				return
+			var/mob/dead/observer/observer = ui.user
+			var/chosen_ckey = params["ckey"]
+			for(var/client/target in GLOB.clients)
+				if(target.ckey != chosen_ckey)
+					continue
+				if(target.mob)
+					observer.do_observe(target)
+				break
 		if("update")
 			ui.send_full_update()
 		else

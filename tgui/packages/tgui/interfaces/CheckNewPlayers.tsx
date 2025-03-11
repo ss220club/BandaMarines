@@ -176,13 +176,34 @@ export const CheckNewPlayers = () => {
               >
                 BYOND Account Age <SortIcon sortKey="byond_account_age" />
               </Table.Cell>
-              <Table.Cell width="15%" textAlign="center">
-                Actions
-              </Table.Cell>
             </Table.Row>
             {filteredPlayers.map((player) => (
               <Table.Row key={player.ckey}>
-                <Table.Cell textAlign="center">{player.ckey}</Table.Cell>
+                <Table.Cell textAlign="center">
+                  <Button
+                    icon="user"
+                    color="good"
+                    onClick={() => act('open_pp', { ckey: player.ckey })}
+                    onContextMenu={(e) => {
+                      e.preventDefault();
+                      act('follow', { ckey: player.ckey });
+                    }}
+                    tooltip={
+                      <Box>
+                        Left Click: Open Player Panel
+                        <br />
+                        Right Click: Follow
+                      </Box>
+                    }
+                    style={{
+                      width: '100%',
+                      transition: 'all 0.1s',
+                    }}
+                    className="hover-button"
+                  >
+                    {player.ckey}
+                  </Button>
+                </Table.Cell>
                 <Table.Cell textAlign="center">
                   {player.client_hours}h
                 </Table.Cell>
@@ -192,14 +213,6 @@ export const CheckNewPlayers = () => {
                 </Table.Cell>
                 <Table.Cell textAlign="center">
                   {player.byond_account_age}
-                </Table.Cell>
-                <Table.Cell textAlign="center">
-                  <Button
-                    icon="user"
-                    color="good"
-                    onClick={() => act('open_pp', { ckey: player.ckey })}
-                    tooltip="Open Player Panel"
-                  />
                 </Table.Cell>
               </Table.Row>
             ))}
