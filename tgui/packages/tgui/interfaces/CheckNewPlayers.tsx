@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
-import { Button, Input, Section, Table } from '../components';
+import { Box, Button, Icon, Input, LabeledList, Section, Stack, Table } from '../components';
 import { Window } from '../layouts';
 
 type NewPlayerData = {
@@ -16,65 +16,155 @@ type NewPlayer = {
   byond_account_age: string;
 };
 
+type SortConfig = {
+  key: keyof NewPlayer;
+  direction: 'asc' | 'desc';
+};
+
 export const CheckNewPlayers = () => {
   const { data, act } = useBackend<NewPlayerData>();
   const { new_players } = data;
 
-  // State for search criteria
   const [clientHoursFilter, setClientHoursFilter] = useState('');
   const [daysFirstJoinFilter, setDaysFirstJoinFilter] = useState('');
+  const [sortConfig, setSortConfig] = useState<SortConfig | null>({
+    key: 'days_first_join',
+    direction: 'asc',
+  });
 
-  // Filtered players based on search criteria
-  const filteredPlayers = new_players.filter(player => {
-    const clientHoursMatch = clientHoursFilter ? player.client_hours < Number(clientHoursFilter) : true;
-    const daysFirstJoinMatch = daysFirstJoinFilter ? player.days_first_join < Number(daysFirstJoinFilter) : true;
+  const sortedPlayers = [...new_players].sort((a, b) => {
+    if (!sortConfig) return 0;
+
+    const key = sortConfig.key;
+    const valueA = a[key];
+    const valueB = b[key];
+
+    if (typeof valueA === 'number' && typeof valueB === 'number') {
+      return sortConfig.direction === 'asc' ? valueA - valueB : valueB - valueA;
+    }
+
+    if (typeof valueA === 'string' && typeof valueB === 'string') {
+      return sortConfig.direction === 'asc'
+        ? valueA.localeCompare(valueB)
+        : valueB.localeCompare(valueA);
+    }
+
+    return 0;
+  });
+
+  const filteredPlayers = sortedPlayers.filter(player => {
+    const clientHoursMatch = clientHoursFilter
+      ? player.client_hours < Number(clientHoursFilter)
+      : true;
+
+    const daysFirstJoinMatch = daysFirstJoinFilter
+      ? player.days_first_join < Number(daysFirstJoinFilter)
+      : true;
+
     return clientHoursMatch && daysFirstJoinMatch;
   });
 
+  const handleSort = (key: keyof NewPlayer) => {
+    let direction: 'asc' | 'desc' = 'asc';
+    if (sortConfig?.key === key && sortConfig.direction === 'asc') {
+      direction = 'desc';
+    }
+    setSortConfig({ key, direction });
+  };
+
+  const SortIcon = ({ sortKey }: { readonly sortKey: keyof NewPlayer }) => {
+    if (sortConfig?.key !== sortKey) return null;
+    return (
+      <Icon
+        name={sortConfig.direction === 'asc' ? 'sort-up' : 'sort-down'}
+        ml={1}
+      />
+    );
+  };
+
   return (
-    <Window width={850} height={450}>
-      <Section style={{ padding: '10px' }}>
-        <Input
-          placeholder="Client Hours <"
-          value={clientHoursFilter}
-          onChange={(e) => setClientHoursFilter(e.target.value)}
-        />
-        <Input
-          placeholder="Days First Join <"
-          value={daysFirstJoinFilter}
-          onChange={(e) => setDaysFirstJoinFilter(e.target.value)}
-        />
-      </Section>
-      <Table>
-        <Table.Row header>
-          <Table.Cell>Ckey</Table.Cell>
-          <Table.Cell>Playtime</Table.Cell>
-          <Table.Cell>First Joined</Table.Cell>
-          <Table.Cell>Days from first join</Table.Cell>
-          <Table.Cell>byond_account_age</Table.Cell>
-          <Table.Cell>Actions</Table.Cell>
-        </Table.Row>
-        {Array.isArray(filteredPlayers) && filteredPlayers.map((player) => (
-          <Table.Row key={player.ckey}>
-            <Table.Cell>{player.ckey}</Table.Cell>
-            <Table.Cell>{player.client_hours}</Table.Cell>
-            <Table.Cell>{player.first_join}</Table.Cell>
-            <Table.Cell>{player.days_first_join}</Table.Cell>
-            <Table.Cell>{player.byond_account_age}</Table.Cell>
-            <Table.Cell width="30px">
-              <Button
-                onClick={() => {
-                  act('open_pp', {
-                    ckey: player.ckey,
-                  });
-                }}
-              >
-                PP
-              </Button>
-            </Table.Cell>
-          </Table.Row>
-        ))}
-      </Table>
+    <Window width={1000} height={600}>
+      <Window.Content scrollable>
+        <Section title="Filters">
+          <Stack>
+            <Stack.Item grow>
+              <LabeledList>
+                <LabeledList.Item
+                  label="Client Hours (less than)"
+                  labelColor="label">
+                  <Input
+                    placeholder="Filter by hours"
+                    value={clientHoursFilter}
+                    onChange={(e, value) => setClientHoursFilter(value)}
+                    width="100%"
+                  />
+                </LabeledList.Item>
+              </LabeledList>
+            </Stack.Item>
+            <Stack.Item grow>
+              <LabeledList>
+                <LabeledList.Item
+                  label="Days Since First Join (less than)"
+                  labelColor="label">
+                  <Input
+                    placeholder="Filter by days"
+                    value={daysFirstJoinFilter}
+                    onChange={(e, value) => setDaysFirstJoinFilter(value)}
+                    width="100%"
+                  />
+                </LabeledList.Item>
+              </LabeledList>
+            </Stack.Item>
+          </Stack>
+        </Section>
+
+        <Section title="New Players" mt={1}>
+          <Table>
+            <Table.Row header>
+              <Table.Cell width="15%" textAlign="center" onClick={() => handleSort('ckey')}>
+                Ckey <SortIcon sortKey="ckey" />
+              </Table.Cell>
+              <Table.Cell width="10%" textAlign="center" onClick={() => handleSort('client_hours')}>
+                Playtime <SortIcon sortKey="client_hours" />
+              </Table.Cell>
+              <Table.Cell width="15%" textAlign="center" onClick={() => handleSort('first_join')}>
+                First Joined <SortIcon sortKey="first_join" />
+              </Table.Cell>
+              <Table.Cell width="15%" textAlign="center" onClick={() => handleSort('days_first_join')}>
+                Days Since Join <SortIcon sortKey="days_first_join" />
+              </Table.Cell>
+              <Table.Cell width="20%" textAlign="center" onClick={() => handleSort('byond_account_age')}>
+                BYOND Account Age <SortIcon sortKey="byond_account_age" />
+              </Table.Cell>
+              <Table.Cell width="15%" textAlign="center">
+                Actions
+              </Table.Cell>
+            </Table.Row>
+            {filteredPlayers.map((player) => (
+              <Table.Row key={player.ckey}>
+                <Table.Cell textAlign="center">{player.ckey}</Table.Cell>
+                <Table.Cell textAlign="center">{player.client_hours}h</Table.Cell>
+                <Table.Cell textAlign="center">{player.first_join}</Table.Cell>
+                <Table.Cell textAlign="center">{player.days_first_join}d</Table.Cell>
+                <Table.Cell textAlign="center">{player.byond_account_age}</Table.Cell>
+                <Table.Cell textAlign="center">
+                  <Button
+                    icon="user"
+                    color="good"
+                    onClick={() => act('open_pp', { ckey: player.ckey })}
+                    tooltip="Open Player Panel"
+                  />
+                </Table.Cell>
+              </Table.Row>
+            ))}
+          </Table>
+          {filteredPlayers.length === 0 && (
+            <Box textAlign="center" mt={2} color="label">
+              No players matching filters
+            </Box>
+          )}
+        </Section>
+      </Window.Content>
     </Window>
   );
 };

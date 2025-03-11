@@ -2,6 +2,9 @@
 	set name = "Check New Players TGUI"
 	set category = "Admin"
 
+	if(!check_rights(R_MOD))
+		return
+
 	if(admin_holder)
 		admin_holder.check_new_players()
 	return
@@ -11,8 +14,6 @@
 	check_new_players.tgui_interact(owner.mob)
 
 /datum/check_new_players
-	// var/search_age
-	// var/search_hours
 
 /datum/check_new_players/tgui_interact(mob/user, datum/tgui/ui)
 	. = ..()
@@ -27,13 +28,6 @@
 
 /datum/check_new_players/ui_data(mob/user)
 	. = ..()
-
-	// var/max_age = tgui_input_number(user, "Show accounts joined earlier than __ days", "Age check")
-	// var/max_hours = tgui_input_number(user, "Show accounts with less than __ playtime hours", "Playtime check")
-	// max_age = isnull(max_age) ? -1 : max_age
-	// max_hours = isnull(max_hours) ? -1 : max_hours
-	// if(max_hours <= 0 && max_hours <= 0)
-	// 	return
 
 	.["new_players"] = list()
 	for(var/client/client in GLOB.clients)
@@ -53,14 +47,17 @@
 /datum/check_new_players/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 
-	// var/mob/user = ui.user
+	if(!CLIENT_IS_STAFF(ui.user.client))
+		return
 
-	// switch(action)
-	// 	if("change_search")
-	// 		var/new_age_search = params["age_search"]
-	// 		var/new_hours_search = params["hours_search"]
-	// 		if(!length(new_age_search) || !length(new_hours_search))
-	// 			return
-	// 		search_age = new_age_search
-	// 		search_hours = new_hours_search
-	// 		return TRUE
+	switch(action)
+		if("open_pp")
+			var/chosen_ckey = params["ckey"]
+			for(var/client/target in GLOB.clients)
+				if(target.ckey != chosen_ckey)
+					continue
+				if(target.mob)
+					GLOB.admin_datums[ui.user.client.ckey].show_player_panel(target.mob)
+				break
+		else
+			tgui_alert(ui.user, "Fuck")
