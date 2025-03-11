@@ -1,7 +1,16 @@
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
-import { Box, Button, Icon, Input, LabeledList, Section, Stack, Table } from '../components';
+import {
+  Box,
+  Button,
+  Icon,
+  Input,
+  LabeledList,
+  Section,
+  Stack,
+  Table,
+} from '../components';
 import { Window } from '../layouts';
 
 type NewPlayerData = {
@@ -52,7 +61,7 @@ export const CheckNewPlayers = () => {
     return 0;
   });
 
-  const filteredPlayers = sortedPlayers.filter(player => {
+  const filteredPlayers = sortedPlayers.filter((player) => {
     const clientHoursMatch = clientHoursFilter
       ? player.client_hours < Number(clientHoursFilter)
       : true;
@@ -91,7 +100,8 @@ export const CheckNewPlayers = () => {
               <LabeledList>
                 <LabeledList.Item
                   label="Client Hours (less than)"
-                  labelColor="label">
+                  labelColor="label"
+                >
                   <Input
                     placeholder="Filter by hours"
                     value={clientHoursFilter}
@@ -105,7 +115,8 @@ export const CheckNewPlayers = () => {
               <LabeledList>
                 <LabeledList.Item
                   label="Days Since First Join (less than)"
-                  labelColor="label">
+                  labelColor="label"
+                >
                   <Input
                     placeholder="Filter by days"
                     value={daysFirstJoinFilter}
@@ -121,19 +132,39 @@ export const CheckNewPlayers = () => {
         <Section title="New Players" mt={1}>
           <Table>
             <Table.Row header>
-              <Table.Cell width="15%" textAlign="center" onClick={() => handleSort('ckey')}>
+              <Table.Cell
+                width="15%"
+                textAlign="center"
+                onClick={() => handleSort('ckey')}
+              >
                 Ckey <SortIcon sortKey="ckey" />
               </Table.Cell>
-              <Table.Cell width="10%" textAlign="center" onClick={() => handleSort('client_hours')}>
+              <Table.Cell
+                width="10%"
+                textAlign="center"
+                onClick={() => handleSort('client_hours')}
+              >
                 Playtime <SortIcon sortKey="client_hours" />
               </Table.Cell>
-              <Table.Cell width="15%" textAlign="center" onClick={() => handleSort('first_join')}>
+              <Table.Cell
+                width="15%"
+                textAlign="center"
+                onClick={() => handleSort('first_join')}
+              >
                 First Joined <SortIcon sortKey="first_join" />
               </Table.Cell>
-              <Table.Cell width="15%" textAlign="center" onClick={() => handleSort('days_first_join')}>
+              <Table.Cell
+                width="15%"
+                textAlign="center"
+                onClick={() => handleSort('days_first_join')}
+              >
                 Days Since Join <SortIcon sortKey="days_first_join" />
               </Table.Cell>
-              <Table.Cell width="20%" textAlign="center" onClick={() => handleSort('byond_account_age')}>
+              <Table.Cell
+                width="20%"
+                textAlign="center"
+                onClick={() => handleSort('byond_account_age')}
+              >
                 BYOND Account Age <SortIcon sortKey="byond_account_age" />
               </Table.Cell>
               <Table.Cell width="15%" textAlign="center">
@@ -143,10 +174,16 @@ export const CheckNewPlayers = () => {
             {filteredPlayers.map((player) => (
               <Table.Row key={player.ckey}>
                 <Table.Cell textAlign="center">{player.ckey}</Table.Cell>
-                <Table.Cell textAlign="center">{player.client_hours}h</Table.Cell>
+                <Table.Cell textAlign="center">
+                  {player.client_hours}h
+                </Table.Cell>
                 <Table.Cell textAlign="center">{player.first_join}</Table.Cell>
-                <Table.Cell textAlign="center">{player.days_first_join}d</Table.Cell>
-                <Table.Cell textAlign="center">{player.byond_account_age}</Table.Cell>
+                <Table.Cell textAlign="center">
+                  {player.days_first_join}d
+                </Table.Cell>
+                <Table.Cell textAlign="center">
+                  {player.byond_account_age}
+                </Table.Cell>
                 <Table.Cell textAlign="center">
                   <Button
                     icon="user"
