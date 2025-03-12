@@ -580,29 +580,25 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(updatedir)
 		setDir(direct)//only update dir if we actually need it, so overlays won't spin on base sprites that don't have directions of their own
 
+	// SS220 ADD Start
 	if(glide_size_override)
 		set_glide_size(glide_size_override)
+	// SS220 ADD End
 
 	if(newloc)
 		abstract_move(newloc)
 	else
-		var/turf/destination = get_turf(src)
-
+		abstract_move(get_turf(src))  //Get out of closets and such as a ghost
 		if((direct & NORTH) && y < world.maxy)
-			destination = get_step(destination, NORTH)
-
+			y++
 		else if((direct & SOUTH) && y > 1)
-			destination = get_step(destination, SOUTH)
-
+			y--
 		if((direct & EAST) && x < world.maxx)
-			destination = get_step(destination, EAST)
-
+			x++
 		else if((direct & WEST) && x > 1)
-			destination = get_step(destination, WEST)
+			x--
 
-		abstract_move(destination)
-
-	var/turf/new_turf = get_turf(src)
+	var/turf/new_turf = locate(x, y, z)
 	if(!new_turf)
 		return
 
@@ -666,6 +662,25 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	forceMove(tree.entrance)
 
+/mob/dead/observer/verb/teleport_z_up()
+	set category = "Ghost.Movement"
+	set name = "Move Up"
+	set desc = "Move up a z level"
+
+	var/turf/above = SSmapping.get_turf_above(get_turf(src))
+
+	if(above)
+		usr.forceMove(above)
+
+/mob/dead/observer/verb/teleport_z_down()
+	set category = "Ghost.Movement"
+	set name = "Move Down"
+	set desc = "Move down a z level"
+
+	var/turf/below = SSmapping.get_turf_below(get_turf(src))
+
+	if(below)
+		usr.forceMove(below)
 
 /mob/dead/observer/verb/dead_teleport_area()
 	set category = "Ghost"
