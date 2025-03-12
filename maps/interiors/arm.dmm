@@ -39,7 +39,8 @@
 "F" = (
 /obj/effect/landmark/interior/spawn/interior_viewport{
 	pixel_x = -17;
-	pixel_y = 23
+	pixel_y = 23;
+	layer = 3
 	},
 /obj/structure/bed/chair/vehicle{
 	pixel_x = -5;

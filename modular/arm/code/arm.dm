@@ -4,7 +4,7 @@
 
 	icon = 'modular/arm/icons/arm.dmi'
 	icon_state = "arm_base"
-	pixel_x = -15
+	pixel_x = 0
 	pixel_y = 0
 
 	bound_width = 64
