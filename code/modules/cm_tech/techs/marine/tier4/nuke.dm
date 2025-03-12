@@ -1,4 +1,4 @@
-#define NUKE_UNLOCK_TIME (85 MINUTES) // SS220 EDIT 115->85
+#define NUKE_UNLOCK_TIME (100 MINUTES) // SS220 EDIT 115->100
 
 /datum/tech/nuke
 	name = "Nuclear Device"
