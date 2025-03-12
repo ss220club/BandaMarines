@@ -29,6 +29,12 @@
 	name = "van interior"
 	icon_state = "van"
 
+// SS220 ADD - START
+/area/interior/vehicle/arm
+	name = "\improper ARM interior"
+	icon_state = "arm"
+// SS220 ADD - END
+
 /area/interior/vehicle/box_van
 	name = "box-van interior"
 	icon_state = "van"
