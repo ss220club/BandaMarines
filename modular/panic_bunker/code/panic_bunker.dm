@@ -1,7 +1,7 @@
 /datum/config_entry/flag/panic_bunker_enabled
 
 /datum/config_entry/number/panic_bunker_min_alive_playtime_hours
-	config_entry_value = 5
+	config_entry_value = 1
 
 /client/proc/toggle_panic_bunker()
 	set name = "Toggle Panic Bunker"
