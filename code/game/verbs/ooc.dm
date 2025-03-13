@@ -92,33 +92,36 @@
 		var/byond = icon('icons/effects/effects.dmi', "byondlogo")
 		prefix += "[icon2html(byond, GLOB.clients)]"
 	if(CONFIG_GET(flag/ooc_country_flags) && (prefs.toggle_prefs & TOGGLE_OOC_FLAG))
-		prefix += "[country2chaticon(src.country, GLOB.clients)]"
+		prefix += "[country2chaticon(country, GLOB.clients)]"
 /*
 	if(donator)
-		prefix += "[icon2html('icons/ooc.dmi', GLOB.clients, "Donator")]"
+		prefix += "[icon2html(GLOB.ooc_rank_dmi, GLOB.clients, "Donator")]"
 */
 //RUCM START
 	if(player_data.donator_info?.patreon_function_available("badge"))
-		prefix += "[icon2html('icons/ooc.dmi', GLOB.clients, "Donator")]"
+		prefix += "[icon2html(GLOB.ooc_rank_dmi, GLOB.clients, "Donator")]"
 //RUCM END
 	if(isCouncil(src))
-		prefix += "[icon2html('icons/ooc.dmi', GLOB.clients, "WhitelistCouncil")]"
+		prefix += "[icon2html(GLOB.ooc_rank_dmi, GLOB.clients, "WhitelistCouncil")]"
 	var/comm_award = find_community_award_icons()
 	if(comm_award)
 		prefix += comm_award
 	if(admin_holder)
-		var/list/rank_icons = icon_states('icons/ooc.dmi')
+		var/list/rank_icons = icon_states(GLOB.ooc_rank_dmi)
 		var/rankname = trim(admin_holder.rank)
 		if(rankname in rank_icons)
-			prefix += "[icon2html('icons/ooc.dmi', GLOB.clients, admin_holder.rank)]"
+			prefix += "[icon2html(GLOB.ooc_rank_dmi, GLOB.clients, admin_holder.rank)]"
 
 		if(length(admin_holder.extra_titles))
-			var/list/extra_rank_icons = icon_states('icons/ooc.dmi')
-			var/ooc_icon_state
-			for(var/srank in admin_holder.extra_titles)
-				ooc_icon_state = trim(srank)
-				if(ooc_icon_state in extra_rank_icons)
-					prefix += "[icon2html('icons/ooc.dmi', GLOB.clients, ooc_icon_state)]"
+			var/extra_title_state
+			for(var/extra_title in admin_holder.extra_titles)
+				extra_title_state = ckeyEx(extra_title)
+				if(extra_title_state in GLOB.ooc_rank_iconstates)
+					prefix += "[icon2html(GLOB.ooc_rank_dmi, GLOB.clients, extra_title_state)]"
+
+		if(admin_holder.rank in GLOB.ooc_rank_iconstates)
+			prefix += "[icon2html(GLOB.ooc_rank_dmi, GLOB.clients, admin_holder.rank)]"
+
 	if(prefix)
 		prefix = "[prefix] "
 	return prefix
