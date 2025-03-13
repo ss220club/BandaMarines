@@ -176,6 +176,8 @@ GLOBAL_LIST_INIT(admin_verbs_server, list(
 	/client/proc/cmd_debug_del_all,
 	/datum/admins/proc/togglejoin,
 	/client/proc/toggle_cdn,
+	/client/proc/toggle_panic_bunker, // BANDAMARINES ADD
+	/client/proc/change_panic_bunker_time, // BANDAMARINES ADD
 ))
 
 GLOBAL_LIST_INIT(admin_verbs_debug, list(
