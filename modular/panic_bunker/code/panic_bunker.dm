@@ -48,5 +48,3 @@
 		message_admins("Panic Bunker: [key] - Not enough alive playtime ([total_alive_playtime]h)")
 		to_chat_forced(src, SPAN_LARGE("PANIC BUNKER: You need to have at least [CONFIG_GET(number/panic_bunker_min_alive_playtime_hours)] hours of alive playtime to play on server."))
 		QDEL_NULL(src)
-
-
