@@ -14,7 +14,7 @@
 
 /datum/construction_template/xenomorph/sunken_colony/on_template_creation(turf/T, mob/living/carbon/xenomorph/X)
 	if(range_between_sunken)
-		for(var/i in urange(range_between_sunken, T))
+		for(var/i in orange(range_between_sunken, T))
 			var/atom/A = i
 			if(A.type == build_type)
 				xeno_message(SPAN_XENOWARNING("This is too close to other sunken."), 7, XENO_HIVE_NORMAL)
