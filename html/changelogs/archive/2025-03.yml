@@ -177,11 +177,17 @@
 2025-03-14:
   0Tikwah0:
   - maptweak: APC zone and telephone fix
+  - maptweak: remap ASO office
+  - maptweak: small fixes (delete extra firelock, add supply order console and e.g.)
+  - maptweak: copypast lower medbay
+  - maptweak: add forensic spray refiller
+  - maptweak: expansion brig's medbay
   Lentye:
   - bugfix: queen larva trade micro fix
   Noname995:
   - rscadd: More new things
   - bugfix: Mech can walk trough blockers
+  - bugfix: Yautja can now communicate telepathically
   nicholasWooldridge:
   - bugfix: Fixed a bug that caused the Broken M41A to be called Prop Gun in a chat
       message.

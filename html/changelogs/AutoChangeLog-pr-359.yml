@@ -1,8 +1,0 @@
-author: "0Tikwah0"
-delete-after: True
-changes:
-  - maptweak: "remap ASO office"
-  - maptweak: "small fixes (delete extra firelock, add supply order console and e.g.)"
-  - maptweak: "copypast lower medbay"
-  - maptweak: "add forensic spray refiller"
-  - maptweak: "expansion brig's medbay"
