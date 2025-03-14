@@ -89,9 +89,6 @@
   - balance: sunken strikes more slower
   - rscadd: More new things
 2025-03-09:
-  Noname995:
-  - rscadd: More new things
-2025-03-09:
   Git-Nivrak:
   - balance: Increased facehugger leap windup time from 1 second to 2 seconds (crawling
       hug time unchanged)
@@ -177,3 +174,9 @@
   - bugfix: Fixed Field Doctor not correctly checking intended timelock
   realforest2001:
   - rscadd: CIA Intel Liaison Officers now use their own minimap and HUD icons.
+2025-03-14:
+  Noname995:
+  - rscadd: More new things
+  nicholasWooldridge:
+  - bugfix: Fixed a bug that caused the Broken M41A to be called Prop Gun in a chat
+      message.
