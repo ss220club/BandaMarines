@@ -1,0 +1,4 @@
+author: "Protos-Zerg"
+delete-after: True
+changes:
+  - bugfix: "price for poncho"
