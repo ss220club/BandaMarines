@@ -188,6 +188,8 @@
   - rscadd: More new things
   - bugfix: Mech can walk trough blockers
   - bugfix: Yautja can now communicate telepathically
+  Protos-Zerg:
+  - bugfix: price for poncho
   nicholasWooldridge:
   - bugfix: Fixed a bug that caused the Broken M41A to be called Prop Gun in a chat
       message.
