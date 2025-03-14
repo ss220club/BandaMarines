@@ -88,7 +88,7 @@
 
 	var/list/immobile_abilities = list(
 		// These already have their placement locked in:
-		/datum/action/xeno_action/onclick/regurgitate,
+		/datum/action/xeno_action/onclick/release_haul,
 		/datum/action/xeno_action/watch_xeno,
 		/datum/action/xeno_action/activable/place_construction/not_primary,
 		/datum/action/xeno_action/onclick/emit_pheromones,
