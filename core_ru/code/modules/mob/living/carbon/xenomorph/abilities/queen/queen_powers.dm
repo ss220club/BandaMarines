@@ -1,5 +1,9 @@
 /datum/action/xeno_action/onclick/give_tech_points/use_ability(atom/Atom)
 	var/mob/living/carbon/xenomorph/queen/user_xeno = owner
+
+	if(tgui_alert(user_xeno, "Do you really want to exchange your doughter for points?", "Sacrifice larvae?", list("Yes", "No")) != "Yes")
+		return
+
 	if(!user_xeno.check_state())
 		return
 
@@ -12,9 +16,6 @@
 
 	if(active)
 		to_chat(usr, SPAN_XENOWARNING("We are stopped get points from larvae!"))
-		return
-
-	if(tgui_alert(user_xeno, "Do you really want to exchange your doughter for points?", "Sacrifice larvae?", list("Yes", "No")) != "Yes")
 		return
 
 	if(user_xeno.hive.stored_larva < required_larva)
