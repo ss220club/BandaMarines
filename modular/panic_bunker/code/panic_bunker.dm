@@ -43,8 +43,9 @@
 	if(!CONFIG_GET(flag/panic_bunker_enabled))
 		return
 	if(CLIENT_IS_STAFF(src))
+		msg_admin_niche("[key] - Passed Panic Bunker (STAFF)")
 		return
-	var/total_alive_playtime_hours = round(src.get_total_human_playtime() DECISECONDS_TO_HOURS, 0.1) + round(src.get_total_xeno_playtime() DECISECONDS_TO_HOURS, 0.1)
+	var/total_alive_playtime_hours = round(src.get_total_human_playtime(TRUE) DECISECONDS_TO_HOURS, 0.1) + round(src.get_total_xeno_playtime(TRUE) DECISECONDS_TO_HOURS, 0.1)
 	if(CONFIG_GET(number/panic_bunker_min_alive_playtime_hours) > total_alive_playtime_hours)
 		log_access("Panic Bunker: [key] - Not enough alive playtime ([total_alive_playtime_hours]h)")
 		message_admins("Panic Bunker: [key] - Not enough alive playtime ([total_alive_playtime_hours]h)")
