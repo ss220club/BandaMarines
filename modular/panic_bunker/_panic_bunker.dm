@@ -1,4 +1,4 @@
 /datum/modpack/panic_bunker
-	name = "panic_bunker"
-	desc = "panic_bunker"
+	name = "Panic Bunker"
+	desc = "Добавляет функцию Panic Bunker"
 	author = "mirahell"

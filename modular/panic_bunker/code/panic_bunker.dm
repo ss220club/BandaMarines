@@ -42,9 +42,9 @@
 /client/proc/check_panic_bunker()
 	if(CLIENT_IS_STAFF(src))
 		return
-	var/total_alive_playtime = round(src.get_total_human_playtime(TRUE) DECISECONDS_TO_HOURS, 0.1) + round(src.get_total_xeno_playtime(TRUE) DECISECONDS_TO_HOURS, 0.1)
+	var/total_alive_playtime = round(src.get_total_human_playtime() DECISECONDS_TO_HOURS, 0.1) + round(src.get_total_xeno_playtime() DECISECONDS_TO_HOURS, 0.1)
 	if(CONFIG_GET(flag/panic_bunker_enabled) && CONFIG_GET(number/panic_bunker_min_alive_playtime_hours) HOURS > total_alive_playtime)
 		log_access("Panic Bunker: [key] - Not enough alive playtime ([total_alive_playtime]h)")
 		message_admins("Panic Bunker: [key] - Not enough alive playtime ([total_alive_playtime]h)")
-		to_chat_forced(src, SPAN_LARGE("PANIC BUNKER: Вам нужно иметь минимум [CONFIG_GET(number/panic_bunker_min_alive_playtime_hours)] часов времени игры, чтобы зайти на сервер."))
+		to_chat_forced(src, SPAN_LARGE("PANIC BUNKER: Сервер сейчас находится в режиме бункера. Вам нужно нужно иметь больше отыгранных часов, чтобы зайти."))
 		QDEL_NULL(src)
