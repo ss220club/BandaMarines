@@ -54,13 +54,17 @@
 	switch(action)
 		if("open_player_panel")
 			var/client/target_client = find_client_by_ckey(params["ckey"])
+			if(!target_client)
+				return
 			GLOB.admin_datums[ui.user.client.ckey].show_player_panel(target_client.mob)
 		if("follow")
 			if(!isobserver(ui.user))
 				tgui_alert(ui.user, "Нужно быть гостом","Follow")
 				return
-			var/mob/dead/observer/observer = ui.user
 			var/client/target_client = find_client_by_ckey(params["ckey"])
+			if(!target_client)
+				return
+			var/mob/dead/observer/observer = ui.user
 			observer.do_observe(target_client.mob)
 		if("update")
 			SStgui.try_update_ui(ui.user, src, ui)
