@@ -132,12 +132,12 @@ GLOBAL_LIST_INIT(cm_vending_clothing_intelligence_officer, list(
 		list("Drop Pouch", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
 //RUCM START
 		list("PONCHO (CHOOSE 1)", 0, null, null, null),
-		list("USCM Poncho (Mission-Specific Camo)", 12, /obj/item/clothing/accessory/poncho, MARINE_CAN_BUY_PONCHO, VENDOR_ITEM_REGULAR),
-		list("USCM Poncho (Green)", 12, /obj/item/clothing/accessory/poncho/green, MARINE_CAN_BUY_PONCHO, VENDOR_ITEM_REGULAR),
-		list("USCM Poncho (Brown)", 12, /obj/item/clothing/accessory/poncho/brown, MARINE_CAN_BUY_PONCHO, VENDOR_ITEM_REGULAR),
-		list("USCM Poncho (Black)", 12, /obj/item/clothing/accessory/poncho/black, MARINE_CAN_BUY_PONCHO, VENDOR_ITEM_REGULAR),
-		list("USCM Poncho (Blue)", 12, /obj/item/clothing/accessory/poncho/blue, MARINE_CAN_BUY_PONCHO, VENDOR_ITEM_REGULAR),
-		list("USCM Poncho (Purple)", 12, /obj/item/clothing/accessory/poncho/purple, MARINE_CAN_BUY_PONCHO, VENDOR_ITEM_REGULAR),
+		list("USCM Poncho (Mission-Specific Camo)", 0, /obj/item/clothing/accessory/poncho, MARINE_CAN_BUY_PONCHO, VENDOR_ITEM_REGULAR),
+		list("USCM Poncho (Green)", 0, /obj/item/clothing/accessory/poncho/green, MARINE_CAN_BUY_PONCHO, VENDOR_ITEM_REGULAR),
+		list("USCM Poncho (Brown)", 0, /obj/item/clothing/accessory/poncho/brown, MARINE_CAN_BUY_PONCHO, VENDOR_ITEM_REGULAR),
+		list("USCM Poncho (Black)", 0, /obj/item/clothing/accessory/poncho/black, MARINE_CAN_BUY_PONCHO, VENDOR_ITEM_REGULAR),
+		list("USCM Poncho (Blue)", 0, /obj/item/clothing/accessory/poncho/blue, MARINE_CAN_BUY_PONCHO, VENDOR_ITEM_REGULAR),
+		list("USCM Poncho (Purple)", 0, /obj/item/clothing/accessory/poncho/purple, MARINE_CAN_BUY_PONCHO, VENDOR_ITEM_REGULAR),
 //RUCM END
 		list("MASK (CHOOSE 1)", 0, null, null, null),
 		list("Gas Mask", 0, /obj/item/clothing/mask/gas, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
