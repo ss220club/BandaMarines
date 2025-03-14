@@ -178,6 +178,7 @@ GLOBAL_LIST_INIT(admin_verbs_server, list(
 	/client/proc/toggle_cdn,
 	/client/proc/toggle_panic_bunker, // BANDAMARINES ADD
 	/client/proc/change_panic_bunker_time, // BANDAMARINES ADD
+	/client/proc/edit_panic_bunker_bypass, // BANDAMARINES ADD
 ))
 
 GLOBAL_LIST_INIT(admin_verbs_debug, list(
