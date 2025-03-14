@@ -132,3 +132,11 @@
 	min_val = 0
 	config_entry_value = 140
 	integer = TRUE
+
+// SS220 ADD - START
+/datum/config_entry/number/nuclear_lock_marines_percentage
+	config_entry_value = 40
+	integer = TRUE
+	min_val = 1
+	max_val = 100
+// SS220 ADD - END

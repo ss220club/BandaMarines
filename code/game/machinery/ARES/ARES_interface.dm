@@ -424,25 +424,32 @@
 			if(!SSticker.mode)
 				return FALSE //Not a game mode?
 			if(world.time < NUCLEAR_TIME_LOCK)
-				to_chat(user, SPAN_WARNING("It is too soon to request Nuclear Ordnance!"))
+				to_chat(user, SPAN_WARNING("Вы слишком рано запрашиваете ядерное устройство!")) // SS220 EDIT TRANSLATE
 				playsound(src, 'sound/machines/buzz-two.ogg', 15, 1)
 				return FALSE
 			if(!COOLDOWN_FINISHED(datacore, ares_nuclear_cooldown))
-				to_chat(user, SPAN_WARNING("The ordnance request frequency is garbled, wait for reset!"))
+				to_chat(user, SPAN_WARNING("Снизьте частоту вызова ядерного устройства и дождитесь перезапуска!")) // SS220 EDIT TRANSLATE
 				playsound(src, 'sound/machines/buzz-two.ogg', 15, 1)
 				return FALSE
 			if(GLOB.security_level == SEC_LEVEL_DELTA || SSticker.mode.is_in_endgame)
-				to_chat(user, SPAN_WARNING("The mission has failed catastrophically, what do you want a nuke for?!"))
+				to_chat(user, SPAN_WARNING("Эта миссия - катастрофа! Полный провал! Зачем вам еще и ядерная бомба?!")) // SS220 EDIT TRANSLATE
 				playsound(src, 'sound/machines/buzz-two.ogg', 15, 1)
 				return FALSE
-			var/reason = tgui_input_text(user, "Please enter reason nuclear ordnance is required.", "Reason for Nuclear Ordnance")
+			// SS220 EDIT - START
+			var/players_count = SSticker.mode.count_marines() // Подсчитываем маринов на земле и на корабле
+			if(players_count <= (GLOB.peak_humans * CONFIG_GET(number/nuclear_lock_marines_percentage)))
+				to_chat(user, SPAN_WARNING("В запросе ядерного устройства отказано! На земле еще еще слишком много живых морпехов!"))
+				playsound(src, 'sound/machines/buzz-two.ogg', 15, 1)
+				return FALSE
+			// SS220 EDIT - END
+			var/reason = tgui_input_text(user, "Укажите причину запроса ядерного устройства.", "Причина для Ядерного Устройства")// SS220 EDIT TRANSLATE
 			if(!reason)
 				return FALSE
 			for(var/client/admin in GLOB.admins)
 				if((R_ADMIN|R_MOD) & admin.admin_holder.rights)
 					playsound_client(admin,'sound/effects/sos-morse-code.ogg',10)
 			message_admins("[key_name(user)] has requested use of Nuclear Ordnance (via ARES)! Reason: <b>[reason]</b> [CC_MARK(user)] (<A href='byond://?_src_=admin_holder;[HrefToken(forceGlobal = TRUE)];nukeapprove=\ref[user]'>APPROVE</A>) (<A href='byond://?_src_=admin_holder;[HrefToken(forceGlobal = TRUE)];nukedeny=\ref[user]'>DENY</A>) [ADMIN_JMP_USER(user)] [CC_REPLY(user)]")
-			to_chat(user, SPAN_NOTICE("A nuclear ordnance request has been sent to USCM High Command for the following reason: [reason]"))
+			to_chat(user, SPAN_NOTICE("Запрос на ядерное устройство был отправлен в Верховное Командование ККМП по следующей причине: [reason]"))
 			log_ares_security("Nuclear Ordnance Request", "Sent a request for nuclear ordnance for the following reason: [reason]", last_login)
 			if(ares_can_interface())
 				ai_silent_announcement("[last_login] направил запрос на ядерный арсенал Верховному командованию КМП.", ".V")
