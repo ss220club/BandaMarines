@@ -28445,8 +28445,12 @@
 	density = 0;
 	pixel_x = -16
 	},
-/obj/item/clothing/suit/storage/marine/light/vest,
-/obj/item/clothing/suit/storage/marine/light/vest,
+/obj/item/clothing/suit/storage/marine/light/vest{
+	pixel_x = -16
+	},
+/obj/item/clothing/suit/storage/marine/light/vest{
+	pixel_x = -16
+	},
 /turf/open/floor/almayer/plating_stripedcorner/west,
 /area/almayer/squads/req)
 "eYu" = (
@@ -34374,8 +34378,12 @@
 	density = 0;
 	pixel_x = 16
 	},
-/obj/item/clothing/suit/storage/marine/light/vest,
-/obj/item/clothing/suit/storage/marine/light/vest,
+/obj/item/clothing/suit/storage/marine/light/vest{
+	pixel_x = 16
+	},
+/obj/item/clothing/suit/storage/marine/light/vest{
+	pixel_x = 16
+	},
 /turf/open/floor/almayer/plating_stripedcorner/east,
 /area/almayer/squads/req)
 "hGO" = (
