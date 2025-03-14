@@ -135,6 +135,7 @@
 	skill_to_give = SKILL_SPEC_ROCKET
 	trait_to_give = "demo"
 	kit_typepath = /obj/item/storage/box/spec/demolitionist
+	available_vendor_num = 2 // SS220 EDIT
 
 /datum/specialist_set/sadar/redeem_set(mob/living/redeemer, kit)
 	. = ..()
