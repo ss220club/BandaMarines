@@ -52,27 +52,23 @@
 		return
 
 	switch(action)
-		if("open_pp")
-			var/chosen_ckey = params["ckey"]
-			for(var/client/target in GLOB.clients)
-				if(target.ckey != chosen_ckey)
-					continue
-				if(target.mob)
-					GLOB.admin_datums[ui.user.client.ckey].show_player_panel(target.mob)
-				break
+		if("open_player_panel")
+			var/client/target_client = find_client_by_ckey(params["ckey"])
+			GLOB.admin_datums[ui.user.client.ckey].show_player_panel(target_client.mob)
 		if("follow")
 			if(!isobserver(ui.user))
 				tgui_alert(ui.user, "Нужно быть гостом","Follow")
 				return
 			var/mob/dead/observer/observer = ui.user
-			var/chosen_ckey = params["ckey"]
-			for(var/client/target in GLOB.clients)
-				if(target.ckey != chosen_ckey)
-					continue
-				if(target.mob)
-					observer.do_observe(target.mob)
-				break
+			var/client/target_client = find_client_by_ckey(params["ckey"])
+			observer.do_observe(target_client.mob)
 		if("update")
 			SStgui.try_update_ui(ui.user, src, ui)
 		else
 			tgui_alert(ui.user, "Fuck")
+
+/datum/check_new_players/proc/find_client_by_ckey(ckey)
+	for(var/client/client in GLOB.clients)
+		if(client.ckey != ckey)
+			continue
+		return client
