@@ -244,7 +244,8 @@
 		/* --- Process all the mobs that heard the voice normally (understood) --- */
 		if (length(heard_normal))
 			//RUCM START
-			tts_heard_list[2] += heard_normal
+			if(!isyautja(M))
+				tts_heard_list[2] += heard_normal
 			//RUCM END
 			for (var/mob/R in heard_normal)
 				R.hear_radio(message, verbage, speaking, part_a, part_b, M, 0, realname, volume)
