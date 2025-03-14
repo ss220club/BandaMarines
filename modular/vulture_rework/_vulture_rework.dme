@@ -2,3 +2,4 @@
 
 #include "code/vending.dm"
 #include "code/pamphlets.dm"
+#include "code/firemod.dm"
