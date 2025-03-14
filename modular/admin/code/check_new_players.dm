@@ -73,6 +73,6 @@
 					observer.do_observe(target.mob)
 				break
 		if("update")
-			ui.send_full_update()
+			SStgui.try_update_ui(ui.user, src, ui)
 		else
 			tgui_alert(ui.user, "Fuck")
