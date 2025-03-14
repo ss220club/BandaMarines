@@ -183,7 +183,9 @@ export const CheckNewPlayers = () => {
                   <Button
                     icon="user"
                     color="good"
-                    onClick={() => act('open_player_panel', { ckey: player.ckey })}
+                    onClick={() =>
+                      act('open_player_panel', { ckey: player.ckey })
+                    }
                     onContextMenu={(e) => {
                       e.preventDefault();
                       act('follow', { ckey: player.ckey });
