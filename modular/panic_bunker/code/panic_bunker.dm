@@ -1,7 +1,8 @@
 /datum/config_entry/flag/panic_bunker_enabled
+	config_entry_value = TRUE
 
 /datum/config_entry/number/panic_bunker_min_alive_playtime_hours
-	config_entry_value = 1
+	config_entry_value = 30
 
 /client/proc/toggle_panic_bunker()
 	set name = "Toggle Panic Bunker"
@@ -40,11 +41,15 @@
 	message_admins("[key_name(usr)] changed Panic Bunker hours. New value - [CONFIG_GET(number/panic_bunker_min_alive_playtime_hours)] hours")
 
 /client/proc/check_panic_bunker()
+	if(!CONFIG_GET(flag/panic_bunker_enabled))
+		return
 	if(CLIENT_IS_STAFF(src))
 		return
-	var/total_alive_playtime = round(src.get_total_human_playtime() DECISECONDS_TO_HOURS, 0.1) + round(src.get_total_xeno_playtime() DECISECONDS_TO_HOURS, 0.1)
-	if(CONFIG_GET(flag/panic_bunker_enabled) && CONFIG_GET(number/panic_bunker_min_alive_playtime_hours) HOURS > total_alive_playtime)
-		log_access("Panic Bunker: [key] - Not enough alive playtime ([total_alive_playtime]h)")
-		message_admins("Panic Bunker: [key] - Not enough alive playtime ([total_alive_playtime]h)")
+	var/total_alive_playtime_hours = round(src.get_total_human_playtime() DECISECONDS_TO_HOURS, 0.1) + round(src.get_total_xeno_playtime() DECISECONDS_TO_HOURS, 0.1)
+	if(CONFIG_GET(number/panic_bunker_min_alive_playtime_hours) > total_alive_playtime_hours)
+		log_access("Panic Bunker: [key] - Not enough alive playtime ([total_alive_playtime_hours]h)")
+		message_admins("Panic Bunker: [key] - Not enough alive playtime ([total_alive_playtime_hours]h)")
 		to_chat_forced(src, SPAN_LARGE("PANIC BUNKER: Сервер сейчас находится в режиме бункера. Вам нужно нужно иметь больше отыгранных часов, чтобы зайти."))
 		QDEL_NULL(src)
+	else
+		msg_admin_niche("[key] - Passed Panic Bunker ([total_alive_playtime_hours]h)")

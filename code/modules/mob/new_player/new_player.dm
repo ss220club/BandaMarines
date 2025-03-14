@@ -26,10 +26,6 @@
 	. = ..()
 	GLOB.dead_mob_list -= src
 	ADD_TRAIT(src, TRAIT_IMMOBILIZED, TRAIT_SOURCE_INHERENT)
-	// BANDAMARINES ADD start
-	if(client)
-		client.check_panic_bunker()
-	// BANDAMARINES ADD end
 
 /mob/new_player/Destroy()
 	if(ready)
