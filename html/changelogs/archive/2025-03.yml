@@ -179,6 +179,7 @@
   - maptweak: APC zone and telephone fix
   Noname995:
   - rscadd: More new things
+  - bugfix: Mech can walk trough blockers
   nicholasWooldridge:
   - bugfix: Fixed a bug that caused the Broken M41A to be called Prop Gun in a chat
       message.
