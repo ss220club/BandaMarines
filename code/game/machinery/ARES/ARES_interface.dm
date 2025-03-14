@@ -437,7 +437,7 @@
 				return FALSE
 			// SS220 EDIT - START
 			var/players_count = SSticker.mode.count_marines() // Подсчитываем маринов на земле и на корабле
-			if(players_count <= (GLOB.peak_humans * CONFIG_GET(number/nuclear_lock_marines_percentage)))
+			if(players_count >= (GLOB.peak_humans * CONFIG_GET(number/nuclear_lock_marines_percentage)))
 				to_chat(user, SPAN_WARNING("В запросе ядерного устройства отказано! На земле еще еще слишком много живых морпехов!"))
 				playsound(src, 'sound/machines/buzz-two.ogg', 15, 1)
 				return FALSE
