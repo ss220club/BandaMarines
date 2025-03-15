@@ -103,7 +103,7 @@
 	. = ..()
 	visible_message(SPAN_HIGHDANGER("Ground starts to rumble!"))
 	playsound(loc, appearing_sound, 25, 1)
-	var/image/J = new(icon = 'core_ru/icons/obj/structures/alien/Buildings.dmi', icon_state = "warning", layer = ABOVE_FLY_LAYER)
+	var/image/J = new(icon = 'icons/effects/alert.dmi', icon_state = "techpod_lz_marker", layer = ABOVE_FLY_LAYER)
 	overlays += J
 
 	addtimer(CALLBACK(src, PROC_REF(strike), damage), strike_delay)
