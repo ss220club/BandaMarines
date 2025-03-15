@@ -15,7 +15,6 @@ GLOBAL_LIST_EMPTY(panic_bunker_bypass)
 		return null
 
 /proc/safe_read_json(path)
-	var/list/data
 	var/raw_data = file2text(path)
 	if(raw_data)
 		var/list/parsed_data = safe_json_decode(raw_data)
