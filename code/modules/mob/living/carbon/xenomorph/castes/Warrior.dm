@@ -20,13 +20,6 @@
 	caste_desc = "A powerful front line combatant."
 	can_vent_crawl = 0
 
-	available_strains = list(
-		/datum/xeno_strain/boxer,
-	)
-	behavior_delegate_type = /datum/behavior_delegate/warrior_base
-	evolves_to = list(XENO_CASTE_CRUSHER, XENO_CASTE_PRAETORIAN)
-	deevolves_to = list(XENO_CASTE_DEFENDER)
-
 	tackle_min = 2
 	tackle_max = 4
 
