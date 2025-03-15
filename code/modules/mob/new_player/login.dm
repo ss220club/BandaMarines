@@ -142,10 +142,8 @@
 					return FALSE
 
 			// SS220 ADD START
-			if(CONFIG_GET(string/central_api_url) && CONFIG_GET(flag/force_discord_verification))
-				if(!SScentral.is_player_discord_linked(client))
-					to_chat(usr, SPAN_WARNING(SPAN_DANGER("Вам необходимо привязать дискорд-профиль к аккаунту!<br>") + SPAN_WARNING("<br>Перейдите во вкладку '<b>Special Verbs</b>', она справа сверху, и нажмите '<b>Привязка Discord</b>' для получения инструкций.<br>") + SPAN_NOTICE("Если вы уверены, что ваш аккаунт уже привязан, подождите синхронизации и попробуйте снова.")))
-					return FALSE
+			if(!has_discord_link(client))
+				return FALSE
 			// SS220 ADD END
 
 			late_choices()
@@ -166,10 +164,8 @@
 					return FALSE
 
 			// SS220 ADD START
-			if(CONFIG_GET(string/central_api_url) && CONFIG_GET(flag/force_discord_verification))
-				if(!SScentral.is_player_discord_linked(client))
-					to_chat(usr, SPAN_WARNING(SPAN_DANGER("Вам необходимо привязать дискорд-профиль к аккаунту!<br>") + SPAN_WARNING("<br>Перейдите во вкладку '<b>Special Verbs</b>', она справа сверху, и нажмите '<b>Привязка Discord</b>' для получения инструкций.<br>") + SPAN_NOTICE("Если вы уверены, что ваш аккаунт уже привязан, подождите синхронизации и попробуйте снова.")))
-					return FALSE
+			if(!has_discord_link(client))
+				return FALSE
 			// SS220 ADD END
 
 			late_choices_upp()
@@ -184,10 +180,8 @@
 				return FALSE
 
 			// SS220 ADD START
-			if(CONFIG_GET(string/central_api_url) && CONFIG_GET(flag/force_discord_verification))
-				if(!SScentral.is_player_discord_linked(client))
-					to_chat(usr, SPAN_WARNING(SPAN_DANGER("Вам необходимо привязать дискорд-профиль к аккаунту!<br>") + SPAN_WARNING("<br>Перейдите во вкладку '<b>Special Verbs</b>', она справа сверху, и нажмите '<b>Привязка Discord</b>' для получения инструкций.<br>") + SPAN_NOTICE("Если вы уверены, что ваш аккаунт уже привязан, подождите синхронизации и попробуйте снова.")))
-					return FALSE
+			if(!has_discord_link(client))
+				return FALSE
 			// SS220 ADD END
 
 			if(SSticker.mode.check_xeno_late_join(src))
@@ -214,10 +208,8 @@
 				return TRUE
 
 			// SS220 ADD START
-			if(CONFIG_GET(string/central_api_url) && CONFIG_GET(flag/force_discord_verification))
-				if(!SScentral.is_player_discord_linked(client))
-					to_chat(usr, SPAN_WARNING(SPAN_DANGER("Вам необходимо привязать дискорд-профиль к аккаунту!<br>") + SPAN_WARNING("<br>Перейдите во вкладку '<b>Special Verbs</b>', она справа сверху, и нажмите '<b>Привязка Discord</b>' для получения инструкций.<br>") + SPAN_NOTICE("Если вы уверены, что ваш аккаунт уже привязан, подождите синхронизации и попробуйте снова.")))
-					return FALSE
+			if(!has_discord_link(client))
+				return FALSE
 			// SS220 ADD END
 
 			to_chat(src, SPAN_WARNING("You are no longer able to join as predator."))
@@ -233,10 +225,8 @@
 				return TRUE
 
 			// SS220 ADD START
-			if(CONFIG_GET(string/central_api_url) && CONFIG_GET(flag/force_discord_verification))
-				if(!SScentral.is_player_discord_linked(client))
-					to_chat(usr, SPAN_WARNING(SPAN_DANGER("Вам необходимо привязать дискорд-профиль к аккаунту!<br>") + SPAN_WARNING("<br>Перейдите во вкладку '<b>Special Verbs</b>', она справа сверху, и нажмите '<b>Привязка Discord</b>' для получения инструкций.<br>") + SPAN_NOTICE("Если вы уверены, что ваш аккаунт уже привязан, подождите синхронизации и попробуйте снова.")))
-					return FALSE
+			if(!has_discord_link(client))
+				return FALSE
 			// SS220 ADD END
 
 			to_chat(src, SPAN_WARNING("You are no longer able to join as a Fax Responder."))
@@ -248,10 +238,8 @@
 				return
 
 			// SS220 ADD START
-			if(CONFIG_GET(string/central_api_url) && CONFIG_GET(flag/force_discord_verification))
-				if(!SScentral.is_player_discord_linked(client))
-					to_chat(usr, SPAN_WARNING(SPAN_DANGER("Вам необходимо привязать дискорд-профиль к аккаунту!<br>") + SPAN_WARNING("<br>Перейдите во вкладку '<b>Special Verbs</b>', она справа сверху, и нажмите '<b>Привязка Discord</b>' для получения инструкций.<br>") + SPAN_NOTICE("Если вы уверены, что ваш аккаунт уже привязан, подождите синхронизации и попробуйте снова.")))
-					return FALSE
+			if(!has_discord_link(client))
+				return FALSE
 			// SS220 ADD END
 
 			attempt_observe()
@@ -259,10 +247,8 @@
 
 		if("ready")
 			// SS220 ADD START
-			if(CONFIG_GET(string/central_api_url) && CONFIG_GET(flag/force_discord_verification))
-				if(!SScentral.is_player_discord_linked(client))
-					to_chat(usr, SPAN_WARNING(SPAN_DANGER("Вам необходимо привязать дискорд-профиль к аккаунту!<br>") + SPAN_WARNING("<br>Перейдите во вкладку '<b>Special Verbs</b>', она справа сверху, и нажмите '<b>Привязка Discord</b>' для получения инструкций.<br>") + SPAN_NOTICE("Если вы уверены, что ваш аккаунт уже привязан, подождите синхронизации и попробуйте снова.")))
-					return FALSE
+			if(!has_discord_link(client))
+				return FALSE
 			// SS220 ADD END
 
 			if((SSticker.current_state <= GAME_STATE_PREGAME) && !ready) // Make sure we don't ready up after the round has started
