@@ -67,35 +67,6 @@
 	GLOB.panic_bunker_bypass -= ckey
 	save_panic_bunker_settings(settings)
 
-
-/datum/panic_bunker/edit_panic_bunker_bypass(client/client)
-	var/alert = tgui_alert(client, "Add or remove?", "Edit Panic Bunker Bypass", list("Add","Remove"))
-
-	if(!alert)
-		return
-
-	var/list/settings = READ_JSON_FILE(PANIC_BUNKER_SETTINGS_FILE)
-
-	switch(alert)
-		if("Add")
-			var/new_ckey = ckey(tgui_input_text(client,"Enter ckey", "Add ckey to Panic Bunker Bypass"))
-			settings["panic_bunker_bypass_ckeys"] |= new_ckey
-			GLOB.panic_bunker_bypass |= new_ckey
-			log_and_alert("[key_name(client)] added [new_ckey] to Panic Bunker Bypass list.")
-			tgui_alert_async(client,"[new_ckey] added to Panic Bunker Bypass", "Success")
-		if("Remove")
-			if(!length(settings["panic_bunker_bypass_ckeys"]))
-				tgui_alert_async(client,"No bypass ckeys", "Error")
-				return
-			var/remove_ckey = tgui_input_list(client,"Choose ckey", "Remove ckey from Panic Bunker Bypass", settings["panic_bunker_bypass_ckeys"])
-			settings["panic_bunker_bypass_ckeys"] -= remove_ckey
-			GLOB.panic_bunker_bypass -= remove_ckey
-			log_and_alert("[key_name(client)] removed [remove_ckey] from Panic Bunker Bypass list.")
-			tgui_alert_async(client,"[remove_ckey] removed from Panic Bunker Bypass", "Success")
-
-	fdel(PANIC_BUNKER_SETTINGS_FILE)
-	WRITE_JSON_FILE(settings, PANIC_BUNKER_SETTINGS_FILE)
-
 #undef PANIC_BUNKER_SETTINGS_FILE
 #undef READ_JSON_FILE
 #undef WRITE_JSON_FILE
