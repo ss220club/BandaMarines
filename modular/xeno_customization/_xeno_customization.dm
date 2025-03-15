@@ -7,4 +7,5 @@
 Авторство:
 - Socks: RuCM
 - Королева в платье: LunyTuny
+- Rouny: TGMC
 */
