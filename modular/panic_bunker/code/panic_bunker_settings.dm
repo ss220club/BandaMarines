@@ -1,5 +1,5 @@
 #define PANIC_BUNKER_SETTINGS_FILE "modular/panic_bunker/settings/panic_bunker.json"
-#define READ_JSON_FILE(PATH) (json_decode(file2text(PATH)))
+#define READ_JSON_FILE(PATH) (safe_json_decode(file2text(PATH)))
 #define WRITE_JSON_FILE(TEXT, PATH) (text2file(json_encode(TEXT),PATH))
 
 GLOBAL_LIST_EMPTY(panic_bunker_bypass)
@@ -7,6 +7,12 @@ GLOBAL_LIST_EMPTY(panic_bunker_bypass)
 /proc/log_and_alert(message)
     log_admin(message)
     message_admins(message)
+
+/proc/safe_json_decode(data)
+	try
+		return json_decode(data)
+	catch
+		return null
 
 /datum/config_entry/flag/panic_bunker_enabled
 
