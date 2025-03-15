@@ -1,4 +1,4 @@
-#define PANIC_BUNKER_SETTINGS_FILE "modular/panic_bunker/settings/panic_bunker.json"
+#define PANIC_BUNKER_SETTINGS_FILE "config/panic_bunker.json"
 #define READ_JSON_FILE(PATH) (safe_read_json(PATH))
 #define WRITE_JSON_FILE(TEXT, PATH) (text2file(json_encode(TEXT),PATH))
 
