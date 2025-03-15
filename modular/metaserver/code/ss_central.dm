@@ -1,4 +1,5 @@
 SUBSYSTEM_DEF(central)
+	name = "Central"
 	var/list/discord_links = list()
 	flags = SS_NO_FIRE
 
