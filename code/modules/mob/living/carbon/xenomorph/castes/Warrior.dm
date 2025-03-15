@@ -20,6 +20,13 @@
 	caste_desc = "A powerful front line combatant."
 	can_vent_crawl = 0
 
+	available_strains = list(
+		/datum/xeno_strain/boxer,
+	)
+	behavior_delegate_type = /datum/behavior_delegate/warrior_base
+	evolves_to = list(XENO_CASTE_CRUSHER, XENO_CASTE_PRAETORIAN)
+	deevolves_to = list(XENO_CASTE_DEFENDER)
+
 	tackle_min = 2
 	tackle_max = 4
 
@@ -369,6 +376,11 @@
 
 	var/mob/living/carbon/carbon = affected_atom
 
+//BANDAMARINES START
+	if(distance > 1 && istype(punch_user.strain, /datum/xeno_strain/boxer))
+		step_towards(punch_user, carbon, 1)
+//BANDAMARINES END
+
 	if (!punch_user.Adjacent(carbon))
 		return
 
@@ -391,7 +403,15 @@
 	SPAN_XENOWARNING("We hit [carbon] in the [target_limb ? target_limb.display_name : "chest"] with a devastatingly powerful punch!"))
 	var/sound = pick('sound/weapons/punch1.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/punch4.ogg')
 	playsound(carbon, sound, 50, 1)
+/*
 	do_base_warrior_punch(carbon, target_limb)
+*/
+//BANDAMARINES START
+	if(istype(punch_user.strain, /datum/xeno_strain/boxer))
+		do_boxer_punch(carbon, target_limb)
+	else
+		do_base_warrior_punch(carbon, target_limb)
+//BANDAMARINES END
 	apply_cooldown()
 	return ..()
 
