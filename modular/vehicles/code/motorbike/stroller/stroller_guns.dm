@@ -9,7 +9,18 @@
 	var/mounted_type
 	var/mounted_time_to_disassembly = 20 SECONDS
 	var/mounted_time_to_assembly = 7 SECONDS
-	var/buckled_mob_last_signal // Для контроля сигналов.
+
+/obj/structure/bed/chair/stroller/get_examine_text(mob/user)
+	. = ..()
+	if(!mounted)
+		return
+	if(user != buckled_mob)
+		. += SPAN_NOTICE("На [name] установлен [mounted.name].")
+		return
+	if(isxeno(user))
+		. += SPAN_WARNING("Вы видите установленную огнепалку на этой железяке...")
+		return
+	. += SPAN_NOTICE("В [mounted.name] боекомплект [mounted.rounds]/[mounted.rounds_max]")
 
 /obj/structure/bed/chair/stroller/attackby(obj/item/O as obj, mob/user as mob)
 	if(!ishuman(user) && !HAS_TRAIT(user, TRAIT_OPPOSABLE_THUMBS))
@@ -49,14 +60,14 @@
 		var/obj/item/device/m56d_gun/D = O
 		var/obj/structure/machinery/m56d_hmg/G = new(src)
 		mounted = G
-		mounted_type = G.type
+		mounted_type = D.type
 		rounds_temp = D.rounds
 
 	else if(istype(O, /obj/item/device/m2c_gun))
 		var/obj/item/device/m2c_gun/D = O
 		var/obj/structure/machinery/m56d_hmg/auto/G = new(src)	// Да, это тип M2C
 		mounted = G
-		mounted_type = G.type
+		mounted_type = D.type
 		rounds_temp = D.rounds
 
 	if(mounted)
@@ -65,8 +76,9 @@
 		mounted.health = O.health // retain damage
 		mounted.anchored = TRUE
 		O.transfer_label_component(mounted)
-		to_chat(user, SPAN_NOTICE("Вы установили [O] на коляску."))
+		to_chat(user, SPAN_NOTICE("Вы установили [mounted.name] на коляску."))
 		update_overlay()
+		update_mob_gun_signal() // вдруг уже кто-то сидит
 		qdel(O)
 
 
@@ -75,13 +87,13 @@
 	if(!mounted)
 		return FALSE
 	if(mounted.locked)
-		to_chat(user, "Установленное [mounted] невозможно отсоединить...")
+		to_chat(user, "Установленное [mounted.name] невозможно отсоединить...")
 		return FALSE
-	to_chat(user, "Вы отсоединяете [mounted] на коляске...")
+	to_chat(user, "Вы отсоединяете [mounted.name] на коляске...")
 	if(!do_after(user, mounted_time_to_disassembly * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
-		to_chat(user, SPAN_DANGER("Вы прекратили отсоединение [O] на коляске."))
+		to_chat(user, SPAN_DANGER("Вы прекратили отсоединение [mounted.name] на коляске."))
 		return FALSE
-	user.visible_message(SPAN_NOTICE("[user] отсоединил [O] от [src.name]!"), SPAN_NOTICE("Вы отсоединили [O] от [src.name]!"))
+	user.visible_message(SPAN_NOTICE("[user] отсоединил [mounted.name] от [src.name]!"), SPAN_NOTICE("Вы отсоединили [mounted.name] от [src.name]!"))
 	playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, 1)
 
 	var/obj/item/device/m56d_gun/HMG = new mounted_type(loc)
@@ -93,6 +105,7 @@
 	qdel(mounted)
 	mounted = null
 	update_overlay()
+	update_mob_gun_signal(TRUE) // вдруг уже кто-то сидит
 	return TRUE
 
 // Перезарядка
@@ -105,38 +118,112 @@
 	mounted.attackby(O, user)
 	update_overlay()
 
-#define COMSIG_MOB_MG_ENTER "mob_mg_enter"
+#define COMSIG_MOB_MG_ENTER_VC "mob_vc_mg_enter"
+#define COMSIG_MOB_MG_EXIT_VC "mob_vc_mg_exit"
 
 // Стрельба
-/obj/structure/bed/chair/stroller/proc/update_mob_gun_signal()
-	if(mounted && buckled_mob)
-		buckled_mob_last_signal = buckled_mob
-		on_set_gun_interaction()
-		give_action(buckled_mob, /datum/action/human_action/mg_enter)
-		RegisterSignal(buckled_mob, COMSIG_MOB_MG_ENTER, PROC_REF(on_set_gun_interaction))	// Теперь мы можем перезайти за пулемет
-	else if (buckled_mob_last_signal)
-		mounted.on_unset_interaction(buckled_mob_last_signal)
-		remove_action(buckled_mob, /datum/action/human_action/mg_enter)
-		UnregisterSignal(buckled_mob, COMSIG_MOB_MG_ENTER)
+/obj/structure/bed/chair/stroller/proc/update_mob_gun_signal(force_reset = FALSE)
+	// Перезапускаем сигналы и кнопки
+	if(force_reset && buckled_mob)
+		remove_action(buckled_mob, /datum/action/human_action/mg_enter_vc)
+		remove_action(buckled_mob, /datum/action/human_action/mg_exit_vc)
+		UnregisterSignal(buckled_mob, COMSIG_MOB_MG_ENTER_VC)
+		UnregisterSignal(buckled_mob, COMSIG_MOB_MG_EXIT_VC)
+		if(mounted) mounted.on_unset_interaction(buckled_mob)
+		message_admins("Reset signals for [buckled_mob] on [mounted] at [AREACOORD(src)].")
+
+	// Даем сигналы мобу, если прикручен пулемет и моб сидит
+	else if(mounted && buckled_mob)
+		RegisterSignal(buckled_mob, COMSIG_MOB_MG_ENTER_VC, PROC_REF(on_set_gun_interaction))	// Теперь мы можем перезайти за пулемет
+		RegisterSignal(buckled_mob, COMSIG_MOB_MG_EXIT_VC, PROC_REF(on_unset_gun_interaction))
+		give_action(buckled_mob, /datum/action/human_action/mg_enter_vc)
+		message_admins("Registered signals for [buckled_mob] on [mounted] at [AREACOORD(src)].")
 
 /obj/structure/bed/chair/stroller/proc/on_set_gun_interaction()
 	SIGNAL_HANDLER
-	mounted.on_set_interaction(buckled_mob)
+	mounted.on_set_interaction_vc(buckled_mob)
+	message_admins("Set [buckled_mob]'s gun interaction on [mounted] at [AREACOORD(src)].")
+
+/obj/structure/bed/chair/stroller/proc/on_unset_gun_interaction()
+	SIGNAL_HANDLER
+	mounted.on_unset_interaction_vc(buckled_mob)
+	message_admins("UNset [buckled_mob]'s gun interaction on [mounted] at [AREACOORD(src)].")
 
 /obj/structure/bed/chair/stroller/proc/update_gun_dir()
 	mounted.setDir(dir)
 
-// Действие для захода за пулемет обратно
-/datum/action/human_action/mg_enter
-	name = "Enter MG"
+// =======================================
+// Пулеметные проки
+
+/obj/structure/machinery/m56d_hmg/proc/on_set_interaction_vc(mob/user)
+	//ADD_TRAIT(user, TRAIT_IMMOBILIZED, INTERACTION_TRAIT)
+	give_action(user, /datum/action/human_action/mg_exit_vc)
+	remove_action(user, /datum/action/human_action/mg_enter_vc)
+	user.setDir(dir)
+	user.reset_view(src)
+	user.status_flags |= IMMOBILE_ACTION
+	user.visible_message(SPAN_NOTICE("[user] mans [src]."), SPAN_NOTICE("You man [src], locked and loaded!"))
+
+	RegisterSignal(user, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION), PROC_REF(exit_interaction))
+	RegisterSignal(user, COMSIG_MOB_MOUSEDOWN, PROC_REF(start_fire))
+	RegisterSignal(user, COMSIG_MOB_MOUSEDRAG, PROC_REF(change_target))
+	RegisterSignal(user, COMSIG_MOB_MOUSEUP, PROC_REF(stop_fire))
+
+	operator = user
+	update_mouse_pointer(operator, TRUE)
+	flags_atom |= RELAY_CLICK
+
+/obj/structure/machinery/m56d_hmg/proc/on_unset_interaction_vc(mob/user)
+	//REMOVE_TRAIT(user, TRAIT_IMMOBILIZED, INTERACTION_TRAIT)
+	give_action(user, /datum/action/human_action/mg_enter_vc)
+	remove_action(user, /datum/action/human_action/mg_exit_vc)
+	user.setDir(dir) //set the direction of the player to the direction the gun is facing
+	user.reset_view(null)
+	user.status_flags &= ~IMMOBILE_ACTION
+	user.visible_message(SPAN_NOTICE("[user] lets go of [src]."), SPAN_NOTICE("You let go of [src], letting the gun rest."))
+	user.remove_temp_pass_flags(PASS_MOB_THRU) // this is necessary because being knocked over while using the gun makes you incorporeal
+
+	SEND_SIGNAL(src, COMSIG_GUN_INTERRUPT_FIRE)
+	UnregisterSignal(user, list(
+		COMSIG_MOB_RESISTED,
+		COMSIG_MOB_DEATH,
+		COMSIG_LIVING_SET_BODY_POSITION,
+		COMSIG_MOB_MOUSEUP,
+		COMSIG_MOB_MOUSEDOWN,
+		COMSIG_MOB_MOUSEDRAG,
+	))
+
+	if(operator == user) //We have no operator now
+		operator = null
+	flags_atom &= ~RELAY_CLICK
+
+// =======================================
+// Действие для захода за пулемет
+/datum/action/human_action/mg_enter_vc
+	name = "Использовать орудие"
 	action_icon_state = "frontline_toggle_on"
 
-/datum/action/human_action/mg_enter/action_activate()
+/datum/action/human_action/mg_enter_vc/action_activate()
 	. = ..()
 	if(!can_use_action())
 		return
 
 	var/mob/living/carbon/human/human_user = owner
-	SEND_SIGNAL(human_user, COMSIG_MOB_MG_ENTER)
+	SEND_SIGNAL(human_user, COMSIG_MOB_MG_ENTER_VC)
+
+
+/datum/action/human_action/mg_exit_vc
+	name = "Отставить орудие"
+	action_icon_state = "cancel_view"
+
+/datum/action/human_action/mg_exit_vc/action_activate()
+	. = ..()
+	if(!can_use_action())
+		return
+
+	var/mob/living/carbon/human/human_user = owner
+	SEND_SIGNAL(human_user, COMSIG_MOB_MG_EXIT_VC)
+
+
 
 #undef COMSIG_MOB_MG_EXIT

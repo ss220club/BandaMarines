@@ -41,6 +41,13 @@
 	wrench_time = 5
 	welder_health = 200
 
+/obj/vehicle/motorbike/debug/New(loc, skin, create_stroller = TRUE)
+	. = ..(loc, skin, create_stroller = FALSE)
+	if(create_stroller)
+		stroller = new /obj/structure/bed/chair/stroller/debug(src, icon_skin)
+		update_stroller(TRUE)
+	update_overlay()
+
 /obj/structure/bed/chair/stroller/debug
 	name = "Коляска главного инженера"
 	desc = "Эта коляска сделана из пластитаниума. Разве такой материал вообще существует?"
@@ -48,4 +55,6 @@
 	maxhealth = 1000000
 	icon_skin = "urban"
 	buckle_time = 0.5 SECONDS
+	mounted_time_to_disassembly = 0.5 SECONDS
+	mounted_time_to_assembly = 0.5 SECONDS
 	welder_health = 200

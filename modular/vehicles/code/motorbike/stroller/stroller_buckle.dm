@@ -24,7 +24,7 @@
 	if(connected)
 		push_to_left_side(buckled_mob)
 	update_drag_delay()
-	update_mob_gun_signal()
+	update_mob_gun_signal(TRUE)
 	. = ..()
 
 // ==========================================
