@@ -12,7 +12,7 @@
 /datum/chem_property/negative/hypoxemic
 	name = PROPERTY_HYPOXEMIC
 	code = "HPX"
-	description = "Reacts with hemoglobin in red blood cells preventing oxygen from being absorbed, resulting in hypoxemia."
+	description = "Реагирует с гемоглобином в эритроцитах, препятствуя поглощению кислорода, что приводит к гипоксемии."
 	rarity = PROPERTY_COMMON
 	value = -1
 
@@ -32,7 +32,7 @@
 /datum/chem_property/negative/toxic
 	name = PROPERTY_TOXIC
 	code = "TXC"
-	description = "Poisonous substance which causes harm on contact with or through absorption by organic tissues, resulting in bad health or severe illness."
+	description = "Ядовитое вещество, которое причиняет вред при контакте с органическими тканями или в результате поглощения ими, приводя к ухудшению здоровья или тяжелым заболеваниям."
 	rarity = PROPERTY_COMMON
 	starter = TRUE
 	value = -1
@@ -84,7 +84,7 @@
 /datum/chem_property/negative/corrosive
 	name = PROPERTY_CORROSIVE
 	code = "CRS"
-	description = "Damages or destroys other substances on contact through a chemical reaction. Causes chemical burns on contact with living tissue."
+	description = "Повреждает или уничтожает другие вещества при контакте в результате химической реакции. Вызывает химические ожоги при контакте с живыми тканями."
 	rarity = PROPERTY_COMMON
 	starter = TRUE
 	value = 1 //has a combat use
@@ -109,27 +109,27 @@
 			var/mob/living/carbon/human/H = M
 			if(H.head)
 				if(prob(meltprob) && !H.head.unacidable)
-					to_chat(H, SPAN_DANGER("Your headgear melts away but protects you from the acid!"))
+					to_chat(H, SPAN_DANGER("Ваш головной убор тает, но защищает вас от кислоты!"))
 					qdel(H.head)
 					H.update_inv_head(0)
 					H.update_hair(0)
 				else
-					to_chat(H, SPAN_WARNING("Your headgear protects you from the acid."))
+					to_chat(H, SPAN_WARNING("Ваш головной убор защитит вас от кислоты."))
 				return
 
 			if(H.wear_mask)
 				if(prob(meltprob) && !H.wear_mask.unacidable)
-					to_chat(H, SPAN_DANGER("Your mask melts away but protects you from the acid!"))
+					to_chat(H, SPAN_DANGER("Ваша маска тает, но защищает вас от кислоты!"))
 					qdel(H.wear_mask)
 					H.update_inv_wear_mask(0)
 					H.update_hair(0)
 				else
-					to_chat(H, SPAN_WARNING("Your mask protects you from the acid."))
+					to_chat(H, SPAN_WARNING("Ваша маска защищает вас от кислоты."))
 				return
 
 			if(H.glasses)
 				if(prob(meltprob) && !H.glasses.unacidable)
-					to_chat(H, SPAN_DANGER("Your glasses melts away!"))
+					to_chat(H, SPAN_DANGER("Ваши очки тают!"))
 					qdel(H.glasses)
 					H.update_inv_glasses(0)
 				return
@@ -168,7 +168,7 @@
 /datum/chem_property/negative/biocidic
 	name = PROPERTY_BIOCIDIC
 	code = "BCD"
-	description = "Ruptures cell membranes on contact, destroying most types of organic tissue."
+	description = "При контакте разрывает клеточные мембраны, разрушая большинство типов органических тканей."
 	rarity = PROPERTY_COMMON
 	starter = TRUE
 	value = -1
@@ -186,7 +186,7 @@
 /datum/chem_property/negative/paining
 	name = PROPERTY_PAINING
 	code = "PNG"
-	description = "Activates the somatosensory system causing neuropathic pain all over the body. Unlike nociceptive pain, this is not caused to any tissue damage and is solely perceptive."
+	description = "Активирует соматосенсорную систему, вызывая нейропатическую боль во всем теле. В отличие от ноцицептивной боли, она не вызывает повреждения тканей и носит исключительно перцептивный характер."
 	rarity = PROPERTY_UNCOMMON
 	category = PROPERTY_TYPE_STIMULANT
 	value = -1
@@ -215,7 +215,7 @@
 /datum/chem_property/negative/hemolytic
 	name = PROPERTY_HEMOLYTIC
 	code = "HML"
-	description = "Causes intravascular hemolysis, resulting in the destruction of erythrocytes (red blood cells) in the bloodstream. This can result in Hemoglobinemia, where a high concentration of hemoglobin is released into the blood plasma."
+	description = "Вызывает внутрисосудистый гемолиз, приводящий к разрушению эритроцитов в кровотоке. Это может привести к гемоглобинемии, при которой высокая концентрация гемоглобина попадает в плазму крови."
 	rarity = PROPERTY_UNCOMMON
 
 /datum/chem_property/negative/hemolytic/process(mob/living/M, potency = 1, delta_time)
@@ -242,7 +242,7 @@
 /datum/chem_property/negative/hemorrhaging
 	name = PROPERTY_HEMORRAGING
 	code = "HMR"
-	description = "Ruptures endothelial cells making up bloodvessels, causing blood to escape from the circulatory system."
+	description = "Разрыв эндотелиальных клеток, составляющих кровеносные сосуды, вызывая утечку крови из системы кровообращения."
 	rarity = PROPERTY_UNCOMMON
 	value = 2
 	cost_penalty = FALSE
@@ -286,7 +286,7 @@
 /datum/chem_property/negative/carcinogenic
 	name = PROPERTY_CARCINOGENIC
 	code = "CRG"
-	description = "Penetrates the cell nucleus causing direct damage to the deoxyribonucleic acid in cells resulting in cancer and abnormal cell proliferation. In extreme cases causing hyperactive apoptosis and potentially atrophy."
+	description = "Проникает в ядро ​​клетки, вызывая прямое повреждение дезоксирибонуклеиновой кислоты в клетках, что приводит к раку и аномальной пролиферации клеток. В крайних случаях вызывает гиперактивный апоптоз и потенциально атрофию."
 	rarity = PROPERTY_COMMON
 
 /datum/chem_property/negative/carcinogenic/process(mob/living/M, potency = 1, delta_time)
@@ -302,7 +302,7 @@
 /datum/chem_property/negative/hepatotoxic
 	name = PROPERTY_HEPATOTOXIC
 	code = "HPT"
-	description = "Damages hepatocytes in the liver, resulting in liver deterioration and eventually liver failure."
+	description = "Повреждает гепатоциты печени, что приводит к ухудшению состояния печени и, в конечном итоге, к печеночной недостаточности."
 	rarity = PROPERTY_UNCOMMON
 
 /datum/chem_property/negative/hepatotoxic/process(mob/living/M, potency = 1, delta_time)
@@ -320,7 +320,7 @@
 /datum/chem_property/negative/intravenous
 	name = PROPERTY_INTRAVENOUS
 	code = "INV"
-	description = "Due to chemical composition, this chemical can only be administered intravenously."
+	description = "Из-за химического состава это химическое вещество можно вводить только внутривенно."
 	rarity = PROPERTY_COMMON
 	category = PROPERTY_TYPE_METABOLITE
 	max_level = 1
@@ -336,7 +336,7 @@
 /datum/chem_property/negative/nephrotoxic
 	name = PROPERTY_NEPHROTOXIC
 	code = "NPT"
-	description = "Causes deterioration and damage to podocytes in the kidney resulting in potential kidney failure."
+	description = "Вызывает ухудшение состояния и повреждение подоцитов в почках, что может привести к почечной недостаточности."
 	rarity = PROPERTY_UNCOMMON
 
 /datum/chem_property/negative/nephrotoxic/process(mob/living/M, potency = 1, delta_time)
@@ -354,7 +354,7 @@
 /datum/chem_property/negative/pneumotoxic
 	name = PROPERTY_PNEUMOTOXIC
 	code = "PNT"
-	description = "Toxic substance which causes damage to connective tissue that forms the support structure (the interstitium) of the alveoli in the lungs."
+	description = "Токсическое вещество, вызывающее повреждение соединительной ткани, образующей опорную структуру (интерстиций) альвеол в легких."
 	rarity = PROPERTY_UNCOMMON
 
 /datum/chem_property/negative/pneumotoxic/process(mob/living/M, potency = 1, delta_time)
@@ -372,7 +372,7 @@
 /datum/chem_property/negative/oculotoxic
 	name = PROPERTY_OCULOTOXIC
 	code = "OCT"
-	description = "Damages the photoreceptive cells in the eyes impairing neural transmissions to the brain, resulting in loss of sight or blindness."
+	description = "Повреждает фоторецепторные клетки глаз, нарушая нервную передачу в мозг, что приводит к потере зрения или слепоте."
 	rarity = PROPERTY_UNCOMMON
 
 /datum/chem_property/negative/oculotoxic/process(mob/living/M, potency = 1, delta_time)
@@ -393,7 +393,7 @@
 /datum/chem_property/negative/cardiotoxic
 	name = PROPERTY_CARDIOTOXIC
 	code = "CDT"
-	description = "Attacks cardiomyocytes when passing through the heart in the bloodstream. This disrupts the cardiac cycle and can lead to cardiac arrest."
+	description = "Атакует кардиомиоциты при прохождении через сердце в кровотоке. Это нарушает сердечный цикл и может привести к остановке сердца."
 	rarity = PROPERTY_COMMON
 
 /datum/chem_property/negative/cardiotoxic/process(mob/living/M, potency = 1, delta_time)
@@ -411,7 +411,7 @@
 /datum/chem_property/negative/neurotoxic
 	name = PROPERTY_NEUROTOXIC
 	code = "NRT"
-	description = "Breaks down neurons causing widespread damage to the central nervous system and brain functions. Exposure may cause disorientation or unconsciousness to affected persons."
+	description = "Разрушает нейроны, вызывая обширные повреждения центральной нервной системы и функций мозга. Воздействие может вызвать дезориентацию или потерю сознания у пострадавших."
 	rarity = PROPERTY_COMMON
 	category = PROPERTY_TYPE_TOXICANT|PROPERTY_TYPE_STIMULANT
 	cost_penalty = FALSE
@@ -435,7 +435,7 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/human = M
 		human.Daze(potency * volume * POTENCY_MULTIPLIER_VLOW)
-		to_chat(human, SPAN_WARNING("You start to go numb."))
+		to_chat(human, SPAN_WARNING("Ты начинаешь неметь."))
 	if(isxeno(M))
 		var/mob/living/carbon/xenomorph/xeno = M
 		xeno.AddComponent(/datum/component/status_effect/daze, volume * potency * POTENCY_MULTIPLIER_LOW, 30)
@@ -443,7 +443,7 @@
 /datum/chem_property/negative/hypermetabolic
 	name = PROPERTY_HYPERMETABOLIC
 	code = "EMB"
-	description = "Takes less time for this chemical to metabolize, resulting in it being in the bloodstream for less time per unit."
+	description = "Для метаболизма этого химического вещества требуется меньше времени, в результате чего оно находится в кровотоке меньше времени на единицу."
 	rarity = PROPERTY_UNCOMMON
 	category = PROPERTY_TYPE_METABOLITE
 
@@ -458,7 +458,7 @@
 /datum/chem_property/negative/addictive
 	name = PROPERTY_ADDICTIVE
 	code = "ADT"
-	description = "Causes addiction. Higher potency results in a higher chance of causing an addiction when metabolized."
+	description = "Вызывает зависимость. Более высокая эффективность приводит к более высокому шансу вызвать зависимость при метаболизме."
 	rarity = PROPERTY_RARE
 	category = PROPERTY_TYPE_STIMULANT
 
@@ -483,7 +483,7 @@
 /datum/chem_property/negative/hemositic
 	name = PROPERTY_HEMOSITIC
 	code = "HST"
-	description = "The chemical shows parasitic behavior towards live erythrocytes (red blood cells) in order to produce more of itself."
+	description = "Химическое вещество проявляет паразитическое поведение по отношению к живым эритроцитам (красным кровяным тельцам), чтобы производить больше самого себя."
 	rarity = PROPERTY_DISABLED
 	category = PROPERTY_TYPE_REACTANT|PROPERTY_TYPE_ANOMALOUS
 	value = 1
@@ -515,7 +515,7 @@
 /datum/chem_property/negative/igniting
 	name = PROPERTY_IGNITING
 	code = "IGT"
-	description = "The chemical appears capable of self-igniting on contact with most materials."
+	description = "Химическое вещество способно самовоспламеняться при контакте с большинством материалов."
 	rarity = PROPERTY_DISABLED
 	category = PROPERTY_TYPE_REACTANT|PROPERTY_TYPE_COMBUSTIBLE
 	value = 1
@@ -525,4 +525,4 @@
 
 	reacting_mob.adjust_fire_stacks(max(reacting_mob.fire_stacks, potency * 30))
 	reacting_mob.IgniteMob(TRUE)
-	to_chat(reacting_mob, SPAN_DANGER("It burns! It burns worse than you could ever have imagined!"))
+	to_chat(reacting_mob, SPAN_DANGER("Оно горит! Он горит хуже, чем вы могли себе представить!"))

@@ -6,7 +6,7 @@
 /datum/chem_property/special/boosting
 	name = PROPERTY_BOOSTING
 	code = "BST"
-	description = "Boosts the potency of all other properties in this chemical when inside the body by 0.5 levels for every level that this property has."
+	description = "Повышает эффективность всех других свойств этого химического вещества в организме на 0,5 уровня за каждый уровень этого свойства."
 	rarity = PROPERTY_LEGENDARY
 	category = PROPERTY_TYPE_METABOLITE
 
@@ -16,7 +16,7 @@
 /datum/chem_property/special/hypergenetic
 	name = PROPERTY_HYPERGENETIC
 	code = "HGN"
-	description = "Regenerates all types of cell membranes mending damage in all organs and limbs."
+	description = "Регенерирует все типы клеточных мембран, устраняя повреждения во всех органах и конечностях."
 	rarity = PROPERTY_LEGENDARY
 	category = PROPERTY_TYPE_MEDICINE
 
@@ -48,7 +48,7 @@
 /datum/chem_property/special/organhealing
 	name = PROPERTY_ORGAN_HEALING
 	code = "OHG"
-	description = "Regenerates all types of cell membranes mending damage in all organs."
+	description = "Регенерирует все типы клеточных мембран, устраняя повреждения во всех органах."
 	rarity = PROPERTY_ADMIN
 	category = PROPERTY_TYPE_MEDICINE
 
@@ -68,7 +68,7 @@
 /datum/chem_property/special/DNA_Disintegrating
 	name = PROPERTY_DNA_DISINTEGRATING
 	code = "DDI"
-	description = "Immediately disintegrates the DNA of all organic cells it comes into contact with. This property is highly valued by WY."
+	description = "Немедленно разрушает ДНК всех органических клеток, с которыми вступает в контакт. Это свойство высоко ценится WY."
 	rarity = PROPERTY_LEGENDARY
 	category = PROPERTY_TYPE_TOXICANT|PROPERTY_TYPE_ANOMALOUS
 	value = 16
@@ -82,7 +82,7 @@
 /datum/chem_property/special/DNA_Disintegrating/trigger()
 	SSticker.mode.get_specific_call(/datum/emergency_call/goon/chem_retrieval, TRUE, FALSE, holder.name) // "Weyland-Yutani Goon (Chemical Investigation Squad)"
 	GLOB.chemical_data.update_credits(10)
-	message_admins("The research department has discovered DNA_Disintegrating in [holder.name] adding 10 bonus tech points.")
+	message_admins("Исследовательский отдел обнаружил DNA_Disintegrating в [holder.name], добавивший 10 бонусных технических очков.")
 	var/datum/techtree/tree = GET_TREE(TREE_MARINE)
 	tree.add_points(10)
 	ai_announcement("УВЕДОМЛЕНИЕ: Получена зашифрованная передача данных от ККС \"Ройс\". Шаттл на подходе.")
@@ -90,7 +90,7 @@
 /datum/chem_property/special/ciphering
 	name = PROPERTY_CIPHERING
 	code = "CIP"
-	description = "This extremely complex chemical structure represents some kind of biological cipher."
+	description = "Эта чрезвычайно сложная химическая структура представляет собой своего рода биологический шифр."
 	rarity = PROPERTY_DISABLED
 	category = PROPERTY_TYPE_ANOMALOUS
 	value = 16
@@ -128,7 +128,7 @@
 	if((E.flags_embryo & FLAG_EMBRYO_PREDATOR) && E.hivenumber == GLOB.hive_datum[level])
 		return
 
-	E.visible_message(SPAN_DANGER("\the [E] rapidly mutates"))
+	E.visible_message(SPAN_DANGER("\the [E] быстро мутирует"))
 
 	playsound(E, 'sound/effects/attackblob.ogg', 25, TRUE)
 
@@ -139,7 +139,7 @@
 /datum/chem_property/special/crossmetabolizing
 	name = PROPERTY_CROSSMETABOLIZING
 	code = "XMB"
-	description = "Can be metabolized in certain non-human species."
+	description = "Может метаболизироваться у некоторых видов, кроме человека."
 	rarity = PROPERTY_ADMIN
 	category = PROPERTY_TYPE_METABOLITE|PROPERTY_TYPE_ANOMALOUS|PROPERTY_TYPE_CATALYST
 	value = 666
@@ -157,7 +157,7 @@
 /datum/chem_property/special/embryonic
 	name = PROPERTY_EMBRYONIC
 	code = "MYO"
-	description = "The chemical agent carries causes an infection of type REDACTED parasitic embryonic organism."
+	description = "Химический агент вызывает инфекцию типа ######## паразитарного эмбрионального организма."
 	rarity = PROPERTY_ADMIN
 	category = PROPERTY_TYPE_ANOMALOUS
 	value = 666
@@ -176,7 +176,7 @@
 /datum/chem_property/special/transforming
 	name = PROPERTY_TRANSFORMING
 	code = "HGN"
-	description = "The chemical agent carries REDACTED, altering the host psychologically and physically."
+	description = "Химический агент несет в себе ########, изменяя носителя психологически и физически."
 	rarity = PROPERTY_ADMIN
 	category = PROPERTY_TYPE_ANOMALOUS
 	value = 666
@@ -190,7 +190,7 @@
 /datum/chem_property/special/ravening
 	name = PROPERTY_RAVENING
 	code = "RAV"
-	description = "The chemical agent carries the X-65 biological organism."
+	description = "Химический агент несет в себе биологический организм Х-65."
 	rarity = PROPERTY_ADMIN
 	category = PROPERTY_TYPE_ANOMALOUS
 	value = 666
@@ -204,7 +204,7 @@
 /datum/chem_property/special/curing
 	name = PROPERTY_CURING
 	code = "CUR"
-	description = "Binds to and neutralizes specific microbiological organisms."
+	description = "Связывается и нейтрализует определенные микробиологические организмы."
 	rarity = PROPERTY_ADMIN
 	category = PROPERTY_TYPE_MEDICINE|PROPERTY_TYPE_ANOMALOUS
 	value = 666
@@ -231,7 +231,7 @@
 /datum/chem_property/special/omnipotent
 	name = PROPERTY_OMNIPOTENT
 	code = "OMN"
-	description = "Fully revitalizes all bodily functions."
+	description = "Полностью оживляет все функции организма."
 	rarity = PROPERTY_ADMIN
 	category = PROPERTY_TYPE_MEDICINE|PROPERTY_TYPE_ANOMALOUS
 	value = 666
@@ -272,7 +272,7 @@
 /datum/chem_property/special/radius
 	name = PROPERTY_RADIUS
 	code = "RAD"
-	description = "Controls the radius of a fire, using unknown means"
+	description = "Контролирует радиус огня неизвестными способами."
 	rarity = PROPERTY_ADMIN
 	category = PROPERTY_TYPE_REACTANT|PROPERTY_TYPE_UNADJUSTABLE
 	value = 666
@@ -296,7 +296,7 @@
 /datum/chem_property/special/intensity
 	name = PROPERTY_INTENSITY
 	code = "INT"
-	description = "Controls the intensity of a fire, using unknown means"
+	description = "Контролирует интенсивность огня неизвестными способами."
 	rarity = PROPERTY_ADMIN
 	category = PROPERTY_TYPE_REACTANT|PROPERTY_TYPE_UNADJUSTABLE
 	value = 666
@@ -318,7 +318,7 @@
 /datum/chem_property/special/duration
 	name = PROPERTY_DURATION
 	code = "DUR"
-	description = "Controls the duration of a fire, using unknown means"
+	description = "Контролирует продолжительность пожара неизвестными способами."
 	rarity = PROPERTY_ADMIN
 	category = PROPERTY_TYPE_REACTANT|PROPERTY_TYPE_UNADJUSTABLE
 	value = 666
