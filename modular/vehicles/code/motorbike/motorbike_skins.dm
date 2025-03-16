@@ -47,5 +47,5 @@
 	health = 1000000
 	maxhealth = 1000000
 	icon_skin = "urban"
-	buckle_time = 1 SECONDS
+	buckle_time = 0.5 SECONDS
 	welder_health = 200
