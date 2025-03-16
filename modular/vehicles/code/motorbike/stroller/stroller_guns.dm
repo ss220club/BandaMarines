@@ -60,7 +60,7 @@
 		var/obj/item/device/m56d_gun/D = O
 		if(D.has_mount)
 			to_chat(user, SPAN_NOTICE("Вы отсоединили станок от [D.name]."))
-			/obj/item/device/m56d_post = new(user.loc)
+			new /obj/item/device/m56d_post(user.loc)
 		var/obj/structure/machinery/m56d_hmg/G = new(src)
 		mounted = G
 		mounted_type = D.type
