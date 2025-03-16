@@ -39,6 +39,14 @@
 		to_chat(unlocking_mob, SPAN_WARNING("You cannot purchase this node before [ceil((NUKE_UNLOCK_TIME + SSticker.round_start_time) / (1 MINUTES))] minutes into the operation."))
 		return FALSE
 
+	// SS220 EDIT - START
+	var/marines_count = SSticker.mode.count_marines() // Подсчитываем маринов на земле и на корабле
+	var/marines_peak = GLOB.peak_humans * CONFIG_GET(number/nuclear_lock_marines_percentage) / 100
+	if(marines_count >= marines_peak)
+		to_chat(unlocking_mob, SPAN_WARNING("Вы не можете запросить устройство ядерной аутентификации, пока живо больше чем [marines_peak] морпехов и экипажа USCM на этой операции."))
+		return FALSE
+	// SS220 EDIT - END
+
 	return TRUE
 
 /datum/tech/nuke/proc/handle_description()

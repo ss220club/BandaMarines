@@ -439,7 +439,7 @@
 			var/marines_count = SSticker.mode.count_marines() // Подсчитываем маринов на земле и на корабле
 			var/marines_peak = GLOB.peak_humans * CONFIG_GET(number/nuclear_lock_marines_percentage) / 100
 			if(marines_count >= marines_peak)
-				to_chat(user, SPAN_WARNING("В запросе ядерного устройства отказано! На земле еще еще слишком много живых морпехов!"))
+				to_chat(user, SPAN_WARNING("В запросе ядерного устройства отказано! На этой операции еще еще слишком много живых морпехов и экипажа USCM!"))
 				playsound(src, 'sound/machines/buzz-two.ogg', 15, 1)
 				return FALSE
 			// SS220 EDIT - END
