@@ -82,7 +82,7 @@
 /datum/chem_property/special/DNA_Disintegrating/trigger()
 	SSticker.mode.get_specific_call(/datum/emergency_call/goon/chem_retrieval, TRUE, FALSE, holder.name) // "Weyland-Yutani Goon (Chemical Investigation Squad)"
 	GLOB.chemical_data.update_credits(10)
-	message_admins("Исследовательский отдел обнаружил DNA_Disintegrating в [holder.name], добавивший 10 бонусных технических очков.")
+	message_admins("Исследовательский отдел обнаружил DNA_Disintegrating в [holder.name], тем самым добавляя 10 бонусных технических очков.")
 	var/datum/techtree/tree = GET_TREE(TREE_MARINE)
 	tree.add_points(10)
 	ai_announcement("УВЕДОМЛЕНИЕ: Получена зашифрованная передача данных от ККС \"Ройс\". Шаттл на подходе.")
