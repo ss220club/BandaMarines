@@ -525,4 +525,4 @@
 
 	reacting_mob.adjust_fire_stacks(max(reacting_mob.fire_stacks, potency * 30))
 	reacting_mob.IgniteMob(TRUE)
-	to_chat(reacting_mob, SPAN_DANGER("Оно горит! Он горит хуже, чем вы могли себе представить!"))
+	to_chat(reacting_mob, SPAN_DANGER("Горим! Жарит хуже, чем вы могли себе представить!"))
