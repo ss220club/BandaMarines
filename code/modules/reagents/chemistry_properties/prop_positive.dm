@@ -610,7 +610,7 @@
 		if(ghost?.client)
 			COOLDOWN_START(src, ghost_notif, 30 SECONDS)
 			playsound_client(ghost.client, 'sound/effects/adminhelp_new.ogg')
-			to_chat(ghost, SPAN_BOLDNOTICE("Ваше сердце изо всех сил пытается качать кровь! Есть шанс, что ты встанешь!(Verbs -> Ghost -> Re-enter corpse, or <a href='byond://?src=\ref[ghost];reentercorpse=1'>click here!</a>)"))
+			to_chat(ghost, SPAN_BOLDNOTICE("Ваше сердце изо всех сил пытается качать кровь! Есть шанс, что вы встанете!(Verbs -> Ghost -> Re-enter corpse, или <a href='byond://?src=\ref[ghost];reentercorpse=1'>нажмите здесь!</a>)"))
 	return TRUE
 
 /datum/chem_property/positive/hyperdensificating
