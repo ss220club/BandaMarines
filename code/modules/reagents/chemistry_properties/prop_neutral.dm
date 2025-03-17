@@ -418,7 +418,7 @@
 				to_chat(M, SPAN_NOTICE("Твой разум кажется стабильным... немного стабильным."))
 				M.confused = max(M.confused-1,0)
 			else if(potency == 2)
-				to_chat(M, SPAN_NOTICE("Твой разум кажется сосредоточенным и неделимым."))
+				to_chat(M, SPAN_NOTICE("Ваш разум кажется сосредоточенным и неделимым."))
 				M.confused = max(M.confused-2,0)
 			else if(potency == 3)
 				to_chat(M, SPAN_NOTICE("Ваш разум кажется гораздо более стабильным."))
