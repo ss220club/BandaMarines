@@ -410,7 +410,7 @@
 		else if(potency == 3)
 			to_chat(M, SPAN_WARNING("Ваш разум кажется гораздо менее стабильным..."))
 		else
-			to_chat(M, SPAN_WARNING("Ты теряешь идеальную концентрацию..."))
+			to_chat(M, SPAN_WARNING("Вы теряете свою совершенную сосредоточенность..."))
 	else
 		if(world.time > holder.data + ANTIDEPRESSANT_MESSAGE_DELAY)
 			holder.data = world.time
