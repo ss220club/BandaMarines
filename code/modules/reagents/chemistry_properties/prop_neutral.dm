@@ -371,7 +371,7 @@
 
 /datum/chem_property/neutral/euphoric/process_critical(mob/living/M, potency = 1)
 	M.apply_damage(POTENCY_MULTIPLIER_VHIGH * potency, OXY)
-	to_chat(M, SPAN_WARNING("Ты так смеешься, что не можешь дышать!"))
+	to_chat(M, SPAN_WARNING("Вы так смеётесь, что не можешь дышать!"))
 
 /datum/chem_property/neutral/emetic
 	name = PROPERTY_EMETIC
