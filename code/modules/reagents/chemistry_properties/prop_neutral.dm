@@ -510,7 +510,7 @@
 	if(H.chem_effect_flags & CHEM_EFFECT_HYPER_THROTTLE)
 		return
 	H.chem_effect_flags |= CHEM_EFFECT_HYPER_THROTTLE
-	to_chat(M, SPAN_NOTICE("Вы чувствуете, что находитесь во сне. Как будто мир стоит на месте."))
+	to_chat(M, SPAN_NOTICE("Вы чувствуете, что находитесь словно во сне. Как будто сам мир остановился."))
 	M.universal_understand = TRUE //Brain is working so fast it can understand the intension of everything it hears
 
 /datum/chem_property/neutral/hyperthrottling/process_overdose(mob/living/M, potency = 1, delta_time)
