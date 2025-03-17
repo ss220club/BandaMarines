@@ -294,7 +294,7 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if((H.h_style != "Bald" || H.f_style != "Shaved"))
-			to_chat(M, SPAN_WARNING("У тебя выпадают волосы!"))
+			to_chat(M, SPAN_WARNING("У вас выпадают волосы!"))
 			H.h_style = "Bald"
 			H.f_style = "Shaved"
 			H.update_hair()
