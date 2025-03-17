@@ -3,6 +3,8 @@
 #include "code/vehicle.dm"
 
 #include "code/motorbike/motorbike.dm"
+#include "code/motorbike/bike/motorbile_sound.dm"
+#include "code/motorbike/bike/motorbike_verbs.dm"
 #include "code/motorbike/bike/motorbike_buckle.dm"
 #include "code/motorbike/bike/motorbike_actions.dm"
 #include "code/motorbike/bike/motorbike_health.dm"

@@ -5,3 +5,11 @@
 		return FALSE
 	if(..())
 		update_stroller(src, TRUE)
+		play_start_sound()
+
+/obj/vehicle/motorbike/afterbuckle(mob/M)
+	. = ..()
+	if(buckled_mob)
+		add_vehicle_verbs(M)
+	else
+		remove_vehicle_verbs(M)
