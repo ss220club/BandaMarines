@@ -404,7 +404,7 @@
 	if(holder.volume <= 0.1 && holder.data != -1)
 		holder.data = -1
 		if(potency == 1)
-			to_chat(M, SPAN_WARNING("Твой разум кажется немного менее стабильным..."))
+			to_chat(M, SPAN_WARNING("Ваш разум кажется немного менее стабильным..."))
 		else if(potency == 2)
 			to_chat(M, SPAN_WARNING("Ты теряешь концентрацию..."))
 		else if(potency == 3)
