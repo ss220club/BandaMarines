@@ -435,7 +435,7 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/human = M
 		human.Daze(potency * volume * POTENCY_MULTIPLIER_VLOW)
-		to_chat(human, SPAN_WARNING("Ты начинаешь неметь."))
+		to_chat(human, SPAN_WARNING("Вы начинаете неметь."))
 	if(isxeno(M))
 		var/mob/living/carbon/xenomorph/xeno = M
 		xeno.AddComponent(/datum/component/status_effect/daze, volume * potency * POTENCY_MULTIPLIER_LOW, 30)
