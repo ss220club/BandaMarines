@@ -247,7 +247,7 @@
 /datum/chem_property/neutral/hyperthermic/process(mob/living/M, potency = 1, delta_time)
 	if(prob(5 * delta_time))
 		M.emote("gasp")
-		to_chat(M, SPAN_DANGER("<b>Внутри у вас неприятно жарко!</b>"))
+		to_chat(M, SPAN_DANGER("<b>Вы чувствуете неприятный жар внутри вас!</b>"))
 	M.bodytemperature = min(T120C, M.bodytemperature + POTENCY_MULTIPLIER_MEDIUM * potency)
 	if(potency >= CREATE_MAX_TIER_1)
 		M.make_dizzy(potency * POTENCY_MULTIPLIER_MEDIUM)
