@@ -405,7 +405,7 @@
 				var/total_knitting_time = world.time + L.time_to_knit - min(150*potency, L.time_to_knit - 50)
 				L.knitting_time = total_knitting_time
 				L.start_processing()
-				to_chat(M, SPAN_NOTICE("Вы чувствуете, как кости в вашей [L.display_name] начинают срастаться."))
+				to_chat(M, SPAN_NOTICE("Вы чувствуете, как кости в [L.declent_ru(DATIVE)] начинают срастаться."))
 
 /datum/chem_property/positive/bonemending/process_overdose(mob/living/M, potency = 1)
 	M.take_limb_damage(POTENCY_MULTIPLIER_MEDIUM*potency)
