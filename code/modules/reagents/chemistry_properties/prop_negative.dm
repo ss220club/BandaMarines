@@ -109,7 +109,7 @@
 			var/mob/living/carbon/human/H = M
 			if(H.head)
 				if(prob(meltprob) && !H.head.unacidable)
-					to_chat(H, SPAN_DANGER("Ваш головной убор тает, но защищает вас от кислоты!"))
+					to_chat(H, SPAN_DANGER("Ваш головной убор плавится, но защищает вас от кислоты!"))
 					qdel(H.head)
 					H.update_inv_head(0)
 					H.update_hair(0)
