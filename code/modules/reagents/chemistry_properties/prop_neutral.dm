@@ -424,7 +424,7 @@
 				to_chat(M, SPAN_NOTICE("Ваш разум кажется гораздо более стабильным."))
 				M.confused = max(M.confused-3,0)
 			else
-				to_chat(M, SPAN_NOTICE("Твой разум кажется совершенно сосредоточенным."))
+				to_chat(M, SPAN_NOTICE("Ваш разум кажется совершенно сосредоточенным."))
 				M.confused = 0
 
 /datum/chem_property/neutral/psychostimulating/process_overdose(mob/living/M, potency = 1, delta_time)
