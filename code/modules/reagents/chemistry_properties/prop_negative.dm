@@ -119,7 +119,7 @@
 
 			if(H.wear_mask)
 				if(prob(meltprob) && !H.wear_mask.unacidable)
-					to_chat(H, SPAN_DANGER("Ваша маска тает, но защищает вас от кислоты!"))
+					to_chat(H, SPAN_DANGER("Ваша маска плавится, но защищает вас от кислоты!"))
 					qdel(H.wear_mask)
 					H.update_inv_wear_mask(0)
 					H.update_hair(0)
