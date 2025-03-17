@@ -16,14 +16,14 @@
 
 	// Выпендреж
 	var/show_sound = 'modular/sounds/sound/vehicles/bike/sound_bike_show.ogg'
-	var/show_sound_delay = 3
+	var/show_sound_delay = 3 SECONDS
 	var/show_sound_vol = 20
 	var/show_sound_range = 45
 	var/next_show_sound_play = 0
 
 	// Гудок
 	var/honk_sound = 'sound/vehicles/honk_4_light.ogg'
-	var/honk_sound_delay = 1 //to prevent spamming
+	var/honk_sound_delay = 1 SECONDS //to prevent spamming
 	var/honk_sound_vol = 75
 	var/honk_sound_range = 15
 	var/next_honk_sound_play = 0
@@ -57,6 +57,9 @@
 	if(honk_sound && world.time > next_honk_sound_play)
 		playsound(loc, honk_sound, honk_sound_vol, TRUE, sound_range = honk_sound_range)
 		next_honk_sound_play = world.time + honk_sound_delay
+
+	if(honk_sound && world.time < honk_sound_delay)
+		to_chat(buckled_mob, SPAN_WARNING("Перед следующим гудком - подождите [(honk_sound_delay - world.time) / 10] секунд."))
 
 // ==========================================
 // ================ Выпендреж ===============

@@ -35,11 +35,11 @@
 	if(!istype(user))
 		return
 
-	if(world.time < honk_sound_delay)
-		to_chat(user, SPAN_WARNING("Перед следующим гудком - подождите [(honk_sound_delay - world.time) / 10] секунд."))
+	var/obj/vehicle/motorbike/M = user.buckled
+	if(!M)
 		return
 
-	play_honk_sound()
+	M.play_honk_sound()
 	to_chat(user, SPAN_NOTICE("Вы активировали гудок"))
 
 // Врум-врум!
@@ -52,7 +52,11 @@
 	if(!istype(user))
 		return
 
-	play_show_sound()
+	var/obj/vehicle/motorbike/M = user.buckled
+	if(!M)
+		return
+
+	M.play_show_sound()
 
 // Переименование ТС
 /obj/vehicle/motorbike/proc/name_vehicle()
@@ -64,11 +68,12 @@
 	if(!istype(user))
 		return
 
-	if(!istype(user.interactee, src.type))
+	var/obj/vehicle/motorbike/M = user.buckled
+	if(!M)
 		return
 
-	if(nickname)
-		to_chat(user, SPAN_WARNING("У вашего транспорта уже есть название - \"[nickname]\"."))
+	if(M.nickname)
+		to_chat(user, SPAN_WARNING("У вашего транспорта уже есть название - \"[M.nickname]\"."))
 		return
 
 	var/new_nickname = stripped_input(user,
@@ -87,17 +92,17 @@
 		return
 
 	//post-checks
-	if(!buckled_mob) //check that we are still in seat
+	if(!M.buckled_mob) //check that we are still in seat
 		to_chat(user, SPAN_WARNING("Вам необходимо сесть на ваш транспорт!"))
 		return
 
-	if(nickname) //check again if second VC was faster.
+	if(M.nickname) //check again if second VC was faster.
 		to_chat(user, SPAN_WARNING("Ваш транспорт уже был переименован!"))
 		return
 
-	nickname = new_nickname
-	name = initial(name) + " \"[nickname]\""
-	to_chat(user, SPAN_NOTICE("Вы назвали \"[nickname]\" ваш транспорт."))
+	M.nickname = new_nickname
+	M.name = initial(M.name) + " \"[nickname]\""
+	to_chat(user, SPAN_NOTICE("Вы назвали \"[M.nickname]\" ваш транспорт."))
 	remove_verb(user.client, /obj/vehicle/motorbike/proc/name_vehicle)
 
-	message_admins(WRAP_STAFF_LOG(user, "дал наименование \"[nickname]\" его [initial(name)]. ([x],[y],[z])"), x, y, z)
+	message_admins(WRAP_STAFF_LOG(user, "дал наименование \"[M.nickname]\" его [initial(M.name)]. ([M.x],[M.y],[M.z])"), M.x, M.y, M.z)
