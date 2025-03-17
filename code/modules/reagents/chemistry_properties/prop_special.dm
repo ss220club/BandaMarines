@@ -128,7 +128,7 @@
 	if((E.flags_embryo & FLAG_EMBRYO_PREDATOR) && E.hivenumber == GLOB.hive_datum[level])
 		return
 
-	E.visible_message(SPAN_DANGER("\the [E] быстро мутирует"))
+	E.visible_message(SPAN_DANGER("[capitalize(E.declent_ru(NOMINATIVE))] быстро мутирует."))
 
 	playsound(E, 'sound/effects/attackblob.ogg', 25, TRUE)
 
