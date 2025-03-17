@@ -129,7 +129,7 @@
 
 			if(H.glasses)
 				if(prob(meltprob) && !H.glasses.unacidable)
-					to_chat(H, SPAN_DANGER("Ваши очки тают!"))
+					to_chat(H, SPAN_DANGER("Ваши очки плавятся!"))
 					qdel(H.glasses)
 					H.update_inv_glasses(0)
 				return
