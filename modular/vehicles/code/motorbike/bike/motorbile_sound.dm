@@ -7,9 +7,9 @@
 
 	// Движение
 	var/movement_sound = 'modular/sounds/sound/vehicles/bike/sound_bike_move_fade.ogg'
-	var/move_sound_delay = 1 SECONDS
-	var/rotate_sound = 'modular/sounds/sound/vehicles/bike/sound_bike_rotate.ogg'
-	var/rotate_sound_delay = 1 SECONDS
+	var/move_sound_delay = 1 SECONDS	// 10 децисекунд ОК если FADE
+	var/rotate_sound = 'modular/sounds/sound/vehicles/bike/sound_bike_rotate_fade.ogg'
+	var/rotate_sound_delay = 7 DECISECONDS // на 3 децисекунды меньше
 	var/move_sound_vol = 20
 	var/move_sound_range = 30
 	var/next_move_sound_play = 0	//Cooldown for next sound to play
