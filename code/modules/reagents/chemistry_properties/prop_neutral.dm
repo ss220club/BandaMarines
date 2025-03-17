@@ -408,7 +408,7 @@
 		else if(potency == 2)
 			to_chat(M, SPAN_WARNING("Вы теряете сосредоточенность..."))
 		else if(potency == 3)
-			to_chat(M, SPAN_WARNING("Твой разум чувствует себя гораздо менее стабильным..."))
+			to_chat(M, SPAN_WARNING("Ваш разум кажется гораздо менее стабильным..."))
 		else
 			to_chat(M, SPAN_WARNING("Ты теряешь идеальную концентрацию..."))
 	else
