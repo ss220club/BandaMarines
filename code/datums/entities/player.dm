@@ -454,6 +454,11 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 		for(var/datum/entity/player_time/S in _stat)
 			LAZYSET(playtimes, S.role_id, S)
 
+	// BANDAMARINES ADD start
+	if(owning_client)
+		owning_client.check_panic_bunker()
+	// BANDAMARINES ADD end
+
 /datum/entity/player/proc/on_read_stats(list/datum/entity/player_stat/_stat)
 	if(_stat)
 		for(var/datum/entity/player_stat/S as anything in _stat)

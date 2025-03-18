@@ -258,11 +258,6 @@
 	if(!client)
 		return
 
-	// BANDAMARINES ADD start
-	if(client.player_data && client.check_panic_bunker())
-		return
-	// BANDAMARINES ADD end
-
 	client.playtitlemusic()
 
 	var/datum/tgui/ui = SStgui.get_open_ui(src, src)
