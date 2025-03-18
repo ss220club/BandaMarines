@@ -43,3 +43,8 @@
 		buckled_mob.layer = initial(buckled_mob.layer)
 	if(mounted)
 		update_gun_dir()
+
+/obj/structure/bed/chair/stroller/set_glide_size(target)
+	. = ..()
+	if(buckled_mob)
+		buckled_mob.set_glide_size(target)
