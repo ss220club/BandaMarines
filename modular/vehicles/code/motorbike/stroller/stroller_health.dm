@@ -2,6 +2,7 @@
 /obj/structure/bed/chair/stroller/proc/healthcheck(damage = 0)
 	if(health - damage <= 0)
 		disconnect()
+		update_mob_gun_signal(TRUE)
 		// После уничтожения - создается разрушенный каркас
 		new /obj/motorbike_destroyed/stroller(src.loc, icon_skin)
 		if(mounted)

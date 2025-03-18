@@ -67,7 +67,8 @@
 	drag_delay = FALSE
 
 /obj/structure/bed/chair/stroller/proc/disconnect()
-	UnregisterSignal(connected, COMSIG_MOVABLE_MOVED)
+	if(connected)
+		UnregisterSignal(connected, COMSIG_MOVABLE_MOVED)
 	reload_connected()
 	connected = null
 	density = !density
@@ -78,7 +79,6 @@
 
 /obj/structure/bed/chair/stroller/proc/handle_parent_move(atom/movable/mover, atom/oldloc, direction)
 	SIGNAL_HANDLER
-
 	forceMove(get_turf(mover))
 
 // ==========================================
