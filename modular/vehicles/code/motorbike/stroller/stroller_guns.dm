@@ -82,7 +82,7 @@
 		to_chat(user, SPAN_NOTICE("Вы установили [mounted.name] на коляску."))
 		update_overlay()
 		update_mob_gun_signal() // вдруг уже кто-то сидит
-		qdel(O)
+		QDEL_NULL(O)
 
 
 // Разборка
@@ -105,8 +105,7 @@
 	HMG.health = mounted.health
 	HMG.update_icon()
 
-	qdel(mounted)
-	mounted = null
+	QDEL_NULL(mounted)
 	update_overlay()
 	update_mob_gun_signal(TRUE) // вдруг уже кто-то сидит
 	return TRUE

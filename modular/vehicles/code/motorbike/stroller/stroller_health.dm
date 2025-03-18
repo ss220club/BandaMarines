@@ -7,7 +7,7 @@
 		if(mounted)
 			mounted.forceMove(src.loc)
 			mounted.update_health(mounted.health) // Разрушенный каркас, патроны и тому подобное
-		qdel(src)
+		QDEL_NULL(src)
 
 /obj/structure/bed/chair/stroller/update_health(damage = 0)
 	healthcheck(damage)

@@ -10,9 +10,6 @@
 /obj/vehicle/motorbike/proc/check_and_try_disasemble(damage = 0)
 	if(health - damage <= 0)
 		stroller.disconnect()
-		//vehicle is dead, no more lights
-		if(lighting_holder.light_range)
-			lighting_holder.set_light_on(FALSE)
 		QDEL_NULL(lighting_holder)
 		new /obj/motorbike_destroyed(src.loc, icon_skin)
 
