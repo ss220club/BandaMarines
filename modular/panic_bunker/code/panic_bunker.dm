@@ -14,5 +14,6 @@
 		message_admins(deny_message_admins)
 		to_chat_forced(src, SPAN_LARGE("PANIC BUNKER: Сервер сейчас находится в режиме бункера. Вам нужно нужно иметь больше отыгранных часов, чтобы зайти."))
 		QDEL_NULL(src)
+		return TRUE
 	else
 		msg_admin_niche("[key] - Passed Panic Bunker ([total_alive_playtime_hours]h)")
