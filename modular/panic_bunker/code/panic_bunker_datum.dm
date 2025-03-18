@@ -5,7 +5,7 @@
 
 	var/new_value = !CONFIG_GET(flag/panic_bunker_enabled)
 	CONFIG_SET(flag/panic_bunker_enabled, new_value)
-	log_and_alert("[key_name(client)] toggled Panic Bunker. New value - [new_value]")
+	message_admins("[key_name(client)] toggled Panic Bunker. New value - [new_value]")
 
 	update_panic_bunker_setting("panic_bunker_enabled", new_value)
 
@@ -19,7 +19,7 @@
 		return
 
 	CONFIG_SET(number/panic_bunker_min_alive_playtime_hours, new_hours)
-	log_and_alert("[key_name(client)] changed Panic Bunker hours. New value - [new_hours] hours")
+	message_admins("[key_name(client)] changed Panic Bunker hours. New value - [new_hours] hours")
 
 	update_panic_bunker_setting("panic_bunker_min_alive_playtime_hours", new_hours)
 
@@ -36,7 +36,7 @@
 			if(!new_ckey)
 				return
 			add_to_bypass(new_ckey, settings)
-			log_and_alert("[key_name(client)] added [new_ckey] to Panic Bunker Bypass list.")
+			message_admins("[key_name(client)] added [new_ckey] to Panic Bunker Bypass list.")
 			tgui_alert_async(client, "[new_ckey] added to Panic Bunker Bypass", "Success")
 		if("Remove")
 			if(!length(settings["panic_bunker_bypass_ckeys"]))
@@ -47,7 +47,7 @@
 			if(!remove_ckey)
 				return
 			remove_from_bypass(remove_ckey, settings)
-			log_and_alert("[key_name(client)] removed [remove_ckey] from Panic Bunker Bypass list.")
+			message_admins("[key_name(client)] removed [remove_ckey] from Panic Bunker Bypass list.")
 			tgui_alert_async(client, "[remove_ckey] removed from Panic Bunker Bypass", "Success")
 
 	save_panic_bunker_settings(settings)

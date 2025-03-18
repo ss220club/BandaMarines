@@ -4,10 +4,6 @@
 
 GLOBAL_LIST_EMPTY(panic_bunker_bypass)
 
-/proc/log_and_alert(message)
-    log_admin(message)
-    message_admins(message)
-
 /proc/safe_json_decode(data)
 	try
 		return json_decode(data)
@@ -32,7 +28,7 @@ GLOBAL_LIST_EMPTY(panic_bunker_bypass)
 /datum/controller/configuration/proc/LoadPanicBunker()
 	var/list/settings = READ_JSON_FILE(PANIC_BUNKER_SETTINGS_FILE)
 	if(!settings)
-		log_and_alert("Failed to load Panic Bunker Settings!")
+		message_admins("Failed to load Panic Bunker Settings!")
 		return
 	CONFIG_SET(flag/panic_bunker_enabled, settings["panic_bunker_enabled"])
 	CONFIG_SET(number/panic_bunker_min_alive_playtime_hours, settings["panic_bunker_min_alive_playtime_hours"])
