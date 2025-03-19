@@ -1,4 +1,3 @@
-/* RUCM CHANGE
 /obj/item/device/defibrillator
 	name = "emergency defibrillator"
 	desc = "A handheld emergency defibrillator, used to restore fibrillating patients. Can optionally bring people back from the dead."
@@ -220,7 +219,7 @@
 		playsound(get_turf(src), sound_charge_skill4, 25, 0)
 	else if(user.get_skill_duration_multiplier(SKILL_MEDICAL) == 0.75)
 		playsound(get_turf(src), sound_charge_skill3, 25, 0)
-	else 
+	else
 		playsound(get_turf(src), sound_charge, 25, 0) //Do NOT vary this tune, it needs to be precisely 7 seconds
 
 	//Taking square root not to make defibs too fast...
@@ -273,9 +272,6 @@
 	target.apply_damage(-damage_heal_threshold, TOX)
 	target.apply_damage(-damage_heal_threshold, CLONE)
 	target.apply_damage(-target.getOxyLoss(), OXY)
-//RUCM START
-	user.track_heal_damage(initial(name), H, damage_heal_threshold * 3)
-//RUCM END
 	target.updatehealth() //Needed for the check to register properly
 
 	if(!(target.species?.flags & NO_CHEM_METABOLIZATION))
@@ -291,9 +287,6 @@
 		playsound(get_turf(src), sound_success, 25, 0)
 		user.track_life_saved(user.job)
 		user.life_revives_total++
-//RUCM START
-		SEND_SIGNAL(user, COMSIG_HUMAN_USED_DEFIB, target)
-//RUCM END
 		target.handle_revive()
 		if(heart)
 			heart.take_damage(rand(min_heart_damage_dealt, max_heart_damage_dealt), TRUE) // Make death and revival leave lasting consequences
@@ -331,8 +324,8 @@
 	base_icon_state = "compact_defib"
 	w_class = SIZE_SMALL
 	charge_cost = 99
-*/
-/* RUCM REMOVE
+
+
 /obj/item/device/defibrillator/synthetic
 	name = "W-Y synthetic reset key"
 	desc = "Result of collaboration between Hyperdyne and Weyland-Yutani, this device can fix major glitches or programming errors of synthetic units, as well as being able to restart a synthetic that has suffered critical failure. It can only be used once before being reset."
@@ -428,5 +421,3 @@
 	icon_state = "makeshift_key"
 	should_spark = TRUE
 	sound_success = "sparks"
-
-*/
