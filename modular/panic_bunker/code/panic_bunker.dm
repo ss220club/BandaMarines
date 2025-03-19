@@ -1,4 +1,4 @@
-/datum/entity/player/proc/check_panic_bunker(address)
+/datum/entity/player/proc/check_panic_bunker()
 	if(ckey in GLOB.panic_bunker_bypass)
 		msg_admin_niche("[ckey] - Passed Panic Bunker (BYPASS)")
 		return
