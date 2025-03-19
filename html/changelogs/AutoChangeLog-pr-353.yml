@@ -1,0 +1,4 @@
+author: "Teteshnik1"
+delete-after: True
+changes:
+  - rscdel: "Ревертнули новые дефибы, вернулись к старым."
