@@ -13,10 +13,21 @@
 		QDEL_NULL(lighting_holder)
 		new /obj/motorbike_destroyed(src.loc, icon_skin)
 
-
 /obj/vehicle/motorbike/bullet_act(obj/projectile/P)
 	if(stroller && prob(hit_chance_connected) && stroller.get_projectile_hit_boolean(P))
 		return stroller.bullet_act(P)	// Приконекченная тележка задевается если задевать и мотоцикл
 	if(buckled_mob && prob(hit_chance_buckled) && buckled_mob.get_projectile_hit_chance(P))
 		return buckled_mob.bullet_act(P)	// Сидящие тоже могут получить пулю в задницу
+	. = ..()
+
+/obj/vehicle/motorbike/attack_animal(mob/living/simple_animal/M as mob)
+	if(M.melee_damage_upper == 0)
+		return
+	if(buckled_mob && prob(hit_chance_buckled))	// Шанс попасть по сидящему
+		return buckled_mob.attack_animal(M)
+	. = ..()
+
+/obj/vehicle/motorbike/attack_alien(mob/living/carbon/xenomorph/M)
+	if(buckled_mob && prob(hit_chance_buckled))
+		return buckled_mob.attack_alien(M)	// Шанс попасть по сидящему
 	. = ..()

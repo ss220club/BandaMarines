@@ -5,8 +5,8 @@
 	icon_state = "moto_ural"
 	var/icon_skin = "classic"
 
-	health = 700
-	maxhealth = 700
+	health = 400
+	maxhealth = 400
 	var/required_skill = SKILL_VEHICLE_SMALL
 
 	pixel_x = -8	// спрайт 48х48, центрируем.

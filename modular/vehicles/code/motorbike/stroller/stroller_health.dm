@@ -8,6 +8,8 @@
 		if(mounted)
 			mounted.forceMove(src.loc)
 			mounted.update_health(mounted.health) // Разрушенный каркас, патроны и тому подобное
+		unbuckle()
+		deconstruct(FALSE)
 		QDEL_NULL(src)
 
 /obj/structure/bed/chair/stroller/update_health(damage = 0)
@@ -21,12 +23,31 @@
 /obj/structure/bed/chair/stroller/attack_animal(mob/living/simple_animal/M as mob)
 	if(M.melee_damage_upper == 0)
 		return
+	if(buckled_mob && prob(hit_chance_buckled))	// Шанс попасть по сидящему
+		return buckled_mob.attack_animal(M)
 	health -= M.melee_damage_upper
 	src.visible_message(SPAN_DANGER("<B>[M] [M.attacktext] [src]!</B>"))
 	M.attack_log += text("\[[time_stamp()]\] <font color='red'>рвет [src.name]</font>")
 	if(prob(10))
 		new /obj/effect/decal/cleanable/blood/oil(src.loc)
 	healthcheck()
+
+/obj/structure/bed/chair/stroller/attack_alien(mob/living/carbon/xenomorph/M)
+	if(buckled_mob && prob(hit_chance_buckled))
+		return buckled_mob.attack_alien(M)	// Шанс попасть по сидящему
+	if(M.a_intent == INTENT_HARM)
+		if(unslashable)
+			return
+		M.animation_attack_on(src)
+		playsound(src, hit_bed_sound, 25, 1)
+		M.visible_message(SPAN_DANGER("[M] кромсает [src]!"),
+		SPAN_DANGER("Мы кромсаем [src]."))
+		health -= M.melee_damage_upper
+		healthcheck()
+		return XENO_ATTACK_ACTION
+	else
+		attack_hand(M)
+		return XENO_NONCOMBAT_ACTION
 
 /obj/structure/bed/chair/stroller/bullet_act(obj/projectile/P)
 	if(buckled_mob && prob(hit_chance_buckled) && buckled_mob.get_projectile_hit_chance(P))

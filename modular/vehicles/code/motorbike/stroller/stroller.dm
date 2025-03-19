@@ -8,9 +8,10 @@
 	desc = "Для детишек."
 	density = FALSE	// При коннекте - У нас уже есть колизия с мотоциклом
 	anchored = TRUE	// При коннекте - Нехай трогать и перемещать
+	stacked_size = FALSE // Иначе он будет его в нулину ломать
 	projectile_coverage = PROJECTILE_COVERAGE_MEDIUM
-	health = 800 // Тележка прочнее мотоцикла. Увы, но это просто кусок металла.
-	var/maxhealth = 800
+	health = 600 // Тележка прочнее мотоцикла. Увы, но это просто кусок металла.
+	var/maxhealth = 600
 	var/welder_health = 35	// Восстановление прочности за 1 топливо из сварки
 	var/welder_time = 1 SECONDS	// Время требуемое для сварки
 	var/is_welded = FALSE	// Сейчас происходит процесс варки?
