@@ -268,4 +268,3 @@
 		to_chat(src, SPAN_BOLDANNOUNCE(GLOB.current_tms))
 	if(GLOB.join_motd)
 		to_chat(src, "<div class=\"motd\">[GLOB.join_motd]</div>")
-
