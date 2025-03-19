@@ -14,7 +14,7 @@
 	else
 		remove_vehicle_verbs(M)
 
-// /obj/vehicle/motorbike/set_glide_size(target)
-// 	. = ..()
-// 	if(buckled_mob)
-// 		buckled_mob.set_glide_size(target)
+/obj/vehicle/motorbike/set_glide_size(target)
+	. = ..()
+	if(buckled_mob)
+		buckled_mob.set_glide_size(target)
