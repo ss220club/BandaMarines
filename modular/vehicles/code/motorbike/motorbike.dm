@@ -13,8 +13,8 @@
 	buckling_y = 7
 	layer = ABOVE_LYING_MOB_LAYER //Allows it to drive over people, but is below the driver.
 
-	move_delay = VEHICLE_SPEED_SUPERFAST	// Скорость
-	var/move_delay_connected = VEHICLE_SPEED_VERYFAST // Скорость когда приконекчена тележка
+	move_delay = 1.5	// Скорость
+	var/move_delay_connected = VEHICLE_SPEED_SUPERFAST // Скорость когда приконекчена тележка
 	projectile_coverage = PROJECTILE_COVERAGE_LOW // Шанс попадания проджектайлов
 
 	// Система света
