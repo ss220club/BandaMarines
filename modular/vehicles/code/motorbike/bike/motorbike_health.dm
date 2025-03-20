@@ -9,7 +9,7 @@
 
 /obj/vehicle/motorbike/proc/check_and_try_disasemble(damage = 0)
 	if(health - damage <= 0)
-		stroller.disconnect()
+		disconnect()
 		QDEL_NULL(lighting_holder)
 		new /obj/motorbike_destroyed(src.loc, icon_skin)
 

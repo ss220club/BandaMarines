@@ -14,6 +14,7 @@
 	layer = ABOVE_LYING_MOB_LAYER //Allows it to drive over people, but is below the driver.
 
 	move_delay = VEHICLE_SPEED_SUPERFAST	// Скорость
+	var/move_delay_connected = VEHICLE_SPEED_VERYFAST // Скорость когда приконекчена тележка
 	projectile_coverage = PROJECTILE_COVERAGE_LOW // Шанс попадания проджектайлов
 
 	// Система света
@@ -89,5 +90,11 @@
 // Завершаем конект в коляске
 /obj/vehicle/motorbike/proc/connect()
 	stroller.connect(src)
+	move_delay = move_delay_connected
+
+/obj/vehicle/motorbike/proc/disconnect()
+	stroller.disconnect()
+	stroller = null
+	move_delay = initial(move_delay)
 
 // ==========================================
