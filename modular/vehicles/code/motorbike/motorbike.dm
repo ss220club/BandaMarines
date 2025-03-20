@@ -13,7 +13,7 @@
 	buckling_y = 7
 	layer = ABOVE_LYING_MOB_LAYER //Allows it to drive over people, but is below the driver.
 
-	move_delay = 1.5	// Скорость
+	move_delay = VEHICLE_SPEED_SUPERFAST	// Скорость
 	projectile_coverage = PROJECTILE_COVERAGE_LOW // Шанс попадания проджектайлов
 
 	// Система света
