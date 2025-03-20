@@ -588,4 +588,6 @@
 .langchat_bolded { font-family: 'Press Start 2P'; font-size: 6pt; } \
 .langchat_announce { font-family: 'Pix Cyrillic'; font-size: 12pt; } \
 .langchat_bolditalicbig { font-family: 'TinyUnicode'; font-size: 24pt; } \
-.langchat_italic { font-family: 'TinyUnicode'; font-size: 12pt; }"
+.langchat_italic { font-family: 'TinyUnicode'; font-size: 12pt; } \
+.context { font-family: 'Pix Cyrillic'; font-size: 12pt; -dm-text-outline: 1px black; } \
+.subcontext { font-family: 'TinyUnicode'; font-size: 12pt; line-height: 0.75; }"
