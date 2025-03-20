@@ -9,6 +9,8 @@
 	density = FALSE	// При коннекте - У нас уже есть колизия с мотоциклом
 	anchored = TRUE	// При коннекте - Нехай трогать и перемещать
 	stacked_size = FALSE // Иначе он будет его в нулину ломать
+	picked_up_item = null // Нам не нужно превращение в стул...
+
 	projectile_coverage = PROJECTILE_COVERAGE_MEDIUM
 	health = 600 // Тележка прочнее мотоцикла. Увы, но это просто кусок металла.
 	var/maxhealth = 600
