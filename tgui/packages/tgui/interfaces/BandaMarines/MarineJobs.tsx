@@ -79,7 +79,7 @@ const JOBS_RU = {
   'Chief Medical Officer': 'Главрач',
   Doctor: 'Доктор',
   Surgeon: 'Хирург',
-  'Field Doctor': 'Полевой Врач',
+  'Field Doctor': 'Полевой врач',
   Nurse: 'Медработник',
   Researcher: 'Исследователь',
 
@@ -114,7 +114,7 @@ const JOBS_RU = {
   'Chief MP': 'Шеф Военной Полиции',
 
   // Engineering roles
-  'Chief Engineer': 'Старший Инженер',
+  'Chief Engineer': 'Главный Инженер',
   'Maintenance Technician': 'Техник Обслуживания',
   'Ordnance Technician': 'Оружейный Техник',
 

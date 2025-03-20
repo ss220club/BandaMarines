@@ -61,9 +61,15 @@
 			malfunction()
 			return
 
-/obj/structure/machinery/cm_vending/gear/vehicle_crew/proc/populate_products(datum/source, obj/vehicle/multitile/V)
+/obj/structure/machinery/cm_vending/gear/vehicle_crew/proc/populate_products(datum/source, obj/effect/vehicle_spawner/spawner) // BANDAMARINES EDIT obj/vehicle/multitile/V -> obj/effect/vehicle_spawner/spawner
 	SIGNAL_HANDLER
 	UnregisterSignal(SSdcs, COMSIG_GLOB_VEHICLE_ORDERED)
+
+	// BANDAMARINES ADD Start
+	selected_vehicle = spawner.category
+	if(selected_vehicle == "APC")
+		marine_announcement("В поддержку наземных сил операции вам будет предоставлен БТР.")
+	// BANDAMARINES ADD End
 
 	if(!selected_vehicle)
 		selected_vehicle = "TANK" // The whole thing seems to be based upon the assumption you unlock tank as an override, defaulting to APC
@@ -329,6 +335,7 @@ GLOBAL_LIST_INIT(cm_vending_clothing_vehicle_crew, list(
 
 		list("AMMUNITION", 0, null, null, null),
 		list("M4RA AP Magazine (10x24mm)", 10, /obj/item/ammo_magazine/rifle/m4ra/ap, null, VENDOR_ITEM_REGULAR),
+		list("M4RA Extended Magazine (10x24mm)", 10, /obj/item/ammo_magazine/rifle/m4ra/extended, null, VENDOR_ITEM_REGULAR),
 		list("M39 AP Magazine (10x20mm)", 10, /obj/item/ammo_magazine/smg/m39/ap , null, VENDOR_ITEM_REGULAR),
 		list("M39 Extended Magazine (10x20mm)", 10, /obj/item/ammo_magazine/smg/m39/extended , null, VENDOR_ITEM_REGULAR),
 		list("M40 HEDP Grenade", 10, /obj/item/explosive/grenade/high_explosive, null, VENDOR_ITEM_REGULAR),

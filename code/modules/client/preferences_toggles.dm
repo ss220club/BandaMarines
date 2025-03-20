@@ -285,6 +285,7 @@
 		"<a href='byond://?src=\ref[src];action=proccall;procpath=/client/proc/set_flash_type'>Set Flash Type</a><br>",
 		"<a href='byond://?src=\ref[src];action=proccall;procpath=/client/proc/set_crit_type'>Set Crit Type</a><br>",
 		"<a href='byond://?src=\ref[src];action=proccall;procpath=/client/proc/set_flashing_lights_pref'>Set Flashing Lights</a><br>",
+		"<a href='byond://?src=\ref[src];action=proccall;procpath=/client/proc/toggle_shout_orders'>Toggle Shout Orders</a><br>", // BANDAMARINES ADD
 	)
 
 	var/dat = ""
@@ -293,7 +294,7 @@
 
 	var/height = 50+24*length(pref_buttons)
 
-	show_browser(src, dat, "Toggle Preferences", "togglepreferences", "size=475x[height]")
+	show_browser(src, dat, "Toggle Preferences", "togglepreferences", width = 475, height = height)
 
 /client/proc/toggle_ignore_self() // Toggle whether anything will happen when you click yourself in non-help intent
 	prefs.toggle_prefs ^= TOGGLE_IGNORE_SELF
@@ -705,6 +706,8 @@
 			H = GLOB.huds[MOB_HUD_FACTION_TWE]
 		if("Faction CLF HUD")
 			H = GLOB.huds[MOB_HUD_FACTION_CLF]
+		if("Faction WO HUD")
+			H = GLOB.huds[MOB_HUD_FACTION_WO]
 
 	observer_user.HUD_toggled[hud_choice] = prefs.observer_huds[hud_choice]
 	if(observer_user.HUD_toggled[hud_choice])
