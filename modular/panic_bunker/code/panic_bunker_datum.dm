@@ -52,6 +52,30 @@
 
 	save_panic_bunker_settings(settings)
 
+/datum/panic_bunker/proc/clear_bypass_list(client/client)
+	var/clear_hours = tgui_input_number(client, "Введите количество часов больше которого убрать пропуск", "Clear Bunker Bypass List", 1, 100, 1)
+	if(!clear_hours)
+		return
+	to_chat(client, "Panic Bunker: Clean started")
+
+	var/list/settings = READ_JSON_FILE(PANIC_BUNKER_SETTINGS_FILE)
+	var/counter = 0
+	for(var/ckey in settings["panic_bunker_bypass_ckeys"])
+		to_chat(client, "Panic Bunker: Checking [ckey]...")
+		var/datum/entity/player/player = get_player_from_key(ckey)
+		var/current_hours = round(get_total_living_playtime(player.id) /60, 0.1)
+		if(clear_hours > current_hours)
+			continue
+		settings["panic_bunker_bypass_ckeys"] -= ckey
+		to_chat(client, "Panic Bunker: Removed [ckey] ([current_hours]h)")
+		counter++
+
+	if(counter)
+		save_panic_bunker_settings(settings)
+		message_admins("[key_name(client)] cleared [counter] ckeys from Panic Bunker Bypass List")
+	else
+		to_chat(client, "Panic Bunker: No ckeys to clear")
+
 /datum/panic_bunker/proc/save_panic_bunker_settings(settings)
 	fdel(PANIC_BUNKER_SETTINGS_FILE)
 	WRITE_JSON_FILE(settings, PANIC_BUNKER_SETTINGS_FILE)

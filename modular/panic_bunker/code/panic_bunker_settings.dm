@@ -66,3 +66,14 @@ GLOBAL_LIST_EMPTY(panic_bunker_bypass)
 
 	var/datum/panic_bunker/panic_bunker = new
 	panic_bunker.edit_panic_bunker_bypass(src)
+
+/client/proc/clear_panic_bunker_bypass()
+	set name = "Clear Panic Bunker Bypass"
+	set desc = "Clear Panic Bunker Bypass"
+	set category = "Server.Panic"
+
+	if(!check_rights(R_PERMISSIONS))
+		return
+
+	var/datum/panic_bunker/panic_bunker = new
+	panic_bunker.clear_bypass_list(src)

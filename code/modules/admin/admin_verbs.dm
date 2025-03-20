@@ -245,6 +245,7 @@ GLOBAL_LIST_INIT(admin_verbs_possess, list(
 
 GLOBAL_LIST_INIT(admin_verbs_permissions, list(
 	/client/proc/whitelist_panel,
+	/client/proc/clear_panic_bunker_bypass, // BANDAMARINESS ADD
 ))
 
 GLOBAL_LIST_INIT(admin_verbs_color, list(
