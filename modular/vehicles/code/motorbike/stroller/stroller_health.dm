@@ -16,10 +16,6 @@
 	healthcheck(damage)
 	. = ..()
 
-/obj/structure/bed/chair/stroller/deconstruct(disassembled)
-	healthcheck()
-	. = ..()
-
 /obj/structure/bed/chair/stroller/attack_animal(mob/living/simple_animal/M as mob)
 	if(M.melee_damage_upper == 0)
 		return
@@ -33,10 +29,12 @@
 	healthcheck()
 
 /obj/structure/bed/chair/stroller/attack_alien(mob/living/carbon/xenomorph/M)
-	if(buckled_mob && prob(hit_chance_buckled))
-		return buckled_mob.attack_alien(M)	// Шанс попасть по сидящему
 	if(unslashable)
 		return
+	if(M.melee_damage_upper == 0)
+		return
+	if(buckled_mob && prob(hit_chance_buckled))
+		return buckled_mob.attack_alien(M)	// Шанс попасть по сидящему
 	M.animation_attack_on(src)
 	playsound(src, hit_bed_sound, 25, 1)
 	M.visible_message(SPAN_DANGER("[M] кромсает [src]!"),
