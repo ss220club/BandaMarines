@@ -1,0 +1,5 @@
+author: "biratomi00"
+delete-after: True
+changes:
+  - imageadd: "added new sprites for sunken"
+  - imagedel: "delete old sprites for sunken"
