@@ -35,19 +35,15 @@
 /obj/structure/bed/chair/stroller/attack_alien(mob/living/carbon/xenomorph/M)
 	if(buckled_mob && prob(hit_chance_buckled))
 		return buckled_mob.attack_alien(M)	// Шанс попасть по сидящему
-	if(M.a_intent == INTENT_HARM)
-		if(unslashable)
-			return
-		M.animation_attack_on(src)
-		playsound(src, hit_bed_sound, 25, 1)
-		M.visible_message(SPAN_DANGER("[M] кромсает [src]!"),
-		SPAN_DANGER("Мы кромсаем [src]."))
-		health -= M.melee_damage_upper
-		healthcheck()
-		return XENO_ATTACK_ACTION
-	else
-		attack_hand(M)
-		return XENO_NONCOMBAT_ACTION
+	if(unslashable)
+		return
+	M.animation_attack_on(src)
+	playsound(src, hit_bed_sound, 25, 1)
+	M.visible_message(SPAN_DANGER("[M] кромсает [src]!"),
+	SPAN_DANGER("Мы кромсаем [src]."))
+	health -= M.melee_damage_upper
+	healthcheck()
+	return XENO_ATTACK_ACTION
 
 /obj/structure/bed/chair/stroller/bullet_act(obj/projectile/P)
 	if(buckled_mob && prob(hit_chance_buckled) && buckled_mob.get_projectile_hit_chance(P))
