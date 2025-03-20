@@ -135,7 +135,7 @@
 
 // SS220 ADD - START
 /datum/config_entry/number/nuclear_lock_marines_percentage
-	config_entry_value = 50
+	config_entry_value = 30
 	integer = TRUE
 	min_val = 1
 	max_val = 100
