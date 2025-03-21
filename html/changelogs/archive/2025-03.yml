@@ -215,3 +215,10 @@
 2025-03-20:
   Noname995:
   - bugfix: Mech cant have two similar guns
+2025-03-21:
+  Noname995:
+  - qol: Decreased timelock for young blood yautja
+  - bugfix: Mech cant have two similar guns
+  biratomi00:
+  - imageadd: added new sprites for sunken
+  - imagedel: delete old sprites for sunken
