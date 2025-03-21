@@ -219,6 +219,7 @@
   Noname995:
   - qol: Decreased timelock for young blood yautja
   - bugfix: Mech cant have two similar guns
+  - rscdel: Delete bunch of suslo-code
   biratomi00:
   - imageadd: added new sprites for sunken
   - imagedel: delete old sprites for sunken
