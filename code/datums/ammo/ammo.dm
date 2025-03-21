@@ -92,10 +92,6 @@
 	/// Whether or not this ammo ignores mobs that are lying down
 	var/hits_lying_mobs = FALSE
 
-/datum/ammo
-	pen_armor_punch = 0.25
-	damage_armor_punch = 0.25
-
 /datum/ammo/New()
 	set_bullet_traits()
 

@@ -213,12 +213,8 @@
 
 
 /mob/living/carbon/xenomorph/proc/gain_armor_percent(value)
-/*
 	armor_integrity = min(armor_integrity + value, 100)
-*/
-//RUCM START
-	armor_integrity = clamp(armor_integrity + value, 0, armor_integrity_max)
-//RUCM END
+
 /mob/living/carbon/xenomorph/animation_attack_on(atom/A, pixel_offset)
 	if(hauled_mob?.resolve())
 		return

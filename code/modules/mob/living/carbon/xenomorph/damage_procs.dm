@@ -204,17 +204,10 @@
 
 /mob/living/carbon/xenomorph/var/armor_break_to_apply = 0
 /mob/living/carbon/xenomorph/proc/apply_armorbreak(armorbreak = 0)
-/*
 	if(GLOB.xeno_general.armor_ignore_integrity)
 		return FALSE
 
-	if(stat == DEAD)
-		return
-*/
-//RUCM START
-	if(GLOB.xeno_general.armor_ignore_integrity || !armorbreak || stat == DEAD)
-		return FALSE
-//RUCM END
+	if(stat == DEAD) return
 
 	if(armor_deflection<=0)
 		return
@@ -243,24 +236,12 @@
 	if(!caste)
 		return
 	sleep(XENO_ARMOR_BREAK_PASS_TIME)
-/*
 	if(warding_aura && armor_break_to_apply > 0) //Damage to armor reduction
-*/
-//RUCM START
-	if(!caste || !armor_break_to_apply)
-		return
-	if(warding_aura) //Damage to armor reduction
-//RUCM END
 		armor_break_to_apply = floor(armor_break_to_apply * ((100 - (warding_aura * 15)) / 100))
-/*
 	if(caste)
 		armor_integrity -= armor_break_to_apply
 	if(armor_integrity < 0)
 		armor_integrity = 0
-*/
-//RUCM START
-	gain_armor_percent(-armor_break_to_apply / armor_deflection)
-//RUCM END
 	armor_break_to_apply = 0
 	updatehealth()
 
