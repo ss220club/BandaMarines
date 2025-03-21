@@ -42,21 +42,12 @@ SUBSYSTEM_DEF(mapping)
 
 //dlete dis once #39770 is resolved
 /datum/controller/subsystem/mapping/proc/HACK_LoadMapConfig()
-/*
 	if(!configs)
 		configs = load_map_configs(ALL_MAPTYPES, error_if_missing = FALSE)
 		world.name = "[CONFIG_GET(string/title)] - [SSmapping.configs[SHIP_MAP].map_name]"
-*/
-//RUCM START
-	configs = load_map_configs(ALL_MAPTYPES, error_if_missing = FALSE)
-	world.name = "[CONFIG_GET(string/title)] - [SSmapping.configs[SHIP_MAP].map_name]"
-//RUCM END
 
 /datum/controller/subsystem/mapping/Initialize(timeofday)
-//RUCM START
-	if(!configs)
-		HACK_LoadMapConfig()
-//RUCM END
+	HACK_LoadMapConfig()
 	if(initialized)
 		return SS_INIT_SUCCESS
 

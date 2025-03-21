@@ -129,12 +129,7 @@
 							to_chat(user, SPAN_NOTICE("You applied a composite upgrade."))
 
 					metal.use(2)
-/*
 					user.count_niche_stat(STATISTICS_NICHE_UPGRADE_CADES)
-*/
-//RUCM START
-					user.count_statistic_stat(STATISTICS_UPGRADE_CADES)
-//RUCM END
 					update_icon()
 					return
 				else
@@ -174,12 +169,7 @@
 							to_chat(user, SPAN_NOTICE("You applied a composite upgrade."))
 
 					metal.use(2)
-/*
 					user.count_niche_stat(STATISTICS_NICHE_UPGRADE_CADES)
-*/
-//RUCM START
-					user.count_statistic_stat(STATISTICS_UPGRADE_CADES)
-//RUCM END
 					update_icon()
 					return
 

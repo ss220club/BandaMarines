@@ -51,12 +51,7 @@
 	var/list/datum/entity/player_note/notes
 	var/list/datum/entity/player_job_ban/job_bans
 	var/list/datum/entity/player_time/playtimes
-/*
 	var/list/datum/entity/player_stat/stats
-*/
-//RUCM START
-	var/datum/player_entity/player_entity
-//RUCM END
 	var/list/playtime_data // For the NanoUI menu
 	var/client/owning_client
 
@@ -446,9 +441,7 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 		INVOKE_ASYNC(src, TYPE_PROC_REF(/datum/entity/player, migrate_jobbans))
 
 	DB_FILTER(/datum/entity/player_time, DB_COMP("player_id", DB_EQUALS, id), CALLBACK(src, TYPE_PROC_REF(/datum/entity/player, on_read_timestat)))
-/* RUCM REMOVE
 	DB_FILTER(/datum/entity/player_stat, DB_COMP("player_id", DB_EQUALS, id), CALLBACK(src, TYPE_PROC_REF(/datum/entity/player, on_read_stats)))
-*/
 
 	if(!migrated_bans && !migrating_bans)
 		migrating_bans = TRUE
@@ -460,10 +453,6 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 		time_ban_admin = DB_ENTITY(/datum/entity/player, time_ban_admin_id)
 	if(discord_link_id)
 		discord_link = DB_ENTITY(/datum/entity/discord_link, discord_link_id)
-//RUCM START
-	else
-		DB_FILTER(/datum/entity/discord_link, DB_COMP("player_id", DB_EQUALS, id), CALLBACK(src, TYPE_PROC_REF(/datum/entity/player, on_read_discord_link)))
-//RUCM END
 
 	if(whitelist_status)
 		var/list/whitelists = splittext(whitelist_status, "|")
@@ -473,18 +462,7 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 				whitelist_flags |= GLOB.bitfields["whitelist_status"]["[whitelist]"]
 
 //RUCM START
-	player_shop = DB_EKEY(/datum/entity/player_shop, id)
-	player_shop.save()
-	player_shop.sync()
-	load_battlepass()
 	load_donator_info()
-	setup_statistics()
-
-/datum/entity/player/proc/setup_statistics()
-	if(!player_entity)
-		player_entity = setup_player_entity(ckey)
-		player_entity.player = src
-	player_entity.setup_entity()
 //RUCM END
 
 /datum/entity/player/proc/on_read_notes(list/datum/entity/player_note/_notes)
@@ -513,12 +491,10 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 		for(var/datum/entity/player_time/S in _stat)
 			LAZYSET(playtimes, S.role_id, S)
 
-/* RUCM REMOVE
 /datum/entity/player/proc/on_read_stats(list/datum/entity/player_stat/_stat)
 	if(_stat)
 		for(var/datum/entity/player_stat/S as anything in _stat)
 			LAZYSET(stats, S.stat_id, S)
-*/
 
 /datum/entity/player/proc/load_byond_account_age()
 	var/list/http_request = world.Export("http://byond.com/members/[ckey]?format=text")
@@ -792,7 +768,6 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 	migrated_jobbans = TRUE
 	save()
 
-/*
 /datum/entity/player/proc/adjust_stat(stat_id, stat_category, num, set_to_num = FALSE)
 	var/datum/entity/player_stat/stat = LAZYACCESS(stats, stat_id)
 	if(!stat)
@@ -806,7 +781,6 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 	else
 		stat.stat_number += num
 	stat.save()
-*/
 
 /datum/entity/player/proc/check_whitelist_status(flag_to_check)
 	if(whitelist_flags & flag_to_check)

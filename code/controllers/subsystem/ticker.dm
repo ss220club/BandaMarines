@@ -53,11 +53,6 @@ SUBSYSTEM_DEF(ticker)
 	var/tutorial_disabled = FALSE
 
 /datum/controller/subsystem/ticker/Initialize(timeofday)
-//RUCM START
-	if(!SSmapping.configs)
-		SSmapping.HACK_LoadMapConfig()
-//RUCM END
-
 	load_mode()
 
 	var/all_music = CONFIG_GET(keyed_list/lobby_music)
@@ -113,12 +108,7 @@ SUBSYSTEM_DEF(ticker)
 				current_state = GAME_STATE_FINISHED
 				GLOB.ooc_allowed = TRUE
 				mode.declare_completion(force_ending)
-				/*
 				REDIS_PUBLISH("byond.round", "type" = "round-complete", "round_name" = GLOB.round_statistics.round_name)
-				*/
-				//RUCM START
-				REDIS_PUBLISH("byond.round", "type" = "round", "state" = "end")
-				//RUCM END
 				flash_clients()
 				addtimer(CALLBACK(
 					SSvote,
@@ -152,12 +142,7 @@ SUBSYSTEM_DEF(ticker)
 	current_state = GAME_STATE_SETTING_UP
 	INVOKE_ASYNC(src, PROC_REF(setup_start))
 
-/*
 	REDIS_PUBLISH("byond.round", "type" = "round-start")
-*/
-	//RUCM START
-	REDIS_PUBLISH("byond.round", "type" = "round", "state" = "started")
-	//RUCM START
 
 	return TRUE
 
@@ -187,11 +172,8 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/proc/setup()
 	to_chat(world, SPAN_BOLDNOTICE("Enjoy the game!"))
 	var/init_start = world.timeofday
-
-/* RUCM REMOVE
 	//Create and announce mode
 	mode = config.pick_mode(GLOB.master_mode)
-*/
 
 	CHECK_TICK
 	if(!mode.can_start(bypass_checks))
@@ -216,21 +198,13 @@ SUBSYSTEM_DEF(ticker)
 				handle_map_reboot()
 		else
 			to_chat(world, "Attempting again...")
-
-/* RUCM REMOVE
 		QDEL_NULL(mode)
-*/
-
 		GLOB.RoleAuthority.reset_roles()
 		return FALSE
 
 	CHECK_TICK
 	if(!mode.pre_setup() && !bypass_checks)
-
-/* RUCMM REMOVE
 		QDEL_NULL(mode)
-*/
-
 		to_chat(world, "<b>Error in pre-setup for [GLOB.master_mode].</b> Reverting to pre-game lobby.")
 		GLOB.RoleAuthority.reset_roles()
 		return FALSE
@@ -257,10 +231,8 @@ SUBSYSTEM_DEF(ticker)
 	LAZYCLEARLIST(round_start_events)
 	CHECK_TICK
 
-/* RUCM REMOVE
 	// We need stats to track roundstart role distribution.
 	mode.setup_round_stats()
-*/
 
 	//Configure mode and assign player to special mode stuff
 	if (!(mode.flags_round_type & MODE_NO_SPAWN))
@@ -381,28 +353,13 @@ SUBSYSTEM_DEF(ticker)
 
 
 /datum/controller/subsystem/ticker/proc/load_mode()
-/*
 	var/mode = trim(file2text("data/mode.txt"))
 	if(mode)
 		GLOB.master_mode = SSmapping.configs[GROUND_MAP].force_mode ? SSmapping.configs[GROUND_MAP].force_mode : mode
 	else
 		GLOB.master_mode = "Extended"
 	log_game("Saved mode is '[GLOB.master_mode]'")
-*/
-//RUCM START
-	var/cfg_mode = trim(file2text("data/mode.txt"))
-	if(SSmapping?.configs?[GROUND_MAP].force_mode)
-		GLOB.master_mode = SSmapping.configs[GROUND_MAP].force_mode
-	else if(cfg_mode)
-		GLOB.master_mode = cfg_mode
-	else
-		GLOB.master_mode = "Extended"
 
-	mode = config.pick_mode(GLOB.master_mode)
-	mode.setup_round_stats()
-
-	log_game("Saved mode is '[GLOB.master_mode]'")
-//RUCM END
 
 /datum/controller/subsystem/ticker/proc/save_mode(the_mode)
 	fdel("data/mode.txt")

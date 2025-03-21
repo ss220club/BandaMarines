@@ -111,15 +111,10 @@
 		user.drop_inv_item_on_ground(src) //icon update
 
 		user.affected_message(M,
-			SPAN_HELPFUL("You <b>fed</b> [M] a [fluff_text]."),
-			SPAN_HELPFUL("[user] <b>fed</b> you a [fluff_text]."),
-			SPAN_NOTICE("[user] fed [M] a [fluff_text]."))
-/*
+			SPAN_HELPFUL("You <b>fed</b> [M] a pill."),
+			SPAN_HELPFUL("[user] <b>fed</b> you a pill."),
+			SPAN_NOTICE("[user] fed [M] a pill."))
 		user.count_niche_stat(STATISTICS_NICHE_PILLS)
-*/
-//RUCM START
-		user.count_statistic_stat(STATISTICS_PILLS)
-//RUCM END
 
 		var/rgt_list_text = get_reagent_list_text()
 

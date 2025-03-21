@@ -1628,8 +1628,6 @@ const Emergency = (props) => {
     mission_failed,
     nuketimelock,
     nuke_available,
-    operation_reason,
-    canLeave,
   } = data;
   const minimumEvacTime = worldtime > distresstimelock;
   const distressCooldown = worldtime < distresstime;
@@ -1780,21 +1778,6 @@ const Emergency = (props) => {
           disabled={!canNuke}
         >
           Request Nuclear Device
-        </Button.Confirm>
-        <Button.Confirm
-          tooltip={operation_reason}
-          icon="shuttle-space"
-          color="red"
-          width="40vw"
-          textAlign="center"
-          fontSize="1.5rem"
-          p="1rem"
-          mt="5rem"
-          bold
-          onClick={() => act('operation_zone_leave')}
-          disabled={!canLeave}
-        >
-          Leave Operation Zone
         </Button.Confirm>
       </Flex>
     </>

@@ -36547,7 +36547,6 @@
 /obj/structure/surface/table/gamblingtable{
 	flipped = 1
 	},
-/obj/item/toy/plush/queen_toy,
 /turf/open/floor/wood,
 /area/prison/recreation/staff)
 "dLV" = (
@@ -47985,12 +47984,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/prison/cellblock/mediumsec/south)
-"ptk" = (
-/obj/structure/bed,
-/obj/item/bedsheet,
-/obj/item/toy/plush/warrior_toy,
-/turf/open/floor/wood,
-/area/prison/residential/central)
 "ptn" = (
 /obj/item/device/radio/headset,
 /turf/open/floor/prison,
@@ -65027,7 +65020,7 @@ gJz
 wwt
 bsi
 aWr
-ptk
+aWq
 aXG
 aWq
 aWr

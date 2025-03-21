@@ -62,9 +62,6 @@
 	.["xeno_postfix"] = postfix_text
 
 	.["tutorials_ready"] = SSticker?.current_state == GAME_STATE_PLAYING
-// RUCM START
-	.["battlepass_ready"] = !!GLOB.current_battlepass
-// RUCM END
 	.["round_start"] = !SSticker || !SSticker.mode || SSticker.current_state <= GAME_STATE_PREGAME
 	.["readied"] = ready
 
@@ -112,29 +109,6 @@
 
 			client.prefs.ShowChoices(src)
 			return TRUE
-
-//RUCM START
-		if("battlepass")
-			if(!client.player_data?.battlepass)
-				return FALSE
-
-			if(!GLOB.current_battlepass)
-				to_chat(src, SPAN_WARNING("Please wait for battlepasses to initialize first."))
-				return FALSE
-
-			client.player_data.battlepass.tgui_interact(src)
-			return TRUE
-
-		if("statistic")
-			if(!SSentity_manager.ready)
-				to_chat(src, SPAN_WARNING("DB is still starting up, please wait"))
-				return FALSE
-
-			if(client?.player_data?.player_entity)
-				client.player_data.player_entity.try_recalculate()
-				client.player_data.player_entity.tgui_interact(src)
-			return TRUE
-//RUCM END
 
 		if("playtimes")
 			if(!SSentity_manager.ready)

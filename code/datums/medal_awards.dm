@@ -74,12 +74,7 @@ GLOBAL_LIST_INIT(human_medals, list(MARINE_CONDUCT_MEDAL, MARINE_BRONZE_HEART_ME
 		if(!as_admin && mob == usr)
 			// Giver: Increment their medals given stat
 			giver_mob = mob
-/*
 			mob.count_niche_stat(STATISTICS_NICHE_MEDALS_GIVE)
-*/
-//RUCM START
-			track_statistic_earned(giver_mob.faction, STATISTIC_TYPE_MISC, STATISTICS_MEDALS_GIVE, 1, giver_mob.client.player_data)
-//RUCM END
 			if(found_other)
 				break
 			found_other = TRUE
@@ -158,12 +153,7 @@ GLOBAL_LIST_INIT(human_medals, list(MARINE_CONDUCT_MEDAL, MARINE_BRONZE_HEART_ME
 
 	// Recipient: Add the medal to the player's stats
 	if(recipient_ckey)
-/*
 		var/datum/entity/player_entity/recipient_player = setup_player_entity(recipient_ckey)
-*/
-//RUCM START
-		var/datum/player_entity/recipient_player = setup_player_entity(recipient_ckey)
-//RUCM END
 		if(recipient_player)
 			recipient_player.track_medal_earned(medal_type, recipient_mob, recipient_rank, citation, usr)
 
@@ -256,12 +246,7 @@ GLOBAL_LIST_INIT(human_medals, list(MARINE_CONDUCT_MEDAL, MARINE_BRONZE_HEART_ME
 
 	// Recipient: Add the medal to the player's stats
 	if(recipient_ckey)
-/*
 		var/datum/entity/player_entity/recipient_player = setup_player_entity(recipient_ckey)
-*/
-//RUCM START
-		var/datum/player_entity/recipient_player = setup_player_entity(recipient_ckey)
-//RUCM END
 		if(recipient_player)
 			recipient_player.track_medal_earned(medal_type, recipient_mob, recipient_rank, citation, giving_mob)
 
@@ -357,12 +342,7 @@ GLOBAL_LIST_INIT(xeno_medals, list(XENO_SLAUGHTER_MEDAL, XENO_RESILIENCE_MEDAL, 
 			if(mob == usr)
 				// Giver: Increment their medals given stat
 				giver_mob = mob
-/*
 				mob.count_niche_stat(STATISTICS_NICHE_MEDALS_GIVE)
-*/
-//RUCM START
-				track_statistic_earned(giver_mob.faction, STATISTIC_TYPE_MISC, STATISTICS_MEDALS_GIVE, 1, giver_mob.client.player_data)
-//RUCM END
 				break
 
 	// Create the recipient_award
@@ -396,12 +376,7 @@ GLOBAL_LIST_INIT(xeno_medals, list(XENO_SLAUGHTER_MEDAL, XENO_RESILIENCE_MEDAL, 
 
 	// Recipient: Add the medal to the player's stats
 	if(recipient_ckey)
-/*
 		var/datum/entity/player_entity/recipient_player = setup_player_entity(recipient_ckey)
-*/
-//RUCM START
-		var/datum/player_entity/recipient_player = setup_player_entity(recipient_ckey)
-//RUCM END
 		if(recipient_player)
 			recipient_player.track_medal_earned(medal_type, recipient_mob, recipient_caste, citation, usr)
 
@@ -471,21 +446,11 @@ GLOBAL_LIST_INIT(xeno_medals, list(XENO_SLAUGHTER_MEDAL, XENO_RESILIENCE_MEDAL, 
 
 	// Remove giver's stat
 	if(giver_mob)
-/*
 		giver_mob.count_niche_stat(STATISTICS_NICHE_MEDALS_GIVE, -1)
-*/
-//RUCM START
-		track_statistic_earned(giver_mob.faction, STATISTIC_TYPE_MISC, STATISTICS_MEDALS_GIVE, -1, giver_mob.client.player_data)
-//RUCM END
 
 	// Remove stats for recipient (this has a weakref to the mob, but theres a possibility of recipient.statistic_exempt)
 	if(recipient_mob)
-/*
 		var/datum/entity/player_entity/recipient_player = setup_player_entity(recipient_mob.persistent_ckey)
-*/
-//RUCM START
-		var/datum/player_entity/recipient_player = setup_player_entity(recipient_mob.persistent_ckey)
-//RUCM END
 		if(recipient_player)
 			recipient_player.untrack_medal_earned(medal_type, recipient_mob, citation)
 

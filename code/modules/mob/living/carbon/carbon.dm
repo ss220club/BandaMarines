@@ -233,12 +233,7 @@
 			apply_effect(6, STUN)//This should work for now, more is really silly and makes you lay there forever
 			apply_effect(6, WEAKEN)
 
-/*
 		count_niche_stat(STATISTICS_NICHE_SHOCK)
-*/
-//RUCM START
-		count_statistic_stat(STATISTICS_SHOCK)
-//RUCM END
 
 	else
 		src.visible_message(

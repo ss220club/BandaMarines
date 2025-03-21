@@ -198,9 +198,7 @@
 #define STATISTIC_XENO "xeno"
 #define STATISTIC_HUMAN "human"
 
-/* RUCM CHANGE
 #define STATISTICS_DEATH_LIST_LEN 10
-*/
 
 #define STATISTICS_NICHE_EXECUTION   "Executions Made"
 #define STATISTICS_NICHE_MEDALS  "Medals Received"

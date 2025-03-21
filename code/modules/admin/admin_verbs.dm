@@ -392,7 +392,7 @@ GLOBAL_LIST_INIT(mentor_verbs, list(
 		return
 */
 //RUCM START
-	if(!check_rights(R_COLOR) && !player_data.donator_info?.patreon_function_available("ooc_color"))
+	if(!check_rights(R_COLOR) && !player_data.donator_info.patreon_function_available("ooc_color"))
 		return
 //RUCM END
 	var/new_ooccolor = input(src, "Please select your OOC color.", "OOC color") as color|null

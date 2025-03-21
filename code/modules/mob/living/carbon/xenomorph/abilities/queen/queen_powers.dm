@@ -213,7 +213,7 @@
 		to_chat(X, SPAN_WARNING("You must select a valid turf to heal around."))
 		return
 
-	if(!SSmapping.same_z_map(X.loc.z, T.loc.z))
+	if(X.loc.z != T.loc.z)
 		to_chat(X, SPAN_XENOWARNING("You are too far away to do this here."))
 		return
 
@@ -238,16 +238,8 @@
 		if(!Xa.caste.can_be_queen_healed)
 			continue
 
-/*
 		new /datum/effects/heal_over_time(Xa, Xa.maxHealth * 0.3, 2 SECONDS, 2)
 		Xa.flick_heal_overlay(3 SECONDS, "#D9F500") //it's already hard enough to gauge health without hp overlays!
-*/
-//RUCM START
-		var/amount_heal = Xa.maxHealth * 0.3
-		X.track_heal_damage(null, Xa, amount_heal)
-		new /datum/effects/heal_over_time(Xa, amount_heal, 2 SECONDS, 2)
-		Xa.flick_heal_overlay(3 SECONDS, "#D9F500") //it's already hard enough to gauge health without hp overlays!
-//RUCM END
 
 	apply_cooldown()
 	to_chat(X, SPAN_XENONOTICE("You channel your plasma to heal your sisters' wounds around this area."))

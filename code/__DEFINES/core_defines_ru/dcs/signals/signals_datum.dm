@@ -1,1 +1,0 @@
-#define COMSIG_BATTLEPASS_CHALLENGE_COMPLETED "battlepass_challenge_completed"

@@ -137,4 +137,3 @@
 	icon_state = "w_smartpack_a1"
 
 #undef BACKPACK_LIGHT_LEVEL
-

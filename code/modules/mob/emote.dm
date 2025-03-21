@@ -8,10 +8,6 @@
 
 	act = lowertext(act)
 	var/list/key_emotes = GLOB.emote_list[act]
-//RUCM START
-	if(act == "scream")
-		track_scream()
-//RUCM END
 
 	if(!length(key_emotes))
 		if(intentional && !force_silence)

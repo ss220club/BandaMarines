@@ -10,9 +10,7 @@
 
 	var/memory
 
-/* RUCM REMOVE
 	var/datum/entity/player_entity/player_entity = null
-*/
 
 	//put this here for easier tracking ingame
 	var/datum/money_account/initial_account
@@ -25,9 +23,7 @@
 /datum/mind/New(key, ckey)
 	src.key = key
 	src.ckey = ckey
-/* RUCM REMOVE
 	player_entity = setup_player_entity(ckey)
-*/
 	objective_memory = new()
 	objective_interface = new()
 	research_objective_interface = new()
@@ -39,10 +35,8 @@
 	QDEL_NULL(research_objective_interface)
 	current = null
 	original = null
-/* RUCM REMOVE
 	ghost_mob = null
 	player_entity = null
-*/
 	return ..()
 
 /datum/mind/proc/transfer_to(mob/living/new_character, force = FALSE)
@@ -82,9 +76,7 @@
 					if(ui.allowed_user_stat == -1)
 						ui.close()
 						continue
-/* RUCM REMOVE
 			player_entity = setup_player_entity(ckey)
-*/
 
 	SEND_SIGNAL(src, COMSIG_MIND_TRANSFERRED, old_current)
 	SEND_SIGNAL(new_character, COMSIG_MOB_NEW_MIND, current.client)
@@ -117,7 +109,6 @@
 				for(var/obj/item/W in current)
 					current.drop_inv_item_on_ground(W)
 
-/* RUCM REMOVE
 /datum/mind/proc/setup_human_stats()
 	if(!player_entity)
 		player_entity = setup_player_entity(ckey)
@@ -134,7 +125,6 @@
 
 /datum/mind/proc/wipe_entity()
 	player_entity = null
-*/
 
 //Initialisation procs
 /mob/proc/mind_initialize()

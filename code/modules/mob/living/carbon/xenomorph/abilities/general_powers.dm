@@ -78,12 +78,7 @@
 
 	playsound(xeno.loc, "alien_resin_build", 25)
 	apply_cooldown()
-/*
 	SEND_SIGNAL(xeno, COMSIG_XENO_PLANT_RESIN_NODE)
-*/
-//RUCM START
-	SEND_SIGNAL(xeno, COMSIG_XENO_PLANT_RESIN_NODE, xeno)
-//RUCM END
 	return ..()
 
 /mob/living/carbon/xenomorph/lay_down()
@@ -725,9 +720,6 @@
 
 	X.use_plasma(400)
 	X.place_construction(T, structure_template)
-//RUCM START
-	X.count_statistic_stat(STATISTIC_XENO_STRUCTURES_BUILD)
-//RUCM END
 
 	return ..()
 
