@@ -207,7 +207,7 @@ GLOBAL_REFERENCE_LIST_INDEXED(prefab_papers, /obj/item/paper/prefab, document_ti
 	doc_datum_type = /datum/prefab_document/wey_yu/liaison/preserve_intent
 
 /obj/item/paper/prefab/liaison/liability
-	document_title = "WY440 - Заявление об ответственности"
+	document_title = "WY440 - Заявление об отказе от ответственности"
 	doc_datum_type = /datum/prefab_document/wey_yu/liaison/liability
 
 /obj/item/paper/prefab/liaison/nda_short
