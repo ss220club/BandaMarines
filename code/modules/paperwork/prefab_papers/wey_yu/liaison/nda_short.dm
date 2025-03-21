@@ -112,7 +112,7 @@
 	dat += ""
 	dat += "<!--Header Info here-->"
 	dat += "<div class=\"message-header-text\">"
-	dat += "<p class=\"header-title\">Соглашение о неразглашении</p>"
+	dat += "<p class=\"header-title\">Соглашение о неразглашении - краткое</p>"
 	dat += "<p class=\"header-subtitle\">WY441</p>"
 	dat += "<hr style=\"margin-top:5px; margin-bottom:35px;\">"
 	dat += "</div> <!-- /Heasder Info -->"
