@@ -34,7 +34,7 @@
 		if(MOB_SIZE_XENO)
 			mod = 0.5
 		if(MOB_SIZE_BIG)
-			mod = 0
+			mod = 0.25
 		if(MOB_SIZE_IMMOBILE)
 			mod = 0
 
