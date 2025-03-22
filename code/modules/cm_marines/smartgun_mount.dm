@@ -475,6 +475,7 @@
 	var/atom/target = null // required for shooting at things.
 	var/datum/ammo/bullet/machinegun/ammo = /datum/ammo/bullet/machinegun
 	var/obj/projectile/in_chamber = null
+	var/list/objects_for_permutated = list() // SS220 ADD - BIKE SHOOTING, for "in_chamber"
 	var/locked = 0 //1 means its locked inplace (this will be for sandbag MGs)
 	var/muzzle_flash_lum = 4
 	var/icon_full = "M56D" // Put this system in for other MGs or just other mounted weapons in general, future proofing.
@@ -791,6 +792,11 @@
 	in_chamber.weapon_cause_data = create_cause_data(initial(name), operator)
 	in_chamber.setDir(dir)
 	in_chamber.def_zone = pick("chest","chest","chest","head")
+	// SS220 EDIT START - BIKE SHOOTING
+	if(length(objects_for_permutated))
+		for(var/i in objects_for_permutated)
+			in_chamber.permutated |= i
+	// SS220 EDIT END - BIKE SHOOTING
 	SEND_SIGNAL(in_chamber, COMSIG_BULLET_USER_EFFECTS, operator)
 	playsound(loc, gun_noise, 50, 1)
 	in_chamber.fire_at(target, operator, src, ammo.max_range, ammo.shell_speed)

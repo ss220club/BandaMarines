@@ -68,10 +68,12 @@
 	anchored = initial(anchored)
 	update_position(connected, TRUE)
 	drag_delay = FALSE
+	update_bike_permutated()
 
 /obj/structure/bed/chair/stroller/proc/disconnect()
 	if(connected)
 		UnregisterSignal(connected, COMSIG_MOVABLE_MOVED)
+	update_bike_permutated()
 	reload_connected()
 	connected = null
 	density = !density

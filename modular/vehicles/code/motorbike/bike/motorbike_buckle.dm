@@ -11,8 +11,12 @@
 	. = ..()
 	if(buckled_mob)
 		add_vehicle_verbs(M)
+		if(stroller)
+			stroller.update_bike_permutated(TRUE)
 	else
 		remove_vehicle_verbs(M)
+		if(stroller)
+			stroller.reset_bike_permutated(TRUE)
 
 /obj/vehicle/motorbike/set_glide_size(target)
 	. = ..()

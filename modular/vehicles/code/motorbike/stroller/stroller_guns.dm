@@ -82,8 +82,8 @@
 		to_chat(user, SPAN_NOTICE("Вы установили [mounted.name] на коляску."))
 		update_overlay()
 		update_mob_gun_signal() // вдруг уже кто-то сидит
+		update_bike_permutated() // Не хотим чтобы он застрелил того кто сидит
 		QDEL_NULL(O)
-
 
 // Разборка
 /obj/structure/bed/chair/stroller/proc/dissasemble(obj/item/O, mob/user)
@@ -156,6 +156,44 @@
 
 // =======================================
 // Пулеметные проки
+
+/obj/structure/machinery/m56d_hmg
+	var/list/objects_for_permutated = list()	// SS220 ADD - BIKE SHOOTING
+
+// Убираем возможность "задеть" байкера.
+/obj/structure/machinery/m56d_hmg/fire_shot()
+	if(!ammo || safety)
+		return
+	if(!in_chamber)
+		return ..()
+	if(!length(objects_for_permutated))
+		return ..()
+	for(var/i in objects_for_permutated)	// SS220 ADD - BIKE SHOOTING
+		in_chamber.permutated |= i
+	. = ..()
+
+/obj/structure/bed/chair/stroller/proc/update_bike_permutated(only_mob = FALSE)
+	if(!mounted)
+		return
+	if(!connected)
+		return
+	if(!only_mob)
+		mounted.objects_for_permutated.Add(connected)
+	if(!connected.buckled_mob)
+		return
+	mounted.objects_for_permutated.Add(connected.buckled_mob)
+
+/obj/structure/bed/chair/stroller/proc/reset_bike_permutated(only_mob = FALSE)
+	if(!mounted)
+		return
+	// Убираем возможность "задеть" байкера.
+	if(!connected)
+		return
+	if(!only_mob)
+		mounted.objects_for_permutated.Remove(connected)
+	if(!connected.buckled_mob)
+		return
+	mounted.objects_for_permutated.Remove(connected.buckled_mob)
 
 /obj/structure/machinery/m56d_hmg/proc/on_set_interaction_vc(mob/user)
 	//ADD_TRAIT(user, TRAIT_IMMOBILIZED, INTERACTION_TRAIT)
