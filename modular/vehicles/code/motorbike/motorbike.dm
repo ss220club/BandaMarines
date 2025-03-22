@@ -4,10 +4,14 @@
 	icon = 'modular/vehicles/icons/moto48x48.dmi'
 	icon_state = "moto_ural"
 	var/icon_skin = "classic"
+	var/blooded = FALSE	// Окровавлен при столкновении в motorbike_collide.dm
+	var/blooded_skin = "moto_mudak-overlay"
+
+	var/required_skill = SKILL_VEHICLE_SMALL
 
 	health = 400
 	maxhealth = 400
-	var/required_skill = SKILL_VEHICLE_SMALL
+	projectile_coverage = PROJECTILE_COVERAGE_LOW // Шанс попадания проджектайлов
 
 	pixel_x = -8	// спрайт 48х48, центрируем.
 	buckling_y = 7
@@ -15,7 +19,6 @@
 
 	move_delay = 1.5	// Скорость
 	var/move_delay_connected = VEHICLE_SPEED_SUPERFAST // == 2 - Скорость когда приконекчена тележка
-	projectile_coverage = PROJECTILE_COVERAGE_LOW // Шанс попадания проджектайлов
 
 	// Система света
 	light_system = MOVABLE_LIGHT
@@ -62,6 +65,9 @@
 	icon_state = "[icon_state]_[icon_skin]"
 	var/image/I = new(icon = 'modular/vehicles/icons/moto48x48.dmi', icon_state = "[icon_state]-overlay", layer = ABOVE_MOB_LAYER) //over mobs
 	overlays += I
+	if(blooded)
+		I = new(icon = 'modular/vehicles/icons/moto48x48.dmi', icon_state = "[blooded_skin]", layer = ABOVE_MOB_LAYER) //over mobs
+		overlays += I
 
 // ==========================================
 // ========== Присоединяем коляску ==========
