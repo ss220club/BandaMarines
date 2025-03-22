@@ -30,18 +30,18 @@
 			bike_collide = FALSE
 			mod = 1.2
 		if(MOB_SIZE_XENO_SMALL)
-			mod = 0.9
+			mod = 0.6
 		if(MOB_SIZE_XENO)
-			mod = 0.5
+			mod = 0.2
 		if(MOB_SIZE_BIG)
-			mod = 0.25
+			mod = 0
 		if(MOB_SIZE_IMMOBILE)
-			mod = 0.1
+			mod = 0
 
 	if(iscarbon(M))
 		var/mob/living/carbon/C = M
 		if(isyautja(C))
-			mod = 0.3
+			mod = 0.25
 		if(mod)
 			collide_mob(A, C, 1, 25 * mod, 4 * mod, 12 * mod, 30 * mod, try_broke_bones = TRUE)
 
