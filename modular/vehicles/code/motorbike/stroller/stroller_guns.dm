@@ -158,19 +158,17 @@
 // Пулеметные проки
 
 /obj/structure/machinery/m56d_hmg
-	var/list/objects_for_permutated = list()	// SS220 ADD - BIKE SHOOTING
+	var/list/objects_for_permutated = list()	// Кого не стоит дополнительно задевать, кроме стрелка.
 
-// Убираем возможность "задеть" байкера.
-/obj/structure/machinery/m56d_hmg/fire_shot()
-	if(!ammo || safety)
-		return
-	if(!in_chamber)
-		return ..()
-	if(!length(objects_for_permutated))
-		return ..()
-	for(var/i in objects_for_permutated)	// SS220 ADD - BIKE SHOOTING
-		in_chamber.permutated |= i
+// Даем пуле понимание кого "не трогать"
+/obj/structure/machinery/m56d_hmg/load_into_chamber()
 	. = ..()
+	if(!in_chamber)
+		return .
+	if(!length(objects_for_permutated))
+		return .
+	for(var/i in objects_for_permutated)
+		in_chamber.permutated |= i
 
 /obj/structure/bed/chair/stroller/proc/update_bike_permutated(only_mob = FALSE)
 	if(!mounted)
@@ -188,6 +186,7 @@
 		return
 	// Убираем возможность "задеть" байкера.
 	if(!connected)
+		mounted.objects_for_permutated = list()
 		return
 	if(!only_mob)
 		mounted.objects_for_permutated.Remove(connected)

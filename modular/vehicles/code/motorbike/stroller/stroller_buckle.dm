@@ -13,19 +13,20 @@
 		return TRUE
 	. = ..()
 
-/obj/structure/bed/chair/stroller/do_buckle(mob/living/target, mob/user)
-	if(..())
+/obj/structure/bed/chair/stroller/afterbuckle(mob/M)
+	. = ..()
+	if(buckled_mob)
 		update_buckle_mob()
 		update_drag_delay()
 		update_mob_gun_signal()
-
-/obj/structure/bed/chair/stroller/unbuckle()
-	reload_buckle_mob()
-	if(connected)
-		push_to_left_side(buckled_mob)
-	update_drag_delay()
-	update_mob_gun_signal(TRUE)
-	. = ..()
+		update_bike_permutated(TRUE)
+	else
+		reload_buckle_mob()
+		if(connected)
+			push_to_left_side(buckled_mob)
+		update_drag_delay()
+		update_mob_gun_signal(TRUE)
+		reset_bike_permutated(TRUE)
 
 // ==========================================
 // =============== Обновление ===============
