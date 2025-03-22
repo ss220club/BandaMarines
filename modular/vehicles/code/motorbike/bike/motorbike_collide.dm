@@ -62,11 +62,11 @@
 
 	var/mob/living/carbon/occupant = buckled_mob
 	unbuckle()
-	collide_mob(A, occupant, 3, 25 * mod, 4 * mod, 6 * mod, 12 * mod, TRUE)
+	collide_mob(A, occupant, 3, 25 / mod, 4 / mod, 6 / mod, 12 / mod, TRUE)
 
 	if(stroller && stroller.buckled_mob)
 		var/mob/living/carbon/second_occupant = stroller.buckled_mob
-		collide_mob(A, second_occupant, 0, 15 * mod, 8 * mod, 15 * mod, 30 * mod)
+		collide_mob(A, second_occupant, 0, 15 / mod, 8 / mod, 15 / mod, 30 / mod)
 
 	occupant.visible_message(SPAN_DANGER("[occupant] на [name] врезался в [A]!"))
 	. = ..()
