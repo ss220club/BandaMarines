@@ -224,3 +224,6 @@
   biratomi00:
   - imageadd: added new sprites for sunken
   - imagedel: delete old sprites for sunken
+2025-03-22:
+  Noname995:
+  - rscdel: Revert breakable armor for xeno
