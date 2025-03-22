@@ -25,8 +25,15 @@
 		if(connected)
 			push_to_left_side(buckled_mob)
 		update_drag_delay()
-		update_mob_gun_signal(TRUE)
+		//update_mob_gun_signal(TRUE) // вынесен в отдельный прок
 		reset_bike_permutated(TRUE)
+
+/obj/structure/bed/chair/stroller/unbuckle()
+	// Отдельно, иначе возникнет ситуация где сигнал не успевает убраться,
+	// т.к. нам ВСЕГДА нужен моб чтобы убрать у него сигнал
+	update_mob_gun_signal(TRUE)
+	. = ..()
+
 
 // ==========================================
 // =============== Обновление ===============
