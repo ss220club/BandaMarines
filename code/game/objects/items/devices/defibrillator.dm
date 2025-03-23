@@ -294,7 +294,6 @@
 		to_chat(target, SPAN_NOTICE("You suddenly feel a spark and your consciousness returns, dragging you back to the mortal plane."))
 		if(target.client?.prefs.toggles_flashing & FLASH_CORPSEREVIVE)
 			window_flash(target.client)
-		return TRUE // BANDAMARINES ADD
 	else
 		user.visible_message(SPAN_WARNING("[icon2html(src, viewers(src))] \The [src] buzzes: Defibrillation failed. Vital signs are too weak, repair damage and try again.")) //Freak case
 		msg_admin_niche("[key_name_admin(user)] failed an attempt to revive [key_name_admin(target)] with [src] because of weak vitals.")
