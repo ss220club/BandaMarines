@@ -12,8 +12,21 @@ import {
 } from '../components';
 import { Window } from '../layouts';
 
+type HardpointInfo = {
+  name: string;
+  position: string;
+  current_rounds: number;
+  max_rounds: number;
+};
+
+type Data = {
+  resistance_data: Array<{ name: string; pct: number }>;
+  integrity: number;
+  hardpoint_data: Array<HardpointInfo>;
+};
+
 export const Walker = (props) => {
-  const { act, data } = useBackend();
+  const { act, data } = useBackend<Data>();
   const { integrity, hardpoint_data } = data;
 
   const height = 150 + hardpoint_data.length * 80;
@@ -50,7 +63,7 @@ export const Walker = (props) => {
 };
 
 const ResistanceView = (props) => {
-  const { act, data } = useBackend();
+  const { act, data } = useBackend<Data>();
   const { resistance_data, integrity } = data;
   return resistance_data.map((resistance, index) => (
     <Fragment key={index}>
@@ -63,7 +76,7 @@ const ResistanceView = (props) => {
 };
 
 const HardpointsView = (props) => {
-  const { act, data } = useBackend();
+  const { act, data } = useBackend<Data>();
   const { hardpoint_data } = data;
   return hardpoint_data.map((hardpoint, index) => (
     <Fragment key={index}>
