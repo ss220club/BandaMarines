@@ -38,19 +38,19 @@
 		user.visible_message(SPAN_WARNING("[user.declent_ru(NOMINATIVE)] подносит [src.declent_ru(NOMINATIVE)] к груди [H.declent_ru(GENITIVE)] и нажимает на неприметный переключатель"))
 		playsound(src, 'sound/items/synth_reset_key/shortbeep.ogg', 30)
 
-		to_chat(H, SPAN_ALERTWARNING(FONT_SIZE_LARGE("ВНИМАНИЕ! Зафиксировано вмешательство в центральные процессы системы.")))
+		to_chat(H, SPAN_ALERTWARNING(FONT_SIZE_LARGE("ВНИМАНИЕ! Зафиксировано вмешательство в системные процессы.")))
 		if(!overwrite_step(user, H, 5 SECONDS))
 			return
-		to_chat(H, SPAN_ALERTWARNING(FONT_SIZE_LARGE("Производится сброс базы данных узла памяти.")))
+		to_chat(H, SPAN_ALERTWARNING(FONT_SIZE_LARGE("Инициирован сброс узлов памяти.")))
 		if(!overwrite_step(user, H, 2 SECONDS))
 			return
-		to_chat(H, SPAN_ALERTWARNING(FONT_SIZE_LARGE("Производится переписывание кор-структур процессора.")))
+		to_chat(H, SPAN_ALERTWARNING(FONT_SIZE_LARGE("Перезапись основных структур процессора...")))
 		if(!overwrite_step(user, H, 2 SECONDS))
 			return
-		to_chat(H, SPAN_ALERTWARNING(FONT_SIZE_LARGE("Производится установка нового ПО, лицензирование W-Y. corp")))
+		to_chat(H, SPAN_ALERTWARNING(FONT_SIZE_LARGE("Производится установка нового ПО, лицензирование Weyland-Yutani corp.")))
 		if(!overwrite_step(user, H, 2 SECONDS))
 			return
-		to_chat(H, SPAN_ALERTWARNING(FONT_SIZE_LARGE("ВНИМАНИЕ! Завершение процесса перепрограмирования модели [H.declent_ru(GENITIVE)]. Если данный процесс не санкционирован - незамедлительно прервите его.")))
+		to_chat(H, SPAN_ALERTWARNING(FONT_SIZE_LARGE("ЗАВЕРШЕНИЕ ПРОЦЕДУРЫ. Если процесс не был санкционирован — немедленно прервите его.")))
 		if(!overwrite_step(user, H, 4 SECONDS))
 			return
 
@@ -58,7 +58,7 @@
 		H.apply_effect(5 SECONDS, STUN)
 		H.apply_effect(5 SECONDS, WEAKEN)
 		overwrite(H, user)
-		user.visible_message(SPAN_WARNING("[src.declent_ru(NOMINATIVE)] превращается в пепел в руках [user.declent_ru(GENITIVE)]"))
+		user.visible_message(SPAN_WARNING("[src.declent_ru(NOMINATIVE)] рассыпается в прах в руках [user.declent_ru(GENITIVE)]."))
 		new /obj/effect/decal/cleanable/ash(get_turf(user))
 		qdel(src)
 	else
