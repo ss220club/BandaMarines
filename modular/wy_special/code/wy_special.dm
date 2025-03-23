@@ -56,7 +56,7 @@
 
 		H.apply_effect(3 SECONDS, EYE_BLUR)
 		H.apply_effect(5 SECONDS, STUN)
-		H.apply_effect(8 SECONDS, WEAKEN)
+		H.apply_effect(5 SECONDS, WEAKEN)
 		overwrite(H, user)
 		user.visible_message(SPAN_WARNING("[src.declent_ru(NOMINATIVE)] превращается в пепел в руках [user.declent_ru(GENITIVE)]"))
 		new /obj/effect/decal/cleanable/ash(get_turf(user))
