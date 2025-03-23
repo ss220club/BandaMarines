@@ -182,6 +182,11 @@
   - maptweak: copypast lower medbay
   - maptweak: add forensic spray refiller
   - maptweak: expansion brig's medbay
+  Drathek:
+  - rscadd: JSX files are now linted against in favor of typescript files (TSX)
+  Kashargul:
+  - bugfix: chat export
+  - code_imp: converts most of TGUI to typescript
   Lentye:
   - bugfix: queen larva trade micro fix
   Noname995:
@@ -190,15 +195,6 @@
   - bugfix: Yautja can now communicate telepathically
   Protos-Zerg:
   - bugfix: price for poncho
-  Teteshnik1:
-  - rscadd: "\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D \u043C\u043E\u0434\u043D\
-      \u044B\u0439 \u0441\u043F\u0440\u0430\u0439\u0442 \u043D\u0430 \u0441\u0442\u0440\
-      \u0435\u0439\u043D \u043B\u044E\u043A\u0435\u0440\u0430"
-  Drathek:
-  - rscadd: JSX files are now linted against in favor of typescript files (TSX)
-  Kashargul:
-  - bugfix: chat export
-  - code_imp: converts most of TGUI to typescript
   Red-byte3D:
   - bugfix: Fixes a small bug with Valkyrie being able to buff people across the dimensions
   Steelpoint, Drathek, bobama, dimdimich1996:
@@ -215,6 +211,10 @@
   - balance: The odds of the CLF crashed ship spawn on LV-624 occurring has been increased
       slightly per this.
   - bugfix: Fixed trolly vehicle hard deletes
+  Teteshnik1:
+  - rscadd: "\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D \u043C\u043E\u0434\u043D\
+      \u044B\u0439 \u0441\u043F\u0440\u0430\u0439\u0442 \u043D\u0430 \u0441\u0442\u0440\
+      \u0435\u0439\u043D \u043B\u044E\u043A\u0435\u0440\u0430"
   VileBeggar:
   - bugfix: Removing the shotgun choke will return stuns to the currently chambered
       projectile.
@@ -224,10 +224,10 @@
   - bugfix: Fixed a bug that caused the Broken M41A to be called Prop Gun in a chat
       message.
 2025-03-15:
-  Noname995:
-  - qol: Sunken strike pre-attack icon changed to be more visible
   Drathek:
   - bugfix: Being in a locker or cryopod shipside now can receive shipside announcements
+  Noname995:
+  - qol: Sunken strike pre-attack icon changed to be more visible
   Red-byte3D:
   - admin: Admins now have a "Play as" option that puts them in the mob they spawn
       as.
@@ -271,10 +271,6 @@
       by default. You can enable them back by changing "`Xeno Cooldown Messages" value
       to "Show" in Settings menu.'
 2025-03-19:
-  Teteshnik1:
-  - rscdel: "\u0420\u0435\u0432\u0435\u0440\u0442\u043D\u0443\u043B\u0438 \u043D\u043E\
-      \u0432\u044B\u0435 \u0434\u0435\u0444\u0438\u0431\u044B, \u0432\u0435\u0440\u043D\
-      \u0443\u043B\u0438\u0441\u044C \u043A \u0441\u0442\u0430\u0440\u044B\u043C."
   Diegoflores31:
   - rscadd: Added the ability to build new airlock types (engi , med, cmd , generic
       ,sec)
@@ -287,6 +283,10 @@
   - bugfix: ChemMaster - Allows making pills without Pill Bottles again. Stops trying
       to fill up full bottles. Disallows trying to fill up bottles that lack the space
       in each selected.
+  Teteshnik1:
+  - rscdel: "\u0420\u0435\u0432\u0435\u0440\u0442\u043D\u0443\u043B\u0438 \u043D\u043E\
+      \u0432\u044B\u0435 \u0434\u0435\u0444\u0438\u0431\u044B, \u0432\u0435\u0440\u043D\
+      \u0443\u043B\u0438\u0441\u044C \u043A \u0441\u0442\u0430\u0440\u044B\u043C."
   efzapa:
   - balance: Replaced all instances of the M81 Riot Launcher with a new M84 Riot Launcher,
       which has a non-lethal grenade capacity of 3, and the ability to lob.
@@ -300,26 +300,23 @@
       per mag, for a total of 35 bullets.
   - spellcheck: Extended M4RA mags no longer claim to be armor piercing
 2025-03-20:
-  Noname995:
-  - bugfix: Mech cant have two similar guns
   Djvarik:
   - bugfix: Bread now has the correct description
+  Noname995:
+  - bugfix: Mech cant have two similar guns
   Red-byte3D:
   - bugfix: Stacked chairs no longer stun xenos on collide anymore
 2025-03-21:
-  Noname995:
-  - qol: Decreased timelock for young blood yautja
-  - rscdel: Delete bunch of suslo-code
-  - rscdel: Revert breakable armor for xeno
-  biratomi00:
-  - imageadd: added new sprites for sunken
-  - imagedel: delete old sprites for sunken
   MeH0y:
   - balance: Increased shell storage capacity of the mortar belt and mortar shell
       backpack
   MistChristmas:
   - bugfix: Fixes Examining whilst a weapon is in your off-hand.
   - rscadd: Examine IFF now works with non Alt-IFF weapons like the SU-6 Smartpistol
+  Noname995:
+  - qol: Decreased timelock for young blood yautja
+  - rscdel: Delete bunch of suslo-code
+  - rscdel: Revert breakable armor for xeno
   Red-byte3D:
   - bugfix: Ravagers and Lurkers now only return harm intent on targetted carbons.
   - bugfix: King can no longer infinetly stun mobs via cade
@@ -328,6 +325,9 @@
   - bugfix: Hellhound's "Find Owner" ability now uses the same hotkey as XENO_PRIMARY_ACTION
       2.
   - bugfix: Hellhound's emotes have returned, with improvements!
+  biratomi00:
+  - imageadd: added new sprites for sunken
+  - imagedel: delete old sprites for sunken
   detectivegoogle:
   - soundadd: queen announcement volume reduced a bit.
   realforest2001:
@@ -337,3 +337,15 @@
   - maptweak: Removes High Command fax machines from Hybrisa, they should never have
       been there.
   - bugfix: Fixes Synthetic Survivor not appearing in the Survivor follow group.
+2025-03-23:
+  Detective-Google:
+  - bugfix: you can no longer view restricted networks on TVs.
+  ItsVyzo:
+  - spellcheck: realiable replaced with reliable on phonebox
+  LTNTS:
+  - bugfix: fixes M4RA mag box under wrong category in req vendor.
+  RUCM:
+  - qol: Upstream 21.03.2025
+  VileBeggar:
+  - bugfix: Giant Lizards will no longer cause recursive loops (the server won't randomly
+      decide to die anymore). They will now no longer be permanently stunned by explosions.
