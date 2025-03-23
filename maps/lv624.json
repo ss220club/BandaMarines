@@ -14,7 +14,6 @@
         "/datum/equipment_preset/survivor/security/lv",
         "/datum/equipment_preset/survivor/colonial_marshal/lv",
         "/datum/equipment_preset/survivor/goon",
-        "/datum/equipment_preset/survivor/clf",
         "/datum/equipment_preset/survivor/civilian"
     ],
     "map_item_type": "/obj/item/map/lazarus_landing_map",
@@ -36,7 +35,6 @@
     "camouflage": "jungle",
     "gamemodes": [
         "Distress Signal",
-        "Crash",
         "Hunter Games",
         "Hive Wars",
         "Faction Clash",
