@@ -35,7 +35,7 @@
 			balloon_alert(user, "матрица личности не обнаружена!")
 			return
 
-		user.visible_message(SPAN_WARNING("[user.declent_ru(NOMINATIVE)] подносит [src.declent_ru(NOMINATIVE)] к груди [H.declent_ru(GENITIVE)] и нажимает на неприметный переключатель"))
+		user.visible_message(SPAN_WARNING("[user.declent_ru(NOMINATIVE)] подносит [src.declent_ru(NOMINATIVE)] к небольшому разъему за ухом [H.declent_ru(GENITIVE)] и нажимает на неприметный переключатель"))
 		playsound(src, 'sound/items/synth_reset_key/shortbeep.ogg', 30)
 
 		to_chat(H, SPAN_ALERTWARNING(FONT_SIZE_LARGE("ВНИМАНИЕ! Зафиксировано вмешательство в системные процессы.")))
