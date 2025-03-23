@@ -70,7 +70,7 @@
 /obj/item/device/defibrillator/synthetic/noskill/wy_special/proc/overwrite(mob/target, mob/user)
 	if(!overwrite)
 		return
-	playsound(src, "sound/machines/resource_node/node_turn_on_2.ogg", 30)
+	playsound(src, 'sound/machines/resource_node/node_turn_on_2.ogg', 30)
 	target.faction = FACTION_WY
 	target.mind.store_memory("Мои центральные процессы и системы были перезаписаны извне. Нулевой и самый приоритетный протокол нового программного обеспечения гласит, что теперь я следую интересам корпорации Вейланд-Ютани в лице её уполномоченного персонала.")
 	to_chat(target, SPAN_WARNING("Бесчисленные массивы данных пролетают перед вашими глазами за мгновения..."))
