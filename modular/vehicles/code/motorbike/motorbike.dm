@@ -12,6 +12,7 @@
 	health = 400
 	maxhealth = 400
 	projectile_coverage = PROJECTILE_COVERAGE_LOW // Шанс попадания проджектайлов
+	var/buckle_time = 0.7 SECONDS
 
 	pixel_x = -8	// спрайт 48х48, центрируем.
 	buckling_y = 7

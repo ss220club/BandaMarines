@@ -3,6 +3,8 @@
 		if(target == user)
 			to_chat(user, SPAN_WARNING("Вы без понятия как им управлять!"))
 		return FALSE
+	if(!do_after(user, buckle_time * user.get_skill_duration_multiplier(SKILL_VEHICLE), INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
+		return FALSE
 	if(..())
 		update_stroller(src, TRUE)
 		play_start_sound()
