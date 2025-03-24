@@ -1,4 +1,3 @@
-/*RUCM REMOVE START
 GLOBAL_LIST_EMPTY(admin_ranks) //list of all ranks with associated rights
 
 //load our rank - > rights associations
@@ -180,4 +179,3 @@ GLOBAL_LIST_EMPTY(admin_ranks) //list of all ranks with associated rights
 
 #endif
 */
-RUCM REMOVE END*/

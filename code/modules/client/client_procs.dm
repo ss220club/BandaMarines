@@ -307,7 +307,6 @@ GLOBAL_LIST_INIT(whitelisted_client_procs, list(
 	player_entity = setup_player_entity(ckey)
 
 	if(check_localhost_status())
-/*
 		var/datum/admins/admin = new("!localhost!", RL_HOST, ckey)
 		admin.associate(src)
 
@@ -315,10 +314,6 @@ GLOBAL_LIST_INIT(whitelisted_client_procs, list(
 	admin_holder = GLOB.admin_datums[ckey]
 	if(admin_holder)
 		admin_holder.associate(src)
-*/
-//RUCM START
-		check_localhost_admin_datum()
-//RUCM END
 
 	add_pref_verbs()
 	//preferences datum - also holds some persistent data for the client (because we may as well keep these datums to a minimum)
