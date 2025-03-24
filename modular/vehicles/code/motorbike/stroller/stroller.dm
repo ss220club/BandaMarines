@@ -20,6 +20,7 @@
 
 	can_buckle = TRUE
 	var/buckle_time = 3 SECONDS	// Не сразу можно сесть.
+	var/chance_to_unbuckle = 10 // Каждый удар имеет шанс отсоединить куклу при попадании по ней
 	var/obj/connected
 	var/hit_chance_buckled = PROJECTILE_COVERAGE_MINIMAL // Шанс попасть по сидящему
 

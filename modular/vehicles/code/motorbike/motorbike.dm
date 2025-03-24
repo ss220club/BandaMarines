@@ -12,7 +12,9 @@
 	health = 400
 	maxhealth = 400
 	projectile_coverage = PROJECTILE_COVERAGE_LOW // Шанс попадания проджектайлов
+
 	var/buckle_time = 0.7 SECONDS
+	var/chance_to_unbuckle = 5 // Каждый удар имеет шанс отсоединить куклу при попадании по ней
 
 	pixel_x = -8	// спрайт 48х48, центрируем.
 	buckling_y = 7
@@ -98,7 +100,7 @@
 // Завершаем конект в коляске
 /obj/vehicle/motorbike/proc/connect()
 	stroller.connect(src)
-	connect_params()
+	update_connect_params()
 
 /obj/vehicle/motorbike/proc/update_connect_params()
 	move_delay = move_delay_connected

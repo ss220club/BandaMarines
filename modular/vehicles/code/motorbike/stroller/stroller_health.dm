@@ -34,6 +34,10 @@
 	if(M.melee_damage_upper == 0)
 		return
 	if(buckled_mob && prob(hit_chance_buckled))
+		if(prob(chance_to_unbuckle))
+			unbuckle()
+			buckled_mob.throw_atom(src, 1, VEHICLE_SPEED_FASTER, M, TRUE)
+			M.visible_message(SPAN_DANGER("[M] сшибает [src]!"), SPAN_DANGER("Мы сшибаем [src]!"))
 		return buckled_mob.attack_alien(M)	// Шанс попасть по сидящему
 	M.animation_attack_on(src)
 	playsound(src, hit_bed_sound, 25, 1)

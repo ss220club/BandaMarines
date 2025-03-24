@@ -79,7 +79,7 @@
 			stun_value = 2, weaken_value = 6, stutter_value = 12,
 			try_broke_bones = FALSE, chance_fracture = 50)
 	if(!throw_range)
-		M.throw_atom(A, throw_range, SPEED_FAST)
+		M.throw_atom(A, throw_range, SPEED_FAST, src, TRUE)
 
 	damage_value = round(damage_value)
 	stun_value = round(stun_value)

@@ -29,5 +29,9 @@
 
 /obj/vehicle/motorbike/attack_alien(mob/living/carbon/xenomorph/M)
 	if(buckled_mob && prob(hit_chance_buckled))
+		if(prob(chance_to_unbuckle))
+			unbuckle()
+			buckled_mob.throw_atom(src, 1, VEHICLE_SPEED_FASTER, M, TRUE)
+			M.visible_message(SPAN_DANGER("[M] сшибает [src]!"), SPAN_DANGER("Мы сшибаем [src]!"))
 		return buckled_mob.attack_alien(M)	// Шанс попасть по сидящему
 	. = ..()
