@@ -349,3 +349,6 @@
   VileBeggar:
   - bugfix: Giant Lizards will no longer cause recursive loops (the server won't randomly
       decide to die anymore). They will now no longer be permanently stunned by explosions.
+2025-03-24:
+  Noname995:
+  - code_imp: Removed bunch of blackcrystal code
