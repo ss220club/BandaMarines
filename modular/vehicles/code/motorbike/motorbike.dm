@@ -45,6 +45,7 @@
 	. = ..()
 	if(create_stroller)
 		stroller = new(src, icon_skin)
+		update_connect_params()
 		update_stroller(TRUE)
 	update_overlay()
 
@@ -97,6 +98,9 @@
 // Завершаем конект в коляске
 /obj/vehicle/motorbike/proc/connect()
 	stroller.connect(src)
+	connect_params()
+
+/obj/vehicle/motorbike/proc/update_connect_params()
 	move_delay = move_delay_connected
 
 /obj/vehicle/motorbike/proc/disconnect()

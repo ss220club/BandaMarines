@@ -46,6 +46,7 @@
 	if(create_stroller)
 		stroller = new /obj/structure/bed/chair/stroller/debug(src, icon_skin)
 		update_stroller(TRUE)
+		update_connect_params()
 	update_overlay()
 
 /obj/structure/bed/chair/stroller/debug
