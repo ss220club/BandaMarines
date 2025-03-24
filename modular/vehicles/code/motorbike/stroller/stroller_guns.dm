@@ -7,8 +7,77 @@
 		/obj/item/ammo_magazine/m56d,
 		/obj/item/ammo_magazine/m2c)
 	var/mounted_type
-	var/mounted_time_to_disassembly = 20 SECONDS
-	var/mounted_time_to_assembly = 7 SECONDS
+	var/mounted_time_to_assembly = 20 SECONDS	// Присоединение
+	var/mounted_time_to_disassembly = 7 SECONDS	// Отсоединение
+
+	var/mounted_div_shoot_degree = 1.5 // Уменьшаем градус стрельбы
+
+// ==========================================
+// ================ Пулеметы ================
+
+/obj/structure/machinery/m56d_hmg/low
+	// Стрельба
+	shoot_degree = 55
+	fire_delay = 0.4 SECONDS
+	burst_fire_delay = 0.3 SECONDS
+	autofire_slow_mult = 1.2
+
+/obj/structure/machinery/m56d_hmg/auto/low
+	// Стрельба
+	shoot_degree = 30
+	fire_delay = 0.3 SECONDS
+	burst_fire_delay = 0.3 SECONDS
+	cadeblockers_range = 0
+	autofire_slow_mult = 1.2
+
+	// перегрев
+	overheat_threshold = 20
+
+
+// ==========================================
+// ============== Безопасность ==============
+// Убираем возможность убить байкера.
+
+/obj/structure/machinery/m56d_hmg
+	var/list/objects_for_permutated = list()	// Кого не стоит дополнительно задевать, кроме стрелка.
+
+// Даем пуле понимание кого "не трогать"
+/obj/structure/machinery/m56d_hmg/load_into_chamber()
+	. = ..()
+	if(!in_chamber)
+		return .
+	if(!length(objects_for_permutated))
+		return .
+	for(var/i in objects_for_permutated)
+		in_chamber.permutated |= i
+
+/obj/structure/bed/chair/stroller/proc/update_bike_permutated(only_mob = FALSE)
+	if(!mounted)
+		return
+	if(!connected)
+		return
+	if(!only_mob)
+		mounted.objects_for_permutated.Add(connected)
+	if(!connected.buckled_mob)
+		return
+	mounted.objects_for_permutated.Add(connected.buckled_mob)
+
+/obj/structure/bed/chair/stroller/proc/reset_bike_permutated(only_mob = FALSE)
+	if(!mounted)
+		return
+	// Убираем возможность "задеть" байкера.
+	if(!connected)
+		mounted.objects_for_permutated = list()
+		return
+	if(!only_mob)
+		mounted.objects_for_permutated.Remove(connected)
+	if(!connected.buckled_mob)
+		return
+	mounted.objects_for_permutated.Remove(connected.buckled_mob)
+
+
+// ==========================================
+// ============== Взаимодействие =============
 
 /obj/structure/bed/chair/stroller/get_examine_text(mob/user)
 	. = ..()
@@ -61,14 +130,14 @@
 		if(D.has_mount)
 			to_chat(user, SPAN_NOTICE("Вы отсоединили станок от [D.name]."))
 			new /obj/item/device/m56d_post(user.loc)
-		var/obj/structure/machinery/m56d_hmg/G = new(src)
+		var/obj/structure/machinery/m56d_hmg/low/G = new(src)
 		mounted = G
 		mounted_type = D.type
 		rounds_temp = D.rounds
 
 	else if(istype(O, /obj/item/device/m2c_gun))
 		var/obj/item/device/m2c_gun/D = O
-		var/obj/structure/machinery/m56d_hmg/auto/G = new(src)	// Да, это тип M2C
+		var/obj/structure/machinery/m56d_hmg/auto/low/G = new(src)	// Да, это тип M2C
 		mounted = G
 		mounted_type = D.type
 		rounds_temp = D.rounds
@@ -120,8 +189,13 @@
 	mounted.attackby(O, user)
 	update_overlay()
 
+
+// ==========================================
+// ================ Сигналы =================
+
 #define COMSIG_MOB_MG_ENTER_VC "mob_vc_mg_enter"
 #define COMSIG_MOB_MG_EXIT_VC "mob_vc_mg_exit"
+
 
 // Стрельба
 /obj/structure/bed/chair/stroller/proc/update_mob_gun_signal(force_reset = FALSE)
@@ -153,46 +227,6 @@
 
 /obj/structure/bed/chair/stroller/proc/update_gun_dir()
 	mounted.setDir(dir)
-
-// =======================================
-// Пулеметные проки
-
-/obj/structure/machinery/m56d_hmg
-	var/list/objects_for_permutated = list()	// Кого не стоит дополнительно задевать, кроме стрелка.
-
-// Даем пуле понимание кого "не трогать"
-/obj/structure/machinery/m56d_hmg/load_into_chamber()
-	. = ..()
-	if(!in_chamber)
-		return .
-	if(!length(objects_for_permutated))
-		return .
-	for(var/i in objects_for_permutated)
-		in_chamber.permutated |= i
-
-/obj/structure/bed/chair/stroller/proc/update_bike_permutated(only_mob = FALSE)
-	if(!mounted)
-		return
-	if(!connected)
-		return
-	if(!only_mob)
-		mounted.objects_for_permutated.Add(connected)
-	if(!connected.buckled_mob)
-		return
-	mounted.objects_for_permutated.Add(connected.buckled_mob)
-
-/obj/structure/bed/chair/stroller/proc/reset_bike_permutated(only_mob = FALSE)
-	if(!mounted)
-		return
-	// Убираем возможность "задеть" байкера.
-	if(!connected)
-		mounted.objects_for_permutated = list()
-		return
-	if(!only_mob)
-		mounted.objects_for_permutated.Remove(connected)
-	if(!connected.buckled_mob)
-		return
-	mounted.objects_for_permutated.Remove(connected.buckled_mob)
 
 /obj/structure/machinery/m56d_hmg/proc/on_set_interaction_vc(mob/user)
 	//ADD_TRAIT(user, TRAIT_IMMOBILIZED, INTERACTION_TRAIT)
@@ -236,8 +270,7 @@
 		operator = null
 	flags_atom &= ~RELAY_CLICK
 
-// =======================================
-// Действие для захода за пулемет
+// ================ Actions =================
 /datum/action/human_action/mg_enter_vc
 	name = "Использовать орудие"
 	action_icon_state = "frontline_toggle_on"
@@ -266,3 +299,6 @@
 
 
 #undef COMSIG_MOB_MG_EXIT
+
+
+// ==========================================
