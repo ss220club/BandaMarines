@@ -107,11 +107,6 @@
 	if(comm_award)
 		prefix += comm_award
 	if(admin_holder)
-		var/list/rank_icons = icon_states(GLOB.ooc_rank_dmi)
-		var/rankname = trim(admin_holder.rank)
-		if(rankname in rank_icons)
-			prefix += "[icon2html(GLOB.ooc_rank_dmi, GLOB.clients, admin_holder.rank)]"
-
 		if(length(admin_holder.extra_titles))
 			var/extra_title_state
 			for(var/extra_title in admin_holder.extra_titles)
