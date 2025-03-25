@@ -355,3 +355,4 @@
 2025-03-25:
   Noname995:
   - code_imp: Removed bunch of blackcrystal code
+  - bugfix: OOC chat admin rank do not duplicate anymore
