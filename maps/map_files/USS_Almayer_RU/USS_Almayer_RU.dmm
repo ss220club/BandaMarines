@@ -17148,12 +17148,15 @@
 	pixel_x = -5;
 	pixel_y = 4
 	},
-/obj/structure/machinery/door_control/cl/quarter/windows{
-	pixel_x = -5;
-	pixel_y = -3
-	},
 /obj/structure/machinery/computer/corporate/button{
 	pixel_x = 7
+	},
+/obj/structure/machinery/door_control{
+	id = "RoomDivider";
+	name = "Room Divider";
+	pixel_x = -5;
+	pixel_y = -3;
+	req_access_txt = "200"
 	},
 /turf/open/floor/carpet,
 /area/almayer/command/corporateliaison)
@@ -21668,9 +21671,6 @@
 /area/almayer/living/grunt_rnr)
 "bWV" = (
 /obj/structure/machinery/power/apc/almayer/hardened/north,
-/obj/structure/sign/safety/rewire{
-	pixel_x = -18
-	},
 /turf/open/floor/almayer/orange/east,
 /area/almayer/hallways/lower/port_aft_hallway)
 "bWZ" = (
@@ -27896,11 +27896,12 @@
 /obj/item/tool/lighter/zippo/gold{
 	pixel_x = 2
 	},
-/obj/structure/machinery/computer/cameras/wooden_tv/broadcast{
+/obj/structure/machinery/door_display/research_cell{
 	dir = 4;
-	layer = 3.2;
+	id = "Containment Cell 4";
+	name = "Control Panel";
 	pixel_x = -15;
-	pixel_y = 1
+	req_access_txt = "200"
 	},
 /turf/open/floor/carpet,
 /area/almayer/command/corporateliaison)
@@ -30217,9 +30218,6 @@
 	pixel_x = 7;
 	pixel_y = -2
 	},
-/obj/structure/window/reinforced/toughened{
-	dir = 8
-	},
 /obj/structure/transmitter/rotary{
 	name = "Combat Information Center Telephone";
 	phone_category = "Command";
@@ -30233,6 +30231,13 @@
 	phone_id = "Combat Information Center Second Line";
 	pixel_y = 2;
 	pixel_x = -5
+	},
+/obj/structure/machinery/door/window/southleft{
+	desc = "A window, that is also a door. A windoor if you will. This one is stronger.";
+	health = 500;
+	name = "Reinforced Glass door";
+	req_one_access_txt = "2;35";
+	dir = 8
 	},
 /turf/open/floor/almayer/plate,
 /area/almayer/command/cic)
@@ -43899,12 +43904,6 @@
 	},
 /turf/open/floor/almayer/red/north,
 /area/almayer/shipboard/weapon_room)
-"ltb" = (
-/obj/structure/sign/safety/rewire{
-	pixel_x = -18
-	},
-/turf/open/floor/almayer/plating_striped/west,
-/area/almayer/squads/req)
 "ltA" = (
 /obj/item/tool/weldingtool,
 /turf/open/floor/almayer,
@@ -116069,7 +116068,7 @@ nwG
 lMw
 jeO
 nQv
-ltb
+bNQ
 bmD
 bKA
 dyx

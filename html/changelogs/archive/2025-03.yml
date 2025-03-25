@@ -436,6 +436,7 @@
   - bugfix: pill bottle skill locks can't be bypassed by shaking anymore
   Noname995:
   - qol: Yautjas can eat endlessly
+  - bugfix: OOC chat admin rank do not duplicate anymore
   Paperybirch:
   - rscadd: Added quick clot checks to hypothermic process
   - rscadd: hypothermic/pre_process and hypothermic/on_delete as flag removers
