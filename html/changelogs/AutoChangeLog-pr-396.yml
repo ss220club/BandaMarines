@@ -1,4 +1,0 @@
-author: "Noname995"
-delete-after: True
-changes:
-  - bugfix: "OOC chat admin rank do not duplicate anymore"

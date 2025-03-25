@@ -403,6 +403,8 @@
       this with your nearest specialist.
   Nomoresolvalou:
   - balance: UBS attachment now only knockback stuns in a 1 tile range
+  Noname995:
+  - code_imp: Removed bunch of blackcrystal code
   Red-byte3D:
   - bugfix: Neuro hallucination sounds are no extremly loud.
   - code_imp: playsound_client is now base 35 so its not as loud.
@@ -429,11 +431,19 @@
   - bugfix: Normal Defender sideview icons (looking left/right) and overlays were
       moved 2 pixels to the center, so Steelcrest strain will have overlays on correct
       positions now (bloodied, marine packs)
-  Noname995:
-  - code_imp: Removed bunch of blackcrystal code
 2025-03-25:
+  0Tikwah0:
+  - maptweak: Room Door's button fix and replace TV with control console.
+  - maptweak: Delete floor sign in Cargo
+  - maptweak: Add glass door opposite telephones at CIC
   Detective-Google:
   - bugfix: pill bottle skill locks can't be bypassed by shaking anymore
+  Drathek:
+  - bugfix: Fixed flyby and flight to non-ground triggering first drop events
+  MistChristmas:
+  - bugfix: Fixes a unclosed html tag. Murders the rest of the html bold tags with
+      SPAN_BOLD
+  - spellcheck: Made total upper and/or lower body bleeding more unique.
   Noname995:
   - qol: Yautjas can eat endlessly
   - bugfix: OOC chat admin rank do not duplicate anymore
@@ -441,6 +451,10 @@
   - rscadd: Added quick clot checks to hypothermic process
   - rscadd: hypothermic/pre_process and hypothermic/on_delete as flag removers
   - rscadd: CHEM_EFFECT_NO_BLEED now cures bleeding instead of just pausing it
+  RUCM:
+  - code_imp: Upstream 25.03.2025
+  Red-byte3D:
+  - bugfix: light fixtures no longer stop egg planting
   dryramen, blundir for the code, detective-google for overlay bug fix:
   - rscadd: add color changing armband to loadout
   - imageadd: add new armband sprites
