@@ -11,7 +11,7 @@
 	health = 300
 
 	//with this settings, takes 3 tiles to reach top speed
-	move_delay = 5
+	move_delay = 3.5
 	move_max_momentum = 1
 	move_momentum_build_factor = 1.8
 	move_turn_momentum_loss_factor = 0.6
