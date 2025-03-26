@@ -391,7 +391,7 @@
             html += "<td>[MH.author_key]</td>"
             html += "<td>[MH.mentor ? MH.mentor.key : "None"]</td>"
             html += "<td>[MH.open ? "Open" : "Closed"]</td>"
-            html += "<td><a href='?src=\ref[MH];action=open_chat'>Message</a></td>"
+            html += "<td><a href='byond://?src=\ref[MH];action=open_chat'>Message</a></td>"
             html += "</tr>"
 
     html += "</table>"
