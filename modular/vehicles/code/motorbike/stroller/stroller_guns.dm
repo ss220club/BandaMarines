@@ -199,9 +199,9 @@
 
 // Стрельба
 /obj/structure/bed/chair/stroller/proc/update_mob_gun_signal(force_reset = FALSE)
-	if(!buckle_mob)
+	if(!buckled_mob)
 		return
-	if(!ishuman_strict(buckle_mob))
+	if(!ishuman_strict(buckled_mob))
 		return	// Только люди могут стрелять
 	// Перезапускаем сигналы и кнопки
 	if(force_reset)
