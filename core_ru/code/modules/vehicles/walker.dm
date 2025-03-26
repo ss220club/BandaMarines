@@ -599,7 +599,7 @@
 	else if(!health)
 		if(seats[VEHICLE_DRIVER])
 			to_chat(seats[VEHICLE_DRIVER], "<span class='danger'>PRIORITY ALERT! Chassis integrity failing. Systems shutting down.</span>")
-			exit_walker(seats[VEHICLE_DRIVER])
+			exit_walker()
 		new /obj/structure/walker_wreckage(src.loc)
 		playsound(loc, 'core_ru/sound/vehicle/walker/mecha_dead.ogg', 75)
 		qdel(src)

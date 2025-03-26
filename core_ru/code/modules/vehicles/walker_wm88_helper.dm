@@ -106,8 +106,7 @@
 		var/turf/T = get_turf(owner)
 		new steam_effect(T)
 		var/damage = overheat_self_destruction_rate * overheat
-		owner.health = max(0, owner.health - damage)
-		to_chat(user, SPAN_WARNING("[owner] IS LOOSING INTEGRITY FROM EXTREAM HOT STEAM."))
+		owner.take_damage_type(damage, "abstract", owner)
 	fire_delay = basic_fire_delay - overheat
 	SEND_SIGNAL(src, COMSIG_GUN_AUTOFIREDELAY_MODIFIED, fire_delay)
 	if(overheat < overheat_upper_limit)
