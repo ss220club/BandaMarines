@@ -59,9 +59,7 @@
 /obj/structure/bed/chair/stroller/get_examine_text(mob/user)
 	. = ..()
 	if(!isxeno(user))
-		var/spare_text = get_spare_text()
-		if(spare_text)
-			. += SPAN_NOTICE("Прочность: [health/maxhealth*100]%")
+		. += SPAN_NOTICE("Прочность: [health/maxhealth*100]%")
 
 // ==========================================
 // ============ Коннект с байком ============
