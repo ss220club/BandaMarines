@@ -206,24 +206,20 @@
 		UnregisterSignal(buckled_mob, COMSIG_MOB_MG_ENTER_VC)
 		UnregisterSignal(buckled_mob, COMSIG_MOB_MG_EXIT_VC)
 		if(mounted) mounted.on_unset_interaction(buckled_mob)
-		message_admins("Reset signals for [buckled_mob] on [mounted] at [AREACOORD(src)].")
 
 	// Даем сигналы мобу, если прикручен пулемет и моб сидит
 	else if(mounted && buckled_mob)
 		RegisterSignal(buckled_mob, COMSIG_MOB_MG_ENTER_VC, PROC_REF(on_set_gun_interaction))	// Теперь мы можем перезайти за пулемет
 		RegisterSignal(buckled_mob, COMSIG_MOB_MG_EXIT_VC, PROC_REF(on_unset_gun_interaction))
 		give_action(buckled_mob, /datum/action/human_action/mg_enter_vc)
-		message_admins("Registered signals for [buckled_mob] on [mounted] at [AREACOORD(src)].")
 
 /obj/structure/bed/chair/stroller/proc/on_set_gun_interaction()
 	SIGNAL_HANDLER
 	mounted.on_set_interaction_vc(buckled_mob)
-	message_admins("Set [buckled_mob]'s gun interaction on [mounted] at [AREACOORD(src)].")
 
 /obj/structure/bed/chair/stroller/proc/on_unset_gun_interaction()
 	SIGNAL_HANDLER
 	mounted.on_unset_interaction_vc(buckled_mob)
-	message_admins("UNset [buckled_mob]'s gun interaction on [mounted] at [AREACOORD(src)].")
 
 /obj/structure/bed/chair/stroller/proc/update_gun_dir()
 	mounted.setDir(dir)
