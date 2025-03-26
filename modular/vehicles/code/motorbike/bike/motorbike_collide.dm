@@ -30,11 +30,11 @@
 			bike_collide = FALSE
 			mod = 1.2
 		if(MOB_SIZE_XENO_SMALL)
-			mod = 0.75
+			mod = 0.7
 		if(MOB_SIZE_XENO)
-			mod = 0.5
+			mod = 0.3
 		if(MOB_SIZE_BIG)
-			mod = 0.25
+			mod = 0.1
 		if(MOB_SIZE_IMMOBILE)
 			mod = 0
 
