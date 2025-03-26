@@ -174,9 +174,9 @@
 	HMG.health = mounted.health
 	HMG.update_icon()
 
+	update_mob_gun_signal(TRUE) // вдруг уже кто-то сидит
 	QDEL_NULL(mounted)
 	update_overlay()
-	update_mob_gun_signal(TRUE) // вдруг уже кто-то сидит
 	return TRUE
 
 // Перезарядка

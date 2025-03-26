@@ -1,13 +1,26 @@
-/obj/vehicle/motorbike/do_buckle(mob/living/target, mob/user)
-	if(!skillcheck(target, SKILL_VEHICLE, required_skill))
-		if(target == user)
+/obj/vehicle/motorbike/buckle_mob(mob/M, mob/user)
+	if(try_buckle_mob(M, user))
+		return TRUE
+	. = ..()
+	if(M.loc == src.loc && M.buckled)
+		update_stroller(TRUE)
+		play_start_sound()
+
+/obj/vehicle/motorbike/proc/try_buckle_mob(mob/M, mob/user)
+	if(!ismob(M) || (get_dist(src, user) > 1) || user.stat || buckled_mob || M.buckled)
+		return FALSE
+	if(!skillcheck(M, SKILL_VEHICLE, required_skill))
+		if(M == user)
 			to_chat(user, SPAN_WARNING("Вы без понятия как им управлять!"))
 		return FALSE
+	if(!ishumansynth_strict(user))
+		return FALSE	// Садить могут только хуманы и синты
 	if(!do_after(user, buckle_time * user.get_skill_duration_multiplier(SKILL_VEHICLE), INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
 		return FALSE
-	if(..())
-		update_stroller(src, TRUE)
-		play_start_sound()
+	do_buckle(M, user)
+	update_stroller(TRUE)
+	play_start_sound()
+	return TRUE
 
 /obj/vehicle/motorbike/afterbuckle(mob/M)
 	. = ..()

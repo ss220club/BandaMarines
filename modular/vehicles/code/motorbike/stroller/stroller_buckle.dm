@@ -2,25 +2,37 @@
 // =============== Усаживание ===============
 
 /obj/structure/bed/chair/stroller/buckle_mob(mob/living/carbon/human/mob, mob/user)
-	if(!do_after(user, buckle_time * user.get_skill_duration_multiplier(SKILL_VEHICLE), INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
-		return FALSE
+	if(!try_buckle_mob(mob, user))
+		return TRUE
+	. = ..()
+
+/obj/structure/bed/chair/stroller/proc/can_xeno_buckle(mob/M)
 	// Мы можем посадить небольшого ксеноса, если он будет помогать лапками в граб интенте. Как на кровати.
 	// мы сможем украсть руню или ящерку, если они не особо сопротивляться будут
 	// Мы можем посадить: Lesser Drones, Люди
-	if(
-		(mob.mob_size == MOB_SIZE_XENO && \
-			(mob.a_intent == INTENT_GRAB || mob.stat == DEAD)) \
+	return (
+		(M.mob_size == MOB_SIZE_XENO && \
+			(M.a_intent == INTENT_GRAB || M.stat == DEAD)) \
 		|| \
-		(mob.mob_size == MOB_SIZE_XENO_SMALL && \
-			(mob.a_intent == INTENT_HELP || mob.a_intent == INTENT_GRAB || mob.stat == DEAD)) \
+		(M.mob_size == MOB_SIZE_XENO_SMALL && \
+			(M.a_intent == INTENT_HELP || M.a_intent == INTENT_GRAB || M.stat == DEAD)) \
 		|| \
-		(mob.mob_size <= MOB_SIZE_XENO_VERY_SMALL)
-	)
-		do_buckle(mob, user)
-		if(mob.loc == src.loc && buckling_sound && mob.buckled)
-			playsound(src, buckling_sound, 20)
-		return TRUE
-	. = ..()
+		(M.mob_size <= MOB_SIZE_XENO_VERY_SMALL)
+		)
+
+/obj/structure/bed/chair/stroller/proc/try_buckle_mob(mob/M, mob/user)
+	if(!ismob(M) || (get_dist(src, user) > 1) || user.stat || buckled_mob || M.buckled)
+		return FALSE
+	if(!ishumansynth_strict(user))
+		return FALSE	// Садить могут только хуманы и синты
+	if(!can_xeno_buckle(M))
+		return FALSE
+	if(!do_after(user, buckle_time * user.get_skill_duration_multiplier(SKILL_VEHICLE), INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
+		return FALSE
+	do_buckle(M, user)
+	if(buckling_sound)
+		playsound(src, buckling_sound, 20)
+	return TRUE
 
 /obj/structure/bed/chair/stroller/afterbuckle(mob/M)
 	. = ..()
