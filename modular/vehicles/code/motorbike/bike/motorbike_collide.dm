@@ -43,7 +43,7 @@
 		if(isyautja(C))
 			mod = 0.25
 		if(mod)
-			collide_mob(A, C, 1, 25 * mod, 1.5 * mod, 4 * mod, 10 * mod, try_broke_bones = TRUE)
+			collide_mob(A, C, 1, 25 * mod, 2 * mod, 10 * mod, try_broke_bones = TRUE)
 
 	else if(isliving(M) && !iscarbon(M))
 		var/mob/living/L = M
@@ -64,31 +64,32 @@
 	var/mob/living/carbon/occupant = buckled_mob
 	unbuckle()
 	if(mod)
-		collide_mob(A, occupant, 3, 25 / mod, 2 / mod, 5 / mod, 12 / mod, TRUE)
+		collide_mob(A, occupant, 3, 25 / mod, 2 / mod, 12 / mod, TRUE)
 
 	if(stroller && stroller.buckled_mob)
 		var/mob/living/carbon/second_occupant = stroller.buckled_mob
-		if(mod)
-			collide_mob(A, second_occupant, 0, 15 / mod, 3 / mod, 8 / mod, 15 / mod)
+		if(mod)	// Ну а тот кто в коляске получает двойной звездюль... Но зато остается в коляске.
+			collide_mob(A, second_occupant, 0, 15 / mod, 3 / mod, 15 / mod)
 
 	occupant.visible_message(SPAN_DANGER("[occupant] на [name] врезался в [A]!"))
 	. = ..()
 
 /obj/vehicle/motorbike/proc/collide_mob(atom/A, mob/living/carbon/M,
 			throw_range = 0, damage_value = 15,
-			stun_value = 2, weaken_value = 6, stutter_value = 12,
+			weaken_value = 2, stutter_value = 12,
 			try_broke_bones = FALSE, chance_fracture = 50)
 	if(!throw_range)
 		M.throw_atom(A, throw_range, SPEED_FAST, src, TRUE)
 
 	damage_value = round(damage_value)
-	stun_value = round(stun_value)
 	weaken_value = round(weaken_value)
 	stutter_value = round(stutter_value)
 
+	weaken_value = clamp(weaken_value, 1, 5)
+
 	var/def_zone = rand_zone()
 	M.apply_damage(damage_value, BRUTE, def_zone)
-	M.apply_effect(stun_value, STUN)
+	M.apply_effect(weaken_value, STUN)
 	M.apply_effect(weaken_value, WEAKEN)
 	M.apply_effect(stutter_value, STUTTER)
 
