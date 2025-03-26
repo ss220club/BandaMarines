@@ -267,6 +267,7 @@
 		list("M10 HV extended magazine (10x20mm)", floor(scale * 10), /obj/item/ammo_magazine/pistol/m10/extended , VENDOR_ITEM_REGULAR),
 		list("M10 HV drum magazine (10x20mm)", floor(scale * 8), /obj/item/ammo_magazine/pistol/m10/drum , VENDOR_ITEM_REGULAR),
 		list("M39 Extended Magazine (10x20mm)", floor(scale * 10), /obj/item/ammo_magazine/smg/m39/extended, VENDOR_ITEM_REGULAR),
+		list("M4RA Extended Magazine (10x24mm)", floor(scale * 10), /obj/item/ammo_magazine/rifle/m4ra/extended, VENDOR_ITEM_REGULAR),
 		list("M41A MK2 Extended Magazine (10x24mm)", floor(scale * 8), /obj/item/ammo_magazine/rifle/extended, VENDOR_ITEM_REGULAR),
 
 		list("SPECIAL AMMUNITION", -1, null, null),
@@ -514,7 +515,7 @@
 
 		list("MISCELLANEOUS", -1, null, null),
 		list("Bedroll", 30, /obj/item/roller/bedroll, VENDOR_ITEM_REGULAR),
-		list("M5 Camera Gear", 3, /obj/item/device/overwatch_camera, VENDOR_ITEM_REGULAR),
+		list("M5 Camera Gear", 15, /obj/item/device/overwatch_camera, VENDOR_ITEM_REGULAR),	// SS220 EDIT
 		)
 
 /obj/structure/machinery/cm_vending/sorted/uniform_supply/ui_state(mob/user)

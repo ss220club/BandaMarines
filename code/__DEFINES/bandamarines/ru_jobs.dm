@@ -45,6 +45,7 @@
 #define JOB_CMO_RU "Главрач"
 #define JOB_DOCTOR_RU "Доктор"
 #define JOB_SURGEON_RU "Хирург"
+#define JOB_FIELD_DOCTOR_RU "Полевой врач"
 
 #define JOB_NURSE_RU "Медработник"
 #define JOB_NURSE_RU_MALE "Медбрат"
@@ -79,7 +80,7 @@
 
 #define JOB_SEA_RU "Старший Инструктор"
 
-#define JOB_CHIEF_ENGINEER_RU "Старший Инженер"
+#define JOB_CHIEF_ENGINEER_RU "Главный Инженер"
 #define JOB_MAINT_TECH_RU "Техник Обслуживания"
 #define JOB_ORDNANCE_TECH_RU "Оружейный Техник"
 
