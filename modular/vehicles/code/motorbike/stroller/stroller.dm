@@ -56,6 +56,12 @@
 		var/image/I_gun = new(icon = 'modular/vehicles/icons/moto48x48.dmi', icon_state = "moto_ural_[gun_overlay]", layer = layer_above) //over mobs
 		overlays += I_gun
 
+/obj/structure/bed/chair/stroller/get_examine_text(mob/user)
+	. = ..()
+	if(!isxeno(user))
+		var/spare_text = get_spare_text()
+		if(spare_text)
+			. += SPAN_NOTICE("Прочность: [health/maxhealth*100]%")
 
 // ==========================================
 // ============ Коннект с байком ============

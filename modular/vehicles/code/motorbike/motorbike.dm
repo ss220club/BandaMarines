@@ -73,6 +73,13 @@
 		I = new(icon = 'modular/vehicles/icons/moto48x48.dmi', icon_state = "[blooded_skin]", layer = ABOVE_MOB_LAYER) //over mobs
 		overlays += I
 
+/obj/vehicle/motorbike/get_examine_text(mob/user)
+	. = ..()
+	if(!isxeno(user))
+		var/spare_text = get_spare_text()
+		if(spare_text)
+			. += SPAN_NOTICE("Прочность: [health/maxhealth*100]%")
+
 // ==========================================
 // ========== Присоединяем коляску ==========
 
