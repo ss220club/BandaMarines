@@ -1,4 +1,4 @@
-/datum/prefab_document/provost/highcom/custody_transfer/New()
+/datum/prefab_document/provost/highcom/custody_transfer/New() // BANDAMARINES Translate
 	var/datum/asset/asset = get_asset_datum(/datum/asset/simple/paper)
 	var/dat = ""
 

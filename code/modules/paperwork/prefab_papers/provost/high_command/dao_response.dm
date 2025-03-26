@@ -1,4 +1,4 @@
-/datum/prefab_document/provost/highcom/dao_response/New()
+/datum/prefab_document/provost/highcom/dao_response/New() // BANDAMARINES Translate
 	var/datum/asset/asset = get_asset_datum(/datum/asset/simple/paper)
 	var/dat = ""
 

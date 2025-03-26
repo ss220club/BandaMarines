@@ -1,4 +1,4 @@
-/datum/prefab_document/wey_yu/liaison/ops_report/New()
+/datum/prefab_document/wey_yu/liaison/ops_report/New() // BANDAMARINES Translate
 	var/datum/asset/asset = get_asset_datum(/datum/asset/simple/paper)
 	var/dat = ""
 

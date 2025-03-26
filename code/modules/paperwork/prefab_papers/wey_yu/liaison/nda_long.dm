@@ -2,7 +2,7 @@
 	var/preset_recipient = "<span class=\"paper_field\"></span>"
 	var/doc_code = "WY442"
 
-/datum/prefab_document/wey_yu/liaison/nda_long/New()
+/datum/prefab_document/wey_yu/liaison/nda_long/New() // BANDAMARINES Translate
 	var/datum/asset/asset = get_asset_datum(/datum/asset/simple/paper)
 	var/dat = ""
 

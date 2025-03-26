@@ -1,4 +1,4 @@
-/datum/prefab_document/provost/mp/confiscation_receipt/New()
+/datum/prefab_document/provost/mp/confiscation_receipt/New() // BANDAMARINES Translate
 	var/datum/asset/asset = get_asset_datum(/datum/asset/simple/paper)
 	var/dat = ""
 
