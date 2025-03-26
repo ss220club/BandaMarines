@@ -7,6 +7,7 @@
 
 /obj/item/weapon/gun/boltaction/vulture/set_gun_config_values()
     ..()
+    bolt_delay = 50
     if(iff_enabled)
         damage_mult = 0.75
     else
