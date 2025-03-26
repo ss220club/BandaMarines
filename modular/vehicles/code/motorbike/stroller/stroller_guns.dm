@@ -199,8 +199,12 @@
 
 // Стрельба
 /obj/structure/bed/chair/stroller/proc/update_mob_gun_signal(force_reset = FALSE)
+	if(!buckle_mob)
+		return
+	if(!ishuman_strict(buckle_mob))
+		return	// Только люди могут стрелять
 	// Перезапускаем сигналы и кнопки
-	if(force_reset && buckled_mob)
+	if(force_reset)
 		remove_action(buckled_mob, /datum/action/human_action/mg_enter_vc)
 		remove_action(buckled_mob, /datum/action/human_action/mg_exit_vc)
 		UnregisterSignal(buckled_mob, COMSIG_MOB_MG_ENTER_VC)
@@ -208,7 +212,7 @@
 		if(mounted) mounted.on_unset_interaction(buckled_mob)
 
 	// Даем сигналы мобу, если прикручен пулемет и моб сидит
-	else if(mounted && buckled_mob)
+	else if(mounted)
 		RegisterSignal(buckled_mob, COMSIG_MOB_MG_ENTER_VC, PROC_REF(on_set_gun_interaction))	// Теперь мы можем перезайти за пулемет
 		RegisterSignal(buckled_mob, COMSIG_MOB_MG_EXIT_VC, PROC_REF(on_unset_gun_interaction))
 		give_action(buckled_mob, /datum/action/human_action/mg_enter_vc)
