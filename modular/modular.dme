@@ -16,7 +16,6 @@
 #include "screentips/_screentips.dme"
 #include "sounds/_sounds.dme"
 #include "translations/_translations.dme"
-#include "vulture_rework/_vulture_rework.dme"
 #include "stats_viewer/_stats_viewer.dme"
 #include "speech_filter/_speech_filter.dme"
 #include "text_to_speech/_tts.dme"
