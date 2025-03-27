@@ -21,3 +21,13 @@
 	containertype = /obj/structure/closet/crate/ammo
 	containername = "\improper M707 holo target ammo crate"
 	group = "Ammo"
+
+/obj/item/storage/box/guncase/vulture/fill_preset_inventory()
+	var/obj/item/weapon/gun/boltaction/vulture/rifle = new(src)
+	new /obj/item/ammo_magazine/rifle/boltaction/vulture(src)
+	new /obj/item/ammo_magazine/rifle/boltaction/vulture/holo_target(src)
+	new /obj/item/device/vulture_spotter_tripod(src)
+	new /obj/item/device/vulture_spotter_scope(src, WEAKREF(rifle))
+	new /obj/item/tool/screwdriver(src) // Spotter scope needs a screwdriver to disassemble
+	new /obj/item/pamphlet/trait/vulture(src) //both pamphlets give use of the scope and the rifle
+	new /obj/item/pamphlet/trait/vulture(src)
