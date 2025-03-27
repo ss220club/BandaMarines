@@ -25,7 +25,7 @@
 	set_gun_config_values()
 
 /obj/item/attachable/stock/vulture
-    desc = "A reinforced stock for the M707 'Vulture' anti-materiel rifle, equipped with an integrated IFF toggle system for enhanced targeting control."
+    desc = "Усиленный приклад для противотанковой винтовки M707 'Вультур', оснащённый встроенной системой переключения IFF для улучшенного управления наведением."
     flags_attach_features = ATTACH_ACTIVATION
     attachment_action_type = /datum/action/item_action/stock/vulture/stock_iff
 
