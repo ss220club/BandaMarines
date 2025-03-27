@@ -39,6 +39,7 @@
 #include "code/job/civilians/other/survivors.dm"
 #include "code/job/civilians/support/cmo.dm"
 #include "code/job/civilians/support/doctor.dm"
+#include "code/job/civilians/support/field_doctor.dm"
 #include "code/job/civilians/support/nurse.dm"
 #include "code/job/civilians/support/researcher.dm"
 #include "code/job/civilians/support/synthetic.dm"
@@ -134,5 +135,11 @@
 #include "code/xeno/xeno_abilities/castes/sentinel.dm"
 #include "code/xeno/xeno_abilities/castes/spitter.dm"
 #include "code/xeno/xeno_abilities/castes/warrior.dm"
+
+// Research
+#include "code/research/code/prop_negative.dm"
+#include "code/research/code/prop_neutral.dm"
+#include "code/research/code/prop_positive.dm"
+#include "code/research/code/prop_special.dm"
 
 #include "code/~undefs.dm"

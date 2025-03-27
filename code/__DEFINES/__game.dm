@@ -148,6 +148,10 @@
 #define PLAY_SYNTH (1<<5)
 #define PLAY_MISC (1<<6)
 
+//toggles_survivor
+#define PLAY_SURVIVOR_HOSTILE (1<<0)
+#define PLAY_SURVIVOR_NON_HOSTILE (1<<1)
+
 //toggles_ert_pred
 #define PLAY_MERC (1<<0)
 #define PLAY_TWE (1<<1)
@@ -175,6 +179,8 @@
 #define TOGGLES_FLASHING_DEFAULT (FLASH_ROUNDSTART|FLASH_ROUNDEND|FLASH_CORPSEREVIVE|FLASH_ADMINPM|FLASH_UNNEST)
 
 #define TOGGLES_ERT_DEFAULT (PLAY_LEADER|PLAY_MEDIC|PLAY_ENGINEER|PLAY_HEAVY|PLAY_SMARTGUNNER|PLAY_SYNTH|PLAY_MISC)
+
+#define TOGGLES_SURVIVOR_DEFAULT (PLAY_SURVIVOR_HOSTILE|PLAY_SURVIVOR_NON_HOSTILE)
 
 #define TOGGLES_ERT_GROUNDS (PLAY_MERC|PLAY_TWE|PLAY_UPP|PLAY_CLF|PLAY_XENO_T2|PLAY_XENO_T3)
 
@@ -573,4 +579,16 @@
 #define PERF_TOGGLE_TECHWEBS (1<<4)
 
 /// Maptext styles
-#define MAP_STYLESHEET ".maptext { font-family: 'Small Fonts'; font-size: 7px; -dm-text-outline: 1px black; color: white; line-height: 1.1; } .center { text-align: center; } .langchat { font-family: 'Small Fonts'; font-size: 7px; -dm-text-outline: 1px black; } .langchat_small { font-size: 6px; } .langchat_yell { font-weight: bold; font-size: 10px; } .langchat_bolded { font-weight: bold; font-size: 8px; } .langchat_announce { font-weight: bold; font-size: 12px; } .langchat_bolditalicbig {font-weight: bold; font-size: 24px; font-style: italic; } .langchat_italic {font-style: italic; }"
+#define MAP_STYLESHEET "\
+.center { text-align: center; } \
+.maptext { font-family: 'Grand9K Pixel'; font-size: 6pt; -dm-text-outline: 1pt black; color: white; line-height: 1.0; } \
+.langchat { font-family: 'Grand9K Pixel'; font-size: 6pt; -dm-text-outline: 1pt black; } \
+.langchat_small { font-family: 'Spess Font'; font-size: 6pt; } \
+.langchat_yell { font-size: 12pt; } \
+.langchat_bolded { font-family: 'Press Start 2P'; font-size: 6pt; } \
+.langchat_announce { font-family: 'Pix Cyrillic'; font-size: 12pt; } \
+.langchat_bolditalicbig { font-family: 'TinyUnicode'; font-size: 24pt; } \
+.langchat_italic { font-family: 'TinyUnicode'; font-size: 12pt; } \
+.langchat_notification { font-family: 'Press Start 2P'; font-size: 6pt; } \
+.context { font-family: 'Pix Cyrillic'; font-size: 12pt; -dm-text-outline: 1px black; } \
+.subcontext { font-family: 'TinyUnicode'; font-size: 12pt; line-height: 0.75; }"
