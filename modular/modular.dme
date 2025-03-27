@@ -3,7 +3,6 @@
 
 #include "_defines220/_defines220.dme"
 #include "_helpers220/_helpers220.dme"
-#include "vulture_rework/_vulture_rework.dme"
 #include "_signals220/_signals220.dme"
 #include "_singletons/_singletons.dme"
 #include "changelog/_changelog.dme"
@@ -18,6 +17,7 @@
 #include "sounds/_sounds.dme"
 #include "translations/_translations.dme"
 #include "stats_viewer/_stats_viewer.dme"
+#include "vulture_rework/_vulture_rework.dme"
 #include "speech_filter/_speech_filter.dme"
 #include "text_to_speech/_tts.dme"
 #include "attachments/_attachments.dme"
