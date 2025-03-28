@@ -9,12 +9,15 @@
 /obj/vehicle/motorbike/proc/try_buckle_mob(mob/M, mob/user)
 	if(!ismob(M) || (get_dist(src, user) > 1) || user.stat || buckled_mob || M.buckled)
 		return FALSE
+	if(!ishumansynth_strict(user))
+		return FALSE	// Садиться могут только хуманы и синты
+	if(user != M)
+		to_chat(user, SPAN_WARNING("Вы можете только сами сесть на байк!"))
+		return FALSE
 	if(!skillcheck(M, SKILL_VEHICLE, required_skill))
 		if(M == user)
 			to_chat(user, SPAN_WARNING("Вы без понятия как им управлять!"))
 		return FALSE
-	if(!ishumansynth_strict(user))
-		return FALSE	// Садить могут только хуманы и синты
 	if(!do_after(user, buckle_time * user.get_skill_duration_multiplier(SKILL_VEHICLE), INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
 		return FALSE
 	do_buckle(M, user)
