@@ -88,7 +88,7 @@
 	if(length(new_nickname) > MAX_NAME_LEN)
 		alert(user, "Наименование [new_nickname] больше чем [MAX_NAME_LEN] символов. Попробуйте еще раз.", "Ошибка наименования", "Ну ладно...")
 		return
-	if(alert(user, "Наименование транспорта будет [M.name + "\"[new_nickname]\""]. Оставляем?", "Подтверждаем?", "Да", "Нет") != "Да")
+	if(alert(user, "Наименование транспорта будет [M.name + " \"[new_nickname]\""]. Оставляем?", "Подтверждаем?", "Да", "Нет") != "Да")
 		return
 
 	//post-checks
@@ -101,7 +101,7 @@
 		return
 
 	M.nickname = new_nickname
-	M.name = initial(M.name) + " \"[nickname]\""
+	M.name = initial(M.name) + " \"[M.nickname]\""
 	to_chat(user, SPAN_NOTICE("Вы назвали \"[M.nickname]\" ваш транспорт."))
 	remove_verb(user.client, /obj/vehicle/motorbike/proc/name_vehicle)
 
