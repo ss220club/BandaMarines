@@ -85,7 +85,7 @@
 	weaken_value = round(weaken_value)
 	stutter_value = round(stutter_value)
 
-	weaken_value = clamp(weaken_value, 1, 5)
+	weaken_value = clamp(weaken_value, 1, 4)
 
 	var/def_zone = rand_zone()
 	M.apply_damage(damage_value, BRUTE, def_zone)
