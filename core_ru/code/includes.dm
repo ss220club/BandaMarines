@@ -60,6 +60,7 @@
 #include "modules\clothing\suits\marine_armor\st_armor.dm"
 #include "modules\clothing\gloves\marine_gloves.dm"
 #include "modules\clothing\head\helmet.dm"
+#include "modules\clothing\ranks.dm"
 #include "modules\cm_marines\equipment\kit_boxes.dm"
 #include "modules\cm_marines\equipment\weapons.dm"
 #include "modules\cm_marines\specialist.dm"
