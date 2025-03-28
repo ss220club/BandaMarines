@@ -2,7 +2,8 @@
 /obj/structure/bed/chair/stroller
 	name = "Коляска"
 	icon = 'modular/vehicles/icons/moto48x48.dmi'
-	icon_state = "moto_ural_stroller"
+	icon_state = "moto_ural_stroller_classic"	// Для отображения на картах
+	var/icon_base = "moto_ural_stroller"
 	var/icon_skin = "classic"
 	var/icon_destroyed = "destroyed"
 	desc = "Для детишек."
@@ -43,8 +44,7 @@
 
 /obj/structure/bed/chair/stroller/proc/update_overlay()
 	overlays.Cut()
-	icon_state = initial(icon_state)
-	icon_state = "[icon_state]_[icon_skin]"
+	icon_state = "[icon_base]_[icon_skin]"
 	var/image/I = new(icon = 'modular/vehicles/icons/moto48x48.dmi', icon_state = "[icon_state]-overlay", layer = layer_above) //over mobs
 	overlays += I
 	if(mounted)

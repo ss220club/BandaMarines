@@ -2,7 +2,8 @@
 	name = "Уничтоженный мотоцикл"
 	desc = "Рухлядь, которая когда-то ездила и которую можно починить."
 	icon = 'modular/vehicles/icons/moto48x48.dmi'
-	icon_state = "moto_ural"
+	icon_state = "moto_ural_classic-destroyed"	// Для отображения на картах
+	var/icon_base = "moto_ural"
 	var/icon_skin = "classic"
 	var/icon_tag_destroyed = "destroyed"
 	var/obj/obj_to_create_when_finish = /obj/vehicle/motorbike
@@ -27,7 +28,8 @@
 /obj/motorbike_destroyed/stroller
 	name = "Раздолбанная коляска"
 	desc = "Рухлядь, больше не способная покатать малышей."
-	icon_state = "moto_ural_stroller"
+	icon_state = "moto_ural_stroller_classic-destroyed"	// Для отображения на картах
+	icon_base = "moto_ural_stroller"
 	obj_to_create_when_finish = /obj/structure/bed/chair/stroller
 
 	wires_need = 40
@@ -36,7 +38,7 @@
 
 /obj/motorbike_destroyed/New(loc, skin)
 	icon_skin = skin
-	icon_state = "[initial(icon_state)]_[icon_skin]-[icon_tag_destroyed]"
+	icon_state = "[icon_base]_[icon_skin]-[icon_tag_destroyed]"
 	. = ..()
 
 /obj/motorbike_destroyed/get_examine_text(mob/user)

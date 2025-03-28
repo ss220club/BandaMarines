@@ -2,7 +2,8 @@
 	name = "Мотоцикл"
 	desc = "Для крутышей."
 	icon = 'modular/vehicles/icons/moto48x48.dmi'
-	icon_state = "moto_ural"
+	icon_state = "moto_ural_classic"	// Для отображения на картах
+	var/icon_base = "moto_ural"
 	var/icon_skin = "classic"
 	var/blooded = FALSE	// Окровавлен при столкновении в motorbike_collide.dm
 	var/blooded_skin = "moto_mudak-overlay"
@@ -65,8 +66,7 @@
 
 /obj/vehicle/motorbike/proc/update_overlay()
 	overlays.Cut()
-	icon_state= initial(icon_state)
-	icon_state = "[icon_state]_[icon_skin]"
+	icon_state = "[icon_base]_[icon_skin]"
 	var/image/I = new(icon = 'modular/vehicles/icons/moto48x48.dmi', icon_state = "[icon_state]-overlay", layer = ABOVE_MOB_LAYER) //over mobs
 	overlays += I
 	if(blooded)
