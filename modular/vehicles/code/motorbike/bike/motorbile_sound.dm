@@ -24,7 +24,7 @@
 	// Гудок
 	var/honk_sound = 'sound/vehicles/honk_4_light.ogg'
 	var/honk_sound_delay = 1 SECONDS //to prevent spamming
-	var/honk_sound_vol = 75
+	var/honk_sound_vol = 45
 	var/honk_sound_range = 15
 	var/next_honk_sound_play = 0
 
