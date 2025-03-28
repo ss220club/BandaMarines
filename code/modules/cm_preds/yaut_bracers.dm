@@ -1288,6 +1288,7 @@
 		msg = replacetext(msg, "o", "0")
 		msg = replacetext(msg, "s", "5")
 		msg = replacetext(msg, "l", "1")
+		// BANDAMARINES ADD - START
 		msg = replacetext(msg, "а", "@")
 		msg = replacetext(msg, "е", "3")
 		msg = replacetext(msg, "ч", "4")
@@ -1302,6 +1303,7 @@
 		msg = replacetext(msg, "м", "m")
 		msg = replacetext(msg, "п", "n")
 		msg = replacetext(msg, "ы", "Ьl")
+		// BANDAMARINES ADD - END
 
 	caller.langchat_speech(msg, heard, GLOB.all_languages, overhead_color, TRUE)
 
