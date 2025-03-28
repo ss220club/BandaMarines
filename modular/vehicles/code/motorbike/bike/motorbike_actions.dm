@@ -53,7 +53,7 @@
 			to_chat(user, SPAN_NOTICE("Сварка корпуса [src.name] прервана из-за непригодных обстоятельств."))
 			return FALSE
 		var/procent = round((health / maxhealth) * 100)
-		if(!lighting_holder.light)
+		if(lighting_holder && !lighting_holder.light)
 			lighting_holder.set_light_on(TRUE)
 			lighting_holder.set_light_range(vehicle_light_range)
 		to_chat(user, SPAN_NOTICE("Вы сварили корпус [src.name] с помощью [O]. Сварено на [procent]%"))
