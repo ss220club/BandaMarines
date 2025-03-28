@@ -174,6 +174,7 @@
 	update_mob_gun_signal(TRUE) // вдруг уже кто-то сидит
 	QDEL_NULL(mounted)
 	update_overlay()
+	update_buckle_mob()
 	return TRUE
 
 // Перезарядка
