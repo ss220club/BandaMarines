@@ -29,7 +29,7 @@
 		return FALSE
 	if(!do_after(user, buckle_time * user.get_skill_duration_multiplier(SKILL_VEHICLE), INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
 		return FALSE
-	if(buckled_mob)
+	if(!ismob(M) || (get_dist(src, user) > 1) || user.stat || buckled_mob || M.buckled)
 		to_chat(user, SPAN_WARNING("Кто-то был быстрее!"))
 		return FALSE
 	do_buckle(M, user)
