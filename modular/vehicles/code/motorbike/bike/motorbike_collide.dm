@@ -7,10 +7,10 @@
 		return ..()
 
 	if(istype(A, /turf/closed/wall) || \
-	   istype(A, /obj/structure/barricade/sandbags) || \
-	   istype(A, /obj/structure/barricade/metal) || \
-	   istype(A, /obj/structure/barricade/deployable) || \
-	   istype(A, /obj/structure/machinery/cryopod)) //Can no longer runover cryopods
+		istype(A, /obj/structure/barricade/sandbags) || \
+		istype(A, /obj/structure/barricade/metal) || \
+		istype(A, /obj/structure/barricade/deployable) || \
+		istype(A, /obj/structure/machinery/cryopod)) //Can no longer runover cryopods
 
 		return FALSE
 
@@ -30,11 +30,11 @@
 			bike_collide = FALSE
 			mod = 1.2
 		if(MOB_SIZE_XENO_SMALL)
-			mod = 0.7
+			mod = 0.9
 		if(MOB_SIZE_XENO)
-			mod = 0.3
+			mod = 0.7
 		if(MOB_SIZE_BIG)
-			mod = 0.1
+			mod = 0.3
 		if(MOB_SIZE_IMMOBILE)
 			mod = 0
 

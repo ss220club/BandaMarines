@@ -20,4 +20,5 @@
 #include "speech_filter/_speech_filter.dme"
 #include "text_to_speech/_tts.dme"
 #include "vehicles/_vehicles.dme"
+#include "supply_packs/_supply_packs.dme"
 #include "attachments/_attachments.dme"

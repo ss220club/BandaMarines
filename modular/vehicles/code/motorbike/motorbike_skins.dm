@@ -1,3 +1,55 @@
+// Мотоцикл с коляской
+/obj/vehicle/motorbike/full
+	create_stroller = TRUE
+
+// ==========================================
+// ============== Camo skin ===============
+
+// Камуфлирование под текущую карту
+
+/obj/vehicle/motorbike/camo
+
+/obj/vehicle/motorbike/camo/Initialize()
+	select_gamemode_skin()
+	. = ..()
+
+/obj/structure/bed/chair/stroller/camo
+
+/obj/structure/bed/chair/stroller/camo/Initialize()
+	select_gamemode_skin()
+	. = ..()
+
+/obj/vehicle/motorbike/camo/full
+	create_stroller = TRUE
+
+// Функции выбора скина
+/obj/vehicle/motorbike/proc/select_gamemode_skin()
+	if(flags_atom & NO_GAMEMODE_SKIN)
+		return
+	var/skin = SSmapping.configs[GROUND_MAP].camouflage_type
+	switch(skin)
+		if("snow")
+			icon_skin = skin
+		if("desert")
+			icon_skin = skin
+		if("classic")
+			icon_skin = skin
+		if("urban")
+			icon_skin = skin
+
+/obj/structure/bed/chair/stroller/proc/select_gamemode_skin()
+	if(flags_atom & NO_GAMEMODE_SKIN)
+		return
+	var/skin = SSmapping.configs[GROUND_MAP].camouflage_type
+	switch(skin)
+		if("snow")
+			icon_skin = skin
+		if("desert")
+			icon_skin = skin
+		if("classic")
+			icon_skin = skin
+		if("urban")
+			icon_skin = skin
 
 // ==========================================
 // ============== Desert skin ===============
@@ -10,6 +62,10 @@
 	icon_state = "moto_ural_stroller_desert"
 	icon_skin = "desert"
 
+/obj/vehicle/motorbike/desert/full
+	create_stroller = TRUE
+
+
 // ==========================================
 // =============== Snow skin ================
 
@@ -20,6 +76,10 @@
 /obj/structure/bed/chair/stroller/snow
 	icon_state = "moto_ural_stroller_snow"
 	icon_skin = "snow"
+
+/obj/vehicle/motorbike/snow/full
+	create_stroller = TRUE
+
 
 // ==========================================
 // =============== Urban skin ===============
@@ -32,6 +92,8 @@
 	icon_state = "moto_ural_stroller_urban"
 	icon_skin = "urban"
 
+/obj/vehicle/motorbike/urban/full
+	create_stroller = TRUE
 
 
 // ==========================================
@@ -48,8 +110,14 @@
 	wrench_time = 5
 	welder_health = 200
 
-/obj/vehicle/motorbike/debug/New(loc, skin, create_stroller = TRUE)
-	. = ..(loc, skin, create_stroller = FALSE)
+/obj/vehicle/motorbike/debug/full
+	create_stroller = TRUE
+
+
+/obj/vehicle/motorbike/debug/New(loc, skin)
+	create_stroller = FALSE
+	. = ..(loc, skin)
+	create_stroller = initial(create_stroller)
 	if(create_stroller)
 		stroller = new /obj/structure/bed/chair/stroller/debug(src, icon_skin)
 		update_stroller(TRUE)

@@ -7,6 +7,7 @@
 	var/icon_skin = "classic"
 	var/blooded = FALSE	// Окровавлен при столкновении в motorbike_collide.dm
 	var/blooded_skin = "moto_mudak-overlay"
+	var/create_stroller = FALSE
 
 	var/required_skill = SKILL_VEHICLE_SMALL
 
@@ -42,7 +43,7 @@
 	var/hit_chance_buckled = PROJECTILE_COVERAGE_MINIMAL // Шанс попасть по сидящему
 
 
-/obj/vehicle/motorbike/New(loc, skin, create_stroller = TRUE)
+/obj/vehicle/motorbike/New(loc, skin)
 	if(skin)
 		icon_skin = skin
 	. = ..()
