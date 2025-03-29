@@ -2,7 +2,7 @@
 	var/list/cassette_data
 
 /datum/decorator/cassette/is_active_decor()
-	cassette_data = file2list("sound/music/walkman/playlist.txt")
+	cassette_data = file2list("config/music/walkman/playlist.txt")
 	return length(cassette_data) > 0
 
 /datum/decorator/cassette/get_decor_types()
