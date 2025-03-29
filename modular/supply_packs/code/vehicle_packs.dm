@@ -5,8 +5,9 @@
 	name = "Vehicle - Motorbike (x1)"
 	contains = list(
 		/obj/vehicle/motorbike/camo,
+		/obj/item/pamphlet/skill/vc,	// По хорошему поменять на более мелкий скилл вождения
 	)
-	cost = 50
+	cost = 40
 	containertype = /obj/structure/largecrate
 	containername = "Упакованный мотоцикл"
 	group = "Vehicle Equipment"
@@ -17,7 +18,7 @@
 	contains = list(
 		/obj/structure/bed/chair/stroller/camo,
 	)
-	cost = 30
+	cost = 20
 	containertype = /obj/structure/largecrate
 	containername = "Упакованная коляска для мотоцикла"
 	group = "Vehicle Equipment"
