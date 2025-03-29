@@ -17,6 +17,11 @@
 		message_admins("Failed Login: [key] - Guests not allowed")
 		return list("reason"="guest", "desc"="\nReason: Guests not allowed. Please sign in with a byond account.")
 
+	// SS220 EDIT - START
+	// Player limit check was changed here modular\better_player_limit
+	// Admin check is duplicated in better player limit proc, so I commented it too.
+	/*
+
 	// wait for database to be ready
 	WAIT_DB_READY
 	if(GLOB.admin_datums[ckey] && (GLOB.admin_datums[ckey].rights & R_MOD))
@@ -24,6 +29,9 @@
 
 	if(CONFIG_GET(number/limit_players) && CONFIG_GET(number/limit_players) < length(GLOB.clients))
 		return list("reason"="POP CAPPED", "desc"="\nReason: Server is pop capped at the moment at [CONFIG_GET(number/limit_players)] players. Attempt reconnection in 2-3 minutes.")
+
+	*/
+	// SS220 EDIT - END
 
 	var/datum/entity/player/P = get_player_from_key(ckey)
 
