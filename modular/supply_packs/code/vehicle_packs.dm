@@ -6,7 +6,7 @@
 	contains = list(
 		/obj/vehicle/motorbike/camo,
 	)
-	cost = 70
+	cost = 50
 	containertype = /obj/structure/largecrate
 	containername = "Упакованный мотоцикл"
 	group = "Vehicle Equipment"

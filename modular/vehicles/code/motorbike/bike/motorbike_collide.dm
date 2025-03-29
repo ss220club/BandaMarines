@@ -3,17 +3,6 @@
 	if(!seats[VEHICLE_DRIVER])
 		return FALSE
 
-	if(istype(A, /obj/structure/barricade/plasteel))
-		return ..()
-
-	if(istype(A, /turf/closed/wall) || \
-		istype(A, /obj/structure/barricade/sandbags) || \
-		istype(A, /obj/structure/barricade/metal) || \
-		istype(A, /obj/structure/barricade/deployable) || \
-		istype(A, /obj/structure/machinery/cryopod)) //Can no longer runover cryopods
-
-		return FALSE
-
 	if(!ismob(A))
 		return ..()
 	var/mob/M = A
@@ -43,11 +32,11 @@
 		if(isyautja(C))
 			mod = 0.25
 		if(mod)
-			collide_mob(A, C, 1, 25 * mod, 2 * mod, 10 * mod, try_broke_bones = TRUE)
+			collide_mob(A, C, 1, 17 * mod, 2 * mod, 10 * mod, try_broke_bones = TRUE)
 
 	else if(isliving(M) && !iscarbon(M))
 		var/mob/living/L = M
-		L.adjustBruteLoss(25)
+		L.adjustBruteLoss(20)
 
 	if(!bike_collide)
 		playsound(src.loc, 'sound/effects/bone_break7.ogg', 25, 1)
@@ -64,7 +53,7 @@
 	var/mob/living/carbon/occupant = buckled_mob
 	unbuckle()
 	if(mod)
-		collide_mob(A, occupant, 3, 25 / mod, 2 / mod, 12 / mod, TRUE)
+		collide_mob(A, occupant, 3, 17 / mod, 2 / mod, 12 / mod, TRUE)
 
 	if(stroller && stroller.buckled_mob)
 		var/mob/living/carbon/second_occupant = stroller.buckled_mob

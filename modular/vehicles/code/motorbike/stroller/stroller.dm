@@ -35,7 +35,7 @@
 	if(skin)
 		icon_skin = skin
 	. = ..()
-	if(isobj(loc))
+	if(istype(loc, /obj/vehicle))
 		connected = loc
 	if(connected)
 		connect(connected)

@@ -1,4 +1,6 @@
 /obj/vehicle/motorbike
+	//anchored = FALSE // Мы можем передвинуть байк, если он нам мешает.
+	//drag_delay = 3 // Но медленно
 	var/can_drive_when_hands_full = FALSE // Не надо водить когда хотя бы одна рука не свободна, лучше 2
 	 // На будущее потеря контроля когда не можешь водить
 	var/chance_lost_drive_control_when_one_hand = 2 // Ездишь с одной рукой - имеешь шанс нахуй потерять драйв контрол
