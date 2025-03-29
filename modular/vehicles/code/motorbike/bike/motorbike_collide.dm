@@ -33,7 +33,8 @@
 			mod = 0.25
 		if(mod)
 			collide_mob(A, C, 1, 17 * mod, 2 * mod, 10 * mod, try_broke_bones = TRUE)
-
+		if(isxeno(M))
+			attack_alien(M)
 	else if(isliving(M) && !iscarbon(M))
 		var/mob/living/L = M
 		L.adjustBruteLoss(20)

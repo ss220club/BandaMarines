@@ -16,7 +16,6 @@
 	projectile_coverage = PROJECTILE_COVERAGE_LOW // Шанс попадания проджектайлов
 
 	var/buckle_time = 0.7 SECONDS
-	var/chance_to_unbuckle = 5 // Каждый удар имеет шанс отсоединить куклу при попадании по ней
 
 	pixel_x = -8	// спрайт 48х48, центрируем.
 	buckling_y = 7
@@ -40,7 +39,8 @@
 
 	var/obj/structure/bed/chair/stroller/stroller = null // привязанная тележка
 	var/hit_chance_connected = PROJECTILE_COVERAGE_MEDIUM // prob шанс задеть тележку или сидящего при попадании
-	var/hit_chance_buckled = PROJECTILE_COVERAGE_MINIMAL // Шанс попасть по сидящему
+	var/hit_chance_buckled = 50 // Шанс попасть по сидящему
+	var/hit_chance_to_unbuckle = 5 // Каждый удар имеет шанс отсоединить куклу при попадании по ней
 
 
 /obj/vehicle/motorbike/New(loc, skin)
