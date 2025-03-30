@@ -64,6 +64,11 @@
 	else if(light_range)
 		set_light_on(TRUE)
 	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(on_move))
+	GLOB.all_spec_vehicles += src // Orbit
+
+/obj/vehicle/motorbike/Destroy(force)
+	. = ..()
+	GLOB.all_spec_vehicles -= src
 
 /obj/vehicle/motorbike/proc/update_overlay()
 	overlays.Cut()

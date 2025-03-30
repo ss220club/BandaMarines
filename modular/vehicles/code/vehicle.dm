@@ -7,3 +7,24 @@
 	skill = SKILL_VEHICLE
 	secondary_skill = SKILL_ENGINEER
 	skill_increment = 1
+
+// Внимание!
+// Если добавляешь MULTIVEHICLE, то добавляй их в GLOB.all_multi_vehicles
+// Чтобы они отслеживались в get_multi_vehicles()
+/proc/get_spec_vehicles()
+	var/list/spec_vehicles = GLOB.all_spec_vehicles.Copy()
+	var/list/names = list()
+	var/list/namecounts = list()
+	var/list/vehicles = list()
+	for(var/obj/vehicle/SV in spec_vehicles)
+		var/name = SV.name
+		if(name in names)
+			namecounts[name]++
+			name = "[name] #([namecounts[name]])"
+		else
+			names.Add(name)
+			namecounts[name] = 1
+		vehicles[name] = SV
+
+	return vehicles
+
