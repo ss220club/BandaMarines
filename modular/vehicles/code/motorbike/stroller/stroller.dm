@@ -34,7 +34,7 @@
 /obj/structure/bed/chair/stroller/New(loc, skin)
 	if(skin)
 		icon_skin = skin
-	. = ..()
+	. = ..(loc, skin)
 	if(istype(loc, /obj/vehicle))
 		connected = loc
 	if(connected)

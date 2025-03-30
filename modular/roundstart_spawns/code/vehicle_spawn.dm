@@ -15,6 +15,7 @@
 		/obj/vehicle/motorbike/camo, // Без коляски
 		/obj/item/pamphlet/skill/vc/low)
 	attached_to_type = /obj/effect/landmark/start/intel
+	min_spawns = 2
 
 /datum/roundstart_spawn/motorbike/mp
 	object_to_spawn = list(

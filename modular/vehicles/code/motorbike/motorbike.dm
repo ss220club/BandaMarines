@@ -46,7 +46,7 @@
 /obj/vehicle/motorbike/New(loc, skin)
 	if(skin)
 		icon_skin = skin
-	. = ..()
+	. = ..(loc, skin)
 	if(create_stroller)
 		stroller = new(src, icon_skin)
 		update_connect_params()
