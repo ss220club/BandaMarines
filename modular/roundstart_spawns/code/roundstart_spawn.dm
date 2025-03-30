@@ -49,22 +49,22 @@
     return TRUE
 
 /datum/roundstart_spawn/proc/find_valid_spawn_turf(obj/attached_obj)
-    var/list/valid_turfs = list()
     var/turf/center = get_turf(attached_obj)
-
     if(!center)
-        return
+        return null
 
-    // Ищем все тайлы в радиусе range
-    for(var/turf/T in range(range, center))
+    var/list/valid_turfs = list()
+
+    // Сначала проверяем тайлы ВОКРУГ центра (не включая сам центр)
+    for(var/turf/T in orange(range, center)) // orange() в отличии от range() даёт кольцо вокруг центра без центра
         if(!ignore_walls && isclosedturf(T))
             continue
         if(!ignore_objects && (locate(/obj) in T) || (locate(/mob) in T))
             continue
         valid_turfs += T
 
+    // Если нашли подходящие тайлы вокруг — возвращаем случайный
     if(length(valid_turfs))
-        return pick(valid_turfs) // Возвращаем случайный подходящий turf
+        return pick(valid_turfs)
 
-    return // Нет валидных тайлов
-
+    return center
