@@ -14,8 +14,15 @@
 	if (iswelder(O))
 		return handle_welder(O, user)
 
-	// Мытье шваброй
+	// Мытье от крови мылом
 	if (istype(O, /obj/item/tool/soap))
+		return handle_wash(O, user)
+
+	// Мытье от крови шваброй
+	if (istype(O, /obj/item/tool/mop))
+		if(O.reagents.total_volume < 1)
+			to_chat(user, SPAN_NOTICE("Слишком сухая швабра!"))
+			return FALSE
 		return handle_wash(O, user)
 
 	// Ремонт шин
@@ -28,11 +35,11 @@
 		return FALSE
 	var/mob/living/L = user
 	L.animation_attack_on(src)
-	to_chat(user, SPAN_NOTICE("Вы начали мытье [src.name]."))
+	to_chat(user, SPAN_NOTICE("Вы начали мытье [src.name] с помощью [O]."))
 	if(!do_after(user, 10 SECONDS * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
-		to_chat(user, SPAN_WARNING("Вы отменили мытье [src.name]."))
+		to_chat(user, SPAN_WARNING("Вы отменили мытье [src.name] с помощью [O]."))
 		return FALSE
-	to_chat(user, SPAN_NOTICE("Вы вычистили следы крови с [src.name]."))
+	to_chat(user, SPAN_NOTICE("Вы вычистили следы крови с [src.name] с помощью [O]."))
 	L.animation_attack_on(src)
 	blooded = FALSE
 	update_overlay()
