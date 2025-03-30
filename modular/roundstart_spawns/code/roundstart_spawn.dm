@@ -1,5 +1,5 @@
 /datum/roundstart_spawn
-	var/obj/object_to_spawn // Объект который спавним
+	var/list/object_to_spawn = list() // Объекты которые спавним
 	var/obj/attached_to_type // Объект к которому привязываем для спавна.
 	var/range = 1 // В каком радиусе кидаем объект
 	var/ignore_walls = FALSE // Выбираем локацию спавна где нет стен.
@@ -14,7 +14,7 @@
 	var/required_players = 40 // Требование количества игроков для +1 спавна
 
 /datum/roundstart_spawn/proc/process_spawns()
-    if(!object_to_spawn || !attached_to_type)
+    if(!length(object_to_spawn) || !attached_to_type)
         return FALSE // Нельзя спавнить без объекта или точки привязки
 
     // Рассчитываем сколько нужно заспавнить (на основе игроков)
@@ -41,7 +41,8 @@
             spawn_turf = get_turf(attached_obj) // Если не нашли подходящий — спавним прямо на attached_obj
 
         if(spawn_turf)
-            new object_to_spawn(spawn_turf)
+            for(var/O in object_to_spawn)
+                new O(spawn_turf)
             current_spawns++
             message_admins("[ADMIN_COORDJMP(spawn_turf)] - Spawned [object_to_spawn] at [AREACOORD(spawn_turf)].")
 
@@ -66,3 +67,4 @@
         return pick(valid_turfs) // Возвращаем случайный подходящий turf
 
     return // Нет валидных тайлов
+
