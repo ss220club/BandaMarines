@@ -30,7 +30,7 @@
 	. = ..()
 
 /obj/vehicle/motorbike/proc/handle_wash(obj/item/O, mob/user)
-	if (!blooded)
+	if(!blooded)
 		to_chat(user, SPAN_NOTICE("Вы не можете вычистить то, чего нет."))
 		return FALSE
 	var/mob/living/L = user
