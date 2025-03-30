@@ -1,6 +1,6 @@
 /obj/vehicle/motorbike/buckle_mob(mob/M, mob/user)
-	if(try_buckle_mob(M, user))
-		return TRUE
+	if(!try_buckle_mob(M, user))
+		return FALSE
 	. = ..()
 	if(M.loc == src.loc && M.buckled)
 		update_stroller(TRUE)

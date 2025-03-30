@@ -44,7 +44,7 @@
             for(var/O in object_to_spawn)
                 new O(spawn_turf)
             current_spawns++
-            message_admins("[ADMIN_COORDJMP(spawn_turf)] - Spawned [object_to_spawn] at [AREACOORD(spawn_turf)].")
+            //message_admins("[ADMIN_COORDJMP(spawn_turf)] - Spawned [object_to_spawn] at [AREACOORD(spawn_turf)].")
 
     return TRUE
 

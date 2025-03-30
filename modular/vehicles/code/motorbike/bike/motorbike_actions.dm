@@ -14,10 +14,29 @@
 	if (iswelder(O))
 		return handle_welder(O, user)
 
+	// Мытье шваброй
+	if (istype(O, /obj/item/tool/soap))
+		return handle_wash(O, user)
+
 	// Ремонт шин
 	//if (iswire())
 	. = ..()
 
+/obj/vehicle/motorbike/proc/handle_wash(obj/item/O, mob/user)
+	if (!blooded)
+		to_chat(user, SPAN_NOTICE("Вы не можете вычистить то, чего нет."))
+		return FALSE
+	var/mob/living/L = user
+	L.animation_attack_on(src)
+	to_chat(user, SPAN_NOTICE("Вы начали мытье [src.name]."))
+	if(!do_after(user, 10 SECONDS * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
+		to_chat(user, SPAN_WARNING("Вы отменили мытье [src.name]."))
+		return FALSE
+	to_chat(user, SPAN_NOTICE("Вы вычистили следы крови с [src.name]."))
+	L.animation_attack_on(src)
+	blooded = FALSE
+	update_overlay()
+	return TRUE
 
 /obj/vehicle/motorbike/proc/handle_wrench(obj/item/O, mob/user)
 	var/mob/living/L = user
