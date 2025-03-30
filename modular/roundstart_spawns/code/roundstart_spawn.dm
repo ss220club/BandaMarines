@@ -36,6 +36,7 @@
 
 		if(!length(available_attached))
 			return FALSE  // Вообще нет объектов для привязки
+
 	var/list/available_attached_temp = available_attached.Copy()
 
 	for(var/i in 1 to num_to_spawn)
@@ -46,6 +47,7 @@
 		var/obj/attached_obj = pick_n_take(available_attached_temp)
 		var/turf/spawn_turf = find_valid_spawn_turf(attached_obj)
 
+		// Если не нашли тюрф — спавним прямо на attached_obj (допустимо по условию)
 		if(!spawn_turf)
 			spawn_turf = get_turf(attached_obj)  // Если не нашли подходящий — спавним прямо на attached_obj
 
