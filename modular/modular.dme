@@ -21,4 +21,5 @@
 #include "text_to_speech/_tts.dme"
 #include "vehicles/_vehicles.dme"
 #include "supply_packs/_supply_packs.dme"
+#include "roundstart_spawns/_roundstart_spawns.dme"
 #include "attachments/_attachments.dme"

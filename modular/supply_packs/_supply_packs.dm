@@ -1,6 +1,6 @@
 /datum/modpack/supply_packs
 	name = "Supply Packs modpack"
-	desc = "its useless"
+	desc = "Новые паки снабжения"
 	author = "phantomru"
 
 /datum/modpack/supply_packs/pre_initialize()
