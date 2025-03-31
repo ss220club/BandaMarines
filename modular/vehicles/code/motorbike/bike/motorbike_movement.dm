@@ -13,7 +13,7 @@
 	if(!buckled_mob)
 		chance_lost_drive_control_when_one_hand = initial(chance_lost_drive_control_when_one_hand)
 		return
-	var/mult = user.get_skill_duration_multiplier(SKILL_VEHICLE)
+	var/mult = buckled_mob.get_skill_duration_multiplier(SKILL_VEHICLE)
 	chance_lost_drive_control_when_one_hand = round(chance_lost_drive_control_when_one_hand * mult)
 
 /obj/vehicle/motorbike/proc/on_move()
