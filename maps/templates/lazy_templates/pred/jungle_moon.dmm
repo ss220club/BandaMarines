@@ -85,33 +85,33 @@
 /turf/open/floor/engine/cult,
 /area/yautja_grounds/prep_room/inside)
 "an" = (
-/turf/open/floor/strata/grey_multi_tiles/southwest,
+/turf/closed/wall/cult/hunting_grounds,
 /area/yautja_grounds/young_blood_prep)
 "ao" = (
-/turf/open/floor/engine/cult,
+/turf/open/floor/strata/grey_multi_tiles/southwest,
 /area/yautja_grounds/young_blood_prep)
 "ap" = (
-/obj/effect/landmark/yautja_young_teleport,
-/turf/open/floor/engine/cult,
+/obj/structure/prop/brazier/torch,
+/turf/closed/wall/cult/hunting_grounds,
 /area/yautja_grounds/young_blood_prep)
 "aq" = (
-/turf/closed/wall/cult/hunting_grounds,
+/turf/open/floor/engine/cult,
 /area/yautja_grounds/young_blood_prep)
 "ar" = (
 /turf/open/gm/dirtgrassborder,
 /area/yautja_grounds/jungle/west)
 "as" = (
-/obj/structure/prop/brazier/torch,
-/turf/closed/wall/cult/hunting_grounds,
+/obj/structure/machinery/door/airlock/sandstone/runed/destroyable{
+	color = "#2e1e21"
+	},
+/turf/open/floor/engine/cult,
 /area/yautja_grounds/young_blood_prep)
 "at" = (
 /obj/structure/flora/jungle/planttop1,
 /turf/open/gm/grass/grass2,
 /area/yautja_grounds/jungle/north)
 "au" = (
-/obj/structure/machinery/door/airlock/sandstone/runed/destroyable{
-	color = "#2e1e21"
-	},
+/obj/effect/landmark/yautja_young_teleport,
 /turf/open/floor/engine/cult,
 /area/yautja_grounds/young_blood_prep)
 "ax" = (
@@ -6610,8 +6610,8 @@ Ow
 Ow
 Ow
 Ow
-aq
-aq
+an
+an
 rR
 rR
 nc
@@ -6708,10 +6708,10 @@ Ow
 Ow
 Ow
 Ow
-aq
-aq
-BX
 an
+an
+BX
+ao
 CN
 rR
 rR
@@ -6806,13 +6806,13 @@ Ow
 Ow
 Ow
 Ow
+an
+ap
+ao
 aq
-as
-an
+aq
+aq
 ao
-ao
-ao
-an
 nc
 rR
 Cf
@@ -6905,15 +6905,15 @@ Ow
 Ow
 Ow
 Ow
-aq
 an
 ao
-tO
-tO
-tO
-ao
-cZ
 aq
+tO
+tO
+tO
+aq
+cZ
+an
 rR
 rR
 bR
@@ -7004,15 +7004,15 @@ du
 Ow
 Ow
 Ow
+as
+ao
 au
-an
-ap
 Qi
 bl
 nu
+aq
 ao
 an
-aq
 Th
 bR
 Ya
@@ -7103,15 +7103,15 @@ sy
 Ow
 Ow
 By
-aq
 an
 ao
-tO
-tO
-tO
-ao
-fk
 aq
+tO
+tO
+tO
+aq
+fk
+an
 sd
 fV
 Ow
@@ -7202,15 +7202,15 @@ sy
 Ow
 Ow
 Ow
-aq
-as
 an
+ap
 ao
-ao
-ao
-an
-as
 aq
+aq
+aq
+ao
+ap
+an
 Vz
 Ow
 Ow
@@ -7302,13 +7302,13 @@ du
 Ow
 Ow
 Ow
-aq
-aq
 an
 an
+ao
+ao
+ao
 an
-aq
-aq
+an
 DG
 Ow
 Ow
@@ -7402,11 +7402,11 @@ Ow
 Ow
 Ow
 Ow
-aq
-aq
-au
-aq
-aq
+an
+an
+as
+an
+an
 Th
 Ow
 By
