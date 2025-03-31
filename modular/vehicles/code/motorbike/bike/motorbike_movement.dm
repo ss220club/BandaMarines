@@ -1,7 +1,7 @@
 /obj/vehicle/motorbike
 	var/can_drive_when_hands_full = FALSE // Не надо водить когда хотя бы одна рука не свободна, лучше 2
 	 // На будущее потеря контроля когда не можешь водить
-	var/chance_lost_drive_control_when_one_hand = 2 // Ездишь с одной рукой - имеешь шанс нахуй потерять драйв контрол
+	var/chance_lost_drive_control_when_one_hand = 5 // Ездишь с одной рукой - имеешь шанс нахуй потерять драйв контрол
 	var/lost_drive_control_dir					 // Направление по которому начинает ездить машина потерявшее управление
 	var/lost_drive_control_time_min = 2 SECONDS	 // Нижняя граница времени движения при потере контроля
 	var/lost_drive_control_time_max	= 6 SECONDS // Верхняя граница времени движения при потере контроля
@@ -9,6 +9,12 @@
 	var/old_dir_saved = SOUTH
 	var/old_dir = SOUTH
 
+/obj/vehicle/motorbike/proc/update_drive_skill_parameters()
+	if(!buckled_mob)
+		chance_lost_drive_control_when_one_hand = initial(chance_lost_drive_control_when_one_hand)
+		return
+	var/mult = user.get_skill_duration_multiplier(SKILL_VEHICLE)
+	chance_lost_drive_control_when_one_hand = round(chance_lost_drive_control_when_one_hand * mult)
 
 /obj/vehicle/motorbike/proc/on_move()
 	SIGNAL_HANDLER
@@ -20,7 +26,7 @@
 		old_dir = dir
 
 /obj/vehicle/motorbike/relaymove(mob/user, direction)
-	if(!can_drive_when_hands_full)
+	if(!can_drive_when_hands_full && chance_lost_drive_control_when_one_hand >= 0)
 		// Катаешься без рук - не можешь менять направление
 		if(user.l_hand && user.r_hand)
 			return ..(user, old_dir_saved)

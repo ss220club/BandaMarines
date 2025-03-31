@@ -38,6 +38,7 @@
 	else
 		density = initial(density)
 		remove_vehicle_verbs(M)
+	update_drive_skill_parameters()
 
 /obj/vehicle/motorbike/unbuckle()
 	if(stroller)	// Выносим сюда, а то неправильно уберет, т.к. моб уже отвязан
