@@ -80,6 +80,7 @@
 
 	if(istype(VO, /obj/effect/vehicle_spawner/tank))
 		selected_vehicle = "TANK"
+		available_categories &= ~(VEHICLE_INTEGRAL_AVAILABLE) //мы и так пока спавнимся с башней, лишний флаг
 		marine_announcement("Tank is being sent up to reinforce this operation. Good luck")
 	else
 		selected_vehicle = "APC"
@@ -98,6 +99,10 @@
 	if(selected_vehicle == "TANK")
 		if(available_categories)
 			display_list = GLOB.cm_vending_vehicle_crew_tank
+//RUCM EDIT START
+		else
+			display_list = GLOB.cm_vending_vehicle_crew_tank_spare
+//RUCM EDIT ENDS
 
 	else if(selected_vehicle == "ARC")
 		display_list = GLOB.cm_vending_vehicle_crew_arc
@@ -130,7 +135,10 @@
 		var/prod_available = FALSE
 		var/p_cost = myprod[2]
 		var/avail_flag = myprod[4]
-		if(budget_points >= p_cost && (!avail_flag || available_categories & avail_flag))
+//RUCM EDIT START
+		//if(budget_points >= p_cost && (!avail_flag || available_categories & avail_flag))
+		if(available_points_to_display >= p_cost && (!avail_flag || available_categories & avail_flag))
+//RUCM EDIT ENDS
 			prod_available = TRUE
 		stock_values += list(prod_available)
 
@@ -149,7 +157,10 @@
 			to_chat(H, SPAN_WARNING("Not enough points."))
 			vend_fail()
 			return FALSE
-		budget_points -= L[2]
+// RUCM EDIT START
+		//budget_points -= L[2]
+		available_points_to_display -= L[2]
+//RUCM EDIT ENDS
 
 GLOBAL_LIST_INIT(cm_vending_vehicle_crew_tank, list(
 	list("STARTING KIT SELECTION:", 0, null, null, null),
