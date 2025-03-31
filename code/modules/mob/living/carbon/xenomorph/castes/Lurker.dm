@@ -266,8 +266,7 @@
 /datum/action/xeno_action/onclick/lurker_invisibility/proc/invisibility_off(refund_multiplier = 0.0)
 	var/mob/living/carbon/xenomorph/xeno = owner
 
-	if(!istype(xeno))
-		return
+
 	if(owner.alpha == initial(owner.alpha) && !xeno.stealth)
 		return
 
@@ -285,8 +284,6 @@
 	xeno.recalculate_speed()
 
 	var/datum/behavior_delegate/lurker_base/behavior = xeno.behavior_delegate
-	if(!istype(behavior))
-		CRASH("lurker_base behavior_delegate missing/invalid for [xeno]!")
 
 	var/recharge_time = behavior.invis_recharge_time
 	if(behavior.invis_start_time > 0) // Sanity
