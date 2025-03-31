@@ -15,6 +15,10 @@
 	maxhealth = 400
 	projectile_coverage = PROJECTILE_COVERAGE_LOW // Шанс попадания проджектайлов
 
+	anchored = FALSE // Мы можем передвинуть байк, если он нам мешает.
+	drag_delay = 3 // Но медленно
+	density = FALSE // Проходим сквозь байк если на нем никто не сидит
+
 	var/buckle_time = 0.7 SECONDS
 
 	pixel_x = -8	// спрайт 48х48, центрируем.

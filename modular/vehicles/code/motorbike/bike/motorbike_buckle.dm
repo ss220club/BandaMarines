@@ -31,10 +31,12 @@
 /obj/vehicle/motorbike/afterbuckle(mob/M)
 	. = ..()
 	if(buckled_mob)
+		density = TRUE
 		add_vehicle_verbs(M)
 		if(stroller)
 			stroller.update_bike_permutated(TRUE)
 	else
+		density = initial(density)
 		remove_vehicle_verbs(M)
 
 /obj/vehicle/motorbike/unbuckle()
