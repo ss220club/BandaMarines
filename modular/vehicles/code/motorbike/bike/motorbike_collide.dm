@@ -67,7 +67,7 @@
 /obj/vehicle/motorbike/proc/collide_mob(atom/A, mob/living/carbon/M,
 			throw_range = 0, damage_value = 15,
 			weaken_value = 2, stutter_value = 12,
-			try_broke_bones = FALSE, chance_fracture = 50)
+			try_broke_bones = FALSE, chance_fracture = 15)
 	if(!throw_range)
 		M.throw_atom(A, throw_range, SPEED_FAST, src, TRUE)
 
@@ -89,5 +89,5 @@
 	if(!try_broke_bones)
 		return
 	var/obj/limb/L = M.get_limb(def_zone)
-	if(L && (L.status & LIMB_BROKEN))
-		L.fracture(chance_fracture)
+	if(L && prob(chance_fracture))
+		L.fracture(100)
