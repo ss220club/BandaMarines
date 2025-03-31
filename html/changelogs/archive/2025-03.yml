@@ -459,14 +459,14 @@
   - rscadd: add color changing armband to loadout
   - imageadd: add new armband sprites
 2025-03-26:
-  RUCM:
-  - code_imp: Upstream 25.03.2025
   Drathek:
   - bugfix: Fixed flyby and flight to non-ground triggering first drop events
   MistChristmas:
   - bugfix: Fixes a unclosed html tag. Murders the rest of the html bold tags with
       SPAN_BOLD
   - spellcheck: Made total upper and/or lower body bleeding more unique.
+  RUCM:
+  - code_imp: Upstream 25.03.2025
   Red-byte3D:
   - bugfix: light fixtures no longer stop egg planting
 2025-03-27:
@@ -514,12 +514,18 @@
   - maptweak: small fixes
   - maptweak: pipe fixes
   - maptweak: add spare supply request console at alpha/delta preps
-  Lentye:
-  - bugfix: tank tech
+  Djvarik:
+  - bugfix: Fixed a typo in the munition prep vendor.
+  - bugfix: The Staff Officer vendor's green beret is now actually green.
+  Drathek:
+  - ui: Tweaked the size of gauges in the ping relay browser
+  JackieEstegado:
+  - balance: Lowered the burn damage of the Antiparasitic chemical property by 25%.
   Kashargul:
   - bugfix: large batch processes offsetting the chat scrollbar
   - code_imp: update tgui dependencies
   - code_imp: update tgui say
+  - bugfix: chat icon scaling
   LC4492:
   - code_imp: Adds new books and new contents for pre-existing ones, including new
       links and CM conversions. This PR also finally names the nuke and gives it proper
@@ -530,11 +536,19 @@
       Also updates the in_hands of folders and notepads to match the current versions
       of their respective objects. Adds new sprite to the Boots! magazine.
   - bugfix: Fixes wiki links on all the manuals, allowing you to actually read them.
+  Lentye:
+  - bugfix: tank tech
   Nihisohel:
   - rscadd: Underbarrel Miniflamers now notify your remaining fuel after firing.
   - bugfix: Flamers no longer fire through doors and windows.
   - bugfix: Underbarrel Miniflamers are now a bit more responsive and will no longer
       drop clicks at far ranges.
   - refactor: Cleans up unleash_flame proc to bring up to code standard.
+  RUCM:
+  - rscadd: Upstream 01.04.2025
+  Red-byte3D:
+  - qol: cades playsound when hit by bullets
   Teteshnik1:
   - bugfix: fixed marine ranks
+  kiVts:
+  - bugfix: universal speak is working again
