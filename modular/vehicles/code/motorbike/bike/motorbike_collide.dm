@@ -94,7 +94,7 @@
 		L.apply_damage(damage * 0.7, BRUTE)
 		L.apply_effect(current_speed_level, WEAKEN)
 		L.apply_effect(current_speed_level * 2, STUN)
-		to_chat(L, SPAN_HIGHDANGER("Вы врезались в стену на полной скорости!"))
+		to_chat(L, SPAN_HIGHDANGER("Вы врезались в [wall]на полной скорости!"))
 		unbuckle()
 
 	// Эффекты для пассажира
