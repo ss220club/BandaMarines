@@ -91,6 +91,10 @@
 			move_delay = move_delay_maximum
 	message_admins("Сhanged motorbike's speed to [current_speed_level]([move_delay]) ([x], [y], [z])", x, y, z)
 
+/obj/vehicle/motorbike/proc/reset_speed()
+	current_speed_level = 1
+	update_speed()
+
 /obj/vehicle/motorbike/proc/handle_acceleration()
 	var/current_time = world.time
 
