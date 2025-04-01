@@ -153,9 +153,8 @@
 
 	if(mod)
 		apply_collision_effects(occupant, 1/mod)
-
-	if(stroller?.buckled_mob)
-		var/mob/living/carbon/second_occupant = stroller.buckled_mob
-		apply_collision_effects(second_occupant, 1.5/mod)
+		if(stroller?.buckled_mob)
+			var/mob/living/carbon/second_occupant = stroller.buckled_mob
+			apply_collision_effects(second_occupant, 1.5/mod)
 
 	occupant.visible_message(SPAN_DANGER("[occupant] на [name] врезался в [M]!"))
