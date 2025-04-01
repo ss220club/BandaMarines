@@ -29,7 +29,6 @@
 		if(O.buckled_mob)
 			var/mob/living/M = O.buckled_mob
 			O.unbuckle()
-			M.apply_effect(1, WEAKEN)
 			M.forceMove(get_turf(O))
 			HasProximity(M)
 			to_chat(M, SPAN_XENOHIGHDANGER("Вы попали в яму полную смолы!"))
