@@ -7,6 +7,10 @@
 	check_and_try_disasemble()
 	. = ..()
 
+/obj/vehicle/motorbike/proc/take_damage(damage)
+	health -= damage
+	healthcheck()
+
 /obj/vehicle/motorbike/proc/check_and_try_disasemble(damage = 0)
 	if(health - damage <= 0)
 		disconnect()

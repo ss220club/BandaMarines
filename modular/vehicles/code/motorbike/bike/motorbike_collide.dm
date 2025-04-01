@@ -3,42 +3,37 @@
 	var/last_crash_time = 0 // Время последнего столкновения
 	var/crash_cooldown = 2 SECONDS // Задержка между столкновениями
 
-/obj/vehicle/motorbike/Bump(atom/A)
-	if(world.time < last_crash_time + crash_cooldown)
-		return
-
-	// Если нет водителя или скорость минимальная - стандартная обработка
-	if(!buckled_mob || current_speed_level <= 1)
-		return ..()
-
-	// Обработка столкновений с разными типами объектов
-	if(isturf(A))
-		handle_wall_collision(A)
-	else if(ismob(A))
-		Collide(A)
-	else if(isobj(A))
-		handle_object_collision(A)
-	else
-		return ..()
-
-	last_crash_time = world.time
-
 /obj/vehicle/motorbike/Collide(atom/A)
-	if(!seats[VEHICLE_DRIVER])
-		return FALSE
-
-	if(!ismob(A))
+	if(world.time < last_crash_time + crash_cooldown)
 		return ..()
 
-	// Если скорость низкая, то нам не нужно сталкиваться
+	if(!buckled_mob)
+		return ..()
+
 	if(current_speed_level <= 1)
 		message_admins("Столкновение скорость не та")
 		return ..()
 
-	var/mob/M = A
+	last_crash_time = world.time
 
+	// Обработка столкновений в зависимости от типа объекта
+	if(ismob(A))
+		handle_mob_collision(A)
+	else if(isclosedturf(A))
+		handle_wall_collision(A)
+	else if(isobj(A) && A.density)
+		handle_object_collision(A)
+	else
+		return ..()
+
+	// Сброс скорости после любого столкновения
+	reset_speed()
+	return TRUE
+
+/obj/vehicle/motorbike/proc/handle_mob_collision(mob/M)
 	var/mod = 0
 	var/bike_collide = TRUE
+
 	switch(M.mob_size)
 		if(MOB_SIZE_SMALL)
 			bike_collide = FALSE
@@ -60,102 +55,38 @@
 	// Учитываем скорость при столкновении
 	mod *= current_speed_level * 0.5
 
+	// Обработка для разных типов мобов
 	if(iscarbon(M))
 		var/mob/living/carbon/C = M
 		if(isyautja(C))
 			mod *= 0.5
 		if(mod)
-			collide_mob(A, C, 1, 17 * mod, 2 * mod, 10 * mod, try_broke_bones = TRUE)
-			message_admins("Столкновение 1 [A] с [C]")
+			apply_collision_effects(C, mod, TRUE)
 		if(isxeno(M))
 			attack_alien(M)
-	else if(isliving(M) && !iscarbon(M))
+	else if(isliving(M))
 		var/mob/living/L = M
 		L.adjustBruteLoss(20 * current_speed_level)
 
+	// Звуки и визуальные эффекты
 	if(!bike_collide)
 		playsound(src.loc, 'sound/effects/bone_break7.ogg', 25, 1)
-		buckled_mob.visible_message(SPAN_DANGER("[buckled_mob] на [name] переехал [A]!"))
-		message_admins("Столкновение return")
-		return ..()
-
-	playsound(src.loc, 'sound/effects/bang.ogg', 50, 1)
-
-	if(!blooded)
-		blooded = TRUE
-		update_overlay()
-
-	var/mob/living/carbon/occupant = buckled_mob
-	unbuckle()
-	if(mod)
-		collide_mob(A, occupant, min(3, current_speed_level), 17 / mod, 2 / mod, 12 / mod, TRUE)
-		message_admins("Столкновение 2 [A] с [occupant]")
-
-	if(stroller && stroller.buckled_mob)
-		var/mob/living/carbon/second_occupant = stroller.buckled_mob
-		if(mod)
-			collide_mob(A, second_occupant, 0, 15 / mod, 3 / mod, 15 / mod)
-			message_admins("Столкновение 3 [A] с [second_occupant]")
-
-	occupant.visible_message(SPAN_DANGER("[occupant] на [name] врезался в [A]!"))
-
-	// Сброс скорости после серьезного столкновения
-	reset_speed()
-
-	message_admins("Продолжаем")
-	. = ..()
-
-// ==========================================
-// ================ Коллизии ================
-
-/obj/vehicle/motorbike/proc/collide_mob(atom/A, mob/living/carbon/M,
-			throw_range = 0, damage_value = 15,
-			weaken_value = 2, stutter_value = 12,
-			try_broke_bones = FALSE, chance_fracture = 15)
-	// Учитываем текущую скорость в эффектах
-	throw_range *= current_speed_level * 0.5
-	damage_value *= current_speed_level * 0.7
-	weaken_value *= current_speed_level * 0.5
-	stutter_value *= current_speed_level * 0.7
-
-	if(throw_range)
-		M.throw_atom(A, throw_range, SPEED_FAST, src, TRUE)
-
-	damage_value = round(damage_value)
-	weaken_value = round(weaken_value)
-	stutter_value = round(stutter_value)
-
-	weaken_value = clamp(weaken_value, 1, 4)
-
-	var/def_zone = rand_zone()
-	M.apply_damage(damage_value, BRUTE, def_zone)
-	M.apply_effect(weaken_value, STUN)
-	M.apply_effect(weaken_value, WEAKEN)
-	M.apply_effect(stutter_value, STUTTER)
-	message_admins("В [A] врезался [name] со скоростью [current_speed_level]! [M] получил [damage_value] урона, [weaken_value] ослабления и [stutter_value] заикания.", M.x, M.y, M.z)
-	if(!ishuman(M))
-		return
-
-	if(!try_broke_bones)
-		return
-	var/obj/limb/L = M.get_limb(def_zone)
-	if(L && prob(chance_fracture * current_speed_level * 0.5))
-		L.fracture(100)
-		message_admins("Сломал кости [try_broke_bones ? "с шансом" : "без шанса"] [chance_fracture * current_speed_level * 0.5] перелома костей в [def_zone ? "[def_zone]" : "рандомной"] зоне.", M.x, M.y, M.z)
-
-
-// ==========================================
-// ========== Коллизии с объектами ==========
+		buckled_mob.visible_message(SPAN_DANGER("[buckled_mob] на [name] переехал [M]!"))
+	else
+		playsound(src.loc, 'sound/effects/bang.ogg', 50, 1)
+		if(!blooded)
+			blooded = TRUE
+			update_overlay()
+		handle_driver_effects(M, mod)
 
 /obj/vehicle/motorbike/proc/handle_wall_collision(turf/wall)
-	if(!istype(wall, /turf/closed/wall))
+	if(current_speed_level <= 1)
 		return
 
-	var/speed_mod = current_speed_level * 0.5
-	var/damage = 10 * speed_mod * crash_damage_multiplier
+	var/damage = 10 * current_speed_level * 0.5 * crash_damage_multiplier
 
-	// Наносим урон мотоциклу
-	health -= damage
+	// Урон мотоциклу
+	take_damage(damage)
 
 	// Эффекты для водителя
 	if(buckled_mob)
@@ -166,8 +97,8 @@
 		to_chat(L, SPAN_HIGHDANGER("Вы врезались в стену на полной скорости!"))
 		unbuckle()
 
-	// Эффекты для пассажира в коляске
-	if(stroller && stroller.buckled_mob)
+	// Эффекты для пассажира
+	if(stroller?.buckled_mob)
 		var/mob/living/L = stroller.buckled_mob
 		L.apply_damage(damage * 0.5, BRUTE)
 		L.apply_effect(current_speed_level, STUN)
@@ -175,34 +106,56 @@
 	playsound(src, 'sound/effects/metal_crash.ogg', 75, 1)
 	visible_message(SPAN_DANGER("[src] врезается в [wall] на полной скорости!"))
 
-	// Сброс скорости после столкновения
-	reset_speed()
-
 /obj/vehicle/motorbike/proc/handle_object_collision(obj/O)
-	if(O.density)
-		var/speed_mod = current_speed_level * 0.3
-		var/damage = 5 * speed_mod * crash_damage_multiplier
+	if(current_speed_level <= 1)
+		return
 
-		// Урон мотоциклу
-		health -= damage
+	var/damage = 5 * current_speed_level * 0.3 * crash_damage_multiplier
 
-		// Урон объекту
-		if(O.health)
-			throwforce = damage	// для урона в hitby
-			O.hitby(src)
-			throwforce = initial(throwforce)
+	// Урон мотоциклу
+	take_damage(damage)
 
-		// Эффекты для водителя
-		if(buckled_mob)
-			var/mob/living/L = buckled_mob
-			L.apply_damage(damage * 0.5, BRUTE)
-			L.apply_effect(current_speed_level * 0.5, STUN)
-			to_chat(L, SPAN_WARNING("Вы врезались в [O]!"))
+	// Урон объекту
+	if(O.health)
+		throwforce = damage
+		O.hitby(src)
+		throwforce = initial(throwforce)
 
-		playsound(src, 'sound/effects/grillehit.ogg', 50, 1)
-		visible_message(SPAN_WARNING("[src] врезается в [O]!"))
+	// Эффекты для водителя
+	if(buckled_mob)
+		var/mob/living/L = buckled_mob
+		L.apply_damage(damage * 0.5, BRUTE)
+		L.apply_effect(current_speed_level * 0.5, STUN)
+		to_chat(L, SPAN_WARNING("Вы врезались в [O]!"))
 
-		// Небольшой сброс скорости
-		if(current_speed_level > 2)
-			current_speed_level = 2
-			update_speed()
+	playsound(src, 'sound/effects/grillehit.ogg', 50, 1)
+	visible_message(SPAN_WARNING("[src] врезается в [O]!"))
+
+/obj/vehicle/motorbike/proc/apply_collision_effects(mob/living/carbon/C, mod, try_broke_bones = FALSE)
+	var/throw_range = 1 * mod
+	var/damage = 17 * mod
+	var/weaken = 2 * mod
+	var/stutter = 10 * mod
+
+	C.throw_atom(get_step(src, dir), throw_range, SPEED_FAST, src, TRUE)
+	C.apply_damage(damage, BRUTE)
+	C.apply_effect(weaken, WEAKEN)
+	C.apply_effect(stutter, STUTTER)
+
+	if(try_broke_bones && ishuman(C))
+		var/obj/limb/L = C.get_limb(rand_zone())
+		if(L && prob(15 * current_speed_level * 0.5))
+			L.fracture(100)
+
+/obj/vehicle/motorbike/proc/handle_driver_effects(mob/M, mod)
+	var/mob/living/carbon/occupant = buckled_mob
+	unbuckle()
+
+	if(mod)
+		apply_collision_effects(occupant, 1/mod)
+
+	if(stroller?.buckled_mob)
+		var/mob/living/carbon/second_occupant = stroller.buckled_mob
+		apply_collision_effects(second_occupant, 1.5/mod)
+
+	occupant.visible_message(SPAN_DANGER("[occupant] на [name] врезался в [M]!"))
