@@ -74,7 +74,7 @@
 		buckled_mob.visible_message(SPAN_DANGER("[buckled_mob] на [name] переехал [M]!"))
 	else
 		playsound(src.loc, 'sound/effects/bang.ogg', 50, 1)
-		if(!blooded)
+		if(ishuman_strict(M) && !blooded)
 			blooded = TRUE
 			update_overlay()
 		handle_driver_effects(M, mod)
