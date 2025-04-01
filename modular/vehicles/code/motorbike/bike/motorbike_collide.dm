@@ -3,6 +3,9 @@
 	var/last_crash_time = 0 // Время последнего столкновения
 	var/crash_cooldown = 2 SECONDS // Задержка между столкновениями
 
+// ==========================================
+// =============== Коллизия =================
+
 /obj/vehicle/motorbike/Collide(atom/A)
 	if(world.time < last_crash_time + crash_cooldown)
 		return ..()
@@ -29,6 +32,66 @@
 	// Сброс скорости после любого столкновения
 	reset_speed()
 	return TRUE
+
+
+// ==========================================
+// ========= Коллизия с объектами ===========
+
+/obj/vehicle/motorbike/proc/handle_wall_collision(turf/wall)
+	if(current_speed_level <= 1)
+		return
+
+	var/damage = 10 * current_speed_level * 0.5 * crash_damage_multiplier
+
+	// Урон мотоциклу
+	take_damage(damage)
+
+	// Эффекты для водителя
+	if(buckled_mob)
+		var/mob/living/L = buckled_mob
+		L.apply_damage(damage * 0.7, BRUTE)
+		L.apply_effect(current_speed_level, WEAKEN)
+		L.apply_effect(current_speed_level, STUN)
+		to_chat(L, SPAN_HIGHDANGER("Вы врезались в [wall]на полной скорости!"))
+		unbuckle()
+
+	// Эффекты для пассажира
+	if(stroller?.buckled_mob)
+		var/mob/living/L = stroller.buckled_mob
+		L.apply_damage(damage * 0.5, BRUTE)
+		L.apply_effect(current_speed_level, STUN)
+
+	playsound(src, 'sound/effects/metal_crash.ogg', 75, 1)
+	visible_message(SPAN_DANGER("[src] врезается в [wall] на полной скорости!"))
+
+/obj/vehicle/motorbike/proc/handle_object_collision(obj/O)
+	if(current_speed_level <= 1)
+		return
+
+	var/damage = 5 * current_speed_level * 0.3 * crash_damage_multiplier
+
+	// Урон мотоциклу
+	take_damage(damage)
+
+	// Урон объекту
+	if(O.health)
+		throwforce = damage
+		O.hitby(src)
+		throwforce = initial(throwforce)
+
+	// Эффекты для водителя
+	if(buckled_mob)
+		var/mob/living/L = buckled_mob
+		L.apply_damage(damage * 0.5, BRUTE)
+		L.apply_effect(current_speed_level * 0.5, STUN)
+		to_chat(L, SPAN_WARNING("Вы врезались в [O]!"))
+
+	playsound(src, 'sound/effects/grillehit.ogg', 50, 1)
+	visible_message(SPAN_WARNING("[src] врезается в [O]!"))
+
+
+// ==========================================
+// ========== Коллизия с мобами =============
 
 /obj/vehicle/motorbike/proc/handle_mob_collision(mob/M)
 	var/mod = 0
@@ -79,57 +142,21 @@
 			update_overlay()
 		handle_driver_effects(M, mod)
 
-/obj/vehicle/motorbike/proc/handle_wall_collision(turf/wall)
-	if(current_speed_level <= 1)
-		return
+/obj/vehicle/motorbike/proc/handle_driver_effects(mob/M, mod)
+	var/mob/living/carbon/occupant = buckled_mob
+	unbuckle()
 
-	var/damage = 10 * current_speed_level * 0.5 * crash_damage_multiplier
+	if(mod)
+		apply_collision_effects(occupant, 1/mod)
+		if(stroller?.buckled_mob)
+			var/mob/living/carbon/second_occupant = stroller.buckled_mob
+			apply_collision_effects(second_occupant, 1.5/mod)
 
-	// Урон мотоциклу
-	take_damage(damage)
+	occupant.visible_message(SPAN_DANGER("[occupant] на [name] врезался в [M]!"))
 
-	// Эффекты для водителя
-	if(buckled_mob)
-		var/mob/living/L = buckled_mob
-		L.apply_damage(damage * 0.7, BRUTE)
-		L.apply_effect(current_speed_level, WEAKEN)
-		L.apply_effect(current_speed_level * 2, STUN)
-		to_chat(L, SPAN_HIGHDANGER("Вы врезались в [wall]на полной скорости!"))
-		unbuckle()
 
-	// Эффекты для пассажира
-	if(stroller?.buckled_mob)
-		var/mob/living/L = stroller.buckled_mob
-		L.apply_damage(damage * 0.5, BRUTE)
-		L.apply_effect(current_speed_level, STUN)
-
-	playsound(src, 'sound/effects/metal_crash.ogg', 75, 1)
-	visible_message(SPAN_DANGER("[src] врезается в [wall] на полной скорости!"))
-
-/obj/vehicle/motorbike/proc/handle_object_collision(obj/O)
-	if(current_speed_level <= 1)
-		return
-
-	var/damage = 5 * current_speed_level * 0.3 * crash_damage_multiplier
-
-	// Урон мотоциклу
-	take_damage(damage)
-
-	// Урон объекту
-	if(O.health)
-		throwforce = damage
-		O.hitby(src)
-		throwforce = initial(throwforce)
-
-	// Эффекты для водителя
-	if(buckled_mob)
-		var/mob/living/L = buckled_mob
-		L.apply_damage(damage * 0.5, BRUTE)
-		L.apply_effect(current_speed_level * 0.5, STUN)
-		to_chat(L, SPAN_WARNING("Вы врезались в [O]!"))
-
-	playsound(src, 'sound/effects/grillehit.ogg', 50, 1)
-	visible_message(SPAN_WARNING("[src] врезается в [O]!"))
+// ==========================================
+// =========== Эффекты на мобов =============
 
 /obj/vehicle/motorbike/proc/apply_collision_effects(mob/living/carbon/C, mod, try_broke_bones = FALSE)
 	var/throw_range = 1 * mod
@@ -146,15 +173,3 @@
 		var/obj/limb/L = C.get_limb(rand_zone())
 		if(L && prob(15 * current_speed_level * 0.5))
 			L.fracture(100)
-
-/obj/vehicle/motorbike/proc/handle_driver_effects(mob/M, mod)
-	var/mob/living/carbon/occupant = buckled_mob
-	unbuckle()
-
-	if(mod)
-		apply_collision_effects(occupant, 1/mod)
-		if(stroller?.buckled_mob)
-			var/mob/living/carbon/second_occupant = stroller.buckled_mob
-			apply_collision_effects(second_occupant, 1.5/mod)
-
-	occupant.visible_message(SPAN_DANGER("[occupant] на [name] врезался в [M]!"))
