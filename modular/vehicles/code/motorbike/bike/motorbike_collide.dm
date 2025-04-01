@@ -5,6 +5,11 @@
 
 	if(!ismob(A))
 		return ..()
+
+	// Если скорость низкая, то нам не нужно сталкиваться
+	if(current_speed_level <= 1)
+		return ..()
+
 	var/mob/M = A
 
 	var/mod = 0

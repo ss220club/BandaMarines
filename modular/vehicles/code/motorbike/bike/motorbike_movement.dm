@@ -9,6 +9,17 @@
 	var/old_dir_saved = SOUTH
 	var/old_dir = SOUTH
 
+	// Система ускорения
+	var/current_speed_level = 1 // 1 - начальная, 2 - промежуточная, 3 - максимальная
+	var/straight_move_timer = 0
+	var/last_move_time = 0
+	var/move_delay_initial = 3
+	var/move_delay_intermediate = 2
+	var/move_delay_maximum = 1
+
+// ==========================================
+// ========== Параметры движения ============
+
 /obj/vehicle/motorbike/proc/update_drive_skill_parameters()
 	if(!buckled_mob)
 		chance_lost_drive_control_when_one_hand = initial(chance_lost_drive_control_when_one_hand)
@@ -16,8 +27,12 @@
 	var/mult = buckled_mob.get_skill_duration_multiplier(SKILL_VEHICLE)
 	chance_lost_drive_control_when_one_hand = round(chance_lost_drive_control_when_one_hand * mult)
 
+// ==========================================
+// =============== Движение =================
+
 /obj/vehicle/motorbike/proc/on_move()
 	SIGNAL_HANDLER
+	handle_acceleration()
 	update_stroller()
 	if(old_dir == dir)
 		play_move_sound()
@@ -26,8 +41,23 @@
 		old_dir = dir
 
 /obj/vehicle/motorbike/relaymove(mob/user, direction)
+	if(!direction) // Остановка
+		if(current_speed_level != 1)
+			current_speed_level = 1
+			update_speed()
+		return ..()
+
 	if(!can_drive_when_hands_full && chance_lost_drive_control_when_one_hand >= 0)
-		// Катаешься без рук - не можешь менять направление
+		// Проверка движения назад
+		if(direction == turn(dir, 180))
+			if(current_speed_level > 1)
+				to_chat(user, SPAN_WARNING("Нельзя ехать назад на этой скорости!"))
+				return FALSE
+			else
+				current_speed_level = 1
+				update_speed()
+
+		// Нормальное движение с двумя руками
 		if(user.l_hand && user.r_hand)
 			return ..(user, old_dir_saved)
 
@@ -39,14 +69,57 @@
 				lost_drive_control_time_temp = world.time + lost_control_time
 				to_chat(user, SPAN_WARNING("Вы потеряли управление!"))
 			if(world.time < lost_drive_control_time_temp)
-				//. = step(src, lost_drive_control_dir)
 				return ..(user, lost_drive_control_dir)
 			else if(lost_drive_control_time_temp)
 				lost_drive_control_time_temp = 0
 				to_chat(user, SPAN_NOTICE("Вы восстановили управление!"))
 
 		old_dir_saved = direction
+
 	. = ..()
+
+// ==========================================
+// ================ Скорость ================
+
+/obj/vehicle/motorbike/proc/update_speed()
+	switch(current_speed_level)
+		if(1)
+			move_delay = move_delay_initial
+		if(2)
+			move_delay = move_delay_intermediate
+		if(3)
+			move_delay = move_delay_maximum
+	message_admins("Сhanged motorbike's speed to [current_speed_level]([move_delay]) ([x], [y], [z])", x, y, z)
+
+/obj/vehicle/motorbike/proc/handle_acceleration()
+	var/current_time = world.time
+
+	// Сброс скорости при простое более 1 секунды
+	if(current_time - last_move_time > 1 SECONDS && current_speed_level != 1)
+		current_speed_level = 1
+		straight_move_timer = 0
+		update_speed()
+		return
+
+	// Движение по прямой
+	if(old_dir == dir)
+		if(current_time - last_move_time > 1 SECONDS)
+			straight_move_timer = 0 // Сброс таймера при долгой паузе
+		else
+			straight_move_timer += current_time - last_move_time
+
+		// Повышение скорости каждые 3 секунды
+		if(straight_move_timer >= 3 SECONDS && current_speed_level < 3)
+			current_speed_level++
+			straight_move_timer = 0
+			update_speed()
+	else // Поворот
+		if(current_speed_level > 2)
+			current_speed_level = 2
+			update_speed()
+		straight_move_timer = 0
+
+	last_move_time = current_time
 
 // ==========================================
 // ========== Движение с коляской ===========
