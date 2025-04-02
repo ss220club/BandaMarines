@@ -35,6 +35,11 @@
 	icon_state = "arm"
 // SS220 ADD - END
 
+/area/interior/vehicle/clf_van
+	name = "clf van interior"
+	icon_state = "van"
+
+
 /area/interior/vehicle/box_van
 	name = "box-van interior"
 	icon_state = "van"
