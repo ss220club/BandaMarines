@@ -124,3 +124,9 @@
 	stroller.disconnect()
 	stroller = null
 	move_delay = initial(move_delay)
+
+// Глайдинг для плавного перемещения
+/obj/vehicle/motorbike/set_glide_size(target)
+	. = ..()
+	if(stroller)
+		stroller.set_glide_size(target)

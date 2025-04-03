@@ -5,6 +5,7 @@
 	if(M.loc == src.loc && M.buckled)
 		update_stroller(TRUE)
 		play_start_sound()
+		set_glide_size(4)
 
 /obj/vehicle/motorbike/proc/try_buckle_mob(mob/M, mob/user)
 	if(!ismob(M) || (get_dist(src, user) > 1) || user.stat || buckled_mob || M.buckled)
