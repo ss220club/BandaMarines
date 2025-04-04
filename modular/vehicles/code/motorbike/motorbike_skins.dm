@@ -9,13 +9,13 @@
 
 /obj/vehicle/motorbike/camo
 
-/obj/vehicle/motorbike/camo/Initialize()
+/obj/vehicle/motorbike/camo/New(loc, skin)
 	select_gamemode_skin()
 	. = ..()
 
 /obj/structure/bed/chair/stroller/camo
 
-/obj/structure/bed/chair/stroller/camo/Initialize()
+/obj/structure/bed/chair/stroller/camo/New(loc, skin)
 	select_gamemode_skin()
 	. = ..()
 
