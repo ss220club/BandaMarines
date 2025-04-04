@@ -39,6 +39,7 @@
 	else
 		play_rotate_sound()
 		old_dir = dir
+	set_glide_size(DELAY_TO_GLIDE_SIZE(move_delay)) // плавность
 
 /obj/vehicle/motorbike/relaymove(mob/user, direction)
 	if(!direction) // Остановка

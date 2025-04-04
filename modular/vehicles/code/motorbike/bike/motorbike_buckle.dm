@@ -35,7 +35,6 @@
 		add_vehicle_verbs(M)
 		if(stroller)
 			stroller.update_bike_permutated(TRUE)
-		set_glide_size(initial(glide_size))
 	else
 		density = initial(density)
 		remove_vehicle_verbs(M)
@@ -44,5 +43,4 @@
 /obj/vehicle/motorbike/unbuckle()
 	if(stroller)	// Выносим сюда, а то неправильно уберет, т.к. моб уже отвязан
 		stroller.reset_bike_permutated(TRUE)
-	buckled_mob.set_glide_size(initial(buckled_mob.glide_size))
 	. = ..()

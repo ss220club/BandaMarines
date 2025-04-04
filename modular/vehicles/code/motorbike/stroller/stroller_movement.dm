@@ -1,7 +1,6 @@
 /obj/structure/bed/chair/stroller
 	drag_delay = 3 //На колесах хоть и удобно таскать, но эта байдура тяжеленькая.
 	var/drag_delay_buckled = 4 // Тяжеленько. Хотите пулеметную точку? Хотите и таскать медленно.
-	glide_size = 4
 	can_block_movement = FALSE
 	can_rotate = FALSE
 

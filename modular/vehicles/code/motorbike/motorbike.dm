@@ -18,7 +18,6 @@
 	anchored = FALSE // Мы можем передвинуть байк, если он нам мешает.
 	drag_delay = 3 // Но медленно
 	density = FALSE // Проходим сквозь байк если на нем никто не сидит
-	glide_size = 4
 
 	var/buckle_time = 0.7 SECONDS
 

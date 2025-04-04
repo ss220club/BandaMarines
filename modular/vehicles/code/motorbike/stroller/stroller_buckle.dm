@@ -35,7 +35,6 @@
 	do_buckle(M, user)
 	if(buckling_sound)
 		playsound(src, buckling_sound, 20)
-	set_glide_size(src)
 	return TRUE
 
 /obj/structure/bed/chair/stroller/afterbuckle(mob/M)
@@ -45,7 +44,6 @@
 		update_drag_delay()
 		update_mob_gun_signal()
 		update_bike_permutated(TRUE)
-		set_glide_size(initial(glide_size))
 	else
 		if(connected)
 			push_to_left_side(buckled_mob)
@@ -57,7 +55,6 @@
 	// т.к. нам ВСЕГДА нужен моб чтобы убрать у него сигнал
 	update_mob_gun_signal(TRUE)
 	reload_buckle_mob()
-	buckled_mob.set_glide_size(initial(buckled_mob.glide_size))
 	. = ..()
 
 
