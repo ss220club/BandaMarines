@@ -5,7 +5,6 @@
 	if(M.loc == src.loc && M.buckled)
 		update_stroller(TRUE)
 		play_start_sound()
-		set_glide_size(4)
 
 /obj/vehicle/motorbike/proc/try_buckle_mob(mob/M, mob/user)
 	if(!ismob(M) || (get_dist(src, user) > 1) || user.stat || buckled_mob || M.buckled)
@@ -36,6 +35,7 @@
 		add_vehicle_verbs(M)
 		if(stroller)
 			stroller.update_bike_permutated(TRUE)
+		set_glide_size(initial(glide_size))
 	else
 		density = initial(density)
 		remove_vehicle_verbs(M)
@@ -44,4 +44,5 @@
 /obj/vehicle/motorbike/unbuckle()
 	if(stroller)	// Выносим сюда, а то неправильно уберет, т.к. моб уже отвязан
 		stroller.reset_bike_permutated(TRUE)
+	buckled_mob.set_glide_size(initial(buckled_mob.glide_size))
 	. = ..()
