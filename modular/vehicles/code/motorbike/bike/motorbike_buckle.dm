@@ -43,4 +43,5 @@
 /obj/vehicle/motorbike/unbuckle()
 	if(stroller)	// Выносим сюда, а то неправильно уберет, т.к. моб уже отвязан
 		stroller.reset_bike_permutated(TRUE)
+	buckled_mob.set_glide_size(initial(buckled_mob.glide_size))
 	. = ..()

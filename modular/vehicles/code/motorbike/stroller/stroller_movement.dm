@@ -86,6 +86,7 @@
 	buckled_mob.density = initial(buckled_mob.density)
 	buckled_mob.layer = initial(buckled_mob.layer)
 	buckled_mob.update_layer()	// Обновляем, если с персонажем "что-то случилось"
+	buckled_mob.set_glide_size(initial(buckled_mob.glide_size))
 
 /obj/structure/bed/chair/stroller/proc/reload_connected()
 	if(!connected)
