@@ -24642,10 +24642,6 @@
 	pixel_y = 13;
 	density = 0
 	},
-/obj/item/prop/helmetgarb/gunoil{
-	pixel_y = 30;
-	pixel_x = 9
-	},
 /turf/open/floor/almayer/silver/north,
 /area/almayer/command/computerlab)
 "cnH" = (
@@ -34108,10 +34104,6 @@
 "gvn" = (
 /obj/structure/surface/table/almayer,
 /obj/item/tool/screwdriver,
-/obj/item/prop/helmetgarb/gunoil{
-	pixel_x = -7;
-	pixel_y = 12
-	},
 /obj/item/weapon/gun/rifle/l42a{
 	pixel_x = 17;
 	pixel_y = 6
@@ -54350,9 +54342,6 @@
 	pixel_x = 6;
 	pixel_y = 6
 	},
-/obj/item/prop/helmetgarb/gunoil{
-	pixel_x = -8
-	},
 /obj/structure/machinery/light{
 	dir = 4;
 	invisibility = 101;
@@ -64669,10 +64658,6 @@
 /obj/effect/spawner/prop_gun/m41aMK1{
 	pixel_y = 7
 	},
-/obj/item/prop/helmetgarb/gunoil{
-	pixel_x = -10;
-	pixel_y = 1
-	},
 /obj/item/tool/screwdriver{
 	pixel_x = 7;
 	pixel_y = 4
@@ -70964,9 +70949,6 @@
 	pixel_x = 6;
 	pixel_y = 6
 	},
-/obj/item/prop/helmetgarb/gunoil{
-	pixel_x = -8
-	},
 /obj/structure/machinery/light{
 	dir = 4;
 	invisibility = 101;
@@ -71705,11 +71687,6 @@
 	layer = 4.1;
 	pixel_x = -5;
 	pixel_y = 20
-	},
-/obj/item/prop/helmetgarb/gunoil{
-	layer = 4.2;
-	pixel_x = 3;
-	pixel_y = 16
 	},
 /obj/structure/bed{
 	buckling_y = 13;
