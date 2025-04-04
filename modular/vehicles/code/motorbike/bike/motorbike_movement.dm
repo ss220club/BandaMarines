@@ -17,6 +17,10 @@
 	var/move_delay_intermediate = 2
 	var/move_delay_maximum = 1
 
+	// Скорость
+	var/reset_time = 1 SECONDS // Через сколько секунд простоя сбрасываем скорость
+	var/change_speed_time = 2 SECONDS // Через сколько времени меняем скорость (увеличиваем)
+
 // ==========================================
 // ========== Параметры движения ============
 
@@ -33,15 +37,13 @@
 /obj/vehicle/motorbike/proc/on_move()
 	SIGNAL_HANDLER
 	handle_acceleration()
-	update_stroller()
-	if(old_dir == dir)
-		play_move_sound()
-	else
-		play_rotate_sound()
-		old_dir = dir
+	play_move_sound()
 	set_glide_size(DELAY_TO_GLIDE_SIZE(move_delay)) // плавность
 
 /obj/vehicle/motorbike/relaymove(mob/user, direction)
+	if(user.is_mob_incapacitated())
+		return
+
 	if(!direction) // Остановка
 		if(current_speed_level != 1)
 			current_speed_level = 1
@@ -58,7 +60,7 @@
 				current_speed_level = 1
 				update_speed()
 
-		// Нормальное движение с двумя руками
+		// Проверка рук
 		if(user.l_hand && user.r_hand)
 			return ..(user, old_dir_saved)
 
@@ -77,6 +79,8 @@
 
 		old_dir_saved = direction
 
+	// Движение вперед
+	set_glide_size(DELAY_TO_GLIDE_SIZE(move_delay + 1))
 	. = ..()
 
 // ==========================================
@@ -90,7 +94,7 @@
 			move_delay = move_delay_intermediate
 		if(3)
 			move_delay = move_delay_maximum
-	message_admins("Сhanged motorbike's speed to [current_speed_level]([move_delay]) ([x], [y], [z])", x, y, z)
+
 
 /obj/vehicle/motorbike/proc/reset_speed()
 	current_speed_level = 1
@@ -108,13 +112,13 @@
 
 	// Движение по прямой
 	if(old_dir == dir)
-		if(current_time - last_move_time > 1 SECONDS)
+		if(current_time - last_move_time > reset_time)
 			straight_move_timer = 0 // Сброс таймера при долгой паузе
 		else
 			straight_move_timer += current_time - last_move_time
 
 		// Повышение скорости каждые 3 секунды
-		if(straight_move_timer >= 3 SECONDS && current_speed_level < 3)
+		if(straight_move_timer >= change_speed_time && current_speed_level < 3)
 			current_speed_level++
 			straight_move_timer = 0
 			update_speed()
@@ -132,3 +136,10 @@
 /obj/vehicle/motorbike/proc/update_stroller(force_update = FALSE)
 	if(stroller)
 		stroller.update_position(src, force_update)
+
+/obj/vehicle/motorbike/handle_rotation()
+	if(buckled_mob)
+		buckled_mob.setDir(dir)
+	play_rotate_sound()
+	update_stroller()
+	old_dir = dir

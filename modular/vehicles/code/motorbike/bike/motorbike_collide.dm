@@ -14,7 +14,6 @@
 		return ..()
 
 	if(current_speed_level <= 1)
-		message_admins("Столкновение скорость не та")
 		return ..()
 
 	last_crash_time = world.time
