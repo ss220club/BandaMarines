@@ -16,6 +16,7 @@
 	var/move_delay_initial = 3
 	var/move_delay_intermediate = 2
 	var/move_delay_maximum = 1
+	var/lightweight_speed_mod = 0.7 // Модификатор скорости если не прицеплена коляска
 
 	// Скорость
 	var/reset_time = 0.5 SECONDS // Через сколько секунд простоя сбрасываем скорость
@@ -94,7 +95,8 @@
 			move_delay = move_delay_intermediate
 		if(3)
 			move_delay = move_delay_maximum
-
+	if(!stroller)
+		move_delay *= lightweight_speed_mod
 
 /obj/vehicle/motorbike/proc/reset_speed()
 	current_speed_level = 1
