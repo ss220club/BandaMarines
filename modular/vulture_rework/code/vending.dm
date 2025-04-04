@@ -5,7 +5,7 @@
 /datum/supply_packs/ammo_vulture_mag
 	name = "M707 Anti-Materiel Rifle ammo crate"
 	contains = list(
-		/obj/item/ammo_magazine/rifle/boltaction/vulture
+		/obj/item/ammo_magazine/rifle/boltaction/vulture,
 	)
 	cost = 40
 	containertype = /obj/structure/closet/crate/ammo
@@ -15,7 +15,7 @@
 /datum/supply_packs/ammo_vulture_mag_holo
 	name = "M707 Anti-Materiel Rifle holo target ammo crate"
 	contains = list(
-		/obj/item/ammo_magazine/rifle/boltaction/vulture/holo_target
+		/obj/item/ammo_magazine/rifle/boltaction/vulture/holo_target,
 	)
 	cost = 40
 	containertype = /obj/structure/closet/crate/ammo
