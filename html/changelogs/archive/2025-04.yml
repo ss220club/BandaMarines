@@ -1,6 +1,4 @@
 2025-04-01:
-  RUCM:
-  - rscadd: Upstream 01.04.2025
   Djvarik:
   - bugfix: Fixed a typo in the munition prep vendor.
   - bugfix: The Staff Officer vendor's green beret is now actually green.
@@ -10,6 +8,8 @@
   - balance: Lowered the burn damage of the Antiparasitic chemical property by 25%.
   Kashargul:
   - bugfix: chat icon scaling
+  RUCM:
+  - rscadd: Upstream 01.04.2025
   Red-byte3D:
   - qol: cades playsound when hit by bullets
   kiVts:
@@ -42,6 +42,11 @@
       within a one tile radius of multiz stairs
   - qol: Moved multiz stairs layer up for visual clarity
 2025-04-04:
+  Aurallianz:
+  - rscadd: Gave CE dropship access
+  - rscadd: Sling strap for CE's apollo maintenance  handheld
+  - qol: Gave CE Squad trackers & LZ tracker
+  - bugfix: CE now has nailgun ammo
   Nihisohel:
   - rscadd: Adds a gun durability and repair system.
   - rscadd: A handful of bullets can be used to chamber a gun when it is unchambered,
@@ -51,9 +56,12 @@
       the explosion is strong enough i.e. Orbital Bombardments.
   - balance: Guns can no longer be deleted when acid is poured into it, instead requiring
       repairs. Zero durability weapons still get deleted if its acided, however.
+  RUCM:
+  - rscadd: Upstream 04.04.2025
   Red-byte3D:
   - bugfix: You can no longer remove documents from a cabinet when youre away from
       it
+  - bugfix: Cant buckle alive xenos to things anymore
   jupyterkat:
   - bugfix: fixed spec icons on orbit panel
   - bugfix: fixed spec icons on squad info panel
