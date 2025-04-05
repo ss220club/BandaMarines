@@ -88,6 +88,7 @@
 					junction |= dirn
 		icon_state = "[basestate][junction]"
 	..()
+	make_smart_window_overlay()	// RUCM ADDITION
 
 /obj/structure/window/Move()
 	var/ini_dir = dir
