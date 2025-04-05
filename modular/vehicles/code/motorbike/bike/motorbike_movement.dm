@@ -6,8 +6,9 @@
 	var/lost_drive_control_time_min = 2 SECONDS	 // Нижняя граница времени движения при потере контроля
 	var/lost_drive_control_time_max	= 6 SECONDS // Верхняя граница времени движения при потере контроля
 	var/lost_drive_control_time_temp = 0		 // "Когда" потеря контроля закончится по глобал тайму
-	var/old_dir_saved = SOUTH
-	var/old_dir = SOUTH
+	var/forward_dir = SOUTH // направление движения вперед при поворотах
+	var/forward_dir_saved = SOUTH // Запоминаем куда мы ДВИГАЛИСЬ вперед
+
 
 	// Система ускорения
 	var/current_speed_level = 1 // 1 - начальная, 2 - промежуточная, 3 - максимальная
@@ -47,8 +48,7 @@
 
 	if(!direction) // Остановка
 		if(current_speed_level != 1)
-			current_speed_level = 1
-			update_speed()
+			reset_speed()
 		return ..()
 
 	if(!can_drive_when_hands_full && chance_lost_drive_control_when_one_hand >= 0)
@@ -58,17 +58,16 @@
 				to_chat(user, SPAN_WARNING("Нельзя ехать назад на этой скорости!"))
 				return FALSE
 			else
-				current_speed_level = 1
-				update_speed()
+				reset_speed()
 
 		// Проверка рук
 		if(user.l_hand && user.r_hand)
-			return ..(user, old_dir_saved)
+			return ..(user, forward_dir_saved)
 
 		// С одной рукой - имеешь шанс поменять направление во время дороги
 		if(user.l_hand || user.r_hand)
 			if(!lost_drive_control_time_temp && prob(chance_lost_drive_control_when_one_hand))
-				lost_drive_control_dir = turn(old_dir_saved, (prob(50) ? 90 : -90))
+				lost_drive_control_dir = turn(forward_dir_saved, (prob(50) ? 90 : -90))
 				var/lost_control_time = rand(lost_drive_control_time_min, lost_drive_control_time_max) * user.get_skill_duration_multiplier(SKILL_VEHICLE)
 				lost_drive_control_time_temp = world.time + lost_control_time
 				to_chat(user, SPAN_WARNING("Вы потеряли управление!"))
@@ -78,7 +77,7 @@
 				lost_drive_control_time_temp = 0
 				to_chat(user, SPAN_NOTICE("Вы восстановили управление!"))
 
-		old_dir_saved = direction
+		forward_dir_saved = direction
 
 	// Движение вперед
 	set_glide_size(DELAY_TO_GLIDE_SIZE(move_delay + 1))
@@ -99,6 +98,7 @@
 		move_delay *= lightweight_speed_mod
 
 /obj/vehicle/motorbike/proc/reset_speed()
+	straight_move_timer = 0
 	current_speed_level = 1
 	update_speed()
 
@@ -107,13 +107,11 @@
 
 	// Сброс скорости при простое более 1 секунды
 	if(current_time - last_move_time > 1 SECONDS && current_speed_level != 1)
-		current_speed_level = 1
-		straight_move_timer = 0
-		update_speed()
+		reset_speed()
 		return
 
 	// Движение по прямой
-	if(old_dir == dir)
+	if(forward_dir == dir)
 		if(current_time - last_move_time > reset_time)
 			straight_move_timer = 0 // Сброс таймера при долгой паузе
 		else
@@ -144,4 +142,4 @@
 		buckled_mob.setDir(dir)
 	play_rotate_sound()
 	update_stroller()
-	old_dir = dir
+	forward_dir = dir
