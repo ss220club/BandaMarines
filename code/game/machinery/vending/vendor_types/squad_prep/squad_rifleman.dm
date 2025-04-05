@@ -66,6 +66,7 @@ GLOBAL_LIST_INIT(cm_vending_clothing_marine, list(
 		list("M74 AGM-Smoke Airburst Packet (x3 airburst grenades)", 10, /obj/item/storage/box/packet/airburst_smoke, null, VENDOR_ITEM_REGULAR),
 		list("M74 AGM-Hornet Airburst Packet (x3 airburst grenades", 15, /obj/item/storage/box/packet/hornet, null, VENDOR_ITEM_REGULAR),
 		list("M20 Mine Box (x5 mines)", 20, /obj/item/storage/box/explosive_mines, null, VENDOR_ITEM_REGULAR),
+		list("RPG M83A2-C", 20, /obj/item/prop/folded_anti_tank_sadar/common, null, VENDOR_ITEM_REGULAR), // SS220 EDIT - RPG WEAPON
 
 		list("PRIMARY AMMUNITION", 0, null, null, null),
 		list("M4RA AP Magazine (10x24mm)", 10, /obj/item/ammo_magazine/rifle/m4ra/ap, null, VENDOR_ITEM_REGULAR),
