@@ -65,3 +65,6 @@
   jupyterkat:
   - bugfix: fixed spec icons on orbit panel
   - bugfix: fixed spec icons on squad info panel
+2025-04-05:
+  RUCM:
+  - rscadd: Upstream 04.04.2025
