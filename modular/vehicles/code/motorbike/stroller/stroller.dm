@@ -6,6 +6,7 @@
 	var/icon_base = "moto_ural_stroller"
 	var/icon_skin = "classic"
 	var/icon_destroyed = "destroyed"
+	var/need_camo = FALSE // Камуфлируем под текущую карту?
 	desc = "Для детишек."
 	density = FALSE	// При коннекте - У нас уже есть колизия с мотоциклом
 	anchored = TRUE	// При коннекте - Нехай трогать и перемещать
@@ -34,7 +35,9 @@
 /obj/structure/bed/chair/stroller/New(loc, skin)
 	if(skin)
 		icon_skin = skin
-	. = ..(loc, skin)
+	else if(need_camo)
+		select_gamemode_skin()
+	. = ..(loc, icon_skin)
 	if(istype(loc, /obj/vehicle))
 		connected = loc
 	if(connected)

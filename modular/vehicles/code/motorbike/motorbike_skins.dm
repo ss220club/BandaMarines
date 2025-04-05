@@ -8,18 +8,10 @@
 // Камуфлирование под текущую карту
 
 /obj/vehicle/motorbike/camo
-
-/obj/vehicle/motorbike/camo/New(loc, skin)
-	if(!skin)
-		select_gamemode_skin()
-	. = ..()
+	need_camo = TRUE
 
 /obj/structure/bed/chair/stroller/camo
-
-/obj/structure/bed/chair/stroller/camo/New(loc, skin)
-	if(!skin)
-		select_gamemode_skin()
-	. = ..()
+	need_camo = TRUE
 
 /obj/vehicle/motorbike/camo/full
 	create_stroller = TRUE

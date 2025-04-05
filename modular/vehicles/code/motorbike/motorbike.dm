@@ -5,6 +5,7 @@
 	icon_state = "moto_ural_classic"	// Для отображения на картах
 	var/icon_base = "moto_ural"
 	var/icon_skin = "classic"
+	var/need_camo = FALSE // Камуфлируем под текущую карту?
 	var/blooded = FALSE	// Окровавлен при столкновении в motorbike_collide.dm
 	var/blooded_skin = "moto_mudak-overlay"
 	var/create_stroller = FALSE
@@ -50,7 +51,9 @@
 /obj/vehicle/motorbike/New(loc, skin)
 	if(skin)
 		icon_skin = skin
-	. = ..(loc, skin)
+	else if(need_camo)
+		select_gamemode_skin()
+	. = ..(loc, icon_skin)
 	if(create_stroller)
 		stroller = new(src, icon_skin)
 		update_connect_params()
