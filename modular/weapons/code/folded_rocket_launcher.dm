@@ -16,6 +16,7 @@
 		WEAR_L_HAND = 'modular/weapons/icons/inhands/rocket_launchers_lefthand.dmi',
 		WEAR_R_HAND = 'modular/weapons/icons/inhands/rocket_launchers_righthand.dmi'
 	)
+	flags_equip_slot = SLOT_BACK
 	unacidable = TRUE // Их можно расплавить уничтожить
 	flags_gun_features = GUN_TRIGGER_SAFETY // Нужно сейфер переключить, так как GUN_WIELDED_FIRING_ONLY больше нет
 
