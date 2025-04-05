@@ -92,6 +92,7 @@
 			victim.visible_message(SPAN_DANGER("[victim] попадает под струю раскаленных газов из [src]!"),
 								SPAN_USERDANGER("Меня накрывает струя раскаленных газов из [src]!"))
 			if(victim.body_position == STANDING_UP) //Have to be standing up to get the fun stuff
+				continue
 			if(!HAS_TRAIT(victim, TRAIT_EAR_PROTECTION))
 				victim.KnockDown(backblast_knockdown)
 				victim.Stun(backblast_stun)
