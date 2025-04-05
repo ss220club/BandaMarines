@@ -12,6 +12,7 @@
 #include "apc_choice/_apc_choice.dme"
 #include "cyrillic_fixes/_cyrillic_fixes.dme"
 #include "quick_cast/_quick_cast.dme"
+#include "weapons/_weapons.dme"
 #include "respawn/_respawn.dme"
 #include "shout_orders/_shout_orders.dme"
 #include "screentips/_screentips.dme"
@@ -21,5 +22,4 @@
 #include "speech_filter/_speech_filter.dme"
 #include "text_to_speech/_tts.dme"
 #include "attachments/_attachments.dme"
-#include "weapons/_weapons.dme"
 #include "ltb_rework/_ltb_rework.dme"
