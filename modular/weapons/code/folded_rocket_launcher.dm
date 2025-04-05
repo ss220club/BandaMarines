@@ -16,14 +16,14 @@
 		WEAR_L_HAND = 'modular/weapons/icons/inhands/rocket_launchers_lefthand.dmi',
 		WEAR_R_HAND = 'modular/weapons/icons/inhands/rocket_launchers_righthand.dmi'
 	)
-	//gun_category = GUN_CATEGORY_RIFLE // Просто для того чтобы стрелять с одной руки
 	unacidable = TRUE // Их можно расплавить уничтожить
 	flags_gun_features = GUN_TRIGGER_SAFETY // Нужно сейфер переключить, так как GUN_WIELDED_FIRING_ONLY больше нет
 
 /obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/Fire(atom/target, mob/living/user, params, reflex, dual_wield)
 	if(!(flags_item & WIELDED))
-		var/new_target = get_step(get_step(get_turf(user), dir), dir)	// Увы, но если не возьмем в обе руки - то выстрелим рядом с собой через 2 тайла
-		return ..(new_target, user, params, reflex, dual_wield)
+		user.visible_message(SPAN_DANGER("[user] выстрелил с [src] направленным в землю!"), SPAN_USERDANGER("БЛЯТЬ!!! Я ЗАБЫЛ ПОДНЯТЬ ЕЁ!!!!!"))
+		ammo.accurate_range = 1
+		ammo.max_range = 2
 	. = ..()
 
 /obj/item/prop/folded_anti_tank_sadar/common
