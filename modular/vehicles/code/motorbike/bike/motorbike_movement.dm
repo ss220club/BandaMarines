@@ -53,12 +53,9 @@
 
 	if(!can_drive_when_hands_full && chance_lost_drive_control_when_one_hand >= 0)
 		// Проверка движения назад
-		if(direction == turn(dir, 180))
-			if(current_speed_level > 1)
-				to_chat(user, SPAN_WARNING("Нельзя ехать назад на этой скорости!"))
-				return FALSE
-			else
-				reset_speed()
+		var/back_dir = turn(dir, 180)
+		if(direction == back_dir)
+			reset_speed()
 
 		// Проверка рук
 		if(user.l_hand && user.r_hand)
