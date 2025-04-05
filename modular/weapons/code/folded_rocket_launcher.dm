@@ -20,7 +20,14 @@
 	unacidable = TRUE // Их можно расплавить уничтожить
 	flags_gun_features = GUN_TRIGGER_SAFETY // Нужно сейфер переключить, так как GUN_WIELDED_FIRING_ONLY больше нет
 
+	current_mag = /obj/item/ammo_magazine/rocket/he_c // больше не АП. Среднее между АП и обычной.
+
+/obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/anti_tank
+	current_mag = /obj/item/ammo_magazine/rocket/anti_tank
+
 /obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/Fire(atom/target, mob/living/user, params, reflex, dual_wield)
+	ammo.accurate_range = initial(ammo.accurate_range)
+	ammo.max_range = initial(ammo.max_range)
 	if(!(flags_item & WIELDED))
 		user.visible_message(SPAN_DANGER("[user] выстрелил с [src] направленным в землю!"), SPAN_USERDANGER("БЛЯТЬ!!! Я ЗАБЫЛ НАПРАВИТЬ ТРУБУ!!!!!"))
 		ammo.accurate_range = 1
@@ -48,9 +55,13 @@
 	throw_speed = SPEED_VERY_FAST
 	throw_range = 5
 	force = 5
+	var/folded_type = /obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common
 
 /obj/item/prop/folded_anti_tank_sadar/common/unfold(mob/user)
-	var/obj/O = new /obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common(src.loc)
+	var/obj/O = new folded_type(src.loc)
 	transfer_label_component(O)
 	qdel(src)
 	user.put_in_active_hand(O)
+
+/obj/item/prop/folded_anti_tank_sadar/common/at
+	folded_type = /obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/anti_tank
