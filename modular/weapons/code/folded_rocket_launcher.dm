@@ -21,6 +21,7 @@
 	flags_gun_features = GUN_TRIGGER_SAFETY // Нужно сейфер переключить, так как GUN_WIELDED_FIRING_ONLY больше нет
 
 	current_mag = /obj/item/ammo_magazine/rocket/he_c // больше не АП. Среднее между АП и обычной.
+	var/folded_type = /obj/item/prop/folded_anti_tank_sadar/common
 
 /obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/anti_tank
 	current_mag = /obj/item/ammo_magazine/rocket/anti_tank
@@ -33,6 +34,19 @@
 		ammo.accurate_range = 1
 		ammo.max_range = 2
 	. = ..()
+
+/obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/fold(mob/user)
+	if(fired)
+		to_chat(M, SPAN_NOTICE("Он уже использован и более его нельзя сложить!"))
+		return
+	var/obj/O = new folded_type(src.loc)
+	transfer_label_component(O)
+	qdel(src)
+	user.put_in_active_hand(O)
+
+
+// ===================
+// Prop - folded RPG
 
 /obj/item/prop/folded_anti_tank_sadar/common
 	name = "Раскладной РПГ M83A2-C"
@@ -65,3 +79,4 @@
 
 /obj/item/prop/folded_anti_tank_sadar/common/at
 	folded_type = /obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/anti_tank
+
