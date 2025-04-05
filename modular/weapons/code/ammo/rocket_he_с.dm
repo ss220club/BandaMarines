@@ -2,7 +2,6 @@
 	default_ammo = /datum/ammo/rocket/he_c
 
 /datum/ammo/rocket/he_c
-	name = "anti-armor rocket"
 	damage_falloff = 0
 	flags_ammo_behavior = AMMO_EXPLOSIVE|AMMO_ROCKET
 
