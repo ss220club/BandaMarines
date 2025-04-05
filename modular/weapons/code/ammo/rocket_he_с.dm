@@ -16,6 +16,9 @@
 	damage = 10
 	penetration = ARMOR_PENETRATION_TIER_10
 
+	shrapnel_chance = SHRAPNEL_CHANCE_TIER_4
+	shrapnel_type = /obj/item/shard/shrapnel
+
 	// Explosion parameters
 	var/damage_ex = 75
 	var/explosion_power = 150
