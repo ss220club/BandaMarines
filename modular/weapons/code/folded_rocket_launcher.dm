@@ -30,7 +30,7 @@
 /obj/item/prop/folded_anti_tank_sadar/common
 	name = "Раскладной РПГ M83A2-C"
 	desc = "Одноразовый распространеннный противотанковый гранатомет M83A2, сложенный для удобства хранения и безопасности. \
-		Раскладывается с помощью клавиши Z."
+		Раскладывается с помощью клавиши Z. Нельзя сложить обратно."
 	icon = 'modular/weapons/icons/rocket_launchers.dmi'
 	icon_state = "m83a2_folded"
 	item_state = "m83a2_folded"
