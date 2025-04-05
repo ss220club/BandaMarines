@@ -28,8 +28,9 @@
 	var/backblast_range = 2 // How many tiles behind the shooter are affected
 	var/backblast_damage = 15 // Damage to living beings
 	var/backblast_burn_damage = 40 // Additional burn damage
-	var/backblast_knockdown = 3 // Seconds of knockdown
-	var/backblast_stun = 3 // Seconds of stun
+	var/backblast_knockdown = 3
+	var/backblast_stun = 3
+	var/backblast_stutter = 3
 
 /obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/anti_tank
 	current_mag = /obj/item/ammo_magazine/rocket/anti_tank
@@ -38,7 +39,6 @@
 	if(fired)
 		to_chat(user, SPAN_NOTICE("[src.name] уже использован и более с него нельзя выстрелить!"))
 		return FALSE
-	apply_backblast(user)
 	ammo.accurate_range = initial(ammo.accurate_range)
 	ammo.max_range = initial(ammo.max_range)
 	if(!(flags_item & WIELDED))
@@ -56,6 +56,18 @@
 	qdel(src)
 	user.put_in_active_hand(O)
 
+
+/obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/apply_bullet_effects(obj/projectile/projectile_to_fire, mob/user, i, reflex)
+	. = ..()
+	if(!HAS_TRAIT(user, TRAIT_EAR_PROTECTION) && ishuman(user))
+		return
+	apply_backblast(user)
+
+	var/backblast_loc = get_turf(get_step(user.loc, turn(user.dir, 180)))
+	smoke.set_up(1, 0, backblast_loc, turn(user.dir, 180))
+	smoke.start()
+
+
 /// Applies backblast damage to anyone standing behind the shooter
 /obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/proc/apply_backblast(mob/living/user)
 	if(!istype(user) || !user.loc)
@@ -65,29 +77,28 @@
 	var/backblast_dir = turn(user.dir, 180)
 	var/turf/starting_turf = get_turf(user)
 
-	// Create visual effect
-	var/datum/effect_system/smoke_spread/chem/smoke = new()
-	smoke.set_up(n = 2, loca = starting_turf)
-	smoke.attach(starting_turf)
-	smoke.start()
-
 	// Check tiles in backblast direction
 	for(var/i in 1 to backblast_range)
 		var/turf/affected_turf = get_step(starting_turf, backblast_dir)
 		if(!affected_turf)
 			break
+		smoke.set_up(1, 0, affected_turf, backblast_dir)
+		smoke.start()
 
 		// Damage mobs in the affected tile
 		for(var/mob/living/victim in affected_turf)
 			if(victim == user) // Don't damage the shooter
 				continue
-
 			victim.visible_message(SPAN_DANGER("[victim] попадает под струю раскаленных газов из [src]!"),
 								SPAN_USERDANGER("Меня накрывает струя раскаленных газов из [src]!"))
+			if(victim.body_position == STANDING_UP) //Have to be standing up to get the fun stuff
+			if(!HAS_TRAIT(victim, TRAIT_EAR_PROTECTION))
+				victim.KnockDown(backblast_knockdown)
+				victim.Stun(backblast_stun)
+				victim.apply_effect(backblast_stutter, STUTTER)
 			victim.apply_damage(backblast_damage, BRUTE)
 			victim.apply_damage(backblast_burn_damage, BURN)
-			victim.KnockDown(backblast_knockdown)
-			victim.Stun(backblast_stun)
+			victim.emote("pain")
 
 		starting_turf = affected_turf
 
