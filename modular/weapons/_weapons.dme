@@ -1,0 +1,4 @@
+#include "_weapons.dm"
+
+#include "code/folded_rocket_launcher.dm"
+#include "code/weapons.dm"
