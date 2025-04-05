@@ -21,7 +21,7 @@
 
 /obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/Fire(atom/target, mob/living/user, params, reflex, dual_wield)
 	if(!(flags_item & WIELDED))
-		user.visible_message(SPAN_DANGER("[user] выстрелил с [src] направленным в землю!"), SPAN_USERDANGER("БЛЯТЬ!!! Я ЗАБЫЛ ПОДНЯТЬ ЕЁ!!!!!"))
+		user.visible_message(SPAN_DANGER("[user] выстрелил с [src] направленным в землю!"), SPAN_USERDANGER("БЛЯТЬ!!! Я ЗАБЫЛ НАПРАВИТЬ ТРУБУ!!!!!"))
 		ammo.accurate_range = 1
 		ammo.max_range = 2
 	. = ..()
