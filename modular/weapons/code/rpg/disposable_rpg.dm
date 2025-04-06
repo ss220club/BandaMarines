@@ -32,9 +32,6 @@
 	var/backblast_stun = 3
 	var/backblast_stutter = 3
 
-/obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/anti_tank
-	current_mag = /obj/item/ammo_magazine/rocket/anti_tank
-
 /obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/Fire(atom/target, mob/living/user, params, reflex, dual_wield)
 	if(fired)
 		to_chat(user, SPAN_NOTICE("[src.name] уже использован и более с него нельзя выстрелить!"))
@@ -103,40 +100,12 @@
 
 		starting_turf = affected_turf
 
+
 // ===============================
-// Prop - folded RPG
+// Anti Tank version
 
-/obj/item/prop/folded_anti_tank_sadar/common
-	name = "Раскладной РПГ M83A2-C"
-	desc = "Одноразовый распространеннный противотанковый гранатомет M83A2, сложенный для удобства хранения и безопасности. \
-		Раскладывается с помощью клавиши Z. Нельзя сложить обратно."
-	icon = 'modular/weapons/icons/rocket_launchers.dmi'
-	icon_state = "m83a2_folded"
-	item_state = "m83a2_folded"
-	item_icons = list(
-		WEAR_BACK = 'modular/weapons/icons/wear/rocket_launchers.dmi',
-		WEAR_J_STORE = 'modular/weapons/icons/wear/rocket_launchers.dmi',
-		WEAR_L_HAND = 'modular/weapons/icons/inhands/rocket_launchers_lefthand.dmi',
-		WEAR_R_HAND = 'modular/weapons/icons/inhands/rocket_launchers_righthand.dmi'
-	)
-
-	flags_equip_slot = SLOT_BACK|SLOT_SUIT_STORE
-	flags_atom = FPRINT|QUICK_DRAWABLE|CONDUCT
-	w_class = SIZE_LARGE // Больше аналога
-	throwforce = 5
-	throw_speed = SPEED_VERY_FAST
-	throw_range = 5
-	force = 5
-	var/folded_type = /obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common
-
-/obj/item/prop/folded_anti_tank_sadar/common/unfold(mob/user)
-	var/obj/O = new folded_type(src.loc)
-	transfer_label_component(O)
-	qdel(src)
-	user.put_in_active_hand(O)
-
-/obj/item/prop/folded_anti_tank_sadar/common/at
-	folded_type = /obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/anti_tank
+/obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/anti_tank
+	current_mag = /obj/item/ammo_magazine/rocket/anti_tank
 
 // ===============================
 // Вспомогательно
