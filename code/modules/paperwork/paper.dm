@@ -74,7 +74,7 @@
 
 /obj/item/paper/update_icon()
 	switch(icon_state)
-		if("paper_talisman", "paper_wy_words", "paper_uscm_words", "paper_flag_words", "fortune")
+		if("paper_wy_words", "paper_uscm_words", "paper_flag_words", "fortune")
 			return
 
 	if(!info)
@@ -116,7 +116,7 @@
 	var/paper_info = info
 	if(scramble)
 		paper_info = stars_decode_html(info)
-	show_browser(user, "<BODY class='paper'>[paper_info][stamps]</BODY>", name, name, "size=650x700")
+	show_browser(user, "<BODY class='paper'>[paper_info][stamps]</BODY>", name, name, width = 650, height = 700)
 	onclose(user, name)
 
 /obj/item/paper/verb/rename()

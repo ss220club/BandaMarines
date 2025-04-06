@@ -1,6 +1,3 @@
-/datum/law/minor_law
-	severity = MINOR_CRIME
-
 /datum/law/minor_law/contraband
 	name = "Контрабанда"
 	desc = "Наличие предметов или оружия из зоны операции, не разрешенных лицом со званием Оруж.Серж или выше."

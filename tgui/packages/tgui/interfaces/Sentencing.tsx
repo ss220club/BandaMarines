@@ -14,6 +14,7 @@ type Law = {
   desc: String;
   brig_time: number;
   special_punishment: string;
+  conditions: string;
   ref: string;
 };
 
@@ -202,6 +203,11 @@ const NewCharge = (props) => {
                 {law.special_punishment && (
                   <LabeledList.Item label="Дополнительно">
                     {law.special_punishment}
+                  </LabeledList.Item>
+                )}
+                {law.conditions && (
+                  <LabeledList.Item label="Conditions">
+                    {law.conditions}
                   </LabeledList.Item>
                 )}
               </LabeledList>
