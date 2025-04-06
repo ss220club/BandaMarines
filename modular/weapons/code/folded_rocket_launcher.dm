@@ -145,8 +145,8 @@
 /obj/item/ammo_magazine/rocket/attack(mob/living/carbon/human/M, mob/living/carbon/human/user)
 	if(!istype(M) || !istype(user) || get_dist(user, M) > 1)
 		return
-	var/obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/in_hand = M.get_active_hand()
-	if(in_hand || istype(in_hand))
-		to_chat(user, SPAN_NOTICE("Он уже использован и более его нельзя зарядить!"))
+	var/obj/in_hand = M.get_active_hand()
+	if(in_hand && istype(in_hand, /obj/item/weapon/gun/launcher/rocket/anti_tank/disposable))
+		to_chat(user, SPAN_NOTICE("Его нельзя зарядить!"))
 		return
 	. = ..()
