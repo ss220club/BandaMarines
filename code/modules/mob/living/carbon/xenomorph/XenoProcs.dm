@@ -31,7 +31,7 @@
 			var/mob/living/carbon/xenomorph/xeno = living.current
 			if(istype(xeno) && !xeno.stat && xeno.client && xeno.hivenumber == hivenumber) //Only living and connected xenos
 				playsound_client(xeno.client, 'sound/voice/alien_distantroar_3.ogg', xeno.loc, 25, FALSE)
-				xeno.play_screen_text("<span class='langchat' style=font-size:16pt;text-align:center valign='top'><u>[title_text]</u></span><br>" + text, /atom/movable/screen/text/screen_text/command_order, "#b491c8")
+				xeno.play_screen_text("<span class='langchat_notification' style=text-align:center valign='top'><u>[title_text]</u></span><br>" + text, /atom/movable/screen/text/screen_text/command_order, "#b491c8") // SS220 EDIT: font
 
 /proc/xeno_message_all(message = null, size = 3)
 	xeno_message(message, size)
@@ -62,7 +62,7 @@
 		if(selected_ability.charges != NO_ACTION_CHARGES)
 			. += "Зарядов осталось: [selected_ability.charges]"
 
-		if(selected_ability.cooldown_timer_id != TIMER_ID_NULL)
+		if(selected_ability.cooldown_timer_id != TIMER_ID_NULL && client?.prefs.show_cooldown_messages)
 			. += "Перезарядка: [DisplayTimeText(timeleft(selected_ability.cooldown_timer_id))]"
 
 	. += ""

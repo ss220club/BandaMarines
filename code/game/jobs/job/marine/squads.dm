@@ -457,12 +457,12 @@
 		if(squad_leader)
 			if(!squad_leader.stat && squad_leader.client)
 				playsound_client(squad_leader.client, 'sound/effects/radiostatic.ogg', squad_leader.loc, 25, FALSE)
-				squad_leader.play_screen_text("<span class='langchat' style=font-size:16pt;text-align:center valign='top'><u>[title_text]</u></span><br>" + text, /atom/movable/screen/text/screen_text/command_order, message_color)
+				squad_leader.play_screen_text("<span class='langchat_notification' style=text-align:center valign='top'><u>[title_text]</u></span><br>" + text, /atom/movable/screen/text/screen_text/command_order, message_color) // SS220 EDIT: font
 	else
 		for(var/mob/living/carbon/human/marine in marines_list)
 			if(!marine.stat && marine.client) //Only living and connected people in our squad
 				playsound_client(marine.client, 'sound/effects/radiostatic.ogg', marine.loc, 25, FALSE)
-				marine.play_screen_text("<span class='langchat' style=font-size:16pt;text-align:center valign='top'><u>[title_text]</u></span><br>" + text, /atom/movable/screen/text/screen_text/command_order, message_color)
+				marine.play_screen_text("<span class='langchat_notification' style=text-align:center valign='top'><u>[title_text]</u></span><br>" + text, /atom/movable/screen/text/screen_text/command_order, message_color) // SS220 EDIT: font
 
 /// Displays a message to the squad members in chat
 /datum/squad/proc/send_message(text = "", plus_name = 0, only_leader = 0)
@@ -708,7 +708,8 @@
 				if(JOB_MARINE_RAIDER_CMD)
 					old_lead.comm_title = "CMD."
 				else
-					old_lead.comm_title = "RFN"
+					var/datum/job/job = GLOB.RoleAuthority.roles_for_mode[GET_DEFAULT_ROLE(old_lead.job)]
+					old_lead.comm_title = job.gear_preset.role_comm_title
 			if(GET_DEFAULT_ROLE(old_lead.job) != JOB_SQUAD_LEADER || !leader_killed)
 				var/obj/item/device/radio/headset/almayer/marine/headset = old_lead.get_type_in_ears(/obj/item/device/radio/headset/almayer/marine)
 				if(headset)

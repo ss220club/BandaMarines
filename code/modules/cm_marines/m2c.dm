@@ -459,7 +459,7 @@
 // TOGGLE MODE
 
 /obj/structure/machinery/m56d_hmg/auto/clicked(mob/user, list/mods, atom/A)
-	if (mods["ctrl"])
+	if (mods[CTRL_CLICK])
 		if(operator != user)
 			return ..()
 		if(!CAN_PICKUP(user, src))
@@ -591,6 +591,12 @@
 			direction = EAST
 		else
 			direction = WEST
+
+	// SS220 EDIT - START - BIKE STROLLER GUN
+	if(!isturf(loc)) // проверяем что тюрф, нам не нужно разворачивать М2С пока он находится "внутри чего-то"
+		to_chat(user, SPAN_WARNING("Вы не можете повернуть орудие, оно находится не на земле!"))
+		return
+	// SS220 EDIT - END - BIKE STROLLER GUN
 
 	var/turf/rotate_check = get_step(src.loc, turn(direction,180))
 	if(rotate_check.density)
