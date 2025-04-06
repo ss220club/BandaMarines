@@ -146,7 +146,7 @@
 	if(!istype(M) || !istype(user) || get_dist(user, M) > 1)
 		return
 	var/obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/in_hand = M.get_active_hand()
-	if(in_hand)
-		to_chat(M, SPAN_NOTICE("Он уже использован и более его нельзя зарядить!"))
+	if(in_hand || istype(in_hand))
+		to_chat(user, SPAN_NOTICE("Он уже использован и более его нельзя зарядить!"))
 		return
 	. = ..()
