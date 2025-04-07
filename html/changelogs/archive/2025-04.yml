@@ -66,8 +66,6 @@
   - bugfix: fixed spec icons on orbit panel
   - bugfix: fixed spec icons on squad info panel
 2025-04-05:
-  RUCM:
-  - rscadd: Upstream 04.04.2025
   Aurallianz:
   - rscadd: Gave CE dropship access
   - rscadd: Sling strap for CE's apollo maintenance  handheld
@@ -101,6 +99,8 @@
   PhantornRU:
   - config: Add to Config - Block nuclear device invocation until more marines than
       this percentage are alive. (0-100)
+  RUCM:
+  - rscadd: Upstream 04.04.2025
   Red-byte3D:
   - bugfix: Cant buckle alive xenos to things anymore
   - bugfix: Hellhound callers can only be called by people with TRAIT_YAUTJA_TECH
@@ -163,8 +163,16 @@
       globally, instead of being snowflake code
   - soundadd: a collection of phrases W-Y droids can use
   - soundadd: ES-7, new flamer sounds (from tgmc)
+  Doc12693420:
+  - spellcheck: fixes a typo in bone-mending chem property, "Re-wowen" to "Re-woven"
+  Git-Nivrak:
+  - admin: Added logging for joing as facehugger or lesser drone
   PhantornRU:
   - rscadd: M83 can carried on the back
   - imageadd: Added sprites for carrying RPG M83 on the back
+  RUCM:
+  - rscadd: Upstream 07.04.2025
   Red-byte3D:
   - bugfix: King ability destroy can now be chosen again
+  silverplatedelta:
+  - balance: Drones can now evolve into any T2 caste before first drop
