@@ -4360,7 +4360,6 @@
 	pixel_x = 1;
 	pixel_y = 10
 	},
-/obj/item/trash/pistachios,
 /obj/item/tool/screwdriver,
 /turf/open/floor/almayer/cargo_arrow,
 /area/almayer/hallways/lower/repair_bay)
@@ -53300,11 +53299,6 @@
 	name = "YOU ALWAYS KNOW A WORKING JOE.";
 	pixel_x = 27;
 	serial_number = 11
-	},
-/obj/item/trash/pistachios{
-	layer = 2;
-	pixel_x = 6;
-	pixel_y = -6
 	},
 /obj/structure/machinery/recharger{
 	layer = 3.1;

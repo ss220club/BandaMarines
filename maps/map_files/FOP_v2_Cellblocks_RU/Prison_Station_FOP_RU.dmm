@@ -12826,14 +12826,6 @@
 "aSa" = (
 /turf/closed/wall/prison,
 /area/prison/security/checkpoint/highsec/n)
-"aSb" = (
-/obj/structure/pipes/standard/simple/hidden/supply{
-	dir = 4
-	},
-/obj/item/trash/liquidfood,
-/obj/effect/alien/weeds/node,
-/turf/open/floor/plating/prison,
-/area/prison/maintenance/residential/nw)
 "aSd" = (
 /obj/structure/pipes/standard/manifold/hidden/supply,
 /obj/effect/decal/warning_stripes{
@@ -42894,8 +42886,6 @@
 /obj/structure/machinery/conveyor,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/trash/hotdog,
-/obj/item/trash/pistachios,
-/obj/item/trash/liquidfood,
 /obj/item/trash/raisins,
 /turf/open/floor/plating/prison,
 /area/prison/disposal)
@@ -55506,7 +55496,6 @@
 /area/prison/cellblock/lowsec/nw)
 "xNi" = (
 /obj/structure/largecrate/random/case/small,
-/obj/item/trash/liquidfood,
 /obj/item/stack/sheet/wood,
 /turf/open/floor/plating/prison,
 /area/prison/maintenance/residential/nw)
@@ -60092,7 +60081,7 @@ mpg
 mpg
 mpg
 dSI
-aSb
+kgF
 dyf
 avN
 aFd

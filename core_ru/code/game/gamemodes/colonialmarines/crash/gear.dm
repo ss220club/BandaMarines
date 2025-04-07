@@ -76,8 +76,6 @@
 				sidearmpath = /obj/item/storage/belt/gun/m4a3/heavy/co_golden
 			if("M4A3 Custom")
 				sidearmpath = /obj/item/storage/belt/gun/m4a3/commander
-			if("VP78")
-				sidearmpath = /obj/item/storage/belt/gun/m4a3/vp78
 
 	//back
 	new_human.equip_to_slot_or_del(new backItem(new_human), WEAR_BACK)
@@ -223,7 +221,6 @@
 	new_human.equip_to_slot_or_del(new /obj/item/attachable/magnetic_harness(new_human), WEAR_IN_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/spec_kit, WEAR_R_HAND)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine(new_human), WEAR_HEAD)
-	new_human.equip_to_slot_or_del(new /obj/item/storage/pouch/magazine/large/pmc_m39(new_human), WEAR_L_STORE)
 
 	add_common_wo_equipment(new_human)
 
