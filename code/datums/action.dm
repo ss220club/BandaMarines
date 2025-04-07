@@ -82,7 +82,7 @@
 
 /datum/action/proc/set_name(new_name)
 	name = new_name
-	button.name = new_name
+	button.name = new_name + '1'
 
 /**
  * Gives an action to a mob and returns it
