@@ -301,6 +301,22 @@
 		if(heart && prob(25))
 			heart.take_damage(rand(min_heart_damage_dealt, max_heart_damage_dealt), TRUE) // Make death and revival leave lasting consequences
 
+/obj/item/device/defibrillator/low_charge/Initialize(mapload, ...) //for survivors and such
+	. = ..()
+	dcell.charge = 100
+	update_icon()
+
+/obj/item/device/defibrillator/upgraded
+	name = "upgraded emergency defibrillator"
+	icon_state = "adv_defib"
+	item_state = "adv_defib"
+	desc = "An advanced rechargeable defibrillator using induction to deliver shocks through metallic objects, such as armor, and does so with much greater efficiency than the standard variant, not damaging the heart."
+
+	blocked_by_suit = FALSE
+	min_heart_damage_dealt = 0
+	max_heart_damage_dealt = 0
+	damage_heal_threshold = 35
+
 /obj/item/device/defibrillator/compact_adv
 	name = "advanced compact defibrillator"
 	desc = "An advanced compact defibrillator that trades capacity for strong immediate power. Ignores armor and heals strongly and quickly, at the cost of very low charge. It does not damage the heart."
