@@ -77,6 +77,9 @@
 "J" = (
 /turf/closed/wall/prison,
 /area/prison/cellblock/highsec/south/south)
+"L" = (
+/turf/open_space,
+/area/space)
 "P" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -84,9 +87,18 @@
 /turf/open/floor/plating/prison,
 /area/prison/cellblock/highsec/south/south)
 "S" = (
-/obj/structure/surface/rack,
+/obj/structure/surface/rack{
+	color = "#8e98a0"
+	},
+/obj/item/stack/rods,
+/obj/item/stack/rods,
+/obj/item/stack/rods,
+/obj/item/stack/rods,
 /turf/open/floor/plating/prison,
 /area/prison/cellblock/highsec/south/south)
+"U" = (
+/turf/closed/wall/r_wall/prison_unmeltable,
+/area/space)
 "V" = (
 /turf/closed/wall/r_wall/prison_unmeltable,
 /area/prison/cellblock/highsec/south/south)
@@ -148,4 +160,55 @@ p
 y
 w
 d
+"}
+
+(1,1,2) = {"
+L
+L
+L
+L
+L
+L
+L
+U
+"}
+(2,1,2) = {"
+L
+L
+L
+L
+L
+L
+L
+U
+"}
+(3,1,2) = {"
+L
+L
+L
+L
+L
+L
+L
+U
+"}
+(4,1,2) = {"
+L
+L
+L
+L
+L
+L
+L
+L
+"}
+(5,1,2) = {"
+L
+L
+L
+L
+L
+L
+L
+L
 "}

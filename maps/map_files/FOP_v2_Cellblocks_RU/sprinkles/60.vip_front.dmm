@@ -1,4 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/closed/wall/r_wall/prison,
+/area/prison/security/monitoring/highsec)
 "aN" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "W"
@@ -75,6 +78,15 @@
 	},
 /turf/open/floor/prison/damaged3,
 /area/prison/security/monitoring/highsec)
+"fI" = (
+/obj/structure/machinery/door/poddoor/almayer/open{
+	dir = 4;
+	name = "Civilian Residences Emergency Access";
+	explo_proof = 1;
+	id = "civilian block lockdown"
+	},
+/turf/open_space,
+/area/space)
 "fP" = (
 /turf/open/floor/prison/damaged2/southwest,
 /area/prison/security/monitoring/highsec)
@@ -192,7 +204,7 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/prison/security/monitoring/highsec)
 "pk" = (
-/obj/effect/landmark/corpsespawner/prison_security,
+/obj/effect/landmark/corpsespawner/ua_riot,
 /turf/open/floor/prison/red,
 /area/prison/security/monitoring/highsec)
 "pm" = (
@@ -312,11 +324,11 @@
 	dir = 6;
 	icon_state = "casing_10_1"
 	},
-/obj/effect/landmark/corpsespawner/prison_security,
 /obj/effect/decal/cleanable/blood{
 	dir = 4;
 	icon_state = "gib6"
 	},
+/obj/effect/landmark/corpsespawner/ua_riot,
 /turf/open/floor/plating/prison,
 /area/prison/security/monitoring/highsec)
 "AS" = (
@@ -438,6 +450,9 @@
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/plating/prison,
 /area/prison/security/monitoring/highsec)
+"KA" = (
+/turf/closed/wall/r_wall/prison_unmeltable,
+/area/space)
 "KL" = (
 /obj/item/device/flashlight,
 /turf/open/floor/plating/prison,
@@ -459,11 +474,11 @@
 /obj/structure/pipes/standard/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/landmark/corpsespawner/prison_security,
 /obj/item/ammo_casing{
 	dir = 6;
 	icon_state = "casing_5"
 	},
+/obj/effect/landmark/corpsespawner/ua_riot,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/prison/security/monitoring/highsec)
 "Nc" = (
@@ -500,6 +515,9 @@
 	},
 /turf/open/floor/prison/darkredfull2/southwest,
 /area/prison/security/monitoring/highsec)
+"PG" = (
+/turf/open_space,
+/area/space)
 "QM" = (
 /obj/structure/window/framed/prison,
 /turf/open/floor/plating/prison,
@@ -606,15 +624,15 @@
 /area/prison/security/monitoring/highsec)
 
 (1,1,1) = {"
-Vu
-Vu
-Vu
+aa
+aa
+aa
 gf
 HR
 Fl
 gs
-Vu
-Vu
+aa
+aa
 Vu
 "}
 (2,1,1) = {"
@@ -832,4 +850,233 @@ QM
 Eh
 wn
 wn
+"}
+
+(1,1,2) = {"
+KA
+KA
+KA
+fI
+fI
+fI
+fI
+KA
+KA
+KA
+"}
+(2,1,2) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+KA
+"}
+(3,1,2) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+KA
+"}
+(4,1,2) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+KA
+"}
+(5,1,2) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+KA
+"}
+(6,1,2) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+KA
+"}
+(7,1,2) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+KA
+"}
+(8,1,2) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+KA
+"}
+(9,1,2) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(10,1,2) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(11,1,2) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(12,1,2) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(13,1,2) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(14,1,2) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(15,1,2) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(16,1,2) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(17,1,2) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(18,1,2) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(19,1,2) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
 "}

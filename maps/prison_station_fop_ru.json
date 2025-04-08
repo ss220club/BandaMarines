@@ -28,7 +28,16 @@
         "Lockdown": true,
         "InSpace": true
     },
-    "traits": [{ "Ground": true }],
+    "traits": [
+        { 
+            "Ground": true,
+            "Up": 1 
+        },
+        {
+            "Ground": true,
+            "Down": -1
+        }
+    ],
     "nightmare_path": "maps/Nightmare/maps/FOP_v2_Cellblocks_RU/",
     "xvx_hives": {
         "xeno_hive_alpha": 0,

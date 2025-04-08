@@ -1,0 +1,688 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/wall/r_wall/prison_unmeltable,
+/area/prison/research/secret/testing)
+"b" = (
+/obj/structure/machinery/autodispenser,
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+"c" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "E";
+	layer = 3.33
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/turf/open/floor/hybrisa/tile/tilewhite,
+/area/prison/research/secret/testing)
+"d" = (
+/obj/structure/window/reinforced,
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+"e" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "E";
+	layer = 3.33
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/obj/item/shard,
+/turf/open/floor/hybrisa/tile/tilewhite,
+/area/prison/research/secret/testing)
+"f" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/hybrisa/tile/tilewhite,
+/area/prison/research/secret/testing)
+"g" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	pixel_y = 2
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/structure/cable/white{
+	color = "#007740";
+	icon_state = "8-9";
+	layer = 5;
+	level = 2
+	},
+/turf/open/floor/hybrisa/tile/tilewhite,
+/area/prison/research/secret/testing)
+"h" = (
+/obj/structure/surface/table/reinforced/prison,
+/obj/item/clipboard,
+/obj/item/paper,
+/obj/item/paper{
+	layer = 5;
+	pixel_x = -7;
+	pixel_y = 7
+	},
+/obj/effect/landmark/objective_landmark/science,
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+"i" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+"j" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/obj/structure/machinery/door/poddoor/almayer/biohazard/white{
+	icon = 'icons/obj/structures/doors/hybrisashutters.dmi';
+	id = "fiorina_wy_labs_lockdown"
+	},
+/turf/open/floor/plating/prison,
+/area/prison/research/secret/testing)
+"k" = (
+/obj/structure/cable/white{
+	color = "#9f8700";
+	icon_state = "8-9";
+	layer = 5;
+	level = 2
+	},
+/obj/effect/spawner/random/pills/highchance,
+/obj/structure/window/reinforced{
+	dir = 1;
+	layer = 2
+	},
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+"l" = (
+/obj/structure/machinery/big_computers/computerwhite/computer4,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	layer = 2
+	},
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+"m" = (
+/obj/structure/machinery/light/small/blue{
+	dir = 1
+	},
+/obj/effect/decal/strata_decals/grime/grime4{
+	dir = 4
+	},
+/obj/effect/landmark/objective_landmark/science,
+/obj/structure/sign/poster/wylogo{
+	pixel_y = 32;
+	layer = 2.9
+	},
+/obj/structure/prop/hybrisa/xenobiology/small/cracked1,
+/obj/item/shard,
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+"n" = (
+/obj/structure/prop/hybrisa/xenobiology/small/larva,
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+"o" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	pixel_y = 2
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "E";
+	layer = 3.33
+	},
+/turf/open/floor/hybrisa/tile/tilewhite,
+/area/prison/research/secret/testing)
+"p" = (
+/obj/structure/surface/table/reinforced/prison,
+/obj/structure/machinery/r_n_d/organic_analyzer{
+	pixel_y = 9;
+	pixel_x = -3
+	},
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+"q" = (
+/obj/structure/machinery/big_computers/science_big/protolathe,
+/obj/structure/prop/hybrisa/misc/redmeter{
+	pixel_y = 32
+	},
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+"r" = (
+/obj/structure/machinery/big_computers/science_big/synthesis_simulator,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+"s" = (
+/obj/structure/machinery/big_computers/science_big/operator_machine,
+/obj/structure/window/reinforced{
+	dir = 1;
+	layer = 2
+	},
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+"t" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	pixel_y = 2
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/turf/open/floor/hybrisa/tile/tilewhite,
+/area/prison/research/secret/testing)
+"u" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	pixel_y = 2
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/structure/cable/white{
+	color = "#007740";
+	icon_state = "1-4";
+	layer = 5;
+	level = 2
+	},
+/turf/open/floor/hybrisa/tile/tilewhite,
+/area/prison/research/secret/testing)
+"v" = (
+/obj/structure/cable/white{
+	color = "#550d0d";
+	icon_state = "8-10";
+	layer = 5;
+	level = 2
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	layer = 2
+	},
+/obj/structure/prop/hybrisa/xenobiology/small/larva,
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+"w" = (
+/obj/item/tool/kitchen/tray,
+/obj/item/stack/sheet/xenochitin{
+	pixel_y = 12
+	},
+/obj/item/tool/kitchen/tray{
+	pixel_y = 13
+	},
+/obj/structure/surface/table/reinforced/prison,
+/obj/item/stack/sheet/xenochitin,
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+"x" = (
+/obj/structure/surface/table/reinforced/prison,
+/obj/structure/machinery/reagent_analyzer{
+	pixel_y = 6
+	},
+/obj/structure/prop/hybrisa/misc/metergreen{
+	pixel_y = 36
+	},
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+"z" = (
+/obj/structure/window/framed/prison/reinforced,
+/obj/structure/machinery/door/poddoor/almayer/biohazard/white{
+	icon = 'icons/obj/structures/doors/hybrisashutters.dmi';
+	id = "fiorina_wy_labs_lockdown"
+	},
+/turf/open/floor/plating/prison,
+/area/prison/research/secret/testing)
+"A" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/obj/structure/machinery/door/airlock/multi_tile/hybrisa/personal_solid_white/autoname,
+/obj/structure/machinery/door/poddoor/almayer/biohazard/white{
+	icon = 'icons/obj/structures/doors/hybrisashutters.dmi';
+	id = "fiorina_wy_labs_lockdown"
+	},
+/turf/open/floor/plating/prison,
+/area/prison/research/secret/testing)
+"B" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "E";
+	layer = 3.33
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/item/paper/crumpled{
+	pixel_x = 15;
+	pixel_y = -9
+	},
+/turf/open/floor/hybrisa/tile/tilewhite,
+/area/prison/research/secret/testing)
+"C" = (
+/obj/structure/cable/white{
+	color = "#9f8700";
+	icon_state = "4-6";
+	layer = 5;
+	level = 2
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	pixel_y = 2
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/turf/open/floor/hybrisa/tile/tilewhite,
+/area/prison/research/secret/testing)
+"D" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "E";
+	layer = 3.33
+	},
+/obj/structure/bed/chair/office/dark{
+	dir = 4;
+	pixel_x = 7;
+	pixel_y = 10
+	},
+/turf/open/floor/hybrisa/tile/tilewhite,
+/area/prison/research/secret/testing)
+"E" = (
+/obj/structure/machinery/big_computers/science_big/medilathe,
+/obj/structure/window/reinforced,
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+"F" = (
+/obj/structure/prop/hybrisa/xenobiology/small/hugger,
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+"G" = (
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+"H" = (
+/obj/structure/machinery/computer/disk_reader{
+	dir = 8
+	},
+/obj/structure/surface/table/reinforced/prison,
+/obj/structure/machinery/door_control{
+	pixel_y = 11;
+	pixel_x = -7;
+	id = "fiorina_wy_labs_lockdown"
+	},
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+"I" = (
+/turf/closed/wall/r_wall/prison_unmeltable,
+/area/space)
+"J" = (
+/obj/item/paper/crumpled{
+	pixel_x = 15;
+	pixel_y = -9
+	},
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/hybrisa/misc/wysmallleft,
+/area/prison/research/secret/testing)
+"K" = (
+/obj/structure/cable/white{
+	color = "#9f8700";
+	icon_state = "8-9";
+	layer = 5;
+	level = 2
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	pixel_y = 2
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/turf/open/floor/hybrisa/tile/tilewhite,
+/area/prison/research/secret/testing)
+"L" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	pixel_y = 2
+	},
+/obj/item/shard,
+/obj/item/prop/alien/hugger{
+	pixel_x = -7;
+	pixel_y = -5
+	},
+/obj/item/clothing/head/bio_hood/wy_bio/alt,
+/turf/open/floor/hybrisa/tile/tilewhite,
+/area/prison/research/secret/testing)
+"M" = (
+/obj/structure/surface/table/reinforced/prison,
+/obj/item/paper_bin{
+	pixel_x = -3;
+	pixel_y = 9
+	},
+/obj/item/paper/crumpled{
+	pixel_x = 15;
+	pixel_y = -9
+	},
+/obj/item/tool/stamp/rd,
+/obj/item/tool/pen{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/obj/effect/spawner/random/goggles/lowchance,
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+"N" = (
+/obj/structure/cable/white{
+	color = "#550d0d";
+	icon_state = "5-6";
+	layer = 5;
+	level = 2
+	},
+/mob/living/simple_animal/mouse/rat/white/Milky,
+/turf/open/floor/hybrisa/misc/wysmallright,
+/area/prison/research/secret/testing)
+"O" = (
+/obj/structure/machinery/big_computers/computerwhite/computer3,
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+"P" = (
+/obj/structure/prop/hybrisa/xenobiology/small/offempty,
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+"Q" = (
+/obj/effect/decal/strata_decals/grime/grime4{
+	dir = 4
+	},
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+"S" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	pixel_y = 2
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/effect/decal/strata_decals/grime/grime4{
+	dir = 4
+	},
+/obj/item/shard,
+/turf/open/floor/hybrisa/tile/tilewhite,
+/area/prison/research/secret/testing)
+"T" = (
+/turf/open/space,
+/area/space)
+"U" = (
+/turf/open_space,
+/area/space)
+"V" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "E";
+	layer = 3.33
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/obj/effect/decal/strata_decals/grime/grime4{
+	dir = 4
+	},
+/turf/open/floor/hybrisa/tile/tilewhite,
+/area/prison/research/secret/testing)
+"W" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	pixel_y = 2
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/effect/decal/strata_decals/grime/grime4{
+	dir = 4
+	},
+/turf/open/floor/hybrisa/tile/tilewhite,
+/area/prison/research/secret/testing)
+"X" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	pixel_y = 2
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/item/clothing/glasses/science,
+/turf/open/floor/hybrisa/tile/tilewhite,
+/area/prison/research/secret/testing)
+"Y" = (
+/obj/structure/surface/table/reinforced/prison,
+/obj/structure/machinery/centrifuge{
+	pixel_y = 8;
+	pixel_x = -2
+	},
+/obj/structure/machinery/light/small/blue{
+	dir = 1
+	},
+/obj/structure/sign/poster/corporate{
+	pixel_y = 32
+	},
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+"Z" = (
+/obj/item/tool/kitchen/tray{
+	pixel_y = 8
+	},
+/obj/item/weed_extract{
+	pixel_y = 6
+	},
+/obj/item/weed_extract{
+	pixel_x = 6;
+	pixel_y = 8
+	},
+/obj/item/weed_extract{
+	pixel_x = -6;
+	pixel_y = 7
+	},
+/obj/structure/platform/metal/almayer/north{
+	layer = 1.9
+	},
+/obj/structure/surface/table/reinforced/prison,
+/obj/structure/window/reinforced,
+/turf/open/floor/almayer/blackfull/west,
+/area/prison/research/secret/testing)
+
+(1,1,1) = {"
+T
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+a
+m
+P
+F
+n
+P
+z
+"}
+(3,1,1) = {"
+a
+O
+L
+e
+c
+c
+f
+z
+"}
+(4,1,1) = {"
+a
+q
+S
+l
+Q
+r
+X
+z
+"}
+(5,1,1) = {"
+a
+G
+C
+s
+J
+d
+u
+A
+"}
+(6,1,1) = {"
+a
+p
+K
+k
+N
+E
+g
+j
+"}
+(7,1,1) = {"
+a
+x
+t
+v
+G
+i
+W
+z
+"}
+(8,1,1) = {"
+a
+Y
+o
+V
+c
+D
+B
+z
+"}
+(9,1,1) = {"
+a
+b
+w
+Z
+M
+H
+h
+z
+"}
+
+(1,1,2) = {"
+U
+I
+I
+I
+I
+I
+I
+I
+"}
+(2,1,2) = {"
+I
+I
+I
+I
+I
+I
+I
+I
+"}
+(3,1,2) = {"
+I
+I
+I
+I
+I
+I
+I
+I
+"}
+(4,1,2) = {"
+I
+I
+I
+I
+I
+I
+I
+I
+"}
+(5,1,2) = {"
+I
+I
+I
+I
+I
+I
+I
+I
+"}
+(6,1,2) = {"
+I
+I
+I
+I
+I
+I
+I
+I
+"}
+(7,1,2) = {"
+I
+I
+I
+I
+I
+I
+I
+I
+"}
+(8,1,2) = {"
+I
+I
+I
+I
+I
+I
+I
+I
+"}
+(9,1,2) = {"
+I
+I
+I
+I
+I
+I
+I
+I
+"}

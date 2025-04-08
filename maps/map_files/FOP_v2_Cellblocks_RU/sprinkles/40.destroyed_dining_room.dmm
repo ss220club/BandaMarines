@@ -7,6 +7,31 @@
 /obj/item/ammo_casing/bullet,
 /turf/open/floor/prison,
 /area/prison/canteen)
+"ab" = (
+/obj/item/stack/sheet/metal,
+/obj/structure/barricade/handrail/wire{
+	dir = 8;
+	pixel_x = 1
+	},
+/turf/open/floor/prison,
+/area/prison/canteen)
+"ac" = (
+/obj/structure/barricade/handrail/wire{
+	dir = 8;
+	pixel_x = 2
+	},
+/obj/effect/decal/siding{
+	icon_state = "siding8"
+	},
+/turf/open/floor/prison,
+/area/prison/canteen)
+"ad" = (
+/obj/structure/barricade/handrail/wire{
+	dir = 8;
+	pixel_x = 1
+	},
+/turf/open/floor/prison,
+/area/prison/canteen)
 "ag" = (
 /obj/structure/sink{
 	pixel_y = 15
@@ -22,17 +47,6 @@
 "at" = (
 /obj/item/prop/helmetgarb/spent_buckshot,
 /turf/open/floor/prison/damaged1,
-/area/prison/canteen)
-"aB" = (
-/obj/item/trash/plate{
-	pixel_x = 1;
-	pixel_y = 3
-	},
-/obj/structure/surface/table/reinforced/prison{
-	dir = 4;
-	flipped = 1
-	},
-/turf/open/floor/prison,
 /area/prison/canteen)
 "aO" = (
 /obj/structure/bed/chair,
@@ -85,7 +99,10 @@
 /area/prison/canteen)
 "cK" = (
 /obj/item/reagent_container/food/snacks/candiedapple,
-/obj/structure/surface/table/reinforced/prison,
+/obj/structure/surface/table/reinforced/prison{
+	dir = 1;
+	color = "#8e98a0"
+	},
 /turf/open/floor/prison,
 /area/prison/canteen)
 "cX" = (
@@ -178,7 +195,10 @@
 	pixel_y = 3
 	},
 /obj/item/ammo_casing/bullet,
-/obj/structure/surface/table/reinforced/prison,
+/obj/structure/surface/table/reinforced/prison{
+	dir = 1;
+	color = "#8e98a0"
+	},
 /turf/open/floor/prison,
 /area/prison/canteen)
 "gI" = (
@@ -376,7 +396,10 @@
 	pixel_x = 1;
 	pixel_y = 3
 	},
-/obj/structure/surface/table/reinforced/prison,
+/obj/structure/surface/table/reinforced/prison{
+	dir = 1;
+	color = "#8e98a0"
+	},
 /turf/open/floor/prison,
 /area/prison/canteen)
 "nR" = (
@@ -478,7 +501,7 @@
 "rr" = (
 /obj/structure/bed/chair,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/corpsespawner/prison_security,
+/obj/effect/landmark/corpsespawner/ua_riot,
 /turf/open/floor/prison,
 /area/prison/canteen)
 "rw" = (
@@ -494,7 +517,10 @@
 /area/prison/canteen)
 "rR" = (
 /obj/item/reagent_container/food/snacks/appletart,
-/obj/structure/surface/table/reinforced/prison,
+/obj/structure/surface/table/reinforced/prison{
+	dir = 1;
+	color = "#8e98a0"
+	},
 /turf/open/floor/prison,
 /area/prison/canteen)
 "se" = (
@@ -553,8 +579,8 @@
 "uf" = (
 /obj/effect/landmark/item_pool_spawner/survivor_ammo/buckshot,
 /obj/structure/surface/table/reinforced/prison{
-	dir = 4;
-	flipped = 1
+	dir = 1;
+	color = "#8e98a0"
 	},
 /turf/open/floor/prison,
 /area/prison/canteen)
@@ -649,7 +675,10 @@
 /area/prison/canteen)
 "xF" = (
 /obj/item/reagent_container/food/condiment/saltshaker,
-/obj/structure/surface/table/reinforced/prison,
+/obj/structure/surface/table/reinforced/prison{
+	dir = 1;
+	color = "#8e98a0"
+	},
 /turf/open/floor/prison,
 /area/prison/canteen)
 "xG" = (
@@ -688,14 +717,17 @@
 /turf/open/floor/prison,
 /area/prison/canteen)
 "Ah" = (
-/obj/structure/surface/table/reinforced/prison,
+/obj/structure/surface/table/reinforced/prison{
+	dir = 1;
+	color = "#8e98a0"
+	},
 /turf/open/floor/prison/damaged1,
 /area/prison/canteen)
 "As" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/surface/table/reinforced/prison{
-	dir = 4;
-	flipped = 1
+	dir = 1;
+	color = "#8e98a0"
 	},
 /turf/open/floor/prison,
 /area/prison/canteen)
@@ -831,8 +863,8 @@
 	pixel_y = 3
 	},
 /obj/structure/surface/table/reinforced/prison{
-	dir = 4;
-	flipped = 1
+	dir = 1;
+	color = "#8e98a0"
 	},
 /turf/open/floor/prison,
 /area/prison/canteen)
@@ -845,8 +877,8 @@
 /obj/item/reagent_container/food/condiment/saltshaker,
 /obj/item/ammo_casing/bullet,
 /obj/structure/surface/table/reinforced/prison{
-	dir = 4;
-	flipped = 1
+	dir = 1;
+	color = "#8e98a0"
 	},
 /turf/open/floor/prison,
 /area/prison/canteen)
@@ -941,6 +973,9 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/prison/sterile_white/southwest,
 /area/prison/kitchen)
+"HE" = (
+/turf/closed/wall/r_wall/prison_unmeltable,
+/area/space)
 "In" = (
 /obj/structure/bed/chair,
 /turf/open/floor/prison/damaged2,
@@ -994,7 +1029,10 @@
 "JM" = (
 /obj/item/reagent_container/food/condiment/saltshaker,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/surface/table/reinforced/prison,
+/obj/structure/surface/table/reinforced/prison{
+	dir = 1;
+	color = "#8e98a0"
+	},
 /turf/open/floor/prison/damaged1,
 /area/prison/canteen)
 "Ko" = (
@@ -1022,6 +1060,9 @@
 	},
 /turf/open/floor/prison/sterile_white/southwest,
 /area/prison/kitchen)
+"KF" = (
+/turf/open_space,
+/area/space)
 "KI" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -1114,7 +1155,7 @@
 	dir = 4;
 	icon_state = "pipe-j2"
 	},
-/obj/effect/landmark/corpsespawner/prison_security,
+/obj/effect/landmark/corpsespawner/ua_riot,
 /turf/open/floor/prison,
 /area/prison/canteen)
 "Ns" = (
@@ -1197,7 +1238,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood,
-/obj/effect/landmark/corpsespawner/prison_security,
+/obj/effect/landmark/corpsespawner/ua_riot,
 /turf/open/floor/prison/damaged1,
 /area/prison/canteen)
 "Qr" = (
@@ -1222,7 +1263,7 @@
 /turf/open/floor/prison,
 /area/prison/canteen)
 "QQ" = (
-/obj/effect/landmark/corpsespawner/prison_security,
+/obj/effect/landmark/corpsespawner/ua_riot,
 /turf/open/floor/prison,
 /area/prison/canteen)
 "QT" = (
@@ -1403,8 +1444,8 @@
 /area/prison/canteen)
 "Xg" = (
 /obj/structure/surface/table/reinforced/prison{
-	dir = 4;
-	flipped = 1
+	dir = 1;
+	color = "#8e98a0"
 	},
 /turf/open/floor/prison,
 /area/prison/canteen)
@@ -1451,7 +1492,7 @@
 /turf/open/floor/prison,
 /area/prison/canteen)
 "Yc" = (
-/obj/effect/landmark/corpsespawner/prison_security,
+/obj/effect/landmark/corpsespawner/ua_riot,
 /turf/open/floor/prison/bright_clean_marked/southwest,
 /area/prison/canteen)
 "Yj" = (
@@ -1478,8 +1519,8 @@
 "YT" = (
 /obj/item/reagent_container/food/snacks/boiledspagetti,
 /obj/structure/surface/table/reinforced/prison{
-	dir = 4;
-	flipped = 1
+	dir = 1;
+	color = "#8e98a0"
 	},
 /turf/open/floor/prison/damaged1,
 /area/prison/canteen)
@@ -1511,32 +1552,32 @@
 /area/prison/canteen)
 
 (1,1,1) = {"
-MI
 BV
-MI
 BV
-MI
 BV
-MI
 BV
-MI
 BV
-MI
+BV
+BV
+BV
+BV
+BV
+BV
 zc
 zc
 AM
 zc
-MI
+BV
 BV
 MI
 ZT
 ZT
 MI
-MI
 BV
-MI
 BV
-MI
+BV
+BV
+BV
 "}
 (2,1,1) = {"
 BV
@@ -1556,10 +1597,10 @@ AM
 SG
 hS
 ez
-zc
-zc
-zc
-Bh
+ad
+ac
+ac
+ab
 sv
 Bh
 zc
@@ -1634,7 +1675,7 @@ gH
 Jy
 gX
 LW
-aB
+ni
 ha
 vz
 As
@@ -2125,4 +2166,621 @@ BV
 BV
 BV
 MN
+"}
+
+(1,1,2) = {"
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+HE
+HE
+HE
+HE
+KF
+KF
+KF
+KF
+KF
+"}
+(2,1,2) = {"
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+"}
+(3,1,2) = {"
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+"}
+(4,1,2) = {"
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+"}
+(5,1,2) = {"
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+"}
+(6,1,2) = {"
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+"}
+(7,1,2) = {"
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+"}
+(8,1,2) = {"
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+"}
+(9,1,2) = {"
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+"}
+(10,1,2) = {"
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+"}
+(11,1,2) = {"
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+"}
+(12,1,2) = {"
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+"}
+(13,1,2) = {"
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+"}
+(14,1,2) = {"
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+"}
+(15,1,2) = {"
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+"}
+(16,1,2) = {"
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+"}
+(17,1,2) = {"
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+"}
+(18,1,2) = {"
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+"}
+(19,1,2) = {"
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+"}
+(20,1,2) = {"
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+"}
+(21,1,2) = {"
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+"}
+(22,1,2) = {"
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
+KF
 "}

@@ -13,6 +13,9 @@
 "i" = (
 /turf/open/gm/grass/gbcorner/north_east,
 /area/prison/research/secret/testing)
+"j" = (
+/turf/closed/wall/r_wall/prison_unmeltable,
+/area/space)
 "m" = (
 /turf/open/gm/grass/gbcorner/south_east,
 /area/prison/research/secret/testing)
@@ -170,4 +173,86 @@ a
 a
 o
 H
+"}
+
+(1,1,2) = {"
+j
+j
+j
+j
+j
+j
+j
+"}
+(2,1,2) = {"
+j
+j
+j
+j
+j
+j
+j
+"}
+(3,1,2) = {"
+j
+j
+j
+j
+j
+j
+j
+"}
+(4,1,2) = {"
+j
+j
+j
+j
+j
+j
+j
+"}
+(5,1,2) = {"
+j
+j
+j
+j
+j
+j
+j
+"}
+(6,1,2) = {"
+j
+j
+j
+j
+j
+j
+j
+"}
+(7,1,2) = {"
+j
+j
+j
+j
+j
+j
+j
+"}
+(8,1,2) = {"
+j
+j
+j
+j
+j
+j
+j
+"}
+(9,1,2) = {"
+j
+j
+j
+j
+j
+j
+j
 "}
