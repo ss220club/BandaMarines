@@ -176,3 +176,15 @@
   - bugfix: King ability destroy can now be chosen again
   silverplatedelta:
   - balance: Drones can now evolve into any T2 caste before first drop
+2025-04-08:
+  Arom-beep:
+  - mapadd: new sprinkle
+  - mapadd: additional Z level
+  - maptweak: deleted space tile
+  - maptweak: cosmetic changes in Security room
+  - maptweak: cosmetic changes in Maximum Security Cell Block
+  - maptweak: cosmetic changes in cargo room
+  - maptweak: cosmetic changes R&D block
+  - maptweak: replace all Prison Guards corpses on UA Officers corpses
+  RUCM:
+  - rscadd: Upstream 07.04.2025
