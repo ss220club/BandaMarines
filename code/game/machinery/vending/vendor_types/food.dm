@@ -11,7 +11,6 @@
 /obj/structure/machinery/cm_vending/sorted/marine_food/populate_product_list(scale)
 	listed_products = list(
 		list("ГОТОВЫЕ БЛЮДА", -1, null, null),
-		list("Сухой паёк ККМП", 15, /obj/item/storage/box/MRE, VENDOR_ITEM_REGULAR),
 		list("Готовое блюдо ККМП (курица)", 15, /obj/item/reagent_container/food/snacks/mre_pack/meal5, VENDOR_ITEM_REGULAR),
 		list("Готовое блюдо ККМП (кукурузный хлеб)", 15, /obj/item/reagent_container/food/snacks/mre_pack/meal1, VENDOR_ITEM_REGULAR),
 		list("Готовое блюдо ККМП (паста)", 15, /obj/item/reagent_container/food/snacks/mre_pack/meal3, VENDOR_ITEM_REGULAR),
@@ -108,6 +107,32 @@
 		list("Vacuum Flask", 5, /obj/item/reagent_container/food/drinks/flask/vacuumflask, VENDOR_ITEM_REGULAR)
 	)
 
+/obj/structure/machinery/cm_vending/sorted/boozeomat/populate_product_list_and_boxes(scale)
+	. = ..()
+
+	// If this is groundside and isn't dynamically changing we will spawn with stock randomly removed from it
+	if(vend_flags & VEND_STOCK_DYNAMIC)
+		return
+	if(Check_WO())
+		return
+	var/turf/location = get_turf(src)
+	if(location && is_ground_level(location.z))
+		random_unstock()
+
+/// Randomly removes amounts of listed_products and reagents
+/obj/structure/machinery/cm_vending/sorted/boozeomat/proc/random_unstock()
+	for(var/list/vendspec as anything in listed_products)
+		var/amount = vendspec[2]
+		if(amount <= 0)
+			continue
+
+		// Chance to just be empty
+		if(prob(25))
+			vendspec[2] = 0
+			continue
+
+		// Otherwise its some amount between 1 and the original amount
+		vendspec[2] = rand(1, 3)
 
 /obj/structure/machinery/cm_vending/sorted/boozeomat/chess
 	name = "\improper Chess-O-Mat"

@@ -199,8 +199,8 @@
 			impact_tile.ceiling_debris_check(1)
 			debriscooldown = 6
 		debriscooldown--
-	sleep(11) //speed of sound simulation
-	playsound(impact, 'sound/effects/gau.ogg',100,1,60)
+	// sleep(11) //speed of sound simulation // BANDAMARINES REMOVAL - Dropship soundeffects update
+	playsound(impact, 'modular/aesthetics_sounds/sound/dropship_gau.ogg', 100, 1, 60) // BANDAMARINES EDIT - Dropship soundeffects update
 
 
 /obj/structure/ship_ammo/heavygun/antitank
@@ -442,7 +442,7 @@
 	qdel(src)
 
 /obj/structure/ship_ammo/sentry/can_fire_at(turf/impact, mob/user)
-	for(var/obj/structure/machinery/defenses/def in urange(4, impact))
+	for(var/obj/structure/machinery/defenses/def in range(4, impact))
 		to_chat(user, SPAN_WARNING("The selected drop site is too close to another deployed defense!"))
 		return FALSE
 	if(istype(impact, /turf/closed))
