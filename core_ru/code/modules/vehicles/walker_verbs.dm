@@ -2,7 +2,7 @@
 	set name = "Eject"
 	set category = "Vehicle"
 
-	var/mob/user = seats[VEHICLE_DRIVER]
+	var/mob/user = usr
 	if(!istype(user))
 		return FALSE
 

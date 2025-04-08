@@ -44,6 +44,13 @@ SUBSYSTEM_DEF(influxstats)
 
 	step = 1
 
+/datum/controller/subsystem/influxstats/proc/flatten_entity_list(list/data)
+	var/list/result = list()
+	for(var/key in data)
+		var/datum/entity/statistic/entry = data[key]
+		result[key] = entry.value
+	return result
+
 /datum/controller/subsystem/influxstats/proc/run_special_round_statistics()
 	for(var/hive_tag in GLOB.hive_datum)
 		var/datum/hive_status/hive = GLOB.hive_datum[hive_tag]
@@ -60,11 +67,13 @@ SUBSYSTEM_DEF(influxstats)
 	SSinfluxdriver.enqueue_stats_crude("hugged", stats.total_huggers_applied)
 	SSinfluxdriver.enqueue_stats_crude("friendlyfire", stats.total_friendly_fire_instances)
 
-	if(length(stats.participants))
-		SSinfluxdriver.enqueue_stats("participants", list(), stats.participants)
+	var/list/participants = flatten_entity_list(stats.participants)
+	if(length(participants))
+		SSinfluxdriver.enqueue_stats("participants", list(), participants)
 
-	if(length(stats.total_deaths))
-		SSinfluxdriver.enqueue_stats("deaths", list(), stats.total_deaths)
+	var/list/total_deaths = flatten_entity_list(stats.total_deaths)
+	if(length(total_deaths))
+		SSinfluxdriver.enqueue_stats("deaths", list(), total_deaths)
 
 	SSinfluxdriver.enqueue_stats("shots", list(),
 		list("fired" = stats.total_projectiles_fired, "hits" = stats.total_projectiles_hit,
