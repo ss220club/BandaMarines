@@ -55,6 +55,10 @@ map sorokyne_strata
 endmap
 
 map lv522_chances_claim
+	disabled
+endmap
+
+map lv522_chances_claim_ru
 endmap
 
 map lv759_hybrisa_prospera
