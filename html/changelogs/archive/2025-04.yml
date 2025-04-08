@@ -177,6 +177,8 @@
   silverplatedelta:
   - balance: Drones can now evolve into any T2 caste before first drop
 2025-04-08:
+  715th:
+  - maptweak: Fix larvaes spawn on LV522
   Arom-beep:
   - mapadd: new sprinkle
   - mapadd: additional Z level
