@@ -4,6 +4,9 @@
 	if(..())
 		return TRUE
 
+	if(HAS_TRAIT(attacking_mob, TRAIT_HAULED))
+		return
+
 	SEND_SIGNAL(attacking_mob, COMSIG_LIVING_ATTACKHAND_HUMAN, src)
 
 	if((attacking_mob != src) && check_shields(0, attacking_mob.name))
@@ -139,18 +142,19 @@
 						chance = !hand ? 40 : 20
 
 					if (prob(chance))
-						visible_message(SPAN_DANGER("[attacking_mob] accidentally makes [src]'s [held_weapon.name] go off during the struggle!"), SPAN_DANGER("You accidentally make [src]'s [held_weapon.name] go off during the struggle!"), null, 5)
+						visible_message(SPAN_DANGER("[attacking_mob] accidentally discharges [src]'s [held_weapon.name] during the struggle!"), SPAN_DANGER("[attacking_mob] accidentally discharge your [held_weapon.name] during the struggle!"), null, 5)
 						var/list/turfs = list()
-						for(var/turf/T in view())
-							turfs += T
+						for(var/turf/turfs_to_discharge in view())
+							turfs += turfs_to_discharge
 						var/turf/target = pick(turfs)
 						count_niche_stat(STATISTICS_NICHE_DISCHARGE)
+						held_weapon.handle_fire(target, src)
 
 						attack_log += "\[[time_stamp()]\] <b>[key_name(src)]</b> accidentally fired <b>[held_weapon.name]</b> in [get_area(src)] triggered by <b>[key_name(attacking_mob)]</b>."
 						attacking_mob.attack_log += "\[[time_stamp()]\] <b>[key_name(src)]</b> accidentally fired <b>[held_weapon.name]</b> in [get_area(src)] triggered by <b>[key_name(attacking_mob)]</b>."
 						msg_admin_attack("[key_name(src)] accidentally fired <b>[held_weapon.name]</b> in [get_area(attacking_mob)] ([attacking_mob.loc.x],[attacking_mob.loc.y],[attacking_mob.loc.z]) triggered by <b>[key_name(attacking_mob)]</b>.", attacking_mob.loc.x, attacking_mob.loc.y, attacking_mob.loc.z)
 
-						return held_weapon.afterattack(target,src)
+						return
 
 			var/disarm_chance = rand(1, 100)
 			var/attacker_skill_level = attacking_mob.skills ? attacking_mob.skills.get_skill_level(SKILL_CQC) : SKILL_CQC_MAX // No skills, so assume max
@@ -229,8 +233,8 @@
 	playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
 
 /mob/living/carbon/human/proc/check_for_injuries()
-	visible_message(SPAN_NOTICE("[src] examines [gender==MALE?"himself":"herself"]."),
-	SPAN_NOTICE("You check yourself for injuries."), null, 3)
+	visible_message(SPAN_NOTICE("[capitalize(declent_ru(NOMINATIVE))] осматривает себя."),
+	SPAN_NOTICE("Вы осматриваете себя на наличие травм."), null, 3)
 
 	var/list/limb_message = list()
 	for(var/obj/limb/org in limbs)
@@ -238,71 +242,71 @@
 		var/brutedamage = org.brute_dam
 		var/burndamage = org.burn_dam
 		if(org.status & LIMB_DESTROYED)
-			status += "MISSING!"
+			status += "ОТСУТСТВУЕТ!"
 		else if(org.status & (LIMB_ROBOT|LIMB_SYNTHSKIN))
 			switch(brutedamage)
 				if(1 to 20)
-					status += "dented"
+					status += "помята"
 				if(20 to 40)
-					status += "battered"
+					status += "деформирована"
 				if(40 to INFINITY)
-					status += "mangled"
+					status += "сильно деформирована"
 
 			switch(burndamage)
 				if(1 to 10)
-					status += "singed"
+					status += "обгорела"
 				if(10 to 40)
-					status += "scorched"
+					status += "обуглена"
 				if(40 to INFINITY)
-					status += "charred"
+					status += "сильно обуглена"
 
 		else
 			if(org.status & LIMB_MUTATED)
-				status += "weirdly shaped"
+				status += "странной формы"
 			if(halloss > 0)
-				status += "tingling"
+				status += "покалывает"
 			switch(brutedamage)
 				if(1 to 20)
-					status += "bruised"
+					status += "ушиблена"
 				if(20 to 40)
-					status += "battered"
+					status += "избита"
 				if(40 to INFINITY)
-					status += "mangled"
+					status += "сильно избита"
 
 			switch(burndamage)
 				if(1 to 10)
-					status += "numb"
+					status += "онемела"
 				if(10 to 40)
-					status += "blistered"
+					status += "покрыта волдырями"
 				if(40 to INFINITY)
-					status += "peeling away"
+					status += "облезает"
 
 		if(org.get_incision_depth()) //Unindented because robotic and severed limbs may also have surgeries performed upon them.
-			status += "cut open"
+			status += "вскрыта"
 
 		for(var/datum/effects/bleeding/external/E in org.bleeding_effects_list)
-			status += "bleeding"
+			status += "кровоточит"
 			break
 
 		var/limb_surgeries = org.get_active_limb_surgeries()
 		if(limb_surgeries)
-			status += "undergoing [limb_surgeries]"
+			status += "находится в процессе [limb_surgeries]"
 
 		if(!length(status))
 			status += "OK"
 
 		var/postscript
 		if(org.status & LIMB_UNCALIBRATED_PROSTHETIC)
-			postscript += " <b>(NONFUNCTIONAL)</b>"
+			postscript += " <b>(НЕ ФУНКЦИОНИРУЕТ)</b>"
 		if(org.status & LIMB_BROKEN)
-			postscript += " <b>(BROKEN)</b>"
+			postscript += " <b>(ПЕРЕЛОМ)</b>"
 		if(org.status & LIMB_SPLINTED_INDESTRUCTIBLE)
-			postscript += " <b>(NANOSPLINTED)</b>"
+			postscript += " <b>(НАНОШИНА)</b>"
 		else if(org.status & LIMB_SPLINTED)
-			postscript += " <b>(SPLINTED)</b>"
+			postscript += " <b>(ШИНА)</b>"
 
 		if(postscript)
-			limb_message += "\t My [org.display_name] is [SPAN_WARNING("[english_list(status, final_comma_text = ",")].[postscript]")]"
+			limb_message += "\t [capitalize(org.declent_ru(NOMINATIVE))] [SPAN_WARNING("[english_list(status)].[postscript]")]"
 		else
-			limb_message += "\t My [org.display_name] is [status[1] == "OK" ? SPAN_NOTICE("OK.") : SPAN_WARNING("[english_list(status, final_comma_text = ",")].")]"
+			limb_message += "\t [capitalize(org.declent_ru(NOMINATIVE))] [status[1] == "OK" ? SPAN_NOTICE("в полном порядке.") : SPAN_WARNING("[english_list(status)].")]"
 	to_chat(src, boxed_message(limb_message.Join("\n")))
