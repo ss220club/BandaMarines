@@ -144,33 +144,34 @@
 //------------------------------------
 
 //-------- PMC --------//
-#define JOB_PMC_STANDARD_RU "ЧВК Оператор"
-#define JOB_PMC_ENGINEER_RU "ЧВК Техник Корпорации"
-#define JOB_PMC_MEDIC_RU "ЧВК Медик Корпорации"
-#define JOB_PMC_DOCTOR_RU "ЧВК Хирург-травматолог"
-#define JOB_PMC_INVESTIGATOR_RU "ЧВК Медицинский Следователь"
-#define JOB_PMC_DETAINER_RU "ЧВК Безопасник"
-#define JOB_PMC_GUNNER_RU "ЧВК Оружейный Специалист Поддержки" //Renamed from Specialist to Support Specialist as it only has SG skills.
-#define JOB_PMC_SNIPER_RU "ЧВК Оружейник Специалист" //Renamed from Sharpshooter to specialist as it uses specialist skills.
-#define JOB_PMC_CREWMAN_RU "ЧВК Экипаж"
-#define JOB_PMC_XENO_HANDLER_RU "ЧВК Ксено-Исследователь"
-#define JOB_PMC_LEADER_RU "ЧВК Командир"
-#define JOB_PMC_LEAD_INVEST_RU "ЧВК Ведущий Следователь"
-#define JOB_PMC_DIRECTOR_RU "ЧВК Директор Объекта"
-#define JOB_PMC_SYNTH_RU "ЧВК Синтетик Поддержки"
+#define JOB_PMC_STANDARD_RU "ЧВК Вейланд-Ютани Оперативник"
+#define JOB_PMC_ENGINEER_RU "ЧВК Вейланд-Ютани Полевой Техник"
+#define JOB_PMC_MEDIC_RU "ЧВК Вейланд-Ютани Полевой Медик"
+#define JOB_PMC_DOCTOR_RU "ЧВК Вейланд-Ютани Полевой Хирург"
+#define JOB_PMC_INVESTIGATOR_RU "ЧВК Вейланд-Ютани Медицинский Следователь"
+#define JOB_PMC_DETAINER_RU "ЧВК Вейланд-Ютани Безопасник"
+#define JOB_PMC_GUNNER_RU "ЧВК Вейланд-Ютани Смартганнер" //Renamed from Specialist to Support Specialist as it only has SG skills.
+#define JOB_PMC_SNIPER_RU "ЧВК Вейланд-Ютани Оружейный Специалист" //Renamed from Sharpshooter to specialist as it uses specialist skills.
+#define JOB_PMC_CREWMAN_RU "ЧВК Вейланд-Ютани Экипаж"
+#define JOB_PMC_XENO_HANDLER_RU "ЧВК Вейланд-Ютани Ксено-Исследователь"
+#define JOB_PMC_LEADER_RU "ЧВК Вейланд-Ютани Лидер Группы"
+#define JOB_PMC_LEAD_INVEST_RU "ЧВК Вейланд-Ютани Ведущий Следователь"
+#define JOB_PMC_DIRECTOR_RU "ЧВК Вейланд-Ютани Директор Подразделения"
+#define JOB_PMC_SYNTH_RU "ЧВК Вейланд-Ютани Синтетик"
 
 //-------- WY --------//
 
 #define JOB_TRAINEE_RU "Стажер Корпорации"
-#define JOB_JUNIOR_EXECUTIVE_RU "Младший Исполнитель Корпорации"
-#define JOB_EXECUTIVE_RU "Исполнитель Корпорации"
-#define JOB_SENIOR_EXECUTIVE_RU "Старший Исполнитель Корпорации"
-#define JOB_EXECUTIVE_SPECIALIST_RU "Специалист-Исполнитель Корпорации"
-#define JOB_EXECUTIVE_SUPERVISOR_RU "Исполнитель-Наблюдатель Корпорации"
-#define JOB_ASSISTANT_MANAGER_RU "Помощник Управляющего Корпорации"
-#define JOB_DIVISION_MANAGER_RU "Управляющий Дивизией Корпорации"
-#define JOB_CHIEF_EXECUTIVE_RU "Руководитель Корпорации"
-#define JOB_DIRECTOR_RU "В-Ю Директор"
+#define JOB_JUNIOR_EXECUTIVE_RU "Младший Администратор Корпорации"
+#define JOB_EXECUTIVE_RU "Администратор Корпорации"
+#define JOB_SENIOR_EXECUTIVE_RU "Старший Администратор Корпорации"
+#define JOB_EXECUTIVE_SPECIALIST_RU "Исполнительный Специалист Корпорации"
+#define JOB_EXECUTIVE_SUPERVISOR_RU "Исполнительный Супервайзер Корпорации"
+#define JOB_ASSISTANT_MANAGER_RU "Помощник Руководителя Подразделения Корпорации"
+#define JOB_DIVISION_MANAGER_RU "Руководитель Подразделения Корпорации"
+#define JOB_CHIEF_EXECUTIVE_RU "Исполнительный Директор Корпорации"
+#define JOB_DEPUTY_DIRECTOR_RU "Заместитель Директора Корпорации"
+#define JOB_DIRECTOR_RU "Директор Корпорации Вейланд-Ютани"
 
 #define JOB_WY_REPRESENTATIVE_RU "Представитель Вэйланд-Ютани"
 
@@ -311,24 +312,29 @@
 #define JOB_TWE_ER_RU "ИТМ Император"
 
 //-------- PROVOST --------//
-#define JOB_PROVOST_ENFORCER_RU "Проректор-Исполнитель"
-#define JOB_PROVOST_TML_RU "Проректор-Командования"
-#define JOB_PROVOST_ADVISOR_RU "Проректор-Советник"
-#define JOB_PROVOST_INSPECTOR_RU "Проректор-Инспектор"
-#define JOB_PROVOST_CINSPECTOR_RU "Ректор-Инспектор"
-#define JOB_PROVOST_UNDERCOVER_RU "Проректор-Инспектор Прикрытия"
+#define JOB_PROVOST_ENFORCER_RU "Силовик Военной Прокуратуры"
+#define JOB_PROVOST_TML_RU "Командир Отряда Военной Прокуратуры"
+#define JOB_PROVOST_ADVISOR_RU "Внештатный Советник Военной Прокуратуры"
+#define JOB_PROVOST_INSPECTOR_RU "Инспектор Военной Прокуратуры"
+#define JOB_PROVOST_CINSPECTOR_RU "Старший Инспектор Военной Прокуратуры"
+#define JOB_PROVOST_UNDERCOVER_RU "Инспектор Под Прикрытием"
 
-#define JOB_PROVOST_DMARSHAL_RU "Проректор-Маршал"
-#define JOB_PROVOST_MARSHAL_RU "Ректор-Маршал"
-#define JOB_PROVOST_SMARSHAL_RU "Проректор-Маршал Сектора"
-#define JOB_PROVOST_CMARSHAL_RU "Ректор-Маршал Сектора"
+#define JOB_PROVOST_DMARSHAL_RU "Заместитель Маршала Военной Прокуратуры"
+#define JOB_PROVOST_MARSHAL_RU "Маршал Военной Прокуратуры"
+#define JOB_PROVOST_SMARSHAL_RU "Секторальный Маршал Военной Прокуратуры"
+#define JOB_PROVOST_CMARSHAL_RU "Главный Маршал Военной Прокуратуры"
 
 #define JOB_RIOT_RU "Блюститель Порядка"
 #define JOB_RIOT_CHIEF_RU "Шеф Блюстителей Порядка"
 
 //-------- CIA --------//
-#define JOB_CIA_RU "Аналитик Разведки"
-#define JOB_CIA_LIAISON_RU "Офицер Связи Аналитик"
+#define JOB_CIA_RU "Агент ЦРУ"
+#define JOB_CIA_CIVILIAN_RU "Гражданский"
+#define JOB_CIA_LIAISON_RU "Представитель Командования ККМП"
+#define JOB_CIA_RAIDER_RU "Боец Диверсионной Группы ККМП"
+#define JOB_CIA_CLF_RU "КОФ Инженер"
+#define JOB_CIA_UPP_RU "СПН Боец"
+#define JOB_CIA_UPP_OFFICER_RU "СПН Старший Лейтенант"
 
 //-------- DUTCH'S DOZEN --------//
 #define JOB_DUTCH_ARNOLD_RU "Дюжина Датча - Датч"

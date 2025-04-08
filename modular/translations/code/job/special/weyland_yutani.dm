@@ -31,6 +31,10 @@
 	disp_title = JOB_CHIEF_EXECUTIVE_RU
 	supervisors = "Директорат Вейланд-Ютани"
 
+/datum/job/special/wey_yu/corporate/deputy_director
+	disp_title = JOB_DEPUTY_DIRECTOR_RU
+	supervisors = "Директорат Вейланд-Ютани"
+
 /datum/job/special/wey_yu/corporate/director
 	disp_title = JOB_DIRECTOR_RU
 	supervisors = "Директорат Вейланд-Ютани"

@@ -6,41 +6,45 @@
 	prefix = "Стжр"
 
 /datum/paygrade/wy_ranks/wyc2
-	name = "Младший Исполнитель"
-	prefix = "МлИспл"
+	name = "Младший Администратор"
+	prefix = "МлАдм"
 
 /datum/paygrade/wy_ranks/wycPO
 	name = "Капитан"
 	prefix = "Капитан"
 
 /datum/paygrade/wy_ranks/wyc3
-	name = "Исполнитель"
-	prefix = "Испл"
+	name = "Администратор"
+	prefix = "Адм"
 
 /datum/paygrade/wy_ranks/wyc4
-	name = "Старший Исполнитель"
-	prefix = "СтИспл"
+	name = "Старший Администратор"
+	prefix = "СтАдм"
 
 /datum/paygrade/wy_ranks/wyc5
-	name = "Специалист-Исполнитель"
-	prefix = "Спец-Испл"
+	name = "Исполнительный Специалист"
+	prefix = "ИспСпец"
 
 /datum/paygrade/wy_ranks/wyc6
-	name = "Руководитель-Исполнитель"
-	prefix = "РуквдИспл"
+	name = "Исполнительный Супервайзер"
+	prefix = "ИспСупвз"
 
 /datum/paygrade/wy_ranks/wyc7
-	name = "Помощник Управляющего"
-	prefix = "ПомУпрл"
+	name = "Помощник Руководителя Подразделения"
+	prefix = "ПомРукв"
 
 /datum/paygrade/wy_ranks/wyc8
-	name = "Управлящий Дивизией"
-	prefix = "УпрлДив"
+	name = "Руководитель Подразделения"
+	prefix = "РуквПодр"
 
 /datum/paygrade/wy_ranks/wyc9
-	name = "Главный Исполнитель"
-	prefix = "ГлавИспл"
+	name = "Исполнительный Директор"
+	prefix = "ИспДир"
 
 /datum/paygrade/wy_ranks/wyc10
-	name = "Директор"
-	prefix = "Директор"
+	name = "Заместитель Директора Компании"
+	prefix = "ЗамДир"
+
+/datum/paygrade/wy_ranks/wyc11
+	name = "Директор Компании"
+	prefix = "Дир"
