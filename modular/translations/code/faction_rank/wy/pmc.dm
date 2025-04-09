@@ -37,8 +37,8 @@
 	prefix = "ДОК"
 
 /datum/paygrade/pmc/engineer
-	name = "Полевой Техник Корпорации"
-	prefix = "ПОЛ.ТЕХ"
+	name = "Техник Корпорации"
+	prefix = "ТЕХ"
 
 //PMC Command
 /datum/paygrade/pmc/teamlead
