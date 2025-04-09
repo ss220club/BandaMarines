@@ -27,9 +27,9 @@
 	name = "Оружейный Специалист"
 	prefix = "ОРЖ.СП"
 
-/datum/paygrade/pmc/handler
-	name = "Ксено-Специалист"
-	prefix = "КСН.СП"
+/datum/paygrade/pmc/crowd_control
+	name = "Специалист по контролю толпы"
+	prefix = "СПКТ"
 
 //PMC Support Staff
 /datum/paygrade/pmc/doctor
