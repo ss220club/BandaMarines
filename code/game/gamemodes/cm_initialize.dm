@@ -183,6 +183,7 @@ Additional game mode variables.
 	if(!new_predator)
 		return
 
+	INVOKE_ASYNC(new_predator, TYPE_PROC_REF(/mob/living/carbon, change_tts_seed_ask)) // BANDAMARINES ADD
 	msg_admin_niche("([new_predator.key]) joined as Yautja, [new_predator.real_name].")
 
 	if(pred_candidate)
@@ -731,6 +732,8 @@ Additional game mode variables.
 		var/obj/effect/alien/resin/special/eggmorph/morpher = facehugger_choice
 		morpher.join_as_facehugger_from_this(xeno_candidate)
 
+	msg_admin_niche("[xeno_candidate.key] has joined as a facehugger.")
+
 	return TRUE
 
 /datum/game_mode/proc/attempt_to_join_as_lesser_drone(mob/xeno_candidate)
@@ -787,6 +790,8 @@ Additional game mode variables.
 	var/obj/effect/alien/resin/special/pylon/selected_structure = selection_list_structure[selection_list.Find(prompt)]
 
 	selected_structure.spawn_lesser_drone(xeno_candidate)
+
+	msg_admin_niche("[xeno_candidate.key] has joined as a lesser drone.")
 
 	return TRUE
 
