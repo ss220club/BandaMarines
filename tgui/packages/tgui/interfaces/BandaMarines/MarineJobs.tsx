@@ -175,7 +175,7 @@ const JOBS_RU = {
   'PMC Weapons Specialist': 'ЧВК Вейланд-Ютани Оружейный Специалист',
   'PMC Vehicle Crewman': 'ЧВК Вейланд-Ютани Экипаж',
   'PMC Xeno Handler': 'ЧВК Вейланд-Ютани Ксено-Исследователь',
-  'PMC Leader': 'ВК Вейланд-Ютани Лидер Группы',
+  'PMC Leader': 'ЧВК Вейланд-Ютани Лидер Группы',
   'PMC Lead Investigator': 'ЧВК Вейланд-Ютани Ведущий Следователь',
   'PMC Site Director': 'ЧВК Вейланд-Ютани Директор Подразделения',
   'PMC Support Synthetic': 'ЧВК Вейланд-Ютани Синтетик',
@@ -195,11 +195,13 @@ const JOBS_RU = {
   'WY Director': 'Директор Корпорации Вейланд-Ютани',
 
   // WY Goons roles
-  'WY Corporate Security': 'ВЮ Безопасник Корпорации',
-  'WY Corporate Security Medic': 'ВЮ Медик Безопасник Корпорации',
-  'WY Corporate Security Technician': 'ВЮ Технический Безопасник Корпорации',
-  'WY Corporate Security Lead': 'ВЮ Шеф-Безопасник Корпорации',
-  'WY Research Consultant': 'ВЮ Исследовательский Консультант',
+  'WY Corporate Security': 'Оперативник Службы Безопасности Вейланд-Ютани',
+  'WY Corporate Security Medic': 'Парамедик Службы Безопасности Вейланд-Ютани',
+  'WY Corporate Security Technician':
+    'Техник Службы Безопасности Вейланд-Ютани',
+  'WY Corporate Security Lead':
+    'Лидер Группы Службы Безопасности Вейланд-Ютани',
+  'WY Research Consultant': 'Исследовательский Консультант Вейланд-Ютани',
 
   // Contractors roles
   'VAIPO Mercenary': 'ВЭИЧВК Контрактник',

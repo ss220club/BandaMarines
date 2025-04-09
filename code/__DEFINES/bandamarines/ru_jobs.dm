@@ -166,6 +166,7 @@
 #define JOB_EXECUTIVE_RU "Администратор Корпорации"
 #define JOB_SENIOR_EXECUTIVE_RU "Старший Администратор Корпорации"
 #define JOB_EXECUTIVE_SPECIALIST_RU "Исполнительный Специалист Корпорации"
+#define JOB_LAWYER_WY_RU "Правовой Представитель Корпорации"
 #define JOB_EXECUTIVE_SUPERVISOR_RU "Исполнительный Супервайзер Корпорации"
 #define JOB_ASSISTANT_MANAGER_RU "Помощник Руководителя Подразделения Корпорации"
 #define JOB_DIVISION_MANAGER_RU "Руководитель Подразделения Корпорации"
@@ -176,10 +177,12 @@
 #define JOB_WY_REPRESENTATIVE_RU "Представитель Вэйланд-Ютани"
 
 //-------- WY Goons --------//
-#define JOB_WY_GOON_RU "ВЮ Безопасник Корпорации"
-#define JOB_WY_GOON_TECH_RU "ВЮ Технический Безопасник Корпорации"
-#define JOB_WY_GOON_LEAD_RU "ВЮ Шеф-Безопасник Корпорации"
-#define JOB_WY_GOON_RESEARCHER_RU "ВЮ Исследовательский Консультант"
+#define JOB_WY_GOON_RU "Оперативник Службы Безопасности Вейланд-Ютани"
+#define JOB_WY_GOON_TECH_RU "Техник Службы Безопасности Вейланд-Ютани"
+#define JOB_WY_GOON_MEDIC_RU "Парамедик Службы Безопасности Вейланд-Ютани"
+#define JOB_WY_GOON_LEAD_RU "Лидер Группы Службы Безопасности Вейланд-Ютани"
+#define JOB_WY_GOON_RESEARCHER_RU "Исследовательский Консультант Вейланд-Ютани"
+#define JOB_WY_GOON_RESEARCHER_LEAD_RU "Старший Исследовательский Консультант Вейланд-Ютани"
 
 //---- Contractors ----//
 #define JOB_CONTRACTOR_RU "ВЭИЧВК Контрактник"
