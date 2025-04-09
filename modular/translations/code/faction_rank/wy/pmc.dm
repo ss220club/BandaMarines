@@ -28,8 +28,8 @@
 	prefix = "ОРЖ.СП"
 
 /datum/paygrade/pmc/crowd_control
-	name = "Специалист по контролю толпы"
-	prefix = "СПКТ"
+	name = "Специалист Подавления Бунтов"
+	prefix = "СППБ"
 
 //PMC Support Staff
 /datum/paygrade/pmc/doctor

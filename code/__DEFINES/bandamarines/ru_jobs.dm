@@ -156,8 +156,15 @@
 #define JOB_PMC_XENO_HANDLER_RU "ЧВК Вейланд-Ютани Ксено-Исследователь"
 #define JOB_PMC_LEADER_RU "ЧВК Вейланд-Ютани Лидер Группы"
 #define JOB_PMC_LEAD_INVEST_RU "ЧВК Вейланд-Ютани Ведущий Следователь"
+#define JOB_PMC_CROWD_CONTROL_RU "ЧВК Вейланд-Ютани Спецназ Правопорядка"
 #define JOB_PMC_DIRECTOR_RU "ЧВК Вейланд-Ютани Директор Подразделения"
 #define JOB_PMC_SYNTH_RU "ЧВК Вейланд-Ютани Синтетик"
+
+//-------- WY COMMANDO --------//
+#define JOB_WY_COMMANDO_STANDARD_RU "Вейланд-Ютани Коммандос"
+#define JOB_WY_COMMANDO_LEADER_RU "Вейланд-Ютани Лидер Коммандос"
+#define JOB_WY_COMMANDO_GUNNER_RU "Вейланд-Ютани Смартганнер Коммандос"
+#define JOB_WY_COMMANDO_DOG_CATCHER_RU "Вейланд-Ютани Отловщик Коммандос" // an allegorical name of xeno-handlers
 
 //-------- WY --------//
 
@@ -183,6 +190,13 @@
 #define JOB_WY_GOON_LEAD_RU "Лидер Группы Службы Безопасности Вейланд-Ютани"
 #define JOB_WY_GOON_RESEARCHER_RU "Исследовательский Консультант Вейланд-Ютани"
 #define JOB_WY_GOON_RESEARCHER_LEAD_RU "Старший Исследовательский Консультант Вейланд-Ютани"
+
+//-------- Whiteout Team --------//
+#define JOB_WHITEOUT_COMBAT_RU "Боевой Юнит Белой Мглы"
+#define JOB_WHITEOUT_SUPPORT_RU "Юнит Поддержки Белой Мглы"
+#define JOB_WHITEOUT_CLOAK_RU "Разведывательный Юнит Белой Мглы"
+#define JOB_WHITEOUT_COMMAND_RU "Командный Юнит Белой Мглы"
+
 
 //---- Contractors ----//
 #define JOB_CONTRACTOR_RU "ВЭИЧВК Контрактник"

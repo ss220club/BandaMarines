@@ -177,8 +177,15 @@ const JOBS_RU = {
   'PMC Xeno Handler': 'ЧВК Вейланд-Ютани Ксено-Исследователь',
   'PMC Leader': 'ЧВК Вейланд-Ютани Лидер Группы',
   'PMC Lead Investigator': 'ЧВК Вейланд-Ютани Ведущий Следователь',
+  'PMC Crowd Control Specialist': 'ЧВК Вейланд-Ютани Спецназ Правопорядка',
   'PMC Site Director': 'ЧВК Вейланд-Ютани Директор Подразделения',
   'PMC Support Synthetic': 'ЧВК Вейланд-Ютани Синтетик',
+
+  // WY Commandos roles
+  'W-Y Commando': 'Вейланд-Ютани Коммандос',
+  'W-Y Commando Leader': 'Вейланд-Ютани Лидер Коммандос',
+  'W-Y Commando Gunner': 'Вейланд-Ютани Смартганнер Коммандос',
+  'W-Y Commando Dog Catcher': 'Вейланд-Ютани Отловщик Коммандос',
 
   // WY roles
   'Corporate Trainee': 'Стажер Корпорации',
