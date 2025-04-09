@@ -156,7 +156,7 @@
 //SS220 - START
 /datum/player_action/set_name/act(client/user, mob/target, list/params)
 	if(!params["name"])
-		to_chat(user, "This user no longer exists")
+		to_chat(user, "The Name field cannot be empty")
 		return FALSE
 
 	var/mob/living/C = target
