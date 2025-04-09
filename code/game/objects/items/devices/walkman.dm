@@ -464,10 +464,12 @@
 	side1_icon = "cassette_green"
 	songs = list("side1" = list("sound/music/walkman/nam/9-1-1.ogg",\
 								"sound/music/walkman/nam/9-1-2.ogg",\
-								"sound/music/walkman/nam/9-1-3.ogg"),\
+								"sound/music/walkman/nam/9-1-3.ogg", //SS220 - EDIT
+								"sound/music/walkman/nam/9-1-4.ogg"), //SS220 - EDIT
 				"side2" = list("sound/music/walkman/nam/9-2-1.ogg",\
 								"sound/music/walkman/nam/9-2-2.ogg",\
-								"sound/music/walkman/nam/9-2-3.ogg"))
+								"sound/music/walkman/nam/9-2-3.ogg", //SS220 - EDIT
+								"sound/music/walkman/nam/9-2-4.ogg")) //SS220 - EDIT
 
 /obj/item/device/cassette_tape/ocean
 	name = "ocean cassette"
