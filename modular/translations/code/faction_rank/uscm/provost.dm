@@ -3,25 +3,25 @@
 // Высшая законодательная и исполнительная власть в сфере Военного Закона.
 
 /datum/paygrade/provost/inspector
-	name = "Инспектор Военной Прокуратуры"
+	name = "Инспектор"
 	prefix = "Инсп"
 
 /datum/paygrade/provost/inspector/chief
-	name = "Старший Инспектор Военной Прокуратуры"
-	prefix = "ГлавИнсп"
+	name = "Старший Инспектор"
+	prefix = "Глав.Инсп"
 
 /datum/paygrade/provost/marshal/deputy
-	name = "Заместитель Маршала Военной Прокуратуры"
-	prefix = "ЗамМаршала"
+	name = "Заместитель Маршала"
+	prefix = "Зам.Пкр"
 
 /datum/paygrade/provost/marshal
-	name = "Маршал Военной Прокуратуры"
-	prefix = "Маршал"
+	name = "Маршал"
+	prefix = "Пкр"
 
 /datum/paygrade/provost/sectormarshal
-	name = "Секторальный Маршал Военной Прокуратуры"
-	prefix = "СектМаршал"
+	name = "Секторальный Маршал"
+	prefix = "Сект.Пкр"
 
 /datum/paygrade/provost/chiefmarshal
-	name = "Главный Маршал Военной Прокуратуры"
-	prefix = "ГлавМаршал"
+	name = "Главный Маршал"
+	prefix = "Глав.Пкр"

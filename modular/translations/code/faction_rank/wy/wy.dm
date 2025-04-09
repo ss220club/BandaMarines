@@ -42,9 +42,9 @@
 	prefix = "ИспДир"
 
 /datum/paygrade/wy_ranks/wyc10
-	name = "Заместитель Директора Компании"
+	name = "Заместитель Директора Корпорации"
 	prefix = "ЗамДир"
 
 /datum/paygrade/wy_ranks/wyc11
-	name = "Директор Компании"
+	name = "Директор Корпорации"
 	prefix = "Дир"
