@@ -12,16 +12,16 @@
 
 /datum/paygrade/provost/marshal/deputy
 	name = "Заместитель Маршала"
-	prefix = "Зам.Пкр"
+	prefix = "Зам.Мршл"
 
 /datum/paygrade/provost/marshal
 	name = "Маршал"
-	prefix = "Пкр"
+	prefix = "Мршл"
 
 /datum/paygrade/provost/sectormarshal
 	name = "Секторальный Маршал"
-	prefix = "Сект.Пкр"
+	prefix = "Сект.Мршл"
 
 /datum/paygrade/provost/chiefmarshal
 	name = "Главный Маршал"
-	prefix = "Глав.Пкр"
+	prefix = "Глав.Мршл"
