@@ -40,27 +40,10 @@
 	name = "Полевой Техник Корпорации"
 	prefix = "ПОЛ.ТЕХ"
 
-//PMC Elite
-/datum/paygrade/pmc/elite
-	name = "Элитный Штурмовик"
-	prefix = "ЭЛШТ"
-
-/datum/paygrade/pmc/medic/elite
-	name = "Элитный Медик"
-	prefix = "ЭЛМЕД"
-
-/datum/paygrade/pmc/spec/elite
-	name = "Элитный Специалист Поддержки"
-	prefix = "ЭЛПОДСП"
-
 //PMC Command
 /datum/paygrade/pmc/teamlead
 	name = "Лидер Группы ЧВК"
 	prefix = "ЛГ"
-
-/datum/paygrade/pmc/elitelead
-	name = "Лидер Элитной Группы ЧВК"
-	prefix = "ЭЛЛГ"
 
 /datum/paygrade/pmc/director
 	name = "Директор Подразделения"
