@@ -262,10 +262,10 @@
 #define JOB_UPP_MEDIC_RU "СПН Санитар"
 #define JOB_UPP_SPECIALIST_RU "СПН Сержант"
 #define JOB_UPP_LEADER_RU "СПН Старший Сержант"
-#define JOB_UPP_POLICE_RU "СПН Полиция"
+#define JOB_UPP_POLICE_RU "СПН Милиция"
 #define JOB_UPP_LT_OFFICER_RU "СПН Младший Лейтенант"
 #define JOB_UPP_SUPPLY_RU "СПН Техник Снабжения"
-#define JOB_UPP_LT_DOKTOR_RU "СПН Военный Врач"
+#define JOB_UPP_LT_DOKTOR_RU "СПН Военврач"
 #define JOB_UPP_PILOT_RU "СПН Пилот"
 #define JOB_UPP_SRLT_OFFICER_RU "СПН Старший Лейтенант"
 #define JOB_UPP_KPT_OFFICER_RU "СПН Капитан"
@@ -282,9 +282,9 @@
 #define JOB_UPP_SUPPORT_SYNTH_RU "СПН Синтетик Поддержки"
 #define JOB_UPP_JOE_RU "Автоматон Серёга"
 
-#define JOB_UPP_COMMANDO_RU "СПН Младший Коммандос"
-#define JOB_UPP_COMMANDO_MEDIC_RU "СПН Коммандос"
-#define JOB_UPP_COMMANDO_LEADER_RU "СПН Старший Коммандос"
+#define JOB_UPP_COMMANDO_RU "СПН Боец Спецназа"
+#define JOB_UPP_COMMANDO_MEDIC_RU "СПН Военврач Спецназа"
+#define JOB_UPP_COMMANDO_LEADER_RU "СПН Командир Отряда Спецназа"
 
 #define JOB_UPP_REPRESENTATIVE_RU "СПН Представитель"
 
