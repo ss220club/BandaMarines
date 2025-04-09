@@ -463,7 +463,9 @@
 /obj/item/storage/box/zipcuffs
 	name = "box of zip cuffs"
 	desc = "A box full of zip cuffs."
+	//SS220 - START
 	w_class = SIZE_MEDIUM
+	//SS220 - END
 	icon_state = "handcuff"
 	item_state = "handcuff"
 
