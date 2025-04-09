@@ -139,7 +139,7 @@
 #define JOB_WO_SQUAD_ENGINEER_RU "Полевой Техник Пыльных Рейдеров"
 #define JOB_WO_SQUAD_SMARTGUNNER_RU "Смартганнер Пыльных Рейдеров"
 #define JOB_WO_SQUAD_SPECIALIST_RU "Оружейный Специалист Пыльных Рейдеров"
-#define JOB_WO_SQUAD_LEADER_RU "Командир Отряда Полевых Рейдеров"
+#define JOB_WO_SQUAD_LEADER_RU "Командир Отряда Пыльных Рейдеров"
 
 //------------------------------------
 

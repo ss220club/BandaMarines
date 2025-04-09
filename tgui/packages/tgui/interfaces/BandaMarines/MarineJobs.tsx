@@ -162,7 +162,7 @@ const JOBS_RU = {
   'Dust Raider Squad Smartgunner': 'Смартганнер Пыльных Рейдеров',
   'Dust Raider Squad Weapons Specialist':
     'Оружейный Специалист Пыльных Рейдеров',
-  'Dust Raider Squad Leader': 'Командир Отряда Полевых Рейдеров',
+  'Dust Raider Squad Leader': 'Командир Отряда Пыльных Рейдеров',
 
   // PMC roles
   'PMC Operator': 'ЧВК Вейланд-Ютани Оперативник',
