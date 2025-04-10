@@ -212,30 +212,30 @@ const JOBS_RU = {
 
   // Contractors roles
   'VAIPO Mercenary': 'ВЭИЧВК Контрактник',
-  'VAIMS Medical Specialist': 'ВЭИМС Медик-Специалист',
-  'VAIPO Engineering Specialist': 'ВЭИЧВК Инженер-Специалист',
-  'VAIPO Automatic Rifleman': 'ВЭИЧВК Стрелок',
-  'VAIPO Team Leader': 'ВЭИЧВК Командир',
+  'VAIMS Medical Specialist': 'ВЭИЧМС Медицинский Специалист',
+  'VAIPO Engineering Specialist': 'ВЭИЧВК Инженерный Специалист',
+  'VAIPO Automatic Rifleman': 'ВЭИЧВК Пулеметчик',
+  'VAIPO Team Leader': 'ВЭИЧВК Лидер Группы',
   'VAIPO Support Synthetic': 'ВЭИЧВК Синтетик Поддержки',
   'VAISO Mercenary': 'ВЭИОФ Контрактник',
-  // 'VAIMS Medical Specialist': 'ВЭИМС Медик-Специалист',
-  'VAISO Engineering Specialist': 'ВЭИОФ Инженер-Специалист',
-  'VAISO Automatic Rifleman': 'ВЭИОФ Стрелок',
-  'VAISO Team Leader': 'ВЭИОФ Team Leader',
+  'VAISO Medical Specialist': 'ВЭИЧМС Медицинский Специалист',
+  'VAISO Engineering Specialist': 'ВЭИОФ Инженерный Специалист',
+  'VAISO Automatic Rifleman': 'ВЭИОФ Пулеметчик',
+  'VAISO Team Leader': 'ВЭИОФ Лидер Группы',
   'VAISO Support Synthetic': 'ВЭИОФ Синтетик Поддержки',
 
   // CMB roles
   'CMB Deputy': 'КМБ Оперумолномоченный',
   'CMB Marshal': 'КМБ Маршал',
-  'CMB Investigative Synthetic': 'КМБ Синтетик Расследования',
+  'CMB Investigative Synthetic': 'КМБ Синтетик-Следователь',
   'Interstellar Commerce Commission Corporate Liaison':
-    'Представитель Корпорации по Комиссии Межзвездной Торговли',
+    'Представитель Комиссии по Межзвездной Торговле',
   'Interstellar Human Rights Observer': 'Межзвездный Наблюдатель Прав Человека',
-  'CMB Riot Control Officer': 'КМБ Офицер-Блюститель Порядка',
-  'CMB Medical Technician': 'КМБ Медицинский Техник',
-  'CMB Breaching Technician': 'КМБ Техник Прорыва',
+  'CMB Riot Control Officer': 'КМБ Силовик',
+  'CMB Medical Technician': 'КМБ Медик',
+  'CMB Breaching Technician': 'КМБ Специалист-Прорывник',
   'CMB SWAT Specialist': 'КМБ Спецназ',
-  'CMB Riot Control Synthetic': 'КМБ Синтетик-Блюститель Порядка',
+  'CMB Riot Control Synthetic': 'КМБ Синтетик-Силовик',
 
   // NSPA roles
   'NSPA Constable': 'ПКНС Констебль',
@@ -348,11 +348,11 @@ const JOBS_RU = {
   // Responders roles
   'Fax Responder': 'Секретарь на Факсе',
   'USCM-HC Communications Officer': 'ККМП-ВК Офицер Связи',
-  'Provost Communications Officer': 'Проректор-Офицер Связи',
+  'Provost Communications Officer': 'Офицер Связи Военной Прокуратуры',
   'WY Communications Executive': 'ВЮ Связной Исполнитель',
   'UPP Communications Officer': 'СПН Офицер Связи',
   'TWE Communications Officer': 'ИТМ Офицер Связи',
-  'CLF Information Correspondant': 'КОФ Информационный Корреспондент',
+  'CLF Information Correspondant': 'КОФ Связной Агент',
   'CMB Deputy Operations Officer': 'КМБ Заместитель Офицера Операций',
   'Free Press Relay Operator': 'Оператор Свободной Прессы',
 
