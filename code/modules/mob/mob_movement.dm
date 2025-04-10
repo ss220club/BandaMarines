@@ -96,6 +96,12 @@
 	if(isliving(mob))
 		living_mob = mob
 
+	if(ishuman(living_mob)) // Might as well just do it here than set movement delay to 0
+		var/mob/living/carbon/human/human = living_mob
+		if(HAS_TRAIT(human, TRAIT_HAULED))
+			human.handle_haul_resist()
+			return
+
 	if(world.time < next_movement)
 		return
 	if(living_mob && living_mob.body_position == LYING_DOWN && mob.crawling)
@@ -228,9 +234,6 @@
 			// SS220 ADD End
 			. = ..()
 			// SS220 ADD Start
-			if((direct & (direct - 1)) && mob.loc == n) //moved diagonally successfully
-				move_delay *= 2
-
 			var/after_glide = DELAY_TO_GLIDE_SIZE(move_delay)
 			mob.set_glide_size(after_glide)
 			// SS220 ADD End

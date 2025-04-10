@@ -38,6 +38,11 @@
 // Standard procs
 //-------------------------------------------
 
+/obj/vehicle/Destroy(force)
+	. = ..()
+	if(!QDELETED(cell))
+		QDEL_NULL(cell)
+
 /obj/vehicle/initialize_pass_flags(datum/pass_flags_container/PF)
 	..()
 	if (PF)
@@ -153,7 +158,7 @@
 
 	healthcheck()
 
-	return XENO_NONCOMBAT_ACTION
+	return XENO_ATTACK_ACTION // SS220 EDIT - Убрал XENO_NONCOMBAT_ACTION, ибо ксеносы слишком быстро по технике вдаряли
 
 //-------------------------------------------
 // Vehicle procs

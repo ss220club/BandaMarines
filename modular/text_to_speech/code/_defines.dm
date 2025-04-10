@@ -1,13 +1,7 @@
-#define SOUND_EFFECT_NONE 0
-#define SOUND_EFFECT_RADIO 1
-#define SOUND_EFFECT_ROBOT 2
-#define SOUND_EFFECT_RADIO_ROBOT 3
-#define SOUND_EFFECT_MEGAPHONE 4
-#define SOUND_EFFECT_MEGAPHONE_ROBOT 5
-
 #define VV_HK_SELECT_TTS_VOICE "select_tts_voice"
 
 #define VV_HK_MODIFY_TTS_TRAITS "changetts"
+#define VV_HK_MODIFY_TTS_TRAITS_PLAYER_CHOICE "changetts_let_player_choose"
 
 #define TTS_TRAIT_PITCH_WHISPER (1<<1)
 #define TTS_TRAIT_RATE_FASTER (1<<2)

@@ -63,7 +63,7 @@
  * call LateInitialize at the end of all atom Initalization
  *
  * The item will be added to the late_loaders list, this is iterated over after
- * initalization of subsystems is complete and calls LateInitalize on the atom
+ * initalization of subsystems is complete and calls LateInitialize on the atom
  * see [this file for the LateIntialize proc](atom.html#proc/LateInitialize)
  */
 #define INITIALIZE_HINT_LATELOAD 1
@@ -165,6 +165,7 @@
 #define SS_PRIORITY_TICKER  200
 #define SS_PRIORITY_NIGHTMARE   180
 #define SS_PRIORITY_QUADTREE    160
+#define SS_PRIORITY_MOUSE_ENTERED 158 // SS220 EDIT - Screentips
 #define SS_PRIORITY_TTS     157 // SS220 EDIT - TTS
 #define SS_PRIORITY_CHAT    155
 #define SS_PRIORITY_STATPANEL    154
