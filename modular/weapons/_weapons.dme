@@ -1,0 +1,6 @@
+#include "_weapons.dm"
+
+#include "code/ammo/rocket_he_с.dm"
+#include "code/rpg/disposable_rpg_prop.dm"
+#include "code/rpg/disposable_rpg.dm"
+#include "code/gamemode_setup.dm"
