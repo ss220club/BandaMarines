@@ -61,7 +61,7 @@
 		list("M40 MFHS Metal Foam Grenade", floor(scale * 6), /obj/item/explosive/grenade/metal_foam, VENDOR_ITEM_REGULAR),
 		list("Plastic Explosives", floor(scale * 3), /obj/item/explosive/plastic, VENDOR_ITEM_REGULAR),
 		list("Breaching Charge", floor(scale * 2), /obj/item/explosive/plastic/breaching_charge, VENDOR_ITEM_REGULAR),
-		list("RPG M83A2-C", floor(scale * 3.5), /obj/item/prop/folded_anti_tank_sadar/common, VENDOR_ITEM_REGULAR), // SS220 EDIT - RPG WEAPON
+		list("RPG M83A2-C", SSticker.mode && MODE_HAS_MODIFIER(/datum/gamemode_modifier/heavy_specialists) ? 0 : floor(scale * 3.5), /obj/item/prop/folded_anti_tank_sadar/common, VENDOR_ITEM_REGULAR), // SS220 EDIT - RPG WEAPON
 
 		list("WEBBINGS", -1, null, null),
 		list("Black Webbing Vest", floor(scale * 2), /obj/item/clothing/accessory/storage/black_vest, VENDOR_ITEM_REGULAR),
