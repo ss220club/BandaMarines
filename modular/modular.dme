@@ -17,7 +17,6 @@
 #include "screentips/_screentips.dme"
 #include "sounds/_sounds.dme"
 #include "translations/_translations.dme"
-#include "wy_special/_wy_special.dme"
 #include "stats_viewer/_stats_viewer.dme"
 #include "speech_filter/_speech_filter.dme"
 #include "text_to_speech/_tts.dme"
@@ -28,4 +27,5 @@
 #include "attachments/_attachments.dme"
 #include "loadout_preferences_gear/_loadout.dme"
 #include "ltb_rework/_ltb_rework.dme"
+#include "wy_special/_wy_special.dme"
 #include "paper/_paper.dme"
