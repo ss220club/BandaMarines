@@ -28,3 +28,4 @@
 #include "attachments/_attachments.dme"
 #include "loadout_preferences_gear/_loadout.dme"
 #include "ltb_rework/_ltb_rework.dme"
+#include "paper/_paper.dme"
