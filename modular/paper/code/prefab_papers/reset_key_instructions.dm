@@ -1,4 +1,4 @@
-/datum/prefab_document/wey_yu/reset_key_instructions/New() // BANDAMARINES
+/datum/prefab_document/wey_yu/reset_key_instructions/New()
 	var/datum/asset/asset = get_asset_datum(/datum/asset/simple/paper)
 	var/dat = ""
 
