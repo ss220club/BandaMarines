@@ -47,9 +47,7 @@
 // Helper to check that the thread is still open
 /datum/mentorhelp/proc/check_open(client/C)
 	if(!open)
-		//SS220 - START
-		to_chat(C, SPAN_NOTICE("Этот тикет в \"MentorHelp\" закрыт!"))
-		//SS220 - END
+		to_chat(C, SPAN_NOTICE("Этот тикет в \"MentorHelp\" закрыт!")) //SS220 - EDIT
 		return FALSE
 	return TRUE
 
@@ -81,9 +79,7 @@
 	if(mentor)
 		return TRUE // No need
 
-	//SS220 - START
-	var/message = strip_html(input("Сообщение:", "MentorHelp", null, null) as message|null)
-	//SS220 - END
+	var/message = strip_html(input("Сообщение:", "MentorHelp", null, null) as message|null) //SS220 - EDIT
 	if(!message)
 		return FALSE
 	broadcast_unhandled(message, opener)
@@ -101,14 +97,10 @@
 	if(recipient?.key)
 		log_message(msg, sender.key, recipient.key)
 	else
-		//SS220 - START
-		log_message(msg, sender.key, "Всем менторам")
-		//SS220 - END
+		log_message(msg, sender.key, "Всем менторам") //SS220 - EDIT
 
 	// Sender feedback
-	//SS220 - START
-	to_chat(sender, "[SPAN_MENTORHELP("<span class='prefix'>MentorHelp:</span> сообщение [(recipient?.key) ? "<a href='byond://?src=\ref[src];action=message'>[recipient.key]</a>" : "наставникам"]:")] [SPAN_MENTORBODY(msg)]")
-	//SS220 - END
+	to_chat(sender, "[SPAN_MENTORHELP("<span class='prefix'>MentorHelp:</span> сообщение [(recipient?.key) ? "<a href='byond://?src=\ref[src];action=message'>[recipient.key]</a>" : "наставникам"]:")] [SPAN_MENTORBODY(msg)]") //SS220 - EDIT
 
 	// Recipient direct message
 	if(recipient)
@@ -155,9 +147,7 @@
 
 		// Some other mentor is already taking care of this thread
 		else if(mentor != sender)
-			//SS220 - START
-			to_chat(sender, SPAN_MENTORHELP("<b>УВЕДОМЛЕНИЕ:</b> Наставник читает ваш тикет!"))
-			//SS220 - END
+			to_chat(sender, SPAN_MENTORHELP("<b>УВЕДОМЛЕНИЕ:</b> Наставник читает ваш тикет!")) //SS220 - EDIT
 			return
 
 	var/target = mentor
@@ -183,10 +173,8 @@
 		message_sender_options = " (<a href='byond://?src=\ref[src];action=mark'>Mark/Unmark</a>"
 		message_sender_options += " | <a href='byond://?src=\ref[src];action=close'>Close</a> | <a href='byond://?src=\ref[src];action=autorespond'>AutoResponse</a>)"
 
-	//SS220 - START
-	var/message_header = SPAN_MENTORHELP("<span class='prefix'>[message_title] от [message_sender_key]:</span> <span class='message'>[message_sender_options]</span><br>")
-	var/message_body = "&emsp;[SPAN_MENTORBODY("<span class='message'>[message]</span>")]<br>"
-	//SS220 - END
+	var/message_header = SPAN_MENTORHELP("<span class='prefix'>[message_title] от [message_sender_key]:</span> <span class='message'>[message_sender_options]</span><br>") //SS220 - EDIT
+	var/message_body = "&emsp;[SPAN_MENTORBODY("<span class='message'>[message]</span>")]<br>" //SS220 - EDIT
 	// Et voila! Beautiful wrapped mentorhelp messages
 	return (message_header + message_body)
 
@@ -204,9 +192,7 @@
 
 	// Already marked
 	if(mentor)
-		//SS220 - START
-		to_chat(thread_mentor, SPAN_MENTORHELP("<b>УВЕДОМЛЕНИЕ:</b> Наставник читает ваш тикет!"))
-		//SS220 - END
+		to_chat(thread_mentor, SPAN_MENTORHELP("<b>УВЕДОМЛЕНИЕ:</b> Наставник читает ваш тикет!")) //SS220 - EDIT
 		return
 
 	if(!thread_mentor)
@@ -218,11 +204,9 @@
 
 	mentor = thread_mentor
 
-	//SS220 - START
-	log_mhelp("[mentor.key] начал отвечать на тикет [author_key] в \"MentorHelp\".")
-	notify("<font style='color:red;'>[mentor.key]</font> начал отвечать на тикет <font style='color:red;'>[author_key]</font> в \"MentorHelp\".")
-	to_chat(author, SPAN_NOTICE("<b>УВЕДОМЛЕНИЕ:</b> <font style='color:red;'>[mentor.key]</font> начал отвечать на ваш тикет."))
-	//SS220 - END
+	log_mhelp("[mentor.key] начал отвечать на тикет [author_key] в \"MentorHelp\".") //SS220 - EDIT
+	notify("<font style='color:red;'>[mentor.key]</font> начал отвечать на тикет <font style='color:red;'>[author_key]</font> в \"MentorHelp\".") //SS220 - EDIT
+	to_chat(author, SPAN_NOTICE("<b>УВЕДОМЛЕНИЕ:</b> <font style='color:red;'>[mentor.key]</font> начал отвечать на ваш тикет.")) //SS220 - EDIT
 
 // Unmarks the mentorhelp thread and notifies the author that the thread is no longer being handled by a mentor
 /datum/mentorhelp/proc/unmark(client/thread_mentor)
@@ -240,11 +224,9 @@
 	if((!thread_mentor || thread_mentor != mentor) && !CLIENT_IS_STAFF(thread_mentor))
 		return
 
-	//SS220 - START
-	log_mhelp("[mentor.key] перестал отвечать на тикет [author_key] в \"MentorHelp\".")
-	notify("<font style='color:red;'>[mentor.key]</font> перестал отвечать на тикет <font style='color:red;'><a href='byond://?src=\ref[src];action=message'>[author_key]</a></font> в \"MentorHelp\".")
-	to_chat(author, SPAN_NOTICE("<b>УВЕДОМЛЕНИЕ:</b> <font style='color:red;'>[mentor.key]</font> перестал отвечать на ваш тикет."))
-	//SS220 - END
+	log_mhelp("[mentor.key] перестал отвечать на тикет [author_key] в \"MentorHelp\".") //SS220 - EDIT
+	notify("<font style='color:red;'>[mentor.key]</font> перестал отвечать на тикет <font style='color:red;'><a href='byond://?src=\ref[src];action=message'>[author_key]</a></font> в \"MentorHelp\".") //SS220 - EDIT
+	to_chat(author, SPAN_NOTICE("<b>УВЕДОМЛЕНИЕ:</b> <font style='color:red;'>[mentor.key]</font> перестал отвечать на ваш тикет.")) //SS220 - EDIT
 	mentor = null
 
 /*
@@ -258,32 +240,24 @@
 
 	// Thread was closed because the author is gone
 	if(!author)
-		//SS220 - START
-		notify("<font style='color:red;'>[author_key]</font> тикет в \"MentorHelp\" был закрыт, в связи с потерей соединения с пользователем.")
-		log_mhelp("[author_key] тикет в \"MentorHelp\" был закрыт, в связи с потерей соединения с пользователем")
-		//SS220 - END
+		notify("<font style='color:red;'>[author_key]</font> тикет в \"MentorHelp\" был закрыт, в связи с потерей соединения с пользователем.") //SS220 - EDIT
+		log_mhelp("[author_key] тикет в \"MentorHelp\" был закрыт, в связи с потерей соединения с пользователем") //SS220 - EDIT
 		return
 
 	// Make sure it's being closed by staff or the mentor handling the thread
 	if(mentor && closer && (closer != mentor) && (closer != author) && !CLIENT_IS_STAFF(closer))
-		//SS220 - START
-		to_chat(closer, SPAN_MENTORHELP("<b>УВЕДОМЛЕНИЕ:</b> другой наставник уже ответил на этот тикет!"))
-		//SS220 - END
+		to_chat(closer, SPAN_MENTORHELP("<b>УВЕДОМЛЕНИЕ:</b> другой наставник уже ответил на этот тикет!")) //SS220 - EDIT
 		return
 
 	open = FALSE
 	if(closer)
 		log_mhelp("[closer.key] closed [author_key]'s mentorhelp")
 		if(closer == author)
-			//SS220 - START
-			to_chat(author, SPAN_NOTICE("Вы закрыли тикет в \"MentorHelp\"."))
-			notify("<font style='color:red;'>[author_key]</font> закрыл свой тикет в \"MentorHelp\".")
-			//SS220 - END
+			to_chat(author, SPAN_NOTICE("Вы закрыли тикет в \"MentorHelp\".")) //SS220 - EDIT
+			notify("<font style='color:red;'>[author_key]</font> закрыл свой тикет в \"MentorHelp\".") //SS220 - EDIT
 			return
-	//SS220 - START
-	to_chat(author, SPAN_NOTICE("Ваш тикет в \"MentorHelp\" был закрыт."))
-	notify("<font style='color:red;'>[author_key]</font> тикет в \"MentorHelp\" был закрыт.")
-	//SS220 - END
+	to_chat(author, SPAN_NOTICE("Ваш тикет в \"MentorHelp\" был закрыт.")) //SS220 - EDIT
+	notify("<font style='color:red;'>[author_key]</font> тикет в \"MentorHelp\" был закрыт.") //SS220 - EDIT
 
 /datum/mentorhelp/Topic(href, list/href_list)
 	if(!usr)
@@ -326,14 +300,10 @@
 	if(!mentor)
 		mark(responder)
 	else if(mentor != responder)
-		//SS220 - START
-		to_chat(responder, SPAN_NOTICE("<b>УВЕДОМЛЕНИЕ:</b> Наставник начал отвечать на этот тикет!"))
-		//SS220 - END
+		to_chat(responder, SPAN_NOTICE("<b>УВЕДОМЛЕНИЕ:</b> Наставник начал отвечать на этот тикет!")) //SS220 - EDIT
 		return
 
-	//SS220 - START
-	var/choice = tgui_input_list(usr, "Выберите шаблон для ответа игроку.", "Autoresponse", GLOB.mentorreplies)
-	//SS220 - END
+	var/choice = tgui_input_list(usr, "Выберите шаблон для ответа игроку.", "Autoresponse", GLOB.mentorreplies) //SS220 - EDIT
 	var/datum/autoreply/mentor/response = GLOB.mentorreplies[choice]
 
 	if(!response || !istype(response))
@@ -352,14 +322,10 @@
 	if(!mentor)
 		mark(responder)
 	else if(mentor != responder)
-		//SS220 - START
-		to_chat(responder, SPAN_NOTICE("<b>УВЕДОМЛЕНИЕ:</b> Наставник прочитал ваш тикет!"))
-		//SS220 - END
+		to_chat(responder, SPAN_NOTICE("<b>УВЕДОМЛЕНИЕ:</b> Наставник прочитал ваш тикет!")) //SS220 - EDIT
 		return
 
-	//SS220 - START
-	var/msg = "[SPAN_ORANGE(SPAN_BOLD("Наставник отметил вопрос как: \"[response.title]\"!"))]<br>"
-	//SS220 - END
+	var/msg = "[SPAN_ORANGE(SPAN_BOLD("Наставник отметил вопрос как: \"[response.title]\"!"))]<br>" //SS220 - EDIT
 	msg += "[SPAN_ORANGE(response.message)]"
 
 	message_handlers(msg, responder, author)
