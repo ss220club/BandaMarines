@@ -10,9 +10,11 @@
 	name = "CMD Tent"
 	map_id = "tent_cmd"
 
+// SS220 ADD - START
 /datum/map_template/tent/eng
 	name = "ENG Tent"
 	map_id = "tent_eng"
+// SS220 ADD - END
 
 /datum/map_template/tent/med
 	name = "MED Tent"

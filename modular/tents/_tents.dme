@@ -1,0 +1,3 @@
+#include "_tents.dm"
+
+#include "code/tents.dm"
