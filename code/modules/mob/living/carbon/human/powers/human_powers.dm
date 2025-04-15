@@ -261,7 +261,7 @@
 		return
 	COOLDOWN_START(src, rest_cooldown, 1 SECONDS)
 
-	if(!isxeno(src))
+	if(!isxeno(src) && !HAS_TRAIT(src, TRAIT_FLOORED))
 		for(var/mob/living/carbon/xenomorph/xeno in orange(3, src))
 			if(xeno.stat != CONSCIOUS)
 				continue
