@@ -100,7 +100,7 @@
 		log_message(msg, sender.key, "Всем менторам") //SS220 - EDIT
 
 	// Sender feedback
-	to_chat(sender, "[SPAN_MENTORHELP("<span class='prefix'>MentorHelp:</span> сообщение [(recipient?.key) ? "<a href='byond://?src=\ref[src];action=message'>[recipient.key]</a>" : "наставникам"]:")] [SPAN_MENTORBODY(msg)]") //SS220 - EDIT
+	to_chat(sender, "[SPAN_MENTORHELP("<span class='prefix'>MentorHelp:</span> сообщение [(recipient?.key) ? "<a href='byond://?src=\ref[src];action=message'>[recipient.key]</a>" : "менторам"]:")] [SPAN_MENTORBODY(msg)]") //SS220 - EDIT
 
 	// Recipient direct message
 	if(recipient)
@@ -147,7 +147,7 @@
 
 		// Some other mentor is already taking care of this thread
 		else if(mentor != sender)
-			to_chat(sender, SPAN_MENTORHELP("<b>УВЕДОМЛЕНИЕ:</b> Наставник читает ваш тикет!")) //SS220 - EDIT
+			to_chat(sender, SPAN_MENTORHELP("<b>УВЕДОМЛЕНИЕ:</b> Ментор читает ваш тикет!")) //SS220 - EDIT
 			return
 
 	var/target = mentor
@@ -192,7 +192,7 @@
 
 	// Already marked
 	if(mentor)
-		to_chat(thread_mentor, SPAN_MENTORHELP("<b>УВЕДОМЛЕНИЕ:</b> Наставник читает ваш тикет!")) //SS220 - EDIT
+		to_chat(thread_mentor, SPAN_MENTORHELP("<b>УВЕДОМЛЕНИЕ:</b> Ментор читает ваш тикет!")) //SS220 - EDIT
 		return
 
 	if(!thread_mentor)
@@ -246,7 +246,7 @@
 
 	// Make sure it's being closed by staff or the mentor handling the thread
 	if(mentor && closer && (closer != mentor) && (closer != author) && !CLIENT_IS_STAFF(closer))
-		to_chat(closer, SPAN_MENTORHELP("<b>УВЕДОМЛЕНИЕ:</b> другой наставник уже ответил на этот тикет!")) //SS220 - EDIT
+		to_chat(closer, SPAN_MENTORHELP("<b>УВЕДОМЛЕНИЕ:</b> другой ментор уже ответил на этот тикет!")) //SS220 - EDIT
 		return
 
 	open = FALSE
@@ -300,7 +300,7 @@
 	if(!mentor)
 		mark(responder)
 	else if(mentor != responder)
-		to_chat(responder, SPAN_NOTICE("<b>УВЕДОМЛЕНИЕ:</b> Наставник начал отвечать на этот тикет!")) //SS220 - EDIT
+		to_chat(responder, SPAN_NOTICE("<b>УВЕДОМЛЕНИЕ:</b> Ментор начал отвечать на этот тикет!")) //SS220 - EDIT
 		return
 
 	var/choice = tgui_input_list(usr, "Выберите шаблон для ответа игроку.", "Autoresponse", GLOB.mentorreplies) //SS220 - EDIT
@@ -322,10 +322,10 @@
 	if(!mentor)
 		mark(responder)
 	else if(mentor != responder)
-		to_chat(responder, SPAN_NOTICE("<b>УВЕДОМЛЕНИЕ:</b> Наставник прочитал ваш тикет!")) //SS220 - EDIT
+		to_chat(responder, SPAN_NOTICE("<b>УВЕДОМЛЕНИЕ:</b> Ментор прочитал ваш тикет!")) //SS220 - EDIT
 		return
 
-	var/msg = "[SPAN_ORANGE(SPAN_BOLD("Наставник отметил вопрос как: \"[response.title]\"!"))]<br>" //SS220 - EDIT
+	var/msg = "[SPAN_ORANGE(SPAN_BOLD("Ментор отметил вопрос как: \"[response.title]\"!"))]<br>" //SS220 - EDIT
 	msg += "[SPAN_ORANGE(response.message)]"
 
 	message_handlers(msg, responder, author)
