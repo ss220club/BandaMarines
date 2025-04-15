@@ -263,6 +263,8 @@
 
 	if(!isxeno(src))
 		for(var/mob/living/carbon/xenomorph/xeno in orange(3, src))
+			if(xeno.stat != CONSCIOUS)
+				continue
 			message_admins("[key_name(src)] tries to Rest Tech")
 			break
 
