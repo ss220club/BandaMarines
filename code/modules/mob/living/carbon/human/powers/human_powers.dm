@@ -261,9 +261,10 @@
 		return
 	COOLDOWN_START(src, rest_cooldown, 1 SECONDS)
 
-	for(var/mob/living/carbon/xenomorph/xeno in orange(3, src))
-		message_admins("[key_name(src)] tries to Rest Tech")
-		break
+	if(!isxeno(src))
+		for(var/mob/living/carbon/xenomorph/xeno in orange(3, src))
+			message_admins("[key_name(src)] tries to Rest Tech")
+			break
 
 	. = resting
 	resting = new_resting
