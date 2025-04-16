@@ -1,5 +1,3 @@
-#undef ON_CONFIG_LOAD
-
 /datum/autoreply/admin/handled
 	title = "В процессе решения"
 	message = "Разработчики знают о проблеме и уже работают над её решением."
@@ -12,19 +10,22 @@
 	title = "L: Сообщение об ошибке"
 
 /datum/autoreply/admin/bug/New()
-	message = "Пожалуйста, сообщайте обо всех ошибках в нашем <a href='[global.config.Get(/datum/config_entry/string/githuburl)]'>GitHub</a> репозитории. К сожалению, большинство ошибок невозможно исправить за короткое время, за исключением критических ошибок или эксплойтов, о которых также следует сообщить через \"AdminHelp\"."
+	message = "Пожалуйста, сообщайте обо всех ошибках на нашем <a href='[global.config.Get(/datum/config_entry/string/githuburl)]'>GitHub</a> репозитории. К сожалению, большинство ошибок невозможно исправить за короткое время, за исключением критических ошибок или эксплойтов, о которых также следует сообщить через \"AdminHelp\"."
+	RegisterSignal(SSdcs, COMSIG_GLOB_CONFIG_LOADED, PROC_REF(__on_config_load));
 
 /datum/autoreply/admin/marine
 	title = "H: Руководство для морпехов"
 
 /datum/autoreply/admin/marine/New()
 	message = "На большинство ваших вопросов может ответить <a href='[global.config.Get(/datum/config_entry/string/wikiarticleurl)]/[URL_WIKI_MARINE_QUICKSTART]'>Краткое руководство по морпехам</a>. Если что-то непонятно или у вас есть другой вопрос, пожалуйста, создайте новый тикет в \"Mentorhelp\" или \"AdminHelp\"."
+	RegisterSignal(SSdcs, COMSIG_GLOB_CONFIG_LOADED, PROC_REF(__on_config_load));
 
 /datum/autoreply/admin/xeno
 	title = "X: Руководство для ксеноморфов"
 
 /datum/autoreply/admin/xeno/New()
 	message = "На большинство ваших вопросов может ответить <a href='[global.config.Get(/datum/config_entry/string/wikiarticleurl)]/[URL_WIKI_XENO_QUICKSTART]'>Краткое руководство по ксеноморфам</a>. Если что-то непонятно или у вас есть другой вопрос, пожалуйста, создайте новый тикет в \"Mentorhelp\" или \"AdminHelp\"."
+	RegisterSignal(SSdcs, COMSIG_GLOB_CONFIG_LOADED, PROC_REF(__on_config_load));
 
 /datum/autoreply/admin/changelog
 	title = "C: Список изменений"
@@ -43,6 +44,7 @@
 
 /datum/autoreply/admin/whitelist/New()
 	message = "В большинстве случаев нарушения правил не могут быть рассмотрены непосредственно в игре. Пожалуйста, сообщите об этом на нашем Discord-сервере SS220 <a href='[global.config.Get(/datum/config_entry/string/playerreport)]'>здесь</a>."
+	RegisterSignal(SSdcs, COMSIG_GLOB_CONFIG_LOADED, PROC_REF(__on_config_load));
 
 /datum/autoreply/admin/clear_cache
 	title = "C: Очистка кеша"
@@ -65,6 +67,7 @@
 
 /datum/autoreply/mentor/whitelist/New()
 	message = "Менторы, к сожалению, не смогут помочь вам в решении этого вопроса. Пожалуйста, свяжитесь с администрацией через \"AdminHelp\". В большинстве случаев нарушения правил не могут быть рассмотрены непосредственно в игре, и вам, скорее всего, будет предложено написать сообщение об игроке на нашем Discord-сервере SS220 <a href='[global.config.Get(/datum/config_entry/string/discordurl)]'>здесь</a>."
+	RegisterSignal(SSdcs, COMSIG_GLOB_CONFIG_LOADED, PROC_REF(__on_config_load));
 
 /datum/autoreply/mentor/event
 	title = "A: Специальное событие"
@@ -95,36 +98,42 @@
 
 /datum/autoreply/mentor/discord/New()
 	message = "Вы можете присоединиться к нашему Discord-серверу по этой <a href='[global.config.Get(/datum/config_entry/string/discordurl)]'>ссылке</a>!"
+	RegisterSignal(SSdcs, COMSIG_GLOB_CONFIG_LOADED, PROC_REF(__on_config_load));
 
 /datum/autoreply/mentor/bug
 	title = "L: Сообщение об ошибке"
 
 /datum/autoreply/mentor/bug/New()
-	message = "Пожалуйста, сообщайте обо всех ошибках в нашем <a href='[global.config.Get(/datum/config_entry/string/githuburl)]'>GitHub</a> репозитории. К сожалению, большинство ошибок невозможно исправить за короткое время, за исключением критических ошибок или эксплойтов, о которых также следует сообщить через \"AdminHelp\"."
+	message = "Пожалуйста, сообщайте обо всех ошибках на нашем <a href='[global.config.Get(/datum/config_entry/string/githuburl)]'>GitHub</a> репозитории. К сожалению, большинство ошибок невозможно исправить за короткое время, за исключением критических ошибок или эксплойтов, о которых также следует сообщить через \"AdminHelp\"."
+	RegisterSignal(SSdcs, COMSIG_GLOB_CONFIG_LOADED, PROC_REF(__on_config_load));
 
 /datum/autoreply/mentor/currentmap
 	title = "L: Текущая карта"
 
 /datum/autoreply/mentor/currentmap/New()
 	message = "Если вам необходимо узнать информацию о текущей карте, перейдите во вкладку \"OOC\" и выберите пункт \"Current Map\". Затем откройте главную страницу <a href='[global.config.Get(/datum/config_entry/string/wikiurl)]'>Wiki</a> и найдите статью о карте в разделе \"Карты\". Если вашей карты нет в списке, это означает, что она новая или редкая, и статья о ней ещё не опубликована."
+	RegisterSignal(SSdcs, COMSIG_GLOB_CONFIG_LOADED, PROC_REF(__on_config_load));
 
 /datum/autoreply/mentor/marine
 	title = "H: Руководство для морпехов"
 
 /datum/autoreply/mentor/marine/New()
 	message = "На большинство ваших вопросов может ответить <a href='[global.config.Get(/datum/config_entry/string/wikiarticleurl)]/[URL_WIKI_MARINE_QUICKSTART]'>Краткое руководство по морпехам</a>. Если что-то непонятно или у вас есть другой вопрос, пожалуйста, создайте новый тикет в \"Mentorhelp\" или \"AdminHelp\"."
+	RegisterSignal(SSdcs, COMSIG_GLOB_CONFIG_LOADED, PROC_REF(__on_config_load));
 
 /datum/autoreply/mentor/xeno
 	title = "X: Руководство для ксеноморфов"
 
 /datum/autoreply/mentor/xeno/New()
 	message = "На большинство ваших вопросов может ответить <a href='[global.config.Get(/datum/config_entry/string/wikiarticleurl)]/[URL_WIKI_XENO_QUICKSTART]'>Краткое руководство по ксеноморфам</a>. Если что-то непонятно или у вас есть другой вопрос, пожалуйста, создайте новый тикет в \"Mentorhelp\" или \"AdminHelp\"."
+	RegisterSignal(SSdcs, COMSIG_GLOB_CONFIG_LOADED, PROC_REF(__on_config_load));
 
 /datum/autoreply/mentor/macros
 	title = "L: Макросы"
 
 /datum/autoreply/mentor/macros/New()
 	message = "Это <a href='[global.config.Get(/datum/config_entry/string/wikiarticleurl)]/[URL_WIKI_MACROS]'>руководство</a> содержит инструкции по настройке макросов, включая примеры наиболее распространённых и полезных из них."
+	RegisterSignal(SSdcs, COMSIG_GLOB_CONFIG_LOADED, PROC_REF(__on_config_load));
 
 /datum/autoreply/mentor/synthkey
 	title = "H: Ключ перезапуска синтетика"
