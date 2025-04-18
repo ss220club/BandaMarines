@@ -57,16 +57,16 @@
 /turf/closed/wall/kutjevo/colony/reinforced,
 /area/kutjevo/interior/construction/north)
 "aaq" = (
-/turf/open/floor/kutjevo/plate,
-/area/kutjevo/exterior/complex_border/med_rec)
-"aar" = (
 /obj/structure/girder,
 /turf/open/floor/plating/kutjevo,
 /area/kutjevo/interior/construction/north)
-"aas" = (
+"aar" = (
 /obj/structure/machinery/power/apc/no_power/west,
 /turf/open/floor/kutjevo/multi_tiles,
 /area/kutjevo/exterior/complex_border/med_rec)
+"aas" = (
+/turf/open/floor/kutjevo/tan,
+/area/kutjevo/interior/construction/north)
 "aat" = (
 /obj/structure/flora/grass/tallgrass/desert/corner{
 	dir = 10
@@ -74,14 +74,17 @@
 /turf/open/auto_turf/sand/layer1,
 /area/kutjevo/exterior/construction)
 "aau" = (
-/turf/open/floor/kutjevo/tan,
+/turf/closed/wall/kutjevo/colony,
 /area/kutjevo/interior/construction/north)
 "aav" = (
-/obj/structure/platform_decoration/metal/kutjevo/east,
-/turf/open/floor/kutjevo/plate,
-/area/kutjevo/exterior/complex_border/med_rec)
+/obj/structure/machinery/door/airlock/almayer/maint/colony/autoname{
+	req_one_access = null
+	},
+/turf/open/floor/kutjevo/multi_tiles,
+/area/kutjevo/interior/construction/north)
 "aaw" = (
-/turf/closed/wall/kutjevo/colony,
+/obj/structure/window_frame/kutjevo/reinforced,
+/turf/open/floor/plating/kutjevo,
 /area/kutjevo/interior/construction/north)
 "aax" = (
 /obj/structure/platform/stone/kutjevo/north,
@@ -91,66 +94,81 @@
 /area/kutjevo/interior/colony_north)
 "aay" = (
 /obj/structure/machinery/door/airlock/almayer/maint/colony/autoname{
-	req_one_access = null
-	},
-/turf/open/floor/kutjevo/multi_tiles,
-/area/kutjevo/interior/construction/north)
-"aaz" = (
-/obj/structure/window_frame/kutjevo/reinforced,
-/turf/open/floor/plating/kutjevo,
-/area/kutjevo/interior/construction/north)
-"aaA" = (
-/obj/structure/machinery/door/airlock/almayer/maint/colony/autoname{
 	dir = 1;
 	req_one_access = null
 	},
 /turf/open/floor/kutjevo/multi_tiles,
 /area/kutjevo/interior/construction/north)
-"aaB" = (
+"aaz" = (
 /turf/open/auto_turf/sand/layer1,
 /area/kutjevo/interior/construction/north)
-"aaC" = (
+"aaA" = (
 /turf/open/floor/kutjevo/grey/plate,
 /area/kutjevo/interior/construction/north)
-"aaD" = (
+"aaB" = (
 /obj/effect/landmark/corpsespawner/colonist/kutjevo,
 /turf/open/floor/kutjevo/grey/plate,
 /area/kutjevo/interior/construction/north)
-"aaE" = (
+"aaC" = (
 /turf/open/auto_turf/sand/layer2,
 /area/kutjevo/interior/construction/north)
-"aaF" = (
+"aaD" = (
 /turf/open/floor/plating/kutjevo,
 /area/kutjevo/interior/construction/north)
-"aaG" = (
+"aaE" = (
 /turf/open/auto_turf/sand/layer0,
 /area/kutjevo/interior/construction/north)
-"aaH" = (
+"aaF" = (
 /obj/structure/lattice,
 /turf/open/floor/plating/kutjevo,
 /area/kutjevo/interior/construction/north)
-"aaI" = (
+"aaG" = (
 /obj/structure/girder,
 /turf/open/floor/kutjevo/grey/plate,
 /area/kutjevo/interior/construction/north)
-"aaJ" = (
+"aaH" = (
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/plating/kutjevo,
 /area/kutjevo/interior/construction/north)
-"aaK" = (
+"aaI" = (
 /obj/effect/spawner/random/tool,
 /turf/open/floor/kutjevo/grey/plate,
 /area/kutjevo/interior/construction/north)
-"aaL" = (
+"aaJ" = (
 /turf/open/floor/plating/kutjevo,
 /area/kutjevo/interior/complex/med/auto_doc)
-"aaM" = (
+"aaK" = (
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/kutjevo/grey/plate,
 /area/kutjevo/interior/construction/north)
+"aaL" = (
+/turf/open/floor/kutjevo/plate,
+/area/kutjevo/exterior/complex_border/med_rec)
+"aaM" = (
+/obj/structure/platform_decoration/metal/kutjevo/east,
+/turf/open/floor/kutjevo/plate,
+/area/kutjevo/exterior/complex_border/med_rec)
 "aaN" = (
 /obj/effect/landmark/nightmare{
 	insert_tag = "clfsmugglers"
+	},
+/turf/closed/wall/kutjevo/rock,
+/area/kutjevo/interior/oob)
+"aaO" = (
+/obj/effect/landmark/nightmare{
+	insert_tag = "hvhuscmlz2"
+	},
+/turf/open/floor/plating/kutjevo,
+/area/shuttle/drop1/kutjevo)
+"aaP" = (
+/obj/effect/landmark/nightmare{
+	insert_tag = "hvhupplz1"
+	},
+/turf/open/auto_turf/sand/layer1,
+/area/kutjevo/interior/colony_south)
+"aaQ" = (
+/obj/effect/landmark/nightmare{
+	insert_tag = "hvhuscmlz1"
 	},
 /turf/closed/wall/kutjevo/rock,
 /area/kutjevo/interior/oob)
@@ -16197,7 +16215,7 @@ dxF
 dxF
 dxF
 dxF
-dxF
+aaQ
 dxF
 dxF
 dxF
@@ -18582,7 +18600,7 @@ lAI
 lAI
 lAI
 lAI
-lAI
+aaO
 lAI
 lAI
 lAI
@@ -19490,7 +19508,7 @@ ppX
 ppX
 ppX
 ppX
-aaL
+aaJ
 ppX
 ppX
 ppX
@@ -34703,9 +34721,9 @@ msK
 msK
 hpy
 aEl
-aav
-aas
-aaq
+aaM
+aar
+aaL
 msK
 msK
 nAc
@@ -35022,7 +35040,7 @@ dxF
 dxF
 dxF
 aap
-aaC
+aaA
 uiz
 gKa
 aap
@@ -35189,12 +35207,12 @@ dxF
 dxF
 dxF
 aap
-aaC
-aaC
-aaC
-aaG
-aaB
-aaG
+aaA
+aaA
+aaA
+aaE
+aaz
+aaE
 gld
 rgQ
 wzC
@@ -35356,11 +35374,11 @@ dxF
 dxF
 dxF
 aap
-aaC
-aaF
-aaC
+aaA
+aaD
+aaA
 ffa
-aaC
+aaA
 tOw
 gld
 gld
@@ -35523,12 +35541,12 @@ dxF
 dxF
 dxF
 aap
+aaD
+aaA
+aaD
 aaF
-aaC
-aaF
-aaH
-aaC
-aaB
+aaA
+aaz
 gld
 msK
 msK
@@ -35691,18 +35709,18 @@ dxF
 dxF
 aap
 eTP
-aar
-aaH
-aaH
-aaH
-aaC
-aaB
-aaB
-aaB
-aap
-aap
+aaq
+aaF
+aaF
+aaF
+aaA
 aaz
 aaz
+aaz
+aap
+aap
+aaw
+aaw
 mYM
 aap
 aap
@@ -35857,16 +35875,16 @@ dxF
 dxF
 dxF
 aap
-aaC
+aaA
 sXj
+aaD
 aaF
-aaH
-aaF
-aaF
+aaD
+aaD
 ffa
 tAX
 eIZ
-aaw
+aau
 eiz
 atC
 keM
@@ -36024,12 +36042,12 @@ dxF
 dxF
 dxF
 aap
+aaA
+aaD
 aaC
-aaF
-aaE
-aaC
-aaC
-aaF
+aaA
+aaA
+aaD
 tAX
 mCL
 tAX
@@ -36191,16 +36209,16 @@ dxF
 dxF
 dxF
 aap
-aaH
 aaF
-aaB
+aaD
+aaz
 ryY
-aaI
-aaw
-aar
+aaG
+aau
+aaq
 kKc
-aar
-aaw
+aaq
+aau
 vfr
 qIi
 gew
@@ -36359,15 +36377,15 @@ dxF
 dxF
 aap
 dsP
-aaB
-aaF
-aaC
-aaF
-aaw
+aaz
+aaD
+aaA
+aaD
+aau
 mtt
 wuL
 juz
-aaw
+aau
 vfr
 bVI
 wAo
@@ -36526,15 +36544,15 @@ dxF
 dxF
 aap
 hWD
-aaB
-aaF
-aaC
+aaz
+aaD
+aaA
 sbz
-aaw
+aau
 rqD
 xNf
 xNf
-aaA
+aay
 vfr
 xrF
 xrF
@@ -36692,16 +36710,16 @@ dxF
 dxF
 dxF
 aap
-aaC
-aaB
-aaB
-aaC
-aaC
-aaw
+aaA
+aaz
+aaz
+aaA
+aaA
+aau
 era
 xNf
 rGm
-aaw
+aau
 wOI
 ikW
 ikW
@@ -36860,23 +36878,23 @@ dxF
 dxF
 aap
 eIZ
-aaB
-aaF
-aaC
-aaI
+aaz
+aaD
+aaA
+aaG
 aap
-aaw
+aau
 qCd
-aaw
+aau
 aap
-aaw
-aaw
-aay
-aay
-aaw
-aaw
-aar
-aar
+aau
+aau
+aav
+aav
+aau
+aau
+aaq
+aaq
 aap
 ibV
 msK
@@ -37027,14 +37045,14 @@ dxF
 dxF
 aap
 irK
-aaE
 aaC
-aaB
-aaE
-aaw
+aaA
+aaz
+aaC
+aau
 uQa
-aaC
-aaC
+aaA
+aaA
 alo
 cPv
 qCi
@@ -37192,24 +37210,24 @@ dxF
 dxF
 dxF
 dxF
-aar
-aaB
-aaF
-aaB
-aaC
+aaq
+aaz
+aaD
+aaz
+aaA
 sbz
-aaw
+aau
 sBh
 xyF
-aaD
+aaB
 alo
 vfr
 hkq
 dKO
-aau
-aau
-aau
-aau
+aas
+aas
+aas
+aas
 sCG
 mYM
 iWU
@@ -37359,13 +37377,13 @@ dxF
 dxF
 dxF
 mSm
-aaC
-aaC
-aaH
-aaH
-aaC
+aaA
+aaA
 aaF
-aaw
+aaF
+aaA
+aaD
+aau
 cWo
 iNt
 nSP
@@ -37376,7 +37394,7 @@ tgZ
 vaG
 soQ
 jpS
-aau
+aas
 kEG
 aap
 eQQ
@@ -37526,24 +37544,24 @@ wTt
 bEH
 bEH
 wUa
-aaF
-aaB
-aaC
-aaB
-aaC
-aaF
-aaw
+aaD
+aaz
+aaA
+aaz
+aaA
+aaD
+aau
 mDm
 mDm
 mDm
 aap
 mDz
-aau
-aau
+aas
+aas
 hma
-aau
-aau
-aau
+aas
+aas
+aas
 sCG
 twn
 kLO
@@ -37694,23 +37712,23 @@ bkR
 bkR
 wUa
 ryY
-aaB
-aaB
-aaB
-aaF
-aaF
-aaC
-aaC
-aaC
-aaB
+aaz
+aaz
+aaz
+aaD
+aaD
 aaA
+aaA
+aaA
+aaz
+aay
 kuL
-aau
+aas
 fMd
 ssj
-aau
-aau
-aau
+aas
+aas
+aas
 dOJ
 twn
 nZp
@@ -37860,24 +37878,24 @@ bkR
 bkR
 jIN
 wUa
-aaF
-aaB
-aaB
-aaF
-aaB
-aaB
-aaB
-aaE
+aaD
+aaz
+aaz
+aaD
+aaz
+aaz
+aaz
 aaC
-aaC
+aaA
+aaA
 aap
 iLU
 oMW
-aau
+aas
 bKm
 vMf
 fEz
-aau
+aas
 txH
 aap
 eQQ
@@ -38027,24 +38045,24 @@ bkR
 bkR
 bkR
 mSm
-aar
-aaB
-aaB
-aaF
-aaB
-aaC
-aaB
-aaB
+aaq
+aaz
+aaz
+aaD
+aaz
+aaA
+aaz
+aaz
 ouW
 ouW
 aap
 aap
 pCJ
 qOM
-aau
+aas
 vQg
 vQg
-aau
+aas
 sCG
 mYM
 avT
@@ -38195,13 +38213,13 @@ bEH
 hUk
 hUk
 aap
-aaC
-aaH
-aaH
-aaH
-aaE
-aaC
+aaA
 aaF
+aaF
+aaF
+aaC
+aaA
+aaD
 hUk
 hUk
 hUk
@@ -38363,10 +38381,10 @@ hUk
 sMg
 aap
 irK
-aaK
-aaC
-aaC
-aaB
+aaI
+aaA
+aaA
+aaz
 hUk
 hUk
 hUk
@@ -38528,11 +38546,11 @@ hUk
 hUk
 hUk
 sMg
-aaM
+aaK
 mJY
-aaJ
-aaJ
-aaJ
+aaH
+aaH
+aaH
 hUk
 hUk
 hUk
@@ -43618,7 +43636,7 @@ bpj
 bpj
 bpj
 bpj
-bpj
+aaP
 bpj
 bpj
 bpj
