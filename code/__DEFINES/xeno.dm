@@ -160,12 +160,10 @@
 #define WEED_BASE_GROW_SPEED (5 SECONDS)
 #define WEED_BASE_DECAY_SPEED (10 SECONDS)
 
-/* RUCM CHANGE
 /// The time you must be dead to join as a xeno larva
 #define XENO_JOIN_DEAD_LARVA_TIME (2.5 MINUTES)
 /// The time you must be dead to join as xeno (not larva)
 #define XENO_JOIN_DEAD_TIME (5 MINUTES)
-*/
 /// The time of inactivity you cannot exceed to join as a xeno
 #define XENO_JOIN_AFK_TIME_LIMIT (5 MINUTES)
 /// The amount of time after round start before buried larva spawns are disallowed
@@ -201,8 +199,6 @@
 #define XENO_LEAVE_TIMER_LARVA 80 //80 seconds
 /// The time against away_timer when an AFK xeno (not larva) can be replaced
 #define XENO_LEAVE_TIMER 300 //300 seconds
-/// The time against away_timer when an AFK facehugger converts to a npc
-#define XENO_FACEHUGGER_LEAVE_TIMER 420 //420 seconds
 /// The time against away_timer when an AFK xeno gets listed in the available list so ghosts can get ready
 #define XENO_AVAILABLE_TIMER 60 //60 seconds
 
