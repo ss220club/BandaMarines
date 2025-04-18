@@ -188,14 +188,14 @@
   - maptweak: cosmetic changes in cargo room
   - maptweak: cosmetic changes R&D block
   - maptweak: replace all Prison Guards corpses on UA Officers corpses
-  Noname995:
-  - bugfix: Fixed some runtimes
-  RUCM:
-  - rscadd: Upstream 07.04.2025
   Doc12693420:
   - spellcheck: fixes a typo in bone-mending chem property, "Re-wowen" to "Re-woven"
   Git-Nivrak:
   - admin: Added logging for joing as facehugger or lesser drone
+  Noname995:
+  - bugfix: Fixed some runtimes
+  RUCM:
+  - rscadd: Upstream 07.04.2025
   Steelpoint, Cuberound, Blundir, Zenith, dimdimich1996, .gl0ck, feroxz:
   - mapadd: The SSV Rostock, a UPP warship equivalent to the USS Almayer, has been
       added to the game as an admin-spawnable ship.
@@ -350,9 +350,24 @@
 2025-04-18:
   BOBAMAx:
   - bugfix: CO survs on NV will no longer be UASF COs in the CLF insert
+  Killfish:
+  - rscdel: Removed two entirely unused variables
+  - balance: Burrower now has a minimum travel time of 1 second, and unburrow stun
+      has been reduced from 2 to 1.5. No more stunlocking, and surprise solocapping
+      in FOB is now a bit harder.
+  - balance: Tremor has had its cooldown reduced from 45 seconds to 30 seconds.
+  MistChristmas, Drathek:
+  - qol: 'Autowiki: Ignores most bayonets, and other misc. attachments. Compares difference
+      in base vs strain stats. Switches to using isnull so armour damage table populates
+      0s.'
   Nihisohel:
   - bugfix: Flamers can now discharge properly
   - bugfix: Skill locked weapons now respect skill checks when attempting a discharge
   - bugfix: Weapons on safety no longer discharge
+  RUCM:
+  - rscadd: Upstream 18.04.2025
+  Red-byte3D:
+  - code_imp: lunging is now behavior delegate var
+  - balance: You can no longer tackle while lunging
   efzapa:
   - rscadd: Fax Responders now spawn with a pen in their ear slot.
