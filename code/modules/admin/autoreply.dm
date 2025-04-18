@@ -37,7 +37,7 @@ ON_CONFIG_LOAD(/datum/autoreply/admin/marine)
 ON_CONFIG_LOAD(/datum/autoreply/admin/xeno)
 	message = "На большинство ваших вопросов может ответить <a href='[CONFIG_GET(string/wikiarticleurl)]/[URL_WIKI_XENO_QUICKSTART]'>Краткое руководство по ксеноморфам</a>. Если что-то непонятно или у вас есть другой вопрос, пожалуйста, создайте новый тикет в \"MentorHelp\" или \"AdminHelp\"." // SS220 - EDIT
 
-ON_CONFIG_LOAD(/datum/autoreply/mentor/changelog) // SS220 - EDIT
+ON_CONFIG_LOAD(/datum/autoreply/admin/changelog) // SS220 - EDIT
 	title = "C: Список изменений" // SS220 - EDIT
 	message = "Ответ на ваш вопрос можно найти в списке изменений. Перейдите во вкладку \"OOC\" и выберите пункт \"Changelog\" в правом верхнем углу экрана для просмотра списка или же зайдите на наш Discord-сервер SS220 <a href='[CONFIG_GET(string/discordurl)]'>здесь</a>." // SS220 - EDIT
 
