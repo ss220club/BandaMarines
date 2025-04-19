@@ -5,35 +5,35 @@
 
 /datum/paygrade/freelancer/standard
 	name = "Фрилансер"
-	prefix = "НАЕМ"
+	prefix = "Наем"
 
 /datum/paygrade/freelancer/medic
 	name = "Фрилансер-Медик"
-	prefix = "МЕД"
+	prefix = "Мед"
 
 /datum/paygrade/freelancer/leader
 	name = "Фрилансер-Лидер"
-	prefix = "ВНЧЛ"
+	prefix = "Военачальник"
 
 /datum/paygrade/freelancer/elite
 	fprefix = "Элит"
 
 /datum/paygrade/freelancer/elite/standard
 	name = "Элитный Фрилансер"
-	prefix = "НАЕМ"
+	prefix = "Наем"
 
 /datum/paygrade/freelancer/elite/heavy
 	name = "Элитный Тяжеловооруженный Фрилансер"
-	prefix = "ТЯЖ"
+	prefix = "Тяж"
 
 /datum/paygrade/freelancer/elite/engineer
 	name = "Элитный Фрилансер Инженер"
-	prefix = "ИНЖ"
+	prefix = "Инж"
 
 /datum/paygrade/freelancer/elite/medic
 	name = "Элитный Фрилансер Медик"
-	prefix = "МЕД"
+	prefix = "Мед"
 
 /datum/paygrade/freelancer/elite/leader
 	name = "Элитный Фрилансер Лидер"
-	prefix = "ВНЧЛ"
+	prefix = "Военачальник"

@@ -3,48 +3,44 @@
 
 /datum/paygrade/wy_ranks/wyc1
 	name = "Стажёр"
-	prefix = "СТЖР"
+	prefix = "Стжр"
 
 /datum/paygrade/wy_ranks/wyc2
-	name = "Младший Администратор"
-	prefix = "МЛ.АДМ"
+	name = "Младший Исполнитель"
+	prefix = "МлИспл"
 
 /datum/paygrade/wy_ranks/wycPO
 	name = "Капитан"
-	prefix = "КПТН"
+	prefix = "Капитан"
 
 /datum/paygrade/wy_ranks/wyc3
-	name = "Администратор"
-	prefix = "АДМ"
+	name = "Исполнитель"
+	prefix = "Испл"
 
 /datum/paygrade/wy_ranks/wyc4
-	name = "Старший Администратор"
-	prefix = "СТ.АДМ"
+	name = "Старший Исполнитель"
+	prefix = "СтИспл"
 
 /datum/paygrade/wy_ranks/wyc5
-	name = "Исполнительный Специалист"
-	prefix = "ИСП.СПЦ"
+	name = "Специалист-Исполнитель"
+	prefix = "Спец-Испл"
 
 /datum/paygrade/wy_ranks/wyc6
-	name = "Исполнительный Супервайзер"
-	prefix = "ИСП.СПВЗ"
+	name = "Руководитель-Исполнитель"
+	prefix = "РуквдИспл"
 
 /datum/paygrade/wy_ranks/wyc7
-	name = "Помощник Руководителя Подразделения"
-	prefix = "ПОМ.РКВ"
+	name = "Помощник Управляющего"
+	prefix = "ПомУпрл"
 
 /datum/paygrade/wy_ranks/wyc8
-	name = "Руководитель Подразделения"
-	prefix = "РКВ.ПОДР"
+	name = "Управлящий Дивизией"
+	prefix = "УпрлДив"
 
 /datum/paygrade/wy_ranks/wyc9
-	name = "Исполнительный Директор"
-	prefix = "ИСПОЛН.ДИР" // я не буду писать ИСП.ДИР
+	name = "Главный Исполнитель"
+	prefix = "ГлавИспл"
 
 /datum/paygrade/wy_ranks/wyc10
-	name = "Заместитель Директора Корпорации"
-	prefix = "ЗАМ.ДИР"
-
-/datum/paygrade/wy_ranks/wyc11
-	name = "Директор Корпорации"
-	prefix = "ДИР"
+	name = "Директор"
+	prefix = "Директор"

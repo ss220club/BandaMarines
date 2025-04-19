@@ -4,43 +4,43 @@
 
 /datum/paygrade/cmb/standard
 	name = "КМБ Оперуполномоченный"
-	prefix = "ОПР"
+	prefix = "Опер"
 
 /datum/paygrade/cmb/leader
 	name = "КМБ Маршал"
-	prefix = "МРШЛ"
+	prefix = "Маршал"
 
 /datum/paygrade/cmb/syn
-	name = "КМБ Синтетик-Следователь"
-	prefix = "СИНТ.СЛ"
+	name = "КМБ Синтетик Расследования"
+	prefix = "Синт"
 
 /datum/paygrade/cmb/syn/riot
-	name = "КМБ Синтетик-Силовик"
-	prefix = "СИНТ.СЛК"
+	name = "КМБ Синтетик-Блюститель Порядка"
+	prefix = "Синт"
 
 /datum/paygrade/cmb/riot
-	name = "КМБ Силовик"
-	prefix = "ОФЦ.СЛК"
+	name = "КМБ Офицер-Блюститель Порядка"
+	prefix = "Офц"
 
 /datum/paygrade/cmb/med
-	name = "КМБ Медик"
-	prefix = "МДК"
+	name = "КМБ Медицинский Техник"
+	prefix = "Мед"
 
 /datum/paygrade/cmb/eng
 	name = "КМБ Техник Прорыва"
-	prefix = "ПРОР.ТХ"
+	prefix = "Прор"
 
 /datum/paygrade/cmb/spec
 	name = "КМБ Спецназ"
-	prefix = "СПЕЦ"
+	prefix = "Спец"
 
 /datum/paygrade/cmb/icc
 	name = "Комиссионер Межзвездной Торговли"
-	prefix = "КМС"
+	prefix = "Комис"
 
 /datum/paygrade/cmb/icc/liaison
-	name = "Представитель Комиссии по Межзвездной Торговле"
-	prefix = "ПРЕД.КМС"
+	name = "Представитель Корпорации по Комиссии Межзвездной Торговли"
+	prefix = "ПредКомис"
 
 /datum/paygrade/cmb/observer
 	name = "Межзвездный Наблюдатель Прав Человека"

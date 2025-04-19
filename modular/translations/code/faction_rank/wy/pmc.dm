@@ -3,24 +3,24 @@
 
 //Standard PMCs
 /datum/paygrade/pmc/standard
-	name = "Оперативник"
-	prefix = "ОПРТ"
+	name = "Оператор"
+	prefix = "ОПР"
 
 /datum/paygrade/pmc/enforcer
-	name = "Силовик" //не нашел где используется
-	prefix = "СЛВК"
+	name = "Исполнитель"
+	prefix = "ИСП"
 
 //PMC Field Specialists
 /datum/paygrade/pmc/vehicle
-	name = "Транспортный Техник" //не нашел где используется
-	prefix = "ТЕХ.ТР"
+	name = "Техник-Специалист"
+	prefix = "ТЕХ.СП"
 
 /datum/paygrade/pmc/support
 	name = "Специалист Поддержки"
 	prefix = "ПОД.СП"
 
 /datum/paygrade/pmc/medic
-	name = "Медицинский Специалист"
+	name = "Медик-Специалист"
 	prefix = "МЕД.СП"
 
 /datum/paygrade/pmc/spec
@@ -28,13 +28,13 @@
 	prefix = "ОРЖ.СП"
 
 /datum/paygrade/pmc/crowd_control
-	name = "Специалист Подавления Бунтов"
-	prefix = "СППБ"
+	name = "Специалист по контролю толпы"
+	prefix = "СПКТ"
 
 //PMC Support Staff
 /datum/paygrade/pmc/doctor
-	name = "Хирург-Травматолог"
-	prefix = "ДОК"
+	name = "Хирург-травматолог"
+	prefix = "Док"
 
 /datum/paygrade/pmc/engineer
 	name = "Техник Корпорации"
@@ -42,9 +42,9 @@
 
 //PMC Command
 /datum/paygrade/pmc/teamlead
-	name = "Лидер Группы ЧВК"
+	name = "Лидер Группы"
 	prefix = "ЛГ"
 
 /datum/paygrade/pmc/director
-	name = "Директор Подразделения"
+	name = "Директор Объекта"
 	prefix = "ДИР"

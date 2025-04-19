@@ -1,6 +1,0 @@
-#include "_paper.dm"
-
-#include "code/paper.dm"
-
-// Prefab Papers
-#include "code/prefab_papers/reset_key_instructions.dm"
