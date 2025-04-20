@@ -485,6 +485,10 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating/plating_catwalk,
 /area/almayer/hallways/upper/port)
+"abu" = (
+/obj/structure/machinery/light,
+/turf/open/floor/almayer/orange/southeast,
+/area/almayer/hallways/upper/aft_hallway)
 "abv" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/plating_catwalk,
@@ -493,6 +497,14 @@
 /obj/structure/window/framed/almayer/hull,
 /turf/open/floor/plating,
 /area/almayer/lifeboat_pumps/north1)
+"abx" = (
+/obj/structure/pipes/standard/simple/hidden/supply/no_boom,
+/obj/structure/bed/roller/heavy,
+/turf/open/floor/almayer/sterile_green,
+/area/almayer/medical/containment)
+"aby" = (
+/turf/open/floor/almayer/redcorner/north,
+/area/almayer/shipboard/brig/processing)
 "abz" = (
 /obj/structure/bed,
 /obj/structure/bed{
@@ -550,6 +562,16 @@
 "abE" = (
 /turf/closed/wall/almayer,
 /area/almayer/living/basketball)
+"abF" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/pipes/standard/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/bed/chair,
+/turf/open/floor/almayer/red/north,
+/area/almayer/shipboard/brig/processing)
 "abG" = (
 /obj/structure/filingcabinet/security,
 /obj/structure/machinery/alarm/almayer{
@@ -33113,6 +33135,7 @@
 /obj/structure/pipes/standard/manifold/hidden/supply{
 	dir = 1
 	},
+/obj/structure/bed/chair,
 /turf/open/floor/almayer/redcorner/north,
 /area/almayer/shipboard/brig/processing)
 "fYB" = (
@@ -38601,7 +38624,7 @@
 /obj/structure/machinery/cm_vending/sorted/medical/wall_med{
 	pixel_y = -25
 	},
-/turf/open/floor/almayer/orangecorner,
+/turf/open/floor/almayer/orange/south,
 /area/almayer/hallways/upper/aft_hallway)
 "iAO" = (
 /obj/structure/bed/chair{
@@ -44756,6 +44779,7 @@
 /obj/structure/machinery/atm{
 	pixel_y = 32
 	},
+/obj/structure/bed/chair,
 /turf/open/floor/almayer/redcorner/east,
 /area/almayer/shipboard/brig/processing)
 "luS" = (
@@ -51281,13 +51305,6 @@
 "oqA" = (
 /turf/open/floor/almayer/blue/north,
 /area/almayer/command/cichallway)
-"oqD" = (
-/obj/structure/sign/safety/hvac_old{
-	pixel_x = 8;
-	pixel_y = -32
-	},
-/turf/closed/wall/almayer,
-/area/almayer/living/pilotbunks)
 "oqQ" = (
 /obj/structure/pipes/standard/simple/hidden/supply{
 	dir = 5
@@ -55141,7 +55158,7 @@
 /turf/open/floor/almayer/plate,
 /area/almayer/maint/upper/u_f_p)
 "qgH" = (
-/obj/item/storage/backpack/marine/satchel,
+/obj/item/storage/bag/trash,
 /turf/open/floor/plating/plating_catwalk,
 /area/almayer/maint/hull/lower/l_m_p)
 "qgK" = (
@@ -58867,21 +58884,13 @@
 /turf/open/floor/almayer/blue/east,
 /area/almayer/living/briefing)
 "rJh" = (
-/obj/item/storage/backpack/marine/satchel{
-	desc = "It's the heavy-duty black polymer kind. Time to take out the trash!";
-	icon = 'icons/obj/janitor.dmi';
-	icon_state = "trashbag3";
-	name = "trash bag";
-	pixel_x = -4;
-	pixel_y = 6
+/obj/item/storage/bag/trash{
+	pixel_y = -4;
+	pixel_x = -8
 	},
-/obj/item/storage/backpack/marine/satchel{
-	desc = "It's the heavy-duty black polymer kind. Time to take out the trash!";
-	icon = 'icons/obj/janitor.dmi';
-	icon_state = "trashbag3";
-	name = "trash bag";
-	pixel_x = 5;
-	pixel_y = -2
+/obj/item/storage/bag/trash{
+	pixel_y = -4;
+	pixel_x = 1
 	},
 /turf/open/floor/almayer/orange/southwest,
 /area/almayer/engineering/upper_engineering/port)
@@ -60767,10 +60776,10 @@
 /area/almayer/command/airoom)
 "sHg" = (
 /obj/structure/surface/rack,
-/obj/item/storage/backpack/marine/satchel{
+/obj/item/storage/bag/trash,
+/obj/item/storage/bag/trash{
 	pixel_y = 9
 	},
-/obj/item/storage/backpack/marine/satchel,
 /turf/open/floor/almayer/plate,
 /area/almayer/maint/hull/lower/l_m_p)
 "sHh" = (
@@ -83873,7 +83882,7 @@ bRH
 bRH
 bRH
 cuk
-tkV
+aby
 jFR
 oRk
 kxM
@@ -85091,7 +85100,7 @@ dcP
 tvA
 aBd
 swn
-xTp
+abF
 lMc
 gSi
 bju
@@ -85313,7 +85322,7 @@ iFc
 thL
 tUx
 fgR
-xUa
+szn
 fQk
 ils
 aag
@@ -93946,7 +93955,7 @@ iFn
 niq
 aNT
 jgt
-oqD
+aiX
 eNS
 bIO
 ajZ
@@ -108440,7 +108449,7 @@ aqS
 mnW
 nPf
 vYz
-aqS
+abx
 uoi
 aAD
 vOy
@@ -116769,7 +116778,7 @@ aGV
 aGG
 qaV
 kwd
-qiY
+alG
 eRt
 pBW
 oIB
@@ -117177,7 +117186,7 @@ aoT
 kwd
 dyZ
 ctC
-apf
+abu
 oIB
 gPF
 mKK
