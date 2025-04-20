@@ -166,8 +166,11 @@
 
 /obj/item/storage/belt/gun/xm52/attackby(obj/item/item, mob/user)
 	if(istype(item, /obj/item/ammo_magazine/shotgun/light/breaching/sparkshots))
+/* TODO - fix handful sprites for dump_ammo_to
 		var/obj/item/ammo_magazine/shotgun/light/breaching/sparkshots/ammo_box = item
 		dump_ammo_to(ammo_box, user, ammo_box.transfer_handful_amount)
+*/
+		to_chat(user, SPAN_WARNING("You can't dump sparkshots in [src], sparkshots too explosive..."))
 	else
 		return ..()
 
