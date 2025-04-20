@@ -1,0 +1,5 @@
+author: "Noname995"
+delete-after: True
+changes:
+  - bugfix: "fixed sprites of stormtrooper"
+  - imageadd: "added some new icons for ST"
