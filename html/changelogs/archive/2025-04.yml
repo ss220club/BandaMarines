@@ -374,3 +374,7 @@
 2025-04-19:
   RUCM:
   - rscadd: Upstream 18.04.2025
+2025-04-20:
+  0Tikwah0:
+  - maptweak: del window bulb on brig's window
+  - maptweak: 'other fixes: chair''s replacment in brig, del flying signs, etc'
