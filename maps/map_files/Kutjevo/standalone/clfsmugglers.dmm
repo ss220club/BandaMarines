@@ -28,6 +28,9 @@
 /obj/item/device/m56d_gun/mounted{
 	pixel_y = -5
 	},
+/obj/item/ammo_magazine/m60,
+/obj/item/ammo_magazine/m60,
+/obj/item/weapon/gun/m60,
 /turf/open/floor/plating/warnplate/east,
 /area/kutjevo/interior/colony/clf_shuttle)
 "bj" = (
