@@ -482,18 +482,18 @@
 	var/cards_length = length(cards)
 	if(pile_state)
 		if(concealed)
-			name = "draw pile"
-			desc = "A pile of cards to draw from."
+			name = "Стопка карт" // SS220 - EDIT
+			desc = "Это стопка игральных карт." // SS220 - EDIT
 		else
 			name = "discard pile"
 			desc = "A pile of cards you can discard to."
 	else
 		if(cards_length > 1)
-			name = "hand of cards"
-			desc = "Some playing cards."
+			name = "Игральные карты" // SS220 - EDIT
+			desc = "Это игральные карты." // SS220 - EDIT
 		else
-			name = "a playing card"
-			desc = "A playing card."
+			name = "игральная карта" // SS220 - EDIT
+			desc = "Это игральная карта." // SS220 - EDIT
 
 	if(length(cards) >= 200)
 		// BYOND will flat out choke when using thousands of cards for some unknown reason,

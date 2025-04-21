@@ -724,7 +724,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 //ZIPPO//
 /////////
 /obj/item/tool/lighter
-	name = "cheap lighter"
+	name = "Дешёвая зажигалка" // SS220 - EDIT
 	desc = "A cheap-as-free lighter."
 	icon = 'icons/obj/items/smoking/lighters.dmi'
 	icon_state = "lighter_g"
@@ -746,7 +746,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	attack_verb = list("burnt", "singed")
 
 /obj/item/tool/lighter/zippo
-	name = "\improper Zippo lighter"
+	name = "\improper Зажигалка «Zippo»" // SS220 - EDIT
 	desc = "A fancy steel Zippo lighter. Ignite in style."
 	icon_state = "zippo"
 	item_state = "zippo"
@@ -781,7 +781,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_off = "blackzippo"
 
 /obj/item/tool/lighter/zippo/blue
-	name = "blue Zippo lighter"
+	name = "Синяя зажигалка «Zippo»" // SS220 - EDIT
 	desc = "A fancy blue Zippo lighter. In Koorlander blue..."
 	icon_state = "bluezippo"
 	item_state = "bluezippo"

@@ -389,7 +389,7 @@
 //WEYLAND-YUTANI
 
 /obj/item/reagent_container/food/drinks/cans/cola
-	name = "\improper Fruit-Beer"
+	name = "\improper Фруктовое пиво" // SS220 - EDIT
 	desc = "In theory, Mango flavored root beer sounds like a pretty good idea. Weyland-Yutani has disproved yet another theory with its latest line of cola. Canned by the Weyland-Yutani Corporation."
 	icon_state = "fruit_beer"
 	center_of_mass = "x=16;y=10"
@@ -507,7 +507,7 @@
 	embeddable = 1
 
 /obj/item/reagent_container/food/drinks/cans/souto/diet
-	name = "\improper Diet Souto"
+	name = "\improper Диетический Соуто" // SS220 - EDIT
 	desc = "Now with 0% fruit juice! Canned in Havana"
 	icon_state = "souto_diet_classic"
 	item_state = "souto_diet_classic"
@@ -517,7 +517,7 @@
 	reagents.add_reagent("water", 25)
 
 /obj/item/reagent_container/food/drinks/cans/souto/classic
-	name = "\improper Souto Classic"
+	name = "\improper Соуто «Классик»" // SS220 - EDIT
 	desc = "The can boldly proclaims it to be tangerine flavored. You can't help but think that's a lie. Canned in Havana."
 	icon_state = "souto_classic"
 	item_state = "souto_classic"
@@ -527,7 +527,7 @@
 	reagents.add_reagent("souto_classic", 50)
 
 /obj/item/reagent_container/food/drinks/cans/souto/diet/classic
-	name = "\improper Diet Souto"
+	name = "\improper Диетический Соуто" // SS220 - EDIT
 	desc = "Now with 0% fruit juice! Canned in Havana"
 	icon_state = "souto_diet_classic"
 	item_state = "souto_diet_classic"
@@ -537,7 +537,7 @@
 	reagents.add_reagent("souto_classic", 25)
 
 /obj/item/reagent_container/food/drinks/cans/souto/cherry
-	name = "\improper Cherry Souto"
+	name = "\improper Соуто «Вишня»" // SS220 - EDIT
 	desc = "Now with more artificial flavors! Canned in Havana"
 	icon_state = "souto_cherry"
 	item_state = "souto_cherry"
@@ -547,7 +547,7 @@
 	reagents.add_reagent("souto_cherry", 50)
 
 /obj/item/reagent_container/food/drinks/cans/souto/diet/cherry
-	name = "\improper Diet Cherry Souto"
+	name = "\improper Диетический Соуто «Вишня»" // SS220 - EDIT
 	desc = "It's neither diet nor cherry flavored. Canned in Havanna."
 	icon_state = "souto_diet_cherry"
 	item_state = "souto_diet_cherry"
@@ -557,7 +557,7 @@
 	reagents.add_reagent("souto_cherry", 25)
 
 /obj/item/reagent_container/food/drinks/cans/souto/lime
-	name = "\improper Lime Souto"
+	name = "\improper Соуто «Лайм»" // SS220 - EDIT
 	desc = "It's not bad. It's not good either, but it's not bad. Canned in Havana."
 	icon_state = "souto_lime"
 	item_state = "souto_lime"
@@ -567,7 +567,7 @@
 	reagents.add_reagent("souto_lime", 50)
 
 /obj/item/reagent_container/food/drinks/cans/souto/diet/lime
-	name = "\improper Diet Lime Souto"
+	name = "\improper Диетический Соуто «Лайм»" // SS220 - EDIT
 	desc = "Ten kinds of acid, two cups of fake sugar, almost a full tank of carbon dioxide, and about 210 kPa all crammed into an aluminum can. What's not to love? Canned in Havana."
 	icon_state = "souto_diet_lime"
 	item_state = "souto_diet_lime"
@@ -577,7 +577,7 @@
 	reagents.add_reagent("souto_lime", 25)
 
 /obj/item/reagent_container/food/drinks/cans/souto/grape
-	name = "\improper Grape Souto"
+	name = "\improper Соуто «Виноград»" // SS220 - EDIT
 	desc = "An old standby for soda flavors. This, however, tastes like grape flavored cough syrup. Canned in Havana."
 	icon_state = "souto_grape"
 	item_state = "souto_grape"
@@ -587,7 +587,7 @@
 	reagents.add_reagent("souto_grape", 50)
 
 /obj/item/reagent_container/food/drinks/cans/souto/diet/grape
-	name = "\improper Diet Grape Souto"
+	name = "\improper Диетический Соуто «Виноград»" // SS220 - EDIT
 	desc = "You're fairly certain that this is just grape cough syrup and carbonated water. Canned in Havana."
 	icon_state = "souto_diet_grape"
 	item_state = "souto_diet_grape"
@@ -597,7 +597,7 @@
 	reagents.add_reagent("souto_grape", 25)
 
 /obj/item/reagent_container/food/drinks/cans/souto/blue
-	name = "\improper Blue Raspberry Souto"
+	name = "\improper Соуто «Голубая малина»" // SS220 - EDIT
 	desc = "It tastes like the color blue. Technology really is amazing. Canned in Havana."
 	icon_state = "souto_blueraspberry"
 	item_state = "souto_blueraspberry"
@@ -608,7 +608,7 @@
 	reagents.add_reagent("souto_blueraspberry", 50)
 
 /obj/item/reagent_container/food/drinks/cans/souto/diet/blue
-	name = "\improper Diet Blue Raspberry Souto"
+	name = "\improper Диетический Соуто «Голубая малина»" // SS220 - EDIT
 	desc = "WHAT A SCAM! It doesn't even taste like blue! At best, it tastes like cyan. Canned in Havana."
 	icon_state = "souto_diet_blueraspberry"
 	item_state = "souto_diet_blueraspberry"
@@ -618,7 +618,7 @@
 	reagents.add_reagent("souto_blueraspberry", 25)
 
 /obj/item/reagent_container/food/drinks/cans/souto/peach
-	name = "\improper Peach Souto"
+	name = "\improper Соуто «Персик»" // SS220 - EDIT
 	desc = "On one hand, it tastes pretty good. On the other hand, you think you can hear a peach pit rattling on the inside. Canned in Havana."
 	icon_state = "souto_peach"
 	item_state = "souto_peach"
@@ -628,7 +628,7 @@
 	reagents.add_reagent("souto_peach", 50)
 
 /obj/item/reagent_container/food/drinks/cans/souto/diet/peach
-	name = "\improper Diet Peach Souto"
+	name = "\improper Диетический Соуто «Персик»" // SS220 - EDIT
 	desc = "On one hand, it tastes pretty good. On the other hand, you think you can hear half of a peach pit rattling on the inside. Canned in Havana."
 	icon_state = "souto_diet_peach"
 	item_state = "souto_diet_peach"
@@ -638,7 +638,7 @@
 	reagents.add_reagent("souto_peach", 25)
 
 /obj/item/reagent_container/food/drinks/cans/souto/cranberry
-	name = "\improper Cranberry Souto"
+	name = "\improper Соуто «Клюква»" // SS220 - EDIT
 	desc = "On closer inspection, the can reads, 'CRAMberry Souto.' What the Hell is a Cramberry? Canned in Havana."
 	icon_state = "souto_cranberry"
 	item_state = "souto_cranberry"
@@ -648,7 +648,7 @@
 	reagents.add_reagent("souto_cranberry", 50)
 
 /obj/item/reagent_container/food/drinks/cans/souto/diet/cranberry
-	name = "\improper Diet Cranberry Souto"
+	name = "\improper Диетический Соуто «Клюква»" // SS220 - EDIT
 	desc = "This tastes more like prunes than cranberries. It's not bad; it's just wrong. Canned in Havana."
 	icon_state = "souto_diet_cranberry"
 	item_state = "souto_diet_cranberry"
@@ -659,7 +659,7 @@
 	reagents.add_reagent("water", 25)
 
 /obj/item/reagent_container/food/drinks/cans/souto/vanilla
-	name = "\improper Vanilla Souto"
+	name = "\improper Соуто «Ваниль»" // SS220 - EDIT
 	desc = "When most soft drinks say 'vanilla,' they really mean their classic flavor with a bit of vanilla added. NOT THE SOUTO CORPORATION, BABY! This bad boy is filled to the brim with 100% pure carbonated vanilla extract! It tastes terrible. Canned in Havana."
 	icon_state = "souto_vanilla"
 	item_state = "souto_vanilla"
@@ -669,7 +669,7 @@
 	reagents.add_reagent("souto_vanilla", 50)
 
 /obj/item/reagent_container/food/drinks/cans/souto/diet/vanilla
-	name = "\improper Diet Vanilla Souto"
+	name = "\improper Диетический Соуто «Ваниль»" // SS220 - EDIT
 	desc = "This is a can of watery bitter vanilla extract. You can't possibly imagine who would greenlight such a concept. Canned in Havana."
 	icon_state = "souto_diet_vanilla"
 	item_state = "souto_diet_vanilla"
@@ -680,7 +680,7 @@
 	reagents.add_reagent("water", 25)
 
 /obj/item/reagent_container/food/drinks/cans/souto/pineapple
-	name = "\improper Pineapple Souto"
+	name = "\improper Соуто «Ананас»" // SS220 - EDIT
 	desc = "This tastes like battery acid with a full cup of sugar mixed in. Canned in Havana."
 	icon_state = "souto_pineapple"
 	item_state = "souto_pineapple"
@@ -690,7 +690,7 @@
 	reagents.add_reagent("souto_pineapple", 50)
 
 /obj/item/reagent_container/food/drinks/cans/souto/diet/pineapple
-	name = "\improper Diet Pineapple Souto"
+	name = "\improper Диетический Соуто «Ананас»" // SS220 - EDIT
 	desc = "This tastes like battery acid with a half cup of sugar mixed in. Canned in Havana."
 	icon_state = "souto_diet_pineapple"
 	item_state = "souto_diet_pineapple"

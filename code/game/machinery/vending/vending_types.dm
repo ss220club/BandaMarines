@@ -17,7 +17,7 @@
 */
 
 /obj/structure/machinery/vending/coffee
-	name = "\improper Hot Drinks machine"
+	name = "\improper Автомат горячих напитков" // SS220 - EDIT
 	desc = "A vending machine which dispenses hot drinks."
 	//product_ads = "Have a drink!;Drink up!;It's good for you!;Would you like a hot joe?;I'd kill for some coffee!;The best beans in the galaxy.;Only the finest brew for you.;Mmmm. Nothing like a coffee.;I like coffee, don't you?;Coffee helps you work!;Try some tea.;We hope you like the best!;Try our new chocolate!;Admin conspiracies"
 	icon_state = "coffee"
@@ -39,7 +39,7 @@
 	product_type = VENDOR_PRODUCT_TYPE_BEVERAGES
 
 /obj/structure/machinery/vending/coffee/simple
-	name = "\improper Hot Coffee Machine"
+	name = "\improper Кофе-машина" // SS220 - EDIT
 	product_ads = ""
 	products = list(/obj/item/reagent_container/food/drinks/coffee = 40)
 	contraband = list(/obj/item/reagent_container/food/drinks/h_chocolate = 25)
@@ -87,7 +87,7 @@
 	)
 
 /obj/structure/machinery/vending/cola
-	name = "\improper Souto Softdrinks"
+	name = "\improper Прохладительные напитки «Соуто»" // SS220 - EDIT
 	desc = "A softdrink vendor provided by Souto Soda Company, Havana."
 	icon_state = "Cola_Machine"
 	product_slogans = "Souto Soda: Have a Souto and be taken away to a tropical paradise!;Souto Classic. You can't beat that tangerine goodness!;Souto Cherry. The sweet flavor of a cool winter morning!;Souto Lime. For that sweet and sour flavor that you know and love!;Souto Grape. There's nothing better than a grape soda.;Weyland-Yutani Fruit Beer. Nothing came from that lawsuit!"
@@ -623,7 +623,7 @@
 	return
 
 /obj/structure/machinery/vending/walkman
-	name = "\improper Rec-Vend"
+	name = "\improper Торговый автомат «Не скучай»" // SS220 - EDIT
 	desc = "Contains Weyland-Yutani approved recreational items, like Walkmans and Cards."
 	icon_state = "walkman"
 	product_ads = "The only place to have fun in the entire Marine Corps!;You'll find no better music from here to Arcturus!;Instructions not included with decks of cards!;No volume controls - you don't need them!;All products responsibly made by people having just as much fun as you will be!;Say goodbye to the lucky strike military tobacco monopoly, with the new Weyland Yutani Military Trading Card Gold cigarette pack!"

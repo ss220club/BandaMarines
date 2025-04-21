@@ -187,7 +187,7 @@
 	reagents.add_reagent("soymilk", 50)
 
 /obj/item/reagent_container/food/drinks/coffee
-	name = "\improper Coffee"
+	name = "\improper Кофе" // SS220 - EDIT
 	desc = "Careful, the beverage you're about to enjoy is extremely hot."
 	icon_state = "coffee"
 	item_state = "coffee"
@@ -201,7 +201,7 @@
 	desc = "Recycled water, lab-grown coffee plants genetically designed for minimum expense and maximum production, and re-recycled coffee grounds have mixed together to create this insultingly cheap USCM culinary 'wonder'. You're just glad the troops get issued water for free."
 
 /obj/item/reagent_container/food/drinks/tea
-	name = "\improper Duke Purple Tea"
+	name = "\improper Пурпурный чай «Дюк»" // SS220 - EDIT
 	desc = "An insult to Duke Purple is an insult to the Space Queen! Any proper gentleman will fight you, if you sully this tea."
 	icon_state = "tea"
 	item_state = "tea"
@@ -223,7 +223,7 @@
 	reagents.add_reagent("ice", 30)
 
 /obj/item/reagent_container/food/drinks/h_chocolate
-	name = "\improper Dutch hot coco"
+	name = "\improper Горячий шоколад «Датч»" // SS220 - EDIT
 	desc = "Made in Space South America."
 	icon_state = "hot_coco"
 	item_state = "hot_coco"
