@@ -4277,12 +4277,12 @@ prepositional = "торговом автомате игрушек Donksoft"
 gender = "male"
 
 ["ColMarTech Food Vendor"]
-nominative = "раздатчик еды КолМорТех"
-genitive = "раздатчика еды КолМорТех"
-dative = "раздатчику еды КолМорТех"
-accusative = "раздатчик еды КолМорТех"
-instrumental = "раздатчиком еды КолМорТех"
-prepositional = "раздатчике еды КолМорТех"
+nominative = "раздатчик еды «КолМорТех»"
+genitive = "раздатчика еды «КолМорТех»"
+dative = "раздатчику еды «КолМорТех»"
+accusative = "раздатчик еды «КолМорТех»"
+instrumental = "раздатчиком еды «КолМорТех»"
+prepositional = "раздатчике еды «КолМорТех»"
 gender = "male"
 
 ["Donksoft Toy Vendor Refill"] # Unique Design Name
@@ -4992,14 +4992,6 @@ accusative = "дешёвую зажигалку"
 instrumental = "дешёвой зажигалкой"
 prepositional = "дешёвой зажигалке"
 gender = "female"
-
-["Matchbox"]
-nominative = "Спичечный коробок"
-genitive = "Спичечного коробка"
-dative = "Спичечному коробку"
-accusative = "Спичечный коробок"
-instrumental = "Спичечным коробком"
-prepositional = "Спичечном коробке"
 
 ["matchbox"]
 nominative = "коробка спичек"
@@ -14059,12 +14051,12 @@ prepositional = "МОДуле «защита головы по ТБ»"
 gender = "male"
 
 ["MOD t-ray scan module"]
-nominative = "МОДуль «сканер T-ray»"
-genitive = "МОДуля «сканер T-ray»"
-dative = "МОДулю «сканер T-ray»"
-accusative = "МОДуль «сканер T-ray»"
-instrumental = "МОДулем «сканер T-ray»"
-prepositional = "МОДуле «сканер T-ray»"
+nominative = "МОДуль «сканер T-лучей»"
+genitive = "МОДуля «сканер T-лучей»"
+dative = "МОДулю «сканер T-лучей»"
+accusative = "МОДуль «сканер T-лучей»"
+instrumental = "МОДулем «сканер T-лучей»"
+prepositional = "МОДуле «сканер T-лучей»"
 gender = "male"
 
 ["MOD health analyzer module"]
@@ -15608,12 +15600,12 @@ prepositional = "инженерных очках"
 gender = "plural"
 
 ["optical t-ray scanner"]
-nominative = "оптический T-ray сканер"
-genitive = "оптического T-ray сканера"
-dative = "оптическому T-ray сканеру"
-accusative = "оптический T-ray сканер"
-instrumental = "оптическим T-ray сканером"
-prepositional = "оптическом T-ray сканере"
+nominative = "оптический сканер T-лучей"
+genitive = "оптического сканера T-лучей"
+dative = "оптическому сканеру T-лучей"
+accusative = "оптический сканер T-лучей"
+instrumental = "оптическим сканером T-лучей"
+prepositional = "оптическом сканере T-лучей"
 gender = "male"
 
 ["atmospheric thermal imaging goggles"]
@@ -16475,12 +16467,12 @@ prepositional = "инопланетном мультитуле"
 gender = "male"
 
 ["T-ray scanner"]
-nominative = "сканер T-ray"
-genitive = "сканера T-ray"
-dative = "сканеру T-ray"
-accusative = "сканер T-ray"
-instrumental = "сканером T-ray"
-prepositional = "сканере T-ray"
+nominative = "сканер T-лучей"
+genitive = "сканера T-лучей"
+dative = "сканеру T-лучей"
+accusative = "сканер T-лучей"
+instrumental = "сканером T-лучей"
+prepositional = "сканере T-лучей"
 gender = "male"
 
 ["rapid wiring device"]
@@ -24815,6 +24807,382 @@ accusative = "органайзер"
 instrumental = "органайзером"
 prepositional = "органайзере"
 
+["Stairs"]
+nominative = "лестница"
+genitive = "лестницы"
+dative = "лестнице"
+accusative = "лестницу"
+instrumental = "лестницей"
+prepositional = "лестнице"
+
+["Glass door"]
+nominative = "стеклянная дверь"
+genitive = "стеклянной двери"
+dative = "стеклянной двери"
+accusative = "стеклянную дверь"
+instrumental = "стеклянной дверью"
+prepositional = "стеклянной двери"
+
+["Bathroom"]
+nominative = "санузел"
+genitive = "санузла"
+dative = "санузлу"
+accusative = "санузел"
+instrumental = "санузлом"
+prepositional = "санузле"
+
+["Personal Computer"]
+nominative = "персональный компьютер"
+genitive = "персонального компьютера"
+dative = "персональному компьютеру"
+accusative = "персональный компьютер"
+instrumental = "персональным компьютером"
+prepositional = "персональном компьютере"
+
+["USCM Military Fax Machine"]
+nominative = "военный факс ККМП"
+genitive = "военного факса ККМП"
+dative = "военному факсу ККМП"
+accusative = "военный факс ККМП"
+instrumental = "военным факсом ККМП"
+prepositional = "военном факсе ККМП"
+
+["USCM Poster"]
+nominative = "постер ККМП"
+genitive = "постера ККМП"
+dative = "постеру ККМП"
+accusative = "постер ККМП"
+instrumental = "постером ККМП"
+prepositional = "постере ККМП"
+
+["Tarbacks case"]
+nominative = "портсигар «Tarback»"
+genitive = "портсигара «Tarback»"
+dative = "портсигару «Tarback»"
+accusative = "портсигар «Tarback»"
+instrumental = "портсигаром «Tarback»"
+prepositional = "портсигаре «Tarback»"
+
+["fake wooden floor"]
+nominative = "искусственный деревянный пол"
+genitive = "искусственного деревянного пола"
+dative = "искусственному деревянному полу"
+accusative = "искусственный деревянный пол"
+instrumental = "искусственным деревянным полом"
+prepositional = "искусственном деревянном поле"
+
+["documents cabinet"]
+nominative = "шкафчик для документов"
+genitive = "шкафчика для документов"
+dative = "шкафчику для документов"
+accusative = "шкафчик для документов"
+instrumental = "шкафчиком для документов"
+prepositional = "шкафчике для документов"
+
+["chest drawer"]
+nominative = "комод"
+genitive = "комода"
+dative = "комоду"
+accusative = "комод"
+instrumental = "комодом"
+prepositional = "комоде"
+
+["dilapidated storage shutters"]
+nominative = "старые складские экраны"
+genitive = "старых складских экранов"
+dative = "старым складским экранам"
+accusative = "старые складские экраны"
+instrumental = "старыми складскими экранами"
+prepositional = "старых складских экранах"
+
+["vehicle training manual"]
+nominative = "руководство по эксплуатации ТС"
+genitive = "руководства по эксплуатации ТС"
+dative = "руководству по эксплуатации ТС"
+accusative = "руководство по эксплуатации ТС"
+instrumental = "руководством по эксплуатации ТС"
+prepositional = "руководстве по эксплуатации ТС"
+
+["Cargo Technician's Locker"]
+nominative = "шкафчик грузового техника"
+genitive = "шкафчика грузового техника"
+dative = "шкафчику грузового техника"
+accusative = "шкафчик грузового техника"
+instrumental = "шкафчиком грузового техника"
+prepositional = "шкафчике грузового техника"
+
+["metal folding chair"]
+nominative = "складной стул"
+genitive = "складного стула"
+dative = "складному стулу"
+accusative = "складной стул"
+instrumental = "складным стулом"
+prepositional = "складном стуле"
+
+["Black Donnovan II: Double Revenge"]
+nominative = "Черный Доннован II: Двойная месть"
+genitive = "Черный Доннован II: Двойная месть"
+dative = "Черный Доннован II: Двойная месть"
+accusative = "Черный Доннован II: Двойная месть
+instrumental = "Черный Доннован II: Двойная месть"
+prepositional = "Черный Доннован II: Двойная месть"
+
+["pizza box"]
+nominative = "коробка из-под пиццы"
+genitive = "коробки из-под пиццы"
+dative = "коробке из-под пиццы"
+accusative = "коробку из-под пиццы"
+instrumental = "коробкой из-под пиццы"
+prepositional = "коробке из-под пиццы"
+
+["Margherita"]
+nominative = "Маргарита"
+genitive = "Маргариты"
+dative = "Маргарите"
+accusative = "Маргариту"
+instrumental = "Маргаритой"
+prepositional = "Маргарите"
+
+["USCM satchel"]
+nominative = "ранец ККМП"
+genitive = "ранца ККМП"
+dative = "ранцу ККМП"
+accusative = "ранец ККМП"
+instrumental = "ранцем ККМП"
+prepositional = "ранце ККМП"
+
+["marine combat boots"]
+nominative = "ботинки пехотинца"
+genitive = "ботинок пехотинца"
+dative = "ботинкам пехотинца"
+accusative = "ботинки пехотинца"
+instrumental = "ботинками пехотинца"
+prepositional = "ботинках пехотинца"
+
+["marine radio headset"]
+nominative = "гарнитура пехотинца"
+genitive = "гарнитуры пехотинца"
+dative = "гарнитуре пехотинца"
+accusative = "гарнитуру пехотинца"
+instrumental = "гарнитурой пехотинца"
+prepositional = "гарнитуре пехотинца"
+
+["filing cabinet"]
+nominative = "картотека"
+genitive = "картотеки"
+dative = "картотеке"
+accusative = "картотеку"
+instrumental = "картотекой"
+prepositional = "картотеке"
+
+["Alpha Squad Radio Encryption Key"]
+nominative = "ключ шифрования для гарнитуры — отряд «Альфа»"
+genitive = "ключа шифрования для гарнитуры — отряд «Альфа»"
+dative = "ключу шифрования для гарнитуры — отряд «Альфа»"
+accusative = "ключ шифрования для гарнитуры — отряд «Альфа»"
+instrumental = "ключом шифрования для гарнитуры — отряд «Альфа»"
+prepositional = "ключе шифрования для гарнитуры — отряд «Альфа»"
+
+["Bravo Squad Radio Encryption Key"]
+nominative = "ключ шифрования для гарнитуры — отряд «Браво»"
+genitive = "ключа шифрования для гарнитуры — отряд «Браво»"
+dative = "ключу шифрования для гарнитуры — отряд «Браво»"
+accusative = "ключ шифрования для гарнитуры — отряд «Браво»"
+instrumental = "ключом шифрования для гарнитуры — отряд «Браво»"
+prepositional = "ключе шифрования для гарнитуры — отряд «Браво»"
+
+["Charlie Squad Radio Encryption Key"]
+nominative = "ключ шифрования для гарнитуры — отряд «Чарли»"
+genitive = "ключа шифрования для гарнитуры — отряд «Чарли»"
+dative = "ключу шифрования для гарнитуры — отряд «Чарли»"
+accusative = "ключ шифрования для гарнитуры — отряд «Чарли»"
+instrumental = "ключом шифрования для гарнитуры — отряд «Чарли»"
+prepositional = "ключе шифрования для гарнитуры — отряд «Чарли»"
+
+["Delta Squad Radio Encryption Key"]
+nominative = "ключ шифрования для гарнитуры — отряд «Дельта»"
+genitive = "ключа шифрования для гарнитуры — отряд «Дельта»"
+dative = "ключу шифрования для гарнитуры — отряд «Дельта»"
+accusative = "ключ шифрования для гарнитуры — отряд «Дельта»"
+instrumental = "ключом шифрования для гарнитуры — отряд «Дельта»"
+prepositional = "ключе шифрования для гарнитуры — отряд «Дельта»"
+
+["Echo Squad Radio Encryption Key"]
+nominative = "ключ шифрования для гарнитуры — отряд «Эхо»"
+genitive = "ключа шифрования для гарнитуры — отряд «Эхо»"
+dative = "ключу шифрования для гарнитуры — отряд «Эхо»"
+accusative = "ключ шифрования для гарнитуры — отряд «Эхо»"
+instrumental = "ключом шифрования для гарнитуры — отряд «Эхо»"
+prepositional = "ключе шифрования для гарнитуры — отряд «Эхо»"
+
+["Engineering Radio Encryption Key"]
+nominative = "ключ шифрования для гарнитуры — инженерный"
+genitive = "ключа шифрования для гарнитуры — инженерный"
+dative = "ключу шифрования для гарнитуры — инженерный"
+accusative = "ключ шифрования для гарнитуры — инженерный"
+instrumental = "ключом шифрования для гарнитуры — инженерный"
+prepositional = "ключе шифрования для гарнитуры — инженерный"
+
+["Intel Radio Encryption Key"]
+nominative = "ключ шифрования для гарнитуры — разведка"
+genitive = "ключа шифрования для гарнитуры — разведка"
+dative = "ключу шифрования для гарнитуры — разведка"
+accusative = "ключ шифрования для гарнитуры — разведка"
+instrumental = "ключом шифрования для гарнитуры — разведка"
+prepositional = "ключе шифрования для гарнитуры — разведка"
+
+["JTAC Radio Encryption Key"]
+nominative = "ключ шифрования для гарнитуры — ОПАН"
+genitive = "ключа шифрования для гарнитуры — ОПАН"
+dative = "ключу шифрования для гарнитуры — ОПАН"
+accusative = "ключ шифрования для гарнитуры — ОПАН"
+instrumental = "ключом шифрования для гарнитуры — ОПАН"
+prepositional = "ключе шифрования для гарнитуры — ОПАН"
+
+["Medical Radio Encryption Key"]
+nominative = "ключ шифрования для гарнитуры — медицинский"
+genitive = "ключа шифрования для гарнитуры — медицинский"
+dative = "ключу шифрования для гарнитуры — медицинский"
+accusative = "ключ шифрования для гарнитуры — медицинский"
+instrumental = "ключом шифрования для гарнитуры — медицинский"
+prepositional = "ключе шифрования для гарнитуры — медицинский"
+
+["Sentry Network Status Encryption Key"]
+nominative = "ключ шифрования для гарнитуры — охрана"
+genitive = "ключа шифрования для гарнитуры — охрана"
+dative = "ключу шифрования для гарнитуры — охрана"
+accusative = "ключ шифрования для гарнитуры — охрана"
+instrumental = "ключом шифрования для гарнитуры — охрана"
+prepositional = "ключе шифрования для гарнитуры — охрана"
+
+["Supply Radio Encryption Key"]
+nominative = "ключ шифрования для гарнитуры — обеспечение"
+genitive = "ключа шифрования для гарнитуры — обеспечение"
+dative = "ключу шифрования для гарнитуры — обеспечение"
+accusative = "ключ шифрования для гарнитуры — обеспечение"
+instrumental = "ключом шифрования для гарнитуры — обеспечение"
+prepositional = "ключе шифрования для гарнитуры — обеспечение"
+
+["USCM snow uniform"]
+nominative = "зимняя униформа ККМП"
+genitive = "зимней униформы ККМП"
+dative = "зимней униформе ККМП"
+accusative = "зимнюю униформу ККМП"
+instrumental = "зимней униформой ККМП"
+prepositional = "зимней униформе ККМП"
+
+["USCM Combat Technician snow uniform"]
+nominative = "зимняя униформа техника ККМП"
+genitive = "зимней униформы техника ККМП"
+dative = "зимней униформе техника ККМП"
+accusative = "зимнюю униформу техника ККМП"
+instrumental = "зимней униформой техника ККМП"
+prepositional = "зимней униформе техника ККМП"
+
+["USCM Hospital Corpsman snow uniform"]
+nominative = "зимняя униформа санитара ККМП"
+genitive = "зимней униформы санитара ККМП"
+dative = "зимней униформе санитара ККМП"
+accusative = "зимнюю униформу санитара ККМП"
+instrumental = "зимней униформой санитара ККМП"
+prepositional = "зимней униформе санитара ККМП"
+
+["lightweight IMP backpack"]
+nominative = "военный лёгкий рюкзак"
+genitive = "военного лёгкого рюкзака"
+dative = "военному лёгкому рюкзаку"
+accusative = "военный лёгкий рюкзак"
+instrumental = "военным лёгким рюкзаком"
+prepositional = "военном лёгком рюкзаке"
+
+["USCM chestrig"]
+nominative = "разгрузочная система ККМП"
+genitive = "разгрузочной системы ККМП"
+dative = "разгрузочной системе ККМП"
+accusative = "разгрузочную систему ККМП"
+instrumental = "разгрузочной системой ККМП"
+prepositional = "разгрузочной системе ККМП"
+
+["USCM technician backpack"]
+nominative = "рюкзак техника ККМП"
+genitive = "рюкзака техника ККМП"
+dative = "рюкзаку техника ККМП"
+accusative = "рюкзак техника ККМП"
+instrumental = "рюкзаком техника ККМП"
+prepositional = "рюкзаке техника ККМП"
+
+["USCM technician chestrig"]
+nominative = "разгрузочная система техника ККМП"
+genitive = "разгрузочной системы техника ККМП"
+dative = "разгрузочной системе техника ККМП"
+accusative = "разгрузочную систему техника ККМП"
+instrumental = "разгрузочной системой техника ККМП"
+prepositional = "разгрузочной системе техника ККМП"
+
+["USCM corpsman backpack"]
+nominative = "рюкзак санитара ККМП"
+genitive = "рюкзака санитара ККМП"
+dative = "рюкзаку санитара ККМП"
+accusative = "рюкзак санитара ККМП"
+instrumental = "рюкзаком санитара ККМП"
+prepositional = "рюкзаке санитара ККМП"
+
+["USCM corpsman satchel"]
+nominative = "ранец санитара ККМП"
+genitive = "ранца санитара ККМП"
+dative = "ранцу санитара ККМП"
+accusative = "ранец санитара ККМП"
+instrumental = "ранцем санитара ККМП"
+prepositional = "ранце санитара ККМП"
+
+["M10 pattern marine snow helmet"]
+nominative = "зимний шлем пехотинца M10"
+genitive = "зимнего шлема пехотинца M10"
+dative = "зимнему шлему пехотинца M10"
+accusative = "зимний шлем пехотинца M10"
+instrumental = "зимним шлемом пехотинца M10"
+prepositional = "зимнем шлеме пехотинца M10"
+
+["M10 technician snow helmet"]
+nominative = "зимний шлем техника M10"
+genitive = "зимнего шлема техника M10"
+dative = "зимнему шлему техника M10"
+accusative = "зимний шлем техника M10"
+instrumental = "зимним шлемом техника M10"
+prepositional = "зимнем шлеме техника M10"
+
+["M10 pattern medic snow helmet"]
+nominative = "зимний шлем санитара M10"
+genitive = "зимнего шлема санитара M10"
+dative = "зимнему шлему санитара M10"
+accusative = "зимний шлем санитара M10"
+instrumental = "зимним шлемом санитара M10"
+prepositional = "зимнем шлеме санитара M10"
+
+["heat absorbent coif"]
+nominative = "инфракрасная балаклава"
+genitive = "инфракрасной балаклавы"
+dative = "инфракрасной балаклаве"
+accusative = "инфракрасную балаклаву"
+instrumental = "инфракрасной балаклавой"
+prepositional = "инфракрасной балаклаве"
+
+["folded bedroll"]
+nominative = "сложенный спальник"
+genitive = "сложенного спальника"
+dative = "сложенному спальнику"
+accusative = "сложенный спальник"
+instrumental = "сложенным спальником"
+prepositional = "сложенном спальнике"
+
+["unfolded bedroll"]
+nominative = "разложенный спальник"
+genitive = "разложенного спальника"
+dative = "разложенному спальнику"
+accusative = "разложенный спальник"
+instrumental = "разложенным спальником"
+prepositional = "разложенном спальнике"
+
 ["extinguisher cabinet"]
 nominative = "шкафчик для огнетушителя"
 genitive = "шкафчика для огнетушителя"
@@ -25015,7 +25383,37 @@ accusative = "знак «Стойка регистрации»"
 instrumental = "знак «Стойка регистрации»"
 prepositional = "знак «Стойка регистрации»"
 
+["maintenance semiotic"]
+nominative = "знак «Техническая зона»"
+genitive = "знака «Техническая зона»"
+dative = "знаку «Техническая зона»"
+accusative = "знак «Техническая зона»"
+instrumental = "знаком «Техническая зона»"
+prepositional = "знаке «Техническая зона»"
 
+["janitorial bucket"]
+nominative = "ведро уборщика"
+genitive = "ведра уборщика"
+dative = "ведру уборщика"
+accusative = "ведро уборщика"
+instrumental = "ведром уборщика"
+prepositional = "ведре уборщика"
+
+["Security Access Tuner"]
+nominative = "мультитул"
+genitive = "мультитула"
+dative = "мультитулу"
+accusative = "мультитул"
+instrumental = "мультитулом"
+prepositional = "мультитуле"
+
+["computer terminal semiotic"]
+nominative = "знак «Компьютерный терминал»"
+genitive = "знака «Компьютерного терминала»"
+dative = "знаку «Компьютерному терминалу»"
+accusative = "знак «Компьютерный терминал»"
+instrumental = "знаком «Компьютерным терминалом»"
+prepositional = "знаке «Компьютерном терминале»"
 
 
 

@@ -1,6 +1,6 @@
 //------------CANTEEN MRE VENDOR---------------
 /obj/structure/machinery/cm_vending/sorted/marine_food
-	name = "\improper ColMarTech Food Vendor"
+	name = "\improper Раздатчик еды «КолМорТех»" // SS220 - EDIT
 	desc = "USCM Food Vendor, containing standard military Prepared Meals."
 	icon_state = "marine_food"
 	hackable = TRUE
@@ -10,19 +10,19 @@
 
 /obj/structure/machinery/cm_vending/sorted/marine_food/populate_product_list(scale)
 	listed_products = list(
-		list("ГОТОВЫЕ БЛЮДА", -1, null, null),
-		list("Готовое блюдо ККМП (курица)", 15, /obj/item/reagent_container/food/snacks/mre_pack/meal5, VENDOR_ITEM_REGULAR),
-		list("Готовое блюдо ККМП (кукурузный хлеб)", 15, /obj/item/reagent_container/food/snacks/mre_pack/meal1, VENDOR_ITEM_REGULAR),
-		list("Готовое блюдо ККМП (паста)", 15, /obj/item/reagent_container/food/snacks/mre_pack/meal3, VENDOR_ITEM_REGULAR),
-		list("Готовое блюдо ККМП (пицца)", 15, /obj/item/reagent_container/food/snacks/mre_pack/meal4, VENDOR_ITEM_REGULAR),
-		list("Готовое блюдо ККМП (свинина)", 15, /obj/item/reagent_container/food/snacks/mre_pack/meal2, VENDOR_ITEM_REGULAR),
-		list("Готовое блюдо ККМП (тофу)", 15, /obj/item/reagent_container/food/snacks/mre_pack/meal6, VENDOR_ITEM_REGULAR),
-		list("Протеиновый батончик ККМП", 50, /obj/item/reagent_container/food/snacks/protein_pack, VENDOR_ITEM_REGULAR),
-		list("ФЛЯГИ", -1, null, null),
-		list("Фляга", 10, /obj/item/reagent_container/food/drinks/flask/canteen, VENDOR_ITEM_REGULAR),
-		list("Металлическая фляга", 10, /obj/item/reagent_container/food/drinks/flask, VENDOR_ITEM_REGULAR),
-		list("Фляга ККМП", 5, /obj/item/reagent_container/food/drinks/flask/marine, VENDOR_ITEM_REGULAR),
-		list("Фляга В-Ю", 5, /obj/item/reagent_container/food/drinks/flask/weylandyutani, VENDOR_ITEM_REGULAR)
+		list("ГОТОВЫЕ БЛЮДА", -1, null, null), // SS220 - EDIT
+		list("Готовое блюдо ККМП (курица)", 15, /obj/item/reagent_container/food/snacks/mre_pack/meal5, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("Готовое блюдо ККМП (кукурузный хлеб)", 15, /obj/item/reagent_container/food/snacks/mre_pack/meal1, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("Готовое блюдо ККМП (паста)", 15, /obj/item/reagent_container/food/snacks/mre_pack/meal3, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("Готовое блюдо ККМП (пицца)", 15, /obj/item/reagent_container/food/snacks/mre_pack/meal4, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("Готовое блюдо ККМП (свинина)", 15, /obj/item/reagent_container/food/snacks/mre_pack/meal2, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("Готовое блюдо ККМП (тофу)", 15, /obj/item/reagent_container/food/snacks/mre_pack/meal6, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("Протеиновый батончик ККМП", 50, /obj/item/reagent_container/food/snacks/protein_pack, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("ФЛЯГИ", -1, null, null), // SS220 - EDIT
+		list("Фляга", 10, /obj/item/reagent_container/food/drinks/flask/canteen, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("Металлическая фляга", 10, /obj/item/reagent_container/food/drinks/flask, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("Фляга ККМП", 5, /obj/item/reagent_container/food/drinks/flask/marine, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("Фляга Вейланд-Ютани", 5, /obj/item/reagent_container/food/drinks/flask/weylandyutani, VENDOR_ITEM_REGULAR) // SS220 - EDIT
 	)
 
 /obj/structure/machinery/cm_vending/sorted/marine_food/tutorial

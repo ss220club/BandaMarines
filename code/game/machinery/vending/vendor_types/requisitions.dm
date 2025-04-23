@@ -458,7 +458,7 @@
 //------------UNIFORM VENDOR---------------
 
 /obj/structure/machinery/cm_vending/sorted/uniform_supply
-	name = "\improper ColMarTech Surplus Uniform Vendor"
+	name = "\improper Раздатчик униформы «КолМорТех»" // SS220 - EDIT
 	desc = "An automated supply rack hooked up to a big storage of standard marine uniforms. Can be accessed by the Quartermaster and Cargo Technicians."
 	icon_state = "clothing"
 	req_access = list()
@@ -466,32 +466,32 @@
 	vendor_theme = VENDOR_THEME_USCM
 
 	listed_products = list(
-		list("UNIFORM", -1, null, null),
-		list("USCM Uniform", 20, /obj/item/clothing/under/marine, VENDOR_ITEM_REGULAR),
-		list("USCM Combat Technician Uniform", 5, /obj/item/clothing/under/marine/engineer, VENDOR_ITEM_REGULAR),
-		list("USCM Hospital Corpsman uniform", 5, /obj/item/clothing/under/marine/medic, VENDOR_ITEM_REGULAR),
+		list("УНИФОРМА", -1, null, null), // SS220 - EDIT
+		list("Униформа ККМП", 20, /obj/item/clothing/under/marine, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("Униформа техника ККМП", 5, /obj/item/clothing/under/marine/engineer, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("Униформа санитара ККМП", 5, /obj/item/clothing/under/marine/medic, VENDOR_ITEM_REGULAR), // SS220 - EDIT
 
-		list("BOOTS", -1, null, null),
-		list("Marine Combat Boots", 20, /obj/item/clothing/shoes/marine, VENDOR_ITEM_REGULAR),
-		list("Marine Brown Combat Boots", 5, /obj/item/clothing/shoes/marine/brown, VENDOR_ITEM_REGULAR),
-		list("Marine Jungle Combat Boots", 5, /obj/item/clothing/shoes/marine/jungle, VENDOR_ITEM_REGULAR),
-		list("Marine Grey Combat Boots", 5, /obj/item/clothing/shoes/marine/grey, VENDOR_ITEM_REGULAR),
-		list("Marine Urban Combat Boots", 5, /obj/item/clothing/shoes/marine/urban, VENDOR_ITEM_REGULAR),
+		list("БОТИНКИ", -1, null, null), // SS220 - EDIT
+		list("Ботинки пехотинца", 20, /obj/item/clothing/shoes/marine, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("Коричневые ботинки пехотинца", 5, /obj/item/clothing/shoes/marine/brown, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("Зелёные ботинки пехотинца", 5, /obj/item/clothing/shoes/marine/jungle, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("Серые ботинки пехотинца", 5, /obj/item/clothing/shoes/marine/grey, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("Урбанистские ботинки пехотинца", 5, /obj/item/clothing/shoes/marine/urban, VENDOR_ITEM_REGULAR), // SS220 - EDIT
 
-		list("BACKPACKS", -1, null, null),
-		list("Lightweight IMP Backpack", 20, /obj/item/storage/backpack/marine, VENDOR_ITEM_REGULAR),
-		list("USCM Satchel", 20, /obj/item/storage/backpack/marine/satchel, VENDOR_ITEM_REGULAR),
-		list("USCM Chestrig", 10, /obj/item/storage/backpack/marine/satchel/chestrig, VENDOR_ITEM_REGULAR),
-		list("USCM Technician Backpack", 10, /obj/item/storage/backpack/marine/tech, VENDOR_ITEM_REGULAR),
-		list("USCM Technician Chestrig", 10, /obj/item/storage/backpack/marine/satchel/tech, VENDOR_ITEM_REGULAR),
-		list("USCM Corpsman Backpack", 10, /obj/item/storage/backpack/marine/medic, VENDOR_ITEM_REGULAR),
-		list("USCM Corpsman Satchel", 10, /obj/item/storage/backpack/marine/satchel/medic, VENDOR_ITEM_REGULAR),
+		list("РЮКЗАКИ", -1, null, null),
+		list("Военный лёгкий рюкзак", 20, /obj/item/storage/backpack/marine, VENDOR_ITEM_REGULAR),
+		list("Ранец ККМП", 20, /obj/item/storage/backpack/marine/satchel, VENDOR_ITEM_REGULAR),
+		list("Разгрузочная система ККМП", 10, /obj/item/storage/backpack/marine/satchel/chestrig, VENDOR_ITEM_REGULAR),
+		list("Рюкзак техника ККМП", 10, /obj/item/storage/backpack/marine/tech, VENDOR_ITEM_REGULAR),
+		list("Разгрузочная система техника ККМП", 10, /obj/item/storage/backpack/marine/satchel/tech, VENDOR_ITEM_REGULAR),
+		list("Рюкзак санитара ККМП", 10, /obj/item/storage/backpack/marine/medic, VENDOR_ITEM_REGULAR),
+		list("Ранец санитара ККМП", 10, /obj/item/storage/backpack/marine/satchel/medic, VENDOR_ITEM_REGULAR),
 
 
 		list("ARMOR", -1, null, null),
-		list("M10 Pattern Marine Helmet", 20, /obj/item/clothing/head/helmet/marine, VENDOR_ITEM_REGULAR),
-		list("M10 Pattern Technician Helmet", 20, /obj/item/clothing/head/helmet/marine/tech, VENDOR_ITEM_REGULAR),
-		list("M10 Pattern Corpsman Helmet", 20, /obj/item/clothing/head/helmet/marine/medic, VENDOR_ITEM_REGULAR),
+		list("Шлем пехотинца M10", 20, /obj/item/clothing/head/helmet/marine, VENDOR_ITEM_REGULAR),
+		list("Шлем техника M10", 20, /obj/item/clothing/head/helmet/marine/tech, VENDOR_ITEM_REGULAR),
+		list("Шлем санитара M10", 20, /obj/item/clothing/head/helmet/marine/medic, VENDOR_ITEM_REGULAR),
 		list("M3 Pattern Carrier Marine Armor", 20, /obj/item/clothing/suit/storage/marine/medium/carrier, VENDOR_ITEM_REGULAR),
 		list("M3 Pattern Padded Marine Armor", 20, /obj/item/clothing/suit/storage/marine/medium/padded, VENDOR_ITEM_REGULAR),
 		list("M3 Pattern Padless Marine Armor", 20, /obj/item/clothing/suit/storage/marine/medium/padless, VENDOR_ITEM_REGULAR),

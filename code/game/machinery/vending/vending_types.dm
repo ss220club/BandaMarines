@@ -200,7 +200,7 @@
 	prices = list()
 
 /obj/structure/machinery/vending/cigarette/koorlander //koorlander machine, contains luckies since they either bought Lucky Strikes as a company, or are working together to survive.
-	name = "Koorlander brand cigarette machine"
+	name = "Торговый автомат «Koorlander»" // SS220 - EDIT
 	desc = "A Koorlander brand cigarette vending machine. Comes with Lucky Strikes, Lady Fingers, Koorlander Golds of course, and a few smaller brands you've barely heard of."
 	icon_state = "koorcigs"
 	product_slogans = list(
