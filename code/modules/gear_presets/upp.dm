@@ -192,18 +192,18 @@
 
 /datum/equipment_preset/upp/soldier/get_antag_clothing_equipment()
 	return list(
-		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
+		list("STANDARD EQUIPMENT (ВОЗЬМИТЕ ВСЁ)", 0, null, null, null),
 		list("Standard Apparel", 0, list (/obj/item/clothing/under/marine/veteran/UPP, /obj/item/clothing/shoes/marine/upp/knife, /obj/item/clothing/gloves/marine/veteran/upp, /obj/item/device/radio/headset/distress/UPP), MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
 		list("IRP", 0, /obj/item/storage/box/mre/upp, MARINE_CAN_BUY_MRE, VENDOR_ITEM_MANDATORY),
 		list("Map", 0, /obj/item/map/current_map, MARINE_CAN_BUY_MAP, VENDOR_ITEM_MANDATORY),
 		list("Combat Pack", 0, /obj/item/storage/backpack/lightpack/upp, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
 		list("Combat Lubricant", 0, /obj/item/stack/repairable/gunlube, MARINE_CAN_BUY_REPAIRABLE, VENDOR_ITEM_MANDATORY),
 
-		list("ARMOR", 0, null, null, null),
+		list("БРОНЯ", 0, null, null, null),
 		list("UM5 Personal Armor", 0, /obj/item/clothing/suit/storage/marine/faction/UPP, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
 		list("UL6 Personal Armor", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/support, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
 
-		list("HELMET (CHOOSE 1)", 0, null, null, null),
+		list("HELMET (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("UM4 Helmet", 0, /obj/item/clothing/head/helmet/marine/veteran/UPP, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_MANDATORY),
 		list("Ushanka", 0, /obj/item/clothing/head/uppcap/ushanka, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 
@@ -211,7 +211,7 @@
 		list("Medical Helmet Optic", 15, /obj/item/device/helmet_visor/medical, null, VENDOR_ITEM_REGULAR),
 		list("Welding Visor", 5, /obj/item/device/helmet_visor/welding_visor, null, VENDOR_ITEM_REGULAR),
 
-		list("BELT (CHOOSE 1)", 0, null, null, null),
+		list("BELT (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Type 41 Ammo Load Rig", 0, /obj/item/storage/belt/marine/upp, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
 		list("Type 42 pattern shotgun shell loading rig", 0, /obj/item/storage/belt/shotgun/upp, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
 		list("Type 47 pistol holster rig", 0, /obj/item/storage/belt/gun/type47, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
@@ -230,17 +230,17 @@
 		list("Shotgun Shell Pouch", 0, /obj/item/storage/pouch/shotgun, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("Pistol Pouch", 0, /obj/item/storage/pouch/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 
-		list("MASK (CHOOSE 1)", 0, null, null, null),
-		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
-		list("Gas Mask", 0, /obj/item/clothing/mask/gas, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("МАСКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Инфракрасная балаклава", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Противогаз", 0, /obj/item/clothing/mask/gas, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
-		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
-		list("Brown Webbing Vest", 10, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Black Webbing Vest", 10, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Shoulder Holster", 10, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Webbing", 10, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Black Webbing", 10, /obj/item/clothing/accessory/storage/webbing/black, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Drop Pouch", 10, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("ACCESSORIES (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Коричневый разгрузочный жилет", 10, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Чёрный разгрузочный жилет", 10, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Наплечная кобура", 10, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Нагрудный жилет", 10, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Чёрный нагрудный жилет", 10, /obj/item/clothing/accessory/storage/webbing/black, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Наплечный подсумок", 10, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
 
 		list("ENGINEERING SUPPLIES", 0, null, null, null),
 		list("E-Tool", 5, /obj/item/tool/shovel/etool/folded, null, VENDOR_ITEM_REGULAR),
@@ -251,7 +251,7 @@
 		list("SPECIAL AMMUNITION", 0, null, null, null),
 		list("Type 71 AP Magazine (5.45x39mm)", 10, /obj/item/ammo_magazine/rifle/type71/ap , null, VENDOR_ITEM_REGULAR),
 
-		list("EXPLOSIVES", 0, null, null, null),
+		list("ВЗРЫВЧАТЫЕ ВЕЩЕСТВА", 0, null, null, null),
 		list("Smoke Grenade Packet", 10, /obj/item/storage/box/packet/smoke, null, VENDOR_ITEM_REGULAR),
 		list("Type 6 Shrapnel Grenade Packet", 20, /obj/item/storage/box/packet/high_explosive/upp, null, VENDOR_ITEM_REGULAR),
 		list("Type 8 WP Grenade Packet", 20, /obj/item/storage/box/packet/phosphorus/upp, null, VENDOR_ITEM_REGULAR),
@@ -283,7 +283,7 @@
 		list("SPECIAL AMMUNITION", 0, null, null, null),
 		list("Type 71 AP Magazine (5.45x39mm)", 10, /obj/item/ammo_magazine/rifle/type71/ap , null, VENDOR_ITEM_REGULAR),
 
-		list("EXPLOSIVES", 0, null, null, null),
+		list("ВЗРЫВЧАТЫЕ ВЕЩЕСТВА", 0, null, null, null),
 		list("Smoke Grenade", 5, /obj/item/explosive/grenade/smokebomb, null, VENDOR_ITEM_REGULAR),
 		list("Type 6 Shrapnel Grenade", 15, /obj/item/explosive/grenade/high_explosive/upp, null, VENDOR_ITEM_REGULAR),
 		list("Type 8 WP Grenade", 20, /obj/item/explosive/grenade/phosphorus/upp, null, VENDOR_ITEM_REGULAR),
@@ -392,7 +392,7 @@
 
 /datum/equipment_preset/upp/medic/get_antag_clothing_equipment()
 	return list(
-		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
+		list("STANDARD EQUIPMENT (ВОЗЬМИТЕ ВСЁ)", 0, null, null, null),
 		list("Standard Apparel", 0, list (/obj/item/clothing/under/marine/veteran/UPP/medic, /obj/item/clothing/shoes/marine/upp/knife, /obj/item/clothing/gloves/marine/veteran/upp, /obj/item/device/radio/headset/distress/UPP/medic), MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
 		list("IRP", 0, /obj/item/storage/box/mre/upp, MARINE_CAN_BUY_MRE, VENDOR_ITEM_MANDATORY),
 		list("Map", 0, /obj/item/map/current_map, MARINE_CAN_BUY_MAP, VENDOR_ITEM_MANDATORY),
@@ -403,11 +403,11 @@
 		list("HealthMate HUD", 0, /obj/item/clothing/glasses/hud/health, MARINE_CAN_BUY_GLASSES, VENDOR_ITEM_MANDATORY),
 		list("Advanced Medical Visor", 0, /obj/item/device/helmet_visor/medical/advanced, MARINE_CAN_BUY_GLASSES, VENDOR_ITEM_MANDATORY),
 
-		list("ARMOR", 0, null, null, null),
+		list("БРОНЯ", 0, null, null, null),
 		list("UM5 Personal Armor", 0, /obj/item/clothing/suit/storage/marine/faction/UPP, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
 		list("UL6 Personal Armor", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/support, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
 
-		list("HELMET (CHOOSE 1)", 0, null, null, null),
+		list("HELMET (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Armored Cap", 0, /obj/item/clothing/head/uppcap, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("UM4 Helmet", 0, /obj/item/clothing/head/helmet/marine/veteran/UPP, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("Ushanka", 0, /obj/item/clothing/head/uppcap/ushanka, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
@@ -443,16 +443,16 @@
 		list("Shotgun Shell Pouch", 0, /obj/item/storage/pouch/shotgun, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("Pistol Pouch", 0, /obj/item/storage/pouch/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 
-		list("MASK (CHOOSE 1)", 0, null, null, null),
-		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
-		list("Gas Mask", 0, /obj/item/clothing/mask/gas, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("МАСКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Инфракрасная балаклава", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Противогаз", 0, /obj/item/clothing/mask/gas, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
-		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
-		list("Brown Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Black Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Shoulder Holster", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Webbing", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Drop Pouch", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("ACCESSORIES (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Коричневый разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Чёрный разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Наплечная кобура", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Нагрудный жилет", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Наплечный подсумок", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
 
 		list("HELMET OPTICS", 0, null, null, null),
 		list("Medical Helmet Optic", 12, /obj/item/device/helmet_visor/medical, null, VENDOR_ITEM_REGULAR),
@@ -513,7 +513,7 @@
 		list("SPECIAL AMMUNITION", 0, null, null, null),
 		list("Type 71 AP Magazine (5.45x39mm)", 10, /obj/item/ammo_magazine/rifle/type71/ap , null, VENDOR_ITEM_REGULAR),
 
-		list("EXPLOSIVES", 0, null, null, null),
+		list("ВЗРЫВЧАТЫЕ ВЕЩЕСТВА", 0, null, null, null),
 		list("Smoke Grenade Packet", 10, /obj/item/storage/box/packet/smoke, null, VENDOR_ITEM_REGULAR),
 		list("Type 6 Shrapnel Grenade Packet", 20, /obj/item/storage/box/packet/high_explosive/upp, null, VENDOR_ITEM_REGULAR),
 		list("Type 8 WP Grenade Packet", 20, /obj/item/storage/box/packet/phosphorus/upp, null, VENDOR_ITEM_REGULAR),
@@ -596,27 +596,27 @@
 
 /datum/equipment_preset/upp/sapper/get_antag_clothing_equipment()
 	return list(
-		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
+		list("STANDARD EQUIPMENT (ВОЗЬМИТЕ ВСЁ)", 0, null, null, null),
 		list("Standard Apparel", 0, list(/obj/item/clothing/under/marine/veteran/UPP/engi, /obj/item/clothing/shoes/marine/upp/knife, /obj/item/clothing/gloves/yellow, /obj/item/device/radio/headset/distress/UPP/cct), MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
 		list("Map", 0, /obj/item/map/current_map, MARINE_CAN_BUY_MAP, VENDOR_ITEM_MANDATORY),
 		list("IRP", 0, /obj/item/storage/box/mre/upp, MARINE_CAN_BUY_MRE, VENDOR_ITEM_MANDATORY),
 		list("Welderpack", 0, /obj/item/storage/backpack/marine/engineerpack/upp, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
 		list("Combat Lubricant", 0, /obj/item/stack/repairable/gunlube, MARINE_CAN_BUY_REPAIRABLE, VENDOR_ITEM_MANDATORY),
 
-		list("WELDING PROTECTION (CHOOSE 1)", 0, null, null, null),
+		list("WELDING PROTECTION (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Welding Goggles", 0, /obj/item/clothing/glasses/welding, MARINE_CAN_BUY_GLASSES, VENDOR_ITEM_REGULAR),
 		list("Welding Helmet", 0, /obj/item/clothing/head/welding, MARINE_CAN_BUY_GLASSES, VENDOR_ITEM_REGULAR),
 
-		list("ARMOR", 0, null, null, null),
+		list("БРОНЯ", 0, null, null, null),
 		list("UM5 Personal Armor", 0, /obj/item/clothing/suit/storage/marine/faction/UPP, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
 		list("UL6 Personal Armor", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/support, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
 
-		list("HELMET (CHOOSE 1)", 0, null, null, null),
+		list("HELMET (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Armored Cap", 0, /obj/item/clothing/head/uppcap, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("UM4 Helmet", 0, /obj/item/clothing/head/helmet/marine/veteran/UPP, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("Ushanka", 0, /obj/item/clothing/head/uppcap/ushanka, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 
-		list("BELT (Choose 1)", 0, null, null, null),
+		list("BELT (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Type 41 Ammo Load Rig", 0, /obj/item/storage/belt/marine/upp, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
 		list("Type 41 Pistol Holster Rig", 0, /obj/item/storage/belt/gun/m4a3, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
 		list("Toolbelt Rig (Full)", 0, /obj/item/storage/belt/utility/full, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
@@ -640,16 +640,16 @@
 		list("Tools Pouch (Full)", 0, /obj/item/storage/pouch/tools/full, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("Engineer kit Pouch", 0, /obj/item/storage/pouch/engikit, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 
-		list("MASK (CHOOSE 1)", 0, null, null, null),
-		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
-		list("Gas Mask", 0, /obj/item/clothing/mask/gas, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("МАСКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Инфракрасная балаклава", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Противогаз", 0, /obj/item/clothing/mask/gas, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
-		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
-		list("Brown Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Black Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Shoulder Holster", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Webbing", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Drop Pouch", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("ACCESSORIES (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Коричневый разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Чёрный разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Наплечная кобура", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Нагрудный жилет", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Наплечный подсумок", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
 	)
 
 /datum/equipment_preset/upp/sapper/get_antag_gear_equipment()
@@ -657,7 +657,7 @@
 		list("SAPPER SET (MANDATORY)", 0, null, null, null),
 		list("Essential Sapper Set", 0, /obj/effect/essentials_set/engi, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_MANDATORY),
 
-		list("HANDHELD DEFENSE (CHOOSE 1)", 0, null, null, null),
+		list("HANDHELD DEFENSE (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("UPP Planted Flag", 0, /obj/item/defenses/handheld/planted_flag/upp, MARINE_CAN_BUY_ATTACHMENT, VENDOR_ITEM_MANDATORY),
 		list("UPP SDS-R5 Sentry Flamer", 0, /obj/item/defenses/handheld/sentry/flamer/upp, MARINE_CAN_BUY_ATTACHMENT, VENDOR_ITEM_MANDATORY),
 		list("UPP SDS-R3 Sentry Gun", 0, /obj/item/defenses/handheld/sentry/upp, MARINE_CAN_BUY_ATTACHMENT, VENDOR_ITEM_MANDATORY),
@@ -669,8 +669,8 @@
 		list("High-Capacity Power Cell", 3, /obj/item/cell/high, null, VENDOR_ITEM_REGULAR),
 		list("Metal x10", 5, /obj/item/stack/sheet/metal/small_stack, null, VENDOR_ITEM_RECOMMENDED),
 		list("Plasteel x10", 7, /obj/item/stack/sheet/plasteel/small_stack, null, VENDOR_ITEM_RECOMMENDED),
-		list("Plastic Explosive", 3, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
-		list("Breaching Charge", 5, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_RECOMMENDED),
+		list("Пластичная взрывчатка С-4", 3, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
+		list("Пробивной заряд", 5, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_RECOMMENDED),
 		list("Sandbags x25", 10, /obj/item/stack/sandbags_empty/half, null, VENDOR_ITEM_RECOMMENDED),
 		list("Super-Capacity Power Cell", 10, /obj/item/cell/super, null, VENDOR_ITEM_REGULAR),
 		list("ES-11 Mobile Fuel Canister", 4, /obj/item/tool/weldpack/minitank, null, VENDOR_ITEM_REGULAR),
@@ -679,13 +679,13 @@
 		list("SPECIAL AMMUNITION", 0, null, null, null),
 		list("Type 71 AP Magazine (5.45x39mm)", 10, /obj/item/ammo_magazine/rifle/type71/ap , null, VENDOR_ITEM_REGULAR),
 
-		list("EXPLOSIVES", 0, null, null, null),
-		list("Plastic Explosive", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_RECOMMENDED),
-		list("Breaching Charge", 10, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_RECOMMENDED),
+		list("ВЗРЫВЧАТЫЕ ВЕЩЕСТВА", 0, null, null, null),
+		list("Пластичная взрывчатка С-4", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_RECOMMENDED),
+		list("Пробивной заряд", 10, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_RECOMMENDED),
 		list("Smoke Grenade Packet", 10, /obj/item/storage/box/packet/smoke, null, VENDOR_ITEM_REGULAR),
 		list("Type 6 Shrapnel Grenade Packet", 20, /obj/item/storage/box/packet/high_explosive/upp, null, VENDOR_ITEM_REGULAR),
 		list("Type 8 WP Grenade Packet", 20, /obj/item/storage/box/packet/phosphorus/upp, null, VENDOR_ITEM_REGULAR),
-		list("M40 MFHS Metal Foam Grenade", 5, /obj/item/explosive/grenade/metal_foam, null, VENDOR_ITEM_REGULAR),
+		list("Граната M40 MFHS (Пена)", 5, /obj/item/explosive/grenade/metal_foam, null, VENDOR_ITEM_REGULAR),
 
 		list("BINOCULARS", 0, null, null, null),
 		list("Binoculars", 5, /obj/item/device/binoculars, null, VENDOR_ITEM_REGULAR),
@@ -771,21 +771,21 @@
 
 /datum/equipment_preset/upp/specialist/get_antag_clothing_equipment()
 	return list(
-		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
+		list("STANDARD EQUIPMENT (ВОЗЬМИТЕ ВСЁ)", 0, null, null, null),
 		list("Standard Apparel", 0, list (/obj/item/clothing/under/marine/veteran/UPP, /obj/item/clothing/shoes/marine/upp/knife, /obj/item/clothing/gloves/marine/veteran/upp, /obj/item/device/radio/headset/distress/UPP), MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
 		list("IRP", 0, /obj/item/storage/box/mre/upp, MARINE_CAN_BUY_MRE, VENDOR_ITEM_MANDATORY),
 		list("Combat Pack", 0, /obj/item/storage/backpack/lightpack, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
 		list("Combat Lubricant", 0, /obj/item/stack/repairable/gunlube, MARINE_CAN_BUY_REPAIRABLE, VENDOR_ITEM_MANDATORY),
 
-		list("ARMOR", 0, null, null, null),
+		list("БРОНЯ", 0, null, null, null),
 		list("UH7 Heavy Plated Armor", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/heavy, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
 
-		list("HELMET (CHOOSE 1)", 0, null, null, null),
+		list("HELMET (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("UM7 Helmet", 0, /obj/item/clothing/head/helmet/marine/veteran/UPP/heavy, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_MANDATORY),
 		list("Armored Cap", 0, /obj/item/clothing/head/uppcap, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("Ushanka", 0, /obj/item/clothing/head/uppcap/ushanka, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 
-		list("BELT (CHOOSE 1)", 0, null, null, null),
+		list("BELT (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Type 41 Ammo Load Rig", 0, /obj/item/storage/belt/marine/upp, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
 		list("Type 42 pattern shotgun shell loading rig", 0, /obj/item/storage/belt/shotgun/upp, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
 		list("Type 47 pistol holster rig", 0, /obj/item/storage/belt/gun/type47, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
@@ -803,16 +803,16 @@
 		list("Pistol Magazine Pouch", 0, /obj/item/storage/pouch/magazine/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("Pistol Pouch", 0, /obj/item/storage/pouch/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 
-		list("MASK (CHOOSE 1)", 0, null, null, null),
-		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
-		list("Rebreather", 0, /obj/item/clothing/mask/rebreather, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("МАСКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Инфракрасная балаклава", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Респиратор", 0, /obj/item/clothing/mask/rebreather, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
-		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
-		list("Brown Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Black Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Shoulder Holster", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Webbing", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Drop Pouch", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("ACCESSORIES (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Коричневый разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Чёрный разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Наплечная кобура", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Нагрудный жилет", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Наплечный подсумок", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
 	)
 
 /datum/equipment_preset/upp/specialist/get_antag_gear_equipment()
@@ -823,9 +823,9 @@
 		list("SPECIAL AMMUNITION", 0, null, null, null),
 		list("Rotating ammo drum (7.62x51mm)", 15, /obj/item/ammo_magazine/minigun, null, VENDOR_ITEM_RECOMMENDED),
 
-		list("EXPLOSIVES", 0, null, null, null),
-		list("Plastic Explosive", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
-		list("Breaching Charge", 10, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_RECOMMENDED),
+		list("ВЗРЫВЧАТЫЕ ВЕЩЕСТВА", 0, null, null, null),
+		list("Пластичная взрывчатка С-4", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
+		list("Пробивной заряд", 10, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_RECOMMENDED),
 		list("Smoke Grenade Packet", 10, /obj/item/storage/box/packet/smoke, null, VENDOR_ITEM_REGULAR),
 		list("Type 6 Shrapnel Grenade Packet", 20, /obj/item/storage/box/packet/high_explosive/upp, null, VENDOR_ITEM_REGULAR),
 		list("Type 8 WP Grenade Packet", 20, /obj/item/storage/box/packet/phosphorus/upp, null, VENDOR_ITEM_REGULAR),
@@ -914,21 +914,21 @@
 
 /datum/equipment_preset/upp/machinegunner/get_antag_clothing_equipment()
 	return list(
-		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
+		list("STANDARD EQUIPMENT (ВОЗЬМИТЕ ВСЁ)", 0, null, null, null),
 		list("Standard Apparel", 0, list (/obj/item/clothing/under/marine/veteran/UPP, /obj/item/clothing/shoes/marine/upp/knife, /obj/item/clothing/gloves/marine/veteran/upp, /obj/item/device/radio/headset/distress/UPP), MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
 		list("IRP", 0, /obj/item/storage/box/mre/upp, MARINE_CAN_BUY_MRE, VENDOR_ITEM_MANDATORY),
 		list("Combat Pack", 0, /obj/item/storage/backpack/lightpack, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
 		list("Combat Lubricant", 0, /obj/item/stack/repairable/gunlube, MARINE_CAN_BUY_REPAIRABLE, VENDOR_ITEM_MANDATORY),
 
-		list("ARMOR", 0, null, null, null),
+		list("БРОНЯ", 0, null, null, null),
 		list("UH7 Heavy Plated Armor", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/heavy, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
 
-		list("HELMET (CHOOSE 1)", 0, null, null, null),
+		list("HELMET (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("UM7 Helmet", 0, /obj/item/clothing/head/helmet/marine/veteran/UPP/heavy, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_MANDATORY),
 		list("Armored Cap", 0, /obj/item/clothing/head/uppcap, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("Ushanka", 0, /obj/item/clothing/head/uppcap/ushanka, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 
-		list("BELT (CHOOSE 1)", 0, null, null, null),
+		list("BELT (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Type 41 Ammo Load Rig", 0, /obj/item/storage/belt/marine/upp, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
 		list("Type 42 pattern shotgun shell loading rig", 0, /obj/item/storage/belt/shotgun/upp, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
 		list("Type 47 pistol holster rig", 0, /obj/item/storage/belt/gun/type47, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
@@ -948,16 +948,16 @@
 		list("Pistol Pouch", 0, /obj/item/storage/pouch/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("Sling Pouch", 0, /obj/item/storage/pouch/sling, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 
-		list("MASK (CHOOSE 1)", 0, null, null, null),
-		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
-		list("Rebreather", 0, /obj/item/clothing/mask/rebreather, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("МАСКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Инфракрасная балаклава", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Респиратор", 0, /obj/item/clothing/mask/rebreather, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
-		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
-		list("Brown Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Black Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Shoulder Holster", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Webbing", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Drop Pouch", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("ACCESSORIES (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Коричневый разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Чёрный разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Наплечная кобура", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Нагрудный жилет", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Наплечный подсумок", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
 	)
 
 /datum/equipment_preset/upp/machinegunner/get_antag_gear_equipment()
@@ -967,12 +967,12 @@
 
 		list("SPECIAL AMMUNITION", 0, null, null, null),
 		list("Type 71 AP Magazine (5.45x39mm)", 10, /obj/item/ammo_magazine/rifle/type71/ap , null, VENDOR_ITEM_REGULAR),
-		list("M240 Incinerator Tank (Napthal)", 3, /obj/item/ammo_magazine/flamer_tank, null, VENDOR_ITEM_REGULAR),
-		list("M240 Incinerator Tank (B-Gel)", 3, /obj/item/ammo_magazine/flamer_tank/gellied, null, VENDOR_ITEM_REGULAR),
+		list("Резервуар топливной смеси для M240 (Лигроин)", 3, /obj/item/ammo_magazine/flamer_tank, null, VENDOR_ITEM_REGULAR),
+		list("Резервуар топливной смеси для M240 (B-Gel)", 3, /obj/item/ammo_magazine/flamer_tank/gellied, null, VENDOR_ITEM_REGULAR),
 
-		list("EXPLOSIVES", 0, null, null, null),
-		list("Plastic Explosive", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
-		list("Breaching Charge", 10, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_REGULAR),
+		list("ВЗРЫВЧАТЫЕ ВЕЩЕСТВА", 0, null, null, null),
+		list("Пластичная взрывчатка С-4", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
+		list("Пробивной заряд", 10, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_REGULAR),
 		list("Smoke Grenade Packet", 10, /obj/item/storage/box/packet/smoke, null, VENDOR_ITEM_REGULAR),
 		list("Type 6 Shrapnel Grenade Packet", 20, /obj/item/storage/box/packet/high_explosive/upp, null, VENDOR_ITEM_REGULAR),
 		list("Type 8 WP Grenade Packet", 20, /obj/item/storage/box/packet/phosphorus/upp, null, VENDOR_ITEM_REGULAR),
@@ -1087,21 +1087,21 @@
 
 /datum/equipment_preset/upp/leader/get_antag_clothing_equipment()
 	return list(
-		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
+		list("STANDARD EQUIPMENT (ВОЗЬМИТЕ ВСЁ)", 0, null, null, null),
 		list("Standard Apparel", 0, list (/obj/item/clothing/under/marine/veteran/UPP, /obj/item/clothing/shoes/marine/upp/knife, /obj/item/clothing/gloves/marine/veteran/upp, /obj/item/device/radio/headset/distress/UPP/command), MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
 		list("IRP", 0, /obj/item/storage/box/mre/upp, MARINE_CAN_BUY_MRE, VENDOR_ITEM_MANDATORY),
 		list("Combat Pack", 0, /obj/item/storage/backpack/lightpack/upp, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
 		list("Combat Lubricant", 0, /obj/item/stack/repairable/gunlube, MARINE_CAN_BUY_REPAIRABLE, VENDOR_ITEM_MANDATORY),
 
-		list("ARMOR", 0, null, null, null),
+		list("БРОНЯ", 0, null, null, null),
 		list("UH7 Heavy Plated Armor", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/heavy, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
 
-		list("HELMET (CHOOSE 1)", 0, null, null, null),
+		list("HELMET (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Armored Beret", 0, /obj/item/clothing/head/uppcap/beret, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("UM4 Helmet", 0, /obj/item/clothing/head/helmet/marine/veteran/UPP, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("Ushanka", 0, /obj/item/clothing/head/uppcap/ushanka, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 
-		list("BELT (CHOOSE 1)", 0, null, null, null),
+		list("BELT (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Type 41 Ammo Load Rig", 0, /obj/item/storage/belt/marine/upp, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
 		list("Type 42 pattern shotgun shell loading rig", 0, /obj/item/storage/belt/shotgun/upp, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
 		list("Type 47 pistol holster rig", 0, /obj/item/storage/belt/gun/type47, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
@@ -1128,16 +1128,16 @@
 		list("Explosive Pouch", 0, /obj/item/storage/pouch/explosive, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("Tools Pouch (Full)", 0, /obj/item/storage/pouch/tools/full, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 
-		list("MASK (CHOOSE 1)", 0, null, null, null),
-		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
-		list("Rebreather", 0, /obj/item/clothing/mask/rebreather, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("МАСКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Инфракрасная балаклава", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Респиратор", 0, /obj/item/clothing/mask/rebreather, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
-		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
-		list("Brown Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Black Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Shoulder Holster", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Webbing", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Drop Pouch", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("ACCESSORIES (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Коричневый разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Чёрный разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Наплечная кобура", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Нагрудный жилет", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Наплечный подсумок", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
 	)
 
 /datum/equipment_preset/upp/leader/get_antag_gear_equipment()
@@ -1163,8 +1163,8 @@
 		list("Insulated Gloves", 3, /obj/item/clothing/gloves/yellow, null, VENDOR_ITEM_REGULAR),
 		list("Metal x10", 5, /obj/item/stack/sheet/metal/small_stack, null, VENDOR_ITEM_RECOMMENDED),
 		list("Plasteel x10", 7, /obj/item/stack/sheet/plasteel/small_stack, null, VENDOR_ITEM_RECOMMENDED),
-		list("Plastic explosive", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_RECOMMENDED),
-		list("Breaching Charge", 7, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_RECOMMENDED),
+		list("Пластичная взрывчатка С-4", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_RECOMMENDED),
+		list("Пробивной заряд", 7, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_RECOMMENDED),
 		list("Sandbags x25", 10, /obj/item/stack/sandbags_empty/half, null, VENDOR_ITEM_RECOMMENDED),
 		list("Signal Flare Pack", 7, /obj/item/storage/box/m94/signal, null, VENDOR_ITEM_REGULAR),
 		list("Tools Pouch (Full)", 5, /obj/item/storage/pouch/tools/full, null, VENDOR_ITEM_REGULAR),
@@ -1191,12 +1191,12 @@
 
 		list("SPECIAL AMMUNITION", 0, null, null, null),
 		list("Type 71 AP Magazine (5.45x39mm)", 10, /obj/item/ammo_magazine/rifle/type71/ap , null, VENDOR_ITEM_REGULAR),
-		list("M240 Incinerator Tank (Napthal)", 3, /obj/item/ammo_magazine/flamer_tank, null, VENDOR_ITEM_REGULAR),
-		list("M240 Incinerator Tank (B-Gel)", 3, /obj/item/ammo_magazine/flamer_tank/gellied, null, VENDOR_ITEM_REGULAR),
+		list("Резервуар топливной смеси для M240 (Лигроин)", 3, /obj/item/ammo_magazine/flamer_tank, null, VENDOR_ITEM_REGULAR),
+		list("Резервуар топливной смеси для M240 (B-Gel)", 3, /obj/item/ammo_magazine/flamer_tank/gellied, null, VENDOR_ITEM_REGULAR),
 
-		list("EXPLOSIVES", 0, null, null, null),
-		list("Plastic Explosive", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
-		list("Breaching Charge", 7, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_REGULAR),
+		list("ВЗРЫВЧАТЫЕ ВЕЩЕСТВА", 0, null, null, null),
+		list("Пластичная взрывчатка С-4", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
+		list("Пробивной заряд", 7, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_REGULAR),
 		list("Smoke Grenade Packet", 7, /obj/item/storage/box/packet/smoke, null, VENDOR_ITEM_REGULAR),
 		list("Type 6 Shrapnel Grenade Packet", 18, /obj/item/storage/box/packet/high_explosive/upp, null, VENDOR_ITEM_REGULAR),
 		list("Type 8 WP Grenade Packet", 18, /obj/item/storage/box/packet/phosphorus/upp, null, VENDOR_ITEM_REGULAR),
@@ -1291,7 +1291,7 @@
 
 /datum/equipment_preset/upp/military_police/get_antag_clothing_equipment()
 	return list(
-		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
+		list("STANDARD EQUIPMENT (ВОЗЬМИТЕ ВСЁ)", 0, null, null, null),
 		list("Boots", 0, /obj/item/clothing/shoes/marine/upp/knife, MARINE_CAN_BUY_SHOES, VENDOR_ITEM_MANDATORY),
 		list("Fatigues", 0, /obj/item/clothing/under/marine/veteran/UPP/mp, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
 		list("UL4 camouflaged jacket", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/mp, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
@@ -1302,16 +1302,16 @@
 		list("Binoculars", 0, /obj/item/device/binoculars, null, VENDOR_ITEM_MANDATORY),
 		list("Combat Lubricant", 0, /obj/item/stack/repairable/gunlube, MARINE_CAN_BUY_REPAIRABLE, VENDOR_ITEM_MANDATORY),
 
-		list("HELMET (CHOOSE 1)", 0, null, null, null),
+		list("HELMET (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Armored Beret", 0, /obj/item/clothing/head/uppcap/beret, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("UM4 Helmet", 0, /obj/item/clothing/head/helmet/marine/veteran/UPP, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_RECOMMENDED),
 		list("Ushanka", 0, /obj/item/clothing/head/uppcap/ushanka, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 
-		list("ARMOR (CHOOSE 1)", 0, null, null, null),
+		list("БРОНЯ (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("UL4 camouflaged jacket", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/mp, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_REGULAR),
 		list("UL6 Personal Armor", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/support, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
 
-		list("BELT (CHOOSE 1)", 0, null, null, null),
+		list("BELT (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Type 41 Ammo Load Rig", 0, /obj/item/storage/belt/marine/upp, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
 		list("Type 41 Pistol Holster Rig", 0, /obj/item/storage/belt/gun/m4a3, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
 		list("Type 43 Military Police Rig", 0, /obj/item/storage/belt/security/MP/UPP/full, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
@@ -1330,16 +1330,16 @@
 		list("Pistol Magazine Pouch", 0, /obj/item/storage/pouch/magazine/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("Pistol Pouch", 0, /obj/item/storage/pouch/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 
-		list("MASK (CHOOSE 1)", 0, null, null, null),
-		list("Gas Mask", 0, /obj/item/clothing/mask/gas/pmc/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
-		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("МАСКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Противогаз", 0, /obj/item/clothing/mask/gas/pmc/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Инфракрасная балаклава", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
-		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
-		list("Brown Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Black Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Shoulder Holster", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Webbing", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Drop Pouch", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("ACCESSORIES (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Коричневый разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Чёрный разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Наплечная кобура", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Нагрудный жилет", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Наплечный подсумок", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
 	)
 
 /datum/equipment_preset/upp/military_police/get_antag_gear_equipment()
@@ -1388,9 +1388,9 @@
 		list("Suppressor", 10, /obj/item/attachable/suppressor, null, VENDOR_ITEM_REGULAR),
 		list("Vertical Grip", 10, /obj/item/attachable/verticalgrip, null, VENDOR_ITEM_REGULAR),
 
-		list("EXPLOSIVES", 0, null, null, null),
-		list("Plastic Explosive", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
-		list("Breaching Charge", 10, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_REGULAR),
+		list("ВЗРЫВЧАТЫЕ ВЕЩЕСТВА", 0, null, null, null),
+		list("Пластичная взрывчатка С-4", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
+		list("Пробивной заряд", 10, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_REGULAR),
 		list("Smoke Grenade", 5, /obj/item/explosive/grenade/smokebomb, null, VENDOR_ITEM_REGULAR),
 		list("Type 6 Shrapnel Grenade", 15, /obj/item/explosive/grenade/high_explosive/upp, null, VENDOR_ITEM_REGULAR),
 		list("Type 8 WP Grenade", 20, /obj/item/explosive/grenade/phosphorus/upp, null, VENDOR_ITEM_REGULAR),
@@ -1498,7 +1498,7 @@
 
 /datum/equipment_preset/upp/doctor/get_antag_clothing_equipment()
 	return list(
-		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
+		list("STANDARD EQUIPMENT (ВОЗЬМИТЕ ВСЁ)", 0, null, null, null),
 		list("Boots", 0, /obj/item/clothing/shoes/marine/upp/knife, MARINE_CAN_BUY_SHOES, VENDOR_ITEM_MANDATORY),
 		list("Medic Fatigues", 0, /obj/item/clothing/under/marine/veteran/UPP/medic, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
 		list("UL6 Personal Armor", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/support, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
@@ -1509,7 +1509,7 @@
 		list("HealthMate HUD", 0, /obj/item/clothing/glasses/hud/health, MARINE_CAN_BUY_GLASSES, VENDOR_ITEM_MANDATORY),
 		list("Binoculars", 0, /obj/item/device/binoculars, null, VENDOR_ITEM_MANDATORY),
 
-		list("HELMET (CHOOSE 1)", 0, null, null, null),
+		list("HELMET (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Ushanka", 0, /obj/item/clothing/head/uppcap/ushanka, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 
 		list("BELT", 0, null, null, null),
@@ -1527,9 +1527,9 @@
 		list("Medium General Pouch", 0, /obj/item/storage/pouch/general/medium, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("Medical Kit Pouch", 0, /obj/item/storage/pouch/medkit, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 
-		list("MASK (CHOOSE 1)", 0, null, null, null),
-		list("Gas Mask", 0, /obj/item/clothing/mask/gas, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
-		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR)
+		list("МАСКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Противогаз", 0, /obj/item/clothing/mask/gas, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Инфракрасная балаклава", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR)
 	)
 
 /datum/equipment_preset/upp/doctor/get_antag_gear_equipment()
@@ -1576,13 +1576,13 @@
 		list("Stasis Bag", 6, /obj/item/bodybag/cryobag, null, VENDOR_ITEM_REGULAR),
 
 		list("UTILITIES", 0, null, null, null),
-		list("Brown Webbing Vest", 10, /obj/item/clothing/accessory/storage/black_vest/brown_vest, null, VENDOR_ITEM_RECOMMENDED),
-		list("Black Webbing Vest", 10, /obj/item/clothing/accessory/storage/black_vest, null, VENDOR_ITEM_RECOMMENDED),
+		list("Коричневый разгрузочный жилет", 10, /obj/item/clothing/accessory/storage/black_vest/brown_vest, null, VENDOR_ITEM_RECOMMENDED),
+		list("Чёрный разгрузочный жилет", 10, /obj/item/clothing/accessory/storage/black_vest, null, VENDOR_ITEM_RECOMMENDED),
 		list("Fire Extinguisher (Portable)", 5, /obj/item/tool/extinguisher/mini, null, VENDOR_ITEM_REGULAR),
 		list("Large General Pouch", 10, /obj/item/storage/pouch/general/large, null, VENDOR_ITEM_REGULAR),
-		list("Shoulder Holster", 10, /obj/item/clothing/accessory/storage/holster, null, VENDOR_ITEM_REGULAR),
-		list("Webbing", 10, /obj/item/clothing/accessory/storage/webbing, null, VENDOR_ITEM_REGULAR),
-		list("Drop Pouch", 10, /obj/item/clothing/accessory/storage/droppouch, null, VENDOR_ITEM_REGULAR),
+		list("Наплечная кобура", 10, /obj/item/clothing/accessory/storage/holster, null, VENDOR_ITEM_REGULAR),
+		list("Нагрудный жилет", 10, /obj/item/clothing/accessory/storage/webbing, null, VENDOR_ITEM_REGULAR),
+		list("Наплечный подсумок", 10, /obj/item/clothing/accessory/storage/droppouch, null, VENDOR_ITEM_REGULAR),
 	)
 
 //*****************************************************************************************************/
@@ -1658,7 +1658,7 @@
 
 /datum/equipment_preset/upp/supply/get_antag_clothing_equipment()
 	return list(
-		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
+		list("STANDARD EQUIPMENT (ВОЗЬМИТЕ ВСЁ)", 0, null, null, null),
 		list("Boots", 0, /obj/item/clothing/shoes/marine/upp/knife, MARINE_CAN_BUY_SHOES, VENDOR_ITEM_MANDATORY),
 		list("Fatigues", 0, /obj/item/clothing/under/marine/veteran/UPP, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
 		list("UM5 Personal Armor", 0, /obj/item/clothing/suit/storage/marine/faction/UPP, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
@@ -1669,11 +1669,11 @@
 		list("Welderpack", 0, /obj/item/storage/backpack/marine/engineerpack/upp, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
 		list("Binoculars", 0, /obj/item/device/binoculars, null, VENDOR_ITEM_MANDATORY),
 
-		list("HELMET (CHOOSE 1)", 0, null, null, null),
+		list("HELMET (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Armored Cap", 0, /obj/item/clothing/head/uppcap, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("UM4 Helmet", 0, /obj/item/clothing/head/helmet/marine/veteran/UPP, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 
-		list("BELT (Choose 1)", 0, null, null, null),
+		list("BELT (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Type 41 Ammo Load Rig", 0, /obj/item/storage/belt/marine/upp, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
 		list("Type 41 Pistol Holster Rig", 0, /obj/item/storage/belt/gun/m4a3, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
 		list("Toolbelt Rig (Full)", 0, /obj/item/storage/belt/utility/full, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
@@ -1692,9 +1692,9 @@
 		list("Pistol Pouch", 0, /obj/item/storage/pouch/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("Tools Pouch (Full)", 0, /obj/item/storage/pouch/tools/full, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 
-		list("MASK (CHOOSE 1)", 0, null, null, null),
-		list("Gas Mask", 0, /obj/item/clothing/mask/gas, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
-		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR)
+		list("МАСКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Противогаз", 0, /obj/item/clothing/mask/gas, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Инфракрасная балаклава", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR)
 	)
 
 
@@ -1794,7 +1794,7 @@
 
 /datum/equipment_preset/upp/officer/get_antag_clothing_equipment()
 	return list(
-		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
+		list("STANDARD EQUIPMENT (ВОЗЬМИТЕ ВСЁ)", 0, null, null, null),
 		list("Boots", 0, /obj/item/clothing/shoes/marine/upp/knife, MARINE_CAN_BUY_SHOES, VENDOR_ITEM_MANDATORY),
 		list("Fatigues", 0, /obj/item/clothing/under/marine/veteran/UPP/officer, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
 		list("Gloves", 0, /obj/item/clothing/gloves/marine/veteran/upp, MARINE_CAN_BUY_GLOVES, VENDOR_ITEM_MANDATORY),
@@ -1803,16 +1803,16 @@
 		list("Combat Pack", 0, /obj/item/storage/backpack/lightpack/upp, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
 		list("Combat Lubricant", 0, /obj/item/stack/repairable/gunlube, MARINE_CAN_BUY_REPAIRABLE, VENDOR_ITEM_MANDATORY),
 
-		list("HELMET (CHOOSE 1)", 0, null, null, null),
+		list("HELMET (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Armored Beret", 0, /obj/item/clothing/head/uppcap/beret, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("UM4 Helmet", 0, /obj/item/clothing/head/helmet/marine/veteran/UPP, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_RECOMMENDED),
 		list("Ushanka", 0, /obj/item/clothing/head/uppcap/ushanka, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 
-		list("ARMOR (CHOOSE 1)", 0, null, null, null),
+		list("БРОНЯ (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("UL4 officer jacket", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/officer, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_REGULAR),
 		list("UL6 Personal Armor", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/support, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
 
-		list("BELT (CHOOSE 1)", 0, null, null, null),
+		list("BELT (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Type 41 Ammo Load Rig", 0, /obj/item/storage/belt/marine/upp, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
 		list("Type 73 Pistol Holster Rig", 0, /obj/item/storage/belt/gun/type47/t73, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
 
@@ -1830,17 +1830,17 @@
 		list("Pistol Magazine Pouch", 0, /obj/item/storage/pouch/magazine/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("Pistol Pouch", 0, /obj/item/storage/pouch/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 
-		list("MASK (CHOOSE 1)", 0, null, null, null),
-		list("Gas Mask", 0, /obj/item/clothing/mask/gas, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
-		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
-		list("Rebreather", 0, /obj/item/clothing/mask/rebreather, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("МАСКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Противогаз", 0, /obj/item/clothing/mask/gas, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Инфракрасная балаклава", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Респиратор", 0, /obj/item/clothing/mask/rebreather, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
-		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
-		list("Brown Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Black Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Shoulder Holster", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Webbing", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Drop Pouch", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("ACCESSORIES (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Коричневый разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Чёрный разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Наплечная кобура", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Нагрудный жилет", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Наплечный подсумок", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
 	)
 
 /datum/equipment_preset/upp/officer/get_antag_gear_equipment()
@@ -1877,9 +1877,9 @@
 		list("Health Analyzer", 4, /obj/item/device/healthanalyzer, null, VENDOR_ITEM_REGULAR),
 		list("Medical HUD Glasses", 4, /obj/item/clothing/glasses/hud/health, null, VENDOR_ITEM_MANDATORY),
 
-		list("EXPLOSIVES", 0, null, null, null),
-		list("Plastic Explosive", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
-		list("Breaching Charge", 10, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_REGULAR),
+		list("ВЗРЫВЧАТЫЕ ВЕЩЕСТВА", 0, null, null, null),
+		list("Пластичная взрывчатка С-4", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
+		list("Пробивной заряд", 10, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_REGULAR),
 		list("Smoke Grenade", 5, /obj/item/explosive/grenade/smokebomb, null, VENDOR_ITEM_REGULAR),
 		list("Type 6 Shrapnel Grenade", 15, /obj/item/explosive/grenade/high_explosive/upp, null, VENDOR_ITEM_REGULAR),
 		list("Type 8 WP Grenade", 20, /obj/item/explosive/grenade/phosphorus/upp, null, VENDOR_ITEM_REGULAR),
@@ -1983,7 +1983,7 @@
 
 /datum/equipment_preset/upp/officer/senior/get_antag_clothing_equipment()
 	return list(
-		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
+		list("STANDARD EQUIPMENT (ВОЗЬМИТЕ ВСЁ)", 0, null, null, null),
 		list("Boots", 0, /obj/item/clothing/shoes/marine/upp/knife, MARINE_CAN_BUY_SHOES, VENDOR_ITEM_MANDATORY),
 		list("Fatigues", 0, /obj/item/clothing/under/marine/veteran/UPP/officer, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
 		list("Gloves", 0, /obj/item/clothing/gloves/marine/veteran/upp, MARINE_CAN_BUY_GLOVES, VENDOR_ITEM_MANDATORY),
@@ -1992,16 +1992,16 @@
 		list("Combat Pack", 0, /obj/item/storage/backpack/lightpack/upp, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
 		list("Combat Lubricant", 0, /obj/item/stack/repairable/gunlube, MARINE_CAN_BUY_REPAIRABLE, VENDOR_ITEM_MANDATORY),
 
-		list("HELMET (CHOOSE 1)", 0, null, null, null),
+		list("HELMET (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Armored Beret", 0, /obj/item/clothing/head/uppcap/beret, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("UM4 Helmet", 0, /obj/item/clothing/head/helmet/marine/veteran/UPP, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_RECOMMENDED),
 		list("Ushanka", 0, /obj/item/clothing/head/uppcap/ushanka, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 
-		list("ARMOR (CHOOSE 1)", 0, null, null, null),
+		list("БРОНЯ (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("UL4 officer jacket", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/officer, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_REGULAR),
 		list("UL6 Personal Armor", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/support, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
 
-		list("BELT (CHOOSE 1)", 0, null, null, null),
+		list("BELT (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Type 41 Ammo Load Rig", 0, /obj/item/storage/belt/marine/upp, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
 		list("Type 73 Pistol Holster Rig", 0, /obj/item/storage/belt/gun/type47/t73, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
 
@@ -2019,16 +2019,16 @@
 		list("Pistol Magazine Pouch", 0, /obj/item/storage/pouch/magazine/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("Pistol Pouch", 0, /obj/item/storage/pouch/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 
-		list("MASK (CHOOSE 1)", 0, null, null, null),
-		list("Gas Mask", 0, /obj/item/clothing/mask/gas/pmc/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
-		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("МАСКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Противогаз", 0, /obj/item/clothing/mask/gas/pmc/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Инфракрасная балаклава", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
-		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
-		list("Brown Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Black Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Shoulder Holster", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Webbing", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Drop Pouch", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("ACCESSORIES (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Коричневый разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Чёрный разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Наплечная кобура", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Нагрудный жилет", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Наплечный подсумок", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
 	)
 
 /datum/equipment_preset/upp/officer/senior/get_antag_gear_equipment()
@@ -2062,9 +2062,9 @@
 		list("Health Analyzer", 4, /obj/item/device/healthanalyzer, null, VENDOR_ITEM_REGULAR),
 		list("Medical HUD Glasses", 4, /obj/item/clothing/glasses/hud/health, null, VENDOR_ITEM_MANDATORY),
 
-		list("EXPLOSIVES", 0, null, null, null),
-		list("Plastic Explosive", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
-		list("Breaching Charge", 10, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_REGULAR),
+		list("ВЗРЫВЧАТЫЕ ВЕЩЕСТВА", 0, null, null, null),
+		list("Пластичная взрывчатка С-4", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
+		list("Пробивной заряд", 10, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_REGULAR),
 		list("Smoke Grenade", 5, /obj/item/explosive/grenade/smokebomb, null, VENDOR_ITEM_REGULAR),
 		list("Type 6 Shrapnel Grenade", 15, /obj/item/explosive/grenade/high_explosive/upp, null, VENDOR_ITEM_REGULAR),
 		list("Type 8 WP Grenade", 20, /obj/item/explosive/grenade/phosphorus/upp, null, VENDOR_ITEM_REGULAR),
@@ -2149,7 +2149,7 @@
 
 /datum/equipment_preset/upp/officer/kapitan/get_antag_clothing_equipment()
 	return list(
-		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
+		list("STANDARD EQUIPMENT (ВОЗЬМИТЕ ВСЁ)", 0, null, null, null),
 		list("Boots", 0, /obj/item/clothing/shoes/marine/upp/knife, MARINE_CAN_BUY_SHOES, VENDOR_ITEM_MANDATORY),
 		list("Fatigues", 0, /obj/item/clothing/under/marine/veteran/UPP/officer, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
 		list("Gloves", 0, /obj/item/clothing/gloves/marine/veteran, MARINE_CAN_BUY_GLOVES, VENDOR_ITEM_MANDATORY),
@@ -2159,16 +2159,16 @@
 		list("Binoculars", 0, /obj/item/device/binoculars/range, null, VENDOR_ITEM_MANDATORY),
 		list("Combat Lubricant", 0, /obj/item/stack/repairable/gunlube, MARINE_CAN_BUY_REPAIRABLE, VENDOR_ITEM_MANDATORY),
 
-		list("HELMET (CHOOSE 1)", 0, null, null, null),
+		list("HELMET (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Beret", 0, /obj/item/clothing/head/uppcap/beret, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("UM4 Helmet", 0, /obj/item/clothing/head/helmet/marine/veteran/UPP, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_RECOMMENDED),
 		list("Ushanka", 0, /obj/item/clothing/head/uppcap/ushanka, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 
-		list("ARMOR (CHOOSE 1)", 0, null, null, null),
+		list("БРОНЯ (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("UL4 senior officer jacket", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/kapitan, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_REGULAR),
 		list("UL6 Personal Armor", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/support, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
 
-		list("BELT (CHOOSE 1)", 0, null, null, null),
+		list("BELT (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Type 41 Ammo Load Rig", 0, /obj/item/storage/belt/marine/upp, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
 		list("Type 74 Pistol Holster Rig", 0, /obj/item/storage/belt/gun/type47/t73/leader, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
 
@@ -2186,16 +2186,16 @@
 		list("Pistol Magazine Pouch", 0, /obj/item/storage/pouch/magazine/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("Pistol Pouch", 0, /obj/item/storage/pouch/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 
-		list("MASK (CHOOSE 1)", 0, null, null, null),
-		list("Gas Mask", 0, /obj/item/clothing/mask/gas/pmc/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
-		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("МАСКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Противогаз", 0, /obj/item/clothing/mask/gas/pmc/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Инфракрасная балаклава", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
-		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
-		list("Brown Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Black Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Shoulder Holster", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Webbing", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Drop Pouch", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("ACCESSORIES (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Коричневый разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Чёрный разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Наплечная кобура", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Нагрудный жилет", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Наплечный подсумок", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
 	)
 
 /datum/equipment_preset/upp/officer/kapitan/get_antag_gear_equipment()
@@ -2241,9 +2241,9 @@
 		list("Suppressor", 10, /obj/item/attachable/suppressor, null, VENDOR_ITEM_REGULAR),
 		list("Vertical Grip", 10, /obj/item/attachable/verticalgrip, null, VENDOR_ITEM_REGULAR),
 
-		list("EXPLOSIVES", 0, null, null, null),
-		list("Plastic Explosive", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
-		list("Breaching Charge", 10, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_REGULAR),
+		list("ВЗРЫВЧАТЫЕ ВЕЩЕСТВА", 0, null, null, null),
+		list("Пластичная взрывчатка С-4", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
+		list("Пробивной заряд", 10, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_REGULAR),
 		list("Smoke Grenade", 5, /obj/item/explosive/grenade/smokebomb, null, VENDOR_ITEM_REGULAR),
 		list("Type 6 Shrapnel Grenade", 15, /obj/item/explosive/grenade/high_explosive/upp, null, VENDOR_ITEM_REGULAR),
 		list("Type 8 WP Grenade", 20, /obj/item/explosive/grenade/phosphorus/upp, null, VENDOR_ITEM_REGULAR),
@@ -2350,7 +2350,7 @@
 
 /datum/equipment_preset/upp/officer/major/get_antag_clothing_equipment()
 	return list(
-		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
+		list("STANDARD EQUIPMENT (ВОЗЬМИТЕ ВСЁ)", 0, null, null, null),
 		list("Boots", 0, /obj/item/clothing/shoes/marine/upp/knife, MARINE_CAN_BUY_SHOES, VENDOR_ITEM_MANDATORY),
 		list("Fatigues", 0, /obj/item/clothing/under/marine/veteran/UPP/officer, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
 		list("Gloves", 0, /obj/item/clothing/gloves/marine/veteran/upp, MARINE_CAN_BUY_GLOVES, VENDOR_ITEM_MANDATORY),
@@ -2361,16 +2361,16 @@
 		list("Combat Pack", 0, /obj/item/storage/backpack/lightpack/upp, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
 		list("Combat Lubricant", 0, /obj/item/stack/repairable/gunlube, MARINE_CAN_BUY_REPAIRABLE, VENDOR_ITEM_MANDATORY),
 
-		list("HELMET (CHOOSE 1)", 0, null, null, null),
+		list("HELMET (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Peaked Cap", 0, /obj/item/clothing/head/uppcap/peaked, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("UM4 Helmet", 0, /obj/item/clothing/head/helmet/marine/veteran/UPP, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_RECOMMENDED),
 		list("Ushanka", 0, /obj/item/clothing/head/uppcap/ushanka, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 
-		list("ARMOR (CHOOSE 1)", 0, null, null, null),
+		list("БРОНЯ (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("UL4 senior officer jacket", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/kapitan, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_REGULAR),
 		list("UL6 Personal Armor", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/support, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
 
-		list("BELT (CHOOSE 1)", 0, null, null, null),
+		list("BELT (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Type 41 Ammo Load Rig", 0, /obj/item/storage/belt/marine/upp, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
 		list("Type 74 Pistol Holster Rig", 0, /obj/item/storage/belt/gun/type47/t73/leader, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
 
@@ -2388,16 +2388,16 @@
 		list("Pistol Magazine Pouch", 0, /obj/item/storage/pouch/magazine/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("Pistol Pouch", 0, /obj/item/storage/pouch/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 
-		list("MASK (CHOOSE 1)", 0, null, null, null),
-		list("Gas Mask", 0, /obj/item/clothing/mask/gas/pmc/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
-		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("МАСКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Противогаз", 0, /obj/item/clothing/mask/gas/pmc/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Инфракрасная балаклава", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
-		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
-		list("Brown Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Black Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Shoulder Holster", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Webbing", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Drop Pouch", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("ACCESSORIES (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Коричневый разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Чёрный разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Наплечная кобура", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Нагрудный жилет", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Наплечный подсумок", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
 	)
 
 /datum/equipment_preset/upp/officer/major/get_antag_gear_equipment()
@@ -2443,9 +2443,9 @@
 		list("Suppressor", 10, /obj/item/attachable/suppressor, null, VENDOR_ITEM_REGULAR),
 		list("Vertical Grip", 10, /obj/item/attachable/verticalgrip, null, VENDOR_ITEM_REGULAR),
 
-		list("EXPLOSIVES", 0, null, null, null),
-		list("Plastic Explosive", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
-		list("Breaching Charge", 10, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_REGULAR),
+		list("ВЗРЫВЧАТЫЕ ВЕЩЕСТВА", 0, null, null, null),
+		list("Пластичная взрывчатка С-4", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
+		list("Пробивной заряд", 10, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_REGULAR),
 		list("Smoke Grenade", 5, /obj/item/explosive/grenade/smokebomb, null, VENDOR_ITEM_REGULAR),
 		list("Type 6 Shrapnel Grenade", 15, /obj/item/explosive/grenade/high_explosive/upp, null, VENDOR_ITEM_REGULAR),
 		list("Type 8 WP Grenade", 20, /obj/item/explosive/grenade/phosphorus/upp, null, VENDOR_ITEM_REGULAR),
@@ -2551,7 +2551,7 @@
 
 /datum/equipment_preset/upp/officer/flag/get_antag_clothing_equipment()
 	return list(
-		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
+		list("STANDARD EQUIPMENT (ВОЗЬМИТЕ ВСЁ)", 0, null, null, null),
 		list("Boots", 0, /obj/item/clothing/shoes/marine/upp/knife, MARINE_CAN_BUY_SHOES, VENDOR_ITEM_MANDATORY),
 		list("Fatigues", 0, /obj/item/clothing/under/marine/veteran/UPP/officer, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
 		list("Gloves", 0, /obj/item/clothing/gloves/marine/veteran/upp, MARINE_CAN_BUY_GLOVES, VENDOR_ITEM_MANDATORY),
@@ -2560,16 +2560,16 @@
 		list("Combat Pack", 0, /obj/item/storage/backpack/lightpack/upp, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
 		list("Binoculars", 0, /obj/item/device/binoculars, null, VENDOR_ITEM_MANDATORY),
 
-		list("HELMET (CHOOSE 1)", 0, null, null, null),
+		list("HELMET (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Peaked Cap", 0, /obj/item/clothing/head/uppcap/peaked, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("UM4 Helmet", 0, /obj/item/clothing/head/helmet/marine/veteran/UPP, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_RECOMMENDED),
 		list("Ushanka", 0, /obj/item/clothing/head/uppcap/ushanka, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 
-		list("ARMOR (CHOOSE 1)", 0, null, null, null),
+		list("БРОНЯ (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("UL4 senior officer jacket", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/kapitan, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_REGULAR),
 		list("UL6 Personal Armor", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/support, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
 
-		list("BELT (CHOOSE 1)", 0, null, null, null),
+		list("BELT (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Type 41 Ammo Load Rig", 0, /obj/item/storage/belt/marine/upp, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
 		list("Type 74 Pistol Holster Rig", 0, /obj/item/storage/belt/gun/type47/t73/leader, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
 
@@ -2587,16 +2587,16 @@
 		list("Pistol Magazine Pouch", 0, /obj/item/storage/pouch/magazine/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("Pistol Pouch", 0, /obj/item/storage/pouch/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 
-		list("MASK (CHOOSE 1)", 0, null, null, null),
-		list("Gas Mask", 0, /obj/item/clothing/mask/gas/pmc/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
-		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("МАСКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Противогаз", 0, /obj/item/clothing/mask/gas/pmc/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Инфракрасная балаклава", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
-		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
-		list("Brown Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Black Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Shoulder Holster", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Webbing", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Drop Pouch", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("ACCESSORIES (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Коричневый разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Чёрный разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Наплечная кобура", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Нагрудный жилет", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Наплечный подсумок", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
 	)
 
 /datum/equipment_preset/upp/officer/flag/get_antag_gear_equipment()
@@ -2642,9 +2642,9 @@
 		list("Suppressor", 10, /obj/item/attachable/suppressor, null, VENDOR_ITEM_REGULAR),
 		list("Vertical Grip", 10, /obj/item/attachable/verticalgrip, null, VENDOR_ITEM_REGULAR),
 
-		list("EXPLOSIVES", 0, null, null, null),
-		list("Plastic Explosive", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
-		list("Breaching Charge", 10, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_REGULAR),
+		list("ВЗРЫВЧАТЫЕ ВЕЩЕСТВА", 0, null, null, null),
+		list("Пластичная взрывчатка С-4", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
+		list("Пробивной заряд", 10, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_REGULAR),
 		list("Smoke Grenade", 5, /obj/item/explosive/grenade/smokebomb, null, VENDOR_ITEM_REGULAR),
 		list("Type 6 Shrapnel Grenade", 15, /obj/item/explosive/grenade/high_explosive/upp, null, VENDOR_ITEM_REGULAR),
 		list("Type 8 WP Grenade", 20, /obj/item/explosive/grenade/phosphorus/upp, null, VENDOR_ITEM_REGULAR),
@@ -2962,29 +2962,29 @@
 
 /datum/equipment_preset/upp/synth/get_antag_clothing_equipment()
 	return list(
-		list("RADIO (TAKE ALL)", 0, null, null, null),
+		list("RADIO (ВОЗЬМИТЕ ВСЁ)", 0, null, null, null),
 		list("Headset", 0, /obj/item/device/radio/headset/distress/UPP/command, MARINE_CAN_BUY_EAR, VENDOR_ITEM_MANDATORY),
 
-		list("HELMET (CHOOSE 1)", 0, null, null, null),
+		list("HELMET (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Ushanka", 0, /obj/item/clothing/head/uppcap/ushanka, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 
-		list("WEBBING (CHOOSE 1)", 0, null, null, null),
-		list("Black Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Brown Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Webbing", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("WEBBING (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Чёрный разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Коричневый разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Нагрудный жилет", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
 		list("Surgical Webbing Vest", 0, /obj/item/clothing/accessory/storage/surg_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
 		list("Surgical Webbing Vest (Blue)", 0, /obj/item/clothing/accessory/storage/surg_vest/blue, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Drop Pouch", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Наплечный подсумок", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
 
-		list("SHOES (CHOOSE 1)", 0, null, null, null),
+		list("SHOES (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Boots", 0, /obj/item/clothing/shoes/marine/knife, MARINE_CAN_BUY_SHOES, VENDOR_ITEM_REGULAR),
 
-		list("GLOVES (CHOOSE 1)", 0, null, null, null),
+		list("GLOVES (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Insulated Gloves", 0, /obj/item/clothing/gloves/yellow, MARINE_CAN_BUY_GLOVES, VENDOR_ITEM_RECOMMENDED),
 		list("Black Gloves", 0, /obj/item/clothing/gloves/black, MARINE_CAN_BUY_GLOVES, VENDOR_ITEM_REGULAR),
 		list("Latex Gloves", 0, /obj/item/clothing/gloves/latex, MARINE_CAN_BUY_GLOVES, VENDOR_ITEM_REGULAR),
 
-		list("BACKPACK (CHOOSE 1)", 0, null, null, null),
+		list("РЮКЗАКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Smartpack, Blue", 0, /obj/item/storage/backpack/marine/smartpack, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_REGULAR),
 		list("Smartpack, Green", 0, /obj/item/storage/backpack/marine/smartpack/green, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_REGULAR),
 		list("Smartpack, Tan", 0, /obj/item/storage/backpack/marine/smartpack/tan, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_REGULAR),
@@ -2992,7 +2992,7 @@
 		list("Smartpack, Black", 0, /obj/item/storage/backpack/marine/smartpack/black, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_REGULAR),
 		list("Logistics IMP Backpack", 0, /obj/item/storage/backpack/marine/satchel/big, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_REGULAR),
 
-		list("BELT (CHOOSE 1)", 0, null, null, null),
+		list("BELT (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("G8-A General Utility Pouch", 0, /obj/item/storage/backpack/general_belt, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
 		list("M276 Lifesaver Bag", 0, /obj/item/storage/belt/medical/lifesaver/upp/full, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
 		list("M276 Medical Storage Belt", 0, /obj/item/storage/belt/medical/full, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
@@ -3012,7 +3012,7 @@
 		list("Medical Kit Pouch", 0, /obj/item/storage/pouch/medkit, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("Tools Pouch (Full)", 0, /obj/item/storage/pouch/tools/full, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 
-		list("MASK", 0, null, null, null),
+		list("МАСКИ", 0, null, null, null),
 		list("Sterile mask", 0, /obj/item/clothing/mask/surgical, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR)
 	)
 
@@ -3202,7 +3202,7 @@
 
 /datum/equipment_preset/upp/commando/get_antag_clothing_equipment()
 	return list(
-		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
+		list("STANDARD EQUIPMENT (ВОЗЬМИТЕ ВСЁ)", 0, null, null, null),
 		list("Boots", 0, /obj/item/clothing/shoes/marine/upp/knife, MARINE_CAN_BUY_SHOES, VENDOR_ITEM_MANDATORY),
 		list("Fatigues", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/commando, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
 		list("Gloves", 0, /obj/item/clothing/gloves/marine/veteran/upp, MARINE_CAN_BUY_GLOVES, VENDOR_ITEM_MANDATORY),
@@ -3215,12 +3215,12 @@
 		list("Binoculars", 0, /obj/item/device/binoculars/range, null, VENDOR_ITEM_MANDATORY),
 		list("Combat Lubricant", 0, /obj/item/stack/repairable/gunlube, MARINE_CAN_BUY_REPAIRABLE, VENDOR_ITEM_MANDATORY),
 
-		list("HELMET (CHOOSE 1)", 0, null, null, null),
+		list("HELMET (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Armored Cap", 0, /obj/item/clothing/head/uppcap, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("UM4 Helmet", 0, /obj/item/clothing/head/helmet/marine/veteran/UPP, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("Ushanka", 0, /obj/item/clothing/head/uppcap/ushanka, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 
-		list("BELT (CHOOSE 1)", 0, null, null, null),
+		list("BELT (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Type 41 Ammo Load Rig", 0, /obj/item/storage/belt/marine/upp, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
 		list("NPZ92 Pistol Holster Rig", 0, /obj/item/storage/belt/gun/type47/np92/suppressed, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
 
@@ -3238,16 +3238,16 @@
 		list("Pistol Magazine Pouch", 0, /obj/item/storage/pouch/magazine/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("Pistol Pouch", 0, /obj/item/storage/pouch/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 
-		list("MASK (CHOOSE 1)", 0, null, null, null),
-		list("Gas Mask", 0, /obj/item/clothing/mask/gas/pmc/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
-		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("МАСКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Противогаз", 0, /obj/item/clothing/mask/gas/pmc/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Инфракрасная балаклава", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
-		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
-		list("Brown Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Black Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Shoulder Holster", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Webbing", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Drop Pouch", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("ACCESSORIES (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Коричневый разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Чёрный разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Наплечная кобура", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Нагрудный жилет", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Наплечный подсумок", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
 	)
 
 /datum/equipment_preset/upp/commando/get_antag_gear_equipment()
@@ -3265,7 +3265,7 @@
 		list("Suppressor", 10, /obj/item/attachable/suppressor, null, VENDOR_ITEM_REGULAR),
 		list("Vertical Grip", 10, /obj/item/attachable/verticalgrip, null, VENDOR_ITEM_REGULAR),
 
-		list("EXPLOSIVES", 0, null, null, null),
+		list("ВЗРЫВЧАТЫЕ ВЕЩЕСТВА", 0, null, null, null),
 		list("Smoke Grenade", 5, /obj/item/explosive/grenade/smokebomb, null, VENDOR_ITEM_REGULAR),
 		list("Type 6 Shrapnel Grenade", 15, /obj/item/explosive/grenade/high_explosive/upp, null, VENDOR_ITEM_REGULAR),
 		list("Type 8 WP Grenade", 20, /obj/item/explosive/grenade/phosphorus/upp, null, VENDOR_ITEM_REGULAR),
@@ -3338,7 +3338,7 @@
 
 /datum/equipment_preset/upp/commando/medic/get_antag_clothing_equipment()
 	return list(
-		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
+		list("STANDARD EQUIPMENT (ВОЗЬМИТЕ ВСЁ)", 0, null, null, null),
 		list("Standard Apparel", 0, list(/obj/item/clothing/under/marine/veteran/UPP/medic, /obj/item/clothing/shoes/marine/upp/knife, /obj/item/clothing/gloves/marine/veteran/upp, /obj/item/device/radio/headset/distress/UPP/kdo/medic), MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
 		list("HealthMate HUD", 0, /obj/item/clothing/glasses/hud/health, MARINE_CAN_BUY_GLASSES, VENDOR_ITEM_MANDATORY),
 		list("Night Vision Goggles", 0, /obj/item/clothing/glasses/night/m42_night_goggles/upp, MARINE_CAN_BUY_GLASSES, VENDOR_ITEM_MANDATORY),
@@ -3349,7 +3349,7 @@
 		list("Binoculars", 0, /obj/item/device/binoculars/range, null, VENDOR_ITEM_MANDATORY),
 		list("Combat Lubricant", 0, /obj/item/stack/repairable/gunlube, MARINE_CAN_BUY_REPAIRABLE, VENDOR_ITEM_MANDATORY),
 
-		list("HELMET (CHOOSE 1)", 0, null, null, null),
+		list("HELMET (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Armored Cap", 0, /obj/item/clothing/head/uppcap, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("UM4 Helmet", 0, /obj/item/clothing/head/helmet/marine/veteran/UPP, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("Ushanka", 0, /obj/item/clothing/head/uppcap/ushanka, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
@@ -3373,16 +3373,16 @@
 		list("Pistol Magazine Pouch", 0, /obj/item/storage/pouch/magazine/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("Pistol Pouch", 0, /obj/item/storage/pouch/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 
-		list("MASK (CHOOSE 1)", 0, null, null, null),
-		list("Gas Mask", 0, /obj/item/clothing/mask/gas/pmc/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
-		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("МАСКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Противогаз", 0, /obj/item/clothing/mask/gas/pmc/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Инфракрасная балаклава", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
-		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
-		list("Brown Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Black Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Shoulder Holster", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Webbing", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Drop Pouch", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("ACCESSORIES (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Коричневый разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Чёрный разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Наплечная кобура", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Нагрудный жилет", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Наплечный подсумок", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
 	)
 
 /datum/equipment_preset/upp/commando/medic/get_antag_gear_equipment()
@@ -3437,7 +3437,7 @@
 		list("Suppressor", 10, /obj/item/attachable/suppressor, null, VENDOR_ITEM_REGULAR),
 		list("Vertical Grip", 10, /obj/item/attachable/verticalgrip, null, VENDOR_ITEM_REGULAR),
 
-		list("EXPLOSIVES", 0, null, null, null),
+		list("ВЗРЫВЧАТЫЕ ВЕЩЕСТВА", 0, null, null, null),
 		list("Smoke Grenade", 5, /obj/item/explosive/grenade/smokebomb, null, VENDOR_ITEM_REGULAR),
 		list("Type 6 Shrapnel Grenade", 15, /obj/item/explosive/grenade/high_explosive/upp, null, VENDOR_ITEM_REGULAR),
 		list("Type 8 WP Grenade", 20, /obj/item/explosive/grenade/phosphorus/upp, null, VENDOR_ITEM_REGULAR),
@@ -3505,7 +3505,7 @@
 
 /datum/equipment_preset/upp/commando/leader/get_antag_clothing_equipment()
 	return list(
-		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
+		list("STANDARD EQUIPMENT (ВОЗЬМИТЕ ВСЁ)", 0, null, null, null),
 		list("Standard Apparel", 0, list(/obj/item/clothing/suit/storage/marine/faction/UPP/commando, /obj/item/clothing/shoes/marine/upp/knife, /obj/item/clothing/gloves/marine/veteran/upp, /obj/item/device/radio/headset/distress/UPP/kdo/command), MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
 		list("Night Vision Goggles", 0, /obj/item/clothing/glasses/night/m42_night_goggles/upp, MARINE_CAN_BUY_GLASSES, VENDOR_ITEM_MANDATORY),
 		list("IRP", 0, /obj/item/storage/box/mre/upp, MARINE_CAN_BUY_MRE, VENDOR_ITEM_MANDATORY),
@@ -3515,12 +3515,12 @@
 		list("Binoculars", 0, /obj/item/device/binoculars/range, null, VENDOR_ITEM_MANDATORY),
 		list("Combat Lubricant", 0, /obj/item/stack/repairable/gunlube, MARINE_CAN_BUY_REPAIRABLE, VENDOR_ITEM_MANDATORY),
 
-		list("HELMET (CHOOSE 1)", 0, null, null, null),
+		list("HELMET (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Armored Cap", 0, /obj/item/clothing/head/uppcap, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("UM4 Helmet", 0, /obj/item/clothing/head/helmet/marine/veteran/UPP, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("Ushanka", 0, /obj/item/clothing/head/uppcap/ushanka, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 
-		list("BELT (CHOOSE 1)", 0, null, null, null),
+		list("BELT (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Type 41 Ammo Load Rig", 0, /obj/item/storage/belt/marine/upp, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
 		list("NPZ92 Pistol Holster Rig", 0, /obj/item/storage/belt/gun/type47/np92/suppressed, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
 
@@ -3539,16 +3539,16 @@
 		list("Pistol Magazine Pouch", 0, /obj/item/storage/pouch/magazine/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("Pistol Pouch", 0, /obj/item/storage/pouch/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 
-		list("MASK (CHOOSE 1)", 0, null, null, null),
-		list("Gas Mask", 0, /obj/item/clothing/mask/gas/pmc/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
-		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("МАСКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Противогаз", 0, /obj/item/clothing/mask/gas/pmc/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Инфракрасная балаклава", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
-		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
-		list("Brown Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Black Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Shoulder Holster", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Webbing", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Drop Pouch", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("ACCESSORIES (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Коричневый разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Чёрный разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Наплечная кобура", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Нагрудный жилет", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Наплечный подсумок", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
 	)
 
 /datum/equipment_preset/upp/commando/leader/get_antag_gear_equipment()
@@ -3594,9 +3594,9 @@
 		list("Suppressor", 10, /obj/item/attachable/suppressor, null, VENDOR_ITEM_REGULAR),
 		list("Vertical Grip", 10, /obj/item/attachable/verticalgrip, null, VENDOR_ITEM_REGULAR),
 
-		list("EXPLOSIVES", 0, null, null, null),
-		list("Plastic Explosive", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
-		list("Breaching Charge", 10, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_REGULAR),
+		list("ВЗРЫВЧАТЫЕ ВЕЩЕСТВА", 0, null, null, null),
+		list("Пластичная взрывчатка С-4", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
+		list("Пробивной заряд", 10, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_REGULAR),
 		list("Smoke Grenade", 5, /obj/item/explosive/grenade/smokebomb, null, VENDOR_ITEM_REGULAR),
 		list("Type 6 Shrapnel Grenade", 15, /obj/item/explosive/grenade/high_explosive/upp, null, VENDOR_ITEM_REGULAR),
 		list("Type 8 WP Grenade", 20, /obj/item/explosive/grenade/phosphorus/upp, null, VENDOR_ITEM_REGULAR),
@@ -3775,7 +3775,7 @@
 
 /datum/equipment_preset/upp/tank/get_antag_clothing_equipment()
 	return list(
-		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
+		list("STANDARD EQUIPMENT (ВОЗЬМИТЕ ВСЁ)", 0, null, null, null),
 		list("Gloves", 0, /obj/item/clothing/gloves/marine/veteran/insulated, MARINE_CAN_BUY_GLOVES, VENDOR_ITEM_MANDATORY),
 		list("UM5 Personal Armor", 0, /obj/item/clothing/suit/storage/marine/faction/UPP, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
 		list("UM4-V Helmet", 0, /obj/item/clothing/head/helmet/marine/veteran/UPP/engi, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_MANDATORY),
@@ -3784,12 +3784,12 @@
 		list("Binoculars", 0, /obj/item/device/binoculars, null, VENDOR_ITEM_MANDATORY),
 		list("Combat Lubricant", 0, /obj/item/stack/repairable/gunlube, MARINE_CAN_BUY_REPAIRABLE, VENDOR_ITEM_MANDATORY),
 
-		list("PERSONAL SIDEARM (CHOOSE 1)", 0, null, null, null),
+		list("PERSONAL SIDEARM (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Type 73 Pistol", 0, /obj/item/weapon/gun/pistol/t73, MARINE_CAN_BUY_ATTACHMENT, VENDOR_ITEM_RECOMMENDED),
 		list("NP92 Pistol", 0, /obj/item/weapon/gun/pistol/np92, MARINE_CAN_BUY_ATTACHMENT, VENDOR_ITEM_REGULAR),
 		list("ZHNK-72 Revolver", 0, /obj/item/weapon/gun/revolver/upp, MARINE_CAN_BUY_ATTACHMENT, VENDOR_ITEM_REGULAR),
 
-		list("BELT (CHOOSE 1)", 0, null, null, null),
+		list("BELT (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("G8-A General Utility Pouch", 0, /obj/item/storage/backpack/general_belt, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
 		list("M103 Vehicle-Ammo Rig", 0, /obj/item/storage/belt/tank, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
 		list("M276 Ammo Load Rig", 0, /obj/item/storage/belt/marine, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
@@ -3807,26 +3807,26 @@
 		list("Sidearm Pouch", 0, /obj/item/storage/pouch/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("Tools Pouch (Full)", 0, /obj/item/storage/pouch/tools/tank, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_RECOMMENDED),
 
-		list("WELDING PROTECTION (CHOOSE 1)", 0, null, null, null),
+		list("WELDING PROTECTION (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Welding Goggles", 0, /obj/item/clothing/glasses/welding, MARINE_CAN_BUY_GLASSES, VENDOR_ITEM_REGULAR),
 		list("Welding Helmet", 0, /obj/item/clothing/head/welding, MARINE_CAN_BUY_GLASSES, VENDOR_ITEM_REGULAR),
 
-		list("MASK (CHOOSE 1)", 0, null, null, null),
-		list("Gas Mask", 0, /obj/item/clothing/mask/gas/pmc/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
-		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("МАСКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Противогаз", 0, /obj/item/clothing/mask/gas/pmc/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Инфракрасная балаклава", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
-		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
-		list("Brown Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Black Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Shoulder Holster", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Webbing", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Drop Pouch", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("ACCESSORIES (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Коричневый разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Чёрный разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Наплечная кобура", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Нагрудный жилет", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Наплечный подсумок", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
 	)
 
 /datum/equipment_preset/upp/tank/get_antag_gear_equipment()
 	return list(
-		list("EXPLOSIVES", 0, null, null, null),
-		list("Plastic Explosive", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
+		list("ВЗРЫВЧАТЫЕ ВЕЩЕСТВА", 0, null, null, null),
+		list("Пластичная взрывчатка С-4", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
 		list("Smoke Grenade", 5, /obj/item/explosive/grenade/smokebomb, null, VENDOR_ITEM_REGULAR),
 		list("Type 6 Shrapnel Grenade", 15, /obj/item/explosive/grenade/high_explosive/upp, null, VENDOR_ITEM_REGULAR),
 		list("Type 8 WP Grenade", 20, /obj/item/explosive/grenade/phosphorus/upp, null, VENDOR_ITEM_REGULAR),
@@ -3836,7 +3836,7 @@
 		list("Fuel Tank Strap Pouch", 5, /obj/item/storage/pouch/flamertank, null, VENDOR_ITEM_REGULAR),
 		list("Large Magazine Pouch", 15, /obj/item/storage/pouch/magazine/large, null, VENDOR_ITEM_REGULAR),
 		list("Motion Detector", 15, /obj/item/device/motiondetector/hacked, null, VENDOR_ITEM_REGULAR),
-		list("Plastic Explosive", 10, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
+		list("Пластичная взрывчатка С-4", 10, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
 		list("Large General Pouch", 15, /obj/item/storage/pouch/general/large, null, VENDOR_ITEM_REGULAR),
 	)
 
@@ -3884,7 +3884,7 @@
 
 /datum/equipment_preset/upp/pilot/get_antag_clothing_equipment()
 	return list(
-		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
+		list("STANDARD EQUIPMENT (ВОЗЬМИТЕ ВСЁ)", 0, null, null, null),
 		list("Boots", 0, /obj/item/clothing/shoes/marine/upp/knife, MARINE_CAN_BUY_SHOES, VENDOR_ITEM_MANDATORY),
 		list("Fatigues", 0, /obj/item/clothing/under/marine/veteran/UPP, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
 		list("UM5 Personal Armor", 0, /obj/item/clothing/suit/storage/marine/faction/UPP, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
@@ -3895,11 +3895,11 @@
 		list("Binoculars", 0, /obj/item/device/binoculars, null, VENDOR_ITEM_MANDATORY),
 		list("Combat Lubricant", 0, /obj/item/stack/repairable/gunlube, MARINE_CAN_BUY_REPAIRABLE, VENDOR_ITEM_MANDATORY),
 
-		list("HELMET (CHOOSE 1)", 0, null, null, null),
+		list("HELMET (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Armored Cap", 0, /obj/item/clothing/head/uppcap, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("UM4 Helmet", 0, /obj/item/clothing/head/helmet/marine/veteran/UPP, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 
-		list("BELT (Choose 1)", 0, null, null, null),
+		list("BELT (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Type 41 Ammo Load Rig", 0, /obj/item/storage/belt/marine/upp, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
 		list("Type 41 Pistol Holster Rig", 0, /obj/item/storage/belt/gun/m4a3, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
 		list("Toolbelt Rig (Full)", 0, /obj/item/storage/belt/utility/full, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
@@ -3918,15 +3918,15 @@
 		list("Pistol Pouch", 0, /obj/item/storage/pouch/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("Tools Pouch (Full)", 0, /obj/item/storage/pouch/tools/full, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 
-		list("MASK (CHOOSE 1)", 0, null, null, null),
-		list("Gas Mask", 0, /obj/item/clothing/mask/gas, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
-		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR)
+		list("МАСКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Противогаз", 0, /obj/item/clothing/mask/gas, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Инфракрасная балаклава", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR)
 	)
 
 /datum/equipment_preset/upp/pilot/get_antag_gear_equipment()
 	return list(
-		list("EXPLOSIVES", 0, null, null, null),
-		list("Plastic Explosive", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
+		list("ВЗРЫВЧАТЫЕ ВЕЩЕСТВА", 0, null, null, null),
+		list("Пластичная взрывчатка С-4", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
 		list("Smoke Grenade", 5, /obj/item/explosive/grenade/smokebomb, null, VENDOR_ITEM_REGULAR),
 		list("Type 6 Shrapnel Grenade", 15, /obj/item/explosive/grenade/high_explosive/upp, null, VENDOR_ITEM_REGULAR),
 		list("Type 8 WP Grenade", 20, /obj/item/explosive/grenade/phosphorus/upp, null, VENDOR_ITEM_REGULAR),
@@ -3936,7 +3936,7 @@
 		list("Fuel Tank Strap Pouch", 5, /obj/item/storage/pouch/flamertank, null, VENDOR_ITEM_REGULAR),
 		list("Large Magazine Pouch", 15, /obj/item/storage/pouch/magazine/large, null, VENDOR_ITEM_REGULAR),
 		list("Motion Detector", 15, /obj/item/device/motiondetector/hacked, null, VENDOR_ITEM_REGULAR),
-		list("Plastic Explosive", 10, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
+		list("Пластичная взрывчатка С-4", 10, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
 		list("Large General Pouch", 15, /obj/item/storage/pouch/general/large, null, VENDOR_ITEM_REGULAR),
 	)
 
@@ -3990,10 +3990,10 @@
 
 /datum/equipment_preset/upp/commissar/get_antag_clothing_equipment()
 	return list(
-		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
+		list("STANDARD EQUIPMENT (ВОЗЬМИТЕ ВСЁ)", 0, null, null, null),
 		list("IRP", 0, /obj/item/storage/box/mre/upp, MARINE_CAN_BUY_MRE, VENDOR_ITEM_MANDATORY),
 
-		list("HELMET (CHOOSE 1)", 0, null, null, null),
+		list("HELMET (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("UL2 Cap", 0, /obj/item/clothing/head/uppcap, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("UL3 Beret", 0, /obj/item/clothing/head/uppcap/beret, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("UL8 Ushanka", 0, /obj/item/clothing/head/uppcap/beret, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
@@ -4009,9 +4009,9 @@
 		list("Magazine Pouch", 0, /obj/item/storage/pouch/magazine, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("Sidearm Pouch", 0, /obj/item/storage/pouch/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 
-		list("MASK (CHOOSE 1)", 0, null, null, null),
-		list("Gas Mask", 0, /obj/item/clothing/mask/gas, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
-		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR)
+		list("МАСКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Противогаз", 0, /obj/item/clothing/mask/gas, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Инфракрасная балаклава", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR)
 	)
 
 /datum/equipment_preset/upp/commissar/get_antag_gear_equipment()
@@ -4136,7 +4136,7 @@
 
 /datum/equipment_preset/upp/conscript/get_antag_clothing_equipment()
 	return list(
-		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
+		list("STANDARD EQUIPMENT (ВОЗЬМИТЕ ВСЁ)", 0, null, null, null),
 		list("Boots", 0, /obj/item/clothing/shoes/marine/upp/knife, MARINE_CAN_BUY_SHOES, VENDOR_ITEM_MANDATORY),
 		list("Fatigues", 0, /obj/item/clothing/under/marine/veteran/UPP, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
 		list("Headset", 0, /obj/item/device/radio/headset/distress/UPP, MARINE_CAN_BUY_EAR, VENDOR_ITEM_MANDATORY),
@@ -4148,7 +4148,7 @@
 		list("Armored Cap", 0, /obj/item/clothing/head/uppcap, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_MANDATORY),
 		list("Armored Ushanka", 0, /obj/item/clothing/head/uppcap/ushanka, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 
-		list("BELT (CHOOSE 1)", 0, null, null, null),
+		list("BELT (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Type 41 Pistol Holster Rig", 0, /obj/item/storage/belt/gun/m4a3, MARINE_CAN_BUY_BELT, VENDOR_ITEM_REGULAR),
 
 		list("POUCHES (CHOOSE 2)", 0, null, null, null),
@@ -4156,10 +4156,10 @@
 		list("Flare Pouch (Full)", 0, /obj/item/storage/pouch/flare/full, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_RECOMMENDED),
 		list("Pistol Magazine Pouch", 0, /obj/item/storage/pouch/magazine/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 
-		list("ATTACHMENT (CHOOSE 1)", 0, null, null, null),
+		list("ATTACHMENT (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Laser Sight", 0, /obj/item/attachable/lasersight, MARINE_CAN_BUY_ATTACHMENT, VENDOR_ITEM_REGULAR),
 
-		list("MASK (CHOOSE 1)", 0, null, null, null),
+		list("МАСКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Tactical Bandana", 0, /obj/item/clothing/mask/rebreather/scarf/tacticalmask/green, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR)
 	)
 
@@ -4169,14 +4169,14 @@
 		list("Entrenching Tool", 2, /obj/item/tool/shovel/etool, null, VENDOR_ITEM_RECOMMENDED),
 		list("Sandbags x25", 5, /obj/item/stack/sandbags_empty/half, null, VENDOR_ITEM_RECOMMENDED),
 
-		list("EXPLOSIVES", 0, null, null, null),
+		list("ВЗРЫВЧАТЫЕ ВЕЩЕСТВА", 0, null, null, null),
 		list("Smoke Grenade", 5, /obj/item/explosive/grenade/smokebomb, null, VENDOR_ITEM_REGULAR),
 
 		list("UTILITIES", 0, null, null, null),
-		list("Brown Webbing Vest", 10, /obj/item/clothing/accessory/storage/black_vest/brown_vest, null, VENDOR_ITEM_RECOMMENDED),
-		list("Black Webbing Vest", 10, /obj/item/clothing/accessory/storage/black_vest, null, VENDOR_ITEM_RECOMMENDED),
-		list("Webbing", 10, /obj/item/clothing/accessory/storage/webbing, null, VENDOR_ITEM_REGULAR),
-		list("Drop Pouch", 10, /obj/item/clothing/accessory/storage/droppouch, null, VENDOR_ITEM_REGULAR)
+		list("Коричневый разгрузочный жилет", 10, /obj/item/clothing/accessory/storage/black_vest/brown_vest, null, VENDOR_ITEM_RECOMMENDED),
+		list("Чёрный разгрузочный жилет", 10, /obj/item/clothing/accessory/storage/black_vest, null, VENDOR_ITEM_RECOMMENDED),
+		list("Нагрудный жилет", 10, /obj/item/clothing/accessory/storage/webbing, null, VENDOR_ITEM_REGULAR),
+		list("Наплечный подсумок", 10, /obj/item/clothing/accessory/storage/droppouch, null, VENDOR_ITEM_REGULAR)
 	)
 
 ///Hunting Grounds UPP///

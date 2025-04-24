@@ -23895,14 +23895,6 @@ accusative = "корпус"
 instrumental = "корпусом"
 prepositional = "корпусе"
 
-["ColMarTech Automated Marine Equipment Rack"]
-nominative = "стеллаж экипировки морпеха КолМарТех"
-genitive = "стеллажа экипировки морпеха КолМарТех"
-dative = "стеллажу экипировки морпеха КолМарТех"
-accusative = "стеллаж экипировки морпеха КолМарТех"
-instrumental = "стеллажом экипировки морпеха КолМарТех"
-prepositional = "стеллаже экипировки морпеха КолМарТех"
-
 ["Air Scrubber"]
 nominative = "очиститель воздуха"
 genitive = "очистителя воздуха"

@@ -1,17 +1,17 @@
 GLOBAL_LIST_INIT(cm_vending_clothing_tutorial, list(
-		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
+		list("STANDARD EQUIPMENT (ВОЗЬМИТЕ ВСЁ)", 0, null, null, null),
 		list("Standard Marine Apparel", 0, list(/obj/item/clothing/under/marine, /obj/item/clothing/shoes/marine/knife, /obj/item/clothing/gloves/marine, /obj/item/clothing/head/helmet/marine), MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
 
-		list("ARMOR (CHOOSE 1)", 0, null, null, null),
+		list("БРОНЯ (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Medium Armor", 0, /obj/item/clothing/suit/storage/marine/medium, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_REGULAR),
 
-		list("BACKPACK (CHOOSE 1)", 0, null, null, null),
+		list("РЮКЗАКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Satchel", 0, /obj/item/storage/backpack/marine/satchel, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_RECOMMENDED),
 
-		list("BELT (CHOOSE 1)", 0, null, null, null),
+		list("BELT (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("M276 Ammo Load Rig", 0, /obj/item/storage/belt/marine, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
 
-		list("POUCHES (CHOOSE 1)", 0, null, null, null),
+		list("POUCHES (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Flare Pouch (Full)", 0, /obj/item/storage/pouch/flare/full, MARINE_CAN_BUY_GLASSES, VENDOR_ITEM_RECOMMENDED),
 
 	)) // The pouch uses a different category so they only get one
@@ -103,25 +103,25 @@ GLOBAL_LIST_INIT(cm_vending_gear_medic_sandbox, list(
 //------------CLOTHING VENDOR---------------
 
 GLOBAL_LIST_INIT(cm_vending_clothing_medic_sandbox, list(
-		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
+		list("STANDARD EQUIPMENT (ВОЗЬМИТЕ ВСЁ)", 0, null, null, null),
 		list("Standard Marine Apparel", 0, list(/obj/item/clothing/under/marine/medic, /obj/item/clothing/shoes/marine/knife, /obj/item/clothing/gloves/marine), MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
 		list("Combat Sterile Gloves", 0, /obj/item/clothing/gloves/marine/medical, MARINE_CAN_BUY_GLOVES, VENDOR_ITEM_REGULAR),
 		list("MRE", 0, /obj/item/storage/box/mre, MARINE_CAN_BUY_MRE, VENDOR_ITEM_MANDATORY),
 
-		list("ARMOR (CHOOSE 1)", 0, null, null, null),
+		list("БРОНЯ (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Light Armor", 0, /obj/item/clothing/suit/storage/marine/light, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_REGULAR),
 		list("Medium Armor", 0, /obj/item/clothing/suit/storage/marine/medium, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_RECOMMENDED),
 		list("Heavy Armor", 0, /obj/item/clothing/suit/storage/marine/heavy, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_REGULAR),
 
-		list("HELMET (CHOOSE 1)", 0, null, null, null),
+		list("HELMET (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("M10 Corpsman Helmet", 0, /obj/item/clothing/head/helmet/marine/medic, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 		list("M10 White Corpsman Helmet", 0, /obj/item/clothing/head/helmet/marine/medic/white, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
 
-		list("BACKPACK (CHOOSE 1)", 0, null, null, null),
+		list("РЮКЗАКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Medical Backpack", 0, /obj/item/storage/backpack/marine/medic, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_REGULAR),
 		list("Medical Satchel", 0, /obj/item/storage/backpack/marine/satchel/medic, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_RECOMMENDED),
 
-		list("BELT (CHOOSE 1)", 0, null, null, null),
+		list("BELT (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("M276 Lifesaver Bag (Full)", 0, /obj/item/storage/belt/medical/lifesaver/full, MARINE_CAN_BUY_BELT, VENDOR_ITEM_MANDATORY),
 		list("M276 Medical Storage Rig (Full)", 0, /obj/item/storage/belt/medical/full, MARINE_CAN_BUY_BELT, VENDOR_ITEM_MANDATORY),
 
@@ -148,17 +148,17 @@ GLOBAL_LIST_INIT(cm_vending_clothing_medic_sandbox, list(
 		list("Shotgun Shell Pouch", 0, /obj/item/storage/pouch/shotgun, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("Pistol Pouch", 0, /obj/item/storage/pouch/pistol, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 
-		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
-		list("Brown Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Black Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
-		list("Shoulder Holster", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Webbing", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
-		list("Drop Pouch", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("ACCESSORIES (ВЫБЕРИТЕ 1)", 0, null, null, null),
+		list("Коричневый разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Чёрный разгрузочный жилет", 0, /obj/item/clothing/accessory/storage/black_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
+		list("Наплечная кобура", 0, /obj/item/clothing/accessory/storage/holster, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Нагрудный жилет", 0, /obj/item/clothing/accessory/storage/webbing, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Наплечный подсумок", 0, /obj/item/clothing/accessory/storage/droppouch, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
 
-		list("MASK (CHOOSE 1)", 0, null, null, null),
+		list("МАСКИ (ВЫБЕРИТЕ 1)", 0, null, null, null),
 		list("Sterile Mask", 0, /obj/item/clothing/mask/surgical, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
-		list("Gas Mask", 0, /obj/item/clothing/mask/gas, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
-		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR)
+		list("Противогаз", 0, /obj/item/clothing/mask/gas, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Инфракрасная балаклава", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR)
 	))
 
 /obj/structure/machinery/cm_vending/clothing/medic/tutorial

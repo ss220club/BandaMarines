@@ -22,13 +22,13 @@
 		list("UL8 armored ushanka", 15, /obj/item/clothing/head/uppcap/ushanka, VENDOR_ITEM_REGULAR),
 
 		list("WEBBINGS", -1, null, null),
-		list("Brown Webbing Vest", 1, /obj/item/clothing/accessory/storage/black_vest/brown_vest, VENDOR_ITEM_REGULAR),
-		list("Black Webbing Vest", 1, /obj/item/clothing/accessory/storage/black_vest, VENDOR_ITEM_REGULAR),
-		list("Webbing", floor(scale * 2), /obj/item/clothing/accessory/storage/webbing, VENDOR_ITEM_REGULAR),
-		list("Drop Pouch", 0.75, /obj/item/clothing/accessory/storage/droppouch, VENDOR_ITEM_REGULAR),
-		list("Shoulder Holster", 0.75, /obj/item/clothing/accessory/storage/holster, VENDOR_ITEM_REGULAR),
+		list("Коричневый разгрузочный жилет", 1, /obj/item/clothing/accessory/storage/black_vest/brown_vest, VENDOR_ITEM_REGULAR),
+		list("Чёрный разгрузочный жилет", 1, /obj/item/clothing/accessory/storage/black_vest, VENDOR_ITEM_REGULAR),
+		list("Нагрудный жилет", floor(scale * 2), /obj/item/clothing/accessory/storage/webbing, VENDOR_ITEM_REGULAR),
+		list("Наплечный подсумок", 0.75, /obj/item/clothing/accessory/storage/droppouch, VENDOR_ITEM_REGULAR),
+		list("Наплечная кобура", 0.75, /obj/item/clothing/accessory/storage/holster, VENDOR_ITEM_REGULAR),
 
-		list("ARMOR", -1, null, null),
+		list("БРОНЯ", -1, null, null),
 		list("UM5 Medium Personal Armor", floor(scale * 15), /obj/item/clothing/suit/storage/marine/faction/UPP, VENDOR_ITEM_REGULAR),
 		list("UL6 Light Personal Armor", floor(scale * 15), /obj/item/clothing/suit/storage/marine/faction/UPP/support, VENDOR_ITEM_REGULAR),
 
@@ -65,10 +65,10 @@
 		list("Tools Pouch", 1.25, /obj/item/storage/pouch/tools, VENDOR_ITEM_REGULAR),
 		list("Sling Pouch", 1.25, /obj/item/storage/pouch/sling, VENDOR_ITEM_REGULAR),
 
-		list("MASK", -1, null, null),
-		list("Gas Mask", floor(scale * 15), /obj/item/clothing/mask/gas, VENDOR_ITEM_REGULAR),
-		list("Heat Absorbent Coif", floor(scale * 10), /obj/item/clothing/mask/rebreather/scarf, VENDOR_ITEM_REGULAR),
-		list("Rebreather", floor(scale * 10), /obj/item/clothing/mask/rebreather, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("МАСКИ", -1, null, null),
+		list("Противогаз", floor(scale * 15), /obj/item/clothing/mask/gas, VENDOR_ITEM_REGULAR),
+		list("Инфракрасная балаклава", floor(scale * 10), /obj/item/clothing/mask/rebreather/scarf, VENDOR_ITEM_REGULAR),
+		list("Респиратор", floor(scale * 10), /obj/item/clothing/mask/rebreather, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
 		list("MISCELLANEOUS", -1, null, null),
 		list("Ballistic goggles", floor(scale * 10), /obj/item/clothing/glasses/mgoggles, VENDOR_ITEM_REGULAR),

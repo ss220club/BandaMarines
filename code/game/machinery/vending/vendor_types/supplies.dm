@@ -31,6 +31,6 @@
 			list("deck of UNO cards", 5, /obj/item/toy/deck/uno, VENDOR_ITEM_REGULAR),
 
 			list("CLOTHING", -1, null, null),
-			list("Gas Mask", 15, /obj/item/clothing/mask/gas, VENDOR_ITEM_REGULAR),
-			list("Heat Absorbent Coif", 15, /obj/item/clothing/mask/rebreather/scarf, VENDOR_ITEM_REGULAR)
+			list("Противогаз", 15, /obj/item/clothing/mask/gas, VENDOR_ITEM_REGULAR),
+			list("Инфракрасная балаклава", 15, /obj/item/clothing/mask/rebreather/scarf, VENDOR_ITEM_REGULAR)
 			)

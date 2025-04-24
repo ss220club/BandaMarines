@@ -21,7 +21,7 @@
 
 		list("RESTRICTED FIREARM AMMUNITION", -1, null, null),
 		list("Type-19 stick magazine (7.62x25mm)", floor(scale * 6), /obj/item/ammo_magazine/smg/pps43, VENDOR_ITEM_REGULAR),
-		list("M240 Incinerator Tank", floor(scale * 3), /obj/item/ammo_magazine/flamer_tank, VENDOR_ITEM_REGULAR),
+		list("Резервуар топливной смеси для M240", floor(scale * 3), /obj/item/ammo_magazine/flamer_tank, VENDOR_ITEM_REGULAR),
 		)
 
 //--------------UPP SQUAD ARMAMENTS VENDOR--------------
@@ -151,13 +151,13 @@
 		list("Box of Heavy Slugs (8g)", floor(scale * 10), /obj/item/ammo_magazine/shotgun/heavy/slug, VENDOR_ITEM_REGULAR),
 		list("Box of Heavy Flechette Shells (8g)", floor(scale * 6), /obj/item/ammo_magazine/shotgun/heavy/flechette, VENDOR_ITEM_REGULAR),
 
-		list("ДОПОЛНИТЕЛЬНОЕ ВООРУЖЕНИЕ"", -1, null, null),
+		list("ДОПОЛНИТЕЛЬНОЕ ВООРУЖЕНИЕ", -1, null, null),
 		list("Type 73 Pistol", floor(scale * 20), /obj/item/weapon/gun/pistol/t73, VENDOR_ITEM_REGULAR),
 		list("NP92 Pistol", floor(scale * 20), /obj/item/weapon/gun/pistol/np92, VENDOR_ITEM_REGULAR),
 		list("ZHNK-72 Revolver", floor(scale * 20), /obj/item/weapon/gun/revolver/upp, VENDOR_ITEM_REGULAR),
-		list("M82F Flare Gun", floor(scale * 10), /obj/item/weapon/gun/flare, VENDOR_ITEM_REGULAR),
+		list("Сигнальная ракетница M82F", floor(scale * 10), /obj/item/weapon/gun/flare, VENDOR_ITEM_REGULAR),
 
-		list("SIDEARM AMMUNITION", -1, null, null),
+		list("БОЕПРИПАСЫ ДЛЯ ДОПОЛНИТЕЛЬНОГО ОРУЖИЯ", -1, null, null),
 		list("Type 73 Magazine (7.62x25mm Tokarev)", floor(scale * 20), /obj/item/ammo_magazine/pistol/t73, VENDOR_ITEM_REGULAR),
 		list("ZHNK-72 Speed Loader (7.62x38mmR)", floor(scale * 20), /obj/item/ammo_magazine/revolver/upp, VENDOR_ITEM_REGULAR),
 		list("NP92 Magazine (9x18mm Makarov)", floor(scale * 20), /obj/item/ammo_magazine/pistol/np92, VENDOR_ITEM_REGULAR),
