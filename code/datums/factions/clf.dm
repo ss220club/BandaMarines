@@ -28,7 +28,7 @@
 
 /datum/faction/clf/get_antag_guns_snowflake_equipment()
 	return list(
-		list("ОСНОВНОЕ ВООРУЖЕНИЕ", 0, null, null, null),
+		list("PRIMARY FIREARMS", 0, null, null, null),
 		list("ABR-40 Hunting Rifle", 30, /obj/item/weapon/gun/rifle/l42a/abr40, null, VENDOR_ITEM_REGULAR),
 		list("Basira-Armstrong Bolt-Action", 15, /obj/item/weapon/gun/boltaction, null, VENDOR_ITEM_REGULAR),
 		list("Double Barrel Shotgun", 30, /obj/item/weapon/gun/shotgun/double, null, VENDOR_ITEM_REGULAR),
@@ -42,12 +42,12 @@
 		list("MP5 Submachinegun", 20, /obj/item/weapon/gun/smg/mp5, null, VENDOR_ITEM_REGULAR),
 		list("Sawn-Off Shotgun", 30, /obj/item/weapon/gun/shotgun/pump/dual_tube/cmb, null, VENDOR_ITEM_REGULAR),
 
-		list("БОЕПРИПАСЫ ДЛЯ ОСНОВНОГО ОРУЖИЯ", 0, null, null, null),
+		list("PRIMARY AMMUNITION", 0, null, null, null),
 		list("ABR-40 Magazine (10x24mm)", 20, /obj/item/ammo_magazine/rifle/l42a/abr40, null, VENDOR_ITEM_REGULAR),
 		list("Basira-Armstrong Magazine (6.5mm)", 5, /obj/item/ammo_magazine/rifle/boltaction, null, VENDOR_ITEM_REGULAR),
-		list("Коробка для патронов (Картечь)", 10, /obj/item/ammo_magazine/shotgun/buckshot, null, VENDOR_ITEM_REGULAR),
-		list("Коробка для патронов (Флешетты)", 10, /obj/item/ammo_magazine/shotgun/flechette, null, VENDOR_ITEM_REGULAR),
-		list("Коробка для патронов (Пуля)", 10, /obj/item/ammo_magazine/shotgun, null, VENDOR_ITEM_REGULAR),
+		list("Box Of Buckshot Shells", 10, /obj/item/ammo_magazine/shotgun/buckshot, null, VENDOR_ITEM_REGULAR),
+		list("Box Of Flechette Shells", 10, /obj/item/ammo_magazine/shotgun/flechette, null, VENDOR_ITEM_REGULAR),
+		list("Box Of Shotgun Slugs", 10, /obj/item/ammo_magazine/shotgun, null, VENDOR_ITEM_REGULAR),
 		list("M16 AP Magazine (5.56x45mm)", 15, /obj/item/ammo_magazine/rifle/m16/ap, null, VENDOR_ITEM_REGULAR),
 		list("M16 Magazine (5.56x45mm)", 5, /obj/item/ammo_magazine/rifle/m16, null, VENDOR_ITEM_REGULAR),
 		list("MAC-15 Magazine (9mm)", 5, /obj/item/ammo_magazine/smg/mac15, null, VENDOR_ITEM_REGULAR),
@@ -57,15 +57,15 @@
 		list("MP27 Magazine (4.6x30mm)", 5, /obj/item/ammo_magazine/smg/mp27, null, VENDOR_ITEM_REGULAR),
 		list("MP5 Magazine (9mm)", 5, /obj/item/ammo_magazine/smg/mp5, null, VENDOR_ITEM_REGULAR),
 
-		list("ДОПОЛНИТЕЛЬНОЕ ВООРУЖЕНИЕ", 0, null, null, null),
-		list("Боевой пистолет 88 Mod 4", 15, /obj/item/weapon/gun/pistol/mod88, null, VENDOR_ITEM_REGULAR),
+		list("SIDEARMS", 0, null, null, null),
+		list("88 Mod 4 Combat Pistol", 15, /obj/item/weapon/gun/pistol/mod88, null, VENDOR_ITEM_REGULAR),
 		list("Beretta 92FS Pistol", 15, /obj/item/weapon/gun/pistol/b92fs, null, VENDOR_ITEM_REGULAR),
 		list("CMB Spearhead Autorevolver", 15, /obj/item/weapon/gun/revolver/cmb, null, VENDOR_ITEM_REGULAR),
 		list("Holdout Pistol", 10, /obj/item/weapon/gun/pistol/holdout, null, VENDOR_ITEM_REGULAR),
 		list("KT-42 Automag", 15, /obj/item/weapon/gun/pistol/kt42, null, VENDOR_ITEM_REGULAR),
 		list("S&W .357 Revolver", 15, /obj/item/weapon/gun/revolver/small, null, VENDOR_ITEM_REGULAR),
 
-		list("БОЕПРИПАСЫ ДЛЯ ДОПОЛНИТЕЛЬНОГО ОРУЖИЯ", 0, null, null, null),
+		list("SIDEARM AMMUNITION", 0, null, null, null),
 		list("88M4 AP Magazine (9mm)", 5, /obj/item/ammo_magazine/pistol/mod88, null, VENDOR_ITEM_REGULAR),
 		list("Beretta 92FS Magazine (9mm)", 5, /obj/item/ammo_magazine/pistol/b92fs, null, VENDOR_ITEM_REGULAR),
 		list("KT-42 Magazine (.44)", 5, /obj/item/ammo_magazine/pistol/kt42, null, VENDOR_ITEM_REGULAR),
@@ -96,7 +96,7 @@
 
 /datum/faction/clf/get_antag_guns_sorted_equipment()
 	return list(
-		list("ОСНОВНОЕ ВООРУЖЕНИЕ", -1, null, null),
+		list("PRIMARY FIREARMS", -1, null, null),
 		list("ABR-40 Hunting Rifle", 30, /obj/item/weapon/gun/rifle/l42a/abr40, null, VENDOR_ITEM_REGULAR),
 		list("Basira-Armstrong Bolt-Action", 15, /obj/item/weapon/gun/boltaction, null, VENDOR_ITEM_REGULAR),
 		list("Double Barrel Shotgun", 20, /obj/item/weapon/gun/shotgun/double, VENDOR_ITEM_REGULAR),
@@ -110,12 +110,12 @@
 		list("MP5 Submachinegun", 20, /obj/item/weapon/gun/smg/mp5, VENDOR_ITEM_REGULAR),
 		list("Sawn-Off Shotgun", 20, /obj/item/weapon/gun/shotgun/pump/dual_tube/cmb, VENDOR_ITEM_REGULAR),
 
-		list("БОЕПРИПАСЫ ДЛЯ ОСНОВНОГО ОРУЖИЯ", -1, null, null),
+		list("PRIMARY AMMUNITION", -1, null, null),
 		list("ABR-40 Magazine (10x24mm)", 20, /obj/item/ammo_magazine/rifle/l42a/abr40, null, VENDOR_ITEM_REGULAR),
 		list("Basira-Armstrong Magazine (6.5mm)", 5, /obj/item/ammo_magazine/rifle/boltaction, null, VENDOR_ITEM_REGULAR),
-		list("Коробка для патронов (Картечь)", 15, /obj/item/ammo_magazine/shotgun/buckshot, VENDOR_ITEM_REGULAR),
-		list("Коробка для патронов (Флешетты)", 15, /obj/item/ammo_magazine/shotgun/flechette, VENDOR_ITEM_REGULAR),
-		list("Коробка для патронов (Пуля)", 15, /obj/item/ammo_magazine/shotgun, VENDOR_ITEM_REGULAR),
+		list("Box Of Buckshot Shells", 15, /obj/item/ammo_magazine/shotgun/buckshot, VENDOR_ITEM_REGULAR),
+		list("Box Of Flechette Shells", 15, /obj/item/ammo_magazine/shotgun/flechette, VENDOR_ITEM_REGULAR),
+		list("Box Of Shotgun Slugs", 15, /obj/item/ammo_magazine/shotgun, VENDOR_ITEM_REGULAR),
 		list("M16 AP Magazine (5.56x45mm)", 10, /obj/item/ammo_magazine/rifle/m16/ap, VENDOR_ITEM_REGULAR),
 		list("M16 Magazine (5.56x45mm)", 60, /obj/item/ammo_magazine/rifle/m16, VENDOR_ITEM_REGULAR),
 		list("MAC-15 Magazine (9mm)", 60, /obj/item/ammo_magazine/smg/mac15, VENDOR_ITEM_REGULAR),
@@ -125,15 +125,15 @@
 		list("MP27 Magazine (4.6x30mm)", 60, /obj/item/ammo_magazine/smg/mp27, VENDOR_ITEM_REGULAR),
 		list("MP5 Magazine (9mm)", 60, /obj/item/ammo_magazine/smg/mp5, VENDOR_ITEM_REGULAR),
 
-		list("ДОПОЛНИТЕЛЬНОЕ ВООРУЖЕНИЕ", -1, null, null),
-		list("Боевой пистолет 88 Mod 4", 20, /obj/item/weapon/gun/pistol/mod88, VENDOR_ITEM_REGULAR),
+		list("SIDEARMS", -1, null, null),
+		list("88 Mod 4 Combat Pistol", 20, /obj/item/weapon/gun/pistol/mod88, VENDOR_ITEM_REGULAR),
 		list("Beretta 92FS Pistol", 20, /obj/item/weapon/gun/pistol/b92fs, VENDOR_ITEM_REGULAR),
 		list("CMB Spearhead Autorevolver", 20, /obj/item/weapon/gun/revolver/cmb, VENDOR_ITEM_REGULAR),
 		list("Holdout Pistol", 20, /obj/item/weapon/gun/pistol/holdout, VENDOR_ITEM_REGULAR),
 		list("KT-42 Automag", 20, /obj/item/weapon/gun/pistol/kt42, VENDOR_ITEM_REGULAR),
 		list("S&W .357 Revolver", 20, /obj/item/weapon/gun/revolver/small, VENDOR_ITEM_REGULAR),
 
-		list("БОЕПРИПАСЫ ДЛЯ ДОПОЛНИТЕЛЬНОГО ОРУЖИЯ", -1, null, null),
+		list("SIDEARM AMMUNITION", -1, null, null),
 		list("88M4 AP Magazine (9mm)", 40, /obj/item/ammo_magazine/pistol/mod88, VENDOR_ITEM_REGULAR),
 		list("Beretta 92FS Magazine (9mm)", 40, /obj/item/ammo_magazine/pistol/b92fs, VENDOR_ITEM_REGULAR),
 		list("KT-42 Magazine (.44)", 40, /obj/item/ammo_magazine/pistol/kt42, VENDOR_ITEM_REGULAR),

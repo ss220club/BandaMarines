@@ -52,25 +52,25 @@
 
 /datum/faction/pmc/get_antag_guns_snowflake_equipment()
 	return list(
-		list("ОСНОВНОЕ ВООРУЖЕНИЕ", 0, null, null, null),
+		list("PRIMARY FIREARMS", 0, null, null, null),
 		list("M41A/2 Pulse Rifle", 30, /obj/item/weapon/gun/rifle/m41a/elite, null, VENDOR_ITEM_REGULAR),
 		list("M39B/2 submachinegun", 30, /obj/item/weapon/gun/smg/m39/elite, null, VENDOR_ITEM_REGULAR),
 		list("NSG23 assault rifle", 20, /obj/item/weapon/gun/rifle/nsg23, null, VENDOR_ITEM_REGULAR),
 
-		list("БОЕПРИПАСЫ ДЛЯ ОСНОВНОГО ОРУЖИЯ", 0, null, null, null),
-		list("Магазин для M41A (10x24мм AP)", 10, /obj/item/ammo_magazine/rifle/ap, null, VENDOR_ITEM_REGULAR),
-		list("Расширенный магазин для M41A (10x24мм)", 5, /obj/item/ammo_magazine/rifle/extended, null, VENDOR_ITEM_REGULAR),
-		list("Магазин для M39 (10x20мм AP)", 10, /obj/item/ammo_magazine/smg/m39/ap, null, VENDOR_ITEM_REGULAR),
+		list("PRIMARY AMMUNITION", 0, null, null, null),
+		list("M41A AP magazine (10x24mm)", 10, /obj/item/ammo_magazine/rifle/ap, null, VENDOR_ITEM_REGULAR),
+		list("M41A extended magazine (10x24mm)", 5, /obj/item/ammo_magazine/rifle/extended, null, VENDOR_ITEM_REGULAR),
+		list("M39 AP magazine (10x20mm)", 10, /obj/item/ammo_magazine/smg/m39/ap, null, VENDOR_ITEM_REGULAR),
 		list("M39 HV extended magazine (10x20mm)", 5, /obj/item/ammo_magazine/smg/m39/extended, null, VENDOR_ITEM_REGULAR),
 		list("NSG 23 armor-piercing magazine (10x24mm)", 10, /obj/item/ammo_magazine/rifle/nsg23/ap, null, VENDOR_ITEM_REGULAR),
 		list("NSG 23 extended magazine (10x24mm)", 5, /obj/item/ammo_magazine/rifle/nsg23/extended, null, VENDOR_ITEM_REGULAR),
 
-		list("ДОПОЛНИТЕЛЬНОЕ ВООРУЖЕНИЕ", 0, null, null, null),
-		list("Пистолет VP78", 20, /obj/item/weapon/gun/pistol/vp78, null, VENDOR_ITEM_REGULAR),
-		list("Боевой пистолет 88 Mod 4", 15, /obj/item/weapon/gun/pistol/mod88, null, VENDOR_ITEM_REGULAR),
+		list("SIDEARMS", 0, null, null, null),
+		list("VP78 pistol", 20, /obj/item/weapon/gun/pistol/vp78, null, VENDOR_ITEM_REGULAR),
+		list("88 Mod 4 Combat Pistol", 15, /obj/item/weapon/gun/pistol/mod88, null, VENDOR_ITEM_REGULAR),
 
-		list("БОЕПРИПАСЫ ДЛЯ ДОПОЛНИТЕЛЬНОГО ОРУЖИЯ", 0, null, null, null),
-		list("Магазин для VP78 (9мм)", 5, /obj/item/ammo_magazine/pistol/vp78, null, VENDOR_ITEM_REGULAR),
+		list("SIDEARM AMMUNITION", 0, null, null, null),
+		list("VP78 magazine (9mm)", 5, /obj/item/ammo_magazine/pistol/vp78, null, VENDOR_ITEM_REGULAR),
 		list("88M4 AP Magazine (9mm)", 5, /obj/item/ammo_magazine/pistol/mod88, null, VENDOR_ITEM_REGULAR),
 
 		list("ATTACHMENTS", 0, null, null, null),
@@ -92,25 +92,25 @@
 
 /datum/faction/pmc/get_antag_guns_sorted_equipment()
 	return list(
-		list("ОСНОВНОЕ ВООРУЖЕНИЕ", 0, null, null, null),
+		list("PRIMARY FIREARMS", 0, null, null, null),
 		list("M41A/2 Pulse Rifle", 30, /obj/item/weapon/gun/rifle/m41a/elite, null, VENDOR_ITEM_REGULAR),
 		list("M39B/2 submachinegun", 30, /obj/item/weapon/gun/smg/m39/elite, null, VENDOR_ITEM_REGULAR),
 		list("NSG23 assault rifle", 30, /obj/item/weapon/gun/rifle/nsg23, null, VENDOR_ITEM_REGULAR),
 
-		list("БОЕПРИПАСЫ ДЛЯ ОСНОВНОГО ОРУЖИЯ", 0, null, null, null),
-		list("Магазин для M41A (10x24мм AP)", 30, /obj/item/ammo_magazine/rifle/ap, null, VENDOR_ITEM_REGULAR),
-		list("Расширенный магазин для M41A (10x24мм)", 50, /obj/item/ammo_magazine/rifle/extended, null, VENDOR_ITEM_REGULAR),
-		list("Магазин для M39 (10x20мм AP)", 30, /obj/item/ammo_magazine/smg/m39/ap, null, VENDOR_ITEM_REGULAR),
+		list("PRIMARY AMMUNITION", 0, null, null, null),
+		list("M41A AP magazine (10x24mm)", 30, /obj/item/ammo_magazine/rifle/ap, null, VENDOR_ITEM_REGULAR),
+		list("M41A extended magazine (10x24mm)", 50, /obj/item/ammo_magazine/rifle/extended, null, VENDOR_ITEM_REGULAR),
+		list("M39 AP magazine (10x20mm)", 30, /obj/item/ammo_magazine/smg/m39/ap, null, VENDOR_ITEM_REGULAR),
 		list("M39 HV extended magazine (10x20mm)", 50, /obj/item/ammo_magazine/smg/m39/extended, null, VENDOR_ITEM_REGULAR),
 		list("NSG 23 armor-piercing magazine (10x24mm)", 30, /obj/item/ammo_magazine/rifle/nsg23/ap, null, VENDOR_ITEM_REGULAR),
 		list("NSG 23 extended magazine (10x24mm)", 50, /obj/item/ammo_magazine/rifle/nsg23/extended, null, VENDOR_ITEM_REGULAR),
 
-		list("ДОПОЛНИТЕЛЬНОЕ ВООРУЖЕНИЕ", 0, null, null, null),
-		list("Пистолет VP78", 20, /obj/item/weapon/gun/pistol/vp78, null, VENDOR_ITEM_REGULAR),
-		list("Боевой пистолет 88 Mod 4", 30, /obj/item/weapon/gun/pistol/mod88, null, VENDOR_ITEM_REGULAR),
+		list("SIDEARMS", 0, null, null, null),
+		list("VP78 pistol", 20, /obj/item/weapon/gun/pistol/vp78, null, VENDOR_ITEM_REGULAR),
+		list("88 Mod 4 Combat Pistol", 30, /obj/item/weapon/gun/pistol/mod88, null, VENDOR_ITEM_REGULAR),
 
-		list("БОЕПРИПАСЫ ДЛЯ ДОПОЛНИТЕЛЬНОГО ОРУЖИЯ", 0, null, null, null),
-		list("Магазин для VP78 (9мм)", 50, /obj/item/ammo_magazine/pistol/vp78, null, VENDOR_ITEM_REGULAR),
+		list("SIDEARM AMMUNITION", 0, null, null, null),
+		list("VP78 magazine (9mm)", 50, /obj/item/ammo_magazine/pistol/vp78, null, VENDOR_ITEM_REGULAR),
 		list("88M4 AP Magazine (9mm)", 50, /obj/item/ammo_magazine/pistol/mod88, null, VENDOR_ITEM_REGULAR),
 
 		list("UTILITIES", 0, null, null, null),

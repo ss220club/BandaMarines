@@ -3,7 +3,7 @@
 //------------ARMAMENTS VENDOR---------------
 
 /obj/structure/machinery/cm_vending/sorted/cargo_guns
-	name = "\improper Автоматизированный раздатчик вооружения «КолМорТех»"
+	name = "\improper Раздатчик вооружения «КолМорТех»"
 	desc = "An automated supply rack hooked up to a big storage of various firearms, explosives, load carrying equipment and other miscellaneous items. Can be accessed by the Quartermaster and Cargo Technicians."
 	icon_state = "req_guns"
 	req_access = list(ACCESS_MARINE_CARGO)
@@ -20,7 +20,7 @@
 	listed_products = list(
 		list("ОСНОВНОЕ ВООРУЖЕНИЕ", -1, null, null),
 		list("Помповый дробовик M37A2", floor(scale * 30), /obj/item/weapon/gun/shotgun/pump, VENDOR_ITEM_REGULAR),
-		list("Пистолет-пулемет M39", floor(scale * 60), /obj/item/weapon/gun/smg/m39, VENDOR_ITEM_REGULAR),
+		list("Пистолет-пулемёт M39", floor(scale * 60), /obj/item/weapon/gun/smg/m39, VENDOR_ITEM_REGULAR),
 		list("Импульсная винтовка M41A MK2", floor(scale * 60), /obj/item/weapon/gun/rifle/m41a, VENDOR_ITEM_REGULAR),
 		list("Штурмовой карабин M4RA", floor(scale * 20), /obj/item/weapon/gun/rifle/m4ra, VENDOR_ITEM_REGULAR),
 
@@ -31,7 +31,7 @@
 		list("Служебный пистолет M4A3", floor(scale * 50), /obj/item/weapon/gun/pistol/m4a3, VENDOR_ITEM_REGULAR),
 		list("Сигнальная ракетница M82F", floor(scale * 20), /obj/item/weapon/gun/flare, VENDOR_ITEM_REGULAR),
 
-		list("RESTRICTED FIREARMS", -1, null, null),
+		list("ВООРУЖЕНИЕ С ОГРАНИЧЕННЫМ ДОСТУПОМ", -1, null, null),
 		list("Пистолет VP78", floor(scale * 4), /obj/item/storage/box/guncase/vp78, VENDOR_ITEM_REGULAR),
 		list("Умный пистолет SU-6", floor(scale * 3), /obj/item/storage/box/guncase/smartpistol, VENDOR_ITEM_REGULAR),
 		list("Дробовик MOU-53", floor(scale * 2), /obj/item/storage/box/guncase/mou53, VENDOR_ITEM_REGULAR),
@@ -41,7 +41,7 @@
 		list("Тяжёлый пулемёт M56D", floor(scale * 2), /obj/item/storage/box/guncase/m56d, VENDOR_ITEM_REGULAR),
 		list("Тяжёлый пулемёт M2C", floor(scale * 2), /obj/item/storage/box/guncase/m2c, VENDOR_ITEM_REGULAR),
 		list("Огнемёт M240", floor(scale * 2), /obj/item/storage/box/guncase/flamer, VENDOR_ITEM_REGULAR),
-		list("Гранатомет M79", floor(scale * 3), /obj/item/storage/box/guncase/m79, VENDOR_ITEM_REGULAR),
+		list("Гранатомёт M79", floor(scale * 3), /obj/item/storage/box/guncase/m79, VENDOR_ITEM_REGULAR),
 		list("Тяжёлый дробовик XM51", floor(scale * 3), /obj/item/storage/box/guncase/xm51, VENDOR_ITEM_REGULAR),
 
 		list("ВЗРЫВЧАТЫЕ ВЕЩЕСТВА", -1, null, null),
@@ -57,7 +57,7 @@
 		list("Прыгающая граната M74 AGM «Звезда»", floor(scale * 2), /obj/item/explosive/grenade/high_explosive/airburst/starshell, VENDOR_ITEM_REGULAR),
 		list("Прыгающая граната M74 AGM «Шершень»", floor(scale * 4), /obj/item/explosive/grenade/high_explosive/airburst/hornet_shell, VENDOR_ITEM_REGULAR),
 		list("Электрошоковая граната G2", floor(scale * 5), /obj/item/explosive/grenade/sebb, VENDOR_ITEM_REGULAR),
-		list("Граната M40 HIRR (Резиновая)", floor(scale * 8), /obj/item/explosive/grenade/slug/baton, VENDOR_ITEM_REGULAR),
+		list("Граната M40 HIRR (Резина)", floor(scale * 8), /obj/item/explosive/grenade/slug/baton, VENDOR_ITEM_REGULAR),
 		list("Граната M40 MFHS (Пена)", floor(scale * 6), /obj/item/explosive/grenade/metal_foam, VENDOR_ITEM_REGULAR),
 		list("Пластичная взрывчатка С-4", floor(scale * 3), /obj/item/explosive/plastic, VENDOR_ITEM_REGULAR),
 		list("Пробивной заряд", floor(scale * 2), /obj/item/explosive/plastic/breaching_charge, VENDOR_ITEM_REGULAR),
@@ -73,58 +73,58 @@
 		list("Навесная разгрузка", floor(scale * 5), /obj/item/clothing/suit/storage/webbing, VENDOR_ITEM_REGULAR),
 
 		list("РЮКЗАКИ", -1, null, null),
-		list("Военный лёгкий рюкзак", floor(scale * 15), /obj/item/storage/backpack/marine, VENDOR_ITEM_REGULAR),
+		list("Рюкзак ККМП", floor(scale * 15), /obj/item/storage/backpack/marine, VENDOR_ITEM_REGULAR),
 		list("Чехол для дробовика", floor(scale * 10), /obj/item/storage/large_holster/m37, VENDOR_ITEM_REGULAR),
 		list("Топливный бак G4-1", floor(scale * 2), /obj/item/storage/backpack/marine/engineerpack/flamethrower/kit, VENDOR_ITEM_REGULAR),
 		list("Разгрузочная система техника ККМП", floor(scale * 2), /obj/item/storage/backpack/marine/engineerpack, VENDOR_ITEM_REGULAR),
 		list("Mortar Shell Backpack", floor(scale * 1), /obj/item/storage/backpack/marine/mortarpack, VENDOR_ITEM_REGULAR),
-		list("Technician Welder-Satchel", floor(scale * 5), /obj/item/storage/backpack/marine/engineerpack/satchel, VENDOR_ITEM_REGULAR),
+		list("Сварочный ранец техника", floor(scale * 5), /obj/item/storage/backpack/marine/engineerpack/satchel, VENDOR_ITEM_REGULAR),
 		list("IMP Ammo Rack", floor(scale * 2), /obj/item/storage/backpack/marine/ammo_rack, VENDOR_ITEM_REGULAR),
 		list("Radio Telephone Pack", floor(scale * 2), /obj/item/storage/backpack/marine/satchel/rto, VENDOR_ITEM_REGULAR),
 		list("Parachute", floor(scale * 20), /obj/item/parachute, VENDOR_ITEM_REGULAR),
-		list("Grenade Satchel", floor(scale * 2), /obj/item/storage/backpack/marine/grenadepack, VENDOR_ITEM_REGULAR),
+		list("Сумка для гранат", floor(scale * 2), /obj/item/storage/backpack/marine/grenadepack, VENDOR_ITEM_REGULAR),
 
 		list("BELTS", -1, null, null),
-		list("G8-A General Utility Pouch", floor(scale * 2), /obj/item/storage/backpack/general_belt, VENDOR_ITEM_REGULAR),
-		list("M276 Ammo Load Rig", floor(scale * 15), /obj/item/storage/belt/marine, VENDOR_ITEM_REGULAR),
-		list("M276 General Pistol Holster Rig", floor(scale * 10), /obj/item/storage/belt/gun/m4a3, VENDOR_ITEM_REGULAR),
-		list("M276 Knife Rig", floor(scale * 5), /obj/item/storage/belt/knifepouch, VENDOR_ITEM_REGULAR),
-		list("M276 M39 Holster Rig", floor(scale * 5), /obj/item/storage/belt/gun/m39, VENDOR_ITEM_REGULAR),
-		list("M276 M10 Holster Rig", floor(scale * 5), /obj/item/storage/belt/gun/m10, VENDOR_ITEM_REGULAR),
-		list("M276 M40 Grenade Rig", floor(scale * 2), /obj/item/storage/belt/grenade, VENDOR_ITEM_REGULAR),
-		list("M276 General Revolver Holster Rig", floor(scale * 5), /obj/item/storage/belt/gun/m44, VENDOR_ITEM_REGULAR),
-		list("M276 M82F Holster Rig", floor(scale * 2), /obj/item/storage/belt/gun/flaregun, VENDOR_ITEM_REGULAR),
-		list("M276 Shotgun Shell Loading Rig", floor(scale * 10), /obj/item/storage/belt/shotgun, VENDOR_ITEM_REGULAR),
+		list("Поясная разгрузка G8-A", floor(scale * 2), /obj/item/storage/backpack/general_belt, VENDOR_ITEM_REGULAR),
+		list("Пояс для боеприпасов", floor(scale * 15), /obj/item/storage/belt/marine, VENDOR_ITEM_REGULAR),
+		list("Пояс с кобурой для пистолета", floor(scale * 10), /obj/item/storage/belt/gun/m4a3, VENDOR_ITEM_REGULAR),
+		list("Пояс с ножнами", floor(scale * 5), /obj/item/storage/belt/knifepouch, VENDOR_ITEM_REGULAR),
+		list("Пояс с креплением для ПП M39", floor(scale * 5), /obj/item/storage/belt/gun/m39, VENDOR_ITEM_REGULAR),
+		list("Пояс с кобурой для пистолета M10", floor(scale * 5), /obj/item/storage/belt/gun/m10, VENDOR_ITEM_REGULAR),
+		list("Пояс для гранат M40", floor(scale * 2), /obj/item/storage/belt/grenade, VENDOR_ITEM_REGULAR),
+		list("Пояс с кобурой для револьвера", floor(scale * 5), /obj/item/storage/belt/gun/m44, VENDOR_ITEM_REGULAR),
+		list("Пояс с кобурой для ракетницы M82F", floor(scale * 2), /obj/item/storage/belt/gun/flaregun, VENDOR_ITEM_REGULAR),
+		list("Патронташ на пояс для дробовика", floor(scale * 10), /obj/item/storage/belt/shotgun, VENDOR_ITEM_REGULAR),
 		list("M276 Mortar Operator Belt", floor(scale * 2), /obj/item/storage/belt/gun/mortarbelt, VENDOR_ITEM_REGULAR),
 
 		list("POUCHES", -1, null, null),
-		list("Autoinjector Pouch", floor(scale * 1), /obj/item/storage/pouch/autoinjector, VENDOR_ITEM_REGULAR),
+		list("Подсумок для инжекторов", floor(scale * 1), /obj/item/storage/pouch/autoinjector, VENDOR_ITEM_REGULAR),
 		list("Medical Kit Pouch", floor(scale * 2), /obj/item/storage/pouch/medkit, VENDOR_ITEM_REGULAR),
 		list("First-Aid Pouch (Full)", floor(scale * 5), /obj/item/storage/pouch/firstaid/full, VENDOR_ITEM_REGULAR),
 		list("First Responder Pouch", floor(scale * 2), /obj/item/storage/pouch/first_responder, VENDOR_ITEM_REGULAR),
 		list("Syringe Pouch", floor(scale * 2), /obj/item/storage/pouch/syringe, VENDOR_ITEM_REGULAR),
-		list("Tools Pouch (Full)", floor(scale * 2), /obj/item/storage/pouch/tools/full, VENDOR_ITEM_REGULAR),
-		list("Construction Pouch", floor(scale * 2), /obj/item/storage/pouch/construction, VENDOR_ITEM_REGULAR),
+		list("Подсумок для инструментов", floor(scale * 2), /obj/item/storage/pouch/tools/full, VENDOR_ITEM_REGULAR),
+		list("Подсумок строителя", floor(scale * 2), /obj/item/storage/pouch/construction, VENDOR_ITEM_REGULAR),
 		list("Electronics Pouch", floor(scale * 2), /obj/item/storage/pouch/electronics, VENDOR_ITEM_REGULAR),
-		list("Explosive Pouch", floor(scale * 2), /obj/item/storage/pouch/explosive, VENDOR_ITEM_REGULAR),
-		list("Flare Pouch (Full)", floor(scale * 5), /obj/item/storage/pouch/flare/full, VENDOR_ITEM_REGULAR),
+		list("Подсумок для гранат", floor(scale * 2), /obj/item/storage/pouch/explosive, VENDOR_ITEM_REGULAR),
+		list("Подсумок для осветительных огней", floor(scale * 5), /obj/item/storage/pouch/flare/full, VENDOR_ITEM_REGULAR),
 		list("Document Pouch", floor(scale * 2), /obj/item/storage/pouch/document/small, VENDOR_ITEM_REGULAR),
-		list("Sling Pouch", floor(scale * 2), /obj/item/storage/pouch/sling, VENDOR_ITEM_REGULAR),
-		list("Machete Pouch (Full)", 1, /obj/item/storage/pouch/machete/full, VENDOR_ITEM_REGULAR),
+		list("Ременная сумка", floor(scale * 2), /obj/item/storage/pouch/sling, VENDOR_ITEM_REGULAR),
+		list("Ножны для мачете", 1, /obj/item/storage/pouch/machete/full, VENDOR_ITEM_REGULAR),
 		list("Bayonet Pouch", floor(scale * 2), /obj/item/storage/pouch/bayonet, VENDOR_ITEM_REGULAR),
-		list("Medium General Pouch", floor(scale * 2), /obj/item/storage/pouch/general/medium, VENDOR_ITEM_REGULAR),
-		list("Magazine Pouch", floor(scale * 5), /obj/item/storage/pouch/magazine, VENDOR_ITEM_REGULAR),
-		list("Shotgun Shell Pouch", floor(scale * 5), /obj/item/storage/pouch/shotgun, VENDOR_ITEM_REGULAR),
+		list("Подсумок общего назначения", floor(scale * 2), /obj/item/storage/pouch/general/medium, VENDOR_ITEM_REGULAR),
+		list("Подсумок для магазинов", floor(scale * 5), /obj/item/storage/pouch/magazine, VENDOR_ITEM_REGULAR),
+		list("Подсумок для дробовика", floor(scale * 5), /obj/item/storage/pouch/shotgun, VENDOR_ITEM_REGULAR),
 		list("Sidearm Pouch", floor(scale * 5), /obj/item/storage/pouch/pistol, VENDOR_ITEM_REGULAR),
-		list("Large Pistol Magazine Pouch", floor(scale * 5), /obj/item/storage/pouch/magazine/pistol/large, VENDOR_ITEM_REGULAR),
-		list("Fuel Tank Strap Pouch", floor(scale * 4), /obj/item/storage/pouch/flamertank, VENDOR_ITEM_REGULAR),
-		list("Large General Pouch", floor(scale * 1), /obj/item/storage/pouch/general/large, VENDOR_ITEM_REGULAR),
-		list("Large Magazine Pouch", floor(scale * 1), /obj/item/storage/pouch/magazine/large, VENDOR_ITEM_REGULAR),
-		list("Large Shotgun Shell Pouch", floor(scale * 1), /obj/item/storage/pouch/shotgun/large, VENDOR_ITEM_REGULAR),
+		list("Большой подсумок для пистолетных магазинов", floor(scale * 5), /obj/item/storage/pouch/magazine/pistol/large, VENDOR_ITEM_REGULAR),
+		list("Подсумок для резервуаров к огнемёту", floor(scale * 4), /obj/item/storage/pouch/flamertank, VENDOR_ITEM_REGULAR),
+		list("Большой подсумок общего назначения", floor(scale * 1), /obj/item/storage/pouch/general/large, VENDOR_ITEM_REGULAR),
+		list("Большой подсумок для магазинов", floor(scale * 1), /obj/item/storage/pouch/magazine/large, VENDOR_ITEM_REGULAR),
+		list("Большой подсумок для дробовика", floor(scale * 1), /obj/item/storage/pouch/shotgun/large, VENDOR_ITEM_REGULAR),
 
 		list("REPAIR TOOLS", -1, null, null),
 		list("Multi-Purpose Combat Lubricant", floor(scale * 5), /obj/item/stack/repairable/gunlube, VENDOR_ITEM_REGULAR),
-		list("Firearms Repair Kit", floor(scale * 3), /obj/item/stack/repairable/gunkit, VENDOR_ITEM_REGULAR),
+		list("Набор для ремонта оружия", floor(scale * 3), /obj/item/stack/repairable/gunkit, VENDOR_ITEM_REGULAR),
 
 		list("FLARE AND LIGHT", -1, null, null),
 		list("Combat Flashlight", floor(scale * 8), /obj/item/device/flashlight/combat, VENDOR_ITEM_REGULAR),
@@ -132,51 +132,51 @@
 		list("M94 Marking Flare Pack", floor(scale * 10), /obj/item/storage/box/m94, VENDOR_ITEM_REGULAR),
 
 		list("ESSENTIAL DEVICES", -1, null, null),
-		list("Motion Detector", floor(scale * 4), /obj/item/device/motiondetector, VENDOR_ITEM_REGULAR),
-		list("Data Detector", floor(scale * 4), /obj/item/device/motiondetector/intel, VENDOR_ITEM_REGULAR),
-		list("Binoculars", floor(scale * 2), /obj/item/device/binoculars, VENDOR_ITEM_REGULAR),
+		list("Детектор движения", floor(scale * 4), /obj/item/device/motiondetector, VENDOR_ITEM_REGULAR),
+		list("Сканер данных", floor(scale * 4), /obj/item/device/motiondetector/intel, VENDOR_ITEM_REGULAR),
+		list("Бинокль", floor(scale * 2), /obj/item/device/binoculars, VENDOR_ITEM_REGULAR),
 		list("Rangefinder", floor(scale * 1), /obj/item/device/binoculars/range, VENDOR_ITEM_REGULAR),
-		list("Laser Designator", floor(scale * 1), /obj/item/device/binoculars/range/designator, VENDOR_ITEM_REGULAR),
-		list("Fulton Device Stack", floor(scale * 1), /obj/item/stack/fulton, VENDOR_ITEM_REGULAR),
+		list("Лазерный целеуказатель", floor(scale * 1), /obj/item/device/binoculars/range/designator, VENDOR_ITEM_REGULAR),
+		list("Система воздушной эвакуации Фултон", floor(scale * 1), /obj/item/stack/fulton, VENDOR_ITEM_REGULAR),
 		list("Sentry Gun Network Laptop", 4, /obj/item/device/sentry_computer, VENDOR_ITEM_REGULAR),
 		list("Spare PDT/L Battle Buddy Kit", floor(scale * 4), /obj/item/storage/box/pdt_kit, VENDOR_ITEM_REGULAR),
 		list("W-Y brand rechargeable mini-battery", floor(scale * 3), /obj/item/cell/crap, VENDOR_ITEM_REGULAR),
 		list("High-Capacity Power Cell", floor(scale * 1), /obj/item/cell/high, VENDOR_ITEM_REGULAR),
 
 		list("SKILL PAMPHLETS", -1, null, null),
-		list("JTAC Pamphlet", floor(scale * 1), /obj/item/pamphlet/skill/jtac, VENDOR_ITEM_REGULAR),
-		list("Engineering Pamphlet", floor(scale * 1), /obj/item/pamphlet/skill/engineer, VENDOR_ITEM_REGULAR),
+		list("Инструкция для JTAC", floor(scale * 1), /obj/item/pamphlet/skill/jtac, VENDOR_ITEM_REGULAR),
+		list("Инструкция для инженера", floor(scale * 1), /obj/item/pamphlet/skill/engineer, VENDOR_ITEM_REGULAR),
 		list("Powerloader Certification", 0.75, /obj/item/pamphlet/skill/powerloader, VENDOR_ITEM_REGULAR),
 
-		list("MISCELLANEOUS", -1, null, null),
-		list("Entrenching Tool", floor(scale * 4), /obj/item/tool/shovel/etool/folded, VENDOR_ITEM_REGULAR),
+		list("ДРУГОЕ", -1, null, null),
+		list("Шанцевый инструмент", floor(scale * 4), /obj/item/tool/shovel/etool/folded, VENDOR_ITEM_REGULAR),
 		list("Противогаз", floor(scale * 10), /obj/item/clothing/mask/gas, VENDOR_ITEM_REGULAR),
-		list("Machete Scabbard (Full)", floor(scale * 6), /obj/item/storage/large_holster/machete/full, VENDOR_ITEM_REGULAR),
+		list("Чехол для мачете", floor(scale * 6), /obj/item/storage/large_holster/machete/full, VENDOR_ITEM_REGULAR),
 		list("MB-6 Folding Barricades (x3)", floor(scale * 3), /obj/item/stack/folding_barricade/three, VENDOR_ITEM_REGULAR),
-		list("Welding Goggles", floor(scale * 3), /obj/item/clothing/glasses/welding, VENDOR_ITEM_REGULAR),
-		list("Fire Extinguisher (Portable)", floor(scale * 3), /obj/item/tool/extinguisher/mini, VENDOR_ITEM_REGULAR),
+		list("Очки сварщика", floor(scale * 3), /obj/item/clothing/glasses/welding, VENDOR_ITEM_REGULAR),
+		list("Переносной огнетушитель", floor(scale * 3), /obj/item/tool/extinguisher/mini, VENDOR_ITEM_REGULAR),
 		list("Nailgun Magazine (7x45mm)", floor(scale * 4), /obj/item/ammo_magazine/smg/nailgun, VENDOR_ITEM_REGULAR),
 
-		list("EXPLOSIVES BOXES", -1, null, null),
+		list("ВЗРЫВЧАТЫЕ ВЕЩЕСТВА", -1, null, null),
 		list("M15 Fragmentation Grenade Packet", 0, /obj/item/storage/box/packet/m15, VENDOR_ITEM_REGULAR),
-		list("M40 HEDP Grenade Packet", 0, /obj/item/storage/box/packet/high_explosive, VENDOR_ITEM_REGULAR),
-		list("M40 HEDP Grenade Box", 0, /obj/item/storage/box/nade_box, VENDOR_ITEM_REGULAR),
-		list("M40 HIDP Grenade Packet", 0, /obj/item/storage/box/packet/incendiary, VENDOR_ITEM_REGULAR),
-		list("M40 HIDP Grenade Box", 0, /obj/item/storage/box/nade_box/incen, VENDOR_ITEM_REGULAR),
-		list("M40 CCDP Grenade Packet", 0, /obj/item/storage/box/packet/phosphorus/strong, VENDOR_ITEM_REGULAR),
-		list("M40 CCDP Grenade Box", 0, /obj/item/storage/box/nade_box/phophorus, VENDOR_ITEM_REGULAR),
-		list("M40 HSDP Grenade Packet", 0, /obj/item/storage/box/packet/smoke, VENDOR_ITEM_REGULAR),
-		list("M40 MFHS Grenade Packet", 0, /obj/item/storage/box/packet/foam, VENDOR_ITEM_REGULAR),
-		list("M40 HIRR Baton Slug Packet", 0, /obj/item/storage/box/packet/baton_slug, VENDOR_ITEM_REGULAR),
-		list("M74 AGM-F Grenade Packet", 0, /obj/item/storage/box/packet/airburst_he, VENDOR_ITEM_REGULAR),
-		list("M74 AGM-F Grenade box", 0, /obj/item/storage/box/nade_box/airburst, VENDOR_ITEM_REGULAR),
-		list("M74 AGM-I Grenade Packet", 0, /obj/item/storage/box/packet/airburst_incen, VENDOR_ITEM_REGULAR),
-		list("M74 AGM-I Grenade Box", 0, /obj/item/storage/box/nade_box/airburstincen, VENDOR_ITEM_REGULAR),
-		list("M74 AGM-S Smoke Grenade Packet", 0, /obj/item/storage/box/packet/airburst_smoke, VENDOR_ITEM_REGULAR),
-		list("M74 AGM-S Star Shell Packet", 0, /obj/item/storage/box/packet/flare, VENDOR_ITEM_REGULAR),
-		list("M74 AGM-H Hornet Shell Packet", 0, /obj/item/storage/box/packet/hornet, VENDOR_ITEM_REGULAR),
-		list("G2 Electroshock grenade packet", 0, /obj/item/storage/box/packet/sebb, VENDOR_ITEM_REGULAR),
-		list("M20 mine box", 0, /obj/item/storage/box/explosive_mines, VENDOR_ITEM_REGULAR),
+		list("Упаковка гранат M40 HEDP (Осколочная) x 3", 0, /obj/item/storage/box/packet/high_explosive, VENDOR_ITEM_REGULAR),
+		list("Ящик гранат M40 HEDP (Осколочная) x 6", 0, /obj/item/storage/box/nade_box, VENDOR_ITEM_REGULAR),
+		list("Упаковка гранат M40 HIDP (Зажигательная) x 3", 0, /obj/item/storage/box/packet/incendiary, VENDOR_ITEM_REGULAR),
+		list("Ящик гранат M40 HIDP (Зажигательная) x 6", 0, /obj/item/storage/box/nade_box/incen, VENDOR_ITEM_REGULAR),
+		list("Упаковка гранат M40 CCDP (Химическая смесь) x 3", 0, /obj/item/storage/box/packet/phosphorus/strong, VENDOR_ITEM_REGULAR),
+		list("Ящик гранат M40 CCDP (Химическая смесь) x 6", 0, /obj/item/storage/box/nade_box/phophorus, VENDOR_ITEM_REGULAR),
+		list("Упаковка гранат M40 HSDP (Дымовая) x 3", 0, /obj/item/storage/box/packet/smoke, VENDOR_ITEM_REGULAR),
+		list("Упаковка гранат M40 MFHS (Пена) x 3", 0, /obj/item/storage/box/packet/foam, VENDOR_ITEM_REGULAR),
+		list("Упаковка гранат M40 HIRR (Резина) x 3", 0, /obj/item/storage/box/packet/baton_slug, VENDOR_ITEM_REGULAR),
+		list("Упаковка прыгающих гранат M74 AGM (Осколочная) x 3", 0, /obj/item/storage/box/packet/airburst_he, VENDOR_ITEM_REGULAR),
+		list("Ящик прыгающих гранат M74 AGM (Осколочная) x 6", 0, /obj/item/storage/box/nade_box/airburst, VENDOR_ITEM_REGULAR),
+		list("Упаковка прыгающих гранат M74 AGM (Зажигательная) x 3", 0, /obj/item/storage/box/packet/airburst_incen, VENDOR_ITEM_REGULAR),
+		list("Ящик прыгающих гранат M74 AGM (Зажигательная) x 6", 0, /obj/item/storage/box/nade_box/airburstincen, VENDOR_ITEM_REGULAR),
+		list("Упаковка прыгающих гранат M74 AGM (Дымовая) x 3", 0, /obj/item/storage/box/packet/airburst_smoke, VENDOR_ITEM_REGULAR),
+		list("Упаковка прыгающих гранат M74 AGM «Звезда» x 3", 0, /obj/item/storage/box/packet/flare, VENDOR_ITEM_REGULAR),
+		list("Упаковка прыгающих гранат M74 AGM «Шершень» x 3", 0, /obj/item/storage/box/packet/hornet, VENDOR_ITEM_REGULAR),
+		list("Упаковка электрошоковых гранат G2 x 3", 0, /obj/item/storage/box/packet/sebb, VENDOR_ITEM_REGULAR),
+		list("Ящик мин M20 x 5", 0, /obj/item/storage/box/explosive_mines, VENDOR_ITEM_REGULAR),
 
 		list("OTHER BOXES", -1, null, null),
 		list("Box of Combat Flashlights", 0, /obj/item/ammo_box/magazine/misc/flashlight/combat, VENDOR_ITEM_REGULAR),
@@ -237,7 +237,7 @@
 //------------AMMUNITION VENDOR---------------
 
 /obj/structure/machinery/cm_vending/sorted/cargo_ammo
-	name = "\improper Автоматизированный раздатчик боеприпасов «КолМорТех»" // SS220 - EDIT
+	name = "\improper Раздатчик боеприпасов «КолМорТех»" // SS220 - EDIT
 	desc = "An automated supply rack hooked up to a big storage of various ammunition types. Can be accessed by the Quartermaster and Cargo Technicians."
 	icon_state = "req_ammo"
 	req_access = list(ACCESS_MARINE_CARGO)
@@ -254,7 +254,7 @@
 
 /obj/structure/machinery/cm_vending/sorted/cargo_ammo/populate_product_list(scale)
 	listed_products = list(
-		list("ШТАТНЫЕ БОЕПРИПАСЫ", -1, null, null), // SS220 - EDIT
+		list("TEST", -1, null, null), // SS220 - EDIT
 		list("Коробка для патронов (Картечь)", floor(scale * 56), /obj/item/ammo_magazine/shotgun/buckshot, VENDOR_ITEM_REGULAR), // SS220 - EDIT
 		list("Коробка для патронов (Флешетты)", floor(scale * 56), /obj/item/ammo_magazine/shotgun/flechette, VENDOR_ITEM_REGULAR), // SS220 - EDIT
 		list("Коробка для патронов (Пуля)", floor(scale * 56), /obj/item/ammo_magazine/shotgun/slugs, VENDOR_ITEM_REGULAR), // SS220 - EDIT
@@ -479,7 +479,7 @@
 		list("Урбанистские ботинки пехотинца", 5, /obj/item/clothing/shoes/marine/urban, VENDOR_ITEM_REGULAR), // SS220 - EDIT
 
 		list("РЮКЗАКИ", -1, null, null), // SS220 - EDIT
-		list("Военный лёгкий рюкзак", 20, /obj/item/storage/backpack/marine, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("Рюкзак ККМП", 20, /obj/item/storage/backpack/marine, VENDOR_ITEM_REGULAR), // SS220 - EDIT
 		list("Ранец ККМП", 20, /obj/item/storage/backpack/marine/satchel, VENDOR_ITEM_REGULAR), // SS220 - EDIT
 		list("Разгрузочная система ККМП", 10, /obj/item/storage/backpack/marine/satchel/chestrig, VENDOR_ITEM_REGULAR), // SS220 - EDIT
 		list("Рюкзак техника ККМП", 10, /obj/item/storage/backpack/marine/tech, VENDOR_ITEM_REGULAR), // SS220 - EDIT
@@ -515,7 +515,7 @@
 		list("Ключ шифрования для гарнитуры — отряд «Эхо»", 5, /obj/item/device/encryptionkey/echo, VENDOR_ITEM_REGULAR), // SS220 - EDIT
 		list("Ключ шифрования для гарнитуры — инженерный", 5, /obj/item/device/encryptionkey/engi, VENDOR_ITEM_REGULAR), // SS220 - EDIT
 		list("Ключ шифрования для гарнитуры — разведка", 5, /obj/item/device/encryptionkey/intel, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Ключ шифрования для гарнитуры — ОПАН", 5, /obj/item/device/encryptionkey/jtac, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("Ключ шифрования для гарнитуры — JTAC", 5, /obj/item/device/encryptionkey/jtac, VENDOR_ITEM_REGULAR), // SS220 - EDIT
 		list("Ключ шифрования для гарнитуры — медицинский", 5, /obj/item/device/encryptionkey/med, VENDOR_ITEM_REGULAR), // SS220 - EDIT
 		list("Ключ шифрования для гарнитуры — охрана", 8, /obj/item/device/encryptionkey/sentry_laptop, VENDOR_ITEM_REGULAR), // SS220 - EDIT
 		list("Гарнитура пехотинца", 5, /obj/item/device/radio/headset/almayer, VENDOR_ITEM_REGULAR), // SS220 - EDIT
@@ -600,7 +600,7 @@
 		list("ОСНОВНОЕ ВООРУЖЕНИЕ", -1, null, null),
 		list("Штурмовой карабин M4RA", floor(scale * 10), /obj/item/weapon/gun/rifle/m4ra, VENDOR_ITEM_REGULAR),
 		list("Помповый дробовик M37A2", floor(scale * 15), /obj/item/weapon/gun/shotgun/pump, VENDOR_ITEM_REGULAR),
-		list("Пистолет-пулемет M39", floor(scale * 30), /obj/item/weapon/gun/smg/m39, VENDOR_ITEM_REGULAR),
+		list("Пистолет-пулемёт M39", floor(scale * 30), /obj/item/weapon/gun/smg/m39, VENDOR_ITEM_REGULAR),
 		list("Импульсная винтовка M41A MK2", floor(scale * 30), /obj/item/weapon/gun/rifle/m41a, VENDOR_ITEM_RECOMMENDED),
 
 		list("ОСНОВНОЕ НЕЛЕТАЛЬНОЕ ВООРУЖЕНИЕ", -1, null, null),
@@ -622,7 +622,7 @@
 		list("Underbarrel Flashlight Grip", floor(scale * 10), /obj/item/attachable/flashlight/grip, VENDOR_ITEM_RECOMMENDED),
 		list("Underslung Grenade Launcher", floor(scale * 25), /obj/item/attachable/attached_gun/grenade, VENDOR_ITEM_REGULAR), //They already get these as on-spawns, might as well formalize some spares.
 
-		list("UTILITIES", -1, null, null),
+		list("ВСПОМОГАТЕЛЬНОЕ СНАРЯЖЕНИЕ", -1, null, null),
 		list("M07 Training Grenade", floor(scale * 15), /obj/item/explosive/grenade/high_explosive/training, VENDOR_ITEM_REGULAR),
 		list("M15 Rubber Pellet Grenade", floor(scale * 10), /obj/item/explosive/grenade/high_explosive/m15/rubber, VENDOR_ITEM_REGULAR),
 		list("M5 Bayonet", floor(scale * 25), /obj/item/attachable/bayonet, VENDOR_ITEM_REGULAR),

@@ -4276,14 +4276,32 @@ instrumental = "торговым автоматом игрушек Donksoft"
 prepositional = "торговом автомате игрушек Donksoft"
 gender = "male"
 
-["ColMarTech Food Vendor"]
+["ColMarTech Food Vendor"] # Unique Name
 nominative = "раздатчик еды «КолМорТех»"
-genitive = "раздатчика еды «КолМорТех»"
-dative = "раздатчику еды «КолМорТех»"
-accusative = "раздатчик еды «КолМорТех»"
-instrumental = "раздатчиком еды «КолМорТех»"
-prepositional = "раздатчике еды «КолМорТех»"
-gender = "male"
+
+["ColMarTech Commanding Officer Equipment Rack"] # Unique Name
+nominative = "раздатчик экипировки командующего офицера «КолМорТех»"
+
+["ColMarTech Maintenance Technician Equipment Rack"] # Unique Name
+nominative = "раздатчик экипировки техника «КолМорТех»"
+
+["ColMarTech Combat Correspondent Equipment Rack"] # Unique Name
+nominative = "раздатчик экипировки корреспондента «КолМорТех»"
+
+["ColMarTech Medical Equipment Rack"] # Unique Name
+nominative = "раздатчик экипировки санитара «КолМорТех»"
+
+["ColMarTech Military Police Equipment Rack"] # Unique Name
+nominative = "раздатчик экипировки военной полиции «КолМорТех»"
+
+["ColMarTech Military Warden Equipment Rack"] # Unique Name
+nominative = "раздатчик экипировки военного смотрителя «КолМорТех»"
+
+["ColMarTech Dropship Crew Equipment Rack"] # Unique Name
+nominative = "Раздатчик экипировки пилота «КолМорТех»"
+
+["ColMarTech Senior Officer Equipment Rack"] # Unique Name
+nominative = "Раздатчик экипировки штаб-офицера «КолМорТех»"
 
 ["Donksoft Toy Vendor Refill"] # Unique Design Name
 nominative = "пополнитель торгового автомата игрушек Donksoft"
@@ -4748,12 +4766,12 @@ prepositional = "мухобойке"
 gender = "female"
 
 ["wet floor sign"]
-nominative = "знак скользкого пола"
-genitive = "знака скользкого пола"
-dative = "знаку скользкого пола"
-accusative = "знак скользкого пола"
-instrumental = "знаком скользкого пола"
-prepositional = "знаке скользкого пола"
+nominative = "скользкого пола"
+genitive = "скользкого пола"
+dative = "скользкого пола"
+accusative = "скользкого пола"
+instrumental = "скользкого пола"
+prepositional = "скользкого пола"
 gender = "male"
 
 ["soap"]
@@ -7014,21 +7032,25 @@ prepositional = "готовом блюде ККМП (тофу)"
 gender = "neuter"
 
 ["stale USCM protein bar"]
-nominative = "черствый протеиновый батончик ККМП"
-genitive = "черствого протеинового батончика ККМП"
-dative = "черствому протеиновому батончику ККМП"
-accusative = "черствый протеиновый батончик ККМП"
-instrumental = "черствым протеиновым батончиком ККМП"
-prepositional = "черством протеиновом батончике ККМП"
+nominative = "чёрствый протеиновый батончик ККМП"
+genitive = "чёрствого протеинового батончика ККМП"
+dative = "чёрствому протеиновому батончику ККМП"
+accusative = "чёрствый протеиновый батончик ККМП"
+instrumental = "чёрствым протеиновым батончиком ККМП"
+prepositional = "чёрством протеиновом батончике ККМП"
+gender = "male"
+
+["MRE"]
+nominative = "Сухой паёк MRE"
 gender = "male"
 
 ["USCM MRE"]
-nominative = "сухой паёк ККМП"
-genitive = "сухого пайка ККМП"
-dative = "сухому пайку ККМП"
-accusative = "сухой паёк ККМП"
-instrumental = "сухим пайком ККМП"
-prepositional = "сухом пайке ККМП"
+nominative = "сухой паёк MRE"
+genitive = "сухого пайка MRE"
+dative = "сухому пайку MRE"
+accusative = "сухой паёк MRE"
+instrumental = "сухим пайком MRE"
+prepositional = "сухом пайке MRE"
 gender = "male"
 
 ["MRE component"]
@@ -7039,90 +7061,6 @@ accusative = "компонент сухого пайка"
 instrumental = "компонентом сухого пайка"
 prepositional = "компоненте сухого пайка"
 gender = "male"
-
-["boneless pork ribs"]
-nominative = "свинные ребрышки"
-gender = "plural"
-
-["grilled chicken"]
-nominative = "курочка-гриль"
-gender = "female"
-
-["pizza square"]
-nominative = "квадратная пицца"
-gender = "female"
-
-["spaghetti chunks"]
-nominative = "кусочки спагетти"
-gender = "plural"
-
-["cracker"]
-nominative = "сухари"
-gender = "plural"
-
-["cheese spread"]
-nominative = "сырная паста"
-gender = "female"
-
-["rice onigiri"]
-nominative = "онигири"
-gender = "plural"
-
-["mashed potatoes"]
-nominative = "картофельное пюрe"
-gender = "neuter"
-
-["risotto"]
-nominative = "ризотто"
-gender = "neuter"
-
-["biscuit"]
-nominative = "бисквит"
-gender = "male"
-
-["meatballs"]
-nominative = "фрикадельки"
-gender = "plural"
-
-["pretzels"]
-nominative = "крендельки"
-gender = "plural"
-
-["peanuts"]
-nominative = "арахис"
-gender = "male"
-
-["sushi"]
-nominative = "суши"
-gender = "plural"
-
-["spiced apples"]
-nominative = "яблочные дольки"
-gender = "plural"
-
-["chocolate brownie"]
-nominative = "шоколадный брауни"
-gender = "male"
-
-["sugar cookie"]
-nominative = "сладкое печенье"
-gender = "neuter"
-
-["coco bar"]
-nominative = "кокосовый батончик"
-gender = "male"
-
-["flan"]
-nominative = "пирог"
-gender = "male"
-
-["honey flan"]
-nominative = "медовик"
-gender = "male"
-
-["chicken tender"]
-nominative = "куриные палочки"
-gender = "plural"
 
 # MARK: Botany
 
@@ -16142,6 +16080,15 @@ instrumental = "продвинутым огнетушителем"
 prepositional = "продвинутом огнетушителе"
 gender = "male"
 
+["fire extinguisher (portable)"]
+nominative = "переносной огнетушитель"
+genitive = "переносного огнетушителя"
+dative = "переносному огнетушителю"
+accusative = "переносной огнетушитель"
+instrumental = "переносным огнетушителем"
+prepositional = "переносном огнетушителе"
+gender = "male"
+
 # Wrench
 [wrench]
 nominative = "гаечный ключ"
@@ -23703,6 +23650,30 @@ accusative = "прохладительные напитки «Соуто»"
 instrumental = "прохладительными напитками «Соуто»"
 prepositional = "прохладительных напитках «Соуто»"
 
+["Hot Coffee Machine"]
+nominative = "кофе-машина"
+genitive = "кофе-машины"
+dative = "кофе-машине"
+accusative = "кофе-машину"
+instrumental = "кофе-машиной"
+prepositional = "кофе-машине"
+
+["Koorlander brand cigarette machine"]
+nominative = "торговый автомат «Koorlander»"
+genitive = "торгового автомата «Koorlander»"
+dative = "торговому автомату «Koorlander»"
+accusative = "торговый автомат «Koorlander»"
+instrumental = "торговым автоматом «Koorlander»"
+prepositional = "торговом автомате «Koorlander»"
+
+["Rec-Vend"]
+nominative = "торговый автомат «Rec-Vend»"
+genitive = "торгового автомата «Rec-Vend»"
+dative = "торговому автомату «Rec-Vend»"
+accusative = "торговый автомат «Rec-Vend»"
+instrumental = "торговым автоматом «Rec-Vend»"
+prepositional = "торговом автомате «Rec-Vend»"
+
 ["Coffee"]
 nominative = "кофе"
 genitive = "кофе"
@@ -24183,29 +24154,13 @@ accusative = "бак для реагентов"
 instrumental = "баком для реагентов"
 prepositional = "баке для реагентов"
 
-["Welding kit"]
+["welding kit"]
 nominative = "комплект для сварки"
 genitive = "комплекта для сварки"
 dative = "комплекту для сварки"
 accusative = "комплект для сварки"
 instrumental = "комплектом для сварки"
 prepositional = "комплекте для сварки"
-
-["Rec-Vend"]
-nominative = "торговый автомат «Не скучай»"
-genitive = "торгового автомата «Не скучай»"
-dative = "торговому автомату «Не скучай»"
-accusative = "торговый автомат «Не скучай»"
-instrumental = "торговым автоматом «Не скучай»"
-prepositional = "торговом автомате «Не скучай»"
-
-["Blue Cassette"]
-nominative = "Голубая кассета"
-genitive = "Голубой кассеты"
-dative = "Голубой кассете"
-accusative = "Голубую кассету"
-instrumental = "Голубой кассетой"
-prepositional = "Голубой кассете"
 
 ["blue cassette"]
 nominative = "голубая кассета"
@@ -24215,14 +24170,6 @@ accusative = "голубую кассету"
 instrumental = "голубой кассетой"
 prepositional = "голубой кассете"
 
-["Blue Stripe Cassette"]
-nominative = "Кассета с синей полоской"
-genitive = "Кассеты с синей полоской"
-dative = "Кассете с синей полоской"
-accusative = "Кассету с синей полоской"
-instrumental = "Кассетой с синей полоской"
-prepositional = "Кассете с синей полоской"
-
 ["blue stripe cassette"]
 nominative = "кассета с синей полоской"
 genitive = "кассеты с синей полоской"
@@ -24230,14 +24177,6 @@ dative = "кассете с синей полоской"
 accusative = "кассету с синей полоской"
 instrumental = "кассетой с синей полоской"
 prepositional = "кассете с синей полоской"
-
-["Green Cassette"]
-nominative = "Зелёная кассета"
-genitive = "Зелёной кассеты"
-dative = "Зелёной кассете"
-accusative = "Зелёную кассету"
-instrumental = "Зелёной кассетой"
-prepositional = "Зелёной кассете"
 
 ["green cassette"]
 nominative = "зелёная кассета"
@@ -24247,14 +24186,6 @@ accusative = "зелёную кассету"
 instrumental = "зелёной кассетой"
 prepositional = "зелёной кассете"
 
-["Ocean Cassette"]
-nominative = "Сине-белая кассета"
-genitive = "Сине-белой кассеты"
-dative = "Сине-белой кассете"
-accusative = "Сине-белую кассету"
-instrumental = "Сине-белой кассетой"
-prepositional = "Сине-белой кассете"
-
 ["ocean cassette"]
 nominative = "сине-белая кассета"
 genitive = "сине-белой кассеты"
@@ -24262,14 +24193,6 @@ dative = "сине-белой кассете"
 accusative = "сине-белую кассету"
 instrumental = "сине-белой кассетой"
 prepositional = "сине-белой кассете"
-
-["Orange Cassette"]
-nominative = "Оранжевая кассета"
-genitive = "Оранжевой кассеты"
-dative = "Оранжевой кассете"
-accusative = "Оранжевую кассету"
-instrumental = "Оранжевой кассетой"
-prepositional = "Оранжевой кассете"
 
 ["orange cassette"]
 nominative = "Оранжевая кассета"
@@ -24279,14 +24202,6 @@ accusative = "оранжевую кассету"
 instrumental = "оранжевой кассетой"
 prepositional = "оранжевой кассете"
 
-["Pink Cassette"]
-nominative = "Розовая кассета"
-genitive = "Розовой кассеты"
-dative = "Розовой кассете"
-accusative = "Розовую кассету"
-instrumental = "Розовой кассетой"
-prepositional = "Розовой кассете"
-
 ["pink cassette"]
 nominative = "розовая кассета"
 genitive = "розовой кассеты"
@@ -24294,14 +24209,6 @@ dative = "розовой кассете"
 accusative = "розовую кассету"
 instrumental = "розовой кассетой"
 prepositional = "розовой кассете"
-
-["Rainbow Cassette"]
-nominative = "Радужная кассета"
-genitive = "Радужной кассеты"
-dative = "Радужной кассете"
-accusative = "Радужную кассету"
-instrumental = "Радужной кассетой"
-prepositional = "Радужной кассете"
 
 ["rainbow cassette"]
 nominative = "радужная кассета"
@@ -24311,14 +24218,6 @@ accusative = "радужную кассету"
 instrumental = "радужной кассетой"
 prepositional = "радужной кассете"
 
-["Red-black Cassette"]
-nominative = "Черно-красная кассета"
-genitive = "Черно-красной кассеты"
-dative = "Черно-красной кассете"
-accusative = "Черно-красную кассету"
-instrumental = "Черно-красной кассетой"
-prepositional = "Черно-красной кассете"
-
 ["red-black cassette"]
 nominative = "черно-красная кассета"
 genitive = "черно-красной кассеты"
@@ -24326,14 +24225,6 @@ dative = "черно-красной кассете"
 accusative = "черно-красную кассету"
 instrumental = "черно-красной кассетой"
 prepositional = "черно-красной кассете"
-
-["Red Striped Cassette"]
-nominative = "Кассета с красной полоской"
-genitive = "Кассеты с красной полоской"
-dative = "Кассете с красной полоской"
-accusative = "Кассету с красной полоской"
-instrumental = "Кассетой с красной полоской"
-prepositional = "Кассете с красной полоской"
 
 ["red striped cassette"]
 nominative = "кассета с красной полоской"
@@ -24343,14 +24234,6 @@ accusative = "кассету с красной полоской"
 instrumental = "кассетой с красной полоской"
 prepositional = "кассете с красной полоской"
 
-["Rising Sun Cassette"]
-nominative = "кассета «Восход»"
-genitive = "кассеты «Восход»"
-dative = "кассете «Восход»"
-accusative = "кассету «Восход»"
-instrumental = "кассетой «Восход»"
-prepositional = "кассете «Восход»"
-
 ["rising sun cassette"]
 nominative = "кассета «Восход»"
 genitive = "кассеты «Восход»"
@@ -24358,14 +24241,6 @@ dative = "кассете «Восход»"
 accusative = "кассету «Восход»"
 instrumental = "кассетой «Восход»"
 prepositional = "кассете «Восход»"
-
-["Walkman"]
-nominative = "Кассетный плеер"
-genitive = "Кассетного плеера"
-dative = "Кассетному плееру"
-accusative = "Кассетный плеер"
-instrumental = "Кассетным плеером"
-prepositional = "Кассетном плеере"
 
 ["walkman"]
 nominative = "кассетный плеер"
@@ -24375,14 +24250,6 @@ accusative = "кассетный плеер"
 instrumental = "кассетным плеером"
 prepositional = "кассетном плеере"
 
-["Cassette Pouch"]
-nominative = "Сумка для кассет"
-genitive = "Сумки для кассет"
-dative = "Сумке для кассет"
-accusative = "Сумку для кассет"
-instrumental = "Сумкой для кассет"
-prepositional = "Сумке для кассет"
-
 ["cassette pouch"]
 nominative = "сумка для кассет"
 genitive = "сумки для кассет"
@@ -24390,14 +24257,6 @@ dative = "сумке для кассет"
 accusative = "сумку для кассет"
 instrumental = "сумкой для кассет"
 prepositional = "сумке для кассет"
-
-["Deck Of UNO Cards"]
-nominative = "Игральные карты «UNO»"
-genitive = "Игральных карт «UNO»"
-dative = "Игральным картам «UNO»"
-accusative = "Игральные карты «UNO»"
-instrumental = "Игральными картами «UNO»"
-prepositional = "Игральных картах «UNO»"
 
 ["deck of UNO cards"]
 nominative = "игральные карты «UNO»"
@@ -24407,14 +24266,6 @@ accusative = "игральные карты «UNO»"
 instrumental = "игральными картами «UNO»"
 prepositional = "игральных картах «UNO»"
 
-["Notepad"]
-nominative = "блокнот"
-genitive = "блокнота"
-dative = "блокноту"
-accusative = "блокнот"
-instrumental = "блокнотом"
-prepositional = "блокноте"
-
 ["notepad"]
 nominative = "блокнот"
 genitive = "блокнота"
@@ -24423,14 +24274,6 @@ accusative = "блокнот"
 instrumental = "блокнотом"
 prepositional = "блокноте"
 
-["Colonial Space Grunts"]
-nominative = "Колониальные космо-громилы"
-genitive = "Колониальных космо-громил"
-dative = "Колониальным космо-громилам"
-accusative = "Колониальных космо-громил"
-instrumental = "Колониальными космо-громилами"
-prepositional = "Колониальных космо-громилах"
-
 ["colonial space grunts"]
 nominative = "колониальные космо-громилы"
 genitive = "колониальных космо-громил"
@@ -24438,22 +24281,6 @@ dative = "колониальным космо-громилам"
 accusative = "колониальных космо-громил"
 instrumental = "колониальными космо-громилами"
 prepositional = "колониальных космо-громилах"
-
-["D20"]
-nominative = "Игральный кубик «Д20»"
-genitive = "Игрального кубика «Д20»"
-dative = "Игральному кубику «Д20»"
-accusative = "Игральный кубик «Д20»"
-instrumental = "Игральным кубиком «Д20»"
-prepositional = "Игральном кубике «Д20»"
-
-["D6"]
-nominative = "Игральный кубик «Д6»"
-genitive = "Игрального кубика «Д6»"
-dative = "Игральному кубику «Д6»"
-accusative = "Игральный кубик «Д6»"
-instrumental = "Игральным кубиком «Д6»"
-prepositional = "Игральном кубике «Д6»"
 
 ["d20"]
 nominative = "игральный кубик «Д20»"
@@ -24471,7 +24298,7 @@ accusative = "игральный кубик «Д6»"
 instrumental = "игральным кубиком «Д6»"
 prepositional = "игральном кубике «Д6»"
 
-["WeyYu Gold Military Trading Card Packet"]
+["WeyYu gold military trading card packet"]
 nominative = "набор золотых военных карточек «ВейЮ»"
 genitive = "набора золотых военных карточек «ВейЮ»"
 dative = "набору золотых военных карточек «ВейЮ»"
@@ -24479,7 +24306,7 @@ accusative = "набор золотых военных карточек «Вей
 instrumental = "набором золотых военных карточек «ВейЮ»"
 prepositional = "наборе золотых военных карточек «ВейЮ»"
 
-["Pack Of Red WeyYu Military Trading Cards"]
+["pack of red WeyYu military trading cards"]
 nominative = "набор красных военных карточек «ВейЮ»"
 genitive = "набора красных военных карточек «ВейЮ»"
 dative = "набору красных военных карточек «ВейЮ»"
@@ -24487,7 +24314,7 @@ accusative = "набор красных военных карточек «Вей
 instrumental = "набором красных военных карточек «ВейЮ»"
 prepositional = "наборе красных военных карточек «ВейЮ»"
 
-["WeyYu Military Trading Card"]
+["WeyYu military trading card"]
 nominative = "набор военных карточек «ВейЮ»"
 genitive = "набора военных карточек «ВейЮ»"
 dative = "набору военных карточек «ВейЮ»"
@@ -24511,7 +24338,7 @@ accusative = "тележку для мусора"
 instrumental = "тележкой для мусора"
 prepositional = "тележке для мусора"
 
-["Packaged Cheeseburger"]
+["packaged cheeseburger"]
 nominative = "чизбургер в упаковке"
 genitive = "чизбургера в упаковке"
 dative = "чизбургеру в упаковке"
@@ -24519,7 +24346,7 @@ accusative = "чизбургер в упаковке"
 instrumental = "чизбургером в упаковке"
 prepositional = "чизбургере в упаковке"
 
-["Packaged Burrito"]
+["packaged burrito"]
 nominative = "буррито в упаковке"
 genitive = "буррито в упаковке"
 dative = "буррито в упаковке"
@@ -24527,7 +24354,7 @@ accusative = "буррито в упаковке"
 instrumental = "буррито в упаковке"
 prepositional = "буррито в упаковке"
 
-["Packaged Hotdog"]
+["packaged hotdog"]
 nominative = "хотдог в упаковке"
 genitive = "хотдога в упаковке"
 dative = "хотдогу в упаковке"
@@ -24535,7 +24362,7 @@ accusative = "хотдог в упаковке"
 instrumental = "хотдогом в упаковке"
 prepositional = "хотдоге в упаковке"
 
-["Burrito wrapper"]
+["burrito wrapper"]
 nominative = "обёртка от буррито"
 genitive = "обёртки от буррито"
 dative = "обёртке от буррито"
@@ -24543,7 +24370,7 @@ accusative = "обёртку от буррито"
 instrumental = "обёрткой от буррито"
 prepositional = "обёртке от буррито"
 
-["Burger wrapper"]
+["burger wrapper"]
 nominative = "обёртка от бургера"
 genitive = "обёртки от бургера"
 dative = "обёртке от бургера"
@@ -24551,7 +24378,7 @@ accusative = "обёртку от бургера"
 instrumental = "обёрткой от бургера"
 prepositional = "обёртке от бургера"
 
-["Hotdog wrapper"]
+["hotdog wrapper"]
 nominative = "обёртка от хотдога"
 genitive = "обёртки от хотдога"
 dative = "обёртке от хотдога"
@@ -24591,13 +24418,13 @@ accusative = "пластиковую пепельницу"
 instrumental = "пластиковой пепельницей"
 prepositional = "пластиковой пепельнице"
 
-["Koorlander brand cigarette machine"]
-nominative = "торговый автомат «Koorlander»"
-genitive = "торгового автомата «Koorlander»"
-dative = "торговому автомату «Koorlander»"
-accusative = "торговый автомат «Koorlander»"
-instrumental = "торговым автоматом «Koorlander»"
-prepositional = "торговом автомате «Koorlander»"
+["Koorlander Gold Packet"] # unique vendor name
+nominative = "пачка сигарет «Koorlander Gold»"
+genitive = "пачки сигарет «Koorlander Gold»"
+dative = "пачке сигарет «Koorlander Gold»"
+accusative = "пачку сигарет «Koorlander Gold»"
+instrumental = "пачкой сигарет «Koorlander Gold»"
+prepositional = "пачке сигарет «Koorlander Gold»"
 
 ["Koorlander Gold packet"]
 nominative = "пачка сигарет «Koorlander Gold»"
@@ -24695,7 +24522,7 @@ accusative = "пончики «Ням»"
 instrumental = "пончиками «Ням»"
 prepositional = "пончиках «Ням»"
 
-["Sriracha bottle"]
+["sriracha bottle"]
 nominative = "соус Шрирача"
 genitive = "соуса Шрирача"
 dative = "соусу Шрирача"
@@ -24727,7 +24554,7 @@ accusative = "инвалидную коляску"
 instrumental = "инвалидной коляской"
 prepositional = "инвалидной коляске"
 
-["Marine RPG glasses"]
+["marine RPG glasses"]
 nominative = "очки для зрения"
 genitive = "очков для зрения"
 dative = "очкам для зрения"
@@ -24808,12 +24635,13 @@ instrumental = "лестницей"
 prepositional = "лестнице"
 
 ["Glass door"]
-nominative = "стеклянная дверь"
-genitive = "стеклянной двери"
-dative = "стеклянной двери"
-accusative = "стеклянную дверь"
-instrumental = "стеклянной дверью"
-prepositional = "стеклянной двери"
+nominative = "стеклянная заслонка"
+genitive = "стеклянной заслонки"
+dative = "стеклянной заслонке"
+accusative = "стеклянную заслонку"
+instrumental = "стеклянной заслонкой"
+prepositional = "стеклянной заслонке"
+gender = "female"
 
 ["Bathroom"]
 nominative = "санузел"
@@ -24936,12 +24764,13 @@ instrumental = "Маргаритой"
 prepositional = "Маргарите"
 
 ["USCM satchel"]
-nominative = "ранец ККМП"
-genitive = "ранца ККМП"
-dative = "ранцу ККМП"
-accusative = "ранец ККМП"
-instrumental = "ранцем ККМП"
-prepositional = "ранце ККМП"
+nominative = "сумка ККМП"
+genitive = "сумки ККМП"
+dative = "сумке ККМП"
+accusative = "сумку ККМП"
+instrumental = "сумкой ККМП"
+prepositional = "сумке ККМП"
+gender = "female"
 
 ["marine combat boots"]
 nominative = "ботинки пехотинца"
@@ -24999,7 +24828,7 @@ accusative = "картотеку"
 instrumental = "картотекой"
 prepositional = "картотеке"
 
-["Alpha Squad Radio Encryption Key"]
+["alpha squad radio encryption key"]
 nominative = "ключ шифрования для гарнитуры — отряд «Альфа»"
 genitive = "ключа шифрования для гарнитуры — отряд «Альфа»"
 dative = "ключу шифрования для гарнитуры — отряд «Альфа»"
@@ -25007,7 +24836,7 @@ accusative = "ключ шифрования для гарнитуры — отр
 instrumental = "ключом шифрования для гарнитуры — отряд «Альфа»"
 prepositional = "ключе шифрования для гарнитуры — отряд «Альфа»"
 
-["Bravo Squad Radio Encryption Key"]
+["bravo squad radio encryption key"]
 nominative = "ключ шифрования для гарнитуры — отряд «Браво»"
 genitive = "ключа шифрования для гарнитуры — отряд «Браво»"
 dative = "ключу шифрования для гарнитуры — отряд «Браво»"
@@ -25056,12 +24885,12 @@ instrumental = "ключом шифрования для гарнитуры — 
 prepositional = "ключе шифрования для гарнитуры — разведка"
 
 ["JTAC Radio Encryption Key"]
-nominative = "ключ шифрования для гарнитуры — ОПАН"
-genitive = "ключа шифрования для гарнитуры — ОПАН"
-dative = "ключу шифрования для гарнитуры — ОПАН"
-accusative = "ключ шифрования для гарнитуры — ОПАН"
-instrumental = "ключом шифрования для гарнитуры — ОПАН"
-prepositional = "ключе шифрования для гарнитуры — ОПАН"
+nominative = "ключ шифрования для гарнитуры — JTAC"
+genitive = "ключа шифрования для гарнитуры — JTAC"
+dative = "ключу шифрования для гарнитуры — JTAC"
+accusative = "ключ шифрования для гарнитуры — JTAC"
+instrumental = "ключом шифрования для гарнитуры — JTAC"
+prepositional = "ключе шифрования для гарнитуры — JTAC"
 
 ["Medical Radio Encryption Key"]
 nominative = "ключ шифрования для гарнитуры — медицинский"
@@ -25152,12 +24981,13 @@ instrumental = "рюкзаком санитара ККМП"
 prepositional = "рюкзаке санитара ККМП"
 
 ["USCM corpsman satchel"]
-nominative = "ранец санитара ККМП"
-genitive = "ранца санитара ККМП"
-dative = "ранцу санитара ККМП"
-accusative = "ранец санитара ККМП"
-instrumental = "ранцем санитара ККМП"
-prepositional = "ранце санитара ККМП"
+nominative = "сумка санитара ККМП"
+genitive = "сумки санитара ККМП"
+dative = "сумке санитара ККМП"
+accusative = "сумку санитара ККМП"
+instrumental = "сумкой санитара ККМП"
+prepositional = "сумке санитара ККМП"
+gender = "female"
 
 ["heat absorbent coif"]
 nominative = "инфракрасная балаклава"
@@ -25166,6 +24996,7 @@ dative = "инфракрасной балаклаве"
 accusative = "инфракрасную балаклаву"
 instrumental = "инфракрасной балаклавой"
 prepositional = "инфракрасной балаклаве"
+gender = "female"
 
 ["folded bedroll"]
 nominative = "сложенный спальник"
@@ -25174,6 +25005,7 @@ dative = "сложенному спальнику"
 accusative = "сложенный спальник"
 instrumental = "сложенным спальником"
 prepositional = "сложенном спальнике"
+gender = "male"
 
 ["unfolded bedroll"]
 nominative = "разложенный спальник"
@@ -25182,14 +25014,16 @@ dative = "разложенному спальнику"
 accusative = "разложенный спальник"
 instrumental = "разложенным спальником"
 prepositional = "разложенном спальнике"
+gender = "male"
 
 ["M5 Camera Gear"]
-nominative = "разложенный спальник"
-genitive = "разложенного спальника"
-dative = "разложенному спальнику"
-accusative = "разложенный спальник"
-instrumental = "разложенным спальником"
-prepositional = "разложенном спальнике"
+nominative = "камера с креплением на голову M5"
+genitive = "камеры с креплением на голову M5"
+dative = "камере с креплением на голову M5"
+accusative = "камеру с креплением на голову M5"
+instrumental = "камерой с креплением на голову M5"
+prepositional = "камере с креплением на голову M5"
+gender = "female"
 
 ["extinguisher cabinet"]
 nominative = "шкафчик для огнетушителя"
@@ -25198,206 +25032,241 @@ dative = "шкафчику для огнетушителя"
 accusative = "шкафчик для огнетушителя"
 instrumental = "шкафчиком для огнетушителя"
 prepositional = "шкафчике для огнетушителя"
+gender = "male"
 
 ["ammunition storage semiotic"]
-nominative = "знак «Хранилище боеприпасов»"
-genitive = "знак «Хранилище боеприпасов»"
-dative = "знак «Хранилище боеприпасов»"
-accusative = "знак «Хранилище боеприпасов»"
-instrumental = "знак «Хранилище боеприпасов»"
-prepositional = "знак «Хранилище боеприпасов»"
+nominative = "«Хранилище боеприпасов»"
+genitive = "«Хранилище боеприпасов»"
+dative = "«Хранилище боеприпасов»"
+accusative = "«Хранилище боеприпасов»"
+instrumental = "«Хранилище боеприпасов»"
+prepositional = "«Хранилище боеприпасов»"
+gender = "male"
 
 ["hazard semiotic"]
-nominative = "знак «Опасность»"
-genitive = "знак «Опасность»"
-dative = "знак «Опасность»"
-accusative = "знак «Опасность»"
-instrumental = "знак «Опасность»"
-prepositional = "знак «Опасность»"
+nominative = "«Опасность»"
+genitive = "«Опасность»"
+dative = "«Опасность»"
+accusative = "«Опасность»"
+instrumental = "«Опасность»"
+prepositional = "«Опасность»"
+gender = "male"
 
 ["unisex bathroom semiotic"]
-nominative = "знак «Общий санузел»"
-genitive = "знак «Общий санузел»"
-dative = "знак «Общий санузел»"
-accusative = "знак «Общий санузел»"
-instrumental = "знак «Общий санузел»"
-prepositional = "знак «Общий санузел»"
+nominative = "«Общий санузел»"
+genitive = "«Общий санузел»"
+dative = "«Общий санузел»"
+accusative = "«Общий санузел»"
+instrumental = "«Общий санузел»"
+prepositional = "«Общий санузел»"
+gender = "male"
 
 ["HVAC semiotic"]
-nominative = "знак «ОВиК»"
-genitive = "знак «ОВиК»"
-dative = "знак «ОВиК»"
-accusative = "знак «ОВиК»"
-instrumental = "знак «ОВиК»"
-prepositional = "знак «ОВиК»"
+nominative = "«ОВиК»"
+genitive = "«ОВиК»"
+dative = "«ОВиК»"
+accusative = "«ОВиК»"
+instrumental = "«ОВиК»"
+prepositional = "«ОВиК»"
+gender = "male"
 
 ["cryogenic vault semiotic"]
-nominative = "знак «Криогенное хранилище»"
-genitive = "знак «Криогенное хранилище»"
-dative = "знак «Криогенное хранилище»"
-accusative = "знак «Криогенное хранилище»"
-instrumental = "знак «Криогенное хранилище»"
-prepositional = "знак «Криогенное хранилище»"
+nominative = "«Криогенное хранилище»"
+genitive = "«Криогенное хранилище»"
+dative = "«Криогенное хранилище»"
+accusative = "«Криогенное хранилище»"
+instrumental = "«Криогенное хранилище»"
+prepositional = "«Криогенное хранилище»"
+gender = "male"
 
 ["distribution pipes semiotic"]
-nominative = "знак «Распределительные трубы»"
-genitive = "знак «Распределительные трубы»"
-dative = "знак «Распределительные трубы»"
-accusative = "знак «Распределительные трубы»"
-instrumental = "знак «Распределительные трубы»"
-prepositional = "знак «Распределительные трубы»"
+nominative = "«Распределительные трубы»"
+genitive = "«Распределительные трубы»"
+dative = "«Распределительные трубы»"
+accusative = "«Распределительные трубы»"
+instrumental = "«Распределительные трубы»"
+prepositional = "«Распределительные трубы»"
+gender = "male"
 
 ["stairs semiotic"]
-nominative = "знак «Лестница»"
-genitive = "знак «Лестница»"
-dative = "знак «Лестница»"
-accusative = "знак «Лестница»"
-instrumental = "знак «Лестница»"
-prepositional = "знак «Лестница»"
+nominative = "«Лестница»"
+genitive = "«Лестница»"
+dative = "«Лестница»"
+accusative = "«Лестница»"
+instrumental = "«Лестница»"
+prepositional = "«Лестница»"
+gender = "male"
 
 ["North semiotic"]
-nominative = "знак «Север»"
-genitive = "знак «Север»"
-dative = "знак «Север»"
-accusative = "знак «Север»"
-instrumental = "знак «Север»"
-prepositional = "знак «Север»"
+nominative = "«Север»"
+genitive = "«Север»"
+dative = "«Север»"
+accusative = "«Север»"
+instrumental = "«Север»"
+prepositional = "«Север»"
+gender = "male"
 
 ["West semiotic"]
-nominative = "знак «Запад»"
-genitive = "знак «Запад»"
-dative = "знак «Запад»"
-accusative = "знак «Запад»"
-instrumental = "знак «Запад»"
-prepositional = "знак «Запад»"
+nominative = "«Запад»"
+genitive = "«Запад»"
+dative = "«Запад»"
+accusative = "«Запад»"
+instrumental = "«Запад»"
+prepositional = "«Запад»"
+gender = "male"
 
 ["East semiotic"]
-nominative = "знак «Восток»"
-genitive = "знак «Восток»"
-dative = "знак «Восток»"
-accusative = "знак «Восток»"
-instrumental = "знак «Восток»"
-prepositional = "знак «Восток»"
+nominative = "«Восток»"
+genitive = "«Восток»"
+dative = "«Восток»"
+accusative = "«Восток»"
+instrumental = "«Восток»"
+prepositional = "«Восток»"
+gender = "male"
 
 ["South semiotic"]
-nominative = "знак «Юг»"
-genitive = "знак «Юг»"
-dative = "знак «Юг»"
-accusative = "знак «Юг»"
-instrumental = "знак «Юг»"
-prepositional = "знак «Юг»"
+nominative = "«Юг»"
+genitive = "«Юг»"
+dative = "«Юг»"
+accusative = "«Юг»"
+instrumental = "«Юг»"
+prepositional = "«Юг»"
+gender = "male"
 
 ["one semiotic"]
-nominative = "знак «Один»"
-genitive = "знак «Один»"
-dative = "знак «Один»"
-accusative = "знак «Один»"
-instrumental = "знак «Один»"
-prepositional = "знак «Один»"
+nominative = "«Один»"
+genitive = "«Один»"
+dative = "«Один»"
+accusative = "«Один»"
+instrumental = "«Один»"
+prepositional = "«Один»"
+gender = "male"
 
 ["two semiotic"]
-nominative = "знак «Два»"
-genitive = "знак «Два»"
-dative = "знак «Два»"
-accusative = "знак «Два»"
-instrumental = "знак «Два»"
-prepositional = "знак «Два»"
+nominative = "«Два»"
+genitive = "«Два»"
+dative = "«Два»"
+accusative = "«Два»"
+instrumental = "«Два»"
+prepositional = "«Два»"
+gender = "male"
 
 ["three semiotic"]
-nominative = "знак «Три»"
-genitive = "знак «Три»"
-dative = "знак «Три»"
-accusative = "знак «Три»"
-instrumental = "знак «Три»"
-prepositional = "знак «Три»"
+nominative = "«Три»"
+genitive = "«Три»"
+dative = "«Три»"
+accusative = "«Три»"
+instrumental = "«Три»"
+prepositional = "«Три»"
+gender = "male"
 
 ["four semiotic"]
-nominative = "знак «Четыре»"
-genitive = "знак «Четыре»"
-dative = "знак «Четыре»"
-accusative = "знак «Четыре»"
-instrumental = "знак «Четыре»"
-prepositional = "знак «Четыре»"
+nominative = "«Четыре»"
+genitive = "«Четыре»"
+dative = "«Четыре»"
+accusative = "«Четыре»"
+instrumental = "«Четыре»"
+prepositional = "«Четыре»"
+gender = "male"
 
 ["escape pod semiotic"]
-nominative = "знак «Спасательная капсула»"
-genitive = "знак «Спасательная капсула»"
-dative = "знак «Спасательная капсула»"
-accusative = "знак «Спасательная капсула»"
-instrumental = "знак «Спасательная капсула»"
-prepositional = "знак «Спасательная капсула»"
+nominative = "«Спасательная капсула»"
+genitive = "«Спасательная капсула»"
+dative = "«Спасательная капсула»"
+accusative = "«Спасательная капсула»"
+instrumental = "«Спасательная капсула»"
+prepositional = "«Спасательная капсула»"
+gender = "male"
 
 ["storage semiotic"]
-nominative = "знак «Хранилище»"
-genitive = "знак «Хранилище»"
-dative = "знак «Хранилище»"
-accusative = "знак «Хранилище»"
-instrumental = "знак «Хранилище»"
-prepositional = "знак «Хранилище»"
+nominative = "«Хранилище»"
+genitive = "«Хранилище»"
+dative = "«Хранилище»"
+accusative = "«Хранилище»"
+instrumental = "«Хранилище»"
+prepositional = "«Хранилище»"
+gender = "male"
 
 ["airlock semiotic"]
-nominative = "знак «Шлюз»"
-genitive = "знак «Шлюз»"
-dative = "знак «Шлюз»"
-accusative = "знак «Шлюз»"
-instrumental = "знак «Шлюз»"
-prepositional = "знак «Шлюз»"
+nominative = "«Шлюз»"
+genitive = "«Шлюз»"
+dative = "«Шлюз»"
+accusative = "«Шлюз»"
+instrumental = "«Шлюз»"
+prepositional = "«Шлюз»"
+gender = "male"
 
 ["rewire system semiotic"]
-nominative = "знак «Электропроводка»"
-genitive = "знак «Электропроводка»"
-dative = "знак «Электропроводка»"
-accusative = "знак «Электропроводка»"
-instrumental = "знак «Электропроводка»"
-prepositional = "знак «Электропроводка»"
+nominative = "«Электропроводка»"
+genitive = "«Электропроводка»"
+dative = "«Электропроводка»"
+accusative = "«Электропроводка»"
+instrumental = "«Электропроводка»"
+prepositional = "«Электропроводка»"
+gender = "male"
 
 ["medical semiotic"]
-nominative = "знак «Медицинский сектор»"
-genitive = "знак «Медицинский сектор»"
-dative = "знак «Медицинский сектор»"
-accusative = "знак «Медицинский сектор»"
-instrumental = "знак «Медицинский сектор»"
-prepositional = "знак «Медицинский сектор»"
+nominative = "«Медицинский сектор»"
+genitive = "«Медицинский сектор»"
+dative = "«Медицинский сектор»"
+accusative = "«Медицинский сектор»"
+instrumental = "«Медицинский сектор»"
+prepositional = "«Медицинский сектор»"
+gender = "male"
 
 ["outpatient clinic semiotic"]
-nominative = "знак «Амбулатория»"
-genitive = "знак «Амбулатория»"
-dative = "знак «Амбулатория»"
-accusative = "знак «Амбулатория»"
-instrumental = "знак «Амбулатория»"
-prepositional = "знак «Амбулатория»"
+nominative = "«Амбулатория»"
+genitive = "«Амбулатория»"
+dative = "«Амбулатория»"
+accusative = "«Амбулатория»"
+instrumental = "«Амбулатория»"
+prepositional = "«Амбулатория»"
+gender = "male"
 
 ["restricted area semiotic"]
-nominative = "знак «Запретная зона»"
-genitive = "знак «Запретная зона»"
-dative = "знак «Запретная зона»"
-accusative = "знак «Запретная зона»"
-instrumental = "знак «Запретная зона»"
-prepositional = "знак «Запретная зона»"
+nominative = "«Запретная зона»"
+genitive = "«Запретная зона»"
+dative = "«Запретная зона»"
+accusative = "«Запретная зона»"
+instrumental = "«Запретная зона»"
+prepositional = "«Запретная зона»"
+gender = "male"
 
 ["outpatient autodoc semiotic"]
-nominative = "знак «АвтоДок»"
-genitive = "знак «АвтоДок»"
-dative = "знак «АвтоДок»"
-accusative = "знак «АвтоДок»"
-instrumental = "знак «АвтоДок»"
-prepositional = "знак «АвтоДок»"
+nominative = "«АвтоДок»"
+genitive = "«АвтоДок»"
+dative = "«АвтоДок»"
+accusative = "«АвтоДок»"
+instrumental = "«АвтоДок»"
+prepositional = "«АвтоДок»"
+gender = "male"
 
 ["reception semiotic"]
-nominative = "знак «Стойка регистрации»"
-genitive = "знак «Стойка регистрации»"
-dative = "знак «Стойка регистрации»"
-accusative = "знак «Стойка регистрации»"
-instrumental = "знак «Стойка регистрации»"
-prepositional = "знак «Стойка регистрации»"
+nominative = "«Стойка регистрации»"
+genitive = "«Стойка регистрации»"
+dative = "«Стойка регистрации»"
+accusative = "«Стойка регистрации»"
+instrumental = "«Стойка регистрации»"
+prepositional = "«Стойка регистрации»"
+gender = "male"
 
 ["maintenance semiotic"]
-nominative = "знак «Техническая зона»"
-genitive = "знака «Техническая зона»"
-dative = "знаку «Техническая зона»"
-accusative = "знак «Техническая зона»"
-instrumental = "знаком «Техническая зона»"
-prepositional = "знаке «Техническая зона»"
+nominative = "«Техническая зона»"
+genitive = "«Техническая зона»"
+dative = "«Техническая зона»"
+accusative = "«Техническая зона»"
+instrumental = "«Техническая зона»"
+prepositional = "«Техническая зона»"
+gender = "male"
+
+["computer terminal semiotic"]
+nominative = "«Компьютерный терминал»"
+genitive = "«Компьютерный терминала»"
+dative = "«Компьютерный терминалу»"
+accusative = "«Компьютерный терминал»"
+instrumental = "«Компьютерный терминалом»"
+prepositional = "«Компьютерный терминале»"
+gender = "male"
 
 ["janitorial bucket"]
 nominative = "ведро уборщика"
@@ -25406,6 +25275,7 @@ dative = "ведру уборщика"
 accusative = "ведро уборщика"
 instrumental = "ведром уборщика"
 prepositional = "ведре уборщика"
+gender = "neuter"
 
 ["Security Access Tuner"]
 nominative = "мультитул"
@@ -25414,14 +25284,525 @@ dative = "мультитулу"
 accusative = "мультитул"
 instrumental = "мультитулом"
 prepositional = "мультитуле"
+gender = "male"
 
-["computer terminal semiotic"]
-nominative = "знак «Компьютерный терминал»"
-genitive = "знака «Компьютерного терминала»"
-dative = "знаку «Компьютерному терминалу»"
-accusative = "знак «Компьютерный терминал»"
-instrumental = "знаком «Компьютерным терминалом»"
-prepositional = "знаке «Компьютерном терминале»"
+["marine alpha radio headset"]
+nominative = "гарнитура пехотинца отряда «Альфа»"
+genitive = "гарнитуры пехотинца отряда «Альфа»"
+dative = "гарнитуре пехотинца отряда «Альфа»"
+accusative = "гарнитуру пехотинца отряда «Альфа»"
+instrumental = "гарнитурой пехотинца отряда «Альфа»"
+prepositional = "гарнитуре пехотинца отряда «Альфа»"
+
+["marine bravo radio headset"]
+nominative = "гарнитура пехотинца отряда «Браво»"
+genitive = "гарнитуры пехотинца отряда «Браво»"
+dative = "гарнитуре пехотинца отряда «Браво»"
+accusative = "гарнитуру пехотинца отряда «Браво»"
+instrumental = "гарнитурой пехотинца отряда «Браво»"
+prepositional = "гарнитуре пехотинца отряда «Браво»"
+
+["marine charlie radio headset"]
+nominative = "гарнитура пехотинца отряда «Чарли»"
+genitive = "гарнитуры пехотинца отряда «Чарли»"
+dative = "гарнитуре пехотинца отряда «Чарли»"
+accusative = "гарнитуру пехотинца отряда «Чарли»"
+instrumental = "гарнитурой пехотинца отряда «Чарли»"
+prepositional = "гарнитуре пехотинца отряда «Чарли»"
+
+["marine delta radio headset"]
+nominative = "гарнитура пехотинца отряда «Дельта»"
+genitive = "гарнитуры пехотинца отряда «Дельта»"
+dative = "гарнитуре пехотинца отряда «Дельта»"
+accusative = "гарнитуру пехотинца отряда «Дельта»"
+instrumental = "гарнитурой пехотинца отряда «Дельта»"
+prepositional = "гарнитуре пехотинца отряда «Дельта»"
+
+["marine echo radio headset"]
+nominative = "гарнитура пехотинца отряда «Эхо»"
+genitive = "гарнитуры пехотинца отряда «Эхо»"
+dative = "гарнитуре пехотинца отряда «Эхо»"
+accusative = "гарнитуру пехотинца отряда «Эхо»"
+instrumental = "гарнитурой пехотинца отряда «Эхо»"
+prepositional = "гарнитуре пехотинца отряда «Эхо»"
+
+["fortune cookie"]
+nominative = "печенье с предсказанием"
+genitive = "печенье с предсказанием"
+dative = "печенье с предсказанием"
+accusative = "печенье с предсказанием"
+instrumental = "печенье с предсказанием"
+prepositional = "печенье с предсказанием"
+
+["fortune"]
+nominative = "предсказание"
+genitive = "предсказание"
+dative = "предсказание"
+accusative = "предсказание"
+instrumental = "предсказание"
+prepositional = "предсказание"
+
+["wall calendar"]
+nominative = "календарь"
+genitive = "календаря"
+dative = "календарю"
+accusative = "календарь"
+instrumental = "календарём"
+prepositional = "календаре"
+
+["M4RA battle rifle"]
+nominative = "штурмовой карабин M4RA"
+
+["M39 submachine gun"]
+nominative = "пистолет-пулемёт M39"
+
+["M37A2 pump shotgun"]
+nominative = "помповый дробовик M37A2"
+
+["M41A pulse rifle MK2"]
+nominative = "импульсная винтовка M41A MK2"
+
+["box of buckshot shells"]
+nominative = "коробка для патронов (Картечь)"
+
+["box of buckshot shells (12g)"]
+nominative = "коробка для патронов (Картечь)"
+
+["box of flechette shells"]
+nominative = "коробка для патронов (Флешетты)"
+
+["box of flechette shells (12g)"]
+nominative = "коробка для патронов (Флешетты)"
+
+["box of shotgun slugs"]
+nominative = "коробка для патронов (Пуля)"
+
+["box of shotgun slugs (12g)"]
+nominative = "коробка для патронов (Пуля)"
+
+["M4RA magazine (10x24mm)"]
+nominative = "магазин для M4RA (10x24мм)"
+
+["M4RA AP magazine (10x24mm)"]
+nominative = "магазин для M4RA (10x24мм AP)"
+
+["M4RA extended magazine (10x24mm)"]
+nominative = "расширенный магазин для M4RA (10x24мм)"
+
+["M39 HV magazine (10x20mm)"]
+nominative = "магазин для M39 (10x20мм HV)"
+
+["M41A AP magazine"]
+nominative = "магазин для M41A (10x24мм AP)"
+
+["M41A AP magazine (10x24mm)"]
+nominative = "магазин для M41A (10x24мм AP)"
+
+["M41A extended magazine"]
+nominative = "расширенный магазин для M41A (10x24мм)"
+
+["M41A extended magazine (10x24mm)"]
+nominative = "расширенный магазин для M41A (10x24мм)"
+
+["M41A MK1 pulse rifle"]
+nominative = "импульсная винтовка M41A MK1"
+
+["M41A MK1 magazine"]
+nominative = "магазин для M41A MK1 (10x24мм)"
+
+["M41A MK1 AP magazine"]
+nominative = "магазин для M41A MK1 (10x24мм AP)"
+
+["M10 auto pistol"]
+nominative = "автоматический пистолет M10"
+
+["88 Mod 4 combat pistol"]
+nominative = "боевой пистолет 88 Mod 4"
+
+["M44 combat revolver"]
+nominative = "боевой револьвер M44"
+
+["M4A3 service pistol"]
+nominative = "служебный пистолет M4A3"
+
+["M82F flare gun"]
+nominative = "сигнальная ракетница M82F"
+
+["M10 HV magazine (10x20mm)"]
+nominative = "магазин для M10 (10x20мм HV)"
+
+["M10 HV extended magazine (10x20mm)"]
+nominative = "расширенный магазин для M10 (10x20мм HV)"
+
+["M10 HV drum magazine (10x20mm)"]
+nominative = "барабанный магазин для M10 (10x20мм HV)"
+
+["88M4 AP magazine (9mm)"]
+nominative = "магазин для 88M4 (9мм AP)"
+
+["M44 speedloader (.44)"]
+nominative = "сменный барабан для М44 (.44)"
+
+["M44 heavy speed loader (.44)"]
+nominative = "сменный барабан для М44 (.44 FMJ)"
+
+["M4A3 magazine (9mm)"]
+nominative = "магазин для M4A3 (9мм)"
+
+["M4A3 AP magazine (9mm)"]
+nominative = "магазин для M4A3 (9мм AP)"
+
+["M4A3 HP magazine (9mm)"]
+nominative = "магазин для M4A3 (9мм HP)"
+
+["VP78 magazine (9mm)"]
+nominative = "магазин для VP78 (9мм)"
+
+["gloves"]
+nominative = "перчатки"
+genitive = "перчаток"
+dative = "перчаткам"
+accusative = "перчатки"
+instrumental = "перчатками"
+prepositional = "перчатках"
+gender = "plural"
+
+["MK30 tactical helmet"]
+nominative = "тактический шлем MK30"
+
+["brown webbing vest"]
+nominative = "коричневый разгрузочный жилет"
+
+["black webbing vest"]
+nominative = "чёрный разгрузочный жилет"
+
+["webbing"]
+nominative = "нагрудный жилет"
+
+["black webbing"]
+nominative = "чёрный нагрудный жилет"
+
+["drop pouch"]
+nominative = "наплечный подсумок"
+
+["aviator shades"]
+nominative = "авиаторы"
+
+["medical HUD glasses"]
+nominative = "ИЛС очки врача"
+
+["M276 general pistol holster rig"]
+nominative = "пояс с кобурой для пистолета"
+
+["M276 general revolver holster rig"]
+nominative = "пояс с кобурой для револьвера"
+
+["M276 shotgun shell loading rig"]
+nominative = "патронташ на пояс для дробовика"
+
+["M276 G8-A General Utility Pouch"]
+nominative = "поясная разгрузка G8-A"
+
+["G8-A General Utility Pouch"]
+nominative = "поясная разгрузка G8-A"
+
+["M276 toolbelt rig (full)"]
+nominative = "пояс для инструментов"
+
+["M276 combat toolbelt rig (full)"]
+nominative = "пояс с кобурой для инструментов"
+
+["military police belt"]
+nominative = "пояс военной полиции"
+
+["M276 M39 holster rig"]
+nominative = "пояс с креплением для ПП M39"
+
+["M276 M10 holster rig"]
+nominative = "пояс с кобурой для пистолета M10"
+
+["M276 medical storage rig"]
+nominative = "поясная разгрузка санитара"
+
+["M276 medical storage rig (full)"]
+nominative = "поясная разгрузка санитара"
+
+["M276 medical lifesaver rig"]
+nominative = "спасательная сумка санитара"
+
+["M276 lifesaver bag (full)"]
+nominative = "спасательная сумка санитара"
+
+["M276 ammo load rig"]
+nominative = "пояс для боеприпасов"
+
+["M276 holster toolrig"]
+nominative = "пояс с кобурой для инструментов"
+
+["M276 M82F holster rig"]
+nominative = "пояс с кобурой для ракетницы M82F"
+
+["medium general pouch"]
+nominative = "подсумок общего назначения"
+
+["construction pouch"]
+nominative = "подсумок строителя"
+
+["electronics pouch (full)"]
+nominative = "подсумок электрика"
+
+["tools pouch (full)"]
+nominative = "Подсумок для инструментов"
+
+["first-aid pouch (refillable injectors)"]
+nominative = "Медицинский подсумок (инжекторы)"
+
+["first-aid pouch (splints, gauze, ointment)"]
+nominative = "медицинский подсумок (шины, бинты, мазь)"
+
+["first-aid pouch (pill packets)"]
+nominative = "медицинский подсумок (таблетки)"
+
+["autoinjector pouch"]
+nominative = "подсумок для инжекторов"
+
+["flare pouch (full)"]
+nominative = "подсумок для осветительных огней"
+
+["first responder pouch"]
+nominative = "подсумок первой помощи"
+
+["medical pouch"]
+nominative = "подсумок для медицины"
+
+["sling pouch"]
+nominative = "ременная сумка"
+
+["medical kit pouch"]
+nominative = "подсумок с набором санитара"
+
+["large general pouch"]
+nominative = "большой подсумок общего назначения"
+
+["pistol magazine pouch"]
+nominative = "подсумок для пистолетных магазинов"
+
+["large pistol magazine pouch"]
+nominative = "большой подсумок для пистолетных магазинов"
+
+["large magazine pouch"]
+nominative = "большой подсумок для магазинов"
+
+["machete scabbard (full)"]
+nominative = "Чехол для мачете"
+
+["machete pouch (full)"]
+nominative = "ножны для мачете"
+
+["motion detector"]
+nominative = "детектор движения"
+
+["pistol pouch"]
+nominative = "кобура для пистолета"
+
+["sidearm pouch"]
+nominative = "кобура для дополнительного оружия"
+
+["large shotgun shell pouch"]
+nominative = "большой подсумок для дробовика"
+
+["rebreather"]
+nominative = "респиратор"
+genitive = "респиратора"
+dative = "респиратору"
+accusative = "респиратор"
+instrumental = "респиратором"
+prepositional = "респираторе"
+gender = "male"
+
+["map"]
+nominative = "карта"
+genitive = "карты"
+dative = "карте"
+accusative = "карту"
+instrumental = "картой"
+prepositional = "карте"
+gender = "female"
+
+["headset"]
+nominative = "гарнитура"
+
+["RADIO KEYS"] # Unique Vendor Name
+nominative = "КЛЮЧИ ШИФРОВАНИЯ"
+
+["PRIMARY FIREARMS"] # Unique Vendor Name
+nominative = "ОСНОВНОЕ ВООРУЖЕНИЕ"
+
+["Main Weapons (ВЫБЕРИТЕ 1)"] # Unique Vendor Name
+nominative = "ОСНОВНОЕ ВООРУЖЕНИЕ (ВЫБЕРИТЕ 1)"
+
+["PRIMARY AMMUNITION"] # Unique Vendor Name
+nominative = "БОЕПРИПАСЫ ДЛЯ ОСНОВНОГО ОРУЖИЯ"
+
+["SIDEARMS"] # Unique Vendor Name
+nominative = "ДОПОЛНИТЕЛЬНОЕ ВООРУЖЕНИЕ"
+
+["SIDEARM AMMUNITION"] # Unique Vendor Name
+nominative = "БОЕПРИПАСЫ ДЛЯ ДОПОЛНИТЕЛЬНОГО ОРУЖИЯ"
+
+["AMMUNITION"] # Unique Vendor Name
+nominative = "БОЕПРИПАСЫ"
+
+["EXPLOSIVES"] # Unique Vendor Name
+nominative = "ВЗРЫВЧАТЫЕ ВЕЩЕСТВА"
+
+["STANDARD EQUIPMENT (TAKE ALL)"] # Unique Vendor Name
+nominative = "СТАНДАРТНАЯ ЭКИПИРОВКА (ВОЗЬМИТЕ ВСЁ)"
+
+["CIVILIAN EQUIPMENT (TAKE ALL)"] # Unique Vendor Name
+nominative = "ГРАЖДАНСКАЯ ЭКИПИРОВКА (ВОЗЬМИТЕ ВСЁ)"
+
+["BAGS (CHOOSE 1)"] # Unique Vendor Name
+nominative = "РЮКЗАКИ (ВЫБЕРИТЕ 1)"
+
+["GLOVES (CHOOSE 1)"] # Unique Vendor Name
+nominative = "ПЕРЧАТКИ (ВЫБЕРИТЕ 1)"
+
+["ACCESSORIES (CHOOSE 1)"] # Unique Vendor Name
+nominative = "РАЗГРУЗКИ (ВЫБЕРИТЕ 1)"
+
+["GLASSES (CHOOSE 1)"] # Unique Vendor Name
+nominative = "ОЧКИ (ВЫБЕРИТЕ 1)"
+
+["POUCHES (CHOOSE 2)"] # Unique Vendor Name
+nominative = "ПОДСУМКИ (ВЫБЕРИТЕ 2)"
+
+["HUDS (CHOOSE 1)"] # Unique Vendor Name
+nominative = "ИЛС (ВЫБЕРИТЕ 1)"
+
+["EYEWEAR (CHOOSE 1)"] # Unique Vendor Name
+nominative = "ИЛС (ВЫБЕРИТЕ 1)"
+
+["BELTS (CHOOSE 1)"] # Unique Vendor Name
+nominative = "ПОЯС (ВЫБЕРИТЕ 1)"
+
+["MASK (CHOOSE 1)"] # Unique Vendor Name
+nominative = "МАСКИ (ВЫБЕРИТЕ 1)"
+
+["MASK"] # Unique Vendor Name
+nominative = "МАСКИ"
+
+["ARMOR (CHOOSE 1)"] # Unique Vendor Name
+nominative = "БРОНЯ (ВЫБЕРИТЕ 1)"
+
+["PERSONAL SIDEARM (CHOOSE 1)"] # Unique Vendor Name
+nominative = "ЛИЧНОЕ ОРУЖИЕ (ВЫБЕРИТЕ 1)"
+
+["UNIFORM (CHOOSE 1)"] # Unique Vendor Name
+nominative = "УНИФОРМА (ВЫБЕРИТЕ 1)"
+
+["SUIT (CHOOSE 1)"] # Unique Vendor Name
+nominative = "ВЕРХНЯЯ ОДЕЖДА (ВЫБЕРИТЕ 1)"
+
+["HEADWEAR (CHOOSE 1)"] # Unique Vendor Name
+nominative = "ГОЛОВНОЙ УБОР (ВЫБЕРИТЕ 1)"
+
+["HELMET (CHOOSE 1)"] # Unique Vendor Name
+nominative = "ШЛЕМЫ (ВЫБЕРИТЕ 1)"
+
+["BACKPACK (CHOOSE 1)"] # Unique Vendor Name
+nominative = "РЮКЗАКИ (ВЫБЕРИТЕ 1)"
+
+["BAG (CHOOSE 1)"] # Unique Vendor Name
+nominative = "РЮКЗАКИ (ВЫБЕРИТЕ 1)"
+
+["BELT (CHOOSE 1)"] # Unique Vendor Name
+nominative = "ПОЯС (ВЫБЕРИТЕ 1)"
+
+["BELT (CHOOSE 2)"] # Unique Vendor Name
+nominative = "ПОЯС (ВЫБЕРИТЕ 2)"
+
+["UTILITIES"] # Unique Vendor Name
+nominative = "ВСПОМОГАТЕЛЬНОЕ СНАРЯЖЕНИЕ"
+
+["ATTACHMENTS"] # Unique Vendor Name
+nominative = "ОБВЕСЫ"
+
+["GUN ATTACHMENTS (CHOOSE 1)"] # Unique Vendor Name
+nominative = "ОБВЕСЫ (ВЫБЕРИТЕ 1)"
+
+["technician backpack"]
+nominative = "рюкзак техника"
+genitive = "рюкзака техника"
+dative = "рюкзаку техника"
+accusative = "рюкзак техника"
+instrumental = "рюкзаком техника"
+prepositional = "рюкзаке техника"
+gender = "male"
+
+["technician satchel"]
+nominative = "сумка техника"
+
+["technician welderpack"]
+nominative = "разгрузочная система техника ККМП"
+
+["technician chestrig"]
+nominative = "разгрузочная система техника"
+
+["technician welder-satchel"]
+nominative = "сварочная сумка техника"
+
+["technician Welder Chestrig"]
+nominative = "разгрузочная система сварщика"
+
+["M39 AP magazine (10x20mm)"]
+nominative = "магазин для M39 (10x20мм AP)"
+
+["M39 extended magazine (10x20mm)"]
+nominative = "расширенный магазин для M39 (10x20мм)"
+
+["VP78 pistol"]
+nominative = "пистолет VP78"
+
+["M39 HV extended magazine (10x20mm)"]
+nominative = "расширенный магазин для M39 (10x20мм HV)"
+
+["NSG 23 armor-piercing magazine (10x24mm)"]
+nominative = "магазин для NSG 23 (10x24мм AP)"
+
+["NSG 23 extended magazine (10x24mm)"]
+nominative = "расширенный магазин для NSG 23 (10x24мм)"
+
+["Angled Grip"]
+nominative = "угловой упор"
+
+["Burst Fire Assembly"]
+nominative = "угловая рукоятка"
+
+["extended barrel"]
+nominative = "расширение ствола"
+
+["advanced underbarrel flamethrower"]
+nominative = "Улучшенный подствольный огнемет"
+
+["JTAC pamphlet"]
+nominative = "инструкция для JTAC"
+
+["external webbing"]
+nominative = "навесная разгрузка"
+
+["Standard Satchel"]
+nominative = "сумка"
+
+["Standard Backpack"]
+nominative = "рюкзак"
+
+["Medical Satchel"]
+nominative = "сумка санитара"
+
+["Medical Backpack"]
+nominative = "рюкзак санитара"
+
 
 
 

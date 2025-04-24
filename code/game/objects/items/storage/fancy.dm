@@ -216,7 +216,7 @@
 	storage_slots = 4
 
 /obj/item/storage/fancy/cigarettes/lucky_strikes
-	name = "\improper Пачка сигарет «Lucky Strikes»" // SS220 - EDIT
+	name = "\improper Lucky Strikes Packet"
 	desc = "Lucky Strikes Means Fine Tobacco! 9/10 doctors agree on Lucky Strikes... as the leading cause of marine lung cancer."
 	icon_state = "lspacket"
 	icon = 'icons/obj/items/smoking/packets/lucky_strike.dmi'
@@ -254,7 +254,7 @@
 	storage_slots = 4
 
 /obj/item/storage/fancy/cigarettes/kpack
-	name = "\improper Пачка сигарет «Koorlander Gold»" // SS220 - EDIT
+	name = "\improper Koorlander Gold packet"
 	desc = "Lovingly machine-rolled for YOUR pleasure. For when you want to look cool and the risk of a slow horrible death isn't really a factor."
 	icon_state = "kpacket"
 	icon = 'icons/obj/items/smoking/packets/koorlander.dmi'
@@ -270,7 +270,7 @@
 	item_state_slots = list(WEAR_AS_GARB = "cig_aapack")
 
 /obj/item/storage/fancy/cigarettes/lady_finger
-	name = "\improper Пачка сигарет «Lady Fingers»" // SS220 - EDIT
+	name = "\improper Lady Fingers packet"
 	desc = "These intensely strong unfiltered menthol cigarettes don't seem very ladylike. They don't seem very fingerlike for that matter, either. Smoking may kill, but poor branding is almost as bad."
 	icon_state = "lfpacket"
 	icon = 'icons/obj/items/smoking/packets/lady_fingers.dmi'
@@ -279,7 +279,7 @@
 	default_cig_type = /obj/item/clothing/mask/cigarette/ucigarette
 
 /obj/item/storage/fancy/cigarettes/spirit
-	name = "\improper Пачка сигарет «Turquoise American Spirit»" // SS220 - EDIT
+	name = "\improper Turquoise American Spirit Packet"
 	desc = "A pack of turquoise American Spirit cigarettes."
 	icon_state = "naspacket"
 	icon = 'icons/obj/items/smoking/packets/spirits_cyan.dmi'
@@ -288,7 +288,7 @@
 	default_cig_type = /obj/item/clothing/mask/cigarette
 
 /obj/item/storage/fancy/cigarettes/spirit/yellow
-	name = "\improper Пачка сигарет «Yellow American Spirit»" // SS220 - EDIT
+	name = "\improper Yellow American Spirit Packet"
 	desc = "A pack of yellow American Spirit cigarettes."
 	icon_state = "y_naspacket"
 	icon = 'icons/obj/items/smoking/packets/spirits_yellow.dmi'
@@ -296,7 +296,7 @@
 	item_state_slots = list(WEAR_AS_GARB = "cig_spirityellow")
 
 /obj/item/storage/fancy/cigarettes/trading_card
-	name = "\improper Набор золотых военных карточек «ВейЮ»" // SS220 - EDIT
+	name = "\improper WeyYu Gold Military Trading Card packet"
 	desc = "Gotta collect 'em all, and smoke 'em all! This fancy military trading card version of Weyland Yutani Gold cigarette packs has one card that is apart of the 3 available 5-card sets."
 	icon_state = "collectpacket"
 	icon = 'icons/obj/items/smoking/packets/trading_card.dmi'
@@ -394,7 +394,7 @@
 	default_cigar_type = /obj/item/clothing/mask/cigarette/cigar/tarbacks
 
 /obj/item/storage/fancy/cigar/tarbacktube
-	name = "\improper Футляр для сигар «Tarback»" // SS220 - EDIT
+	name = "\improper Tarback tube"
 	desc = "A single Tarback cigar in a protective metal tube. About as low-end as you can get. Rolled in Columbia."
 	icon_state = "tarbacktube"
 	item_state = "tarbacktube"
@@ -439,12 +439,12 @@
 		to_chat(user, SPAN_NOTICE("\The [W] fails to light."))
 
 /obj/item/storage/fancy/cigar/matchbook/brown
-	name = "Коричневый спичечный коробок"
+	name = "brown matchbook"
 	desc = "A small book of cheap paper matches. Good luck getting them to light. Made with generic brown paper."
 	icon_state = "mpacket_br"
 
 /obj/item/storage/fancy/cigar/matchbook/koorlander
-	name = "\improper Спичечный коробок «Koorlander»" // SS220 - EDIT
+	name = "\improper Koorlander matchbook"
 	desc = "A small book of cheap paper matches. Good luck getting them to light."
 	icon_state = "mpacket_kl"
 

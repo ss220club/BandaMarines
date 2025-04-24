@@ -23,7 +23,7 @@
 		list("Hardhat", floor(scale * 2), /obj/item/clothing/head/hardhat, VENDOR_ITEM_REGULAR),
 		list("Insulated Gloves", floor(scale * 2), /obj/item/clothing/gloves/yellow, VENDOR_ITEM_REGULAR),
 		list("Utility Tool Belt", floor(scale * 2), /obj/item/storage/belt/utility, VENDOR_ITEM_REGULAR),
-		list("Welding Goggles", floor(scale * 2), /obj/item/clothing/glasses/welding, VENDOR_ITEM_REGULAR),
+		list("Очки сварщика", floor(scale * 2), /obj/item/clothing/glasses/welding, VENDOR_ITEM_REGULAR),
 		list("Welding Helmet", floor(scale * 2), /obj/item/clothing/head/welding, VENDOR_ITEM_REGULAR),
 		list("Engineer Kit", floor(scale * 2), /obj/item/storage/toolkit/empty, VENDOR_ITEM_REGULAR),
 
@@ -55,7 +55,7 @@
 		list("EQUIPMENT", -1, null, null),
 		list("Utility Tool Belt", floor(scale * 4), /obj/item/storage/belt/utility, VENDOR_ITEM_REGULAR),
 		list("Cable Coil", floor(scale * 4), /obj/item/stack/cable_coil/random, VENDOR_ITEM_REGULAR),
-		list("Welding Goggles", floor(scale * 2), /obj/item/clothing/glasses/welding, VENDOR_ITEM_REGULAR),
+		list("Очки сварщика", floor(scale * 2), /obj/item/clothing/glasses/welding, VENDOR_ITEM_REGULAR),
 		list("Engineer Kit", floor(scale * 2), /obj/item/storage/toolkit/empty, VENDOR_ITEM_REGULAR),
 
 		list("TOOLS", -1, null, null),
@@ -207,7 +207,7 @@
 		list("Proximity Sensor", 4, /obj/item/device/assembly/prox_sensor, VENDOR_ITEM_REGULAR),
 		list("Signaller", 4, /obj/item/device/assembly/signaller, VENDOR_ITEM_REGULAR),
 
-		list("MISCELLANEOUS", -1, null, null),
+		list("ДРУГОЕ", -1, null, null),
 		list("Anesthetic Tank", 2, /obj/item/tank/anesthetic, VENDOR_ITEM_REGULAR),
 		list("Health Analyzer", 2, /obj/item/device/healthanalyzer, VENDOR_ITEM_REGULAR)
 	)
