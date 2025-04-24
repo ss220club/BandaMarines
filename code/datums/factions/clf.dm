@@ -28,7 +28,7 @@
 
 /datum/faction/clf/get_antag_guns_snowflake_equipment()
 	return list(
-		list("PRIMARY FIREARMS", 0, null, null, null),
+		list("ОСНОВНОЕ ВООРУЖЕНИЕ", 0, null, null, null),
 		list("ABR-40 Hunting Rifle", 30, /obj/item/weapon/gun/rifle/l42a/abr40, null, VENDOR_ITEM_REGULAR),
 		list("Basira-Armstrong Bolt-Action", 15, /obj/item/weapon/gun/boltaction, null, VENDOR_ITEM_REGULAR),
 		list("Double Barrel Shotgun", 30, /obj/item/weapon/gun/shotgun/double, null, VENDOR_ITEM_REGULAR),
@@ -57,7 +57,7 @@
 		list("MP27 Magazine (4.6x30mm)", 5, /obj/item/ammo_magazine/smg/mp27, null, VENDOR_ITEM_REGULAR),
 		list("MP5 Magazine (9mm)", 5, /obj/item/ammo_magazine/smg/mp5, null, VENDOR_ITEM_REGULAR),
 
-		list("SIDEARMS", 0, null, null, null),
+		list("ДОПОЛНИТЕЛЬНОЕ ВООРУЖЕНИЕ"", 0, null, null, null),
 		list("88 Mod 4 Combat Pistol", 15, /obj/item/weapon/gun/pistol/mod88, null, VENDOR_ITEM_REGULAR),
 		list("Beretta 92FS Pistol", 15, /obj/item/weapon/gun/pistol/b92fs, null, VENDOR_ITEM_REGULAR),
 		list("CMB Spearhead Autorevolver", 15, /obj/item/weapon/gun/revolver/cmb, null, VENDOR_ITEM_REGULAR),
@@ -96,7 +96,7 @@
 
 /datum/faction/clf/get_antag_guns_sorted_equipment()
 	return list(
-		list("PRIMARY FIREARMS", -1, null, null),
+		list("ОСНОВНОЕ ВООРУЖЕНИЕ", -1, null, null),
 		list("ABR-40 Hunting Rifle", 30, /obj/item/weapon/gun/rifle/l42a/abr40, null, VENDOR_ITEM_REGULAR),
 		list("Basira-Armstrong Bolt-Action", 15, /obj/item/weapon/gun/boltaction, null, VENDOR_ITEM_REGULAR),
 		list("Double Barrel Shotgun", 20, /obj/item/weapon/gun/shotgun/double, VENDOR_ITEM_REGULAR),
@@ -125,7 +125,7 @@
 		list("MP27 Magazine (4.6x30mm)", 60, /obj/item/ammo_magazine/smg/mp27, VENDOR_ITEM_REGULAR),
 		list("MP5 Magazine (9mm)", 60, /obj/item/ammo_magazine/smg/mp5, VENDOR_ITEM_REGULAR),
 
-		list("SIDEARMS", -1, null, null),
+		list("ДОПОЛНИТЕЛЬНОЕ ВООРУЖЕНИЕ"", -1, null, null),
 		list("88 Mod 4 Combat Pistol", 20, /obj/item/weapon/gun/pistol/mod88, VENDOR_ITEM_REGULAR),
 		list("Beretta 92FS Pistol", 20, /obj/item/weapon/gun/pistol/b92fs, VENDOR_ITEM_REGULAR),
 		list("CMB Spearhead Autorevolver", 20, /obj/item/weapon/gun/revolver/cmb, VENDOR_ITEM_REGULAR),

@@ -11,13 +11,13 @@
 
 /obj/structure/machinery/cm_vending/sorted/cargo_guns/upp_cargo_guns/populate_product_list(scale)
 	listed_products = list(
-		list("PRIMARY FIREARMS", -1, null, null),
+		list("ОСНОВНОЕ ВООРУЖЕНИЕ", -1, null, null),
 		list("Type 71 Pulse Rifle", floor(scale * 60), /obj/item/weapon/gun/rifle/type71, VENDOR_ITEM_REGULAR),
 		list("Type 71 Pulse Rifle Carbine", floor(scale * 20), /obj/item/weapon/gun/rifle/type71/carbine, VENDOR_ITEM_REGULAR),
 		list("Type 64 Submachinegun", floor(scale * 60), /obj/item/weapon/gun/smg/bizon/upp, VENDOR_ITEM_REGULAR),
 		list("Type 23 Riot Shotgun", floor(scale * 20), /obj/item/weapon/gun/shotgun/type23, VENDOR_ITEM_REGULAR),
 
-		list("SIDEARMS", -1, null, null),
+		list("ДОПОЛНИТЕЛЬНОЕ ВООРУЖЕНИЕ"", -1, null, null),
 		list("Type 73 Pistol", floor(scale * 50), /obj/item/weapon/gun/pistol/t73, VENDOR_ITEM_REGULAR),
 		list("NP92 Pistol", floor(scale * 50), /obj/item/weapon/gun/pistol/np92, VENDOR_ITEM_REGULAR),
 		list("ZHNK-72 Revolver", floor(scale * 50), /obj/item/weapon/gun/revolver/upp, VENDOR_ITEM_REGULAR),
@@ -221,33 +221,33 @@
 
 /obj/structure/machinery/cm_vending/sorted/uniform_supply/upp_uniform/populate_product_list(scale)
 	listed_products = list(
-		list("UNIFORM", -1, null, null),
-		list("UPP Fatigues", floor(scale * 20), /obj/item/clothing/under/marine/veteran/UPP, VENDOR_ITEM_REGULAR),
-		list("UPP Medic Fatigues", 5, /obj/item/clothing/under/marine/veteran/UPP/medic, VENDOR_ITEM_REGULAR),
-		list("UPP Sapper Fatigues", 5, /obj/item/clothing/under/marine/veteran/UPP/engi, VENDOR_ITEM_REGULAR),
+		list("УНИФОРМА", -1, null, null), // SS220 - EDIT
+		list("Униформа СПН", floor(scale * 20), /obj/item/clothing/under/marine/veteran/UPP, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("Униформа медика СПН", 5, /obj/item/clothing/under/marine/veteran/UPP/medic, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("Униформа сапёра СПН", 5, /obj/item/clothing/under/marine/veteran/UPP/engi, VENDOR_ITEM_REGULAR), // SS220 - EDIT
 
-		list("BOOTS", -1, null, null),
-		list("Soldier Combat Boots", 20, /obj/item/clothing/shoes/marine/upp/knife, VENDOR_ITEM_REGULAR),
+		list("БОТИНКИ", -1, null, null), // SS220 - EDIT
+		list("Ботинки солдата", 20, /obj/item/clothing/shoes/marine/upp/knife, VENDOR_ITEM_REGULAR), // SS220 - EDIT
 
-		list("BACKPACKS", -1, null, null),
-		list("Combat Pack", 20, /obj/item/storage/backpack/lightpack/upp, VENDOR_ITEM_REGULAR),
-		list("UPP Sapper Welderpack", 10, /obj/item/storage/backpack/marine/engineerpack/upp, VENDOR_ITEM_REGULAR),
+		list("РЮКЗАКИ", -1, null, null), // SS220 - EDIT
+		list("Военный рюкзак", 20, /obj/item/storage/backpack/lightpack/upp, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("Рюкзак сапёра СПН", 10, /obj/item/storage/backpack/marine/engineerpack/upp, VENDOR_ITEM_REGULAR), // SS220 - EDIT
 
-		list("ARMOR", -1, null, null),
-		list("UM5 Medium Personal Armor", 20, /obj/item/clothing/suit/storage/marine/faction/UPP, VENDOR_ITEM_REGULAR),
-		list("UL6 Light Personal Armor", 20, /obj/item/clothing/suit/storage/marine/faction/UPP/support, VENDOR_ITEM_REGULAR),
+		list("БРОНЯ", -1, null, null), // SS220 - EDIT
+		list("Броня персональная средняя UM5", 20, /obj/item/clothing/suit/storage/marine/faction/UPP, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("Броня персональная лёгкая UL6", 20, /obj/item/clothing/suit/storage/marine/faction/UPP/support, VENDOR_ITEM_REGULAR), // SS220 - EDIT
 
-		list("GLOVES", -1, null, null),
-		list("Soldier Combat Gloves", 40, /obj/item/clothing/gloves/marine/veteran/upp, VENDOR_ITEM_REGULAR),
+		list("ПЕРЧАТКИ", -1, null, null), // SS220 - EDIT
+		list("Перчатки солдата", 40, /obj/item/clothing/gloves/marine/veteran/upp, VENDOR_ITEM_REGULAR), // SS220 - EDIT
 
-		list("RADIO", -1, null, null),
-		list("Engineering/JTAC Encryption Key", 5, /obj/item/device/encryptionkey/upp/engi, VENDOR_ITEM_REGULAR),
-		list("Medical Encryption Key", 5, /obj/item/device/encryptionkey/upp/medic, VENDOR_ITEM_REGULAR),
+		list("СВЯЗЬ", -1, null, null), // SS220 - EDIT
+		list("Engineering/JTAC Encryption Key", 5, /obj/item/device/encryptionkey/upp/engi, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("Medical Encryption Key", 5, /obj/item/device/encryptionkey/upp/medic, VENDOR_ITEM_REGULAR), // SS220 - EDIT
 
-		list("MASKS", -1, null, null, null),
-		list("Gas Mask", 20, /obj/item/clothing/mask/gas, VENDOR_ITEM_REGULAR),
-		list("Heat Absorbent Coif", 10, /obj/item/clothing/mask/rebreather/scarf, VENDOR_ITEM_REGULAR),
+		list("МАСКИ", -1, null, null, null), // SS220 - EDIT
+		list("Противогаз", 20, /obj/item/clothing/mask/gas, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("Инфракрасная балаклава", 10, /obj/item/clothing/mask/rebreather/scarf, VENDOR_ITEM_REGULAR), // SS220 - EDIT
 
-		list("MISCELLANEOUS", -1, null, null),
-		list("Bedroll", 30, /obj/item/roller/bedroll, VENDOR_ITEM_REGULAR),
+		list("ДРУГОЕ", -1, null, null), // SS220 - EDIT
+		list("Спальник", 30, /obj/item/roller/bedroll, VENDOR_ITEM_REGULAR), // SS220 - EDIT
 		)

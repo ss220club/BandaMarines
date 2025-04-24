@@ -24920,12 +24920,12 @@ instrumental = "складным стулом"
 prepositional = "складном стуле"
 
 ["Black Donnovan II: Double Revenge"]
-nominative = "Черный Доннован II: Двойная месть"
-genitive = "Черный Доннован II: Двойная месть"
-dative = "Черный Доннован II: Двойная месть"
-accusative = "Черный Доннован II: Двойная месть
-instrumental = "Черный Доннован II: Двойная месть"
-prepositional = "Черный Доннован II: Двойная месть"
+nominative = "Чёрный Донован II: Двойная месть"
+genitive = "Чёрный Донован II: Двойная месть"
+dative = "Чёрный Донован II: Двойная месть"
+accusative = "Чёрный Донован II: Двойная месть"
+instrumental = "Чёрный Донован II: Двойная месть"
+prepositional = "Чёрный Донован II: Двойная месть"
 
 ["pizza box"]
 nominative = "коробка из-под пиццы"
@@ -24958,6 +24958,38 @@ dative = "ботинкам пехотинца"
 accusative = "ботинки пехотинца"
 instrumental = "ботинками пехотинца"
 prepositional = "ботинках пехотинца"
+
+["marine combat gloves"]
+nominative = "перчатки пехотинца"
+genitive = "перчаток пехотинца"
+dative = "перчаткам пехотинца"
+accusative = "перчатки пехотинца"
+instrumental = "перчатками пехотинца"
+prepositional = "перчатках пехотинца"
+
+["marine black combat gloves"]
+nominative = "чёрные перчатки пехотинца"
+genitive = "чёрных перчаток пехотинца"
+dative = "чёрным перчаткам пехотинца"
+accusative = "чёрные перчатки пехотинца"
+instrumental = "чёрными перчатками пехотинца"
+prepositional = "чёрных перчатках пехотинца"
+
+["marine brown combat gloves"]
+nominative = "коричневые перчатки пехотинца"
+genitive = "коричневых перчаток пехотинца"
+dative = "коричневым перчаткам пехотинца"
+accusative = "коричневые перчатки пехотинца"
+instrumental = "коричневыми перчатками пехотинца"
+prepositional = "коричневых перчатках пехотинца"
+
+["marine grey combat gloves"]
+nominative = "серые перчатки пехотинца"
+genitive = "серых перчаток пехотинца"
+dative = "серым перчаткам пехотинца"
+accusative = "серые перчатки пехотинца"
+instrumental = "серыми перчатками пехотинца"
+prepositional = "серых перчатках пехотинца"
 
 ["marine radio headset"]
 nominative = "гарнитура пехотинца"
@@ -25135,30 +25167,6 @@ accusative = "ранец санитара ККМП"
 instrumental = "ранцем санитара ККМП"
 prepositional = "ранце санитара ККМП"
 
-["M10 pattern marine snow helmet"]
-nominative = "зимний шлем пехотинца M10"
-genitive = "зимнего шлема пехотинца M10"
-dative = "зимнему шлему пехотинца M10"
-accusative = "зимний шлем пехотинца M10"
-instrumental = "зимним шлемом пехотинца M10"
-prepositional = "зимнем шлеме пехотинца M10"
-
-["M10 technician snow helmet"]
-nominative = "зимний шлем техника M10"
-genitive = "зимнего шлема техника M10"
-dative = "зимнему шлему техника M10"
-accusative = "зимний шлем техника M10"
-instrumental = "зимним шлемом техника M10"
-prepositional = "зимнем шлеме техника M10"
-
-["M10 pattern medic snow helmet"]
-nominative = "зимний шлем санитара M10"
-genitive = "зимнего шлема санитара M10"
-dative = "зимнему шлему санитара M10"
-accusative = "зимний шлем санитара M10"
-instrumental = "зимним шлемом санитара M10"
-prepositional = "зимнем шлеме санитара M10"
-
 ["heat absorbent coif"]
 nominative = "инфракрасная балаклава"
 genitive = "инфракрасной балаклавы"
@@ -25176,6 +25184,14 @@ instrumental = "сложенным спальником"
 prepositional = "сложенном спальнике"
 
 ["unfolded bedroll"]
+nominative = "разложенный спальник"
+genitive = "разложенного спальника"
+dative = "разложенному спальнику"
+accusative = "разложенный спальник"
+instrumental = "разложенным спальником"
+prepositional = "разложенном спальнике"
+
+["M5 Camera Gear"]
 nominative = "разложенный спальник"
 genitive = "разложенного спальника"
 dative = "разложенному спальнику"
