@@ -1,6 +1,6 @@
 /obj/structure/machinery/cm_vending/sorted/populate_product_list_and_boxes(scale)
 	. = ..()
-	entries_to_ru()
+	translate_vendor_entries_to_ru(listed_products)
 
 // [1] = Name
 // [2] = Amount
@@ -8,10 +8,11 @@
 // [4] = Flags
 // [5] = something, I dunno, sometimes it exists
 // ["english_name"] = Original Name (NEW)
-/obj/structure/machinery/cm_vending/sorted/proc/entries_to_ru()
-	if(!length(listed_products))
+
+/proc/translate_vendor_entries_to_ru(list/entries)
+	if(!length(entries))
 		return
-	for(var/list/product_entry in listed_products)
+	for(var/list/product_entry in entries)
 		if(!length(product_entry))
 			return
 		// Add original name for searching purposes
