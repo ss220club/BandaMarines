@@ -22651,6 +22651,19 @@ instrumental = "пенным скипетром"
 prepositional = "пенном скипетре"
 gender = "male"
 
+# MARK: Colonial Marines
+["flare pouch"]
+nominative = "подсумок осветительных огней"
+
+["Flare Pouch (Full)"] # Unique Vendor Name
+nominative = "Подсумок осветительных огней (полный)"
+
+["POUCHES"] # Unique Vendor Name
+nominative = "ПОДСУМКИ"
+
+["USCM technician backpack"]
+nominative = "рюкзак техника ККМП"
+
 # MARK: Pronouns
 ["ваш"]
 nominative = "ваш"
