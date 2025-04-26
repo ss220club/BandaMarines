@@ -175,14 +175,7 @@ GLOBAL_LIST_EMPTY_TYPED(total_vending_machines, /obj/structure/machinery/vending
 		else
 			product_records += product
 
-		// SS220 - START
-		var/new_name = declent_ru_initial(temp_path::name, NOMINATIVE, temp_path::name)
-		// Use untranslated name then
-		if(isnull(new_name))
-			product.product_name = initial(temp_path.name)
-			continue
-		product.product_name = new_name
-		// SS220 - END
+		product.product_name = capitalize(declent_ru_initial(temp_path::name, NOMINATIVE, temp_path::name)) // BANDAMARINES EDIT - Translation
 
 /obj/structure/machinery/vending/get_repair_move_text(include_name = TRUE)
 	if(!stat)
@@ -452,12 +445,7 @@ GLOBAL_LIST_EMPTY_TYPED(total_vending_machines, /obj/structure/machinery/vending
 /obj/structure/machinery/vending/tgui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		// SS220 - START
-		var/new_name = declent_ru_initial(name, NOMINATIVE, name)
-		if(!isnull(new_name))
-			name = capitalize(new_name)
-		// SS220 - END
-		ui = new(user, src, "Vending", name)
+		ui = new(user, src, "Vending", capitalize(declent_ru(name))) // BANDAMARINES EDIT - Translation
 		ui.open()
 
 /obj/structure/machinery/vending/ui_act(action, params)
