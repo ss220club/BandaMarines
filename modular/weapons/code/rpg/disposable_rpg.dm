@@ -23,6 +23,9 @@
 
 	current_mag = /obj/item/ammo_magazine/rocket/he_c // больше не АП. Среднее между АП и обычной.
 	var/folded_type = /obj/item/prop/folded_anti_tank_sadar/common
+	// var/fold_time = 1 SECONDS // Время для свертывания
+	// var/skill_req = SKILL_ENGINEER	// Уровень для возможности закидывать на спину
+	// var/skill_skip_fold_time = SKILL_ENGINEER_TRAINED // уровень для пропуска развертки
 
 	// Backblast parameters
 	var/backblast_range = 2 // How many tiles behind the shooter are affected
@@ -31,6 +34,16 @@
 	var/backblast_knockdown = 3
 	var/backblast_stun = 3
 	var/backblast_stutter = 3
+
+
+/obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/Initialize(mapload, spawn_empty)
+	. = ..()
+	RegisterSignal(src, COMSIG_ITEM_ATTEMPTING_EQUIP, PROC_REF(can_wear))
+
+/obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/proc/can_wear(source = src, mob/user, slot)
+	if(skillcheck(user, skill_req, skill_skip_fold_time))
+		return
+	return COMPONENT_CANCEL_EQUIP
 
 /obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/Fire(atom/target, mob/living/user, params, reflex, dual_wield)
 	if(fired)
@@ -48,9 +61,15 @@
 	. = ..()
 
 /obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/fold(mob/user)
-	if(fired)
-		to_chat(user, SPAN_NOTICE("[src.name] уже использован и более его нельзя сложить!"))
-		return
+	// if(fired)	// !!! Перенесено в родителя
+	// 	to_chat(user, SPAN_NOTICE("[src.name] уже использован и более его нельзя сложить!"))
+	// 	return
+	// if(!skillcheck(usr, skill_req, skill_skip_fold_time))
+	// 	to_chat(usr, SPAN_NOTICE("Вы складываете [src.name]."))
+	// 	if(!do_after(user, fold_time * user.get_skill_duration_multiplier(skill_req), INTERRUPT_ALL, BUSY_ICON_BUILD))
+	// 		to_chat(usr, SPAN_WARNING("Вы прекратили складывать [src.name]."))
+	// 		return FALSE
+	// 	to_chat(usr, SPAN_NOTICE("Вы сложили [src.name]."))
 	var/obj/O = new folded_type(src.loc)
 	transfer_label_component(O)
 	qdel(src)
@@ -103,11 +122,11 @@
 
 		starting_turf = affected_turf
 
-/obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/unequipped(mob/living/user, slot)
+/obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/equipped(mob/living/user, slot)
 	. = ..()
-	if(!(flags_gun_features & GUN_TRIGGER_SAFETY))
-		//to_chat(user, SPAN_NOTICE("[src.name] при поднятии поставился на предохранитель!"))
+	if(!fired && !(flags_gun_features & GUN_TRIGGER_SAFETY))
 		toggle_gun_safety()
+		to_chat(user, SPAN_NOTICE("[src.name] при поднятии поставился на предохранитель!"))
 
 // ===============================
 // Anti Tank version

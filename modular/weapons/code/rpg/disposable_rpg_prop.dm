@@ -23,8 +23,17 @@
 	throw_range = 5
 	force = 5
 	var/folded_type = /obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common
+	// var/unfold_time = 5 SECONDS // Время для развертывания	// Перенесено в родителя из-за хардкода
+	// var/skill_req = SKILL_ENGINEER
+	// var/skill_skip_fold_time = SKILL_ENGINEER_ENGI
 
 /obj/item/prop/folded_anti_tank_sadar/common/unfold(mob/user)
+	// if(!skillcheck(usr, skill_req, skill_skip_fold_time))
+	// 	to_chat(usr, SPAN_NOTICE("Вы развертываете [src.name]."))
+	// 	if(!do_after(user, unfold_time * user.get_skill_duration_multiplier(skill_req), INTERRUPT_ALL, BUSY_ICON_BUILD))
+	// 		to_chat(usr, SPAN_WARNING("Вы прекратили развертывать [src.name]."))
+	// 		return FALSE
+	// 	to_chat(usr, SPAN_NOTICE("Вы развернули [src.name]."))
 	var/obj/O = new folded_type(src.loc)
 	transfer_label_component(O)
 	qdel(src)
