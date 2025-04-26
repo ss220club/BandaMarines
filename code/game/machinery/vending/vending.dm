@@ -179,9 +179,9 @@ GLOBAL_LIST_EMPTY_TYPED(total_vending_machines, /obj/structure/machinery/vending
 		var/new_name = declent_ru_initial(temp_path::name, NOMINATIVE, temp_path::name)
 		// Use untranslated name then
 		if(isnull(new_name))
-			product.product_name = initial(new_name)
+			product.product_name = initial(temp_path.name)
 			continue
-		product.product_name = initial(temp_path.name)
+		product.product_name = initial(new_name)
 		// SS220 - END
 
 /obj/structure/machinery/vending/get_repair_move_text(include_name = TRUE)
