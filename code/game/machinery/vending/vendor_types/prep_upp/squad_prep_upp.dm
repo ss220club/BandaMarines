@@ -21,7 +21,7 @@
 
 		list("RESTRICTED FIREARM AMMUNITION", -1, null, null),
 		list("Type-19 stick magazine (7.62x25mm)", floor(scale * 6), /obj/item/ammo_magazine/smg/pps43, VENDOR_ITEM_REGULAR),
-		list("Резервуар топливной смеси для M240", floor(scale * 3), /obj/item/ammo_magazine/flamer_tank, VENDOR_ITEM_REGULAR),
+		list("M240 Incinerator Tank", floor(scale * 3), /obj/item/ammo_magazine/flamer_tank, VENDOR_ITEM_REGULAR),
 		)
 
 //--------------UPP SQUAD ARMAMENTS VENDOR--------------
@@ -46,7 +46,7 @@
 		list("Ration", floor(scale * 20), /obj/item/storage/box/mre/upp, VENDOR_ITEM_REGULAR),
 
 		list("TOOLS", -1, null, null),
-		list("Шанцевый инструмент", floor(scale * 2), /obj/item/tool/shovel/etool/folded, VENDOR_ITEM_REGULAR),
+		list("Entrenching Tool (ET)", floor(scale * 2), /obj/item/tool/shovel/etool/folded, VENDOR_ITEM_REGULAR),
 		list("Screwdriver", floor(scale * 5), /obj/item/tool/screwdriver, VENDOR_ITEM_REGULAR),
 		list("Wirecutters", floor(scale * 5), /obj/item/tool/wirecutters, VENDOR_ITEM_REGULAR),
 		list("Crowbar", floor(scale * 5), /obj/item/tool/crowbar, VENDOR_ITEM_REGULAR),
@@ -63,16 +63,16 @@
 
 		list("REPAIR TOOLS", -1, null, null),
 		list("Multi-Purpose Combat Lubricant", floor(scale * 30), /obj/item/stack/repairable/gunlube, VENDOR_ITEM_REGULAR),
-		list("Набор для ремонта оружия", floor(scale * 10), /obj/item/stack/repairable/gunkit, VENDOR_ITEM_REGULAR),
+		list("Firearms Repair Kit", floor(scale * 10), /obj/item/stack/repairable/gunkit, VENDOR_ITEM_REGULAR),
 
-		list("ДРУГОЕ", -1, null, null),
+		list("MISCELLANEOUS", -1, null, null),
 		list("Engineer Kit", floor(scale * 1), /obj/item/storage/toolkit/empty, VENDOR_ITEM_REGULAR),
-		list("Карта", floor(scale * 5), /obj/item/map/current_map, VENDOR_ITEM_REGULAR),
+		list("Map", floor(scale * 5), /obj/item/map/current_map, VENDOR_ITEM_REGULAR),
 		list("Extinguisher", floor(scale * 5), /obj/item/tool/extinguisher, VENDOR_ITEM_REGULAR),
-		list("Переносной огнетушитель", floor(scale * 1), /obj/item/tool/extinguisher/mini, VENDOR_ITEM_REGULAR),
-		list("Роликовые носилки", floor(scale * 1), /obj/item/roller, VENDOR_ITEM_REGULAR),
-		list("Чехол для мачете", floor(scale * 5), /obj/item/storage/large_holster/machete/full, VENDOR_ITEM_REGULAR),
-		list("Бинокль", floor(scale * 1), /obj/item/device/binoculars, VENDOR_ITEM_REGULAR),
+		list("Fire Extinguisher (Portable)", floor(scale * 1), /obj/item/tool/extinguisher/mini, VENDOR_ITEM_REGULAR),
+		list("Roller Bed", floor(scale * 1), /obj/item/roller, VENDOR_ITEM_REGULAR),
+		list("Machete Scabbard (Full)", floor(scale * 5), /obj/item/storage/large_holster/machete/full, VENDOR_ITEM_REGULAR),
+		list("Binoculars", floor(scale * 1), /obj/item/device/binoculars, VENDOR_ITEM_REGULAR),
 		list("Spare PDT/L Battle Buddy Kit", floor(scale * 3), /obj/item/storage/box/pdt_kit, VENDOR_ITEM_REGULAR),
 		list("W-Y brand rechargeable mini-battery", floor(scale * 2.5), /obj/item/cell/crap, VENDOR_ITEM_REGULAR),
 		list("Nailgun Magazine (7x45mm)", floor(scale * 4), /obj/item/ammo_magazine/smg/nailgun, VENDOR_ITEM_REGULAR)
@@ -138,7 +138,7 @@
 
 /obj/structure/machinery/cm_vending/sorted/cargo_guns/upp_squad_guns/populate_product_list(scale)
 	listed_products = list(
-		list("ОСНОВНОЕ ВООРУЖЕНИЕ", -1, null, null),
+		list("PRIMARY FIREARMS", -1, null, null),
 		list("Type 71 Pulse Rifle", floor(scale * 30), /obj/item/weapon/gun/rifle/type71, VENDOR_ITEM_REGULAR),
 		list("Type 71 Pulse Rifle Carbine", floor(scale * 10), /obj/item/weapon/gun/rifle/type71/carbine, VENDOR_ITEM_REGULAR),
 		list("Type 64 Submachinegun", floor(scale * 20), /obj/item/weapon/gun/smg/bizon/upp, VENDOR_ITEM_REGULAR),
@@ -151,13 +151,13 @@
 		list("Box of Heavy Slugs (8g)", floor(scale * 10), /obj/item/ammo_magazine/shotgun/heavy/slug, VENDOR_ITEM_REGULAR),
 		list("Box of Heavy Flechette Shells (8g)", floor(scale * 6), /obj/item/ammo_magazine/shotgun/heavy/flechette, VENDOR_ITEM_REGULAR),
 
-		list("ДОПОЛНИТЕЛЬНОЕ ВООРУЖЕНИЕ", -1, null, null),
+		list("SIDEARMS", -1, null, null),
 		list("Type 73 Pistol", floor(scale * 20), /obj/item/weapon/gun/pistol/t73, VENDOR_ITEM_REGULAR),
 		list("NP92 Pistol", floor(scale * 20), /obj/item/weapon/gun/pistol/np92, VENDOR_ITEM_REGULAR),
 		list("ZHNK-72 Revolver", floor(scale * 20), /obj/item/weapon/gun/revolver/upp, VENDOR_ITEM_REGULAR),
-		list("Сигнальная ракетница M82F", floor(scale * 10), /obj/item/weapon/gun/flare, VENDOR_ITEM_REGULAR),
+		list("M82F Flare Gun", floor(scale * 10), /obj/item/weapon/gun/flare, VENDOR_ITEM_REGULAR),
 
-		list("БОЕПРИПАСЫ ДЛЯ ДОПОЛНИТЕЛЬНОГО ОРУЖИЯ", -1, null, null),
+		list("SIDEARM AMMUNITION", -1, null, null),
 		list("Type 73 Magazine (7.62x25mm Tokarev)", floor(scale * 20), /obj/item/ammo_magazine/pistol/t73, VENDOR_ITEM_REGULAR),
 		list("ZHNK-72 Speed Loader (7.62x38mmR)", floor(scale * 20), /obj/item/ammo_magazine/revolver/upp, VENDOR_ITEM_REGULAR),
 		list("NP92 Magazine (9x18mm Makarov)", floor(scale * 20), /obj/item/ammo_magazine/pistol/np92, VENDOR_ITEM_REGULAR),
@@ -167,7 +167,7 @@
 		list("Underbarrel Flashlight Grip", floor(scale * 10), /obj/item/attachable/flashlight/grip, VENDOR_ITEM_RECOMMENDED),
 		list("Underslung Grenade Launcher", floor(scale * 20), /obj/item/attachable/attached_gun/grenade, VENDOR_ITEM_REGULAR),
 
-		list("ВСПОМОГАТЕЛЬНОЕ СНАРЯЖЕНИЕ", -1, null, null),
+		list("UTILITIES", -1, null, null),
 		list("M5 Bayonet", floor(scale * 20), /obj/item/attachable/bayonet/upp, VENDOR_ITEM_REGULAR),
 		list("M94 Marking Flare Pack", floor(scale * 10), /obj/item/storage/box/m94, VENDOR_ITEM_RECOMMENDED)
 	)

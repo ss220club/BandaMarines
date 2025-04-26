@@ -99,7 +99,7 @@
 	attack_verb = list("attacked", "poked")
 
 /obj/item/tool/kitchen/utensil/mre_spork
-	name = "Одноразовая вилка" // SS220 - EDIT
+	name = "MRE spork"
 	desc = "It's a plastic brown spork. Very robust for what it is, legends tell about stranded marines who dug trenches with those."
 	icon_state = "mre_spork"
 	attack_verb = list("attacked", "poked")

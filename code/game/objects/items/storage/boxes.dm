@@ -559,7 +559,7 @@
 		new /obj/item/toy/snappop(src)
 
 /obj/item/storage/box/matches
-	name = "Спички" // SS220 - EDIT
+	name = "matchbox"
 	desc = "A small box of 'Space-Proof' premium matches."
 	icon = 'icons/obj/items/smoking/matches.dmi'
 	item_icons = list(

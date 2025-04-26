@@ -169,55 +169,55 @@
 //combined from req guns and ammo vendors
 /obj/structure/machinery/cm_vending/sorted/vehicle_supply/populate_product_list(scale)
 	listed_products = list(
-		list("ОСНОВНОЕ ВООРУЖЕНИЕ", -1, null, null),
-		list("Помповый дробовик M37A2", floor(scale * 3), /obj/item/weapon/gun/shotgun/pump, VENDOR_ITEM_REGULAR),
-		list("Пистолет-пулемёт M39", floor(scale * 2.5), /obj/item/weapon/gun/smg/m39, VENDOR_ITEM_REGULAR),
-		list("Импульсная винтовка M41A MK2", floor(scale * 4), /obj/item/weapon/gun/rifle/m41a, VENDOR_ITEM_REGULAR),
-		list("Штурмовой карабин M4RA", floor(scale * 2), /obj/item/weapon/gun/rifle/m4ra, VENDOR_ITEM_REGULAR),
+		list("PRIMARY FIREARMS", -1, null, null),
+		list("M37A2 Pump Shotgun", floor(scale * 3), /obj/item/weapon/gun/shotgun/pump, VENDOR_ITEM_REGULAR),
+		list("M39 Submachinegun", floor(scale * 2.5), /obj/item/weapon/gun/smg/m39, VENDOR_ITEM_REGULAR),
+		list("M41A Pulse Rifle MK2", floor(scale * 4), /obj/item/weapon/gun/rifle/m41a, VENDOR_ITEM_REGULAR),
+		list("M4RA Battle Rifle", floor(scale * 2), /obj/item/weapon/gun/rifle/m4ra, VENDOR_ITEM_REGULAR),
 
-		list("ДОПОЛНИТЕЛЬНОЕ ВООРУЖЕНИЕ", -1, null, null),
-		list("Боевой пистолет 88 Mod 4", floor(scale * 2), /obj/item/weapon/gun/pistol/mod88, VENDOR_ITEM_REGULAR),
-		list("Боевой револьвер M44", floor(scale * 1.5), /obj/item/weapon/gun/revolver/m44, VENDOR_ITEM_REGULAR),
-		list("Служебный пистолет M4A3", floor(scale * 2.5), /obj/item/weapon/gun/pistol/m4a3, VENDOR_ITEM_REGULAR),
+		list("SIDEARMS", -1, null, null),
+		list("88 Mod 4 Combat Pistol", floor(scale * 2), /obj/item/weapon/gun/pistol/mod88, VENDOR_ITEM_REGULAR),
+		list("M44 Combat Revolver", floor(scale * 1.5), /obj/item/weapon/gun/revolver/m44, VENDOR_ITEM_REGULAR),
+		list("M4A3 Service Pistol", floor(scale * 2.5), /obj/item/weapon/gun/pistol/m4a3, VENDOR_ITEM_REGULAR),
 
-		list("ВЗРЫВЧАТЫЕ ВЕЩЕСТВА", -1, null, null),
-		list("Осколочная граната M15", 0, /obj/item/explosive/grenade/high_explosive/m15, VENDOR_ITEM_REGULAR),
-		list("Противопехотная мина M20 Клеймор", 0, /obj/item/explosive/mine, VENDOR_ITEM_REGULAR),
-		list("Граната M40 HEDP (Осколочная)", 0, /obj/item/explosive/grenade/high_explosive, VENDOR_ITEM_REGULAR),
-		list("Граната M40 HIDP (Зажигательная)", 0, /obj/item/explosive/grenade/incendiary, VENDOR_ITEM_REGULAR),
-		list("Граната M40 CCDP (Химическая смесь)", 0, /obj/item/explosive/grenade/phosphorus, VENDOR_ITEM_REGULAR),
-		list("Граната M40 HSDP (Дымовая)", floor(scale * 1), /obj/item/explosive/grenade/smokebomb, VENDOR_ITEM_REGULAR),
-		list("Прыгающая граната M74 AGM (Осколочная)", 0, /obj/item/explosive/grenade/high_explosive/airburst, VENDOR_ITEM_REGULAR),
-		list("рыгающая граната M74 AGM (Зажигательная)", 0, /obj/item/explosive/grenade/incendiary/airburst, VENDOR_ITEM_REGULAR),
-		list("Прыгающая граната M74 AGM (Дымовая)", 0, /obj/item/explosive/grenade/smokebomb/airburst, VENDOR_ITEM_REGULAR),
-		list("Прыгающая граната M74 AGM «Звезда»", 2, /obj/item/explosive/grenade/high_explosive/airburst/starshell, VENDOR_ITEM_REGULAR),
-		list("Прыгающая граната M74 AGM «Шершень»", 0, /obj/item/explosive/grenade/high_explosive/airburst/hornet_shell, VENDOR_ITEM_REGULAR),
-		list("Граната M40 HIRR (Резина)", floor(scale * 2), /obj/item/explosive/grenade/slug/baton, VENDOR_ITEM_REGULAR),
-		list("Граната M40 MFHS (Пена)", 0, /obj/item/explosive/grenade/metal_foam, VENDOR_ITEM_REGULAR),
-		list("Пробивной заряд", 0, /obj/item/explosive/plastic/breaching_charge, VENDOR_ITEM_REGULAR),
-		list("Пластичная взрывчатка С-4", 2, /obj/item/explosive/plastic, VENDOR_ITEM_REGULAR),
+		list("EXPLOSIVES", -1, null, null),
+		list("M15 Fragmentation Grenade", 0, /obj/item/explosive/grenade/high_explosive/m15, VENDOR_ITEM_REGULAR),
+		list("M20 Claymore Anti-Personnel Mine", 0, /obj/item/explosive/mine, VENDOR_ITEM_REGULAR),
+		list("M40 HEDP Grenade", 0, /obj/item/explosive/grenade/high_explosive, VENDOR_ITEM_REGULAR),
+		list("M40 HIDP Incendiary Grenade", 0, /obj/item/explosive/grenade/incendiary, VENDOR_ITEM_REGULAR),
+		list("M40 CCDP Chemical Compound Smoke Grenade", 0, /obj/item/explosive/grenade/phosphorus, VENDOR_ITEM_REGULAR),
+		list("M40 HSDP Smoke Grenade", floor(scale * 1), /obj/item/explosive/grenade/smokebomb, VENDOR_ITEM_REGULAR),
+		list("M74 AGM-Frag Airburst Grenade", 0, /obj/item/explosive/grenade/high_explosive/airburst, VENDOR_ITEM_REGULAR),
+		list("M74 AGM-Incendiary Airburst Grenade", 0, /obj/item/explosive/grenade/incendiary/airburst, VENDOR_ITEM_REGULAR),
+		list("M74 AGM-Smoke Airburst Grenade", 0, /obj/item/explosive/grenade/smokebomb/airburst, VENDOR_ITEM_REGULAR),
+		list("M74 AGM-Star Shell", 2, /obj/item/explosive/grenade/high_explosive/airburst/starshell, VENDOR_ITEM_REGULAR),
+		list("M74 AGM-Hornet Shell", 0, /obj/item/explosive/grenade/high_explosive/airburst/hornet_shell, VENDOR_ITEM_REGULAR),
+		list("M40 HIRR Baton Slug", floor(scale * 2), /obj/item/explosive/grenade/slug/baton, VENDOR_ITEM_REGULAR),
+		list("M40 MFHS Metal Foam Grenade", 0, /obj/item/explosive/grenade/metal_foam, VENDOR_ITEM_REGULAR),
+		list("Breaching Charge", 0, /obj/item/explosive/plastic/breaching_charge, VENDOR_ITEM_REGULAR),
+		list("Plastic Explosives", 2, /obj/item/explosive/plastic, VENDOR_ITEM_REGULAR),
 
-		list("ШТАТНЫЕ БОЕПРИПАСЫ", -1, null, null), // SS220 - EDIT
-		list("Коробка для патронов (Картечь)", floor(scale * 3), /obj/item/ammo_magazine/shotgun/buckshot, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Коробка для патронов (Флешетты)", floor(scale * 2), /obj/item/ammo_magazine/shotgun/flechette, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Коробка для патронов (Пуля)", floor(scale * 4), /obj/item/ammo_magazine/shotgun/slugs, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Магазин для M4RA (10x24мм)", floor(scale * 5), /obj/item/ammo_magazine/rifle/m4ra, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Магазин для M41A MK2 (10x24мм)", floor(scale * 10), /obj/item/ammo_magazine/rifle, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Магазин для M39 HV (10x20мм)", floor(scale * 6), /obj/item/ammo_magazine/smg/m39, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Клип-обойма для M44 (.44)", floor(scale * 4), /obj/item/ammo_magazine/revolver, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Магазин для M4A3 (9мм)", floor(scale * 10), /obj/item/ammo_magazine/pistol, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("REGULAR AMMUNITION", -1, null, null),
+		list("Box Of Buckshot Shells", floor(scale * 3), /obj/item/ammo_magazine/shotgun/buckshot, VENDOR_ITEM_REGULAR),
+		list("Box Of Flechette Shells", floor(scale * 2), /obj/item/ammo_magazine/shotgun/flechette, VENDOR_ITEM_REGULAR),
+		list("Box Of Shotgun Slugs", floor(scale * 4), /obj/item/ammo_magazine/shotgun/slugs, VENDOR_ITEM_REGULAR),
+		list("M4RA Magazine (10x24mm)", floor(scale * 5), /obj/item/ammo_magazine/rifle/m4ra, VENDOR_ITEM_REGULAR),
+		list("M41A MK2 Magazine (10x24mm)", floor(scale * 10), /obj/item/ammo_magazine/rifle, VENDOR_ITEM_REGULAR),
+		list("M39 HV Magazine (10x20mm)", floor(scale * 6), /obj/item/ammo_magazine/smg/m39, VENDOR_ITEM_REGULAR),
+		list("M44 Speed Loader (.44)", floor(scale * 4), /obj/item/ammo_magazine/revolver, VENDOR_ITEM_REGULAR),
+		list("M4A3 Magazine (9mm)", floor(scale * 10), /obj/item/ammo_magazine/pistol, VENDOR_ITEM_REGULAR),
 
-		list("БРОНЕБОЙНЫЕ БОЕПРИПАСЫ", -1, null, null), // SS220 - EDIT
-		list("Магазин для 88 Mod 4 (9мм AP)", floor(scale * 8), /obj/item/ammo_magazine/pistol/mod88, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Магазин для M4RA (10x24мм AP)", 0, /obj/item/ammo_magazine/rifle/m4ra/ap, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Магазин для M39 (10x20мм AP)", 0, /obj/item/ammo_magazine/smg/m39/ap, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Магазин для M41A MK2 (10x24мм AP)", 0, /obj/item/ammo_magazine/rifle/ap, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Магазин для M4A3 (9мм AP)", 0, /obj/item/ammo_magazine/pistol/ap, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("ARMOR-PIERCING AMMUNITION", -1, null, null),
+		list("88 Mod 4 AP Magazine (9mm)", floor(scale * 8), /obj/item/ammo_magazine/pistol/mod88, VENDOR_ITEM_REGULAR),
+		list("M4RA AP Magazine (10x24mm)", 0, /obj/item/ammo_magazine/rifle/m4ra/ap, VENDOR_ITEM_REGULAR),
+		list("M39 AP Magazine (10x20mm)", 0, /obj/item/ammo_magazine/smg/m39/ap, VENDOR_ITEM_REGULAR),
+		list("M41A MK2 AP Magazine (10x24mm)", 0, /obj/item/ammo_magazine/rifle/ap, VENDOR_ITEM_REGULAR),
+		list("M4A3 AP Magazine (9mm)", 0, /obj/item/ammo_magazine/pistol/ap, VENDOR_ITEM_REGULAR),
 
-		list("РАСШИРЕННЫЕ МАГАЗИНЫ", -1, null, null), // SS220 - EDIT
-		list("Расширенный магазин для M4RA (10x24мм)", 0, /obj/item/ammo_magazine/rifle/m4ra/extended, null, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Расширенный магазин для M39 (10x20мм)", 0, /obj/item/ammo_magazine/smg/m39/extended, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Расширенный магазин для M41A MK2 (10x24мм)", 0, /obj/item/ammo_magazine/rifle/extended, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("EXTENDED AMMUNITION", -1, null, null),
+		list("M4RA Extended Magazine (10x24mm)", 0, /obj/item/ammo_magazine/rifle/m4ra/extended, null, VENDOR_ITEM_REGULAR),
+		list("M39 Extended Magazine (10x20mm)", 0, /obj/item/ammo_magazine/smg/m39/extended, VENDOR_ITEM_REGULAR),
+		list("M41A MK2 Extended Magazine (10x24mm)", 0, /obj/item/ammo_magazine/rifle/extended, VENDOR_ITEM_REGULAR),
 
 		list("SPECIALIST AMMUNITION", -1, null, null),
 		list("A19 High Velocity Impact Magazine (10x24mm)", 0, /obj/item/ammo_magazine/rifle/m4ra/custom/impact, VENDOR_ITEM_REGULAR),
@@ -234,52 +234,52 @@
 		list("M240 Large Incinerator Tank (X) (Blue Flame)", 0, /obj/item/ammo_magazine/flamer_tank/large/X, VENDOR_ITEM_REGULAR),
 
 		list("RESTRICTED FIREARM AMMUNITION", -1, null, null),
-		list("Патронный короб для M2C", 0, /obj/item/ammo_magazine/m2c, VENDOR_ITEM_REGULAR),
-		list("Резервуар топливной смеси для M240", 1, /obj/item/ammo_magazine/flamer_tank, VENDOR_ITEM_REGULAR),
-		list("Магазин для M41A MK1 (10x24мм)", 0, /obj/item/ammo_magazine/rifle/m41aMK1, VENDOR_ITEM_REGULAR),
-		list("Патронный короб для M41AE2 (10x24мм)", 0, /obj/item/ammo_magazine/rifle/lmg, VENDOR_ITEM_REGULAR),
-		list("Патронный короб для M41AE2 (10x24мм Holo-Target)", 0, /obj/item/ammo_magazine/rifle/lmg/holo_target, VENDOR_ITEM_REGULAR),
-		list("Клип-обойма для M44 (.44 FMJ)", 0, /obj/item/ammo_magazine/revolver/heavy, VENDOR_ITEM_REGULAR),
-		list("Клип-обойма для M44 (.44 SSA)", 0, /obj/item/ammo_magazine/revolver/marksman, VENDOR_ITEM_REGULAR),
-		list("Магазин для M4A3 (9мм HP)", 0, /obj/item/ammo_magazine/pistol/hp, VENDOR_ITEM_REGULAR),
-		list("Батарея для M56", 0, /obj/item/smartgun_battery, VENDOR_ITEM_REGULAR),
-		list("Барабанный магазин для M56 Smartgun", 0, /obj/item/ammo_magazine/smartgun, VENDOR_ITEM_REGULAR),
-		list("Барабанный магазин для М56D",0, /obj/item/ammo_magazine/m56d, VENDOR_ITEM_REGULAR),
-		list("Магазин для SU-6 (.45)", floor(scale * 2), /obj/item/ammo_magazine/pistol/smart, VENDOR_ITEM_REGULAR),
-		list("Магазин для VP78 (9мм)", floor(scale * 1.5), /obj/item/ammo_magazine/pistol/vp78, VENDOR_ITEM_REGULAR),
+		list("M2C Box Magazine", 0, /obj/item/ammo_magazine/m2c, VENDOR_ITEM_REGULAR),
+		list("M240 Incinerator Tank", 1, /obj/item/ammo_magazine/flamer_tank, VENDOR_ITEM_REGULAR),
+		list("M41A MK1 Magazine (10x24mm)", 0, /obj/item/ammo_magazine/rifle/m41aMK1, VENDOR_ITEM_REGULAR),
+		list("M41AE2 Box Magazine (10x24mm)", 0, /obj/item/ammo_magazine/rifle/lmg, VENDOR_ITEM_REGULAR),
+		list("M41AE2 Holo Target Rounds (10x24mm)", 0, /obj/item/ammo_magazine/rifle/lmg/holo_target, VENDOR_ITEM_REGULAR),
+		list("M44 Heavy Speed Loader (.44)", 0, /obj/item/ammo_magazine/revolver/heavy, VENDOR_ITEM_REGULAR),
+		list("M44 Marksman Speed Loader (.44)", 0, /obj/item/ammo_magazine/revolver/marksman, VENDOR_ITEM_REGULAR),
+		list("M4A3 HP Magazine (9mm)", 0, /obj/item/ammo_magazine/pistol/hp, VENDOR_ITEM_REGULAR),
+		list("M56 Battery", 0, /obj/item/smartgun_battery, VENDOR_ITEM_REGULAR),
+		list("M56 Smartgun Drum", 0, /obj/item/ammo_magazine/smartgun, VENDOR_ITEM_REGULAR),
+		list("M56D Drum Magazine",0, /obj/item/ammo_magazine/m56d, VENDOR_ITEM_REGULAR),
+		list("SU-6 Smartpistol Magazine (.45)", floor(scale * 2), /obj/item/ammo_magazine/pistol/smart, VENDOR_ITEM_REGULAR),
+		list("VP78 Magazine", floor(scale * 1.5), /obj/item/ammo_magazine/pistol/vp78, VENDOR_ITEM_REGULAR),
 
 		list("BUILDING MATERIALS", -1, null, null),
 		list("Cardboard x10", 1, /obj/item/stack/sheet/cardboard/small_stack, VENDOR_ITEM_REGULAR),
 		list("Barbed Wire x10", 0, /obj/item/stack/barbed_wire/small_stack, VENDOR_ITEM_REGULAR),
 		list("Metal x10", 0, /obj/item/stack/sheet/metal/small_stack, VENDOR_ITEM_REGULAR),
 		list("Plasteel x10", 0, /obj/item/stack/sheet/plasteel/small_stack, VENDOR_ITEM_REGULAR),
-		list("Пустые мешки для песка x 10", 1, /obj/item/stack/sandbags_empty/small_stack, VENDOR_ITEM_REGULAR),
-		list("Мешки с песком x 5", 0, /obj/item/stack/sandbags/small_stack, VENDOR_ITEM_REGULAR),
+		list("Sandbags (empty) x10", 1, /obj/item/stack/sandbags_empty/small_stack, VENDOR_ITEM_REGULAR),
+		list("Sandbags (full) x5", 0, /obj/item/stack/sandbags/small_stack, VENDOR_ITEM_REGULAR),
 
 		list("AMMUNITION BOXES", -1, null, null),
-		list("Коробка для патронов (Картечь x 100)", 0, /obj/item/ammo_box/magazine/shotgun/buckshot, VENDOR_ITEM_REGULAR),
-		list("Коробка для патронов (Флешетты x 100)", 0, /obj/item/ammo_box/magazine/shotgun/flechette, VENDOR_ITEM_REGULAR),
-		list("Коробка для патронов (Пуля x 100)", 0, /obj/item/ammo_box/magazine/shotgun, VENDOR_ITEM_REGULAR),
+		list("Shotgun Shell Box (Buckshot x 100)", 0, /obj/item/ammo_box/magazine/shotgun/buckshot, VENDOR_ITEM_REGULAR),
+		list("Shotgun Shell Box (Flechette x 100)", 0, /obj/item/ammo_box/magazine/shotgun/flechette, VENDOR_ITEM_REGULAR),
+		list("Shotgun Shell Box (Slugs x 100)", 0, /obj/item/ammo_box/magazine/shotgun, VENDOR_ITEM_REGULAR),
 		list("Rifle Ammunition Box (10x24mm)", 0, /obj/item/ammo_box/rounds, VENDOR_ITEM_REGULAR),
 		list("Rifle Ammunition Box (10x24mm AP)", 0, /obj/item/ammo_box/rounds/ap, VENDOR_ITEM_REGULAR),
 		list("SMG Ammunition Box (10x20mm HV)", 0, /obj/item/ammo_box/rounds/smg, VENDOR_ITEM_REGULAR),
 		list("SMG Ammunition Box (10x20mm AP)", 0, /obj/item/ammo_box/rounds/smg/ap, VENDOR_ITEM_REGULAR),
 
-		list("ДРУГОЕ", -1, null, null),
+		list("MISCELLANEOUS", -1, null, null),
 		list("Box Of MREs", floor(scale * 1.5), /obj/item/ammo_box/magazine/misc/mre, VENDOR_ITEM_REGULAR),
 		list("Box Of M94 Marking Flare Packs", floor(scale * 2), /obj/item/ammo_box/magazine/misc/flares, VENDOR_ITEM_REGULAR),
 		list("Entrenching Tool", floor(scale * 2), /obj/item/tool/shovel/etool, VENDOR_ITEM_REGULAR),
 		list("M5 Bayonet", floor(scale * 5), /obj/item/attachable/bayonet, VENDOR_ITEM_REGULAR),
 		list("M89-S Signal Flare Pack", 0, /obj/item/storage/box/m94/signal, VENDOR_ITEM_REGULAR),
 		list("M94 Marking Flare Pack", floor(scale * 1), /obj/item/storage/box/m94, VENDOR_ITEM_REGULAR),
-		list("Чехол для мачете", floor(scale * 1), /obj/item/storage/large_holster/machete/full, VENDOR_ITEM_REGULAR),
+		list("Machete Scabbard (Full)", floor(scale * 1), /obj/item/storage/large_holster/machete/full, VENDOR_ITEM_REGULAR),
 		list("MB-6 Folding Barricades (x3)", 0, /obj/item/stack/folding_barricade/three, VENDOR_ITEM_REGULAR),
-		list("Детектор движения", 0, /obj/item/device/motiondetector, VENDOR_ITEM_REGULAR),
-		list("Роликовые носилки", 2, /obj/item/roller, VENDOR_ITEM_REGULAR),
+		list("Motion Detector", 0, /obj/item/device/motiondetector, VENDOR_ITEM_REGULAR),
+		list("Roller Bed", 2, /obj/item/roller, VENDOR_ITEM_REGULAR),
 
-		list("БРОНЯ И ОДЕЖДА", -1, null, null),
-		list("Инфракрасная балаклава", 10, /obj/item/clothing/mask/rebreather/scarf, VENDOR_ITEM_REGULAR),
-		list("Шлем пехотинца M10", floor(scale * 3), /obj/item/clothing/head/helmet/marine, VENDOR_ITEM_REGULAR),
+		list("ARMOR AND CLOTHING", -1, null, null),
+		list("Heat Absorbent Coif", 10, /obj/item/clothing/mask/rebreather/scarf, VENDOR_ITEM_REGULAR),
+		list("M10 Pattern Marine Helmet", floor(scale * 3), /obj/item/clothing/head/helmet/marine, VENDOR_ITEM_REGULAR),
 		list("M3 Pattern Marine Armor", floor(scale * 1), /obj/item/clothing/suit/storage/marine, VENDOR_ITEM_REGULAR),
 		list("M3-EOD Pattern Heavy Armor", floor(scale * 1), /obj/item/clothing/suit/storage/marine/heavy, VENDOR_ITEM_REGULAR),
 		list("M3-L Pattern Light Armor", floor(scale * 1), /obj/item/clothing/suit/storage/marine/light, VENDOR_ITEM_REGULAR),
@@ -396,32 +396,32 @@
 		list("Barbed Wire x10", 0, /obj/item/stack/barbed_wire/small_stack, VENDOR_ITEM_REGULAR),
 		list("Metal x10", 0, /obj/item/stack/sheet/metal/small_stack, VENDOR_ITEM_REGULAR),
 		list("Plasteel x10", 0, /obj/item/stack/sheet/plasteel/small_stack, VENDOR_ITEM_REGULAR),
-		list("Пустые мешки для песка x 10", 0, /obj/item/stack/sandbags_empty/small_stack, VENDOR_ITEM_REGULAR),
-		list("Мешки с песком x 5", 0, /obj/item/stack/sandbags/small_stack, VENDOR_ITEM_REGULAR),
+		list("Sandbags (empty) x10", 0, /obj/item/stack/sandbags_empty/small_stack, VENDOR_ITEM_REGULAR),
+		list("Sandbags (full) x5", 0, /obj/item/stack/sandbags/small_stack, VENDOR_ITEM_REGULAR),
 
-		list("БОЕПРИПАСЫ", -1, null, null),
-		list("Коробка для патронов (Картечь)", 0, /obj/item/ammo_magazine/shotgun/buckshot, VENDOR_ITEM_REGULAR),
-		list("Коробка для патронов (Флешетты)", 0, /obj/item/ammo_magazine/shotgun/flechette, VENDOR_ITEM_REGULAR),
-		list("Коробка для патронов (Пуля)", 0, /obj/item/ammo_magazine/shotgun/slugs, VENDOR_ITEM_REGULAR),
-		list("Магазин для M4RA (10x24мм)", 0, /obj/item/ammo_magazine/rifle/m4ra, VENDOR_ITEM_REGULAR),
-		list("Магазин для M41A MK2 (10x24мм)", 0, /obj/item/ammo_magazine/rifle, VENDOR_ITEM_REGULAR),
-		list("Магазин для M39 HV (10x20мм)", 0, /obj/item/ammo_magazine/smg/m39, VENDOR_ITEM_REGULAR),
-		list("Клип-обойма для М44 (.44)", 0, /obj/item/ammo_magazine/revolver, VENDOR_ITEM_REGULAR),
-		list("Магазин для M4A3 (9мм)", 0, /obj/item/ammo_magazine/pistol, VENDOR_ITEM_REGULAR),
-		list("Барабанный магазин для М56D", 0, /obj/item/ammo_magazine/m56d, VENDOR_ITEM_REGULAR),
-		list("Патронный короб для М2С", 0, /obj/item/ammo_magazine/m2c, VENDOR_ITEM_REGULAR),
+		list("AMMUNITION", -1, null, null),
+		list("Box Of Buckshot Shells", 0, /obj/item/ammo_magazine/shotgun/buckshot, VENDOR_ITEM_REGULAR),
+		list("Box Of Flechette Shells", 0, /obj/item/ammo_magazine/shotgun/flechette, VENDOR_ITEM_REGULAR),
+		list("Box Of Shotgun Slugs", 0, /obj/item/ammo_magazine/shotgun/slugs, VENDOR_ITEM_REGULAR),
+		list("M4RA Magazine (10x24mm)", 0, /obj/item/ammo_magazine/rifle/m4ra, VENDOR_ITEM_REGULAR),
+		list("M41A MK2 Magazine (10x24mm)", 0, /obj/item/ammo_magazine/rifle, VENDOR_ITEM_REGULAR),
+		list("M39 HV Magazine (10x20mm)", 0, /obj/item/ammo_magazine/smg/m39, VENDOR_ITEM_REGULAR),
+		list("M44 Speed Loader (.44)", 0, /obj/item/ammo_magazine/revolver, VENDOR_ITEM_REGULAR),
+		list("M4A3 Magazine (9mm)", 0, /obj/item/ammo_magazine/pistol, VENDOR_ITEM_REGULAR),
+		list("M56D Drum Magazine", 0, /obj/item/ammo_magazine/m56d, VENDOR_ITEM_REGULAR),
+		list("M2C Box Magazine", 0, /obj/item/ammo_magazine/m2c, VENDOR_ITEM_REGULAR),
 
-		list("БРОНЯ", -1, null, null), // SS220 - EDIT
-		list("Шлем пехотинца М10", 0, /obj/item/clothing/head/helmet/marine, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Броня пехотинца с лямками M3", 0, /obj/item/clothing/suit/storage/marine/medium/carrier, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Броня пехотинца с подкладками M3", 0, /obj/item/clothing/suit/storage/marine/medium/padded, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Броня пехотинца без подкладок M3", 0, /obj/item/clothing/suit/storage/marine/medium/padless, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Броня пехотинца с гофрой M3", 0, /obj/item/clothing/suit/storage/marine/medium/padless_lines, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Броня пехотинца с черепом M3", 0, /obj/item/clothing/suit/storage/marine/medium/skull, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Броня пехотинца тяжёлая M3-EOD", 0, /obj/item/clothing/suit/storage/marine/heavy, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Броня пехотинца лёгкая M3-L", 0, /obj/item/clothing/suit/storage/marine/light, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("ARMOR", -1, null, null),
+		list("M10 Pattern Marine Helmet", 0, /obj/item/clothing/head/helmet/marine, VENDOR_ITEM_REGULAR),
+		list("M3 Pattern Carrier Marine Armor", 0, /obj/item/clothing/suit/storage/marine/medium/carrier, VENDOR_ITEM_REGULAR),
+		list("M3 Pattern Padded Marine Armor", 0, /obj/item/clothing/suit/storage/marine/medium/padded, VENDOR_ITEM_REGULAR),
+		list("M3 Pattern Padless Marine Armor", 0, /obj/item/clothing/suit/storage/marine/medium/padless, VENDOR_ITEM_REGULAR),
+		list("M3 Pattern Ridged Marine Armor", 0, /obj/item/clothing/suit/storage/marine/medium/padless_lines, VENDOR_ITEM_REGULAR),
+		list("M3 Pattern Skull Marine Armor", 0, /obj/item/clothing/suit/storage/marine/medium/skull, VENDOR_ITEM_REGULAR),
+		list("M3-EOD Pattern Heavy Armor", 0, /obj/item/clothing/suit/storage/marine/heavy, VENDOR_ITEM_REGULAR),
+		list("M3-L Pattern Light Armor", 0, /obj/item/clothing/suit/storage/marine/light, VENDOR_ITEM_REGULAR),
 
-		list("ДРУГОЕ", -1, null, null),
+		list("MISCELLANEOUS", -1, null, null),
 		list("Box Of MREs", 0, /obj/item/ammo_box/magazine/misc/mre, VENDOR_ITEM_REGULAR),
 		list("Box Of M94 Marking Flare Packs", 0, /obj/item/ammo_box/magazine/misc/flares, VENDOR_ITEM_REGULAR),
 		list("M89-S Signal Flare Pack", 0, /obj/item/storage/box/m94/signal, VENDOR_ITEM_REGULAR),
@@ -429,7 +429,7 @@
 		list("Flashlights", 1, /obj/item/device/flashlight, VENDOR_ITEM_REGULAR),
 		list("MB-6 Folding Barricades (x3)", 0, /obj/item/stack/folding_barricade/three, VENDOR_ITEM_REGULAR),
 		list("Entrenching Tool", 0, /obj/item/tool/shovel/etool, VENDOR_ITEM_REGULAR),
-		list("Роликовые носилки", 0, /obj/item/roller, VENDOR_ITEM_REGULAR),
+		list("Roller Bed", 0, /obj/item/roller, VENDOR_ITEM_REGULAR),
 		list("Table", 3, /obj/item/frame/table, VENDOR_ITEM_REGULAR),
 		list("Rack", 3, /obj/item/frame/rack, VENDOR_ITEM_REGULAR),
 		list("Cliboard", 4, /obj/item/clipboard, VENDOR_ITEM_REGULAR),
@@ -437,9 +437,9 @@
 		list("Chair", 2, /obj/item/weapon/twohanded/folded_metal_chair, VENDOR_ITEM_REGULAR),
 
 		list("AMMUNITION BOXES", -1, null, null),
-		list("Коробка для патронов (Картечь x 100)", 0, /obj/item/ammo_box/magazine/shotgun/buckshot, VENDOR_ITEM_REGULAR),
-		list("Коробка для патронов (Флешетты x 100)", 0, /obj/item/ammo_box/magazine/shotgun/flechette, VENDOR_ITEM_REGULAR),
-		list("Коробка для патронов (Пуля x 100)", 0, /obj/item/ammo_box/magazine/shotgun, VENDOR_ITEM_REGULAR),
+		list("Shotgun Shell Box (Buckshot x 100)", 0, /obj/item/ammo_box/magazine/shotgun/buckshot, VENDOR_ITEM_REGULAR),
+		list("Shotgun Shell Box (Flechette x 100)", 0, /obj/item/ammo_box/magazine/shotgun/flechette, VENDOR_ITEM_REGULAR),
+		list("Shotgun Shell Box (Slugs x 100)", 0, /obj/item/ammo_box/magazine/shotgun, VENDOR_ITEM_REGULAR),
 		list("Rifle Ammunition Box (10x24mm)", 0, /obj/item/ammo_box/rounds, VENDOR_ITEM_REGULAR),
 		list("SMG Ammunition Box (10x20mm HV)", 0, /obj/item/ammo_box/rounds/smg, VENDOR_ITEM_REGULAR),
 	)
@@ -452,89 +452,89 @@
 //combined from req guns and ammo vendors
 /obj/structure/machinery/cm_vending/sorted/vehicle_supply/wy/populate_product_list(scale)
 	listed_products = list(
-		list("ОСНОВНОЕ ВООРУЖЕНИЕ", -1, null, null),
+		list("PRIMARY FIREARMS", -1, null, null),
 		list("MK221 tactical shotgun", floor(scale * 3), /obj/item/weapon/gun/shotgun/combat, VENDOR_ITEM_REGULAR),
 		list("M39/2 Submachinegun", floor(scale * 2.5), /obj/item/weapon/gun/smg/m39/elite, VENDOR_ITEM_REGULAR),
 		list("M41A Corporate Pulse Rifle MK2", floor(scale * 4), /obj/item/weapon/gun/rifle/m41a/corporate, VENDOR_ITEM_REGULAR),
 		list("NSG 23 Assault Rifle", floor(scale * 2), /obj/item/weapon/gun/rifle/nsg23, VENDOR_ITEM_REGULAR),
 
-		list("ДОПОЛНИТЕЛЬНОЕ ВООРУЖЕНИЕ", -1, null, null),
-		list("Боевой пистолет 88 Mod 4", floor(scale * 2), /obj/item/weapon/gun/pistol/mod88, VENDOR_ITEM_REGULAR),
-		list("Пистолет VP78", floor(scale * 1.5), /obj/item/weapon/gun/pistol/vp78, VENDOR_ITEM_REGULAR),
+		list("SIDEARMS", -1, null, null),
+		list("88 Mod 4 Combat Pistol", floor(scale * 2), /obj/item/weapon/gun/pistol/mod88, VENDOR_ITEM_REGULAR),
+		list("VP78 Pistol", floor(scale * 1.5), /obj/item/weapon/gun/pistol/vp78, VENDOR_ITEM_REGULAR),
 
-		list("ВЗРЫВЧАТЫЕ ВЕЩЕСТВА", -1, null, null),
+		list("EXPLOSIVES", -1, null, null),
 		list("M12 Blast Grenade", 0, /obj/item/explosive/grenade/high_explosive/pmc, VENDOR_ITEM_REGULAR),
 		list("M20P Claymore Anti-Personnel Mine", 0, /obj/item/explosive/mine/pmc, VENDOR_ITEM_REGULAR),
-		list("Граната M40 HEDP (Осколочная)", 0, /obj/item/explosive/grenade/high_explosive, VENDOR_ITEM_REGULAR),
-		list("Граната M40 HIDP (Зажигательная)", 0, /obj/item/explosive/grenade/incendiary, VENDOR_ITEM_REGULAR),
-		list("Граната M40 CCDP (Химическая смесь)", 0, /obj/item/explosive/grenade/phosphorus, VENDOR_ITEM_REGULAR),
-		list("Граната M40 HSDP (Дымовая)", floor(scale * 1), /obj/item/explosive/grenade/smokebomb, VENDOR_ITEM_REGULAR),
-		list("Прыгающая граната M74 AGM (Осколочная)", 0, /obj/item/explosive/grenade/high_explosive/airburst, VENDOR_ITEM_REGULAR),
-		list("рыгающая граната M74 AGM (Зажигательная)", 0, /obj/item/explosive/grenade/incendiary/airburst, VENDOR_ITEM_REGULAR),
-		list("Прыгающая граната M74 AGM (Дымовая)", 0, /obj/item/explosive/grenade/smokebomb/airburst, VENDOR_ITEM_REGULAR),
-		list("Прыгающая граната M74 AGM «Звезда»", 2, /obj/item/explosive/grenade/high_explosive/airburst/starshell, VENDOR_ITEM_REGULAR),
-		list("Прыгающая граната M74 AGM «Шершень»", 0, /obj/item/explosive/grenade/high_explosive/airburst/hornet_shell, VENDOR_ITEM_REGULAR),
-		list("Граната M40 HIRR (Резина)", floor(scale * 2), /obj/item/explosive/grenade/slug/baton, VENDOR_ITEM_REGULAR),
-		list("Граната M40 MFHS (Пена)", 0, /obj/item/explosive/grenade/metal_foam, VENDOR_ITEM_REGULAR),
-		list("Пробивной заряд", 0, /obj/item/explosive/plastic/breaching_charge, VENDOR_ITEM_REGULAR),
-		list("Пластичная взрывчатка С-4", 2, /obj/item/explosive/plastic, VENDOR_ITEM_REGULAR),
+		list("M40 HEDP Grenade", 0, /obj/item/explosive/grenade/high_explosive, VENDOR_ITEM_REGULAR),
+		list("M40 HIDP Incendiary Grenade", 0, /obj/item/explosive/grenade/incendiary, VENDOR_ITEM_REGULAR),
+		list("M40 CCDP Chemical Compound Smoke Grenade", 0, /obj/item/explosive/grenade/phosphorus, VENDOR_ITEM_REGULAR),
+		list("M40 HSDP Smoke Grenade", floor(scale * 1), /obj/item/explosive/grenade/smokebomb, VENDOR_ITEM_REGULAR),
+		list("M74 AGM-Frag Airburst Grenade", 0, /obj/item/explosive/grenade/high_explosive/airburst, VENDOR_ITEM_REGULAR),
+		list("M74 AGM-Incendiary Airburst Grenade", 0, /obj/item/explosive/grenade/incendiary/airburst, VENDOR_ITEM_REGULAR),
+		list("M74 AGM-Smoke Airburst Grenade", 0, /obj/item/explosive/grenade/smokebomb/airburst, VENDOR_ITEM_REGULAR),
+		list("M74 AGM-Star Shell", 2, /obj/item/explosive/grenade/high_explosive/airburst/starshell, VENDOR_ITEM_REGULAR),
+		list("M74 AGM-Hornet Shell", 0, /obj/item/explosive/grenade/high_explosive/airburst/hornet_shell, VENDOR_ITEM_REGULAR),
+		list("M40 HIRR Baton Slug", floor(scale * 2), /obj/item/explosive/grenade/slug/baton, VENDOR_ITEM_REGULAR),
+		list("M40 MFHS Metal Foam Grenade", 0, /obj/item/explosive/grenade/metal_foam, VENDOR_ITEM_REGULAR),
+		list("Breaching Charge", 0, /obj/item/explosive/plastic/breaching_charge, VENDOR_ITEM_REGULAR),
+		list("Plastic Explosives", 2, /obj/item/explosive/plastic, VENDOR_ITEM_REGULAR),
 
-		list("ШТАТНЫЕ БОЕПРИПАСЫ", -1, null, null), // SS220 - EDIT
-		list("Коробка для патронов (Картечь)", floor(scale * 3), /obj/item/ammo_magazine/shotgun/buckshot, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Коробка для патронов (Флешетты)", floor(scale * 2), /obj/item/ammo_magazine/shotgun/flechette, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Коробка для патронов (Пуля)", floor(scale * 4), /obj/item/ammo_magazine/shotgun/slugs, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Магазин для NSG 23 (10x24мм)", floor(scale * 5), /obj/item/ammo_magazine/rifle/nsg23, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Магазин для M41A MK2 (10x24мм)", floor(scale * 10), /obj/item/ammo_magazine/rifle, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Магазин для M39 HV (10x20мм)", floor(scale * 6), /obj/item/ammo_magazine/smg/m39, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Магазин для VP78 (9мм)", 0, /obj/item/ammo_magazine/pistol/vp78, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("БРОНЕБОЙНЫЕ БОЕПРИПАСЫ", -1, null, null), // SS220 - EDIT
-		list("Магазин для 88 Mod 4 (9мм AP)", floor(scale * 8), /obj/item/ammo_magazine/pistol/mod88, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Магазин для M4RA (10x24мм AP)", 0, /obj/item/ammo_magazine/rifle/nsg23/ap, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Магазин для M39 (10x20мм AP)", 0, /obj/item/ammo_magazine/smg/m39/ap, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Магазин для M41A MK2 (10x24мм AP)", 0, /obj/item/ammo_magazine/rifle/ap, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("REGULAR AMMUNITION", -1, null, null),
+		list("Box Of Buckshot Shells", floor(scale * 3), /obj/item/ammo_magazine/shotgun/buckshot, VENDOR_ITEM_REGULAR),
+		list("Box Of Flechette Shells", floor(scale * 2), /obj/item/ammo_magazine/shotgun/flechette, VENDOR_ITEM_REGULAR),
+		list("Box Of Shotgun Slugs", floor(scale * 4), /obj/item/ammo_magazine/shotgun/slugs, VENDOR_ITEM_REGULAR),
+		list("NSG 23 Magazine (10x24mm)", floor(scale * 5), /obj/item/ammo_magazine/rifle/nsg23, VENDOR_ITEM_REGULAR),
+		list("M41A MK2 Magazine (10x24mm)", floor(scale * 10), /obj/item/ammo_magazine/rifle, VENDOR_ITEM_REGULAR),
+		list("M39 HV Magazine (10x20mm)", floor(scale * 6), /obj/item/ammo_magazine/smg/m39, VENDOR_ITEM_REGULAR),
+		list("VP78 Magazine (9mm)", 0, /obj/item/ammo_magazine/pistol/vp78, VENDOR_ITEM_REGULAR),
+		list("ARMOR-PIERCING AMMUNITION", -1, null, null),
+		list("88 Mod 4 AP Magazine (9mm)", floor(scale * 8), /obj/item/ammo_magazine/pistol/mod88, VENDOR_ITEM_REGULAR),
+		list("M4RA AP Magazine (10x24mm)", 0, /obj/item/ammo_magazine/rifle/nsg23/ap, VENDOR_ITEM_REGULAR),
+		list("M39 AP Magazine (10x20mm)", 0, /obj/item/ammo_magazine/smg/m39/ap, VENDOR_ITEM_REGULAR),
+		list("M41A MK2 AP Magazine (10x24mm)", 0, /obj/item/ammo_magazine/rifle/ap, VENDOR_ITEM_REGULAR),
 
-		list("РАСШИРЕННЫЕ МАГАЗИНЫ", -1, null, null), // SS220 - EDIT
-		list("Расширенный магазин для M39 (10x20мм)", 0, /obj/item/ammo_magazine/smg/m39/extended, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Расширенный магазин для M41A MK2 (10x24мм)", 0, /obj/item/ammo_magazine/rifle/extended, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("EXTENDED AMMUNITION", -1, null, null),
+		list("M39 Extended Magazine (10x20mm)", 0, /obj/item/ammo_magazine/smg/m39/extended, VENDOR_ITEM_REGULAR),
+		list("M41A MK2 Extended Magazine (10x24mm)", 0, /obj/item/ammo_magazine/rifle/extended, VENDOR_ITEM_REGULAR),
 
-		list("БОЕПРИПАСЫ С ОГРАНИЧЕННЫМ ДОСТУПОМ", -1, null, null), // SS220 - EDIT
-		list("Резервуар топливной смеси для M240", 1, /obj/item/ammo_magazine/flamer_tank, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Батарея для M56", 0, /obj/item/smartgun_battery, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Барабанный магазин для M56 Smartgun", 0, /obj/item/ammo_magazine/smartgun, VENDOR_ITEM_REGULAR), // SS220 - EDIT
-		list("Барабанный магазин для M56D",0, /obj/item/ammo_magazine/m56d, VENDOR_ITEM_REGULAR), // SS220 - EDIT
+		list("RESTRICTED FIREARM AMMUNITION", -1, null, null),
+		list("M240 Incinerator Tank", 1, /obj/item/ammo_magazine/flamer_tank, VENDOR_ITEM_REGULAR),
+		list("M56 Battery", 0, /obj/item/smartgun_battery, VENDOR_ITEM_REGULAR),
+		list("M56 Smartgun Drum", 0, /obj/item/ammo_magazine/smartgun, VENDOR_ITEM_REGULAR),
+		list("M56D Drum Magazine",0, /obj/item/ammo_magazine/m56d, VENDOR_ITEM_REGULAR),
 
 		list("BUILDING MATERIALS", -1, null, null),
 		list("Cardboard x10", 1, /obj/item/stack/sheet/cardboard/small_stack, VENDOR_ITEM_REGULAR),
 		list("Barbed Wire x10", 0, /obj/item/stack/barbed_wire/small_stack, VENDOR_ITEM_REGULAR),
 		list("Metal x10", 0, /obj/item/stack/sheet/metal/small_stack, VENDOR_ITEM_REGULAR),
 		list("Plasteel x10", 0, /obj/item/stack/sheet/plasteel/small_stack, VENDOR_ITEM_REGULAR),
-		list("Пустые мешки для песка x 10", 1, /obj/item/stack/sandbags_empty/small_stack, VENDOR_ITEM_REGULAR),
-		list("Мешки с песком x 5", 0, /obj/item/stack/sandbags/small_stack, VENDOR_ITEM_REGULAR),
+		list("Sandbags (empty) x10", 1, /obj/item/stack/sandbags_empty/small_stack, VENDOR_ITEM_REGULAR),
+		list("Sandbags (full) x5", 0, /obj/item/stack/sandbags/small_stack, VENDOR_ITEM_REGULAR),
 
 		list("AMMUNITION BOXES", -1, null, null),
-		list("Коробка для патронов (Картечь x 100)", 0, /obj/item/ammo_box/magazine/shotgun/buckshot, VENDOR_ITEM_REGULAR),
-		list("Коробка для патронов (Флешетты x 100)", 0, /obj/item/ammo_box/magazine/shotgun/flechette, VENDOR_ITEM_REGULAR),
-		list("Коробка для патронов (Пуля x 100)", 0, /obj/item/ammo_box/magazine/shotgun, VENDOR_ITEM_REGULAR),
+		list("Shotgun Shell Box (Buckshot x 100)", 0, /obj/item/ammo_box/magazine/shotgun/buckshot, VENDOR_ITEM_REGULAR),
+		list("Shotgun Shell Box (Flechette x 100)", 0, /obj/item/ammo_box/magazine/shotgun/flechette, VENDOR_ITEM_REGULAR),
+		list("Shotgun Shell Box (Slugs x 100)", 0, /obj/item/ammo_box/magazine/shotgun, VENDOR_ITEM_REGULAR),
 		list("Rifle Ammunition Box (10x24mm)", 0, /obj/item/ammo_box/rounds, VENDOR_ITEM_REGULAR),
 		list("Rifle Ammunition Box (10x24mm AP)", 0, /obj/item/ammo_box/rounds/ap, VENDOR_ITEM_REGULAR),
 		list("SMG Ammunition Box (10x20mm HV)", 0, /obj/item/ammo_box/rounds/smg, VENDOR_ITEM_REGULAR),
 		list("SMG Ammunition Box (10x20mm AP)", 0, /obj/item/ammo_box/rounds/smg/ap, VENDOR_ITEM_REGULAR),
 
-		list("ДРУГОЕ", -1, null, null),
+		list("MISCELLANEOUS", -1, null, null),
 		list("Box Of CFRs", floor(scale * 1.5), /obj/item/ammo_box/magazine/misc/mre/pmc, VENDOR_ITEM_REGULAR),
 		list("Box Of M94 Marking Flare Packs", floor(scale * 2), /obj/item/ammo_box/magazine/misc/flares, VENDOR_ITEM_REGULAR),
 		list("Entrenching Tool", floor(scale * 2), /obj/item/tool/shovel/etool, VENDOR_ITEM_REGULAR),
 		list("M5 Bayonet", floor(scale * 5), /obj/item/attachable/bayonet, VENDOR_ITEM_REGULAR),
 		list("M89-S Signal Flare Pack", 0, /obj/item/storage/box/m94/signal, VENDOR_ITEM_REGULAR),
 		list("M94 Marking Flare Pack", floor(scale * 1), /obj/item/storage/box/m94, VENDOR_ITEM_REGULAR),
-		list("Чехол для мачете", floor(scale * 1), /obj/item/storage/large_holster/machete/full, VENDOR_ITEM_REGULAR),
+		list("Machete Scabbard (Full)", floor(scale * 1), /obj/item/storage/large_holster/machete/full, VENDOR_ITEM_REGULAR),
 		list("MB-6 Folding Barricades (x3)", 0, /obj/item/stack/folding_barricade/three, VENDOR_ITEM_REGULAR),
-		list("Детектор движения", 0, /obj/item/device/motiondetector, VENDOR_ITEM_REGULAR),
-		list("Роликовые носилки", 2, /obj/item/roller, VENDOR_ITEM_REGULAR),
+		list("Motion Detector", 0, /obj/item/device/motiondetector, VENDOR_ITEM_REGULAR),
+		list("Roller Bed", 2, /obj/item/roller, VENDOR_ITEM_REGULAR),
 
-		list("БРОНЯ И ОДЕЖДА", -1, null, null),
-		list("Инфракрасная балаклава", 10, /obj/item/clothing/mask/rebreather/scarf, VENDOR_ITEM_REGULAR),
-		list("Шлем пехотинца M10", floor(scale * 3), /obj/item/clothing/head/helmet/marine, VENDOR_ITEM_REGULAR),
+		list("ARMOR AND CLOTHING", -1, null, null),
+		list("Heat Absorbent Coif", 10, /obj/item/clothing/mask/rebreather/scarf, VENDOR_ITEM_REGULAR),
+		list("M10 Pattern Marine Helmet", floor(scale * 3), /obj/item/clothing/head/helmet/marine, VENDOR_ITEM_REGULAR),
 		list("M3 Pattern Marine Armor", floor(scale * 1), /obj/item/clothing/suit/storage/marine, VENDOR_ITEM_REGULAR),
 		list("M3-EOD Pattern Heavy Armor", floor(scale * 1), /obj/item/clothing/suit/storage/marine/heavy, VENDOR_ITEM_REGULAR),
 		list("M3-L Pattern Light Armor", floor(scale * 1), /obj/item/clothing/suit/storage/marine/light, VENDOR_ITEM_REGULAR),

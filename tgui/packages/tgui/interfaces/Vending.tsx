@@ -1,5 +1,5 @@
 import { classes } from 'common/react';
-import { capitalize } from 'common/string';
+import { capitalizeAll } from 'common/string';
 import { useState } from 'react';
 import { useBackend } from 'tgui/backend';
 import {
@@ -136,9 +136,7 @@ export const UserDetails = (props) => {
 
   if (!user) {
     return (
-      <NoticeBox>
-        ID-карта не обнаружена! Обратитесь к главе персонала.
-      </NoticeBox>
+      <NoticeBox>No ID detected! Contact your nearest supervisor.</NoticeBox>
     );
   }
   return (
@@ -149,13 +147,11 @@ export const UserDetails = (props) => {
         </Stack.Item>
         <Stack.Item>
           <LabeledList>
-            <LabeledList.Item label="Сотрудник">
+            <LabeledList.Item label="User">
               {checking_id ? user.name : 'UNKNOWN'}
             </LabeledList.Item>
-            <LabeledList.Item label="Должность">
-              {checking_id
-                ? (user.job ? capitalize(user.job) : user.job) || 'Unemployed'
-                : 'UNKNOWN'}
+            <LabeledList.Item label="Occupation">
+              {checking_id ? user.job || 'Unemployed' : 'UNKNOWN'}
             </LabeledList.Item>
           </LabeledList>
         </Stack.Item>
@@ -180,7 +176,7 @@ const ProductDisplay = (props: {
     <Section
       fill
       scrollable
-      title="Товары"
+      title="Products"
       buttons={
         !!display_value && (
           <Box fontSize="16px" color="green">
@@ -222,20 +218,13 @@ const VendingRow = (props) => {
   const denied = checking_id && (!user || !access);
   const disabled =
     denied || remaining === 0 || (checking_id && product.price > user?.cash);
-  const formatProductName = (name: string) => {
-    return name.replace(
-      /«(.*?)»/g,
-      (match, textInsideQuotes) =>
-        `«${textInsideQuotes.replace(/\b\w/g, (char) => char.toUpperCase())}»`,
-    );
-  };
 
   return (
     <Table.Row>
       <Table.Cell collapsing>
         <ProductImage product={product} />
       </Table.Cell>
-      <Table.Cell bold>{formatProductName(product.name)}</Table.Cell>
+      <Table.Cell bold>{capitalizeAll(product.name)}</Table.Cell>
       <Table.Cell collapsing textAlign="right">
         <ProductStock product={product} remaining={remaining} />
       </Table.Cell>
@@ -269,7 +258,7 @@ const ProductStock = (props) => {
         'good'
       }
     >
-      {remaining} (ост.)
+      {remaining} left
     </Box>
   );
 };
@@ -280,7 +269,7 @@ const ProductButton = (props) => {
   const { denied, disabled, product } = props;
   const { checking_id } = data;
 
-  const price = product.price && checking_id ? '$' + product.price : 'БЕСП.';
+  const price = product.price && checking_id ? '$' + product.price : 'FREE';
   return (
     <Button
       fluid

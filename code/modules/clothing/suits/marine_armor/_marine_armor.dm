@@ -116,11 +116,12 @@
 /obj/item/clothing/suit/storage/marine/Initialize(mapload)
 	. = ..()
 	if(!(flags_atom & NO_NAME_OVERRIDE))
-		if(SSmapping.configs[GROUND_MAP].environment_traits[MAP_COLD])
-			name += "Зимняя броня " // SS220 - EDIT
-		else
-			name += "Броня " // SS220 - EDIT
 		name = "[specialty]"
+		if(SSmapping.configs[GROUND_MAP].environment_traits[MAP_COLD])
+			name += " snow armor" //Leave marine out so that armors don't have to have "Marine" appended (see: generals).
+		else
+			name += " armor"
+		name = declent_ru_initial(name, NOMINATIVE, name) // BANDAMARINES EDIT - Translation
 
 	if(!(flags_atom & NO_GAMEMODE_SKIN))
 		select_gamemode_skin(type)
@@ -418,16 +419,16 @@
 	light_power = 4
 
 /obj/item/clothing/suit/storage/marine/medium/padded
-	name = "Броня пехотинца с подкладками M3" // SS220 - EDIT
+	name = "M3 pattern padded marine armor"
 	icon_state = "1"
 	armor_variation = 0
-	specialty = "пехотинца с подкладками M3" // SS220 - EDIT
+	specialty = "M3 pattern padded marine"
 
 /obj/item/clothing/suit/storage/marine/medium/padless
-	name = "Броня пехотинца без подкладок M3" // SS220 - EDIT
+	name = "M3 pattern padless marine armor"
 	icon_state = "2"
 	armor_variation = 0
-	specialty = "пехотинца без подкладок M3" // SS220 - EDIT
+	specialty = "M3 pattern padless marine"
 
 /obj/item/clothing/suit/storage/marine/medium/padless_lines
 	name = "M3 pattern ridged marine armor"

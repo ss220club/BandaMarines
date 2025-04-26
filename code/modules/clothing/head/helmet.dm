@@ -424,11 +424,12 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 	. = ..()
 	AddComponent(/datum/component/overwatch_console_control)
 	if(!(flags_atom & NO_NAME_OVERRIDE))
-		if(SSmapping.configs[GROUND_MAP].environment_traits[MAP_COLD])
-			name += "Зимний шлем " // SS220 - EDIT
-		else
-			name += "Шлем " // SS220 - EDIT
 		name = "[specialty]"
+		if(SSmapping.configs[GROUND_MAP].environment_traits[MAP_COLD])
+			name += " snow helmet"
+		else
+			name += " helmet"
+		name = declent_ru_initial(name, NOMINATIVE, name) // BANDAMARINES EDIT - Translation
 
 	if(!(flags_atom & NO_GAMEMODE_SKIN))
 		select_gamemode_skin(type, null, new_protection)
@@ -796,10 +797,10 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 	button.overlays += image('icons/obj/items/clothing/helmet_visors.dmi', button, action_icon_state)
 
 /obj/item/clothing/head/helmet/marine/tech
-	name = "\improper Шлем техника М10" // SS220 - EDIT
+	name = "\improper M10 technician helmet"
 	desc = "A modified M10 marine helmet for ComTechs. Features a toggleable welding screen for eye protection."
 	icon_state = "tech_helmet"
-	specialty = "техника М10" // SS220 - EDIT
+	specialty = "M10 technician"
 	built_in_visors = list(new /obj/item/device/helmet_visor, new /obj/item/device/helmet_visor/welding_visor)
 
 /obj/item/clothing/head/helmet/marine/welding
@@ -863,10 +864,10 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 	built_in_visors = list(new /obj/item/device/helmet_visor, new /obj/item/device/helmet_visor/welding_visor/tanker)
 
 /obj/item/clothing/head/helmet/marine/medic
-	name = "\improper Шлем санитара М10" // SS220 - EDIT
+	name = "\improper M10 corpsman helmet"
 	desc = "An M10 marine helmet version worn by marine hospital corpsmen. Has red cross painted on its front."
 	icon_state = "med_helmet"
-	specialty = "санитара М10" // SS220 - EDIT
+	specialty = "M10 pattern medic"
 	built_in_visors = list(new /obj/item/device/helmet_visor, new /obj/item/device/helmet_visor/medical/advanced)
 	start_down_visor_type = /obj/item/device/helmet_visor/medical/advanced
 

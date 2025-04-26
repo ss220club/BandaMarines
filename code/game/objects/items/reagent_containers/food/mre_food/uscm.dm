@@ -6,7 +6,7 @@
 ///ENTREE
 
 /obj/item/mre_food_packet/entree/uscm
-	name = "\improper Основное блюдо" // SS220 - EDIT
+	name = "\improper MRE main dish"
 	desc = "An MRE entree component. Contains the main course for nutrients."
 	icon = 'icons/obj/items/food/mre_food/uscm.dmi'
 	icon_state = "entree"
@@ -24,7 +24,7 @@
 	)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/entree/porkribs
-	name = "свиные рёбрышки" // SS220 - EDIT
+	name = "boneless pork ribs"
 	icon_state = "boneless pork ribs"
 	desc = "You can't even taste processed meat taste under all those spices!"
 
@@ -35,7 +35,7 @@
 	reagents.add_reagent("blackpepper", 4)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/entree/grilledchicken
-	name = "курица-гриль" // SS220 - EDIT
+	name = "grilled chicken"
 	icon_state = "grilled chicken"
 	desc = "Doesn't actually tastes like grilled one, but do you really expect that luxury here?"
 
@@ -45,7 +45,7 @@
 	reagents.add_reagent("sodiumchloride", 2)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/entree/pizzasquare
-	name = "квадратная пицца" // SS220 - EDIT
+	name = "pizza square"
 	icon_state = "pizza square"
 	desc = "An American classic, been added and removed from the menu about 27 times at this point, still loved despite being cheap parody of a real thing."
 
@@ -59,7 +59,7 @@
 	reagents.add_reagent("sodiumchloride", 2)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/entree/pepperonisquare
-	name = "квадратная пицца Пепперони" // SS220 - EDIT
+	name = "pepperoni pizza square"
 	icon_state = "pepperoni square"
 	desc = "A newer addition to the timeless MRE classic, very similar."
 
@@ -72,7 +72,7 @@
 	reagents.add_reagent("sodiumchloride", 2)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/entree/chickentender
-	name = "куриные стрипсы" // SS220 - EDIT
+	name = "chicken tender"
 	icon_state = "chicken tender"
 	desc = "Really tasty and has nice crumbs texture, but makes you wish for some good chicken wings..."
 
@@ -83,7 +83,7 @@
 	reagents.add_reagent("sodiumchloride", 2)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/entree/grilledchickenbreast
-	name = "жареная куриная грудка" // SS220 - EDIT
+	name = "grilled chicken breast"
 	icon_state = "grilled chicken breast"
 	desc = "Very plain grilled chicken meat, simple but yet very classic taste."
 
@@ -93,7 +93,7 @@
 	reagents.add_reagent("sodiumchloride", 2)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/entree/spaghettichunks
-	name = "спагетти с мясом" // SS220 - EDIT
+	name = "meat spaghetti"
 	icon_state = "spaghetti chunks"
 	desc = "Spaghetti with some cooked meat chunks, all covered in a tomato sauce."
 
@@ -105,7 +105,7 @@
 	reagents.add_reagent("sodiumchloride", 2)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/entree/chiliconcarne
-	name = "чили кон карне" // SS220 - EDIT
+	name = "chili con carne"
 	icon_state = "chili con carne"
 	desc = "Spicy minced meat dish, there is no limit on adding chili in there, having some milk in near proximity is recommended."
 
@@ -118,7 +118,7 @@
 	reagents.add_reagent("sodiumchloride", 2)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/entree/noodlesoup
-	name = "лапша" // SS220 - EDIT
+	name = "noodle soup"
 	icon_state = "noodle soup"
 	desc = "Very nourishing noodle soup with vegetables and a chicken flavor, will keep you warm for a long time if heated."
 
@@ -130,7 +130,7 @@
 	reagents.add_reagent("meatprotein", 1)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/entree/feijoada
-	name = "фейжоада" // SS220 - EDIT
+	name = "feijoada"
 	icon_state = "brazilian-style feijoada"
 	desc = "A Brazillian dish filled with black beans, different kinds of meat, vegetables and spices, very nourishing and rich in flavor."
 
@@ -144,7 +144,7 @@
 ///SIDE
 
 /obj/item/mre_food_packet/uscm/side
-	name = "\improper Второе блюдо" // SS220 - EDIT
+	name = "\improper MRE side dish"
 	desc = "An MRE side component. Contains a side, to be eaten alongside the main."
 	icon_state = "side"
 	food_list = list(
@@ -161,7 +161,7 @@
 	)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/side/cracker
-	name = "крекер" // SS220 - EDIT
+	name = "cracker"
 	icon_state = "cracker"
 	desc = "Crumbs easily but it's the most satisfying part."
 
@@ -171,7 +171,7 @@
 	reagents.add_reagent("sodiumchloride", 2)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/side/mashedpotatoes
-	name = "картофельное пюре" // SS220 - EDIT
+	name = "mashed potatoes"
 	icon_state = "mashed potatoes"
 	desc = "Really soft and gentle, goes well with a main dish."
 
@@ -183,7 +183,7 @@
 	reagents.add_reagent("sodiumchloride", 1)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/side/risotto
-	name = "ризотто" // SS220 - EDIT
+	name = "risotto"
 	icon_state = "risotto"
 	desc = "A bit more exotic, but Italian cuisine never dissapoints."
 
@@ -195,7 +195,7 @@
 	reagents.add_reagent("vegetable", 2)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/side/onigiri
-	name = "онигири" // SS220 - EDIT
+	name = "rice onigiri"
 	icon_state = "rice onigiri"
 	desc = "Cooked rice in a form of a triangle, covered in a seaweed at the bottom, doesn't fall apart, surprisingly."
 
@@ -206,7 +206,7 @@
 	reagents.add_reagent("sodiumchloride", 1)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/side/cornbread
-	name = "кукурузные лепёшки" // SS220 - EDIT
+	name = "cornbread"
 	icon_state = "cornbread"
 	desc = "Almost universally hated, very dry and simple taste of it really gets old fast. Requisitions probably has ass-load of it in the back. Nobody eats that shit."
 
@@ -217,7 +217,7 @@
 	reagents.add_reagent("sodiumchloride", 1)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/side/kale
-	name = "квашенная капуста" // SS220 - EDIT
+	name = "marinated kale"
 	icon_state = "kale"
 	desc = "A sort of cabbage, marinated in spices, still has a lot of moist and crunch to it."
 
@@ -228,7 +228,7 @@
 	reagents.add_reagent("sodiumchloride", 2)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/side/tortillas
-	name = "тортильи" // SS220 - EDIT
+	name = "tortillas"
 	icon_state = "tortillas"
 	desc = "A kind of flat bread, goes well with adding other things onto it."
 
@@ -237,7 +237,7 @@
 	reagents.add_reagent("bread", 6)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/side/biscuits
-	name = "бисквит" // SS220 - EDIT
+	name = "biscuits"
 	icon_state = "biscuits"
 	desc = "An assortment of biscuits, go well with adding other things onto them."
 
@@ -247,7 +247,7 @@
 
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/side/cinnamonappleslices
-	name = "яблоки с корицей" // SS220 - EDIT
+	name = "cinnamon apple slices"
 	icon_state = "cinnamon apple slices"
 	desc = "A bit gooey pieces of apple in cinnamon sauce, a bit sticky but tasty."
 
@@ -257,7 +257,7 @@
 	reagents.add_reagent("sugar", 3)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/side/boiledrice
-	name = "варёный рис" // SS220 - EDIT
+	name = "boiled rice"
 	icon_state = "rice"
 	desc = "A packet of plain boiled rice, a bit boring but would go well with additives."
 
@@ -268,7 +268,7 @@
 ///SNACK
 
 /obj/item/mre_food_packet/uscm/snack
-	name = "\improper Закуска" // SS220 - EDIT
+	name = "\improper MRE snack"
 	desc = "An MRE snack component. Contains a light snack in case you weren't feeling terribly hungry."
 	icon_state = "snack"
 	food_list = list(
@@ -280,7 +280,7 @@
 	)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/snack/biscuit
-	name = "бисквит" // SS220 - EDIT
+	name = "biscuit"
 	icon_state = "biscuit"
 	desc = "Reminds you of a cracker, but has a lot more different grains in it, which gives it more unique texture and flavor."
 
@@ -290,7 +290,7 @@
 	reagents.add_reagent("sodiumchloride", 1)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/snack/meatballs
-	name = "фрикадельки" // SS220 - EDIT
+	name = "meatballs"
 	icon_state = "meatballs"
 	desc = "You can even taste muscle fibers, despite it being a cooked minced meat."
 
@@ -301,7 +301,7 @@
 	reagents.add_reagent("blackpepper", 1)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/snack/pretzels
-	name = "крендельки" // SS220 - EDIT
+	name = "pretzels"
 	icon_state = "pretzels"
 	desc = "Really salty and crunchy, thirst provoking."
 
@@ -311,7 +311,7 @@
 	reagents.add_reagent("sodiumchloride", 4)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/snack/sushi
-	name = "суши" // SS220 - EDIT
+	name = "sushi"
 	icon_state = "sushi"
 	desc = "You kinda highly doubt that raw fish wouldn't go bad in here, it barely smells like one... is it even fish?..."
 
@@ -323,7 +323,7 @@
 	reagents.add_reagent("soymilk", 2)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/snack/peanuts
-	name = "арахис" // SS220 - EDIT
+	name = "peanuts"
 	icon_state = "peanuts"
 	desc = "Some crunchy salted peanuts, easy to get addicted to."
 
@@ -335,7 +335,7 @@
 ///DESSERT
 
 /obj/item/mre_food_packet/uscm/dessert
-	name = "\improper Десерт" // SS220 - EDIT
+	name = "\improper MRE dessert"
 	desc = "An MRE side component. Contains a sweet dessert, to be eaten after the main (or before, if you're rebellious)."
 	icon_state = "dessert"
 	food_list = list(
@@ -353,7 +353,7 @@
 	)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/dessert/spicedapples
-	name = "пряные яблоки" // SS220 - EDIT
+	name = "spiced apples"
 	icon_state = "spiced apples"
 	desc = "A bit dry pieces of apple in cinnamon spice, makes your mouth water, but still tasty."
 
@@ -363,7 +363,7 @@
 	reagents.add_reagent("sugar", 2)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/dessert/chocolatebrownie
-	name = "брауни с шоколадом" // SS220 - EDIT
+	name = "chocolate brownie"
 	icon_state = "chocolate brownie"
 	desc = "Coco filled cake base with a chocolate frosting on top, has a deep chocolate flavor."
 
@@ -374,7 +374,7 @@
 	reagents.add_reagent("sprinkles", 1)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/dessert/sugarcookie
-	name = "печенье" // SS220 - EDIT
+	name = "sugar cookie"
 	icon_state = "sugar cookie"
 	desc = "Baked cookie frosted with a caramelized sugar."
 
@@ -384,7 +384,7 @@
 	reagents.add_reagent("bread", 2)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/dessert/cocobar
-	name = "кокосовый батончик" // SS220 - EDIT
+	name = "coco bar"
 	icon_state = "coco bar"
 	desc = "Good old milk chocolate bar, goes well with hot drinks."
 
@@ -395,7 +395,7 @@
 	reagents.add_reagent("sugar", 2)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/dessert/flan
-	name = "пирог" // SS220 - EDIT
+	name = "flan"
 	icon_state = "flan"
 	desc = "A soft milky biscuit pie."
 
@@ -407,7 +407,7 @@
 	reagents.add_reagent("egg", 3)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/dessert/honeyflan
-	name = "пирог с мёдом" // SS220 - EDIT
+	name = "honey flan"
 	icon_state = "honey flan"
 	desc = "A soft milky biscuit pie, covered in honey topping."
 
@@ -419,7 +419,7 @@
 	reagents.add_reagent("egg", 3)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/dessert/lemonpie
-	name = "пирог с лимоном" // SS220 - EDIT
+	name = "lemon pie"
 	icon_state = "lemon pie"
 	desc = "A creamy pie with a milky lemon filling and a thick crust."
 
@@ -432,7 +432,7 @@
 	reagents.add_reagent("egg", 1)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/dessert/limepie
-	name = "пирог с лаймом" // SS220 - EDIT
+	name = "key lime pie"
 	icon_state = "key lime pie"
 	desc = "A creamy pie with a milky lime filling and a thick crust."
 
@@ -445,7 +445,7 @@
 	reagents.add_reagent("egg", 1)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/dessert/brigadeiro
-	name = "конфеты Бригадейро" // SS220 - EDIT
+	name = "brigadeiro balls"
 	icon_state = "brigadeiro balls"
 	desc = "A traditional Brazillian dessert, made out of condensed milk, cocoa and butter, very soft and sugary in taste."
 
@@ -457,7 +457,7 @@
 	reagents.add_reagent("egg", 1)
 
 /obj/item/reagent_container/food/snacks/mre_food/uscm/dessert/strawberrytoaster
-	name = "пирожок во фритюре с клубникой"
+	name = "strawberry toaster pastry"
 	icon_state = "strawberry toaster pastry"
 	desc = "A crunchy biscuit with a strawberry jam inside it, with a frosting on top."
 
@@ -472,7 +472,7 @@
 ///SPREAD
 
 /obj/item/reagent_container/food/drinks/cans/spread
-	name = "плавленый сыр" // SS220 - EDIT
+	name = "spread packet (cheese)"
 	icon = 'icons/obj/items/food/mre_food/uscm.dmi'
 	icon_state = "spread"
 	desc = "A creamy and cheesy spread, made out of a processed cheese, combines well with tortillas and other snacks."
@@ -503,7 +503,7 @@
 	reagents.add_reagent("sodiumchloride", 2)
 
 /obj/item/reagent_container/food/drinks/cans/spread/jalapeno
-	name = "плавленый сыр с халапеньо" // SS220 - EDIT
+	name = "spread packet (jalapeno cheese)"
 	desc = "A creamy and cheesy spread, made out of a processed cheese, combines well with tortillas and other snacks, this one has a spicy jalapeno flavor."
 	flavor = "jalapeno cheese spread"
 
@@ -513,7 +513,7 @@
 	reagents.add_reagent("capsaicin", 2)
 
 /obj/item/reagent_container/food/drinks/cans/spread/peanut_butter
-	name = "арахисовая паста" // SS220 - EDIT
+	name = "spread packet (peanut butter)"
 	desc = "A creamy and nutty spread, made out of a processed peanuts, combines well with tortillas and other snacks."
 	flavor = "peanut butter"
 
@@ -525,14 +525,14 @@
 ///BEVERAGE DRINKS
 
 /obj/item/reagent_container/food/drinks/beverage_drink
-	name = "напиток из порошка" // SS220 - EDIT
+	name = "beverage powder packet"
 	desc = "A packet of a beverage, to be mixed with water, makes a ready-in-a-field drink."
 	icon = 'icons/obj/items/food/mre_food/uscm.dmi'
 	icon_state = "beverage"
 	volume = 20
 
 /obj/item/reagent_container/food/drinks/beverage_drink/grape
-	name = "электролитный напиток из порошка (виноград)" // SS220 - EDIT
+	name = "electrolyte beverage powder packet (grape)"
 	desc = "A packet of an electrolyte beverage, to be mixed with water, makes a ready-in-a-field drink. Has a grape flavor."
 
 /obj/item/reagent_container/food/drinks/beverage_drink/grape/Initialize()
@@ -540,7 +540,7 @@
 	reagents.add_reagent("dehydrated_grape_beverage", 4)
 
 /obj/item/reagent_container/food/drinks/beverage_drink/orange
-	name = "электролитный напиток из порошка (апельсин)" // SS220 - EDIT
+	name = "electrolyte beverage powder packet (orange)"
 	desc = "A packet of an electrolyte beverage, to be mixed with water, makes a ready-in-a-field drink. Has a citrusy orange flavor."
 
 /obj/item/reagent_container/food/drinks/beverage_drink/orange/Initialize()
@@ -548,7 +548,7 @@
 	reagents.add_reagent("electrolyte_orange_beverage", 4)
 
 /obj/item/reagent_container/food/drinks/beverage_drink/lemonlime
-	name = "электролитный напиток из порошка (лимон и лайм)" // SS220 - EDIT
+	name = "electrolyte beverage powder packet (lemon-lime)"
 	desc = "A packet of an electrolyte beverage, to be mixed with water, makes a ready-in-a-field drink. Has a citrusy lemon-lime flavor."
 
 /obj/item/reagent_container/food/drinks/beverage_drink/lemonlime/Initialize()
@@ -556,7 +556,7 @@
 	reagents.add_reagent("electrolyte_lemonlime_beverage", 4)
 
 /obj/item/reagent_container/food/drinks/beverage_drink/chocolate
-	name = "протеиновый напиток из порошка (молочный шоколад)" // SS220 - EDIT
+	name = "protein drink beverage powder packet (milk chocolate)"
 	desc = "A packet of a protein drink, to be mixed with water, makes a ready-in-a-field drink. Has a chocolate flavor."
 
 /obj/item/reagent_container/food/drinks/beverage_drink/chocolate/Initialize()
@@ -564,7 +564,7 @@
 	reagents.add_reagent("chocolate_beverage", 4)
 
 /obj/item/reagent_container/food/drinks/beverage_drink/chocolate_hazelnut
-	name = "протеиновый напиток из порошка (фундук и шоколад)" // SS220 - EDIT
+	name = "protein drink beverage powder packet (chocolate hazelnut)"
 	desc = "A packet of a protein drink, to be mixed with water, makes a ready-in-a-field drink. Has a chocolate hazelnut flavor."
 
 /obj/item/reagent_container/food/drinks/beverage_drink/chocolate_hazelnut/Initialize()

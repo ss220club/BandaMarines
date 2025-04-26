@@ -3316,7 +3316,7 @@
 	reagents.add_reagent("potato", 3)
 
 /obj/item/reagent_container/food/snacks/packaged_burrito
-	name = "Буррито в упаковке" // SS220 - EDIT
+	name = "Packaged Burrito"
 	desc = "A hard microwavable burrito. There's no time given for how long to cook it. Packaged by the Weyland-Yutani Corporation."
 	icon_state = "packaged-burrito"
 	item_state = "pburrito"
@@ -3341,7 +3341,7 @@
 		item_state = "burrito"
 
 /obj/item/reagent_container/food/snacks/packaged_burger
-	name = "Чизбургер в упаковке" // SS220 - EDIT
+	name = "Packaged Cheeseburger"
 	desc = "A soggy microwavable burger. There's no time given for how long to cook it. Packaged by the Weyland-Yutani Corporation."
 	icon_state = "burger"
 	item_state = "pburger"
@@ -3368,7 +3368,7 @@
 		item_state = "burger"
 
 /obj/item/reagent_container/food/snacks/packaged_hdogs
-	name = "Хотдог в упаковке" // SS220 - EDIT
+	name = "Packaged Hotdog"
 	desc = "A singular squishy, room temperature, hot dog. There's no time given for how long to cook it, so you assume its probably good to go. Packaged by the Weyland-Yutani Corporation."
 	icon_state = "packaged-hotdog"
 	item_state = "photdog"
