@@ -151,7 +151,7 @@ export const UserDetails = (props) => {
               {checking_id ? user.name : 'UNKNOWN'}
             </LabeledList.Item>
             <LabeledList.Item label="Должность">
-              {checking_id ? capitalize(user.job) || 'Unemployed' : 'UNKNOWN'}
+              {checking_id ? (user.job ? capitalize(user.job) : user.job) || 'Unemployed' : 'UNKNOWN'}
             </LabeledList.Item>
           </LabeledList>
         </Stack.Item>
