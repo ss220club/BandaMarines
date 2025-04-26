@@ -122,17 +122,19 @@
 
 		starting_turf = affected_turf
 
-/obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/equipped(mob/living/user, slot)
-	. = ..()
-	if(!fired && !(flags_gun_features & GUN_TRIGGER_SAFETY))
-		toggle_gun_safety()
-		to_chat(user, SPAN_NOTICE("[src.name] при поднятии поставился на предохранитель!"))
 
 // ===============================
 // Anti Tank version
 
 /obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/anti_tank
 	current_mag = /obj/item/ammo_magazine/rocket/anti_tank
+
+// Установить на предохранитель при поднятии
+/obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/anti_tank/equipped(mob/living/user, slot)
+	. = ..()
+	if(!fired && !(flags_gun_features & GUN_TRIGGER_SAFETY))
+		toggle_gun_safety()
+		to_chat(user, SPAN_NOTICE("[src.name] при поднятии поставился на предохранитель!"))
 
 // ===============================
 // Вспомогательно
