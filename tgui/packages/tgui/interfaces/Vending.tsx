@@ -136,7 +136,9 @@ export const UserDetails = (props) => {
 
   if (!user) {
     return (
-      <NoticeBox>ID-карта не обнаружена! Обратитесь к главе персонала.</NoticeBox>
+      <NoticeBox>
+        ID-карта не обнаружена! Обратитесь к главе персонала.
+      </NoticeBox>
     );
   }
   return (
@@ -151,7 +153,9 @@ export const UserDetails = (props) => {
               {checking_id ? user.name : 'UNKNOWN'}
             </LabeledList.Item>
             <LabeledList.Item label="Должность">
-              {checking_id ? (user.job ? capitalize(user.job) : user.job) || 'Unemployed' : 'UNKNOWN'}
+              {checking_id
+                ? (user.job ? capitalize(user.job) : user.job) || 'Unemployed'
+                : 'UNKNOWN'}
             </LabeledList.Item>
           </LabeledList>
         </Stack.Item>
@@ -219,8 +223,10 @@ const VendingRow = (props) => {
   const disabled =
     denied || remaining === 0 || (checking_id && product.price > user?.cash);
   const formatProductName = (name: string) => {
-    return name.replace(/«(.*?)»/g, (match, textInsideQuotes) =>
-      `«${textInsideQuotes.replace(/\b\w/g, char => char.toUpperCase())}»`
+    return name.replace(
+      /«(.*?)»/g,
+      (match, textInsideQuotes) =>
+        `«${textInsideQuotes.replace(/\b\w/g, (char) => char.toUpperCase())}»`,
     );
   };
 
@@ -229,7 +235,7 @@ const VendingRow = (props) => {
       <Table.Cell collapsing>
         <ProductImage product={product} />
       </Table.Cell>
-      <Table.Cell bold>{formatProductName(capitalize(product.name))}</Table.Cell>
+      <Table.Cell bold>{formatProductName(product.name)}</Table.Cell>
       <Table.Cell collapsing textAlign="right">
         <ProductStock product={product} remaining={remaining} />
       </Table.Cell>
@@ -263,7 +269,7 @@ const ProductStock = (props) => {
         'good'
       }
     >
-      {remaining} (в наличии)
+      {remaining} (ост.)
     </Box>
   );
 };

@@ -28,7 +28,6 @@ maps/templates.dm
 __pycache__
 test_environment.txt
 .cache
-.idea/
 
 # byond-tracy backend, not shipped with the codebase so it shouldn't be maintained
 prof.dll
