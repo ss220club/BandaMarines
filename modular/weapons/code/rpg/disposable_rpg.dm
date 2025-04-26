@@ -17,7 +17,7 @@
 		WEAR_L_HAND = 'modular/weapons/icons/inhands/rocket_launchers_lefthand.dmi',
 		WEAR_R_HAND = 'modular/weapons/icons/inhands/rocket_launchers_righthand.dmi'
 	)
-	flags_equip_slot = SLOT_BACK
+	flags_equip_slot = NO_FLAGS
 	unacidable = TRUE // Их можно расплавить уничтожить
 	flags_gun_features = GUN_TRIGGER_SAFETY // Нужно сейфер переключить, так как GUN_WIELDED_FIRING_ONLY больше нет
 
@@ -35,6 +35,9 @@
 /obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/Fire(atom/target, mob/living/user, params, reflex, dual_wield)
 	if(fired)
 		to_chat(user, SPAN_NOTICE("[src.name] уже использован и более с него нельзя выстрелить!"))
+		return FALSE
+	if(flags_gun_features & GUN_TRIGGER_SAFETY)
+		to_chat(user, SPAN_WARNING("[src.name] на предохранителе."))
 		return FALSE
 	ammo.accurate_range = initial(ammo.accurate_range)
 	ammo.max_range = initial(ammo.max_range)
@@ -100,6 +103,11 @@
 
 		starting_turf = affected_turf
 
+/obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/common/unequipped(mob/living/user, slot)
+	. = ..()
+	if(!(flags_gun_features & GUN_TRIGGER_SAFETY))
+		//to_chat(user, SPAN_NOTICE("[src.name] при поднятии поставился на предохранитель!"))
+		toggle_gun_safety()
 
 // ===============================
 // Anti Tank version
