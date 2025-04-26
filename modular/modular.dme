@@ -30,4 +30,5 @@
 #include "clothing/_clothing.dme"
 #include "loadout_preferences_gear/_loadout.dme"
 #include "ltb_rework/_ltb_rework.dme"
+#include "engineering_tent/_tents.dme"
 
