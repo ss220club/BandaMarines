@@ -288,7 +288,7 @@
 
 	// SS220 EDIT - Start
 	if(!skillcheck(usr, skill_req, skill_skip_fold_time))
-		if(!do_after(user, fold_time * user.get_skill_duration_multiplier(skill_req), INTERRUPT_ALL, BUSY_ICON_GENERIC))
+		if(!do_after(M, fold_time * M.get_skill_duration_multiplier(skill_req), INTERRUPT_ALL, BUSY_ICON_GENERIC))
 			to_chat(usr, SPAN_WARNING("Вы прекратили складывать [src.name]."))
 			return FALSE
 	// SS220 EDIT - End
