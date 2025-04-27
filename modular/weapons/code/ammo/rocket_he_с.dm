@@ -20,8 +20,8 @@
 
 	// Explosion parameters
 	var/damage_ex = 75
-	var/explosion_power = 150
-	var/explosion_falloff = 75
+	var/explosion_power = EXPLOSION_THRESHOLD_LOW
+	var/explosion_falloff = 50
 	var/explosion_falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR
 
 	// Status effect parameters
