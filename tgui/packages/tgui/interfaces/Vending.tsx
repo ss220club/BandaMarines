@@ -219,20 +219,13 @@ const VendingRow = (props) => {
   const denied = checking_id && (!user || !access);
   const disabled =
     denied || remaining === 0 || (checking_id && product.price > user?.cash);
-  const formatProductName = (name: string) => {
-    return name.replace(
-      /«(.*?)»/g,
-      (match, textInsideQuotes) =>
-        `«${textInsideQuotes.replace(/\b\w/g, (char) => char.toUpperCase())}»`,
-    );
-  };
 
   return (
     <Table.Row>
       <Table.Cell collapsing>
         <ProductImage product={product} />
       </Table.Cell>
-      <Table.Cell bold>{formatProductName(product.name)}</Table.Cell>
+      <Table.Cell bold>{product.name}</Table.Cell>
       <Table.Cell collapsing textAlign="right">
         <ProductStock product={product} remaining={remaining} />
       </Table.Cell>
