@@ -432,7 +432,7 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 			name += " snow helmet"
 		else
 			name += " helmet"
-		name = declent_ru_initial(name, NOMINATIVE, name) // BANDAMARINES EDIT - Translation
+		ru_names_rename(ru_names_toml(name)) // SS220 - EDIT ADDITTION
 
 	if(!(flags_atom & NO_GAMEMODE_SKIN))
 		select_gamemode_skin(type, null, new_protection)

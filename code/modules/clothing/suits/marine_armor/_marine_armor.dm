@@ -121,7 +121,7 @@
 			name += " snow armor" //Leave marine out so that armors don't have to have "Marine" appended (see: generals).
 		else
 			name += " armor"
-		name = declent_ru_initial(name, NOMINATIVE, name) // BANDAMARINES EDIT - Translation
+		ru_names_rename(ru_names_toml(name)) // SS220 - EDIT ADDITTION
 
 	if(!(flags_atom & NO_GAMEMODE_SKIN))
 		select_gamemode_skin(type)

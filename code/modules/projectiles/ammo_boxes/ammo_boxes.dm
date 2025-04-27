@@ -179,7 +179,7 @@
 
 	var/obj/structure/magazine_box/M = new /obj/structure/magazine_box(T)
 	M.icon_state = icon_state_deployed ? icon_state_deployed : icon_state
-	M.name = name
+	M.name = declent_ru_initial(name, NOMINATIVE, name) // BANDAMARINES EDIT - Translation
 	M.desc = desc
 	M.item_box = src
 	M.can_explode = can_explode
