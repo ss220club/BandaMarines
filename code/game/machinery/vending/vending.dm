@@ -710,13 +710,7 @@ GLOBAL_LIST_EMPTY_TYPED(total_vending_machines, /obj/structure/machinery/vending
 		.["user"] = list()
 		.["user"]["name"] = account.owner_name
 		.["user"]["cash"] = max(account.money, cash_worth)
-		// SS220 - START
-		var/new_assignment = declent_ru_initial(id_card.assignment, NOMINATIVE, id_card.assignment)
-		if(isnull(new_assignment))
-			.["user"]["job"] =  id_card.assignment
-		else
-			.["user"]["job"] =  new_assignment
-		// SS220 - END
+		.["user"]["job"] = id_card.assignment
 	else if(cash_worth)
 		.["user"] = list()
 		.["user"]["name"] = ""
