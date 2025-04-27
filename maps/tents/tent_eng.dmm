@@ -41,7 +41,7 @@
 /turf/template_noop,
 /area/template_noop)
 "B" = (
-/obj/structure/tent/reqs,
+/obj/structure/tent/eng,
 /obj/structure/blocker/tent{
 	dir = 8
 	},
