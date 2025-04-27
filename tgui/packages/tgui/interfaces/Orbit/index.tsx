@@ -25,10 +25,10 @@ import {
 } from './helpers';
 import {
   buildSquadObservable,
-  groupSorter,
+  type groupSorter,
   type Observable,
   type OrbitData,
-  splitter,
+  type splitter,
 } from './types';
 
 type search = {
@@ -167,6 +167,9 @@ const xenoSplitter = (members: Array<Observable>) => {
 };
 
 const marineSplitter = (members: Array<Observable>) => {
+  const mutineers: Array<Observable> = [];
+  const loyalists: Array<Observable> = [];
+  const nonCombatants: Array<Observable> = [];
   const alphaSquad: Array<Observable> = [];
   const bravoSquad: Array<Observable> = [];
   const charlieSquad: Array<Observable> = [];
@@ -181,6 +184,14 @@ const marineSplitter = (members: Array<Observable>) => {
 
   // SS220 EDIT - TRANSLATE code/__DEFINES/bandamarines/ru_jobs.dm
   members.forEach((x) => {
+    if (x.mutiny_status?.includes('Mutineer')) {
+      mutineers.push(x);
+    } else if (x.mutiny_status?.includes('Loyalist')) {
+      loyalists.push(x);
+    } else if (x.mutiny_status?.includes('Non-Combatant')) {
+      nonCombatants.push(x);
+    }
+
     if (x.job?.includes(JobsRu('Alpha'))) {
       alphaSquad.push(x);
     } else if (x.job?.includes(JobsRu('Bravo'))) {
@@ -207,6 +218,9 @@ const marineSplitter = (members: Array<Observable>) => {
   });
 
   const squads = [
+    buildSquadObservable('MUTINY', 'red', mutineers),
+    buildSquadObservable('LOYALIST', 'blue', loyalists),
+    buildSquadObservable('NON-COMBAT', 'green', nonCombatants),
     buildSquadObservable(JobsRu('Alpha'), 'red', alphaSquad),
     buildSquadObservable(JobsRu('Bravo'), 'yellow', bravoSquad),
     buildSquadObservable(JobsRu('Charlie'), 'purple', charlieSquad),
@@ -347,6 +361,7 @@ const uppSort = (a: Observable, b: Observable) => {
 
 const weyyuSplitter = (members: Array<Observable>) => {
   const whiteout: Array<Observable> = [];
+  const wycommando: Array<Observable> = [];
   const pmc: Array<Observable> = [];
   const goons: Array<Observable> = [];
   const other: Array<Observable> = [];
@@ -356,6 +371,8 @@ const weyyuSplitter = (members: Array<Observable>) => {
       whiteout.push(x);
     } else if (x.job?.includes(JobsRu('Death Squad'))) {
       whiteout.push(x);
+    } else if (x.job?.includes('W-Y Commando')) {
+      wycommando.push(x);
     } else if (x.job?.includes(JobsRu('PMC'))) {
       pmc.push(x);
     } else if (x.job?.includes(JobsRu('Corporate Security'))) {
@@ -369,6 +386,7 @@ const weyyuSplitter = (members: Array<Observable>) => {
     buildSquadObservable(JobsRu('PMCs'), 'white', pmc),
     buildSquadObservable(JobsRu('Goons'), 'orange', goons),
     buildSquadObservable(JobsRu('Corporate'), 'white', other),
+    buildSquadObservable('W-Y Commando', 'white', wycommando),
     buildSquadObservable(JobsRu('Whiteout'), 'red', whiteout),
   ];
   return squads;
