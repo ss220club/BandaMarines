@@ -150,12 +150,10 @@ export const UserDetails = (props) => {
         <Stack.Item>
           <LabeledList>
             <LabeledList.Item label="Сотрудник">
-              {checking_id ? user.name : 'UNKNOWN'}
+              {checking_id ? user.name : 'НЕИЗВЕСТНО'}
             </LabeledList.Item>
             <LabeledList.Item label="Должность">
-              {checking_id
-                ? (user.job ? capitalize(user.job) : user.job) || 'Unemployed'
-                : 'UNKNOWN'}
+              {checking_id ? user.job || 'Unemployed' : 'НЕИЗВЕСТНО'}
             </LabeledList.Item>
           </LabeledList>
         </Stack.Item>
