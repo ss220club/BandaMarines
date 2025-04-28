@@ -499,7 +499,7 @@
 			break
 
 	if(!MH)
-		to_chat(src, SPAN_MENTORHELP("You don't have any open mentorhelp tickets."))
+		to_chat(src, SPAN_MENTORHELP("У вас нет открытых тикетов"))
 		return
 
 	MH.show_chat_window(src)
