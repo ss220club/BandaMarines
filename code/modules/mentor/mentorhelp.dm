@@ -12,7 +12,7 @@
 	// If this thread is still open
 	var/open = TRUE
 
-	var/list/messages = list()
+	var/list/messages = list() //SS220 EDIT
 
 /datum/mentorhelp/New(client/thread_author)
 	..()
@@ -28,10 +28,10 @@
 
 	author = thread_author
 	author_key = thread_author.key
-	GLOB.mentorhelp_tickets += src //SS220 - EDIT
+	GLOB.mentorhelp_tickets += src //SS220 EDIT
 
 /datum/mentorhelp/Destroy()
-	GLOB.mentorhelp_tickets -= src //SS220 - EDIT
+	GLOB.mentorhelp_tickets -= src //SS220 EDIT
 	author = null
 	mentor = null
 	return ..()
