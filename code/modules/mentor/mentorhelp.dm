@@ -204,7 +204,7 @@
 
 	// Already marked
 	if(mentor)
-		to_chat(thread_mentor, SPAN_MENTORHELP("<b>NOTICE:</b> УВЕДОМЛЕНИЕ:</b> Ментор читает ваш тикет!")) //SS220 - EDIT
+		to_chat(thread_mentor, SPAN_MENTORHELP("<b>УВЕДОМЛЕНИЕ:</b> Ментор читает ваш тикет!")) //SS220 - EDIT
 		return
 
 	if(!thread_mentor)
