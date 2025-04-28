@@ -828,7 +828,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 //-----------TGUI PROCS------------------------
 /obj/structure/machinery/cm_vending/ui_static_data(mob/user)
 	. = list()
-	.["vendor_name"] = capitalize(declent_ru(NOMINATIVE))
+	.["vendor_name"] = capitalize(declent_ru(NOMINATIVE)) // SS220 - EDIT ADDITTION
 	.["vendor_type"] = "base"
 	.["theme"] = vendor_theme
 	if(vend_flags & VEND_FACTION_THEMES)
