@@ -98,13 +98,13 @@
 	if(!sender || !check_author())
 		return
 
-	var/message_entry = list(
-		"sender" = sender.key,
-		"recipient" = recipient?.key || "All mentors",
-		"text" = msg,
-		"timestamp" = world.time
+	var/message_entry = list( //SS220 EDIT
+		"sender" = sender.key, //SS220 EDIT
+		"recipient" = recipient?.key || "All mentors", //SS220 EDIT
+		"text" = msg, //SS220 EDIT
+		"timestamp" = world.time //SS220 EDIT
 	)
-	messages += list(message_entry)
+	messages += list(message_entry) //SS220 EDIT
 
 	if(recipient?.key)
 		log_message(msg, sender.key, recipient.key)
@@ -291,23 +291,23 @@
 		if("close")
 			if(C == author || C == mentor || CLIENT_IS_STAFF(C))
 				close(C)
-				C << browse(null, "window=mentorchat_[REF(src)]")
-		if("open_chat")
-			if(!check_open(C) || !CLIENT_IS_MENTOR(C))
-				return
-			show_chat_window(C)
-		if("send_chat_message")
-			if(!check_open(C) || !CLIENT_IS_MENTOR(C))
-				return
-			var/message = strip_html(href_list["chat_msg"])
-			if(message)
-				if(!mentor)
-					mark(C)
-				else if(mentor != C)
+				C << browse(null, "window=mentorchat_[REF(src)]") //SS220 EDIT
+		if("open_chat") //SS220 EDIT
+			if(!check_open(C) || !CLIENT_IS_MENTOR(C)) //SS220 EDIT
+				return //SS220 EDIT
+			show_chat_window(C) //SS220 EDIT
+		if("send_chat_message") //SS220 EDIT
+			if(!check_open(C) || !CLIENT_IS_MENTOR(C)) //SS220 EDIT
+				return //SS220 EDIT
+			var/message = strip_html(href_list["chat_msg"]) //SS220 EDIT
+			if(message) //SS220 EDIT
+				if(!mentor) //SS220 EDIT
+					mark(C) //SS220 EDIT
+				else if(mentor != C) //SS220 EDIT
 					to_chat(C, SPAN_MENTORHELP("<b>УВЕДОМЛЕНИЕ:</b> другой ментор уже ответил на этот тикет!")) //SS220 - EDIT
-					return
-				message_handlers(message, C, author)
-				show_chat_window(C)
+					return //SS220 EDIT
+				message_handlers(message, C, author) //SS220 EDIT
+				show_chat_window(C) //SS220 EDIT
 /*
  * Autoresponse
  * Putting this here cause it's long and ugly
@@ -358,7 +358,7 @@
 
 	message_handlers(msg, responder, author)
 
-/client/verb/mentor_view_open_tickets()
+/client/verb/mentor_view_open_tickets() //SS220 EDIT START
 	set name = "View Open Tickets"
 	set category = "Admin.Mentor"
 	if(!check_rights(R_MENTOR))
@@ -503,3 +503,4 @@
 		return
 
 	MH.show_chat_window(src)
+//SS220 EDIT END
