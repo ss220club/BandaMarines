@@ -97,14 +97,15 @@
 /datum/mentorhelp/proc/message_handlers(msg, client/sender, client/recipient, with_sound = TRUE, staff_only = FALSE, include_keys = TRUE)
 	if(!sender || !check_author())
 		return
-
-	var/message_entry = list( // SS220 EDIT - START
+	// SS220 EDIT - START
+	var/message_entry = list(
 		"sender" = sender.key,
 		"recipient" = recipient?.key || "All mentors",
 		"text" = msg,
 		"timestamp" = world.time
 	)
-	messages += list(message_entry) // SS220 EDIT - END
+	messages += list(message_entry)
+	// SS220 EDIT - END
 
 	if(recipient?.key)
 		log_message(msg, sender.key, recipient.key)
@@ -291,7 +292,8 @@
 		if("close")
 			if(C == author || C == mentor || CLIENT_IS_STAFF(C))
 				close(C)
-				C << browse(null, "window=mentorchat_[REF(src)]") //SS220 EDIT - START
+				//SS220 EDIT - START
+				C << browse(null, "window=mentorchat_[REF(src)]")
 		if("open_chat")
 			if(!check_open(C) || !CLIENT_IS_MENTOR(C))
 				return
@@ -318,7 +320,8 @@
 			message_handlers(message, C, recipient)
 			show_chat_window(C)
 			if(recipient && recipient != C)
-				show_chat_window(recipient) //SS220 EDIT - END
+				show_chat_window(recipient)
+				//SS220 EDIT - END
 /*
  * Autoresponse
  * Putting this here cause it's long and ugly
@@ -368,8 +371,8 @@
 	msg += "[SPAN_ORANGE(response.message)]"
 
 	message_handlers(msg, responder, author)
-
-/client/verb/mentor_view_open_tickets() //SS220 EDIT START
+//SS220 EDIT START
+/client/verb/mentor_view_open_tickets()
 	set name = "View Open Tickets"
 	set category = "Admin.Mentor"
 	if(!check_rights(R_MENTOR))
@@ -502,4 +505,4 @@
 		return
 
 	MH.show_chat_window(src)
-//SS220 EDIT END
+	//SS220 EDIT END
