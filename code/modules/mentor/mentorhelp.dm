@@ -98,18 +98,18 @@
 	if(!sender || !check_author())
 		return
 
-	var/message_entry = list( //SS220 EDIT
-		"sender" = sender.key, //SS220 EDIT
-		"recipient" = recipient?.key || "All mentors", //SS220 EDIT
-		"text" = msg, //SS220 EDIT
-		"timestamp" = world.time //SS220 EDIT
+	var/message_entry = list( // SS220 EDIT - START
+		"sender" = sender.key,
+		"recipient" = recipient?.key || "All mentors",
+		"text" = msg,
+		"timestamp" = world.time
 	)
-	messages += list(message_entry) //SS220 EDIT
+	messages += list(message_entry) // SS220 EDIT - END
 
 	if(recipient?.key)
 		log_message(msg, sender.key, recipient.key)
 	else
-		log_message(msg, sender.key, "Всем менторам") //SS220 - EDIT
+		log_message(msg, sender.key, "Всем менторам") //SS220 EDIT
 
 	// Sender feedback
 	to_chat(sender, "[SPAN_MENTORHELP("<span class='prefix'>MentorHelp:</span> сообщение [(recipient?.key) ? "<a href='byond://?src=\ref[src];action=message'>[recipient.key]</a>" : "менторам"]:")] [SPAN_MENTORBODY(msg)]") //SS220 - EDIT
@@ -292,7 +292,7 @@
 			if(C == author || C == mentor || CLIENT_IS_STAFF(C))
 				close(C)
 				C << browse(null, "window=mentorchat_[REF(src)]")
-		if("open_chat") //SS220 EDIT
+		if("open_chat") //SS220 EDIT - START
 			if(!check_open(C) || !CLIENT_IS_MENTOR(C))
 				return
 			show_chat_window(C)
@@ -318,7 +318,7 @@
 			message_handlers(message, C, recipient)
 			show_chat_window(C)
 			if(recipient && recipient != C)
-				show_chat_window(recipient) //SS220 EDIT
+				show_chat_window(recipient) //SS220 EDIT - END
 /*
  * Autoresponse
  * Putting this here cause it's long and ugly
