@@ -291,23 +291,34 @@
 		if("close")
 			if(C == author || C == mentor || CLIENT_IS_STAFF(C))
 				close(C)
-				C << browse(null, "window=mentorchat_[REF(src)]") //SS220 EDIT
-		if("open_chat") //SS220 EDIT
-			if(!check_open(C) || !CLIENT_IS_MENTOR(C)) //SS220 EDIT
-				return //SS220 EDIT
-			show_chat_window(C) //SS220 EDIT
-		if("send_chat_message") //SS220 EDIT
-			if(!check_open(C) || !CLIENT_IS_MENTOR(C)) //SS220 EDIT
-				return //SS220 EDIT
-			var/message = strip_html(href_list["chat_msg"]) //SS220 EDIT
-			if(message) //SS220 EDIT
-				if(!mentor) //SS220 EDIT
-					mark(C) //SS220 EDIT
-				else if(mentor != C) //SS220 EDIT
-					to_chat(C, SPAN_MENTORHELP("<b>УВЕДОМЛЕНИЕ:</b> другой ментор уже ответил на этот тикет!")) //SS220 - EDIT
-					return //SS220 EDIT
-				message_handlers(message, C, author) //SS220 EDIT
-				show_chat_window(C) //SS220 EDIT
+				C << browse(null, "window=mentorchat_[REF(src)]")
+		if("open_chat")
+			if(!check_open(C) || !CLIENT_IS_MENTOR(C))
+				return
+			show_chat_window(C)
+		if("send_chat_message")
+			if(!check_open(C))
+				to_chat(C, SPAN_MENTORHELP("Этот тикет закрыт!"))
+				return
+			if(C != author && C != mentor && !CLIENT_IS_STAFF(C))
+				to_chat(C, SPAN_MENTORHELP("Вы не можете отправлять сообщения в этот тикет!"))
+				return
+			var/message = strip_html(href_list["chat_msg"])
+			if(!message || !length(trim(message)))
+				to_chat(C, SPAN_MENTORHELP("Сообщение не может быть пустым!"))
+				return
+			var/client/recipient = (C == author) ? mentor : author
+			if(!recipient && C == author)
+				recipient = null
+			if(C != author && !mentor)
+				mark(C)
+			else if(C != author && mentor != C)
+				to_chat(C, SPAN_MENTORHELP("<b>УВЕДОМЛЕНИЕ:</b> Другой ментор уже отвечает на этот тикет!"))
+				return
+			message_handlers(message, C, recipient)
+			show_chat_window(C)
+			if(recipient && recipient != C)
+				show_chat_window(recipient)
 /*
  * Autoresponse
  * Putting this here cause it's long and ugly
@@ -428,30 +439,18 @@
 	html += "button:hover { background-color: #0099cc; }"
 	html += "</style>"
 	html += "<script>"
-	html += "function saveInput() {"
-	html += "	localStorage.setItem(\"chat_input\", document.getElementById(\"chat_msg\").value);"
-	html += "}"
-	html += "function loadInput() {"
-	html += "	var saved = localStorage.getItem(\"chat_input\");"
-	html += "	if (saved) {"
-	html += "		document.getElementById(\"chat_msg\").value = saved;"
-	html += "	}"
-	html += "}"
+
 	html += "function resizeMessagesArea() {"
-	html += "	var headerHeight = document.querySelector(\".header\").offsetHeight;"
-	html += "	var inputHeight = document.querySelector(\".input-container\").offsetHeight;"
-	html += "	var windowHeight = window.innerHeight;"
-	html += "	document.body.style.minHeight = windowHeight + \"px\";"
+	html += "   var headerHeight = document.querySelector(\".header\").offsetHeight;"
+	html += "   var inputHeight = document.querySelector(\".input-container\").offsetHeight;"
+	html += "   var windowHeight = window.innerHeight;"
+	html += "   document.body.style.minHeight = windowHeight + \"px\";"
 	html += "}"
 	html += "window.addEventListener(\"resize\", resizeMessagesArea);"
-	html += "setInterval(function() {"
-	html += "	saveInput();"
-	html += "	window.location.href = \"byond://?src=\\ref[src];action=open_chat\";"
-	html += "}, 5000);"
+
 	html += "window.onload = function() {"
-	html += "	loadInput();"
-	html += "	resizeMessagesArea();"
-	html += "	window.scrollTo(0, document.body.scrollHeight);"
+	html += "   resizeMessagesArea();"
+	html += "   window.scrollTo(0, document.body.scrollHeight);"
 	html += "};"
 	html += "</script>"
 	html += "</head><body>"
