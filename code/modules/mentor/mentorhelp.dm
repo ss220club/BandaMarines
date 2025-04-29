@@ -292,7 +292,7 @@
 			if(C == author || C == mentor || CLIENT_IS_STAFF(C))
 				close(C)
 				C << browse(null, "window=mentorchat_[REF(src)]")
-		if("open_chat")
+		if("open_chat") //SS220 EDIT
 			if(!check_open(C) || !CLIENT_IS_MENTOR(C))
 				return
 			show_chat_window(C)
@@ -318,7 +318,7 @@
 			message_handlers(message, C, recipient)
 			show_chat_window(C)
 			if(recipient && recipient != C)
-				show_chat_window(recipient)
+				show_chat_window(recipient) //SS220 EDIT
 /*
  * Autoresponse
  * Putting this here cause it's long and ugly
