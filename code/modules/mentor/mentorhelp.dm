@@ -291,8 +291,8 @@
 		if("close")
 			if(C == author || C == mentor || CLIENT_IS_STAFF(C))
 				close(C)
-				C << browse(null, "window=mentorchat_[REF(src)]")
-		if("open_chat") //SS220 EDIT - START
+				C << browse(null, "window=mentorchat_[REF(src)]") //SS220 EDIT - START
+		if("open_chat")
 			if(!check_open(C) || !CLIENT_IS_MENTOR(C))
 				return
 			show_chat_window(C)
