@@ -68,6 +68,7 @@ export const DmTarget = new Juke.Target({
     "html/**",
     "icons/**",
     "interface/**",
+    "tgui/public/tgui.html",
     "modular/**", // BANDASTATION EDIT ADDITION - Making the CBT work
     `${DME_NAME}.dme`,
     NamedVersionFile,
@@ -204,7 +205,7 @@ export const TguiTarget = new Juke.Target({
   dependsOn: [YarnTarget],
   inputs: [
     "tgui/.yarn/install-target",
-    "tgui/webpack.config.js",
+    "tgui/rspack.config.cjs",
     "tgui/**/package.json",
     "tgui/packages/**/*.+(js|jsx|cjs|ts|tsx|scss)",
   ],
@@ -264,6 +265,20 @@ export const TguiAnalyzeTarget = new Juke.Target({
 export const TguiBenchTarget = new Juke.Target({
   dependsOn: [YarnTarget],
   executes: () => yarn("tgui:bench"),
+});
+
+export const TguiPrettierFix = new Juke.Target({
+  dependsOn: [YarnTarget],
+  executes: () => yarn('tgui:prettier-fix'),
+});
+
+export const TguiEslintFix = new Juke.Target({
+  dependsOn: [YarnTarget],
+  executes: () => yarn('tgui:eslint-fix'),
+});
+
+export const TguiFix = new Juke.Target({
+  dependsOn: [TguiPrettierFix, TguiEslintFix],
 });
 
 export const TestTarget = new Juke.Target({

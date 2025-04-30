@@ -56,7 +56,7 @@
 
 	base_actions = list(
 		/datum/action/xeno_action/onclick/xeno_resting,
-		/datum/action/xeno_action/onclick/regurgitate,
+		/datum/action/xeno_action/onclick/release_haul,
 		/datum/action/xeno_action/watch_xeno,
 		/datum/action/xeno_action/activable/tail_stab,
 		/datum/action/xeno_action/onclick/feralrush,
@@ -70,6 +70,7 @@
 	weed_food_icon = 'icons/mob/xenos/weeds_64x64.dmi'
 	weed_food_states = list("Predalien_1","Predalien_2","Predalien_3")
 	weed_food_states_flipped = list("Predalien_1","Predalien_2","Predalien_3")
+
 	var/smashing = FALSE
 	/// If the pred alert/player notif should happen when the predalien spawns
 	var/should_announce_spawn = TRUE
@@ -94,7 +95,7 @@
 	if(!loc)
 		return FALSE
 
-	yautja_announcement(SPAN_YAUTJABOLDBIG("ВНИМАНИЕ!\n\nНа территории [get_area_name(loc)] обнаружена абоминация. Это клеймо на нашей безупречности, и оно недостойно жизни. Уничтожьте это немедленно.\n\nТяжелая оружейная разблокирована."))
+	elder_overseer_message("Обнаружена абоминация на террории [get_area_name(loc)]. \nУничтожьте это немедленно. \n\nТяжелая оружейная разблокирована.")
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_YAUTJA_ARMORY_OPENED)
 
 	to_chat(src, {"

@@ -75,6 +75,8 @@ GLOBAL_LIST_INIT(admin_verbs_default, list(
 	/client/proc/add_known_alt,
 	/client/proc/remove_known_alt,
 	/client/proc/toogle_door_control,
+	/client/proc/check_new_players, // SS220 ADD
+	/client/proc/offline_timed_ban, // SS220 ADD
 	))
 
 GLOBAL_LIST_INIT(admin_verbs_admin, list(
@@ -112,6 +114,9 @@ GLOBAL_LIST_INIT(admin_verbs_sounds, list(
 
 GLOBAL_LIST_INIT(admin_verbs_minor_event, list(
 	/client/proc/cmd_admin_change_custom_event,
+	/client/proc/summon_thunderdome,
+	/client/proc/dispel_any_thunderdome,
+	/client/proc/clean_thunderdome,
 	/datum/admins/proc/admin_force_distress,
 	/datum/admins/proc/admin_force_ERT_shuttle,
 	/client/proc/enable_event_mob_verbs,
@@ -169,6 +174,7 @@ GLOBAL_LIST_INIT(admin_verbs_server, list(
 	/datum/admins/proc/toggleaban,
 	/datum/admins/proc/end_round,
 	/datum/admins/proc/change_ground_map,
+	/datum/admins/proc/prep_events,
 	/datum/admins/proc/change_ship_map,
 	/datum/admins/proc/vote_ground_map,
 	/datum/admins/proc/override_ground_map,
@@ -303,7 +309,6 @@ GLOBAL_LIST_INIT(admin_verbs_teleport, list(
 ))
 
 GLOBAL_LIST_INIT(mentor_verbs, list(
-	/client/proc/cmd_mentor_check_new_players, // BANDAMARINES ADDITION
 	/client/proc/cmd_mentor_say,
 	/datum/admins/proc/imaginary_friend,
 	/client/proc/toggle_newplayer_ghost_hud,

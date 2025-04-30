@@ -26,6 +26,10 @@
 			var/atom/movable/poi = locate(ref) in GLOB.mob_list
 			if (poi == null)
 				poi = locate(ref) in GLOB.all_multi_vehicles
+				// SS220 EDIT - START - Spec Vehicles Support
+				if(poi == null)
+					poi = locate(ref) in GLOB.all_spec_vehicles
+				// SS220 EDIT - END - Spec Vehicles Support
 				if (poi == null)
 					. = TRUE
 					return
@@ -89,7 +93,7 @@
 
 		var/mob/poi_mob = poi
 		if(!istype(poi_mob))
-			if(isVehicleMultitile(poi_mob))
+			if(isVehicleMultitile(poi_mob) || isVehicle(poi_mob))	// SS220 EDIT - Spec Vehicles Support
 				vehicles += list(serialized)
 			else
 				misc += list(serialized)
@@ -136,12 +140,22 @@
 
 				serialized["job"] = id_card?.assignment ? id_card.assignment : human.job
 				serialized["nickname"] = human.real_name
+				if(human.mob_flags & MUTINY_MUTINEER)
+					serialized["mutiny_status"] = "Mutineer"
+				else if(human.mob_flags & MUTINY_LOYALIST)
+					serialized["mutiny_status"] = "Loyalist"
+				else if(human.mob_flags & MUTINY_NONCOMBAT)
+					serialized["mutiny_status"] = "Non-Combatant"
 
 				var/icon = human.assigned_equipment_preset?.minimap_icon
 				if(islist(icon))
 					for(var/key in icon)
 						icon = key
 						break
+				if(id_card?.minimap_icon_override)
+					icon = id_card.minimap_icon_override
+				if(human.rank_override)
+					icon = human.rank_override
 				serialized["icon"] = icon ? icon : "private"
 
 				if(human.assigned_squad)

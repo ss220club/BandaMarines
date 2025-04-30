@@ -183,6 +183,7 @@ Additional game mode variables.
 	if(!new_predator)
 		return
 
+	INVOKE_ASYNC(new_predator, TYPE_PROC_REF(/mob/living/carbon, change_tts_seed_ask)) // BANDAMARINES ADD
 	msg_admin_niche("([new_predator.key]) joined as Yautja, [new_predator.real_name].")
 
 	if(pred_candidate)
@@ -264,6 +265,9 @@ Additional game mode variables.
 		return
 
 	GLOB.RoleAuthority.equip_role(new_predator, J, new_predator.loc)
+
+	if(new_predator.client.check_whitelist_status(WHITELIST_YAUTJA_LEADER))
+		elder_overseer_message("[new_predator.real_name] has joined the hunting party.")
 
 	return new_predator
 

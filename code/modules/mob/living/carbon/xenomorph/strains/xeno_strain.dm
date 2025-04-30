@@ -50,6 +50,7 @@
 	to_chat(xeno, SPAN_XENOANNOUNCE(description))
 	if(flavor_description)
 		to_chat(xeno, SPAN_XENOLEADER(flavor_description))
+	xeno.recalculate_actions() // BANDAMARINES EDIT - Xeno Translate
 	return TRUE
 
 /**
@@ -125,6 +126,8 @@
 
 	new_xeno.xeno_jitter(1.5 SECONDS)
 	if(evolution_stored == evolution_threshold)
+		if(new_xeno.caste_type == XENO_CASTE_FACEHUGGER)
+			return
 		give_action(new_xeno, /datum/action/xeno_action/onclick/evolve)
 
 	// If it applied successfully, add it to the logs.
