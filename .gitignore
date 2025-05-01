@@ -35,10 +35,3 @@ libprof.so
 
 # OpenDream compatibility stuff
 colonialmarines.json
-/.idea/.gitignore
-/.idea/git_toolbox_blame.xml
-/.idea/git_toolbox_prj.xml
-/.idea/material_theme_project_new.xml
-/.idea/php.xml
-/.idea/inspectionProfiles/Project_Default.xml
-/.idea/vcs.xml

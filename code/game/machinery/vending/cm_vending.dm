@@ -578,7 +578,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 								vend_fail()
 								return FALSE
 
-							var/p_name = itemspec[1]
+							var/p_name = itemspec["english_name"] || itemspec[1] // SS220 - EDIT FIX REDEEM SPEC BOXES
 							if(!(p_name in GLOB.specialist_set_name_dict))
 								return
 
@@ -756,7 +756,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 		var/obj/item/device/multitool/MT = W
 
 		if(!skillcheck(user, SKILL_ENGINEER, SKILL_ENGINEER_TRAINED) && !skillcheckexplicit(user, SKILL_ANTAG, SKILL_ANTAG_AGENT))
-			to_chat(user, SPAN_WARNING("You do not understand how tweak access requirements in [src]."))
+			to_chat(user, SPAN_WARNING("You do not understand how to tweak access requirements in [src]."))
 			return FALSE
 		if(stat != WORKING)
 			to_chat(user, SPAN_WARNING("[src] must be in working condition and powered for you to hack it."))

@@ -824,7 +824,7 @@
 	if(!has_species(src, "Human"))
 		to_chat(user, SPAN_WARNING("Triage holocards only works on humans."))
 		return
-	var/newcolor = tgui_input_list(user, "Choose a triage holo card to add to the patient:", "Triage holo card", list("black", "red", "orange", "purple", "none"))
+	var/newcolor = tgui_input_list(user, "Укажите причину болезни пациента:", "Медголокарта", list("Скончался", "Необходима срочная помощь", "Необходима операция", "Инфицирован паразитом XX-121", "Нет данных")) // SS220 - EDIT ADDITTION
 	if(!newcolor)
 		return
 	if(get_dist(user, src) > 7)
@@ -1015,6 +1015,9 @@
 			embedded.on_embedded_movement(src)
 		else if(istype(W, /obj/item/shard/shrapnel))
 			var/obj/item/shard/shrapnel/embedded = W
+			embedded.on_embedded_movement(src)
+		else if(istype(W, /obj/item/sharp))
+			var/obj/item/sharp/embedded = W
 			embedded.on_embedded_movement(src)
 		// Check if its a sharp weapon
 		else if(is_sharp(W))
@@ -1266,7 +1269,8 @@
 		TRACKER_CSL = /datum/squad/marine/charlie,
 		TRACKER_DSL = /datum/squad/marine/delta,
 		TRACKER_ESL = /datum/squad/marine/echo,
-		TRACKER_FSL = /datum/squad/marine/cryo
+		TRACKER_FSL = /datum/squad/marine/cryo,
+		TRACKER_ISL = /datum/squad/marine/intel
 	)
 	switch(tracker_setting)
 		if(TRACKER_SL)
@@ -1671,7 +1675,7 @@
 		drop_inv_item_on_ground(restraint)
 
 /mob/living/carbon/human/equip_to_appropriate_slot(obj/item/W, ignore_delay = 1, list/slot_equipment_priority)
-	if(species)
+	if(species && !slot_equipment_priority)
 		slot_equipment_priority = species.slot_equipment_priority
 	return ..(W,ignore_delay,slot_equipment_priority)
 

@@ -12,7 +12,7 @@
 	)
 	var/rank = "Private"
 	var/rank_short = PAY_SHORT_ME1
-	slot = ACCESSORY_SLOT_RANK
+	worn_accessory_slot = ACCESSORY_SLOT_RANK
 	high_visibility = TRUE
 	gender = PLURAL
 	jumpsuit_hide_states = UNIFORM_JACKET_REMOVED
@@ -20,6 +20,7 @@
 /obj/item/clothing/accessory/ranks/New()
 	..()
 	name = "[initial(name)] ([rank_short])"
+	ru_names_rename(ru_names_toml(src::name, suffix = " ([declent_ru_initial(rank_short, NOMINATIVE, rank_short)])", override_base = name)) // SS220 - EDIT ADDITTION
 	desc = "[initial(desc)] This one is for the rank <b>[get_paygrades(rank_short)]</b>."
 
 /*################################################

@@ -218,9 +218,9 @@ const marineSplitter = (members: Array<Observable>) => {
   });
 
   const squads = [
-    buildSquadObservable('MUTINY', 'red', mutineers),
-    buildSquadObservable('LOYALIST', 'blue', loyalists),
-    buildSquadObservable('NON-COMBAT', 'green', nonCombatants),
+    buildSquadObservable(JobsRu('MUTINY'), 'red', mutineers),
+    buildSquadObservable(JobsRu('LOYALIST'), 'blue', loyalists),
+    buildSquadObservable(JobsRu('NON-COMBAT'), 'green', nonCombatants),
     buildSquadObservable(JobsRu('Alpha'), 'red', alphaSquad),
     buildSquadObservable(JobsRu('Bravo'), 'yellow', bravoSquad),
     buildSquadObservable(JobsRu('Charlie'), 'purple', charlieSquad),
@@ -231,7 +231,7 @@ const marineSplitter = (members: Array<Observable>) => {
     buildSquadObservable(JobsRu('FORECON'), 'green', FORECONSquad),
     buildSquadObservable(JobsRu('SOF'), 'red', SOFSquad),
     buildSquadObservable(JobsRu('Other'), 'grey', other),
-    buildSquadObservable(JobsRu('Provost'), 'red', provost),
+    buildSquadObservable(JobsRu('ProvostCategory'), 'red', provost),
   ];
   return squads;
 };
