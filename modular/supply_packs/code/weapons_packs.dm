@@ -1,5 +1,5 @@
 /datum/supply_packs/rockets_launchers_common
-	name = "RPG M83A2-C Crate (x3)"
+	name = "RPG M83A2-C Crate (x2)"
 	contains = list(
 		/obj/item/prop/folded_anti_tank_sadar/common,
 		/obj/item/prop/folded_anti_tank_sadar/common,
