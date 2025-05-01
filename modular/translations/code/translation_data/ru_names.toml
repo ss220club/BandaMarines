@@ -2493,12 +2493,12 @@ prepositional = "корпоративной кепке службы безопа
 gender = "female"
 
 ["marine's holster"]
-nominative = "кобура морского морпеха"
-genitive = "кобуры морского морпеха"
-dative = "кобуре морского морпеха"
-accusative = "кобуру морского морпеха"
-instrumental = "кобурой морского морпеха"
-prepositional = "кобуре морского морпеха"
+nominative = "кобура морпеха"
+genitive = "кобуры морпеха"
+dative = "кобуре морпеха"
+accusative = "кобуру морпеха"
+instrumental = "кобурой морпеха"
+prepositional = "кобуре морпеха"
 gender = "female"
 
 ["the veteran security advisor headset"]
@@ -4090,7 +4090,7 @@ prepositional = "коробке с патронами для дробовика 
 gender = "female"
 
 ["SMG magazine (9mm)"]
-nominative = "магазин для ПП (9 мм)"
+nominative = "магазин для ПП (9мм)"
 genitive = "магазина для ПП (9мм)"
 dative = "магазину для ПП (9мм)"
 accusative = "магазин для ПП (9мм)"
@@ -4279,116 +4279,341 @@ instrumental = "торговым автоматом игрушек Donksoft"
 prepositional = "торговом автомате игрушек Donksoft"
 gender = "male"
 
-["ColMarTech Food Vendor"] # Unique Name
+["ColMarTech Food Vendor"]
 nominative = "раздатчик еды «КолМорТех»"
+genitive = "раздатчика еды «КолМорТех»"
+dative = "раздатчику еды «КолМорТех»"
+accusative = "раздатчик еды «КолМорТех»"
+instrumental = "раздатчиком еды «КолМорТех»"
+prepositional = "раздатчике еды «КолМорТех»"
+gender = "male"
 
-["ColMarTech Commanding Officer Equipment Rack"] # Unique Name
+["ColMarTech Commanding Officer Equipment Rack"]
 nominative = "раздатчик экипировки командующего офицера «КолМорТех»"
+genitive = "раздатчика экипировки командующего офицера «КолМорТех»"
+dative = "раздатчику экипировки командующего офицера «КолМорТех»"
+accusative = "раздатчик экипировки командующего офицера «КолМорТех»"
+instrumental = "раздатчиком экипировки командующего офицера «КолМорТех»"
+prepositional = "раздатчике экипировки командующего офицера «КолМорТех»"
+gender = "male"
 
-["ColMarTech Maintenance Technician Equipment Rack"] # Unique Name
+["ColMarTech Maintenance Technician Equipment Rack"]
 nominative = "раздатчик экипировки техника «КолМорТех»"
+genitive = "раздатчика экипировки техника «КолМорТех»"
+dative = "раздатчику экипировки техника «КолМорТех»"
+accusative = "раздатчик экипировки техника «КолМорТех»"
+instrumental = "раздатчиком экипировки техника «КолМорТех»"
+prepositional = "раздатчике экипировки техника «КолМорТех»"
+gender = "male"
 
-["ColMarTech Combat Correspondent Equipment Rack"] # Unique Name
+["ColMarTech Combat Correspondent Equipment Rack"]
 nominative = "раздатчик экипировки корреспондента «КолМорТех»"
+genitive = "раздатчика экипировки корреспондента «КолМорТех»"
+dative = "раздатчику экипировки корреспондента «КолМорТех»"
+accusative = "раздатчик экипировки корреспондента «КолМорТех»"
+instrumental = "раздатчиком экипировки корреспондента «КолМорТех»"
+prepositional = "раздатчике экипировки корреспондента «КолМорТех»"
+gender = "male"
 
-["ColMarTech Medical Equipment Rack"] # Unique Name
+["ColMarTech Medical Equipment Rack"]
 nominative = "раздатчик экипировки врача «КолМорТех»"
+genitive = "раздатчика экипировки врача «КолМорТех»"
+dative = "раздатчику экипировки врача «КолМорТех»"
+accusative = "раздатчик экипировки врача «КолМорТех»"
+instrumental = "раздатчиком экипировки врача «КолМорТех»"
+prepositional = "раздатчике экипировки врача «КолМорТех»"
+gender = "male"
 
-["ColMarTech Military Police Gear Rack"] # Unique Name
+["ColMarTech Military Police Gear Rack"]
 nominative = "раздатчик вооружения военной полиции «КолМорТех»"
+genitive = "раздатчика вооружения военной полиции «КолМорТех»"
+dative = "раздатчику вооружения военной полиции «КолМорТех»"
+accusative = "раздатчик вооружения военной полиции «КолМорТех»"
+instrumental = "раздатчиком вооружения военной полиции «КолМорТех»"
+prepositional = "раздатчике вооружения военной полиции «КолМорТех»"
+gender = "male"
 
-["ColMarTech Military Police Equipment Rack"] # Unique Name
+["ColMarTech Military Police Equipment Rack"]
 nominative = "раздатчик экипировки военной полиции «КолМорТех»"
+genitive = "раздатчика экипировки военной полиции «КолМорТех»"
+dative = "раздатчику экипировки военной полиции «КолМорТех»"
+accusative = "раздатчик экипировки военной полиции «КолМорТех»"
+instrumental = "раздатчиком экипировки военной полиции «КолМорТех»"
+prepositional = "раздатчике экипировки военной полиции «КолМорТех»"
+gender = "male"
 
-["ColMarTech Military Warden Equipment Rack"] # Unique Name
+["ColMarTech Military Warden Equipment Rack"]
 nominative = "раздатчик экипировки военного смотрителя «КолМорТех»"
+genitive = "раздатчика экипировки военного смотрителя «КолМорТех»"
+dative = "раздатчику экипировки военного смотрителя «КолМорТех»"
+accusative = "раздатчик экипировки военного смотрителя «КолМорТех»"
+instrumental = "раздатчиком экипировки военного смотрителя «КолМорТех»"
+prepositional = "раздатчике экипировки военного смотрителя «КолМорТех»"
+gender = "male"
 
-["ColMarTech Dropship Crew Equipment Rack"] # Unique Name
+["ColMarTech Dropship Crew Equipment Rack"]
 nominative = "раздатчик экипировки пилота «КолМорТех»"
+genitive = "раздатчика экипировки пилота «КолМорТех»"
+dative = "раздатчику экипировки пилота «КолМорТех»"
+accusative = "раздатчик экипировки пилота «КолМорТех»"
+instrumental = "раздатчиком экипировки пилота «КолМорТех»"
+prepositional = "раздатчике экипировки пилота «КолМорТех»"
+gender = "male"
 
-["ColMarTech Senior Officer Equipment Rack"] # Unique Name
+["ColMarTech Senior Officer Equipment Rack"]
 nominative = "раздатчик экипировки штаб-офицера «КолМорТех»"
+genitive = "раздатчика экипировки штаб-офицера «КолМорТех»"
+dative = "раздатчику экипировки штаб-офицера «КолМорТех»"
+accusative = "раздатчик экипировки штаб-офицера «КолМорТех»"
+instrumental = "раздатчиком экипировки штаб-офицера «КолМорТех»"
+prepositional = "раздатчике экипировки штаб-офицера «КолМорТех»"
+gender = "male"
 
-["ColMarTech Staff Officer Equipment Rack"] # Unique Name
+["ColMarTech Staff Officer Equipment Rack"]
 nominative = "раздатчик экипировки штаб-офицера «КолМорТех»"
+genitive = "раздатчика экипировки штаб-офицера «КолМорТех»"
+dative = "раздатчику экипировки штаб-офицера «КолМорТех»"
+accusative = "раздатчик экипировки штаб-офицера «КолМорТех»"
+instrumental = "раздатчиком экипировки штаб-офицера «КолМорТех»"
+prepositional = "раздатчике экипировки штаб-офицера «КолМорТех»"
+gender = "male"
 
-["ColMarTech Synthetic Equipment Rack"] # Unique Name
+["ColMarTech Synthetic Equipment Rack"]
 nominative = "раздатчик экипировки синтетика «КолМорТех»"
+genitive = "раздатчика экипировки синтетика «КолМорТех»"
+dative = "раздатчику экипировки синтетика «КолМорТех»"
+accusative = "раздатчик экипировки синтетика «КолМорТех»"
+instrumental = "раздатчиком экипировки синтетика «КолМорТех»"
+prepositional = "раздатчике экипировки синтетика «КолМорТех»"
+gender = "male"
 
-["ColMarTech Vehicle Crewman Gear Rack"] # Unique Name
+["ColMarTech Vehicle Crewman Gear Rack"]
 nominative = "раздатчик вооружения экипажа корабля «КолМорТех»"
+genitive = "раздатчика вооружения экипажа корабля «КолМорТех»"
+dative = "раздатчику вооружения экипажа корабля «КолМорТех»"
+accusative = "раздатчик вооружения экипажа корабля «КолМорТех»"
+instrumental = "раздатчиком вооружения экипажа корабля «КолМорТех»"
+prepositional = "раздатчике вооружения экипажа корабля «КолМорТех»"
+gender = "male"
 
-["ColMarTech Vehicle Crewman Equipment Rack"] # Unique Name
+["ColMarTech Vehicle Crewman Equipment Rack"]
 nominative = "раздатчик экипировки экипажа корабля «КолМорТех»"
+genitive = "раздатчика экипировки экипажа корабля «КолМорТех»"
+dative = "раздатчику экипировки экипажа корабля «КолМорТех»"
+accusative = "раздатчик экипировки экипажа корабля «КолМорТех»"
+instrumental = "раздатчиком экипировки экипажа корабля «КолМорТех»"
+prepositional = "раздатчике экипировки экипажа корабля «КолМорТех»"
+gender = "male"
 
-["ColMarTech Automated Armaments Vendor"] # Unique Name
+["ColMarTech Automated Armaments Vendor"]
 nominative = "раздатчик вооружения «КолМорТех»"
+genitive = "раздатчика вооружения «КолМорТех»"
+dative = "раздатчику вооружения «КолМорТех»"
+accusative = "раздатчик вооружения «КолМорТех»"
+instrumental = "раздатчиком вооружения «КолМорТех»"
+prepositional = "раздатчике вооружения «КолМорТех»"
+gender = "male"
 
-["ColMarTech Automated Munition Vendor"] # Unique Name
+["ColMarTech Automated Munition Vendor"]
 nominative = "раздатчик боеприпасов «КолМорТех»"
+genitive = "раздатчика боеприпасов «КолМорТех»"
+dative = "раздатчику боеприпасов «КолМорТех»"
+accusative = "раздатчик боеприпасов «КолМорТех»"
+instrumental = "раздатчиком боеприпасов «КолМорТех»"
+prepositional = "раздатчике боеприпасов «КолМорТех»"
+gender = "male"
 
-["ColMarTech Surplus Uniform Vendor"] # Unique Name
+["ColMarTech Surplus Uniform Vendor"]
 nominative = "раздатчик униформы «КолМорТех»"
+genitive = "раздатчика униформы «КолМорТех»"
+dative = "раздатчику униформы «КолМорТех»"
+accusative = "раздатчик униформы «КолМорТех»"
+instrumental = "раздатчиком униформы «КолМорТех»"
+prepositional = "раздатчике униформы «КолМорТех»"
+gender = "male"
 
-["ColMarTech Squad ComTech Gear Rack"] # Unique Name
+["ColMarTech Squad ComTech Gear Rack"]
 nominative = "раздатчик вооружения техника «КолМорТех»"
+genitive = "раздатчика вооружения техника «КолМорТех»"
+dative = "раздатчику вооружения техника «КолМорТех»"
+accusative = "раздатчик вооружения техника «КолМорТех»"
+instrumental = "раздатчиком вооружения техника «КолМорТех»"
+prepositional = "раздатчике вооружения техника «КолМорТех»"
+gender = "male"
 
-["ColMarTech Squad ComTech Equipment Rack"] # Unique Name
+["ColMarTech Squad ComTech Equipment Rack"]
 nominative = "раздатчик экипировки техника «КолМорТех»"
+genitive = "раздатчика экипировки техника «КолМорТех»"
+dative = "раздатчику экипировки техника «КолМорТех»"
+accusative = "раздатчик экипировки техника «КолМорТех»"
+instrumental = "раздатчиком экипировки техника «КолМорТех»"
+prepositional = "раздатчике экипировки техника «КолМорТех»"
+gender = "male"
 
-["ColMarTech Squad Leader Gear Rack"] # Unique Name
+["ColMarTech Squad ComTech Tools Vendor"]
+nominative = "раздатчик инструментов техника «КолМорТех»"
+genitive = "раздатчика инструментов техника «КолМорТех»"
+dative = "раздатчику инструментов техника «КолМорТех»"
+accusative = "раздатчик инструментов техника «КолМорТех»"
+instrumental = "раздатчиком инструментов техника «КолМорТех»"
+prepositional = "раздатчике инструментов техника «КолМорТех»"
+gender = "male"
+
+["ColMarTech Squad Leader Gear Rack"]
 nominative = "раздатчик вооружения командира отряда «КолМорТех»"
+genitive = "раздатчика вооружения командира отряда «КолМорТех»"
+dative = "раздатчику вооружения командира отряда «КолМорТех»"
+accusative = "раздатчик вооружения командира отряда «КолМорТех»"
+instrumental = "раздатчиком вооружения командира отряда «КолМорТех»"
+prepositional = "раздатчике вооружения командира отряда «КолМорТех»"
+gender = "male"
 
-["ColMarTech Squad Leader Equipment Rack"] # Unique Name
+["ColMarTech Squad Leader Equipment Rack"]
 nominative = "раздатчик экипировки командира отряда «КолМорТех»"
+genitive = "раздатчика экипировки командира отряда «КолМорТех»"
+dative = "раздатчику экипировки командира отряда «КолМорТех»"
+accusative = "раздатчик экипировки командира отряда «КолМорТех»"
+instrumental = "раздатчиком экипировки командира отряда «КолМорТех»"
+prepositional = "раздатчике экипировки командира отряда «КолМорТех»"
+gender = "male"
 
-["ColMarTech Squad Medical Gear Rack"] # Unique Name
+["ColMarTech Squad Medical Gear Rack"]
 nominative = "раздатчик вооружения санитара «КолМорТех»"
+genitive = "раздатчика вооружения санитара «КолМорТех»"
+dative = "раздатчику вооружения санитара «КолМорТех»"
+accusative = "раздатчик вооружения санитара «КолМорТех»"
+instrumental = "раздатчиком вооружения санитара «КолМорТех»"
+prepositional = "раздатчике вооружения санитара «КолМорТех»"
+gender = "male"
 
-["ColMarTech Squad Medical Equipment Rack"] # Unique Name
+["ColMarTech Squad Medical Equipment Rack"]
 nominative = "раздатчик экипировки санитара «КолМорТех»"
+genitive = "раздатчика экипировки санитара «КолМорТех»"
+dative = "раздатчику экипировки санитара «КолМорТех»"
+accusative = "раздатчик экипировки санитара «КолМорТех»"
+instrumental = "раздатчиком экипировки санитара «КолМорТех»"
+prepositional = "раздатчике экипировки санитара «КолМорТех»"
+gender = "male"
 
-["ColMarTech Automated Marine Gear Rack"] # Unique Name
+["ColMarTech Automated Marine Gear Rack"]
 nominative = "раздатчик вооружения стрелка «КолМорТех»"
+genitive = "раздатчика вооружения стрелка «КолМорТех»"
+dative = "раздатчику вооружения стрелка «КолМорТех»"
+accusative = "раздатчик вооружения стрелка «КолМорТех»"
+instrumental = "раздатчиком вооружения стрелка «КолМорТех»"
+prepositional = "раздатчике вооружения стрелка «КолМорТех»"
+gender = "male"
 
-["ColMarTech Automated Marine Equipment Rack"] # Unique Name
+["ColMarTech Automated Marine Equipment Rack"]
 nominative = "раздатчик экипировки стрелка «КолМорТех»"
+genitive = "раздатчика экипировки стрелка «КолМорТех»"
+dative = "раздатчику экипировки стрелка «КолМорТех»"
+accusative = "раздатчик экипировки стрелка «КолМорТех»"
+instrumental = "раздатчиком экипировки стрелка «КолМорТех»"
+prepositional = "раздатчике экипировки стрелка «КолМорТех»"
+gender = "male"
 
-["ColMarTech Squad Smartgun Gear Rack"] # Unique Name
+["ColMarTech Squad Smartgun Gear Rack"]
 nominative = "раздатчик вооружения смартганнера «КолМорТех»"
+genitive = "раздатчика вооружения смартганнера «КолМорТех»"
+dative = "раздатчику вооружения смартганнера «КолМорТех»"
+accusative = "раздатчик вооружения смартганнера «КолМорТех»"
+instrumental = "раздатчиком вооружения смартганнера «КолМорТех»"
+prepositional = "раздатчике вооружения смартганнера «КолМорТех»"
+gender = "male"
 
-["ColMarTech Squad Smartgun Equipment Rack"] # Unique Name
+["ColMarTech Squad Smartgun Equipment Rack"]
 nominative = "раздатчик экипировки смартганнера «КолМорТех»"
+genitive = "раздатчика экипировки смартганнера «КолМорТех»"
+dative = "раздатчику экипировки смартганнера «КолМорТех»"
+accusative = "раздатчик экипировки смартганнера «КолМорТех»"
+instrumental = "раздатчиком экипировки смартганнера «КолМорТех»"
+prepositional = "раздатчике экипировки смартганнера «КолМорТех»"
+gender = "male"
 
-["ColMarTech Squad Weapons Specialist Gear Rack"] # Unique Name
+["ColMarTech Squad Weapons Specialist Gear Rack"]
 nominative = "раздатчик вооружения оружейного специалиста «КолМорТех»"
+genitive = "раздатчика вооружения оружейного специалиста «КолМорТех»"
+dative = "раздатчику вооружения оружейного специалиста «КолМорТех»"
+accusative = "раздатчик вооружения оружейного специалиста «КолМорТех»"
+instrumental = "раздатчиком вооружения оружейного специалиста «КолМорТех»"
+prepositional = "раздатчике вооружения оружейного специалиста «КолМорТех»"
+gender = "male"
 
-["ColMarTech Squad Weapons Specialist Equipment Rack"] # Unique Name
+["ColMarTech Squad Weapons Specialist Equipment Rack"]
 nominative = "раздатчик экипировки оружейного специалиста «КолМорТех»"
+genitive = "раздатчика экипировки оружейного специалиста «КолМорТех»"
+dative = "раздатчику экипировки оружейного специалиста «КолМорТех»"
+accusative = "раздатчик экипировки оружейного специалиста «КолМорТех»"
+instrumental = "раздатчиком экипировки оружейного специалиста «КолМорТех»"
+prepositional = "раздатчике экипировки оружейного специалиста «КолМорТех»"
+gender = "male"
 
-["ColMarTech Automated Weapons Rack"] # Unique Name
+["ColMarTech Automated Weapons Rack"]
 nominative = "раздатчик вооружения «КолМорТех»"
+genitive = "раздатчика вооружения «КолМорТех»"
+dative = "раздатчику вооружения «КолМорТех»"
+accusative = "раздатчик вооружения «КолМорТех»"
+instrumental = "раздатчиком вооружения «КолМорТех»"
+prepositional = "раздатчике вооружения «КолМорТех»"
+gender = "male"
 
-["ColMarTech Automated Munition Squad Vendor"] # Unique Name
+["ColMarTech Automated Munition Squad Vendor"]
 nominative = "раздатчик боеприпасов для отряда «КолМорТех»"
+genitive = "раздатчика боеприпасов для отряда «КолМорТех»"
+dative = "раздатчику боеприпасов для отряда «КолМорТех»"
+accusative = "раздатчик боеприпасов для отряда «КолМорТех»"
+instrumental = "раздатчиком боеприпасов для отряда «КолМорТех»"
+prepositional = "раздатчике боеприпасов для отряда «КолМорТех»"
+gender = "male"
 
 ["ColMarTech Automated Utilities Squad Vendor"] # Unique Name
 nominative = "раздатчик снаряжения для отряда «КолМорТех»"
+genitive = "раздатчика снаряжения для отряда «КолМорТех»"
+dative = "раздатчику снаряжения для отряда «КолМорТех»"
+accusative = "раздатчик снаряжения для отряда «КолМорТех»"
+instrumental = "раздатчиком снаряжения для отряда «КолМорТех»"
+prepositional = "раздатчике снаряжения для отряда «КолМорТех»"
+gender = "male"
 
-["Armat Systems Squad Attachments Vendor"] # Unique Name
+["Armat Systems Squad Attachments Vendor"]
 nominative = "раздатчик обвесов для отряда «Армат Системс»"
+genitive = "раздатчика обвесов для отряда «Армат Системс»"
+dative = "раздатчику обвесов для отряда «Армат Системс»"
+accusative = "раздатчик обвесов для отряда «Армат Системс»"
+instrumental = "раздатчиком обвесов для отряда «Армат Системс»"
+prepositional = "раздатчике обвесов для отряда «Армат Системс»"
+gender = "male"
 
-["MM Blood Dispenser"] # Unique Name
+["MM Blood Dispenser"]
 nominative = "раздатчик гемаконов"
+genitive = "раздатчика гемаконов"
+dative = "раздатчику гемаконов"
+accusative = "раздатчик гемаконов"
+instrumental = "раздатчиком гемаконов"
+prepositional = "раздатчике гемаконов"
+gender = "male"
 
-["NanoMed"] # Unique Name
+["NanoMed"]
 nominative = "НаноМед"
+genitive = "НаноМеда"
+dative = "НаноМеду"
+accusative = "НаноМед"
+instrumental = "НаноМедом"
+prepositional = "НаноМеде"
+gender = "male"
 
 ["Donksoft Toy Vendor Refill"] # Unique Design Name
 nominative = "пополнитель торгового автомата игрушек Donksoft"
 
-["Black Donnovan II: Double Revenge"] # Unique Design Name
-nominative = "Чёрный Донован II: Двойная месть"
+["Black Donnovan II: Double Revenge"]
+nominative = "игровой автомат «Чёрный Донован II: Двойная месть»"
+genitive = "игрового автомата «Чёрный Донован II: Двойная месть»"
+dative = "игровому автомату «Чёрный Донован II: Двойная месть»"
+accusative = "игровой автомат «Чёрный Донован II: Двойная месть»"
+instrumental = "игровым автоматом «Чёрный Донован II: Двойная месть»"
+prepositional = "игровом автомате «Чёрный Донован II: Двойная месть»"
+gender = "male"
 
 ["pet carrier"]
 nominative = "переноска для животных"
@@ -5681,6 +5906,9 @@ instrumental = "металлической флягой ККМП"
 prepositional = "металлической фляге ККМП"
 gender = "female"
 
+["W-Y Flask"] # unqie vendor name
+nominative = "фляга Вейланд-Ютани"
+
 ["Weyland-Yutani flask"]
 nominative = "фляга Вейланд-Ютани"
 genitive = "фляги Вейланд-Ютани"
@@ -5689,14 +5917,6 @@ accusative = "флягу Вейланд-Ютани"
 instrumental = "флягой Вейланд-Ютани"
 prepositional = "фляге Вейланд-Ютани"
 gender = "female"
-
-["W-Y Flask"]
-nominative = "фляга Вейланд-Ютани"
-genitive = "фляги Вейланд-Ютани"
-dative = "фляге Вейланд-Ютани"
-accusative = "флягу Вейланд-Ютани"
-instrumental = "флягой Вейланд-Ютани"
-prepositional = "фляге Вейланд-Ютани"
 
 ["glass bottle"]
 nominative = "стеклянная бутылка"
@@ -7070,66 +7290,66 @@ prepositional = "бургере с беконом"
 gender = "male"
 
 ["USCM Prepared Meal (chicken)"]
-nominative = "готовое блюдо (курица)"
-genitive = "готового блюда (курица)"
-dative = "готовому блюду (курица)"
-accusative = "готовое блюдо (курица)"
-instrumental = "готовым блюдом (курица)"
-prepositional = "готовом блюде (курица)"
+nominative = "готовое блюдо ККМП (курица)"
+genitive = "готового блюда ККМП (курица)"
+dative = "готовому блюду ККМП (курица)"
+accusative = "готовое блюдо ККМП (курица)"
+instrumental = "готовым блюдом ККМП (курица)"
+prepositional = "готовом блюде ККМП (курица)"
 gender = "neuter"
 
 ["USCM Prepared Meal (cornbread)"]
-nominative = "готовое блюдо (кукурузные лепёшки)"
-genitive = "готового блюда (кукурузные лепёшки)"
-dative = "готовому блюду (кукурузные лепёшки)"
-accusative = "готовое блюдо (кукурузные лепёшки)"
-instrumental = "готовым блюдом (кукурузные лепёшки)"
-prepositional = "готовом блюде (кукурузные лепёшки)"
+nominative = "готовое блюдо ККМП (кукурузные лепёшки)"
+genitive = "готового блюда ККМП (кукурузные лепёшки)"
+dative = "готовому блюду ККМП (кукурузные лепёшки)"
+accusative = "готовое блюдо ККМП (кукурузные лепёшки)"
+instrumental = "готовым блюдом ККМП (кукурузные лепёшки)"
+prepositional = "готовом блюде ККМП (кукурузные лепёшки)"
 gender = "neuter"
 
 ["USCM Prepared Meal (pasta)"]
-nominative = "готовое блюдо (паста)"
-genitive = "готового блюда (паста)"
-dative = "готовому блюду (паста)"
-accusative = "готовое блюдо (паста)"
-instrumental = "готовым блюдом (паста)"
-prepositional = "готовом блюде (паста)"
+nominative = "готовое блюдо ККМП (паста)"
+genitive = "готового блюда ККМП (паста)"
+dative = "готовому блюду ККМП (паста)"
+accusative = "готовое блюдо ККМП (паста)"
+instrumental = "готовым блюдом ККМП (паста)"
+prepositional = "готовом блюде ККМП (паста)"
 gender = "neuter"
 
 ["USCM Prepared Meal (pizza)"]
-nominative = "готовое блюдо (пицца)"
-genitive = "готового блюда (пицца)"
-dative = "готовому блюду (пицца)"
-accusative = "готовое блюдо (пицца)"
-instrumental = "готовым блюдом (пицца)"
-prepositional = "готовом блюде (пицца)"
+nominative = "готовое блюдо ККМП (пицца)"
+genitive = "готового блюда ККМП (пицца)"
+dative = "готовому блюду ККМП (пицца)"
+accusative = "готовое блюдо ККМП (пицца)"
+instrumental = "готовым блюдом ККМП (пицца)"
+prepositional = "готовом блюде ККМП (пицца)"
 gender = "neuter"
 
 ["USCM Prepared Meal (pork)"]
-nominative = "готовое блюдо (свинина)"
-genitive = "готового блюда (свинина)"
-dative = "готовому блюду (свинина)"
-accusative = "готовое блюдо (свинина)"
-instrumental = "готовым блюдом (свинина)"
-prepositional = "готовом блюде (свинина)"
+nominative = "готовое блюдо ККМП (свинина)"
+genitive = "готового блюда ККМП (свинина)"
+dative = "готовому блюду ККМП (свинина)"
+accusative = "готовое блюдо ККМП (свинина)"
+instrumental = "готовым блюдом ККМП (свинина)"
+prepositional = "готовом блюде ККМП (свинина)"
 gender = "neuter"
 
 ["USCM Prepared Meal (tofu)"]
-nominative = "готовое блюдо (тофу)"
-genitive = "готового блюда (тофу)"
-dative = "готовому блюду (тофу)"
-accusative = "готовое блюдо (тофу)"
-instrumental = "готовым блюдом (тофу)"
-prepositional = "готовом блюде (тофу)"
+nominative = "готовое блюдо ККМП (тофу)"
+genitive = "готового блюда ККМП (тофу)"
+dative = "готовому блюду ККМП (тофу)"
+accusative = "готовое блюдо ККМП (тофу)"
+instrumental = "готовым блюдом ККМП (тофу)"
+prepositional = "готовом блюде ККМП (тофу)"
 gender = "neuter"
 
 ["stale USCM protein bar"]
-nominative = "чёрствый протеиновый батончик"
-genitive = "чёрствого протеинового батончика"
-dative = "чёрствому протеиновому батончику"
-accusative = "чёрствый протеиновый батончик"
-instrumental = "чёрствым протеиновым батончиком"
-prepositional = "чёрством протеиновом батончике"
+nominative = "чёрствый протеиновый батончик ККМП"
+genitive = "чёрствого протеинового батончика ККМП"
+dative = "чёрствому протеиновому батончику ККМП"
+accusative = "чёрствый протеиновый батончик ККМП"
+instrumental = "чёрствым протеиновым батончиком ККМП"
+prepositional = "чёрством протеиновом батончике ККМП"
 gender = "male"
 
 ["MRE"]
@@ -7142,12 +7362,12 @@ prepositional = "сухом пайке MRE"
 gender = "male"
 
 ["USCM MRE"]
-nominative = "сухой паёк MRE"
-genitive = "сухого пайка MRE"
-dative = "сухому пайку MRE"
-accusative = "сухой паёк MRE"
-instrumental = "сухим пайком MRE"
-prepositional = "сухом пайке MRE"
+nominative = "сухой паёк MRE ККМП"
+genitive = "сухого пайка MRE ККМП"
+dative = "сухому пайку MRE ККМП"
+accusative = "сухой паёк MRE ККМП"
+instrumental = "сухим пайком MRE ККМП"
+prepositional = "сухом пайке MRE ККМП"
 gender = "male"
 
 ["MRE component"]
@@ -7695,12 +7915,12 @@ prepositional = "четырёхцветной ручке"
 gender = "female"
 
 ["Fountain Pen"]
-nominative = "Перьевая ручка"
-genitive = "Перьевой ручки"
-dative = "Перьевой ручке"
-accusative = "Перьевую ручку"
-instrumental = "Перьевой ручкой"
-prepositional = "Перьевой ручке"
+nominative = "перьевая ручка"
+genitive = "перьевой ручки"
+dative = "перьевой ручке"
+accusative = "перьевую ручку"
+instrumental = "перьевой ручкой"
+prepositional = "перьевой ручке"
 gender = "female"
 
 ["fountain pen"]
@@ -24050,12 +24270,12 @@ prepositional = "лампе"
 gender = "female"
 
 ["USCM Tray"]
-nominative = "поднос"
-genitive = "подноса"
-dative = "подносу"
-accusative = "поднос"
-instrumental = "подносом"
-prepositional = "подносе"
+nominative = "поднос ККМП"
+genitive = "подноса ККМП"
+dative = "подносу ККМП"
+accusative = "поднос ККМП"
+instrumental = "подносом ККМП"
+prepositional = "подносе ККМП"
 gender = "male"
 
 ["black facepaint"]
@@ -24194,13 +24414,13 @@ prepositional = "осколке"
 gender = "male"
 
 ["reinforced window"]
-nominative = "укреплённое стекло"
-genitive = "укреплённого стекла"
-dative = "укреплённому стеклу"
-accusative = "укреплённое стекло"
-instrumental = "укреплённым стеклом"
-prepositional = "укреплённом стекле"
-gender = "plural"
+nominative = "усиленное стекло"
+genitive = "усиленного стекла"
+dative = "усиленному стеклу"
+accusative = "усиленное стекло"
+instrumental = "усиленным стеклом"
+prepositional = "усиленном стекле"
+gender = "neuter"
 
 ["Hot Drinks machine"]
 nominative = "автомат горячих напитков"
@@ -24211,10 +24431,7 @@ instrumental = "автоматом горячих напитков"
 prepositional = "автомате горячих напитков"
 gender = "male"
 
-["Hot Foods Machine"] # unique vendor name
-nominative = "автомат горячей еды"
-
-["Hot Foods machine"]
+["Hot Foods Machine"]
 nominative = "автомат горячей еды"
 genitive = "автомата горячей еды"
 dative = "автомату горячей еды"
@@ -24677,22 +24894,22 @@ prepositional = "паяльнике"
 gender = "male"
 
 ["e-tool"]
-nominative = "шанцевый инструмент"
-genitive = "шанцевого инструмента"
-dative = "шанцевому инструменту"
-accusative = "шанцевый инструмент"
-instrumental = "шанцевым инструментом"
-prepositional = "шанцевом инструменте"
-gender = "male"
+nominative = "малая пехотная лопата"
+genitive = "малой пехотной лопаты"
+dative = "малой пехотной лопате"
+accusative = "малую пехотную лопату"
+instrumental = "малой пехотной лопатой"
+prepositional = "малой пехотной лопате"
+gender = "female"
 
 ["entrenching tool"]
-nominative = "шанцевый инструмент"
-genitive = "шанцевого инструмента"
-dative = "шанцевому инструменту"
-accusative = "шанцевый инструмент"
-instrumental = "шанцевым инструментом"
-prepositional = "шанцевом инструменте"
-gender = "male"
+nominative = "малая пехотная лопата"
+genitive = "малой пехотной лопаты"
+dative = "малой пехотной лопате"
+accusative = "малую пехотную лопату"
+instrumental = "малой пехотной лопатой"
+prepositional = "малой пехотной лопате"
+gender = "female"
 
 ["outer hull"]
 nominative = "внешний корпус"
@@ -24821,12 +25038,39 @@ prepositional = "аптечке первой помощи"
 gender = "female"
 
 ["oxygen deprivation first-aid kit"]
-nominative = "аптечка на случай кислородного голодания"
-genitive = "аптечки на случай кислородного голодания"
-dative = "аптечке на случай кислородного голодания"
-accusative = "аптечку на случай кислородного голодания"
-instrumental = "аптечкой на случай кислородного голодания"
-prepositional = "аптечке на случай кислородного голодания"
+nominative = "аптечка при кислородной недостаточности"
+genitive = "аптечки при кислородной недостаточности"
+dative = "аптечке при кислородной недостаточности"
+accusative = "аптечку при кислородной недостаточности"
+instrumental = "аптечкой при кислородной недостаточности"
+prepositional = "аптечке при кислородной недостаточности"
+gender = "female"
+
+["toxin first-aid kit"]
+nominative = "аптечка при отравлениях"
+genitive = "аптечки при отравлениях"
+dative = "аптечке при отравлениях"
+accusative = "аптечку при отравлениях"
+instrumental = "аптечкой при отравлениях"
+prepositional = "аптечке при отравлениях"
+gender = "female"
+
+["fire first-aid kit"]
+nominative = "аптечка при термических повреждениях"
+genitive = "аптечки при термических повреждениях"
+dative = "аптечке при термических повреждениях"
+accusative = "аптечку при термических повреждениях"
+instrumental = "аптечкой при термических повреждениях"
+prepositional = "аптечке при термических повреждениях"
+gender = "female"
+
+["radiation first-aid kit"]
+nominative = "аптечка при радиационном облучении"
+genitive = "аптечки при радиационном облучении"
+dative = "аптечке при радиационном облучении"
+accusative = "аптечку при радиационном облучении"
+instrumental = "аптечкой при радиационном облучении"
+prepositional = "аптечке при радиационном облучении"
 gender = "female"
 
 ["reagent tank"]
@@ -25517,21 +25761,21 @@ prepositional = "персональном компьютере"
 gender = "male"
 
 ["USCM Military Fax Machine"]
-nominative = "военный факс"
-genitive = "военного факса"
-dative = "военному факсу"
-accusative = "военный факс"
-instrumental = "военным факсом"
-prepositional = "военном факсе"
+nominative = "военный факс ККМП"
+genitive = "военного факса ККМП"
+dative = "военному факсу ККМП"
+accusative = "военный факс ККМП"
+instrumental = "военным факсом ККМП"
+prepositional = "военном факсе ККМП"
 gender = "male"
 
 ["USCM Poster"]
-nominative = "постер"
-genitive = "постера"
-dative = "постеру"
-accusative = "постер"
-instrumental = "постером"
-prepositional = "постере"
+nominative = "постер ККМП"
+genitive = "постера ККМП"
+dative = "постеру ККМП"
+accusative = "постер ККМП"
+instrumental = "постером ККМП"
+prepositional = "постере ККМП"
 gender = "male"
 
 ["Tarbacks case"]
@@ -25715,12 +25959,12 @@ prepositional = "кусочке пиццы «Вегетарианская»"
 gender = "male"
 
 ["USCM satchel"]
-nominative = "сумка"
-genitive = "сумки"
-dative = "сумке"
-accusative = "сумку"
-instrumental = "сумкой"
-prepositional = "сумке"
+nominative = "сумка ККМП"
+genitive = "сумки ККМП"
+dative = "сумке ККМП"
+accusative = "сумку ККМП"
+instrumental = "сумкой ККМП"
+prepositional = "сумке ККМП"
 gender = "female"
 
 ["marine combat boots"]
@@ -25786,129 +26030,129 @@ prepositional = "картотеке"
 gender = "male"
 
 ["Alpha Squad"] # unqiue vendor radio keys name
-nominative = "ключ шифрования для гарнитуры - отряд «Альфа»"
+nominative = "ключ шифрования связи - отряд «Альфа»"
 
 ["Alpha Squad Radio Encryption Key"]
-nominative = "ключ шифрования для гарнитуры - отряд «Альфа»"
-genitive = "ключа шифрования для гарнитуры - отряд «Альфа»"
-dative = "ключу шифрования для гарнитуры - отряд «Альфа»"
-accusative = "ключ шифрования для гарнитуры - отряд «Альфа»"
-instrumental = "ключом шифрования для гарнитуры - отряд «Альфа»"
-prepositional = "ключе шифрования для гарнитуры - отряд «Альфа»"
+nominative = "ключ шифрования связи - отряд «Альфа»"
+genitive = "ключа шифрования связи - отряд «Альфа»"
+dative = "ключу шифрования связи - отряд «Альфа»"
+accusative = "ключ шифрования связи - отряд «Альфа»"
+instrumental = "ключом шифрования связи - отряд «Альфа»"
+prepositional = "ключе шифрования связи - отряд «Альфа»"
 gender = "male"
 
 ["Bravo Squad"] # unqiue vendor radio keys name
-nominative = "ключ шифрования для гарнитуры - отряд «Браво»"
+nominative = "ключ шифрования связи - отряд «Браво»"
 
 ["Bravo Squad Radio Encryption Key"]
-nominative = "ключ шифрования для гарнитуры - отряд «Браво»"
-genitive = "ключа шифрования для гарнитуры - отряд «Браво»"
-dative = "ключу шифрования для гарнитуры - отряд «Браво»"
-accusative = "ключ шифрования для гарнитуры - отряд «Браво»"
-instrumental = "ключом шифрования для гарнитуры - отряд «Браво»"
-prepositional = "ключе шифрования для гарнитуры - отряд «Браво»"
+nominative = "ключ шифрования связи - отряд «Браво»"
+genitive = "ключа шифрования связи - отряд «Браво»"
+dative = "ключу шифрования связи - отряд «Браво»"
+accusative = "ключ шифрования связи - отряд «Браво»"
+instrumental = "ключом шифрования связи - отряд «Браво»"
+prepositional = "ключе шифрования связи - отряд «Браво»"
 gender = "male"
 
 ["Сharlie Squad"] # unqiue vendor radio keys name
-nominative = "ключ шифрования для гарнитуры - отряд «Чарли»"
+nominative = "ключ шифрования связи - отряд «Чарли»"
 
 ["Charlie Squad Radio Encryption Key"]
-nominative = "ключ шифрования для гарнитуры - отряд «Чарли»"
-genitive = "ключа шифрования для гарнитуры - отряд «Чарли»"
-dative = "ключу шифрования для гарнитуры - отряд «Чарли»"
-accusative = "ключ шифрования для гарнитуры - отряд «Чарли»"
-instrumental = "ключом шифрования для гарнитуры - отряд «Чарли»"
-prepositional = "ключе шифрования для гарнитуры - отряд «Чарли»"
+nominative = "ключ шифрования связи - отряд «Чарли»"
+genitive = "ключа шифрования связи - отряд «Чарли»"
+dative = "ключу шифрования связи - отряд «Чарли»"
+accusative = "ключ шифрования связи - отряд «Чарли»"
+instrumental = "ключом шифрования связи - отряд «Чарли»"
+prepositional = "ключе шифрования связи - отряд «Чарли»"
 gender = "male"
 
 ["Delta Squad"] # unqiue vendor radio keys name
-nominative = "ключ шифрования для гарнитуры - отряд «Дельта»"
+nominative = "ключ шифрования связи - отряд «Дельта»"
 
 ["Delta Squad Radio Encryption Key"]
-nominative = "ключ шифрования для гарнитуры - отряд «Дельта»"
-genitive = "ключа шифрования для гарнитуры - отряд «Дельта»"
-dative = "ключу шифрования для гарнитуры - отряд «Дельта»"
-accusative = "ключ шифрования для гарнитуры - отряд «Дельта»"
-instrumental = "ключом шифрования для гарнитуры - отряд «Дельта»"
-prepositional = "ключе шифрования для гарнитуры - отряд «Дельта»"
+nominative = "ключ шифрования связи - отряд «Дельта»"
+genitive = "ключа шифрования связи - отряд «Дельта»"
+dative = "ключу шифрования связи - отряд «Дельта»"
+accusative = "ключ шифрования связи - отряд «Дельта»"
+instrumental = "ключом шифрования связи - отряд «Дельта»"
+prepositional = "ключе шифрования связи - отряд «Дельта»"
 gender = "male"
 
 ["Echo Squad"] # unqiue vendor radio keys name
-nominative = "ключ шифрования для гарнитуры - отряд «Эхо»"
+nominative = "ключ шифрования связи - отряд «Эхо»"
 
 ["Echo Squad Radio Encryption Key"]
-nominative = "ключ шифрования для гарнитуры - отряд «Эхо»"
-genitive = "ключа шифрования для гарнитуры - отряд «Эхо»"
-dative = "ключу шифрования для гарнитуры - отряд «Эхо»"
-accusative = "ключ шифрования для гарнитуры - отряд «Эхо»"
-instrumental = "ключом шифрования для гарнитуры - отряд «Эхо»"
-prepositional = "ключе шифрования для гарнитуры - отряд «Эхо»"
+nominative = "ключ шифрования связи - отряд «Эхо»"
+genitive = "ключа шифрования связи - отряд «Эхо»"
+dative = "ключу шифрования связи - отряд «Эхо»"
+accusative = "ключ шифрования связи - отряд «Эхо»"
+instrumental = "ключом шифрования связи - отряд «Эхо»"
+prepositional = "ключе шифрования связи - отряд «Эхо»"
 gender = "male"
 
 ["Colony"] # unqiue vendor radio keys name
-nominative = "ключ шифрования для гарнитуры - выжившие"
+nominative = "ключ шифрования связи - выжившие"
 
 ["Colony Radio Encryption Key"]
-nominative = "ключ шифрования для гарнитуры - выжившие"
-genitive = "ключа шифрования для гарнитуры - выжившие"
-dative = "ключу шифрования для гарнитуры - выжившие"
-accusative = "ключ шифрования для гарнитуры - выжившие"
-instrumental = "ключом шифрования для гарнитуры - выжившие"
-prepositional = "ключе шифрования для гарнитуры - выжившие"
+nominative = "ключ шифрования связи - выжившие"
+genitive = "ключа шифрования связи - выжившие"
+dative = "ключу шифрования связи - выжившие"
+accusative = "ключ шифрования связи - выжившие"
+instrumental = "ключом шифрования связи - выжившие"
+prepositional = "ключе шифрования связи - выжившие"
 gender = "male"
 
 ["Engineering Radio Encryption Key"]
-nominative = "ключ шифрования для гарнитуры - инженерный"
-genitive = "ключа шифрования для гарнитуры - инженерный"
-dative = "ключу шифрования для гарнитуры - инженерный"
-accusative = "ключ шифрования для гарнитуры - инженерный"
-instrumental = "ключом шифрования для гарнитуры - инженерный"
-prepositional = "ключе шифрования для гарнитуры - инженерный"
+nominative = "ключ шифрования связи - инженерный"
+genitive = "ключа шифрования связи - инженерный"
+dative = "ключу шифрования связи - инженерный"
+accusative = "ключ шифрования связи - инженерный"
+instrumental = "ключом шифрования связи - инженерный"
+prepositional = "ключе шифрования связи - инженерный"
 gender = "male"
 
 ["Intel Radio Encryption Key"]
-nominative = "ключ шифрования для гарнитуры - разведка"
-genitive = "ключа шифрования для гарнитуры - разведка"
-dative = "ключу шифрования для гарнитуры - разведка"
-accusative = "ключ шифрования для гарнитуры - разведка"
-instrumental = "ключом шифрования для гарнитуры - разведка"
-prepositional = "ключе шифрования для гарнитуры - разведка"
+nominative = "ключ шифрования связи - разведка"
+genitive = "ключа шифрования связи - разведка"
+dative = "ключу шифрования связи - разведка"
+accusative = "ключ шифрования связи - разведка"
+instrumental = "ключом шифрования связи - разведка"
+prepositional = "ключе шифрования связи - разведка"
 gender = "male"
 
 ["JTAC Radio Encryption Key"]
-nominative = "ключ шифрования для гарнитуры - JTAC"
-genitive = "ключа шифрования для гарнитуры - JTAC"
-dative = "ключу шифрования для гарнитуры - JTAC"
-accusative = "ключ шифрования для гарнитуры - JTAC"
-instrumental = "ключом шифрования для гарнитуры - JTAC"
-prepositional = "ключе шифрования для гарнитуры - JTAC"
+nominative = "ключ шифрования связи - JTAC"
+genitive = "ключа шифрования связи - JTAC"
+dative = "ключу шифрования связи - JTAC"
+accusative = "ключ шифрования связи - JTAC"
+instrumental = "ключом шифрования связи - JTAC"
+prepositional = "ключе шифрования связи - JTAC"
 gender = "male"
 
 ["Medical Radio Encryption Key"]
-nominative = "ключ шифрования для гарнитуры - медицинский"
-genitive = "ключа шифрования для гарнитуры - медицинский"
-dative = "ключу шифрования для гарнитуры - медицинский"
-accusative = "ключ шифрования для гарнитуры - медицинский"
-instrumental = "ключом шифрования для гарнитуры - медицинский"
-prepositional = "ключе шифрования для гарнитуры - медицинский"
+nominative = "ключ шифрования связи - медицинский"
+genitive = "ключа шифрования связи - медицинский"
+dative = "ключу шифрования связи - медицинский"
+accusative = "ключ шифрования связи - медицинский"
+instrumental = "ключом шифрования связи - медицинский"
+prepositional = "ключе шифрования связи - медицинский"
 gender = "male"
 
 ["Sentry Network Status Encryption Key"]
-nominative = "ключ шифрования для гарнитуры - охрана"
-genitive = "ключа шифрования для гарнитуры - охрана"
-dative = "ключу шифрования для гарнитуры - охрана"
-accusative = "ключ шифрования для гарнитуры - охрана"
-instrumental = "ключом шифрования для гарнитуры - охрана"
-prepositional = "ключе шифрования для гарнитуры - охрана"
+nominative = "ключ шифрования связи - стационарная сеть"
+genitive = "ключа шифрования связи - стационарная сеть"
+dative = "ключу шифрования связи - стационарная сеть"
+accusative = "ключ шифрования связи - стационарная сеть"
+instrumental = "ключом шифрования связи - стационарная сеть"
+prepositional = "ключе шифрования связи - стационарная сеть"
 gender = "male"
 
 ["Supply Radio Encryption Key"]
-nominative = "ключ шифрования для гарнитуры - обеспечение"
-genitive = "ключа шифрования для гарнитуры - обеспечение"
-dative = "ключу шифрования для гарнитуры - обеспечение"
-accusative = "ключ шифрования для гарнитуры - обеспечение"
-instrumental = "ключом шифрования для гарнитуры - обеспечение"
-prepositional = "ключе шифрования для гарнитуры - обеспечение"
+nominative = "ключ шифрования связи - обеспечение"
+genitive = "ключа шифрования связи - обеспечение"
+dative = "ключу шифрования связи - обеспечение"
+accusative = "ключ шифрования связи - обеспечение"
+instrumental = "ключом шифрования связи - обеспечение"
+prepositional = "ключе шифрования связи - обеспечение"
 gender = "male"
 
 ["lightweight IMP backpack"]
@@ -25936,12 +26180,12 @@ gender = "male"
 nominative = "рюкзак для миномётных мин"
 
 ["USCM mortar shell backpack"]
-nominative = "рюкзак для миномётных мин"
-genitive = "рюкзака для миномётных мин"
-dative = "рюкзаку для миномётных мин"
-accusative = "рюкзак для миномётных мин"
-instrumental = "рюкзаком для миномётных мин"
-prepositional = "рюкзаке для миномётных мин"
+nominative = "рюкзак для миномётных мин ККМП"
+genitive = "рюкзака для миномётных мин ККМП"
+dative = "рюкзаку для миномётных мин ККМП"
+accusative = "рюкзак для миномётных мин ККМП"
+instrumental = "рюкзаком для миномётных мин ККМП"
+prepositional = "рюкзаке для миномётных мин ККМП"
 gender = "male"
 
 ["IMP Ammo Pack"] # unique vendor name
@@ -25966,12 +26210,12 @@ prepositional = "парашюте"
 gender = "male"
 
 ["USCM chestrig"]
-nominative = "разгрузочная система"
-genitive = "разгрузочной системы"
-dative = "разгрузочной системе"
-accusative = "разгрузочную систему"
-instrumental = "разгрузочной системой"
-prepositional = "разгрузочной системе"
+nominative = "разгрузочная система ККМП"
+genitive = "разгрузочной системы ККМП"
+dative = "разгрузочной системе ККМП"
+accusative = "разгрузочную систему ККМП"
+instrumental = "разгрузочной системой ККМП"
+prepositional = "разгрузочной системе ККМП"
 gender = "female"
 
 ["technician backpack"]
@@ -25984,12 +26228,12 @@ prepositional = "рюкзаке техника"
 gender = "male"
 
 ["USCM technician backpack"]
-nominative = "рюкзак техника"
-genitive = "рюкзака техника"
-dative = "рюкзаку техника"
-accusative = "рюкзак техника"
-instrumental = "рюкзаком техника"
-prepositional = "рюкзаке техника"
+nominative = "рюкзак техника ККМП"
+genitive = "рюкзака техника ККМП"
+dative = "рюкзаку техника ККМП"
+accusative = "рюкзак техника ККМП"
+instrumental = "рюкзаком техника ККМП"
+prepositional = "рюкзаке техника ККМП"
 gender = "male"
 
 ["Technician Chestrig"] # Unique Vendor Name
@@ -25999,30 +26243,30 @@ nominative = "разгрузочная система техника"
 nominative = "разгрузочная система техника"
 
 ["USCM technician chestrig"]
-nominative = "разгрузочная система техника"
-genitive = "разгрузочной системы техника"
-dative = "разгрузочной системе техника"
-accusative = "разгрузочную систему техника"
-instrumental = "разгрузочной системой техника"
-prepositional = "разгрузочной системе техника"
+nominative = "разгрузочная система техника ККМП"
+genitive = "разгрузочной системы техника ККМП"
+dative = "разгрузочной системе техника ККМП"
+accusative = "разгрузочную систему техника ККМП"
+instrumental = "разгрузочной системой техника ККМП"
+prepositional = "разгрузочной системе техника ККМП"
 gender = "female"
 
 ["USCM corpsman backpack"]
-nominative = "рюкзак санитара"
-genitive = "рюкзака санитара"
-dative = "рюкзаку санитара"
-accusative = "рюкзак санитара"
-instrumental = "рюкзаком санитара"
-prepositional = "рюкзаке санитара"
+nominative = "рюкзак санитара ККМП"
+genitive = "рюкзака санитара ККМП"
+dative = "рюкзаку санитара ККМП"
+accusative = "рюкзак санитара ККМП"
+instrumental = "рюкзаком санитара ККМП"
+prepositional = "рюкзаке санитара ККМП"
 gender = "male"
 
 ["USCM corpsman satchel"]
-nominative = "сумка санитара"
-genitive = "сумки санитара"
-dative = "сумке санитара"
-accusative = "сумку санитара"
-instrumental = "сумкой санитара"
-prepositional = "сумке санитара"
+nominative = "сумка санитара ККМП"
+genitive = "сумки санитара ККМП"
+dative = "сумке санитара ККМП"
+accusative = "сумку санитара ККМП"
+instrumental = "сумкой санитара ККМП"
+prepositional = "сумке санитара ККМП"
 gender = "female"
 
 ["heat absorbent coif"]
@@ -26385,7 +26629,16 @@ instrumental = "гарнитурой морпеха отряда «Эхо»"
 prepositional = "гарнитуре морпеха отряда «Эхо»"
 gender = "female"
 
-["marine alpha technician radio headset"]
+["marine foxtrot radio headset"]
+nominative = "гарнитура морпеха отряда «Фокстрот»"
+genitive = "гарнитуры морпеха отряда «Фокстрот»"
+dative = "гарнитуре морпеха отряда «Фокстрот»"
+accusative = "гарнитуру морпеха отряда «Фокстрот»"
+instrumental = "гарнитурой морпеха отряда «Фокстрот»"
+prepositional = "гарнитуре морпеха отряда «Фокстрот»"
+gender = "female"
+
+["marine alpha engineer radio headset"]
 nominative = "гарнитура техика отряда «Альфа»"
 genitive = "гарнитуры техика отряда «Альфа»"
 dative = "гарнитуре техика отряда «Альфа»"
@@ -26394,7 +26647,7 @@ instrumental = "гарнитурой техика отряда «Альфа»"
 prepositional = "гарнитуре техика отряда «Альфа»"
 gender = "female"
 
-["marine bravo technician radio headset"]
+["marine bravo engineer radio headset"]
 nominative = "гарнитура техика отряда «Браво»"
 genitive = "гарнитуры техика отряда «Браво»"
 dative = "гарнитуре техика отряда «Браво»"
@@ -26403,7 +26656,7 @@ instrumental = "гарнитурой техика отряда «Браво»"
 prepositional = "гарнитуре техика отряда «Браво»"
 gender = "female"
 
-["marine charlie technician radio headset"]
+["marine charlie engineer radio headset"]
 nominative = "гарнитура техика отряда «Чарли»"
 genitive = "гарнитуры техика отряда «Чарли»"
 dative = "гарнитуре техика отряда «Чарли»"
@@ -26412,7 +26665,7 @@ instrumental = "гарнитурой техика отряда «Чарли»"
 prepositional = "гарнитуре техика отряда «Чарли»"
 gender = "female"
 
-["marine delta technician radio headset"]
+["marine delta engineer radio headset"]
 nominative = "гарнитура техика отряда «Дельта»"
 genitive = "гарнитуры техика отряда «Дельта»"
 dative = "гарнитуре техика отряда «Дельта»"
@@ -26421,13 +26674,22 @@ instrumental = "гарнитурой техика отряда «Дельта»"
 prepositional = "гарнитуре техика отряда «Дельта»"
 gender = "female"
 
-["marine echo technician radio headset"]
+["marine echo engineer radio headset"]
 nominative = "гарнитура техика отряда «Эхо»"
 genitive = "гарнитуры техика отряда «Эхо»"
 dative = "гарнитуре техика отряда «Эхо»"
 accusative = "гарнитуру техика отряда «Эхо»"
 instrumental = "гарнитурой техика отряда «Эхо»"
 prepositional = "гарнитуре техика отряда «Эхо»"
+gender = "female"
+
+["marine foxtrot engineer radio headset"]
+nominative = "гарнитура техика отряда «Фокстрот»"
+genitive = "гарнитуры техика отряда «Фокстрот»"
+dative = "гарнитуре техика отряда «Фокстрот»"
+accusative = "гарнитуру техика отряда «Фокстрот»"
+instrumental = "гарнитурой техика отряда «Фокстрот»"
+prepositional = "гарнитуре техика отряда «Фокстрот»"
 gender = "female"
 
 ["fortune cookie"]
@@ -26601,6 +26863,15 @@ instrumental = "огнемётом M240A1"
 prepositional = "огнемёте M240A1"
 gender = "male"
 
+["M240-T incinerator unit"]
+nominative = "огнемёт M240-T"
+genitive = "огнемёта M240-T"
+dative = "огнемёту M240-T"
+accusative = "огнемёт M240-T"
+instrumental = "огнемётом M240-T"
+prepositional = "огнемёте M240-T"
+gender = "male"
+
 ["M79 Grenade Launcher"] # unique vendor name
 nominative = "гранатомёт M79"
 
@@ -26614,7 +26885,7 @@ prepositional = "гранатомёте M79"
 gender = "male"
 
 ["M240 Incinerator Tank (Napthal)"] # unique vendor name
-nominative = "топливный резервуар для M240 (Лигроин)"
+nominative = "топливный резервуар для M240 (Напалм)"
 
 ["M240 incinerator tank"]
 nominative = "топливный резервуар для M240"
@@ -26623,6 +26894,42 @@ dative = "топливному резервуару для M240"
 accusative = "топливный резервуар для M240"
 instrumental = "топливным резервуаром для M240"
 prepositional = "топливном резервуаре для M240"
+gender = "male"
+
+["Large Incinerator Tank"] # unique vendor name
+nominative = "топливный резервуар для M240-T (Напалм)"
+
+["M240 large incinerator tank"]
+nominative = "топливный резервуар для M240-T (Напалм)"
+genitive = "топливного резервуара для M240-T (Напалм)"
+dative = "топливному резервуару для M240-T (Напалм)"
+accusative = "топливный резервуар для M240-T (Напалм)"
+instrumental = "топливным резервуаром для M240-T (Напалм)"
+prepositional = "топливном резервуаре для M240-T (Напалм)"
+gender = "male"
+
+["Large Incinerator Tank (B) (Green Flame)"] # unique vendor name
+nominative = "топливный резервуар для M240-T (Напалм-В)"
+
+["M240 large incinerator tank (B)"]
+nominative = "топливный резервуар для M240-T (Напалм-В)"
+genitive = "топливного резервуара для M240-T (Напалм-В)"
+dative = "топливному резервуару для M240-T (Напалм-В)"
+accusative = "топливный резервуар для M240-T (Напалм-В)"
+instrumental = "топливным резервуаром для M240-T (Напалм-В)"
+prepositional = "топливном резервуаре для M240-T (Напалм-В)"
+gender = "male"
+
+["Large Incinerator Tank (X) (Blue Flame)"] # unique vendor name
+nominative = "топливный резервуар для M240-T (Напалм-Х)"
+
+["M240 large incinerator tank (X)"]
+nominative = "топливный резервуар для M240-T (Напалм-Х)"
+genitive = "топливного резервуара для M240-T (Напалм-Х)"
+dative = "топливному резервуару для M240-T (Напалм-Х)"
+accusative = "топливный резервуар для M240-T (Напалм-Х)"
+instrumental = "топливным резервуаром для M240-T (Напалм-Х)"
+prepositional = "топливном резервуаре для M240-T (Напалм-Х)"
 gender = "male"
 
 ["M56D Drum Magazine"] # unique vendor name
@@ -26751,6 +27058,9 @@ instrumental = "противопехотной миной M20 Клеймор"
 prepositional = "противопехотной мине M20 Клеймор"
 gender = "female"
 
+["M40 HEDP Grenades x6"]
+nominative = "граната M40 HEDP (Осколочная) x 6"
+
 ["M40 HEDP grenade"]
 nominative = "граната M40 HEDP (Осколочная)"
 genitive = "гранаты M40 HEDP (Осколочная)"
@@ -26759,6 +27069,9 @@ accusative = "гранату M40 HEDP (Осколочная)"
 instrumental = "гранатой M40 HEDP (Осколочная)"
 prepositional = "гранате M40 HEDP (Осколочная)"
 gender = "female"
+
+["M40 HIDP Incendiary Grenade x6"]
+nominative = "граната M40 HIDP (Зажигательная) x 6"
 
 ["M40 HIDP incendiary grenade"]
 nominative = "граната M40 HIDP (Зажигательная)"
@@ -26770,15 +27083,18 @@ prepositional = "гранате M40 HIDP (Зажигательная)"
 gender = "female"
 
 ["M40 CCDP Chemical Compound Smoke Grenade"] # unique vendor name
-nominative = "граната M40 CCDP (Фосфор)"
+nominative = "граната M40 CCDP (Фосфорная)"
+
+["M40 CCDP Chemical Compound Grenades x6"]
+nominative = "граната M40 CCDP (Фосфорная) x 6"
 
 ["M40 CCDP grenade"]
-nominative = "граната M40 CCDP (Фосфор)"
-genitive = "гранаты M40 CCDP (Фосфор)"
-dative = "гранате M40 CCDP (Фосфор)"
-accusative = "гранату M40 CCDP (Фосфор)"
-instrumental = "гранатой M40 CCDP (Фосфор)"
-prepositional = "гранате M40 CCDP (Фосфор)"
+nominative = "граната M40 CCDP (Фосфорная)"
+genitive = "гранаты M40 CCDP (Фосфорная)"
+dative = "гранате M40 CCDP (Фосфорная)"
+accusative = "гранату M40 CCDP (Фосфорная)"
+instrumental = "гранатой M40 CCDP (Фосфорная)"
+prepositional = "гранате M40 CCDP (Фосфорная)"
 gender = "female"
 
 ["M40 HSDP smoke grenade"]
@@ -26793,6 +27109,9 @@ gender = "female"
 ["M74 AGM-Frag Airburst Grenade"] # unique vendor name
 nominative = "прыгающая граната M74 AGM (Осколочная)"
 
+["M74 AGM-F Fragmentation Grenades x6"]
+nominative = "прыгающая граната M74 AGM (Осколочная) x 6"
+
 ["M74 AGM-F 40mm Grenade"]
 nominative = "прыгающая граната M74 AGM (Осколочная)"
 genitive = "прыгающей гранаты M74 AGM (Осколочная)"
@@ -26805,6 +27124,9 @@ gender = "female"
 ["M74 AGM-Incendiary Airburst Grenade"] # unique vendor name
 nominative = "прыгающая граната M74 AGM (Зажигательная)"
 
+["M74 AGM-I Incendiary Grenades x6"] # unique vendor name
+nominative = "прыгающая граната M74 AGM (Зажигательная) x 6"
+
 ["M74 AGM-I 40mm Grenade"]
 nominative = "прыгающая граната M74 AGM (Зажигательная)"
 genitive = "прыгающей гранаты M74 AGM (Зажигательная)"
@@ -26816,6 +27138,9 @@ gender = "female"
 
 ["M74 AGM-Smoke Airburst Grenade"] # unique vendor name
 nominative = "прыгающая граната M74 AGM (Дымовая)"
+
+["M74 AGM-S Smoke Grenades x6"] # unique vendor name
+nominative = "прыгающая граната M74 AGM (Дымовая) x 6"
 
 ["M74 AGM-S 40mm Grenade"]
 nominative = "прыгающая граната M74 AGM (Дымовая)"
@@ -26852,6 +27177,9 @@ gender = "female"
 
 ["G2 Electroshock Grenade"] # unique vendor name
 nominative = "электрошоковая граната G2"
+
+["G2 Electroshock Grenade Pack x6"] # unique vendor name
+nominative = "электрошоковая граната G2 x 6"
 
 ["G2 electroshock grenade"]
 nominative = "электрошоковая граната G2"
@@ -26986,12 +27314,12 @@ gender = "female"
 nominative = "Коробка для патронов (Бетонобойные)"
 
 ["flamer tank box (UT-napthal fuel x 8)"]
-nominative = "ящик с топливной смесью (Лигроин x 8)"
-genitive = "ящика с топливной смесью (Лигроин x 8)"
-dative = "ящику с топливной смесью (Лигроин x 8)"
-accusative = "ящик с топливной смесью (Лигроин x 8)"
-instrumental = "ящиком с топливной смесью (Лигроин x 8)"
-prepositional = "ящике с топливной смесью (Лигроин x 8)"
+nominative = "ящик с топливной смесью (Напалм x 8)"
+genitive = "ящика с топливной смесью (Напалм x 8)"
+dative = "ящику с топливной смесью (Напалм x 8)"
+accusative = "ящик с топливной смесью (Напалм x 8)"
+instrumental = "ящиком с топливной смесью (Напалм x 8)"
+prepositional = "ящике с топливной смесью (Напалм x 8)"
 gender = "male"
 
 ["M4RA magazine (10x24mm)"]
@@ -27204,6 +27532,69 @@ dative = "пулемётной пуле (10x28мм SP)"
 accusative = "пулемётную пулю (10x28мм SP)"
 instrumental = "пулемётной пулей (10x28мм SP)"
 prepositional = "пулемётной пуле (10x28мм SP)"
+gender = "female"
+
+["handful of A19 high velocity bullets (10x24mm)"]
+nominative = "винтовочные пули (10x24мм HV)"
+genitive = "винтовочных пуль (10x24мм HV)"
+dative = "винтовочным пулям (10x24мм HV)"
+accusative = "винтовочные пули (10x24мм HV)"
+instrumental = "винтовочными пулями (10x24мм HV)"
+prepositional = "винтовочных пулях (10x24мм HV)"
+gender = "female"
+
+["handful of A19 high velocity incendiary bullets (10x24mm)"]
+nominative = "зажигательные винтовочные пули (10x24мм HV)"
+genitive = "зажигательных винтовочных пуль (10x24мм HV)"
+dative = "зажигательным винтовочным пулям (10x24мм HV)"
+accusative = "зажигательные винтовочные пули (10x24мм HV)"
+instrumental = "зажигательными винтовочными пулями (10x24мм HV)"
+prepositional = "зажигательных винтовочных пулях (10x24мм HV)"
+gender = "female"
+
+["handful of A19 high velocity impact bullets (10x24mm)"]
+nominative = "экспансивные винтовочные пули (10x24мм HV)"
+genitive = "экспансивных винтовочных пуль (10x24мм HV)"
+dative = "экспансивным винтовочным пулям (10x24мм HV)"
+accusative = "экспансивные винтовочные пули (10x24мм HV)"
+instrumental = "экспансивными винтовочными пулями (10x24мм HV)"
+prepositional = "экспансивных винтовочных пулях (10x24мм HV)"
+gender = "female"
+
+["handful of sniper bullets (10x28mm)"]
+nominative = "снайперские пули (10x28мм)"
+genitive = "снайперских пуль (10x28мм)"
+dative = "снайперским пулям (10x28мм)"
+accusative = "снайперские пули (10x28мм)"
+instrumental = "снайперскими пулями (10x28мм)"
+prepositional = "снайперских пулях (10x28мм)"
+gender = "female"
+
+["handful of incendiary sniper bullets (10x28mm)"]
+nominative = "зажигательные снайперские пули (10x28мм)"
+genitive = "зажигательных снайперских пуль (10x28мм)"
+dative = "зажигательным снайперским пулям (10x28мм)"
+accusative = "зажигательные снайперские пули (10x28мм)"
+instrumental = "зажигательными снайперскими пулями (10x28мм)"
+prepositional = "зажигательных снайперских пулях (10x28мм)"
+gender = "female"
+
+["handful of flak sniper bullets (10x28mm)"]
+nominative = "экспансивные снайперские пули (10x28мм)"
+genitive = "экспансивных снайперских пуль (10x28мм)"
+dative = "экспансивным снайперским пулям (10x28мм)"
+accusative = "экспансивные снайперские пули (10x28мм)"
+instrumental = "экспансивными снайперскими пулями (10x28мм)"
+prepositional = "экспансивных снайперских пулях (10x28мм)"
+gender = "female"
+
+["handful of anti-materiel sniper bullets (10x99mm)"]
+nominative = "крупнокалиберные снайперские пули (10x99мм)"
+genitive = "крупнокалиберных снайперских пуль (10x99мм)"
+dative = "крупнокалиберным снайперским пулям (10x99мм)"
+accusative = "крупнокалиберные снайперские пули (10x99мм)"
+instrumental = "крупнокалиберными снайперскими пулями (10x99мм)"
+prepositional = "крупнокалиберных снайперских пулях (10x99мм)"
 gender = "female"
 
 # MARK bullets end
@@ -27572,51 +27963,51 @@ nominative = "ИЛС очки врача"
 nominative = "ИЛС очки охраны"
 
 ["M276 General Pistol Holster Rig"] # unique vendor name
-nominative = "пояс с кобурой для пистолета"
+nominative = "пояс M276 с кобурой для пистолета"
 
 ["M276 pattern general pistol holster rig"]
-nominative = "пояс с кобурой для пистолета"
-genitive = "пояса с кобурой для пистолета"
-dative = "поясу с кобурой для пистолета"
-accusative = "пояс с кобурой для пистолета"
-instrumental = "поясом с кобурой для пистолета"
-prepositional = "поясе с кобурой для пистолета"
+nominative = "пояс M276 с кобурой для пистолета"
+genitive = "пояса M276 с кобурой для пистолета"
+dative = "поясу M276 с кобурой для пистолета"
+accusative = "пояс M276 с кобурой для пистолета"
+instrumental = "поясом M276 с кобурой для пистолета"
+prepositional = "поясе M276 с кобурой для пистолета"
 gender = "male"
 
 ["M276 pattern SU-6 Smartpistol holster rig"]
-nominative = "пояс с кобурой для умного пистолета"
-genitive = "пояса с кобурой для умного пистолета"
-dative = "поясу с кобурой для умного пистолета"
-accusative = "пояс с кобурой для умного пистолета"
-instrumental = "поясом с кобурой для умного пистолета"
-prepositional = "поясе с кобурой для умного пистолета"
+nominative = "пояс M276 с кобурой для умного пистолета"
+genitive = "пояса M276 с кобурой для умного пистолета"
+dative = "поясу M276 с кобурой для умного пистолета"
+accusative = "пояс M276 с кобурой для умного пистолета"
+instrumental = "поясом M276 с кобурой для умного пистолета"
+prepositional = "поясе M276 с кобурой для умного пистолета"
 gender = "male"
 
 ["M276 Pattern General Revolver Holster Rig"] # unique vendor name
-nominative = "пояс с кобурой для револьвера"
+nominative = "пояс M276 с кобурой для револьвера"
 
 ["M276 General Revolver Holster Rig"] # unique vendor name
-nominative = "пояс с кобурой для револьвера"
+nominative = "пояс M276 с кобурой для револьвера"
 
 ["M276 pattern general revoler holster rig"]
-nominative = "пояс с кобурой для револьвера"
-genitive = "пояса с кобурой для револьвера"
-dative = "поясу с кобурой для револьвера"
-accusative = "пояс с кобурой для револьвера"
-instrumental = "поясом с кобурой для револьвера"
-prepositional = "поясе с кобурой для револьвера"
+nominative = "пояс M276 с кобурой для револьвера"
+genitive = "пояса M276 с кобурой для револьвера"
+dative = "поясу M276 с кобурой для револьвера"
+accusative = "пояс M276 с кобурой для револьвера"
+instrumental = "поясом M276 с кобурой для револьвера"
+prepositional = "поясе M276 с кобурой для револьвера"
 gender = "male"
 
 ["M276 Mortar Operator Belt"] # unique vendor name
-nominative = "пояс миномётчика"
+nominative = "пояс M276 для миномётчика"
 
 ["M276 pattern mortar operator belt"]
-nominative = "пояс миномётчика"
-genitive = "пояса миномётчика"
-dative = "поясу миномётчика"
-accusative = "пояс миномётчика"
-instrumental = "поясом миномётчика"
-prepositional = "поясе миномётчика"
+nominative = "пояс M276 для миномётчика"
+genitive = "пояса M276 для миномётчика"
+dative = "поясу M276 для миномётчика"
+accusative = "пояс M276 для миномётчика"
+instrumental = "поясом M276 для миномётчика"
+prepositional = "поясе M276 для миномётчика"
 gender = "male"
 
 ["M300 pattern .458 SOCOM loading rig"]
@@ -27629,19 +28020,19 @@ prepositional = "патронташе на пояс для дробовика"
 gender = "male"
 
 ["M276 pattern shotgun shell loading rig"]
-nominative = "патронташ на пояс для дробовика"
-genitive = "патронташа на пояс для дробовика"
-dative = "патронташу на пояс для дробовика"
-accusative = "патронташ на пояс для дробовика"
-instrumental = "патронташем на пояс для дробовика"
-prepositional = "патронташе на пояс для дробовика"
+nominative = "патронташ на пояс M276 для дробовика "
+genitive = "патронташа на пояс M276 для дробовика"
+dative = "патронташу на пояс M276 для дробовика"
+accusative = "патронташ на пояс M276 для дробовика"
+instrumental = "патронташем на пояс M276 для дробовика"
+prepositional = "патронташе на пояс M276 для дробовика"
 gender = "male"
 
 ["M276 Shotgun Shell Loading Rig"] # unique vendor name
-nominative = "патронташ на пояс для дробовика"
+nominative = "патронташ на пояс M276 для дробовика "
 
 ["Shotgun Shell Loading Rig"] # unique vendor name
-nominative = "патронташ на пояс для дробовика"
+nominative = "патронташ на пояс M276 для дробовика"
 
 ["M276 G8-A General Utility Pouch"] # unique vendor name
 nominative = "поясная разгрузка G8-A"
@@ -27656,66 +28047,66 @@ prepositional = "поясной разгрузке G8-A"
 gender = "female"
 
 ["M276 Toolbelt Rig (Full)"] # unique vendor name
-nominative = "пояс для инструментов"
+nominative = "пояс M276 для инструментов"
 
 ["M276 pattern toolbelt rig"]
-nominative = "пояс для инструментов"
-genitive = "пояса для инструментов"
-dative = "поясу для инструментов"
-accusative = "пояс для инструментов"
-instrumental = "поясом для инструментов"
-prepositional = "поясе для инструментов"
+nominative = "пояс M276 для инструментов"
+genitive = "пояса M276 для инструментов"
+dative = "поясу M276 для инструментов"
+accusative = "пояс M276 для инструментов"
+instrumental = "поясом M276 для инструментов"
+prepositional = "поясе M276 для инструментов"
 gender = "male"
 
 ["M276 Knife Rig (Full)"] # unique vendor name
-nominative = "пояс для ножей"
+nominative = "пояс M276 для ножей"
 
 ["M276 Knife Rig"] # unique vendor name
-nominative = "пояс для ножей"
+nominative = "пояс M276 для ножей"
 
 ["M276 pattern knife rig"]
-nominative = "пояс для ножей"
-genitive = "пояса для ножей"
-dative = "поясу для ножей"
-accusative = "пояс для ножей"
-instrumental = "поясом для ножей"
-prepositional = "поясе для ножей"
+nominative = "пояс M276 для ножей"
+genitive = "пояса M276 для ножей"
+dative = "поясу M276 для ножей"
+accusative = "пояс M276 для ножей"
+instrumental = "поясом M276 для ножей"
+prepositional = "поясе M276 для ножей"
 gender = "male"
 
 ["military police belt"] # unique vendor name
 nominative = "пояс военной полиции"
 
 ["M276 pattern military police rig"]
-nominative = "пояс военной полиции"
-genitive = "пояса военной полиции"
-dative = "поясу военной полиции"
-accusative = "пояс военной полиции"
-instrumental = "поясом военной полиции"
-prepositional = "поясе военной полиции"
+nominative = "пояс M276 военной полиции"
+genitive = "пояса M276 военной полиции"
+dative = "поясу M276 военной полиции"
+accusative = "пояс M276 военной полиции"
+instrumental = "поясом M276 военной полиции"
+prepositional = "поясе M276 военной полиции"
 gender = "male"
 
 ["M276 M39 Holster Rig"] # unique vendor name
-nominative = "пояс с креплением для ПП M39"
+nominative = "пояс M276 с креплением для ПП M39"
 
 ["M276 pattern M39 holster rig"]
-nominative = "пояс с креплением для ПП M39"
-genitive = "пояса с креплением для ПП M39"
-dative = "поясу с креплением для ПП M39"
-accusative = "пояс с креплением для ПП M39"
-instrumental = "поясом с креплением для ПП M39"
-prepositional = "поясе с креплением для ПП M39"
+nominative = "пояс M276 с креплением для ПП M39"
+genitive = "пояса M276 с креплением для ПП M39"
+dative = "поясу M276 с креплением для ПП M39"
+accusative = "пояс M276 с креплением для ПП M39"
+instrumental = "поясом M276 с креплением для ПП M39"
+prepositional = "поясе M276 с креплением для ПП M39"
 gender = "male"
 
 ["M276 M10 Holster Rig"] # unique vendor name
-nominative = "пояс с кобурой для пистолета M10"
+nominative = "пояс M276 с кобурой для пистолета M10"
 
 ["M276 pattern M10 holster rig"]
-nominative = "пояс с кобурой для пистолета M10"
-genitive = "пояса с кобурой для пистолета M10"
-dative = "поясу с кобурой для пистолета M10"
-accusative = "пояс с кобурой для пистолета M10"
-instrumental = "поясом с кобурой для пистолета M10"
-prepositional = "поясе с кобурой для пистолета M10"
+nominative = "пояс M276 с кобурой для пистолета M10"
+genitive = "пояса M276 с кобурой для пистолета M10"
+dative = "поясу M276 с кобурой для пистолета M10"
+accusative = "пояс M276 с кобурой для пистолета M10"
+instrumental = "поясом M276 с кобурой для пистолета M10"
+prepositional = "поясе M276 с кобурой для пистолета M10"
 gender = "male"
 
 ["M277 pattern construction rig"]
@@ -27728,18 +28119,18 @@ prepositional = "поясной разгрузке строителя"
 gender = "female"
 
 ["M276 Medical Storage Rig"] # unique vendor name
-nominative = "поясная разгрузка санитара"
+nominative = "поясная разгрузка M276 для санитара"
 
 ["M276 Medical Storage Rig (Full)"] # unique vendor name
-nominative = "поясная разгрузка санитара"
+nominative = "поясная разгрузка M276 для санитара"
 
 ["M276 pattern medical storage rig"]
-nominative = "поясная разгрузка санитара"
-genitive = "поясной разгрузки санитара"
-dative = "поясной разгрузке санитара"
-accusative = "поясную разгрузку санитара"
-instrumental = "поясной разгрузкой санитара"
-prepositional = "поясной разгрузке санитара"
+nominative = "поясная разгрузка M276 для санитара"
+genitive = "поясной разгрузки M276 для санитара"
+dative = "поясной разгрузке M276 для санитара"
+accusative = "поясную разгрузку M276 для санитара"
+instrumental = "поясной разгрузкой M276 для санитара"
+prepositional = "поясной разгрузке M276 для санитара"
 gender = "female"
 
 ["M804 heavygunner storage rig"]
@@ -27752,33 +28143,33 @@ prepositional = "поясной разгрузке пулемётчика"
 gender = "female"
 
 ["M276 Medical Lifesaver Rig"] # unique vendor name
-nominative = "спасательная сумка санитара"
+nominative = "спасательный пояс M276 санитара"
 
 ["M276 Lifesaver Bag (Full)"] # unique vendor name
-nominative = "спасательная сумка санитара"
+nominative = "спасательный пояс M276 санитара"
 
 ["M276 Lifesaver Bag"] # unique vendor name
-nominative = "спасательная сумка санитара"
+nominative = "спасательный пояс M276 санитара"
 
 ["M276 pattern lifesaver bag"]
-nominative = "спасательная сумка санитара"
-genitive = "спасательной сумки санитара"
-dative = "спасательной сумке санитара"
-accusative = "спасательную сумку санитара"
-instrumental = "спасательной сумкой санитара"
-prepositional = "спасательной сумке санитара"
-gender = "female"
+nominative = "спасательный пояс M276 санитара"
+genitive = "спасательного пояса M276 санитара"
+dative = "спасательному поясу M276 санитару"
+accusative = "спасательный пояс M276 санитара"
+instrumental = "спасательным поясом M276 санитаром"
+prepositional = "спасательном поясе M276 санитаре"
+gender = "male"
 
 ["M276 Ammo Load Rig"] # unique vendor name
-nominative = "пояс для магазинов"
+nominative = "пояс M276 для магазинов"
 
 ["M276 pattern ammo load rig"]
-nominative = "пояс для магазинов"
-genitive = "пояса для магазинов"
-dative = "поясу для магазинов"
-accusative = "пояс для магазинов"
-instrumental = "поясом для магазинов"
-prepositional = "поясе для магазинов"
+nominative = "пояс M276 для магазинов"
+genitive = "пояса M276 для магазинов"
+dative = "поясу M276 для магазинов"
+accusative = "пояс M276 для магазинов"
+instrumental = "поясом M276 для магазинов"
+prepositional = "поясе M276 для магазинов"
 gender = "male"
 
 ["ammo load rig"]
@@ -27791,51 +28182,60 @@ prepositional = "поясе для магазинов"
 gender = "male"
 
 ["M276 Combat Toolbelt Rig (Full)"] # unique vendor name
-nominative = "пояс с кобурой для инструментов"
+nominative = "пояс M276 с кобурой для инструментов"
 
 ["M276 Holster Toolrig (Full)"] # unique vendor name
-nominative = "пояс с кобурой для инструментов"
+nominative = "пояс M276 с кобурой для инструментов"
 
 ["M276 Holster Toolrig"] # unique vendor name
-nominative = "пояс с кобурой для инструментов"
+nominative = "пояс M276 с кобурой для инструментов"
 
 ["M276 pattern combat toolbelt rig"]
-nominative = "пояс с кобурой для инструментов"
-genitive = "пояса с кобурой для инструментов"
-dative = "поясу с кобурой для инструментов"
-accusative = "пояс с кобурой для инструментов"
-instrumental = "поясом с кобурой для инструментов"
-prepositional = "поясе с кобурой для инструментов"
+nominative = "пояс M276 с кобурой для инструментов"
+genitive = "пояса M276 с кобурой для инструментов"
+dative = "поясу M276 с кобурой для инструментов"
+accusative = "пояс M276 с кобурой для инструментов"
+instrumental = "поясом M276 с кобурой для инструментов"
+prepositional = "поясе M276 с кобурой для инструментов"
 gender = "male"
 
 ["M276 M82F Holster Rig"] # unique vendor name
-nominative = "пояс с кобурой для ракетницы M82F"
+nominative = "пояс M276 с кобурой для ракетницы M82F"
 
 ["M276 Pattern M82F Holster Rig"] # unique vendor name
-nominative = "пояс с кобурой для ракетницы M82F"
+nominative = "пояс M276 с кобурой для ракетницы M82F"
 
 ["M276 pattern M82F flare gun holster rig"]
-nominative = "пояс с кобурой для ракетницы M82F"
-genitive = "пояса с кобурой для ракетницы M82F"
-dative = "поясу с кобурой для ракетницы M82F"
-accusative = "пояс с кобурой для ракетницы M82F"
-instrumental = "поясом с кобурой для ракетницы M82F"
-prepositional = "поясе с кобурой для ракетницы M82F"
+nominative = "пояс M276 с кобурой для ракетницы M82F"
+genitive = "пояса M276 с кобурой для ракетницы M82F"
+dative = "поясу M276 с кобурой для ракетницы M82F"
+accusative = "пояс M276 с кобурой для ракетницы M82F"
+instrumental = "поясом M276 с кобурой для ракетницы M82F"
+prepositional = "поясе M276 с кобурой для ракетницы M82F"
 gender = "male"
 
 ["M276 M40 Grenade Rig"] # unique vendor name
-nominative = "пояс для гранат M40"
+nominative = "пояс M276 для гранат M40"
 
 ["M276 M40 Grenade Rig (Empty)"] # unique vendor name
-nominative = "пояс для гранат M40"
+nominative = "пояс M276 для гранат M40"
 
 ["M276 pattern M40 Grenade rig"]
-nominative = "пояс для гранат M40"
-genitive = "пояса для гранат M40"
-dative = "поясу для гранат M40"
-accusative = "пояс для гранат M40"
-instrumental = "поясом для гранат M40"
-prepositional = "поясе для гранат M40"
+nominative = "пояс M276 для гранат M40"
+genitive = "пояса M276 для гранат M40"
+dative = "поясу M276 для гранат M40"
+accusative = "пояс M276 для гранат M40"
+instrumental = "поясом M276 для гранат M40"
+prepositional = "поясе M276 для гранат M40"
+gender = "male"
+
+["M276 pattern M40 Grenade rig Mk. II"]
+nominative = "пояс M276 для гранат M40A2"
+genitive = "пояса M276 для гранат M40A2"
+dative = "поясу M276 для гранат M40A2"
+accusative = "пояс M276 для гранат M40A2"
+instrumental = "поясом M276 для гранат M40A2"
+prepositional = "поясе M276 для гранат M40A2"
 gender = "male"
 
 ["medium general pouch"]
@@ -28109,12 +28509,12 @@ gender = "neuter"
 nominative = "рюкзак связиста"
 
 ["USCM Radio Telephone Pack"]
-nominative = "рюкзак связиста"
-genitive = "рюкзака связиста"
-dative = "рюкзаку связиста"
-accusative = "рюкзак связиста"
-instrumental = "рюкзаком связиста"
-prepositional = "рюкзаке связиста"
+nominative = "рюкзак связиста ККМП"
+genitive = "рюкзака связиста ККМП"
+dative = "рюкзаку связиста ККМП"
+accusative = "рюкзак связиста ККМП"
+instrumental = "рюкзаком связиста ККМП"
+prepositional = "рюкзаке связиста ККМП"
 gender = "male"
 
 ["motion detector"]
@@ -28242,6 +28642,9 @@ nominative = "ЯЩИКИ С БОЕПРИПАСАМИ"
 
 ["EXPLOSIVES"] # Unique Vendor Name
 nominative = "ВЗРЫВЧАТЫЕ ВЕЩЕСТВА"
+
+["EQUIPMENT"] # Unique Vendor Name
+nominative = "ЭКИПИРОВКА"
 
 ["STANDARD EQUIPMENT"] # Unique Vendor Name
 nominative = "СТАНДАРТНАЯ ЭКИПИРОВКА"
@@ -28408,6 +28811,9 @@ nominative = "ИНЖЕНЕРНОЕ ОБОРУДОВАНИЕ"
 ["REPAIR TOOLS"] # Unique Vendor Name
 nominative = "ОБСЛУЖИВАНИЕ ВООРУЖЕНИЯ"
 
+["TOOLS"] # Unique Vendor Name
+nominative = "ИНСТРУМЕНТЫ"
+
 ["FLARE AND LIGHT"] # Unique Vendor Name
 nominative = "СИГНАЛЫ И ОСВЕЩЕНИЕ"
 
@@ -28415,7 +28821,7 @@ nominative = "СИГНАЛЫ И ОСВЕЩЕНИЕ"
 nominative = "НАБОР ИНЖЕНЕРА (ОБЯЗАТЕЛЬНО)"
 
 ["HANDHELD DEFENSE (CHOOSE 1)"] # Unique Vendor Name
-nominative = "ОХРАННЫЕ СИСТЕМЫ (ВОЗЬМИТЕ 1)"
+nominative = "СТАЦИОНАРНЫЕ СИСТЕМЫ (ВОЗЬМИТЕ 1)"
 
 ["BARREL"] # Unique Vendor Name
 nominative = "ДУЛЬНЫЕ УСТРОЙСТВА"
@@ -28432,19 +28838,37 @@ nominative = "ПРИКЛАДЫ"
 ["SUPPLIES"] # Unique Vendor Name
 nominative = "ПРИПАСЫ"
 
+["WEAPONS SPECIALIST SETS (CHOOSE 1)"] # Unique Vendor Name
+nominative = "ЯЩИКИ СПЕЦИАЛИСТОВ (ВОЗЬМИТЕ 1)"
+
+["EXTRA SCOUT AMMUNITION"] # Unique Vendor Name
+nominative = "ДОПОЛНИТЕЛЬНЫЕ БОЕПРИПАСЫ РАЗВЕДЧИКА"
+
+["EXTRA SNIPER AMMUNITION"] # Unique Vendor Name
+nominative = "ДОПОЛНИТЕЛЬНЫЕ БОЕПРИПАСЫ СНАЙПЕРА"
+
+["EXTRA DEMOLITIONIST AMMUNITION"] # Unique Vendor Name
+nominative = "ДОПОЛНИТЕЛЬНЫЕ БОЕПРИПАСЫ ПОДРЫВНИКА"
+
+["EXTRA GRENADES"] # Unique Vendor Name
+nominative = "ДОПОЛНИТЕЛЬНЫЕ БОЕПРИПАСЫ ГРАНАТОМЁТЧИКА"
+
+["EXTRA FLAMETHROWER TANKS"] # Unique Vendor Name
+nominative = "ДОПОЛНИТЕЛЬНЫЕ БОЕПРИПАСЫ ОГНЕМЁТЧИКА"
+
 ["Technician Welderpack"] # Unique Vendor Name
 nominative = "рюкзак сварщика"
 
 ["USCM technician welderpack"]
-nominative = "рюкзак сварщика"
+nominative = "рюкзак сварщика ККМП"
 
 ["USCM technician welder-satchel"]
-nominative = "сумка сварщика"
-genitive = "сумки сварщика"
-dative = "сумке сварщика"
-accusative = "сумку сварщика"
-instrumental = "сумкой сварщика"
-prepositional = "сумке сварщика"
+nominative = "сумка сварщика ККМП"
+genitive = "сумки сварщика ККМП"
+dative = "сумке сварщика ККМП"
+accusative = "сумку сварщика ККМП"
+instrumental = "сумкой сварщика ККМП"
+prepositional = "сумке сварщика ККМП"
 gender = "female"
 
 ["Technician Welder-Satchel"] # Unique Vendor Name
@@ -28957,6 +29381,24 @@ instrumental = "руководством по эксплуатации погр�
 prepositional = "руководстве по эксплуатации погрузчика «Caterpillar»"
 gender = "neuter"
 
+["Loader instructional pamphlet"]
+nominative = "инструкция для заряжающего"
+genitive = "инструкции для заряжающего"
+dative = "инструкции для заряжающему"
+accusative = "инструкцию для заряжающего"
+instrumental = "инструкцией для заряжающим"
+prepositional = "инструкции для заряжающем"
+gender = "male"
+
+["Spotter instructional pamphlet"]
+nominative = "инструкция для корректировщика огня"
+genitive = "инструкции для корректировщика огня"
+dative = "инструкции для корректировщика огня"
+accusative = "инструкцию для корректировщика огня"
+instrumental = "инструкцией для корректировщика огня"
+prepositional = "инструкции для корректировщика огня"
+gender = "female"
+
 ["Small Tool Webbing (Full)"] # unique vendor name
 nominative = "разгрузочный жилет для инструментов"
 
@@ -28985,12 +29427,12 @@ nominative = "рюкзак"
 nominative = "сумка для гранат"
 
 ["USCM IMP M63A1 grenade satchel"]
-nominative = "сумка для гранат"
-genitive = "сумки для гранат"
-dative = "сумке для гранат"
-accusative = "сумку для гранат"
-instrumental = "сумкой для гранат"
-prepositional = "сумке для гранат"
+nominative = "сумка для гранат ККМП"
+genitive = "сумки для гранат ККМП"
+dative = "сумке для гранат ККМП"
+accusative = "сумку для гранат ККМП"
+instrumental = "сумкой для гранат ККМП"
+prepositional = "сумке для гранат ККМП"
 gender = "female"
 
 ["Sandbags (empty) x10"] # Unique Vendor Name
@@ -29054,12 +29496,12 @@ nominative = "военный рюкзак"
 nominative = "топливный бак G4-1"
 
 ["USCM Pyrotechnician G4-1 fueltank"]
-nominative = "топливный бак G4-1"
-genitive = "топливного бака G4-1"
-dative = "топливному баку G4-1"
-accusative = "топливный бак G4-1"
-instrumental = "топливным баком G4-1"
-prepositional = "топливном баке G4-1"
+nominative = "топливный бак G4-1 ККМП"
+genitive = "топливного бака G4-1 ККМП"
+dative = "топливному баку G4-1 ККМП"
+accusative = "топливный бак G4-1 ККМП"
+instrumental = "топливным баком G4-1 ККМП"
+prepositional = "топливном баке G4-1 ККМП"
 gender = "male"
 
 ["firearms repair kit"]
@@ -29138,27 +29580,27 @@ prepositional = "ящике гранат (M40 HIDP Зажигательная x 
 gender = "male"
 
 ["M40 WPDP White Phosphorus Packet (x3 grenades)"] # Unique Vendor Name
-nominative = "упаковка гранат (M40 CCDP Фосфор x 3)"
+nominative = "упаковка гранат (M40 CCDP Фосфорная x 3)"
 
 ["CCDP grenade packet"]
-nominative = "упаковка гранат (M40 CCDP Фосфор x 3)"
-genitive = "упаковки гранат (M40 CCDP Фосфор x 3)"
-dative = "упаковке гранат (M40 CCDP Фосфор x 3)"
-accusative = "упаковку гранат (M40 CCDP Фосфор x 3)"
-instrumental = "упаковкой гранат (M40 CCDP Фосфор x 3)"
-prepositional = "упаковке гранат (M40 CCDP Фосфор x 3)"
+nominative = "упаковка гранат (M40 CCDP Фосфорная x 3)"
+genitive = "упаковки гранат (M40 CCDP Фосфорная x 3)"
+dative = "упаковке гранат (M40 CCDP Фосфорная x 3)"
+accusative = "упаковку гранат (M40 CCDP Фосфорная x 3)"
+instrumental = "упаковкой гранат (M40 CCDP Фосфорная x 3)"
+prepositional = "упаковке гранат (M40 CCDP Фосфорная x 3)"
 gender = "female"
 
 ["M40 CCDP Grenade Packet"] # Unique Vendor Name
-nominative = "упаковка гранат (M40 CCDP Фосфор x 3)"
+nominative = "упаковка гранат (M40 CCDP Фосфорная x 3)"
 
 ["M40 CCDP grenade box"]
-nominative = "ящик гранат (M40 CCDP Фосфор x 25)"
-genitive = "ящика гранат (M40 CCDP Фосфор x 25)"
-dative = "ящику гранат (M40 CCDP Фосфор x 25)"
-accusative = "ящик гранат (M40 CCDP Фосфор x 25)"
-instrumental = "ящиком гранат (M40 CCDP Фосфор x 25)"
-prepositional = "ящике гранат (M40 CCDP Фосфор x 25)"
+nominative = "ящик гранат (M40 CCDP Фосфорная x 25)"
+genitive = "ящика гранат (M40 CCDP Фосфорная x 25)"
+dative = "ящику гранат (M40 CCDP Фосфорная x 25)"
+accusative = "ящик гранат (M40 CCDP Фосфорная x 25)"
+instrumental = "ящиком гранат (M40 CCDP Фосфорная x 25)"
+prepositional = "ящике гранат (M40 CCDP Фосфорная x 25)"
 gender = "male"
 
 ["HSDP grenade packet"]
@@ -29684,37 +30126,37 @@ prepositional = "ящике со сменными барабанами (FMJ M44 
 gender = "male"
 
 ["flamer tank box (UT-Napthal Fuel x 8)"]
-nominative = "ящик с топливной смесью (Лигроин x 8)"
-genitive = "ящика с топливной смесью (Лигроин x 8)"
-dative = "ящику с топливной смесью (Лигроин x 8)"
-accusative = "ящик с топливной смесью (Лигроин x 8)"
-instrumental = "ящиком с топливной смесью (Лигроин x 8)"
-prepositional = "ящике с топливной смесью (Лигроин x 8)"
+nominative = "ящик с топливной смесью (Напалм x 8)"
+genitive = "ящика с топливной смесью (Напалм x 8)"
+dative = "ящику с топливной смесью (Напалм x 8)"
+accusative = "ящик с топливной смесью (Напалм x 8)"
+instrumental = "ящиком с топливной смесью (Напалм x 8)"
+prepositional = "ящике с топливной смесью (Напалм x 8)"
 gender = "male"
 
 ["USCM uniform"]
-nominative = "униформа"
-genitive = "униформы"
-dative = "униформе"
-accusative = "униформу"
-instrumental = "униформой"
-prepositional = "униформе"
+nominative = "униформа ККМП"
+genitive = "униформы ККМП"
+dative = "униформе ККМП"
+accusative = "униформу ККМП"
+instrumental = "униформой ККМП"
+prepositional = "униформе ККМП"
 gender = "female"
 
 ["USCM Combat Technician Uniform"] # unqiue venodor name
-nominative = "униформа техника"
+nominative = "униформа техника ККМП"
 
 ["USCM Combat Technician uniform"]
-nominative = "униформа техника"
-genitive = "униформы техника"
-dative = "униформе техника"
-accusative = "униформу техника"
-instrumental = "униформой техника"
-prepositional = "униформе техника"
+nominative = "униформа техника ККМП"
+genitive = "униформы техника ККМП"
+dative = "униформе техника ККМП"
+accusative = "униформу техника ККМП"
+instrumental = "униформой техника ККМП"
+prepositional = "униформе техника ККМП"
 gender = "female"
 
 ["USCM Hospital Corpsman uniform"] # unqiue venodor name
-nominative = "униформа санитара"
+nominative = "униформа санитара ККМП"
 
 ["Marine Brown Combat Boots"] # unqiue venodor name
 nominative = "коричневые ботинки морпеха"
@@ -29760,6 +30202,12 @@ gender = "male"
 
 ["M10 Pattern Corpsman Helmet"] # unqiue venodor name
 nominative = "шлем санитара М10"
+
+["M10 Corpsman Helmet"] # unqiue venodor name
+nominative = "шлем санитара М10"
+
+["M10 White Corpsman Helmet"] # unqiue venodor name
+nominative = "белый шлем санитара М10"
 
 ["M10 pattern corpsman helmet"]
 nominative = "шлем санитара М10"
@@ -30188,60 +30636,6 @@ nominative = "гемакон (O-)"
 ["Empty Blood Pack"] # unique venodr name
 nominative = "гемакон (Пустой)"
 
-["A+ blood pack"]
-nominative = "гемакон (A+)"
-genitive = "гемакона (A+)"
-dative = "гемакону (A+)"
-accusative = "гемакон (A+)"
-instrumental = "гемаконом (A+)"
-prepositional = "гемаконе (A+)"
-gender = "male"
-
-["A- blood pack"]
-nominative = "гемакон (A-)"
-genitive = "гемакона (A-)"
-dative = "гемакону (A-)"
-accusative = "гемакон (A-)"
-instrumental = "гемаконом (A-)"
-prepositional = "гемаконе (A-)"
-gender = "male"
-
-["B+ blood pack"]
-nominative = "гемакон (B+)"
-genitive = "гемакона (B+)"
-dative = "гемакону (B+)"
-accusative = "гемакон (B+)"
-instrumental = "гемаконом (B+)"
-prepositional = "гемаконе (B+)"
-gender = "male"
-
-["B- blood pack"]
-nominative = "гемакон (B-)"
-genitive = "гемакона (B-)"
-dative = "гемакону (B-)"
-accusative = "гемакон (B-)"
-instrumental = "гемаконом (B-)"
-prepositional = "гемаконе (B-)"
-gender = "male"
-
-["O+ blood pack"]
-nominative = "гемакон (O+)"
-genitive = "гемакона (O+)"
-dative = "гемакону (O+)"
-accusative = "гемакон (O+)"
-instrumental = "гемаконом (O+)"
-prepositional = "гемаконе (O+)"
-gender = "male"
-
-["O- blood pack"]
-nominative = "гемакон (O-)"
-genitive = "гемакона (O-)"
-dative = "гемакону (O-)"
-accusative = "гемакон (O-)"
-instrumental = "гемаконом (O-)"
-prepositional = "гемаконе (O-)"
-gender = "male"
-
 ["combat flashlight"]
 nominative = "фонарик"
 genitive = "фонарика"
@@ -30327,12 +30721,12 @@ prepositional = "сигнальном огне"
 gender = "male"
 
 ["Sentry Gun Network Laptop"]
-nominative = "ноутбук управления охранной сетью"
-genitive = "ноутбука управления охранной сетью"
-dative = "ноутбуку управления охранной сетью"
-accusative = "ноутбук управления охранной сетью"
-instrumental = "ноутбуком управления охранной сетью"
-prepositional = "ноутбуке управления охранной сетью"
+nominative = "ноутбук управления стационарными системами"
+genitive = "ноутбука управления стационарными системами"
+dative = "ноутбуку управления стационарными системами"
+accusative = "ноутбук управления стационарными системами"
+instrumental = "ноутбуком управления стационарными системами"
+prepositional = "ноутбуке управления стационарными системами"
 gender = "male"
 
 ["Spare PDT/L Battle Buddy Kit"] # unique venodr name
@@ -30369,27 +30763,27 @@ prepositional = "переносной баррикаде MB-6"
 gender = "female"
 
 ["Nailgun Magazine (7x45mm)"] # unique venodr name
-nominative = "магазин для гвоздепистолета (7x45 мм)"
+nominative = "магазин для гвоздепистолета (7x45мм)"
 
 ["nailgun magazine (7x45mm)"]
-nominative = "магазин для гвоздепистолета (7x45 мм)"
-genitive = "магазина для гвоздепистолета (7x45 мм)"
-dative = "магазину для гвоздепистолета (7x45 мм)"
-accusative = "магазин для гвоздепистолета (7x45 мм)"
-instrumental = "магазином для гвоздепистолета (7x45 мм)"
-prepositional = "магазине для гвоздепистолета (7x45 мм)"
+nominative = "магазин для гвоздепистолета (7x45мм)"
+genitive = "магазина для гвоздепистолета (7x45мм)"
+dative = "магазину для гвоздепистолета (7x45мм)"
+accusative = "магазин для гвоздепистолета (7x45мм)"
+instrumental = "магазином для гвоздепистолета (7x45мм)"
+prepositional = "магазине для гвоздепистолета (7x45мм)"
 gender = "male"
 
 ["Nailgun Magazine Box (7x45mm)"] # unique venodr name
-nominative = "ящик магазинов для гвоздепистолета (7x45 мм)"
+nominative = "ящик магазинов для гвоздепистолета (7x45мм)"
 
 ["magazine box (Nailgun x 10)"]
-nominative = "ящик магазинов для гвоздепистолета (7x45 мм)"
-genitive = "ящика магазинов для гвоздепистолета (7x45 мм)"
-dative = "ящику магазинов для гвоздепистолета (7x45 мм)"
-accusative = "ящик магазинов для гвоздепистолета (7x45 мм)"
-instrumental = "ящиком магазинов для гвоздепистолета (7x45 мм)"
-prepositional = "ящике магазинов для гвоздепистолета (7x45 мм)"
+nominative = "ящик магазинов для гвоздепистолета (7x45мм)"
+genitive = "ящика магазинов для гвоздепистолета (7x45мм)"
+dative = "ящику магазинов для гвоздепистолета (7x45мм)"
+accusative = "ящик магазинов для гвоздепистолета (7x45мм)"
+instrumental = "ящиком магазинов для гвоздепистолета (7x45мм)"
+prepositional = "ящике магазинов для гвоздепистолета (7x45мм)"
 gender = "male"
 
 ["Essential Engineer Set"] # unique venodr name
@@ -30404,7 +30798,7 @@ instrumental = "листом пластали"
 prepositional = "листе пластали"
 gender = "male"
 
-["metall sheet"]
+["metal sheet"]
 nominative = "лист металла"
 genitive = "листа металла"
 dative = "листу металла"
@@ -30434,6 +30828,15 @@ instrumental = "катушкой Тесла 21S"
 prepositional = "катушке Тесла 21S"
 gender = "female"
 
+["handheld 21S tesla coil"]
+nominative = "катушка Тесла 21S"
+genitive = "катушки Тесла 21S"
+dative = "катушке Тесла 21S"
+accusative = "катушку Тесла 21S"
+instrumental = "катушкой Тесла 21S"
+prepositional = "катушке Тесла 21S"
+gender = "female"
+
 ["JIMA Planted Flag"] # unique venodr name
 nominative = "полевой флагшток JIMA"
 
@@ -30446,34 +30849,65 @@ instrumental = "полевым флагштоком JIMA"
 prepositional = "полевом флагштоке JIMA"
 gender = "male"
 
-["UA 42-F Sentry Flamer"]
-nominative = "охранный огнемёт СА 42-F"
-genitive = "охранного огнемёта СА 42-F"
-dative = "охранному огнемёту СА 42-F"
-accusative = "охранный огнемёт СА 42-F"
-instrumental = "охранным огнемётом СА 42-F"
-prepositional = "охранном огнемёте СА 42-F"
+["JIMA planted flag"]
+nominative = "полевой флагшток JIMA"
+genitive = "полевого флагштока JIMA"
+dative = "полевому флагштоку JIMA"
+accusative = "полевой флагшток JIMA"
+instrumental = "полевым флагштоком JIMA"
+prepositional = "полевом флагштоке JIMA"
 gender = "male"
 
-["UA 571-C Sentry Gun"]
-nominative = "охранная пушка СА 571-C"
-genitive = "охранной пушки СА 571-C"
-dative = "охранной пушке СА 571-C"
-accusative = "охранную пушку СА 571-C"
-instrumental = "охранной пушкой СА 571-C"
-prepositional = "охранной пушке СА 571-C"
-gender = "female"
+["UA 42-F Sentry Flamer"]
+nominative = "стационарный огнемёт СА 42-F"
+genitive = "стационарного огнемёта СА 42-F"
+dative = "стационарному огнемёту СА 42-F"
+accusative = "стационарный огнемёт СА 42-F"
+instrumental = "стационарным огнемётом СА 42-F"
+prepositional = "стационарном огнемёте СА 42-F"
+gender = "male"
+
+["handheld UA 42-F sentry flamer"]
+nominative = "стационарный огнемёт СА 42-F"
+genitive = "стационарного огнемёта СА 42-F"
+dative = "стационарному огнемёту СА 42-F"
+accusative = "стационарный огнемёт СА 42-F"
+instrumental = "стационарным огнемётом СА 42-F"
+prepositional = "стационарном огнемёте СА 42-F"
+gender = "male"
+
+
+["UA 571-C Sentry Gun"] # unique venodr name
+nominative = "стационарный пулемёт СА 571-C"
+
+["UA 571-C sentry gun"]
+nominative = "стационарный пулемёт СА 571-C"
+genitive = "стационарного пулемёта СА 571-C"
+dative = "стационарному пулемёту СА 571-C"
+accusative = "стационарный пулемёт СА 571-C"
+instrumental = "стационарным пулемётом СА 571-C"
+prepositional = "стационарном пулемёте СА 571-C"
+gender = "male"
+
+["handheld UA 571-C sentry gun"]
+nominative = "стационарный пулемёт СА 571-C"
+genitive = "стационарного пулемёта СА 571-C"
+dative = "стационарному пулемёту СА 571-C"
+accusative = "стационарный пулемёт СА 571-C"
+instrumental = "стационарным пулемётом СА 571-C"
+prepositional = "стационарном пулемёте СА 571-C"
+gender = "male"
 
 ["Sentry Upgrade kit"] # unique venodr name
-nominative = "комплект для модернизации охранных систем"
+nominative = "МОД-комплект для стационарных систем"
 
 ["engineering upgrade kit"]
-nominative = "комплект для модернизации охранных систем"
-genitive = "комплекта для модернизации охранных систем"
-dative = "комплекту для модернизации охранных систем"
-accusative = "комплект для модернизации охранных систем"
-instrumental = "комплектом для модернизации охранных систем"
-prepositional = "комплекте для модернизации охранных систем"
+nominative = "МОД-комплект для стационарных систем"
+genitive = "МОД-комплекта для стационарных систем"
+dative = "МОД-комплекту для стационарных систем"
+accusative = "МОД-комплект для стационарных систем"
+instrumental = "МОД-комплектом для стационарных систем"
+prepositional = "МОД-комплекте для стационарных систем"
 gender = "male"
 
 ["ES-11 Mobile Fuel Canister"] # unique venodr name
@@ -30686,7 +31120,7 @@ prepositional = "значке «Талант ККМП»"
 gender = "male"
 
 ["USCM  Helmet Rain Cover"] # unique venodr name
-nominative = "дождевик для шлема"
+nominative = "дождевик для шлема ККМП"
 
 ["Falling Falcons Shoudler Patch"] # unique venodr name
 nominative = "шеврон ККМП «Пикирующий сокол»"
@@ -30783,6 +31217,482 @@ accusative = "шнур для жетона"
 instrumental = "шнуром для жетона"
 prepositional = "шнуре для жетона"
 gender = "male"
+
+["Demolitionist Set"] # unique venodr name
+nominative = "ящик специалиста подрывника"
+
+["Heavy Grenadier Set"] # unique venodr name
+nominative = "ящик специалиста гранатомётчика"
+
+["Scout Set"] # unique venodr name
+nominative = "ящик специалиста разведчика"
+
+["Sniper Set"] # unique venodr name
+nominative = "ящик специалиста снайпера"
+
+["Pyro Set"] # unique venodr name
+nominative = "ящик специалиста огнемётчика"
+
+["Anti-Materiel Sniper Set"] # unique venodr name
+nominative = "ящик специалиста «ОКО»"
+
+["Demolitionist equipment case"]
+nominative = "ящик специалиста подрывника"
+genitive = "ящика специалиста подрывника"
+dative = "ящику специалиста подрывника"
+accusative = "ящик специалиста подрывника"
+instrumental = "ящиком специалиста подрывника"
+prepositional = "ящике специалиста подрывника"
+gender = "male"
+
+["Heavy Grenadier equipment case"]
+nominative = "ящик специалиста гранатомётчика"
+genitive = "ящика специалиста гранатомётчика"
+dative = "ящику специалиста гранатомётчику"
+accusative = "ящик специалиста гранатомётчика"
+instrumental = "ящиком специалиста гранатомётчиком"
+prepositional = "ящике специалиста гранатомётчике"
+gender = "male"
+
+["Scout equipment case"]
+nominative = "ящик специалиста разведчика"
+genitive = "ящика специалиста разведчика"
+dative = "ящику специалиста разведчику"
+accusative = "ящик специалиста разведчика"
+instrumental = "ящиком специалиста разведчиком"
+prepositional = "ящике специалиста разведчике"
+gender = "male"
+
+["Sniper equipment case"]
+nominative = "ящик специалиста снайпера"
+genitive = "ящика специалиста снайпера"
+dative = "ящику специалиста снайперу"
+accusative = "ящик специалиста снайпера"
+instrumental = "ящиком специалиста снайпером"
+prepositional = "ящике специалиста снайпере"
+gender = "male"
+
+["Pyrotechnician equipment case"]
+nominative = "ящик специалиста огнемётчика"
+genitive = "ящика специалиста огнемётчика"
+dative = "ящику специалиста огнемётчика"
+accusative = "ящик специалиста огнемётчика"
+instrumental = "ящиком специалиста огнемётчика"
+prepositional = "ящике специалиста огнемётчика"
+gender = "male"
+
+["AMR equipment case"]
+nominative = "ящик оператора крупнокалиберного оружия"
+genitive = "ящика оператора крупнокалиберного оружия"
+dative = "ящику оператора крупнокалиберного оружия"
+accusative = "ящик оператора крупнокалиберного оружия"
+instrumental = "ящиком оператора крупнокалиберного оружия"
+prepositional = "ящике оператора крупнокалиберного оружия"
+gender = "male"
+
+["attachment package"] # unique venodr name
+nominative = "упаковка с обвесами для оружия"
+genitive = "упаковки с обвесами для оружия"
+dative = "упаковке с обвесами для оружия"
+accusative = "упаковку с обвесами для оружия"
+instrumental = "упаковкой с обвесами для оружия"
+prepositional = "упаковке с обвесами для оружия"
+gender = "female"
+
+["M3-T light armor"]
+nominative = "броня подрывника M3-T"
+genitive = "брони подрывника M3-T"
+dative = "броне подрывника M3-T"
+accusative = "броню подрывника M3-T"
+instrumental = "бронёй подрывника M3-T"
+prepositional = "броне подрывника M3-T"
+gender = "female"
+
+["M3-G4 grenadier armor"]
+nominative = "броня гранатомётчика M3-G4"
+genitive = "брони гранатомётчика M3-G4"
+dative = "броне гранатомётчика M3-G4"
+accusative = "броню гранатомётчика M3-G4"
+instrumental = "бронёй гранатомётчика M3-G4"
+prepositional = "броне гранатомётчика M3-G4"
+gender = "female"
+
+["M3-S light armor"]
+nominative = "броня разведчика M3-S"
+genitive = "брони разведчика M3-S"
+dative = "броне разведчика M3-S"
+accusative = "броню разведчика M3-S"
+instrumental = "бронёй разведчика M3-S"
+prepositional = "броне разведчика M3-S"
+gender = "female"
+
+["M45 pattern ghillie armor"]
+nominative = "броня снайпера M45 «Кикимора»"
+genitive = "брони снайпера M45 «Кикимора»"
+dative = "броне снайпера M45 «Кикимора»"
+accusative = "броню снайпера M45 «Кикимора»"
+instrumental = "бронёй снайпера M45 «Кикимора»"
+prepositional = "броне снайпера M45 «Кикимора»"
+gender = "female"
+
+["M35 pyrotechnician armor"]
+nominative = "броня огнемётчика M35"
+genitive = "брони огнемётчика M35"
+dative = "броне огнемётчика M35"
+accusative = "броню огнемётчика M35"
+instrumental = "бронёй огнемётчика M35"
+prepositional = "броне огнемётчика M35"
+gender = "female"
+
+["M3-T bombardier helmet"]
+nominative = "шлем подрывника M3-T"
+genitive = "шлема подрывника M3-T"
+dative = "шлему подрывника M3-T"
+accusative = "шлем подрывника M3-T"
+instrumental = "шлемом подрывника M3-T"
+prepositional = "шлеме подрывника M3-T"
+gender = "male"
+
+["M3-G4 grenadier helmet"]
+nominative = "шлем гранатомётчика M3-G4"
+genitive = "шлема гранатомётчика M3-G4"
+dative = "шлему гранатомётчика M3-G4"
+accusative = "шлем гранатомётчика M3-G4"
+instrumental = "шлемом гранатомётчика M3-G4"
+prepositional = "шлеме гранатомётчика M3-G4"
+gender = "male"
+
+["M3-S light helmet"]
+nominative = "шлем разведчика M3-S"
+genitive = "шлема разведчика M3-S"
+dative = "шлему разведчика M3-S"
+accusative = "шлем разведчика M3-S"
+instrumental = "шлемом разведчика M3-S"
+prepositional = "шлеме разведчика M3-S"
+gender = "male"
+
+["M45 ghillie helmet"]
+nominative = "шлем снайпера M45 «Кикимора»"
+genitive = "шлема снайпера M45 «Кикимора»"
+dative = "шлему снайпера M45 «Кикимора»"
+accusative = "шлем снайпера M45 «Кикимора»"
+instrumental = "шлемом снайпера M45 «Кикимора»"
+prepositional = "шлеме снайпера M45 «Кикимора»"
+gender = "male"
+
+["M35 pyrotechnician helmet"]
+nominative = "шлем огнемётчика M35"
+genitive = "шлема огнемётчика M35"
+dative = "шлему огнемётчика M35"
+accusative = "шлем огнемётчика M35"
+instrumental = "шлемом огнемётчика M35"
+prepositional = "шлеме огнемётчика M35"
+gender = "male"
+
+["M3-G4 Grenadier gloves"]
+nominative = "перчатки гранатомётчика M3-G4"
+genitive = "перчаток гранатомётчика M3-G4"
+dative = "перчаткам гранатомётчика M3-G4"
+accusative = "перчатки гранатомётчика M3-G4"
+instrumental = "перчатками гранатомётчика M3-G4"
+prepositional = "перчатках гранатомётчика M3-G4"
+gender = "female"
+
+["USCM IMP M22 rocket bags"]
+nominative = "рюкзак для ракет M22 ККМП"
+genitive = "рюкзака для ракет M22 ККМП"
+dative = "рюкзаку для ракет M22 ККМП"
+accusative = "рюкзак для ракет M22 ККМП"
+instrumental = "рюкзаком для ракет M22 ККМП"
+prepositional = "рюкзаке для ракет M22 ККМП"
+gender = "male"
+
+["84mm High-Explosive Rocket"] # unique venodr name
+nominative = "ракета (84мм Осколочная)"
+
+["84mm high explosive rocket"]
+nominative = "ракета (84мм Осколочная)"
+genitive = "ракеты (84мм Осколочная)"
+dative = "ракете (84мм Осколочная)"
+accusative = "ракету (84мм Осколочная)"
+instrumental = "ракетой (84мм Осколочная)"
+prepositional = "ракете (84мм Осколочная)"
+gender = "female"
+
+["84mm Anti-Armor Rocket"] # unique venodr name
+nominative = "ракета (84мм Бронебойная)"
+
+["84mm anti-armor rocket"]
+nominative = "ракета (84мм Бронебойная)"
+genitive = "ракеты (84мм Бронебойной)"
+dative = "ракете (84мм Бронебойной)"
+accusative = "ракету (84мм Бронебойную)"
+instrumental = "ракетой (84мм Бронебойной)"
+prepositional = "ракете (84мм Бронебойной)"
+gender = "female"
+
+["84mm White-Phosphorus Rocket"] # unique venodr name
+nominative = "ракета (84мм Фосфорная)"
+
+["84mm white-phosphorus rocket"]
+nominative = "ракета (84мм Фосфорная)"
+genitive = "ракеты (84мм Фосфорной)"
+dative = "ракете (84мм Фосфорной)"
+accusative = "ракету (84мм Фосфорную)"
+instrumental = "ракетой (84мм Фосфорной)"
+prepositional = "ракете (84мм Фосфорной)"
+gender = "female"
+
+["M5 RPG"]
+nominative = "ручной противотанковый гранатомёт M5"
+genitive = "ручного противотанкового гранатомёта M5"
+dative = "ручному противотанковому гранатомёту M5"
+accusative = "ручной противотанковый гранатомёт M5"
+instrumental = "ручным противотанковым гранатомётом M5"
+prepositional = "ручном противотанковом гранатомёте M5"
+gender = "male"
+
+["Loader Kit"]
+nominative = "набор заряжающего"
+genitive = "набора заряжающего"
+dative = "набору заряжающему"
+accusative = "набор заряжающего"
+instrumental = "набором заряжающим"
+prepositional = "наборе заряжающем"
+gender = "male"
+
+["Spotter Kit"]
+nominative = "набор корректировщика огня"
+genitive = "набора корректировщика огня"
+dative = "набору корректировщика огня"
+accusative = "набор корректировщика огня"
+instrumental = "набором корректировщика огня"
+prepositional = "наборе корректировщика огня"
+gender = "male"
+
+["specialist kit"]
+nominative = "набор специалиста"
+genitive = "набора специалиста"
+dative = "набору специалисту"
+accusative = "набор специалиста"
+instrumental = "набором специалистом"
+prepositional = "наборе специалисте"
+gender = "male"
+
+["M92 grenade launcher"]
+nominative = "гранатомёт M92"
+genitive = "набора заряжающего"
+dative = "набору заряжающему"
+accusative = "набор заряжающего"
+instrumental = "набором заряжающим"
+prepositional = "наборе заряжающем"
+gender = "male"
+
+["M4RA Battle sight"]
+nominative = "тактический визор разведчика"
+genitive = "тактического визора разведчика"
+dative = "тактическому визору разведчика"
+accusative = "тактический визор разведчика"
+instrumental = "тактическим визором разведчика"
+prepositional = "тактическом визоре разведчика"
+gender = "male"
+
+["M42 scout sight"]
+nominative = "тактический визор снайпера"
+genitive = "тактического визора снайпера"
+dative = "тактическому визору снайпера"
+accusative = "тактический визор снайпера"
+instrumental = "тактическим визором снайпера"
+prepositional = "тактическом визоре снайпера"
+gender = "male"
+
+["M4RA custom battle rifle"]
+nominative = "штурмовой карабин M4RA-C"
+genitive = "штурмового карабина M4RA-C"
+dative = "штурмовому карабину M4RA-C"
+accusative = "штурмовой карабин M4RA-C"
+instrumental = "штурмовым карабином M4RA-C"
+prepositional = "штурмовом карабине M4RA-C"
+gender = "male"
+
+["A19 High Velocity Magazine (10x24mm)"] # unique venodr name
+nominative = "магазин для M4RA-C (10x24мм HV)"
+
+["A19 HV magazine (10x24mm)"]
+nominative = "магазин для M4RA-C (10x24мм HV)"
+genitive = "магазина для M4RA-C (10x24мм HV)"
+dative = "магазину для M4RA-C (10x24мм HV)"
+accusative = "магазин для M4RA-C (10x24мм HV)"
+instrumental = "магазином для M4RA-C (10x24мм HV)"
+prepositional = "магазине для M4RA-C (10x24мм HV)"
+gender = "male"
+
+["A19 High Velocity Incendiary Magazine (10x24mm)"] # unique venodr name
+nominative = "магазин для M4RA-C (10x24мм HV-IC)"
+
+["A19 HV incendiary magazine (10x24mm)"]
+nominative = "магазин для M4RA-C (10x24мм HV-IC)"
+genitive = "магазина для M4RA-C (10x24мм HV-IC)"
+dative = "магазину для M4RA-C (10x24мм HV-IC)"
+accusative = "магазин для M4RA-C (10x24мм HV-IC)"
+instrumental = "магазином для M4RA-C (10x24мм HV-IC)"
+prepositional = "магазине для M4RA-C (10x24мм HV-IC)"
+gender = "male"
+
+["A19 High Velocity Impact Magazine (10x24mm)"] # unique venodr name
+nominative = "магазин для M4RA-C (10x24мм HV-HP)"
+
+["A19 HV high impact magazine (10x24mm)"]
+nominative = "магазин для M4RA-C (10x24мм HV-HP)"
+genitive = "магазина для M4RA-C (10x24мм HV-HP)"
+dative = "магазину для M4RA-C (10x24мм HV-HP)"
+accusative = "магазин для M4RA-C (10x24мм HV-HP)"
+instrumental = "магазином для M4RA-C (10x24мм HV-HP)"
+prepositional = "магазине для M4RA-C (10x24мм HV-HP)"
+gender = "male"
+
+["scout laser designator"]
+nominative = "лазерный целеуказатель разведчика"
+genitive = "лазерного целеуказателя разведчика"
+dative = "лазерному целеуказателю разведчика"
+accusative = "лазерный целеуказатель разведчика"
+instrumental = "лазерным целеуказателем разведчика"
+prepositional = "лазерном целеуказателе разведчика"
+gender = "male"
+
+["M68 Thermal Cloak"]
+nominative = "камуфляжный плащ-неведимка M68"
+genitive = "камуфляжного плаща-неведимки M68"
+dative = "камуфляжному плащу-неведимке M68"
+accusative = "камуфляжный плащ-неведимку M68"
+instrumental = "камуфляжным плащом-неведимкой M68"
+prepositional = "камуфляжном плаще-неведимке M68"
+gender = "male"
+
+["V3 reactive thermal tarp (folded)"]
+nominative = "сложенный камуфляжный мешок V3"
+genitive = "сложенного камуфляжного мешка V3"
+dative = "сложенному камуфляжному мешку V3"
+accusative = "сложенный камуфляжный мешок V3"
+instrumental = "сложенным камуфляжным мешком V3"
+prepositional = "сложенном камуфляжном мешке V3"
+gender = "male"
+
+["V3 reactive thermal tarp (empty)"]
+nominative = "пустой камуфляжный мешок V3"
+genitive = "пустого камуфляжного мешка V3"
+dative = "пустому камуфляжному мешку V3"
+accusative = "пустой камуфляжный мешок V3"
+instrumental = "пустым камуфляжным мешком V3"
+prepositional = "пустом камуфляжном мешке V3"
+gender = "male"
+
+["V3 reactive thermal tarp"]
+nominative = "камуфляжный мешок V3"
+genitive = "камуфляжного мешка V3"
+dative = "камуфляжному мешку V3"
+accusative = "камуфляжный мешок V3"
+instrumental = "камуфляжным мешком V3"
+prepositional = "камуфляжном мешке V3"
+gender = "male"
+
+["M42A scoped rifle"]
+nominative = "снайперская винтовка M42A"
+genitive = "снайперской винтовки M42A"
+dative = "снайперской винтовке M42A"
+accusative = "снайперскую винтовку M42A"
+instrumental = "снайперской винтовкой M42A"
+prepositional = "снайперской винтовке M42A"
+gender = "female"
+
+["M42A Marksman Magazine (10x28mm Caseless)"] # unique venodr name
+nominative = "магазин для M42A (10x28мм)"
+
+["M42A marksman magazine (10x28mm Caseless)"]
+nominative = "магазин для M42A (10x28мм)"
+genitive = "магазина для M42A (10x28мм)"
+dative = "магазину для M42A (10x28мм)"
+accusative = "магазин для M42A (10x28мм)"
+instrumental = "магазином для M42A (10x28мм)"
+prepositional = "магазине для M42A (10x28мм)"
+gender = "male"
+
+["M42A Incendiary Magazine (10x28mm)"] # unique venodr name
+nominative = "магазин для M42A (10x28мм IC)"
+
+["M42A incendiary magazine (10x28mm)"]
+nominative = "магазин для M42A (10x28мм IC)"
+genitive = "магазина для M42A (10x28мм IC)"
+dative = "магазину для M42A (10x28мм IC)"
+accusative = "магазин для M42A (10x28мм IC)"
+instrumental = "магазином для M42A (10x28мм IC)"
+prepositional = "магазине для M42A (10x28мм IC)"
+gender = "male"
+
+["M42A Flak Magazine (10x28mm)"] # unique venodr name
+nominative = "магазин для M42A (10x28мм HP)"
+
+["M42A flak magazine (10x28mm)"]
+nominative = "магазин для M42A (10x28мм HP)"
+genitive = "магазина для M42A (10x28мм HP)"
+dative = "магазину для M42A (10x28мм HP)"
+accusative = "магазин для M42A (10x28мм HP)"
+instrumental = "магазином для M42A (10x28мм HP)"
+prepositional = "магазине для M42A (10x28мм HP)"
+gender = "male"
+
+["M3 sniper's smock"]
+nominative = "снайперский плащ M3"
+genitive = "снайперского плаща M3"
+dative = "снайперскому плащу M3"
+accusative = "снайперский плащ M3"
+instrumental = "снайперским плащом M3"
+prepositional = "снайперском плаще M3"
+gender = "male"
+
+["fullbody print"]
+nominative = "краска для всего тела"
+genitive = "краски для всего тела"
+dative = "краске для всего тела"
+accusative = "краску для всего тела"
+instrumental = "краской для всего тела"
+prepositional = "краске для всего тела"
+gender = "female"
+
+["Broiler-T flexible refueling system"]
+nominative = "инжекторный бак огнемётчика «Бройлер-Т»"
+genitive = "инжекторного бака огнемётчика «Бройлер-Т»"
+dative = "инжекторному баку огнемётчика «Бройлер-Т»"
+accusative = "инжекторный бак огнемётчика «Бройлер-Т»"
+instrumental = "инжекторным баком огнемётчика «Бройлер-Т»"
+prepositional = "инжекторном баке огнемётчика «Бройлер-Т»"
+gender = "male"
+
+["XM43E1 experimental anti-materiel rifle"]
+nominative = "крупнокалиберная снайперская винтовка XM43E1"
+genitive = "крупнокалиберной снайперской винтовки XM43E1"
+dative = "крупнокалиберной снайперской винтовке XM43E1"
+accusative = "крупнокалиберную снайперскую винтовку XM43E1"
+instrumental = "крупнокалиберной снайперской винтовкой XM43E1"
+prepositional = "крупнокалиберной снайперской винтовке XM43E1"
+gender = "female"
+
+["XM43E1 Marksman Magazine (10x99mm Caseless)"] # unique venodr name
+nominative = "магазин для XM43E1 (10x99мм)"
+
+["XM43E1 marksman magazine (10x99mm)"]
+nominative = "магазин для XM43E1 (10x99мм)"
+genitive = "магазина для XM43E1 (10x99мм)"
+dative = "магазину для XM43E1 (10x99мм)"
+accusative = "магазин для XM43E1 (10x99мм)"
+instrumental = "магазином для XM43E1 (10x99мм)"
+prepositional = "магазине для XM43E1 (10x99мм)"
+gender = "male"
+
+
+
+
+
 
 
 

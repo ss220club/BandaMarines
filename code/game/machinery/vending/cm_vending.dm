@@ -578,7 +578,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 								vend_fail()
 								return FALSE
 
-							var/p_name = itemspec[1]
+							var/p_name = itemspec["english_name"] || itemspec[1] // SS220 - EDIT FIX REDEEM SPEC BOXES
 							if(!(p_name in GLOB.specialist_set_name_dict))
 								return
 
