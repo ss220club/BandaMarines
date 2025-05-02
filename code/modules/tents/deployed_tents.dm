@@ -45,6 +45,28 @@
 		roof_image.appearance_flags = KEEP_APART
 		src.overlays += roof_image
 
+/obj/structure/tent/eng/Initialize(mapload, ...)
+	bound_width = x_dim * world.icon_size
+	bound_height = y_dim * world.icon_size
+	register_turf_signals()
+	RegisterSignal(src, COMSIG_ATOM_TURF_CHANGE, PROC_REF(register_turf_signals))
+
+	switch(SSmapping.configs[GROUND_MAP].camouflage_type)
+		if("jungle")
+			icon = 'modular/tents/icons/eng_tent_deployed_jungle.dmi'
+		if("desert")
+			icon = 'modular/tents/icons/eng_tent_deployed_dessert.dmi'
+		if("snow")
+			icon = 'modular/tents/icons/eng_tent_deployed_snow.dmi'
+		if("urban")
+			icon = 'modular/tents/icons/eng_tent_deployed_urban.dmi'
+
+	if(roof_state)
+		roof_image = image(icon, src, roof_state)
+		roof_image.plane = ROOF_PLANE
+		roof_image.appearance_flags = KEEP_APART
+		src.overlays += roof_image
+
 /obj/structure/tent/proc/register_turf_signals()
 	SIGNAL_HANDLER
 	for(var/turf/turf in locs)
