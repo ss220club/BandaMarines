@@ -114,7 +114,7 @@ export const HealthScan = (props) => {
       width={ui_mode ? 300 : 500}
       height={bodyscanner ? 700 : 600}
       theme={theme}
-      title={'Patient: ' + patient}
+      title={'Пациент: ' + patient}
     >
       <Window.Content scrollable>
         <Patient />
@@ -149,17 +149,20 @@ const Patient = (props) => {
     holocard,
   } = data;
 
-  let holocard_message;
-  if (holocard === 'red') {
-    holocard_message = 'Patient needs life-saving treatment.';
-  } else if (holocard === 'orange') {
-    holocard_message = 'Patient needs non-urgent surgery.';
-  } else if (holocard === 'purple') {
-    holocard_message = 'Patient is infected with an XX-121 embryo.';
-  } else if (holocard === 'black') {
-    holocard_message = 'Patient is permanently deceased.';
-  } else {
-    holocard_message = 'Patient has no active holocard.';
+  let holocard_color: string | undefined;
+  switch (holocard) {
+    case 'Необходима срочная медпомощь':
+      holocard_color = 'red';
+      break;
+    case 'Необходима операция':
+      holocard_color = 'orange';
+      break;
+    case 'Инфицирован эмбрионом XX-121':
+      holocard_color = 'purple';
+      break;
+    case 'Скончался':
+      holocard_color = 'black';
+      break;
   }
 
   const ghostscan = detail_level >= 2;
@@ -172,7 +175,7 @@ const Patient = (props) => {
           Patient has been implanted with an alien embryo!
         </NoticeBox>
       ) : null}
-      {dead ? <NoticeBox danger>Patient is deceased!</NoticeBox> : null}
+      {dead ? <NoticeBox danger>Пациент скончался!</NoticeBox> : null}
       {ssd ? (
         <NoticeBox warning color="grey">
           {ssd}
@@ -184,16 +187,16 @@ const Patient = (props) => {
           {dead ? (
             <Stack.Item>
               <Stack>
-                <Stack.Item>Condition:</Stack.Item>
+                <Stack.Item>Состояние:</Stack.Item>
                 <Stack.Item>
                   <Box color={permadead ? 'red' : 'green'} bold>
                     {permadead
                       ? heart_broken
-                        ? 'Myocardial rupture, surgical intervention required'
-                        : 'Permanently deceased'
+                        ? 'Требуется операция на сердце'
+                        : 'Скончался'
                       : Synthetic
-                        ? 'Central power system shutdown, reboot with a reset key possible'
-                        : 'Cardiac arrest, defibrillation possible'}
+                        ? 'Отключение питания, возможна перезагрузка'
+                        : 'Остановка сердца, возможна дефибрилляция'}
                   </Box>
                 </Stack.Item>
               </Stack>
@@ -201,7 +204,7 @@ const Patient = (props) => {
           ) : null}
           <Stack.Item>
             <Stack>
-              <Stack.Item>Damage:</Stack.Item>
+              <Stack.Item>Урон:</Stack.Item>
               <Stack.Item>
                 <Box inline bold color={'red'} mr={1}>
                   {total_brute}
@@ -231,10 +234,10 @@ const Patient = (props) => {
           </Stack.Item>
           <Stack.Item>
             <Stack>
-              <Stack.Item>Holocard:</Stack.Item>
+              <Stack.Item>Медголокарта:</Stack.Item>
               {holocard ? (
                 <Stack.Item>
-                  <ColorBox color={holocard} />
+                  <ColorBox color={holocard_color} />
                 </Stack.Item>
               ) : (
                 <Stack.Item>
@@ -256,7 +259,7 @@ const Patient = (props) => {
                   onClick={() => act('change_ui_mode')}
                   backgroundColor="rgba(255, 255, 255, .05)"
                 >
-                  Classic UI
+                  Увеличить UI
                 </Box>
               </Stack.Item>
             </Stack>
@@ -264,7 +267,7 @@ const Patient = (props) => {
         </Stack>
       ) : (
         <LabeledList>
-          <LabeledList.Item label="Health">
+          <LabeledList.Item label="Здоровье">
             {health >= 0 ? (
               <ProgressBar
                 value={health / 100}
@@ -274,7 +277,7 @@ const Patient = (props) => {
                   bad: [-Infinity, 0.2],
                 }}
               >
-                {health}% healthy
+                {health}%
               </ProgressBar>
             ) : (
               <ProgressBar
@@ -283,7 +286,7 @@ const Patient = (props) => {
                   bad: [-Infinity, Infinity],
                 }}
               >
-                {health}% healthy
+                {health}%
               </ProgressBar>
             )}
           </LabeledList.Item>
@@ -300,10 +303,10 @@ const Patient = (props) => {
               </Box>
             </LabeledList.Item>
           ) : null}
-          <LabeledList.Item label="Damage">
+          <LabeledList.Item label="Урон">
             <Box inline>
               <ProgressBar value={0}>
-                Brute:{' '}
+                Физ.:{' '}
                 <Box inline bold color={'red'}>
                   {total_brute}
                 </Box>
@@ -312,7 +315,7 @@ const Patient = (props) => {
             <Box inline width={'5px'} />
             <Box inline>
               <ProgressBar value={0}>
-                Burn:{' '}
+                Терм.:{' '}
                 <Box inline bold color={'#ffb833'}>
                   {total_burn}
                 </Box>
@@ -321,7 +324,7 @@ const Patient = (props) => {
             <Box inline width={'5px'} />
             <Box inline>
               <ProgressBar value={0}>
-                Toxin:{' '}
+                Токс.:{' '}
                 <Box inline bold color={'green'}>
                   {toxin}
                 </Box>
@@ -330,7 +333,7 @@ const Patient = (props) => {
             <Box inline width={'5px'} />
             <Box inline>
               <ProgressBar value={0}>
-                Oxygen:{' '}
+                Дых.:{' '}
                 <Box inline bold color={'blue'}>
                   {oxy}
                 </Box>
@@ -348,9 +351,9 @@ const Patient = (props) => {
               </Box>
             )}
           </LabeledList.Item>
-          <LabeledList.Item label="Holocard">
-            <NoticeBox color={holocard} inline>
-              {holocard_message}
+          <LabeledList.Item label="Медголокарта">
+            <NoticeBox color={holocard_color} inline>
+              {holocard ?? 'Нет данных'}
             </NoticeBox>
 
             <Button
@@ -358,11 +361,11 @@ const Patient = (props) => {
               style={{ marginLeft: '2%' }}
               onClick={() => act('change_holo_card')}
             >
-              Change
+              Изменить
             </Button>
 
             <Button inline onClick={() => act('change_ui_mode')}>
-              Minimal UI
+              Уменьшить UI
             </Button>
           </LabeledList.Item>
         </LabeledList>
@@ -393,20 +396,20 @@ const Misc = (props) => {
     <Section>
       <LabeledList>
         {has_blood ? (
-          <LabeledList.Item label={'Blood Type ' + blood_type}>
+          <LabeledList.Item label={'Группа крови (' + blood_type + ')'}>
             <Box
               color={
                 bloodpct > 0.9 ? 'green' : bloodpct > 0.7 ? 'orange' : 'red'
               }
             >
-              {Math.round(blood_amount / 5.6)}%, {blood_amount}cl
+              {Math.round(blood_amount / 5.6)}%, {blood_amount * 10} мл
             </Box>
           </LabeledList.Item>
         ) : null}
-        <LabeledList.Item label={'Body Temperature'}>
+        <LabeledList.Item label={'Температура тела'}>
           {body_temperature}
         </LabeledList.Item>
-        <LabeledList.Item label={'Pulse'}>{pulse}</LabeledList.Item>
+        <LabeledList.Item label={'Пульс'}>{pulse}</LabeledList.Item>
       </LabeledList>
       {implants || hugged || core_fracture || (lung_ruptured && bodyscanner) ? (
         <Divider />
@@ -477,7 +480,7 @@ const MedicalAdvice = (props) => {
   const { data } = useBackend<Data>();
   const { advice } = data;
   return (
-    <Section title="Medication Advice">
+    <Section title="Рекомендации">
       <Stack vertical>
         {advice?.map((advice) => (
           <Stack.Item key={advice.advice}>
@@ -499,7 +502,7 @@ const ScannerChems = (props) => {
   const chemicals = Object.values(chemicals_lists);
 
   return (
-    <Section title={ui_mode ? null : 'Chemical Contents'}>
+    <Section title={ui_mode ? null : 'Вещества в организме'}>
       {has_unknown_chemicals ? (
         <NoticeBox warning color="grey">
           Unknown reagents detected.
@@ -516,12 +519,12 @@ const ScannerChems = (props) => {
                 color={chemical.dangerous ? 'red' : 'white'}
                 bold={!!chemical.dangerous}
               >
-                {chemical.amount + 'u ' + chemical.name}
+                {chemical.amount + 'ед. ' + chemical.name}
               </Box>
               <Box inline width={'5px'} />
               {chemical.od ? (
                 <Box inline color={'red'} bold>
-                  {'OD'}
+                  {'ПЕРЕДОЗИРОВКА'}
                 </Box>
               ) : null}
             </Box>
@@ -550,19 +553,19 @@ const ScannerLimbs = (props) => {
   });
 
   return (
-    <Section title={ui_mode ? null : 'Limbs Damaged'}>
+    <Section title={ui_mode ? null : 'Повреждённые части тела'}>
       <Stack vertical fill>
         {ui_mode ? null : (
           <Flex width="100%" height="20px">
             <Flex.Item basis="85px" />
             <Flex.Item basis="55px" bold color="red">
-              Brute
+              Физ.
             </Flex.Item>
             <Flex.Item basis="55px" bold color="#ffb833">
-              Burn
+              Терм.
             </Flex.Item>
             <Flex.Item grow="1" shrink="1" textAlign="right" nowrap>
-              {'{ } = Untreated'}
+              {'{0} - лечение не применялось'}
             </Flex.Item>
           </Flex>
         )}
@@ -579,7 +582,7 @@ const ScannerLimbs = (props) => {
             </Flex.Item>
             {limb.missing ? (
               <Flex.Item color={'red'} bold={1}>
-                MISSING
+                ОТСУТСТВУЕТ
               </Flex.Item>
             ) : (
               <>
@@ -602,22 +605,22 @@ const ScannerLimbs = (props) => {
                 <Flex.Item shrink="1">
                   {limb.bleeding ? (
                     <Box inline color={'red'} bold>
-                      {ui_mode ? `[B]` : `[Bleeding]`}
+                      {ui_mode ? `[К]` : `[Кровотечение]`}
                     </Box>
                   ) : null}
                   {limb.internal_bleeding ? (
                     <Box inline color={'red'} bold>
-                      {ui_mode ? `[IB]` : `[Internal Bleeding]`}
+                      {ui_mode ? `[ВК]` : `[Внутреннее кровотечение]`}
                     </Box>
                   ) : null}
                   {limb.limb_status ? (
                     <Box inline color="white" bold>
-                      {ui_mode ? '[F]' : `[${limb.limb_status}]`}
+                      {ui_mode ? '[П]' : `[Перелом]`}
                     </Box>
                   ) : null}
                   {limb.limb_splint ? (
                     <Box inline color={'lime'} bold>
-                      {ui_mode ? '[S]' : `[${limb.limb_splint}]`}
+                      {ui_mode ? '[Ш]' : `[Наложена шина]`}
                     </Box>
                   ) : null}
                   {limb.limb_type ? (
@@ -635,7 +638,7 @@ const ScannerLimbs = (props) => {
                   ) : null}
                   {limb.open_incision ? (
                     <Box inline color={'red'} bold>
-                      {ui_mode ? `[OSI]` : `[Open Surgical Incision]`}
+                      {ui_mode ? `[Хир. раз.}]` : `[Хирургический разрез]`}
                     </Box>
                   ) : null}
                   {limb.implant && bodyscanner ? (

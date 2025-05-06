@@ -824,7 +824,7 @@
 	if(!has_species(src, "Human"))
 		to_chat(user, SPAN_WARNING("Triage holocards only works on humans."))
 		return
-	var/newcolor = tgui_input_list(user, "Choose a triage holo card to add to the patient:", "Triage holo card", list("black", "red", "orange", "purple", "none"))
+	var/newcolor = tgui_input_list(user, "Укажите причину болезни пациента:", "Медголокарта", list("Скончался", "Необходима срочная медпомощь", "Необходима операция", "Инфицирован эмбрионом XX-121", "Нет данных")) // SS220 - EDIT ADDITTION
 	if(!newcolor)
 		return
 	if(get_dist(user, src) > 7)
