@@ -27,7 +27,7 @@ GLOBAL_LIST_EMPTY(ru_names)
 		var/list/tomls_path = flist(root)
 		if(!length(tomls_path))
 #ifdef UNIT_TESTS
-		CRASH("Hey, I don't have any data in [root]")
+			CRASH("Hey, I don't have any data in [root]")
 #endif
 			return .
 #ifdef UNIT_TESTS
