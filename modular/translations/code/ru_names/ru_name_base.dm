@@ -27,7 +27,14 @@ GLOBAL_LIST_EMPTY(ru_names)
 		var/list/tomls_path = flist(root)
 		if(!length(tomls_path))
 #ifdef UNIT_TESTS
-			CRASH("Hey, I don't have any data in [root]")
+			var/path = ""
+			var/list/where_to_go = list(".", "modular", "translations", "code", "translation_data", "ru_names")
+			for(var/pathing in where_to_go)
+				path += pathing + "/"
+				var/list/paths_inside = flist(path)
+				if(length(paths_inside))
+					stack_trace("I see inside [path]: [english_list(paths_inside)]")
+			GLOB.ru_names["error"] = "error"
 #endif
 			return .
 #ifdef UNIT_TESTS
