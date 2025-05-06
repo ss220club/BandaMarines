@@ -22,6 +22,10 @@ GLOBAL_LIST_EMPTY(ru_names)
 /proc/ru_names_toml(name, prefix, suffix, override_base)
 	. = list()
 	var/formatted_name = format_text(name)
+	// The world didn't initialize properly yet
+	if(isnull(GLOB.ru_names))
+		return .
+	// Fill ru_names
 	if(!length(GLOB.ru_names))
 		var/root = "[PATH_TO_TRANSLATE_DATA]/ru_names/"
 		var/list/tomls_path = flist(root)
