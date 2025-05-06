@@ -1,0 +1,112 @@
+# Colonial Marines medicine stuff
+
+["Oxygen canister"]
+nominative = "кислородный баллон"
+genitive = "кислородного баллона"
+dative = "кислородному баллону"
+accusative = "кислородный баллон"
+instrumental = "кислородным баллоном"
+prepositional = "кислородном баллоне"
+gender = "male"
+
+["A+ Blood Pack"]
+nominative = "пакет для крови (A+)"
+
+["A- Blood Pack"]
+nominative = "пакет для крови (A-)"
+
+["B+ Blood Pack"]
+nominative = "пакет для крови (B+)"
+
+["B- Blood Pack"]
+nominative = "пакет для крови (B-)"
+
+["O+ Blood Pack"]
+nominative = "пакет для крови (O+)"
+
+["O- Blood Pack"]
+nominative = "пакет для крови (O-)"
+
+["Empty Blood Pack"]
+nominative = "пакет для крови (Пустой)"
+
+["blood pack"]
+nominative = "пакет для крови"
+genitive = "пакета для крови"
+dative = "пакету для крови"
+accusative = "пакет для крови"
+instrumental = "пакетом для крови"
+prepositional = "пакете для крови"
+gender = "male"
+
+["roller bed"]
+nominative = "роликовые носилки"
+genitive = "роликовых носилок"
+dative = "роликовым носилкам"
+accusative = "роликовые носилки"
+instrumental = "роликовыми носилками"
+prepositional = "роликовых носилках"
+gender = "plural"
+
+["medical mask"]
+nominative = "медицинская маска"
+genitive = "медицинской маски"
+dative = "медицинской маске"
+accusative = "медицинскую маску"
+instrumental = "медицинской маской"
+prepositional = "медицинской маске"
+gender = "female"
+
+["first-aid kit"]
+nominative = "аптечка первой помощи"
+genitive = "аптечки первой помощи"
+dative = "аптечке первой помощи"
+accusative = "аптечку первой помощи"
+instrumental = "аптечкой первой помощи"
+prepositional = "аптечке первой помощи"
+gender = "female"
+
+["oxygen deprivation first-aid kit"]
+nominative = "аптечка при кислородной недостаточности"
+genitive = "аптечки при кислородной недостаточности"
+dative = "аптечке при кислородной недостаточности"
+accusative = "аптечку при кислородной недостаточности"
+instrumental = "аптечкой при кислородной недостаточности"
+prepositional = "аптечке при кислородной недостаточности"
+gender = "female"
+
+["toxin first-aid kit"]
+nominative = "аптечка при отравлениях"
+genitive = "аптечки при отравлениях"
+dative = "аптечке при отравлениях"
+accusative = "аптечку при отравлениях"
+instrumental = "аптечкой при отравлениях"
+prepositional = "аптечке при отравлениях"
+gender = "female"
+
+["fire first-aid kit"]
+nominative = "аптечка при термических повреждениях"
+genitive = "аптечки при термических повреждениях"
+dative = "аптечке при термических повреждениях"
+accusative = "аптечку при термических повреждениях"
+instrumental = "аптечкой при термических повреждениях"
+prepositional = "аптечке при термических повреждениях"
+gender = "female"
+
+["radiation first-aid kit"]
+nominative = "аптечка при радиационном облучении"
+genitive = "аптечки при радиационном облучении"
+dative = "аптечке при радиационном облучении"
+accusative = "аптечку при радиационном облучении"
+instrumental = "аптечкой при радиационном облучении"
+prepositional = "аптечке при радиационном облучении"
+gender = "female"
+
+["space cleaner"]
+nominative = "очиститель"
+genitive = "очистителя"
+dative = "очистителю"
+accusative = "очиститель"
+instrumental = "очистителем"
+prepositional = "очистителе"
+gender = "male"
