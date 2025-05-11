@@ -34,6 +34,8 @@ interface VendingRecord {
   prod_desc?: string;
   prod_cost: number;
   image: string;
+  image_size: string;
+  prod_name_en: string; // BANDAMARINES ADDITION
 }
 
 interface VendingCategory {
@@ -141,7 +143,11 @@ const VendableItemRow = (props: VenableItem) => {
     <>
       <TableCell className="IconCell" verticalAlign="top">
         <span
-          className={classes([`Icon`, `vending32x32`, `${props.record.image}`])}
+          className={classes([
+            `Icon`,
+            `vending${props.record.image_size ? props.record.image_size : `32x32`}`,
+            `${props.record.image}`,
+          ])}
         />
       </TableCell>
 
@@ -192,7 +198,11 @@ const VendableClothingItemRow = (props: {
     <>
       <TableCell className="IconCell" verticalAlign="top">
         <span
-          className={classes([`Icon`, `vending32x32`, `${props.record.image}`])}
+          className={classes([
+            `Icon`,
+            `vending${props.record.image_size ? props.record.image_size : `32x32`}`,
+            `${props.record.image}`,
+          ])}
         />
       </TableCell>
 
@@ -263,7 +273,8 @@ export const ViewVendingCategory = (props: VendingCategoryProps) => {
   const { vendor_type } = data;
   const { category, searchTerm } = props;
   const searchFilter = (x: VendingRecord) =>
-    x.prod_name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase());
+    x.prod_name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
+    x.prod_name_en.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()); // BANDAMARINES ADDITION
 
   const filteredCategories = category.items.filter(searchFilter);
   if (filteredCategories.length === 0) {
