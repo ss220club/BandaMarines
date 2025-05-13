@@ -12,7 +12,7 @@ instrumental = "осколочной гранатой M15"
 prepositional = "осколочной гранате M15"
 gender = "female"
 
-["M40 HEDP Grenades x6"]
+["M40 HEDP Grenades x6"] # Unique Vendor Name
 nominative = "граната M40 HEDP (Осколочная) x 6"
 
 ["M40 HEDP grenade"]
@@ -24,7 +24,7 @@ instrumental = "гранатой M40 HEDP (Осколочная)"
 prepositional = "гранате M40 HEDP (Осколочная)"
 gender = "female"
 
-["M40 HIDP Incendiary Grenade x6"]
+["M40 HIDP Incendiary Grenade x6"] # Unique Vendor Name
 nominative = "граната M40 HIDP (Зажигательная) x 6"
 
 ["M40 HIDP incendiary grenade"]
@@ -36,10 +36,10 @@ instrumental = "гранатой M40 HIDP (Зажигательная)"
 prepositional = "гранате M40 HIDP (Зажигательная)"
 gender = "female"
 
-["M40 CCDP Chemical Compound Smoke Grenade"]
+["M40 CCDP Chemical Compound Smoke Grenade"] # Unique Vendor Name
 nominative = "граната M40 CCDP (Фосфорная)"
 
-["M40 CCDP Chemical Compound Grenades x6"]
+["M40 CCDP Chemical Compound Grenades x6"] # Unique Vendor Name
 nominative = "граната M40 CCDP (Фосфорная) x 6"
 
 ["M40 CCDP grenade"]
@@ -53,86 +53,86 @@ gender = "female"
 
 ["M40 HSDP smoke grenade"]
 nominative = "граната M40 HSDP (Дымовая)"
-genitive = "гранаты M40 HSDP (Дымовой)"
-dative = "гранате M40 HSDP (Дымовой)"
-accusative = "гранату M40 HSDP (Дымовую)"
-instrumental = "гранатой M40 HSDP (Дымовой)"
-prepositional = "гранате M40 HSDP (Дымовой)"
+genitive = "гранаты M40 HSDP (Дымовая)"
+dative = "гранате M40 HSDP (Дымовая)"
+accusative = "гранату M40 HSDP (Дымовая)"
+instrumental = "гранатой M40 HSDP (Дымовая)"
+prepositional = "гранате M40 HSDP (Дымовая)"
 gender = "female"
 
-["M74 AGM-Frag Airburst Grenade"]
-nominative = "прыгающая граната M74 AGM (Осколочная)"
+["M74 AGM-Frag Airburst Grenade"] # Unique Vendor Name
+nominative = "прыгающая граната M74 AGM-F (Осколочная)"
 
-["M74 AGM-F Fragmentation Grenades x6"]
-nominative = "прыгающая граната M74 AGM (Осколочная) x 6"
+["M74 AGM-F Fragmentation Grenades x6"] # Unique Vendor Name
+nominative = "прыгающая граната M74 AGM-F (Осколочная) x 6"
 
 ["M74 AGM-F 40mm Grenade"]
-nominative = "прыгающая граната M74 AGM (Осколочная)"
-genitive = "прыгающей гранаты M74 AGM (Осколочная)"
-dative = "прыгающей гранате M74 AGM (Осколочная)"
-accusative = "прыгающую гранату M74 AGM (Осколочная)"
-instrumental = "прыгающей гранатой M74 AGM (Осколочная)"
-prepositional = "прыгающей гранате M74 AGM (Осколочная)"
+nominative = "прыгающая граната M74 AGM-F (Осколочная)"
+genitive = "прыгающей гранаты M74 AGM-F (Осколочная)"
+dative = "прыгающей гранате M74 AGM-F (Осколочная)"
+accusative = "прыгающую гранату M74 AGM-F (Осколочная)"
+instrumental = "прыгающей гранатой M74 AGM-F (Осколочная)"
+prepositional = "прыгающей гранате M74 AGM-F (Осколочная)"
 gender = "female"
 
-["M74 AGM-Incendiary Airburst Grenade"]
-nominative = "прыгающая граната M74 AGM (Зажигательная)"
+["M74 AGM-Incendiary Airburst Grenade"] # Unique Vendor Name
+nominative = "прыгающая граната M74 AGM-I (Зажигательная)"
 
-["M74 AGM-I Incendiary Grenades x6"]
-nominative = "прыгающая граната M74 AGM (Зажигательная) x 6"
+["M74 AGM-I Incendiary Grenades x6"] # Unique Vendor Name
+nominative = "прыгающая граната M74 AGM-I (Зажигательная) x 6"
 
 ["M74 AGM-I 40mm Grenade"]
-nominative = "прыгающая граната M74 AGM (Зажигательная)"
-genitive = "прыгающей гранаты M74 AGM (Зажигательная)"
-dative = "прыгающей гранате M74 AGM (Зажигательная)"
-accusative = "прыгающую гранату M74 AGM (Зажигательная)"
-instrumental = "прыгающей гранатой M74 AGM (Зажигательная)"
-prepositional = "прыгающей гранате M74 AGM (Зажигательная)"
+nominative = "прыгающая граната M74 AGM-I (Зажигательная)"
+genitive = "прыгающей гранаты M74 AGM-I (Зажигательная)"
+dative = "прыгающей гранате M74 AGM-I (Зажигательная)"
+accusative = "прыгающую гранату M74 AGM-I (Зажигательная)"
+instrumental = "прыгающей гранатой M74 AGM-I (Зажигательная)"
+prepositional = "прыгающей гранате M74 AGM-I (Зажигательная)"
 gender = "female"
 
-["M74 AGM-Smoke Airburst Grenade"]
-nominative = "прыгающая граната M74 AGM (Дымовая)"
+["M74 AGM-Smoke Airburst Grenade"] # Unique Vendor Name
+nominative = "прыгающая граната M74 AGM-S (Дымовая)"
 
-["M74 AGM-S Smoke Grenades x6"]
-nominative = "прыгающая граната M74 AGM (Дымовая) x 6"
+["M74 AGM-S Smoke Grenades x6"] # Unique Vendor Name
+nominative = "прыгающая граната M74 AGM-S (Дымовая) x 6"
 
 ["M74 AGM-S 40mm Grenade"]
-nominative = "прыгающая граната M74 AGM (Дымовая)"
-genitive = "прыгающей гранаты M74 AGM (Дымовая)"
-dative = "прыгающей гранате M74 AGM (Дымовая)"
-accusative = "прыгающую гранату M74 AGM (Дымовая)"
-instrumental = "прыгающей гранатой M74 AGM (Дымовая)"
-prepositional = "прыгающей гранате M74 AGM (Дымовая)"
+nominative = "прыгающая граната M74 AGM-S (Дымовая)"
+genitive = "прыгающей гранаты M74 AGM-S (Дымовая)"
+dative = "прыгающей гранате M74 AGM-S (Дымовая)"
+accusative = "прыгающую гранату M74 AGM-S (Дымовая)"
+instrumental = "прыгающей гранатой M74 AGM-S (Дымовая)"
+prepositional = "прыгающей гранате M74 AGM-S (Дымовая)"
 gender = "female"
 
-["M74 AGM-Star Shell"]
-nominative = "прыгающая граната M74 AGM «Звезда»"
+["M74 AGM-Star Shell"] # Unique Vendor Name
+nominative = "прыгающая граната M74 AGM-S «Звезда»"
 
 ["M74 AGM-S Star Shell"]
-nominative = "прыгающая граната M74 AGM «Звезда»"
-genitive = "прыгающей гранаты M74 AGM «Звезда»"
-dative = "прыгающей гранате M74 AGM «Звезда»"
-accusative = "прыгающую гранату M74 AGM «Звезда»"
-instrumental = "прыгающей гранатой M74 AGM «Звезда»"
-prepositional = "прыгающей гранате M74 AGM «Звезда»"
+nominative = "прыгающая граната M74 AGM-S «Звезда»"
+genitive = "прыгающей гранаты M74 AGM-S «Звезда»"
+dative = "прыгающей гранате M74 AGM-S «Звезда»"
+accusative = "прыгающую гранату M74 AGM-S «Звезда»"
+instrumental = "прыгающей гранатой M74 AGM-S «Звезда»"
+prepositional = "прыгающей гранате M74 AGM-S «Звезда»"
 gender = "female"
 
-["M74 AGM-Hornet Shell"]
-nominative = "прыгающая граната M74 AGM «Шершень»"
+["M74 AGM-Hornet Shell"] # Unique Vendor Name
+nominative = "прыгающая граната M74 AGM-H «Шершень»"
 
 ["M74 AGM-H 40mm Hornet Shell"]
-nominative = "прыгающая граната M74 AGM «Шершень»"
-genitive = "прыгающей гранаты M74 AGM «Шершень»"
-dative = "прыгающей гранате M74 AGM «Шершень»"
-accusative = "прыгающую гранату M74 AGM «Шершень»"
-instrumental = "прыгающей гранатой M74 AGM «Шершень»"
-prepositional = "прыгающей гранате M74 AGM «Шершень»"
+nominative = "прыгающая граната M74 AGM-H «Шершень»"
+genitive = "прыгающей гранаты M74 AGM-H «Шершень»"
+dative = "прыгающей гранате M74 AGM-H «Шершень»"
+accusative = "прыгающую гранату M74 AGM-H «Шершень»"
+instrumental = "прыгающей гранатой M74 AGM-H «Шершень»"
+prepositional = "прыгающей гранате M74 AGM-H «Шершень»"
 gender = "female"
 
-["G2 Electroshock Grenade"]
+["G2 Electroshock Grenade"] # Unique Vendor Name
 nominative = "электрошоковая граната G2"
 
-["G2 Electroshock Grenade Pack x6"]
+["G2 Electroshock Grenade Pack x6"] # Unique Vendor Name
 nominative = "электрошоковая граната G2 x 6"
 
 ["G2 electroshock grenade"]
@@ -144,10 +144,10 @@ instrumental = "электрошоковой гранатой G2"
 prepositional = "электрошоковой гранате G2"
 gender = "female"
 
-["M40 HIRR Baton Slug"]
+["M40 HIRR Baton Slug"] # Unique Vendor Name
 nominative = "граната M40 HIRR (Резина)"
 
-["HIRR Baton Slugs"]
+["HIRR Baton Slugs"] # Unique Vendor Name
 nominative = "граната M40 HIRR (Резина)"
 
 ["HIRR baton slug"]
@@ -159,7 +159,7 @@ instrumental = "гранатой M40 HIRR (Резина)"
 prepositional = "гранате M40 HIRR (Резина)"
 gender = "female"
 
-["M40 MFHS Metal Foam Grenade"]
+["M40 MFHS Metal Foam Grenade"] # Unique Vendor Name
 nominative = "граната M40 MFHS (Пена)"
 
 ["M40 MFHS grenade"]
@@ -171,7 +171,7 @@ instrumental = "гранатой M40 HIRR (Пена)"
 prepositional = "гранате M40 HIRR (Пена)"
 gender = "female"
 
-# MARK: bullets
+# MARK: shell, slugs и bullets
 
 ["handful of buckshot shell (12g)"]
 nominative = "патроны для дробовика (Картечь)"
@@ -407,7 +407,7 @@ instrumental = "крупнокалиберными снайперскими пу
 prepositional = "крупнокалиберных снайперских пулях (10x99мм)"
 gender = "female"
 
-["84mm High-Explosive Rocket"]
+["84mm High-Explosive Rocket"] # Unique Vendor Name
 nominative = "ракета (84мм Осколочная)"
 
 ["84mm high explosive rocket"]
@@ -419,7 +419,7 @@ instrumental = "ракетой (84мм Осколочная)"
 prepositional = "ракете (84мм Осколочная)"
 gender = "female"
 
-["84mm Anti-Armor Rocket"]
+["84mm Anti-Armor Rocket"] # Unique Vendor Name
 nominative = "ракета (84мм Бронебойная)"
 
 ["84mm anti-armor rocket"]
@@ -431,7 +431,7 @@ instrumental = "ракетой (84мм Бронебойной)"
 prepositional = "ракете (84мм Бронебойной)"
 gender = "female"
 
-["84mm White-Phosphorus Rocket"]
+["84mm White-Phosphorus Rocket"] # Unique Vendor Name
 nominative = "ракета (84мм Фосфорная)"
 
 ["84mm white-phosphorus rocket"]

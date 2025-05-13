@@ -513,7 +513,7 @@ instrumental = "коробкой с фонариками"
 prepositional = "коробке с фонариками"
 gender = "female"
 
-["Engineer Kit"]
+["Engineer Kit"] # Unique Vendor Name
 nominative = "кейс для оснастки"
 
 ["engineer kit"]
@@ -525,10 +525,10 @@ instrumental = "кейсом для оснастки"
 prepositional = "кейсе для оснастки"
 gender = "male"
 
-["Ballistic goggles"]
+["Ballistic goggles"] # Unique Vendor Name
 nominative = "баллистические очки"
 
-["M1A1 Ballistic goggles"]
+["M1A1 Ballistic goggles"] # Unique Vendor Name
 nominative = "баллистические очки M1A1"
 
 ["M1A1 marine ballistic goggles"]
@@ -540,7 +540,7 @@ instrumental = "баллистическими очками M1A1"
 prepositional = "баллистических очках M1A1"
 gender = "plural"
 
-["Prescription ballistic goggles"]
+["Prescription ballistic goggles"] # Unique Vendor Name
 nominative = "баллистические очки с диоптриями"
 
 ["prescription marine ballistic goggles"]
@@ -563,7 +563,7 @@ instrumental = "очками ЗОД морпеха"
 prepositional = "очках ЗОДморпеха"
 gender = "plural"
 
-["W-Y brand rechargeable mini-battery"]
+["W-Y brand rechargeable mini-battery"] # Unique Vendor Name
 nominative = "аккумуляторная мини-батарея «ВейЮ»"
 
 ["W-Y rechargeable mini-battery"]
@@ -575,7 +575,7 @@ instrumental = "аккумуляторной мини-батареей «Вей�
 prepositional = "аккумуляторной мини-батарее «ВейЮ»"
 gender = "female"
 
-["M10 Helmet Netting"]
+["M10 Helmet Netting"] # Unique Vendor Name
 nominative = "маскчехол для шлема"
 
 ["combat netting"]
@@ -587,7 +587,7 @@ instrumental = "маскчехлом для шлема"
 prepositional = "маскчехле для шлема"
 gender = "male"
 
-["M10 Helmet Rain Cover"]
+["M10 Helmet Rain Cover"] # Unique Vendor Name
 nominative = "дождевик для шлема"
 
 ["raincover"]
@@ -608,7 +608,7 @@ instrumental = "значком «Талант ККМП»"
 prepositional = "значке «Талант ККМП»"
 gender = "male"
 
-["Falling Falcons Shoudler Patch"]
+["Falling Falcons Shoudler Patch"] # Unique Vendor Name
 nominative = "шеврон ККМП «Пикирующий сокол»"
 
 ["USCM Falling Falcons patch"]
@@ -620,7 +620,7 @@ instrumental = "шевроном ККМП «Пикирующий сокол»"
 prepositional = "шевроне ККМП «Пикирующий сокол»"
 gender = "male"
 
-["Falling Falcons UA Shoudler Patch"]
+["Falling Falcons UA Shoudler Patch"] # Unique Vendor Name
 nominative = "шеврон ККМП СА «Пикирующий сокол»"
 
 ["USCM Falling Falcons UA patch"]
@@ -641,7 +641,7 @@ instrumental = "большим шевроном ККМП"
 prepositional = "большом шевроне ККМП"
 gender = "male"
 
-["USCM Shoulder Patch"]
+["USCM Shoulder Patch"] # Unique Vendor Name
 nominative = "шеврон ККМП"
 
 ["USCM patch"]
@@ -653,10 +653,10 @@ instrumental = "шевроном ККМП"
 prepositional = "шевроне ККМП"
 gender = "male"
 
-["United Americas Shoulder patch"]
+["United Americas Shoulder patch"] # Unique Vendor Name
 nominative = "шеврон Соединённых Америк"
 
-["United Americas Flag Shoulder patch"]
+["United Americas Flag Shoulder patch"] # Unique Vendor Name
 nominative = "шеврон флага Соединённых Америк"
 
 ["United Americas patch"]

@@ -19307,20 +19307,6 @@ instrumental = "флягой с святой водой"
 prepositional = "фляге с святой водой"
 gender = "female"
 
-# MARK: Colonial Marines
-
-["POUCHES"] # Unique Vendor Name
-nominative = "ПОДСУМКИ"
-
-["PREPARED MEALS"] # Unique Vendor Name
-nominative = "ГОТОВЫЕ БЛЮДА"
-
-["USCM Protein Bar"] # Unique Vendor Name
-nominative = "Протеиновый батончик ККМП"
-
-["FLASKS"] # Unique Vendor Name
-nominative = "ФЛЯГИ"
-
 # MARK: UNCATEGORIZED
 
 ["modified duffel bag"]

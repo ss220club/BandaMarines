@@ -335,12 +335,12 @@ prepositional = "противопожарном шкафчике"
 gender = "male"
 
 ["anesthetic closet"]
-nominative = "шкафчик для средств анестезии"
-genitive = "шкафчика для средств анестезии"
-dative = "шкафчику для средств анестезии"
-accusative = "шкафчик для средств анестезии"
-instrumental = "шкафчиком для средств анестезии"
-prepositional = "шкафчике для средств анестезии"
+nominative = "шкафчик анестезиолога"
+genitive = "шкафчика анестезиолога"
+dative = "шкафчику анестезиолога"
+accusative = "шкафчик анестезиолога"
+instrumental = "шкафчиком анестезиолога"
+prepositional = "шкафчике анестезиолога"
 gender = "male"
 
 ["documents cabinet"]

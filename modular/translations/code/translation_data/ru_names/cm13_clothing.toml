@@ -12,7 +12,7 @@ instrumental = "униформой ККМП"
 prepositional = "униформе ККМП"
 gender = "female"
 
-["USCM Combat Technician Uniform"]
+["USCM Combat Technician Uniform"] # Unique Vendor Name
 nominative = "униформа ККМП техника"
 
 ["USCM ComTech uniform"]
@@ -24,7 +24,7 @@ instrumental = "униформой ККМП техника"
 prepositional = "униформе ККМП техника"
 gender = "female"
 
-["USCM Hospital Corpsman uniform"]
+["USCM Hospital Corpsman uniform"] # Unique Vendor Name
 nominative = "униформа ККМП санитара"
 
 ["USCM corpsman uniform"]
@@ -83,10 +83,10 @@ gender = "male"
 
 # MARK: backpacks
 
-["Standard Backpack"]
+["Standard Backpack"] # Unique Vendor Name
 nominative = "рюкзак"
 
-["Combat Pack"]
+["Combat Pack"] # Unique Vendor Name
 nominative = "военный рюкзак"
 
 ["lightweight IMP backpack"]
@@ -98,7 +98,7 @@ instrumental = "военным лёгким рюкзаком"
 prepositional = "военном лёгком рюкзаке"
 gender = "male"
 
-["Mortar Shell Backpack"]
+["Mortar Shell Backpack"] # Unique Vendor Name
 nominative = "рюкзак для миномётных мин"
 
 ["USCM mortar shell backpack"]
@@ -110,7 +110,7 @@ instrumental = "рюкзаком ККМП для миномётных мин"
 prepositional = "рюкзаке ККМП для миномётных мин"
 gender = "male"
 
-["Technician Backpack"]
+["Technician Backpack"] # Unique Vendor Name
 nominative = "рюкзак техника"
 
 ["USCM technician backpack"]
@@ -131,7 +131,7 @@ instrumental = "рюкзаком ККМП санитара"
 prepositional = "рюкзаке ККМП санитара"
 gender = "male"
 
-["IMP Ammo Pack"]
+["IMP Ammo Pack"] # Unique Vendor Name
 nominative = "поняга для ящиков с боеприпасами"
 
 ["IMP ammo rack"]
@@ -143,7 +143,7 @@ instrumental = "понягой для ящиков с боеприпасами"
 prepositional = "поняге для ящиков с боеприпасами"
 gender = "female"
 
-["Radio Telephone Backpack"]
+["Radio Telephone Backpack"] # Unique Vendor Name
 nominative = "рюкзак связиста"
 
 ["USCM Radio Telephone Pack"]
@@ -155,10 +155,10 @@ instrumental = "рюкзаком ККМП связиста"
 prepositional = "рюкзаке ККМП связиста"
 gender = "male"
 
-["Technician Welderpack"]
+["Technician Welderpack"] # Unique Vendor Name
 nominative = "рюкзак сварщика"
 
-["USCM Technician Welderpack"]
+["USCM Technician Welderpack"] # Unique Vendor Name
 nominative = "рюкзак ККМП сварщика"
 
 ["USCM technician welderpack"]
@@ -170,7 +170,7 @@ instrumental = "рюкзаком ККМП сварщика"
 prepositional = "рюкзаке ККМП сварщика"
 gender = "male"
 
-["Pyrotechnician G4-1 Fueltank"]
+["Pyrotechnician G4-1 Fueltank"] # Unique Vendor Name
 nominative = "топливный бак G4-1 огнемётчика"
 
 ["USCM Pyrotechnician G4-1 fueltank"]
@@ -202,10 +202,10 @@ instrumental = "разгрузочной системой ККМП"
 prepositional = "разгрузочной системе ККМП"
 gender = "female"
 
-["Technician Chestrig"]
+["Technician Chestrig"] # Unique Vendor Name
 nominative = "разгрузочная система техника"
 
-["Technician Satchel"] # another name for vendor
+["Technician Satchel"] # Unique Vendor Name
 nominative = "сумка техника"
 
 ["USCM technician chestrig"]
@@ -246,7 +246,7 @@ instrumental = "сумкой ККМП санитара"
 prepositional = "сумке ККМП санитара"
 gender = "female"
 
-["Technician Welder-Satchel"]
+["Technician Welder-Satchel"] # Unique Vendor Name
 nominative = "сумка сварщика"
 
 ["USCM technician welder-satchel"]
@@ -258,7 +258,7 @@ instrumental = "сумкой ККМП сварщика"
 prepositional = "сумке ККМП сварщика"
 gender = "female"
 
-["Grenade Satchel"]
+["Grenade Satchel"] # Unique Vendor Name
 nominative = "сумка для гранат"
 
 ["USCM IMP M63A1 grenade satchel"]
@@ -272,7 +272,7 @@ gender = "female"
 
 # MARK: scabbards
 
-["Shotgun Scabbard"]
+["Shotgun Scabbard"] # Unique Vendor Name
 nominative = "чехол L44 для дробовика M37A2"
 
 ["L44 M37A2 scabbard"]
@@ -284,10 +284,10 @@ instrumental = "чехлом L44 для дробовика M37A2"
 prepositional = "чехле L44 для дробовика M37A2"
 gender = "male"
 
-["Machete Scabbard (Full)"]
+["Machete Scabbard (Full)"] # Unique Vendor Name
 nominative = "чехол H5 для мачете M2132"
 
-["Smartgunner Machete Scabbard"]
+["Smartgunner Machete Scabbard"] # Unique Vendor Name
 nominative = "чехол H5 для мачете M2132"
 
 ["H5 pattern M2132 machete scabbard"]
@@ -328,7 +328,7 @@ instrumental = "чёрным разгрузочным жилетом"
 prepositional = "чёрном разгрузочном жилете"
 gender = "male"
 
-["Knife Webbing"]
+["Knife Webbing"] # Unique Vendor Name
 nominative = "жилет с ножнами"
 
 ["M272 pattern knife vest"]
@@ -349,7 +349,7 @@ instrumental = "чёрным нагрудным жилетом"
 prepositional = "чёрном нагрудном жилете"
 gender = "male"
 
-["Small Tool Webbing (Full)"]
+["Small Tool Webbing (Full)"] # Unique Vendor Name
 nominative = "разгрузочный жилет для инструментов (полный)"
 
 ["Small Tool Webbing"]
@@ -381,7 +381,7 @@ instrumental = "перчатками"
 prepositional = "перчатках"
 gender = "plural"
 
-["Insulated Gloves (Yellow/Tan)"]
+["Insulated Gloves (Yellow/Tan)"] # Unique Vendor Name
 nominative = "жёлтые изоляционные перчатки"
 
 ["marine insulated gloves"]
@@ -393,7 +393,7 @@ instrumental = "изоляционными перчатками морпеха"
 prepositional = "изоляционных перчатках морпеха"
 gender = "plural"
 
-["Insulated Gloves (Black)"]
+["Insulated Gloves (Black)"] # Unique Vendor Name
 nominative = "чёрные изоляционные перчатки"
 
 ["marine insulated black gloves"]
@@ -441,7 +441,7 @@ instrumental = "серыми боевыми перчатками морпеха"
 prepositional = "серых боевых перчатках морпеха"
 gender = "plural"
 
-["Combat Sterile Gloves"]
+["Combat Sterile Gloves"] # Unique Vendor Name
 nominative = "боевые перчатки санитара"
 
 ["marine medical combat gloves"]
@@ -464,16 +464,16 @@ gender = "female"
 
 # MARK: boots
 
-["Marine Brown Combat Boots"]
+["Marine Brown Combat Boots"] # Unique Vendor Name
 nominative = "коричневые боевые ботинки морпеха"
 
-["Marine Jungle Combat Boots"]
+["Marine Jungle Combat Boots"] # Unique Vendor Name
 nominative = "зелёные боевые ботинки морпеха"
 
-["Marine Grey Combat Boots"]
+["Marine Grey Combat Boots"] # Unique Vendor Name
 nominative = "серые боевые ботинки морпеха"
 
-["Marine Urban Combat Boots"]
+["Marine Urban Combat Boots"] # Unique Vendor Name
 nominative = "урбанистские боевые ботинки морпеха"
 
 ["marine combat boots"]
@@ -487,7 +487,7 @@ gender = "plural"
 
 # MARK: belts
 
-["M276 General Pistol Holster Rig"]
+["M276 General Pistol Holster Rig"] # Unique Vendor Name
 nominative = "пояс M276 с кобурой для пистолета"
 
 ["M276 pattern general pistol holster rig"]
@@ -508,10 +508,10 @@ instrumental = "поясом M276 с кобурой для SU-6"
 prepositional = "поясе M276 с кобурой для SU-6"
 gender = "male"
 
-["M276 Pattern General Revolver Holster Rig"]
+["M276 Pattern General Revolver Holster Rig"] # Unique Vendor Name
 nominative = "пояс M276 с кобурой для револьвера"
 
-["M276 General Revolver Holster Rig"]
+["M276 General Revolver Holster Rig"] # Unique Vendor Name
 nominative = "пояс M276 с кобурой для револьвера"
 
 ["M276 pattern general revoler holster rig"]
@@ -523,7 +523,7 @@ instrumental = "поясом M276 с кобурой для револьвера"
 prepositional = "поясе M276 с кобурой для револьвера"
 gender = "male"
 
-["M276 Mortar Operator Belt"]
+["M276 Mortar Operator Belt"] # Unique Vendor Name
 nominative = "пояс M276 миномётчика"
 
 ["M276 pattern mortar operator belt"]
@@ -544,10 +544,10 @@ instrumental = "поясом M300 с патронташем для .458 SOCOM"
 prepositional = "поясе M300 с патронташем для .458 SOCOM"
 gender = "male"
 
-["M276 Shotgun Shell Loading Rig"]
+["M276 Shotgun Shell Loading Rig"] # Unique Vendor Name
 nominative = "пояс M276 с патронташем для дробовика"
 
-["Shotgun Shell Loading Rig"]
+["Shotgun Shell Loading Rig"] # Unique Vendor Name
 nominative = "пояс с патронташем для дробовика"
 
 ["M276 pattern shotgun shell loading rig"]
@@ -559,7 +559,7 @@ instrumental = "поясом M276 с патронташем для дробов�
 prepositional = "поясе M276 с патронташем для дробовика"
 gender = "male"
 
-["M276 G8-A General Utility Pouch"]
+["M276 G8-A General Utility Pouch"] # Unique Vendor Name
 nominative = "пояс G8-A общего назначения"
 
 ["G8-A general utility pouch"]
@@ -571,7 +571,7 @@ instrumental = "поясом G8-A общего назначения"
 prepositional = "поясе G8-A общего назначения"
 gender = "male"
 
-["M276 Toolbelt Rig (Full)"]
+["M276 Toolbelt Rig (Full)"] # Unique Vendor Name
 nominative = "пояс M276 для инструментов (полный)"
 
 ["M276 pattern toolbelt rig"]
@@ -583,10 +583,10 @@ instrumental = "поясом M276 для инструментов"
 prepositional = "поясе M276 для инструментов"
 gender = "male"
 
-["M276 Knife Rig (Full)"]
+["M276 Knife Rig (Full)"] # Unique Vendor Name
 nominative = "пояс M276 для ножей (полный)"
 
-["M276 Knife Rig"]
+["M276 Knife Rig"] # Unique Vendor Name
 nominative = "пояс M276 для ножей"
 
 ["M276 pattern knife rig"]
@@ -598,7 +598,7 @@ instrumental = "поясом M276 для ножей"
 prepositional = "поясе M276 для ножей"
 gender = "male"
 
-["military police belt"]
+["military police belt"] # Unique Vendor Name
 nominative = "пояс военной полиции"
 
 ["M276 pattern military police rig"]
@@ -610,7 +610,7 @@ instrumental = "поясом M276 военной полиции"
 prepositional = "поясе M276 военной полиции"
 gender = "male"
 
-["M276 M39 Holster Rig"]
+["M276 M39 Holster Rig"] # Unique Vendor Name
 nominative = "пояс M276 с креплением для M39"
 
 ["M276 pattern M39 holster rig"]
@@ -622,7 +622,7 @@ instrumental = "поясом M276 с креплением для M39"
 prepositional = "поясе M276 с креплением для M39"
 gender = "male"
 
-["M276 M10 Holster Rig"]
+["M276 M10 Holster Rig"] # Unique Vendor Name
 nominative = "пояс M276 с кобурой для M10"
 
 ["M276 pattern M10 holster rig"]
@@ -643,10 +643,10 @@ instrumental = "поясом M277 строителя"
 prepositional = "поясе M277 строителя"
 gender = "male"
 
-["M276 Medical Storage Rig (Full)"]
+["M276 Medical Storage Rig (Full)"] # Unique Vendor Name
 nominative = "пояс M276 санитара (полный)"
 
-["M276 Medical Storage Rig"]
+["M276 Medical Storage Rig"] # Unique Vendor Name
 nominative = "пояс M276 санитара"
 
 ["M276 pattern medical storage rig"]
@@ -658,13 +658,13 @@ instrumental = "поясом M276 санитара"
 prepositional = "поясе M276 санитара"
 gender = "male"
 
-["M276 Medical Lifesaver Rig"]
+["M276 Medical Lifesaver Rig"] # Unique Vendor Name
 nominative = "пояс M276 спасателя"
 
-["M276 Lifesaver Bag"]
+["M276 Lifesaver Bag"] # Unique Vendor Name
 nominative = "пояс M276 спасателя"
 
-["M276 Lifesaver Bag (Full)"]
+["M276 Lifesaver Bag (Full)"] # Unique Vendor Name
 nominative = "пояс M276 спасателя (полный)"
 
 ["M276 pattern lifesaver bag"]
@@ -685,7 +685,7 @@ instrumental = "поясом M804 пулемётчика"
 prepositional = "поясе M804 пулемётчика"
 gender = "male"
 
-["M276 Ammo Load Rig"]
+["M276 Ammo Load Rig"] # Unique Vendor Name
 nominative = "пояс M276 для магазинов"
 
 ["M276 pattern ammo load rig"]
@@ -706,13 +706,13 @@ instrumental = "поясом для магазинов"
 prepositional = "поясе для магазинов"
 gender = "male"
 
-["M276 Combat Toolbelt Rig (Full)"]
+["M276 Combat Toolbelt Rig (Full)"] # Unique Vendor Name
 nominative = "пояс M276 для инструментов с кобурой"
 
-["M276 Holster Toolrig (Full)"]
+["M276 Holster Toolrig (Full)"] # Unique Vendor Name
 nominative = "пояс M276 для инструментов с кобурой"
 
-["M276 Holster Toolrig"]
+["M276 Holster Toolrig"] # Unique Vendor Name
 nominative = "пояс M276 для инструментов с кобурой"
 
 ["M276 pattern combat toolbelt rig"]
@@ -724,10 +724,10 @@ instrumental = "поясом M276 для инструментов с кобур�
 prepositional = "поясе M276 для инструментов с кобурой"
 gender = "male"
 
-["M276 M82F Holster Rig"]
+["M276 M82F Holster Rig"] # Unique Vendor Name
 nominative = "пояс M276 с кобурой для M82F"
 
-["M276 Pattern M82F Holster Rig"]
+["M276 Pattern M82F Holster Rig"] # Unique Vendor Name
 nominative = "пояс M276 с кобурой для M82F"
 
 ["M276 pattern M82F flare gun holster rig"]
@@ -739,10 +739,10 @@ instrumental = "поясом M276 с кобурой для M82F"
 prepositional = "поясе M276 с кобурой для M82F"
 gender = "male"
 
-["M276 M40 Grenade Rig"]
+["M276 M40 Grenade Rig"] # Unique Vendor Name
 nominative = "пояс M276 для гранат M40"
 
-["M276 M40 Grenade Rig (Empty)"]
+["M276 M40 Grenade Rig (Empty)"] # Unique Vendor Name
 nominative = "пояс M276 для гранат M40"
 
 ["M276 pattern M40 Grenade rig"]
@@ -774,7 +774,7 @@ instrumental = "шлемом М10 морпеха"
 prepositional = "шлеме М10 морпеха"
 gender = "male"
 
-["M10 Pattern Technician Helmet"]
+["M10 Pattern Technician Helmet"] # Unique Vendor Name
 nominative = "шлем М10 техника"
 
 ["M10 technician helmet"]
@@ -786,10 +786,10 @@ instrumental = "шлемом М10 техника"
 prepositional = "шлеме М10 техника"
 gender = "male"
 
-["M10 Pattern Corpsman Helmet"]
+["M10 Pattern Corpsman Helmet"] # Unique Vendor Name
 nominative = "шлем М10 санитара"
 
-["M10 Corpsman Helmet"]
+["M10 Corpsman Helmet"] # Unique Vendor Name
 nominative = "шлем М10 санитара"
 
 ["M10 pattern corpsman helmet"]
@@ -801,7 +801,7 @@ instrumental = "шлемом М10 санитара"
 prepositional = "шлеме М10 санитара"
 gender = "male"
 
-["M10 White Corpsman Helmet"]
+["M10 White Corpsman Helmet"] # Unique Vendor Name
 nominative = "белый шлем М10 санитара"
 
 ["M10 white corpsman helmet"]
@@ -905,7 +905,7 @@ instrumental = "респиратором"
 prepositional = "респираторе"
 gender = "male"
 
-["M5 Integrated Gas Mask"]
+["M5 Integrated Gas Mask"] # Unique Vendor Name
 nominative = "тактический противогаз M5"
 
 ["M5 integrated gasmask"]

@@ -10,7 +10,7 @@ instrumental = "руководством по эксплуатации ТС"
 prepositional = "руководстве по эксплуатации ТС"
 gender = "male"
 
-["JTAC Pamphlet"]
+["JTAC Pamphlet"] # Unique Vendor Name
 nominative = "инструкция для JTAC"
 
 ["JTAC instructional pamphlet"]
@@ -22,7 +22,7 @@ instrumental = "инструкцией для JTAC"
 prepositional = "инструкции для JTAC"
 gender = "female"
 
-["Engineering Pamphlet"]
+["Engineering Pamphlet"] # Unique Vendor Name
 nominative = "инструкция для инженера"
 
 ["engineer instructional pamphlet"]
@@ -43,7 +43,7 @@ instrumental = "руководством по эксплуатации пуле�
 prepositional = "руководстве по эксплуатации пулемёта"
 gender = "neuter"
 
-["Powerloader Certifcation"]
+["Powerloader Certifcation"] # Unique Vendor Name
 nominative = "руководство по эксплуатации погрузчика «Caterpillar»"
 
 ["powerloader instructional pamphlet"]

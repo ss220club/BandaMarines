@@ -52,10 +52,10 @@ instrumental = "брони морпеха M3 с подгонкой"
 prepositional = "броне морпеха M3 с подгонкой"
 gender = "female"
 
-["Heavy Armor"]
+["Heavy Armor"] # Unique Vendor Name
 nominative = "тяжёлая броня"
 
-["M3-EOD Pattern Heavy Armor"]
+["M3-EOD Pattern Heavy Armor"] # Unique Vendor Name
 nominative = "тяжёлая броня M3-EOD морпеха"
 
 ["M3-EOD pattern"]
@@ -67,10 +67,10 @@ instrumental = "тяжёлой бронёй M3-EOD морпеха"
 prepositional = "тяжёлой броне M3-EOD морпеха"
 gender = "female"
 
-["Medium Armor"]
+["Medium Armor"] # Unique Vendor Name
 nominative = "средняя броня"
 
-["M4 Pattern Armor"]
+["M4 Pattern Armor"] # Unique Vendor Name
 nominative = "средняя броня M4 морпеха"
 
 ["M4 pattern marine armor"]
@@ -82,7 +82,7 @@ instrumental = "средней бронёй M4 морпеха"
 prepositional = "средней броне M4 морпеха"
 gender = "female"
 
-["Light Armor"]
+["Light Armor"] # Unique Vendor Name
 nominative = "лёгкая броня"
 
 ["M3-L pattern light armor"]
@@ -94,10 +94,10 @@ instrumental = "лёгкой бронёй M3-L морпеха"
 prepositional = "лёгкой броне M3-L морпеха"
 gender = "female"
 
-["M3 B12 Pattern Marine Armor"]
+["M3 B12 Pattern Marine Armor"] # Unique Vendor Name
 nominative = "броня B12 морпеха"
 
-["B12 Pattern Armor"]
+["B12 Pattern Armor"] # Unique Vendor Name
 nominative = "броня B12 морпеха"
 
 ["B12 pattern marine armor"]

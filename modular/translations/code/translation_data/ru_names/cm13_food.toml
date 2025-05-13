@@ -3,46 +3,51 @@
 # MARK: MRE and others prefixes, conditions
 
 ["MRE main dish"]
-nominative = "основное блюдо"
-genitive = "основного блюда"
-dative = "основному блюду"
-accusative = "основное блюдо"
-instrumental = "основным блюдом"
-prepositional = "основном блюде"
+nominative = "основное блюдо ИРП"
+genitive = "основного блюда ИРП"
+dative = "основному блюду ИРП"
+accusative = "основное блюдо ИРП"
+instrumental = "основным блюдом ИРП"
+prepositional = "основном блюде ИРП"
 gender = "neuter"
 
 ["MRE side dish"]
-nominative = "второе блюдо"
-genitive = "второго блюда"
-dative = "второму блюду"
-accusative = "второе блюдо"
-instrumental = "вторым блюдом"
-prepositional = "втором блюде"
+nominative = "второе блюдо ИРП"
+genitive = "второго блюда ИРП"
+dative = "второму блюду ИРП"
+accusative = "второе блюдо ИРП"
+instrumental = "вторым блюдом ИРП"
+prepositional = "втором блюде ИРП"
 gender = "neuter"
 
 ["MRE snack"]
-nominative = "перекус"
-genitive = "перекуса"
-dative = "перекусу"
-accusative = "перекус"
-instrumental = "перекусом"
-prepositional = "перекусе"
+nominative = "перекус ИРП"
+genitive = "перекуса ИРП"
+dative = "перекусу ИРП"
+accusative = "перекус ИРП"
+instrumental = "перекусом ИРП"
+prepositional = "перекусе ИРП"
 gender = "male"
 
 ["MRE dessert"]
-nominative = "десерт"
-genitive = "десерта"
-dative = "десерту"
-accusative = "десерт"
-instrumental = "десертом"
-prepositional = "десерте"
+nominative = "десерт ИРП"
+genitive = "десерта ИРП"
+dative = "десерту ИРП"
+accusative = "десерт ИРП"
+instrumental = "десертом ИРП"
+prepositional = "десерте ИРП"
 gender = "male"
 
 # MARK: fortune cookie
 
-["broken fortune cookie"] # unique fortune cookie condition
+["broken fortune cookie"]
 nominative = "открытое печенье с предсказанием"
-gender = "female"
+genitive = "открытого печенья с предсказанием"
+dative = "открытому печенью с предсказанием"
+accusative = "открытое печенье с предсказанием"
+instrumental = "открытым печеньем с предсказанием"
+prepositional = "открытом печенье с предсказанием"
+gender = "neuter"
 
 # MARK: base
 
@@ -109,6 +114,9 @@ instrumental = "готовым блюдом ККМП (тофу)"
 prepositional = "готовом блюде ККМП (тофу)"
 gender = "neuter"
 
+["USCM Protein Bar"] # Unique Vendor Name
+nominative = "Протеиновый батончик ККМП"
+
 ["stale USCM protein bar"]
 nominative = "чёрствый протеиновый батончик ККМП"
 genitive = "чёрствого протеинового батончика ККМП"
@@ -128,21 +136,21 @@ prepositional = "ИРП «MRE»"
 gender = "male"
 
 ["USCM MRE"]
-nominative = "сухой паёк ККМП"
-genitive = "сухого пайка ККМП"
-dative = "сухому пайку ККМП"
-accusative = "сухой паёк ККМП"
-instrumental = "сухим пайком ККМП"
-prepositional = "сухом пайке ККМП"
+nominative = "ИРП ККМП"
+genitive = "ИРП ККМП"
+dative = "ИРП ККМП"
+accusative = "ИРП ККМП"
+instrumental = "ИРП ККМП"
+prepositional = "ИРП ККМП"
 gender = "male"
 
 ["boneless pork ribs"]
-nominative = "свиные рёбрышки"
-genitive = "свиных рёбрышек"
-dative = "свиным рёбрышкам"
-accusative = "свиные рёбрышки"
-instrumental = "свиными рёбрышками"
-prepositional = "свиных рёбрышках"
+nominative = "свиные рёбрышки без кости"
+genitive = "свиных рёбрышек без кости"
+dative = "свиным рёбрышкам без кости"
+accusative = "свиные рёбрышки без кости"
+instrumental = "свиными рёбрышками без кости"
+prepositional = "свиных рёбрышках без кости"
 gender = "plural"
 
 ["grilled chicken"]
@@ -884,12 +892,12 @@ prepositional = "коробке от батончиков"
 gender = "female"
 
 ["Yum! donuts"]
-nominative = "пончики «Ням»"
-genitive = "пончиков «Ням»"
-dative = "пончикам «Ням»"
-accusative = "пончики «Ням»"
-instrumental = "пончиками «Ням»"
-prepositional = "пончиках «Ням»"
+nominative = "пончики «Ням!»"
+genitive = "пончиков «Ням!»"
+dative = "пончикам «Ням!»"
+accusative = "пончики «Ням!»"
+instrumental = "пончиками «Ням!»"
+prepositional = "пончиках «Ням!»"
 gender = "plural"
 
 ["frosted donut"]

@@ -17,7 +17,7 @@ nominative = "КЛЮЧИ ШИФРОВАНИЯ"
 ["PRIMARY FIREARMS"]
 nominative = "ОСНОВНОЕ ВООРУЖЕНИЕ"
 
-["Main Weapons (ВОЗЬМИТЕ 1)"]
+["Main Weapons (CHOOSE 1)"]
 nominative = "ОСНОВНОЕ ВООРУЖЕНИЕ (ВОЗЬМИТЕ 1)"
 
 ["PRIMARY AMMUNITION"]
@@ -42,7 +42,7 @@ nominative = "БОЕПРИПАСЫ"
 nominative = "БОЕПРИПАСЫ"
 
 ["ARMOR-PIERCING AMMUNITION"]
-nominative = "БРОНЕБОЙНЫЕ БОЕПРИПАСЫ"
+nominative = "БРОНЕБОЙНЫЕ МАГАЗИНЫ"
 
 ["EXTENDED AMMUNITION"]
 nominative = "РАСШИРЕННЫЕ МАГАЗИНЫ"
@@ -112,6 +112,9 @@ nominative = "ОЧКИ (ВОЗЬМИТЕ 1)"
 
 ["BINOCULARS"]
 nominative = "ОПТИЧЕСКИЕ ПРИБОРЫ"
+
+["POUCHES"]
+nominative = "ПОДСУМКИ"
 
 ["POUCHES (CHOOSE 1)"]
 nominative = "ПОДСУМКИ (ВОЗЬМИТЕ 1)"
@@ -309,6 +312,12 @@ nominative = "стандартная экипировка морпеха"
 
 ["Essential Engineer Set"]
 nominative = "вспомогательное снаряжение инженера"
+
+["FLASKS"]
+nominative = "ФЛЯГИ"
+
+["PREPARED MEALS"]
+nominative = "ГОТОВЫЕ БЛЮДА"
 
 # MARK: base
 

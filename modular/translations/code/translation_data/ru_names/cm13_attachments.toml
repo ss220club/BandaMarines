@@ -228,7 +228,7 @@ instrumental = "прикладом деревянным для M37"
 prepositional = "прикладе деревянном для M37"
 gender = "male"
 
-["M39 Folding Stock"]
+["M39 Folding Stock"] # Unique Vendor Name
 nominative = "складной приклад для M39"
 
 ["submachinegun folding stock"]
@@ -240,7 +240,7 @@ instrumental = "складным прикладом для M39"
 prepositional = "складном прикладе для M39"
 gender = "male"
 
-["M39 Arm Brace"]
+["M39 Arm Brace"] # Unique Vendor Name
 nominative = "плечевой упор для M39"
 
 ["submachinegun arm brace"]
@@ -252,7 +252,7 @@ instrumental = "плечевым упором для M39"
 prepositional = "плечевом упоре для M39"
 gender = "male"
 
-["M39 stock"]
+["M39 stock"] # Unique Vendor Name
 nominative = "приклад для M39"
 
 ["submachinegun stock"]
@@ -300,7 +300,7 @@ instrumental = "тактическим фонарём"
 prepositional = "тактическом фонаре"
 gender = "male"
 
-["Underslung Grenade Launcher"]
+["Underslung Grenade Launcher"] # Unique Vendor Name
 nominative = "подствольный гранатомёт U1"
 
 ["U1 grenade launcher"]
@@ -321,7 +321,7 @@ instrumental = "подствольным огнетушителем HME-12"
 prepositional = "подствольном огнетушителе HME-12"
 gender = "male"
 
-["Underbarrel Flamethrower"]
+["Underbarrel Flamethrower"] # Unique Vendor Name
 nominative = "подствольный огнемёт"
 
 ["mini flamethrower"]
@@ -333,7 +333,7 @@ instrumental = "подствольным огнемётом"
 prepositional = "подствольном огнемёте"
 gender = "male"
 
-["Advanced Underbarrel Flamethrower"]
+["Advanced Underbarrel Flamethrower"] # Unique Vendor Name
 nominative = "улучшенный подствольный огнемёт"
 
 ["advanced mini flamethrower"]
@@ -347,7 +347,7 @@ gender = "male"
 
 # MARK: magazines and tanks
 
-["M240 Incinerator Tank (Napthal)"]
+["M240 Incinerator Tank (Napthal)"] # Unique Vendor Name
 nominative = "топливный резервуар для M240 (Напалм)"
 
 ["M240 incinerator tank"]
@@ -359,7 +359,7 @@ instrumental = "топливным резервуаром для M240"
 prepositional = "топливном резервуаре для M240"
 gender = "male"
 
-["Large Incinerator Tank"]
+["Large Incinerator Tank"] # Unique Vendor Name
 nominative = "топливный резервуар для M240-T (Напалм)"
 
 ["M240 large incinerator tank"]
@@ -371,7 +371,7 @@ instrumental = "топливным резервуаром для M240-T (Нап�
 prepositional = "топливном резервуаре для M240-T (Напалм)"
 gender = "male"
 
-["Large Incinerator Tank (B) (Green Flame)"]
+["Large Incinerator Tank (B) (Green Flame)"] # Unique Vendor Name
 nominative = "топливный резервуар для M240-T (Напалм-В)"
 
 ["M240 large incinerator tank (B)"]
@@ -383,7 +383,7 @@ instrumental = "топливным резервуаром для M240-T (Нап�
 prepositional = "топливном резервуаре для M240-T (Напалм-В)"
 gender = "male"
 
-["Large Incinerator Tank (X) (Blue Flame)"]
+["Large Incinerator Tank (X) (Blue Flame)"] # Unique Vendor Name
 nominative = "топливный резервуар для M240-T (Напалм-Х)"
 
 ["M240 large incinerator tank (X)"]
@@ -395,7 +395,7 @@ instrumental = "топливным резервуаром для M240-T (Нап�
 prepositional = "топливном резервуаре для M240-T (Напалм-Х)"
 gender = "male"
 
-["M56D Drum Magazine"]
+["M56D Drum Magazine"] # Unique Vendor Name
 nominative = "барабанный магазин для M56D (10x28мм SP)"
 
 ["M56D drum magazine (10x28mm Caseless)"]
@@ -407,7 +407,7 @@ instrumental = "барабанным магазином для M56D (10x28мм S
 prepositional = "барабанном магазине для M56D (10x28мм SP)"
 gender = "male"
 
-["M2C Box Magazine"]
+["M2C Box Magazine"] # Unique Vendor Name
 nominative = "Патронный короб для M2C (10x28мм SP)"
 
 ["M2C Ammunition Box (10x28mm tungsten rounds)"]
@@ -428,10 +428,10 @@ instrumental = "магазином для XM51"
 prepositional = "магазине для XM51"
 gender = "male"
 
-["M56 DV9 Battery"]
+["M56 DV9 Battery"] # Unique Vendor Name
 nominative = "батарея DV9 для M56 Smartgun"
 
-["M56 Battery"] # another name for vendor
+["M56 Battery"] # Unique Vendor Name
 nominative = "батарея DV9 для M56 Smartgun"
 
 ["DV9 smartgun battery"]
@@ -443,7 +443,7 @@ instrumental = "батареей DV9 для M56 Smartgun"
 prepositional = "батарее DV9 для M56 Smartgun"
 gender = "female"
 
-["M56 Smartgun Drum"]
+["M56 Smartgun Drum"] # Unique Vendor Name
 nominative = "барабанный магазин для M56 Smartgun"
 
 ["smartgun drum"]
@@ -464,7 +464,7 @@ instrumental = "магазином для M4RA (10x24мм)"
 prepositional = "магазине для M4RA (10x24мм)"
 gender = "male"
 
-["M4RA AP Magazine (10x24mm)"]
+["M4RA AP Magazine (10x24mm)"] # Unique Vendor Name
 nominative = "магазин для M4RA (10x24мм AP)"
 
 ["M4RA armor-piercing magazine (10x24mm)"]
@@ -494,10 +494,10 @@ instrumental = "магазином для M39 (10x20мм HV)"
 prepositional = "магазине для M39 (10x20мм HV)"
 gender = "male"
 
-["M41A MK2 magazine (10x24mm)"] # /obj/item/ammo_magazine/rifle
+["M41A MK2 magazine (10x24mm)"] # Unique Vendor Name
 nominative = "магазин для M41A МК2 (10x24мм)"
 
-["M41A magazine (10x24mm)"] # /obj/item/ammo_magazine/rifle
+["M41A magazine (10x24mm)"] # Unique Vendor Name
 nominative = "магазин для M41A МК2 (10x24мм)"
 genitive = "магазина для M41A МК2 (10x24мм)"
 dative = "магазину для M41A МК2 (10x24мм)"
@@ -506,13 +506,13 @@ instrumental = "магазином для M41A МК2 (10x24мм)"
 prepositional = "магазине для M41A МК2 (10x24мм)"
 gender = "male"
 
-["M41A Extended Magazine"] # /obj/item/ammo_magazine/rifle/extended
+["M41A Extended Magazine"] # Unique Vendor Name
 nominative = "расширенный магазин для M41A МК2 (10x24мм)"
 
-["M41A MK2 Extended Magazine (10x24mm)"] # /obj/item/ammo_magazine/rifle/extended
+["M41A MK2 Extended Magazine (10x24mm)"] # Unique Vendor Name
 nominative = "расширенный магазин для M41A МК2 (10x24мм)"
 
-["M41A extended magazine (10x24mm)"] # /obj/item/ammo_magazine/rifle/extended
+["M41A extended magazine (10x24mm)"]
 nominative = "расширенный магазин для M41A МК2 (10x24мм)"
 genitive = "расширенного магазина для M41A МК2 (10x24мм)"
 dative = "расширенному магазину для M41A МК2 (10x24мм)"
@@ -521,13 +521,13 @@ instrumental = "расширенным магазином для M41A МК2 (10x
 prepositional = "расширенном магазине для M41A МК2 (10x24мм)"
 gender = "male"
 
-["M41A AP magazine"] # /obj/item/ammo_magazine/rifle/ap
+["M41A AP magazine"] # Unique Vendor Name
 nominative = "магазин для M41A МК2 (10x24мм AP)"
 
-["M41A MK2 AP Magazine (10x24mm)"] # /obj/item/ammo_magazine/rifle/ap
+["M41A MK2 AP Magazine (10x24mm)"] # Unique Vendor Name
 nominative = "магазин для M41A МК2 (10x24мм AP)"
 
-["M41A AP magazine (10x24mm)"] # /obj/item/ammo_magazine/rifle/ap
+["M41A AP magazine (10x24mm)"]
 nominative = "магазин для M41A МК2 (10x24мм AP)"
 genitive = "магазина для M41A МК2 (10x24мм AP)"
 dative = "магазину для M41A МК2 (10x24мм AP)"
@@ -536,10 +536,10 @@ instrumental = "магазином для M41A МК2 (10x24мм AP)"
 prepositional = "магазине для M41A МК2 (10x24мм AP)"
 gender = "male"
 
-["M41A MK1 magazine"] # /obj/item/ammo_magazine/rifle/m41aMK1
+["M41A MK1 magazine"] # Unique Vendor Name
 nominative = "магазин для M41A MK1 (10x24мм)"
 
-["M41A MK1 magazine (10x24mm)"] # /obj/item/ammo_magazine/rifle/m41aMK1
+["M41A MK1 magazine (10x24mm)"]
 nominative = "магазин для M41A MK1 (10x24мм)"
 genitive = "магазина для M41A MK1 (10x24мм)"
 dative = "магазину для M41A MK1 (10x24мм)"
@@ -548,10 +548,10 @@ instrumental = "магазином для M41A MK1 (10x24мм)"
 prepositional = "магазине для M41A MK1 (10x24мм)"
 gender = "male"
 
-["M41A MK1 AP magazine"] # /obj/item/ammo_magazine/rifle/m41aMK1/ap
+["M41A MK1 AP magazine"] # Unique Vendor Name
 nominative = "магазин для M41A MK1 (10x24мм AP)"
 
-["M41A MK1 AP magazine (10x24mm)"] # /obj/item/ammo_magazine/rifle/m41aMK1/ap
+["M41A MK1 AP magazine (10x24mm)"]
 nominative = "магазин для M41A MK1 (10x24мм AP)"
 genitive = "магазина для M41A MK1 (10x24мм AP)"
 dative = "магазину для M41A MK1 (10x24мм AP)"
@@ -560,7 +560,7 @@ instrumental = "магазином для M41A MK1 (10x24мм AP)"
 prepositional = "магазине для M41A MK1 (10x24мм AP)"
 gender = "male"
 
-["88 Mod 4 AP magazine (9mm)"]
+["88 Mod 4 AP magazine (9mm)"] # Unique Vendor Name
 nominative = "магазин для 88M4 (9мм AP)"
 
 ["88M4 AP magazine (9mm)"]
@@ -599,7 +599,7 @@ instrumental = "барабанным магазином для M10 (10x20мм HV
 prepositional = "барабанном магазине для M10 (10x20мм HV)"
 gender = "male"
 
-["M44 speedloader (.44)"]
+["M44 speedloader (.44)"] # Unique Vendor Name
 nominative = "сменный барабан для M44 (.44)"
 
 ["M44 speed loader (.44)"]
@@ -647,7 +647,7 @@ instrumental = "магазином для M4A3 (9мм)"
 prepositional = "магазине для M4A3 (9мм)"
 gender = "male"
 
-["M4A3 AP Magazine"]
+["M4A3 AP Magazine"] # Unique Vendor Name
 nominative = "магазин для M4A3 (9мм AP)"
 
 ["M4A3 AP magazine (9mm)"]
@@ -659,10 +659,10 @@ instrumental = "магазином для M4A3 (9мм AP)"
 prepositional = "магазине для M4A3 (9мм AP)"
 gender = "male"
 
-["M4A3 HP Magazine"]
+["M4A3 HP Magazine"] # Unique Vendor Name
 nominative = "магазин для M4A3 (9мм HP)"
 
-["M4A3 HP Magazine (9mm)"]
+["M4A3 HP Magazine (9mm)"] # Unique Vendor Name
 nominative = "магазин для M4A3 (9мм HP)"
 
 ["M4A3 hollowpoint magazine (9mm)"]
@@ -674,7 +674,7 @@ instrumental = "магазином для M4A3 (9мм HP)"
 prepositional = "магазине для M4A3 (9мм HP)"
 gender = "male"
 
-["VP78 magazine"]
+["VP78 magazine"] # Unique Vendor Name
 nominative = "магазин для VP78 (9мм)"
 
 ["VP78 magazine (9mm)"]
@@ -686,7 +686,7 @@ instrumental = "магазином для VP78 (9мм)"
 prepositional = "магазине для VP78 (9мм)"
 gender = "male"
 
-["M39 AP Magazine (10x20mm)"]
+["M39 AP Magazine (10x20mm)"] # Unique Vendor Name
 nominative = "магазин для M39 (10x20мм AP)"
 
 ["M39 AP magazine (10x20mm)"]
@@ -698,7 +698,7 @@ instrumental = "магазином для M39 (10x20мм AP)"
 prepositional = "магазине для M39 (10x20мм AP)"
 gender = "male"
 
-["M39 Extended Magazine (10x20mm)"]
+["M39 Extended Magazine (10x20mm)"] # Unique Vendor Name
 nominative = "расширенный магазин для M39 (10x20мм HV)"
 
 ["M39 HV extended magazine (10x20mm)"]
@@ -737,7 +737,7 @@ instrumental = "расширенным магазином для NSG 23 (10x24м
 prepositional = "расширенном магазине для NSG 23 (10x24мм)"
 gender = "male"
 
-["Nailgun Magazine (7x45mm)"]
+["Nailgun Magazine (7x45mm)"] # Unique Vendor Name
 nominative = "магазин для гвоздепистолета (7x45мм)"
 
 ["nailgun magazine (7x45mm)"]
@@ -749,7 +749,7 @@ instrumental = "магазином для гвоздепистолета (7x45м
 prepositional = "магазине для гвоздепистолета (7x45мм)"
 gender = "male"
 
-["A19 High Velocity Magazine (10x24mm)"]
+["A19 High Velocity Magazine (10x24mm)"] # Unique Vendor Name
 nominative = "магазин для M4RA-C (10x24мм HV)"
 
 ["A19 HV magazine (10x24mm)"]
@@ -761,7 +761,7 @@ instrumental = "магазином для M4RA-C (10x24мм HV)"
 prepositional = "магазине для M4RA-C (10x24мм HV)"
 gender = "male"
 
-["A19 High Velocity Incendiary Magazine (10x24mm)"]
+["A19 High Velocity Incendiary Magazine (10x24mm)"] # Unique Vendor Name
 nominative = "магазин для M4RA-C (10x24мм HV-IC)"
 
 ["A19 HV incendiary magazine (10x24mm)"]
@@ -773,7 +773,7 @@ instrumental = "магазином для M4RA-C (10x24мм HV-IC)"
 prepositional = "магазине для M4RA-C (10x24мм HV-IC)"
 gender = "male"
 
-["A19 High Velocity Impact Magazine (10x24mm)"]
+["A19 High Velocity Impact Magazine (10x24mm)"] # Unique Vendor Name
 nominative = "магазин для M4RA-C (10x24мм HV-HP)"
 
 ["A19 HV high impact magazine (10x24mm)"]
@@ -785,7 +785,7 @@ instrumental = "магазином для M4RA-C (10x24мм HV-HP)"
 prepositional = "магазине для M4RA-C (10x24мм HV-HP)"
 gender = "male"
 
-["M42A Marksman Magazine (10x28mm Caseless)"]
+["M42A Marksman Magazine (10x28mm Caseless)"] # Unique Vendor Name
 nominative = "магазин для M42A (10x28мм)"
 
 ["M42A marksman magazine (10x28mm Caseless)"]
@@ -797,7 +797,7 @@ instrumental = "магазином для M42A (10x28мм)"
 prepositional = "магазине для M42A (10x28мм)"
 gender = "male"
 
-["M42A Incendiary Magazine (10x28mm)"]
+["M42A Incendiary Magazine (10x28mm)"] # Unique Vendor Name
 nominative = "магазин для M42A (10x28мм IC)"
 
 ["M42A incendiary magazine (10x28mm)"]
@@ -809,7 +809,7 @@ instrumental = "магазином для M42A (10x28мм IC)"
 prepositional = "магазине для M42A (10x28мм IC)"
 gender = "male"
 
-["M42A Flak Magazine (10x28mm)"]
+["M42A Flak Magazine (10x28mm)"] # Unique Vendor Name
 nominative = "магазин для M42A (10x28мм HP)"
 
 ["M42A flak magazine (10x28mm)"]
@@ -830,7 +830,7 @@ instrumental = "инжекторным баком «Бройлер-Т» огне
 prepositional = "инжекторном баке «Бройлер-Т» огнемётчика"
 gender = "male"
 
-["XM43E1 Marksman Magazine (10x99mm Caseless)"]
+["XM43E1 Marksman Magazine (10x99mm Caseless)"] # Unique Vendor Name
 nominative = "магазин для XM43E1 (10x99мм)"
 
 ["XM43E1 marksman magazine (10x99mm)"]
@@ -844,10 +844,10 @@ gender = "male"
 
 # MARK: boxes and packets
 
-["M41AE2 Holo Target Rounds (10x24mm)"]
+["M41AE2 Holo Target Rounds (10x24mm)"] # Unique Vendor Name
 nominative = "патронный короб для M41AE2 (10x24мм Holo-Target)"
 
-["M41AE2 Box Magazine (10x24mm)"] # another name for vendor
+["M41AE2 Box Magazine (10x24mm)"] # Unique Vendor Name
 nominative = "патронный короб для M41AE2 (10x24мм Holo-Target)"
 
 ["M41AE2 ammo box (10x24mm holo-target)"]
@@ -868,7 +868,7 @@ instrumental = "патронным коробом для M41AE2 (10x24мм)"
 prepositional = "патронном коробе для M41AE2 (10x24мм)"
 gender = "male"
 
-["Box Of .458 SOCOM Rounds (.458 SOCOM)"]
+["Box Of .458 SOCOM Rounds (.458 SOCOM)"] # Unique Vendor Name
 nominative = "коробка для патронов (.458 SOCOM)"
 
 ["box of .458 SOCOM rounds"]
@@ -889,10 +889,10 @@ instrumental = "упаковкой гранат (M15 Осколочной x3)"
 prepositional = "упаковке гранат (M15 Осколочной x3)"
 gender = "female"
 
-["Box Of Buckshot Shells (12g)"]
+["Box Of Buckshot Shells (12g)"] # Unique Vendor Name
 nominative = "коробка для патронов (Картечь)"
 
-["Buckshot Shells"]
+["Buckshot Shells"] # Unique Vendor Name
 nominative = "патроны для дробовика (Картечь)"
 
 ["box of buckshot shells"]
@@ -904,7 +904,7 @@ instrumental = "коробкой для патронов (Картечь)"
 prepositional = "коробке для патронов (Картечь)"
 gender = "female"
 
-["Shotgun Shell Box (Buckshot 8g x 100)"]
+["Shotgun Shell Box (Buckshot 8g x 100)"] # Unique Vendor Name
 nominative = "коробка для патронов (Картечь x 100)"
 
 ["Type 23 shotgun shell box (buckshot 8g x 100)"]
@@ -916,10 +916,10 @@ instrumental = "коробкой для патронов (Картечь x 100)"
 prepositional = "коробке для патронов (Картечь x 100)"
 gender = "female"
 
-["Box of Flechette Shells (12g)"]
+["Box of Flechette Shells (12g)"] # Unique Vendor Name
 nominative = "коробка для патронов (Флешетты)"
 
-["Flechette Shells"]
+["Flechette Shells"] # Unique Vendor Name
 nominative = "патроны для дробовика (Флешетты)"
 
 ["box of flechette shells"]
@@ -931,7 +931,7 @@ instrumental = "коробкой для патронов (Флешетты)"
 prepositional = "коробке для патронов (Флешетты)"
 gender = "female"
 
-["Shotgun Shell Box (Flechette 8g x 100)"]
+["Shotgun Shell Box (Flechette 8g x 100)"] # Unique Vendor Name
 nominative = "коробка для патронов (Флешетты x 100)"
 
 ["Type 23 shotgun shell box (flechette 8g x 100)"]
@@ -943,10 +943,10 @@ instrumental = "коробкой для патронов (Флешетты x 100
 prepositional = "коробке для патронов (Флешетты x 100)"
 gender = "female"
 
-["Box of Shotgun Slugs (12g)"]
+["Box of Shotgun Slugs (12g)"] # Unique Vendor Name
 nominative = "коробка для патронов (Пуля)"
 
-["Shotgun Slugs"]
+["Shotgun Slugs"] # Unique Vendor Name
 nominative = "патроны для дробовика (Пуля)"
 
 ["box of shotgun slugs"]
@@ -958,7 +958,7 @@ instrumental = "коробкой для патронов (Пуля)"
 prepositional = "коробке для патронов (Пуля)"
 gender = "female"
 
-["Shotgun Shell Box (Slugs 8g x 100)"]
+["Shotgun Shell Box (Slugs 8g x 100)"] # Unique Vendor Name
 nominative = "коробка для патронов (Пуля x 100)"
 
 ["Type 23 shotgun shell box (Slugs 8g x 100)"]
@@ -970,10 +970,10 @@ instrumental = "коробкой для патронов (Пуля x 100)"
 prepositional = "коробке для патронов (Пуля x 100)"
 gender = "female"
 
-["Box of Breaching Shells (16g)"]
+["Box of Breaching Shells (16g)"] # Unique Vendor Name
 nominative = "коробка для патронов (Бетонобойные)"
 
-["Box Of Breaching Slugs"]
+["Box Of Breaching Slugs"] # Unique Vendor Name
 nominative = "коробка для патронов (Бетонобойные)"
 
 ["box of breaching shells"]
@@ -994,13 +994,13 @@ instrumental = "ящиком с топливной смесью (Напалм x 
 prepositional = "ящике с топливной смесью (Напалм x 8)"
 gender = "male"
 
-["M40 HEDP Grenade Packet"]
+["M40 HEDP Grenade Packet"] # Unique Vendor Name
 nominative = "упаковка гранат (M40 HEDP Осколочная x 3)"
 
-["M40 HEDP High Explosive Packet (x3 grenades)"]
+["M40 HEDP High Explosive Packet (x3 grenades)"] # Unique Vendor Name
 nominative = "упаковка гранат (M40 HEDP Осколочная x 3)"
 
-["M40 HEDP Grenade Pack (x6)"]
+["M40 HEDP Grenade Pack (x6)"] # Unique Vendor Name
 nominative = "упаковка гранат (M40 HEDP Осколочная x 6)"
 
 ["HEDP grenade packet"]
@@ -1021,13 +1021,13 @@ instrumental = "ящиком гранат (M40 HEDP Осколочная x 25)"
 prepositional = "ящике гранат (M40 HEDP Осколочная x 25)"
 gender = "male"
 
-["M40 HIDP Incendiary Packet (x3 grenades)"]
+["M40 HIDP Incendiary Packet (x3 grenades)"] # Unique Vendor Name
 nominative = "упаковка гранат (M40 HIDP Зажигательная x 3)"
 
-["M40 HIDP Grenade Packet"]
+["M40 HIDP Grenade Packet"] # Unique Vendor Name
 nominative = "упаковка гранат (M40 HIDP Зажигательная x 3)"
 
-["M40 HIDP Grenade Pack (x6)"]
+["M40 HIDP Grenade Pack (x6)"] # Unique Vendor Name
 nominative = "ящик гранат (M40 HIDP Зажигательная x 6)"
 
 ["HIDP grenade packet"]
@@ -1048,10 +1048,10 @@ instrumental = "ящиком гранат (M40 HIDP Зажигательная x
 prepositional = "ящике гранат (M40 HIDP Зажигательная x 25)"
 gender = "male"
 
-["M40 WPDP White Phosphorus Packet (x3 grenades)"]
+["M40 WPDP White Phosphorus Packet (x3 grenades)"] # Unique Vendor Name
 nominative = "упаковка гранат (M40 CCDP Фосфорная x 3)"
 
-["M40 CCDP Grenade Packet"]
+["M40 CCDP Grenade Packet"] # Unique Vendor Name
 nominative = "упаковка гранат (M40 CCDP Фосфорная x 3)"
 
 ["CCDP grenade packet"]
@@ -1072,10 +1072,10 @@ instrumental = "ящиком гранат (M40 CCDP Фосфорная x 25)"
 prepositional = "ящике гранат (M40 CCDP Фосфорная x 25)"
 gender = "male"
 
-["M40 HSDP Grenade Packet"]
+["M40 HSDP Grenade Packet"] # Unique Vendor Name
 nominative = "упаковка гранат (M40 HSDP Дымовая x 3)"
 
-["M40 HSDP Smoke Packet (x3 grenades)"]
+["M40 HSDP Smoke Packet (x3 grenades)"] # Unique Vendor Name
 nominative = "упаковка гранат (M40 HSDP Дымовая x 3)"
 
 ["HSDP grenade packet"]
@@ -1087,7 +1087,7 @@ instrumental = "упаковкой гранат (M40 HSDP Дымовая x 3)"
 prepositional = "упаковке гранат (M40 HSDP Дымовая x 3)"
 gender = "female"
 
-["M40 MFHS Grenade Packet"]
+["M40 MFHS Grenade Packet"] # Unique Vendor Name
 nominative = "упаковка гранат (M40 MFHS Пена x 3)"
 
 ["MFHS foam grenade packet"]
@@ -1099,7 +1099,7 @@ instrumental = "упаковкой гранат (M40 MFHS Пена x 3)"
 prepositional = "упаковке гранат (M40 MFHS Пена x 3)"
 gender = "female"
 
-["M40 HIRR Baton Slug Packet"]
+["M40 HIRR Baton Slug Packet"] # Unique Vendor Name
 nominative = "упаковка гранат (M40 HIRR Резина x 3)"
 
 ["HIRR baton slug packet"]
@@ -1111,88 +1111,88 @@ instrumental = "упаковкой гранат (M40 HIRR Резина x 3)"
 prepositional = "упаковке гранат (M40 HIRR Резина x 3)"
 gender = "female"
 
-["M74 AGM-Frag Airburst Packet (x3 airburst grenades)"]
-nominative = "упаковка прыгающих гранат (M74 AGM Осколочная x 3)"
+["M74 AGM-Frag Airburst Packet (x3 airburst grenades)"] # Unique Vendor Name
+nominative = "упаковка прыгающих гранат (M74 AGM-F Осколочная x 3)"
 
-["M74 AGM-F Grenade Packet"]
-nominative = "упаковка прыгающих гранат (M74 AGM Осколочная x 3)"
+["M74 AGM-F Grenade Packet"] # Unique Vendor Name
+nominative = "упаковка прыгающих гранат (M74 AGM-F Осколочная x 3)"
 
-["M74 AGM-F Grenade Pack (x6)"]
-nominative = "упаковка прыгающих гранат (M74 AGM Осколочная x 6)"
+["M74 AGM-F Grenade Pack (x6)"] # Unique Vendor Name
+nominative = "упаковка прыгающих гранат (M74 AGM-F Осколочная x 6)"
 
 ["M74 airburst grenade packet"]
-nominative = "упаковка прыгающих гранат (M74 AGM Осколочная x 3)"
-genitive = "упаковки прыгающих гранат (M74 AGM Осколочная x 3)"
-dative = "упаковке прыгающих гранат (M74 AGM Осколочная x 3)"
-accusative = "упаковку прыгающих гранат (M74 AGM Осколочная x 3)"
-instrumental = "упаковкой прыгающих гранат (M74 AGM Осколочная x 3)"
-prepositional = "упаковке прыгающих гранат (M74 AGM Осколочная x 3)"
+nominative = "упаковка прыгающих гранат (M74 AGM-F Осколочная x 3)"
+genitive = "упаковки прыгающих гранат (M74 AGM-F Осколочная x 3)"
+dative = "упаковке прыгающих гранат (M74 AGM-F Осколочная x 3)"
+accusative = "упаковку прыгающих гранат (M74 AGM-F Осколочная x 3)"
+instrumental = "упаковкой прыгающих гранат (M74 AGM-F Осколочная x 3)"
+prepositional = "упаковке прыгающих гранат (M74 AGM-F Осколочная x 3)"
 gender = "female"
 
 ["M74 AGM-F grenade box"]
-nominative = "ящик прыгающих гранат (M74 AGM Осколочная x 25)"
-genitive = "ящика прыгающих гранат (M74 AGM Осколочная x 25)"
-dative = "ящику прыгающих гранат (M74 AGM Осколочная x 25)"
-accusative = "ящик прыгающих гранат (M74 AGM Осколочная x 25)"
-instrumental = "ящиком прыгающих гранат (M74 AGM Осколочная x 25)"
-prepositional = "ящике прыгающих гранат (M74 AGM Осколочная x 25)"
+nominative = "ящик прыгающих гранат (M74 AGM-F Осколочная x 25)"
+genitive = "ящика прыгающих гранат (M74 AGM-F Осколочная x 25)"
+dative = "ящику прыгающих гранат (M74 AGM-F Осколочная x 25)"
+accusative = "ящик прыгающих гранат (M74 AGM-F Осколочная x 25)"
+instrumental = "ящиком прыгающих гранат (M74 AGM-F Осколочная x 25)"
+prepositional = "ящике прыгающих гранат (M74 AGM-F Осколочная x 25)"
 gender = "male"
 
-["M74 AGM-Incendiary Airburst Packet (x3 airburst grenades)"]
-nominative = "упаковка прыгающих гранат (M74 AGM Зажигательная x 3)"
+["M74 AGM-Incendiary Airburst Packet (x3 airburst grenades)"] # Unique Vendor Name
+nominative = "упаковка прыгающих гранат (M74 AGM-I Зажигательная x 3)"
 
-["M74 AGM-I Grenade Packet"]
-nominative = "упаковка прыгающих гранат (M74 AGM Зажигательная x 3)"
+["M74 AGM-I Grenade Packet"] # Unique Vendor Name
+nominative = "упаковка прыгающих гранат (M74 AGM-I Зажигательная x 3)"
 
-["M74 AGM-I Grenade Pack (x6)"]
-nominative = "упаковка прыгающих гранат (M74 AGM Зажигательная x 6)"
+["M74 AGM-I Grenade Pack (x6)"] # Unique Vendor Name
+nominative = "упаковка прыгающих гранат (M74 AGM-I Зажигательная x 6)"
 
 ["M74 AGM-I grenade box"]
-nominative = "ящик прыгающих гранат (M74 AGM Зажигательная x 25)"
-genitive = "ящика прыгающих гранат (M74 AGM Зажигательная x 25)"
-dative = "ящику прыгающих гранат (M74 AGM Зажигательная x 25)"
-accusative = "ящик прыгающих гранат (M74 AGM Зажигательная x 25)"
-instrumental = "ящиком прыгающих гранат (M74 AGM Зажигательная x 25)"
-prepositional = "ящике прыгающих гранат (M74 AGM Зажигательная x 25)"
+nominative = "ящик прыгающих гранат (M74 AGM-I Зажигательная x 25)"
+genitive = "ящика прыгающих гранат (M74 AGM-I Зажигательная x 25)"
+dative = "ящику прыгающих гранат (M74 AGM-I Зажигательная x 25)"
+accusative = "ящик прыгающих гранат (M74 AGM-I Зажигательная x 25)"
+instrumental = "ящиком прыгающих гранат (M74 AGM-I Зажигательная x 25)"
+prepositional = "ящике прыгающих гранат (M74 AGM-I Зажигательная x 25)"
 gender = "male"
 
-["M74 AGM-Smoke Airburst Packet (x3 airburst grenades)"]
-nominative = "упаковка прыгающих гранат (M74 AGM Дымовая x 3)"
+["M74 AGM-Smoke Airburst Packet (x3 airburst grenades)"] # Unique Vendor Name
+nominative = "упаковка прыгающих гранат (M74 AGM-S Дымовая x 3)"
 
-["M74 AGM-S Smoke Grenade Packet"]
-nominative = "упаковка прыгающих гранат (M74 AGM Дымовая x 3)"
+["M74 AGM-S Smoke Grenade Packet"] # Unique Vendor Name
+nominative = "упаковка прыгающих гранат (M74 AGM-S Дымовая x 3)"
 
 ["M74 airburst smoke grenade packet"]
-nominative = "упаковка прыгающих гранат (M74 AGM Дымовая x 3)"
-genitive = "упаковки прыгающих гранат (M74 AGM Дымовая x 3)"
-dative = "упаковке прыгающих гранат (M74 AGM Дымовая x 3)"
-accusative = "упаковку прыгающих гранат (M74 AGM Дымовая x 3)"
-instrumental = "упаковкой прыгающих гранат (M74 AGM Дымовая x 3)"
-prepositional = "упаковке прыгающих гранат (M74 AGM Дымовая x 3)"
+nominative = "упаковка прыгающих гранат (M74 AGM-S Дымовая x 3)"
+genitive = "упаковки прыгающих гранат (M74 AGM-S Дымовая x 3)"
+dative = "упаковке прыгающих гранат (M74 AGM-S Дымовая x 3)"
+accusative = "упаковку прыгающих гранат (M74 AGM-S Дымовая x 3)"
+instrumental = "упаковкой прыгающих гранат (M74 AGM-S Дымовая x 3)"
+prepositional = "упаковке прыгающих гранат (M74 AGM-S Дымовая x 3)"
 gender = "female"
 
 ["M74 AGM-S star shell packet"]
-nominative = "упаковка прыгающих гранат (M74 AGM «Звезда» x 3)"
-genitive = "упаковки прыгающих гранат (M74 AGM «Звезда» x 3)"
-dative = "упаковке прыгающих гранат (M74 AGM «Звезда» x 3)"
-accusative = "упаковку прыгающих гранат (M74 AGM «Звезда» x 3)"
-instrumental = "упаковкой прыгающих гранат (M74 AGM «Звезда» x 3)"
-prepositional = "упаковке прыгающих гранат (M74 AGM «Звезда» x 3)"
+nominative = "упаковка прыгающих гранат (M74 AGM-S «Звезда» x 3)"
+genitive = "упаковки прыгающих гранат (M74 AGM-S «Звезда» x 3)"
+dative = "упаковке прыгающих гранат (M74 AGM-S «Звезда» x 3)"
+accusative = "упаковку прыгающих гранат (M74 AGM-S «Звезда» x 3)"
+instrumental = "упаковкой прыгающих гранат (M74 AGM-S «Звезда» x 3)"
+prepositional = "упаковке прыгающих гранат (M74 AGM-S «Звезда» x 3)"
 gender = "female"
 
-["M74 AGM-Hornet Airburst Packet (x3 airburst grenades"]
-nominative = "упаковка прыгающих гранат (M74 AGM «Шершень» x 3)"
+["M74 AGM-Hornet Airburst Packet (x3 airburst grenades"] # Unique Vendor Name
+nominative = "упаковка прыгающих гранат (M74 AGM-H «Шершень» x 3)"
 
 ["M74 AGM-H hornet shell packet"]
-nominative = "упаковка прыгающих гранат (M74 AGM «Шершень» x 3)"
-genitive = "упаковки прыгающих гранат (M74 AGM «Шершень» x 3)"
-dative = "упаковке прыгающих гранат (M74 AGM «Шершень» x 3)"
-accusative = "упаковку прыгающих гранат (M74 AGM «Шершень» x 3)"
-instrumental = "упаковкой прыгающих гранат (M74 AGM «Шершень» x 3)"
-prepositional = "упаковке прыгающих гранат (M74 AGM «Шершень» x 3)"
+nominative = "упаковка прыгающих гранат (M74 AGM-H «Шершень» x 3)"
+genitive = "упаковки прыгающих гранат (M74 AGM-H «Шершень» x 3)"
+dative = "упаковке прыгающих гранат (M74 AGM-H «Шершень» x 3)"
+accusative = "упаковку прыгающих гранат (M74 AGM-H «Шершень» x 3)"
+instrumental = "упаковкой прыгающих гранат (M74 AGM-H «Шершень» x 3)"
+prepositional = "упаковке прыгающих гранат (M74 AGM-H «Шершень» x 3)"
 gender = "female"
 
-["G2 Electroshock Grenade Packet (x3 grenades)"]
+["G2 Electroshock Grenade Packet (x3 grenades)"] # Unique Vendor Name
 nominative = "упаковка электрошоковых гранат (G2 x 3)"
 
 ["G2 Electroshock grenade packet"]
@@ -1204,7 +1204,7 @@ instrumental = "упаковкой электрошоковых гранат (G2
 prepositional = "упаковке электрошоковых гранат (G2 x 3)"
 gender = "female"
 
-["M20 Mine Box (x5 mines)"]
+["M20 Mine Box (x5 mines)"] # Unique Vendor Name
 nominative = "ящик мин M20 x 5"
 
 ["M20 mine box"]
@@ -1225,7 +1225,7 @@ instrumental = "ящиком с магазинами (M10 x 12)"
 prepositional = "ящике с магазинами (M10 x 12)"
 gender = "male"
 
-["Magazine Box (Ext M10 x 14)"]
+["Magazine Box (Ext M10 x 14)"] # Unique Vendor Name
 nominative = "ящик с магазинами (M10 Расширенные x 14)"
 
 ["magazine box (Ext m10 x 10)"]
@@ -1246,7 +1246,7 @@ instrumental = "ящиком с магазинами (M10 Расширенные
 prepositional = "ящике с магазинами (M10 Расширенные x 14)"
 gender = "male"
 
-["Magazine Box (Drum M10 x 12)"]
+["Magazine Box (Drum M10 x 12)"] # Unique Vendor Name
 nominative = "ящик с барабанами (M10 x 12)"
 
 ["magazine box (Drum m10 x 10)"]
@@ -1285,7 +1285,7 @@ instrumental = "ящиком с магазинами (M39 AP x 12)"
 prepositional = "ящике с магазинами (M39 AP x 12)"
 gender = "male"
 
-["Magazine Box (Ext M39 x 10)"]
+["Magazine Box (Ext M39 x 10)"] # Unique Vendor Name
 nominative = "ящик с магазинами (M39 Расширенные x 10)"
 
 ["magazine box (Ext m39 x 10)"]
@@ -1369,7 +1369,7 @@ instrumental = "ящиком с магазинами (M4RA AP x 16)"
 prepositional = "ящике с магазинами (M4RA AP x 16)"
 gender = "male"
 
-["Magazine Box (Ext M4RA x 16)"]
+["Magazine Box (Ext M4RA x 16)"] # Unique Vendor Name
 nominative = "ящик с магазинами (M4RA Расширенные x 16)"
 
 ["magazine box (Ext M4RA x 12)"]
@@ -1381,7 +1381,7 @@ instrumental = "ящиком с магазинами (M4RA Расширенны�
 prepositional = "ящике с магазинами (M4RA Расширенные x 16)"
 gender = "male"
 
-["Magazine Box (M41AE2 x 8)"]
+["Magazine Box (M41AE2 x 8)"] # Unique Vendor Name
 nominative = "ящик с патронными коробами (M41AE2 x 8)"
 
 ["magazine (M41AE2 x 8)"]
@@ -1447,7 +1447,7 @@ instrumental = "ящиком с патронами (Пуля x 100)"
 prepositional = "ящике с патронами (Пуля x 100)"
 gender = "male"
 
-["Shotgun Shell Box (16g) (Breaching x 120)"]
+["Shotgun Shell Box (16g) (Breaching x 120)"] # Unique Vendor Name
 nominative = "ящик с патронами (Бетонобойные x 120)"
 
 ["16-gauge shotgun shell box (Breaching x 120)"]
@@ -1495,7 +1495,7 @@ instrumental = "ящиком с магазинами (XM51 x 8)"
 prepositional = "ящике с магазинами (XM51 x 8)"
 gender = "male"
 
-["Rounds Box (.458 SOCOM x 300)"]
+["Rounds Box (.458 SOCOM x 300)"] # Unique Vendor Name
 nominative = "ящик с патронами (.458 SOCOM x 300)"
 
 [".458 bullets box (.458 x 300)"]
@@ -1570,7 +1570,7 @@ instrumental = "ящиком с топливной смесью (Напалм x 
 prepositional = "ящике с топливной смесью (Напалм x 8)"
 gender = "male"
 
-["Nailgun Magazine Box (7x45mm)"]
+["Nailgun Magazine Box (7x45mm)"] # Unique Vendor Name
 nominative = "ящик магазинов для гвоздепистолета (7x45мм)"
 
 ["magazine box (Nailgun x 10)"]
@@ -1582,7 +1582,7 @@ instrumental = "ящиком магазинов для гвоздепистол�
 prepositional = "ящике магазинов для гвоздепистолета (7x45мм)"
 gender = "male"
 
-["Demolitionist Set"]
+["Demolitionist Set"] # Unique Vendor Name
 nominative = "ящик специалиста подрывника"
 
 ["Demolitionist equipment case"]
@@ -1594,7 +1594,7 @@ instrumental = "ящиком специалиста подрывника"
 prepositional = "ящике специалиста подрывника"
 gender = "male"
 
-["Heavy Grenadier Set"]
+["Heavy Grenadier Set"] # Unique Vendor Name
 nominative = "ящик специалиста гранатомётчика"
 
 ["Heavy Grenadier equipment case"]
@@ -1606,7 +1606,7 @@ instrumental = "ящиком специалиста гранатомётчико
 prepositional = "ящике специалиста гранатомётчике"
 gender = "male"
 
-["Scout Set"]
+["Scout Set"] # Unique Vendor Name
 nominative = "ящик специалиста разведчика"
 
 ["Scout equipment case"]
@@ -1618,7 +1618,7 @@ instrumental = "ящиком специалиста разведчиком"
 prepositional = "ящике специалиста разведчике"
 gender = "male"
 
-["Sniper Set"]
+["Sniper Set"] # Unique Vendor Name
 nominative = "ящик специалиста снайпера"
 
 ["Sniper equipment case"]
@@ -1630,7 +1630,7 @@ instrumental = "ящиком специалиста снайпером"
 prepositional = "ящике специалиста снайпере"
 gender = "male"
 
-["Pyro Set"]
+["Pyro Set"] # Unique Vendor Name
 nominative = "ящик специалиста огнемётчика"
 
 ["Pyrotechnician equipment case"]
