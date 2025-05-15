@@ -61,9 +61,9 @@ jobs:
           bash tools/ci/install_rust_g.sh
       - name: Compile Tests
         run: |
-          source /home/runner/BYOND-${{ env.BYOND_MAJOR }}.${{ env.BYOND_MINOR }}/byond/bin/byondsetup
+          source $HOME/BYOND-${{ env.BYOND_MAJOR }}.${{ env.BYOND_MINOR }}/byond/bin/byondsetup
           tools/build/build --ci dm -DCIBUILDING -DANSICOLORS -Werror
       - name: Run Tests
         run: |
-          source /home/runner/BYOND-${{ env.BYOND_MAJOR }}.${{ env.BYOND_MINOR }}/byond/bin/byondsetup
+          source $HOME/BYOND-${{ env.BYOND_MAJOR }}.${{ env.BYOND_MINOR }}/byond/bin/byondsetup
           bash tools/ci/run_server.sh ${{ inputs.map }}
