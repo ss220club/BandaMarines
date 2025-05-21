@@ -822,6 +822,11 @@
 
 // SS220 ADD START - New Hair
 
+/datum/sprite_accessory/hair/astolfo
+	name = "Astolfo Hair"
+	icon_state = "hair_astolfo"
+	gender = MALE //Girls shouldn't wear their hairstyle like that.
+
 /datum/sprite_accessory/hair/blackswordsman
 	name = "Blackswordsman Hair"
 	icon_state = "hair_blackswordsman"
@@ -850,6 +855,22 @@
 /datum/sprite_accessory/hair/emo2
 	name = "Emo 2"
 	icon_state = "hair_emo2"
+
+/datum/sprite_accessory/hair/elegantbun
+	name = "Elegant Bun"
+	icon_state = "hair_elegantbun"
+
+/datum/sprite_accessory/hair/gloomy_medium
+	name = "Medium Gloomy Bangs"
+	icon_state = "hair_gloomy_medium"
+
+/datum/sprite_accessory/hair/gloomy_long
+	name = "Long Gloomy Bangs"
+	icon_state = "hair_gloomy_long"
+
+/datum/sprite_accessory/hair/gloomy_longer
+	name = "Very Long Gloomy Bangs"
+	icon_state = "hair_gloomy_longer"
 
 /datum/sprite_accessory/hair/kagami
 	name = "Kagami Stylish"
