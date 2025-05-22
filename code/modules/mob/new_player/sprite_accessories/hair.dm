@@ -210,7 +210,7 @@
 
 /datum/sprite_accessory/hair/longemo
 	name = "Long Emo"
-	icon_state = "hair_emolong" // SS220 EDIT - Changed the sprite to a new one
+	icon_state = "hair_emolong"
 	gender = FEMALE
 
 /datum/sprite_accessory/hair/shortovereye
@@ -887,6 +887,11 @@
 /datum/sprite_accessory/hair/cut_stylish
 	name = "Cut Hair Stylish"
 	icon_state = "hair_cuthair_stylish"
+
+/datum/sprite_accessory/hair/longemo_stylish
+	name = "Long Emo Stylish"
+	icon_state = "hair_emolong_stylish"
+	gender = FEMALE
 
 /datum/sprite_accessory/hair/lynch_long
 	name = "Lynch Long"
