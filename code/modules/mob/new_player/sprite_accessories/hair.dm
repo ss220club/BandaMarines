@@ -820,7 +820,7 @@
 	icon_state = "hair_emo_fringe"
 	gender = FEMALE
 
-// SS220 ADD START - New Hair
+// SS220 EDIT - START
 
 /datum/sprite_accessory/hair/astolfo
 	name = "Astolfo Hair"
@@ -994,4 +994,4 @@
 	name = "Ziegler"
 	icon_state = "hair_ziegler"
 
-// SS220 ADD END - New Hair
+// SS220 EDIT - END
