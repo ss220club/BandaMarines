@@ -107,9 +107,9 @@
 	icon_state = "hair_ponytail_maid"
 	gender = FEMALE
 
-/datum/sprite_accessory/hair/ss220/ponytail9
-	name = "Ponytail 9"
-	icon_state = "hair_ponytail9"
+/datum/sprite_accessory/hair/ss220/ponytail11
+	name = "Ponytail 11"
+	icon_state = "hair_ponytail11"
 	gender = FEMALE
 
 /datum/sprite_accessory/hair/ss220/ponytail_spiky
