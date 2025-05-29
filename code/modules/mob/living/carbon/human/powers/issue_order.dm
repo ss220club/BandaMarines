@@ -50,7 +50,18 @@
 	// 1min cooldown on orders
 	addtimer(CALLBACK(src, PROC_REF(make_aura_available)), COMMAND_ORDER_COOLDOWN)
 
-	visible_message(SPAN_BOLDNOTICE("[src] gives an order to [order]!"), SPAN_BOLDNOTICE("You give an order to [order]!"))
+	if(src.client?.prefs?.toggle_prefs & TOGGLE_LEADERSHIP_SPOKEN_ORDERS)
+		var/spoken_order = ""
+		switch(order)
+			if(COMMAND_ORDER_MOVE)
+				spoken_order = pick("*ДВИГАЕМ БУЛКАМИ*!", "*ШЕВЕЛИМСЯ*!", "*ДВИГАЕМСЯ, ДВИГАЕМСЯ*!", "*ПОШЕЛ, ПОШЕЛ, ПОШЕЛ*!", "*ВПЕРЕД*! *БЫСТРЕЕ*!", "*ДВИГАЙ, ДВИГАЙ, ДВИГАЙ*!", "*БЕГОМ, МАРШ*!", "*ШИРЕ ШАГ*!", "*ШЕВЕЛИМ ЛАСТАМИ*!", "*ШЕВЕЛИМ НОЖКАМИ, ДАМЫ*!")
+			if(COMMAND_ORDER_HOLD)
+				spoken_order = pick("*ДЕРЖИМ УДАР*!", "*БЕРЕЧЬ ГОЛОВУ*!", "*ПРИГОТОВИТЬСЯ К СТОЛКНОВЕНИЮ*!", "*ДЕРЖАТЬСЯ*!", "*ДЕРЖИТЕ СТРОЙ*!", "*НЕ СДАВАТЬСЯ*!", "*ПРИГОТОВИТЬСЯ К УДАРУ*!")
+			if(COMMAND_ORDER_FOCUS)
+				spoken_order = pick("*НЕ ПАЛИТЕ ПО СВОИМ*!", "*СОСРЕДОТОЧИТЬ ОГОНЬ*!", "*СТРЕЛЬБА НА ПОРАЖЕНИЕ*!", "*ПРИМКНУТЬ ШТЫКИ*!", "*ОГОНЬ ПО ГОТОВНОСТИ*!", "*ОРУЖИЕ НА ИЗГОТОВКУ*!", "*ЦЕЛЬСЯ*!", "*ВНИМАНИЕ*!", "*ОГОНЬ*!", "*ГОТОВЬТЕСЬ К БОЮ*!", "*НАКОРМИТЕ ИХ СВИНЦОМ*!", "*УНИЧТОЖИТЬ ЦЕЛЬ*!")
+		say(spoken_order) // if someone thinks about adding new lines, it'll be better to split the current ones we have into two different lists per order for readability, and have a coin flip pick between spoken_orders 1 or 2
+	else
+		visible_message(SPAN_BOLDNOTICE("[src] gives an order to [order]!"), SPAN_BOLDNOTICE("You give an order to [order]!"))
 
 /mob/living/carbon/human/proc/make_aura_available()
 	to_chat(src, SPAN_NOTICE("You can issue an order again."))

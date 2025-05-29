@@ -232,7 +232,7 @@ Additional game mode variables.
 	return TRUE
 
 /datum/game_mode/proc/transform_predator(mob/pred_candidate)
-	set waitfor = FALSE
+	// set waitfor = FALSE // BANDAMARINES REMOVE
 
 	if(!pred_candidate.client) // Legacy - probably due to spawn code sync sleeps
 		log_debug("Null client attempted to transform_predator")
@@ -265,6 +265,9 @@ Additional game mode variables.
 		return
 
 	GLOB.RoleAuthority.equip_role(new_predator, J, new_predator.loc)
+
+	if(new_predator.client.check_whitelist_status(WHITELIST_YAUTJA_LEADER) && (tgui_alert(new_predator, "Do you wish to announce your presence?", "Announce Arrival", list("Yes","No"), 10 SECONDS) != "No"))
+		elder_overseer_message("[new_predator.real_name] присоединяется к охоте.")
 
 	return new_predator
 
@@ -358,9 +361,11 @@ Additional game mode variables.
 	return TRUE
 
 /datum/game_mode/proc/load_fax_base()
+	loaded_fax_base = "loading"
 	loaded_fax_base = SSmapping.lazy_load_template(/datum/lazy_template/fax_response_base, force = TRUE)
-	if(!loaded_fax_base)
+	if(!loaded_fax_base || (loaded_fax_base == "loading"))
 		log_debug("Error loading fax response base!")
+		loaded_fax_base = null
 		return FALSE
 	return TRUE
 
@@ -732,8 +737,6 @@ Additional game mode variables.
 		var/obj/effect/alien/resin/special/eggmorph/morpher = facehugger_choice
 		morpher.join_as_facehugger_from_this(xeno_candidate)
 
-	msg_admin_niche("[xeno_candidate.key] has joined as a facehugger.")
-
 	return TRUE
 
 /datum/game_mode/proc/attempt_to_join_as_lesser_drone(mob/xeno_candidate)
@@ -790,8 +793,6 @@ Additional game mode variables.
 	var/obj/effect/alien/resin/special/pylon/selected_structure = selection_list_structure[selection_list.Find(prompt)]
 
 	selected_structure.spawn_lesser_drone(xeno_candidate)
-
-	msg_admin_niche("[xeno_candidate.key] has joined as a lesser drone.")
 
 	return TRUE
 

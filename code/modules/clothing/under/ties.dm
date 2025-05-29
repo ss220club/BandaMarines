@@ -6,7 +6,6 @@
 	w_class = SIZE_SMALL
 	var/image/inv_overlay = null //overlay used when attached to clothing.
 	var/obj/item/clothing/has_suit = null //the suit the tie may be attached to
-	var/slot = ACCESSORY_SLOT_DECOR
 	var/list/mob_overlay = list()
 	var/overlay_state = null
 	var/inv_overlay_icon = 'icons/obj/items/clothing/accessory/inventory_overlays/ties.dmi'
@@ -20,6 +19,11 @@
 	var/removable = TRUE
 	flags_equip_slot = SLOT_ACCESSORY
 	sprite_sheets = list(SPECIES_MONKEY = 'icons/mob/humans/species/monkeys/onmob/ties_monkey.dmi')
+	var/original_item_path = /obj/item/clothing/accessory
+
+/obj/item/clothing/accessory/attack_self(mob/user)
+	if(can_become_accessory)
+		revert_from_accessory(user)
 
 /obj/item/clothing/accessory/Initialize()
 	. = ..()
@@ -189,7 +193,7 @@
 	var/recipient_name //name of the person this is awarded to.
 	var/recipient_rank
 	var/medal_citation
-	slot = ACCESSORY_SLOT_MEDAL
+	worn_accessory_slot = ACCESSORY_SLOT_MEDAL
 	high_visibility = TRUE
 	jumpsuit_hide_states = UNIFORM_JACKET_REMOVED
 
@@ -373,8 +377,7 @@
 		WEAR_BODY = 'icons/mob/humans/onmob/clothing/accessory/armbands.dmi',
 		WEAR_JACKET = 'icons/mob/humans/onmob/clothing/accessory/armbands.dmi'
 	)
-	slot = ACCESSORY_SLOT_ARMBAND
-	jumpsuit_hide_states = (UNIFORM_SLEEVE_CUT|UNIFORM_JACKET_REMOVED)
+	worn_accessory_slot = ACCESSORY_SLOT_ARMBAND
 
 /obj/item/clothing/accessory/armband/cargo
 	name = "cargo armband"
@@ -459,6 +462,11 @@
 	inv_overlay = image("icon" = inv_overlay_icon, "icon_state" = "[item_state? "[item_state]" : "[icon_state]"]")
 	if(has_suit)
 		has_suit.overlays += get_inv_overlay()
+
+/obj/item/clothing/accessory/armband/mp
+	name = "MP armband"
+	desc = "An armband worn by USCM Military Police officers on military installations. It is usually also worn by those from the provost office"
+	icon_state = "armband_mp"
 
 //patches
 /obj/item/clothing/accessory/patch
@@ -644,6 +652,11 @@
 	desc = "A circular, fire-resistant patch with a white border. The design features three white stars and a tricolor background: green, black, and red, symbolizing the Colonial Liberation Front's fight for independence and unity. This patch is worn by CLF fighters as a badge of defiance against corporate and governmental oppression, representing their struggle for a free and self-determined colonial future. Though feared and reviled by some, it remains a powerful symbol of resistance and revolution."
 	icon_state = "clfpatch"
 
+/obj/item/clothing/accessory/patch/msf_patch
+	name = "Marine Space Force Herculis patch"
+	desc = "A fire-resistant shoulder patch, depicting the logo of Marine Space Force III, Herculis, deployed throughout the Anglo-Japanese arm from the outer veil to the ICSC Network, this patch is often worn by any general assigned to the MSF Herculis, US Space Command and UA Allied Command Generals often have their own patches."
+	icon_state = "msfpatch"
+
 // Misc
 
 /obj/item/clothing/accessory/dogtags
@@ -656,7 +669,7 @@
 		WEAR_BODY = 'icons/mob/humans/onmob/clothing/accessory/misc.dmi',
 		WEAR_JACKET = 'icons/mob/humans/onmob/clothing/accessory/misc.dmi'
 	)
-	slot = ACCESSORY_SLOT_MEDAL
+	worn_accessory_slot = ACCESSORY_SLOT_MEDAL
 
 /obj/item/clothing/accessory/poncho
 	name = "USCM Poncho"
@@ -670,7 +683,7 @@
 		WEAR_L_HAND = 'icons/mob/humans/onmob/inhands/items_by_map/jungle_lefthand.dmi',
 		WEAR_R_HAND = 'icons/mob/humans/onmob/inhands/items_by_map/jungle_righthand.dmi'
 	)
-	slot = ACCESSORY_SLOT_PONCHO
+	worn_accessory_slot = ACCESSORY_SLOT_PONCHO
 	flags_atom = MAP_COLOR_INDEX
 
 /obj/item/clothing/accessory/poncho/Initialize()
@@ -713,7 +726,7 @@
 	)
 	w_class = SIZE_LARGE //too big to store in other pouches
 	var/obj/item/storage/internal/hold = /obj/item/storage/internal/accessory
-	slot = ACCESSORY_SLOT_UTILITY
+	worn_accessory_slot = ACCESSORY_SLOT_UTILITY
 	high_visibility = TRUE
 
 /obj/item/clothing/accessory/storage/Initialize()
@@ -1083,7 +1096,7 @@
 	name = "shoulder holster"
 	desc = "A handgun holster with an attached pouch, allowing two magazines or speedloaders to be stored along with it."
 	icon_state = "holster"
-	slot = ACCESSORY_SLOT_UTILITY
+	worn_accessory_slot = ACCESSORY_SLOT_UTILITY
 	high_visibility = TRUE
 	hold = /obj/item/storage/internal/accessory/holster
 
@@ -1256,13 +1269,13 @@ Wrist Accessories
 	icon = 'icons/obj/items/clothing/accessory/wrist_accessories.dmi'
 	icon_state = "bracelet"
 	inv_overlay_icon = null
-	slot = ACCESSORY_SLOT_WRIST_L
+	worn_accessory_slot = ACCESSORY_SLOT_WRIST_L
 	var/which_wrist = "left wrist"
 
 /obj/item/clothing/accessory/wrist/get_examine_text(mob/user)
 	. = ..()
 
-	switch(slot)
+	switch(worn_accessory_slot)
 		if(ACCESSORY_SLOT_WRIST_L)
 			which_wrist = "left wrist"
 		if(ACCESSORY_SLOT_WRIST_R)
@@ -1275,12 +1288,12 @@ Wrist Accessories
 /obj/item/clothing/accessory/wrist/attack_self(mob/user)
 	..()
 
-	switch(slot)
+	switch(worn_accessory_slot)
 		if(ACCESSORY_SLOT_WRIST_L)
-			slot = ACCESSORY_SLOT_WRIST_R
+			worn_accessory_slot = ACCESSORY_SLOT_WRIST_R
 			to_chat(user, SPAN_NOTICE("[src] will be worn on the right wrist."))
 		if(ACCESSORY_SLOT_WRIST_R)
-			slot = ACCESSORY_SLOT_WRIST_L
+			worn_accessory_slot = ACCESSORY_SLOT_WRIST_L
 			to_chat(user, SPAN_NOTICE("[src] will be worn on the left wrist."))
 
 /obj/item/clothing/accessory/wrist/watch

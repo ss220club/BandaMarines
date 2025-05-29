@@ -197,7 +197,7 @@
 	flags_cold_protection = ICE_PLANET_MIN_COLD_PROT
 	specialty = "pilot officer"
 	snow_name = " snow bodysuit"
-	suit_restricted = list(/obj/item/clothing/suit/armor/vest/pilot, /obj/item/clothing/suit/storage/marine/light/vest/dcc, /obj/item/clothing/suit/storage/jacket/marine/pilot, /obj/item/clothing/suit/storage/marine/light/vest)
+	suit_restricted = list(/obj/item/clothing/suit/storage/jacket/marine/pilot/armor, /obj/item/clothing/suit/storage/marine/light/vest/dcc, /obj/item/clothing/suit/storage/jacket/marine/pilot, /obj/item/clothing/suit/storage/marine/light/vest)
 	flags_atom = FPRINT
 
 /obj/item/clothing/under/marine/officer/pilot/flight
@@ -205,13 +205,10 @@
 	desc = "A flightsuit worn by pilot officers of the USCM, with plenty of leather straps, pouches, and other essential gear you will never use. Looks badass."
 	icon_state = "pilot_flightsuit_alt"
 	worn_state = "pilot_flightsuit_alt"
-	icon = 'icons/obj/items/clothing/uniforms/uniforms_by_faction/UA.dmi'
+	item_state = "pilot_flightsuit_alt"
 	flags_jumpsuit = UNIFORM_JACKET_REMOVABLE
-	flags_atom = NO_NAME_OVERRIDE|NO_GAMEMODE_SKIN
+	flags_atom = NO_NAME_OVERRIDE
 	flags_cold_protection = ICE_PLANET_MIN_COLD_PROT
-	item_icons = list(
-		WEAR_BODY = 'icons/mob/humans/onmob/clothing/uniforms/uniforms_by_faction/UA.dmi',
-	)
 
 /obj/item/clothing/under/marine/officer/pilot/dcc
 	name = "dropship crew chief bodysuit"
@@ -269,8 +266,8 @@
 	flags_atom = FPRINT && NO_GAMEMODE_SKIN
 
 /obj/item/clothing/under/marine/officer/general
-	name = "general uniform"
-	desc = "A uniform worn by a fleet general. It comes in a shade of deep black, and has a light shimmer to it. The weave looks strong enough to provide some light protections."
+	name = "USCM Service 'C' Officer Uniform"
+	desc = "A standard-issue USCM Officer 'C' service uniform, comes with a short sleeve buttoned-up tan shirt and green trousers."
 	icon_state = "general_jumpsuit"
 	worn_state = "general_jumpsuit"
 	icon = 'icons/obj/items/clothing/uniforms/uniforms_by_faction/UA.dmi'
@@ -425,8 +422,8 @@
 	flags_jumpsuit = FALSE
 	flags_atom = NO_GAMEMODE_SKIN|NO_NAME_OVERRIDE
 
-	name = "\improper Provost Uniform"
-	desc = "The crisp uniform of a Provost Officer."
+	name = "\improper USCM military police utility uniform"
+	desc = "The standard-issue uniform of most Military Police on USCM military stations and bases. Officers wearing this uniform are usually part of the USCM provost office."
 	icon = 'icons/obj/items/clothing/uniforms/uniforms_by_faction/UA.dmi'
 	item_icons = list(
 		WEAR_BODY = 'icons/mob/humans/onmob/clothing/uniforms/uniforms_by_faction/UA.dmi',
@@ -444,23 +441,12 @@
 
 	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROT
 
-/obj/item/clothing/under/marine/mp/provost/senior
-	name = "\improper Provost Senior Uniform"
-	desc = "The crisp uniform of a senior member of the Provost Office."
-	icon_state = "provost_tml"
-	worn_state = "provost_tml"
-
 /obj/item/clothing/under/marine/mp/provost/chief
-	name = "\improper Provost Command Uniform"
-	desc = "The crisp uniform of a commanding member of the Provost Office."
+	name = "\improper service 'A' officer winter uniform"
+	desc = "The winter version of the Service A uniform, often worn by officers of the provost office."
 	icon_state = "provost_ci"
 	worn_state = "provost_ci"
 
-/obj/item/clothing/under/marine/mp/provost/marshal
-	name = "\improper Provost Marshal Uniform"
-	desc = "The crisp uniform of a Provost Marshal."
-	icon_state = "provost_marshal"
-	worn_state = "provost_marshal"
 
 //=========================//USCM Survivors\\================================\\
 //=======================================================================\\
@@ -1231,14 +1217,13 @@
 	name = "tactical flightsuit"
 	desc = "A flightsuit with plenty of leather straps, pouches, and other essential gear."
 	icon_state = "pilot_flightsuit_alt"
-	item_state = "pilot_flightsuit_alt"
 	worn_state = "pilot_flightsuit_alt"
-	icon = 'icons/obj/items/clothing/uniforms/uniforms_by_faction/UA.dmi'
+	icon = 'icons/obj/items/clothing/uniforms/uniforms_by_map/jungle.dmi'
 	item_icons = list(
-		WEAR_BODY = 'icons/mob/humans/onmob/clothing/uniforms/uniforms_by_faction/UA.dmi',
+		WEAR_BODY = 'icons/mob/humans/onmob/clothing/uniforms/uniforms_by_map/jungle.dmi',
 	)
 	flags_jumpsuit = UNIFORM_SLEEVE_ROLLABLE
-	flags_atom = NO_NAME_OVERRIDE|NO_GAMEMODE_SKIN
+	flags_atom = NO_NAME_OVERRIDE
 	flags_cold_protection = ICE_PLANET_MIN_COLD_PROT
 
 /obj/item/clothing/under/rank/synthetic/old
