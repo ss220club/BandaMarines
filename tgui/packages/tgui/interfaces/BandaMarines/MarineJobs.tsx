@@ -6,6 +6,10 @@
  */
 
 const JOBS_RU = {
+  // MARK: Mutiny
+  MUTINY: 'МЯТЕЖНИКИ',
+  LOYALIST: 'ЛОЯЛИСТЫ',
+  'NON-COMBAT': 'НЕКОМБАТАНТЫ',
   // MARK: Squads
   Alpha: 'Альфа',
   Bravo: 'Браво',
@@ -18,7 +22,8 @@ const JOBS_RU = {
   CBRN: 'CBRN',
   FORECON: 'РАЗВЕДКА',
   'Solar Devils': 'Дьяволы Солнца',
-  Provost: 'Проректор',
+  Provost: 'Военной Прокуратуры',
+  ProvostCategory: 'Военная Прокуратура',
   Akula: 'Акула',
   Bizon: 'Бизон',
   Chayka: 'Чайка',

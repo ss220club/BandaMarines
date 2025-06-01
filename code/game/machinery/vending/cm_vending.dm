@@ -578,7 +578,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 								vend_fail()
 								return FALSE
 
-							var/p_name = itemspec[1]
+							var/p_name = itemspec["english_name"] || itemspec[1] // SS220 - EDIT FIX REDEEM SPEC BOXES
 							if(!(p_name in GLOB.specialist_set_name_dict))
 								return
 
@@ -756,7 +756,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 		var/obj/item/device/multitool/MT = W
 
 		if(!skillcheck(user, SKILL_ENGINEER, SKILL_ENGINEER_TRAINED) && !skillcheckexplicit(user, SKILL_ANTAG, SKILL_ANTAG_AGENT))
-			to_chat(user, SPAN_WARNING("You do not understand how tweak access requirements in [src]."))
+			to_chat(user, SPAN_WARNING("You do not understand how to tweak access requirements in [src]."))
 			return FALSE
 		if(stat != WORKING)
 			to_chat(user, SPAN_WARNING("[src] must be in working condition and powered for you to hack it."))
@@ -828,7 +828,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 //-----------TGUI PROCS------------------------
 /obj/structure/machinery/cm_vending/ui_static_data(mob/user)
 	. = list()
-	.["vendor_name"] = declent_ru(NOMINATIVE)
+	.["vendor_name"] = capitalize(declent_ru(NOMINATIVE)) // SS220 - EDIT ADDITTION
 	.["vendor_type"] = "base"
 	.["theme"] = vendor_theme
 	if(vend_flags & VEND_FACTION_THEMES)
@@ -1306,6 +1306,8 @@ GLOBAL_LIST_INIT(cm_vending_gear_corresponding_types_list, list(
 		if(islist(item_ref)) // multi-vending
 			var/list/ref_list = item_ref
 			item_ref = ref_list[1]
+		var/icon/image_icon = icon(initial(item_ref.icon), initial(item_ref.icon_state))
+		var/image_size = "[image_icon.Width()]x[image_icon.Height()]"
 
 		var/is_category = item_ref == null
 
@@ -1318,7 +1320,9 @@ GLOBAL_LIST_INIT(cm_vending_gear_corresponding_types_list, list(
 			"prod_color" = priority,
 			"prod_desc" = initial(item_ref.desc),
 			"prod_cost" = p_cost,
-			"image" = imgid
+			"image" = imgid,
+			"image_size" = image_size,
+			"prod_name_en" = myprod["english_name"] || p_name, // BANDAMARINES EDIT ADD - Vendor Translate
 		)
 
 		if (is_category == 1)
