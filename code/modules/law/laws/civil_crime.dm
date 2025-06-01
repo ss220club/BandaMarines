@@ -1,3 +1,4 @@
+//BANDAMARINES - Translate
 /datum/law/civilian_law/terror_association
 	name = "Террористическая Ассоциация"
 	desc = "Быть членом или предоставлять помощь члену террористической организации."
