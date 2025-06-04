@@ -837,6 +837,15 @@ instrumental = "острыми чипсами «Кеплер»"
 prepositional = "острых чипсах «Кеплер»"
 gender = "plural"
 
+["Kepler Flamehot wrapper"]
+nominative = "упаковка от чипсов «Кеплер»"
+genitive = "упаковки от чипсов «Кеплер»"
+dative = "упаковке от чипсов «Кеплер»"
+accusative = "упаковку от чипсов «Кеплер»"
+instrumental = "упаковкой от чипсов «Кеплер»"
+prepositional = "упаковке от чипсов «Кеплер»"
+gender = "female"
+
 ["Weyland-Yutani Pepper Chips"]
 nominative = "острые чипсы «Вейланд-Ютани»"
 genitive = "острых чипсов «Вейланд-Ютани»"
@@ -855,6 +864,15 @@ instrumental = "батончиком «M-EAT»"
 prepositional = "батончике «M-EAT»"
 gender = "male"
 
+["EAT bar wrapper"]
+nominative = "обёртка от батончика «M-EAT»"
+genitive = "обёртки от батончика «M-EAT»"
+dative = "обёртке от батончика «M-EAT»"
+accusative = "обёртку от батончика «M-EAT»"
+instrumental = "обёрткой от батончика «M-EAT»"
+prepositional = "обёртке от батончика «M-EAT»"
+gender = "female"
+
 ["Boonie Bars"]
 nominative = "батончик «Boonie»"
 genitive = "батончика «Boonie»"
@@ -864,14 +882,32 @@ instrumental = "батончиком «Boonie»"
 prepositional = "батончике «Boonie»"
 gender = "male"
 
+["boonie bar wrapper"]
+nominative = "обёртка от батончика «Boonie»"
+genitive = "обёртки от батончика «Boonie»"
+dative = "обёртке от батончика «Boonie»"
+accusative = "обёртку от батончика «Boonie»"
+instrumental = "обёрткой от батончика «Boonie»"
+prepositional = "обёртке от батончика «Boonie»"
+gender = "female"
+
 ["CHUNK box"]
-nominative = "батончик «CHUNK»"
-genitive = "батончика «CHUNK»"
-dative = "батончику «CHUNK»"
-accusative = "батончик «CHUNK»"
-instrumental = "батончиком «CHUNK»"
-prepositional = "батончике «CHUNK»"
+nominative = "шоколад «CHUNK»"
+genitive = "шоколада «CHUNK»"
+dative = "шоколаду «CHUNK»"
+accusative = "шоколад «CHUNK»"
+instrumental = "шоколадом «CHUNK»"
+prepositional = "шоколаде «CHUNK»"
 gender = "male"
+
+["chunk bar box"]
+nominative = "коробочка от шоколада «CHUNK»"
+genitive = "коробочки от батончика «CHUNK»"
+dative = "коробочке от батончика «CHUNK»"
+accusative = "коробочку от батончика «CHUNK»"
+instrumental = "коробочкой от батончика «CHUNK»"
+prepositional = "коробочке от батончика «CHUNK»"
+gender = "female"
 
 ["Barcardine Bars"]
 nominative = "батончик «Barcardine»"
@@ -882,14 +918,23 @@ instrumental = "батончиком «Barcardine»"
 prepositional = "батончике «Barcardine»"
 gender = "male"
 
-["chunk bar box"]
-nominative = "коробка от батончиков"
-genitive = "коробки от батончиков"
-dative = "коробке от батончиков"
-accusative = "коробку от батончиков"
-instrumental = "коробкой от батончиков"
-prepositional = "коробке от батончиков"
+["barcardine bar wrapper"]
+nominative = "обёртка от батончика «Barcardine»"
+genitive = "обёртки от батончика «Barcardine»"
+dative = "обёртке от батончика «Barcardine»"
+accusative = "обёртку от батончика «Barcardine»"
+instrumental = "обёрткой от батончика «Barcardine»"
+prepositional = "обёртке от батончика «Barcardine»"
 gender = "female"
+
+["Popcorn"]
+nominative = "попкорн"
+genitive = "попкорна"
+dative = "попкорну"
+accusative = "попкорн"
+instrumental = "попкорном"
+prepositional = "попкорне"
+gender = "male"
 
 ["Yum! donuts"]
 nominative = "пончики «Ням!»"
