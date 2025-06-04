@@ -182,6 +182,9 @@ GLOBAL_LIST_INIT(admin_verbs_server, list(
 	/client/proc/cmd_debug_del_all,
 	/datum/admins/proc/togglejoin,
 	/client/proc/toggle_cdn,
+	/client/proc/toggle_panic_bunker, // BANDAMARINES ADD
+	/client/proc/change_panic_bunker_time, // BANDAMARINES ADD
+	/client/proc/edit_panic_bunker_bypass, // BANDAMARINES ADD
 ))
 
 GLOBAL_LIST_INIT(admin_verbs_debug, list(
@@ -247,6 +250,7 @@ GLOBAL_LIST_INIT(admin_verbs_possess, list(
 
 GLOBAL_LIST_INIT(admin_verbs_permissions, list(
 	/client/proc/whitelist_panel,
+	/client/proc/clear_panic_bunker_bypass, // BANDAMARINESS ADD
 ))
 
 GLOBAL_LIST_INIT(admin_verbs_color, list(
@@ -309,6 +313,7 @@ GLOBAL_LIST_INIT(admin_verbs_teleport, list(
 ))
 
 GLOBAL_LIST_INIT(mentor_verbs, list(
+	/client/proc/deadmin_self,
 	/client/proc/cmd_mentor_say,
 	/datum/admins/proc/imaginary_friend,
 	/client/proc/toggle_newplayer_ghost_hud,

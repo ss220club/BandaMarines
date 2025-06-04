@@ -5,7 +5,14 @@
  * @license MIT
  */
 
-const JOBS_RU = {
+export const MARINES_STATES = {
+  Dead: 'Мёртв',
+  Conscious: 'В сознании',
+  'Conscious (SSD)': 'В сознании (КРС)',
+  Unconscious: 'Без сознания',
+};
+
+export const JOBS_RU = {
   // MARK: Mutiny
   MUTINY: 'МЯТЕЖНИКИ',
   LOYALIST: 'ЛОЯЛИСТЫ',
@@ -18,8 +25,8 @@ const JOBS_RU = {
   Echo: 'Эхо',
   Foxtrot: 'Фокстрот',
   Intel: 'Интел',
-  SOF: 'SOF',
-  CBRN: 'CBRN',
+  SOF: 'ССО',
+  CBRN: 'ХБРЯ',
   FORECON: 'РАЗВЕДКА',
   'Solar Devils': 'Дьяволы Солнца',
   Provost: 'Военной Прокуратуры',
@@ -59,29 +66,29 @@ const JOBS_RU = {
   NPCs: 'НИПы',
   // MARK: Roles
   Rifleman: 'Стрелок',
-  'Squad Leader': 'Командир Отряда',
-  'Combat Technician': 'Полевой Техник',
-  'Hospital Corpsman': 'Полевой Санитар',
-  'Weapons Specialist': 'Оружейный Специалист',
-  'Fireteam Leader': 'Командир Боевой Группы',
+  'Squad Leader': 'Командир роты',
+  'Combat Technician': 'Полевой техник',
+  'Hospital Corpsman': 'Полевой санитар',
+  'Weapons Specialist': 'Оружейный специалист',
+  'Fireteam Leader': 'Командир взвода',
   Smartgunner: 'Смартганнер',
   // Survivors
   Colonist: 'Колонист',
   Passenger: 'Пассажир',
   Survivor: 'Выживший',
-  'Synth Survivor': 'Выживший Синтетик',
+  'Synth Survivor': 'Выживший-cинтетик',
   'CO Survivor': 'Выживший КО',
-  'Any Survivor': 'Любой Выживший',
-  'Civilian Survivor': 'Выживший Гражданский',
-  'Security Survivor': 'Выживший Безопасник',
-  'Scientist Survivor': 'Выживший Ученый',
-  'Medical Survivor': 'Выживший Медик',
-  'Engineering Survivor': 'Выживший Инженер',
-  'Corporate Survivor': 'Выживший Корпорат',
-  'Hostile Survivor': 'Враждебный Выживший',
+  'Any Survivor': 'Любой выживший',
+  'Civilian Survivor': 'Выживший гражданский',
+  'Security Survivor': 'Выживший охраны',
+  'Scientist Survivor': 'Выживший учёный',
+  'Medical Survivor': 'Выживший медик',
+  'Engineering Survivor': 'Выживший инженер',
+  'Corporate Survivor': 'Выживший корпорат',
+  'Hostile Survivor': 'Враждебный выживший',
 
   // Medical roles
-  'Chief Medical Officer': 'Главрач',
+  'Chief Medical Officer': 'Главврач',
   Doctor: 'Доктор',
   Surgeon: 'Хирург',
   'Field Doctor': 'Полевой врач',
@@ -89,61 +96,61 @@ const JOBS_RU = {
   Researcher: 'Исследователь',
 
   // Civil roles
-  'Corporate Liaison': 'Связной Корпорации',
-  'Combat Correspondent': 'Полевой Корреспондент',
-  'Civilian Correspondent': 'Гражданский Корреспондент',
-  'Military Correspondent': 'Военный Корреспондент',
+  'Corporate Liaison': 'Связной корпорации',
+  'Combat Correspondent': 'Полевой корреспондент',
+  'Civilian Correspondent': 'Гражданский корреспондент',
+  'Military Correspondent': 'Военный корреспондент',
 
   // Synthetic roles
+  'Mess Technician': 'Техник-уборщик',
   Synthetic: 'Синтетик',
   'Synthetic K9': 'Синтетик K9',
   'Working Joe': 'Рабочий Джо',
   'Hazmat Joe': 'Хазмат Джо',
 
   // Command roles
-  'Commanding Officer': 'Коммандующий Офицер',
-  'Executive Officer': 'Исполнительный Офицер',
-  'Staff Officer': 'Штаб-Офицер',
-  'Auxiliary Support Officer': 'Офицер Поддержки',
+  'Commanding Officer': 'Командующий офицер',
+  'Executive Officer': 'Исполнительный офицер',
+  'Staff Officer': 'Штаб-офицер',
+  'Auxiliary Support Officer': 'Офицер поддержки',
 
   // Dropship roles
-  'Gunship Pilot': 'Боевой Пилот',
-  'Dropship Pilot': 'Десантный Пилот',
-  'Tank Crew': 'Экипаж Танка',
-  'Dropship Crew Chief': 'Экипаж Десантного Корабля',
-  'Intelligence Officer': 'Офицер Разведки',
+  'Gunship Pilot': 'Пилот НАП (CAS)',
+  'Dropship Pilot': 'Пилот десантного корабля',
+  'Tank Crew': 'Танкист',
+  'Dropship Crew Chief': 'Офицер десантного корабля',
+  'Intelligence Officer': 'Офицер разведки',
 
   // Police roles
-  'Military Police': 'Военная Полиция',
-  'Military Warden': 'Военный Смотритель',
-  'Chief MP': 'Шеф Военной Полиции',
+  'Military Police': 'Военная полиция',
+  'Military Warden': 'Военный смотритель',
+  'Chief MP': 'Начальник военной полиции',
 
   // Engineering roles
-  'Chief Engineer': 'Главный Инженер',
-  'Maintenance Technician': 'Техник Обслуживания',
-  'Ordnance Technician': 'Оружейный Техник',
+  'Chief Engineer': 'Старший инженер',
+  'Maintenance Technician': 'Техник-ремонтник',
+  'Ordnance Technician': 'Пиротехник',
 
   // Requisition roles
   Quartermaster: 'Квартирмейстер',
-  'Cargo Technician': 'Грузовой Техник',
+  'Cargo Technician': 'Техник-экспедитор',
 
   // Marine Raider roles
-  'Marine Raider': 'Морпех Рейдер',
-  'Marine Raider Team Lead': 'Морпех Рейдер Командир',
-  'Marine Raider Platoon Lead': 'Морпех Рейдер Командир Взвода',
+  'Marine Raider': 'Рейдер',
+  'Marine Raider Team Lead': 'Комроты-рейдер',
+  'Marine Raider Platoon Lead': 'Комвзвода-рейдер',
 
   // Other roles
   Stowaway: 'Безбилетник',
-  'USCM Marine': 'ККМП Морпех',
-  'USCM Colonel': 'ККМП Полковник',
-  'USCM Observer': 'ККМП Наблюдатель',
-  'USCM General': 'ККМП Генерал',
-  'Assistant Commandant of the Marine Corps':
-    'Помощник коменданта Корпуса Морской Пехоты',
-  'Commandant of the Marine Corps': 'Комендант Корпуса Морской Пехоты',
-  'Platoon Corpsman': 'Санитар Взвода',
-  'Platoon Squad Leader': 'Командир Взвода',
-  'Reconnaissance Support Technician': 'Техник Поддержки Разведки',
+  'USCM Marine': 'Морпех ККМП',
+  'USCM Colonel': 'Полковник ККМП',
+  'USCM Observer': 'Наблюдатель ККМП',
+  'USCM General': 'Генерал ККМП',
+  'Assistant Commandant of the Marine Corps': 'Заместитель коменданта КМП',
+  'Commandant of the Marine Corps': 'Комендант КМП',
+  'Platoon Corpsman': 'Санитар взвода',
+  'Platoon Squad Leader': 'Командир взвода',
+  'Reconnaissance Support Technician': 'ТСпециалист по рекогносцировке',
 
   // WO roles
   'Ground Commander': 'Полевой Командующий',
@@ -368,6 +375,9 @@ const JOBS_RU = {
 
   // Observer role
   Observer: 'Наблюдатель',
+
+  // Other
+  Infected: 'Зараженные',
 };
 
 export function JobsRu(value: string) {

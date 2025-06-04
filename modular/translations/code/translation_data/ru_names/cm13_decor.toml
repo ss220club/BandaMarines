@@ -127,6 +127,15 @@ instrumental = "разбитым зеркалом"
 prepositional = "разбитом зеркале"
 gender = "neuter"
 
+["hull window"]
+nominative = "стекло"
+genitive = "стекла"
+dative = "стеклу"
+accusative = "стекло"
+instrumental = "стеклом"
+prepositional = "стекле"
+gender = "neuter"
+
 ["reinforced window"]
 nominative = "усиленное стекло"
 genitive = "усиленного стекла"
@@ -136,7 +145,34 @@ instrumental = "усиленным стеклом"
 prepositional = "усиленном стекле"
 gender = "neuter"
 
+["ultra-reinforced window"]
+nominative = "сверхусиленное стекло"
+genitive = "сверхусиленного стекла"
+dative = "сверхусиленному стеклу"
+accusative = "сверхусиленное стекло"
+instrumental = "сверхусиленным стеклом"
+prepositional = "сверхусиленном стекле"
+gender = "neuter"
+
+["safety glass"]
+nominative = "защитное стекло"
+genitive = "защитного стекла"
+dative = "защитному стеклу"
+accusative = "защитное стекло"
+instrumental = "защитным стеклом"
+prepositional = "защитном стекле"
+gender = "neuter"
+
 ["Hot Coffee Machine"]
+nominative = "кофе-машина"
+genitive = "кофе-машины"
+dative = "кофе-машине"
+accusative = "кофе-машину"
+instrumental = "кофе-машиной"
+prepositional = "кофе-машине"
+gender = "female"
+
+["coffee machine"]
 nominative = "кофе-машина"
 genitive = "кофе-машины"
 dative = "кофе-машине"
@@ -170,6 +206,15 @@ dative = "корпусу"
 accusative = "корпус"
 instrumental = "корпусом"
 prepositional = "корпусе"
+gender = "male"
+
+["reinforced hull"]
+nominative = "усиленный корпус"
+genitive = "усиленного корпуса"
+dative = "усиленному корпусу"
+accusative = "усиленный корпус"
+instrumental = "усиленным корпусом"
+prepositional = "усиленном корпусе"
 gender = "male"
 
 ["outer hull"]
@@ -379,6 +424,15 @@ instrumental = "шкафчиком врача"
 prepositional = "шкафчике врача"
 gender = "male"
 
+["Field Doctor's locker"]
+nominative = "шкафчик полевого врача"
+genitive = "шкафчика полевого врача"
+dative = "шкафчику полевого врача"
+accusative = "шкафчик полевого врача"
+instrumental = "шкафчиком полевого врача"
+prepositional = "шкафчике полевого врача"
+gender = "male"
+
 ["Operating Table"]
 nominative = "операционный стол"
 genitive = "операционного стола"
@@ -404,6 +458,18 @@ dative = "баку для реагентов"
 accusative = "бак для реагентов"
 instrumental = "баком для реагентов"
 prepositional = "баке для реагентов"
+gender = "male"
+
+["fuel tank crate (x1)"] # Unique Vendor Name
+nominative = "ящик для бака с топливом"
+
+["fueltank"]
+nominative = "бак для топлива"
+genitive = "бака для топлива"
+dative = "баку для топлива"
+accusative = "бак для топлива"
+instrumental = "баком для топлива"
+prepositional = "баке для топлива"
 gender = "male"
 
 ["trash cart"]
@@ -488,12 +554,21 @@ prepositional = "стеклянной заслонке"
 gender = "female"
 
 ["USCM Poster"]
-nominative = "постер ККМП"
-genitive = "постера ККМП"
-dative = "постеру ККМП"
-accusative = "постер ККМП"
-instrumental = "постером ККМП"
-prepositional = "постере ККМП"
+nominative = "плакат ККМП"
+genitive = "плаката ККМП"
+dative = "плакату ККМП"
+accusative = "плакат ККМП"
+instrumental = "плакатом ККМП"
+prepositional = "плакате ККМП"
+gender = "male"
+
+["Dirty Magazine"]
+nominative = "липкий журнал"
+genitive = "липкого журнала"
+dative = "липкому журналу"
+accusative = "липкий журнал"
+instrumental = "липким журналом"
+prepositional = "липком журнале"
 gender = "male"
 
 ["Personal Computer"]
@@ -576,3 +651,185 @@ accusative = "красный занавес"
 instrumental = "красным занавесом"
 prepositional = "красном занавесе"
 gender = "male"
+
+["medilink supply port"]
+nominative = "канал снабжения медицинского оборудования"
+genitive = "канала снабжения медицинского оборудования"
+dative = "каналу снабжения медицинского оборудования"
+accusative = "канал снабжения медицинского оборудования"
+instrumental = "каналом снабжения медицинского оборудования"
+prepositional = "канале снабжения медицинского оборудования"
+gender = "male"
+
+["ship-grade camera"]
+nominative = "поворотная камера"
+genitive = "поворотной камеры"
+dative = "поворотной камере"
+accusative = "поворотную камеру"
+instrumental = "поворотной камерой"
+prepositional = "поворотной камере"
+gender = "female"
+
+["autodoc emergency medical system"]
+nominative = "система экстренной медицинской помощи «АвтоДок»"
+genitive = "системы экстренной медицинской помощи «АвтоДок»"
+dative = "системе экстренной медицинской помощи «АвтоДок»"
+accusative = "систему экстренной медицинской помощи «АвтоДок»"
+instrumental = "системой экстренной медицинской помощи «АвтоДок»"
+prepositional = "системе экстренной медицинской помощи «АвтоДок»"
+gender = "female"
+
+["autodoc medical system control console"]
+nominative = "консоль системы экстренной медицинской помощи «АвтоДок»"
+genitive = "консоли системы экстренной медицинской помощи «АвтоДок»"
+dative = "консоли системы экстренной медицинской помощи «АвтоДок»"
+accusative = "консоль системы экстренной медицинской помощи «АвтоДок»"
+instrumental = "консолью системы экстренной медицинской помощи «АвтоДок»"
+prepositional = "консоли системы экстренной медицинской помощи «АвтоДок»"
+gender = "female"
+
+["body scanner"]
+nominative = "медицинский анализатор"
+genitive = "медицинского анализатора"
+dative = "медицинскому анализатору"
+accusative = "медицинский анализатор"
+instrumental = "медицинским анализатором"
+prepositional = "медицинском анализаторе"
+gender = "male"
+
+["body scanner console"]
+nominative = "консоль медицинского анализатора"
+genitive = "консоли медицинского анализатора"
+dative = "консоли медицинского анализатора"
+accusative = "консоль медицинского анализатора"
+instrumental = "консолью медицинского анализатора"
+prepositional = "консоли медицинского анализатора"
+gender = "female"
+
+["comfy chair"]
+nominative = "удобное кресло"
+genitive = "удобного кресла"
+dative = "удобному креслу"
+accusative = "удобное кресло"
+instrumental = "удобным креслом"
+prepositional = "удобном кресле"
+gender = "neuter"
+
+["Delta squad chair"]
+nominative = "кресло отряда «Дельта»"
+genitive = "кресла отряда «Дельта»"
+dative = "креслу отряда «Дельта»"
+accusative = "кресло отряда «Дельта»"
+instrumental = "креслом отряда «Дельта»"
+prepositional = "кресле отряда «Дельта»"
+gender = "neuter"
+
+["Charlie squad chair"]
+nominative = "кресло отряда «Чарли»"
+genitive = "кресла отряда «Чарли»"
+dative = "креслу отряда «Чарли»"
+accusative = "кресло отряда «Чарли»"
+instrumental = "креслом отряда «Чарли»"
+prepositional = "кресле отряда «Чарли»"
+gender = "male"
+
+["Bravo squad chair"]
+nominative = "кресло отряда «Браво»"
+genitive = "кресла отряда «Браво»"
+dative = "креслу отряда «Браво»"
+accusative = "кресло отряда «Браво»"
+instrumental = "креслом отряда «Браво»"
+prepositional = "кресле отряда «Браво»"
+gender = "male"
+
+["Alpha squad chair"]
+nominative = "кресло отряда «Альфа»"
+genitive = "кресла отряда «Альфа»"
+dative = "креслу отряда «Альфа»"
+accusative = "кресло отряда «Альфа»"
+instrumental = "креслом отряда «Альфа»"
+prepositional = "кресле отряда «Альфа»"
+gender = "female"
+
+["digital clock"]
+nominative = "электронные часы"
+genitive = "электронных часов"
+dative = "электронным часам"
+accusative = "электронные часы"
+instrumental = "электронными часами"
+prepositional = "электронных часах"
+gender = "plural"
+
+["Cell 1"]
+nominative = "«Камера 1»"
+genitive = "«Камера 1»"
+dative = "«Камера 1»"
+accusative = "«Камера 1»"
+instrumental = "«Камера 1»"
+prepositional = "«Камера 1»"
+gender = "plural"
+
+["Cell 2"]
+nominative = "«Камера 2»"
+genitive = "«Камера 2»"
+dative = "«Камера 2»"
+accusative = "«Камера 2»"
+instrumental = "«Камера 2»"
+prepositional = "«Камера 2»"
+gender = "plural"
+
+["Cell 3"]
+nominative = "«Камера 3»"
+genitive = "«Камера 3»"
+dative = "«Камера 3»"
+accusative = "«Камера 3»"
+instrumental = "«Камера 3»"
+prepositional = "«Камера 3»"
+gender = "plural"
+
+["Cell 4"]
+nominative = "«Камера 4»"
+genitive = "«Камера 4»"
+dative = "«Камера 4»"
+accusative = "«Камера 4»"
+instrumental = "«Камера 4»"
+prepositional = "«Камера 4»"
+gender = "plural"
+
+["Cell 5"]
+nominative = "«Камера 5»"
+genitive = "«Камера 5»"
+dative = "«Камера 5»"
+accusative = "«Камера 5»"
+instrumental = "«Камера 5»"
+prepositional = "«Камера 5»"
+gender = "plural"
+
+["Cell 6"]
+nominative = "«Камера 6»"
+genitive = "«Камера 6»"
+dative = "«Камера 6»"
+accusative = "«Камера 6»"
+instrumental = "«Камера 6»"
+prepositional = "«Камера 6»"
+gender = "plural"
+
+["handrail"]
+nominative = "ограждение"
+genitive = "ограждения"
+dative = "ограждению"
+accusative = "ограждение"
+instrumental = "ограждением"
+prepositional = "ограждении"
+gender = "neuter"
+
+["Turnstile"]
+nominative = "турникет"
+genitive = "турникета"
+dative = "турникету"
+accusative = "турникет"
+instrumental = "турникетом"
+prepositional = "турникете"
+gender = "male"
+
+

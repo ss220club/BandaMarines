@@ -31,6 +31,9 @@ instrumental = "сумкой для кассет"
 prepositional = "сумке для кассет"
 gender = "female"
 
+["Drop Pouch Crate (x4)"] # Unique Vendor Name
+nominative = "ящик для экипировки (наплечный подсумок x 4)"
+
 ["drop pouch"]
 nominative = "наплечный подсумок"
 genitive = "наплечного подсумка"
@@ -38,6 +41,24 @@ dative = "наплечному подсумку"
 accusative = "наплечный подсумок"
 instrumental = "наплечным подсумком"
 prepositional = "наплечном подсумке"
+gender = "male"
+
+["black drop pouch"]
+nominative = "чёрный наплечный подсумок"
+genitive = "чёрного наплечного подсумка"
+dative = "чёрному наплечному подсумку"
+accusative = "чёрный наплечный подсумок"
+instrumental = "чёрным наплечным подсумком"
+prepositional = "чёрном наплечном подсумке"
+gender = "male"
+
+["light general pouch"]
+nominative = "лёгкий подсумок общего назначения"
+genitive = "лёгкого подсумка общего назначения"
+dative = "лёгкому подсумку общего назначения"
+accusative = "лёгкий подсумок общего назначения"
+instrumental = "лёгким подсумком общего назначения"
+prepositional = "лёгком подсумке общего назначения"
 gender = "male"
 
 ["medium general pouch"]
@@ -244,6 +265,12 @@ instrumental = "подсумком для магазинов"
 prepositional = "подсумке для магазинов"
 gender = "male"
 
+["Large Pouch 2x(pistol,magazine,general)"] # Unique Vendor Name
+nominative = "ящик для экипировки (большие подсумки x 6)"
+
+["medical pouches crate (1x firstaid, medical, syringe, medkit, autoinjector)"] # Unique Vendor Name
+nominative = "ящик для экипировки (медицинские подсумки x 5)"
+
 ["large magazine pouch"]
 nominative = "большой подсумок для магазинов"
 genitive = "большого подсумка для магазинов"
@@ -311,4 +338,67 @@ dative = "большому подсумок-патронташу для дроб
 accusative = "большой подсумок-патронташ для дробовика"
 instrumental = "большим подсумок-патронташем для дробовика"
 prepositional = "большом подсумок-патронташе для дробовика"
+gender = "male"
+
+["Pressurized Reagent Canister Pouch (Bicaridine)"] # Unique Vendor Name
+nominative = "подсумок с капсулой для реагентов (Bicaridine)"
+
+["Pressurized Reagent Canister Pouch (Kelotane)"] # Unique Vendor Name
+nominative = "подсумок с капсулой для реагентов (Kelotane)"
+
+["Pressurized Reagent Canister Pouch (Revival Mix - Tricordrazine)"] # Unique Vendor Name
+nominative = "подсумок с капсулой для реагентов (Epinephrine, Inaprovaline, Tricordrazine)"
+
+["Pressurized Reagent Canister Pouch (Revival Mix - Peridaxon)"] # Unique Vendor Name
+nominative = "подсумок с капсулой для реагентов (Epinephrine, Inaprovaline, Peridaxon)"
+
+["Pressurized Reagent Canister Pouch (Tricordrazine)"] # Unique Vendor Name
+nominative = "подсумок с капсулой для реагентов (Tricordrazine)"
+
+["Pressurized Reagent Canister Pouch (EMPTY)"] # Unique Vendor Name
+nominative = "подсумок с капсулой для реагентов (Пустой)"
+
+["Pressurized Reagent Canister Pouch"]
+nominative = "подсумок с капсулой для реагентов"
+genitive = "подсумка с капсулой для реагентов"
+dative = "подсумку с капсулой для реагентов"
+accusative = "подсумок с капсулой для реагентов"
+instrumental = "подсумком с капсулой для реагентов"
+prepositional = "подсумке с капсулой для реагентов"
+gender = "male"
+
+["Vial Pouch (Full)"] # Unique Vendor Name
+nominative = "подсумок для пробирок (полный)"
+
+["vial pouch"]
+nominative = "подсумок для пробирок"
+genitive = "подсумка для пробирок"
+dative = "подсумку для пробирок"
+accusative = "подсумок для пробирок"
+instrumental = "подсумком для пробирок"
+prepositional = "подсумке для пробирок"
+gender = "male"
+
+["Leg Pouch "] # Unique Vendor Name
+nominative = "набедренный подсумок"
+
+["Leg Pouch"]
+nominative = "набедренный подсумок"
+genitive = "набедренного подсумка"
+dative = "набедренному подсумку"
+accusative = "набедренный подсумок"
+instrumental = "набедренным подсумком"
+prepositional = "набедренном подсумке"
+gender = "male"
+
+["Leg Pouch (Black)"] # Unique Vendor Name
+nominative = "чёрный набедренный подсумок"
+
+["Black Leg Pouch"]
+nominative = "чёрный набедренный подсумок"
+genitive = "чёрного набедренного подсумка"
+dative = "чёрному набедренному подсумку"
+accusative = "чёрный набедренный подсумок"
+instrumental = "чёрным набедренным подсумком"
+prepositional = "чёрном набедренном подсумке"
 gender = "male"

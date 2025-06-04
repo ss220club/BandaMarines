@@ -137,9 +137,10 @@ SUBSYSTEM_DEF(mapping)
 
 	z_list = SSmapping.z_list
 
-#define INIT_ANNOUNCE(X) to_chat(world, "<span class='notice'>[X]</span>"); log_world(X)
 /datum/controller/subsystem/mapping/proc/LoadGroup(list/errorList, name, path, files, list/traits, list/default_traits, silent = FALSE, override_map_path = "maps/")
 	. = list()
+	var/msg = ""
+	var/chat_message = ""
 	var/start_time = REALTIMEOFDAY
 
 	if (!islist(files))  // handle single-level maps
@@ -162,7 +163,12 @@ SUBSYSTEM_DEF(mapping)
 		for (var/i in 1 to total_z)
 			traits += list(default_traits)
 	else if (total_z != length(traits))  // mismatch
-		INIT_ANNOUNCE("WARNING: [length(traits)] trait sets specified for [total_z] z-levels in [path]!")
+		// SS220 START EDIT ADDICTION
+		msg = "WARNING: $1 trait sets specified for $2 z-levels in $3!"
+		chat_message = SPAN_NOTICE(msg, list(length(traits), total_z, path))
+		to_chat(world, chat_message)
+		log_world(chat_message)
+		// SS220 END EDIT ADDICTION
 		if (total_z < length(traits))  // ignore extra traits
 			traits.Cut(total_z + 1)
 		while (total_z > length(traits))  // fall back to defaults on extra levels
@@ -195,12 +201,17 @@ SUBSYSTEM_DEF(mapping)
 		// CM Snowflake for Mass Screenshot dimensions auto detection
 		for(var/z in bounds[MAP_MINZ] to bounds[MAP_MAXZ])
 			var/datum/space_level/zlevel = z_list[start_z + z - 1]
-			zlevel.bounds = list(bounds[MAP_MINX], bounds[MAP_MINY], z, bounds[MAP_MAXX], bounds[MAP_MAXY], z)
+			zlevel.bounds = list(bounds[MAP_MINX] + x_offset - 1, bounds[MAP_MINY] + y_offset - 1, z, bounds[MAP_MAXX] + x_offset - 1, bounds[MAP_MAXY] + y_offset - 1, z)
 
 	// =============== END CM Change =================
 
 	if(!silent)
-		INIT_ANNOUNCE("Loaded [name] in [(REALTIMEOFDAY - start_time)/10]s!")
+		// SS220 START EDIT ADDICTION
+		msg = "Loaded $1 in $2s!"
+		chat_message = SPAN_NOTICE(msg, list(name, round((REALTIMEOFDAY - start_time)/10, 0.01)))
+		to_chat(world, chat_message)
+		log_world(chat_message)
+		// SS220 END EDIT ADDICTION
 	return parsed_maps
 
 /datum/controller/subsystem/mapping/proc/Loadship(list/errorList, name, path, files, list/traits, list/default_traits, silent = FALSE, override_map_path = "maps/")
@@ -212,6 +223,8 @@ SUBSYSTEM_DEF(mapping)
 /datum/controller/subsystem/mapping/proc/loadWorld()
 	//if any of these fail, something has gone horribly, HORRIBLY, wrong
 	var/list/FailedZs = list()
+	var/msg = ""
+	var/chat_message = ""
 
 	// ensure we have space_level datums for compiled-in maps
 	InitializeDefaultZLevels()
@@ -220,7 +233,12 @@ SUBSYSTEM_DEF(mapping)
 	ground_start = world.maxz + 1
 
 	var/datum/map_config/ground_map = configs[GROUND_MAP]
-	INIT_ANNOUNCE("Loading [ground_map.map_name]...")
+	// SS220 START EDIT ADDICTION
+	msg = "Loading $1..."
+	chat_message = SPAN_NOTICE(msg, list(ground_map.map_name))
+	to_chat(world, chat_message)
+	log_world(chat_message)
+	// SS220 END EDIT ADDICTION
 	var/ground_base_path = "maps/"
 	if(ground_map.override_map)
 		ground_base_path = "data/"
@@ -231,7 +249,12 @@ SUBSYSTEM_DEF(mapping)
 		var/ship_base_path = "maps/"
 		if(ship_map.override_map)
 			ship_base_path = "data/"
-		INIT_ANNOUNCE("Loading [ship_map.map_name]...")
+		// SS220 START EDIT ADDICTION
+		msg = "Loading $1..."
+		chat_message = SPAN_NOTICE(msg, list(ship_map.map_name))
+		to_chat(world, chat_message)
+		log_world(chat_message)
+		// SS220 END EDIT ADDICTION
 		Loadship(FailedZs, ship_map.map_name, ship_map.map_path, ship_map.map_file, ship_map.traits, ZTRAITS_MAIN_SHIP, override_map_path = ship_base_path)
 
 	// loads the UPP ship if the game mode is faction clash (Generally run by the Prepare event under prep event verb)
@@ -239,13 +262,13 @@ SUBSYSTEM_DEF(mapping)
 		Loadship(FailedZs, "ssv_rostock", "templates/", list("ssv_rostock.dmm") , list(),ZTRAITS_MAIN_SHIP , override_map_path = "maps/")
 
 	if(LAZYLEN(FailedZs)) //but seriously, unless the server's filesystem is messed up this will never happen
-		var/msg = "RED ALERT! The following map files failed to load: [FailedZs[1]]"
+		msg = "RED ALERT! The following map files failed to load: [FailedZs[1]]"
 		if(length(FailedZs) > 1)
 			for(var/I in 2 to length(FailedZs))
 				msg += ", [FailedZs[I]]"
 		msg += ". Yell at your server host!"
-		INIT_ANNOUNCE(msg)
-#undef INIT_ANNOUNCE
+		to_chat(world, SPAN_NOTICE(msg))
+		log_world(msg)
 
 /datum/controller/subsystem/mapping/proc/changemap(datum/map_config/VM, maptype = GROUND_MAP)
 	LAZYINITLIST(next_map_configs)

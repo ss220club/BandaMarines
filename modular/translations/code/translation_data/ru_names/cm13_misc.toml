@@ -441,6 +441,15 @@ instrumental = "пластиковой пепельницей"
 prepositional = "пластиковой пепельнице"
 gender = "female"
 
+["bronze ashtray"]
+nominative = "бронзовая пепельница"
+genitive = "бронзовой пепельницы"
+dative = "бронзовой пепельнице"
+accusative = "бронзовую пепельницу"
+instrumental = "бронзовой пепельницей"
+prepositional = "бронзовой пепельнице"
+gender = "female"
+
 ["basketball"]
 nominative = "баскетбольный мяч"
 genitive = "баскетбольного мяча"
@@ -495,14 +504,224 @@ instrumental = "авиаторами"
 prepositional = "авиаторах"
 gender = "male"
 
+["USCM MRE crate(x2)"] # Unique Vendor Name
+nominative = "ящик для коробок с едой (MRE x 2)"
+
 ["box of MREs"]
-nominative = "ящик с MRE"
-genitive = "ящика с MRE"
-dative = "ящику с MRE"
-accusative = "ящик с MRE"
-instrumental = "ящиком с MRE"
-prepositional = "ящике с MRE"
+nominative = "коробка MRE"
+genitive = "коробки MRE"
+dative = "коробке MRE"
+accusative = "коробку MRE"
+instrumental = "коробкой MRE"
+prepositional = "коробке MRE"
 gender = "male"
+
+["box of chili"]
+nominative = "коробка перца чили"
+genitive = "коробки перца чили"
+dative = "коробке перца чили"
+accusative = "коробку перца чили"
+instrumental = "коробкой перца чили"
+prepositional = "коробке перца чили"
+gender = "female"
+
+["box of cherries"]
+nominative = "коробка вишни"
+genitive = "коробки вишни"
+dative = "коробке вишни"
+accusative = "коробку вишни"
+instrumental = "коробкой вишни"
+prepositional = "коробке вишни"
+gender = "female"
+
+["box of fish"]
+nominative = "коробка рыбы"
+genitive = "коробки рыбы"
+dative = "коробке рыбы"
+accusative = "коробку рыбы"
+instrumental = "коробкой рыбы"
+prepositional = "коробке рыбы"
+gender = "female"
+
+["box of whitebeet"]
+nominative = "коробка сахарной свеклы"
+genitive = "коробки сахарной свеклы"
+dative = "коробке сахарной свеклы"
+accusative = "коробку сахарной свеклы"
+instrumental = "коробкой сахарной свеклы"
+prepositional = "коробке сахарной свеклы"
+gender = "female"
+
+["box of bananas"]
+nominative = "коробка бананов"
+genitive = "коробки бананов"
+dative = "коробке бананов"
+accusative = "коробку бананов"
+instrumental = "коробкой бананов"
+prepositional = "коробке бананов"
+gender = "female"
+
+["box of milk"]
+nominative = "коробка молока"
+genitive = "коробки молока"
+dative = "коробке молока"
+accusative = "коробку молока"
+instrumental = "коробкой молока"
+prepositional = "коробке молока"
+gender = "female"
+
+["box of soymilk"]
+nominative = "коробка соевого молока"
+genitive = "коробки соевого молока"
+dative = "коробке соевого молока"
+accusative = "коробку соевого молока"
+instrumental = "коробкой соевого молока"
+prepositional = "коробке соевого молока"
+gender = "female"
+
+["box of apples"]
+nominative = "коробка яблок"
+genitive = "коробки яблок"
+dative = "коробке яблок"
+accusative = "коробку яблок"
+instrumental = "коробкой яблок"
+prepositional = "коробке яблок"
+gender = "female"
+
+["box of cabbages"]
+nominative = "коробка капусты"
+genitive = "коробки капусты"
+dative = "коробке капусты"
+accusative = "коробку капусты"
+instrumental = "коробкой капусты"
+prepositional = "коробке капусты"
+gender = "female"
+
+["box of potatoes"]
+nominative = "коробка картофеля"
+genitive = "коробки картофеля"
+dative = "коробке картофеля"
+accusative = "коробку картофеля"
+instrumental = "коробкой картофеля"
+prepositional = "коробке картофеля"
+gender = "female"
+
+["box of carrots"]
+nominative = "коробка моркови"
+genitive = "коробки моркови"
+dative = "коробке моркови"
+accusative = "коробку моркови"
+instrumental = "коробкой моркови"
+prepositional = "коробке моркови"
+gender = "female"
+
+["box of limes"]
+nominative = "коробка лаймов"
+genitive = "коробки лаймов"
+dative = "коробке лаймов"
+accusative = "коробку лаймов"
+instrumental = "коробкой лаймов"
+prepositional = "коробке лаймов"
+gender = "female"
+
+["box of lemons"]
+nominative = "коробка лимонов"
+genitive = "коробки лимонов"
+dative = "коробке лимонов"
+accusative = "коробку лимонов"
+instrumental = "коробкой лимонов"
+prepositional = "коробке лимонов"
+gender = "female"
+
+["box of tomatoes"]
+nominative = "коробка томатов"
+genitive = "коробки томатов"
+dative = "коробке томатов"
+accusative = "коробку томатов"
+instrumental = "коробкой томатов"
+prepositional = "коробке томатов"
+gender = "female"
+
+["box of corn"]
+nominative = "коробка кукурузы"
+genitive = "коробки кукурузы"
+dative = "коробке кукурузы"
+accusative = "коробку кукурузы"
+instrumental = "коробкой кукурузы"
+prepositional = "коробке кукурузы"
+gender = "female"
+
+["box of meat"]
+nominative = "коробка мяса"
+genitive = "коробки мяса"
+dative = "коробке мяса"
+accusative = "коробку мяса"
+instrumental = "коробкой мяса"
+prepositional = "коробке мяса"
+gender = "female"
+
+["box of eggplants"]
+nominative = "коробка баклажанов"
+genitive = "коробки баклажанов"
+dative = "коробке баклажанов"
+accusative = "коробку баклажанов"
+instrumental = "коробкой баклажанов"
+prepositional = "коробке баклажанов"
+gender = "female"
+
+["box of enzyme"]
+nominative = "коробка универсальных ферментов"
+genitive = "коробки универсальных ферментов"
+dative = "коробке универсальных ферментов"
+accusative = "коробку универсальных ферментов"
+instrumental = "коробкой универсальных ферментов"
+prepositional = "коробке универсальных ферментов"
+gender = "female"
+
+["box of sugar"]
+nominative = "коробка сахара"
+genitive = "коробки сахара"
+dative = "коробке сахара"
+accusative = "коробку сахара"
+instrumental = "коробкой сахара"
+prepositional = "коробке сахара"
+gender = "female"
+
+["box of flour"]
+nominative = "коробка муки"
+genitive = "коробки муки"
+dative = "коробке муки"
+accusative = "коробку муки"
+instrumental = "коробкой муки"
+prepositional = "коробке муки"
+gender = "female"
+
+["box of oranges"]
+nominative = "коробка апельсинов"
+genitive = "коробки апельсинов"
+dative = "коробке апельсинов"
+accusative = "коробку апельсинов"
+instrumental = "коробкой апельсинов"
+prepositional = "коробке апельсинов"
+gender = "female"
+
+["box of chanterelle"]
+nominative = "коробка лисичек"
+genitive = "коробки лисичек"
+dative = "коробке лисичек"
+accusative = "коробку лисичек"
+instrumental = "коробкой лисичек"
+prepositional = "коробке лисичек"
+gender = "female"
+
+["egg carton"]
+nominative = "упаковка яиц"
+genitive = "упаковки яиц"
+dative = "упаковке яиц"
+accusative = "упаковку яиц"
+instrumental = "упаковкой яиц"
+prepositional = "упаковке яиц"
+gender = "female"
 
 ["box of flashlights"]
 nominative = "коробка с фонариками"
@@ -560,7 +779,7 @@ genitive = "очков ЗОД морпеха"
 dative = "очкам ЗОД морпеха"
 accusative = "очки ЗОД морпеха"
 instrumental = "очками ЗОД морпеха"
-prepositional = "очках ЗОДморпеха"
+prepositional = "очках ЗОД морпеха"
 gender = "plural"
 
 ["W-Y brand rechargeable mini-battery"] # Unique Vendor Name
@@ -668,6 +887,15 @@ instrumental = "шевроном Соединённых Америк"
 prepositional = "шевроне Соединённых Америк"
 gender = "male"
 
+["Field Medic patch"]
+nominative = "шеврон полевого медика"
+genitive = "шеврона полевого медика"
+dative = "шеврону полевого медика"
+accusative = "шеврон полевого медика"
+instrumental = "шевроном полевого медика"
+prepositional = "шевроне полевого медика"
+gender = "male"
+
 ["Attachable Dogtags"]
 nominative = "шнур для жетона"
 genitive = "шнура для жетона"
@@ -685,3 +913,400 @@ accusative = "краску для всего тела"
 instrumental = "краской для всего тела"
 prepositional = "краске для всего тела"
 gender = "female"
+
+# MARK: medals
+
+["bronze medal"]
+nominative = "бронзовая медаль"
+genitive = "бронзовой медали"
+dative = "бронзовой медали"
+accusative = "бронзовую медаль"
+instrumental = "бронзовой медалью"
+prepositional = "бронзовой медали"
+gender = "female"
+
+["distinguished conduct medal"]
+nominative = "медаль «За выдающиеся заслуги»"
+genitive = "медали «За выдающиеся заслуги»"
+dative = "медали «За выдающиеся заслуги»"
+accusative = "медаль «За выдающиеся заслуги»"
+instrumental = "медалью «За выдающиеся заслуги»"
+prepositional = "медали «За выдающиеся заслуги»"
+gender = "female"
+
+["bronze heart medal"]
+nominative = "медаль «Бронзовое сердце»"
+genitive = "медали «Бронзовое сердце»"
+dative = "медали «Бронзовое сердце»"
+accusative = "медаль «Бронзовое сердце»"
+instrumental = "медалью «Бронзовое сердце»"
+prepositional = "медали «Бронзовое сердце»"
+gender = "female"
+
+["nobel sciences award"]
+nominative = "Нобелевская научная премия"
+genitive = "Нобелевской научной премии"
+dative = "Нобелевской научной премии"
+accusative = "Нобелевскую научную премию"
+instrumental = "Нобелевской научной премией"
+prepositional = "Нобелевской научной премии"
+gender = "female"
+
+["silver medal"]
+nominative = "серебряная медаль"
+genitive = "серебряной медали"
+dative = "серебряной медали"
+accusative = "серебряную медаль"
+instrumental = "серебряной медалью"
+prepositional = "серебряной медали"
+gender = "female"
+
+["medal of valor"]
+nominative = "медаль «За воинскую доблесть»"
+genitive = "медали «За воинскую доблесть»"
+dative = "медали «За воинскую доблесть»"
+accusative = "медаль «За воинскую доблесть»"
+instrumental = "медалью «За воинскую доблесть»"
+prepositional = "медали «За воинскую доблесть»"
+gender = "female"
+
+["robust security award"]
+nominative = "награда «За выдающуюся защиту»"
+genitive = "награды «За выдающуюся защиту»"
+dative = "награде «За выдающуюся защиту»"
+accusative = "награду «За выдающуюся защиту»"
+instrumental = "наградой «За выдающуюся защиту»"
+prepositional = "награде «За выдающуюся защиту»"
+gender = "female"
+
+["gold medal"]
+nominative = "золотая медаль"
+genitive = "золотой медали"
+dative = "золотой медали"
+accusative = "золотую медаль"
+instrumental = "золотой медалью"
+prepositional = "золотой медали"
+gender = "female"
+
+["medal of captaincy"]
+nominative = "медаль капитана"
+genitive = "медали капитана"
+dative = "медали капитана"
+accusative = "медаль капитана"
+instrumental = "медалью капитана"
+prepositional = "медали капитана"
+gender = "female"
+
+["medal of exceptional heroism"]
+nominative = "медаль «За исключительный героизм»"
+genitive = "медали «За исключительный героизм»"
+dative = "медали «За исключительный героизм»"
+accusative = "медаль «За исключительный героизм»"
+instrumental = "медалью «За исключительный героизм»"
+prepositional = "медали «За исключительный героизм»"
+gender = "female"
+
+["platinum medal"]
+nominative = "платиновая медаль"
+genitive = "платиновой медали"
+dative = "платиновой медали"
+accusative = "платиновую медаль"
+instrumental = "платиновой медалью"
+prepositional = "платиновой медали"
+gender = "female"
+
+["bronze service medal"]
+nominative = "бронзовая медаль «За отличие в службе»"
+genitive = "бронзовой медали «За отличие в службе»"
+dative = "бронзовой медали «За отличие в службе»"
+accusative = "бронзовую медаль «За отличие в службе»"
+instrumental = "бронзовой медалью «За отличие в службе»"
+prepositional = "бронзовой медали «За отличие в службе»"
+gender = "female"
+
+["silver service medal"]
+nominative = "серебряная медаль «За отличие в службе»"
+genitive = "серебряной медали «За отличие в службе»"
+dative = "серебряной медали «За отличие в службе»"
+accusative = "серебряную медаль «За отличие в службе»"
+instrumental = "серебряной медалью «За отличие в службе»"
+prepositional = "серебряной медали «За отличие в службе»"
+gender = "female"
+
+["gold service medal"]
+nominative = "золотая медаль «За отличие в службе»"
+genitive = "золотой медали «За отличие в службе»"
+dative = "золотой медали «За отличие в службе»"
+accusative = "золотую медаль «За отличие в службе»"
+instrumental = "золотой медалью «За отличие в службе»"
+prepositional = "золотой медали «За отличие в службе»"
+gender = "female"
+
+["platinum service medal"]
+nominative = "платиновая медаль «За отличие в службе»"
+genitive = "платиновой медали «За отличие в службе»"
+dative = "платиновой медали «За отличие в службе»"
+accusative = "платиновую медаль «За отличие в службе»"
+instrumental = "платиновой медалью «За отличие в службе»"
+prepositional = "платиновой медали «За отличие в службе»"
+gender = "female"
+
+["banana peel"]
+nominative = "банановая кожура"
+genitive = "банановой кожуры"
+dative = "банановой кожуре"
+accusative = "банановую кожуру"
+instrumental = "банановой кожурой"
+prepositional = "банановой кожуре"
+gender = "female"
+
+["crumbled paper"]
+nominative = "смятая бумага"
+genitive = "смятый бумаги"
+dative = "смятый бумаге"
+accusative = "смятый бумагу"
+instrumental = "смятый бумагой"
+prepositional = "смятый бумаге"
+gender = "female"
+
+["crumbled FSR ration"]
+nominative = "смятый рацион FSR"
+genitive = "смятый рациона FSR"
+dative = "смятый рациону FSR"
+accusative = "смятый рацион FSR"
+instrumental = "смятый рационом FSR"
+prepositional = "смятый рационе FSR"
+gender = "male"
+
+["crumbled W-Y ration"]
+nominative = "смятый рацион ВейЮ"
+genitive = "смятый рациона ВейЮ"
+dative = "смятый рациону ВейЮ"
+accusative = "смятый рацион ВейЮ"
+instrumental = "смятый рационом ВейЮ"
+prepositional = "смятый рационе ВейЮ"
+gender = "male"
+
+["crumbled PMC CFR"]
+nominative = "смятый рацион ЧВК CFR"
+genitive = "смятый рациона ЧВК CFR"
+dative = "смятый рациону ЧВК CFR"
+accusative = "смятый рацион ЧВК CFR"
+instrumental = "смятый рационом ЧВК CFR"
+prepositional = "смятый рационе ЧВК CFR"
+gender = "male"
+
+["crumbled TWE ORP"]
+nominative = "смятый рацион TWE ORP"
+genitive = "смятый рациона TWE ORP"
+dative = "смятый рациону TWE ORP"
+accusative = "смятый рацион TWE ORP"
+instrumental = "смятый рационом TWE ORP"
+prepositional = "смятый рационе TWE ORP"
+gender = "male"
+
+["crumbled UPP IRP"]
+nominative = "смятый ИРП UPP"
+genitive = "смятый ИРП UPP"
+dative = "смятый ИРП UPP"
+accusative = "смятый ИРП UPP"
+instrumental = "смятый ИРП UPP"
+prepositional = "смятый ИРП UPP"
+gender = "male"
+
+["crumbled USCM MRE"]
+nominative = "смятый ИРП ККМП"
+genitive = "смятый ИРП ККМП"
+dative = "смятый ИРП ККМП"
+accusative = "смятый ИРП ККМП"
+instrumental = "смятый ИРП ККМП"
+prepositional = "смятый ИРП ККМП"
+gender = "male"
+
+["bucket"]
+nominative = "ведро"
+genitive = "ведра"
+dative = "ведру"
+accusative = "ведро"
+instrumental = "ведром"
+prepositional = "ведре"
+gender = "neuter"
+
+["mop"]
+accusative = "швабру"
+dative = "швабре"
+genitive = "швабры"
+instrumental = "шваброй"
+nominative = "швабра"
+prepositional = "швабре"
+
+["wet floor sign"]
+nominative = "знак «Скользкий пол»"
+genitive = "знака «Скользкий пол»"
+dative = "знаку «Скользкий пол»"
+accusative = "знак «Скользкий пол»"
+instrumental = "знаком «Скользкий пол»"
+prepositional = "знаке «Скользкий пол»"
+gender = "male"
+
+["trash bag"]
+nominative = "мешок для мусора"
+genitive = "мешка для мусора"
+dative = "мешку для мусора"
+accusative = "мешок для мусора"
+instrumental = "мешком для мусора"
+prepositional = "мешке для мусора"
+gender = "male"
+
+["air tank"]
+nominative = "воздушный баллон"
+genitive = "воздушного баллона"
+dative = "воздушному баллону"
+accusative = "воздушный баллон"
+instrumental = "воздушным баллоном"
+prepositional = "воздушном баллоне"
+gender = "male"
+
+["space cleaner"]
+nominative = "космочист"
+genitive = "космочиста"
+dative = "космочисту"
+accusative = "космочиста"
+instrumental = "космочистом"
+prepositional = "космочисте"
+gender = "male"
+
+["Space cleaner"]
+nominative = "космочист"
+genitive = "космочиста"
+dative = "космочисту"
+accusative = "космочиста"
+instrumental = "космочистом"
+prepositional = "космочисте"
+gender = "male"
+
+["damp rag"]
+nominative = "влажная тряпка"
+genitive = "влажной тряпки"
+dative = "влажной тряпке"
+accusative = "влажную тряпку"
+instrumental = "влажной тряпкой"
+prepositional = "влажной тряпке"
+gender = "female"
+
+["cleaner grenade"]
+nominative = "чистящая граната"
+genitive = "чистящей гранаты"
+dative = "чистящей гранате"
+accusative = "чистящую гранату"
+instrumental = "чистящей гранатой"
+prepositional = "чистящей гранате"
+gender = "female"
+
+["mop bucket"]
+nominative = "ведро для швабры"
+genitive = "ведра для швабры"
+dative = "ведру для швабры"
+accusative = "ведро для швабры"
+instrumental = "ведром для швабры"
+prepositional = "ведре для швабры"
+gender = "neuter"
+
+["box of crayons"]
+nominative = "коробка цветных карандашей"
+genitive = "коробки цветных карандашей"
+dative = "коробке цветных карандашей"
+accusative = "коробку цветных карандашей"
+instrumental = "коробкой цветных карандашей"
+prepositional = "коробке цветных карандашей"
+gender = "female"
+
+["box"]
+nominative = "коробка"
+genitive = "коробки"
+dative = "коробке"
+accusative = "коробку"
+instrumental = "коробкой"
+prepositional = "коробке"
+gender = "female"
+
+["rolled-up poster"]
+nominative = "свёрнутый плакат"
+genitive = "свёрнутого плаката"
+dative = "свёрнутому плакату"
+accusative = "свёрнутый плакат"
+instrumental = "свёрнутым плакатом"
+prepositional = "свёрнутом плакате"
+gender = "male"
+
+["gift"]
+nominative = "подарок"
+genitive = "подарка"
+dative = "подарку"
+accusative = "подарок"
+instrumental = "подарком"
+prepositional = "подарке"
+gender = "male"
+
+["wrapping paper"]
+nominative = "обёрточная бумага"
+genitive = "обёрточной бумаги"
+dative = "обёрточной бумаге"
+accusative = "обёрточную бумагу"
+instrumental = "обёрточной бумагой"
+prepositional = "обёрточной бумаге"
+gender = "female"
+
+["APPROVED rubber stamp"]
+nominative = "печать «ОДОБРЕНО»"
+genitive = "печати «ОДОБРЕНО»"
+dative = "печати «ОДОБРЕНО»"
+accusative = "печать «ОДОБРЕНО»"
+instrumental = "печатью «ОДОБРЕНО»"
+prepositional = "печати «ОДОБРЕНО»"
+gender = "female"
+
+["DENIED rubber stamp"]
+nominative = "печать «ОТКАЗАНО»"
+genitive = "печати «ОТКАЗАНО»"
+dative = "печати «ОТКАЗАНО»"
+accusative = "печать «ОТКАЗАНО»"
+instrumental = "печатью «ОТКАЗАНО»"
+prepositional = "печати «ОТКАЗАНО»"
+gender = "female"
+
+["quartermaster's rubber stamp"]
+nominative = "печать квартирмейстера"
+genitive = "печати квартирмейстера"
+dative = "печати квартирмейстера"
+accusative = "печать квартирмейстера"
+instrumental = "печатью квартирмейстера"
+prepositional = "печати квартирмейстера"
+gender = "female"
+
+["screwdriver"]
+nominative = "отвёртка"
+genitive = "отвёртки"
+dative = "отвёртке"
+accusative = "отвёртку"
+instrumental = "отвёрткой"
+prepositional = "отвёртке"
+gender = "female"
+
+["box of paper cups"]
+nominative = "коробка бумажных стаканчиков"
+genitive = "коробки бумажных стаканчиков"
+dative = "коробке бумажных стаканчиков"
+accusative = "коробку бумажных стаканчиков"
+instrumental = "коробкой бумажных стаканчиков"
+prepositional = "коробке бумажных стаканчиков"
+gender = "female"
+
+["paper cup"]
+nominative = "бумажный стаканчик"
+genitive = "бумажного стаканчика"
+dative = "бумажному стаканчику"
+accusative = "бумажный стаканчик"
+instrumental = "бумажным стаканчиком"
+prepositional = "бумажном стаканчике"
+gender = "male"

@@ -159,7 +159,7 @@ SUBSYSTEM_DEF(weather)
 	weather_event_instance = new weather_event_type()
 
 	if(!weather_event_instance)
-		message_admins(SPAN_BLUE("Bad weather event of type [weather_event_type]."))
+		message_admins(SPAN_BLUE("Bad weather event of type $1.", list(weather_event_type)))
 		return
 
 	weather_event_instance.start_weather_event()
@@ -172,9 +172,9 @@ SUBSYSTEM_DEF(weather)
 	current_event_start_time = world.time
 
 	if (weather_event_instance.display_name)
-		message_admins(SPAN_BLUE("Weather Event of type [weather_event_instance.display_name] starting with duration of [DisplayTimeText(weather_event_instance.length)]."))
+		message_admins(SPAN_BLUE("Weather Event of type $1 starting with duration of $2.", list(weather_event_instance.display_name, DisplayTimeText(weather_event_instance.length)))) // SS220 EDIT ADDICTION
 	else
-		message_admins(SPAN_BLUE("Weather Event of unknown type [weather_event_type] starting with duration of [DisplayTimeText(weather_event_instance.length)]."))
+		message_admins(SPAN_BLUE("Weather Event of unknown type $1 starting with duration of $2.", list(weather_event_type, DisplayTimeText(weather_event_instance.length)))) // SS220 EDIT ADDICTION
 
 	curr_master_turf_overlay.icon_state = weather_event_instance.turf_overlay_icon_state
 	curr_master_turf_overlay.alpha = weather_event_instance.turf_overlay_alpha
