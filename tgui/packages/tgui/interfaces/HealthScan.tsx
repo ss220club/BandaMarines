@@ -149,25 +149,17 @@ const Patient = (props) => {
     holocard,
   } = data;
 
-  let holocard_color: string | undefined;
-  switch (holocard) {
-    case 'Необходима срочная помощь':
-      holocard_color = 'red';
-      break;
-    case 'Необходима операция':
-      holocard_color = 'orange';
-      break;
-    case 'Инфицирован паразитом XX-121':
-      holocard_color = 'purple';
-      break;
-    case 'Скончался':
-      holocard_color = 'black';
-      break;
-  }
-
+  const holocardMessages = {
+    red: 'Необходима срочная помощь',
+    orange: 'Необходима операция',
+    purple: 'Инфицирован паразитом XX-121',
+    black: 'Скончался',
+    none: 'Нет данных',
+  };
   const ghostscan = detail_level >= 2;
   const Synthetic = species === 'Synthetic';
 
+  let holocard_message = holocardMessages[holocard || 'none'];
   return (
     <Section>
       {hugged && ghostscan ? (
@@ -175,7 +167,7 @@ const Patient = (props) => {
           Patient has been implanted with an alien embryo!
         </NoticeBox>
       ) : null}
-      {dead ? <NoticeBox danger>Пациент скончался!</NoticeBox> : null}
+      {dead ? <NoticeBox danger>Пациент при смерти!</NoticeBox> : null}
       {ssd ? (
         <NoticeBox warning color="grey">
           {ssd}
@@ -237,7 +229,7 @@ const Patient = (props) => {
               <Stack.Item>Медголокарта:</Stack.Item>
               {holocard ? (
                 <Stack.Item>
-                  <ColorBox color={holocard_color} />
+                  <ColorBox color={holocard} />
                 </Stack.Item>
               ) : (
                 <Stack.Item>
@@ -250,7 +242,7 @@ const Patient = (props) => {
                   onClick={() => act('change_holo_card')}
                   backgroundColor="rgba(255, 255, 255, .05)"
                 >
-                  Change
+                  Изменить
                 </Box>
               </Stack.Item>
               <Stack.Item>
@@ -352,8 +344,8 @@ const Patient = (props) => {
             )}
           </LabeledList.Item>
           <LabeledList.Item label="Медголокарта">
-            <NoticeBox color={holocard_color} inline>
-              {holocard ?? 'Нет данных'}
+            <NoticeBox color={holocard} inline>
+              {holocard_message}
             </NoticeBox>
 
             <Button

@@ -12,6 +12,7 @@
   }
 
   .buttonEffect {
+    z-index: 10;
     overflow: hidden;
     white-space: nowrap;
     width: 0;
@@ -28,6 +29,10 @@
     animation: section-loading 1s forwards;
     box-shadow: 0 0 15px;
     background-color: hsla(120, 100%, 3%, 0.7);
+  }
+
+  .sectionLoadStack {
+    z-index: 5;
   }
 
   .dividerEffect {
@@ -188,6 +193,10 @@
   .messageHolder {
     pointer-events: none;
   }
+}
+
+.crt {
+  z-index: 0;
 }
 
 .noAnimation {

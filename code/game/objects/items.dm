@@ -206,13 +206,13 @@
 	return ..()
 
 /obj/item/ex_act(severity, explosion_direction)
-	var/splode = pick("is destroyed by the blast!", "is obliterated by the blast!", "shatters as the explosion engulfs it!", "disintegrates in the blast!", "perishes in the blast!", "is mangled into uselessness by the blast!")
+	var/msg = pick("is destroyed by the blast!", "is obliterated by the blast!", "shatters as the explosion engulfs it!", "disintegrates in the blast!", "perishes in the blast!", "is mangled into uselessness by the blast!")
 	explosion_throw(severity, explosion_direction)
 	switch(severity)
 		if(0 to EXPLOSION_THRESHOLD_LOW)
 			if(prob(5))
 				if(!explo_proof)
-					visible_message(SPAN_DANGER(SPAN_UNDERLINE("\The [src] [splode]")))
+					visible_message(SPAN_DANGER(SPAN_UNDERLINE("\The [src] [msg]")))
 					deconstruct(FALSE)
 		if(EXPLOSION_THRESHOLD_LOW to EXPLOSION_THRESHOLD_MEDIUM)
 			if(prob(50))
@@ -220,7 +220,7 @@
 					deconstruct(FALSE)
 		if(EXPLOSION_THRESHOLD_MEDIUM to INFINITY)
 			if(!explo_proof)
-				visible_message(SPAN_DANGER(SPAN_UNDERLINE("\The [src] [splode]")))
+				visible_message(SPAN_DANGER(SPAN_UNDERLINE("\The [src] [msg]")))
 				deconstruct(FALSE)
 
 /obj/item/mob_launch_collision(mob/living/L)
@@ -303,18 +303,18 @@
 	var/size
 	switch(w_class)
 		if(SIZE_TINY)
-			size = "крохотного размера"
+			size = "крохотного размера" // SS220 EDIT ADDICTION
 		if(SIZE_SMALL)
-			size = "маленького размера"
+			size = "маленького размера" // SS220 EDIT ADDICTION
 		if(SIZE_MEDIUM)
-			size = "обычного размера"
+			size = "обычного размера" // SS220 EDIT ADDICTION
 		if(SIZE_LARGE)
-			size = "громоздкого размера"
+			size = "громоздкого размера" // SS220 EDIT ADDICTION
 		if(SIZE_HUGE)
-			size = "огромного размера"
+			size = "огромного размера" // SS220 EDIT ADDICTION
 		if(SIZE_MASSIVE)
-			size = "гигантского размера"
-	. += "Это [blood_color ? blood_color != COLOR_OIL ? "окровавленн[genderize_ru(gender, "ый", "ая", "ое", "ые")] " : "замасленн[genderize_ru(gender, "ый", "ая", "ое", "ые")] " : ""][icon2html(src, user)][declent_ru(NOMINATIVE)]. Это предмет [size]."
+			size = "гигантского размера" // SS220 EDIT ADDICTION
+	. += "Это [blood_color ? blood_color == COLOR_OIL ? "замасленн[genderize_ru(gender, "ый", "ая", "ое", "ые")] " : "окровавленн[genderize_ru(gender, "ый", "ая", "ое", "ые")] " : ""][icon2html(src, user)][declent_ru(NOMINATIVE)]. Это предмет [size]." // SS220 EDIT ADDICTION
 	if(desc)
 		. += desc
 	if(desc_lore)
@@ -338,6 +338,8 @@
 	if(isstorage(loc))
 		var/obj/item/storage/S = loc
 		S.remove_from_storage(src, user.loc, user)
+	else if(isturf(loc) && HAS_TRAIT(user, TRAIT_HAULED))
+		return
 
 	throwing = 0
 
@@ -410,15 +412,20 @@
 
 	appearance_flags &= ~NO_CLIENT_COLOR //So saturation/desaturation etc. effects affect it.
 
-// called just as an item is picked up (loc is not yet changed)
+/// Called just as an item is picked up (loc is not yet changed) and will return TRUE if the pickup wasn't canceled.
 /obj/item/proc/pickup(mob/user, silent)
 	SHOULD_CALL_PARENT(TRUE)
-	SEND_SIGNAL(src, COMSIG_ITEM_PICKUP, user)
+	if((SEND_SIGNAL(src, COMSIG_ITEM_PICKUP, user)) & COMSIG_ITEM_PICKUP_CANCELLED)
+		if(!silent)
+			to_chat(user, SPAN_WARNING("Can't pick [src] up!"))
+			balloon_alert(user, "can't pick up")
+		return FALSE
 	SEND_SIGNAL(user, COMSIG_MOB_PICKUP_ITEM, src)
 	setDir(SOUTH)//Always rotate it south. This resets it to default position, so you wouldn't be putting things on backwards
 	if(pickup_sound && !silent && src.loc?.z)
 		playsound(src, pickup_sound, pickupvol, pickup_vary)
 	do_pickup_animation(user)
+	return TRUE
 
 ///Helper function for updating last_equipped_slot when item is drawn from storage
 /obj/item/proc/set_last_equipped_slot_of_storage(obj/item/storage/storage_item)

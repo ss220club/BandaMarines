@@ -199,17 +199,7 @@
 
 			pretty_amount = round(reagent_amount, 0.05)
 
-			chemicals.Add(list(list(
-				"title" = capitalize(declent_ru_initial(temp.name, NOMINATIVE, temp.name)), // SS220 - EDIT ADDITTION
-				"title_genitive" = capitalize(declent_ru_initial(temp.name, GENITIVE, temp.name)), // SS220 - EDIT ADDITTION
-				"id" = temp.id,
-				"commands" = list("chemical" = temp.id),
-				"occ_amount" = reagent_amount,
-				"pretty_amount" = pretty_amount,
-				"injectable" = injectable,
-				"overdosing" = overdosing,
-				"od_warning" = caution
-			)))
+			chemicals.Add(list(list("title" = temp.name, "id" = temp.id, "commands" = list("chemical" = temp.id), "occ_amount" = reagent_amount, "pretty_amount" = pretty_amount, "injectable" = injectable, "overdosing" = overdosing, "od_warning" = caution)))
 	data["chemicals"] = chemicals
 	return data
 
@@ -439,3 +429,7 @@
 
 /obj/structure/machinery/medical_pod/sleeper/yautja
 	icon = 'icons/obj/structures/machinery/yautja_machines.dmi'
+	available_chemicals = list("thwei", "inaprovaline", "oxycodone", "anti_toxin", "dexalinp", "tricordrazine", "alkysine", "imidazoline")
+	emergency_chems = list("thwei", "inaprovaline", "oxycodone", "anti_toxin", "dexalinp", "tricordrazine", "bicaridine", "kelotane", "meralyne", "dermaline", "alkysine", "imidazoline")
+	reagent_removed_per_second = AMOUNT_PER_TIME(8, 1 SECONDS)
+	upgraded = TRUE

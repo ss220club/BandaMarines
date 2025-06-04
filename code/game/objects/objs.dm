@@ -104,15 +104,10 @@
 
 /obj/item/proc/get_examine_line(mob/user)
 	if(blood_color)
-		. = SPAN_WARNING("[icon2html(src, user)] <font color='[blood_color]'>окровавленн[genderize_ru(gender, "ый", "ая", "ое", "ые")]</font> [declent_ru(ACCUSATIVE)]")
+		. = SPAN_WARNING("[icon2html(src, user)] <font color='[blood_color == COLOR_OIL ? COLOR_OIL_TEXT : blood_color]'>[blood_color == COLOR_OIL ? "замасленн[genderize_ru(gender, "ый", "ая", "ое", "ые")] " : "окровавленн[genderize_ru(gender, "ый", "ая", "ое", "ые")] "] [declent_ru(ACCUSATIVE)]</font>") // SS220 - EDIT ADDITTION
 	// SS220 - START ADDITTION
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.w_uniform)
-			var/obj/item/clothing/C = H.w_uniform
-			for(var/obj/item/clothing/accessory/A in C)
-				if(A.worn_accessory_slot == ACCESSORY_SLOT_RANK)
-					. = "[icon2html(src, user)] [declent_ru(INSTRUMENTAL)]"
+	else if(istype(src, /obj/item/clothing/accessory/medal) || istype(src, /obj/item/clothing/accessory/ranks))
+		. = "[icon2html(src, user)] [declent_ru(INSTRUMENTAL)]"
 	// SS220 - END ADDITTION
 	else
 		. = "[icon2html(src, user)] [declent_ru(ACCUSATIVE)]"
@@ -270,16 +265,17 @@
 /obj/proc/manual_unbuckle(mob/user as mob)
 	if(buckled_mob)
 		if(buckled_mob.buckled == src)
-			if(buckled_mob != user)
+			var/ru_name = declent_ru_initial(src::name, GENITIVE, src::name) // SS220 EDIT ADDICTION
+			if(buckled_mob == user)
 				buckled_mob.visible_message(
-					SPAN_NOTICE("[buckled_mob.name] was unbuckled by [user.name]!"),
-					SPAN_NOTICE("You were unbuckled from [src] by [user.name]."),
-					SPAN_NOTICE("You hear metal clanking."))
+					SPAN_NOTICE("$1 unbuckled out!", list(buckled_mob.name, buckled_mob.p_them())), // SS220 EDIT ADDICTION
+					SPAN_NOTICE("You unbuckle yourself from $1.", list(ru_name)), // SS220 EDIT ADDICTION
+					SPAN_NOTICE("You hear metal clanking"))
 			else
 				buckled_mob.visible_message(
-					SPAN_NOTICE("[buckled_mob.name] unbuckled [buckled_mob.p_them()]self!"),
-					SPAN_NOTICE("You unbuckle yourself from [src]."),
-					SPAN_NOTICE("You hear metal clanking"))
+					SPAN_NOTICE("$1 was unbuckled from $2 by $3!", list(buckled_mob.name, ru_name, user)), // SS220 EDIT ADDICTION
+					SPAN_NOTICE("You were unbuckled from $1 by $2.", list(ru_name, user)), // SS220 EDIT ADDICTION
+					SPAN_NOTICE("You hear metal clanking."))
 			unbuckle(buckled_mob)
 			add_fingerprint(user)
 			return 1
@@ -346,15 +342,16 @@
 		return TRUE
 
 /obj/proc/send_buckling_message(mob/M, mob/user)
+	var/ru_name = declent_ru_initial(src::name, DATIVE, src::name) // SS220 EDIT ADDICTION
 	if (M == user)
 		M.visible_message(
-			SPAN_NOTICE("[M] buckles in!"),
-			SPAN_NOTICE("You buckle yourself to [src]."),
+			SPAN_NOTICE("$1 buckles in!", list(M)), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("You buckle yourself to $1.", list(ru_name)), // SS220 EDIT ADDICTION
 			SPAN_NOTICE("You hear metal clanking."))
 	else
 		M.visible_message(
-			SPAN_NOTICE("[M] is buckled in to [src] by [user]!"),
-			SPAN_NOTICE("You are buckled in to [src] by [user]."),
+			SPAN_NOTICE("$1 is buckled in to $2 by $3!", list(M, ru_name, user)), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("You are buckled in to $1 by $2.", list(ru_name, user)),  // SS220 EDIT ADDICTION
 			SPAN_NOTICE("You hear metal clanking"))
 
 /obj/Move(NewLoc, direct)

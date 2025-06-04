@@ -72,7 +72,6 @@ type OccupantData = {
 
 type ChemicalData = {
   title: string;
-  title_genitive: string;
   id: string;
   commands: { chemical: string };
   occ_amount: number;
@@ -308,13 +307,7 @@ const SleeperChemicals = (props) => {
                       occupant.stat === 2
                     }
                     icon="syringe"
-                    tooltip={
-                      'Ввести ' +
-                      a +
-                      ' ед. ' +
-                      chem.title_genitive +
-                      ' пациенту'
-                    }
+                    tooltip={'Ввести ' + a + ' ед. ' + chem.title + ' пациенту'}
                     mb="0"
                     height="19px"
                     onClick={() =>

@@ -150,14 +150,15 @@
 
 #define COLOR_ORANGE "#FF9900"
 #define COLOR_OIL "#030303"
+#define COLOR_OIL_TEXT "#F9CA24" // SS220 EDIT ADDICTION
 
 //Grass Colors coming from _math.dm
 
 #define COLOR_G_ICE "#C7EDDE" //faded cyan
 #define COLOR_G_DES "#FF7C1C" //bright orange
 #define COLOR_G_JUNG "#64AA6E" //faded green
+#define COLOR_G_SORO "#99d178" //light green
 
 /// Gun muzzle colors
 #define COLOR_LASER_RED "#FF8D8D"
 #define COLOR_MUZZLE_BLUE "#2CB2E8"
-
