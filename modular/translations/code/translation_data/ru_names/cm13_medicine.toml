@@ -1,4 +1,1456 @@
-# Colonial Marines medicine stuff
+# Colonial Marines medicine and some chem stuff
+
+["Autodoc"] # Unique TGUI Name
+nominative = "АвтоДок"
+
+# MARK: chemicals
+
+["Tricordrazine"]
+nominative = "трикордразин"
+genitive = "трикордразина"
+dative = "трикордразину"
+accusative = "трикордразин"
+instrumental = "трикордразином"
+prepositional = "трикордразине"
+gender = "male"
+
+["Epinephrine"]
+nominative = "эпинефрин"
+genitive = "эпинефрина"
+dative = "эпинефрину"
+accusative = "эпинефрин"
+instrumental = "эпинефрином"
+prepositional = "эпинефрине"
+gender = "male"
+
+["Alkysine"]
+nominative = "алкизин"
+genitive = "алкизина"
+dative = "алкизину"
+accusative = "алкизин"
+instrumental = "алкизином"
+prepositional = "алкизине"
+gender = "male"
+
+["Dexalin"]
+nominative = "дексалин"
+genitive = "дексалина"
+dative = "дексалину"
+accusative = "дексалин"
+instrumental = "дексалином"
+prepositional = "дексалине"
+gender = "male"
+
+["Dermaline"]
+nominative = "дирмалин"
+genitive = "дирмалина"
+dative = "дирмалину"
+accusative = "дирмалин"
+instrumental = "дирмалином"
+prepositional = "дирмалине"
+gender = "male"
+
+["Meralyne"]
+nominative = "мералин"
+genitive = "мералина"
+dative = "мералину"
+accusative = "Мералин"
+instrumental = "Мералином"
+prepositional = "Мералине"
+gender = "male"
+
+["Dexalin Plus"]
+nominative = "дексалин плюс"
+genitive = "дексалина плюса"
+dative = "дексалину плюсу"
+accusative = "дексалин плюс"
+instrumental = "дексалином плюсом"
+prepositional = "дексалине плюсе"
+gender = "male"
+
+["Bicaridine"]
+nominative = "бикаридин"
+genitive = "бикаридина"
+dative = "бикаридину"
+accusative = "бикаридин"
+instrumental = "бикаридином"
+prepositional = "бикаридине"
+gender = "male"
+
+["Ryetalyn"]
+nominative = "райталин"
+genitive = "райталина"
+dative = "райталину"
+accusative = "райталин"
+instrumental = "райталиным"
+prepositional = "райталине"
+gender = "male"
+
+["Cryoxadone"]
+nominative = "криоксадон"
+genitive = "криоксадона"
+dative = "криоксадону"
+accusative = "криоксадон"
+instrumental = "криоксадоном"
+prepositional = "криоксадоне"
+gender = "male"
+
+["Clonexadone"]
+nominative = "клонаксадон"
+genitive = "клонаксадона"
+dative = "клонаксадону"
+accusative = "клонаксадон"
+instrumental = "клонаксадоном"
+prepositional = "клонаксадоне"
+gender = "male"
+
+["Spaceacillin"]
+nominative = "спейсациллин"
+genitive = "спейсацилли́на"
+dative = "спейсациллину"
+accusative = "спейсациллин"
+instrumental = "спейсациллином"
+prepositional = "спейсациллине"
+gender = "male"
+
+["imidazoline"]
+nominative = "имидазолин"
+genitive = "имидазолина"
+dative = "имидазолину"
+accusative = "имидазолин"
+instrumental = "имидазолином"
+prepositional = "имидазолине"
+gender = "male"
+
+["Ethylredoxrazine"]
+nominative = "этилредоксразин"
+genitive = "этилредоксразина"
+dative = "этилредоксразину"
+accusative = "этилредоксразин"
+instrumental = "этилредоксразином"
+prepositional = "этилредоксразине"
+gender = "male"
+
+["ethanoloxidation"]
+nominative = "этанолоксидатин"
+genitive = "этанолоксидатина"
+dative = "этанолоксидатину"
+accusative = "этанолоксидатин"
+instrumental = "этанолоксидатином"
+prepositional = "этанолоксидатине"
+gender = "male"
+
+["Sterilizine"]
+nominative = "стерилизин"
+genitive = "стерилизина"
+dative = "стерилизину"
+accusative = "стерилизин"
+instrumental = "стерилизином"
+prepositional = "стерилизине"
+gender = "male"
+
+["Inaprovaline"]
+nominative = "инапровалин"
+genitive = "инапровалина"
+dative = "инапровалину"
+accusative = "инапровалин"
+instrumental = "инапровалином"
+prepositional = "инапровалине"
+gender = "male"
+
+["Dylovene"]
+nominative = "диловен"
+genitive = "диловена"
+dative = "диловену"
+accusative = "диловен"
+instrumental = "диловеном"
+prepositional = "диловене"
+gender = "male"
+
+["Tramadol"]
+nominative = "тримадол"
+genitive = "тримадола"
+dative = "тримадолу"
+accusative = "тримадол"
+instrumental = "тримадолом"
+prepositional = "тримадоле"
+gender = "male"
+
+["Paracetamol"]
+nominative = "парацетамол"
+genitive = "парацетамола"
+dative = "парацетамолу"
+accusative = "парацетамол"
+instrumental = "парацетамолом"
+prepositional = "парацетамоле"
+gender = "male"
+
+["Oxycodone"]
+nominative = "оксикодон"
+genitive = "оксикодона"
+dative = "оксикодону"
+accusative = "оксикодон"
+instrumental = "оксикодоном"
+prepositional = "оксикодоне"
+gender = "male"
+
+["Leporazine"]
+nominative = "лепоразин"
+genitive = "лепоразина"
+dative = "лепоразину"
+accusative = "лепоразин"
+instrumental = "лепоразином"
+prepositional = "лепоразине"
+gender = "male"
+
+["Arithrazine"]
+nominative = "аритразин"
+genitive = "аритразина"
+dative = "аритразину"
+accusative = "аритразин"
+instrumental = "аритразином"
+prepositional = "аритразине"
+gender = "male"
+
+["Kelotane"]
+nominative = "келотан"
+genitive = "келотана"
+dative = "келотану"
+accusative = "келотан"
+instrumental = "келотаном"
+prepositional = "келотане"
+gender = "male"
+
+["Peridaxon"]
+nominative = "перидаксон"
+genitive = "перидаксона"
+dative = "перидаксону"
+accusative = "перидаксон"
+instrumental = "перидаксоном"
+prepositional = "перидаксоне"
+gender = "male"
+
+["Methylphenidate"]
+nominative = "метилфенидат"
+genitive = "метилфенидата"
+dative = "метилфенидату"
+accusative = "метилфенидат"
+instrumental = "метилфенидатом"
+prepositional = "метилфенидате"
+gender = "male"
+
+["Citalopram"]
+nominative = "циталопрам"
+genitive = "циталопрама"
+dative = "циталопраму"
+accusative = "циталопрам"
+instrumental = "циталопрамом"
+prepositional = "циталопраме"
+gender = "male"
+
+["Paroxetine"]
+nominative = "пароксетин"
+genitive = "пароксетина"
+dative = "пароксетину"
+accusative = "пароксетин"
+instrumental = "пароксетином"
+prepositional = "пароксетине"
+gender = "male"
+
+["Anti-Zed"]
+genitive = "анти-зеда"
+dative = "анти-зеду"
+accusative = "анти-зед"
+instrumental = "анти-зедом"
+prepositional = "анти-зеде"
+gender = "male"
+
+["Ethanol"]
+nominative = "этанол"
+genitive = "этанола"
+dative = "этанолу"
+accusative = "этанол"
+instrumental = "этанолом"
+prepositional = "этаноле"
+gender = "male"
+
+["Nutriment"]
+nominative = "нутриент"
+genitive = "нутриента"
+dative = "нутриенту"
+accusative = "нутриент"
+instrumental = "нутриентом"
+prepositional = "нутриенте"
+gender = "male"
+
+["Lipozine"]
+nominative = "липозин"
+genitive = "липозина"
+dative = "липозину"
+accusative = "липозин"
+instrumental = "липозином"
+prepositional = "липозине"
+gender = "male"
+
+["Psilocybin"]
+nominative = "псилоцибин"
+genitive = "псилоцибина"
+dative = "псилоцибину"
+accusative = "псилоцибин"
+instrumental = "псилоцибином"
+prepositional = "псилоцибине"
+gender = "male"
+
+# MARK: stims
+
+["Speed Stimulant"]
+nominative = "стимулятор «Скорость»"
+genitive = "стимулятора «Скорость»"
+dative = "стимулятору «Скорость»"
+accusative = "стимулятор «Скорость»"
+instrumental = "стимулятором «Скорость»"
+prepositional = "стимуляторе «Скорость»"
+gender = "male"
+
+["Brain Stimulant"]
+nominative = "стимулятор «Нейро»"
+genitive = "стимулятора «Нейро»"
+dative = "стимулятору «Нейро»"
+accusative = "стимулятор «Нейро»"
+instrumental = "стимулятором «Нейро»"
+prepositional = "стимуляторе «Нейро»"
+gender = "male"
+
+["Redemption Stimulant"]
+nominative = "стимулятор «Спасатель»"
+genitive = "стимулятора «Спасатель»"
+dative = "стимулятору «Спасатель»"
+accusative = "стимулятор «Спасатель»"
+instrumental = "стимулятором «Спасатель»"
+prepositional = "стимуляторе «Спасатель»"
+gender = "male"
+
+# MARK: chem properties
+
+["hypoxemic"]
+nominative = "гипоксемия"
+genitive = "гипоксемии"
+dative = "гипоксемии"
+accusative = "гипоксемию"
+instrumental = "гипоксемией"
+prepositional = "гипоксемии"
+gender = "female"
+
+["toxic"]
+nominative = "токсичность"
+genitive = "токсичности"
+dative = "токсичности"
+accusative = "токсичность"
+instrumental = "токсичностью"
+prepositional = "токсичности"
+gender = "female"
+
+["corrosive"]
+nominative = "коррозионность"
+genitive = "коррозионности"
+dative = "коррозионности"
+accusative = "коррозионность"
+instrumental = "коррозионностью"
+prepositional = "коррозионности"
+gender = "female"
+
+["biocidic"]
+nominative = "биоцидия"
+genitive = "биоцидии"
+dative = "биоцидии"
+accusative = "биоцидию"
+instrumental = "биоцидией"
+prepositional = "биоцидии"
+gender = "female"
+
+["hemolytic"]
+nominative = "гемолиз"
+genitive = "гемолиза"
+dative = "гемолизу"
+accusative = "гемолиз"
+instrumental = "гемолизом"
+prepositional = "гемолизе"
+gender = "male"
+
+["hemorrhaging"]
+nominative = "кровоизлияние"
+genitive = "кровоизлияния"
+dative = "кровоизлиянию"
+accusative = "кровоизлияние"
+instrumental = "кровоизлиянием"
+prepositional = "кровоизлиянии"
+gender = "neuter"
+
+["carcinogenic"]
+nominative = "онкогенный"
+genitive = "онкогенного"
+dative = "онкогенному"
+accusative = "онкогенный"
+instrumental = "онкогенным"
+prepositional = "онкогенном"
+gender = "male"
+
+["hepatotoxic"]
+nominative = "гепатопатия"
+genitive = "гепатотоксии"
+dative = "гепатотоксии"
+accusative = "гепатотоксию"
+instrumental = "гепатотоксией"
+prepositional = "гепатотоксии"
+gender = "female"
+
+["intravenous"]
+nominative = "интравенозность"
+genitive = "интравенозности"
+dative = "интравенозности"
+accusative = "интравенозность"
+instrumental = "интравенозностью"
+prepositional = "интравенозности"
+gender = "female"
+
+["nephrotoxic"]
+nominative = "нефропатия"
+genitive = "нефропатии"
+dative = "нефропатии"
+accusative = "нефропатию"
+instrumental = "нефропатией"
+prepositional = "нефропатии"
+gender = "female"
+
+["pneumotoxic"]
+nominative = "пневмопатия"
+genitive = "пневмопатии"
+dative = "пневмопатии"
+accusative = "пневмопатию"
+instrumental = "пневмопатией"
+prepositional = "пневмопатии"
+gender = "female"
+
+["oculotoxic"]
+nominative = "окулопатия"
+genitive = "окулопатии"
+dative = "окулопатии"
+accusative = "окулопатию"
+instrumental = "окулопатией"
+prepositional = "окулопатии"
+gender = "female"
+
+["cardiotoxic"]
+nominative = "кардиопатия"
+genitive = "кардиопатии"
+dative = "кардиопатии"
+accusative = "кардиопатию"
+instrumental = "кардиопатией"
+prepositional = "кардиопатии"
+gender = "female"
+
+["neurotoxic"]
+nominative = "нейропатия"
+genitive = "нейропатии"
+dative = "нейропатии"
+accusative = "нейропатию"
+instrumental = "нейропатией"
+prepositional = "нейропатии"
+gender = "female"
+
+["hypermetabolic"]
+nominative = "гиперметаболизм"
+genitive = "гиперметаболизма"
+dative = "гиперметаболизму"
+accusative = "гиперметаболизм"
+instrumental = "гиперметаболизмом"
+prepositional = "гиперметаболизме"
+gender = "male"
+
+["igniting"]
+nominative = "воспламенение"
+genitive = "воспламенения"
+dative = "воспламенению"
+accusative = "воспламенение"
+instrumental = "воспламенением"
+prepositional = "воспламенении"
+gender = "neuter"
+
+["nutritious"]
+nominative = "насыщение"
+genitive = "насыщения"
+dative = "насыщению"
+accusative = "насыщение"
+instrumental = "насыщением"
+prepositional = "насыщении"
+gender = "neuter"
+
+["ketogenic"]
+nominative = "кетогения"
+genitive = "кетогении"
+dative = "кетогении"
+accusative = "кетогению"
+instrumental = "кетогенией"
+prepositional = "кетогении"
+gender = "female"
+
+["paining"]
+nominative = "окрашивание"
+genitive = "окрашивания"
+dative = "окрашиванию"
+accusative = "окрашивание"
+instrumental = "окрашиванием"
+prepositional = "окрашивании"
+gender = "neuter"
+
+["neuroinhibiting"]
+nominative = "нейроингибитор"
+genitive = "нейроингибитора"
+dative = "нейроингибитору"
+accusative = "нейроингибитор"
+instrumental = "нейроингибитором"
+prepositional = "нейроингибиторе"
+gender = "male"
+
+["alcoholic"]
+nominative = "опьянение"
+genitive = "опьянения"
+dative = "опьянению"
+accusative = "опьянение"
+instrumental = "опьянением"
+prepositional = "опьянении"
+gender = "neuter"
+
+["hallucinogenic"]
+nominative = "галлюцигения"
+genitive = "галлюцигении"
+dative = "галлюцигении"
+accusative = "галлюцигению"
+instrumental = "галлюцигенией"
+prepositional = "галлюцигении"
+gender = "female"
+
+["relaxing"]
+nominative = "расслабление"
+genitive = "расслабления"
+dative = "расслаблению"
+accusative = "расслабление"
+instrumental = "расслаблением"
+prepositional = "расслаблении"
+gender = "neuter"
+
+["hyperthermic"]
+nominative = "гипертермия"
+genitive = "гипертермии"
+dative = "гипертермии"
+accusative = "гипертермию"
+instrumental = "гипертермией"
+prepositional = "гипертермии"
+gender = "female"
+
+["hypothermic"]
+nominative = "гипотермия"
+genitive = "гипотермии"
+dative = "гипотермии"
+accusative = "гипотермию"
+instrumental = "гипотермией"
+prepositional = "гипотермии"
+gender = "female"
+
+["balding"]
+nominative = "облысение"
+genitive = "облысения"
+dative = "облысению"
+accusative = "облысение"
+instrumental = "облысением"
+prepositional = "облысении"
+gender = "neuter"
+
+["fluffing"]
+nominative = "гипертрихоз"
+genitive = "гипертрихоза"
+dative = "гипертрихозу"
+accusative = "гипертрихоз"
+instrumental = "гипертрихозом"
+prepositional = "гипертрихозе"
+gender = "male"
+
+["allergenic"]
+nominative = "аллергения"
+genitive = "аллергении"
+dative = "аллергении"
+accusative = "аллергению"
+instrumental = "аллергенией"
+prepositional = "аллергении"
+gender = "female"
+
+["cryometabolizing"]
+nominative = "криометаболизм"
+genitive = "криометаболизма"
+dative = "криометаболизму"
+accusative = "криометаболизм"
+instrumental = "криометаболизмом"
+prepositional = "криометаболизме"
+gender = "male"
+
+["euphoric"]
+nominative = "эйфория"
+genitive = "эйфории"
+dative = "эйфории"
+accusative = "эйфорию"
+instrumental = "эйфорией"
+prepositional = "эйфории"
+gender = "female"
+
+["emetic"]
+nominative = "тошнота"
+genitive = "тошноты"
+dative = "тошноте"
+accusative = "тошноту"
+instrumental = "тошнотой"
+prepositional = "тошноте"
+gender = "female"
+
+["psychostimulating"]
+nominative = "психостимуляция"
+genitive = "психостимуляции"
+dative = "психостимуляции"
+accusative = "психостимуляцию"
+instrumental = "психостимуляцией"
+prepositional = "психостимуляции"
+gender = "female"
+
+["anti-hallucinogenic"]
+nominative = "антигаллюцигения"
+genitive = "антигаллюцигении"
+dative = "антигаллюцигении"
+accusative = "антигаллюцигению"
+instrumental = "антигаллюцигенией"
+prepositional = "антигаллюцигении"
+gender = "female"
+
+["excreting"]
+nominative = "экскреторность"
+genitive = "экскреторности"
+dative = "экскреторности"
+accusative = "экскреторность"
+instrumental = "экскреторностью"
+prepositional = "экскреторности"
+gender = "female"
+
+["hypometabolic"]
+nominative = "гипометаболизм"
+genitive = "гипометаболизма"
+dative = "гипометаболизму"
+accusative = "гипометаболизм"
+instrumental = "гипометаболизмом"
+prepositional = "гипометаболизме"
+gender = "male"
+
+["sedative"]
+nominative = "седативность"
+genitive = "седативности"
+dative = "седативности"
+accusative = "седативность"
+instrumental = "седативностью"
+prepositional = "седативности"
+gender = "female"
+
+["transformative"]
+nominative = "преобразование"
+genitive = "преобразования"
+dative = "преобразованию"
+accusative = "преобразование"
+instrumental = "преобразованием"
+prepositional = "преобразовании"
+gender = "neuter"
+
+["anti-toxic"]
+nominative = "антитоксичность"
+genitive = "антитоксичности"
+dative = "антитоксичности"
+accusative = "антитоксичность"
+instrumental = "антитоксичностью"
+prepositional = "антитоксичности"
+gender = "female"
+
+["anti-corrosive"]
+nominative = "антикоррозионность"
+genitive = "антикоррозионности"
+dative = "антикоррозионности"
+accusative = "антикоррозионность"
+instrumental = "антикоррозионностью"
+prepositional = "антикоррозионности"
+gender = "female"
+
+["neogenetic"]
+nominative = "неогенетичность"
+genitive = "неогенетичности"
+dative = "неогенетичности"
+accusative = "неогенетичность"
+instrumental = "неогенетичностью"
+prepositional = "неогенетичности"
+gender = "female"
+
+["repairing"]
+nominative = "ремонтирование"
+genitive = "ремонтирования"
+dative = "ремонтированию"
+accusative = "ремонтирование"
+instrumental = "ремонтированием"
+prepositional = "ремонтировании"
+gender = "neuter"
+
+["hemogenic"]
+nominative = "гемогения"
+genitive = "гемогении"
+dative = "гемогении"
+accusative = "гемогению"
+instrumental = "гемогенией"
+prepositional = "гемогении"
+gender = "female"
+
+["yautja-hemogenic"]
+nominative = "яутжагемогения"
+genitive = "яутжагемогении"
+dative = "яутжагемогении"
+accusative = "яутжагемогению"
+instrumental = "яутжагемогенией"
+prepositional = "яутжагемогении"
+gender = "female"
+
+["hemostatic"]
+nominative = "гемостатия"
+genitive = "гемостатии"
+dative = "гемостатии"
+accusative = "гемостатию"
+instrumental = "гемостатией"
+prepositional = "гемостатии"
+gender = "female"
+
+["nerve-stimulating"]
+nominative = "нейростимуляция"
+genitive = "нейростимуляции"
+dative = "нейростимуляции"
+accusative = "нейростимуляцию"
+instrumental = "нейростимуляцией"
+prepositional = "нейростимуляции"
+gender = "female"
+
+["muscle-stimulating"]
+nominative = "миостимуляция"
+genitive = "миостимуляции"
+dative = "миостимуляции"
+accusative = "миостимуляцию"
+instrumental = "миостимуляцией"
+prepositional = "миостимуляции"
+gender = "female"
+
+["painkilling"]
+nominative = "обезболивающее"
+genitive = "обезболивающего"
+dative = "обезболивающему"
+accusative = "обезболивающее"
+instrumental = "обезболивающим"
+prepositional = "обезболивающем"
+gender = "neuter"
+
+["hepatopeutic"]
+nominative = "гепатопевтия"
+genitive = "гепатопевтии"
+dative = "гепатопевтии"
+accusative = "гепатопевтию"
+instrumental = "гепатопевтией"
+prepositional = "гепатопевтии"
+gender = "female"
+
+["nephropeutic"]
+nominative = "нефропевтия"
+genitive = "нефропевтии"
+dative = "нефропевтии"
+accusative = "нефропевтию"
+instrumental = "нефропевтией"
+prepositional = "нефропевтии"
+gender = "female"
+
+["pneumopeutic"]
+nominative = "пневмопевтия"
+genitive = "пневмопевтии"
+dative = "пневмопевтии"
+accusative = "пневмопевтию"
+instrumental = "пневмопевтией"
+prepositional = "пневмопевтии"
+gender = "female"
+
+["oculopeutic"]
+nominative = "окулопевтия"
+genitive = "окулопевтии"
+dative = "окулопевтии"
+accusative = "окулопевтию"
+instrumental = "окулопевтией"
+prepositional = "окулопевтии"
+gender = "female"
+
+["cardiopeutic"]
+nominative = "кардиопевтия"
+genitive = "кардиопевтии"
+dative = "кардиопевтии"
+accusative = "кардиопевтию"
+instrumental = "кардиопевтией"
+prepositional = "кардиопевтии"
+gender = "female"
+
+["neuropeutic"]
+nominative = "нейропевтия"
+genitive = "нейропевтии"
+dative = "нейропевтии"
+accusative = "нейропевтию"
+instrumental = "нейропевтией"
+prepositional = "нейропевтии"
+gender = "female"
+
+["bonemending"]
+nominative = "костесращивание"
+genitive = "костесращивания"
+dative = "костесращиванию"
+accusative = "костесращивание"
+instrumental = "костесращиванием"
+prepositional = "костесращивании"
+gender = "neuter"
+
+["fluxing"]
+nominative = "флюсование"
+genitive = "флюсования"
+dative = "флюсованию"
+accusative = "флюсование"
+instrumental = "флюсованием"
+prepositional = "флюсовании"
+gender = "neuter"
+
+["neurocryogenic"]
+nominative = "нейрокриогения"
+genitive = "нейрокриогении"
+dative = "нейрокриогении"
+accusative = "нейрокриогению"
+instrumental = "нейрокриогенией"
+prepositional = "нейрокриогении"
+gender = "female"
+
+["crystallization"]
+nominative = "кристаллизация"
+genitive = "кристаллизации"
+dative = "кристаллизации"
+accusative = "кристаллизацию"
+instrumental = "кристаллизацией"
+prepositional = "кристаллизации"
+gender = "female"
+
+["photosensitive"]
+nominative = "светочувствительность"
+genitive = "светочувствительности"
+dative = "светочувствительности"
+accusative = "светочувствительность"
+instrumental = "светочувствительностью"
+prepositional = "светочувствительности"
+gender = "female"
+
+["neutralizing"]
+nominative = "нейтрализация"
+genitive = "нейтрализации"
+dative = "нейтрализации"
+accusative = "нейтрализацию"
+instrumental = "нейтрализацией"
+prepositional = "нейтрализации"
+gender = "female"
+
+["disrupting"]
+nominative = "дезорганизация"
+genitive = "дезорганизации"
+dative = "дезорганизации"
+accusative = "дезорганизацию"
+instrumental = "дезорганизацией"
+prepositional = "дезорганизации"
+gender = "female"
+
+["anti-parasitic"]
+nominative = "антипаразит"
+genitive = "антипаразита"
+dative = "антипаразиту"
+accusative = "антипаразита"
+instrumental = "антипаразитом"
+prepositional = "антипаразите"
+gender = "male"
+
+["electrogenetic"]
+nominative = "электрогенетичность"
+genitive = "электрогенетичности"
+dative = "электрогенетичности"
+accusative = "электрогенетичность"
+instrumental = "электрогенетичностью"
+prepositional = "электрогенетичности"
+gender = "female"
+
+["organ-stabilizing"]
+nominative = "органостабилизация"
+genitive = "органостабилизации"
+dative = "органостабилизации"
+accusative = "органостабилизацию"
+instrumental = "органостабилизацией"
+prepositional = "органостабилизации"
+gender = "female"
+
+["defibrillating"]
+nominative = "дефибрилляция"
+genitive = "дефибрилляции"
+dative = "дефибрилляции"
+accusative = "дефибрилляцию"
+instrumental = "дефибрилляцией"
+prepositional = "дефибрилляции"
+gender = "female"
+
+["thanatometabolizing"]
+nominative = "танатометаболизм"
+genitive = "танатометаболизма"
+dative = "танатометаболизму"
+accusative = "танатометаболизм"
+instrumental = "танатометаболизмом"
+prepositional = "танатометаболизме"
+gender = "male"
+
+["hyperdensificating"]
+nominative = "гиперденсификация"
+genitive = "гиперденсификации"
+dative = "гиперденсификации"
+accusative = "гиперденсификацию"
+instrumental = "гиперденсификацией"
+prepositional = "гиперденсификации"
+gender = "female"
+
+["hyperthrottling"]
+nominative = "гипертроттлинг"
+genitive = "гипертроттлинга"
+dative = "гипертроттлингу"
+accusative = "гипертроттлинг"
+instrumental = "гипертроттлингом"
+prepositional = "гипертроттлинге"
+gender = "male"
+
+["neuroshielding"]
+nominative = "нейрозащита"
+genitive = "нейрозащиты"
+dative = "нейрозащите"
+accusative = "нейрозащиту"
+instrumental = "нейрозащитой"
+prepositional = "нейрозащите"
+gender = "female"
+
+["anti-addictive"]
+nominative = "антипривыкание"
+genitive = "антипривыкания"
+dative = "антипривыканию"
+accusative = "антипривыкание"
+instrumental = "антипривыканием"
+prepositional = "антипривыкании"
+gender = "neuter"
+
+["addictive"]
+nominative = "привыкание"
+genitive = "привыкания"
+dative = "привыканию"
+accusative = "привыкание"
+instrumental = "привыканием"
+prepositional = "привыкании"
+gender = "neuter"
+
+["encephalophrasive"]
+nominative = "энцефалофазия"
+genitive = "энцефалофазии"
+dative = "энцефалофазии"
+accusative = "энцефалофазию"
+instrumental = "энцефалофазией"
+prepositional = "энцефалофазии"
+gender = "female"
+
+["hypergenetic"]
+nominative = "гипергенетичность"
+genitive = "гипергенетичности"
+dative = "гипергенетичности"
+accusative = "гипергенетичность"
+instrumental = "гипергенетичностью"
+prepositional = "гипергенетичности"
+gender = "female"
+
+["boosting"]
+nominative = "усиление"
+genitive = "усиления"
+dative = "усилению"
+accusative = "усиление"
+instrumental = "усилением"
+prepositional = "усилении"
+gender = "neuter"
+
+["DNA-Disintegrating"]
+nominative = "расщепление ДНК"
+genitive = "расщепления ДНК"
+dative = "расщеплению ДНК"
+accusative = "расщепление ДНК"
+instrumental = "расщеплением ДНК"
+prepositional = "расщеплении ДНК"
+gender = "neuter"
+
+["regulating"]
+nominative = "регуляция"
+genitive = "регуляции"
+dative = "регуляции"
+accusative = "регуляцию"
+instrumental = "регуляцией"
+prepositional = "регуляции"
+gender = "female"
+
+["ciphering"]
+nominative = "шифрование"
+genitive = "шифрования"
+dative = "шифрованию"
+accusative = "шифрование"
+instrumental = "шифрованием"
+prepositional = "шифровании"
+gender = "neuter"
+
+["cross-ciphering"]
+nominative = "кросс-шифрование"
+genitive = "кросс-шифрования"
+dative = "кросс-шифрованию"
+accusative = "кросс-шифрование"
+instrumental = "кросс-шифрованием"
+prepositional = "кросс-шифровании"
+gender = "neuter"
+
+["fire-penetrating"]
+nominative = "огнепроникаемость"
+genitive = "огнепроникаемости"
+dative = "огнепроникаемости"
+accusative = "огнепроникаемость"
+instrumental = "огнепроникаемостью"
+prepositional = "огнепроникаемости"
+gender = "female"
+
+["organ-healing"]
+nominative = "органотерапия"
+genitive = "органотерапии"
+dative = "органотерапии"
+accusative = "органотерапию"
+instrumental = "органотерапией"
+prepositional = "органотерапии"
+gender = "female"
+
+["cross-metabolizing"]
+nominative = "кросс-метаболизм"
+genitive = "кросс-метаболизма"
+dative = "кросс-метаболизму"
+accusative = "кросс-метаболизм"
+instrumental = "кросс-метаболизмом"
+prepositional = "кросс-метаболизме"
+gender = "male"
+
+["embryonic"]
+nominative = "эмбриогенез"
+genitive = "эмбриогенеза"
+dative = "эмбриогенезу"
+accusative = "эмбриогенез"
+instrumental = "эмбриогенезом"
+prepositional = "эмбриогенезе"
+gender = "male"
+
+["transforming"]
+nominative = "трансформация"
+genitive = "трансформации"
+dative = "трансформации"
+accusative = "трансформацию"
+instrumental = "трансформацией"
+prepositional = "трансформации"
+gender = "female"
+
+["ravening"]
+nominative = "пожирание"
+genitive = "пожирания"
+dative = "пожиранию"
+accusative = "пожирание"
+instrumental = "пожиранием"
+prepositional = "пожирании"
+gender = "neuter"
+
+["curing"]
+nominative = "элиминация"
+genitive = "элиминации"
+dative = "элиминации"
+accusative = "элиминацию"
+instrumental = "элиминацией"
+prepositional = "элиминации"
+gender = "female"
+
+["omnipotent"]
+nominative = "тотипотентность"
+genitive = "тотипотентности"
+dative = "тотипотентности"
+accusative = "тотипотентность"
+instrumental = "тотипотентностью"
+prepositional = "тотипотентности"
+gender = "female"
+
+["radius"]
+nominative = "радиус"
+genitive = "радиуса"
+dative = "радиусу"
+accusative = "радиус"
+instrumental = "радиусом"
+prepositional = "радиусе"
+gender = "male"
+
+["intensity"]
+nominative = "интенсивность"
+genitive = "интенсивности"
+dative = "интенсивности"
+accusative = "интенсивность"
+instrumental = "интенсивностью"
+prepositional = "интенсивности"
+gender = "female"
+
+["duration"]
+nominative = "продолжительность"
+genitive = "продолжительности"
+dative = "продолжительности"
+accusative = "продолжительность"
+instrumental = "продолжительностью"
+prepositional = "продолжительности"
+gender = "female"
+
+["fueling"]
+nominative = "сжигание"
+genitive = "сжигания"
+dative = "сжиганию"
+accusative = "сжигание"
+instrumental = "сжиганием"
+prepositional = "сжигании"
+gender = "neuter"
+
+["oxidizing"]
+nominative = "окисление"
+genitive = "окисления"
+dative = "окислению"
+accusative = "окисление"
+instrumental = "окислением"
+prepositional = "окислении"
+gender = "neuter"
+
+["flowing"]
+nominative = "растекаемость"
+genitive = "растекаемости"
+dative = "растекаемости"
+accusative = "растекаемость"
+instrumental = "растекаемостью"
+prepositional = "растекаемости"
+gender = "female"
+
+["viscous"]
+nominative = "вязкость"
+genitive = "вязкости"
+dative = "вязкости"
+accusative = "вязкость"
+instrumental = "вязкостью"
+prepositional = "вязкости"
+gender = "female"
+
+["explosive"]
+nominative = "взрывоопасность"
+genitive = "взрывоопасности"
+dative = "взрывоопасности"
+accusative = "взрывоопасность"
+instrumental = "взрывоопасностью"
+prepositional = "взрывоопасности"
+gender = "female"
+
+["cardio-stabilizing"]
+nominative = "кардиостабилизация"
+genitive = "кардиостабилизации"
+dative = "кардиостабилизации"
+accusative = "кардиостабилизацию"
+instrumental = "кардиостабилизацией"
+prepositional = "кардиостабилизации"
+gender = "female"
+
+["aiding"]
+nominative = "восстановление"
+genitive = "восстановления"
+dative = "восстановлению"
+accusative = "восстановление"
+instrumental = "восстановлением"
+prepositional = "восстановлении"
+gender = "neuter"
+
+["themo-stabilizing"]
+nominative = "термостабилизация"
+genitive = "термостабилизации"
+dative = "термостабилизации"
+accusative = "термостабилизацию"
+instrumental = "термостабилизацией"
+prepositional = "термостабилизации"
+gender = "female"
+
+["oxygenating"]
+nominative = "оксигенация"
+genitive = "оксигенации"
+dative = "оксигенации"
+accusative = "оксигенацию"
+instrumental = "оксигенацией"
+prepositional = "оксигенации"
+gender = "female"
+
+["focusing"]
+nominative = "фокусировка"
+genitive = "фокусировки"
+dative = "фокусировке"
+accusative = "фокусировку"
+instrumental = "фокусировкой"
+prepositional = "фокусировке"
+gender = "female"
+
+["anti-carcinogenic"]
+nominative = "антионкогения"
+genitive = "антионкогении"
+dative = "антионкогении"
+accusative = "антионкогению"
+instrumental = "антионкогенией"
+prepositional = "антионкогении"
+gender = "female"
+
+["unknown"]
+nominative = "неизвестно"
+genitive = "неизвестного"
+dative = "неизвестному"
+accusative = "неизвестно"
+instrumental = "неизвестным"
+prepositional = "неизвестном"
+gender = "neuter"
+
+["hemositic"]
+nominative = "гемосидероз"
+genitive = "гемосидероза"
+dative = "гемосидерозу"
+accusative = "гемосидероз"
+instrumental = "гемосидерозом"
+prepositional = "гемосидерозе"
+gender = "male"
+
+# MARK: reagents
+
+["Generic Toxin"]
+nominative = "гемосидероз"
+genitive = "гемосидероза"
+dative = "гемосидерозу"
+accusative = "гемосидероз"
+instrumental = "гемосидерозом"
+prepositional = "гемосидерозе"
+gender = "male"
+
+["Toxin"]
+nominative = "гемосидероз"
+genitive = "гемосидероза"
+dative = "гемосидерозу"
+accusative = "гемосидероз"
+instrumental = "гемосидерозом"
+prepositional = "гемосидерозе"
+gender = "male"
+
+["Amatoxin"]
+nominative = "гемосидероз"
+genitive = "гемосидероза"
+dative = "гемосидерозу"
+accusative = "гемосидероз"
+instrumental = "гемосидерозом"
+prepositional = "гемосидерозе"
+gender = "male"
+
+["Unstable mutagen"]
+nominative = "гемосидероз"
+genitive = "гемосидероза"
+dative = "гемосидерозу"
+accusative = "гемосидероз"
+instrumental = "гемосидерозом"
+prepositional = "гемосидерозе"
+gender = "male"
+
+["Phoron"]
+nominative = "гемосидероз"
+genitive = "гемосидероза"
+dative = "гемосидерозу"
+accusative = "гемосидероз"
+instrumental = "гемосидерозом"
+prepositional = "гемосидерозе"
+gender = "male"
+
+["Lexorin"]
+nominative = "гемосидероз"
+genitive = "гемосидероза"
+dative = "гемосидерозу"
+accusative = "гемосидероз"
+instrumental = "гемосидерозом"
+prepositional = "гемосидерозе"
+gender = "male"
+
+["Cyanide"]
+nominative = "гемосидероз"
+genitive = "гемосидероза"
+dative = "гемосидерозу"
+accusative = "гемосидероз"
+instrumental = "гемосидерозом"
+prepositional = "гемосидерозе"
+gender = "male"
+
+["Mint Toxin"]
+nominative = "гемосидероз"
+genitive = "гемосидероза"
+dative = "гемосидерозу"
+accusative = "гемосидероз"
+instrumental = "гемосидерозом"
+prepositional = "гемосидерозе"
+gender = "male"
+
+["Carpotoxin"]
+nominative = "гемосидероз"
+genitive = "гемосидероза"
+dative = "гемосидерозу"
+accusative = "гемосидероз"
+instrumental = "гемосидерозом"
+prepositional = "гемосидерозе"
+gender = "male"
+
+["Zombie Powder"]
+nominative = "гемосидероз"
+genitive = "гемосидероза"
+dative = "гемосидерозу"
+accusative = "гемосидероз"
+instrumental = "гемосидерозом"
+prepositional = "гемосидерозе"
+gender = "male"
+
+["Mindbreaker Toxin"]
+nominative = "гемосидероз"
+genitive = "гемосидероза"
+dative = "гемосидерозу"
+accusative = "гемосидероз"
+instrumental = "гемосидерозом"
+prepositional = "гемосидерозе"
+gender = "male"
+
+["fertilizer"]
+nominative = "гемосидероз"
+genitive = "гемосидероза"
+dative = "гемосидерозу"
+accusative = "гемосидероз"
+instrumental = "гемосидерозом"
+prepositional = "гемосидерозе"
+gender = "male"
+
+["Dinitroaniline"]
+nominative = "гемосидероз"
+genitive = "гемосидероза"
+dative = "гемосидерозу"
+accusative = "гемосидероз"
+instrumental = "гемосидерозом"
+prepositional = "гемосидерозе"
+gender = "male"
+
+["Plant-B-Gone"]
+nominative = "гемосидероз"
+genitive = "гемосидероза"
+dative = "гемосидерозу"
+accusative = "гемосидероз"
+instrumental = "гемосидерозом"
+prepositional = "гемосидерозе"
+gender = "male"
+
+["Soporific"]
+nominative = "гемосидероз"
+genitive = "гемосидероза"
+dative = "гемосидерозу"
+accusative = "гемосидероз"
+instrumental = "гемосидерозом"
+prepositional = "гемосидерозе"
+gender = "male"
+
+["Chloral Hydrate"]
+nominative = "гемосидероз"
+genitive = "гемосидероза"
+dative = "гемосидерозу"
+accusative = "гемосидероз"
+instrumental = "гемосидерозом"
+prepositional = "гемосидерозе"
+gender = "male"
+
+["Potassium Chloride"]
+nominative = "гемосидероз"
+genitive = "гемосидероза"
+dative = "гемосидерозу"
+accusative = "гемосидероз"
+instrumental = "гемосидерозом"
+prepositional = "гемосидерозе"
+gender = "male"
+
+["Potassium Chlorophoride"]
+nominative = "гемосидероз"
+genitive = "гемосидероза"
+dative = "гемосидерозу"
+accusative = "гемосидероз"
+instrumental = "гемосидерозом"
+prepositional = "гемосидерозе"
+gender = "male"
+
+["Sulphuric acid"]
+nominative = "гемосидероз"
+genitive = "гемосидероза"
+dative = "гемосидерозу"
+accusative = "гемосидероз"
+instrumental = "гемосидерозом"
+prepositional = "гемосидерозе"
+gender = "male"
+
+["Polytrinic acid"]
+nominative = "гемосидероз"
+genitive = "гемосидероза"
+dative = "гемосидерозу"
+accusative = "гемосидероз"
+instrumental = "гемосидерозом"
+prepositional = "гемосидерозе"
+gender = "male"
+
+["Formaldehyde"]
+nominative = "гемосидероз"
+genitive = "гемосидероза"
+dative = "гемосидерозу"
+accusative = "гемосидероз"
+instrumental = "гемосидерозом"
+prepositional = "гемосидерозе"
+gender = "male"
+
+["Paraformaldehyde"]
+nominative = "гемосидероз"
+genitive = "гемосидероза"
+dative = "гемосидерозу"
+accusative = "гемосидероз"
+instrumental = "гемосидерозом"
+prepositional = "гемосидерозе"
+gender = "male"
+
+["Diluted Molecular Acid"]
+nominative = "гемосидероз"
+genitive = "гемосидероза"
+dative = "гемосидерозу"
+accusative = "гемосидероз"
+instrumental = "гемосидерозом"
+prepositional = "гемосидерозе"
+gender = "male"
+
+# MARK: staff
 
 ["Oxygen canister"]
 nominative = "кислородный баллон"
@@ -39,6 +1491,15 @@ instrumental = "пакетом для крови"
 prepositional = "пакете для крови"
 gender = "male"
 
+["blood bag"]
+nominative = "пакет для крови"
+genitive = "пакета для крови"
+dative = "пакету для крови"
+accusative = "пакет для крови"
+instrumental = "пакетом для крови"
+prepositional = "пакете для крови"
+gender = "male"
+
 ["roller bed"]
 nominative = "роликовые носилки"
 genitive = "роликовых носилок"
@@ -55,6 +1516,18 @@ dative = "медицинской маске"
 accusative = "медицинскую маску"
 instrumental = "медицинской маской"
 prepositional = "медицинской маске"
+gender = "female"
+
+["Advanced Firstaid Kit"] # Unique Vendor Name
+nominative = "универсальная аптечка первой помощи"
+
+["advanced first-aid kit"]
+nominative = "универсальная аптечка первой помощи"
+genitive = "универсальной аптечки первой помощи"
+dative = "универсальной аптечке первой помощи"
+accusative = "универсальную аптечку первой помощи"
+instrumental = "универсальной аптечкой первой помощи"
+prepositional = "универсальной аптечке первой помощи"
 gender = "female"
 
 ["first-aid kit"]
@@ -110,3 +1583,1183 @@ accusative = "космочиста"
 instrumental = "космочистом"
 prepositional = "космочисте"
 gender = "male"
+
+["medical splints"]
+nominative = "медицинские шины"
+genitive = "медицинских шин"
+dative = "медицинским шинам"
+accusative = "медицинские шины"
+instrumental = "медицинскими шинами"
+prepositional = "медицинских шинах"
+gender = "plural"
+
+["roll of gauze"]
+nominative = "бинты"
+genitive = "бинтов"
+dative = "бинтам"
+accusative = "бинты"
+instrumental = "бинтами"
+prepositional = "бинтах"
+gender = "plural"
+
+["ointment"]
+nominative = "противоожоговая мазь"
+genitive = "противоожоговой мази"
+dative = "противоожоговой мази"
+accusative = "противоожоговую мазь"
+instrumental = "противоожоговой мазью"
+prepositional = "противоожоговой мази"
+gender = "female"
+
+["vial"]
+nominative = "пробирка"
+genitive = "пробирки"
+dative = "пробирке"
+accusative = "пробирку"
+instrumental = "пробиркой"
+prepositional = "пробирке"
+gender = "female"
+
+["HF2 health analyzer"]
+nominative = "медицинский анализатор HF2"
+genitive = "медицинского анализатора HF2"
+dative = "медицинскому анализатору HF2"
+accusative = "медицинский анализатор HF2"
+instrumental = "медицинским анализатором HF2"
+prepositional = "медицинском анализаторе HF2"
+gender = "male"
+
+["bicaridine autoinjector"]
+nominative = "инжектор (Бикаридин)"
+genitive = "инжектора (Бикаридин)"
+dative = "инжектору (Бикаридин)"
+accusative = "инжектор (Бикаридин)"
+instrumental = "инжектором (Бикаридин)"
+prepositional = "инжекторе (Бикаридин)"
+gender = "male"
+
+["dexalin plus autoinjector"]
+nominative = "инжектор (Дексалин плюс)"
+genitive = "инжектора (Дексалин плюс)"
+dative = "инжектору (Дексалин плюс)"
+accusative = "инжектор (Дексалин плюс)"
+instrumental = "инжектором (Дексалин плюс)"
+prepositional = "инжекторе (Дексалин плюс)"
+gender = "male"
+
+["epinephrine autoinjector"]
+nominative = "инжектор (Эпинефрин)"
+genitive = "инжектора (Эпинефрин)"
+dative = "инжектору (Эпинефрин)"
+accusative = "инжектор (Эпинефрин)"
+instrumental = "инжектором (Эпинефрин)"
+prepositional = "инжекторе (Эпинефрин)"
+gender = "male"
+
+["inaprovaline autoinjector"]
+nominative = "инжектор (Инопровалин)"
+genitive = "инжектора (Инопровалин)"
+dative = "инжектору (Инопровалин)"
+accusative = "инжектор (Инопровалин)"
+instrumental = "инжектором (Инопровалин)"
+prepositional = "инжекторе (Инопровалин)"
+gender = "male"
+
+["kelotane autoinjector"]
+nominative = "инжектор (Келотан)"
+genitive = "инжектора (Келотан)"
+dative = "инжектору (Келотан)"
+accusative = "инжектор (Келотан)"
+instrumental = "инжектором (Келотан)"
+prepositional = "инжекторе (Келотан)"
+gender = "male"
+
+["oxycodone autoinjector"]
+nominative = "инжектор (Оксикодон)"
+genitive = "инжектора (Оксикодон)"
+dative = "инжектору (Оксикодон)"
+accusative = "инжектор (Оксикодон)"
+instrumental = "инжектором (Оксикодон)"
+prepositional = "инжекторе (Оксикодон)"
+gender = "male"
+
+["oxycodone autoinjector (EXTREME PAINKILLER)"]
+nominative = "инжектор (Оксикодон) - "
+genitive = "инжектора (Оксикодон)"
+dative = "инжектору (Оксикодон)"
+accusative = "инжектор (Оксикодон)"
+instrumental = "инжектором (Оксикодон)"
+prepositional = "инжекторе (Оксикодон)"
+gender = "male"
+
+["tramadol autoinjector"]
+nominative = "инжектор (Тримадол)"
+genitive = "инжектора (Тримадол)"
+dative = "инжектору (Тримадол)"
+accusative = "инжектор (Тримадол)"
+instrumental = "инжектором (Тримадол)"
+prepositional = "инжекторе (Тримадол)"
+gender = "male"
+
+["tricordrazine autoinjector"]
+nominative = "инжектор (Трикордразин)"
+genitive = "инжектора (Трикордразин)"
+dative = "инжектору (Трикордразин)"
+accusative = "инжектор (Трикордразин)"
+instrumental = "инжектором (Трикордразин)"
+prepositional = "инжекторе (Трикордразин)"
+gender = "male"
+
+["pain-stop autoinjector"]
+nominative = "одноразовый инжектор (Тримадол)"
+genitive = "одноразового инжектора (Тримадол)"
+dative = "одноразовому инжектору (Тримадол)"
+accusative = "одноразовый инжектор (Тримадол)"
+instrumental = "одноразовым инжектором (Тримадол)"
+prepositional = "одноразовом инжекторе (Тримадол)"
+gender = "male"
+
+["pain-stop autoinjector expended"]
+nominative = "пустой одноразовый инжектор (Тримадол)"
+genitive = "пустого одноразового инжектора (Тримадол)"
+dative = "пустому одноразовому инжектору (Тримадол)"
+accusative = "пустой одноразовый инжектор (Тримадол)"
+instrumental = "пустым одноразовым инжектором (Тримадол)"
+prepositional = "пустом одноразовом инжекторе (Тримадол)"
+gender = "male"
+
+["first-aid autoinjector"]
+nominative = "одноразовый инжектор (Трикордразин)"
+genitive = "одноразового инжектора (Трикордразин)"
+dative = "одноразовому инжектору (Трикордразин)"
+accusative = "одноразовый инжектор (Трикордразин)"
+instrumental = "одноразовым инжектором (Трикордразин)"
+prepositional = "одноразовом инжекторе (Трикордразин)"
+gender = "male"
+
+["first-aid autoinjector expended"]
+nominative = "пустой одноразовый инжектор (Трикордразин)"
+genitive = "пустого одноразового инжектора (Трикордразин)"
+dative = "пустому одноразовому инжектору (Трикордразин)"
+accusative = "пустой одноразовый инжектор (Трикордразин)"
+instrumental = "пустым одноразовым инжектором (Трикордразин)"
+prepositional = "пустом одноразовом инжекторе (Трикордразин)"
+gender = "male"
+
+["trauma kit"]
+nominative = "противотравматический набор"
+genitive = "противотравматического набора"
+dative = "противотравматическому набору"
+accusative = "противотравматический набор"
+instrumental = "противотравматическим набором"
+prepositional = "противотравматическом наборе"
+gender = "male"
+
+["burn kit"]
+nominative = "противоожоговый набор"
+genitive = "противоожогового набора"
+dative = "противоожоговому набору"
+accusative = "противоожоговый набор"
+instrumental = "противоожоговым набором"
+prepositional = "противоожоговом наборе"
+gender = "male"
+
+["CPR dummy"]
+nominative = "тренажёр СЛР"
+genitive = "тренажёра СЛР"
+dative = "тренажёру СЛР"
+accusative = "тренажёр СЛР"
+instrumental = "тренажёром СЛР"
+prepositional = "тренажёре СЛР"
+gender = "male"
+
+["emergency defibrillator"]
+nominative = "дефибриллятор"
+genitive = "дефибриллятора"
+dative = "дефибриллятору"
+accusative = "дефибриллятор"
+instrumental = "дефибриллятором"
+prepositional = "дефибрилляторе"
+gender = "male"
+
+["surgical line"]
+nominative = "хирургическая нить"
+genitive = "хирургической нити"
+dative = "хирургической нити"
+accusative = "хирургическую нить"
+instrumental = "хирургической нитью"
+prepositional = "хирургической нити"
+gender = "female"
+
+["Synth-Graft"]
+nominative = "синтетический лоскут"
+genitive = "синтетического лоскута"
+dative = "синтетическому лоскуту"
+accusative = "синтетический лоскут"
+instrumental = "синтетическим лоскутом"
+prepositional = "синтетическом лоскуте"
+gender = "male"
+
+["hypospray"]
+nominative = "гипоспрей"
+genitive = "гипоспрея"
+dative = "гипоспрею"
+accusative = "гипоспрей"
+instrumental = "гипоспреем"
+prepositional = "гипоспрее"
+gender = "male"
+
+["stasis bag"]
+nominative = "стазисный мешок"
+genitive = "стазисного мешка"
+dative = "стазисному мешку"
+accusative = "стазисный мешок"
+instrumental = "стазисным мешком"
+prepositional = "стазисном мешке"
+gender = "male"
+
+["pill"]
+nominative = "таблетка"
+genitive = "таблетки"
+dative = "таблетке"
+accusative = "таблетку"
+instrumental = "таблеткой"
+prepositional = "таблетке"
+gender = "female"
+
+["Peridaxon pill bottle"]
+nominative = "таблетница (Перидаксон)"
+genitive = "таблетницы (Перидаксон)"
+dative = "таблетнице (Перидаксон)"
+accusative = "таблетницу (Перидаксон)"
+instrumental = "таблетницей (Перидаксон)"
+prepositional = "таблетнице (Перидаксон)"
+gender = "female"
+
+["Tramadol pill bottle"]
+nominative = "таблетница (Тримадол)"
+genitive = "таблетницы (Тримадол)"
+dative = "таблетнице (Тримадол)"
+accusative = "таблетницу (Тримадол)"
+instrumental = "таблетницей (Тримадол)"
+prepositional = "таблетнице (Тримадол)"
+gender = "female"
+
+["Inaprovaline pill bottle"]
+nominative = "таблетница (Инопровалин)"
+genitive = "таблетницы (Инопровалин)"
+dative = "таблетнице (Инопровалин)"
+accusative = "таблетницу (Инопровалин)"
+instrumental = "таблетницей (Инопровалин)"
+prepositional = "таблетнице (Инопровалин)"
+gender = "female"
+
+["Kelotane pill bottle"]
+nominative = "таблетница (Келотан)"
+genitive = "таблетницы (Келотан)"
+dative = "таблетнице (Келотан)"
+accusative = "таблетницу (Келотан)"
+instrumental = "таблетницей (Келотан)"
+prepositional = "таблетнице (Келотан)"
+gender = "female"
+
+["Dylovene pill bottle"]
+nominative = "таблетница (Диловен)"
+genitive = "таблетницы (Диловен)"
+dative = "таблетнице (Диловен)"
+accusative = "таблетницу (Диловен)"
+instrumental = "таблетницей (Диловен)"
+prepositional = "таблетнице (Диловен)"
+gender = "female"
+
+["Dexalin pill bottle"]
+nominative = "таблетница (Дексалин)"
+genitive = "таблетницы (Дексалин)"
+dative = "таблетнице (Дексалин)"
+accusative = "таблетницу (Дексалин)"
+instrumental = "таблетницей (Дексалин)"
+prepositional = "таблетнице (Дексалин)"
+gender = "female"
+
+["Bicaridine pill bottle"]
+nominative = "таблетница (Бикаридин)"
+genitive = "таблетницы (Бикаридин)"
+dative = "таблетнице (Бикаридин)"
+accusative = "таблетницу (Бикаридин)"
+instrumental = "таблетницей (Бикаридин)"
+prepositional = "таблетнице (Бикаридин)"
+gender = "female"
+
+["Bicaridine bottle"]
+nominative = "сосуд для реагента (Бикаридин)"
+genitive = "сосуда для реагента (Бикаридин)"
+dative = "сосуду для реагента (Бикаридин)"
+accusative = "сосуд для реагента (Бикаридин)"
+instrumental = "сосудом для реагента (Бикаридин)"
+prepositional = "сосуде для реагента (Бикаридин)"
+gender = "male"
+
+["Dylovene bottle"]
+nominative = "сосуд для реагента (Диловен)"
+genitive = "сосуда для реагента (Диловен)"
+dative = "сосуду для реагента (Диловен)"
+accusative = "сосуд для реагента (Диловен)"
+instrumental = "сосудом для реагента (Диловен)"
+prepositional = "сосуде для реагента (Диловен)"
+gender = "male"
+
+["Dexalin bottle"]
+nominative = "сосуд для реагента (Дексалин)"
+genitive = "сосуда для реагента (Дексалин)"
+dative = "сосуду для реагента (Дексалин)"
+accusative = "сосуд для реагента (Дексалин)"
+instrumental = "сосудом для реагента (Дексалин)"
+prepositional = "сосуде для реагента (Дексалин)"
+gender = "male"
+
+["Inaprovaline bottle"]
+nominative = "сосуд для реагента (Инопровалин)"
+genitive = "сосуда для реагента (Инопровалин)"
+dative = "сосуду для реагента (Инопровалин)"
+accusative = "сосуд для реагента (Инопровалин)"
+instrumental = "сосудом для реагента (Инопровалин)"
+prepositional = "сосуде для реагента (Инопровалин)"
+gender = "male"
+
+["Kelotane bottle"]
+nominative = "сосуд для реагента (Келотан)"
+genitive = "сосуда для реагента (Келотан)"
+dative = "сосуду для реагента (Келотан)"
+accusative = "сосуд для реагента (Келотан)"
+instrumental = "сосудом для реагента (Келотан)"
+prepositional = "сосуде для реагента (Келотан)"
+gender = "male"
+
+["Oxycodone bottle"]
+nominative = "сосуд для реагента (Оксикодон)"
+genitive = "сосуда для реагента (Оксикодон)"
+dative = "сосуду для реагента (Оксикодон)"
+accusative = "сосуд для реагента (Оксикодон)"
+instrumental = "сосудом для реагента (Оксикодон)"
+prepositional = "сосуде для реагента (Оксикодон)"
+gender = "male"
+
+["Peridaxon bottle"]
+nominative = "сосуд для реагента (Перидаксон)"
+genitive = "сосуда для реагента (Перидаксон)"
+dative = "сосуду для реагента (Перидаксон)"
+accusative = "сосуд для реагента (Перидаксон)"
+instrumental = "сосудом для реагента (Перидаксон)"
+prepositional = "сосуде для реагента (Перидаксон)"
+gender = "male"
+
+["Tramadol bottle"]
+nominative = "сосуд для реагента (Тримадол)"
+genitive = "сосуда для реагента (Тримадол)"
+dative = "сосуду для реагента (Тримадол)"
+accusative = "сосуд для реагента (Тримадол)"
+instrumental = "сосудом для реагента (Тримадол)"
+prepositional = "сосуде для реагента (Тримадол)"
+gender = "male"
+
+["PICT system"]
+nominative = "система ТИРП"
+genitive = "системы ТИРП"
+dative = "системе ТИРП"
+accusative = "систему ТИРП"
+instrumental = "системой ТИРП"
+prepositional = "системе ТИРП"
+gender = "female"
+
+["bottle of bone gel"]
+nominative = "бутылочка костного геля"
+genitive = "бутылочки костного геля"
+dative = "бутылочке костного геля"
+accusative = "бутылочку костного геля"
+instrumental = "бутылочкой костного геля"
+prepositional = "бутылочке костного геля"
+gender = "female"
+
+["bone setter"]
+nominative = "костоправ"
+genitive = "костоправа"
+dative = "костоправу"
+accusative = "костоправа"
+instrumental = "костоправом"
+prepositional = "костоправе"
+gender = "male"
+
+["FixOVein"]
+nominative = "сосудосшиватель"
+genitive = "сосудосшивателя"
+dative = "сосудосшивателю"
+accusative = "сосудосшиватель"
+instrumental = "сосудосшивателем"
+prepositional = "сосудосшивателе"
+gender = "male"
+
+["nanopaste"]
+nominative = "нанопаста"
+genitive = "нанопасты"
+dative = "нанопасте"
+accusative = "нанопасту"
+instrumental = "нанопастой"
+prepositional = "нанопасте"
+gender = "female"
+
+["portable dialysis machine"]
+nominative = "мобильный аппарат гемодиализа"
+genitive = "мобильного аппарата гемодиализа"
+dative = "мобильному аппарату гемодиализа"
+accusative = "мобильный аппарат гемодиализа"
+instrumental = "мобильным аппаратом гемодиализа"
+prepositional = "мобильном аппарате гемодиализа"
+gender = "male"
+
+["folded USCM Medical Tent"]
+nominative = "сложенный медицинский тент ККМП"
+genitive = "сложенного медицинского тента ККМП"
+dative = "сложенному медицинскому тенту ККМП"
+accusative = "сложенный медицинский тент ККМП"
+instrumental = "сложенным медицинским тентом ККМП"
+prepositional = "сложенном медицинском тенте ККМП"
+gender = "male"
+
+["Surgery Cleaner"]
+nominative = "хирургочист"
+genitive = "хирургочиста"
+dative = "хирургочисту"
+accusative = "хирургочист"
+instrumental = "хирургочистом"
+prepositional = "хирургочисте"
+gender = "male"
+
+["Space cleaner"]
+nominative = "космочист"
+genitive = "космочиста"
+dative = "космочисту"
+accusative = "космочиста"
+instrumental = "космочистом"
+prepositional = "космочисте"
+gender = "male"
+
+["Blood"]
+nominative = "кровь"
+genitive = "крови"
+dative = "крови"
+accusative = "кровь"
+instrumental = "кровью"
+prepositional = "крови"
+gender = "female"
+
+["Green Blood"]
+nominative = "зелёная кровь"
+genitive = "зелёной крови"
+dative = "зелёной крови"
+accusative = "зелёную кровь"
+instrumental = "зелёной кровью"
+prepositional = "зелёной крови"
+gender = "female"
+
+["Synthetic Blood"]
+nominative = "синтетическая кровь"
+genitive = "синтетической крови"
+dative = "синтетической крови"
+accusative = "синтетическую кровь"
+instrumental = "синтетической кровью"
+prepositional = "синтетической крови"
+gender = "female"
+
+["Grey Blood"]
+nominative = "серая кровь"
+genitive = "серой крови"
+dative = "серой крови"
+accusative = "серую кровь"
+instrumental = "серой кровью"
+prepositional = "серой крови"
+gender = "female"
+
+["Acidic Blood"]
+nominative = "кислотная кровь"
+genitive = "кислотной крови"
+dative = "кислотной крови"
+accusative = "кислотную кровь"
+instrumental = "кислотной кровью"
+prepositional = "кислотной крови"
+gender = "female"
+
+["Dark Acidic Blood"]
+nominative = "тёмная кислотная кровь"
+genitive = "тёмной кислотной крови"
+dative = "тёмной кислотной крови"
+accusative = "тёмную кислотную кровь"
+instrumental = "тёмной кислотной кровью"
+prepositional = "тёмной кислотной крови"
+gender = "female"
+
+["Vaccine"]
+nominative = "вакцина"
+genitive = "вакцины"
+dative = "вакцине"
+accusative = "вакцину"
+instrumental = "вакциной"
+prepositional = "вакцине"
+gender = "female"
+
+["Water"]
+nominative = "вода"
+genitive = "воды"
+dative = "воде"
+accusative = "воду"
+instrumental = "водой"
+prepositional = "воде"
+gender = "female"
+
+["Holy Water"]
+nominative = "святая вода"
+genitive = "святой воды"
+dative = "святой воде"
+accusative = "святую воду"
+instrumental = "святой водой"
+prepositional = "святой воде"
+gender = "female"
+
+["Plasticide"]
+nominative = "пластицид"
+genitive = "пластицида"
+dative = "пластициду"
+accusative = "пластицид"
+instrumental = "пластицидом"
+prepositional = "пластициде"
+gender = "male"
+
+["Space drugs"]
+nominative = "космонаркотики"
+genitive = "космонаркотиков"
+dative = "космонаркотикам"
+accusative = "космонаркотики"
+instrumental = "космонаркотиками"
+prepositional = "космонаркотиках"
+gender = "plural"
+
+["Sleen"]
+nominative = "слен"
+genitive = "слена"
+dative = "слену"
+accusative = "слен"
+instrumental = "сленом"
+prepositional = "слене"
+gender = "male"
+
+["Serotrotium"]
+nominative = "серотротиум"
+genitive = "серотротиума"
+dative = "серотротиуму"
+accusative = "серотротиум"
+instrumental = "серотротиумом"
+prepositional = "серотротиуме"
+gender = "male"
+
+["Oxygen"]
+nominative = "кислород"
+genitive = "кислорода"
+dative = "кислороду"
+accusative = "кислород"
+instrumental = "кислородом"
+prepositional = "кислороде"
+gender = "male"
+
+["Copper"]
+nominative = "медь"
+genitive = "меди"
+dative = "меди"
+accusative = "медь"
+instrumental = "медью"
+prepositional = "меди"
+gender = "female"
+
+["Nitrogen"]
+nominative = "азот"
+genitive = "азота"
+dative = "азоту"
+accusative = "азот"
+instrumental = "азотом"
+prepositional = "азоте"
+gender = "male"
+
+["Hydrogen"]
+nominative = "водород"
+genitive = "водорода"
+dative = "водороду"
+accusative = "водород"
+instrumental = "водородом"
+prepositional = "водороде"
+gender = "male"
+
+["Potassium"]
+nominative = "калий"
+genitive = "калия"
+dative = "калию"
+accusative = "калий"
+instrumental = "калием"
+prepositional = "калии"
+gender = "male"
+
+["Mercury"]
+nominative = "ртуть"
+genitive = "ртути"
+dative = "ртути"
+accusative = "ртуть"
+instrumental = "ртутью"
+prepositional = "ртути"
+gender = "female"
+
+["Sulfur"]
+nominative = "сера"
+genitive = "серы"
+dative = "сере"
+accusative = "серу"
+instrumental = "серой"
+prepositional = "сере"
+gender = "female"
+
+["Carbon"]
+nominative = "углерод"
+genitive = "углерода"
+dative = "углероду"
+accusative = "углерод"
+instrumental = "углеродом"
+prepositional = "углероде"
+gender = "male"
+
+["Chlorine"]
+nominative = "хлор"
+genitive = "хлора"
+dative = "хлору"
+accusative = "хлор"
+instrumental = "хлором"
+prepositional = "хлоре"
+gender = "male"
+
+["Fluorine"]
+nominative = "фтор"
+genitive = "фтора"
+dative = "фтору"
+accusative = "фтор"
+instrumental = "фтором"
+prepositional = "фторе"
+gender = "male"
+
+["Sodium"]
+nominative = "натрий"
+genitive = "натрия"
+dative = "натрию"
+accusative = "натрий"
+instrumental = "натрием"
+prepositional = "натрии"
+gender = "male"
+
+["Phosphorus"]
+nominative = "фосфор"
+genitive = "фосфора"
+dative = "фосфору"
+accusative = "фосфор"
+instrumental = "фосфором"
+prepositional = "фосфоре"
+gender = "male"
+
+["Lithium"]
+nominative = "литий"
+genitive = "лития"
+dative = "литиею"
+accusative = "литий"
+instrumental = "литиею"
+prepositional = "литии"
+gender = "male"
+
+["Sugar"]
+nominative = "сахар"
+genitive = "сахара"
+dative = "сахару"
+accusative = "сахар"
+instrumental = "сахаром"
+prepositional = "сахаре"
+gender = "male"
+
+["Glycerol"]
+nominative = "глицерин"
+genitive = "глицерина"
+dative = "глицерину"
+accusative = "глицерин"
+instrumental = "глицерином"
+prepositional = "глицерине"
+gender = "male"
+
+["Radium"]
+nominative = "радий"
+genitive = "радия"
+dative = "радию"
+accusative = "радий"
+instrumental = "радием"
+prepositional = "радии"
+gender = "male"
+
+["Thermite"]
+nominative = "термит"
+genitive = "термита"
+dative = "термиту"
+accusative = "термита"
+instrumental = "термитом"
+prepositional = "термите"
+gender = "male"
+
+["Virus Food"]
+nominative = "пища для вируса"
+genitive = "пищи для вируса"
+dative = "пищи для вируса"
+accusative = "пищу для вируса"
+instrumental = "пищей для вируса"
+prepositional = "пищи для вируса"
+gender = "female"
+
+["Iron"]
+nominative = "железо"
+genitive = "железа"
+dative = "железу"
+accusative = "железо"
+instrumental = "железом"
+prepositional = "железе"
+gender = "neutral"
+
+["Gold"]
+nominative = "золото"
+genitive = "золота"
+dative = "золоту"
+accusative = "золото"
+instrumental = "золотом"
+prepositional = "золоте"
+gender = "neutral"
+
+["Silver"]
+nominative = "серебро"
+genitive = "серебра"
+dative = "серебру"
+accusative = "серебро"
+instrumental = "серебром"
+prepositional = "серебре"
+gender = "neutral"
+
+["Uranium"]
+nominative = "уран"
+genitive = "урана"
+dative = "урану"
+accusative = "уран"
+instrumental = "ураном"
+prepositional = "уране"
+gender = "male"
+
+["Aluminum"]
+nominative = "алюминий"
+genitive = "алюминия"
+dative = "алюминию"
+accusative = "алюминий"
+instrumental = "алюминием"
+prepositional = "алюминии"
+gender = "male"
+
+["Silicon"]
+nominative = "кремний"
+genitive = "кремния"
+dative = "кремнию"
+accusative = "кремний"
+instrumental = "кремнием"
+prepositional = "кремнии"
+gender = "male"
+
+["Welding fuel"]
+nominative = "топливо для сварки"
+genitive = "топлива для сварки"
+dative = "топливу для сварки"
+accusative = "топливо для сварки"
+instrumental = "топливом для сварки"
+prepositional = "топливе для сварки"
+gender = "neutral"
+
+["Cryptobiolin"]
+nominative = "криптобиолин"
+genitive = "криптобиолина"
+dative = "криптобиолину"
+accusative = "криптобиолин"
+instrumental = "криптобиолином"
+prepositional = "криптобиолине"
+gender = "male"
+
+["Impedrezene"]
+nominative = "импедрезен"
+genitive = "импедрезена"
+dative = "импедрезену"
+accusative = "импедрезен"
+instrumental = "импедрезеном"
+prepositional = "импедрезене"
+gender = "male"
+
+["Oxidizing Agent"]
+nominative = "окислитель"
+genitive = "окислителя"
+dative = "окислителю"
+accusative = "окислитель"
+instrumental = "окислителем"
+prepositional = "окислителе"
+gender = "male"
+
+["Xenomicrobes"]
+nominative = "ксеномикробы"
+genitive = "ксеномикробов"
+dative = "ксеномикробам"
+accusative = "ксеномикробов"
+instrumental = "ксеномикробами"
+prepositional = "ксеномикробах"
+gender = "male"
+
+["Fluorosurfactant"]
+nominative = "фторосурфактант"
+genitive = "фторосурфактанта"
+dative = "фторосурфактанту"
+accusative = "фторосурфактант"
+instrumental = "фторосурфактантом"
+prepositional = "фторосурфактанте"
+gender = "male"
+
+["Foaming agent"]
+nominative = "пенообразующее вещество"
+genitive = "пенообразующего вещества"
+dative = "пенообразующему веществу"
+accusative = "пенообразующее вещество"
+instrumental = "пенообразующим веществом"
+prepositional = "пенообразующем веществе"
+gender = "neutral"
+
+["Stabilized metallic foam"]
+nominative = "стабилизированная металлическая пена"
+genitive = "стабилизированной металлической пены"
+dative = "стабилизированной металлической пене"
+accusative = "стабилизированную металлическую пену"
+instrumental = "стабилизированной металлической пеной"
+prepositional = "стабилизированной металлической пене"
+gender = "female"
+
+["Nicotine"]
+nominative = "никотин"
+genitive = "никотина"
+dative = "никотину"
+accusative = "никотин"
+instrumental = "никотином"
+prepositional = "никотине"
+gender = "male"
+
+["Ammonia"]
+nominative = "аммиак"
+genitive = "аммиака"
+dative = "аммиаку"
+accusative = "аммиак"
+instrumental = "аммиаком"
+prepositional = "аммиаке"
+gender = "male"
+
+["Hexamine"]
+nominative = "гексамин"
+genitive = "гексамина"
+dative = "гексамину"
+accusative = "гексамин"
+instrumental = "гексамином"
+prepositional = "гексамине"
+gender = "male"
+
+["Ultra Glue"]
+nominative = "ультраклей"
+genitive = "ультраклея"
+dative = "ультраклею"
+accusative = "ультраклей"
+instrumental = "ультраклеем"
+prepositional = "ультраклее"
+gender = "male"
+
+["Diethylamine"]
+nominative = "диэтиламин"
+genitive = "диэтиламина"
+dative = "диэтиламину"
+accusative = "диэтиламин"
+instrumental = "диэтиламином"
+prepositional = "диэтиламине"
+gender = "male"
+
+["Black goo"]
+nominative = "чёрная слизь"
+genitive = "чёрной слизи"
+dative = "чёрной слизи"
+accusative = "чёрную слизь"
+instrumental = "чёрной слизью"
+prepositional = "чёрной слизи"
+gender = "female"
+
+["Napalm"]
+nominative = "напалм"
+genitive = "напалма"
+dative = "напалму"
+accusative = "напалм"
+instrumental = "напалмом"
+prepositional = "напалме"
+gender = "male"
+
+["Sticky-Napalm"]
+nominative = "липкий напалм"
+genitive = "липкого напалма"
+dative = "липкому напалму"
+accusative = "липкий напалм"
+instrumental = "липким напалмом"
+prepositional = "липком напалме"
+gender = "male"
+
+["High-Combustion Napalm Fuel"]
+nominative = "высокотемпературный напалм"
+genitive = "высокотемпературного напалма"
+dative = "высокотемпературному напалму"
+accusative = "высокотемпературный напалм"
+instrumental = "высокотемпературным напалмом"
+prepositional = "высокотемпературном напалме"
+gender = "male"
+
+["UT-Napthal Fuel"]
+nominative = "наптал-UT"
+genitive = "наптал-UT"
+dative = "наптал-UT"
+accusative = "наптал-UT"
+instrumental = "наптал-UT"
+prepositional = "наптал-UT"
+gender = "male"
+
+["Napalm B-Gel"]
+nominative = "напалм-B-Гель"
+genitive = "напалм-B-Геля"
+dative = "напалм-B-Гелю"
+accusative = "напалм-B-Гель"
+instrumental = "напалм-B-Гелем"
+prepositional = "напалм-B-Геле"
+gender = "male"
+
+["Napalm X"]
+nominative = "напалм-X"
+genitive = "напалма-X"
+dative = "напалму-X"
+accusative = "напалм-X"
+instrumental = "напалмом-X"
+prepositional = "напалме-X"
+gender = "male"
+
+["Napalm B"]
+nominative = "напалм-B"
+genitive = "напалма-B"
+dative = "напалму-B"
+accusative = "напалм-B"
+instrumental = "напалмом-B"
+prepositional = "напалме-B"
+gender = "male"
+
+["Napalm E"]
+nominative = "напалм-E"
+genitive = "напалма-E"
+dative = "напалму-E"
+accusative = "напалм-E"
+instrumental = "напалмом-E"
+prepositional = "напалме-E"
+gender = "male"
+
+["Napalm EX"]
+nominative = "напалм-EX"
+genitive = "напалма-EX"
+dative = "напалму-EX"
+accusative = "напалм-EX"
+instrumental = "напалмом-EX"
+prepositional = "напалме-EX"
+gender = "male"
+
+["R189"]
+nominative = "Р189"
+genitive = "Р189"
+dative = "Р189"
+accusative = "Р189"
+instrumental = "Р189"
+prepositional = "Р189"
+gender = "male"
+
+["Chlorine Trifluoride"]
+nominative = "трифторид хлора"
+genitive = "трифторида хлора"
+dative = "трифториду хлора"
+accusative = "трифторид хлора"
+instrumental = "трифторидом хлора"
+prepositional = "трифториде хлора"
+gender = "male"
+
+["Methane"]
+nominative = "метан"
+genitive = "метана"
+dative = "метану"
+accusative = "метан"
+instrumental = "метаном"
+prepositional = "метане"
+gender = "male"
+
+["Potassium hydroxide"]
+nominative = "гидроксид калия"
+genitive = "гидроксида калия"
+dative = "гидроксиду калия"
+accusative = "гидроксид калия"
+instrumental = "гидроксидом калия"
+prepositional = "гидроксиде калия"
+gender = "male"
+
+["Ammonium Nitrate"]
+nominative = "нитрат аммония"
+genitive = "нитрата аммония"
+dative = "нитрату аммония"
+accusative = "нитрат аммония"
+instrumental = "нитратом аммония"
+prepositional = "нитрате аммония"
+gender = "male"
+
+["Ammonium nitrate fuel oil"]
+nominative = "топливо из нитрата аммония"
+genitive = "топлива из нитрата аммония"
+dative = "топливу из нитрата аммония"
+accusative = "топливо из нитрата аммония"
+instrumental = "топливом из нитрата аммония"
+prepositional = "топливе из нитрата аммония"
+gender = "neutral"
+
+["Nitroglycerin"]
+nominative = "нитроглицерин"
+genitive = "нитроглицерина"
+dative = "нитроглицерину"
+accusative = "нитроглицерин"
+instrumental = "нитроглицерином"
+prepositional = "нитроглицерине"
+gender = "male"
+
+["Cyclonite"]
+nominative = "циклонит"
+genitive = "циклонита"
+dative = "циклониту"
+accusative = "циклонит"
+instrumental = "циклонитом"
+prepositional = "циклоните"
+gender = "male"
+
+["Octogen"]
+nominative = "октоген"
+genitive = "октогена"
+dative = "октогену"
+accusative = "октоген"
+instrumental = "октогеном"
+prepositional = "октогене"
+gender = "male"
+
+["plasma"]
+nominative = "плазма"
+genitive = "плазмы"
+dative = "плазме"
+accusative = "плазму"
+instrumental = "плазмой"
+prepositional = "плазме"
+gender = "female"
+
+["Pheromone Plasma"]
+nominative = "феромонная плазма"
+genitive = "феромонной плазмы"
+dative = "феромонной плазме"
+accusative = "феромонную плазму"
+instrumental = "феромонной плазмой"
+prepositional = "феромонной плазме"
+gender = "female"
+
+["Chitin Plasma"]
+nominative = "хитиновая плазма"
+genitive = "хитиновой плазмы"
+dative = "хитиновой плазме"
+accusative = "хитиновую плазму"
+instrumental = "хитиновой плазмой"
+prepositional = "хитиновой плазме"
+gender = "female"
+
+["Catecholamine Plasma"]
+nominative = "катехоламиновая плазма"
+genitive = "катехоламиновой плазмы"
+dative = "катехоламиновой плазме"
+accusative = "катехоламиновую плазму"
+instrumental = "катехоламиновой плазмой"
+prepositional = "катехоламиновой плазме"
+gender = "female"
+
+["Egg Plasma"]
+nominative = "плазма яйца"
+genitive = "плазмы яйца"
+dative = "плазме яйца"
+accusative = "плазму яйца"
+instrumental = "плазмой яйца"
+prepositional = "плазме яйца"
+gender = "female"
+
+["Neurotoxin Plasma"]
+nominative = "плазма с нейротоксином"
+genitive = "плазмы с нейротоксином"
+dative = "плазме с нейротоксином"
+accusative = "плазму с нейротоксином"
+instrumental = "плазмой с нейротоксином"
+prepositional = "плазме с нейротоксином"
+gender = "female"
+
+["Anti-Neurotoxin"]
+nominative = "антинейротоксин"
+genitive = "антинейротоксина"
+dative = "антинейротоксину"
+accusative = "антинейротоксин"
+instrumental = "антинейротоксином"
+prepositional = "антинейротоксине"
+gender = "male"
+
+["Purple Plasma"]
+nominative = "фиолетовая плазма"
+genitive = "фиолетовой плазмы"
+dative = "фиолетовой плазме"
+accusative = "фиолетовую плазму"
+instrumental = "фиолетовой плазмой"
+prepositional = "фиолетовой плазме"
+gender = "female"
+
+["Royal Plasma"]
+nominative = "королевская плазма"
+genitive = "королевской плазмы"
+dative = "королевской плазме"
+accusative = "королевскую плазму"
+instrumental = "королевской плазмой"
+prepositional = "королевской плазме"
+gender = "female"
+
+["Fruit Resin"]
+nominative = "фруктовая смола"
+genitive = "фруктовой смолы"
+dative = "фруктовой смоле"
+accusative = "фруктовую смолу"
+instrumental = "фруктовой смолой"
+prepositional = "фруктовой смоле"
+gender = "female"
+
+["Forensic Spray"]
+nominative = "криминалистический спрей"
+genitive = "криминалистического спрея"
+dative = "криминалистическому спрею"
+accusative = "криминалистический спрей"
+instrumental = "криминалистическим спреем"
+prepositional = "криминалистическом спрее"
+gender = "male"
+
