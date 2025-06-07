@@ -1689,3 +1689,21 @@ accusative = "набор специалиста"
 instrumental = "набором специалистом"
 prepositional = "наборе специалисте"
 gender = "male"
+
+["Pressurized canister"]
+nominative = "капсула для реагентов"
+genitive = "капсулы для реагентов"
+dative = "капсуле для реагентов"
+accusative = "капсулу для реагентов"
+instrumental = "капсулой для реагентов"
+prepositional = "капсуле для реагентов"
+gender = "female"
+
+["Medic Autoinjector (M-M)"]
+nominative = "средний медицинский инжектор (15x6)"
+genitive = "среднего медицинского инжектора (15x6)"
+dative = "среднему медицинскому инжектору (15x6)"
+accusative = "средний медицинский инжектор (15x6)"
+instrumental = "средним медицинским инжектором (15x6)"
+prepositional = "среднем медицинском инжекторе (15x6)"
+gender = "male"

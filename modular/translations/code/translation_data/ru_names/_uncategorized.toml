@@ -6913,15 +6913,6 @@ instrumental = "медицинской курьерской сумкой"
 prepositional = "медицинской курьерской сумке"
 gender = "female"
 
-["medical radio headset"]
-nominative = "медицинская гарнитура"
-genitive = "медицинской гарнитуры"
-dative = "медицинской гарнитуре"
-accusative = "медицинскую гарнитуру"
-instrumental = "медицинской гарнитурой"
-prepositional = "медицинской гарнитуре"
-gender = "female"
-
 ["virologist's jumpsuit"]
 nominative = "комбинезон вирусолога"
 genitive = "комбинезона вирусолога"
@@ -7481,15 +7472,6 @@ accusative = "анализатор травм"
 instrumental = "анализатором травм"
 prepositional = "анализаторе травм"
 gender = "male"
-
-["ointment"]
-nominative = "мазь"
-genitive = "мази"
-dative = "мазе"
-accusative = "мазь"
-instrumental = "мазью"
-prepositional = "мазе"
-gender = "female"
 
 ["bone gel"]
 nominative = "костный гель"
@@ -14286,15 +14268,6 @@ accusative = "перчатки капитана"
 instrumental = "перчатками капитана"
 prepositional = "перчатках капитана"
 gender = "plural"
-
-["medal of captaincy"]
-nominative = "медаль капитанства"
-genitive = "медали капитанства"
-dative = "медали капитанства"
-accusative = "медаль капитанства"
-instrumental = "медалью капитанства"
-prepositional = "медали капитанства"
-gender = "female"
 
 ["captain's garment bag"]
 nominative = "сумка для одежды капитана"
