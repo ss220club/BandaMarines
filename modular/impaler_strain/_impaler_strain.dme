@@ -1,0 +1,10 @@
+#include "_impaler_strain.dm"
+
+#include "code/_defines.dm"
+#include "code/abilities.dm"
+#include "code/burrower.dm"
+#include "code/impaler.dm"
+#include "code/macros.dm"
+#include "code/pass_flags.dm"
+#include "code/powers.dm"
+#include "code/spikes.dm"
