@@ -91,6 +91,11 @@ GLOBAL_LIST_INIT(pp_transformables, list(
 	color = "purple"
 	),
 	list(
+	name = XENO_CASTE_BEHEMOTH,
+	key = /mob/living/carbon/xenomorph/behemoth,
+	color = "purple"
+	),
+	list(
 	name = XENO_CASTE_HIVELORD,
 	key = /mob/living/carbon/xenomorph/hivelord,
 	color = "purple"

@@ -195,6 +195,8 @@
 				transformed = M.change_mob_type( /mob/living/carbon/xenomorph/larva , null, null, delmob )
 			if("facehugger")
 				transformed = M.change_mob_type( /mob/living/carbon/xenomorph/facehugger , null, null, delmob )
+			if("behemoth")
+				transformed = M.change_mob_type( /mob/living/carbon/xenomorph/behemoth , null, null, delmob )
 			if("defender")
 				transformed = M.change_mob_type( /mob/living/carbon/xenomorph/defender, null, null, delmob )
 			if("warrior")
