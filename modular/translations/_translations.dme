@@ -7,6 +7,8 @@
 #include "code/ru_ammunition_desc.dm"
 #include "code/ru_weapon_desc.dm"
 #include "code/ru_names/ru_name_base.dm"
+#include "code/ru_names/ru_name_reagents.dm"
+#include "code/ru_names/ru_name_chem_property.dm"
 #include "code/ru_names/ru_vendors.dm"
 #include "code/translate_dirs.dm"
 #include "code/translate_emotes.dm"
