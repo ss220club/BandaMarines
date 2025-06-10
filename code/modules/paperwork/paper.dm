@@ -772,7 +772,7 @@
 				txt += "<BR>Передозировка наступает при превышении [C.overdose] единиц вещества в организме.</font><BR>\n" // SS220 - EDIT ADDITTION
 				icon_state = "paper_wy_full_report"
 			else
-				txt += "<BR>\nВ настоящее время проводятся испытания для определения эффектов воздействия на организм.<BR>\n" // SS220 - EDIT ADDITTION
+				txt += "<BR>\nВ настоящее время проводятся испытания для выявления химических свойств.<BR>\n" // SS220 - EDIT ADDITTION
 			var/is_volatile = FALSE
 			if(C.chemfiresupp)
 				is_volatile = TRUE
