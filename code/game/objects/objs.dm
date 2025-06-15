@@ -105,6 +105,15 @@
 /obj/item/proc/get_examine_line(mob/user)
 	if(blood_color)
 		. = SPAN_WARNING("[icon2html(src, user)] <font color='[blood_color]'>окровавленн[genderize_ru(gender, "ый", "ая", "ое", "ые")]</font> [declent_ru(ACCUSATIVE)]")
+	// SS220 - START ADDITTION
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.w_uniform)
+			var/obj/item/clothing/C = H.w_uniform
+			for(var/obj/item/clothing/accessory/A in C)
+				if(A.worn_accessory_slot == ACCESSORY_SLOT_RANK)
+					. = "[icon2html(src, user)] [declent_ru(INSTRUMENTAL)]"
+	// SS220 - END ADDITTION
 	else
 		. = "[icon2html(src, user)] [declent_ru(ACCUSATIVE)]"
 
