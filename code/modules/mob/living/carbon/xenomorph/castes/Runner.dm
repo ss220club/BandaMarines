@@ -16,7 +16,7 @@
 
 	available_strains = list(/datum/xeno_strain/acider)
 	behavior_delegate_type = /datum/behavior_delegate/runner_base
-	evolves_to = list(XENO_CASTE_LURKER)
+	evolves_to = list(XENO_CASTE_LURKER, XENO_CASTE_BEHEMOTH)
 	deevolves_to = list(XENO_CASTE_LARVA)
 
 	tackle_min = 4
