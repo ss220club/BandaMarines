@@ -6,6 +6,10 @@
  */
 
 const JOBS_RU = {
+  // MARK: Mutiny
+  MUTINY: 'МЯТЕЖНИКИ',
+  LOYALIST: 'ЛОЯЛИСТЫ',
+  'NON-COMBAT': 'НЕКОМБАТАНТЫ',
   // MARK: Squads
   Alpha: 'Альфа',
   Bravo: 'Браво',
@@ -364,6 +368,9 @@ const JOBS_RU = {
 
   // Observer role
   Observer: 'Наблюдатель',
+
+  // Other
+  Infected: 'Зараженные',
 };
 
 export function JobsRu(value: string) {

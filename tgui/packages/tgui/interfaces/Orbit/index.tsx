@@ -218,9 +218,9 @@ const marineSplitter = (members: Array<Observable>) => {
   });
 
   const squads = [
-    buildSquadObservable('MUTINY', 'red', mutineers),
-    buildSquadObservable('LOYALIST', 'blue', loyalists),
-    buildSquadObservable('NON-COMBAT', 'green', nonCombatants),
+    buildSquadObservable(JobsRu('MUTINY'), 'red', mutineers),
+    buildSquadObservable(JobsRu('LOYALIST'), 'blue', loyalists),
+    buildSquadObservable(JobsRu('NON-COMBAT'), 'green', nonCombatants),
     buildSquadObservable(JobsRu('Alpha'), 'red', alphaSquad),
     buildSquadObservable(JobsRu('Bravo'), 'yellow', bravoSquad),
     buildSquadObservable(JobsRu('Charlie'), 'purple', charlieSquad),
@@ -405,6 +405,7 @@ const ObservableContent = () => {
     marines = [],
     survivors = [],
     xenos = [],
+    infected = [],
     ert_members = [],
     upp = [],
     clf = [],
@@ -452,6 +453,11 @@ const ObservableContent = () => {
         color="good"
         section={survivors}
         title={JobsRu('Survivors')}
+      />
+      <ObservableSection
+        color="red"
+        section={infected}
+        title={JobsRu('Infected')}
       />
       <ObservableSection
         color="average"
