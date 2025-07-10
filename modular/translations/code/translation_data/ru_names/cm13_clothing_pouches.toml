@@ -314,19 +314,19 @@ prepositional = "большом подсумок-патронташе для д�
 gender = "male"
 
 ["Pressurized Reagent Canister Pouch (Bicaridine)"] # Unique Vendor Name
-nominative = "подсумок с капсулой для реагентов (Бикаридин)"
+nominative = "подсумок с капсулой для реагентов (Bicaridine)"
 
 ["Pressurized Reagent Canister Pouch (Kelotane)"] # Unique Vendor Name
-nominative = "подсумок с капсулой для реагентов (Келотан)"
+nominative = "подсумок с капсулой для реагентов (Kelotane)"
 
 ["Pressurized Reagent Canister Pouch (Revival Mix - Tricordrazine)"] # Unique Vendor Name
-nominative = "подсумок с капсулой для реагентов (Эпинефрин, Инапровалин, Трикордразин)"
+nominative = "подсумок с капсулой для реагентов (Epinephrine, Inaprovaline, Tricordrazine)"
 
 ["Pressurized Reagent Canister Pouch (Revival Mix - Peridaxon)"] # Unique Vendor Name
-nominative = "подсумок с капсулой для реагентов (Эпинефрин, Инапровалин, Перидаксон)"
+nominative = "подсумок с капсулой для реагентов (Epinephrine, Inaprovaline, Peridaxon)"
 
 ["Pressurized Reagent Canister Pouch (Tricordrazine)"] # Unique Vendor Name
-nominative = "подсумок с капсулой для реагентов (Трикордразин)"
+nominative = "подсумок с капсулой для реагентов (Tricordrazine)"
 
 ["Pressurized Reagent Canister Pouch (EMPTY)"] # Unique Vendor Name
 nominative = "подсумок с капсулой для реагентов (Пустой)"

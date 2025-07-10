@@ -391,7 +391,7 @@
 /datum/reagent/proc/generate_description()
 	var/info
 	for(var/datum/chem_property/P in properties)
-		info += "<BR><B>[capitalize(P.declent_ru())] (Уровень [P.level])</B> - [P.description]<BR>" // SS220 - EDIT ADDITTION
+		info += "<BR><B>[capitalize(P.name)] (Уровень [P.level])</B> - [P.description]<BR>" // SS220 - EDIT ADDITTION
 		if(P == PROPERTY_HYPERTHERMIC)
 			info += "<I>ПРЕДУПРЕЖДЕНИЕ: Смешивание слишком большого количества за раз может привести к возгоранию! Остерегайтесь смешивать больше, чем порог передозировки!</I>" // SS220 - EDIT ADDITTION
 		else if(P == PROPERTY_EXPLOSIVE)

@@ -199,9 +199,10 @@
 
 			pretty_amount = round(reagent_amount, 0.05)
 
+			// SS220 - START ADDITTION
 			chemicals.Add(list(list(
-				"title" = capitalize(declent_ru_initial(temp.name, NOMINATIVE, temp.name)), // SS220 - EDIT ADDITTION
-				"title_genitive" = capitalize(declent_ru_initial(temp.name, GENITIVE, temp.name)), // SS220 - EDIT ADDITTION
+				"title" = capitalize(declent_ru_initial(temp.name, NOMINATIVE, temp.name)),
+				"title_genitive" = capitalize(declent_ru_initial(temp.name, GENITIVE, temp.name)),
 				"id" = temp.id,
 				"commands" = list("chemical" = temp.id),
 				"occ_amount" = reagent_amount,
@@ -210,6 +211,7 @@
 				"overdosing" = overdosing,
 				"od_warning" = caution
 			)))
+    		// SS220 - END ADDITTION
 	data["chemicals"] = chemicals
 	return data
 

@@ -756,17 +756,16 @@
 			txt += "[name] </H2></center>"
 			txt += "В ходе эксперимента <I>[pick("C","Q","V","W","X","Y","Z")][rand(100,999)][pick("a","b","c")]</I> химическое соединение, получившее название «[C.name]», было успешно синтезировано по ниже указанной формуле:<BR>\n<BR>\n" // SS220 - EDIT ADDITTION
 
-			world.log = file("[GLOB.log_directory]/TEST.log")
 			for(var/I in G.required_reagents)
 				var/datum/reagent/R = GLOB.chemical_reagents_list["[I]"]
 				var/U = G.required_reagents[I]
-				txt += "<font size = \"2\"><I> - [U] [R.declent_ru()]</I></font><BR>\n" // SS220 - EDIT ADDITTION
+				txt += "<font size = \"2\"><I> - [U] [R.name]</I></font><BR>\n" // SS220 - EDIT ADDITTION
 			if(LAZYLEN(G.required_catalysts))
 				txt += "<BR>\nИспользуемые катализаторы: <BR>\n<BR>\n" // SS220 - EDIT ADDITTION
 				for(var/I in G.required_catalysts)
 					var/datum/reagent/R = GLOB.chemical_reagents_list["[I]"]
 					var/U = G.required_catalysts[I]
-					txt += "<font size = \"2\"><I> - [U] [R.declent_ru()]</I></font><BR>\n" // SS220 - EDIT ADDITTION
+					txt += "<font size = \"2\"><I> - [U] [R.name]</I></font><BR>\n" // SS220 - EDIT ADDITTION
 			if(full_report)
 				txt += "<BR>Вещество оказывает следующие эффекты воздействия на организм:<BR><font size = \"2.5\">[C.description]\n" // SS220 - EDIT ADDITTION
 				txt += "<BR>Передозировка наступает при превышении [C.overdose] единиц вещества в организме.</font><BR>\n" // SS220 - EDIT ADDITTION
