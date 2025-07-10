@@ -250,7 +250,7 @@ const Patient = (props) => {
                   onClick={() => act('change_holo_card')}
                   backgroundColor="rgba(255, 255, 255, .05)"
                 >
-                  Change
+                  Изменить
                 </Box>
               </Stack.Item>
               <Stack.Item>
@@ -353,7 +353,7 @@ const Patient = (props) => {
           </LabeledList.Item>
           <LabeledList.Item label="Медголокарта">
             <NoticeBox color={holocard_color} inline>
-              {holocard ?? 'Нет данных'}
+              {holocard ? holocard : 'Нет данных'}
             </NoticeBox>
 
             <Button
