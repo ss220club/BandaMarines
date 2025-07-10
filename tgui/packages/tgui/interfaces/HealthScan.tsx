@@ -237,7 +237,11 @@ const Patient = (props) => {
               <Stack.Item>Медголокарта:</Stack.Item>
               {holocard ? (
                 <Stack.Item>
-                  <ColorBox color={holocard_color} />
+                  {holocard_color ? (
+                    <ColorBox color={holocard_color} />
+                  ) : (
+                    <Icon name="x" />
+                  )}
                 </Stack.Item>
               ) : (
                 <Stack.Item>
