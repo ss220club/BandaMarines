@@ -199,19 +199,7 @@
 
 			pretty_amount = round(reagent_amount, 0.05)
 
-			// SS220 - START ADDITTION
-			chemicals.Add(list(list(
-				"title" = capitalize(declent_ru_initial(temp.name, NOMINATIVE, temp.name)),
-				"title_genitive" = capitalize(declent_ru_initial(temp.name, GENITIVE, temp.name)),
-				"id" = temp.id,
-				"commands" = list("chemical" = temp.id),
-				"occ_amount" = reagent_amount,
-				"pretty_amount" = pretty_amount,
-				"injectable" = injectable,
-				"overdosing" = overdosing,
-				"od_warning" = caution
-			)))
-    		// SS220 - END ADDITTION
+			chemicals.Add(list(list("title" = temp.name, "id" = temp.id, "commands" = list("chemical" = temp.id), "occ_amount" = reagent_amount, "pretty_amount" = pretty_amount, "injectable" = injectable, "overdosing" = overdosing, "od_warning" = caution)))
 	data["chemicals"] = chemicals
 	return data
 

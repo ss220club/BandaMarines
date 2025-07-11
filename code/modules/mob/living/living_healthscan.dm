@@ -123,7 +123,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 				data["has_unknown_chemicals"] = TRUE
 				continue
 			chemicals_lists["[reagent.id]"] = list(
-				"name" = capitalize(reagent.declent_ru(GENITIVE)), // SS220 - EDIT ADDITTION
+				"name" = reagent.name,
 				"amount" = round(reagent.volume, 0.1),
 				"od" = reagent.overdose != 0 && reagent.volume > reagent.overdose && !(reagent.flags & REAGENT_CANNOT_OVERDOSE),
 				"dangerous" = reagent.overdose != 0 && reagent.volume > reagent.overdose && !(reagent.flags & REAGENT_CANNOT_OVERDOSE) || istype(reagent, /datum/reagent/toxin),

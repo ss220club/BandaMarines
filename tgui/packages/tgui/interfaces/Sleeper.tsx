@@ -72,7 +72,6 @@ type OccupantData = {
 
 type ChemicalData = {
   title: string;
-  title_genitive: string;
   id: string;
   commands: { chemical: string };
   occ_amount: number;
@@ -312,7 +311,7 @@ const SleeperChemicals = (props) => {
                       'Ввести ' +
                       a +
                       ' ед. ' +
-                      chem.title_genitive +
+                      chem.title +
                       ' пациенту'
                     }
                     mb="0"
