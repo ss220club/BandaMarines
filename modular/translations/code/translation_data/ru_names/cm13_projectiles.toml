@@ -442,3 +442,48 @@ accusative = "ракету (84мм Фосфорную)"
 instrumental = "ракетой (84мм Фосфорной)"
 prepositional = "ракете (84мм Фосфорной)"
 gender = "female"
+
+["P9 SHARP explosive dart"]
+nominative = "дротик 9X-E (Осколочный)"
+genitive = "дротика 9X-E (Осколочный)"
+dative = "дротику 9X-E (Осколочный)"
+accusative = "дротик 9X-E (Осколочный)"
+instrumental = "дротиком 9X-E (Осколочный)"
+prepositional = "дротике 9X-E (Осколочный)"
+gender = "male"
+
+["P9 SHARP incendiary dart"]
+nominative = "дротик 9X-T (Зажигательный)"
+genitive = "дротика 9X-T (Зажигательный)"
+dative = "дротику 9X-T (Зажигательный)"
+accusative = "дротик 9X-T (Зажигательный)"
+instrumental = "дротиком 9X-T (Зажигательный)"
+prepositional = "дротике 9X-T (Зажигательный)"
+gender = "male"
+
+["handful of 9X-T sticky incendiary darts (Dart)"]
+nominative = "дротики 9X-T (Зажигательные)"
+genitive = "дротиков 9X-T (Зажигательные)"
+dative = "дротикам 9X-T (Зажигательные)"
+accusative = "дротики 9X-T (Зажигательные)"
+instrumental = "дротиками 9X-T (Зажигательные)"
+prepositional = "дротиках 9X-T (Зажигательные)"
+gender = "plural"
+
+["handful of 9X-E sticky explosive darts (Dart)"]
+nominative = "дротики 9X-E (Осколочные)"
+genitive = "дротиков 9X-E (Осколочные)"
+dative = "дротикам 9X-E (Осколочные)"
+accusative = "дротики 9X-E (Осколочные)"
+instrumental = "дротиками 9X-E (Осколочные)"
+prepositional = "дротиках 9X-E (Осколочные)"
+gender = "plural"
+
+["handful of 9X-F flechette darts (Dart)"]
+nominative = "дротики 9X-F (Флешетты)"
+genitive = "дротиков 9X-F (Флешетты)"
+dative = "дротикам 9X-F (Флешетты)"
+accusative = "дротики 9X-F (Флешетты)"
+instrumental = "дротиками 9X-F (Флешетты)"
+prepositional = "дротиках 9X-F (Флешетты)"
+gender = "plural"

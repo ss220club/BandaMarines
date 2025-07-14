@@ -60,10 +60,10 @@ nominative = "ВООРУЖЕНИЕ С ОГРАНИЧЕННЫМ ДОСТУПОМ"
 nominative = "БОЕПРИПАСЫ С ОГРАНИЧЕННЫМ ДОСТУПОМ"
 
 ["AMMUNITION BOXES"]
-nominative = "ЯЩИКИ С БОЕПРИПАСАМИ"
+nominative = "КОРОБКИ С БОЕПРИПАСАМИ"
 
 ["MAGAZINE BOXES"]
-nominative = "ЯЩИКИ С БОЕПРИПАСАМИ"
+nominative = "КОРОБКИ С БОЕПРИПАСАМИ"
 
 ["EXPLOSIVES"]
 nominative = "ВЗРЫВЧАТЫЕ ВЕЩЕСТВА"
@@ -344,10 +344,10 @@ nominative = "перчатки солдата"
 nominative = "стандартная экипировка морпеха"
 
 ["Essential Engineer Set"]
-nominative = "обязательный инженерный набор"
+nominative = "стандартный инженерный набор"
 
 ["Essential Medical Set"]
-nominative = "обязательный медицинский набор"
+nominative = "стандартный медицинский набор"
 
 # MARK: base
 

@@ -560,7 +560,7 @@ genitive = "очков ЗОД морпеха"
 dative = "очкам ЗОД морпеха"
 accusative = "очки ЗОД морпеха"
 instrumental = "очками ЗОД морпеха"
-prepositional = "очках ЗОДморпеха"
+prepositional = "очках ЗОД морпеха"
 gender = "plural"
 
 ["W-Y brand rechargeable mini-battery"] # Unique Vendor Name

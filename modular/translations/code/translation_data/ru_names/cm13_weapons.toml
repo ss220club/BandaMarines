@@ -387,3 +387,12 @@ accusative = "антиматериальную снайперскую винто
 instrumental = "антиматериальной снайперской винтовкой XM43E1"
 prepositional = "антиматериальной снайперской винтовке XM43E1"
 gender = "female"
+
+["P9 SHARP rifle"]
+nominative = "гранатомёт P9 «Шарп»"
+genitive = "гранатомёта P9 «Шарп»"
+dative = "гранатомёту P9 «Шарп»"
+accusative = "гранатомёт P9 «Шарп»"
+instrumental = "гранатомётом P9 «Шарп»"
+prepositional = "гранатомёте P9 «Шарп»"
+gender = "male"

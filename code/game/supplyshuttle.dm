@@ -149,8 +149,8 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "SupplyComputer")
-		ui.set_autoupdate(FALSE)
+		ui = new(user, src, "SupplyComputer", capitalize(declent_ru()))
+		//ui.set_autoupdate(FALSE)
 		ui.open()
 
 /obj/structure/machinery/computer/supply/ui_data(mob/user)
@@ -170,23 +170,23 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 		.["current_order"] += list(list_pack)
 
 	var/datum/shuttle/ferry/supply/shuttle = linked_supply_controller.shuttle
-	.["shuttle_status"] = "lowered"
+	.["shuttle_status"] = "Поднять лифт" // SS220 EDIT ADDITTION
 	if (shuttle.has_arrive_time())
-		.["shuttle_status"] = "moving"
+		.["shuttle_status"] = "Движется" // SS220 EDIT ADDITTION
 		return
 
 	if (shuttle.at_station() )
-		.["shuttle_status"] = "raised"
+		.["shuttle_status"] = "Опустить лифт" // SS220 EDIT ADDITTION
 
 		switch(shuttle.docking_controller?.get_docking_status())
 			if ("docked")
-				.["shuttle_status"] = "raised"
+				.["shuttle_status"] = "поднять" // SS220 EDIT ADDITTION
 			if ("undocked")
-				.["shuttle_status"] = "lowered"
+				.["shuttle_status"] = "опустить" // SS220 EDIT ADDITTION
 			if ("docking")
-				.["shuttle_status"] = "raising"
+				.["shuttle_status"] = "поднимается" // SS220 EDIT ADDITTION
 			if ("undocking")
-				.["shuttle_status"] = "lowering"
+				.["shuttle_status"] = "опускается" // SS220 EDIT ADDITTION
 
 /obj/structure/machinery/computer/supply/ui_static_data(mob/user)
 	. = ..()
@@ -210,7 +210,7 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 			continue
 
 		if(!pack.contraband && length(pack.group))
-			.["valid_categories"] |= pack.group
+			.["valid_categories"] |= linked_supply_controller.translated_all_supply_groups[pack.group] || pack.group // SS220 EDIT ADDITTION
 
 		var/list_pack = pack.get_list_representation()
 
@@ -778,6 +778,29 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 		"Reagent tanks",
 		)
 
+	// SS220 - START ADDITTION
+	var/list/translated_all_supply_groups = list(
+		"Operations" = "Операции",
+		"Weapons" = "Вооружение",
+		"Vehicle Ammo" = "Боеприпасы для транспорта",
+		"Vehicle Equipment" = "Оборудование для транспорта",
+		"Attachments" = "Обвесы",
+		"Ammo" = "Стандартные боеприпасы",
+		"Weapons Specialist Ammo" = "Боеприпасы специалистов",
+		"Restricted Equipment" = "Экипировка с ограниченным доступом",
+		"Clothing" = "Одежда",
+		"Medical" = "Медицина",
+		"Engineering" = "Инженерное оборудование",
+		"Research" = "Исследовательское оборудование",
+		"Supplies" = "Снабжение",
+		"Food" = "Еда",
+		"Gear" = "Снаряжение",
+		"Mortar" = "Стройматериалы",
+		"Explosives" = "Взрывчатые вещества",
+		"Reagent tanks" = "Ёмкости для реагентов",
+	)
+	// SS220 - END ADDITTION
+
 	var/list/contraband_supply_groups = list(
 		"Seized Items",
 		"Shipside Contraband",
@@ -1175,7 +1198,7 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 				return TRUE
 
 			linked_supply_controller.requestlist += supply_order
-			system_message = "Unable to purchase order, order has been placed in Requests."
+			system_message = "Не удалось добавить заказ, он был перемещен во вкладку «Запросы»." // SS220 EDIT ADDITTION
 			return TRUE
 
 		if("change_order")
@@ -1201,7 +1224,7 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 					if(order.buy(src))
 						return TRUE
 
-					system_message = "Unable to approve order, order remains in Requests."
+					system_message = "Не удалось принять заказ, он останется во вкладке «Запросы»."// SS220 EDIT ADDITTION
 					return TRUE
 				if("deny")
 					linked_supply_controller.requestlist -= order
