@@ -255,21 +255,21 @@ prepositional = "пулях для револьверов (.44)"
 gender = "plural"
 
 ["handful of heavy revolver bullets (.44)"]
-nominative = "пули для револьверов (.44 FMJ)"
-genitive = "пуль для револьверов (.44 FMJ)"
-dative = "пулям для револьверов (.44 FMJ)"
-accusative = "пули для револьверов (.44 FMJ)"
-instrumental = "пулями для револьверов (.44 FMJ)"
-prepositional = "пулях для револьверов (.44 FMJ)"
+nominative = "пули для револьверов (.44 Heavy)"
+genitive = "пуль для револьверов (.44 Heavy)"
+dative = "пулям для револьверов (.44 Heavy)"
+accusative = "пули для револьверов (.44 Heavy)"
+instrumental = "пулями для револьверов (.44 Heavy)"
+prepositional = "пулях для револьверов (.44 Heavy)"
 gender = "plural"
 
 ["handful of marksman revolver bullets (.44)"]
-nominative = "пули для револьверов (.44 SSA)"
-genitive = "пуль для револьверов (.44 SSA)"
-dative = "пулям для револьверов (.44 SSA)"
-accusative = "пули для револьверов (.44 SSA)"
-instrumental = "пулями для револьверов (.44 SSA)"
-prepositional = "пулях для револьверов (.44 SSA)"
+nominative = "пули для револьверов (.44 Marksman)"
+genitive = "пуль для револьверов (.44 Marksman)"
+dative = "пулям для револьверов (.44 Marksman)"
+accusative = "пули для револьверов (.44 Marksman)"
+instrumental = "пулями для револьверов (.44 Marksman)"
+prepositional = "пулях для револьверов (.44 Marksman)"
 gender = "plural"
 
 ["handful of smartpistol bullets (.45)"]
@@ -405,6 +405,24 @@ dative = "крупнокалиберным снайперским пулям (10
 accusative = "крупнокалиберные снайперские пули (10x99мм)"
 instrumental = "крупнокалиберными снайперскими пулями (10x99мм)"
 prepositional = "крупнокалиберных снайперских пулях (10x99мм)"
+gender = "female"
+
+["handful of anti-materiel sniper bullets (20x102mm)"]
+nominative = "крупнокалиберные снайперские пули (20x102мм)"
+genitive = "крупнокалиберных снайперских пуль (20x102мм)"
+dative = "крупнокалиберным снайперским пулям (20x102мм)"
+accusative = "крупнокалиберные снайперские пули (20x102мм)"
+instrumental = "крупнокалиберными снайперскими пулями (20x102мм)"
+prepositional = "крупнокалиберных снайперских пулях (20x102мм)"
+gender = "female"
+
+["handful of holo-targeting anti-materiel sniper bullets (20x102mm)"]
+nominative = "крупнокалиберные снайперские пули (20x102мм Holo-Target)"
+genitive = "крупнокалиберных снайперских пуль (20x102мм Holo-Target)"
+dative = "крупнокалиберным снайперским пулям (20x102мм Holo-Target)"
+accusative = "крупнокалиберные снайперские пули (20x102мм Holo-Target)"
+instrumental = "крупнокалиберными снайперскими пулями (20x102мм Holo-Target)"
+prepositional = "крупнокалиберных снайперских пулях (20x102мм Holo-Target)"
 gender = "female"
 
 ["84mm High-Explosive Rocket"] # Unique Vendor Name

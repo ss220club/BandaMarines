@@ -726,7 +726,7 @@ gender = "male"
 ["Metal x10"] # Unique Vendor Name
 nominative = "листы металла x 10"
 
-["metal sheet"]
+["metal sheets"]
 nominative = "лист металла"
 genitive = "листа металла"
 dative = "листу металла"

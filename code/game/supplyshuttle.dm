@@ -1224,7 +1224,7 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 					if(order.buy(src))
 						return TRUE
 
-					system_message = "Не удалось принять заказ, он останется во вкладке «Запросы»."// SS220 EDIT ADDITTION
+					system_message = "Не удалось принять заказ, он останется во вкладке «Запросы»." // SS220 EDIT ADDITTION
 					return TRUE
 				if("deny")
 					linked_supply_controller.requestlist -= order
@@ -1237,7 +1237,7 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 
 			if(shuttle.at_station())
 				if (shuttle.forbidden_atoms_check())
-					system_message = "For safety reasons, the Automated Storage and Retrieval System cannot store live organisms, classified nuclear weaponry or homing beacons."
+					system_message = "По соображениям безопасности АСРС не может позволить вам оставить на лифте живые организмы, ядерное оружие или маяки." // SS220 EDIT ADDITTION
 					return TRUE
 				shuttle.launch(src)
 				return TRUE

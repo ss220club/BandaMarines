@@ -3172,15 +3172,6 @@ instrumental = "тройным дистиллятом Тунгуски"
 prepositional = "тройном дистилляте Тунгуски"
 gender = "male"
 
-["Uncle Git's special reserve"]
-nominative = "специальный резерв Дяди Гита"
-genitive = "специального резерва Дяди Гита"
-dative = "специальному резерву Дяди Гита"
-accusative = "специальный резерв Дяди Гита"
-instrumental = "специальным резервом Дяди Гита"
-prepositional = "специальном резерве Дяди Гита"
-gender = "male"
-
 ["Breezy Shoals Coconut Rum"]
 nominative = "кокосовый ром Бриззи Шоулс"
 genitive = "кокосового рома Бриззи Шоулс"
@@ -5042,16 +5033,6 @@ accusative = "бутылку селитры"
 instrumental = "бутылкой селитры"
 prepositional = "бутылке селитры"
 gender = "female"
-
-# MARK: Plants
-["banana"]
-nominative = "банан"
-genitive = "банана"
-dative = "банану"
-accusative = "банан"
-instrumental = "бананом"
-prepositional = "банане"
-gender = "male"
 
 # MARK: Curator
 ["four-color pen"]

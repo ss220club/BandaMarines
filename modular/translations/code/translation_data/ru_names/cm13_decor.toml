@@ -424,6 +424,15 @@ instrumental = "баком для реагентов"
 prepositional = "баке для реагентов"
 gender = "male"
 
+["fueltank"]
+nominative = "бак для топлива"
+genitive = "бака для топлива"
+dative = "баку для топлива"
+accusative = "бак для топлива"
+instrumental = "баком для топлива"
+prepositional = "баке для топлива"
+gender = "male"
+
 ["trash cart"]
 nominative = "тележка для мусора"
 genitive = "тележки для мусора"

@@ -165,6 +165,33 @@ instrumental = "сошками"
 prepositional = "сошках"
 gender = "plural"
 
+["M707 spotter scope"]
+nominative = "зрительная труба M707"
+genitive = "зрительной трубы M707"
+dative = "зрительной трубе M707"
+accusative = "зрительную трубу M707"
+instrumental = "зрительной трубой M707"
+prepositional = "зрительной трубе M707"
+gender = "female"
+
+["M707 spotting tripod"]
+nominative = "разложенная опора для зрительной трубы M707"
+genitive = "разложенной опоры для зрительной трубы M707"
+dative = "разложенной опоре для зрительной трубы M707"
+accusative = "разложенную опору для зрительной трубы M707"
+instrumental = "разложенной опорой для зрительной трубы M707"
+prepositional = "разложенной опоре для зрительной трубы M707"
+gender = "female"
+
+["M707 spotter tripod"]
+nominative = "сложенная опора для зрительной трубы M707"
+genitive = "сложенной опоры для зрительной трубы M707"
+dative = "сложенной опоре для зрительной трубы M707"
+accusative = "сложенную опору для зрительной трубы M707"
+instrumental = "сложенной опорой для зрительной трубы M707"
+prepositional = "сложенной опоре для зрительной трубы M707"
+gender = "female"
+
 ["gyroscopic stabilizer"]
 nominative = "гироскопический стабилизатор"
 genitive = "гироскопического стабилизатора"
@@ -368,17 +395,26 @@ instrumental = "топливным резервуаром для M240 (B-Gel)"
 prepositional = "топливном резервуаре для M240 (B-Gel)"
 gender = "male"
 
+["M240-T Mixed Fuel Tank Crate (extended x1, type-B x1, type-X x1)"] # Unique Vendor Na
+nominative = "ящик для топливных резервуаров к M240-T (UT-Napthal x 1, В-Gel x 1, Х-Gel x 1)"
+
+["M240-T Extended Fuel Tank Crate (extended x3)"] # Unique Vendor Na
+nominative = "ящик для топливных резервуаров к M240-T (UT-Napthal x 3)"
+
 ["Large Incinerator Tank"] # Unique Vendor Name
-nominative = "топливный резервуар для M240-T"
+nominative = "топливный резервуар для M240-T (UT-Napthal)"
 
 ["M240 large incinerator tank"]
-nominative = "топливный резервуар для M240-T"
-genitive = "топливного резервуара для M240-T"
-dative = "топливному резервуару для M240-T"
-accusative = "топливный резервуар для M240-T"
-instrumental = "топливным резервуаром для M240-T"
-prepositional = "топливном резервуаре для M240-T"
+nominative = "топливный резервуар для M240-T (UT-Napthal)"
+genitive = "топливного резервуара для M240-T (UT-Napthal)"
+dative = "топливному резервуару для M240-T (UT-Napthal)"
+accusative = "топливный резервуар для M240-T (UT-Napthal)"
+instrumental = "топливным резервуаром для M240-T (UT-Napthal)"
+prepositional = "топливном резервуаре для M240-T (UT-Napthal)"
 gender = "male"
+
+["M240-T Type-B Fuel Tank Crate (x1)"] # Unique Vendor Na
+nominative = "ящик для топливных резервуаров к M240-T (В-Gel x 1)"
 
 ["Large Incinerator Tank (B) (Green Flame)"] # Unique Vendor Name
 nominative = "топливный резервуар для M240-T (В-Gel)"
@@ -391,6 +427,9 @@ accusative = "топливный резервуар для M240-T (В-Gel)"
 instrumental = "топливным резервуаром для M240-T (В-Gel)"
 prepositional = "топливном резервуаре для M240-T (В-Gel)"
 gender = "male"
+
+["M240-T Type-X Fuel Tank Crate (x1)"] # Unique Vendor Na
+nominative = "ящик для топливных резервуаров к M240-T (Х-Gel x 1)"
 
 ["Large Incinerator Tank (X) (Blue Flame)"] # Unique Vendor Name
 nominative = "топливный резервуар для M240-T (Х-Gel)"
@@ -929,6 +968,36 @@ instrumental = "магазином для XM43E1 (10x99мм)"
 prepositional = "магазине для XM43E1 (10x99мм)"
 gender = "male"
 
+["M707 Anti-Materiel Rifle ammo crate"] # Unique Vendor Name
+nominative = "ящик для магазинов (M707 x 1)"
+
+["M707 \"Vulture\" magazine (20x102mm)"]
+nominative = "магазин для M707 «Стервятник» (20x102мм)"
+genitive = "магазина для M707 «Стервятник» (20x102мм)"
+dative = "магазину для M707 «Стервятник» (20x102мм)"
+accusative = "магазин для M707 «Стервятник» (20x102мм)"
+instrumental = "магазином для M707 «Стервятник» (20x102мм)"
+prepositional = "магазине для M707 «Стервятник» (20x102мм)"
+gender = "male"
+
+["M707 Anti-Materiel Rifle holo target ammo crate"] # Unique Vendor Name
+nominative = "ящик для магазинов (M707 Holo-Target x 1)"
+
+["M707 \"Vulture\" holo-target magazine (20x102mm)"]
+nominative = "магазин для M707 «Стервятник» (20x102мм Holo-Target)"
+genitive = "магазина для M707 «Стервятник» (20x102мм Holo-Target)"
+dative = "магазину для M707 «Стервятник» (20x102мм Holo-Target)"
+accusative = "магазин для M707 «Стервятник» (20x102мм Holo-Target)"
+instrumental = "магазином для M707 «Стервятник» (20x102мм Holo-Target)"
+prepositional = "магазине для M707 «Стервятник» (20x102мм Holo-Target)"
+gender = "male"
+
+["SHARP Operator Mixed Magazine Crate (explosive x2, flechette x2, incendiary x2)"] # Unique Vendor Name
+nominative = "ящик для дротиковых картриджей к P9 «Шарп» (9X-E Осколочные x 2, 9X-F Флешетты x 2, 9X-T Зажигательные x 2)"
+
+["SHARP Operator Explosive Magazine Crate (x5)"] # Unique Vendor Name
+nominative = "ящик для дротиковых картриджей к P9 «Шарп» (9X-E Осколочные x 5)"
+
 ["9X-E sticky explosive dart magazine"]
 nominative = "дротиковый картридж для P9 «Шарп» (9X-E Осколочные)"
 genitive = "дротикового картриджа для P9 «Шарп» (9X-E Осколочные)"
@@ -938,6 +1007,9 @@ instrumental = "дротиковым картриджем для P9 «Шарп»
 prepositional = "дротиковом картридже для P9 «Шарп» (9X-E Осколочные)"
 gender = "male"
 
+["SHARP Operator incendiary Magazine Crate (x5)"] # Unique Vendor Name
+nominative = "ящик для дротиковых картриджей к P9 «Шарп» (9X-E Зажигательные x 5)"
+
 ["9X-T sticky incendiary dart magazine"]
 nominative = "дротиковый картридж для P9 «Шарп» (9X-T Зажигательные)"
 genitive = "дротикового картриджа для P9 «Шарп» (9X-T Зажигательные)"
@@ -946,6 +1018,9 @@ accusative = "дротиковый картридж для P9 «Шарп» (9X-T
 instrumental = "дротиковым картриджем для P9 «Шарп» (9X-T Зажигательные)"
 prepositional = "дротиковом картридже для P9 «Шарп» (9X-T Зажигательные)"
 gender = "male"
+
+["SHARP Operator Flechette Magazine Crate (x5)"] # Unique Vendor Name
+nominative = "ящик для дротиковых картриджей к P9 «Шарп» (9X-E Флешетты x 5)"
 
 ["9X-F flechette dart magazine"]
 nominative = "дротиковый картридж для P9 «Шарп» (9X-F Флешетты)"
@@ -1534,7 +1609,7 @@ instrumental = "коробкой для магазинов (M4RA AP x 16)"
 prepositional = "коробке для магазинов (M4RA AP x 16)"
 gender = "male"
 
-["Magazine box (M4RA, 16x AP mags)"] # Unique Vendor Name
+["Magazine box (M4RA, 12x extended mags)"] # Unique Vendor Name
 nominative = "ящик для коробок с магазинами (M4RA Расширенные x 16)"
 
 ["Magazine Box (Ext M4RA x 16)"] # Unique Vendor Name
@@ -1837,15 +1912,6 @@ instrumental = "коробкой для патронов (10x24мм AP)"
 prepositional = "коробке для патронов (10x24мм AP)"
 gender = "female"
 
-["rifle ammunition box (10x24mm AP)"]
-nominative = "коробка для патронов (10x24мм AP)"
-genitive = "коробки для патронов (10x24мм AP)"
-dative = "коробке для патронов (10x24мм AP)"
-accusative = "коробку для патронов (10x24мм AP)"
-instrumental = "коробкой для патронов (10x24мм AP)"
-prepositional = "коробке для патронов (10x24мм AP)"
-gender = "female"
-
 ["UA 12-G sentry shotgun ammunition (x2)"] # Unique Vendor Name
 nominative = "ящик для патронных коробов (СА 12-G x 2)"
 
@@ -1916,7 +1982,7 @@ nominative = "ящик для топливных резервуаров (B-Gel x
 nominative = "ящик для топливных резервуаров (UT-Napthal x 2, B-Gel x 2)"
 
 ["Surplus ammo crate (various USCM magazines x10)"] # Unique Vendor Name
-nominative = "ящик для боеприпасов (Стандарт+)"
+nominative = "ящик для боеприпасов ККМП (Обеспечение)"
 
 ["M5 RPG Rocket Crate (HE x1, AP x1, WP x1)"] # Unique Vendor Name
 nominative = "ящик для ракет к РПГ M5 (Осколочные x 1, Бронебойные x 1, Фосфорные x 1)"
@@ -2066,4 +2132,157 @@ dative = "среднему медицинскому инжектору (15x6)"
 accusative = "средний медицинский инжектор (15x6)"
 instrumental = "средним медицинским инжектором (15x6)"
 prepositional = "среднем медицинском инжекторе (15x6)"
+gender = "male"
+
+["TOW Launcher magazines (x3)"] # Unique Vendor Name
+nominative = "ящик для зарядов к пусковой установке (TOW x 3)"
+
+["TOW Launcher Magazine"]
+nominative = "заряды для пусковой установки TOW"
+genitive = "зарядов для пусковой установки TOW"
+dative = "зарядам для пусковой установки TOW"
+accusative = "заряды для пусковой установки TOW"
+instrumental = "зарядами для пусковой установки TOW"
+prepositional = "зарядах для пусковой установки TOW"
+gender = "male"
+
+["TOW Launcher"]
+nominative = "пусковая установка TOW"
+genitive = "пусковой установки TOW"
+dative = "пусковой установке TOW"
+accusative = "пусковую установку TOW"
+instrumental = "пусковой установкой TOW"
+prepositional = "пусковой установке TOW"
+gender = "female"
+
+["M34A2-A Multipurpose Turret smoke screen magazines (x4)"] # Unique Vendor Name
+nominative = "ящик для дымовых зарядов к многоцелевой пушке (M34A2-A x 4)"
+
+["Turret Smoke Screen Magazine"]
+nominative = "дымовые заряды для многоцелевой пушки M34A2-A"
+genitive = "дымовых зарядов для многоцелевой пушки M34A2-A"
+dative = "дымовым зарядам для многоцелевой пушки M34A2-A"
+accusative = "дымовые заряды для многоцелевой пушки M34A2-A"
+instrumental = "дымовыми зарядами для многоцелевой пушки M34A2-A"
+prepositional = "дымовых зарядах для многоцелевой пушки M34A2-A"
+gender = "male"
+
+["M34A2-A Multipurpose Turret smoke screen magazines (x4)"] # Unique Vendor Name
+nominative = "ящик для зарядов к осветительной системе (M-87F x 4)"
+
+["M-87F Flare Launcher Magazine"]
+nominative = "заряды для осветительной системы M-87F"
+genitive = "зарядов для осветительной системы M-87F"
+dative = "зарядам для осветительной системы M-87F"
+accusative = "заряды для осветительной системы M-87F"
+instrumental = "зарядами для осветительной системы M-87F"
+prepositional = "зарядах для осветительной системы M-87F"
+gender = "male"
+
+["LTB Cannon magazines (x3)"] # Unique Vendor Name
+nominative = "ящик для снарядов к пушке (LTB x 3)"
+
+["LTB Cannon Magazine"]
+nominative = "снаряды для пушки LTB"
+genitive = "снарядов для пушки LTB"
+dative = "снарядам для пушки LTB"
+accusative = "снаряды для пушки LTB"
+instrumental = "снарядами для пушки LTB"
+prepositional = "снарядах для пушки LTB"
+gender = "male"
+
+["LTAA-AP Minigun magazines (x3)"] # Unique Vendor Name
+nominative = "ящик для патронных коробов к минигану (LTAA-AP x 3)"
+
+["LTAA-AP Minigun Magazine"]
+nominative = "патронный короб для минигана LTAA-AP"
+genitive = "патронного короба для минигана LTAA-AP"
+dative = "патронному коробу для минигана LTAA-AP"
+accusative = "патронный короб для минигана LTAA-AP"
+instrumental = "патронным коробом для минигана LTAA-AP"
+prepositional = "патронном коробе для минигана LTAA-AP"
+gender = "male"
+
+["AC3-E Autocannon magazines (x5)"] # Unique Vendor Name
+nominative = "ящик для патронных коробов к автоматической турели (AC3-E x 5)"
+
+["AC3-E Autocannon Magazine"]
+nominative = "патронный короб для автоматической турели AC3-E"
+genitive = "патронного короба для автоматической турели AC3-E"
+dative = "патронному коробу для автоматической турели AC3-E"
+accusative = "патронный короб для автоматической турели AC3-E"
+instrumental = "патронным коробом для автоматической турели AC3-E"
+prepositional = "патронном коробе для автоматической турели AC3-E"
+gender = "male"
+
+["PARS-159 Boyars Dualcannon magazines (x5)"] # Unique Vendor Name
+nominative = "ящик для патронных коробов к двуствольной турели (PARS-159 x 5)"
+
+["PARS-159 Dualcannon IFF Magazine"]
+nominative = "патронный короб для двуствольной турели PARS-159"
+genitive = "патронного короба для двуствольной турели PARS-159"
+dative = "патронному коробу для двуствольной турели PARS-159"
+accusative = "патронный короб для двуствольной турели PARS-159"
+instrumental = "патронным коробом для двуствольной турели PARS-159"
+prepositional = "патронном коробе для двуствольной турели PARS-159"
+gender = "male"
+
+["RE700 Rotary Cannon magazines (x3)"] # Unique Vendor Name
+nominative = "ящик для патронных коробов к вращающейся турели (RE700 x 3)"
+
+["RE700 Rotary Cannon Magazine"]
+nominative = "патронный короб для вращающейся турели RE700"
+genitive = "патронного короба для вращающейся турели RE700"
+dative = "патронному коробу для вращающейся турели RE700"
+accusative = "патронный короб для вращающейся турели RE700"
+instrumental = "патронным коробом для вращающейся турели RE700"
+prepositional = "патронном коробе для вращающейся турели RE700"
+gender = "male"
+
+["Bleihagel RE-RE700 Frontal Cannon magazines (x2)"] # Unique Vendor Name
+nominative = "ящик для патронных коробов к вращающейся турели (RE-RE700 «Bleihagel» x 2)"
+
+["RE-RE700 Frontal Cannon magazine"]
+nominative = "патронный короб для лобовой турели RE-RE700 «Bleihagel»"
+genitive = "патронного короба для лобовой турели RE-RE700 «Bleihagel»"
+dative = "патронному коробу для лобовой турели RE-RE700 «Bleihagel»"
+accusative = "патронный короб для лобовой турели RE-RE700 «Bleihagel»"
+instrumental = "патронным коробом для лобовой турели RE-RE700 «Bleihagel»"
+prepositional = "патронном коробе для лобовой турели RE-RE700 «Bleihagel»"
+gender = "male"
+
+["M56 Cupola magazines (x2)"] # Unique Vendor Name
+nominative = "ящик для патронных коробов к башенной турели (M56 x 2)"
+
+["M56 Cupola Magazine"]
+nominative = "патронный короб для башенной турели M56"
+genitive = "патронного короба для башенной турели M56"
+dative = "патронному коробу для башенной турели M56"
+accusative = "патронный короб для башенной турели M56"
+instrumental = "патронным коробом для башенной турели M56"
+prepositional = "патронном коробе для башенной турели M56"
+gender = "male"
+
+["M92T Grenade Launcher magazines (x5)"] # Unique Vendor Name
+nominative = "ящик для гранатных блоков к гранатомёту (M92T x 5)"
+
+["M92T Grenade Launcher Magazine"]
+nominative = "гранатный блок для гранатомёта M92T"
+genitive = "гранатного блока для гранатомёта M92T"
+dative = "гранатному блоку для гранатомёта M92T"
+accusative = "гранатный блок для гранатомёта M92T"
+instrumental = "гранатным блоком для гранатомёта M92T"
+prepositional = "гранатном блоке для гранатомёта M92T"
+gender = "male"
+
+["DRG-N Offensive Flamer Unit fuel tanks (x3)"] # Unique Vendor Name
+nominative = "ящик для топливных резервуаров к танковому огнемёту (DRG-N x 3)"
+
+["DRG-N Offensive Flamer Unit Fuel Tank"]
+nominative = "топливный резервуар для танкового огнемёта DRG-N"
+genitive = "топливного резервуара для танкового огнемёта DRG-N"
+dative = "топливному резервуару для танкового огнемёта DRG-N"
+accusative = "топливный резервуар для танкового огнемёта DRG-N"
+instrumental = "топливным резервуаром для танкового огнемёта DRG-N"
+prepositional = "топливном резервуаре для танкового огнемёта DRG-N"
 gender = "male"

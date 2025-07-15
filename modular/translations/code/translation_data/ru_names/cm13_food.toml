@@ -567,13 +567,22 @@ instrumental = "соусом Чолула"
 prepositional = "соусе Чолула"
 gender = "male"
 
-["sriracha bottle"]
+["Sriracha bottle"]
 nominative = "соус Шрирача"
 genitive = "соуса Шрирача"
 dative = "соусу Шрирача"
 accusative = "соус Шрирача"
 instrumental = "соусом Шрирача"
 prepositional = "соусе Шрирача"
+gender = "male"
+
+["Frank's Red Hot bottle"]
+nominative = "соус «RedHot Frank»"
+genitive = "соуса «RedHot Frank»"
+dative = "соусу «RedHot Frank»"
+accusative = "соус «RedHot Frank»"
+instrumental = "соусом «RedHot Frank»"
+prepositional = "соусе «RedHot Frank»"
 gender = "male"
 
 ["Coffee"]
@@ -2566,3 +2575,237 @@ accusative = "сок из жуков"
 instrumental = "соком из жуков"
 prepositional = "соке из жуков"
 gender = "male"
+
+["chili"]
+nominative = "перец чили"
+genitive = "перца чили"
+dative = "перцу чили"
+accusative = "перец чили"
+instrumental = "перцем чили"
+prepositional = "перце чили"
+gender = "male"
+
+["cherry"]
+nominative = "вишня"
+genitive = "вишни"
+dative = "вишне"
+accusative = "вишню"
+instrumental = "вишней"
+prepositional = "вишне"
+gender = "female"
+
+["carp fillet"]
+nominative = "филе карпа"
+genitive = "филе карпа"
+dative = "филе карпа"
+accusative = "филе карпа"
+instrumental = "филе карпа"
+prepositional = "филе карпа"
+gender = "neuter"
+
+["white-beet"]
+nominative = "сахарная свекла"
+genitive = "сахарной свеклы"
+dative = "сахарной свекле"
+accusative = "сахарную свеклу"
+instrumental = "сахарной свеклой"
+prepositional = "сахарной свекле"
+gender = "female"
+
+["white-beet"]
+nominative = "сахарная свекла"
+genitive = "сахарной свеклы"
+dative = "сахарной свекле"
+accusative = "сахарную свеклу"
+instrumental = "сахарной свеклой"
+prepositional = "сахарной свекле"
+gender = "female"
+
+["banana"]
+nominative = "банан"
+genitive = "банана"
+dative = "банану"
+accusative = "банан"
+instrumental = "бананом"
+prepositional = "банане"
+gender = "male"
+
+["Space Milk"]
+nominative = "Космомолоко"
+genitive = "Космомолока"
+dative = "Космомолоку"
+accusative = "Космомолоко"
+instrumental = "Космомолоком"
+prepositional = "Космомолоке"
+gender = "neuter"
+
+["soy milk"]
+nominative = "соевое молоко"
+genitive = "соевого молока"
+dative = "соевому молоку"
+accusative = "соевое молоко"
+instrumental = "соевым молоком"
+prepositional = "соевом молоке"
+gender = "neuter"
+
+["apple"]
+nominative = "яблоко"
+genitive = "яблока"
+dative = "яблоку"
+accusative = "яблоко"
+instrumental = "яблоком"
+prepositional = "яблоке"
+gender = "neuter"
+
+["cabbage"]
+nominative = "капуста"
+genitive = "капусты"
+dative = "капусте"
+accusative = "капусту"
+instrumental = "капустой"
+prepositional = "капусте"
+gender = "female"
+
+["potato"]
+nominative = "картофель"
+genitive = "картофеля"
+dative = "картофелю"
+accusative = "картофель"
+instrumental = "картофелем"
+prepositional = "картофеле"
+gender = "male"
+
+["carrot"]
+nominative = "морковь"
+genitive = "моркови"
+dative = "моркови"
+accusative = "морковь"
+instrumental = "морковью"
+prepositional = "моркови"
+gender = "female"
+
+["lime"]
+nominative = "лайм"
+genitive = "лайма"
+dative = "лайму"
+accusative = "лайм"
+instrumental = "лаймом"
+prepositional = "лайме"
+gender = "male"
+
+["lemon"]
+nominative = "лимон"
+genitive = "лимона"
+dative = "лимону"
+accusative = "лимон"
+instrumental = "лимоном"
+prepositional = "лимоне"
+gender = "male"
+
+["egg"]
+nominative = "яйцо"
+genitive = "яйца"
+dative = "яйцу"
+accusative = "яйцо"
+instrumental = "яйцом"
+prepositional = "яйце"
+gender = "neuter"
+
+["tomato"]
+nominative = "томат"
+genitive = "томата"
+dative = "томату"
+accusative = "томат"
+instrumental = "томатом"
+prepositional = "томате"
+gender = "male"
+
+["corn"]
+nominative = "кукуруза"
+genitive = "кукурузы"
+dative = "кукурузе"
+accusative = "кукурузу"
+instrumental = "кукурузой"
+prepositional = "кукурузе"
+gender = "female"
+
+["meat"]
+nominative = "мясо"
+genitive = "мяса"
+dative = "мясу"
+accusative = "мясо"
+instrumental = "мясом"
+prepositional = "мясе"
+gender = "neuter"
+
+["eggplant"]
+nominative = "баклажан"
+genitive = "баклажана"
+dative = "баклажану"
+accusative = "баклажан"
+instrumental = "баклажаном"
+prepositional = "баклажане"
+gender = "male"
+
+["Sugar"]
+nominative = "сахар"
+genitive = "сахара"
+dative = "сахару"
+accusative = "сахар"
+instrumental = "сахаром"
+prepositional = "сахаре"
+gender = "male"
+
+["flour"]
+nominative = "мука"
+genitive = "муки"
+dative = "муке"
+accusative = "муку"
+instrumental = "мукой"
+prepositional = "муке"
+gender = "female"
+
+["chanterelle"]
+nominative = "лисички"
+genitive = "лисичек"
+dative = "лисичкам"
+accusative = "лисичек"
+instrumental = "лисичками"
+prepositional = "лисичках"
+gender = "female"
+
+["Uncle Git's special reserve"]
+nominative = "виски «Особый резерв Дяди Гита»"
+genitive = "виски «Особый резерв Дяди Гита»"
+dative = "виски «Особый резерв Дяди Гита»"
+accusative = "виски «Особый резерв Дяди Гита»"
+instrumental = "виски «Особый резерв Дяди Гита»"
+prepositional = "виски «Особый резерв Дяди Гита»"
+gender = "neuter"
+
+["Caccavo Guaranteed Quality tequila"]
+nominative = "текила «Гарант качества Каккаво»"
+genitive = "текилы «Гарант качества Каккаво»"
+dative = "текиле «Гарант качества Каккаво»"
+accusative = "текилу «Гарант качества Каккаво»"
+instrumental = "текилой «Гарант качества Каккаво»"
+prepositional = "текиле «Гарант качества Каккаво»"
+gender = "female"
+
+["Captain Pete's Cuban Spiced Rum"]
+nominative = "ром «Кубинский пряный Капитана Пити»"
+genitive = "рома «Кубинский пряный Капитана Пити»"
+dative = "рому «Кубинский пряный Капитана Пити»"
+accusative = "ром «Кубинский пряный Капитана Пити»"
+instrumental = "ромом «Кубинский пряный Капитана Пити»"
+prepositional = "роме «Кубинский пряный Капитана Пити»"
+gender = "male"
+
+["Doublebeard Bearded Special Wine"]
+nominative = "вино «Особое для двубородых и усатых»"
+genitive = "текилы «Гарант качества Каккаво»"
+dative = "текиле «Гарант качества Каккаво»"
+accusative = "текилу «Гарант качества Каккаво»"
+instrumental = "текилой «Гарант качества Каккаво»"
+prepositional = "текиле «Гарант качества Каккаво»"
+gender = "female"
