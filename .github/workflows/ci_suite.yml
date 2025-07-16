@@ -77,6 +77,12 @@ jobs:
           DOTNET_INSTALL_DIR: "./_work/.dotnet"
         with:
           dotnet-version: 9.x
+      - name: Add .NET to PATH
+        run: |
+          echo "$DOTNET_ROOT" >> $GITHUB_PATH
+          echo "Updated PATH: $PATH"
+        env:
+          DOTNET_ROOT: ${{ github.workspace }}/_work/.dotnet
       - uses: actions/checkout@v4
       - uses: robinraju/release-downloader@v1.9
         with:
