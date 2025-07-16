@@ -72,17 +72,11 @@ jobs:
     name: Lint with OpenDream
     runs-on: [self-hosted]
     steps:
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v4.2.0
         env:
           DOTNET_INSTALL_DIR: "./_work/.dotnet"
         with:
           dotnet-version: 9.x
-      - name: Add .NET to PATH
-        run: |
-          echo "$DOTNET_ROOT" >> $GITHUB_PATH
-          echo "Updated PATH: $PATH"
-        env:
-          DOTNET_ROOT: ${{ github.workspace }}/_work/.dotnet
       - uses: actions/checkout@v4
       - uses: robinraju/release-downloader@v1.9
         with:
@@ -90,7 +84,10 @@ jobs:
           tag: "latest"
           fileName: "DMCompiler_linux-x64.tar.gz"
           extract: true
-      - run: ./DMCompiler_linux-x64/DMCompiler --suppress-unimplemented colonialmarines.dme
+      - name: Run OpenDream with CI flags
+        run: |
+          export DOTNET_ROOT=${{ github.workspace }}/_work/.dotnet
+          ./DMCompiler_linux-x64/DMCompiler --suppress-unimplemented colonialmarines.dme
 
   compile_all_maps:
     if: ( !contains(github.event.head_commit.message, '[ci skip]') )
