@@ -81,13 +81,14 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y \
-            zlib1g \
+            ca-certificates \
             libc6 \
-            libgcc1 \
-            libgssapi-krb5-2 \
-            libicu70 \
+            libgcc-s1 \
+            libicu74 \
+            liblttng-ust1 \
             libssl3 \
-            libstdc++6
+            libstdc++6 \
+            zlib1g
       - uses: actions/checkout@v4
       - uses: robinraju/release-downloader@v1.9
         with:
