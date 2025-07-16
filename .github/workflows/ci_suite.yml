@@ -72,39 +72,30 @@ jobs:
     name: Lint with OpenDream
     runs-on: [self-hosted]
     steps:
-      - uses: actions/setup-dotnet@v4.2.0
+      - uses: actions/setup-dotnet@v4
         env:
           DOTNET_INSTALL_DIR: "./_work/.dotnet"
         with:
           dotnet-version: 9.x
-
-      - name: Verify .NET installation
+      - name: Install dependencies
         run: |
-          ${{ github.workspace }}/_work/.dotnet/dotnet --version
-          ${{ github.workspace }}/_work/.dotnet/dotnet --list-runtimes
-
+          sudo apt-get update
+          sudo apt-get install -y \
+            zlib1g \
+            libc6 \
+            libgcc1 \
+            libgssapi-krb5-2 \
+            libicu70 \
+            libssl3 \
+            libstdc++6
       - uses: actions/checkout@v4
-
       - uses: robinraju/release-downloader@v1.9
         with:
           repository: "OpenDreamProject/OpenDream"
           tag: "latest"
           fileName: "DMCompiler_linux-x64.tar.gz"
           extract: true
-
-      - name: Run OpenDream via dotnet CLI
-        run: |
-          DLL_PATH=$(find ./DMCompiler_linux-x64 -name "DMCompiler.dll" -print -quit)
-
-          if [ -z "$DLL_PATH" ]; then
-            echo "##[error]DMCompiler.dll not found!"
-            exit 1
-          fi
-
-          echo "Found DMCompiler.dll at: $DLL_PATH"
-
-          ${{ github.workspace }}/_work/.dotnet/dotnet "$DLL_PATH" \
-            --suppress-unimplemented colonialmarines.dme
+      - run: ./DMCompiler_linux-x64/DMCompiler --suppress-unimplemented colonialmarines.dme
 
   compile_all_maps:
     if: ( !contains(github.event.head_commit.message, '[ci skip]') )
