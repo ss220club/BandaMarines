@@ -200,7 +200,7 @@ const ApcContent = (props) => {
             label="Cover Lock"
             buttons={
               <Button
-                tooltip="АПЦ cover can be pried open with a crowbar."
+                tooltip="Крышку АПЦ можно вскрыть с помощью лома."
                 icon={data.coverLocked ? 'lock' : 'unlock'}
                 disabled={locked}
                 onClick={() => act('cover')}

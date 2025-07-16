@@ -11,6 +11,15 @@ instrumental = "основным блюдом ИРП"
 prepositional = "основном блюде ИРП"
 gender = "neuter"
 
+["W-Y brand ration main dish"]
+nominative = "основное блюдо ВейЮ"
+genitive = "основного блюда ВейЮ"
+dative = "основному блюду ВейЮ"
+accusative = "основное блюдо ВейЮ"
+instrumental = "основным блюдом ВейЮ"
+prepositional = "основном блюде ВейЮ"
+gender = "neuter"
+
 ["MRE side dish"]
 nominative = "второе блюдо ИРП"
 genitive = "второго блюда ИРП"
@@ -2602,15 +2611,6 @@ accusative = "филе карпа"
 instrumental = "филе карпа"
 prepositional = "филе карпа"
 gender = "neuter"
-
-["white-beet"]
-nominative = "сахарная свекла"
-genitive = "сахарной свеклы"
-dative = "сахарной свекле"
-accusative = "сахарную свеклу"
-instrumental = "сахарной свеклой"
-prepositional = "сахарной свекле"
-gender = "female"
 
 ["white-beet"]
 nominative = "сахарная свекла"

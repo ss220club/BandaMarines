@@ -786,8 +786,8 @@
 		if("test")
 			name = "Эксперимент [pick("C","Q","V","W","X","Y","Z")][rand(100,999)][pick("a","b","c")]" // SS220 - EDIT ADDITTION
 			icon_state = "paper_wy_synthesis"
-			txt += "Note for [name]</H2></center>"
-			txt += "Subject <I>[rand(10000,99999)]</I> experienced [pick(C.properties)] effects during testing of [C.name]. <BR>\nTesting for additional chemical properties is currently pending. <BR>\n"
+			txt += "Примечание для [name]</H2></center>" // SS220 - EDIT ADDITTION
+			txt += "Испытуемый <I>[rand(10000,99999)]</I> испытал [pick(C.properties)] эффекта во время тестирования [C.name]. <BR>\nНа текущий момент проводятся испытания для выявления других свойств.<BR>\n" // SS220 - EDIT ADDITTION
 			txt += "<BR>\n<HR> - <I>Вейланд-Ютани</I>" // SS220 - EDIT ADDITTION
 		if("grant")
 			if(!grant)
@@ -795,7 +795,7 @@
 			icon_state = "paper_wy_grant"
 			name = "Грант на исследования" // SS220 - EDIT ADDITTION
 			txt += "Грант на исследования Вейланд-Ютани</H2></center>" // SS220 - EDIT ADDITTION
-			txt += "Dear valued researcher. Weyland-Yutani has taken high interest of your recent scientific progress. To further support your work we have sent you this research grant of [grant] credits. Please scan at your local Weyland-Yutani research data terminal to receive the benefits.<BR>\n"
+			txt += "Уважаемый исследователь. Компания Вейланд-Ютани проявила большой интерес к вашим последним научным достижениям. Для дальнейшей поддержки вашей работы мы направили вам этот исследовательский грант в размере [grant] кредитов. Пожалуйста, отсканируйте данные в вашем терминале Вейланд-Ютани, чтобы получить его.<BR>\n" // SS220 - EDIT ADDITTION
 			txt += "<BR>\n<HR> - <I>Вейланд-Ютани</I>" // SS220 - EDIT ADDITTION
 	info = txt
 

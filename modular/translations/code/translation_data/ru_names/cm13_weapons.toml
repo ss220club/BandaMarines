@@ -76,6 +76,9 @@ instrumental = "тяжёлым пулемётом M56D"
 prepositional = "тяжёлом пулемёте M56D"
 gender = "male"
 
+["M56D Heavy Machine Gun (x1)"] # Unique Vendor Name
+nominative = "ящик для вооружения (M56D x 1)"
+
 ["M56D heavy machine gun case"]
 nominative = "кейс для тяжёлого пулемёта M56D"
 genitive = "кейса для тяжёлого пулемёта M56D"

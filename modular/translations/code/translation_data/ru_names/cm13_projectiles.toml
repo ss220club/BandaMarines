@@ -3,6 +3,15 @@
 
 # MARK: grenades
 
+["M12 blast grenade"]
+nominative = "фугасная граната M12"
+genitive = "фугасной гранаты M12"
+dative = "фугасной гранате M12"
+accusative = "фугасную гранату M12"
+instrumental = "фугасной гранатой M12"
+prepositional = "фугасной гранате M12"
+gender = "female"
+
 ["M15 fragmentation grenade"]
 nominative = "осколочная граната M15"
 genitive = "осколочной гранаты M15"
@@ -22,6 +31,15 @@ dative = "гранате M40 HEDP (Осколочная)"
 accusative = "гранату M40 HEDP (Осколочная)"
 instrumental = "гранатой M40 HEDP (Осколочная)"
 prepositional = "гранате M40 HEDP (Осколочная)"
+gender = "female"
+
+["M40 HEFA grenade"]
+nominative = "граната M40 HEFA (Фугасная)"
+genitive = "гранаты M40 HEFA (Фугасная)"
+dative = "гранате M40 HEFA (Фугасная)"
+accusative = "гранату M40 HEFA (Фугасная)"
+instrumental = "гранатой M40 HEFA (Фугасная)"
+prepositional = "гранате M40 HEFA (Фугасная)"
 gender = "female"
 
 ["M40 HIDP Incendiary Grenade x6"] # Unique Vendor Name
@@ -423,6 +441,15 @@ dative = "крупнокалиберным снайперским пулям (20
 accusative = "крупнокалиберные снайперские пули (20x102мм Holo-Target)"
 instrumental = "крупнокалиберными снайперскими пулями (20x102мм Holo-Target)"
 prepositional = "крупнокалиберных снайперских пулях (20x102мм Holo-Target)"
+gender = "female"
+
+["M5510 Laser-Guided Rocket"]
+nominative = "ракета с лазерным наведением M5510"
+genitive = "ракеты с лазерным наведением M5510"
+dative = "ракете с лазерным наведением M5510"
+accusative = "ракету с лазерным наведением M5510"
+instrumental = "ракетой с лазерным наведением M5510"
+prepositional = "ракете с лазерным наведением M5510"
 gender = "female"
 
 ["84mm High-Explosive Rocket"] # Unique Vendor Name

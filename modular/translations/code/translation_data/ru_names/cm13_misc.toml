@@ -1047,3 +1047,66 @@ accusative = "банановую кожуру"
 instrumental = "банановой кожурой"
 prepositional = "банановой кожуре"
 gender = "female"
+
+["crumbled paper"]
+nominative = "смятая бумага"
+genitive = "смятый бумаги"
+dative = "смятый бумаге"
+accusative = "смятый бумагу"
+instrumental = "смятый бумагой"
+prepositional = "смятый бумаге"
+gender = "female"
+
+["crumbled FSR ration"]
+nominative = "смятый рацион FSR"
+genitive = "смятый рациона FSR"
+dative = "смятый рациону FSR"
+accusative = "смятый рацион FSR"
+instrumental = "смятый рационом FSR"
+prepositional = "смятый рационе FSR"
+gender = "male"
+
+["crumbled W-Y ration"]
+nominative = "смятый рацион ВейЮ"
+genitive = "смятый рациона ВейЮ"
+dative = "смятый рациону ВейЮ"
+accusative = "смятый рацион ВейЮ"
+instrumental = "смятый рационом ВейЮ"
+prepositional = "смятый рационе ВейЮ"
+gender = "male"
+
+["crumbled PMC CFR"]
+nominative = "смятый рацион ЧВК CFR"
+genitive = "смятый рациона ЧВК CFR"
+dative = "смятый рациону ЧВК CFR"
+accusative = "смятый рацион ЧВК CFR"
+instrumental = "смятый рационом ЧВК CFR"
+prepositional = "смятый рационе ЧВК CFR"
+gender = "male"
+
+["crumbled TWE ORP"]
+nominative = "смятый рацион TWE ORP"
+genitive = "смятый рациона TWE ORP"
+dative = "смятый рациону TWE ORP"
+accusative = "смятый рацион TWE ORP"
+instrumental = "смятый рационом TWE ORP"
+prepositional = "смятый рационе TWE ORP"
+gender = "male"
+
+["crumbled UPP IRP"]
+nominative = "смятый ИРП UPP"
+genitive = "смятый ИРП UPP"
+dative = "смятый ИРП UPP"
+accusative = "смятый ИРП UPP"
+instrumental = "смятый ИРП UPP"
+prepositional = "смятый ИРП UPP"
+gender = "male"
+
+["crumbled USCM MRE"]
+nominative = "смятый ИРП ККМП"
+genitive = "смятый ИРП ККМП"
+dative = "смятый ИРП ККМП"
+accusative = "смятый ИРП ККМП"
+instrumental = "смятый ИРП ККМП"
+prepositional = "смятый ИРП ККМП"
+gender = "male"

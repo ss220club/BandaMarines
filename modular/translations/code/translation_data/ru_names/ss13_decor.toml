@@ -19,3 +19,12 @@ instrumental = "консолью слипера"
 prepositional = "консоли слипера"
 gender = "female"
 
+["ASRS console"]
+nominative = "консоль АСРС"
+genitive = "консоли АСРС"
+dative = "консоли АСРС"
+accusative = "консоль АСРС"
+instrumental = "консолью АСРС"
+prepositional = "консоли АСРС"
+gender = "female"
+

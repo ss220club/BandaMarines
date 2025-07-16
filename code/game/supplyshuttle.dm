@@ -795,7 +795,7 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 		"Supplies" = "Снабжение",
 		"Food" = "Еда",
 		"Gear" = "Снаряжение",
-		"Mortar" = "Стройматериалы",
+		"Mortar" = "Снаряжение миномётчика",
 		"Explosives" = "Взрывчатые вещества",
 		"Reagent tanks" = "Ёмкости для реагентов",
 	)

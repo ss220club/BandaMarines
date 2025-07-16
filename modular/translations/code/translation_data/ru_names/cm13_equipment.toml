@@ -534,6 +534,9 @@ instrumental = "мешками с песком"
 prepositional = "мешках с песком"
 gender = "male"
 
+["Plastic explosives crate (x3)"] # Unique Vendor Name
+nominative = "ящик для взрывчатых веществ (С-4 x 3)"
+
 ["Plastic Explosive"] # Unique Vendor Name
 nominative = "пластичная взрывчатка С-4"
 
@@ -545,6 +548,9 @@ accusative = "пластичную взрывчатку С-4"
 instrumental = "пластичной взрывчаткой С-4"
 prepositional = "пластичной взрывчатке С-4"
 gender = "female"
+
+["Breaching charge crate (x4)"] # Unique Vendor Name
+nominative = "ящик для взрывчатых веществ (пробивной заряд x 4)"
 
 ["breaching charge"]
 nominative = "пробивной заряд"
@@ -586,19 +592,19 @@ prepositional = "армейском фонарике"
 gender = "male"
 
 ["Box of Flashlights"] # Unique Vendor Name
-nominative = "ящик с фонариками"
+nominative = "коробка с фонариками"
 
 ["Box of Combat Flashlights"] # Unique Vendor Name
-nominative = "ящик с армейскими фонариками"
+nominative = "коробка с армейскими фонариками"
 
 ["box of combat flashlights"]
-nominative = "ящик с армейскими фонариками"
-genitive = "ящика с армейскими фонариками"
-dative = "ящику с армейскими фонариками"
-accusative = "ящик с армейскими фонариками"
-instrumental = "ящиком с армейскими фонариками"
-prepositional = "ящике с армейскими фонариками"
-gender = "male"
+nominative = "коробка с армейскими фонариками"
+genitive = "коробки с армейскими фонариками"
+dative = "коробке с армейскими фонариками"
+accusative = "коробку с армейскими фонариками"
+instrumental = "коробкой с армейскими фонариками"
+prepositional = "коробке с армейскими фонариками"
+gender = "female"
 
 ["Box of M89 Signal Flare Packs"] # Unique Vendor Name
 nominative = "упаковка сигнальных огней M89-S"
@@ -613,25 +619,25 @@ prepositional = "упаковке сигнальных огней M89-S"
 gender = "female"
 
 ["box of M89 signal flare packs"]
-nominative = "ящик сигнальных огней M89-S"
-genitive = "ящика сигнальных огней M89-S"
-dative = "ящику сигнальных огней M89-S"
-accusative = "ящик сигнальных огней M89-S"
-instrumental = "ящиком сигнальных огней M89-S"
-prepositional = "ящике сигнальных огней M89-S"
-gender = "male"
+nominative = "коробка сигнальных огней M89-S"
+genitive = "коробки сигнальных огней M89-S"
+dative = "коробке сигнальных огней M89-S"
+accusative = "коробку сигнальных огней M89-S"
+instrumental = "коробкой сигнальных огней M89-S"
+prepositional = "коробке сигнальных огней M89-S"
+gender = "female"
 
 ["Box of High-Capacity Power Cells"] # Unique Vendor Name
-nominative = "ящик батарей повышенной ёмкости"
+nominative = "коробка батарей повышенной ёмкости"
 
 ["box of High-Capacity Power Cells"]
-nominative = "ящик батарей повышенной ёмкости"
-genitive = "ящика батарей повышенной ёмкости"
-dative = "ящику батарей повышенной ёмкости"
-accusative = "ящик батарей повышенной ёмкости"
-instrumental = "ящиком батарей повышенной ёмкости"
-prepositional = "ящике батарей повышенной ёмкости"
-gender = "male"
+nominative = "коробка батарей повышенной ёмкости"
+genitive = "коробки батарей повышенной ёмкости"
+dative = "коробке батарей повышенной ёмкости"
+accusative = "коробку батарей повышенной ёмкости"
+instrumental = "коробкой батарей повышенной ёмкости"
+prepositional = "коробке батарей повышенной ёмкости"
+gender = "female"
 
 ["M94 marking flare pack"]
 nominative = "упаковка осветительных огней M94"
@@ -643,16 +649,16 @@ prepositional = "упаковке осветительных огней M94"
 gender = "female"
 
 ["Box of M94 Marking Flare Packs"] # Unique Vendor Name
-nominative = "ящик осветительных огней M94"
+nominative = "коробка осветительных огней M94"
 
 ["box of M94 marking flare packs"]
-nominative = "ящик осветительных огней M94"
-genitive = "ящика осветительных огней M94"
-dative = "ящику осветительных огней M94"
-accusative = "ящик осветительных огней M94"
-instrumental = "ящиком осветительных огней M94"
-prepositional = "ящике осветительных огней M94"
-gender = "male"
+nominative = "коробка осветительных огней M94"
+genitive = "коробки осветительных огней M94"
+dative = "коробке осветительных огней M94"
+accusative = "коробку осветительных огней M94"
+instrumental = "коробкой осветительных огней M94"
+prepositional = "коробке осветительных огней M94"
+gender = "female"
 
 ["flare"]
 nominative = "осветительный огонь"
