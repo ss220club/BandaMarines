@@ -76,7 +76,7 @@ jobs:
         env:
           DOTNET_INSTALL_DIR: "./_work/.dotnet"
         with:
-          dotnet-version: 9
+          dotnet-version: 9.x
       - uses: actions/checkout@v4
       - uses: robinraju/release-downloader@v1.9
         with:
