@@ -72,24 +72,12 @@ jobs:
     name: Lint with OpenDream
     runs-on: [self-hosted]
     steps:
+      - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
         env:
           DOTNET_INSTALL_DIR: "./_work/.dotnet"
         with:
           dotnet-version: 9.x
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            ca-certificates \
-            libc6 \
-            libgcc-s1 \
-            libicu74 \
-            liblttng-ust1 \
-            libssl3 \
-            libstdc++6 \
-            zlib1g
-      - uses: actions/checkout@v4
       - uses: robinraju/release-downloader@v1.9
         with:
           repository: "OpenDreamProject/OpenDream"
