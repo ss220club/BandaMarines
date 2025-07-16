@@ -44,6 +44,8 @@ jobs:
             ${{ runner.os }}-rust-
       - name: Install Tools
         run: |
+          sudo apt-get update
+          sudo apt-get install -y php-cli
           pip3 install setuptools
           bash tools/ci/install_spaceman_dmm.sh dreamchecker
           cargo install ripgrep --features pcre2
