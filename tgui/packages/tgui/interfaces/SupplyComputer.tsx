@@ -784,14 +784,14 @@ const RenderCategory = (props: {
   const relevant_items = validCategory
     ? categories_to_objects[category]
     : all_items.filter((pack: Pack) => {
-      return (
-        pack.name.toLowerCase().includes(lowerCaseCategory) ||
-        pack.english_name.toLowerCase().includes(lowerCaseCategory) ||
-        pack.category.toLowerCase().includes(lowerCaseCategory) ||
-        (pack.english_category &&
-          pack.english_category.toLowerCase().includes(lowerCaseCategory))
-      );
-    });
+        return (
+          pack.name.toLowerCase().includes(lowerCaseCategory) ||
+          pack.english_name.toLowerCase().includes(lowerCaseCategory) ||
+          pack.category.toLowerCase().includes(lowerCaseCategory) ||
+          (pack.english_category &&
+            pack.english_category.toLowerCase().includes(lowerCaseCategory))
+        );
+      });
 
   return (
     <Stack vertical fill>
