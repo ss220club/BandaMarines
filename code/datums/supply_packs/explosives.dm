@@ -140,7 +140,7 @@
 /datum/supply_packs/explosives_M40_CCDP_crate
 	name = "M40 CCDP chemical compund grenade box crate (x25)" // BANDAMARINES FIX NAME
 	contains = list(
-		/obj/item/storage/box/nade_box/phophorus/strong, // BANDAMARINES FOR CCDP NAME
+		/obj/item/storage/box/nade_box/phophorus,
 	)
 	cost = 100
 	containertype = /obj/structure/closet/crate/explosives
