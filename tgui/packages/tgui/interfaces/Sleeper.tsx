@@ -307,13 +307,7 @@ const SleeperChemicals = (props) => {
                       occupant.stat === 2
                     }
                     icon="syringe"
-                    tooltip={
-                      'Ввести ' +
-                      a +
-                      ' ед. ' +
-                      chem.title +
-                      ' пациенту'
-                    }
+                    tooltip={'Ввести ' + a + ' ед. ' + chem.title + ' пациенту'}
                     mb="0"
                     height="19px"
                     onClick={() =>
