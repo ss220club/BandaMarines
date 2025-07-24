@@ -1756,3 +1756,14 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 		return TRUE
 
 	return FALSE
+
+/proc/has_broken_hands(mob/living/carbon/human/H)
+	if(!istype(H))
+		return FALSE
+	var/obj/limb/l_arm = H.get_limb("l_arm")
+	var/obj/limb/r_arm = H.get_limb("r_arm")
+	var/obj/limb/l_hand = H.get_limb("l_hand")
+	var/obj/limb/r_hand = H.get_limb("r_hand")
+	if(l_arm.is_broken() || r_arm.is_broken() || l_hand.is_broken() || r_hand.is_broken())
+		return TRUE
+	return FALSE

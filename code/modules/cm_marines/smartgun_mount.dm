@@ -347,6 +347,10 @@
 			return
 		to_chat(user, "You begin mounting [MG]...")
 		if(do_after(user, 30 * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD) && !gun_mounted && anchored)
+			var/mob/living/carbon/human/H = user
+			if(has_broken_hands(H))
+					to_chat(H, SPAN_WARNING("It takes you longer to set up the machine gun with your injury."))
+					sleep(30)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 25, 1)
 			user.visible_message(SPAN_NOTICE("[user] installs [MG] into place."),SPAN_NOTICE("You install [MG] into place."))
 			gun_mounted = 1
@@ -825,6 +829,11 @@
 	if(operator.l_hand || operator.r_hand)
 		to_chat(operator, SPAN_WARNING("Your hands need to be free to fire [src]!"))
 		return
+
+	var/mob/living/carbon/human/H = operator
+	if(has_broken_hands(H))
+			to_chat(H, SPAN_WARNING("You can't operate the machine gun with a broken hand or wrist!"))
+			return
 
 	return fire_shot()
 

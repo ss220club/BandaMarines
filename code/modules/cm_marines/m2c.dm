@@ -148,6 +148,11 @@
 	if(!do_after(user, M2C_SETUP_TIME, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
 		return
 
+	var/mob/living/carbon/human/H = user
+		if(has_broken_hands(H))
+			to_chat(H, SPAN_WARNING("It takes you longer to set up the machine gun with your injury."))
+			sleep(M2C_SETUP_TIME * 2)
+
 	if(!check_can_setup(user, rotate_check, OT, ACR))
 		return
 
@@ -406,6 +411,14 @@
 // AUTOMATIC FIRING
 
 /obj/structure/machinery/m56d_hmg/auto/try_fire()
+	if(operator.l_hand || operator.r_hand)
+		to_chat(operator, SPAN_WARNING("Your hands need to be free to fire [src]!"))
+		return
+	var/mob/living/carbon/human/H = operator
+	if(has_broken_hands(H))
+			to_chat(H, SPAN_WARNING("You can't operate the machine gun with a broken hand or wrist!"))
+			return
+
 	if(fire_stopper)
 		return
 
