@@ -954,14 +954,17 @@ instrumental = "попкорном"
 prepositional = "попкорне"
 gender = "male"
 
+["box of donuts (x5)"] # Unique Vendor Name
+nominative = "ящик для коробок с едой (пончики x 5)"
+
 ["Yum! donuts"]
-nominative = "пончики «Ням!»"
-genitive = "пончиков «Ням!»"
-dative = "пончикам «Ням!»"
-accusative = "пончики «Ням!»"
-instrumental = "пончиками «Ням!»"
-prepositional = "пончиках «Ням!»"
-gender = "plural"
+nominative = "коробка пончиков «Ням!»"
+genitive = "коробки пончиков «Ням!»"
+dative = "коробке пончиков «Ням!»"
+accusative = "коробку пончиков «Ням!»"
+instrumental = "коробкой пончиков «Ням!»"
+prepositional = "коробке пончиков «Ням!»"
+gender = "female"
 
 ["frosted donut"]
 nominative = "пончик с глазурью"
@@ -972,13 +975,16 @@ instrumental = "пончиком с глазурью"
 prepositional = "пончике с глазурью"
 gender = "male"
 
+["Pizza ready-to-eat (x3)"] # Unique Vendor Name
+nominative = "ящик для коробок с едой (пицца x 5)"
+
 ["pizza box"]
-nominative = "коробка из-под пиццы"
-genitive = "коробки из-под пиццы"
-dative = "коробке из-под пиццы"
-accusative = "коробку из-под пиццы"
-instrumental = "коробкой из-под пиццы"
-prepositional = "коробке из-под пиццы"
+nominative = "коробка для пиццы"
+genitive = "коробки для пиццы"
+dative = "коробке для пиццы"
+accusative = "коробку для пиццы"
+instrumental = "коробкой для пиццы"
+prepositional = "коробке для пиццы"
 gender = "female"
 
 ["Margherita"]
@@ -2774,7 +2780,7 @@ instrumental = "лисичками"
 prepositional = "лисичках"
 gender = "female"
 
-["Uncle Git's special reserve"]
+["Uncle Git's Special Reserve"]
 nominative = "виски «Особый резерв Дяди Гита»"
 genitive = "виски «Особый резерв Дяди Гита»"
 dative = "виски «Особый резерв Дяди Гита»"
@@ -2809,3 +2815,6 @@ accusative = "текилу «Гарант качества Каккаво»"
 instrumental = "текилой «Гарант качества Каккаво»"
 prepositional = "текиле «Гарант качества Каккаво»"
 gender = "female"
+
+["surplus boxes of ingredients(x6 boxes)"] # Unique Vendor Name
+nominative = "ящик для коробок с едой (обеспечение)"

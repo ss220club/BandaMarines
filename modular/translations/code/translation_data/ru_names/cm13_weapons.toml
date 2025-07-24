@@ -31,6 +31,9 @@ instrumental = "помповым дробовиком M37A2"
 prepositional = "помповом дробовике M37A2"
 gender = "male"
 
+["M41A MK1 Rifle Crate (x2 MK1, x2 magazines)"] # Unique Vendor Name
+nominative = "ящик для вооружения (M41A MK1 x 2, магазин для M41A MK1 x 2)"
+
 ["M41A MK1 Pulse Rifle"] # Unique Vendor Name
 nominative = "импульсная винтовка M41A MK1"
 
@@ -88,6 +91,9 @@ instrumental = "кейсом для тяжёлого пулемёта M56D"
 prepositional = "кейсе для тяжёлого пулемёта M56D"
 gender = "male"
 
+["M240 Flamethrower Crate (M240 x2, Broiler-T Fuelback x2)"] # Unique Vendor Name
+nominative = "ящик для вооружения (M240 x 2, топливный бак G4-1 x 2)"
+
 ["M240 Incinerator Unit"] # Unique Vendor Name
 nominative = "огнемёт M240"
 
@@ -109,6 +115,9 @@ instrumental = "кейсом для огнемёта M240"
 prepositional = "кейсе для огнемёта M240"
 gender = "male"
 
+["M79 Grenade Launcher Crate (x2 Guncases)"] # Unique Vendor Name
+nominative = "ящик для вооружения (M79 x 2)"
+
 ["M79 Grenade Launcher"] # Unique Vendor Name
 nominative = "гранатомёт M79"
 
@@ -129,6 +138,9 @@ accusative = "кейс для гранатомёта M79"
 instrumental = "кейсом для гранатомёта M79"
 prepositional = "кейсе для гранатомёта M79"
 gender = "male"
+
+["M2C Heavy Machine Gun (x1)"] # Unique Vendor Name
+nominative = "ящик для вооружения (M2C x 1)"
 
 ["M2C Heavy Machine Gun"] # Unique Vendor Name
 nominative = "тяжёлый пулемёт M2C"
@@ -241,26 +253,32 @@ instrumental = "сигнальной ракетницей M82F"
 prepositional = "сигнальной ракетнице M82F"
 gender = "female"
 
+["VP-78 Hand Cannon Crate (x2)"] # Unique Vendor Name
+nominative = "ящик для вооружения (VP-78 x 2)"
+
 ["VP78 Pistol"] # Unique Vendor Name - command officers
-nominative = "пистолет VP78"
+nominative = "пистолет VP-78"
 
 ["VP78 pistol"]
-nominative = "пистолет VP78"
-genitive = "пистолета VP78"
-dative = "пистолету VP78"
-accusative = "пистолет VP78"
-instrumental = "пистолетом VP78"
-prepositional = "пистолете VP78"
+nominative = "пистолет VP-78"
+genitive = "пистолета VP-78"
+dative = "пистолету VP-78"
+accusative = "пистолет VP-78"
+instrumental = "пистолетом VP-78"
+prepositional = "пистолете VP-78"
 gender = "male"
 
 ["VP78 pistol case"]
-nominative = "кейс для пистолета VP78"
-genitive = "кейса для пистолета VP78"
-dative = "кейсу для пистолета VP78"
-accusative = "кейс для пистолета VP78"
-instrumental = "кейсом для пистолета VP78"
-prepositional = "кейсе для пистолета VP78"
+nominative = "кейс для пистолета VP-78"
+genitive = "кейса для пистолета VP-78"
+dative = "кейсу для пистолета VP-78"
+accusative = "кейс для пистолета VP-78"
+instrumental = "кейсом для пистолета VP-78"
+prepositional = "кейсе для пистолета VP-78"
 gender = "male"
+
+["MOU-53 Break Action Shotgun Crate (x2)"] # Unique Vendor Name
+nominative = "ящик для вооружения (MOU-53 x 1)"
 
 ["MOU-53 Shotgun"] # Unique Vendor Name
 nominative = "переломный дробовик MOU53"
@@ -283,6 +301,9 @@ instrumental = "кейсом для дробовика MOU53"
 prepositional = "кейсе для дробовика MOU53"
 gender = "male"
 
+["XM88 Heavy Rifle crate (XM88 x2)"] # Unique Vendor Name
+nominative = "ящик для вооружения (XM88 x 2)"
+
 ["XM88 Heavy Rifle"] # Unique Vendor Name
 nominative = "тяжёлая винтовка XM88"
 
@@ -294,6 +315,9 @@ accusative = "тяжёлую винтовку XM88"
 instrumental = "тяжёлой винтовкой XM88"
 prepositional = "тяжёлой винтовке XM88"
 gender = "female"
+
+["M41AE2 HPR crate (HPR x2, HPR ammo box x2)"] # Unique Vendor Name
+nominative = "ящик для вооружения (M41AE2 x 2, патронный короб для M41AE2 x 2)"
 
 ["M41AE2 Heavy Pulse Rifle"] # Unique Vendor Name
 nominative = "тяжёлая импульсная винтовка M41AE2"
@@ -315,6 +339,9 @@ accusative = "кейс для тяжёлой импульсной винтовк
 instrumental = "кейсом для тяжёлой импульсной винтовки M41AE2"
 prepositional = "кейсе для тяжёлой импульсной винтовки M41AE2"
 gender = "male"
+
+["SU-6 Smart Pistol Crate (x2)"] # Unique Vendor Name
+nominative = "ящик для вооружения (SU-6 x 2)"
 
 ["SU-6 Smart Pistol"] # Unique Vendor Name
 nominative = "умный пистолет SU-6"

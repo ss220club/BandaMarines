@@ -765,15 +765,15 @@ prepositional = "магазине для M4A3 (9мм HP)"
 gender = "male"
 
 ["VP78 magazine"] # Unique Vendor Name
-nominative = "магазин для VP78 (9мм)"
+nominative = "магазин для VP-78 (9мм)"
 
 ["VP78 magazine (9mm)"]
-nominative = "магазин для VP78 (9мм)"
-genitive = "магазина для VP78 (9мм)"
-dative = "магазину для VP78 (9мм)"
-accusative = "магазин для VP78 (9мм)"
-instrumental = "магазином для VP78 (9мм)"
-prepositional = "магазине для VP78 (9мм)"
+nominative = "магазин для VP-78 (9мм)"
+genitive = "магазина для VP-78 (9мм)"
+dative = "магазину для VP-78 (9мм)"
+accusative = "магазин для VP-78 (9мм)"
+instrumental = "магазином для VP-78 (9мм)"
+prepositional = "магазине для VP-78 (9мм)"
 gender = "male"
 
 ["L54 magazine (9mm)"]
@@ -1204,6 +1204,9 @@ instrumental = "упаковкой гранат (M40 HEDP Осколочная x
 prepositional = "упаковке гранат (M40 HEDP Осколочная x 3)"
 gender = "female"
 
+["M40 HEDP blast grenades crate (x6)"] # Unique Vendor Name
+nominative = "ящик для взрывчатых веществ (M40 HEDP Осколочная x 6)"
+
 ["M40 HEDP blast grenade box crate (x25)"] # Unique Vendor Name
 nominative = "ящик для взрывчатых веществ (M40 HEDP Осколочная x 25)"
 
@@ -1465,10 +1468,10 @@ instrumental = "упаковкой электрошоковых гранат (G2
 prepositional = "упаковке электрошоковых гранат (G2 x 3)"
 gender = "female"
 
-["Surplus explosives crate (claymore mine x5, M40 HIDP x2, M40 HEDP x2, M15 Frag x2, M12 Blast x2, M40 MFHS x2)"] # Unique Vendor Name
+["surplus explosives crate (claymore mine x5, M40 HIDP x2, M40 HEDP x2, M15 Frag x2, M12 Blast x2, M40 MFHS x2)"] # Unique Vendor Name
 nominative = "ящик для взрывчатых веществ (мина M20 x 5, M40 (зажигательная, осколочная, пена) x 2, M15 осколочная x 2, M12 фугасная x 2)"
 
-["Claymore mines crate (x10)"] # Unique Vendor Name
+["claymore mines crate (x10)"] # Unique Vendor Name
 nominative = "ящик для взрывчатых веществ (мина M20 x 10)"
 
 ["M20 Mine Box (x5 mines)"] # Unique Vendor Name
@@ -1486,7 +1489,7 @@ gender = "male"
 ["Magazine box (L54, 16x regular mags)"] # Unique Vendor Name
 nominative = "ящик для коробок с магазинами (L54 x 16)"
 
-["Magazine box (L54 x 16)"]
+["magazine box (L54 x 16)"]
 nominative = "коробка для магазинов (L54 x 16)"
 genitive = "коробки для магазинов (L54 x 16)"
 dative = "коробке для магазинов (L54 x 16)"
@@ -1498,7 +1501,7 @@ gender = "male"
 ["Magazine box (L54, 16x AP mags)"] # Unique Vendor Name
 nominative = "ящик для коробок с магазинами (L54 AP x 16)"
 
-["Magazine box (AP L54 x 16)"]
+["magazine box (AP L54 x 16)"]
 nominative = "коробка для магазинов (L54 AP x 16)"
 genitive = "коробки для магазинов (L54 AP x 16)"
 dative = "коробке для магазинов (L54 AP x 16)"
@@ -1510,7 +1513,7 @@ gender = "male"
 ["Magazine box (L54, 16x HP mags)"] # Unique Vendor Name
 nominative = "ящик для коробок с магазинами (L54 HP x 16)"
 
-["Magazine box (HP L54 x 16)"]
+["magazine box (HP L54 x 16)"]
 nominative = "коробка для магазинов (L54 HP x 16)"
 genitive = "коробки для магазинов (L54 HP x 16)"
 dative = "коробке для магазинов (L54 HP x 16)"
@@ -1532,15 +1535,15 @@ prepositional = "коробке для магазинов (M10 x 22)"
 gender = "male"
 
 ["Magazine box (M10, 14x extended mags)"] # Unique Vendor Name
-nominative = "ящик для коробок с магазинами (M10 Расширенные x 12)"
+nominative = "ящик для коробок с магазинами (M10 расширенные x 12)"
 
 ["magazine box (Ext m10 x 14)"]
-nominative = "коробка для магазинов (M10 Расширенные x 14)"
-genitive = "коробки для магазинов (M10 Расширенные x 14)"
-dative = "коробке для магазинов (M10 Расширенные x 14)"
-accusative = "коробку для магазинов (M10 Расширенные x 14)"
-instrumental = "коробкой для магазинов (M10 Расширенные x 14)"
-prepositional = "коробке для магазинов (M10 Расширенные x 14)"
+nominative = "коробка для магазинов (M10 расширенные x 14)"
+genitive = "коробки для магазинов (M10 расширенные x 14)"
+dative = "коробке для магазинов (M10 расширенные x 14)"
+accusative = "коробку для магазинов (M10 расширенные x 14)"
+instrumental = "коробкой для магазинов (M10 расширенные x 14)"
+prepositional = "коробке для магазинов (M10 расширенные x 14)"
 gender = "male"
 
 ["Magazine box (M10, 12x drum mags)"] # Unique Vendor Name
@@ -1580,15 +1583,15 @@ prepositional = "коробке для магазинов (M39 AP x 12)"
 gender = "male"
 
 ["Magazine Box (Ext M39 x 10)"] # Unique Vendor Name
-nominative = "коробка для магазинов (M39 Расширенные x 10)"
+nominative = "коробка для магазинов (M39 расширенные x 10)"
 
 ["magazine box (Ext m39 x 10)"]
-nominative = "коробка для магазинов (M39 Расширенные x 10)"
-genitive = "коробки для магазинов (M39 Расширенные x 10)"
-dative = "коробке для магазинов (M39 Расширенные x 10)"
-accusative = "коробку для магазинов (M39 Расширенные x 10)"
-instrumental = "коробкой для магазинов (M39 Расширенные x 10)"
-prepositional = "коробке для магазинов (M39 Расширенные x 10)"
+nominative = "коробка для магазинов (M39 расширенные x 10)"
+genitive = "коробки для магазинов (M39 расширенные x 10)"
+dative = "коробке для магазинов (M39 расширенные x 10)"
+accusative = "коробку для магазинов (M39 расширенные x 10)"
+instrumental = "коробкой для магазинов (M39 расширенные x 10)"
+prepositional = "коробке для магазинов (M39 расширенные x 10)"
 gender = "male"
 
 ["Magazine box (M41A, 10x regular mags)"] # Unique Vendor Name
@@ -1616,15 +1619,15 @@ prepositional = "коробке для магазинов (M41A AP x 10)"
 gender = "male"
 
 ["Magazine box (M41A, 8x extended mags)"] # Unique Vendor Name
-nominative = "ящик для коробок с магазинами (M41A Расширенные x 8)"
+nominative = "ящик для коробок с магазинами (M41A расширенные x 8)"
 
 ["magazine box (Ext M41A x 8)"]
-nominative = "коробка для магазинов (M41A Расширенные x 8)"
-genitive = "коробки для магазинов (M41A Расширенные x 8)"
-dative = "коробке для магазинов (M41A Расширенные x 8)"
-accusative = "коробку для магазинов (M41A Расширенные x 8)"
-instrumental = "коробкой для магазинов (M41A Расширенные x 8)"
-prepositional = "коробке для магазинов (M41A Расширенные x 8)"
+nominative = "коробка для магазинов (M41A расширенные x 8)"
+genitive = "коробки для магазинов (M41A расширенные x 8)"
+dative = "коробке для магазинов (M41A расширенные x 8)"
+accusative = "коробку для магазинов (M41A расширенные x 8)"
+instrumental = "коробкой для магазинов (M41A расширенные x 8)"
+prepositional = "коробке для магазинов (M41A расширенные x 8)"
 gender = "male"
 
 ["magazine box (M4A3 x 16)"]
@@ -1688,18 +1691,18 @@ prepositional = "коробке для магазинов (M4RA AP x 16)"
 gender = "male"
 
 ["Magazine box (M4RA, 12x extended mags)"] # Unique Vendor Name
-nominative = "ящик для коробок с магазинами (M4RA Расширенные x 16)"
+nominative = "ящик для коробок с магазинами (M4RA расширенные x 16)"
 
 ["Magazine Box (Ext M4RA x 16)"] # Unique Vendor Name
-nominative = "коробка для магазинов (M4RA Расширенные x 16)"
+nominative = "коробка для магазинов (M4RA расширенные x 16)"
 
 ["magazine box (Ext M4RA x 12)"]
-nominative = "коробка для магазинов (M4RA Расширенные x 16)"
-genitive = "коробки для магазинов (M4RA Расширенные x 16)"
-dative = "коробке для магазинов (M4RA Расширенные x 16)"
-accusative = "коробку для магазинов (M4RA Расширенные x 16)"
-instrumental = "коробкой для магазинов (M4RA Расширенные x 16)"
-prepositional = "коробке для магазинов (M4RA Расширенные x 16)"
+nominative = "коробка для магазинов (M4RA расширенные x 16)"
+genitive = "коробки для магазинов (M4RA расширенные x 16)"
+dative = "коробке для магазинов (M4RA расширенные x 16)"
+accusative = "коробку для магазинов (M4RA расширенные x 16)"
+instrumental = "коробкой для магазинов (M4RA расширенные x 16)"
+prepositional = "коробке для магазинов (M4RA расширенные x 16)"
 gender = "male"
 
 ["M41AE2 HPR Magazines crate (HPR ammo box x2)"] # Unique Vendor Name
@@ -1820,15 +1823,15 @@ prepositional = "коробке для магазинов (SU-6 x 16)"
 gender = "male"
 
 ["Magazine box (VP78, 16x mags)"] # Unique Vendor Name
-nominative = "ящик для коробок с магазинами (VP78 x 16)"
+nominative = "ящик для коробок с магазинами (VP-78 x 16)"
 
 ["magazine box (VP78 x 16)"]
-nominative = "коробка для магазинов (VP78 x 16)"
-genitive = "коробки для магазинов (VP78 x 16)"
-dative = "коробке для магазинов (VP78 x 16)"
-accusative = "коробку для магазинов (VP78 x 16)"
-instrumental = "коробкой для магазинов (VP78 x 16)"
-prepositional = "коробке для магазинов (VP78 x 16)"
+nominative = "коробка для магазинов (VP-78 x 16)"
+genitive = "коробки для магазинов (VP-78 x 16)"
+dative = "коробке для магазинов (VP-78 x 16)"
+accusative = "коробку для магазинов (VP-78 x 16)"
+instrumental = "коробкой для магазинов (VP-78 x 16)"
+prepositional = "коробке для магазинов (VP-78 x 16)"
 gender = "male"
 
 ["magazine box (XM51 x 8)"]
@@ -2060,19 +2063,19 @@ nominative = "ящик для топливных резервуаров (B-Gel x
 nominative = "ящик для топливных резервуаров (UT-Napthal x 2, B-Gel x 2)"
 
 ["Surplus ammo crate (various USCM magazines x10)"] # Unique Vendor Name
-nominative = "ящик для боеприпасов ККМП (Обеспечение)"
+nominative = "ящик для боеприпасов ККМП (обеспечение)"
 
 ["M5 RPG Rocket Crate (HE x1, AP x1, WP x1)"] # Unique Vendor Name
-nominative = "ящик для ракет к РПГ M5 (Осколочные x 1, Бронебойные x 1, Фосфорные x 1)"
+nominative = "ящик для ракет к РПГ M5 (осколочные x 1, бронебойные x 1, фосфорные x 1)"
 
 ["M5 RPG HE Rocket Crate (x3)"] # Unique Vendor Name
-nominative = "ящик для ракет к РПГ M5 (Осколочные x 3)"
+nominative = "ящик для ракет к РПГ M5 (осколочные x 3)"
 
 ["M5 RPG AP Rocket Crate (x3)"] # Unique Vendor Name
-nominative = "ящик для ракет к РПГ M5 (Бронебойные x 3)"
+nominative = "ящик для ракет к РПГ M5 (бронебойные x 3)"
 
 ["M5 RPG WP Rocket Crate (x3)"] # Unique Vendor Name
-nominative = "ящик для ракет к РПГ M5 (Фосфорные x 3)"
+nominative = "ящик для ракет к РПГ M5 (фосфорные x 3)"
 
 ["M6H-BRUTE Breaching Rocket Crate (x6)"] # Unique Vendor Name
 nominative = "ящик для ракет к M6H-BRUTE (M5510 x 6)"

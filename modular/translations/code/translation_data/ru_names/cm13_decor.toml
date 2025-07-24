@@ -424,7 +424,7 @@ instrumental = "баком для реагентов"
 prepositional = "баке для реагентов"
 gender = "male"
 
-["Fuel tank crate (x1)"] # Unique Vendor Name
+["fuel tank crate (x1)"] # Unique Vendor Name
 nominative = "ящик для бака с топливом"
 
 ["fueltank"]

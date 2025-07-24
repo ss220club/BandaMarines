@@ -34,15 +34,6 @@ gender = "male"
 
 # MARK: staff
 
-["Oxygen canister"]
-nominative = "кислородный баллон"
-genitive = "кислородного баллона"
-dative = "кислородному баллону"
-accusative = "кислородный баллон"
-instrumental = "кислородным баллоном"
-prepositional = "кислородном баллоне"
-gender = "male"
-
 ["A+ Blood Pack"] # Unique Vendor Name
 nominative = "пакет для крови (A+)"
 
@@ -409,6 +400,51 @@ instrumental = "таблеткой"
 prepositional = "таблетке"
 gender = "female"
 
+["medical crate"] # Unique Vendor Name
+nominative = "ящик для медицинского оборудования (обеспечение)"
+
+["pill bottle crate (x2 each)"] # Unique Vendor Name
+nominative = "ящик для медицинского оборудования (наполненные таблетницы, коробка таблетниц x 2)"
+
+["first aid kit crate (x2 each)"] # Unique Vendor Name
+nominative = "ящик для медицинского оборудования (аптечка x 10)"
+
+["body bag crate (x28)"] # Unique Vendor Name
+nominative = "ящик для медицинского оборудования (мешок для тела x 28)"
+
+["stasis bag crate (x3)"] # Unique Vendor Name
+nominative = "ящик для медицинского оборудования (стазисный мешок x 3)"
+
+["surgery crate(tray,anesthetic,surgeon gear)"] # Unique Vendor Name
+nominative = "ящик для медицинского оборудования (хирургия)"
+
+["box of pill bottles"]
+nominative = "коробка таблетниц"
+genitive = "коробки таблетниц"
+dative = "коробке таблетниц"
+accusative = "коробку таблетниц"
+instrumental = "коробкой таблетниц"
+prepositional = "коробке таблетниц"
+gender = "female"
+
+["box of latex gloves"]
+nominative = "коробка латексных перчаток"
+genitive = "коробки латексных перчаток"
+dative = "коробке латексных перчаток"
+accusative = "коробку латексных перчаток"
+instrumental = "коробкой латексных перчаток"
+prepositional = "коробке латексных перчаток"
+gender = "female"
+
+["latex gloves"]
+nominative = "латексные перчатки"
+genitive = "латексных перчаток"
+dative = "латексным перчаткам"
+accusative = "латексные перчатки"
+instrumental = "латексными перчатками"
+prepositional = "латексных перчатках"
+gender = "plural"
+
 ["Peridaxon pill bottle"]
 nominative = "таблетница (Peridaxon)"
 genitive = "таблетницы (Peridaxon)"
@@ -542,6 +578,60 @@ dative = "сосуду для реагента (Tramadol)"
 accusative = "сосуд для реагента (Tramadol)"
 instrumental = "сосудом для реагента (Tramadol)"
 prepositional = "сосуде для реагента (Tramadol)"
+gender = "male"
+
+["box of syringes"]
+nominative = "коробка шприцов"
+genitive = "коробки шприцов"
+dative = "коробке шприцов"
+accusative = "коробку шприцов"
+instrumental = "коробкой шприцов"
+prepositional = "коробке шприцов"
+gender = "female"
+
+["syringe"]
+nominative = "шприц"
+genitive = "шприца"
+dative = "шприцу"
+accusative = "шприц"
+instrumental = "шприцом"
+prepositional = "шприце"
+gender = "male"
+
+["dropper"]
+nominative = "пипетка"
+genitive = "пипетки"
+dative = "пипетке"
+accusative = "пипетку"
+instrumental = "пипеткой"
+prepositional = "пипетке"
+gender = "female"
+
+["body bags box"]
+nominative = "коробка мешков для тел"
+genitive = "коробки мешков для тел"
+dative = "коробке мешков для тел"
+accusative = "коробку мешков для тел"
+instrumental = "коробкой мешков для тел"
+prepositional = "коробке мешков для тел"
+gender = "female"
+
+["body bag"]
+nominative = "мешок для тела"
+genitive = "мешка для тела"
+dative = "мешку для тела"
+accusative = "мешок для тела"
+instrumental = "мешком для тела"
+prepositional = "мешке для тела"
+gender = "male"
+
+["surgical tray"]
+nominative = "хирургический набор"
+genitive = "хирургического набора"
+dative = "хирургическому набору"
+accusative = "хирургический набор"
+instrumental = "хирургическим набором"
+prepositional = "хирургическом наборе"
 gender = "male"
 
 ["PICT system"]

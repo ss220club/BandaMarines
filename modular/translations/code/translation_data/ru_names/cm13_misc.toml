@@ -495,6 +495,9 @@ instrumental = "авиаторами"
 prepositional = "авиаторах"
 gender = "male"
 
+["USCM MRE crate(x2)"] # Unique Vendor Name
+nominative = "ящик для коробок с едой (MRE x 2)"
+
 ["box of MREs"]
 nominative = "коробка MRE"
 genitive = "коробки MRE"
