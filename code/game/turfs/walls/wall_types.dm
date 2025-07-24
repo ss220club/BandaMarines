@@ -89,6 +89,11 @@
 /turf/closed/wall/almayer/outer/take_damage(dam, mob/M)
 	return
 
+/turf/closed/wall/almayer/outer/internal
+	name = "structural hull"
+	desc = "The core structure of the hull, it holds the ship together."
+	icon_state = "innerhull" //Codersprite to make it more obvious in the map maker what's a hull wall and what's not
+
 /turf/closed/wall/almayer/white
 	walltype = WALL_WHITE
 	icon = 'icons/turf/walls/almayer_white.dmi'
