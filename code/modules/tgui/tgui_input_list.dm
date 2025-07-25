@@ -29,8 +29,9 @@
  * * theme - The ui theme to use for the TGUI window.
  * * default - If an option is already preselected on the UI. Current values, etc.
  * * ui_state - The TGUI UI state that will be returned in ui_state(). Default: always_state
+ * * associative_list - TRUE if need to return selected key from an associative array, default FALSE // SS220 EDIT ADDICTION
  */
-/proc/tgui_input_list(mob/user, message, title = "Select", list/buttons, timeout = 0, theme = null, default, ui_state = GLOB.always_state)
+/proc/tgui_input_list(mob/user, message, title = "Select", list/buttons, timeout = 0, theme = null, default, ui_state = GLOB.always_state, associative_list = FALSE)
 	if (!user)
 		user = usr
 	if(!length(buttons))
@@ -47,17 +48,14 @@
 		return null
 
 	// SS220 START EDIT ADDICTION
-	// Если передан ассоциативный массив, создаем список для отображения (значения)
 	var/list/display_list = buttons
-	var/using_assoc = FALSE
-	if(islist(buttons) && buttons.len && !isnum(buttons[1]))
+	if(associative_list)
 		display_list = list()
 		for(var/key in buttons)
-			display_list += buttons[key] // Используем значения для отображения
-		using_assoc = TRUE
-
-	var/datum/tgui_list_input/input = new(user, message, title, display_list, timeout, theme, default, ui_state)
+			display_list += buttons[key]
 	// SS220 END EDIT ADDICTION
+
+	var/datum/tgui_list_input/input = new(user, message, title, display_list, timeout, theme, default, ui_state, associative_list) // SS220 EDIT ADDICTION
 	if(input.invalid)
 		qdel(input)
 		return
@@ -65,7 +63,7 @@
 	input.wait()
 	if (input)
 		// SS220 START EDIT ADDICTION
-		if(using_assoc)
+		if(associative_list)
 			. = null
 			for(var/key in buttons)
 				if(buttons[key] == input.choice)
