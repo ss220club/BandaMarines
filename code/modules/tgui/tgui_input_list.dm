@@ -46,14 +46,34 @@
 	if(isnull(user.client))
 		return null
 
-	var/datum/tgui_list_input/input = new(user, message, title, buttons, timeout, theme, default, ui_state)
+	// SS220 START EDIT ADDICTION
+	// Если передан ассоциативный массив, создаем список для отображения (значения)
+	var/list/display_list = buttons
+	var/using_assoc = FALSE
+	if(islist(buttons) && buttons.len && !isnum(buttons[1]))
+		display_list = list()
+		for(var/key in buttons)
+			display_list += buttons[key] // Используем значения для отображения
+		using_assoc = TRUE
+
+	var/datum/tgui_list_input/input = new(user, message, title, display_list, timeout, theme, default, ui_state)
+	// SS220 END EDIT ADDICTION
 	if(input.invalid)
 		qdel(input)
 		return
 	input.tgui_interact(user)
 	input.wait()
 	if (input)
-		. = input.choice
+		// SS220 START EDIT ADDICTION
+		if(using_assoc)
+			. = null
+			for(var/key in buttons)
+				if(buttons[key] == input.choice)
+					. = key
+					break
+		else
+		// SS220 END EDIT ADDICTION
+			. = input.choice
 		qdel(input)
 
 /**
