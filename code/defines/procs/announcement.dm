@@ -12,6 +12,7 @@
 #define TTS_ARES_ANNOUNCER new /datum/announcer/ares
 #define TTS_QUEEN_MOTHER_ANNOUNCER new /datum/announcer/queen_mother
 // SS220 ADD END - TTS
+#define PATHOGEN_ANNOUNCE SPAN_ANNOUNCEMENT_HEADER_BEIGE("Higher Mycelial Entity")
 
 //xenomorph hive announcement
 /proc/xeno_announcement(message, hivenumber, title = QUEEN_ANNOUNCE)
