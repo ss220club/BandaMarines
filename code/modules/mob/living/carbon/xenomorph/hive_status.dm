@@ -1593,8 +1593,8 @@
 	icon_state = "fortify"
 
 /datum/xeno_mark_define/weeds
-	name = "Need Weeds"
-	desc = "Need weeds here!"
+	name = "Нужна трава"
+	desc = "Здесь нужна трава!"
 	icon_state = "weed"
 
 /datum/xeno_mark_define/nest
