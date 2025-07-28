@@ -1107,7 +1107,7 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 
 	return data
 
-obj/item/paper/reqform/ui_data(mob/user)
+/obj/item/paper/reqform/ui_data(mob/user)
 	var/list/data = list()
 
 	data["shipname"] = shipname
