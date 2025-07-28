@@ -26,6 +26,10 @@ type StampPosition = {
   y: number;
 };
 
+export type StampAreaProps = {
+  stampslist?: StampsList[]; // Опциональный массив штампов
+};
+
 export const PaperRequisitionForm = () => {
   const { data } = useBackend<RequisitionFormData>();
 
@@ -44,7 +48,7 @@ export const PaperRequisitionForm = () => {
     },
   };
 
-  const StampArea = ({ stampslist = [] }) => {
+  const StampArea = ({ stampslist = [] }: StampAreaProps) => {
     if (!stampslist || !Array.isArray(stampslist)) {
       return null;
     }
@@ -99,7 +103,7 @@ export const PaperRequisitionForm = () => {
   };
 
   return (
-    <Window width={600} height={800} theme="paper" noResize>
+    <Window width={600} height={800} theme="paper">
       <Window.Content scrollable>
         <Box
           style={{

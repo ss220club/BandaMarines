@@ -28,6 +28,10 @@ type StampPosition = {
   y: number;
 };
 
+export type StampAreaProps = {
+  stampslist?: StampsList[]; // Опциональный массив штампов
+};
+
 export const PaperSupplyManifest = () => {
   const { data } = useBackend<SupplyManifestData>();
 
@@ -46,7 +50,7 @@ export const PaperSupplyManifest = () => {
     },
   };
 
-  const StampArea = ({ stampslist = [] }) => {
+  const StampArea = ({ stampslist = [] }: StampAreaProps) => {
     if (!stampslist || !Array.isArray(stampslist)) {
       return null;
     }
@@ -97,7 +101,7 @@ export const PaperSupplyManifest = () => {
   };
 
   return (
-    <Window width={600} height={800} theme="paper" noResize>
+    <Window width={600} height={800} theme="paper">
       <Window.Content scrollable>
         <Box
           style={{
