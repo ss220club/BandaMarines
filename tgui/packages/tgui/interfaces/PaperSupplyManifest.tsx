@@ -19,7 +19,7 @@ type SupplyManifestData = {
 
 type StampsList = {
   name: string;
-  position: StampPosition[];
+  position: StampPosition;
   rotation: string;
 };
 
@@ -53,7 +53,7 @@ export const PaperSupplyManifest = () => {
 
     return (
       <>
-        {stampslist.map((item, index) => {
+        {stampslist.map((item: StampsList, index) => {
           const stamp = STAMP_TYPES[item.name] || STAMP_TYPES['default'];
           const xPos = item.position?.x || 0;
           const yPos = item.position?.y || 0;
