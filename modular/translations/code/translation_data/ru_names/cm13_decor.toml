@@ -518,12 +518,12 @@ prepositional = "стеклянной заслонке"
 gender = "female"
 
 ["USCM Poster"]
-nominative = "постер ККМП"
-genitive = "постера ККМП"
-dative = "постеру ККМП"
-accusative = "постер ККМП"
-instrumental = "постером ККМП"
-prepositional = "постере ККМП"
+nominative = "плакат ККМП"
+genitive = "плаката ККМП"
+dative = "плакату ККМП"
+accusative = "плакат ККМП"
+instrumental = "плакатом ККМП"
+prepositional = "плакате ККМП"
 gender = "male"
 
 ["Dirty Magazine"]

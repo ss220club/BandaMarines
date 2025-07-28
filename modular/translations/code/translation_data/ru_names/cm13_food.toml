@@ -12,12 +12,12 @@ prepositional = "основном блюде ИРП"
 gender = "neuter"
 
 ["W-Y brand ration main dish"]
-nominative = "основное блюдо ВейЮ"
-genitive = "основного блюда ВейЮ"
-dative = "основному блюду ВейЮ"
-accusative = "основное блюдо ВейЮ"
-instrumental = "основным блюдом ВейЮ"
-prepositional = "основном блюде ВейЮ"
+nominative = "основное блюдо «ВейЮ»"
+genitive = "основного блюда «ВейЮ»"
+dative = "основному блюду «ВейЮ»"
+accusative = "основное блюдо «ВейЮ»"
+instrumental = "основным блюдом «ВейЮ»"
+prepositional = "основном блюде «ВейЮ»"
 gender = "neuter"
 
 ["MRE side dish"]
@@ -975,8 +975,8 @@ instrumental = "пончиком с глазурью"
 prepositional = "пончике с глазурью"
 gender = "male"
 
-["Pizza ready-to-eat (x3)"] # Unique Vendor Name
-nominative = "ящик для коробок с едой (пицца x 5)"
+["pizza ready-to-eat (x3)"] # Unique Vendor Name
+nominative = "ящик для коробок с едой (пицца x 3)"
 
 ["pizza box"]
 nominative = "коробка для пиццы"

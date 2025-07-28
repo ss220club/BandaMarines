@@ -418,15 +418,6 @@ instrumental = "охранной ручкой"
 prepositional = "охранной ручке"
 gender = "female"
 
-["suppressor"]
-nominative = "глушитель"
-genitive = "глушителя"
-dative = "глушителю"
-accusative = "глушитель"
-instrumental = "глушителем"
-prepositional = "глушителе"
-gender = "male"
-
 ["ballistic shield"]
 nominative = "баллистический щит"
 genitive = "баллистического щита"
@@ -2175,15 +2166,6 @@ instrumental = "пластиковой коробкой"
 prepositional = "пластиковой коробке"
 gender = "female"
 
-["bucket"]
-nominative = "ведро"
-genitive = "ведра"
-dative = "ведру"
-accusative = "ведро"
-instrumental = "ведром"
-prepositional = "ведре"
-gender = "neuter"
-
 ["tongs"]
 nominative = "щипцы"
 genitive = "щипцов"
@@ -2333,15 +2315,6 @@ instrumental = "галошами"
 prepositional = "галошах"
 gender = "plural"
 
-["cleaner grenade"]
-nominative = "чистящая граната"
-genitive = "чистящей гранаты"
-dative = "чистящей гранате"
-accusative = "чистящую гранату"
-instrumental = "чистящей гранатой"
-prepositional = "чистящей гранате"
-gender = "female"
-
 ["push broom"]
 nominative = "швабра-толкалка"
 genitive = "швабры-толкалки"
@@ -2359,15 +2332,6 @@ accusative = "продвинутую швабру"
 instrumental = "продвинутой шваброй"
 prepositional = "продвинутой швабре"
 gender = "female"
-
-["trash bag"]
-nominative = "мусорный мешок"
-genitive = "мусорного мешка"
-dative = "мусорному мешку"
-accusative = "мусорный мешок"
-instrumental = "мусорным мешком"
-prepositional = "мусорном мешке"
-gender = "male"
 
 ["trash bag of holding"]
 nominative = "мусорный мешок хранения"
@@ -2514,15 +2478,6 @@ instrumental = "мухобойкой"
 prepositional = "мухобойке"
 gender = "female"
 
-["wet floor sign"]
-nominative = "знак скользкого пола"
-genitive = "знака скользкого пола"
-dative = "знаку скользкого пола"
-accusative = "знак скользкого пола"
-instrumental = "знаком скользкого пола"
-prepositional = "знаке скользкого пола"
-gender = "male"
-
 ["soap"]
 nominative = "мыло"
 genitive = "мыла"
@@ -2667,15 +2622,6 @@ accusative = "бандольер"
 instrumental = "бандольером"
 prepositional = "бандольере"
 gender = "male"
-
-["damp rag"]
-nominative = "влажная тряпка"
-genitive = "влажной тряпки"
-dative = "влажной тряпке"
-accusative = "влажную тряпку"
-instrumental = "влажной тряпкой"
-prepositional = "влажной тряпке"
-gender = "female"
 
 ["DIY Dish Drive Kit"]
 nominative = "набор \"сделай сам\" дисковода для блюд"
@@ -8544,15 +8490,6 @@ dative = "берету учёного"
 accusative = "берет учёного"
 instrumental = "беретом учёного"
 prepositional = "берете учёного"
-gender = "male"
-
-["gas mask"]
-nominative = "противогаз"
-genitive = "противогаза"
-dative = "противогазу"
-accusative = "противогаз"
-instrumental = "противогазом"
-prepositional = "противогазе"
 gender = "male"
 
 ["striped science bandana"]
@@ -18680,15 +18617,6 @@ accusative = "принадлежности для игры \"Приколи хв
 instrumental = "принадлежностями для игры \"Приколи хвост корги\""
 prepositional = "принадлежностях для игры \"Приколи хвост корги\""
 gender = "plural"
-
-["box of crayons"]
-nominative = "коробка цветных карандашей"
-genitive = "коробки цветных карандашей"
-dative = "коробке цветных карандашей"
-accusative = "коробку цветных карандашей"
-instrumental = "коробкой цветных карандашей"
-prepositional = "коробке цветных карандашей"
-gender = "female"
 
 ["paint palette"]
 nominative = "палитра для рисования"

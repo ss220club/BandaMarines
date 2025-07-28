@@ -32,6 +32,7 @@
 	var/info //What's actually written on the paper.
 	var/info_links //A different version of the paper which includes html links at fields and EOF
 	var/stamps //The (text for the) stamps on the paper.
+	var/stamps_list // SS220 - EDIT ADDITTION
 	var/fields //Amount of user created fields
 	var/list/stamped
 	var/ico[0] //Icons and
@@ -60,6 +61,7 @@
 /obj/item/paper/Initialize(mapload, photo_list)
 	. = ..()
 	stamps = ""
+	stamps_list = list() // SS220 - EDIT ADDITTION
 	src.photo_list = photo_list
 
 	if(info != initial(info))
@@ -229,6 +231,7 @@
 /obj/item/paper/proc/clearpaper()
 	info = null
 	stamps = null
+	stamps_list = list() // SS220 - EDIT ADDITTION
 	stamped = list()
 	overlays.Cut()
 	updateinfolinks()
@@ -473,7 +476,15 @@
 		if((!in_range(src, usr) && loc != user && !( istype(loc, /obj/item/clipboard) ) && loc.loc != user && user.get_active_hand() != P))
 			return
 
-		stamps += (stamps=="" ? "<HR>" : "<BR>") + "<i>This paper has been stamped with the [P.name].</i>"
+		// SS220 - START EDIT ADDITTION
+		stamps += (stamps=="" ? "<HR>" : "<BR>") + "<i>На этом документе стоит [declent_ru_initial(P.name, NOMINATIVE, P.name)].</i>"
+		stamps_list += list(list(
+			"name" = P.icon_state,
+			"position" = list("x" = rand(20, 80), "y" = rand(0, 100)),
+			"rotation" = rand(-60, 60)
+		))
+		// SS220 - END EDIT ADDITTION
+
 		playsound(src, 'sound/effects/alien_footstep_medium3.ogg', 20, TRUE, 6)
 
 		var/image/stampoverlay = image('icons/obj/items/paper.dmi')

@@ -79,6 +79,9 @@ gender = "female"
 ["Medium Armor"] # Unique Vendor Name
 nominative = "средняя броня"
 
+["M4 pattern marine armor crate (x1 helmet, x1 armor)"] # Unique Vendor Name
+nominative = "ящик для экипировки (шлем M4 x 1, броня B12 x 1)"
+
 ["M4 Pattern Armor"] # Unique Vendor Name
 nominative = "средняя броня морпеха M4"
 
@@ -102,6 +105,9 @@ accusative = "лёгкую броню морпеха M3-L"
 instrumental = "лёгкой бронёй морпеха M3-L"
 prepositional = "лёгкой броне морпеха M3-L"
 gender = "female"
+
+["B12 pattern marine armor crate (x1 helmet, x1 armor)"] # Unique Vendor Name
+nominative = "ящик для экипировки (шлем M11 x 1, броня B12 x 1)"
 
 ["M3 B12 Pattern Marine Armor"] # Unique Vendor Name
 nominative = "броня морпеха B12"

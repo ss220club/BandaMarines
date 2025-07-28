@@ -1113,3 +1113,164 @@ accusative = "смятый ИРП ККМП"
 instrumental = "смятый ИРП ККМП"
 prepositional = "смятый ИРП ККМП"
 gender = "male"
+
+["bucket"]
+nominative = "ведро"
+genitive = "ведра"
+dative = "ведру"
+accusative = "ведро"
+instrumental = "ведром"
+prepositional = "ведре"
+gender = "neuter"
+
+["mop"]
+accusative = "швабру"
+dative = "швабре"
+genitive = "швабры"
+instrumental = "шваброй"
+nominative = "швабра"
+prepositional = "швабре"
+
+["wet floor sign"]
+nominative = "знак «Скользкий пол»"
+genitive = "знака «Скользкий пол»"
+dative = "знаку «Скользкий пол»"
+accusative = "знак «Скользкий пол»"
+instrumental = "знаком «Скользкий пол»"
+prepositional = "знаке «Скользкий пол»"
+gender = "male"
+
+["trash bag"]
+nominative = "мешок для мусора"
+genitive = "мешка для мусора"
+dative = "мешку для мусора"
+accusative = "мешок для мусора"
+instrumental = "мешком для мусора"
+prepositional = "мешке для мусора"
+gender = "male"
+
+["air tank"]
+nominative = "воздушный баллон"
+genitive = "воздушного баллона"
+dative = "воздушному баллону"
+accusative = "воздушный баллон"
+instrumental = "воздушным баллоном"
+prepositional = "воздушном баллоне"
+gender = "male"
+
+["space cleaner"]
+nominative = "космочист"
+genitive = "космочиста"
+dative = "космочисту"
+accusative = "космочиста"
+instrumental = "космочистом"
+prepositional = "космочисте"
+gender = "male"
+
+["Space cleaner"]
+nominative = "космочист"
+genitive = "космочиста"
+dative = "космочисту"
+accusative = "космочиста"
+instrumental = "космочистом"
+prepositional = "космочисте"
+gender = "male"
+
+["damp rag"]
+nominative = "влажная тряпка"
+genitive = "влажной тряпки"
+dative = "влажной тряпке"
+accusative = "влажную тряпку"
+instrumental = "влажной тряпкой"
+prepositional = "влажной тряпке"
+gender = "female"
+
+["cleaner grenade"]
+nominative = "чистящая граната"
+genitive = "чистящей гранаты"
+dative = "чистящей гранате"
+accusative = "чистящую гранату"
+instrumental = "чистящей гранатой"
+prepositional = "чистящей гранате"
+gender = "female"
+
+["mop bucket"]
+nominative = "ведро для швабры"
+genitive = "ведра для швабры"
+dative = "ведру для швабры"
+accusative = "ведро для швабры"
+instrumental = "ведром для швабры"
+prepositional = "ведре для швабры"
+gender = "neuter"
+
+["box of crayons"]
+nominative = "коробка цветных карандашей"
+genitive = "коробки цветных карандашей"
+dative = "коробке цветных карандашей"
+accusative = "коробку цветных карандашей"
+instrumental = "коробкой цветных карандашей"
+prepositional = "коробке цветных карандашей"
+gender = "female"
+
+["box"]
+nominative = "коробка"
+genitive = "коробки"
+dative = "коробке"
+accusative = "коробку"
+instrumental = "коробкой"
+prepositional = "коробке"
+gender = "female"
+
+["rolled-up poster"]
+nominative = "свёрнутый плакат"
+genitive = "свёрнутого плаката"
+dative = "свёрнутому плакату"
+accusative = "свёрнутый плакат"
+instrumental = "свёрнутым плакатом"
+prepositional = "свёрнутом плакате"
+gender = "male"
+
+["gift"]
+nominative = "подарок"
+genitive = "подарка"
+dative = "подарку"
+accusative = "подарок"
+instrumental = "подарком"
+prepositional = "подарке"
+gender = "male"
+
+["wrapping paper"]
+nominative = "обёрточная бумага"
+genitive = "обёрточной бумаги"
+dative = "обёрточной бумаге"
+accusative = "обёрточную бумагу"
+instrumental = "обёрточной бумагой"
+prepositional = "обёрточной бумаге"
+gender = "female"
+
+["APPROVED rubber stamp"]
+nominative = "печать «ОДОБРЕНО»"
+genitive = "печати «ОДОБРЕНО»"
+dative = "печати «ОДОБРЕНО»"
+accusative = "печать «ОДОБРЕНО»"
+instrumental = "печатью «ОДОБРЕНО»"
+prepositional = "печати «ОДОБРЕНО»"
+gender = "female"
+
+["DENIED rubber stamp"]
+nominative = "печать «ОТКАЗАНО»"
+genitive = "печати «ОТКАЗАНО»"
+dative = "печати «ОТКАЗАНО»"
+accusative = "печать «ОТКАЗАНО»"
+instrumental = "печатью «ОТКАЗАНО»"
+prepositional = "печати «ОТКАЗАНО»"
+gender = "female"
+
+["quartermaster's rubber stamp"]
+nominative = "печать квартирмейстера"
+genitive = "печати квартирмейстера"
+dative = "печати квартирмейстера"
+accusative = "печать квартирмейстера"
+instrumental = "печатью квартирмейстера"
+prepositional = "печати квартирмейстера"
+gender = "female"

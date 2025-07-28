@@ -22,6 +22,15 @@ instrumental = "пистолетом-пулемётом M39"
 prepositional = "пистолете-пулемёте M39"
 gender = "male"
 
+["M37A1 pump shotgun"]
+nominative = "помповый дробовик M37A1"
+genitive = "помпового дробовика M37A1"
+dative = "помповому дробовику M37A1"
+accusative = "помповый дробовик M37A1"
+instrumental = "помповым дробовиком M37A1"
+prepositional = "помповом дробовике M37A1"
+gender = "male"
+
 ["M37A2 pump shotgun"]
 nominative = "помповый дробовик M37A2"
 genitive = "помпового дробовика M37A2"
@@ -113,6 +122,15 @@ dative = "кейсу для огнемёта M240"
 accusative = "кейс для огнемёта M240"
 instrumental = "кейсом для огнемёта M240"
 prepositional = "кейсе для огнемёта M240"
+gender = "male"
+
+["M85A1 grenade launcher"]
+nominative = "гранатомёт M85A1"
+genitive = "гранатомёта M85A1"
+dative = "гранатомёту M85A1"
+accusative = "гранатомёт M85A1"
+instrumental = "гранатомётом M85A1"
+prepositional = "гранатомёте M85A1"
 gender = "male"
 
 ["M79 Grenade Launcher Crate (x2 Guncases)"] # Unique Vendor Name
