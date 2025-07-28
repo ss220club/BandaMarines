@@ -13627,15 +13627,6 @@ instrumental = "железом"
 prepositional = "железе"
 gender = "neuter"
 
-[plastic]
-nominative = "пластик"
-genitive = "пластика"
-dative = "пластику"
-accusative = "пластик"
-instrumental = "пластиком"
-prepositional = "пластике"
-gender = "male"
-
 [titanium]
 nominative = "титан"
 genitive = "титана"
