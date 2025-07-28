@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Box, Table, LabeledList } from '../components';
+import { Box, LabeledList, Table } from '../components';
 import { Window } from '../layouts';
 
 type SupplyManifestData = {
@@ -29,7 +29,7 @@ type StampPosition = {
 };
 
 export type StampAreaProps = {
-  stampslist?: StampsList[]; // Опциональный массив штампов
+  readonly stampslist?: StampsList[]; // Опциональный массив штампов
 };
 
 export const PaperSupplyManifest = () => {
