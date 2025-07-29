@@ -206,8 +206,6 @@
 				if(add_to_infected)
 					infected += list(serialized)
 
-				if(add_to_infected)
-					infected += list(serialized)
 
 				if(human.job in FAX_RESPONDER_JOB_LIST)
 					responders += list(serialized)
