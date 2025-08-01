@@ -675,6 +675,24 @@ instrumental = "раздатчиком пакетов для крови"
 prepositional = "раздатчике пакетов для крови"
 gender = "male"
 
+["soda fountain"]
+nominative = "раздатчик напитков"
+genitive = "раздатчика напитков"
+dative = "раздатчику напитков"
+accusative = "раздатчик напитков"
+instrumental = "раздатчиком напитков"
+prepositional = "раздатчике напитков"
+gender = "male"
+
+["booze dispenser"]
+nominative = "раздатчик алкоголя"
+genitive = "раздатчика алкоголя"
+dative = "раздатчику алкоголя"
+accusative = "раздатчик алкоголя"
+instrumental = "раздатчиком алкоголя"
+prepositional = "раздатчике алкоголя"
+gender = "male"
+
 ["NanoMed"]
 nominative = "НаноМед"
 genitive = "НаноМеда"
@@ -727,6 +745,15 @@ dative = "торговому автомату «Rec-Vend»"
 accusative = "торговый автомат «Rec-Vend»"
 instrumental = "торговым автоматом «Rec-Vend»"
 prepositional = "торговом автомате «Rec-Vend»"
+gender = "male"
+
+["chemical dispenser"]
+nominative = "раздатчик реагентов"
+genitive = "раздатчика реагентов"
+dative = "раздатчику реагентов"
+accusative = "раздатчик реагентов"
+instrumental = "раздатчиком реагентов"
+prepositional = "раздатчике реагентов"
 gender = "male"
 
 ["pressurized chemical dispenser"]

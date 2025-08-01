@@ -2488,23 +2488,6 @@ prepositional = "мыле"
 gender = "neuter"
 
 # MARK: Bar
-["soda dispenser"]
-nominative = "раздатчик соды"
-genitive = "раздатчика соды"
-dative = "раздатчику соды"
-accusative = "раздатчик соды"
-instrumental = "раздатчиком соды"
-prepositional = "раздатчике соды"
-gender = "male"
-
-["booze dispenser"]
-nominative = "раздатчик алкоголя"
-genitive = "раздатчика алкоголя"
-dative = "раздатчику алкоголя"
-accusative = "раздатчик алкоголя"
-instrumental = "раздатчиком алкоголя"
-prepositional = "раздатчике алкоголя"
-gender = "male"
 
 ["dish drive"]
 nominative = "дисковод для блюд"
@@ -2595,15 +2578,6 @@ accusative = "шейкер"
 instrumental = "шейкером"
 prepositional = "шейкере"
 gender = "male"
-
-["Soda Water"]
-nominative = "газированная вода"
-genitive = "газированной воды"
-dative = "газированной воде"
-accusative = "газированную воду"
-instrumental = "газированной водой"
-prepositional = "газированной воде"
-gender = "female"
 
 ["pet collar"]
 nominative = "ошейник для питомца"
@@ -12991,14 +12965,6 @@ prepositional = "промышленном сварочном инструмен�
 gender = "male"
 
 # Screwdriver
-[screwdriver]
-nominative = "отвёртка"
-genitive = "отвёртки"
-dative = "отвёртке"
-accusative = "отвёртку"
-instrumental = "отвёрткой"
-prepositional = "отвёртке"
-gender = "female"
 
 ["automated screwdriver"]
 nominative = "автоматическая отвёртка"
