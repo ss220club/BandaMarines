@@ -53,7 +53,7 @@
 		return name
 	return ru_names[declent] || ru_names[NOMINATIVE] || name
 
-/datum/reagent/proc/declent_reagent_ru_from_obj(var/datum/reagent/reagent, declent = NOMINATIVE, backup_value)
+/datum/reagent/proc/declent_reagent_ru_from_obj(datum/reagent/reagent, declent = NOMINATIVE, backup_value)
 	if(!reagent?.ru_names || !length(reagent.ru_names))
 		return backup_value
 
