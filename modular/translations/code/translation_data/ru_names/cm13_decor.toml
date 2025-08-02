@@ -535,15 +535,6 @@ instrumental = "липким журналом"
 prepositional = "липком журнале"
 gender = "male"
 
-["Dirty Magazine"]
-nominative = "липкий журнал"
-genitive = "липкого журнала"
-dative = "липкому журналу"
-accusative = "липкий журнал"
-instrumental = "липким журналом"
-prepositional = "липком журнале"
-gender = "male"
-
 ["Personal Computer"]
 nominative = "персональный компьютер"
 genitive = "персонального компьютера"
