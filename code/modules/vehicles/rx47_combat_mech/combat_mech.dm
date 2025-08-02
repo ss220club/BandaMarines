@@ -17,6 +17,16 @@
 	pixel_y = -2
 
 	heal_increment = 100
+	var/xeno_collision_damage_modifier = 1.0 //Было 5,0
+
+	var/current_speed_level = 1
+	var/straight_move_timer = 0
+	var/last_move_time = 0
+	var/move_delay_initial = 7
+	var/move_delay_intermediate = 5
+	var/move_delay_maximum = 3
+	var/reset_time = 0.5 SECONDS
+	var/change_speed_time = 1.5 SECONDS
 
 	var/mouse_pointer = 'icons/effects/mouse_pointer/mecha_mouse.dmi'
 	var/wreckage = /obj/structure/combat_mech_wreckage
@@ -109,22 +119,58 @@
 			setDir(direction)
 			handle_rotation()
 			pick(playsound(src.loc, 'sound/mecha/powerloader_turn.ogg', 25, 1), playsound(src.loc, 'sound/mecha/powerloader_turn2.ogg', 25, 1))
+			if(current_speed_level > 2)
+				current_speed_level = 2
+				update_speed()
+			straight_move_timer = 0
+			set_glide_size(DELAY_TO_GLIDE_SIZE(move_delay + 1))
 			. = TRUE
 		else
 			. = step(src, direction)
 			if(.)
+				handle_acceleration(direction)
 				pick(playsound(loc, 'sound/mecha/powerloader_step.ogg', 25), playsound(loc, 'sound/mecha/powerloader_step2.ogg', 25))
+				set_glide_size(DELAY_TO_GLIDE_SIZE(move_delay))
+				l_move_time = world.time
 
-/obj/vehicle/rx47_mech/handle_rotation()
-	if(buckled_mob)
-		buckled_mob.setDir(dir)
-		switch(dir)
-			if(EAST)
-				buckled_mob.pixel_x = 4
-			if(WEST)
-				buckled_mob.pixel_x = -4
-			else
-				buckled_mob.pixel_x = 0
+/obj/vehicle/rx47_mech/proc/update_speed()
+	switch(current_speed_level)
+		if(1)
+			move_delay = move_delay_initial
+		if(2)
+			move_delay = move_delay_intermediate
+		if(3)
+			move_delay = move_delay_maximum
+	if(buckled_mob?.mind && buckled_mob.skills)
+		move_delay = max(3, move_delay - 2 * buckled_mob.skills.get_skill_level(SKILL_POWERLOADER))
+
+/obj/vehicle/rx47_mech/proc/reset_speed()
+	straight_move_timer = 0
+	current_speed_level = 1
+	update_speed()
+
+/obj/vehicle/rx47_mech/proc/handle_acceleration(direction)
+	var/current_time = world.time
+	if(current_time - last_move_time > reset_time && current_speed_level != 1)
+		reset_speed()
+		return
+
+	if(direction == dir)
+		if(current_time - last_move_time > reset_time)
+			straight_move_timer = 0
+		else
+			straight_move_timer += current_time - last_move_time
+			if(straight_move_timer >= change_speed_time && current_speed_level < 3)
+				current_speed_level++
+				straight_move_timer = 0
+				update_speed()
+	else
+		if(current_speed_level > 2)
+			current_speed_level = 2
+			update_speed()
+		straight_move_timer = 0
+
+	last_move_time = current_time
 
 /obj/vehicle/rx47_mech/explode()
 	new wreckage(loc)
@@ -151,7 +197,7 @@
 /obj/vehicle/rx47_mech/Collided(atom/A)
 	if(isxeno(A))
 		var/mob/living/carbon/xenomorph/xeno = A
-		health -= (xeno.melee_vehicle_damage * 5)
+		health -= (xeno.melee_vehicle_damage * xeno_collision_damage_modifier)
 		healthcheck()
 		return
 
