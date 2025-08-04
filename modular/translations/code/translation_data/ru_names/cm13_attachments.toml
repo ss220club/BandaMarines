@@ -330,6 +330,15 @@ instrumental = "складным прикладом для M39"
 prepositional = "складном прикладе для M39"
 gender = "male"
 
+["M37A2 Collapsible Stock"]
+nominative = "складной приклад для M37A2"
+genitive = "складного приклада для M37A2"
+dative = "складному прикладу для M37A2"
+accusative = "складной приклад для M37A2"
+instrumental = "складным прикладом для M37A2"
+prepositional = "складном прикладе для M37A2"
+gender = "male"
+
 ["M39 Arm Brace"] # Unique Vendor Name
 nominative = "плечевой упор для M39"
 

@@ -612,6 +612,9 @@ instrumental = "набором для ремонта оружия"
 prepositional = "наборе для ремонта оружия"
 gender = "male"
 
+["Firearm Lubricant"] # Unique Vendor Name
+nominative = "оружейная смазка"
+
 ["Combat Lubricant"] # Unique Vendor Name
 nominative = "оружейная смазка"
 
