@@ -1,6 +1,11 @@
 /** Assigned say modal of the client */
 /client/var/datum/tgui_say/tgui_say
 
+#define LIVING_TYPE_HUMAN "human"
+#define LIVING_TYPE_XENO "xeno"
+#define LIVING_TYPE_SYNTH "synth"
+#define LIVING_TYPE_YAUTJA "yautja"
+
 /**
  * Creates a JSON encoded message to open TGUI say modals properly.
  *
@@ -9,8 +14,12 @@
  * Returns:
  * string - A JSON encoded message to open the modal.
  */
+
 /client/proc/tgui_say_create_open_command(channel)
-	var/message = TGUI_CREATE_OPEN_MESSAGE(channel)
+	var/message = TGUI_CREATE_MESSAGE("open", list(
+		"channel" = channel,
+	))
+
 	return "\".output tgui_say.browser:update [message]\""
 
 /**
@@ -22,13 +31,17 @@
 	/// The user who opened the window
 	var/client/client
 	/// Injury phrases to blurt out
-	var/list/hurt_phrases = list("GACK!", "GLORF!", "OOF!", "AUGH!", "OW!", "URGH!", "HRNK!")
+	var/list/hurt_phrases = list("ГХА!", "ГРХ!", "УГХ!", "АРГХ!", "АУ!", "МГХ!", "АХХ!")
 	/// Max message length
 	var/max_length = MAX_MESSAGE_LEN
 	/// The modal window
 	var/datum/tgui_window/window
 	/// Boolean for whether the tgui_say was opened by the user.
 	var/window_open
+	var/list/availableChannels = list()
+	var/livingType
+	var/last_channels_update = 0
+	var/channels_update_cooldown = 60 SECONDS
 
 /** Creates the new input window to exist in the background. */
 /datum/tgui_say/New(client/client, id)
@@ -68,7 +81,7 @@
 		"lightMode" = client.prefs?.tgui_say_light_mode,
 		"scale" = client.prefs?.window_scale,
 		"maxLength" = max_length,
-		"extraChannels" = client.admin_holder?.get_tgui_say_extra_channels()
+		"extraChannels" = client.admin_holder?.get_tgui_say_extra_channels(),
 	))
 
 	stop_thinking()
@@ -88,7 +101,36 @@
 	window_open = TRUE
 	if(payload["channel"] != OOC_CHANNEL && payload["channel"] != LOOC_CHANNEL && payload["channel"] != ADMIN_CHANNEL && payload["channel"] != MENTOR_CHANNEL)
 		start_thinking()
+	update_available_channels()
 	return TRUE
+
+/datum/tgui_say/proc/update_available_channels()
+	if(world.time < (last_channels_update + channels_update_cooldown))
+		return
+
+	availableChannels.Cut()
+
+	var/mob/user = client.mob
+	if(isxeno(user))
+		livingType = LIVING_TYPE_XENO
+		var/mob/living/carbon/xenomorph/X = user
+		for(var/channelKey in X.languages)
+			availableChannels[channelKey] = 1
+	if(ishuman(user))
+		livingType = LIVING_TYPE_HUMAN
+		var/mob/living/carbon/human/H = user
+		var/obj/item/device/radio/headset/headset = H.get_type_in_ears(/obj/item/device/radio/headset)
+		if(headset)
+			for(var/obj/item/device/encryptionkey/key in headset.keys)
+				availableChannels |= key.channels
+	if(isyautja(user))
+		livingType = LIVING_TYPE_YAUTJA
+
+	window.send_message("update_channels", list(
+		"availableChannels" = availableChannels,
+		"livingType" = livingType
+	))
+	last_channels_update = world.time
 
 /**
  * Closes the window serverside. Closes any open chat bubbles
