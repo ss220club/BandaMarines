@@ -105,7 +105,7 @@
 	return TRUE
 
 /datum/tgui_say/proc/update_available_channels()
-	if(last_channels_update !== 0 && world.time < (last_channels_update + channels_update_cooldown))
+	if(last_channels_update != 0 && world.time < (last_channels_update + channels_update_cooldown))
 		return
 
 	availableChannels.Cut()
