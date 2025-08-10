@@ -236,9 +236,12 @@ When using time2text(), please use "DDD" to find the weekday. Refrain from using
 #define TIMEZONE_ANYWHERE_ON_EARTH -12
 
 // BANDAMARINES ADD - Start
-///displays the current time into the round, with a lot of extra code just there for ensuring it looks okay after an entire day passes
-#define TG_ROUND_TIME(...) ( "[TG_STATION_TIME_PASSED() > MIDNIGHT_ROLLOVER ? "[round(TG_STATION_TIME_PASSED()/MIDNIGHT_ROLLOVER)]:[gameTimestamp(wtime = TG_STATION_TIME_PASSED())]" : gameTimestamp(wtime = TG_STATION_TIME_PASSED())]" )
+/proc/deciseconds_to_time_stamp(deciseconds)
+	if(istext(deciseconds))
+		deciseconds = text2num(deciseconds)
+	var/hour_calc = round(deciseconds / 36000) < 10 ? add_zero(round(deciseconds / 36000), 1) : round(deciseconds / 36000)
+	var/minute_calc = round((deciseconds % 36000) / 600) < 10 ? add_zero(round((deciseconds % 36000) / 600), 1) : round((deciseconds % 36000) / 600)
+	var/second_calc = round(((deciseconds % 36000) % 600) / 10) < 10 ? add_zero(round(((deciseconds % 36000) % 600) / 10), 1) : round(((deciseconds % 36000) % 600) / 10)
 
-///Returns the time that has passed since the game started
-#define TG_STATION_TIME_PASSED(...) (world.time - SSticker.round_start_time)
+	return "[hour_calc]:[minute_calc]:[second_calc]"
 // BANDAMARINES ADD - End
