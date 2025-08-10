@@ -41,7 +41,7 @@
 	var/list/availableChannels = list()
 	var/livingType
 	var/last_channels_update = 0
-	var/channels_update_cooldown = 60 SECONDS
+	var/channels_update_cooldown = 120 SECONDS
 
 /** Creates the new input window to exist in the background. */
 /datum/tgui_say/New(client/client, id)

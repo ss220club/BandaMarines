@@ -21,7 +21,6 @@ export const QUIET_CHANNELS: Channel[] = [
 ];
 
 /**
- * ### ChannelIterator
  * Cycles a predefined list of channels,
  * skipping over blacklisted ones,
  * and providing methods to manage and query the current channel.
@@ -30,7 +29,7 @@ export class ChannelIterator {
   private index: number = 0;
   private readonly channels: Channel[] = Object.values(CHANNELS);
   private readonly blacklist: Channel[];
-  private livingType: LivingType;
+  private readonly livingType: LivingType;
 
   constructor(livingType: LivingType = LIVING_TYPES.HUMAN) {
     this.blacklist = [
@@ -84,7 +83,7 @@ export class ChannelIterator {
       case LIVING_TYPES.YAUTJA:
         return 'Хищники';
       default:
-        return 'Радио';
+        return 'Рация';
     }
   }
 

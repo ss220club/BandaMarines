@@ -2,7 +2,7 @@
 export enum WindowSize {
   Small = 30,
   Medium = 50,
-  Large = 68,
+  Large = 70,
   Width = 325,
 }
 
@@ -28,8 +28,6 @@ export const LIVING_TYPES = {
   SYNTH: 'synth',
   YAUTJA: 'yautja',
 } as const;
-
-export const MESSAGE_TYPE_HIVEMIND = 'hivemind';
 
 export type LivingType = (typeof LIVING_TYPES)[keyof typeof LIVING_TYPES];
 
