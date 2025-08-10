@@ -209,10 +209,11 @@ export function TguiSay() {
     }
 
     const channelId = RADIO_PREFIXES[newPrefix as RadioPrefixType]?.id ?? null;
+    if (channelId === null) {
+      return true;
+    }
 
-    return channelId !== null
-      ? Object.keys(availableChannels).includes(channelId)
-      : false;
+    return Object.keys(availableChannels).includes(channelId);
   }
 
   function handleKeyDown(
@@ -269,7 +270,6 @@ export function TguiSay() {
     setAvailableChannels(
       typeof data.availableChannels === 'object' ? data.availableChannels : {},
     );
-    channelIterator.current.set;
     setLivingType(data.livingType);
   }
 

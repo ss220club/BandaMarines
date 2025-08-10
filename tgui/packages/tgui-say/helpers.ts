@@ -61,7 +61,7 @@ export const isXeno = (type: LivingType) => type === LIVING_TYPES.XENO;
 export const isSynth = (type: LivingType) => type === LIVING_TYPES.SYNTH;
 export const isYautja = (type: LivingType) => type === LIVING_TYPES.YAUTJA;
 
-const CHANNEL_REGEX = /^[:.][\wA-zА-яёЁ]\s/;
+const CHANNEL_REGEX = /^[:.#№][\wА-яёЁ]\s/;
 
 function normalizeRadioPrefixes(input: string): string {
   return RADIO_PREFIXES_MAP[input] ?? input;
