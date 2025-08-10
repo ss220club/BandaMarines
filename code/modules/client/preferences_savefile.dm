@@ -514,8 +514,6 @@
 	// BANDAMARINES EDIT START
 	S["xeno_customization_visibility"] >> xeno_customization_visibility
 	xeno_customization_visibility = sanitize_inlist(xeno_customization_visibility, GLOB.xeno_customization_visibility_options, XENO_CUSTOMIZATION_SHOW_LORE_FRIENDLY)
-	S["shout_orders"] >> shout_orders
-	shout_orders = sanitize_integer(shout_orders, FALSE, TRUE, TRUE)
 	S["quick_cast"] >> quick_cast
 	quick_cast = sanitize_integer(quick_cast, FALSE, TRUE, FALSE)
 	S["screentips"] >> screentips
@@ -651,7 +649,6 @@
 	// BANDAMARINES EDIT START
 	S["xeno_customization_visibility"] << xeno_customization_visibility
 	S["quick_cast"] << quick_cast
-	S["shout_orders"] << shout_orders
 	S["screentips"] << screentips
 	// BANDAMARINES EDIT END
 
@@ -711,7 +708,7 @@
 	S["underwear"] >> underwear
 	S["undershirt"] >> undershirt
 	S["backbag"] >> backbag
-	//S["b_type"] >> b_type
+	//S["blood_type"] >> blood_type
 
 	//Jobs
 	S["alternate_option"] >> alternate_option
@@ -799,7 +796,7 @@
 	backbag = sanitize_integer(backbag, 1, length(GLOB.backbaglist), initial(backbag))
 	preferred_armor = sanitize_inlist(preferred_armor, GLOB.armor_style_list, "Random")
 	night_vision_preference = sanitize_inlist(night_vision_preference, GLOB.nvg_color_list, "Green")
-	//b_type = sanitize_text(b_type, initial(b_type))
+	//blood_type = sanitize_text(blood_type, initial(blood_type))
 
 	alternate_option = sanitize_integer(alternate_option, 0, 3, initial(alternate_option))
 	if(!job_preference_list)
@@ -877,7 +874,7 @@
 	S["underwear"] << underwear
 	S["undershirt"] << undershirt
 	S["backbag"] << backbag
-	//S["b_type"] << b_type
+	//S["blood_type"] << blood_type
 	S["spawnpoint"] << spawnpoint
 
 	//Jobs

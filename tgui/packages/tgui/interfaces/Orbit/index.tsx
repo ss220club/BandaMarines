@@ -33,23 +33,46 @@ import {
 
 type search = {
   value: string;
+  show_ground: boolean;
+  show_ship: boolean;
   setValue: (value: string) => void;
+  setGroundVisibility: (value: boolean) => void;
+  setShipVisibility: (value: boolean) => void;
 };
 
-const SearchContext = createContext<search>({ value: '', setValue: () => {} });
+const SearchContext = createContext<search>({
+  value: '',
+  show_ground: true,
+  show_ship: true,
+  setValue: () => {},
+  setGroundVisibility: () => {},
+  setShipVisibility: () => {},
+});
 
 export const Orbit = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [showGround, setShowGround] = useState<boolean>(true);
+  const [showShip, setShowShip] = useState<boolean>(true);
 
   return (
     <Window title="Orbit" width={500} height={700}>
       <Window.Content scrollable>
         <SearchContext.Provider
-          value={{ value: searchQuery, setValue: setSearchQuery }}
+          value={{
+            show_ground: showGround,
+            show_ship: showShip,
+            value: searchQuery,
+            setGroundVisibility: setShowGround,
+            setShipVisibility: setShowShip,
+            setValue: setSearchQuery,
+          }}
         >
           <Stack fill vertical>
             <Stack.Item>
               <ObservableSearch />
+            </Stack.Item>
+            <Stack.Item mt={0.2}>
+              <ObservableFilter />
             </Stack.Item>
             <Stack.Item mt={0.2} grow>
               <Section fill>
@@ -60,6 +83,47 @@ export const Orbit = () => {
         </SearchContext.Provider>
       </Window.Content>
     </Window>
+  );
+};
+
+const ObservableFilter = () => {
+  const { show_ground, show_ship, setGroundVisibility, setShipVisibility } =
+    useContext(SearchContext);
+  return (
+    <Section>
+      <Stack>
+        <Stack.Item grow>
+          <Icon name="filter" />
+        </Stack.Item>
+        <Stack.Divider />
+        <Stack.Item>
+          <Button.Checkbox
+            checked={!!show_ground}
+            onClick={() => setGroundVisibility(!show_ground)}
+          >
+            Ground
+          </Button.Checkbox>
+        </Stack.Item>
+        <Stack.Item>
+          <Button.Checkbox
+            checked={!!show_ship}
+            onClick={() => setShipVisibility(!show_ship)}
+          >
+            Ship
+          </Button.Checkbox>
+        </Stack.Item>
+        <Stack.Item>
+          <Button
+            onClick={() => {
+              setGroundVisibility(true);
+              setShipVisibility(true);
+            }}
+          >
+            Reset
+          </Button>
+        </Stack.Item>
+      </Stack>
+    </Section>
   );
 };
 
@@ -166,6 +230,44 @@ const xenoSplitter = (members: Array<Observable>) => {
   return squads;
 };
 
+const infectedSplitter = (members: Array<Observable>) => {
+  const tdomeHive: Array<Observable> = [];
+  const primeHive: Array<Observable> = [];
+  const corruptedHive: Array<Observable> = [];
+  const forsakenHive: Array<Observable> = [];
+  const mutatedHive: Array<Observable> = [];
+  const otherHives: Array<Observable> = [];
+  const yautjaHive: Array<Observable> = [];
+
+  members.forEach((x) => {
+    if (x.area_name?.includes('Thunderdome')) {
+      tdomeHive.push(x);
+    } else if (x.embryo_hivenumber?.includes('normal')) {
+      primeHive.push(x);
+    } else if (x.embryo_hivenumber?.includes('corrupted')) {
+      corruptedHive.push(x);
+    } else if (x.embryo_hivenumber?.includes('forsaken')) {
+      forsakenHive.push(x);
+    } else if (x.embryo_hivenumber?.includes('mutated')) {
+      mutatedHive.push(x);
+    } else if (x.embryo_hivenumber?.includes('yautja')) {
+      yautjaHive.push(x);
+    } else {
+      otherHives.push(x);
+    }
+  });
+  const squads = [
+    buildSquadObservable(CastesRu('Thunderdome'), 'xeno', tdomeHive),
+    buildSquadObservable(CastesRu('Prime'), 'xeno', primeHive),
+    buildSquadObservable(CastesRu('Corrupted'), 'green', corruptedHive),
+    buildSquadObservable(CastesRu('Forsaken'), 'grey', forsakenHive),
+    buildSquadObservable(CastesRu('Mutated'), 'pink', mutatedHive),
+    buildSquadObservable(CastesRu('Other'), 'light-grey', otherHives),
+    buildSquadObservable(CastesRu('Yautja'), 'green', yautjaHive),
+  ];
+  return squads;
+};
+
 const marineSplitter = (members: Array<Observable>) => {
   const mutineers: Array<Observable> = [];
   const loyalists: Array<Observable> = [];
@@ -218,9 +320,9 @@ const marineSplitter = (members: Array<Observable>) => {
   });
 
   const squads = [
-    buildSquadObservable('MUTINY', 'red', mutineers),
-    buildSquadObservable('LOYALIST', 'blue', loyalists),
-    buildSquadObservable('NON-COMBAT', 'green', nonCombatants),
+    buildSquadObservable(JobsRu('MUTINY'), 'red', mutineers),
+    buildSquadObservable(JobsRu('LOYALIST'), 'blue', loyalists),
+    buildSquadObservable(JobsRu('NON-COMBAT'), 'green', nonCombatants),
     buildSquadObservable(JobsRu('Alpha'), 'red', alphaSquad),
     buildSquadObservable(JobsRu('Bravo'), 'yellow', bravoSquad),
     buildSquadObservable(JobsRu('Charlie'), 'purple', charlieSquad),
@@ -231,7 +333,7 @@ const marineSplitter = (members: Array<Observable>) => {
     buildSquadObservable(JobsRu('FORECON'), 'green', FORECONSquad),
     buildSquadObservable(JobsRu('SOF'), 'red', SOFSquad),
     buildSquadObservable(JobsRu('Other'), 'grey', other),
-    buildSquadObservable(JobsRu('Provost'), 'red', provost),
+    buildSquadObservable(JobsRu('ProvostCategory'), 'red', provost),
   ];
   return squads;
 };
@@ -264,7 +366,11 @@ const GroupedObservable = (props: {
 }) => {
   const { color, section = [], title } = props;
 
-  const { value: searchQuery } = useContext(SearchContext);
+  const {
+    value: searchQuery,
+    show_ground,
+    show_ship,
+  } = useContext(SearchContext);
 
   if (!section.length) {
     return null;
@@ -272,6 +378,8 @@ const GroupedObservable = (props: {
 
   const filteredSection = section
     .filter((observable) => isJobOrNameMatch(observable, searchQuery))
+    .filter((observable) => (observable.in_ground === 1 ? show_ground : true))
+    .filter((observable) => (observable.in_ship === 1 ? show_ship : true))
     .sort((a, b) =>
       a.full_name
         .toLocaleLowerCase()
@@ -386,8 +494,31 @@ const weyyuSplitter = (members: Array<Observable>) => {
     buildSquadObservable(JobsRu('PMCs'), 'white', pmc),
     buildSquadObservable(JobsRu('Goons'), 'orange', goons),
     buildSquadObservable(JobsRu('Corporate'), 'white', other),
-    buildSquadObservable('W-Y Commando', 'white', wycommando),
+    buildSquadObservable(JobsRu('W-Y Commando'), 'white', wycommando),
     buildSquadObservable(JobsRu('Whiteout'), 'red', whiteout),
+  ];
+  return squads;
+};
+
+const tweSplitter = (members: Array<Observable>) => {
+  const iasf: Array<Observable> = [];
+  const commando: Array<Observable> = [];
+  const other: Array<Observable> = [];
+
+  members.forEach((x) => {
+    if (x.job?.includes('IASF')) {
+      iasf.push(x);
+    } else if (x.job?.includes('RMC')) {
+      commando.push(x);
+    } else {
+      other.push(x);
+    }
+  });
+
+  const squads = [
+    buildSquadObservable(JobsRu('Imperial Armed Space Force'), 'Orange', iasf),
+    buildSquadObservable(JobsRu('Royal Marines Commando'), 'red', commando),
+    buildSquadObservable(JobsRu('Other'), 'grey', other),
   ];
   return squads;
 };
@@ -405,10 +536,12 @@ const ObservableContent = () => {
     marines = [],
     survivors = [],
     xenos = [],
+    infected = [],
     ert_members = [],
     upp = [],
     clf = [],
     wy = [],
+    hyperdyne = [],
     twe = [],
     freelancer = [],
     mercenary = [],
@@ -453,6 +586,12 @@ const ObservableContent = () => {
         section={survivors}
         title={JobsRu('Survivors')}
       />
+      <GroupedObservable
+        color="red"
+        section={infected}
+        title={JobsRu('Infected')}
+        splitter={infectedSplitter}
+      />
       <ObservableSection
         color="average"
         section={ert_members}
@@ -482,9 +621,15 @@ const ObservableContent = () => {
         splitter={weyyuSplitter}
       />
       <ObservableSection
+        color="orange"
+        section={hyperdyne}
+        title="Hyperdyne Corporation"
+      />
+      <GroupedObservable
         color="red"
         section={twe}
-        title={JobsRu('Royal Marines Commando')}
+        title={JobsRu('Three World Empire')}
+        splitter={tweSplitter}
       />
       <ObservableSection
         color="orange"
@@ -557,7 +702,11 @@ const ObservableSection = (props: {
 }) => {
   const { color, section = [], title } = props;
 
-  const { value: searchQuery } = useContext(SearchContext);
+  const {
+    value: searchQuery,
+    show_ground,
+    show_ship,
+  } = useContext(SearchContext);
 
   if (!section.length) {
     return null;
@@ -565,6 +714,8 @@ const ObservableSection = (props: {
 
   const filteredSection = section
     .filter((observable) => isJobOrNameMatch(observable, searchQuery))
+    .filter((observable) => (observable.in_ground === 1 ? show_ground : true))
+    .filter((observable) => (observable.in_ship === 1 ? show_ship : true))
     .sort((a, b) =>
       a.full_name
         .toLocaleLowerCase()

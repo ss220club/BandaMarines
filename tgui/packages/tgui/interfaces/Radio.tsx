@@ -155,7 +155,10 @@ export const Radio = (props) => {
                         })
                       }
                     >
-                      {channel.name + ' ' + channel.hotkey}
+                      {channel.name + ' '}
+                      {channel.hotkey
+                        ? '[' + channel.hotkey.toUpperCase() + ']'
+                        : '[N/A]'}
                     </Button>
                   </Box>
                 ))}
