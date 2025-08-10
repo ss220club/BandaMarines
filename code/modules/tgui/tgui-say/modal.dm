@@ -41,7 +41,7 @@
 	var/list/availableChannels = list()
 	var/livingType
 	var/last_channels_update = 0
-	var/channels_update_cooldown = 60 SECONDS
+	var/channels_update_cooldown = 120 SECONDS
 
 /** Creates the new input window to exist in the background. */
 /datum/tgui_say/New(client/client, id)
@@ -105,7 +105,7 @@
 	return TRUE
 
 /datum/tgui_say/proc/update_available_channels()
-	if(world.time < (last_channels_update + channels_update_cooldown))
+	if(last_channels_update != 0 && world.time < (last_channels_update + channels_update_cooldown))
 		return
 
 	availableChannels.Cut()

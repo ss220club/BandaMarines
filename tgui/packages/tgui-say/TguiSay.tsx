@@ -1,14 +1,16 @@
 import './styles/main.scss';
-import { useEffect, useRef, useState } from 'react';
-import { dragStartHandler } from 'tgui/drag';
+
 import { isEscape, KEY } from 'common/keys';
 import { type BooleanLike, classes } from 'common/react';
+import { useEffect, useRef, useState } from 'react';
+import { dragStartHandler } from 'tgui/drag';
+
 import { type Channel, ChannelIterator, CHANNELS } from './ChannelIterator';
 import { ChatHistory } from './ChatHistory';
 import {
   LARGE_WINDOW_SIZE,
   LIVING_TYPES,
-  LivingType,
+  type LivingType,
   MEDIUM_LINE_SIZE,
   MEDIUM_WINDOW_SIZE,
   RADIO_PREFIXES,
@@ -209,10 +211,11 @@ export function TguiSay() {
     }
 
     const channelId = RADIO_PREFIXES[newPrefix as RadioPrefixType]?.id ?? null;
+    if (channelId === null) {
+      return true;
+    }
 
-    return channelId !== null
-      ? Object.keys(availableChannels).includes(channelId)
-      : false;
+    return Object.keys(availableChannels).includes(channelId);
   }
 
   function handleKeyDown(
@@ -255,7 +258,7 @@ export function TguiSay() {
     channelIterator.current.set(data.channel);
     setCurrentPrefix(null);
     setButtonContent(channelIterator.current.translate());
-    windowOpen(channelIterator.current.translate(), scale.current);
+    windowOpen(channelIterator.current.current(), scale.current);
     innerRef.current?.focus();
   }
 
@@ -269,7 +272,6 @@ export function TguiSay() {
     setAvailableChannels(
       typeof data.availableChannels === 'object' ? data.availableChannels : {},
     );
-    channelIterator.current.set;
     setLivingType(data.livingType);
   }
 
