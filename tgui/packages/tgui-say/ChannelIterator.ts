@@ -1,4 +1,4 @@
-import { LIVING_TYPES, LivingType } from './constants';
+import { LIVING_TYPES, type LivingType } from './constants';
 
 export type Channel = (typeof CHANNELS)[keyof typeof CHANNELS];
 
