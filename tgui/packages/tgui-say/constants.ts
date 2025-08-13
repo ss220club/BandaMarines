@@ -131,7 +131,7 @@ export const RADIO_PREFIXES = {
   },
   ':q ': {
     id: 'Hivemind',
-    label: 'Рой',
+    label: 'Улей',
   },
   ':s ': {
     id: null,
