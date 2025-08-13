@@ -82,6 +82,15 @@ instrumental = "роликовыми носилками"
 prepositional = "роликовых носилках"
 gender = "plural"
 
+["portable surgical bed"]
+nominative = "складной хирургический стол"
+genitive = "складного хирургического стола"
+dative = "складному хирургическому столу"
+accusative = "складной хирургический стол"
+instrumental = "складным хирургическим столом"
+prepositional = "складном хирургическом столе"
+gender = "male"
+
 ["medical mask"]
 nominative = "медицинская маска"
 genitive = "медицинской маски"

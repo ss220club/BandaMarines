@@ -208,7 +208,7 @@ SUBSYSTEM_DEF(mapping)
 	if(!silent)
 		// SS220 START EDIT ADDICTION
 		msg = "Loaded $1 in $2s!"
-		chat_message = SPAN_NOTICE(msg, list(name, (REALTIMEOFDAY - start_time)/10))
+		chat_message = SPAN_NOTICE(msg, list(name, round((REALTIMEOFDAY - start_time)/10, 0.01)))
 		to_chat(world, chat_message)
 		log_world(chat_message)
 		// SS220 END EDIT ADDICTION

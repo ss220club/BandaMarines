@@ -217,8 +217,8 @@
 		castes_available += declent_ru_initial(current_caste.caste_type, NOMINATIVE, current_caste.caste_type)
 
 	var/castes = castes_available.Join(", ")
-	xeno_message(SPAN_XENOANNOUNCE("Улей теперь достаточно силён, чтобы поддержать: [castes]"))
-	xeno_maptext("Улей теперь может поддерживать: [castes]", "Улей укрепляется")
+	xeno_message(SPAN_XENOANNOUNCE("The Hive is now strong enough to support: $1", list(castes))) //SS220 EDIT ADDICTION
+	xeno_maptext("Улей теперь может поддерживать: [castes]", "Улей укрепляется") //SS220 EDIT ADDICTION
 	evo_screech()
 
 /datum/hive_status/proc/evo_screech()

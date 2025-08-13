@@ -396,6 +396,24 @@ instrumental = "лапшой"
 prepositional = "лапше"
 gender = "female"
 
+["Tomato soup"]
+nominative = "томатный суп"
+genitive = "томатного супа"
+dative = "томатному супу"
+accusative = "томатный суп"
+instrumental = "томатным супом"
+prepositional = "томатном супе"
+gender = "male"
+
+["Hot Chili"]
+nominative = "суп-чили"
+genitive = "супа-чили"
+dative = "супу-чили"
+accusative = "суп-чили"
+instrumental = "супом-чили"
+prepositional = "супе-чили"
+gender = "male"
+
 ["feijoada"]
 nominative = "фейжоада"
 genitive = "фейжоады"

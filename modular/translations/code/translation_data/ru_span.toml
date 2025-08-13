@@ -1,4 +1,4 @@
-# MARK: init
+# MARK: inits, global
 
 ["span_verbs"]
 "Welcome to the pre-game lobby of $1!" = "Добро пожаловать в лобби $1!"
@@ -50,8 +50,20 @@
 "Loaded $1 in $2s!" = "Загрузка карты «$1» заняла $2 секунд"
 "Loaded $1!" = "Загрузка $1, завершена!"
 "Marine Tech Tree" = "подсистемы «Дерево исследований морпехов»"
-
 "<b>Tip of the round: </b>$1" = "<b>Совет раунда: </b>$1"
 "Enjoy the game!" = "Хорошей игры!"
 "<B>Welcome to $1</B>" = "Новый раунд! $1"
 "<B>The current game mode is - Extended!</B>" = "Текущий режим игры - «Расширенный»"
+"Bad weather event of type $1." = "Плохая погода типа «$1»."
+"Weather Event of type $1 starting with duration of $2." = "Начинается погода типа «$1» продолжительностью $2."
+"Weather Event of unknown type $1 starting with duration of $2." = "Начинается неизвестная погода типа «$1» продолжительностью $2."
+
+# Mark: actions
+
+"You get out of the hypersleep chamber." = "Вы выходите из камеры гиперсна."
+"You activate the fire alarm." = "Вы выходите из камеры гиперсна."
+"You can issue an order again." = "Вы можете отдать приказ ещё раз."
+
+# Mark: hive
+
+"The Hive is now strong enough to support" = "Улей теперь достаточно силён, чтобы поддержать: $1"

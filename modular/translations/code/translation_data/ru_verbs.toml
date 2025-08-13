@@ -662,6 +662,8 @@
 "asks" = "спрашивает"
 "exclaims" = "восклицает"
 "whispers" = "шепчет"
+"says softly" = "шепчет"
+"says quietly" = "шепчет"
 "sings" = "поет"
 "yells" = "кричит"
 # sign language

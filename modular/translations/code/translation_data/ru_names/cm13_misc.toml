@@ -441,6 +441,15 @@ instrumental = "пластиковой пепельницей"
 prepositional = "пластиковой пепельнице"
 gender = "female"
 
+["bronze ashtray"]
+nominative = "бронзовая пепельница"
+genitive = "бронзовой пепельницы"
+dative = "бронзовой пепельнице"
+accusative = "бронзовую пепельницу"
+instrumental = "бронзовой пепельницей"
+prepositional = "бронзовой пепельнице"
+gender = "female"
+
 ["basketball"]
 nominative = "баскетбольный мяч"
 genitive = "баскетбольного мяча"
@@ -1283,3 +1292,21 @@ accusative = "отвёртку"
 instrumental = "отвёрткой"
 prepositional = "отвёртке"
 gender = "female"
+
+["box of paper cups"]
+nominative = "коробка бумажных стаканчиков"
+genitive = "коробки бумажных стаканчиков"
+dative = "коробке бумажных стаканчиков"
+accusative = "коробку бумажных стаканчиков"
+instrumental = "коробкой бумажных стаканчиков"
+prepositional = "коробке бумажных стаканчиков"
+gender = "female"
+
+["paper cup"]
+nominative = "бумажный стаканчик"
+genitive = "бумажного стаканчика"
+dative = "бумажному стаканчику"
+accusative = "бумажный стаканчик"
+instrumental = "бумажным стаканчиком"
+prepositional = "бумажном стаканчике"
+gender = "male"

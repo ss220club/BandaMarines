@@ -256,7 +256,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 			// Loop.
 			Master.StartProcessing(0)
 
-	var/time = (REALTIMEOFDAY - start_timeofday) / 10
+	var/time = round((REALTIMEOFDAY - start_timeofday) / 10, 0.01)
 
 
 

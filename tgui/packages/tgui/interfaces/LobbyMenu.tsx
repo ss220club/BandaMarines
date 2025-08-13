@@ -490,7 +490,7 @@ const LobbyButtons = (props: {
                     icon="viruses"
                     onClick={() => act('late_join_xeno')}
                   >
-                    Присоединиться за Рой
+                    Присоединиться за Улей
                   </LobbyButton>
                 </Stack.Item>
                 <Stack.Item>
