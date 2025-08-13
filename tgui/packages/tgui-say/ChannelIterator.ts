@@ -79,7 +79,7 @@ export class ChannelIterator {
   private getCommsName() {
     switch (this.livingType) {
       case LIVING_TYPES.XENO:
-        return 'Рой';
+        return 'Улей';
       case LIVING_TYPES.YAUTJA:
         return 'Хищники';
       default:
