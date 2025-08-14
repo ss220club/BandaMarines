@@ -127,6 +127,15 @@ instrumental = "разбитым зеркалом"
 prepositional = "разбитом зеркале"
 gender = "neuter"
 
+["hull window"]
+nominative = "стекло"
+genitive = "стекла"
+dative = "стеклу"
+accusative = "стекло"
+instrumental = "стеклом"
+prepositional = "стекле"
+gender = "neuter"
+
 ["reinforced window"]
 nominative = "усиленное стекло"
 genitive = "усиленного стекла"
@@ -143,6 +152,15 @@ dative = "сверхусиленному стеклу"
 accusative = "сверхусиленное стекло"
 instrumental = "сверхусиленным стеклом"
 prepositional = "сверхусиленном стекле"
+gender = "neuter"
+
+["safety glass"]
+nominative = "защитное стекло"
+genitive = "защитного стекла"
+dative = "защитному стеклу"
+accusative = "защитное стекло"
+instrumental = "защитным стеклом"
+prepositional = "защитном стекле"
 gender = "neuter"
 
 ["Hot Coffee Machine"]
@@ -188,6 +206,15 @@ dative = "корпусу"
 accusative = "корпус"
 instrumental = "корпусом"
 prepositional = "корпусе"
+gender = "male"
+
+["reinforced hull"]
+nominative = "усиленный корпус"
+genitive = "усиленного корпуса"
+dative = "усиленному корпусу"
+accusative = "усиленный корпус"
+instrumental = "усиленным корпусом"
+prepositional = "усиленном корпусе"
 gender = "male"
 
 ["outer hull"]

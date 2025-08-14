@@ -5,6 +5,13 @@
  * @license MIT
  */
 
+const MARINES_STATES = {
+  Dead: 'Мёртв',
+  Conscious: 'В сознании',
+  'Conscious (SSD)': 'В сознании (КРС)',
+  Unconscious: 'Без сознания',
+};
+
 const JOBS_RU = {
   // MARK: Mutiny
   MUTINY: 'МЯТЕЖНИКИ',

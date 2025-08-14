@@ -105,7 +105,7 @@
 		return
 
 	step(user, get_dir(user, src))
-	user.visible_message(SPAN_NOTICE("[user] starts climbing [ladder_dir_name] [src]."),
+	user.visible_message(SPAN_NOTICE("$1 starts climbing [ladder_dir_name] [src].", list(user)), // SS220 EDIT ADDICTION
 	SPAN_NOTICE("You start climbing [ladder_dir_name] [src]."))
 	busy = TRUE
 	if(do_after(user, 20, INTERRUPT_INCAPACITATED|INTERRUPT_OUT_OF_RANGE|INTERRUPT_RESIST, BUSY_ICON_GENERIC, src, INTERRUPT_NONE))

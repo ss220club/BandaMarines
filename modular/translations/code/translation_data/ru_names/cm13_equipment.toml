@@ -1143,6 +1143,15 @@ instrumental = "мензуркой (potassium chloride)"
 prepositional = "мензурке (potassium chloride)"
 gender = "female"
 
+["cryoxadone beaker"]
+nominative = "мензурка (cryoxadone)"
+genitive = "мензурки (cryoxadone)"
+dative = "мензурке (cryoxadone)"
+accusative = "мензурку (cryoxadone)"
+instrumental = "мензуркой (cryoxadone)"
+prepositional = "мензурке (cryoxadone)"
+gender = "female"
+
 ["timer"]
 nominative = "таймер"
 genitive = "таймера"

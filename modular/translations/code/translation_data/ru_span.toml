@@ -63,6 +63,18 @@
 "You get out of the hypersleep chamber." = "Вы выходите из камеры гиперсна."
 "You activate the fire alarm." = "Вы выходите из камеры гиперсна."
 "You can issue an order again." = "Вы можете отдать приказ ещё раз."
+"You start climbing up the ladder." = "Вы начинаете забираться вверх по лестнице"
+"You start climbing down the ladder." = "Вы начинаете забираться вниз по лестнице"
+"$1 climbs up the ladder." = "$1 забирается вверх по лестнице."
+"$1 climbs down the ladder." = "$1 забирается вниз по лестнице."
+"$1 climbs up the ladder." = "$1 забирается вверх по лестнице."
+"$1 climbs down the ladder." = "$1 забирается вниз по лестнице."
+"You climb down the ladder." = "Вы поднялись по лестнице"
+"You climb up the ladder." = "Вы спустились по лестнице"
+"$1 starts leaping over the handrail!" = "$1 начинает перепрыгивать через "
+"$1 vaults over the handrail!" = "Вы спустились по лестнице"
+
+"Searching for camera. No camera found for this marine! Tell your squad to put their cameras on!" = "Поиск камеры... Камера не обнаружена! Сообщите отряду о необходимости включить камеры!"
 
 # Mark: hive
 

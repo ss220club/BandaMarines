@@ -280,12 +280,12 @@ prepositional = "«Вода»"
 gender = "neuter"
 
 ["water hazard semiotic"]
-nominative = "«Заражённая вода»"
-genitive = "«Заражённая вода»"
-dative = "«Заражённая вода»"
-accusative = "«Заражённая вода»"
-instrumental = "«Заражённая водаа»"
-prepositional = "«Заражённая вода»"
+nominative = "«Гидрологическая опасность»"
+genitive = "«Гидрологическая опасность"
+dative = "«Гидрологическая опасность»"
+accusative = "«Гидрологическая опасность»"
+instrumental = "«Гидрологическая опасность»"
+prepositional = "«Гидрологическая опасность»"
 gender = "neuter"
 
 ["Stairs"]
@@ -439,4 +439,40 @@ dative = "«Биолаборатория»"
 accusative = "«Биолаборатория»"
 instrumental = "«Биолаборатория»"
 prepositional = "«Биолаборатория»"
+gender = "neuter"
+
+["chemical laboratory semiotic"]
+nominative = "«Химлаборатория»"
+genitive = "«Химлаборатория»"
+dative = "«Химлаборатория»"
+accusative = "«Химлаборатория»"
+instrumental = "«Химлаборатория»"
+prepositional = "«Химлаборатория»"
+gender = "neuter"
+
+["biohazard semiotic"]
+nominative = "«Биологическая опасность»"
+genitive = "«Биологическая опасность»"
+dative = "«Биологическая опасность»"
+accusative = "«Биологическая опасность»"
+instrumental = "«Биологическая опасность»"
+prepositional = "«Биологическая опасность»"
+gender = "neuter"
+
+["refrigeration semiotic"]
+nominative = "«Холодильная зона»"
+genitive = "«Холодильная зона»"
+dative = "«Холодильная зона»"
+accusative = "«Холодильная зона»"
+instrumental = "«Холодильная зона»"
+prepositional = "«Холодильная зона»"
+gender = "neuter"
+
+["manual opener/closer semiotic"]
+nominative = "«Ручное управление»"
+genitive = "«Ручное управление»"
+dative = "«Ручное управление»"
+accusative = "«Ручное управление»"
+instrumental = "«Ручное управление»"
+prepositional = "«Ручное управление»"
 gender = "neuter"
