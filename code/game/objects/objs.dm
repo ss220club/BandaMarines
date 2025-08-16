@@ -104,7 +104,7 @@
 
 /obj/item/proc/get_examine_line(mob/user)
 	if(blood_color)
-		. = SPAN_WARNING("[icon2html(src, user)] <font color='[blood_color]'>окровавленн[genderize_ru(gender, "ый", "ая", "ое", "ые")]</font> [declent_ru(ACCUSATIVE)]")
+		. = SPAN_WARNING("[icon2html(src, user)] <font color='[blood_color == COLOR_OIL ? COLOR_OIL_TEXT : blood_color]'>[blood_color == COLOR_OIL ? "замасленн[genderize_ru(gender, "ый", "ая", "ое", "ые")] " : "окровавленн[genderize_ru(gender, "ый", "ая", "ое", "ые")] "] [declent_ru(ACCUSATIVE)]</font>") // SS220 - EDIT ADDITTION
 	// SS220 - START ADDITTION
 	else if(istype(src, /obj/item/clothing/accessory/medal) || istype(src, /obj/item/clothing/accessory/ranks))
 		. = "[icon2html(src, user)] [declent_ru(INSTRUMENTAL)]"
@@ -341,16 +341,17 @@
 		return TRUE
 
 /obj/proc/send_buckling_message(mob/M, mob/user)
+	var/ru_name = declent_ru_initial(src::name, ACCUSATIVE, src::name) // SS220 EDIT ADDICTION
 	if (M == user)
 		M.visible_message(
-			SPAN_NOTICE("[M] buckles in!"),
-			SPAN_NOTICE("You buckle yourself to [src]."),
-			SPAN_NOTICE("You hear metal clanking."))
+			SPAN_NOTICE("[M] пристёгивается!"), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("Вы пристёгиваетесь к [ru_name]."), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("Вы слышите металлический щелчок.")) // SS220 EDIT ADDICTION
 	else
 		M.visible_message(
-			SPAN_NOTICE("[M] is buckled in to [src] by [user]!"),
-			SPAN_NOTICE("You are buckled in to [src] by [user]."),
-			SPAN_NOTICE("You hear metal clanking"))
+			SPAN_NOTICE("Вы пристёгиваете [M] к [ru_name]!"), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("[user] пристёгивает вас к [ru_name]."), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("Вы слышите металлический щелчок")) // SS220 EDIT ADDICTION
 
 /obj/Move(NewLoc, direct)
 	. = ..()

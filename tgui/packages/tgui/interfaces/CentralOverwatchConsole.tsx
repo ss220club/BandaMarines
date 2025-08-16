@@ -1,6 +1,7 @@
 import type { BooleanLike } from 'common/react';
 import { capitalize } from 'common/string';
 import { useState } from 'react';
+import { JOBS_RU, MARINES_STATES } from 'BandaMarines/MarineJobs'
 
 import { useBackend, useSharedState } from '../backend';
 import {
@@ -128,18 +129,19 @@ const LoginPanel = (props) => {
       direction="column"
       justify="center"
       align="center"
+      textAlign="center"
       height="100%"
       fontSize="2rem"
       mt="-3rem"
       bold
     >
-      <Box fontSize="2.5rem">GROUNDSIDE OPERATIONS CONSOLE</Box>
+      <Box fontSize="2.5rem">ТЕРМИНАЛ УПРАВЛЕНИЯ НАЗЕМНЫМИ ОПЕРАЦИЯМИ</Box>
       <Box mb="7rem" fontFamily="monospace" fontSize="1.5rem">
-        [ Version 2.1.8 | Copyright © 2182, Weyland Yutani Corp. ]
+        [ Версия 2.1.8 | Все права защищены © 2182, Вейланд-Ютани Корп. ]
       </Box>
-      <Box fontSize="2rem">INTERFACE ACCESS RESTRICTED</Box>
+      <Box fontSize="2rem">ДОСТУП К ИНТЕРФЕЙСУ ОГРАНИЧЕН</Box>
       <Box fontFamily="monospace" fontSize="1.7rem">
-        [ IDENTITY VERIFICATION REQUIRED ]
+        [ ТРЕБУЕТСЯ ПОДТВЕРЖДЕНИЕ ЛИЧНОСТИ ]
       </Box>
 
       <Button
@@ -151,11 +153,11 @@ const LoginPanel = (props) => {
         m="1rem"
         onClick={() => act('pick_squad', { squad: 'Root' })}
       >
-        Login
+        Авторизация
       </Button>
 
       <Box fontFamily="monospace" fontSize="1.6rem">
-        - UNAUTHORIZED USE STRICTLY PROHIBITED -
+        - НЕСАНКЦИОНИРОВАННОЕ ИСПОЛЬЗОВАНИЕ СТРОГО ЗАПРЕЩЕНО -
       </Box>
     </Flex>
   );
@@ -191,7 +193,7 @@ const SecondaryFunctions = (props) => {
               p="3px"
               bold
             >
-              Squad Monitor
+              Монитор отряда
             </Tabs.Tab>
             <Tabs.Tab
               selected={secondarycategory === 'execpanel'}
@@ -200,7 +202,7 @@ const SecondaryFunctions = (props) => {
               p="3px"
               bold
             >
-              Executive Panel
+              Панель управления
             </Tabs.Tab>
             <Tabs.Tab
               selected={secondarycategory === 'emergencypanel'}
@@ -209,7 +211,7 @@ const SecondaryFunctions = (props) => {
               p="3px"
               bold
             >
-              Emergency Measures
+              Чрезвычайные меры
             </Tabs.Tab>
             <Tabs.Tab
               selected={secondarycategory === 'ob'}
@@ -218,7 +220,7 @@ const SecondaryFunctions = (props) => {
               p="3px"
               bold
             >
-              Ordnance Systems
+              Артиллерийские системы
             </Tabs.Tab>
           </Tabs>
         </Stack.Item>
@@ -262,14 +264,14 @@ const CombinedSquadPanel = (props: Props) => {
   return (
     <Section
       fontSize="18px"
-      title="Combined Overwatch Functions | "
+      title="Авторизация"
       buttons={
         <>
           <Button icon="user" onClick={() => act('change_operator')}>
-            Operator - {data.operator}
+            Пользователь - {data.operator}
           </Button>
           <Button icon="sign-out-alt" onClick={() => act('logout')}>
-            Sign Out
+            Выход
           </Button>
         </>
       }
@@ -289,7 +291,7 @@ const CombinedSquadPanel = (props: Props) => {
                       }}
                       key={index}
                     >
-                      {squad.name + ' Overwatch'}
+                      {JOBS_RU[squad.name]}
                     </Tabs.Tab>
                   );
                 })
@@ -301,7 +303,7 @@ const CombinedSquadPanel = (props: Props) => {
                 act('gather_index_squad_data', { squad: 'root' });
               }}
             >
-              {'Command Overwatch'}
+              {'Командование'}
             </Tabs.Tab>
           </Tabs>
         </Stack.Item>
@@ -315,7 +317,7 @@ const CombinedSquadPanel = (props: Props) => {
                       <Table.Cell fontSize="15px" bold p="6px" colSpan={2}>
                         <Flex align="center">
                           <Flex.Item width="62.5%" pl="5px">
-                            {'Overwatching Squad - [ ' + squad.name + ' ]'}
+                            {'Наблюдение за отрядом «' + JOBS_RU[squad.name] + '»'}
                           </Flex.Item>
                           <Flex.Item width="5%">
                             <Button
@@ -326,8 +328,8 @@ const CombinedSquadPanel = (props: Props) => {
                               align="center"
                               tooltip={
                                 '[ ' +
-                                (minimised ? 'Expand' : 'Minimise') +
-                                ' squad overview ]'
+                                (minimised ? 'Показать' : 'Скрыть') +
+                                ' подробности ]'
                               }
                               onClick={() => setMinimised(!minimised)}
                             />
@@ -345,7 +347,7 @@ const CombinedSquadPanel = (props: Props) => {
                                 })
                               }
                             >
-                              MAKE AN ANNOUNCEMENT
+                              СДЕЛАТЬ ОПОВЕЩЕНИЕ
                             </Button>
                           </Flex.Item>
                         </Flex>
@@ -355,7 +357,7 @@ const CombinedSquadPanel = (props: Props) => {
                       <>
                         <Table.Row bold>
                           <Table.Cell textAlign="center">
-                            PRIMARY ORDERS
+                            ОСНОВНЫЕ ЗАДАЧИ
                           </Table.Cell>
                           <Table.Cell rowSpan={5} width="65%">
                             <Table fontSize="12px" bold>
@@ -365,14 +367,14 @@ const CombinedSquadPanel = (props: Props) => {
                                   collapsing
                                   p="4px"
                                 >
-                                  Squad Leader
+                                  Командиры роты
                                 </Table.Cell>
                                 <Table.Cell
                                   textAlign="center"
                                   collapsing
                                   p="4px"
                                 >
-                                  Fire Team Leaders
+                                  Командиры взвода
                                 </Table.Cell>
                               </Table.Row>
                               <Table.Row>
@@ -380,7 +382,7 @@ const CombinedSquadPanel = (props: Props) => {
                                   <Table.Cell textAlign="center">
                                     {squad_leader.name
                                       ? squad_leader.name
-                                      : 'NONE'}
+                                      : '-'}
                                     <Box
                                       color={
                                         squad_leader.state !== 'Dead'
@@ -388,20 +390,20 @@ const CombinedSquadPanel = (props: Props) => {
                                           : 'red'
                                       }
                                     >
-                                      {squad_leader.state.toUpperCase()}
+                                      {MARINES_STATES[squad_leader.state].toUpperCase()}
                                     </Box>
                                   </Table.Cell>
                                 )) || (
                                   <Table.Cell textAlign="center">
-                                    NONE
-                                    <Box color="red">NOT DEPLOYED</Box>
+                                    -
+                                    <Box color="red">НЕ НАЗНАЧЕН</Box>
                                   </Table.Cell>
                                 )}
 
                                 <Table.Cell textAlign="center" bold>
-                                  <Box>{data.ftl_count} DEPLOYED</Box>
+                                  <Box>{data.ftl_count} НАЗНАЧЕНО</Box>
                                   <Box color={data.ftl_alive ? 'green' : 'red'}>
-                                    {data.ftl_alive} ALIVE
+                                    {data.ftl_alive} ЖИВЫХ
                                   </Box>
                                 </Table.Cell>
                               </Table.Row>
@@ -411,49 +413,31 @@ const CombinedSquadPanel = (props: Props) => {
                                   collapsing
                                   p="4px"
                                 >
-                                  Specialist
+                                  Специалист
                                 </Table.Cell>
                                 <Table.Cell
                                   textAlign="center"
                                   collapsing
                                   p="4px"
                                 >
-                                  Smartgunner
+                                  Смартганнер
                                 </Table.Cell>
                               </Table.Row>
                               <Table.Row>
                                 <Table.Cell textAlign="center" bold>
-                                  <Box>
-                                    {data.specialist_type
-                                      ? data.specialist_type
-                                      : 'NONE'}
-                                  </Box>
+                                  <Box>{data.spec_count} НАЗНАЧЕНО</Box>
                                   <Box
                                     color={data.spec_alive ? 'green' : 'red'}
                                   >
-                                    {data.spec_count
-                                      ? data.spec_alive
-                                        ? 'ALIVE'
-                                        : 'DEAD'
-                                      : 'NOT DEPLOYED'}
+                                    {data.spec_alive} ЖИВЫХ
                                   </Box>
                                 </Table.Cell>
                                 <Table.Cell textAlign="center" bold>
-                                  <Box
-                                    color={data.smart_count ? 'green' : 'red'}
-                                  >
-                                    {data.smart_count
-                                      ? data.smart_count + ' DEPLOYED'
-                                      : 'NONE'}
-                                  </Box>
+                                  <Box>{data.smart_count} НАЗНАЧЕНО</Box>
                                   <Box
                                     color={data.smart_alive ? 'green' : 'red'}
                                   >
-                                    {data.smart_count
-                                      ? data.smart_alive
-                                        ? 'ALIVE'
-                                        : 'DEAD'
-                                      : 'N/A'}
+                                    {data.smart_alive} ЖИВЫХ
                                   </Box>
                                 </Table.Cell>
                               </Table.Row>
@@ -463,31 +447,31 @@ const CombinedSquadPanel = (props: Props) => {
                                   collapsing
                                   p="4px"
                                 >
-                                  Hospital Corpsmen
+                                  Полевой санитар
                                 </Table.Cell>
                                 <Table.Cell
                                   textAlign="center"
                                   collapsing
                                   p="4px"
                                 >
-                                  Combat Technicians
+                                  Полевой техник
                                 </Table.Cell>
                               </Table.Row>
                               <Table.Row>
                                 <Table.Cell textAlign="center" bold>
-                                  <Box>{data.medic_count} DEPLOYED</Box>
+                                  <Box>{data.medic_count} НАЗНАЧЕНО</Box>
                                   <Box
                                     color={data.medic_alive ? 'green' : 'red'}
                                   >
-                                    {data.medic_alive} ALIVE
+                                    {data.medic_alive} ЖИВЫХ
                                   </Box>
                                 </Table.Cell>
                                 <Table.Cell textAlign="center" bold>
-                                  <Box>{data.engi_count} DEPLOYED</Box>
+                                  <Box>{data.engi_count} НАЗНАЧЕНО</Box>
                                   <Box
                                     color={data.engi_alive ? 'green' : 'red'}
                                   >
-                                    {data.engi_alive} ALIVE
+                                    {data.engi_alive} ЖИВЫХ
                                   </Box>
                                 </Table.Cell>
                               </Table.Row>
@@ -498,16 +482,16 @@ const CombinedSquadPanel = (props: Props) => {
                                   p="4px"
                                   colSpan={2}
                                 >
-                                  Total/Living
+                                  Итого
                                 </Table.Cell>
                               </Table.Row>
                               <Table.Row>
                                 <Table.Cell textAlign="center" bold colSpan={2}>
-                                  <Box>{data.total_deployed} TOTAL</Box>
+                                  <Box>{data.total_deployed} НАЗНАЧЕНО</Box>
                                   <Box
                                     color={data.living_count ? 'green' : 'red'}
                                   >
-                                    {data.living_count} ALIVE
+                                    {data.living_count} ЖИВЫХ
                                   </Box>
                                 </Table.Cell>
                               </Table.Row>
@@ -518,19 +502,19 @@ const CombinedSquadPanel = (props: Props) => {
                           <Table.Cell textAlign="center" p="10px">
                             {squad.primary_objective
                               ? squad.primary_objective
-                              : 'NONE'}
+                              : '-'}
                           </Table.Cell>
                         </Table.Row>
                         <Table.Row bold>
                           <Table.Cell textAlign="center">
-                            SECONDARY ORDERS
+                            ВТОРОСТЕПЕННЫЕ ЗАДАЧИ
                           </Table.Cell>
                         </Table.Row>
                         <Table.Row>
                           <Table.Cell textAlign="center" p="10px">
                             {squad.secondary_objective
                               ? squad.secondary_objective
-                              : 'NONE'}
+                              : '-'}
                           </Table.Cell>
                         </Table.Row>
                         <Table.Row>
@@ -544,7 +528,7 @@ const CombinedSquadPanel = (props: Props) => {
                                     icon="envelope"
                                     onClick={() => act('message')}
                                   >
-                                    MESSAGE SQUAD
+                                    СООБЩЕНИЕ ОТРЯДУ
                                   </Button>
                                 </Stack.Item>
                                 <Stack.Item>
@@ -554,7 +538,7 @@ const CombinedSquadPanel = (props: Props) => {
                                     icon="person"
                                     onClick={() => act('sl_message')}
                                   >
-                                    MESSAGE SQUAD LEADER
+                                    СООБЩЕНИЕ КОМАНДИРУ РОТЫ
                                   </Button>
                                 </Stack.Item>
                                 <Stack.Item>
@@ -564,11 +548,11 @@ const CombinedSquadPanel = (props: Props) => {
                                     width="100%"
                                     compact
                                   >
-                                    Overwatch Officer
+                                    НАБЛЮДАЮЩИЙ ОФИЦЕР
                                     <Box>
                                       {squad.overwatch_officer
                                         ? squad.overwatch_officer
-                                        : 'NONE'}
+                                        : 'НЕ ОПРЕДЕЛЁН'}
                                     </Box>
                                   </Button>
                                 </Stack.Item>
@@ -596,19 +580,19 @@ const ExecutivePanel = (props) => {
   let alertLevelString;
   let alertLevelColor;
   if (AlertLevel === 3) {
-    alertLevelString = 'DELTA';
+    alertLevelString = 'ДЕЛЬТА';
     alertLevelColor = 'purple';
   }
   if (AlertLevel === 2) {
-    alertLevelString = 'RED';
+    alertLevelString = 'КРАСНЫЙ';
     alertLevelColor = 'red';
   }
   if (AlertLevel === 1) {
-    alertLevelString = 'BLUE';
+    alertLevelString = 'СИНИЙ';
     alertLevelColor = 'blue';
   }
   if (AlertLevel === 0) {
-    alertLevelString = 'GREEN';
+    alertLevelString = 'ЗЕЛЁНЫЙ';
     alertLevelColor = 'transperant';
   }
 
@@ -617,7 +601,7 @@ const ExecutivePanel = (props) => {
       <Stack>
         <Stack.Item grow>
           <Box bold textAlign="center" mb="10px">
-            GROUNDSIDE OPERATIONS
+            НАЗЕМНЫЕ ОПЕРАЦИИ
           </Box>
           <Box mb="10px" align="center">
             <Stack.Item>
@@ -630,7 +614,7 @@ const ExecutivePanel = (props) => {
                   act('announce', { announcement_type: 'groundside' })
                 }
               >
-                MAKE AN ANNOUNCEMENT
+                СДЕЛАТЬ ОПОВЕЩЕНИЕ
               </Button>
             </Stack.Item>
             <Stack.Item>
@@ -642,7 +626,7 @@ const ExecutivePanel = (props) => {
                 mt="3px"
                 onClick={() => act('tacmap_unpin')}
               >
-                VIEW TACTICAL MAP
+                ТАКТИЧЕСКАЯ КАРТА
               </Button>
             </Stack.Item>
             <Stack.Item>
@@ -656,7 +640,7 @@ const ExecutivePanel = (props) => {
                 color={data.primary_lz ? 'transperant' : 'default'}
                 onClick={() => act(data.primary_lz ? '' : 'selectlz')}
               >
-                DESIGNATE PRIMARY LZ
+                ЗАДАТЬ ТОЧКУ ВЫСАДКИ
               </Button>
             </Stack.Item>
             <Stack.Item>
@@ -671,7 +655,7 @@ const ExecutivePanel = (props) => {
                   act(data.echo_squad_active ? '' : 'activate_echo')
                 }
               >
-                ACTIVATE ECHO SQUAD
+                АКТИВИРОВАТЬ ОТРЯД «ЭХО»
               </Button>
             </Stack.Item>
           </Box>
@@ -679,7 +663,7 @@ const ExecutivePanel = (props) => {
         <Stack.Divider />
         <Stack.Item grow>
           <Box bold textAlign="center" mb="10px">
-            SHIP CONTROL
+            КОРАБЛЬ
           </Box>
           <Box mb="10px" align="center">
             <Stack.Item>
@@ -690,12 +674,12 @@ const ExecutivePanel = (props) => {
                 p="3px"
                 onClick={() => act('change_sec_level')}
               >
-                CHANGE ALERT LEVEL
+                ИЗМЕНИТЬ УРОВЕНЬ УГРОЗЫ
               </Button>
             </Stack.Item>
             <Stack.Item>
               <Button inline width="100%" color={alertLevelColor}>
-                CURRENT ALERT LEVEL: {alertLevelString}
+                ТЕКУЩИЙ УРОВЕНЬ УГРОЗЫ: {alertLevelString}
               </Button>
             </Stack.Item>
             <Divider />
@@ -1010,14 +994,14 @@ const SquadMonitor = (props) => {
           <Section m="0px" mb="3px" scrollable fill fitted>
             <Table>
               <Table.Row bold fontSize="14px">
-                <Table.Cell textAlign="center">Name</Table.Cell>
-                <Table.Cell textAlign="center">Role</Table.Cell>
+                <Table.Cell textAlign="center">Имя</Table.Cell>
+                <Table.Cell textAlign="center">Роль</Table.Cell>
                 <Table.Cell textAlign="center" collapsing>
-                  State
+                  Статус
                 </Table.Cell>
-                <Table.Cell textAlign="center">Location</Table.Cell>
+                <Table.Cell textAlign="center">Местоположение</Table.Cell>
                 <Table.Cell textAlign="center" collapsing fontSize="12px">
-                  SL Dist.
+                  Дистанция
                 </Table.Cell>
               </Table.Row>
               {squad_leader && data.leader_count ? (
@@ -1034,7 +1018,10 @@ const SquadMonitor = (props) => {
                         {squad_leader.name}
                       </Button>
                     )) || (
-                      <Box color="yellow">{squad_leader.name} (NO HELMET)</Box>
+                      <Box color="yellow">
+                        {squad_leader.name}\n
+                        (БЕЗ КАМЕРЫ)
+                      </Box>
                     )}
                   </Table.Cell>
                   <Table.Cell p="2px">{squad_leader.role}</Table.Cell>
@@ -1124,9 +1111,9 @@ const CommandMonitor = (props) => {
   let { marines } = data;
 
   const rankFinder = {
-    'Commanding Officer': 'MAJ. ',
-    'Executive Officer': 'CAPT. ',
-    'Staff Officer': 'LT. ',
+    'Commanding Officer': 'МАЙОР ',
+    'Executive Officer': 'КАПИТАН ',
+    'Staff Officer': 'ЛЕЙТЕНАНТ ',
   };
 
   let determine_status_color = (status) => {
@@ -1146,7 +1133,7 @@ const CommandMonitor = (props) => {
     <Section
       fill
       fontSize="14px"
-      title="USS ALMAYER - COMMAND PERSONNEL"
+      title="USS АЛМАЕР - КОМАНДОВАНИЕ"
       scrollable
     >
       <Stack vertical fill height="100%" width="100%">
@@ -1184,7 +1171,7 @@ const CommandMonitor = (props) => {
                       >
                         {marine.has_helmet
                           ? 'VIEW HELMET CAMERA'
-                          : 'NO HELMET FOUND'}
+                          : 'КАМЕРА НЕ ОБНАРУЖЕНА'}
                       </Button>
                     </Flex.Item>
                   </Flex>
@@ -1203,8 +1190,8 @@ const CommandMonitor = (props) => {
                     </Box>
                   </Flex.Item>
                   <Flex.Item textAlign="end" align="center">
-                    <Box>State:</Box>
-                    <Box>Location:</Box>
+                    <Box>Статус:</Box>
+                    <Box>Местоположение:</Box>
                   </Flex.Item>
                   <Flex.Item pl="3px" bold align="center">
                     <Box textColor={determine_status_color(marine.state)}>
