@@ -827,7 +827,7 @@
 			name = "Эксперимент [pick("C","Q","V","W","X","Y","Z")][rand(100,999)][pick("a","b","c")]" // SS220 - EDIT ADDITTION
 			icon_state = "paper_wy_synthesis"
 			txt += "Примечание для [name]</H2></center>" // SS220 - EDIT ADDITTION
-			txt += "Испытуемый <I>[rand(10000,99999)]</I> испытал [pick(C.properties)] эффекта во время тестирования [C.name]. <BR>\nНа текущий момент проводятся испытания для выявления других свойств.<BR>\n" // SS220 - EDIT ADDITTION
+			txt += "Испытуемый <I>[rand(10000,99999)]</I> испытал [pick(chemical_to_generate.properties)] эффекта во время тестирования [chemical_to_generate.name]. <BR>\nНа текущий момент проводятся испытания для выявления других свойств.<BR>\n" // SS220 - EDIT ADDITTION
 			txt += "<BR>\n<HR> - <I>Вейланд-Ютани</I>" // SS220 - EDIT ADDITTION
 		if("grant")
 			if(!grant)
