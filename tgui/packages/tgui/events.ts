@@ -66,7 +66,7 @@ const releaseStolenFocus = () => {
   if (focusStolenBy) {
     focusStolenBy.removeEventListener('blur', releaseStolenFocus);
     focusStolenBy = null;
-    globalEvents.emit('input-blur');
+    globalEvents.emit('input-blur'); // Currently unused
   }
 };
 
@@ -121,7 +121,7 @@ window.addEventListener('mousemove', (e) => {
 // Handle stealing focus for textbox elements
 document.addEventListener(
   'focus',
-  (e) => {
+  (e: FocusEvent) => {
     // Window
     if (!(e.target instanceof Element)) {
       lastVisitedNode = null;
@@ -141,24 +141,25 @@ document.addEventListener(
 // visited node.
 document.addEventListener(
   'blur',
-  () => {
+  (e) => {
     lastVisitedNode = null;
   },
   true,
 );
 
-window.addEventListener('focus', () => {
+// Handle setting the window focus
+window.addEventListener('focus', (e) => {
   setWindowFocus(true);
 });
 
 // If we blur any element, the window may have unfocused if we didn't
 // click on the background
-window.addEventListener('blur', () => {
+window.addEventListener('blur', (e) => {
   lastVisitedNode = null;
   setWindowFocus(false, true);
 });
 
-window.addEventListener('close', () => {
+window.addEventListener('close', (e) => {
   setWindowFocus(false);
 });
 
