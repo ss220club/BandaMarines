@@ -222,7 +222,7 @@
 		return
 
 	//BANDAMARINES ADD START - Queen Minor
-	if(!SSticker.mode.queen_minor_choise(xeno) || SSticker.mode.round_finished)
+	if(!SSticker.mode.queen_minor_choice(xeno) || SSticker.mode.round_finished)
 		return
 	//BANDAMARINES ADD END - Queen Minor
 

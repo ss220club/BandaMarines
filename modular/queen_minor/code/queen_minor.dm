@@ -4,7 +4,7 @@
 /datum/game_mode
 	var/queen_choise_is_made = FALSE
 
-/datum/game_mode/proc/queen_minor_choise(mob/living/carbon/xenomorph/queen)
+/datum/game_mode/proc/queen_minor_choice(mob/living/carbon/xenomorph/queen)
 	if(SSticker.mode.queen_choise_is_made)
 		return TRUE
 
