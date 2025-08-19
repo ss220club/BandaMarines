@@ -19,9 +19,9 @@
 
 	if(choise == CHOISE_MINOR)
 		var/count = SSticker.mode.count_humans_and_xenos(SSmapping.levels_by_trait(ZTRAIT_GROUND))
-		if(count[1] > count [2])
+		if(count[1] > count[2])
 			to_chat(queen, SPAN_XENOANNOUNCE("На земле слишком много хостов, чтобы заявить о нашей победе!"))
-			return TRUE
+			return FALSE
 
 		SSticker.mode.queen_choise_is_made = TRUE
 		xeno_announcement("Королева приняла решение, мы отстояли наш улей, мы остаемся!", queen.hivenumber, "Решение королевы")
