@@ -11,7 +11,6 @@
 #include "admin/_admin.dme"
 #include "apc_choice/_apc_choice.dme"
 #include "cyrillic_fixes/_cyrillic_fixes.dme"
-#include "queen_minor/_queen_minor.dme"
 #include "quick_cast/_quick_cast.dme"
 #include "respawn/_respawn.dme"
 #include "screentips/_screentips.dme"
@@ -32,4 +31,5 @@
 #include "clothing/_clothing.dme"
 #include "loadout_preferences_gear/_loadout.dme"
 #include "ltb_rework/_ltb_rework.dme"
+#include "queen_minor/_queen_minor.dme"
 
