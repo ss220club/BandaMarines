@@ -61,6 +61,7 @@ map lv759_hybrisa_prospera
 endmap
 
 map navalis_platform_13
+	disabled
 endmap
 
 map navalis_platform_13_singlez
