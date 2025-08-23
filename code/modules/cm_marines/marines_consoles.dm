@@ -989,6 +989,8 @@ GLOBAL_LIST_EMPTY_TYPED(crew_monitor, /datum/crewmonitor)
 				JOB_DROPSHIP_PILOT = 23,
 				JOB_DROPSHIP_CREW_CHIEF = 24,
 				JOB_INTEL = 25,
+				JOB_TANK_CREW = 26,
+				JOB_MECH_OP = 28,
 				JOB_CIA_LIAISON = 26,
 				JOB_TANK_CREW = 27,
 				// 30-39: Security
