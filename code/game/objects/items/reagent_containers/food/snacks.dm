@@ -32,8 +32,8 @@
 
 	if(!reagents.total_volume)
 		if(M == usr)
-			to_chat(usr, SPAN_NOTICE("You finish eating \the [src]."))
-		M.visible_message(SPAN_NOTICE("[M] finishes eating \the [src]."))
+			to_chat(usr, SPAN_NOTICE("You finish eating $1.", list(declent_ru_initial(src::name, ACCUSATIVE, src::name)))) // SS220 EDIT ADDICTION
+		M.visible_message(SPAN_NOTICE("$1 finishes eating $2.", list(M, declent_ru_initial(src::name, ACCUSATIVE, src::name)))) // SS220 EDIT ADDICTION
 		usr.drop_inv_item_on_ground(src) //so icons update :[
 
 		if(trash)
@@ -87,16 +87,17 @@
 			C.overeat_cooldown = world.time + OVEREAT_TIME
 
 		if(M == user)//If you're eating it yourself
+			var/ru_name = declent_ru_initial(src::name, GENITIVE, src::name) // SS220 EDIT ADDICTION
 			if (fullness <= NUTRITION_VERYLOW)
-				to_chat(M, SPAN_WARNING("You hungrily chew out a piece of [src] and gobble it!"))
+				to_chat(M, SPAN_WARNING("You hungrily chew out a piece of $1 and gobble it!", list(ru_name))) // SS220 EDIT ADDICTION
 			if (fullness > NUTRITION_VERYLOW && fullness <= NUTRITION_LOW)
-				to_chat(M, SPAN_NOTICE(" You hungrily begin to eat [src]."))
+				to_chat(M, SPAN_NOTICE("You hungrily begin to eat $1.", list(ru_name))) // SS220 EDIT ADDICTION
 			if (fullness > NUTRITION_LOW && fullness <= NUTRITION_NORMAL)
-				to_chat(M, SPAN_NOTICE(" You take a bite of [src]."))
+				to_chat(M, SPAN_NOTICE("You take a bite of $1.", list(ru_name))) // SS220 EDIT ADDICTION
 			if (fullness > NUTRITION_NORMAL && fullness <= NUTRITION_HIGH)
-				to_chat(M, SPAN_NOTICE(" You unwillingly chew a bit of [src]."))
+				to_chat(M, SPAN_NOTICE("You unwillingly chew a bit of $1.", list(ru_name))) // SS220 EDIT ADDICTION
 			if (fullness > NUTRITION_HIGH)
-				to_chat(M, SPAN_WARNING("You reluctantly force more of [src] to go down your throat."))
+				to_chat(M, SPAN_WARNING("You reluctantly force more of $1 to go down your throat.", list(ru_name))) // SS220 EDIT ADDICTION
 		else
 			if (fullness <= NUTRITION_HIGH)
 				user.affected_message(M,
@@ -3448,7 +3449,7 @@
 	..()
 
 	if(package)
-		to_chat(user, SPAN_NOTICE("You pull open the package of [src]!"))
+		to_chat(user, SPAN_NOTICE("You pull open the package of $1!", list(src))) // SS220 EDIT ADDICTION
 		playsound(loc,'sound/effects/pageturn2.ogg', 15, 1)
 
 		if(wrapper)

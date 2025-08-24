@@ -68,8 +68,8 @@ SUBSYSTEM_DEF(ticker)
 				return
 			if(isnull(start_at))
 				start_at = time_left || world.time + (CONFIG_GET(number/lobby_countdown) * 10)
-			to_chat_spaced(world, type = MESSAGE_TYPE_SYSTEM, margin_top = 2, margin_bottom = 0, html = SPAN_ROUNDHEADER("Добро пожаловать в лобби [CONFIG_GET(string/servername)]!")) // SS220 EDIT
-			to_chat_spaced(world, type = MESSAGE_TYPE_SYSTEM, margin_top = 0, html = SPAN_ROUNDBODY("Пожалуйста, настройте вашего персонажа и приготовьтесь к игре. Игра начнется через [floor(time_left / 10) || CONFIG_GET(number/lobby_countdown)] секунд."))  // SS220 EDIT
+			to_chat_spaced(world, type = MESSAGE_TYPE_SYSTEM, margin_top = 2, margin_bottom = 0, html = SPAN_ROUNDHEADER("Welcome to the pre-game lobby of $1!", list("SS220 BandaMarines - SS13"))) // SS220 EDIT ADDICTION
+			to_chat_spaced(world, type = MESSAGE_TYPE_SYSTEM, margin_top = 0, html = SPAN_ROUNDBODY("Please, setup your character and select ready. Game will start in $1 seconds.", list(floor(time_left / 10) || CONFIG_GET(number/lobby_countdown)))) // SS220 EDIT ADDICTION
 			SEND_GLOBAL_SIGNAL(COMSIG_GLOB_MODE_PREGAME_LOBBY)
 			current_state = GAME_STATE_PREGAME
 			fire()
@@ -275,7 +275,7 @@ SUBSYSTEM_DEF(ticker)
 	save_mode(CONFIG_GET(string/gamemode_default))
 
 	if(GLOB.round_statistics)
-		to_chat_spaced(world, html = FONT_SIZE_BIG(SPAN_ROLE_BODY("<B>Welcome to [GLOB.round_statistics.round_name]</B>")))
+		to_chat_spaced(world, html = FONT_SIZE_BIG(SPAN_ROLE_BODY("<B>Welcome to $1</B>", list(GLOB.round_statistics.round_name))))
 
 	GLOB.supply_controller.start_processing()
 	GLOB.supply_controller_upp.start_processing()
@@ -479,7 +479,7 @@ SUBSYSTEM_DEF(ticker)
 		CRASH("send_tip_of_the_round() failed somewhere")
 
 	if(message)
-		to_chat(world, SPAN_PURPLE("<b>Tip of the round: </b>[html_encode(message)]"))
+		to_chat(world, SPAN_PURPLE("<b>Tip of the round: </b>$1", list(html_encode(message))))
 		return TRUE
 	else
 		return FALSE

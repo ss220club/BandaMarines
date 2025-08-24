@@ -75,7 +75,7 @@
 		locked = !locked
 		for(var/mob/mob in viewers(user, 3))
 			if((mob.client && !( mob.blinded )))
-				to_chat(mob, SPAN_NOTICE("The locker has been [locked ? null : "un"]locked by [user]."))
+				to_chat(mob, SPAN_NOTICE("The locker has been [locked ? null : "un"]locked by $1$2.", list(user, (user.gender == MALE) ? "")))
 		update_icon()
 	else
 		to_chat(user, SPAN_NOTICE("Access Denied"))

@@ -303,18 +303,18 @@
 	var/size
 	switch(w_class)
 		if(SIZE_TINY)
-			size = "крохотного размера"
+			size = "крохотного размера" // SS220 EDIT ADDICTION
 		if(SIZE_SMALL)
-			size = "маленького размера"
+			size = "маленького размера" // SS220 EDIT ADDICTION
 		if(SIZE_MEDIUM)
-			size = "обычного размера"
+			size = "обычного размера" // SS220 EDIT ADDICTION
 		if(SIZE_LARGE)
-			size = "громоздкого размера"
+			size = "громоздкого размера" // SS220 EDIT ADDICTION
 		if(SIZE_HUGE)
-			size = "огромного размера"
+			size = "огромного размера" // SS220 EDIT ADDICTION
 		if(SIZE_MASSIVE)
-			size = "гигантского размера"
-	. += "Это [blood_color ? blood_color != COLOR_OIL ? "окровавленн[genderize_ru(gender, "ый", "ая", "ое", "ые")] " : "замасленн[genderize_ru(gender, "ый", "ая", "ое", "ые")] " : ""][icon2html(src, user)][declent_ru(NOMINATIVE)]. Это предмет [size]."
+			size = "гигантского размера" // SS220 EDIT ADDICTION
+	. += "Это [blood_color ? blood_color == COLOR_OIL ? "замасленн[genderize_ru(gender, "ый", "ая", "ое", "ые")] " : "окровавленн[genderize_ru(gender, "ый", "ая", "ое", "ые")] " : ""][icon2html(src, user)][declent_ru(NOMINATIVE)]. Это предмет [size]." // SS220 EDIT ADDICTION
 	if(desc)
 		. += desc
 	if(desc_lore)
@@ -866,9 +866,9 @@
 
 /obj/item/proc/showoff(mob/user)
 	var/list/viewers = get_mobs_in_view(GLOB.world_view_size, user)
-	user.langchat_speech("holds up [src].", viewers, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
+	user.langchat_speech(SPAN_TRANSLATE("holds up $1.", list(declent_ru_initial(src::name, ACCUSATIVE, src::name))), viewers, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote")) // SS220 EDIT ADDICTION
 	for (var/mob/M in viewers)
-		M.show_message("[user] holds up [src]. <a HREF=?src=\ref[M];lookitem=\ref[src]>Take a closer look.</a>", SHOW_MESSAGE_VISIBLE)
+		M.show_message(SPAN_INFO("$1 holds up $2. <a HREF=$3>Take a closer look.</a>", list(user, declent_ru_initial(src::name, ACCUSATIVE, src::name), "?src=\ref[M];lookitem=\ref[src]")), SHOW_MESSAGE_VISIBLE) // SS220 EDIT ADDICTION
 
 /mob/living/carbon/verb/showoff()
 	set name = "Show Held Item"

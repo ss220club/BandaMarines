@@ -816,13 +816,13 @@
 			if(tgui_alert(user, "Вы уверены, что хотите сбросить статус своей медголокарты?", "Сброс статуса медголокарты", list("Да", "Нет")) != "Да") // SS220 - EDIT ADDITTION
 				return
 			holo_card_color = null
-			to_chat(user, SPAN_NOTICE("Вы сбрасываете статус своей медголокарты.")) // SS220 - EDIT ADDITTION
+			to_chat(user, SPAN_NOTICE("You reset your holocard."))
 			hud_set_holocard()
 			return
-		to_chat(user, SPAN_WARNING("Вы не знаете как использовать это устройство.")) // SS220 - EDIT ADDITTION
+		to_chat(user, SPAN_WARNING("You're not trained to use this."))
 		return
 	if(!has_species(src, "Human"))
-		to_chat(user, SPAN_WARNING("Статус медголокарты можно изменить только у людей.")) // SS220 - EDIT ADDITTION
+		to_chat(user, SPAN_WARNING("Triage holocards only works on humans."))
 		return
 
 	// SS220 - START ADDITTION
@@ -839,7 +839,7 @@
 		return
 	var/translated_value = holocard_translations[newcolor] // SS220 - EDIT ADDITTION
 	if(get_dist(user, src) > 7)
-		to_chat(user, SPAN_WARNING("Пациент [src] слишком далеко от вас.")) // SS220 - EDIT ADDITTION
+		to_chat(user, SPAN_WARNING("$1 is too far away.", list(src))) // SS220 - EDIT ADDITTION
 		return
 	if(newcolor == "none")
 		if(!holo_card_color)
@@ -848,10 +848,10 @@
 		to_chat(user, SPAN_NOTICE("Вы снимаете статус в медголокарте пациента [src].")) // SS220 - EDIT ADDITTION
 	else if(newcolor != holo_card_color)
 		if(newcolor == "black" && is_revivable() && check_tod())
-			to_chat(user, SPAN_WARNING("Пациента ещё можно спасти!")) // SS220 - EDIT ADDITTION
+			to_chat(user, SPAN_WARNING("They are yet saveable."))
 			return
 		holo_card_color = newcolor
-		to_chat(user, SPAN_NOTICE("Вы устанавливаете статус «[translated_value]» в медголокарте пациента [src].")) // SS220 - EDIT ADDITTION
+		to_chat(user, SPAN_NOTICE("You add a $1 holo card on $2.", list(translated_value, src))) // SS220 - EDIT ADDITTION
 	hud_set_holocard()
 
 /mob/living/carbon/human/tgui_interact(mob/user, datum/tgui/ui) // I'M SORRY, SO FUCKING SORRY
@@ -1047,35 +1047,41 @@
 	var/msg
 	///Is the target the user or somebody else?
 	var/self = (target == src)
-	to_chat(usr,SPAN_NOTICE("You [self ? "take a moment to analyze yourself." : "start analyzing [target.name]."]"))
+	// SS220 START EDIT ADDICTION
+	var/is_male = (target.gender == MALE)
+	var/t_he_she = is_male ? "Он" : "Она"
+	var/t_his_her = is_male ? "Его" : "Её"
+	var/t_him_her = is_male ? "него" : "неё"
+	// SS220 END EDIT ADDICTION
+	to_chat(usr,SPAN_NOTICE("You [self ? "take a moment to analyze yourself." : "start analyzing $1."]", list(target.name)))
 
 	if(self)
 		var/list/broken_limbs = target.get_broken_limbs() - list("chest","head","groin")
 		if(length(broken_limbs))
-			msg += "Your [english_list(broken_limbs)] [length(broken_limbs) > 1 ? "are" : "is"] broken.\n"
+			msg += "У вас перелом [english_list(broken_limbs, declent = GENITIVE)].\n" // SS220 EDIT ADDICTION
 	if(target.toxloss > 20)
-		msg += "[self ? "Your" : "Their"] skin is slightly green.\n"
+		msg += "[self ? "Ваша" : t_his_her] кожа слегка позеленела.\n" // SS220 EDIT ADDICTION
 
 	if(target.is_bleeding())
-		msg += "[self ? "You" : "They"] have bleeding wounds on [self ? "your" : "their"] body.\n"
+		msg += "У [self ? "вас" : t_him_her] кровотечение.\n" // SS220 EDIT ADDICTION
 
 	if(!self && skillcheck(usr, SKILL_SURGERY, SKILL_SURGERY_NOVICE))
 		for(var/datum/effects/bleeding/internal/internal_bleed in target.effects_list)
-			msg += "They have bloating and discoloration on their [internal_bleed.limb.display_name].\n"
+			msg += "У [t_him_her] изменился цвет кожи и наблюдается припухлость в [declent_ru_initial(internal_bleed.limb.display_name, DATIVE, internal_bleed.limb.display_name)].\n" // SS220 EDIT ADDICTION
 
 	switch(target.stat)
 		if(DEAD)
 			if(target.check_tod() && target.is_revivable())
-				msg += "They're not breathing."
+				msg += "[t_he_she] не дышит." // SS220 EDIT ADDICTION
 			else
 				if(has_limb("head"))
-					msg += "Their eyes have gone blank, there are no signs of life."
+					msg += "[t_his_her] взгляд потускнел и [lowertext(t_he_she)] не подает признаков жизни." // SS220 EDIT ADDICTION
 				else
-					msg += "They are definitely dead."
+					msg += "[t_he_she] определённо [is_male ? "мёртв" : "мертва"]." // SS220 EDIT ADDICTION
 		if(UNCONSCIOUS)
-			msg += "They seem to be unconscious.\n"
+			msg += "[t_he_she], похоже, без сознания.\n" // SS220 EDIT ADDICTION
 		if(CONSCIOUS)
-			msg += "[self ? "You're" : "They're"] alive and breathing."
+			msg += "У [self ? "вас" : t_him_her] всё в порядке." // SS220 EDIT ADDICTION
 
 	to_chat(src, SPAN_WARNING(msg))
 
@@ -1861,4 +1867,3 @@
 		if(PULSE_THREADY)
 			return method ? ">250" : "extremely weak and fast, patient's artery feels like a thread"
 // output for machines^ ^^^^^^^output for people^^^^^^^^^
-

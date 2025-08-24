@@ -299,7 +299,7 @@
 		new rollertype(src)
 	var/obj/structure/bed/roller/roller = locate(rollertype) in contents
 	roller.forceMove(location)
-	to_chat(user, SPAN_NOTICE("You deploy [roller]."))
+	to_chat(user, SPAN_NOTICE("You deploy $1.", list(declent_ru_initial(roller::name, ACCUSATIVE, roller::name)))) // SS220 EDIT ADDICTION
 	roller.add_fingerprint(user)
 	user.temp_drop_inv_item(src)
 	forceMove(roller)

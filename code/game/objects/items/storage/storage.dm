@@ -703,6 +703,7 @@ W is always an item. stop_warning prevents messaging. user may be null.**/
 	if (!isturf(T) || get_dist(src, T) > 1)
 		T = get_turf(src)
 
+	var/ru_name = declent_ru_initial(src::name, ACCUSATIVE, src::name) // SS220 EDIT ADDICTION
 	if(!can_storage_interact(user))
 		to_chat(user, SPAN_WARNING("Access denied."))
 		return
@@ -712,16 +713,16 @@ W is always an item. stop_warning prevents messaging. user may be null.**/
 		return
 
 	if (!(storage_flags & STORAGE_QUICK_EMPTY))
-		user.visible_message(SPAN_NOTICE("[user] starts to empty \the [src]..."),
-			SPAN_NOTICE("You start to empty \the [src]..."))
+		user.visible_message(SPAN_NOTICE("$1 starts to empty $2...", list(user, ru_name)), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("You start to empty $1...", list(ru_name))) // SS220 EDIT ADDICTION
 		if (!do_after(user, 2 SECONDS, INTERRUPT_ALL, BUSY_ICON_GENERIC))
 			return
 
 	storage_close(user)
 	for (var/obj/item/I in contents)
 		remove_from_storage(I, T, user)
-	user.visible_message(SPAN_NOTICE("[user] empties \the [src]."),
-		SPAN_NOTICE("You empty \the [src]."))
+	user.visible_message(SPAN_NOTICE("$1 empties $2.", list(user, ru_name)), // SS220 EDIT ADDICTION
+		SPAN_NOTICE("You empty $1.", list(ru_name))) // SS220 EDIT ADDICTION
 	if (use_sound)
 		playsound(loc, use_sound, 25, TRUE, 3)
 

@@ -32,7 +32,7 @@ dative = "правому запястью"
 accusative = "правое запястье"
 instrumental = "правым запястьем"
 prepositional = "правом запястье"
-gender = "female"
+gender = "neuter"
 
 ["left arm"]
 nominative = "левая рука"
@@ -45,12 +45,12 @@ gender = "female"
 
 ["left hand"]
 nominative = "левое запястье"
-genitive = "левое запястье"
-dative = "левой руке"
-accusative = "левую руку"
-instrumental = "левой рукой"
-prepositional = "левой руке"
-gender = "female"
+genitive = "левого запястья"
+dative = "левому запястью"
+accusative = "левое запястье"
+instrumental = "левым запястьем"
+prepositional = "левом запястье"
+gender = "neuter"
 
 ["left leg"]
 nominative = "левая нога"

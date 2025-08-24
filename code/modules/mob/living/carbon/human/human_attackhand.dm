@@ -235,8 +235,8 @@
 	playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
 
 /mob/living/carbon/human/proc/check_for_injuries()
-	visible_message(SPAN_NOTICE("[capitalize(declent_ru(NOMINATIVE))] осматривает себя."),
-	SPAN_NOTICE("Вы осматриваете себя на наличие травм."), null, 3)
+	visible_message(SPAN_NOTICE("$1 examines $2.", list(capitalize(declent_ru(NOMINATIVE)), gender==MALE?"himself":"herself")), // SS220 EDIT ADDICTION
+	SPAN_NOTICE("You check yourself for injuries."), null, 3)
 
 	var/list/limb_message = list()
 	for(var/obj/limb/org in limbs)

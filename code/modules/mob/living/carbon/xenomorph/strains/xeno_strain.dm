@@ -73,11 +73,14 @@
 
 	// Make an assoc list of {name: typepath} from the strains available to the xeno's caste.
 	var/list/strain_list = list()
+	world.log = file("[GLOB.log_directory]/TEST222.log")
 	for(var/datum/xeno_strain/strain_type as anything in caste.available_strains)
-		strain_list[initial(strain_type.name)] = strain_type
+		strain_list[capitalize(declent_ru_initial(strain_type.name, NOMINATIVE, strain_type.name))] = strain_type // SS220 EDIT ADDICTION
 
+	world.log << json_encode(strain_list)
 	// Ask the user which strain they want.
-	var/strain_choice = tgui_input_list(usr, "Which strain would you like to take?", "Choose Strain", strain_list, theme = "hive_status")
+
+	var/strain_choice = tgui_input_list(usr, "Какой подвид вы бы хотели выбрать?", "Выбор подвида", strain_list, theme = "hive_status") // SS220 EDIT ADDICTION
 	if(!strain_choice)
 		return
 	var/datum/xeno_strain/chosen_strain = strain_list[strain_choice]
@@ -86,7 +89,7 @@
 	if(!can_take_strain())
 		return
 	// Show the user the strain's description, and double check that they want it.
-	if(tgui_alert(usr, "[initial(chosen_strain.description)]", "Choose Strain", list("Mutate", "Cancel")) != "Mutate")
+	if(tgui_alert(usr, "[initial(chosen_strain.description)]", "Choose Strain", list("Принять", "Отмена")) != "Принять") // SS220 EDIT ADDICTION
 		return
 	// One more time after they confirm.
 	if(!can_take_strain())

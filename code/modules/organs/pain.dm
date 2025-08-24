@@ -35,26 +35,27 @@
 				msg += ", [pick("fumbling with","struggling with","losing control of")] your [i < 2 ? "hand" : "hands"]"
 			to_chat(H, SPAN_WARNING("[msg]."))
 
+	var/ru_name = declent_ru_initial(partname) // SS220 EDIT ADDICTION
 	if(burning)
 		switch(amount)
 			if(1 to 10)
-				msg = SPAN_WARNING("Your [partname] burns.")
+				msg = SPAN_WARNING("Your $1 burns.", list(ru_name)) // SS220 EDIT ADDICTION
 			if(11 to 90)
 				flash_weak_pain()
-				msg = SPAN_DANGER("Your [partname] burns badly!")
+				msg = SPAN_DANGER("Your $1 burns badly!", list(ru_name)) // SS220 EDIT ADDICTION
 			if(91 to 10000)
 				flash_pain()
-				msg = SPAN_HIGHDANGER("OH GOD! Your [partname] is on fire!")
+				msg = SPAN_HIGHDANGER("OH GOD! Your $1 is on fire!", list(ru_name)) // SS220 EDIT ADDICTION
 	else
 		switch(amount)
 			if(1 to 10)
-				msg = SPAN_WARNING("Your [partname] hurts.")
+				msg = SPAN_WARNING("Your $1 hurts.", list(ru_name)) // SS220 EDIT ADDICTION
 			if(11 to 90)
 				flash_weak_pain()
-				msg = SPAN_DANGER("Your [partname] hurts badly.")
+				msg = SPAN_DANGER("Your $1 hurts badly.", list(ru_name)) // SS220 EDIT ADDICTION
 			if(91 to 10000)
 				flash_pain()
-				msg = SPAN_HIGHDANGER("OH GOD! Your [partname] is hurting terribly!")
+				msg = SPAN_HIGHDANGER("OH GOD! Your $1 is hurting terribly!", list(ru_name)) // SS220 EDIT ADDICTION
 	if(msg && (msg != last_pain_message || prob(10)))
 		last_pain_message = msg
 		to_chat(src, msg)
@@ -71,14 +72,14 @@
 
 // message is the custom message to be displayed
 // flash_strength is 0 for weak pain flash, 1 for strong pain flash
-/mob/living/carbon/human/custom_pain(message, flash_strength)
+/mob/living/carbon/human/custom_pain(message, flash_strength, attr = list()) // SS220 EDIT ADDICTION
 	. = ..()
 	if(!.)
 		return
 
-	var/msg = SPAN_DANGER("[message]")
+	var/msg = SPAN_DANGER("[message]", attr) // SS220 EDIT ADDICTION
 	if(flash_strength >= 1)
-		msg = SPAN_HIGHDANGER("[message]")
+		msg = SPAN_HIGHDANGER("[message]", attr) // SS220 EDIT ADDICTION
 
 	// Anti message spam checks
 	if(msg && ((msg != last_pain_message) || (world.time >= next_pain_time)))

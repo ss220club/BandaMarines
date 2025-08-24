@@ -110,8 +110,8 @@
 	busy = TRUE
 	if(do_after(user, 20, INTERRUPT_INCAPACITATED|INTERRUPT_OUT_OF_RANGE|INTERRUPT_RESIST, BUSY_ICON_GENERIC, src, INTERRUPT_NONE))
 		if(!user.is_mob_incapacitated() && get_dist(user, src) <= 1 && !user.blinded && user.body_position != LYING_DOWN && !user.buckled && !user.anchored)
-			visible_message(SPAN_NOTICE("[user] climbs [ladder_dir_name] [src].")) //Hack to give a visible message to the people here without duplicating user message
-			user.visible_message(SPAN_NOTICE("[user] climbs [ladder_dir_name] [src]."),
+			visible_message(SPAN_NOTICE("$1 climbs [ladder_dir_name] [src].", list(user))) //Hack to give a visible message to the people here without duplicating user message
+			user.visible_message(SPAN_NOTICE("$1 climbs [ladder_dir_name] [src].", list(user)), // SS220 EDIT ADDICTION
 			SPAN_NOTICE("You climb [ladder_dir_name] [src]."))
 			ladder_dest.add_fingerprint(user)
 			user.trainteleport(ladder_dest.loc)

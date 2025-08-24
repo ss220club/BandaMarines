@@ -395,7 +395,7 @@
 			new /obj/effect/overlay/temp/point/big(T, src, A)
 		else
 			new /obj/effect/overlay/temp/point/big/squad(T, src, A, squad.equipment_color)
-	visible_message("<b>[src]</b> points to [A]", null, null, 5)
+	visible_message(SPAN_INFO("<b>$1</b> points to $2", list(src, declent_ru_initial(A::name, ACCUSATIVE, A))), null, null, 5) // SS220 EDIT ADDICTION
 	return TRUE
 
 ///Is this mob important enough to point with big arrows?

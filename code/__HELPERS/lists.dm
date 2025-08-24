@@ -11,7 +11,7 @@
  */
 
 //Returns a list in plain english as a string
-/proc/english_list(list/input, nothing_text = "ничего", and_text = " и ", comma_text = ", ", final_comma_text = "" )
+/proc/english_list(list/input, nothing_text = "ничего", and_text = " и ", comma_text = ", ", final_comma_text = "", declent = NOMINATIVE) // SS220 EDIT ADDICTION
 	var/total = length(input)
 	if (!total)
 		return "[nothing_text]"
@@ -26,6 +26,7 @@
 			if (index == total - 1)
 				comma_text = final_comma_text
 
+			input[index] = declent_ru_initial(input[index], declent, input[index]) // SS220 EDIT ADDICTION
 			output += "[input[index]][comma_text]"
 			index++
 

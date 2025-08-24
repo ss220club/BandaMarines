@@ -1050,7 +1050,7 @@
 	var/obj/effect/overlay/temp/point/big/greyscale/point = new(target_turf, src, target_atom)
 	point.color = "#a800a8"
 
-	visible_message("<b>[src]</b> points to [target_atom]", null, null, 5)
+	visible_message(SPAN_XENOQUEEN("<b>$1</b> points to $2", list(src, declent_ru_initial(target_atom::name, ACCUSATIVE, target_atom))), null, null, 5) // SS220 EDIT ADDICTION
 
 #undef XENO_QUEEN_AGE_TIME
 #undef XENO_QUEEN_TEMP_AGE_DURATION

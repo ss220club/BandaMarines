@@ -31,80 +31,96 @@
 	failure_sound = 'sound/surgery/organ2.ogg'
 
 /datum/surgery_step/incision/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
-	if(tool_type == /obj/item/tool/surgery/scalpel/manager)
-		user.affected_message(target,
-			SPAN_NOTICE("You start to construct a prepared incision in [target]'s [surgery.affected_limb.display_name] with \the [tool]."),
-			SPAN_NOTICE("[user] starts to construct a prepared incision in your [surgery.affected_limb.display_name] with \the [tool]."),
-			SPAN_NOTICE("[user] starts to construct a prepared incision in [target]'s [surgery.affected_limb.display_name] with \the [tool]."))
+	var/ru_name_affected_limb = declent_ru_initial(surgery.affected_limb.display_name, DATIVE, surgery.affected_limb.display_name) // SS220 EDIT ADDICTION
+	var/ru_name_tool = declent_ru_initial(tool::name, DATIVE, tool::name) // SS220 EDIT ADDICTION
 
-		target.custom_pain("You feel a horrible, searing pain in your [surgery.affected_limb.display_name] as it is pushed apart!", 1)
-	else
-		user.affected_message(target,
-			SPAN_NOTICE("You start to make an incision on [target]'s [surgery.affected_limb.display_name] with \the [tool]."),
-			SPAN_NOTICE("[user] starts making an incision on your [surgery.affected_limb.display_name] with \the [tool]."),
-			SPAN_NOTICE("[user] starts making an incision on [target]'s [surgery.affected_limb.display_name] with \the [tool]."))
+	switch(tool_type)
+		if(/obj/item/tool/surgery/scalpel/manager)
+			user.affected_message(target,
+				SPAN_NOTICE("You start to construct a prepared incision in $1's $2 with $3.", list(target, ru_name_affected_limb, ru_name_tool)), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("$1 starts to construct a prepared incision in your $2 with $3.", list(user, ru_name_affected_limb, ru_name_tool)), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("$1 starts to construct a prepared incision in $2's $3 with $4.", list(user, target, ru_name_affected_limb, ru_name_tool))) // SS220 EDIT ADDICTION
 
-		target.custom_pain("You feel a horrible sharp pain in your [surgery.affected_limb.display_name]!", 1)
+			target.custom_pain("You feel a horrible, searing pain in your $1 as it is pushed apart!", 1, list(ru_name_affected_limb)) // SS220 EDIT ADDICTION
+		if(/obj/item/tool/surgery/scalpel/laser)
+			user.affected_message(target,
+				SPAN_NOTICE("You start to make a bloodless incision in $1's $2 with $3.", list(target, ru_name_affected_limb, ru_name_tool)), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("$1 starts making a bloodless incision in your $2 with $3.", list(user, ru_name_affected_limb, ru_name_tool)), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("$1 starts making a bloodless incision in $2's $3 with $4.", list(user, target, ru_name_affected_limb, ru_name_tool))) // SS220 EDIT ADDICTION
+
+			target.custom_pain("You feel a burning pain in your $1 as it is pushed apart!", 1, list(ru_name_affected_limb)) // SS220 EDIT ADDICTION
+		else
+			user.affected_message(target,
+				SPAN_NOTICE("You start to make an incision on $1's $2 with $3.", list(target, ru_name_affected_limb, ru_name_tool)), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("$1 starts making an incision on your $2 with $3.", list(user, ru_name_affected_limb, ru_name_tool)), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("$1 starts making an incision on $2's $3 with $4.", list(user, target, ru_name_affected_limb, ru_name_tool))) // SS220 EDIT ADDICTION
+
+			target.custom_pain("You feel a horrible sharp pain in your $1!", 1, list(ru_name_dative)) // SS220 EDIT ADDICTION
 
 	log_interact(user, target, "[key_name(user)] began making an incision in [key_name(target)]'s [surgery.affected_limb.display_name].")
 
 /datum/surgery_step/incision/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
-	var/obj/item/tool/surgery/scalpel/laser/las_scalpel = tool
+	var/ru_name_affected_limb = declent_ru_initial(surgery.affected_limb.display_name, DATIVE, surgery.affected_limb.display_name) // SS220 EDIT ADDICTION
+	var/ru_name_tool = declent_ru_initial(tool::name, DATIVE, tool::name) // SS220 EDIT ADDICTION
 
-	if(tool_type == /obj/item/tool/surgery/scalpel/manager)
-		user.affected_message(target,
-			SPAN_NOTICE("You have constructed a prepared incision in [target]'s [surgery.affected_limb.display_name]."),
-			SPAN_NOTICE("[user] has constructed a prepared incision in your [surgery.affected_limb.display_name]."),
-			SPAN_NOTICE("[user] has constructed a prepared incision in [target]'s [surgery.affected_limb.display_name]."))
+	switch(tool_type)
+		if(/obj/item/tool/surgery/scalpel/manager)
+			user.affected_message(target,
+				SPAN_NOTICE("You have constructed a prepared incision in $1's $2 with $3.", list(target, ru_name_affected_limb, ru_name_tool)), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("$1 has constructed a prepared incision in your $2 with $3.", list(user, ru_name_affected_limb, ru_name_tool)), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("$1 has constructed a prepared incision in $2's $3 with $4.", list(user, target, ru_name_affected_limb, ru_name_tool))) // SS220 EDIT ADDICTION
 
-		surgery.status += 2 //IMS completes all steps.
-	else if(tool_type == /obj/item/tool/surgery/scalpel/laser && prob(las_scalpel.bloodlessprob))
-		user.affected_message(target,
-			SPAN_NOTICE("You finish making a bloodless incision on [target]'s [surgery.affected_limb.display_name] with \the [tool]."),
-			SPAN_NOTICE("[user] finishes making a bloodless incision on your [surgery.affected_limb.display_name] with \the [tool]."),
-			SPAN_NOTICE("[user] finishes making a bloodless incision on [target]'s [surgery.affected_limb.display_name] with \the [tool]."))
+			surgery.status += 2 //IMS completes all steps.
+		if(/obj/item/tool/surgery/scalpel/laser)
+			user.affected_message(target,
+				SPAN_NOTICE("You finish making a bloodless incision on $1's $2 with $3.", list(target, ru_name_affected_limb, ru_name_tool)), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("$1 finishes making a bloodless incision on your $2 with $3.", list(user, ru_name_affected_limb, ru_name_tool)), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("$1 finishes making a bloodless incision on $2's $3 with $4.", list(user, target, ru_name_affected_limb, ru_name_tool))) // SS220 EDIT ADDICTION
 
-		surgery.status++ //A laser scalpel may cauterise as it cuts.
-	else
-		user.affected_message(target,
-			SPAN_NOTICE("You finish the incision on [target]'s [surgery.affected_limb.display_name]."),
-			SPAN_NOTICE("[user] finishes the incision on your [surgery.affected_limb.display_name]."),
-			SPAN_NOTICE("[user] finishes the incision on [target]'s [surgery.affected_limb.display_name]."))
-
-		if(!(surgery.affected_limb.status & LIMB_SYNTHSKIN))
-			var/datum/effects/bleeding/external/incision_bleed = new(target, surgery.affected_limb, 10)
-			incision_bleed.duration = 10 MINUTES //A weak bleed, but it doesn't stop on its own.
-			surgery.affected_limb.bleeding_effects_list += incision_bleed
+			surgery.status++ //A laser scalpel may cauterise as it cuts.
 		else
-			surgery.status++ // synth skin doesn't cause bleeders
+			user.affected_message(target,
+				SPAN_NOTICE("You finish the incision on $1's $2 with $3.", list(target, ru_name_affected_limb, ru_name_tool)), //SS220 EDIT ADDICTION
+				SPAN_NOTICE("$1 finishes the incision on your $2 with $3.", list(user, ru_name_affected_limb, ru_name_tool)), //SS220 EDIT ADDICTION
+				SPAN_NOTICE("$1 finishes the incision on $2's $3 with $4.", list(user, target, ru_name_affected_limb, ru_name_tool))) //SS220 EDIT ADDICTION
+
+			if(!(surgery.affected_limb.status & LIMB_SYNTHSKIN))
+				var/datum/effects/bleeding/external/incision_bleed = new(target, surgery.affected_limb, 10)
+				incision_bleed.duration = 10 MINUTES //A weak bleed, but it doesn't stop on its own.
+				surgery.affected_limb.bleeding_effects_list += incision_bleed
+			else
+				surgery.status++ // synth skin doesn't cause bleeders
 
 	target.incision_depths[target_zone] = SURGERY_DEPTH_SHALLOW //Descriptionwise this is done by the retractor, but putting it here means people can examine to see if an unfinished surgery has been done.
 	user.add_blood(target.get_blood_color(), BLOOD_HANDS)
 	log_interact(user, target, "[key_name(user)] made an incision in [key_name(target)]'s [surgery.affected_limb.display_name], beginning [surgery].")
 
 /datum/surgery_step/incision/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
+	var/ru_name_affected_limb = declent_ru_initial(surgery.affected_limb.display_name, DATIVE) // SS220 EDIT ADDICTION
+	var/ru_name_tool = declent_ru_initial(tool::name, DATIVE, tool::name) // SS220 EDIT ADDICTION
+
 	switch(tool_type)
 		if(/obj/item/tool/surgery/scalpel/manager)
 			user.affected_message(target,
-				SPAN_WARNING("Your hand jolts as the system sparks, ripping a gruesome hole in [target]'s [surgery.affected_limb.display_name] with \the [tool]!"),
-				SPAN_WARNING("[user]'s hand jolts as the system sparks, ripping a gruesome hole in your [surgery.affected_limb.display_name] with \the [tool]!"),
-				SPAN_WARNING("[user]'s hand jolts as the system sparks, ripping a gruesome hole in [target]'s [surgery.affected_limb.display_name] with \the [tool]!"))
+				SPAN_WARNING("Your hand jolts as the system sparks, ripping a gruesome hole in $2's $3!", list(target, ru_name_affected_limb, ru_name_tool)), //SS220 EDIT ADDICTION
+				SPAN_WARNING("$1's hand jolts as the system sparks, ripping a gruesome hole in your $2!", list(user, ru_name_affected_limb, ru_name_tool)), //SS220 EDIT ADDICTION
+				SPAN_WARNING("$1's hand jolts as the system sparks, ripping a gruesome hole in $2's $3!", list(user, target, ru_name_affected_limb, ru_name_tool))) //SS220 EDIT ADDICTION
 
 			target.apply_damage(15, BRUTE, target_zone)
 			target.apply_damage(15, BURN, target_zone)
 		if(/obj/item/tool/surgery/scalpel/laser)
 			user.affected_message(target,
-				SPAN_WARNING("Your hand slips as \the [tool]'s blade sputters, searing a long gash in [target]'s [surgery.affected_limb.display_name]!"),
-				SPAN_WARNING("[user]'s hand slips as \the [tool]'s blade sputters, searing a long gash in your [surgery.affected_limb.display_name]!"),
-				SPAN_WARNING("[user]'s hand slips as \the [tool]'s blade sputters, searing a long gash in [target]'s [surgery.affected_limb.display_name]!"))
+				SPAN_WARNING("Your hand slips as $1's blade sputters, searing a long gash in $2's $3!", list(ru_name_tool, target, ru_name_affected_limb)), //SS220 EDIT ADDICTION
+				SPAN_WARNING("$1's hand slips as $2's blade sputters, searing a long gash in your $3!", list(user, ru_name_tool, ru_name_affected_limb)), //SS220 EDIT ADDICTION
+				SPAN_WARNING("$1's hand slips as $2's blade sputters, searing a long gash in $3's $4!", list(user, ru_name_tool, target, ru_name_affected_limb))) //SS220 EDIT ADDICTION
 
 			target.apply_damage(7.5, BRUTE, target_zone)
 			target.apply_damage(12.5, BURN, target_zone)
 		else
 			user.affected_message(target,
-				SPAN_WARNING("Your hand slips, slicing [target]'s [surgery.affected_limb.display_name] in the wrong place!"),
-				SPAN_WARNING("[user]'s hand slips, slicing your [surgery.affected_limb.display_name] in the wrong place!"),
-				SPAN_WARNING("[user]'s hand slips, slicing [target]'s [surgery.affected_limb.display_name] in the wrong place!"))
+				SPAN_WARNING("Your hand slips, slicing $2's $3 in the wrong place!", list(target, ru_name_affected_limb)), //SS220 EDIT ADDICTION
+				SPAN_WARNING("$1's hand slips, slicing your $3 in the wrong place!", list(user, ru_name_affected_limb)), //SS220 EDIT ADDICTION
+				SPAN_WARNING("$1's hand slips, slicing $2's $3 in the wrong place!", list(user, target, ru_name_affected_limb))) //SS220 EDIT ADDICTION
 
 			target.apply_damage(10, BRUTE, target_zone)
 	log_interact(user, target, "[key_name(user)] failed to make an incision in [key_name(target)]'s [surgery.affected_limb.display_name], aborting [surgery].")

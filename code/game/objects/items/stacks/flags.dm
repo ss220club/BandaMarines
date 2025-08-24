@@ -157,7 +157,7 @@
 
 /obj/structure/flag/plantable/attackby(obj/item/weapon, mob/living/user)
 	if(!explo_proof)
-		visible_message(SPAN_DANGER("[src] has been hit by [user] with [weapon]!"), null, 5, CHAT_TYPE_MELEE_HIT)
+		visible_message(SPAN_DANGER("$1 has been hit by $2 with $3!", list(declent_ru_initial(src::name, NOMINATIVE, src::name), user, declent_ru_initial(weapon::name, INSTRUMENTAL, weapon::name))), null, 5, CHAT_TYPE_MELEE_HIT) // SS220 EDIT ADDICTION
 		user.animation_attack_on(src)
 		playsound(loc, 'sound/effects/metalhit.ogg', 25, 1)
 		update_health(weapon.force * weapon.demolition_mod)

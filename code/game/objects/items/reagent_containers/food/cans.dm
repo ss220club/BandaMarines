@@ -116,16 +116,17 @@
 		to_chat(user, SPAN_NOTICE("You need to open the [object_fluff]!"))
 		return
 	var/datum/reagents/R = src.reagents
+	var/ru_name = declent_ru_initial(src::name, GENITIVE, src::name) // SS220 EDIT ADDICTION
 
 	if(!R.total_volume || !R)
 		if(M == user && M.a_intent == INTENT_HARM && M.zone_selected == "head" && crushable)
 			crush_can(M)
 			return
-		to_chat(user, SPAN_DANGER("The [src.name] is empty!"))
+		to_chat(user, SPAN_DANGER("The $1 is empty!", list(ru_name))) // SS220 EDIT ADDICTION
 		return 0
 
 	if(M == user)
-		to_chat(M, SPAN_NOTICE("You swallow a gulp of [src]."))
+		to_chat(M, SPAN_NOTICE("You swallow a gulp of $1.", list(ru_name))) // SS220 EDIT ADDICTION
 		if(reagents.total_volume)
 			reagents.set_source_mob(user)
 			reagents.trans_to_ingest(M, gulp_size)

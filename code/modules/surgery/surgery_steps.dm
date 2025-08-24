@@ -144,28 +144,28 @@ affected_limb, or location vars. Also, in that case there may be a wait between 
 		var/list/message = new() //Duration hint messages.
 
 		if(self_surgery)
-			message += "[pick("performing surgery", "working")] on [pick("yourself", "your own body")] is [pick("awkward", "tricky")]"
+			message += ru_span("[pick("performing surgery", "working")] on [pick("yourself", "your own body")] is [pick("awkward", "tricky")]") // SS220 EDIT ADDICTION
 
 		switch(tool_modifier) //Implicitly means tool exists as accept_any_item item or accept_hand would = 1x. No message for 1x - that's the default.
 			if(SURGERY_TOOL_MULT_SUBOPTIMAL)
-				message += "this tool is[pick("n't ideal", " not the best")]"
+				message += ru_span("this tool is[pick("n't ideal", " not the best")]") // SS220 EDIT ADDICTION
 			if(SURGERY_TOOL_MULT_SUBSTITUTE)
-				message += "this tool is[pick("n't suitable", " a bad fit", " difficult to use")]"
+				message += ru_span("this tool is[pick("n't suitable", " a bad fit", " difficult to use")]") // SS220 EDIT ADDICTION
 			if(SURGERY_TOOL_MULT_BAD_SUBSTITUTE)
-				message += "this tool is [pick("awful", "barely usable")]"
+				message += ru_span("this tool is [pick("awful", "barely usable")]") // SS220 EDIT ADDICTION
 				failure_penalties += 1
 			if(SURGERY_TOOL_MULT_AWFUL)
-				message += "this tool is [pick("awful", "barely usable")]"
+				message += ru_span("this tool is [pick("awful", "barely usable")]") // SS220 EDIT ADDICTION
 				failure_penalties += 2
 
 		switch(surface_modifier)
 			if(SURGERY_SURFACE_MULT_ADEQUATE)
-				message += "[pick("it isn't easy, working", "it's tricky to perform complex surgeries", "this would be quicker if you weren't working")] [pick("in the field", "under these conditions", "without a proper surgical theatre")]"
+				message += ru_span("[pick("it isn't easy, working", "it's tricky to perform complex surgeries", "this would be quicker if you weren't working")] [pick("in the field", "under these conditions", "without a proper surgical theatre")]") // SS220 EDIT ADDICTION
 			if(SURGERY_SURFACE_MULT_UNSUITED)
-				message += "[pick("it's difficult to work", "it's slow going, working", "you need to take your time")] in these [pick("primitive", "rough", "crude")] conditions"
+				message += ru_span("[pick("it's difficult to work", "it's slow going, working", "you need to take your time")] in these [pick("primitive", "rough", "crude")] conditions") // SS220 EDIT ADDICTION
 				failure_penalties += 1
 			if(SURGERY_SURFACE_MULT_AWFUL)
-				message += "[pick("you need to work slowly and carefully", "you need to be very careful", "this is delicate work, especially")] [pick("in these", "under such")] [pick("terrible", "awful", "utterly unsuitable")] conditions"
+				message += ru_span("[pick("you need to work slowly and carefully", "you need to be very careful", "this is delicate work, especially")] [pick("in these", "under such")] [pick("terrible", "awful", "utterly unsuitable")] conditions") // SS220 EDIT ADDICTION
 				failure_penalties += 2
 
 		if(length(message))
@@ -201,7 +201,7 @@ affected_limb, or location vars. Also, in that case there may be a wait between 
 	else if(target.stat == CONSCIOUS && prob(pain_failure_chance)) //Pain can cause a step to fail.
 		do_after(user, max(rand(step_duration * 0.1, step_duration * 0.5), 0.5), INTERRUPT_ALL|INTERRUPT_DIFF_INTENT,
 				BUSY_ICON_FRIENDLY, target, INTERRUPT_MOVED, BUSY_ICON_MEDICAL) //Brief do_after so that the pain interrupt doesn't happen instantly.
-		to_chat(user, SPAN_DANGER("[target] moved during the surgery! Use anesthetics or painkillers!"))
+		to_chat(user, SPAN_DANGER("$1 moved during the surgery! Use anesthetics or painkillers!", list(target))) // SS220 EDIT ADDICTION
 		to_chat(target, SPAN_DANGER("The pain was too much, you couldn't hold still!"))
 		if(failure(user, target, target_zone, tool, tool_type, surgery)) //Failure returns TRUE if the step should complete anyway.
 			advance = TRUE

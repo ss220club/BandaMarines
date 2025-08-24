@@ -153,10 +153,10 @@ FIRE ALARM
 	var/area/area = get_area(src)
 
 	if (area.flags_alarm_state & ALARM_WARNING_FIRE)
-		user.visible_message("[user] deactivates [src].", "You deactivate [src].")
+		user.visible_message(SPAN_INFO("$1 deactivates [src].", list(user)), SPAN_INFO("You deactivate [src].")) // SS220 EDIT ADDICTION
 		reset()
 	else
-		user.visible_message("[user] activates [src].", "You activate [src].")
+		user.visible_message(SPAN_INFO("$1 activates [src].", list(user)), SPAN_INFO("You activate [src].")) // SS220 EDIT ADDICTION
 		alarm()
 
 	return

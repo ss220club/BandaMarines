@@ -23,9 +23,13 @@
 
 /obj/item/reagent_container/food/drinks/attack(mob/M, mob/user)
 	var/datum/reagents/R = src.reagents
+	var/ru_name = declent_ru_initial(src::name, GENITIVE, src::name) // SS220 EDIT ADDICTION
+
+	world.log = file("[GLOB.log_directory]/TEST333.log")
+	world.log << json_encode(R)
 
 	if(!R.total_volume || !R)
-		to_chat(user, SPAN_DANGER("The [src.name] is empty!"))
+		to_chat(user, SPAN_DANGER("The $1 is empty!", list(ru_name))) // SS220 EDIT ADDICTION
 		return FALSE
 
 	if(HAS_TRAIT(M, TRAIT_CANNOT_EAT))
@@ -33,7 +37,7 @@
 		return FALSE
 
 	if(M == user)
-		to_chat(M, SPAN_NOTICE(" You swallow a gulp from \the [src]."))
+		to_chat(M, SPAN_NOTICE("You swallow a gulp from $1.", list(ru_name))) // SS220 EDIT ADDICTION
 		if(reagents.total_volume)
 			reagents.set_source_mob(user)
 			reagents.trans_to_ingest(M, gulp_size)
