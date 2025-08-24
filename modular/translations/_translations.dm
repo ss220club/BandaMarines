@@ -4,6 +4,9 @@ GLOBAL_LIST_EMPTY(ru_say_verb)
 GLOBAL_LIST_EMPTY(ru_emote_names)
 GLOBAL_LIST_EMPTY(ru_emote_messages)
 GLOBAL_LIST_EMPTY(ru_wound_descs)
+GLOBAL_LIST_EMPTY(ru_reagent_names)
+GLOBAL_LIST_EMPTY(ru_span)
+GLOBAL_LIST_EMPTY(ru_span_args)
 
 /datum/modpack/translations
 	name = "Переводы"
