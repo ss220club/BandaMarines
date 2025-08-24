@@ -155,7 +155,6 @@ window.addEventListener('focus', (e) => {
 // If we blur any element, the window may have unfocused if we didn't
 // click on the background
 window.addEventListener('blur', (e) => {
-  lastVisitedNode = null;
   setWindowFocus(false, true);
 });
 
