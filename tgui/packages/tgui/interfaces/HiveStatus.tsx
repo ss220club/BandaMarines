@@ -315,7 +315,9 @@ const XenoCounts = (props) => {
                                 'scale(3) translateX(-6px) translateY(1px)',
                             }}
                           />
-                          {caste === 'Bloody Larva' ? CastesRu('Larva') : CastesRu(caste)}
+                          {caste === 'Bloody Larva'
+                            ? CastesRu('Larva')
+                            : CastesRu(caste)}
                         </Table.Cell>
                       ))}
                     </Table.Row>
@@ -422,6 +424,20 @@ const XenoList = (props) => {
               backgroundColor={showPlasma && hive_color}
               onClick={() => setShowPlasma(!showPlasma)}
             >
+              Показывать плазму
+            </Button.Checkbox>
+          </Flex.Item>
+        </Flex>
+      </Flex.Item>
+      <Flex.Item mb={1}>
+        <Flex align="baseline">
+          <Flex.Item>
+            <Button.Checkbox
+              inline
+              checked={showPlasma}
+              backgroundColor={showPlasma && hive_color}
+              onClick={() => setShowPlasma(!showPlasma)}
+            >
               Show Plasma
             </Button.Checkbox>
           </Flex.Item>
@@ -458,7 +474,7 @@ const XenoList = (props) => {
           <Table.Cell>Имя</Table.Cell>
           <Table.Cell width="15%">Подвид</Table.Cell>
           <Table.Cell>Местоположение</Table.Cell>
-          <Table.Cell width="75px">Здоровье</Table.Cell>
+          <Table.Cell width="60px">Здоровье</Table.Cell>
           {showPlasma && <Table.Cell width="60px">Плазма</Table.Cell>}
           <Table.Cell width="100px" />
         </Table.Row>
