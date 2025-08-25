@@ -1331,7 +1331,7 @@ gender = "male"
 nominative = "ящик для взрывчатых веществ (M40 CCDP фосфорная x 6)"
 
 ["M40 WPDP White Phosphorus Packet (x3 grenades)"] # Unique Vendor Name
-nominative = "упаковка гранат (M40 CCDP фосфорная x 3)"
+nominative = "упаковка гранат (M40 WPDP фосфорная x 3)"
 
 ["M40 CCDP Grenade Packet"] # Unique Vendor Name
 nominative = "упаковка гранат (M40 CCDP фосфорная x 3)"
