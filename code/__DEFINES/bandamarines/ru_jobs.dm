@@ -11,7 +11,7 @@
 #define SQUAD_MARINE_CRYO_RU "Фокстрот"
 #define SQUAD_MARINE_INTEL_RU "Интел"
 #define SQUAD_SOF_RU "ССО"
-#define SQUAD_CBRN_RU "ХБРЯ"
+#define SQUAD_CBRN_RU "РХБЗ"
 #define SQUAD_FORECON_RU "РАЗВЕДКА"
 #define SQUAD_SOLAR_RU "Дьяволы Солнца"
 // Внимание! Эти названия участвуют в:
@@ -20,11 +20,11 @@
 
 // Job name defines
 #define JOB_SQUAD_MARINE_RU "Стрелок"
-#define JOB_SQUAD_LEADER_RU "Командир роты"
+#define JOB_SQUAD_LEADER_RU "Командир отряда"
 #define JOB_SQUAD_ENGI_RU "Полевой техник"
 #define JOB_SQUAD_MEDIC_RU "Полевой санитар"
 #define JOB_SQUAD_SPECIALIST_RU "Оружейный специалист"
-#define JOB_SQUAD_TEAM_LEADER_RU "Командир взвода"
+#define JOB_SQUAD_TEAM_LEADER_RU "Командир группы"
 #define JOB_SQUAD_SMARTGUN_RU "Смартганнер"
 
 #define JOB_COLONIST_RU "Колонист"
@@ -88,8 +88,8 @@
 #define JOB_CARGO_TECH_RU "Техник-экспедитор"
 
 #define JOB_MARINE_RAIDER_RU "Рейдер"
-#define JOB_MARINE_RAIDER_SL_RU "Комроты-рейдер"
-#define JOB_MARINE_RAIDER_CMD_RU "Комвзвода-рейдер"
+#define JOB_MARINE_RAIDER_SL_RU "Комотряда-рейдер"
+#define JOB_MARINE_RAIDER_CMD_RU "Комгруппы-рейдер"
 
 #define JOB_STOWAWAY_RU "Безбилетник"
 
@@ -99,8 +99,8 @@
 #define JOB_GENERAL_RU "Генерал ККМП"
 #define JOB_ACMC_RU "Заместитель коменданта КМП"
 #define JOB_CMC_RU "Комендант КМП"
-#define JOB_PLT_MED_RU "Санитар взвода"
-#define JOB_PLT_SL_RU "Командир взвода"
+#define JOB_PLT_MED_RU "Санитар отряда"
+#define JOB_PLT_SL_RU "Командир отряда"
 #define JOB_SQUAD_TECH_RU "Специалист по рекогносцировке"
 
 

@@ -369,14 +369,14 @@ const CombinedSquadPanel = (props: Props) => {
                                   collapsing
                                   p="4px"
                                 >
-                                  Командиры роты
+                                  Командиры отряда
                                 </Table.Cell>
                                 <Table.Cell
                                   textAlign="center"
                                   collapsing
                                   p="4px"
                                 >
-                                  Командиры взвода
+                                  Командиры группы
                                 </Table.Cell>
                               </Table.Row>
                               <Table.Row>
@@ -541,7 +541,7 @@ const CombinedSquadPanel = (props: Props) => {
                                     icon="person"
                                     onClick={() => act('sl_message')}
                                   >
-                                    СООБЩЕНИЕ КОМАНДИРУ РОТЫ
+                                    СООБЩЕНИЕ КОМАНДИРУ ОТРЯДА
                                   </Button>
                                 </Stack.Item>
                                 <Stack.Item>

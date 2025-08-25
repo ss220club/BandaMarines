@@ -26,7 +26,7 @@ export const JOBS_RU = {
   Foxtrot: 'Фокстрот',
   Intel: 'Интел',
   SOF: 'ССО',
-  CBRN: 'ХБРЯ',
+  CBRN: 'РХБЗ',
   FORECON: 'РАЗВЕДКА',
   'Solar Devils': 'Дьяволы Солнца',
   Provost: 'Военной Прокуратуры',
@@ -66,11 +66,11 @@ export const JOBS_RU = {
   NPCs: 'НИПы',
   // MARK: Roles
   Rifleman: 'Стрелок',
-  'Squad Leader': 'Командир роты',
+  'Squad Leader': 'Командир отряда',
   'Combat Technician': 'Полевой техник',
   'Hospital Corpsman': 'Полевой санитар',
   'Weapons Specialist': 'Оружейный специалист',
-  'Fireteam Leader': 'Командир взвода',
+  'Fireteam Leader': 'Командир группы',
   Smartgunner: 'Смартганнер',
   // Survivors
   Colonist: 'Колонист',
@@ -137,8 +137,8 @@ export const JOBS_RU = {
 
   // Marine Raider roles
   'Marine Raider': 'Рейдер',
-  'Marine Raider Team Lead': 'Комроты-рейдер',
-  'Marine Raider Platoon Lead': 'Комвзвода-рейдер',
+  'Marine Raider Team Lead': 'Комотряда-рейдер',
+  'Marine Raider Platoon Lead': 'Комгруппы-рейдер',
 
   // Other roles
   Stowaway: 'Безбилетник',
@@ -148,8 +148,8 @@ export const JOBS_RU = {
   'USCM General': 'Генерал ККМП',
   'Assistant Commandant of the Marine Corps': 'Заместитель коменданта КМП',
   'Commandant of the Marine Corps': 'Комендант КМП',
-  'Platoon Corpsman': 'Санитар взвода',
-  'Platoon Squad Leader': 'Командир взвода',
+  'Platoon Corpsman': 'Санитар отряда',
+  'Platoon Squad Leader': 'Командир отряда',
   'Reconnaissance Support Technician': 'ТСпециалист по рекогносцировке',
 
   // WO roles
