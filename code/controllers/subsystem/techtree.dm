@@ -57,8 +57,8 @@ SUBSYSTEM_DEF(techtree)
 				node.on_tree_insertion(tree)
 
 		tree.generate_tree()
-		var/msg = "Loaded [tree.name]!"
-		to_chat(world, SPAN_BOLDANNOUNCE("[msg]"))
+		var/msg = "Loaded $1!"
+		to_chat(world, SPAN_BOLDANNOUNCE(msg, list(tree.name)))
 
 	return SS_INIT_SUCCESS
 
