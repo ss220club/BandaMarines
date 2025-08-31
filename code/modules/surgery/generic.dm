@@ -32,7 +32,7 @@
 
 /datum/surgery_step/incision/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
 	var/ru_name_affected_limb = declent_ru_initial(surgery.affected_limb.display_name, DATIVE, surgery.affected_limb.display_name) // SS220 EDIT ADDICTION
-	var/ru_name_tool = declent_ru_initial(tool::name, DATIVE, tool::name) // SS220 EDIT ADDICTION
+	var/ru_name_tool = tool.declent_ru(DATIVE) // SS220 EDIT ADDICTION
 
 	switch(tool_type)
 		if(/obj/item/tool/surgery/scalpel/manager)
@@ -55,13 +55,13 @@
 				SPAN_NOTICE("$1 starts making an incision on your $2 with $3.", list(user, ru_name_affected_limb, ru_name_tool)), // SS220 EDIT ADDICTION
 				SPAN_NOTICE("$1 starts making an incision on $2's $3 with $4.", list(user, target, ru_name_affected_limb, ru_name_tool))) // SS220 EDIT ADDICTION
 
-			target.custom_pain("You feel a horrible sharp pain in your $1!", 1, list(ru_name_dative)) // SS220 EDIT ADDICTION
+			target.custom_pain("You feel a horrible sharp pain in your $1!", 1, list(ru_name_affected_limb)) // SS220 EDIT ADDICTION
 
 	log_interact(user, target, "[key_name(user)] began making an incision in [key_name(target)]'s [surgery.affected_limb.display_name].")
 
 /datum/surgery_step/incision/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
 	var/ru_name_affected_limb = declent_ru_initial(surgery.affected_limb.display_name, DATIVE, surgery.affected_limb.display_name) // SS220 EDIT ADDICTION
-	var/ru_name_tool = declent_ru_initial(tool::name, DATIVE, tool::name) // SS220 EDIT ADDICTION
+	var/ru_name_tool = tool.declent_ru(PREPOSITIONAL) // SS220 EDIT ADDICTION
 
 	switch(tool_type)
 		if(/obj/item/tool/surgery/scalpel/manager)
@@ -97,29 +97,28 @@
 
 /datum/surgery_step/incision/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
 	var/ru_name_affected_limb = declent_ru_initial(surgery.affected_limb.display_name, DATIVE) // SS220 EDIT ADDICTION
-	var/ru_name_tool = declent_ru_initial(tool::name, DATIVE, tool::name) // SS220 EDIT ADDICTION
 
 	switch(tool_type)
 		if(/obj/item/tool/surgery/scalpel/manager)
 			user.affected_message(target,
-				SPAN_WARNING("Your hand jolts as the system sparks, ripping a gruesome hole in $2's $3!", list(target, ru_name_affected_limb, ru_name_tool)), //SS220 EDIT ADDICTION
-				SPAN_WARNING("$1's hand jolts as the system sparks, ripping a gruesome hole in your $2!", list(user, ru_name_affected_limb, ru_name_tool)), //SS220 EDIT ADDICTION
-				SPAN_WARNING("$1's hand jolts as the system sparks, ripping a gruesome hole in $2's $3!", list(user, target, ru_name_affected_limb, ru_name_tool))) //SS220 EDIT ADDICTION
+				SPAN_WARNING("Your hand jolts as the system sparks, ripping a gruesome hole in $1's $2!", list(target, ru_name_affected_limb)), //SS220 EDIT ADDICTION
+				SPAN_WARNING("$1's hand jolts as the system sparks, ripping a gruesome hole in your $2!", list(user, ru_name_affected_limb)), //SS220 EDIT ADDICTION
+				SPAN_WARNING("$1's hand jolts as the system sparks, ripping a gruesome hole in $2's $3!", list(user, target, ru_name_affected_limb))) //SS220 EDIT ADDICTION
 
 			target.apply_damage(15, BRUTE, target_zone)
 			target.apply_damage(15, BURN, target_zone)
 		if(/obj/item/tool/surgery/scalpel/laser)
 			user.affected_message(target,
-				SPAN_WARNING("Your hand slips as $1's blade sputters, searing a long gash in $2's $3!", list(ru_name_tool, target, ru_name_affected_limb)), //SS220 EDIT ADDICTION
-				SPAN_WARNING("$1's hand slips as $2's blade sputters, searing a long gash in your $3!", list(user, ru_name_tool, ru_name_affected_limb)), //SS220 EDIT ADDICTION
-				SPAN_WARNING("$1's hand slips as $2's blade sputters, searing a long gash in $3's $4!", list(user, ru_name_tool, target, ru_name_affected_limb))) //SS220 EDIT ADDICTION
+				SPAN_WARNING("Your hand slips as blade sputters, searing a long gash in $1's $2!", list(target, ru_name_affected_limb)), //SS220 EDIT ADDICTION
+				SPAN_WARNING("$1's hand slips as blade sputters, searing a long gash in your $2!", list(user, ru_name_affected_limb)), //SS220 EDIT ADDICTION
+				SPAN_WARNING("$1's hand slips as blade sputters, searing a long gash in $2's $3!", list(user, target, ru_name_affected_limb))) //SS220 EDIT ADDICTION
 
 			target.apply_damage(7.5, BRUTE, target_zone)
 			target.apply_damage(12.5, BURN, target_zone)
 		else
 			user.affected_message(target,
-				SPAN_WARNING("Your hand slips, slicing $2's $3 in the wrong place!", list(target, ru_name_affected_limb)), //SS220 EDIT ADDICTION
-				SPAN_WARNING("$1's hand slips, slicing your $3 in the wrong place!", list(user, ru_name_affected_limb)), //SS220 EDIT ADDICTION
+				SPAN_WARNING("Your hand slips, slicing $1's $2 in the wrong place!", list(target, ru_name_affected_limb)), //SS220 EDIT ADDICTION
+				SPAN_WARNING("$1's hand slips, slicing your $2 in the wrong place!", list(user, ru_name_affected_limb)), //SS220 EDIT ADDICTION
 				SPAN_WARNING("$1's hand slips, slicing $2's $3 in the wrong place!", list(user, target, ru_name_affected_limb))) //SS220 EDIT ADDICTION
 
 			target.apply_damage(10, BRUTE, target_zone)

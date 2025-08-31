@@ -11,6 +11,7 @@
 #include "code/ru_names/ru_date.dm"
 #include "code/ru_names/ru_access.dm"
 #include "code/ru_names/ru_reagents.dm"
+#include "code/ru_names/ru_spans.dm"
 #include "code/translate_dirs.dm"
 #include "code/translate_emotes.dm"
 #include "code/translate_verbs.dm"
@@ -148,3 +149,12 @@
 #include "code/research/code/prop_special.dm"
 
 #include "code/~undefs.dm"
+// BEGIN_INTERNALS
+// END_INTERNALS
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+// END_FILE_DIR
+// BEGIN_PREFERENCES
+// END_PREFERENCES
+// BEGIN_INCLUDE
+// END_INCLUDE

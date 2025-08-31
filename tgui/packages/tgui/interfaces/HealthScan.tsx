@@ -14,6 +14,7 @@ import {
   Stack,
 } from 'tgui/components';
 import { Window } from 'tgui/layouts';
+import {round} from "common/math";
 
 type LimbData = {
   name: string;
@@ -394,7 +395,7 @@ const Misc = (props) => {
                 bloodpct > 0.9 ? 'green' : bloodpct > 0.7 ? 'orange' : 'red'
               }
             >
-              {Math.round(blood_amount / 5.6)}%, {blood_amount * 10} мл
+              {Math.round(blood_amount / 5.6)}%, {round(blood_amount * 10, 2)} мл
             </Box>
           </LabeledList.Item>
         ) : null}

@@ -116,7 +116,7 @@ GLOBAL_LIST_EMPTY(ru_names)
 
 /datum/proc/ru_names_rename(list/new_list)
 	SHOULD_CALL_PARENT(FALSE)
-	CRASH("Unimplemented proc/ru_names_rename() was used")
+	return
 
 /// Необходимо использовать ПЕРЕД изменением var/name, и использовать только этот прок для изменения в рантайме склонений
 /atom/ru_names_rename(list/new_list)
@@ -134,12 +134,8 @@ GLOBAL_LIST_EMPTY(ru_names)
 * RU_NAMES_LIST_INIT("jaws of life", "челюсти жизни", "челюстей жизни", "челюстям жизни", "челюсти жизни", "челюстями жизни", "челюстях жизни")
 */
 /datum/proc/declent_ru(declent = NOMINATIVE)
-	CRASH("Unimplemented proc/declent_ru() was used")
-
-/proc/get_declented_value(list/declented_list, declent, backup_value)
-	if(declent == "gender")
-		return declented_list[declent] || backup_value
-	return declented_list[declent] || declented_list[NOMINATIVE] || backup_value
+	world.log = file("[GLOB.log_directory]/TEST_DATUM.log")
+	world.log << json_encode(src)
 
 /atom/declent_ru(declent)
 	. = name
@@ -158,3 +154,8 @@ GLOBAL_LIST_EMPTY(ru_names)
 	if(!length(declented_list))
 		return .
 	return get_declented_value(declented_list, declent, .)
+
+/proc/get_declented_value(list/declented_list, declent, backup_value)
+	if(declent == "gender")
+		return declented_list[declent] || backup_value
+	return declented_list[declent] || declented_list[NOMINATIVE] || backup_value

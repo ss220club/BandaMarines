@@ -411,7 +411,7 @@
 
 		if(!(thrown_thing.try_to_throw(src)))
 			return
-		visible_message(SPAN_WARNING("$1 has thrown $2.", list(src, declent_ru_initial(thrown_thing::name, ACCUSATIVE, thrown_thing::name))), null, null, 5) // SS220 EDIT ADDICTION
+		visible_message(SPAN_WARNING("$1 has thrown $2.", list(src, thrown_thing.declent_ru(ACCUSATIVE))), null, null, 5) // SS220 EDIT ADDICTION
 
 		if(!lastarea)
 			lastarea = get_area(src.loc)

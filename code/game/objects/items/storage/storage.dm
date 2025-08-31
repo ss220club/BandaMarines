@@ -703,13 +703,13 @@ W is always an item. stop_warning prevents messaging. user may be null.**/
 	if (!isturf(T) || get_dist(src, T) > 1)
 		T = get_turf(src)
 
-	var/ru_name = declent_ru_initial(src::name, ACCUSATIVE, src::name) // SS220 EDIT ADDICTION
+	var/ru_name = declent_ru(ACCUSATIVE) // SS220 EDIT ADDICTION
 	if(!can_storage_interact(user))
 		to_chat(user, SPAN_WARNING("Access denied."))
 		return
 
 	if(!length(contents))
-		to_chat(user, SPAN_WARNING("[src] is already empty."))
+		to_chat(user, SPAN_WARNING("$1 is already empty.", list(ru_name))) // SS220 EDIT ADDICTION
 		return
 
 	if (!(storage_flags & STORAGE_QUICK_EMPTY))

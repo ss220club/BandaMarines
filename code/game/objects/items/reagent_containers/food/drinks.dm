@@ -23,13 +23,10 @@
 
 /obj/item/reagent_container/food/drinks/attack(mob/M, mob/user)
 	var/datum/reagents/R = src.reagents
-	var/ru_name = declent_ru_initial(src::name, GENITIVE, src::name) // SS220 EDIT ADDICTION
-
-	world.log = file("[GLOB.log_directory]/TEST333.log")
-	world.log << json_encode(R)
+	var/ru_name = declent_ru(GENITIVE) // SS220 EDIT ADDICTION
 
 	if(!R.total_volume || !R)
-		to_chat(user, SPAN_DANGER("The $1 is empty!", list(ru_name))) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_DANGER("The $1 is empty!", list(capitalize(ru_name)))) // SS220 EDIT ADDICTION
 		return FALSE
 
 	if(HAS_TRAIT(M, TRAIT_CANNOT_EAT))

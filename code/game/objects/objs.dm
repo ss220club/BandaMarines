@@ -104,11 +104,11 @@
 
 /obj/item/proc/get_examine_line(mob/user)
 	if(blood_color)
-		. = SPAN_WARNING("[icon2html(src, user)] <font color='[blood_color == COLOR_OIL ? COLOR_OIL_TEXT : blood_color]'>[blood_color == COLOR_OIL ? "замасленн[genderize_ru(gender, "ый", "ая", "ое", "ые")] " : "окровавленн[genderize_ru(gender, "ый", "ая", "ое", "ые")] "] [declent_ru(ACCUSATIVE)]</font>") // SS220 - EDIT ADDITTION
-	// SS220 - START ADDITTION
+		. = SPAN_WARNING("[icon2html(src, user)] <font color='[blood_color == COLOR_OIL ? COLOR_OIL_TEXT : blood_color]'>[blood_color == COLOR_OIL ? "замасленн[genderize_ru(gender, "ый", "ую", "ое", "ые")] " : "окровавленн[genderize_ru(gender, "ый", "ую", "ое", "ые")] "] [declent_ru(ACCUSATIVE)]</font>") // SS220 EDIT ADDICTION
+	// SS220 START EDIT ADDICTION
 	else if(istype(src, /obj/item/clothing/accessory/medal) || istype(src, /obj/item/clothing/accessory/ranks))
 		. = "[icon2html(src, user)] [declent_ru(INSTRUMENTAL)]"
-	// SS220 - END ADDITTION
+	// SS220 END ADDICTION
 	else
 		. = "[icon2html(src, user)] [declent_ru(ACCUSATIVE)]"
 
@@ -265,7 +265,7 @@
 /obj/proc/manual_unbuckle(mob/user as mob)
 	if(buckled_mob)
 		if(buckled_mob.buckled == src)
-			var/ru_name = declent_ru_initial(src::name, GENITIVE, src::name) // SS220 EDIT ADDICTION
+			var/ru_name = declent_ru(GENITIVE) // SS220 EDIT ADDICTION
 			if(buckled_mob == user)
 				buckled_mob.visible_message(
 					SPAN_NOTICE("$1 unbuckled out!", list(buckled_mob.name, buckled_mob.p_them())), // SS220 EDIT ADDICTION
@@ -342,7 +342,7 @@
 		return TRUE
 
 /obj/proc/send_buckling_message(mob/M, mob/user)
-	var/ru_name = declent_ru_initial(src::name, DATIVE, src::name) // SS220 EDIT ADDICTION
+	var/ru_name = declent_ru(DATIVE) // SS220 EDIT ADDICTION
 	if (M == user)
 		M.visible_message(
 			SPAN_NOTICE("$1 buckles in!", list(M)), // SS220 EDIT ADDICTION

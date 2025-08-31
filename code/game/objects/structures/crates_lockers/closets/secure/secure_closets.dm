@@ -44,7 +44,7 @@
 				src.req_access = list()
 				src.req_access += pick(get_access(ACCESS_LIST_MARINE_MAIN))
 
-/obj/structure/closet/secure_closet/proc/togglelock(mob/living/user)
+/obj/structure/closet/secure_closet/proc/togglelock(mob/living/user) // SS220 EDIT ADDICTION
 	if(opened && !locked)
 		to_chat(user, SPAN_NOTICE("Close the locker first."))
 		return
@@ -75,7 +75,7 @@
 		locked = !locked
 		for(var/mob/mob in viewers(user, 3))
 			if((mob.client && !( mob.blinded )))
-				to_chat(mob, SPAN_NOTICE("The locker has been [locked ? null : "un"]locked by $1$2.", list(user, (user.gender == MALE) ? "")))
+				to_chat(mob, SPAN_NOTICE("The locker $2 has been [locked ? null : "un"]locked by $1.", list(user, declent_ru()))) // SS220 EDIT ADDICTION
 		update_icon()
 	else
 		to_chat(user, SPAN_NOTICE("Access Denied"))

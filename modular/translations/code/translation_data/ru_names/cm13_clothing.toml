@@ -12,6 +12,15 @@ instrumental = "униформой ККМП"
 prepositional = "униформе ККМП"
 gender = "female"
 
+["USCM Poncho"]
+nominative = "пончо ККМП"
+genitive = "пончо ККМП"
+dative = "пончо ККМП"
+accusative = "пончо ККМП"
+instrumental = "пончо ККМП"
+prepositional = "пончо ККМП"
+gender = "neuter"
+
 ["USCM Combat Technician Uniform"] # Unique Vendor Name
 nominative = "униформа ККМП техника"
 

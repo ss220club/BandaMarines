@@ -230,9 +230,9 @@
 
 		var/trans = reagents.trans_to(M, amount_per_transfer_from_this)
 		if(mag)
-			to_chat(user, SPAN_NOTICE("$1 units injected. $2 units remaining in $3's $4.", list(trans, reagents.total_volume, declent_ru_initial(src::name, PREPOSITIONAL, src::name, mag.name)))) // SS220 EDIT ADDICTION
+			to_chat(user, SPAN_NOTICE("$1 units injected. $2 units remaining in $3's $4.", list(trans, reagents.total_volume, declent_ru(PREPOSITIONAL), mag.name))) // SS220 EDIT ADDICTION
 		else
-			to_chat(user, SPAN_NOTICE("$1 units injected. $2 units remaining in $3.", list(trans, reagents.total_volume, declent_ru_initial(src::name, PREPOSITIONAL, src::name)))) // SS220 EDIT ADDICTION
+			to_chat(user, SPAN_NOTICE("$1 units injected. $2 units remaining in $3.", list(trans, reagents.total_volume, declent_ru(PREPOSITIONAL)))) // SS220 EDIT ADDICTION
 	return (ATTACKBY_HINT_NO_AFTERATTACK|ATTACKBY_HINT_UPDATE_NEXT_MOVE)
 
 /obj/item/reagent_container/hypospray/Initialize()

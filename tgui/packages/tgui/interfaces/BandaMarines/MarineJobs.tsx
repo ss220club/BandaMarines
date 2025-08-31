@@ -126,14 +126,17 @@ export const JOBS_RU = {
   'Military Warden': 'Военный смотритель',
   'Chief MP': 'Начальник военной полиции',
 
+  // SEA
+  'Senior Enlisted Advisor': 'Старший инструктор',
+
   // Engineering roles
-  'Chief Engineer': 'Старший инженер',
+  'Chief Engineer': 'Главный инженер',
   'Maintenance Technician': 'Техник-ремонтник',
   'Ordnance Technician': 'Пиротехник',
 
   // Requisition roles
   Quartermaster: 'Квартирмейстер',
-  'Cargo Technician': 'Техник-экспедитор',
+  'Cargo Technician': 'Грузовой техник',
 
   // Marine Raider roles
   'Marine Raider': 'Рейдер',

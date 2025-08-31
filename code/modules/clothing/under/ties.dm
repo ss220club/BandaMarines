@@ -793,7 +793,7 @@
 
 /obj/item/clothing/accessory/storage/attack_self(mob/user)
 	..()
-	var/ru_name = declent_ru_initial(src::name, ACCUSATIVE, src::name) // SS220 EDIT ADDICTION
+	var/ru_name = declent_ru(ACCUSATIVE) // SS220 EDIT ADDICTION
 	to_chat(user, SPAN_NOTICE("You empty $1.", list(ru_name))) // SS220 EDIT ADDICTION
 	var/turf/T = get_turf(src)
 	hold.storage_close(usr)

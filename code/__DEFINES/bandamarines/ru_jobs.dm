@@ -78,14 +78,14 @@
 #define JOB_WARDEN_RU "Военный смотритель"
 #define JOB_CHIEF_POLICE_RU "Начальник военной полиции"
 
-#define JOB_SEA_RU "Старший военный советник"
+#define JOB_SEA_RU "Старший инструктор"
 
-#define JOB_CHIEF_ENGINEER_RU "Старший инженер"
+#define JOB_CHIEF_ENGINEER_RU "Главный инженер"
 #define JOB_MAINT_TECH_RU "Техник-ремонтник"
 #define JOB_ORDNANCE_TECH_RU "Пиротехник"
 
-#define JOB_CHIEF_REQUISITION_RU "Квартирмейстер"	// Можно "Индентант", но квартирмейстер у нас тоже используется
-#define JOB_CARGO_TECH_RU "Техник-экспедитор"
+#define JOB_CHIEF_REQUISITION_RU "Квартирмейстер" // Можно "Интендант", но квартирмейстер у нас тоже используется
+#define JOB_CARGO_TECH_RU "Грузовой техник"
 
 #define JOB_MARINE_RAIDER_RU "Рейдер"
 #define JOB_MARINE_RAIDER_SL_RU "Комотряда-рейдер"

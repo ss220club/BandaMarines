@@ -180,7 +180,7 @@ export const LobbyMenu = () => {
                   <Box className="styledText">
                     <Section
                       p={5}
-                      title="Lobby Settings"
+                      title="Настройки"
                       buttons={
                         <Button icon="xmark" onClick={() => setModal(false)} />
                       }
@@ -198,9 +198,9 @@ export const LobbyMenu = () => {
                               setFilterDisabled(!filterDisabled);
                               setModal(false);
                             }}
-                            tooltip="Removes the CRT filter background"
+                            tooltip="Переключатель состояния эффекта ЭЛТ-монитора у фона"
                           >
-                            {`${filterDisabled ? 'Enable' : 'Disable'} Cinema Mode`}
+                            {`${filterDisabled ? 'Включить' : 'Отключить'} эффект ЭЛТ-монитора`}
                           </Button>
                         </Stack.Item>
                         <Stack.Item>
@@ -214,9 +214,9 @@ export const LobbyMenu = () => {
                               setThemeDisabled(!themeDisabled);
                               setModal(false);
                             }}
-                            tooltip="Totally removes the CRT theme, including the filter"
+                            tooltip="Переключатель состояния главной темы лобби"
                           >
-                            {`${themeDisabled ? 'Enable' : 'Disable'} CRT Theme`}
+                            {`${themeDisabled ? 'Включить' : 'Отключить'} тему ЭЛТ-монитора`}
                           </Button>
                         </Stack.Item>
                       </Stack>

@@ -1168,6 +1168,24 @@ instrumental = "мензуркой (cryoxadone)"
 prepositional = "мензурке (cryoxadone)"
 gender = "female"
 
+["beaker"]
+nominative = "мензурка"
+genitive = "мензурки"
+dative = "мензурке"
+accusative = "мензурку"
+instrumental = "мензуркой"
+prepositional = "мензурке"
+gender = "female"
+
+["large beaker"]
+nominative = "большая мензурка"
+genitive = "большой мензурки"
+dative = "большой мензурке"
+accusative = "большую мензурку"
+instrumental = "большой мензуркой"
+prepositional = "большой мензурке"
+gender = "female"
+
 ["timer"]
 nominative = "таймер"
 genitive = "таймера"

@@ -224,9 +224,10 @@
 		//Document syntax cannot have tabs for proper formatting.
 		var/entrydisplay = boxed_message("\
 			[SPAN_ROLE_BODY("|______________________|")] \n\
-			[SPAN_ROLE_HEADER("Вы - [title_given]")] \n\
-			[flags_startup_parameters & ROLE_ADMIN_NOTIFY ? SPAN_ROLE_HEADER("Вы играете за должность, которая важна для игрового прогресса. Если вам нужно отключиться, сообщите об этом администраторам через AdminHelp.") : ""] \n\
-			[SPAN_ROLE_BODY("[generate_entry_message(H)]<br>[M ? "Ваш номер аккаунта: <b>[M.account_number]</b>. Ваш пинкод: <b>[M.remote_access_pin]</b>." : "У вас нет банковского счета."]")] \n\
+			[SPAN_ROLE_HEADER("You are $1", list(title_given))] \n\
+			[flags_startup_parameters & ROLE_ADMIN_NOTIFY ? SPAN_ROLE_HEADER("You are playing a job that is important for game progression. If you have to disconnect, please notify the admins via adminhelp.") : ""] \n\
+			[SPAN_ROLE_BODY("[generate_entry_message(H)]<br>")] \n\
+			[M ? SPAN_ROLE_BODY("Your account number is: <b>$1</b>. Your account pin is: <b>$2</b>.", list(M.account_number, M.remote_access_pin)) : SPAN_ROLE_BODY("You do not have a bank account.")] \n\
 			[SPAN_ROLE_BODY("|______________________|")] \
 		")
 		to_chat_spaced(H, html = entrydisplay)

@@ -228,9 +228,14 @@
 			if(user && src && distance <= 1)
 				get_pulse(GETPULSE_HAND) // to update it
 				if(pulse == PULSE_NONE || status_flags & FAKEDEATH)
-					to_chat(user, SPAN_DEADSAY("У [t_theirs] нету пульса[client ? "" : " и [t_his] душа ушла"]..."))
+				 	// SS220 START EDIT ADDICTION
+					if(client) // SS220 EDIT ADDICTION
+						to_chat(user, SPAN_DEADSAY("$1 has no pulse and $2 soul has departed...", list(t_theirs, t_his)))
+					else // SS220 EDIT ADDICTION
+						to_chat(user, SPAN_DEADSAY("$1 has no pulse...", list(t_theirs)))
+				 	// SS220 END EDIT ADDICTION
 				else
-					to_chat(user, SPAN_DEADSAY("У [t_theirs] нету пульса!"))
+					to_chat(user, SPAN_DEADSAY("$1 has no pulse!", list(t_theirs))) // SS220 EDIT ADDICTION
 
 	if((species && !species.has_organ["brain"] || has_brain()) && stat != DEAD && stat != CONSCIOUS)
 		if(!key)

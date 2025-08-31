@@ -813,7 +813,7 @@
 	if(!skillcheck(user, SKILL_MEDICAL, SKILL_MEDICAL_MEDIC))
 		// Removing your own holocard when you are not trained
 		if(user == src && holo_card_color)
-			if(tgui_alert(user, "Вы уверены, что хотите сбросить статус своей медголокарты?", "Сброс статуса медголокарты", list("Да", "Нет")) != "Да") // SS220 - EDIT ADDITTION
+			if(tgui_alert(user, "Вы уверены, что хотите сбросить статус своей медголокарты?", "Сброс статуса медголокарты", list("Да", "Нет")) != "Да") // SS220 EDIT ADDICTION
 				return
 			holo_card_color = null
 			to_chat(user, SPAN_NOTICE("You reset your holocard."))
@@ -825,7 +825,7 @@
 		to_chat(user, SPAN_WARNING("Triage holocards only works on humans."))
 		return
 
-	// SS220 - START ADDITTION
+	// SS220 START EDIT ADDICTION
 	var/holocard_translations = list(
 		"black" = "Скончался",
 		"red" = "Необходима срочная помощь",
@@ -834,24 +834,24 @@
 		"none" = "Нет данных"
 	)
 	var/newcolor = tgui_input_list(user, "Укажите причину болезни пациента:", "Медголокарта", holocard_translations, associative_list = TRUE)
-	// SS220 - END ADDITTION
+	// SS220 END EDIT ADDICTION
 	if(!newcolor)
 		return
-	var/translated_value = holocard_translations[newcolor] // SS220 - EDIT ADDITTION
+	var/translated_value = holocard_translations[newcolor] // SS220 EDIT ADDICTION
 	if(get_dist(user, src) > 7)
-		to_chat(user, SPAN_WARNING("$1 is too far away.", list(src))) // SS220 - EDIT ADDITTION
+		to_chat(user, SPAN_WARNING("$1 is too far away.", list(src))) // SS220 EDIT ADDICTION
 		return
 	if(newcolor == "none")
 		if(!holo_card_color)
 			return
 		holo_card_color = null
-		to_chat(user, SPAN_NOTICE("Вы снимаете статус в медголокарте пациента [src].")) // SS220 - EDIT ADDITTION
+		to_chat(user, SPAN_NOTICE("Вы снимаете статус в медголокарте пациента [src].")) // SS220 EDIT ADDICTION
 	else if(newcolor != holo_card_color)
 		if(newcolor == "black" && is_revivable() && check_tod())
 			to_chat(user, SPAN_WARNING("They are yet saveable."))
 			return
 		holo_card_color = newcolor
-		to_chat(user, SPAN_NOTICE("You add a $1 holo card on $2.", list(translated_value, src))) // SS220 - EDIT ADDITTION
+		to_chat(user, SPAN_NOTICE("You add a $1 holo card on $2.", list(translated_value, src))) // SS220 EDIT ADDICTION
 	hud_set_holocard()
 
 /mob/living/carbon/human/tgui_interact(mob/user, datum/tgui/ui) // I'M SORRY, SO FUCKING SORRY
@@ -1075,13 +1075,13 @@
 				msg += "[t_he_she] не дышит." // SS220 EDIT ADDICTION
 			else
 				if(has_limb("head"))
-					msg += "[t_his_her] взгляд потускнел и [lowertext(t_he_she)] не подает признаков жизни." // SS220 EDIT ADDICTION
+					msg += "[t_his_her] взгляд потускнел и [lowertext(t_he_she)] не подаёт признаков жизни." // SS220 EDIT ADDICTION
 				else
 					msg += "[t_he_she] определённо [is_male ? "мёртв" : "мертва"]." // SS220 EDIT ADDICTION
 		if(UNCONSCIOUS)
 			msg += "[t_he_she], похоже, без сознания.\n" // SS220 EDIT ADDICTION
 		if(CONSCIOUS)
-			msg += "У [self ? "вас" : t_him_her] всё в порядке." // SS220 EDIT ADDICTION
+			msg += "У [self ? "вас" : t_him_her], в целом, всё в порядке." // SS220 EDIT ADDICTION
 
 	to_chat(src, SPAN_WARNING(msg))
 

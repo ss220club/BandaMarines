@@ -6332,24 +6332,6 @@ instrumental = "метаматериальной мензуркой"
 prepositional = "метаматериальной мензурке"
 gender = "female"
 
-["beaker"]
-nominative = "мензурка"
-genitive = "мензурки"
-dative = "мензурке"
-accusative = "мензурку"
-instrumental = "мензуркой"
-prepositional = "мензурке"
-gender = "female"
-
-["large beaker"]
-nominative = "большая мензурка"
-genitive = "большой мензурки"
-dative = "большой мензурке"
-accusative = "большую мензурку"
-instrumental = "большой мензуркой"
-prepositional = "большой мензурке"
-gender = "female"
-
 ["high-capacity beaker"]
 nominative = "мензурка большой ёмкости"
 genitive = "мензурки большой ёмкости"
@@ -8316,24 +8298,6 @@ accusative = "сенсор здоровья"
 instrumental = "сенсором здоровья"
 prepositional = "сенсоре здоровья"
 gender = "male"
-
-["beaker"]
-nominative = "мензурка"
-genitive = "мензурки"
-dative = "мензурке"
-accusative = "мензурку"
-instrumental = "мензуркой"
-prepositional = "мензурке"
-gender = "female"
-
-["large beaker"]
-nominative = "большая мензурка"
-genitive = "большой мензурки"
-dative = "большой мензурке"
-accusative = "большую мензурку"
-instrumental = "большой мензуркой"
-prepositional = "большой мензурке"
-gender = "female"
 
 ["remote signaling device"]
 nominative = "устройство удалённой активации"

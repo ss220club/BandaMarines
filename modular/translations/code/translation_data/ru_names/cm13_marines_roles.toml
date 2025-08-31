@@ -326,21 +326,21 @@ prepositional = "Начальник военной полиции"
 gender = "male"
 
 ["Senior Enlisted Advisor"]
-nominative = "Старший военный советник"
-genitive = "Старший военный советник"
-dative = "Старший военный советник"
-accusative = "Старший военный советник"
-instrumental = "Старший военный советник"
-prepositional = "Старший военный советник"
+nominative = "Старший инструктор"
+genitive = "Старшего инструктора"
+dative = "Старшему инструктору"
+accusative = "Старшего инструктора"
+instrumental = "Старшим инструктором"
+prepositional = "Старшем инструкторе"
 gender = "male"
 
 ["Chief Engineer"]
-nominative = "Старший инженер"
-genitive = "Старший инженер"
-dative = "Старший инженер"
-accusative = "Старший инженер"
-instrumental = "Старший инженер"
-prepositional = "Старший инженер"
+nominative = "Главный инженер"
+genitive = "Главного инженера"
+dative = "Главному инженеру"
+accusative = "Главного инженера"
+instrumental = "Главным инженером"
+prepositional = "Главном инженере"
 gender = "male"
 
 ["Maintenance Technician"]
@@ -371,12 +371,12 @@ prepositional = "Квартирмейстер"
 gender = "male"
 
 ["Cargo Technician"]
-nominative = "Техник-экспедитор"
-genitive = "Техник-экспедитор"
-dative = "Техник-экспедитор"
-accusative = "Техник-экспедитор"
-instrumental = "Техник-экспедитор"
-prepositional = "Техник-экспедитор"
+nominative = "Грузовой техник"
+genitive = "Грузового техника"
+dative = "Грузовому технику"
+accusative = "Грузового техника"
+instrumental = "Грузовым техником"
+prepositional = "Грузовом технике"
 gender = "male"
 
 ["Marine Raider"]

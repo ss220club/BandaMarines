@@ -89,7 +89,7 @@
 /datum/proc/ru_p_themselves(capitalized, temp_gender)
 	. = "само"
 
-/// Применяет одно из "них", "него", "него", или "нее" в зависимости от пола. Установите TRUE для заглавной буквы.
+/// Применяет одно из "них", "него", "него", или "неё" в зависимости от пола. Установите TRUE для заглавной буквы.
 /datum/proc/ru_p_theirs(capitalized, temp_gender)
 	. = "него"
 
@@ -157,7 +157,7 @@
 		if(MALE)
 			. = "него"
 		if(FEMALE)
-			. = "нее"
+			. = "неё"
 		if(NEUTER)
 			. = "него"
 		if(PLURAL)
@@ -243,7 +243,7 @@
 		if(MALE)
 			. = "него"
 		if(FEMALE)
-			. = "нее"
+			. = "неё"
 		if(NEUTER)
 			. = "него"
 		if(PLURAL)

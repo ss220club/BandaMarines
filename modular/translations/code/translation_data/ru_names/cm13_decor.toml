@@ -388,6 +388,15 @@ instrumental = "шкафчиком анестезиолога"
 prepositional = "шкафчике анестезиолога"
 gender = "male"
 
+["surgical equipment cabinet"]
+nominative = "шкафчик для хирургических инструментов"
+genitive = "шкафчика для хирургических инструментов"
+dative = "шкафчику для хирургических инструментов"
+accusative = "шкафчик для хирургических инструментов"
+instrumental = "шкафчиком для хирургических инструментов"
+prepositional = "шкафчике для хирургических инструментов"
+gender = "male"
+
 ["documents cabinet"]
 nominative = "шкафчик для документов"
 genitive = "шкафчика для документов"

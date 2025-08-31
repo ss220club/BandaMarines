@@ -116,7 +116,7 @@
 		to_chat(user, SPAN_NOTICE("You need to open the [object_fluff]!"))
 		return
 	var/datum/reagents/R = src.reagents
-	var/ru_name = declent_ru_initial(src::name, GENITIVE, src::name) // SS220 EDIT ADDICTION
+	var/ru_name = declent_ru(GENITIVE) // SS220 EDIT ADDICTION
 
 	if(!R.total_volume || !R)
 		if(M == user && M.a_intent == INTENT_HARM && M.zone_selected == "head" && crushable)

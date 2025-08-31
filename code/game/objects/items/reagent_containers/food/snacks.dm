@@ -32,8 +32,8 @@
 
 	if(!reagents.total_volume)
 		if(M == usr)
-			to_chat(usr, SPAN_NOTICE("You finish eating $1.", list(declent_ru_initial(src::name, ACCUSATIVE, src::name)))) // SS220 EDIT ADDICTION
-		M.visible_message(SPAN_NOTICE("$1 finishes eating $2.", list(M, declent_ru_initial(src::name, ACCUSATIVE, src::name)))) // SS220 EDIT ADDICTION
+			to_chat(usr, SPAN_NOTICE("You finish eating $1.", list(declent_ru(ACCUSATIVE)))) // SS220 EDIT ADDICTION
+		M.visible_message(SPAN_NOTICE("$1 finishes eating $2.", list(M, declent_ru(ACCUSATIVE)))) // SS220 EDIT ADDICTION
 		usr.drop_inv_item_on_ground(src) //so icons update :[
 
 		if(trash)
@@ -87,7 +87,7 @@
 			C.overeat_cooldown = world.time + OVEREAT_TIME
 
 		if(M == user)//If you're eating it yourself
-			var/ru_name = declent_ru_initial(src::name, GENITIVE, src::name) // SS220 EDIT ADDICTION
+			var/ru_name = declent_ru(GENITIVE) // SS220 EDIT ADDICTION
 			if (fullness <= NUTRITION_VERYLOW)
 				to_chat(M, SPAN_WARNING("You hungrily chew out a piece of $1 and gobble it!", list(ru_name))) // SS220 EDIT ADDICTION
 			if (fullness > NUTRITION_VERYLOW && fullness <= NUTRITION_LOW)
@@ -426,7 +426,7 @@
 		icon_state = "donut2"
 		overlay_state = "fdonut"
 		name = "frosted donut"
-		ru_names_rename(ru_names_toml(name)) // SS220 - EDIT ADDITTION
+		ru_names_rename(ru_names_toml(name)) // SS220 EDIT ADDICTION
 		desc = "A pink frosted donut. Even more rare on the frontier."
 		reagents.add_reagent("sprinkles", 2)
 
@@ -3449,7 +3449,7 @@
 	..()
 
 	if(package)
-		to_chat(user, SPAN_NOTICE("You pull open the package of $1!", list(src))) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_NOTICE("You pull open the package of $1!", list(declent_ru()))) // SS220 EDIT ADDICTION
 		playsound(loc,'sound/effects/pageturn2.ogg', 15, 1)
 
 		if(wrapper)
