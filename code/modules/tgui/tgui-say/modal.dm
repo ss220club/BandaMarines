@@ -1,10 +1,12 @@
 /** Assigned say modal of the client */
 /client/var/datum/tgui_say/tgui_say
 
+// SS220 START TGUI CHAT EADDICTION
 #define LIVING_TYPE_HUMAN "human"
 #define LIVING_TYPE_XENO "xeno"
 #define LIVING_TYPE_SYNTH "synth"
 #define LIVING_TYPE_YAUTJA "yautja"
+// SS220 END TGUI CHAT EADDICTION
 
 /**
  * Creates a JSON encoded message to open TGUI say modals properly.
@@ -14,11 +16,13 @@
  * Returns:
  * string - A JSON encoded message to open the modal.
  */
-
 /client/proc/tgui_say_create_open_command(channel)
+	// SS220 START TGUI CHAT EADDICTION
+	// var/message = TGUI_CREATE_OPEN_MESSAGE(channel)
 	var/message = TGUI_CREATE_MESSAGE("open", list(
 		"channel" = channel,
 	))
+	// SS220 END TGUI CHAT EADDICTION
 
 	return "\".output tgui_say.browser:update [message]\""
 
@@ -31,17 +35,19 @@
 	/// The user who opened the window
 	var/client/client
 	/// Injury phrases to blurt out
-	var/list/hurt_phrases = list("ГХА!", "ГРХ!", "УГХ!", "АРГХ!", "АУ!", "МГХ!", "АХХ!")
+	var/list/hurt_phrases = list("ГХА!", "ГРХ!", "УГХ!", "АРГХ!", "АУ!", "МГХ!", "АХХ!") // SS220 TGUI CHAT EADDICTION
 	/// Max message length
 	var/max_length = MAX_MESSAGE_LEN
 	/// The modal window
 	var/datum/tgui_window/window
 	/// Boolean for whether the tgui_say was opened by the user.
 	var/window_open
+	// SS220 START TGUI CHAT EADDICTION
 	var/list/availableChannels = list()
 	var/livingType
 	var/last_channels_update = 0
 	var/channels_update_cooldown = 120 SECONDS
+	// SS220 END TGUI CHAT EADDICTION
 
 /** Creates the new input window to exist in the background. */
 /datum/tgui_say/New(client/client, id)
@@ -77,11 +83,18 @@
 
 	winset(client, "tgui_say", "pos=700,500;is-visible=0;")
 
+	// SS220 START TGUI CHAT EADDICTION
+	// var/list/languages = list()
+	// for(var/datum/language/language as anything in client.mob?.languages)
+	//	languages += lowertext(language.name)
+	// SS220 END TGUI CHAT EADDICTION
+
 	window.send_message("props", list(
 		"lightMode" = client.prefs?.tgui_say_light_mode,
 		"scale" = client.prefs?.window_scale,
 		"maxLength" = max_length,
 		"extraChannels" = client.admin_holder?.get_tgui_say_extra_channels(),
+		// "languages" = languages, // SS220 TGUI CHAT EADDICTION
 	))
 
 	stop_thinking()
@@ -101,9 +114,10 @@
 	window_open = TRUE
 	if(payload["channel"] != OOC_CHANNEL && payload["channel"] != LOOC_CHANNEL && payload["channel"] != ADMIN_CHANNEL && payload["channel"] != MENTOR_CHANNEL)
 		start_thinking()
-	update_available_channels()
+	update_available_channels() // SS220 TGUI CHAT EADDICTION
 	return TRUE
 
+// SS220 START TGUI CHAT EADDICTION
 /datum/tgui_say/proc/update_available_channels()
 	if(last_channels_update != 0 && world.time < (last_channels_update + channels_update_cooldown))
 		return
@@ -131,6 +145,7 @@
 		"livingType" = livingType
 	))
 	last_channels_update = world.time
+// SS220 END TGUI CHAT EADDICTION
 
 /**
  * Closes the window serverside. Closes any open chat bubbles
