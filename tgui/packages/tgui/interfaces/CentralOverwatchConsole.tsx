@@ -24,6 +24,7 @@ type MarineData = {
   state: string;
   has_helmet: BooleanLike;
   role: string;
+  rank: string;
   acting_sl: string;
   fteam: string;
   distance: string;
@@ -1113,9 +1114,12 @@ const CommandMonitor = (props) => {
   let { marines } = data;
 
   const rankFinder = {
-    'Commanding Officer': 'МАЙОР ',
-    'Executive Officer': 'КАПИТАН ',
-    'Staff Officer': 'ЛЕЙТЕНАНТ ',
+    MO6: 'COL. ',
+    MO5: 'LT COL. ',
+    MO4: 'MAJ. ',
+    MO3: 'CAPT. ',
+    MO2: 'LT. ',
+    MO1: 'LT. ',
   };
 
   let determine_status_color = (status) => {
@@ -1183,7 +1187,7 @@ const CommandMonitor = (props) => {
                       pb="15px"
                       align="center"
                     >
-                      {rankFinder[marine.role] + marine.name.toUpperCase()}
+                      {rankFinder[marine.rank] + marine.name.toUpperCase()}
                     </Box>
                   </Flex.Item>
                   <Flex.Item textAlign="end" align="center">
