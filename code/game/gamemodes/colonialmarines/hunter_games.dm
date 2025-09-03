@@ -29,7 +29,7 @@
 
 
 /proc/check_hunter_games() // abbreviated gamemode checker for hunter games
-	if(SSticker.mode == GAMEMODE_HUNTER_GAMES || GLOB.master_mode == GAMEMODE_HUNTER_GAMES)
+	if(istype(SSticker.mode, /datum/game_mode/hunter_games) || GLOB.master_mode == GAMEMODE_HUNTER_GAMES)
 		return TRUE
 	return FALSE
 
