@@ -238,8 +238,9 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 			continue //just to be safe
 		var/mob_name = "unknown"
 		var/mob_state = ""
-		var/has_helmet = TRUE
+		var/has_helmet = FALSE
 		var/role = "unknown"
+		var/rank = "unknown"
 		var/acting_sl = ""
 		var/fteam = ""
 		var/distance = "???"
@@ -273,6 +274,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 				role = marine_human.job
 			else if(card?.rank) //decapitated marine is mindless,
 				role = card.rank
+			rank = card?.paygrade
 
 			if(current_squad.squad_leader)
 				if(marine_human == current_squad.squad_leader)
@@ -299,8 +301,8 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 				if(DEAD)
 					mob_state = "Dead"
 
-			if(!marine_has_camera(marine_human))
-				has_helmet = FALSE
+			if(marine_has_camera(marine_human))
+				has_helmet = TRUE
 
 			if(!marine_human.key || !marine_human.client)
 				if(marine_human.stat != DEAD)
@@ -360,7 +362,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 				if(mob_state != "Dead")
 					marines_alive++
 
-		var/marine_data = list(list("name" = mob_name, "state" = mob_state, "has_helmet" = has_helmet, "role" = role, "acting_sl" = acting_sl, "fteam" = fteam, "distance" = distance, "area_name" = area_name,"ref" = REF(marine)))
+		var/marine_data = list(list("name" = mob_name, "state" = mob_state, "has_helmet" = has_helmet, "role" = role, "acting_sl" = acting_sl, "fteam" = fteam, "distance" = distance, "area_name" = area_name,"ref" = REF(marine), "rank" = rank))
 		data["marines"] += marine_data
 		if(is_squad_leader)
 			if(!data["squad_leader"])
@@ -411,8 +413,10 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 			continue //just to be safe
 		var/mob_name = "unknown"
 		var/mob_state = ""
-		var/has_helmet = TRUE
+		var/has_helmet = FALSE
 		var/role = "unknown"
+		var/rank = "unknown"
+
 		var/area_name = "???"
 		var/mob/living/carbon/human/marine_human
 
@@ -441,6 +445,9 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 			role = marine_human.job
 		else if(card?.rank) //decapitated marine is mindless,
 			role = card.rank
+		rank = card?.paygrade
+
+
 
 		switch(marine_human.stat)
 			if(CONSCIOUS)
@@ -452,8 +459,8 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 			if(DEAD)
 				mob_state = "Dead"
 
-		if(!marine_has_camera(marine_human))
-			has_helmet = FALSE
+		if(marine_has_camera(marine_human))
+			has_helmet = TRUE
 
 		switch(role)
 			if(JOB_CO)
@@ -471,7 +478,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 				if(mob_state != "Dead")
 					so_alive++
 
-		var/marine_data = list(list("name" = mob_name, "state" = mob_state, "has_helmet" = has_helmet, "role" = role, "area_name" = area_name, "ref" = REF(marine)))
+		var/marine_data = list(list("name" = mob_name, "state" = mob_state, "has_helmet" = has_helmet, "role" = role, "area_name" = area_name, "ref" = REF(marine), "rank" = rank))
 		data["marines"] += marine_data
 
 	data["total_deployed"] = co_count + xo_count + so_count
@@ -660,7 +667,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 				var/input = sanitize_control_chars(stripped_input(user, "Please write a message to announce to the squad:", "Squad Message"))
 				if(input)
 					current_squad.send_message(input, 1) //message, adds username
-					current_squad.send_maptext(input, "Squad Message:")
+					current_squad.send_maptext(input, "Сообщение отряду:")
 					visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("Message '[input]' sent to all Marines of squad '[current_squad]'.")]")
 					log_overwatch("[key_name(user)] sent '[input]' to squad [current_squad].")
 
@@ -669,7 +676,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 				var/input = sanitize_control_chars(stripped_input(user, "Please write a message to announce to the squad leader:", "SL Message"))
 				if(input)
 					current_squad.send_message(input, 1, 1) //message, adds username, only to leader
-					current_squad.send_maptext(input, "Squad Leader Message:", 1)
+					current_squad.send_maptext(input, "Сообщение лидера отряда:", 1)
 					visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("Message '[input]' sent to Squad Leader [current_squad.squad_leader] of squad '[current_squad]'.")]")
 					log_overwatch("[key_name(user)] sent '[input]' to Squad Leader [current_squad.squad_leader] of squad [current_squad].")
 
@@ -677,15 +684,15 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 			if(current_squad) //This is already checked, but ehh.
 				if(current_squad.primary_objective)
 					visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("Reminding '[current_squad]' of primary objectives: [current_squad.primary_objective].")]")
-					current_squad.send_message("Your primary objective is '[current_squad.primary_objective]'. See Status pane for details.")
-					current_squad.send_maptext(current_squad.primary_objective, "Primary Objective:")
+					current_squad.send_message("Ваша первостепенная задача: '[current_squad.primary_objective]'. Подробности см. в панели статуса.")
+					current_squad.send_maptext(current_squad.primary_objective, "Первостепенная задача:")
 
 		if("check_secondary")
 			if(current_squad) //This is already checked, but ehh.
 				if(current_squad.secondary_objective)
 					visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("Reminding '[current_squad]' of secondary objectives: [current_squad.secondary_objective].")]")
-					current_squad.send_message("Your secondary objective is '[current_squad.secondary_objective]'. See Status pane for details.")
-					current_squad.send_maptext(current_squad.secondary_objective, "Secondary Objective:")
+					current_squad.send_message("Ваша второстепенная задача: '[current_squad.secondary_objective]'. Подробности см. в панели статуса.")
+					current_squad.send_maptext(current_squad.secondary_objective, "Второстепенная задача:")
 
 		if("set_primary")
 			var/input = sanitize_control_chars(stripped_input(usr, "What will be the squad's primary objective?", "Primary Objective"))
@@ -694,8 +701,8 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 				target_squad = locate(params["target_squad_ref"])
 			if(target_squad && input)
 				target_squad.primary_objective = "[input] ([worldtime2text()])"
-				target_squad.send_message("Your primary objective has been changed to '[input]'. See Status pane for details.")
-				target_squad.send_maptext(input, "Primary Objective Updated:")
+				current_squad.send_message("Ваша первостепенная задача была изменена на '[input]'. Подробности см. в панели статуса.")
+				current_squad.send_maptext(input, "Первостепенная задача обновлена:")
 				visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("Primary objective of squad '[target_squad]' set to '[input]'.")]")
 				log_overwatch("[key_name(usr)] set [target_squad]'s primary objective to '[input]'.")
 				return TRUE
@@ -707,8 +714,8 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 				target_squad = locate(params["target_squad_ref"])
 			if(input)
 				target_squad.secondary_objective = input + " ([worldtime2text()])"
-				target_squad.send_message("Your secondary objective has been changed to '[input]'. See Status pane for details.")
-				target_squad.send_maptext(input, "Secondary Objective Updated:")
+				current_squad.send_message("Ваша второстепенная задача была изменена на '[input]'. Подробности см. в панели статуса.")
+				current_squad.send_maptext(input, "Второстепенная задача обновлена:")
 				visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("Secondary objective of squad '[target_squad]' set to '[input]'.")]")
 				log_overwatch("[key_name(usr)] set [target_squad]'s secondary objective to '[input]'.")
 				return TRUE
@@ -784,6 +791,10 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 				return
 			if(current_squad)
 				var/mob/living/carbon/human/cam_target = locate(params["target_ref"])
+
+				if(!istype(cam_target))
+					return
+
 				var/obj/item/new_holder = cam_target.get_camera_holder()
 				var/obj/structure/machinery/camera/new_cam
 				if(new_holder)

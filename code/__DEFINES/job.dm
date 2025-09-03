@@ -138,7 +138,6 @@ GLOBAL_LIST_INIT(job_command_roles, JOB_COMMAND_ROLES_LIST)
 #define JOB_CMC "Commandant of the Marine Corps"
 #define JOB_PLT_MED "Platoon Corpsman"
 #define JOB_PLT_SL "Platoon Squad Leader"
-#define JOB_SQUAD_TECH "Reconnaissance Support Technician"
 
 // Used to add a timelock to a job. Will be passed onto derivatives
 #define AddTimelock(Path, timelockList) \
@@ -203,11 +202,12 @@ GLOBAL_LIST_INIT(job_command_roles, JOB_COMMAND_ROLES_LIST)
 #define JOB_PMC_SNIPER "PMC Weapons Specialist" //Renamed from Sharpshooter to specialist as it uses specialist skills.
 #define JOB_PMC_CREWMAN "PMC Vehicle Crewman"
 #define JOB_PMC_LEADER "PMC Leader"
+#define JOB_PMC_FIELD_OP_LEADER "PMC Field Operations Leader" // Used for Nightmare Solaris CO.
 #define JOB_PMC_LEAD_INVEST "PMC Lead Investigator"
 #define JOB_PMC_DIRECTOR "PMC Site Director"
 #define JOB_PMC_SYNTH "PMC Support Synthetic"
 
-#define ROLES_WY_PMC list(JOB_PMC_LEADER, JOB_PMC_SNIPER, JOB_PMC_GUNNER, JOB_PMC_ENGINEER, JOB_PMC_MEDIC, JOB_PMC_STANDARD)
+#define ROLES_WY_PMC list(JOB_PMC_FIELD_OP_LEADER, JOB_PMC_LEADER, JOB_PMC_SNIPER, JOB_PMC_GUNNER, JOB_PMC_ENGINEER, JOB_PMC_MEDIC, JOB_PMC_STANDARD)
 #define ROLES_WY_PMC_AUX list(JOB_PMC_SYNTH, JOB_PMC_CREWMAN, JOB_PMC_DOCTOR)
 #define ROLES_WY_PMC_INSPEC list(JOB_PMC_LEAD_INVEST, JOB_PMC_INVESTIGATOR, JOB_PMC_DETAINER, JOB_PMC_CROWD_CONTROL)
 #define ROLES_WY_PMC_ALL ROLES_WY_PMC + ROLES_WY_PMC_AUX + ROLES_WY_PMC_INSPEC
@@ -515,17 +515,17 @@ GLOBAL_LIST_INIT(job_command_roles, JOB_COMMAND_ROLES_LIST)
 #define JOB_XENOMORPH_QUEEN  "Queen"
 
 // For coloring the ranks in the statistics menu
-#define JOB_PLAYTIME_TIER_0  (0 HOURS)
-#define JOB_PLAYTIME_TIER_1  (10 HOURS)
-#define JOB_PLAYTIME_TIER_2  (25 HOURS)
-#define JOB_PLAYTIME_TIER_3  (70 HOURS)
-#define JOB_PLAYTIME_TIER_4  (175 HOURS)
-#define JOB_PLAYTIME_TIER_5  (350 HOURS)
-#define JOB_PLAYTIME_TIER_6  (600 HOURS)
-#define JOB_PLAYTIME_TIER_7  (1000 HOURS)
-#define JOB_PLAYTIME_TIER_8  (1500 HOURS)
-#define JOB_PLAYTIME_TIER_9  (2100 HOURS)
-#define JOB_PLAYTIME_TIER_10 (2800 HOURS)
+#define JOB_PLAYTIME_TIER_0  (0 HOURS)      // SS220 EDIT    +0
+#define JOB_PLAYTIME_TIER_1  (10 HOURS)     // SS220 EDIT    +10
+#define JOB_PLAYTIME_TIER_2  (25 HOURS)     // SS220 EDIT    +15
+#define JOB_PLAYTIME_TIER_3  (60 HOURS)     // SS220 EDIT    +35
+#define JOB_PLAYTIME_TIER_4  (110 HOURS)    // SS220 EDIT    +50
+#define JOB_PLAYTIME_TIER_5  (220 HOURS)    // SS220 EDIT    +110
+#define JOB_PLAYTIME_TIER_6  (330 HOURS)    // SS220 EDIT    +110
+#define JOB_PLAYTIME_TIER_7  (460 HOURS)    // SS220 EDIT    +130
+#define JOB_PLAYTIME_TIER_8  (640 HOURS)    // SS220 EDIT    +180
+#define JOB_PLAYTIME_TIER_9  (820 HOURS)    // SS220 EDIT    +180
+#define JOB_PLAYTIME_TIER_10 (1000 HOURS)   // SS220 EDIT    +180
 
 #define XENO_NO_AGE  -1
 #define XENO_YOUNG 0

@@ -44,13 +44,13 @@
 	. = ..()
 	switch(trap_type)
 		if(RESIN_TRAP_EMPTY)
-			. += "It's empty."
+			. += "Внутри пусто."
 		if(RESIN_TRAP_HUGGER)
-			. += "There's a little one inside."
+			. += "Внутри находится лицехват."
 		if(RESIN_TRAP_GAS)
-			. += "It's filled with pressurised gas."
+			. += "Внутри содержится газ под давлением."
 		if(RESIN_TRAP_ACID1, RESIN_TRAP_ACID2, RESIN_TRAP_ACID3)
-			. += "It's filled with pressurised acid."
+			. += "Внутри содержится кислота под давлением"
 
 /obj/effect/alien/resin/trap/proc/forsaken_handling()
 	SIGNAL_HANDLER
@@ -224,7 +224,7 @@
 		to_chat(xeno, SPAN_XENONOTICE("Better not risk setting this off."))
 		return XENO_NO_DELAY_ACTION
 
-	if(!xeno.try_fill_trap(src))
+	if(xeno.try_fill_trap(src))
 		return XENO_NO_DELAY_ACTION
 
 /obj/effect/alien/resin/trap/proc/setup_tripwires()
