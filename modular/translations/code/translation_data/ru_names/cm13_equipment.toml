@@ -1551,3 +1551,15 @@ accusative = "ИЛС «ЗдравКом» с диоптриями (модифи�
 instrumental = "ИЛС «ЗдравКом» с диоптриями (модифицированные)"
 prepositional = "ИЛС «ЗдравКом» с диоптриями (модифицированные)"
 gender = "male"
+
+["Prescription Medical HUD Glasses"] # Unique Vendor Name
+nominative = "ИЛС «ЗдравКом» с диоптриями"
+
+["Prescription HealthMate HUD"]
+nominative = "ИЛС «ЗдравКом» с диоптриями"
+genitive = "ИЛС «ЗдравКом» с диоптриями"
+dative = "ИЛС «ЗдравКом» с диоптриями"
+accusative = "ИЛС «ЗдравКом» с диоптриями"
+instrumental = "ИЛС «ЗдравКом» с диоптриями"
+prepositional = "ИЛС «ЗдравКом» с диоптриями"
+gender = "male"

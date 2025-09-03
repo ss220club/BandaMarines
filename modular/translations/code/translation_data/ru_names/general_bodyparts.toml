@@ -96,3 +96,21 @@ accusative = "паховую область"
 instrumental = "паховой областью"
 prepositional = "паховой области"
 gender = "female"
+
+["ribcage"]
+nominative = "грудная клетка"
+genitive = "грудной клетки"
+dative = "грудной клетке"
+accusative = "грудную клетку"
+instrumental = "грудной клеткой"
+prepositional = "грудной клетке"
+gender = "female"
+
+["skull"]
+nominative = "череп"
+genitive = "черепа"
+dative = "черепу"
+accusative = "череп"
+instrumental = "черепом"
+prepositional = "черепе"
+gender = "male"

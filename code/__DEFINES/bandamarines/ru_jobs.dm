@@ -68,7 +68,7 @@
 #define JOB_SO_RU "Штаб-офицер"
 #define JOB_AUXILIARY_OFFICER_RU "Офицер поддержки"
 
-#define JOB_CAS_PILOT_RU "Пилот НАП (CAS)"
+#define JOB_CAS_PILOT_RU "Пилот боевого корабля"
 #define JOB_DROPSHIP_PILOT_RU "Пилот десантного корабля"
 #define JOB_TANK_CREW_RU "Танкист"
 #define JOB_DROPSHIP_CREW_CHIEF_RU "Офицер десантного корабля"
@@ -76,7 +76,7 @@
 
 #define JOB_POLICE_RU "Военная полиция"
 #define JOB_WARDEN_RU "Военный смотритель"
-#define JOB_CHIEF_POLICE_RU "Начальник военной полиции"
+#define JOB_CHIEF_POLICE_RU "Шеф военной полиции"
 
 #define JOB_SEA_RU "Старший инструктор"
 

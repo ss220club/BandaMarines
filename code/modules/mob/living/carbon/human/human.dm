@@ -845,7 +845,7 @@
 		if(!holo_card_color)
 			return
 		holo_card_color = null
-		to_chat(user, SPAN_NOTICE("Вы снимаете статус в медголокарте пациента [src].")) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_NOTICE("You remove the holo card on $1.", list(src))) // SS220 EDIT ADDICTION
 	else if(newcolor != holo_card_color)
 		if(newcolor == "black" && is_revivable() && check_tod())
 			to_chat(user, SPAN_WARNING("They are yet saveable."))
@@ -935,7 +935,7 @@
 	apply_effect(5, STUN)
 	if(stat == 2) //One last corpse check
 		return
-	src.visible_message(SPAN_WARNING("[src] throws up!"), SPAN_WARNING("You throw up!"), null, 5)
+	src.visible_message(SPAN_WARNING("$1 throws up!", list(src)), SPAN_WARNING("You throw up!"), null, 5)
 	playsound(loc, 'sound/effects/splat.ogg', 25, 1, 7)
 
 	var/turf/location = loc
@@ -1047,41 +1047,35 @@
 	var/msg
 	///Is the target the user or somebody else?
 	var/self = (target == src)
-	// SS220 START EDIT ADDICTION
-	var/is_male = (target.gender == MALE)
-	var/t_he_she = is_male ? "Он" : "Она"
-	var/t_his_her = is_male ? "Его" : "Её"
-	var/t_him_her = is_male ? "него" : "неё"
-	// SS220 END EDIT ADDICTION
-	to_chat(usr,SPAN_NOTICE("You [self ? "take a moment to analyze yourself." : "start analyzing $1."]", list(target.name)))
+	to_chat(usr, SPAN_NOTICE("You [self ? "take a moment to analyze yourself." : "start analyzing $1."]", list(target.name))) // SS220 EDIT ADDICTION
 
 	if(self)
 		var/list/broken_limbs = target.get_broken_limbs() - list("chest","head","groin")
 		if(length(broken_limbs))
 			msg += "У вас перелом [english_list(broken_limbs, declent = GENITIVE)].\n" // SS220 EDIT ADDICTION
 	if(target.toxloss > 20)
-		msg += "[self ? "Ваша" : t_his_her] кожа слегка позеленела.\n" // SS220 EDIT ADDICTION
+		msg += "[self ? "Ваша" : target.ru_p_them(TRUE)] кожа слегка позеленела.\n" // SS220 EDIT ADDICTION
 
 	if(target.is_bleeding())
-		msg += "У [self ? "вас" : t_him_her] кровотечение.\n" // SS220 EDIT ADDICTION
+		msg += "У [self ? "вас" : target.ru_p_theirs()] кровотечение.\n" // SS220 EDIT ADDICTION
 
 	if(!self && skillcheck(usr, SKILL_SURGERY, SKILL_SURGERY_NOVICE))
 		for(var/datum/effects/bleeding/internal/internal_bleed in target.effects_list)
-			msg += "У [t_him_her] изменился цвет кожи и наблюдается припухлость в [declent_ru_initial(internal_bleed.limb.display_name, DATIVE, internal_bleed.limb.display_name)].\n" // SS220 EDIT ADDICTION
+			msg += "У [target.ru_p_theirs()] изменился цвет кожи и наблюдается припухлость в [declent_ru_initial(internal_bleed.limb.display_name, DATIVE, internal_bleed.limb.display_name)].\n" // SS220 EDIT ADDICTION
 
 	switch(target.stat)
 		if(DEAD)
 			if(target.check_tod() && target.is_revivable())
-				msg += "[t_he_she] не дышит." // SS220 EDIT ADDICTION
+				msg += "[target.ru_p_they(TRUE)] не дышит." // SS220 EDIT ADDICTION
 			else
 				if(has_limb("head"))
-					msg += "[t_his_her] взгляд потускнел и [lowertext(t_he_she)] не подаёт признаков жизни." // SS220 EDIT ADDICTION
+					msg += "[target.ru_p_them(TRUE)] взгляд потускнел и [target.ru_p_they()] не подаёт признаков жизни." // SS220 EDIT ADDICTION
 				else
-					msg += "[t_he_she] определённо [is_male ? "мёртв" : "мертва"]." // SS220 EDIT ADDICTION
+					msg += "[target.ru_p_they(TRUE)] определённо [target.gender == MALE ? "мёртв" : "мертва"]." // SS220 EDIT ADDICTION
 		if(UNCONSCIOUS)
-			msg += "[t_he_she], похоже, без сознания.\n" // SS220 EDIT ADDICTION
+			msg += "[target.ru_p_they(TRUE)], похоже, без сознания.\n" // SS220 EDIT ADDICTION
 		if(CONSCIOUS)
-			msg += "У [self ? "вас" : t_him_her], в целом, всё в порядке." // SS220 EDIT ADDICTION
+			msg += "У [self ? "вас" : target.ru_p_theirs()], в целом, всё в порядке." // SS220 EDIT ADDICTION
 
 	to_chat(src, SPAN_WARNING(msg))
 

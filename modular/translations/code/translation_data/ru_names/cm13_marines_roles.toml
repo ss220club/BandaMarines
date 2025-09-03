@@ -254,12 +254,12 @@ prepositional = "Офицер поддержки"
 gender = "male"
 
 ["Gunship Pilot"]
-nominative = "Пилот НАП (CAS)"
-genitive = "Пилот НАП (CAS)"
-dative = "Пилот НАП (CAS)"
-accusative = "Пилот НАП (CAS)"
-instrumental = "Пилот НАП (CAS)"
-prepositional = "Пилот НАП (CAS)"
+nominative = "Пилот боевого корабля"
+genitive = "Пилот боевого корабля"
+dative = "Пилот боевого корабля"
+accusative = "Пилот боевого корабля"
+instrumental = "Пилот боевого корабля"
+prepositional = "Пилот боевого корабля"
 gender = "male"
 
 ["Dropship Pilot"]
@@ -317,12 +317,12 @@ prepositional = "Военный смотритель"
 gender = "male"
 
 ["Chief MP"]
-nominative = "Начальник военной полиции"
-genitive = "Начальник военной полиции"
-dative = "Начальник военной полиции"
-accusative = "Начальник военной полиции"
-instrumental = "Начальник военной полиции"
-prepositional = "Начальник военной полиции"
+nominative = "Шеф военной полиции"
+genitive = "Шеф военной полиции"
+dative = "Шеф военной полиции"
+accusative = "Шеф военной полиции"
+instrumental = "Шеф военной полиции"
+prepositional = "Шеф военной полиции"
 gender = "male"
 
 ["Senior Enlisted Advisor"]

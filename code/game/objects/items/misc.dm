@@ -108,7 +108,9 @@
 /obj/item/weapon/pole/fancy_cane/this_is_a_knife/attack_hand(mob/living/mobber)
 	if(stored_item && src.loc == mobber && !mobber.is_mob_incapacitated()) //Only allow someone to take out the stored_item if it's being worn or held. So you can pick them up off the floor
 		if(mobber.put_in_active_hand(stored_item))
-			mobber.visible_message(SPAN_DANGER("[mobber] slides [stored_item] out of [src]!"), SPAN_NOTICE("You slide [stored_item] out of [src]."))
+			mobber.visible_message(
+				SPAN_DANGER("$1 slides $2 out of $3!", list(mobber, stored_item.declent_ru(), declent_ru(GENITIVE))), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("You slide $1 out of $2.", list(stored_item.declent_ru(), declent_ru(GENITIVE)))) // SS220 EDIT ADDICTION
 			playsound(mobber, 'sound/weapons/gun_shotgun_shell_insert.ogg', 15, TRUE)
 			stored_item = null
 			update_icon()
@@ -129,7 +131,7 @@
 					return
 				stored_item = object
 				mobber.drop_inv_item_to_loc(object, src)
-				to_chat(mobber, SPAN_NOTICE("You slide [object] into [src]."))
+				to_chat(mobber, SPAN_NOTICE("You slide $1 into $2.", list(object.declent_ru(), declent_ru()))) // SS220 EDIT ADDICTION
 				playsound(mobber, 'sound/weapons/gun_shotgun_shell_insert.ogg', 15, TRUE)
 				update_icon()
 				break

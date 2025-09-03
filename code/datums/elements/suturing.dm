@@ -70,14 +70,15 @@ YOU TO 200 DAMAGE. I ASK NOT FOR MY OWN MEDIC EGOSTROKING, BUT FOR THE GOOD OF T
 	if(user.action_busy || user.a_intent == INTENT_HARM || QDELETED(target))
 		return
 
+	var/ru_name_target_limb = declent_ru_initial(target_limb.display_name, ACCUSATIVE, target_limb.display_name) // SS220 EDIT ADDICTION
 	if(!target_limb || target_limb.status & LIMB_DESTROYED)
-		to_chat(user, SPAN_WARNING("[user == target ? "You have" : "\The [target] has"] no [target_limb.display_name]!"))
+		to_chat(user, SPAN_WARNING("[user == target ? "You have" : "$1 has"] no $2!", list(target, ru_name_target_limb))) // SS220 EDIT ADDICTION
 		return
 	if(target_limb.status & (LIMB_ROBOT|LIMB_SYNTHSKIN))
-		to_chat(user, SPAN_WARNING("You can't repair a robotic limb with \the [suturing_item]!"))
+		to_chat(user, SPAN_WARNING("You can't repair a robotic limb with $1!", list(suturing_item.declent_ru()))) // SS220 EDIT ADDICTION
 		return
 	if(target_limb.get_incision_depth())
-		to_chat(user, SPAN_WARNING("[user == target ? "Your" : "\The [target]'s"] [target_limb.display_name] has been cut open and needs to be closed surgically!"))
+		to_chat(user, SPAN_WARNING("[user == target ? "Your" : "$1's"] $2 has been cut open and needs to be closed surgically!", list(target, ru_name_target_limb))) // SS220 EDIT ADDICTION
 		return
 
 	//Figure out how much damage we can suture.

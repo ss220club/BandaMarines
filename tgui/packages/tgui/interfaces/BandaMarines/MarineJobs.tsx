@@ -115,7 +115,7 @@ export const JOBS_RU = {
   'Auxiliary Support Officer': 'Офицер поддержки',
 
   // Dropship roles
-  'Gunship Pilot': 'Пилот НАП (CAS)',
+  'Gunship Pilot': 'Пилот боевого корабля',
   'Dropship Pilot': 'Пилот десантного корабля',
   'Tank Crew': 'Танкист',
   'Dropship Crew Chief': 'Офицер десантного корабля',
@@ -124,7 +124,7 @@ export const JOBS_RU = {
   // Police roles
   'Military Police': 'Военная полиция',
   'Military Warden': 'Военный смотритель',
-  'Chief MP': 'Начальник военной полиции',
+  'Chief MP': 'Шеф военной полиции',
 
   // SEA
   'Senior Enlisted Advisor': 'Старший инструктор',

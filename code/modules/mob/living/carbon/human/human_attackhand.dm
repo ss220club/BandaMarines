@@ -44,28 +44,29 @@
 				return 1
 
 			attacking_mob.visible_message(SPAN_NOTICE("<b>[attacking_mob]</b> starts performing <b>CPR</b> on <b>[src]</b>."),
-				SPAN_HELPFUL("You start <b>performing CPR</b> on <b>[src]</b>."))
+				SPAN_HELPFUL("You start <b>performing CPR</b> on <b>$1</b>.", list(src))) // SS220 EDIT ADDICTION
 
 			cpr_attempt_timer = world.time + HUMAN_STRIP_DELAY * attacking_mob.get_skill_duration_multiplier(SKILL_MEDICAL)
 			if(do_after(attacking_mob, HUMAN_STRIP_DELAY * attacking_mob.get_skill_duration_multiplier(SKILL_MEDICAL), INTERRUPT_ALL, BUSY_ICON_GENERIC, src, INTERRUPT_MOVED, BUSY_ICON_MEDICAL))
+				var/is_male = attacking_mob.gender == MALE ? "" : "а" // SS220 EDUT ADDICTION
 				if(stat != DEAD)
 					var/suff = min(getOxyLoss(), 10) //Pre-merge level, less healing, more prevention of dieing.
 					apply_damage(-suff, OXY)
 					updatehealth()
 					src.affected_message(attacking_mob,
 						SPAN_HELPFUL("You feel a <b>breath of fresh air</b> enter your lungs. It feels good."),
-						SPAN_HELPFUL("You <b>perform CPR</b> on <b>[src]</b>. Repeat at least every <b>7 seconds</b>."),
-						SPAN_NOTICE("<b>[attacking_mob]</b> performs <b>CPR</b> on <b>[src]</b>."))
+						SPAN_HELPFUL("You perform <b>CPR</b> on <b>$1</b>. Repeat at least every <b>7 seconds</b>.", list(src)), // SS220 EDIT ADDICTION
+						SPAN_NOTICE("<b>$1$2</b> performs <b>CPR</b> on <b>$3</b>.", list(attacking_mob, is_male, src))) // SS220 EDIT ADDICTION
 				if(is_revivable() && stat == DEAD)
 					if(cpr_cooldown < world.time)
 						revive_grace_period += 7 SECONDS
-						attacking_mob.visible_message(SPAN_NOTICE("<b>[attacking_mob]</b> performs <b>CPR</b> on <b>[src]</b>."),
-							SPAN_HELPFUL("You perform <b>CPR</b> on <b>[src]</b>."))
-						balloon_alert(attacking_mob, "you perform cpr")
+						attacking_mob.visible_message(SPAN_NOTICE("<b>$1$2</b> performs <b>CPR</b> on <b>$3</b>.", list(attacking_mob, is_male, src)), // SS220 EDIT ADDICTION
+							SPAN_HELPFUL("You perform <b>CPR</b> on <b>$1</b>.", list(src))) // SS220 EDIT ADDICTION
+						balloon_alert(attacking_mob, SPAN_TRANSLATE("you perform cpr"))
 					else
-						attacking_mob.visible_message(SPAN_NOTICE("<b>[attacking_mob]</b> fails to perform CPR on <b>[src]</b>."),
-							SPAN_HELPFUL("You <b>fail</b> to perform <b>CPR</b> on <b>[src]</b>. Incorrect rhythm. Do it <b>slower</b>."))
-						balloon_alert(attacking_mob, "incorrect rhythm. do it slower")
+						attacking_mob.visible_message(SPAN_WARNING("<b>$1$2</b> fails to perform <b>CPR</b> on <b>$3</b>.", list(attacking_mob, is_male, src)), // SS220 EDIT ADDICTION
+							SPAN_WARNING("You <b>fail</b> to perform <b>CPR</b> on <b>$1</b>. Incorrect rhythm. Do it <b>slower</b>.", list(src))) // SS220 EDIT ADDICTION
+						balloon_alert(attacking_mob, SPAN_TRANSLATE("incorrect rhythm. do it slower"))
 					cpr_cooldown = world.time + 7 SECONDS
 			cpr_attempt_timer = 0
 			return 1
@@ -170,7 +171,7 @@
 				Stun(strength)
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
 				var/shove_text = attacker_skill_level > 1 ? "tackled" : pick("pushed", "shoved")
-				visible_message(SPAN_DANGER("<B>[attacking_mob] has [shove_text] [src]!</B>"), null, null, 5)
+				visible_message(SPAN_DANGER_BOLD("$1 has [shove_text] $2!", list(attacking_mob, src)), null, null, 5) // SS220 EDIT ADDICTION
 				return
 
 			if(disarm_chance <= 60)
@@ -180,12 +181,12 @@
 					stop_pulling()
 				else
 					drop_held_item()
-					visible_message(SPAN_DANGER("<B>[attacking_mob] has disarmed [src]!</B>"), null, null, 5)
+					visible_message(SPAN_DANGER_BOLD("$1 has disarmed $2!", list(attacking_mob, src)), null, null, 5)
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, 7)
 				return
 
 			playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, 7)
-			visible_message(SPAN_DANGER("<B>[attacking_mob] attempted to disarm [src]!</B>"), null, null, 5)
+			visible_message(SPAN_DANGER_BOLD("$1 attempted to disarm $2!", list(attacking_mob, src)), null, null, 5) // SS220 EDIT ADDICTION
 
 /mob/living/carbon/human/proc/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, inrange, params)
 	return
@@ -213,8 +214,8 @@
 				to_chat(M, SPAN_WARNING("[src] looks dizzy. Maybe you should let [t_him] rest a bit longer."))
 			else
 				set_resting(FALSE)
-		M.visible_message(SPAN_NOTICE("[M] shakes [src] trying to wake [t_him] up!"),
-			SPAN_NOTICE("You shake [src] trying to wake [t_him] up!"), null, 4)
+		M.visible_message(SPAN_NOTICE("$1 shakes $2 trying to wake $3 up!", list(M, src, ru_p_them())), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("You shake $1 trying to wake $2 up!", list(src, ru_p_them())), null, 4) // SS220 EDIT ADDICTION
 	else if(HAS_TRAIT(src, TRAIT_INCAPACITATED))
 		M.visible_message(SPAN_NOTICE("[M] shakes [src], trying to shake [t_him] out of his stupor!"),
 			SPAN_NOTICE("You shake [src], trying to shake [t_him] out of his stupor!"), null, 4)
@@ -235,7 +236,7 @@
 	playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
 
 /mob/living/carbon/human/proc/check_for_injuries()
-	visible_message(SPAN_NOTICE("$1 examines $2.", list(capitalize(declent_ru(NOMINATIVE)), gender==MALE?"himself":"herself")), // SS220 EDIT ADDICTION
+	visible_message(SPAN_NOTICE("$1 examines $2.", list(capitalize(declent_ru()), gender==MALE?"himself":"herself")), // SS220 EDIT ADDICTION
 	SPAN_NOTICE("You check yourself for injuries."), null, 3)
 
 	var/list/limb_message = list()

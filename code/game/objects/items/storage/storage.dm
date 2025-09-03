@@ -475,7 +475,7 @@ GLOBAL_LIST_EMPTY_TYPED(item_storage_box_cache, /datum/item_storage_box)
 
 	if(!can_hold_type(W.type, user))
 		if(!stop_messages)
-			to_chat(usr, SPAN_NOTICE("[src] cannot hold [W]."))
+			to_chat(usr, SPAN_NOTICE("$1 cannot hold $2.", list(declent_ru(PREPOSITIONAL), W.declent_ru()))) // SS220 EDIT ADDICTION
 		return
 
 	var/w_limit_bypassed = 0
@@ -568,8 +568,8 @@ W is always an item. stop_warning prevents messaging. user may be null.**/
 		add_fingerprint(user)
 		if(!prevent_warning)
 			var/visidist = W.w_class >= 3 ? 3 : 1
-			user.visible_message(SPAN_NOTICE("[user] puts [W] into [src]."),
-								SPAN_NOTICE("You put \the [W] into [src]."),
+			user.visible_message(SPAN_NOTICE("$1 puts $2 into $3.", list(user, W.declent_ru(), declent_ru())), // SS220 EDIT ADDICTION
+								SPAN_NOTICE("You put $1 into $2.", list(W.declent_ru(), declent_ru())), // SS220 EDIT ADDICTION
 								null, visidist)
 	orient2hud()
 	for(var/mob/M in can_see_content())

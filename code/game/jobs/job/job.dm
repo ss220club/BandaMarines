@@ -222,6 +222,7 @@
 		title_given = lowertext(disp_title)
 
 		//Document syntax cannot have tabs for proper formatting.
+		// SS220 START EDIT ADDICTION
 		var/entrydisplay = boxed_message("\
 			[SPAN_ROLE_BODY("|______________________|")] \n\
 			[SPAN_ROLE_HEADER("You are $1", list(title_given))] \n\
@@ -230,6 +231,7 @@
 			[M ? SPAN_ROLE_BODY("Your account number is: <b>$1</b>. Your account pin is: <b>$2</b>.", list(M.account_number, M.remote_access_pin)) : SPAN_ROLE_BODY("You do not have a bank account.")] \n\
 			[SPAN_ROLE_BODY("|______________________|")] \
 		")
+		// SS220 END EDIT ADDICTION
 		to_chat_spaced(H, html = entrydisplay)
 
 /datum/job/proc/generate_entry_conditions(mob/living/M, whitelist_status)

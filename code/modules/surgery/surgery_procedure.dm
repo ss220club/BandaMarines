@@ -76,7 +76,7 @@
 		return TRUE //So that you don't poke them with a tool you're already using.
 
 	if(user.action_busy)
-		to_chat(user, SPAN_WARNING("You're too busy to perform surgery on [user == target ? "yourself" : "[target]"]!"))
+		to_chat(user, SPAN_WARNING("You're too busy to perform surgery on [user == target ? "yourself" : "$1"]!", list(target))) // SS220 EDIT ADDICTION
 		return FALSE
 
 	if((target.mob_flags & EASY_SURGERY) ? !skillcheck(user, SKILL_SURGERY, SKILL_SURGERY_NOVICE) : !skillcheck(user, SKILL_SURGERY, required_surgery_skill))
@@ -85,9 +85,9 @@
 
 	if(target.pulledby?.grab_level == GRAB_CARRY)
 		if(target.pulledby == user)
-			to_chat(user, SPAN_WARNING("You need to set [target] down before you can operate on \him!"))
+			to_chat(user, SPAN_WARNING("You need to set $1 down before you can operate on!", list(target))) // SS220 EDIT ADDICTION
 		else
-			to_chat(user, SPAN_WARNING("You can't operate on [target], \he is being carried by [target.pulledby]!"))
+			to_chat(user, SPAN_WARNING("You can't operate on $1, is being carried by $2!", list(target, target.pulledby))) // SS220 EDIT ADDICTION
 		return FALSE
 
 	if(lying_required && target.body_position != LYING_DOWN)
@@ -119,9 +119,8 @@
 				return TRUE
 		if(tool && is_surgery_tool(tool)) //Just because you used the wrong tool doesn't mean you meant to whack the patient with it...
 			if(next_step)
-				to_chat(user, SPAN_WARNING("You can't [current_step.desc] with \the [tool], or [next_step.desc]."))
+				to_chat(user, SPAN_WARNING("You can't $2 with $1, or $3.", list(tool.declent_ru(ACCUSATIVE), current_step.desc, next_step.desc), with_span_args=TRUE)) // SS220 EDIT ADDICTION
 			else
-				to_chat(user, SPAN_WARNING("You can't [current_step.desc] with \the [tool]."))
+				to_chat(user, SPAN_WARNING("You can't $2 with $1.", list(tool.declent_ru(ACCUSATIVE)), current_step.desc, with_span_args=TRUE)) // SS220 EDIT ADDICTION
 			return FALSE //...but you might be wanting to use it on them anyway. If on help intent, the help-intent safety will apply for this attack.
 	return FALSE
-

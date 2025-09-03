@@ -42,7 +42,7 @@
 	var/remains_type = /obj/effect/decal/remains/xeno
 	var/bloodsplatter_type = /obj/effect/bloodsplatter/human
 	var/death_sound
-	var/death_message = "seizes up and falls limp, their eyes dead and lifeless..."
+	var/death_message = "цепенеет и расслабляется, взгляд становится пустым и безжизненным..." // SS220 EDIT ADDICTION
 
 	var/breath_type = "oxygen"   // Non-oxygen gas breathed, if any.
 	var/poison_type = "phoron"   // Poisonous air.
@@ -202,7 +202,7 @@
 /datum/species/proc/hug(mob/living/carbon/human/human, mob/living/carbon/target, target_zone = "chest")
 	if(human.flags_emote)
 		return
-	var/t_him = target.p_them()
+	var/t_him = target.ru_p_thereto() // SS220 EDIT ADDICTION
 
 	//answer the call
 	if(target.flags_emote & EMOTING_HIGH_FIVE)
@@ -225,14 +225,14 @@
 		attempt_fist_bump(human, target)
 		return
 	else if(human.body_position == LYING_DOWN) // Keep other interactions above lying check for maximum awkwardness potential
-		human.visible_message(SPAN_NOTICE("[human] waves at [target] to make [t_him] feel better!"),
-			SPAN_NOTICE("You wave at [target] to make [t_him] feel better!"), null, 4)
+		human.visible_message(SPAN_NOTICE("$1 waves at $2 to make $3 feel better!", list(human, target, t_him)), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("You wave at $1 to make $2 feel better!", list(target, t_him)), null, 4)
 	else if(target_zone == "groin")
-		human.visible_message(SPAN_NOTICE("[human] hugs [target] to make [t_him] feel better!"),
-			SPAN_NOTICE("You hug [target] to make [t_him] feel better!"), null, 4)
+		human.visible_message(SPAN_NOTICE("$1 hugs $2 to make $3 feel better!", list(human, target, t_him)), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("You hug $1 to make $2 feel better!", list(target, t_him)), null, 4) // SS220 EDIT ADDICTION
 	else
-		human.visible_message(SPAN_NOTICE("[human] pats [target] on the back to make [t_him] feel better!"),
-			SPAN_NOTICE("You pat [target] on the back to make [t_him] feel better!"), null, 4)
+		human.visible_message(SPAN_NOTICE("$1 pats $2 on the back to make $3 feel better!", list(human, target, t_him)), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("You pat $1 on the back to make $2 feel better!", list(target, t_him)), null, 4) // SS220 EDIT ADDICTION
 	playsound(target, 'sound/weapons/thudswoosh.ogg', 25, 1, 5)
 
 /datum/species/proc/attempt_rock_paper_scissors(mob/living/carbon/human/H, mob/living/carbon/human/target)
@@ -241,7 +241,7 @@
 		return
 
 	if(!target.get_limb("r_hand") && !target.get_limb("l_hand"))
-		to_chat(H, SPAN_WARNING("They have no hands!"))
+		to_chat(H, SPAN_NOTICE("$1 have no hands!", list(target.ru_p_theirs()))) // SS220 EDIT ADDICTION
 		return
 
 	//Responding to a raised hand
@@ -270,15 +270,15 @@
 		)
 		var/protagonist_plays = intent_to_play["[H.a_intent]"] == "random" ? pick("rock", "paper", "scissors") : intent_to_play["[H.a_intent]"]
 		var/antagonist_plays = intent_to_play["[target.a_intent]"] == "random" ? pick("rock", "paper", "scissors") : intent_to_play["[target.a_intent]"]
-		var/winner_text = " It's a draw!"
+		var/winner_text = " Ничья!" // SS220 EDIT ADDICTION
 		if(protagonist_plays != antagonist_plays)
 			var/static/list/what_beats_what = list("rock" = "scissors", "scissors" = "paper", "paper" = "rock")
 			if(antagonist_plays == what_beats_what[protagonist_plays])
-				winner_text = " [H] wins!"
+				winner_text = " Победитель [H]!" // SS220 EDIT ADDICTION
 			else
-				winner_text = " [target] wins!"
-		H.visible_message(SPAN_NOTICE("[H] plays <b>[protagonist_plays]</b>![winner_text]"), SPAN_NOTICE("You play <b>[protagonist_plays]</b>![winner_text]"), max_distance = 5)
-		target.visible_message(SPAN_NOTICE("[target] plays <b>[antagonist_plays]</b>![winner_text]"), SPAN_NOTICE("You play <b>[antagonist_plays]</b>![winner_text]"), max_distance = 5)
+				winner_text = " Победитель [target]!" // SS220 EDIT ADDICTION
+		H.visible_message(SPAN_NOTICE("$1 plays <b>$2</b>!$3", list(H, protagonist_plays, winner_text)), SPAN_NOTICE("You play <b>$1</b>!$2", list(protagonist_plays, winner_text), with_span_args=TRUE), max_distance = 5)
+		target.visible_message(SPAN_NOTICE("$1 plays <b>$2</b>!$3", list(target, antagonist_plays, winner_text)), SPAN_NOTICE("You play <b>$1</b>!$2", list(antagonist_plays, winner_text), with_span_args=TRUE), max_distance = 5)
 		playsound(target, "clownstep", 35, TRUE)
 		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(do_after), H, 8, INTERRUPT_NONE, play_to_emote[protagonist_plays])
 		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(do_after), target, 8, INTERRUPT_NONE, play_to_emote[antagonist_plays])
@@ -293,7 +293,9 @@
 		to_chat(H, "You just did an audible emote. Wait a while.")
 		return
 
-	H.visible_message(SPAN_NOTICE("[H] challenges [target] to a game of rock paper scissors!"), SPAN_NOTICE("You challenge [target] to a game of rock paper scissors!"), null, 4)
+	H.visible_message(
+		SPAN_NOTICE("$1 challenges $2 to a game of rock paper scissors!", list(H, target)), // SS220 EDIT ADDICTION
+		SPAN_NOTICE("You challenge $1 to a game of rock paper scissors!", list(target)), null, 4) // SS220 EDIT ADDICTION
 	H.flags_emote |= EMOTING_ROCK_PAPER_SCISSORS
 	if(do_after(H, 50, INTERRUPT_ALL|INTERRUPT_EMOTE, EMOTE_ICON_ROCK_PAPER_SCISSORS) && H.flags_emote & EMOTING_ROCK_PAPER_SCISSORS)
 		to_chat(H, SPAN_NOTICE("You were left hanging!"))
@@ -305,7 +307,7 @@
 		return
 
 	if(!target.get_limb("r_hand") && !target.get_limb("l_hand"))
-		to_chat(H, SPAN_NOTICE("They have no hands!"))
+		to_chat(H, SPAN_NOTICE("$1 have no hands!", list(target.ru_p_theirs()))) // SS220 EDIT ADDICTION
 		return
 
 	//Responding to a raised hand
@@ -317,8 +319,8 @@
 		var/extra_quip = ""
 		if(prob(10))
 			extra_quip = pick(" Down low!", " Eiffel Tower!")
-		H.visible_message(SPAN_NOTICE("[H] gives [target] a high five![extra_quip]"),
-			SPAN_NOTICE("You give [target] a high five![extra_quip]"), null, 4)
+		H.visible_message(SPAN_NOTICE("$1 gives $2 a high five![extra_quip]", list(H, target)), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("You give [target] a high five![extra_quip]", list(target)), null, 4) // SS220 EDIT ADDICTION
 		playsound(target, 'sound/effects/snap.ogg', 25, 1)
 		H.animation_attack_on(target)
 		target.animation_attack_on(H)
@@ -331,15 +333,17 @@
 		to_chat(H, "You just did an audible emote. Wait a while.")
 		return
 
-	var/h_his = "their"
-	switch(H.gender)
-		if(MALE)
-			h_his = "his"
-		if(FEMALE)
-			h_his = "her"
+	// SS220 START EDIT ADDICTION
+	//var/h_his = "their"
+	//switch(H.gender)
+	//	if(MALE)
+	//		h_his = "his"
+	//	if(FEMALE)
+	//		h_his = "her"
+	// SS220 END EDIT ADDICTION
 
-	H.visible_message(SPAN_NOTICE("[H] raises [h_his] hand out for a high five from [target]."),
-		SPAN_NOTICE("You raise your hand out for a high five from [target]."), null, 4)
+	H.visible_message(SPAN_NOTICE("$1 raises hand out for a high five from $2.", list(H, target)), // SS220 EDIT ADDICTION
+		SPAN_NOTICE("You raise your hand out for a high five from $1.", list(target)), null, 4) // SS220 EDIT ADDICTION
 	H.flags_emote |= EMOTING_HIGH_FIVE
 	if(do_after(H, 50, INTERRUPT_ALL|INTERRUPT_EMOTE, EMOTE_ICON_HIGHFIVE) && H.flags_emote & EMOTING_HIGH_FIVE)
 		to_chat(H, SPAN_NOTICE("You were left hanging!"))
@@ -351,7 +355,7 @@
 		return
 
 	if(!target.get_limb("r_hand") && !target.get_limb("l_hand"))
-		to_chat(H, SPAN_NOTICE("They have no hands!"))
+		to_chat(H, SPAN_NOTICE("$1 have no hands!", list(target.ru_p_theirs()))) // SS220 EDIT ADDICTION
 		return
 
 	//Responding to a raised fist
@@ -360,8 +364,8 @@
 			to_chat(H, SPAN_NOTICE("Too slow!"))
 			return
 		target.flags_emote &= ~EMOTING_FIST_BUMP
-		H.visible_message(SPAN_NOTICE("[H] gives [target] a fistbump!"),
-			SPAN_NOTICE("You give [target] a fistbump!"), null, 4)
+		H.visible_message(SPAN_NOTICE("$1 gives $2 a fistbump!", list(H, target)), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("You give $1 a fistbump!", list(target)), null, 4)  // SS220 EDIT ADDICTION
 		playsound(target, 'sound/effects/thud.ogg', 40, 1)
 		H.animation_attack_on(target)
 		target.animation_attack_on(H)
@@ -373,15 +377,18 @@
 	if(H.recent_audio_emote)
 		to_chat(H, "You just did an audible emote. Wait a while.")
 		return
-	var/h_his = "their"
-	switch(H.gender)
-		if(MALE)
-			h_his = "his"
-		if(FEMALE)
-			h_his = "her"
 
-	H.visible_message(SPAN_NOTICE("[H] raises [h_his] fist out for a fistbump from [target]."),
-		SPAN_NOTICE("You raise your fist out for a fistbump from [target]."), null, 4)
+	// SS220 START EDIT ADDICTION
+	//var/h_his = "their"
+	//switch(H.gender)
+	//	if(MALE)
+	//		h_his = "his"
+	//	if(FEMALE)
+	//		h_his = "her"
+	// SS220 END EDIT ADDICTION
+
+	H.visible_message(SPAN_NOTICE("$1 raises fist out for a fistbump from $2.", list(H, target)), // SS220 EDIT ADDICTION
+		SPAN_NOTICE("You raise your fist out for a fistbump from $1.", list(target)), null, 4) // SS220 EDIT ADDICTION
 	H.flags_emote |= EMOTING_FIST_BUMP
 	if(do_after(H, 50, INTERRUPT_ALL|INTERRUPT_EMOTE, EMOTE_ICON_FISTBUMP) && H.flags_emote & EMOTING_FIST_BUMP)
 		to_chat(H, SPAN_NOTICE("You were left hanging!"))

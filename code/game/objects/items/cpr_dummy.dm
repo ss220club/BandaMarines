@@ -60,14 +60,15 @@
 		to_chat(H, SPAN_BOLDNOTICE("Remove your mask!"))
 		return FALSE
 	var/is_male = H.gender == MALE ? "" : "а" // SS220 EDUT ADDICTION
-	H.visible_message(SPAN_NOTICE("<b>$1$2</b> starts performing <b>CPR</b> on <b>$3</b>.", list(H, is_male, declent_ru(PREPOSITIONAL))), SPAN_HELPFUL("You start <b>performing CPR</b> on <b>$1</b>.", list(declent_ru(PREPOSITIONAL)))) // SS220 EDIT ADDICTION
+	var/ru_name = declent_ru(PREPOSITIONAL)
+	H.visible_message(SPAN_NOTICE("<b>$1$2</b> starts performing <b>CPR</b> on <b>$3</b>.", list(H, is_male, ru_name)), SPAN_HELPFUL("You start performing <b>CPR</b> on <b>$1</b>.", list(ru_name))) // SS220 EDIT ADDICTION
 	if(!do_after(H, HUMAN_STRIP_DELAY * H.get_skill_duration_multiplier(SKILL_MEDICAL), INTERRUPT_ALL, BUSY_ICON_GENERIC, src, INTERRUPT_MOVED, BUSY_ICON_MEDICAL))
 		return
 	if(cpr_cooldown < world.time)
-		H.visible_message(SPAN_NOTICE("<b>$1$2</b> performs <b>CPR</b> on <b>$3</b>.", list(H, is_male, declent_ru(PREPOSITIONAL))), SPAN_HELPFUL("You perform <b>CPR</b> on <b>$1</b>.", list(declent_ru(PREPOSITIONAL)))) // SS220 EDIT ADDICTION
+		H.visible_message(SPAN_NOTICE("<b>$1$2</b> performs <b>CPR</b> on <b>$3</b>.", list(H, is_male, ru_name)), SPAN_HELPFUL("You perform <b>CPR</b> on <b>$1</b>.", list(ru_name))) // SS220 EDIT ADDICTION
 		successful_cprs++
 	else
-		H.visible_message(SPAN_NOTICE("<b>$1$2</b> fails to perform CPR on <b>$3</b>.", list(H, is_male, declent_ru(PREPOSITIONAL))), SPAN_WARNING("You <b>fail</b> to perform <b>CPR</b> on <b>$1</b>. Incorrect rhythm. Do it <b>slower</b>.", list(declent_ru(PREPOSITIONAL)))) // SS220 EDIT ADDICTION
+		H.visible_message(SPAN_NOTICE("<b>$1$2</b> fails to perform <b>CPR</b> on <b>$3</b>.", list(H, is_male, ru_name)), SPAN_WARNING("You <b>fail</b> to perform <b>CPR</b> on <b>$1</b>. Incorrect rhythm. Do it <b>slower</b>.", list(ru_name))) // SS220 EDIT ADDICTION
 		failed_cprs++
 	cpr_cooldown = world.time + 7 SECONDS
 

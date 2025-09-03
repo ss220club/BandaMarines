@@ -69,12 +69,15 @@
 
 #define SPAN_ALERTWARNING(X, args...) "<span class='alertwarning'>[ru_span(X, ##args, type="SPAN_ALERTWARNING")]</span>"
 #define SPAN_WARNING(X, args...) "<span class='warning'>[ru_span(X, ##args, type="SPAN_WARNING")]</span>"
-#define SPAN_BOLDWARNING(X, args...) "<span class='boldwarning'>[ru_span(X, ##args, type="SPAN_BOLDWARNING")]</span>"
+#define SPAN_WARNING_BOLD(X, args...) "<span class='boldwarning'>[ru_span(X, ##args, type="SPAN_WARNING_BOLD")]</span>"
+#define SPAN_BOLDWARNING(X, args...) "<span class='bolditalicwarning'>[ru_span(X, ##args, type="SPAN_BOLDWARNING")]</span>"
 #define SPAN_ALERT(X, args...) "<span class='alert'>[ru_span(X, ##args, type="SPAN_ALERT")]</span>"
 
 #define SPAN_INFO(X, args...) "<span class='info'>[ru_span(X, ##args, type="SPAN_INFO")]</span>"
+#define SPAN_INFO_BOLD(X, args...) "<span class='infobold'>[ru_span(X, ##args, type="SPAN_INFO_BOLD")]</span>"
 
 #define SPAN_DANGER(X, args...) "<span class='danger'>[ru_span(X, ##args, type="SPAN_DANGER")]</span>"
+#define SPAN_DANGER_BOLD(X, args...) "<span class='bolddanger'>[ru_span(X, ##args, type="SPAN_DANGER_BOLD")]</span>"
 #define SPAN_USERDANGER(X, args...) "<span class='userdanger'>[ru_span(X, ##args, type="SPAN_USERDANGER")]</span>"
 #define SPAN_HIGHDANGER(X, args...) "<span class='highdanger'>[ru_span(X, ##args, type="SPAN_HIGHDANGER")]</span>"
 

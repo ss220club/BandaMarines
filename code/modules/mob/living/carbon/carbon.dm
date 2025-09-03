@@ -296,7 +296,7 @@
 /mob/living/carbon/proc/help_shake_act(mob/living/carbon/M)
 	if(src == M)
 		return
-	var/t_him = p_them()
+	var/t_him = ru_p_thereto()
 
 	var/shake_action
 	if(stat == DEAD || HAS_TRAIT(src, TRAIT_INCAPACITATED) || sleeping) // incap implies also unconscious or knockedout
@@ -319,7 +319,7 @@
 		if(istype(H))
 			H.species.hug(H, src, H.zone_selected)
 		else
-			M.visible_message(SPAN_NOTICE("[M] pats [src] on the back to make [t_him] feel better!"),
+			M.visible_message(SPAN_NOTICE("$1 pats $2 on the back to make $3 feel better!", list(M, src, t_him)), // SS220 EDIT ADDICTION
 				SPAN_NOTICE("You pat [src] on the back to make [t_him] feel better!"), null, 4)
 			playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 5)
 		return

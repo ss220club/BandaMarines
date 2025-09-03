@@ -12,3 +12,18 @@
 "Tropical Storm" = "Тропический шторм"
 "Monsoon Warning" = "Муссоны"
 "Soro Light Rain" = "Лёгкий дождь"
+"rock" = "камень"
+"paper" = "бумага"
+"scissors" = "ножницы"
+
+# Mark: code/modules/surgery/generic.dm
+
+"make an incision" = "сделать разрез"
+"clamp the bleeders" = "остановить кровотечение"
+"widen the incision" = "расширить разрез"
+"cauterize the incision" = "прижечь разрез"
+"cut through the bone" = "разрезать кость"
+"prise the bones open" = "раздвинуть кости"
+"bend the bones back into place" = "вправить кости"
+"repair the damaged bones" = "восстановить поврежденные кости"
+"suture the incision" = "зашить разрез"

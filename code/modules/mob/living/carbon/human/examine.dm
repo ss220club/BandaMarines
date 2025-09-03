@@ -125,7 +125,7 @@
 	if(shoes && !skipshoes)
 		msg += "[t_He] носит [shoes.get_examine_line(user)] [shoes.get_examine_location(src, user, WEAR_FEET, t_He, t_his, t_theirs)].\n"
 	else if(feet_blood_color)
-		msg += SPAN_WARNING("[t_He] [(feet_blood_color == COLOR_OIL) ? "замасленные" : "окровавленные"] ноги!\n") // SS220 EDIT ADDICTION
+		msg += SPAN_WARNING("У [t_theirs] [(feet_blood_color == COLOR_OIL) ? "замасленные" : "окровавленные"] ноги!\n") // SS220 EDIT ADDICTION
 
 	//mask
 	if(wear_mask && !skipmask)
@@ -211,7 +211,14 @@
 				msg += SPAN_WARNING("У [t_theirs] [english_list(damage, final_comma_text = ",")] на [t_his] [o.declent_ru(PREPOSITIONAL)]!\n")
 
 	if(holo_card_color)
-		msg += "У [t_theirs] [holo_card_color] голокарта на груди.\n"
+		// SS220 START EDIT ADDICTION
+		var/holo_card_color_ru = list(
+			red = "красная",
+			purple = "фиолетовая",
+			orange = "оранжевая",
+		)
+		msg += "У [t_theirs] [holo_card_color_ru[holo_card_color]] голокарта на груди.\n"
+		// SS220 END EDIT ADDICTION
 
 	var/distance = get_dist(user,src)
 	if(istype(user, /mob/dead/observer) || user.stat == DEAD) // ghosts can see anything
@@ -517,10 +524,10 @@
 
 	if(user.Adjacent(src) && ishuman(user))
 		var/mob/living/carbon/human/human_user = user
-		var/temp_msg = "<a href='byond://?src=\ref[src];check_status=1'>\[Check Status\]</a>"
+		var/temp_msg = "<a href='byond://?src=\ref[src];check_status=1'>\[Проверить статус\]</a>" // SS220 EDIT ADDICTION
 		if(skillcheck(user, SKILL_MEDICAL, SKILL_MEDICAL_MEDIC) && locate(/obj/item/clothing/accessory/stethoscope) in human_user.w_uniform)
-			temp_msg += " <a href='byond://?src=\ref[src];use_stethoscope=1'>\[Use Stethoscope\]</a>"
-		msg += "\n<span class = 'deptradio'>Medical actions: [temp_msg]\n"
+			temp_msg += " <a href='byond://?src=\ref[src];use_stethoscope=1'>\[Использовать стетоскоп\]</a>" // SS220 EDIT ADDICTION
+		msg += "\n<span class = 'deptradio'>Медицинские действия: [temp_msg]\n" // SS220 EDIT ADDICTION
 
 	var/flavor = print_flavor_text()
 	if(flavor)

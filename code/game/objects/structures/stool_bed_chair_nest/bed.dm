@@ -186,12 +186,12 @@
 			var/mob/M = G.grabbed_thing
 			var/atom/blocker = LinkBlocked(user, user.loc, loc)
 			if(!Adjacent(M))
-				visible_message(SPAN_DANGER("[M] is too far to place onto [src]."))
+				visible_message(SPAN_DANGER("$1 is too far to place onto $2$3.", list(M, declent_ru(), M.ru_p_them()))) // SS220 EDIT ADDICTION
 				return FALSE
 			if(blocker)
-				to_chat(user, SPAN_WARNING("\The [blocker] is in the way!"))
+				to_chat(user, SPAN_WARNING("$1 is in the way!", list(blocker.declent_ru()))) // SS220 EDIT ADDICTION
 				return FALSE
-			to_chat(user, SPAN_NOTICE("You place [M] on [src]."))
+			to_chat(user, SPAN_NOTICE("You place $1 on $2.", list(M, declent_ru()))) // SS220 EDIT ADDICTION
 			M.forceMove(loc)
 		return TRUE
 

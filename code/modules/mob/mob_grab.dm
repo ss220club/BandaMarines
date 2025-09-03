@@ -99,12 +99,12 @@
 
 	user.grab_level = GRAB_AGGRESSIVE
 	playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
-	user.visible_message(SPAN_WARNING("[user] has grabbed [victim] aggressively!"), null, null, 5)
+	user.visible_message(SPAN_WARNING("$1 has grabbed $2 aggressively!", list(user, victim)), null, null, 5) // SS220 EDIT ADDICTION
 
 /obj/item/grab/proc/progress_aggressive(mob/living/carbon/human/user, mob/living/victim)
 	user.grab_level = GRAB_CHOKE
 	playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
-	user.visible_message(SPAN_WARNING("[user] holds [victim] by the neck and starts choking them!"), null, null, 5)
+	user.visible_message(SPAN_WARNING("$1 holds $2 by the neck and starts choking them!", list(user, victim)), null, null, 5) // SS220 EDIT ADDICTION
 	msg_admin_attack("[key_name(user)] started to choke [key_name(victim)] at [get_area_name(victim)]", victim.loc.x, victim.loc.y, victim.loc.z)
 	victim.Move(user.loc, get_dir(victim.loc, user.loc))
 	victim.update_transform(TRUE)
@@ -156,4 +156,3 @@
 					return FALSE
 				xeno.haul(pulled)
 				xeno.stop_pulling()
-

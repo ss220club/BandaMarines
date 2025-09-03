@@ -7,7 +7,7 @@
 	taskbar_icon = 'icons/taskbar/gml_colonyrp.png'
 
 /datum/game_mode/extended/announce()
-	to_world(SPAN_INFO("<B>The current game mode is - Extended!</B>"))
+	to_world(SPAN_INFO_BOLD("The current game mode is - Extended!")) // SS220 EDIT ADDICTION
 
 /datum/game_mode/extended/get_roles_list()
 	return GLOB.ROLES_USCM

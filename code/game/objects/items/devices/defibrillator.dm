@@ -104,7 +104,7 @@
 	maxuses = floor(dcell.maxcharge / charge_cost)
 	currentuses = floor(dcell.charge / charge_cost)
 	if(maxuses != 1)
-		. += SPAN_INFO("It has [currentuses] out of [maxuses] uses left in its internal battery.")
+		. += SPAN_INFO("It has $1 out of $2 uses left in its internal battery.", list(currentuses, maxuses)) // SS220 EDIT ADDICTION
 	if(MODE_HAS_MODIFIER(/datum/gamemode_modifier/defib_past_armor) || !blocked_by_suit  && !istype(src, /obj/item/device/defibrillator/synthetic))
 		. += SPAN_NOTICE("This defibrillator will ignore worn armor.")
 
@@ -123,8 +123,10 @@
 
 	defib_cooldown = world.time + 10 //1 second cooldown every time the defib is toggled
 	ready = !ready
-	user.visible_message(SPAN_NOTICE("[user] turns [src] [ready? "on and takes the [fluff_tool] out" : "off and puts the [fluff_tool] back in"]."),
-	SPAN_NOTICE("You turn [src] [ready? "on and take the [fluff_tool] out" : "off and put the [fluff_tool] back in"]."))
+	var/ru_name_fluff_tool = declent_ru_initial(fluff_tool, NOMINATIVE, fluff_tool) // SS220 EDIT ADDICTION
+	var/ru_name = declent_ru(GENITIVE) // SS220 EDIT ADDICTION
+	user.visible_message(SPAN_NOTICE("$1 turns $2 [ready? "on and takes the $3 out" : "off and puts the $3 back in"].", list(user, ru_name, ru_name_fluff_tool)), // SS220 EDIT ADDICTION
+	SPAN_NOTICE("You turn $1 [ready? "on and take the $2 out" : "off and put the $2 back in"].", list(ru_name, ru_name_fluff_tool))) // SS220 EDIT ADDICTION
 	if(should_spark)
 		playsound(get_turf(src), "sparks", 15, 1, 0)
 	if(ready)
@@ -157,33 +159,35 @@
 	return TRUE
 
 /obj/item/device/defibrillator/proc/check_revive(mob/living/carbon/human/H, mob/living/carbon/human/user)
+	var/ru_name_fluff_tool = declent_ru_initial(fluff_tool, NOMINATIVE, fluff_tool) // SS220 EDIT ADDICTION
+	var/ru_name = declent_ru() // SS220 EDIT ADDICTION
 	if(!ishuman(H) || isyautja(H))
-		to_chat(user, SPAN_WARNING("You can't defibrilate [H]. You don't even know where to put the [fluff_tool]!"))
+		to_chat(user, SPAN_WARNING("You can't defibrilate $1. You don't even know where to put the $2!", list(H, ru_name_fluff_tool))) // SS220 EDIT ADDICTION
 		return
 	if(issynth(H))
-		to_chat(user, SPAN_WARNING("You can't defibrilate [H]. You need a synthetic reset key for reboot!"))
+		to_chat(user, SPAN_WARNING("You can't defibrilate $1. You need a synthetic reset key for reboot!", list(H))) // SS220 EDIT ADDICTION
 		return
 	if(!ready)
-		balloon_alert(user, "take out the [fluff_tool].")
-		to_chat(user, SPAN_WARNING("Take [src]'s [fluff_tool] out first."))
+		balloon_alert(user, SPAN_TRANSLATE("take out the $1.", list(ru_name_fluff_tool))) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_WARNING("Take $1's $2 out first.", list(declent_ru(GENITIVE), fluff_tool))) // SS220 EDIT ADDICTION
 		return
 	if(dcell.charge < charge_cost)
-		user.visible_message(SPAN_WARNING("[icon2html(src, viewers(src))] \The [src]'s battery is too low! It needs to recharge."))
+		user.visible_message(SPAN_WARNING("$1 buzzes: Battery is too low! It needs to recharge.", list(ru_name))) // SS220 EDIT ADDICTION
 		return
 	if(H.stat != DEAD)
-		user.visible_message(SPAN_WARNING("[icon2html(src, viewers(src))] \The [src] buzzes: Vital signs detected. Aborting."))
+		user.visible_message(SPAN_WARNING("$1 buzzes: Vital signs detected. Aborting.")) // SS220 EDIT ADDICTION
 		return
 
 	if(!H.is_revivable())
-		user.visible_message(SPAN_WARNING("[icon2html(src, viewers(src))] \The [src] buzzes: Patient's general condition does not allow reviving."))
+		user.visible_message(SPAN_WARNING("$1 buzzes: Patient's general condition does not allow reviving.")) // SS220 EDIT ADDICTION
 		return
 
 	if((!MODE_HAS_MODIFIER(/datum/gamemode_modifier/defib_past_armor) && blocked_by_suit) && H.wear_suit && (istype(H.wear_suit, /obj/item/clothing/suit/armor) || istype(H.wear_suit, /obj/item/clothing/suit/storage/marine)) && prob(95))
-		user.visible_message(SPAN_WARNING("[icon2html(src, viewers(src))] \The [src] buzzes: Paddles registering >100,000 ohms, Possible cause: Suit or Armor interfering."))
+		user.visible_message(SPAN_WARNING("$1 buzzes: Paddles registering >100,000 ohms, Possible cause: Suit or Armor interfering.")) // SS220 EDIT ADDICTION
 		return
 
 	if(!H.check_tod())
-		user.visible_message(SPAN_WARNING("[icon2html(src, viewers(src))] \The [src] buzzes: Patient is braindead."))
+		user.visible_message(SPAN_WARNING("$1 buzzes: Patient is braindead.")) // SS220 EDIT ADDICTION
 		return
 
 	return TRUE
@@ -198,10 +202,12 @@
 		return FALSE
 
 	//job knowledge requirement
+	var/ru_name_fluff_tool = declent_ru_initial(fluff_tool, NOMINATIVE, fluff_tool) // SS220 EDIT ADDICTION
+	var/ru_name = declent_ru() // SS220 EDIT ADDICTION
 	if(user.skills && !noskill)
 		if(!skillcheck(user, skill_to_check, skill_level))
 			if(!skill_to_check_alt || (!skillcheck(user, skill_to_check_alt, skill_level_alt)))
-				to_chat(user, SPAN_WARNING("You don't seem to know how to use [src]..."))
+				to_chat(user, SPAN_WARNING("You don't seem to know how to use $1...", list(ru_name)))
 				return
 
 	if(!check_revive(target, user))
@@ -210,8 +216,7 @@
 	var/mob/dead/observer/G = target.get_ghost()
 	if(istype(G) && G.client)
 		playsound_client(G.client, 'sound/effects/adminhelp_new.ogg')
-		to_chat(G, SPAN_BOLDNOTICE(FONT_SIZE_LARGE("Someone is trying to revive your body. Return to it if you want to be resurrected! \
-			(Verbs -> Ghost -> Re-enter corpse, or <a href='byond://?src=\ref[G];reentercorpse=1'>click here!</a>)")))
+		to_chat(G, SPAN_BOLDNOTICE(FONT_SIZE_LARGE("Someone is trying to revive your body. Return to it if you want to be resurrected! (Look for 'Re-enter Corpse' in Ghost verbs, or <a href=$1>click here!</a>)", list("byond://?src=\ref[G];reentercorpse=1"))))
 
 	user.visible_message(SPAN_NOTICE("[user] starts setting up the [fluff_tool] on [target]'s [fluff_target_part]"),
 		SPAN_HELPFUL("You start <b>setting up</b> the [fluff_tool] on <b>[target]</b>'s [fluff_target_part]."))

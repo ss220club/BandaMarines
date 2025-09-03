@@ -108,16 +108,22 @@
 				if(isxeno(target))
 					to_chat(user, SPAN_WARNING("You don't know any operations you could perform on this body part of a xenomorph."))
 			var/hint_msg
+			var/i = 2 // SS220 EDIT ADDICTION
+			var/list/list_step_desc = list() // SS220 EDIT ADDICTION
 			for(var/datum/surgery_step/current_step as anything in valid_steps)
 				if(hint_msg)
 					if(current_step == valid_steps[length(valid_steps)])
-						hint_msg += ", or [current_step.desc]"
+						hint_msg += ", or $[i]" // SS220 EDIT ADDICTION
+						list_step_desc += current_step.desc // SS220 EDIT ADDICTION
 					else
-						hint_msg += ", [current_step.desc]"
+						hint_msg += ", $[i]" // SS220 EDIT ADDICTION
+						list_step_desc += current_step.desc // SS220 EDIT ADDICTION
 				else
-					hint_msg = "You can't [current_step.desc] with \the [tool]"
+					hint_msg = "You can't $[i] with $1" // SS220 EDIT ADDICTION
+					list_step_desc += current_step.desc // SS220 EDIT ADDICTION
+				i++ // SS220 EDIT ADDICTION
 			if(!isnull(hint_msg))
-				to_chat(user, SPAN_WARNING("[hint_msg]."))
+				to_chat(user, SPAN_WARNING("[hint_msg].", list(tool.declent_ru(ACCUSATIVE), list_step_desc), with_span_args=TRUE)) // SS220 EDIT ADDICTION
 		return FALSE
 
 	var/datum/surgery/surgeryinstance

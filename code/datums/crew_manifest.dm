@@ -79,7 +79,7 @@ GLOBAL_DATUM_INIT(crew_manifest, /datum/crew_manifest, new)
 
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "CrewManifest", capitalize(declent_ru_initial("Crew Manifest")), 900, 600) // SS220 EDIT ADDICTION
+		ui = new(user, src, "CrewManifest", "Список экипажа", 900, 600) // SS220 EDIT ADDICTION
 		ui.open()
 
 /datum/crew_manifest/ui_state(mob/user)

@@ -1,23 +1,5 @@
 # system windows and other general stuff
 
-["Playtimes"]
-nominative = "Игровая активность"
-genitive = "Игровая активность"
-dative = "Игровая активность"
-accusative = "Игровая активность"
-instrumental = "Игровая активность"
-prepositional = "Игровая активность"
-gender = "female"
-
-["Crew Manifest"]
-nominative = "Список экипажа"
-genitive = "Список экипажа"
-dative = "Список экипажа"
-accusative = "Список экипажа"
-instrumental = "Список экипажа"
-prepositional = "Список экипажа"
-gender = "female"
-
 ["APOLLO Maintenance Controller"]
 nominative = "терминал обслуживания «АПОЛЛО»"
 genitive = "терминала обслуживания «АПОЛЛО»"

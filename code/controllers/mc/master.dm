@@ -256,7 +256,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 			// Loop.
 			Master.StartProcessing(0)
 
-	var/time = round((REALTIMEOFDAY - start_timeofday) / 10, 0.01)
+	var/time = round((REALTIMEOFDAY - start_timeofday) / 10, 0.01) // SS220 EDIT ADDICTION
 
 
 
@@ -351,7 +351,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	var/chat_message = chat_warning ? SPAN_WARNING(message, list(seconds, seconds == 1 ? "" : "s")) : SPAN_BOLDANNOUNCE(message, list(seconds, seconds == 1 ? "" : "s")) // SS220 EDIT ADDICTION
 
 	to_chat(world, chat_message)
-	log_world(chat_message) // SS220 EDIT ADDICTION
+	log_world(message)
 
 /datum/controller/master/proc/SetRunLevel(new_runlevel)
 	var/old_runlevel = current_runlevel

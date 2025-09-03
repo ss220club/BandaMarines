@@ -574,7 +574,7 @@
 
 		if(!no_msg)
 			animation_attack_on(M)
-			visible_message(SPAN_WARNING("[src] has grabbed [M] passively!"), null, null, 5)
+			visible_message(SPAN_WARNING("$1 has grabbed $2 passively!", list(src, M)), null, null, 5) // SS220 EDIT ADDICTION
 
 		if(M.mob_size > MOB_SIZE_HUMAN || !(M.status_flags & CANPUSH))
 			G.icon_state = "!reinforce"
@@ -760,7 +760,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 	var/list/visible_implants = list()
 	for(var/obj/item/O in embedded)
 		if(O.w_class > class)
-			visible_implants += O
+			visible_implants += O.declent_ru() // SS220 EDIT ADDICTION
 	return visible_implants
 
 /mob/proc/yank_out_object()
@@ -776,11 +776,11 @@ note dizziness decrements automatically in the mob's Life() proc.
 	recalculate_move_delay = TRUE
 
 	if(usr.stat)
-		to_chat(usr, "You are unconscious and cannot do that!")
+		to_chat(usr, ru_span("You are unconscious and cannot do that!")) // SS220 EDIT ADDICTION
 		return
 
 	if(usr.is_mob_restrained())
-		to_chat(usr, "You are restrained and cannot do that!")
+		to_chat(usr, ru_span("You are restrained and cannot do that!")) // SS220 EDIT ADDICTION
 		return
 
 	var/self
@@ -788,25 +788,30 @@ note dizziness decrements automatically in the mob's Life() proc.
 		self = TRUE // Removing object from yourself.
 
 	var/list/valid_objects = get_visible_implants()
+
+	world.log = file("[GLOB.log_directory]/YANK.log")
+	world.log << "valid_objects: [json_encode(valid_objects)]"
+
 	if(!valid_objects)
 		if(self)
-			to_chat(src, "You have nothing stuck in your body that is large enough to remove.")
+			to_chat(src, ru_span("You have nothing stuck in your body that is large enough to remove.")) // SS220 EDIT ADDICTION
 		else
-			to_chat(usr, "[src] has nothing stuck in their wounds that is large enough to remove.")
+			to_chat(usr, "$1 has nothing stuck in their wounds that is large enough to remove.", list(src)) // SS220 EDIT ADDICTION
 		remove_verb(src, /mob/proc/yank_out_object)
 		return
 
-	var/obj/item/selection = tgui_input_list(usr, "What do you want to yank out?", "Embedded objects", valid_objects)
+	var/obj/item/selection = tgui_input_list(usr, "Что вы хотите вытащить?", "Посторонние объекты", valid_objects) // SS220 EDIT ADDICTION
+	var/selection_ru = selection.declent_ru() // SS220 EDIT ADDICTION
 	if(self)
 		if(get_active_hand())
 			to_chat(src, SPAN_WARNING("You need an empty hand for this!"))
 			return FALSE
-		to_chat(src, SPAN_WARNING("You attempt to get a good grip on [selection] in your body."))
+		to_chat(src, SPAN_WARNING("You attempt to get a good grip on $1 in your body.", list(selection_ru))) // SS220 EDIT ADDICTION
 	else
 		if(usr.get_active_hand())
 			to_chat(usr, SPAN_WARNING("You need an empty hand for this!"))
 			return FALSE
-		to_chat(usr, SPAN_WARNING("You attempt to get a good grip on [selection] in [src]'s body."))
+		to_chat(usr, SPAN_WARNING("You attempt to get a good grip on $1 in $2's body.", list(selection_ru, src))) // SS220 EDIT ADDICTION
 
 	if(!do_after(usr, 2 SECONDS * selection.w_class * usr.get_skill_duration_multiplier(SKILL_SURGERY), INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
 		return
@@ -814,9 +819,9 @@ note dizziness decrements automatically in the mob's Life() proc.
 		return
 
 	if(self)
-		visible_message(SPAN_WARNING("<b>[src] rips [selection] out of their body.</b>"),SPAN_WARNING("<b>You rip [selection] out of your body.</b>"), null, 5)
+		visible_message(SPAN_WARNING_BOLD("$1 rips $2 out of their body.", list(src, selection_ru)),SPAN_WARNING_BOLD("You rip $1 out of your body.", list(selection_ru)), null, 5) // SS220 EDIT ADDICTION
 	else
-		visible_message(SPAN_WARNING("<b>[usr] rips [selection] out of [src]'s body.</b>"),SPAN_WARNING("<b>[usr] rips [selection] out of your body.</b>"), null, 5)
+		visible_message(SPAN_WARNING_BOLD("$1 rips $2 out of $3's body.", list(usr, selection_ru, src)),SPAN_WARNING_BOLD("$1 rips $2 out of your body.", list(usr, selection_ru)), null, 5) // SS220 EDIT ADDICTION
 
 	if(length(valid_objects) == 1) //Yanking out last object - removing verb.
 		remove_verb(src, /mob/proc/yank_out_object)

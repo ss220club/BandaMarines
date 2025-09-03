@@ -275,12 +275,12 @@ prepositional = "инжекторе (Oxycodone)"
 gender = "male"
 
 ["oxycodone autoinjector (EXTREME PAINKILLER)"]
-nominative = "инжектор (EXTREME PAINKILLER)"
-genitive = "инжектора (EXTREME PAINKILLER)"
-dative = "инжектору (EXTREME PAINKILLER)"
-accusative = "инжектор (EXTREME PAINKILLER)"
-instrumental = "инжектором (EXTREME PAINKILLER)"
-prepositional = "инжекторе (EXTREME PAINKILLER)"
+nominative = "инжектор (Oxycodone)"
+genitive = "инжектора (Oxycodone)"
+dative = "инжектору (Oxycodone)"
+accusative = "инжектор (Oxycodone)"
+instrumental = "инжектором (Oxycodone)"
+prepositional = "инжекторе (Oxycodone)"
 gender = "male"
 
 ["tramadol autoinjector"]
@@ -972,3 +972,12 @@ accusative = "медицинский инжектор (30/180)"
 instrumental = "медицинским инжектором (30/180)"
 prepositional = "медицинском инжекторе (30/180)"
 gender = "male"
+
+["paddles"]
+nominative = "электроды"
+genitive = "электродов"
+dative = "электродам"
+accusative = "электроды"
+instrumental = "электродами"
+prepositional = "электродах"
+gender = "plural"
