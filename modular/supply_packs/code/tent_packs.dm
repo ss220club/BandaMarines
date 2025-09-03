@@ -16,7 +16,7 @@
 	contains = list(
 		/obj/item/folded_tent/cmd,
 	)
-	cost = 40
+	cost = 80
 	containertype = /obj/structure/closet/crate
 	containername = "Упакованная командная палатка"
 	group = "Gear"

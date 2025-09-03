@@ -964,6 +964,30 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 
 	for(var/datum/supply_order/order in shoppinglist)
 		for(var/datum/supply_packs/package as anything in order.objects)
+			if(istype(package, /datum/supply_packs/tent_eng) && !package.buyable)
+				var/message = "Инженерная палатка уже была куплена ранее!"
+				to_chat(usr, "<span class='warning'>[message]</span>")
+				continue
+
+			if(istype(package, /datum/supply_packs/tent_cmd) && !package.buyable)
+				var/message = "Командная палатка уже была куплена ранее!"
+				to_chat(usr, "<span class='warning'>[message]</span>")
+				continue
+
+			if(istype(package, /datum/supply_packs/tent_med) && !package.buyable)
+				var/message = "Медицинская палатка уже была куплена ранее!"
+				to_chat(usr, "<span class='warning'>[message]</span>")
+				continue
+
+			if(istype(package, /datum/supply_packs/tent_req) && !package.buyable)
+				var/message = "Реквизиционная палатка уже была куплена ранее!"
+				to_chat(usr, "<span class='warning'>[message]</span>")
+				continue
+
+			if(istype(package, /datum/supply_packs/tent_mess) && !package.buyable)
+				var/message = "Столовая палатка уже была куплена ранее!"
+				to_chat(usr, "<span class='warning'>[message]</span>")
+				continue
 
 			// No space! Forget buying, it's no use.
 			if(!length(clear_turfs))
@@ -1005,6 +1029,21 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 			for(var/typepath in content_types)
 				var/atom/item = new typepath(container)
 				content_names += item.name
+
+			if(istype(package, /datum/supply_packs/tent_eng))
+				package.buyable = FALSE
+
+			if(istype(package, /datum/supply_packs/tent_cmd))
+				package.buyable = FALSE
+
+			if(istype(package, /datum/supply_packs/tent_med))
+				package.buyable = FALSE
+
+			if(istype(package, /datum/supply_packs/tent_req))
+				package.buyable = FALSE
+
+			if(istype(package, /datum/supply_packs/tent_mess))
+				package.buyable = FALSE
 
 			// Manifest generation
 			var/obj/item/paper/manifest/slip
