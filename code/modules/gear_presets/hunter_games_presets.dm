@@ -110,53 +110,53 @@ GLOBAL_LIST_EMPTY(spawned_contestants)
 
 	var/random_civilian_uniform = rand(1,24)
 	switch(random_civilian_uniform)
-		case 1
+		if(1)
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/under/color/white(new_human), WEAR_BODY)
-		case 2
+		if(2)
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/under/color/black(new_human), WEAR_BODY)
-		case 3
+		if(3)
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/under/color/darkred(new_human), WEAR_BODY)
-		case 4
+		if(4)
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/under/color/green(new_human), WEAR_BODY)
-		case 5
+		if(5)
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/under/color/lightred(new_human), WEAR_BODY)
-		case 6
+		if(6)
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/under/color/brown(new_human), WEAR_BODY)
-		case 7
+		if(7)
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/under/color/lightbrown(new_human), WEAR_BODY)
-		case 8
+		if(8)
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/under/color/grey(new_human), WEAR_BODY)
-		case 9
+		if(9)
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/under/color/yellow(new_human), WEAR_BODY)
-		case 10
+		if(10)
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/under/liaison_suit/blue(new_human), WEAR_BODY)
-		case 11
+		if(11)
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/under/liaison_suit/brown(new_human), WEAR_BODY)
-		case 12
+		if(12)
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/under/liaison_suit/orange(new_human), WEAR_BODY)
-		case 13
+		if(13)
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/utility(new_human), WEAR_BODY)
-		case 14
+		if(14)
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/utility/blue(new_human), WEAR_BODY)
-		case 15
+		if(15)
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/utility/brown(new_human), WEAR_BODY)
-		case 16
+		if(16)
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/utility/gray(new_human), WEAR_BODY)
-		case 17
+		if(17)
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/utility/red(new_human), WEAR_BODY)
-		case 18
+		if(18)
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/utility/yellow(new_human), WEAR_BODY)
-		case 19
+		if(19)
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/under/colonist(new_human), WEAR_BODY)
-		case 20
+		if(20)
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/under/colonist/workwear(new_human), WEAR_BODY)
-		case 21
+		if(21)
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/under/colonist/workwear/blue(new_human), WEAR_BODY)
-		case 22
+		if(22)
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/under/colonist/workwear/green(new_human), WEAR_BODY)
-		case 23
+		if(23)
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/under/colonist/workwear/khaki(new_human), WEAR_BODY)
-		case 24
+		if(24)
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/under/colonist/workwear/pink(new_human), WEAR_BODY)
 
 	var/random_civilian_shoe = rand(1,11)
