@@ -964,31 +964,17 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 
 	for(var/datum/supply_order/order in shoppinglist)
 		for(var/datum/supply_packs/package as anything in order.objects)
-			if(istype(package, /datum/supply_packs/tent_eng) && !package.buyable)
-				var/message = "Инженерная палатка уже была куплена ранее!"
-				to_chat(usr, "<span class='warning'>[message]</span>")
-				continue
+			if(package.contains.len && ispath(package.contains[1], /obj/item/folded_tent) && package.contains[1] != /obj/item/folded_tent)
+				if(!package.buyable)
+					var/tent_name = capitalize(replacetext(package.containername, "Упакованная ", ""))
+					var/message = "[tent_name] уже была куплена ранее!"
+					to_chat(usr, "<span class='warning'>[message]</span>")
+					continue
 
-			if(istype(package, /datum/supply_packs/tent_cmd) && !package.buyable)
-				var/message = "Командная палатка уже была куплена ранее!"
-				to_chat(usr, "<span class='warning'>[message]</span>")
-				continue
 
-			if(istype(package, /datum/supply_packs/tent_med) && !package.buyable)
-				var/message = "Медицинская палатка уже была куплена ранее!"
-				to_chat(usr, "<span class='warning'>[message]</span>")
-				continue
 
-			if(istype(package, /datum/supply_packs/tent_req) && !package.buyable)
-				var/message = "Реквизиционная палатка уже была куплена ранее!"
-				to_chat(usr, "<span class='warning'>[message]</span>")
-				continue
-
-			if(istype(package, /datum/supply_packs/tent_mess) && !package.buyable)
-				var/message = "Столовая палатка уже была куплена ранее!"
-				to_chat(usr, "<span class='warning'>[message]</span>")
-				continue
-
+			if(package.contains.len && ispath(package.contains[1], /obj/item/folded_tent) && package.contains[1] != /obj/item/folded_tent)
+				package.buyable = FALSE
 			// No space! Forget buying, it's no use.
 			if(!length(clear_turfs))
 				shoppinglist.Cut()
