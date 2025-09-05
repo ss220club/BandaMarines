@@ -30,5 +30,19 @@
 		SSticker.mode.round_finished = MODE_INFESTATION_X_MINOR
 		return FALSE
 
+/client/proc/toggle_queen_minor()
+	set name = "Toggle Queen Minor"
+	set desc = "Enables/Disables Queen Ability to Minor"
+	set category = "Server.Round"
+
+	if(!check_rights(R_SERVER))
+		return
+
+	if(SSticker.current_state != GAME_STATE_PLAYING)
+		return
+
+	SSticker.mode.queen_choise_is_made = !SSticker.mode.queen_choise_is_made
+	message_admins("[key_name(usr)] [SSticker.mode.queen_choise_is_made ? "disabled" : "enabled"] queen ability to minor")
+
 #undef CHOISE_HIJACK
 #undef CHOISE_MINOR
