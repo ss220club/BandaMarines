@@ -1016,9 +1016,6 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 				var/atom/item = new typepath(container)
 				content_names += item.name
 
-			if(package.contains.len && ispath(package.contains[1], /obj/item/folded_tent) && package.contains[1] != /obj/item/folded_tent)
-				package.buyable = FALSE
-
 			// Manifest generation
 			var/obj/item/paper/manifest/slip
 			if(!package.contraband) // I'm sorry boss i misplaced it...
