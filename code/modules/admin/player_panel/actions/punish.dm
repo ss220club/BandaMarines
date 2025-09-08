@@ -80,6 +80,9 @@
 	if(!player)
 		return
 
+	user.admin_holder?.stickyban("add", list("ckey" = target.ckey)) // SS220 BANDASTATION BANS
+
+	/* SS220 BANDASTATION BANS
 	var/persistent_ip = target.client?.address || player.last_known_ip
 	var/persistent_cid = target.client?.computer_id || player.last_known_cid
 
@@ -97,6 +100,7 @@
 
 	if(target.client)
 		qdel(target.client)
+	SS220 BANDASTATION BANS */
 
 /datum/player_action/mute
 	action_tag = "mob_mute"

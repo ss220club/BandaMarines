@@ -56,6 +56,10 @@
 	default = 25
 	min_val = 1
 
+/datum/config_entry/number/max_concurrent_queries
+	default = 25
+	min_val = 1
+
 /// The exe for mariadbd.exe.
 /// Shouldn't really be set on production servers, primarily for EZDB.
 /datum/config_entry/string/db_daemon

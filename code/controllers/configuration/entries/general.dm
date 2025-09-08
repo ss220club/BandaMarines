@@ -428,6 +428,9 @@ The default value assumes youtube-dl is in your system PATH
 
 /datum/config_entry/flag/panic_bunker
 
+/// Flag for requiring players who would otherwise be denied access by the panic bunker to complete a written interview
+/datum/config_entry/flag/panic_bunker_interview
+
 
 /datum/config_entry/string/panic_server_name
 
