@@ -217,8 +217,12 @@
 		castes_available += declent_ru_initial(current_caste.caste_type, NOMINATIVE, current_caste.caste_type)
 
 	var/castes = castes_available.Join(", ")
+
 	xeno_message(SPAN_XENOANNOUNCE("Улей теперь достаточно силён, чтобы поддержать: [castes]"))
 	xeno_maptext("Улей теперь может поддерживать: [castes]", "Улей укрепляется")
+	if(check_hunter_games())
+		return // Stops evo screeches from happening during hunter games, leave evoing on in case of admins etc.
+
 	evo_screech()
 
 /datum/hive_status/proc/evo_screech()
