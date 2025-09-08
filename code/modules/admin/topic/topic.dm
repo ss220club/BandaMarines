@@ -163,6 +163,11 @@
 
 	/////////////////////////////////////new ban stuff
 
+	else if(href_list["stickyban"])
+		stickyban(href_list["stickyban"],href_list)
+
+	/*
+	SS220 BANDASTATION BANS
 	else if(href_list["sticky"])
 		if(href_list["view_all_ckeys"])
 			var/list/datum/view_record/stickyban_matched_ckey/all_ckeys = DB_VIEW(/datum/view_record/stickyban_matched_ckey,
@@ -338,6 +343,8 @@
 
 					message_admins("[key_name_admin(owner)] has removed an IP ([picked]) from stickyban [sticky.identifier].")
 					important_message_external("[owner] has removed an IP ([picked]) from stickyban '[sticky.identifier].", "IP Removed from Stickyban")
+	SS220 BANDASTATION BANS
+	*/
 
 	else if(href_list["warn"])
 		usr.client.warn(href_list["warn"])

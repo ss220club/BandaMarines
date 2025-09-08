@@ -13,6 +13,8 @@
 ///Length of held key buffer
 #define HELD_KEY_BUFFER_LENGTH 15
 
+#define STICKYBAN_DB_CACHE_TIME (10 SECONDS) // SS220 BANDASTATION SQL
+
 ///This note is used by staff for disciplinary record keeping.
 #define NOTE_ADMIN 1
 ///This note is used by staff for positive record keeping.

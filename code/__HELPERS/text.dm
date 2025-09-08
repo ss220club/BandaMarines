@@ -10,6 +10,13 @@
 
 
 /*
+ * SQL sanitization
+ */
+
+/proc/format_table_name(table as text)
+	return CONFIG_GET(string/feedback_tableprefix) + table
+
+/*
  * Text sanitization
  */
 
