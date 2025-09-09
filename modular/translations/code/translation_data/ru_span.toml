@@ -640,6 +640,7 @@
 "$1 has no pulse..." = "У $1 нет пульса..."
 "$1 has no pulse!" = "У $1 нет пульса!"
 "$1 has no pulse and $2 soul has departed..." = "У $1 нет пульса и $2 душа покинула тело..."
+"$1 has $2 sticking out of flesh!" = "У $1 торчит $2 в теле!"
 
 # Mark: code/modules/cm_marines/overwatch.dm
 

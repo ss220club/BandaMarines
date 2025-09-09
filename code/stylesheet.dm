@@ -105,6 +105,7 @@ h1.alert, h2.alert {color: #000000;}
 .xenoboldnotice {color: #2a623d; font-weight: bold;}
 .boldnotice {color: #000099; font-weight: bold;}
 .warning {color: #ff0000; font-style: italic;}
+.warningbold {color: #ff0000; font-style: bold;}
 .xenowarning {color: #2a623d; font-style: italic;}
 .xenominorwarning {color: #2a623d; font-weight: bold; font-style: italic;}
 .danger {color: #ff0000; font-weight: bold;}

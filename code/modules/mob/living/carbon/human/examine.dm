@@ -467,8 +467,8 @@
 	if(chestburst == 2)
 		msg += SPAN_WARNING(SPAN_BOLD("У [t_theirs] огромное отверстие в груди!\n"))
 
-	for(var/obj/implant in get_visible_implants())
-		msg += SPAN_WARNING(SPAN_BOLD("[capitalize(implant.declent_ru(NOMINATIVE))] торчит из-под [t_his] кожи!</b>\n"))
+	for(var/implant in get_visible_implants())
+		msg += SPAN_WARNING_BOLD("$1 has $2 sticking out of flesh!", list(t_theirs, lowertext(implant))) + "\n" // SS220 EDIT ADDICTION
 
 	if(hasHUD(user,"security") || (observer && observer.HUD_toggled["Security HUD"]))
 		var/perpref

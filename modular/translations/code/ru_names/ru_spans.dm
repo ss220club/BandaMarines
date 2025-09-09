@@ -27,10 +27,6 @@ VAR_PRIVATE/const/MAX_CACHE_SIZE = 100000
 
 	if(!length(attr))
 		return translated_str
-	else
-		#ifdef RU_SPAN_DEBUG
-		log_file << "HIT str: [str]"
-		#endif
 
 	var/cache_key = generate_cache_key(translated_str, with_span_args, attr)
 	if(!isnull(GLOB.ru_span_cache[cache_key]))

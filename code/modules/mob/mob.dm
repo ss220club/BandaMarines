@@ -758,13 +758,9 @@ note dizziness decrements automatically in the mob's Life() proc.
 
 /mob/proc/get_visible_implants(class = 0)
 	var/list/visible_implants = list()
-	world.log = file("[GLOB.log_directory]/YANK.log")
-	world.log << "embedded: [json_encode(embedded)]"
 	for(var/obj/item/O in embedded)
 		if(O.w_class > class)
-			world.log << "declent_ru: [json_encode(O.declent_ru())]"
-			world.log << "declent_ru: [json_encode(declent_ru_initial(O.name))]"
-			visible_implants += O.declent_ru() // SS220 EDIT ADDICTION
+			visible_implants[capitalize(O.declent_ru())] = O // SS220 EDIT ADDICTION
 	return visible_implants
 
 /mob/proc/yank_out_object()
@@ -801,8 +797,11 @@ note dizziness decrements automatically in the mob's Life() proc.
 		remove_verb(src, /mob/proc/yank_out_object)
 		return
 
-	var/obj/item/selection = tgui_input_list(usr, "Что вы хотите вытащить?", "Посторонние объекты", valid_objects) // SS220 EDIT ADDICTION
-	var/selection_ru = selection.declent_ru() // SS220 EDIT ADDICTION
+	var/embedded_choice = tgui_input_list(usr, "Что вы хотите вытащить?", "Посторонние объекты", valid_objects) // SS220 EDIT ADDICTION
+	if(!embedded_choice) // SS220 EDIT ADDICTION
+		return // SS220 EDIT ADDICTION
+	var/obj/item/selection = valid_objects[embedded_choice] // SS220 EDIT ADDICTION
+	var/selection_ru = lowertext(embedded_choice) // SS220 EDIT ADDICTION
 	if(self)
 		if(get_active_hand())
 			to_chat(src, SPAN_WARNING("You need an empty hand for this!"))
