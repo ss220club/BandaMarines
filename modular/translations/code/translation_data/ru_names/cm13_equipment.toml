@@ -1234,6 +1234,15 @@ instrumental = "листом металла"
 prepositional = "листе металла"
 gender = "male"
 
+["metal rod"]
+nominative = "металлические прутья"
+genitive = "металлических прутьев"
+dative = "металлическим прутьям"
+accusative = "металлические прутья"
+instrumental = "металлическими прутьями"
+prepositional = "металлических прутьях"
+gender = "plural"
+
 ["plasteel sheets (x40)"] # Unique Vendor Name
 nominative = "ящик для инженерного оборудования (листы пластали x 40)"
 

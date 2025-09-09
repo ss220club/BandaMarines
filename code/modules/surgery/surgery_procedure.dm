@@ -121,6 +121,6 @@
 			if(next_step)
 				to_chat(user, SPAN_WARNING("You can't $2 with $1, or $3.", list(tool.declent_ru(ACCUSATIVE), current_step.desc, next_step.desc), with_span_args=TRUE)) // SS220 EDIT ADDICTION
 			else
-				to_chat(user, SPAN_WARNING("You can't $2 with $1.", list(tool.declent_ru(ACCUSATIVE)), current_step.desc, with_span_args=TRUE)) // SS220 EDIT ADDICTION
+				to_chat(user, SPAN_WARNING("You can't $2 with $1.", list(tool.declent_ru(ACCUSATIVE), current_step.desc), with_span_args=TRUE)) // SS220 EDIT ADDICTION
 			return FALSE //...but you might be wanting to use it on them anyway. If on help intent, the help-intent safety will apply for this attack.
 	return FALSE

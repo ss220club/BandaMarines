@@ -100,9 +100,9 @@
 	if(!anes_tank)
 		to_chat(user, SPAN_WARNING("There is no anesthetic tank connected to the table, load one first."))
 		return
-	H.visible_message(SPAN_NOTICE("[user] begins to connect [H] to the anesthetic system."))
+	H.visible_message(SPAN_NOTICE("$1 begins to connect $2 to the anesthetic system.", list(user, H))) // SS220 EDIT ADDICTION
 	if(!do_after(user, 25, INTERRUPT_NO_NEEDHAND, BUSY_ICON_FRIENDLY))
-		to_chat(user, SPAN_NOTICE("You stop placing the mask on [H]'s face."))
+		to_chat(user, SPAN_NOTICE("You stop placing the mask on $1's face.", list(H)))
 		return
 
 	if(H.buckled || buckled_mob || H.loc != loc)
@@ -135,7 +135,7 @@
 		return
 	var/mob/living/carbon/human/H = target
 	H.internal = anes_tank
-	H.visible_message(SPAN_NOTICE("[user] fits the mask over [H]'s face and turns on the anesthetic."))
+	H.visible_message(SPAN_NOTICE("$1 fits the mask over $2's face and turns on the anesthetic.", list(user, H))) // SS220 EDIT ADDICTION
 	to_chat(H, SPAN_INFO("You begin to feel sleepy."))
 	H.setDir(SOUTH)
 	start_processing()
@@ -151,9 +151,9 @@
 		H.drop_inv_item_on_ground(M)
 		qdel(M)
 		if(ishuman(user)) //Checks for whether a xeno is unbuckling from the operating table
-			H.visible_message(SPAN_NOTICE("[user] turns off the anesthetic and removes the mask from [H]."))
+			H.visible_message(SPAN_NOTICE("$1 turns off the anesthetic and removes the mask from $2.", list(user, H))) // SS220 EDIT ADDICTION
 		else
-			H.visible_message(SPAN_WARNING("The anesthesia mask is ripped away from [H]'s face!"))
+			H.visible_message(SPAN_WARNING("The anesthesia mask is ripped away from $1's face!", list(H))) // SS220 EDIT ADDICTION
 		stop_processing()
 		patient_exam = 0
 		..()

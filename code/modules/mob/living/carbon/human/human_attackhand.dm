@@ -43,12 +43,12 @@
 			if(attacking_mob.action_busy)
 				return 1
 
-			attacking_mob.visible_message(SPAN_NOTICE("<b>[attacking_mob]</b> starts performing <b>CPR</b> on <b>[src]</b>."),
-				SPAN_HELPFUL("You start <b>performing CPR</b> on <b>$1</b>.", list(src))) // SS220 EDIT ADDICTION
+			var/is_male = attacking_mob.gender == MALE ? "" : "а" // SS220 EDUT ADDICTION
+			attacking_mob.visible_message(SPAN_NOTICE("<b>$1$2</b> starts performing <b>CPR</b> on <b>$3</b>.", list(attacking_mob, is_male, src)), // SS220 EDIT ADDICTION
+				SPAN_HELPFUL("You start performing <b>CPR</b> on <b>$1</b>.", list(src))) // SS220 EDIT ADDICTION
 
 			cpr_attempt_timer = world.time + HUMAN_STRIP_DELAY * attacking_mob.get_skill_duration_multiplier(SKILL_MEDICAL)
 			if(do_after(attacking_mob, HUMAN_STRIP_DELAY * attacking_mob.get_skill_duration_multiplier(SKILL_MEDICAL), INTERRUPT_ALL, BUSY_ICON_GENERIC, src, INTERRUPT_MOVED, BUSY_ICON_MEDICAL))
-				var/is_male = attacking_mob.gender == MALE ? "" : "а" // SS220 EDUT ADDICTION
 				if(stat != DEAD)
 					var/suff = min(getOxyLoss(), 10) //Pre-merge level, less healing, more prevention of dieing.
 					apply_damage(-suff, OXY)

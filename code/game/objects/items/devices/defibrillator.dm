@@ -202,7 +202,7 @@
 		return FALSE
 
 	//job knowledge requirement
-	var/ru_name_fluff_tool = declent_ru_initial(fluff_tool, NOMINATIVE, fluff_tool) // SS220 EDIT ADDICTION
+	//var/ru_name_fluff_tool = declent_ru_initial(fluff_tool, NOMINATIVE, fluff_tool) // SS220 EDIT ADDICTION
 	var/ru_name = declent_ru() // SS220 EDIT ADDICTION
 	if(user.skills && !noskill)
 		if(!skillcheck(user, skill_to_check, skill_level))

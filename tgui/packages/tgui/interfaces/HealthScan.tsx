@@ -498,7 +498,7 @@ const ScannerChems = (props) => {
     <Section title={ui_mode ? null : 'Вещества в организме'}>
       {has_unknown_chemicals ? (
         <NoticeBox warning color="grey">
-          Unknown reagents detected.
+          Регистрируются неизвестные вещества.
         </NoticeBox>
       ) : null}
       <Stack vertical>

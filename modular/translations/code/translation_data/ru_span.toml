@@ -230,6 +230,15 @@
 
 "You connect $1 to $2." = "Вы подключили $1 к $2"
 "You remove $1 to $2." = "Вы вытащили $1 из $2"
+"The patient needs to be on the table first." = "Для начала операции пациент должен быть на столе."
+"The patient has no head." = "У пациента нет головы."
+"There is no anesthetic tank connected to the table, load one first." = "К столу не подключён анестезийный баллон, подключите его."
+"$1 begins to connect $2 to the anesthetic system." = "$1 начинает подключать $2 к системе анестезии."
+"$1 fits the mask over $2's face and turns on the anesthetic." = "$1 одевает маску на лицо $2 и включает анестезию."
+"You stop placing the mask on $1's face." = "Вы перестаете одевать маску на лицо $1."
+"You begin to feel sleepy." = "Вы чувствуете себя сонливо."
+"$1 turns off the anesthetic and removes the mask from $2." = "$1 выключает анестезию и снимает маску с $2."
+"The anesthesia mask is ripped away from $1's face!" = "Маска срывается с $1!"
 
 # Mark: code/modules/surgery/surgery_steps.dm
 
@@ -534,15 +543,15 @@
 "$1 bending your $2." = "$1 вправляет вашу $2."
 "$1 bending $2's $3." = "$1 вправляет $3 $2."
 "$1 is empty!" = "$1 закончился!"
-"You need metal rods in your offhand to mend $1's $2 with $3." = "В вашей свободной руке должны быть металлические прутья, чтобы починить $2 $1, используя $3."
-"You need more metal rods to mend $1's $2 with $3." = "В вашей свободной руке должно быть больше металлических прутьев, чтобы починить $2 $1, используя $3."
+"You need metal rods in your offhand to mend $1's $2 with $3." = "У вас должны быть металлические прутья, чтобы починить $2 $1, используя $3."
+"You need more metal rods to mend $1's $2 with $3." = "У вас должно быть больше металлических прутьев, чтобы починить $2 $1, используя $3."
 "You begin treating $1's $2 with $3." = "Вы начинаете лечить $2 $1, используя $3."
 "$1 begins to treat your $2 with $3." = "$1 начинает лечить вашу $2, используя $3."
 "$1 begins to treat $2's $3 with $4." = "$1 начинает лечить $3 $2, используя $4."
-"You can feel something stings inside your $1!!" = "Вы чувствуете, как что-то жжёт внутри вашей $1!"
-"You begin screwing a reinforcing plate to $1's $2 with $3." = "Вы начинаете укреплять кости $2 $1, используя $3."
-"$1 begins to screw a reinforcing plate to your $2 with $3." = "$1 начинает укреплять кости вашей $2, используя $3."
-"$1 begins to screw a reinforcing plate to $2's $3 with $4." = "$1 начинает укреплять кости $3 $2, используя $4."
+"You can feel something stings inside your $1!" = "Вы чувствуете, как что-то жжёт внутри вашей $1!"
+"You begin screwing a reinforcing plate to $1's $2 with $3." = "Вы начинаете устанавливать металлическую пластину на $2 $1, используя $3."
+"$1 begins to screw a reinforcing plate to your $2 with $3." = "$1 начинает устанавливать металлическую пластину на вашу $2, используя $3."
+"$1 begins to screw a reinforcing plate to $2's $3 with $4." = "$1 начинает устанавливать металлическую пластину на $3 $2, используя $4."
 "You can feel something grinding in your $1!" = "Вы чувствуете, как что-то загручивается внутрь вашей $1!"
 "You mend $1's $2." = "Вы вылечили $2 $1."
 "$1 mends your $2." = "$1 вылечил вашу $2."
@@ -558,6 +567,22 @@
 "$1 haphazardly repairs $2's $3 like some kind of mad carpenter." = "$1 наспех укрепляет кости $3 $2, словно какой-то сумасшедший цирюльник."
 "You've repaired the damage done by prying it open, but it's still fractured." = "Вы починили повреждения, нанесённые при извлечении органов, однако кость всё ещё сломана."
 "The metal rods used on $1's $2 fall loose from their." = "Металлические прутья, использованные на $2 $1, отваливаются."
+
+# Mark: code/modules/surgery/bones.dm
+
+"You start applying $1's $2 with $3." = "Вы начинаете лечить $2 $1, используя $3."
+"$1 starts to apply to your $2 with $3." = "$1 начинает лечить вашу $2, используя $3."
+"$1 starts to apply $2's $3 with $4." = "$1 начинает лечить $3 $2, используя $4."
+"You begin driving reinforcing pins into $1's $2 with $3." = "Вы начинаете вкручивать металлические штифты в $2 $1, используя $3."
+"$1 begins to drive reinforcing pins into your $2 with $3." = "$1 начинает вкручивать металлические штифты в вашу $2, используя $3."
+"$1 begins to drive reinforcing pins into $2's $3 with $4." = "$1 начинает вкручивать металлические штифты в $3 $2, используя $4."
+"You start applying to the broken bones in $1's $2 with $3." = "Вы начинаете лечить сломанные кости на $2 $1, используя $3."
+"$1 starts to apply to the broken bones in your $2 with $3." = "$1 начинает лечить сломанные кости на вашей $2, используя $3."
+"$1 starts to apply to the broken bones in $2's $3 with $4." = "$1 начинает лечить сломанные кости на $3 $2, используя $4."
+"You begin driving reinforcing pins into the broken bones in $1's $2 with $3." = "Вы начинаете вкручивать металлические штифты в сломанные кости на $2 $1, используя $3."
+"$1 begins to drive reinforcing pins into the broken bones in your $2 with $3." = "$1 начинает вкручивать металлические штифты в сломанные кости на вашей $2, используя $3."
+"$1 begins to drive reinforcing pins into the broken bones in $2's $3 with $4." = "$1 начинает вкручивать металлические штифты в сломанные кости на $3 $2, используя $4."
+
 
 # Mark: code/modules/surgery/tendwounds.dm
 
@@ -696,3 +721,27 @@
 "You can't repair a robotic limb with $1!" = "You can't repair a robotic limb with $1!"
 "Your $2 has been cut open and needs to be closed surgically!" = "Your $2 has been cut open and needs to be closed surgically!"
 "$1's $2 has been cut open and needs to be closed surgically!" = "$1's $2 has been cut open and needs to be closed surgically!"
+
+# Mark: code/game/objects/items/reagent_containers/syringes.dm
+
+"This syringe is broken!" = "Шприц сломался!"
+
+# Mark: code/modules/mob/living/living_healthscan.dm
+
+"Use a blowtorch or nanopaste to repair the damaged areas." = "Используйте паяльник или нанопасту для устранения повреждений."
+"Use a cable coil or nanopaste to repair the burned areas." = "Используйте связку проводов или нанопасту для устранения ожогов."
+"Recommend that the patient does not move - embedded objects." = "Пациенту рекомендуется не двигаться из-за gосторонних предметов в его теле."
+"Reboot the synthetic with a reset key!" = "Используйте ключ перезапуска синтетика!"
+"Apply shock via defibrillator!" = "Используйте дефибриллятор!"
+"Use trauma kits or surgical line to repair the lacerated areas." = "Используйте травма киты или хирургическую нить для устранения повреждений."
+"Use burn kits or synth-graft to repair the burned areas." = "Используйте бёрн киты или синтетический лоскут для устранения ожогов."
+"Administer food or recommend that the patient eat." = "Пациенту рекомендуется приём пищи."
+"Administer a single dose of epinephrine." = "Пациенту рекомендуется доза вещества «Epinephrine»."
+"Administer a single dose of dylovene." = "Пациенту рекомендуется доза вещества «Dylovene»."
+"Administer a single dose of peridaxon." = "Пациенту рекомендуется доза вещества «Peridaxon»."
+"Administer a single dose of dexalin." = "Пациенту рекомендуется доза вещества «Dexalin»."
+"Administer a single dose of kelotane." = "Пациенту рекомендуется доза вещества «Kelotane»."
+"Administer a single dose of bicaridine." = "Пациенту рекомендуется доза вещества «Bicaridine»."
+"Administer a single dose of inaprovaline." = "Пациенту рекомендуется доза вещества «Inaprovaline»."
+"Administer a single dose of tramadol." = "Пациенту рекомендуется доза вещества «Tramadol»."
+"Do NOT administer tramadol." = "Пациенту НЕ рекомендуется доза вещества «Tramadol»."

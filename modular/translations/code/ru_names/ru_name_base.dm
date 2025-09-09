@@ -134,8 +134,7 @@ GLOBAL_LIST_EMPTY(ru_names)
 * RU_NAMES_LIST_INIT("jaws of life", "челюсти жизни", "челюстей жизни", "челюстям жизни", "челюсти жизни", "челюстями жизни", "челюстях жизни")
 */
 /datum/proc/declent_ru(declent = NOMINATIVE)
-	world.log = file("[GLOB.log_directory]/TEST_DATUM.log")
-	world.log << json_encode(src)
+	CRASH("Unimplemented proc/declent_ru() was used")
 
 /atom/declent_ru(declent)
 	. = name

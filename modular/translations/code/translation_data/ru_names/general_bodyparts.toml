@@ -106,6 +106,24 @@ instrumental = "грудной клеткой"
 prepositional = "грудной клетке"
 gender = "female"
 
+["ribs"]
+nominative = "рёбра"
+genitive = "рёбер"
+dative = "рёбрам"
+accusative = "рёбра"
+instrumental = "рёбрами"
+prepositional = "рёбрах"
+gender = "plural"
+
+["pelvis"]
+nominative = "таз"
+genitive = "таза"
+dative = "тазу"
+accusative = "таз"
+instrumental = "тазом"
+prepositional = "тазе"
+gender = "male"
+
 ["skull"]
 nominative = "череп"
 genitive = "черепа"

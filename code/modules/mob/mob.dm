@@ -758,8 +758,12 @@ note dizziness decrements automatically in the mob's Life() proc.
 
 /mob/proc/get_visible_implants(class = 0)
 	var/list/visible_implants = list()
+	world.log = file("[GLOB.log_directory]/YANK.log")
+	world.log << "embedded: [json_encode(embedded)]"
 	for(var/obj/item/O in embedded)
 		if(O.w_class > class)
+			world.log << "declent_ru: [json_encode(O.declent_ru())]"
+			world.log << "declent_ru: [json_encode(declent_ru_initial(O.name))]"
 			visible_implants += O.declent_ru() // SS220 EDIT ADDICTION
 	return visible_implants
 
@@ -788,9 +792,6 @@ note dizziness decrements automatically in the mob's Life() proc.
 		self = TRUE // Removing object from yourself.
 
 	var/list/valid_objects = get_visible_implants()
-
-	world.log = file("[GLOB.log_directory]/YANK.log")
-	world.log << "valid_objects: [json_encode(valid_objects)]"
 
 	if(!valid_objects)
 		if(self)
