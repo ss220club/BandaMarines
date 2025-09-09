@@ -1000,6 +1000,7 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 
 	for(var/datum/supply_order/order in shoppinglist)
 		for(var/datum/supply_packs/package as anything in order.objects)
+			// SS220 ADD START - Tents
 			if(package.contains.len && ispath(package.contains[1], /obj/item/folded_tent) && package.contains[1] != /obj/item/folded_tent)
 				if(!package.buyable)
 					var/tent_name = capitalize(replacetext(package.containername, "Упакованная ", ""))
@@ -1011,6 +1012,7 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 
 			if(package.contains.len && ispath(package.contains[1], /obj/item/folded_tent) && package.contains[1] != /obj/item/folded_tent)
 				package.buyable = FALSE
+			// SS220 ADD END - Tents
 			// No space! Forget buying, it's no use.
 			if(!length(clear_turfs))
 				shoppinglist.Cut()

@@ -11,3 +11,13 @@
 
 /datum/modpack/tents/post_initialize()
 	. = ..()
+
+/*
+Изменено:
+code/game/supplyshuttle.dm
+code/modules/tents/templates.dm
+
+Добавлено:
+
+modular/supply_packs/code/tent_packs.dm
+*/
