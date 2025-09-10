@@ -146,7 +146,7 @@
 		xeno.visible_message(SPAN_DANGER("[xeno] starts to restrain [pulled]!"),
 		SPAN_DANGER("We start restraining [pulled]!"), null, 5)
 		if(HAS_TRAIT(xeno, TRAIT_CLOAKED)) //cloaked don't show the visible message, so we gotta work around
-			to_chat(pulled, FONT_SIZE_HUGE(SPAN_DANGER("[xeno] is trying to restrain you!")))
+			to_chat(pulled, FONT_SIZE_HUGE(SPAN_DANGER("$1 is trying to restrain you!", list(xeno)))) // SS220 EDIT ADDICTION
 		if(do_after(xeno, 50, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE))
 			if((isxeno(pulled.loc) && !xeno.hauled_mob) || HAS_TRAIT(pulled, TRAIT_HAULED))
 				to_chat(xeno, SPAN_WARNING("Someone already took \the [pulled]."))

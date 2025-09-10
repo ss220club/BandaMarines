@@ -879,7 +879,7 @@
 		playsound(src, 'sound/voice/pred_deathlaugh.ogg', 100, 0, 17, status = 0)
 
 	playsound(src, 'sound/effects/pred_countdown.ogg', 100, 0, 17, status = 0)
-	message_admins(FONT_SIZE_XL("<A href='byond://?_src_=admin_holder;[HrefToken(forceGlobal = TRUE)];admincancelpredsd=1;bracer=\ref[src];victim=\ref[victim]'>CLICK TO CANCEL THIS PRED SD</a>"))
+	message_admins(FONT_SIZE_XL("<A href=$1>CLICK TO CANCEL THIS PRED SD</a>", list("byond://?_src_=admin_holder;[HrefToken(forceGlobal = TRUE)];admincancelpredsd=1;bracer=\ref[src];victim=\ref[victim]"))) // SS220 EDIT ADDICTION
 	do_after(victim, rand(72, 80), INTERRUPT_NONE, BUSY_ICON_HOSTILE)
 
 	T = get_turf(victim)
@@ -960,7 +960,7 @@
 						var/area/A = get_area(boomer)
 						var/turf/T = get_turf(boomer)
 						if(A)
-							message_admins(FONT_SIZE_HUGE("ALERT: [boomer] ([boomer.key]) triggered the predator self-destruct sequence of [victim] ([victim.key]) in [A.name] [ADMIN_JMP(T)]</font>"))
+							message_admins(FONT_SIZE_HUGE("ALERT: $1 ($2) triggered the predator self-destruct sequence of $3 ($4) in $5 $6</font>", list(boomer, boomer.key, victim, victim.key, A.name, ADMIN_JMP(T)))) // SS220 EDIT ADDICTION
 							log_attack("[key_name(boomer)] triggered the predator self-destruct sequence of [victim] ([victim.key]) in [A.name]")
 						if (!bracer.exploding)
 							bracer.explode(victim)
@@ -1017,7 +1017,7 @@
 		to_chat(boomer, SPAN_DANGER("You set the timer. May your journey to the great hunting grounds be swift."))
 		var/area/A = get_area(boomer)
 		var/turf/T = get_turf(boomer)
-		message_admins(FONT_SIZE_HUGE("ALERT: [boomer] ([boomer.key]) triggered their predator self-destruct sequence [A ? "in [A.name]":""] [ADMIN_JMP(T)]"))
+		message_admins(FONT_SIZE_HUGE("ALERT: $1 ($2) triggered their predator self-destruct sequence $3 $4"), list(boomer, boomer.key, A ? "in [A.name]":"", ADMIN_JMP(T))) // SS220 EDIT ADDICTION
 		log_attack("[key_name(boomer)] triggered their predator self-destruct sequence in [A ? "in [A.name]":""]")
 		message_all_yautja("[boomer.real_name] has triggered their bracer's self-destruction sequence.")
 		explode(boomer)
@@ -1074,7 +1074,7 @@
 	var/turf/floor = get_turf(target_youngblood)
 	target_youngblood.death(create_cause_data("Youngblood Termination"), TRUE)
 	message_all_yautja("[user.real_name] has terminated [target_youngblood.real_name] for: '[reason]'.")
-	message_admins(FONT_SIZE_LARGE("ALERT: [user.real_name] ([user.key]) Terminated [target_youngblood.real_name] ([target_youngblood.key]) in [location.name] for: '[reason]' [ADMIN_JMP(floor)]</font>"))
+	message_admins(FONT_SIZE_LARGE("ALERT: $1 ($2) Terminated $3 ($4) in $5 for: '$6' $7</font>", list(user.real_name, user.key, target_youngblood.real_name, target_youngblood.key, location.name, reason, ADMIN_JMP(floor)))) // SS220 EDIT ADDICTION
 
 #define YAUTJA_CREATE_CRYSTAL_COOLDOWN "yautja_create_crystal_cooldown"
 

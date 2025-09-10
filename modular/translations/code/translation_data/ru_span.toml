@@ -92,6 +92,8 @@
 "Access Denied" = "Доступ запрещён."
 "cries out in pain!" = "кричит от боли!"
 "You are unable to equip that." = "Вы не можете надеть это."
+"YOU ARE HOSTILE to the USCM" = "Вы ВРАЖДЕБНЫ к ККМП!"
+"YOU ARE FRIENDLY to the USCM" = "Вы ДРУЖЕЛЮБНЫ к ККМП!"
 
 # Mark: code/game/machinery/cryopod.dm
 
@@ -340,6 +342,8 @@
 
 "$1 has grabbed $2 aggressively!" = "$1 сильно хватает $2."
 "$1 holds $2 by the neck and starts choking them!" = "$1 хватает $2 за шею и душит!"
+"$1 is trying to restrain you!" = "$1 пытается вас связать!"
+
 
 # Mark: code/modules/mob/living/carbon/human/species/species.dm
 
@@ -670,11 +674,77 @@
 # Mark: code/modules/mob/living/carbon/xenomorph/strains/xeno_strain.dm
 
 "We have already chosen a strain." = "Вы уже изменили свой подвид."
+"Fearless you are born, fearless you serve, fearless you die. This one will become my Vanguard" = "Бесстрашным мы рождаемся, бесстрашным мы служим, бесстрашным мы умраем. Это станет моим Авангардом."
+"You forfeit all of your acid-based abilities and some health for some extra speed and a rechargable shield that can block one attack. Use your Pierce from up to three paces away to stab through talls, while stabbing through two or more will completely recharge your shield. Use your charge to plow through enemies and use it again to unleash a powerful AoE slash that reaches up to three paces. You also have a Cleave ability, amplified by your shield, which you can toggle to either immobilize or fling a target away."
+= "Вы отказываетесь от всех кислотных способностей и части здоровья в обмен на повышение скорости передвижения и щит, который может блокировать одну атаку. Используйте вашу способность «Пронзить» с расстояния до трёх клеток, чтобы атаковать противников, при этом попадание по двум и более противникам полностью перезарядит ваш щит. Используйте вашу способность «Рывок», чтобы пробиться через врагов, а затем ещё раз, чтобы сделать мощный удар в области трёх клеток. У вас также есть способность «Разрубить», усиленная вашим щитом, которую вы можете переключать между обездвиживанием или отбрасыванием цели."
+
+"The battlefield is my canvas, this one, my painter. Melt them where they stand." = "Поле боя - мой холст, а мы - кисть. Смешаю их в месте."
+"You trade your ability to bombard, lance, and dump your acid in order to gain some speed and the ability to create acid explosions and restrain enemies within them. With your longer-range vision, set up traps that immobilize your opponents and place acid mines which deal damage to enemies and barricades and reduce the cooldown of your trap deployment for every enemy hit. Finally, hit enemies with your Acid Shotgun ability which adds a stack of insight to empower the next trap you place once you reach a maximum of ten insight. A point-blank shot or a shot on a stunned target will instantly apply ten stacks."
+= "Вы отказываетесь от способности «Обстрел», «Кислотный кокон» и «Кислотный спрей» в обмен на повышение скорости передвижения и способность создавать кислотные мины, а также удерживать врагов внутри них. Благодаря вашему зрению, вы можете устанавливать ловушки, которые обездвиживают ваших противников, а также размещать кислотные мины, которые нанося урон врагам и баррикадам, уменьшают время восстановления ваших способностей. Наконец, поражайте врагов вашей способностью Кислотное ружьё, которая добавляет заряд прозрения для усиления следующей установленной вами ловушки при достижении максимума в десять зарядов. Выстрел в упор или выстрел по оглушённой цели мгновенно применит десять зарядов."
+
+"An egg is always an adventure; the next one may be different." = "Яйцо - дорога к приключениям, следующее может быть другим."
+"In exchange for your ability to store huggers and place traps, you gain larger plasma stores, strong pheromones, and the ability to lay eggs by using your plasma stores. In addition, you can now carry twelve eggs at once and can place eggs one pace further than normal. You can also place a small number of fragile eggs on normal weeds. These eggs have a lifetime of five minutes while you remain within 14 tiles. Or one minute if you leave this range."
+= "В обмен на вашу способность хранить захватчиков и устанавливать ловушки, вы получаете больший запас плазмы, сильные феромоны и способность откладывать яйца, используя запасы вашей плазмы. Кроме того, вы теперь можете нести двен��дцать яиц одновременно и можете размещать яйца на одну клетку дальше, чем обычно. Вы также можете размещать небольшое количество хрупких яиц на обычных травах. Эти яйца имеют срок жизни в пять минут, пока вы остаетесь в пределах 14 клеток. Или одну минуту, если вы покидаете этот радиус."
+
+"Nothing stops this hive. This one will become both the immovable object and the unstoppable force." = "Ничто не остановит улей. Мы станем либо неподвижны, либо неудержимы."
+"In exchange for your shield, a little bit of your armor and damage, your slowdown resist from turrets, your influence under frenzy pheromones, your stomp no longer knocking down talls, and your ability to lock your direction, you gain a considerable amount of health, some speed, your stomp does extra damage when stomping over a grounded tall, and your charge is now manually-controlled and momentum-based; the further you go, the more damage and speed you will gain until you achieve maximum momentum, indicated by your roar. In addition, your armor is now directional, being the toughest on the front, weaker on the sides, and weakest from the back. In return, you gain an ability to tumble to pass through enemies and avoid enemy fire, and an ability to forcefully move enemies via ramming into them."
+= "В обмен на ваш щит, часть вашей брони и урона, вашу устойчивость к замедлению от турелей, ваше влияние под действием феромонов ярости, то, что ваш топот больше не сбивает высоких противников с ног, и вашу способность фиксировать направление, вы получаете значительное количество здоровья, немного скорости, ваш топот наносит дополнительный урон при топоте по поверженному высокому противнику, а ваша способность Рывок теперь управляется вручную и основана на инерции: чем дальше вы едете, тем больше урона и скорости вы получите, пока не достигнете максимальной инерции, что обозначается вашим ревом. Кроме того, ваша броня теперь направленная: самая прочная спереди, слабее по бокам и самая слабая сзади. Взамен вы получаете способность кувыркаться, чтобы проходить сквозь врагов и избегать вражеского огня, а также способность силой перемещать врагов, врезаясь в них."
+
+"This one, like my will, is indomitable. It will become my steel crest against all that defy me." = "Мы - сама неотвратимость, которая пройдётся стальным гребнем по всем, кто осмелится бросить вызов."
+"You trade your tail sweep and a small amount of your slash damage for slightly increased headbutt knockback and damage and the ability to slowly move and headbutt while fortified. Along with this, you gain a unique ability to accumulate damage, and use it to recover a slight amount of health and refresh your tail slam."
+= "Вы отказываетесь от вашей способности Взмах хвостом и небольшой части вашего урона от рубящих атак в обмен на слегка увеличенную отдачу и урон от удара головой, а также способность медленно двигаться и наносить удары головой, будучи укреплённым. Вместе с этим вы получаете уникальную способность накапливать урон и использовать его, чтобы восстановить небольшое количество здоровья и обновить вашу способность Удар хвостом."
+
+"The glory of gardening: hands in the weeds, head in the dark, heart with resin." = "Слава садоводству: руки в траве, голова в темноте, сердце со смолой."
+"You trade your choice of resin secretions, your corrosive acid, and your ability to transfer plasma for a tiny bit of extra health regeneration on weeds and several new abilities, including the ability to plant hardier weeds, temporarily reinforce structures with your plasma, and to plant up to six potent resin fruits for your sisters by secreting your vital fluids at the cost of a bit of your health for each fruit you shape. Resin Surge can force your fruits to mature rapidly. As shaper of fruits, you can harvest and feed any fruit 50% faster."
+= "Вы отказываетесь от вашей способности выбора смоляных выделений, вашей коррозионной кислоты и вашей способности передавать плазму в обмен на небольшое увеличение регенерации здоровья на травах и несколько новых способностей, включая способность сажать более крепкие травы, временно укреплять структуры вашей плазмой и сажать до шести мощных смоляных плодов для ваших сестер, выделяя ваши жизненные жидкости ценой небольшой части вашего здоровья за каждый сформированный плод. Смоляной всплеск может заставить ваши плоды быстро созревать. Как создатель плодов, вы можете собирать и кормить любой плод на 50% быстрее."
+
+"Divided we fall, united we win. We live for the hive, we die for the hive." = "Разделённые мы падаем, объединённые мы побеждаем. Мы живём для улья, мы умираем для улья."
+"You lose your choice of resin secretions, a chunk of your slash damage, and you will experience a slighty-increased difficulty in tackling hosts in exchange for strong pheromones, the ability to use a bit of your health to plant a maximum of three lesser resin fruits, and the ability to heal your sisters' wounds by secreting a regenerative resin salve by using your vital fluids and a fifth of your plasma. Be wary, this is a dangerous process; overexert yourself and you may exhaust yourself to unconsciousness, or die..."
+= "Вы отказываетесь от вашей способности выбора смоляных выделений, части вашего урона от рубящих атак и вы будете испытывать небольшие трудности при захвате хозяев в обмен на сильные феромоны, способность использовать часть вашего здоровья, чтобы посадить максимум три менее мощных смоляных плода, и способность лечить раны ваших сестер, выделяя регенеративную смоляную мазь, используя ваши жизненные жидкости и пятую часть вашей плазмы. Будьте осторожны, это опасный процесс; переутомитесь, и вы можете истощиться до потери сознания или умереть..."
+
+"No need to hide when you can see the danger." = "Нет нужды прятаться, когда мы видим опасность."
+"You lose your ability to hide in exchange to see further. This enables you to stalk your host from a distance and wait for the perfect oppertunity to strike."
+= "Вы отказываетесь от вашей способности прятаться в обмен на возможность видеть дальше. Это позволяет вам выслеживать вашего хозяина издалека и ждать идеального момента, чтобы нанести удар."
+
+"You are hive's designer, while you no longer build with your own claws, your influence shapes the very foundation of the swarm, allowing it to expand and adapt beyond limits." = "Мы - творцы улья, и хотя мы больше не используем когти, наше влияние формирует фундамент роя, позволяя ему расширяться и адаптироваться."
+"You give up direct resin building, lose some plasma and health, but gain stronger pheromones and longer vision. You can place up to 36 design nodes: optimized nodes boost building by 50%, flexible nodes reduce plasma cost by 50%, and construct nodes allow anyone to donate plasma to build weedbound resin walls or doors, even on surfaces where we can't normally build. Some castes like hivelord, carrier, burrower and queen can stimulate construct nodes to make thick weedbound variant including plasma fruit. You can mark nodes as walls or doors, remotely thicken structures, control doors, and remove nodes. Using Greater Resin Surge turns all design nodes into weaker reflective walls for temporary hive defense. Your tackle is slightly stronger, causing longer knockdowns."
+= "Вы отказываетесь от прямого строительства смолой, теряете часть плазмы и здоровья, но получаете более сильные феромоны и дальнее зрение. Вы можете разместить до 36 узлов проектирования: оптимизированные узлы увеличивают строительство на 50%, гибкие узлы уменьшают стоимость плазмы на 50%, а строительные узлы позволяют любому жертвовать плазму для строительства смоляных стен или дверей, даже на поверхностях, где мы обычно не можем строить. Некоторые касты, такие как владыка улья, носитель, роющий и королева, могут стимулировать строительные узлы для создания толстых смоляных вариантов, включая плазменные плоды. Вы можете отмечать узлы как стены или двери, удалённо утолщать структуры, управлять дверями и удалять узлы. Использование Большого смоляного всплеска превращает все узлы проектирования в более слабые отражающие стены для временной защиты улья. Ваш захват немного сильнее, вызывая более длительные оглушения."
+
+"We let the resin guide us. It whispers, so listen closely." = "Мы позволяем смоле вести нас. Она шепчет, так что слушайте внимательно."
+"You lose your corrosive acid, your ability to secrete thick resin, your ability to reinforce resin secretions, sacrifice your ability to plant weed nodes outside of weeds, and you sacrifice a fifth of your plasma reserves to enhance your vision and gain a stronger connection to the resin. You can now remotely place resin secretions including weed nodes up to a distance of twelve paces!"
+= "Вы отказываетесь от вашей коррозионной кислоты, вашей способности выделять густую смолу, вашей способности укреплять смоляные выделения, жертвуете вашей способностью сажать узлы травы вне трав и жертвуете пятой частью ваших запасов плазмы, чтобы улучшить ваше зрение и получить более сильную связь со смолой. Вы теперь можете удалённо размещать смоляные выделения, включая узлы травы, на расстоянии до двенадцати клеток!"
+
+"Show no mercy! Slaughter them all!" = "Не проявляйте милосердия! Да здраствует, РЕЗНЯ!"
+"You lose all of your abilities and you forefeit a chunk of your health and damage in exchange for a large amount of armor, a little bit of movement speed, increased attack speed, and brand new abilities that make you an assassin. Rush on your opponent to disorient them and Flurry to unleash a forward cleave that can hit and slow three talls and heal you for every tall you hit. Use your special AoE Tail Jab to knock talls away, doing more damage with direct hits and even more damage and a stun if they smack into walls. Finally, execute unconscious talls with a headbite to heal your wounds."
+= "Вы отказываетесь от всех ваших способностей и жертвуете частью вашего здоровья и урона в обмен на большое количество брони, немного скорости, увеличенную скорость атаки и совершенно новые способности, которые делают вас убийцей. Резко набегайте на вашего противника, чтобы дезориентировать его, и используйте Вашу способность Быстрая атака, чтобы выпустить вперёд рубящий удар, который может поразить и замедлить трёх высоких противников и исцелить вас за каждого поражённого высокого противника. Используйте вашу особую АоЕ способность Удар хвостом, чтобы оттолкнуть высоких противников, нанося больше урона при прямых попаданиях и ещё больше урона и оглушение, если они врежутся в стены. Наконец, казните без сознания высоких противников укусом головы, чтобы исцелить ваши раны."
+
+"A performance fit for a Queen, this one will become my instrument of death." = "Зрелище, достойное королевы, станет моим инструментом смерти."
+"You lose all of your acid-based abilities and a small amount of your armor in exchange for increased movement speed, evasion, and unparalleled agility that gives you an ability to move even more quickly, dodge bullets, and phase through enemies and allies alike. By slashing enemies, you temporarily increase your movement speed and you also you apply a tag that changes how your two new tail abilities function. By tagging enemies, you will make Impale hit twice instead of once and make Tail Trip knock enemies down instead of stunning them."
+= "Вы отказываетесь от всех ваших кислотных способностей и небольшой части вашей брони в обмен на увеличенную скорость, уклонение и непревзойдённую ловкость, которая даёт вам способность двигаться ещё быстрее, уклоняться от пуль и проходить сквозь врагов и союзников. Рубя врагов, вы временно увеличиваете вашу скорость и также наносите метку, которая изменяет работу ваших двух новых способностей хвоста. Наносить метки врагам заставляет вашу способность Пронзание попадать дважды вместо одного раза и заставляет вашу способность Спотыкание сбивать врагов с ног вместо оглушения."
+
+"My reach is endless, this one will pull down the heavens." = "Мой охват безграничен, этот снесёт небеса."
+"You abandon all of your acid-based abilities, your dash, some speed, and a bit of your slash damage for some resistance against small explosives, slashes that deal extra damage to prone targets, and a powerful hook ability that pulls up to three enemies towards you, slows them, and has varying effects depending on how many enemies you pull. You also gain a powerful punch that reduces your other abilities' cooldowns, pierces through armor, and does double damage in addition to rooting slowed targets. You can also knock enemies back and slow them with your new Tail Lash and quickly grab a tall, slow it, and pull it towards you with your unique Tail Stab."
+= "Вы отказываетесь от всех ваших кислотных способностей, вашего рывка, части скорости и части вашего урона от рубящих атак в обмен на некоторую устойчивость к мелким взрывам, рубящие атаки, которые наносят дополнительный урон поверженным целям, и мощную способность крюка, которая притягивает до трёх врагов к вам, замедляет их и имеет различные эффекты в зависимости от того, сколько врагов вы притягиваете. Вы также получаете мощный удар к��лаком, который уменьшает время восстановления ваших других способностей, пробивает броню и наносит двойной урон в дополнение к укоренению замедленных целей. Вы также можете отбрасывать врагов и замедлять их вашей новой способностью Взмах хвостом и быстро захватывать высокого противника, замедлять его и притягивать к себе вашей уникальной способностью Удар хвостом."
+
+"This one will deny her sisters' deaths until they earn it. Fight or be forgotten." = "Мы не позволим умереть своим сёстрам, пока они не заслужат этого. Боритесь или падите в забытие."
+"You trade your ranged abilities and acid to gain the ability to emit strong pheromones and buff other Xenomorphs, giving them extra armor. An ability that knocksdown people in a 2 by 3 infront of you while also throwing back grenades. You get an ability that rejuvenates everyone in a certain range depending on your rage. You also trade your tailstab for an extinguisher, while it doesn't do damage it can put out both enemies and allies. This can be used to extuingish people on fire to help capture them."
+= "Вы отказываетесь от ваших дальнобойных способностей и кислоты в обмен на способность излучать сильные феромоны и усиливать других ксеноморфов, давая им дополнительную броню. Способность, которая сбивает с ног людей в области 2 на 3 перед вами, одновременно отбрасывая гранаты. Вы получаете способность омолаживать всех в определённом радиусе в зависимости от вашей ярости. Вы также отказываетесь от вашей способности Удар хвостом в обмен на огнетушитель, который не наносит урон, но может тушить как врагов, так и союзников. Это можно использовать, чтобы потушить горящих людей и помочь захватить их."
+
+"Unbridled fury fills this one. You will become an extension of my rage." = "Неукротимая ярость наполняет рой. Мы станем её продолжением."
+"You lose your empower, charge, and scissor cut, decrease your health, and sacrifice a bit of your influence under frenzy pheromones to increase your movement speed, slightly increase your armor, and gain a new set of abilities that make you a terrifying melee monster. By slashing, you heal yourself and gain a stack of rage that increases your armor, movement speed, attack speed, and your heals per slash, to a maximum of five rage. Use your new Appehend ability to increase your movement speed and apply a slow on the next target you slash and use your Clothesline ability to fling your target to heal yourself, even more-so if you have a rage stack that will be used up. Finally, use your Eviscerate to unleash a devastating windmill attack that heals you for every enemy you hit after an immobilizing wind-up."
+= "Вы отказываетесь от вашей способности Усиление, Рывок и Быстрая атака, уменьшаете ваше здоровье и жертвуете частью вашего влияния под действием феромонов ярости в обмен на увеличение вашей скорости, небольшое увеличение вашей брони и получение нового набора способностей, которые делают вас ужасающим монстром ближнего боя. Рубя врагов, вы исцеляетесь и получаете заряд ярости, который увеличивает вашу броню, скорость, скорость атаки и ваше исцеление за рубящие атаки, до максимума в пять зарядов. Используйте вашу новую способность Захват, чтобы увеличить вашу скорость и нанести замедление следующей цели, которую вы поразите рубящей атакой, и используйте вашу способность Удар с разворота, чтобы оттолкнуть вашу цель и исцелить себя, особенно если у вас есть заряд ярости, который будет использован. Наконец, используйте вашу способность Потрошение, чтобы выпустить разрушительный круговой удар после подготовки, который исцелит вас за каждого поражённого врага."
+
+"You will pierce them a million times, show them what it feels like. This one will become my shield." = "Мы пронзим их, покажем им, ощущения мириады игл. Мы станем щитом роя."
+"You lose your empower, charge, scissor cut, and some slash damage in exchange for more explosive resistance. Your resistance scales with your shard count and at 50% grants you immunity to some explosive stuns. You accumulate shards over time and when taking damage. You can use these shards to power three new abilities: Spike Shield which gives you a temporary shield that spits bone shards around you when damaged; Fire Spikes which launches spikes at your target to slow them and deal damage when they move; and Spike Shed which launches all your spikes, grants a temporary speed boost, and disables shard generation for thirty seconds."
+= "Вы отказываетесь от вашей способности Усиление, Рывок, Быстрая атака и части вашего урона от рубящих атак в обмен на повышенную устойчивость к взрывам. Ваша устойчивость увеличивается с количеством ваших осколков, и при достижении 50% вы становитесь невосприимчивы к некоторым оглушениям от взрывов. Вы накапливаете осколки со временем и при получении урона. Вы можете использовать эти осколки для питания трёх новых способностей: Костяной щит, который даёт вам временный щит, который выплёскивает костяные осколки вокруг вас при получении урона; Бросок шипов, который запускает шипы в вашу цель, чтобы замедлить её и нанести урон при её движени��; и Сброс шипов, который выпускает все ваши шипы, даёт временное ускорение и отключает генерацию осколков на тридцать секунд."
+
+"This one will be the last thing they hear. A martyr." = "Мы станем последним, что они услышат, истязав их."
+"At the cost of a little bit of your speed and all of your current abilities, you gain a considerable amount of health, some armor, and a new organ that fills with volatile acid over time. When outside of combat, only a limited amount of acid will generate. Your Tail Stab and slashes apply acid to living lifeforms that slowly burns them and fills your acid glands. You also gain Corrosive Acid equivalent to that of a boiler that you can deploy more quickly than any other caste, at the cost of a chunk of your acid reserves with each use. Finally, after a twenty second windup, you can force your body to explode, covering everything near you with acid. The more acid you have stored, the more devastating the explosion will be, but during those twenty seconds before detonation you are slowed and give off several warning signals which give talls an opportunity to end you before you can detonate. If you successfully explode, you will reincarnate as a larva again!"
+= "Ценой небольшой части вашей скорости и всех ваших текущих способностей, вы получаете значительное количество здоровья, немного брони и новый орган, который со временем наполняется летучей кислотой. Когда вы вне боя, генерируется только ограниченное количество кислоты. Ваша способность Удар хвостом и рубящие атаки наносят кислоту живым организмам, которая медленно сжигает их и наполняет ваши кислотные железы. Вы также получаете Коррозионную кислоту, эквивалентную котлу, которую вы можете использовать быстрее, чем любая другая каста, ценой части ваших запасов кислоты за каждое использование. Наконец, после двадцатисекундной подготовки, вы можете заставить ваше тело взорваться, покрывая всё вокруг кислотой. Чем больше кислоты у вас накоплено, тем разрушительнее будет взрыв, но в эти двадцать секунд перед детонацией вы замедлены и издаёте несколько предупредительных сигналов, которые дают высоким противникам возможность уничтожить вас до того, как вы сможете взорваться. Если вам удастся взорваться, вы снова воплотитесь в личинку!"
 
 # Mark: code/modules/mob/living/carbon/xenomorph/hive_status.dm
 
 "The Hive is now strong enough to support: $1" = "Улей теперь достаточно силён, чтобы поддержать: $1"
-"A performance fit for a Queen, this one will become my instrument of death." = "Зрелище, достойное королевы, станет моим инструментом смерти."
 
 # Mark: admin
 
@@ -746,3 +816,256 @@
 "Administer a single dose of inaprovaline." = "Пациенту рекомендуется доза вещества «Inaprovaline»."
 "Administer a single dose of tramadol." = "Пациенту рекомендуется доза вещества «Tramadol»."
 "Do NOT administer tramadol." = "Пациенту НЕ рекомендуется доза вещества «Tramadol»."
+
+# Mark: code/modules/mentor/mentorhelp.dm
+
+"This mentorhelp thread is closed!" = "Этот тикет в «MentorHelp» закрыт!"
+"<span class='prefix'>$1 from $2:</span> <span class='message'>$3</span><br>" = "<span class='prefix'>$1 от $2:</span> <span class='message'>$3</span><br>"
+"<span class='message'>$1</span>" = "<span class='message'>$1</span>"
+"<b>NOTICE:</b> <font style='color:red;'>$1</font> has marked your thread and is preparing to respond." = "<b>УВЕДОМЛЕНИЕ:</b> <font style='color:red;'>$1</font> начал отвечать на ваш тикет."
+"<b>NOTICE:</b> <font style='color:red;'>$1</font> has unmarked your thread and is no longer responding to it." = "<b>УВЕДОМЛЕНИЕ:</b> <font style='color:red;'>$1</font> перестал отвечать на ваш тикет."
+"<b>NOTICE:</b> Another mentor is handling this thread!" = "<b>УВЕДОМЛЕНИЕ:</b> другой ментор уже ответил на этот тикет!"
+"You have closed your mentorhelp thread." = "Вы закрыли тикет в «MentorHelp»."
+"Your mentorhelp thread has been closed." = "Ваш тикет в «MentorHelp» был закрыт."
+"<b>NOTICE:</b> A mentor is already handling this thread!" = "<b>УВЕДОМЛЕНИЕ:</b> Ментор начал отвечать на этот тикет!"
+"- MentorHelp marked as $1! -" = "Ментор отметил вопрос как: «$1»!"
+"<span class='prefix'>MentorHelp:</span> Message to $1:" = "<span class='prefix'>MentorHelp:</span> сообщение $1:"
+"<span class='prefix'>MENTOR LOG:</span> <span class='message'><font style='color:red;'>$1</font> has marked <font style='color:red;'>$2</font>'s mentorhelp.</span>" = "<span class='prefix'>MENTOR LOG:</span> <span class='message'><font style='color:red;'>$1</font> начал отвечать на тикет <font style='color:red;'>$2</font> в «MentorHelp».</span>"
+"<span class='prefix'>MENTOR LOG:</span> <span class='message'><font style='color:red;'>$1</font> has unmarked <font style='color:red;'><a href=$2>$3</a></font>'s mentorhelp.</span>" = "<span class='prefix'>MENTOR LOG:</span> <span class='message'><font style='color:red;'>$1</font> перестал отвечать на тикет <font style='color:red;'><a href=$2>$3</a></font> в «MentorHelp».</span>"
+"<span class='prefix'>MENTOR LOG:</span> <span class='message'><font style='color:red;'>$1</font>'s mentorhelp thread has been closed due to the author disconnecting.</span>" = "<span class='prefix'>MENTOR LOG:</span> <span class='message'><font style='color:red;'>$1</font> тикет в «MentorHelp» был закрыт, в связи с потерей соединения с пользователем.</span>"
+"<span class='prefix'>MENTOR LOG:</span> <span class='message'><font style='color:red;'>$1</font> closed their mentorhelp thread.</span>" = "<span class='prefix'>MENTOR LOG:</span> <span class='message'><font style='color:red;'>$1</font> закрыл свой тикет в «MentorHelp».</span>"
+"<span class='prefix'>MENTOR LOG:</span> <span class='message'><font style='color:red;'>$1</font>'s mentorhelp thread has been closed.</span>" = "<span class='prefix'>MENTOR LOG:</span> <span class='message'><font style='color:red;'>$1</font> тикет в «MentorHelp» был закрыт.</span>"
+
+# Mark: code/game/jobs/job/civilians/other/survivors.dm
+
+"<h2>You are a survivor!</h2>" = "<h2>Вы - выживший!</h2>"
+"You are fully aware of the xenomorph threat and are able to use this knowledge as you see fit." = "Вы полностью осознаете угрозу ксеноморфов и можете использовать эти знания по своему усмотрению."
+"You are NOT aware of the marines or their intentions. " = "Вы НЕ знаете о морпехах и их намерениях."
+"You are HOSTILE to the USCM!" = "Вы ВРАЖДЕБНЫ к ККМП!"
+"You are HOSTILE to the USCM, but NOT to other survivors!" = "Вы ВРАЖДЕБНЫ к ККМП, но НЕ к другим выжившим!"
+"You are NON-HOSTILE to the USCM!" = "Вы НЕ ВРАЖДЕБНЫ к ККМП!"
+
+# Mark: code/game/jobs/job/marine/squads.dm
+
+"You were assigned to $1. Report to your Fireteam Leader ASAP." = "Вы были назначены в $1. Немедленно доложитесь своему командиру группы."
+"You were assigned to $1." = "Вы были назначены в $1."
+"$1 $2 was assigned to your fireteam." = "$1 $2 был назначен в вашу группу."
+"$1 $2 was unassigned from your fireteam." = "$1 $2 был отстранён от вашей группы."
+"You were unassigned from $1." = "Вы были отстранены от $1."
+"You were assigned as $1 Team Leader." = "Вы были назначены командиром $1."
+"You were unassigned as $1 Team Leader." = "Вы были отстранены от должности командира $1."
+"You set $1's status as Missing In Action." = "Вы установили статус $1 как пропавший без вести»."
+"You were marked as Missing In Action by Squad Leader." = "Вы были отмечены как пропавший без вести командиром отряда."
+"You set $1's status as Killed In Action. If they were Team Leader or in fireteam, they were demoted and unassigned." = "Вы установили статус $1 как погибший в бою. Если это был командир отряда или группы, он был понижен в звании и снят с должности."
+"You were marked as Killed In Action by Squad Leader." = "Вы были отмечены как погибший в бою командиром отряда."
+"You're no longer the $1 Leader for $2!" = "Вы больше не лидер $1 для $2!"
+
+# Mark: code/game/objects/items/explosives/plastic.dm
+
+"$1 is trying to plant $2 on you!" = "$1 пытается установить $2 на вас!"
+"$1 plants $2 on you!" = "$1 устанавливает $2 на вас!"
+
+# Mark: code/modules/admin/player_panel/actions/punish.dm
+
+"Warning: Your name has been reset by $1." = "Внимание: Ваше имя было сброшено $1."
+"Warning: Your name has been reset by an admin." = "Внимание: Ваше имя было сброшено администратором."
+"Warning: You were banned from using human names by $1." = "Внимание: Вам запретили использовать человеческие имена $1."
+
+# Mark: code/modules/client/client_procs.dm
+
+"Your version of BYOND is blacklisted." = "Ваша версия BYOND находится в чёрном списке."
+"BYOND build $1 ($2.$3) has been blacklisted for the following reason: $4." = "Версия BYOND $1 ($2.$3) была занесена чёрный список по причине: $4"
+"Please download a new version of BYOND. If $1 is the latest (which it shouldn't be), you can go to <a href=$2>BYOND's website</a> to download other versions." = "Пожалуйста установите новую версию BYOND. Для загрузки последних версий BYOND посетите <a href=$2>официальный сайт</a> продукта"
+"You will now be automatically disconnected. Have a CM day." = "Вы будете автоматически отключены от сервера. Хорошего дня."
+"<b>Your version of BYOND is too old:</b>" = "<b>Ваша версия BYOND устарела:</b>"
+
+
+# Mark: code/modules/cm_marines/orbital_cannon.dm
+
+"ALERT: $1 fired an orbital bombardment in '$2' for squad '$3' landing at ($4,$5,$6)" = "ВНИМАНИЕ: $1 вызвал орбитальный обстрел в '$2' для отряда '$3', приземление в ($4,$5,$6)"
+"<A href=$1>CLICK TO CANCEL THIS OB</a>" = "<A href=$1>НАЖМИТЕ, ЧТОБЫ ОТМЕНИТЬ ОБСТРЕЛ</a>"
+
+# Mark: code/modules/cm_preds/thrall_procs.dm
+
+"ALERT: $1 ($2) triggered their thrall's self-destruct sequence $3 $4" = "ВНИМАНИЕ: $1 ($2) активировал последовательность самоуничтожения своего прислужника $3 $4"
+
+# Mark: code/modules/cm_preds/yaut_bracers.dm
+
+"ALERT: $1 ($2) triggered the predator self-destruct sequence of $3 ($4) in $5 $6</font>" = "ВНИМАНИЕ: $1 ($2) активировал последовательность самоуничтожения хищника $3 ($4) в $5 $6</font>"
+"ALERT: $1 ($2) triggered their predator self-destruct sequence $3 $4" = "ВНИМАНИЕ: $1 ($2) активировал последовательность самоуничтожения своего хищника $3 $4"
+"<A href=$1>CLICK TO CANCEL THIS PRED SD</a>" = "<A href=$1>НАЖМИТЕ, ЧТОБЫ ОТМЕНИТЬ САМОУНИЧТОЖЕНИЕ ХИЩНИКА</a>"
+"ALERT: $1 ($2) Terminated $3 ($4) in $5 for: '$6' $7</font>" = "ВНИМАНИЕ: $1 ($2) уничтожил $3 ($4) в $5 по причине: '$6' $7"
+
+# Mark: code/modules/cm_preds/yaut_bracers.dm
+
+"ALERT: $1 ($2) spawned $3 (hunting grounds)" = "ВНИМАНИЕ: $1 ($2) заспавнил $3 (охотничьи угодья)."
+"ALERT: $1 ($2) triggered $3 inside the hunting grounds" = "ВНИМАНИЕ: $1 ($2) активировал $3 внутри охотничьих угодий."
+"ALERT: $1 ($2) has called $3 (Youngblood ERT)." = "ВНИМАНИЕ: $1 ($2) отменил $3 (Youngblood ERT)."
+
+# Mark: code/game/gamemodes/cm_initialize.dm
+
+"$1 joined as a $2." = "$1 присоединился как $2."
+
+# Mark: code/datums/emergency_calls/emergency_call.dm
+
+"<br>$1. &gt; <a href=$2><b>Join Response Team</b></a> &lt; </span>" = "<br>$1. &gt; <a href=$2><b>Присоединиться к команде реагирования</b></a> &lt; </span>"
+"You cannot join if you have Ghosted recently. Click the link in chat, or use the verb in the ghost tab to join.</span><br>" = "Вы не можете присоединиться, если недавно были в режиме призрака. Нажмите на ссылку в чате или используйте команду во вкладке «Ghost», чтобы присоединиться.</span><br>"
+
+# Mark: code/datums/entities/player.dm
+
+"You have been noted by $1." = "Вас отметил $1."
+"The note is : $1" = "Заметка: $1"
+"If you believe this was filed in error or misplaced, make a staff report at <a href=$1><b>The CM Forums</b></a>" = "Если вы считаете, что это было сделано по ошибке или неуместно, создайте отчёт для администрации на <a href=$1><b>Форуме CM</b></a>"
+"You can also click the name of the staff member noting you to PM them." = "Вы также можете нажать на имя сотрудника, чтобы отправить ему личное сообщение."
+
+# Mark: code/game/gamemodes/game_mode.dm
+
+"<b>Roundstart logout report<br><br>" = "<b>Отчёт о выходе во время старта раунда<br><br>"
+
+# Mark: code/game/objects/items/devices/binoculars.dm
+
+"The rangefinder reads: LONGITUDE $1, LATITUDE $2, HEIGHT $3." = "Показатели дальномера: ДОЛГОТА $1, ШИРОТА $2, ВЫСОТА $3"
+"SIMPLIFIED COORDINATES OF TARGET. LONGITUDE $1. LATITUDE $2." = "УПРОЩЁННЫЕ КООРДИНАТЫ ЦЕЛИ. ДОЛГОТА $1. ШИРОТА $2"
+
+# Mark: code/game/verbs/ooc.dm
+
+"The current map is $1" = "Текущая карта: $1"
+
+# Mark: code/modules/admin/admin.dm
+
+"<span class='admin'><span class='prefix'>MENTOR ALERT:</span> <span class='message'>$1</span></span>" = "<span class='admin'><span class='prefix'>MENTOR ALERT:</span> <span class='message'>$1</span></span>"
+
+# Mark: code/modules/admin/verbs/randomverbs.dm
+
+"$1 has disabled explosive antigrief." = "$1 отключил систему защиты от гриферства."
+"$1 has fully enabled explosive antigrief for all players." = "$1 включил систему защиты от гриферства."
+"$1 has enabled explosive antigrief for new players (less than 10 total human hours)." = "$1 включил систему защиты от гриферства для новых игроков (менее 10 часов)."
+"Error! $1 attempted to toggle explosive antigrief but the selected value was $2. Setting it to enabled." = "Ошибка! $1 пытался переключить систему защиту от гриферства, но выбранное значение было «$2». Устанавлено значение «Включено»."
+
+# Mark: code/modules/clothing/gloves/miscellaneous.dm
+
+"KNOCKOUT!" = "НОКАУТ"
+
+# Mark: code/modules/mob/living/carbon/human/species/zombie.dm
+
+"Your body has risen! (Look for 'Re-enter Corpse' in Ghost verbs, or <a href=$1>click here!</a>)" = "Вы восстали! (Откройте вкладку «Ghost» и выберите «Re-enter corpse» или <a href=$1>нажмите здесь!</a>)"
+"You've been beheaded! Your body will no longer rise." = "Вы были обезглавлены! Ваше тело больше не может восстать"
+
+# Mark: code/game/objects/structures/stool_bed_chair_nest/xeno_nest.dm
+
+"You have been freed from your nest and may go back to your body! (Look for 'Re-enter Corpse' in Ghost verbs, or <a href=$1>click here</a>!)" = "Вы были освобождены из вашего гнезда и можете вернуться в своё тело! (Откройте вкладку «Ghost» и выберите «Re-enter corpse» или <a href=$1>нажмите здесь!</a>)"
+
+# Mark: code/modules/mob/living/carbon/xenomorph/abilities/queen/queen_powers.dm
+
+"The $1 has banished you from the hive! Other xenomorphs may now attack you freely, but your link to the hivemind remains, preventing you from harming other sisters." = "Королева $1 изгнала тебя из улья! Теперь другие ксеноморфы могут свободно нападать на тебя, но твоя связь с коллективным разумом улья остаётся, не позволяя тебе причинять вред другим сёстрам"
+"The $1 has readmitted you into the hive." = "Королева $1 приняла вас обратно в улей"
+
+# Mark: code/modules/shuttles/marine_ferry.dm
+
+"The dropship is about to impact $1 $2" = "Корабль-носитель вот-вот столкнется с $1 $2"
+
+# Mark: code/modules/tgchat/to_chat.dm
+
+"<b>ALERT:</b> $1" = "<b>ВНИМАНИЕ:</b> $1"
+
+# Mark: code/game/objects/structures/blocker.dm
+
+"<b>ALERT:</b> $1 has escaped from the hunting grounds!" = "<b>ВНИМАНИЕ:</b> $1 сбежал из охотничих угодий!"
+
+# Mark: code/datums/emergency_calls/cryo_marines.dm
+
+"<b>ALERT:</b> Some cryomarines were not taken, use the Join As Freed Mob verb to take one of them." = "<b>ВНИМАНИЕ:</b> некоторые криомарины ещё свободны, используйте команду «Join As Freed Mob», чтобы занять одного из них."
+
+# Mark: code/datums/emergency_calls/deathsquad.dm
+
+"You are a Marine Raider Team Leader, better than all the rest." = "Вы комотряда-рейдер, лучший, чем все остальные."
+"You are an elite Marine Raider Operative, the best of the best." = "Вы комгруппы-рейдер, лучший из лучших."
+
+# Mark: code/datums/emergency_calls/upp.dm
+
+"Glory to Podpolkovnik Ganbaatar." = "Слава подполковнику Ганбаатару."
+"Glory to the Smoldering Sons." = "Слава Сынам Тлена."
+"Glory to the UPP." = "Слава СПН."
+
+# Mark: code/modules/client/preferences.dm
+
+"You are banned from xeno name picking." = "Вам запрещено выбирать роль «Ксено»"
+"Invalid Xeno Prefix. Your Prefix can only be up to 3 letters long." = "Недопустимый префикс. Ваш префикс может состоять только из 3 букв."
+"You need to play $1 more hours to unlock xeno three letter prefix." = "Вам нужно сыграть ещё $1 часов, чтобы разблокировать смену префикса."
+"You need to play $1 more hours to unlock xeno postfix." = "Вам нужно сыграть ещё $1 часов, чтобы разблокировать смену постфикса."
+"You need to play $1 more hours to unlock double letter xeno postfix." = "Вам нужно сыграть ещё $1 часов, чтобы разблокировать двухбуквенный постфикс."
+"You can't use three letter prefix with any postfix." = "Нельзя использовать трёхбуквенный префикс с настраиваемым постфиксом."
+"Invalid Xeno Postfix. Your Postfix can only be up to 2 letters long." = "Недопустимый постфикс. Ваш постфикс может состоять только из 2 букв."
+
+# Mark: code/modules/mob/living/carbon/human/human.dm
+
+"<font color='red'>You can't assign K.I.A. marines to fireteams.</font>" = "<font color='red'>Вы не можете назначать погибших в бою морпехов в группы.</font>"
+
+# Mark: code/game/machinery/telecomms/presets.dm
+
+"Corruption cooldown: $1 seconds." = "Время восстановления после повреждения: $1 секунд."
+
+# Mark: code/modules/mob/living/carbon/xenomorph/say.dm
+
+"Hivemind, Leader $1$2 $3, <span class='normal'>'$4'</span>" = "Разум улья, лидер $1$2 $3, <span class='normal'>'$4'</span>"
+"Hivemind, $1$2 $3, <span class='normal'>'$4'</span>" = "Разум улья, $1$2 $3, <span class='normal'>'$4'</span>"
+
+# Mark: code/modules/vehicles/arc/arc.dm
+
+"$1 can be crawled under once destroyed." = "Можно проползти под $1, когда он разрушен."
+"$1 can be crawled under by <b>dragging our sprite</b> to it." = "Можно проползти под $1, <b>перетащив спрайт</b> на него."
+"We can't go under $1 until it is destroyed!" = "Мы не можем проползти под $1, пока он не разрушен!"
+"The path under $1 is obstructed!" = "Путь под $1 заблокирован!"
+"We begin to crawl under $1..." = "Мы начинаем ползти под $1..."
+"We stop crawling under $1." = "Мы перестаем ползти под $1."
+"We crawl to the other side of $1." = "Мы проползаем на другую сторону $1."
+
+# Mark: code/modules/vehicles/tank/tank.dm
+
+"We can't jump over $1 until it is destroyed!" = "Мы не можем перепрыгнуть через $1, пока он не разрушен!"
+"The path over $1 is obstructed!" = "Путь над $1 заблокирован!"
+"We begin to jump over $1..." = "Мы начинаем перепрыгивать через $1..."
+"We stop jumping over $1." = "Мы перестаем перепрыгивать через $1."
+"We jump to the other side of $1." = "Мы перепрыгиваем на другую сторону $1."
+
+# Mark: code/datums/ammo/bullet/sniper.dm
+
+"The feeling of looming danger fades as we sense that another sister has been targeted instead." = "Чувство надвигающейся опасности исчезает, когда мы чувствуем, что была выбрана другая сестра."
+"Two hits! You're starting to get a good read on the target's patterns." = "Два попадания! Вы начинаете хорошо понимать паттерны движений цели."
+"Bullseye! You're fully focused on the target. You notice they are starting to change their patterns." = "В яблочко! Вы полностью сосредоточены на цели. Вы замечаете, что они начинают менять свои паттерны движений."
+"Bullseye!" = "В яблочко!"
+
+# Mark: code/modules/mob/living/carbon/human/powers/human_powers.dm
+
+"PsychicWhisper: $1$2 to $3$4, <span class='normal'>'$5'</span>" = "Пси-шёпот: $1$2 обращаясь к $3$4, <span class='normal'>'$5'</span>"
+"You said: '$1' to $2" = "Вы сказали: '$1' обращаясь к $2"
+"You hear the voice of $1 resonate in your head... '$2'" = "Вы слышите голос $1 отражающийся в вашей голове... '$2'"
+"You hear a strange, alien voice in your head... '$1'" = "Вы слышите странный, чужой голос в своей голове... '$1'"
+"You cannot talk while dead." = "Вы не можете говорить, будучи мёртвым."
+"PsychicRadiance: $1$2 to $3, <span class='normal'>'$4'</span>" = "Пси-cияние: $1$2 обращаясь к $3, <span class='normal'>'$4'</span>"
+"There is no one around to hear you..." = "Рядом никого нет, чтобы услышать вас..."
+"You cannot whisper (muted)." = "Вы не можете шептать (вы заглушены)."
+"You must target the xeno you want to give plasma to." = "Вы должны выбрать ксеноморфа, которому хотите передать плазму."
+"We cannot give plasma to yourself!" = "Мы не можем передать плазму себе!"
+"You can only target xenos part of your hive!" = "Вы можете выбрать только ксеноморфов, являющихся частью вашего улья!"
+"This caste cannot be given plasma!" = "Этому касту нельзя передать плазму!"
+"This xeno cannot be given plasma!" = "Этому ксеноморфу нельзя передать плазму!"
+"You transfer some plasma to $1." = "Вы передаёте немного плазмы $1."
+
+# Mark:
+
+
+
+# Mark:
+
+
+
+# Mark:
+
+
+
+# Mark:
+
+
+
+# Mark:

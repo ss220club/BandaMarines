@@ -57,7 +57,7 @@
 #define JOB_CIVILIAN_REPORTER_RU "Гражданский корреспондент"
 #define JOB_MILITARY_REPORTER_RU "Военный корреспондент"
 
-#define JOB_MESS_SERGEANT_RU "Техник-уборщик"
+#define JOB_MESS_SERGEANT_RU "Повар"
 #define JOB_SYNTH_RU "Синтетик"
 #define JOB_SYNTH_K9_RU "Синтетик K9"
 #define JOB_WORKING_JOE_RU "Рабочий Джо"

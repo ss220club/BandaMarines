@@ -605,8 +605,8 @@
 		return
 
 	// Let everyone know they were banished
-	xeno_announcement("По воле [user_xeno.declent_ru(GENITIVE)], [target_xeno.declent_ru(NOMINATIVE)] изгоняется из улья!\n\n[reason]", user_xeno.hivenumber, title=SPAN_ANNOUNCEMENT_HEADER_BLUE("Banishment"))
-	to_chat(target_xeno, FONT_SIZE_LARGE(SPAN_XENOWARNING("The [user_xeno] has banished you from the hive! Other xenomorphs may now attack you freely, but your link to the hivemind remains, preventing you from harming other sisters.")))
+	xeno_announcement("По воле [user_xeno.declent_ru(GENITIVE)], [target_xeno.declent_ru()] изгоняется из улья!\n\n[reason]", user_xeno.hivenumber, title=SPAN_ANNOUNCEMENT_HEADER_BLUE("Banishment"))
+	to_chat(target_xeno, FONT_SIZE_LARGE(SPAN_XENOWARNING("The $1 has banished you from the hive! Other xenomorphs may now attack you freely, but your link to the hivemind remains, preventing you from harming other sisters.", list(user_xeno)))) // SS220 EDIT ADDICTION
 
 	target_xeno.banished = TRUE
 	target_xeno.hud_update_banished()
@@ -667,7 +667,7 @@
 		if(!user_xeno.check_state() || !check_and_use_plasma_owner(plasma_cost))
 			return
 
-		to_chat(target_xeno, FONT_SIZE_LARGE(SPAN_XENOWARNING("The [user_xeno] has readmitted you into the hive.")))
+		to_chat(target_xeno, FONT_SIZE_LARGE(SPAN_XENOWARNING("The $1 has readmitted you into the hive.", list(user_xeno))))
 		target_xeno.banished = FALSE
 		target_xeno.hud_update_banished()
 		target_xeno.lock_evolve = FALSE
@@ -850,30 +850,30 @@
 			continue
 		target_list += possible_target
 
-	var/mob/living/carbon/target_mob = tgui_input_list(usr, "Target", "Send a Psychic Whisper to whom?", target_list, theme="hive_status")
+	var/mob/living/carbon/target_mob = tgui_input_list(usr, "Target", "Что вы хотите сказать?", target_list, theme="hive_status")
 	if(!target_mob)
 		return
 
 	if(!xeno_player.check_state(TRUE))
 		return
 
-	var/whisper = tgui_input_text(xeno_player, "What do you wish to say?", "Psychic Whisper")
+	var/whisper = tgui_input_text(xeno_player, "Что вы хотите сказать?", "Пси-шёпот") // SS220 EDIT ADDICTION
 	if(whisper)
 		log_say("PsychicWhisper: [key_name(xeno_player)]->[target_mob.key] : [whisper] (AREA: [get_area_name(target_mob)])")
 		if(!istype(target_mob, /mob/living/carbon/xenomorph))
-			to_chat(target_mob, SPAN_XENOQUEEN("You hear a strange, alien voice in your head. \"[SPAN_PSYTALK(whisper)]\""))
+			to_chat(target_mob, SPAN_XENOQUEEN("You hear a strange, alien voice in your head... '$1'", list(SPAN_PSYTALK(whisper)))) // SS220 EDIT ADDICTION
 		else
-			to_chat(target_mob, SPAN_XENOQUEEN("You hear the voice of [xeno_player] resonate in your head. \"[SPAN_PSYTALK(whisper)]\""))
-		to_chat(xeno_player, SPAN_XENONOTICE("You said: \"[whisper]\" to [target_mob]"))
+			to_chat(target_mob, SPAN_XENOQUEEN("You hear the voice of $1 resonate in your head... '$2'", list(xeno_player, SPAN_PSYTALK(whisper)))) // SS220 EDIT ADDICTION
+		to_chat(xeno_player, SPAN_XENONOTICE("You said: '$1' to $2", list(whisper, target_mob.real_name))) // SS220 EDIT ADDICTION
 
 		for(var/mob/dead/observer/ghost as anything in GLOB.observer_list)
 			if(!ghost.client || isnewplayer(ghost))
 				continue
 			if(ghost.client.prefs.toggles_chat & CHAT_GHOSTHIVEMIND)
 				var/rendered_message
-				var/xeno_track = "(<a href='byond://?src=\ref[ghost];track=\ref[xeno_player]'>F</a>)"
-				var/target_track = "(<a href='byond://?src=\ref[ghost];track=\ref[target_mob]'>F</a>)"
-				rendered_message = SPAN_XENOLEADER("PsychicWhisper: [xeno_player.real_name][xeno_track] to [target_mob.real_name][target_track], <span class='normal'>'[SPAN_PSYTALK(whisper)]'</span>")
+				var/xeno_track = "(<a href='byond://?src=\ref[ghost];track=\ref[xeno_player]'>посмотреть</a>)" // SS220 EDIT ADDICTION
+				var/target_track = "(<a href='byond://?src=\ref[ghost];track=\ref[target_mob]'>посмотреть</a>)" // SS220 EDIT ADDICTION
+				rendered_message = SPAN_XENOLEADER("PsychicWhisper: $1$2 to $3$4, <span class='normal'>'$5'</span>", list(xeno_player.real_name, xeno_track, target_mob.real_name, target_track, SPAN_PSYTALK(whisper))) // SS220 EDIT ADDICTION
 				ghost.show_message(rendered_message, SHOW_MESSAGE_AUDIBLE)
 
 	return
@@ -890,7 +890,7 @@
 	if(!xeno_player.check_state(TRUE))
 		return
 	var/list/target_list = list()
-	var/whisper = tgui_input_text(xeno_player, "What do you wish to say?", "Psychic Radiance")
+	var/whisper = tgui_input_text(xeno_player, "Что вы хотите сказать?", "Пси-сияние") // SS220 EDIT ADDICTION
 	if(!whisper || !xeno_player.check_state(TRUE))
 		return
 	FOR_DVIEW(var/mob/living/possible_target, 12, xeno_player, HIDE_INVISIBLE_OBSERVER)
@@ -898,14 +898,14 @@
 			continue
 		target_list += possible_target
 		if(!istype(possible_target, /mob/living/carbon/xenomorph))
-			to_chat(possible_target, SPAN_XENOQUEEN("You hear a strange, alien voice in your head. \"[SPAN_PSYTALK(whisper)]\""))
+			to_chat(possible_target, SPAN_XENOQUEEN("You hear a strange, alien voice in your head... '$1'", list(SPAN_PSYTALK(whisper))))
 		else
-			to_chat(possible_target, SPAN_XENOQUEEN("You hear the voice of [xeno_player] resonate in your head. \"[SPAN_PSYTALK(whisper)]\""))
+			to_chat(possible_target, SPAN_XENOQUEEN("You hear the voice of $1 resonate in your head... '$2'", list(xeno_player, SPAN_PSYTALK(whisper)))) // SS220 EDIT ADDICTION
 	FOR_DVIEW_END
 	if(!length(target_list))
 		return
 	var/targetstring = english_list(target_list)
-	to_chat(xeno_player, SPAN_XENONOTICE("You said: \"[whisper]\" to [targetstring]"))
+	to_chat(xeno_player, SPAN_XENONOTICE("You said: '$1' to $2", list(whisper, targetstring))) // SS220 EDIT ADDICTION
 	xeno_player.use_plasma(radiance_plasma_cost)
 	log_say("PsychicRadiance: [key_name(xeno_player)]->[targetstring] : [whisper] (AREA: [get_area_name(xeno_player)])")
 	for (var/mob/dead/observer/ghost as anything in GLOB.observer_list)
@@ -913,8 +913,8 @@
 			continue
 		if(ghost.client.prefs.toggles_chat & CHAT_GHOSTHIVEMIND)
 			var/rendered_message
-			var/xeno_track = "(<a href='byond://?src=\ref[ghost];track=\ref[xeno_player]'>F</a>)"
-			rendered_message = SPAN_XENOLEADER("PsychicRadiance: [xeno_player.real_name][xeno_track] to [targetstring], <span class='normal'>'[SPAN_PSYTALK(whisper)]'</span>")
+			var/xeno_track = "(<a href='byond://?src=\ref[ghost];track=\ref[xeno_player]'>посмотреть</a>)" // SS220 EDIT ADDICTION
+			rendered_message = SPAN_XENOLEADER("PsychicRadiance: $1$2 to $3, <span class='normal'>'$4'</span>", list(xeno_player.real_name, xeno_track, targetstring, SPAN_PSYTALK(whisper))) // SS220 EDIT ADDICTION
 			ghost.show_message(rendered_message, SHOW_MESSAGE_AUDIBLE)
 	return
 
@@ -953,7 +953,7 @@
 	target.gain_plasma(target.plasma_max * 0.75)
 	target.flick_heal_overlay(3 SECONDS, COLOR_CYAN)
 	apply_cooldown()
-	to_chat(X, SPAN_XENONOTICE("You transfer some plasma to [target]."))
+	to_chat(X, SPAN_XENONOTICE("You transfer some plasma to $1.", list(target))) // SS220 EDIT ADDICTION
 	return ..()
 
 /datum/action/xeno_action/onclick/send_thoughts/proc/queen_order()
@@ -991,4 +991,3 @@
 	// We don't test or apply the cooldown here because the proc does it since verbs can activate it too
 	xeno.hive_message()
 	return ..()
-

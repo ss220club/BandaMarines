@@ -98,7 +98,7 @@
 		message["avoidHighlighting"] = avoid_highlighting
 	SSchat.queue(target, message)
 
-/proc/announce_dchat(message, atom/target)
+/proc/announce_dchat(message, atom/target, attr = list())
 	var/jmp_message = message
 	for(var/mob/dead/observer/observer as anything in GLOB.observer_list)
 		if(target)

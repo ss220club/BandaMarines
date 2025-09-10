@@ -724,7 +724,7 @@
 	old_lead.hud_set_squad()
 	old_lead.update_inv_head() //updating marine helmet leader overlays
 	old_lead.update_inv_wear_suit()
-	to_chat(old_lead, FONT_SIZE_BIG(SPAN_BLUE("Вы больше не Лидер [squad_type] для [src]!")))
+	to_chat(old_lead, FONT_SIZE_BIG(SPAN_BLUE("You're no longer the $1 Leader for $2!", list(squad_type, src)))) // SS220 EDIT ADDICTION
 
 //Not a safe proc. Returns null if squads or jobs aren't set up.
 //Mostly used in the marine squad console in marine_consoles.dm.
@@ -759,7 +759,7 @@
 			else
 				SStracking.stop_tracking(H.assigned_fireteam, H) //remove from previous FT group
 				if(H.stat == CONSCIOUS)
-					to_chat(fireteam_leaders[fireteam], FONT_SIZE_BIG(SPAN_BLUE("[H.mind ? H.comm_title : ""] [H] was unassigned from your fireteam.")))
+					to_chat(fireteam_leaders[fireteam], FONT_SIZE_BIG(SPAN_BLUE("$1 $2 was unassigned from your fireteam.", list(H.mind ? H.comm_title : "", H)))) // SS220 EDIT ADDICTION
 		fireteams[H.assigned_fireteam].Remove(H)
 		var/ft = H.assigned_fireteam
 		H.assigned_fireteam = fireteam
@@ -769,12 +769,12 @@
 		if(fireteam_leaders[fireteam]) //if TL exists -> FT group, otherwise -> SL group
 			SStracking.start_tracking(fireteam, H)
 			if(H.stat == CONSCIOUS)
-				to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were assigned to [fireteam]. Report to your Fireteam Leader ASAP.")))
-			to_chat(fireteam_leaders[fireteam], FONT_SIZE_BIG(SPAN_BLUE("[H.mind ? H.comm_title : ""] [H] was assigned to your fireteam.")))
+				to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were assigned to $1. Report to your Fireteam Leader ASAP.", list(fireteam)))) // SS220 EDIT ADDICTION
+			to_chat(fireteam_leaders[fireteam], FONT_SIZE_BIG(SPAN_BLUE("$1 $2 was assigned to your fireteam.", list(H.mind ? H.comm_title : "", H)))) // SS220 EDIT ADDICTION
 		else
 			SStracking.start_tracking(tracking_id, H)
 			if(H.stat == CONSCIOUS)
-				to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were assigned to [fireteam].")))
+				to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were assigned to $1.", list(fireteam)))) // SS220 EDIT ADDICTION
 	else
 		fireteams[fireteam].Add(H)
 		H.assigned_fireteam = fireteam //adding to fireteam
@@ -784,10 +784,10 @@
 			SStracking.stop_tracking(tracking_id, H) //remove from previous FT group
 			SStracking.start_tracking(fireteam, H)
 			if(H.stat == CONSCIOUS)
-				to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were assigned to [fireteam]. Report to your Fireteam Leader ASAP.")))
-			to_chat(fireteam_leaders[fireteam], FONT_SIZE_BIG(SPAN_BLUE("[H.mind ? H.comm_title : ""] [H] was assigned to your fireteam.")))
+				to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were assigned to $1. Report to your Fireteam Leader ASAP.", list(fireteam)))) // SS220 EDIT ADDICTION
+			to_chat(fireteam_leaders[fireteam], FONT_SIZE_BIG(SPAN_BLUE("$1 $2 was assigned to your fireteam.", list(H.mind ? H.comm_title : "", H)))) // SS220 EDIT ADDICTION
 		if(H.stat == CONSCIOUS)
-			to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were assigned to [fireteam].")))
+			to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were assigned to $1.", list(fireteam)))) // SS220 EDIT ADDICTION
 	H.hud_set_squad()
 
 /datum/squad/proc/unassign_fireteam(mob/living/carbon/human/H, upd_ui = TRUE)
@@ -799,9 +799,9 @@
 	if(fireteam_leaders[ft])
 		SStracking.stop_tracking(ft, H) //remove from FT group
 		SStracking.start_tracking(tracking_id, H) //add to SL group
-		to_chat(fireteam_leaders[ft], FONT_SIZE_HUGE(SPAN_BLUE("[H.mind ? H.comm_title : ""] [H] was unassigned from your fireteam.")))
+		to_chat(fireteam_leaders[ft], FONT_SIZE_HUGE(SPAN_BLUE("$1 $2 was unassigned from your fireteam.", list(H.mind ? H.comm_title : "", H))))  // SS220 EDIT ADDICTION
 	if(!H.stat)
-		to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were unassigned from [ft].")))
+		to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were unassigned from $1.", list(ft))))
 	H.hud_set_squad()
 
 /datum/squad/proc/assign_ft_leader(fireteam, mob/living/carbon/human/H, upd_ui = TRUE)
@@ -813,7 +813,7 @@
 	SStracking.set_leader(H.assigned_fireteam, H) //Set FT leader as leader of this group
 	SStracking.start_tracking("marine_sl", H)
 	if(H.stat == CONSCIOUS)
-		to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were assigned as [fireteam] Team Leader.")))
+		to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were assigned as $1 Team Leader.", list(fireteam)))) // SS220 EDIT ADDICTION
 
 /datum/squad/proc/unassign_ft_leader(fireteam, clear_group_id, upd_ui = TRUE)
 	if(!fireteam_leaders[fireteam])
@@ -825,7 +825,7 @@
 		reassign_ft_tracker_group(fireteam, H.assigned_fireteam, tracking_id) //transfer whole FT to SL group
 		update_fireteam(fireteam)
 	if(!H.stat)
-		to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were unassigned as [fireteam] Team Leader.")))
+		to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were unassigned as $1 Team Leader.", list(fireteam))))
 
 /datum/squad/proc/unassign_all_ft_leaders()
 	for(var/team in fireteam_leaders)
@@ -926,7 +926,7 @@
 			target_mob.squad_status = null
 		if("M.I.A.")
 			target_mob.squad_status = choice
-			to_chat(squad_leader, FONT_SIZE_BIG(SPAN_BLUE("You set [target_mob]'s status as Missing In Action.")))
+			to_chat(squad_leader, FONT_SIZE_BIG(SPAN_BLUE("You set $1's status as Missing In Action.", list(target_mob)))) // SS220 EDIT ADDICTION
 			if(target_mob.stat == CONSCIOUS)
 				to_chat(target_mob, FONT_SIZE_HUGE(SPAN_BLUE("You were marked as Missing In Action by Squad Leader.")))
 		if("K.I.A.")
@@ -935,7 +935,7 @@
 				if(fireteam_leaders[target_mob.assigned_fireteam] == target_mob)
 					unassign_ft_leader(target_mob.assigned_fireteam, TRUE, FALSE)
 				unassign_fireteam(target_mob, FALSE)
-			to_chat(squad_leader, FONT_SIZE_BIG(SPAN_BLUE("You set [target_mob]'s status as Killed In Action. If they were Team Leader or in fireteam, they were demoted and unassigned.")))
+			to_chat(squad_leader, FONT_SIZE_BIG(SPAN_BLUE("You set $1's status as Killed In Action. If they were Team Leader or in fireteam, they were demoted and unassigned.", list(target_mob)))) // SS220 EDIT ADDICTION
 			if(target_mob.stat == CONSCIOUS)
 				to_chat(target_mob, FONT_SIZE_HUGE(SPAN_BLUE("You were marked as Killed In Action by Squad Leader.")))
 		else

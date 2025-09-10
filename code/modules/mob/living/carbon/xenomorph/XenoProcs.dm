@@ -41,7 +41,7 @@
 /mob/living/carbon/xenomorph/get_status_tab_items()
 	. = ..()
 
-	. += "Имя: [declent_ru(NOMINATIVE)]"
+	. += "Имя: [declent_ru()]"
 
 	. += ""
 

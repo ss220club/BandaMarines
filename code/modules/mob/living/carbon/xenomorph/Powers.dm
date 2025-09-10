@@ -42,7 +42,7 @@
 			var/turf/closed/wall/resin/wall = target
 
 			if(istype(target, /turf/closed/wall/resin/weak))
-				to_chat(src, SPAN_XENOWARNING("[capitalize(wall.declent_ru(NOMINATIVE))] слишком хлипкая, чтобы ее можно было укрепить."))
+				to_chat(src, SPAN_XENOWARNING("[capitalize(wall.declent_ru())] слишком хлипкая, чтобы ее можно было укрепить."))
 				return SECRETE_RESIN_FAIL
 
 			for(var/datum/effects/xeno_structure_reinforcement/sf in wall.effects_list)
@@ -50,7 +50,7 @@
 				return SECRETE_RESIN_FAIL
 
 			if (wall.hivenumber != hivenumber)
-				to_chat(src, SPAN_XENOWARNING("[capitalize(wall.declent_ru(NOMINATIVE))] не принадлежит вашему улью!"))
+				to_chat(src, SPAN_XENOWARNING("[capitalize(wall.declent_ru())] не принадлежит вашему улью!"))
 				return SECRETE_RESIN_FAIL
 
 			if(wall.type == /turf/closed/wall/resin)
@@ -67,7 +67,7 @@
 		else if(istype(target, /obj/structure/mineral_door/resin))
 			var/obj/structure/mineral_door/resin/door = target
 			if (door.hivenumber != hivenumber)
-				to_chat(src, SPAN_XENOWARNING("[capitalize(door.declent_ru(NOMINATIVE))] не принадлежит вашему улью!"))
+				to_chat(src, SPAN_XENOWARNING("[capitalize(door.declent_ru())] не принадлежит вашему улью!"))
 				return SECRETE_RESIN_FAIL
 
 			for(var/datum/effects/xeno_structure_reinforcement/sf in door.effects_list)
@@ -87,7 +87,7 @@
 		if(thickened)
 			if(message)
 				visible_message(SPAN_XENONOTICE("[capitalize(declent_ru())] извергает густую субстанцию и уплотняет [target.declent_ru(ACCUSATIVE)]."),
-					SPAN_XENONOTICE("Мы извергаем немного смолы и уплотняем [target.declent_ru(NOMINATIVE)], используя [total_resin_cost] плазмы."), null, 5)
+					SPAN_XENONOTICE("Мы извергаем немного смолы и уплотняем [target.declent_ru()], используя [total_resin_cost] плазмы."), null, 5)
 				if(use_plasma)
 					use_plasma(total_resin_cost)
 				playsound(loc, "alien_resin_build", 25)

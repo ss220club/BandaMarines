@@ -216,7 +216,7 @@
 	var/mob/dead/observer/G = target.get_ghost()
 	if(istype(G) && G.client)
 		playsound_client(G.client, 'sound/effects/adminhelp_new.ogg')
-		to_chat(G, SPAN_BOLDNOTICE(FONT_SIZE_LARGE("Someone is trying to revive your body. Return to it if you want to be resurrected! (Look for 'Re-enter Corpse' in Ghost verbs, or <a href=$1>click here!</a>)", list("byond://?src=\ref[G];reentercorpse=1"))))
+		to_chat(G, SPAN_BOLDNOTICE(FONT_SIZE_LARGE("Someone is trying to revive your body. Return to it if you want to be resurrected! (Look for 'Re-enter Corpse' in Ghost verbs, or <a href=$1>click here!</a>)", list("byond://?src=\ref[G];reentercorpse=1")))) // SS220 EDIT ADDICTION
 
 	user.visible_message(SPAN_NOTICE("[user] starts setting up the [fluff_tool] on [target]'s [fluff_target_part]"),
 		SPAN_HELPFUL("You start <b>setting up</b> the [fluff_tool] on <b>[target]</b>'s [fluff_target_part]."))

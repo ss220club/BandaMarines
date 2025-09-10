@@ -85,7 +85,7 @@
 	SPAN_WARNING("You are trying to plant [name] on [target]!"))
 	if(ismob(target))
 		var/mob/M = target
-		to_chat(M, FONT_SIZE_HUGE(SPAN_DANGER("[user] is trying to plant [name] on you!")))
+		to_chat(M, FONT_SIZE_HUGE(SPAN_DANGER("$1 is trying to plant $2 on you!", list(user, name)))) // SS220 EDIT ADDICTION
 
 	if(!do_after(user, deploying_time, INTERRUPT_ALL, BUSY_ICON_HOSTILE, target, INTERRUPT_MOVED, BUSY_ICON_HOSTILE))
 		if(!ismob(target))
@@ -110,7 +110,7 @@
 
 	if(ismob(target))
 		var/mob/M = target
-		to_chat(M, FONT_SIZE_HUGE(SPAN_DANGER("[user] plants [name] on you!")))
+		to_chat(M, FONT_SIZE_HUGE(SPAN_DANGER("$1 plants $2 on you!", list(user, name)))) // SS220 EDIT ADDICTION
 		user.attack_log += "\[[time_stamp()]\] <font color='red'> [key_name(user)] successfully planted [name] on [key_name(target)]</font>"
 		msg_admin_niche("[key_name(user, user.client)] planted [src.name] on [key_name(target)] with [timer] second fuse")
 		log_game("[key_name(user)] planted [src.name] on [key_name(target)] with [timer] second fuse")

@@ -224,7 +224,7 @@ GLOBAL_LIST_EMPTY(all_static_telecomms_towers)
 /obj/structure/machinery/telecomms/relay/preset/tower/mapcomms/get_examine_text(mob/user)
 	. = ..()
 	if(isxeno(user) && !COOLDOWN_FINISHED(src, corruption_delay))
-		. += SPAN_XENO("Corruption cooldown: [(COOLDOWN_TIMELEFT(src, corruption_delay) / (1 SECONDS))] seconds.")
+		. += SPAN_XENO("Corruption cooldown: $1 seconds.", list((COOLDOWN_TIMELEFT(src, corruption_delay) / (1 SECONDS)))) // SS220 EDIT ADDICTION
 
 /obj/structure/machinery/telecomms/relay/preset/tower/mapcomms/attack_hand(mob/user)
 	if(user.action_busy)

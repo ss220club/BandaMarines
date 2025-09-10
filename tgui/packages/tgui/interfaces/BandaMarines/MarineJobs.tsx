@@ -102,7 +102,7 @@ export const JOBS_RU = {
   'Military Correspondent': 'Военный корреспондент',
 
   // Synthetic roles
-  'Mess Technician': 'Техник-уборщик',
+  'Mess Technician': 'Повар',
   Synthetic: 'Синтетик',
   'Synthetic K9': 'Синтетик K9',
   'Working Joe': 'Рабочий Джо',
