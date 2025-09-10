@@ -65,6 +65,7 @@
 #define span_suicide(str) ("<span class='suicide'>" + str + "</span>")
 #define span_green(str) ("<span class='green'>" + str + "</span>")
 #define span_pr_announce(str) ("<span class='pr_announce'>" + str + "</span>")
+#define span_boldannounce(str) ("<span class='boldannounce'>" + str + "</span>")
 #define span_greenannounce(str) ("<span class='greenannounce'>" + str + "</span>")
 
 #define span_alien(str) ("<span class='alien'>" + str + "</span>")

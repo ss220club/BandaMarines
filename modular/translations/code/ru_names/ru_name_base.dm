@@ -116,7 +116,12 @@ GLOBAL_LIST_EMPTY(ru_names)
 
 /datum/proc/ru_names_rename(list/new_list)
 	SHOULD_CALL_PARENT(FALSE)
-	return
+	CRASH("Unimplemented proc/ru_names_rename() was used")
+
+/proc/get_declented_value(list/declented_list, declent, backup_value)
+	if(declent == "gender")
+		return declented_list[declent] || backup_value
+	return declented_list[declent] || declented_list[NOMINATIVE] || backup_value
 
 /// Необходимо использовать ПЕРЕД изменением var/name, и использовать только этот прок для изменения в рантайме склонений
 /atom/ru_names_rename(list/new_list)
@@ -153,8 +158,3 @@ GLOBAL_LIST_EMPTY(ru_names)
 	if(!length(declented_list))
 		return .
 	return get_declented_value(declented_list, declent, .)
-
-/proc/get_declented_value(list/declented_list, declent, backup_value)
-	if(declent == "gender")
-		return declented_list[declent] || backup_value
-	return declented_list[declent] || declented_list[NOMINATIVE] || backup_value

@@ -153,7 +153,7 @@ export const JOBS_RU = {
   'Commandant of the Marine Corps': 'Комендант КМП',
   'Platoon Corpsman': 'Санитар отряда',
   'Platoon Squad Leader': 'Командир отряда',
-  'Reconnaissance Support Technician': 'ТСпециалист по рекогносцировке',
+  'Reconnaissance Support Technician': 'Специалист по рекогносцировке',
 
   // WO roles
   'Ground Commander': 'Полевой Командующий',
