@@ -88,6 +88,7 @@
 #define JOB_CARGO_TECH_RU "Грузовой техник"
 
 #define JOB_MARINE_RAIDER_RU "Рейдер"
+#define JOB_MARINE_RAIDER_SG_RU "Рейдер-смартганнер"
 #define JOB_MARINE_RAIDER_SL_RU "Комотряда-рейдер"
 #define JOB_MARINE_RAIDER_CMD_RU "Комгруппы-рейдер"
 
