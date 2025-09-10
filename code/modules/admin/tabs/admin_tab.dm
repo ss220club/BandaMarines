@@ -48,7 +48,7 @@
 	set name = "Stickyban Panel"
 	set category = "Admin.Panels"
 
-	admin_holder?.stickypanel()
+	admin_holder?.stickyban_show() // SS220 BANDASTATION BANS
 
 /client/proc/player_panel_new()
 	set name = "Player Panel"

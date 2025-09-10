@@ -372,6 +372,7 @@ GLOBAL_DATUM(Banlist, /savefile)
 		return
 	P.add_timed_ban(reason, mins)
 
+/* SS220 BANDASTATION BANS
 /client/proc/cmd_admin_do_stickyban(identifier, reason, message, list/impacted_ckeys, list/impacted_cids, list/impacted_ips)
 	if(!identifier)
 		identifier = tgui_input_text(src, "Name of the primary CKEY you are adding a stickyban to.", "BuildABan")
@@ -422,3 +423,4 @@ GLOBAL_DATUM(Banlist, /savefile)
 	message_admins("[key_name_admin(src)] has added a new stickyban with the identifier '[identifier]'.")
 	var/datum/tgs_chat_embed/field/reason_embed = new("Stickyban Reason", reason)
 	important_message_external("[src] has added a new stickyban with the identifier '[identifier]'.", "Stickyban Placed", list(reason_embed))
+SS220 BANDASTATION BANS */
