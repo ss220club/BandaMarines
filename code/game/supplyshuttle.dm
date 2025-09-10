@@ -245,6 +245,15 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 				current_order -= picked_pack
 				return TRUE
 
+			// SS220 ADD START - Tents
+			if(ispath(pack.contains[1], /obj/item/folded_tent) && pack.contains[1] != /obj/item/folded_tent)
+				if(current_order[picked_pack] && adjust_to != "min")
+					// Если уже есть в заказе и пытаемся добавить еще, ограничиваем до 1
+					current_order[picked_pack] = 1
+					to_chat(ui.user, SPAN_WARNING("Вы хотите заказать больше одной палатки, но разрешено заказывать только 1 палатку каждого вида!"))
+					return TRUE
+            // SS220 ADD END - Tents
+
 			var/used_points = 0
 			var/used_dollars = 0
 
@@ -304,6 +313,14 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 				if(!pack || !is_buyable(pack))
 					continue
 
+				// SS220 ADD START - Tents
+                // Проверяем, не заказывается ли уже такая палатка
+				var/list/ordered_tents = list() // Для отслеживания уже заказанных палаток
+				if(ispath(pack.contains[1], /obj/item/folded_tent) && pack.contains[1] != /obj/item/folded_tent)
+					if(pack.type in ordered_tents)
+						continue // Пропускаем если уже заказана
+					ordered_tents += pack.type
+                // SS220 ADD END - Tents
 				for(var/iterator in 1 to current_order[item])
 					to_order += pack
 
@@ -690,11 +707,21 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 
 /datum/supply_order/proc/buy(obj/structure/machinery/computer/supply/asrs/buyer)
 	var/ordered = list()
+	// SS220 ADD START - Tents
+	var/list/ordered_tents = list()
+	// SS220 ADD END - Tents
 
 	for(var/datum/supply_packs/pack as anything in objects)
 		if(!buyer.is_buyable(pack))
 			continue
 
+		// SS220 ADD START - Tents
+        // Проверяем, не была ли уже куплена такая палатка
+		if(ispath(pack.contains[1], /obj/item/folded_tent) && pack.contains[1] != /obj/item/folded_tent)
+			if(pack.type in ordered_tents)
+				continue // Пропускаем если уже куплена
+			ordered_tents += pack.type
+        // SS220 ADD END
 		if(buyer.linked_supply_controller.points - pack.cost < 0)
 			continue
 
@@ -1001,6 +1028,7 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 	for(var/datum/supply_order/order in shoppinglist)
 		for(var/datum/supply_packs/package as anything in order.objects)
 			// SS220 ADD START - Tents
+			var/similar_tents = 0
 			if(package.contains.len && ispath(package.contains[1], /obj/item/folded_tent) && package.contains[1] != /obj/item/folded_tent)
 				if(!package.buyable)
 					var/tent_name = capitalize(replacetext(package.containername, "Упакованная ", ""))
@@ -1222,11 +1250,21 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 	switch(action)
 		if("place_order")
 			var/to_order = list()
+			var/list/ordered_tents = list() // Для отслеживания уже заказанных палаток
+
 			for(var/item in current_order)
 				var/datum/supply_packs/pack = GLOB.supply_packs_datums[item]
 
 				if(!pack || !is_buyable(pack))
 					continue
+
+				// SS220 ADD START - Tents
+                // Проверяем, не заказывается ли уже такая палатка
+				if(ispath(pack.contains[1], /obj/item/folded_tent) && pack.contains[1] != /obj/item/folded_tent)
+					if(pack.type in ordered_tents)
+						continue // Пропускаем если уже заказана
+					ordered_tents += pack.type
+                // SS220 ADD END - Tents
 
 				for(var/iterator in 1 to current_order[item])
 					to_order += pack
