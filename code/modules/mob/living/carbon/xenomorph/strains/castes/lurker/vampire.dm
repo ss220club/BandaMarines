@@ -161,9 +161,9 @@
 			to_chat(xeno, SPAN_XENOHIGHDANGER("We attack [hit_target], with our tail, piercing their body!"))
 			hit_target.apply_armoured_damage(15, ARMOR_MELEE, BRUTE, "chest")
 		else
-			to_chat(xeno, SPAN_XENODANGER("We attack [hit_target], slashing them with our tail!"))
+			to_chat(xeno, SPAN_XENODANGER("We attack $1, slashing them with our tail!", list(hit_target))) // SS220 EDIT ADDICTION
 	else
-		xeno.visible_message(SPAN_XENOWARNING("\The [xeno] swipes their tail through the air!"), SPAN_XENOWARNING("We swipe our tail through the air!"))
+		xeno.visible_message(SPAN_XENOWARNING("$1 swipes their tail through the air!"), SPAN_XENOWARNING("We swipe our tail through the air!")) // SS220 EDIT ADDICTION
 		apply_cooldown(cooldown_modifier = 0.2)
 		playsound(xeno, 'sound/effects/alien_tail_swipe1.ogg', 50, TRUE)
 		return
@@ -178,7 +178,7 @@
 
 	if(!step(hit_target, direction))
 		playsound(hit_target.loc, "punch", 25, 1)
-		hit_target.visible_message(SPAN_DANGER("[hit_target] slams into an obstacle!"),
+		hit_target.visible_message(SPAN_DANGER("$1 slams into an obstacle!", list(hit_target)), // SS220 EDIT ADDICTION
 		isxeno(hit_target) ? SPAN_XENODANGER("We slam into an obstacle!") : SPAN_HIGHDANGER("You slam into an obstacle!"), null, 4, CHAT_TYPE_TAKING_HIT)
 		hit_target.apply_damage(MELEE_FORCE_TIER_2)
 		if (hit_target.mob_size < MOB_SIZE_BIG)

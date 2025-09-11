@@ -19,7 +19,8 @@
 		for(var/datum/mind/L in SSticker.mode.xenomorphs)
 			var/mob/living/carbon/M = L.current
 			if(M && istype(M) && !M.stat && M.client && (!hivenumber || M.hivenumber == hivenumber)) //Only living and connected xenos
-				to_chat(M, SPAN_XENODANGER("<span class=\"[fontsize_style]\"> [message]</span>"))
+				var/ru_message = ru_span(message) // SS220 EDIT ADDICTION
+				to_chat(M, SPAN_XENODANGER("<span class=\"[fontsize_style]\">[ru_message]</span>")) // SS220 EDIT ADDICTION
 
 //Sends a maptext alert to xenos.
 /proc/xeno_maptext(text = "", title_text = "", hivenumber = XENO_HIVE_NORMAL)
@@ -304,8 +305,8 @@
 		if(ishuman(M) && (M.dir in reverse_nearby_direction(dir)))
 			var/mob/living/carbon/human/H = M
 			if(H.check_shields(15, "the pounce")) //Human shield block.
-				visible_message(SPAN_DANGER("[src] slams into [H]!"),
-					SPAN_XENODANGER("We slam into [H]!"), null, 5)
+				visible_message(SPAN_DANGER("$1 slams into $2!", list(declent_ru(), H)), // SS220 EDIT ADDICTION
+					SPAN_XENODANGER("We slam into $1!", list(H)), null, 5) // SS220 EDIT ADDICTION
 				KnockDown(1)
 				Stun(1)
 				throwing = FALSE //Reset throwing manually.
@@ -314,28 +315,28 @@
 
 			if(isyautja(H))
 				if(H.check_shields(0, "the pounce", 1))
-					visible_message(SPAN_DANGER("[H] blocks the pounce of [src] with the combistick!"), SPAN_XENODANGER("[H] blocks our pouncing form with the combistick!"), null, 5)
+					visible_message(SPAN_DANGER("$1 blocks the pounce of $2 with the combistick!", list(H, declent_ru())), SPAN_XENODANGER("$1 blocks our pouncing form with the combistick!", list(H)), null, 5) // SS220 EDIT ADDICTION
 					apply_effect(3, WEAKEN)
 					throwing = FALSE
 					playsound(H, "bonk", 75, FALSE)
 					return
 				else if(prob(75)) //Body slam the fuck out of xenos jumping at your front.
-					visible_message(SPAN_DANGER("[H] body slams [src]!"),
-						SPAN_XENODANGER("[H] body slams us!"), null, 5)
+					visible_message(SPAN_DANGER("$1 body slams $2!", list(H, declent_ru())), // SS220 EDIT ADDICTION
+						SPAN_XENODANGER("$1 body slams us!", list(H)), null, 5) // SS220 EDIT ADDICTION
 					KnockDown(3)
 					Stun(3)
 					throwing = FALSE
 					return
 			if(iscolonysynthetic(H) && prob(60))
-				visible_message(SPAN_DANGER("[H] withstands being pounced and slams down [src]!"),
-					SPAN_XENODANGER("[H] throws us down after withstanding the pounce!"), null, 5)
+				visible_message(SPAN_DANGER("$1 withstands being pounced and slams down $2!", list(H, declent_ru())), // SS220 EDIT ADDICTION
+					SPAN_XENODANGER("$1 throws us down after withstanding the pounce!", list(H)), null, 5) // SS220 EDIT ADDICTION
 				KnockDown(1.5)
 				Stun(1.5)
 				throwing = FALSE
 				return
 
 
-	visible_message(SPAN_DANGER("[src] [pounceAction.action_text] onto [M]!"), SPAN_XENODANGER("We [pounceAction.action_text] onto [M]!"), null, 5)
+	visible_message(SPAN_DANGER("$1 $2 onto $3!", list(declent_ru(), pounceAction.action_text, M)), SPAN_XENODANGER("We $1 onto $2!", list(pounceAction.action_text, M)), null, 5) // SS220 EDIT ADDICTION
 
 	if (pounceAction.knockdown)
 		M.KnockDown(pounceAction.knockdown_duration)
@@ -686,7 +687,7 @@
 		return
 	target.xenos_tracking |= src
 	tracked_marker = target
-	to_chat(src, SPAN_XENONOTICE("We start tracking the [target.mark_meaning.name] resin mark."))
+	to_chat(src, SPAN_XENONOTICE("We start tracking the $1 resin mark.", list(target.mark_meaning.name))) // SS220 EDIT ADDICTION
 	to_chat(src, SPAN_INFO("Shift click the compass to watch the mark, alt click to stop tracking"))
 
 /mob/living/carbon/xenomorph/proc/stop_tracking_resin_mark(destroyed, silent = FALSE) //tracked_marker shouldnt be nulled outside this PROC!! >:C
@@ -702,9 +703,9 @@
 	if(tracked_marker)
 		if(!silent)
 			if(destroyed)
-				to_chat(src, SPAN_XENONOTICE("The [tracked_marker.mark_meaning.name] resin mark has ceased to exist."))
+				to_chat(src, SPAN_XENONOTICE("The $1 resin mark has ceased to exist.", list(tracked_marker.mark_meaning.name))) // SS220 EDIT ADDICTION
 			else
-				to_chat(src, SPAN_XENONOTICE("We stop tracking the [tracked_marker.mark_meaning.name] resin mark."))
+				to_chat(src, SPAN_XENONOTICE("We stop tracking the $1 resin mark.", list(tracked_marker.mark_meaning.name))) // SS220 EDIT ADDICTION
 		tracked_marker.xenos_tracking -= src
 
 	tracked_marker = null

@@ -367,7 +367,7 @@
 		if(cooldown_message)
 			to_chat(owner, SPAN_XENODANGER("[cooldown_message]"))
 		else
-			to_chat(owner, SPAN_XENODANGER("We feel our strength return! We can use [name] again!"))
+			to_chat(owner, SPAN_XENODANGER("We feel our strength return! We can use $1 again!", list(name))) // SS220 EDIT ADDICTION
 
 /datum/action/xeno_action/proc/start_charging_ability()
 	charge_timer_id = addtimer(CALLBACK(src, PROC_REF(finish_charging_ability)), charge_time, TIMER_UNIQUE|TIMER_STOPPABLE)

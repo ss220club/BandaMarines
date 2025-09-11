@@ -6,23 +6,23 @@
  */
 
 const STRAIN_RU = {
-  'Observer': 'Наблюдатель',
-  'Gardener': 'Садовник',
-  'Healer': 'Лекарь',
+  Observer: 'Наблюдатель',
+  Gardener: 'Садовник',
+  Healer: 'Лекарь',
   'Steel Crest': 'Стальной гребень',
-  'Acider': 'Кислотник',
-  'Eggsac': 'Яйценос',
+  Acider: 'Кислотник',
+  Eggsac: 'Яйценос',
   'Resin Whisperer': 'Заклинатель смолы',
-  'Vampire': 'Вампир',
-  'Charger': 'Таран',
-  'Dancer': 'Танцор',
-  'Oppressor': 'Угнетатель',
-  'Vanguard': 'Авангард',
-  'Valkyrie': 'Валькирия',
-  'Trapper': 'Ловчий',
-  'Berserker': 'Берсерк',
-  'Hedgehog': 'Дикобраз',
-  'Normal': 'Обычный',
+  Vampire: 'Вампир',
+  Charger: 'Таран',
+  Dancer: 'Танцор',
+  Oppressor: 'Угнетатель',
+  Vanguard: 'Авангард',
+  Valkyrie: 'Валькирия',
+  Trapper: 'Ловчий',
+  Berserker: 'Берсерк',
+  Hedgehog: 'Дикобраз',
+  Normal: 'Обычный',
 };
 
 const CASTES_RU = {

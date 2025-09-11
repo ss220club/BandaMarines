@@ -119,7 +119,7 @@
 			return
 
 		xeno.create_empower()
-		xeno.visible_message(SPAN_XENODANGER("[xeno] starts to gather its acid for a massive blast!"), SPAN_XENODANGER("We start to gather our acid for a massive blast!"))
+		xeno.visible_message(SPAN_XENODANGER("$1 starts to gather its acid for a massive blast!", list(xeno)), SPAN_XENODANGER("We start to gather our acid for a massive blast!")) // SS220 EDIT ADDICTION
 		activated_once = TRUE
 		stack()
 		addtimer(CALLBACK(src, PROC_REF(timeout)), max_stacks*stack_time + time_after_max_before_end)
@@ -156,7 +156,7 @@
 
 			new /obj/effect/xenomorph/acid_damage_delay(turf, damage, 7, FALSE, "You are blasted with a stream of high-velocity acid!", xeno)
 
-		xeno.visible_message(SPAN_XENODANGER("[xeno] fires a massive blast of acid at [affected_atom]!"), SPAN_XENODANGER("We fire a massive blast of acid at [affected_atom]!"))
+		xeno.visible_message(SPAN_XENODANGER("$1 fires a massive blast of acid at $2!", list(xeno, affected_atom)), SPAN_XENODANGER("We fire a massive blast of acid at $1!", list(affected_atom))) // SS220 EDIT ADDICTION
 		remove_stack_effects("We feel our speed return to normal!")
 		return TRUE
 
@@ -290,7 +290,7 @@
 		return FALSE
 
 	if(!acid_level)
-		to_chat(src, SPAN_XENONOTICE("You can't secrete any acid into [target]."))
+		to_chat(src, SPAN_XENONOTICE("You can't secrete any acid into $1.", list(target))) // SS220 EDIT ADDICTION
 		return FALSE
 
 	var/trap_acid_level = 0

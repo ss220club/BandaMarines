@@ -73,14 +73,14 @@
 		var/obj/item/clothing/mask/facehugger/hugger = item
 		if(hugger.stat != DEAD)
 			if(stored_huggers >= huggers_max_amount)
-				to_chat(user, SPAN_XENOWARNING("\The [src] is full of children."))
+				to_chat(user, SPAN_XENOWARNING("$1 is full of children.", list(declent_ru()))) // SS220 EDIT ADDICTION
 				return
 			if(user)
-				visible_message(SPAN_XENOWARNING("[user] slides [hugger] back into \the [src]."),
-					SPAN_XENONOTICE("You place the child back into \the [src]."))
+				visible_message(SPAN_XENOWARNING("$1 slides $2 back into $3.", list(user, hugger, declent_ru())), // SS220 EDIT ADDICTION
+					SPAN_XENONOTICE("You place the child back into $1.", list(declent_ru()))) // SS220 EDIT ADDICTION
 				user.temp_drop_inv_item(hugger)
 			else
-				visible_message(SPAN_XENOWARNING("[hugger] crawls back into \the [src]!"))
+				visible_message(SPAN_XENOWARNING("$1 crawls back into $2!", list(hugger, declent_ru()))) // SS220 EDIT ADDICTION
 			stored_huggers = min(huggers_max_amount, stored_huggers + 1)
 			qdel(hugger)
 		else
@@ -91,11 +91,11 @@
 	if(istype(item, /obj/item/xeno_egg))
 		var/obj/item/xeno_egg/egg = item
 		if(stored_huggers >= huggers_max_amount)
-			to_chat(user, SPAN_XENOWARNING("\The [src] is full of children."))
+			to_chat(user, SPAN_XENOWARNING("$1 is full of children.", list(declent_ru()))) // SS220 EDIT ADDICTION
 			return
 		if(user)
-			visible_message(SPAN_XENOWARNING("[user] slides a facehugger out of \the [egg] into \the [src]."),
-				SPAN_XENONOTICE("You place the child from an egg into \the [src]."))
+			visible_message(SPAN_XENOWARNING("$1 slides a facehugger out of $2 into $3.", list(user, egg, declent_ru())), // SS220 EDIT ADDICTION
+				SPAN_XENONOTICE("You place the child from an egg into $1.", list(declent_ru()))) // SS220 EDIT ADDICTION
 			user.temp_drop_inv_item(egg)
 		stored_huggers = min(huggers_max_amount, stored_huggers + 1)
 		playsound(src.loc, "sound/effects/alien_egg_move.ogg", 25)
@@ -209,6 +209,6 @@
 
 	morpher.huggers_reserved = tgui_input_number(usr, "How many facehuggers would you like to keep safe from Observers wanting to join as facehuggers?", "How many to reserve?", 0, morpher.huggers_max_amount, morpher.huggers_reserved)
 
-	to_chat(usr, SPAN_XENONOTICE("You reserved [morpher.huggers_reserved] facehuggers for your sisters."))
+	to_chat(usr, SPAN_XENONOTICE("You reserved $1 facehuggers for your sisters.", list(morpher.huggers_reserved))) // SS220 EDIT ADDICTION
 
 #undef EGGMORPG_RANGE

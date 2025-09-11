@@ -63,7 +63,7 @@
 	if(!check_and_use_plasma_owner())
 		return FALSE
 
-	stabbing_xeno.visible_message(SPAN_XENODANGER("\The [stabbing_xeno] uncoils and wildly throws out its tail!"), SPAN_XENODANGER("We uncoil our tail wildly in front of us!"))
+	stabbing_xeno.visible_message(SPAN_XENODANGER("$1 uncoils and wildly throws out its tail!", list(stabbing_xeno)), SPAN_XENODANGER("We uncoil our tail wildly in front of us!")) // SS220 EDIT ADDICTION
 
 	var/obj/projectile/hook_projectile = new /obj/projectile(stabbing_xeno.loc, create_cause_data(initial(stabbing_xeno.caste_type), stabbing_xeno))
 
@@ -132,7 +132,7 @@
 		to_chat(abduct_user, SPAN_XENOWARNING("We don't have any room to do our abduction!"))
 		return
 
-	abduct_user.visible_message(SPAN_XENODANGER("\The [abduct_user]'s segmented tail starts coiling..."), SPAN_XENODANGER("We begin coiling our tail, aiming towards \the [atom]..."))
+	abduct_user.visible_message(SPAN_XENODANGER("$1's segmented tail starts coiling...", list(abduct_user)), SPAN_XENODANGER("We begin coiling our tail, aiming towards $1...", list(atom))) // SS220 EDIT ADDICTION
 	abduct_user.emote("roar")
 
 	var/throw_target_turf = get_step(abduct_user, facing)
@@ -156,7 +156,7 @@
 	REMOVE_TRAIT(abduct_user, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Abduct"))
 
 	playsound(get_turf(abduct_user), 'sound/effects/bang.ogg', 25, 0)
-	abduct_user.visible_message(SPAN_XENODANGER("\The [abduct_user] suddenly uncoils its tail, firing it towards [atom]!"), SPAN_XENODANGER("We uncoil our tail, sending it out towards \the [atom]!"))
+	abduct_user.visible_message(SPAN_XENODANGER("$1 suddenly uncoils its tail, firing it towards $2!", list(abduct_user, atom)), SPAN_XENODANGER("We uncoil our tail, sending it out towards $1!", list(atom))) // SS220 EDIT ADDICTION
 
 	var/list/targets = list()
 	for (var/turf/target_turf in turflist)
@@ -175,7 +175,7 @@
 	apply_cooldown()
 
 	for (var/mob/living/carbon/target in targets)
-		abduct_user.visible_message(SPAN_XENODANGER("\The [abduct_user]'s hooked tail coils itself around [target]!"), SPAN_XENODANGER("Our hooked tail coils itself around [target]!"))
+		abduct_user.visible_message(SPAN_XENODANGER("$1's hooked tail coils itself around $2!", list(abduct_user, target)), SPAN_XENODANGER("Our hooked tail coils itself around $1!", list(target))) // SS220 EDIT ADDICTION
 
 		target.apply_effect(0.2, WEAKEN)
 
@@ -342,7 +342,7 @@
 
 	apply_cooldown()
 
-	lash_user.visible_message(SPAN_XENODANGER("[lash_user] lashes its tail furiously, hitting everything in front of it!"), SPAN_XENODANGER("We lash our tail furiously, hitting everything in front of us!"))
+	lash_user.visible_message(SPAN_XENODANGER("$1 lashes its tail furiously, hitting everything in front of it!", list(lash_user)), SPAN_XENODANGER("We lash our tail furiously, hitting everything in front of us!")) // SS220 EDIT ADDICTION
 	lash_user.spin_circle()
 	lash_user.emote("tail")
 

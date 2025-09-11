@@ -192,7 +192,7 @@
 	. = FALSE //For peace of mind when it comes to dealing with unintended proc failures
 	if(X in contents)
 		X.forceMove(loc)
-		visible_message(SPAN_XENONOTICE("\The [X] pops out of the tunnel!"),
+		visible_message(SPAN_XENONOTICE("$1 pops out of the tunnel!", list(X)), // SS220 EDIT ADDICTION
 		SPAN_XENONOTICE("We pop out through the other side!"))
 		return TRUE
 
@@ -227,15 +227,15 @@
 			to_chat(user, SPAN_XENOWARNING("We aren't large enough to collapse this tunnel!"))
 			return XENO_NO_DELAY_ACTION
 
-		user.visible_message(SPAN_XENODANGER("[user] begins to fill [src] with dirt."),
-		SPAN_XENONOTICE("We begin to fill [src] with dirt using our massive claws."), max_distance = 3)
+		user.visible_message(SPAN_XENODANGER("$1 begins to fill $2 with dirt.", list(user, declent_ru())), // SS220 EDIT ADDICTION
+		SPAN_XENONOTICE("We begin to fill $1 with dirt using our massive claws.", list(declent_ru())), max_distance = 3) // SS220 EDIT ADDICTION
 		xeno_attack_delay(user)
 
 		if(!do_after(user, 10 SECONDS, INTERRUPT_ALL, BUSY_ICON_HOSTILE, src, INTERRUPT_ALL_OUT_OF_RANGE, max_dist = 1))
 			to_chat(user, SPAN_XENOWARNING("We decide not to cave the tunnel in."))
 			return XENO_NO_DELAY_ACTION
 
-		src.visible_message(SPAN_XENODANGER("[src] caves in!"), max_distance = 3)
+		src.visible_message(SPAN_XENODANGER("$1 caves in!", list(declent_ru())), max_distance = 3)
 		qdel(src)
 
 		return XENO_NO_DELAY_ACTION
@@ -254,7 +254,7 @@
 		return XENO_NO_DELAY_ACTION
 
 	if(!length(hive.tunnels))
-		to_chat(user, SPAN_WARNING("[src] doesn't seem to lead anywhere."))
+		to_chat(user, SPAN_WARNING("$1 doesn't seem to lead anywhere.", list(declent_ru())))
 		return XENO_NO_DELAY_ACTION
 
 	if(length(contents) > 2)
@@ -272,11 +272,11 @@
 		tunnel_time = TUNNEL_ENTER_LARVA_DELAY
 
 	if(user.mob_size >= MOB_SIZE_BIG)
-		user.visible_message(SPAN_XENONOTICE("[user] begins heaving their huge bulk down into [src]."),
-			SPAN_XENONOTICE("We begin heaving our monstrous bulk into [src] (<i>[tunnel_desc]</i>)."))
+		user.visible_message(SPAN_XENONOTICE("$1 begins heaving their huge bulk down into $2.", list(user, declent_ru())), // SS220 EDIT ADDICTION
+			SPAN_XENONOTICE("We begin heaving our monstrous bulk into $1 (<i>$2</i>).", list(declent_ru(), tunnel_desc))) // SS220 EDIT ADDICTION
 	else
-		user.visible_message(SPAN_XENONOTICE("[user] begins crawling down into [src]."),
-			SPAN_XENONOTICE("We begin crawling down into [src] (<i>[tunnel_desc]</i>)."))
+		user.visible_message(SPAN_XENONOTICE("$1 begins crawling down into $2.", list(user, declent_ru())), // SS220 EDIT ADDICTION
+			SPAN_XENONOTICE("We begin crawling down into $1 (<i>$2</i>).", list(declent_ru(), tunnel_desc))) // SS220 EDIT ADDICTION
 
 	xeno_attack_delay(user)
 	if(!do_after(user, tunnel_time, INTERRUPT_NO_NEEDHAND, BUSY_ICON_GENERIC))
@@ -289,7 +289,7 @@
 		return XENO_NO_DELAY_ACTION
 
 	if(!length(hive.tunnels)) //Make sure other tunnels exist
-		to_chat(user, SPAN_WARNING("[src] doesn't seem to lead anywhere anymore."))
+		to_chat(user, SPAN_WARNING("$1 doesn't seem to lead anywhere anymore.", list(declent_ru()))) // SS220 EDIT ADDICTION
 		return XENO_NO_DELAY_ACTION
 
 	user.forceMove(src) //become one with the tunnel

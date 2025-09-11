@@ -618,7 +618,7 @@
 	if(!C || C == hive_location)
 		return
 	var/area/A = get_area(C)
-	xeno_message(SPAN_XENOANNOUNCE("Королева назначила новое местоположение улья в: [A]."), 3, hivenumber)
+	xeno_message(SPAN_XENOANNOUNCE("The Queen has set the hive location as $1.", list(A)), 3, hivenumber) // SS220 EDIT ADDICTION
 	hive_location = C
 	hive_ui.update_hive_location()
 
@@ -785,14 +785,14 @@
 	for(var/mob/living/carbon/xenomorph/xeno as anything in totalXenos)
 		if(get_area(xeno) != hijacked_dropship && xeno.loc && is_ground_level(xeno.loc.z))
 			if(isfacehugger(xeno) || islesserdrone(xeno))
-				to_chat(xeno, SPAN_XENOANNOUNCE("Королева ушла без вас, и вы быстро находите укрытие, чтобы впасть в гибернацию, теряя связь с разумом улья."))
+				to_chat(xeno, SPAN_XENOANNOUNCE("The Queen has left without you, you quickly find a hiding place to enter hibernation as you lose touch with the hive mind."))
 				qdel(xeno)
 				continue
 			if(xeno.hunter_data.hunted && !isqueen(xeno))
-				to_chat(xeno, SPAN_XENOANNOUNCE("Королева ушла без вас, отделив вас от её улья! Вы должны защищить себя от охотников за головами, преждче чем сможете впасть в гибернацию..."))
+				to_chat(xeno, SPAN_XENOANNOUNCE("The Queen has left without you, seperating you from her hive! You must defend yourself from the headhunter before you can enter hibernation..."))
 				xeno.set_hive_and_update(XENO_HIVE_FORSAKEN)
 			else
-				to_chat(xeno, SPAN_XENOANNOUNCE("Королева ушла без вас, и вы быстро находите укрытие, чтобы впасть в гибернацию, теряя связь с разумом улья."))
+				to_chat(xeno, SPAN_XENOANNOUNCE("The Queen has left without you, you quickly find a hiding place to enter hibernation as you lose touch with the hive mind."))
 				if(xeno.hauled_mob?.resolve())
 					xeno.release_haul(xeno.hauled_mob.resolve())
 				qdel(xeno)
@@ -884,8 +884,8 @@
 	if(!SSticker.mode.transfer_xeno(xeno_candidate, new_xeno))
 		qdel(new_xeno)
 		return FALSE
-	new_xeno.visible_message(SPAN_XENODANGER("A larva suddenly burrows out of \the [spawning_turf]!"),
-	SPAN_XENODANGER("You burrow out of \the [spawning_turf] and awaken from your slumber. For the Hive!"))
+	new_xeno.visible_message(SPAN_XENODANGER("A larva suddenly burrows out of $1!", list(spawning_turf)), // SS220 EDIT ADDICTION
+	SPAN_XENODANGER("You burrow out of $1 and awaken from your slumber. For the Hive!", list(spawning_turf))) // SS220 EDIT ADDICTION
 	msg_admin_niche("[key_name(new_xeno)] burrowed out from \a [spawning_turf]. [ADMIN_JMP(spawning_turf)]")
 	playsound(new_xeno, 'sound/effects/xeno_newlarva.ogg', 50, 1)
 	to_chat(new_xeno, SPAN_XENOANNOUNCE("You are a xenomorph larva awakened from slumber!"))
@@ -1001,7 +1001,7 @@
 /datum/hive_status/proc/spawn_as_hugger(mob/dead/observer/user, atom/A)
 	var/mob/living/carbon/xenomorph/facehugger/hugger = new /mob/living/carbon/xenomorph/facehugger(A.loc, null, hivenumber)
 	user.mind.transfer_to(hugger, TRUE)
-	hugger.visible_message(SPAN_XENODANGER("A facehugger suddenly emerges out of \the [A]!"), SPAN_XENODANGER("You emerge out of \the [A] and awaken from your slumber. For the Hive!"))
+	hugger.visible_message(SPAN_XENODANGER("A facehugger suddenly emerges out of $1!", list(A)), SPAN_XENODANGER("You emerge out of $1 and awaken from your slumber. For the Hive!", list(A))) // SS220 EDIT ADDICTION
 	playsound(hugger, 'sound/effects/xeno_newlarva.ogg', 25, TRUE)
 	hugger.generate_name()
 	hugger.timeofdeath = user.timeofdeath // Keep old death time
@@ -1403,9 +1403,9 @@
 
 	if(living_xeno_queen)
 		if(allies[faction])
-			xeno_message(SPAN_XENOANNOUNCE("Our Queen set up an alliance with [faction]!"), 3, hivenumber)
+			xeno_message(SPAN_XENOANNOUNCE("Our Queen set up an alliance with $1!", list(faction)), 3, hivenumber) // SS220 EDIT ADDICTION
 		else
-			xeno_message(SPAN_XENOANNOUNCE("Our Queen broke the alliance with [faction]!"), 3, hivenumber)
+			xeno_message(SPAN_XENOANNOUNCE("Our Queen broke the alliance with $1!", list(faction)), 3, hivenumber) // SS220 EDIT ADDICTION
 
 	for(var/number in GLOB.hive_datum)
 		var/datum/hive_status/target_hive = GLOB.hive_datum[number]
@@ -1414,10 +1414,10 @@
 		if(!target_hive.living_xeno_queen && !target_hive.allow_no_queen_actions)
 			return
 		if(allies[faction])
-			xeno_message(SPAN_XENOANNOUNCE("We sense that [name] [living_xeno_queen ? "Queen " : ""]set up an alliance with us!"), 3, target_hive.hivenumber)
+			xeno_message(SPAN_XENOANNOUNCE("We sense that $1 [living_xeno_queen ? "Queen " : ""]set up an alliance with us!", list(name)), 3, target_hive.hivenumber) // SS220 EDIT ADDICTION
 			return
 
-		xeno_message(SPAN_XENOANNOUNCE("We sense that [name] [living_xeno_queen ? "Queen " : ""]broke the alliance with us!"), 3, target_hive.hivenumber)
+		xeno_message(SPAN_XENOANNOUNCE("We sense that $1 [living_xeno_queen ? "Queen " : ""]broke the alliance with us!", list(name)), 3, target_hive.hivenumber) // SS220 EDIT ADDICTION
 		if(target_hive.allies[name]) //autobreak alliance on betrayal
 			target_hive.change_stance(name, FALSE)
 
@@ -1448,9 +1448,9 @@
 		defectors += xeno
 		xeno.set_hive_and_update(XENO_HIVE_RENEGADE)
 		to_chat(xeno, SPAN_XENOANNOUNCE("You lost the connection with your Hive. Now you have no Queen, only your masters."))
-		to_chat(xeno, SPAN_NOTICE("Your instincts have changed, you seem compelled to protect [english_list(xeno.iff_tag.faction_groups, "no one")]."))
+		to_chat(xeno, SPAN_NOTICE("Your instincts have changed, you seem compelled to protect $1.", list(english_list(xeno.iff_tag.faction_groups, "no one")))) // SS220 EDIT ADDICTION
 		return
-	xeno.visible_message(SPAN_XENOWARNING("[xeno] rips out [xeno.iff_tag]!"), SPAN_XENOWARNING("We rip out [xeno.iff_tag]! For the Hive!"))
+	xeno.visible_message(SPAN_XENOWARNING("$1 rips out $2!", list(xeno, xeno.iff_tag)), SPAN_XENOWARNING("We rip out $1! For the Hive!", list(xeno.iff_tag))) // SS220 EDIT ADDICTION
 	xeno.adjustBruteLoss(50)
 	xeno.iff_tag.forceMove(get_turf(xeno))
 	xeno.iff_tag = null
@@ -1470,7 +1470,7 @@
 	if(!length(defectors))
 		return
 
-	xeno_message(SPAN_XENOANNOUNCE("We sense that [english_list(defectors)] turned their backs against their sisters and the Queen in favor of their slavemasters!"), 3, hivenumber)
+	xeno_message(SPAN_XENOANNOUNCE("We sense that $1 turned their backs against their sisters and the Queen in favor of their slavemasters!", list(english_list(defectors))), 3, hivenumber) // SS220 EDIT ADDICTION
 	if(faction == FACTION_MARINE && ares_can_interface())
 		marine_announcement("The advanced IFF Xenomorph tagging technology has detected hostile intentions and succesfully supressed the psychic link of [length(defectors)] lifeform\s. The collaborative lifeforms are given designation Renegades. Full cooperation is to be expected.", MAIN_AI_SYSTEM)
 	defectors.Cut()
@@ -1479,7 +1479,7 @@
 	personal_allies += WEAKREF(ally)
 	ally.status_flags |= CORRUPTED_ALLY
 	ally.med_hud_set_status()
-	xeno_message(SPAN_XENOANNOUNCE("Our Queen proclaimed [ally] our ally! We must not harm them."), 3, hivenumber)
+	xeno_message(SPAN_XENOANNOUNCE("Our Queen proclaimed $1 our ally! We must not harm them.", list(ally)), 3, hivenumber) // SS220 EDIT ADDICTION
 
 /datum/hive_status/corrupted/proc/remove_personal_ally(datum/weakref/ally_ref)
 	personal_allies -= ally_ref
@@ -1487,7 +1487,7 @@
 	if(ally)
 		ally.status_flags &= ~CORRUPTED_ALLY
 		ally.med_hud_set_status()
-	xeno_message(SPAN_XENOANNOUNCE("Our Queen has declared that [ally] is no longer our ally!"), 3, hivenumber)
+	xeno_message(SPAN_XENOANNOUNCE("Our Queen has declared that $1 is no longer our ally!", list(ally)), 3, hivenumber) // SS220 EDIT ADDICTION
 
 /datum/hive_status/corrupted/proc/clear_personal_allies(death = FALSE)
 	for(var/datum/weakref/ally_ref in personal_allies)

@@ -86,8 +86,8 @@
 
 		if(thickened)
 			if(message)
-				visible_message(SPAN_XENONOTICE("[capitalize(declent_ru())] извергает густую субстанцию и уплотняет [target.declent_ru(ACCUSATIVE)]."),
-					SPAN_XENONOTICE("Мы извергаем немного смолы и уплотняем [target.declent_ru()], используя [total_resin_cost] плазмы."), null, 5)
+				visible_message(SPAN_XENONOTICE("1 regurgitates a thick substance and thickens $2.", list(capitalize(declent_ru()), target.declent_ru(ACCUSATIVE))), // SS220 EDIT ADDICTION
+					SPAN_XENONOTICE("We regurgitate some resin and thicken $1, using $2 plasma.", list(target.declent_ru(ACCUSATIVE), total_resin_cost)), null, 5) // SS220 EDIT ADDICTION
 				if(use_plasma)
 					use_plasma(total_resin_cost)
 				playsound(loc, "alien_resin_build", 25)
@@ -144,8 +144,8 @@
 		if(use_plasma)
 			use_plasma(total_resin_cost)
 		if(message)
-			visible_message(SPAN_XENONOTICE("[src] regurgitates a thick substance and shapes it into \a [resin_construct.construction_name]!"),
-				SPAN_XENONOTICE("We regurgitate some resin and shape it into \a [resin_construct.construction_name][use_plasma ? " at the cost of a total [total_resin_cost] plasma" : ""]."), null, 5)
+			visible_message(SPAN_XENONOTICE("$1 regurgitates a thick substance and shapes it into $2!", list(capitalize(declent_ru()), resin_construct.construction_name)), // SS220 EDIT ADDICTION
+				SPAN_XENONOTICE("We regurgitate some resin and shape it into $1[use_plasma ? " at the cost of a total $2 plasma" : ""].", list(resin_construct.construction_name, total_resin_cost)), null, 5) // SS220 EDIT ADDICTION
 			playsound(loc, "alien_resin_build", 25)
 		return SECRETE_RESIN_SUCCESS
 
@@ -155,8 +155,8 @@
 	if(use_plasma)
 		use_plasma(total_resin_cost)
 	if(message)
-		visible_message(SPAN_XENONOTICE("[capitalize(declent_ru())] извергает густую субстанцию и придает ей форму [declent_ru_initial(resin_construct.construction_name, GENITIVE, resin_construct.construction_name)]!"),
-			SPAN_XENONOTICE("Мы извергаем немного смолы и придаем ей форму [declent_ru_initial(resin_construct.construction_name, GENITIVE, resin_construct.construction_name)][use_plasma ? ", используя [total_resin_cost] плазмы" : ""]."), null, 5)
+		visible_message(SPAN_XENONOTICE("$1 regurgitates a thick substance and shapes it into $2!", list(capitalize(declent_ru()), resin_construct.construction_name)), // SS220 EDIT ADDICTION
+			SPAN_XENONOTICE("We regurgitate some resin and shape it into $1[use_plasma ? " at the cost of a total $2 plasma" : ""].", list(resin_construct.construction_name, total_resin_cost)), null, 5) // SS220 EDIT ADDICTION
 		playsound(loc, "alien_resin_build", 25)
 
 	var/atom/new_resin = resin_construct.build(current_turf, hivenumber, src)
@@ -230,8 +230,8 @@
 
 	var/max_constructions = hive.hive_structures_limit[structure_template.name]
 	var/remaining_constructions = max_constructions - hive.get_structure_count(structure_template.name)
-	visible_message(SPAN_XENONOTICE("Из земли появляется густая субстанция и принимает форму [declent_ru_initial(structure_template.name, GENITIVE, structure_template.name)]."),
-		SPAN_XENONOTICE("Мы обозначаем [declent_ru_initial(structure_template.name, ACCUSATIVE, structure_template.name)]. ([remaining_constructions]/[max_constructions] осталось)"), null, 5)
+	visible_message(SPAN_XENONOTICE("A thick substance emerges from the ground and shapes into $1.", list(declent_ru_initial(structure_template.name, GENITIVE, structure_template.name))), // SS220 EDIT ADDICTION
+		SPAN_XENONOTICE("We designate a new $1 construction. ($2/$3 remaining)", list(structure_template.name, ACCUSATIVE, structure_template.name, remaining_constructions, max_constructions)), null, 5) // SS220 EDIT ADDICTION
 	playsound(new_structure, "alien_resin_build", 25)
 
 	if(hive.living_xeno_queen)
@@ -259,7 +259,7 @@
 		if(istype(AM, /obj/effect/alien/weeds))
 			found_weeds = TRUE
 		if(AM.density || istype(AM, /obj/effect/alien/resin))
-			to_chat(src, SPAN_XENONOTICE("Там не хватает места для метки"))
+			to_chat(src, SPAN_XENONOTICE("Theres not enough space there for a resin mark."))
 			return FALSE
 
 	var/obj/effect/alien/resin/marker/NM = new /obj/effect/alien/resin/marker(target_turf, src)
@@ -276,6 +276,6 @@
 		var/current_area_name = get_area_name(target_turf)
 
 		for(var/mob/living/carbon/xenomorph/X in hive.totalXenos)
-			to_chat(X, SPAN_XENOANNOUNCE("[capitalize(declent_ru())] объявляет: [NM.mark_meaning.desc] в [sanitize_area(current_area_name)]! (<a href='byond://?src=\ref[X];overwatch=1;target=\ref[NM]'>Смотреть</a>) (<a href='byond://?src=\ref[X];track=1;target=\ref[NM]'>Отслеживать</a>)"))
+			to_chat(X, SPAN_XENOANNOUNCE("$1 has declared: $2 in $3! (<a href='$4'>Watch</a>) (<a href='$5'>Track</a>)", list(capitalize(declent_ru()), NM.mark_meaning.desc, sanitize_area(current_area_name), "byond://?src=\ref[X];overwatch=1;target=\ref[NM]", "byond://?src=\ref[X];track=1;target=\ref[NM]"))) // SS220 EDIT ADDICTION
 			//this is killing the tgui chat and I dont know why
 	return TRUE

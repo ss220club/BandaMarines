@@ -394,7 +394,7 @@ const CombinedSquadPanel = (props: Props) => {
                                       }
                                     >
                                       {MarinesStatesRu(
-                                        squad_leader.state
+                                        squad_leader.state,
                                       ).toUpperCase()}
                                     </Box>
                                   </Table.Cell>

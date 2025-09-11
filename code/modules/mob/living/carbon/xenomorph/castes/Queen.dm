@@ -202,7 +202,7 @@
 
 		next_point = world.time + point_delay
 
-		var/message = SPAN_XENONOTICE("[Q] points at [A].")
+		var/message = SPAN_XENONOTICE("$1 points at $2.", list(declent_ru_initial(Q::name, ACCUSATIVE, Q::name), declent_ru_initial(A::name, ACCUSATIVE, A::name))) // SS220 EDIT ADDICTION
 
 		to_chat(Q, message)
 		for(var/mob/living/carbon/xenomorph/X in viewers(7, src))
@@ -734,7 +734,7 @@
 	pslash_delay = TRUE
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/mob/living/carbon/xenomorph, do_claw_toggle_cooldown)), 30 SECONDS)
 
-	var/choice = tgui_input_list(usr, "Choose which level of slashing hosts to permit to your hive.","Harming", list("Allowed", "Restricted - Hosts of Interest", "Forbidden"), theme="hive_status")
+	var/choice = tgui_input_list(usr, "Выберите, какой уровень рубящих атак на хостов разрешить вашему улью.", "Причинение вреда", list("Разрешено", "Ограничено - интересные хосты", "Запрещено"), theme="hive_status") // SS220 EDIT ADDICTION
 
 	if(choice == "Allowed")
 		to_chat(src, SPAN_XENONOTICE("You allow slashing."))
@@ -870,8 +870,8 @@
 
 		use_plasma(200)
 
-		visible_message(SPAN_XENODANGER("[src] viciously smashes and wrenches [victim] apart!"),
-		SPAN_XENODANGER("You suddenly unleash pure anger on [victim], instantly wrenching \him apart!"))
+		visible_message(SPAN_XENODANGER("$1 viciously smashes and wrenches $2 apart!", list(declent_ru(), victim)), // SS220 EDIT ADDICTION
+		SPAN_XENODANGER("You suddenly unleash pure anger on $1, instantly wrenching apart!", list(victim))) // SS220 EDIT ADDICTION
 		emote("roar")
 
 		attack_log += text("\[[time_stamp()]\] <font color='red'>gibbed [key_name(victim)]</font>")
@@ -1056,7 +1056,7 @@
 	var/obj/effect/overlay/temp/point/big/greyscale/point = new(target_turf, src, target_atom)
 	point.color = "#a800a8"
 
-	visible_message(SPAN_XENOQUEEN("<b>$1</b> points to $2", list(src, declent_ru_initial(target_atom::name, ACCUSATIVE, target_atom))), null, null, 5) // SS220 EDIT ADDICTION
+	visible_message(SPAN_XENOQUEEN("<b>$1</b> points to $2", list(declent_ru(), declent_ru_initial(target_atom::name, ACCUSATIVE, target_atom::name))), null, null, 5) // SS220 EDIT ADDICTION
 
 #undef XENO_QUEEN_AGE_TIME
 #undef XENO_QUEEN_TEMP_AGE_DURATION

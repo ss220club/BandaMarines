@@ -212,7 +212,7 @@
 			to_chat(src, SPAN_XENONOTICE("That resin mark no longer exists."))
 			return
 		else
-			to_chat(src, SPAN_XENONOTICE("We psychically observe the [target.mark_meaning.name] resin mark in [get_area_name(target)]."))
+			to_chat(src, SPAN_XENONOTICE("We psychically observe the $1 resin mark in $2.", list(target.mark_meaning.name, get_area_name(target)))) // SS220 EDIT ADDICTION
 			overwatch(target)
 	if(href_list["track"])
 		var/input2 = href_list["target"]
@@ -227,4 +227,3 @@
 
 
 	..()
-

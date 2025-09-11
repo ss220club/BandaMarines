@@ -528,23 +528,23 @@ Additional game mode variables.
 					This means you won't lose your relative place in queue if you step away, disconnect, play as a facehugger/lesser, or play in the thunderdome."))
 				return FALSE
 			var/mob/new_player/candidate_new_player = xeno_candidate
+			var/position = 1
 			if(candidate_new_player.larva_queue_message_stale_time <= world.time)
 				// No cached/current lobby message, determine the position
 				var/list/valid_candidates = get_alien_candidates()
 				var/candidate_time = candidate_new_player.client.player_details.larva_queue_time
-				var/position = 1
 				for(var/mob/dead/observer/current in valid_candidates)
 					if(current.client.player_details.larva_queue_time >= candidate_time)
 						break
 					position++
 				candidate_new_player.larva_queue_message_stale_time = world.time + 3 MINUTES // spam prevention
-				candidate_new_player.larva_queue_cached_message = "Your position would be [position]\th in the larva queue if you observed and were eligible to be a xeno. \
+				candidate_new_player.larva_queue_cached_message = "Your position would be $1 in the larva queue if you observed and were eligible to be a xeno. \
 					The ordering is based on your time of death or the time you joined. When you have been dead long enough and are not inactive, \
 					you will periodically receive messages where you are in the queue relative to other currently valid xeno candidates. \
 					Your current position will shift as others change their preferences or go inactive, but your relative position compared to all observers is the same. \
 					Note: Playing as a facehugger/lesser or in the thunderdome will not alter your time of death. \
 					This means you won't lose your relative place in queue if you step away, disconnect, play as a facehugger/lesser, or play in the thunderdome."
-			to_chat(candidate_new_player, SPAN_XENONOTICE(candidate_new_player.larva_queue_cached_message))
+			to_chat(candidate_new_player, SPAN_XENONOTICE(candidate_new_player.larva_queue_cached_message, list(position))) // SS220 EDIT ADDICTION
 			return FALSE
 
 		if(!candidate_observer)
@@ -571,13 +571,13 @@ Additional game mode variables.
 				if(current.client.player_details.larva_queue_time >= candidate_time)
 					break
 				position++
-			candidate_observer.larva_queue_cached_message = "You are currently ineligible to be a larva but would be [position]\th in queue. \
+			candidate_observer.larva_queue_cached_message = "You are currently ineligible to be a larva but would be $1 in queue. \
 				The ordering is based on your time of death or the time you joined. When you have been dead long enough and are not inactive, \
 				you will periodically receive messages where you are in the queue relative to other currently valid xeno candidates. \
 				Your current position will shift as others change their preferences or go inactive, but your relative position compared to all observers is the same. \
 				Note: Playing as a facehugger/lesser or in the thunderdome will not alter your time of death. \
 				This means you won't lose your relative place in queue if you step away, disconnect, play as a facehugger/lesser, or play in the thunderdome."
-			to_chat(candidate_observer, SPAN_XENONOTICE(candidate_observer.larva_queue_cached_message))
+			to_chat(candidate_observer, SPAN_XENONOTICE(candidate_observer.larva_queue_cached_message, list(position))) // SS220 EDIT ADDICTION
 			return FALSE
 
 		var/datum/hive_status/cur_hive
@@ -874,7 +874,7 @@ Additional game mode variables.
 
 	original.sight = BLIND
 
-	var/selected_spawn = tgui_input_list(original, "Where do you want you and your hive to spawn?", "Queen Spawn", spawn_list_map, QUEEN_SPAWN_TIMEOUT, theme="hive_status")
+	var/selected_spawn = tgui_input_list(original, "Где вы хотите появиться вместе с вашим ульем?", "Появление Королевы", spawn_list_map, QUEEN_SPAWN_TIMEOUT, theme="hive_status") // SS220 EDIT ADDICTION
 	if(hive.living_xeno_queen)
 		to_chat(original, SPAN_XENOANNOUNCE("You have taken too long to pick a spawn location, a queen has already evolved before you."))
 		player.send_to_lobby()

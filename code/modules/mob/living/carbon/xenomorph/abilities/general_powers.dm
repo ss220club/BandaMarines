@@ -65,7 +65,7 @@
 	if(node)
 		to_convert = node.children.Copy()
 
-	xeno.visible_message(SPAN_XENONOTICE("\The [xeno] regurgitates a pulsating node and plants it on the ground!"),
+	xeno.visible_message(SPAN_XENONOTICE("$1 regurgitates a pulsating node and plants it on the ground!", list(xeno)), // SS220 EDIT ADDICTION
 	SPAN_XENONOTICE("We regurgitate a pulsating node and plant it on the ground!"), null, 5)
 	var/obj/effect/alien/weeds/node/new_node = new node_type(xeno.loc, src, xeno)
 
@@ -343,7 +343,7 @@
 		return FALSE
 
 	if(!acid_level)
-		to_chat(src, SPAN_XENONOTICE("You can't secrete any acid into [target]."))
+		to_chat(src, SPAN_XENONOTICE("You can't secrete any acid into $1.", list(target))) // SS220 EDIT ADDICTION
 		return FALSE
 
 	var/trap_acid_level = 0
@@ -468,7 +468,7 @@
 		return
 
 	if(X.legcuffed)
-		to_chat(X, SPAN_XENODANGER("We can't [action_text] with that thing on our leg!"))
+		to_chat(X, SPAN_XENODANGER("We can't $1 with that thing on our leg!", list(action_text))) // SS220 EDIT ADDICTION
 		return
 
 	if(!check_and_use_plasma_owner())
@@ -507,7 +507,7 @@
 		pre_windup_effects()
 
 		if (!do_after(X, windup_duration, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE))
-			to_chat(X, SPAN_XENODANGER("We cancel our [action_text]!"))
+			to_chat(X, SPAN_XENODANGER("We cancel our $1!", list(action_text))) // SS220 EDIT ADDICTION
 			if (!windup_interruptable)
 				REMOVE_TRAIT(X, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Pounce"))
 				X.anchored = FALSE
@@ -938,7 +938,7 @@
 	if (!xeno.can_bombard_turf(turf, range, bombard_source))
 		return FALSE
 
-	xeno.visible_message(SPAN_XENODANGER("[xeno] digs itself into place!"), SPAN_XENODANGER("We dig ourself into place!"))
+	xeno.visible_message(SPAN_XENODANGER("$1 digs itself into place!", list(xeno)), SPAN_XENODANGER("We dig ourself into place!")) // SS220 EDIT ADDICTION
 	if (!do_after(xeno, activation_delay, interrupt_flags, BUSY_ICON_HOSTILE))
 		to_chat(xeno, SPAN_XENODANGER("We decide to cancel our bombard."))
 		return FALSE
@@ -951,7 +951,7 @@
 
 	apply_cooldown()
 
-	xeno.visible_message(SPAN_XENODANGER("[xeno] launches a massive ball of acid at [atom]!"), SPAN_XENODANGER("You launch a massive ball of acid at [atom]!"))
+	xeno.visible_message(SPAN_XENODANGER("$1 launches a massive ball of acid at $2!", list(xeno, atom)), SPAN_XENODANGER("You launch a massive ball of acid at $1!", list(atom))) // SS220 EDIT ADDICTION
 	playsound(get_turf(xeno), 'sound/effects/blobattack.ogg', 25, 1)
 
 	recursive_spread(turf, effect_range, effect_range)

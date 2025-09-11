@@ -285,10 +285,10 @@ GLOBAL_VAR_INIT(ob_cannon_safety, FALSE)
 	var/next_interval = 1 MINUTES
 	if(timeleft <= 1 MINUTES)
 		next_interval = 55 SECONDS
-		text_timeleft = "[timeleft] minute"
+		text_timeleft = "$1 minute" // SS220 EDIT ADDICTION
 	if(timeleft <= 5 SECONDS)
 		next_interval = timeleft
-		text_timeleft = "[timeleft] seconds"
+		text_timeleft = "$1 seconds" // SS220 EDIT ADDICTION
 	var/input = "Подъем затвора станции через [text_timeleft] при ручном управлении."
 	var/title = announce_title
 	marine_announcement(input, title, 'sound/AI/commandreport.ogg')
@@ -296,7 +296,7 @@ GLOBAL_VAR_INIT(ob_cannon_safety, FALSE)
 		if(isxeno(M))
 			sound_to(M, sound(get_sfx("queen"), wait = 0, volume = 50))
 			to_chat(M, SPAN_XENOANNOUNCE("The Queen Mother reaches into your mind from worlds away."))
-			to_chat(M, SPAN_XENOANNOUNCE("To my children and their Queen. I sense the large doors that trap us will open in [text_timeleft]."))
+			to_chat(M, SPAN_XENOANNOUNCE("To my children and their Queen. I sense the large doors that trap us will open in [text_timeleft].", list(timeleft))) // SS220 EDIT ADDICTION
 	var/new_timeleft = timeleft - next_interval
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/structure/machinery/keycard_auth/lockdown, timed_countdown), new_timeleft), next_interval)
 

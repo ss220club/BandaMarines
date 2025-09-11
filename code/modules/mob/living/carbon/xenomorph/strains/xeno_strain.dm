@@ -87,7 +87,7 @@
 	if(!can_take_strain())
 		return
 	// Show the user the strain's description, and double check that they want it.
-	if(tgui_alert(usr, "[declent_ru_initial(initial(chosen_strain.description))]", "Choose Strain", list("Принять", "Отмена")) != "Принять") // SS220 EDIT ADDICTION
+	if(tgui_alert(usr, "[chosen_strain.description]", "Вы уверены?", list("Принять", "Отмена")) != "Принять") // SS220 EDIT ADDICTION
 		return
 	// One more time after they confirm.
 	if(!can_take_strain())
@@ -115,7 +115,7 @@
 		return
 
 	// Show the user the strain's description, and double check that they want it.
-	if(tgui_alert(src, "Are you sure?", "Reset Strain", list("Yes", "No")) != "Yes")
+	if(tgui_alert(src, "Вы уверены?", "Сброс подвида", list("Принять", "Отмена")) != "Принять") // SS220 EDIT ADDICTION
 		return
 
 	// One more time after they confirm.

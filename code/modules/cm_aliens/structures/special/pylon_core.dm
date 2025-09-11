@@ -91,10 +91,10 @@
 		return
 	var/can_repair = damaged || health < maxhealth
 	if(!can_repair)
-		to_chat(xeno, SPAN_XENONOTICE("\The [name] is in good condition, you don't need to repair it."))
+		to_chat(xeno, SPAN_XENONOTICE("$1 is in good condition, you don't need to repair it.", list(name))) // SS220 EDIt ADDICTION
 		return
 
-	to_chat(xeno, SPAN_XENONOTICE("We begin adding the plasma to \the [name] to repair it."))
+	to_chat(xeno, SPAN_XENONOTICE("We begin adding the plasma to $1 to repair it.", list(name))) // SS220 EDIt ADDICTION
 	xeno_attack_delay(xeno)
 	if(!do_after(xeno, PYLON_REPAIR_TIME, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD, src) || !can_repair)
 		return
@@ -121,7 +121,7 @@
 			continue
 		addtimer(CALLBACK(W, TYPE_PROC_REF(/obj/effect/alien/weeds, weed_expand), N), PYLON_WEEDS_REGROWTH_TIME, TIMER_UNIQUE)
 
-	to_chat(xeno, SPAN_XENONOTICE("We have successfully repaired \the [name]."))
+	to_chat(xeno, SPAN_XENONOTICE("We have successfully repaired $1.", list(name))) // SS220 EDIt ADDICTION
 	playsound(loc, "alien_resin_build", 25)
 
 /obj/effect/alien/resin/special/pylon/proc/place_node()
@@ -142,7 +142,7 @@
 	var/mob/living/carbon/xenomorph/lesser_drone/new_drone = new(loc, null, linked_hive.hivenumber)
 	xeno_candidate.mind.transfer_to(new_drone, TRUE)
 	lesser_drone_spawns -= 1
-	new_drone.visible_message(SPAN_XENODANGER("Трутень вылезает из [declent_ru(GENITIVE)]!"), SPAN_XENODANGER("Вы вылезаете из [declent_ru(GENITIVE)] и просыпаетесь из своей спячки. За улей!"))
+	new_drone.visible_message(SPAN_XENODANGER("A lesser drone emerges out of $1!", list(declent_ru(GENITIVE))), SPAN_XENODANGER("You emerge out of $1 and awaken from your slumber. For the Hive!", list(declent_ru(GENITIVE)))) // SS220 EDIT ADDICTION
 	playsound(new_drone, 'sound/effects/xeno_newlarva.ogg', 25, TRUE)
 	new_drone.generate_name()
 
@@ -175,9 +175,9 @@
 				continue
 
 			if(checked_hive == linked_hive)
-				xeno_announcement(SPAN_XENOANNOUNCE("Мы потеряли контроль над коммуникационным реле носителей в [get_area_name(src)]."), hivenumber, XENO_GENERAL_ANNOUNCE)
+				xeno_announcement(SPAN_XENOANNOUNCE("We have lost our control of the tall's communication relay at $1.", list(get_area_name(src))), hivenumber, XENO_GENERAL_ANNOUNCE) // SS220 EDIT ADDICTION
 			else
-				xeno_announcement(SPAN_XENOANNOUNCE("Другой улей потерял контроль над коммуникационным реле носителей в [get_area_name(src)]."), hivenumber, XENO_GENERAL_ANNOUNCE)
+				xeno_announcement(SPAN_XENOANNOUNCE("Another hive has lost control of the tall's communication relay at $1.", list(get_area_name(src))), hivenumber, XENO_GENERAL_ANNOUNCE) // SS220 EDIT ADDICTION
 		linked_hive.hive_ui.update_pylon_status()
 	return ..()
 
@@ -191,9 +191,9 @@
 			continue
 
 		if(checked_hive == linked_hive)
-			xeno_announcement(SPAN_XENOANNOUNCE("Мы захватили коммуникационное реле носителей в [get_area_name(src)].\n\nТеперь мы будем выращивать королевскую смолу из этого пилона. Удерживайте его!"), hivenumber, XENO_GENERAL_ANNOUNCE)
+			xeno_announcement(SPAN_XENOANNOUNCE("We have harnessed the tall's communication relay at $1.<br><br>We will now grow royal resin from this pylon. Hold it!", list(get_area_name(src))), hivenumber, XENO_GENERAL_ANNOUNCE) // SS220 EDIT ADDICTION
 		else
-			xeno_announcement(SPAN_XENOANNOUNCE("Другой улей захватил коммуникационное реле носителей в [get_area_name(src)].[linked_hive.faction_is_ally(checked_hive.name) ? "" : " Остановите их!"]"), hivenumber, XENO_GENERAL_ANNOUNCE)
+			xeno_announcement(SPAN_XENOANNOUNCE("Another hive has harnessed the tall's communication relay at $1.[linked_hive.faction_is_ally(checked_hive.name) ? "" : " Stop them!"]", list(get_area_name(src))), hivenumber, XENO_GENERAL_ANNOUNCE) // SS220 EDIT ADDICTION
 
 	activated = TRUE
 	linked_hive.check_if_hit_larva_from_pylon_limit()
@@ -264,7 +264,7 @@
 	if(linked_hive)
 		for(var/mob/living/carbon/xenomorph/larva/worm in range(2, src))
 			if((!worm.ckey || worm.stat == DEAD) && worm.burrowable && (worm.hivenumber == linked_hive.hivenumber) && !QDELETED(worm))
-				visible_message(SPAN_XENODANGER("[worm] quickly burrows into \the [src]."))
+				visible_message(SPAN_XENODANGER("$1 quickly burrows into $2.", list(worm, declent_ru()))) // SS220 EDIT ADDICTION
 				if(!worm.banished)
 					// Goob job bringing her back home, but no doubling please
 					linked_hive.stored_larva++
@@ -316,8 +316,8 @@
 		if(isnull(new_xeno))
 			return FALSE
 
-		new_xeno.visible_message(SPAN_XENODANGER("A larva suddenly emerges from [src]!"),
-		SPAN_XENODANGER("We emerge from [src] and awaken from our slumber. For the Hive!"))
+		new_xeno.visible_message(SPAN_XENODANGER("A larva suddenly emerges from $1!", list(declent_ru())), // SS220 EDIT ADDICTION
+		SPAN_XENODANGER("We emerge from $1 and awaken from our slumber. For the Hive!", list(declent_ru()))) // SS220 EDIT ADDICTION
 		msg_admin_niche("[key_name(new_xeno)] emerged from \a [src]. [ADMIN_JMP(src)]")
 		playsound(new_xeno, 'sound/effects/xeno_newlarva.ogg', 50, 1)
 		if(!SSticker.mode.transfer_xeno(xeno_candidate, new_xeno))
@@ -411,7 +411,7 @@
 
 /obj/effect/alien/resin/special/pylon/core/Destroy()
 	if(linked_hive)
-		visible_message(SPAN_XENOHIGHDANGER("The resin roof withers away as \the [src] dies!"), max_distance = WEED_RANGE_CORE)
+		visible_message(SPAN_XENOHIGHDANGER("The resin roof withers away as $1 dies!", list(declent_ru())), max_distance = WEED_RANGE_CORE) // SS220 EDIT ADDICTION
 		linked_hive.hive_location = null
 		if(world.time < XENOMORPH_PRE_SETUP_CUTOFF && !hardcore)
 			. = ..()
@@ -426,20 +426,20 @@
 			xeno_announcement("Ядро улья '[linked_hive.name]' погибло!", "everything", HIGHER_FORCE_ANNOUNCE)
 
 		if(linked_hive.hijack_burrowed_surge)
-			visible_message(SPAN_XENODANGER("We hear something resembling a scream from [src] as it's destroyed!"))
-			xeno_message(SPAN_XENOANNOUNCE("Psychic pain storms throughout the hive as [src] is destroyed! We will no longer gain burrowed larva over time."), 3, linked_hive.hivenumber)
+			visible_message(SPAN_XENODANGER("We hear something resembling a scream from $1 as it's destroyed!", list(declent_ru()))) // SS220 EDIT ADDICTION
+			xeno_message(SPAN_XENOANNOUNCE("Psychic pain storms throughout the hive as $1 is destroyed! We will no longer gain burrowed larva over time.", list(declent_ru())), 3, linked_hive.hivenumber) // SS220 EDIT ADDICTION
 			linked_hive.hijack_burrowed_surge = FALSE
 
 	SSminimaps.remove_marker(src)
 	. = ..()
 
 /obj/effect/alien/resin/special/pylon/core/proc/startDestroying(mob/living/carbon/xenomorph/M)
-	xeno_message(SPAN_XENOANNOUNCE("[M] is destroying \the [src]!"), 3, linked_hive.hivenumber)
-	visible_message(SPAN_DANGER("[M] starts destroying \the [src]!"))
+	xeno_message(SPAN_XENOANNOUNCE("$1 is destroying $2!", list(M, declent_ru())), 3, linked_hive.hivenumber) // SS220 EDIT ADDICTION
+	visible_message(SPAN_DANGER("$1 starts destroying $2!", list(M, declent_ru()))) // SS220 EDIT ADDICTION
 	last_attempt = world.time //spamcheck
 	if(!do_after(M, 5 SECONDS , INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_HOSTILE))
-		to_chat(M,SPAN_WARNING("You stop destroying \the [src]."))
-		visible_message(SPAN_WARNING("[M] stops destroying \the [src]."))
+		to_chat(M,SPAN_WARNING("You stop destroying $1.", list(declent_ru()))) // SS220 EDIT ADDICTION
+		visible_message(SPAN_WARNING("$1 stops destroying $2.", list(M, declent_ru()))) // SS220 EDIT ADDICTION
 		last_attempt = world.time // update the spam check
 		return XENO_NO_DELAY_ACTION
 	qdel(src)

@@ -735,7 +735,7 @@
 
 		var/obj/effect/alien/weeds/target_weeds = node_loc.weeds
 		if(target_weeds && target_weeds.hivenumber == xeno.hivenumber)
-			xeno.visible_message(SPAN_XENODANGER("\The [xeno] surges the resin, creating an unstable wall!"),
+			xeno.visible_message(SPAN_XENODANGER("$1 surges the resin, creating an unstable wall!", list(xeno)), // SS220 EDIT ADDICTION
 				SPAN_XENONOTICE("We surge the resin, creating an unstable wall!"), null, 5)
 
 			node_loc.PlaceOnTop(/turf/closed/wall/resin/reflective/weak)
@@ -903,8 +903,8 @@
 		if(!check_and_use_plasma_owner(plasma_cost))
 			return
 
-		xeno.visible_message(SPAN_XENONOTICE("Weeds around [target_atom] start to twitch and pump substance towards it, thickening it in process!"),
-			SPAN_XENONOTICE("We start to channel nutrients towards [target_atom], using [plasma_cost] plasma."), null, 5)
+		xeno.visible_message(SPAN_XENONOTICE("Weeds around $1 start to twitch and pump substance towards it, thickening it in process!", list(target_atom)), // SS220 EDIT ADDICTION
+			SPAN_XENONOTICE("We start to channel nutrients towards $1, using $2 plasma.", list(target_atom, plasma_cost)), null, 5) // SS220 EDIT ADDICTION
 		playsound(target_atom, "alien_resin_build", 25)
 
 		target_atom.add_hiddenprint(xeno) //Tracks who reinforced it for admins
@@ -956,7 +956,7 @@
 			return
 		if(!check_and_use_plasma_owner(plasma_cost))
 			return
-		xeno.visible_message(SPAN_XENONOTICE("\The [xeno] channel nutrients and shape it into a node!"))
+		xeno.visible_message(SPAN_XENONOTICE("$1 channel nutrients and shape it into a node!", list(xeno))) // SS220 EDIT ADDICTION
 		var/obj/effect/alien/resin/design/design = new xeno.selected_design(target_weeds.loc, target_weeds, xeno) //Create node you selected from list
 		if(!design)
 			to_chat(xeno, SPAN_XENOHIGHDANGER("Couldn't find node to place! Contact a coder!"))
@@ -978,7 +978,7 @@
 			return
 		if(!check_and_use_plasma_owner(plasma_cost))
 			return
-		xeno.visible_message(SPAN_XENONOTICE("The [xeno] channel nutrients and shape it into a node!"))
+		xeno.visible_message(SPAN_XENONOTICE("The $1 channel nutrients and shape it into a node!", list(xeno))) // SS220 EDIT ADDICTION
 		var/obj/effect/alien/resin/design/design = new xeno.selected_design(target_weeds.loc, target_weeds, xeno)
 		if(!design)
 			to_chat(xeno, SPAN_XENOHIGHDANGER("Couldn't find node to place! Contact a coder!"))
@@ -1002,7 +1002,7 @@
 			return
 		if(!check_and_use_plasma_owner(plasma_cost))
 			return
-		xeno.visible_message(SPAN_XENONOTICE("The [xeno] channel nutrients and shape it into a node!"))
+		xeno.visible_message(SPAN_XENONOTICE("The $1 channel nutrients and shape it into a node!", list(xeno))) // SS220 EDIT ADDICTION
 		var/obj/effect/alien/resin/design/design = new xeno.selected_design(target_weeds.loc, target_weeds, xeno)
 		if(!design)
 			to_chat(xeno, SPAN_XENOHIGHDANGER("Couldn't find node to place! Contact a coder!"))

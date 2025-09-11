@@ -93,8 +93,8 @@
 			next_slash_buffed = FALSE
 			return //species like zombies or synths are immune to neurotoxin
 	if (next_slash_buffed)
-		to_chat(bound_xeno, SPAN_XENOHIGHDANGER("We add neurotoxin into our attack, [carbon_target] is about to fall over paralyzed!"))
-		to_chat(carbon_target, SPAN_XENOHIGHDANGER("You feel like you're about to fall over, as [bound_xeno] slashes you with its neurotoxin coated claws!"))
+		to_chat(bound_xeno, SPAN_XENOHIGHDANGER("We add neurotoxin into our attack, $1 is about to fall over paralyzed!", list(carbon_target))) // SS220 EDIT ADDICTION
+		to_chat(carbon_target, SPAN_XENOHIGHDANGER("You feel like you're about to fall over, as $1 slashes you with its neurotoxin coated claws!", list(bound_xeno))) // SS220 EDIT ADDICTION
 		carbon_target.sway_jitter(times = 3, steps = floor(NEURO_TOUCH_DELAY/3))
 		carbon_target.apply_effect(4, DAZE)
 		addtimer(CALLBACK(src, PROC_REF(paralyzing_slash), carbon_target), NEURO_TOUCH_DELAY)

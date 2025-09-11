@@ -247,7 +247,7 @@
 				to_chat(xeno, SPAN_WARNING("The metal bird can not land here. It might be currently occupied!"))
 				return
 			to_chat(xeno, SPAN_NOTICE("You command the metal bird to come down. Clever girl."))
-			xeno_announcement(SPAN_XENOANNOUNCE("Наша Королева приказала прилететь железной птице к своему улью на [linked_lz]."), xeno.hivenumber, XENO_GENERAL_ANNOUNCE)
+			xeno_announcement(SPAN_XENOANNOUNCE("Our Queen has commanded the metal bird to the hive at $1.", list(linked_lz)), xeno.hivenumber, XENO_GENERAL_ANNOUNCE) // SS220 EDIT ADDICTION
 			log_ares_flight("Unknown", "Remote launch signal for [shuttle.name] received. Authentication garbled.")
 			log_ares_security("Security Alert", "Remote launch signal for [shuttle.name] received. Authentication garbled.")
 			return
@@ -279,7 +279,7 @@
 		if(dropship.playing_launch_announcement_alarm)
 			stop_playing_launch_announcement_alarm()
 			xeno.animation_attack_on(src)
-			to_chat(xeno, SPAN_XENONOTICE("We slash at [src], silencing its squawking!"))
+			to_chat(xeno, SPAN_XENONOTICE("We slash at $1, silencing its squawking!", list(declent_ru())))  // SS220 EDIT ADDICTION
 			playsound(loc, 'sound/machines/terminal_shutdown.ogg', 20)
 		else
 			to_chat(xeno, SPAN_NOTICE("Lights flash from the terminal but we can't comprehend their meaning."))
@@ -330,7 +330,7 @@
 				playsound(loc, 'sound/machines/terminal_error.ogg', KEYBOARD_SOUND_VOLUME, 1)
 		playsound(loc, 'sound/machines/terminal_success.ogg', KEYBOARD_SOUND_VOLUME, 1)
 		if(world.time < SHUTTLE_LOCK_TIME_LOCK)
-			to_chat(xeno, SPAN_XENODANGER("You can't mobilize the strength to hijack the shuttle yet. Please wait another [time_left_until(SHUTTLE_LOCK_TIME_LOCK, world.time, 1 MINUTES)] minutes before trying again."))
+			to_chat(xeno, SPAN_XENODANGER("You can't mobilize the strength to hijack the shuttle yet. Please wait another $1 minutes before trying again.", list(time_left_until(SHUTTLE_LOCK_TIME_LOCK, world.time, 1 MINUTES)))) // SS220 EDIT ADDICTION
 			return
 		hijack(xeno)
 		return

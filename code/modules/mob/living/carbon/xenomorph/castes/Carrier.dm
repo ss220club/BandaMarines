@@ -197,7 +197,7 @@
 		eggs_cur = 0
 
 		if(eggs_dropped) //Checks whether or not to announce egg drop.
-			xeno_message(SPAN_XENOANNOUNCE("[src] has dropped some precious eggs!"), 2, hive.hivenumber)
+			xeno_message(SPAN_XENOANNOUNCE("$1 has dropped some precious eggs!", list(declent_ru())), 2, hive.hivenumber) // SS220 EDIT ADDICTION
 
 /mob/living/carbon/xenomorph/carrier/recalculate_actions()
 	. = ..()
@@ -264,7 +264,7 @@
 				drop_inv_item_on_ground(F)
 				return
 			if(on_fire)
-				to_chat(src, SPAN_WARNING("Touching \the [F] while you're on fire would burn it!"))
+				to_chat(src, SPAN_WARNING("Touching $1 while you're on fire would burn it!", list(F))) // SS220 EDIT ADDICTION
 				return
 			store_hugger(F)
 			return
@@ -277,7 +277,7 @@
 				to_chat(src, SPAN_WARNING("That egg morpher is tainted!"))
 				return
 			if(on_fire)
-				to_chat(src, SPAN_WARNING("Touching \the [morpher] while you're on fire would burn the facehuggers in it!"))
+				to_chat(src, SPAN_WARNING("Touching $1 while you're on fire would burn the facehuggers in it!", list(morpher))) // SS220 EDIT ADDICTION
 				return
 			store_huggers_from_egg_morpher(morpher)
 			return
@@ -296,7 +296,7 @@
 		F = new(src, hivenumber)
 		huggers_cur--
 		put_in_active_hand(F)
-		to_chat(src, SPAN_XENONOTICE("We grab one of the facehugger in our storage. Now sheltering: [huggers_cur] / [huggers_max]."))
+		to_chat(src, SPAN_XENONOTICE("We grab one of the facehugger in our storage. Now sheltering: $1 / $2.", list(huggers_cur, huggers_max))) // SS220 EDIT ADDICTION
 		update_icons()
 		return
 
@@ -368,7 +368,7 @@
 		eggs_cur--
 		update_icons()
 		put_in_active_hand(E)
-		to_chat(src, SPAN_XENONOTICE("We grab one of the eggs in our storage. Now sheltering: [eggs_cur] / [eggs_max]."))
+		to_chat(src, SPAN_XENONOTICE("We grab one of the eggs in our storage. Now sheltering: $1 / $2.", list(eggs_cur, eggs_max))) // SS220 EDIT ADDICTION
 		return
 
 	if(!istype(E)) //something else in our hand
@@ -389,19 +389,19 @@
 	if(!morpher_safety_checks(morpher))
 		return
 
-	visible_message(SPAN_XENOWARNING("[src] starts placing facehuggers into [morpher] from their eggs..."), SPAN_XENONOTICE("We start placing children into [morpher] from our eggs..."))
+	visible_message(SPAN_XENOWARNING("$1 starts placing facehuggers into $2 from their eggs...", list(declent_ru(), morpher)), SPAN_XENONOTICE("We start placing children into $1 from our eggs...", list(morpher))) // SS220 EDIT ADDICTION
 	while(eggs_cur > 0)
 		if(!morpher_safety_checks(morpher))
 			return
 
 		if(!do_after(src, 0.75 SECONDS, INTERRUPT_ALL, BUSY_ICON_GENERIC))
-			to_chat(src, SPAN_WARNING("We stop filling [morpher] with our children."))
+			to_chat(src, SPAN_WARNING("We stop filling $1 with our children.", list(morpher))) // SS220 EDIT ADDICTION
 			return
 
 		playsound(src.loc, "sound/effects/alien_egg_move.ogg", 20, TRUE)
 		morpher.stored_huggers = min(morpher.huggers_max_amount, morpher.stored_huggers + 1)
 		eggs_cur--
-		to_chat(src, SPAN_XENONOTICE("We slide one of the children out of an egg and place them into [morpher]. Now sheltering: [eggs_cur] / [eggs_max]."))
+		to_chat(src, SPAN_XENONOTICE("We slide one of the children out of an egg and place them into $1. Now sheltering: $2 / $3.", list(morpher, eggs_cur, eggs_max))) // SS220 EDIT ADDICTION
 
 /mob/living/carbon/xenomorph/carrier/proc/morpher_safety_checks(obj/effect/alien/resin/special/eggmorph/morpher)
 	if(morpher.linked_hive && (morpher.linked_hive.hivenumber != hivenumber))
@@ -467,5 +467,5 @@
 		"How many to reserve?",
 		carrier.huggers_reserved, carrier.huggers_max, 0
 	)
-	to_chat(carrier, SPAN_XENONOTICE("We reserve [carrier.huggers_reserved] facehuggers for ourself."))
+	to_chat(carrier, SPAN_XENONOTICE("We reserve $1 facehuggers for ourself.", list(carrier.huggers_reserved))) // SS220 EDIT ADDICTION
 	return ..()

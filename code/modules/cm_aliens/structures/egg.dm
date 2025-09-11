@@ -119,7 +119,7 @@
 /obj/effect/alien/egg/attack_alien(mob/living/carbon/xenomorph/M)
 	if(status == EGG_BURST || status == EGG_DESTROYED)
 		M.animation_attack_on(src)
-		M.visible_message(SPAN_XENONOTICE("[M] clears the hatched egg."),
+		M.visible_message(SPAN_XENONOTICE("$1 clears the hatched egg.", list(M)), // SS220 EDIT ADDICTION
 		SPAN_XENONOTICE("We clear the hatched egg."))
 		playsound(src.loc, "alien_resin_break", 25)
 		qdel(src)
@@ -265,11 +265,11 @@
 		switch(status)
 			if(EGG_BURST)
 				if(user)
-					visible_message(SPAN_XENOWARNING("[user] slides [F] back into [src]."),
-						SPAN_XENONOTICE("We place the child back in to [src]."))
+					visible_message(SPAN_XENOWARNING("$1 slides $2 back into $3.", list(user, F, declent_ru())), // SS220 EDIT ADDICTION
+						SPAN_XENONOTICE("We place the child back in to $1.", list(declent_ru()))) // SS220 EDIT ADDICTION
 					user.temp_drop_inv_item(F)
 				else
-					visible_message(SPAN_XENOWARNING("[F] crawls back into [src]!")) //Not sure how, but let's roll with it for now.
+					visible_message(SPAN_XENOWARNING("$1 crawls back into $2!", list(F, declent_ru()))) //Not sure how, but let's roll with it for now. SS220 EDIT ADDICTION
 				status = EGG_GROWN
 				icon_state = "Egg"
 

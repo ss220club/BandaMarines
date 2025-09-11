@@ -241,15 +241,15 @@
 		return
 
 	if(!xeno.can_not_harm(target)) //so we can heal only allies
-		to_chat(xeno, SPAN_WARNING("[target] is an enemy of our hive!"))
+		to_chat(xeno, SPAN_WARNING("$1 is an enemy of our hive!", list(target)))
 		return
 
 	if(target.stat == DEAD)
-		to_chat(xeno, SPAN_WARNING("[target] is already dead!"))
+		to_chat(xeno, SPAN_WARNING("$1 is already dead!", list(target))) // SS220 EDIT ADDICTION
 		return
 
 	if(target.health >= target.maxHealth)
-		to_chat(xeno, SPAN_WARNING("[target] is already at max health!"))
+		to_chat(xeno, SPAN_WARNING("$1 is already at max health!", list(target))) // SS220 EDIT ADDICTION
 		return
 
 	if(!isturf(xeno.loc))
@@ -257,10 +257,10 @@
 		return
 
 	if(get_dist(xeno, target) > max_range)
-		to_chat(xeno, SPAN_WARNING("We need to be closer to [target]."))
+		to_chat(xeno, SPAN_WARNING("We need to be closer to $1.", list(target))) // SS220 EDIT ADDICTION
 		return
 
-	xeno.say(";MY LIFE FOR THE QUEEN!!!")
+	xeno.say(ru_span(";MY LIFE FOR THE QUEEN!!!")) // SS220 EDIT ADDICTION
 
 	target.ExtinguishMob() //first, extinguish them from fire so they can be healed.
 
@@ -275,8 +275,8 @@
 	target.xeno_jitter(1 SECONDS)
 	target.flick_heal_overlay(3 SECONDS, "#44253d")
 
-	target.visible_message(SPAN_XENONOTICE("[xeno] explodes in a deluge of regenerative resin salve, covering [target] in it!"))
-	xeno_message(SPAN_XENOANNOUNCE("[xeno] sacrifices itself to heal [target]!"), 2, target.hive.hivenumber)
+	target.visible_message(SPAN_XENONOTICE("$1 explodes in a deluge of regenerative resin salve, covering $2 in it!", list(xeno, target))) // SS220 EDIT ADDICTION
+	xeno_message(SPAN_XENOANNOUNCE("$1 sacrifices itself to heal $2!", list(xeno, target)), 2, target.hive.hivenumber) // SS220 EDIT ADDICTION
 
 	var/datum/behavior_delegate/drone_healer/behavior_delegate = xeno.behavior_delegate
 	if(istype(behavior_delegate) && behavior_delegate.transferred_amount >= behavior_delegate.required_transferred_amount && xeno.client && xeno.hive)

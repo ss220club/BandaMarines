@@ -132,7 +132,7 @@ export const JOBS_RU = {
   // Engineering roles
   'Chief Engineer': 'Главный инженер',
   'Maintenance Technician': 'Техник-ремонтник',
-  'Ordnance Technician': 'Пиротехник',
+  'Ordnance Technician': 'Орудийный техник',
 
   // Requisition roles
   Quartermaster: 'Квартирмейстер',
@@ -382,7 +382,7 @@ export const JOBS_RU = {
   // Other
   Infected: 'Зараженные',
 
-  Unemployed: 'Неизвестно'
+  Unemployed: 'Неизвестно',
 };
 
 export function JobsRu(value: string) {

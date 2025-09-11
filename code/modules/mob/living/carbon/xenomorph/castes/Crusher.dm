@@ -97,7 +97,7 @@
 
 	else if (istype(target, /obj/structure/machinery/m56d_hmg))
 		var/obj/structure/machinery/m56d_hmg/weapon_in_path = target
-		visible_message(SPAN_DANGER("[src] rams [weapon_in_path]!"), SPAN_XENODANGER("We ram [weapon_in_path]!"))
+		visible_message(SPAN_DANGER("$1 rams $2!", list(declent_ru(), weapon_in_path)), SPAN_XENODANGER("We ram $1!", list(weapon_in_path))) // SS220 EDIT ADDICTION
 		playsound(loc, "punch", 25, 1)
 		weapon_in_path.CrusherImpact()
 		. =  FALSE
@@ -135,7 +135,7 @@
 
 	else if (istype(target, /obj/structure/machinery/defenses))
 		var/obj/structure/machinery/defenses/defenses_in_path = target
-		visible_message(SPAN_DANGER("[src] rams [defenses_in_path]!"), SPAN_XENODANGER("We ram [defenses_in_path]!"))
+		visible_message(SPAN_DANGER("$1 rams $2!", list(declent_ru(), defenses_in_path)), SPAN_XENODANGER("We ram $1!", list(defenses_in_path))) // SS220 EDIT ADDICTION
 
 		if (!defenses_in_path.unacidable)
 			playsound(loc, "punch", 25, 1)
@@ -151,7 +151,7 @@
 		if (vending_in_path.unslashable)
 			. = FALSE
 		else
-			visible_message(SPAN_DANGER("[src] smashes straight into [vending_in_path]!"), SPAN_XENODANGER("We smash straight into [vending_in_path]!"))
+			visible_message(SPAN_DANGER("$1 smashes straight into $2!", list(declent_ru(), vending_in_path)), SPAN_XENODANGER("We smash straight into $1!", list(vending_in_path))) // SS220 EDIT ADDICTION
 			playsound(loc, "punch", 25, 1)
 			vending_in_path.tip_over()
 
@@ -168,7 +168,7 @@
 		if (vending_in_path.unslashable)
 			. = FALSE
 		else
-			visible_message(SPAN_DANGER("[src] smashes straight into [vending_in_path]!"), SPAN_XENODANGER("We smash straight into [vending_in_path]!"))
+			visible_message(SPAN_DANGER("$1 smashes straight into $2!", list(declent_ru(), vending_in_path)), SPAN_XENODANGER("We smash straight into $1!", list(vending_in_path))) // SS220 EDIT ADDICTION
 			playsound(loc, "punch", 25, 1)
 			vending_in_path.tip_over()
 
@@ -196,7 +196,7 @@
 			if (objects_in_path.unacidable)
 				. = FALSE
 			else if (objects_in_path.anchored)
-				visible_message(SPAN_DANGER("[src] crushes [objects_in_path]!"), SPAN_XENODANGER("We crush [objects_in_path]!"))
+				visible_message(SPAN_DANGER("$1 crushes $2!", list(declent_ru(), objects_in_path)), SPAN_XENODANGER("We crush $1!", list(objects_in_path))) // SS220 EDIT ADDICTION
 				if(length(objects_in_path.contents)) //Hopefully won't auto-delete things inside crushed stuff.
 					var/turf/turf_for_obj = get_turf(src)
 					for(var/atom/movable/stuff_to_move in turf_for_obj.contents) stuff_to_move.forceMove(turf_for_obj)
@@ -253,8 +253,8 @@
 
 		cdr_amount += 0.5 SECONDS
 
-		to_chat(aoe_targets, SPAN_XENODANGER("[bound_xeno] slashes [aoe_targets]!"))
-		to_chat(bound_xeno, SPAN_XENODANGER("We slash [aoe_targets]!"))
+		to_chat(aoe_targets, SPAN_XENODANGER("$1 slashes $2!", list(bound_xeno, aoe_targets))) // SS220 EDIT ADDICTION
+		to_chat(bound_xeno, SPAN_XENODANGER("We slash $1!", list(aoe_targets))) // SS220 EDIT ADDICTION
 
 		bound_xeno.flick_attack_overlay(aoe_targets, "slash")
 
@@ -302,7 +302,7 @@
 			continue
 
 		new /datum/effects/xeno_slow(target, xeno, null, null, 3.5 SECONDS)
-		to_chat(target, SPAN_XENODANGER("You are slowed as the impact of [xeno] shakes the ground!"))
+		to_chat(target, SPAN_XENODANGER("You are slowed as the impact of $1 shakes the ground!", list(xeno))) // SS220 EDIT ADDICTION
 
 /datum/action/xeno_action/activable/pounce/crusher_charge/additional_effects(mob/living/target)
 	var/mob/living/carbon/xenomorph/xeno = owner
@@ -315,7 +315,7 @@
 
 	xeno.emote("roar")
 	target.apply_effect(2, WEAKEN)
-	xeno.visible_message(SPAN_XENODANGER("[xeno] overruns [target_to_check], brutally trampling them underfoot!"), SPAN_XENODANGER("We brutalize [target_to_check] as we crush them underfoot!"))
+	xeno.visible_message(SPAN_XENODANGER("$1 overruns $2, brutally trampling them underfoot!", list(xeno, target_to_check)), SPAN_XENODANGER("We brutalize $1 as we crush them underfoot!", list(target_to_check))) // SS220 EDIT ADDICTION
 
 	target_to_check.apply_armoured_damage(get_xeno_damage_slash(target_to_check, direct_hit_damage), ARMOR_MELEE, BRUTE)
 	xeno.throw_carbon(target_to_check, xeno.dir, 3)
@@ -398,7 +398,7 @@
 		return
 
 	playsound(xeno, 'sound/effects/bang.ogg', 25)
-	xeno.visible_message(SPAN_XENODANGER("[xeno] smashes into the ground!"), SPAN_XENODANGER("We smash into the ground!"))
+	xeno.visible_message(SPAN_XENODANGER("$1 smashes into the ground!", list(xeno)), SPAN_XENODANGER("We smash into the ground!")) // SS220 EDIT ADDICTION
 	xeno.create_stomp()
 
 
@@ -415,7 +415,7 @@
 
 		new /datum/effects/xeno_slow(targets, xeno, ttl = get_xeno_stun_duration(targets, effect_duration))
 		targets.apply_effect(get_xeno_stun_duration(targets, 0.2), WEAKEN)
-		to_chat(targets, SPAN_XENOHIGHDANGER("You are slowed as [xeno] knocks you off balance!"))
+		to_chat(targets, SPAN_XENOHIGHDANGER("You are slowed as $1 knocks you off balance!", list(xeno))) // SS220 EDIT ADDICTION
 
 	apply_cooldown()
 	return ..()
@@ -437,7 +437,7 @@
 		return
 
 	playsound(get_turf(xeno), 'sound/effects/bang.ogg', 25, 0)
-	xeno.visible_message(SPAN_XENODANGER("[xeno] smashes into the ground!"), SPAN_XENODANGER("We smash into the ground!"))
+	xeno.visible_message(SPAN_XENODANGER("$1 smashes into the ground!", list(xeno)), SPAN_XENODANGER("We smash into the ground!")) // SS220 EDIT ADDICTION
 	xeno.create_stomp()
 
 	for (var/mob/living/carbon/target_to_stomp in get_turf(xeno)) // MOBS ONTOP
@@ -445,7 +445,7 @@
 			continue
 
 		new effect_type_base(target_to_stomp, xeno, null, null, get_xeno_stun_duration(target_to_stomp, effect_duration))
-		to_chat(target_to_stomp, SPAN_XENOHIGHDANGER("You are BRUTALLY crushed and stomped on by [xeno]!!!"))
+		to_chat(target_to_stomp, SPAN_XENOHIGHDANGER("You are BRUTALLY crushed and stomped on by $1!!!", list(xeno))) // SS220 EDIT ADDICTION
 		shake_camera(target_to_stomp, 10, 2)
 		if(target_to_stomp.mob_size < MOB_SIZE_BIG)
 			target_to_stomp.apply_effect(get_xeno_stun_duration(target_to_stomp, 0.2), WEAKEN)
@@ -461,8 +461,8 @@
 		if(targets_to_get.client)
 			shake_camera(targets_to_get, 10, 2)
 		if(stomped_carbon)
-			to_chat(targets_to_get, SPAN_XENOHIGHDANGER("You watch as [stomped_carbon] gets crushed by [xeno]!"))
-		to_chat(targets_to_get, SPAN_XENOHIGHDANGER("You are shaken as [xeno] quakes the earth!"))
+			to_chat(targets_to_get, SPAN_XENOHIGHDANGER("You watch as $1 gets crushed by $2!", list(stomped_carbon, xeno))) // SS220 EDIT ADDICTION
+		to_chat(targets_to_get, SPAN_XENOHIGHDANGER("You are shaken as $1 quakes the earth!", list(xeno))) // SS220 EDIT ADDICTION
 
 	apply_cooldown()
 	return ..()
@@ -482,7 +482,7 @@
 	if (!check_and_use_plasma_owner())
 		return
 
-	xeno.visible_message(SPAN_XENOWARNING("[xeno] hunkers down and bolsters its defenses!"), SPAN_XENOHIGHDANGER("We hunker down and bolster our defenses!"))
+	xeno.visible_message(SPAN_XENOWARNING("$1 hunkers down and bolsters its defenses!", list(xeno)), SPAN_XENOHIGHDANGER("We hunker down and bolster our defenses!")) // SS220 EDIT ADDICTION
 	button.icon_state = "template_active"
 
 	xeno.create_crusher_shield()

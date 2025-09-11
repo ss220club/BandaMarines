@@ -323,7 +323,7 @@
 
 	apply_cooldown()
 
-	valkyrie.visible_message(SPAN_XENODANGER("[valkyrie] stomps its feet furiously, breaking the ground underneath!"), SPAN_XENODANGER("We send a shockwave through the ground, breaking the balance of anyone infront of us!"))
+	valkyrie.visible_message(SPAN_XENODANGER("$1 stomps its feet furiously, breaking the ground underneath!", list(valkyrie)), SPAN_XENODANGER("We send a shockwave through the ground, breaking the balance of anyone infront of us!")) // SS220 EDIT ADDICTION
 	valkyrie.emote("roar")
 	playsound(valkyrie, 'sound/effects/alien_footstep_charge3.ogg', 35, 0)
 
@@ -413,7 +413,7 @@
 	playsound(extinguisher_tail, 'sound/effects/splat.ogg', 40, FALSE)
 	target.ExtinguishMob() // This can both help your allies, or help caps that are on fire.
 	apply_cooldown()
-	extinguisher_tail.visible_message(SPAN_XENODANGER("[extinguisher_tail] pours acid all over [target] using its tail."), SPAN_XENOHIGHDANGER("We use our tail to pour acid over [target]"))
+	extinguisher_tail.visible_message(SPAN_XENODANGER("$1 pours acid all over $2 using its tail.", list(extinguisher_tail, target)), SPAN_XENOHIGHDANGER("We use our tail to pour acid over $1", list(target))) // SS220 EDIT ADDICTION
 	xeno_attack_delay(extinguisher_tail)
 	return ..()
 
@@ -515,7 +515,7 @@
 		to_chat(valkyrie, SPAN_XENOWARNING("We don't have any room to do our retrieve!"))
 		return
 
-	valkyrie.visible_message(SPAN_XENODANGER("[valkyrie] prepares to fire its resin retrieval hook at [A]!"), SPAN_XENODANGER("We prepare to fire our resin retrieval hook at [A]!"))
+	valkyrie.visible_message(SPAN_XENODANGER("$1 prepares to fire its resin retrieval hook at $2!", list(valkyrie, A)), SPAN_XENODANGER("We prepare to fire our resin retrieval hook at $1!", list(A))) // SS220 EDIT ADDICTION
 	valkyrie.emote("roar")
 
 	var/throw_target_turf = get_step(valkyrie, facing)
@@ -548,18 +548,18 @@
 			break
 
 	if(!successful_retrieve)
-		to_chat(valkyrie, SPAN_XENOWARNING("We can't reach [targetXeno] with our resin retrieval hook!"))
+		to_chat(valkyrie, SPAN_XENOWARNING("We can't reach $1 with our resin retrieval hook!", list(targetXeno))) // SS220 EDIT ADDICTION
 		return
 
-	to_chat(targetXeno, SPAN_XENOBOLDNOTICE("We are pulled toward [valkyrie]!"))
+	to_chat(targetXeno, SPAN_XENOBOLDNOTICE("We are pulled toward $1!", list(valkyrie))) // SS220 EDIT ADDICTION
 
 	shake_camera(targetXeno, 10, 1)
 	var/throw_dist = get_dist(throw_target_turf, targetXeno)-1
 	if(throw_target_turf == behind_turf)
 		throw_dist++
-		to_chat(valkyrie, SPAN_XENOBOLDNOTICE("We fling [targetXeno] over our head with our resin hook, and they land behind us!"))
+		to_chat(valkyrie, SPAN_XENOBOLDNOTICE("We fling $1 over our head with our resin hook, and they land behind us!", list(targetXeno))) // SS220 EDIT ADDICTION
 	else
-		to_chat(valkyrie, SPAN_XENOBOLDNOTICE("We fling [targetXeno] towards us with our resin hook, and they land in front of us!"))
+		to_chat(valkyrie, SPAN_XENOBOLDNOTICE("We fling $1 towards us with our resin hook, and they land in front of us!", list(targetXeno))) // SS220 EDIT ADDICTION
 	targetXeno.throw_atom(throw_target_turf, throw_dist, SPEED_VERY_FAST, pass_flags = PASS_MOB_THRU)
 	apply_cooldown()
 	return ..()

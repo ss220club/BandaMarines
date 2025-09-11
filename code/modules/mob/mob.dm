@@ -395,7 +395,7 @@
 			new /obj/effect/overlay/temp/point/big(T, src, A)
 		else
 			new /obj/effect/overlay/temp/point/big/squad(T, src, A, squad.equipment_color)
-	visible_message(SPAN_INFO("<b>$1</b> points to $2", list(src, A.declent_ru(ACCUSATIVE))), null, null, 5) // SS220 EDIT ADDICTION
+	visible_message(SPAN_INFO("<b>$1</b> points to $2", list(declent_ru(), A.declent_ru(ACCUSATIVE))), null, null, 5) // SS220 EDIT ADDICTION
 	return TRUE
 
 ///Is this mob important enough to point with big arrows?
@@ -574,7 +574,7 @@
 
 		if(!no_msg)
 			animation_attack_on(M)
-			visible_message(SPAN_WARNING("$1 has grabbed $2 passively!", list(src, M)), null, null, 5) // SS220 EDIT ADDICTION
+			visible_message(SPAN_WARNING("$1 has grabbed $2 passively!", list(declent_ru(), M)), null, null, 5) // SS220 EDIT ADDICTION
 
 		if(M.mob_size > MOB_SIZE_HUMAN || !(M.status_flags & CANPUSH))
 			G.icon_state = "!reinforce"
@@ -793,7 +793,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 		if(self)
 			to_chat(src, ru_span("You have nothing stuck in your body that is large enough to remove.")) // SS220 EDIT ADDICTION
 		else
-			to_chat(usr, "$1 has nothing stuck in their wounds that is large enough to remove.", list(src)) // SS220 EDIT ADDICTION
+			to_chat(usr, "$1 has nothing stuck in their wounds that is large enough to remove.", list(declent_ru())) // SS220 EDIT ADDICTION
 		remove_verb(src, /mob/proc/yank_out_object)
 		return
 
@@ -819,9 +819,9 @@ note dizziness decrements automatically in the mob's Life() proc.
 		return
 
 	if(self)
-		visible_message(SPAN_WARNING_BOLD("$1 rips $2 out of their body.", list(src, selection_ru)),SPAN_WARNING_BOLD("You rip $1 out of your body.", list(selection_ru)), null, 5) // SS220 EDIT ADDICTION
+		visible_message(SPAN_WARNING_BOLD("$1 rips $2 out of their body.", list(declent_ru(), selection_ru)),SPAN_WARNING_BOLD("You rip $1 out of your body.", list(selection_ru)), null, 5) // SS220 EDIT ADDICTION
 	else
-		visible_message(SPAN_WARNING_BOLD("$1 rips $2 out of $3's body.", list(usr, selection_ru, src)),SPAN_WARNING_BOLD("$1 rips $2 out of your body.", list(usr, selection_ru)), null, 5) // SS220 EDIT ADDICTION
+		visible_message(SPAN_WARNING_BOLD("$1 rips $2 out of $3's body.", list(usr, selection_ru, declent_ru())),SPAN_WARNING_BOLD("$1 rips $2 out of your body.", list(usr, selection_ru)), null, 5) // SS220 EDIT ADDICTION
 
 	if(length(valid_objects) == 1) //Yanking out last object - removing verb.
 		remove_verb(src, /mob/proc/yank_out_object)

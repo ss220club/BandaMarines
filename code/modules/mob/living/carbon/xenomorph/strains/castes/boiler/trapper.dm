@@ -90,7 +90,7 @@
 	if(!trap_ability.empowered && trap_ability.empowering_charge_counter >= trap_ability.empower_charge_max)
 		trap_ability.empowered = TRUE
 		trap_ability.button.overlays += image('icons/mob/hud/actions_xeno.dmi', "+empowered")
-		to_chat(bound_xeno, SPAN_XENODANGER("You have gained sufficient insight in your prey to empower your next [trap_ability.name]."))
+		to_chat(bound_xeno, SPAN_XENODANGER("You have gained sufficient insight in your prey to empower your next $1.", list(trap_ability.name))) // SS220 EDIT ADDICTION
 
 	if(trap_ability.empowering_charge_counter > trap_ability.empower_charge_max)
 		trap_ability.empowering_charge_counter = trap_ability.empower_charge_max
@@ -168,7 +168,7 @@
 		if(!mine.empowered)
 			mine.empowered = TRUE
 			mine.button.overlays += image('icons/mob/hud/actions_xeno.dmi', "+empowered")
-			to_chat(xeno, SPAN_XENODANGER("We tap into our reserves to prepare a stronger [mine.name]!"))
+			to_chat(xeno, SPAN_XENODANGER("We tap into our reserves to prepare a stronger $1!", list(mine.name))) // SS220 EDIT ADDICTION
 
 	apply_cooldown()
 	return ..()
@@ -200,11 +200,11 @@
 	if(empowered)
 		acid_bolt_message = "a powerful bolt of acid"
 
-	xeno.visible_message(SPAN_XENODANGER("[xeno] fires " + acid_bolt_message + " at [affected_atom]!"), SPAN_XENODANGER("We fire " + acid_bolt_message + " at [affected_atom]!"))
+	xeno.visible_message(SPAN_XENODANGER("$1 fires " + acid_bolt_message + " at $2!", list(xeno, affected_atom)), SPAN_XENODANGER("We fire " + acid_bolt_message + " at $1!", list(affected_atom))) // SS220 EDIT ADDICTION
 	new /obj/effect/xenomorph/acid_damage_delay/boiler_landmine(turf, damage, delay, empowered, "You are blasted with " + acid_bolt_message + "!", xeno)
 
 	for (var/turf/target_turf in orange(1, turf))
-		new /obj/effect/xenomorph/acid_damage_delay/boiler_landmine(target_turf, damage, delay, empowered, "You are blasted with a " + acid_bolt_message + "!", xeno)
+		new /obj/effect/xenomorph/acid_damage_delay/boiler_landmine(target_turf, damage, delay, empowered, "You are blasted with " + acid_bolt_message + "!", xeno) // SS220 EDIT ADDICTION
 
 	if(empowered)
 		empowered = FALSE

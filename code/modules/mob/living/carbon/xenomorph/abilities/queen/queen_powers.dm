@@ -110,7 +110,7 @@
 		return
 
 	if(!action_cooldown_check())
-		to_chat(xeno, SPAN_XENOWARNING("You're still recovering from detaching your old ovipositor. Wait [DisplayTimeText(timeleft(cooldown_timer_id))]."))
+		to_chat(xeno, SPAN_XENOWARNING("You're still recovering from detaching your old ovipositor. Wait $1.", list(DisplayTimeText(timeleft(cooldown_timer_id))))) // SS220 EDIT ADDICTION
 		return
 
 	var/obj/effect/alien/weeds/alien_weeds = locate() in current_turf
@@ -141,7 +141,7 @@
 	if(!xeno.check_plasma(plasma_cost))
 		return
 
-	xeno.visible_message(SPAN_XENOWARNING("\The [xeno] starts to grow an ovipositor."),
+	xeno.visible_message(SPAN_XENOWARNING("$1 starts to grow an ovipositor.", list(xeno)), // SS220 EDIT ADDICTION
 	SPAN_XENOWARNING("You start to grow an ovipositor...(takes 20 seconds, hold still)"))
 	if(!do_after(xeno, 200, INTERRUPT_NO_NEEDHAND, BUSY_ICON_FRIENDLY, numticks = 20) && xeno.check_plasma(plasma_cost))
 		return
@@ -150,7 +150,7 @@
 	if(!locate(/obj/effect/alien/weeds) in current_turf)
 		return
 	xeno.use_plasma(plasma_cost)
-	xeno.visible_message(SPAN_XENOWARNING("\The [xeno] has grown an ovipositor!"),
+	xeno.visible_message(SPAN_XENOWARNING("$1 has grown an ovipositor!", list(xeno)), // SS220 EDIT ADDICTION
 	SPAN_XENOWARNING("You have grown an ovipositor!"))
 	xeno.mount_ovipositor()
 	return ..()
@@ -165,7 +165,7 @@
 	var/datum/hive_status/hive = xeno.hive
 	if(xeno.observed_xeno)
 		if(!length(hive.open_xeno_leader_positions) && xeno.observed_xeno.hive_pos == NORMAL_XENO)
-			to_chat(xeno, SPAN_XENOWARNING("You currently have [length(hive.xeno_leader_list)] promoted leaders. You may not maintain additional leaders until your power grows."))
+			to_chat(xeno, SPAN_XENOWARNING("You currently have $1 promoted leaders. You may not maintain additional leaders until your power grows.", list(length(hive.xeno_leader_list)))) // SS220 EDIT ADDICTION
 			return
 		var/mob/living/carbon/xenomorph/targeted_xeno = xeno.observed_xeno
 		if(targeted_xeno == xeno)
@@ -179,19 +179,19 @@
 			if(targeted_xeno.stat == DEAD)
 				to_chat(xeno, SPAN_XENOWARNING("You cannot leader the dead."))
 				return
-			to_chat(xeno, SPAN_XENONOTICE("You've selected [targeted_xeno] as a Hive Leader."))
-			to_chat(targeted_xeno, SPAN_XENOANNOUNCE("[xeno] has selected you as a Hive Leader. The other Xenomorphs must listen to you. You will also act as a beacon for the Queen's pheromones."))
+			to_chat(xeno, SPAN_XENONOTICE("You've selected $1 as a Hive Leader.", list(targeted_xeno))) // SS220 EDIT ADDICTION
+			to_chat(targeted_xeno, SPAN_XENOANNOUNCE("$1 has selected you as a Hive Leader. The other Xenomorphs must listen to you. You will also act as a beacon for the Queen's pheromones.", list(xeno))) // SS220 EDIT ADDICTION
 		else
 			hive.remove_hive_leader(targeted_xeno)
-			to_chat(xeno, SPAN_XENONOTICE("You've demoted [targeted_xeno] from Hive Leader."))
-			to_chat(targeted_xeno, SPAN_XENOANNOUNCE("[xeno] has demoted you from Hive Leader. Your leadership rights and abilities have waned."))
+			to_chat(xeno, SPAN_XENONOTICE("You've demoted $1 from Hive Leader.", list(targeted_xeno))) // SS220 EDIT ADDICTION
+			to_chat(targeted_xeno, SPAN_XENOANNOUNCE("$1 has demoted you from Hive Leader. Your leadership rights and abilities have waned.", list(xeno))) // SS220 EDIT ADDICTION
 	else
 		var/list/possible_xenos = list()
 		for(var/mob/living/carbon/xenomorph/targeted_xeno in hive.xeno_leader_list)
 			possible_xenos += targeted_xeno
 
 		if(length(possible_xenos) > 1)
-			var/mob/living/carbon/xenomorph/selected_xeno = tgui_input_list(xeno, "Target", "Watch which leader?", possible_xenos, theme="hive_status")
+			var/mob/living/carbon/xenomorph/selected_xeno = tgui_input_list(xeno, "Target", "За каким лидером вы хотите следить?", possible_xenos, theme="hive_status") // SS220 EDIT ADDICTION
 			if(!selected_xeno || selected_xeno.hive_pos == NORMAL_XENO || selected_xeno == xeno.observed_xeno || selected_xeno.stat == DEAD || !xeno.check_state())
 				return
 			xeno.overwatch(selected_xeno)
@@ -805,7 +805,7 @@
 			hugger.die()
 
 	playsound(xeno.loc, pick(xeno.screech_sound_effect_list), 75, 0, status = 0)
-	xeno.visible_message(SPAN_XENOHIGHDANGER("[xeno] emits an ear-splitting guttural roar!"))
+	xeno.visible_message(SPAN_XENOHIGHDANGER("$1 emits an ear-splitting guttural roar!", list(xeno))) // SS220 EDIT ADDICTION
 	xeno.create_shriekwave(14) //Adds the visual effect. Wom wom wom, 14 shriekwaves
 
 	FOR_DVIEW(var/mob/mob, world.view, owner, HIDE_INVISIBLE_OBSERVER)
@@ -968,10 +968,10 @@
 		var/mob/living/carbon/xenomorph/target = xenomorph.observed_xeno
 		if(target.stat != DEAD && target.client)
 			if(xenomorph.check_plasma(plasma_cost))
-				var/input = stripped_input(xenomorph, "This message will be sent to the overwatched xeno.", "Queen Order", "")
+				var/input = stripped_input(xenomorph, "Это сообщение будет отправлено наблюдаемому ксеноморфу.", "Приказ Королевы", "") // SS220 EDIT ADDICTION
 				if(!input)
 					return
-				var/queen_order = SPAN_XENOANNOUNCE("<b>[xenomorph]</b> reaches you:\"[input]\"")
+				var/queen_order = SPAN_XENOANNOUNCE("<b>$1</b> reaches you: '$2'", list(xenomorph, input)) // SS220 EDIT ADDICTION
 				if(!xenomorph.check_state() || !xenomorph.check_plasma(plasma_cost) || xenomorph.observed_xeno != target || target.stat == DEAD)
 					return
 				if(target.client)
