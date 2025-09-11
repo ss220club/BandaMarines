@@ -48,10 +48,10 @@
 		return
 	var/can_repair = damaged || health < maxhealth
 	if(!can_repair)
-		to_chat(xeno, SPAN_XENONOTICE("\The [name] is in good condition, you don't need to repair it."))
+		to_chat(xeno, SPAN_XENONOTICE("$1 is in good condition, you don't need to repair it.", list(name))) // SS220 EDIT ADDICTION
 		return
 
-	to_chat(xeno, SPAN_XENONOTICE("We begin adding the plasma to \the [name] to repair it."))
+	to_chat(xeno, SPAN_XENONOTICE("We begin adding the plasma to $1 to repair it.", list(name))) // SS220 EDIT ADDICTION
 	xeno_attack_delay(xeno)
 	if(!do_after(xeno, CLUSTER_REPAIR_TIME, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD, src) || !can_repair)
 		return
@@ -77,7 +77,7 @@
 			continue
 		addtimer(CALLBACK(W, TYPE_PROC_REF(/obj/effect/alien/weeds, weed_expand), node), CLUSTER_WEEDS_REGROWTH_TIME, TIMER_UNIQUE)
 
-	to_chat(xeno, SPAN_XENONOTICE("We have successfully repaired \the [name]."))
+	to_chat(xeno, SPAN_XENONOTICE("We have successfully repaired $1.", list(name))) // SS220 EDIT ADDICTION
 	playsound(loc, "alien_resin_build", 25)
 
 /obj/effect/alien/resin/special/cluster/proc/place_node()

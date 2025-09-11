@@ -265,8 +265,8 @@
 	return TRUE
 
 /obj/structure/bed/nest/send_buckling_message(mob/M, mob/user)
-	M.visible_message(SPAN_XENONOTICE("[user] secretes a thick, vile resin, securing [M] into [src]!"),
-	SPAN_XENONOTICE("[user] drenches you in a foul-smelling resin, trapping you in [src]!"),
+	M.visible_message(SPAN_XENONOTICE("$1 secretes a thick, vile resin, securing $2 into $3!", list(user, M, src)), // SS220 EDIT ADDICTION
+	SPAN_XENONOTICE("$1 drenches you in a foul-smelling resin, trapping you in $2!", list(user, src)), // SS220 EDIT ADDICTION
 	SPAN_NOTICE("You hear squelching."))
 	playsound(loc, "alien_resin_move", 50)
 

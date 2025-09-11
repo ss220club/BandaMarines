@@ -734,7 +734,7 @@
 	pslash_delay = TRUE
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/mob/living/carbon/xenomorph, do_claw_toggle_cooldown)), 30 SECONDS)
 
-	var/choice = tgui_input_list(usr, "Choose which level of slashing hosts to permit to your hive.","Harming", list("Allowed", "Restricted - Hosts of Interest", "Forbidden"), theme="hive_status")
+	var/choice = tgui_input_list(usr, "Выберите, какой уровень рубящих атак на хостов разрешить вашему улью.", "Причинение вреда", list("Разрешено", "Ограничено - интересные хосты", "Запрещено"), theme="hive_status") // SS220 EDIT ADDICTION
 
 	if(choice == "Allowed")
 		to_chat(src, SPAN_XENONOTICE("You allow slashing."))
@@ -1056,7 +1056,7 @@
 	var/obj/effect/overlay/temp/point/big/greyscale/point = new(target_turf, src, target_atom)
 	point.color = "#a800a8"
 
-	visible_message(SPAN_XENOQUEEN("<b>$1</b> points to $2", list(src, declent_ru_initial(target_atom::name, ACCUSATIVE, target_atom))), null, null, 5) // SS220 EDIT ADDICTION
+	visible_message(SPAN_XENOQUEEN("<b>$1</b> points to $2", list(declent_ru(), declent_ru_initial(target_atom::name, ACCUSATIVE, target_atom))), null, null, 5) // SS220 EDIT ADDICTION
 
 #undef XENO_QUEEN_AGE_TIME
 #undef XENO_QUEEN_TEMP_AGE_DURATION

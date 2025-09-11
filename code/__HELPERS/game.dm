@@ -304,11 +304,11 @@
 		var/mob/dead/observer/cur_obs = candidates[i]
 
 		// Generate the messages
-		var/cached_message = "You are currently [i-dequeued]\th in the larva queue."
+		var/cached_message = "You are currently $1 in the larva queue." // SS220 EDIT ADDICTION
 		cur_obs.larva_queue_cached_message = cached_message
 		if(!cache_only)
 			var/chat_message = dequeued ? replacetext(cached_message, "currently", "now") : cached_message
-			to_chat(candidates[i], SPAN_XENONOTICE(chat_message))
+			to_chat(candidates[i], SPAN_XENONOTICE(chat_message, list(i-dequeued))) // SS220 EDIT ADDICTION
 
 /proc/convert_k2c(temp)
 	return ((temp - T0C))

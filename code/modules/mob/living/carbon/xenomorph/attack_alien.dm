@@ -46,14 +46,14 @@
 		if(INTENT_HARM)
 			if(attacking_xeno.claw_restrained())
 				attacking_xeno.animation_attack_on(src)
-				attacking_xeno.visible_message(SPAN_NOTICE("[attacking_xeno] tries to strike [src]"),
-				SPAN_XENONOTICE("We try to strike [src] but fail due to our restraints!"))
+				attacking_xeno.visible_message(SPAN_NOTICE("$1 tries to strike $2", list(attacking_xeno, declent_ru())), // SS220 EDIt ADDICTION
+				SPAN_XENONOTICE("We try to strike $1 but fail due to our restraints!", list(declent_ru()))) // SS220 EDIt ADDICTION
 				return XENO_ATTACK_ACTION
 
 			if(attacking_xeno.can_not_harm(src))
 				attacking_xeno.animation_attack_on(src)
-				attacking_xeno.visible_message(SPAN_NOTICE("[attacking_xeno] nibbles [src]"),
-				SPAN_XENONOTICE("We nibble [src]"))
+				attacking_xeno.visible_message(SPAN_NOTICE("$1 nibbles $2", list(attacking_xeno, declent_ru())), // SS220 EDIt ADDICTION
+				SPAN_XENONOTICE("We nibble $1", list(declent_ru()))) // SS220 EDIt ADDICTION
 				return XENO_ATTACK_ACTION
 
 			if(attacking_xeno.behavior_delegate && attacking_xeno.behavior_delegate.handle_slash(src))
@@ -691,8 +691,8 @@
 		if(islarva(M))
 			return
 		else
-			M.visible_message(SPAN_XENONOTICE("[M] claws [src]!"),
-			SPAN_XENONOTICE("We claw [src]."), null, null, CHAT_TYPE_XENO_COMBAT)
+			M.visible_message(SPAN_XENONOTICE("$1 claws $2!", list(M, declent_ru())), // SS220 EDIT ADDICTION
+			SPAN_XENONOTICE("We claw $1.", list(declent_ru())), null, null, CHAT_TYPE_XENO_COMBAT) // SS220 EDIT ADDICTION
 			playsound(loc, "alien_resin_break", 25)
 
 		M.animation_attack_on(src)
@@ -803,7 +803,7 @@
 /datum/shuttle/ferry/marine/proc/hijack(mob/living/carbon/xenomorph/M, shuttle_tag)
 	if(!queen_locked) //we have not hijacked it yet
 		if(world.time < SHUTTLE_LOCK_TIME_LOCK)
-			to_chat(M, SPAN_XENODANGER("We can't mobilize the strength to hijack the shuttle yet. Please wait another [time_left_until(SHUTTLE_LOCK_TIME_LOCK, world.time, 1 MINUTES)] minutes before trying again."))
+			to_chat(M, SPAN_XENODANGER("We can't mobilize the strength to hijack the shuttle yet. Please wait another $1 minutes before trying again.", list(time_left_until(SHUTTLE_LOCK_TIME_LOCK, world.time, 1 MINUTES)))) // SS220 EDIT ADDICTION
 			return
 
 		var/message
@@ -860,10 +860,10 @@
 /obj/structure/machinery/power/apc/attack_alien(mob/living/carbon/xenomorph/M)
 
 	if(stat & BROKEN)
-		to_chat(M, SPAN_XENONOTICE("[src] is already broken!"))
+		to_chat(M, SPAN_XENONOTICE("$1 is already broken!", list(declent_ru()))) // SS220 EDIT ADDICTION
 		return XENO_NO_DELAY_ACTION
 	else if(beenhit >= XENO_HITS_TO_CUT_WIRES && M.mob_size < MOB_SIZE_BIG)
-		to_chat(M, SPAN_XENONOTICE("We aren't big enough to further damage [src]."))
+		to_chat(M, SPAN_XENONOTICE("We aren't big enough to further damage $1.", list(declent_ru()))) // SS220 EDIT ADDICTION
 		return XENO_NO_DELAY_ACTION
 	M.animation_attack_on(src)
 	M.visible_message(SPAN_DANGER("[M] [M.slashes_verb] [src]!"),

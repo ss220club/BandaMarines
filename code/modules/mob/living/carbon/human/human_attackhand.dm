@@ -45,7 +45,7 @@
 
 			var/is_male = attacking_mob.gender == MALE ? "" : "а" // SS220 EDUT ADDICTION
 			attacking_mob.visible_message(SPAN_NOTICE("<b>$1$2</b> starts performing <b>CPR</b> on <b>$3</b>.", list(attacking_mob, is_male, src)), // SS220 EDIT ADDICTION
-				SPAN_HELPFUL("You start performing <b>CPR</b> on <b>$1</b>.", list(src))) // SS220 EDIT ADDICTION
+				SPAN_HELPFUL("You start performing <b>CPR</b> on <b>$1</b>.", list(declent_ru()))) // SS220 EDIT ADDICTION
 
 			cpr_attempt_timer = world.time + HUMAN_STRIP_DELAY * attacking_mob.get_skill_duration_multiplier(SKILL_MEDICAL)
 			if(do_after(attacking_mob, HUMAN_STRIP_DELAY * attacking_mob.get_skill_duration_multiplier(SKILL_MEDICAL), INTERRUPT_ALL, BUSY_ICON_GENERIC, src, INTERRUPT_MOVED, BUSY_ICON_MEDICAL))
@@ -55,17 +55,17 @@
 					updatehealth()
 					src.affected_message(attacking_mob,
 						SPAN_HELPFUL("You feel a <b>breath of fresh air</b> enter your lungs. It feels good."),
-						SPAN_HELPFUL("You perform <b>CPR</b> on <b>$1</b>. Repeat at least every <b>7 seconds</b>.", list(src)), // SS220 EDIT ADDICTION
+						SPAN_HELPFUL("You perform <b>CPR</b> on <b>$1</b>. Repeat at least every <b>7 seconds</b>.", list(declent_ru())), // SS220 EDIT ADDICTION
 						SPAN_NOTICE("<b>$1$2</b> performs <b>CPR</b> on <b>$3</b>.", list(attacking_mob, is_male, src))) // SS220 EDIT ADDICTION
 				if(is_revivable() && stat == DEAD)
 					if(cpr_cooldown < world.time)
 						revive_grace_period += 7 SECONDS
 						attacking_mob.visible_message(SPAN_NOTICE("<b>$1$2</b> performs <b>CPR</b> on <b>$3</b>.", list(attacking_mob, is_male, src)), // SS220 EDIT ADDICTION
-							SPAN_HELPFUL("You perform <b>CPR</b> on <b>$1</b>.", list(src))) // SS220 EDIT ADDICTION
+							SPAN_HELPFUL("You perform <b>CPR</b> on <b>$1</b>.", list(declent_ru()))) // SS220 EDIT ADDICTION
 						balloon_alert(attacking_mob, SPAN_TRANSLATE("you perform cpr"))
 					else
 						attacking_mob.visible_message(SPAN_WARNING("<b>$1$2</b> fails to perform <b>CPR</b> on <b>$3</b>.", list(attacking_mob, is_male, src)), // SS220 EDIT ADDICTION
-							SPAN_WARNING("You <b>fail</b> to perform <b>CPR</b> on <b>$1</b>. Incorrect rhythm. Do it <b>slower</b>.", list(src))) // SS220 EDIT ADDICTION
+							SPAN_WARNING("You <b>fail</b> to perform <b>CPR</b> on <b>$1</b>. Incorrect rhythm. Do it <b>slower</b>.", list(declent_ru()))) // SS220 EDIT ADDICTION
 						balloon_alert(attacking_mob, SPAN_TRANSLATE("incorrect rhythm. do it slower"))
 					cpr_cooldown = world.time + 7 SECONDS
 			cpr_attempt_timer = 0
@@ -215,7 +215,7 @@
 			else
 				set_resting(FALSE)
 		M.visible_message(SPAN_NOTICE("$1 shakes $2 trying to wake $3 up!", list(M, src, ru_p_them())), // SS220 EDIT ADDICTION
-			SPAN_NOTICE("You shake $1 trying to wake $2 up!", list(src, ru_p_them())), null, 4) // SS220 EDIT ADDICTION
+			SPAN_NOTICE("You shake $1 trying to wake $2 up!", list(declent_ru(), ru_p_them())), null, 4) // SS220 EDIT ADDICTION
 	else if(HAS_TRAIT(src, TRAIT_INCAPACITATED))
 		M.visible_message(SPAN_NOTICE("[M] shakes [src], trying to shake [t_him] out of his stupor!"),
 			SPAN_NOTICE("You shake [src], trying to shake [t_him] out of his stupor!"), null, 4)

@@ -521,7 +521,7 @@
 	if(!F.mature)
 		F.picked = FALSE
 		return
-	to_chat(src, SPAN_XENONOTICE("You uproot [F]."))
+	to_chat(src, SPAN_XENONOTICE("You uproot $1.", list(F))) // SS220 EDIT ADDICTION
 	var/obj/item/reagent_container/food/snacks/resin_fruit/new_fruit = new F.fruit_type()
 	new_fruit.color = F.color
 	put_in_hands(new_fruit)

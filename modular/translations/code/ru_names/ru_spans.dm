@@ -1,7 +1,7 @@
 GLOBAL_LIST_EMPTY(ru_span_cache)
 VAR_PRIVATE/const/MAX_CACHE_SIZE = 100000
 
-// #define RU_SPAN_DEBUG
+#define RU_SPAN_DEBUG
 
 // str - ключ для поиска в GLOB.ru_span
 // list/attr - аргументы для подстановки в строку
@@ -78,12 +78,12 @@ VAR_PRIVATE/const/MAX_CACHE_SIZE = 100000
 	var/sorted_keys = sortTim(substitutions, /proc/cmp_key_length_desc)
 
 	for(var/key in sorted_keys)
-		text = replacetext(text, key, sorted_keys[key])
+		text = replacetext(text, key, substitutions[key])
 
 	return text
 
-/proc/cmp_key_length_desc(k, v)
-	return length(k) - length(v)
+/proc/cmp_key_length_desc(key1, key2)
+	return length(key2) - length(key1)
 
 /proc/generate_cache_key(str, with_span_args, list/attr)
 	var/cache_key = "[str]|[with_span_args]|#[length(attr)]"

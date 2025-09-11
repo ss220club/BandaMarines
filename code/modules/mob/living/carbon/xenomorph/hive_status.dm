@@ -618,7 +618,7 @@
 	if(!C || C == hive_location)
 		return
 	var/area/A = get_area(C)
-	xeno_message(SPAN_XENOANNOUNCE("Королева назначила новое местоположение улья в: [A]."), 3, hivenumber)
+	xeno_message(SPAN_XENOANNOUNCE("The Queen has set the hive location as $1.", list(A)), 3, hivenumber) // SS220 EDIT ADDICTION
 	hive_location = C
 	hive_ui.update_hive_location()
 
@@ -785,14 +785,14 @@
 	for(var/mob/living/carbon/xenomorph/xeno as anything in totalXenos)
 		if(get_area(xeno) != hijacked_dropship && xeno.loc && is_ground_level(xeno.loc.z))
 			if(isfacehugger(xeno) || islesserdrone(xeno))
-				to_chat(xeno, SPAN_XENOANNOUNCE("Королева ушла без вас, и вы быстро находите укрытие, чтобы впасть в гибернацию, теряя связь с разумом улья."))
+				to_chat(xeno, SPAN_XENOANNOUNCE("The Queen has left without you, you quickly find a hiding place to enter hibernation as you lose touch with the hive mind."))
 				qdel(xeno)
 				continue
 			if(xeno.hunter_data.hunted && !isqueen(xeno))
-				to_chat(xeno, SPAN_XENOANNOUNCE("Королева ушла без вас, отделив вас от её улья! Вы должны защищить себя от охотников за головами, преждче чем сможете впасть в гибернацию..."))
+				to_chat(xeno, SPAN_XENOANNOUNCE("The Queen has left without you, seperating you from her hive! You must defend yourself from the headhunter before you can enter hibernation..."))
 				xeno.set_hive_and_update(XENO_HIVE_FORSAKEN)
 			else
-				to_chat(xeno, SPAN_XENOANNOUNCE("Королева ушла без вас, и вы быстро находите укрытие, чтобы впасть в гибернацию, теряя связь с разумом улья."))
+				to_chat(xeno, SPAN_XENOANNOUNCE("The Queen has left without you, you quickly find a hiding place to enter hibernation as you lose touch with the hive mind."))
 				if(xeno.hauled_mob?.resolve())
 					xeno.release_haul(xeno.hauled_mob.resolve())
 				qdel(xeno)
@@ -1403,9 +1403,9 @@
 
 	if(living_xeno_queen)
 		if(allies[faction])
-			xeno_message(SPAN_XENOANNOUNCE("Our Queen set up an alliance with [faction]!"), 3, hivenumber)
+			xeno_message(SPAN_XENOANNOUNCE("Our Queen set up an alliance with $1!", list(faction)), 3, hivenumber) // SS220 EDIT ADDICTION
 		else
-			xeno_message(SPAN_XENOANNOUNCE("Our Queen broke the alliance with [faction]!"), 3, hivenumber)
+			xeno_message(SPAN_XENOANNOUNCE("Our Queen broke the alliance with $1!", list(faction)), 3, hivenumber) // SS220 EDIT ADDICTION
 
 	for(var/number in GLOB.hive_datum)
 		var/datum/hive_status/target_hive = GLOB.hive_datum[number]
@@ -1414,10 +1414,10 @@
 		if(!target_hive.living_xeno_queen && !target_hive.allow_no_queen_actions)
 			return
 		if(allies[faction])
-			xeno_message(SPAN_XENOANNOUNCE("We sense that [name] [living_xeno_queen ? "Queen " : ""]set up an alliance with us!"), 3, target_hive.hivenumber)
+			xeno_message(SPAN_XENOANNOUNCE("We sense that $1 [living_xeno_queen ? "Queen " : ""]set up an alliance with us!", list(name)), 3, target_hive.hivenumber) // SS220 EDIT ADDICTION
 			return
 
-		xeno_message(SPAN_XENOANNOUNCE("We sense that [name] [living_xeno_queen ? "Queen " : ""]broke the alliance with us!"), 3, target_hive.hivenumber)
+		xeno_message(SPAN_XENOANNOUNCE("We sense that $1 [living_xeno_queen ? "Queen " : ""]broke the alliance with us!", list(name)), 3, target_hive.hivenumber) // SS220 EDIT ADDICTION
 		if(target_hive.allies[name]) //autobreak alliance on betrayal
 			target_hive.change_stance(name, FALSE)
 
@@ -1448,9 +1448,9 @@
 		defectors += xeno
 		xeno.set_hive_and_update(XENO_HIVE_RENEGADE)
 		to_chat(xeno, SPAN_XENOANNOUNCE("You lost the connection with your Hive. Now you have no Queen, only your masters."))
-		to_chat(xeno, SPAN_NOTICE("Your instincts have changed, you seem compelled to protect [english_list(xeno.iff_tag.faction_groups, "no one")]."))
+		to_chat(xeno, SPAN_NOTICE("Your instincts have changed, you seem compelled to protect $1.", list(english_list(xeno.iff_tag.faction_groups, "no one")))) // SS220 EDIT ADDICTION
 		return
-	xeno.visible_message(SPAN_XENOWARNING("[xeno] rips out [xeno.iff_tag]!"), SPAN_XENOWARNING("We rip out [xeno.iff_tag]! For the Hive!"))
+	xeno.visible_message(SPAN_XENOWARNING("$1 rips out $2!", list(xeno, xeno.iff_tag)), SPAN_XENOWARNING("We rip out $1! For the Hive!", list(xeno.iff_tag))) // SS220 EDIT ADDICTION
 	xeno.adjustBruteLoss(50)
 	xeno.iff_tag.forceMove(get_turf(xeno))
 	xeno.iff_tag = null
@@ -1470,7 +1470,7 @@
 	if(!length(defectors))
 		return
 
-	xeno_message(SPAN_XENOANNOUNCE("We sense that [english_list(defectors)] turned their backs against their sisters and the Queen in favor of their slavemasters!"), 3, hivenumber)
+	xeno_message(SPAN_XENOANNOUNCE("We sense that $1 turned their backs against their sisters and the Queen in favor of their slavemasters!", list(english_list(defectors))), 3, hivenumber) // SS220 EDIT ADDICTION
 	if(faction == FACTION_MARINE && ares_can_interface())
 		marine_announcement("The advanced IFF Xenomorph tagging technology has detected hostile intentions and succesfully supressed the psychic link of [length(defectors)] lifeform\s. The collaborative lifeforms are given designation Renegades. Full cooperation is to be expected.", MAIN_AI_SYSTEM)
 	defectors.Cut()
@@ -1479,7 +1479,7 @@
 	personal_allies += WEAKREF(ally)
 	ally.status_flags |= CORRUPTED_ALLY
 	ally.med_hud_set_status()
-	xeno_message(SPAN_XENOANNOUNCE("Our Queen proclaimed [ally] our ally! We must not harm them."), 3, hivenumber)
+	xeno_message(SPAN_XENOANNOUNCE("Our Queen proclaimed $1 our ally! We must not harm them.", list(ally)), 3, hivenumber) // SS220 EDIT ADDICTION
 
 /datum/hive_status/corrupted/proc/remove_personal_ally(datum/weakref/ally_ref)
 	personal_allies -= ally_ref
@@ -1487,7 +1487,7 @@
 	if(ally)
 		ally.status_flags &= ~CORRUPTED_ALLY
 		ally.med_hud_set_status()
-	xeno_message(SPAN_XENOANNOUNCE("Our Queen has declared that [ally] is no longer our ally!"), 3, hivenumber)
+	xeno_message(SPAN_XENOANNOUNCE("Our Queen has declared that $1 is no longer our ally!", list(ally)), 3, hivenumber) // SS220 EDIT ADDICTION
 
 /datum/hive_status/corrupted/proc/clear_personal_allies(death = FALSE)
 	for(var/datum/weakref/ally_ref in personal_allies)

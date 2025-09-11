@@ -839,13 +839,13 @@
 		return
 	var/translated_value = holocard_translations[newcolor] // SS220 EDIT ADDICTION
 	if(get_dist(user, src) > 7)
-		to_chat(user, SPAN_WARNING("$1 is too far away.", list(src))) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_WARNING("$1 is too far away.", list(declent_ru()))) // SS220 EDIT ADDICTION
 		return
 	if(newcolor == "none")
 		if(!holo_card_color)
 			return
 		holo_card_color = null
-		to_chat(user, SPAN_NOTICE("You remove the holo card on $1.", list(src))) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_NOTICE("You remove the holo card on $1.", list(declent_ru()))) // SS220 EDIT ADDICTION
 	else if(newcolor != holo_card_color)
 		if(newcolor == "black" && is_revivable() && check_tod())
 			to_chat(user, SPAN_WARNING("They are yet saveable."))
@@ -935,7 +935,7 @@
 	apply_effect(5, STUN)
 	if(stat == 2) //One last corpse check
 		return
-	src.visible_message(SPAN_WARNING("$1 throws up!", list(src)), SPAN_WARNING("You throw up!"), null, 5)
+	src.visible_message(SPAN_WARNING("$1 throws up!", list(declent_ru())), SPAN_WARNING("You throw up!"), null, 5)
 	playsound(loc, 'sound/effects/splat.ogg', 25, 1, 7)
 
 	var/turf/location = loc

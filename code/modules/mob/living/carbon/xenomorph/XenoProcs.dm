@@ -686,7 +686,7 @@
 		return
 	target.xenos_tracking |= src
 	tracked_marker = target
-	to_chat(src, SPAN_XENONOTICE("We start tracking the [target.mark_meaning.name] resin mark."))
+	to_chat(src, SPAN_XENONOTICE("We start tracking the $1 resin mark.", list(target.mark_meaning.name))) // SS220 EDIT ADDICTION
 	to_chat(src, SPAN_INFO("Shift click the compass to watch the mark, alt click to stop tracking"))
 
 /mob/living/carbon/xenomorph/proc/stop_tracking_resin_mark(destroyed, silent = FALSE) //tracked_marker shouldnt be nulled outside this PROC!! >:C
@@ -702,9 +702,9 @@
 	if(tracked_marker)
 		if(!silent)
 			if(destroyed)
-				to_chat(src, SPAN_XENONOTICE("The [tracked_marker.mark_meaning.name] resin mark has ceased to exist."))
+				to_chat(src, SPAN_XENONOTICE("The $1 resin mark has ceased to exist.", list(tracked_marker.mark_meaning.name))) // SS220 EDIT ADDICTION
 			else
-				to_chat(src, SPAN_XENONOTICE("We stop tracking the [tracked_marker.mark_meaning.name] resin mark."))
+				to_chat(src, SPAN_XENONOTICE("We stop tracking the $1 resin mark.", list(tracked_marker.mark_meaning.name))) // SS220 EDIT ADDICTION
 		tracked_marker.xenos_tracking -= src
 
 	tracked_marker = null

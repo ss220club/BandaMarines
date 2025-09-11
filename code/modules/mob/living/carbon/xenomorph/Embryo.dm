@@ -275,8 +275,8 @@
 			ADD_TRAIT(new_xeno, TRAIT_LISPING, affected_mob)
 
 		to_chat(new_xeno, SPAN_XENOANNOUNCE("You are a xenomorph larva inside a host! Move to burst out of it!"))
-		to_chat(new_xeno, "<B>Your job is to spread the hive and protect the Queen. If there's no Queen, you can become the Queen yourself by evolving into a drone.</B>")
-		to_chat(new_xeno, "Talk in Hivemind using <strong>;</strong> (e.g. ';My life for the queen!')")
+		to_chat(new_xeno, SPAN_XENO("<B>Your job is to spread the hive and protect the Queen. If there's no Queen, you can become the Queen yourself by evolving into a drone.</B>")) // SS220 EDIT ADDICTION
+		to_chat(new_xeno, SPAN_XENO("Talk in Hivemind using <strong>;</strong> (e.g. ';My life for the queen!')"))
 		playsound_client(new_xeno.client, 'sound/effects/xeno_newlarva.ogg', 25, 1)
 
 	// Inform observers to grab some popcorn if it isnt nested

@@ -166,7 +166,7 @@
 		return XENO_NO_DELAY_ACTION
 
 	M.visible_message(SPAN_DANGER("[M] starts secreting resin over [src]."),
-	SPAN_XENONOTICE("You begin to connect [src] to the hive."), max_distance = 3)
+	SPAN_XENONOTICE("You begin to connect $1 to the hive.", list(declent_ru())), max_distance = 3) // SS220 EDIT ADDICTION
 	xeno_attack_delay(M)
 
 	if(!do_after(M, time_to_build, BEHAVIOR_IMMOBILE|INTERRUPT_ALL, BUSY_ICON_BUILD, src, INTERRUPT_ALL))
@@ -174,6 +174,6 @@
 		return XENO_NO_DELAY_ACTION
 
 	M.visible_message(SPAN_DANGER("[M] secretes resin over [src]."),
-	SPAN_XENONOTICE("You connect [src] to the hive."), max_distance = 3)
+	SPAN_XENONOTICE("You connect $1 to the hive.", list(declent_ru())), max_distance = 3) // SS220 EDIT ADDICTION
 
 	return XENO_NO_DELAY_ACTION

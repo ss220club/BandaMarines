@@ -382,7 +382,7 @@ export const JOBS_RU = {
   // Other
   Infected: 'Зараженные',
 
-  Unemployed: 'Неизвестно'
+  Unemployed: 'Неизвестно',
 };
 
 export function JobsRu(value: string) {
