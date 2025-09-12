@@ -1,12 +1,16 @@
 /datum/map_template/tent
 	name = "Base Tent"
-	var/map_id = "change this"
+	var/map_id = "tent_classic"
 
 /datum/map_template/tent/New()
 	mappath = "maps/tents/[map_id].dmm"
 	return ..()
 
 // SS220 ADD - START
+/datum/map_template/tent/classic
+	name = "Classic Tent"
+	map_id = "tent_classic"
+
 /datum/map_template/tent/eng
 	name = "ENG Tent"
 	map_id = "tent_eng"

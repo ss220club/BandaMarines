@@ -3,6 +3,7 @@
 /obj/structure/tent
 	name = "tent"
 	icon = 'icons/obj/structures/tents_deployed_classic.dmi'
+	icon_state = "classic_interior"
 	desc = "Can be torn down with an entrenching tool."
 	opacity = FALSE // Seems only the initial turf blocks light, not all of the multitile. Therefore, useless.
 	layer = INTERIOR_WALL_SOUTH_LAYER // This should be below FLY_LAYER but just thank chairs and other bs
@@ -18,7 +19,7 @@
 	var/cold_protection_factor = 0.4
 
 	/// Roof display icon_state or null to disable
-	var/roof_state
+	var/roof_state = "classic_top"
 	/// Roof image displayed on the roof plane
 	var/image/roof_image
 
