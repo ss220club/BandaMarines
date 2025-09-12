@@ -548,18 +548,18 @@
 			break
 
 	if(!successful_retrieve)
-		to_chat(valkyrie, SPAN_XENOWARNING("We can't reach [targetXeno] with our resin retrieval hook!"))
+		to_chat(valkyrie, SPAN_XENOWARNING("We can't reach $1 with our resin retrieval hook!", list(targetXeno))) // SS220 EDIT ADDICTION
 		return
 
-	to_chat(targetXeno, SPAN_XENOBOLDNOTICE("We are pulled toward [valkyrie]!"))
+	to_chat(targetXeno, SPAN_XENOBOLDNOTICE("We are pulled toward $1!", list(valkyrie))) // SS220 EDIT ADDICTION
 
 	shake_camera(targetXeno, 10, 1)
 	var/throw_dist = get_dist(throw_target_turf, targetXeno)-1
 	if(throw_target_turf == behind_turf)
 		throw_dist++
-		to_chat(valkyrie, SPAN_XENOBOLDNOTICE("We fling [targetXeno] over our head with our resin hook, and they land behind us!"))
+		to_chat(valkyrie, SPAN_XENOBOLDNOTICE("We fling $1 over our head with our resin hook, and they land behind us!", list(targetXeno))) // SS220 EDIT ADDICTION
 	else
-		to_chat(valkyrie, SPAN_XENOBOLDNOTICE("We fling [targetXeno] towards us with our resin hook, and they land in front of us!"))
+		to_chat(valkyrie, SPAN_XENOBOLDNOTICE("We fling $1 towards us with our resin hook, and they land in front of us!", list(targetXeno))) // SS220 EDIT ADDICTION
 	targetXeno.throw_atom(throw_target_turf, throw_dist, SPEED_VERY_FAST, pass_flags = PASS_MOB_THRU)
 	apply_cooldown()
 	return ..()

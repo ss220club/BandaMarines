@@ -142,7 +142,7 @@
 	var/mob/living/carbon/xenomorph/lesser_drone/new_drone = new(loc, null, linked_hive.hivenumber)
 	xeno_candidate.mind.transfer_to(new_drone, TRUE)
 	lesser_drone_spawns -= 1
-	new_drone.visible_message(SPAN_XENODANGER("Трутень вылезает из [declent_ru(GENITIVE)]!"), SPAN_XENODANGER("Вы вылезаете из [declent_ru(GENITIVE)] и просыпаетесь из своей спячки. За улей!"))
+	new_drone.visible_message(SPAN_XENODANGER("A lesser drone emerges out of $1!", list(declent_ru(GENITIVE))), SPAN_XENODANGER("You emerge out of $1 and awaken from your slumber. For the Hive!", list(declent_ru(GENITIVE)))) // SS220 EDIT ADDICTION
 	playsound(new_drone, 'sound/effects/xeno_newlarva.ogg', 25, TRUE)
 	new_drone.generate_name()
 
@@ -264,7 +264,7 @@
 	if(linked_hive)
 		for(var/mob/living/carbon/xenomorph/larva/worm in range(2, src))
 			if((!worm.ckey || worm.stat == DEAD) && worm.burrowable && (worm.hivenumber == linked_hive.hivenumber) && !QDELETED(worm))
-				visible_message(SPAN_XENODANGER("[worm] quickly burrows into \the [src]."))
+				visible_message(SPAN_XENODANGER("$1 quickly burrows into $2.", list(worm, declent_ru()))) // SS220 EDIT ADDICTION
 				if(!worm.banished)
 					// Goob job bringing her back home, but no doubling please
 					linked_hive.stored_larva++
@@ -316,8 +316,8 @@
 		if(isnull(new_xeno))
 			return FALSE
 
-		new_xeno.visible_message(SPAN_XENODANGER("A larva suddenly emerges from [src]!"),
-		SPAN_XENODANGER("We emerge from [src] and awaken from our slumber. For the Hive!"))
+		new_xeno.visible_message(SPAN_XENODANGER("A larva suddenly emerges from $1!", list(declent_ru())), // SS220 EDIT ADDICTION
+		SPAN_XENODANGER("We emerge from $1 and awaken from our slumber. For the Hive!", list(declent_ru()))) // SS220 EDIT ADDICTION
 		msg_admin_niche("[key_name(new_xeno)] emerged from \a [src]. [ADMIN_JMP(src)]")
 		playsound(new_xeno, 'sound/effects/xeno_newlarva.ogg', 50, 1)
 		if(!SSticker.mode.transfer_xeno(xeno_candidate, new_xeno))

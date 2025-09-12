@@ -684,7 +684,6 @@
 "The Queen has left without you, you quickly find a hiding place to enter hibernation as you lose touch with the hive mind." = "Королева ушла без вас, вы быстро находите укрытие, чтобы впасть в спячку, теряя связь с разумом улья."
 "The Queen has left without you, seperating you from her hive! You must defend yourself from the headhunter before you can enter hibernation..." = "Королева ушла без вас, отделяя вас от её улья! Вы должны защитить себя от охотника, прежде чем сможете впасть в спячку..."
 "The hive has no core! You manage to emerge from your old husk as a larva!" = "У улья нет ядра! Вы сумели вырваться из своего старого кокона в виде грудолома!"
-"You are a xenomorph larva awakened from slumber!" = "Вы грудолом, пробудившийся от спячки!"
 "With the death of the Queen, all alliances have been broken." = "Со смертью Королевы все союзы были разорваны."
 "Our Queen set up an alliance with $1!" = "Наша Королева заключила союз с $1!"
 "We sense that $1 Queen set up an alliance with us!" = "Мы чувствуем, что Королева $1 заключила союз с нами!"
@@ -699,6 +698,11 @@
 "Our Queen has declared that $1 is no longer our ally!" = "Наша Королева объявила, что $1 больше не является нашим союзником!"
 "Our Queen has broken all personal alliances with the talls! Favoritism is no more." = "Наша Королева разорвала все личные союзы с носителями! Покровительство больше не действует."
 "With the death of the Queen, her friends no longer matter to us." = "Со смертью Королевы её друзья больше не имеют для нас значения."
+"A larva suddenly emerges from a dead husk!" = "Из кокона внезапно появляется грудолом!"
+"The hive has no core! You manage to emerge from your old husk as a larva!" = "У улья нет ядра! Вы сумели вырваться из своего старого кокона в виде грудолома!"
+"A larva suddenly burrows out of $1!" = "Из $1 внезапно появляется грудолом!"
+"You burrow out of $1 and awaken from your slumber. For the Hive!" = "Вы вырываетесь из $1 и пробуждаетесь от спячки. Во имя улья!"
+"A facehugger suddenly emerges out of $1!" = "Из $1 внезапно появляется лицехват!"
 
 # Mark: admin
 
@@ -1017,6 +1021,7 @@
 "Two hits! You're starting to get a good read on the target's patterns." = "Два попадания! Вы начинаете хорошо понимать паттерны движений цели."
 "Bullseye! You're fully focused on the target. You notice they are starting to change their patterns." = "В яблочко! Вы полностью сосредоточены на цели. Вы замечаете, что они начинают менять свои паттерны движений."
 "Bullseye!" = "В яблочко!"
+"You are shaken by the sudden heavy impact!" = "Вы потрясены внезапным сильным ударом!"
 
 # Mark: code/modules/mob/living/carbon/human/powers/human_powers.dm
 
@@ -1150,6 +1155,11 @@
 "You stop destroying $1." = "Вы перестаёте уничтожать $1."
 "$1 stops destroying $2." = "$1 перестал уничтожать $2."
 "The weeds have recovered! A new hive core can be built!" = "Трава восстановилась! Можно построить новое ядро улья!"
+"A lesser drone emerges out of $1!" = "Трутень вылезает из $1!"
+"You emerge out of $1 and awaken from your slumber. For the Hive!" = "Вы вылезаете из $1 и пробуждаетесь от сна. Во имя улья!"
+"$1 quickly burrows into $2." = "$1 быстро зарывается в $2."
+"A larva suddenly emerges from $1!" = "Грудолом внезапно вылезает из $1!"
+"We emerge from $1 and awaken from our slumber. For the Hive!" = "Мы вылезаем из $1 и пробуждаемся от сна. Во имя улья!"
 
 # Mark: code/modules/mapping/mapping_helpers.dm
 
@@ -1180,18 +1190,21 @@
 "We nibble $1" = "Вы кусаете $1"
 "$1 is already broken!" = "$1 уже сломан!"
 "We aren't big enough to further damage $1." = "Мы недостаточно велики, чтобы нанести больший урон $1."
+"We don't have the dexterity to tackle the headhunter with that thing on our leg!" = "У нас нет ловкости, чтобы справиться с охотником за головами с этой штукой на нашей ноге!"
 
 # Mark: code/modules/mob/living/carbon/xenomorph/death.dm
 
 "A sudden tremor ripples through the hive... the Queen has been slain! Vengeance!" = "Внезапная дрожь пробегает по улью... Королева была убита! МЫ ОТОМСТИМ!"
 "Your carapace rattles with RAGE. You are all that remains of the hive! Go out fighting, kill them all!" = "Ваш панцирь дрожит от ЯРОСТИ. Вы - всё, что осталось от улья! Сражайтесь до конца, убейте их всех!"
 "A leader has fallen!" = "Лидер пал!"
+"You burrow out of the ground after feeling an immense tremor through the hive, which quickly fades into complete silence..." = "Вы вырываетесь из земли, почувствовав огромную дрожь по всему улью, которая быстро затихает в полной тишине..."
 
 # Mark: code/modules/mob/living/carbon/xenomorph/Embryo.dm
 
 "You are a xenomorph larva inside a host! Move to burst out of it!" = "Вы - грудолом внутри хоста! Двигайтесь, чтобы вырваться из него!"
 "<B>Your job is to spread the hive and protect the Queen. If there's no Queen, you can become the Queen yourself by evolving into a drone.</B>" = "<B>Ваша задача - распространять улей и защищать Королеву. Если Королевы нет, вы можете стать Королевой, эволюционировав в трутня.</B>"
 "Talk in Hivemind using <strong>;</strong> (e.g. ';My life for the queen!')" = "Говорите в Разуме улья, используя <strong>;</strong> (например, ';жизнь за Королеву!')"
+"$1 quickly burrows into the ground." = "$1 быстро зарывается в землю."
 
 # Mark: code/modules/mob/living/carbon/xenomorph/mark_menu.dm
 
@@ -1263,6 +1276,25 @@
 "The Queen has <b>forbidden</b> the harming of hosts. You can no longer slash your enemies." = "Королева <b>запретила</b> причинение вреда хостам. Вы больше не можете рубить своих врагов."
 "The Queen has grown an ovipositor, evolution progress resumed." = "Королева создала кладку яиц, прогресс эволюции возобновлён."
 "The Queen has shed her ovipositor, evolution progress paused." = "Королева сбросила кладку яиц, прогресс эволюции приостановлен."
+"$1 points at $2." = "<b>$1</b> указывает на $2."
+"You allow slashing." = "Вы разрешаете рубящие атаки."
+"You allow construction placement to all builder castes." = "Вы разрешаете размещение построек всем кастам строителей."
+"The Queen has <b>permitted</b> the placement of construction nodes to all builder castes!" = "Королева <b>разрешила</b> размещение строительных узлов всем кастам строителей!"
+"You restrict construction placement to leaders only." = "Вы ограничиваете размещение построек только для лидеров."
+"The Queen has <b>restricted</b> the placement of construction nodes to leading builder castes only." = "Королева <b>ограничила</b> размещение строительных узлов только для лидеров-строителей!"
+"You forbid construction placement entirely." = "Вы полностью запрещаете размещение построек."
+"The Queen has <b>forbidden</b> the placement of construction nodes to all but herself." = "Королева <b>запретила</b> размещение строительных узлов всем, кроме себя."
+"You allow special structure destruction to all builder castes and leaders." = "Вы разрешаете уничтожение специальных построек всем кастам строителей и лидерам."
+"The Queen has <b>permitted</b> the destruction of special structures to all builder castes and leaders!" = "Королева <b>разрешила</b> уничтожение специальных построек всем кастам строителей и лидерам!"
+"You restrict special structure destruction to leaders only." = "Вы ограничиваете уничтожение специальных построек только для лидеров."
+"The Queen has <b>restricted</b> the destruction of special structures to leaders only." = "Королева <b>ограничила</b> уничтожение специальных построек только для лидеров!"
+"You forbid special structure destruction entirely." = "Вы полностью запрещаете уничтожение специальных построек."
+"The Queen has <b>forbidden</b> the destruction of special structures to all but herself." = "Королева <b>запретила</b> уничтожение специальных построек всем, кроме себя."
+"You have allowed everyone to unnest hosts." = "Вы разрешили всем извлекать хостов из гнезда."
+"The Queen has allowed everyone to unnest hosts." = "Королева разрешила всем извлекать хостов из гнезда."
+"You have forbidden anyone to unnest hosts, except for the drone caste." = "Вы запретили кому-либо извлекать хостов из гнезда, кроме касты дронов."
+"The Queen has forbidden anyone to unnest hosts, except for the drone caste." = "Королева запретила кому-либо извлекать хостов из гнезда, кроме касты дронов."
+"You feel your throat muscles vibrate. You are ready to screech again." = "Вы чувствуете, как ваши горловые мышцы вибрируют. Вы готовы снова издать пронзительный крик."
 
 # Mark: code/modules/mob/living/carbon/xenomorph/strains/castes/drone/healer.dm
 
@@ -1295,6 +1327,8 @@
 "This terminal is inactive." = "Этот терминал неактивен."
 "The Queen has commanded the metal bird to depart for the metal hive in the sky! Rejoice!" = "Королева приказала металлической птице отправиться к металлическому улью в небе! Возрадуемся!"
 "The hive swells with power! You will now steadily gain pooled larva over time." = "Улей наполняется силой! Теперь мы будем получать новых грудоломов."
+"We slash at $1, silencing its squawking!" = "Мы рубим $1, заставляя его замолчать!"
+"You override the doors." = "Вы взламываете двери."
 
 # Mark: code/modules/shuttle/shuttles/dropship.dm
 
@@ -1363,6 +1397,20 @@
 # Mark: code/modules/cm_aliens/structures/fruit.dm
 
 "You uproot $1." = "Вы вырываете $1 из земли."
+"We recover a bit from our injuries." = "Мы восстанавливаем немного здоровья."
+"We recover a bit from our injuries, and begin to regenerate rapidly." = "Мы восстанавливаем немного здоровья и начинаем быстро регенерировать."
+"We feel our defense being bolstered, and begin to slowly regenerate." = "Мы чувствуем, как наша защита укрепляется, и начинаем медленно регенерировать."
+"We feel a frenzy coming onto us! Our abilities will cool off faster as we slash!" = "Мы чувствуем, как на нас накатывает ярость! Наши способности будут остывать быстрее, когда мы рубим!"
+"The $1 invigorates us to move faster!" = "$1 придаёт нам сил двигаться быстрее!"
+"The $1 boosts our plasma regeneration!" = "$1 ускоряет нашу регенерацию плазмы!"
+"This fruit is already being picked!" = "Этот плод уже собирается!"
+"$1 removes $2!" = "$1 удаляет $2!"
+"You remove $1!" = "Вы удаляете $1!"
+"We are at full health! This would be a waste..." = "Мы полностью здоровы! Это было бы пустой тратой..."
+"We crush $1." = "Мы раздавливаем $1."
+"$1 isn't mature yet!" = "$1 ещё не созрел!"
+"$1 is already being picked!" = "$1 уже собирается!"
+"We are too small to pick up $1!" = "Мы слишком малы, чтобы собрать $1!"
 
 # Mark: code/modules/cm_aliens/structures/trap.dm
 
@@ -1434,6 +1482,10 @@
 "We begin to twist and contort." = "Мы начинаем извиваться и содрогаться."
 "We quiver, but nothing happens. Our evolution has ceased for now..." = "Мы дрожим, но ничего не происходит. Наша эволюция приостановлена на данный момент..."
 "The hive currently has no sister able to become Queen! The survival of the hive requires you to be a Drone!" = "В улье сейчас нет сестры, которая могла бы стать Королевой! Выживание улья требует, чтобы вы стали Дроном!"
+"A $1 emerges from the husk of $2." = "Из оболочки $2 появляется $1."
+"We emerge in a greater form from the husk of our old body. For the hive!" = "Мы выходим в более совершенной форме из оболочки нашего старого тела. Во имя улья!"
+"We regress into our previous form." = "Мы регрессируем в нашу предыдущую форму."
+"We transmute into a new form." = "Мы превращаемся в новую форму."
 
 # Mark: code/modules/mob/living/carbon/xenomorph/XenoOverwatch.dm
 
@@ -1454,6 +1506,16 @@
 "Hosts need a vertical surface to be nested upon!" = "Хосты нуждаются в вертикальной поверхности, чтобы быть размещёнными на ней!"
 "The host must be directly next to the wall its being nested on!" = "Хост должен находиться непосредственно рядом со стеной, на которой он размещается!"
 "There is already a host nested here!" = "Здесь уже размещён хост!"
+"$1 slams into $2!" = "$1 врезается в $2!"
+"We slam into $1!" = "Мы врезаемся в $1!"
+"$1 blocks the pounce of $2 with the combistick!" = "$1 блокирует прыжок $2 с помощью комби-палки!"
+"$1 blocks our pouncing form with the combistick!" = "$1 блокирует наш прыжок с помощью комби-палки!"
+"$1 body slams $2!" = "$1 сбивает $2 с ног!"
+"$1 body slams us!" = "$1 сбивает нас с ног!"
+"$1 withstands being pounced and slams down $2!" = "$1 выдерживает прыжок и сбивает $2 с ног!"
+"$1 throws us down after withstanding the pounce!" = "$1 сбивает нас с ног после того, как выдержал прыжок!"
+"$1 $2 onto $3!" = "$1 $2 на $3!"
+"We $1 onto $2!" = "Мы $1 на $2!"
 
 # Mark: code/modules/mob/living/carbon/xenomorph/abilities/general_abilities.dm
 
@@ -1489,6 +1551,225 @@
 "You can't infect $1..." = "Вы не можете заразить $1..."
 "$1 is already full of children." = "$1 уже занят детём."
 "This isn't your hive's eggmorpher!" = "Это яйцекладка не вашего улья!"
+
+# Mark: code/modules/mob/living/carbon/xenomorph/castes/King.dm
+
+"We cannot leap that far!" = "Мы не можем прыгнуть так далеко!"
+"We cannot leap to that!" = "Мы не можем прыгнуть туда!"
+"It would not be wise to try to leap there..." = "Было бы неразумно пытаться прыгнуть туда..."
+"We cannot leap to that area!" = "Мы не можем прыгнуть в эту область!"
+"We don't have a clear path to leap to that location!" = "У нас нет прямого пути, чтобы прыгнуть в это место!"
+"There's something blocking us from leaping." = "Что-то мешает нам прыгнуть."
+"We don't have enough plasma to use $1." = "У нас недостаточно плазмы, чтобы использовать $1."
+"Our muscles tense as we prepare ourself for a giant leap." = "Наши мышцы напрягаются, когда мы готовимся к гигантскому прыжку."
+"We relax our muslces and end our leap." = "Мы расслабляем наши мышцы и завершаем прыжок."
+
+# Mark: code/modules/mob/living/carbon/xenomorph/strains/castes/carrier/eggsac.dm
+
+"We generate an egg. Now sheltering: $1 / $2." = "Мы создаём яйцо. Сейчас в нём: $1 / $2."
+
+# Mark: code/modules/mob/living/carbon/xenomorph/strains/castes/crusher/charger.dm
+
+"We will $1 charge when moving." = "Мы будем $1 атаковать при движении."
+
+# Mark: code/modules/mob/living/carbon/xenomorph/strains/castes/defender/steel_crest.dm
+
+"We begin to tank incoming damage!" = "Мы начинаем поглощать входящий урон!"
+"We stop taking incoming damage." = "Мы перестаём поглощать входящий урон."
+
+# Mark: code/modules/mob/living/carbon/xenomorph/strains/castes/drone/gardener.dm
+
+"$1 secretes fluids and shape it into a fruit!" = "$1 выделяет жидкости и формирует их в плод!"
+"We secrete a portion of our vital fluids and shape them into a fruit!" = "Мы выделяем часть наших жизненно важных жидкостей и формируем их в плод!"
+"Couldn't find the fruit to place! Contact a coder!" = "Не удалось найти плод для размещения! Свяжитесь с кодером!"
+"We surge the resin around $1, making it temporarily nigh unbreakable!" = "Мы наполняем смолу вокруг $1, делая её временно почти неразрушимой!"
+"We haplessly try to surge resin around $1, but it's already reinforced. It'll take a moment for us to recover." = "Мы безуспешно пытаемся наполнить смолу вокруг $1, но она уже усилена. Нам понадобится немного времени, чтобы восстановиться."
+"The $1 is already mature. The $2 does nothing." = "$1 уже созрел. $2 ничего не делает."
+"We pour all our energy equal to $1 growth, bringing it to swift maturity!" = "Мы вкладываем всю нашу энергию, равную $1 росту, доводя его до быстрой зрелости!"
+"We surge the resin, creating an unstable wall!" = "Мы наполняем смолу, создавая нестабильную стену!"
+"We surge the deep resin, creating an unstable sticky resin patch!" = "Мы наполняем глубокую смолу, создавая нестабильный липкий участок смолы!"
+
+# Mark: code/modules/mob/living/carbon/xenomorph/strains/castes/hivelord/designer.dm
+
+"$1 surges the resin, creating an unstable wall!" = "$1 наполняет смолу, создавая нестабильную стену!"
+"We surge the resin, creating an unstable wall!" = "Мы наполняем смолу, создавая нестабильную стену!"
+"We must be standing on weeds to channel our nutrients and influence." = "Мы должны стоять на траве улья, чтобы направлять наши питательные вещества и влияние."
+"Weeds around $1 start to twitch and pump substance towards it, thickening it in process!" = "Трава вокруг $1 начинает дергаться и перекачивать субстанцию к нему, уплотняя её в процессе!"
+"We start to channel nutrients towards $1, using $2 plasma." = "Мы начинаем направлять питательные вещества к $1, используя $2 плазмы."
+"We sever the bond to the node, causing it to dissolve into the ground." = "Мы разрываем связь с узлом, заставляя его раствориться в земле."
+"$1 channel nutrients and shape it into a node!" = "$1 направляет питательные вещества и формирует их в узел!"
+"Couldn't find node to place! Contact a coder!" = "Не удалось найти узел для размещения! Свяжитесь с кодером!"
+"The $1 channel nutrients and shape it into a node!" = "$1 направляет питательные вещества и формирует их в узел!"
+"We focus our connection to the resin and remotely close the resin door." = "Мы фокусируем нашу связь со смолой и удалённо закрываем смоляные двери."
+"We focus our connection to the resin and remotely open the resin door." = "Мы фокусируем нашу связь со смолой и удалённо открываем смоляные двери."
+
+# Mark: code/modules/mob/living/carbon/xenomorph/strains/castes/hivelord/resin_whisperer.dm
+
+"We must be standing on weeds to establish a connection to the resin." = "Мы должны стоять на траве улья, чтобы установить связь со смолой."
+"We must have a direct line of sight!" = "Мы должны иметь прямую видимость!"
+"The weeds begin pulsating wildly and secrete resin in the shape of $1!" = "Трава начинает дико пульсировать и выделяет смолу в форме $1!"
+"We focus our plasma into the weeds below us and force the weeds to secrete resin in the shape of $1." = "Мы фокусируем нашу плазму в траву под нами и заставляем её выделять смолу в форме $1."
+
+# Mark: code/modules/projectiles/gun.dm
+
+"$1 slashes the lights on $2!" = "$1 рубит свет на $2!"
+"You slash the lights on $1!" = "Вы рубите свет на $1!"
+
+# Mark: code/modules/projectiles/projectile.dm
+
+"Your armor absorbs the force of $1!" = "Ваша броня поглощает силу $1!"
+
+# Mark: code/modules/mob/living/carbon/xenomorph/strains/castes/praetorian/valkyrie.dm
+
+"We can't reach $1 with our resin retrieval hook!" = "Мы не можем достать $1 нашим крюком для сбора смолы!"
+"We are pulled toward $1!" = "Мы притягиваемся к $1!"
+"We fling $1 over our head with our resin hook, and they land behind us!" = "Мы закидываем $1 через голову нашим смоляным крюком, и они приземляются позади нас!"
+"We fling $1 towards us with our resin hook, and they land in front of us!" = "Мы закидываем $1 к нам нашим смоляным крюком, и они приземляются перед нами!"
+
+# Mark: code/datums/ammo/ammo.dm
+
+"You slam into an obstacle!" = "Вы врезаетесь в препятствие!"
+"You are shaken by the sudden impact!" = "Вы потрясены внезапным ударом!"
+"You are slowed by the sudden impact!" = "Вы замедлены внезапным ударом!"
+"You are pushed back by the sudden impact!" = "Вы отбрасываетесь назад внезапным ударом!"
+"$1 is hit by backlash from $2!" = "$1 поражён отдачей от $2!"
+"You are hit by backlash from </b>$1</b>!" = "Вы поражены отдачей от <b>$1</b>!"
+
+# Mark: code/datums/ammo/bullet/rifle.dm
+
+"You are shaken and slowed by the sudden impact!" = "Вы потрясены и замедлены внезапным ударом!"
+
+# Mark: code/datums/ammo/bullet/shotgun.dm
+
+"The impact knocks you off your feet!" = "Удар сбивает вас с ног!"
+
+# Mark: code/datums/effects/xeno_strains/prae_acid_stacks.dm
+
+"You feel acid eat into your skin!" = "Вы чувствуете, как кислота разъедает вашу кожу!"
+
+# Mark: code/datums/elements/bullet_trait/incendiary.dm
+
+"You burst into flames!! Auuugh! Resist to put out the flames!" = "Вы вспыхиваете!! Аууугх! Сопротивляйтесь, чтобы потушить пламя!"
+
+# Mark: code/datums/xeno_shields/shield_types/hedgehog_shield.dm
+
+"Damaging the shield of $1 sprays bone quills everywhere!" = "Повреждение щита $1 разбрызгивает костяные шипы повсюду!"
+
+# Mark: code/game/gamemodes/cm_process.dm
+
+"A larva suddenly burrows out of the ground!" = "Из земли внезапно вырывается грудолом!"
+"You burrow out of the ground and awaken from your slumber. For the Hive!" = "Вы вырываетесь из земли и просыпаетесь от своего сна. Во имя Улья!"
+
+# Mark: code/game/objects/effects/aliens.dm
+
+"$1 loses its shine as the acid bubbles against it." = "$1 теряет свой блеск, когда кислота пузырится на нём."
+"$1 is terribly damaged by the acid covering it!" = "$1 сильно повреждён кислотой, покрывающей его!"
+"$1 collapses and falls in on itself as the acid melts its frame!" = "$1 рушится и падает, когда кислота разъедает его каркас!"
+"$1 audibly cracks and fails as the acid bubbles against it!" = "$1 слышно трещит и ломается, когда кислота пузырится на нём!"
+"$1 cracks and fragments as the acid sizzles against it!" = "$1 трещит и рассыпается, когда кислота шипит на нём!"
+"$1 collapses under its own weight into a puddle of goop and undigested debris!" = "$1 рушится под собственной тяжестью в лужу слизи и непереваренных обломков!"
+"$1 seems unaffected and continues to deform!" = "$1 кажется невредимым и продолжает деформироваться!"
+"The sizzling on $1 quiets as the acid is sprayed off of it!" = "Шипение на $1 затихает, когда кислота смывается с него!"
+"You are scalded by acid as a massive glob explodes nearby!" = "Вы ошпарены кислотой, когда рядом взрывается огромный шар!"
+"You are blasted with a stream of high-velocity acid!" = "Вы обстрелены струёй высокоскоростной кислоты!"
+"You are blasted with a bolt of acid!" = "Вы обстрелены кислотной струёй!"
+"You are blasted with a powerful bolt of acid!" = "Вы обстрелены мощной кислотной струёй!"
+
+# Mark: code/game/objects/effects/effect_system/smoke.dm
+
+"You are struggling to move, it's as if you're paralyzed!" = "Вы изо всех сил пытаетесь двигаться, словно парализованы!"
+
+# Mark: code/modules/mob/living/carbon/xenomorph/life.dm
+
+"Our carapace crackles and our tendons strengthen. We are ready to <a href='$1'>evolve</a>!" = "Наш панцирь трещит, а наши сухожилия укрепляются. Мы готовы <a href='$1'>эволюционировать</a>!"
+
+# Mark:
+
+
+
+# Mark:
+
+
+
+# Mark:
+
+
+
+# Mark:
+
+
+
+# Mark:
+
+
+
+# Mark:
+
+
+
+# Mark:
+
+
+
+# Mark:
+
+
+
+# Mark:
+
+
+
+# Mark:
+
+
+
+# Mark:
+
+
+
+# Mark:
+
+
+
+# Mark:
+
+
+
+# Mark:
+
+
+
+# Mark:
+
+
+
+# Mark:
+
+
+
+# Mark:
+
+
+
+# Mark:
+
+
+
+# Mark:
+
+
+
+# Mark:
+
+
+
+# Mark:
+
+
+
+# Mark:
+
+
 
 # Mark:
 

@@ -657,7 +657,7 @@
 
 	activated = !activated
 	var/will_charge = "[activated ? "now" : "no longer"]"
-	to_chat(Xeno, SPAN_XENONOTICE("We will [will_charge] charge when moving."))
+	to_chat(Xeno, SPAN_XENONOTICE("We will $1 charge when moving.", list(will_charge))) // SS220 EDIT ADDICTION
 	if(activated)
 		RegisterSignal(Xeno, COMSIG_MOVABLE_MOVED, PROC_REF(handle_movement))
 		RegisterSignal(Xeno, COMSIG_LIVING_SET_BODY_POSITION, PROC_REF(handle_position_change))

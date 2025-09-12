@@ -197,7 +197,7 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 
 	built_structures = null
 
-	new_xeno.visible_message(SPAN_XENODANGER("A [new_xeno.caste.caste_type] emerges from the husk of [src]."),
+	new_xeno.visible_message(SPAN_XENODANGER("A $1 emerges from the husk of $2.", list(new_xeno.caste.caste_type, declent_ru())), // SS220 EDIT ADDICTION
 	SPAN_XENODANGER("We emerge in a greater form from the husk of our old body. For the hive!"))
 
 	if(hive.living_xeno_queen && hive.living_xeno_queen.observed_xeno == src)
@@ -464,7 +464,7 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 	if(!(/mob/living/carbon/xenomorph/verb/Deevolve in verbs))
 		remove_verb(new_xeno, /mob/living/carbon/xenomorph/verb/Deevolve)
 
-	new_xeno.visible_message(SPAN_XENODANGER("A [new_xeno.caste.caste_type] emerges from the husk of \the [src]."),
+	new_xeno.visible_message(SPAN_XENODANGER("A $1 emerges from the husk of $2.", list(new_xeno.caste.caste_type, declent_ru())), // SS220 EDIT ADDICTION
 	SPAN_XENODANGER(message))
 
 	transfer_observers_to(new_xeno)

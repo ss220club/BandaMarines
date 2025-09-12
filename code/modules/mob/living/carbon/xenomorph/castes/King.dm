@@ -312,7 +312,7 @@
 				return
 
 	if(!check_and_use_plasma_owner())
-		to_chat(xeno, SPAN_XENONOTICE("We don't have enough plasma to use [name]."))
+		to_chat(xeno, SPAN_XENONOTICE("We don't have enough plasma to use $1.", list(name))) // SS220 EDIT ADDICTION
 		return
 
 	var/turf/template_turf = get_step(target_turf, SOUTHWEST)

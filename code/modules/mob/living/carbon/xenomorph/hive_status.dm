@@ -884,8 +884,8 @@
 	if(!SSticker.mode.transfer_xeno(xeno_candidate, new_xeno))
 		qdel(new_xeno)
 		return FALSE
-	new_xeno.visible_message(SPAN_XENODANGER("A larva suddenly burrows out of \the [spawning_turf]!"),
-	SPAN_XENODANGER("You burrow out of \the [spawning_turf] and awaken from your slumber. For the Hive!"))
+	new_xeno.visible_message(SPAN_XENODANGER("A larva suddenly burrows out of $1!", list(spawning_turf)), // SS220 EDIT ADDICTION
+	SPAN_XENODANGER("You burrow out of $1 and awaken from your slumber. For the Hive!", list(spawning_turf))) // SS220 EDIT ADDICTION
 	msg_admin_niche("[key_name(new_xeno)] burrowed out from \a [spawning_turf]. [ADMIN_JMP(spawning_turf)]")
 	playsound(new_xeno, 'sound/effects/xeno_newlarva.ogg', 50, 1)
 	to_chat(new_xeno, SPAN_XENOANNOUNCE("You are a xenomorph larva awakened from slumber!"))
@@ -1001,7 +1001,7 @@
 /datum/hive_status/proc/spawn_as_hugger(mob/dead/observer/user, atom/A)
 	var/mob/living/carbon/xenomorph/facehugger/hugger = new /mob/living/carbon/xenomorph/facehugger(A.loc, null, hivenumber)
 	user.mind.transfer_to(hugger, TRUE)
-	hugger.visible_message(SPAN_XENODANGER("A facehugger suddenly emerges out of \the [A]!"), SPAN_XENODANGER("You emerge out of \the [A] and awaken from your slumber. For the Hive!"))
+	hugger.visible_message(SPAN_XENODANGER("A facehugger suddenly emerges out of $1!", list(A)), SPAN_XENODANGER("You emerge out of $1 and awaken from your slumber. For the Hive!", list(A))) // SS220 EDIT ADDICTION
 	playsound(hugger, 'sound/effects/xeno_newlarva.ogg', 25, TRUE)
 	hugger.generate_name()
 	hugger.timeofdeath = user.timeofdeath // Keep old death time

@@ -120,7 +120,7 @@
 			if(egg_generation_progress >= 15)
 				egg_generation_progress = 0
 				xeno.eggs_cur++
-				to_chat(xeno, SPAN_XENONOTICE("We generate an egg. Now sheltering: [xeno.eggs_cur] / [xeno.eggs_max]."))
+				to_chat(xeno, SPAN_XENONOTICE("We generate an egg. Now sheltering: $1 / $2.", list(xeno.eggs_cur, xeno.eggs_max))) // SS220 EDIT ADDICTION
 				xeno.update_icons()
 
 #undef EGGSAC_OFF_WEED_EGGCAP
