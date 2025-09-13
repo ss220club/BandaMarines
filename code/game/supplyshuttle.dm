@@ -691,9 +691,6 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 
 /datum/supply_order/proc/buy(obj/structure/machinery/computer/supply/asrs/buyer)
 	var/ordered = list()
-	// SS220 ADD START - Tents
-	var/list/ordered_tents = list()
-	// SS220 ADD END - Tents
 
 	for(var/datum/supply_packs/pack as anything in objects)
 		if(!buyer.is_buyable(pack))
