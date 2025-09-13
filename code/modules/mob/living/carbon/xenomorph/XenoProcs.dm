@@ -19,7 +19,8 @@
 		for(var/datum/mind/L in SSticker.mode.xenomorphs)
 			var/mob/living/carbon/M = L.current
 			if(M && istype(M) && !M.stat && M.client && (!hivenumber || M.hivenumber == hivenumber)) //Only living and connected xenos
-				to_chat(M, SPAN_XENODANGER("[message]")) // SS220 EDIT ADDICTION
+				var/ru_message = ru_span(message) // SS220 EDIT ADDICTION
+				to_chat(M, SPAN_XENODANGER("<span class=\"[fontsize_style]\">[ru_message]</span>")) // SS220 EDIT ADDICTION
 
 //Sends a maptext alert to xenos.
 /proc/xeno_maptext(text = "", title_text = "", hivenumber = XENO_HIVE_NORMAL)

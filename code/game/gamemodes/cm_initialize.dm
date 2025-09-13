@@ -528,11 +528,11 @@ Additional game mode variables.
 					This means you won't lose your relative place in queue if you step away, disconnect, play as a facehugger/lesser, or play in the thunderdome."))
 				return FALSE
 			var/mob/new_player/candidate_new_player = xeno_candidate
+			var/position = 1
 			if(candidate_new_player.larva_queue_message_stale_time <= world.time)
 				// No cached/current lobby message, determine the position
 				var/list/valid_candidates = get_alien_candidates()
 				var/candidate_time = candidate_new_player.client.player_details.larva_queue_time
-				var/position = 1
 				for(var/mob/dead/observer/current in valid_candidates)
 					if(current.client.player_details.larva_queue_time >= candidate_time)
 						break

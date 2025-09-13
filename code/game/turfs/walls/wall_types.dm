@@ -1084,7 +1084,7 @@
 		return XENO_NO_DELAY_ACTION
 
 	M.animation_attack_on(src)
-	M.visible_message(SPAN_XENONOTICE("$1 claws $2!", list(user, declent_ru(ACCUSATIVE))), // SS220 EDIT ADDICTION
+	M.visible_message(SPAN_XENONOTICE("$1 claws $2!", list(M, declent_ru(ACCUSATIVE))), // SS220 EDIT ADDICTION
 	SPAN_XENONOTICE("You claw $1.", list(declent_ru(ACCUSATIVE)))) // SS220 EDIT ADDICTION
 	playsound(src, "alien_resin_break", 25)
 	if (M.hivenumber == hivenumber)
@@ -1301,7 +1301,7 @@
 
 	M.animation_attack_on(src)
 	M.visible_message(SPAN_XENONOTICE("$1 claws $2!", list(M, declent_ru(ACCUSATIVE))), // SS220 EDIT ADDICTION
-	SPAN_XENONOTICE("We claw $1.", list(declent_ru(ACCUSATIVE))) // SS220 EDIT ADDICTION
+	SPAN_XENONOTICE("We claw $1.", list(declent_ru(ACCUSATIVE)))) // SS220 EDIT ADDICTION
 	playsound(src, "alien_resin_break", 25)
 	if (M.hivenumber == hivenumber)
 		take_damage(ceil(HEALTH_WALL_XENO * 0.25)) //Four hits for a regular wall

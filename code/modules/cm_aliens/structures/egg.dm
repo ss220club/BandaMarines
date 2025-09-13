@@ -265,7 +265,7 @@
 		switch(status)
 			if(EGG_BURST)
 				if(user)
-					visible_message(SPAN_XENOWARNING("$1 slides $2 back into $3.", list(user, F, declent_ru()), // SS220 EDIT ADDICTION
+					visible_message(SPAN_XENOWARNING("$1 slides $2 back into $3.", list(user, F, declent_ru())), // SS220 EDIT ADDICTION
 						SPAN_XENONOTICE("We place the child back in to $1.", list(declent_ru()))) // SS220 EDIT ADDICTION
 					user.temp_drop_inv_item(F)
 				else

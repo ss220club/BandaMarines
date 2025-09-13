@@ -202,7 +202,7 @@
 
 		next_point = world.time + point_delay
 
-		var/message = SPAN_XENONOTICE("$1 points at $2.", list(declent_ru_initial(Q::name, ACCUSATIVE, Q::name), declent_ru_initial(A::name, ACCUSATIVE, A::name)))) // SS220 EDIT ADDICTION
+		var/message = SPAN_XENONOTICE("$1 points at $2.", list(declent_ru_initial(Q::name, ACCUSATIVE, Q::name), declent_ru_initial(A::name, ACCUSATIVE, A::name))) // SS220 EDIT ADDICTION
 
 		to_chat(Q, message)
 		for(var/mob/living/carbon/xenomorph/X in viewers(7, src))

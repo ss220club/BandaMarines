@@ -115,7 +115,7 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 		return
 	to_chat(src, SPAN_XENONOTICE("It looks like the hive can support our evolution to $1!", list(SPAN_BOLD(castepick)))) // SS220 EDIT ADDICTION
 
-	visible_message(SPAN_XENONOTICE("$1 begins to twist and contort.", list(declent_ru)), // SS220 EDIT ADDICTION
+	visible_message(SPAN_XENONOTICE("$1 begins to twist and contort.", list(declent_ru())), // SS220 EDIT ADDICTION
 	SPAN_XENONOTICE("We begin to twist and contort."))
 	xeno_jitter(25)
 	evolving = TRUE
