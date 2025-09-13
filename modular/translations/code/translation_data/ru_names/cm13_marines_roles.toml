@@ -353,12 +353,12 @@ prepositional = "Техник-ремонтник"
 gender = "male"
 
 ["Ordnance Technician"]
-nominative = "Пиротехник"
-genitive = "Пиротехник"
-dative = "Пиротехник"
-accusative = "Пиротехник"
-instrumental = "Пиротехник"
-prepositional = "Пиротехник"
+nominative = "Орудийный техник"
+genitive = "Орудийный техник"
+dative = "Орудийный техник"
+accusative = "Орудийный техник"
+instrumental = "Орудийный техник"
+prepositional = "Орудийный техник"
 gender = "male"
 
 ["Quartermaster"]

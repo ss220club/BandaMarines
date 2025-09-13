@@ -82,7 +82,7 @@
 
 #define JOB_CHIEF_ENGINEER_RU "Главный инженер"
 #define JOB_MAINT_TECH_RU "Техник-ремонтник"
-#define JOB_ORDNANCE_TECH_RU "Пиротехник"
+#define JOB_ORDNANCE_TECH_RU "Орудийный техник"
 
 #define JOB_CHIEF_REQUISITION_RU "Квартирмейстер" // Можно "Интендант", но квартирмейстер у нас тоже используется
 #define JOB_CARGO_TECH_RU "Грузовой техник"
