@@ -99,7 +99,7 @@
 			xeno.current_fruits.Remove(old_fruit)
 			qdel(old_fruit)
 
-		xeno.visible_message(SPAN_XENONOTICE("\The [xeno] secretes fluids and shape it into a fruit!"),
+		xeno.visible_message(SPAN_XENONOTICE("$1 secretes fluids and shape it into a fruit!", list(xeno)), // SS220 EDIT ADDICTION
 		SPAN_XENONOTICE("We secrete a portion of our vital fluids and shape them into a fruit!"), null, 5)
 
 		var/obj/effect/alien/resin/fruit/fruit = new xeno.selected_fruit(target_weeds.loc, target_weeds, xeno)
@@ -276,18 +276,18 @@
 
 		if(!buff_already_present)
 			new /datum/effects/xeno_structure_reinforcement(structure_to_buff, xeno, ttl = 15 SECONDS)
-			xeno.visible_message(SPAN_XENODANGER("\The [xeno] surges the resin around [structure_to_buff], making it temporarily nigh unbreakable!"),
-			SPAN_XENONOTICE("We surge the resin around [structure_to_buff], making it temporarily nigh unbreakable!"), null, 5)
+			xeno.visible_message(SPAN_XENODANGER("$1 surges the resin around [structure_to_buff], making it temporarily nigh unbreakable!", list(xeno)), // SS220 EDIT ADDICTION
+			SPAN_XENONOTICE("We surge the resin around $1, making it temporarily nigh unbreakable!", list(structure_to_buff)), null, 5) // SS220 EDIT ADDICTION
 		else
-			to_chat(xeno, SPAN_XENONOTICE("We haplessly try to surge resin around [structure_to_buff], but it's already reinforced. It'll take a moment for us to recover."))
+			to_chat(xeno, SPAN_XENONOTICE("We haplessly try to surge resin around $1, but it's already reinforced. It'll take a moment for us to recover.")) // SS220 EDIT ADDICTION
 			xeno_cooldown *= 0.5
 
 	else if(F && F.hivenumber == xeno.hivenumber)
 		if(F.mature)
-			to_chat(xeno, SPAN_XENONOTICE("The [F] is already mature. The [src.name] does nothing."))
+			to_chat(xeno, SPAN_XENONOTICE("The $1 is already mature. The $2 does nothing.", list(F, declent_ru()))) // SS220 EDIT ADDICTION
 			xeno_cooldown *= 0.5
 		else
-			to_chat(xeno, SPAN_XENONOTICE("We pour all our energy equal to [F] growth, bringing it to swift maturity!"))
+			to_chat(xeno, SPAN_XENONOTICE("We pour all our energy equal to $1 growth, bringing it to swift maturity!", list(F))) // SS220 EDIT ADDICTION
 			F.reduce_timer(60 SECONDS) //We want surge to mature any fruit instantly, but you receive dynamic cooldown depending on fruit growth time.
 			xeno_cooldown *= dynamic_fruit_surge_cooldown(F)
 

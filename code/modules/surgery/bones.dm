@@ -44,6 +44,8 @@
 //Use materials to repair bones, same as /datum/surgery_step/mend_encased
 /datum/surgery_step/mend_bones/extra_checks(mob/living/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, repeating, skipped)
 	. = ..()
+	var/ru_name_affected_limb = declent_ru_initial(surgery.affected_limb.display_name, PREPOSITIONAL, surgery.affected_limb.display_name) // SS220 EDIT ADDICTION
+	var/ru_name_tool = tool.declent_ru() // SS220 EDIT ADDICTION
 	if(istype(tool, /obj/item/tool/surgery/bonegel)) //If bone gel, use some of the gel
 		var/obj/item/tool/surgery/bonegel/gel = tool
 		if(!gel.use_gel(gel.fracture_fix_cost))
@@ -52,42 +54,45 @@
 	else //Otherwise, use metal rods
 		var/obj/item/stack/rods/rods = user.get_inactive_hand()
 		if(!istype(rods))
-			to_chat(user, SPAN_BOLDWARNING("You need metal rods in your offhand to repair [target]'s [surgery.affected_limb.display_name] with [tool]."))
+			to_chat(user, SPAN_BOLDWARNING("You need metal rods in your offhand to mend $1's $2 with $3.", list(target, ru_name_affected_limb, ru_name_tool))) // SS220 EDIT ADDICTION
 			return FALSE
 		if(!rods.use(2)) //Refunded on failure
-			to_chat(user, SPAN_BOLDWARNING("You need more metal rods to mend [target]'s [surgery.affected_limb.display_name] with [tool]."))
+			to_chat(user, SPAN_BOLDWARNING("You need more metal rods to mend $1's $2 with $3.", list(target, ru_name_affected_limb, ru_name_tool))) // SS220 EDIT ADDICTION
 			return FALSE
 
 /datum/surgery_step/mend_bones/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/bone_repair/surgery)
+	var/ru_name_affected_limb = declent_ru_initial(surgery.affected_limb.display_name, PREPOSITIONAL, surgery.affected_limb.display_name) // SS220 EDIT ADDICTION
+	var/ru_name_tool = tool.declent_ru() // SS220 EDIT ADDICTION
 	if(surgery.affected_bone)
+		var/ru_name_affected_bone = declent_ru_initial(surgery.affected_bone, GENITIVE, surgery.affected_bone) // SS220 EDIT ADDICTION
 		if(tool_type == /obj/item/tool/surgery/bonegel)
 			user.affected_message(target,
-				SPAN_NOTICE("You start applying \the [tool] to [target]'s broken [surgery.affected_bone]."),
-				SPAN_NOTICE("[user] starts to apply \the [tool] to your broken [surgery.affected_bone]."),
-				SPAN_NOTICE("[user] starts to apply \the [tool] to [target]'s broken [surgery.affected_bone]."))
+				SPAN_NOTICE("You start applying $1's $2 with $3.", list(target, ru_name_affected_bone, ru_name_tool)), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("$1 starts to apply to your $2 with $3.", list(user, ru_name_affected_bone, ru_name_tool)), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("$1 starts to apply $2's $3 with $4.", list(user, target, ru_name_affected_bone, ru_name_tool))) // SS220 EDIT ADDICTION
 
 			target.custom_pain("Something stings inside your [surgery.affected_limb.display_name]!", 1)
 		else
 			user.affected_message(target,
-				SPAN_NOTICE("You begin driving reinforcing pins into [target]'s [surgery.affected_bone] with \the [tool]."),
-				SPAN_NOTICE("[user] begins to drive reinforcing pins into your [surgery.affected_bone] with \the [tool]."),
-				SPAN_NOTICE("[user] begins to drive reinforcing pins into [target]'s [surgery.affected_bone] with \the [tool]."))
+				SPAN_NOTICE("You begin driving reinforcing pins into $1's $2 with $3.", list(target, ru_name_affected_bone, ru_name_tool)), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("$1 begins to drive reinforcing pins into your $2 with $3.", list(user, ru_name_affected_bone, ru_name_tool)), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("$1 begins to drive reinforcing pins into $2's $3 with $4.", list(user, target, ru_name_affected_bone, ru_name_tool))) // SS220 EDIT ADDICTION
 
-			target.custom_pain("You can feel something grinding in your [surgery.affected_bone]!", 1)
+			target.custom_pain("You can feel something grinding in your $1!", 1, list(ru_name_affected_bone))
 			playsound(target.loc, 'sound/items/Screwdriver.ogg', 25, TRUE)
 	else
 		if(tool_type == /obj/item/tool/surgery/bonegel)
 			user.affected_message(target,
-				SPAN_NOTICE("You start applying \the [tool] to the broken bones in [target]'s [surgery.affected_limb.display_name]."),
-				SPAN_NOTICE("[user] starts to apply \the [tool] to the broken bones in your [surgery.affected_limb.display_name]."),
-				SPAN_NOTICE("[user] starts to apply \the [tool] to the broken bones in [target]'s [surgery.affected_limb.display_name]."))
+				SPAN_NOTICE("You start applying to the broken bones in $1's $2 with $3.", list(target, ru_name_affected_limb, ru_name_tool)), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("$1 starts to apply to the broken bones in your $2 with $3.", list(user, ru_name_affected_limb, ru_name_tool)), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("$1 starts to apply to the broken bones in $2's $3 with $4.", list(user, target, ru_name_affected_limb, ru_name_tool))) // SS220 EDIT ADDICTION
 
-			target.custom_pain("Something stings inside your [surgery.affected_limb.display_name]!", 1)
+			target.custom_pain("You can feel something stings inside your $1!", 1, list(ru_name_affected_limb)) // SS220 EDIT ADDICTION
 		else
 			user.affected_message(target,
-				SPAN_NOTICE("You begin driving reinforcing pins into the broken bones in [target]'s [surgery.affected_limb.display_name] with \the [tool]."),
-				SPAN_NOTICE("[user] begins to drive reinforcing pins into the broken bones in your [surgery.affected_limb.display_name] with \the [tool]."),
-				SPAN_NOTICE("[user] begins to drive reinforcing pins into the broken bones in [target]'s [surgery.affected_limb.display_name] with \the [tool]."))
+				SPAN_NOTICE("You begin driving reinforcing pins into the broken bones in $1's $2 with $3.", list(target, ru_name_affected_limb, ru_name_tool)), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("$1 begins to drive reinforcing pins into the broken bones in your $2 with $3.", list(user, ru_name_affected_limb, ru_name_tool)), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("$1 begins to drive reinforcing pins into the broken bones in $2's $3 with $4.", list(user, target, ru_name_affected_limb, ru_name_tool))) // SS220 EDIT ADDICTION
 
 			target.custom_pain("You can feel something grinding in your [surgery.affected_limb.display_name]'s bones!", 1)
 

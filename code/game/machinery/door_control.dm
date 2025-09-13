@@ -132,7 +132,7 @@
 	use_power(5)
 	icon_state = initial(icon_state) + "1"
 	add_fingerprint(user)
-	to_chat(user, SPAN_NOTICE("You press \the [name] button."))
+	to_chat(user, SPAN_NOTICE("You press $1 button.", list(name))) // SS220 EDIT ADDICTION
 
 	switch(normaldoorcontrol)
 		if(CONTROL_NORMAL_DOORS)
@@ -229,7 +229,7 @@
 
 	use_power(5)
 	add_fingerprint(user)
-	to_chat(user, SPAN_NOTICE("You press \the [name] button."))
+	to_chat(user, SPAN_NOTICE("You press $1 button.", list(name))) // SS220 EDIT ADDICTION
 
 	switch(normaldoorcontrol)
 		if(CONTROL_NORMAL_DOORS)

@@ -394,14 +394,14 @@
 		to_chat(xenomorph, SPAN_XENOWARNING("It's too early to spread the hive this far."))
 		return
 
-	xenomorph.visible_message(SPAN_XENONOTICE("[xenomorph] begins digging out a tunnel entrance."),
+	xenomorph.visible_message(SPAN_XENONOTICE("$1 begins digging out a tunnel entrance.", list(xenomorph)), // SS220 EDIT ADDICTION
 	SPAN_XENONOTICE("We begin digging out a tunnel entrance."), null, 5)
 	if(!do_after(xenomorph, 10 SECONDS, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
 		to_chat(xenomorph, SPAN_WARNING("Our tunnel caves in as we stop digging it."))
 		return
 	if(!xenomorph.check_plasma(plasma_cost))
 		return
-	xenomorph.visible_message(SPAN_XENONOTICE("\The [xenomorph] digs out a tunnel entrance."),
+	xenomorph.visible_message(SPAN_XENONOTICE("$1 digs out a tunnel entrance.", list(xenomorph)), // SS220 EDIT ADDICTION
 	SPAN_XENONOTICE("We dig out an entrance to the tunnel network."), null, 5)
 
 	var/obj/structure/tunnel/tunnelobj = new(turf, xenomorph.hivenumber)
@@ -421,7 +421,7 @@
 		for(var/mob/living/carbon/xenomorph/target_for_message as anything in xenomorph.hive.totalXenos)
 			var/overwatch_target = XENO_OVERWATCH_TARGET_HREF
 			var/overwatch_src = XENO_OVERWATCH_SRC_HREF
-			to_chat(target_for_message, SPAN_XENOANNOUNCE("Hive: A new tunnel[description ? " ([description])" : ""] has been created by [xenomorph] (<a href='byond://?src=\ref[target_for_message];[overwatch_target]=\ref[xenomorph];[overwatch_src]=\ref[target_for_message]'>watch</a>) at <b>[get_area_name(tunnelobj)]</b>."))
+			to_chat(target_for_message, SPAN_XENOANNOUNCE("Hive: A new tunnel $1 has been created by $2 (<a href='$3'>watch</a>) at <b>$4</b>.", list(description ? " ([description])" : "", xenomorph, "byond://?src=\ref[target_for_message];[overwatch_target]=\ref[xenomorph];[overwatch_src]=\ref[target_for_message]", get_area_name(tunnelobj)))) // SS220 EDIT ADDICTION
 
 	xenomorph.use_plasma(plasma_cost)
 	to_chat(xenomorph, SPAN_NOTICE("We will be ready to dig a new tunnel in 4 minutes."))

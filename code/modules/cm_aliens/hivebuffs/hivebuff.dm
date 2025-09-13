@@ -100,7 +100,7 @@
 		return
 
 	if(!_check_num_required_pylons())
-		to_chat(purchasing_mob, SPAN_XENONOTICE("Our hive does not have the required number of available pylons! We require [number_of_required_pylons]"))
+		to_chat(purchasing_mob, SPAN_XENONOTICE("Our hive does not have the required number of available pylons! We require $1", list(number_of_required_pylons))) // SS220 EDIT ADDICTION
 		return FALSE
 
 	if(!_check_danger())
@@ -108,20 +108,20 @@
 		return FALSE
 
 	if(!_check_can_afford_buff())
-		to_chat(purchasing_mob, SPAN_XENONOTICE("Our hive cannot afford [name]! [hive.buff_points] / [cost] points."))
+		to_chat(purchasing_mob, SPAN_XENONOTICE("Our hive cannot afford $1! $2 / $3 points.", list(name, hive.buff_points, cost))) // SS220 EDIT ADDICTION
 		return FALSE
 
 	if(!_check_pass_active())
-		to_chat(purchasing_mob, SPAN_XENONOTICE("Our hive can't benefit from [name] yet!"))
+		to_chat(purchasing_mob, SPAN_XENONOTICE("Our hive can't benefit from $1 yet!", list(name))) // SS220 EDIT ADDICTION
 		return FALSE
 
 	if(!_check_pass_reusable())
-		to_chat(purchasing_mob, SPAN_XENONOTICE("Our hive has already used [name] and cannot use it again!"))
+		to_chat(purchasing_mob, SPAN_XENONOTICE("Our hive has already used $1 and cannot use it again!", list(name))) // SS220 EDIT ADDICTION
 		return FALSE
 
 	var/datum/hivebuff/cooldown_buff = locate(type) in hive.cooldown_hivebuffs
 	if(cooldown_buff)
-		to_chat(purchasing_mob, SPAN_XENONOTICE("Our hive has already used [name] recently! Wait [DisplayTimeText(timeleft(cooldown_buff._timer_id_cooldown))]."))
+		to_chat(purchasing_mob, SPAN_XENONOTICE("Our hive has already used $1 recently! Wait $2.", list(name, DisplayTimeText(timeleft(cooldown_buff._timer_id_cooldown))))) // SS220 EDIT ADDICTION
 		return FALSE
 
 	if(!_check_pass_combineable())
@@ -129,7 +129,7 @@
 		for(var/buff in hive.active_hivebuffs)
 			active_buffs += buff + " "
 		active_buffs = trim_right(active_buffs)
-		to_chat(purchasing_mob, SPAN_XENONOTICE("[name] cannot be used with other active buffs! Wait for those to end first. Active buffs: [active_buffs]"))
+		to_chat(purchasing_mob, SPAN_XENONOTICE("$1 cannot be used with other active buffs! Wait for those to end first. Active buffs: $2", list(name, active_buffs))) // SS220 EDIT ADDICTION
 		return FALSE
 
 	if(!handle_special_checks())
@@ -345,7 +345,7 @@
 	desc = "Provides 5 larva instantly to the hive."
 	radial_icon = "larba"
 
-	engage_flavourmessage = "Королева приобрела дополнительно 5 грудоломов, чтобы пополнить улей!"
+	engage_flavourmessage = "The Queen has purchased 5 extra larva to join the hive!"
 	cost = 5
 	number_of_required_pylons = 1
 	is_reusable = FALSE

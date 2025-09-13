@@ -1970,7 +1970,7 @@ not all weapons use normal magazines etc. load_into_chamber() itself is designed
 	if(slashed_light)
 		playsound(loc, "alien_claw_metal", 25, 1)
 		xeno.animation_attack_on(src)
-		xeno.visible_message(SPAN_XENOWARNING("[xeno] slashes the lights on [src]!"), SPAN_XENONOTICE("You slash the lights on [src]!"))
+		xeno.visible_message(SPAN_XENOWARNING("$1 slashes the lights on $2!", list(xeno, declent_ru())), SPAN_XENONOTICE("You slash the lights on $1!", list(declent_ru()))) // SS220 EDIT ADDICTION
 	return XENO_ATTACK_ACTION
 
 /// Setter proc to toggle burst firing

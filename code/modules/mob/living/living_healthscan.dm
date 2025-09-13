@@ -188,7 +188,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 				continue
 			var/list/core_body_parts = list("head", "chest", "groin")
 			var/list/current_list = list(
-				"name" = capitalize(declent_ru_initial(limb.display_name, NOMINATIVE, limb.display_name)), // SS220 - EDIT ADDITTION
+				"name" = capitalize(declent_ru_initial(limb.display_name, NOMINATIVE, limb.display_name)), // SS220 EDIT ADDICTION
 				"brute" = floor(limb.brute_dam),
 				"burn" = floor(limb.burn_dam),
 				"bandaged" = limb.is_bandaged(),
@@ -277,7 +277,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 		data["limbs_damaged"] = length(limb_data_lists)
 		data["internal_bleeding"] = internal_bleeding
 		data["body_temperature"] = "[round(human_target_mob.bodytemperature-T0C, 0.1)]℃ ([round(human_target_mob.bodytemperature*1.8-459.67, 0.1)]℉)" // METRIC RULES IMPERIAL DROOLS
-		data["pulse"] = "[human_target_mob.get_pulse(GETPULSE_TOOL)] уд./мин" // SS220 - EDIT ADDITTION
+		data["pulse"] = "[human_target_mob.get_pulse(GETPULSE_TOOL)] уд./мин" // SS220 EDIT ADDICTION
 		data["implants"] = unknown_implants
 		data["core_fracture"] = core_fracture_detected
 
@@ -287,9 +287,9 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 			if(!organ.damage)
 				continue
 			var/current_organ = list(
-				"name" = capitalize(declent_ru_initial(organ.name, NOMINATIVE, organ.name)), // SS220 - EDIT ADDITTION,
+				"name" = capitalize(declent_ru_initial(organ.name, NOMINATIVE, organ.name)), // SS220 EDIT ADDICTION,
 				"damage" = organ.damage,
-				"status" = organ.organ_status == ORGAN_BROKEN ? "Тяжёлое" : "Лёгкое", // SS220 - EDIT ADDITTION
+				"status" = organ.organ_status == ORGAN_BROKEN ? "Тяжёлое" : "Лёгкое", // SS220 EDIT ADDICTION
 				"robotic" = organ.robotic
 			)
 			damaged_organs += list(current_organ)

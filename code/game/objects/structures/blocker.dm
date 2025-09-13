@@ -91,7 +91,7 @@
 		to_chat(user, SPAN_NOTICE("You lose your way and come back."))
 		return
 
-	announce_dchat("[user.real_name] has escaped from the hunting grounds!")
+	announce_dchat("$1 has escaped from the hunting grounds!", null, list(user.real_name))
 	playsound(user, 'sound/misc/fog_escape.ogg')
 	qdel(user)
 

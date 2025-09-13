@@ -213,8 +213,8 @@
 		if(P.firer == M)
 			continue
 		if(show_message)
-			var/msg = "You are hit by backlash from \a </b>[P.name]</b>!"
-			M.visible_message(SPAN_DANGER("[M] is hit by backlash from \a [P.name]!"),isxeno(M) ? SPAN_XENODANGER("[msg]"):SPAN_HIGHDANGER("[msg]"))
+			var/msg = "You are hit by backlash from <b>$1</b>!" // SS220 EDIT ADDICTION
+			M.visible_message(SPAN_DANGER("$1 is hit by backlash from $2!", list(M, P.name)),isxeno(M) ? SPAN_XENODANGER("[msg]", list(P.name)):SPAN_HIGHDANGER("[msg]", list(P.name))) // SS220 EDIT ADDICTION
 		var/damage = P.damage/damage_div
 
 		var/mob/living/carbon/xenomorph/XNO = null

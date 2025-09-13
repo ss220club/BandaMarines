@@ -165,8 +165,8 @@
 
 	if(affected_xeno.a_intent == INTENT_HARM && isxeno_builder(affected_xeno) || (!affected_xeno.can_not_harm(bound_xeno) && affected_xeno.hivenumber != hivenumber))
 		affected_xeno.animation_attack_on(src)
-		affected_xeno.visible_message(SPAN_XENODANGER("[affected_xeno] removes [name]!"),
-		SPAN_XENODANGER("You remove [name]!"))
+		affected_xeno.visible_message(SPAN_XENODANGER("$1 removes $2!", list(affected_xeno, name)), // SS220 EDIT ADDICTION
+		SPAN_XENODANGER("You remove $1!", list(name))) // SS220 EDIT ADDICTION
 		playsound(loc, "alien_resin_break", 25)
 		qdel(src)
 		return XENO_ATTACK_ACTION
@@ -343,7 +343,7 @@
 /obj/effect/alien/resin/fruit/speed/consume_effect(mob/living/carbon/xenomorph/recipient, do_consume = TRUE)
 	if(mature && recipient && !QDELETED(recipient))
 		new /datum/effects/xeno_speed(recipient, ttl = speed_duration, set_speed_modifier = speed_buff_amount, set_modifier_source = XENO_FRUIT_SPEED, set_end_message = SPAN_XENOWARNING("We feel the effects of the [name] wane..."))
-		to_chat(recipient, SPAN_XENOBOLDNOTICE("The [name] invigorates us to move faster!"))
+		to_chat(recipient, SPAN_XENOBOLDNOTICE("The $1 invigorates us to move faster!", list(name))) // SS220 EDIT ADDICTION
 		recipient.balloon_alert(recipient, "we feel invigorated to run faster!", text_color = "#5B248C", delay = 1 SECONDS)
 	if(do_consume)
 		finish_consume(recipient)
@@ -374,7 +374,7 @@
 	if(mature && recipient && recipient.plasma_max > 0 && !QDELETED(recipient))
 		//With the current values (240, 15, 3), this will give the recipient 48 plasma every 3 seconds, for a total of 240 in 15 seconds.
 		new /datum/effects/plasma_over_time(recipient, plasma_amount, plasma_time, time_between_plasmas)
-		to_chat(recipient, SPAN_XENOBOLDNOTICE("The [name] boosts our plasma regeneration!"))
+		to_chat(recipient, SPAN_XENOBOLDNOTICE("The $1 boosts our plasma regeneration!", list(name))) // SS220 EDIT ADDICTION
 		recipient.balloon_alert(recipient, "we feel our plasma rapidly regenerate!", text_color = "#287A90")
 	if(do_consume)
 		finish_consume(recipient)
@@ -501,14 +501,14 @@
 /mob/living/carbon/xenomorph/proc/pickup_fruit(obj/effect/alien/resin/fruit/F)
 
 	if(F.bound_xeno && !can_not_harm(F.bound_xeno))
-		to_chat(src, SPAN_XENODANGER("We crush [F]."))
+		to_chat(src, SPAN_XENODANGER("We crush $1.", list(F))) // SS220 EDIT ADDICTION
 		qdel(F)
 		return
 	if(!F.mature)
-		to_chat(src, SPAN_XENODANGER("[F] isn't mature yet!"))
+		to_chat(src, SPAN_XENODANGER("$1 isn't mature yet!", list(F))) // SS220 EDIT ADDICTION
 		return
 	if(F.picked)
-		to_chat(src, SPAN_XENODANGER("[F] is already being picked!"))
+		to_chat(src, SPAN_XENODANGER("$1 is already being picked!", list(F))) // SS220 EDIT ADDICTION
 		return
 	// Indicates the fruit is being picked, so other xenos can't eat it at the same time
 	F.picked = TRUE
@@ -521,7 +521,7 @@
 	if(!F.mature)
 		F.picked = FALSE
 		return
-	to_chat(src, SPAN_XENONOTICE("You uproot [F]."))
+	to_chat(src, SPAN_XENONOTICE("You uproot $1.", list(F))) // SS220 EDIT ADDICTION
 	var/obj/item/reagent_container/food/snacks/resin_fruit/new_fruit = new F.fruit_type()
 	new_fruit.color = F.color
 	put_in_hands(new_fruit)
@@ -531,11 +531,11 @@
 	qdel(F)
 
 /mob/living/carbon/xenomorph/larva/pickup_fruit(obj/effect/alien/resin/fruit/F)
-	to_chat(src, SPAN_XENODANGER("We are too small to pick up \the [F]!"))
+	to_chat(src, SPAN_XENODANGER("We are too small to pick up $1!", list(F))) // SS220 EDIT ADDICTION
 	return
 
 /mob/living/carbon/xenomorph/facehugger/pickup_fruit(obj/effect/alien/resin/fruit/F)
-	to_chat(src, SPAN_XENODANGER("We are too small to pick up \the [F]!"))
+	to_chat(src, SPAN_XENODANGER("We are too small to pick up $1!", list(F)))
 	return
 
 /obj/item/reagent_container/food/snacks/resin_fruit/lesser

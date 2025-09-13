@@ -256,12 +256,12 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 			// Loop.
 			Master.StartProcessing(0)
 
-	var/time = (REALTIMEOFDAY - start_timeofday) / 10
+	var/time = round((REALTIMEOFDAY - start_timeofday) / 10, 0.01) // SS220 EDIT ADDICTION
 
 
 
-	var/msg = "Initializations complete within [time] second[time == 1 ? "" : "s"]!"
-	to_chat(world, SPAN_BOLDANNOUNCE("[msg]"))
+	var/msg = "Initializations complete within $1 second$2!" // SS220 EDIT ADDICTION
+	to_chat(world, SPAN_BOLDANNOUNCE(msg, list(time, time == 1 ? "" : "s"))) // SS220 EDIT ADDICTION
 	log_world(msg)
 
 
@@ -347,8 +347,8 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 			message_prefix = "Initialized [subsystem.name] subsystem with errors within"
 			chat_warning = TRUE
 
-	var/message = "[message_prefix] [seconds] second[seconds == 1 ? "" : "s"]!"
-	var/chat_message = chat_warning ? SPAN_WARNING(message) : SPAN_BOLDANNOUNCE(message)
+	var/message = "[message_prefix] $1 second$2!" // SS220 EDIT ADDICTION
+	var/chat_message = chat_warning ? SPAN_WARNING(message, list(seconds, seconds == 1 ? "" : "s")) : SPAN_BOLDANNOUNCE(message, list(seconds, seconds == 1 ? "" : "s")) // SS220 EDIT ADDICTION
 
 	to_chat(world, chat_message)
 	log_world(message)

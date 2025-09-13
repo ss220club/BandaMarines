@@ -14,6 +14,7 @@ import {
 import { Window } from 'tgui/layouts';
 
 import { ElectricalPanel } from './common/ElectricalPanel';
+import { JobsRu } from './BandaMarines/MarineJobs';
 
 type VendingData = {
   department: string;
@@ -152,7 +153,7 @@ export const UserDetails = (props) => {
               {checking_id ? user.name : 'НЕИЗВЕСТНО'}
             </LabeledList.Item>
             <LabeledList.Item label="Должность">
-              {checking_id ? user.job || 'Unemployed' : 'НЕИЗВЕСТНО'}
+              {checking_id ? JobsRu(user.job || 'Unemployed') : 'НЕИЗВЕСТНО'}
             </LabeledList.Item>
           </LabeledList>
         </Stack.Item>

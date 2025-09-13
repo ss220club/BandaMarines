@@ -65,7 +65,7 @@
 	if(node)
 		to_convert = node.children.Copy()
 
-	xeno.visible_message(SPAN_XENONOTICE("\The [xeno] regurgitates a pulsating node and plants it on the ground!"),
+	xeno.visible_message(SPAN_XENONOTICE("$1 regurgitates a pulsating node and plants it on the ground!", list(xeno)), // SS220 EDIT ADDICTION
 	SPAN_XENONOTICE("We regurgitate a pulsating node and plant it on the ground!"), null, 5)
 	var/obj/effect/alien/weeds/node/new_node = new node_type(xeno.loc, src, xeno)
 
@@ -343,7 +343,7 @@
 		return FALSE
 
 	if(!acid_level)
-		to_chat(src, SPAN_XENONOTICE("You can't secrete any acid into [target]."))
+		to_chat(src, SPAN_XENONOTICE("You can't secrete any acid into $1.", list(target))) // SS220 EDIT ADDICTION
 		return FALSE
 
 	var/trap_acid_level = 0

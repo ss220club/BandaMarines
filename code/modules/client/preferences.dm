@@ -1530,7 +1530,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 					if(prefix_length==3)
 						var/playtime = user.client.get_total_xeno_playtime()
 						if(playtime < 124 HOURS)
-							to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("You need to play [time_left_until(124 HOURS, playtime, 1 HOURS)] more hours to unlock xeno three letter prefix.")))
+							to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("You need to play $1 more hours to unlock xeno three letter prefix.", list(time_left_until(124 HOURS, playtime, 1 HOURS))))) // SS220 EDIT ADDICTION
 							return
 						if(xeno_postfix)
 							to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("You can't use three letter prefix with any postfix.")))
@@ -1558,7 +1558,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 						return
 					var/playtime = user.client.get_total_xeno_playtime()
 					if(playtime < 24 HOURS)
-						to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("You need to play [time_left_until(24 HOURS, playtime, 1 HOURS)] more hours to unlock xeno postfix.")))
+						to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("You need to play $1 more hours to unlock xeno postfix.", list(time_left_until(24 HOURS, playtime, 1 HOURS))))) // SS220 EDIT ADDICTION
 						return
 
 					if(length_char(xeno_prefix)==3) //SS220 EDIT CHANGE - Cyrillic Fixes
@@ -1587,7 +1587,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 										return
 
 									if(!first_char && playtime < 300 HOURS)
-										to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("You need to play [time_left_until(300 HOURS, playtime, 1 HOURS)] more hours to unlock double letter xeno postfix.")))
+										to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("You need to play $1 more hours to unlock double letter xeno postfix.", list(time_left_until(300 HOURS, playtime, 1 HOURS)))))
 										all_ok = FALSE
 								// 0  .. 9
 								if(48 to 57) //Numbers will work if not the first char

@@ -135,7 +135,7 @@
 			to_chat(user, SPAN_XENOWARNING("[src] cannot be planted below objects that would obscure it."))
 			return
 
-	user.visible_message(SPAN_XENONOTICE("[user] starts planting [src]."), SPAN_XENONOTICE("You start planting [src]."), null, 5)
+	user.visible_message(SPAN_XENONOTICE("$1 starts planting $2.", list(user, declent_ru())), SPAN_XENONOTICE("You start planting $1.", list(declent_ru())), null, 5) // SS220 EDIT ADDICTION
 
 	var/plant_time = 35
 	if(isdrone(user))

@@ -212,7 +212,7 @@
 		playsound(user.loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
 		return 0
 
-	to_chat(user, SPAN_NOTICE(" You inject [M] with [src]."))
+	to_chat(user, SPAN_NOTICE("You inject $1 with $2.", list(M, declent_ru()))) // SS220 EDIT ADDICTION
 	to_chat(M, SPAN_WARNING("You feel a tiny prick!"))
 	playsound(loc, injectSFX, injectVOL, 1)
 	SEND_SIGNAL(M, COMSIG_LIVING_HYPOSPRAY_INJECTED, src)
@@ -230,9 +230,9 @@
 
 		var/trans = reagents.trans_to(M, amount_per_transfer_from_this)
 		if(mag)
-			to_chat(user, SPAN_NOTICE("[trans] units injected. [reagents.total_volume] units remaining in [src]'s [mag.name]."))
+			to_chat(user, SPAN_NOTICE("$1 units injected. $2 units remaining in $3's $4.", list(trans, reagents.total_volume, declent_ru(PREPOSITIONAL), mag.name))) // SS220 EDIT ADDICTION
 		else
-			to_chat(user, SPAN_NOTICE("[trans] units injected. [reagents.total_volume] units remaining in [src]."))
+			to_chat(user, SPAN_NOTICE("$1 units injected. $2 units remaining in $3.", list(trans, reagents.total_volume, declent_ru(PREPOSITIONAL)))) // SS220 EDIT ADDICTION
 	return (ATTACKBY_HINT_NO_AFTERATTACK|ATTACKBY_HINT_UPDATE_NEXT_MOVE)
 
 /obj/item/reagent_container/hypospray/Initialize()

@@ -132,15 +132,15 @@
 	switch(antigrief_choice)
 		if(ANTIGRIEF_OPTION_DISABLED)
 			CONFIG_SET(number/explosive_antigrief, ANTIGRIEF_DISABLED)
-			message_admins(FONT_SIZE_LARGE("[key_name_admin(usr)] has disabled explosive antigrief."))
+			message_admins(FONT_SIZE_LARGE("$1 has disabled explosive antigrief.", list(key_name_admin(usr)))) // SS220 EDIT ADDICTION
 		if(ANTIGRIEF_OPTION_ENABLED)
-			message_admins(FONT_SIZE_LARGE("[key_name_admin(usr)] has fully enabled explosive antigrief for all players."))
+			message_admins(FONT_SIZE_LARGE("$1 has fully enabled explosive antigrief for all players.", list(key_name_admin(usr)))) // SS220 EDIT ADDICTION
 			CONFIG_SET(number/explosive_antigrief, ANTIGRIEF_ENABLED)
 		if(ANTIGRIEF_OPTION_NEW_PLAYERS)
-			message_admins(FONT_SIZE_LARGE("[key_name_admin(usr)] has enabled explosive antigrief for new players (less than 10 total human hours)."))
+			message_admins(FONT_SIZE_LARGE("$1 has enabled explosive antigrief for new players (less than 10 total human hours).", list(key_name_admin(usr)))) // SS220 EDIT ADDICTION
 			CONFIG_SET(number/explosive_antigrief, ANTIGRIEF_NEW_PLAYERS)
 		else
-			message_admins(FONT_SIZE_LARGE("Error! [key_name_admin(usr)] attempted to toggle explosive antigrief but the selected value was [antigrief_choice]. Setting it to enabled."))
+			message_admins(FONT_SIZE_LARGE("Error! $1 attempted to toggle explosive antigrief but the selected value was $2. Setting it to enabled.", list(key_name_admin(usr), antigrief_choice))) // SS220 EDIT ADDICTION
 			CONFIG_SET(number/explosive_antigrief, ANTIGRIEF_ENABLED)
 
 /client/proc/check_explosive_antigrief()

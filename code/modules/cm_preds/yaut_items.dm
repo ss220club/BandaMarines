@@ -551,7 +551,7 @@ GLOBAL_VAR_INIT(youngblood_timer_yautja, 0)
 
 	to_chat(user, SPAN_NOTICE("You choose [choice] as the hunting ground."))
 	message_all_yautja("[user.real_name] has chosen [choice] as the new hunting ground.")
-	message_admins(FONT_SIZE_LARGE("ALERT: [user.real_name] ([user.key]) spawned [choice] (hunting grounds)"))
+	message_admins(FONT_SIZE_LARGE("ALERT: $1 ($2) spawned $3 (hunting grounds)", list(user.real_name, user.key, choice))) // SS220 EDIT ADDICTION
 	if(SSmapping.lazy_load_template(potential_hunting_grounds[choice]))
 		hunting_ground_activated = TRUE
 
@@ -607,7 +607,7 @@ GLOBAL_VAR_INIT(youngblood_timer_yautja, 0)
 
 	to_chat(user, SPAN_NOTICE("You choose [choice] as your prey."))
 	message_all_yautja("[user.real_name] has chosen [choice] as their prey.")
-	message_admins(FONT_SIZE_LARGE("ALERT: [user.real_name] ([user.key]) triggered [choice] inside the hunting grounds"))
+	message_admins(FONT_SIZE_LARGE("ALERT: $1 ($2) triggered $3 inside the hunting grounds", list(user.real_name, user.key, choice))) // SS220 EDIT ADDICTION
 	SSticker.mode.get_specific_call(potential_prey[choice], TRUE, FALSE)
 	COOLDOWN_START(GLOB, hunt_timer_yautja, 20 MINUTES)
 
@@ -724,7 +724,7 @@ GLOBAL_VAR_INIT(youngblood_timer_yautja, 0)
 
 	to_chat(user, SPAN_NOTICE("You choose to awaken: [choice]."))
 	message_all_yautja("[user.real_name] has chosen to awaken: [choice].")
-	message_admins(FONT_SIZE_LARGE("ALERT: [user.real_name] ([user.key]) has called [choice] (Youngblood ERT)."))
+	message_admins(FONT_SIZE_LARGE("ALERT: $1 ($2) has called $3 (Youngblood ERT).", list(user.real_name, user.key, choice))) // SS220 EDIT ADDICTION
 	SSticker.mode.get_specific_call(un_blooded[choice], TRUE, FALSE)
 	COOLDOWN_START(GLOB, youngblood_timer_yautja, 40 MINUTES)
 

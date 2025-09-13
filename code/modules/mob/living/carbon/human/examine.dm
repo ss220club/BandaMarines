@@ -82,7 +82,7 @@
 
 	if(id_paygrade)
 		msg += "<EM>[rank_display] </EM>"
-	msg += "<EM>[declent_ru(NOMINATIVE)]</EM>!\n"
+	msg += "<EM>[declent_ru()]</EM>!\n"
 
 	//uniform
 	if(w_uniform && !skipjumpsuit)
@@ -125,7 +125,7 @@
 	if(shoes && !skipshoes)
 		msg += "[t_He] носит [shoes.get_examine_line(user)] [shoes.get_examine_location(src, user, WEAR_FEET, t_He, t_his, t_theirs)].\n"
 	else if(feet_blood_color)
-		msg += SPAN_WARNING("[t_He] [(feet_blood_color == COLOR_OIL) ? "замасленные" : "окровавленные"] ноги!\n") // SS220 EDIT ADDICTION
+		msg += SPAN_WARNING("У [t_theirs] [(feet_blood_color == COLOR_OIL) ? "замасленные" : "окровавленные"] ноги!\n") // SS220 EDIT ADDICTION
 
 	//mask
 	if(wear_mask && !skipmask)
@@ -211,7 +211,14 @@
 				msg += SPAN_WARNING("У [t_theirs] [english_list(damage, final_comma_text = ",")] на [t_his] [o.declent_ru(PREPOSITIONAL)]!\n")
 
 	if(holo_card_color)
-		msg += "У [t_theirs] [holo_card_color] голокарта на груди.\n"
+		// SS220 START EDIT ADDICTION
+		var/holo_card_color_ru = list(
+			red = "красная",
+			purple = "фиолетовая",
+			orange = "оранжевая",
+		)
+		msg += "У [t_theirs] [holo_card_color_ru[holo_card_color]] голокарта на груди.\n"
+		// SS220 END EDIT ADDICTION
 
 	var/distance = get_dist(user,src)
 	if(istype(user, /mob/dead/observer) || user.stat == DEAD) // ghosts can see anything
@@ -223,14 +230,19 @@
 		if(paralyzed > 1 && distance <= 3)
 			msg += SPAN_WARNING("[t_He] совершенно неподвижен.\n")
 		if(ishuman(user) && !user.stat && Adjacent(user))
-			user.visible_message("[SPAN_BOLD("[capitalize(user.declent_ru(NOMINATIVE))]")] проверяет [t_his] пульс.", "Вы проверили [t_his] пульс.", null, 4)
+			user.visible_message("[SPAN_BOLD("[capitalize(user.declent_ru())]")] проверяет [t_his] пульс.", "Вы проверили [t_his] пульс.", null, 4)
 		spawn(15)
 			if(user && src && distance <= 1)
 				get_pulse(GETPULSE_HAND) // to update it
 				if(pulse == PULSE_NONE || status_flags & FAKEDEATH)
-					to_chat(user, SPAN_DEADSAY("У [t_theirs] нету пульса[client ? "" : " и [t_his] душа ушла"]..."))
+				 	// SS220 START EDIT ADDICTION
+					if(client) // SS220 EDIT ADDICTION
+						to_chat(user, SPAN_DEADSAY("$1 has no pulse and $2 soul has departed...", list(t_theirs, t_his)))
+					else // SS220 EDIT ADDICTION
+						to_chat(user, SPAN_DEADSAY("$1 has no pulse...", list(t_theirs)))
+				 	// SS220 END EDIT ADDICTION
 				else
-					to_chat(user, SPAN_DEADSAY("У [t_theirs] нету пульса!"))
+					to_chat(user, SPAN_DEADSAY("$1 has no pulse!", list(t_theirs))) // SS220 EDIT ADDICTION
 
 	if((species && !species.has_organ["brain"] || has_brain()) && stat != DEAD && stat != CONSCIOUS)
 		if(!key)
@@ -252,7 +264,7 @@
 		if(temp)
 			if(temp.status & LIMB_DESTROYED)
 				is_destroyed["[temp.display_name]"] = 1
-				wound_flavor_text["[temp.display_name]"] = SPAN_WARNING(SPAN_BOLD("У [t_theirs] отсутствует [temp.declent_ru(NOMINATIVE)].\n"))
+				wound_flavor_text["[temp.display_name]"] = SPAN_WARNING(SPAN_BOLD("У [t_theirs] отсутствует [temp.declent_ru()].\n"))
 				continue
 			if(temp.status & (LIMB_ROBOT|LIMB_SYNTHSKIN))
 				if(!(temp.brute_dam + temp.burn_dam))
@@ -455,8 +467,8 @@
 	if(chestburst == 2)
 		msg += SPAN_WARNING(SPAN_BOLD("У [t_theirs] огромное отверстие в груди!\n"))
 
-	for(var/obj/implant in get_visible_implants())
-		msg += SPAN_WARNING(SPAN_BOLD("[capitalize(implant.declent_ru(NOMINATIVE))] торчит из-под [t_his] кожи!</b>\n"))
+	for(var/implant in get_visible_implants())
+		msg += SPAN_WARNING_BOLD("$1 has $2 sticking out of flesh!", list(t_theirs, lowertext(implant))) + "\n" // SS220 EDIT ADDICTION
 
 	if(hasHUD(user,"security") || (observer && observer.HUD_toggled["Security HUD"]))
 		var/perpref
@@ -512,10 +524,10 @@
 
 	if(user.Adjacent(src) && ishuman(user))
 		var/mob/living/carbon/human/human_user = user
-		var/temp_msg = "<a href='byond://?src=\ref[src];check_status=1'>\[Check Status\]</a>"
+		var/temp_msg = "<a href='byond://?src=\ref[src];check_status=1'>\[Проверить статус\]</a>" // SS220 EDIT ADDICTION
 		if(skillcheck(user, SKILL_MEDICAL, SKILL_MEDICAL_MEDIC) && locate(/obj/item/clothing/accessory/stethoscope) in human_user.w_uniform)
-			temp_msg += " <a href='byond://?src=\ref[src];use_stethoscope=1'>\[Use Stethoscope\]</a>"
-		msg += "\n<span class = 'deptradio'>Medical actions: [temp_msg]\n"
+			temp_msg += " <a href='byond://?src=\ref[src];use_stethoscope=1'>\[Использовать стетоскоп\]</a>" // SS220 EDIT ADDICTION
+		msg += "\n<span class = 'deptradio'>Медицинские действия: [temp_msg]\n" // SS220 EDIT ADDICTION
 
 	var/flavor = print_flavor_text()
 	if(flavor)

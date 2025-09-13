@@ -438,14 +438,14 @@
 	if(istype(acid_t, /obj/item/weapon/gun))
 		var/obj/item/weapon/gun/acid_gun = acid_t
 		if(acid_gun.has_second_wind)
-			visible_message(SPAN_XENODANGER("[acid_t] loses its shine as the acid bubbles against it."))
+			visible_message(SPAN_XENODANGER("$1 loses its shine as the acid bubbles against it.", list(acid_t))) // SS220 EDIT ADDICTION
 			acid_gun.has_second_wind = FALSE
 			playsound(src, 'sound/weapons/handling/gun_jam_click.ogg', 25, TRUE)
 			qdel(src)
 			return
 
 	if(istype(acid_t, /turf))
-		visible_message(SPAN_XENODANGER("[acid_t] is terribly damaged by the acid covering it!"))
+		visible_message(SPAN_XENODANGER("$1 is terribly damaged by the acid covering it!", list(acid_t))) // SS220 EDIT ADDICTION
 		if(istype(acid_t, /turf/closed/wall))
 			var/turf/closed/wall/wall = acid_t
 			new /obj/effect/acid_hole(wall)
@@ -455,22 +455,22 @@
 
 	else if (istype(acid_t, /obj/structure/girder))
 		var/obj/structure/girder/girder = acid_t
-		visible_message(SPAN_XENODANGER("[acid_t] collapses and falls in on itself as the acid melts its frame!"))
+		visible_message(SPAN_XENODANGER("$1 collapses and falls in on itself as the acid melts its frame!", list(acid_t))) // SS220 EDIT ADDICTION
 		girder.dismantle()
 
 	else if(istype(acid_t, /obj/structure/window/framed))
 		var/obj/structure/window/framed/window = acid_t
-		visible_message(SPAN_XENODANGER("[acid_t] audibly cracks and fails as the acid bubbles against it!"))
+		visible_message(SPAN_XENODANGER("$1 audibly cracks and fails as the acid bubbles against it!", list(acid_t))) // SS220 EDIT ADDICTION
 		window.deconstruct(disassembled = FALSE)
 
 	else if(istype(acid_t, /obj/structure/barricade))
-		visible_message(SPAN_XENODANGER("[acid_t] cracks and fragments as the acid sizzles against it!"))
+		visible_message(SPAN_XENODANGER("$1 cracks and fragments as the acid sizzles against it!", list(acid_t))) // SS220 EDIT ADDICTION
 		pass() // Don't delete it, just damaj
 
 	else
 		for(var/mob/mob in acid_t)
 			mob.forceMove(loc)
-		visible_message(SPAN_XENODANGER("[acid_t] collapses under its own weight into a puddle of goop and undigested debris!"))
+		visible_message(SPAN_XENODANGER("$1 collapses under its own weight into a puddle of goop and undigested debris!", list(acid_t))) // SS220 EDIT ADDICTION
 		qdel(acid_t)
 	qdel(src)
 
@@ -482,10 +482,10 @@
 	if(istype(acid_t, /obj/item/weapon/gun))
 		var/obj/item/weapon/gun/acid_gun = acid_t
 		if(!acid_gun.has_second_wind)
-			visible_message(SPAN_XENODANGER("[acid_t] seems unaffected and continues to deform!"))
+			visible_message(SPAN_XENODANGER("$1 seems unaffected and continues to deform!", list(acid_t))) // SS220 EDIT ADDICTION
 			return FALSE
 		else
-			visible_message(SPAN_XENODANGER("The sizzling on [acid_t] quiets as the acid is sprayed off of it!"))
+			visible_message(SPAN_XENODANGER("The sizzling on $1 quiets as the acid is sprayed off of it!", list(acid_t))) // SS220 EDIT ADDICTION
 			qdel(src)
 			return TRUE
 
