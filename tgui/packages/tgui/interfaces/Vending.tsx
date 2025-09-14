@@ -13,8 +13,8 @@ import {
 } from 'tgui/components';
 import { Window } from 'tgui/layouts';
 
-import { ElectricalPanel } from './common/ElectricalPanel';
 import { JobsRu } from './BandaMarines/MarineJobs';
+import { ElectricalPanel } from './common/ElectricalPanel';
 
 type VendingData = {
   department: string;

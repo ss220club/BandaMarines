@@ -278,7 +278,7 @@
 			Hu.update_xeno_hostile_hud()
 
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(unroot_human), target_carbon, TRAIT_SOURCE_ABILITY("Cleave")), get_xeno_stun_duration(target_carbon, root_duration))
-		to_chat(target_carbon, SPAN_XENOHIGHDANGER("[cleave_user] has pinned you to the ground! You cannot move!"))
+		to_chat(target_carbon, SPAN_XENOHIGHDANGER("$1 has pinned you to the ground! You cannot move!", list(cleave_user))) // SS220 EDIT ADDICTION
 		cleave_user.flick_attack_overlay(target_carbon, "punch")
 
 	else

@@ -244,7 +244,7 @@
 		return
 	var/obj/item/clothing/mask/facehugger/FH = W
 	if(FH.stat == DEAD)
-		to_chat(user, SPAN_XENOWARNING("You can't put a dead facehugger in [src]."))
+		to_chat(user, SPAN_XENOWARNING("You can't put a dead facehugger in $1.", list(declent_ru()))) // SS220 EDIT ADDICTION
 	else
 		var/mob/living/carbon/xenomorph/X = user
 		if (!istype(X))

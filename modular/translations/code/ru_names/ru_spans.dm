@@ -1,7 +1,7 @@
 GLOBAL_LIST_EMPTY(ru_span_cache)
 VAR_PRIVATE/const/MAX_CACHE_SIZE = 100000
 
-#define RU_SPAN_DEBUG
+// #define RU_SPAN_DEBUG
 
 // str - ключ для поиска в GLOB.ru_span
 // list/attr - аргументы для подстановки в строку

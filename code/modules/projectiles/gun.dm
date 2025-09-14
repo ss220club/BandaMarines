@@ -789,7 +789,7 @@ As sniper rifles have both and weapon mods can change them as well. ..() deals w
 			return
 
 	flags_item ^= WIELDED
-	name += " (Wielded)"
+	//name += " (Wielded)" // SS220 EDIT ADDICTION
 	item_state += "_w"
 	slowdown = initial(slowdown) + aim_slowdown
 	place_offhand(user, initial(name))
@@ -919,8 +919,8 @@ User can be passed as null, (a gun reloading itself for instance), so we need to
 	if(!in_chamber)
 		ready_in_chamber()
 		cock_gun(user)
-	user.visible_message(SPAN_NOTICE("[user] loads [magazine] into [src]!"),
-		SPAN_NOTICE("You load [magazine] into [src]!"), null, 3, CHAT_TYPE_COMBAT_ACTION)
+	user.visible_message(SPAN_NOTICE("$1 loads $2 into $3!", list(user, magazine.declent_ru(), declent_ru(ACCUSATIVE))), // SS220 EDIT ADDICTION
+		SPAN_NOTICE("You load $1 into $2!", list(magazine.declent_ru(), declent_ru(ACCUSATIVE))), null, 3, CHAT_TYPE_COMBAT_ACTION) // SS220 EDIT ADDICTION
 	if(reload_sound)
 		playsound(user, reload_sound, 25, 1, 5)
 
@@ -1753,7 +1753,7 @@ not all weapons use normal magazines etc. load_into_chamber() itself is designed
 		if(user.client.prefs.toggle_prefs & TOGGLE_AMMO_DISPLAY_TYPE && gun_firemode == GUN_FIREMODE_SEMIAUTO && current_mag.current_rounds % 5 != 0 && current_mag.current_rounds > 15)
 			return
 		var/chambered = in_chamber ? TRUE : FALSE
-		to_chat(user, SPAN_DANGER("[current_mag.current_rounds][chambered ? "+1" : ""] / [current_mag.max_rounds] ROUNDS REMAINING"))
+		to_chat(user, SPAN_DANGER("$1[chambered ? "+1" : ""] / $2 ROUNDS REMAINING", list(current_mag.current_rounds, current_mag.max_rounds))) // SS220 EDIT ADDICTION
 
 //This proc applies some bonus effects to the shot/makes the message when a bullet is actually fired.
 /obj/item/weapon/gun/proc/apply_bullet_effects(obj/projectile/projectile_to_fire, mob/user, reflex = 0, dual_wield = 0)

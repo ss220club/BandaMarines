@@ -1,3 +1,4 @@
+import { round } from 'common/math';
 import type { BooleanLike } from 'common/react';
 import { useBackend } from 'tgui/backend';
 import {
@@ -14,7 +15,6 @@ import {
   Stack,
 } from 'tgui/components';
 import { Window } from 'tgui/layouts';
-import { round } from 'common/math';
 
 type LimbData = {
   name: string;

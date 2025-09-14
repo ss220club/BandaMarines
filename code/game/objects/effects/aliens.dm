@@ -385,7 +385,7 @@
 
 /obj/effect/xenomorph/acid/proc/handle_barricade()
 	if(prob(in_weather))
-		visible_message(SPAN_XENOWARNING("Acid on \The [acid_t] subsides!"))
+		visible_message(SPAN_XENOWARNING("Acid on $1 subsides!", list(acid_t))) // SS220 EDIT ADDICTION
 		return NONE
 	var/obj/structure/barricade/cade = acid_t
 	cade.take_acid_damage(barricade_damage)
@@ -424,13 +424,13 @@
 
 	switch(ticks_left)
 		if(6)
-			visible_message(SPAN_XENOWARNING("\The [acid_t] is barely holding up against the acid!"))
+			visible_message(SPAN_XENOWARNING("$1 is barely holding up against the acid!", list(acid_t))) // SS220 EDIT ADDICTION
 		if(4)
-			visible_message(SPAN_XENOWARNING("\The [acid_t]\s structure is being melted by the acid!"))
+			visible_message(SPAN_XENOWARNING("$1 structure is being melted by the acid!", list(acid_t))) // SS220 EDIT ADDICTION
 		if(2)
-			visible_message(SPAN_XENOWARNING("\The [acid_t] is struggling to withstand the acid!"))
+			visible_message(SPAN_XENOWARNING("$1 is struggling to withstand the acid!", list(acid_t))) // SS220 EDIT ADDICTION
 		if(0 to 1)
-			visible_message(SPAN_XENOWARNING("\The [acid_t] begins to crumble under the acid!"))
+			visible_message(SPAN_XENOWARNING("$1 begins to crumble under the acid!", list(acid_t))) // SS220 EDIT ADDICTION
 
 /obj/effect/xenomorph/acid/proc/finish_melting()
 	playsound(src, "acid_hit", 25, TRUE)

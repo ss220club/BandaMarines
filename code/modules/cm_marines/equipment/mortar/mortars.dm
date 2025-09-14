@@ -90,7 +90,7 @@
 		return XENO_NO_DELAY_ACTION
 
 	if(fixed)
-		to_chat(xeno, SPAN_XENOWARNING("The [src]'s supports are bolted and welded into the floor. It looks like it's going to be staying there."))
+		to_chat(xeno, SPAN_XENOWARNING("The $1's supports are bolted and welded into the floor. It looks like it's going to be staying there.", list(declent_ru()))) // SS220 EDIT ADDICTION
 		return XENO_NO_DELAY_ACTION
 
 	if(firing)
@@ -99,8 +99,8 @@
 		playsound(src, "acid_hit", 25, 1)
 		playsound(xeno, "alien_help", 25, 1)
 		xeno.apply_damage(10, BURN)
-		xeno.visible_message(SPAN_DANGER("[xeno] tried to knock the steaming hot [src] over, but burned itself and pulled away!"),
-		SPAN_XENOWARNING("The [src] is burning hot! Wait a few seconds."))
+		xeno.visible_message(SPAN_DANGER("$1 tried to knock the steaming hot $2 over, but burned itself and pulled away!", list(xeno, declent_ru())), // SS220 EDIT ADDICTION
+		SPAN_XENOWARNING("The $1 is burning hot! Wait a few seconds.", list(declent_ru()))) // SS220 EDIT ADDICTION
 		return XENO_ATTACK_ACTION
 
 	xeno.visible_message(SPAN_DANGER("[xeno] lashes at the [src] and knocks it over!"),

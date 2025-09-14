@@ -1127,7 +1127,7 @@ gender = "male"
 nominative = "патронный короб для M41AE2 (10x24мм Holo-Target)"
 
 ["M41AE2 Box Magazine (10x24mm)"] # Unique Vendor Name
-nominative = "патронный короб для M41AE2 (10x24мм Holo-Target)"
+nominative = "патронный короб для M41AE2 (10x24мм)"
 
 ["M41AE2 ammo box (10x24mm holo-target)"]
 nominative = "патронный короб для M41AE2 (10x24мм Holo-Target)"

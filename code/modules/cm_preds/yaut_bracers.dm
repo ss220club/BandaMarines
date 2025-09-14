@@ -1017,7 +1017,7 @@
 		to_chat(boomer, SPAN_DANGER("You set the timer. May your journey to the great hunting grounds be swift."))
 		var/area/A = get_area(boomer)
 		var/turf/T = get_turf(boomer)
-		message_admins(FONT_SIZE_HUGE("ALERT: $1 ($2) triggered their predator self-destruct sequence $3 $4"), list(boomer, boomer.key, A ? "in [A.name]":"", ADMIN_JMP(T))) // SS220 EDIT ADDICTION
+		message_admins(FONT_SIZE_HUGE("ALERT: $1 ($2) triggered their predator self-destruct sequence $3 $4", list(boomer, boomer.key, A ? "in [A.name]":"", ADMIN_JMP(T)))) // SS220 EDIT ADDICTION
 		log_attack("[key_name(boomer)] triggered their predator self-destruct sequence in [A ? "in [A.name]":""]")
 		message_all_yautja("[boomer.real_name] has triggered their bracer's self-destruction sequence.")
 		explode(boomer)

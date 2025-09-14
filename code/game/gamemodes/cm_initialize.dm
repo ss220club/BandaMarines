@@ -556,7 +556,7 @@ Additional game mode variables.
 
 		// Give the player a cached message of their queue status if they are an observer
 		if(candidate_observer.larva_queue_cached_message)
-			to_chat(candidate_observer, SPAN_XENONOTICE(candidate_observer.larva_queue_cached_message))
+			to_chat(candidate_observer, SPAN_XENONOTICE(candidate_observer.larva_queue_cached_message, list()))
 			return FALSE
 
 		// No cache, lets check now then

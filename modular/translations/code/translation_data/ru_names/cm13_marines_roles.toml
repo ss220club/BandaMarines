@@ -182,12 +182,12 @@ prepositional = "Полевой корреспондент"
 gender = "male"
 
 ["Mess Technician"]
-nominative = "Повар"
-genitive = "Повар"
-dative = "Повар"
-accusative = "Повар"
-instrumental = "Повар"
-prepositional = "Повар"
+nominative = "Кок"
+genitive = "Кок"
+dative = "Кок"
+accusative = "Кок"
+instrumental = "Кок"
+prepositional = "Кок"
 gender = "male"
 
 ["Synthetic"]

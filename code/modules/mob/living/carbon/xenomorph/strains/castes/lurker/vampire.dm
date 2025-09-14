@@ -158,7 +158,7 @@
 
 	if(iscarbon(hit_target) && !xeno.can_not_harm(hit_target) && hit_target.stat != DEAD)
 		if(targeted_atom == hit_target) //reward for a direct hit
-			to_chat(xeno, SPAN_XENOHIGHDANGER("We attack [hit_target], with our tail, piercing their body!"))
+			to_chat(xeno, SPAN_XENOHIGHDANGER("We attack $1, with our tail, piercing their body!", list(hit_target))) // SS220 EDIT ADDICTION
 			hit_target.apply_armoured_damage(15, ARMOR_MELEE, BRUTE, "chest")
 		else
 			to_chat(xeno, SPAN_XENODANGER("We attack $1, slashing them with our tail!", list(hit_target))) // SS220 EDIT ADDICTION
@@ -258,9 +258,9 @@
 		to_chat(xeno, SPAN_XENODANGER("They died before you could finish headbiting them! Be more careful next time!"))
 		return
 
-	to_chat(xeno, SPAN_XENOHIGHDANGER("We pierce [target_carbon]’s head with our inner jaw!"))
+	to_chat(xeno, SPAN_XENOHIGHDANGER("We pierce $1’s head with our inner jaw!", list(target_carbon))) // SS220 EDIT ADDICTION
 	playsound(target_carbon,'sound/weapons/alien_bite2.ogg', 50, TRUE)
-	xeno.visible_message(SPAN_DANGER("[xeno] pierces [target_carbon]’s head with its inner jaw!"))
+	xeno.visible_message(SPAN_DANGER("$1 pierces $2’s head with its inner jaw!", list(xeno, target_carbon))) // SS220 EDIT ADDICTION
 	xeno.flick_attack_overlay(target_carbon, "headbite")
 	xeno.animation_attack_on(target_carbon, pixel_offset = 16)
 	target_carbon.apply_armoured_damage(60, ARMOR_MELEE, BRUTE, "head", 5) //DIE

@@ -154,26 +154,26 @@
 
 /obj/structure/resource_node/attack_alien(mob/living/carbon/xenomorph/M)
 	if(!isxeno_builder(M))
-		to_chat(M, SPAN_XENOWARNING("You can't build onto [src]."))
+		to_chat(M, SPAN_XENOWARNING("You can't build onto $1.", list(declent_ru()))) // SS220 EDIT ADDICTION
 		return XENO_NO_DELAY_ACTION
 
 	if(!active)
-		to_chat(M, SPAN_XENOWARNING("[src] isn't active right now!"))
+		to_chat(M, SPAN_XENOWARNING("$1 isn't active right now!", list(declent_ru()))) // SS220 EDIT ADDICTION
 		return XENO_NO_DELAY_ACTION
 
 	if(M.action_busy)
 		to_chat(M, SPAN_WARNING("You're already performing an action!"))
 		return XENO_NO_DELAY_ACTION
 
-	M.visible_message(SPAN_DANGER("[M] starts secreting resin over [src]."),
+	M.visible_message(SPAN_DANGER("$1 starts secreting resin over $2.", list(M, declent_ru())), // SS220 EDIT ADDICTION
 	SPAN_XENONOTICE("You begin to connect $1 to the hive.", list(declent_ru())), max_distance = 3) // SS220 EDIT ADDICTION
 	xeno_attack_delay(M)
 
 	if(!do_after(M, time_to_build, BEHAVIOR_IMMOBILE|INTERRUPT_ALL, BUSY_ICON_BUILD, src, INTERRUPT_ALL))
-		to_chat(M, SPAN_XENOWARNING("You decide not to connect [src] to the hive."))
+		to_chat(M, SPAN_XENOWARNING("You decide not to connect $1 to the hive.", list(declent_ru()))) // SS220 EDIT ADDICTION
 		return XENO_NO_DELAY_ACTION
 
-	M.visible_message(SPAN_DANGER("[M] secretes resin over [src]."),
+	M.visible_message(SPAN_DANGER("$1 secretes resin over $2.", list(M, declent_ru())), // SS220 EDIT ADDICTION
 	SPAN_XENONOTICE("You connect $1 to the hive.", list(declent_ru())), max_distance = 3) // SS220 EDIT ADDICTION
 
 	return XENO_NO_DELAY_ACTION

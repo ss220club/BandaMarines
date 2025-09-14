@@ -1,7 +1,6 @@
 import type { BooleanLike } from 'common/react';
 import { capitalize } from 'common/string';
 import { useState } from 'react';
-import { JobsRu, MarinesStatesRu } from './BandaMarines/MarineJobs';
 
 import { useBackend, useSharedState } from '../backend';
 import {
@@ -17,6 +16,7 @@ import {
 } from '../components';
 import { ButtonConfirm } from '../components/Button';
 import { Window } from '../layouts';
+import { JobsRu, MarinesStatesRu } from './BandaMarines/MarineJobs';
 import { replaceRegexChars } from './helpers';
 
 type MarineData = {

@@ -150,18 +150,18 @@
 			return cant_consume
 
 		if(mature)
-			to_chat(affected_xeno, SPAN_XENOWARNING("We prepare to consume [name]."))
+			to_chat(affected_xeno, SPAN_XENOWARNING("We prepare to consume $1.", list(name))) // SS220 EDIT ADDICTION
 			xeno_noncombat_delay(affected_xeno)
 			if(!do_after(affected_xeno, consume_delay, INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
 				return XENO_NO_DELAY_ACTION
 
 			cant_consume = prevent_consume(affected_xeno) // Check again after the delay incase they have eaten another fruit
 			if(cant_consume)
-				to_chat(affected_xeno, SPAN_XENOWARNING("We can no longer consume [name]."))
+				to_chat(affected_xeno, SPAN_XENOWARNING("We can no longer consume $1.", list(name))) // SS220 EDIT ADDICTION
 				return cant_consume
 			consume_effect(affected_xeno)
 		else
-			to_chat(affected_xeno, SPAN_XENOWARNING("[name] isn't ripe yet. We need to wait a little longer."))
+			to_chat(affected_xeno, SPAN_XENOWARNING("$1 isn't ripe yet. We need to wait a little longer.", list(name))) // SS220 EDIT ADDICTION
 
 	if(affected_xeno.a_intent == INTENT_HARM && isxeno_builder(affected_xeno) || (!affected_xeno.can_not_harm(bound_xeno) && affected_xeno.hivenumber != hivenumber))
 		affected_xeno.animation_attack_on(src)
@@ -342,7 +342,7 @@
 
 /obj/effect/alien/resin/fruit/speed/consume_effect(mob/living/carbon/xenomorph/recipient, do_consume = TRUE)
 	if(mature && recipient && !QDELETED(recipient))
-		new /datum/effects/xeno_speed(recipient, ttl = speed_duration, set_speed_modifier = speed_buff_amount, set_modifier_source = XENO_FRUIT_SPEED, set_end_message = SPAN_XENOWARNING("We feel the effects of the [name] wane..."))
+		new /datum/effects/xeno_speed(recipient, ttl = speed_duration, set_speed_modifier = speed_buff_amount, set_modifier_source = XENO_FRUIT_SPEED, set_end_message = SPAN_XENOWARNING("We feel the effects of the $1 wane...", list(name))) // SS220 EDIT ADDICTION
 		to_chat(recipient, SPAN_XENOBOLDNOTICE("The $1 invigorates us to move faster!", list(name))) // SS220 EDIT ADDICTION
 		recipient.balloon_alert(recipient, "we feel invigorated to run faster!", text_color = "#5B248C", delay = 1 SECONDS)
 	if(do_consume)

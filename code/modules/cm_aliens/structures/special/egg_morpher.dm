@@ -41,7 +41,7 @@
 		//Hugger explosion, like a carrier
 		var/obj/item/clothing/mask/facehugger/F
 		var/chance = 60
-		visible_message(SPAN_XENOWARNING("The chittering mass of tiny aliens is trying to escape [src]!"))
+		visible_message(SPAN_XENOWARNING("The chittering mass of tiny aliens is trying to escape $1!", list(declent_ru()))) // SS220 EDIT ADDICTION
 		for(var/i in 1 to stored_huggers)
 			if(prob(chance))
 				F = new(loc, linked_hive.hivenumber)

@@ -127,8 +127,8 @@
 
 	if(M.hivenumber != hivenumber)
 		M.animation_attack_on(src)
-		M.visible_message(SPAN_XENOWARNING("[M] crushes \the [src]"),
-			SPAN_XENOWARNING("We crush \the [src]"))
+		M.visible_message(SPAN_XENOWARNING("$1 crushes $2", list(M, declent_ru())), // SS220 EDIT ADDICTION
+			SPAN_XENOWARNING("We crush $1", list(declent_ru()))) // SS220 EDIT ADDICTION
 		Burst(TRUE)
 		return XENO_ATTACK_ACTION
 

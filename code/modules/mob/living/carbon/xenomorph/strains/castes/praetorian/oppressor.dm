@@ -188,12 +188,12 @@
 				var/mob/living/carbon/human/target_human = target
 				target_human.update_xeno_hostile_hud()
 			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(unroot_human), target, TRAIT_SOURCE_ABILITY("Abduct")), get_xeno_stun_duration(target, 2.5 SECONDS))
-			to_chat(target, SPAN_XENOHIGHDANGER("[abduct_user] has pinned you to the ground! You cannot move!"))
+			to_chat(target, SPAN_XENOHIGHDANGER("$1 has pinned you to the ground! You cannot move!", list(abduct_user))) // SS220 EDIT ADDICTION
 
 			target.set_effect(2, DAZE)
 		else if (LAZYLEN(targets) >= 3)
 			target.apply_effect(get_xeno_stun_duration(target, 1.3), WEAKEN)
-			to_chat(target, SPAN_XENOHIGHDANGER("You are slammed into the other victims of [abduct_user]!"))
+			to_chat(target, SPAN_XENOHIGHDANGER("You are slammed into the other victims of $1!", list(abduct_user))) // SS220 EDIT ADDICTION
 
 
 		shake_camera(target, 10, 1)
@@ -260,7 +260,7 @@
 			human_to_update.update_xeno_hostile_hud()
 
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(unroot_human), target_carbon, TRAIT_SOURCE_ABILITY("Oppressor Punch")), get_xeno_stun_duration(target_carbon, 1.2 SECONDS))
-		to_chat(target_carbon, SPAN_XENOHIGHDANGER("[oppressor_user] has pinned you to the ground! You cannot move!"))
+		to_chat(target_carbon, SPAN_XENOHIGHDANGER("$1 has pinned you to the ground! You cannot move!", list(oppressor_user))) // SS220 EDIT ADDICTION
 	else
 		target_carbon.apply_armoured_damage(get_xeno_damage_slash(target_carbon, damage), ARMOR_MELEE, BRUTE, target_limb? target_limb.name : "chest")
 		step_away(target_carbon, oppressor_user, 2)

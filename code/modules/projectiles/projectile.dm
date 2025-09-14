@@ -1254,8 +1254,8 @@
 	if(!P)
 		return
 	if(damaging && COOLDOWN_FINISHED(src, shot_cooldown))
-		visible_message(SPAN_DANGER("[src] is hit by the [P.name] in the [parse_zone(P.def_zone)]!"),
-			SPAN_HIGHDANGER("[isxeno(src) ? "We" : "You"] are hit by the [P.name] in the [parse_zone(P.def_zone)]!"), null, 4, CHAT_TYPE_TAKING_HIT)
+		visible_message(SPAN_DANGER("$1 is hit by the $2 in the $3!", list(declent_ru(), declent_ru_initial(P.name, INSTRUMENTAL, P.name), declent_ru_initial(parse_zone(P.def_zone), ACCUSATIVE, parse_zone(P.def_zone)))), // SS220 EDIT ADDICTION
+			SPAN_HIGHDANGER("[isxeno(src) ? "We" : "You"] are hit by the $1 in the $2!", list(declent_ru_initial(P.name, INSTRUMENTAL, P.name), declent_ru_initial(parse_zone(P.def_zone), ACCUSATIVE, parse_zone(P.def_zone)))), null, 4, CHAT_TYPE_TAKING_HIT) // SS220 EDIT ADDICTION
 		COOLDOWN_START(src, shot_cooldown, 1 SECONDS)
 
 	var/shot_from = P.shot_from ? " from \a [P.shot_from]" : ""

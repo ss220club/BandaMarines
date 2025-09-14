@@ -404,8 +404,8 @@
 		var/target_turf = get_step(src, ram_dir)
 		if(LinkBlocked(src, cur_turf, target_turf))
 			xeno.emote("roar")
-			xeno.visible_message(SPAN_DANGER("[xeno] flings [src] over to the side!"),SPAN_DANGER( "You fling [src] out of the way!"))
-			to_chat(src, SPAN_XENOHIGHDANGER("[xeno] flings you out of its way! Move it!"))
+			xeno.visible_message(SPAN_DANGER("$1 flings $2 over to the side!", list(xeno, declent_ru())),SPAN_DANGER("You fling $1 out of the way!", list(declent_ru()))) // SS220 EDIT ADDICTION
+			to_chat(src, SPAN_XENOHIGHDANGER("$1 flings you out of its way! Move it!", list(xeno))) // SS220 EDIT ADDICTION
 			apply_effect(1, WEAKEN) // brief flicker stun
 			throw_atom(get_turf(src), 1, 3, xeno, TRUE)
 		step(src, ram_dir, charger_ability.momentum * 0.5)
@@ -702,7 +702,7 @@
 	if(!target_dir)
 		return
 
-	Xeno.visible_message(SPAN_XENOWARNING("[Xeno] tumbles over to the side!"), SPAN_XENOHIGHDANGER("We tumble over to the side!"))
+	Xeno.visible_message(SPAN_XENOWARNING("$1 tumbles over to the side!", list(Xeno)), SPAN_XENOHIGHDANGER("We tumble over to the side!")) // SS220 EDIT ADDICTION
 	Xeno.spin(5,1) // note: This spins the sprite and DOES NOT affect directional armor
 	var/start_charging = HAS_TRAIT(Xeno, TRAIT_CHARGING)
 	SEND_SIGNAL(Xeno, COMSIG_XENO_STOP_MOMENTUM)
