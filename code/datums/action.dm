@@ -61,6 +61,13 @@
 	if(can_use_action())
 		INVOKE_ASYNC(src, PROC_REF(action_activate))
 
+// SS220 START EDIT ADDICTION
+/datum/action/proc/update_button_on_keybind_change()
+	SIGNAL_HANDLER
+	var/hotkey_label = owner.get_hotkey_label(src.action_icon_state)
+	update_button_text(hotkey_label)
+// SS220 END EDIT ADDICTION
+
 /datum/action/proc/can_use_action()
 	if(hidden)
 		return FALSE
@@ -112,6 +119,9 @@
 
 /datum/action/proc/give_to(mob/L)
 	SHOULD_CALL_PARENT(TRUE)
+	// SS220 START EDIT ADDICTION
+	RegisterSignal(L.client, COMSIG_KB_CONFIG_UPDATED, PROC_REF(update_button_on_keybind_change))
+	// SS220 END EDIT ADDICTION
 	if(owner)
 		if(owner == L)
 			return
@@ -137,6 +147,9 @@
 
 /datum/action/proc/remove_from(mob/L)
 	SHOULD_CALL_PARENT(TRUE)
+	// SS220 START EDIT ADDICTION
+	UnregisterSignal(L.client, COMSIG_KB_CONFIG_UPDATED, PROC_REF(update_button_on_keybind_change))
+	// SS220 END EDIT ADDICTION
 	SEND_SIGNAL(src, COMSIG_ACTION_REMOVED, L)
 	if(listen_signal)
 		UnregisterSignal(L, listen_signal)
@@ -260,6 +273,10 @@
 				client.add_to_screen(A.button)
 	else
 		for(var/datum/action/A in actions)
+			// SS220 START EDIT ADDICTION
+			var/hotkey_label = get_hotkey_label(A.action_icon_state)
+			A.update_button_text(hotkey_label)
+			// SS220 END EDIT ADDICTION
 			var/atom/movable/screen/action_button/B = A.button
 			if(reload_screen)
 				client.add_to_screen(B)
@@ -280,3 +297,29 @@
 	if(reload_screen)
 		client.add_to_screen(hud_used.hide_actions_toggle)
 
+// SS220 START EDIT ADDICTION
+/mob/proc/get_hotkey_label(action_name)
+	if(!action_name || !client || !client.prefs || !client.prefs.key_bindings)
+		return null
+
+	var/list/hotkeys = client.prefs.key_bindings
+	for(var/key in hotkeys)
+		if(key == "Unbound")
+			continue
+		if(action_name in hotkeys[key])
+			return replacetext(key, "+", "")
+	return null
+
+/datum/action/proc/update_button_text(new_text)
+	for(var/over in button.overlays)
+		if(over:maptext)
+			button.overlays -= over
+			qdel(over)
+
+	if(!new_text)
+		return
+
+	var/mutable_appearance/text_overlay = mutable_appearance(null, null, FLOAT_LAYER, FLOAT_PLANE)
+	text_overlay.maptext = "<span class='action_maptext'>[new_text]</span>"
+	button.overlays += text_overlay
+// SS220 END EDIT ADDICTION
