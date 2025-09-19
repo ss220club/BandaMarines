@@ -343,8 +343,7 @@
 
 	new_text = replacetext(new_text, "Space", "Spc")
 
-	var/mutable_appearance/text_overlay = mutable_appearance(null, null, FLOAT_LAYER, FLOAT_PLANE)
+	var/mutable_appearance/text_overlay = mutable_appearance(null, null, FLOAT_LAYER, ABOVE_HUD_PLANE)
 	text_overlay.maptext = "<span class='action_maptext'>[new_text]</span>"
 	button.overlays += text_overlay
-
 // SS220 END EDIT ADDICTION
