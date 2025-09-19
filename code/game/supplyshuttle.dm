@@ -245,7 +245,6 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 				current_order -= picked_pack
 				return TRUE
 
-
 			var/used_points = 0
 			var/used_dollars = 0
 
@@ -1211,7 +1210,6 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 	switch(action)
 		if("place_order")
 			var/to_order = list()
-
 			for(var/item in current_order)
 				var/datum/supply_packs/pack = GLOB.supply_packs_datums[item]
 

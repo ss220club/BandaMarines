@@ -8,7 +8,9 @@
 	/// Required cleared area along Y axis
 	var/dim_y = 1
 	/// Tents map template typepath
+	//SS220 EDIT START - Tents
 	var/template_preset = "tent_classic"
+	//SS220 EDIT END - Tents
 	///Map template datum used for tent
 	var/datum/map_template/template
 	/// If this tent can be deployed anywhere
