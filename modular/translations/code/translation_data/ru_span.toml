@@ -1080,7 +1080,7 @@
 
 # Mark: code/game/bioscans.dm
 
-"To my children and their Queen: I sense $1 hosts in the metal hive$2 and $3 scattered elsewhere$4." = "Моим детям и их Королеве: я чувствую около $1 хостов в металлическом улье$3, а также около $4 хостов в других местах$5."
+"To my children and their Queen: I sense $1 hosts in the metal hive$2 and $3 scattered elsewhere$4." = "Моим детям и их Королеве: я чувствую около $1 хостов в металлическом улье$2, а также около $3 хостов в других местах$4."
 
 # Mark: code/game/gamemodes/colonialmarines/colonialmarines.dm
 
