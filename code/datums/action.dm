@@ -125,9 +125,6 @@
 
 /datum/action/proc/give_to(mob/L)
 	SHOULD_CALL_PARENT(TRUE)
-	// SS220 START EDIT ADDICTION
-	RegisterSignal(L.client, COMSIG_KB_CONFIG_UPDATED, PROC_REF(update_button_on_keybind_change))
-	// SS220 END EDIT ADDICTION
 	if(owner)
 		if(owner == L)
 			return
@@ -137,6 +134,10 @@
 	if(listen_signal)
 		RegisterSignal(L, listen_signal, PROC_REF(keybind_activation))
 	owner = L
+	// SS220 START EDIT ADDICTION
+	if(owner && owner.client)
+		RegisterSignal(owner.client, COMSIG_KB_CONFIG_UPDATED, PROC_REF(update_button_on_keybind_change))
+	// SS220 END EDIT ADDICTION
 
 /mob/proc/handle_add_action(datum/action/action)
 	LAZYADD(actions, action)
@@ -154,7 +155,8 @@
 /datum/action/proc/remove_from(mob/L)
 	SHOULD_CALL_PARENT(TRUE)
 	// SS220 START EDIT ADDICTION
-	UnregisterSignal(L.client, COMSIG_KB_CONFIG_UPDATED, PROC_REF(update_button_on_keybind_change))
+	if(owner && owner.client)
+		UnregisterSignal(owner.client, COMSIG_KB_CONFIG_UPDATED, PROC_REF(update_button_on_keybind_change))
 	// SS220 END EDIT ADDICTION
 	SEND_SIGNAL(src, COMSIG_ACTION_REMOVED, L)
 	if(listen_signal)
