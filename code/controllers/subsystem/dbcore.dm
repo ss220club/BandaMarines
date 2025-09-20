@@ -134,7 +134,6 @@ SUBSYSTEM_DEF(dbcore)
 		var/datum/db_query/query = popleft(processing_queries)
 		if(world.time - query.last_activity_time > (5 MINUTES))
 			stack_trace("Found undeleted query, check the sql.log for the undeleted query and add a delete call to the query datum.")
-			//log_sql("Undeleted query: \"[query.sql]\" LA: [query.last_activity] LAT: [query.last_activity_time]")
 			qdel(query)
 		if(MC_TICK_CHECK)
 			return
@@ -301,7 +300,6 @@ SUBSYSTEM_DEF(dbcore)
 	else
 		connection = null
 		last_error = result["data"]
-		//log_sql("Connect() failed | [last_error]")
 		++failed_connections
 		//If it failed to establish a connection more than 5 times in a row, don't bother attempting to connect for a time.
 		if(failed_connections > max_connection_failures)
@@ -323,12 +321,7 @@ SUBSYSTEM_DEF(dbcore)
 					//log_sql("Database schema ([db_major].[db_minor]) doesn't match the latest schema version ([DB_MAJOR_VERSION].[DB_MINOR_VERSION]), this may lead to undefined behaviour or errors")
 			else
 				schema_mismatch = 2 //flag admin message about no schema version
-				//log_sql("Could not get schema version from database")
 			qdel(query_db_version)
-		else
-			//log_sql("Your server failed to establish a connection with the database.")
-	else
-		//log_sql("Database is not enabled in configuration.")
 
 /datum/controller/subsystem/dbcore/proc/InitializeRound()
 	CheckSchemaVersion()
@@ -617,9 +610,6 @@ Ignore_errors instructes mysql to continue inserting rows if some of them have e
 		last_error = "No connection!"
 		return FALSE
 
-	//var/start_time
-	//if(!async)
-	//	start_time = REALTIMEOFDAY
 	Close()
 	status = DB_QUERY_STARTED
 	if(async)
@@ -634,19 +624,8 @@ Ignore_errors instructes mysql to continue inserting rows if some of them have e
 
 	. = (status != DB_QUERY_BROKEN)
 	var/timed_out = !. && findtext(last_error, "Operation timed out")
-	//if(!. && log_error)
-		//logger.Log(LOG_CATEGORY_DEBUG_SQL, "sql query failed", list(
-		//	"query" = sql,
-		//	"arguments" = json_encode(arguments),
-		//	"error" = last_error,
-		//))
 
 	if(!async && timed_out)
-		//logger.Log(LOG_CATEGORY_DEBUG_SQL, "slow query timeout", list(
-		//	"query" = sql,
-		//	"start_time" = start_time,
-		//	"end_time" = REALTIMEOFDAY,
-		//))
 		slow_query_check()
 
 /// Sleeps until execution of the query has finished.
