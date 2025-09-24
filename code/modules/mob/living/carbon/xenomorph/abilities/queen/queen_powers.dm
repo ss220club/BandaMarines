@@ -968,7 +968,7 @@
 	target_xeno.gain_plasma(target_xeno.plasma_max * 0.75)
 	target_xeno.flick_heal_overlay(3 SECONDS, COLOR_CYAN)
 	apply_cooldown()
-	to_chat(X, SPAN_XENONOTICE("You transfer some plasma to $1.", list(target_xeno))) // SS220 EDIT ADDICTION
+	to_chat(queen, SPAN_XENONOTICE("You transfer some plasma to $1.", list(target_xeno))) // SS220 EDIT ADDICTION
 	return ..()
 
 /datum/action/xeno_action/onclick/send_thoughts/proc/queen_order()
