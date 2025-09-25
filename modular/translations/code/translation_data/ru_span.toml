@@ -55,6 +55,7 @@
 "Initialized Game Decorator subsystem within $1 second$2!" = "Инициализация подсистемы «Игровой декоратор» ($1 сек.)"
 "Initialized Decorator subsystem within $1 second$2!" = "Инициализация подсистемы «Декоратор» ($1 сек.)"
 "Initialized Atoms subsystem within $1 second$2!" = "Инициализация подсистемы «Атом» ($1 сек.)"
+"Initialized Central subsystem with errors within $1 second$2!" = "Инициализация подсистемы «Центр» произошло с ошибками ($1 сек.)"
 
 # Mark: code/controllers/subsystem/mapping.dm
 
@@ -173,9 +174,9 @@
 
 # Mark: code/game/objects/items/reagent_containers/food/drinks.dm
 
-"You swallow a gulp from $1." = "Вы делаете глоток $1."
+"You swallow a gulp from $1." = "Вы делаете глоток из $1."
 "You swallow a gulp of $1." = "Вы делаете глоток $1"
-"The $1 is empty!" = "$1 закончился!"
+"The $1 is empty!" = "Содержимое $1 закончилось!"
 
 # Mark code/game/objects/items/reagent_containers/food/cans.dm
 
@@ -1327,7 +1328,6 @@
 "We make tunnels, not wormholes!" = "Мы делаем туннели, а не червоточины!"
 "There's no way to tunnel over there." = "Там нет возможности прокопать туннель."
 "We dig ourselves into the ground and cause tremors." = "Мы зарываемся в землю и вызываем дрожь."
-"We need an empty claw for this!" = "Нам нужен свободный коготь для этого!"
 
 # Mark: code/modules/mob/living/carbon/xenomorph/castes/Carrier.dm
 
@@ -2148,7 +2148,6 @@
 "$1 is already drenched in acid." = "$1 уже облито кислотой."
 "We can't melt $1 from here!" = "Мы не можем плавить $1 отсюда!"
 "We can't reach $1." = "Мы не можем достать $1."
-"$1 is too far away." = "$1 слишком далеко."
 "$1 vomits globs of vile stuff at $2. It sizzles under the bubbling mess of acid!" = "$1 выплёвывает шары отвратительной субстанции в $2. Они шипят под пузырящейся кислотой!"
 "We vomit globs of vile stuff at $1. It sizzles under the bubbling mess of acid!" = "Мы выплёвываем шары отвратительной субстанции в $1. Они шипят под пузырящейся кислотой!"
 "$1 vomits globs of vile stuff all over $2. It begins to sizzle and melt under the bubbling mess of acid!" = "$1 выплёвывает шары отвратительной субстанции на $2. Они начинают шипеть и плавиться под пузырящейся кислотой!"
@@ -2237,10 +2236,8 @@
 # Mark: code/modules/mob/living/carbon/xenomorph/Facehuggers.dm
 
 "The facehugger is furiously cannibalized by the nearby horde of other ones!" = "Лицехват яростно поедается ближайшей ордой других лицехватов!"
-"$1 crushes $2" = "$1 раздавливает $2"
 "You crush $1" = "Вы раздавливаете $1"
 "$1 crawls into $2!" = "$1 заползает в $2!"
-"$1 crawls back into $2!" = "$1 заползает обратно в $2!"
 
 # Mark: code/modules/mob/living/carbon/xenomorph/xeno_helpers.dm
 
