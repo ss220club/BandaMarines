@@ -13,22 +13,22 @@
 		return
 
 	if(target_xeno.hivenumber != user_xeno.hivenumber)
-		to_chat(user_xeno, SPAN_XENOWARNING("[target_xeno] doesn't belong to your hive!"))
+		to_chat(user_xeno, SPAN_XENOWARNING("$1 doesn't belong to your hive!", list(target_xeno))) // SS220 EDIT ADDICTION
 		return
 	if(target_xeno.is_ventcrawling)
-		to_chat(user_xeno, SPAN_XENOWARNING("[target_xeno] can't be deevolved here."))
+		to_chat(user_xeno, SPAN_XENOWARNING("$1 can't be deevolved here.", list(target_xeno))) // SS220 EDIT ADDICTION
 		return
 	if(!isturf(target_xeno.loc))
-		to_chat(user_xeno, SPAN_XENOWARNING("[target_xeno] can't be deevolved here."))
+		to_chat(user_xeno, SPAN_XENOWARNING("$1 can't be deevolved here.", list(target_xeno))) // SS220 EDIT ADDICTION
 		return
 	if(target_xeno.health <= 0)
-		to_chat(user_xeno, SPAN_XENOWARNING("[target_xeno] is too weak to be deevolved."))
+		to_chat(user_xeno, SPAN_XENOWARNING("$1 is too weak to be deevolved.", list(target_xeno))) // SS220 EDIT ADDICTION
 		return
 	if(length(target_xeno.caste.deevolves_to) < 1)
-		to_chat(user_xeno, SPAN_XENOWARNING("[target_xeno] can't be deevolved."))
+		to_chat(user_xeno, SPAN_XENOWARNING("$1 can't be deevolved.", list(target_xeno))) // SS220 EDIT ADDICTION
 		return
 	if(target_xeno.banished)
-		to_chat(user_xeno, SPAN_XENOWARNING("[target_xeno] is banished and can't be deevolved."))
+		to_chat(user_xeno, SPAN_XENOWARNING("$1 is banished and can't be deevolved.", list(target_xeno))) // SS220 EDIT ADDICTION
 		return
 
 
@@ -46,20 +46,20 @@
 	if(user_xeno.observed_xeno != target_xeno)
 		return
 
-	var/confirm = tgui_alert(user_xeno, "Are you sure you want to deevolve [target_xeno] from [target_xeno.caste.caste_type] to [newcaste]?", "Deevolution", list("Yes", "No"))
-	if(confirm != "Yes")
+	var/confirm = tgui_alert(user_xeno, "Вы уверены, что хотите регрессировать [target_xeno] из [target_xeno.caste.caste_type] в [newcaste]?", "Регрессирование", list("Да", "Нет")) // SS220 EDIT ADDICTION
+	if(confirm == "Нет") // SS220 EDIT ADDICTION
 		return
 
-	var/reason = stripped_input(user_xeno, "Provide a reason for deevolving this xenomorph, [target_xeno]")
+	var/reason = stripped_input(user_xeno, "Укажите причину регрессирования этого ксеноморфа, [target_xeno]") // SS220 EDIT ADDICTION
 	if(!reason)
-		to_chat(user_xeno, SPAN_XENOWARNING("You must provide a reason for deevolving [target_xeno]."))
+		to_chat(user_xeno, SPAN_XENOWARNING("You must provide a reason for deevolving $1.", list(target_xeno))) // SS220 EDIT ADDICTION
 		return
 
 	if(!check_and_use_plasma_owner(plasma_cost))
 		return
 
 
-	to_chat(target_xeno, SPAN_XENOWARNING("The queen is deevolving you for the following reason: [reason]"))
+	to_chat(target_xeno, SPAN_XENOWARNING("The queen is deevolving you for the following reason: $1", list(reason))) // SS220 EDIT ADDICTION
 
 	SEND_SIGNAL(target_xeno, COMSIG_XENO_DEEVOLVE)
 
@@ -89,7 +89,7 @@
 		return
 	if(!X.ovipositor)
 		return
-	X.visible_message(SPAN_XENOWARNING("\The [X] starts detaching itself from its ovipositor!"),
+	X.visible_message(SPAN_XENOWARNING("$1 starts detaching itself from its ovipositor!", list(X)), // SS220 EDIT ADDICTION
 		SPAN_XENOWARNING("You start detaching yourself from your ovipositor."))
 	if(!do_after(X, 50, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE, numticks = 10))
 		return
@@ -258,7 +258,7 @@
 		return
 
 	if(world.time < SSticker.mode.round_time_lobby + SHUTTLE_TIME_LOCK)
-		to_chat(usr, SPAN_XENOWARNING("You must give some time for larva to spawn before sacrificing them. Please wait another [floor((SSticker.mode.round_time_lobby + SHUTTLE_TIME_LOCK - world.time) / 600)] minutes."))
+		to_chat(usr, SPAN_XENOWARNING("You must give some time for larva to spawn before sacrificing them. Please wait another $1 minutes.", list(floor((SSticker.mode.round_time_lobby + SHUTTLE_TIME_LOCK - world.time) / 600)))) // SS220 EDIT ADDICTION
 		return
 
 	var/choice = tgui_input_list(user_xeno, "Choose a xenomorph to give evolution points for a burrowed larva:", "Give Evolution Points", user_xeno.hive.totalXenos, theme="hive_status")
@@ -291,7 +291,7 @@
 		return
 
 	if(user_xeno.hive.stored_larva < required_larva)
-		to_chat(user_xeno, SPAN_XENOWARNING("You need at least [required_larva] burrowed larva to sacrifice one for evolution points."))
+		to_chat(user_xeno, SPAN_XENOWARNING("You need at least $1 burrowed larva to sacrifice one for evolution points.", list(required_larva))) // SS220 EDIT ADDICTION
 		return
 
 	if(tgui_alert(user_xeno, "Are you sure you want to sacrifice a larva to give [target_xeno] [evo_points_per_larva] evolution points?", "Give Evolution Points", list("Yes", "No")) != "Yes")
@@ -300,8 +300,8 @@
 	if(!user_xeno.check_state() || !check_and_use_plasma_owner(plasma_cost) || target_xeno.health < 0 || user_xeno.hive.stored_larva < required_larva)
 		return
 
-	to_chat(target_xeno, SPAN_XENOWARNING("\The [user_xeno] has given you evolution points! Use them well."))
-	to_chat(user_xeno, SPAN_XENOWARNING("\The [target_xeno] was given [evo_points_per_larva] evolution points."))
+	to_chat(target_xeno, SPAN_XENOWARNING("$1 has given you evolution points! Use them well.", list(user_xeno))) // SS220 EDIT ADDICTION
+	to_chat(user_xeno, SPAN_XENOWARNING("$1 was given $2 evolution points.", list(target_xeno, evo_points_per_larva))) // SS220 EDIT ADDICTION
 
 	if(target_xeno.evolution_stored + evo_points_per_larva > target_xeno.evolution_threshold)
 		target_xeno.evolution_stored = target_xeno.evolution_threshold
@@ -560,7 +560,7 @@
 		to_chat(user_xeno, SPAN_WARNING("We don't have personal allies."))
 		return
 
-	if(tgui_alert(user_xeno, "Are you sure you want to clear personal allies?", "Clear Personal Allies", list("No", "Yes"), 10 SECONDS) != "Yes")
+	if(tgui_alert(user_xeno, "Вы уверены, что хотите отменить личные союзы?", "Отмена личных союзов", list("Да", "Нет"), 10 SECONDS) == "Нет") // SS220 EDIT ADDICTION
 		return
 
 	if(!length(hive.personal_allies))
@@ -607,20 +607,20 @@
 		to_chat(user_xeno, SPAN_XENOWARNING("What's the point? They're already about to die."))
 		return
 
-	var/confirm = tgui_alert(user_xeno, "Are you sure you want to banish [target_xeno] from the hive? This should only be done with good reason. (Note this prevents them from rejoining the hive after dying for 30 minutes as well unless readmitted)", "Banishment", list("Yes", "No"))
-	if(confirm != "Yes")
+	var/confirm = tgui_alert(user_xeno, "Вы уверены, что хотите изгнать [target_xeno] из улья? Это следует делать ради забавы (Обратите внимание, что они также не смогут вернуться в улей после смерти в течение 30 минут)", "Изгнание", list("Да", "Нет")) // SS220 EDIT ADDICTION
+	if(confirm == "Нет") // SS220 EDIT ADDICTION
 		return
 
-	var/reason = stripped_input(user_xeno, "Provide a reason for banishing [target_xeno]. This will be announced to the entire hive!")
+	var/reason = stripped_input(user_xeno, "Укажите причину изгнания [target_xeno]. Это будет объявлено всему улью!") // SS220 EDIT ADDICTION
 	if(!reason)
-		to_chat(user_xeno, SPAN_XENOWARNING("You must provide a reason for banishing [target_xeno]."))
+		to_chat(user_xeno, SPAN_XENOWARNING("You must provide a reason for banishing $1.", list(target_xeno))) // SS220 EDIT ADDICTION
 		return
 
 	if(!user_xeno.check_state() || !check_and_use_plasma_owner(plasma_cost_banish) || target_xeno.health < 0)
 		return
 
 	// Let everyone know they were banished
-	xeno_announcement("По воле [user_xeno.declent_ru(GENITIVE)], [target_xeno.declent_ru()] изгоняется из улья!\n\n[reason]", user_xeno.hivenumber, title=SPAN_ANNOUNCEMENT_HEADER_BLUE("Banishment"))
+	xeno_announcement(ru_span("By $1's will, $2 has been banished from the hive!<br><br>$3", list(user_xeno, target_xeno, reason)), user_xeno.hivenumber, title=SPAN_ANNOUNCEMENT_HEADER_BLUE("Banishment")) // SS220 EDIT ADDICTION
 	to_chat(target_xeno, FONT_SIZE_LARGE(SPAN_XENOWARNING("The $1 has banished you from the hive! Other xenomorphs may now attack you freely, but your link to the hivemind remains, preventing you from harming other sisters.", list(user_xeno)))) // SS220 EDIT ADDICTION
 
 	target_xeno.banished = TRUE
@@ -675,8 +675,8 @@
 			to_chat(user_xeno, SPAN_XENOWARNING("This xenomorph isn't banished!"))
 			return
 
-		var/confirm = tgui_alert(user_xeno, "Are you sure you want to readmit [target_xeno] into the hive?", "Readmittance", list("Yes", "No"))
-		if(confirm != "Yes")
+		var/confirm = tgui_alert(user_xeno, "Вы уверены, что хотите принять [target_xeno] обратно в улей?", "Возвращение в улей", list("Да", "Нет")) // SS220 EDIT ADDICTION
+		if(confirm == "Нет") // SS220 EDIT ADDICTION
 			return
 
 		if(!user_xeno.check_state() || !check_and_use_plasma_owner(plasma_cost))
@@ -748,7 +748,7 @@
 		if(!check_and_use_plasma_owner(node_plant_plasma_cost))
 			return
 
-		to_chat(xeno, SPAN_XENOWARNING("You plant a node at [turf_to_get]"))
+		to_chat(xeno, SPAN_XENOWARNING("You plant a node at $1", list(turf_to_get))) // SS220 EDIT ADDICTION
 		new /obj/effect/alien/weeds/node(turf_to_get, null, owner)
 		playsound(turf_to_get, "alien_resin_build", 35)
 		apply_cooldown_override(node_plant_cooldown)
@@ -777,7 +777,7 @@
 	recently_built_turfs += turf_to_get
 	addtimer(CALLBACK(src, PROC_REF(reset_turf_cooldown), turf_to_get), turf_build_cooldown)
 
-	to_chat(xeno, SPAN_XENOWARNING("You plant weeds at [turf_to_get]"))
+	to_chat(xeno, SPAN_XENOWARNING("You plant weeds at $1", list(turf_to_get))) // SS220 EDIT ADDICTION
 	apply_cooldown()
 	return ..()
 

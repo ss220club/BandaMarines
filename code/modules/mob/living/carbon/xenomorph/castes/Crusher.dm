@@ -83,14 +83,14 @@
 	//Barricade collision
 	else if (istype(target, /obj/structure/barricade))
 		var/obj/structure/barricade/blockade_in_path = target
-		visible_message(SPAN_DANGER("[src] rams into [blockade_in_path] and skids to a halt!"), SPAN_XENOWARNING("We ram into [blockade_in_path] and skid to a halt!"))
+		visible_message(SPAN_DANGER("$1 rams into $2 and skids to a halt!", list(declent_ru(), blockade_in_path)), SPAN_XENOWARNING("We ram into $1 and skid to a halt!", list(blockade_in_path))) // SS220 EDIT ADDICTION
 
 		blockade_in_path.Collided(src)
 		. =  FALSE
 
 	else if (istype(target, /obj/vehicle/multitile))
 		var/obj/vehicle/multitile/vehicle_in_path = target
-		visible_message(SPAN_DANGER("[src] rams into [vehicle_in_path] and skids to a halt!"), SPAN_XENOWARNING("We ram into [vehicle_in_path] and skid to a halt!"))
+		visible_message(SPAN_DANGER("$1 rams into $2 and skids to a halt!", list(declent_ru(), vehicle_in_path)), SPAN_XENOWARNING("We ram into $1 and skid to a halt!", list(vehicle_in_path))) // SS220 EDIT ADDICTION
 
 		vehicle_in_path.Collided(src)
 		. = FALSE
@@ -207,7 +207,7 @@
 			else
 				if(objects_in_path.buckled_mob)
 					objects_in_path.unbuckle()
-				visible_message(SPAN_WARNING("[src] knocks [objects_in_path] aside!"), SPAN_XENOWARNING("We knock [objects_in_path] aside.")) //Canisters, crates etc. go flying.
+				visible_message(SPAN_WARNING("$1 knocks $2 aside!", list(declent_ru(), objects_in_path)), SPAN_XENOWARNING("We knock $1 aside.", list(objects_in_path))) //Canisters, crates etc. go flying. // SS220 EDIT ADDICTION
 				playsound(loc, "punch", 25, 1)
 
 				var/impact_range = 2

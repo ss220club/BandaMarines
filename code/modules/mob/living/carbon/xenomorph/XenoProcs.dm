@@ -441,7 +441,7 @@
 	if(!user)
 		deltimer(haul_timer)
 		return
-	to_chat(src, SPAN_XENOWARNING("We feel our grip loosen on [user], we will have to release them soon."))
+	to_chat(src, SPAN_XENOWARNING("We feel our grip loosen on $1, we will have to release them soon.", list(user))) // SS220 EDIT ADDICTION
 	playsound(src, 'sound/voice/alien_hiss2.ogg', 15)
 	haul_timer = addtimer(CALLBACK(src, PROC_REF(release_haul)), 10 SECONDS, TIMER_STOPPABLE)
 
@@ -450,7 +450,7 @@
 	SIGNAL_HANDLER
 	deltimer(haul_timer)
 	var/mob/living/carbon/human/user = hauled_mob?.resolve()
-	to_chat(src, SPAN_XENOWARNING("[user] is dead. No more use for them now."))
+	to_chat(src, SPAN_XENOWARNING("$1 is dead. No more use for them now.", list(user))) // SS220 EDIT ADDICTION
 	user.handle_unhaul()
 	UnregisterSignal(user, COMSIG_MOB_DEATH)
 	UnregisterSignal(src, COMSIG_ATOM_DIR_CHANGE)
@@ -464,8 +464,8 @@
 		to_chat(src, SPAN_WARNING("We are not hauling anyone."))
 		return
 	user.handle_unhaul()
-	visible_message(SPAN_XENOWARNING("[src] releases [user] from their grip!"),
-	SPAN_XENOWARNING("We release [user] from our grip!"), null, 5)
+	visible_message(SPAN_XENOWARNING("$1 releases $2 from their grip!", list(declent_ru(), user)), // SS220 EDIT ADDICTION
+	SPAN_XENOWARNING("We release $1 from our grip!", list(user)), null, 5) // SS220 EDIT ADDICTION
 	playsound(src, 'sound/voice/alien_growl1.ogg', 15)
 	log_interact(src, user, "[key_name(src)] released [key_name(user)] at [get_area_name(loc)]")
 	if(stuns)

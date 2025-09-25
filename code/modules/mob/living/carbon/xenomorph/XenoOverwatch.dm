@@ -74,7 +74,7 @@
 		UnregisterSignal(src, COMSIG_MOB_MOVE_OR_LOOK)
 
 		if(oldXeno)
-			to_chat(src, SPAN_XENOWARNING("We stop watching [oldXeno]."))
+			to_chat(src, SPAN_XENOWARNING("We stop watching $1.", list(oldXeno))) // SS220 EDIT ADDICTION
 			UnregisterSignal(oldXeno, COMSIG_PARENT_QDELETING)
 			if(!QDELETED(oldXeno))
 				oldXeno.hud_set_queen_overwatch()

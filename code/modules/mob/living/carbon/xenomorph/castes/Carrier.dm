@@ -183,7 +183,7 @@
 		if(huggers_cur)
 			//Hugger explosion, like an egg morpher
 			var/obj/item/clothing/mask/facehugger/hugger
-			visible_message(SPAN_XENOWARNING("The chittering mass of tiny aliens is trying to escape [src]!"))
+			visible_message(SPAN_XENOWARNING("The chittering mass of tiny aliens is trying to escape $1!", list(declent_ru()))) // SS220 EDIT ADDICTION
 			for(var/i in 1 to huggers_cur)
 				if(prob(chance))
 					hugger = new(loc, hivenumber)
@@ -311,8 +311,8 @@
 			A.update_button_icon()
 		drop_inv_item_on_ground(F)
 		F.throw_atom(T, 4, caste.throwspeed)
-		visible_message(SPAN_XENOWARNING("\The [src] throws something towards \the [T]!"),
-			SPAN_XENOWARNING("We throw a facehugger towards \the [T]!"))
+		visible_message(SPAN_XENOWARNING("$1 throws something towards $2!", list(declent_ru(), T)), // SS220 EDIT ADDICTION
+			SPAN_XENOWARNING("We throw a facehugger towards $1!", list(T))) // SS220 EDIT ADDICTION
 		spawn(caste.hugger_delay)
 			threw_a_hugger = 0
 			for(var/X in actions)

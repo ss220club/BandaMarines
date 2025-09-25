@@ -86,13 +86,13 @@
 		return
 
 	if(get_dist_sqrd(target, xeno) > 2)
-		to_chat(xeno, SPAN_XENOWARNING("[target] is too far away!"))
+		to_chat(xeno, SPAN_XENOWARNING("$1 is too far away!", list(target))) // SS220 EDIT ADDICTION
 		return
 
 	var/mob/living/carbon/carbon = target
 
 	if(carbon.stat == DEAD)
-		to_chat(xeno, SPAN_XENOWARNING("[carbon] is dead, why would we want to touch them?"))
+		to_chat(xeno, SPAN_XENOWARNING("$1 is dead, why would we want to touch them?", list(carbon))) // SS220 EDIT ADDICTION
 		return
 	if(targeting == SINGLETARGETGUT) // single target
 		ADD_TRAIT(carbon, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Devastate"))
@@ -205,7 +205,7 @@
 
 	if(!action_cooldown_check())
 		if(twitch_message_cooldown < world.time )
-			predalien_smash.visible_message(SPAN_XENOWARNING("[predalien_smash]'s muscles twitch."), SPAN_XENOWARNING("Our claws twitch as we try to grab onto the target but lack the strength. Wait a moment to try again."))
+			predalien_smash.visible_message(SPAN_XENOWARNING("$1's muscles twitch.", list(predalien_smash)), SPAN_XENOWARNING("Our claws twitch as we try to grab onto the target but lack the strength. Wait a moment to try again.")) // SS220 EDIT ADDICTION
 			twitch_message_cooldown = world.time + 5 SECONDS
 		return //this gives a little feedback on why your lunge didn't hit other than the lunge button going grey. Plus, it might spook marines that almost got lunged if they know why the message appeared, and extra spookiness is always good.
 
@@ -247,7 +247,7 @@
 		animate(carbon, pixel_y = 0, time = 4, easing = BOUNCE_EASING) //animates the smash
 		carbon.apply_armoured_damage(get_xeno_damage_slash(carbon, smash_damage + smash_scale * predalienbehavior.kills), ARMOR_MELEE, BRUTE, "chest", 20)
 	else
-		predalien_smash.visible_message(SPAN_XENOWARNING("[predalien_smash]'s claws twitch."), SPAN_XENOWARNING("We couldn't grab our target. Wait a moment to try again."))
+		predalien_smash.visible_message(SPAN_XENOWARNING("$1's claws twitch.", list(predalien_smash)), SPAN_XENOWARNING("We couldn't grab our target. Wait a moment to try again.")) // SS220 EDIT ADDICTION
 
 	return ..()
 
@@ -278,8 +278,8 @@
 				return
 
 		if(should_neckgrab && living_mob.mob_size < MOB_SIZE_BIG)
-			visible_message(SPAN_XENOWARNING("[src] grabs [living_mob] by the back of their leg and slams them onto the ground!"),
-			SPAN_XENOWARNING("We grab [living_mob] by the back of their leg and slam them onto the ground!")) // more flair
+			visible_message(SPAN_XENOWARNING("$1 grabs $2 by the back of their leg and slams them onto the ground!", list(declent_ru(), living_mob)), // SS220 EDIT ADDICTION
+			SPAN_XENOWARNING("We grab $1 by the back of their leg and slam them onto the ground!", list(living_mob))) // more flair // SS220 EDIT ADDICTION
 			smashing = TRUE
 			living_mob.drop_held_items()
 			var/duration = get_xeno_stun_duration(living_mob, 1)

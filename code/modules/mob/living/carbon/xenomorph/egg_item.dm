@@ -116,15 +116,15 @@
 
 	var/datum/hive_status/hive = GLOB.hive_datum[hivenumber]
 	if(!any_weeds && !hive_weeds) //you need at least some weeds to plant on.
-		to_chat(user, SPAN_XENOWARNING("[src] must be planted on [lowertext(hive.prefix)]weeds."))
+		to_chat(user, SPAN_XENOWARNING("$1 must be planted on $2weeds.", list(declent_ru(), lowertext(hive.prefix)))) // SS220 EDIT ADDICTION
 		return
 
 	if(!hive_weeds && needs_hive_weeds)
-		to_chat(user, SPAN_XENOWARNING("[src] can only be planted on [lowertext(hive.prefix)]hive weeds."))
+		to_chat(user, SPAN_XENOWARNING("$1 can only be planted on $2hive weeds.", list(declent_ru(), lowertext(hive.prefix)))) // SS220 EDIT ADDICTION
 		return
 
 	if(istype(get_area(T), /area/interior))
-		to_chat(user, SPAN_XENOWARNING("[src] cannot be planted inside a vehicle."))
+		to_chat(user, SPAN_XENOWARNING("$1 cannot be planted inside a vehicle.", list(declent_ru()))) // SS220 EDIT ADDICTION
 		return
 
 	for(var/obj/object in T.contents)
@@ -132,7 +132,7 @@
 			continue
 		var/obj/effect/alien/egg/xeno_egg = /obj/effect/alien/egg
 		if(object.layer > initial(xeno_egg.layer))
-			to_chat(user, SPAN_XENOWARNING("[src] cannot be planted below objects that would obscure it."))
+			to_chat(user, SPAN_XENOWARNING("$1 cannot be planted below objects that would obscure it.", list(declent_ru()))) // SS220 EDIT ADDICTION
 			return
 
 	user.visible_message(SPAN_XENONOTICE("$1 starts planting $2.", list(user, declent_ru())), SPAN_XENONOTICE("You start planting $1.", list(declent_ru())), null, 5) // SS220 EDIT ADDICTION
@@ -159,7 +159,7 @@
 			else if(weed.weed_strength >= WEED_LEVEL_STANDARD)
 				newegg = new /obj/effect/alien/egg/carrier_egg(T,hivenumber, user)
 			else
-				to_chat(user, SPAN_XENOWARNING("[src] can't be planted on these weeds."))
+				to_chat(user, SPAN_XENOWARNING("$1 can't be planted on these weeds.", list(declent_ru()))) // SS220 EDIT ADDICTION
 				return
 
 			newegg.flags_embryo = flags_embryo
@@ -192,7 +192,7 @@
 		return XENO_NO_DELAY_ACTION
 	if(user.caste.can_hold_eggs == CAN_HOLD_TWO_HANDS)
 		if(user.r_hand || user.l_hand)
-			to_chat(user, SPAN_XENOWARNING("You need two hands to hold [src]."))
+			to_chat(user, SPAN_XENOWARNING("You need two hands to hold $1.", list(declent_ru()))) // SS220 EDIT ADDICTION
 		else
 			attack_hand(user)
 		return XENO_NO_DELAY_ACTION

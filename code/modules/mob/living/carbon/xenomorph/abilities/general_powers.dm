@@ -385,7 +385,7 @@
 	target.set_state(RESIN_TRAP_ACID1 + acid_level - 1)
 
 	playsound(target, 'sound/effects/refill.ogg', 25, 1)
-	visible_message(SPAN_XENOWARNING("[src] pressurises the resin trap with acid!"),
+	visible_message(SPAN_XENOWARNING("$1 pressurises the resin trap with acid!", list(declent_ru())), // SS220 EDIT ADDICTION
 	SPAN_XENOWARNING("You pressurise the resin trap with acid!"), null, 5)
 	return TRUE
 
@@ -409,7 +409,7 @@
 	if(!pheromone)
 		if(current_aura)
 			current_aura = null
-			visible_message(SPAN_XENOWARNING("\The [src] stops emitting pheromones."),
+			visible_message(SPAN_XENOWARNING("$1 stops emitting pheromones.", list(declent_ru())), // SS220 EDIT ADDICTION
 			SPAN_XENOWARNING("We stop emitting pheromones."), null, 5)
 		else
 			if(!check_plasma(emit_cost))
@@ -432,15 +432,15 @@
 					return
 	if(pheromone)
 		if(pheromone == current_aura)
-			to_chat(src, SPAN_XENOWARNING("We are already emitting [pheromone] pheromones!"))
+			to_chat(src, SPAN_XENOWARNING("We are already emitting $1 pheromones!", list(pheromone))) // SS220 EDIT ADDICTION
 			return
 		if(!check_plasma(emit_cost))
 			to_chat(src, SPAN_XENOWARNING("We do not have enough plasma!"))
 			return
 		use_plasma(emit_cost)
 		current_aura = pheromone
-		visible_message(SPAN_XENOWARNING("\The [src] begins to emit strange-smelling pheromones."),
-		SPAN_XENOWARNING("We begin to emit '[pheromone]' pheromones."), null, 5)
+		visible_message(SPAN_XENOWARNING("$1 begins to emit strange-smelling pheromones.", list(declent_ru())), // SS220 EDIT ADDICTION
+		SPAN_XENOWARNING("We begin to emit '$1' pheromones.", list(pheromone)), null, 5) // SS220 EDIT ADDICTION
 		SEND_SIGNAL(src, COMSIG_XENO_START_EMIT_PHEROMONES, pheromone)
 		playsound(loc, "alien_drool", 25)
 
@@ -461,7 +461,7 @@
 		return
 
 	if(!isturf(X.loc))
-		to_chat(X, SPAN_XENOWARNING("We can't [action_text] from here!"))
+		to_chat(X, SPAN_XENOWARNING("We can't $1 from here!", list(action_text))) // SS220 EDIT ADDICTION
 		return
 
 	if(!X.check_state())
@@ -519,7 +519,7 @@
 			X.anchored = FALSE
 		post_windup_effects()
 
-	X.visible_message(SPAN_XENOWARNING("\The [X] [action_text][findtext(action_text, "e", -1) || findtext(action_text, "p", -1) ? "s" : "es"] at [A]!"), SPAN_XENOWARNING("We [action_text] at [A]!"))
+	X.visible_message(SPAN_XENOWARNING("$1 $2[findtext(action_text, "e", -1) || findtext(action_text, "p", -1) ? "s" : "es"] at $3!", list(X, action_text, A)), SPAN_XENOWARNING("We $1 at $2!", list(action_text, A))) // SS220 EDIT ADDICTION
 
 	pre_pounce_effects()
 
@@ -548,7 +548,7 @@
 		return
 
 	if(!isturf(X.loc))
-		to_chat(X, SPAN_XENOWARNING("We can't [action_text] from here!"))
+		to_chat(X, SPAN_XENOWARNING("We can't $1 from here!", list(action_text))) // SS220 EDIT ADDICTION
 		return
 
 	if(!X.check_state() || X.action_busy)
@@ -569,7 +569,7 @@
 		return
 
 	playsound(get_turf(X), 'sound/effects/refill.ogg', 25, 1)
-	X.visible_message(SPAN_XENOWARNING("[X] vomits a flood of acid!"), SPAN_XENOWARNING("We vomit a flood of acid!"), null, 5)
+	X.visible_message(SPAN_XENOWARNING("$1 vomits a flood of acid!", list(X)), SPAN_XENOWARNING("We vomit a flood of acid!"), null, 5) // SS220 EDIT ADDICTION
 
 	apply_cooldown()
 
@@ -908,9 +908,9 @@
 		spitting = FALSE
 		return
 
-	xeno.visible_message(SPAN_XENOWARNING("[xeno] spits at [atom]!"),
+	xeno.visible_message(SPAN_XENOWARNING("$1 spits at $2!", list(xeno, atom)), // SS220 EDIT ADDICTION
 
-	SPAN_XENOWARNING("We spit [xeno.ammo.name] at [atom]!") )
+	SPAN_XENOWARNING("We spit $1 at $2!", list(xeno.ammo.name, atom)) ) // SS220 EDIT ADDICTION
 	playsound(xeno.loc, sound_to_play, 25, 1)
 
 	var/obj/projectile/proj = new (current_turf, create_cause_data(xeno.ammo.name, xeno))
@@ -1102,7 +1102,7 @@
 		return ..()
 
 	if(!isxeno_human(targetted_atom))
-		stabbing_xeno.visible_message(SPAN_XENOWARNING("\The [stabbing_xeno] swipes their tail through the air!"), SPAN_XENOWARNING("We swipe our tail through the air!"))
+		stabbing_xeno.visible_message(SPAN_XENOWARNING("$1 swipes their tail through the air!", list(stabbing_xeno)), SPAN_XENOWARNING("We swipe our tail through the air!")) // SS220 EDIT ADDICTION
 		apply_cooldown(cooldown_modifier = 0.1)
 		xeno_attack_delay(stabbing_xeno)
 		playsound(stabbing_xeno, "alien_tail_swipe", 50, TRUE)
@@ -1146,7 +1146,7 @@
 	var/stab_overlay
 
 	if(blunt_stab)
-		stabbing_xeno.visible_message(SPAN_XENOWARNING("\The [stabbing_xeno] swipes its tail into [target]'s [limb ? limb.display_name : "chest"], bashing it!"), SPAN_XENOWARNING("We swipe our tail into [target]'s [limb? limb.display_name : "chest"], bashing it!"))
+		stabbing_xeno.visible_message(SPAN_XENOWARNING("$1 swipes its tail into $2's $3, bashing it!", list(stabbing_xeno, target, limb ? declent_ru_initial(limb.display_name, DATIVE, limb.display_name) : "груди")), SPAN_XENOWARNING("We swipe our tail into $1's $2, bashing it!", list(target, limb ? declent_ru_initial(limb.display_name, DATIVE, limb.display_name) : "груди"))) // SS220 EDIT ADDICTION
 		if(prob(1))
 			playsound(target, 'sound/effects/comical_bonk.ogg', 50, TRUE)
 		else
@@ -1155,7 +1155,7 @@
 		stab_direction = turn(stabbing_xeno.dir, pick(90, -90))
 		stab_overlay = "slam"
 	else
-		stabbing_xeno.visible_message(SPAN_XENOWARNING("\The [stabbing_xeno] skewers [target] through the [limb ? limb.display_name : "chest"] with its razor sharp tail!"), SPAN_XENOWARNING("We skewer [target] through the [limb? limb.display_name : "chest"] with our razor sharp tail!"))
+		stabbing_xeno.visible_message(SPAN_XENOWARNING("$1 skewers $2 through the $3 with its razor sharp tail!", list(stabbing_xeno, target, limb ? declent_ru_initial(limb.display_name, ACCUSATIVE, limb.display_name) : "грудь")), SPAN_XENOWARNING("We skewer $1 through the $2 with our razor sharp tail!", list(target, limb ? declent_ru_initial(limb.display_name, ACCUSATIVE, limb.display_name) : "грудь"))) // SS220 EDIT ADDICTION
 		playsound(target, "alien_bite", 50, TRUE)
 		// The xeno flips around for a second to impale the target with their tail. These look awsome.
 		stab_direction = turn(get_dir(stabbing_xeno, target), 180)

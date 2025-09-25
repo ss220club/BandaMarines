@@ -330,7 +330,7 @@
 	target.set_state(RESIN_TRAP_GAS)
 
 	playsound(target, 'sound/effects/refill.ogg', 25, 1)
-	visible_message(SPAN_XENOWARNING("[src] pressurises the resin trap with acid gas!"),
+	visible_message(SPAN_XENOWARNING("$1 pressurises the resin trap with acid gas!", list(declent_ru())), // SS220 EDIT ADDICTION
 	SPAN_XENOWARNING("You pressurise the resin trap with acid gas!"), null, 5)
 	return TRUE
 

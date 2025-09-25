@@ -373,7 +373,7 @@
 
 /datum/action/xeno_action/proc/start_charging_ability()
 	charge_timer_id = addtimer(CALLBACK(src, PROC_REF(finish_charging_ability)), charge_time, TIMER_UNIQUE|TIMER_STOPPABLE)
-	to_chat(owner, SPAN_XENOWARNING("We start charging up our <b>[name]</b>!"))
+	to_chat(owner, SPAN_XENOWARNING("We start charging up our <b>$1</b>!", list(name))) // SS220 EDIT ADDICTION
 
 /datum/action/xeno_action/proc/finish_charging_ability()
 	charge_timer_id = TIMER_ID_NULL

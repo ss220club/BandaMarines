@@ -169,25 +169,25 @@
 		return
 	if(!ready)
 		balloon_alert(user, SPAN_TRANSLATE("take out the $1.", list(ru_name_fluff_tool))) // SS220 EDIT ADDICTION
-		to_chat(user, SPAN_WARNING("Take $1's $2 out first.", list(declent_ru(GENITIVE), fluff_tool))) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_WARNING("Take $1's $2 out first.", list(declent_ru(GENITIVE), ru_name_fluff_tool))) // SS220 EDIT ADDICTION
 		return
 	if(dcell.charge < charge_cost)
 		user.visible_message(SPAN_WARNING("$1 buzzes: Battery is too low! It needs to recharge.", list(ru_name))) // SS220 EDIT ADDICTION
 		return
 	if(H.stat != DEAD)
-		user.visible_message(SPAN_WARNING("$1 buzzes: Vital signs detected. Aborting.")) // SS220 EDIT ADDICTION
+		user.visible_message(SPAN_WARNING("$1 buzzes: Vital signs detected. Aborting.", list(ru_name))) // SS220 EDIT ADDICTION
 		return
 
 	if(!H.is_revivable())
-		user.visible_message(SPAN_WARNING("$1 buzzes: Patient's general condition does not allow reviving.")) // SS220 EDIT ADDICTION
+		user.visible_message(SPAN_WARNING("$1 buzzes: Patient's general condition does not allow reviving.", list(ru_name))) // SS220 EDIT ADDICTION
 		return
 
 	if((!MODE_HAS_MODIFIER(/datum/gamemode_modifier/defib_past_armor) && blocked_by_suit) && H.wear_suit && (istype(H.wear_suit, /obj/item/clothing/suit/armor) || istype(H.wear_suit, /obj/item/clothing/suit/storage/marine)) && prob(95))
-		user.visible_message(SPAN_WARNING("$1 buzzes: Paddles registering >100,000 ohms, Possible cause: Suit or Armor interfering.")) // SS220 EDIT ADDICTION
+		user.visible_message(SPAN_WARNING("$1 buzzes: Paddles registering >100,000 ohms, Possible cause: Suit or Armor interfering.", list(ru_name))) // SS220 EDIT ADDICTION
 		return
 
 	if(!H.check_tod())
-		user.visible_message(SPAN_WARNING("$1 buzzes: Patient is braindead.")) // SS220 EDIT ADDICTION
+		user.visible_message(SPAN_WARNING("$1 buzzes: Patient is braindead.", list(ru_name))) // SS220 EDIT ADDICTION
 		return
 
 	return TRUE

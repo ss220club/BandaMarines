@@ -22,19 +22,19 @@
 	if(use_plasma && !check_plasma(total_resin_cost))
 		return SECRETE_RESIN_FAIL
 	if(SSinterior.in_interior(src))
-		to_chat(src, SPAN_XENOWARNING("Здесь слишком тесно для постройки."))
+		to_chat(src, SPAN_XENOWARNING("It's too tight in here to build."))
 		return SECRETE_RESIN_FAIL
 
 	if(resin_construct.max_per_xeno != RESIN_CONSTRUCTION_NO_MAX)
 		var/current_amount = length(built_structures[resin_construct.build_path])
 		if(current_amount >= resin_construct.max_per_xeno)
-			to_chat(src, SPAN_XENOWARNING("Мы уже построили максимум возможных конструкций!"))
+			to_chat(src, SPAN_XENOWARNING("We've already built the maximum possible structures we can!"))
 			return SECRETE_RESIN_FAIL
 
 	var/turf/current_turf = get_turf(target)
 
 	if(extra_build_dist != IGNORE_BUILD_DISTANCE && get_dist(src, target) > src.caste.max_build_dist + extra_build_dist) // Hivelords and eggsac carriers have max_build_dist of 1, drones and queens 0
-		to_chat(src, SPAN_XENOWARNING("Мы не можем строить так далеко!"))
+		to_chat(src, SPAN_XENOWARNING("We can't build from that far!"))
 		return SECRETE_RESIN_FAIL
 	else if(thick) //hivelords can thicken existing resin structures.
 		var/thickened = FALSE
@@ -42,15 +42,15 @@
 			var/turf/closed/wall/resin/wall = target
 
 			if(istype(target, /turf/closed/wall/resin/weak))
-				to_chat(src, SPAN_XENOWARNING("[capitalize(wall.declent_ru())] слишком хлипкая, чтобы ее можно было укрепить."))
+				to_chat(src, SPAN_XENOWARNING("$1 is too flimsy to be reinforced.", list(capitalize(wall.declent_ru())))) // SS220 EDIT ADDICTION
 				return SECRETE_RESIN_FAIL
 
 			for(var/datum/effects/xeno_structure_reinforcement/sf in wall.effects_list)
-				to_chat(src, SPAN_XENOWARNING("Лишняя смола мешает нам укрепить [wall.declent_ru(ACCUSATIVE)]. Подождите, пока она не пропадет."))
+				to_chat(src, SPAN_XENOWARNING("The extra resin is preventing us from reinforcing $1. Wait until it elapse.", list(wall.declent_ru(ACCUSATIVE)))) // SS220 EDIT ADDICTION
 				return SECRETE_RESIN_FAIL
 
 			if (wall.hivenumber != hivenumber)
-				to_chat(src, SPAN_XENOWARNING("[capitalize(wall.declent_ru())] не принадлежит вашему улью!"))
+				to_chat(src, SPAN_XENOWARNING("$1 doesn't belong to your hive!", list(capitalize(wall.declent_ru())))) // SS220 EDIT ADDICTION
 				return SECRETE_RESIN_FAIL
 
 			if(wall.type == /turf/closed/wall/resin)
@@ -60,18 +60,18 @@
 				wall.ChangeTurf(/turf/closed/wall/resin/membrane/thick)
 				total_resin_cost = XENO_THICKEN_MEMBRANE_COST
 			else
-				to_chat(src, SPAN_XENOWARNING("[capitalize(wall.declent_ru(ACCUSATIVE))] нельзя сделать плотнее."))
+				to_chat(src, SPAN_XENOWARNING("$1 can't be made thicker.", list(capitalize(wall.declent_ru(ACCUSATIVE))))) // SS220 EDIT ADDICTION
 				return SECRETE_RESIN_FAIL
 			thickened = TRUE
 
 		else if(istype(target, /obj/structure/mineral_door/resin))
 			var/obj/structure/mineral_door/resin/door = target
 			if (door.hivenumber != hivenumber)
-				to_chat(src, SPAN_XENOWARNING("[capitalize(door.declent_ru())] не принадлежит вашему улью!"))
+				to_chat(src, SPAN_XENOWARNING("$1 doesn't belong to your hive!", list(capitalize(door.declent_ru())))) // SS220 EDIT ADDICTION
 				return SECRETE_RESIN_FAIL
 
 			for(var/datum/effects/xeno_structure_reinforcement/sf in door.effects_list)
-				to_chat(src, SPAN_XENOWARNING("Лишняя смола мешает нам укрепить [door.declent_ru(ACCUSATIVE)]. Подождите, пока она не пропадет."))
+				to_chat(src, SPAN_XENOWARNING("The extra resin is preventing us from reinforcing $1. Wait until it elapse.", list(door.declent_ru(ACCUSATIVE)))) // SS220 EDIT ADDICTION
 				return SECRETE_RESIN_FAIL
 
 			if(door.hardness == 1.5) //non thickened
@@ -80,7 +80,7 @@
 				new /obj/structure/mineral_door/resin/thick (oldloc, door.hivenumber)
 				total_resin_cost = XENO_THICKEN_DOOR_COST
 			else
-				to_chat(src, SPAN_XENOWARNING("[capitalize(door.declent_ru(ACCUSATIVE))] нельзя сделать плотнее."))
+				to_chat(src, SPAN_XENOWARNING("$1 can't be made thicker.", list(capitalize(door.declent_ru(ACCUSATIVE))))) // SS220 EDIT ADDICTION
 				return SECRETE_RESIN_FAIL
 			thickened = TRUE
 
@@ -245,12 +245,12 @@
 		return
 	var/found_weeds = FALSE
 	if(!selected_mark)
-		to_chat(src, SPAN_NOTICE("Прежде чем сделать метку, нужно придать ей смысл."))
+		to_chat(src, SPAN_NOTICE("We must have a meaning for the mark before you can make it."))
 		hive.mark_ui.open_mark_menu(src)
 		return FALSE
 
 	if(!SSmapping.same_z_map(z, target_turf.loc.z))
-		to_chat(src, SPAN_XENOWARNING("Наш разум не может достичь так далеко."))
+		to_chat(src, SPAN_XENOWARNING("Our mind cannot reach that far."))
 		return
 
 	if(!(istype(target_turf)) || target_turf.density)

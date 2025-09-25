@@ -896,7 +896,7 @@
 
 "You have been noted by $1." = "Вас отметил $1."
 "The note is : $1" = "Заметка: $1"
-"If you believe this was filed in error or misplaced, make a staff report at <a href=$1><b>The CM Forums</b></a>" = "Если вы считаете, что это было сделано по ошибке или неуместно, создайте отчёт для администрации на <a href=$1><b>Форуме CM</b></a>"
+"If you believe this was filed in error or misplaced, make a staff report at <a href=$1><b>The CM Forums</b></a>" = "Если вы считаете, что это было сделано по ошибке или неуместно, создайте отчёт для администрации на нашем <a href=$1><b>Discord-сервере SS220</b></a>"
 "You can also click the name of the staff member noting you to PM them." = "Вы также можете нажать на имя сотрудника, чтобы отправить ему личное сообщение."
 
 # Mark: code/game/gamemodes/game_mode.dm
@@ -943,11 +943,11 @@
 
 "The $1 has banished you from the hive! Other xenomorphs may now attack you freely, but your link to the hivemind remains, preventing you from harming other sisters." = "Королева $1 изгнала тебя из улья! Теперь другие ксеноморфы могут свободно нападать на тебя, но твоя связь с коллективным разумом улья остаётся, не позволяя тебе причинять вред другим сёстрам."
 "The $1 has readmitted you into the hive." = "Королева $1 приняла вас обратно в улей."
-"You're still recovering from detaching your old ovipositor. Wait $1." = "Вы всё ещё восстанавливаетесь после отделения старой кладки яиц. Подождите $1."
+"You're still recovering from detaching your old ovipositor. Wait $1." = "Вы всё ещё восстанавливаетесь после отделения от яйцеклада. Подождите $1."
 "You need to be on resin to grow an ovipositor." = "Вам нужно быть на смоле, чтобы создать яйцеклад."
 "It's too tight in here to grow an ovipositor." = "Здесь слишком тесно, чтобы создать яйцеклад."
 "These weeds don't belong to your hive! You can't grow an ovipositor here." = "Эта трава не принадлежат вашему улью! Вы не можете создать яйцеклад здесь."
-"This area is not right for you to grow an ovipositor in." = "Это место не подходит для создания кладки яиц."
+"This area is not right for you to grow an ovipositor in." = "Это место не подходит для создания яйцеклада."
 "$1 starts to grow an ovipositor." = "$1 начинает создавать яйцеклад..."
 "You start to grow an ovipositor...(takes 20 seconds, hold still)" = "Вы начинаете создавать яйцеклад... (это займёт 20 секунд, не двигайтесь)"
 "$1 has grown an ovipositor!" = "$1 создала яйцеклад!"
@@ -966,6 +966,37 @@
 "You channel your plasma to heal your sisters' wounds around this area." = "Вы направляете свою плазму, чтобы исцелить раны ваших сестер в этой области."
 "No boons are available to us!" = "Нет доступных благословений!"
 "$1 emits an ear-splitting guttural roar!" = "$1 издаёт оглушительный хриплый рёв!"
+"$1 can't be deevolved here." = "$1 не может быть регрессирован здесь."
+"$1 is too weak to be deevolved." = "$1 слишком слаб, чтобы быть регрессированным."
+"$1 can't be deevolved." = "$1 не может быть регрессирован."
+"$1 is banished and can't be deevolved." = "$1 изгнан и не может быть регрессирован."
+"You cannot deevolve xenomorphs to larva." = "Вы не можете регрессировать ксеноморфов до грудоломов."
+"You must provide a reason for deevolving $1." = "Вы должны указать причину регрессирования $1."
+"The queen is deevolving you for the following reason: $1" = "Королева регрессировала вас по причине: $1"
+"$1 starts detaching itself from its ovipositor!" = "$1 начинает отделяться от своего яйцеклада!"
+"You start detaching yourself from your ovipositor." = "Вы начинаете отделяться от своего яйцеклада."
+"You are too far away to do this here." = "Вы слишком далеко, чтобы сделать это здесь."
+"You must give some time for larva to spawn before sacrificing them. Please wait another $1 minutes." = "Вы должны дать немного времени для появления грудоломов, прежде чем жертвовать ими. Пожалуйста, подождите ещё $1 минут."
+"You cannot give evolution points to yourself." = "Вы не можете дать очки эволюции себе."
+"This xenomorph is already ready to evolve!" = "Этот ксеноморф уже эволюционирует!"
+"This xenomorph doesn't belong to your hive!" = "Этот ксеноморф не принадлежит вашему улью!"
+"What's the point? They're about to die." = "В чём смысл? Они вот-вот умрут."
+"You need at least $1 burrowed larva to sacrifice one for evolution points." = "Вам нужно как минимум $1 зарывшихся грудоломов, чтобы пожертвовать одного ради очков эволюции."
+"$1 has given you evolution points! Use them well." = "$1 дала вам очки эволюции! Используйте их с умом."
+"$1 was given $2 evolution points." = "$1 получил $2 очков эволюции."
+"You cannot banish yourself." = "Вы не можете изгнать самого себя."
+"This xenomorph is already banished!" = "Этот ксеноморф уже изгнан!"
+"What's the point? They're already about to die." = "В чём смысл? Они вот-вот умрут."
+"You must provide a reason for banishing $1." = "Вы должны указать причину изгнания $1."
+"By $1's will, $2 has been banished from the hive!<br><br>$3" = "По воле $1, $2 изгоняется из улья!<br><br>$3"
+"You can't do that here." = "Вы не можете сделать это здесь."
+"This area is unsuited to host the hive." = "Эта область не подходит для размещения улья."
+"There's already a node here." = "Здесь уже есть узел."
+"There's already stronger weeds here." = "Здесь уже есть более сильная трава."
+"You plant a node at $1" = "Вы сажаете узел в $1"
+"You can only plant weeds if there is a nearby node." = "Вы можете сажать траву только если рядом есть узел."
+"You've recently built here already." = "Вы недавно уже строили здесь."
+"You plant weeds at $1" = "Вы сажаете траву в $1"
 
 # Mark: code/modules/shuttles/marine_ferry.dm
 
@@ -1256,6 +1287,20 @@
 "A thick substance emerges from the ground and shapes into $1." = "Из земли появляется густая субстанция и формируется в $1."
 "We designate a new $1 construction. ($2/$3 remaining)" = "Мы обозначаем новую конструкцию $1 (осталось $2/$3)."
 "Theres not enough space there for a resin mark." = "Там недостаточно места для смоляной метки."
+"It's too tight in here to build." = "Здесь слишком тесно для постройки."
+"We've already built the maximum possible structures we can!" = "Мы уже построили максимум возможных конструкций!"
+"We can't build from that far!" = "Мы не можем строить так далеко!"
+"$1 is too flimsy to be reinforced." = "$1 слишком хлипкая, чтобы её можно было укрепить."
+"The extra resin is preventing us from reinforcing $1. Wait until it elapse." = "Лишняя смола мешает нам укрепить $1. Подождите, пока она не пропадёт."
+"$1 doesn't belong to your hive!" = "$1 не принадлежит вашему улью!"
+"$1 can't be made thicker." = "$1 нельзя сделать плотнее."
+"This node only accepts sturdy walls or doors." = "Этот узел принимает только прочные стены или двери."
+"What would that achieve?!" = "Чего бы это достигло?!"
+"We must have a meaning for the mark before you can make it." = "Прежде чем создать метку, нужно придать ей смысл."
+"Our mind cannot reach that far." = "Наш разум не может достать так далеко."
+"$1 spits at $2!" = "$1 плюёт в $2!"
+"We spit $1 at $2!" = "Мы плюём $1 в $2!"
+"We must be above ground to do this." = "Мы должны быть над землёй, чтобы сделать это."
 
 # Mark: code/modules/mob/living/carbon/xenomorph/castes/Burrower.dm
 
@@ -1273,6 +1318,17 @@
 "Our tunnel caves in as we stop digging it." = "Наш туннель обрушивается, когда мы перестаем его копать."
 "$1 digs out a tunnel entrance." = "$1 выкапывает вход в туннель."
 "We dig out an entrance to the tunnel network." = "Мы выкапываем вход в сеть туннелей."
+"There's no way to burrow here." = "Здесь нет возможности выкопать туннель."
+"We can't escape this cell!" = "Мы не можем выбраться из этой камеры!"
+"We can't burrow here!"	= "Мы не можем выкопать туннель здесь!"
+"We begin burrowing ourselves into the ground." = "Мы начинаем зарываться в землю."
+"We burrow ourselves into the ground." = "Мы зарываемся в землю."
+"We can't tunnel into a solid wall!" = "Мы не можем прокопать туннель в сплошной стене!"
+"We make tunnels, not wormholes!" = "Мы делаем туннели, а не червоточины!"
+"There's no way to tunnel over there." = "Там нет возможности прокопать туннель."
+"We must be above ground to do this." = "Мы должны быть над землёй, чтобы сделать это."
+"We dig ourselves into the ground and cause tremors." = "Мы зарываемся в землю и вызываем дрожь."
+"We need an empty claw for this!" = "Нам нужен свободный коготь для этого!"
 
 # Mark: code/modules/mob/living/carbon/xenomorph/castes/Carrier.dm
 
@@ -1293,6 +1349,9 @@
 "We reserve $1 facehuggers for ourself." = "Мы резервируем $1 грудоломов для себя."
 "We stop filling $1 with our children." = "Мы перестаём наполнять $1 нашими детьми."
 "We need to be closer to do that." = "Нам нужно быть ближе, чтобы сделать это."
+"$1 throws something towards $2!" = "$1 бросает что-то в сторону $2!"
+"We throw a facehugger towards $1!" = "Мы бросаем грудолома в сторону $1!"
+
 
 # Mark: code/modules/mob/living/carbon/xenomorph/castes/Queen.dm
 
@@ -1526,6 +1585,13 @@
 
 "$1 starts planting $2." = "$1 начинает сажать $2."
 "You start planting $1." = "Вы начинаете сажать $1."
+"Your hive cannot procreate." = "Ваш улей не может размножаться."
+"$1 must be planted on $2weeds." = "$1 должен быть посажен на $2траву."
+"$1 can only be planted on $2hive weeds." = "$1 можно посадить только на $2траву улья."
+"$1 cannot be planted inside a vehicle." = "$1 нельзя посадить внутри транспортного средства."
+"$1 cannot be planted below objects that would obscure it." = "$1 нельзя посадить под объекты, которые его закроют."
+"$1 can't be planted on these weeds." = "$1 нельзя посадить на эту траву."
+"You need two hands to hold $1." = "Вам нужны обе руки, чтобы держать $1."
 
 # Mark: code/modules/mob/living/carbon/xenomorph/Evolution.dm
 
@@ -1540,10 +1606,25 @@
 "We emerge in a greater form from the husk of our old body. For the hive!" = "Мы выходим в более совершенной форме из оболочки нашего старого тела. Во имя улья!"
 "We regress into our previous form." = "Мы регрессируем в нашу предыдущую форму."
 "We transmute into a new form." = "Мы превращаемся в новую форму."
+"We can't transmute here." = "Мы не можем трансмутировать здесь."
+"Our link to the hive is being suppressed...we should wait a bit." = "Наша связь с ульем подавляется... нам следует немного подождать."
+"We are too weak to transmute, we must regain our health first." = "Мы слишком слабы, чтобы трансмутировать, нам нужно сначала восстановить здоровье."
+"We can't transmute." = "Мы не можем трансмутировать."
+"We can't transmute while in this stance." = "Мы не можем трансмутировать в этой форме."
+"You can't deevolve here." = "Вы не можете регрессировать здесь."
+"We are too weak to deevolve, we must regain our health first." = "Мы слишком слабы, чтобы регрессировать, нам нужно сначала восстановить здоровье."
+"We can't deevolve any further." = "Мы не можем регрессировать дальше."
+"We are banished and cannot reach the hivemind." = "Мы изгнаны и не можем связаться с коллективным разумом."
+"We can't deevolve." = "Мы не можем регрессировать."
 
 # Mark: code/modules/mob/living/carbon/xenomorph/XenoOverwatch.dm
 
 "That resin mark no longer exists." = "Этой смоляной метки больше не существует."
+"We stop watching $1." = "Мы перестаём следить за $1."
+"We can't watch ourselves!" = "Мы не можем следить за собой!"
+"Our psychic connection is cut off!" = "Наша психическая связь прервана!"
+"Our sister's psychic connection is cut off!" = "Психическая связь нашей сестры прервана!"
+"We cannot do this in our current state!" = "Мы не можем сделать это в нашем текущем состоянии!"
 
 # Mark: code/modules/mob/living/carbon/xenomorph/XenoProcs.dm
 
@@ -1570,6 +1651,12 @@
 "$1 throws us down after withstanding the pounce!" = "$1 сбивает нас с ног после того, как выдержал прыжок!"
 "$1 $2 onto $3!" = "$1 $2 на $3!"
 "We $1 onto $2!" = "Мы $1 на $2!"
+"We feel our grip loosen on $1, we will have to release them soon." = "Мы чувствуем, как наша хватка на $1 ослабевает, нам скоро придётся отпустить его."
+"$1 is dead. No more use for them now." = "$1 мёртв. Теперь он больше не представляет интереса."
+"$1 releases $2 from their grip!" = "$1 отпускает $2 из своей хватки!"
+"We release $1 from our grip!" = "Мы отпускаем $1 из нашей хватки!"
+"Our pheromones wane. The Queen is no longer granting us her pheromones." = "Наши феромоны ослабевают. Королева больше не дарит нам свои феромоны."
+"Our pheromones have changed. The Queen has new plans for the Hive." = "Наши феромоны изменились. У Королевы новые планы для улья."
 
 # Mark: code/modules/mob/living/carbon/xenomorph/abilities/general_abilities.dm
 
@@ -1597,11 +1684,48 @@
 "That target is obstructed!" = "Эта цель заблокирована!"
 "That is too far away!" = "Это слишком далеко!"
 "You see a massive ball of acid flying towards you!" = "Вы видите огромный шар кислоты, летящий в вашу сторону!"
+"This area is too far away to affect!" = "Эта область слишком далеко, чтобы на неё повлиять!"
+"We can't place resin markers on living things!" = "Мы не можем размещать смоляные метки на живых существах!"
+"Our psychic link is gone, the Queen is either dead or too far away!" = "Наша психическая связь исчезла, Королева либо мертва, либо слишком далеко."
+"We have reached the maximum number of resin marks." = "Мы достигли максимального количества смоляных меток."
+"$1 pressurises the resin trap with acid!" = "$1 нагнетает давление в смоляной ловушке с помощью кислоты!"
+"You pressurise the resin trap with acid!" = "Вы нагнетаете давление в смоляной ловушке с помощью кислоты!"
+"We are incapable of emitting pheromones!" = "Мы не способны излучать феромоны!"
+"$1 stops emitting pheromones." = "$1 перестаёт излучать феромоны."
+"We stop emitting pheromones." = "Мы перестаём излучать феромоны."
+"We do not have enough plasma!" = "У нас недостаточно плазмы!"
+"We are already emitting $1 pheromones!" = "Мы уже излучаем феромоны $1!"
+"We begin to emit '$1' pheromones." = "Мы начинаем излучать феромоны '$1'."
+"$1 begins to emit strange-smelling pheromones." = "$1 начинает излучать странно пахнущие феромоны."
+"We can't $1 from here!" = "Мы не можем $1 отсюда!"
+"We $1 at $2!" = "Мы $1 в $2!"
+"$1 $2s at $3!" = "$1 $2s в $3!"
+"$1 $2es at $3!" = "$1 $2es в $3!"
+"We decide to cancel our acid spray." = "Мы решаем отменить наше кислотное распыление."
+"$1 vomits a flood of acid!" = "$1 извергает поток кислоты!"
+"We vomit a flood of acid!" = "Мы извергаем поток кислоты!"
+"We can't do that here." = "Мы не можем сделать это здесь."
+"We can only shape on weeds. We must find some resin before we start building!" = "Мы можем строить только на траве. Нам нужно найти смолу, прежде чем начать строительство!"
+"These weeds don't belong to our hive!" = "Эта трава не принадлежит нашему улью!"
+"We cannot make a hole on a staircase!" = "Мы не можем сделать яму на лестнице!"
+"We cannot make a hole on a track!" = "Мы не можем сделать яму на рельсе!"
+"We cannot make a hole on a conveyor!" = "Мы не можем сделать яму на конвейере!"
+"We cannot make a hole on a light!" = "Мы не можем сделать яму на лампе!"
+"We cannot make a hole under the vines!" = "Мы не можем сделать яму под лозами!"
+"This is too close to another resin hole!" = "Это слишком близко к другой смоляной яме!"
+"This is too close to a fruit!" = "Это слишком близко к плоду!"
+"The body is in the way!" = "Тело мешает!"
+"$1 swipes its tail into $2's $3, bashing it!" = "$1 бьёт хвостом по $3 $2, разрушая его!"
+"We swipe our tail into $1's $2, bashing it!" = "Мы бьём хвостом по $2 $1, разрушая его!"
+"$1 skewers $2 through the $3 with its razor sharp tail!" = "$1 пронзает $2 через его $3 своим острым, как бритва, хвостом!"
+"We skewer $1 through the $2 with our razor sharp tail!" = "Мы пронзаем $1 через его $2 своим острым, как бритва, хвостом!"
 
 # Mark: code/modules/mob/living/carbon/xenomorph/abilities/queen/queen_abilities.dm
 
 "It's too early to spread the hive this far." = "Ещё слишком рано распространять улей так далеко."
 "Your boosted building has been disabled!" = "Ваше усиленное строительство было отключено!"
+"You sense this is not a suitable area for expanding the hive." = "Вы чувствуете, что это не подходящее место для расширения улья."
+"You can only shape on weeds. Find some resin before you start building!" = "Вы можете строить только на траве. Найдите смолу, прежде чем начать строительство!"
 
 # Mark: code/modules/mob/living/carbon/xenomorph/castes/Boiler.dm
 
@@ -1615,6 +1739,8 @@
 "We decide to cancel our gas shroud." = "Мы решаем отменить наше кислотное облако."
 "We have charged our acid lance to maximum!" = "Мы зарядили наше кислотное копьё до максимума!"
 "We dump our acid through our pores, creating a shroud of gas!" = "Мы выпускаем нашу кислоту через поры, создавая облако газа!"
+"$1 pressurises the resin trap with acid gas!" = "$1 нагнетает давление в смоляной ловушке с помощью кислотного газа!"
+"You pressurise the resin trap with acid gas!" = "Вы нагнетаете давление в смоляной ловушке с помощью кислотного газа!"
 
 # Mark: code/modules/mob/living/carbon/xenomorph/castes/Facehugger.dm
 
@@ -1801,6 +1927,7 @@
 "You are ready to grow an ovipositor again." = "Вы снова готовы вырастить яйцеклад."
 "You feel your anger return. You are ready to gut again." = "Вы чувствуете, как ваша ярость возвращается. Вы снова готовы потрошить."
 "We feel our strength return! We can use $1 again!" = "Мы чувствуем, как наша сила возвращается! Мы можем снова использовать $1!"
+"We start charging up our <b>$1</b>!" = "Мы начинаем заряжать наше <b>$1</b>!"
 
 # Mark: code/modules/mob/living/carbon/xenomorph/abilities/crusher/crusher_abilities.dm
 
@@ -1810,6 +1937,7 @@
 # Mark: code/modules/mob/living/carbon/xenomorph/abilities/praetorian/praetorian_abilities.dm
 
 "We cancel our acid ball." = "Мы отменяем наш кислотный шар."
+"We lob a compressed ball of acid into the air!" = "Мы забрасываем сжатый шар кислоты в воздух!"
 
 # Mark: code/modules/mob/living/carbon/xenomorph/castes/Crusher.dm
 
@@ -1834,6 +1962,10 @@
 "$1 hunkers down and bolsters its defenses!" = "$1 пригибается и укрепляет свою защиту!"
 "We hunker down and bolster our defenses!" = "Мы пригибаемся и укрепляем нашу защиту!"
 "We feel our enhanced shield end!" = "Мы чувствуем, как наш усиленный щит заканчивается!"
+"$1 rams into $2 and skids to a halt!" = "$1 врезается в $2 и останавливается!"
+"We ram into $1 and skid to a halt!" = "Мы врезаемся в $1 и останавливаемся!"
+"$1 knocks $2 aside!" = "$1 отбрасывает $2 в сторону!"
+"We knock $1 aside." = "Мы отбрасываем $1 в сторону."
 
 # Mark: code/modules/mob/living/carbon/xenomorph/castes/Hellhound.dm
 
@@ -2009,17 +2141,53 @@
 # Mark: code/modules/mob/living/carbon/xenomorph/abilities/ability_helper_procs.dm
 
 "We can move again!" = "Мы снова можем двигаться!"
+"We are unsure which direction to melt through $1. Face it directly and try again." = "Мы не уверены, в каком направлении нужно плавить $1. Повернитесь к нему лицом и попробуйте снова."
+"We begin generating enough acid to melt a hole horizontally through $1." = "Мы начинаем вырабатывать достаточно кислоты, чтобы проделать горизонтальную дыру в $1."
+"We begin generating enough acid to melt a hole vertically through $1." = "Мы начинаем вырабатывать достаточно кислоты, чтобы проделать вертикальную дыру в $1."
+"We begin generating enough acid to melt through $1." = "Мы начинаем вырабатывать достаточно кислоты, чтобы проплавить $1."
+"You cannot dissolve $1." = "Вы не можете растворить $1."
+"$1 is already drenched in acid." = "$1 уже облито кислотой."
+"We can't melt $1 from here!" = "Мы не можем плавить $1 отсюда!"
+"We can't reach $1." = "Мы не можем достать $1."
+"$1 is too far away." = "$1 слишком далеко."
+"$1 vomits globs of vile stuff at $2. It sizzles under the bubbling mess of acid!" = "$1 выплёвывает шары отвратительной субстанции в $2. Они шипят под пузырящейся кислотой!"
+"We vomit globs of vile stuff at $1. It sizzles under the bubbling mess of acid!" = "Мы выплёвываем шары отвратительной субстанции в $1. Они шипят под пузырящейся кислотой!"
+"$1 vomits globs of vile stuff all over $2. It begins to sizzle and melt under the bubbling mess of acid!" = "$1 выплёвывает шары отвратительной субстанции на $2. Они начинают шипеть и плавиться под пузырящейся кислотой!"
+"We vomit globs of vile stuff all over $1. It begins to sizzle and melt under the bubbling mess of acid!" = "Мы выплёвываем шары отвратительной субстанции на $1. Они начинают шипеть и плавиться под пузырящейся кислотой!"
+"$1 has transfered $2 plasma to us. We now have $3." = "$1 передал нам $2 плазмы. Теперь у нас $3."
+"We have transferred $1 plasma to $2. We now have $3." = "Мы передали $1 плазмы $2. Теперь у нас $3."
 
 # Mark: code/modules/mob/living/carbon/xenomorph/abilities/predalien/predalien_powers.dm
 
 "$1 emits a guttural roar!" = "$1 издаёт гортанный рёв!"
 "We rapidly slice into $1!" = "Мы быстро разрезаем $1!"
 "We cannot stack this!" = "Мы не можем накапливать это!"
+"$1 is too far away!" = "$1 слишком далеко!"
+"$1 is dead, why would we want to touch them?" = "$1 мёртв, зачем нам его трогать?"
+"We feel our muscles tense as our speed and armor increase!" = "Мы чувствуем, как наши мышцы напрягаются, когда наша скорость и броня увеличиваются!"
+"Our muscles relax as we feel our speed wane." = "Наши мышцы расслабляются, когда мы чувствуем, как наша скорость ослабевает."
+"We are no longer armored." = "Мы больше не бронированы."
+"We will now attack everyone around us during a Feral Frenzy." = "Теперь мы будем атаковать всех вокруг нас во время Бешеной Ярости."
+"We will now focus our Feral Frenzy on one person!" = "Теперь мы сосредоточим нашу Бешеную Ярость на одном человеке."
+"$1's muscles twitch." = "Мышцы $1 дёргаются."
+"Our claws twitch as we try to grab onto the target but lack the strength. Wait a moment to try again." = "Наши когти дёргаются, когда мы пытаемся схватить цель, но нам не хватает силы. Подождите немного, чтобы попробовать снова."
+"We can't lunge from here!" = "Мы не можем броситься отсюда!"
+"$1's claws twitch." = "Когти $1 дёргаются."
+"We couldn't grab our target. Wait a moment to try again." = "Мы не смогли схватить нашу цель. Подождите немного, чтобы попробовать снова."
+"$1 grabs $2 by the back of their leg and slams them onto the ground!" = "$1 хватает $2 за ногу и швыряет об землю!"
+"We grab $1 by the back of their leg and slam them onto the ground!" = "Мы хватаем $1 за ногу и швыряем об землю!"
 
 # Mark: code/modules/mob/living/carbon/xenomorph/abilities/runner/runner_powers.dm
 
 "Can only melt barricades and items!" = "Можно плавить только баррикады и предметы!"
 "Not enough acid stored!" = "Недостаточно кислоты!"
+"$1 fires a burst of bone chips at $2!" = "$1 выпускает залп костяных осколков в $2!"
+"We fire a burst of bone chips at $1!" = "Мы выпускаем залп костяных осколков в $1!"
+"It is too cramped in here to activate this!" = "Здесь слишком тесно, чтобы активировать это!"
+"We can't activate this here!" = "Мы не можем активировать это здесь!"
+"Not enough acid built up for an explosion." = "Недостаточно накопленной кислоты для взрыва."
+"Our stomach starts turning and twisting, getting ready to compress the built up acid." = "Наш желудок начинает крутиться и извиваться, готовясь сжать накопленную кислоту."
+"We remove all our explosive acid before it combusted." = "Мы удаляем всю нашу взрывную кислоту, прежде чем она воспламенится."
 
 # Mark: code/modules/mob/living/carbon/xenomorph/castes/Spitter.dm
 
@@ -2067,29 +2235,44 @@
 
 "You just did an emote. Wait awhile." = "Вы только что использовали эмоцию. Подождите немного."
 
-# Mark:
+# Mark: code/modules/mob/living/carbon/xenomorph/Facehuggers.dm
 
+"The facehugger is furiously cannibalized by the nearby horde of other ones!" = "Лицехват яростно поедается ближайшей ордой других лицехватов!"
+"$1 crushes $2" = "$1 раздавливает $2"
+"You crush $1" = "Вы раздавливаете $1"
+"$1 crawls into $2!" = "$1 заползает в $2!"
+"$1 crawls back into $2!" = "$1 заползает обратно в $2!"
 
+# Mark: code/modules/mob/living/carbon/xenomorph/xeno_helpers.dm
 
-# Mark:
+"You cannot ventcrawl while hauling $1!" = "Вы не можете ползать по вентиляции, когда тащите $1!"
 
+# Mark: code/modules/mob/living/carbon/xenomorph/Xenomorph.dm
 
+"We lose our pheromones." = "Мы теряем наши феромоны."
 
-# Mark:
+# Mark: code/modules/mob/living/carbon/xenomorph/abilities/burrower/burrower_abilities.dm
 
+"A certain presence is preventing us from burrowing here." = "Определённое присутствие мешает нам рыть здесь туннель."
 
+# Mark: code/modules/mob/living/carbon/xenomorph/abilities/lesser_drone/lesser_drone_powers.dm
 
-# Mark:
+"We can only plant weed nodes near other weed nodes our hive owns!" = "Мы можем сажать узлы сорняков только рядом с другими узлами сорняков, принадлежащими нашему улью!"
 
+# Mark: code/modules/mob/living/carbon/xenomorph/castes/Defender.dm
 
-
-# Mark:
-
-
-
-# Mark:
-
-
+"We cannot use abilities while fortified." = "Мы не можем использовать способности, пока укреплены."
+"We lower our crest." = "Мы опускаем наш гребень."
+"We raise our crest." = "Мы поднимаем наш гребень."
+"We cannot use headbutt while fortified." = "Мы не можем использовать удар головой, пока укреплены."
+"$1 rams $2 with its armored crest!" = "$1 таранит $2 своим бронированным гребнем!"
+"We ram $1 with our armored crest!" = "Мы тараним $1 своим бронированным гребнем!"
+"We cannot use tail swipe while fortified." = "Мы не можем использовать взмах хвостом, пока укреплены."
+"$1 sweeps its tail in a wide circle!" = "$1 размахивает хвостом по широкой дуге!"
+"We sweep our tail in a wide circle!" = "Мы размахиваем хвостом по широкой дуге!"
+"You are struck by $1's tail sweep!" = "Вы поражены взмахом хвоста $1!"
+"We tuck ourself into a defensive stance." = "Мы принимаем оборонительную стойку."
+"We resume our normal stance." = "Мы возвращаемся в нормальную стойку."
 
 # Mark:
 
