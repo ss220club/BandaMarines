@@ -60,7 +60,7 @@ const CATEGORIES_TEXT_RU = {
 
 function CategoriesRu(value: string) {
   const [k, v] = value.split(':');
-  return (CATEGORIES_RU[k]) ? CATEGORIES_RU[k] + ': ' + v : value;
+  return CATEGORIES_RU[k] ? CATEGORIES_RU[k] + ': ' + v : value;
 }
 
 function CategoriesTextRu(value: string) {
