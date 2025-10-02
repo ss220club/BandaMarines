@@ -167,6 +167,53 @@
 	can_bloody = FALSE
 	supports_surgery = FALSE
 
+//Slipery slope
+/turf/open/slippery
+	name = "sloped roof"
+	icon = 'icons/turf/floors/floors.dmi'
+	icon_state = "grass1"
+	is_weedable = NOT_WEEDABLE
+
+/turf/open/slippery/rooftop
+	icon = 'icons/turf/almayer.dmi'
+	icon_state = "outerhull"
+
+/turf/open/slippery/rooftop/edge
+	icon_state = "outerhull_dir"
+	dir = SOUTH
+
+/turf/open/slippery/rooftop/edge/north
+	dir = NORTH
+
+/turf/open/slippery/rooftop/edge/east
+	dir = EAST
+
+/turf/open/slippery/rooftop/edge/west
+	dir = WEST
+
+/turf/open/slippery/rooftop/edge/southeast
+	dir = SOUTHEAST
+
+/turf/open/slippery/rooftop/edge/southwest
+	dir = SOUTHWEST
+
+/turf/open/slippery/rooftop/edge/northeast
+	dir = NORTHEAST
+
+/turf/open/slippery/rooftop/edge/northwest
+	dir = NORTHWEST
+
+/turf/open/slippery/Entered(atom/movable/crosser)
+	. = ..()
+	if(isobserver(crosser) || crosser.anchored)
+		return
+
+	if(!(isitem(crosser) || isliving(crosser)))
+		return
+
+	INVOKE_ASYNC(crosser, TYPE_PROC_REF(/atom/movable, throw_atom), (get_step(src, dir)), 50, SPEED_FAST, null, TRUE)
+
+
 // Prison grass
 /turf/open/organic/grass
 	name = "grass"
@@ -485,7 +532,6 @@
 	icon_state = "grass1"
 	baseturfs = /turf/open/gm/grass
 	scorchable = "grass1"
-	is_weedable = SEMI_WEEDABLE
 
 /turf/open/gm/grass/grass1
 	icon_state = "grass1"
@@ -535,6 +581,48 @@
 			if("gbcorner")
 				GLOB.turf_edgeinfo_cache["gbcorner"] = GLOB.edgeinfo_corner
 
+/turf/open/gm/grass/grassmud
+	icon_state = "grassmud_edge"
+
+/turf/open/gm/grass/grassmud/north
+
+/turf/open/gm/grass/grassmud/south
+	dir = 1
+
+/turf/open/gm/grass/grassmud/west
+	dir = 4
+
+/turf/open/gm/grass/grassmud/east
+	dir = 8
+
+/turf/open/gm/grass/grassmud/corner
+	icon_state = "grassmud_corner"
+
+/turf/open/gm/grass/grassmud/corner/north_west
+
+/turf/open/gm/grass/grassmud/corner/south_east
+	dir = 1
+
+/turf/open/gm/grass/grassmud/corner/south_west
+	dir = 4
+
+/turf/open/gm/grass/grassmud/corner/north_east
+	dir = 8
+
+/turf/open/gm/grass/grassmud/corner2
+	icon_state = "grassmud_corner2"
+
+/turf/open/gm/grass/grassmud/corner2/north_west
+
+/turf/open/gm/grass/grassmud/corner2/south_east
+	dir = 1
+
+/turf/open/gm/grass/grassmud/corner2/south_west
+	dir = 4
+
+/turf/open/gm/grass/grassmud/corner2/north_east
+	dir = 8
+
 /turf/open/gm/dirt2
 	name = "dirt"
 	icon_state = "dirt"
@@ -546,7 +634,6 @@
 	icon_state = "grassdirt_edge"
 	baseturfs = /turf/open/gm/dirtgrassborder
 	scorchable = "grass1"
-	is_weedable = SEMI_WEEDABLE
 
 /turf/open/gm/dirtgrassborder/north
 	dir = NORTH
@@ -853,6 +940,90 @@
 
 /turf/open/gm/coast/beachcorner2/south_east
 	dir = 8
+
+/turf/open/gm/mudcoast
+	icon_state = "mudbeach_edge"
+
+/turf/open/gm/mudcoast/north
+
+/turf/open/gm/mudcoast/south
+	dir = 1
+
+/turf/open/gm/mudcoast/west
+	dir = 4
+
+/turf/open/gm/mudcoast/east
+	dir = 8
+
+/turf/open/gm/mudcoast/corner
+	icon_state = "mudbeach_corner"
+
+/turf/open/gm/mudcoast/corner/north_west
+
+/turf/open/gm/mudcoast/corner/south_east
+	dir = 1
+
+/turf/open/gm/mudcoast/corner/south_west
+	dir = 4
+
+/turf/open/gm/mudcoast/corner/north_east
+	dir = 8
+
+/turf/open/gm/mudcoast/corner2
+	icon_state = "mudbeach_corner2"
+
+/turf/open/gm/mudcoast/corner2/north_west
+
+/turf/open/gm/mudcoast/corner2/south_east
+	dir = 1
+
+/turf/open/gm/mudcoast/corner2/south_west
+	dir = 4
+
+/turf/open/gm/mudcoast/corner2/north_east
+	dir = 8
+
+/turf/open/gm/mudcoast/greenwater
+	icon = 'icons/turf/floors/ground_map_dirt.dmi'
+	icon_state = "mudbeach"
+	dir = SOUTH
+
+/turf/open/gm/mudcoast/greenwater/north
+	dir = NORTH
+
+/turf/open/gm/mudcoast/greenwater/west
+	dir = WEST
+
+/turf/open/gm/mudcoast/greenwater/east
+	dir = EAST
+
+/turf/open/gm/mudcoast/greenwater/cornerinner
+	icon = 'icons/turf/floors/ground_map_dirt.dmi'
+	icon_state = "mudbeach_corner_inner"
+	dir = SOUTH
+
+/turf/open/gm/mudcoast/greenwater/cornerinner/north
+	dir = NORTH
+
+/turf/open/gm/mudcoast/greenwater/cornerinner/west
+	dir = WEST
+
+/turf/open/gm/mudcoast/greenwater/cornerinner/east
+	dir = EAST
+
+/turf/open/gm/mudcoast/greenwater/cornerouter
+	icon = 'icons/turf/floors/ground_map_dirt.dmi'
+	icon_state = "mudbeach_corner_outer"
+	dir = SOUTH
+
+/turf/open/gm/mudcoast/greenwater/cornerouter/north
+	dir = NORTH
+
+/turf/open/gm/mudcoast/greenwater/cornerouter/west
+	dir = WEST
+
+/turf/open/gm/mudcoast/greenwater/cornerouter/east
+	dir = EAST
 
 /turf/open/gm/riverdeep
 	name = "river"
