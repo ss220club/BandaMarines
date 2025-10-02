@@ -28511,6 +28511,7 @@
 /area/lv624/ground/colony/phi_lab/dome)
 "bTq" = (
 /obj/effect/decal/hybrisa/dirt_2,
+/obj/structure/machinery/power/reactor/colony,
 /turf/open/floor/plating/platebot,
 /area/lv624/ground/colony/phi_lab/dome)
 "bTr" = (
@@ -28525,6 +28526,7 @@
 /turf/open/floor/bcircuit,
 /area/lv624/ground/colony/phi_lab/dome)
 "bTs" = (
+/obj/structure/machinery/power/reactor/colony,
 /turf/open/floor/plating/platebot,
 /area/lv624/ground/colony/phi_lab/dome)
 "bTt" = (
@@ -28780,6 +28782,7 @@
 	icon_state = "E";
 	layer = 3.33
 	},
+/obj/structure/machinery/power/reactor/colony,
 /turf/open/floor/plating/platebot,
 /area/lv624/ground/colony/phi_lab/dome)
 "bTR" = (
@@ -28975,6 +28978,7 @@
 	pixel_y = 1;
 	pixel_x = -1
 	},
+/obj/structure/machinery/power/reactor/colony,
 /turf/open/floor/plating/platebot,
 /area/lv624/ground/colony/phi_lab/dome)
 "bUg" = (
@@ -28993,6 +28997,7 @@
 	icon_state = "E";
 	layer = 3.33
 	},
+/obj/structure/machinery/power/reactor/colony,
 /turf/open/floor/plating/platebot,
 /area/lv624/ground/colony/phi_lab/dome)
 "bUi" = (
