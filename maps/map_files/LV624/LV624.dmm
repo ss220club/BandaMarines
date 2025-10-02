@@ -912,6 +912,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/hybrisa/carpet/carpetred,
 /area/lv624/lazarus/nexus_dorms)
+"adc" = (
+/obj/structure/machinery/power/power_generator/port_gen/pacman,
+/turf/open/floor/kutjevo/grey/plate,
+/area/lv624/lazarus/nexus_radio)
 "add" = (
 /obj/structure/window/framed/colony/reinforced,
 /obj/structure/machinery/door/poddoor/hybrisa/secure_red_door{
@@ -1121,6 +1125,10 @@
 	},
 /turf/open/gm/dirt/brown,
 /area/lv624/ground/caves/west_caves)
+"adF" = (
+/obj/structure/machinery/power/power_generator/port_gen/pacman,
+/turf/open/hybrisa/street/cement1,
+/area/lv624/ground/colony/phi_lab/cargo)
 "adG" = (
 /obj/structure/bed/chair/wood/wings,
 /turf/open/gm/dirt,
@@ -1134,6 +1142,10 @@
 	},
 /turf/open/hunter_temple/mossy,
 /area/lv624/ground/caves/east_caves)
+"adJ" = (
+/obj/structure/machinery/power/power_generator/port_gen/pacman,
+/turf/open/floor/plating/platingdmg3/west,
+/area/lv624/ground/caves/mining)
 "adK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/pipes/standard/simple/hidden{
@@ -12430,7 +12442,7 @@
 	pixel_y = 13
 	},
 /obj/structure/prop/hybrisa/misc/floorprops/grate,
-/obj/structure/machinery/power/reactor/colony,
+/obj/structure/machinery/power/power_generator/reactor/colony,
 /turf/open/floor/bcircuit,
 /area/lv624/lazarus/engineering)
 "aVg" = (
@@ -12438,7 +12450,7 @@
 	layer = 2.9
 	},
 /obj/structure/prop/hybrisa/misc/floorprops/grate,
-/obj/structure/machinery/power/reactor/colony,
+/obj/structure/machinery/power/power_generator/reactor/colony,
 /turf/open/floor/bcircuit,
 /area/lv624/lazarus/engineering)
 "aVh" = (
@@ -28511,7 +28523,7 @@
 /area/lv624/ground/colony/phi_lab/dome)
 "bTq" = (
 /obj/effect/decal/hybrisa/dirt_2,
-/obj/structure/machinery/power/reactor/colony,
+/obj/structure/machinery/power/power_generator/reactor/colony,
 /turf/open/floor/plating/platebot,
 /area/lv624/ground/colony/phi_lab/dome)
 "bTr" = (
@@ -28526,7 +28538,7 @@
 /turf/open/floor/bcircuit,
 /area/lv624/ground/colony/phi_lab/dome)
 "bTs" = (
-/obj/structure/machinery/power/reactor/colony,
+/obj/structure/machinery/power/power_generator/reactor/colony,
 /turf/open/floor/plating/platebot,
 /area/lv624/ground/colony/phi_lab/dome)
 "bTt" = (
@@ -28782,7 +28794,7 @@
 	icon_state = "E";
 	layer = 3.33
 	},
-/obj/structure/machinery/power/reactor/colony,
+/obj/structure/machinery/power/power_generator/reactor/colony,
 /turf/open/floor/plating/platebot,
 /area/lv624/ground/colony/phi_lab/dome)
 "bTR" = (
@@ -28978,7 +28990,7 @@
 	pixel_y = 1;
 	pixel_x = -1
 	},
-/obj/structure/machinery/power/reactor/colony,
+/obj/structure/machinery/power/power_generator/reactor/colony,
 /turf/open/floor/plating/platebot,
 /area/lv624/ground/colony/phi_lab/dome)
 "bUg" = (
@@ -28997,7 +29009,7 @@
 	icon_state = "E";
 	layer = 3.33
 	},
-/obj/structure/machinery/power/reactor/colony,
+/obj/structure/machinery/power/power_generator/reactor/colony,
 /turf/open/floor/plating/platebot,
 /area/lv624/ground/colony/phi_lab/dome)
 "bUi" = (
@@ -31634,6 +31646,10 @@
 /obj/structure/flora/jungle/vines/light_1,
 /turf/open/gm/grass/grass1,
 /area/lv624/ground/caves/north_central_caves/lake_house_tower)
+"cbz" = (
+/obj/structure/machinery/power/power_generator/port_gen/pacman,
+/turf/open/floor/wood,
+/area/lv624/ground/caves/north_central_caves)
 "cbA" = (
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/wood/wood_broken3,
@@ -33192,6 +33208,7 @@
 	icon_state = "trash_13";
 	pixel_y = 12
 	},
+/obj/structure/machinery/power/power_generator/port_gen/pacman,
 /turf/open/hybrisa/street/cement1,
 /area/lv624/lazarus/cargo_storage)
 "dte" = (
@@ -34758,7 +34775,7 @@
 /area/lv624/ground/jungle/south_central_jungle)
 "fdr" = (
 /obj/structure/prop/hybrisa/misc/floorprops/grate,
-/obj/structure/machinery/power/reactor/colony,
+/obj/structure/machinery/power/power_generator/reactor/colony,
 /turf/open/floor/bcircuit,
 /area/lv624/lazarus/engineering)
 "fdR" = (
@@ -38945,7 +38962,7 @@
 	pixel_x = -16
 	},
 /obj/structure/prop/hybrisa/misc/floorprops/grate,
-/obj/structure/machinery/power/reactor/colony,
+/obj/structure/machinery/power/power_generator/reactor/colony,
 /turf/open/floor/bcircuit,
 /area/lv624/lazarus/engineering)
 "jMo" = (
@@ -42326,6 +42343,7 @@
 /area/lv624/ground/jungle/central_jungle)
 "nrK" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/power/power_generator/port_gen/pacman,
 /turf/open/floor/dark,
 /area/lv624/lazarus/comms)
 "nrL" = (
@@ -47525,7 +47543,7 @@
 	dir = 4;
 	pixel_x = -16
 	},
-/obj/structure/machinery/power/reactor/colony,
+/obj/structure/machinery/power/power_generator/reactor/colony,
 /turf/open/floor/bcircuit,
 /area/lv624/lazarus/engineering)
 "teR" = (
@@ -60989,7 +61007,7 @@ bxi
 btY
 btY
 bnk
-bnL
+adJ
 eEj
 sOI
 lJI
@@ -67744,7 +67762,7 @@ avm
 cbN
 aec
 cbC
-avm
+cbz
 cbt
 abk
 cbe
@@ -75351,7 +75369,7 @@ bHm
 bGB
 hav
 bwV
-bDb
+adF
 bDb
 bDb
 bCY
@@ -75670,7 +75688,7 @@ azP
 aAa
 aEA
 axy
-xRv
+adc
 xRv
 ggn
 azP
