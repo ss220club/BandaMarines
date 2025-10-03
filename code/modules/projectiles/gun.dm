@@ -1150,7 +1150,7 @@ and you're good to go.
 	if(!gun_user)
 		gun_user = user
 
-	if(!able_to_fire(user) || !target || !get_turf(user) || !get_turf(target))
+	if(!target || !able_to_fire(user, target) || !get_turf(user) || !get_turf(target))
 		return NONE
 
 	/*
@@ -1631,7 +1631,7 @@ not all weapons use normal magazines etc. load_into_chamber() itself is designed
 	if(current_mag?.current_rounds > 0)
 		return TRUE //Loaded magazine.
 
-/obj/item/weapon/gun/proc/able_to_fire(mob/user)
+/obj/item/weapon/gun/proc/able_to_fire(mob/user, atom/target)
 	/*
 	Removed ishuman() check. There is no reason for it, as it just eats up more processing, and adding fingerprints during the fire cycle is silly.
 	Consequently, predators are able to fire while cloaked.
