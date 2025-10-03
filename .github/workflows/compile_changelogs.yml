@@ -8,7 +8,7 @@ on:
 jobs:
   compile:
     name: "Compile changelogs"
-    runs-on: [self-hosted]
+    runs-on: ubuntu-latest
     steps:
       - name: "Check for ACTION_ENABLER secret and pass true to output if it exists to be checked by later steps"
         id: value_holder
@@ -39,7 +39,7 @@ jobs:
           sudo apt-get install  dos2unix
       - name: "Checkout"
         if: steps.value_holder.outputs.ACTIONS_ENABLED
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
         with:
           fetch-depth: 25
           persist-credentials: false

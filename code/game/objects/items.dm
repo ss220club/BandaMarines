@@ -84,6 +84,8 @@
 	var/flags_heat_protection = NO_FLAGS
 	/// flags which determine which body parts are protected from cold. Use the HEAD, UPPER_TORSO, LOWER_TORSO, etc. flags. See setup.dm
 	var/flags_cold_protection = NO_FLAGS
+	/// flags which determine which body parts are hidden from view.
+	var/flags_bodypart_hidden = NO_FLAGS
 	/// Set this variable to determine up to which temperature (IN KELVIN) the item protects against heat damage. Keep at null to disable protection. Only protects areas set by flags_heat_protection flags
 	var/max_heat_protection_temperature
 	/// Set this variable to determine down to which temperature (IN KELVIN) the item protects against cold damage. 0 is NOT an acceptable number due to if(varname) tests!! Keep at null to disable protection. Only protects areas set by flags_cold_protection flags
@@ -303,18 +305,18 @@
 	var/size
 	switch(w_class)
 		if(SIZE_TINY)
-			size = "крохотного размера"
+			size = "крохотного размера" // SS220 EDIT ADDICTION
 		if(SIZE_SMALL)
-			size = "маленького размера"
+			size = "маленького размера" // SS220 EDIT ADDICTION
 		if(SIZE_MEDIUM)
-			size = "обычного размера"
+			size = "обычного размера" // SS220 EDIT ADDICTION
 		if(SIZE_LARGE)
-			size = "громоздкого размера"
+			size = "громоздкого размера" // SS220 EDIT ADDICTION
 		if(SIZE_HUGE)
-			size = "огромного размера"
+			size = "огромного размера" // SS220 EDIT ADDICTION
 		if(SIZE_MASSIVE)
-			size = "гигантского размера"
-	. += "Это [blood_color ? blood_color != COLOR_OIL ? "окровавленн[genderize_ru(gender, "ый", "ая", "ое", "ые")] " : "замасленн[genderize_ru(gender, "ый", "ая", "ое", "ые")] " : ""][icon2html(src, user)][declent_ru(NOMINATIVE)]. Это предмет [size]."
+			size = "гигантского размера" // SS220 EDIT ADDICTION
+	. += "Это [blood_color ? blood_color == COLOR_OIL ? "замасленн[genderize_ru(gender, "ый", "ая", "ое", "ые")] " : "окровавленн[genderize_ru(gender, "ый", "ая", "ое", "ые")] " : ""][icon2html(src, user)][declent_ru(NOMINATIVE)]. Это предмет [size]." // SS220 EDIT ADDICTION
 	if(desc)
 		. += desc
 	if(desc_lore)
@@ -338,6 +340,8 @@
 	if(isstorage(loc))
 		var/obj/item/storage/S = loc
 		S.remove_from_storage(src, user.loc, user)
+	else if(isturf(loc) && HAS_TRAIT(user, TRAIT_HAULED))
+		return
 
 	throwing = 0
 

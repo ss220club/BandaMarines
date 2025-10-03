@@ -20,10 +20,11 @@
 	var/network = "Ground"
 	var/amount = 30
 	var/accept_beaker_only = TRUE
-	var/pressurized_only = FALSE
 	var/obj/item/reagent_container/beaker = null
 	var/ui_check = 0
 	var/static/list/possible_transfer_amounts = list(5,10,20,30,40)
+	/// List of typepaths for reagent containers that a chem dispenser will accept; all containers allowed if empty.
+	var/list/whitelisted_containers = list()
 	var/list/dispensable_reagents = list(
 		"hydrogen",
 		"lithium",
@@ -151,7 +152,12 @@
 	var/beakerCurrentVolume = 0
 	if(beaker && beaker.reagents && length(beaker.reagents.reagent_list))
 		for(var/datum/reagent/current_reagent in beaker.reagents.reagent_list)
-			beakerContents += list(list("name" = current_reagent.name, "volume" = current_reagent.volume))  // list in a list because Byond merges the first list...
+			// SS220 EDIT START ADDICTION
+			if(length(current_reagent.ru_names))
+				beakerContents += list(list("name" = current_reagent.declent_reagent_ru_from_obj(current_reagent, GENITIVE, current_reagent.name), "volume" = current_reagent.volume))
+			else
+				beakerContents += list(list("name" = current_reagent.name, "volume" = current_reagent.volume))  // list in a list because Byond merges the first list...
+			// SS220 EDIT END ADDICTION
 			beakerCurrentVolume += current_reagent.volume
 	.["beakerContents"] = beakerContents
 
@@ -167,7 +173,10 @@
 		var/datum/reagent/temp = GLOB.chemical_reagents_list[re]
 		if(temp)
 			var/chemname = temp.name
+			if (!isnull(network) && network != "Misc" && length(temp.ru_names))  // SS220 EDIT ADDICTION DONT TRANSLATE CHEM AND MEDIC REAGENTS
+				chemname = temp.ru_names["base"]  // SS220 EDIT ADDICTION
 			chemicals.Add(list(list("title" = chemname, "id" = temp.id)))
+	.["network"] = network // SS220 EDIT ADDICTION
 	.["chemicals"] = chemicals
 
 /obj/structure/machinery/chem_dispenser/ui_act(action, list/params)
@@ -214,8 +223,10 @@
 		if(accept_beaker_only && istype(attacking_object,/obj/item/reagent_container/food))
 			to_chat(user, SPAN_NOTICE("This machine only accepts beakers"))
 			return
-		if(pressurized_only && !istype(attacking_object, /obj/item/reagent_container/glass/pressurized_canister))
-			to_chat(user, SPAN_NOTICE("This machine only accepts pressurized canisters"))
+		//If the dispenser has a whitelist with stuff in it, and the attacking object ain't in there, don't accept it.
+		if(length(whitelisted_containers) && !(attacking_object.type in whitelisted_containers))
+			//Currently this is only used for pressurized disepnsers
+			to_chat(user, SPAN_WARNING("This machine doesn't accept that container."))
 			return
 		if(user.drop_inv_item_to_loc(attacking_object, src))
 			var/obj/item/old_beaker = beaker
@@ -279,7 +290,10 @@
 	ui_title = "Chem Dispenser 4000"
 	req_skill_level = SKILL_MEDICAL_MEDIC
 	accept_beaker_only = FALSE
-	pressurized_only = TRUE
+	whitelisted_containers = list(
+		/obj/item/reagent_container/glass/pressurized_canister,
+		/obj/item/reagent_container/glass/minitank //MS-11 Smart Refill Tank
+	)
 	dispensable_reagents = list(
 		"bicaridine",
 		"kelotane",

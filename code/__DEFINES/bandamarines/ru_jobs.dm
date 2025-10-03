@@ -80,7 +80,7 @@
 
 #define JOB_SEA_RU "Старший Инструктор"
 
-#define JOB_CHIEF_ENGINEER_RU "Главный Инженер"
+#define JOB_CHIEF_ENGINEER_RU "Старший Инженер"
 #define JOB_MAINT_TECH_RU "Техник Обслуживания"
 #define JOB_ORDNANCE_TECH_RU "Оружейный Техник"
 
@@ -88,6 +88,7 @@
 #define JOB_CARGO_TECH_RU "Грузовой Техник"
 
 #define JOB_MARINE_RAIDER_RU "Морпех Рейдер"
+#define JOB_MARINE_RAIDER_SG_RU "Морпех Рейдер Смартганнер"
 #define JOB_MARINE_RAIDER_SL_RU "Морпех Рейдер Командир"
 #define JOB_MARINE_RAIDER_CMD_RU "Морпех Рейдер Командир Взвода"
 

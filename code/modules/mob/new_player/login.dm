@@ -141,6 +141,11 @@
 					tutorial_menu()
 					return FALSE
 
+			// SS220 ADD START
+			if(!has_discord_link(client))
+				return FALSE
+			// SS220 ADD END
+
 			late_choices()
 			return TRUE
 
@@ -158,6 +163,11 @@
 					tutorial_menu()
 					return FALSE
 
+			// SS220 ADD START
+			if(!has_discord_link(client))
+				return FALSE
+			// SS220 ADD END
+
 			late_choices_upp()
 			return TRUE
 
@@ -168,6 +178,11 @@
 
 			if(!client)
 				return FALSE
+
+			// SS220 ADD START
+			if(!has_discord_link(client))
+				return FALSE
+			// SS220 ADD END
 
 			if(SSticker.mode.check_xeno_late_join(src))
 				var/mob/new_xeno = SSticker.mode.attempt_to_join_as_xeno(src, FALSE)
@@ -192,6 +207,11 @@
 				SSticker.mode.attempt_to_join_as_predator(src)
 				return TRUE
 
+			// SS220 ADD START
+			if(!has_discord_link(client))
+				return FALSE
+			// SS220 ADD END
+
 			to_chat(src, SPAN_WARNING("You are no longer able to join as predator."))
 			return FALSE
 
@@ -204,6 +224,11 @@
 				SSticker.mode.attempt_to_join_as_fax_responder(src, TRUE)
 				return TRUE
 
+			// SS220 ADD START
+			if(!has_discord_link(client))
+				return FALSE
+			// SS220 ADD END
+
 			to_chat(src, SPAN_WARNING("You are no longer able to join as a Fax Responder."))
 			return FALSE
 
@@ -212,10 +237,20 @@
 				to_chat(src, SPAN_WARNING("The game is still setting up, please try again later."))
 				return
 
+			// SS220 ADD START
+			if(!has_discord_link(client))
+				return FALSE
+			// SS220 ADD END
+
 			attempt_observe()
 			return TRUE
 
 		if("ready")
+			// SS220 ADD START
+			if(!has_discord_link(client))
+				return FALSE
+			// SS220 ADD END
+
 			if((SSticker.current_state <= GAME_STATE_PREGAME) && !ready) // Make sure we don't ready up after the round has started
 				ready = TRUE
 				GLOB.readied_players++
@@ -247,12 +282,23 @@
 		if("keyboard")
 			playsound_client(client, get_sfx("keyboard"), vol = 20)
 
-/// Join as a 'xeno' - set us up in the larva queue
+/// Join as a 'xeno' - set us up in the larva pool
 /mob/new_player/proc/observe_for_xeno()
-	if(client.prefs && !(client.prefs.be_special & BE_ALIEN_AFTER_DEATH))
-		client.prefs.be_special |= BE_ALIEN_AFTER_DEATH
-		to_chat(src, SPAN_BOLDNOTICE("You will now be considered for Xenomorph after unrevivable death events (where possible)."))
+	if(!client)
+		return
+
+	if(client.prefs && !(client.prefs.be_special & BE_ALIEN))
+		client.prefs.be_special |= BE_ALIEN
+		to_chat(src, SPAN_BOLDNOTICE("SpecialRole Candidacy was forced so you can be considered for Xenomorph."))
+
+	var/client/current_client = client
+
 	attempt_observe()
+
+	// If a mod wants to join as a xeno, disable their larva protection so that they can enter the larva pool.
+	if(check_client_rights(current_client, R_MOD, FALSE) && current_client.mob)
+		var/mob/dead/observer/mod_observer = current_client.mob
+		mod_observer.admin_larva_protection = FALSE
 
 /mob/new_player/proc/lobby()
 	if(!client)
