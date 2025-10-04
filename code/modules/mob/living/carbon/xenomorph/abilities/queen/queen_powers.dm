@@ -214,7 +214,7 @@
 		to_chat(queen, SPAN_WARNING("You must select a valid turf to heal around."))
 		return
 
-	if(!SSmapping.same_z_map(queen.loc.z, target_turf.loc.z))
+	if(!cross_map_heal && !SSmapping.same_z_map(queen.loc.z, target_turf.loc.z))
 		to_chat(queen, SPAN_XENOWARNING("You are too far away to do this here."))
 		return
 

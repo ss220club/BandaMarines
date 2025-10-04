@@ -15,8 +15,6 @@
 	anchored = TRUE
 	block_range = 1
 	var/boosted_structure = FALSE
-	var/datum/hive_status/linked_hive
-
 	plane = FLOOR_PLANE
 
 	/// Tells the structure if they are being deleted because of hijack
