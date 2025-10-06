@@ -1,0 +1,10 @@
+#define MARINE_CONDUCT_MEDAL_RU "медаль «За выдающиеся заслуги»"
+#define MARINE_BRONZE_HEART_MEDAL_RU "медаль «Бронзовое сердце»"
+#define MARINE_VALOR_MEDAL_RU "медаль «За воинскую доблесть»"
+#define MARINE_HEROISM_MEDAL_RU "медаль «За исключительный героизм»"
+
+#define XENO_SLAUGHTER_MEDAL_RU "королевское желе «За резню»"
+#define XENO_RESILIENCE_MEDAL_RU "королевское желе «За стойкость»"
+#define XENO_SABOTAGE_MEDAL_RU "королевское желе «За саботаж»"
+#define XENO_PROLIFERATION_MEDAL_RU "королевское желе «За размножение»"
+#define XENO_REJUVENATION_MEDAL_RU "королевское желе «За самопожертвование»"

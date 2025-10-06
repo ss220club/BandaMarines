@@ -132,6 +132,7 @@
 #include "code\__DEFINES\wycomputer.dm"
 #include "code\__DEFINES\xeno.dm"
 #include "code\__DEFINES\bandamarines\cyrillic.dm"
+#include "code\__DEFINES\bandamarines\medals.dm"
 #include "code\__DEFINES\bandamarines\pronouns.dm"
 #include "code\__DEFINES\bandamarines\ru_jobs.dm"
 #include "code\__DEFINES\bandamarines\rust_g.dm"
