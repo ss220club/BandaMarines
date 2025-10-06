@@ -1,10 +1,11 @@
 // IMPORTANT!!!
-// If you ch#define JOB_SQUAD_MARINE_RU "Стрелок"
+// If you change any of the job names or descriptions, keep the change in sync with:
+#define JOB_SQUAD_MARINE_RU "Стрелок"
 #define JOB_SQUAD_LEADER_RU "Командир отряда"
 #define JOB_SQUAD_ENGI_RU "Полевой техник"
 #define JOB_SQUAD_MEDIC_RU "Полевой санитар"
 #define JOB_SQUAD_SPECIALIST_RU "Оружейный специалист"
-#define JOB_SQUAD_TEAM_LEADER_RU "Командир группы"nything, keep the change in sync with:
+#define JOB_SQUAD_TEAM_LEADER_RU "Командир группы"
 // tgui\packages\tgui\interfaces\BandaMarines\MarineJobs.tsx
 
 // Squad name defines
@@ -13,13 +14,6 @@
 #define SQUAD_MARINE_3_RU "Чарли"
 #define SQUAD_MARINE_4_RU "Дельта"
 #define SQUAD_MARINE_5_RU "Эхо"
-#define SQUAD_MARINE_CRYO_RU "Фокстрот"
-#define SQUAD_MARINE_INTEL_RU "Интел"
-#define SQUAD_SOF_RU "ССО"
-#define SQUAD_CBRN_RU "РХБЗ"
-#define SQUAD_FORECON_RU "РАЗВЕДКА"
-#define SQUAD_SOLAR_RU "Дьяволы Солнца"
-// Внимание! Эти названия участвуют в:
 #define SQUAD_MARINE_CRYO_RU "Фокстрот"
 #define SQUAD_MARINE_INTEL_RU "Интел"
 #define SQUAD_SOF_RU "ССО"
