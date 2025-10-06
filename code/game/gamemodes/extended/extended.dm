@@ -7,7 +7,7 @@
 	taskbar_icon = 'icons/taskbar/gml_colonyrp.png'
 
 /datum/game_mode/extended/announce()
-	to_world(SPAN_INFO_BOLD("Текущий режим игры - Расширенный!")) // SS220 EDIT ADDICTION
+	to_world("<B>Текущий режим игры - Расширенный!</B>") // SS220 EDIT ADDICTION
 
 /datum/game_mode/extended/get_roles_list()
 	return GLOB.ROLES_USCM
