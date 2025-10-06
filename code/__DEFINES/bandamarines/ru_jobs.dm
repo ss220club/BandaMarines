@@ -24,7 +24,7 @@
 #define JOB_SQUAD_ENGI_RU "Полевой техник"
 #define JOB_SQUAD_MEDIC_RU "Полевой санитар"
 #define JOB_SQUAD_SPECIALIST_RU "Оружейный специалист"
-#define JOB_SQUAD_TEAM_LEADER_RU "Командир группы"
+#define JOB_SQUAD_TEAM_LEADER_RU "Командир боевой группы"
 #define JOB_SQUAD_SMARTGUN_RU "Смартганнер"
 
 #define JOB_COLONIST_RU "Колонист"
