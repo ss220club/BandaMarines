@@ -1,13 +1,13 @@
-#define MARINE_CONDUCT_MEDAL "distinguished conduct medal"
-#define MARINE_BRONZE_HEART_MEDAL "bronze heart medal"
-#define MARINE_VALOR_MEDAL "medal of valor"
-#define MARINE_HEROISM_MEDAL "medal of exceptional heroism"
+#define MARINE_CONDUCT_MEDAL "медаль «За выдающиеся заслуги»"
+#define MARINE_BRONZE_HEART_MEDAL "медаль «Бронзовое сердце»"
+#define MARINE_VALOR_MEDAL "медаль «За воинскую доблесть»"
+#define MARINE_HEROISM_MEDAL "медаль «За исключительный героизм»"
 
-#define XENO_SLAUGHTER_MEDAL "royal jelly of slaughter"
-#define XENO_RESILIENCE_MEDAL "royal jelly of resilience"
-#define XENO_SABOTAGE_MEDAL "royal jelly of sabotage"
-#define XENO_PROLIFERATION_MEDAL "royal jelly of proliferation"
-#define XENO_REJUVENATION_MEDAL "royal jelly of rejuvenation"
+#define XENO_SLAUGHTER_MEDAL "королевское желе «За резню»"
+#define XENO_RESILIENCE_MEDAL "королевское желе «За стойкость»"
+#define XENO_SABOTAGE_MEDAL "королевское желе «За саботаж»"
+#define XENO_PROLIFERATION_MEDAL "королевское желе «За размножение»"
+#define XENO_REJUVENATION_MEDAL "королевское желе «За самопожертвование»"
 
 GLOBAL_LIST_EMPTY(medal_awards)
 GLOBAL_LIST_EMPTY(jelly_awards)
@@ -101,12 +101,12 @@ GLOBAL_LIST_INIT(human_medals, list(MARINE_CONDUCT_MEDAL, MARINE_BRONZE_HEART_ME
 
 	// Admin: Offer a medal_location if missing
 	if(as_admin && !medal_location)
-		var/medal_override = tgui_input_list(usr, "Spawn a medal? Press cancel for no item.", "Medal Location", list("On Recipient", "On Me"))
-		if(medal_override == "On Recipient")
+		var/medal_override = tgui_input_list(usr, "Заспавнить медаль? Нажмите «Отмена», чтобы не получать предмет.", "Местоположение медали", list("У получателя", "У меня"))
+		if(medal_override == "У получателя")
 			medal_location = get_turf(recipient_mob)
 			playsound(recipient_mob, 'sound/items/trayhit1.ogg', 15, FALSE)
-			recipient_mob.visible_message(SPAN_DANGER("[recipient_mob] has been hit in the head by the [medal_type]."), null, null, 5)
-		else if(medal_override == "On Me")
+			recipient_mob.visible_message(SPAN_DANGER("[recipient_mob] получил удар по голове от [medal_type]."), null, null, 5)
+		else if(medal_override == "У меня")
 			medal_location = get_turf(usr)
 
 	// Create the recipient_award
@@ -158,7 +158,7 @@ GLOBAL_LIST_INIT(human_medals, list(MARINE_CONDUCT_MEDAL, MARINE_BRONZE_HEART_ME
 			recipient_player.track_medal_earned(medal_type, recipient_mob, recipient_rank, citation, usr)
 
 	// Inform staff of success
-	message_admins("[key_name_admin(usr)] awarded a <a href='byond://?medals_panel=1'>[medal_type]</a> to [chosen_recipient] for: \'[citation]\'.")
+	message_admins("[key_name_admin(usr)] наградил <a href='byond://?medals_panel=1'>[medal_type]</a> [chosen_recipient] за: \'[citation]\'.")
 
 	return TRUE
 
@@ -251,26 +251,26 @@ GLOBAL_LIST_INIT(human_medals, list(MARINE_CONDUCT_MEDAL, MARINE_BRONZE_HEART_ME
 			recipient_player.track_medal_earned(medal_type, recipient_mob, recipient_rank, citation, giving_mob)
 
 	// Inform staff of success
-	message_admins("[key_name_admin(giving_mob)] awarded a <a href='byond://?medals_panel=1'>[medal_type]</a> to [chosen_recipient] for: \'[citation]\'.")
+	message_admins("[key_name_admin(giving_mob)] наградил <a href='byond://?medals_panel=1'>[medal_type]</a> [chosen_recipient] за: \'[citation]\'.")
 
 	return TRUE
 
 /proc/open_medal_panel(mob/living/carbon/human/user, obj/printer)
 	var/obj/item/card/id/card = user?.get_idcard()
 	if(!card)
-		to_chat(user, SPAN_WARNING("You must have an authenticated ID Card to award medals."))
+		to_chat(user, SPAN_WARNING("Для вручения медалей необходимо иметь удостоверение личности с подтвержденной подлинностью."))
 		return
 
 	if(!((card.paygrade in GLOB.co_paygrades) || (card.paygrade in GLOB.uscm_highcom_paygrades)))
-		to_chat(user, SPAN_WARNING("Only a Senior Officer can award medals!"))
+		to_chat(user, SPAN_WARNING("Только Командующий офицер может вручать медали!"))
 		return
 
 	if(!card.registered_ref)
-		user.visible_message("ERROR: ID card not registered in USCM registry. Potential medal fraud detected.")
+		user.visible_message("ОШИБКА: Удостоверение личности не зарегистрировано в реестре USCM. Обнаружено возможное мошенничество с медалями.")
 		return
 
 	if(!card.check_biometrics(user))
-		user.visible_message("ERROR: ID card not registered for [user.real_name] in USCM registry. Potential medal fraud detected.")
+		user.visible_message("ОШИБКА: Удостоверение личности не зарегистрировано для [user.real_name] в реестре USCM. Обнаружено возможное мошенничество с медалями.")
 		return
 
 	GLOB.ic_medals_panel.user_locs[WEAKREF(user)] = WEAKREF(printer)
@@ -310,24 +310,24 @@ GLOBAL_LIST_INIT(xeno_medals, list(XENO_SLAUGHTER_MEDAL, XENO_RESILIENCE_MEDAL, 
 		recipient_castes[recipient_name] = xeno.caste_type
 		recipient_mobs[recipient_name] = xeno
 		possible_recipients += recipient_name
-	var/chosen_recipient = tgui_input_list(usr, "Who do you want to award jelly to?", "Jelly Recipient", possible_recipients, theme="hive_status")
+	var/chosen_recipient = tgui_input_list(usr, "Кому вы хотите вручить желе?", "Jelly Recipient", possible_recipients, theme="hive_status")
 	if(!chosen_recipient)
 		return FALSE
 
 	// Pick a jelly
-	var/medal_type = tgui_input_list(usr, "What type of jelly do you want to award?", "Jelly Type", GLOB.xeno_medals, theme="hive_status")
+	var/medal_type = tgui_input_list(usr, "Какой тип желе вы хотите вручить?", "Jelly Type", GLOB.xeno_medals, theme="hive_status")
 	if(!medal_type)
 		return FALSE
 
 	// Write the pheromone
-	var/citation = strip_html(input("What should the pheromone read?", "Jelly Pheromone", null, null) as message|null, MAX_PAPER_MESSAGE_LEN)
+	var/citation = strip_html(input("Какое сообщение должно быть в феромоне?", "Jelly Pheromone", null, null) as message|null, MAX_PAPER_MESSAGE_LEN)
 	if(!citation)
 		return FALSE
 
 	// Admin: Override attribution
 	var/admin_attribution = null
 	if(as_admin)
-		admin_attribution = strip_html(input("Override the jelly attribution? Press cancel for no attribution.", "Jelly Attribution", "Queen Mother", null) as text|null, MAX_NAME_LEN)
+		admin_attribution = strip_html(input("Переопределить атрибуцию желе? Нажмите «Отмена», чтобы не устанавливать атрибуцию.", "Jelly Attribution", "Queen Mother", null) as text|null, MAX_NAME_LEN)
 		if(!admin_attribution) // Its actually "" but this also seems to check that
 			admin_attribution = "none"
 
@@ -381,7 +381,7 @@ GLOBAL_LIST_INIT(xeno_medals, list(XENO_SLAUGHTER_MEDAL, XENO_RESILIENCE_MEDAL, 
 			recipient_player.track_medal_earned(medal_type, recipient_mob, recipient_caste, citation, usr)
 
 	// Inform staff of success
-	message_admins("[key_name_admin(usr)] awarded a <a href='byond://?medals_panel=1'>[medal_type]</a> to [chosen_recipient] for: \'[citation]\'.")
+	message_admins("[key_name_admin(usr)] наградил <a href='byond://?medals_panel=1'>[medal_type]</a> [chosen_recipient] за: \'[citation]\'.")
 
 	return TRUE
 
@@ -390,7 +390,7 @@ GLOBAL_LIST_INIT(xeno_medals, list(XENO_SLAUGHTER_MEDAL, XENO_RESILIENCE_MEDAL, 
 		return FALSE
 
 	// Because the DB is slow, give an early message so there aren't two jumping on it
-	message_admins("[key_name_admin(usr)] is deleting one of [recipient_name]'s medals...")
+	message_admins("[key_name_admin(usr)] удаляет одну из медалей игрока [recipient_name]...")
 
 	// Find the award in the glob list
 	var/datum/recipient_awards/recipient_award
@@ -399,11 +399,11 @@ GLOBAL_LIST_INIT(xeno_medals, list(XENO_SLAUGHTER_MEDAL, XENO_RESILIENCE_MEDAL, 
 	else
 		recipient_award = GLOB.jelly_awards[recipient_name]
 	if(!recipient_award)
-		to_chat(usr, "Error: Could not find the [is_marine_medal ? "marine" : "xeno"] awards for '[recipient_name]'!")
+		to_chat(usr, "Ошибка: Не удалось найти [is_marine_medal ? "marine" : "xeno"] наград для '[recipient_name]'!")
 		return FALSE
 
 	if(index < 1 || index > length(recipient_award.medal_names))
-		to_chat(usr, "Error: Index [index] is out of bounds!")
+		to_chat(usr, "Ошибка: Индекс [index] за пределами допустимого!")
 		return FALSE
 
 	// Get mob references since we're only working with name
@@ -455,7 +455,7 @@ GLOBAL_LIST_INIT(xeno_medals, list(XENO_SLAUGHTER_MEDAL, XENO_RESILIENCE_MEDAL, 
 			recipient_player.untrack_medal_earned(medal_type, recipient_mob, citation)
 
 	// Inform staff of success
-	message_admins("[key_name_admin(usr)] deleted [recipient_name]'s <a href='byond://?medals_panel=1'>[medal_type]</a> for: \'[citation]\'.")
+	message_admins("[key_name_admin(usr)] удалил [recipient_name]'s <a href='byond://?medals_panel=1'>[medal_type]</a> за: \'[citation]\'.")
 
 	return TRUE
 
@@ -480,15 +480,15 @@ GLOBAL_LIST_INIT(xeno_medals, list(XENO_SLAUGHTER_MEDAL, XENO_RESILIENCE_MEDAL, 
 		recipient_ranks[recipient_name] = record.fields["rank"]
 		possible_recipients += recipient_name
 	if(length(possible_recipients) == 0)
-		to_chat(recommendation_giver, SPAN_WARNING("It's not possible to give medals when the ship is empty. Tough luck, partner..."))
+		to_chat(recommendation_giver, SPAN_WARNING("Невозможно вручить медали, когда экипажа нету. Не повезло, приятель..."))
 		return FALSE
 
-	var/chosen_recipient = tgui_input_list(recommendation_giver, "Who do you want to recommend a medal for?", "Medal Recommendation", possible_recipients)
+	var/chosen_recipient = tgui_input_list(recommendation_giver, "Кому вы хотите вручить медаль?", "Medal Recommendation", possible_recipients)
 	if(!chosen_recipient)
 		return FALSE
 
 	// Write a citation
-	var/reason = strip_html(tgui_input_text(recommendation_giver, "Why does this person deserve a medal?", "Medal Recommendation", null, MAX_PAPER_MESSAGE_LEN, TRUE), MAX_PAPER_MESSAGE_LEN)
+	var/reason = strip_html(tgui_input_text(recommendation_giver, "Почему этот человек заслуживает медали?", "Medal Recommendation", null, MAX_PAPER_MESSAGE_LEN, TRUE), MAX_PAPER_MESSAGE_LEN)
 	if(!reason)
 		return FALSE
 
@@ -583,21 +583,21 @@ GLOBAL_DATUM_INIT(ic_medals_panel, /datum/ic_medal_panel, new)
 	var/mob/living/carbon/human/user = ui.user
 	var/obj/item/card/id/card = user?.get_idcard()
 	if(!card)
-		to_chat(user, SPAN_WARNING("You must have an authenticated ID Card to award medals."))
+		to_chat(user, SPAN_WARNING("Вы должны иметь аутентифицированное удостоверение личности, чтобы награждать медалями."))
 		return
 
 	if(!((card.paygrade in GLOB.co_paygrades) || (card.paygrade in GLOB.uscm_highcom_paygrades)))
-		to_chat(user, SPAN_WARNING("Only a Senior Officer can award medals!"))
+		to_chat(user, SPAN_WARNING("Только Командующий офицер может награждать медалями!"))
 		return
 
 	if(!card.registered_ref)
-		user.visible_message("ERROR: ID card not registered in USCM registry. Potential medal fraud detected.")
+		user.visible_message("ОШИБКА: Удостоверение личности не зарегистрировано в реестре USCM. Обнаружено возможное мошенничество с медалями.")
 		return
 
 	var/real_owner_ref = card.registered_ref
 
 	if(real_owner_ref != WEAKREF(user))
-		user.visible_message("ERROR: ID card not registered for [user.real_name] in USCM registry. Potential medal fraud detected.")
+		user.visible_message("ОШИБКА: Удостоверение личности не зарегистрировано для [user.real_name] в реестре USCM. Обнаружено возможное мошенничество с медалями.")
 		return
 
 	var/datum/weakref/user_ref = WEAKREF(user)
@@ -621,15 +621,15 @@ GLOBAL_DATUM_INIT(ic_medals_panel, /datum/ic_medal_panel, new)
 			if(!recommendation)
 				return
 			if(recommendation.recipient_name == user.real_name)
-				to_chat(user, SPAN_WARNING("You cannot give medals to yourself!"))
+				to_chat(user, SPAN_WARNING("Вы не можете награждать медалями сами себя!"))
 				return
 
-			var/choice = tgui_alert(user, "Would you like to change the medal text?", "Medal Citation", list("Yes", "No"))
+			var/choice = tgui_alert(user, "Хотите изменить текст медали?", "Medal Citation", list("Yes", "No"))
 			var/medal_citation = recommendation.reason
 			if(choice == "Yes")
-				medal_citation = strip_html(tgui_input_text(user, "What should the medal citation read?", "Medal Citation", null, MAX_PAPER_MESSAGE_LEN, TRUE), MAX_PAPER_MESSAGE_LEN)
+				medal_citation = strip_html(tgui_input_text(user, "Какой текст должна иметь медаль?", "Medal Citation", null, MAX_PAPER_MESSAGE_LEN, TRUE), MAX_PAPER_MESSAGE_LEN)
 
-			var/confirm_choice = tgui_alert(user, "Are you sure you want to give a medal to [recommendation.recipient_name]?", "Medal Confirmation", list("Yes", "No"))
+			var/confirm_choice = tgui_alert(user, "Вы уверены, что хотите вручить медаль [recommendation.recipient_name]?", "Medal Confirmation", list("Yes", "No"))
 			if(confirm_choice != "Yes")
 				return
 
@@ -644,7 +644,7 @@ GLOBAL_DATUM_INIT(ic_medals_panel, /datum/ic_medal_panel, new)
 			var/datum/medal_recommendation/recommendation = locate(recommendation_ref) in GLOB.medal_recommendations
 			if(!recommendation)
 				return
-			var/confirm = tgui_alert(user, "Are you sure you want to deny this medal recommendation?", "Medal Confirmation", list("Yes", "No"))
+			var/confirm = tgui_alert(user, "Вы уверены, что хотите отклонить эту рекомендацию о награждении медалью?", "Medal Confirmation", list("Yes", "No"))
 			if(confirm != "Yes")
 				return
 			GLOB.medal_recommendations -= recommendation
