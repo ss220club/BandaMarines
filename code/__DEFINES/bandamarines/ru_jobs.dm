@@ -1,11 +1,5 @@
 // IMPORTANT!!!
 // If you change any of the job names or descriptions, keep the change in sync with:
-#define JOB_SQUAD_MARINE_RU "Стрелок"
-#define JOB_SQUAD_LEADER_RU "Командир отряда"
-#define JOB_SQUAD_ENGI_RU "Полевой техник"
-#define JOB_SQUAD_MEDIC_RU "Полевой санитар"
-#define JOB_SQUAD_SPECIALIST_RU "Оружейный специалист"
-#define JOB_SQUAD_TEAM_LEADER_RU "Командир группы"
 // tgui\packages\tgui\interfaces\BandaMarines\MarineJobs.tsx
 
 // Squad name defines
