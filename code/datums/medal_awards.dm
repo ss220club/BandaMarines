@@ -158,7 +158,7 @@ GLOBAL_LIST_INIT(human_medals, list(MARINE_CONDUCT_MEDAL, MARINE_BRONZE_HEART_ME
 			recipient_player.track_medal_earned(medal_type, recipient_mob, recipient_rank, citation, usr)
 
 	// Inform staff of success
-	message_admins("[key_name_admin(usr)] наградил <a href='byond://?medals_panel=1'>[medal_type]</a> [chosen_recipient] за: \'[citation]\'.")
+	message_admins("[key_name_admin(usr)] наградил(а) <a href='byond://?medals_panel=1'>[medal_type]</a> [chosen_recipient] за: \'[citation]\'.")
 
 	return TRUE
 
@@ -251,7 +251,7 @@ GLOBAL_LIST_INIT(human_medals, list(MARINE_CONDUCT_MEDAL, MARINE_BRONZE_HEART_ME
 			recipient_player.track_medal_earned(medal_type, recipient_mob, recipient_rank, citation, giving_mob)
 
 	// Inform staff of success
-	message_admins("[key_name_admin(giving_mob)] наградил <a href='byond://?medals_panel=1'>[medal_type]</a> [chosen_recipient] за: \'[citation]\'.")
+	message_admins("[key_name_admin(giving_mob)] наградил(а) <a href='byond://?medals_panel=1'>[medal_type]</a> [chosen_recipient] за: \'[citation]\'.")
 
 	return TRUE
 
@@ -381,7 +381,7 @@ GLOBAL_LIST_INIT(xeno_medals, list(XENO_SLAUGHTER_MEDAL, XENO_RESILIENCE_MEDAL, 
 			recipient_player.track_medal_earned(medal_type, recipient_mob, recipient_caste, citation, usr)
 
 	// Inform staff of success
-	message_admins("[key_name_admin(usr)] наградил <a href='byond://?medals_panel=1'>[medal_type]</a> [chosen_recipient] за: \'[citation]\'.")
+	message_admins("[key_name_admin(usr)] наградил(а) <a href='byond://?medals_panel=1'>[medal_type]</a> [chosen_recipient] за: \'[citation]\'.")
 
 	return TRUE
 
@@ -455,7 +455,7 @@ GLOBAL_LIST_INIT(xeno_medals, list(XENO_SLAUGHTER_MEDAL, XENO_RESILIENCE_MEDAL, 
 			recipient_player.untrack_medal_earned(medal_type, recipient_mob, citation)
 
 	// Inform staff of success
-	message_admins("[key_name_admin(usr)] удалил [recipient_name]'s <a href='byond://?medals_panel=1'>[medal_type]</a> за: \'[citation]\'.")
+	message_admins("[key_name_admin(usr)] удалил(а) <a href='byond://?medals_panel=1'>[medal_type]</a> игрока [recipient_name], выданную за: \'[citation]\'.")
 
 	return TRUE
 
