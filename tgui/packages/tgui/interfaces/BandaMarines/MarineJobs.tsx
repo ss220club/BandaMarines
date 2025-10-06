@@ -131,7 +131,7 @@ export const JOBS_RU = {
 
   // Engineering roles
   'Chief Engineer': 'Главный инженер',
-  'Maintenance Technician': 'Техник-ремонтник',
+  'Maintenance Technician': 'Техник обслуживания',
   'Ordnance Technician': 'Оружейный техник',
 
   // Requisition roles
