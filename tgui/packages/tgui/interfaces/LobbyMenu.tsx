@@ -392,14 +392,14 @@ const LobbyButtons = (props: {
           }
           icon="book-open"
         >
-          Tutorial
+          Обучение
         </LobbyButton>
         <LobbyButton
           index={2}
           onClick={() => act('preferences')}
           icon="file-lines"
         >
-          Setup Character
+          Настройка Персонажа
         </LobbyButton>
 
         <LobbyButton index={3} icon="check-to-slot" onClick={() => act('poll')}>
