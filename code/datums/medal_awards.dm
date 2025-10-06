@@ -399,7 +399,7 @@ GLOBAL_LIST_INIT(xeno_medals, list(XENO_SLAUGHTER_MEDAL, XENO_RESILIENCE_MEDAL, 
 	else
 		recipient_award = GLOB.jelly_awards[recipient_name]
 	if(!recipient_award)
-		to_chat(usr, "Ошибка: Не удалось найти [is_marine_medal ? "marine" : "xeno"] наград для '[recipient_name]'!")
+		to_chat(usr, "Ошибка: Не удалось найти [is_marine_medal ? "морпеха" : "ксеноморфа"] наград для '[recipient_name]'!")
 		return FALSE
 
 	if(index < 1 || index > length(recipient_award.medal_names))
