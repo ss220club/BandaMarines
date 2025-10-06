@@ -835,7 +835,7 @@
 			var/turf/closed/wall/resin/wall = target_atom
 
 			if(wall.hivenumber != xeno.hivenumber)
-				to_chat(xeno, SPAN_XENOWARNING("[wall] does not belong to our hive!"))
+				to_chat(xeno, SPAN_XENOWARNING("$1 does not belong to our hive!", list(wall))) // SS220 EDIT ADDICTION
 				return
 
 			if(wall.upgrading_now) //<--- Prevent spam and waste of plasma
@@ -862,7 +862,7 @@
 				qdel(thick_membrane)
 				wall.ChangeTurf(/turf/closed/wall/resin/membrane/thick)
 			else
-				to_chat(xeno, SPAN_XENOWARNING("[wall] can't be made thicker."))
+				to_chat(xeno, SPAN_XENOWARNING("$1 can't be made thicker.", list(wall))) // SS220 EDIT ADDICTION
 				return
 
 			wall.upgrading_now = FALSE
@@ -871,7 +871,7 @@
 			var/obj/structure/mineral_door/resin/door = target_atom
 
 			if(door.hivenumber != xeno.hivenumber)
-				to_chat(xeno, SPAN_XENOWARNING("[door] does not belong to your hive!"))
+				to_chat(xeno, SPAN_XENOWARNING("$1 does not belong to your hive!", list(door))) // SS220 EDIT ADDICTION
 				return
 
 			if(door.upgrading_now)

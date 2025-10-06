@@ -90,11 +90,11 @@
 		return
 
 	if(SEND_SIGNAL(target_xeno, COMSIG_XENO_PRE_HEAL) & COMPONENT_CANCEL_XENO_HEAL)
-		to_chat(src, SPAN_XENOWARNING("Extinguish [target_xeno] first or the flames will burn our resin salve away!"))
+		to_chat(src, SPAN_XENOWARNING("Extinguish $1 first or the flames will burn our resin salve away!", list(target_xeno))) // SS220 EDIT ADDICTION
 		return
 
 	if(!can_not_harm(target_xeno)) //We don't wanna heal hostile hives, but we do want to heal our allies!
-		to_chat(src, SPAN_XENOWARNING("[target_xeno] is hostile to our hive!"))
+		to_chat(src, SPAN_XENOWARNING("$1 is hostile to our hive!", list(target_xeno))) // SS220 EDIT ADDICTION
 		return
 
 	if(!isturf(loc))
@@ -102,15 +102,15 @@
 		return
 
 	if(get_dist(src, target_xeno) > max_range)
-		to_chat(src, SPAN_XENOWARNING("We need to be closer to [target_xeno] to apply our resin salve!"))
+		to_chat(src, SPAN_XENOWARNING("We need to be closer to $1 to apply our resin salve!", list(target_xeno))) // SS220 EDIT ADDICTION
 		return
 
 	if(target_xeno.stat == DEAD)
-		to_chat(src, SPAN_XENOWARNING("[target_xeno] is dead!"))
+		to_chat(src, SPAN_XENOWARNING("$1 is dead!", list(target_xeno))) // SS220 EDIT ADDICTION
 		return
 
 	if(target_xeno.health >= target_xeno.maxHealth)
-		to_chat(src, SPAN_XENOWARNING("[target_xeno] is already at max health!"))
+		to_chat(src, SPAN_XENOWARNING("$1 is already at max health!", list(target_xeno))) // SS220 EDIT ADDICTION
 		return
 
 	//Tiny xenos (Larva and Facehuggers), don't need as much health so don't cost as much.
@@ -132,8 +132,8 @@
 	new /datum/effects/heal_over_time(target_xeno, heal_amount = amount)
 	target_xeno.xeno_jitter(1 SECONDS)
 	target_xeno.flick_heal_overlay(5 SECONDS, "#00be6f")
-	to_chat(target_xeno, SPAN_XENOWARNING("[src] covers our wounds with a regenerative resin salve. We feel reinvigorated!"))
-	to_chat(src, SPAN_XENOWARNING("We regurgitate our vital fluids and some plasma to create a regenerative resin salve and apply it to [target_xeno]'s wounds. We feel weakened..."))
+	to_chat(target_xeno, SPAN_XENOWARNING("$1 covers our wounds with a regenerative resin salve. We feel reinvigorated!", list(declent_ru()))) // SS220 EDIT ADDICTION
+	to_chat(src, SPAN_XENOWARNING("We regurgitate our vital fluids and some plasma to create a regenerative resin salve and apply it to $1's wounds. We feel weakened...", list(target_xeno))) // SS220 EDIT ADDICTION
 	playsound(src, "alien_drool", 25)
 	var/datum/behavior_delegate/drone_healer/healer_delegate = behavior_delegate
 	healer_delegate.salve_applied_recently = TRUE

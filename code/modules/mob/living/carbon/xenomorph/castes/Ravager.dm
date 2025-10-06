@@ -157,7 +157,7 @@
 
 	activated_once = FALSE
 	button.icon_state = "template"
-	xeno.visible_message(SPAN_XENOWARNING("[xeno] gets empowered by the surrounding enemies!"), SPAN_XENOWARNING("We feel a rush of power from the surrounding enemies!"))
+	xeno.visible_message(SPAN_XENOWARNING("$1 gets empowered by the surrounding enemies!"), SPAN_XENOWARNING("We feel a rush of power from the surrounding enemies!")) // SS220 EDIT ADDICTION
 	xeno.create_empower()
 
 	var/list/mobs_in_range = oviewers(empower_range, xeno)

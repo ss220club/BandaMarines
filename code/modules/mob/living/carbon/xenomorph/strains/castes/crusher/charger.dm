@@ -191,8 +191,8 @@
 /obj/structure/barricade/handle_charge_collision(mob/living/carbon/xenomorph/xeno, datum/action/xeno_action/onclick/charger_charge/charger_ability)
 	if(charger_ability.momentum)
 		visible_message(
-			SPAN_DANGER("[xeno] rams into \the [src] and skids to a halt!"),
-			SPAN_XENOWARNING("You ram into \the [src] and skid to a halt!")
+			SPAN_DANGER("$1 rams into $2 and skids to a halt!", list(xeno, declent_ru())), // SS220 EDIT ADDICTION
+			SPAN_XENOWARNING("You ram into $1 and skid to a halt!", list(declent_ru())) // SS220 EDIT ADDICTION
 		)
 		take_damage(charger_ability.momentum * 22)
 		playsound(src, barricade_hitsound, 25, TRUE)

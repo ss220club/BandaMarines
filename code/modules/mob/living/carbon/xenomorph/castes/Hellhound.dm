@@ -190,9 +190,9 @@
 		return
 
 	for(var/mob/living/carbon/viewer in orange(xeno, 5))
-		to_chat(viewer, SPAN_WARNING("[xeno] sniffs the ground in a hurry."))
+		to_chat(viewer, SPAN_WARNING("$1 sniffs the ground in a hurry.", list(xeno))) // SS220 EDIT ADDICTION
 		to_chat(xeno, SPAN_XENOWARNING("You sniff the ground in a hurry to find where your master is."))
-		to_chat(xeno, SPAN_XENOWARNING("Your owner is [dist] meters to the [dir2text(direction)]"))
+		to_chat(xeno, SPAN_XENOWARNING("Your owner is $1 meters to the $2", list(dist, dir2text(direction)))) // SS220 EDIT ADDICTION
 
 	apply_cooldown()
 	..()

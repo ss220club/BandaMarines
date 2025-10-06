@@ -52,7 +52,7 @@
 	if (!action_cooldown_check())
 		return
 
-	xeno.visible_message(SPAN_DANGER("[xeno] drags its claws in a wide area in front of it!"),
+	xeno.visible_message(SPAN_DANGER("$1 drags its claws in a wide area in front of it!", list(xeno)), // SS220 EDIT ADDICTION
 	SPAN_XENOWARNING("We unleash a barrage of slashes!"))
 	playsound(xeno, 'sound/effects/alien_tail_swipe2.ogg', 30)
 	apply_cooldown()
@@ -97,8 +97,8 @@
 			if (HAS_TRAIT(target, TRAIT_NESTED))
 				continue
 
-			xeno.visible_message(SPAN_DANGER("[xeno] slashes [target]!"),
-			SPAN_XENOWARNING("We slash [target] multiple times!"))
+			xeno.visible_message(SPAN_DANGER("$1 slashes $2!", list(xeno, target)), // SS220 EDIT ADDICTION
+			SPAN_XENOWARNING("We slash $1 multiple times!", list(target))) // SS220 EDIT ADDICTION
 			xeno.flick_attack_overlay(target, "slash")
 			target.last_damage_data = create_cause_data(xeno.caste_type, xeno)
 			log_attack("[key_name(xeno)] attacked [key_name(target)] with Flurry")
@@ -143,7 +143,7 @@
 					return
 				playsound(get_turf(target_window),'sound/effects/glassbreak3.ogg', 30, TRUE)
 				target_window.shatter_window(TRUE)
-				xeno.visible_message(SPAN_XENOWARNING("\The [xeno] strikes the window with their tail!"), SPAN_XENOWARNING("We strike the window with our tail!"))
+				xeno.visible_message(SPAN_XENOWARNING("$1 strikes the window with their tail!", list(xeno)), SPAN_XENOWARNING("We strike the window with our tail!")) // SS220 EDIT ADDICTION
 				apply_cooldown(cooldown_modifier = 0.5)
 				return
 			if(current_structure.density && !current_structure.throwpass)
@@ -243,8 +243,8 @@
 				to_chat(xeno, SPAN_WARNING("We should not harm this host! It has a sister inside."))
 				return
 
-	xeno.visible_message(SPAN_DANGER("[xeno] grabs [target_carbon]’s head aggressively."),
-	SPAN_XENOWARNING("We grab [target_carbon]’s head aggressively."))
+	xeno.visible_message(SPAN_DANGER("$1 grabs $2’s head aggressively.", list(xeno, target_carbon)), // SS220 EDIT ADDICTION
+	SPAN_XENOWARNING("We grab $1’s head aggressively.", list(target_carbon))) // SS220 EDIT ADDICTION
 
 	if(!do_after(xeno, 0.8 SECONDS, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE, numticks = 2)) // would be 0.75 but that doesn't really work with numticks
 		return

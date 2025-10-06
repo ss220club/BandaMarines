@@ -58,7 +58,7 @@
 		if(my_egg)
 			remove_egg_owner(my_egg)
 			my_egg.start_unstoppable_decay()
-			to_chat(bound_xeno, SPAN_XENOWARNING("You can only sustain [egg_sustain_cap] eggs off hive weeds! Your oldest placed egg is decaying rapidly."))
+			to_chat(bound_xeno, SPAN_XENOWARNING("You can only sustain $1 eggs off hive weeds! Your oldest placed egg is decaying rapidly.", list(egg_sustain_cap))) // SS220 EDIT ADDICTION
 
 	for(var/obj/effect/alien/egg/carrier_egg/my_egg as anything in eggs_sustained)
 		//Get the distance from us to our sustained egg
@@ -79,7 +79,7 @@
 		remove_egg_owner(my_egg)
 		my_egg.start_unstoppable_decay()
 
-	M.visible_message(SPAN_XENOWARNING("[M] throes as its eggsac bursts into a mess of acid!"))
+	M.visible_message(SPAN_XENOWARNING("$1 throes as its eggsac bursts into a mess of acid!" list(M))) // SS220 EDIT ADDICTION
 	playsound(M.loc, 'sound/effects/alien_egg_burst.ogg', 25, TRUE)
 
 ///Remove all references to src in eggs_sustained

@@ -119,8 +119,8 @@
 			living_mob.Stun(duration)
 			if(living_mob.pulledby != src)
 				return // Grab was broken, probably as Stun side effect (eg. target getting knocked away from a manned M56D)
-			visible_message(SPAN_XENOWARNING("[src] grabs [living_mob] by the throat!"),
-			SPAN_XENOWARNING("We grab [living_mob] by the throat!"))
+			visible_message(SPAN_XENOWARNING("$1 grabs $2 by the throat!", list(declent_ru(), living_mob)), // SS220 EDIT ADDICTION
+			SPAN_XENOWARNING("We grab $1 by the throat!", list(living_mob))) // SS220 EDIT ADDICTION
 			warrior_delegate.lunging = TRUE
 			addtimer(CALLBACK(src, PROC_REF(stop_lunging)), get_xeno_stun_duration(living_mob, 2) SECONDS + 1 SECONDS)
 
@@ -217,15 +217,15 @@
 	if(limb.body_part == BODY_FLAG_HEAD)
 		limb_time = rand(90,110)
 
-	visible_message(SPAN_XENOWARNING("[src] begins pulling on [mob]'s [limb.display_name] with incredible strength!"),
-	SPAN_XENOWARNING("We begin to pull on [mob]'s [limb.display_name] with incredible strength!"))
+	visible_message(SPAN_XENOWARNING("$1 begins pulling on $2's $3 with incredible strength!", list(declent_ru(), mob, declent_ru_initial(limb.display_name, ACCUSATIVE, limb.display_name))), // SS220 EDIT ADDICTION
+	SPAN_XENOWARNING("We begin to pull on $1's $2 with incredible strength!", list(mob, declent_ru_initial(limb.display_name, ACCUSATIVE, limb.display_name)))) // SS220 EDIT ADDICTION
 
 	if(!do_after(src, limb_time, INTERRUPT_ALL|INTERRUPT_DIFF_SELECT_ZONE, BUSY_ICON_HOSTILE) || mob.stat == DEAD || mob.status_flags & XENO_HOST)
 		to_chat(src, SPAN_NOTICE("We stop ripping off the limb."))
 		return FALSE
 
 	if(mob.status_flags & XENO_HOST)
-		to_chat(src, SPAN_NOTICE("We detect an embryo inside [mob] which overwhelms our instinct to rip."))
+		to_chat(src, SPAN_NOTICE("We detect an embryo inside $1 which overwhelms our instinct to rip.", list(mob))) // SS220 EDIT ADDICTION
 		return FALSE
 
 	if(limb.status & LIMB_DESTROYED)
@@ -233,11 +233,11 @@
 
 	if(limb.status & (LIMB_ROBOT|LIMB_SYNTHSKIN))
 		limb.take_damage(rand(30,40), 0, 0) // just do more damage
-		visible_message(SPAN_XENOWARNING("You hear [mob]'s [limb.display_name] being pulled beyond its load limits!"),
-		SPAN_XENOWARNING("[mob]'s [limb.display_name] begins to tear apart!"))
+		visible_message(SPAN_XENOWARNING("You hear $1's $2 being pulled beyond its load limits!", list(declent_ru(), mob, declent_ru_initial(limb.display_name, ACCUSATIVE, limb.display_name))), // SS220 EDIT ADDICTION
+		SPAN_XENOWARNING("$1's $2 begins to tear apart!", list(mob, declent_ru_initial(limb.display_name, ACCUSATIVE, limb.display_name)))) // SS220 EDIT ADDICTION
 	else
-		visible_message(SPAN_XENOWARNING("We hear the bones in [mob]'s [limb.display_name] snap with a sickening crunch!"),
-		SPAN_XENOWARNING("[mob]'s [limb.display_name] bones snap with a satisfying crunch!"))
+		visible_message(SPAN_XENOWARNING("We hear the bones in $1's $2 snap with a sickening crunch!", list(declent_ru(), mob, declent_ru_initial(limb.display_name, ACCUSATIVE, limb.display_name))), // SS220 EDIT ADDICTION
+		SPAN_XENOWARNING("$1's $2 bones snap with a satisfying crunch!", list(mob, capitalize(declent_ru_initial(limb.display_name, ACCUSATIVE, limb.display_name))))) // SS220 EDIT ADDICTION
 		limb.take_damage(rand(15,25), 0, 0)
 		limb.fracture(100)
 	mob.last_damage_data = create_cause_data(initial(caste_type), src)
@@ -250,14 +250,14 @@
 		return FALSE
 
 	if(mob.status_flags & XENO_HOST)
-		to_chat(src, SPAN_NOTICE("We detect an embryo inside [mob] which overwhelms our instinct to rip."))
+		to_chat(src, SPAN_NOTICE("We detect an embryo inside $1 which overwhelms our instinct to rip.", list(mob))) // SS220 EDIT ADDICTION
 		return FALSE
 
 	if(limb.status & LIMB_DESTROYED)
 		return FALSE
 
-	visible_message(SPAN_XENOWARNING("[src] rips [mob]'s [limb.display_name] away from their body!"),
-	SPAN_XENOWARNING("[mob]'s [limb.display_name] rips away from their body!"))
+	visible_message(SPAN_XENOWARNING("$1 rips $2's $3 away from their body!", list(declent_ru(), mob, declent_ru_initial(limb.display_name, ACCUSATIVE, limb.display_name))), // SS220 EDIT ADDICTION
+	SPAN_XENOWARNING("$1's $2 rips away from their body!", list(mob, capitalize(declent_ru_initial(limb.display_name, ACCUSATIVE, limb.display_name))))) // SS220 EDIT ADDICTION
 	src.attack_log += text("\[[time_stamp()]\] <font color='red'>ripped the [limb.display_name] off of [mob.name] ([mob.ckey]) 2/2 progress</font>")
 	mob.attack_log += text("\[[time_stamp()]\] <font color='orange'>had their [limb.display_name] ripped off by [src.name] ([src.ckey]) 2/2 progress</font>")
 	log_attack("[src.name] ([src.ckey]) ripped the [limb.display_name] off of [mob.name] ([mob.ckey]) 2/2 progress")
@@ -271,7 +271,7 @@
 
 	if (!action_cooldown_check())
 		if(twitch_message_cooldown < world.time )
-			lunge_user.visible_message(SPAN_XENOWARNING("[lunge_user]'s claws twitch."), SPAN_XENOWARNING("Our claws twitch as we try to lunge but lack the strength. Wait a moment to try again."))
+			lunge_user.visible_message(SPAN_XENOWARNING("$1's claws twitch.", list(lunge_user)), SPAN_XENOWARNING("Our claws twitch as we try to lunge but lack the strength. Wait a moment to try again.")) // SS220 EDIT ADDICTION
 			twitch_message_cooldown = world.time + 5 SECONDS
 		return //this gives a little feedback on why your lunge didn't hit other than the lunge button going grey. Plus, it might spook marines that almost got lunged if they know why the message appeared, and extra spookiness is always good.
 
@@ -299,7 +299,7 @@
 	apply_cooldown()
 	..()
 
-	lunge_user.visible_message(SPAN_XENOWARNING("[lunge_user] lunges towards [carbon]!"), SPAN_XENOWARNING("We lunge at [carbon]!"))
+	lunge_user.visible_message(SPAN_XENOWARNING("$1 lunges towards $2!", list(lunge_user, carbon)), SPAN_XENOWARNING("We lunge at $1!", list(carbon))) // SS220 EDIT ADDICTION
 
 	lunge_user.throw_atom(get_step_towards(affected_atom, lunge_user), grab_range, SPEED_FAST, lunge_user, tracking=TRUE)
 
@@ -308,7 +308,7 @@
 		if(ishuman(carbon))
 			INVOKE_ASYNC(carbon, TYPE_PROC_REF(/mob, emote), "scream")
 	else
-		lunge_user.visible_message(SPAN_XENOWARNING("[lunge_user]'s claws twitch."), SPAN_XENOWARNING("Our claws twitch as we lunge but are unable to grab onto our target. Wait a moment to try again."))
+		lunge_user.visible_message(SPAN_XENOWARNING("$1's claws twitch.", list(lunge_user)), SPAN_XENOWARNING("Our claws twitch as we lunge but are unable to grab onto our target. Wait a moment to try again.")) // SS220 EDIT ADDICTION
 
 	return TRUE
 
@@ -338,13 +338,13 @@
 		fling_user.stop_pulling()
 
 	if(carbon.mob_size >= MOB_SIZE_BIG)
-		to_chat(fling_user, SPAN_XENOWARNING("[carbon] is too big for us to fling!"))
+		to_chat(fling_user, SPAN_XENOWARNING("$1 is too big for us to fling!", list(carbon))) // SS220 EDIT ADDICTION
 		return
 
 	if (!check_and_use_plasma_owner())
 		return
 
-	fling_user.visible_message(SPAN_XENOWARNING("[fling_user] effortlessly flings [carbon] to the side!"), SPAN_XENOWARNING("We effortlessly fling [carbon] to the side!"))
+	fling_user.visible_message(SPAN_XENOWARNING("$1 effortlessly flings $2 to the side!", list(fling_user, carbon)), SPAN_XENOWARNING("We effortlessly fling $1 to the side!", list(carbon))) // SS220 EDIT ADDICTION
 	playsound(carbon,'sound/weapons/alien_claw_block.ogg', 75, 1)
 	if(stun_power)
 		carbon.Stun(get_xeno_stun_duration(carbon, stun_power))
@@ -403,8 +403,8 @@
 
 	carbon.last_damage_data = create_cause_data(initial(punch_user.caste_type), punch_user)
 
-	punch_user.visible_message(SPAN_XENOWARNING("[punch_user] hits [carbon] in the [target_limb ? target_limb.display_name : "chest"] with a devastatingly powerful punch!"),
-	SPAN_XENOWARNING("We hit [carbon] in the [target_limb ? target_limb.display_name : "chest"] with a devastatingly powerful punch!"))
+	punch_user.visible_message(SPAN_XENOWARNING("$1 hits $2 in the $3 with a devastatingly powerful punch!", list(punch_user, carbon, target_limb ? declent_ru_initial(target_limb.display_name, DATIVE, target_limb.display_name) : "груди")), // SS220 EDIT ADDICTION
+	SPAN_XENOWARNING("We hit $1 in the $2 with a devastatingly powerful punch!", list(carbon, target_limb ? declent_ru_initial(target_limb.display_name, DATIVE, target_limb.display_name) : "груди"))) // SS220 EDIT ADDICTION
 	var/sound = pick('sound/weapons/punch1.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/punch4.ogg',)
 	playsound(carbon, sound, 50, 1)
 	do_base_warrior_punch(carbon, target_limb)
