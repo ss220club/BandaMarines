@@ -565,7 +565,7 @@ const LobbyButtons = (props: {
                           <Stack justify="center">
                             <Stack.Item>
                               <Button onClick={() => act('late_join_faxes')}>
-                                Confirm
+                                Принять
                               </Button>
                             </Stack.Item>
                           </Stack>
