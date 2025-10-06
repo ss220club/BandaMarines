@@ -403,11 +403,11 @@ const LobbyButtons = (props: {
         </LobbyButton>
 
         <LobbyButton index={3} icon="check-to-slot" onClick={() => act('poll')}>
-          Polls
+          Голосования
         </LobbyButton>
 
         <LobbyButton index={4} onClick={() => act('playtimes')} icon="list-ul">
-          View Playtimes
+          Наигранное время
         </LobbyButton>
 
         <TimedDivider />
@@ -420,13 +420,14 @@ const LobbyButtons = (props: {
               <ModalConfirm>
                 <Box>
                   <Stack vertical>
-                    <Stack.Item>Are you sure you wish to observe?</Stack.Item>
+                    <Stack.Item>Вы точно хотите наблюдать?</Stack.Item>
                     <Stack.Item>
-                      When you observe, you will not be able to join as marine.
+                      Когда вы будете наблюдать, вы не сможете присоединиться к
+                      игре в качестве морпеха
                     </Stack.Item>
                     <Stack.Item>
-                      It might also take some time to become a xeno or
-                      responder!
+                      Также может потребоваться некоторое время, чтобы стать
+                      ксеноморфом.
                     </Stack.Item>
                   </Stack>
                   <Stack justify="center">
@@ -439,7 +440,7 @@ const LobbyButtons = (props: {
             );
           }}
         >
-          Observe
+          Наблюдать
         </LobbyButton>
 
         {round_start ? (
@@ -466,7 +467,7 @@ const LobbyButtons = (props: {
                     onClick={() => act('late_join')}
                     icon="users"
                   >
-                    Join the USCM
+                    Присоединиться за Морпехов
                   </LobbyButton>
                 </Stack.Item>
                 <Stack.Item>
@@ -487,7 +488,7 @@ const LobbyButtons = (props: {
                     icon="viruses"
                     onClick={() => act('late_join_xeno')}
                   >
-                    Join the Hive
+                    Присоединиться за Улей
                   </LobbyButton>
                 </Stack.Item>
                 <Stack.Item>
@@ -507,7 +508,7 @@ const LobbyButtons = (props: {
                   onClick={() => act('late_join_upp')}
                   icon="users-between-lines"
                 >
-                  Join the UPP
+                  Присоединиться за ЮПП
                 </LobbyButton>
               </Stack.Item>
             )}
@@ -521,14 +522,14 @@ const LobbyButtons = (props: {
                         <Box>
                           <Stack vertical>
                             <Stack.Item>
-                              Are you sure want to attempt joining as a
-                              Predator?
+                              Вы уверены, что желаете присоединиться за
+                              Хищника??
                             </Stack.Item>
                           </Stack>
                           <Stack justify="center">
                             <Stack.Item>
                               <Button onClick={() => act('late_join_pred')}>
-                                Confirm
+                                Принять
                               </Button>
                             </Stack.Item>
                           </Stack>
