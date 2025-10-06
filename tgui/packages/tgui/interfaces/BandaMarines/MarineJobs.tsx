@@ -396,7 +396,8 @@ export function MarinesStatesRu(value: string) {
 const REVERSED_JOBS_RU = Object.entries(JOBS_RU).reduce(
   (reversed_castes, [key, value]) => {
     reversed_castes[value] = key;
-    return reversed_castes;  },
+    return reversed_castes;
+  },
   {},
 );
 
