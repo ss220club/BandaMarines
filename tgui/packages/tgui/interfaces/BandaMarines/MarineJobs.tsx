@@ -100,7 +100,6 @@ export const JOBS_RU = {
   'Combat Correspondent': 'Полевой корреспондент',
   'Civilian Correspondent': 'Гражданский корреспондент',
   'Military Correspondent': 'Военный корреспондент',
-  'Mess Technician': 'Кок',
 
   // Synthetic roles
   Synthetic: 'Синтетик',
