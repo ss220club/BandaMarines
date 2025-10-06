@@ -624,13 +624,13 @@ GLOBAL_DATUM_INIT(ic_medals_panel, /datum/ic_medal_panel, new)
 				to_chat(user, SPAN_WARNING("Вы не можете награждать медалями сами себя!"))
 				return
 
-			var/choice = tgui_alert(user, "Хотите изменить текст медали?", "Medal Citation", list("Yes", "No"))
+			var/choice = tgui_alert(user, "Хотите изменить текст медали?", "Medal Citation", list("Да", "Нет"))
 			var/medal_citation = recommendation.reason
-			if(choice == "Yes")
+			if(choice == "Да")
 				medal_citation = strip_html(tgui_input_text(user, "Какой текст должна иметь медаль?", "Medal Citation", null, MAX_PAPER_MESSAGE_LEN, TRUE), MAX_PAPER_MESSAGE_LEN)
 
-			var/confirm_choice = tgui_alert(user, "Вы уверены, что хотите вручить медаль [recommendation.recipient_name]?", "Medal Confirmation", list("Yes", "No"))
-			if(confirm_choice != "Yes")
+			var/confirm_choice = tgui_alert(user, "Вы уверены, что хотите вручить медаль [recommendation.recipient_name]?", "Medal Confirmation", list("Да", "Нет"))
+			if(confirm_choice != "Да")
 				return
 
 			if(give_medal_award_prefilled(actual_loc, user, recommendation.recipient_name, recommendation.recipient_rank, recommendation.recipient_ckey, medal_citation, medal_type, recommendation.recommended_by_ckey, recommendation.recommended_by_name))
@@ -644,8 +644,8 @@ GLOBAL_DATUM_INIT(ic_medals_panel, /datum/ic_medal_panel, new)
 			var/datum/medal_recommendation/recommendation = locate(recommendation_ref) in GLOB.medal_recommendations
 			if(!recommendation)
 				return
-			var/confirm = tgui_alert(user, "Вы уверены, что хотите отклонить эту рекомендацию о награждении медалью?", "Medal Confirmation", list("Yes", "No"))
-			if(confirm != "Yes")
+			var/confirm = tgui_alert(user, "Вы уверены, что хотите отклонить эту рекомендацию о награждении медалью?", "Medal Confirmation", list("Да", "Нет"))
+			if(confirm != "Да")
 				return
 			GLOB.medal_recommendations -= recommendation
 			qdel(recommendation)
