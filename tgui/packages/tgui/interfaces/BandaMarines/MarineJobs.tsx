@@ -70,7 +70,7 @@ export const JOBS_RU = {
   'Combat Technician': 'Полевой техник',
   'Hospital Corpsman': 'Полевой санитар',
   'Weapons Specialist': 'Оружейный специалист',
-  'Fireteam Leader': 'Командир группы',
+  'Fireteam Leader': 'Командир боевой группы',
   Smartgunner: 'Смартганнер',
   // Survivors
   Colonist: 'Колонист',
