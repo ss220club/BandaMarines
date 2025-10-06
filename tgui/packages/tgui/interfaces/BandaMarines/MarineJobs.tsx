@@ -96,12 +96,13 @@ export const JOBS_RU = {
   Researcher: 'Исследователь',
 
   // Civil roles
-  'Corporate Liaison': 'Связной корпорации',
+    'Corporate Liaison': 'Связной корпорации',
   'Combat Correspondent': 'Полевой корреспондент',
   'Civilian Correspondent': 'Гражданский корреспондент',
   'Military Correspondent': 'Военный корреспондент',
 
   // Synthetic roles
+  'Mess Technician': 'Кок',
   Synthetic: 'Синтетик',
   'Synthetic K9': 'Синтетик K9',
   'Working Joe': 'Рабочий Джо',
@@ -124,6 +125,8 @@ export const JOBS_RU = {
   'Military Police': 'Военная полиция',
   'Military Warden': 'Военный смотритель',
   'Chief MP': 'Шеф военной полиции',
+
+  // SEA
   'Senior Enlisted Advisor': 'Старший инструктор',
 
   // Engineering roles
@@ -133,7 +136,7 @@ export const JOBS_RU = {
 
   // Requisition roles
   Quartermaster: 'Квартирмейстер',
-  'Cargo Technician': 'Грузовой техник',
+'Cargo Technician': 'Грузовой техник',
 
   // Marine Raider roles
   'Marine Raider': 'Рейдер',
@@ -382,7 +385,6 @@ export const JOBS_RU = {
   Unemployed: 'Неизвестно',
 };
 
-
 export function JobsRu(value: string) {
   return JOBS_RU[value] || value;
 }
@@ -394,8 +396,7 @@ export function MarinesStatesRu(value: string) {
 const REVERSED_JOBS_RU = Object.entries(JOBS_RU).reduce(
   (reversed_castes, [key, value]) => {
     reversed_castes[value] = key;
-    return reversed_castes;
-  },
+    return reversed_castes;  },
   {},
 );
 
