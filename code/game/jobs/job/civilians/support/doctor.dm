@@ -16,7 +16,7 @@
 	gear_preset = /datum/equipment_preset/uscm_ship/uscm_medical/doctor
 
 	// job option
-	job_options = list(DOCTOR_VARIANT = "Врач", SURGEON_VARIANT = "Хирург")
+	job_options = list(DOCTOR_VARIANT = "Врч", SURGEON_VARIANT = "Хирург")
 	/// If this job is a doctor variant of the doctor role
 	var/doctor = TRUE
 
