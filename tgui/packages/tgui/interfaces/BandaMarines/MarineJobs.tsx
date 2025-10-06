@@ -6,7 +6,7 @@
  */
 
 export const MARINES_STATES = {
-  Dead: 'Мёртв',
+  Dead: 'Мёртв(а)',
   Conscious: 'В сознании',
   'Conscious (SSD)': 'В сознании (КРС)',
   Unconscious: 'Без сознания',
