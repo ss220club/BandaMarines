@@ -765,7 +765,7 @@
 			else
 				SStracking.stop_tracking(H.assigned_fireteam, H) //remove from previous FT group
 				if(H.stat == CONSCIOUS)
-					to_chat(fireteam_leaders[fireteam], FONT_SIZE_BIG(SPAN_BLUE("[H.mind ? H.comm_title : ""] [H] was unassigned from your fireteam.")))
+					to_chat(fireteam_leaders[fireteam], FONT_SIZE_BIG(SPAN_BLUE("[H.mind ? H.comm_title : ""] [H] откреплен(а) от вашей боевой группы.")))
 		fireteams[H.assigned_fireteam].Remove(H)
 		var/ft = H.assigned_fireteam
 		H.assigned_fireteam = fireteam
@@ -775,12 +775,12 @@
 		if(fireteam_leaders[fireteam]) //if TL exists -> FT group, otherwise -> SL group
 			SStracking.start_tracking(fireteam, H)
 			if(H.stat == CONSCIOUS)
-				to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were assigned to [fireteam]. Report to your Fireteam Leader ASAP.")))
-			to_chat(fireteam_leaders[fireteam], FONT_SIZE_BIG(SPAN_BLUE("[H.mind ? H.comm_title : ""] [H] was assigned to your fireteam.")))
+				to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("Вас назначили в [fireteam]. Немедленно доложитесь вашему командиру группы.")))
+			to_chat(fireteam_leaders[fireteam], FONT_SIZE_BIG(SPAN_BLUE("[H.mind ? H.comm_title : ""] [H] назначен(а) в вашу боевую группу.")))
 		else
 			SStracking.start_tracking(tracking_id, H)
 			if(H.stat == CONSCIOUS)
-				to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were assigned to [fireteam].")))
+				to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("Вы назначены в [fireteam].")))
 	else
 		fireteams[fireteam].Add(H)
 		H.assigned_fireteam = fireteam //adding to fireteam
@@ -790,10 +790,10 @@
 			SStracking.stop_tracking(tracking_id, H) //remove from previous FT group
 			SStracking.start_tracking(fireteam, H)
 			if(H.stat == CONSCIOUS)
-				to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were assigned to [fireteam]. Report to your Fireteam Leader ASAP.")))
-			to_chat(fireteam_leaders[fireteam], FONT_SIZE_BIG(SPAN_BLUE("[H.mind ? H.comm_title : ""] [H] was assigned to your fireteam.")))
+				to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("Вас назначили в [fireteam]. Немедленно доложитесь вашему командиру группы.")))
+			to_chat(fireteam_leaders[fireteam], FONT_SIZE_BIG(SPAN_BLUE("[H.mind ? H.comm_title : ""] [H] назначен(а) в вашу боевую группу.")))
 		if(H.stat == CONSCIOUS)
-			to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were assigned to [fireteam].")))
+			to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("Вы назначены в [fireteam].")))
 	H.hud_set_squad()
 
 /datum/squad/proc/unassign_fireteam(mob/living/carbon/human/H, upd_ui = TRUE)
@@ -805,9 +805,9 @@
 	if(fireteam_leaders[ft])
 		SStracking.stop_tracking(ft, H) //remove from FT group
 		SStracking.start_tracking(tracking_id, H) //add to SL group
-		to_chat(fireteam_leaders[ft], FONT_SIZE_HUGE(SPAN_BLUE("[H.mind ? H.comm_title : ""] [H] was unassigned from your fireteam.")))
+		to_chat(fireteam_leaders[ft], FONT_SIZE_HUGE(SPAN_BLUE("[H.mind ? H.comm_title : ""] [H] откреплен(а) от вашей боевой группы.")))
 	if(!H.stat)
-		to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were unassigned from [ft].")))
+		to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("Вы откреплены от [ft].")))
 	H.hud_set_squad()
 
 /datum/squad/proc/assign_ft_leader(fireteam, mob/living/carbon/human/H, upd_ui = TRUE)
@@ -819,7 +819,7 @@
 	SStracking.set_leader(H.assigned_fireteam, H) //Set FT leader as leader of this group
 	SStracking.start_tracking("marine_sl", H)
 	if(H.stat == CONSCIOUS)
-		to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were assigned as [fireteam] Team Leader.")))
+		to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("Вы назначены командиром боевой группы [fireteam].")))
 
 /datum/squad/proc/unassign_ft_leader(fireteam, clear_group_id, upd_ui = TRUE)
 	if(!fireteam_leaders[fireteam])
@@ -831,7 +831,7 @@
 		reassign_ft_tracker_group(fireteam, H.assigned_fireteam, tracking_id) //transfer whole FT to SL group
 		update_fireteam(fireteam)
 	if(!H.stat)
-		to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were unassigned as [fireteam] Team Leader.")))
+		to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("Вы сняты с поста командира боевой группы [fireteam].")))
 
 /datum/squad/proc/unassign_all_ft_leaders()
 	for(var/team in fireteam_leaders)

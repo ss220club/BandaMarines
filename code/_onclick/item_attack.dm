@@ -21,7 +21,7 @@
 	. = ..()
 	if(W && !.)
 		if(!(W.flags_item & NOBLUDGEON))
-			visible_message(SPAN_DANGER("[src] has been hit by [user] with [W]."), null, null, 5, CHAT_TYPE_MELEE_HIT)
+			visible_message(SPAN_DANGER("[src] получил удар от [user] с [W]."), null, null, 5, CHAT_TYPE_MELEE_HIT)
 			user.animation_attack_on(src)
 			user.flick_attack_overlay(src, "punch")
 			return ATTACKBY_HINT_UPDATE_NEXT_MOVE
@@ -76,8 +76,8 @@
 
 	if (user.a_intent == INTENT_HELP && ((user.client?.prefs && user.client?.prefs?.toggle_prefs & TOGGLE_HELP_INTENT_SAFETY) || (user.mob_flags & SURGERY_MODE_ON)))
 		playsound(loc, 'sound/effects/pop.ogg', 25, 1)
-		user.visible_message(SPAN_NOTICE("[M] has been poked with [src][showname]"),
-			SPAN_NOTICE("You poke [M == user ? "yourself":M] with [src]."), null, 4)
+		user.visible_message(SPAN_NOTICE("[M] ткнули при помощи [src][showname]"),
+			SPAN_NOTICE("Вы тыкаете [M == user ? "в себя":M] при помощи [src]."), null, 4)
 
 		return FALSE
 

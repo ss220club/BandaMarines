@@ -304,10 +304,10 @@
 		var/mob/dead/observer/cur_obs = candidates[i]
 
 		// Generate the messages
-		var/cached_message = "You are currently [i-dequeued]\th in the larva pool."
+		var/cached_message = "Вы [i-dequeued]\th в очереди на становление личинкой." // SS220 EDIT ADDICTION
 		cur_obs.larva_pool_cached_message = cached_message
 		if(!cache_only)
-			var/chat_message = dequeued ? replacetext(cached_message, "currently", "now") : cached_message
+			var/chat_message = dequeued ? replacetext(cached_message, "сейчас", "теперь") : cached_message // SS220 EDIT ADDICTION
 			to_chat(candidates[i], SPAN_XENONOTICE(chat_message))
 
 /**
@@ -325,12 +325,12 @@
 	if(!SSticker.HasRoundStarted() || world.time < SSticker.round_start_time + 15 SECONDS)
 		// Larva pool numbers are too volatile at the start of the game for the estimation to be what they end up with
 		if(!cache_only)
-			to_chat(candidate_new_player, SPAN_XENONOTICE("Larva pool position estimation is not available until shortly after the game has started. \
-				The ordering is based on your time of death or the time you joined. When you have been dead long enough and are not inactive, \
-				you will periodically receive updates where you are in the pool relative to other currently valid xeno candidates. \
-				Your current position will shift as others change their preferences or go inactive, but your relative position compared to all observers is the same. \
-				Note: Playing as a facehugger/lesser or in the thunderdome will not alter your time of death. \
-				This means you won't lose your relative place in the pool if you step away, disconnect, play as a facehugger/lesser, or play in the thunderdome."))
+			to_chat(candidate_new_player, SPAN_XENONOTICE("Определение вашей позиции в очереди на становление личинкой станет доступно вскоре после начала раунда.\
+				Ваша позиция в очереди определяется временем вашей смерти или временем подключения к серверу. Когда вы будете мертвы достаточно долго и не будете неактивны,\
+				вы будете периодически получать уведомления о вашей позиции в очереди относительно других действующих кандидатов в ксеноморфы.\
+				Ваша текущая позиция может меняться по мере того, как другие игроки меняют свои настройки или становятся неактивны, однако ваше положение относительно всех наблюдателей остается неизменным.\
+				Важно: Игра в роли лицехвата/трутня или на «Громовой арене» не влияет на время вашей смерти.\
+				Это означает, что вы не потеряете свою позицию в очереди, если отойдёте от компьютера, отключитесь от сервера, сыграете лицехватом/трутнем или сыграете на «Громовой арене»."))
 		return
 
 	if(candidate_new_player.larva_pool_message_stale_time <= world.time)
@@ -343,12 +343,12 @@
 				break
 			position++
 		candidate_new_player.larva_pool_message_stale_time = world.time + 2.5 MINUTES // spam prevention
-		candidate_new_player.larva_pool_cached_message = "Your position would be [position]\th in the larva pool if you observed and were eligible to be a xeno. \
-			The ordering is based on your time of death or the time you joined. When you have been dead long enough and are not inactive, \
-			you will periodically receive updates where you are in the pool relative to other currently valid xeno candidates. \
-			Your current position will shift as others change their preferences or go inactive, but your relative position compared to all observers is the same. \
-			Note: Playing as a facehugger/lesser or in the thunderdome will not alter your time of death. \
-			This means you won't lose your relative place in the pool if you step away, disconnect, play as a facehugger/lesser, or play in the thunderdome."
+		candidate_new_player.larva_pool_cached_message = "Ваша позиция в пуле личинок составила бы [position]-ю, если бы вы находились в режиме наблюдателя и имели право стать ксеноморфом. \
+			Очередь определяется временем вашей смерти или временем подключения к серверу. Когда вы пробудете мёртвым достаточно долго и не будете неактивны, \
+			вы будете периодически получать обновления о вашем месте в пуле относительно других подходящих кандидатов. \
+			Ваша текущая позиция может меняться по мере того, как другие игроки меняют свои настройки или становятся неактивны, однако ваше положение относительно всех наблюдателей остается неизменным. \
+			Важно: Игра в роли лицехвата/трутня или на «Громовой арене» не влияет на время вашей смерти. \
+			Это означает, что вы не потеряете свою позицию в очереди, если отойдёте от компьютера, отключитесь от сервера, сыграете лицехватом/трутнем или сыграете на «Громовой арене»."
 
 	if(!cache_only)
 		to_chat(candidate_new_player, SPAN_XENONOTICE(candidate_new_player.larva_pool_cached_message))
@@ -387,12 +387,12 @@
 			if(current.client.player_details.larva_pool_time >= candidate_time)
 				break
 			position++
-		candidate_observer.larva_pool_cached_message = "You are currently ineligible to be a larva but would be [position]\th in the pool. \
-			The ordering is based on your time of death or the time you joined. When you have been dead long enough and are not inactive, \
-			you will periodically receive updates where you are in the pool relative to other currently valid xeno candidates. \
-			Your current position will shift as others change their preferences or go inactive, but your relative position compared to all observers is the same. \
-			Note: Playing as a facehugger/lesser or in the thunderdome will not alter your time of death. \
-			This means you won't lose your relative place in the pool if you step away, disconnect, play as a facehugger/lesser, or play in the thunderdome."
+		candidate_observer.larva_pool_cached_message = "В настоящее время вы не имеете права стать личинкой, но ваша позиция в очереди составила бы [position]-ю.\
+			Очередь определяется временем вашей смерти или временем подключения к серверу. Когда вы пробудете мёртвым достаточно долго и не будете неактивны,\
+			вы будете периодически получать обновления о вашем месте в очереди на становление относительно других подходящих кандидатов.\
+			Ваша текущая позиция может меняться по мере того, как другие игроки меняют свои настройки или становятся неактивны, но ваше положение относительно всех наблюдателей остаётся неизменным.\
+			Важно: Игра за лицехвата/трутня или на «Громовой арене» не меняет время вашей смерти.\
+			Это означает, что вы не потеряете своё место в очереди, если отойдёте, отключитесь, сыграете за лицехвата/трутня или сыграете на «Громовой арене»."
 
 	// Note banishment too
 	var/datum/hive_status/cur_hive
@@ -400,8 +400,8 @@
 		cur_hive = GLOB.hive_datum[hive_num]
 		for(var/mob_name in cur_hive.banished_ckeys)
 			if(cur_hive.banished_ckeys[mob_name] == candidate_observer.ckey)
-				candidate_observer.larva_pool_cached_message += "\nNOTE: You are banished from the [cur_hive] and you may not rejoin unless \
-					the Queen re-admits you or dies. Your pool number won't update until there is a hive you aren't banished from."
+				candidate_observer.larva_pool_cached_message += "\nВНИМАНИЕ: Вы изгнаны из улья [cur_hive] и не можете вернуться, \
+					пока Королева не примет вас обратно или не умрёт. Ваш номер в очереди на становление не обновится, пока не появится улья, из которого вас не изгнали."
 				break
 
 	if(!cache_only)

@@ -69,7 +69,7 @@ BSQL_PROTECT_DATUM(/datum/entity/player_time)
 /datum/entity/player/tgui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "Playtime", "Playtimes")
+		ui = new(user, src, "Playtime", "Игровая активность") // SS220 EDIT ADDICTION
 		ui.open()
 
 /datum/entity/player/ui_assets(mob/user)
