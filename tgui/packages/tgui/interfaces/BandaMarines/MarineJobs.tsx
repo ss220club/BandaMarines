@@ -76,7 +76,7 @@ export const JOBS_RU = {
   Colonist: 'Колонист',
   Passenger: 'Пассажир',
   Survivor: 'Выживший',
-  'Synth Survivor': 'Выживший-cинтетик',
+  'Synth Survivor': 'Выживший-синтетик',
   'CO Survivor': 'Выживший КО',
   'Any Survivor': 'Любой выживший',
   'Civilian Survivor': 'Выживший гражданский',
