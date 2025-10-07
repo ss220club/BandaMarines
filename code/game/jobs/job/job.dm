@@ -225,10 +225,10 @@
 		// SS220 START EDIT ADDICTION
 		var/entrydisplay = boxed_message("\
 			[SPAN_ROLE_BODY("|______________________|")] \n\
-			[SPAN_ROLE_HEADER("You are $1", list(title_given))] \n\
-			[flags_startup_parameters & ROLE_ADMIN_NOTIFY ? SPAN_ROLE_HEADER("You are playing a job that is important for game progression. If you have to disconnect, please notify the admins via adminhelp.") : ""] \n\
+			[SPAN_ROLE_HEADER("Вы - [title_given]")] \n\
+			[flags_startup_parameters & ROLE_ADMIN_NOTIFY ? SPAN_ROLE_HEADER("Вы играете важную роль в игре. Если вам нужно отключиться, пожалуйста, сообщите об этом через AdminHelp.") : ""] \n\
 			[SPAN_ROLE_BODY("[generate_entry_message(H)]<br>")] \n\
-			[M ? SPAN_ROLE_BODY("Your account number is: <b>$1</b>. Your account pin is: <b>$2</b>.", list(M.account_number, M.remote_access_pin)) : SPAN_ROLE_BODY("You do not have a bank account.")] \n\
+			[M ? SPAN_ROLE_BODY("Номер вашего банковского счёта: <b>[M.account_number]</b>. Пин-код: <b>[M.remote_access_pin]</b>.") : SPAN_ROLE_BODY("У вас нет банковского счёта.")] \n\
 			[SPAN_ROLE_BODY("|______________________|")] \
 		")
 		// SS220 END EDIT ADDICTION

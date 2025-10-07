@@ -166,7 +166,7 @@
 		return TRUE
 
 	if(!allowed(user))
-		to_chat(user, SPAN_WARNING("Access denied."))
+		to_chat(user, SPAN_WARNING("Доступ запрещён."))
 		return TRUE
 
 	// if the dropship has crashed don't allow more interactions

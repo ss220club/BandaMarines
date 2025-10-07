@@ -137,7 +137,7 @@ SUBSYSTEM_DEF(mapping)
 
 	z_list = SSmapping.z_list
 
-#define INIT_ANNOUNCE(X, args...) to_chat(world, "<span class='notice'>[ru_span(X, ##args, type="INIT_ANNOUNCE")]</span>"); log_world(X) // SS220 EDIT ADDICTION
+#define INIT_ANNOUNCE(X) to_chat(world, "<span class='notice'>[X]</span>"); log_world(X)
 /datum/controller/subsystem/mapping/proc/LoadGroup(list/errorList, name, path, files, list/traits, list/default_traits, silent = FALSE, override_map_path = "maps/")
 	. = list()
 	var/start_time = REALTIMEOFDAY
@@ -162,7 +162,7 @@ SUBSYSTEM_DEF(mapping)
 		for (var/i in 1 to total_z)
 			traits += list(default_traits)
 	else if (total_z != length(traits))  // mismatch
-		INIT_ANNOUNCE("WARNING: $1 trait sets specified for $2 z-levels in $3!", list(length(traits), total_z, path)) // SS220 EDIT ADDICTION
+		INIT_ANNOUNCE("WARNING: [length(traits)] trait sets specified for [total_z] z-levels in [path]!")
 		if (total_z < length(traits))  // ignore extra traits
 			traits.Cut(total_z + 1)
 		while (total_z > length(traits))  // fall back to defaults on extra levels
@@ -200,7 +200,7 @@ SUBSYSTEM_DEF(mapping)
 	// =============== END CM Change =================
 
 	if(!silent)
-		INIT_ANNOUNCE("Loaded $1 in $2s!", list(name, round((REALTIMEOFDAY - start_time)/10, 0.01))) // SS220 EDIT ADDICTION
+		INIT_ANNOUNCE("Загрузка карты «[name]» заняла [round((REALTIMEOFDAY - start_time)/10, 0.01)] секунд") // SS220 EDIT ADDICTION
 	return parsed_maps
 
 /datum/controller/subsystem/mapping/proc/Loadship(list/errorList, name, path, files, list/traits, list/default_traits, silent = FALSE, override_map_path = "maps/")
@@ -220,7 +220,7 @@ SUBSYSTEM_DEF(mapping)
 	ground_start = world.maxz + 1
 
 	var/datum/map_config/ground_map = configs[GROUND_MAP]
-	INIT_ANNOUNCE("Loading $1...", list(ground_map.map_name)) // SS220 EDIT ADDICTION
+	INIT_ANNOUNCE("Загрузка карты «[ground_map.map_name]»...") // SS220 EDIT ADDICTION
 	var/ground_base_path = "maps/"
 	if(ground_map.override_map)
 		ground_base_path = "data/"
@@ -231,7 +231,7 @@ SUBSYSTEM_DEF(mapping)
 		var/ship_base_path = "maps/"
 		if(ship_map.override_map)
 			ship_base_path = "data/"
-		INIT_ANNOUNCE("Loading $1...", list(ship_map.map_name)) // SS220 EDIT ADDICTION
+		INIT_ANNOUNCE("Загрузка карты «[ship_map.map_name]»...") // SS220 EDIT ADDICTION
 		Loadship(FailedZs, ship_map.map_name, ship_map.map_path, ship_map.map_file, ship_map.traits, ZTRAITS_MAIN_SHIP, override_map_path = ship_base_path)
 
 	// loads the UPP ship if the game mode is faction clash (Generally run by the Prepare event under prep event verb)

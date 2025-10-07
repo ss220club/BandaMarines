@@ -39,23 +39,23 @@
 	if(burning)
 		switch(amount)
 			if(1 to 10)
-				msg = SPAN_WARNING("Your $1 burns.", list(ru_name)) // SS220 EDIT ADDICTION
+				msg = SPAN_WARNING("У вас жжётся [ru_name].") // SS220 EDIT ADDICTION
 			if(11 to 90)
 				flash_weak_pain()
-				msg = SPAN_DANGER("Your $1 burns badly!", list(ru_name)) // SS220 EDIT ADDICTION
+				msg = SPAN_DANGER("У вас сильно жжётся [ru_name].") // SS220 EDIT ADDICTION
 			if(91 to 10000)
 				flash_pain()
-				msg = SPAN_HIGHDANGER("OH GOD! Your $1 is on fire!", list(ru_name)) // SS220 EDIT ADDICTION
+				msg = SPAN_HIGHDANGER(О БОЖЕ! У вас горит [ru_name].") // SS220 EDIT ADDICTION
 	else
 		switch(amount)
 			if(1 to 10)
-				msg = SPAN_WARNING("Your $1 hurts.", list(ru_name)) // SS220 EDIT ADDICTION
+				msg = SPAN_WARNING("У вас болит [ru_name].") // SS220 EDIT ADDICTION
 			if(11 to 90)
 				flash_weak_pain()
-				msg = SPAN_DANGER("Your $1 hurts badly.", list(ru_name)) // SS220 EDIT ADDICTION
+				msg = SPAN_DANGER("У вас сильно болит [ru_name].") // SS220 EDIT ADDICTION
 			if(91 to 10000)
 				flash_pain()
-				msg = SPAN_HIGHDANGER("OH GOD! Your $1 is hurting terribly!", list(ru_name)) // SS220 EDIT ADDICTION
+				msg = SPAN_HIGHDANGER("О БОЖЕ! У вас ужасно болит [ru_name].") // SS220 EDIT ADDICTION
 	if(msg && (msg != last_pain_message || prob(10)))
 		last_pain_message = msg
 		to_chat(src, msg)
@@ -72,14 +72,14 @@
 
 // message is the custom message to be displayed
 // flash_strength is 0 for weak pain flash, 1 for strong pain flash
-/mob/living/carbon/human/custom_pain(message, flash_strength, attr = list()) // SS220 EDIT ADDICTION
+/mob/living/carbon/human/custom_pain(message, flash_strength)
 	. = ..()
 	if(!.)
 		return
 
-	var/msg = SPAN_DANGER("[message]", attr) // SS220 EDIT ADDICTION
+	var/msg = SPAN_DANGER("[message]") // SS220 EDIT ADDICTION
 	if(flash_strength >= 1)
-		msg = SPAN_HIGHDANGER("[message]", attr) // SS220 EDIT ADDICTION
+		msg = SPAN_HIGHDANGER("[message]") // SS220 EDIT ADDICTION
 
 	// Anti message spam checks
 	if(msg && ((msg != last_pain_message) || (world.time >= next_pain_time)))
@@ -127,7 +127,7 @@
 	for(var/datum/internal_organ/I as anything in internal_organs)
 		if(I.damage > 2 && prob(2))
 			parent = get_limb(I.parent_limb)
-			custom_pain("You feel a sharp pain in your $1!", 1, list(parent.declent_ru())) // SS220 EDIT ADDICTION
+			custom_pain("Вы чувствуете острую боль в [parent.declent_ru()]!", 1) // SS220 EDIT ADDICTION
 
 	var/toxDamageMessage = null
 	var/toxMessageProb = 1

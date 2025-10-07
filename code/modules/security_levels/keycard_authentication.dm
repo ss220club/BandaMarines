@@ -295,7 +295,7 @@ GLOBAL_VAR_INIT(ob_cannon_safety, FALSE)
 	for(var/mob/M in GLOB.player_list)
 		if(isxeno(M))
 			sound_to(M, sound(get_sfx("queen"), wait = 0, volume = 50))
-			to_chat(M, SPAN_XENOANNOUNCE("The Queen Mother reaches into your mind from worlds away."))
+			to_chat(M, SPAN_XENOANNOUNCE("Королева-мать проникает в ваш разум издалека."))
 			to_chat(M, SPAN_XENOANNOUNCE("To my children and their Queen. I sense the large doors that trap us will open in [text_timeleft].", list(timeleft))) // SS220 EDIT ADDICTION
 	var/new_timeleft = timeleft - next_interval
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/structure/machinery/keycard_auth/lockdown, timed_countdown), new_timeleft), next_interval)

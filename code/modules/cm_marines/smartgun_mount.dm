@@ -825,7 +825,7 @@
 	if(!operator)
 		return
 	if(!rounds)
-		to_chat(operator, SPAN_WARNING("<b>*click*</b>"))
+		to_chat(operator, SPAN_WARNING("<b>*щелчок*</b>"))
 		playsound(src, 'sound/weapons/gun_empty.ogg', 25, 1, 5)
 		return
 

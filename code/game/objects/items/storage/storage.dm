@@ -475,7 +475,7 @@ GLOBAL_LIST_EMPTY_TYPED(item_storage_box_cache, /datum/item_storage_box)
 
 	if(!can_hold_type(W.type, user))
 		if(!stop_messages)
-			to_chat(usr, SPAN_NOTICE("$1 cannot hold $2.", list(declent_ru(PREPOSITIONAL), W.declent_ru()))) // SS220 EDIT ADDICTION
+			to_chat(usr, SPAN_NOTICE("В [declent_ru(PREPOSITIONAL)] нельзя поместить [W.declent_ru()].")) // SS220 EDIT ADDICTION
 		return
 
 	var/w_limit_bypassed = 0
@@ -568,8 +568,8 @@ W is always an item. stop_warning prevents messaging. user may be null.**/
 		add_fingerprint(user)
 		if(!prevent_warning)
 			var/visidist = W.w_class >= 3 ? 3 : 1
-			user.visible_message(SPAN_NOTICE("$1 puts $2 into $3.", list(user, W.declent_ru(), declent_ru())), // SS220 EDIT ADDICTION
-								SPAN_NOTICE("You put $1 into $2.", list(W.declent_ru(), declent_ru())), // SS220 EDIT ADDICTION
+			user.visible_message(SPAN_NOTICE("[user] помещает [W.declent_ru()] в [declent_ru()]"), // SS220 EDIT ADDICTION
+								SPAN_NOTICE("Вы помещаете [W.declent_ru()] в [declent_ru()]"), // SS220 EDIT ADDICTION
 								null, visidist)
 	orient2hud()
 	for(var/mob/M in can_see_content())
@@ -705,24 +705,24 @@ W is always an item. stop_warning prevents messaging. user may be null.**/
 
 	var/ru_name = declent_ru(ACCUSATIVE) // SS220 EDIT ADDICTION
 	if(!can_storage_interact(user))
-		to_chat(user, SPAN_WARNING("Access denied."))
+		to_chat(user, SPAN_WARNING("Доступ запрещён."))
 		return
 
 	if(!length(contents))
-		to_chat(user, SPAN_WARNING("$1 is already empty.", list(ru_name))) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_WARNING("[ru_name] уже пустой.")) // SS220 EDIT ADDICTION
 		return
 
 	if (!(storage_flags & STORAGE_QUICK_EMPTY))
-		user.visible_message(SPAN_NOTICE("$1 starts to empty $2...", list(user, ru_name)), // SS220 EDIT ADDICTION
-			SPAN_NOTICE("You start to empty $1...", list(ru_name))) // SS220 EDIT ADDICTION
+		user.visible_message(SPAN_NOTICE("[user] начинает опустошать [ru_name]..."), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("Вы начинате опустошать [ru_name]...")) // SS220 EDIT ADDICTION
 		if (!do_after(user, 2 SECONDS, INTERRUPT_ALL, BUSY_ICON_GENERIC))
 			return
 
 	storage_close(user)
 	for (var/obj/item/I in contents)
 		remove_from_storage(I, T, user)
-	user.visible_message(SPAN_NOTICE("$1 empties $2.", list(user, ru_name)), // SS220 EDIT ADDICTION
-		SPAN_NOTICE("You empty $1.", list(ru_name))) // SS220 EDIT ADDICTION
+	user.visible_message(SPAN_NOTICE("[user] опустошает [ru_name]..."), // SS220 EDIT ADDICTION
+		SPAN_NOTICE("Вы опустошаете [ru_name]...")) // SS220 EDIT ADDICTION
 	if (use_sound)
 		playsound(loc, use_sound, 25, TRUE, 3)
 

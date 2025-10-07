@@ -319,8 +319,8 @@
 		if(istype(H))
 			H.species.hug(H, src, H.zone_selected)
 		else
-			M.visible_message(SPAN_NOTICE("$1 pats $2 on the back to make $3 feel better!", list(M, src, t_him)), // SS220 EDIT ADDICTION
-				SPAN_NOTICE("You pat [src] on the back to make [t_him] feel better!"), null, 4)
+			M.visible_message(SPAN_NOTICE("[M] похлопывает [src] по спине, чтобы [t_him] стало лучше!"), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("Вы похлопываете [src] по спине, чтобы [t_him] стало лучше!"), null, 4)
 			playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 5)
 		return
 
@@ -411,7 +411,7 @@
 
 		if(!(thrown_thing.try_to_throw(src)))
 			return
-		visible_message(SPAN_WARNING("$1 has thrown $2.", list(declent_ru(), thrown_thing.declent_ru(ACCUSATIVE))), null, null, 5) // SS220 EDIT ADDICTION
+		visible_message(SPAN_WARNING("[declent_ru()] бросает [thrown_thing.declent_ru(ACCUSATIVE)]."), null, null, 5) // SS220 EDIT ADDICTION
 
 		if(!lastarea)
 			lastarea = get_area(src.loc)

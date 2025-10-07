@@ -774,7 +774,7 @@
 	if(href_list["scanreport"])
 		if(hasHUD(usr,"medical"))
 			if(!skillcheck(usr, SKILL_MEDICAL, SKILL_MEDICAL_MEDIC))
-				to_chat(usr, SPAN_WARNING("You're not trained to use this."))
+				to_chat(usr, SPAN_WARNING("Вы не знаете как использовать это."))
 				return
 			if(!has_species(src, "Human"))
 				to_chat(usr, SPAN_WARNING("This only works on humans."))
@@ -813,16 +813,16 @@
 	if(!skillcheck(user, SKILL_MEDICAL, SKILL_MEDICAL_MEDIC))
 		// Removing your own holocard when you are not trained
 		if(user == src && holo_card_color)
-			if(tgui_alert(user, "Вы уверены, что хотите сбросить статус своей медголокарты?", "Сброс статуса медголокарты", list("Да", "Нет")) != "Да") // SS220 EDIT ADDICTION
+			if(tgui_alert(user, "Вы уверены, что хотите сбросить статус своей медголокарты?", "Сброс статуса медголокарты", list("Да", "Нет")) == "Нет") // SS220 EDIT ADDICTION
 				return
 			holo_card_color = null
-			to_chat(user, SPAN_NOTICE("You reset your holocard."))
+			to_chat(user, SPAN_NOTICE("Вы сбрасываете статус своей медголокарты."))
 			hud_set_holocard()
 			return
-		to_chat(user, SPAN_WARNING("You're not trained to use this."))
+		to_chat(user, SPAN_WARNING("Вы не знаете как использовать это."))
 		return
 	if(!has_species(src, "Human"))
-		to_chat(user, SPAN_WARNING("Triage holocards only works on humans."))
+		to_chat(user, SPAN_WARNING("Статус медголокарты можно изменить только у людей."))
 		return
 
 	// SS220 START EDIT ADDICTION
@@ -834,24 +834,24 @@
 		"none" = "Нет данных"
 	)
 	var/newcolor = tgui_input_list(user, "Укажите причину болезни пациента:", "Медголокарта", holocard_translations, associative_list = TRUE)
-	// SS220 END EDIT ADDICTION
+	// SS220 EDIT ADDICTION
 	if(!newcolor)
 		return
 	var/translated_value = holocard_translations[newcolor] // SS220 EDIT ADDICTION
 	if(get_dist(user, src) > 7)
-		to_chat(user, SPAN_WARNING("$1 is too far away.", list(declent_ru()))) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_WARNING("[declent_ru()] слишком далеко от вас.")) // SS220 EDIT ADDICTION
 		return
 	if(newcolor == "none")
 		if(!holo_card_color)
 			return
 		holo_card_color = null
-		to_chat(user, SPAN_NOTICE("You remove the holo card on $1.", list(declent_ru()))) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_NOTICE("Вы убираете статус из медголокарты [declent_ru()].")) // SS220 EDIT ADDICTION
 	else if(newcolor != holo_card_color)
 		if(newcolor == "black" && is_revivable() && check_tod())
-			to_chat(user, SPAN_WARNING("They are yet saveable."))
+			to_chat(user, SPAN_WARNING("Пациента ещё можно спасти!"))
 			return
 		holo_card_color = newcolor
-		to_chat(user, SPAN_NOTICE("You add a $1 holo card on $2.", list(translated_value, src))) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_NOTICE("Вы устанавливаете статус «[translated_value]» в медголокарте [src].")) // SS220 EDIT ADDICTION
 	hud_set_holocard()
 
 /mob/living/carbon/human/tgui_interact(mob/user, datum/tgui/ui) // I'M SORRY, SO FUCKING SORRY
@@ -935,7 +935,7 @@
 	apply_effect(5, STUN)
 	if(stat == 2) //One last corpse check
 		return
-	src.visible_message(SPAN_WARNING("$1 throws up!", list(declent_ru())), SPAN_WARNING("You throw up!"), null, 5)
+	src.visible_message(SPAN_WARNING("[declent_ru()] блюёт!"), SPAN_WARNING("Вы блюёте!"), null, 5)
 	playsound(loc, 'sound/effects/splat.ogg', 25, 1, 7)
 
 	var/turf/location = loc
@@ -1047,7 +1047,7 @@
 	var/msg
 	///Is the target the user or somebody else?
 	var/self = (target == src)
-	to_chat(usr, SPAN_NOTICE("You [self ? "take a moment to analyze yourself." : "start analyzing $1."]", list(target.name))) // SS220 EDIT ADDICTION
+	to_chat(usr, SPAN_NOTICE("Используя свои медицинские навыки вы проверяете [self ? "своё состояние." : "состояние [target.name]."]")) // SS220 EDIT ADDICTION
 
 	if(self)
 		var/list/broken_limbs = target.get_broken_limbs() - list("chest","head","groin")

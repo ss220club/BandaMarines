@@ -160,7 +160,7 @@
 /obj/structure/closet/proc/toggle(mob/living/user)
 	user.next_move = world.time + 5
 	if(!(src.opened ? src.close(user) : src.open()))
-		to_chat(user, SPAN_NOTICE("It won't budge!"))
+		to_chat(user, SPAN_NOTICE("Не поддаётся!"))
 	return
 
 
@@ -334,7 +334,7 @@
 		return
 
 	if(!src.open())
-		to_chat(user, SPAN_NOTICE("It won't budge!"))
+		to_chat(user, SPAN_NOTICE("Не поддаётся!"))
 		if(!lastbang)
 			lastbang = 1
 			for (var/mob/M in hearers(src, null))

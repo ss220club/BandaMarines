@@ -556,7 +556,7 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 	if(..())  //Checks for power outages
 		return
 	if(!allowed(user))
-		to_chat(user, SPAN_WARNING("Access denied."))
+		to_chat(user, SPAN_WARNING("Доступ запрещён."))
 		return TRUE
 	tgui_interact(user)
 	return
@@ -1148,7 +1148,7 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 	if(!is_mainship_level(z))
 		return
 	if(!allowed(user))
-		to_chat(user, SPAN_DANGER("Access Denied."))
+		to_chat(user, SPAN_DANGER("Доступ запрещён."))
 		return
 
 	if(..())
@@ -1473,7 +1473,7 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 		return
 
 	if(!allowed(H))
-		to_chat(H, SPAN_DANGER("Access Denied."))
+		to_chat(H, SPAN_DANGER("Доступ запрещён."))
 		return
 
 	H.set_interaction(src)

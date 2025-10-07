@@ -33,7 +33,7 @@ GLOBAL_LIST_EMPTY(spawned_survivors)
 		var/entrydisplay = boxed_message("\
 			[SPAN_ROLE_BODY("|______________________|")] \n\
 			[SPAN_ROLE_BODY("[generate_entry_message(survivor)]<br>")] \n\
-			[account ? SPAN_ROLE_BODY("Your account number is: <b>$1</b>. Your account pin is: <b>$2</b>.", list(account.account_number, account.remote_access_pin)) : SPAN_ROLE_BODY("You do not have a bank account.")] \n\
+			[account ? SPAN_ROLE_BODY("Номер вашего банковского счёта: <b>[account.account_number]</b>. Пин-код: <b>[account.remote_access_pin]</b>.") : SPAN_ROLE_BODY("У вас нет банковского счёта.")] \n\
 			[SPAN_ROLE_BODY("|______________________|")] \
 		")
 		// SS220 END EDIT ADDICTION
@@ -99,10 +99,10 @@ GLOBAL_LIST_EMPTY(spawned_survivors)
 		for(var/line in intro_text)
 			to_chat(survivor, line)
 	else
-		to_chat(survivor, SPAN_NOTICE("<h2>You are a survivor!</h2>"))	// SS220 EDIT TRANSLATE
+		to_chat(survivor, SPAN_NOTICE("<h2>Вы - выживший!</h2>")) // SS220 EDIT ADDITION
 		to_chat(survivor, SPAN_NOTICE(SSmapping.configs[GROUND_MAP].survivor_message))
-		to_chat(survivor, SPAN_NOTICE("You are fully aware of the xenomorph threat and are able to use this knowledge as you see fit."))
-		to_chat(survivor, SPAN_NOTICE("You are NOT aware of the marines or their intentions. "))
+		to_chat(survivor, SPAN_NOTICE("Вы полностью осознаете угрозу ксеноморфов и можете использовать эти знания по своему усмотрению.")) // SS220 EDIT ADDITION
+		to_chat(survivor, SPAN_NOTICE("Вы НЕ знаете о морпехах и их намерениях.")) // SS220 EDIT ADDITION
 
 	if(story_text)
 		to_chat(survivor, story_text)
@@ -111,11 +111,11 @@ GLOBAL_LIST_EMPTY(spawned_survivors)
 		tell_survivor_story(survivor)
 
 	if(hostile)
-		to_chat(survivor, SPAN_HIGHDANGER("You are HOSTILE to the USCM!"))
+		to_chat(survivor, SPAN_HIGHDANGER("Вы ВРАЖДЕБНЫ к ККМП!")) // SS220 EDIT ADDITION
 	else if(survivor.faction == FACTION_CLF)
-		to_chat(survivor, SPAN_HIGHDANGER("You are HOSTILE to the USCM, but NOT to other survivors!"))
+		to_chat(survivor, SPAN_HIGHDANGER("Вы ВРАЖДЕБНЫ к ККМП, но НЕ к другим выжившим!")) // SS220 EDIT ADDITION
 	else
-		to_chat(survivor, SPAN_XENOHIGHDANGER("You are NON-HOSTILE to the USCM!"))
+		to_chat(survivor, SPAN_XENOHIGHDANGER("Вы НЕ ВРАЖДЕБНЫ к ККМП!")) // SS220 EDIT ADDITION
 
 /datum/job/civilian/survivor/proc/tell_survivor_story(mob/living/carbon/human/H)	// SS220 EDIT TRANSLATE
 	var/list/survivor_story = list(

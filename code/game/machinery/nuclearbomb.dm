@@ -187,7 +187,7 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 				return
 
 			if(safety)
-				to_chat(ui.user, SPAN_INFO("The safety is still on."))
+				to_chat(ui.user, SPAN_INFO("Предохранитель поставлен."))
 				return
 
 			if(!A.can_build_special)
@@ -517,7 +517,7 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 				return
 
 			if(safety)
-				to_chat(ui.user, SPAN_INFO("The safety is still on."))
+				to_chat(ui.user, SPAN_INFO("Предохранитель поставлен."))
 				return
 
 			var/area/current_area = get_area(src)

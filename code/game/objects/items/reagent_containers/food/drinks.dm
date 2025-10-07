@@ -26,7 +26,7 @@
 	var/ru_name = declent_ru(GENITIVE) // SS220 EDIT ADDICTION
 
 	if(!R.total_volume || !R)
-		to_chat(user, SPAN_DANGER("The $1 is empty!", list(ru_name))) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_DANGER("Содержимое [ru_name] закончилось!")) // SS220 EDIT ADDICTION
 		return FALSE
 
 	if(HAS_TRAIT(M, TRAIT_CANNOT_EAT))
@@ -34,7 +34,7 @@
 		return FALSE
 
 	if(M == user)
-		to_chat(M, SPAN_NOTICE("You swallow a gulp from $1.", list(ru_name))) // SS220 EDIT ADDICTION
+		to_chat(M, SPAN_NOTICE("Вы делаете глоток из [ru_name].")) // SS220 EDIT ADDICTION
 		if(reagents.total_volume)
 			reagents.set_source_mob(user)
 			reagents.trans_to_ingest(M, gulp_size)

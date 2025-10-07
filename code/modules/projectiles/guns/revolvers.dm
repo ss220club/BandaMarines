@@ -803,7 +803,7 @@
 
 /obj/item/weapon/gun/revolver/cmb/click_empty(mob/user)
 	if(user)
-		to_chat(user, SPAN_WARNING("<b>*click*</b>"))
+		to_chat(user, SPAN_WARNING("<b>*щелчок*</b>"))
 		playsound(user, pick('sound/weapons/handling/gun_cmb_click1.ogg', 'sound/weapons/handling/gun_cmb_click2.ogg'), 25, 1, 5) //5 tile range
 	else
 		playsound(src, pick('sound/weapons/handling/gun_cmb_click1.ogg', 'sound/weapons/handling/gun_cmb_click2.ogg'), 25, 1, 5)

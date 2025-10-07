@@ -785,7 +785,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 	if(!hacked || ignore_hack)
 		if(!allowed(user))
 			if(display)
-				to_chat(user, SPAN_WARNING("Access denied."))
+				to_chat(user, SPAN_WARNING("Доступ запрещён."))
 				vend_fail()
 			return FALSE
 

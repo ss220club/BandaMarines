@@ -867,9 +867,9 @@
 /obj/item/proc/showoff(mob/user)
 	var/list/viewers = get_mobs_in_view(GLOB.world_view_size, user)
 	var/ru_name = declent_ru(ACCUSATIVE) // SS220 EDIT ADDICTION
-	user.langchat_speech(SPAN_TRANSLATE("holds up $1.", list(ru_name)), viewers, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote")) // SS220 EDIT ADDICTION
+	user.langchat_speech(SPAN_TRANSLATE("держит в руках [ru_name]"), viewers, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote")) // SS220 EDIT ADDICTION
 	for (var/mob/M in viewers)
-		M.show_message(SPAN_INFO("$1 holds up $2. <a HREF=$3>Take a closer look.</a>", list(user, ru_name, "?src=\ref[M];lookitem=\ref[src]")), SHOW_MESSAGE_VISIBLE) // SS220 EDIT ADDICTION
+		M.show_message(SPAN_INFO("[user] держит в руках [ru_name]. <a HREF="?src=\ref[M];lookitem=\ref[src]">Посмотреть.</a>"), SHOW_MESSAGE_VISIBLE) // SS220 EDIT ADDICTION
 
 /mob/living/carbon/verb/showoff()
 	set name = "Show Held Item"

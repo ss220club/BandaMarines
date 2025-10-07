@@ -590,9 +590,9 @@ As sniper rifles have both and weapon mods can change them as well. ..() deals w
 		return .
 	var/dat = ""
 	if(flags_gun_features & GUN_TRIGGER_SAFETY)
-		dat += "The safety's on!<br>"
+		dat += "Предохранитель поставлен.<br>"
 	else
-		dat += "The safety's off!<br>"
+		dat += "Предохранитель cнят.<br>"
 
 	for(var/slot in attachments)
 		var/obj/item/attachable/R = attachments[slot]
@@ -1664,7 +1664,7 @@ not all weapons use normal magazines etc. load_into_chamber() itself is designed
 				return FALSE
 
 		if(flags_gun_features & GUN_TRIGGER_SAFETY)
-			to_chat(user, SPAN_WARNING("The safety is on!"))
+			to_chat(user, SPAN_WARNING("Предохранитель поставлен."))
 			gun_user.balloon_alert(gun_user, "safety on")
 			return
 
@@ -1731,7 +1731,7 @@ not all weapons use normal magazines etc. load_into_chamber() itself is designed
 	if(istype(current_gun, /obj/item/weapon/gun/flamer))
 		dry_fire_text = "<b>*pshhhh*</b>"
 	else
-		dry_fire_text = "<b>*click*</b>"
+		dry_fire_text = "<b>*щелчок*</b>"
 
 	if(user)
 		to_chat(user, SPAN_WARNING(dry_fire_text))

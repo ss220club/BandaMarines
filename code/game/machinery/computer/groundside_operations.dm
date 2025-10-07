@@ -253,7 +253,7 @@
 				to_chat(usr, SPAN_WARNING("Please allow at least [COOLDOWN_COMM_MESSAGE*0.1] second\s to pass between announcements."))
 				return FALSE
 			if(announcement_faction != FACTION_MARINE && usr.faction != announcement_faction)
-				to_chat(usr, SPAN_WARNING("Access denied."))
+				to_chat(usr, SPAN_WARNING("Доступ запрещён."))
 				return
 			var/input = stripped_multiline_input(usr, "Пожалуйста, напишите сообщение для экипажа станции.", "Приоритетное оповещение", "")
 			if(!input || !is_announcement_active || !(usr in dview(1, src)))

@@ -50,7 +50,7 @@
 	if(allowed(user) && card?.check_biometrics(user))
 		tgui_interact(user)
 	else
-		to_chat(user, SPAN_DANGER("Access denied."))
+		to_chat(user, SPAN_DANGER("Доступ запрещён."))
 
 /obj/item/device/cotablet/ui_static_data(mob/user)
 	var/list/data = list()

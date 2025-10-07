@@ -32,8 +32,8 @@
 
 	if(!reagents.total_volume)
 		if(M == usr)
-			to_chat(usr, SPAN_NOTICE("You finish eating $1.", list(declent_ru(ACCUSATIVE)))) // SS220 EDIT ADDICTION
-		M.visible_message(SPAN_NOTICE("$1 finishes eating $2.", list(M, declent_ru(ACCUSATIVE)))) // SS220 EDIT ADDICTION
+			to_chat(usr, SPAN_NOTICE("Вы полностью доели [declent_ru(ACCUSATIVE)].")) // SS220 EDIT ADDICTION
+		M.visible_message(SPAN_NOTICE("[M] полностью доедает [declent_ru(ACCUSATIVE)].")) // SS220 EDIT ADDICTION
 		usr.drop_inv_item_on_ground(src) //so icons update :[
 
 		if(trash)
@@ -65,7 +65,7 @@
 			return ..() // chunk box gaming
 
 		if(user == M)
-			to_chat(M, SPAN_WARNING("How do you expect to eat this with the package still on?"))
+			to_chat(M, SPAN_WARNING("Как вы собираетесь есть это через упаковку?"))
 		else
 			to_chat(M, SPAN_WARNING("[user] made an endearing attempt to force feed you a snack with the packaging still on."))
 		return FALSE
@@ -74,7 +74,7 @@
 		var/mob/living/carbon/C = M
 		var/fullness = M.nutrition + (M.reagents.get_reagent_amount("nutriment") * 25)
 		if(fullness > NUTRITION_HIGH && world.time < C.overeat_cooldown)
-			to_chat(user, SPAN_WARNING("[user == M ? "You" : "They"] don't feel like eating more right now."))
+			to_chat(user, SPAN_WARNING("Вам сейчас не хочется больше есть."))
 			return FALSE
 		if(issynth(C) || isyautja(C))
 			fullness = 200 //Synths and yautja never get full
@@ -89,15 +89,15 @@
 		if(M == user)//If you're eating it yourself
 			var/ru_name = declent_ru(GENITIVE) // SS220 EDIT ADDICTION
 			if (fullness <= NUTRITION_VERYLOW)
-				to_chat(M, SPAN_WARNING("You hungrily chew out a piece of $1 and gobble it!", list(ru_name))) // SS220 EDIT ADDICTION
+				to_chat(M, SPAN_WARNING("Вы жадно откусываете кусочек [ru_name] и проглатываете!")) // SS220 EDIT ADDICTION
 			if (fullness > NUTRITION_VERYLOW && fullness <= NUTRITION_LOW)
-				to_chat(M, SPAN_NOTICE("You hungrily begin to eat $1.", list(ru_name))) // SS220 EDIT ADDICTION
+				to_chat(M, SPAN_NOTICE("Вы жадно откусываете кусочек [ru_name].")) // SS220 EDIT ADDICTION
 			if (fullness > NUTRITION_LOW && fullness <= NUTRITION_NORMAL)
-				to_chat(M, SPAN_NOTICE("You take a bite of $1.", list(ru_name))) // SS220 EDIT ADDICTION
+				to_chat(M, SPAN_NOTICE("Вы откусываете кусочек [ru_name].")) // SS220 EDIT ADDICTION
 			if (fullness > NUTRITION_NORMAL && fullness <= NUTRITION_HIGH)
-				to_chat(M, SPAN_NOTICE("You unwillingly chew a bit of $1.", list(ru_name))) // SS220 EDIT ADDICTION
+				to_chat(M, SPAN_NOTICE("Вы неохотно откусываете кусочек [ru_name].")) // SS220 EDIT ADDICTION
 			if (fullness > NUTRITION_HIGH)
-				to_chat(M, SPAN_WARNING("You reluctantly force more of $1 to go down your throat.", list(ru_name))) // SS220 EDIT ADDICTION
+				to_chat(M, SPAN_WARNING("Вы неохотно отправляете себе в рот ещё один кусочек [ru_name].")) // SS220 EDIT ADDICTION
 		else
 			if (fullness <= NUTRITION_HIGH)
 				user.affected_message(M,
@@ -3336,7 +3336,7 @@
 
 	if(package)
 		playsound(src.loc,'sound/effects/pageturn2.ogg', 15, 1)
-		to_chat(user, SPAN_NOTICE("You pull off the wrapping from the squishy burrito!"))
+		to_chat(user, SPAN_NOTICE("Вы снимаете обёртку с буррито!"))
 		package = 0
 		new /obj/item/trash/buritto (user.loc)
 		icon_state = "open-burrito"
@@ -3363,7 +3363,7 @@
 
 	if(package)
 		playsound(src.loc,'sound/effects/pageturn2.ogg', 15, 1)
-		to_chat(user, SPAN_NOTICE("You pull off the wrapping from the squishy hamburger!"))
+		to_chat(user, SPAN_NOTICE("Вы снимаете обёртку с бургера!"))
 		package = 0
 		new /obj/item/trash/burger (user.loc)
 		icon_state = "hburger"
@@ -3389,7 +3389,7 @@
 
 	if(package)
 		playsound(src.loc,'sound/effects/pageturn2.ogg', 15, 1)
-		to_chat(user, SPAN_NOTICE("You pull off the wrapping from the squishy hotdog!"))
+		to_chat(user, SPAN_NOTICE("Вы снимаете обёртку с хот-дога!"))
 		package = 0
 		new /obj/item/trash/hotdog (user.loc)
 		icon_state = "open-hotdog"
@@ -3449,7 +3449,7 @@
 	..()
 
 	if(package)
-		to_chat(user, SPAN_NOTICE("You pull open the package of $1!", list(declent_ru()))) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_NOTICE("Вы распаковываете [declent_ru()]")) // SS220 EDIT ADDICTION
 		playsound(loc,'sound/effects/pageturn2.ogg', 15, 1)
 
 		if(wrapper)

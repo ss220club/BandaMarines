@@ -21,7 +21,7 @@
 	. = ..()
 	if(W && !.)
 		if(!(W.flags_item & NOBLUDGEON))
-			visible_message(SPAN_DANGER("$1 has been hit by $2 with $3!", list(declent_ru(), user, W.declent_ru(INSTRUMENTAL))), null, null, 5, CHAT_TYPE_MELEE_HIT) // SS220 EDIT ADDICTION
+			visible_message(SPAN_DANGER("[user] ударил [declent_ru()] [W.declent_ru(INSTRUMENTAL)]!"), null, null, 5, CHAT_TYPE_MELEE_HIT) // SS220 EDIT ADDICTION
 			user.animation_attack_on(src)
 			user.flick_attack_overlay(src, "punch")
 			return ATTACKBY_HINT_UPDATE_NEXT_MOVE
@@ -65,19 +65,19 @@
 			to_chat(H, SPAN_DANGER("You are currently unable to attack."))
 			return FALSE
 
-	var/showname = "."
+	var/showname = ""
 	if(user)
 		if(M == user)
-			showname = " by themselves."
+			showname = " себя"
 		else
-			showname = " by [user]."
+			showname = " [user]"
 	if(!(user in viewers(M, null)))
-		showname = "."
+		showname = ""
 
 	if (user.a_intent == INTENT_HELP && ((user.client?.prefs && user.client?.prefs?.toggle_prefs & TOGGLE_HELP_INTENT_SAFETY) || (user.mob_flags & SURGERY_MODE_ON)))
 		playsound(loc, 'sound/effects/pop.ogg', 25, 1)
-		user.visible_message(SPAN_NOTICE("[M] has been poked with [src][showname]"),
-			SPAN_NOTICE("You poke $1 with $2.", list(M == user ? "себя":M, declent_ru(INSTRUMENTAL))), null, 4) // SS220 EDIT ADDICTION
+		user.visible_message(SPAN_NOTICE("[M] тыкает [showname] [declent_ru(INSTRUMENTAL)]"),
+			SPAN_NOTICE("Вы тыкаете [M == user ? "себя":M] [declent_ru(INSTRUMENTAL)]."), null, 4) // SS220 EDIT ADDICTION
 
 		return FALSE
 

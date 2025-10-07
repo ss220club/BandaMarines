@@ -170,8 +170,8 @@
 				KnockDown(strength)
 				Stun(strength)
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
-				var/shove_text = attacker_skill_level > 1 ? "tackled" : pick("pushed", "shoved")
-				visible_message(SPAN_DANGER_BOLD("$1 has [shove_text] $2!", list(attacking_mob, src)), null, null, 5) // SS220 EDIT ADDICTION
+				var/shove_text = attacker_skill_level > 1 ? "сбивает с ног" : pick("толкает", "отталкивает")
+				visible_message(SPAN_DANGER_BOLD("[attacking_mob] [shove_text] [src]!"), null, null, 5) // SS220 EDIT ADDICTION
 				return
 
 			if(disarm_chance <= 60)
@@ -181,12 +181,12 @@
 					stop_pulling()
 				else
 					drop_held_item()
-					visible_message(SPAN_DANGER_BOLD("$1 has disarmed $2!", list(attacking_mob, src)), null, null, 5)
+					visible_message(SPAN_DANGER_BOLD("[attacking_mob] обезоруживает [src]!"), null, null, 5)
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, 7)
 				return
 
 			playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, 7)
-			visible_message(SPAN_DANGER_BOLD("$1 attempted to disarm $2!", list(attacking_mob, src)), null, null, 5) // SS220 EDIT ADDICTION
+			visible_message(SPAN_DANGER_BOLD("[attacking_mob] пытается обезоружить [src]!"), null, null, 5) // SS220 EDIT ADDICTION
 
 /mob/living/carbon/human/proc/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, inrange, params)
 	return
@@ -198,11 +198,13 @@
 		return
 
 	//Target is not us
-	var/t_him = "it"
-	if (gender == MALE)
-		t_him = "him"
-	else if (gender == FEMALE)
-		t_him = "her"
+	// SS220 START EDIT ADDICTION
+	var/t_him = ru_p_them()
+	//if (gender == MALE)
+	//	t_him = "him"
+	//else if (gender == FEMALE)
+	//	t_him = "her"
+	// SS220 END EDIT ADDICTION
 	if (w_uniform)
 		w_uniform.add_fingerprint(M)
 
@@ -211,21 +213,21 @@
 			sleeping = max(0,src.sleeping-5)
 		if(!sleeping)
 			if(is_dizzy)
-				to_chat(M, SPAN_WARNING("[src] looks dizzy. Maybe you should let [t_him] rest a bit longer."))
+				to_chat(M, SPAN_WARNING("Похоже у [src] кружится голова. Не стоит [t_him] сейчас беспокоить."))
 			else
 				set_resting(FALSE)
-		M.visible_message(SPAN_NOTICE("$1 shakes $2 trying to wake $3 up!", list(M, src, ru_p_them())), // SS220 EDIT ADDICTION
-			SPAN_NOTICE("You shake $1 trying to wake $2 up!", list(declent_ru(), ru_p_them())), null, 4) // SS220 EDIT ADDICTION
+		M.visible_message(SPAN_NOTICE("[M] трясёт [src], пытаясь разбудить [t_him]!"), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("Вы трясёте [declent_ru()], пытаясь разбудить [t_him]!"), null, 4) // SS220 EDIT ADDICTION
 	else if(HAS_TRAIT(src, TRAIT_INCAPACITATED))
-		M.visible_message(SPAN_NOTICE("[M] shakes [src], trying to shake [t_him] out of his stupor!"),
-			SPAN_NOTICE("You shake [src], trying to shake [t_him] out of his stupor!"), null, 4)
+		M.visible_message(SPAN_NOTICE("[M] трясёт [src], пытаясь вывести [t_him] из ступора!"),
+			SPAN_NOTICE("Вы трясёте [src], пытаясь вывести [t_him] из ступора!"), null, 4)
 	else
 		var/mob/living/carbon/human/H = M
 		if(istype(H))
 			H.species.hug(H, src, H.zone_selected)
 		else
-			M.visible_message(SPAN_NOTICE("[M] pats [src] on the back to make [t_him] feel better!"),
-				SPAN_NOTICE("You pat [src] on the back to make [t_him] feel better!"), null, 4)
+			M.visible_message(SPAN_NOTICE("[M] похлопывает [src] по спине, чтобы [t_him] стало лучше!"),
+				SPAN_NOTICE("Вы похлопываете [src] по спине, чтобы [t_him] стало лучше!"), null, 4)
 			playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 5)
 		return
 
@@ -236,8 +238,8 @@
 	playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
 
 /mob/living/carbon/human/proc/check_for_injuries()
-	visible_message(SPAN_NOTICE("$1 examines $2.", list(capitalize(declent_ru()), gender==MALE?"himself":"herself")), // SS220 EDIT ADDICTION
-	SPAN_NOTICE("You check yourself for injuries."), null, 3)
+	visible_message(SPAN_NOTICE("[capitalize(declent_ru())] осматривает себя."), // SS220 EDIT ADDICTION
+	SPAN_NOTICE("Вы осматриваете своё тело в поисках ран."), null, 3)
 
 	var/list/limb_message = list()
 	for(var/obj/limb/org in limbs)

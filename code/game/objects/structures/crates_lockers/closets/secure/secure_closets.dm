@@ -46,13 +46,13 @@
 
 /obj/structure/closet/secure_closet/proc/togglelock(mob/living/user) // SS220 EDIT ADDICTION
 	if(opened && !locked)
-		to_chat(user, SPAN_NOTICE("Close the locker first."))
+		to_chat(user, SPAN_NOTICE("Сначала закройте шкафчик."))
 		return
 	if(broken)
-		to_chat(user, SPAN_WARNING("The locker appears to be broken."))
+		to_chat(user, SPAN_WARNING("Похоже, что шкафчик сломан."))
 		return
 	if(user.loc == src)
-		to_chat(user, SPAN_NOTICE("You can't reach the lock from inside."))
+		to_chat(user, SPAN_NOTICE("Вы не можете дотянуться до замка шкафчика находясь внутри."))
 		return
 	if(allowed(user))
 		if(slotlocked && ishuman(user))
@@ -78,7 +78,7 @@
 				to_chat(mob, SPAN_NOTICE("The locker $2 has been [locked ? null : "un"]locked by $1.", list(user, declent_ru()))) // SS220 EDIT ADDICTION
 		update_icon()
 	else
-		to_chat(user, SPAN_NOTICE("Access Denied"))
+		to_chat(user, SPAN_NOTICE("Доступ запрещён."))
 
 /obj/structure/closet/secure_closet/attackby(obj/item/W, mob/living/user)
 	if(src.opened)

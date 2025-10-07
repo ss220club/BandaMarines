@@ -186,12 +186,12 @@
 			var/mob/M = G.grabbed_thing
 			var/atom/blocker = LinkBlocked(user, user.loc, loc)
 			if(!Adjacent(M))
-				visible_message(SPAN_DANGER("$1 is too far to place onto $2$3.", list(M, declent_ru(), M.ru_p_them()))) // SS220 EDIT ADDICTION
+				visible_message(SPAN_DANGER("[M] слишком далеко, чтобы переместить [M.ru_p_them()] на [declent_ru()].")) // SS220 EDIT ADDICTION
 				return FALSE
 			if(blocker)
-				to_chat(user, SPAN_WARNING("$1 is in the way!", list(blocker.declent_ru()))) // SS220 EDIT ADDICTION
+				to_chat(user, SPAN_WARNING("Вам мешает [blocker.declent_ru()]!")) // SS220 EDIT ADDICTION
 				return FALSE
-			to_chat(user, SPAN_NOTICE("You place $1 on $2.", list(M, declent_ru()))) // SS220 EDIT ADDICTION
+			to_chat(user, SPAN_NOTICE("Вы перемещаете [M] на [declent_ru()].")) // SS220 EDIT ADDICTION
 			M.forceMove(loc)
 		return TRUE
 
@@ -299,7 +299,7 @@
 		new rollertype(src)
 	var/obj/structure/bed/roller/roller = locate(rollertype) in contents
 	roller.forceMove(location)
-	to_chat(user, SPAN_NOTICE("You deploy $1.", list(roller.declent_ru(ACCUSATIVE)))) // SS220 EDIT ADDICTION
+	to_chat(user, SPAN_NOTICE("Вы раскладываете [roller.declent_ru(ACCUSATIVE)].")) // SS220 EDIT ADDICTION
 	roller.add_fingerprint(user)
 	user.temp_drop_inv_item(src)
 	forceMove(roller)

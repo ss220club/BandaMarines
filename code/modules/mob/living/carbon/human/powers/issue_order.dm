@@ -1,14 +1,14 @@
 /mob/living/carbon/human/proc/issue_order(order)
 	if(!HAS_TRAIT(src, TRAIT_LEADERSHIP))
-		to_chat(src, SPAN_WARNING("You are not qualified to issue orders!"))
+		to_chat(src, SPAN_WARNING("Вы не можете отдавать приказы!"))
 		return
 
 	if(stat)
-		to_chat(src, SPAN_WARNING("You cannot give an order in your current state."))
+		to_chat(src, SPAN_WARNING("Вы не можете отдать приказ в вашем текущем состоянии."))
 		return
 
 	if(!command_aura_available)
-		to_chat(src, SPAN_WARNING("You have recently given an order. Calm down."))
+		to_chat(src, SPAN_WARNING("Вы недавно отдали приказ. Подождите немного."))
 		return
 
 	if(!skills)
@@ -20,13 +20,13 @@
 	if(!order)
 		order = tgui_input_list(src, "Choose an order", "Order to send", list(COMMAND_ORDER_MOVE, COMMAND_ORDER_HOLD, COMMAND_ORDER_FOCUS, "help", "cancel"))
 		if(order == "help")
-			to_chat(src, SPAN_NOTICE("<br>Orders give a buff to nearby soldiers for a short period of time, followed by a cooldown, as follows:<br><B>Move</B> - Increased mobility and chance to dodge projectiles.<br><B>Hold</B> - Increased resistance to pain and combat wounds.<br><B>Focus</B> - Increased gun accuracy and effective range.<br>"))
+			to_chat(src, SPAN_NOTICE("<br>Приказы ненадолго дают бонусы ближайшим морпехам:<br><B>Вперёд</B> - Повышает скорость передвижения и шанс уклонения.<br><B>Держать позицию</B> - Повышает устойчивость к боли и ранениям.<br><B>Сосредоточить огонь</B> - Повышает точность и эффективную дальность стрельбы.<br>"))
 			return
 		if(!order || order == "cancel")
 			return
 
 		if(!command_aura_available)
-			to_chat(src, SPAN_WARNING("You have recently given an order. Calm down."))
+			to_chat(src, SPAN_WARNING("Вы недавно отдали приказ. Подождите немного."))
 			return
 
 	command_aura_available = FALSE
@@ -64,7 +64,7 @@
 		visible_message(SPAN_BOLDNOTICE("[src] gives an order to [order]!"), SPAN_BOLDNOTICE("You give an order to [order]!"))
 
 /mob/living/carbon/human/proc/make_aura_available()
-	to_chat(src, SPAN_NOTICE("You can issue an order again."))
+	to_chat(src, SPAN_NOTICE("Вы можете отдать приказ ещё раз."))
 	command_aura_available = TRUE
 	for(var/datum/action/A in actions)
 		A.update_button_icon()

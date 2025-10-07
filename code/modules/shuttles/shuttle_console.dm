@@ -61,7 +61,7 @@ GLOBAL_LIST_EMPTY(shuttle_controls)
 		return
 
 	if(!allowed(user))
-		to_chat(user, SPAN_WARNING("Access denied."))
+		to_chat(user, SPAN_WARNING("Доступ запрещён."))
 		return 1
 
 	if(disabled)
