@@ -30,7 +30,7 @@
 #define JOB_COLONIST_RU "Колонист"
 #define JOB_PASSENGER_RU "Пассажир"
 #define JOB_SURVIVOR_RU "Выживший"
-#define JOB_SYNTH_SURVIVOR_RU "Выживший-cинтетик"
+#define JOB_SYNTH_SURVIVOR_RU "Выживший-синтетик"
 #define JOB_CO_SURVIVOR_RU "Выживший КО"
 
 #define ANY_SURVIVOR_RU "Любой выживший"
