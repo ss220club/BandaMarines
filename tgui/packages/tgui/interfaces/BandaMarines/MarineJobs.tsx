@@ -5,7 +5,7 @@
  * @license MIT
  */
 
-export const MARINES_STATES = {
+export const MARINES_STATES_RU = {
   Dead: 'Мёртв',
   Conscious: 'В сознании',
   'Conscious (SSD)': 'В сознании (КРС)',
