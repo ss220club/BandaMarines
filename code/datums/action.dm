@@ -66,7 +66,7 @@
 // SS220 START EDIT ADDICTION
 /datum/action/proc/update_button_on_keybind_change()
 	SIGNAL_HANDLER
-	if(!owner || !owner.client || !owner.client.tgui_panel)
+	if(!owner || !owner.client)
 		return
 	var/action_name_key = src.action_icon_state
 	if(!action_name_key && src.hotkey_id)
