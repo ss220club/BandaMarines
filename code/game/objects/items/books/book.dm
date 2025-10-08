@@ -49,7 +49,7 @@
 		user.visible_message("[user] открывает \"[src.title]\".")
 		onclose(user, "book")
 	else
-		to_chat(user, "Эта книга абослютно пуста!") //SS220 -EDIT TRANSLATE
+		to_chat(user, "Эта книга абсолютно пуста!") //SS220 -EDIT TRANSLATE
 
 /obj/item/book/attackby(obj/item/W as obj, mob/user as mob)
 	if(carved)
