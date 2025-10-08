@@ -390,7 +390,7 @@ export function JobsRu(value: string) {
 }
 
 export function MarinesStatesRu(value: string) {
-  return MARINES_STATES[value] || value;
+  return MARINES_STATES_RU[value] || value;
 }
 
 const REVERSED_JOBS_RU = Object.entries(JOBS_RU).reduce(
