@@ -528,23 +528,23 @@ Additional game mode variables.
 					This means you won't lose your relative place in queue if you step away, disconnect, play as a facehugger/lesser, or play in the thunderdome."))
 				return FALSE
 			var/mob/new_player/candidate_new_player = xeno_candidate
-			var/position = 1
 			if(candidate_new_player.larva_queue_message_stale_time <= world.time)
 				// No cached/current lobby message, determine the position
 				var/list/valid_candidates = get_alien_candidates()
 				var/candidate_time = candidate_new_player.client.player_details.larva_queue_time
+				var/position = 1
 				for(var/mob/dead/observer/current in valid_candidates)
 					if(current.client.player_details.larva_queue_time >= candidate_time)
 						break
 					position++
 				candidate_new_player.larva_queue_message_stale_time = world.time + 3 MINUTES // spam prevention
-				candidate_new_player.larva_queue_cached_message = "Your position would be $1 in the larva queue if you observed and were eligible to be a xeno. \
+				candidate_new_player.larva_queue_cached_message = "Your position would be [position]\th in the larva queue if you observed and were eligible to be a xeno. \
 					The ordering is based on your time of death or the time you joined. When you have been dead long enough and are not inactive, \
 					you will periodically receive messages where you are in the queue relative to other currently valid xeno candidates. \
 					Your current position will shift as others change their preferences or go inactive, but your relative position compared to all observers is the same. \
 					Note: Playing as a facehugger/lesser or in the thunderdome will not alter your time of death. \
 					This means you won't lose your relative place in queue if you step away, disconnect, play as a facehugger/lesser, or play in the thunderdome."
-			to_chat(candidate_new_player, SPAN_XENONOTICE(candidate_new_player.larva_queue_cached_message, list(position))) // SS220 EDIT ADDICTION
+			to_chat(candidate_new_player, SPAN_XENONOTICE(candidate_new_player.larva_queue_cached_message))
 			return FALSE
 
 		if(!candidate_observer)
@@ -556,7 +556,7 @@ Additional game mode variables.
 
 		// Give the player a cached message of their queue status if they are an observer
 		if(candidate_observer.larva_queue_cached_message)
-			to_chat(candidate_observer, SPAN_XENONOTICE(candidate_observer.larva_queue_cached_message, list()))
+			to_chat(candidate_observer, SPAN_XENONOTICE(candidate_observer.larva_queue_cached_message))
 			return FALSE
 
 		// No cache, lets check now then
@@ -571,7 +571,7 @@ Additional game mode variables.
 				if(current.client.player_details.larva_queue_time >= candidate_time)
 					break
 				position++
-			candidate_observer.larva_queue_cached_message = "You are currently ineligible to be a larva but would be $1 in queue. \
+			candidate_observer.larva_queue_cached_message = "You are currently ineligible to be a larva but would be [position]\th in queue. \
 				The ordering is based on your time of death or the time you joined. When you have been dead long enough and are not inactive, \
 				you will periodically receive messages where you are in the queue relative to other currently valid xeno candidates. \
 				Your current position will shift as others change their preferences or go inactive, but your relative position compared to all observers is the same. \
