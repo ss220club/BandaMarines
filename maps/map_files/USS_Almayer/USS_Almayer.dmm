@@ -43149,7 +43149,6 @@
 	},
 /obj/item/tool/wrench,
 /obj/item/tool/crowbar,
-/obj/item/stack/sheet/metal/small_stack,
 /obj/structure/closet/crate/secure/medical{
 	desc = "A secure medical crate for field doctors to take with them to the FOB."
 	},
