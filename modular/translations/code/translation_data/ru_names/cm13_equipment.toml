@@ -59,13 +59,13 @@ prepositional = "анализаторе"
 gender = "male"
 
 ["blowtorch"]
-nominative = "паяльник"
-genitive = "паяльника"
-dative = "паяльнику"
-accusative = "паяльник"
-instrumental = "паяльником"
-prepositional = "паяльнике"
-gender = "male"
+nominative = "Паяльная лампа"
+genitive = "Паяльной лампы"
+dative = "Паяльной лампе"
+accusative = "Паяльную лампу"
+instrumental = "Паяльной лампой"
+prepositional = "Паяльной лампе"
+gender = "female"
 
 ["whistle"]
 nominative = "свисток"
@@ -494,12 +494,30 @@ prepositional = "ведре уборщика"
 gender = "neuter"
 
 ["Security Access Tuner"]
-nominative = "настройщик доступа охраны"
-genitive = "настройщика доступа охраны"
-dative = "настройщику доступа охраны"
-accusative = "настройщика доступа охраны"
-instrumental = "настройщиком доступа охраны"
-prepositional = "настройщике доступа охраны"
+nominative = "мультитул"
+genitive = "мультитула"
+dative = "мультитулу"
+accusative = "мультитул"
+instrumental = "мультитулом"
+prepositional = "мультитуле"
+gender = "male"
+
+["demolitions scanner"]
+nominative = "сканер взрывчатки"
+genitive = "сканера взрывчатки"
+dative = "сканеру взрывчатки"
+accusative = "сканер взрывчатки"
+instrumental = "сканером взрывчатки"
+prepositional = "сканере взрывчатки"
+gender = "male"
+
+["reagent scanner"]
+nominative = "сканер реагентов"
+genitive = "сканера реагентов"
+dative = "сканеру реагентов"
+accusative = "сканер реагентов"
+instrumental = "сканером реагентов"
+prepositional = "сканере реагентов"
 gender = "male"
 
 ["M20 Claymore anti-personnel mine"]
@@ -845,12 +863,12 @@ prepositional = "сварочной маске"
 gender = "female"
 
 ["hard hat"]
-nominative = "защитная каска"
-genitive = "защитной каски"
-dative = "защитной каске"
-accusative = "защитную каску"
-instrumental = "защитной каской"
-prepositional = "защитной каске"
+nominative = "каска"
+genitive = "каски"
+dative = "каске"
+accusative = "каску"
+instrumental = "каской"
+prepositional = "каске"
 gender = "female"
 
 ["inflatable barriers (x9 doors, x12 walls)"] # Unique Vendor Name

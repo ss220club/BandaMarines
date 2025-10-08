@@ -338,21 +338,21 @@ prepositional = "пустом одноразовом инжекторе (Tricord
 gender = "male"
 
 ["trauma kit"]
-nominative = "травма кит"
-genitive = "травма кита"
-dative = "травма киту"
-accusative = "травма кит"
-instrumental = "травма китом"
-prepositional = "травма ките"
+nominative = "травма-кит"
+genitive = "травма-кита"
+dative = "травма-киту"
+accusative = "травма-кит"
+instrumental = "травма-китом"
+prepositional = "травма-ките"
 gender = "male"
 
 ["burn kit"]
-nominative = "бёрн кит"
-genitive = "бёрн кита"
-dative = "бёрн киту"
-accusative = "бёрн кит"
-instrumental = "бёрн китом"
-prepositional = "бёрн ките"
+nominative = "бёрн-кит"
+genitive = "бёрн-кита"
+dative = "бёрн-киту"
+accusative = "бёрн-кит"
+instrumental = "бёрн-китом"
+prepositional = "бёрн-ките"
 gender = "male"
 
 ["CPR dummy"]
@@ -980,4 +980,13 @@ dative = "электродам"
 accusative = "электроды"
 instrumental = "электродами"
 prepositional = "электродах"
+gender = "plural"
+
+["electrodes"] # Alternate name for synths
+nominative = "контакты"
+genitive = "контактов"
+dative = "контактам"
+accusative = "контакты"
+instrumental = "контактами"
+prepositional = "контактах"
 gender = "plural"

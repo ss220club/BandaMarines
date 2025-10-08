@@ -268,14 +268,14 @@
 			var/ru_name = declent_ru(GENITIVE) // SS220 EDIT ADDICTION
 			if(buckled_mob == user)
 				buckled_mob.visible_message(
-					SPAN_NOTICE("$1 unbuckled out!", list(buckled_mob.name, buckled_mob.p_them())), // SS220 EDIT ADDICTION
-					SPAN_NOTICE("You unbuckle yourself from $1.", list(ru_name)), // SS220 EDIT ADDICTION
-					SPAN_NOTICE("You hear metal clanking"))
+					SPAN_NOTICE("[buckled_mob.name] отстёгивается!"), // SS220 EDIT ADDICTION
+					SPAN_NOTICE("Вы отстёгиваетесь от [ru_name]."), // SS220 EDIT ADDICTION
+					SPAN_NOTICE("Вы слышите металлический щелчок."))
 			else
 				buckled_mob.visible_message(
-					SPAN_NOTICE("$1 was unbuckled from $2 by $3!", list(buckled_mob.name, ru_name, user)), // SS220 EDIT ADDICTION
-					SPAN_NOTICE("You were unbuckled from $1 by $2.", list(ru_name, user)), // SS220 EDIT ADDICTION
-					SPAN_NOTICE("You hear metal clanking."))
+					SPAN_NOTICE("[user] отстёгивает [buckled_mob.name] от [ru_name]."), // SS220 EDIT ADDICTION
+					SPAN_NOTICE("[user] отстёгивает вас от [ru_name]."), // SS220 EDIT ADDICTION
+					SPAN_NOTICE("Вы слышите металлический щелчок."))
 			unbuckle(buckled_mob)
 			add_fingerprint(user)
 			return 1
@@ -345,14 +345,14 @@
 	var/ru_name = declent_ru(DATIVE) // SS220 EDIT ADDICTION
 	if (M == user)
 		M.visible_message(
-			SPAN_NOTICE("$1 buckles in!", list(M)), // SS220 EDIT ADDICTION
-			SPAN_NOTICE("You buckle yourself to $1.", list(ru_name)), // SS220 EDIT ADDICTION
-			SPAN_NOTICE("You hear metal clanking."))
+			SPAN_NOTICE("[M] пристёгивается!"), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("Вы пристёгиваетесь к [ru_name]."), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("Вы слышите металлический щелчок."))
 	else
 		M.visible_message(
-			SPAN_NOTICE("$1 is buckled in to $2 by $3!", list(M, ru_name, user)), // SS220 EDIT ADDICTION
-			SPAN_NOTICE("You are buckled in to $1 by $2.", list(ru_name, user)),  // SS220 EDIT ADDICTION
-			SPAN_NOTICE("You hear metal clanking"))
+			SPAN_NOTICE("[user] пристёгивает [M] к [ru_name]!"), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("[user] пристёгивает вас к [ru_name]."),  // SS220 EDIT ADDICTION
+			SPAN_NOTICE("Вы слышите металлический щелчок."))
 
 /obj/Move(NewLoc, direct)
 	. = ..()

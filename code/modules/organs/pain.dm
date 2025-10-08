@@ -45,7 +45,7 @@
 				msg = SPAN_DANGER("У вас сильно жжётся [ru_name].") // SS220 EDIT ADDICTION
 			if(91 to 10000)
 				flash_pain()
-				msg = SPAN_HIGHDANGER(О БОЖЕ! У вас горит [ru_name].") // SS220 EDIT ADDICTION
+				msg = SPAN_HIGHDANGER("О БОЖЕ! У вас горит [ru_name].") // SS220 EDIT ADDICTION
 	else
 		switch(amount)
 			if(1 to 10)

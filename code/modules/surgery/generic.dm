@@ -108,7 +108,7 @@
 			target.apply_damage(15, BURN, target_zone)
 		if(/obj/item/tool/surgery/scalpel/laser)
 			user.affected_message(target,
-				SPAN_WARNING("Ваша рука дёргается, когда лазерный скальпель искрит, оставляя большой ожог на [ru_name_affected_limb] [target!"), //SS220 EDIT ADDICTION
+				SPAN_WARNING("Ваша рука дёргается, когда лазерный скальпель искрит, оставляя большой ожог на [ru_name_affected_limb] [target]!"), //SS220 EDIT ADDICTION
 				SPAN_WARNING("Рука [user] дёргается, когда лазерный скальпель искрит, оставляя большой ожог на вашей [ru_name_affected_limb]!"), //SS220 EDIT ADDICTION
 				SPAN_WARNING("Рука [user] дёргается, когда лазерный скальпель искрит, оставляя большой ожог на [ru_name_affected_limb] [target]!")) //SS220 EDIT ADDICTION
 
@@ -281,7 +281,7 @@
 			target.overlays += image('icons/mob/humans/dam_human.dmi', "chest_surgery_closed")
 			user.affected_message(target,
 				SPAN_NOTICE("Вы оттягиваете кожу и ткани вокруг разреза на груди [target], обнажая [h_his] грудную клетку."), // SS220 EDIT ADDICTION
-				SPAN_NOTICE("[user] оттягивает кожу и ткани вокруг разреза на вашей груди, обнажая грудную клетку.", // SS220 EDIT ADDICTION
+				SPAN_NOTICE("[user] оттягивает кожу и ткани вокруг разреза на вашей груди, обнажая грудную клетку."), // SS220 EDIT ADDICTION
 				SPAN_NOTICE("[user] оттягивает кожу и ткани вокруг разреза на груди [target], обнажая [h_his] грудную клетку.")) // SS220 EDIT ADDICTION
 		if("head")
 			user.affected_message(target,

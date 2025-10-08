@@ -79,7 +79,7 @@
 		remove_egg_owner(my_egg)
 		my_egg.start_unstoppable_decay()
 
-	M.visible_message(SPAN_XENOWARNING("$1 throes as its eggsac bursts into a mess of acid!" list(M))) // SS220 EDIT ADDICTION
+	M.visible_message(SPAN_XENOWARNING("$1 throes as its eggsac bursts into a mess of acid!", list(M))) // SS220 EDIT ADDICTION
 	playsound(M.loc, 'sound/effects/alien_egg_burst.ogg', 25, TRUE)
 
 ///Remove all references to src in eggs_sustained

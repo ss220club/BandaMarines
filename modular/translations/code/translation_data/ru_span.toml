@@ -2,167 +2,6 @@
 
 ["span_verbs"]
 
-# Mark: code/game/objects/objs.dm
-
-"$1 buckles in!" = "$1 пристёгивается!"
-"You buckle yourself to $1." = "Вы пристёгиваетесь к $1."
-"$1 is buckled in to $2 by $3!" = "$3 пристёгивает $1 к $2!"
-"You are buckled in to $1 by $2." = "$2 пристёгивает вас к $1."
-"$1 unbuckled out!" = "$1 отстёгивается!"
-"You unbuckle yourself from $1." = "Вы отстёгиваетесь от $1."
-"$1 was unbuckled from $2 by $3!" = "$3 отстёгивает $1 от $2."
-"You were unbuckled from $1 by $2." = "$2 отстёгивает вас от $1."
-"You hear metal clanking." = "Вы слышите металлический щелчок."
-
-# Mark: code/game/objects/structures/crates_lockers/closets/secure/secure_closets.dm
-
-"The locker $2 has been unlocked by $1." = "$1 отпёр $2."
-"The locker $2 has been locked by $1." = "$1 запер $2."
-
-# Mark: code/modules/mob/living/carbon/human/examine.dm
-
-"$1 has no pulse..." = "У $1 нет пульса..."
-"$1 has no pulse!" = "У $1 нет пульса!"
-"$1 has no pulse and $2 soul has departed..." = "У $1 нет пульса и $2 душа покинула тело..."
-"$1 has $2 sticking out of flesh!" = "У $1 торчит $2 в теле!"
-"It doesn't seem responsive.<br>" = "Оно без сознания.<br>"
-"You sense this creature is dead.<br>" = "<span style='font-weight: bold; color: purple;'>Вы чувствуете, что это существо мертво.<br></span>"
-"It is on fire!<br>" = "Оно горит!<br>"
-"It has a little one on its face.<br>" = "У него на лице есть маленький паразит.<br>"
-"A larva escaped from this creature.<br>" = "Из этого существа вырвался грудолом.<br>"
-"This creature is impregnated.<br>" = "Это существо оплодотворено.<br>"
-"You sense this creature is not organic.<br>" = "<span style='font-weight: bold; color: purple;'>Вы чувствуете, что это существо неорганическое.<br></span>"
-"<EM>$1 </EM>" = "<EM>$1 </EM>"
-"<EM>$1</EM>!<br>" = "<EM>$1</EM>!<br>"
-"Something is there but you can't see it." = "Там что-то есть, но вы не можете разглядеть."
-"$1 $2 $3-stained hands!<br>" = "У $1 $2 $3 руки!<br>"
-"$1 $2 $3-stained feet!<br>" = "У $1 $2 $3 ноги!<br>"
-"$1 is holding $2 $3.<br>" = "$1 держит $2 $3.<br>"
-"$1 has $2 $3.<br>" = "$1 носит $2 $3.<br>"
-"$1 is carrying $2 $3.<br>" = "$1 несёт $2 $3.<br>"
-"$1 is wearing $2 $3.<br>" = "$1 носит $2 $3.<br>"
-"$1 is wearing $2.<br>" = "$1 носит $2.<br>"
-"$1 is $2.<br>" = "$1 носит $2.<br>"
-
-# Mark: code/modules/cm_marines/overwatch.dm
-
-"Searching for camera. No camera found for this marine! Tell your squad to put their cameras on!" = "Поиск камеры... Камера не обнаружена! Сообщите отряду о необходимости включить камеры!"
-
-# Mark: code/game/objects/items/cpr_dummy.dm
-
-"$1$2 sets up $3 for use!" = "$1 установил$2 $3!"
-"You set up $1 for use." = "Вы установили $1."
-"You need to be on help intent to do CPR!" = "Вам нужно быть в ЗЕЛЁНОМ интенте, чтобы начать СЛР!"
-"Remove your mask!" = "Снимите свою маску!"
-"<b>$1$2</b> starts performing <b>CPR</b> on <b>$3</b>." = "<b>$1</b> начал$2 проводить <b>СЛР</b> на <b>$3</b>."
-"You start performing <b>CPR</b> on <b>$1</b>." = "Вы начали проводить <b>СЛР</b> на <b>$1</b>."
-"<b>$1$2</b> performs <b>CPR</b> on <b>$3</b>." = "<b>$1</b> выполнил$2 проведение <b>СЛР</b> на <b>$3</b>."
-"You perform <b>CPR</b> on <b>$1</b>." = "Вы выполнили проведение <b>СЛР</b> на <b>$1</b>."
-"You feel a <b>breath of fresh air</b> enter your lungs. It feels good." = "Вы чувствуете, как <b>свежий воздух</b> проникает в ваши легкие, приятно, однако."
-"You perform <b>CPR</b> on <b>$1</b>. Repeat at least every <b>7 seconds</b>." = "Вы выполнили проведение <b>СЛР</b> на <b>$1</b>. Повторяйте его каждые 7 секунд."
-"<b>$1$2</b> fails to perform <b>CPR</b> on <b>$3</b>." = "<b>$1</b> провалил$2 проведение <b>СЛР</b> на <b>$3</b>."
-"You <b>fail</b> to perform <b>CPR</b> on <b>$1</b>. Incorrect rhythm. Do it <b>slower</b>." = "Вы провалили проведение <b>СЛР</b> на <b>$1</b>. Не проводите <b>СЛР</b> слишком часто. Подождите перед следующей попыткой."
-"Only Senior Enlisted Advisors can reset the counter on this dummy!" = "Только старший инструктор может сбросить статистику этого тренажёра!"
-"You reset the counter on $1." = "Вы сбросили статистику $1."
-"Successful CPRs: $1." = "Успешные СЛР: $1."
-"Failed CPRs: $1." = "Проваленные СЛР: $1."
-"incorrect rhythm. do it slower" = "Подождите перед следующей попыткой."
-"you perform cpr" = "СЛР успешно проведено"
-
-# Mark: code/modules/mob/living/carbon/xenomorph/strains/xeno_strain.dm
-
-"We have already chosen a strain." = "Вы уже изменили свой подвид."
-
-# Mark: code/modules/mob/living/carbon/xenomorph/hive_status.dm
-
-"The Hive is now strong enough to support: $1" = "Улей теперь достаточно силён, чтобы поддержать: $1"
-"The Queen has set the hive location as $1." = "Королева назначила новое местоположение улья в $1."
-"The Queen has left without you, you quickly find a hiding place to enter hibernation as you lose touch with the hive mind." = "Королева ушла без вас, вы быстро находите укрытие, чтобы впасть в спячку, теряя связь с разумом улья."
-"The Queen has left without you, seperating you from her hive! You must defend yourself from the headhunter before you can enter hibernation..." = "Королева ушла без вас, отделяя вас от её улья! Вы должны защитить себя от охотника, прежде чем сможете впасть в спячку..."
-"The hive has no core! You manage to emerge from your old husk as a larva!" = "У улья нет ядра! Вы сумели вырваться из своего старого кокона в виде грудолома!"
-"With the death of the Queen, all alliances have been broken." = "Со смертью Королевы все союзы были разорваны."
-"Our Queen set up an alliance with $1!" = "Наша Королева заключила союз с $1!"
-"We sense that $1 Queen set up an alliance with us!" = "Мы чувствуем, что Королева $1 заключила союз с нами!"
-"We sense that $1 set up an alliance with us!" = "Мы чувствуем, что $1 заключил союз с нами!"
-"It's too late now. The device is gone and our service to the Queen continues." = "Уже слишком поздно. Устройство исчезло, а наша служба Королеве продолжается."
-"You lost the connection with your Hive. Now you have no Queen, only your masters." = "Вы потеряли связь с вашим ульем. Теперь у вас нет Королевы, только ваши хозяева."
-"Your instincts have changed, you seem compelled to protect $1." = "Ваши инстинкты изменились, вы чувствуете необходимость защищать $1."
-"$1 rips out $2!" = "$1 вырывает $2!"
-"We rip out $1! For the Hive!" = "Мы вырываем $1! Во имя улья!"
-"We sense that $1 turned their backs against their sisters and the Queen in favor of their slavemasters!" = "Мы чувствуем, что $1 отвернулись от своих сестер и Королевы в пользу своих хозяев!"
-"Our Queen proclaimed $1 our ally! We must not harm them." = "Наша Королева провозгласила $1 нашим союзником! Мы не должны причинять им вред."
-"Our Queen has declared that $1 is no longer our ally!" = "Наша Королева объявила, что $1 больше не является нашим союзником!"
-"Our Queen has broken all personal alliances with the talls! Favoritism is no more." = "Наша Королева разорвала все личные союзы с носителями! Покровительство больше не действует."
-"With the death of the Queen, her friends no longer matter to us." = "Со смертью Королевы её друзья больше не имеют для нас значения."
-"A larva suddenly emerges from a dead husk!" = "Из кокона внезапно появляется грудолом!"
-"A larva suddenly burrows out of $1!" = "Из $1 внезапно появляется грудолом!"
-"You burrow out of $1 and awaken from your slumber. For the Hive!" = "Вы вырываетесь из $1 и пробуждаетесь от спячки. Во имя улья!"
-"A facehugger suddenly emerges out of $1!" = "Из $1 внезапно появляется лицехват!"
-
-# Mark: admin
-
-"$1 has started the process to start the game when loading is finished." = "$1 инициализировал процесс запуска игры после завершения её загрузки."
-"$1 has started the game." = "$1 запустил игру."
-"Game is setting up and will launch as soon as it is ready." = "Игра загружается и будет запущена по завершению этого процесса."
-
-# Mark: code/game/objects/items/reagent_containers/hypospray.dm
-
-"You inject $1 with $2." = "Вы делаете укол $1, используя $2."
-"You feel a tiny prick!" = "Вы чувствуете лёгкий укол!"
-"$1 units injected. $2 units remaining in $3." = "Введено $1 единиц. В $3 осталось $2 единиц."
-"$1 units injected. $2 units remaining in $3's $4." = "Введено $1 единиц. В $3 осталось $2 единиц ($4)."
-
-# Mark: code/game/objects/items/devices/defibrillator.dm
-
-"It has $1 out of $2 uses left in its internal battery." = "Батареи устройства хватит ещё на $1 использований из $2."
-"$1 turns $2 on and takes the $3 out." = "$1 включает $2 и вынимает $3."
-"$1 turns $2 off and puts the $3 back in." = "$1 выключает $2 и вставляет $3."
-"You turn $1 on and takes the $2 out." = "$1 включает $2 и вынимает $3."
-"You turn $1 off and puts the $2 back in." = "$1 выключает $2 и вставляет $3."
-"$1 buzzes: Battery is too low! It needs to recharge." = "$1 издает звуковой сигнал: «Батарея разряжена! Необходима подзарядка...»"
-"take out the $1." = "выньте $1."
-"Take $1's $2 out first." = "Сначала выньте $1 из $2"
-"$1 buzzes: Vital signs detected. Aborting." = "$1 издает звуковой сигнал: «Жизненные показатели в норме. Отмена...»"
-"$1 buzzes: Patient's general condition does not allow reviving." = "$1 издает звуковой сигнал: «Состояние пациента не позволяет провести реанимацию...»"
-"$1 buzzes: Paddles registering >100,000 ohms, Possible cause: Suit or Armor interfering." = "$1 издает звуковой сигнал: «Электроды регистрируют сопротивление более 100 кОм, возможно причина в костюме или броне пациента...»"
-"$1 buzzes: Patient is braindead." = "$1 издает звуковой сигнал: «У пациента наступила смерть мозга...»"
-"You don't seem to know how to use $1..." = "Вы не знаете как использовать $1..."
-"You can't defibrilate $1. You don't even know where to put the $2!" = "Вы не можете провести дефибриляцию $1, потому что не понятно куда приложить $2!"
-"You can't defibrilate $1. You need a synthetic reset key for reboot!" = "Вы не можете провести дефибриляцию $1, потому что для синтетиков необходим ключ перезапуска!"
-"Someone is trying to revive your body. Return to it if you want to be resurrected! (Look for 'Re-enter Corpse' in Ghost verbs, or <a href=$1>click here!</a>)" = "Кто-то пытается оживить ваше тело. Вернитесь в него, если хотите возродиться! (Откройте вкладку «Ghost» и выберите «Re-enter corpse» или <a href=$1>нажмите здесь!</a>)"
-
-# Mark: code/datums/elements/suturing.dm
-
-"You have no $2!" = "You have no $2!"
-"$1 has no $2!" = "$1 has no $2!"
-"You can't repair a robotic limb with $1!" = "You can't repair a robotic limb with $1!"
-"Your $2 has been cut open and needs to be closed surgically!" = "Your $2 has been cut open and needs to be closed surgically!"
-"$1's $2 has been cut open and needs to be closed surgically!" = "$1's $2 has been cut open and needs to be closed surgically!"
-
-# Mark: code/game/objects/items/reagent_containers/syringes.dm
-
-"This syringe is broken!" = "Шприц сломался!"
-
-# Mark: code/modules/mob/living/living_healthscan.dm
-
-"Use a blowtorch or nanopaste to repair the damaged areas." = "Используйте паяльник или нанопасту для устранения повреждений."
-"Use a cable coil or nanopaste to repair the burned areas." = "Используйте связку проводов или нанопасту для устранения ожогов."
-"Recommend that the patient does not move - embedded objects." = "Пациенту рекомендуется не двигаться из-за gосторонних предметов в его теле."
-"Reboot the synthetic with a reset key!" = "Используйте ключ перезапуска синтетика!"
-"Apply shock via defibrillator!" = "Используйте дефибриллятор!"
-"Use trauma kits or surgical line to repair the lacerated areas." = "Используйте травма киты или хирургическую нить для устранения повреждений."
-"Use burn kits or synth-graft to repair the burned areas." = "Используйте бёрн киты или синтетический лоскут для устранения ожогов."
-"Administer food or recommend that the patient eat." = "Пациенту рекомендуется приём пищи."
-"Administer a single dose of epinephrine." = "Пациенту рекомендуется доза вещества «Epinephrine»."
-"Administer a single dose of dylovene." = "Пациенту рекомендуется доза вещества «Dylovene»."
-"Administer a single dose of peridaxon." = "Пациенту рекомендуется доза вещества «Peridaxon»."
-"Administer a single dose of dexalin." = "Пациенту рекомендуется доза вещества «Dexalin»."
-"Administer a single dose of kelotane." = "Пациенту рекомендуется доза вещества «Kelotane»."
-"Administer a single dose of bicaridine." = "Пациенту рекомендуется доза вещества «Bicaridine»."
-"Administer a single dose of inaprovaline." = "Пациенту рекомендуется доза вещества «Inaprovaline»."
-"Administer a single dose of tramadol." = "Пациенту рекомендуется доза вещества «Tramadol»."
-"Do NOT administer tramadol." = "Пациенту НЕ рекомендуется доза вещества «Tramadol»."
-
 # Mark: code/modules/mentor/mentorhelp.dm
 
 "This mentorhelp thread is closed!" = "Этот тикет в «MentorHelp» закрыт!"
@@ -750,7 +589,6 @@
 "The Queen has <b>restricted</b> the harming of hosts. You can no longer slash infected hosts." = "Королева <b>ограничила</b> причинение вреда хостам. Вы больше не можете рубить инфицированных хостов."
 "You already forbid harming entirely." = "Вы уже полностью запретили причинение вреда."
 "You forbid harming entirely." = "Вы полностью запретили причинение вреда."
-"The Queen has <b>forbidden</b> the harming of hosts. You can no longer slash your enemies." = "Королева <b>запретила</b> причинение вреда хостам. Вы больше не можете рубить своих врагов."
 "You already allow construction placement to all builder castes." = "Вы уже разрешили размещение построек всем кастам строителей."
 "You already restrict construction placement to leaders only." = "Вы уже ограничили размещение построек только для лидеров."
 "You already forbid construction placement entirely." = "Вы уже полностью запретили размещение построек."
@@ -783,7 +621,6 @@
 "We can't apply our resin salve from here!" = "Мы не можем нанести нашу смолу отсюда!"
 "We need to be closer to $1 to apply our resin salve!" = "Нам нужно быть ближе к $1, чтобы нанести нашу смолу!"
 "$1 is dead!" = "$1 мёртв!"
-"$1 is already at max health!" = "$1 уже имеет максимальное здоровье!"
 "$1 covers our wounds with a regenerative resin salve. We feel reinvigorated!" = "$1 покрывает наши раны регенеративной смолой. Мы чувствуем себя обновлёнными!"
 "We regurgitate our vital fluids and some plasma to create a regenerative resin salve and apply it to $1's wounds. We feel weakened..." = "Мы извергаем наши жизненно важные жидкости и немного плазмы, чтобы создать регенеративную смолу, и наносим её на раны $1. Мы чувствуем себя ослабленными..."
 
@@ -816,10 +653,6 @@
 # Mark: code/modules/shuttles/shuttle_console.dm
 
 "The hive swells with power! You will now steadily gain burrowed larva over time." = "Улей наполняется силой! Теперь мы будем получать новых грудоломов."
-
-# Mark: code/__HELPERS/game.dm
-
-"You are currently $1 in the larva queue." = "Вы сейчас $1-ый в очереди на грудолома."
 
 # Mark: code/_onclick/hud/screen_objects.dm
 
@@ -1203,7 +1036,6 @@
 "We must be standing on weeds to channel our nutrients and influence." = "Мы должны стоять на траве улья, чтобы направлять наши питательные вещества и влияние."
 "Weeds around $1 start to twitch and pump substance towards it, thickening it in process!" = "Трава вокруг $1 начинает дергаться и перекачивать субстанцию к нему, уплотняя её в процессе!"
 "We start to channel nutrients towards $1, using $2 plasma." = "Мы начинаем направлять питательные вещества к $1, используя $2 плазмы."
-"We sever the bond to the node, causing it to dissolve into the ground." = "Мы разрываем связь с узлом, заставляя его раствориться в земле."
 "$1 channel nutrients and shape it into a node!" = "$1 направляет питательные вещества и формирует их в узел!"
 "Couldn't find node to place! Contact a coder!" = "Не удалось найти узел для размещения! Свяжитесь с кодером!"
 "The $1 channel nutrients and shape it into a node!" = "$1 направляет питательные вещества и формирует их в узел!"
@@ -1213,7 +1045,6 @@
 "The node withers away." = "Узел увядает."
 "We can only upgrade resin walls, membrane and doors!" = "Мы можем улучшать только смоляные стены, мембраны и двери!"
 "$1 does not belong to our hive!" = "$1 не принадлежит нашему улью!"
-"$1 can't be made thicker." = "$1 нельзя сделать толще."
 "$1 does not belong to your hive!" = "$1 не принадлежит вашему улью!"
 "We can only upgrade resin structures!" = "Мы можем улучшать только смоляные структуры!"
 "There is no resin node here to remove!" = "Здесь нет смоляного узла, чтобы его удалить!"

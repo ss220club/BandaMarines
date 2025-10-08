@@ -75,7 +75,7 @@
 		locked = !locked
 		for(var/mob/mob in viewers(user, 3))
 			if((mob.client && !( mob.blinded )))
-				to_chat(mob, SPAN_NOTICE("The locker $2 has been [locked ? null : "un"]locked by $1.", list(user, declent_ru()))) // SS220 EDIT ADDICTION
+				to_chat(mob, SPAN_NOTICE("[locked ? "[user] запер [declent_ru()]" : "[user] отпёр [declent_ru()]"].")) // SS220 EDIT ADDICTION
 		update_icon()
 	else
 		to_chat(user, SPAN_NOTICE("Доступ запрещён."))

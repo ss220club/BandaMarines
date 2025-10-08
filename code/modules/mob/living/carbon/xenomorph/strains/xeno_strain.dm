@@ -142,7 +142,7 @@
 		return FALSE
 
 	if(strain && !reset)
-		to_chat(src, SPAN_WARNING("We have already chosen a strain."))
+		to_chat(src, SPAN_WARNING("Вы уже изменили свой подвид."))
 		return FALSE
 
 	if(!strain && reset)

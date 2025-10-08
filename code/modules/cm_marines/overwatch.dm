@@ -802,7 +802,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 					if(cam == new_cam) //if we switch to a console that is already watching this cam
 						return
 				if(!new_cam || !new_cam.can_use())
-					to_chat(user, "[icon2html(src, user)] [SPAN_WARNING("Searching for camera. No camera found for this marine! Tell your squad to put their cameras on!")]")
+					to_chat(user, "[icon2html(src, user)] [SPAN_WARNING("Поиск камеры... Камера не обнаружена! Сообщите отряду о необходимости включить камеры!")]")
 				else if(cam && cam == new_cam)//click the camera you're watching a second time to stop watching.
 					visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("Stopping camera view of [cam_target].")]")
 					for(var/datum/weakref/user_ref in concurrent_users)

@@ -3,7 +3,7 @@
 		return list(desc)
 
 	if(user.sdisabilities & DISABILITY_BLIND || user.blinded || user.stat==UNCONSCIOUS)
-		return list(SPAN_NOTICE("Something is there but you can't see it."))
+		return list(SPAN_NOTICE("Там что-то есть, но вы не можете разглядеть."))
 
 	var/mob/dead/observer/observer
 	if(isobserver(user))
@@ -14,23 +14,23 @@
 
 		if(icon)
 			msg += "[icon2html(icon, user)] "
-		msg += SPAN_XENOWARNING("<EM>$1</EM>!<br>", list(declent_ru())) // SS220 EDIT ADDICTION
+		msg += SPAN_XENOWARNING("<EM>[declent_ru()]</EM>!<br>") // SS220 EDIT ADDICTION
 
 		if(species && species.flags & IS_SYNTHETIC)
-			msg += SPAN_XENOWARNING("You sense this creature is not organic.<br>") // SS220 EDIT ADDICTION
+			msg += SPAN_XENOWARNING("Вы чувствуете, что это существо неорганическое.<br>") // SS220 EDIT ADDICTION
 
 		if(status_flags & XENO_HOST)
-			msg += SPAN_XENOWARNING("This creature is impregnated.<br>") // SS220 EDIT ADDICTION
+			msg += SPAN_XENOWARNING("Это существо оплодотворено.<br>") // SS220 EDIT ADDICTION
 		else if(chestburst == 2)
-			msg += SPAN_XENOWARNING("A larva escaped from this creature.<br>") // SS220 EDIT ADDICTION
+			msg += SPAN_XENOWARNING("Из этого существа вырвался грудолом.<br>") // SS220 EDIT ADDICTION
 		if(istype(wear_mask, /obj/item/clothing/mask/facehugger))
-			msg += SPAN_XENOWARNING("It has a little one on its face.<br>") // SS220 EDIT ADDICTION
+			msg += SPAN_XENOWARNING("К нему на лицо прицепился лицехват.<br>") // SS220 EDIT ADDICTION
 		if(on_fire)
-			msg += SPAN_XENOWARNING("It is on fire!<br>") // SS220 EDIT ADDICTION
+			msg += SPAN_XENOWARNING("Оно горит!<br>") // SS220 EDIT ADDICTION
 		if(stat == DEAD)
-			msg += SPAN_XENOWARNING("You sense this creature is dead.<br>") // SS220 EDIT ADDICTION
+			msg += SPAN_XENOWARNING("Вы чувствуете, что это существо мертво.<br>") // SS220 EDIT ADDICTION
 		else if(stat || !client)
-			msg += SPAN_XENOWARNING("It doesn't seem responsive.<br>") // SS220 EDIT ADDICTION
+			msg += SPAN_XENOWARNING("Оно без сознания.<br>") // SS220 EDIT ADDICTION
 		msg += "</span>"
 		return list(msg)
 
@@ -66,8 +66,8 @@
 	var/t_His = ru_p_them(TRUE) // SS220 EDIT ADDICTION
 	var/t_his = ru_p_them() // SS220 EDIT ADDICTION
 	var/t_theirs = ru_p_theirs() // SS220 EDIT ADDICTION
-	var/t_has = "has"
-	var/t_is = "is"
+	//var/t_has = "has" // SS220 EDIT ADDICTION
+	//var/t_is = "is" // SS220 EDIT ADDICTION
 
 	var/id_paygrade = ""
 	var/obj/item/card/id/I = get_idcard()
@@ -82,69 +82,69 @@
 
 	if(id_paygrade)
 		msg += "<EM>[rank_display] </EM>"
-	msg += SPAN_NOTICE("<EM>$1</EM>!<br>", list(declent_ru())) // SS220 EDIT ADDICTION
+	msg += SPAN_NOTICE("<EM>[declent_ru()]</EM>!<br>") // SS220 EDIT ADDICTION
 
 	//uniform
 	if(w_uniform && !skipjumpsuit)
-		msg += SPAN_NOTICE("$1 [t_is] wearing $2.<br>", list(t_He, w_uniform.get_examine_location(src, user, WEAR_BODY, t_He, t_his, t_theirs))) // SS220 EDIT ADDICTION
+		msg += SPAN_NOTICE("[t_He] носит [w_uniform.get_examine_location(src, user, WEAR_BODY, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
 
 	//head
 	if(head)
-		msg += SPAN_NOTICE("$1 [t_is] wearing $2 $3.<br>", list(t_He, head.get_examine_line(user), head.get_examine_location(src, user, WEAR_HEAD, t_He, t_his, t_theirs))) // SS220 EDIT ADDICTION
+		msg += SPAN_NOTICE("[t_He] носит [head.get_examine_line(user)] [head.get_examine_location(src, user, WEAR_HEAD, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
 
 	//suit/armor
 	if(wear_suit)
-		msg += SPAN_NOTICE("$1 [t_is] wearing $2.<br>", list(t_He, wear_suit.get_examine_location(src, user, WEAR_JACKET, t_He, t_his, t_theirs))) // SS220 EDIT ADDICTION
+		msg += SPAN_NOTICE("[t_He] носит [wear_suit.get_examine_location(src, user, WEAR_JACKET, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
 	//suit/armor storage
 	if(s_store && !skipsuitstorage)
-		msg += SPAN_NOTICE("$1 [t_is] carrying $2 $3.<br>", list(t_He, s_store.get_examine_line(user), s_store.get_examine_location(src, user, WEAR_J_STORE, t_He, t_his, t_theirs))) // SS220 EDIT ADDICTION
+		msg += SPAN_NOTICE("[t_He] несёт [s_store.get_examine_line(user)] [s_store.get_examine_location(src, user, WEAR_J_STORE, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
 
 	//back
 	if(back)
-		msg += SPAN_NOTICE("$1 [t_has] $2 $3.<br>", list(t_He, back.get_examine_line(user), back.get_examine_location(src, user, WEAR_BACK, t_He, t_his, t_theirs))) // SS220 EDIT ADDICTION
+		msg += SPAN_NOTICE("[t_He] носит [back.get_examine_line(user)] [back.get_examine_location(src, user, WEAR_BACK, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
 
 	//left hand
 	if(l_hand)
-		msg += SPAN_NOTICE("$1 [t_is] holding $2 $3.<br>", list(t_He, l_hand.get_examine_line(user), l_hand.get_examine_location(src, user, WEAR_L_HAND, t_He, t_his, t_theirs))) // SS220 EDIT ADDICTION
+		msg += SPAN_NOTICE("[t_He] держит [l_hand.get_examine_line(user)] [l_hand.get_examine_location(src, user, WEAR_L_HAND, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
 
 	//right hand
 	if(r_hand)
-		msg += SPAN_NOTICE("$1 [t_is] holding $2 $3.<br>", list(t_He, r_hand.get_examine_line(user), r_hand.get_examine_location(src, user, WEAR_R_HAND, t_He, t_his, t_theirs))) // SS220 EDIT ADDICTION
+		msg += SPAN_NOTICE("[t_He] держит [r_hand.get_examine_line(user)] [r_hand.get_examine_location(src, user, WEAR_R_HAND, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
 
 	//gloves
 	if(gloves && !skipgloves)
-		msg += SPAN_NOTICE("$1 [t_has] $2 $3.<br>", list(t_He, gloves.get_examine_line(user), gloves.get_examine_location(src, user, WEAR_HANDS, t_He, t_his, t_theirs))) // SS220 EDIT ADDICTION
+		msg += SPAN_NOTICE("[t_He] носит [gloves.get_examine_line(user)] [gloves.get_examine_location(src, user, WEAR_HANDS, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
 	else if(hands_blood_color)
-		msg += SPAN_WARNING("$1 $2 $3-stained hands!<br>", list(t_He, t_theirs, (hands_blood_color == COLOR_OIL) ? "замасленные" : "окровавленные")) // SS220 EDIT ADDICTION
+		msg += SPAN_WARNING("У [t_theirs] [(hands_blood_color == COLOR_OIL) ? "замасленные" : "окровавленные"] руки!<br>") // SS220 EDIT ADDICTION
 
 	//belt
 	if(belt)
-		msg += SPAN_NOTICE("$1 [t_has] $2 $3.<br>", list(t_He, belt.get_examine_line(user), belt.get_examine_location(src, user, WEAR_WAIST, t_He, t_his, t_theirs))) // SS220 EDIT ADDICTION
+		msg += SPAN_NOTICE("[t_He] носит [belt.get_examine_line(user)] [belt.get_examine_location(src, user, WEAR_WAIST, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
 
 	//shoes
 	if(shoes && !skipshoes)
-		msg += SPAN_NOTICE("$1 [t_is] wearing $2 $3.<br>", list(t_He, shoes.get_examine_line(user), shoes.get_examine_location(src, user, WEAR_FEET, t_He, t_his, t_theirs))) // SS220 EDIT ADDICTION
+		msg += SPAN_NOTICE("[t_He] носит wearing [shoes.get_examine_line(user)] [shoes.get_examine_location(src, user, WEAR_FEET, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
 	else if(feet_blood_color)
-		msg += SPAN_WARNING("$1 [t_theirs] $2-stained feet!<br>", list(t_He, (feet_blood_color == COLOR_OIL) ? "замасленные" : "окровавленные")) // SS220 EDIT ADDICTION
+		msg += SPAN_WARNING("У [t_theirs] [(feet_blood_color == COLOR_OIL) ? "замасленные" : "окровавленные"] ноги!<br>") // SS220 EDIT ADDICTION
 
 	//mask
 	if(wear_mask && !skipmask)
-		msg += SPAN_NOTICE("$1 [t_has] $2 $3.<br>", list(t_He, wear_mask.get_examine_line(user), wear_mask.get_examine_location(src, user, WEAR_FACE, t_He, t_his, t_theirs))) // SS220 EDIT ADDICTION
+		msg += SPAN_NOTICE("[t_He] носит [wear_mask.get_examine_line(user)] [wear_mask.get_examine_location(src, user, WEAR_FACE, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
 
 	//eyes
 	if(glasses && !skipeyes)
-		msg += SPAN_NOTICE("$1 [t_has] $2 $3.<br>", list(t_He, glasses.get_examine_line(user), glasses.get_examine_location(src, user, WEAR_EYES, t_He, t_his, t_theirs))) // SS220 EDIT ADDICTION
+		msg += SPAN_NOTICE("[t_He] носит [glasses.get_examine_line(user)] [glasses.get_examine_location(src, user, WEAR_EYES, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
 
 	//ears
 	if(!skipears)
 		if(wear_l_ear)
-			msg += SPAN_NOTICE("$1 [t_has] $2 $3.<br>", list(t_He, wear_l_ear.get_examine_line(user), wear_l_ear.get_examine_location(src, user, WEAR_L_EAR, t_He, t_his, t_theirs))) // SS220 EDIT ADDICTION
+			msg += SPAN_NOTICE("[t_He] носит [wear_l_ear.get_examine_line(user)] [wear_l_ear.get_examine_location(src, user, WEAR_L_EAR, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
 		if(wear_r_ear)
-			msg += SPAN_NOTICE("$1 [t_has] $2 $3.<br>", list(t_He, wear_r_ear.get_examine_line(user), wear_r_ear.get_examine_location(src, user, WEAR_R_EAR, t_He, t_his, t_theirs))) // SS220 EDIT ADDICTION
+			msg += SPAN_NOTICE("[t_He] носит [wear_r_ear.get_examine_line(user)] [wear_r_ear.get_examine_location(src, user, WEAR_R_EAR, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
 
 	//ID
 	if(wear_id)
-		msg += SPAN_NOTICE("$1 [t_is] $2.<br>", list(t_He, wear_id.get_examine_location(src, user, WEAR_ID, t_He, t_his, t_theirs))) // SS220 EDIT ADDICTION
+		msg += SPAN_NOTICE("[t_He] носит [wear_id.get_examine_location(src, user, WEAR_ID, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
 
 	//Inform user if their weapon's IFF will or won't hit src, code by The32bitguy from PVE
 	if(ishuman(user))
@@ -237,12 +237,12 @@
 				if(pulse == PULSE_NONE || status_flags & FAKEDEATH)
 					// SS220 START EDIT ADDICTION
 					if(client) // SS220 EDIT ADDICTION
-						to_chat(user, SPAN_DEADSAY("$1 has no pulse and $2 soul has departed...", list(t_theirs, t_his)))
+						to_chat(user, SPAN_DEADSAY("У [t_theirs] нет пульса и [t_his] душа покинула тело..."))
 					else // SS220 EDIT ADDICTION
-						to_chat(user, SPAN_DEADSAY("$1 has no pulse...", list(t_theirs)))
+						to_chat(user, SPAN_DEADSAY("У [t_theirs] нет пульса..."))
 					// SS220 END EDIT ADDICTION
 				else
-					to_chat(user, SPAN_DEADSAY("$1 has no pulse!", list(t_theirs))) // SS220 EDIT ADDICTION
+					to_chat(user, SPAN_DEADSAY("У [t_theirs] нет пульса!")) // SS220 EDIT ADDICTION
 
 	if((species && !species.has_organ["brain"] || has_brain()) && stat != DEAD && stat != CONSCIOUS)
 		if(!key)
@@ -468,7 +468,7 @@
 		msg += SPAN_WARNING(SPAN_BOLD("У [t_theirs] огромное отверстие в груди!\n"))
 
 	for(var/implant in get_visible_implants())
-		msg += SPAN_WARNING_BOLD("$1 has $2 sticking out of flesh!", list(t_theirs, lowertext(implant))) + "\n" // SS220 EDIT ADDICTION
+		msg += SPAN_WARNING_BOLD("У [t_theirs] торчит [lowertext(implant)] в теле!") + "\n" // SS220 EDIT ADDICTION
 
 	if(hasHUD(user,"security") || (observer && observer.HUD_toggled["Security HUD"]))
 		var/perpref

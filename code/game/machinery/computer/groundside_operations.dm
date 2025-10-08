@@ -325,7 +325,7 @@
 				if(new_holder)
 					new_cam = new_holder.get_camera()
 				if(!new_cam || !new_cam.can_use())
-					to_chat(usr, "[icon2html(src, usr)] [SPAN_WARNING("Searching for camera. No camera found for this marine! Tell your squad to put their cameras on!")]")
+					to_chat(usr, "[icon2html(src, usr)] [SPAN_WARNING("Поиск камеры... Камера не обнаружена! Сообщите отряду о необходимости включить камеры!")]")
 				else if(cam && cam == new_cam)//click the camera you're watching a second time to stop watching.
 					visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("Stopping camera view of [cam_target].")]")
 					usr.UnregisterSignal(cam, COMSIG_PARENT_QDELETING)

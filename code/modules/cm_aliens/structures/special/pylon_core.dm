@@ -133,7 +133,7 @@
 	if(!linked_hive.can_spawn_as_lesser_drone(xeno_candidate, src))
 		return FALSE
 
-	if(tgui_alert(xeno_candidate, "Вы уверены, что хотите стать трутнем?", "Подтверждение", list("Да", "Нет")) != "Да")
+	if(tgui_alert(xeno_candidate, "Вы уверены, что хотите стать трутнем?", "Подтверждение", list("Да", "Нет")) == "Нет") // SS220 EDIT ADDICTION
 		return FALSE
 
 	if(!linked_hive.can_spawn_as_lesser_drone(xeno_candidate, src))
@@ -142,7 +142,7 @@
 	var/mob/living/carbon/xenomorph/lesser_drone/new_drone = new(loc, null, linked_hive.hivenumber)
 	xeno_candidate.mind.transfer_to(new_drone, TRUE)
 	lesser_drone_spawns -= 1
-	new_drone.visible_message(SPAN_XENODANGER("A lesser drone emerges out of $1!", list(declent_ru(GENITIVE))), SPAN_XENODANGER("You emerge out of $1 and awaken from your slumber. For the Hive!", list(declent_ru(GENITIVE)))) // SS220 EDIT ADDICTION
+	new_drone.visible_message(SPAN_XENODANGER("Из [declent_ru(GENITIVE)] появляется трутень!"), SPAN_XENODANGER("Вы вылезаете из [declent_ru(GENITIVE)] и пробуждаетесь от сна. Во имя улья!")) // SS220 EDIT ADDICTION
 	playsound(new_drone, 'sound/effects/xeno_newlarva.ogg', 25, TRUE)
 	new_drone.generate_name()
 

@@ -9,8 +9,10 @@
 
 	SEND_SIGNAL(attacking_mob, COMSIG_LIVING_ATTACKHAND_HUMAN, src)
 
+	var/is_male = attacking_mob.gender == MALE ? "" : "а" // SS220 EDUT ADDICTION
+	var/ru_name = declent_ru(GENITIVE)
 	if((attacking_mob != src) && check_shields(0, attacking_mob.name))
-		visible_message(SPAN_DANGER("<B>[attacking_mob] attempted to touch [src]!</B>"), null, null, 5)
+		visible_message(SPAN_DANGER("<B>[attacking_mob] попытался прикоснуться к [ru_name]!</B>"), null, null, 5)
 		return FALSE
 
 	switch(attacking_mob.a_intent)
@@ -19,11 +21,11 @@
 			if(on_fire && attacking_mob != src)
 				adjust_fire_stacks(-10, min_stacks = 0)
 				playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
-				attacking_mob.visible_message(SPAN_DANGER("[attacking_mob] tries to put out the fire on [src]!"),
-					SPAN_WARNING("You try to put out the fire on [src]!"), null, 5)
+				attacking_mob.visible_message(SPAN_DANGER("[attacking_mob] пытается потушить огонь на [ru_name]!"),
+					SPAN_WARNING("Вы пытаетесь потушить огонь на [ru_name]!"), null, 5)
 				if(fire_stacks <= 0)
-					attacking_mob.visible_message(SPAN_DANGER("[attacking_mob] has successfully extinguished the fire on [src]!"),
-						SPAN_NOTICE("You extinguished the fire on [src]."), null, 5)
+					attacking_mob.visible_message(SPAN_DANGER("[attacking_mob] потушил огонь на [ru_name]!"),
+						SPAN_NOTICE("Вы потушили огонь на [ru_name]."), null, 5)
 				return 1
 
 			// If unconscious with oxygen damage, do CPR. If dead, we do CPR
@@ -32,20 +34,19 @@
 				return 1
 
 			if(species.flags & IS_SYNTHETIC)
-				to_chat(attacking_mob, SPAN_DANGER("Your hands compress the metal chest uselessly... "))
+				to_chat(attacking_mob, SPAN_DANGER("Синтетикам бесполезно проводить <b>СЛР</b>..."))
 				return 0
 
 			if(cpr_attempt_timer >= world.time)
-				to_chat(attacking_mob, SPAN_NOTICE("<B>CPR is already being performed on [src]!</B>"))
+				to_chat(attacking_mob, SPAN_NOTICE("<B>Кто-то уже проводит <b>СЛР</b> на [ru_name]!</B>"))
 				return 0
 
 			//CPR
 			if(attacking_mob.action_busy)
 				return 1
 
-			var/is_male = attacking_mob.gender == MALE ? "" : "а" // SS220 EDUT ADDICTION
-			attacking_mob.visible_message(SPAN_NOTICE("<b>$1$2</b> starts performing <b>CPR</b> on <b>$3</b>.", list(attacking_mob, is_male, src)), // SS220 EDIT ADDICTION
-				SPAN_HELPFUL("You start performing <b>CPR</b> on <b>$1</b>.", list(declent_ru()))) // SS220 EDIT ADDICTION
+			attacking_mob.visible_message(SPAN_NOTICE("<b>[attacking_mob]</b> начал[is_male] проводить <b>СЛР</b> на <b>[ru_name]</b>."), // SS220 EDIT ADDICTION
+				SPAN_HELPFUL("Вы начали проводить <b>СЛР</b> на <b>[ru_name]</b>.")) // SS220 EDIT ADDICTION
 
 			cpr_attempt_timer = world.time + HUMAN_STRIP_DELAY * attacking_mob.get_skill_duration_multiplier(SKILL_MEDICAL)
 			if(do_after(attacking_mob, HUMAN_STRIP_DELAY * attacking_mob.get_skill_duration_multiplier(SKILL_MEDICAL), INTERRUPT_ALL, BUSY_ICON_GENERIC, src, INTERRUPT_MOVED, BUSY_ICON_MEDICAL))
@@ -54,19 +55,19 @@
 					apply_damage(-suff, OXY)
 					updatehealth()
 					src.affected_message(attacking_mob,
-						SPAN_HELPFUL("You feel a <b>breath of fresh air</b> enter your lungs. It feels good."),
-						SPAN_HELPFUL("You perform <b>CPR</b> on <b>$1</b>. Repeat at least every <b>7 seconds</b>.", list(declent_ru())), // SS220 EDIT ADDICTION
-						SPAN_NOTICE("<b>$1$2</b> performs <b>CPR</b> on <b>$3</b>.", list(attacking_mob, is_male, src))) // SS220 EDIT ADDICTION
+						SPAN_HELPFUL("Вы чувствуете, как <b>свежий воздух</b> проникает в ваши легкие, приятно, однако."),
+						SPAN_HELPFUL("Вы выполнили проведение <b>СЛР</b> на <b>[ru_name]</b>. Повторяйте его каждые 7 секунд."), // SS220 EDIT ADDICTION
+						SPAN_NOTICE("<b>[attacking_mob]</b> выполнил[is_male] проведение <b>СЛР</b> на <b>[ru_name]</b>.")) // SS220 EDIT ADDICTION
 				if(is_revivable() && stat == DEAD)
 					if(cpr_cooldown < world.time)
 						revive_grace_period += 7 SECONDS
-						attacking_mob.visible_message(SPAN_NOTICE("<b>$1$2</b> performs <b>CPR</b> on <b>$3</b>.", list(attacking_mob, is_male, src)), // SS220 EDIT ADDICTION
-							SPAN_HELPFUL("You perform <b>CPR</b> on <b>$1</b>.", list(declent_ru()))) // SS220 EDIT ADDICTION
-						balloon_alert(attacking_mob, SPAN_TRANSLATE("you perform cpr"))
+						attacking_mob.visible_message(SPAN_NOTICE("<b>[attacking_mob]</b> выполнил[is_male] проведение <b>СЛР</b> на <b>[ru_name]</b>."), // SS220 EDIT ADDICTION
+							SPAN_HELPFUL("Вы выполнили проведение <b>СЛР</b> на <b>[ru_name]</b>.")) // SS220 EDIT ADDICTION
+						balloon_alert(attacking_mob, "СЛР успешно проведено")
 					else
-						attacking_mob.visible_message(SPAN_WARNING("<b>$1$2</b> fails to perform <b>CPR</b> on <b>$3</b>.", list(attacking_mob, is_male, src)), // SS220 EDIT ADDICTION
-							SPAN_WARNING("You <b>fail</b> to perform <b>CPR</b> on <b>$1</b>. Incorrect rhythm. Do it <b>slower</b>.", list(declent_ru()))) // SS220 EDIT ADDICTION
-						balloon_alert(attacking_mob, SPAN_TRANSLATE("incorrect rhythm. do it slower"))
+						attacking_mob.visible_message(SPAN_WARNING("<b>[attacking_mob]</b> провалил[is_male] проведение <b>СЛР</b> на <b>[ru_name]</b>."), // SS220 EDIT ADDICTION
+							SPAN_WARNING("Вы провалили проведение <b>СЛР</b> на <b>[ru_name]</b>. Не проводите <b>СЛР</b> слишком часто. Подождите перед следующей попыткой.")) // SS220 EDIT ADDICTION
+						balloon_alert(attacking_mob, "Подождите перед следующей попыткой")
 					cpr_cooldown = world.time + 7 SECONDS
 			cpr_attempt_timer = 0
 			return 1
