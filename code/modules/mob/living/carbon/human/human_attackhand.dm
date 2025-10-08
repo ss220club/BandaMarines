@@ -205,6 +205,7 @@
 	//else if (gender == FEMALE)
 	//	t_him = "her"
 	// SS220 END EDIT ADDICTION
+
 	if (w_uniform)
 		w_uniform.add_fingerprint(M)
 

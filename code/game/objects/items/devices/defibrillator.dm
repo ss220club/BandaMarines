@@ -168,7 +168,7 @@
 		to_chat(user, SPAN_WARNING("You can't defibrilate $1. You need a synthetic reset key for reboot!", list(H))) // SS220 EDIT ADDICTION
 		return
 	if(!ready)
-		balloon_alert(user, SPAN_TRANSLATE("take out the $1.", list(ru_name_fluff_tool))) // SS220 EDIT ADDICTION
+		balloon_alert(user, "take out the [ru_name_fluff_tool].")) // SS220 EDIT ADDICTION
 		to_chat(user, SPAN_WARNING("Take $1's $2 out first.", list(declent_ru(GENITIVE), ru_name_fluff_tool))) // SS220 EDIT ADDICTION
 		return
 	if(dcell.charge < charge_cost)
