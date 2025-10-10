@@ -114,26 +114,26 @@ YOU TO 200 DAMAGE. I ASK NOT FOR MY OWN MEDIC EGOSTROKING, BUT FOR THE GOOD OF T
 			suture_time *= 0.5
 			skill_msg = "[pick("методично", "уверено", "мастерски")]"
 
-	var/possessive
-	var/possessive_their
+	//var/possessive // SS220 EDIT ADDICTION
+	//var/possessive_their // SS220 EDIT ADDICTION
 	if(user == target)
 		suture_time *= 1.5 //Stitching yourself up is badass but awkward.
-		possessive = "your"
-		possessive_their = user.ru_p_theirs() // SS220 EDIT ADDICTION
+		//possessive = "your" // SS220 EDIT ADDICTION
+		//possessive_their = user.p_their() // SS220 EDIT ADDICTION
 		if(!looping) //start message.
 			skill_msg = pick("awkwardly", "slowly and carefully")
-			user.visible_message(SPAN_NOTICE("[user] начинает [skill_msg] лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на [ru_name_target_limb]."),
-				SPAN_HELPFUL("Вы начинаете [skill_msg] лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на своей [ru_name_target_limb]."))
-			target.custom_pain("Вы чувствуете как затягиваются [description_wounds == "wounds" ? "раны" : "ожоги"] на [ru_name_target_limb]!")
+			user.visible_message(SPAN_NOTICE("[user] начинает [skill_msg] лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на [ru_name_target_limb]."), // SS220 EDIT ADDICTION
+				SPAN_HELPFUL("Вы начинаете [skill_msg] лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на своей [ru_name_target_limb].")) // SS220 EDIT ADDICTION
+			target.custom_pain("Вы чувствуете как затягиваются [description_wounds == "wounds" ? "раны" : "ожоги"] на [ru_name_target_limb]!") // SS220 EDIT ADDICTION
 	else
-		possessive = "\the [target]'s"
-		possessive_their = "\the [target]'s"
+		//possessive = "\the [target]'s" // SS220 EDIT ADDICTION
+		//possessive_their = "\the [target]'s" // SS220 EDIT ADDICTION
 		if(!looping)
 			user.affected_message(target,
-				SPAN_HELPFUL("Вы начинаете [skill_msg] лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на [ru_name_target_limb] [target]."),
-				SPAN_HELPFUL("[user] начинает [skill_msg] лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на вашей [ru_name_target_limb]."),
-				SPAN_NOTICE("[user] начинает [skill_msg] лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на [ru_name_target_limb] [target]."))
-			target.custom_pain("Вы чувствуете как затягиваются [description_wounds == "wounds" ? "раны" : "ожоги"] на [ru_name_target_limb]!")
+				SPAN_HELPFUL("Вы начинаете [skill_msg] лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на [ru_name_target_limb] [target]."), // SS220 EDIT ADDICTION
+				SPAN_HELPFUL("[user] начинает [skill_msg] лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на вашей [ru_name_target_limb]."), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("[user] начинает [skill_msg] лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на [ru_name_target_limb] [target].")) // SS220 EDIT ADDICTION
+			target.custom_pain("Вы чувствуете как затягиваются [description_wounds == "wounds" ? "раны" : "ожоги"] на [ru_name_target_limb]!") // SS220 EDIT ADDICTION
 
 	if(target.pain?.feels_pain && target.stat == CONSCIOUS && target.pain.reduction_pain < PAIN_REDUCTION_HEAVY && prob(max(0, PAIN_REDUCTION_HEAVY - target.pain.reduction_pain))) //This is based on surgery pain failure code but more lenient.
 		do_after(user, max(rand(suture_time * 0.1, suture_time * 0.5), 0.5), INTERRUPT_ALL, BUSY_ICON_FRIENDLY, target, INTERRUPT_MOVED, BUSY_ICON_MEDICAL)

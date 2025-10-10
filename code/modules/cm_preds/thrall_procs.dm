@@ -159,7 +159,7 @@
 
 	var/area/area = get_area(thrall)
 	var/turf/turf = get_turf(thrall)
-	message_admins(FONT_SIZE_HUGE("ALERT: $1 ($2) triggered their thrall's self-destruct sequence $3 $4", list(master, master.key, area ? "in [area.name]":"", ADMIN_JMP(turf)))) // SS220 EDIT ADDICTION
+	message_admins(FONT_SIZE_HUGE("ВНИМАНИЕ: [master] ([master.key]) активировал последовательность самоуничтожения своего прислужника [area ? "in [area.name]":""] [ADMIN_JMP(turf)]")) // SS220 EDIT ADDICTION
 	log_attack("[key_name(master)] triggered their thrall's self-destruct sequence in [area ? "in [area.name]":""]")
 	message_all_yautja("[master.real_name] has triggered their thrall's self-destruction sequence.")
 	to_chat(master, SPAN_DANGER("You set the timer. They have failed you."))

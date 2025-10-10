@@ -357,7 +357,7 @@ Additional game mode variables.
 	GLOB.RoleAuthority.equip_role(new_responder, fax_responder_job, new_responder.loc)
 	SSticker.minds += new_responder.mind
 
-	message_admins(FONT_SIZE_XL(SPAN_RED("$1 joined as a $2.", list(key_name(new_responder), sub_job)))) // SS220 EDIT ADDICTION
+	message_admins(FONT_SIZE_XL(SPAN_RED("[key_name(new_responder)] присоединился как [sub_job]."))) // SS220 EDIT ADDICTION
 	new_responder.add_fax_responder()
 
 	return TRUE
@@ -819,11 +819,11 @@ Additional game mode variables.
 
 	var/selected_spawn = tgui_input_list(original, "Где вы хотите появиться вместе с вашим ульем?", "Появление Королевы", spawn_list_map, QUEEN_SPAWN_TIMEOUT, theme="hive_status") // SS220 EDIT ADDICTION
 	if(hive.living_xeno_queen)
-		to_chat(original, SPAN_XENOANNOUNCE("You have taken too long to pick a spawn location, a queen has already evolved before you."))
+		to_chat(original, SPAN_XENOANNOUNCE("Вы слишком долго выбирали место для появления, Королева уже эволюционировала."))
 		player.send_to_lobby()
 	if(!selected_spawn)
 		selected_spawn = pick(spawn_list_map)
-		to_chat(original, SPAN_XENOANNOUNCE("You have taken too long to pick a spawn location, one has been chosen for you."))
+		to_chat(original, SPAN_XENOANNOUNCE("Вы слишком долго выбирали место для появления, оно было выбрано за вас."))
 
 	var/turf/QS
 	var/obj/effect/landmark/queen_spawn/QSI
