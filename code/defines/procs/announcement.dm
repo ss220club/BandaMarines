@@ -6,12 +6,14 @@
 #define QUEEN_MOTHER_ANNOUNCE "Экстрасенсорная директива Королевы-Матери"
 #define XENO_GENERAL_ANNOUNCE "Вы чувствуете нечто необычное..." //general xeno announcement that don't involve Queen, for nuke for example
 #define HIGHER_FORCE_ANNOUNCE SPAN_ANNOUNCEMENT_HEADER_BLUE("Unknown Higher Force")
+#define PATHOGEN_ANNOUNCE SPAN_ANNOUNCEMENT_HEADER_BEIGE("Higher Mycelial Entity")
 
 // SS220 ADD START - TTS
 #define TTS_DEFAULT_ANNOUNCER new /datum/announcer
 #define TTS_ARES_ANNOUNCER new /datum/announcer/ares
 #define TTS_QUEEN_MOTHER_ANNOUNCER new /datum/announcer/queen_mother
 // SS220 ADD END - TTS
+#define PATHOGEN_ANNOUNCE SPAN_ANNOUNCEMENT_HEADER_BEIGE("Higher Mycelial Entity")
 
 //xenomorph hive announcement
 /proc/xeno_announcement(message, hivenumber, title = QUEEN_ANNOUNCE)

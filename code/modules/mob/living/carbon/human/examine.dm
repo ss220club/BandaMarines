@@ -21,7 +21,7 @@
 
 		if(status_flags & XENO_HOST)
 			msg += "Это существо оплодотворено.\n"
-		else if(chestburst == 2)
+		else if(chestburst >= 2)
 			msg += "Грудолом вырвался из этого существа.\n"
 		if(istype(wear_mask, /obj/item/clothing/mask/facehugger))
 			msg += "Лицехват уже уселся на лице существа.\n"
@@ -453,6 +453,8 @@
 						msg += SPAN_WARNING("Кровь собирается вокруг [t_his] [SPAN_BOLD("правого ботинка!")]\n")
 
 	if(chestburst == 2)
+		msg += SPAN_WARNING(SPAN_BOLD("У [t_theirs] огромное отверстие в груди!\n"))
+	if(chestburst == 3)
 		msg += SPAN_WARNING(SPAN_BOLD("У [t_theirs] огромное отверстие в груди!\n"))
 
 	for(var/obj/implant in get_visible_implants())
