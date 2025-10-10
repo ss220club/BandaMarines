@@ -103,7 +103,7 @@
 			return
 
 		if(target_area.linked_lz && istype(SSticker.mode, /datum/game_mode/colonialmarines))
-			to_chat(owner, SPAN_XENONOTICE("It's too early to spread the hive this far."))
+			to_chat(owner, SPAN_XENONOTICE("Ещё слишком рано распространять улей так далеко."))
 			return
 
 	return ..()

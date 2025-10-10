@@ -125,13 +125,13 @@
 						var/mob/hologram/queen/queen_eye = client?.eye
 						if(istype(queen_eye))
 							track += " (<a href='byond://?src=\ref[S];track=\ref[queen_eye]'>посмотреть</a>)" // SS220 EDIT ADDICTION
-						ghostrend = SPAN_XENOQUEEN("Hivemind, $1$2 $3, <span class='normal'>'$4'</span>", list(ru_name, track, ru_say_verb("hisses"), message)) // SS220 EDIT ADDICTION
+						ghostrend = SPAN_XENOQUEEN("Разум улья, [ru_name][track] [ru_say_verb("hisses")], <span class='normal'>'[message]'</span>") // SS220 EDIT ADDICTION
 					else if(hive.leading_cult_sl == src)
-						ghostrend = SPAN_XENOQUEEN("Hivemind, $1$2 $3, <span class='normal'>'$4'</span>", list(ru_name, track, ru_say_verb("hisses"), message)) // SS220 EDIT ADDICTION
+						ghostrend = SPAN_XENOQUEEN("Разум улья, [ru_name][track] [ru_say_verb("hisses")], <span class='normal'>'[message]'</span>") // SS220 EDIT ADDICTION
 					else if(istype(X) && IS_XENO_LEADER(X))
-						ghostrend = SPAN_XENOLEADER("Hivemind, Leader $1$2 $3, <span class='normal'>'$4'</span>", list(ru_name, track, ru_say_verb("hisses"), message)) // SS220 EDIT ADDICTION
+						ghostrend = SPAN_XENOLEADER("Разум улья, лидер [ru_name][track] [ru_say_verb("hisses")], <span class='normal'>'[message]'</span>") // SS220 EDIT ADDICTION
 					else
-						ghostrend = SPAN_XENO("Hivemind, $1$2 $3, <span class='normal'>'$4'</span>", list(ru_name, track, ru_say_verb("hisses"), message)) // SS220 EDIT ADDICTION
+						ghostrend = SPAN_XENO("Разум улья, [ru_name][track] [ru_say_verb("hisses")], <span class='normal'>'[message]'</span>") // SS220 EDIT ADDICTION
 					S.show_message(ghostrend, SHOW_MESSAGE_AUDIBLE)
 					cast_tts(S, message, S, TTS_LOCALYZE_RADIO, SOUND_EFFECT_HIVEMIND) // BANDAMARINES EDIT ADD - TTS
 
@@ -140,11 +140,11 @@
 					overwatch_insert = " (<a href='byond://?src=\ref[S];[overwatch_target]=\ref[src];[overwatch_src]=\ref[S]'>посмотреть</a>)" // SS220 EDIT ADDICTION
 
 				if(isqueen(src) || hive.leading_cult_sl == src)
-					rendered = SPAN_XENO("Hivemind, $1$2 $3, <span class='normal'>'$4'</span>", list(ru_name, overwatch_insert, ru_say_verb("hisses"), message)) // SS220 EDIT ADDICTION
+					rendered = SPAN_XENO("Разум улья, [ru_name][overwatch_insert] [ru_say_verb("hisses")], <span class='normal'>'[message]'</span>") // SS220 EDIT ADDICTION
 				else if(istype(X) && IS_XENO_LEADER(X))
-					rendered = SPAN_XENOLEADER("Hivemind, Leader $1$2 $3, <span class='normal'>'$4'</span>", list(ru_name, overwatch_insert, ru_say_verb("hisses"), message)) // SS220 EDIT ADDICTION
+					rendered = SPAN_XENOLEADER("Разум улья, лидер [ru_name][overwatch_insert] [ru_say_verb("hisses")], <span class='normal'>'[message]'</span>") // SS220 EDIT ADDICTION
 				else
-					rendered = SPAN_XENO("Hivemind, $1$2 $3, <span class='normal'>'$4'</span>", list(ru_name, overwatch_insert, ru_say_verb("hisses"), message)) // SS220 EDIT ADDICTION
+					rendered = SPAN_XENO("Разум улья, [ru_name][overwatch_insert] [ru_say_verb("hisses")], <span class='normal'>'[message]'</span>") // SS220 EDIT ADDICTION
 
 				S.show_message(rendered, SHOW_MESSAGE_AUDIBLE)
 				cast_tts(S, message, S, TTS_LOCALYZE_RADIO, SOUND_EFFECT_HIVEMIND) // BANDAMARINES EDIT ADD - TTS

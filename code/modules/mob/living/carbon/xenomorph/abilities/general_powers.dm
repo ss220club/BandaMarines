@@ -53,9 +53,9 @@
 	var/area/area = get_area(turf)
 	if(isnull(area) || !(area.is_resin_allowed))
 		if(!area || area.flags_area & AREA_UNWEEDABLE)
-			to_chat(xeno, SPAN_XENOWARNING("This area is unsuited to host the hive!"))
+			to_chat(xeno, SPAN_XENOWARNING("Эта область не подходит для размещения улья!"))
 			return
-		to_chat(xeno, SPAN_XENOWARNING("It's too early to spread the hive this far."))
+		to_chat(xeno, SPAN_XENOWARNING("Ещё слишком рано распространять улей так далеко."))
 		return
 
 	if(!check_and_use_plasma_owner())
@@ -288,7 +288,7 @@
 	var/turf/target_turf = get_turf(A)
 
 	if(!SSmapping.same_z_map(X.loc.z, target_turf.loc.z))
-		to_chat(X, SPAN_XENOWARNING("Our mind cannot reach that far."))
+		to_chat(X, SPAN_XENOWARNING("Наш разум не может достать так далеко."))
 		return
 
 	if(!X.hive.living_xeno_queen || !SSmapping.same_z_map(X.hive.living_xeno_queen.z, X.z))
@@ -738,9 +738,9 @@
 	var/area/target_area = get_area(target_turf)
 	if(isnull(target_area) || !(target_area.is_resin_allowed))
 		if(!target_area || target_area.flags_area & AREA_UNWEEDABLE)
-			to_chat(xeno, SPAN_XENOWARNING("This area is unsuited to host the hive!"))
+			to_chat(xeno, SPAN_XENOWARNING("Эта область не подходит для размещения улья!"))
 			return
-		to_chat(xeno, SPAN_XENOWARNING("It's too early to spread the hive this far."))
+		to_chat(xeno, SPAN_XENOWARNING("Ещё слишком рано распространять улей так далеко."))
 		return FALSE
 
 	if(target_turf.z != xeno.z)
@@ -908,9 +908,8 @@
 		spitting = FALSE
 		return
 
-	xeno.visible_message(SPAN_XENOWARNING("$1 spits at $2!", list(xeno, atom)), // SS220 EDIT ADDICTION
-
-	SPAN_XENOWARNING("We spit $1 at $2!", list(xeno.ammo.name, atom)) ) // SS220 EDIT ADDICTION
+	xeno.visible_message(SPAN_XENOWARNING("[xeno] плюёт в [atom]!"), // SS220 EDIT ADDICTION
+	SPAN_XENOWARNING("Мы плюём [xeno.ammo.name] в [atom]!")) // SS220 EDIT ADDICTION
 	playsound(xeno.loc, sound_to_play, 25, 1)
 
 	var/obj/projectile/proj = new (current_turf, create_cause_data(xeno.ammo.name, xeno))
@@ -1050,7 +1049,7 @@
 		return
 
 	if(HAS_TRAIT(stabbing_xeno, TRAIT_ABILITY_BURROWED) || stabbing_xeno.is_ventcrawling)
-		to_chat(stabbing_xeno, SPAN_XENOWARNING("We must be above ground to do this."))
+		to_chat(stabbing_xeno, SPAN_XENOWARNING("Мы должны быть над землёй, чтобы сделать это."))
 		return
 
 	if(!stabbing_xeno.check_state() || stabbing_xeno.cannot_slash)

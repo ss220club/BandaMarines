@@ -116,14 +116,14 @@
 
 	if(!leader && HAS_FLAG(member.client.prefs.toggles_ert, PLAY_LEADER) && check_timelock(member.client, JOB_SQUAD_LEADER, time_required_for_job))    //First one spawned is always the leader.
 		leader = member
-		to_chat(member, SPAN_WARNING(FONT_SIZE_BIG("You are a Marine Raider Team Leader, better than all the rest.")))
+		to_chat(member, SPAN_WARNING(FONT_SIZE_BIG("Вы комотряда-рейдер, лучший, чем все остальные.")))
 		arm_equipment(member, leader_preset, TRUE, TRUE)
 	else if(smartgunners < max_smartgunners && HAS_FLAG(member.client.prefs.toggles_ert, PLAY_SMARTGUNNER) && check_timelock(member.client, JOB_SQUAD_SMARTGUN))
 		smartgunners++
 		to_chat(member, SPAN_ROLE_HEADER("You are a Marine Raider Smartgunner!"))
 		arm_equipment(member, sg_preset, TRUE, TRUE)
 	else
-		to_chat(member, SPAN_WARNING(FONT_SIZE_BIG("You are an elite Marine Raider Operative, the best of the best.")))
+		to_chat(member, SPAN_WARNING(FONT_SIZE_BIG("Вы комгруппы-рейдер, лучший из лучших.")))
 		arm_equipment(member, member_preset, TRUE, TRUE)
 	to_chat(member, SPAN_BOLDNOTICE("You are absolutely loyal to High Command and must follow their directives."))
 	to_chat(member, SPAN_BOLDNOTICE("Execute the mission assigned to you with extreme prejudice!"))

@@ -100,9 +100,9 @@
 		return
 
 	if(health > 0)
-		. += SPAN_XENO("$1 can be crawled under once destroyed.", list(declent_ru(INSTRUMENTAL))) // SS220 EDIT ADDICTION
+		. += SPAN_XENO("Можно проползти под [declent_ru(INSTRUMENTAL)], когда он разрушен.") // SS220 EDIT ADDICTION
 	else
-		. += SPAN_XENO("$1 can be crawled under by <b>dragging our sprite</b> to it.", list(declent_ru(INSTRUMENTAL))) // SS220 EDIT ADDICTION
+		. += SPAN_XENO("Можно проползти под [declent_ru(INSTRUMENTAL)], <b>перетащив себя</b> на него.") // SS220 EDIT ADDICTION
 
 /obj/vehicle/multitile/arc/proc/on_antenna_toggle(datum/source)
 	SIGNAL_HANDLER
@@ -215,7 +215,7 @@
 	var/ru_name = declent_ru(INSTRUMENTAL) // SS220 EDIT ADDICTION
 
 	if(health > 0)
-		to_chat(user, SPAN_XENO("We can't go under $1 until it is destroyed!", list(ru_name))) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_XENO("Мы не можем проползти под [ru_name], пока он не разрушен!")) // SS220 EDIT ADDICTION
 		return
 
 	var/turf/current_turf = get_turf(user)
@@ -226,22 +226,22 @@
 			break
 
 		if(current_turf.density)
-			to_chat(user, SPAN_XENO("The path under $1 is obstructed!", list(ru_name))) // SS220 EDIT ADDICTION
+			to_chat(user, SPAN_XENO("Путь под [ru_name] заблокирован!")) // SS220 EDIT ADDICTION
 			return
 
 	// Now we check to make sure the turf on the other side of the ARC isn't dense too
 	current_turf = get_step(current_turf, dir_to_go)
 	if(current_turf.density)
-		to_chat(user, SPAN_XENO("The path under $1 is obstructed!", list(ru_name))) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_XENO("Путь под [ru_name] заблокирован!")) // SS220 EDIT ADDICTION
 		return
 
-	to_chat(user, SPAN_XENO("We begin to crawl under $1...", list(ru_name))) // SS220 EDIT ADDICTION
+	to_chat(user, SPAN_XENO("Мы начинаем ползти под [ru_name]...")) // SS220 EDIT ADDICTION
 	if(!do_after(user, 3 SECONDS, INTERRUPT_ALL, BUSY_ICON_HOSTILE))
-		to_chat(user, SPAN_XENO("We stop crawling under $1.", list(ru_name))) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_XENO("Мы перестаем ползти под [ru_name].")) // SS220 EDIT ADDICTION
 		return
 
 	user.forceMove(current_turf)
-	to_chat(user, SPAN_XENO("We crawl to the other side of $1.", list(declent_ru(GENITIVE)))) // SS220 EDIT ADDICTION
+	to_chat(user, SPAN_XENO("Мы проползаем на другую сторону [declent_ru(GENITIVE)].")) // SS220 EDIT ADDICTION
 
 /*
 ** PRESETS SPAWNERS

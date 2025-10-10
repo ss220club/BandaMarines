@@ -153,7 +153,7 @@ GLOBAL_DATUM_INIT(bioscan_data, /datum/bioscan_data, new)
 	var/planet_location = "[marines_on_planet && marine_planet_location ? ", включая одного в области «[marine_planet_location]»" : ""]" // SS220 EDIT ADDICTION
 
 	var/title = SPAN_XENOANNOUNCE("Королева-мать проникает в ваш разум издалека.")
-	var/content = SPAN_XENOANNOUNCE("To my children and their Queen: I sense $1 hosts in the metal hive$2 and $3 scattered elsewhere$4.", list(fake_marines_on_ship, metalhive_location, marines_on_planet, planet_location)) // SS220 EDIT ADDICTION
+	var/content = SPAN_XENOANNOUNCE("Моим детям и их Королеве: я чувствую около [fake_marines_on_ship] хостов в металлическом улье[metalhive_location], а также около [marines_on_planet] хостов в других местах[planet_location].") // SS220 EDIT ADDICTION
 
 	log_game("BIOSCAN: Queen Mother bioscan completed. [content]")
 	/// Shout it at everyone

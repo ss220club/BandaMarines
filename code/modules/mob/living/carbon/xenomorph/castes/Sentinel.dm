@@ -140,7 +140,7 @@
 	if (!check_and_use_plasma_owner())
 		return
 
-	slowspit_user.visible_message(SPAN_XENOWARNING("$1 spits at $2!", list(slowspit_user, target)), // SS220 EDIT ADDICTION
+	slowspit_user.visible_message(SPAN_XENOWARNING("[slowspit_user] плюёт в [target]!"), // SS220 EDIT ADDICTION
 	SPAN_XENOWARNING("You spit at $1!", list(target)) ) // SS220 EDIT ADDICTION
 	var/sound_to_play = pick(1, 2) == 1 ? 'sound/voice/alien_spitacid.ogg' : 'sound/voice/alien_spitacid2.ogg'
 	playsound(slowspit_user.loc, sound_to_play, 25, 1)
@@ -172,7 +172,7 @@
 	if (!check_and_use_plasma_owner())
 		return
 
-	scatterspit_user.visible_message(SPAN_XENOWARNING("$1 spits at $2!", list(scatterspit_user, target)), // SS220 EDIT ADDICTION
+	scatterspit_user.visible_message(SPAN_XENOWARNING("[scatterspit_user] плюёт в [target]!"), // SS220 EDIT ADDICTION
 	SPAN_XENOWARNING("You spit at $1!", list(target)) ) // SS220 EDIT ADDICTION
 	var/sound_to_play = pick(1, 2) == 1 ? 'sound/voice/alien_spitacid.ogg' : 'sound/voice/alien_spitacid2.ogg'
 	playsound(scatterspit_user.loc, sound_to_play, 25, 1)

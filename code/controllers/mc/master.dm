@@ -347,7 +347,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 			message_prefix = "Инициализация подсистемы «[subsystem.name]» произошла с ошибками" // SS220 EDIT ADDICTION
 			chat_warning = TRUE
 
-	var/message = " [message_prefix] ([seconds] сек.)" // SS220 EDIT ADDICTION
+	var/message = "[message_prefix] ([seconds] сек.)" // SS220 EDIT ADDICTION
 	var/chat_message = chat_warning ? SPAN_WARNING(message) : SPAN_BOLDANNOUNCE(message)
 
 	to_chat(world, chat_message)

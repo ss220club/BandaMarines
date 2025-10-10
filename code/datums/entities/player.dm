@@ -105,10 +105,10 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 		// notes_add already sends a message
 		message_admins("[key_name_admin(admin.mob)] has edited [ckey]'s [GLOB.note_categories[note_category]] notes: [sanitize(note_text)]")
 	if(!is_confidential && note_category == NOTE_ADMIN && owning_client)
-		to_chat_immediate(owning_client, SPAN_WARNING(FONT_SIZE_LARGE("You have been noted by $1.", list(key_name_admin(admin.mob, FALSE))))) // SS220 EDIT ADDICTION
-		to_chat_immediate(owning_client, SPAN_WARNING(FONT_SIZE_BIG("The note is : $1", list(sanitize(note_text))))) // SS220 EDIT ADDICTION
-		to_chat_immediate(owning_client, SPAN_WARNING(FONT_SIZE_BIG("If you believe this was filed in error or misplaced, make a staff report at <a href=$1><b>The CM Forums</b></a>", list(CONFIG_GET(string/discordurl))))) // SS220 EDIT ADDICTION
-		to_chat_immediate(owning_client, SPAN_WARNING(FONT_SIZE_BIG("You can also click the name of the staff member noting you to PM them.")))
+		to_chat_immediate(owning_client, SPAN_WARNING(FONT_SIZE_LARGE("Вас отметил [key_name_admin(admin.mob, FALSE)]."))) // SS220 EDIT ADDICTION
+		to_chat_immediate(owning_client, SPAN_WARNING(FONT_SIZE_BIG("Заметка: [sanitize(note_text)]"))) // SS220 EDIT ADDICTION
+		to_chat_immediate(owning_client, SPAN_WARNING(FONT_SIZE_BIG("Если вы считаете, что это было сделано по ошибке или неуместно, создайте отчёт для администрации на нашем <a href=[CONFIG_GET(string/discordurl)]><b>Discord-сервере SS220</b></a>"))) // SS220 EDIT ADDICTION
+		to_chat_immediate(owning_client, SPAN_WARNING(FONT_SIZE_BIG("Вы также можете нажать на имя сотрудника, чтобы отправить ему личное сообщение.")))
 	// create new instance of player_note entity
 	var/datum/entity/player_note/note = DB_ENTITY(/datum/entity/player_note)
 	// set its related data

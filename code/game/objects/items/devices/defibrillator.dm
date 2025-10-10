@@ -168,7 +168,7 @@
 		to_chat(user, SPAN_WARNING("Вы не можете провести дефибрилляцию [H], потому что для синтетиков необходим ключ перезапуска!")) // SS220 EDIT ADDICTION
 		return
 	if(!ready)
-		balloon_alert(user, "выньте [ru_name_fluff_tool].") // SS220 EDIT ADDICTION
+		balloon_alert(user, "выньте [ru_name_fluff_tool]") // SS220 EDIT ADDICTION
 		to_chat(user, SPAN_WARNING("Сначала выньте [ru_name_fluff_tool] из [declent_ru(GENITIVE)]")) // SS220 EDIT ADDICTION
 		return
 	if(dcell.charge < charge_cost)

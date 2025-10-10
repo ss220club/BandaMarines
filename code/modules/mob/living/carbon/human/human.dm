@@ -492,7 +492,7 @@
 			return
 
 		if(target.squad_status == "K.I.A.")
-			to_chat(sl, "[FONT_SIZE_BIG("<font color='red'>You can't assign K.I.A. marines to fireteams.</font>")]")
+			to_chat(sl, "[FONT_SIZE_BIG("<font color='red'>Вы не можете назначать погибших в бою морпехов в группы.</font>")]")
 			return
 
 		target.assigned_squad.manage_fireteams(target)

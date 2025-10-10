@@ -51,7 +51,7 @@
 // Helper to check that the thread is still open
 /datum/mentorhelp/proc/check_open(client/C)
 	if(!open)
-		to_chat(C, SPAN_NOTICE("This mentorhelp thread is closed!"))
+		to_chat(C, SPAN_NOTICE("Этот тикет в «MentorHelp» закрыт!"))
 		return FALSE
 	return TRUE
 
@@ -113,7 +113,7 @@
 		log_message(msg, sender.key, "Всем менторам") //SS220 EDIT
 
 	// Sender feedback
-	to_chat(sender, "[SPAN_MENTORHELP("<span class='prefix'>MentorHelp:</span> Message to $1:", list((recipient?.key) ? "<a href='byond://?src=\ref[src];action=message'>[recipient.key]</a>" : "менторам"))] [SPAN_MENTORBODY(msg)]") // SS220 EDIT ADDICTION
+	to_chat(sender, "[SPAN_MENTORHELP("<span class='prefix'>MentorHelp:</span> сообщение [(recipient?.key) ? "<a href='byond://?src=\ref[src];action=message'>[recipient.key]</a>" : "менторам"]:<br>")] [SPAN_MENTORBODY(msg)]") // SS220 EDIT ADDICTION
 
 	// Recipient direct message
 	if(recipient)
@@ -160,7 +160,7 @@
 
 		// Some other mentor is already taking care of this thread
 		else if(mentor != sender)
-			to_chat(sender, SPAN_MENTORHELP("<b>NOTICE:</b> A mentor is already handling this thread!"))
+			to_chat(sender, SPAN_MENTORHELP("<b>УВЕДОМЛЕНИЕ:</b> Ментор начал отвечать на этот тикет!"))
 			return
 
 	var/target = mentor
@@ -186,8 +186,8 @@
 		message_sender_options = " (<a href='byond://?src=\ref[src];action=mark'>Mark/Unmark</a>"
 		message_sender_options += " | <a href='byond://?src=\ref[src];action=close'>Close</a> | <a href='byond://?src=\ref[src];action=autorespond'>AutoResponse</a>)"
 
-	var/message_header = SPAN_MENTORHELP("<span class='prefix'>$1 from $2:</span> <span class='message'>$3</span><br>", list(message_title, message_sender_key, message_sender_options)) // SS220 EDIT ADDICTION
-	var/message_body = "&emsp;[SPAN_MENTORBODY("<span class='message'>$1</span>", list(message))]<br>" // SS220 EDIT ADDICTION
+	var/message_header = SPAN_MENTORHELP("<span class='prefix'>[message_title] от [message_sender_key]:</span> <span class='message'>[message_sender_options]</span><br>") // SS220 EDIT ADDICTION
+	var/message_body = "&emsp;[SPAN_MENTORBODY("<span class='message'>[message]</span>")]<br>" // SS220 EDIT ADDICTION
 	// Et voila! Beautiful wrapped mentorhelp messages
 	return (message_header + message_body)
 
@@ -205,7 +205,7 @@
 
 	// Already marked
 	if(mentor)
-		to_chat(thread_mentor, SPAN_MENTORHELP("<b>NOTICE:</b> A mentor is already handling this thread!"))
+		to_chat(thread_mentor, SPAN_MENTORHELP("<b>УВЕДОМЛЕНИЕ:</b> Ментор начал отвечать на этот тикет!"))
 		return
 
 	if(!thread_mentor)
@@ -218,8 +218,8 @@
 	mentor = thread_mentor
 
 	log_mhelp("[mentor.key] has marked [author_key]'s mentorhelp")
-	notify("<font style='color:red;'>$1</font> has marked <font style='color:red;'>$2</font>'s mentorhelp.", list(mentor.key, author_key)) // SS220 EDIT ADDICTION
-	to_chat(author, SPAN_NOTICE("<b>NOTICE:</b> <font style='color:red;'>$1</font> has marked your thread and is preparing to respond.", list(mentor.key))) // SS220 EDIT ADDICTION
+	notify("<font style='color:red;'>[mentor.key]</font> начал отвечать на тикет <font style='color:red;'>[author_key]</font> в «MentorHelp».") // SS220 EDIT ADDICTION
+	to_chat(author, SPAN_NOTICE("<b>УВЕДОМЛЕНИЕ:</b> <font style='color:red;'>[mentor.key]</font> начал отвечать на ваш тикет.")) // SS220 EDIT ADDICTION
 
 // Unmarks the mentorhelp thread and notifies the author that the thread is no longer being handled by a mentor
 /datum/mentorhelp/proc/unmark(client/thread_mentor)
@@ -238,8 +238,8 @@
 		return
 
 	log_mhelp("[mentor.key] has unmarked [author_key]'s mentorhelp")
-	notify("<font style='color:red;'>$1</font> has unmarked <font style='color:red;'><a href=$2>$3</a></font>'s mentorhelp.", list(mentor.key, "byond://?src=\ref[src];action=message", author_key)) // SS220 EDIT ADDICTION
-	to_chat(author, SPAN_NOTICE("<b>NOTICE:</b> <font style='color:red;'>$1</font> has unmarked your thread and is no longer responding to it.", list(mentor.key))) // SS220 EDIT ADDICTION
+	notify("<span class='message'><font style='color:red;'>[mentor.key]</font> перестал отвечать на тикет <font style='color:red;'><a href=byond://?src=\ref[src];action=message>[author_key]</a></font> в «MentorHelp».") // SS220 EDIT ADDICTION
+	to_chat(author, SPAN_NOTICE("<b>УВЕДОМЛЕНИЕ:</b> <font style='color:red;'>[mentor.key]</font> перестал отвечать на ваш тикет.")) // SS220 EDIT ADDICTION
 	mentor = null
 
 /*
@@ -253,24 +253,24 @@
 
 	// Thread was closed because the author is gone
 	if(!author)
-		notify("<font style='color:red;'>$1</font>'s mentorhelp thread has been closed due to the author disconnecting.", list(author_key)) // SS220 EDIT ADDICTION
+		notify("<font style='color:red;'>[author_key]</font> тикет в «MentorHelp» был закрыт, в связи с потерей соединения с пользователем.") // SS220 EDIT ADDICTION
 		log_mhelp("[author_key]'s mentorhelp thread was closed because of a disconnection")
 		return
 
 	// Make sure it's being closed by staff or the mentor handling the thread
 	if(mentor && closer && (closer != mentor) && (closer != author) && !CLIENT_IS_STAFF(closer))
-		to_chat(closer, SPAN_MENTORHELP("<b>NOTICE:</b> Another mentor is handling this thread!"))
+		to_chat(closer, SPAN_MENTORHELP("<b>УВЕДОМЛЕНИЕ:</b> другой ментор уже ответил на этот тикет!"))
 		return
 
 	open = FALSE
 	if(closer)
 		log_mhelp("[closer.key] closed [author_key]'s mentorhelp")
 		if(closer == author)
-			to_chat(author, SPAN_NOTICE("You have closed your mentorhelp thread."))
-			notify("<font style='color:red;'>$1</font> closed their mentorhelp thread.", list(author_key)) // SS220 EDIT ADDICTION
+			to_chat(author, SPAN_NOTICE("Вы закрыли тикет в «MentorHelp»."))
+			notify("<font style='color:red;'>[author_key]</font> закрыл свой тикет в «MentorHelp».") // SS220 EDIT ADDICTION
 			return
-	to_chat(author, SPAN_NOTICE("Your mentorhelp thread has been closed."))
-	notify("<font style='color:red;'>$1</font>'s mentorhelp thread has been closed.", list(author_key)) // SS220 EDIT ADDICTION
+	to_chat(author, SPAN_NOTICE("Ваш тикет в «MentorHelp» был закрыт."))
+	notify("<font style='color:red;'>[author_key]</font> тикет в «MentorHelp» был закрыт.") // SS220 EDIT ADDICTION
 
 /datum/mentorhelp/Topic(href, list/href_list)
 	if(!usr)
@@ -342,7 +342,7 @@
 	if(!mentor)
 		mark(responder)
 	else if(mentor != responder)
-		to_chat(responder, SPAN_NOTICE("<b>NOTICE:</b> A mentor is already handling this thread!"))
+		to_chat(responder, SPAN_NOTICE("<b>УВЕДОМЛЕНИЕ:</b> Ментор начал отвечать на этот тикет!"))
 		return
 
 	var/choice = tgui_input_list(usr, "Выберите шаблон для ответа игроку.", "АвтоОтвет", GLOB.mentorreplies) // SS220 EDIT ADDICTION
@@ -364,10 +364,10 @@
 	if(!mentor)
 		mark(responder)
 	else if(mentor != responder)
-		to_chat(responder, SPAN_NOTICE("<b>NOTICE:</b> A mentor is already handling this thread!"))
+		to_chat(responder, SPAN_NOTICE("<b>УВЕДОМЛЕНИЕ:</b> Ментор начал отвечать на этот тикет!"))
 		return
 
-	var/msg = "[SPAN_ORANGE(SPAN_BOLD("- MentorHelp marked as $1! -", list(response.title)))]<br>" // SS220 EDIT ADDICTION
+	var/msg = "[SPAN_ORANGE(SPAN_BOLD("Ментор отметил вопрос как: «[response.title]»!"))]<br>" // SS220 EDIT ADDICTION
 	msg += "[SPAN_ORANGE(response.message)]"
 
 	message_handlers(msg, responder, author)

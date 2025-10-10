@@ -13,22 +13,22 @@
 		return
 
 	if(target_xeno.hivenumber != user_xeno.hivenumber)
-		to_chat(user_xeno, SPAN_XENOWARNING("$1 doesn't belong to your hive!", list(target_xeno))) // SS220 EDIT ADDICTION
+		to_chat(user_xeno, SPAN_XENOWARNING("[target_xeno] не принадлежит вашему улью!", list())) // SS220 EDIT ADDICTION
 		return
 	if(target_xeno.is_ventcrawling)
-		to_chat(user_xeno, SPAN_XENOWARNING("$1 can't be deevolved here.", list(target_xeno))) // SS220 EDIT ADDICTION
+		to_chat(user_xeno, SPAN_XENOWARNING("[target_xeno] не может быть регрессирован здесь.")) // SS220 EDIT ADDICTION
 		return
 	if(!isturf(target_xeno.loc))
-		to_chat(user_xeno, SPAN_XENOWARNING("$1 can't be deevolved here.", list(target_xeno))) // SS220 EDIT ADDICTION
+		to_chat(user_xeno, SPAN_XENOWARNING("[target_xeno] не может быть регрессирован здесь.")) // SS220 EDIT ADDICTION
 		return
 	if(target_xeno.health <= 0)
-		to_chat(user_xeno, SPAN_XENOWARNING("$1 is too weak to be deevolved.", list(target_xeno))) // SS220 EDIT ADDICTION
+		to_chat(user_xeno, SPAN_XENOWARNING("[target_xeno] слишком слаб, чтобы быть регрессированным.")) // SS220 EDIT ADDICTION
 		return
 	if(length(target_xeno.caste.deevolves_to) < 1)
-		to_chat(user_xeno, SPAN_XENOWARNING("$1 can't be deevolved.", list(target_xeno))) // SS220 EDIT ADDICTION
+		to_chat(user_xeno, SPAN_XENOWARNING("[target_xeno] не может быть регрессирован.")) // SS220 EDIT ADDICTION
 		return
 	if(target_xeno.banished)
-		to_chat(user_xeno, SPAN_XENOWARNING("$1 is banished and can't be deevolved.", list(target_xeno))) // SS220 EDIT ADDICTION
+		to_chat(user_xeno, SPAN_XENOWARNING("[target_xeno] изгнан и не может быть регрессирован.")) // SS220 EDIT ADDICTION
 		return
 
 
@@ -41,7 +41,7 @@
 	if(!newcaste)
 		return
 	if(newcaste == XENO_CASTE_LARVA)
-		to_chat(user_xeno, SPAN_XENOWARNING("You cannot deevolve xenomorphs to larva."))
+		to_chat(user_xeno, SPAN_XENOWARNING("Вы не можете регрессировать ксеноморфов до грудоломов."))
 		return
 	if(user_xeno.observed_xeno != target_xeno)
 		return
@@ -52,14 +52,14 @@
 
 	var/reason = stripped_input(user_xeno, "Укажите причину регрессирования этого ксеноморфа, [target_xeno]") // SS220 EDIT ADDICTION
 	if(!reason)
-		to_chat(user_xeno, SPAN_XENOWARNING("You must provide a reason for deevolving $1.", list(target_xeno))) // SS220 EDIT ADDICTION
+		to_chat(user_xeno, SPAN_XENOWARNING("Вы должны указать причину регрессирования [target_xeno].")) // SS220 EDIT ADDICTION
 		return
 
 	if(!check_and_use_plasma_owner(plasma_cost))
 		return
 
 
-	to_chat(target_xeno, SPAN_XENOWARNING("The queen is deevolving you for the following reason: $1", list(reason))) // SS220 EDIT ADDICTION
+	to_chat(target_xeno, SPAN_XENOWARNING("Королева регрессировала вас по причине: [reason]")) // SS220 EDIT ADDICTION
 
 	SEND_SIGNAL(target_xeno, COMSIG_XENO_DEEVOLVE)
 
@@ -89,8 +89,8 @@
 		return
 	if(!X.ovipositor)
 		return
-	X.visible_message(SPAN_XENOWARNING("$1 starts detaching itself from its ovipositor!", list(X)), // SS220 EDIT ADDICTION
-		SPAN_XENOWARNING("You start detaching yourself from your ovipositor."))
+	X.visible_message(SPAN_XENOWARNING("[X] начинает отделяться от своего яйцеклада!"), // SS220 EDIT ADDICTION
+		SPAN_XENOWARNING("Вы начинаете отделяться от своего яйцеклада."))
 	if(!do_after(X, 50, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE, numticks = 10))
 		return
 	if(!X.check_state())
@@ -110,26 +110,26 @@
 		return
 
 	if(!action_cooldown_check())
-		to_chat(xeno, SPAN_XENOWARNING("You're still recovering from detaching your old ovipositor. Wait $1.", list(DisplayTimeText(timeleft(cooldown_timer_id))))) // SS220 EDIT ADDICTION
+		to_chat(xeno, SPAN_XENOWARNING("Вы всё ещё восстанавливаетесь после отделения от яйцеклада. Подождите [DisplayTimeText(timeleft(cooldown_timer_id))].")) // SS220 EDIT ADDICTION
 		return
 
 	var/obj/effect/alien/weeds/alien_weeds = locate() in current_turf
 
 	if(!alien_weeds)
-		to_chat(xeno, SPAN_XENOWARNING("You need to be on resin to grow an ovipositor."))
+		to_chat(xeno, SPAN_XENOWARNING("Вам нужно быть на смоле, чтобы создать яйцеклад."))
 		return
 
 	if(SSinterior.in_interior(xeno))
-		to_chat(xeno, SPAN_XENOWARNING("It's too tight in here to grow an ovipositor."))
+		to_chat(xeno, SPAN_XENOWARNING("Здесь слишком тесно, чтобы создать яйцеклад."))
 		return
 
 	if(alien_weeds.linked_hive.hivenumber != xeno.hivenumber)
-		to_chat(xeno, SPAN_XENOWARNING("These weeds don't belong to your hive! You can't grow an ovipositor here."))
+		to_chat(xeno, SPAN_XENOWARNING("Эта трава не принадлежат вашему улью! Вы не можете создать яйцеклад здесь."))
 		return
 
 	var/area/current_area = get_area(xeno)
 	if(current_area.unoviable_timer)
-		to_chat(xeno, SPAN_XENOWARNING("This area is not right for you to grow an ovipositor in."))
+		to_chat(xeno, SPAN_XENOWARNING("Это место не подходит для создания яйцеклада."))
 		return
 
 	if(!xeno.check_alien_construction(current_turf))
@@ -141,8 +141,8 @@
 	if(!xeno.check_plasma(plasma_cost))
 		return
 
-	xeno.visible_message(SPAN_XENOWARNING("$1 starts to grow an ovipositor.", list(xeno)), // SS220 EDIT ADDICTION
-	SPAN_XENOWARNING("You start to grow an ovipositor...(takes 20 seconds, hold still)"))
+	xeno.visible_message(SPAN_XENOWARNING("[xeno] начинает создавать яйцеклад..."), // SS220 EDIT ADDICTION
+	SPAN_XENOWARNING("Вы начинаете создавать яйцеклад... (это займёт 20 секунд, не двигайтесь)"))
 	if(!do_after(xeno, 200, INTERRUPT_NO_NEEDHAND, BUSY_ICON_FRIENDLY, numticks = 20) && xeno.check_plasma(plasma_cost))
 		return
 	if(!xeno.check_state())
@@ -150,8 +150,8 @@
 	if(!locate(/obj/effect/alien/weeds) in current_turf)
 		return
 	xeno.use_plasma(plasma_cost)
-	xeno.visible_message(SPAN_XENOWARNING("$1 has grown an ovipositor!", list(xeno)), // SS220 EDIT ADDICTION
-	SPAN_XENOWARNING("You have grown an ovipositor!"))
+	xeno.visible_message(SPAN_XENOWARNING("[xeno] создала яйцеклад!"), // SS220 EDIT ADDICTION
+	SPAN_XENOWARNING("Вы создали яйцеклад!"))
 	xeno.mount_ovipositor()
 	return ..()
 
@@ -165,26 +165,26 @@
 	var/datum/hive_status/hive = xeno.hive
 	if(xeno.observed_xeno)
 		if(!length(hive.open_xeno_leader_positions) && IS_NORMAL_XENO(xeno.observed_xeno))
-			to_chat(xeno, SPAN_XENOWARNING("You currently have $1 promoted leaders. You may not maintain additional leaders until your power grows.", list(length(hive.xeno_leader_list)))) // SS220 EDIT ADDICTION
+			to_chat(xeno, SPAN_XENOWARNING("В настоящее время у вас есть [length(hive.xeno_leader_list)] лидеров. Вы не можете иметь больше лидеров, пока ваша сила не возрастёт.")) // SS220 EDIT ADDICTION
 			return
 		var/mob/living/carbon/xenomorph/targeted_xeno = xeno.observed_xeno
 		if(targeted_xeno == xeno)
-			to_chat(xeno, SPAN_XENOWARNING("You cannot add yourself as a leader!"))
+			to_chat(xeno, SPAN_XENOWARNING("Вы не можете сделать себя лидером!"))
 			return
 		apply_cooldown()
 		if(IS_NORMAL_XENO(targeted_xeno))
 			if(!hive.add_hive_leader(targeted_xeno))
-				to_chat(xeno, SPAN_XENOWARNING("Unable to add the leader."))
+				to_chat(xeno, SPAN_XENOWARNING("Невозможно добавить лидера."))
 				return
 			if(targeted_xeno.stat == DEAD)
-				to_chat(xeno, SPAN_XENOWARNING("You cannot leader the dead."))
+				to_chat(xeno, SPAN_XENOWARNING("Вы не можете сделать лидером мёртвых."))
 				return
-			to_chat(xeno, SPAN_XENONOTICE("You've selected $1 as a Hive Leader.", list(targeted_xeno))) // SS220 EDIT ADDICTION
-			to_chat(targeted_xeno, SPAN_XENOANNOUNCE("$1 has selected you as a Hive Leader. The other Xenomorphs must listen to you. You will also act as a beacon for the Queen's pheromones.", list(xeno))) // SS220 EDIT ADDICTION
+			to_chat(xeno, SPAN_XENONOTICE("Вы выбрали [targeted_xeno] в качестве лидера улья.")) // SS220 EDIT ADDICTION
+			to_chat(targeted_xeno, SPAN_XENOANNOUNCE("[xeno] выбрала вас в качестве лидера улья. Другие ксеноморфы должны слушаться вас. Вы также будете служить маяком для феромонов Королевы.")) // SS220 EDIT ADDICTION
 		else
 			hive.remove_hive_leader(targeted_xeno)
-			to_chat(xeno, SPAN_XENONOTICE("You've demoted $1 from Hive Leader.", list(targeted_xeno))) // SS220 EDIT ADDICTION
-			to_chat(targeted_xeno, SPAN_XENOANNOUNCE("$1 has demoted you from Hive Leader. Your leadership rights and abilities have waned.", list(xeno))) // SS220 EDIT ADDICTION
+			to_chat(xeno, SPAN_XENONOTICE("Вы сняли [targeted_xeno] с должности лидера улья.")) // SS220 EDIT ADDICTION
+			to_chat(targeted_xeno, SPAN_XENOANNOUNCE("[xeno] сняла вас с должности лидера улья. Ваши права и способности лидера отозваны.")) // SS220 EDIT ADDICTION
 	else
 		var/list/possible_xenos = list()
 		for(var/mob/living/carbon/xenomorph/targeted_xeno in hive.xeno_leader_list)
@@ -198,7 +198,7 @@
 		else if(length(possible_xenos))
 			xeno.overwatch(possible_xenos[1])
 		else
-			to_chat(xeno, SPAN_XENOWARNING("There are no Xenomorph leaders. Overwatch a Xenomorph to make it a leader."))
+			to_chat(xeno, SPAN_XENOWARNING("Сейчас нет лидеров ксеноморфов. Наблюдайте за ксеноморфом, чтобы сделать его лидером."))
 	return ..()
 
 /datum/action/xeno_action/activable/queen_heal/use_ability(atom/target, verbose)
@@ -215,7 +215,7 @@
 		return
 
 	if(!SSmapping.same_z_map(queen.loc.z, target_turf.loc.z))
-		to_chat(queen, SPAN_XENOWARNING("You are too far away to do this here."))
+		to_chat(queen, SPAN_XENOWARNING("Вы слишком далеко, чтобы сделать это здесь."))
 		return
 
 	if(!check_and_use_plasma_owner())
@@ -243,7 +243,7 @@
 		current_xeno.flick_heal_overlay(3 SECONDS, "#D9F500") //it's already hard enough to gauge health without hp overlays!
 
 	apply_cooldown()
-	to_chat(queen, SPAN_XENONOTICE("You channel your plasma to heal your sisters' wounds around this area."))
+	to_chat(queen, SPAN_XENONOTICE("Вы направляете свою плазму, чтобы исцелить раны ваших сестер в этой области."))
 	return ..()
 
 /datum/action/xeno_action/onclick/manage_hive/proc/give_evo_points()
@@ -258,7 +258,7 @@
 		return
 
 	if(world.time < SSticker.mode.round_time_lobby + SHUTTLE_TIME_LOCK)
-		to_chat(usr, SPAN_XENOWARNING("You must give some time for larva to spawn before sacrificing them. Please wait another $1 minutes.", list(floor((SSticker.mode.round_time_lobby + SHUTTLE_TIME_LOCK - world.time) / 600)))) // SS220 EDIT ADDICTION
+		to_chat(usr, SPAN_XENOWARNING("Вы должны дать немного времени для появления грудоломов, прежде чем жертвовать ими. Пожалуйста, подождите ещё [floor((SSticker.mode.round_time_lobby + SHUTTLE_TIME_LOCK - world.time) / 600)] минут.")) // SS220 EDIT ADDICTION
 		return
 
 	var/choice = tgui_input_list(user_xeno, "Choose a xenomorph to give evolution points for a burrowed larva:", "Give Evolution Points", user_xeno.hive.totalXenos, theme="hive_status")
@@ -275,23 +275,23 @@
 			break
 
 	if(target_xeno == user_xeno)
-		to_chat(user_xeno, SPAN_XENOWARNING("You cannot give evolution points to yourself."))
+		to_chat(user_xeno, SPAN_XENOWARNING("Вы не можете дать очки эволюции себе."))
 		return
 
 	if(target_xeno.evolution_stored == target_xeno.evolution_threshold)
-		to_chat(user_xeno, SPAN_XENOWARNING("This xenomorph is already ready to evolve!"))
+		to_chat(user_xeno, SPAN_XENOWARNING("Этот ксеноморф уже эволюционирует!"))
 		return
 
 	if(target_xeno.hivenumber != user_xeno.hivenumber)
-		to_chat(user_xeno, SPAN_XENOWARNING("This xenomorph doesn't belong to your hive!"))
+		to_chat(user_xeno, SPAN_XENOWARNING("Этот ксеноморф не принадлежит вашему улью!"))
 		return
 
 	if(target_xeno.health < 0)
-		to_chat(user_xeno, SPAN_XENOWARNING("What's the point? They're about to die."))
+		to_chat(user_xeno, SPAN_XENOWARNING("В чём смысл? Они вот-вот умрут."))
 		return
 
 	if(user_xeno.hive.stored_larva < required_larva)
-		to_chat(user_xeno, SPAN_XENOWARNING("You need at least $1 burrowed larva to sacrifice one for evolution points.", list(required_larva))) // SS220 EDIT ADDICTION
+		to_chat(user_xeno, SPAN_XENOWARNING("Вам нужно как минимум [required_larva] зарывшихся грудоломов, чтобы пожертвовать одного ради очков эволюции.")) // SS220 EDIT ADDICTION
 		return
 
 	if(tgui_alert(user_xeno, "Are you sure you want to sacrifice a larva to give [target_xeno] [evo_points_per_larva] evolution points?", "Give Evolution Points", list("Yes", "No")) != "Yes")
@@ -300,8 +300,8 @@
 	if(!user_xeno.check_state() || !check_and_use_plasma_owner(plasma_cost) || target_xeno.health < 0 || user_xeno.hive.stored_larva < required_larva)
 		return
 
-	to_chat(target_xeno, SPAN_XENOWARNING("$1 has given you evolution points! Use them well.", list(user_xeno))) // SS220 EDIT ADDICTION
-	to_chat(user_xeno, SPAN_XENOWARNING("$1 was given $2 evolution points.", list(target_xeno, evo_points_per_larva))) // SS220 EDIT ADDICTION
+	to_chat(target_xeno, SPAN_XENOWARNING("[user_xeno] дала вам очки эволюции! Используйте их с умом.")) // SS220 EDIT ADDICTION
+	to_chat(user_xeno, SPAN_XENOWARNING("[target_xeno] получил [evo_points_per_larva] очков эволюции.")) // SS220 EDIT ADDICTION
 
 	if(target_xeno.evolution_stored + evo_points_per_larva > target_xeno.evolution_threshold)
 		target_xeno.evolution_stored = target_xeno.evolution_threshold
@@ -415,7 +415,7 @@
 				major_available = TRUE
 
 	if(!length(buffs))
-		to_chat(xeno, SPAN_XENONOTICE("No boons are available to us!"))
+		to_chat(xeno, SPAN_XENONOTICE("Нет доступных благословений!"))
 		return
 
 	var/selection
@@ -591,20 +591,20 @@
 			break
 
 	if(target_xeno == user_xeno)
-		to_chat(user_xeno, SPAN_XENOWARNING("You cannot banish yourself."))
+		to_chat(user_xeno, SPAN_XENOWARNING("Вы не можете изгнать самого себя."))
 		return
 
 	if(target_xeno.banished)
-		to_chat(user_xeno, SPAN_XENOWARNING("This xenomorph is already banished!"))
+		to_chat(user_xeno, SPAN_XENOWARNING("Этот ксеноморф уже изгнан!"))
 		return
 
 	if(target_xeno.hivenumber != user_xeno.hivenumber)
-		to_chat(user_xeno, SPAN_XENOWARNING("This xenomorph doesn't belong to your hive!"))
+		to_chat(user_xeno, SPAN_XENOWARNING("Этот ксеноморф не принадлежит вашему улью!"))
 		return
 
 	// No banishing critted xenos
 	if(target_xeno.health < 0)
-		to_chat(user_xeno, SPAN_XENOWARNING("What's the point? They're already about to die."))
+		to_chat(user_xeno, SPAN_XENOWARNING("В чём смысл? Они вот-вот умрут."))
 		return
 
 	var/confirm = tgui_alert(user_xeno, "Вы уверены, что хотите изгнать [target_xeno] из улья? Это следует делать ради забавы (Обратите внимание, что они также не смогут вернуться в улей после смерти в течение 30 минут)", "Изгнание", list("Да", "Нет")) // SS220 EDIT ADDICTION
@@ -613,15 +613,15 @@
 
 	var/reason = stripped_input(user_xeno, "Укажите причину изгнания [target_xeno]. Это будет объявлено всему улью!") // SS220 EDIT ADDICTION
 	if(!reason)
-		to_chat(user_xeno, SPAN_XENOWARNING("You must provide a reason for banishing $1.", list(target_xeno))) // SS220 EDIT ADDICTION
+		to_chat(user_xeno, SPAN_XENOWARNING("Вы должны указать причину изгнания [target_xeno].")) // SS220 EDIT ADDICTION
 		return
 
 	if(!user_xeno.check_state() || !check_and_use_plasma_owner(plasma_cost_banish) || target_xeno.health < 0)
 		return
 
 	// Let everyone know they were banished
-	xeno_announcement(ru_span("By $1's will, $2 has been banished from the hive!<br><br>$3", list(user_xeno, target_xeno, reason)), user_xeno.hivenumber, title=SPAN_ANNOUNCEMENT_HEADER_BLUE("Banishment")) // SS220 EDIT ADDICTION
-	to_chat(target_xeno, FONT_SIZE_LARGE(SPAN_XENOWARNING("The $1 has banished you from the hive! Other xenomorphs may now attack you freely, but your link to the hivemind remains, preventing you from harming other sisters.", list(user_xeno)))) // SS220 EDIT ADDICTION
+	xeno_announcement(ru_span("По воле [user_xeno], [target_xeno] изгоняется из улья!<br><br>[reason]"), user_xeno.hivenumber, title=SPAN_ANNOUNCEMENT_HEADER_BLUE("Banishment")) // SS220 EDIT ADDICTION
+	to_chat(target_xeno, FONT_SIZE_LARGE(SPAN_XENOWARNING("Королева [user_xeno] изгнала тебя из улья! Теперь другие ксеноморфы могут свободно нападать на тебя, но твоя связь с коллективным разумом улья остаётся, не позволяя тебе причинять вред другим сёстрам."))) // SS220 EDIT ADDICTION
 
 	target_xeno.banished = TRUE
 	target_xeno.hud_update_banished()
@@ -682,7 +682,7 @@
 		if(!user_xeno.check_state() || !check_and_use_plasma_owner(plasma_cost))
 			return
 
-		to_chat(target_xeno, FONT_SIZE_LARGE(SPAN_XENOWARNING("The $1 has readmitted you into the hive.", list(user_xeno))))
+		to_chat(target_xeno, FONT_SIZE_LARGE(SPAN_XENOWARNING("Королева [user_xeno] приняла вас обратно в улей.")))
 		target_xeno.banished = FALSE
 		target_xeno.hud_update_banished()
 		target_xeno.lock_evolve = FALSE
@@ -726,29 +726,29 @@
 	var/turf/turf_to_get = get_turf(target)
 
 	if(!turf_to_get || turf_to_get.is_weedable < FULLY_WEEDABLE || turf_to_get.density || !SSmapping.same_z_map(turf_to_get.z, xeno.z))
-		to_chat(xeno, SPAN_XENOWARNING("You can't do that here."))
+		to_chat(xeno, SPAN_XENOWARNING("Вы не можете сделать это здесь."))
 		return
 
 	var/area/area_to_get = get_area(turf_to_get)
 	if(isnull(area_to_get) || !area_to_get.is_resin_allowed)
 		if(!area_to_get || area_to_get.flags_area & AREA_UNWEEDABLE)
-			to_chat(xeno, SPAN_XENOWARNING("This area is unsuited to host the hive."))
+			to_chat(xeno, SPAN_XENOWARNING("Эта область не подходит для размещения улья."))
 			return
-		to_chat(xeno, SPAN_XENOWARNING("It's too early to spread the hive this far."))
+		to_chat(xeno, SPAN_XENOWARNING("Ещё слишком рано распространять улей так далеко."))
 		return
 
 	var/obj/effect/alien/weeds/located_weeds = locate() in turf_to_get
 	if(located_weeds)
 		if(istype(located_weeds, /obj/effect/alien/weeds/node))
-			to_chat(xeno, SPAN_XENOWARNING("There's already a node here."))
+			to_chat(xeno, SPAN_XENOWARNING("Здесь уже есть узел."))
 			return
 		if(located_weeds.weed_strength > xeno.weed_level)
-			to_chat(xeno, SPAN_XENOWARNING("There's already stronger weeds here."))
+			to_chat(xeno, SPAN_XENOWARNING("Здесь уже есть более сильная трава."))
 			return
 		if(!check_and_use_plasma_owner(node_plant_plasma_cost))
 			return
 
-		to_chat(xeno, SPAN_XENOWARNING("You plant a node at $1", list(turf_to_get))) // SS220 EDIT ADDICTION
+		to_chat(xeno, SPAN_XENOWARNING("Вы сажаете узел в [turf_to_get]")) // SS220 EDIT ADDICTION
 		new /obj/effect/alien/weeds/node(turf_to_get, null, owner)
 		playsound(turf_to_get, "alien_resin_build", 35)
 		apply_cooldown_override(node_plant_cooldown)
@@ -763,10 +763,10 @@
 			break
 
 	if(!node)
-		to_chat(xeno, SPAN_XENOWARNING("You can only plant weeds if there is a nearby node."))
+		to_chat(xeno, SPAN_XENOWARNING("Вы можете сажать траву только если рядом есть узел."))
 		return
 	if(turf_to_get in recently_built_turfs)
-		to_chat(xeno, SPAN_XENOWARNING("You've recently built here already."))
+		to_chat(xeno, SPAN_XENOWARNING("Вы недавно уже строили здесь."))
 		return
 
 	if(!check_and_use_plasma_owner())
@@ -777,7 +777,7 @@
 	recently_built_turfs += turf_to_get
 	addtimer(CALLBACK(src, PROC_REF(reset_turf_cooldown), turf_to_get), turf_build_cooldown)
 
-	to_chat(xeno, SPAN_XENOWARNING("You plant weeds at $1", list(turf_to_get))) // SS220 EDIT ADDICTION
+	to_chat(xeno, SPAN_XENOWARNING("Вы сажаете траву в $1", list(turf_to_get))) // SS220 EDIT ADDICTION
 	apply_cooldown()
 	return ..()
 
@@ -820,7 +820,7 @@
 			hugger.die()
 
 	playsound(xeno.loc, pick(xeno.screech_sound_effect_list), 75, 0, status = 0)
-	xeno.visible_message(SPAN_XENOHIGHDANGER("$1 emits an ear-splitting guttural roar!", list(xeno))) // SS220 EDIT ADDICTION
+	xeno.visible_message(SPAN_XENOHIGHDANGER("[xeno] издаёт оглушительный хриплый рёв!")) // SS220 EDIT ADDICTION
 	xeno.create_shriekwave(14) //Adds the visual effect. Wom wom wom, 14 shriekwaves
 
 	FOR_DVIEW(var/mob/mob, world.view, owner, HIDE_INVISIBLE_OBSERVER)
@@ -855,7 +855,7 @@
 /datum/action/xeno_action/onclick/send_thoughts/proc/psychic_whisper()
 	var/mob/living/carbon/xenomorph/xeno_player = owner
 	if(xeno_player.client.prefs.muted & MUTE_IC)
-		to_chat(xeno_player, SPAN_DANGER("You cannot whisper (muted)."))
+		to_chat(xeno_player, SPAN_DANGER("Вы не можете шептать (вы заглушены)."))
 		return
 	if(!xeno_player.check_state(TRUE))
 		return
@@ -876,10 +876,10 @@
 	if(whisper)
 		log_say("PsychicWhisper: [key_name(xeno_player)]->[target_mob.key] : [whisper] (AREA: [get_area_name(target_mob)])")
 		if(!istype(target_mob, /mob/living/carbon/xenomorph))
-			to_chat(target_mob, SPAN_XENOQUEEN("You hear a strange, alien voice in your head... '$1'", list(SPAN_PSYTALK(whisper)))) // SS220 EDIT ADDICTION
+			to_chat(target_mob, SPAN_XENOQUEEN("Вы слышите странный, чужой голос в своей голове... '[SPAN_PSYTALK(whisper)]'")) // SS220 EDIT ADDICTION
 		else
-			to_chat(target_mob, SPAN_XENOQUEEN("You hear the voice of $1 resonate in your head... '$2'", list(xeno_player, SPAN_PSYTALK(whisper)))) // SS220 EDIT ADDICTION
-		to_chat(xeno_player, SPAN_XENONOTICE("You said: '$1' to $2", list(whisper, target_mob.real_name))) // SS220 EDIT ADDICTION
+			to_chat(target_mob, SPAN_XENOQUEEN("Вы слышите голос [xeno_player] отражающийся в вашей голове... '[SPAN_PSYTALK(whisper)]'")) // SS220 EDIT ADDICTION
+		to_chat(xeno_player, SPAN_XENONOTICE("Вы сказали: '[whisper]' обращаясь к [target_mob.real_name]")) // SS220 EDIT ADDICTION
 
 		for(var/mob/dead/observer/ghost as anything in GLOB.observer_list)
 			if(!ghost.client || isnewplayer(ghost))
@@ -888,7 +888,7 @@
 				var/rendered_message
 				var/xeno_track = "(<a href='byond://?src=\ref[ghost];track=\ref[xeno_player]'>посмотреть</a>)" // SS220 EDIT ADDICTION
 				var/target_track = "(<a href='byond://?src=\ref[ghost];track=\ref[target_mob]'>посмотреть</a>)" // SS220 EDIT ADDICTION
-				rendered_message = SPAN_XENOLEADER("PsychicWhisper: $1$2 to $3$4, <span class='normal'>'$5'</span>", list(xeno_player.real_name, xeno_track, target_mob.real_name, target_track, SPAN_PSYTALK(whisper))) // SS220 EDIT ADDICTION
+				rendered_message = SPAN_XENOLEADER("Пси-шёпот: [xeno_player.real_name][xeno_track] обращаясь к [target_mob.real_name][target_track], <span class='normal'>'[SPAN_PSYTALK(whisper)]'</span>") // SS220 EDIT ADDICTION
 				ghost.show_message(rendered_message, SHOW_MESSAGE_AUDIBLE)
 
 	return
@@ -900,7 +900,7 @@
 	if(!xeno_player.check_plasma(radiance_plasma_cost))
 		return
 	if(xeno_player.client.prefs.muted & MUTE_IC)
-		to_chat(xeno_player, SPAN_DANGER("You cannot whisper (muted)."))
+		to_chat(xeno_player, SPAN_DANGER("Вы не можете шептать (вы заглушены)."))
 		return
 	if(!xeno_player.check_state(TRUE))
 		return
@@ -913,14 +913,14 @@
 			continue
 		target_list += possible_target
 		if(!istype(possible_target, /mob/living/carbon/xenomorph))
-			to_chat(possible_target, SPAN_XENOQUEEN("You hear a strange, alien voice in your head... '$1'", list(SPAN_PSYTALK(whisper))))
+			to_chat(possible_target, SPAN_XENOQUEEN("Вы слышите странный, чужой голос в своей голове... '[SPAN_PSYTALK(whisper)]'"))
 		else
-			to_chat(possible_target, SPAN_XENOQUEEN("You hear the voice of $1 resonate in your head... '$2'", list(xeno_player, SPAN_PSYTALK(whisper)))) // SS220 EDIT ADDICTION
+			to_chat(possible_target, SPAN_XENOQUEEN("Вы слышите голос [xeno_player] отражающийся в вашей голове... '[SPAN_PSYTALK(whisper)]'")) // SS220 EDIT ADDICTION
 	FOR_DVIEW_END
 	if(!length(target_list))
 		return
 	var/targetstring = english_list(target_list)
-	to_chat(xeno_player, SPAN_XENONOTICE("You said: '$1' to $2", list(whisper, targetstring))) // SS220 EDIT ADDICTION
+	to_chat(xeno_player, SPAN_XENONOTICE("Вы сказали: '[whisper]' обращаясь к [targetstring]")) // SS220 EDIT ADDICTION
 	xeno_player.use_plasma(radiance_plasma_cost)
 	log_say("PsychicRadiance: [key_name(xeno_player)]->[targetstring] : [whisper] (AREA: [get_area_name(xeno_player)])")
 	for (var/mob/dead/observer/ghost as anything in GLOB.observer_list)
@@ -929,7 +929,7 @@
 		if(ghost.client.prefs.toggles_chat & CHAT_GHOSTHIVEMIND)
 			var/rendered_message
 			var/xeno_track = "(<a href='byond://?src=\ref[ghost];track=\ref[xeno_player]'>посмотреть</a>)" // SS220 EDIT ADDICTION
-			rendered_message = SPAN_XENOLEADER("PsychicRadiance: $1$2 to $3, <span class='normal'>'$4'</span>", list(xeno_player.real_name, xeno_track, targetstring, SPAN_PSYTALK(whisper))) // SS220 EDIT ADDICTION
+			rendered_message = SPAN_XENOLEADER("Пси-cияние: [xeno_player.real_name][xeno_track] обращаясь к [targetstring], <span class='normal'>'[SPAN_PSYTALK(whisper)]'</span>") // SS220 EDIT ADDICTION
 			ghost.show_message(rendered_message, SHOW_MESSAGE_AUDIBLE)
 	return
 
@@ -943,23 +943,23 @@
 
 	var/mob/living/carbon/xenomorph/target_xeno = target
 	if(!istype(target_xeno) || target_xeno.stat == DEAD)
-		to_chat(queen, SPAN_WARNING("You must target_xeno the xeno you want to give plasma to."))
+		to_chat(queen, SPAN_WARNING("Вы должны выбрать ксеноморфа, которому хотите передать плазму."))
 		return
 
 	if(target_xeno == queen)
-		to_chat(queen, SPAN_XENOWARNING("We cannot give plasma to yourself!"))
+		to_chat(queen, SPAN_XENOWARNING("Мы не можем передать плазму самому себе!"))
 		return
 
 	if(!queen.can_not_harm(target_xeno))
-		to_chat(queen, SPAN_WARNING("You can only target_xeno xenos part of your hive!"))
+		to_chat(queen, SPAN_WARNING("Вы можете выбрать только ксеноморфов, являющихся частью вашего улья!"))
 		return
 
 	if(!target_xeno.caste.can_be_queen_healed)
-		to_chat(queen, SPAN_XENOWARNING("This caste cannot be given plasma!"))
+		to_chat(queen, SPAN_XENOWARNING("Этой касте нельзя передать плазму!"))
 		return
 
 	if(SEND_SIGNAL(target_xeno, COMSIG_XENO_PRE_HEAL) & COMPONENT_CANCEL_XENO_HEAL)
-		to_chat(queen, SPAN_XENOWARNING("This xeno cannot be given plasma!"))
+		to_chat(queen, SPAN_XENOWARNING("Этому ксеноморфу нельзя передать плазму!"))
 		return
 
 	if(!check_and_use_plasma_owner())
@@ -968,7 +968,7 @@
 	target_xeno.gain_plasma(target_xeno.plasma_max * 0.75)
 	target_xeno.flick_heal_overlay(3 SECONDS, COLOR_CYAN)
 	apply_cooldown()
-	to_chat(queen, SPAN_XENONOTICE("You transfer some plasma to $1.", list(target_xeno))) // SS220 EDIT ADDICTION
+	to_chat(queen, SPAN_XENONOTICE("Вы передаёте немного плазмы [target_xeno].")) // SS220 EDIT ADDICTION
 	return ..()
 
 /datum/action/xeno_action/onclick/send_thoughts/proc/queen_order()
@@ -986,7 +986,7 @@
 				var/input = stripped_input(xenomorph, "Это сообщение будет отправлено наблюдаемому ксеноморфу.", "Приказ Королевы", "") // SS220 EDIT ADDICTION
 				if(!input)
 					return
-				var/queen_order = SPAN_XENOANNOUNCE("<b>$1</b> reaches you: '$2'", list(xenomorph, input)) // SS220 EDIT ADDICTION
+				var/queen_order = SPAN_XENOANNOUNCE("<b>[xenomorph]</b> обращается к вам: '[input]'") // SS220 EDIT ADDICTION
 				if(!xenomorph.check_state() || !xenomorph.check_plasma(plasma_cost) || xenomorph.observed_xeno != target || target.stat == DEAD)
 					return
 				if(target.client)
@@ -997,7 +997,7 @@
 					xenomorph.use_plasma(give_order_plasma_cost)
 
 	else
-		to_chat(xenomorph, SPAN_WARNING("You must overwatch the Xenomorph you want to give orders to."))
+		to_chat(xenomorph, SPAN_WARNING("Вы должны наблюдать за ксеноморфом, которому хотите отдать приказ."))
 		return
 	return
 

@@ -185,17 +185,17 @@
 	set category = "Abilities.Psychic"
 
 	if(stat == DEAD)
-		to_chat(src, SPAN_WARNING("You cannot talk while dead."))
+		to_chat(src, SPAN_WARNING("Вы не можете говорить, будучи мёртвым."))
 		return FALSE
 
 	var/whisper = tgui_input_text(src, "Что вы хотите сказать?", "Пси-шёпот") // SS220 EDIT ADDICTION
 	if(whisper)
 		log_say("PsychicWhisper: [key_name(src)]->[target_mob.key] : [whisper] (AREA: [get_area_name(loc)])")
 		if(!istype(target_mob, /mob/living/carbon/xenomorph))
-			to_chat(target_mob, SPAN_XENOQUEEN("You hear a strange, alien voice in your head... '$1'", list(SPAN_PSYTALK(whisper)))) // SS220 EDIT ADDICTION
+			to_chat(target_mob, SPAN_XENOQUEEN("Вы слышите странный, чужой голос в своей голове... '[SPAN_PSYTALK(whisper)]'")) // SS220 EDIT ADDICTION
 		else
-			to_chat(target_mob, SPAN_XENOQUEEN("You hear the voice of $1 resonate in your head... '$2'", list(declent_ru(GENITIVE), SPAN_PSYTALK(whisper)))) // SS220 EDIT ADDICTION
-		to_chat(src, SPAN_XENOWARNING("You said: '$1' to $2", list(whisper, target_mob.real_name))) // SS220 EDIT ADDICTION
+			to_chat(target_mob, SPAN_XENOQUEEN("Вы слышите голос [declent_ru(GENITIVE)] отражающийся в вашей голове... '[SPAN_PSYTALK(whisper)]'")) // SS220 EDIT ADDICTION
+		to_chat(src, SPAN_XENOWARNING("Вы сказали: '[whisper]' обращаясь к [target_mob.real_name]")) // SS220 EDIT ADDICTION
 		FOR_DVIEW(var/mob/dead/observer/ghost, 12, src, SEE_INVISIBLE_OBSERVER)
 			if(!isobserver(ghost) || !ghost.client)
 				continue
@@ -203,7 +203,7 @@
 				var/rendered_message
 				var/human_track = "(<a href='byond://?src=\ref[ghost];track=\ref[src]'>посмотреть</a>)"
 				var/target_track = "(<a href='byond://?src=\ref[ghost];track=\ref[target_mob]'>посмотреть</a>)"
-				rendered_message = SPAN_XENOLEADER("PsychicWhisper: $1$2 to $3$4, <span class='normal'>'$5'</span>", list(real_name, human_track, target_mob.real_name, target_track, SPAN_PSYTALK(whisper))) // SS220 EDIT ADDICTION
+				rendered_message = SPAN_XENOLEADER("Пси-шёпот: [real_name][human_track] обращаясь к [target_mob.real_name][target_track], <span class='normal'>'[SPAN_PSYTALK(whisper)]'</span>") // SS220 EDIT ADDICTION
 				ghost.show_message(rendered_message, SHOW_MESSAGE_AUDIBLE)
 	return FALSE
 
@@ -213,7 +213,7 @@
 	set category = "Abilities.Psychic"
 
 	if(stat == DEAD)
-		to_chat(src, SPAN_WARNING("You cannot talk while dead."))
+		to_chat(src, SPAN_WARNING("Вы не можете говорить, будучи мёртвым."))
 		return FALSE
 
 	var/whisper = tgui_input_text(src, "Что вы хотите сказать?", "Пси-сияние") // SS220 EDIT ADDICTION
@@ -225,15 +225,15 @@
 			continue
 		target_list += possible_target
 		if(!istype(possible_target, /mob/living/carbon/xenomorph))
-			to_chat(possible_target, SPAN_XENOQUEEN("You hear a strange, alien voice in your head... '$1'", list(SPAN_PSYTALK(whisper))))
+			to_chat(possible_target, SPAN_XENOQUEEN("Вы слышите странный, чужой голос в своей голове... '[SPAN_PSYTALK(whisper)]'"))
 		else
-			to_chat(possible_target, SPAN_XENOQUEEN("You hear the voice of $1 resonate in your head... '$2'", list(declent_ru(GENITIVE), SPAN_PSYTALK(whisper)))) // SS220 EDIT ADDICTION
+			to_chat(possible_target, SPAN_XENOQUEEN("Вы слышите голос [declent_ru(GENITIVE)] отражающийся в вашей голове... '[SPAN_PSYTALK(whisper)]'")) // SS220 EDIT ADDICTION
 	FOR_DVIEW_END
 	if(!length(target_list))
-		to_chat(src, SPAN_XENOWARNING("There is no one around to hear you..."))
+		to_chat(src, SPAN_XENOWARNING("Рядом никого нет, чтобы услышать вас..."))
 		return FALSE
 	var/targetstring = english_list(target_list)
-	to_chat(src, SPAN_XENONOTICE("You said: '$1' to $2", list(whisper, targetstring))) // SS220 EDIT ADDICTION
+	to_chat(src, SPAN_XENONOTICE("Вы сказали: '[whisper]' обращаясь к [targetstring]")) // SS220 EDIT ADDICTION
 	log_say("PsychicRadiance: [key_name(src)]->[targetstring] : [whisper] (AREA: [get_area_name(src)])")
 	FOR_DVIEW(var/mob/dead/observer/ghost, 12, src, SEE_INVISIBLE_OBSERVER)
 		if(!isobserver(ghost) || !ghost.client)
@@ -241,7 +241,7 @@
 		if(ghost.client.prefs.toggles_chat & CHAT_GHOSTHIVEMIND)
 			var/rendered_message
 			var/human_track = "(<a href='byond://?src=\ref[ghost];track=\ref[src]'>посмотреть</a>)" // SS220 EDIT ADDICTION
-			rendered_message = SPAN_XENOLEADER("PsychicRadiance: $1$2 to $3, <span class='normal'>'$4'</span>", list(real_name, human_track, targetstring, SPAN_PSYTALK(whisper))) // SS220 EDIT ADDICTION
+			rendered_message = SPAN_XENOLEADER("Пси-cияние: [real_name][human_track] обращаясь к [targetstring], <span class='normal'>'[SPAN_PSYTALK(whisper)]'</span>") // SS220 EDIT ADDICTION
 			ghost.show_message(rendered_message, SHOW_MESSAGE_AUDIBLE)
 	return TRUE
 

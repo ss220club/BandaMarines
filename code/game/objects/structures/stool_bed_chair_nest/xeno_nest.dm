@@ -98,7 +98,7 @@
 	if(iscarbon(user))
 		var/mob/living/carbon/carbon = user
 		if(HIVE_ALLIED_TO_HIVE(carbon.hivenumber, hivenumber))
-			to_chat(user, SPAN_XENOWARNING("We shouldn't interfere with the nest, leave that to the drones."))
+			to_chat(user, SPAN_XENOWARNING("Мы не должны вмешиваться в гнездо, оставьте это дронам."))
 			return
 	if(buckled_mob)
 		if(iswelder(W))
@@ -149,12 +149,12 @@
 	if(isxeno(user))
 		var/mob/living/carbon/xenomorph/X = user
 		if((X.hive.hive_flags & XENO_UNNESTING_RESTRICTED) && !isxeno_builder(X) && HIVE_ALLIED_TO_HIVE(X.hivenumber, hivenumber))
-			to_chat(X, SPAN_XENOWARNING("We shouldn't interfere with the nest, leave that to the drones."))
+			to_chat(X, SPAN_XENOWARNING("Мы не должны вмешиваться в гнездо, оставьте это дронам."))
 			return
 	else if(iscarbon(user))
 		var/mob/living/carbon/H = user
 		if(HIVE_ALLIED_TO_HIVE(H.hivenumber, hivenumber))
-			to_chat(H, SPAN_XENOWARNING("We shouldn't interfere with the nest, leave that to the drones."))
+			to_chat(H, SPAN_XENOWARNING("Мы не должны вмешиваться в гнездо, оставьте это дронам."))
 			return
 
 	if(ishuman(buckled_mob) && isxeno(user))
@@ -265,8 +265,8 @@
 	return TRUE
 
 /obj/structure/bed/nest/send_buckling_message(mob/M, mob/user)
-	M.visible_message(SPAN_XENONOTICE("$1 secretes a thick, vile resin, securing $2 into $3!", list(user, M, src)), // SS220 EDIT ADDICTION
-	SPAN_XENONOTICE("$1 drenches you in a foul-smelling resin, trapping you in $2!", list(user, src)), // SS220 EDIT ADDICTION
+	M.visible_message(SPAN_XENONOTICE("[user] выделяет густую, отвратительную смолу, закрепляя [M] в [src]!"), // SS220 EDIT ADDICTION
+	SPAN_XENONOTICE("[user] обрызгивает вас зловонной смолой, запирая вас в [src]!"), // SS220 EDIT ADDICTION
 	SPAN_NOTICE("You hear squelching."))
 	playsound(loc, "alien_resin_move", 50)
 
@@ -295,7 +295,7 @@
 	if(!istype(ghost_mob) || !istype(ghost_mind) || buckled_human.mind || ghost_mind.original != buckled_human)
 		return // Zealous checking as most is handled by ghost code
 
-	to_chat(ghost_mob, FONT_SIZE_HUGE(SPAN_DANGER("You have been freed from your nest and may go back to your body! (Look for 'Re-enter Corpse' in Ghost verbs, or <a href=$1>click here</a>!)", list("byond://?src=\ref[ghost_mob];reentercorpse=1")))) // SS220 EDIT ADDICTION
+	to_chat(ghost_mob, FONT_SIZE_HUGE(SPAN_DANGER("Вы были освобождены из вашего гнезда и можете вернуться в своё тело! (Откройте вкладку «Ghost» и выберите «Re-enter corpse» или <a href='byond://?src=\ref[ghost_mob];reentercorpse=1'>нажмите здесь!</a>)"))) // SS220 EDIT ADDICTION
 	sound_to(ghost_mob, 'sound/effects/attackblob.ogg')
 
 	ghost_mob.can_reenter_corpse = TRUE

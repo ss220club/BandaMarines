@@ -264,7 +264,7 @@
 		if(ishuman(G.grabbed_thing))
 			M = G.grabbed_thing
 			if(M.buckled)
-				to_chat(user, SPAN_WARNING("Unbuckle first!"))
+				to_chat(user, SPAN_WARNING("Сначала отстегните ремни!"))
 				return
 		else if(istype(G.grabbed_thing,/obj/structure/closet/bodybag/cryobag))
 			var/obj/structure/closet/bodybag/cryobag/C = G.grabbed_thing

@@ -212,23 +212,23 @@ SUBSYSTEM_DEF(hijack)
 
 		switch(announce)
 			if(1)
-				xeno_announcement(SPAN_XENOANNOUNCE("The talls are a quarter of the way towards their goals. Disable the following areas: $1", list(xeno_warning_areas)), hive.hivenumber, XENO_HIJACK_ANNOUNCE) // SS220 EDIT ADDICTION
+				xeno_announcement(SPAN_XENOANNOUNCE("Носители достигли четверти пути к своим целям. Отключите следующие области: [xeno_warning_areas]"), hive.hivenumber, XENO_HIJACK_ANNOUNCE) // SS220 EDIT ADDICTION
 			if(2)
-				xeno_announcement(SPAN_XENOANNOUNCE("The talls are half way towards their goals. Disable the following areas: $1", list(xeno_warning_areas)), hive.hivenumber, XENO_HIJACK_ANNOUNCE) // SS220 EDIT ADDICTION
+				xeno_announcement(SPAN_XENOANNOUNCE("Носители достигли половины пути к своим целям. Отключите следующие области: [xeno_warning_areas]"), hive.hivenumber, XENO_HIJACK_ANNOUNCE) // SS220 EDIT ADDICTION
 			if(3)
-				xeno_announcement(SPAN_XENOANNOUNCE("The talls are three quarters of the way towards their goals. Disable the following areas: $1", list(xeno_warning_areas)), hive.hivenumber, XENO_HIJACK_ANNOUNCE) // SS220 EDIT ADDICTION
+				xeno_announcement(SPAN_XENOANNOUNCE("Носители достигли трёх четвертей пути к своим целям. Отключите следующие области: [xeno_warning_areas]"), hive.hivenumber, XENO_HIJACK_ANNOUNCE) // SS220 EDIT ADDICTION
 			if(4)
-				xeno_announcement(SPAN_XENOANNOUNCE("The talls have completed their goals!"), hive.hivenumber, XENO_HIJACK_ANNOUNCE)
+				xeno_announcement(SPAN_XENOANNOUNCE("Носители достигли своих целей!"), hive.hivenumber, XENO_HIJACK_ANNOUNCE)
 
 	switch(announce)
 		if(1)
-			marine_announcement(ru_span("Emergency fuel replenishment is at 25 percent. Lifeboat early launch is now available. Recommendation: wait for 100% fuel for safety purposes.$1", list(marine_warning_areas ? ru_span(" To increase speed, restore power to the following areas: $1.", list(marine_warning_areas)) : ru_span(" All fueling areas operational."))), HIJACK_ANNOUNCE) // SS220 EDIT ADDICTION
+			marine_announcement("Аварийная заправка выполнена на 25%. Доступен запуск спасательных капсул, однако рекомендуется дождаться 100% загрузки. [marine_warning_areas ? "Чтобы увеличить скорость загрузки топлива, восстановите питание станций заправки в следующих областях: [marine_warning_areas]." : "Все станции заправки работают в штатном режиме."]", HIJACK_ANNOUNCE) // SS220 EDIT ADDICTION
 		if(2)
-			marine_announcement("Emergency fuel replenishment is at 50 percent.[marine_warning_areas ? ru_span(" To increase speed, restore power to the following areas: $1.", list(marine_warning_areas)) : ru_span(" All fueling areas operational.")]", HIJACK_ANNOUNCE) // SS220 EDIT ADDICTION
+			marine_announcement("Аварийная заправка выполнена на 50%. [marine_warning_areas ? "Чтобы увеличить скорость загрузки топлива, восстановите питание станций заправки в следующих областях: [marine_warning_areas]." : "Все станции заправки работают в штатном режиме."]", HIJACK_ANNOUNCE) // SS220 EDIT ADDICTION
 		if(3)
-			marine_announcement("Emergency fuel replenishment is at 75 percent.[marine_warning_areas ? ru_span(" To increase speed, restore power to the following areas: $1.", list(marine_warning_areas)) : ru_span(" All fueling areas operational.")]", HIJACK_ANNOUNCE) // SS220 EDIT ADDICTION
+			marine_announcement("Аварийная заправка выполнена на 75%. [marine_warning_areas ? "Чтобы увеличить скорость загрузки топлива, восстановите питание станций заправки в следующих областях: [marine_warning_areas]." : "Все станции заправки работают в штатном режиме."]", HIJACK_ANNOUNCE) // SS220 EDIT ADDICTION
 		if(4)
-			marine_announcement("Emergency fuel replenishment is at 100 percent. Safe utilization of lifeboats and pods is now possible.", HIJACK_ANNOUNCE)
+			marine_announcement("Аварийная заправка выполнена на 100%. Доступна безопасная эвакуация на спасательных капсулах.", HIJACK_ANNOUNCE)
 			if(!admin_sd_blocked)
 				addtimer(CALLBACK(src, PROC_REF(unlock_self_destruct)), 8 SECONDS)
 
@@ -316,7 +316,7 @@ SUBSYSTEM_DEF(hijack)
 			if(!length(hive.totalXenos))
 				continue
 
-			xeno_announcement(SPAN_XENOANNOUNCE("The talls may be attempting to take their ship down with them in Engineering, stop them!"), hive.hivenumber, XENO_HIJACK_ANNOUNCE)
+			xeno_announcement(SPAN_XENOANNOUNCE("Носители пытаються запустить систему самоуничтожения в инженерном отделе, остановите их!"), hive.hivenumber, XENO_HIJACK_ANNOUNCE)
 
 	adjust_generator_overload_count(new_overloading ? 1 : -1)
 
