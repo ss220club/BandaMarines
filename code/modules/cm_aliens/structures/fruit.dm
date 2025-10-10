@@ -150,23 +150,23 @@
 			return cant_consume
 
 		if(mature)
-			to_chat(affected_xeno, SPAN_XENOWARNING("We prepare to consume [name]."))
+			to_chat(affected_xeno, SPAN_XENOWARNING("We prepare to consume $1.", list(name))) // SS220 EDIT ADDICTION
 			xeno_noncombat_delay(affected_xeno)
 			if(!do_after(affected_xeno, consume_delay, INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
 				return XENO_NO_DELAY_ACTION
 
 			cant_consume = prevent_consume(affected_xeno) // Check again after the delay incase they have eaten another fruit
 			if(cant_consume)
-				to_chat(affected_xeno, SPAN_XENOWARNING("We can no longer consume [name]."))
+				to_chat(affected_xeno, SPAN_XENOWARNING("We can no longer consume $1.", list(name))) // SS220 EDIT ADDICTION
 				return cant_consume
 			consume_effect(affected_xeno)
 		else
-			to_chat(affected_xeno, SPAN_XENOWARNING("[name] isn't ripe yet. We need to wait a little longer."))
+			to_chat(affected_xeno, SPAN_XENOWARNING("$1 isn't ripe yet. We need to wait a little longer.", list(name))) // SS220 EDIT ADDICTION
 
 	if(affected_xeno.a_intent == INTENT_HARM && isxeno_builder(affected_xeno) || (!affected_xeno.can_not_harm(bound_xeno) && affected_xeno.hivenumber != hivenumber))
 		affected_xeno.animation_attack_on(src)
-		affected_xeno.visible_message(SPAN_XENODANGER("[affected_xeno] removes [name]!"),
-		SPAN_XENODANGER("You remove [name]!"))
+		affected_xeno.visible_message(SPAN_XENODANGER("$1 removes $2!", list(affected_xeno, name)), // SS220 EDIT ADDICTION
+		SPAN_XENODANGER("You remove $1!", list(name))) // SS220 EDIT ADDICTION
 		playsound(loc, "alien_resin_break", 25)
 		qdel(src)
 		return XENO_ATTACK_ACTION
@@ -501,14 +501,14 @@
 /mob/living/carbon/xenomorph/proc/pickup_fruit(obj/effect/alien/resin/fruit/F)
 
 	if(F.bound_xeno && !can_not_harm(F.bound_xeno))
-		to_chat(src, SPAN_XENODANGER("We crush [F]."))
+		to_chat(src, SPAN_XENODANGER("We crush $1.", list(F))) // SS220 EDIT ADDICTION
 		qdel(F)
 		return
 	if(!F.mature)
-		to_chat(src, SPAN_XENODANGER("[F] isn't mature yet!"))
+		to_chat(src, SPAN_XENODANGER("$1 isn't mature yet!", list(F))) // SS220 EDIT ADDICTION
 		return
 	if(F.picked)
-		to_chat(src, SPAN_XENODANGER("[F] is already being picked!"))
+		to_chat(src, SPAN_XENODANGER("$1 is already being picked!", list(F))) // SS220 EDIT ADDICTION
 		return
 	// Indicates the fruit is being picked, so other xenos can't eat it at the same time
 	F.picked = TRUE
@@ -521,7 +521,7 @@
 	if(!F.mature)
 		F.picked = FALSE
 		return
-	to_chat(src, SPAN_XENONOTICE("You uproot [F]."))
+	to_chat(src, SPAN_XENONOTICE("You uproot $1.", list(F))) // SS220 EDIT ADDICTION
 	var/obj/item/reagent_container/food/snacks/resin_fruit/new_fruit = new F.fruit_type()
 	new_fruit.color = F.color
 	put_in_hands(new_fruit)
@@ -531,11 +531,11 @@
 	qdel(F)
 
 /mob/living/carbon/xenomorph/larva/pickup_fruit(obj/effect/alien/resin/fruit/F)
-	to_chat(src, SPAN_XENODANGER("We are too small to pick up \the [F]!"))
+	to_chat(src, SPAN_XENODANGER("We are too small to pick up $1!", list(F))) // SS220 EDIT ADDICTION
 	return
 
 /mob/living/carbon/xenomorph/facehugger/pickup_fruit(obj/effect/alien/resin/fruit/F)
-	to_chat(src, SPAN_XENODANGER("We are too small to pick up \the [F]!"))
+	to_chat(src, SPAN_XENODANGER("We are too small to pick up $1!", list(F)))
 	return
 
 /obj/item/reagent_container/food/snacks/resin_fruit/lesser

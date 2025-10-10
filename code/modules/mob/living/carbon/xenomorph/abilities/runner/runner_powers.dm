@@ -12,7 +12,7 @@
 	if (!check_and_use_plasma_owner())
 		return
 
-	xeno.visible_message(SPAN_XENOWARNING("[xeno] fires a burst of bone chips at [affected_atom]!"), SPAN_XENOWARNING("We fire a burst of bone chips at [affected_atom]!"))
+	xeno.visible_message(SPAN_XENOWARNING("$1 fires a burst of bone chips at $2!", list(xeno, affected_atom)), SPAN_XENOWARNING("We fire a burst of bone chips at $1!", list(affected_atom))) // SS220 EDIT ADDICTION
 
 	var/turf/target = locate(affected_atom.x, affected_atom.y, affected_atom.z)
 	var/obj/projectile/projectile = new /obj/projectile(xeno.loc, create_cause_data(initial(xeno.caste_type), xeno))
@@ -124,8 +124,8 @@
 	if(istype(affected_atom, /obj/vehicle/multitile))
 		var/obj/vehicle/multitile/multitile_vehicle = affected_atom
 		multitile_vehicle.take_damage_type(20 / acid.acid_delay, "acid", src)
-		visible_message(SPAN_XENOWARNING("[src] vomits globs of vile stuff at [multitile_vehicle]. It sizzles under the bubbling mess of acid!"),
-			SPAN_XENOWARNING("We vomit globs of vile stuff at [multitile_vehicle]. It sizzles under the bubbling mess of acid!"), null, 5)
+		visible_message(SPAN_XENOWARNING("$1 vomits globs of vile stuff at $2. It sizzles under the bubbling mess of acid!", list(declent_ru(), multitile_vehicle)), // SS220 EDIT ADDICTION
+			SPAN_XENOWARNING("We vomit globs of vile stuff at $1. It sizzles under the bubbling mess of acid!", list(multitile_vehicle)), null, 5) // SS220 EDIT ADDICTION
 		playsound(loc, "sound/bullets/acid_impact1.ogg", 25)
 		QDEL_IN(acid, 20)
 		return
@@ -133,8 +133,8 @@
 	acid.add_hiddenprint(src)
 	acid.name += " ([affected_atom])"
 
-	visible_message(SPAN_XENOWARNING("[src] vomits globs of vile stuff all over [affected_atom]. It begins to sizzle and melt under the bubbling mess of acid!"),
-	SPAN_XENOWARNING("We vomit globs of vile stuff all over [affected_atom]. It begins to sizzle and melt under the bubbling mess of acid!"), null, 5)
+	visible_message(SPAN_XENOWARNING("$1 vomits globs of vile stuff all over $2. It begins to sizzle and melt under the bubbling mess of acid!", list(declent_ru(), affected_atom)), // SS220 EDIT ADDICTION
+	SPAN_XENOWARNING("We vomit globs of vile stuff all over $1. It begins to sizzle and melt under the bubbling mess of acid!", list(affected_atom)), null, 5) // SS220 EDIT ADDICTION
 	playsound(loc, "sound/bullets/acid_impact1.ogg", 25)
 
 #define ACIDER_ACID_LEVEL 3
@@ -184,7 +184,7 @@
 	target.set_state(RESIN_TRAP_ACID1 + ACIDER_ACID_LEVEL - 1)
 
 	playsound(target, 'sound/effects/refill.ogg', 25, 1)
-	visible_message(SPAN_XENOWARNING("[src] pressurises the resin trap with acid!"),
+	visible_message(SPAN_XENOWARNING("$1 pressurises the resin trap with acid!", list(declent_ru())), // SS220 EDIT ADDICTION
 	SPAN_XENOWARNING("You pressurise the resin trap with acid!"), null, 5)
 	return TRUE
 
@@ -223,7 +223,7 @@
 		to_chat(xeno, SPAN_XENOWARNING("Not enough acid built up for an explosion."))
 		return
 
-	notify_ghosts(header = "За улей!", message = "[xeno] is going to explode for the Hive!", source = xeno, action = NOTIFY_ORBIT)
+	notify_ghosts(header = "За улей!", message = "[xeno] is going to explode for the Hive!", source = xeno, action = NOTIFY_ORBIT) // SS220 EDIT ADDICTION
 
 	to_chat(xeno, SPAN_XENOWARNING("Our stomach starts turning and twisting, getting ready to compress the built up acid."))
 	xeno.color = "#22FF22"

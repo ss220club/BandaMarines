@@ -265,8 +265,8 @@
 	return TRUE
 
 /obj/structure/bed/nest/send_buckling_message(mob/M, mob/user)
-	M.visible_message(SPAN_XENONOTICE("[user] secretes a thick, vile resin, securing [M] into [src]!"),
-	SPAN_XENONOTICE("[user] drenches you in a foul-smelling resin, trapping you in [src]!"),
+	M.visible_message(SPAN_XENONOTICE("$1 secretes a thick, vile resin, securing $2 into $3!", list(user, M, src)), // SS220 EDIT ADDICTION
+	SPAN_XENONOTICE("$1 drenches you in a foul-smelling resin, trapping you in $2!", list(user, src)), // SS220 EDIT ADDICTION
 	SPAN_NOTICE("You hear squelching."))
 	playsound(loc, "alien_resin_move", 50)
 
@@ -295,7 +295,7 @@
 	if(!istype(ghost_mob) || !istype(ghost_mind) || buckled_human.mind || ghost_mind.original != buckled_human)
 		return // Zealous checking as most is handled by ghost code
 
-	to_chat(ghost_mob, FONT_SIZE_HUGE(SPAN_DANGER("You have been freed from your nest and may go back to your body! (Look for 'Re-enter Corpse' in Ghost verbs, or <a href='byond://?src=\ref[ghost_mob];reentercorpse=1'>click here</a>!)")))
+	to_chat(ghost_mob, FONT_SIZE_HUGE(SPAN_DANGER("You have been freed from your nest and may go back to your body! (Look for 'Re-enter Corpse' in Ghost verbs, or <a href=$1>click here</a>!)", list("byond://?src=\ref[ghost_mob];reentercorpse=1")))) // SS220 EDIT ADDICTION
 	sound_to(ghost_mob, 'sound/effects/attackblob.ogg')
 
 	ghost_mob.can_reenter_corpse = TRUE

@@ -396,7 +396,7 @@
 	if(istype(I, /obj/item/reagent_container))
 		if(!hacked)
 			if(!allowed(user))
-				to_chat(user, SPAN_WARNING("Access denied."))
+				to_chat(user, SPAN_WARNING("Доступ запрещён."))
 				return
 
 			if(LAZYLEN(vendor_role) && !vendor_role.Find(user.job))
@@ -439,7 +439,7 @@
 	if(stat == WORKING && over_object == usr && CAN_PICKUP(usr, src))
 		var/mob/living/carbon/human/user = usr
 		if(!hacked && !allowed(user))
-			to_chat(user, SPAN_WARNING("Access denied."))
+			to_chat(user, SPAN_WARNING("Доступ запрещён."))
 			return
 
 		if(!healthscan)

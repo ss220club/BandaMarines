@@ -120,7 +120,7 @@
 				return
 			var/datum/xeno_mark_define/x = new selected_type
 			var/datum/action/xeno_action/activable/info_marker/Xenos_mark_info_action
-			to_chat(X, SPAN_NOTICE("You will now declare '<b>[x.name]</b>!' when marking resin."))
+			to_chat(X, SPAN_NOTICE("You will now declare '<b>$1</b>!' when marking resin.", list(x.name))) // SS220 EDIT ADDICTION
 			//update the button's overlay with new choice
 			for(var/datum/action/xeno_action/XA in X.actions)
 				if(istype(XA, /datum/action/xeno_action/activable/info_marker))
@@ -134,7 +134,7 @@
 			var/obj/effect/alien/resin/marker/mark_to_watch = locate(params["type"])
 			if(!mark_to_watch)
 				return
-			to_chat(X, SPAN_XENONOTICE("You psychically observe the [mark_to_watch.mark_meaning.name] resin mark in [get_area_name(mark_to_watch)]."))
+			to_chat(X, SPAN_XENONOTICE("You psychically observe the $1 resin mark in $2.", list(mark_to_watch.mark_meaning.name, get_area_name(mark_to_watch)))) // SS220 EDIT ADDICTION
 			X.overwatch(mark_to_watch) //this is so scuffed, sorry if this causes errors
 			update_all_data()
 			. = TRUE
@@ -151,18 +151,18 @@
 			if(!mark_to_destroy)
 				return
 			if(mark_to_destroy.createdby == X.nicknumber)
-				to_chat(X, SPAN_XENONOTICE("You psychically command the [mark_to_destroy.mark_meaning.name] resin mark to be destroyed."))
+				to_chat(X, SPAN_XENONOTICE("You psychically command the $1 resin mark to be destroyed.", list(mark_to_destroy.mark_meaning.name))) // SS220 EDIT ADDICTION
 				qdel(mark_to_destroy)
 				update_all_data()
 				. = TRUE
 				return
 			else if(isqueen(X))
 				var/mob/living/carbon/xenomorph/mark_to_destroy_owner
-				to_chat(X, SPAN_XENONOTICE("You psychically command the [mark_to_destroy.mark_meaning.name] resin mark to be destroyed."))
+				to_chat(X, SPAN_XENONOTICE("You psychically command the $1 resin mark to be destroyed.", list(mark_to_destroy.mark_meaning.name))) // SS220 EDIT ADDICTION
 				for(var/mob/living/carbon/xenomorph/XX in X.hive.totalXenos)
 					if(XX.nicknumber == mark_to_destroy.createdby)
 						mark_to_destroy_owner = XX
-				to_chat(mark_to_destroy_owner, SPAN_XENONOTICE("Your [mark_to_destroy.mark_meaning.name] resin mark was commanded to be destroyed by [X.name]."))
+				to_chat(mark_to_destroy_owner, SPAN_XENONOTICE("Your $1 resin mark was commanded to be destroyed by $2.", list(mark_to_destroy.mark_meaning.name, X.name))) // SS220 EDIT ADDICTION
 				qdel(mark_to_destroy)
 				update_all_data()
 				. = TRUE
@@ -188,7 +188,7 @@
 			if(selected_xeno == FunkTownOhyea)
 				for(var/mob/living/carbon/xenomorph/forced_xeno in X.hive.totalXenos)
 					forced_xeno.stop_tracking_resin_mark(FALSE, TRUE)
-					to_chat(forced_xeno, SPAN_XENOANNOUNCE("Hive! Your queen commands: [mark_to_force.mark_meaning.desc] in [get_area_name(mark_to_force)]. (<a href='byond://?src=\ref[X];overwatch=1;target=\ref[mark_to_force]'>Watch</a>) (<a href='byond://?src=\ref[X];track=1;target=\ref[mark_to_force]'>Track</a>)"))
+					to_chat(forced_xeno, SPAN_XENOANNOUNCE("Hive! Your queen commands: $1 in $2. (<a href='$3'>Watch</a>) (<a href='$4'>Track</a>)", list(mark_to_force.mark_meaning.desc, get_area_name(mark_to_force), "byond://?src=\ref[X];overwatch=1;target=\ref[mark_to_force]", "byond://?src=\ref[X];track=1;target=\ref[mark_to_force]"))) // SS220 EDIT ADDICTION
 					forced_xeno.start_tracking_resin_mark(mark_to_force)
 					forced_xeno.hud_used.locate_marker.overlays.Cut()
 					flick("marker_alert", forced_xeno.hud_used.locate_marker)
@@ -199,7 +199,7 @@
 				return
 			else
 				selected_xeno.stop_tracking_resin_mark(FALSE, TRUE)
-				to_chat(selected_xeno, SPAN_XENOBOLDNOTICE("Your queen commands you to follow: [mark_to_force.mark_meaning.desc] in [get_area_name(mark_to_force)]. (<a href='byond://?src=\ref[X];overwatch=1;target=\ref[mark_to_force]'>Watch</a>) (<a href='byond://?src=\ref[X];track=1;target=\ref[mark_to_force]'>Track</a>)"))
+				to_chat(selected_xeno, SPAN_XENOBOLDNOTICE("Your queen commands you to follow: $1 in $2. (<a href='$3'>Watch</a>) (<a href='$4'>Track</a>)", list(mark_to_force.mark_meaning.desc, get_area_name(mark_to_force), "byond://?src=\ref[X];overwatch=1;target=\ref[mark_to_force]", "byond://?src=\ref[X];track=1;target=\ref[mark_to_force]"))) // SS220 EDIT ADDICTION
 				selected_xeno.start_tracking_resin_mark(mark_to_force)
 				update_all_data()
 				. = TRUE

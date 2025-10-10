@@ -125,7 +125,7 @@
 /obj/item/clothing/mask/facehugger/attack_alien(mob/living/carbon/xenomorph/user)
 	if(user.hivenumber != hivenumber)
 		user.animation_attack_on(src)
-		user.visible_message(SPAN_XENOWARNING("[user] crushes \the [src]"), SPAN_XENOWARNING("You crush \the [src]"))
+		user.visible_message(SPAN_XENOWARNING("$1 crushes $2", list(user, declent_ru())), SPAN_XENOWARNING("You crush $1", list(declent_ru()))) // SS220 EDIT ADDICTION
 		die()
 		return XENO_ATTACK_ACTION
 
@@ -420,14 +420,14 @@
 			return
 		var/obj/effect/alien/resin/trap/T = locate() in loc
 		if(T && T.trap_type == RESIN_TRAP_EMPTY)
-			visible_message(SPAN_XENOWARNING("[src] crawls into [T]!"))
+			visible_message(SPAN_XENOWARNING("$1 crawls into $2!", list(declent_ru(), T))) // SS220 EDIT ADDICTION
 			T.hivenumber = hivenumber
 			T.set_state(RESIN_TRAP_HUGGER)
 			qdel(src)
 			return
 		var/obj/effect/alien/resin/special/eggmorph/M = locate() in loc
 		if(istype(M) && M.stored_huggers < M.huggers_max_amount)
-			visible_message(SPAN_XENOWARNING("[src] crawls back into [M]!"))
+			visible_message(SPAN_XENOWARNING("$1 crawls back into $2!", list(declent_ru(), M))) // SS220 EDIT ADDICTION
 			M.stored_huggers++
 			qdel(src)
 			return
@@ -502,7 +502,7 @@
 	die()
 
 /obj/item/clothing/mask/facehugger/proc/return_to_egg(obj/effect/alien/egg/E)
-	visible_message(SPAN_XENOWARNING("[src] crawls back into [E]!"))
+	visible_message(SPAN_XENOWARNING("$1 crawls back into $2!", list(declent_ru(), E))) // SS220 EDIT ADDICTION
 	E.status = EGG_GROWN
 	E.icon_state = "Egg"
 	E.deploy_egg_triggers()

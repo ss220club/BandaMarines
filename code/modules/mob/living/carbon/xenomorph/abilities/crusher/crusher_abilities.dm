@@ -269,7 +269,7 @@
 
 /datum/action/xeno_action/activable/tumble/proc/handle_mob_collision(mob/living/carbon/Mob)
 	var/mob/living/carbon/xenomorph/Xeno = owner
-	Xeno.visible_message(SPAN_XENODANGER("[Xeno] Sweeps to the side, knocking down [Mob]!"), SPAN_XENODANGER("We knock over [Mob] as we sweep to the side!"))
+	Xeno.visible_message(SPAN_XENODANGER("$1 Sweeps to the side, knocking down $2!", list(Xeno, Mob)), SPAN_XENODANGER("We knock over $1 as we sweep to the side!", list(Mob))) // SS220 EDIT ADDICTION
 	var/turf/target_turf = get_turf(Mob)
 	playsound(Mob,'sound/weapons/alien_claw_block.ogg', 50, 1)
 	Mob.apply_damage(15,BRUTE)
@@ -281,4 +281,3 @@
 		Mob.apply_effect(1, WEAKEN)
 	if(!LinkBlocked(Xeno, get_turf(Xeno), target_turf))
 		Xeno.forceMove(target_turf)
-

@@ -85,8 +85,8 @@
 		return original_damage
 
 	if (next_slash_buffed)
-		to_chat(bound_xeno, SPAN_XENOHIGHDANGER("We significantly strengthen our attack, slowing [target_carbon]!"))
-		to_chat(target_carbon, SPAN_XENOHIGHDANGER("You feel a sharp pain as [bound_xeno] slashes you, slowing you down!"))
+		to_chat(bound_xeno, SPAN_XENOHIGHDANGER("We significantly strengthen our attack, slowing $1!", list(target_carbon))) // SS220 EDIT ADDICTION
+		to_chat(target_carbon, SPAN_XENOHIGHDANGER("You feel a sharp pain as $1 slashes you, slowing you down!", list(bound_xeno))) // SS220 EDIT ADDICTION
 		original_damage *= buffed_slash_damage_ratio
 		target_carbon.set_effect(get_xeno_stun_duration(target_carbon, 3), SUPERSLOW)
 		next_slash_buffed = FALSE

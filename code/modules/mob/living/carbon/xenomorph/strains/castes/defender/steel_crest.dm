@@ -98,7 +98,7 @@
 
 	owner.remove_filter("steelcrest_enraging")
 	owner.add_filter("steelcrest_enraged", 1, list("type" = "outline", "color" = "#ad1313", "size" = 1))
-	owner.visible_message(SPAN_XENOWARNING("[owner] gets enraged after being damaged enough!"), SPAN_XENOWARNING("We feel enraged after taking in oncoming damage! Our tail slam's cooldown is reset and we heal!"))
+	owner.visible_message(SPAN_XENOWARNING("$1 gets enraged after being damaged enough!", list(owner)), SPAN_XENOWARNING("We feel enraged after taking in oncoming damage! Our tail slam's cooldown is reset and we heal!")) // SS220 EDIT ADDICTION
 
 	var/mob/living/carbon/xenomorph/enraged_mob = owner
 	enraged_mob.gain_health(75) // pretty reasonable amount of health recovered
@@ -115,4 +115,3 @@
 
 /datum/action/xeno_action/onclick/soak/proc/remove_enrage()
 	owner.remove_filter("steelcrest_enraged")
-

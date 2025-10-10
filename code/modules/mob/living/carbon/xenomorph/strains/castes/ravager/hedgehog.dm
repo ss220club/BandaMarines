@@ -54,7 +54,7 @@
 	if (!bound_xeno)
 		return
 
-	to_chat(bound_xeno, SPAN_XENODANGER("You have shed your spikes and cannot gain any more for [shard_lock_duration/10] seconds!"))
+	to_chat(bound_xeno, SPAN_XENODANGER("You have shed your spikes and cannot gain any more for $1 seconds!", list(shard_lock_duration/10))) // SS220 EDIT ADDICTION
 
 	bound_xeno.speed_modifier -= shard_lock_speed_mod
 	bound_xeno.recalculate_speed()
@@ -144,7 +144,7 @@
 		return
 	behavior.use_shards(shard_cost)
 
-	xeno.visible_message(SPAN_XENODANGER("[xeno] ruffles its bone-shard quills, forming a defensive shell!"), SPAN_XENODANGER("We ruffle our bone-shard quills, forming a defensive shell!"))
+	xeno.visible_message(SPAN_XENODANGER("$1 ruffles its bone-shard quills, forming a defensive shell!", list(xeno)), SPAN_XENODANGER("We ruffle our bone-shard quills, forming a defensive shell!")) // SS220 EDIT ADDICTION
 
 	// Add our shield
 	var/datum/xeno_shield/hedgehog_shield/shield = xeno.add_xeno_shield(shield_amount, XENO_SHIELD_SOURCE_HEDGE_RAV, /datum/xeno_shield/hedgehog_shield)

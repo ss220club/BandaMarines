@@ -210,7 +210,7 @@
 
 		next_point = world.time + point_delay
 
-		var/message = SPAN_XENONOTICE("[Q] points at [A].")
+		var/message = SPAN_XENONOTICE("$1 points at $2.", list(declent_ru_initial(Q::name, ACCUSATIVE, Q::name), declent_ru_initial(A::name, ACCUSATIVE, A::name))) // SS220 EDIT ADDICTION
 
 		to_chat(Q, message)
 		for(var/mob/living/carbon/xenomorph/X in viewers(7, src))
@@ -762,7 +762,14 @@
 	else if(!(hive.hive_flags & XENO_SLASH_ALLOW_ALL))
 		current_setting = "Forbidden"
 
-	var/choice = tgui_input_list(src, "Choose which level of harming hosts to permit to your hive.", "Harming", list("Forbidden", "Restricted - Infected Hosts", "Allowed"), theme="hive_status", default=current_setting)
+	// SS220 START EDIT ADDICTION
+	var/choice_translations = list(
+		"Allowed" = "Разрешено",
+		"Restricted - Infected Hosts" = "Запрещено инфицированных хостов",
+		"Forbidden" = "Запрещено",
+	)
+	var/choice = tgui_input_list(usr, "Выберите, какой уровень рубящих атак на хостов разрешить вашему улью.", "Причинение вреда", choice_translations, theme="hive_status", default=current_setting, associative_list = TRUE)
+	// SS220 END EDIT ADDICTION
 	if(!choice)
 		return
 
@@ -820,7 +827,14 @@
 	else if(!(hive.hive_flags & (XENO_CONSTRUCTION_LEADERS|XENO_CONSTRUCTION_NORMAL)) && (hive.hive_flags & XENO_CONSTRUCTION_QUEEN))
 		current_setting = "Queen"
 
-	var/choice = tgui_input_list(src, "Choose which level of construction placement freedom to permit to your hive.", "Construction", list("Queen", "Leaders", "Anyone"), theme="hive_status", default=current_setting)
+	// SS220 START EDIT ADDICTION
+	var/choice_translations = list(
+		"Queen" = "Только Королеве",
+		"Leaders - Только лидерам",
+		"Anyone" = "Всем",
+	)
+	var/choice = tgui_input_list(src, "Выберите уровень свободы на строительство, который вы хотите дать своему улью.", "Разрешение на строительство", choice_translations, theme="hive_status", default=current_setting, associative_list = TRUE)
+	// SS220 END EDIT ADDICTION
 	if(!choice)
 		return
 
@@ -829,14 +843,14 @@
 			to_chat(src, SPAN_XENOWARNING("You already allow construction placement to all builder castes."))
 			return
 		to_chat(src, SPAN_XENONOTICE("You allow construction placement to all builder castes."))
-		xeno_message("The Queen has <b>permitted</b> the placement of construction nodes to all builder castes!", hivenumber=hivenumber)
+		xeno_message(SPAN_XENOANNOUNCE("The Queen has <b>permitted</b> the placement of construction nodes to all builder castes!"), hivenumber=hivenumber) // SS220 EDIT ADDICTION
 		hive.hive_flags |= XENO_CONSTRUCTION_ALLOW_ALL
 	else if(choice == "Leaders")
 		if(current_setting == choice)
 			to_chat(src, SPAN_XENOWARNING("You already restrict construction placement to leaders only."))
 			return
 		to_chat(src, SPAN_XENONOTICE("You restrict construction placement to leaders only."))
-		xeno_message("The Queen has <b>restricted</b> the placement of construction nodes to leading builder castes only.", hivenumber=hivenumber)
+		xeno_message(SPAN_XENOANNOUNCE("The Queen has <b>restricted</b> the placement of construction nodes to leading builder castes only."), hivenumber=hivenumber) // SS220 EDIT ADDICTION
 		hive.hive_flags &= ~XENO_CONSTRUCTION_NORMAL
 		hive.hive_flags |= XENO_CONSTRUCTION_QUEEN|XENO_CONSTRUCTION_LEADERS
 	else if(choice == "Queen")
@@ -844,7 +858,7 @@
 			to_chat(src, SPAN_XENOWARNING("You already forbid construction placement entirely."))
 			return
 		to_chat(src, SPAN_XENONOTICE("You forbid construction placement entirely."))
-		xeno_message("The Queen has <b>forbidden</b> the placement of construction nodes to all but herself.", hivenumber=hivenumber)
+		xeno_message(SPAN_XENOANNOUNCE("The Queen has <b>forbidden</b> the placement of construction nodes to all but herself."), hivenumber=hivenumber) // SS220 EDIT ADDICTION
 		hive.hive_flags &= ~(XENO_CONSTRUCTION_LEADERS|XENO_CONSTRUCTION_NORMAL)
 		hive.hive_flags |= XENO_CONSTRUCTION_QUEEN
 
@@ -879,7 +893,14 @@
 	else if(!(hive.hive_flags & (XENO_DECONSTRUCTION_LEADERS|XENO_DECONSTRUCTION_NORMAL)) && (hive.hive_flags & XENO_DECONSTRUCTION_QUEEN))
 		current_setting = "Queen"
 
-	var/choice = tgui_input_list(src, "Choose which level of destruction freedom to permit to your hive.", "Deconstruction", list("Queen", "Leaders", "Anyone"), theme="hive_status", default=current_setting)
+	// SS220 START EDIT ADDICTION
+	var/choice_translations = list(
+		"Queen" = "Только Королеве",
+		"Leaders - Только лидерам",
+		"Anyone" = "Всем",
+	)
+	var/choice = tgui_input_list(src, "Выберите уровень свободы на снос построек, который вы хотите дать своему улью.", "Снос построек", choice_translations, theme="hive_status", default=current_setting, associative_list = TRUE)
+	// SS220 END EDIT ADDICTION
 	if(!choice)
 		return
 
@@ -888,14 +909,14 @@
 			to_chat(src, SPAN_XENOWARNING("You already allow special structure destruction to all builder castes and leaders."))
 			return
 		to_chat(src, SPAN_XENONOTICE("You allow special structure destruction to all builder castes and leaders."))
-		xeno_message("The Queen has <b>permitted</b> the destruction of special structures to all builder castes and leaders!", hivenumber=hivenumber)
+		xeno_message(SPAN_XENOANNOUNCE("The Queen has <b>permitted</b> the destruction of special structures to all builder castes and leaders!"), hivenumber=hivenumber) // SS220 EDIT ADDICTION
 		hive.hive_flags |= XENO_DECONSTRUCTION_ALLOW_ALL
 	else if(choice == "Leaders")
 		if(current_setting == choice)
 			to_chat(src, SPAN_XENOWARNING("You already restrict special structure destruction to leaders only."))
 			return
 		to_chat(src, SPAN_XENONOTICE("You restrict special structure destruction to leaders only."))
-		xeno_message("The Queen has <b>restricted</b> the destruction of special structures to leaders only.", hivenumber=hivenumber)
+		xeno_message(SPAN_XENOANNOUNCE("The Queen has <b>restricted</b> the destruction of special structures to leaders only."), hivenumber=hivenumber) // SS220 EDIT ADDICTION
 		hive.hive_flags &= ~XENO_DECONSTRUCTION_NORMAL
 		hive.hive_flags |= XENO_DECONSTRUCTION_QUEEN|XENO_DECONSTRUCTION_LEADERS
 	else if(choice == "Queen")
@@ -903,7 +924,7 @@
 			to_chat(src, SPAN_XENOWARNING("You already forbid special structure destruction entirely."))
 			return
 		to_chat(src, SPAN_XENONOTICE("You forbid special structure destruction entirely."))
-		xeno_message("The Queen has <b>forbidden</b> the destruction of special structures to all but herself.", hivenumber=hivenumber)
+		xeno_message(SPAN_XENOANNOUNCE("The Queen has <b>forbidden</b> the destruction of special structures to all but herself."), hivenumber=hivenumber) // SS220 EDIT ADDICTION
 		hive.hive_flags &= ~(XENO_DECONSTRUCTION_LEADERS|XENO_DECONSTRUCTION_NORMAL)
 		hive.hive_flags |= XENO_DECONSTRUCTION_QUEEN
 
@@ -935,7 +956,13 @@
 	else if(hive.hive_flags & XENO_UNNESTING_RESTRICTED)
 		current_setting = "Drone castes"
 
-	var/choice = tgui_input_list(src, "Choose which level of unnesting freedom to permit to your hive.", "Unnesting", list("Drone castes", "Anyone"), theme="hive_status", default=current_setting)
+	// SS220 START EDIT ADDICTION
+	var/choice_translations = list(
+		"Drone castes" = "Только дроны",
+		"Anyone" = "Все",
+	)
+	var/choice = tgui_input_list(src, "Выберите уровень свободы извлечения хостов из гнезда, который вы хотите дать своему улью.", "Извлечение хостов из гнезда", choice_translations, theme="hive_status", default=current_setting, associative_list = TRUE)
+	// SS220 END EDIT ADDICTION
 	if(!choice)
 		return
 
@@ -944,14 +971,14 @@
 			to_chat(src, SPAN_XENOWARNING("You have already allowed everyone to unnest hosts."))
 			return
 		to_chat(src, SPAN_XENONOTICE("You have allowed everyone to unnest hosts."))
-		xeno_message("The Queen has <b>allowed</b> everyone to unnest hosts.", hivenumber=hivenumber)
+		xeno_message(SPAN_XENOANNOUNCE("The Queen has <b>allowed</b> everyone to unnest hosts."), hivenumber=hivenumber) // SS220 EDIT ADDICTION
 		hive.hive_flags &= ~XENO_UNNESTING_RESTRICTED
 	else
 		if(hive.hive_flags & XENO_UNNESTING_RESTRICTED)
 			to_chat(src, SPAN_XENOWARNING("You have already forbidden anyone to unnest hosts, except for the drone caste."))
 			return
 		to_chat(src, SPAN_XENONOTICE("You have forbidden anyone to unnest hosts, except for the drone caste."))
-		xeno_message("The Queen has <b>forbidden</b> anyone to unnest hosts, except for the drone caste.", hivenumber=hivenumber)
+		xeno_message(SPAN_XENOANNOUNCE("The Queen has <b>forbidden</b> anyone to unnest hosts, except for the drone caste."), hivenumber=hivenumber) // SS220 EDIT ADDICTION
 		hive.hive_flags |= XENO_UNNESTING_RESTRICTED
 
 	TIMER_COOLDOWN_START(src, COOLDOWN_TOGGLE_UNNESTING, 30 SECONDS)
@@ -969,7 +996,7 @@
 	if(!iscarbon(target))
 		return FALSE
 	if(HAS_TRAIT(target, TRAIT_HAULED))
-		to_chat(src, SPAN_XENOWARNING("[target] needs to be released first."))
+		to_chat(src, SPAN_XENOWARNING("$1 needs to be released first.", list(target))) // SS220 EDIT ADDICTION
 		return FALSE
 	var/mob/living/carbon/victim = target
 
@@ -1000,8 +1027,8 @@
 	if(!check_plasma(200))
 		return FALSE
 
-	visible_message(SPAN_XENOWARNING("[src] begins slowly lifting [victim] into the air."),
-	SPAN_XENOWARNING("You begin focusing your anger as you slowly lift [victim] into the air."))
+	visible_message(SPAN_XENOWARNING("$1 begins slowly lifting $2 into the air.", list(declent_ru(), victim)), // SS220 EDIT ADDICTION
+	SPAN_XENOWARNING("You begin focusing your anger as you slowly lift $1 into the air.", list(victim))) // SS220 EDIT ADDICTION
 	if(do_after(src, 80, INTERRUPT_ALL, BUSY_ICON_HOSTILE, victim))
 		if(!victim)
 			return FALSE
@@ -1012,8 +1039,8 @@
 
 		use_plasma(200)
 
-		visible_message(SPAN_XENODANGER("[src] viciously smashes and wrenches [victim] apart!"),
-		SPAN_XENODANGER("You suddenly unleash pure anger on [victim], instantly wrenching \him apart!"))
+		visible_message(SPAN_XENODANGER("$1 viciously smashes and wrenches $2 apart!", list(declent_ru(), victim)), // SS220 EDIT ADDICTION
+		SPAN_XENODANGER("You suddenly unleash pure anger on $1, instantly wrenching apart!", list(victim))) // SS220 EDIT ADDICTION
 		emote("roar")
 
 		attack_log += text("\[[time_stamp()]\] <font color='red'>gibbed [key_name(victim)]</font>")
@@ -1198,7 +1225,7 @@
 	var/obj/effect/overlay/temp/point/big/greyscale/point = new(target_turf, src, target_atom)
 	point.color = "#a800a8"
 
-	visible_message("<b>[src]</b> points to [target_atom]", null, null, 5)
+	visible_message(SPAN_XENOQUEEN("<b>[declent_ru()]</b> указывает на [target_atom.declent_ru(ACCUSATIVE)]"), null, null, 5) // SS220 EDIT ADDICTION
 
 #undef XENO_QUEEN_AGE_TIME
 #undef XENO_QUEEN_TEMP_AGE_DURATION

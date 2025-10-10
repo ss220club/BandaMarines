@@ -113,9 +113,9 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 
 	if(!can_evolve(castepick, potential_queens))
 		return
-	to_chat(src, SPAN_XENONOTICE("It looks like the hive can support our evolution to [SPAN_BOLD(castepick)]!"))
+	to_chat(src, SPAN_XENONOTICE("It looks like the hive can support our evolution to $1!", list(SPAN_BOLD(castepick)))) // SS220 EDIT ADDICTION
 
-	visible_message(SPAN_XENONOTICE("[src] begins to twist and contort."),
+	visible_message(SPAN_XENONOTICE("$1 begins to twist and contort.", list(declent_ru())), // SS220 EDIT ADDICTION
 	SPAN_XENONOTICE("We begin to twist and contort."))
 	xeno_jitter(25)
 	evolving = TRUE
@@ -197,7 +197,7 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 
 	built_structures = null
 
-	new_xeno.visible_message(SPAN_XENODANGER("A [new_xeno.caste.caste_type] emerges from the husk of [src]."),
+	new_xeno.visible_message(SPAN_XENODANGER("A $1 emerges from the husk of $2.", list(new_xeno.caste.caste_type, declent_ru())), // SS220 EDIT ADDICTION
 	SPAN_XENODANGER("We emerge in a greater form from the husk of our old body. For the hive!"))
 
 	if(hive.living_xeno_queen && hive.living_xeno_queen.observed_xeno == src)
@@ -464,7 +464,7 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 	if(!(/mob/living/carbon/xenomorph/verb/Deevolve in verbs))
 		remove_verb(new_xeno, /mob/living/carbon/xenomorph/verb/Deevolve)
 
-	new_xeno.visible_message(SPAN_XENODANGER("A [new_xeno.caste.caste_type] emerges from the husk of \the [src]."),
+	new_xeno.visible_message(SPAN_XENODANGER("A $1 emerges from the husk of $2.", list(new_xeno.caste.caste_type, declent_ru())), // SS220 EDIT ADDICTION
 	SPAN_XENODANGER(message))
 
 	transfer_observers_to(new_xeno)

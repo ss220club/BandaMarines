@@ -1,3 +1,4 @@
+import { round } from 'common/math';
 import type { BooleanLike } from 'common/react';
 import { useBackend } from 'tgui/backend';
 import {
@@ -394,7 +395,8 @@ const Misc = (props) => {
                 bloodpct > 0.9 ? 'green' : bloodpct > 0.7 ? 'orange' : 'red'
               }
             >
-              {Math.round(blood_amount / 5.6)}%, {blood_amount * 10} мл
+              {Math.round(blood_amount / 5.6)}%, {round(blood_amount * 10, 2)}{' '}
+              мл
             </Box>
           </LabeledList.Item>
         ) : null}
@@ -497,7 +499,7 @@ const ScannerChems = (props) => {
     <Section title={ui_mode ? null : 'Вещества в организме'}>
       {has_unknown_chemicals ? (
         <NoticeBox warning color="grey">
-          Unknown reagents detected.
+          Регистрируются неизвестные вещества.
         </NoticeBox>
       ) : null}
       <Stack vertical>

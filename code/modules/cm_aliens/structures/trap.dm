@@ -214,10 +214,10 @@
 			set_state()
 			var/obj/item/clothing/mask/facehugger/hugger = new (loc, hivenumber)
 			xeno.put_in_active_hand(hugger)
-			to_chat(xeno, SPAN_XENONOTICE("You remove the facehugger from [src]."))
+			to_chat(xeno, SPAN_XENONOTICE("You remove the facehugger from $1.", list(declent_ru()))) // SS220 EDIT ADDICTION
 			return XENO_NONCOMBAT_ACTION
 		else
-			to_chat(xeno, SPAN_XENONOTICE("[src] is occupied by a child."))
+			to_chat(xeno, SPAN_XENONOTICE("$1 is occupied by a child.", list(declent_ru()))) // SS220 EDIT ADDICTION
 			return XENO_NO_DELAY_ACTION
 
 	if((!xeno.acid_level || trap_type == RESIN_TRAP_GAS) && trap_type != RESIN_TRAP_EMPTY)
@@ -244,7 +244,7 @@
 		return
 	var/obj/item/clothing/mask/facehugger/FH = W
 	if(FH.stat == DEAD)
-		to_chat(user, SPAN_XENOWARNING("You can't put a dead facehugger in [src]."))
+		to_chat(user, SPAN_XENOWARNING("You can't put a dead facehugger in $1.", list(declent_ru()))) // SS220 EDIT ADDICTION
 	else
 		var/mob/living/carbon/xenomorph/X = user
 		if (!istype(X))
@@ -262,7 +262,7 @@
 			return
 
 		set_state(RESIN_TRAP_HUGGER)
-		to_chat(user, SPAN_XENONOTICE("You place a facehugger in [src]."))
+		to_chat(user, SPAN_XENONOTICE("You place a facehugger in $1.", list(declent_ru()))) // SS220 EDIT ADDICTION
 		qdel(FH)
 
 /obj/effect/alien/resin/trap/healthcheck()

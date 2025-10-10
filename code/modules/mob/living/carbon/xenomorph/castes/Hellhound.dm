@@ -168,7 +168,7 @@
 	var/mob/living/carbon = target_living
 	var/mob/living/carbon/xenomorph/hellhound/hellhound_gorger = owner
 
-	hellhound_gorger.visible_message(SPAN_XENODANGER("[hellhound_gorger] gorges at [carbon] with it's spikes."))
+	hellhound_gorger.visible_message(SPAN_XENODANGER("$1 gorges at $2 with it's spikes.", list(hellhound_gorger, carbon))) // SS220 EDIT ADDICTION
 	carbon.apply_armoured_damage(gorge_damage, BRUTE)
 	playsound(hellhound_gorger, "giant_lizard_growl", 30)
 	playsound(carbon, "alien_bite", 30)
@@ -190,9 +190,9 @@
 		return
 
 	for(var/mob/living/carbon/viewer in orange(xeno, 5))
-		to_chat(viewer, SPAN_WARNING("[xeno] sniffs the ground in a hurry."))
+		to_chat(viewer, SPAN_WARNING("$1 sniffs the ground in a hurry.", list(xeno))) // SS220 EDIT ADDICTION
 		to_chat(xeno, SPAN_XENOWARNING("You sniff the ground in a hurry to find where your master is."))
-		to_chat(xeno, SPAN_XENOWARNING("Your owner is [dist] meters to the [dir2text(direction)]"))
+		to_chat(xeno, SPAN_XENOWARNING("Your owner is $1 meters to the $2", list(dist, dir2text(direction)))) // SS220 EDIT ADDICTION
 
 	apply_cooldown()
 	..()

@@ -165,7 +165,7 @@
 	XENO_ACTION_CHECK_USE_PLASMA(xeno)
 
 	playsound(xeno, 'sound/voice/deep_alien_screech2.ogg', 75, 0, status = 0)
-	xeno.visible_message(SPAN_XENOHIGHDANGER("[xeno] emits a raspy guttural roar!"))
+	xeno.visible_message(SPAN_XENOHIGHDANGER("$1 emits a raspy guttural roar!", list(xeno))) // SS220 EDIT ADDICTION
 	xeno.create_shriekwave()
 
 	var/datum/effect_system/smoke_spread/king_doom/smoke_gas = new()
@@ -312,7 +312,7 @@
 				return
 
 	if(!check_and_use_plasma_owner())
-		to_chat(xeno, SPAN_XENONOTICE("We don't have enough plasma to use [name]."))
+		to_chat(xeno, SPAN_XENONOTICE("We don't have enough plasma to use $1.", list(name))) // SS220 EDIT ADDICTION
 		return
 
 	var/turf/template_turf = get_step(target_turf, SOUTHWEST)

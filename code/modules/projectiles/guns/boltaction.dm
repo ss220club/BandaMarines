@@ -135,8 +135,8 @@
 	user.drop_inv_item_to_loc(magazine, src) //Click!
 	current_mag = magazine
 	replace_ammo(user,magazine)
-	user.visible_message(SPAN_NOTICE("[user] loads [magazine] into [src]!"),
-		SPAN_NOTICE("You load [magazine] into [src]!"), null, 3, CHAT_TYPE_COMBAT_ACTION)
+	user.visible_message(SPAN_NOTICE("$1 loads $2 into $3!", list(user, magazine.declent_ru(), declent_ru(ACCUSATIVE))), // SS220 EDIT ADDICTION
+		SPAN_NOTICE("You load $1 into $2!", list(magazine.declent_ru(), declent_ru(ACCUSATIVE))), null, 3, CHAT_TYPE_COMBAT_ACTION) // SS220 EDIT ADDICTION
 	if(reload_sound)
 		playsound(user, reload_sound, 25, 1, 5)
 

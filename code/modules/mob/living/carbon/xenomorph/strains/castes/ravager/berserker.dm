@@ -135,8 +135,8 @@
 		return original_damage
 
 	if (next_slash_buffed)
-		to_chat(bound_xeno, SPAN_XENOHIGHDANGER("We significantly strengthen our attack, slowing [A]!"))
-		to_chat(A, SPAN_XENOHIGHDANGER("You feel a sharp pain as [bound_xeno] slashes you, slowing you down!"))
+		to_chat(bound_xeno, SPAN_XENOHIGHDANGER("We significantly strengthen our attack, slowing $1!", list(A))) // SS220 EDIT ADDICTION
+		to_chat(A, SPAN_XENOHIGHDANGER("You feel a sharp pain as $1 slashes you, slowing you down!", list(bound_xeno))) // SS220 EDIT ADDICTION
 		A.apply_effect(get_xeno_stun_duration(A, slash_slow_duration), SLOW)
 		next_slash_buffed = FALSE
 
@@ -296,9 +296,9 @@
 	apply_cooldown()
 
 	if (range > 1)
-		xeno.visible_message(SPAN_XENOHIGHDANGER("[xeno] begins digging in for a massive strike!"), SPAN_XENOHIGHDANGER("We begin digging in for a massive strike!"))
+		xeno.visible_message(SPAN_XENOHIGHDANGER("$1 begins digging in for a massive strike!", list(xeno)), SPAN_XENOHIGHDANGER("We begin digging in for a massive strike!")) // SS220 EDIT ADDICTION
 	else
-		xeno.visible_message(SPAN_XENODANGER("[xeno] begins digging in for a strike!"), SPAN_XENOHIGHDANGER("We begin digging in for a strike!"))
+		xeno.visible_message(SPAN_XENODANGER("$1 begins digging in for a strike!", list(xeno)), SPAN_XENOHIGHDANGER("We begin digging in for a strike!")) // SS220 EDIT ADDICTION
 
 	ADD_TRAIT(xeno, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Eviscerate"))
 	xeno.anchored = TRUE
@@ -321,12 +321,12 @@
 				continue
 
 			if (range > 1)
-				xeno.visible_message(SPAN_XENOHIGHDANGER("[xeno] rips open the guts of [targets_to_hit]!"), SPAN_XENOHIGHDANGER("We rip open the guts of [targets_to_hit]!"))
+				xeno.visible_message(SPAN_XENOHIGHDANGER("$1 rips open the guts of $2!", list(xeno, targets_to_hit)), SPAN_XENOHIGHDANGER("We rip open the guts of $1!", list(targets_to_hit)))
 				targets_to_hit.spawn_gibs()
 				playsound(get_turf(targets_to_hit), 'sound/effects/gibbed.ogg', 30, 1)
 				targets_to_hit.apply_effect(get_xeno_stun_duration(targets_to_hit, 1), WEAKEN)
 			else
-				xeno.visible_message(SPAN_XENODANGER("[xeno] claws [targets_to_hit]!"), SPAN_XENODANGER("We claw [targets_to_hit]!"))
+				xeno.visible_message(SPAN_XENODANGER("$1 claws $2!", list(xeno, targets_to_hit)), SPAN_XENODANGER("We claw $1!", list(targets_to_hit))) // SS220 EDIT ADDICTION
 				playsound(get_turf(targets_to_hit), "alien_claw_flesh", 30, 1)
 
 			targets_to_hit.apply_armoured_damage(get_xeno_damage_slash(targets_to_hit, damage), ARMOR_MELEE, BRUTE, "chest", 20)

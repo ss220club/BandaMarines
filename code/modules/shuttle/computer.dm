@@ -52,7 +52,7 @@
 		return
 
 	if(!isqueen(usr) && !allowed(usr))
-		to_chat(usr, SPAN_DANGER("Access denied."))
+		to_chat(usr, SPAN_DANGER("Доступ запрещён."))
 		return TRUE
 
 	if(href_list["move"])
