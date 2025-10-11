@@ -14,7 +14,7 @@
 // SS220 ADD END - TTS
 
 //xenomorph hive announcement
-/proc/xeno_announcement(message, hivenumber, title = QUEEN_ANNOUNCE)
+/proc/xeno_announcement(message, hivenumber, title = QUEEN_ANNOUNCE, announcer = TTS_QUEEN_MOTHER_ANNOUNCER)
 	var/list/targets = GLOB.living_xeno_list + GLOB.dead_mob_list
 	if(hivenumber == "everything")
 		for(var/mob/M in targets)
@@ -22,7 +22,7 @@
 			if(!isobserver(X) && !istype(X)) //filter out any potential non-xenomorphs/observers mobs
 				targets.Remove(X)
 
-		announcement_helper(message, title, targets, sound(get_sfx("queen"),wait = 0,volume = 50), announcer = TTS_QUEEN_MOTHER_ANNOUNCER) // SS220 EDIT - TTS
+		announcement_helper(message, title, targets, sound(get_sfx("queen"),wait = 0,volume = 50), announcer = announcer) // SS220 EDIT - TTS
 	else
 		for(var/mob/M in targets)
 			if(isobserver(M))
@@ -31,7 +31,7 @@
 			if(!istype(X) || !X.ally_of_hivenumber(hivenumber)) //additionally filter out those of wrong hive
 				targets.Remove(X)
 
-		announcement_helper(message, title, targets, sound(get_sfx("queen"),wait = 0,volume = 50), announcer = TTS_QUEEN_MOTHER_ANNOUNCER) // SS220 EDIT - TTS
+		announcement_helper(message, title, targets, sound(get_sfx("queen"),wait = 0,volume = 50), announcer = announcer) // SS220 EDIT - TTS
 
 
 //general marine announcement
@@ -84,7 +84,7 @@
 	if(!isnull(signature))
 		message += "<br><br><i> Авторизация, <br> [signature]</i>"
 
-	announcement_helper(message, title, targets, sound_to_play, announcer) // SS220 EDIT - TTS
+	announcement_helper(message, title, targets, sound_to_play, announcer = announcer) // SS220 EDIT - TTS
 
 //AI announcement that uses talking into comms
 /proc/ai_announcement(message, sound_to_play = sound('sound/misc/interference.ogg'), logging = ARES_LOG_MAIN)
@@ -120,7 +120,7 @@
 
 //AI shipside announcement, that uses announcement mechanic instead of talking into comms
 //to ensure that all humans on ship hear it regardless of comms and power
-/proc/shipwide_ai_announcement(message, title = MAIN_AI_SYSTEM, sound_to_play = sound('sound/misc/interference.ogg'), signature, ares_logging = ARES_LOG_MAIN, quiet = FALSE)
+/proc/shipwide_ai_announcement(message, title = MAIN_AI_SYSTEM, sound_to_play = sound('sound/misc/interference.ogg'), signature, ares_logging = ARES_LOG_MAIN, quiet = FALSE, announcer = TTS_ARES_ANNOUNCER) // BANDAMARINES EDIT - ORIGINAL: /proc/shipwide_ai_announcement(message, title = MAIN_AI_SYSTEM, sound_to_play = sound('sound/misc/interference.ogg'), signature, ares_logging = ARES_LOG_MAIN, quiet = FALSE)
 	var/list/targets = GLOB.human_mob_list + GLOB.dead_mob_list
 	for(var/mob/target as anything in targets)
 		if(isobserver(target))
@@ -137,7 +137,7 @@
 		if(ARES_LOG_SECURITY)
 			log_ares_security(title, message, signature)
 
-	announcement_helper(message, title, targets, sound_to_play, quiet, TTS_ARES_ANNOUNCER) // SS220 EDIT - TTS
+	announcement_helper(message, title, targets, sound_to_play, quiet, announcer = announcer) // SS220 EDIT - TTS
 
 /proc/all_hands_on_deck(message, title = MAIN_AI_SYSTEM, sound_to_play = sound('sound/misc/sound_misc_boatswain.ogg'))
 	shipwide_ai_announcement(message, title, sound_to_play, null, ARES_LOG_MAIN, FALSE)
