@@ -35,7 +35,7 @@
 
 
 //general marine announcement
-/proc/marine_announcement(message, title = COMMAND_ANNOUNCE, sound_to_play = sound('sound/misc/notice2.ogg'), faction_to_display = FACTION_MARINE, add_PMCs = FALSE, signature, logging = ARES_LOG_MAIN)
+/proc/marine_announcement(message, title = COMMAND_ANNOUNCE, sound_to_play = sound('sound/misc/notice2.ogg'), faction_to_display = FACTION_MARINE, add_PMCs = FALSE, signature, logging = ARES_LOG_MAIN, announcer = TTS_ARES_ANNOUNCER) // BANDAMARINES EDIT - ORIGINAL: /proc/marine_announcement(message, title = COMMAND_ANNOUNCE, sound_to_play = sound('sound/misc/notice2.ogg'), faction_to_display = FACTION_MARINE, add_PMCs = FALSE, signature, logging = ARES_LOG_MAIN)
 	var/list/targets = GLOB.human_mob_list + GLOB.dead_mob_list
 	if(faction_to_display == FACTION_MARINE)
 		for(var/mob/M in targets)
@@ -84,7 +84,7 @@
 	if(!isnull(signature))
 		message += "<br><br><i> Авторизация, <br> [signature]</i>"
 
-	announcement_helper(message, title, targets, sound_to_play, announcer = TTS_ARES_ANNOUNCER) // SS220 EDIT - TTS
+	announcement_helper(message, title, targets, sound_to_play, announcer) // SS220 EDIT - TTS
 
 //AI announcement that uses talking into comms
 /proc/ai_announcement(message, sound_to_play = sound('sound/misc/interference.ogg'), logging = ARES_LOG_MAIN)
