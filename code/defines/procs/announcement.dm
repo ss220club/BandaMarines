@@ -15,7 +15,7 @@
 // SS220 ADD END - TTS
 
 //xenomorph hive announcement
-/proc/xeno_announcement(message, hivenumber, title = QUEEN_ANNOUNCE, announcer = TTS_QUEEN_MOTHER_ANNOUNCER)
+/proc/xeno_announcement(message, hivenumber, title = QUEEN_ANNOUNCE, announcer = TTS_QUEEN_MOTHER_ANNOUNCER) // BANDAMARINES EDIT - ORIGINAL: proc/xeno_announcement(message, hivenumber, title = QUEEN_ANNOUNCE)
 	var/list/targets = GLOB.living_xeno_list + GLOB.dead_mob_list
 	if(hivenumber == "everything")
 		for(var/mob/M in targets)
