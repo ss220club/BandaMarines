@@ -11,6 +11,7 @@
 #define TTS_DEFAULT_ANNOUNCER new /datum/announcer
 #define TTS_ARES_ANNOUNCER new /datum/announcer/ares
 #define TTS_QUEEN_MOTHER_ANNOUNCER new /datum/announcer/queen_mother
+#define TTS_SILENT_ANNOUNCER new /datum/announcer/silent
 // SS220 ADD END - TTS
 
 //xenomorph hive announcement
