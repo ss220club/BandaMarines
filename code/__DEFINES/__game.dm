@@ -20,20 +20,20 @@
 
 
 #define MAP_ICE_COLONY "Ice Colony" // Highpop only
-#define MAP_LV_624 "LV-624"
-#define MAP_BIG_RED "Solaris Ridge"
+#define MAP_LV_624 "LV-624 «Пристань Лазаря»"
+#define MAP_BIG_RED "LV-1413 «Солярис-Ридж»"
 #define MAP_PRISON_STATION "Fiorina Cellblocks"
-#define MAP_PRISON_STATION_V3 "Fiorina Science Annex"
-#define MAP_WHISKEY_OUTPOST "Whiskey Outpost" // Unused
-#define MAP_DESERT_DAM "Trijent Dam"  // Highpop only
-#define MAP_SOROKYNE_STRATA "Sorokyne Strata"
+#define MAP_PRISON_STATION_V3 "Орбитальная тюрьма «Фиорина»"
+#define MAP_WHISKEY_OUTPOST "Аванпост «Виски»" // Unused
+#define MAP_DESERT_DAM "LV-670 Плотина «Триджент»"  // Highpop only
+#define MAP_SOROKYNE_STRATA "LV-976 «Сорокино Страта»"
 #define MAP_CORSAT "CORSAT" // Highpop only
-#define MAP_KUTJEVO "Kutjevo Refinery"
-#define MAP_ICE_COLONY_V3 "Shivas Snowball" //Ice Rework, low pop enabled.
+#define MAP_KUTJEVO "LV-686 Завод «Куджево»"
+#define MAP_ICE_COLONY_V3 "LV-343 «Шивас Сноуболл»" //Ice Rework, low pop enabled.
 #define MAP_RUNTIME "USS Runtime"
-#define MAP_LV522_CHANCES_CLAIM "LV-522 Chance's Claim"
-#define MAP_LV759_HYBRISA_PROSPERA "LV-759 Hybrisa Prospera" // Highpop Only
-#define MAP_NEW_VARADERO "New Varadero"//ice colony underground but as its own map
+#define MAP_LV522_CHANCES_CLAIM "LV-522 «Новая Надежда»"
+#define MAP_LV759_HYBRISA_PROSPERA "LV-759 «Гибриза Проспера»" // Highpop Only
+#define MAP_NEW_VARADERO "«Нью-Варадеро»"//ice colony underground but as its own map
 #define MAP_CHINOOK "Chinook 91 GSO" //admin level
 #define MAP_ROSTOCK "SSV Rostock" //UPP Warship
 
