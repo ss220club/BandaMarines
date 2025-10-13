@@ -44,12 +44,12 @@ export const OrbitalCannonConsole = () => {
   return (
     <Window width={500} height={500}>
       <Window.Content scrollable>
-        <Section title="Warhead status">
+        <Section title="Статус боеголовки">
           {(!!data.warhead && (
-            <NoticeBox info>{data.warhead} loaded!</NoticeBox>
-          )) || <NoticeBox danger>No warhead loaded!</NoticeBox>}
+            <NoticeBox info>{data.warhead} загружена!</NoticeBox>
+          )) || <NoticeBox danger>Боеголовка не загружена!</NoticeBox>}
         </Section>
-        <Section title="Fuel status">
+        <Section title="Статус топлива">
           <Box textAlign="center">
             <ProgressBar
               width="100%"
@@ -59,26 +59,28 @@ export const OrbitalCannonConsole = () => {
                 good: [0.51, Infinity],
               }}
             >
-              <Box textAlign="center">{data.fuel} Fuel Blocks loaded</Box>
+              <Box textAlign="center">
+                {data.fuel} бака с твёрдым топливом загружено
+              </Box>
             </ProgressBar>
           </Box>
           <Divider />
-          <Collapsible title="Fuel Requirements">
+          <Collapsible title="Требования к топливу">
             <Box>
-              Warhead Fuel Requirements:
+              Требования к топливу для боеголовок:
               <br />
-              HE Orbital Warhead:
-              <b> {data.hefuel} Solid Fuel blocks.</b>
+              Фугасная орбитальная боеголовка:
+              <b> {data.hefuel} бака с твёрдым топливом.</b>
               <br />
-              Incendiary Orbital Warhead:
-              <b> {data.incfuel} Solid Fuel blocks.</b>
+              Зажигательная орбитальная боеголовка:
+              <b> {data.incfuel} бака с твёрдым топливом.</b>
               <br />
-              Cluster Orbital Warhead:
-              <b> {data.clusterfuel} Solid Fuel blocks.</b>
+              Кластерная орбитальная боеголовка:
+              <b> {data.clusterfuel} бака с твёрдым топливом.</b>
             </Box>
           </Collapsible>
         </Section>
-        <Section title="Tray status">
+        <Section title="Статус лотка">
           {timeLeft > 0 && (
             <ProgressBar
               width="100%"
@@ -90,8 +92,8 @@ export const OrbitalCannonConsole = () => {
               }}
             >
               <Box textAlign="center">
-                {Math.ceil(timeLeft / 10)} seconds until the cannon can be
-                chambered!
+                {Math.ceil(timeLeft / 10)} секунд до того, как пушка будет
+                готова к зарядке!
               </Box>
             </ProgressBar>
           )}
@@ -105,7 +107,7 @@ export const OrbitalCannonConsole = () => {
               color="good"
               onClick={() => act('load_tray')}
             >
-              Load tray
+              Загрузить лоток
             </Button>
           )) || (
             <Box>
@@ -118,11 +120,11 @@ export const OrbitalCannonConsole = () => {
                   color="good"
                   onClick={() => act('unload_tray')}
                 >
-                  Unload tray
+                  Выгрузить лоток
                 </Button>
               )) || (
                 <NoticeBox fontSize="15px" textAlign="center" danger>
-                  The tray is chambered, you cannot unchamber it.
+                  Лоток находится в патроннике, вы не можете его выгрузить.
                 </NoticeBox>
               )}
             </Box>
@@ -135,19 +137,19 @@ export const OrbitalCannonConsole = () => {
               fluid
               icon="sign-in-alt"
               color="good"
-              confirmContent="You cannot unchamber the tray. Confirm?"
+              confirmContent="Вы не сможете выгрузить лоток. Уверены?"
               onClick={() => act('chamber_tray')}
             >
-              Chamber tray
+              Дослать лоток
             </Button.Confirm>
           )}
         </Section>
         {(!data.linkedtray || !data.linkedcannon || !!data.disabled) && (
           <Dimmer fontSize="32px">
             <Icon name="exclamation-triangle" />
-            {!data.linkedtray && ' No tray linked to console!'}
-            {!data.linkedcannon && ' No cannon linked to console!'}
-            {!!data.disabled && '  Cannon disabled!'}
+            {!data.linkedtray && ' Лоток не подключен к консоли!'}
+            {!data.linkedcannon && ' Пушка не подключена к консоли!'}
+            {!!data.disabled && '  Пушка отключена!'}
           </Dimmer>
         )}
       </Window.Content>

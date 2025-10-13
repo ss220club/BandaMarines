@@ -140,12 +140,12 @@
 
 
 /obj/item/book/manual/orbital_cannon_manual
-	name = "USCM Orbital Bombardment System Manual"
-	desc = "This book contains instructions on how to operate a standard-issue United States Colonial Marines Orbital Artillery Cannon."
+	name = "Руководство по системе орбитальной бомбардировки ККМП"
+	desc = "Эта книга содержит инструкции по эксплуатации стандартной орбитальной артиллерийской установки ККМП."
 	icon_state = "book_engineering2"
 	item_state = "book_engineering2"
-	author = "Colonial Marines Engineer Association"
-	title = "USCM Orbital Bombardment System Manual"
+	author = "Ассоциация инженеров колониальных морских пехотинцев"
+	title = "Руководство по системе орбитальной бомбардировки ККМП"
 
 	dat = {"<html>
 				<head>
@@ -160,32 +160,32 @@
 				</head>
 				<body>
 
-				<h1>Guide to the USCM Orbital Bombardment System</h1>
+				<h1>Руководство по системе орбитальной бомбардировки ККМП</h1>
 
-				<h2>Step by step instructions:</h2>
+				<h2>Пошаговые инструкции:</h2>
 				<ol>
-					<li>Load a warhead in the Orbital Cannon Tray (Powerloader required).</li>
-					<li>Load the required amount of solid fuel in the Orbital Cannon Tray <b>(See Orbital Cannon Console)</b>.</li>
-					<li>Open the Orbital Cannon Console's interface.</li>
-					<li>Load the Tray into the Cannon.</li>
-					<li>Chamber the Tray's content into the cannon barrel. <b>(can't be undone!)</b></li>
-					<li>The CIC staff can now fire the Orbital Cannon from any overwatch console.</li>
-					<li>After firing, unload the Tray from the Orbital Cannon.</li>
-					<li>Inspect the Tray to make sure it is empty and operational.</li>
+					<li>Загрузите боеголовку в загрузочный лоток орбитальной пушки (требуется подъемник).</li>
+					<li>Загрузите необходимое количество твердого топлива в загрузочный лоток орбитальной пушки <b>(См. консоль орбитальной пушки)</b>.</li>
+					<li>Откройте интерфейс консоли орбитальной пушки.</li>
+					<li>Загрузите лоток в пушку.</li>
+					<li>Дошлите содержимое лотка в патронник пушки. <b>(это нельзя отменить!)</b></li>
+					<li>Теперь сотрудники КИК-а могут стрелять из орбитальной пушки с любой консоли наблюдения.</li>
+					<li>После выстрела выгрузите лоток из орбитальной пушки.</li>
+					<li>Проверьте лоток, чтобы убедиться, что он пуст и исправен.</li>
 				</ol>
 
-				<h2>Troubleshooting:</h2>
+				<h2>Устранение неполадок:</h2>
 
 				<ul>
-					<li>If you've loaded a tray with an incorrect payload, you can still unload the tray's payload as long as it hasn't been chambered.</li>
-					<li>If an incorrect payload is chambered, it can only be removed by firing it.</li>
-					<li>If the Orbital Cannon Console has no power, check the Weapon Control Room's APC.</li>
-					<li>If the Orbital Cannon Console is broken, contact USCM HQ for a replacement.</li>
-					<li>In case of direct damage to the Orbital Cannon itself, do not attempt to use or repair the cannon.</li>
-					<li>In case of hull breach or fire, make sure to remove the Cannon's payload and move it to a safe location.</li>
-					<li>If the Orbital Tray jams, apply lubricant to the conveyor belt.</li>
-					<li>If a cable of the Orbital Cannon System is severed, contact USCM HQ for a replacement.</li>
-					<li>If the Cannon's cable connector breaks, turn off the Orbital Cannon Console and contact USCM HQ for a replacement.</li>
+					<li>Если вы загрузили лоток с неправильной боевой частью, вы все равно можете выгрузить его содержимое, если оно ещё не было дослано в патронник.</li>
+					<li>Если неправильная боеголовка была помещена в патронник, ее можно убрать только выстрелом.</li>
+					<li>Если консоль орбитальной пушки не работает, проверьте АПЦ в комнате управления оружием.</li>
+					<li>Если консоль орбитальной пушки сломана, свяжитесь с Высшим командованием ККМП для получения замены.</li>
+					<li>В случае прямого повреждения самой орбитальной пушки не пытайтесь использовать или ремонтировать пушку.</li>
+					<li>В случае разгерметизации корпуса или пожара убедитесь, что вы удалили боевую часть пушки и переместили ее в безопасное место.</li>
+					<li>Если лоток орбитальной пушки заедает, нанесите смазку на конвейерную ленту.</li>
+					<li>Если кабель системы орбитальной пушки поврежден, свяжитесь с Высшим командованием ККМП США для получения замены.</li>
+					<li>Если разъем кабеля пушки сломается, выключите консоль орбитальной пушки и свяжитесь с Высшим командованием ККМП США для получения замены.</li>
 				</ul>
 
 			</body>
