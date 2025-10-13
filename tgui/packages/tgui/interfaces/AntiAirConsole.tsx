@@ -40,11 +40,11 @@ const GeneralPanel = (props) => {
     <Section fill>
       {(!!data.protecting_section && (
         <NoticeBox info textAlign="center">
-          Currently tracking : {data.protecting_section}
+          В настоящее время отслеживается : {data.protecting_section}
         </NoticeBox>
       )) || (
         <NoticeBox danger textAlign="center">
-          Warning! AA Cannon not active!
+          Внимание! Системы ПВО не активны!
         </NoticeBox>
       )}
       <Stack vertical fill>
@@ -78,14 +78,14 @@ const GeneralPanel = (props) => {
             </Tabs>
           </Section>
         </Stack.Item>
-        <Stack.Item height="60px">
+        <Stack.Item height="80px">
           <Button
             color="good"
             fluid
             textAlign="center"
             onClick={() => act('protect', { section_id: selectedSection })}
           >
-            Set as section to track
+            Установить как отслеживаемую секцию
           </Button>
           {!!data.protecting_section && (
             <Button.Confirm
@@ -94,7 +94,7 @@ const GeneralPanel = (props) => {
               textAlign="center"
               onClick={() => act('deactivate')}
             >
-              Stop tracking
+              Прекратить отслеживание
             </Button.Confirm>
           )}
         </Stack.Item>
@@ -102,7 +102,7 @@ const GeneralPanel = (props) => {
       {!!data.disabled && (
         <Dimmer fontSize="32px">
           <Icon name="exclamation-triangle" />
-          {' AA disabled!'}
+          {' ПВО отключено!'}
         </Dimmer>
       )}
     </Section>
