@@ -6,7 +6,7 @@ GLOBAL_LIST(ob_type_fuel_requirements)
 
 /obj/structure/orbital_cannon
 	name = "\improper Орбитальная пушка"
-	desc = "Орбитальная Пушечная Система ККМП США. Используется для стрельбы боеголовками по планетам, вокруг которых она вращается. Она ускоряет свою нагрузку с помощью твёрдого топлива для разрушительных последствий при столкновении."
+	desc = "Орбитальная пушечная система ККМП США. Используется для стрельбы по крупным целям на поверхности планеты. Ускоряет боевую нагрузку твёрдым топливом для достижения разрушительного эффекта при попадании."
 	icon = 'icons/effects/128x128.dmi'
 	icon_state = "OBC_unloaded"
 	density = TRUE
@@ -161,12 +161,12 @@ GLOBAL_LIST(ob_type_fuel_requirements)
 
 	if(tray.fuel_amt < 1)
 		if(user)
-			to_chat(user, SPAN_WARNING("В лотке нет твердого топлива, операция заряжания отменена."))
+			to_chat(user, SPAN_WARNING("В лотке нет твёрдого топлива, операция заряжания отменена."))
 		return
 
 	if(!COOLDOWN_FINISHED(src, ob_chambering_cooldown)) //fired at least once
 		if(user)
-			to_chat(user, SPAN_WARNING("[src] cтвол еще слишком горячий, дайте ему остыть в течение [COOLDOWN_TIMELEFT(src, ob_chambering_cooldown)/10] секунд."))
+			to_chat(user, SPAN_WARNING("[src] cтвол ещё слишком горячий, дайте ему остыть в течение [COOLDOWN_TIMELEFT(src, ob_chambering_cooldown)/10] секунд."))
 		return
 
 	flick("OBC_chambering",src)
@@ -311,7 +311,7 @@ GLOBAL_LIST_EMPTY(orbital_cannon_cancellation)
 			var/obj/structure/ob_ammo/OA = PC.loaded
 			if(OA.is_solid_fuel)
 				if(fuel_amt >= 6)
-					to_chat(user, SPAN_WARNING("\The [src] не может принимать больше твердого топлива."))
+					to_chat(user, SPAN_WARNING("\The [src] не может принимать больше твёрдого топлива."))
 					return TRUE
 				if(!warhead)
 					to_chat(user, SPAN_WARNING("Боеголовка должна быть сначала помещена в \the [src]."))
@@ -321,7 +321,7 @@ GLOBAL_LIST_EMPTY(orbital_cannon_cancellation)
 				qdel(OA)
 			else
 				if(warhead)
-					to_chat(user, SPAN_WARNING("\The [src] уже имеет \the [warhead] загруженной."))
+					to_chat(user, SPAN_WARNING("В \the [src] уже загружена \the [warhead]."))
 					return TRUE
 				else
 					to_chat(user, SPAN_NOTICE("Вы загружаете \the [OA] в \the [src]."))
