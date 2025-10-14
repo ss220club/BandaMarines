@@ -1432,3 +1432,23 @@
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
+
+
+// Landing Zone 3
+
+/area/lv759/outdoors/landing_zone_3
+	name = "the landing area near the fields"
+	icon_state = "mining_lz2"
+	is_resin_allowed =  FALSE
+	is_landing_zone = TRUE
+	minimap_color = MINIMAP_AREA_LZ
+	ceiling = CEILING_NONE
+	linked_lz = DROPSHIP_LZ2
+
+// Outside the walls of the city
+
+/area/lv759/outdoors/Outside_city
+	name = "Outside the walls of the city"
+	icon_state = "colonystreets_north"
+	ceiling = CEILING_NONE
+	minimap_color = MINIMAP_AREA_COLONY_STREETS
