@@ -90,6 +90,7 @@ Defined in conflicts.dm of the #defines folder.
 	var/list/list/traits_to_give
 	/// List of traits to be given to the gun itself.
 	var/list/gun_traits
+	var/hotkey_id // SS220 EDIT ADDICTION
 
 /obj/item/attachable/Initialize(mapload, ...)
 	. = ..()
@@ -277,6 +278,20 @@ Defined in conflicts.dm of the #defines folder.
 	gun_traits = list(TRAIT_GUN_SILENCED)
 
 /obj/item/attachable/suppressor/New()
+	..()
+	damage_falloff_mod = 0.1
+
+/obj/item/attachable/suppressor/sleek
+	name = "compact suppressor"
+	desc = "A lightweight, low-profile suppressor designed specifically for SMGs and sidearms. It dampens sound and muzzle flash while marginally improving stability and accuracy, though it slightly reduces projectile velocity and terminal damage."
+	icon_state = "suppressor_sleek"
+	slot = "muzzle"
+	pixel_shift_y = 15
+	attach_icon = "suppressor_sleek_a"
+	hud_offset_mod = -3
+	gun_traits = list(TRAIT_GUN_SILENCED_ALT)
+
+/obj/item/attachable/suppressor/sleek/New()
 	..()
 	damage_falloff_mod = 0.1
 
@@ -507,6 +522,51 @@ Defined in conflicts.dm of the #defines folder.
 	accuracy_mod = HIT_ACCURACY_MULT_TIER_4
 	velocity_mod = AMMO_SPEED_TIER_1
 
+/obj/item/attachable/extended_barrel/vented
+	name = "AB-RVX extended compensator"
+	desc = "A precision-engineered vented barrel extension used by various UA forces. Greatly improves accuracy, muzzle control, and projectile velocity, but reduces terminal damage due to pressure venting."
+	desc_lore = "Designed by Armat Battlefield Systems under contract for the United Americas Colonial Marine Corps, the AB-RVX compensator is a general-purpose muzzle device intended primarily for rifles such as the M41A, though it has also been adapted for smaller-caliber weapons like the M39 submachine gun and the M10 auto pistol. Its extended ported design effectively reduces recoil and muzzle rise, enhancing shot stability and control during sustained fire. While the aggressive gas redirection slightly decreases impact force, the compensator improves overall accuracy. Due to its specialized application and manufacturing complexity."
+	slot = "muzzle"
+	icon = 'icons/obj/items/weapons/guns/attachments/barrel.dmi'
+	icon_state = "ebarrel_vented"
+	attach_icon = "ebarrel_vented_a"
+	pixel_shift_y = 15
+	hud_offset_mod = -3
+	wield_delay_mod = WIELD_DELAY_FAST
+
+/obj/item/attachable/extended_barrel/vented/Initialize(mapload, ...)
+	. = ..()
+	select_gamemode_skin(type)
+
+/obj/item/attachable/extended_barrel/vented/select_gamemode_skin(expected_type, list/override_icon_state, list/override_protection)
+	. = ..()
+	var/new_attach_icon
+	switch(SSmapping.configs[GROUND_MAP].camouflage_type)
+		if("snow")
+			attach_icon = new_attach_icon ? new_attach_icon : "s_" + attach_icon
+			. = TRUE
+		if("desert")
+			attach_icon = new_attach_icon ? new_attach_icon : "d_" + attach_icon
+			. = TRUE
+		if("classic")
+			attach_icon = new_attach_icon ? new_attach_icon : "c_" + attach_icon
+			. = TRUE
+		if("urban")
+			attach_icon = new_attach_icon ? new_attach_icon : "u_" + attach_icon
+			. = TRUE
+	return .
+
+/obj/item/attachable/extended_barrel/vented/New()
+	..()
+	accuracy_mod = HIT_ACCURACY_MULT_TIER_6
+	damage_mod = -BULLET_DAMAGE_MULT_TIER_2
+	recoil_mod = -RECOIL_AMOUNT_TIER_5
+
+	damage_falloff_mod = -0.1
+	accuracy_unwielded_mod = HIT_ACCURACY_MULT_TIER_6
+	recoil_unwielded_mod = -RECOIL_AMOUNT_TIER_5
+	velocity_mod = AMMO_SPEED_TIER_1
+
 /obj/item/attachable/heavy_barrel
 	name = "barrel charger"
 	desc = "A hyper threaded barrel extender that fits to the muzzle of most firearms. Increases bullet speed and velocity.\nGreatly increases projectile damage at the cost of accuracy and firing speed."
@@ -550,6 +610,93 @@ Defined in conflicts.dm of the #defines folder.
 	damage_falloff_mod = 0.1
 	accuracy_unwielded_mod = HIT_ACCURACY_MULT_TIER_4
 	recoil_unwielded_mod = -RECOIL_AMOUNT_TIER_4
+
+/obj/item/attachable/compensator/m10
+	name = "M10 extended recoil compensator"
+	desc = "A heavy, overbuilt compensator and barrel extension for the M10 Auto Pistol. Greatly improves recoil control during automatic fire, at the cost of bulk and handling. Definitely compensating for something, but brutally effective."
+	desc_lore = "A limited-production muzzle device developed by Armat Battlefield Systems. The compensator channels muzzle gases to counteract recoil and slightly increase bullet velocity through focused pressure, marginally improving ballistic performance."
+	slot = "muzzle"
+	icon = 'icons/obj/items/weapons/guns/attachments/barrel.dmi'
+	icon_state = "m10_overcomp"
+	attach_icon = "m10_overcomp_a"
+	pixel_shift_x = 17
+	hud_offset_mod = -3
+
+/obj/item/attachable/compensator/m10/New()
+	..()
+	accuracy_mod = HIT_ACCURACY_MULT_TIER_3
+	recoil_mod = -RECOIL_AMOUNT_TIER_4
+	accuracy_unwielded_mod = HIT_ACCURACY_MULT_TIER_4
+	recoil_unwielded_mod = -RECOIL_AMOUNT_TIER_4
+	damage_mod = BULLET_DAMAGE_MULT_TIER_1
+
+/obj/item/attachable/compensator/m10/Initialize(mapload, ...)
+	. = ..()
+	select_gamemode_skin(type)
+
+/obj/item/attachable/compensator/m10/select_gamemode_skin(expected_type, list/override_icon_state, list/override_protection)
+	. = ..()
+	var/new_attach_icon
+	switch(SSmapping.configs[GROUND_MAP].camouflage_type)
+		if("snow")
+			attach_icon = new_attach_icon ? new_attach_icon : "s_" + attach_icon
+			. = TRUE
+		if("desert")
+			attach_icon = new_attach_icon ? new_attach_icon : "d_" + attach_icon
+			. = TRUE
+		if("classic")
+			attach_icon = new_attach_icon ? new_attach_icon : "c_" + attach_icon
+			. = TRUE
+		if("urban")
+			attach_icon = new_attach_icon ? new_attach_icon : "u_" + attach_icon
+			. = TRUE
+	return .
+
+/obj/item/attachable/compensator/m10/spiked
+	name = "M10 extended spiked recoil compensator"
+	desc = "A brutally heavy, over-engineered compensator and barrel extension for the M10 Auto Pistol, tipped with a hardened spiked cap. Greatly improves recoil control during automatic fire—and turns the pistol into a nasty bludgeon in close quarters. Definitely compensating for something, but brutally effective."
+	desc_lore = "A rare prototype developed by Armat Battlefield Systems for a short-lived M10 close-quarters combat program. The compensator channels muzzle gases to counteract recoil and slightly increase bullet velocity through focused pressure, marginally increasing projectile force. The hardened spike cap provides a secondary striking option in confined engagements. Only a limited run was manufactured before the project was abandoned, making surviving units a rare and sought-after upgrade."
+	slot = "muzzle"
+	icon = 'icons/obj/items/weapons/guns/attachments/barrel.dmi'
+	icon_state = "m10_overcomp_spike"
+	attach_icon = "m10_overcomp_spike_a"
+	pixel_shift_x = 17
+	hud_offset_mod = -3
+	melee_mod = 20
+	sharp = IS_SHARP_ITEM_SIMPLE
+	force = MELEE_FORCE_STRONG
+	throwforce = MELEE_FORCE_WEAK
+	throw_speed = SPEED_VERY_FAST
+	throw_range = 6
+	hitsound = 'sound/weapons/spike_thunk.ogg'
+	attack_verb = list("bashed", "bludgeoned", "cracked", "smashed", "crushed", "pummeled", "spiked", "rammed")
+	attack_speed = 9
+
+/obj/item/attachable/compensator/m10/spiked/Attach(obj/item/weapon/gun/attaching_gun)
+	if(!istype(attaching_gun, /obj/item/weapon/gun))
+		return ..()
+	attaching_gun.hitsound = 'sound/weapons/spike_thunk.ogg'
+	melee_mod = 20
+	sharp = IS_SHARP_ITEM_SIMPLE
+	force = MELEE_FORCE_STRONG
+	hitsound = 'sound/weapons/spike_thunk.ogg'
+	attack_verb = list("bashed", "bludgeoned", "cracked", "smashed", "crushed", "pummeled", "spiked", "rammed")
+	attack_speed = 9
+	return ..()
+
+/obj/item/attachable/compensator/m10/spiked/Detach(mob/user, obj/item/weapon/gun/detaching_gun)
+	if(!istype(detaching_gun, /obj/item/weapon/gun))
+		return ..()
+	detaching_gun.hitsound = initial(detaching_gun.hitsound)
+	return ..()
+
+/obj/item/attachable/compensator/m10/spiked/New()
+	..()
+	accuracy_mod = HIT_ACCURACY_MULT_TIER_3
+	recoil_mod = -RECOIL_AMOUNT_TIER_4
+	accuracy_unwielded_mod = HIT_ACCURACY_MULT_TIER_4
+	recoil_unwielded_mod = -RECOIL_AMOUNT_TIER_4
+	damage_mod = BULLET_DAMAGE_MULT_TIER_1
 
 /obj/item/attachable/shotgun_choke
 	name = "shotgun choke"
@@ -675,12 +822,28 @@ Defined in conflicts.dm of the #defines folder.
 	icon_state = "reddot"
 	attach_icon = "reddot_a"
 	slot = "rail"
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_ATTACHMENT_RAIL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/reddot/New()
 	..()
 	accuracy_mod = HIT_ACCURACY_MULT_TIER_4
 	accuracy_unwielded_mod = HIT_ACCURACY_MULT_TIER_1
 	movement_onehanded_acc_penalty_mod = MOVEMENT_ACCURACY_PENALTY_MULT_TIER_5
+
+/obj/item/attachable/reddot/small
+	name = "S5-Micro dot sight"
+	desc = "A lightweight, low-profile dot optic designed for rapid target acquisition with minimal weight penalty. Optimized for submachine guns and sidearms, it's ideal for close-quarters combat where speed and agility matter most."
+	desc_lore = "Designated AN/PVQ-64(M), the Micro variant of the S5 collimator sight strips the platform down to essentials. With reduced bulk and weight, it's favored by scouts and boarding teams. Despite the mil-spec designation, it's little more than a civilian reflex sight rebranded with a price hike."
+	icon = 'icons/obj/items/weapons/guns/attachments/rail.dmi'
+	icon_state = "reddot_small"
+	attach_icon = "reddot_small_a"
+	slot = "rail"
+
+/obj/item/attachable/reddot/small/New()
+	..()
+	accuracy_mod = HIT_ACCURACY_MULT_TIER_3
+	accuracy_unwielded_mod = HIT_ACCURACY_MULT_TIER_1
+	movement_onehanded_acc_penalty_mod = MOVEMENT_ACCURACY_PENALTY_MULT_TIER_6
 
 /obj/item/attachable/reflex
 	name = "S6 reflex sight"
@@ -690,6 +853,7 @@ Defined in conflicts.dm of the #defines folder.
 	icon_state = "reflex"
 	attach_icon = "reflex_a"
 	slot = "rail"
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_ATTACHMENT_RAIL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/reflex/New()
 	..()
@@ -724,6 +888,7 @@ Defined in conflicts.dm of the #defines folder.
 
 	var/datum/action/item_action/activation
 	var/obj/item/attached_item
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_ATTACHMENT_RAIL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/flashlight/on_enter_storage(obj/item/storage/internal/S)
 	..()
@@ -854,6 +1019,7 @@ Defined in conflicts.dm of the #defines folder.
 	slot = "under"
 	original_state = "flashgrip"
 	original_attach = "flashgrip_a"
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/flashlight/grip/New()
 	..()
@@ -875,6 +1041,7 @@ Defined in conflicts.dm of the #defines folder.
 	slot = "under"
 	original_state = "vplaserlight"
 	original_attach = "vplaserlight_a"
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/flashlight/laser_light_combo/New()
 	..()
@@ -898,6 +1065,7 @@ Defined in conflicts.dm of the #defines folder.
 	slot = "rail"
 	pixel_shift_x = 13
 	var/retrieval_slot = WEAR_J_STORE
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_ATTACHMENT_RAIL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/magnetic_harness/New()
 	..()
@@ -927,6 +1095,7 @@ Defined in conflicts.dm of the #defines folder.
 	slot = "under"
 	wield_delay_mod = WIELD_DELAY_VERY_FAST
 	retrieval_slot = WEAR_BACK
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/magnetic_harness/lever_sling/New()
 	..()
@@ -970,6 +1139,7 @@ Defined in conflicts.dm of the #defines folder.
 	desc_lore = "An experimental fire-control optic capable of linking into compatible IFF systems on certain weapons, designated the XAN/PVG-110 Smart Scope. Experimental technology developed by Armat, who have assured that all previously reported issues with false-negative IFF recognitions have been solved. Make sure to check the sight after every deployment, just in case."
 	slot = "rail"
 	pixel_shift_y = 15
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_ATTACHMENT_RAIL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/alt_iff_scope/New()
 	..()
@@ -1012,6 +1182,7 @@ Defined in conflicts.dm of the #defines folder.
 	var/damage_falloff_scoped_buff
 	var/ignore_clash_fog = FALSE
 	var/using_scope
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_ATTACHMENT_RAIL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/scope/New()
 	..()
@@ -1091,6 +1262,7 @@ Defined in conflicts.dm of the #defines folder.
 	name = "S10 variable zoom telescopic scope"
 	desc = "An ARMAT S10 telescopic eye piece. Can be switched between 2x zoom, which allows the user to move while scoped in, and 4x zoom. Press the 'use rail attachment' HUD icon or use the verb of the same name to zoom."
 	attachment_action_type = /datum/action/item_action/toggle
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_ATTACHMENT_RAIL // SS220 EDIT ADDICTION
 	var/dynamic_aim_slowdown = SLOWDOWN_ADS_MINISCOPE_DYNAMIC
 	var/zoom_level = ZOOM_LEVEL_4X
 
@@ -1184,6 +1356,7 @@ Defined in conflicts.dm of the #defines folder.
 	allows_movement = TRUE
 	aim_speed_mod = 0
 	var/dynamic_aim_slowdown = SLOWDOWN_ADS_MINISCOPE_DYNAMIC
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_ATTACHMENT_RAIL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/scope/mini/New()
 	..()
@@ -1311,6 +1484,7 @@ Defined in conflicts.dm of the #defines folder.
 	var/spotter_spotting = FALSE
 	/// How much time it takes to adjust the position of the scope. Adjusting the offset will take half of this time
 	var/adjust_delay = 1 SECONDS
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_ATTACHMENT_RAIL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/vulture_scope/Initialize(mapload, ...)
 	. = ..()
@@ -1756,6 +1930,7 @@ Defined in conflicts.dm of the #defines folder.
 	var/stock_activated = TRUE
 	var/collapse_delay  = 0
 	var/list/deploy_message = list("collapse", "extend")
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
 
 /obj/item/attachable/stock/proc/apply_on_weapon(obj/item/weapon/gun/gun)
 	return TRUE
@@ -1804,6 +1979,7 @@ Defined in conflicts.dm of the #defines folder.
 	pixel_shift_x = 32
 	pixel_shift_y = 15
 	hud_offset_mod = 6 //*Very* long sprite.
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
 
 /obj/item/attachable/stock/shotgun/New()
 	..()
@@ -1839,6 +2015,7 @@ Defined in conflicts.dm of the #defines folder.
 	collapse_delay = 0.5 SECONDS
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION
 	attachment_action_type = /datum/action/item_action/toggle
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
 
 /obj/item/attachable/stock/synth/collapsible/New()
 	..()
@@ -1947,6 +2124,7 @@ Defined in conflicts.dm of the #defines folder.
 	pixel_shift_x = 32
 	pixel_shift_y = 15
 	hud_offset_mod = 2
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
 
 /obj/item/attachable/stock/double/New()
 	..()
@@ -1980,6 +2158,124 @@ Defined in conflicts.dm of the #defines folder.
 	scatter_mod = -SCATTER_AMOUNT_TIER_8
 	recoil_unwielded_mod = RECOIL_AMOUNT_TIER_5
 	scatter_unwielded_mod = SCATTER_AMOUNT_TIER_4
+
+/obj/item/attachable/stock/pistol/collapsible
+	name = "\improper M10 folding stock"
+	desc = "A collapsible stock custom-fitted for the M10 Auto Pistol. Enhances recoil control when deployed, while maintaining compactness for close-quarters use."
+	slot = "stock"
+	icon_state = "m10_folding"
+	attach_icon = "m10_folding_a"
+	pixel_shift_x = 40
+	pixel_shift_y = 14
+	hud_offset_mod = 3
+	collapsible = TRUE
+	stock_activated = FALSE
+	collapse_delay = 0.5 SECONDS
+	wield_delay_mod = WIELD_DELAY_NONE
+	flags_attach_features = ATTACH_REMOVABLE | ATTACH_ACTIVATION
+	attachment_action_type = /datum/action/item_action/toggle
+
+	var/base_icon = "m10_folding"
+
+/obj/item/attachable/stock/pistol/collapsible/New()
+	..()
+	select_gamemode_skin(type)
+	//it makes stuff much better when two-handed
+	accuracy_mod = HIT_ACCURACY_MULT_TIER_3
+	recoil_mod = -RECOIL_AMOUNT_TIER_4
+	scatter_mod = -SCATTER_AMOUNT_TIER_8
+	wield_delay_mod = WIELD_DELAY_FAST
+	delay_mod = 0
+	movement_onehanded_acc_penalty_mod = -MOVEMENT_ACCURACY_PENALTY_MULT_TIER_6
+	//it makes stuff much worse when one handed
+	accuracy_unwielded_mod = -HIT_ACCURACY_MULT_TIER_3
+	recoil_unwielded_mod = RECOIL_AMOUNT_TIER_4
+	scatter_unwielded_mod = SCATTER_AMOUNT_TIER_10
+	//but at the same time you are slowish when 2 handed
+	aim_speed_mod = CONFIG_GET(number/slowdown_low)
+
+/obj/item/attachable/stock/pistol/collapsible/apply_on_weapon(obj/item/weapon/gun/gun)
+	if (stock_activated)
+		accuracy_mod = HIT_ACCURACY_MULT_TIER_3
+		recoil_mod = -RECOIL_AMOUNT_TIER_4
+		scatter_mod = -SCATTER_AMOUNT_TIER_8
+		scatter_unwielded_mod = SCATTER_AMOUNT_TIER_10
+		size_mod = 1
+		aim_speed_mod = CONFIG_GET(number/slowdown_low)
+		wield_delay_mod = WIELD_DELAY_FAST
+		movement_onehanded_acc_penalty_mod = -MOVEMENT_ACCURACY_PENALTY_MULT_TIER_6
+		accuracy_unwielded_mod = -HIT_ACCURACY_MULT_TIER_3
+		recoil_unwielded_mod = RECOIL_AMOUNT_TIER_4
+	else
+		accuracy_mod = 0
+		recoil_mod = 0
+		scatter_mod = 0
+		movement_onehanded_acc_penalty_mod = 0
+		accuracy_unwielded_mod = 0
+		recoil_unwielded_mod = 0
+		scatter_unwielded_mod = 0
+		aim_speed_mod = 0
+		hud_offset_mod = 3
+		wield_delay_mod = WIELD_DELAY_NONE
+
+	select_gamemode_skin(type)
+	gun.recalculate_attachment_bonuses()
+	gun.update_overlays(src, "stock")
+
+/obj/item/attachable/stock/pistol/collapsible/select_gamemode_skin(expected_type, list/override_icon_state, list/override_protection)
+	. = ..()
+	var/prefix = ""
+	switch(SSmapping.configs[GROUND_MAP].camouflage_type)
+		if("classic") prefix = "c_"
+		if("desert") prefix = "d_"
+		if("snow") prefix = "s_"
+		if("urban") prefix = "u_"
+
+	var/suffix = stock_activated ? "_on" : ""
+	icon_state = "[prefix][base_icon][suffix]"
+	attach_icon = "[prefix][base_icon]_a[suffix]"
+
+/obj/item/attachable/stock/m10_solid
+	name = "\improper M10 solid stock"
+	desc = "A fixed polymer stock designed exclusively for the M10 Auto Pistol, improving stability during sustained fire."
+	icon_state = "m10_stock"
+	attach_icon = "m10_stock_a"
+	wield_delay_mod = WIELD_DELAY_FAST
+	pixel_shift_x = 40
+	pixel_shift_y = 14
+	hud_offset_mod = 3
+	melee_mod = 10
+
+/obj/item/attachable/stock/m10_solid/Initialize(mapload, ...)
+	. = ..()
+	select_gamemode_skin(type)
+	accuracy_mod = HIT_ACCURACY_MULT_TIER_7
+	recoil_mod = -RECOIL_AMOUNT_TIER_3
+	scatter_mod = -SCATTER_AMOUNT_TIER_6
+	movement_onehanded_acc_penalty_mod = -MOVEMENT_ACCURACY_PENALTY_MULT_TIER_5
+	accuracy_unwielded_mod = -HIT_ACCURACY_MULT_TIER_5
+	recoil_unwielded_mod = RECOIL_AMOUNT_TIER_5
+	scatter_unwielded_mod = SCATTER_AMOUNT_TIER_6
+	aim_speed_mod = CONFIG_GET(number/slowdown_low)
+	delay_mod = 0
+
+/obj/item/attachable/stock/m10_solid/select_gamemode_skin(expected_type, list/override_icon_state, list/override_protection)
+	. = ..() // We are forcing attach_icon skin
+	var/new_attach_icon
+	switch(SSmapping.configs[GROUND_MAP].camouflage_type)
+		if("snow")
+			attach_icon = new_attach_icon ? new_attach_icon : "s_" + attach_icon
+			. = TRUE
+		if("desert")
+			attach_icon = new_attach_icon ? new_attach_icon : "d_" + attach_icon
+			. = TRUE
+		if("classic")
+			attach_icon = new_attach_icon ? new_attach_icon : "c_" + attach_icon
+			. = TRUE
+		if("urban")
+			attach_icon = new_attach_icon ? new_attach_icon : "u_" + attach_icon
+			. = TRUE
+	return .
 
 /obj/item/attachable/stock/xm88
 	name = "\improper XM88 padded stock"
@@ -2044,6 +2340,7 @@ Defined in conflicts.dm of the #defines folder.
 	pixel_shift_y = 10
 	wield_delay_mod = WIELD_DELAY_FAST
 	hud_offset_mod = 3
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
 
 /obj/item/attachable/stock/rifle/New()
 	..()
@@ -2076,6 +2373,7 @@ Defined in conflicts.dm of the #defines folder.
 	collapse_delay = 0.5 SECONDS
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION
 	attachment_action_type = /datum/action/item_action/toggle
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
 
 /obj/item/attachable/stock/rifle/collapsible/New()
 	..()
@@ -2140,6 +2438,7 @@ Defined in conflicts.dm of the #defines folder.
 	collapse_delay = 0.5 SECONDS
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION
 	attachment_action_type = /datum/action/item_action/toggle
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
 
 /obj/item/attachable/stock/rifle/collapsible/ak4047/New()
 	..()
@@ -2204,6 +2503,7 @@ Defined in conflicts.dm of the #defines folder.
 	collapse_delay = 0.5 SECONDS
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION
 	attachment_action_type = /datum/action/item_action/toggle
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
 
 /obj/item/attachable/stock/rifle/collapsible/m41ae2/New()
 	..()
@@ -2250,6 +2550,7 @@ Defined in conflicts.dm of the #defines folder.
 	collapse_delay = 0.5 SECONDS
 	flags_attach_features = ATTACH_ACTIVATION
 	attachment_action_type = /datum/action/item_action/toggle
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
 	var/base_icon = "m16_folding"
 
 /obj/item/attachable/stock/xm177/Initialize()
@@ -2381,6 +2682,7 @@ Defined in conflicts.dm of the #defines folder.
 	pixel_shift_y = 8
 	wield_delay_mod = WIELD_DELAY_NORMAL
 	hud_offset_mod = 2
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
 
 /obj/item/attachable/stock/carbine/New()
 	..()
@@ -2438,6 +2740,7 @@ Defined in conflicts.dm of the #defines folder.
 	pixel_shift_y = 11
 	wield_delay_mod = WIELD_DELAY_FAST
 	hud_offset_mod = 5
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
 
 /obj/item/attachable/stock/smg/New()
 	..()
@@ -2464,7 +2767,7 @@ Defined in conflicts.dm of the #defines folder.
 	hud_offset_mod = 5
 	collapsible = TRUE
 	var/base_icon = "smgstockc"
-
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
 
 /obj/item/attachable/stock/smg/collapsible/New()
 	..()
@@ -2595,6 +2898,7 @@ Defined in conflicts.dm of the #defines folder.
 					/obj/item/ammo_magazine/revolver,
 					/obj/item/ammo_magazine/revolver/marksman,
 					/obj/item/ammo_magazine/revolver/heavy)
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
 
 /obj/item/attachable/stock/revolver/New()
 	..()
@@ -2776,6 +3080,7 @@ Defined in conflicts.dm of the #defines folder.
 	var/cocked = TRUE // has the UGL been cocked via opening and closing the breech?
 	var/open_sound = 'sound/weapons/handling/ugl_open.ogg'
 	var/close_sound = 'sound/weapons/handling/ugl_close.ogg'
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/attached_gun/grenade/Initialize()
 	. = ..()
@@ -2976,6 +3281,7 @@ Defined in conflicts.dm of the #defines folder.
 	var/burn_duration = BURN_TIME_TIER_1
 	var/round_usage_per_tile = 1
 	var/intense_mode = FALSE
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/attached_gun/flamer/New()
 	..()
@@ -3165,6 +3471,7 @@ Defined in conflicts.dm of the #defines folder.
 	fire_sound = 'sound/weapons/gun_shotgun_u7.ogg'
 	gun_activate_sound = 'sound/weapons/handling/gun_u7_activate.ogg'
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_PROJECTILE|ATTACH_RELOADABLE|ATTACH_WEAPON
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/attached_gun/shotgun/New()
 	..()
@@ -3212,6 +3519,7 @@ Defined in conflicts.dm of the #defines folder.
 	fire_sound = 'sound/weapons/gun_shotgun_u7.ogg'
 	gun_activate_sound = 'sound/weapons/handling/gun_u7_activate.ogg'
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_PROJECTILE|ATTACH_RELOADABLE|ATTACH_WEAPON
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/attached_gun/shotgun/af13/New()
 	..()
@@ -3259,6 +3567,7 @@ Defined in conflicts.dm of the #defines folder.
 	fire_sound = 'sound/weapons/gun_shotgun_u7.ogg'
 	gun_activate_sound = 'sound/weapons/handling/gun_u7_activate.ogg'
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_PROJECTILE|ATTACH_RELOADABLE|ATTACH_WEAPON|ATTACH_WIELD_OVERRIDE
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/attached_gun/shotgun/af13b/New()
 	..()
@@ -3304,6 +3613,7 @@ Defined in conflicts.dm of the #defines folder.
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_WEAPON|ATTACH_MELEE
 	var/obj/item/tool/extinguisher/internal_extinguisher
 	current_rounds = 1 //This has to be done to pass the fire_attachment check.
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/attached_gun/extinguisher/get_examine_text(mob/user)
 	. = ..()
@@ -3366,6 +3676,7 @@ Defined in conflicts.dm of the #defines folder.
 		'sound/weapons/gun_flamethrower2.ogg',
 		'sound/weapons/gun_flamethrower3.ogg'
 	)
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/attached_gun/flamer_nozzle/handle_attachment_description(slot)
 	return "It has a [icon2html(src)] [name] mounted beneath the barrel.<br>"
@@ -3435,6 +3746,7 @@ Defined in conflicts.dm of the #defines folder.
 	size_mod = 1
 	slot = "under"
 	pixel_shift_x = 20
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/verticalgrip/New()
 	..()
@@ -3456,6 +3768,7 @@ Defined in conflicts.dm of the #defines folder.
 	size_mod = 1
 	slot = "under"
 	pixel_shift_x = 20
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/gyro
 	name = "gyroscopic stabilizer"
@@ -3464,6 +3777,7 @@ Defined in conflicts.dm of the #defines folder.
 	icon_state = "gyro"
 	attach_icon = "gyro_a"
 	slot = "under"
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/gyro/New()
 	..()
@@ -3492,6 +3806,7 @@ Defined in conflicts.dm of the #defines folder.
 	slot = "under"
 	pixel_shift_x = 17
 	pixel_shift_y = 17
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/lasersight/New()
 	..()
@@ -3501,6 +3816,24 @@ Defined in conflicts.dm of the #defines folder.
 	scatter_unwielded_mod = -SCATTER_AMOUNT_TIER_9
 	accuracy_unwielded_mod = HIT_ACCURACY_MULT_TIER_1
 
+/obj/item/attachable/lasersight/micro
+	name = "micro laser module"
+	desc = "A compact, high-precision laser sight engineered exclusively for the M10 Auto Pistol. Offers exceptional accuracy gains by interfacing directly with the weapon's internal targeting systems."
+	desc_lore = "An advanced derivative of the AN/PEQ-42 line, the '42M' variant was precision-tuned by Kessler Optics for use with the M10 Auto Pistol. Its microcontroller syncs with the pistol's fire-control unit for superior point-of-aim fidelity and scatter compensation. Rare, expensive, and typically reserved for elite units or covert applications."
+	icon = 'icons/obj/items/weapons/guns/attachments/under.dmi'
+	icon_state = "lasersight_micro"
+	attach_icon = "lasersight_micro_a"
+	slot = "under"
+	pixel_shift_x = 17
+	pixel_shift_y = 17
+
+/obj/item/attachable/lasersight/micro/New()
+	..()
+	accuracy_mod = HIT_ACCURACY_MULT_TIER_1
+	movement_onehanded_acc_penalty_mod = -MOVEMENT_ACCURACY_PENALTY_MULT_TIER_5
+	scatter_mod = -SCATTER_AMOUNT_TIER_10
+	scatter_unwielded_mod = -SCATTER_AMOUNT_TIER_9
+	accuracy_unwielded_mod = HIT_ACCURACY_MULT_TIER_1
 
 /obj/item/attachable/bipod
 	name = "bipod"
@@ -3523,6 +3856,7 @@ Defined in conflicts.dm of the #defines folder.
 	var/old_firemode = null
 	// if this bipod has a camo skin
 	var/camo_bipod = FALSE
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/bipod/New()
 	..()
@@ -3816,6 +4150,7 @@ Defined in conflicts.dm of the #defines folder.
 	icon_state = "rapidfire"
 	attach_icon = "rapidfire_a"
 	slot = "under"
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/burstfire_assembly/New()
 	..()
@@ -3831,6 +4166,7 @@ Defined in conflicts.dm of the #defines folder.
 	icon_state = "rxfm5_eva_doodad"
 	attach_icon = "rxfm5_eva_doodad_a"
 	slot = "under"
+	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/eva_doodad/New()
 	..()
