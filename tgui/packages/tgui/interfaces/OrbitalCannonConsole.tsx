@@ -60,27 +60,22 @@ export const OrbitalCannonConsole = () => {
               }}
             >
               <Box textAlign="center">
-                {data.fuel} бака с твёрдым топливом загружено
+                Загруженных баков с твёрдым топливом: {data.fuel}
               </Box>
             </ProgressBar>
           </Box>
           <Divider />
-          <Collapsible title="Требования к топливу">
+          <Collapsible title="Требования к топливу для боеголовок">
             <Box>
-              Требования к топливу для боеголовок:
+              Фугасная орбитальная боеголовка: <b>{data.hefuel}</b>
               <br />
-              Фугасная орбитальная боеголовка:
-              <b> {data.hefuel} бака с твёрдым топливом.</b>
+              Зажигательная орбитальная боеголовка: <b>{data.incfuel}</b>
               <br />
-              Зажигательная орбитальная боеголовка:
-              <b> {data.incfuel} бака с твёрдым топливом.</b>
-              <br />
-              Кластерная орбитальная боеголовка:
-              <b> {data.clusterfuel} бака с твёрдым топливом.</b>
+              Кластерная орбитальная боеголовка: <b>{data.clusterfuel}</b>
             </Box>
           </Collapsible>
         </Section>
-        <Section title="Статус лотка">
+        <Section title="Статус пусковой кассеты">
           {timeLeft > 0 && (
             <ProgressBar
               width="100%"
@@ -92,8 +87,8 @@ export const OrbitalCannonConsole = () => {
               }}
             >
               <Box textAlign="center">
-                {Math.ceil(timeLeft / 10)} секунд до того, как пушка будет
-                готова к зарядке!
+                {Math.ceil(timeLeft / 10)} сек до того, как пушка будет готова к
+                зарядке!
               </Box>
             </ProgressBar>
           )}
@@ -107,7 +102,7 @@ export const OrbitalCannonConsole = () => {
               color="good"
               onClick={() => act('load_tray')}
             >
-              Загрузить лоток
+              Загрузить пусковую кассету
             </Button>
           )) || (
             <Box>
@@ -120,11 +115,12 @@ export const OrbitalCannonConsole = () => {
                   color="good"
                   onClick={() => act('unload_tray')}
                 >
-                  Выгрузить лоток
+                  Выгрузить пусковую кассету
                 </Button>
               )) || (
                 <NoticeBox fontSize="15px" textAlign="center" danger>
-                  Лоток находится в патроннике, вы не можете его выгрузить.
+                  Пусковая кассета находится в патроннике, вы не можете её
+                  выгрузить.
                 </NoticeBox>
               )}
             </Box>
@@ -137,17 +133,17 @@ export const OrbitalCannonConsole = () => {
               fluid
               icon="sign-in-alt"
               color="good"
-              confirmContent="Вы не сможете выгрузить лоток. Уверены?"
+              confirmContent="Вы не сможете выгрузить пусковую кассету. Уверены?"
               onClick={() => act('chamber_tray')}
             >
-              Дослать лоток
+              Дослать пусковую кассету
             </Button.Confirm>
           )}
         </Section>
         {(!data.linkedtray || !data.linkedcannon || !!data.disabled) && (
           <Dimmer fontSize="32px">
             <Icon name="exclamation-triangle" />
-            {!data.linkedtray && ' Лоток не подключен к консоли!'}
+            {!data.linkedtray && ' Пусковая кассета не подключена к консоли!'}
             {!data.linkedcannon && ' Пушка не подключена к консоли!'}
             {!!data.disabled && '  Пушка отключена!'}
           </Dimmer>

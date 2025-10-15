@@ -82,15 +82,15 @@ GLOBAL_LIST(ob_type_fuel_requirements)
 
 	if(!tray.warhead)
 		if(user)
-			to_chat(user, SPAN_WARNING("В лотке нет боевой части, операция по загрузке отменена."))
+			to_chat(user, SPAN_WARNING("В пусковой кассете нет боевой части, операция по загрузке отменена."))
 		return
 
 	if(tray.fuel_amt < 1)
-		to_chat(user, SPAN_WARNING("В лотке нет твёрдого топлива, операция по загрузке отменена."))
+		to_chat(user, SPAN_WARNING("В пусковой кассете нет твёрдого топлива, операция по загрузке отменена."))
 		return
 
 	if(loaded_tray)
-		to_chat(user, SPAN_WARNING("Лоток уже загружен."))
+		to_chat(user, SPAN_WARNING("Пусковая кассета уже загружена."))
 		return
 
 	tray.forceMove(src)
@@ -116,11 +116,11 @@ GLOBAL_LIST(ob_type_fuel_requirements)
 		return
 
 	if(chambered_tray)
-		to_chat(user, "Лоток нельзя выгружать после того, как он был помещен в патронник, сначала выстрелите из него.")
+		to_chat(user, "Пусковую кассету нельзя выгружать после того, как она была помещена в патронник, сначала выстрелите из неё.")
 		return
 
 	if(!loaded_tray)
-		to_chat(user, "Нет загруженного лотка для выгрузки.")
+		to_chat(user, "Нет загруженной пусковой кассеты для выгрузки.")
 		return
 
 	flick("OBC_unloading",src)
@@ -152,16 +152,16 @@ GLOBAL_LIST(ob_type_fuel_requirements)
 		return
 	if(!loaded_tray)
 		if(user)
-			to_chat(user, SPAN_WARNING("Перед выстрелом необходимо загрузить лоток."))
+			to_chat(user, SPAN_WARNING("Перед выстрелом необходимо загрузить пусковую кассету."))
 		return
 	if(!tray.warhead)
 		if(user)
-			to_chat(user, SPAN_WARNING("В лотке нет боевой части, операция по зарядке отменена."))
+			to_chat(user, SPAN_WARNING("В пусковой кассете нет боевой части, операция по зарядке отменена."))
 		return
 
 	if(tray.fuel_amt < 1)
 		if(user)
-			to_chat(user, SPAN_WARNING("В лотке нет твёрдого топлива, операция заряжания отменена."))
+			to_chat(user, SPAN_WARNING("В пусковой кассете нет твёрдого топлива, операция заряжания отменена."))
 		return
 
 	if(!COOLDOWN_FINISHED(src, ob_chambering_cooldown)) //fired at least once
@@ -257,8 +257,8 @@ GLOBAL_LIST_EMPTY(orbital_cannon_cancellation)
 	update_icon()
 
 /obj/structure/orbital_tray
-	name = "Загрузочный лоток"
-	desc = "Загрузочный лоток орбитальной пушки."
+	name = "Пусковая кассета"
+	desc = "Пусковая кассета орбитальной пушки."
 	icon = 'icons/obj/structures/props/almayer/almayer_props64.dmi'
 	icon_state = "cannon_tray"
 	density = TRUE

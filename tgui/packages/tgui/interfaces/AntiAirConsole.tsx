@@ -40,11 +40,11 @@ const GeneralPanel = (props) => {
     <Section fill>
       {(!!data.protecting_section && (
         <NoticeBox info textAlign="center">
-          В настоящее время отслеживается : {data.protecting_section}
+          В настоящее время отслеживается: {data.protecting_section}
         </NoticeBox>
       )) || (
         <NoticeBox danger textAlign="center">
-          Внимание! Системы ПВО не активны!
+          Внимание! Системы ПВО неактивны!
         </NoticeBox>
       )}
       <Stack vertical fill>
