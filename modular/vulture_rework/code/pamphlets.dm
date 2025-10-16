@@ -37,7 +37,7 @@
 
     var/obj/item/device/radio/headset/headset = user.get_type_in_ears(/obj/item/device/radio/headset)
     if(headset)
-        headset.minimap_path_blips_override = VULTURE_MAP_ICONS // --- Предложение так решить проблему
+        headset.minimap_path_blips_override = VULTURE_MAP_ICONS // --- Предложение так решить проблему  (рабочее, пупс лучший)
         user.update_minimap_icon()
 
     GLOB.data_core.manifest_modify(user.real_name, WEAKREF(user), "Оператор ПТО")
