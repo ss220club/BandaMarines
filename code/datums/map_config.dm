@@ -184,7 +184,7 @@
 	override_map = json["override_map"]
 
 	CHECK_EXISTS("map_name")
-	map_name = json["map_name"]
+	map_name = json["map_ru_name"] || json["map_name"] // SS220 EDIT ADDICTION
 
 	webmap_url = json["webmap_url"]
 	short_name = json["short_name"]

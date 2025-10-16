@@ -1,5 +1,6 @@
 {
-    "map_name": "Аванпост «Виски»",
+    "map_name": "Whiskey Outpost",
+    "map_ru_name": "Аванпост «Виски»",
     "map_path": "map_files/Whiskey_Outpost_v2",
     "map_file": "Whiskey_Outpost_v2.dmm",
     "webmap_url": "WhiskeyOutpost",

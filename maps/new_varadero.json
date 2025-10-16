@@ -1,5 +1,6 @@
 {
-    "map_name": "«Нью-Варадеро»",
+    "map_name": "New Varadero",
+    "map_ru_name": "«Нью-Варадеро»",
     "map_path": "map_files/New_Varadero",
     "map_file": "New_Varadero.dmm",
     "webmap_url": "NewVaradero",
