@@ -23,6 +23,10 @@
     if(!ID.check_biometrics(user))
         to_chat(user, SPAN_WARNING("Перед тем как это использовать, вы должны надеть ваш ID."))
         return FALSE
+    var/obj/item/device/radio/headset/headset = user.get_type_in_ears(/obj/item/device/radio/headset)
+    if(!headset)
+        to_chat(user, SPAN_WARNING("Перед тем как это использовать, вы должны надеть ваш наушник."))
+        return FALSE
 
     return ..()
 
