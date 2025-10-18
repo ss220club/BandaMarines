@@ -85,7 +85,7 @@
 
 
 /area/Neer_lv759/indoors/caves/passage_to_bunker
-	name = "passage to the bunker"
+	name = "Passage to the bunker"
 	icon_state = "power0"
 
 /area/Neer_lv759/indoors/caves/Monorail
@@ -151,7 +151,7 @@
 
 // Weyland-Yutani Advanced Bio-Genomic Research Complex
 
-/area/Neer_lv7599/indoors/wy_research_complex
+/area//area/Neer_lv759/indoors/wy_research_complex
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex"
 	icon_state = "wylab"
 	minimap_color = MINIMAP_AREA_HYBRISARESEARCH
