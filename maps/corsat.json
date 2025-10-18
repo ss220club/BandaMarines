@@ -1,6 +1,5 @@
 {
     "map_name": "CORSAT",
-    "map_ru_name": "КОИСПТ",
     "map_path": "map_files/CORSAT",
     "map_file": "Corsat.dmm",
     "environment_traits": {

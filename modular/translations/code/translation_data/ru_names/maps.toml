@@ -1,0 +1,163 @@
+# MARK: Maps
+
+["CORSAT"]
+nominative = "КОИСПТ"
+genitive = "КОИСПТ"
+dative = "КОИСПТ"
+accusative = "КОИСПТ"
+instrumental = "КОИСПТ"
+prepositional = "КОИСПТ"
+gender = "male"
+
+["USS Almayer"]
+nominative = "USS Алмайер"
+genitive = "USS Алмайер"
+dative = "USS Алмайер"
+accusative = "USS Алмайер"
+instrumental = "USS Алмайер"
+prepositional = "USS Алмайер"
+gender = "male"
+
+["Solaris Ridge"]
+nominative = "LV-1413 «Солярис-Ридж»"
+genitive = "LV-1413 «Солярис-Ридж»"
+dative = "LV-1413 «Солярис-Ридж»"
+accusative = "LV-1413 «Солярис-Ридж»"
+instrumental = "LV-1413 «Солярис-Ридж»"
+prepositional = "LV-1413 «Солярис-Ридж»"
+gender = "male"
+
+["Chinook 91 GSO"]
+nominative = "Chinook 91 GSO"
+genitive = "Chinook 91 GSO"
+dative = "Chinook 91 GSO"
+accusative = "Chinook 91 GSO"
+instrumental = "Chinook 91 GSO"
+prepositional = "Chinook 91 GSO"
+gender = "male"
+
+["Trijent Dam"]
+nominative = "LV-670 Плотина «Триджент»"
+genitive = "LV-670 Плотины «Триджент»"
+dative = "LV-670 Плотине «Триджент»"
+accusative = "LV-670 Плотину «Триджент»"
+instrumental = "LV-670 Плотиной «Триджент»"
+prepositional = "LV-670 Плотине «Триджент»"
+gender = "female"
+
+["Fiorina Science Annex"]
+nominative = "Орбитальная тюрьма «Фиорина»"
+genitive = "Орбитальной тюрьмы «Фиорина»"
+dative = "Орбитальной тюрьме «Фиорина»"
+accusative = "Орбитальную тюрьму «Фиорина»"
+instrumental = "Орбитальной тюрьмой «Фиорина»"
+prepositional = "Орбитальной тюрьме «Фиорина»"
+gender = "female"
+
+["Ice Colony"]
+nominative = "Ледяная колония"
+genitive = "Ледяной колонии"
+dative = "Ледяной колонии"
+accusative = "Ледяную колонию"
+instrumental = "Ледяной колонией"
+prepositional = "Ледяной колонии"
+gender = "female"
+
+["Kutjevo Refinery"]
+nominative = "LV-686 Завод «Куджево»"
+genitive = "LV-686 Завода «Куджево»"
+dative = "LV-686 Заводу «Куджево»"
+accusative = "LV-686 Завод «Куджево»"
+instrumental = "LV-686 Заводом «Куджево»"
+prepositional = "LV-686 Заводе «Куджево»"
+gender = "male"
+
+["LV-522 Chance's Claim"]
+nominative = "LV-522 «Новая Надежда»"
+genitive = "LV-522 «Новой Надежды»"
+dative = "LV-522 «Новой Надежде»"
+accusative = "LV-522 «Новую Надежду»"
+instrumental = "LV-522 «Новой Надеждой»"
+prepositional = "LV-522 «Новой Надежде»"
+gender = "female"
+
+["LV-624"]
+nominative = "LV-624 «Пристань Лазаря»"
+genitive = "LV-624 «Пристани Лазаря»"
+dative = "LV-624 «Пристани Лазаря»"
+accusative = "LV-624 «Пристань Лазаря»"
+instrumental = "LV-624 «Пристанью Лазаря»"
+prepositional = "LV-624 «Пристани Лазаря»"
+gender = "female"
+
+["LV-759 Hybrisa Prospera"]
+nominative = "LV-759 «Гибриза Проспера»"
+genitive = "LV-759 «Гибризы Просперы»"
+dative = "LV-759 «Гибризе Проспере»"
+accusative = "LV-759 «Гибризу Просперу»"
+instrumental = "LV-759 «Гибризой Просперой»"
+prepositional = "LV-759 «Гибризе Проспере»"
+gender = "female"
+
+["New Varadero"]
+nominative = "«Нью-Варадеро»"
+genitive = "«Нью-Варадеро»"
+dative = "«Нью-Варадеро»"
+accusative = "«Нью-Варадеро»"
+instrumental = "«Нью-Варадеро»"
+prepositional = "«Нью-Варадеро»"
+gender = "male"
+
+["USS Runtime"]
+nominative = "USS Runtime"
+genitive = "USS Runtime"
+dative = "USS Runtime"
+accusative = "USS Runtime"
+instrumental = "USS Runtime"
+prepositional = "USS Runtime"
+gender = "male"
+
+["Shivas Snowball"]
+nominative = "LV-343 «Шивас Сноуболл»"
+genitive = "LV-343 «Шивас Сноуболл»"
+dative = "LV-343 «Шивас Сноуболл»"
+accusative = "LV-343 «Шивас Сноуболл»"
+instrumental = "LV-343 «Шивас Сноуболл»"
+prepositional = "LV-343 «Шивас Сноуболл»"
+gender = "male"
+
+["Sorokyne Strata"]
+nominative = "LV-976 «Сорокино Страта»"
+genitive = "LV-976 «Сорокино Страты»"
+dative = "LV-976 «Сорокино Страте»"
+accusative = "LV-976 «Сорокино Страту»"
+instrumental = "LV-976 «Сорокино Стратой»"
+prepositional = "LV-976 «Сорокино Страте»"
+gender = "female"
+
+["SSV Rostock"]
+nominative = "SSV Rostock"
+genitive = "SSV Rostock"
+dative = "SSV Rostock"
+accusative = "SSV Rostock"
+instrumental = "SSV Rostock"
+prepositional = "SSV Rostock"
+gender = "male"
+
+["Whiskey Outpost"]
+nominative = "Аванпост «Виски»"
+genitive = "Аванпоста «Виски»"
+dative = "Аванпосту «Виски»"
+accusative = "Аванпост «Виски»"
+instrumental = "Аванпостом «Виски»"
+prepositional = "Аванпосте «Виски»"
+gender = "male"
+
+["Fiorina Cellblocks"]
+nominative = "Блок заключения «Фиорина»"
+genitive = "Блока заключения «Фиорина»"
+dative = "Блоку заключения «Фиорина»"
+accusative = "Блок заключения «Фиорина»"
+instrumental = "Блоком заключения «Фиорина»"
+prepositional = "Блоке заключения «Фиорина»"
+gender = "male"

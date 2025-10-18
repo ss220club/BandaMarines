@@ -184,7 +184,7 @@
 	override_map = json["override_map"]
 
 	CHECK_EXISTS("map_name")
-	map_name = json["map_ru_name"] || json["map_name"] // SS220 EDIT ADDICTION
+	map_name = json["map_name"]
 
 	webmap_url = json["webmap_url"]
 	short_name = json["short_name"]
@@ -438,6 +438,12 @@
 			gamemodes += initial(G.config_tag)
 
 	defaulted = FALSE
+
+	// Apply Russian translations to map name
+	var/list/ru_translation = ru_names_toml(map_name)
+	if(length(ru_translation))
+		map_name = ru_translation[NOMINATIVE]
+
 	return TRUE
 #undef CHECK_EXISTS
 
