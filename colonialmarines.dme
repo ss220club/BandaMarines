@@ -2672,5 +2672,6 @@
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
 #include "maps\_basemap.dm"
-#include "modular\modular.dme" // BANDASTATION EDIT
+#include "code\game\area\Neer_lv759.dm"
 // END_INCLUDE
+

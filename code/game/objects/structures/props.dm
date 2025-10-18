@@ -1213,3 +1213,13 @@
 	layer = TURF_LAYER
 	plane = FLOOR_PLANE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
+/obj/structure/prop/M24
+	name = "The M24 Destroyer"
+	desc = "An experimental prototype of a super-heavy tank designed to break through fortified positions and open combat against the enemy.It is equipped with a mounted machine gun turret with 30 mm autocannons and a 180 mm main gun."
+	icon = 'icons\obj\structures\props\Hell_tank.dmi'
+	unslashable = TRUE
+	unacidable = TRUE
+	density = TRUE
+	layer = ABOVE_FLY_LAYER
+	bound_height = 96
