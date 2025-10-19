@@ -329,10 +329,7 @@
 /turf/open/floor/bar,
 /area/Neer_lv759/indoors/wy_research_complex/cafeteria)
 "aiD" = (
-/obj/structure/machinery/door/poddoor/almayer/biohazard/white{
-	icon = 'icons/obj/structures/doors/hybrisashutters.dmi';
-	id = "hybrisa_research_labs_lockdown"
-	},
+/obj/structure/machinery/door/poddoor/almayer/blended,
 /turf/open/floor/platebot,
 /area/Neer_lv759/indoors/caves/Monorail)
 "aiO" = (
@@ -486,6 +483,12 @@
 /obj/structure/machinery/light,
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/reactor_garage)
+"alL" = (
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "26";
+	opacity = 0
+	},
+/area/space)
 "amv" = (
 /obj/structure/machinery/door/poddoor/shutters/almayer/open,
 /obj/effect/decal/cleanable/dirt,
@@ -1772,12 +1775,11 @@
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Neer_lv759/outdoors)
 "aWm" = (
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/platform{
-	dir = 8
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "16";
+	opacity = 0
 	},
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/area/space)
 "aXl" = (
 /obj/structure/cable/white{
 	icon_state = "1-10";
@@ -2255,9 +2257,13 @@
 /turf/open/floor/corsat/marked,
 /area/Neer_lv759/atmos/east_reactor)
 "bnD" = (
-/obj/structure/prop/hybrisa/misc/machinery/screens/redalert,
-/turf/closed/wall/r_wall/biodome,
-/area/Neer_lv759/atmos/command_centre)
+/turf/closed/shuttle/dropship2/transparent{
+	desc = "The WY-LWI StarGlider SG-200, a product of the collaborative ingenuity between Weyland Yutani and Lunnar-Welsun Industries, is a small dropship is designed for short-range commercial transport.";
+	icon = 'icons/turf/dropship4.dmi';
+	icon_state = "86";
+	name = "\improper WY-LWI StarGlider SG-200"
+	},
+/area/space)
 "bnZ" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice12";
@@ -2600,16 +2606,13 @@
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/east_reactor)
 "bvv" = (
-/obj/effect/decal/hybrisa/road/lines3,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/cleanable/blood/drip{
-	icon_state = "3"
+/obj/structure/blocker/invisible_wall,
+/obj/structure/prop/invuln/fire,
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "damaged_console2";
+	opacity = 0
 	},
-/obj/structure/prop/hybrisa/vehicles/Box_Vans/Hyperdyne{
-	dir = 4
-	},
-/turf/open/hybrisa/street/asphalt,
-/area/Neer_lv759/outdoors/colony_streets/Parking_space)
+/area/space)
 "bvw" = (
 /obj/structure/prop/invuln/overhead_pipe{
 	name = "overhead pipe";
@@ -2778,6 +2781,16 @@
 	},
 /turf/open/floor/strata/multi_tiles/southeast,
 /area/Neer_lv759/indoors/wy_research_complex/hangarbay)
+"byE" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl4"
+	},
+/obj/structure/stairs{
+	color = "#a6aeab";
+	dir = 8
+	},
+/turf/closed/wall/hybrisa/rock,
+/area/space)
 "byQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/light/small{
@@ -3222,13 +3235,17 @@
 /turf/open/hybrisa/street/asphalt,
 /area/Neer_lv759/outdoors)
 "bJn" = (
-/obj/structure/flora/jungle/plantbot1,
-/obj/structure/platform{
-	dir = 8
+/obj/effect/decal/warning_stripes{
+	icon_state = "W";
+	pixel_x = -1;
+	pixel_y = 1
 	},
-/obj/effect/sentry_landmark/lz_1,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl1"
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/corsat/officetiles,
+/area/space)
 "bJy" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "cargo"
@@ -3796,14 +3813,12 @@
 /turf/open/floor/almayer/black/north,
 /area/Neer_lv759/indoors/wy_research_complex/cargo)
 "bWW" = (
-/obj/effect/decal/hybrisa/road/lines3,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/cleanable/blood/drip{
-	icon_state = "3"
+/obj/effect/decal/warning_stripes{
+	icon_state = "E"
 	},
-/obj/structure/prop/hybrisa/vehicles/Armored_Truck/Blue,
-/turf/open/hybrisa/street/asphalt,
-/area/Neer_lv759/outdoors/colony_streets/Parking_space)
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/corsat/officetiles,
+/area/space)
 "bWX" = (
 /turf/open/floor/prison/darkyellow2/north{
 	dir = 2
@@ -4124,9 +4139,11 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/Neer_lv759/indoors/wy_research_complex/xenobiology)
 "chI" = (
-/obj/structure/flora/jungle/vines/light_2,
-/turf/closed/wall/hybrisa/rock,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "67"
+	},
+/area/space)
 "chJ" = (
 /obj/structure/pipes/standard/simple/hidden/green{
 	dir = 5
@@ -4278,6 +4295,19 @@
 /obj/structure/prop/hybrisa/xenobiology/small/egg,
 /turf/open/floor/bluegrid,
 /area/Neer_lv759/indoors/wy_research_complex/xenobiology)
+"cma" = (
+/obj/item/reagent_container/food/drinks/flask/weylandyutani,
+/obj/structure/bed/chair/vehicle/white{
+	dir = 1;
+	pixel_x = -8
+	},
+/obj/structure/bed/chair/vehicle/white{
+	dir = 1;
+	pixel_x = 8
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/dropship/dropship2,
+/area/space)
 "cmb" = (
 /obj/effect/decal/strata_decals/grime/grime4{
 	dir = 1
@@ -4418,12 +4448,11 @@
 /turf/open/floor/prison,
 /area/Neer_lv759/atmos/reactor_garage)
 "cou" = (
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/machinery/landinglight/ds1/delaythree{
-	dir = 8
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "72"
 	},
-/turf/open/floor/plating,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/area/space)
 "coA" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/strata/floor2,
@@ -4657,12 +4686,9 @@
 /turf/open/floor/corsat/squares,
 /area/Neer_lv759/atmos/east_reactor)
 "cuR" = (
-/obj/structure/flora/bush/ausbushes/pointybush,
-/obj/structure/platform{
-	dir = 4
-	},
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/obj/structure/prop/hybrisa/airport/dropshipwingleft,
+/turf/closed/wall/hybrisa/rock,
+/area/space)
 "cuY" = (
 /obj/structure/bed/sofa/vert/white/bot,
 /obj/effect/landmark/survivor_spawner/bigred_crashed_pmc_medic,
@@ -4719,12 +4745,21 @@
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
 "cxf" = (
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/machinery/landinglight/ds1/delayone{
-	dir = 4
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl1"
 	},
-/turf/open/floor/plating,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/obj/effect/decal/cleanable/blood/drip{
+	icon_state = "2"
+	},
+/obj/effect/decal/cleanable/blood/gibs/body,
+/obj/structure/blocker/invisible_wall,
+/obj/structure/bed/chair/dropship/pilot{
+	dir = 1;
+	pixel_y = 4;
+	buckling_y = 4
+	},
+/turf/open/shuttle/dropship/can_surgery/medium_grey_single_wide_left_to_right,
+/area/space)
 "cxQ" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice12";
@@ -5198,6 +5233,10 @@
 /obj/structure/pipes/vents/pump,
 /turf/open/floor/almayer/black/southeast,
 /area/Neer_lv759/indoors/wy_research_complex/xenobiology)
+"cLD" = (
+/obj/structure/prop/hybrisa/airport/dropshipwingright,
+/turf/closed/wall/hybrisa/rock,
+/area/space)
 "cLF" = (
 /turf/open/floor/kutjevo/tan/alt_edge/southeast,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
@@ -5376,11 +5415,9 @@
 /turf/open/floor/almayer/black,
 /area/Neer_lv759/indoors/wy_research_complex/cargo)
 "cPp" = (
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/flora/jungle/vines/light_2,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/obj/structure/prop/hybrisa/airport/dropshipventleft,
+/turf/closed/wall/hybrisa/rock,
+/area/space)
 "cPF" = (
 /obj/structure/surface/table/reinforced/prison{
 	color = "#b7b8b2"
@@ -5471,7 +5508,6 @@
 /obj/effect/decal/cleanable/blood/drip{
 	icon_state = "3"
 	},
-/obj/structure/prop/hybrisa/vehicles/Box_Vans/White,
 /turf/open/hybrisa/street/asphalt,
 /area/Neer_lv759/outdoors/colony_streets/Parking_space)
 "cSf" = (
@@ -5652,6 +5688,12 @@
 	},
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/securityarmory)
+"cWF" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/turf/closed/wall/hybrisa/rock,
+/area/space)
 "cWL" = (
 /obj/structure/machinery/chem_simulator,
 /turf/open/floor/corsat/squares,
@@ -6119,6 +6161,12 @@
 	},
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/reactor_garage)
+"dhp" = (
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "33";
+	opacity = 0
+	},
+/area/space)
 "dhv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/pipes/standard/simple/hidden/supply{
@@ -6248,9 +6296,11 @@
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Neer_lv759/outdoors)
 "dlb" = (
-/obj/effect/landmark/corpsespawner,
-/turf/open/floor/almayer/no_build,
-/area/Neer_lv759/indoors/caves/Monorail)
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "zwing7";
+	opacity = 0
+	},
+/area/space)
 "dls" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -6310,6 +6360,15 @@
 	},
 /turf/open/floor/corsat/marked,
 /area/Neer_lv759/indoors/wy_research_complex/cargo)
+"dmQ" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "E";
+	pixel_x = 2
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/corsat/officetiles,
+/area/space)
 "dnb" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice12";
@@ -6708,6 +6767,15 @@
 	},
 /turf/open/floor/almayer/blackfull/west,
 /area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+"duU" = (
+/obj/effect/decal/cleanable/blood,
+/obj/structure/prop/hybrisa/airport/deadpilot1,
+/obj/structure/bed/chair/vehicle/white{
+	pixel_x = -8
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/dropship/dropshipfloorcorner1,
+/area/space)
 "duZ" = (
 /obj/structure/pipes/vents/pump,
 /obj/structure/surface/table/almayer,
@@ -7306,7 +7374,6 @@
 /turf/open/floor/corsat/marked,
 /area/Neer_lv759/indoors/wy_research_complex/changingroom)
 "dIg" = (
-/obj/structure/flora/bush/ausbushes/pointybush,
 /obj/structure/platform{
 	density = 0;
 	dir = 1;
@@ -7867,6 +7934,15 @@
 /obj/structure/machinery/power/apc/power/north,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/mainlabs)
+"dYc" = (
+/obj/item/trash/tray{
+	pixel_x = -2;
+	pixel_y = 5
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/dropship/dropship3,
+/area/space)
 "dYo" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "N"
@@ -8483,12 +8559,10 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
 "elB" = (
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/machinery/landinglight/ds1/delaythree{
-	dir = 4
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "99"
 	},
-/turf/open/floor/plating,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/area/space)
 "elJ" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "S";
@@ -9006,6 +9080,12 @@
 	},
 /turf/open/auto_turf/snow/layer0,
 /area/Neer_lv759/outdoors/landing_zone_1)
+"ezH" = (
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "68"
+	},
+/area/space)
 "ezT" = (
 /obj/structure/machinery/light{
 	dir = 4
@@ -9197,13 +9277,15 @@
 /turf/open/floor/asteroidwarning/west,
 /area/Neer_lv759/outdoors/colony_streets/Main_road)
 "eEx" = (
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/flora/bush/ausbushes/pointybush,
-/obj/structure/platform{
-	dir = 8
+/obj/effect/decal/warning_stripes{
+	icon_state = "W";
+	pixel_x = -1;
+	pixel_y = 1
 	},
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/obj/item/prop/alien/hugger,
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/corsat/officetiles,
+/area/space)
 "eFl" = (
 /obj/structure/barricade/handrail/strata{
 	dir = 8
@@ -9515,6 +9597,34 @@
 	},
 /turf/open/floor/corsat/brown/northeast,
 /area/Neer_lv759/atmos/outdoor)
+"ePm" = (
+/obj/structure/bed/chair/vehicle/white{
+	dir = 1;
+	pixel_x = 8
+	},
+/obj/structure/bed/chair/vehicle/white{
+	dir = 1;
+	pixel_x = -8
+	},
+/obj/structure/machinery/light/double{
+	dir = 4;
+	pixel_y = -5
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/dropship/dropship2,
+/area/space)
+"ePr" = (
+/obj/structure/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/largecrate/random/mini/small_case{
+	pixel_x = 3;
+	pixel_y = 15
+	},
+/obj/item/ammo_box/magazine/misc/mre/emergency,
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/prison/floor_marked,
+/area/space)
 "ePI" = (
 /obj/structure/cable/heavyduty{
 	icon_state = "1-2"
@@ -9853,12 +9963,17 @@
 /turf/open/floor/prison/darkyellow2/west,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
 "eZE" = (
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/machinery/landinglight/ds1{
-	dir = 8
+/obj/structure/bed/chair/vehicle/white{
+	dir = 1;
+	pixel_x = 8
 	},
-/turf/open/floor/plating,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/obj/structure/bed/chair/vehicle/white{
+	dir = 1;
+	pixel_x = -8
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/dropship/dropship2,
+/area/space)
 "eZG" = (
 /obj/effect/decal/hybrisa/road/road_edge{
 	icon_state = "road_edge_decal3"
@@ -10056,6 +10171,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/strata/faux_wood,
 /area/Neer_lv759/indoors/wy_research_complex/dormsbedroom)
+"ffa" = (
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "4"
+	},
+/area/space)
 "ffA" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "N";
@@ -10319,6 +10439,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
+"fob" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gibarm_flesh"
+	},
+/obj/item/shard,
+/obj/item/shard,
+/obj/effect/decal/cleanable/blood,
+/obj/structure/blocker/invisible_wall,
+/turf/open/shuttle/dropship/can_surgery/medium_grey_single_wide_left_to_right,
+/area/space)
 "fon" = (
 /obj/structure/barricade/handrail/kutjevo,
 /turf/open/floor/strata/fake_wood,
@@ -10593,6 +10723,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
+"fvy" = (
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "zwing4";
+	opacity = 0
+	},
+/area/space)
 "fvE" = (
 /turf/closed/shuttle/dropship4/WY{
 	icon_state = "49"
@@ -11168,6 +11304,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/kutjevo/multi_tiles/southeast,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
+"fMa" = (
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "46"
+	},
+/area/space)
 "fMh" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "SE-out";
@@ -11196,6 +11338,17 @@
 /obj/structure/platform/metal/hybrisa/metalplatform2,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Neer_lv759/indoors/caves/wy_research_complex_entrance)
+"fNw" = (
+/obj/structure/bed/chair/vehicle/white{
+	dir = 1;
+	pixel_x = -8
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl3"
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/dropship/dropshipfloorcorner1,
+/area/space)
 "fNK" = (
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
 /turf/open/floor/prison/darkyellow2/east,
@@ -11225,9 +11378,11 @@
 /turf/open/floor/corsat/squares,
 /area/Neer_lv759/atmos/east_reactor)
 "fOP" = (
-/obj/structure/flora/bush/ausbushes/var3/fernybush,
-/turf/open/auto_turf/strata_grass/layer1,
-/area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "82"
+	},
+/area/space)
 "fOT" = (
 /obj/effect/decal/grass_overlay/grass1/inner,
 /obj/structure/flora/grass/tallgrass/jungle/corner{
@@ -11415,6 +11570,26 @@
 /obj/structure/prop/static_tank,
 /turf/open/void,
 /area/Neer_lv759/indoors/wy_research_complex/mainlabs)
+"fVc" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl2"
+	},
+/obj/effect/decal/cleanable/blood{
+	dir = 8;
+	icon_state = "gib6";
+	layer = 4;
+	pixel_x = 14;
+	pixel_y = 3
+	},
+/obj/structure/blocker/invisible_wall,
+/obj/structure/bed/chair/dropship/pilot{
+	dir = 1;
+	pixel_y = 4;
+	buckling_y = 4
+	},
+/obj/structure/prop/invuln/fire,
+/turf/open/shuttle/dropship/can_surgery/medium_grey_single_wide_left_to_right,
+/area/space)
 "fVd" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "W";
@@ -11456,6 +11631,20 @@
 	dir = 5
 	},
 /area/Neer_lv759/indoors/wy_research_complex/hangarbay)
+"fWj" = (
+/obj/item/stack/rods{
+	amount = 25
+	},
+/obj/structure/prop/hybrisa/airport/dropshipenginedamage{
+	light_on = 1;
+	light_power = 5;
+	light_range = 6
+	},
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "26";
+	opacity = 0
+	},
+/area/space)
 "fWq" = (
 /obj/structure/pipes/standard/simple/hidden/green{
 	dir = 4
@@ -11507,6 +11696,14 @@
 	icon_state = "dome"
 	},
 /area/Neer_lv759/atmos/east_reactor)
+"fXi" = (
+/obj/structure/machinery/door/airlock/almayer/generic{
+	dir = 2;
+	name = "\improper WY-LWI StarGlider SG-200 cargo hold"
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/shuttle/dropship/can_surgery/light_grey_single_wide_up_to_down,
+/area/space)
 "fXm" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice12";
@@ -11575,6 +11772,11 @@
 /obj/effect/landmark/corpsespawner/hybrisa/scientist_xenobiologist,
 /turf/open/floor/almayer/sterile,
 /area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+"fYS" = (
+/obj/item/prop/alien/hugger,
+/obj/structure/blocker/invisible_wall,
+/turf/open/shuttle/dropship/can_surgery/light_grey_single_wide_up_to_down,
+/area/space)
 "fZG" = (
 /obj/structure/pipes/standard/simple/hidden/green{
 	dir = 9
@@ -11986,6 +12188,15 @@
 	},
 /turf/open/floor/strata/fake_wood,
 /area/Neer_lv759/outdoors)
+"gmO" = (
+/obj/item/stack/cable_coil/cut{
+	icon_state = "coil1"
+	},
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "33";
+	opacity = 0
+	},
+/area/space)
 "gmZ" = (
 /obj/structure/machinery/power/apc/power/north{
 	start_charge = 20
@@ -12798,6 +13009,14 @@
 /obj/structure/machinery/door/poddoor/shutters/almayer/open,
 /turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaysouthwest)
+"gGW" = (
+/obj/structure/stairs{
+	color = "#a6aeab";
+	dir = 8
+	},
+/obj/structure/prop/invuln/fire,
+/turf/closed/wall/hybrisa/rock,
+/area/space)
 "gHf" = (
 /obj/structure/machinery/door/poddoor/almayer{
 	id = "E_B_Door";
@@ -12878,6 +13097,22 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/darkyellow2/north,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
+"gJm" = (
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal4"
+	},
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/doubleroad/lines3{
+	pixel_y = -4
+	},
+/obj/structure/prop/hybrisa/vehicles/Meridian/Orange{
+	icon_state = "meridian_orange_damage_2";
+	health = 1750;
+	pixel_x = 2;
+	pixel_y = -4
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/Neer_lv759/outdoors/colony_streets/Parking_space)
 "gJn" = (
 /obj/structure/barricade/handrail/kutjevo{
 	layer = 3.1;
@@ -12975,12 +13210,13 @@
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/outdoor)
 "gMZ" = (
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/machinery/landinglight/ds1{
-	dir = 1
+/obj/effect/landmark/objective_landmark/close,
+/obj/structure/prop/hybrisa/vehicles/Meridian/Green/damage_4{
+	pixel_y = 8;
+	icon_state = "meridian_green_damage_4"
 	},
-/turf/open/floor/plating,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/turf/open/hybrisa/street/asphalt,
+/area/Neer_lv759/outdoors/colony_streets/Parking_space)
 "gNb" = (
 /obj/structure/surface/table/reinforced/almayer_B,
 /obj/structure/window/reinforced/tinted{
@@ -13838,11 +14074,6 @@
 	},
 /turf/open/floor/almayer/blackfull/west,
 /area/Neer_lv759/indoors/wy_research_complex/xenobiology)
-"hoM" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/machinery/power/fractal_reactor,
-/turf/open/floor/corsat/plate,
-/area/Neer_lv759/atmos/command_centre)
 "hpa" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "N";
@@ -14597,9 +14828,9 @@
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
 "hFd" = (
-/obj/structure/prop/hybrisa/misc/machinery/screens/redalert,
-/turf/closed/wall/hybrisa/research/reinforced,
-/area/Neer_lv759/indoors/wy_research_complex/cargo)
+/obj/structure/prop/hybrisa/airport/dropshipventright,
+/turf/closed/wall/hybrisa/rock,
+/area/space)
 "hFs" = (
 /obj/structure/cargo_container/hd/right/alt,
 /turf/open/floor/corsat/brown,
@@ -14680,6 +14911,11 @@
 /obj/structure/surface/table/almayer,
 /turf/open/floor/prison/darkbrowncorners2/southwest,
 /area/Neer_lv759/indoors/wy_research_complex/changingroom)
+"hHS" = (
+/obj/structure/largecrate/empty/secure,
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/corsat/officetiles,
+/area/space)
 "hIg" = (
 /obj/structure/surface/rack{
 	color = "#6b675e";
@@ -14745,9 +14981,14 @@
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
 "hJG" = (
-/obj/structure/prop/hybrisa/misc/machinery/screens/redalert,
-/turf/closed/wall/r_wall/biodome,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/obj/structure/stairs{
+	color = "#a6aeab";
+	dir = 4
+	},
+/obj/structure/prop/invuln/fire,
+/obj/structure/prop/invuln/fire,
+/turf/closed/wall/hybrisa/rock,
+/area/space)
 "hKe" = (
 /obj/structure/surface/table/reinforced,
 /obj/structure/machinery/microwave{
@@ -15205,9 +15446,14 @@
 /turf/open/floor/almayer/no_build,
 /area/Neer_lv759/indoors/caves/Monorail)
 "hVW" = (
-/obj/structure/prop/hybrisa/misc/machinery/screens/redalert,
-/turf/closed/wall/strata_outpost/reinforced,
-/area/Neer_lv759/atmos/reactor_garage)
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/cleanable/generic{
+	color = "#5d524b";
+	alpha = 155
+	},
+/turf/closed/wall/hybrisa/rock,
+/area/space)
 "hWd" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/kutjevo/tan/alt_edge/northwest,
@@ -15430,6 +15676,12 @@
 	},
 /turf/open/floor/prison/chapel_carpet/doubleside/north,
 /area/Neer_lv759/indoors/wy_research_complex/changingroom)
+"iar" = (
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "69"
+	},
+/area/space)
 "iaG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/barricade/handrail,
@@ -15671,10 +15923,10 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
 "ieS" = (
-/obj/structure/machinery/camera/autoname/lz_camera,
-/obj/structure/flora/jungle/vines/light_2,
-/turf/open/floor/plating,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/obj/structure/prop/invuln/fire,
+/obj/structure/prop/invuln/fire,
+/turf/closed/wall/hybrisa/rock,
+/area/space)
 "ieT" = (
 /obj/structure/surface/table/reinforced/prison{
 	color = "#6b675e"
@@ -16181,12 +16433,18 @@
 /turf/closed/wall/r_wall/biodome,
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
 "irt" = (
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/flora/jungle/vines/light_2,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/obj/effect/decal/warning_stripes{
+	icon_state = "W";
+	layer = 2.5
+	},
+/obj/structure/machinery/door/airlock/multi_tile/almayer/dropshiprear/dropshipside/ds2{
+	dir = 1;
+	id = "sh_dropship2";
+	name = "\improper WY-LWI StarGlider SG-200 airlock"
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/corsat/officetiles,
+/area/space)
 "isr" = (
 /obj/structure/surface/rack,
 /obj/effect/landmark/objective_landmark/close,
@@ -16325,14 +16583,11 @@
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/east_reactor)
 "iwE" = (
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/platform{
-	dir = 1
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "15"
 	},
-/obj/effect/sentry_landmark/lz_1,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/area/space)
 "iwT" = (
 /obj/effect/decal/hybrisa/road/road_edge{
 	icon_state = "road_edge_decal2"
@@ -16501,10 +16756,11 @@
 /turf/open/floor/prison/darkyellow2/east,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaysouthwest)
 "iBw" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/corpsespawner/wy,
-/turf/open/floor/prison,
-/area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "25"
+	},
+/area/space)
 "iCd" = (
 /obj/structure/window/framed/almayer,
 /obj/structure/machinery/door/poddoor/shutters/almayer/open,
@@ -16519,9 +16775,10 @@
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/command_centre)
 "iCq" = (
-/obj/structure/flora/jungle/plantbot1,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "18"
+	},
+/area/space)
 "iCv" = (
 /obj/effect/landmark/monkey_spawn,
 /turf/open/floor/corsat/plate,
@@ -16943,6 +17200,15 @@
 	},
 /turf/open/hybrisa/street/asphalt,
 /area/Neer_lv759/outdoors)
+"iMz" = (
+/obj/structure/blocker/invisible_wall,
+/obj/structure/prop/invuln/fire,
+/obj/structure/prop/invuln/fire,
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "damaged_console1";
+	opacity = 0
+	},
+/area/space)
 "iMB" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/darkredcorners2/east,
@@ -17235,10 +17501,20 @@
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/cargo)
 "iVX" = (
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/flora/bush/ausbushes/var3/fernybush,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/obj/item/storage/briefcase{
+	pixel_y = -2
+	},
+/obj/structure/bed/chair/vehicle/white{
+	dir = 1;
+	pixel_x = 8
+	},
+/obj/structure/bed/chair/vehicle/white{
+	dir = 1;
+	pixel_x = -8
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/dropship/dropship2,
+/area/space)
 "iWr" = (
 /turf/open/floor/tdome/w_y0/north,
 /area/Neer_lv759/indoors/caves/Monorail)
@@ -17789,6 +18065,12 @@
 	},
 /turf/open/floor/bluegrid,
 /area/Neer_lv759/indoors/wy_research_complex/researchanddevelopment)
+"jlg" = (
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "32";
+	opacity = 0
+	},
+/area/space)
 "jlF" = (
 /obj/structure/cable/heavyduty{
 	icon_state = "4-8"
@@ -17906,6 +18188,17 @@
 	},
 /turf/open/floor/platebot,
 /area/Neer_lv759/indoors/caves/Monorail)
+"jou" = (
+/obj/effect/decal/cleanable/blood/drip{
+	icon_state = "3"
+	},
+/obj/structure/bed/chair/vehicle/white{
+	dir = 1;
+	pixel_x = 8
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/dropship/dropshipfloorcorner2,
+/area/space)
 "joF" = (
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Neer_lv759/indoors/wy_research_complex/mainlabs)
@@ -18112,6 +18405,16 @@
 /obj/structure/largecrate/random/case/small,
 /turf/open/floor/corsat/squares,
 /area/Neer_lv759/atmos/command_centre)
+"juL" = (
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship2/transparent{
+	desc = "The WY-LWI StarGlider SG-200, a product of the collaborative ingenuity between Weyland Yutani and Lunnar-Welsun Industries, is a small dropship is designed for short-range commercial transport.";
+	dir = 8;
+	icon = 'icons/turf/dropship4.dmi';
+	icon_state = "110";
+	name = "\improper WY-LWI StarGlider SG-200"
+	},
+/area/space)
 "juM" = (
 /obj/structure/machinery/sentry_holder/wy{
 	dir = 8;
@@ -18270,6 +18573,16 @@
 /obj/structure/pipes/standard/simple/hidden/supply,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
+"jAz" = (
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship2/transparent{
+	desc = "The WY-LWI StarGlider SG-200, a product of the collaborative ingenuity between Weyland Yutani and Lunnar-Welsun Industries, is a small dropship is designed for short-range commercial transport.";
+	dir = 1;
+	icon = 'icons/turf/dropship4.dmi';
+	icon_state = "110";
+	name = "\improper WY-LWI StarGlider SG-200"
+	},
+/area/space)
 "jBl" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice4";
@@ -18675,10 +18988,11 @@
 /turf/open/floor/prison/red/east,
 /area/Neer_lv759/indoors/hobosecret)
 "jJl" = (
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/flora/jungle/vines/light_2,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "17";
+	opacity = 0
+	},
+/area/space)
 "jJw" = (
 /obj/structure/machinery/camera{
 	dir = 4
@@ -18791,6 +19105,14 @@
 /obj/structure/closet/crate/freezer,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/cargo)
+"jNa" = (
+/obj/structure/largecrate/random/mini/small_case{
+	pixel_x = -9;
+	pixel_y = 10
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/dropship/dropship3,
+/area/space)
 "jNi" = (
 /obj/structure/prop/fishing,
 /turf/open/floor/strata/fake_wood,
@@ -19709,10 +20031,14 @@
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/east_reactor)
 "klG" = (
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/machinery/floodlight/landing,
-/turf/open/floor/mech_bay_recharge_floor/shuttle_landing_lights,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/hybrisa/road/lines1{
+	pixel_y = 14;
+	pixel_x = -2
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/Neer_lv759/outdoors/colony_streets/Parking_space)
 "klQ" = (
 /obj/structure/largecrate/random/barrel/red,
 /turf/open/floor/prison,
@@ -20034,6 +20360,11 @@
 /obj/structure/surface/table/almayer,
 /turf/open/floor/corsat/squares,
 /area/Neer_lv759/atmos/east_reactor)
+"ktG" = (
+/obj/structure/largecrate/random/mini/small_case,
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/dropship/dropship4,
+/area/space)
 "ktW" = (
 /turf/open/floor/corsat/brown/northwest,
 /area/Neer_lv759/atmos/east_reactor)
@@ -20586,7 +20917,6 @@
 	pixel_x = -20;
 	pixel_y = 13
 	},
-/obj/structure/prop/hybrisa/misc/machinery/screens/redalert,
 /turf/closed/wall/r_wall/biodome,
 /area/Neer_lv759/atmos/command_centre)
 "kJM" = (
@@ -20709,6 +21039,13 @@
 	},
 /turf/open/floor/strata/cyan4,
 /area/Neer_lv759/indoors/wy_research_complex/researchanddevelopment)
+"kLr" = (
+/obj/structure/bed/chair/vehicle/white{
+	pixel_x = 8
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/dropship/dropshipfloorcorner2,
+/area/space)
 "kLD" = (
 /obj/structure/cable/heavyduty{
 	icon_state = "4-8"
@@ -21317,6 +21654,22 @@
 /obj/structure/machinery/recharge_station,
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/command_centre)
+"kXY" = (
+/obj/structure/machinery/light/double{
+	dir = 8;
+	pixel_y = -5
+	},
+/obj/structure/bed/chair/vehicle/white{
+	dir = 1;
+	pixel_x = -8
+	},
+/obj/structure/bed/chair/vehicle/white{
+	dir = 1;
+	pixel_x = 8
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/dropship/dropship2,
+/area/space)
 "kYu" = (
 /obj/structure/cargo_container/horizontal/blue/top,
 /turf/open/floor/prison,
@@ -21715,6 +22068,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/Neer_lv759/outdoors/landing_zone_1)
+"lgO" = (
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "56"
+	},
+/area/space)
 "lho" = (
 /turf/open/floor/kutjevo/tan/grey_edge/east,
 /area/Neer_lv759/indoors/wy_research_complex/reception)
@@ -22414,6 +22773,11 @@
 	},
 /turf/open/gm/river,
 /area/Neer_lv759/atmos/outdoor)
+"lus" = (
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "19"
+	},
+/area/space)
 "luy" = (
 /obj/structure/platform{
 	dir = 8
@@ -22432,6 +22796,15 @@
 	},
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Neer_lv759/outdoors/landing_zone_2)
+"lve" = (
+/obj/item/stack/cable_coil/cut{
+	icon_state = "coil2"
+	},
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "27";
+	opacity = 0
+	},
+/area/space)
 "lvh" = (
 /obj/structure/pipes/standard/simple/hidden/green{
 	dir = 9
@@ -22678,10 +23051,11 @@
 /turf/open/floor/corsat/squares,
 /area/Neer_lv759/atmos/east_reactor)
 "lBi" = (
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/flora/jungle/planttop1,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/obj/effect/decal/cleanable/blood{
+	icon_state = "armor_blood"
+	},
+/turf/closed/wall/hybrisa/rock,
+/area/space)
 "lBk" = (
 /turf/open/floor/kutjevo/colors/cyan/edge/west,
 /area/Neer_lv759/indoors/wy_research_complex/reception)
@@ -23124,9 +23498,13 @@
 /turf/open/floor/carpet6_2,
 /area/Neer_lv759/indoors/wy_research_complex/dormsbedroom)
 "lMJ" = (
-/obj/structure/flora/jungle/vines/light_2,
-/turf/open/floor/plating,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/obj/structure/bed/chair/vehicle/white{
+	dir = 1;
+	pixel_x = 8
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/dropship/dropshipfloorcorner2,
+/area/space)
 "lNj" = (
 /obj/item/shard,
 /obj/effect/landmark/objective_landmark/close,
@@ -23402,12 +23780,14 @@
 /turf/closed/wall/hybrisa/rock,
 /area/Neer_lv759/indoors/wy_research_complex/securityarmory)
 "lTt" = (
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/machinery/landinglight/ds1/delayone{
-	dir = 8
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship2/transparent{
+	desc = "The WY-LWI StarGlider SG-200, a product of the collaborative ingenuity between Weyland Yutani and Lunnar-Welsun Industries, is a small dropship is designed for short-range commercial transport.";
+	icon = 'icons/turf/dropship4.dmi';
+	icon_state = "103";
+	name = "\improper WY-LWI StarGlider SG-200"
 	},
-/turf/open/floor/plating,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/area/space)
 "lTO" = (
 /obj/item/trash/semki,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
@@ -23586,6 +23966,14 @@
 /obj/structure/machinery/door/airlock/multi_tile/almayer/generic/autoname,
 /turf/open/floor/corsat/marked,
 /area/Neer_lv759/indoors/wy_research_complex/securityarmory)
+"lXB" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl2"
+	},
+/obj/effect/landmark/corpsespawner/hybrisa/civilian_office,
+/obj/structure/blocker/invisible_wall,
+/turf/open/shuttle/dropship/can_surgery/light_grey_single_wide_up_to_down,
+/area/space)
 "lXV" = (
 /obj/structure/girder/reinforced,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
@@ -23642,6 +24030,17 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
+"lZc" = (
+/obj/structure/largecrate/random/mini/small_case{
+	pixel_x = -9;
+	pixel_y = 10
+	},
+/obj/structure/bed/stool{
+	icon_state = "stool_alt"
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/corsat/officetiles,
+/area/space)
 "lZg" = (
 /obj/item/trash/cigbutt/ucigbutt{
 	pixel_x = 27;
@@ -23765,6 +24164,12 @@
 	},
 /turf/open/floor/corsat/officetiles,
 /area/Neer_lv759/indoors/wy_research_complex/hangarbay)
+"mbm" = (
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "zwing2";
+	opacity = 0
+	},
+/area/space)
 "mbo" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice12";
@@ -24739,6 +25144,20 @@
 /obj/structure/pipes/standard/manifold/hidden/supply,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Neer_lv759/indoors/wy_research_complex/changingroom)
+"mxc" = (
+/obj/effect/decal/hybrisa/doubleroad/lines2{
+	pixel_y = 4
+	},
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/effect/decal/hybrisa/road/lines3{
+	pixel_y = 5
+	},
+/obj/structure/prop/hybrisa/vehicles/Meridian/Red/damage_2{
+	dir = 1;
+	icon_state = "meridian_red_damage_2"
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/Neer_lv759/outdoors/colony_streets/Parking_space)
 "mxB" = (
 /obj/structure/pipes/standard/simple/hidden/green,
 /mob/living/simple_animal/mouse/brown,
@@ -25030,12 +25449,11 @@
 /turf/open/floor/strata/faux_wood,
 /area/Neer_lv759/indoors/wy_research_complex/cafeteria)
 "mFL" = (
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/machinery/landinglight/ds1/delaytwo{
-	dir = 8
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "62"
 	},
-/turf/open/floor/plating,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/area/space)
 "mFU" = (
 /turf/closed/wall/r_wall/biodome/biodome_unmeltable,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
@@ -25255,7 +25673,6 @@
 	icon_state = "N";
 	pixel_y = 1
 	},
-/obj/effect/warning,
 /turf/open/shuttle/elevator,
 /area/Neer_lv759/indoors/caves/Monorail)
 "mMJ" = (
@@ -26196,9 +26613,11 @@
 /turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/outdoors/landing_zone_1)
 "njk" = (
-/obj/structure/prop/hybrisa/misc/machinery/screens/redalert,
-/turf/closed/wall/r_wall/biodome,
-/area/Neer_lv759/indoors/wy_research_complex/hallwaysouthwest)
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "75"
+	},
+/area/space)
 "njv" = (
 /obj/structure/machinery/landinglight/ds1/delayone,
 /turf/open/floor/plating,
@@ -26224,6 +26643,32 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/closed/wall/r_wall/biodome,
 /area/Neer_lv759/indoors/wy_research_complex/reception)
+"nko" = (
+/obj/structure/surface/table/reinforced/prison{
+	color = "#6b675e";
+	layer = 3
+	},
+/obj/structure/machinery/light/small{
+	dir = 8;
+	pixel_x = -11;
+	pixel_y = 10
+	},
+/obj/item/trash/tray{
+	pixel_x = -2;
+	pixel_y = 5
+	},
+/obj/item/trash/tray,
+/obj/item/reagent_container/food/snacks/mre_pack/meal4{
+	desc = "A tray of standard W-Y 'flight' food. This one is what resembles a Pizza. Disgusting.";
+	name = "\improper W-Y Prepared Meal (pizza)"
+	},
+/obj/item/reagent_container/food/drinks/bottle/beer/craft/ganucci,
+/obj/structure/machinery/cm_vending/sorted/supplies{
+	pixel_y = 32
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/corsat/officetiles,
+/area/space)
 "nkx" = (
 /obj/structure/machinery/door/airlock/almayer/maint/colony/autoname{
 	req_one_access = null
@@ -26462,9 +26907,17 @@
 /turf/open/floor/shiva/radiator_tile2,
 /area/Neer_lv759/indoors/wy_research_complex/hangarbay)
 "nqx" = (
-/obj/structure/prop/hybrisa/misc/machinery/screens/redalert,
-/turf/closed/wall/r_wall/biodome/biodome_unmeltable,
-/area/Neer_lv759/atmos/outdoor)
+/obj/structure/machinery/door/airlock/multi_tile/almayer/dropshiprear/dropshipside/ds2{
+	dir = 1;
+	id = "sh_dropship2";
+	name = "\improper WY-LWI StarGlider SG-200 airlock"
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "E"
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/corsat/officetiles,
+/area/space)
 "nqy" = (
 /obj/structure/platform{
 	dir = 4
@@ -26564,6 +27017,17 @@
 	},
 /turf/open/shuttle/dropship/dark_grey_bottom,
 /area/Neer_lv759/indoors/caves/Monorail)
+"nua" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "W";
+	layer = 2.5
+	},
+/obj/structure/machinery/door/airlock/dropship_hatch/two{
+	name = "\improper WY-LWI StarGlider SG-200 airlock"
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/corsat/officetiles,
+/area/space)
 "nuE" = (
 /obj/structure/surface/table/almayer,
 /obj/effect/landmark/objective_landmark/far,
@@ -26828,6 +27292,13 @@
 	},
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/command_centre)
+"nEv" = (
+/obj/structure/stairs{
+	color = "#a6aeab";
+	dir = 8
+	},
+/turf/closed/wall/hybrisa/rock,
+/area/space)
 "nEz" = (
 /obj/item/stack/sheet/metal,
 /obj/effect/decal/cleanable/dirt,
@@ -28052,6 +28523,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/closed/wall/r_wall/biodome,
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
+"omd" = (
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "94"
+	},
+/area/space)
 "omr" = (
 /obj/structure/sign/safety/opens_up,
 /turf/closed/wall/r_wall/biodome,
@@ -28089,6 +28565,44 @@
 /obj/effect/landmark/map_item,
 /turf/open/shuttle/dropship/dark_grey_bottom,
 /area/Neer_lv759/indoors/caves/Monorail)
+"onI" = (
+/obj/item/reagent_container/food/snacks/mre_pack/meal4{
+	desc = "A tray of standard W-Y 'flight' food. This one is what resembles a Pizza. Disgusting.";
+	name = "\improper W-Y Prepared Meal (pizza)"
+	},
+/obj/item/reagent_container/food/snacks/mre_pack/meal5{
+	desc = "A tray of standard W-Y 'flight' food. This one is what resembles Chicken. Disgusting.";
+	name = "\improper W-Y Prepared Meal (chicken)"
+	},
+/obj/item/reagent_container/food/snacks/mre_pack/meal5{
+	desc = "A tray of standard W-Y 'flight' food. This one is what resembles Chicken. Disgusting.";
+	name = "\improper W-Y Prepared Meal (chicken)"
+	},
+/obj/item/reagent_container/food/snacks/mre_pack/meal1{
+	desc = "A tray of standard W-Y 'flight' food. This one is what resembles Corn-bread. Disgusting.";
+	name = "\improper W-Y Prepared Meal (cornbread)"
+	},
+/obj/item/reagent_container/food/snacks/mre_pack/meal1{
+	desc = "A tray of standard W-Y 'flight' food. This one is what resembles Corn-bread. Disgusting.";
+	name = "\improper W-Y Prepared Meal (cornbread)"
+	},
+/obj/item/reagent_container/food/drinks/cans/classcola,
+/obj/item/reagent_container/food/drinks/cans/classcola,
+/obj/item/reagent_container/food/drinks/cans/classcola,
+/obj/item/reagent_container/food/drinks/cans/classcola,
+/obj/item/reagent_container/food/drinks/bottle/beer/craft/ganucci,
+/obj/item/reagent_container/food/drinks/bottle/beer/craft/ganucci,
+/obj/item/reagent_container/food/drinks/bottle/beer/craft/ganucci,
+/obj/item/reagent_container/food/drinks/bottle/beer/craft/ganucci,
+/obj/structure/machinery/cm_vending/sorted/medical/wall_med{
+	pixel_y = 32
+	},
+/obj/structure/closet/crate/foodcart/alt{
+	pixel_y = 8
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/shuttle/dropship/can_surgery/light_grey_single_wide_up_to_down,
+/area/space)
 "onK" = (
 /obj/structure/reagent_dispensers/watertank{
 	pixel_x = 8;
@@ -28377,6 +28891,10 @@
 	},
 /turf/open/floor/kutjevo/tan/alt_edge/west,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
+"otm" = (
+/obj/structure/prop/hybrisa/airport/dropshipvent1left,
+/turf/closed/wall/hybrisa/rock,
+/area/space)
 "otq" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "N"
@@ -28587,10 +29105,18 @@
 /turf/open/floor/corsat/brown/east,
 /area/Neer_lv759/atmos/outdoor)
 "oxb" = (
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/machinery/landinglight/ds1/delaytwo,
-/turf/open/floor/plating,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/obj/structure/bed/chair/vehicle/white{
+	pixel_x = 8
+	},
+/obj/structure/bed/chair/vehicle/white{
+	pixel_x = -8
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 32
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/dropship/dropship2,
+/area/space)
 "oxc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -28606,6 +29132,14 @@
 /obj/structure/machinery/big_computers/science_big/medilathe,
 /turf/open/floor/hybrisa/tile/tilewhite,
 /area/Neer_lv759/indoors/wy_research_complex/xenobiology)
+"oxz" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "W";
+	layer = 2.5
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/corsat/officetiles,
+/area/space)
 "oxA" = (
 /obj/structure/closet/crate/radiation,
 /obj/structure/largecrate/random/case{
@@ -29027,6 +29561,14 @@
 	},
 /turf/open/floor/plating/wood,
 /area/Neer_lv759/outdoors)
+"oJV" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl2"
+	},
+/obj/item/clothing/head/hybrisa/wy_po_cap,
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/dropship/dropship3,
+/area/space)
 "oKp" = (
 /obj/structure/machinery/door/poddoor/shutters/almayer{
 	id = "Reactor_garage_2"
@@ -29428,6 +29970,12 @@
 "oSh" = (
 /turf/open/void,
 /area/Neer_lv759/indoors/caves/Monorail)
+"oSj" = (
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "83"
+	},
+/area/space)
 "oSn" = (
 /obj/structure/machinery/light{
 	dir = 1
@@ -29654,6 +30202,12 @@
 /obj/structure/pipes/standard/simple/hidden/supply/no_boom,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
+"oYf" = (
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "22";
+	opacity = 0
+	},
+/area/space)
 "oYm" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet14_10/west,
@@ -29693,9 +30247,10 @@
 /turf/open/floor/cmo,
 /area/Neer_lv759/indoors/wy_research_complex/dormsbedroom)
 "oZa" = (
-/obj/structure/flora/bush/ausbushes/var3/fernybush,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "8"
+	},
+/area/space)
 "oZe" = (
 /obj/structure/pipes/standard/simple/hidden/green{
 	dir = 6
@@ -29734,10 +30289,11 @@
 /turf/open/floor/prison,
 /area/space)
 "oZF" = (
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/flora/jungle/plantbot1,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "27";
+	opacity = 0
+	},
+/area/space)
 "oZN" = (
 /obj/item/weapon/broken_bottle,
 /obj/effect/decal/strata_decals/grime/grime3,
@@ -29952,6 +30508,19 @@
 	},
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
+"piu" = (
+/obj/structure/barricade/handrail/hybrisa/road/metal/metaldark{
+	pixel_y = -2
+	},
+/obj/structure/barricade/handrail/hybrisa/road/metal/metaldark{
+	pixel_y = -5
+	},
+/obj/structure/prop/hybrisa/vehicles/Meridian/WeylandYutani/damage_5{
+	layer = 5.1;
+	icon_state = "meridian_wy_damage_5"
+	},
+/turf/open/hybrisa/street/sidewalkcenter/north,
+/area/Neer_lv759/outdoors/colony_streets/Parking_space)
 "piB" = (
 /obj/structure/machinery/colony_floodlight/street{
 	pixel_y = 12
@@ -30081,6 +30650,17 @@
 	},
 /turf/open/floor/almayer/blackcorner/east,
 /area/Neer_lv759/indoors/wy_research_complex/xenobiology)
+"plU" = (
+/obj/effect/acid_hole{
+	explo_proof = 1
+	},
+/obj/structure/blocker/invisible_wall,
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "79";
+	opacity = 0
+	},
+/area/space)
 "plZ" = (
 /obj/structure/machinery/light/small{
 	light_color = "#C02526";
@@ -30236,6 +30816,15 @@
 /obj/effect/landmark/xeno_spawn,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
+"pra" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "E";
+	pixel_x = 2
+	},
+/obj/item/prop/alien/hugger,
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/corsat/officetiles,
+/area/space)
 "prd" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
@@ -30272,9 +30861,13 @@
 /turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/outdoors/landing_zone_1)
 "psu" = (
-/obj/structure/flora/jungle/planttop1,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/obj/structure/bed/chair/vehicle/white{
+	dir = 1;
+	pixel_x = -8
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/dropship/dropshipfloorcorner1,
+/area/space)
 "ptn" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "W"
@@ -30455,6 +31048,15 @@
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
 /turf/open/floor/corsat/brown,
 /area/Neer_lv759/atmos/east_reactor)
+"pyl" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "E";
+	pixel_x = 2
+	},
+/obj/item/shard,
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/corsat/officetiles,
+/area/space)
 "pyo" = (
 /obj/structure/barricade/handrail/strata{
 	pixel_y = -4
@@ -30531,7 +31133,6 @@
 	},
 /area/Neer_lv759/atmos/east_reactor)
 "pAw" = (
-/obj/structure/flora/jungle/vines/light_2,
 /obj/structure/platform{
 	density = 0;
 	icon_state = "platform_deco"
@@ -30773,6 +31374,13 @@
 	},
 /turf/open/floor/strata/faux_wood,
 /area/Neer_lv759/indoors/wy_research_complex/dormsbedroom)
+"pFV" = (
+/obj/structure/prop/hybrisa/vehicles/Meridian/WeylandYutani/damage_5{
+	layer = 5.1;
+	icon_state = "meridian_wy_damage_5"
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/Neer_lv759/outdoors/colony_streets/Main_road)
 "pGg" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/asteroidfloor/north,
@@ -31519,6 +32127,21 @@
 "qak" = (
 /turf/open/hybrisa/street/asphalt,
 /area/Neer_lv759/indoors/wy_security/checkpoint_east)
+"qat" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "E"
+	},
+/obj/effect/decal/cleanable/generic{
+	color = "#5d524b";
+	alpha = 155
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/door/airlock/dropship_hatch/two{
+	name = "\improper WY-LWI StarGlider SG-200 airlock"
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/corsat/officetiles,
+/area/space)
 "qaF" = (
 /obj/structure/largecrate/random/barrel/yellow,
 /turf/open/floor/corsat/plate,
@@ -31708,6 +32331,12 @@
 "qgi" = (
 /turf/open/hybrisa/street/sidewalkcenter/west,
 /area/Neer_lv759/outdoors/colony_streets/Main_road)
+"qgj" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl2"
+	},
+/turf/closed/wall/hybrisa/rock,
+/area/space)
 "qgG" = (
 /obj/structure/surface/table/reinforced/prison{
 	color = "#6b675e"
@@ -31838,6 +32467,11 @@
 /obj/item/ammo_magazine/smg/mp5,
 /turf/open/hybrisa/street/asphalt,
 /area/Neer_lv759/outdoors)
+"qiP" = (
+/obj/structure/prop/hybrisa/airport/dropshipvent2right,
+/obj/structure/prop/invuln/fire,
+/turf/closed/wall/hybrisa/rock,
+/area/space)
 "qji" = (
 /obj/structure/platform_decoration{
 	dir = 8
@@ -31975,6 +32609,19 @@
 /obj/effect/landmark/objective_landmark/far,
 /turf/open/floor/strata/fake_wood,
 /area/Neer_lv759/indoors/wy_research_complex/securityarmory)
+"qml" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/bed/chair/vehicle/white{
+	dir = 1;
+	pixel_x = -8
+	},
+/obj/structure/bed/chair/vehicle/white{
+	dir = 1;
+	pixel_x = 8
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/dropship/dropship2,
+/area/space)
 "qmp" = (
 /obj/structure/prop/ice_colony/ground_wire,
 /turf/open/floor/corsat/marked,
@@ -32066,10 +32713,13 @@
 /turf/open/floor/corsat,
 /area/Neer_lv759/atmos/east_reactor)
 "qpb" = (
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/machinery/landinglight/ds1/delayone,
-/turf/open/floor/plating,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/turf/closed/shuttle/dropship2/transparent{
+	desc = "The WY-LWI StarGlider SG-200, a product of the collaborative ingenuity between Weyland Yutani and Lunnar-Welsun Industries, is a small dropship is designed for short-range commercial transport.";
+	icon = 'icons/turf/dropship4.dmi';
+	icon_state = "98";
+	name = "\improper WY-LWI StarGlider SG-200"
+	},
+/area/space)
 "qpq" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "N";
@@ -32536,6 +33186,12 @@
 	},
 /turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/atmos/reactor_garage)
+"qDy" = (
+/obj/item/weapon/broken_bottle,
+/obj/item/shard,
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/dropship/dropship4,
+/area/space)
 "qDz" = (
 /obj/structure/flora/bush/ausbushes/var3/sunnybush{
 	layer = 4.3;
@@ -32622,12 +33278,12 @@
 /turf/open/floor/cmo,
 /area/Neer_lv759/indoors/wy_research_complex/dormsbedroom)
 "qEP" = (
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/machinery/landinglight/ds1/delaytwo{
+/obj/structure/stairs{
+	color = "#a6aeab";
 	dir = 4
 	},
-/turf/open/floor/plating,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/turf/closed/wall/hybrisa/rock,
+/area/space)
 "qES" = (
 /obj/structure/stairs/perspective/kutjevo{
 	dir = 8;
@@ -33693,6 +34349,12 @@
 	},
 /turf/open/floor/corsat/marked,
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
+"rbS" = (
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "29";
+	opacity = 0
+	},
+/area/space)
 "rcb" = (
 /turf/open/floor/kutjevo,
 /area/Neer_lv759/indoors/wy_research_complex/medical_annex)
@@ -34835,6 +35497,11 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/almayer/black/north,
 /area/Neer_lv759/indoors/wy_research_complex/xenobiology)
+"rDZ" = (
+/obj/item/shard,
+/obj/structure/blocker/invisible_wall,
+/turf/open/shuttle/dropship/can_surgery/light_grey_single_wide_up_to_down,
+/area/space)
 "rEs" = (
 /obj/effect/decal/hybrisa/road/road_edge,
 /obj/effect/decal/hybrisa/road/lines1,
@@ -34951,6 +35618,10 @@
 "rGE" = (
 /turf/open/floor/almayer_hull,
 /area/Neer_lv759/indoors/wy_security/checkpoint_east)
+"rGF" = (
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/prison/cell_stripe,
+/area/space)
 "rGK" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "N";
@@ -35164,6 +35835,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/darkyellow2/north,
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
+"rMA" = (
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "30"
+	},
+/area/space)
 "rMC" = (
 /obj/structure/machinery/vending/coffee,
 /turf/open/floor/airless/asteroidfloor,
@@ -35215,6 +35892,16 @@
 "rNE" = (
 /turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/atmos/east_reactor)
+"rNF" = (
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship2/transparent{
+	desc = "The WY-LWI StarGlider SG-200, a product of the collaborative ingenuity between Weyland Yutani and Lunnar-Welsun Industries, is a small dropship is designed for short-range commercial transport.";
+	dir = 4;
+	icon = 'icons/turf/dropship4.dmi';
+	icon_state = "110";
+	name = "\improper WY-LWI StarGlider SG-200"
+	},
+/area/space)
 "rNW" = (
 /obj/structure/barricade/handrail/kutjevo{
 	dir = 8;
@@ -35484,6 +36171,12 @@
 	},
 /turf/open/floor/almayer/blackfull/west,
 /area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+"rTU" = (
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "23";
+	opacity = 0
+	},
+/area/space)
 "rTW" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "N";
@@ -35998,16 +36691,20 @@
 /turf/open/floor/kutjevo/colors,
 /area/Neer_lv759/indoors/wy_research_complex/securityarmory)
 "sjT" = (
-/obj/effect/decal/hybrisa/road/lines3,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/cleanable/blood/drip{
-	icon_state = "3"
+/obj/structure/bed/chair/vehicle/white{
+	pixel_x = -8
 	},
-/obj/vehicle/multitile/box_van/pizza_van{
-	dir = 4
+/obj/structure/bed/chair/vehicle/white{
+	pixel_x = 8
 	},
-/turf/open/hybrisa/street/asphalt,
-/area/Neer_lv759/outdoors/colony_streets/Parking_space)
+/obj/item/card/id/visa{
+	desc = "A United Americas entry visa. A rare commodity out here on the rim.";
+	pixel_x = 9;
+	pixel_y = -2
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/dropship/dropship2,
+/area/space)
 "skd" = (
 /turf/open/shuttle/dropship/can_surgery,
 /area/Neer_lv759/indoors/caves/Monorail)
@@ -36225,6 +36922,17 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/strata/faux_wood,
 /area/Neer_lv759/indoors/wy_research_complex/dormsbedroom)
+"snQ" = (
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/corsat/officetiles,
+/area/space)
+"snU" = (
+/obj/structure/machinery/door/airlock/multi_tile/almayer/dropshiprear/ds2{
+	name = "\improper WY-LWI StarGlider SG-200 cargo hold"
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/prison/cell_stripe,
+/area/space)
 "snY" = (
 /turf/open/floor/prison/ramptop/north,
 /area/Neer_lv759/outdoors)
@@ -36244,12 +36952,11 @@
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/mainlabs)
 "soY" = (
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/machinery/landinglight/ds1{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/obj/structure/prop/invuln/fire,
+/obj/structure/prop/invuln/fire,
+/obj/structure/prop/invuln/fire,
+/turf/closed/wall/hybrisa/rock,
+/area/space)
 "soZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/surface/table/almayer,
@@ -36319,6 +37026,12 @@
 	},
 /turf/open/floor/prison/red/northwest,
 /area/Neer_lv759/indoors/wy_security/checkpoint_east)
+"sqk" = (
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "73"
+	},
+/area/space)
 "sqA" = (
 /obj/structure/bed/bedroll,
 /turf/open/floor/prison/floor_plate,
@@ -37061,10 +37774,7 @@
 /turf/open/floor/corsat/squares,
 /area/Neer_lv759/atmos/reactor_garage)
 "sLD" = (
-/obj/structure/machinery/door/poddoor/almayer/biohazard/white{
-	icon = 'icons/obj/structures/doors/hybrisashutters.dmi';
-	id = "hybrisa_research_labs_lockdown"
-	},
+/obj/structure/machinery/door/poddoor/almayer/blended,
 /turf/open/shuttle/dropship/dark_grey_bottom,
 /area/Neer_lv759/indoors/caves/Monorail)
 "sLL" = (
@@ -37135,6 +37845,18 @@
 /obj/effect/decal/cleanable/blood/xeno,
 /turf/open/hybrisa/street/asphalt,
 /area/Neer_lv759/outdoors/colony_streets/Main_road)
+"sOi" = (
+/obj/effect/decal/cleanable/blood/gibs/limb,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "armor_blood"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 10;
+	pixel_y = 21
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/shuttle/dropship/can_surgery/light_grey_single_wide_up_to_down,
+/area/space)
 "sOw" = (
 /obj/structure/machinery/conveyor{
 	dir = 10;
@@ -37557,10 +38279,9 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Neer_lv759/indoors/wy_research_complex/changingroom)
 "sZk" = (
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/platform,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/obj/structure/prop/invuln/fire,
+/turf/closed/wall/hybrisa/rock,
+/area/space)
 "sZo" = (
 /obj/structure/machinery/door/window/brigdoor/southleft,
 /obj/effect/decal/cleanable/dirt,
@@ -37604,9 +38325,11 @@
 /turf/closed/wall/biodome,
 /area/Neer_lv759/indoors/wy_research_complex/janitor)
 "taH" = (
-/obj/structure/prop/hybrisa/misc/machinery/screens/redalert,
-/turf/closed/wall/r_wall/biodome,
-/area/Neer_lv759/indoors/wy_research_complex/securityarmory)
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "31"
+	},
+/area/space)
 "taI" = (
 /obj/structure/cargo_container/horizontal/blue/middle,
 /turf/open/floor/corsat/brown/north,
@@ -37721,9 +38444,21 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Neer_lv759/indoors/wy_research_complex/securityarmory)
 "tdb" = (
-/obj/structure/flora/bush/ausbushes/pointybush,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal5"
+	},
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 1
+	},
+/obj/effect/decal/hybrisa/doubleroad/lines2{
+	pixel_y = 4
+	},
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3"
+	},
+/obj/structure/prop/hybrisa/vehicles/car_pileup,
+/turf/open/hybrisa/street/asphalt,
+/area/Neer_lv759/outdoors/colony_streets/Parking_space)
 "tdm" = (
 /obj/structure/largecrate/random/mini{
 	pixel_x = -10;
@@ -37825,9 +38560,9 @@
 /turf/open/floor/strata/faux_wood,
 /area/Neer_lv759/indoors/wy_research_complex/dormsbedroom)
 "tfb" = (
-/obj/structure/prop/hybrisa/misc/machinery/screens/redalert,
-/turf/closed/wall/r_wall/biodome/biodome_unmeltable,
-/area/Neer_lv759/atmos/east_reactor)
+/obj/effect/vehicle_spawner/box_van,
+/turf/open/hybrisa/street/asphalt,
+/area/Neer_lv759/outdoors/colony_streets/Main_road)
 "tfl" = (
 /obj/structure/machinery/access_button,
 /turf/closed/wall/almayer/outer,
@@ -38234,6 +38969,20 @@
 	},
 /turf/open/shuttle/dropship/can_surgery,
 /area/Neer_lv759/indoors/caves/Monorail)
+"toO" = (
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3"
+	},
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/effect/decal/hybrisa/doubleroad/lines2{
+	pixel_y = 4
+	},
+/obj/structure/prop/hybrisa/vehicles/Meridian/WeylandYutani/damage_5{
+	layer = 5.1;
+	icon_state = "meridian_wy_damage_5"
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/Neer_lv759/outdoors/colony_streets/Parking_space)
 "toU" = (
 /obj/effect/decal/cleanable/molten_item,
 /obj/effect/decal/strata_decals/grime/grime4{
@@ -38991,6 +39740,22 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/kutjevo,
 /area/Neer_lv759/indoors/wy_research_complex/reception)
+"tHd" = (
+/obj/structure/bed/chair/vehicle/white{
+	dir = 1;
+	pixel_x = 8
+	},
+/obj/structure/bed/chair/vehicle/white{
+	dir = 1;
+	pixel_x = -8
+	},
+/obj/structure/machinery/light/double{
+	dir = 8;
+	pixel_y = -5
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/dropship/dropship2,
+/area/space)
 "tHe" = (
 /obj/structure/prop/dam/truck/cargo{
 	dir = 8
@@ -39087,6 +39852,13 @@
 	},
 /turf/open/void,
 /area/Neer_lv759/outdoors/landing_zone_1)
+"tKa" = (
+/obj/structure/prop/hybrisa/vehicles/Meridian/Red/damage_2{
+	dir = 1;
+	icon_state = "meridian_red_damage_2"
+	},
+/turf/open/hybrisa/street/sidewalkcenter/east,
+/area/Neer_lv759/outdoors/colony_streets/Main_road)
 "tKc" = (
 /obj/structure/bed/chair/bolted{
 	dir = 8
@@ -39214,9 +39986,11 @@
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
 "tMX" = (
-/obj/structure/flora/jungle/vines/light_2,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "24"
+	},
+/area/space)
 "tMZ" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice3";
@@ -39415,6 +40189,10 @@
 /obj/structure/blocker/forcefield/vehicles,
 /turf/open/floor/corsat/marked,
 /area/Neer_lv759/atmos/outdoor)
+"tQZ" = (
+/obj/effect/decal/cleanable/blood/gibs/core,
+/turf/closed/wall/hybrisa/rock,
+/area/space)
 "tRj" = (
 /turf/open/floor/prison/darkyellow2/north,
 /area/space)
@@ -39755,6 +40533,12 @@
 	},
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/east_reactor)
+"ubU" = (
+/obj/item/trash/tray,
+/obj/effect/decal/cleanable/blood,
+/obj/structure/blocker/invisible_wall,
+/turf/open/shuttle/dropship/can_surgery/light_grey_single_wide_up_to_down,
+/area/space)
 "ucm" = (
 /obj/structure/prop/invuln/overhead_pipe{
 	name = "overhead pipe";
@@ -39841,7 +40625,6 @@
 	pixel_x = -22;
 	layer = 2
 	},
-/obj/effect/warning,
 /turf/open/shuttle/elevator,
 /area/Neer_lv759/indoors/caves/Monorail)
 "uee" = (
@@ -39918,11 +40701,25 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/atmos/reactor_garage)
+"ugW" = (
+/obj/structure/largecrate/empty/case/double,
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/prison/floor_marked,
+/area/space)
 "uhc" = (
 /obj/structure/machinery/light,
 /obj/structure/machinery/photocopier/wyphotocopier,
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/command_centre)
+"uhj" = (
+/obj/structure/prop/hybrisa/vehicles/Meridian/WeylandYutani/damage_2{
+	dir = 1;
+	pixel_y = -12;
+	layer = 3.9;
+	icon_state = "meridian_wy_damage_2"
+	},
+/turf/open/hybrisa/street/sidewalkcenter/east,
+/area/Neer_lv759/outdoors/colony_streets/Main_road)
 "uhr" = (
 /obj/structure/barricade/handrail/kutjevo{
 	dir = 4
@@ -40374,6 +41171,11 @@
 	},
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
+"utm" = (
+/obj/structure/prop/hybrisa/airport/dropshipvent1left,
+/obj/structure/prop/invuln/fire,
+/turf/closed/wall/hybrisa/rock,
+/area/space)
 "utp" = (
 /obj/structure/cable/white{
 	icon_state = "2-8";
@@ -40409,6 +41211,12 @@
 	},
 /turf/open/floor/kutjevo/grey/plate,
 /area/Neer_lv759/indoors/wy_research_complex/securityarmory)
+"utC" = (
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "53"
+	},
+/area/space)
 "utE" = (
 /obj/structure/pipes/standard/simple/hidden/dark,
 /turf/open/floor/prison/floor_plate/southwest,
@@ -40643,6 +41451,12 @@
 /obj/structure/largecrate,
 /turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/outdoors)
+"uzZ" = (
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "zwing6";
+	opacity = 0
+	},
+/area/space)
 "uAa" = (
 /obj/structure/stairs/perspective{
 	icon_state = "p_stair_full"
@@ -41035,12 +41849,16 @@
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/reactor_garage)
 "uLC" = (
-/obj/structure/flora/jungle/planttop1,
-/obj/structure/platform{
-	dir = 8
+/obj/structure/closet/crate/foodcart,
+/obj/item/trash/tray,
+/obj/item/trash/tray{
+	pixel_x = -2;
+	pixel_y = 5
 	},
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/obj/item/trash/tray,
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/corsat/officetiles,
+/area/space)
 "uLK" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
 /obj/structure/flora/bush/ausbushes/var3/sunnybush{
@@ -41064,7 +41882,6 @@
 	icon_state = "N";
 	pixel_y = 1
 	},
-/obj/effect/warning,
 /turf/open/shuttle/elevator,
 /area/Neer_lv759/indoors/caves/Monorail)
 "uMy" = (
@@ -41845,6 +42662,11 @@
 /obj/structure/bed/portable_surgery,
 /turf/open/floor/kutjevo/colors/cyan/inner_corner,
 /area/Neer_lv759/indoors/wy_research_complex/medical_annex)
+"vhe" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/effect/vehicle_spawner/box_van,
+/turf/open/hybrisa/street/asphalt,
+/area/Neer_lv759/outdoors/colony_streets/Main_road)
 "vhm" = (
 /obj/effect/landmark/structure_spawner/xvx_hive/xeno_wall,
 /turf/open/floor/corsat/plate,
@@ -42379,6 +43201,15 @@
 	},
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/cargo)
+"vvj" = (
+/obj/structure/largecrate/random/case/small,
+/obj/structure/largecrate/random/mini/small_case{
+	pixel_x = -9;
+	pixel_y = 10
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/prison/floor_marked,
+/area/space)
 "vvm" = (
 /turf/open/floor/almayer/orange/north,
 /area/Neer_lv759/indoors/caves/Monorail)
@@ -42757,6 +43588,14 @@
 	},
 /turf/open/floor/corsat/officetiles,
 /area/Neer_lv759/indoors/wy_research_complex/hangarbay)
+"vFG" = (
+/obj/structure/blocker/invisible_wall,
+/obj/structure/prop/invuln/fire,
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "damaged_console3";
+	opacity = 0
+	},
+/area/space)
 "vFH" = (
 /obj/structure/platform_decoration/metal/almayer/east,
 /obj/effect/spawner/random/toolbox{
@@ -43567,6 +44406,14 @@
 	},
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/outdoor)
+"vWU" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl4"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/dropship/dropship4,
+/area/space)
 "vXv" = (
 /obj/structure/machinery/door/poddoor/shutters/almayer/open,
 /turf/open/floor/corsat/marked,
@@ -43594,9 +44441,13 @@
 /turf/open/floor/kutjevo/tan/grey_edge/west,
 /area/Neer_lv759/indoors/wy_research_complex/head_research_office)
 "vYc" = (
-/obj/effect/landmark/corpsespawner/wy,
-/turf/open/floor/prison,
-/area/Neer_lv759/indoors/wy_research_complex/reception)
+/turf/closed/shuttle/dropship2/transparent{
+	desc = "The WY-LWI StarGlider SG-200, a product of the collaborative ingenuity between Weyland Yutani and Lunnar-Welsun Industries, is a small dropship is designed for short-range commercial transport.";
+	icon = 'icons/turf/dropship4.dmi';
+	icon_state = "89";
+	name = "\improper WY-LWI StarGlider SG-200"
+	},
+/area/space)
 "vYg" = (
 /obj/structure/machinery/light{
 	dir = 8
@@ -43861,6 +44712,12 @@
 "wgV" = (
 /turf/open/floor/corsat/brown/west,
 /area/Neer_lv759/atmos/reactor_garage)
+"whn" = (
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "64"
+	},
+/area/space)
 "whB" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
@@ -44569,7 +45426,6 @@
 /area/Neer_lv759/indoors/wy_research_complex/mainlabs)
 "wyC" = (
 /obj/structure/barricade/handrail/wire,
-/obj/structure/flora/jungle/vines/light_2,
 /turf/open/floor/plating,
 /area/Neer_lv759/outdoors/landing_zone_2)
 "wyH" = (
@@ -44882,31 +45738,11 @@
 /turf/open/hybrisa/street/sidewalk/southeast,
 /area/Neer_lv759/outdoors/colony_streets/Main_road)
 "wHv" = (
-/obj/effect/decal/hybrisa/road/lines2,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/cleanable/dirt/greenglow{
-	color = "#140400";
-	name = "dirt";
-	alpha = 100
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "47"
 	},
-/obj/item/poster{
-	pixel_y = 15;
-	pixel_x = -12
-	},
-/obj/effect/decal/hybrisa/trash{
-	icon_state = "trash_6"
-	},
-/obj/item/stack/sheet/cardboard{
-	pixel_y = -12;
-	layer = 2.9
-	},
-/obj/item/poster{
-	pixel_y = -10
-	},
-/obj/structure/prop/hybrisa/vehicles/Meridian/Cop,
-/turf/open/hybrisa/street/asphalt,
-/area/Neer_lv759/outdoors/colony_streets/Parking_space)
+/area/space)
 "wHD" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/kutjevo/tan/alt_edge/southeast,
@@ -45040,6 +45876,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
+"wJr" = (
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "48"
+	},
+/area/space)
 "wJx" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
@@ -45133,12 +45975,9 @@
 /turf/open/floor/kutjevo/tan/grey_edge/west,
 /area/Neer_lv759/indoors/wy_research_complex/head_research_office)
 "wMy" = (
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/platform{
-	dir = 4
-	},
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/obj/structure/prop/hybrisa/airport/dropshipvent2right,
+/turf/closed/wall/hybrisa/rock,
+/area/space)
 "wMC" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice12";
@@ -45223,7 +46062,6 @@
 /obj/structure/barricade/handrail/wire{
 	dir = 8
 	},
-/obj/structure/flora/jungle/vines/light_2,
 /turf/open/floor/plating,
 /area/Neer_lv759/outdoors/landing_zone_2)
 "wPR" = (
@@ -45512,7 +46350,6 @@
 /turf/open/floor/kutjevo/grey/plate,
 /area/Neer_lv759/indoors/wy_research_complex/securityarmory)
 "wYz" = (
-/obj/structure/flora/jungle/vines/light_2,
 /obj/structure/platform{
 	density = 0;
 	dir = 8;
@@ -46084,6 +46921,22 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
+"xng" = (
+/obj/structure/machinery/light/double{
+	dir = 4;
+	pixel_y = -5
+	},
+/obj/structure/bed/chair/vehicle/white{
+	dir = 1;
+	pixel_x = -8
+	},
+/obj/structure/bed/chair/vehicle/white{
+	dir = 1;
+	pixel_x = 8
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/dropship/dropship2,
+/area/space)
 "xnk" = (
 /obj/structure/prop/invuln/overhead_pipe{
 	dir = 6;
@@ -46237,6 +47090,15 @@
 	},
 /turf/open/floor/corsat/squares,
 /area/Neer_lv759/atmos/east_reactor)
+"xrv" = (
+/obj/structure/blocker/invisible_wall,
+/turf/closed/shuttle/dropship2/transparent{
+	desc = "The WY-LWI StarGlider SG-200, a product of the collaborative ingenuity between Weyland Yutani and Lunnar-Welsun Industries, is a small dropship is designed for short-range commercial transport.";
+	icon = 'icons/turf/dropship4.dmi';
+	icon_state = "110";
+	name = "\improper WY-LWI StarGlider SG-200"
+	},
+/area/space)
 "xrx" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "N";
@@ -46481,7 +47343,6 @@
 /obj/structure/prop/power_transformer{
 	pixel_x = -14
 	},
-/obj/effect/warning,
 /turf/open/shuttle/elevator,
 /area/Neer_lv759/indoors/caves/Monorail)
 "xyP" = (
@@ -46656,6 +47517,23 @@
 	},
 /turf/open/auto_turf/strata_grass/layer0_mud,
 /area/Neer_lv759/outdoors/landing_zone_2)
+"xCn" = (
+/obj/item/stack/rods{
+	amount = 15
+	},
+/obj/structure/prop/hybrisa/airport/dropshipvent1left,
+/obj/item/stack/cable_coil/green{
+	icon_state = "coil1"
+	},
+/obj/item/stack/cable_coil/cut{
+	icon_state = "coil2"
+	},
+/obj/effect/decal/cleanable/generic{
+	color = "#5d524b";
+	alpha = 155
+	},
+/turf/closed/wall/hybrisa/rock,
+/area/space)
 "xCp" = (
 /obj/structure/barricade/handrail/type_b{
 	dir = 4;
@@ -46786,10 +47664,11 @@
 /turf/open/floor/corsat/squares,
 /area/Neer_lv759/indoors/caves/Monorail)
 "xFq" = (
-/obj/structure/flora/jungle/vines/light_2,
-/obj/structure/flora/bush/ausbushes/pointybush,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Neer_lv759/outdoors/landing_zone_2)
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "zwing8";
+	opacity = 0
+	},
+/area/space)
 "xFw" = (
 /obj/structure/cable/white{
 	icon_state = "1-2";
@@ -46891,6 +47770,18 @@
 /obj/structure/closet/crate/plastic,
 /turf/open/floor/strata/fake_wood,
 /area/Neer_lv759/outdoors)
+"xIm" = (
+/obj/structure/bed/chair/vehicle/white{
+	dir = 1;
+	pixel_x = -8
+	},
+/obj/structure/bed/chair/vehicle/white{
+	dir = 1;
+	pixel_x = 8
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/dropship/dropship2,
+/area/space)
 "xIy" = (
 /obj/structure/sink{
 	dir = 8;
@@ -47042,6 +47933,10 @@
 /obj/structure/blocker/invisible_wall,
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/outdoor)
+"xMe" = (
+/obj/effect/vehicle_spawner/box_van,
+/turf/open/hybrisa/street/asphalt,
+/area/Neer_lv759/outdoors/colony_streets/Parking_space)
 "xMr" = (
 /obj/structure/prop/invuln/overhead_pipe{
 	dir = 9;
@@ -47127,6 +48022,17 @@
 	},
 /turf/open/floor/floor4,
 /area/Neer_lv759/indoors/wy_research_complex/cafeteria)
+"xNN" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "W";
+	pixel_x = -1;
+	pixel_y = 1
+	},
+/obj/effect/decal/cleanable/blood,
+/obj/effect/landmark/corpsespawner/hybrisa/civilian_office,
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/corsat/officetiles,
+/area/space)
 "xNT" = (
 /obj/structure/barricade/handrail/strata{
 	pixel_y = -4
@@ -47170,6 +48076,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
+"xOy" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "armor_blood"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	icon_state = "2"
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/shuttle/dropship/can_surgery/light_grey_single_wide_up_to_down,
+/area/space)
 "xOz" = (
 /obj/structure/stairs/perspective/kutjevo{
 	icon_state = "p_stair_full"
@@ -47683,6 +48599,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/kitchen,
 /area/Neer_lv759/indoors/wy_research_complex/cafeteriakitchen)
+"yff" = (
+/obj/structure/prop/hybrisa/vehicles/Meridian/Green/damage_4{
+	icon_state = "meridian_green_damage_4"
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/Neer_lv759/outdoors/colony_streets/Main_road)
 "yfw" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/almayer/test_floor4,
@@ -47729,6 +48651,12 @@
 	},
 /turf/open/floor/kutjevo/colors,
 /area/Neer_lv759/indoors/wy_research_complex/securityarmory)
+"yhB" = (
+/turf/closed/shuttle/dropship4/WY/StarGlider{
+	icon_state = "28";
+	opacity = 0
+	},
+/area/space)
 "yin" = (
 /obj/effect/decal/hybrisa/road/lines2,
 /obj/effect/decal/hybrisa/trash{
@@ -49288,28 +50216,28 @@ vCJ
 vCJ
 xDo
 xDo
-tMX
-tdb
-tMX
-tMX
-tMX
-oZa
-tMX
-vAn
-tMX
-tMX
-tMX
 vAn
 vAn
 vAn
 vAn
-oZa
 vAn
 vAn
 vAn
-tMX
 vAn
-tMX
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
 vAn
 vAn
 vAn
@@ -49320,7 +50248,7 @@ pcj
 uIG
 vAn
 vAn
-tMX
+vAn
 xDo
 xDo
 vCJ
@@ -49539,31 +50467,31 @@ jgi
 vCJ
 xDo
 xDo
-tMX
-tMX
-tMX
-tMX
-lBi
-iCq
-tMX
-tMX
-tMX
-tMX
-tMX
 vAn
 vAn
 vAn
-tdb
 vAn
 vAn
-psu
-iCq
 vAn
-tMX
-tdb
-tMX
-tMX
-tMX
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
 vAn
 vAn
 vAn
@@ -49571,8 +50499,8 @@ uIG
 pcj
 pcj
 vAn
-oZa
-tMX
+vAn
+vAn
 vAn
 xDo
 xDo
@@ -49790,19 +50718,6 @@ jgi
 jgi
 xDo
 xDo
-psu
-oZF
-tMX
-tMX
-oZa
-tMX
-vAn
-tMX
-tMX
-tMX
-tdb
-lBi
-iCq
 vAn
 vAn
 vAn
@@ -49810,12 +50725,25 @@ vAn
 vAn
 vAn
 vAn
-oZa
-tMX
-tMX
 vAn
-tMX
-oZa
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
 vAn
 cJN
 uIG
@@ -49823,10 +50751,10 @@ uIG
 uIG
 pcj
 vAn
-tMX
-tMX
-tMX
-oZa
+vAn
+vAn
+vAn
+vAn
 xDo
 qHC
 qHC
@@ -50042,20 +50970,8 @@ jgi
 jgi
 xDo
 vAn
-tMX
+vAn
 pAw
-wMy
-luF
-luF
-wMy
-wMy
-wMy
-luF
-wMy
-luF
-luF
-luF
-cuR
 luF
 luF
 luF
@@ -50064,21 +50980,33 @@ luF
 luF
 luF
 luF
-wMy
-wMy
-wMy
+luF
+luF
+luF
+luF
+luF
+luF
+luF
+luF
+luF
+luF
+luF
+luF
+luF
+luF
+luF
 wYz
-tMX
+vAn
 pcj
 pcj
 uIG
 pcj
 uIG
-tdb
-tMX
+vAn
+vAn
 vAn
 cJN
-tMX
+vAn
 xDo
 qHC
 qHC
@@ -50293,20 +51221,16 @@ jgi
 jgi
 jgi
 bik
-tMX
-tMX
+vAn
+vAn
 uzb
-klG
-qEP
-elB
-soY
+hxq
+jTB
+hMH
+bqc
 abi
 jTB
 hMH
-soY
-cxf
-jTB
-hMH
 bqc
 wzq
 jTB
@@ -50316,10 +51240,14 @@ wzq
 jTB
 hMH
 bqc
-cxf
+wzq
 jTB
-klG
-iwE
+hMH
+bqc
+wzq
+jTB
+hxq
+paW
 uIG
 uIG
 uIG
@@ -50330,7 +51258,7 @@ vAn
 uAe
 hxO
 wPO
-tMX
+vAn
 xDo
 qHC
 qHC
@@ -50545,12 +51473,12 @@ jgi
 jgi
 jgi
 vCJ
-tMX
-tdb
-sZk
-qpb
+vAn
+vAn
+uzb
+njv
 mnm
-ieS
+kLj
 mnm
 lYl
 mnm
@@ -50570,7 +51498,7 @@ mnm
 mnm
 kLj
 mnm
-gMZ
+eGY
 qjp
 uIG
 pcj
@@ -50582,7 +51510,7 @@ vAn
 skp
 skn
 wyC
-tdb
+vAn
 xDo
 qHC
 qHC
@@ -50797,9 +51725,9 @@ jgi
 jgi
 jgi
 vCJ
-chI
-tMX
-sZk
+vCJ
+vAn
+uzb
 hxP
 mnm
 mnm
@@ -51049,8 +51977,8 @@ qHC
 jgi
 jgi
 xDo
-oZa
-tMX
+vAn
+vAn
 uzb
 pXd
 lYl
@@ -51081,7 +52009,7 @@ uIG
 pcj
 pcj
 uIG
-oZa
+vAn
 vAn
 fVj
 nHJ
@@ -51301,10 +52229,10 @@ qHC
 qHC
 jgi
 xDo
-tMX
-xFq
-sZk
-oxb
+vAn
+vAn
+uzb
+vjW
 lYl
 mnm
 mnm
@@ -51553,7 +52481,7 @@ qHC
 qHC
 qHC
 xDo
-tMX
+vAn
 vAn
 uzb
 njv
@@ -51756,8 +52684,8 @@ cOl
 iqh
 suM
 vlR
-tWa
-iqh
+twR
+klG
 suM
 dNp
 tWa
@@ -51769,17 +52697,17 @@ cOl
 iqh
 suM
 vlR
-tWa
-iqh
+twR
+klG
 suM
 vlR
-tWa
+twR
 cOl
 iqh
 suM
 vlR
 tWa
-iqh
+klG
 suM
 vlR
 tWa
@@ -51792,7 +52720,7 @@ iqh
 suM
 vlR
 tWa
-iqh
+klG
 suM
 vlR
 tWa
@@ -52057,8 +52985,8 @@ qHC
 qHC
 qHC
 xDo
-psu
-iCq
+vAn
+vAn
 uzb
 pXd
 mnm
@@ -52561,7 +53489,7 @@ qHC
 qHC
 qHC
 xDo
-tdb
+vAn
 vAn
 uzb
 njv
@@ -52814,7 +53742,7 @@ qHC
 qHC
 xDo
 vAn
-oZa
+vAn
 uzb
 hxP
 lYl
@@ -52847,10 +53775,10 @@ vAn
 uIG
 uIG
 vAn
-tMX
 vAn
 vAn
-tMX
+vAn
+vAn
 xDo
 fyN
 qHC
@@ -53019,7 +53947,7 @@ cSe
 yin
 laX
 fSB
-jFV
+miH
 yin
 snj
 nkV
@@ -53032,16 +53960,16 @@ jFV
 yin
 laX
 fSB
-jFV
+miH
 yin
-ptF
+eLQ
 laX
 fSB
 miH
 jeW
 laX
 fSB
-bvv
+miH
 yin
 snj
 nkV
@@ -53050,7 +53978,7 @@ wrK
 ptF
 laX
 fSB
-jFV
+miH
 yin
 laX
 fSB
@@ -53080,7 +54008,7 @@ mnm
 mnm
 mnm
 kLj
-lMJ
+mnm
 mnm
 mnm
 lYl
@@ -53100,9 +54028,9 @@ rQv
 rQv
 rst
 vuU
-tMX
-tMX
-oZa
+vAn
+vAn
+vAn
 xDo
 qHC
 qHC
@@ -53326,19 +54254,19 @@ xMx
 bjn
 lad
 gBg
-lTt
-eZE
+xMx
+bjn
 lad
 gBg
 xMx
-eZE
-cou
+bjn
+lad
 gBg
 xMx
 dRZ
 lad
-mFL
-lTt
+gBg
+xMx
 bjn
 pKJ
 gBg
@@ -53353,7 +54281,7 @@ rvF
 rMC
 vuU
 vuU
-tMX
+vAn
 vAn
 xDo
 qHC
@@ -53572,26 +54500,26 @@ xDo
 vAn
 vAn
 dIg
-uLC
-bJn
 hpn
-hpn
-hpn
-hpn
-hpn
-aWm
-aWm
-hpn
-eEx
 jre
-aWm
 hpn
 hpn
-aWm
-aWm
 hpn
 hpn
-aWm
+hpn
+hpn
+hpn
+hpn
+hpn
+jre
+hpn
+hpn
+hpn
+hpn
+hpn
+hpn
+hpn
+hpn
 hpn
 hpn
 hpn
@@ -53605,8 +54533,8 @@ rQv
 rQv
 alw
 vuU
-tMX
-tMX
+vAn
+vAn
 xDo
 qHC
 qHC
@@ -53825,26 +54753,26 @@ xDo
 vAn
 vAn
 vAn
-oZa
-tdb
 vAn
 vAn
 vAn
 vAn
-tMX
-tMX
-jJl
-jJl
-oZa
-tMX
-tMX
-lBi
-iCq
-tMX
-tMX
-tMX
-tMX
-tMX
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
 vAn
 vAn
 vAn
@@ -53857,7 +54785,7 @@ rFA
 rvF
 qkl
 vuU
-tMX
+vAn
 xDo
 xDo
 kdw
@@ -54080,25 +55008,25 @@ vAn
 vAn
 vAn
 vAn
-oZa
-tMX
-lBi
-iCq
-jJl
-cPp
-tMX
-tMX
-irt
-tMX
-jJl
-tMX
-tMX
 vAn
-tMX
-tdb
-tMX
-lBi
-iCq
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
 vAn
 vAn
 vuU
@@ -54331,26 +55259,26 @@ xDo
 vAn
 vAn
 vAn
-tMX
-tMX
-tMX
-vAn
-tMX
-tdb
-tMX
-vAn
-jJl
-tMX
-oZa
-tMX
-tMX
 vAn
 vAn
-cPp
 vAn
 vAn
-iVX
-tMX
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
+vAn
 vAn
 vuU
 vuU
@@ -54528,11 +55456,11 @@ cOl
 iqh
 suM
 vlR
-tWa
-iqh
+twR
+klG
 suM
 vlR
-tWa
+twR
 aYT
 nkV
 uIZ
@@ -54541,17 +55469,17 @@ cOl
 iqh
 suM
 kBo
-tWa
-iqh
+twR
+klG
 suM
 vlR
 tWa
 cOl
-iqh
+klG
 suM
 kBo
-tWa
-iqh
+twR
+klG
 suM
 vlR
 rMN
@@ -54560,11 +55488,11 @@ nkV
 uIZ
 wrK
 cOl
-iqh
+klG
 suM
 vlR
 tWa
-iqh
+klG
 suM
 vlR
 tWa
@@ -55013,7 +55941,7 @@ pui
 pui
 pui
 pui
-nqx
+pui
 tKu
 poI
 bQW
@@ -55791,7 +56719,7 @@ jFV
 yin
 laX
 fSB
-sjT
+miH
 yin
 ehX
 vMG
@@ -55800,20 +56728,20 @@ pMM
 ptF
 laX
 fSB
-jFV
+miH
 okv
 laX
 fSB
-jFV
+miH
 yin
 ptF
 laX
 fSB
-jFV
+miH
 yin
-wHv
+laX
 fSB
-bWW
+miH
 yin
 ehX
 nkV
@@ -55822,7 +56750,7 @@ pMM
 ptF
 laX
 fSB
-jFV
+miH
 yin
 laX
 fSB
@@ -57322,8 +58250,8 @@ cOl
 iqh
 suM
 vlR
-tWa
-iqh
+twR
+klG
 suM
 kBo
 tWa
@@ -57335,7 +58263,7 @@ cOl
 iqh
 suM
 vlR
-tWa
+twR
 iqh
 suM
 dNp
@@ -58539,7 +59467,7 @@ ebT
 gqO
 fhk
 wCA
-hoM
+wXy
 qYH
 iCk
 wUh
@@ -58578,14 +59506,14 @@ iPx
 deC
 cdx
 kiT
-ptF
+eLQ
 laX
 fSB
 jFV
 yin
 laX
 fSB
-jFV
+miH
 yin
 snj
 nkV
@@ -58594,11 +59522,11 @@ wrK
 ptF
 laX
 fSB
-jFV
+miH
 hMg
 laX
 fSB
-jFV
+miH
 yin
 cdx
 kiT
@@ -60107,7 +61035,7 @@ cOl
 uPF
 suM
 vlR
-tWa
+twR
 iqh
 suM
 dNp
@@ -60604,7 +61532,7 @@ myi
 qUN
 wUe
 ehX
-mLR
+xMe
 rxb
 sna
 mLR
@@ -61108,7 +62036,7 @@ pex
 dEu
 wUe
 ehX
-fKc
+gMZ
 rxb
 sna
 khL
@@ -61353,7 +62281,7 @@ kiT
 ptF
 laX
 fSB
-jFV
+miH
 yin
 laX
 fSB
@@ -61614,7 +62542,7 @@ hcd
 snj
 nkV
 uIZ
-wrK
+mxc
 gGe
 cSj
 tfm
@@ -61863,10 +62791,10 @@ mDJ
 lUs
 lUs
 lUs
-snj
-nkV
+gJm
+piu
 uIZ
-mvS
+tdb
 nai
 mDJ
 lUs
@@ -62370,7 +63298,7 @@ gKV
 snj
 nkV
 snj
-ujq
+toO
 iJz
 juM
 jdT
@@ -63603,7 +64531,7 @@ dje
 cAv
 cAv
 cAv
-hVW
+cAv
 hpG
 vPg
 lAc
@@ -64065,7 +64993,7 @@ bsp
 nbl
 nbl
 iuk
-bnD
+iuk
 dWB
 dWB
 lrN
@@ -65795,7 +66723,7 @@ qHC
 qHC
 qHC
 qHC
-tfb
+bQp
 ikA
 dTK
 fZO
@@ -70862,7 +71790,7 @@ jDk
 fdu
 xBq
 xBq
-eSG
+vhe
 jDk
 jDk
 jDk
@@ -71157,7 +72085,7 @@ slj
 slj
 slj
 slj
-slj
+tKa
 slj
 slj
 slj
@@ -71318,55 +72246,7 @@ xBq
 xBq
 xBq
 xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-lmB
-lmB
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
+tfb
 xBq
 xBq
 xBq
@@ -71410,6 +72290,54 @@ xBq
 xBq
 xBq
 xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+lmB
+lmB
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+pFV
 xBq
 xBq
 xBq
@@ -72166,7 +73094,7 @@ slj
 slj
 slj
 slj
-slj
+uhj
 slj
 slj
 slj
@@ -72321,55 +73249,7 @@ xBq
 xBq
 koD
 xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-lmB
-lmB
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
+tfb
 xBq
 xBq
 xBq
@@ -72420,6 +73300,54 @@ xBq
 xBq
 xBq
 xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+lmB
+lmB
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+xBq
+yff
 xBq
 xBq
 xBq
@@ -74723,18 +75651,18 @@ gBd
 gBd
 gBd
 gBd
+vlW
+vlW
 gBd
 gBd
 gBd
+vlW
 gBd
+vlW
+vlW
+vlW
 gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
+vlW
 gBd
 gBd
 gBd
@@ -74969,30 +75897,30 @@ gBd
 gBd
 gBd
 gBd
+vlW
+vlW
+vlW
+vlW
+vlW
+vlW
+vlW
+vlW
+vlW
+vlW
+vlW
+vlW
+vlW
+vlW
+vlW
+vlW
+vlW
+vlW
+vlW
+vlW
 gBd
 gBd
 gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
+vlW
 gBd
 gBd
 gBd
@@ -75216,14 +76144,14 @@ qHC
 qHC
 qHC
 qHC
+jgi
 qHC
 qHC
-qHC
-qHC
-qHC
-qHC
-qHC
-qHC
+jgi
+jgi
+jgi
+jgi
+jgi
 nmP
 nmP
 nmP
@@ -75243,11 +76171,11 @@ nmP
 nmP
 nmP
 jgi
-qHC
-qHC
-qHC
-qHC
-qHC
+jgi
+jgi
+jgi
+jgi
+jgi
 qHC
 qHC
 qHC
@@ -75469,7 +76397,7 @@ jgi
 jgi
 jgi
 jgi
-qHC
+jgi
 jgi
 jgi
 jgi
@@ -79001,7 +79929,7 @@ unl
 woI
 fkQ
 lTr
-taH
+unl
 kuE
 vRa
 uNh
@@ -92370,7 +93298,7 @@ ubI
 tdU
 rwV
 dSb
-fOP
+ltM
 gNd
 hzL
 rpP
@@ -95111,7 +96039,7 @@ aQM
 vwc
 kcX
 cCQ
-hJG
+odR
 tzR
 kVe
 odR
@@ -95544,7 +96472,7 @@ nmP
 nmP
 nmP
 nmP
-nmP
+sZk
 nmP
 nmP
 nmP
@@ -95795,15 +96723,15 @@ nmP
 nmP
 nmP
 nmP
+sZk
 nmP
 nmP
 nmP
+sZk
 nmP
+sZk
 nmP
-nmP
-nmP
-nmP
-nmP
+sZk
 nmP
 nmP
 nmP
@@ -96051,21 +96979,21 @@ nmP
 nmP
 nmP
 nmP
+soY
+soY
+sZk
+nmP
+hJG
+qEP
 nmP
 nmP
 nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
+qEP
+qEP
+utm
+yhB
+oYf
+aWm
 nmP
 nmP
 nmP
@@ -96303,21 +97231,21 @@ nmP
 nmP
 nmP
 nmP
+sZk
+ieS
 nmP
 nmP
 nmP
+cuR
+mbm
+fvy
 nmP
 nmP
 nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
+qiP
+rbS
+rTU
+jJl
 nmP
 nmP
 nmP
@@ -96554,22 +97482,22 @@ nmP
 nmP
 nmP
 nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
+cPp
+njk
+rMA
+tMX
+juL
+nua
+cou
+chI
+chI
+mFL
+oxz
+irt
+xrv
+rMA
+tMX
+fMa
 nmP
 nmP
 nmP
@@ -96806,23 +97734,23 @@ nmP
 nmP
 nmP
 nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
+bnD
+fOP
+sjT
+tHd
+iVX
+eEx
+xIm
+eZE
+kXY
+eZE
+xNN
+bJn
+eZE
+fOP
+nko
+wHv
+iCq
 nmP
 nmP
 nmP
@@ -97057,25 +97985,25 @@ nmP
 nmP
 nmP
 nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
+iMz
+fVc
+lTt
+duU
+fNw
+psu
+jNa
+psu
+psu
+psu
+psu
+oJV
+dYc
+psu
+lTt
+lZc
+vvj
+snU
+cWF
 nmP
 nmP
 nmP
@@ -97308,26 +98236,26 @@ nmP
 nmP
 nmP
 nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
+sZk
+bvv
+fob
+plU
+sOi
+ubU
+lXB
+xOy
+ezH
+lgO
+lgO
+utC
+onI
+rDZ
+fYS
+fXi
+snQ
+uLC
+rGF
+cWF
 nmP
 nmP
 nmP
@@ -97560,26 +98488,26 @@ nmP
 nmP
 nmP
 nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
+qpb
+vFG
+cxf
+lTt
+kLr
+lMJ
+jou
+vWU
+lMJ
+lMJ
+lMJ
+lMJ
+ktG
+qDy
+lMJ
+lTt
+hHS
+ugW
+rGF
+cWF
 nmP
 nmP
 nmP
@@ -97812,27 +98740,27 @@ nmP
 nmP
 nmP
 nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
+elB
+omd
+vYc
+fOP
+oxb
+ePm
+cma
+dmQ
+qml
+eZE
+xng
+xIm
+pyl
+pra
+eZE
+fOP
+ePr
+wJr
+lus
+oZa
+ffa
 nmP
 nmP
 nmP
@@ -98066,22 +98994,22 @@ nmP
 nmP
 nmP
 nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
+hFd
+oSj
+taH
+iBw
+rNF
+qat
+sqk
+iar
+iar
+whn
+bWW
+nqx
+jAz
+taH
+iBw
+iwE
 nmP
 nmP
 nmP
@@ -98319,22 +99247,22 @@ nmP
 nmP
 nmP
 nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
+xCn
+jlg
+fWj
+aWm
+hVW
+cLD
+uzZ
+xFq
+dlb
+tQZ
+qgj
+otm
+jlg
+alL
+aWm
+sZk
 nmP
 nmP
 nmP
@@ -98571,23 +99499,23 @@ nmP
 nmP
 nmP
 nmP
+wMy
+gmO
+lve
+jJl
+gGW
+nEv
 nmP
 nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
+lBi
+byE
+nEv
+wMy
+dhp
+oZF
+jJl
+ieS
+sZk
 nmP
 nmP
 nmP
@@ -98827,20 +99755,20 @@ nmP
 nmP
 nmP
 nmP
+sZk
+sZk
+nmP
+sZk
 nmP
 nmP
 nmP
 nmP
 nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
+sZk
+sZk
+sZk
+ieS
+sZk
 nmP
 nmP
 nmP
@@ -99080,16 +100008,16 @@ nmP
 nmP
 nmP
 nmP
+sZk
+nmP
+sZk
+sZk
 nmP
 nmP
 nmP
 nmP
-nmP
-nmP
-nmP
-nmP
-nmP
-nmP
+sZk
+sZk
 nmP
 nmP
 nmP
@@ -101408,7 +102336,7 @@ jvY
 mlU
 icl
 qhs
-hFd
+ooU
 vsZ
 ixN
 lfS
@@ -104926,7 +105854,7 @@ ssw
 nmP
 kcX
 leR
-iBw
+urP
 ndy
 nVf
 wAt
@@ -108745,8 +109673,8 @@ rnB
 rnB
 rnB
 rnB
-njk
-vYc
+rnB
+aSY
 onj
 vHX
 fbj
@@ -113768,7 +114696,7 @@ xyN
 nQN
 aBw
 rCr
-dlb
+lFB
 jMN
 jol
 nPE
