@@ -1216,8 +1216,9 @@
 
 /obj/structure/prop/M24
 	name = "The M24 Destroyer"
-	desc = "An experimental prototype of a super-heavy tank designed to break through fortified positions and open combat against the enemy.It is equipped with a mounted machine gun turret with 30 mm autocannons and a 180 mm main gun."
+	desc = "An experimental prototype of a super-heavy tank designed to break through fortified positions and open combat against the enemy. It is equipped with a mounted machine gun turret with 30 mm autocannons and a 180 mm main gun."
 	icon = 'icons\obj\structures\props\Hell_tank.dmi'
+	icon_state = "Hell_tank"
 	unslashable = TRUE
 	unacidable = TRUE
 	density = TRUE
