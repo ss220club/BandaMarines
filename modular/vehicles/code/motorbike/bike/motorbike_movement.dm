@@ -41,8 +41,8 @@
 
 /obj/vehicle/motorbike/proc/update_drive_skill_parameters()
 	can_drive_one_hand = FALSE
+	chance_lost_drive_control_when_one_hand = initial(chance_lost_drive_control_when_one_hand)
 	if(!buckled_mob)
-		chance_lost_drive_control_when_one_hand = initial(chance_lost_drive_control_when_one_hand)
 		return
 
 	// Проверяем что можем гонять с одной рукой
