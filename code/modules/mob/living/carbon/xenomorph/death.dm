@@ -66,8 +66,8 @@ GLOBAL_VAR_INIT(total_dead_xenos, 0)
 							qdel(new_xeno)
 							break
 
-						new_xeno.visible_message(SPAN_XENODANGER("A larva suddenly burrows out of the ground!"),
-						SPAN_XENODANGER("Вы вырываетесь из земли, почувствовав огромную дрожь по всему улью, которая быстро затихает в полной тишине..."))
+						new_xeno.visible_message(SPAN_XENODANGER("Из земли внезапно появляется грудолом!"),
+						SPAN_XENODANGER("Вырываясь из-под земли, вы чувствуете быстро затихающую дрожь улья. Через некоторое время вы остаётесь в полной тишине..."))
 
 						GLOB.hive_datum[hivenumber].stored_larva--
 						GLOB.hive_datum[hivenumber].hive_ui.update_burrowed_larva()

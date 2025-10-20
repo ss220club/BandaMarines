@@ -140,7 +140,7 @@
 						to_chat(src, "You start to haul [pulled] but realize \he is already dead.")
 						return */
 		if(user.action_busy)
-			to_chat(xeno, SPAN_WARNING("We are already busy with something."))
+			to_chat(xeno, SPAN_WARNING("Мы уже заняты чем-то другим."))
 			return
 		SEND_SIGNAL(xeno, COMSIG_MOB_EFFECT_CLOAK_CANCEL)
 		xeno.visible_message(SPAN_DANGER("[xeno] starts to restrain [pulled]!"),

@@ -1007,7 +1007,7 @@
 		damage_result = armor_damage_reduction(GLOB.marine_ranged, damage, armor, P.ammo.penetration)
 
 		if(damage_result <= 5)
-			to_chat(src,SPAN_XENONOTICE("Your armor absorbs the force of $1!", list(P))) // SS220 EDIT ADDICTION
+			to_chat(src,SPAN_XENONOTICE("Ваша броня поглощает силу удара [P]!")) // SS220 EDIT ADDICTION
 		if(damage_result <= 3)
 			damage_result = 0
 			bullet_ping(P)
@@ -1255,8 +1255,8 @@
 	if(!P)
 		return
 	if(damaging && COOLDOWN_FINISHED(src, shot_cooldown))
-		visible_message(SPAN_DANGER("$1 is hit by the $2 in the $3!", list(declent_ru(), declent_ru_initial(P.name, INSTRUMENTAL, P.name), declent_ru_initial(parse_zone(P.def_zone), ACCUSATIVE, parse_zone(P.def_zone)))), // SS220 EDIT ADDICTION
-			SPAN_HIGHDANGER("[isxeno(src) ? "We" : "You"] are hit by the $1 in the $2!", list(declent_ru_initial(P.name, INSTRUMENTAL, P.name), declent_ru_initial(parse_zone(P.def_zone), ACCUSATIVE, parse_zone(P.def_zone)))), null, 4, CHAT_TYPE_TAKING_HIT) // SS220 EDIT ADDICTION
+		visible_message(SPAN_DANGER("[declent_ru()] был поражён [declent_ru_initial(P.name, INSTRUMENTAL, P.name)] в [declent_ru_initial(parse_zone(P.def_zone), ACCUSATIVE, parse_zone(P.def_zone))]!"), // SS220 EDIT ADDICTION
+			SPAN_HIGHDANGER("[isxeno(src) ? "Мы" : "Вы"] были поражены [declent_ru_initial(P.name, INSTRUMENTAL, P.name)] в [declent_ru_initial(parse_zone(P.def_zone), ACCUSATIVE, parse_zone(P.def_zone))]!"), null, 4, CHAT_TYPE_TAKING_HIT) // SS220 EDIT ADDICTION
 		COOLDOWN_START(src, shot_cooldown, 1 SECONDS)
 
 	var/shot_from = P.shot_from ? " from \a [P.shot_from]" : ""

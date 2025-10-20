@@ -281,14 +281,14 @@ GLOBAL_VAR_INIT(ob_cannon_safety, FALSE)
 			return
 		gCM.round_status_flags |= ROUNDSTATUS_PODDOORS_OPEN // So we don't spam the message twice
 
-	var/text_timeleft = "[timeleft * 0.01] minutes"
+	var/text_timeleft = "[timeleft * 0.01] минут" // SS220 EDIT ADDICTION
 	var/next_interval = 1 MINUTES
 	if(timeleft <= 1 MINUTES)
 		next_interval = 55 SECONDS
-		text_timeleft = "$1 minute" // SS220 EDIT ADDICTION
+		text_timeleft = "[timeleft] минут" // SS220 EDIT ADDICTION
 	if(timeleft <= 5 SECONDS)
 		next_interval = timeleft
-		text_timeleft = "$1 seconds" // SS220 EDIT ADDICTION
+		text_timeleft = "[timeleft] секунд" // SS220 EDIT ADDICTION
 	var/input = "Подъем затвора станции через [text_timeleft] при ручном управлении."
 	var/title = announce_title
 	marine_announcement(input, title, 'sound/AI/commandreport.ogg')
@@ -296,7 +296,7 @@ GLOBAL_VAR_INIT(ob_cannon_safety, FALSE)
 		if(isxeno(M))
 			sound_to(M, sound(get_sfx("queen"), wait = 0, volume = 50))
 			to_chat(M, SPAN_XENOANNOUNCE("Королева-мать проникает в ваш разум издалека."))
-			to_chat(M, SPAN_XENOANNOUNCE("To my children and their Queen. I sense the large doors that trap us will open in [text_timeleft].", list(timeleft))) // SS220 EDIT ADDICTION
+			to_chat(M, SPAN_XENOANNOUNCE("Моим детям и их Королеве: я чувствую, что большие двери, которые нас сдерживают, откроются через [text_timeleft].")) // SS220 EDIT ADDICTION
 	var/new_timeleft = timeleft - next_interval
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/structure/machinery/keycard_auth/lockdown, timed_countdown), new_timeleft), next_interval)
 

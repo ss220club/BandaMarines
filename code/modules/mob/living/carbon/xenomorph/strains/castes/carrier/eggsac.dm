@@ -58,7 +58,7 @@
 		if(my_egg)
 			remove_egg_owner(my_egg)
 			my_egg.start_unstoppable_decay()
-			to_chat(bound_xeno, SPAN_XENOWARNING("You can only sustain $1 eggs off hive weeds! Your oldest placed egg is decaying rapidly.", list(egg_sustain_cap))) // SS220 EDIT ADDICTION
+			to_chat(bound_xeno, SPAN_XENOWARNING("Вы можете поддерживать на траве улья только [egg_sustain_cap] яиц! Первое из размещённых яиц начинает быстро распадаться.")) // SS220 EDIT ADDICTION
 
 	for(var/obj/effect/alien/egg/carrier_egg/my_egg as anything in eggs_sustained)
 		//Get the distance from us to our sustained egg
@@ -79,7 +79,7 @@
 		remove_egg_owner(my_egg)
 		my_egg.start_unstoppable_decay()
 
-	M.visible_message(SPAN_XENOWARNING("$1 throes as its eggsac bursts into a mess of acid!", list(M))) // SS220 EDIT ADDICTION
+	M.visible_message(SPAN_XENOWARNING("[M] мучается, когда яйценос превращается в кислотную кашу!")) // SS220 EDIT ADDICTION
 	playsound(M.loc, 'sound/effects/alien_egg_burst.ogg', 25, TRUE)
 
 ///Remove all references to src in eggs_sustained
@@ -120,7 +120,7 @@
 			if(egg_generation_progress >= 15)
 				egg_generation_progress = 0
 				xeno.eggs_cur++
-				to_chat(xeno, SPAN_XENONOTICE("We generate an egg. Now sheltering: $1 / $2.", list(xeno.eggs_cur, xeno.eggs_max))) // SS220 EDIT ADDICTION
+				to_chat(xeno, SPAN_XENONOTICE("Мы создаём яйцо. Сейчас в нём: [xeno.eggs_cur] / [xeno.eggs_max].")) // SS220 EDIT ADDICTION
 				xeno.update_icons()
 
 #undef EGGSAC_OFF_WEED_EGGCAP

@@ -1489,7 +1489,7 @@
 			continue
 		if(!(faction in xeno.iff_tag.faction_groups))
 			continue
-		xeno.visible_message(SPAN_XENOWARNING("[xeno] вырывает [xeno.iff_tag]!", list(xeno, xeno.iff_tag)), SPAN_XENOWARNING("Мы вырываем из своего тела [xeno.iff_tag]! Во имя улья!")) // SS220 EDIT ADDICTION
+		xeno.visible_message(SPAN_XENOWARNING("[xeno] вырывает [xeno.iff_tag]!"), SPAN_XENOWARNING("Мы вырываем из своего тела [xeno.iff_tag]! Во имя улья!")) // SS220 EDIT ADDICTION
 		xeno.adjustBruteLoss(50)
 		xeno.iff_tag.forceMove(get_turf(xeno))
 		xeno.iff_tag = null

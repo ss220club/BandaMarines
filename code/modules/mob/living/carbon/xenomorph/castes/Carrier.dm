@@ -408,7 +408,7 @@
 		return FALSE
 
 	if(morpher.stored_huggers == morpher.huggers_max_amount)
-		to_chat(src, SPAN_WARNING("[morpher] is full of children!"))
+		to_chat(src, SPAN_WARNING("[morpher] уже занят дитём."))
 		return FALSE
 
 	if(eggs_cur < 1)

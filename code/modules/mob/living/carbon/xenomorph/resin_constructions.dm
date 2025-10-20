@@ -52,12 +52,12 @@
 		return FALSE
 
 	if(!(AR.resin_construction_allowed)) //disable resin walls not weed, in special circumstances EG. Stairs and Dropship turfs
-		to_chat(X, SPAN_WARNING("You sense this is not a suitable area for expanding the hive."))
+		to_chat(X, SPAN_WARNING("Вы чувствуете, что это место не подходит для расширения улья."))
 		return FALSE
 
 	var/obj/effect/alien/weeds/alien_weeds = locate() in T
 	if(!alien_weeds)
-		to_chat(X, SPAN_WARNING("You can only shape on weeds. Find some resin before you start building!"))
+		to_chat(X, SPAN_WARNING("Мы можем строить только на траве!"))
 		return FALSE
 
 	if(alien_weeds?.block_structures >= BLOCK_ALL_STRUCTURES)

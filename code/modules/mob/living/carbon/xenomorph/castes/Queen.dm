@@ -765,7 +765,7 @@
 	// SS220 START EDIT ADDICTION
 	var/choice_translations = list(
 		"Allowed" = "Разрешено",
-		"Restricted - Infected Hosts" = "Запрещено инфицированных хостов",
+		"Restricted - Infected Hosts" = "Запрещено заражённых хостов",
 		"Forbidden" = "Запрещено",
 	)
 	var/choice = tgui_input_list(usr, "Выберите правило о причинении вреда хостам для своего улья.", "Причинение вреда", choice_translations, theme="hive_status", default=current_setting, associative_list = TRUE)
@@ -782,10 +782,10 @@
 		hive.hive_flags |= XENO_SLASH_ALLOW_ALL
 	else if(choice == "Restricted - Infected Hosts")
 		if(current_setting == choice)
-			to_chat(src, SPAN_XENOWARNING("Вы уже запретили причинение вреда инфицированным хостам."))
+			to_chat(src, SPAN_XENOWARNING("Вы уже запретили причинение вреда заражённым хостам."))
 			return
-		to_chat(src, SPAN_XENONOTICE("Вы запретили причинение вреда инфицированным хостам."))
-		xeno_message(SPAN_XENOANNOUNCE("Королева <b>ограничила</b> причинение вреда хостам. Вы больше не можете рубить инфицированных хостов."), hivenumber=hivenumber)
+		to_chat(src, SPAN_XENONOTICE("Вы запретили причинение вреда заражённым хостам."))
+		xeno_message(SPAN_XENOANNOUNCE("Королева <b>ограничила</b> причинение вреда хостам. Вы больше не можете атаковать заражённых хостов."), hivenumber=hivenumber)
 		hive.hive_flags &= ~XENO_SLASH_INFECTED
 		hive.hive_flags |= XENO_SLASH_NORMAL
 	else if(choice == "Forbidden")
@@ -793,7 +793,7 @@
 			to_chat(src, SPAN_XENOWARNING("Вы уже запретили причинение вреда хостам."))
 			return
 		to_chat(src, SPAN_XENONOTICE("Вы запретили причинение вреда хостам."))
-		xeno_message(SPAN_XENOANNOUNCE("Королева <b>запретила</b> причинение вреда хостам. Вы больше не можете рубить своих врагов."), hivenumber=hivenumber)
+		xeno_message(SPAN_XENOANNOUNCE("Королева <b>запретила</b> причинение вреда хостам. Вы больше не можете атаковать своих врагов."), hivenumber=hivenumber)
 		hive.hive_flags &= ~XENO_SLASH_ALLOW_ALL
 
 	TIMER_COOLDOWN_START(src, COOLDOWN_TOGGLE_SLASH, 30 SECONDS)
@@ -987,7 +987,7 @@
 	return COMPONENT_SCREECH_ACT_CANCEL
 
 /mob/living/carbon/xenomorph/queen/proc/screech_ready()
-	to_chat(src, SPAN_WARNING("Вы чувствуете, как ваши горловые мышцы вибрируют. Вы готовы снова издать пронзительный крик."))
+	to_chat(src, SPAN_WARNING("Вы чувствуете, что готовы снова издать пронзительный крик."))
 	for(var/Z in actions)
 		var/datum/action/A = Z
 		A.update_button_icon()

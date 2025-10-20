@@ -104,7 +104,7 @@
 
 	M.animation_attack_on(src)
 
-	to_chat(M, SPAN_XENONOTICE("You slash open $1!", list(declent_ru()))) // SS220 EDIT ADDICTION
+	to_chat(M, SPAN_XENONOTICE("Вы атакуете [declent_ru()]!")) // SS220 EDIT ADDICTION
 	open(M)
 	return XENO_ATTACK_ACTION
 

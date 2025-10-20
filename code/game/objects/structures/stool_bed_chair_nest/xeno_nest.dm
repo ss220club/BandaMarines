@@ -329,8 +329,8 @@
 		return
 	if(M.a_intent == INTENT_HARM && !buckled_mob) //can't slash nest with an occupant.
 		M.animation_attack_on(src)
-		M.visible_message(SPAN_DANGER("\The [M] claws at \the [src]!"),
-		SPAN_DANGER("We claw at \the [src]."))
+		M.visible_message(SPAN_DANGER("[M] царапает [declent_ru(ACCUSATIVE)]!"),
+		SPAN_DANGER("Мы царапаем [declent_ru(ACCUSATIVE)]."))
 		playsound(loc, "alien_resin_break", 25)
 		health -= (M.melee_damage_upper + 25) //Beef up the damage a bit
 		healthcheck()

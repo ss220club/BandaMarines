@@ -276,7 +276,7 @@
 /obj/item/reagent_container/food/drinks/cup/attack_self(mob/user)
 	. = ..()
 	if(user.a_intent == INTENT_HARM)
-		user.visible_message(SPAN_WARNING("[user] crushes \the [src]!"), SPAN_WARNING("You crush \the [src]!"))
+		user.visible_message(SPAN_WARNING("[user] раздавливает [declent_ru()]!"), SPAN_WARNING("Вы раздавливаете [declent_ru()]!"))
 		if(reagents.total_volume > 0)
 			reagents.clear_reagents()
 			playsound(src.loc, 'sound/effects/slosh.ogg', 25, 1, 3)

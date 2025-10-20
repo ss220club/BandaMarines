@@ -711,7 +711,7 @@
 			return
 		else
 			M.visible_message(SPAN_XENONOTICE("[M] царапает [declent_ru()]!"), // SS220 EDIT ADDICTION
-			SPAN_XENONOTICE("Мы царапаем [declent_ru()]."), null, null, CHAT_TYPE_XENO_COMBAT) // SS220 EDIT ADDICTION
+			SPAN_XENONOTICE("Мы царапаем [declent_ru(ACCUSATIVE)]."), null, null, CHAT_TYPE_XENO_COMBAT) // SS220 EDIT ADDICTION
 			playsound(loc, "alien_resin_break", 25)
 
 		M.animation_attack_on(src)

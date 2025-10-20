@@ -776,11 +776,11 @@ note dizziness decrements automatically in the mob's Life() proc.
 	recalculate_move_delay = TRUE
 
 	if(usr.stat)
-		to_chat(usr, ru_span("Вы без сознания и не можете этого сделать!")) // SS220 EDIT ADDICTION
+		to_chat(usr, "Вы без сознания и не можете этого сделать!") // SS220 EDIT ADDICTION
 		return
 
 	if(usr.is_mob_restrained())
-		to_chat(usr, ru_span("Вы связаны и не можете этого сделать!")) // SS220 EDIT ADDICTION
+		to_chat(usr, "Вы связаны и не можете этого сделать!") // SS220 EDIT ADDICTION
 		return
 
 	var/self
@@ -791,7 +791,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 
 	if(!valid_objects)
 		if(self)
-			to_chat(src, ru_span("В вашем теле нет ничего, что можно было бы вытащить.")) // SS220 EDIT ADDICTION
+			to_chat(src, "В вашем теле нет ничего, что можно было бы вытащить.") // SS220 EDIT ADDICTION
 		else
 			to_chat(usr, "В теле [declent_ru()] нет ничего, что можно было бы вытащить.") // SS220 EDIT ADDICTION
 		remove_verb(src, /mob/proc/yank_out_object)

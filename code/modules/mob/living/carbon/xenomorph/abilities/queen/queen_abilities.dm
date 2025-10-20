@@ -137,7 +137,7 @@
 	UnregisterSignal(owner, COMSIG_XENO_THICK_RESIN_BYPASS)
 
 	if(owner)
-		to_chat(owner, SPAN_XENOHIGHDANGER("Your boosted building has been disabled!"))
+		to_chat(owner, SPAN_XENOHIGHDANGER("Ускорение строительства было отключено!"))
 
 /datum/action/xeno_action/activable/secrete_resin/remote/queen/proc/override_secrete_thick_resin()
 	return COMPONENT_THICK_BYPASS

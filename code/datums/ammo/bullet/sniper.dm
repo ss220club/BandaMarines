@@ -253,7 +253,7 @@
 						var/mob/living/carbon/xenomorph/old_xeno = old_target.resolve()
 						var/mob/living/carbon/xenomorph/new_xeno = target_mob
 						if((old_xeno.hive == new_xeno.hive) && !(old_xeno.stat)) // Must be in same hive and conscious
-							to_chat(old_xeno,SPAN_XENOLEADER("Чувство надвигающейся опасности исчезает, когда мы чувствуем, что была выбрана другая сестра."))
+							to_chat(old_xeno,SPAN_XENOLEADER("Чувство надвигающейся опасности исчезает, когда понимаем, что целью стала другая сестра."))
 				if(2)
 					to_chat(aimed_projectile.firer, SPAN_WARNING("Два попадания! Вы начинаете хорошо понимать паттерны движений цели."))
 				if(3)

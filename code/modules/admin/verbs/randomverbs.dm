@@ -134,10 +134,10 @@
 			CONFIG_SET(number/explosive_antigrief, ANTIGRIEF_DISABLED)
 			message_admins(FONT_SIZE_LARGE("[key_name_admin(usr)] отключил систему защиты от гриферства.")) // SS220 EDIT ADDICTION
 		if(ANTIGRIEF_OPTION_ENABLED)
-			message_admins(FONT_SIZE_LARGE("[key_name_admin(usr)] включил систему защиты от гриферства.", list(key_name_admin(usr)))) // SS220 EDIT ADDICTION
+			message_admins(FONT_SIZE_LARGE("[key_name_admin(usr)] включил систему защиты от гриферства.")) // SS220 EDIT ADDICTION
 			CONFIG_SET(number/explosive_antigrief, ANTIGRIEF_ENABLED)
 		if(ANTIGRIEF_OPTION_NEW_PLAYERS)
-			message_admins(FONT_SIZE_LARGE("[key_name_admin(usr)] включил систему защиты от гриферства для новых игроков (менее 10 часов).", list(key_name_admin(usr)))) // SS220 EDIT ADDICTION
+			message_admins(FONT_SIZE_LARGE("[key_name_admin(usr)] включил систему защиты от гриферства для новых игроков (менее 10 часов).")) // SS220 EDIT ADDICTION
 			CONFIG_SET(number/explosive_antigrief, ANTIGRIEF_NEW_PLAYERS)
 		else
 			message_admins(FONT_SIZE_LARGE("Ошибка! [key_name_admin(usr)] пытался переключить систему защиты от гриферства. Выбранное значение: «[antigrief_choice]». Установлено значение «Включено».")) // SS220 EDIT ADDICTION

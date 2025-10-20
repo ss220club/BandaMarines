@@ -919,8 +919,8 @@ User can be passed as null, (a gun reloading itself for instance), so we need to
 	if(!in_chamber)
 		ready_in_chamber()
 		cock_gun(user)
-	user.visible_message(SPAN_NOTICE("$1 loads $2 into $3!", list(user, magazine.declent_ru(), declent_ru(ACCUSATIVE))), // SS220 EDIT ADDICTION
-		SPAN_NOTICE("You load $1 into $2!", list(magazine.declent_ru(), declent_ru(ACCUSATIVE))), null, 3, CHAT_TYPE_COMBAT_ACTION) // SS220 EDIT ADDICTION
+	user.visible_message(SPAN_NOTICE("[user] заряжает [magazine.declent_ru()] в [declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
+		SPAN_NOTICE("Вы заряжаете [magazine.declent_ru()] в [declent_ru(ACCUSATIVE)]!"), null, 3, CHAT_TYPE_COMBAT_ACTION) // SS220 EDIT ADDICTION
 	if(reload_sound)
 		playsound(user, reload_sound, 25, 1, 5)
 
@@ -1753,7 +1753,7 @@ not all weapons use normal magazines etc. load_into_chamber() itself is designed
 		if(user.client.prefs.toggle_prefs & TOGGLE_AMMO_DISPLAY_TYPE && gun_firemode == GUN_FIREMODE_SEMIAUTO && current_mag.current_rounds % 5 != 0 && current_mag.current_rounds > 15)
 			return
 		var/chambered = in_chamber ? TRUE : FALSE
-		to_chat(user, SPAN_DANGER("$1[chambered ? "+1" : ""] / $2 ROUNDS REMAINING", list(current_mag.current_rounds, current_mag.max_rounds))) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_DANGER("ОСТАЛОСЬ [current_mag.current_rounds][chambered ? "+1" : ""] / [current_mag.max_rounds] ПАТРОНОВ")) // SS220 EDIT ADDICTION
 
 //This proc applies some bonus effects to the shot/makes the message when a bullet is actually fired.
 /obj/item/weapon/gun/proc/apply_bullet_effects(obj/projectile/projectile_to_fire, mob/user, reflex = 0, dual_wield = 0)
@@ -1970,7 +1970,7 @@ not all weapons use normal magazines etc. load_into_chamber() itself is designed
 	if(slashed_light)
 		playsound(loc, "alien_claw_metal", 25, 1)
 		xeno.animation_attack_on(src)
-		xeno.visible_message(SPAN_XENOWARNING("$1 slashes the lights on $2!", list(xeno, declent_ru())), SPAN_XENONOTICE("You slash the lights on $1!", list(declent_ru()))) // SS220 EDIT ADDICTION
+		xeno.visible_message(SPAN_XENOWARNING("[xeno] ломает свет на [declent_ru()]!"), SPAN_XENONOTICE("Вы ломаете свет на [declent_ru()]!")) // SS220 EDIT ADDICTION
 	return XENO_ATTACK_ACTION
 
 /// Setter proc to toggle burst firing

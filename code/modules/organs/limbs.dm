@@ -506,7 +506,7 @@ This function completely restores a damaged organ to perfect condition.
 				if(prob(25))
 					//maybe have a separate message for BRUISE type damage?
 					owner.visible_message(SPAN_WARNING("Рана на [ru_name] [owner.name] расширяется с неприятным звуком."), // SS220 EDIT ADDICTION
-					SPAN_WARNING("Рана на вашей [ru_name] расширяется с неприятным звуком.", list(ru_name)), // SS220 EDIT ADDICTION
+					SPAN_WARNING("Рана на вашей [ru_name] расширяется с неприятным звуком."), // SS220 EDIT ADDICTION
 					SPAN_WARNING("Вы слышите неприятный звук, как будто плоть разрывается."))
 				return
 

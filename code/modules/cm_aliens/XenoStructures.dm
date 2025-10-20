@@ -86,8 +86,8 @@
 		return XENO_NO_DELAY_ACTION
 	else
 		M.animation_attack_on(src)
-		M.visible_message(SPAN_XENONOTICE("$1 claws $2!", list(M, declent_ru(ACCUSATIVE))), // SS220 EDIT ADDICTION
-		SPAN_XENONOTICE("We claw $1.", list(declent_ru(ACCUSATIVE)))) // SS220 EDIT ADDICTION
+		M.visible_message(SPAN_XENONOTICE("[M] царапает [declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
+		SPAN_XENONOTICE("Мы царапаем [declent_ru(ACCUSATIVE)].")) // SS220 EDIT ADDICTION
 		if(istype(src, /obj/effect/alien/resin/sticky))
 			playsound(loc, "alien_resin_move", 25)
 		else

@@ -277,8 +277,8 @@
 				winner_text = "Победитель [H]!" // SS220 EDIT ADDICTION
 			else
 				winner_text = "Победитель [target]!" // SS220 EDIT ADDICTION
-		H.visible_message(SPAN_NOTICE("$1 plays <b>$2</b>!$3", list(H, protagonist_plays, winner_text)), SPAN_NOTICE("Вы выбрасываете <b>«[protagonist_plays]»</b>! [winner_text]"), max_distance = 5)
-		target.visible_message(SPAN_NOTICE("$1 plays <b>$2</b>!$3", list(target, antagonist_plays, winner_text)), SPAN_NOTICE("Вы выбрасываете <b>«[antagonist_plays]»</b>! [winner_text]"), max_distance = 5)
+		H.visible_message(SPAN_NOTICE("[H] выбрасывает <b>[protagonist_plays]</b>![winner_text]"), SPAN_NOTICE("Вы выбрасываете <b>«[protagonist_plays]»</b>! [winner_text]"), max_distance = 5)
+		target.visible_message(SPAN_NOTICE("[target] выбрасывает <b>[antagonist_plays]</b>![winner_text]"), SPAN_NOTICE("Вы выбрасываете <b>«[antagonist_plays]»</b>! [winner_text]"), max_distance = 5)
 		playsound(target, "clownstep", 35, TRUE)
 		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(do_after), H, 8, INTERRUPT_NONE, play_to_emote[protagonist_plays])
 		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(do_after), target, 8, INTERRUPT_NONE, play_to_emote[antagonist_plays])

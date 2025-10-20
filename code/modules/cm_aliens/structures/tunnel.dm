@@ -163,7 +163,7 @@
 			//No teleporting!
 			return FALSE
 
-		to_chat(X, SPAN_XENONOTICE("We begin moving to our destination."))
+		to_chat(X, SPAN_XENONOTICE("Мы начинаем двигаться к цели."))
 
 		var/tunnel_time = TUNNEL_MOVEMENT_XENO_DELAY
 
@@ -185,15 +185,15 @@
 			return FALSE
 
 		X.forceMove(T)
-		to_chat(X, SPAN_XENONOTICE("We have reached our destination."))
+		to_chat(X, SPAN_XENONOTICE("Мы достигли своей цели."))
 		return TRUE
 
 /obj/structure/tunnel/proc/exit_tunnel(mob/living/carbon/xenomorph/X)
 	. = FALSE //For peace of mind when it comes to dealing with unintended proc failures
 	if(X in contents)
 		X.forceMove(loc)
-		visible_message(SPAN_XENONOTICE("$1 pops out of the tunnel!", list(X)), // SS220 EDIT ADDICTION
-		SPAN_XENONOTICE("We pop out through the other side!"))
+		visible_message(SPAN_XENONOTICE("[X] выскакивает из туннеля!"), // SS220 EDIT ADDICTION
+		SPAN_XENONOTICE("Мы выскакиваем из туннеля!"))
 		return TRUE
 
 //Used for controling tunnel exiting and returning
@@ -224,41 +224,41 @@
 
 	if(user.hivenumber != hivenumber)
 		if(user.mob_size < MOB_SIZE_BIG)
-			to_chat(user, SPAN_XENOWARNING("We aren't large enough to collapse this tunnel!"))
+			to_chat(user, SPAN_XENOWARNING("Мы слишком малы, чтобы засыпать этот туннель!"))
 			return XENO_NO_DELAY_ACTION
 
-		user.visible_message(SPAN_XENODANGER("$1 begins to fill $2 with dirt.", list(user, declent_ru())), // SS220 EDIT ADDICTION
-		SPAN_XENONOTICE("We begin to fill $1 with dirt using our massive claws.", list(declent_ru())), max_distance = 3) // SS220 EDIT ADDICTION
+		user.visible_message(SPAN_XENODANGER("[user] начинает засыпать [declent_ru()] землёй."), // SS220 EDIT ADDICTION
+		SPAN_XENONOTICE("Мы начинаем засыпать [declent_ru()] землёй с помощью наших больших когтей."), max_distance = 3) // SS220 EDIT ADDICTION
 		xeno_attack_delay(user)
 
 		if(!do_after(user, 10 SECONDS, INTERRUPT_ALL, BUSY_ICON_HOSTILE, src, INTERRUPT_ALL_OUT_OF_RANGE, max_dist = 1))
-			to_chat(user, SPAN_XENOWARNING("We decide not to cave the tunnel in."))
+			to_chat(user, SPAN_XENOWARNING("Мы прекращаем засыпать туннель."))
 			return XENO_NO_DELAY_ACTION
 
-		src.visible_message(SPAN_XENODANGER("$1 caves in!", list(declent_ru())), max_distance = 3)
+		src.visible_message(SPAN_XENODANGER("[declent_ru()] засыпает туннель!"), max_distance = 3)
 		qdel(src)
 
 		return XENO_NO_DELAY_ACTION
 
 	if(user.action_busy)
-		to_chat(user, SPAN_WARNING("We are already busy with something."))
+		to_chat(user, SPAN_WARNING("Мы уже заняты чем-то другим."))
 		return XENO_NO_DELAY_ACTION
 
 	if(user.anchored)
-		to_chat(user, SPAN_XENOWARNING("We can't climb through a tunnel while immobile."))
+		to_chat(user, SPAN_XENOWARNING("Мы не можем пролезть через туннель, пока обездвижены."))
 		return XENO_NO_DELAY_ACTION
 
 	if(user.hauled_mob)
-		to_chat(user, SPAN_WARNING("We can't tunnel and haul someone at the same time."))
+		to_chat(user, SPAN_WARNING("Мы не можем рыть туннель и тащить кого-то одновременно."))
 		user.balloon_alert(user, "we're hauling someone!", text_color = "#7d32bb", delay = 1 SECONDS)
 		return XENO_NO_DELAY_ACTION
 
 	if(!length(hive.tunnels))
-		to_chat(user, SPAN_WARNING("$1 doesn't seem to lead anywhere.", list(declent_ru())))
+		to_chat(user, SPAN_WARNING("Похоже, что [declent_ru()] больше никуда не ведёт."))
 		return XENO_NO_DELAY_ACTION
 
 	if(length(contents) > 2)
-		to_chat(user, SPAN_WARNING("The tunnel is too crowded, wait for others to exit!"))
+		to_chat(user, SPAN_WARNING("Туннель переполнен, подождите, пока другие покинут его!"))
 		return XENO_NO_DELAY_ACTION
 
 	var/tunnel_time = TUNNEL_ENTER_XENO_DELAY
@@ -272,15 +272,15 @@
 		tunnel_time = TUNNEL_ENTER_LARVA_DELAY
 
 	if(user.mob_size >= MOB_SIZE_BIG)
-		user.visible_message(SPAN_XENONOTICE("$1 begins heaving their huge bulk down into $2.", list(user, declent_ru())), // SS220 EDIT ADDICTION
-			SPAN_XENONOTICE("We begin heaving our monstrous bulk into $1 (<i>$2</i>).", list(declent_ru(), tunnel_desc))) // SS220 EDIT ADDICTION
+		user.visible_message(SPAN_XENONOTICE("[user] начинает протискивать своё огромное тело в [declent_ru()]."), // SS220 EDIT ADDICTION
+			SPAN_XENONOTICE("Мы начинаем протискивать своё огромное тело в [declent_ru()] (<i>[tunnel_desc]</i>).")) // SS220 EDIT ADDICTION
 	else
-		user.visible_message(SPAN_XENONOTICE("$1 begins crawling down into $2.", list(user, declent_ru())), // SS220 EDIT ADDICTION
-			SPAN_XENONOTICE("We begin crawling down into $1 (<i>$2</i>).", list(declent_ru(), tunnel_desc))) // SS220 EDIT ADDICTION
+		user.visible_message(SPAN_XENONOTICE("[user] начинает забираться в [declent_ru()]."), // SS220 EDIT ADDICTION
+			SPAN_XENONOTICE("Мы начинаем забираться в [declent_ru()] (<i>[tunnel_desc]</i>).")) // SS220 EDIT ADDICTION
 
 	xeno_attack_delay(user)
 	if(!do_after(user, tunnel_time, INTERRUPT_NO_NEEDHAND, BUSY_ICON_GENERIC))
-		to_chat(user, SPAN_WARNING("Our crawling was interrupted!"))
+		to_chat(user, SPAN_WARNING("Мы перестали заползать в туннель!"))
 		return XENO_NO_DELAY_ACTION
 
 	if(user.hauled_mob)
@@ -289,7 +289,7 @@
 		return XENO_NO_DELAY_ACTION
 
 	if(!length(hive.tunnels)) //Make sure other tunnels exist
-		to_chat(user, SPAN_WARNING("$1 doesn't seem to lead anywhere anymore.", list(declent_ru()))) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_WARNING("Похоже, что [declent_ru()] больше никуда не ведёт.")) // SS220 EDIT ADDICTION
 		return XENO_NO_DELAY_ACTION
 
 	user.forceMove(src) //become one with the tunnel
@@ -298,7 +298,7 @@
 		var/mob/living/carbon/xenomorph/queen/queen_user = user
 		queen_user.end_temporary_maturity()
 
-	to_chat(user, SPAN_HIGHDANGER("Alt + Click the tunnel to exit, Ctrl + Click to choose a destination."))
+	to_chat(user, SPAN_HIGHDANGER("Нажмите «Alt» и кликните по туннелю, чтобы выйти из него. Нажмите «Ctrl» и кликните по месту назначения, чтобы переместиться к нему."))
 	pick_tunnel(user)
 	return XENO_NO_DELAY_ACTION
 

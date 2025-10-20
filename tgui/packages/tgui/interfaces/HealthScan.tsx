@@ -153,7 +153,7 @@ const Patient = (props) => {
   const holocardMessages = {
     red: 'Необходима срочная помощь',
     orange: 'Необходима операция',
-    purple: 'Инфицирован паразитом XX-121',
+    purple: 'Заражён паразитом XX-121',
     black: 'Скончался',
     none: 'Нет данных',
   };

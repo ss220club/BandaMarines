@@ -13,7 +13,7 @@
 		return
 
 	if(target_xeno.hivenumber != user_xeno.hivenumber)
-		to_chat(user_xeno, SPAN_XENOWARNING("[target_xeno] не принадлежит вашему улью!", list())) // SS220 EDIT ADDICTION
+		to_chat(user_xeno, SPAN_XENOWARNING("[target_xeno] не принадлежит вашему улью!")) // SS220 EDIT ADDICTION
 		return
 	if(target_xeno.is_ventcrawling)
 		to_chat(user_xeno, SPAN_XENOWARNING("[target_xeno] не может быть регрессирован здесь.")) // SS220 EDIT ADDICTION
@@ -634,7 +634,7 @@
 		return
 
 	// Let everyone know they were banished
-	xeno_announcement(ru_span("По воле [user_xeno], [target_xeno] изгоняется из улья!<br><br>[reason]"), user_xeno.hivenumber, title=SPAN_ANNOUNCEMENT_HEADER_BLUE("Banishment")) // SS220 EDIT ADDICTION
+	xeno_announcement("По воле [user_xeno], [target_xeno] изгоняется из улья!<br><br>[reason]", user_xeno.hivenumber, title=SPAN_ANNOUNCEMENT_HEADER_BLUE("Banishment")) // SS220 EDIT ADDICTION
 	to_chat(target_xeno, FONT_SIZE_LARGE(SPAN_XENOWARNING("Королева [user_xeno] изгнала тебя из улья! Теперь другие ксеноморфы могут свободно нападать на тебя, но твоя связь с коллективным разумом улья остаётся, не позволяя тебе причинять вред другим сёстрам."))) // SS220 EDIT ADDICTION
 
 	target_xeno.banished = TRUE
@@ -791,7 +791,7 @@
 	recently_built_turfs += turf_to_get
 	addtimer(CALLBACK(src, PROC_REF(reset_turf_cooldown), turf_to_get), turf_build_cooldown)
 
-	to_chat(xeno, SPAN_XENOWARNING("Вы сажаете траву в $1", list(turf_to_get))) // SS220 EDIT ADDICTION
+	to_chat(xeno, SPAN_XENOWARNING("Вы сажаете траву в [turf_to_get]")) // SS220 EDIT ADDICTION
 	apply_cooldown()
 	return ..()
 

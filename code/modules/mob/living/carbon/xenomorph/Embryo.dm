@@ -352,7 +352,7 @@
 		burstcount++
 
 		if(!larva_embryo.ckey && larva_embryo.burrowable && loc && is_ground_level(loc.z) && (locate(/obj/structure/bed/nest) in loc) && hive.living_xeno_queen && hive.living_xeno_queen.z == loc.z)
-			larva_embryo.visible_message(SPAN_XENODANGER("$1 быстро зарывается под землю.", list(larva_embryo))) // SS220 EDIT ADDICTION
+			larva_embryo.visible_message(SPAN_XENODANGER("[larva_embryo] быстро зарывается под землю.")) // SS220 EDIT ADDICTION
 			if(GLOB.round_statistics && !larva_embryo.statistic_exempt)
 				GLOB.round_statistics.track_new_participant(faction, 0) // keep stats sane
 			hive.stored_larva++

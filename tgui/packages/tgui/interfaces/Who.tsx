@@ -33,11 +33,11 @@ const CATEGORIES_RU = {
   'Spectating Players': 'Наблюдатели игроки',
   'Spectating Admins': 'Наблюдатели администраторы',
   Humans: 'Люди',
-  'Infected Humans': 'Инфицированные люди',
+  'Infected Humans': 'Заражённые люди',
   'USS Almayer Personnel': 'Персонал USS Almayer',
   Marines: 'Морпехи',
   Yautjas: 'Хищники',
-  'Infected Predators': 'Инфицированные хищники',
+  'Infected Predators': 'Заражённые хищники',
   'Hunted In Preserve': 'Охотники',
 };
 
@@ -47,13 +47,13 @@ const CATEGORIES_TEXT_RU = {
   'Spectating administrators': 'Наблюдающие за игрой администраторы',
   'Players playing as Human': 'Игроки, играющие за людей',
   'Players playing as Infected Human':
-    'Игроки, играющие за инфицированных людей',
+    'Игроки, играющие за заражённых людей',
   'Players playing as USS Almayer Personnel':
     'Игроки, играющие за персонал USS Almayer',
   'Players playing as Marines': 'Игроки, играющие за морпехов',
   'Players playing as Yautja': 'Игроки, играющие за хищников',
   'Players playing as Infected Yautja':
-    'Игроки, играющие за инфицированных хищников',
+    'Игроки, играющие за заражённых хищников',
   'Players playing as hunted in preserve':
     'Игроки, играющие за охотников в заповеднике',
 };

@@ -5,8 +5,6 @@ GLOBAL_LIST_EMPTY(ru_emote_names)
 GLOBAL_LIST_EMPTY(ru_emote_messages)
 GLOBAL_LIST_EMPTY(ru_wound_descs)
 GLOBAL_LIST_EMPTY(ru_reagent_names)
-GLOBAL_LIST_EMPTY(ru_span)
-GLOBAL_LIST_EMPTY(ru_span_args)
 
 /datum/modpack/translations
 	name = "Переводы"
@@ -14,7 +12,6 @@ GLOBAL_LIST_EMPTY(ru_span_args)
 	author = "Vallat, larentoun, pavlovvn, ROdenFL, PhantomRU"
 
 /datum/modpack/translations/post_initialize()
-	initialize_spans()
 	initialize_reagents()
 	initialize_verbs()
 	initialize_emotes()
@@ -69,24 +66,6 @@ GLOBAL_LIST_EMPTY(ru_span_args)
 	translate_vendor_entries_to_ru(GLOB.cm_vending_clothing_tutorial)
 	translate_vendor_entries_to_ru(GLOB.cm_vending_gear_medic_sandbox)
 	translate_vendor_entries_to_ru(GLOB.cm_vending_clothing_medic_sandbox)
-
-/datum/modpack/translations/proc/initialize_spans()
-	var/span_path = "[PATH_TO_TRANSLATE_DATA]/ru_span.toml"
-	if(fexists(file(span_path)))
-		var/list/span_file_data = rustg_read_toml_file(span_path)
-		var/list/span_messages = span_file_data["span_verbs"]
-		for(var/span_key in span_messages)
-			if(GLOB.ru_span[span_key])
-				continue
-			GLOB.ru_span += list("[span_key]" = span_messages[span_key])
-	var/span_args_path = "[PATH_TO_TRANSLATE_DATA]/ru_span_args.toml"
-	if(fexists(file(span_args_path)))
-		var/list/span_args_file_data = rustg_read_toml_file(span_args_path)
-		var/list/span_args_messages = span_args_file_data["span_args_verbs"]
-		for(var/span_args_key in span_args_messages)
-			if(GLOB.ru_span_args[span_args_key])
-				continue
-			GLOB.ru_span_args += list("[span_args_key]" = span_args_messages[span_args_key])
 
 /datum/modpack/translations/proc/initialize_reagents()
 	var/reagents_path = "[PATH_TO_TRANSLATE_DATA]/ru_reagents.toml"

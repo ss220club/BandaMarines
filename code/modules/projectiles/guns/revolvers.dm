@@ -60,7 +60,7 @@
 
 /obj/item/weapon/gun/revolver/display_ammo(mob/user) // revolvers don't *really* have a chamber, at least in a way that matters for ammo displaying
 	if(flags_gun_features & GUN_AMMO_COUNTER && !(flags_gun_features & GUN_BURST_FIRING) && current_mag)
-		to_chat(user, SPAN_DANGER("$1 / $2 ROUNDS REMAINING", list(current_mag.current_rounds, current_mag.max_rounds))) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_DANGER("ОСТАЛОСЬ [current_mag.current_rounds] / [current_mag.max_rounds] ПАТРОНОВ")) // SS220 EDIT ADDICTION
 
 /obj/item/weapon/gun/revolver/proc/rotate_cylinder(mob/user) //Cylinder moves backward.
 	if(current_mag)

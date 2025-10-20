@@ -7,6 +7,9 @@ VAR_PRIVATE/const/MAX_CACHE_SIZE = 100000
 // list/attr - аргументы для подстановки в строку
 // with_span_args - поиск по ru_span_args, иногда полезно
 // type - для логов, чтобы понимать откуда вызов
+
+/* для потомков
+
 /proc/ru_span(str, list/attr = list(), with_span_args = FALSE, type = "")
 	if (!str || !length(str))
 		return
@@ -148,3 +151,4 @@ VAR_PRIVATE/const/MAX_CACHE_SIZE = 100000
 			for(var/i = 1 to total - 1)
 				output += "[input[i]][i == total - 1 ? final_comma_text : comma_text]"
 			return "[output][or_text][input[total]]"
+*/

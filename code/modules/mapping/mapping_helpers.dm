@@ -61,7 +61,7 @@
 		? "Обнаружено структурное обрушение в [announcement_areas]. Возможно открылся доступ к новым маршрутам." \
 		: "Обнаружены геологические сдвиги в [announcement_areas]. Возможно открылся доступ к новым маршрутам."
 
-	marine_announcement(SPAN_TRANSLATE(marine_announcement_text), "Приоритетное оповещение") // SS220 EDIT ADDICTION
+	marine_announcement(marine_announcement_text, "Приоритетное оповещение") // SS220 EDIT ADDICTION
 
 	var/xeno_announcement_text = SSmapping.configs[GROUND_MAP].environment_traits[ZTRAIT_IN_SPACE] \
 		? "Металл этого места обрушился, предоставляя новые маршруты в [announcement_areas]." \
@@ -90,7 +90,7 @@
 		? "Обнаружено структурное обрушение в [announcement_areas], позволяющее демонтировать конструкции. Возможно открылся доступ к новым маршрутам." \
 		: "Обнаружены геологические сдвиги в [announcement_areas], позволяющие проводить раскопки. Возможно открылся доступ к новым маршрутам."
 
-	marine_announcement(SPAN_TRANSLATE(marine_announcement_text), "Приоритетное оповещение") // SS220 EDIT ADDICTION
+	marine_announcement(marine_announcement_text, "Приоритетное оповещение") // SS220 EDIT ADDICTION
 
 	var/xeno_announcement_text = SSmapping.configs[GROUND_MAP].environment_traits[ZTRAIT_IN_SPACE] \
 		? "Металл этого места обрушился, и мы можем создать новые маршруты через [announcement_areas]." \

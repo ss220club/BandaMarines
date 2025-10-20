@@ -780,7 +780,7 @@
 		else
 			SStracking.start_tracking(tracking_id, H)
 			if(H.stat == CONSCIOUS)
-				to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("Вы были назначены в $1.", list(fireteam)))) // SS220 EDIT ADDICTION
+				to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("Вы были назначены в [fireteam]."))) // SS220 EDIT ADDICTION
 	else
 		fireteams[fireteam].Add(H)
 		H.assigned_fireteam = fireteam //adding to fireteam

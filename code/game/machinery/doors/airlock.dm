@@ -914,7 +914,7 @@ GLOBAL_LIST_INIT(airlock_wire_descriptions, list(
 		xeno.Stun(1)
 
 	playsound(src, 'sound/effects/metalhit.ogg', 50, TRUE)
-	xeno.visible_message(SPAN_XENOWARNING("$1 strikes $2 with its tail!", list(xeno, declent_ru())), SPAN_XENOWARNING("You strike $1 with your tail!", list(declent_ru()))) // SS220 EDIT ADDICTION
+	xeno.visible_message(SPAN_XENOWARNING("[xeno] бьёт хвостом по [declent_ru()]!"), SPAN_XENOWARNING("Вы бьёте хвостом по [declent_ru()]!")) // SS220 EDIT ADDICTION
 	xeno.emote("tail")
 	var/damage = xeno.melee_damage_upper * TAILSTAB_AIRLOCK_DAMAGE_MULTIPLIER
 	take_damage(damage, xeno)

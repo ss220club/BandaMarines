@@ -827,7 +827,7 @@
 		"black" = "Скончался",
 		"red" = "Необходима срочная помощь",
 		"orange" = "Необходима операция",
-		"purple" = "Инфицирован паразитом XX-121",
+		"purple" = "Заражён паразитом XX-121",
 		"none" = "Нет данных"
 	)
 	var/newcolor = tgui_input_list(user, "Укажите причину болезни пациента:", "Медголокарта", holocard_translations, associative_list = TRUE)
