@@ -23931,7 +23931,7 @@
 /obj/item/prop/almayer/flight_recorder/colony{
 	pixel_x = -6;
 	pixel_y = 10;
-	name = "\SECRET RECORDER"
+	name = "SECRET RECORDER"
 	},
 /turf/open/shuttle/dropship/dark_grey_bottom,
 /area/Neer_lv759/indoors/caves/Monorail)
