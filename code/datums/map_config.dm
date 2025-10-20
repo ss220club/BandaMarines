@@ -1,3 +1,5 @@
+#include "../../modular/translations/code/ru_names/ru_maps.dm" // SS220 EDIT ADDICTION
+
 //used for holding information about unique properties of maps
 //feed it json files that match the datum layout
 //defaults to box
@@ -113,7 +115,6 @@
 		/datum/equipment_preset/synth/survivor/pilot_synth,
 		/datum/equipment_preset/synth/survivor/radiation_synth,
 	)
-
 /proc/load_map_config(filename, default, delete_after, error_if_missing = TRUE)
 	var/datum/map_config/config = new
 	if(default)
@@ -438,12 +439,11 @@
 			gamemodes += initial(G.config_tag)
 
 	defaulted = FALSE
-
-	// Apply Russian translations to map name
-	var/list/ru_translation = ru_names_toml(map_name)
+// SS220 START EDIT ADDICTION
+	var/list/ru_translation = ru_map_names_toml(map_name)
 	if(length(ru_translation))
 		map_name = ru_translation[NOMINATIVE]
-
+// SS220 END EDIT ADDICTION
 	return TRUE
 #undef CHECK_EXISTS
 
