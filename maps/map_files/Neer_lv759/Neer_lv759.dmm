@@ -48210,7 +48210,6 @@
 /area/Neer_lv759/outdoors/colony_streets/Parking_space)
 "vMY" = (
 /obj/structure/largecrate/supply/supplies{
-	fill_from_loc = 1;
 	name = "Tripod light crate (x8)"
 	},
 /obj/item/device/flashlight/lamp/tripod/grey{
