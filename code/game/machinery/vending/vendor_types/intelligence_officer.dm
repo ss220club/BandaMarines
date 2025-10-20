@@ -62,8 +62,8 @@ GLOBAL_LIST_INIT(cm_vending_gear_intelligence_officer, list(
 
 		// SS220 EDIT - START
 		list("ОБОРУДОВАНИЕ", 0, null, null, null),
-		list("Мотоцикл (Камуфляж)", 0, /obj/vehicle/motorbike/camo, MARINE_CAN_BUY_ATTACHMENT, VENDOR_ITEM_REGULAR),
-		list("Коляска мотоцикла (Камуфляж)", 0, /obj/structure/bed/chair/stroller/camo, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
+		list("Мотоцикл (Камуфляж)", 0, /obj/vehicle/motorbike/camo, CIVILIAN_CAN_BUY_SHOES, VENDOR_ITEM_REGULAR),
+		list("Коляска мотоцикла (Камуфляж)", 0, /obj/structure/bed/chair/stroller/camo, CIVILIAN_CAN_BUY_SHOES, VENDOR_ITEM_REGULAR),
 		// SS220 EDIT - END
 	))
 
