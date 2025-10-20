@@ -111,7 +111,7 @@ export function AlertModal(props) {
         <Section fill>
           <Stack fill vertical>
             <Stack.Item m={1}>
-              <Box color="label" overflow="hidden">
+              <Box color="label" overflow="hidden" preserveWhitespace>
                 {message}
               </Box>
             </Stack.Item>
