@@ -24091,7 +24091,6 @@
 /obj/structure/closet{
 	pixel_x = 8;
 	pixel_y = 15;
-	can_be_stacked = 1
 	},
 /turf/open/floor/kutjevo/multi_tiles/west,
 /area/Neer_lv759/outdoors)
