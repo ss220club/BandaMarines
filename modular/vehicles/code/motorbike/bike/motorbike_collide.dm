@@ -5,6 +5,8 @@
 	var/last_crash_time = 0
 	/// Задержка между столкновениями
 	var/crash_cooldown = 2 SECONDS
+	/// Шанс для столкновения при низком уровне вождения
+	var/crash_chance = 80 // Если шанс 80, то по уровням: 80 - 60 - 40 - 20 - 8
 
 // ==========================================
 // =============== Коллизия =================
@@ -22,8 +24,8 @@
 	last_crash_time = world.time
 
 	// Шанс от скилла что мы не врежимся и остановимся
-	var/crash_chance = 100 * buckled_mob.get_skill_duration_multiplier(SKILL_VEHICLE)
-	if(!prob(crash_chance))
+	var/crash_chance_prob = 100 - crash_chance * buckled_mob.get_skill_duration_multiplier(SKILL_VEHICLE)
+	if(prob(crash_chance_prob))
 		to_chat(buckled_mob, SPAN_NOTICE("Вы избежали аварии, благодаря вашему умелому вождению!"))
 		reset_speed()
 		return TRUE
