@@ -394,6 +394,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/kutjevo/tan,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
+"akg" = (
+/obj/structure/machinery/power/apc/no_power/west,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors/colony_streets/Main_road)
 "akh" = (
 /obj/structure/platform{
 	dir = 1
@@ -6190,9 +6194,6 @@
 /turf/open/floor/plating,
 /area/Neer_lv759/atmos/outdoor)
 "cVx" = (
-/obj/structure/machinery/power/apc/power/north{
-	start_charge = 20
-	},
 /obj/structure/largecrate/empty/case,
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/command_centre)
@@ -9224,11 +9225,10 @@
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/reception)
 "ekj" = (
-/obj/structure/machinery/power/apc/power/north{
-	start_charge = 20
-	},
-/turf/open/floor/corsat/plate,
-/area/Neer_lv759/atmos/east_reactor)
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/power/apc/no_power/west,
+/turf/open/floor/prison,
+/area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
 "ekl" = (
 /obj/structure/pipes/standard/simple/hidden/green{
 	dir = 10
@@ -12108,6 +12108,16 @@
 /obj/structure/largecrate/random/barrel/yellow,
 /turf/open/asphalt/cement,
 /area/Neer_lv759/outdoors/colony_streets/Parking_space)
+"fEb" = (
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice4";
+	pixel_x = -16;
+	pixel_y = 24
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/power/apc/no_power/west,
+/turf/open/floor/prison,
+/area/Neer_lv759/indoors/wy_research_complex/southeastexit)
 "fEd" = (
 /obj/item/holder/rat,
 /obj/structure/prop/ice_colony/ground_wire,
@@ -14721,7 +14731,6 @@
 	icon_state = "W";
 	layer = 2.5
 	},
-/obj/structure/machinery/power/apc/no_power/west,
 /turf/open/floor/strata/red4,
 /area/Neer_lv759/indoors/wy_research_complex/securityarmory)
 "gOw" = (
@@ -24090,7 +24099,7 @@
 "ldb" = (
 /obj/structure/closet{
 	pixel_x = 8;
-	pixel_y = 15;
+	pixel_y = 15
 	},
 /turf/open/floor/kutjevo/multi_tiles/west,
 /area/Neer_lv759/outdoors)
@@ -27959,9 +27968,9 @@
 /turf/open/floor/prison/ramptop/north,
 /area/Neer_lv759/indoors/hobosecret)
 "mEQ" = (
-/obj/structure/machinery/power/apc/fully_broken/no_cell,
-/turf/open/floor/plating/platebotc,
-/area/Neer_lv759/outdoors)
+/obj/structure/girder/displaced,
+/turf/open/asphalt/cement,
+/area/Neer_lv759/outdoors/colony_streets/Parking_space)
 "mEX" = (
 /obj/structure/toilet{
 	pixel_y = 15;
@@ -28178,10 +28187,9 @@
 /turf/open/floor/kutjevo/grey/plate,
 /area/Neer_lv759/indoors/wy_research_complex/securityarmory)
 "mKN" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/machinery/power/apc/fully_broken/no_cell,
-/turf/open/floor/plating,
-/area/Neer_lv759/outdoors)
+/obj/structure/machinery/power/apc/no_power/north,
+/turf/open/asphalt/cement,
+/area/Neer_lv759/outdoors/colony_streets/Parking_space)
 "mKY" = (
 /obj/effect/decal/hybrisa/road/lines2,
 /obj/effect/decal/hybrisa/dirt,
@@ -28900,6 +28908,7 @@
 /area/Neer_lv759/indoors/wy_research_complex/cargo)
 "nay" = (
 /obj/effect/decal/cleanable/blood/oil,
+/obj/structure/girder/displaced,
 /turf/open/asphalt/cement,
 /area/Neer_lv759/outdoors/colony_streets/Parking_space)
 "naI" = (
@@ -45923,6 +45932,7 @@
 	dir = 1;
 	pixel_y = 5
 	},
+/obj/structure/girder/displaced,
 /turf/open/asphalt/cement,
 /area/Neer_lv759/outdoors/colony_streets/Parking_space)
 "uMy" = (
@@ -46083,11 +46093,11 @@
 "uPx" = (
 /obj/structure/closet{
 	pixel_x = -8;
-	pixel_y = 15;
+	pixel_y = 15
 	},
 /obj/structure/closet{
 	pixel_x = 8;
-	pixel_y = 15;
+	pixel_y = 15
 	},
 /turf/open/floor/kutjevo/multi_tiles/southeast,
 /area/Neer_lv759/outdoors)
@@ -51278,6 +51288,11 @@
 /obj/structure/machinery/power/apc/power/north,
 /turf/open/floor/kutjevo/tan,
 /area/Neer_lv759/indoors/wy_research_complex/head_research_office)
+"xhG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/power/apc/no_power/north,
+/turf/open/floor/corsat/plate,
+/area/Neer_lv759/atmos/reactor_garage)
 "xhH" = (
 /obj/structure/surface/table/reinforced,
 /obj/effect/decal/warning_stripes{
@@ -56460,7 +56475,7 @@ qpQ
 fWq
 nbl
 nbl
-ekj
+qEw
 aib
 chg
 mny
@@ -58941,7 +58956,7 @@ hBq
 bNO
 oZa
 oZa
-mKN
+juI
 snQ
 jgi
 jgi
@@ -62716,7 +62731,7 @@ qSF
 dkR
 vYJ
 oZa
-mEQ
+xIg
 snQ
 qHC
 qHC
@@ -63588,7 +63603,7 @@ hyj
 xJa
 hyj
 hyj
-hyj
+mEQ
 hyj
 hyj
 hyj
@@ -63837,9 +63852,9 @@ hyj
 hyj
 hyj
 hyj
-hyj
-hyj
-hyj
+mEQ
+rwK
+mKN
 sBu
 frf
 hyj
@@ -66085,7 +66100,7 @@ cMA
 dLd
 eBi
 cAv
-sKy
+xhG
 kEv
 sdZ
 hZP
@@ -79305,7 +79320,7 @@ gBd
 gBd
 gBd
 dyk
-uMy
+oML
 rjr
 uBg
 eTg
@@ -79557,7 +79572,7 @@ gBd
 gBd
 gBd
 oML
-gBd
+akg
 gBd
 uBg
 eTg
@@ -92076,7 +92091,7 @@ teg
 rnY
 bWd
 eRd
-urP
+ekj
 fvp
 bRn
 wJm
@@ -92110,7 +92125,7 @@ emM
 bKf
 mOg
 kTo
-wnh
+fEb
 dWJ
 dZp
 wnh
