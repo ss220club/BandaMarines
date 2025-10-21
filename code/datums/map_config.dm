@@ -16,6 +16,7 @@
 
 	// Config actually from the JSON - default values
 	var/map_name = "LV624"
+	var/original_map_name = "LV624" // Сохраняем оригинальное название
 	var/map_path = "map_files/LV624"
 	var/map_file = "LV624.dmm"
 

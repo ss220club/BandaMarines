@@ -168,13 +168,13 @@ GLOBAL_LIST_INIT_TYPED(map_type_list, /obj/item/map, setup_all_maps())
 /obj/item/map/current_map/Initialize(mapload, ...)
 	. = ..()
 
-	var/map_name = SSmapping.configs[GROUND_MAP].map_name
-	var/obj/item/map/map = GLOB.map_type_list[map_name]
-	if (!map) // SS220 EDIT ADDICTION
-		if (map_name == MAP_RUNTIME || map_name == MAP_CHINOOK || map_name == MAIN_SHIP_DEFAULT_NAME || map_name == MAP_ROSTOCK)
-			return // "Maps" we don't have maps for so we don't need to throw a runtime for (namely in unit_testing)
-		else // SS220 EDIT ADDICTION
-			CRASH("Unknown map type: [map_name]") // SS220 EDIT ADDICTION
+	var/original_map_name = SSmapping.configs[GROUND_MAP].original_map_name
+	var/obj/item/map/map = GLOB.map_type_list[original_map_name]
+	if (!map)
+		if (original_map_name == MAP_RUNTIME || original_map_name == MAP_CHINOOK || original_map_name == MAIN_SHIP_DEFAULT_NAME || original_map_name == MAP_ROSTOCK)
+			return
+		else
+			CRASH("Unknown map type: [original_map_name]")
 
 	name = map.name
 	desc = map.desc
