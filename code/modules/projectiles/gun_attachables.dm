@@ -230,9 +230,6 @@ Defined in conflicts.dm of the #defines folder.
 /obj/item/attachable/proc/reload_attachment(obj/item/I, mob/user)
 	return
 
-/obj/item/attachable/proc/unique_action(mob/user)
-	return
-
 ///Returns TRUE if its functionality is successfully used, FALSE if gun's own unloading should proceed instead.
 /obj/item/attachable/proc/unload_attachment(mob/user, reload_override = 0, drop_override = 0, loc_override = 0)
 	return FALSE
@@ -3910,7 +3907,7 @@ Defined in conflicts.dm of the #defines folder.
 		var/obj/item/weapon/gun/gun = loc
 		gun.update_attachable(slot)
 		for(var/datum/action/item_action as anything in gun.actions)
-			if(!istype(item_action, /datum/action/item_action/bipod/toggle_full_auto_switch)) // && !istype(item_action, /datum/action/item_action/stock/vulture/stock_iff)) //BANDAMARINES EDIT - !!!!! Отключено с Вультерой
+			if(!istype(item_action, /datum/action/item_action/bipod/toggle_full_auto_switch) && !istype(item_action, /datum/action/item_action/stock/vulture/stock_iff)) //BANDAMARINES EDIT
 				item_action.update_button_icon()
 
 /obj/item/attachable/bipod/proc/handle_drop(obj/item/weapon/gun/gun, mob/living/carbon/human/user)
