@@ -1,5 +1,3 @@
-#include "../../modular/translations/code/ru_names/ru_maps.dm" // SS220 EDIT ADDICTION
-
 //used for holding information about unique properties of maps
 //feed it json files that match the datum layout
 //defaults to box
@@ -16,7 +14,6 @@
 
 	// Config actually from the JSON - default values
 	var/map_name = "LV624"
-	var/original_map_name = "LV624" // Сохраняем оригинальное название
 	var/map_path = "map_files/LV624"
 	var/map_file = "LV624.dmm"
 
@@ -116,6 +113,7 @@
 		/datum/equipment_preset/synth/survivor/pilot_synth,
 		/datum/equipment_preset/synth/survivor/radiation_synth,
 	)
+
 /proc/load_map_config(filename, default, delete_after, error_if_missing = TRUE)
 	var/datum/map_config/config = new
 	if(default)
@@ -440,11 +438,6 @@
 			gamemodes += initial(G.config_tag)
 
 	defaulted = FALSE
-// SS220 START EDIT ADDICTION
-	var/list/ru_translation = ru_map_names_toml(map_name)
-	if(length(ru_translation))
-		map_name = ru_translation[NOMINATIVE]
-// SS220 END EDIT ADDICTION
 	return TRUE
 #undef CHECK_EXISTS
 
