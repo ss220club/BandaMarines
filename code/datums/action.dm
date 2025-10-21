@@ -66,6 +66,8 @@
 // SS220 START EDIT ADDICTION
 /datum/action/proc/update_button_on_keybind_change()
 	SIGNAL_HANDLER
+	if(!owner || !owner.client)
+		return
 	var/action_name_key = src.action_icon_state
 	if(!action_name_key && src.hotkey_id)
 		action_name_key = get_keybinding_name_by_signal(src.hotkey_id)
@@ -248,7 +250,7 @@
 
 /datum/action/item_action/update_button_icon()
 	button.overlays.Cut()
-	var/mutable_appearance/item_appearance = mutable_appearance(target.icon, target.icon_state, plane = ABOVE_HUD_PLANE)
+	var/mutable_appearance/item_appearance = mutable_appearance(target.icon, target.icon_state, plane = ABOVE_TACMAP_PLANE)
 	for(var/overlay in target.overlays)
 		item_appearance.overlays += overlay
 	button.overlays += item_appearance

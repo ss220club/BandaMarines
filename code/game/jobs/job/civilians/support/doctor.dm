@@ -16,7 +16,7 @@
 	gear_preset = /datum/equipment_preset/uscm_ship/uscm_medical/doctor
 
 	// job option
-	job_options = list(DOCTOR_VARIANT = "Док", SURGEON_VARIANT = "Хир")
+	job_options = list(DOCTOR_VARIANT = "Врч", SURGEON_VARIANT = "Хир")
 	/// If this job is a doctor variant of the doctor role
 	var/doctor = TRUE
 
@@ -54,6 +54,17 @@
 AddTimelock(/datum/job/civilian/doctor, list(
 	JOB_MEDIC_ROLES = 1 HOURS
 ))
+
+/datum/job/civilian/doctor/generate_entry_conditions(mob/living/M, whitelist_status)
+	. = ..()
+	if(!islist(GLOB.marine_officers[JOB_DOCTOR]))
+		GLOB.marine_officers[JOB_DOCTOR] = list()
+	GLOB.marine_officers[JOB_DOCTOR] += M
+	RegisterSignal(M, COMSIG_PARENT_QDELETING, PROC_REF(cleanup_leader_candidate))
+
+/datum/job/civilian/doctor/proc/cleanup_leader_candidate(mob/M)
+	SIGNAL_HANDLER
+	GLOB.marine_officers[JOB_DOCTOR] -= M
 
 /obj/effect/landmark/start/doctor
 	name = JOB_DOCTOR
