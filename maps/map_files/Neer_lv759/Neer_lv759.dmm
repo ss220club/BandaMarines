@@ -1616,6 +1616,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/kutjevo/colors/cyan/inner_corner/north,
 /area/Neer_lv759/indoors/wy_research_complex/reception)
+"aJM" = (
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/prison/floor_plate,
+/area/Neer_lv759/indoors/caves/Monorail)
 "aJR" = (
 /obj/structure/platform{
 	dir = 1
@@ -7809,10 +7813,8 @@
 /turf/closed/wall/wood,
 /area/Neer_lv759/outdoors)
 "dyQ" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/machinery/power/apc/power/east,
-/turf/open/floor/prison,
-/area/Neer_lv759/indoors/caves/passage_to_bunker)
+/turf/open/floor/prison/floor_plate/southwest,
+/area/Neer_lv759/indoors/caves/Monorail)
 "dzQ" = (
 /obj/structure/closet/secure_closet/detective{
 	pixel_x = -4;
@@ -14622,12 +14624,6 @@
 /obj/structure/girder/displaced,
 /turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
-"gFM" = (
-/obj/structure/machinery/light/double{
-	dir = 8
-	},
-/turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/caves/Monorail)
 "gFO" = (
 /obj/structure/machinery/light{
 	dir = 4
@@ -22112,7 +22108,9 @@
 /turf/open/floor/plating,
 /area/Neer_lv759/atmos/east_reactor)
 "kem" = (
-/obj/effect/decal/cleanable/blood,
+/obj/structure/machinery/light/double{
+	dir = 8
+	},
 /turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "ken" = (
@@ -25747,13 +25745,6 @@
 "lxP" = (
 /turf/open/floor/prison/darkyellow2/east,
 /area/Neer_lv759/outdoors)
-"lxU" = (
-/obj/structure/machinery/door/airlock/multi_tile/almayer/dropshiprear/ds2{
-	name = "\improper Cash Flow cargo door";
-	id = "aft_door"
-	},
-/turf/open/floor/prison/floor_plate/southwest,
-/area/Neer_lv759/indoors/caves/Monorail)
 "lyF" = (
 /obj/structure/barricade/handrail/kutjevo{
 	layer = 3.05
@@ -34689,6 +34680,15 @@
 	},
 /turf/open/shuttle/black,
 /area/Neer_lv759/outdoors/landing_zone_1)
+"puh" = (
+/obj/structure/cable/white{
+	icon_state = "1-2";
+	level = 2;
+	pixel_x = -2;
+	pixel_y = -15
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/Neer_lv759/indoors/caves/Monorail)
 "pui" = (
 /turf/closed/wall/r_wall/biodome/biodome_unmeltable,
 /area/Neer_lv759/atmos/outdoor)
@@ -38087,9 +38087,10 @@
 /turf/open/floor/prison/red/southeast,
 /area/Neer_lv759/indoors/hobosecret)
 "qUn" = (
-/obj/effect/landmark/objective_landmark/far,
-/turf/open/floor/prison/floor_plate/southwest,
-/area/Neer_lv759/indoors/caves/Monorail)
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/power/apc/power/east,
+/turf/open/floor/prison,
+/area/Neer_lv759/indoors/caves/passage_to_bunker)
 "qUr" = (
 /turf/open/floor/platingdmg3,
 /area/Neer_lv759/atmos/command_centre)
@@ -39710,6 +39711,10 @@
 /obj/item/trash/cigbutt,
 /turf/open/floor/kutjevo/tan,
 /area/Neer_lv759/indoors/wy_research_complex/head_research_office)
+"rCr" = (
+/obj/effect/landmark/objective_landmark/far,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/Neer_lv759/indoors/caves/Monorail)
 "rCu" = (
 /obj/structure/platform{
 	dir = 8
@@ -46420,15 +46425,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/cmo,
 /area/Neer_lv759/indoors/wy_research_complex/dormsbedroom)
-"uCT" = (
-/obj/structure/cable/white{
-	icon_state = "1-2";
-	level = 2;
-	pixel_x = -2;
-	pixel_y = -15
-	},
-/turf/open/floor/prison/floor_plate/southwest,
-/area/Neer_lv759/indoors/caves/Monorail)
 "uDj" = (
 /obj/structure/largecrate/random/mini/med,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
@@ -48314,9 +48310,6 @@
 "vvj" = (
 /turf/open/auto_turf/hybrisa_auto_turf/layer3,
 /area/space)
-"vvm" = (
-/turf/open/floor/prison/floor_plate/southwest,
-/area/Neer_lv759/indoors/caves/Monorail)
 "vvv" = (
 /obj/effect/decal/siding{
 	icon_state = "siding4"
@@ -53111,6 +53104,13 @@
 /obj/item/shard,
 /turf/open/floor/corsat/spiralplate,
 /area/Neer_lv759/indoors/wy_research_complex/xenobiology)
+"xyQ" = (
+/obj/structure/machinery/door/airlock/multi_tile/almayer/dropshiprear/ds2{
+	name = "\improper Cash Flow cargo door";
+	id = "aft_door"
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/Neer_lv759/indoors/caves/Monorail)
 "xyZ" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet6_2,
@@ -76275,7 +76275,7 @@ wPV
 gBd
 gBd
 gBd
-gBd
+dyk
 gBd
 gBd
 gBd
@@ -117302,7 +117302,7 @@ jNX
 lrI
 cix
 lrI
-dyQ
+qUn
 hyu
 lrI
 lrI
@@ -119296,14 +119296,14 @@ oSh
 iDs
 jMN
 sFm
-gFM
+kem
 aoK
 aoK
 aoK
 laz
 fJb
 ovV
-kem
+aJM
 lSN
 aoK
 aoK
@@ -119316,7 +119316,7 @@ aJR
 aOQ
 jMN
 btR
-gFM
+kem
 btR
 aoK
 tim
@@ -119326,11 +119326,11 @@ aoK
 btR
 aoK
 btR
-gFM
+kem
 aoK
 aoK
 aoK
-gFM
+kem
 jMN
 aJR
 aOQ
@@ -119340,15 +119340,15 @@ gDL
 mMu
 tED
 jhx
-vvm
+dyQ
 xJc
 mMW
-uCT
-vvm
+puh
+dyQ
 mMu
 tED
 jhx
-vvm
+dyQ
 uOW
 lxK
 jMN
@@ -119588,7 +119588,7 @@ uEi
 iQw
 jMN
 jVr
-vvm
+dyQ
 uMf
 uea
 edz
@@ -119596,13 +119596,13 @@ ifs
 bQF
 kCB
 xFw
-vvm
+dyQ
 uMf
 uea
 edz
-vvm
-vvm
-vvm
+dyQ
+dyQ
+dyQ
 jMN
 uEi
 fvk
@@ -119819,7 +119819,7 @@ mSY
 grJ
 grJ
 iWr
-vvm
+dyQ
 aoK
 sPK
 aoK
@@ -119838,24 +119838,24 @@ aoK
 mSY
 grJ
 grJ
-lxU
+xyQ
 jVr
 gCC
 iPM
 bdP
-vvm
-vvm
-vvm
-vvm
-vvm
-vvm
-vvm
-vvm
-vvm
-vvm
-vvm
-vvm
-lxU
+dyQ
+dyQ
+dyQ
+dyQ
+dyQ
+dyQ
+dyQ
+dyQ
+dyQ
+dyQ
+dyQ
+dyQ
+xyQ
 grJ
 acX
 mEf
@@ -120090,24 +120090,24 @@ aoK
 mEf
 grJ
 grJ
-vvm
+dyQ
 jVr
-qUn
-qUn
-vvm
-vvm
-vvm
-qUn
-vvm
-vvm
-vvm
-vvm
-vvm
-qUn
-vvm
-vvm
-vvm
-vvm
+rCr
+rCr
+dyQ
+dyQ
+dyQ
+rCr
+dyQ
+dyQ
+dyQ
+dyQ
+dyQ
+rCr
+dyQ
+dyQ
+dyQ
+dyQ
 grJ
 acX
 eXV
@@ -120342,24 +120342,24 @@ aoK
 mEf
 grJ
 grJ
-vvm
+dyQ
 jVr
-vvm
-vvm
-vvm
-vvm
-vvm
-vvm
-vvm
-vvm
-vvm
-vvm
-vvm
-vvm
-vvm
-vvm
-vvm
-vvm
+dyQ
+dyQ
+dyQ
+dyQ
+dyQ
+dyQ
+dyQ
+dyQ
+dyQ
+dyQ
+dyQ
+dyQ
+dyQ
+dyQ
+dyQ
+dyQ
 grJ
 acX
 eXV
@@ -120596,21 +120596,21 @@ jol
 vlj
 nlX
 jVr
-qUn
+rCr
 mMu
 xyN
 nQN
-vvm
+dyQ
 hTZ
 hVD
 cdh
-vvm
+dyQ
 mMu
 xyN
 nQN
 aBw
-qUn
-vvm
+rCr
+dyQ
 jMN
 jol
 nPE
@@ -120852,15 +120852,15 @@ gNA
 gsU
 uea
 lUz
-uCT
+puh
 icm
 mbZ
 tBs
-vvm
+dyQ
 gsU
 uea
 lUz
-vvm
+dyQ
 gNA
 lxK
 jMN
