@@ -46,8 +46,7 @@ const CATEGORIES_TEXT_RU = {
   'Spectating players': 'Наблюдающие за игрой игроки',
   'Spectating administrators': 'Наблюдающие за игрой администраторы',
   'Players playing as Human': 'Игроки, играющие за людей',
-  'Players playing as Infected Human':
-    'Игроки, играющие за заражённых людей',
+  'Players playing as Infected Human': 'Игроки, играющие за заражённых людей',
   'Players playing as USS Almayer Personnel':
     'Игроки, играющие за персонал USS Almayer',
   'Players playing as Marines': 'Игроки, играющие за морпехов',
