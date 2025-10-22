@@ -12,7 +12,7 @@
 		return GLOB.cm_vending_clothing_field_doctor
 	. = ..()
 
-//Заполняем вендора для полевого и подсасываем новый вендор к переводу
+//Заполняем вендора для полевого и подключаем новый вендор к переводу
 /datum/modpack/limb_case/post_initialize()
 	. = ..()
 	GLOB.cm_vending_clothing_field_doctor += GLOB.cm_vending_clothing_doctor
