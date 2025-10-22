@@ -157,7 +157,7 @@
 /obj/structure/surface/table/woodentable/fancy,
 /obj/item/weapon/pole/fancy_cane,
 /obj/item/device/working_joe_pda,
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "aec" = (
 /obj/structure/pipes/standard/simple/hidden/green,
@@ -1157,7 +1157,7 @@
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
 "aBw" = (
 /obj/effect/particle_effect/sparks,
-/turf/open/floor/almayer/test_floor4,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "aBF" = (
 /obj/structure/machinery/door/poddoor/almayer/biohazard/white{
@@ -1601,7 +1601,7 @@
 /area/Neer_lv759/indoors/hobosecret)
 "aJy" = (
 /obj/structure/machinery/computer/WYresearch,
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "aJA" = (
 /obj/structure/window/reinforced/ultra,
@@ -1616,9 +1616,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/kutjevo/colors/cyan/inner_corner/north,
 /area/Neer_lv759/indoors/wy_research_complex/reception)
-"aJM" = (
-/turf/open/space/basic,
-/area/Neer_lv759/indoors/caves/Monorail)
 "aJR" = (
 /obj/structure/platform{
 	dir = 1
@@ -2262,7 +2259,7 @@
 	pixel_x = -14;
 	pixel_y = -12
 	},
-/turf/open/floor/almayer/orangefull,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "bdU" = (
 /obj/structure/reagent_dispensers/fueltank,
@@ -2868,7 +2865,7 @@
 /obj/structure/bed/chair/vehicle{
 	pixel_x = 8
 	},
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "btT" = (
 /turf/closed/wall/r_wall/biodome,
@@ -3958,7 +3955,7 @@
 	pixel_x = -18;
 	pixel_y = -17
 	},
-/turf/open/floor/almayer/orange/north,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "bQH" = (
 /obj/effect/decal/hybrisa/road/lines2,
@@ -4444,7 +4441,7 @@
 	pixel_x = 2;
 	pixel_y = -17
 	},
-/turf/open/floor/almayer/orange,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "cdk" = (
 /obj/structure/platform_decoration/metal/almayer/north,
@@ -4606,7 +4603,7 @@
 /area/Neer_lv759/atmos/east_reactor)
 "chj" = (
 /obj/structure/machinery/computer/tech_control,
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "chq" = (
 /obj/structure/platform_decoration/metal/almayer/north,
@@ -6750,7 +6747,7 @@
 /obj/structure/machinery/light/double{
 	dir = 4
 	},
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "dfO" = (
 /obj/effect/spawner/random/gun/rifle,
@@ -7812,8 +7809,10 @@
 /turf/closed/wall/wood,
 /area/Neer_lv759/outdoors)
 "dyQ" = (
-/turf/open/floor/almayer/orangefull,
-/area/Neer_lv759/indoors/caves/Monorail)
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/power/apc/power/east,
+/turf/open/floor/prison,
+/area/Neer_lv759/indoors/caves/passage_to_bunker)
 "dzQ" = (
 /obj/structure/closet/secure_closet/detective{
 	pixel_x = -4;
@@ -9107,7 +9106,7 @@
 	pixel_x = -3;
 	pixel_y = -1
 	},
-/turf/open/shuttle/elevator,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "edK" = (
 /obj/structure/surface/table/reinforced/prison{
@@ -9856,9 +9855,6 @@
 /obj/structure/window/reinforced/ultra,
 /turf/open/floor/kutjevo/grey/plate,
 /area/Neer_lv759/indoors/wy_research_complex/securityarmory)
-"etY" = (
-/turf/open/floor/tdome/w_y1/north,
-/area/Neer_lv759/indoors/caves/Monorail)
 "eud" = (
 /obj/structure/blocker/invisible_wall,
 /turf/closed/wall/hybrisa/colony/ribbed,
@@ -10561,7 +10557,7 @@
 /area/Neer_lv759/indoors/wy_research_complex/dormsbedroom)
 "eLe" = (
 /obj/structure/machinery/computer/altitude_control_console,
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "eLQ" = (
 /obj/effect/decal/hybrisa/road/lines3,
@@ -12593,7 +12589,7 @@
 	pixel_x = 16;
 	pixel_y = -1
 	},
-/turf/open/floor/wood/ship,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "fJd" = (
 /obj/structure/bed/chair/comfy/black{
@@ -12953,7 +12949,7 @@
 	pixel_x = 16;
 	pixel_y = -1
 	},
-/turf/open/floor/almayer/orange,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "fSi" = (
 /turf/open/floor/kutjevo/colors/cyan/edge/east,
@@ -13471,7 +13467,7 @@
 	},
 /obj/item/folder/red,
 /obj/item/spacecash/c1000,
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "gff" = (
 /obj/structure/sign/safety/bulkhead_door{
@@ -14077,7 +14073,7 @@
 	pixel_y = 1
 	},
 /obj/effect/particle_effect/sparks,
-/turf/open/shuttle/elevator,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "gsX" = (
 /obj/effect/decal/cleanable/dirt,
@@ -14481,7 +14477,7 @@
 	pixel_x = -14;
 	pixel_y = -9
 	},
-/turf/open/floor/almayer/orangefull,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "gCG" = (
 /obj/structure/barricade/handrail/kutjevo{
@@ -14532,7 +14528,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/power/monitor,
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "gDS" = (
 /obj/structure/cable/white{
@@ -14627,9 +14623,11 @@
 /turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "gFM" = (
-/obj/structure/machinery/power/apc/fully_broken/no_cell,
-/turf/open/floor/plating/platebotc,
-/area/Neer_lv759/outdoors)
+/obj/structure/machinery/light/double{
+	dir = 8
+	},
+/turf/open/floor/prison/floor_plate,
+/area/Neer_lv759/indoors/caves/Monorail)
 "gFO" = (
 /obj/structure/machinery/light{
 	dir = 4
@@ -14948,7 +14946,7 @@
 /obj/structure/machinery/light/double{
 	dir = 4
 	},
-/turf/open/floor/almayer/orange/north,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "gNX" = (
 /obj/structure/pipes/standard/simple/hidden/dark,
@@ -15523,11 +15521,11 @@
 	pixel_x = 16;
 	pixel_y = -1
 	},
-/turf/open/shuttle/dropship/light_grey_top_left,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "heG" = (
 /obj/structure/machinery/power/apc/power/east,
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "heM" = (
 /obj/structure/closet/crate/secure/weyland,
@@ -15742,7 +15740,7 @@
 	color = "#55BBFF";
 	name = "\improper Cables"
 	},
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "hkU" = (
 /obj/structure/machinery/light{
@@ -15985,12 +15983,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/sterile_white,
 /area/Neer_lv759/indoors/wy_research_complex/cafeteriakitchen)
-"hrF" = (
-/obj/structure/prop/almayer/cannon_cable_connector{
-	name = "\improper Cable connector"
-	},
-/turf/open/shuttle/dropship,
-/area/Neer_lv759/indoors/caves/Monorail)
 "hrO" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "N";
@@ -17264,7 +17256,7 @@
 	pixel_x = 2;
 	pixel_y = 13
 	},
-/turf/open/floor/almayer/orange/north,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "hUA" = (
 /obj/structure/stairs/perspective,
@@ -17326,7 +17318,7 @@
 	pixel_x = 2;
 	pixel_y = -15
 	},
-/turf/open/floor/almayer/no_build,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "hVW" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -17678,7 +17670,7 @@
 	layer = 2;
 	pixel_y = -15
 	},
-/turf/open/floor/almayer/orange/north,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "icK" = (
 /obj/structure/machinery/landinglight/ds1/delaytwo{
@@ -17866,7 +17858,7 @@
 	pixel_x = -3;
 	pixel_y = -15
 	},
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "ifx" = (
 /obj/structure/stairs/perspective/kutjevo{
@@ -18148,9 +18140,6 @@
 "imb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/toy/plush/rock,
-/obj/structure/machinery/power/apc/power/north{
-	start_charge = 20
-	},
 /turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "imh" = (
@@ -19392,7 +19381,7 @@
 	pixel_x = -5;
 	pixel_y = -12
 	},
-/turf/open/floor/almayer/orangefull,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "iQn" = (
 /obj/structure/barricade/handrail{
@@ -19608,7 +19597,11 @@
 /turf/open/hybrisa/dropship/dropship2,
 /area/space)
 "iWr" = (
-/turf/open/floor/tdome/w_y0/north,
+/obj/structure/machinery/door/airlock/multi_tile/almayer/dropshiprear/ds2{
+	name = "\improper Cash Flow cargo door";
+	id = "aft_door"
+	},
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "iWx" = (
 /obj/structure/pipes/standard/simple/hidden/green,
@@ -20099,7 +20092,7 @@
 /obj/effect/decal/warning_stripes{
 	icon_state = "W"
 	},
-/turf/open/shuttle/elevator,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "jhH" = (
 /obj/structure/reagent_dispensers/fueltank,
@@ -21776,7 +21769,7 @@
 	pixel_x = 16;
 	pixel_y = -1
 	},
-/turf/open/floor/almayer/orangefull,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "jVP" = (
 /obj/structure/platform/metal/almayer/east,
@@ -22119,7 +22112,8 @@
 /turf/open/floor/plating,
 /area/Neer_lv759/atmos/east_reactor)
 "kem" = (
-/turf/open/floor/almayer/test_floor4,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "ken" = (
 /obj/structure/pipes/vents/scrubber,
@@ -23168,7 +23162,7 @@
 	pixel_y = 10;
 	pixel_x = -2
 	},
-/turf/open/floor/almayer/no_build,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "kCF" = (
 /turf/open/gm/river,
@@ -24413,7 +24407,7 @@
 	pixel_y = 10;
 	name = "SECRET RECORDER"
 	},
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "laN" = (
 /obj/structure/flora/bush/ausbushes/var3/ppflowers,
@@ -25740,7 +25734,7 @@
 /area/Neer_lv759/indoors/wy_research_complex/mainlabs)
 "lxK" = (
 /obj/structure/closet/radiation,
-/turf/open/floor/almayer/no_build,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "lxL" = (
 /obj/effect/decal/cleanable/dirt,
@@ -25754,9 +25748,12 @@
 /turf/open/floor/prison/darkyellow2/east,
 /area/Neer_lv759/outdoors)
 "lxU" = (
-/obj/structure/machinery/power/apc/power/west,
-/turf/open/floor/shiva/floor3,
-/area/Neer_lv759/outdoors)
+/obj/structure/machinery/door/airlock/multi_tile/almayer/dropshiprear/ds2{
+	name = "\improper Cash Flow cargo door";
+	id = "aft_door"
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/Neer_lv759/indoors/caves/Monorail)
 "lyF" = (
 /obj/structure/barricade/handrail/kutjevo{
 	layer = 3.05
@@ -26077,9 +26074,6 @@
 	},
 /turf/open/floor/whitered/west,
 /area/Neer_lv759/indoors/wy_research_complex/cafeteria)
-"lFB" = (
-/turf/open/floor/almayer/no_build,
-/area/Neer_lv759/indoors/caves/Monorail)
 "lFM" = (
 /obj/structure/machinery/light{
 	dir = 1
@@ -26422,10 +26416,6 @@
 /obj/structure/girder,
 /turf/open/floor/prison/bright_clean2,
 /area/Neer_lv759/outdoors)
-"lOd" = (
-/obj/structure/machinery/power/apc/power/east,
-/turf/open/floor/kutjevo/multi_tiles/southeast,
-/area/Neer_lv759/outdoors)
 "lOy" = (
 /obj/structure/pipes/vents/scrubber,
 /obj/effect/decal/cleanable/dirt,
@@ -26671,7 +26661,7 @@
 	pixel_x = 3
 	},
 /obj/effect/landmark/objective_landmark/science,
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "lSS" = (
 /obj/structure/bed/sofa/south,
@@ -26777,7 +26767,7 @@
 	layer = 3.33;
 	pixel_x = 2
 	},
-/turf/open/shuttle/elevator,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "lUH" = (
 /obj/structure/flora/pottedplant{
@@ -27164,7 +27154,7 @@
 	pixel_x = 6
 	},
 /obj/structure/surface/table/almayer,
-/turf/open/floor/almayer/no_build,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "mcl" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -27714,7 +27704,7 @@
 /obj/structure/barricade/handrail{
 	dir = 4
 	},
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "mnm" = (
 /turf/open/floor/plating,
@@ -28789,7 +28779,7 @@
 	icon_state = "N";
 	pixel_y = 1
 	},
-/turf/open/shuttle/elevator,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "mMv" = (
 /obj/effect/landmark/survivor_spawner,
@@ -28825,7 +28815,7 @@
 	pixel_x = -2;
 	pixel_y = 10
 	},
-/turf/open/floor/almayer/no_build,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "mMX" = (
 /obj/structure/prop/invuln/lattice_prop{
@@ -31160,7 +31150,7 @@
 	pixel_x = -12;
 	pixel_y = 1
 	},
-/turf/open/shuttle/elevator,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "nQR" = (
 /obj/structure/largecrate/random/barrel/green,
@@ -32595,7 +32585,7 @@
 /obj/item/clothing/under/marine/veteran/pmc,
 /obj/item/storage/fancy/cigar,
 /obj/item/clothing/suit/storage/marine/fluff/killaninja12,
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "ovX" = (
 /obj/structure/machinery/light{
@@ -33328,7 +33318,7 @@
 	pixel_x = 16;
 	pixel_y = -1
 	},
-/turf/open/floor/almayer/orange,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "oNn" = (
 /obj/item/paper/crumpled,
@@ -33686,7 +33676,7 @@
 	pixel_y = 6
 	},
 /obj/item/handheld_distress_beacon/lawyer,
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "oTt" = (
 /obj/structure/machinery/door/airlock/multi_tile/almayer/medidoor{
@@ -34699,15 +34689,6 @@
 	},
 /turf/open/shuttle/black,
 /area/Neer_lv759/outdoors/landing_zone_1)
-"puh" = (
-/obj/structure/cable/white{
-	icon_state = "1-2";
-	level = 2;
-	pixel_x = -2;
-	pixel_y = -15
-	},
-/turf/open/floor/almayer/orange,
-/area/Neer_lv759/indoors/caves/Monorail)
 "pui" = (
 /turf/closed/wall/r_wall/biodome/biodome_unmeltable,
 /area/Neer_lv759/atmos/outdoor)
@@ -35193,7 +35174,7 @@
 /area/Neer_lv759/indoors/wy_research_complex/cargo)
 "pFJ" = (
 /obj/structure/bed/chair/comfy/beige,
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "pFK" = (
 /obj/structure/bed/chair/comfy{
@@ -36374,7 +36355,7 @@
 	pixel_x = 16;
 	pixel_y = -1
 	},
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "qii" = (
 /obj/effect/decal/cleanable/dirt,
@@ -38001,7 +37982,7 @@
 /area/Neer_lv759/indoors/wy_research_complex/medical_annex)
 "qSE" = (
 /obj/effect/landmark/objective_landmark/science,
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "qSF" = (
 /obj/structure/prop/rock/black_ground,
@@ -38107,7 +38088,7 @@
 /area/Neer_lv759/indoors/hobosecret)
 "qUn" = (
 /obj/effect/landmark/objective_landmark/far,
-/turf/open/floor/almayer/orangefull,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "qUr" = (
 /turf/open/floor/platingdmg3,
@@ -39172,7 +39153,7 @@
 	color = "#55BBFF";
 	name = "\improper Cables"
 	},
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "rtb" = (
 /obj/structure/cable/heavyduty{
@@ -39729,10 +39710,6 @@
 /obj/item/trash/cigbutt,
 /turf/open/floor/kutjevo/tan,
 /area/Neer_lv759/indoors/wy_research_complex/head_research_office)
-"rCr" = (
-/obj/effect/landmark/objective_landmark/far,
-/turf/open/floor/almayer/orange/north,
-/area/Neer_lv759/indoors/caves/Monorail)
 "rCu" = (
 /obj/structure/platform{
 	dir = 8
@@ -41640,9 +41617,6 @@
 	},
 /turf/closed/wall/almayer/outer,
 /area/Neer_lv759/indoors/wy_research_complex/mainlabs)
-"suC" = (
-/turf/open/floor/tdome/w_y2/north,
-/area/Neer_lv759/indoors/caves/Monorail)
 "suH" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/item/tool/warning_cone{
@@ -42016,7 +41990,7 @@
 	density = 0;
 	pixel_y = 16
 	},
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "sFs" = (
 /obj/structure/prop/invuln/lattice_prop{
@@ -42146,7 +42120,7 @@
 "sIg" = (
 /obj/structure/machinery/faxmachine/corporate/liaison,
 /obj/structure/surface/table/almayer,
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "sIi" = (
 /obj/structure/barricade/handrail/strata{
@@ -42482,7 +42456,7 @@
 /area/Neer_lv759/indoors/hobosecret)
 "sPK" = (
 /obj/effect/landmark/objective_landmark/far,
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "sPV" = (
 /obj/effect/decal/warning_stripes{
@@ -42662,7 +42636,7 @@
 	color = "#55BBFF";
 	name = "\improper Cables"
 	},
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "sUI" = (
 /obj/structure/largecrate/black_market/confiscated_weaponry,
@@ -43340,7 +43314,7 @@
 	pixel_x = 16;
 	pixel_y = -1
 	},
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "tis" = (
 /obj/structure/machinery/light{
@@ -43628,7 +43602,7 @@
 /obj/structure/prop/almayer/cannon_cable_connector{
 	name = "\improper Cable connector"
 	},
-/turf/open/shuttle/dropship/can_surgery,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "toO" = (
 /obj/effect/decal/hybrisa/road/road_edge{
@@ -44197,7 +44171,7 @@
 	pixel_x = -16;
 	pixel_y = 11
 	},
-/turf/open/floor/almayer/orange,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "tBx" = (
 /turf/open/floor/plating/warnplate/west,
@@ -44347,7 +44321,7 @@
 	pixel_x = -14
 	},
 /obj/effect/particle_effect/sparks,
-/turf/open/shuttle/elevator,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "tEF" = (
 /obj/structure/largecrate/supply/medicine,
@@ -45455,7 +45429,7 @@
 	pixel_x = -22;
 	layer = 2
 	},
-/turf/open/shuttle/elevator,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "uee" = (
 /obj/structure/machinery/conveyor,
@@ -46453,7 +46427,7 @@
 	pixel_x = -2;
 	pixel_y = -15
 	},
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "uDj" = (
 /obj/structure/largecrate/random/mini/med,
@@ -46818,14 +46792,14 @@
 	pixel_x = 8
 	},
 /obj/effect/landmark/objective_landmark/far,
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "uMf" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "N";
 	pixel_y = 1
 	},
-/turf/open/shuttle/elevator,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "uMr" = (
 /obj/item/tool/warning_cone{
@@ -46962,7 +46936,7 @@
 /obj/structure/machinery/light/double{
 	dir = 8
 	},
-/turf/open/floor/almayer/orange/north,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "uPc" = (
 /obj/structure/surface/rack,
@@ -47085,7 +47059,7 @@
 	layer = 2.7;
 	pixel_y = 2
 	},
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "uRg" = (
 /obj/item/lightstick/red/spoke/planted{
@@ -47989,7 +47963,6 @@
 /turf/closed/wall/r_wall/biodome,
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
 "vni" = (
-/obj/structure/machinery/power/apc/no_power/east,
 /obj/structure/closet/crate{
 	color = "#98a3ab"
 	},
@@ -48342,7 +48315,7 @@
 /turf/open/auto_turf/hybrisa_auto_turf/layer3,
 /area/space)
 "vvm" = (
-/turf/open/floor/almayer/orange/north,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "vvv" = (
 /obj/effect/decal/siding{
@@ -49927,7 +49900,7 @@
 /obj/structure/bed/chair/dropship/pilot{
 	dir = 1
 	},
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "wdv" = (
 /obj/structure/barricade/handrail/kutjevo{
@@ -51161,14 +51134,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet9_4,
 /area/Neer_lv759/indoors/wy_research_complex/dormsbedroom)
-"wFq" = (
-/obj/structure/prop/invuln/lattice_prop{
-	icon_state = "lattice12";
-	pixel_x = 16;
-	pixel_y = -1
-	},
-/turf/open/floor/almayer/orange,
-/area/Neer_lv759/indoors/caves/Monorail)
 "wFF" = (
 /obj/structure/cargo_container/kelland/right,
 /obj/structure/blocker/forcefield/vehicles,
@@ -51649,7 +51614,7 @@
 	pixel_x = 16;
 	pixel_y = -1
 	},
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/caves/Monorail)
 "wRt" = (
 /turf/open/floor/strata/multi_tiles/southeast,
@@ -53131,7 +53096,7 @@
 /obj/structure/prop/power_transformer{
 	pixel_x = -14
 	},
-/turf/open/shuttle/elevator,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "xyP" = (
 /obj/structure/stairs/perspective/kutjevo,
@@ -53146,11 +53111,6 @@
 /obj/item/shard,
 /turf/open/floor/corsat/spiralplate,
 /area/Neer_lv759/indoors/wy_research_complex/xenobiology)
-"xyQ" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/machinery/power/apc/fully_broken/no_cell,
-/turf/open/floor/plating,
-/area/Neer_lv759/outdoors)
 "xyZ" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet6_2,
@@ -53489,7 +53449,7 @@
 	pixel_y = -15
 	},
 /obj/effect/landmark/objective_landmark/far,
-/turf/open/floor/almayer/orange,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "xFA" = (
 /obj/structure/machinery/vending/coffee,
@@ -53669,7 +53629,7 @@
 	layer = 2.5
 	},
 /obj/effect/landmark/objective_landmark/far,
-/turf/open/floor/almayer/orange/north,
+/turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/Monorail)
 "xJh" = (
 /turf/open/floor/kutjevo/tan,
@@ -60050,7 +60010,7 @@ hBq
 bNO
 lYA
 quq
-xyQ
+juI
 snQ
 jgi
 jgi
@@ -63825,7 +63785,7 @@ qSF
 dkR
 vYJ
 oZa
-gFM
+xIg
 snQ
 qHC
 qHC
@@ -68022,7 +67982,7 @@ sDT
 oHc
 udy
 fUw
-lOd
+fUw
 fUw
 sDT
 sTZ
@@ -88554,7 +88514,7 @@ qHC
 qHC
 hBq
 iKm
-lxU
+eWq
 naI
 hBq
 hBq
@@ -117342,7 +117302,7 @@ jNX
 lrI
 cix
 lrI
-jNX
+dyQ
 hyu
 lrI
 lrI
@@ -119336,41 +119296,41 @@ oSh
 iDs
 jMN
 sFm
-dpY
-mEf
-mEf
-mEf
+gFM
+aoK
+aoK
+aoK
 laz
 fJb
 ovV
-xiO
+kem
 lSN
-mEf
-mEf
-mEf
-mEf
+aoK
+aoK
+aoK
+aoK
 hkO
-hrF
+tot
 jMN
 aJR
 aOQ
 jMN
 btR
-dpY
+gFM
 btR
-mEf
+aoK
 tim
-mEf
+aoK
 btR
-mEf
+aoK
 btR
-mEf
+aoK
 btR
-dpY
-mEf
-mEf
-mEf
-dpY
+gFM
+aoK
+aoK
+aoK
+gFM
 jMN
 aJR
 aOQ
@@ -119380,15 +119340,15 @@ gDL
 mMu
 tED
 jhx
-mEf
+vvm
 xJc
 mMW
-puh
-kem
+uCT
+vvm
 mMu
 tED
 jhx
-kem
+vvm
 uOW
 lxK
 jMN
@@ -119587,20 +119547,20 @@ oSh
 oSh
 pUm
 aJy
-mEf
+aoK
 sPK
-mEf
-mEf
-mEf
+aoK
+aoK
+aoK
 qSE
-dgQ
-mEf
+heu
+aoK
 pFJ
 adY
-mEf
-mEf
-mEf
-mEf
+aoK
+aoK
+aoK
+aoK
 sUD
 tot
 jMN
@@ -119608,27 +119568,27 @@ uEi
 iQw
 jMN
 btR
-mEf
+aoK
 btR
-mEf
+aoK
 tim
-mEf
+aoK
 btR
-mEf
+aoK
 btR
-mEf
+aoK
 btR
-mEf
-mEf
-mEf
-mEf
-mEf
+aoK
+aoK
+aoK
+aoK
+aoK
 jMN
 uEi
 iQw
 jMN
-wFq
-mEf
+jVr
+vvm
 uMf
 uea
 edz
@@ -119636,13 +119596,13 @@ ifs
 bQF
 kCB
 xFw
-kem
+vvm
 uMf
 uea
 edz
-kem
 vvm
-lFB
+vvm
+vvm
 jMN
 uEi
 fvk
@@ -119839,63 +119799,63 @@ oSh
 oSh
 pUm
 eLe
-mEf
-mEf
-mEf
-mEf
-mEf
-mEf
-dgQ
+aoK
+aoK
+aoK
+aoK
+aoK
+aoK
+heu
 qSE
 oTa
 geD
 sPK
+aoK
+aoK
+aoK
+aoK
+aoK
+mSY
+grJ
+grJ
 iWr
-mEf
-mEf
-mEf
-mEf
-mSY
-grJ
-grJ
-mSY
-mEf
-mEf
+vvm
+aoK
 sPK
-mEf
-dgQ
-mEf
-mEf
-mEf
-mEf
-mEf
+aoK
+heu
+aoK
+aoK
+aoK
+aoK
+aoK
 sPK
-mEf
-mEf
-mEf
+aoK
+aoK
+aoK
 sPK
-mEf
+aoK
 mSY
 grJ
 grJ
-mSY
+lxU
 jVr
 gCC
 iPM
 bdP
-dyQ
-dyQ
-dyQ
-dyQ
-dyQ
-dyQ
-dyQ
-dyQ
-dyQ
-dyQ
-dyQ
-dyQ
-mSY
+vvm
+vvm
+vvm
+vvm
+vvm
+vvm
+vvm
+vvm
+vvm
+vvm
+vvm
+vvm
+lxU
 grJ
 acX
 mEf
@@ -120092,62 +120052,62 @@ oSh
 pUm
 chj
 wdm
-mEf
-mEf
-mEf
-mEf
-mEf
+aoK
+aoK
+aoK
+aoK
+aoK
 wRs
-mEf
-mEf
-mEf
-mEf
-etY
-mEf
-mEf
-mEf
-mEf
-mEf
-grJ
-grJ
-mEf
-mEf
-mEf
-mEf
-mEf
-dgQ
-mEf
-mEf
-mEf
-mEf
-mEf
-mEf
-mEf
-mEf
-mEf
-mEf
-mEf
+aoK
+aoK
+aoK
+aoK
+aoK
+aoK
+aoK
+aoK
+aoK
 mEf
 grJ
 grJ
-aJM
+aoK
+aoK
+aoK
+aoK
+aoK
+heu
+aoK
+aoK
+aoK
+aoK
+aoK
+aoK
+aoK
+aoK
+aoK
+aoK
+aoK
+mEf
+grJ
+grJ
+vvm
 jVr
 qUn
 qUn
-dyQ
-dyQ
-dyQ
+vvm
+vvm
+vvm
 qUn
-dyQ
-dyQ
-dyQ
-dyQ
-dyQ
+vvm
+vvm
+vvm
+vvm
+vvm
 qUn
-dyQ
-dyQ
-dyQ
-mEf
+vvm
+vvm
+vvm
+vvm
 grJ
 acX
 eXV
@@ -120343,63 +120303,63 @@ oSh
 oSh
 pUm
 eLe
-mEf
-mEf
+aoK
+aoK
 sPK
-mEf
-mEf
+aoK
+aoK
 mmU
 qhR
-mEf
-mEf
-mEf
-mEf
-suC
-mEf
-mEf
-mEf
-mEf
+aoK
+aoK
+aoK
+aoK
+aoK
+aoK
+aoK
+aoK
+aoK
 mEf
 grJ
 grJ
-mEf
-mEf
-mEf
-mEf
-mEf
-dgQ
+aoK
+aoK
+aoK
+aoK
+aoK
+heu
 sPK
-mEf
-mEf
-mEf
-mEf
-mEf
-mEf
-mEf
-mEf
-mEf
-mEf
+aoK
+aoK
+aoK
+aoK
+aoK
+aoK
+aoK
+aoK
+aoK
+aoK
 mEf
 grJ
 grJ
-aJM
+vvm
 jVr
-dyQ
-dyQ
-dyQ
-dyQ
-dyQ
-dyQ
-dyQ
-dyQ
-dyQ
-dyQ
-dyQ
-dyQ
-dyQ
-dyQ
-dyQ
-mEf
+vvm
+vvm
+vvm
+vvm
+vvm
+vvm
+vvm
+vvm
+vvm
+vvm
+vvm
+vvm
+vvm
+vvm
+vvm
+vvm
 grJ
 acX
 eXV
@@ -120595,20 +120555,20 @@ oSh
 oSh
 pUm
 aJy
-mEf
-mEf
-mEf
-mEf
-mEf
+aoK
+aoK
+aoK
+aoK
+aoK
 uQX
-dgQ
-mEf
-mEf
+heu
+aoK
+aoK
 qSE
-mEf
-mEf
+aoK
+aoK
 sPK
-mEf
+aoK
 sUD
 tot
 jMN
@@ -120616,41 +120576,41 @@ jol
 vlj
 nlX
 btR
-mEf
+aoK
 btR
-mEf
+aoK
 tim
-mEf
+aoK
 btR
-mEf
+aoK
 btR
-mEf
+aoK
 uLV
-mEf
+aoK
 btR
-mEf
+aoK
 btR
-mEf
+aoK
 jMN
 jol
 vlj
 nlX
-wFq
-sPK
+jVr
+qUn
 mMu
 xyN
 nQN
-mEf
+vvm
 hTZ
 hVD
 cdh
-kem
+vvm
 mMu
 xyN
 nQN
 aBw
-rCr
-lFB
+qUn
+vvm
 jMN
 jol
 nPE
@@ -120849,18 +120809,18 @@ xUX
 jMN
 sIg
 deX
-mEf
-mEf
-mEf
+aoK
+aoK
+aoK
 uQX
 heu
-mEf
+aoK
 heG
-mEf
-mEf
-mEf
-mEf
-mEf
+aoK
+aoK
+aoK
+aoK
+aoK
 rsU
 tot
 jMN
@@ -120870,17 +120830,17 @@ jMN
 btR
 deX
 btR
-mEf
+aoK
 tim
-mEf
+aoK
 btR
-mEf
+aoK
 btR
-mEf
+aoK
 btR
 deX
 btR
-mEf
+aoK
 btR
 deX
 jMN
@@ -120888,7 +120848,7 @@ aJR
 aOQ
 jMN
 fRN
-deX
+gNA
 gsU
 uea
 lUz
@@ -120896,11 +120856,11 @@ uCT
 icm
 mbZ
 tBs
-kem
+vvm
 gsU
 uea
 lUz
-kem
+vvm
 gNA
 lxK
 jMN
