@@ -16,7 +16,7 @@
 		/obj/item/robot_parts/arm/l_arm,
 		/obj/item/robot_parts/arm/r_arm,
 		/obj/item/robot_parts/leg/r_leg,
-		/obj/item/robot_parts/leg/l_leg
+		/obj/item/robot_parts/leg/l_leg,
 	)
 
 	var/has_overlays = TRUE
