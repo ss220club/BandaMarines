@@ -3985,11 +3985,6 @@
 	},
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/outdoor)
-"bQM" = (
-/obj/structure/platform/metal/hybrisa/metalplatform2/north,
-/obj/structure/machinery/power/apc/no_power/north,
-/turf/open/floor/prison/floor_plate/southwest,
-/area/Neer_lv759/indoors/caves/wy_research_complex_entrance)
 "bQW" = (
 /obj/structure/bed/chair/comfy{
 	buckling_y = 2;
@@ -5295,11 +5290,6 @@
 /obj/structure/prop/hybrisa/airport/dropshipwingleft,
 /turf/closed/wall/hybrisa/rock,
 /area/space)
-"cuY" = (
-/obj/structure/bed/sofa/vert/white/bot,
-/obj/effect/landmark/survivor_spawner/bigred_crashed_pmc_medic,
-/turf/open/floor/kutjevo/tan,
-/area/Neer_lv759/indoors/wy_research_complex/hangarbay)
 "cuZ" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "N";
@@ -8214,6 +8204,9 @@
 /obj/item/trash/wy_chips_pepper,
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/outdoor)
+"dHR" = (
+/turf/open/floor/prison/floor_plate,
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "dHX" = (
 /obj/structure/pipes/standard/simple/hidden/supply{
 	dir = 8
@@ -13976,9 +13969,6 @@
 /obj/structure/surface/rack,
 /turf/open/floor/prison,
 /area/Neer_lv759/outdoors)
-"grq" = (
-/turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "grt" = (
 /turf/open/floor/whitered,
 /area/Neer_lv759/indoors/wy_research_complex/cafeteria)
@@ -15394,11 +15384,6 @@
 "haU" = (
 /turf/closed/wall/biodome,
 /area/Neer_lv759/indoors/wy_research_complex/researchanddevelopment)
-"haW" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/survivor_spawner/bigred_crashed_pmc_engineer,
-/turf/open/floor/kutjevo/tan,
-/area/Neer_lv759/indoors/wy_research_complex/hangarbay)
 "hbk" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "N";
@@ -17571,11 +17556,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
-"hZD" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/survivor_spawner/bigred_crashed_pmc_leader,
-/turf/open/floor/kutjevo/tan/alt_edge/west,
-/area/Neer_lv759/indoors/wy_research_complex/hangarbay)
 "hZP" = (
 /obj/structure/pipes/standard/simple/hidden/green{
 	dir = 4
@@ -21175,6 +21155,10 @@
 /obj/structure/pipes/standard/simple/hidden/dark,
 /turf/open/floor/almayer/black/east,
 /area/Neer_lv759/indoors/wy_research_complex/xenobiology)
+"jHb" = (
+/obj/structure/machinery/power/apc/no_power/west,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/Neer_lv759/indoors/wy_research_complex/hallwaysouthwest)
 "jHr" = (
 /obj/structure/surface/table/almayer,
 /obj/structure/machinery/light{
@@ -25020,10 +25004,6 @@
 /obj/item/holder/rat/black,
 /turf/open/floor/kutjevo/tan,
 /area/Neer_lv759/indoors/wy_research_complex/head_research_office)
-"lkN" = (
-/obj/effect/landmark/survivor_spawner/bigred_crashed_cl,
-/turf/open/floor/kutjevo/tan,
-/area/Neer_lv759/indoors/wy_research_complex/hangarbay)
 "lkR" = (
 /obj/structure/machinery/light{
 	dir = 8
@@ -31412,11 +31392,10 @@
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Neer_lv759/outdoors)
 "nXg" = (
-/obj/structure/bed/sofa/vert/white/top,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/survivor_spawner/bigred_crashed_pmc,
-/turf/open/floor/kutjevo/tan,
-/area/Neer_lv759/indoors/wy_research_complex/hangarbay)
+/obj/structure/platform/metal/hybrisa/metalplatform2/north,
+/obj/structure/machinery/power/apc/no_power/north,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/Neer_lv759/indoors/caves/wy_research_complex_entrance)
 "nXh" = (
 /obj/structure/bed/chair/office/light{
 	dir = 4
@@ -45053,18 +45032,6 @@
 	},
 /turf/open/floor/strata/faux_wood,
 /area/Neer_lv759/indoors/wy_research_complex/dormsbedroom)
-"tVc" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/road/roadmiddle{
-	dir = 1;
-	pixel_y = 14
-	},
-/obj/effect/decal/hybrisa/tiretrack{
-	dir = 4;
-	pixel_y = 7
-	},
-/turf/open/hybrisa/street/asphalt,
-/area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
 "tVq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/hybrisa/trash{
@@ -51361,9 +51328,17 @@
 /turf/open/floor/asteroidfloor,
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
 "wIH" = (
-/obj/structure/machinery/power/apc/no_power/west,
-/turf/open/floor/prison/floor_plate/southwest,
-/area/Neer_lv759/indoors/wy_research_complex/hallwaysouthwest)
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/road/roadmiddle{
+	dir = 1;
+	pixel_y = 14
+	},
+/obj/effect/decal/hybrisa/tiretrack{
+	dir = 4;
+	pixel_y = 7
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
 "wII" = (
 /obj/structure/machinery/door/airlock/almayer/maint/colony/autoname,
 /obj/structure/cable/heavyduty{
@@ -54211,14 +54186,6 @@
 	},
 /turf/open/floor/hybrisa/tile/cuppajoesfloor,
 /area/Neer_lv759/outdoors)
-"xVK" = (
-/turf/closed/shuttle/dropship2/transparent{
-	desc = "The WY-LWI StarGlider SG-200, a product of the collaborative ingenuity between Weyland Yutani and Lunnar-Welsun Industries, is a small dropship is designed for short-range commercial transport.";
-	icon = 'icons/turf/dropship4.dmi';
-	icon_state = "86";
-	name = "\improper WY-LWI StarGlider SG-200"
-	},
-/area/Neer_lv759/indoors/caves/Monorail)
 "xVN" = (
 /obj/structure/pipes/standard/simple/hidden/green{
 	dir = 4
@@ -90671,7 +90638,7 @@ nmP
 nmP
 nmP
 qGT
-bQM
+nXg
 jaN
 nLi
 qxC
@@ -91750,13 +91717,13 @@ xNT
 vIF
 gzl
 pxe
-grq
+dHR
 iKR
 hWF
 hWF
 hWF
 wlj
-grq
+dHR
 nxD
 hAF
 qFL
@@ -92002,13 +91969,13 @@ xNT
 vIF
 gzl
 lps
-grq
+dHR
 uuS
 fbT
 fbT
 sqU
 jHS
-grq
+dHR
 qnL
 hAF
 bRz
@@ -92254,13 +92221,13 @@ ofp
 cHc
 gzl
 tRj
-grq
+dHR
 iKR
 vHH
 vHH
 vHH
 wlj
-grq
+dHR
 bWX
 hAF
 lqp
@@ -92508,10 +92475,10 @@ gzl
 vnW
 lag
 hyA
-grq
+dHR
 oWP
-grq
-grq
+dHR
+dHR
 ovD
 btC
 hAF
@@ -93017,7 +92984,7 @@ raH
 uRr
 ove
 hAF
-grq
+dHR
 heO
 heO
 ulc
@@ -93264,7 +93231,7 @@ gzl
 wlb
 pJV
 gfz
-grq
+dHR
 dXw
 qTf
 rAZ
@@ -93524,7 +93491,7 @@ hAF
 dOz
 fwE
 mCc
-grq
+dHR
 hAF
 wlb
 paS
@@ -94202,7 +94169,7 @@ nmP
 pmo
 kWw
 hMR
-tVc
+wIH
 ctT
 plJ
 qIG
@@ -113892,7 +113859,7 @@ tmm
 tIH
 dSw
 ewn
-hZD
+qTA
 qTA
 xxe
 ipF
@@ -114396,7 +114363,7 @@ bJQ
 tIH
 gBQ
 qaW
-lkN
+jRx
 uqr
 aue
 gBQ
@@ -114409,7 +114376,7 @@ prd
 prd
 gBQ
 qaW
-haW
+uqr
 jRx
 aue
 gBQ
@@ -114900,7 +114867,7 @@ tmm
 tIH
 gBQ
 wex
-nXg
+mqx
 dUB
 aue
 gBQ
@@ -114914,7 +114881,7 @@ tgC
 gBQ
 wex
 fUj
-cuY
+nde
 mhA
 gBQ
 xNT
@@ -115907,7 +115874,7 @@ iYp
 sSy
 rnB
 ira
-wIH
+jHb
 rnB
 ira
 ira
@@ -119149,7 +119116,7 @@ nRA
 nRA
 nRA
 exV
-xVK
+exV
 exV
 nRA
 fQk
