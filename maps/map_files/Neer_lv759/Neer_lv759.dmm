@@ -58,6 +58,11 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/corsat/marked,
 /area/Neer_lv759/atmos/outdoor)
+"abT" = (
+/obj/item/ammo_casing,
+/obj/item/device/flashlight/flare/on,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "acf" = (
 /obj/structure/window/framed/corsat,
 /obj/structure/machinery/door/poddoor/shutters/almayer/open,
@@ -396,7 +401,7 @@
 /area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
 "akg" = (
 /obj/structure/machinery/power/apc/no_power/west,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/turf/open/floor/almayer_hull,
 /area/Neer_lv759/outdoors/colony_streets/Main_road)
 "akh" = (
 /obj/structure/platform{
@@ -541,6 +546,11 @@
 	},
 /turf/open/floor/plating/platebotc,
 /area/Neer_lv759/outdoors)
+"amo" = (
+/obj/structure/barricade/handrail,
+/obj/item/reagent_container/blood/empty,
+/turf/open/shuttle/dropship/light_grey_left_to_right,
+/area/Neer_lv759/indoors/caves/Monorail)
 "amv" = (
 /obj/structure/machinery/door/poddoor/shutters/almayer/open,
 /obj/effect/decal/cleanable/dirt,
@@ -669,7 +679,9 @@
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/command_centre)
 "apC" = (
-/obj/item/trash/chunk,
+/obj/structure/barricade/metal/wired{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "apH" = (
@@ -723,6 +735,11 @@
 	},
 /turf/open/hybrisa/street/sidewalk/northwest,
 /area/Neer_lv759/outdoors/colony_streets/Parking_space)
+"aqA" = (
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "8,6"
+	},
+/area/Neer_lv759/outdoors)
 "aqR" = (
 /obj/structure/barricade/handrail/kutjevo{
 	dir = 4
@@ -738,7 +755,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/prop/hybrisa/misc/blood/blood1,
 /turf/open/floor/prison/darkyellow2,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "arm" = (
 /obj/structure/grille/fence,
 /turf/open/floor/corsat/brown,
@@ -809,10 +826,8 @@
 /turf/open/floor/almayer/plating/northeast,
 /area/Neer_lv759/atmos/east_reactor)
 "asU" = (
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "22";
-	opacity = 0
-	},
+/obj/item/prop/colony/used_flare,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Neer_lv759/outdoors)
 "atm" = (
 /obj/structure/largecrate/random/barrel/black{
@@ -937,6 +952,10 @@
 	},
 /turf/open/hybrisa/street/asphalt,
 /area/Neer_lv759/indoors/wy_security/checkpoint_east)
+"aww" = (
+/obj/item/ammo_magazine/rifle/rmc_f90,
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
+/area/Neer_lv759/outdoors)
 "awz" = (
 /obj/structure/platform_decoration{
 	dir = 8
@@ -1038,6 +1057,18 @@
 /obj/structure/pipes/standard/simple/hidden/supply,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
+"azD" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/item/paper_bin,
+/obj/item/tool/pen/blue{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "azS" = (
 /obj/effect/decal/cleanable/blood/xeno,
 /turf/open/floor/corsat/browncorner,
@@ -1060,10 +1091,10 @@
 /turf/open/void,
 /area/Neer_lv759/indoors/wy_research_complex/mainlabs)
 "aAk" = (
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "32";
-	opacity = 0
+/obj/structure/barricade/plasteel/wired{
+	dir = 1
 	},
+/turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "aAs" = (
 /obj/item/device/flashlight/lamp/tripod{
@@ -1955,6 +1986,12 @@
 	},
 /turf/open/floor/plating,
 /area/Neer_lv759/indoors/wy_security/checkpoint_east)
+"aUZ" = (
+/obj/structure/sign/poster/clf{
+	pixel_y = 32
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "aVw" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/clothing/under/hybrisa/wy_exec_suit_uniform,
@@ -2034,7 +2071,7 @@
 	req_one_access = null
 	},
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "aYP" = (
 /obj/structure/machinery/door/poddoor/shutters/almayer/open,
 /obj/effect/decal/cleanable/dirt,
@@ -2151,6 +2188,11 @@
 /obj/item/ammo_magazine/smg/m39,
 /turf/open/floor/prison/yellow/west,
 /area/Neer_lv759/indoors/wy_research_complex/vehicledeploymentbay)
+"bcu" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_box/magazine/m39/heap/empty,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/Neer_lv759/indoors/caves/Monorail)
 "bcv" = (
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/hybrisa_auto_turf/layer2,
@@ -2235,10 +2277,8 @@
 /turf/open/floor/prison/darkyellow2/west,
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
 "ben" = (
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "23";
-	opacity = 0
-	},
+/obj/effect/landmark/survivor_spawner/clf_lead/hybrisa,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Neer_lv759/outdoors)
 "beU" = (
 /obj/structure/prop/invuln/lattice_prop{
@@ -2501,10 +2541,10 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
 "bmG" = (
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "27";
-	opacity = 0
+/obj/structure/barricade/metal/wired{
+	dir = 4
 	},
+/turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "bnh" = (
 /obj/structure/surface/table/almayer,
@@ -2813,7 +2853,7 @@
 /turf/open/floor/prison/darkyellow2/north{
 	dir = 6
 	},
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "btK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/light{
@@ -2900,6 +2940,11 @@
 /area/Neer_lv759/outdoors/landing_zone_1)
 "bvj" = (
 /obj/effect/decal/cleanable/blood/xeno,
+/obj/structure/barricade/deployable{
+	dir = 1;
+	pixel_y = -13;
+	pixel_x = -3
+	},
 /turf/open/shuttle/dropship/dark_grey_bottom,
 /area/Neer_lv759/indoors/caves/Monorail)
 "bvk" = (
@@ -3017,6 +3062,7 @@
 	pixel_x = 16;
 	pixel_y = -1
 	},
+/obj/item/ammo_box/magazine/misc/mre/emergency/empty,
 /turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
 /area/Neer_lv759/indoors/caves/Monorail)
 "bxp" = (
@@ -3133,6 +3179,14 @@
 /obj/structure/cargo_container/horizontal/blue/middle,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/mainlabs)
+"byW" = (
+/turf/closed/shuttle/dropship2/transparent{
+	desc = "The WY-LWI StarGlider SG-200, a product of the collaborative ingenuity between Weyland Yutani and Lunnar-Welsun Industries, is a small dropship is designed for short-range commercial transport.";
+	icon = 'icons/turf/dropship4.dmi';
+	icon_state = "110";
+	name = "\improper WY-LWI StarGlider SG-200"
+	},
+/area/space)
 "bza" = (
 /obj/structure/barricade/handrail/kutjevo,
 /obj/effect/decal/cleanable/dirt,
@@ -3234,9 +3288,6 @@
 	},
 /turf/open/floor/strata/multi_tiles/west,
 /area/Neer_lv759/indoors/wy_research_complex/hangarbay)
-"bAv" = (
-/turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
 "bAH" = (
 /obj/structure/sink{
 	dir = 1;
@@ -3249,6 +3300,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/kutjevo/colors,
 /area/Neer_lv759/indoors/wy_research_complex/securityarmory)
+"bAV" = (
+/obj/item/ammo_magazine/rifle,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/Neer_lv759/indoors/caves/Monorail)
 "bBh" = (
 /obj/structure/surface/table/reinforced,
 /obj/effect/decal/cleanable/dirt,
@@ -3509,6 +3564,10 @@
 /obj/structure/window_frame/corsat,
 /turf/open/floor/strata/faux_wood,
 /area/Neer_lv759/indoors/wy_research_complex/dormsbedroom)
+"bHf" = (
+/obj/structure/sign/banners/clf_worn,
+/turf/closed/wall/strata_outpost/reinforced,
+/area/Neer_lv759/outdoors)
 "bHj" = (
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/cargo)
@@ -3593,6 +3652,11 @@
 	icon_state = "stop_decal5"
 	},
 /turf/open/hybrisa/street/asphalt,
+/area/Neer_lv759/outdoors)
+"bIY" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/survivor_spawner/clf/hybrisa,
+/turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "bJn" = (
 /obj/effect/decal/warning_stripes{
@@ -3906,10 +3970,12 @@
 /turf/open/hybrisa/street/asphalt,
 /area/Neer_lv759/outdoors/colony_streets/Parking_space)
 "bQI" = (
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "18"
+/obj/structure/barricade/handrail{
+	dir = 8
 	},
-/area/Neer_lv759/outdoors)
+/obj/item/weapon/gun/rifle/nsg23/no_lock,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/Neer_lv759/indoors/caves/Monorail)
 "bQJ" = (
 /obj/structure/machinery/door_display/research_cell{
 	dir = 8;
@@ -3920,11 +3986,8 @@
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/outdoor)
 "bQM" = (
-/obj/structure/prop/invuln/lattice_prop{
-	icon_state = "lattice12";
-	pixel_x = 16;
-	pixel_y = -8
-	},
+/obj/structure/platform/metal/hybrisa/metalplatform2/north,
+/obj/structure/machinery/power/apc/no_power/north,
 /turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/caves/wy_research_complex_entrance)
 "bQW" = (
@@ -3967,7 +4030,7 @@
 	},
 /obj/structure/blocker/invisible_wall,
 /turf/open/floor/plating,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "bRI" = (
 /obj/structure/surface/table/almayer,
 /obj/structure/prop/server_equipment/laptop,
@@ -3983,7 +4046,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/autolathe,
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "bSr" = (
 /obj/structure/bed/chair/comfy{
 	dir = 4;
@@ -4247,7 +4310,7 @@
 /turf/open/floor/prison/darkyellow2/north{
 	dir = 2
 	},
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "bXn" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice12";
@@ -4295,6 +4358,10 @@
 /obj/structure/blocker/invisible_wall,
 /turf/open/floor/corsat/brown/northeast,
 /area/Neer_lv759/atmos/outdoor)
+"bZr" = (
+/obj/item/ammo_magazine/rifle/nsg23,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/Neer_lv759/indoors/caves/Monorail)
 "bZC" = (
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/securityarmory)
@@ -4406,6 +4473,11 @@
 "cdx" = (
 /turf/open/hybrisa/street/sidewalk/north,
 /area/Neer_lv759/outdoors/colony_streets/Parking_space)
+"cdz" = (
+/obj/item/trash/cigbutt,
+/obj/effect/landmark/survivor_spawner/clf/hybrisa,
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "cdO" = (
 /obj/structure/platform{
 	density = 0;
@@ -4469,6 +4541,21 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/kutjevo/tan/alt_edge/north,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
+"cfF" = (
+/obj/structure/barricade/handrail{
+	dir = 8
+	},
+/obj/structure/closet/crate/secure/weyland,
+/obj/item/weapon/gun/rifle/m41a/corporate/no_lock,
+/obj/item/weapon/gun/rifle/m41a/corporate/no_lock,
+/obj/item/ammo_magazine/smg/m39/extended,
+/obj/item/ammo_magazine/rifle,
+/obj/item/ammo_magazine/rifle,
+/obj/item/ammo_magazine/rifle,
+/obj/item/ammo_magazine/rifle,
+/obj/item/ammo_box/magazine/misc/mre/pmc,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/Neer_lv759/indoors/caves/Monorail)
 "cfM" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice12";
@@ -4712,6 +4799,17 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/reactor_garage)
+"ckA" = (
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/item/storage/box/clf,
+/obj/structure/sign/poster/clf{
+	pixel_y = 32
+	},
+/obj/item/prop/flower_vase/redwhiteflowers,
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "ckD" = (
 /obj/structure/cable/heavyduty{
 	icon_state = "1-2"
@@ -5254,6 +5352,7 @@
 /area/Neer_lv759/indoors/wy_research_complex/reception)
 "cwB" = (
 /obj/effect/decal/cleanable/blood,
+/obj/item/ammo_magazine/smg/m39/ap,
 /turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
 /area/Neer_lv759/indoors/caves/Monorail)
 "cwM" = (
@@ -5279,6 +5378,12 @@
 	},
 /turf/open/shuttle/dropship/can_surgery/medium_grey_single_wide_left_to_right,
 /area/space)
+"cxg" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "7,2"
+	},
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "cxQ" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice12";
@@ -5385,6 +5490,9 @@
 /obj/structure/blocker/invisible_wall,
 /turf/open/floor/corsat/marked,
 /area/Neer_lv759/atmos/outdoor)
+"cAD" = (
+/turf/open/floor/almayer/test_floor5,
+/area/Neer_lv759/outdoors)
 "cAI" = (
 /obj/structure/flora/bush/ausbushes/grassybush,
 /turf/open/auto_turf/strata_grass/layer1,
@@ -5478,7 +5586,7 @@
 "cDT" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "cDU" = (
 /obj/structure/machinery/recharge_station,
 /turf/open/floor/corsat/plate,
@@ -5488,6 +5596,7 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
 "cEL" = (
+/obj/structure/machinery/power/apc/no_power/west,
 /turf/open/floor/kutjevo/tan/alt_inner_edge,
 /area/Neer_lv759/indoors/wy_research_complex/reception)
 "cEQ" = (
@@ -5668,6 +5777,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/kutjevo/grey/plate,
 /area/Neer_lv759/indoors/wy_research_complex/securityarmory)
+"cJg" = (
+/obj/structure/machinery/light/dropship/red{
+	dir = 8
+	},
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "0,7"
+	},
+/area/Neer_lv759/outdoors)
 "cJk" = (
 /obj/structure/pipes/standard/simple/hidden/green{
 	dir = 4
@@ -5843,6 +5960,16 @@
 	},
 /turf/open/floor/prison/cell_stripe,
 /area/Neer_lv759/indoors/wy_research_complex/dormsbedroom)
+"cNy" = (
+/obj/structure/barricade/sandbags{
+	dir = 8;
+	pixel_y = -3
+	},
+/obj/structure/barricade/sandbags{
+	pixel_y = 14
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "cND" = (
 /obj/structure/machinery/landinglight/ds1/delaytwo,
 /obj/effect/decal/cleanable/dirt,
@@ -6096,6 +6223,10 @@
 	},
 /turf/open/shuttle/escapepod/floor4,
 /area/Neer_lv759/indoors/caves/passage_to_bunker)
+"cSn" = (
+/obj/structure/prop/brazier/campfire,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "cSK" = (
 /obj/structure/machinery/door/airlock/almayer/maint/colony/autoname,
 /obj/structure/prop/invuln/lattice_prop{
@@ -6260,7 +6391,7 @@
 "cWM" = (
 /obj/structure/girder,
 /turf/open/floor/prison,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "cXd" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/kutjevo/multi_tiles/west,
@@ -6326,10 +6457,13 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
 "cYd" = (
-/obj/structure/machinery/door/airlock/multi_tile/almayer/dropshiprear/ds2{
-	name = "\improper WY-LWI StarGlider SG-200 cargo hold"
+/obj/structure/machinery/door/airlock/hatch/cockpit/two{
+	req_access = null;
+	req_one_access = null;
+	dir = 1;
+	name = "\improper UD4-UK - cockpit"
 	},
-/turf/open/floor/prison/cell_stripe,
+/turf/open/floor/almayer/test_floor4,
 /area/Neer_lv759/outdoors)
 "cYp" = (
 /obj/structure/stairs/perspective/kutjevo{
@@ -6339,6 +6473,10 @@
 /obj/structure/barricade/handrail/kutjevo,
 /turf/open/floor/plating/asteroidfloor,
 /area/Neer_lv759/indoors/wy_research_complex/reception)
+"cYO" = (
+/obj/item/clothing/under/marine/veteran/royal_marine/iasf,
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/Neer_lv759/outdoors)
 "cZD" = (
 /obj/structure/machinery/door/airlock/multi_tile/almayer/generic{
 	dir = 1
@@ -6537,18 +6675,18 @@
 /turf/closed/wall/r_wall/biodome,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
 "ddW" = (
-/obj/structure/prop/almayer/computers/sensor_computer3,
 /obj/structure/machinery/light/small{
 	dir = 1;
 	pixel_y = 20
 	},
-/obj/structure/machinery/conveyor_switch{
-	pixel_x = 0;
-	pixel_y = 3;
-	id = "anomalybelt"
+/obj/structure/window/reinforced{
+	dir = 8;
+	layer = 3.3;
+	pixel_y = 4
 	},
+/obj/structure/dropship_equipment/electronics/targeting_system,
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "deb" = (
 /obj/structure/platform_decoration/metal/almayer/north,
 /obj/item/tool/wrench{
@@ -6600,6 +6738,10 @@
 	},
 /turf/open/asphalt/cement/cement12,
 /area/Neer_lv759/outdoors/colony_streets/Parking_space)
+"deD" = (
+/obj/item/clothing/suit/storage/jacket/marine/rmc/service/black,
+/turf/open/floor/almayer/test_floor5,
+/area/Neer_lv759/outdoors)
 "deG" = (
 /obj/structure/machinery/light{
 	dir = 1
@@ -6642,6 +6784,11 @@
 /obj/structure/pipes/standard/simple/hidden/supply/no_boom,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Neer_lv759/indoors/wy_research_complex/changingroom)
+"dfQ" = (
+/obj/item/prop/colony/used_flare,
+/obj/item/storage/backpack/rmc/frame,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "dgb" = (
 /obj/structure/surface/table,
 /obj/item/paper_bin{
@@ -6730,7 +6877,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/darkyellow2,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "dhl" = (
 /obj/structure/pipes/standard/simple/hidden/green{
 	dir = 4
@@ -6745,9 +6892,12 @@
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/reactor_garage)
 "dhp" = (
-/obj/structure/prop/hybrisa/airport/dropshipvent2right,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Neer_lv759/outdoors)
+/obj/structure/platform{
+	dir = 1
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/platebot,
+/area/Neer_lv759/indoors/caves/Monorail)
 "dhv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/pipes/standard/simple/hidden/supply{
@@ -6941,7 +7091,7 @@
 	name = "Working Joe charging station"
 	},
 /turf/open/floor/prison/darkyellow2,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "dmo" = (
 /obj/structure/largecrate/random/barrel,
 /turf/open/floor/corsat/brown,
@@ -7271,6 +7421,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/kutjevo/tan/alt_edge/north,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
+"dsM" = (
+/obj/structure/largecrate/supply/ammo/shotgun,
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "dsV" = (
 /obj/structure/barricade/handrail/strata{
 	dir = 8
@@ -7504,9 +7658,8 @@
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/command_centre)
 "dwh" = (
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "48"
-	},
+/obj/effect/landmark/survivor_spawner/twe/iasf/medic,
+/turf/open/floor/almayer/test_floor5,
 /area/Neer_lv759/outdoors)
 "dwt" = (
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
@@ -7623,6 +7776,18 @@
 /obj/effect/decal/hybrisa/road/lines2,
 /turf/open/hybrisa/street/asphalt,
 /area/Neer_lv759/outdoors)
+"dyb" = (
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/item/weapon/gun/smg/fp9000,
+/obj/item/ammo_magazine/smg/fp9000,
+/obj/item/ammo_magazine/smg/fp9000,
+/obj/item/ammo_magazine/smg/fp9000,
+/obj/item/ammo_magazine/smg/fp9000,
+/obj/item/ammo_magazine/smg/fp9000,
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "dyk" = (
 /obj/item/lightstick/red/spoke/planted,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
@@ -7650,9 +7815,9 @@
 /turf/open/floor/prison/bright_clean2,
 /area/Neer_lv759/outdoors)
 "dyx" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/prison/floor_plate/southwest,
-/area/Neer_lv759/indoors/caves/wy_research_complex_entrance)
+/obj/structure/machinery/power/apc/no_power/east,
+/turf/open/floor/kutjevo/tan/alt_edge/west,
+/area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
 "dyC" = (
 /turf/closed/wall/wood,
 /area/Neer_lv759/outdoors)
@@ -7773,9 +7938,13 @@
 /turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/outdoors/landing_zone_1)
 "dBU" = (
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "46"
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "2,13";
+	density = 0;
+	pixel_x = 13;
+	pixel_y = -1
 	},
+/turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "dBW" = (
 /obj/structure/closet/crate/science,
@@ -7860,7 +8029,7 @@
 	dir = 4
 	},
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "dEn" = (
 /obj/structure/barricade/handrail/hybrisa/road/metal/metaldark{
 	dir = 4
@@ -8045,16 +8214,6 @@
 /obj/item/trash/wy_chips_pepper,
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/outdoor)
-"dHR" = (
-/obj/structure/machinery/mineral/processing_unit,
-/obj/structure/machinery/door/window/brigdoor/westleft{
-	req_access = null
-	},
-/obj/structure/window{
-	dir = 1
-	},
-/turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
 "dHX" = (
 /obj/structure/pipes/standard/simple/hidden/supply{
 	dir = 8
@@ -8096,6 +8255,10 @@
 	},
 /turf/open/floor/prison/red/north,
 /area/Neer_lv759/indoors/wy_security/checkpoint_east)
+"dIF" = (
+/obj/item/ammo_box/rounds/heap/empty,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/Neer_lv759/indoors/caves/Monorail)
 "dIW" = (
 /obj/structure/barricade/handrail/strata{
 	dir = 8
@@ -8275,13 +8438,18 @@
 /turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/indoors/wy_security/checkpoint_west)
 "dOz" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/surface/table/reinforced/prison{
-	color = "#6b675e"
+/obj/structure/prop/almayer/computers/sensor_computer3,
+/obj/structure/machinery/light/small{
+	dir = 1;
+	pixel_y = 20
 	},
-/obj/item/weapon/gun/flamer/survivor,
-/turf/open/floor/prison,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/obj/structure/machinery/conveyor_switch{
+	pixel_x = 0;
+	pixel_y = 3;
+	id = "anomalybelt"
+	},
+/turf/open/floor/prison/floor_plate,
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "dOK" = (
 /obj/structure/cable/heavyduty{
 	icon_state = "4-8"
@@ -8310,6 +8478,14 @@
 "dPF" = (
 /turf/open/auto_turf/sand_white/layer0,
 /area/Neer_lv759/outdoors/colony_streets/Main_road)
+"dPZ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/metal/wired{
+	dir = 4
+	},
+/obj/structure/machinery/defenses/sentry/premade/lowammo/random/dumb,
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "dQi" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/objective_landmark/science,
@@ -8434,6 +8610,13 @@
 "dSw" = (
 /turf/closed/shuttle/elevator/gears,
 /area/Neer_lv759/indoors/wy_research_complex/hangarbay)
+"dSx" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "8,0";
+	density = 0
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "dSV" = (
 /obj/structure/pipes/standard/manifold/hidden/green{
 	dir = 1
@@ -8575,6 +8758,17 @@
 	},
 /turf/open/asphalt/cement,
 /area/Neer_lv759/outdoors/colony_streets/Main_road)
+"dWm" = (
+/obj/structure/closet/crate/secure/weyland,
+/obj/item/weapon/gun/rifle/nsg23/no_lock,
+/obj/item/explosive/grenade/high_explosive/pmc,
+/obj/item/explosive/grenade/high_explosive/pmc,
+/obj/item/weapon/gun/rifle/m41a/corporate/no_lock,
+/obj/item/device/motiondetector/hacked/pmc,
+/obj/item/defenses/handheld/planted_flag/wy,
+/obj/item/ammo_box/magazine/misc/mre/pmc,
+/turf/open/shuttle/dropship/can_surgery/light_grey_bottom_right,
+/area/Neer_lv759/indoors/caves/Monorail)
 "dWB" = (
 /turf/open/floor/corsat/marked,
 /area/Neer_lv759/atmos/command_centre)
@@ -8634,7 +8828,7 @@
 	pixel_y = 3
 	},
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "dXR" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice4";
@@ -9364,9 +9558,10 @@
 /turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/wy_research_complex/reception)
 "emZ" = (
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "82"
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "3,15"
 	},
+/turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "ene" = (
 /obj/structure/window/framed/prison/cell,
@@ -9527,6 +9722,10 @@
 	},
 /turf/open/floor/corsat/officetiles,
 /area/Neer_lv759/indoors/wy_research_complex/hangarbay)
+"eqw" = (
+/obj/item/device/binoculars,
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "eqP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -9701,6 +9900,13 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/prison/darkyellow2/west,
 /area/Neer_lv759/outdoors)
+"evX" = (
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/item/maintenance_jack,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "ewh" = (
 /obj/structure/blocker/invisible_wall,
 /turf/open/floor/corsat/brown/north,
@@ -9874,6 +10080,11 @@
 	},
 /turf/open/floor/prison/darkbrowncorners2/southwest,
 /area/Neer_lv759/indoors/wy_research_complex/changingroom)
+"eys" = (
+/obj/structure/tent/big,
+/obj/effect/landmark/survivor_spawner/clf_lead/hybrisa,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "eyO" = (
 /turf/closed/shuttle/lifeboat/transparent{
 	icon_state = "24,4"
@@ -10297,6 +10508,10 @@
 	},
 /turf/open/floor/plating,
 /area/Neer_lv759/outdoors/landing_zone_2)
+"eJF" = (
+/obj/structure/largecrate/supply/ammo,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "eJW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/trash/crushed_cup,
@@ -10886,6 +11101,13 @@
 	},
 /turf/closed/wall/strata_outpost/reinforced,
 /area/Neer_lv759/atmos/reactor_garage)
+"eXJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/plasteel/wired{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "eXK" = (
 /obj/structure/cable/heavyduty{
 	icon_state = "1-2"
@@ -11030,7 +11252,7 @@
 /area/Neer_lv759/atmos/command_centre)
 "fbT" = (
 /turf/open/floor/plating/plating_catwalk/prison,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "fbZ" = (
 /turf/open/floor/prison/floor_plate/southwest,
 /area/Neer_lv759/indoors/wy_research_complex/hangarbay)
@@ -11079,6 +11301,12 @@
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
 /turf/open/auto_turf/hybrisa_auto_turf/layer0,
 /area/Neer_lv759/outdoors)
+"fde" = (
+/obj/structure/sign/poster/clf{
+	pixel_y = 32
+	},
+/turf/open/floor/plating/platebot,
+/area/Neer_lv759/outdoors)
 "fdq" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/kitchen,
@@ -11105,8 +11333,13 @@
 /turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/outdoors/landing_zone_1)
 "fed" = (
-/obj/structure/prop/hybrisa/airport/dropshipvent1left,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/structure/machinery/faxmachine{
+	department = "CLF - Cell 42"
+	},
+/turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "fei" = (
 /obj/structure/cable/heavyduty{
@@ -11200,6 +11433,10 @@
 	},
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/command_centre)
+"fgv" = (
+/obj/item/weapon/gun/rifle/m41a/corporate/no_lock,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/Neer_lv759/indoors/caves/Monorail)
 "fgE" = (
 /obj/structure/cable/heavyduty{
 	icon_state = "1-8"
@@ -11268,6 +11505,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/kutjevo/multi_tiles/southeast,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
+"fhM" = (
+/obj/item/weapon/gun/rifle/l23,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "fhQ" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/whitered/southeast,
@@ -11334,7 +11575,7 @@
 	},
 /obj/structure/blocker/invisible_wall,
 /turf/open/floor/plating,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "fkm" = (
 /obj/structure/cargo_container/wy/left,
 /turf/open/floor/prison,
@@ -11668,7 +11909,7 @@
 /turf/open/floor/corsat/squares,
 /area/Neer_lv759/atmos/east_reactor)
 "ftc" = (
-/obj/effect/spawner/random/tool,
+/obj/item/trash/cigbutt,
 /turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "ftF" = (
@@ -11866,7 +12107,7 @@
 "fwE" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/podhatch/northeast,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "fwU" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice12";
@@ -11945,6 +12186,9 @@
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
 "fzC" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/item/prop/colony/usedbandage{
+	dir = 10
+	},
 /turf/open/shuttle/dropship/can_surgery,
 /area/Neer_lv759/indoors/caves/Monorail)
 "fzW" = (
@@ -12047,8 +12291,10 @@
 /turf/closed/wall/almayer/white,
 /area/Neer_lv759/indoors/wy_research_complex/medical_annex)
 "fCd" = (
-/obj/structure/largecrate/empty/secure,
-/turf/open/floor/corsat/officetiles,
+/obj/structure/prop/invuln/fire,
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "8,7"
+	},
 /area/Neer_lv759/outdoors)
 "fCp" = (
 /obj/structure/platform_decoration/metal/almayer/north,
@@ -12220,10 +12466,11 @@
 /turf/open/floor/almayer/blackfull/west,
 /area/Neer_lv759/indoors/wy_research_complex/xenobiology)
 "fFr" = (
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "31"
+/obj/item/stack/medical/advanced/bruise_pack/upgraded{
+	amount = 2
 	},
-/area/Neer_lv759/outdoors)
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/Neer_lv759/indoors/caves/Monorail)
 "fFs" = (
 /obj/structure/largecrate/random,
 /obj/structure/machinery/light{
@@ -12475,12 +12722,8 @@
 /turf/open/floor/kutjevo/multi_tiles/southeast,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
 "fMa" = (
-/turf/closed/shuttle/dropship2/transparent{
-	desc = "The WY-LWI StarGlider SG-200, a product of the collaborative ingenuity between Weyland Yutani and Lunnar-Welsun Industries, is a small dropship is designed for short-range commercial transport.";
-	icon = 'icons/turf/dropship4.dmi';
-	icon_state = "103";
-	name = "\improper WY-LWI StarGlider SG-200"
-	},
+/obj/item/prop/colony/used_flare,
+/turf/open/floor/platingdmg3,
 /area/Neer_lv759/outdoors)
 "fMh" = (
 /obj/effect/decal/warning_stripes{
@@ -12702,6 +12945,7 @@
 /area/Neer_lv759/atmos/command_centre)
 "fRp" = (
 /obj/structure/machinery/centrifuge,
+/obj/structure/surface/table/almayer,
 /turf/open/floor/corsat/squares,
 /area/Neer_lv759/indoors/caves/Monorail)
 "fRD" = (
@@ -12795,6 +13039,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/asteroidwarning/west,
 /area/Neer_lv759/outdoors/colony_streets/Main_road)
+"fUS" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/prop/dam/crane{
+	bound_height = 32;
+	climbable = 1;
+	layer = 3.5;
+	pixel_y = -23
+	},
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/Neer_lv759/indoors/caves/Monorail)
 "fUV" = (
 /obj/structure/prop/static_tank,
 /obj/structure/blocker/invisible_wall,
@@ -12838,6 +13092,12 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/plating,
 /area/Neer_lv759/outdoors/landing_zone_2)
+"fVv" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "1,0"
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "fVC" = (
 /obj/structure/closet,
 /turf/open/floor/prison/floor_plate,
@@ -13231,10 +13491,14 @@
 	},
 /turf/closed/wall/r_wall/bunker,
 /area/Neer_lv759/outdoors/landing_zone_2)
+"gfp" = (
+/obj/item/ammo_magazine/rifle/extended,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/Neer_lv759/indoors/caves/Monorail)
 "gfz" = (
 /obj/structure/window/framed/almayer,
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "gfC" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/darkred2/east,
@@ -13254,14 +13518,9 @@
 /turf/open/hybrisa/street/sidewalkcenter/west,
 /area/Neer_lv759/outdoors/colony_streets/Main_road)
 "ggc" = (
-/obj/structure/closet/crate/foodcart,
-/obj/item/trash/tray,
-/obj/item/trash/tray{
-	pixel_x = -2;
-	pixel_y = 5
+/turf/closed/shuttle/twe_dropship/transparent{
+	icon_state = "5,13_alt"
 	},
-/obj/item/trash/tray,
-/turf/open/floor/corsat/officetiles,
 /area/Neer_lv759/outdoors)
 "ggH" = (
 /obj/effect/decal/cleanable/dirt,
@@ -13350,8 +13609,13 @@
 /area/Neer_lv759/indoors/wy_research_complex/securityarmory)
 "giR" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/window/reinforced{
+	dir = 8;
+	layer = 3.3;
+	pixel_y = 4
+	},
 /turf/open/floor/podhatch/northwest,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "giW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/pipes/standard/simple/hidden/supply,
@@ -13713,12 +13977,8 @@
 /turf/open/floor/prison,
 /area/Neer_lv759/outdoors)
 "grq" = (
-/obj/structure/disposalpipe/trunk{
-	dir = 2
-	},
-/obj/structure/disposaloutlet,
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "grt" = (
 /turf/open/floor/whitered,
 /area/Neer_lv759/indoors/wy_research_complex/cafeteria)
@@ -13874,16 +14134,10 @@
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/reactor_garage)
 "gtS" = (
-/obj/structure/prop/hybrisa/airport/dropshipenginedamage{
-	light_on = 1;
-	light_power = 5;
-	light_range = 6
-	},
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "26";
-	opacity = 0
-	},
-/area/Neer_lv759/outdoors)
+/obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/gun/smg/m39/corporate,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/Neer_lv759/indoors/caves/Monorail)
 "gtT" = (
 /obj/structure/surface/table/woodentable,
 /obj/structure/machinery/computer/secure_data{
@@ -14382,6 +14636,10 @@
 /obj/structure/girder/displaced,
 /turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
+"gFM" = (
+/obj/structure/machinery/power/apc/fully_broken/no_cell,
+/turf/open/floor/plating/platebotc,
+/area/Neer_lv759/outdoors)
 "gFO" = (
 /obj/structure/machinery/light{
 	dir = 4
@@ -14582,6 +14840,10 @@
 	},
 /turf/open/floor/corsat/officetiles,
 /area/Neer_lv759/indoors/wy_research_complex/researchanddevelopment)
+"gJT" = (
+/obj/item/clothing/head/helmet/marine/veteran/royal_marine/pilot,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "gJU" = (
 /obj/structure/cable/heavyduty{
 	icon_state = "1-4-8"
@@ -14791,6 +15053,10 @@
 /obj/effect/landmark/structure_spawner/xvx_hive/xeno_wall,
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/outdoor)
+"gQP" = (
+/obj/item/prop/colony/used_flare,
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
+/area/Neer_lv759/outdoors)
 "gQX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/fireaxecabinet{
@@ -14799,7 +15065,7 @@
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
 /obj/effect/landmark/structure_spawner/xvx_hive/xeno_door,
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "gRf" = (
 /obj/structure/window/framed/hybrisa/research/reinforced,
 /obj/structure/machinery/door/poddoor/hybrisa/open_shutters,
@@ -14990,6 +15256,11 @@
 	},
 /turf/open/shuttle/escapepod/floor0/west,
 /area/Neer_lv759/atmos/east_reactor)
+"gXr" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_magazine/rifle/nsg23,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/Neer_lv759/indoors/caves/Monorail)
 "gXC" = (
 /obj/structure/bed/chair/office/light,
 /turf/open/floor/prison/ramptop/east,
@@ -15292,7 +15563,7 @@
 	id = "anomalybelt"
 	},
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "heT" = (
 /obj/structure/bookcase{
 	pixel_x = -8
@@ -15386,7 +15657,7 @@
 /area/Neer_lv759/atmos/command_centre)
 "hhs" = (
 /turf/open/floor/podhatchfloor/north,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "hhV" = (
 /turf/open/floor/shiva/multi_tiles/east,
 /area/Neer_lv759/outdoors)
@@ -15751,6 +16022,11 @@
 	},
 /turf/open/floor/prison/yellow/north,
 /area/Neer_lv759/indoors/wy_research_complex/vehicledeploymentbay)
+"hrR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/roller,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/Neer_lv759/indoors/caves/Monorail)
 "hrY" = (
 /obj/structure/bed/sofa/south/white,
 /turf/open/floor/kutjevo/colors,
@@ -15892,6 +16168,14 @@
 /obj/structure/prop/hybrisa/vehicles/Armored_Truck/WY_Black,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
+"hvS" = (
+/obj/structure/barricade/sandbags/wired{
+	icon_state = "sandbag_0";
+	pixel_y = -8;
+	dir = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
+/area/Neer_lv759/outdoors)
 "hvT" = (
 /obj/structure/prop/server_equipment/laptop{
 	icon_state = "yutani_server_on"
@@ -16040,7 +16324,7 @@
 	dir = 4
 	},
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "hyC" = (
 /obj/structure/barricade/handrail/kutjevo{
 	layer = 3.1;
@@ -16158,7 +16442,7 @@
 /area/Neer_lv759/indoors/wy_research_complex/xenobiology)
 "hAF" = (
 /turf/closed/wall/almayer,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "hAL" = (
 /obj/structure/flora/grass/desert/lightgrass_4,
 /turf/open/auto_turf/strata_grass/layer0,
@@ -16549,10 +16833,12 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
 "hJB" = (
-/turf/closed/wall/rock{
-	color = "#a39e99"
+/obj/structure/barricade/handrail{
+	dir = 8
 	},
-/area/Neer_lv759/outdoors)
+/obj/effect/landmark/survivor_spawner/shivas_panic_room_commando,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/Neer_lv759/indoors/caves/Monorail)
 "hJC" = (
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
@@ -16684,7 +16970,7 @@
 /obj/structure/blocker/invisible_wall,
 /obj/structure/blocker/invisible_wall,
 /turf/open/floor/plating,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "hMG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -16703,6 +16989,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/kutjevo/tan/alt_edge/east,
 /area/Neer_lv759/indoors/wy_research_complex/reception)
+"hNz" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "8,3"
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "hNM" = (
 /obj/effect/decal/cleanable/blood/oil,
 /turf/open/hybrisa/street/sidewalkcenter/west,
@@ -17028,7 +17320,7 @@
 	},
 /obj/structure/pipes/vents/pump,
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "hVC" = (
 /obj/structure/surface/rack{
 	color = "#6b675e";
@@ -17099,6 +17391,18 @@
 	},
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/mainlabs)
+"hWp" = (
+/obj/structure/barricade/sandbags/wired{
+	icon_state = "sandbag_0";
+	pixel_y = -8;
+	dir = 4
+	},
+/obj/structure/barricade/sandbags/wired{
+	icon_state = "sandbag_0";
+	pixel_y = 3
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "hWx" = (
 /obj/item/fuel_cell{
 	pixel_x = -8;
@@ -17119,7 +17423,7 @@
 "hWF" = (
 /obj/structure/machinery/power/power_generator/reactor/colony,
 /turf/open/floor/podhatchfloor/north,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "hWT" = (
 /obj/structure/surface/table,
 /obj/item/reagent_container/food/snacks/muffin{
@@ -17494,6 +17798,14 @@
 /obj/item/weapon/gun/rifle/m41a/corporate/no_lock,
 /turf/open/floor/almayer/test_floor5,
 /area/Neer_lv759/indoors/wy_research_complex/securityarmory)
+"ieh" = (
+/obj/structure/closet/crate/ammo,
+/obj/item/clothing/accessory/storage/webbing/black,
+/obj/item/clothing/accessory/storage/webbing/black,
+/obj/item/clothing/accessory/storage/webbing/black,
+/obj/item/clothing/accessory/storage/webbing/black,
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "iet" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/prop/invuln/lattice_prop{
@@ -17622,6 +17934,12 @@
 /obj/structure/largecrate/random/barrel,
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/outdoor)
+"ihd" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "4,10"
+	},
+/turf/open/floor/almayer/test_floor4,
+/area/Neer_lv759/outdoors)
 "ihe" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/pipes/standard/simple/hidden/supply{
@@ -17754,9 +18072,9 @@
 /turf/open/shuttle/black,
 /area/Neer_lv759/outdoors/landing_zone_1)
 "ikh" = (
-/obj/effect/vehicle_spawner/van/decrepit,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Neer_lv759/outdoors)
+/obj/effect/landmark/survivor_spawner/bigred_crashed_cl,
+/turf/open/shuttle/dropship,
+/area/Neer_lv759/indoors/caves/Monorail)
 "ikn" = (
 /obj/structure/largecrate/empty{
 	pixel_x = 1;
@@ -17850,6 +18168,9 @@
 "imb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/toy/plush/rock,
+/obj/structure/machinery/power/apc/power/north{
+	start_charge = 20
+	},
 /turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "imh" = (
@@ -17896,7 +18217,7 @@
 	pixel_x = 22
 	},
 /turf/open/floor/prison/darkyellow2/east,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "imH" = (
 /turf/open/floor/kutjevo/multi_tiles/southeast,
 /area/Neer_lv759/indoors/wy_research_complex/hangarbay)
@@ -17990,6 +18311,10 @@
 	},
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/reactor_garage)
+"ipi" = (
+/obj/structure/target,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "ips" = (
 /obj/structure/machinery/elevator_strut/top,
 /obj/structure/blocker/invisible_wall,
@@ -18029,12 +18354,12 @@
 /turf/open/hybrisa/street/asphalt,
 /area/Neer_lv759/outdoors/colony_streets/Parking_space)
 "iqp" = (
-/obj/structure/cargo_container/horizontal/blue/top{
-	pixel_x = 18;
-	pixel_y = 0
-	},
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Neer_lv759/outdoors)
+/obj/structure/closet/crate/secure/weyland,
+/obj/item/storage/belt/medical/lifesaver/wy,
+/obj/item/storage/belt/gun/m4a3/wy/vp78,
+/obj/item/storage/pouch/firstaid/full/pills/wy,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/Neer_lv759/indoors/caves/Monorail)
 "iqr" = (
 /obj/item/reagent_container/syringe/drugs,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
@@ -18157,8 +18482,12 @@
 /turf/closed/wall/r_wall/biodome,
 /area/Neer_lv759/atmos/command_centre)
 "iuv" = (
-/obj/effect/landmark/corpsespawner/colonist,
-/turf/open/floor/corsat/officetiles,
+/obj/structure/machinery/light/dropship/blue{
+	dir = 4
+	},
+/turf/closed/shuttle/twe_dropship/transparent{
+	icon_state = "5,14_alt"
+	},
 /area/Neer_lv759/outdoors)
 "iuQ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -18441,6 +18770,17 @@
 "iAw" = (
 /turf/open/floor/prison/darkyellow2/east,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaysouthwest)
+"iBe" = (
+/obj/structure/machinery/light/dropship/blue{
+	dir = 8
+	},
+/obj/structure/machinery/light/dropship/blue{
+	dir = 4
+	},
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "4,8"
+	},
+/area/Neer_lv759/outdoors)
 "iBl" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/corsat/marked,
@@ -18865,7 +19205,7 @@
 	layer = 4.2
 	},
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "iKX" = (
 /obj/item/stack/sheet/metal,
 /obj/structure/cable/white{
@@ -19306,6 +19646,10 @@
 	},
 /turf/open/floor/kutjevo/tan,
 /area/Neer_lv759/indoors/wy_research_complex/head_research_office)
+"iWL" = (
+/obj/item/ammo_box/rounds/l23,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "iWU" = (
 /obj/item/stack/cable_coil/cut,
 /obj/item/stack/cable_coil/cut,
@@ -19426,7 +19770,7 @@
 	icon_state = "alm_rwindow1"
 	},
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "jaN" = (
 /obj/effect/decal/hybrisa/road/road_edge{
 	icon_state = "road_edge_decal4"
@@ -19448,7 +19792,7 @@
 "jbi" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "jbn" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "N";
@@ -19519,12 +19863,13 @@
 /turf/open/floor/prison/floor_marked/southwest,
 /area/Neer_lv759/atmos/command_centre)
 "jcB" = (
-/obj/structure/machinery/conveyor{
-	dir = 4;
-	id = "anomalybelt"
+/obj/structure/window/reinforced{
+	dir = 8;
+	layer = 3.3;
+	pixel_y = 4
 	},
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "jcG" = (
 /obj/structure/blocker/forcefield/vehicles,
 /obj/structure/machinery/door/poddoor/almayer{
@@ -19755,10 +20100,8 @@
 /turf/closed/wall/r_wall/biodome/biodome_unmeltable,
 /area/Neer_lv759/atmos/command_centre)
 "jgF" = (
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "16";
-	opacity = 0
-	},
+/obj/structure/girder,
+/turf/open/floor/platingdmg3,
 /area/Neer_lv759/outdoors)
 "jgX" = (
 /obj/structure/window_frame/corsat,
@@ -20120,6 +20463,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
+"jpZ" = (
+/obj/item/storage/belt/gun/l54/full,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "jqg" = (
 /turf/closed/wall/hybrisa/spaceport,
 /area/Neer_lv759/outdoors)
@@ -20310,6 +20657,20 @@
 	},
 /turf/open/floor/almayer/black/north,
 /area/Neer_lv759/indoors/wy_research_complex/cargo)
+"jvX" = (
+/obj/item/stack/rods{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/structure/barricade/deployable{
+	damage_state = 2;
+	health = 140;
+	icon_state = "folding_2";
+	pixel_y = 2;
+	dir = 1
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "jvY" = (
 /obj/structure/pipes/standard/simple/hidden/dark{
 	dir = 4
@@ -20414,7 +20775,7 @@
 /area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
 "jxT" = (
 /turf/open/floor/prison/darkyellow2/east,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "jya" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/kutjevo/tan/grey_inner_edge/west,
@@ -20631,6 +20992,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/sterile_white,
 /area/Neer_lv759/indoors/wy_research_complex/cafeteriakitchen)
+"jDQ" = (
+/obj/structure/barricade/sandbags{
+	dir = 8;
+	pixel_y = 2
+	},
+/obj/item/ammo_casing,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "jDR" = (
 /obj/structure/pipes/vents/pump,
 /turf/open/floor/prison,
@@ -20653,6 +21022,14 @@
 /obj/item/ammo_casing/bullet,
 /turf/open/floor/prison/ramptop/east,
 /area/Neer_lv759/indoors/wy_security/checkpoint_east)
+"jDX" = (
+/obj/item/ammo_magazine/rifle/extended,
+/obj/item/ammo_magazine/rifle/extended,
+/obj/item/ammo_magazine/rifle/nsg23,
+/obj/item/ammo_magazine/rifle/nsg23,
+/obj/structure/closet/crate/secure/weyland,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/Neer_lv759/indoors/caves/Monorail)
 "jEj" = (
 /turf/closed/wall/strata_outpost/reinforced,
 /area/Neer_lv759/atmos/command_centre)
@@ -20798,10 +21175,6 @@
 /obj/structure/pipes/standard/simple/hidden/dark,
 /turf/open/floor/almayer/black/east,
 /area/Neer_lv759/indoors/wy_research_complex/xenobiology)
-"jHb" = (
-/obj/structure/machinery/power/apc/no_power/north,
-/turf/open/floor/prison/darkyellow2/north,
-/area/Neer_lv759/outdoors)
 "jHr" = (
 /obj/structure/surface/table/almayer,
 /obj/structure/machinery/light{
@@ -20828,7 +21201,7 @@
 "jHS" = (
 /obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "jHZ" = (
 /obj/structure/platform{
 	dir = 4
@@ -20840,7 +21213,7 @@
 /area/Neer_lv759/indoors/caves/passage_to_bunker)
 "jIe" = (
 /turf/open/floor/prison/darkyellow2/southwest,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "jIf" = (
 /obj/structure/bed/chair/comfy{
 	dir = 8;
@@ -21338,6 +21711,14 @@
 	},
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
+"jTI" = (
+/obj/structure/closet/crate{
+	color = "#98a3ab"
+	},
+/obj/item/ammo_box/magazine/l23,
+/obj/item/ammo_box/magazine/l54,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "jUa" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice12";
@@ -21486,6 +21867,10 @@
 /obj/item/storage/briefcase,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
+"jXu" = (
+/obj/effect/landmark/survivor_spawner/bigred_crashed_pmc_leader,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/Neer_lv759/indoors/caves/Monorail)
 "jXJ" = (
 /obj/structure/cable/heavyduty{
 	icon_state = "1-2"
@@ -21623,7 +22008,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/cm_vending/sorted/tech/comtech_tools,
 /turf/open/floor/prison/darkyellow2/east,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "jZW" = (
 /obj/structure/barricade/handrail/kutjevo,
 /obj/structure/barricade/handrail/kutjevo{
@@ -21664,8 +22049,8 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Neer_lv759/indoors/wy_research_complex/securityarmory)
 "kbL" = (
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "8"
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "0,6"
 	},
 /area/Neer_lv759/outdoors)
 "kbX" = (
@@ -21925,7 +22310,7 @@
 	},
 /obj/structure/closet/secure_closet/engineering_personal,
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "khL" = (
 /obj/structure/largecrate/empty{
 	pixel_y = 6
@@ -21947,11 +22332,20 @@
 /turf/open/floor/plating/plating_catwalk/shiva,
 /area/Neer_lv759/outdoors)
 "kir" = (
+/obj/item/storage/pouch/magazine/large,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
+"kiJ" = (
 /obj/structure/surface/table/holotable{
 	color = "#424a50"
 	},
-/obj/effect/spawner/random/powercell,
-/turf/open/auto_turf/sand_white/layer0,
+/obj/item/storage/belt/marine/m16,
+/obj/item/weapon/gun/rifle/m16/m16a5,
+/obj/item/ammo_magazine/rifle/m16/ap,
+/obj/item/ammo_magazine/rifle/m16/ap,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "kiT" = (
 /turf/open/hybrisa/street/sidewalk/south,
@@ -22108,6 +22502,20 @@
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/outdoor)
+"kmi" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/metal/wired{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
+"kmk" = (
+/obj/structure/barricade/handrail{
+	dir = 4
+	},
+/obj/structure/machinery/iv_drip,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/Neer_lv759/indoors/caves/Monorail)
 "kmx" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice12";
@@ -22485,6 +22893,12 @@
 /obj/item/device/working_joe_pda,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Neer_lv759/outdoors)
+"kvy" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "3,11"
+	},
+/turf/open/floor/platingdmg3,
+/area/Neer_lv759/outdoors)
 "kvz" = (
 /obj/structure/bed/chair/comfy,
 /obj/effect/decal/cleanable/dirt,
@@ -22650,6 +23064,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/kutjevo/colors/cyan/edge,
 /area/Neer_lv759/indoors/wy_research_complex/medical_annex)
+"kAw" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "4,1";
+	density = 0
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
+/area/Neer_lv759/outdoors)
 "kAL" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice12";
@@ -22704,8 +23125,10 @@
 /obj/structure/surface/table/holotable{
 	color = "#424a50"
 	},
-/obj/item/device/lightreplacer,
-/obj/effect/spawner/random/tool,
+/obj/item/storage/belt/medical/full{
+	pixel_y = 17
+	},
+/obj/item/storage/firstaid/regular,
 /turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "kCd" = (
@@ -22809,6 +23232,12 @@
 "kEv" = (
 /turf/open/floor/corsat/brown/north,
 /area/Neer_lv759/atmos/reactor_garage)
+"kEW" = (
+/obj/item/prop/colony/usedbandage{
+	dir = 1
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "kFf" = (
 /obj/structure/pipes/standard/simple/hidden/green,
 /turf/open/floor/prison/cell_stripe/north,
@@ -22847,6 +23276,13 @@
 "kFr" = (
 /turf/open/floor/prison/darkyellow2/east,
 /area/Neer_lv759/indoors/caves/passage_to_bunker)
+"kGc" = (
+/obj/structure/barricade/sandbags{
+	dir = 8;
+	pixel_y = 2
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "kGg" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/largecrate/black_market/clf_supplies,
@@ -22894,6 +23330,14 @@
 "kGZ" = (
 /turf/open/floor/prison/cell_stripe/north,
 /area/Neer_lv759/outdoors/landing_zone_1)
+"kHf" = (
+/obj/structure/cryofeed,
+/obj/structure/platform{
+	dir = 1
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/platebot,
+/area/Neer_lv759/indoors/caves/Monorail)
 "kHg" = (
 /obj/structure/surface/table/woodentable/poor,
 /obj/item/tool/candle,
@@ -23110,7 +23554,7 @@
 	icon_state = "alm_rwindow3"
 	},
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "kKM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/prop/invuln/overhead_pipe{
@@ -23385,6 +23829,14 @@
 "kOP" = (
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Neer_lv759/indoors/hobosecret)
+"kOT" = (
+/obj/item/trash/cigbutt{
+	pixel_x = -10;
+	pixel_y = 13
+	},
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "kPf" = (
 /obj/structure/machinery/door/poddoor/shutters/almayer{
 	dir = 4;
@@ -23565,6 +24017,14 @@
 /obj/effect/decal/hybrisa/road/lines4,
 /turf/open/floor/prison/darkyellow2/west,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
+"kSz" = (
+/obj/structure/cryofeed,
+/obj/structure/platform{
+	layer = 3.1
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/platebot,
+/area/Neer_lv759/indoors/caves/Monorail)
 "kSO" = (
 /obj/item/trash/cigbutt{
 	pixel_x = -1;
@@ -23742,6 +24202,15 @@
 	},
 /turf/closed/shuttle/ert,
 /area/Neer_lv759/outdoors/landing_zone_1)
+"kVy" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "6,0"
+	},
+/obj/structure/machinery/light/dropship/blue{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "kVC" = (
 /obj/structure/machinery/deployable/barrier,
 /obj/structure/machinery/light/blue{
@@ -23808,6 +24277,10 @@
 	},
 /turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/outdoors/landing_zone_1)
+"kWW" = (
+/obj/item/trash/chips,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "kXg" = (
 /obj/structure/machinery/space_heater,
 /obj/effect/decal/cleanable/dirt,
@@ -23878,6 +24351,10 @@
 	},
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
+"kZc" = (
+/obj/item/storage/backpack/rmc/light,
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
+/area/Neer_lv759/outdoors)
 "kZy" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/oil,
@@ -23887,6 +24364,16 @@
 /obj/structure/largecrate/random/barrel/true_random,
 /turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/outdoors/landing_zone_1)
+"kZO" = (
+/obj/item/ammo_magazine/rifle/l23/rubber,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/Neer_lv759/indoors/caves/Monorail)
+"kZP" = (
+/obj/item/storage/fancy/cigarettes/balaji{
+	pixel_x = -5
+	},
+/turf/open/auto_turf/sand_white/layer0,
+/area/Neer_lv759/outdoors)
 "kZT" = (
 /obj/structure/machinery/door/airlock/almayer/engineering/colony{
 	dir = 1
@@ -23910,7 +24397,7 @@
 /turf/open/floor/prison/darkyellow2/north{
 	dir = 6
 	},
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "lal" = (
 /obj/structure/platform_decoration{
 	dir = 8
@@ -24122,7 +24609,7 @@
 /turf/open/floor/prison/darkyellow2/north{
 	dir = 10
 	},
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "ldF" = (
 /obj/structure/surface/table/holotable,
 /obj/structure/machinery/light{
@@ -24198,6 +24685,26 @@
 	},
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Neer_lv759/outdoors/colony_streets/Main_road)
+"leC" = (
+/obj/structure/surface/rack,
+/obj/item/weapon/gun/rifle/mar40/lmg{
+	pixel_x = 1;
+	pixel_y = 2
+	},
+/obj/item/ammo_magazine/rifle/mar40/lmg{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/obj/item/ammo_magazine/rifle/mar40/lmg{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/obj/item/ammo_magazine/rifle/mar40/lmg{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "leR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -24530,6 +25037,11 @@
 	},
 /turf/open/floor/corsat/brown/northwest,
 /area/Neer_lv759/atmos/outdoor)
+"llz" = (
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "7,3"
+	},
+/area/Neer_lv759/outdoors)
 "llA" = (
 /obj/structure/prop/almayer/computers/sensor_computer2{
 	color = "#8B9490";
@@ -24560,7 +25072,7 @@
 /turf/open/floor/prison/darkyellow2/north{
 	dir = 9
 	},
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "lmA" = (
 /obj/structure/window/reinforced{
 	dir = 1;
@@ -24594,11 +25106,10 @@
 /turf/closed/wall/r_wall/biodome,
 /area/space)
 "lnl" = (
-/obj/structure/machinery/door/airlock/almayer/generic{
-	dir = 2;
-	name = "\improper WY-LWI StarGlider SG-200 cargo hold"
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "5,15"
 	},
-/turf/open/shuttle/dropship/can_surgery/light_grey_single_wide_up_to_down,
+/turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "lnm" = (
 /obj/effect/decal/cleanable/dirt,
@@ -24744,7 +25255,7 @@
 	density = 0
 	},
 /turf/open/floor/prison/darkyellow2/north,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "lpy" = (
 /obj/structure/barricade/handrail/kutjevo{
 	layer = 3.1;
@@ -24839,9 +25350,8 @@
 /turf/open/floor/prison/darkyellow2/northeast,
 /area/Neer_lv759/outdoors)
 "lqo" = (
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "15"
-	},
+/obj/item/ammo_magazine/rifle/l23/extended,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Neer_lv759/outdoors)
 "lqp" = (
 /obj/structure/bed{
@@ -24854,7 +25364,7 @@
 	},
 /obj/structure/blocker/invisible_wall,
 /turf/open/floor/plating,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "lqv" = (
 /obj/structure/machinery/light/small{
 	light_color = "#C02526";
@@ -25128,7 +25638,7 @@
 	dir = 9
 	},
 /turf/open/floor/prison/darkyellow2/southeast,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "lvi" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/shiva/multi_tiles/southeast,
@@ -25144,12 +25654,11 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/Neer_lv759/indoors/wy_research_complex/xenobiology)
 "lvL" = (
-/obj/structure/largecrate/random/case/small,
-/obj/structure/largecrate/random/mini/small_case{
-	pixel_x = -9;
-	pixel_y = 10
+/obj/structure/bed/chair/dropship/pilot{
+	dir = 1
 	},
-/turf/open/floor/prison/floor_marked,
+/obj/effect/landmark/survivor_spawner/twe/iasf/pilot,
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
 /area/Neer_lv759/outdoors)
 "lwe" = (
 /obj/effect/decal/hybrisa/road/road_edge{
@@ -25337,7 +25846,7 @@
 	dir = 4
 	},
 /turf/closed/wall/almayer,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "lzN" = (
 /obj/structure/prop/hybrisa/misc/firehydrant,
 /turf/open/hybrisa/street/sidewalkfull,
@@ -25483,8 +25992,18 @@
 /turf/open/floor/corsat/squares,
 /area/Neer_lv759/indoors/caves/Monorail)
 "lCP" = (
-/obj/structure/girder/displaced,
-/turf/open/floor/corsat/officetiles,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stack/rods{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/structure/machinery/defenses/sentry/premade/lowammo/random/dumb{
+	dir = 8
+	},
+/obj/structure/barricade/metal/wired{
+	dir = 8
+	},
+/turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "lCV" = (
 /turf/closed/wall/biodome,
@@ -26061,6 +26580,11 @@
 /obj/structure/pipes/standard/simple/hidden/dark,
 /turf/open/floor/hybrisa/metal/stripe_red,
 /area/Neer_lv759/indoors/wy_research_complex/vehicledeploymentbay)
+"lRk" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/storage/box/m56d_hmg,
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "lRm" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice3";
@@ -26290,7 +26814,7 @@
 	icon_state = "alm_rwindow2"
 	},
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "lUS" = (
 /obj/structure/prop/invuln/fire,
 /obj/structure/prop/invuln/fire,
@@ -26383,6 +26907,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet5_1,
 /area/Neer_lv759/indoors/wy_research_complex/dormsbedroom)
+"lWW" = (
+/obj/structure/barricade/metal/wired{
+	dir = 8
+	},
+/obj/structure/machinery/defenses/sentry/premade/lowammo/random/dumb{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "lXx" = (
 /obj/structure/machinery/door/airlock/multi_tile/almayer/generic/autoname,
 /turf/open/floor/corsat/marked,
@@ -26432,6 +26965,10 @@
 	density = 1
 	},
 /turf/open/floor/shiva/multi_tiles,
+/area/Neer_lv759/outdoors)
+"lYA" = (
+/obj/item/defenses/handheld/planted_flag/clf,
+/turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "lYQ" = (
 /obj/structure/prop/invuln/lattice_prop{
@@ -27010,9 +27547,8 @@
 /turf/open/floor/corsat/marked,
 /area/Neer_lv759/atmos/east_reactor)
 "mjw" = (
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "4"
-	},
+/obj/structure/machinery/defenses/sentry/premade/lowammo/random/dumb,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Neer_lv759/outdoors)
 "mjy" = (
 /obj/structure/barricade/handrail/kutjevo{
@@ -27042,10 +27578,10 @@
 /turf/open/hybrisa/street/asphalt,
 /area/Neer_lv759/outdoors)
 "mjQ" = (
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "33";
-	opacity = 0
+/obj/structure/barricade/plasteel/wired{
+	dir = 4
 	},
+/turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "mjX" = (
 /turf/open/floor/kutjevo/tan,
@@ -27091,6 +27627,9 @@
 /area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
 "mle" = (
 /obj/effect/spawner/random/gun/clf_secondary,
+/obj/structure/barricade/metal/wired{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "mlj" = (
@@ -27506,6 +28045,12 @@
 	},
 /turf/open/floor/strata/multi_tiles,
 /area/Neer_lv759/indoors/wy_research_complex/hangarbay)
+"msm" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "1,1"
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "mtb" = (
 /obj/structure/machinery/door/window/southleft{
 	dir = 8
@@ -27728,6 +28273,10 @@
 /obj/structure/machinery/colony_floodlight,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Neer_lv759/outdoors)
+"mzC" = (
+/obj/item/ammo_magazine/pistol/l54/ap,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "mzG" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/kutjevo/tan/alt_edge/east,
@@ -27843,7 +28392,7 @@
 "mCc" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/podhatch/southeast,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "mCg" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/cleanable/blood/drip{
@@ -27990,6 +28539,10 @@
 	},
 /turf/open/floor/strata/faux_wood,
 /area/Neer_lv759/indoors/wy_research_complex/cafeteria)
+"mFF" = (
+/obj/item/storage/belt/marine/wy,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/Neer_lv759/indoors/caves/Monorail)
 "mFL" = (
 /obj/structure/blocker/invisible_wall,
 /turf/closed/shuttle/dropship4/WY/StarGlider{
@@ -28024,6 +28577,10 @@
 /obj/structure/prop/invuln/overhead_pipe,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/cargo)
+"mGq" = (
+/obj/item/ammo_magazine/rifle/l23/rubber,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/Neer_lv759/indoors/caves/Monorail)
 "mGz" = (
 /obj/structure/barricade/handrail/kutjevo{
 	layer = 3.1;
@@ -28033,6 +28590,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
+"mGD" = (
+/obj/item/ammo_box/magazine/p90/ap,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "mGK" = (
 /obj/structure/prop/dam/crane/cargo{
 	dir = 4
@@ -28058,7 +28619,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/light,
 /turf/open/floor/prison/darkyellow2/southeast,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "mHx" = (
 /obj/structure/surface/rack,
 /obj/item/weapon/shield/riot,
@@ -28188,7 +28749,7 @@
 /area/Neer_lv759/indoors/wy_research_complex/securityarmory)
 "mKN" = (
 /obj/structure/machinery/power/apc/no_power/north,
-/turf/open/asphalt/cement,
+/turf/open/floor/almayer_hull,
 /area/Neer_lv759/outdoors/colony_streets/Parking_space)
 "mKY" = (
 /obj/effect/decal/hybrisa/road/lines2,
@@ -28337,6 +28898,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
+"mOt" = (
+/obj/effect/vehicle_spawner/clf_van/fixed,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "mOy" = (
 /obj/structure/machinery/light/double/blue{
 	dir = 1
@@ -28470,10 +29035,22 @@
 "mPT" = (
 /turf/open/hybrisa/street/asphalt,
 /area/Neer_lv759/indoors/hobosecret)
+"mQf" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "4,15"
+	},
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "mQk" = (
 /obj/structure/bed/sofa/vert/grey/bot,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/caves/passage_to_bunker)
+"mQt" = (
+/obj/structure/prop/dam/crane/cargo{
+	layer = 3.3
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "mQB" = (
 /obj/structure/barricade/handrail/strata{
 	pixel_y = -4
@@ -28539,16 +29116,12 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Neer_lv759/atmos/command_centre)
 "mRN" = (
-/obj/structure/machinery/light/small{
-	dir = 4
+/obj/structure/platform{
+	layer = 3.1
 	},
-/obj/structure/largecrate/random/mini/small_case{
-	pixel_x = 3;
-	pixel_y = 15
-	},
-/obj/item/ammo_box/magazine/misc/mre/emergency,
-/turf/open/floor/prison/floor_marked,
-/area/Neer_lv759/outdoors)
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/platebot,
+/area/Neer_lv759/indoors/caves/Monorail)
 "mRY" = (
 /obj/structure/machinery/shower{
 	dir = 8;
@@ -29443,7 +30016,7 @@
 "nng" = (
 /obj/structure/pipes/vents/pump,
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "nni" = (
 /obj/structure/machinery/camera{
 	dir = 4
@@ -29490,6 +30063,10 @@
 	},
 /turf/open/hybrisa/street/asphalt,
 /area/Neer_lv759/indoors/hobosecret)
+"noa" = (
+/obj/item/storage/belt/marine/rmc/rmc_l23_ammo,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "nob" = (
 /obj/structure/surface/rack,
 /obj/item/storage/firstaid/regular/response,
@@ -29652,6 +30229,10 @@
 	},
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/mainlabs)
+"nrk" = (
+/obj/effect/landmark/survivor_spawner/clf_medic/hybrisa,
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "nrX" = (
 /obj/structure/machinery/power/monitor{
 	name = "Main Power Grid Monitoring"
@@ -29764,8 +30345,8 @@
 /turf/open/floor/asteroidplating,
 /area/Neer_lv759/indoors/wy_research_complex/changingroom)
 "nvc" = (
-/obj/effect/decal/large_stain,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/obj/item/clothing/head/helmet/marine/veteran/royal_marine/generic,
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
 /area/Neer_lv759/outdoors)
 "nvA" = (
 /obj/structure/prop/server_equipment/broken,
@@ -29779,6 +30360,10 @@
 	},
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/reception)
+"nvI" = (
+/obj/item/clothing/under/marine/veteran/royal_marine/iasf,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "nvV" = (
 /obj/structure/barricade/handrail/kutjevo{
 	dir = 4
@@ -29830,6 +30415,15 @@
 "nwF" = (
 /turf/open/floor/corsat/browncorner/west,
 /area/Neer_lv759/atmos/command_centre)
+"nwI" = (
+/obj/structure/barricade/handrail{
+	dir = 1;
+	layer = 2.7;
+	pixel_y = 2
+	},
+/obj/effect/landmark/survivor_spawner/bigred_crashed_pmc,
+/turf/open/shuttle/dropship/light_grey_left_to_right,
+/area/Neer_lv759/indoors/caves/Monorail)
 "nxf" = (
 /obj/structure/machinery/door/airlock/multi_tile/almayer/engidoor{
 	dir = 1
@@ -29842,8 +30436,8 @@
 /turf/open/floor/prison,
 /area/Neer_lv759/atmos/reactor_garage)
 "nxB" = (
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "24"
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "1,11"
 	},
 /area/Neer_lv759/outdoors)
 "nxD" = (
@@ -29852,7 +30446,7 @@
 /turf/open/floor/prison/darkyellow2/north{
 	dir = 2
 	},
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "nxE" = (
 /obj/effect/decal/hybrisa/road/road_stop{
 	icon_state = "stop_decal5"
@@ -29968,10 +30562,10 @@
 /turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/outdoors/landing_zone_1)
 "nBN" = (
+/obj/item/storage/backpack/marine/engineerpack/ert,
 /obj/structure/surface/table/holotable{
 	color = "#424a50"
 	},
-/obj/item/storage/backpack/marine/engineerpack/ert,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Neer_lv759/outdoors)
 "nBQ" = (
@@ -30110,6 +30704,16 @@
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
 /turf/open/floor/prison/chapel_carpet/doubleside/north,
 /area/Neer_lv759/indoors/wy_research_complex/changingroom)
+"nHd" = (
+/obj/structure/barricade/handrail{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood{
+	dir = 4;
+	icon_state = "gib6"
+	},
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/Neer_lv759/indoors/caves/Monorail)
 "nHj" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/hybrisa/street/roadlines4,
@@ -30279,7 +30883,7 @@
 "nMi" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/darkyellow2/east,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "nMn" = (
 /obj/structure/barricade/metal{
 	dir = 8;
@@ -30342,6 +30946,41 @@
 	},
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
+"nNn" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/coffin/woodencrate{
+	pixel_y = 8
+	},
+/obj/item/mre_food_packet/clf{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/obj/item/mre_food_packet/clf{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/obj/item/mre_food_packet/clf{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/obj/item/mre_food_packet/clf{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/obj/item/mre_food_packet/clf{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/obj/item/mre_food_packet/clf{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/obj/item/mre_food_packet/clf{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "nNo" = (
 /obj/structure/sink{
 	dir = 8;
@@ -31343,6 +31982,10 @@
 	},
 /turf/open/shuttle/escapepod/floor4,
 /area/Neer_lv759/indoors/caves/passage_to_bunker)
+"olJ" = (
+/obj/effect/landmark/survivor_spawner/clf_engi/hybrisa,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "olL" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice12";
@@ -31357,6 +32000,10 @@
 	icon_state = "94"
 	},
 /area/space)
+"omp" = (
+/obj/item/ammo_magazine/handful/shotgun/incendiary,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "omr" = (
 /obj/structure/sign/safety/opens_up,
 /turf/closed/wall/r_wall/biodome,
@@ -31698,6 +32345,20 @@
 	icon_state = "24,0"
 	},
 /area/Neer_lv759/outdoors/landing_zone_1)
+"osc" = (
+/obj/structure/closet/crate/ammo,
+/obj/item/ammo_box/magazine/mp5,
+/obj/item/ammo_box/magazine/mar30,
+/obj/item/ammo_magazine/shotgun/slugs,
+/obj/item/ammo_magazine/shotgun/buckshot{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/obj/item/ammo_magazine/shotgun/incendiary,
+/obj/item/ammo_magazine/shotgun/buckshot,
+/obj/item/ammo_magazine/shotgun/buckshot,
+/turf/open/floor/plating/platebot,
+/area/Neer_lv759/outdoors)
 "osn" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/corsat/brown/north,
@@ -31849,6 +32510,11 @@
 	},
 /turf/open/floor/strata/red3/west,
 /area/Neer_lv759/indoors/wy_research_complex/securityarmory)
+"ouh" = (
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "0,4"
+	},
+/area/Neer_lv759/outdoors)
 "ouq" = (
 /obj/structure/surface/table/almayer,
 /obj/effect/decal/cleanable/dirt,
@@ -31875,7 +32541,7 @@
 "ove" = (
 /obj/structure/machinery/power/monitor,
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "ovf" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "cargo"
@@ -31897,7 +32563,7 @@
 	},
 /obj/structure/machinery/vending/coffee/simple,
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "ovx" = (
 /obj/structure/cable/heavyduty{
 	icon_state = "1-2"
@@ -31915,6 +32581,12 @@
 /obj/structure/pipes/standard/simple/hidden/supply,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
+"ovA" = (
+/obj/structure/machinery/defenses/sentry/premade/lowammo/random/dumb{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "ovD" = (
 /obj/structure/prop/turbine,
 /obj/structure/prop/turbine_extras/border,
@@ -31922,7 +32594,7 @@
 	dir = 4
 	},
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "ovU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/warning_stripes{
@@ -32359,16 +33031,14 @@
 /turf/open/hybrisa/street/cement3,
 /area/Neer_lv759/indoors/hobosecret)
 "oFC" = (
-/obj/structure/cargo_container/horizontal/blue/middle{
-	pixel_x = 18;
-	pixel_y = 0
-	},
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/obj/item/storage/belt/medical/rmc/survivor,
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
 /area/Neer_lv759/outdoors)
 "oFD" = (
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "7"
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	density = 0
 	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Neer_lv759/outdoors)
 "oFK" = (
 /obj/structure/blocker/invisible_wall,
@@ -32486,7 +33156,7 @@
 	health = 300
 	},
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "oJg" = (
 /obj/structure/prop/server_equipment/broken,
 /turf/open/floor/corsat/marked,
@@ -32572,6 +33242,17 @@
 	},
 /turf/open/floor/prison/red/west,
 /area/Neer_lv759/indoors/wy_security/checkpoint_west)
+"oLe" = (
+/obj/structure/bed/chair/vehicle/white{
+	dir = 8;
+	pixel_x = 6;
+	pixel_y = 1;
+	buckle_offset_x = 6;
+	buckle_offset_y = 1
+	},
+/obj/effect/landmark/survivor_spawner/twe/iasf/paratrooper,
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/Neer_lv759/outdoors)
 "oLf" = (
 /obj/structure/pipes/standard/simple/hidden/dark,
 /turf/open/floor/prison,
@@ -32649,7 +33330,7 @@
 /turf/open/floor/prison/darkyellow2/north{
 	dir = 8
 	},
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "oNe" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/largecrate/black_market/confiscated_equipment,
@@ -33111,7 +33792,7 @@
 /obj/structure/prop/turbine,
 /obj/structure/prop/turbine_extras/border,
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "oWT" = (
 /obj/structure/platform_decoration,
 /obj/structure/blocker/invisible_wall,
@@ -33286,7 +33967,7 @@
 "oZs" = (
 /obj/structure/pipes/standard/simple/hidden/green,
 /turf/open/floor/prison,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "oZF" = (
 /obj/structure/bed/chair{
 	icon_state = "chair_alt";
@@ -33336,7 +34017,7 @@
 	dir = 4
 	},
 /turf/open/floor/prison/darkyellowfull2/east,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "paW" = (
 /obj/structure/platform{
 	dir = 1
@@ -33605,6 +34286,10 @@
 /obj/structure/machinery/photocopier,
 /turf/open/floor/corsat/marked,
 /area/Neer_lv759/atmos/east_reactor)
+"pjL" = (
+/obj/structure/machinery/power/power_generator/port_gen,
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "pkl" = (
 /obj/structure/surface/table/woodentable,
 /obj/effect/decal/cleanable/dirt,
@@ -33672,7 +34357,7 @@
 	req_one_access_txt = "102"
 	},
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "plt" = (
 /obj/effect/decal/hybrisa/road/road_edge{
 	icon_state = "road_edge_decal12"
@@ -33722,7 +34407,7 @@
 	},
 /obj/effect/decal/hybrisa/dirt,
 /turf/closed/wall/r_wall/biodome,
-/area/Neer_lv759/indoors/caves/wy_research_complex_entrance)
+/area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
 "pmC" = (
 /obj/item/stool{
 	pixel_x = -8;
@@ -33750,6 +34435,28 @@
 /obj/structure/largecrate/random/case/double,
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/east_reactor)
+"pnl" = (
+/obj/structure/barricade/deployable{
+	damage_state = 2;
+	health = 140;
+	icon_state = "folding_2";
+	pixel_y = 2;
+	dir = 1
+	},
+/obj/structure/machinery/m56d_hmg{
+	dir = 1
+	},
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/Neer_lv759/indoors/caves/Monorail)
+"pnz" = (
+/obj/structure/closet/crate{
+	color = "#98a3ab"
+	},
+/obj/item/storage/belt/marine/rmc/rmc_l23_ammo,
+/obj/item/storage/belt/marine/rmc/rmc_l23_ammo,
+/obj/item/storage/pouch/medkit/full_rmc_officer_aid,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "pnE" = (
 /obj/item/clothing/suit/apron/cuppa_joes,
 /turf/open/floor/hybrisa/metal/metalwhitefull,
@@ -33835,6 +34542,14 @@
 /obj/vehicle/train/cargo/trolley,
 /turf/open/floor/corsat/brown/east,
 /area/Neer_lv759/atmos/outdoor)
+"ppu" = (
+/obj/structure/cryofeed/right,
+/obj/structure/platform{
+	dir = 1
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/platebot,
+/area/Neer_lv759/indoors/caves/Monorail)
 "ppU" = (
 /obj/structure/sign/safety/maint,
 /turf/closed/wall/almayer,
@@ -33878,6 +34593,17 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/reception)
+"pre" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/device/flashlight/lamp/tripod/grey{
+	light_power = 0.4;
+	light_range = 4
+	},
+/obj/item/prop/colony/usedbandage{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "prC" = (
 /obj/structure/prop/structure_lattice{
 	density = 0;
@@ -34069,6 +34795,10 @@
 /obj/structure/blocker/invisible_wall,
 /turf/closed/wall/hybrisa/rock,
 /area/space)
+"pwD" = (
+/obj/structure/largecrate/supply/ammo/m56d,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "pwK" = (
 /obj/structure/pipes/standard/simple/hidden/green{
 	dir = 4
@@ -34106,7 +34836,7 @@
 /obj/structure/machinery/power/apc/no_power/north,
 /obj/structure/prop/almayer/computers/sensor_computer1,
 /turf/open/floor/prison/darkyellow2/north,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "pxp" = (
 /obj/structure/machinery/power/smes/buildable/charged,
 /obj/structure/machinery/power/smes/buildable/charged{
@@ -34133,6 +34863,16 @@
 	},
 /obj/structure/flora/pottedplant/random,
 /turf/open/floor/kutjevo/fake_wood,
+/area/Neer_lv759/outdoors)
+"pyb" = (
+/obj/structure/bed/chair/vehicle/white{
+	dir = 4;
+	pixel_x = -6;
+	pixel_y = 1;
+	buckle_offset_x = -6;
+	buckle_offset_y = 1
+	},
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
 /area/Neer_lv759/outdoors)
 "pyg" = (
 /obj/structure/pipes/standard/simple/hidden/green,
@@ -34383,7 +35123,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/darkyellow2,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "pDL" = (
 /obj/structure/platform{
 	dir = 1
@@ -34579,6 +35319,14 @@
 "pHP" = (
 /turf/open/floor/carpet13_5,
 /area/Neer_lv759/indoors/wy_research_complex/changingroom)
+"pHW" = (
+/obj/structure/cryofeed/right,
+/obj/structure/platform{
+	layer = 3.1
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/platebot,
+/area/Neer_lv759/indoors/caves/Monorail)
 "pIe" = (
 /obj/structure/machinery/big_computers/computerwhite/computer3,
 /obj/structure/prop/hybrisa/misc/machinery/screens/bluemultimonitorsmall_on{
@@ -34620,7 +35368,7 @@
 "pJV" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/darkyellow2,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "pKu" = (
 /obj/effect/decal/hybrisa/road/road_edge{
 	icon_state = "road_edge_decal3"
@@ -34768,7 +35516,7 @@
 	dir = 4
 	},
 /turf/open/floor/prison/darkyellow2/east,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "pNx" = (
 /obj/structure/platform{
 	dir = 8
@@ -34873,6 +35621,10 @@
 /obj/item/stack/rods{
 	pixel_x = 6;
 	pixel_y = 2
+	},
+/obj/structure/barricade/plasteel/wired{
+	dir = 8;
+	closed = 0
 	},
 /turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
@@ -35006,8 +35758,8 @@
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/outdoor)
 "pSp" = (
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "47"
+/turf/closed/shuttle/twe_dropship/transparent{
+	icon_state = "3,13_alt"
 	},
 /area/Neer_lv759/outdoors)
 "pSF" = (
@@ -35343,6 +36095,21 @@
 /obj/structure/bed/chair/comfy/alpha,
 /turf/open/floor/bar,
 /area/Neer_lv759/indoors/wy_research_complex/cafeteria)
+"qbp" = (
+/obj/structure/bed/chair/vehicle/white{
+	pixel_x = -7;
+	pixel_y = 16;
+	buckle_offset_x = -7;
+	buckle_offset_y = 16
+	},
+/obj/structure/bed/chair/vehicle/white{
+	pixel_x = 9;
+	pixel_y = 16;
+	buckle_offset_x = 9;
+	buckle_offset_y = 16
+	},
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/Neer_lv759/outdoors)
 "qbR" = (
 /turf/open/floor/kutjevo/tan/alt_inner_edge/east,
 /area/Neer_lv759/indoors/wy_research_complex/reception)
@@ -35752,7 +36519,6 @@
 /turf/open/floor/kutjevo/tan/alt_edge/north,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
 "qlg" = (
-/obj/structure/machinery/power/apc/power/south,
 /obj/structure/machinery/disposal,
 /turf/open/floor/kutjevo/multi_tiles/west,
 /area/Neer_lv759/outdoors)
@@ -35796,8 +36562,12 @@
 /turf/open/floor/strata/faux_wood,
 /area/Neer_lv759/indoors/wy_research_complex/dormsbedroom)
 "qlX" = (
-/obj/structure/prop/hybrisa/airport/dropshipvent2right,
-/turf/open/floor/platingdmg3,
+/obj/structure/machinery/door/airlock/hatch/cockpit/two{
+	req_access = null;
+	req_one_access = null;
+	name = "\improper UD4-UK"
+	},
+/turf/open/floor/almayer/test_floor4,
 /area/Neer_lv759/outdoors)
 "qma" = (
 /obj/structure/surface/table/woodentable,
@@ -35864,7 +36634,7 @@
 /turf/open/floor/prison/darkyellow2/north{
 	dir = 2
 	},
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "qnS" = (
 /obj/structure/largecrate/supply,
 /turf/open/floor/corsat/squares,
@@ -36111,11 +36881,15 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/secure_closet/engineering_personal,
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "qup" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/darkyellow2/west,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
+"quq" = (
+/obj/structure/largecrate/supply/supplies/flares,
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "quw" = (
 /obj/effect/decal/hybrisa/road/road_edge{
 	icon_state = "road_edge_decal3"
@@ -36217,6 +36991,19 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/darkred2/west,
 /area/Neer_lv759/indoors/wy_research_complex/changingroom)
+"qye" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "8,8"
+	},
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
+"qyf" = (
+/obj/structure/barricade/plasteel/wired{
+	dir = 8;
+	closed = 0
+	},
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "qyk" = (
 /obj/structure/stairs/perspective/kutjevo{
 	dir = 4;
@@ -36249,6 +37036,10 @@
 	dir = 1
 	},
 /turf/open/floor/platebot,
+/area/Neer_lv759/indoors/caves/Monorail)
+"qzb" = (
+/obj/item/ammo_magazine/smg/m39/ap,
+/turf/open/shuttle/dropship/dark_grey_bottom,
 /area/Neer_lv759/indoors/caves/Monorail)
 "qzf" = (
 /obj/structure/pipes/standard/simple/hidden/green{
@@ -36537,6 +37328,12 @@
 	},
 /turf/open/hybrisa/street/asphalt,
 /area/Neer_lv759/outdoors/colony_streets/Main_road)
+"qFe" = (
+/obj/structure/prop/invuln/fire,
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "8,4"
+	},
+/area/Neer_lv759/outdoors)
 "qFl" = (
 /obj/structure/sink{
 	dir = 1;
@@ -36570,7 +37367,7 @@
 	},
 /obj/structure/blocker/invisible_wall,
 /turf/open/floor/plating,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "qFT" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 8
@@ -36598,7 +37395,7 @@
 	dir = 6
 	},
 /turf/open/floor/prison/darkyellow2,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "qGS" = (
 /obj/structure/machinery/m56d_hmg{
 	dir = 1
@@ -36679,7 +37476,7 @@
 	layer = 4
 	},
 /turf/open/floor/prison/floor_plate/southwest,
-/area/Neer_lv759/indoors/caves/wy_research_complex_entrance)
+/area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
 "qIQ" = (
 /turf/open/floor/corsat/browncorner/north,
 /area/Neer_lv759/atmos/east_reactor)
@@ -36705,14 +37502,15 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
 "qJp" = (
-/obj/structure/largecrate/random/mini/small_case{
-	pixel_x = -9;
-	pixel_y = 10
+/obj/structure/machinery/big_computers/computerblack/computer3{
+	pixel_y = -19;
+	layer = 2.9;
+	icon_state = "blacksensor_comp3_off"
 	},
-/obj/structure/bed/stool{
-	icon_state = "stool_alt"
+/obj/item/clothing/head/helmet/marine/veteran/iasf_beret,
+/turf/closed/shuttle/twe_dropship/transparent{
+	icon_state = "4,14"
 	},
-/turf/open/floor/corsat/officetiles,
 /area/Neer_lv759/outdoors)
 "qJL" = (
 /obj/structure/machinery/light,
@@ -37059,11 +37857,9 @@
 /turf/open/floor/kutjevo/colors/cyan/inner_corner,
 /area/Neer_lv759/indoors/wy_research_complex/reception)
 "qPe" = (
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "28";
-	opacity = 0
-	},
-/area/Neer_lv759/outdoors)
+/obj/structure/blocker/invisible_wall,
+/turf/open/shuttle/dropship/can_surgery/light_grey_single_wide_up_to_down,
+/area/space)
 "qPn" = (
 /obj/structure/platform/stone/mineral/west,
 /turf/closed/wall/r_wall/biodome,
@@ -37268,7 +38064,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "qTk" = (
 /turf/open/floor/corsat/marked,
 /area/Neer_lv759/indoors/wy_research_complex/securityarmory)
@@ -37579,7 +38375,13 @@
 /obj/structure/surface/table/holotable{
 	color = "#424a50"
 	},
-/obj/effect/spawner/random/tool,
+/obj/item/weapon/gun/smg/mp5/mp5a5,
+/obj/item/ammo_magazine/smg/mp5,
+/obj/item/ammo_magazine/smg/mp5,
+/obj/item/ammo_magazine/smg/mp5,
+/obj/item/ammo_magazine/smg/mp5,
+/obj/item/ammo_magazine/smg/mp5,
+/obj/item/ammo_magazine/smg/mp5,
 /turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "qZJ" = (
@@ -37668,7 +38470,7 @@
 	dir = 4
 	},
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "raO" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/asteroidfloor/north,
@@ -37706,6 +38508,7 @@
 /obj/item/weapon/gun/rifle/mar40/carbine,
 /obj/item/storage/belt/marine/mar40/extended,
 /obj/effect/landmark/objective_landmark/science,
+/obj/item/weapon/gun/rifle/mar40/carbine,
 /turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "rbS" = (
@@ -37918,6 +38721,15 @@
 	},
 /turf/open/floor/corsat,
 /area/Neer_lv759/atmos/east_reactor)
+"rgy" = (
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_x = 16;
+	pixel_y = -1
+	},
+/obj/item/ammo_box/magazine/m39,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/Neer_lv759/indoors/caves/Monorail)
 "rgz" = (
 /obj/structure/machinery/door/poddoor/shutters/almayer{
 	id = "Reactor_garage_2"
@@ -37992,6 +38804,12 @@
 	},
 /turf/closed/wall/r_wall/biodome,
 /area/Neer_lv759/indoors/wy_research_complex/securityarmory)
+"rhN" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "7,1"
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "riH" = (
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
@@ -38293,10 +39111,18 @@
 /obj/structure/machinery/door/poddoor/almayer/closed,
 /turf/open/floor/corsat/marked,
 /area/Neer_lv759/indoors/wy_research_complex/securityarmory)
+"rro" = (
+/obj/structure/bed/bedroll,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "rrp" = (
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/caves/wy_research_complex_entrance)
+"rrq" = (
+/obj/structure/largecrate/random/barrel/medical,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "rrt" = (
 /obj/structure/bed/chair/comfy{
 	dir = 1
@@ -38537,6 +39363,10 @@
 /obj/effect/landmark/objective_landmark/close,
 /turf/open/floor/prison/floor_plate,
 /area/Neer_lv759/outdoors/landing_zone_1)
+"ruW" = (
+/obj/item/prop/gripper,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "ruZ" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice12";
@@ -38824,6 +39654,10 @@
 	},
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Neer_lv759/indoors/wy_research_complex/vehicledeploymentbay)
+"rzK" = (
+/obj/item/storage/pouch/magazine/large/wy,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/Neer_lv759/indoors/caves/Monorail)
 "rAb" = (
 /obj/structure/machinery/light,
 /obj/effect/decal/cleanable/dirt,
@@ -38850,10 +39684,14 @@
 	},
 /turf/open/floor/prison/cell_stripe/east,
 /area/Neer_lv759/indoors/wy_security/checkpoint_west)
+"rAU" = (
+/obj/effect/landmark/survivor_spawner/twe/iasf,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "rAZ" = (
 /obj/structure/machinery/light,
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "rBg" = (
 /obj/structure/barricade/metal{
 	dir = 8;
@@ -38986,6 +39824,9 @@
 /obj/structure/bed/bedroll{
 	dir = 5
 	},
+/obj/item/prop/colony/usedbandage{
+	dir = 10
+	},
 /turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "rDT" = (
@@ -39061,7 +39902,7 @@
 	name = "Working Joe charging station"
 	},
 /turf/open/floor/prison,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "rFb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -39120,6 +39961,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/power/apc/no_power/west,
 /turf/open/floor/prison/sterile_white,
 /area/Neer_lv759/indoors/wy_research_complex/cafeteriakitchen)
 "rFV" = (
@@ -39146,7 +39988,7 @@
 "rGF" = (
 /obj/effect/xenomorph/acid,
 /turf/closed/wall/almayer,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "rGK" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "N";
@@ -39242,10 +40084,7 @@
 /turf/open/shuttle/escapepod/floor4,
 /area/Neer_lv759/indoors/caves/passage_to_bunker)
 "rIa" = (
-/obj/structure/cargo_container/horizontal/blue/bottom{
-	pixel_x = 18;
-	pixel_y = 0
-	},
+/obj/effect/decal/cleanable/blood/oil,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Neer_lv759/outdoors)
 "rIc" = (
@@ -39277,7 +40116,7 @@
 	req_one_access = null
 	},
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "rIT" = (
 /obj/structure/machinery/power/apc/power/north,
 /turf/open/floor/prison/floor_plate,
@@ -39306,7 +40145,12 @@
 /turf/open/floor/almayer/black/east,
 /area/Neer_lv759/indoors/wy_research_complex/xenobiology)
 "rJX" = (
-/obj/item/trash/twe_mre,
+/obj/structure/bed/bedroll{
+	dir = 5
+	},
+/obj/item/prop/colony/usedbandage{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "rJZ" = (
@@ -39348,8 +40192,8 @@
 /turf/open/floor/hybrisa/tile/tilewhite,
 /area/Neer_lv759/indoors/wy_research_complex/xenobiology)
 "rKG" = (
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "30"
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "7,6"
 	},
 /area/Neer_lv759/outdoors)
 "rKI" = (
@@ -40463,19 +41307,9 @@
 /turf/open/floor/almayer/w_y0/north,
 /area/Neer_lv759/outdoors/landing_zone_1)
 "smq" = (
-/obj/structure/closet/crate/construction,
-/obj/item/stack/sheet/plasteel/small_stack{
-	pixel_x = 5;
-	pixel_y = 3
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "1,4"
 	},
-/obj/item/stack/sheet/metal/small_stack{
-	pixel_x = -1;
-	pixel_y = -2
-	},
-/obj/item/bodybag/tarp,
-/obj/item/circuitboard/apc,
-/obj/item/circuitboard/airlock,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Neer_lv759/outdoors)
 "smA" = (
 /obj/item/tool/mop{
@@ -40585,7 +41419,7 @@
 /area/Neer_lv759/outdoors)
 "soE" = (
 /turf/open/floor/prison/darkyellow2,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "soH" = (
 /obj/structure/surface/table/almayer,
 /obj/item/clothing/suit/storage/hazardvest,
@@ -40689,11 +41523,11 @@
 	pixel_x = 23
 	},
 /turf/open/floor/prison/darkyellow2/east,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "sqU" = (
 /obj/item/maintenance_jack,
 /turf/open/floor/plating/plating_catwalk/prison,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "srg" = (
 /obj/structure/largecrate/random/secure,
 /turf/open/floor/corsat/brown,
@@ -40787,7 +41621,7 @@
 "stF" = (
 /obj/structure/pipes/standard/simple/hidden/green,
 /turf/open/floor/prison/darkyellowfull2/east,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "stO" = (
 /obj/structure/pipes/standard/manifold/hidden/green{
 	dir = 8
@@ -41047,6 +41881,11 @@
 /obj/structure/blocker/invisible_wall,
 /turf/open/void,
 /area/Neer_lv759/indoors/wy_research_complex/mainlabs)
+"sBs" = (
+/obj/item/ammo_box/magazine/misc/mre/wy/empty,
+/obj/effect/landmark/survivor_spawner/clf_lead/hybrisa,
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "sBu" = (
 /obj/effect/landmark/objective_landmark/close,
 /turf/open/asphalt/cement,
@@ -41111,6 +41950,10 @@
 /obj/structure/blocker/invisible_wall,
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/outdoor)
+"sDS" = (
+/obj/effect/landmark/survivor_spawner/twe/iasf/squad_leader,
+/turf/open/floor/almayer/test_floor4,
+/area/Neer_lv759/outdoors)
 "sDT" = (
 /obj/structure/window/framed/corsat,
 /turf/open/floor/kutjevo/grey,
@@ -41405,6 +42248,18 @@
 	},
 /turf/open/floor/strata/cyan4/west,
 /area/Neer_lv759/indoors/wy_research_complex/researchanddevelopment)
+"sJV" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/surface/rack,
+/obj/item/weapon/gun/shotgun/pump/dual_tube/cmb{
+	pixel_y = -5
+	},
+/obj/item/weapon/gun/shotgun/pump/dual_tube/cmb{
+	pixel_y = 9
+	},
+/obj/item/weapon/gun/shotgun/pump/dual_tube/cmb,
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "sKe" = (
 /obj/structure/machinery/light/small{
 	light_color = "#C02526";
@@ -41467,6 +42322,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/mainlabs)
+"sKF" = (
+/obj/item/storage/pouch/medkit/full_rmc,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "sKL" = (
 /obj/structure/prop/dam/crane/damaged,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
@@ -41529,7 +42388,7 @@
 /obj/structure/pipes/standard/simple/hidden/green,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "sNI" = (
 /obj/structure/machinery/light/double/blue{
 	light_color = "#dae2ff";
@@ -41606,11 +42465,15 @@
 /obj/structure/pipes/standard/simple/hidden/green,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/plating_catwalk,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "sPm" = (
 /obj/structure/window/framed/hybrisa/colony/reinforced,
 /turf/open/floor/plating,
 /area/Neer_lv759/indoors/wy_security/checkpoint_east)
+"sPn" = (
+/obj/structure/prop/static_tank/fuel,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "sPo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
@@ -42173,7 +43036,7 @@
 "tca" = (
 /obj/effect/landmark/structure_spawner/xvx_hive/xeno_door,
 /turf/open/floor/prison,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "tcj" = (
 /obj/structure/platform{
 	dir = 4
@@ -42376,6 +43239,11 @@
 	},
 /turf/open/floor/prison/darkbrowncorners2/southwest,
 /area/Neer_lv759/indoors/wy_research_complex/changingroom)
+"tgo" = (
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "7,4"
+	},
+/area/Neer_lv759/outdoors)
 "tgq" = (
 /turf/open/floor/almayer/w_y2,
 /area/Neer_lv759/indoors/caves/Monorail)
@@ -42431,7 +43299,7 @@
 	dir = 6
 	},
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "thp" = (
 /obj/structure/prop/hybrisa/misc/fake/lattice/full,
 /obj/effect/hybrisa/misc/fake/wire/blue{
@@ -42461,6 +43329,14 @@
 	},
 /obj/structure/machinery/portable_atmospherics/hydroponics,
 /turf/open/floor/plating/wood_broken4,
+/area/Neer_lv759/outdoors)
+"thW" = (
+/obj/effect/landmark/corpsespawner/clf,
+/obj/effect/decal/cleanable/blood{
+	dir = 4;
+	icon_state = "gib6"
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Neer_lv759/outdoors)
 "thY" = (
 /obj/structure/stairs,
@@ -43011,6 +43887,18 @@
 "tuk" = (
 /turf/open/floor/kutjevo/tan/alt_inner_edge/west,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
+"tul" = (
+/obj/structure/bed/chair/vehicle/white{
+	dir = 4;
+	pixel_x = -6;
+	pixel_y = 1;
+	buckle_offset_x = -6;
+	buckle_offset_y = 1
+	},
+/obj/item/weapon/gun/rifle/l23/leader,
+/obj/item/clothing/head/helmet/marine/veteran/royal_marine/medic,
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/Neer_lv759/outdoors)
 "tuE" = (
 /obj/structure/machinery/light/blue{
 	dir = 8;
@@ -43502,9 +44390,8 @@
 /turf/open/floor/prison/kitchen,
 /area/Neer_lv759/indoors/wy_research_complex/cafeteriakitchen)
 "tFn" = (
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "19"
-	},
+/obj/structure/girder/displaced,
+/turf/open/floor/platingdmg3,
 /area/Neer_lv759/outdoors)
 "tFr" = (
 /obj/structure/surface/table,
@@ -43570,6 +44457,10 @@
 /obj/structure/prop/hybrisa/boulders/smallboulderdark/boulder_dark2,
 /turf/open/auto_turf/hybrisa_auto_turf/layer2,
 /area/space)
+"tGo" = (
+/obj/effect/landmark/survivor_spawner/twe,
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/Neer_lv759/outdoors)
 "tGG" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "W";
@@ -43585,12 +44476,9 @@
 /turf/open/floor/kutjevo,
 /area/Neer_lv759/indoors/wy_research_complex/reception)
 "tGW" = (
-/obj/effect/decal/cleanable/blood{
-	dir = 4;
-	icon_state = "gib6"
-	},
-/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
-/area/Neer_lv759/indoors/caves/Monorail)
+/obj/item/ammo_magazine/rifle/rmc_f90,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "tHa" = (
 /obj/effect/decal/hybrisa/dirt,
 /turf/closed/wall/biodome,
@@ -43641,6 +44529,14 @@
 /obj/structure/pipes/standard/simple/hidden/dark,
 /turf/open/floor/prison/yellow/east,
 /area/Neer_lv759/indoors/wy_research_complex/vehicledeploymentbay)
+"tHW" = (
+/obj/structure/barricade/sandbags/wired{
+	icon_state = "sandbag_0";
+	pixel_y = -8;
+	dir = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "tIl" = (
 /obj/structure/cable/heavyduty{
 	icon_state = "4-8"
@@ -43974,6 +44870,12 @@
 	},
 /turf/open/floor/kutjevo/tan/alt_inner_edge/north,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
+"tOQ" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "0,8"
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/Neer_lv759/outdoors)
 "tPn" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "S";
@@ -44057,7 +44959,7 @@
 /area/space)
 "tRj" = (
 /turf/open/floor/prison/darkyellow2/north,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "tRM" = (
 /obj/effect/decal/grass_overlay/grass1/inner{
 	dir = 10
@@ -44152,8 +45054,17 @@
 /turf/open/floor/strata/faux_wood,
 /area/Neer_lv759/indoors/wy_research_complex/dormsbedroom)
 "tVc" = (
-/turf/closed/wall/r_wall/biodome,
-/area/Neer_lv759/indoors/caves/wy_research_complex_entrance)
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/road/roadmiddle{
+	dir = 1;
+	pixel_y = 14
+	},
+/obj/effect/decal/hybrisa/tiretrack{
+	dir = 4;
+	pixel_y = 7
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
 "tVq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/hybrisa/trash{
@@ -44314,6 +45225,12 @@
 /obj/structure/flora/bush/ausbushes/var3/leafybush,
 /turf/open/auto_turf/strata_grass/layer1,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
+"tYd" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "7,0"
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "tYf" = (
 /obj/structure/pipes/standard/simple/hidden/dark{
 	dir = 4
@@ -44365,6 +45282,10 @@
 /obj/item/reagent_container/food/drinks/drinkingglass,
 /turf/open/floor/bar,
 /area/Neer_lv759/indoors/wy_research_complex/cafeteria)
+"tZP" = (
+/obj/effect/landmark/survivor_spawner/twe,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "uad" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "E";
@@ -44507,6 +45428,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/darkbrowncorners2/west,
 /area/Neer_lv759/indoors/wy_research_complex/changingroom)
+"udm" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "2,0"
+	},
+/obj/structure/machinery/light/dropship/blue{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "udt" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice3";
@@ -44823,8 +45753,9 @@
 	dir = 6;
 	id = "anomalybelt"
 	},
+/obj/structure/dropship_equipment/weapon/laser_beam_gun,
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "ulZ" = (
 /obj/structure/pipes/standard/simple/hidden/green{
 	dir = 6
@@ -44874,6 +45805,10 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/command_centre)
+"unI" = (
+/obj/item/device/flashlight/flare/on,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "unJ" = (
 /obj/structure/stairs/perspective{
 	dir = 8
@@ -45277,7 +46212,7 @@
 	icon_state = "mgibbl4"
 	},
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "uuV" = (
 /obj/structure/blocker/invisible_wall,
 /turf/closed/wall/r_wall/biodome/biodome_unmeltable,
@@ -45314,6 +46249,10 @@
 	},
 /turf/open/floor/corsat/officetiles,
 /area/Neer_lv759/indoors/wy_research_complex/vehicledeploymentbay)
+"uwl" = (
+/obj/item/storage/pouch/tools/rmc,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "uwr" = (
 /turf/closed/wall/r_wall/elevator{
 	dir = 10
@@ -45359,29 +46298,12 @@
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaysouthwest)
 "uxE" = (
-/obj/structure/surface/table/reinforced/prison{
-	color = "#6b675e";
-	layer = 3
+/obj/structure/machinery/light/dropship/blue{
+	dir = 8
 	},
-/obj/structure/machinery/light/small{
-	dir = 8;
-	pixel_x = -11;
-	pixel_y = 10
+/turf/closed/shuttle/twe_dropship/transparent{
+	icon_state = "3,14_alt"
 	},
-/obj/item/trash/tray{
-	pixel_x = -2;
-	pixel_y = 5
-	},
-/obj/item/trash/tray,
-/obj/item/reagent_container/food/snacks/mre_pack/meal4{
-	desc = "A tray of standard W-Y 'flight' food. This one is what resembles a Pizza. Disgusting.";
-	name = "\improper W-Y Prepared Meal (pizza)"
-	},
-/obj/item/reagent_container/food/drinks/bottle/beer/craft/ganucci,
-/obj/structure/machinery/cm_vending/sorted/supplies{
-	pixel_y = 32
-	},
-/turf/open/floor/corsat/officetiles,
 /area/Neer_lv759/outdoors)
 "uxF" = (
 /obj/structure/largecrate/random/barrel/brown,
@@ -45601,12 +46523,13 @@
 	dir = 4
 	},
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "uEo" = (
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "29";
-	opacity = 0
+/obj/item/tool/warning_cone{
+	pixel_x = -36;
+	pixel_y = 15
 	},
+/turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "uEp" = (
 /obj/structure/pipes/standard/simple/hidden/green,
@@ -45703,6 +46626,14 @@
 /obj/structure/surface/table/almayer,
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/outdoor)
+"uGP" = (
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/dropship/dropshipfloorcorner1,
+/area/space)
+"uGQ" = (
+/obj/item/stool,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "uHl" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice12";
@@ -45895,8 +46826,14 @@
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/reactor_garage)
 "uLC" = (
-/obj/structure/machinery/pipedispenser,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/obj/structure/sign/poster/wylogo,
+/obj/item/attachable/bayonet/upp{
+	anchored = 1;
+	layer = 3.6;
+	pixel_x = -9;
+	pixel_y = -7
+	},
+/turf/closed/wall/strata_outpost,
 /area/Neer_lv759/outdoors)
 "uLK" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
@@ -46227,7 +47164,7 @@
 /obj/item/ammo_magazine/flamer_tank/survivor/empty,
 /obj/item/storage/box/mre/wy,
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "uRy" = (
 /obj/structure/platform,
 /obj/structure/barricade/handrail/strata,
@@ -46405,6 +47342,11 @@
 /obj/structure/machinery/power/apc/power/north,
 /turf/open/floor/carpet14_10/west,
 /area/Neer_lv759/indoors/wy_research_complex/changingroom)
+"uVU" = (
+/obj/item/stool,
+/obj/effect/landmark/survivor_spawner/clf/hybrisa,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "uVX" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/structure/prop/hybrisa/vehicles/Meridian/Purple,
@@ -46439,6 +47381,13 @@
 	},
 /turf/open/shuttle/escapepod/floor4,
 /area/Neer_lv759/indoors/caves/passage_to_bunker)
+"uWo" = (
+/obj/structure/barricade/handrail{
+	dir = 4
+	},
+/obj/item/reagent_container/blood/empty,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/Neer_lv759/indoors/caves/Monorail)
 "uWG" = (
 /obj/structure/machinery/washing_machine{
 	pixel_y = 13;
@@ -46518,7 +47467,7 @@
 /obj/structure/pipes/standard/simple/hidden/green,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/darkyellow2/northeast,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "uYz" = (
 /obj/structure/surface/table/almayer,
 /obj/structure/machinery/prop/almayer/computer/PC{
@@ -46688,6 +47637,10 @@
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
 /turf/open/space/basic,
 /area/Neer_lv759/indoors/wy_research_complex/changingroom)
+"vdu" = (
+/obj/item/storage/belt/marine/wy,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/Neer_lv759/indoors/caves/Monorail)
 "vea" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/reagent_container/food/drinks/cans/aspen,
@@ -46698,10 +47651,8 @@
 /turf/open/floor/strata/multi_tiles/southeast,
 /area/Neer_lv759/indoors/wy_research_complex/hangarbay)
 "veh" = (
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "17";
-	opacity = 0
-	},
+/obj/item/attachable/bayonet/rmc,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Neer_lv759/outdoors)
 "veC" = (
 /obj/structure/prop/hybrisa/cavedecor/stalagmite2,
@@ -46719,6 +47670,12 @@
 	layer = 5
 	},
 /turf/open/floor/strata/floor3,
+/area/Neer_lv759/outdoors)
+"veT" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "7,12"
+	},
+/turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "vfB" = (
 /obj/structure/platform{
@@ -47064,6 +48021,18 @@
 	},
 /turf/closed/wall/r_wall/biodome,
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
+"vni" = (
+/obj/structure/machinery/power/apc/no_power/east,
+/obj/structure/closet/crate{
+	color = "#98a3ab"
+	},
+/obj/item/weapon/gun/rifle/l23,
+/obj/item/weapon/gun/smg/p90/twe,
+/obj/item/storage/backpack/general_belt/rmc,
+/obj/item/storage/surgical_case/rmc_surgical_case,
+/obj/item/clothing/head/helmet/marine/veteran/royal_marine,
+/turf/open/floor/almayer/test_floor5,
+/area/Neer_lv759/outdoors)
 "vno" = (
 /obj/structure/tunnel,
 /turf/open/floor/corsat/brown,
@@ -47093,7 +48062,7 @@
 /turf/open/floor/prison/darkyellow2/north{
 	dir = 5
 	},
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "vok" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/light{
@@ -47337,6 +48306,17 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/kutjevo/multi_tiles/southwest,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
+"vtY" = (
+/obj/structure/bed/chair/vehicle/white{
+	dir = 8;
+	pixel_x = 6;
+	pixel_y = 1;
+	buckle_offset_x = 6;
+	buckle_offset_y = 1
+	},
+/obj/item/clothing/suit/storage/jacket/marine/rmc/service,
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/Neer_lv759/outdoors)
 "vud" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/tool/warning_cone,
@@ -47833,9 +48813,10 @@
 /turf/open/floor/corsat/officetiles,
 /area/Neer_lv759/indoors/wy_research_complex/hangarbay)
 "vFK" = (
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "3"
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "6,1"
 	},
+/turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "vFS" = (
 /obj/structure/surface/table/almayer,
@@ -47964,7 +48945,7 @@
 	},
 /obj/structure/machinery/power/power_generator/reactor/colony,
 /turf/open/floor/podhatchfloor/north,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "vHJ" = (
 /obj/structure/machinery/autolathe,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
@@ -48091,7 +49072,9 @@
 /turf/open/floor/kutjevo/fake_wood,
 /area/Neer_lv759/outdoors)
 "vJx" = (
-/turf/open/floor/prison/cell_stripe,
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "2,12"
+	},
 /area/Neer_lv759/outdoors)
 "vJA" = (
 /obj/structure/machinery/light/double{
@@ -48156,7 +49139,6 @@
 	pixel_x = -5;
 	pixel_y = -8
 	},
-/obj/structure/machinery/power/apc/power/west,
 /obj/structure/pipes/standard/simple/hidden/supply,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
@@ -48176,7 +49158,6 @@
 /turf/open/floor/corsat/brown,
 /area/Neer_lv759/atmos/command_centre)
 "vLW" = (
-/obj/structure/prop/hybrisa/airport/dropshipvent1left,
 /turf/open/floor/platingdmg1,
 /area/Neer_lv759/outdoors)
 "vMf" = (
@@ -48370,6 +49351,11 @@
 /obj/structure/pipes/standard/simple/hidden/green,
 /turf/open/shuttle/escapepod/floor4,
 /area/Neer_lv759/indoors/caves/passage_to_bunker)
+"vPS" = (
+/obj/item/flag/plantable/clf,
+/obj/item/trash/twe_mre,
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "vQf" = (
 /obj/structure/surface/table,
 /obj/structure/machinery/prop/almayer/computer/PC{
@@ -48522,7 +49508,7 @@
 "vRT" = (
 /obj/structure/pipes/standard/simple/hidden/green,
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "vSc" = (
 /obj/structure/girder,
 /turf/open/floor/corsat,
@@ -48666,6 +49652,22 @@
 /obj/structure/pipes/standard/simple/hidden/green,
 /turf/open/floor/corsat,
 /area/Neer_lv759/atmos/east_reactor)
+"vWe" = (
+/obj/structure/bed/chair/vehicle/white{
+	pixel_x = 9;
+	pixel_y = 16;
+	buckle_offset_x = 9;
+	buckle_offset_y = 16
+	},
+/obj/structure/bed/chair/vehicle/white{
+	pixel_x = -7;
+	pixel_y = 16;
+	buckle_offset_x = -7;
+	buckle_offset_y = 16
+	},
+/obj/item/clothing/suit/storage/jacket/marine/rmc/service/iasf_combat_jacket,
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/Neer_lv759/outdoors)
 "vWg" = (
 /obj/structure/platform{
 	layer = 2.7;
@@ -48741,7 +49743,7 @@
 	},
 /obj/effect/landmark/structure_spawner/xvx_hive/xeno_door,
 /turf/open/floor/prison/darkyellow2,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "vXv" = (
 /obj/structure/machinery/door/poddoor/shutters/almayer/open,
 /turf/open/floor/corsat/marked,
@@ -48788,6 +49790,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/corsat/marked,
 /area/Neer_lv759/indoors/wy_research_complex/hangarbay)
+"vYD" = (
+/obj/structure/surface/table/almayer,
+/obj/item/storage/belt/medical/full/with_defib_and_analyzer,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/Neer_lv759/indoors/caves/Monorail)
 "vYI" = (
 /turf/open/floor/kutjevo/colors/cyan/edge,
 /area/Neer_lv759/indoors/wy_research_complex/medical_annex)
@@ -48850,6 +49857,14 @@
 	light_range = 1
 	},
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
+"wao" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "3,11"
+	},
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "6,2"
+	},
 /area/Neer_lv759/outdoors)
 "wap" = (
 /obj/structure/barricade/handrail{
@@ -48999,8 +50014,13 @@
 /area/Neer_lv759/indoors/wy_research_complex/hangarbay)
 "weW" = (
 /obj/structure/barricade/deployable{
+	damage_state = 2;
+	health = 140;
+	icon_state = "folding_2";
+	pixel_y = 2;
 	dir = 1
 	},
+/obj/effect/landmark/survivor_spawner/bigred_crashed_pmc,
 /turf/open/shuttle/dropship/dark_grey_bottom,
 /area/Neer_lv759/indoors/caves/Monorail)
 "wfc" = (
@@ -49068,7 +50088,6 @@
 /obj/structure/pipes/vents/pump{
 	dir = 1
 	},
-/obj/structure/machinery/power/apc/power/south,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/changingroom)
 "wgq" = (
@@ -49121,6 +50140,10 @@
 "whW" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/floor_plate,
+/area/Neer_lv759/outdoors)
+"wiu" = (
+/obj/item/ammo_magazine/rifle/l23/ap,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Neer_lv759/outdoors)
 "wiw" = (
 /obj/structure/machinery/landinglight/ds1/delaytwo{
@@ -49227,7 +50250,7 @@
 	pixel_y = 32
 	},
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "wlh" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice3";
@@ -49258,7 +50281,7 @@
 	pixel_y = 9
 	},
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "wlk" = (
 /obj/structure/window/reinforced{
 	dir = 1;
@@ -49438,6 +50461,10 @@
 /obj/structure/cargo_container/grant/leftmid,
 /turf/open/auto_turf/strata_grass,
 /area/Neer_lv759/outdoors)
+"wor" = (
+/obj/effect/landmark/survivor_spawner/bigred_crashed_pmc,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/Neer_lv759/indoors/caves/Monorail)
 "woF" = (
 /obj/structure/filtration/machine_64x128{
 	icon_state = "filtration_1"
@@ -49483,6 +50510,16 @@
 /obj/structure/pipes/standard/simple/hidden/supply/no_boom,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Neer_lv759/indoors/wy_research_complex/cargo)
+"wpH" = (
+/obj/structure/barricade/deployable{
+	damage_state = 2;
+	health = 140;
+	icon_state = "folding_2";
+	pixel_y = 2;
+	dir = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "wpP" = (
 /obj/structure/prop/dam/crane{
 	bound_height = 32;
@@ -49496,6 +50533,11 @@
 /obj/structure/surface/table/holotable,
 /turf/open/floor/strata/faux_wood,
 /area/Neer_lv759/indoors/wy_research_complex/cafeteria)
+"wqm" = (
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "4,7"
+	},
+/area/Neer_lv759/outdoors)
 "wqt" = (
 /obj/structure/cable/white{
 	color = "550d0d";
@@ -49753,7 +50795,7 @@
 	dir = 4
 	},
 /turf/open/floor/prison/darkyellow2,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "wwm" = (
 /obj/structure/cable/heavyduty{
 	icon_state = "1-2-4"
@@ -49809,6 +50851,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/darkyellow2,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
+"wwV" = (
+/obj/structure/largecrate/machine,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "wxg" = (
 /obj/structure/machinery/conveyor,
 /obj/item/tool/crowbar/red,
@@ -50120,7 +51166,7 @@
 	},
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
 /turf/open/floor/prison/darkyellow2,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "wEB" = (
 /obj/structure/closet/crate/explosives,
 /obj/item/explosive/plastic{
@@ -50315,11 +51361,9 @@
 /turf/open/floor/asteroidfloor,
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
 "wIH" = (
-/obj/structure/pipes/vents/pump,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/machinery/power/apc/power/west,
-/turf/open/floor/prison,
-/area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
+/obj/structure/machinery/power/apc/no_power/west,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/Neer_lv759/indoors/wy_research_complex/hallwaysouthwest)
 "wII" = (
 /obj/structure/machinery/door/airlock/almayer/maint/colony/autoname,
 /obj/structure/cable/heavyduty{
@@ -50377,7 +51421,7 @@
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/hallwaynorth)
 "wJr" = (
-/obj/structure/sign/banners/clf_worn,
+/obj/structure/sign/banners/clf_flag,
 /turf/closed/wall/strata_outpost,
 /area/Neer_lv759/outdoors)
 "wJw" = (
@@ -50520,6 +51564,12 @@
 "wNk" = (
 /turf/closed/wall/r_wall/biodome,
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
+"wNq" = (
+/obj/structure/bed/bedroll{
+	dir = 5
+	},
+/turf/open/shuttle/dropship/can_surgery,
+/area/Neer_lv759/indoors/caves/Monorail)
 "wNS" = (
 /obj/structure/flora/bush/ausbushes/ywflowers,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
@@ -50788,7 +51838,7 @@
 	pixel_y = -12
 	},
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "wVM" = (
 /obj/structure/machinery/light/double/blue{
 	light_color = "#dae2ff"
@@ -50836,9 +51886,6 @@
 	pixel_y = 5
 	},
 /obj/item/tool/pen/blue/clicky,
-/obj/structure/machinery/power/apc/power/north{
-	start_charge = 20
-	},
 /obj/effect/landmark/objective_landmark/far,
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/east_reactor)
@@ -50901,6 +51948,10 @@
 /obj/structure/blocker/invisible_wall,
 /turf/open/void,
 /area/Neer_lv759/indoors/wy_research_complex/mainlabs)
+"wYl" = (
+/obj/effect/landmark/survivor_spawner/clf/hybrisa,
+/turf/open/floor/plating/plating_catwalk/shiva,
+/area/Neer_lv759/outdoors)
 "wYo" = (
 /obj/structure/machinery/door/window/ultra,
 /obj/effect/decal/cleanable/dirt,
@@ -50916,9 +51967,10 @@
 /turf/open/hybrisa/street/asphalt,
 /area/Neer_lv759/outdoors/colony_streets/Main_road)
 "wYw" = (
-/turf/closed/shuttle/dropship4/WY/StarGlider{
-	icon_state = "25"
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "1,12"
 	},
+/turf/open/floor/plating,
 /area/Neer_lv759/outdoors)
 "wYz" = (
 /obj/structure/platform{
@@ -51058,6 +52110,13 @@
 /obj/structure/girder,
 /turf/open/floor/corsat/plate,
 /area/Neer_lv759/atmos/east_reactor)
+"wZX" = (
+/obj/item/prop/colony/usedbandage{
+	dir = 1
+	},
+/obj/effect/landmark/survivor_spawner/bigred_crashed_pmc_medic,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/Neer_lv759/indoors/caves/Monorail)
 "xac" = (
 /obj/structure/blocker/forcefield/vehicles,
 /obj/structure/blocker/invisible_wall,
@@ -51219,8 +52278,13 @@
 /area/Neer_lv759/indoors/hobosecret)
 "xeN" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/window/reinforced{
+	dir = 8;
+	layer = 3.3;
+	pixel_y = 4
+	},
 /turf/open/floor/podhatch/southwest,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "xeP" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "N";
@@ -51274,6 +52338,16 @@
 	},
 /turf/open/floor/corsat/squares,
 /area/Neer_lv759/atmos/command_centre)
+"xhx" = (
+/obj/structure/bed/bedroll{
+	dir = 5
+	},
+/obj/effect/landmark/corpsespawner/pmc,
+/obj/item/prop/colony/usedbandage{
+	dir = 4
+	},
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/Neer_lv759/indoors/caves/Monorail)
 "xhB" = (
 /obj/structure/cable/heavyduty{
 	icon_state = "4-8"
@@ -51384,6 +52458,10 @@
 	},
 /turf/open/floor/strata/multi_tiles/southeast,
 /area/Neer_lv759/outdoors)
+"xjf" = (
+/obj/effect/landmark/survivor_spawner/bigred_crashed_pmc_engineer,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/Neer_lv759/indoors/caves/Monorail)
 "xjg" = (
 /obj/structure/bed/chair/comfy{
 	dir = 8
@@ -52016,7 +53094,11 @@
 /area/Neer_lv759/atmos/outdoor)
 "xxu" = (
 /turf/open/floor/prison/darkyellow2/northwest,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
+"xxy" = (
+/obj/structure/bed/stool,
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "xxz" = (
 /obj/structure/machinery/conveyor{
 	dir = 8;
@@ -52089,6 +53171,11 @@
 /obj/item/shard,
 /turf/open/floor/corsat/spiralplate,
 /area/Neer_lv759/indoors/wy_research_complex/xenobiology)
+"xyQ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/power/apc/fully_broken/no_cell,
+/turf/open/floor/plating,
+/area/Neer_lv759/outdoors)
 "xyZ" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet6_2,
@@ -52446,6 +53533,12 @@
 	},
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Neer_lv759/indoors/wy_research_complex/southeastexit)
+"xFY" = (
+/obj/structure/barricade/sandbags{
+	pixel_y = 14
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "xGo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -52573,6 +53666,17 @@
 /obj/effect/landmark/corpsespawner/hybrisa/civilian_office,
 /turf/open/floor/corsat/marked,
 /area/Neer_lv759/atmos/command_centre)
+"xIZ" = (
+/obj/structure/closet/crate{
+	color = "#98a3ab"
+	},
+/obj/item/weapon/gun/rifle/rmc_f90,
+/obj/item/ammo_magazine/rifle/rmc_f90,
+/obj/item/ammo_magazine/rifle/rmc_f90,
+/obj/item/ammo_magazine/rifle/rmc_f90,
+/obj/item/storage/belt/marine/rmc/rmc_f90_ammo,
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/Neer_lv759/outdoors)
 "xJa" = (
 /obj/effect/landmark/objective_landmark/close,
 /obj/structure/prop/ice_colony/ground_wire{
@@ -52611,7 +53715,7 @@
 	},
 /obj/item/device/working_joe_pda,
 /turf/open/floor/prison/floor_plate,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "xJt" = (
 /turf/open/floor/corsat,
 /area/Neer_lv759/atmos/command_centre)
@@ -52788,6 +53892,14 @@
 	},
 /turf/open/floor/floor4,
 /area/Neer_lv759/indoors/wy_research_complex/cafeteria)
+"xMV" = (
+/obj/structure/largecrate/random,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
+"xNK" = (
+/obj/item/ammo_box/magazine/m39/ext/empty,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/Neer_lv759/indoors/caves/Monorail)
 "xNN" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "W";
@@ -52861,7 +53973,7 @@
 /area/Neer_lv759/indoors/wy_research_complex/hallwaycentral)
 "xOE" = (
 /turf/open/floor/prison/darkyellowfull2/east,
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "xOR" = (
 /obj/structure/machinery/door/poddoor/shutters/almayer/open,
 /obj/effect/decal/cleanable/dirt,
@@ -52913,7 +54025,7 @@
 /turf/open/floor/prison/darkyellow2/north{
 	dir = 8
 	},
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab)
+/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "xQq" = (
 /turf/open/floor/prison/ramptop/east,
 /area/Neer_lv759/indoors/hobosecret)
@@ -53305,6 +54417,10 @@
 /obj/item/weapon/gun/rifle/mar40,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/cargo)
+"ybu" = (
+/obj/item/ammo_casing,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Neer_lv759/outdoors)
 "ybz" = (
 /obj/structure/platform{
 	dir = 1
@@ -53337,6 +54453,12 @@
 	},
 /obj/structure/bed/sofa,
 /turf/open/floor/plating/wood,
+/area/Neer_lv759/outdoors)
+"ycE" = (
+/obj/structure/prop/structure_lattice{
+	dir = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Neer_lv759/outdoors)
 "ycP" = (
 /obj/structure/prop/vehicles{
@@ -53452,8 +54574,13 @@
 /turf/open/floor/prison/sterile_white,
 /area/Neer_lv759/indoors/wy_research_complex/cafeteriakitchen)
 "yfC" = (
-/obj/structure/largecrate/empty/case/double,
-/turf/open/floor/prison/floor_marked,
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "6,13";
+	density = 0;
+	pixel_x = -13;
+	pixel_y = -1
+	},
+/turf/open/floor/prison/bright_clean2,
 /area/Neer_lv759/outdoors)
 "yfL" = (
 /obj/structure/window/framed/corsat,
@@ -54150,18 +55277,18 @@ qHC
 qHC
 qHC
 qHC
+rro
+rro
+eys
 qHC
 qHC
 qHC
 qHC
+mQt
+xMV
 qHC
 qHC
-qHC
-qHC
-qHC
-qHC
-qHC
-qHC
+ipi
 qHC
 qHC
 qHC
@@ -54401,7 +55528,8 @@ qHC
 qHC
 qHC
 qHC
-ikh
+qHC
+omp
 qHC
 qHC
 qHC
@@ -54409,13 +55537,12 @@ qHC
 qHC
 qHC
 qHC
+jRJ
 qHC
 qHC
 qHC
 qHC
-qHC
-qHC
-qHC
+ipi
 qHC
 qHC
 qHC
@@ -54654,20 +55781,20 @@ qHC
 qHC
 qHC
 qHC
+rro
+rro
 qHC
-qHC
-qHC
-qHC
+ben
 fyN
 qHC
+rrq
+jRJ
+wwV
 qHC
 qHC
-qHC
-qHC
-qHC
-qHC
-qHC
-qHC
+ipi
+ybu
+abT
 qHC
 qHC
 qHC
@@ -54903,12 +56030,12 @@ qHC
 qHC
 qHC
 qHC
-bdU
 qHC
 qHC
 qHC
+olJ
 qHC
-uLC
+qHC
 cgO
 qHC
 qHC
@@ -54917,10 +56044,10 @@ qHC
 qHC
 qHC
 qHC
+ybu
 qHC
 qHC
-qHC
-qHC
+ybu
 qHC
 qHC
 qHC
@@ -55159,9 +56286,9 @@ cvo
 tVA
 vYJ
 qHC
-jAk
-jAk
-jAk
+qHC
+mOt
+qHC
 qHC
 qHC
 qHC
@@ -55169,11 +56296,11 @@ qHC
 fyN
 qHC
 qHC
-qHC
-qHC
-qHC
-qHC
-qHC
+cNy
+kGc
+jDQ
+kGc
+xFY
 qHC
 qHC
 qHC
@@ -55409,27 +56536,27 @@ jgi
 qHC
 wdW
 sCb
+pwD
 qHC
-smq
-iqp
-oFC
+qHC
+qHC
 rIa
 qHC
 nBN
-kir
+fyN
 fyN
 qHC
+oYf
+qHC
+qHC
+ybu
 qHC
 qHC
 qHC
 qHC
 qHC
 qHC
-qHC
-qHC
-qHC
-qHC
-qHC
+asU
 qHC
 qHC
 qHC
@@ -55622,7 +56749,7 @@ qHC
 qHC
 fyN
 hBq
-jHb
+pMD
 aLg
 aLg
 hBq
@@ -55662,24 +56789,24 @@ qHC
 ygL
 kon
 dRV
+bdU
 qHC
 qHC
 qHC
-qHC
-qHC
+evX
 mzA
 rJZ
 qHC
 qHC
 qHC
+fyN
+qHC
+qHC
+fyN
 qHC
 qHC
 qHC
-qHC
-qHC
-qHC
-qHC
-qHC
+unI
 qHC
 qHC
 qHC
@@ -55924,8 +57051,8 @@ qHC
 qHC
 fyN
 qHC
-qHC
-qHC
+oYf
+fyN
 qHC
 qHC
 qHC
@@ -56165,30 +57292,30 @@ snQ
 iNp
 bSO
 oZa
-oZa
+dsM
 bNO
 pPF
 apC
-oZa
+lWW
 kuH
 hBq
+aUZ
+fyN
 qHC
 fyN
 qHC
 qHC
+oYf
 qHC
 qHC
 qHC
 qHC
+asU
 qHC
 qHC
 qHC
 qHC
-qHC
-qHC
-qHC
-qHC
-qHC
+asU
 qHC
 qHC
 qHC
@@ -56420,9 +57547,9 @@ oZa
 dpe
 juI
 kXg
-juI
+fVG
 oZa
-juI
+azD
 hBq
 qHC
 oYf
@@ -56672,9 +57799,9 @@ lus
 snQ
 hBq
 juI
-oZa
-oZa
-oZa
+eqw
+xxy
+fed
 snQ
 qHC
 fyN
@@ -56925,8 +58052,8 @@ rbH
 hBq
 snQ
 kij
-kij
-tNg
+wYl
+osc
 lus
 qHC
 qHC
@@ -56942,13 +58069,13 @@ qHC
 qHC
 qHC
 qHC
+unI
 qHC
 qHC
 qHC
-qHC
-qHC
-qHC
-qHC
+jgi
+jgi
+jgi
 wVc
 qHC
 qHC
@@ -57170,15 +58297,15 @@ jgi
 jgi
 jgi
 snQ
-kuH
+pre
 fVG
 yam
-oZa
+nrk
 qJU
+lRk
 juI
 juI
-juI
-oZa
+leC
 lus
 oYf
 fyN
@@ -57197,9 +58324,9 @@ qHC
 qHC
 qHC
 qHC
-qHC
-qHC
-qHC
+jgi
+jgi
+jgi
 qHC
 wVc
 qHC
@@ -57422,15 +58549,15 @@ jgi
 jgi
 jgi
 snQ
-snQ
+uLC
 pdP
-oZa
-oZa
-oZa
-oZa
-oZa
-juI
-juI
+vPS
+pjL
+sBs
+mjQ
+bmG
+dPZ
+sJV
 bOU
 qHC
 qHC
@@ -57443,15 +58570,15 @@ qHC
 qHC
 jgi
 qHC
+sPn
 qHC
+sCb
+ycE
 qHC
-qHC
-qHC
-qHC
-qHC
-qHC
-qHC
-qHC
+jgi
+jgi
+jgi
+jgi
 qHC
 wVc
 qHC
@@ -57673,13 +58800,13 @@ nmP
 jgi
 jgi
 jgi
-hJB
+jgi
 snQ
 snQ
 snQ
 snQ
 snQ
-lus
+fde
 bOU
 tNg
 snQ
@@ -57697,13 +58824,13 @@ qHC
 jgi
 jgi
 qHC
-qHC
+kon
 jgi
 jgi
 jgi
-qHC
-qHC
-qHC
+jgi
+jgi
+jgi
 qHC
 wVc
 qHC
@@ -57952,9 +59079,9 @@ snQ
 jgi
 jgi
 jgi
-qHC
-qHC
-qHC
+jgi
+jgi
+jgi
 qHC
 qHC
 wVc
@@ -58178,27 +59305,27 @@ jgi
 jgi
 jgi
 jgi
-qHC
+mjw
 qHC
 qHC
 fyN
 qHC
-fyN
-qHC
-qHC
+kZP
+uVU
+rNb
 oYf
 fyN
 qHC
 qHC
 qHC
 hBq
-qZC
-juI
-pPF
-oZa
-oZa
+ckA
+kmi
+lCP
+qyf
+apC
 mle
-qZC
+dyb
 qZC
 snQ
 snQ
@@ -58430,29 +59557,29 @@ qHC
 jgi
 jgi
 jgi
+tHW
 qHC
 qHC
+qHC
+fyN
+uGQ
+cSn
 qHC
 qHC
 fyN
 qHC
 qHC
 qHC
-qHC
-fyN
-qHC
-qHC
-qHC
-hBq
+bHf
 vZN
+cdz
 oZa
-mMv
 oZa
 ftc
 juI
 juI
 hgh
-oZa
+kiJ
 snQ
 jgi
 jgi
@@ -58688,18 +59815,18 @@ mGK
 vaN
 qHC
 qHC
-qHC
-qHC
+kWW
+uGQ
 qHC
 qHC
 qHC
 qHC
 qHC
 snQ
-kuH
+nNn
 oZa
 yam
-oZa
+ieh
 hBq
 snQ
 snQ
@@ -58954,9 +60081,9 @@ qcM
 lus
 hBq
 bNO
-oZa
-oZa
-juI
+lYA
+quq
+xyQ
 snQ
 jgi
 jgi
@@ -59189,22 +60316,22 @@ qHC
 nXO
 jAk
 kyl
-qHC
+ruW
 qHC
 nXO
 hgK
-qHC
+kEW
 fyN
 qHC
 fyN
 qHC
 fyN
 epu
-gFD
+aAk
 juI
 oZa
-oZa
-oZa
+ovA
+ftc
 dpe
 pCR
 oZa
@@ -59438,25 +60565,25 @@ qHC
 qHC
 dRV
 qHC
+unI
 qHC
+jvX
 qHC
-nXO
+mjw
 qHC
+thW
 qHC
-qHC
-qHC
-qHC
-qHC
+mjw
 fyN
 qHC
 fyN
 oYf
 epu
-juI
+eXJ
 gTP
-juI
-oZa
-oZa
+bIY
+mjQ
+bmG
 oZa
 juI
 kuH
@@ -59691,18 +60818,18 @@ qHC
 qHC
 qHC
 qHC
+asU
+hWp
 qHC
-qSF
+wpH
 qHC
+tHW
 qHC
+tHW
 qHC
+tHW
 qHC
-qHC
-qHC
-qHC
-qHC
-qHC
-oYf
+hvS
 snQ
 snQ
 snQ
@@ -59945,13 +61072,13 @@ qHC
 qHC
 qHC
 qHC
+asU
+qHC
+unI
 qHC
 qHC
 qHC
-qHC
-qHC
-qHC
-qHC
+asU
 qHC
 fyN
 qHC
@@ -60205,7 +61332,7 @@ qHC
 qHC
 qHC
 qHC
-qHC
+unI
 qHC
 qHC
 oYf
@@ -60213,7 +61340,7 @@ qHC
 oYf
 qHC
 qHC
-qHC
+unI
 qHC
 qHC
 jgi
@@ -60453,7 +61580,7 @@ fyN
 qHC
 qHC
 qHC
-qHC
+asU
 qHC
 qHC
 qHC
@@ -62731,7 +63858,7 @@ qSF
 dkR
 vYJ
 oZa
-xIg
+gFM
 snQ
 qHC
 qHC
@@ -63852,7 +64979,7 @@ hyj
 hyj
 hyj
 hyj
-mEQ
+hyj
 rwK
 mKN
 sBu
@@ -81445,7 +82572,7 @@ qHC
 oYf
 qHC
 qHC
-qHC
+asU
 qHC
 qHC
 qHC
@@ -81459,10 +82586,10 @@ qHC
 qHC
 qHC
 qHC
-fed
-aAk
-gtS
-jgF
+qHC
+qHC
+qHC
+qHC
 qHC
 qHC
 qHC
@@ -81701,6 +82828,15 @@ qHC
 qHC
 qHC
 qHC
+asU
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+xMV
 qHC
 qHC
 qHC
@@ -81709,16 +82845,7 @@ qHC
 qHC
 qHC
 qHC
-qHC
-qHC
-dhp
-mjQ
-bmG
-veh
-qHC
-qHC
-qHC
-qHC
+oFD
 qHC
 qHC
 qHC
@@ -81947,11 +83074,11 @@ qHC
 qHC
 qHC
 qHC
-qHC
-qHC
-qHC
-qHC
-qHC
+oYf
+asU
+snQ
+oYf
+oYf
 qHC
 qHC
 qHC
@@ -81963,14 +83090,14 @@ uzu
 qHC
 qHC
 qHC
+lqo
 qHC
 qHC
 qHC
 qHC
 qHC
 qHC
-qHC
-qHC
+fVv
 qHC
 qHC
 qHC
@@ -82199,13 +83326,13 @@ snQ
 snQ
 lNZ
 vLW
-qPe
-asU
+qLa
+qLa
 jgF
 qHC
 oYf
 oYf
-oYf
+tZP
 qHC
 qHC
 qHC
@@ -82215,14 +83342,14 @@ qHC
 qHC
 qHC
 hSx
-qHC
+sKF
 qHC
 oGi
 qHC
 qHC
+jTI
 qHC
-qHC
-qHC
+udm
 qHC
 qHC
 qHC
@@ -82450,32 +83577,32 @@ llA
 loo
 fQQ
 cwU
-qlX
+qLa
 uEo
-ben
-veh
+oZa
+qLa
+snQ
+snQ
 oYf
-oYf
-qHC
-qHC
-qHC
-qHC
-qHC
-oYf
-qHC
+tOQ
+cJg
+kbL
+ouh
+hNz
+kOT
 qHC
 oGi
+iWL
+qHC
+fhM
+qHC
+qHC
+dfQ
 qHC
 qHC
 qHC
 qHC
 qHC
-qHC
-qHC
-qHC
-bQI
-oFD
-vFK
 qHC
 qHC
 qHC
@@ -82703,26 +83830,26 @@ fTU
 qLa
 jZo
 snQ
-rKG
-nxB
+oZa
+oZa
 dBU
-uzu
+wYw
+pSp
+qlX
+nxB
+nxB
+smq
+smq
+gFD
+msm
+qHC
+jpZ
 qHC
 oYf
+kZc
+nvI
 qHC
-qHC
-oYf
-qHC
-qHC
-qHC
-qHC
-qHC
-qHC
-oYf
-oYf
-qHC
-qHC
-qHC
+eJF
 qHC
 qHC
 qHC
@@ -82958,24 +84085,24 @@ qLa
 emZ
 uxE
 pSp
-bQI
+vJx
+vWe
+tGo
+pyb
+tul
+cAD
+dwh
+kvy
+tZP
+aww
+oYf
+kir
+qHC
+qHC
 qHC
 oYf
 qHC
-qHC
-qHC
-qHC
-qHC
-qHC
-oYf
-qHC
-qHC
-qHC
-qHC
-qHC
-oYf
-qHC
-qHC
+noa
 qHC
 qHC
 qHC
@@ -83207,25 +84334,25 @@ rvi
 cwU
 fTU
 qLa
-fMa
+mQf
 qJp
 lvL
 cYd
-qHC
-qHC
-qHC
-qHC
+sDS
+ihd
+iBe
+wqm
+deD
+cAD
+oLi
+kAw
 oYf
 qHC
-qHC
-qHC
-qHC
-qHC
 oYf
+tGW
+pnz
 qHC
-qHC
-qHC
-iCq
+oFC
 qHC
 qHC
 qHC
@@ -83463,22 +84590,22 @@ lnl
 iuv
 ggc
 vJx
-qHC
+qbp
 nvc
-qHC
-qHC
-qHC
-qHC
-oYf
-qHC
-qHC
+vtY
+oLe
+cAD
+vni
+wao
+vFK
+kVy
 qHC
 iCq
-qHC
+veh
 ktz
 qHC
-qHC
-qHC
+gJT
+kir
 qHC
 qHC
 qHC
@@ -83712,24 +84839,24 @@ plh
 jZo
 snQ
 fMa
-fCd
+qLa
 yfC
-vJx
+veT
+ggc
+qlX
+llz
+llz
+tgo
+rKG
+cxg
+rhN
+tYd
+xIZ
 qHC
+mzC
+uwl
 qHC
-qHC
-qHC
-oYf
-qHC
-qHC
-qHC
-qHC
-iCq
-qHC
-qHC
-qHC
-qHC
-qHC
+mGD
 qHC
 qHC
 qHC
@@ -83963,32 +85090,32 @@ jZo
 iEK
 fTU
 qLa
-lCP
-mRN
-dwh
+oZa
+qLa
+oZa
 tFn
-kbL
-mjw
+qLa
+oYf
+oYf
+oYf
 qHC
 qHC
 qHC
 qHC
-qHC
-qHC
-qHC
-qHC
-iCq
+dSx
+wiu
+cYO
 iCq
 qHC
 oYf
 qHC
 oQO
 qHC
-qHC
-qHC
-qHC
-qHC
-qHC
+qye
+fCd
+aqA
+qFe
+hNz
 qHC
 qHC
 qHC
@@ -84214,16 +85341,16 @@ kpu
 kTY
 qds
 jZo
-jAk
-fFr
-wYw
-lqo
 qHC
+cwU
+cwU
+tFn
+qLa
 qHC
-qHC
-qHC
-qHC
-qHC
+oYf
+oYf
+oYf
+oYf
 qHC
 qHC
 qHC
@@ -84231,8 +85358,8 @@ iCq
 qHC
 qHC
 qHC
-qHC
-qHC
+asU
+lqo
 qHC
 qHC
 qHC
@@ -84473,11 +85600,11 @@ oYf
 uzu
 qHC
 qHC
+gQP
 qHC
+rAU
 qHC
-qHC
-qHC
-qHC
+asU
 qHC
 qHC
 iCq
@@ -89543,8 +90670,8 @@ nmP
 nmP
 nmP
 nmP
-nmP
-xSo
+qGT
+bQM
 jaN
 nLi
 qxC
@@ -90623,13 +91750,13 @@ xNT
 vIF
 gzl
 pxe
-bAv
+grq
 iKR
 hWF
 hWF
 hWF
 wlj
-bAv
+grq
 nxD
 hAF
 qFL
@@ -90875,13 +92002,13 @@ xNT
 vIF
 gzl
 lps
-bAv
+grq
 uuS
 fbT
 fbT
 sqU
 jHS
-bAv
+grq
 qnL
 hAF
 bRz
@@ -91127,13 +92254,13 @@ ofp
 cHc
 gzl
 tRj
-bAv
+grq
 iKR
 vHH
 vHH
 vHH
 wlj
-bAv
+grq
 bWX
 hAF
 lqp
@@ -91381,10 +92508,10 @@ gzl
 vnW
 lag
 hyA
-bAv
+grq
 oWP
-bAv
-bAv
+grq
+grq
 ovD
 btC
 hAF
@@ -92137,7 +93264,7 @@ gzl
 wlb
 pJV
 gfz
-bAv
+grq
 dXw
 qTf
 rAZ
@@ -92397,7 +93524,7 @@ hAF
 dOz
 fwE
 mCc
-dHR
+grq
 hAF
 wlb
 paS
@@ -93073,16 +94200,16 @@ nmP
 nmP
 nmP
 pmo
-jaN
-nLi
-qxC
-uIP
-dyx
+kWw
+hMR
+tVc
+ctT
+plJ
 qIG
-bQM
-tVc
-tVc
-tVc
+uPN
+kcX
+kcX
+kcX
 qGT
 nmP
 nmP
@@ -101650,7 +102777,7 @@ kcX
 wZE
 nni
 dgb
-wIH
+rJB
 kcX
 wAt
 coq
@@ -102355,7 +103482,7 @@ mFL
 oxz
 irt
 xrv
-nmP
+byW
 nmP
 nmP
 nmP
@@ -102859,7 +103986,7 @@ psu
 oJV
 dYc
 psu
-nmP
+uGP
 nmP
 nmP
 nmP
@@ -103111,8 +104238,8 @@ utC
 onI
 rDZ
 fYS
-nmP
-nmP
+qPe
+qPe
 nmP
 nmP
 nmP
@@ -103196,7 +104323,7 @@ eJt
 gVw
 mtE
 cXd
-qgh
+dyx
 cXd
 mtE
 mtE
@@ -114780,7 +115907,7 @@ iYp
 sSy
 rnB
 ira
-ira
+wIH
 rnB
 ira
 ira
@@ -118107,23 +119234,23 @@ nRA
 nRA
 nRA
 fQk
-aJR
-aOQ
+dhp
+mRN
 wap
 avG
-tsb
-tsb
+fUS
+whB
 tsb
 avG
 avG
 avG
 avG
 bPH
-avG
+cfF
 bxn
 avG
-avG
-avG
+bQI
+hJB
 avG
 eRv
 aJR
@@ -118359,24 +119486,24 @@ wlS
 tzM
 dwN
 jMN
-aJR
-aOQ
+dhp
+mRN
 mWF
 kHO
 mEf
 mEf
+qzb
 mEf
-mEf
-mEf
+mFF
 mEf
 mEf
 mVJ
+jDX
+rgy
 mEf
-dgQ
-mEf
-kHO
-kHO
-bzQ
+bcu
+gXr
+ikh
 aUC
 aJR
 mQD
@@ -118611,21 +119738,21 @@ tzM
 tzM
 dwN
 jMN
-uEi
-iQw
+ppu
+pHW
 mWF
-mEf
+fgv
 sIu
 xiO
 mEf
+jXu
 mEf
-mEf
-kHO
+gtS
 kHO
 mEf
 mEf
 dgQ
-mEf
+bAV
 mEf
 mEf
 skd
@@ -118867,18 +119994,18 @@ grJ
 grJ
 weW
 wWN
-eXV
+xNK
 eXV
 eXV
 eXV
 lPb
 eXV
 eXV
-yhB
-tGW
+eXV
+eXV
 qjF
-eXV
-eXV
+bZr
+rzK
 foG
 eXV
 mEf
@@ -119118,20 +120245,20 @@ jMN
 grJ
 grJ
 mOC
+pnl
+wor
 eXV
 eXV
 eXV
 eXV
 eXV
-eXV
-eXV
-eXV
-eXV
+mGq
+vdu
 whB
 cdn
 whB
-eXV
-yhB
+fFr
+gfp
 whB
 mEf
 grJ
@@ -119377,14 +120504,14 @@ eXV
 eXV
 eXV
 eXV
-eXV
-eXV
+yhB
+xjf
 whB
 qjF
 eXV
 eXV
 eXV
-whB
+hrR
 mEf
 grJ
 grJ
@@ -119619,25 +120746,25 @@ tzM
 tzM
 dwN
 jMN
-jol
-vlj
-mWF
+kHf
+kSz
+nwI
+mEf
+dIF
 mEf
 mEf
 mEf
 mEf
 mEf
-mEf
-mEf
-kHO
+dWm
 kHO
 mEf
 eor
 mEf
 mEf
-mEf
+wZX
 fzC
-aUC
+amo
 jol
 rnr
 aiD
@@ -119871,24 +120998,24 @@ jzz
 tzM
 dwN
 jMN
-aJR
-aOQ
+dhp
+mRN
 mWF
 mEf
-mEf
+kZO
 mEf
 mEf
 kHO
 kHO
 kHO
 mEf
-mEf
+iqp
 mEf
 dgQ
 mEf
-mEf
-mEf
-skd
+xhx
+vYD
+wNq
 aUC
 aJR
 mQD
@@ -120123,8 +121250,8 @@ oAO
 oAO
 oAO
 fvE
-aJR
-aOQ
+dhp
+mRN
 cVZ
 pVF
 pVF
@@ -120138,9 +121265,9 @@ pVF
 pVF
 iCR
 pVF
-pVF
-pVF
-pVF
+nHd
+kmk
+uWo
 cFL
 aJR
 mQD
