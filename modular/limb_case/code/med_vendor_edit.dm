@@ -25,7 +25,7 @@ GLOBAL_LIST_EMPTY(cm_vending_clothing_field_doctor)
 
 //Добавляем в карго заказ конечностей
 /datum/supply_packs/medical_limb_kit
-	name = "Набор запасныйх конечностей (Набор синтетических конечностей х 3)"
+	name = "Набор запасных конечностей (Набор синтетических конечностей х 3)"
 	contains = list(
 		/obj/item/storage/robot_parts_kit,
 		/obj/item/storage/robot_parts_kit,
