@@ -6,7 +6,7 @@
 	var/effect_modifier_source = null
 	var/effect_end_message = null
 
-/datum/effects/xeno_speed/New(atom/A, mob/from = null, last_dmg_source = null, zone = "chest", ttl = 3.5 SECONDS, set_speed_modifier = 0, set_modifier_source = null, set_end_message = SPAN_XENONOTICE("Вы чувствуете себя вялым..."), show_baloon_alert = FALSE)
+/datum/effects/xeno_speed/New(atom/A, mob/from = null, last_dmg_source = null, zone = "chest", ttl = 3.5 SECONDS, set_speed_modifier = 0, set_modifier_source = null, set_end_message = SPAN_XENONOTICE("Вы чувствуете себя вялым..."), show_baloon_alert = FALSE) // SS220 EDIT ADDICTION
 	. = ..(A, from, last_dmg_source, zone)
 	if(QDELETED(src))
 		return

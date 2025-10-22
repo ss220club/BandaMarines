@@ -19,19 +19,19 @@
 
 
 /datum/effects/pain/human/mild
-	pain_message = "Вы морщитесь от боли."
+	pain_message = "Вы морщитесь от боли." // SS220 EDIT ADDICTION
 
 
 /datum/effects/pain/human/discomforting
-	pain_message = "Вам бы не помешало обезболивающее."
+	pain_message = "Вам бы не помешало обезболивающее." // SS220 EDIT ADDICTION
 
 
 /datum/effects/pain/human/moderate
-	pain_message = "Вам нужно обезболивающее!"
+	pain_message = "Вам нужно обезболивающее!" // SS220 EDIT ADDICTION
 
 
 /datum/effects/pain/human/distressing
-	pain_message = "Боль уже невыносимая!"
+	pain_message = "Боль уже невыносимая!" // SS220 EDIT ADDICTION
 	emote_message = list("grimaces in pain.")
 
 /datum/effects/pain/human/distressing/process_mob()
@@ -48,7 +48,7 @@
 
 
 /datum/effects/pain/human/severe
-	pain_message = "Вы чувствуете, что можете умереть в любой момент!"
+	pain_message = "Вы чувствуете, что можете умереть в любой момент!" // SS220 EDIT ADDICTION
 	emote_message = list("is having trouble keeping their eyes open.")
 
 /datum/effects/pain/human/severe/process_mob()
@@ -71,7 +71,7 @@
 
 
 /datum/effects/pain/human/horrible
-	pain_message = "Вы чувствуете, что можете умереть в любой момент!"
+	pain_message = "Вы чувствуете, что можете умереть в любой момент!" // SS220 EDIT ADDICTION
 	emote_message = list("is having trouble standing.")
 
 /datum/effects/pain/human/horrible/process_mob()

@@ -41,12 +41,12 @@
 	return PROCESS_KILL
 
 /datum/effects/stamina/human/tier2
-	pain_message = "Вы чувствуете себя очень усталым."
+	pain_message = "Вы чувствуете себя очень усталым." // SS220 EDIT ADDICTION
 	slowdown = STAMINA_SPEED_MED
 
 
 /datum/effects/stamina/human/tier3
-	pain_message = "Вы чувствуете себя истощённым."
+	pain_message = "Вы чувствуете себя истощённым." // SS220 EDIT ADDICTION
 	emote_message = list("yawns.")
 	slowdown = STAMINA_SPEED_HIGH
 
@@ -63,7 +63,7 @@
 
 
 /datum/effects/stamina/human/tier4
-	pain_message = "Вы чувствуете, что можете отрубиться в любой момент!"
+	pain_message = "Вы чувствуете, что можете отрубиться в любой момент!" // SS220 EDIT ADDICTION
 	emote_message = list("is having trouble keeping their eyes open.")
 	slowdown = STAMINA_SPEED_SLOW
 
@@ -84,7 +84,7 @@
 
 
 /datum/effects/stamina/human/tier5
-	pain_message = "Вы чувствуете, что можете отрубиться в любой момент!"
+	pain_message = "Вы чувствуете, что можете отрубиться в любой момент!" // SS220 EDIT ADDICTION
 	emote_message = list("is having trouble standing.")
 	slowdown = STAMINA_SPEED_VERYSLOW
 

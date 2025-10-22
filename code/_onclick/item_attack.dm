@@ -65,14 +65,14 @@
 			to_chat(H, SPAN_DANGER("You are currently unable to attack."))
 			return FALSE
 
-	var/showname = ""
+	var/showname = "" // SS220 EDIT ADDICTION
 	if(user)
 		if(M == user)
-			showname = " себя"
+			showname = " себя" // SS220 EDIT ADDICTION
 		else
-			showname = " [user]"
+			showname = " [user]" // SS220 EDIT ADDICTION
 	if(!(user in viewers(M, null)))
-		showname = ""
+		showname = "" // SS220 EDIT ADDICTION
 
 	if (user.a_intent == INTENT_HELP && ((user.client?.prefs && user.client?.prefs?.toggle_prefs & TOGGLE_HELP_INTENT_SAFETY) || (user.mob_flags & SURGERY_MODE_ON)))
 		playsound(loc, 'sound/effects/pop.ogg', 25, 1)
