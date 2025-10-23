@@ -1,27 +1,8 @@
-//Разделяем вендоры доктора и полевого доктора
-/obj/structure/machinery/cm_vending/clothing/medical_crew/get_listed_products(mob/user)
-	if(!user)
-		var/list/combined = list()
-		combined += GLOB.cm_vending_clothing_nurse
-		combined += GLOB.cm_vending_clothing_researcher
-		combined += GLOB.cm_vending_clothing_cmo
-		combined += GLOB.cm_vending_clothing_doctor
-		combined += GLOB.cm_vending_clothing_field_doctor
-		return combined
-	else if (user.job == JOB_FIELD_DOCTOR)
-		return GLOB.cm_vending_clothing_field_doctor
-	. = ..()
+//Добавляем в раундстарт пресет
+/datum/equipment_preset/uscm_ship/uscm_medical/field_doctor/load_gear(mob/living/carbon/human/new_human)
+	.=..()
+	new_human.equip_to_slot_or_del(new /obj/item/storage/robot_parts_kit(new_human), WEAR_IN_BACK)
 
-//Заполняем вендора для полевого и подключаем новый вендор к переводу
-/datum/modpack/limb_case/post_initialize()
-	. = ..()
-	GLOB.cm_vending_clothing_field_doctor += GLOB.cm_vending_clothing_doctor
-	LAZYINSERT(GLOB.cm_vending_clothing_field_doctor,list(list("НАБОР ЗАПАСНЫХ КОНЕЧНОСТЕЙ", 0, null, null, null)),6)
-	LAZYINSERT(GLOB.cm_vending_clothing_field_doctor,list(list("Кейс с роботизированными конечностями", 0, /obj/item/storage/robot_parts_kit, MARINE_CAN_BUY_KIT, VENDOR_ITEM_REGULAR)),7)
-	translate_vendor_entries_to_ru(GLOB.cm_vending_clothing_field_doctor)
-
-//Готовим глобалку для вендора полевого
-GLOBAL_LIST_EMPTY(cm_vending_clothing_field_doctor)
 
 //Добавляем в карго заказ конечностей
 /datum/supply_packs/medical_limb_kit
