@@ -508,11 +508,11 @@
 
 // Ship section bounds
 
-#define UPPER_DECK "Upper deck"
-#define LOWER_DECK "Lower deck"
-#define FORESHIP "Foreship"
-#define MIDSHIP "Midship"
-#define AFTSHIP "Aftship"
+#define UPPER_DECK "Верхняя палуба"
+#define LOWER_DECK "Нижняя палуба"
+#define FORESHIP "Носовая часть"
+#define MIDSHIP "Центральная часть"
+#define AFTSHIP "Кормовая часть"
 
 // Turf protection levels
 
