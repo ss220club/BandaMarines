@@ -1,12 +1,5 @@
-// BEGIN_INTERNALS
-// END_INTERNALS
-// BEGIN_FILE_DIR
 #define FILE_DIR .
-// END_FILE_DIR
-// BEGIN_PREFERENCES
-// END_PREFERENCES
-// BEGIN_INCLUDE
+
 #include "_limb_case.dm"
-#include "code\limb_case.dm"
-#include "code\med_vendor_edit.dm"
-// END_INCLUDE
+#include "code/limb_case.dm"
+#include "code/med_vendor_edit.dm"
