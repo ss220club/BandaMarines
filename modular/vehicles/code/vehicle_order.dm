@@ -1,10 +1,10 @@
 // Категоризация техники
-/proc/get_vehicle_category(datum/vehicle_order/VO)
-	if(istype(VO, /datum/vehicle_order/apc) || istype(VO, /datum/vehicle_order/apc/med) || istype(VO, /datum/vehicle_order/apc/cmd) || istype(VO, /datum/vehicle_order/tank))
+/proc/get_vehicle_category(datum/vehicle_order/order)
+	if(istype(order, /datum/vehicle_order/apc) || istype(order, /datum/vehicle_order/apc/med) || istype(order, /datum/vehicle_order/apc/cmd) || istype(order, /datum/vehicle_order/tank))
 		return "heavy support vehicles"
-	if(istype(VO, /datum/vehicle_order/arc))
+	if(istype(order, /datum/vehicle_order/arc))
 		return "light recon vehicle"
-	if(istype(VO, /datum/vehicle_order/van))
+	if(istype(order, /datum/vehicle_order/van))
 		return "light carrier"
 	return "other"
 
@@ -28,15 +28,15 @@
 	category_limits = list("heavy support vehicles" = 1, "light recon vehicle" = 1, "light carrier" = 1)
 	category_given = list("heavy support vehicles" = 0, "light recon vehicle" = 0, "light carrier" = 0)
 	spent = FALSE // отключаем механику разовой выдачи
-	tank_unlocked = TRUE // что это вообще значит
-	circuit = null  // Это убирает возможность разбора консоли
-// отключены проверки allowed_roles и доступа, var/list/allowed_roles = list(JOB_TANK_CREW)
+	tank_unlocked = TRUE
+	circuit = null  // Это убирает возможность разбора консоли, чтобы нельзя было обнулять лимиты пересбором
+	// отключены проверки allowed_roles и доступа, var/list/allowed_roles = list(JOB_TANK_CREW)
 
 // Интерфейс консоли
 /obj/structure/machinery/computer/supply/asrs/vehicle/attack_hand(mob/living/carbon/human/H as mob)
 	if(inoperable()) return
 
-// тут были проверки на доступ
+//  тут были проверки на доступ
 //	if(LAZYLEN(allowed_roles) && !allowed_roles.Find(H.job)) //replaced Z-level restriction with role restriction.
 //		to_chat(H, SPAN_WARNING("This console isn't for you."))
 //		return
@@ -73,22 +73,22 @@
 
 	dat += "<hr><h4>Available Vehicles</h4>"
 	for(var/d in vehicles)
-		var/datum/vehicle_order/VO = d
-		var/category = get_vehicle_category(VO)
+		var/datum/vehicle_order/order = d
+		var/category = get_vehicle_category(order)
 		var/used = category_given[category]
 		var/limit = category_limits[category]
 
-		if(VO.has_vehicle_lock())
-			dat += VO.failure_message
+		if(order.has_vehicle_lock())
+			dat += order.failure_message
 			continue
 		if(used >= limit)
-			dat += "<font color='gray'>[VO.name] (limit reached)</font><br>"
+			dat += "<font color='gray'>[order.name] (limit reached)</font><br>"
 			continue
 		if(!category_unlocked(category))
-			dat += "<font color='gray'>[VO.name] (category locked)</font><br>"
+			dat += "<font color='gray'>[order.name] (category locked)</font><br>"
 			continue
 
-		dat += "<a href='byond://?src=\ref[src];get_vehicle=\ref[VO]'>[VO.name]</a> ([category])<br>"
+		dat += "<a href='byond://?src=\ref[src];get_vehicle=\ref[order]'>[order.name]</a> ([category])<br>"
 
 	show_browser(H, dat, asrs_name, "computer", width = 575, height = 450)
 
@@ -103,11 +103,11 @@
 	var/turf/lower_turf = get_turf(SSshuttle.getDock("adminlevel vehicle"))
 
 	if(href_list["get_vehicle"])
-		var/datum/vehicle_order/VO = locate(href_list["get_vehicle"])
-		if(!(VO in vehicles))
+		var/datum/vehicle_order/order = locate(href_list["get_vehicle"])
+		if(!(order in vehicles))
 			return
 
-		var/category = get_vehicle_category(VO)
+		var/category = get_vehicle_category(order)
 		if(!category_unlocked(category))
 			to_chat(usr, SPAN_WARNING("[category] category not available yet!"))
 			return
@@ -125,11 +125,11 @@
 		category_given[category] = used + 1
 
 		var/turf/spawn_turf = lower_turf
-		var/obj/vehicle/multitile/ordered_vehicle = new VO.ordered_vehicle(spawn_turf)
-		to_chat(usr, SPAN_NOTICE("[VO.name] retrieved. [limit - category_given[category]] remaining in [category] category."))
+		var/obj/vehicle/multitile/ordered_vehicle = new order.ordered_vehicle(spawn_turf)
+		to_chat(usr, SPAN_NOTICE("[order.name] retrieved. [limit - category_given[category]] remaining in [category] category."))
 
 		SSshuttle.vehicle_elevator.request(SSshuttle.getDock("almayer vehicle"))
-		VO.on_created(ordered_vehicle)
+		order.on_created(ordered_vehicle)
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_VEHICLE_ORDERED, ordered_vehicle)
 
 	else if(href_list["lower_elevator"])
