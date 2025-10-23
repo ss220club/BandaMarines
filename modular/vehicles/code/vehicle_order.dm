@@ -23,14 +23,18 @@
 	var/list/category_given    // сколько уже выдали
 
 /obj/structure/machinery/computer/supply/asrs/vehicle/Initialize()
-	// не вызываем родительский Initialize() чтобы избежать двойной инициализации spent
-	..()
-	category_limits = list("heavy support vehicles" = 1, "light recon vehicle" = 1, "light carrier" = 1)
-	category_given = list("heavy support vehicles" = 0, "light recon vehicle" = 0, "light carrier" = 0)
-	spent = FALSE // отключаем механику разовой выдачи
-	tank_unlocked = TRUE
-	circuit = null  // Это убирает возможность разбора консоли, чтобы нельзя было обнулять лимиты пересбором
-	// отключены проверки allowed_roles и доступа, var/list/allowed_roles = list(JOB_TANK_CREW)
+    // не вызываем родительский Initialize() чтобы избежать двойной инициализации spent
+    . = ..()  // сохраняем, что вернул родитель, если он что-то вернёт
+    if (.)    // если родитель вернул, например, INITIALIZE_HINT_QDEL — возвращаем его
+        return .
+    category_limits = list("heavy support vehicles" = 1, "light recon vehicle" = 1, "light carrier" = 1)
+    category_given = list("heavy support vehicles" = 0, "light recon vehicle" = 0, "light carrier" = 0)
+    spent = FALSE // отключаем механику разовой выдачи
+    tank_unlocked = TRUE
+    circuit = null  // Это убирает возможность разбора консоли, чтобы нельзя было обнулять лимиты пересбором
+    // отключены проверки allowed_roles и доступа, var/list/allowed_roles = list(JOB_TANK_CREW)
+
+    return INITIALIZE_HINT_NORMAL
 
 // Интерфейс консоли
 /obj/structure/machinery/computer/supply/asrs/vehicle/attack_hand(mob/living/carbon/human/H as mob)
