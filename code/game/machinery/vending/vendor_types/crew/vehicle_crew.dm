@@ -69,6 +69,12 @@
 	selected_vehicle = spawner.category
 	if(selected_vehicle == "APC")
 		marine_announcement("В поддержку наземных сил операции вам будет предоставлен БТР.")
+	selected_vehicle = spawner.category
+	if(selected_vehicle == "ARC")
+		marine_announcement("В поддержку наземных сил операции вам будет предоставлен БМР.")
+	selected_vehicle = spawner.category
+	if(selected_vehicle == "VAN")
+		marine_announcement("В поддержку наземных сил операции вам будет предоставлен Грузовик.")
 	// BANDAMARINES ADD End
 
 	if(!selected_vehicle)
