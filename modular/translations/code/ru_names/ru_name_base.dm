@@ -70,6 +70,42 @@ GLOBAL_LIST_EMPTY(ru_names)
 			gender = "[entry["gender"] || null]",
 		)
 
+// see proc/apply_label()
+// change prefix and postfix in current ru_names
+/proc/ru_names_toml_rename(list/ru_names, prefix = "", postfix = "")
+	if(!length(ru_names) || !GLOB.ru_names[ru_names["base"]])
+		return
+
+	return list(
+		base = "[prefix][ru_names["base"]][postfix]",
+		NOMINATIVE = "[prefix][ru_names[NOMINATIVE]][postfix]",
+		GENITIVE = "[prefix][ru_names[GENITIVE]][postfix]",
+		DATIVE = "[prefix][ru_names[DATIVE]][postfix]",
+		ACCUSATIVE = "[prefix][ru_names[ACCUSATIVE]][postfix]",
+		INSTRUMENTAL = "[prefix][ru_names[INSTRUMENTAL]][postfix]",
+		PREPOSITIONAL = "[prefix][ru_names[PREPOSITIONAL]][postfix]",
+		gender = "[ru_names["gender"]]",
+	)
+
+// see proc/clear_label()
+// clearing ru_names, base name must be original
+/proc/ru_names_toml_clear(list/ru_names)
+	if(!length(ru_names) || !GLOB.ru_names[ru_names["base"]])
+		return
+
+	var/list/entry = GLOB.ru_names[ru_names["base"]]
+
+	return list(
+		base = "[ru_names["base"]]",
+		NOMINATIVE = "[entry["nominative"]]",
+		GENITIVE = "[entry["genitive"]]",
+		DATIVE = "[entry["dative"]]",
+		ACCUSATIVE = "[entry["accusative"]]",
+		INSTRUMENTAL = "[entry["instrumental"]]",
+		PREPOSITIONAL = "[entry["prepositional"]]",
+		gender = "[ru_names["gender"]]",
+	)
+
 /atom/Initialize(mapload, ...)
 	. = ..()
 	ru_names_rename(ru_names_toml(name))
@@ -81,6 +117,11 @@ GLOBAL_LIST_EMPTY(ru_names)
 /datum/proc/ru_names_rename(list/new_list)
 	SHOULD_CALL_PARENT(FALSE)
 	CRASH("Unimplemented proc/ru_names_rename() was used")
+
+/proc/get_declented_value(list/declented_list, declent, backup_value)
+	if(declent == "gender")
+		return declented_list[declent] || backup_value
+	return declented_list[declent] || declented_list[NOMINATIVE] || backup_value
 
 /// Необходимо использовать ПЕРЕД изменением var/name, и использовать только этот прок для изменения в рантайме склонений
 /atom/ru_names_rename(list/new_list)
@@ -99,11 +140,6 @@ GLOBAL_LIST_EMPTY(ru_names)
 */
 /datum/proc/declent_ru(declent = NOMINATIVE)
 	CRASH("Unimplemented proc/declent_ru() was used")
-
-/proc/get_declented_value(list/declented_list, declent, backup_value)
-	if(declent == "gender")
-		return declented_list[declent] || backup_value
-	return declented_list[declent] || declented_list[NOMINATIVE] || backup_value
 
 /atom/declent_ru(declent)
 	. = name

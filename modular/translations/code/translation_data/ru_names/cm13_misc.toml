@@ -414,6 +414,24 @@ instrumental = "коричневым спичечным коробком"
 prepositional = "коричневом спичечном коробке"
 gender = "male"
 
+["crayon"]
+nominative = "мелок"
+genitive = "мелка"
+dative = "мелку"
+accusative = "мелок"
+instrumental = "мелком"
+prepositional = "мелке"
+gender = "male"
+
+["match"]
+nominative = "спичка"
+genitive = "спички"
+dative = "спичке"
+accusative = "спичку"
+instrumental = "спичкой"
+prepositional = "спичке"
+gender = "female"
+
 ["paper match"]
 nominative = "спичка"
 genitive = "спички"
@@ -421,6 +439,24 @@ dative = "спичке"
 accusative = "спичку"
 instrumental = "спичкой"
 prepositional = "спичке"
+gender = "female"
+
+["burnt paper match"]
+nominative = "сгоревшая спичка"
+genitive = "сгоревшей спички"
+dative = "сгоревшей спичке"
+accusative = "сгоревшую спичку"
+instrumental = "сгоревшей спичкой"
+prepositional = "сгоревшей спичке"
+gender = "female"
+
+["burnt match"]
+nominative = "сгоревшая спичка"
+genitive = "сгоревшей спички"
+dative = "сгоревшей спичке"
+accusative = "сгоревшую спичку"
+instrumental = "сгоревшей спичкой"
+prepositional = "сгоревшей спичке"
 gender = "female"
 
 ["glass ashtray"]
@@ -439,6 +475,15 @@ dative = "пластиковой пепельнице"
 accusative = "пластиковую пепельницу"
 instrumental = "пластиковой пепельницей"
 prepositional = "пластиковой пепельнице"
+gender = "female"
+
+["bronze ashtray"]
+nominative = "бронзовая пепельница"
+genitive = "бронзовой пепельницы"
+dative = "бронзовой пепельнице"
+accusative = "бронзовую пепельницу"
+instrumental = "бронзовой пепельницей"
+prepositional = "бронзовой пепельнице"
 gender = "female"
 
 ["basketball"]
@@ -1283,3 +1328,21 @@ accusative = "отвёртку"
 instrumental = "отвёрткой"
 prepositional = "отвёртке"
 gender = "female"
+
+["box of paper cups"]
+nominative = "коробка бумажных стаканчиков"
+genitive = "коробки бумажных стаканчиков"
+dative = "коробке бумажных стаканчиков"
+accusative = "коробку бумажных стаканчиков"
+instrumental = "коробкой бумажных стаканчиков"
+prepositional = "коробке бумажных стаканчиков"
+gender = "female"
+
+["paper cup"]
+nominative = "бумажный стаканчик"
+genitive = "бумажного стаканчика"
+dative = "бумажному стаканчику"
+accusative = "бумажный стаканчик"
+instrumental = "бумажным стаканчиком"
+prepositional = "бумажном стаканчике"
+gender = "male"

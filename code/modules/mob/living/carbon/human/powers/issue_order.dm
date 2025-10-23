@@ -1,14 +1,14 @@
 /mob/living/carbon/human/proc/issue_order(order)
 	if(!HAS_TRAIT(src, TRAIT_LEADERSHIP))
-		to_chat(src, SPAN_WARNING("You are not qualified to issue orders!"))
+		to_chat(src, SPAN_WARNING("Вы не можете отдавать приказы!"))
 		return
 
 	if(stat)
-		to_chat(src, SPAN_WARNING("You cannot give an order in your current state."))
+		to_chat(src, SPAN_WARNING("Вы не можете отдать приказ в вашем текущем состоянии."))
 		return
 
 	if(!command_aura_available)
-		to_chat(src, SPAN_WARNING("You have recently given an order. Calm down."))
+		to_chat(src, SPAN_WARNING("Вы недавно отдали приказ. Подождите немного."))
 		return
 
 	if(!skills)
@@ -20,13 +20,13 @@
 	if(!order)
 		order = tgui_input_list(src, "Choose an order", "Order to send", list(COMMAND_ORDER_MOVE, COMMAND_ORDER_HOLD, COMMAND_ORDER_FOCUS, "help", "cancel"))
 		if(order == "help")
-			to_chat(src, SPAN_NOTICE("<br>Orders give a buff to nearby soldiers for a short period of time, followed by a cooldown, as follows:<br><B>Move</B> - Increased mobility and chance to dodge projectiles.<br><B>Hold</B> - Increased resistance to pain and combat wounds.<br><B>Focus</B> - Increased gun accuracy and effective range.<br>"))
+			to_chat(src, SPAN_NOTICE("<br>Приказы ненадолго дают бонусы ближайшим морпехам:<br><B>Вперёд</B> - Повышает скорость передвижения и шанс уклонения.<br><B>Держать позицию</B> - Повышает устойчивость к боли и ранениям.<br><B>Сосредоточить огонь</B> - Повышает точность и эффективную дальность стрельбы.<br>"))
 			return
 		if(!order || order == "cancel")
 			return
 
 		if(!command_aura_available)
-			to_chat(src, SPAN_WARNING("You have recently given an order. Calm down."))
+			to_chat(src, SPAN_WARNING("Вы недавно отдали приказ. Подождите немного."))
 			return
 
 	command_aura_available = FALSE
@@ -54,17 +54,17 @@
 		var/spoken_order = ""
 		switch(order)
 			if(COMMAND_ORDER_MOVE)
-				spoken_order = pick("*ДВИГАЕМ БУЛКАМИ*!", "*ШЕВЕЛИМСЯ*!", "*ДВИГАЕМСЯ, ДВИГАЕМСЯ*!", "*ПОШЕЛ, ПОШЕЛ, ПОШЕЛ*!", "*ВПЕРЕД*! *БЫСТРЕЕ*!", "*ДВИГАЙ, ДВИГАЙ, ДВИГАЙ*!", "*БЕГОМ, МАРШ*!", "*ШИРЕ ШАГ*!", "*ШЕВЕЛИМ ЛАСТАМИ*!", "*ШЕВЕЛИМ НОЖКАМИ, ДАМЫ*!")
+				spoken_order = pick("*ДВИГАЕМСЯ*!", "*ПОШЁЛ, ПОШЁЛ, ПОШЁЛ*!", "*ШЕВЕЛИМСЯ*!", "*УСКОРЯЕМ ТЕМП*!", "*ДВИГАЕМ БУЛКАМИ, ДАМЫ*!", "*ДВИГАЙ, ДВИГАЙ, ДВИГАЙ*!", "*ВПЕРЁД*!", "*НОГИ В ЗУБЫ И ВПЕРЁД*!", "*БЕГИ ФОРЕСТ, БЕГИ*!", "*БЕГОМ, МАРШ*!", "*ШИРЕ ШАГ*!", "*ШЕВЕЛИМ ЛАСТАМИ*!", "*ШЕВЕЛИМ НОЖКАМИ, ДАМЫ*!", "*УСКОРЯЕМСЯ*!", "*ЗА МНОЙ ПАРНИ, ВПЕРЁД*!", "*ВЫДВИГАЕМСЯ*!", "*ШЕВЕЛИМ ПОРШНЯМИ*!", "*ВЫДВИГАЕМСЯ*!", "*ЛЕТИМ ОТСЮДА*!", "*В ТЕМПЕ ВАЛЬСА*!", "*РВЁМ КОГТИ*!", "*ШНЕЛЛЕ-ШНЕЛЛЕ*!") // SS220 EDIT ADDICTION
 			if(COMMAND_ORDER_HOLD)
-				spoken_order = pick("*ДЕРЖИМ УДАР*!", "*БЕРЕЧЬ ГОЛОВУ*!", "*ПРИГОТОВИТЬСЯ К СТОЛКНОВЕНИЮ*!", "*ДЕРЖАТЬСЯ*!", "*ДЕРЖИТЕ СТРОЙ*!", "*НЕ СДАВАТЬСЯ*!", "*ПРИГОТОВИТЬСЯ К УДАРУ*!")
+				spoken_order = pick("*ВСПЫШКА*!", "*ДЕРЖАТЬ СТРОЙ*!", "*ДЕРЖАТЬ ПОЗИЦИИ*!", "*ПОДНЯТЬ ЩИТЫ*!", "*ДЕРЖАТЬСЯ*!", "*БОЙ ЕЩЁ НЕ ОКОНЧЕН, ДАМЫ*!", "*НЕ СДАВАТЬСЯ*!", "*УХОДИМ В ОБОРОНУ*!", "*НИ ШАГУ НАЗАД*!", "*ДЕРЖИМСЯ ЗА МНОЙ*!", "*ОБОРОНЯЕМ ПОЗИЦИИ*!", "*ЗА БАРИКАДЫ, ОТКРЫТЬ ОГОНЬ*!", "*В ОБОРОНУ*!", "*ПРИГОТОВИТЬСЯ К УДАРУ*!", "*ОНИ НЕ СЛОМЯТ НАШ ДУХ*!", "*СОМКНУТЬ РЯДЫ*!", "*ЗА БАРИКАДЫ*!", "*ЗАТЯНИТЕ ПОЯСА, МОРПЕХИ*!", "*ЗА НАМИ ФОБ, ОГОНЬ*!", "*НЕ СДАВАТЬСЯ*!", "*НЕ СДАВАТЬСЯ, ОСТАЛОСЬ НЕМНОГО*!") // SS220 EDIT ADDICTION
 			if(COMMAND_ORDER_FOCUS)
-				spoken_order = pick("*НЕ ПАЛИТЕ ПО СВОИМ*!", "*СОСРЕДОТОЧИТЬ ОГОНЬ*!", "*СТРЕЛЬБА НА ПОРАЖЕНИЕ*!", "*ПРИМКНУТЬ ШТЫКИ*!", "*ОГОНЬ ПО ГОТОВНОСТИ*!", "*ОРУЖИЕ НА ИЗГОТОВКУ*!", "*ЦЕЛЬСЯ*!", "*ВНИМАНИЕ*!", "*ОГОНЬ*!", "*ГОТОВЬТЕСЬ К БОЮ*!", "*НАКОРМИТЕ ИХ СВИНЦОМ*!", "*УНИЧТОЖИТЬ ЦЕЛЬ*!")
+				spoken_order = pick("*СОСРЕДОТОЧИТЬ ОГОНЬ*!", "*НЕ ПАЛИТЕ ПО СВОИМ*!", "*СТРЕЛЬБА НА ПОРАЖЕНИЕ*!", "*ЦЕЛЬСЯ*!", "*ОГОНЬ ПО МОЕЙ КОМАНДЕ*!", "*ВЕДЁМ ПЛОТНЫЙ ОГОНЬ*!", "*ЗАЛЬЁМ ИХ СВИНЦОМ*!", "*УБИТЬ ИХ ВСЕХ*!", "*ОГОНЬ, ОГОНЬ, ОГОНЬ*!", "*КРЕПЧЕ ДЕРЖИМ СТВОЛЫ*!", "*ЦЕЛЬТЕСЬ В СЛАБЫЕ МЕСТА*!", "*ОГОНЬ ПО ВРАГУ*!", "*НЕ ЖАЛЕЕМ ПАТРОНЫ*!", "*ЗАДАВИМ ИХ ОГНЁМ*!", "*ВЕДЁМ ПЕРЕКРЁСТНЫЙ ОГОНЬ*!", "*ОГОНЬ ПО ГОТОВНОСТИ*!", "*ОРУЖИЕ НА ИЗГОТОВКУ*!", "*ВНИМАНИЕ*!", "*ОГОНЬ*!", "*ГОТОВЬТЕСЬ К БОЮ*!", "*НАКОРМИТЕ ИХ СВИНЦОМ*!", "*УНИЧТОЖИТЬ ЦЕЛЬ*!") // SS220 EDIT ADDICTION
 		say(spoken_order) // if someone thinks about adding new lines, it'll be better to split the current ones we have into two different lists per order for readability, and have a coin flip pick between spoken_orders 1 or 2
 	else
 		visible_message(SPAN_BOLDNOTICE("[src] gives an order to [order]!"), SPAN_BOLDNOTICE("You give an order to [order]!"))
 
 /mob/living/carbon/human/proc/make_aura_available()
-	to_chat(src, SPAN_NOTICE("You can issue an order again."))
+	to_chat(src, SPAN_NOTICE("Вы можете отдать приказ ещё раз."))
 	command_aura_available = TRUE
 	for(var/datum/action/A in actions)
 		A.update_button_icon()

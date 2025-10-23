@@ -68,12 +68,15 @@
 
 #define SPAN_ALERTWARNING(X) "<span class='alertwarning'>[X]</span>"
 #define SPAN_WARNING(X) "<span class='warning'>[X]</span>"
+#define SPAN_WARNING_BOLD(X) "<span class='boldwarning'>[X]</span>" // SS220 EDIT ADDICTION
 #define SPAN_BOLDWARNING(X) "<span class='boldwarning'>[X]</span>"
 #define SPAN_ALERT(X) "<span class='alert'>[X]</span>"
 
 #define SPAN_INFO(X) "<span class='info'>[X]</span>"
+#define SPAN_INFO_BOLD(X) "<span class='infobold'>[X]</span>" // SS220 EDIT ADDICTION
 
 #define SPAN_DANGER(X) "<span class='danger'>[X]</span>"
+#define SPAN_DANGER_BOLD(X) "<span class='bolddanger'>[X]</span>"
 #define SPAN_USERDANGER(X) "<span class='userdanger'>[X]</span>"
 #define SPAN_HIGHDANGER(X) "<span class='highdanger'>[X]</span>"
 
