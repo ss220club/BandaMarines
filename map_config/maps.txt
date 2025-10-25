@@ -66,6 +66,6 @@ endmap
 map whiskey_outpost_v2
 endmap
 
-map lv759_hybrisa_prospera
+map Neer_lv759
 	minplayers 70
 endmap
