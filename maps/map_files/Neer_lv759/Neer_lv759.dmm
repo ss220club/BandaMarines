@@ -48810,22 +48810,6 @@
 /obj/item/ammo_box/magazine/m39/heap/empty,
 /turf/open/floor/prison,
 /area/Neer_lv759/indoors/wy_research_complex/reception)
-"vIg" = (
-/obj/structure/stairs/perspective{
-	color = "#b29082";
-	icon_state = "p_stair_full"
-	},
-/obj/structure/barricade/handrail/kutjevo{
-	dir = 8
-	},
-/obj/structure/barricade/handrail/kutjevo{
-	dir = 4
-	},
-/obj/structure/barricade/handrail/kutjevo{
-	dir = 8
-	},
-/turf/open/floor/prison/chapel_carpet/doubleside,
-/area/Neer_lv759/indoors/wy_research_complex/changingroom)
 "vIi" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/inflatable,
@@ -102616,7 +102600,7 @@ bKI
 myH
 rFk
 ayp
-vIg
+qXo
 pRZ
 qXo
 pRZ
