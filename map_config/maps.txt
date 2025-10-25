@@ -60,6 +60,11 @@ map lv759_hybrisa_prospera
 	minplayers 130
 endmap
 
+map lv759_hybrisa_prospera_fixed
+	voteweight 0
+        minplayers 60
+endmap
+
 map new_varadero
 endmap
 
