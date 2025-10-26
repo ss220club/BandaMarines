@@ -67,5 +67,4 @@ map whiskey_outpost_v2
 endmap
 
 map Neer_lv759
-	minplayers 70
 endmap

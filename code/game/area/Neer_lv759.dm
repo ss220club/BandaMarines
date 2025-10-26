@@ -151,7 +151,7 @@
 
 // Weyland-Yutani Advanced Bio-Genomic Research Complex
 
-/area//area/Neer_lv759/indoors/wy_research_complex
+/area/area/Neer_lv759/indoors/wy_research_complex
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex"
 	icon_state = "wylab"
 	minimap_color = MINIMAP_AREA_HYBRISARESEARCH
