@@ -1,3 +1,5 @@
+/* для потомков
+
 GLOBAL_LIST_EMPTY(ru_span_cache)
 VAR_PRIVATE/const/MAX_CACHE_SIZE = 100000
 
@@ -7,9 +9,6 @@ VAR_PRIVATE/const/MAX_CACHE_SIZE = 100000
 // list/attr - аргументы для подстановки в строку
 // with_span_args - поиск по ru_span_args, иногда полезно
 // type - для логов, чтобы понимать откуда вызов
-
-/* для потомков
-
 /proc/ru_span(str, list/attr = list(), with_span_args = FALSE, type = "")
 	if (!str || !length(str))
 		return

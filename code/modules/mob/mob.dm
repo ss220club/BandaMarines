@@ -815,9 +815,9 @@ note dizziness decrements automatically in the mob's Life() proc.
 		return
 
 	if(self)
-		visible_message(SPAN_BOLDWARNING("[declent_ru()] вытаскивает [selection_ru] из своего тела."),SPAN_WARNING_BOLD("Вы вытаскиваете [selection_ru] из своего тела."), null, 5) // SS220 EDIT ADDICTION
+		visible_message(SPAN_BOLDWARNING("[declent_ru()] вытаскивает [selection_ru] из своего тела."),SPAN_BOLDWARNING("Вы вытаскиваете [selection_ru] из своего тела."), null, 5) // SS220 EDIT ADDICTION
 	else
-		visible_message(SPAN_BOLDWARNING("[usr] вытаскивает [selection_ru] из тела [declent_ru()]."),SPAN_WARNING_BOLD("[usr] вытаскивает [selection_ru] из вашего тела."), null, 5) // SS220 EDIT ADDICTION
+		visible_message(SPAN_BOLDWARNING("[usr] вытаскивает [selection_ru] из тела [declent_ru()]."),SPAN_BOLDWARNING("[usr] вытаскивает [selection_ru] из вашего тела."), null, 5) // SS220 EDIT ADDICTION
 
 	if(length(valid_objects) == 1) //Yanking out last object - removing verb.
 		remove_verb(src, /mob/proc/yank_out_object)
