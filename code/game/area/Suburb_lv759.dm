@@ -1,6 +1,6 @@
 //lv759 AREAS--------------------------------------//
 
-/area/Neer_lv759
+/area/Suburb_lv759
 	name = "Suburb_lv759_hybrisa_prospera LV-759 Hybrisa Prospera"
 	icon = 'icons/turf/hybrisareas.dmi'
 	icon_state = "hybrisa"
@@ -8,16 +8,17 @@
 	powernet_name = "ground"
 	minimap_color = MINIMAP_AREA_COLONY_RESANDCOM
 
+// ... и так далее для всех дочерних зон
 //parent types
 
-/area/Neer_lv759/indoors
+/area/Suburb_lv759/indoors
 	name = "Hybrisa - Indoors"
 	icon_state = "cliff_blocked"//because this is a PARENT TYPE and you should not be using it and should also be changing the icon!!!
 	ceiling = CEILING_METAL
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 	ambience_exterior = AMBIENCE_HYBRISA_INTERIOR
 
-/area/Neer_lv759/outdoors
+/area/Suburb_lv759/outdoors
 	name = "Hybrisa - Outdoors"
 	icon_state = "cliff_blocked"//because this is a PARENT TYPE and you should not be using it and should also be changing the icon!!!
 	ceiling = CEILING_NONE
@@ -26,7 +27,7 @@
 	soundscape_interval = 25
 
 
-/area/Neer_lv759/bunker
+/area/Suburb_lv759/bunker
 	name = "Out Of Bounds"
 	icon_state = "oob"
 	ceiling = CEILING_MAX
@@ -35,7 +36,7 @@
 	minimap_color = MINIMAP_AREA_OOB
 
 
-/area/Neer_lv759/bunker/checkpoint
+/area/Suburb_lv759/bunker/checkpoint
 	name = "Checkpoint & Hidden Bunker - Entrance"
 	icon_state = "cliff_blocked"
 	ceiling = CEILING_MAX
@@ -47,7 +48,7 @@
 
 // Landing Zone 1
 
-/area/Neer_lv759/outdoors/landing_zone_1
+/area/Suburb_lv759/outdoors/landing_zone_1
 	name = "The landing platform near the reactor complex"
 	icon_state = "medical_lz1"
 	is_resin_allowed =  FALSE
@@ -59,7 +60,7 @@
 
 // Landing Zone 2
 
-/area/Neer_lv759/outdoors/landing_zone_2
+/area/Suburb_lv759/outdoors/landing_zone_2
 	name = "The landing platform at the top of the mountain"
 	icon_state = "mining_lz2"
 	is_resin_allowed =  FALSE
@@ -72,7 +73,7 @@
 // Caves
 
 
-/area/Neer_lv759/indoors/caves/wy_research_complex_entrance
+/area/Suburb_lv759/indoors/caves/wy_research_complex_entrance
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - North Main Entrance"
 	icon_state = "wylab"
 	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
@@ -84,64 +85,82 @@
 
 
 
-/area/Neer_lv759/indoors/caves/passage_to_bunker
+/area/Suburb_lv759/indoors/caves/passage_to_bunker
 	name = "Passage to the bunker"
 	icon_state = "power0"
 
-/area/Neer_lv759/indoors/caves/Monorail
+/area/Suburb_lv759/indoors/caves/Monorail
 	name = "Monorail"
 	icon_state = "power0"
 
 
 // Colony Streets
 
-/area/Neer_lv759/outdoors/colony_streets
+/area/Suburb_lv759/outdoors/colony_streets
 	name = "Colony Streets"
 	icon_state = "colonystreets_north"
 	ceiling = CEILING_NONE
 	minimap_color = MINIMAP_AREA_COLONY_STREETS
 
-/area/Neer_lv759/outdoors/colony_streets/Main_road
+/area/Suburb_lv759/outdoors/colony_streets/Main_road
 	name = "Main road"
 	icon_state = "colonystreets_west"
 
-/area/Neer_lv759/outdoors/colony_streets/Parking_space
+/area/Suburb_lv759/outdoors/colony_streets/Parking_space
 	name = "Parking space"
 	icon_state = "colonystreets_east"
 	linked_lz = DROPSHIP_LZ1
 
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp
+	name = "CLF camp"
+	icon_state = "colonystreets_west"
 
+/area/Suburb_lv759/outdoors/colony_streets/pizza
+	name = "pizza"
+	icon_state = "colonystreets_west"
+
+/area/Suburb_lv759/outdoors/colony_streets/cottage
+	name = "cottage"
+	icon_state = "colonystreets_west"
+
+/area/Suburb_lv759/outdoors/colony_streets/cottage2
+	name = "cottage2"
+	icon_state = "colonystreets_west"
+
+/area/Suburb_lv759/outdoors/colony_streets/cottage3
+	name = "cottage3"
+	icon_state = "colonystreets_west"
 // WY Security Checkpoints
 
-/area/Neer_lv759/indoors/wy_security
+/area/Suburb_lv759/indoors/wy_security
 	minimap_color = MINIMAP_AREA_COLONY_MARSHALLS
 
-/area/Neer_lv759/indoors/wy_security/checkpoint_northeast
+/area/Suburb_lv759/indoors/wy_security/checkpoint_northeast
 	name = "Weyland-Yutani Security Checkpoint - North East"
 	icon_state = "security_checkpoint_northeast"
 	is_landing_zone = TRUE
 	linked_lz = DROPSHIP_LZ1
 
-/area/Neer_lv759/indoors/wy_security/checkpoint_east
+/area/Suburb_lv759/indoors/wy_security/checkpoint_east
 	name = "Weyland-Yutani Security Checkpoint - East"
 	icon_state = "security_checkpoint_east"
 	linked_lz = list(DROPSHIP_LZ1, DROPSHIP_LZ2)
 
-/area/Neer_lv759/indoors/wy_security/checkpoint_central
+/area/Suburb_lv759/indoors/wy_security/checkpoint_central
 	name = "Weyland-Yutani Security Checkpoint - Central"
 	icon_state = "security_checkpoint_central"
 
-/area/Neer_lv759/indoors/wy_security/checkpoint_west
+/area/Suburb_lv759/indoors/wy_security/checkpoint_west
 	name = "Weyland-Yutani Security Checkpoint - West"
 	icon_state = "security_checkpoint_west"
 
-/area/Neer_lv759/indoors/wy_security/checkpoint_northwest
+/area/Suburb_lv759/indoors/wy_security/checkpoint_northwest
 	name = "Weyland-Yutani Security Checkpoint - North West"
 	icon_state = "security_checkpoint_northwest"
 
 // Misc
 
-/area/Neer_lv759/indoors/hobosecret
+/area/Suburb_lv759/indoors/hobosecret
 	name = "Hidden Hobo Haven"
 	icon_state = "hobo"
 	ceiling = CEILING_REINFORCED_METAL
@@ -151,7 +170,7 @@
 
 // Weyland-Yutani Advanced Bio-Genomic Research Complex
 
-/area/area/Neer_lv759/indoors/wy_research_complex
+/area/Suburb_lv759/indoors/wy_research_complex
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex"
 	icon_state = "wylab"
 	minimap_color = MINIMAP_AREA_HYBRISARESEARCH
@@ -159,115 +178,115 @@
 	unoviable_timer = FALSE
 	ceiling_muffle = FALSE
 
-/area/Neer_lv759/indoors/wy_research_complex/medical_annex
+/area/Suburb_lv759/indoors/wy_research_complex/medical_annex
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - Medical Annex Building"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/reception
+/area/Suburb_lv759/indoors/wy_research_complex/reception
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - Reception & Administration"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB_HALLWAY
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/cargo
+/area/Suburb_lv759/indoors/wy_research_complex/cargo
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - Requisitions & Cargo"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/researchanddevelopment
+/area/Suburb_lv759/indoors/wy_research_complex/researchanddevelopment
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - Technology Research & Development Lab"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/mainlabs
+/area/Suburb_lv759/indoors/wy_research_complex/mainlabs
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - Advanced Chemical Testing & Research Lab"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/xenobiology
+/area/Suburb_lv759/indoors/wy_research_complex/xenobiology
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - Advanced Xenobiology Lab"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB_2
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlab
+/area/Suburb_lv759/indoors/wy_research_complex/weaponresearchlab
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - Advanced Weapon Research Lab"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/weaponresearchlabtesting
+/area/Suburb_lv759/indoors/wy_research_complex/weaponresearchlabtesting
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - Advanced Weapon Research Lab - Weapons Testing Range"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/xenoarcheology
+/area/Suburb_lv759/indoors/wy_research_complex/xenoarcheology
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - Xenoarcheology Research Lab"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/vehicledeploymentbay
+/area/Suburb_lv759/indoors/wy_research_complex/vehicledeploymentbay
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - Vehicle Deployment & Maintenance Bay"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/janitor
+/area/Suburb_lv759/indoors/wy_research_complex/janitor
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - Janitorial Supplies Storage"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/cafeteria
+/area/Suburb_lv759/indoors/wy_research_complex/cafeteria
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - Cafeteria"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/cafeteriakitchen
+/area/Suburb_lv759/indoors/wy_research_complex/cafeteriakitchen
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - Cafeteria - Kitchen"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/dormsfoyer
+/area/Suburb_lv759/indoors/wy_research_complex/dormsfoyer
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - Dorms Foyer"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/dormsbedroom
+/area/Suburb_lv759/indoors/wy_research_complex/dormsbedroom
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - Dorms"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/securitycommand
+/area/Suburb_lv759/indoors/wy_research_complex/securitycommand
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - Security Command Center & Deployment"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/securityarmory
+/area/Suburb_lv759/indoors/wy_research_complex/securityarmory
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - Armory"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/hangarbay
+/area/Suburb_lv759/indoors/wy_research_complex/hangarbay
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - Hangar Bay"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB_HALLWAY
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/hangarbayshuttle
+/area/Suburb_lv759/indoors/wy_research_complex/hangarbayshuttle
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - Hangar Bay - Weyland-Yutani PMC ERT Shuttle"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB
@@ -275,75 +294,75 @@
 	minimap_color = MINIMAP_AREA_COLONY
 	requires_power = FALSE
 
-/area/Neer_lv759/indoors/wy_research_complex/hallwaynorth
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaynorth
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - North Hallway"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB_HALLWAY
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/hallwaynorthexit
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaynorthexit
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - North Hallway - Personnel Exit East"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB_HALLWAY
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/hallwayeast
+/area/Suburb_lv759/indoors/wy_research_complex/hallwayeast
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - Hallway East"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB_HALLWAY
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/hallwaycentral
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaycentral
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - Central Hallway"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB_HALLWAY
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/hallwaysouthwest
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaysouthwest
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - South West Hallway"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB_HALLWAY
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/hallwaysoutheast
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - South East Hallway"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB_HALLWAY
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/southeastexit
+/area/Suburb_lv759/indoors/wy_research_complex/southeastexit
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - South East Maintenace & Emergency Exit"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/changingroom
+/area/Suburb_lv759/indoors/wy_research_complex/changingroom
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - Locker Room"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/indoors/wy_research_complex/head_research_office
+/area/Suburb_lv759/indoors/wy_research_complex/head_research_office
 	name = "Weyland-Yutani - Advanced Bio-Genomic Research Complex - Head of Research's Office"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Neer_lv759/atmos/reactor_garage
+/area/Suburb_lv759/atmos/reactor_garage
 	name = "Atmospheric Processor - Garage"
 	icon_state = "green"
 	ceiling = CEILING_UNDERGROUND_METAL_BLOCK_CAS
 
-/area/Neer_lv759/atmos/command_centre
+/area/Suburb_lv759/atmos/command_centre
 	name = "Atmospheric Processor - Central Command"
 	icon_state = "red"
 	ceiling = CEILING_UNDERGROUND_METAL_BLOCK_CAS
 
-/area/Neer_lv759/atmos/east_reactor
+/area/Suburb_lv759/atmos/east_reactor
 	name = "Atmospheric Processor - Eastern Reactor"
 	icon_state = "blue"
 
-/area/Neer_lv759/atmos/outdoor
+/area/Suburb_lv759/atmos/outdoor
 	name = "Atmospheric Processor - Outdoors"
 	icon_state = "quart"
 	ceiling = CEILING_NONE
