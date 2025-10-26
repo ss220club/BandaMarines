@@ -1,8 +1,8 @@
 {
-    "map_name": "Neer LV-759 Hybrisa Prospera",
-    "short_name": "Neer Hybrisa",
-    "map_path": "map_files/Neer_lv759",
-    "map_file": "Neer_lv759.dmm",
+    "map_name": "Suburb LV-759 Hybrisa Prospera",
+    "short_name": "Suburb Hybrisa",
+    "map_path": "map_files/Suburb_lv759",
+    "map_file": "Suburb_lv759.dmm",
 
     "weather_holder": "/datum/weather_ss_map_holder/lv759_hybrisa_prospera",
     "survivor_types": [

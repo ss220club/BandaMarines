@@ -1,7 +1,7 @@
 //lv759 AREAS--------------------------------------//
 
 /area/Neer_lv759
-	name = "Neer LV-759 Hybrisa Prospera"
+	name = "Suburb_lv759_hybrisa_prospera LV-759 Hybrisa Prospera"
 	icon = 'icons/turf/hybrisareas.dmi'
 	icon_state = "hybrisa"
 	can_build_special = TRUE
