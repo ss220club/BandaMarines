@@ -108,12 +108,12 @@ GLOBAL_DATUM(almayer_aa_cannon, /obj/structure/anti_air_cannon)
 			if(!(GLOB.almayer_aa_cannon.protecting_section in GLOB.almayer_ship_sections))
 				GLOB.almayer_aa_cannon.protecting_section = ""
 				return
-			message_admins("[key_name(usr)] настроил ПВО на [html_encode(GLOB.almayer_aa_cannon.protecting_section)].")
+			message_admins("[key_name(usr)] has set the AA to [html_encode(GLOB.almayer_aa_cannon.protecting_section)].")
 			log_ares_antiair("[usr] настроил ПВО на [html_encode(GLOB.almayer_aa_cannon.protecting_section)].")
 			. = TRUE
 		if("deactivate")
 			GLOB.almayer_aa_cannon.protecting_section = ""
-			message_admins("[key_name(usr)] отключил ПВО.")
+			message_admins("[key_name(usr)] has deactivated the AA cannon.")
 			log_ares_antiair("[usr] отключил системы ПВО.")
 			. = TRUE
 
