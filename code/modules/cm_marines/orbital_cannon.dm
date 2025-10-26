@@ -232,7 +232,7 @@ GLOBAL_LIST_EMPTY(orbital_cannon_cancellation)
 	var/turf/target = locate(target_x, target_y, T.z)
 	var/area/target_area = get_area(target)
 
-	message_admins(FONT_SIZE_HUGE("ВНИМАНИЕ: [key_name(user)] вызвал орбитальный обстрел в «[target_area]» для отряда «[squad_behalf]», приземление в ([target.x], [target.y], [target.z])"), target.x, target.y, target.z) // SS220 EDIT ADDICTION
+	message_admins(FONT_SIZE_HUGE("ALERT: [key_name(user)] fired an orbital bombardment in '[target_area]' for squad '[squad_behalf]' landing at ([target.x],[target.y],[target.z])"), target.x, target.y, target.z)
 	var/message = "Orbital bombardment original target was ([T.x],[T.y],[T.z]) - offset by [abs(off_x)+abs(off_y)]"
 	if(inaccurate_fuel)
 		message += " - It was misfueled by [inaccurate_fuel] units!"
@@ -392,7 +392,7 @@ GLOBAL_LIST_EMPTY(orbital_cannon_cancellation)
 
 	var/cancellation_token = rand(0,32000)
 	GLOB.orbital_cannon_cancellation["[cancellation_token]"] = src
-	message_admins(FONT_SIZE_XL("<a href=\"byond://?_src_=admin_holder;[HrefToken(forceGlobal = TRUE)];admincancelob=1;cancellation=[cancellation_token]\">НАЖМИТЕ ЗДЕСЬ, ЧТОБЫ ОТМЕНИТЬ ОБСТРЕЛ</a>")) // SS220 EDIT ADDICTION
+	message_admins(FONT_SIZE_XL("<A href='byond://?_src_=admin_holder;[HrefToken(forceGlobal = TRUE)];admincancelob=1;cancellation=[cancellation_token]'>CLICK TO CANCEL THIS OB</a>"))
 
 	var/relative_dir
 	for(var/mob/M in long_range(30, target))

@@ -1008,7 +1008,9 @@
 	var/list/visible_objects = list()
 	for(var/obj/item/W in embedded_items)
 		if(!istype(W, /obj/item/shard/shrapnel))
-			visible_objects[capitalize(W.declent_ru())] = W // SS220 EDIT ADDICTION
+			visible_objects += W
+			// временно отключаю перевод до выяснения обстоятельств крашей
+			// visible_objects[capitalize(W.declent_ru())] = W // SS220 EDIT ADDICTION
 	return visible_objects
 
 

@@ -479,7 +479,7 @@ This function completely restores a damaged organ to perfect condition.
 	if(!is_ff && type != BURN && !(status & (LIMB_ROBOT|LIMB_SYNTHSKIN)))
 		take_damage_internal_bleeding(damage)
 
-	var/ru_name = declent_ru(PREPOSITIONAL) // SS220 EDIT ADDICTION
+	var/ru_name = (type == BRUISE) ? "" : declent_ru(PREPOSITIONAL) // SS220 EDIT ADDICTION
 	if(!(status & LIMB_SPLINTED_INDESTRUCTIBLE) && (status & LIMB_SPLINTED) && damage > 5 && prob(50 + damage * 2.5)) //If they have it splinted, the splint won't hold.
 		status &= ~LIMB_SPLINTED
 		playsound(get_turf(loc), 'sound/items/splintbreaks.ogg', 20)
@@ -1012,7 +1012,7 @@ This function completely restores a damaged organ to perfect condition.
 ///Returns a description of active surgeries.
 /obj/limb/proc/get_active_limb_surgeries()
 	if(owner.active_surgeries[name])
-		return "an incomplete surgical operation"
+		return "незавершённой хирургической операции"
 
 /obj/limb/proc/release_restraints()
 	if(!owner)

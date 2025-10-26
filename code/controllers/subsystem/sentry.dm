@@ -49,7 +49,6 @@ SUBSYSTEM_DEF(sentry)
 				post_context = hashed_context[hash][3]
 			else
 				var/list/file_lines = splittext(rustg_file_read(called.file), "\n")
-
 				pre_context = file_lines.Copy(clamp(called.line - 5, 1, length(file_lines)), called.line)
 				context = file_lines[called.line]
 				post_context = file_lines.Copy(called.line + 1, clamp(called.line + 6, 1, length(file_lines)))

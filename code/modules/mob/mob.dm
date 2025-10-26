@@ -788,7 +788,6 @@ note dizziness decrements automatically in the mob's Life() proc.
 		self = TRUE // Removing object from yourself.
 
 	var/list/valid_objects = get_visible_implants()
-
 	if(!valid_objects)
 		if(self)
 			to_chat(src, "В вашем теле нет ничего, что можно было бы вытащить.") // SS220 EDIT ADDICTION
@@ -797,11 +796,10 @@ note dizziness decrements automatically in the mob's Life() proc.
 		remove_verb(src, /mob/proc/yank_out_object)
 		return
 
-	var/embedded_choice = tgui_input_list(usr, "Что вы хотите вытащить?", "Посторонние объекты", valid_objects) // SS220 EDIT ADDICTION
-	if(!embedded_choice) // SS220 EDIT ADDICTION
+	var/obj/item/selection = tgui_input_list(usr, "Что вы хотите вытащить?", "Посторонние объекты", valid_objects) // SS220 EDIT ADDICTION
+	if(!selection || !src || !usr || !istype(selection)) // SS220 EDIT ADDICTION
 		return // SS220 EDIT ADDICTION
-	var/obj/item/selection = valid_objects[embedded_choice] // SS220 EDIT ADDICTION
-	var/selection_ru = lowertext(embedded_choice) // SS220 EDIT ADDICTION
+	var/selection_ru = lowertext(selection) // SS220 EDIT ADDICTION
 	if(self)
 		if(get_active_hand())
 			to_chat(src, SPAN_WARNING("Вам нужна свободная рука для этого!"))
@@ -815,13 +813,11 @@ note dizziness decrements automatically in the mob's Life() proc.
 
 	if(!do_after(usr, 2 SECONDS * selection.w_class * usr.get_skill_duration_multiplier(SKILL_SURGERY), INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
 		return
-	if(!selection || !src || !usr || !istype(selection))
-		return
 
 	if(self)
-		visible_message(SPAN_WARNING_BOLD("[declent_ru()] вытаскивает [selection_ru] из своего тела."),SPAN_WARNING_BOLD("Вы вытаскиваете [selection_ru] из своего тела."), null, 5) // SS220 EDIT ADDICTION
+		visible_message(SPAN_BOLDWARNING("[declent_ru()] вытаскивает [selection_ru] из своего тела."),SPAN_WARNING_BOLD("Вы вытаскиваете [selection_ru] из своего тела."), null, 5) // SS220 EDIT ADDICTION
 	else
-		visible_message(SPAN_WARNING_BOLD("[usr] вытаскивает [selection_ru] из тела [declent_ru()]."),SPAN_WARNING_BOLD("[usr] вытаскивает [selection_ru] из вашего тела."), null, 5) // SS220 EDIT ADDICTION
+		visible_message(SPAN_BOLDWARNING("[usr] вытаскивает [selection_ru] из тела [declent_ru()]."),SPAN_WARNING_BOLD("[usr] вытаскивает [selection_ru] из вашего тела."), null, 5) // SS220 EDIT ADDICTION
 
 	if(length(valid_objects) == 1) //Yanking out last object - removing verb.
 		remove_verb(src, /mob/proc/yank_out_object)

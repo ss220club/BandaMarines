@@ -201,10 +201,14 @@
 	//Target is not us
 	// SS220 START EDIT ADDICTION
 	var/t_him = ru_p_them()
-	//if (gender == MALE)
-	//	t_him = "him"
-	//else if (gender == FEMALE)
-	//	t_him = "her"
+	//var/t_him = "it"
+	//switch(gender)
+	//	if(MALE)
+	//		t_him = "him"
+	//	if(FEMALE)
+	//		t_him = "her"
+	//	if(PLURAL)
+	//		t_him = "them"
 	// SS220 END EDIT ADDICTION
 
 	if (w_uniform)

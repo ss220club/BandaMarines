@@ -132,15 +132,15 @@
 	switch(antigrief_choice)
 		if(ANTIGRIEF_OPTION_DISABLED)
 			CONFIG_SET(number/explosive_antigrief, ANTIGRIEF_DISABLED)
-			message_admins(FONT_SIZE_LARGE("[key_name_admin(usr)] отключил систему защиты от гриферства.")) // SS220 EDIT ADDICTION
+			message_admins(FONT_SIZE_LARGE("[key_name_admin(usr)] has disabled explosive antigrief."))
 		if(ANTIGRIEF_OPTION_ENABLED)
-			message_admins(FONT_SIZE_LARGE("[key_name_admin(usr)] включил систему защиты от гриферства.")) // SS220 EDIT ADDICTION
+			message_admins(FONT_SIZE_LARGE("[key_name_admin(usr)] has fully enabled explosive antigrief for all players."))
 			CONFIG_SET(number/explosive_antigrief, ANTIGRIEF_ENABLED)
 		if(ANTIGRIEF_OPTION_NEW_PLAYERS)
-			message_admins(FONT_SIZE_LARGE("[key_name_admin(usr)] включил систему защиты от гриферства для новых игроков (менее 10 часов).")) // SS220 EDIT ADDICTION
+			message_admins(FONT_SIZE_LARGE("[key_name_admin(usr)] has enabled explosive antigrief for new players (less than 10 total human hours)."))
 			CONFIG_SET(number/explosive_antigrief, ANTIGRIEF_NEW_PLAYERS)
 		else
-			message_admins(FONT_SIZE_LARGE("Ошибка! [key_name_admin(usr)] пытался переключить систему защиты от гриферства. Выбранное значение: «[antigrief_choice]». Установлено значение «Включено».")) // SS220 EDIT ADDICTION
+			message_admins(FONT_SIZE_LARGE("Error! [key_name_admin(usr)] attempted to toggle explosive antigrief but the selected value was [antigrief_choice]. Setting it to enabled."))
 			CONFIG_SET(number/explosive_antigrief, ANTIGRIEF_ENABLED)
 
 /client/proc/check_explosive_antigrief()

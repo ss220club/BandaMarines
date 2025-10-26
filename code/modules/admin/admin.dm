@@ -31,7 +31,7 @@
 				to_chat(C, msg)
 
 /proc/msg_sea(msg, nosound = FALSE) //Only used for newplayer ticker message, hence no logging
-	msg = FONT_SIZE_LARGE("<span class='admin'><span class='prefix'>MENTOR ALERT:</span> <span class='message'>[msg]</span></span>") // SS220 EDIT ADDICTION
+	msg = FONT_SIZE_LARGE("<span class=\"admin\"><span class=\"prefix\">MENTOR ALERT:</span> <span class=\"message\">[msg]</span></span>")
 	for(var/mob/possible_sea as anything in GLOB.player_list)
 		if(!isSEA(possible_sea))
 			continue

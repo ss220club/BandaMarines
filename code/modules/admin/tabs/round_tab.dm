@@ -204,13 +204,13 @@
 		return FALSE
 	SSticker.bypass_checks = response == "Bypass Checks"
 	if (SSticker.current_state == GAME_STATE_STARTUP)
-		message_admins(SPAN_ADMINNOTICE("Игра загружается и будет запущена по завершению этого процесса.")) // SS220 EDIT ADDICTION
-		message_admins(SPAN_ADMINNOTICE("[usr.key] инициализировал процесс запуска игры после завершения её загрузки.")) // SS220 EDIT ADDICTION
+		message_admins("Game is setting up and will launch as soon as it is ready.")
+		message_admins(SPAN_ADMINNOTICE("[usr.key] has started the process to start the game when loading is finished."))
 		while (SSticker.current_state == GAME_STATE_STARTUP)
 			sleep(50) // it patiently waits for the game to be ready here before moving on.
 	if (SSticker.current_state == GAME_STATE_PREGAME)
 		SSticker.request_start()
-		message_admins(SPAN_BLUE("[usr.key] запустил игру.")) // SS220 EDIT ADDICTION
+		message_admins(SPAN_BLUE("[usr.key] has started the game."))
 
 		return TRUE
 	else

@@ -194,7 +194,7 @@
 				SPAN_NOTICE("[user] начинает вправлять сломанные кости в вашей [ru_name_affected_limb], используя [ru_name_tool]."),
 				SPAN_NOTICE("[user] начинает вправлять сломанные кости [ru_name_affected_limb] [target], используя [ru_name_tool]."))
 
-	target.custom_pain("Вы вот-вот потеряете сознание от боли в вашей [surgery.affected_limb.display_name]!", 1)
+	target.custom_pain("Вы вот-вот потеряете сознание от боли в вашей [ru_name_affected_limb]!", 1)
 	log_interact(user, target, "[key_name(user)] attempted to begin setting bones in [key_name(target)]'s [surgery.affected_limb.display_name] with \the [tool].")
 
 /datum/surgery_step/set_bones/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/bone_repair/surgery)
@@ -219,7 +219,7 @@
 	log_interact(user, target, "[key_name(user)] successfully set bones in [key_name(target)]'s [surgery.affected_limb.display_name] with \the [tool], ending [surgery].")
 
 /datum/surgery_step/set_bones/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/bone_repair/surgery)
-	var/ru_name_affected_limb = declent_ru_initial(surgery.affected_limb.display_name, ACCUSATIVE, surgery.affected_limb.encased) // SS220 EDIT ADDICTION
+	var/ru_name_affected_limb = declent_ru_initial(surgery.affected_limb.display_name, ACCUSATIVE, surgery.affected_limb.display_name) // SS220 EDIT ADDICTION
 	if(surgery.affected_bone)
 		user.affected_message(target,
 			SPAN_WARNING("Ваша рука дёргается, ещё больше повреждая [ru_name_affected_limb] [target]!"),

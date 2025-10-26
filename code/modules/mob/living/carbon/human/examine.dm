@@ -123,7 +123,7 @@
 
 	//shoes
 	if(shoes && !skipshoes)
-		msg += SPAN_NOTICE("[t_He] носит wearing [shoes.get_examine_line(user)] [shoes.get_examine_location(src, user, WEAR_FEET, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
+		msg += SPAN_NOTICE("[t_He] носит [shoes.get_examine_line(user)] [shoes.get_examine_location(src, user, WEAR_FEET, t_He, t_his, t_theirs)].<br>") // SS220 EDIT ADDICTION
 	else if(feet_blood_color)
 		msg += SPAN_WARNING("У [t_theirs] [(feet_blood_color == COLOR_OIL) ? "замасленные" : "окровавленные"] ноги!<br>") // SS220 EDIT ADDICTION
 
@@ -468,7 +468,7 @@
 		msg += SPAN_WARNING(SPAN_BOLD("У [t_theirs] огромное отверстие в груди!\n"))
 
 	for(var/implant in get_visible_implants())
-		msg += SPAN_WARNING_BOLD("У [t_theirs] торчит [lowertext(implant)] в теле!") + "\n" // SS220 EDIT ADDICTION
+		msg += SPAN_BOLDWARNING("У [t_theirs] торчит [lowertext(implant)] в теле!") + "\n" // SS220 EDIT ADDICTION
 
 	if(hasHUD(user,"security") || (observer && observer.HUD_toggled["Security HUD"]))
 		var/perpref

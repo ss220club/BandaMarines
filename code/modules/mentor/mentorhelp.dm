@@ -63,16 +63,16 @@
 		log_msg = "[SPAN_MENTORHELP("[from_key] -> [to_key]:")] [msg]"
 	log_mhelp(log_msg)
 
-/datum/mentorhelp/proc/notify(text)
+/datum/mentorhelp/proc/notify(text, to_thread_mentor = TRUE, to_mentors = TRUE, to_staff = TRUE)
 	var/list/hitlist = list()
-	if(mentor) // SS220 EDIT ADDICTION
+	if(to_thread_mentor && mentor)
 		hitlist |= mentor
 	for(var/client/candidate in GLOB.admins)
-		if(CLIENT_IS_MENTOR(candidate))
+		if(to_mentors && CLIENT_IS_MENTOR(candidate))
 			hitlist |= candidate
-		else if(CLIENT_IS_STAFF(candidate))
+		else if(to_staff && CLIENT_IS_STAFF(candidate))
 			hitlist |= candidate
-	var/displaymsg = "[SPAN_MENTORHELP("<span class='prefix'>MENTOR LOG:</span> <span class='message'>[text]</span>")]" // SS220 EDIT ADDICTION
+	var/displaymsg = "[SPAN_MENTORHELP("<span class='prefix'>MENTOR LOG:</span> <span class='message'>[text]</span>")]"
 	for(var/client/receiver in hitlist)
 		if(istype(receiver))
 			to_chat(receiver, displaymsg)

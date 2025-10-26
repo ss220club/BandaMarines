@@ -140,7 +140,7 @@
 			charger_ability.stop_momentum()
 			return
 		xeno.visible_message(
-			SPAN_DANGER("[xeno] smashes straight into [declent_ru()]!"), // SS220 EDIT ADDICTION
+			SPAN_DANGER("[xeno] врезается прямо в [declent_ru()]!"), // SS220 EDIT ADDICTION
 			SPAN_XENODANGER("Вы врезаетесь прямо в [declent_ru()]!") // SS220 EDIT ADDICTION
 		)
 		playsound(loc, "punch", 25, TRUE)
@@ -158,7 +158,7 @@
 /obj/structure/machinery/cm_vending/handle_charge_collision(mob/living/carbon/xenomorph/xeno, datum/action/xeno_action/onclick/charger_charge/charger_ability)
 	if(charger_ability.momentum >= CCA_MOMENTUM_LOSS_THIRD)
 		xeno.visible_message(
-			SPAN_DANGER("[xeno] smashes straight into [declent_ru()]!"), // SS220 EDIT ADDICTION
+			SPAN_DANGER("[xeno] врезается прямо в [declent_ru()]!"), // SS220 EDIT ADDICTION
 			SPAN_XENODANGER("Вы врезаетесь прямо в [declent_ru()]!") // SS220 EDIT ADDICTION
 		)
 		playsound(loc, "punch", 25, TRUE)

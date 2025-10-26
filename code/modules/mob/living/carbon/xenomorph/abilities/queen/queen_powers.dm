@@ -893,8 +893,8 @@
 				continue
 			if(ghost.client.prefs.toggles_chat & CHAT_GHOSTHIVEMIND)
 				var/rendered_message
-				var/xeno_track = "(<a href='byond://?src=\ref[ghost];track=\ref[xeno_player]'>посмотреть</a>)" // SS220 EDIT ADDICTION
-				var/target_track = "(<a href='byond://?src=\ref[ghost];track=\ref[target_mob]'>посмотреть</a>)" // SS220 EDIT ADDICTION
+				var/xeno_track = "(<a href='byond://?src=\ref[ghost];track=\ref[xeno_player]'>(от кого?)</a>)" // SS220 EDIT ADDICTION
+				var/target_track = "(<a href='byond://?src=\ref[ghost];track=\ref[target_mob]'>(с кем?)</a>)" // SS220 EDIT ADDICTION
 				rendered_message = SPAN_XENOLEADER("Пси-шёпот: [xeno_player.real_name][xeno_track] обращаясь к [target_mob.real_name][target_track], <span class='normal'>'[SPAN_PSYTALK(whisper)]'</span>") // SS220 EDIT ADDICTION
 				ghost.show_message(rendered_message, SHOW_MESSAGE_AUDIBLE)
 
