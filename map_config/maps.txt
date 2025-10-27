@@ -66,5 +66,5 @@ endmap
 map whiskey_outpost_v2
 endmap
 
-map Suburb_lv759_hybrisa_prospera
+map suburb_lv759_hybrisa_prospera
 endmap
