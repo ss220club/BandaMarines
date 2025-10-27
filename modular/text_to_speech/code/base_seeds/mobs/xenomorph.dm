@@ -65,7 +65,7 @@
 
 // Tier 4
 /mob/living/carbon/xenomorph/queen/add_tts_component()
-	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/alexstraza)
+	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/laezel)
 
 /mob/living/carbon/xenomorph/king/add_tts_component()
 	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/malchezaar)
