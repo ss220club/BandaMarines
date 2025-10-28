@@ -929,6 +929,7 @@ can cause issues with ammo types getting mixed up during the burst.
 
 
 
+
 //TWO BORE - Van Bandolier's ginormous elephant gun.
 /datum/action/item_action/specialist/twobore_brace
 	ability_primacy = SPEC_PRIMARY_ACTION_1
