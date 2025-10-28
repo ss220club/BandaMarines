@@ -178,7 +178,7 @@
 		WEAR_R_HAND = 'icons/mob/humans/onmob/inhands/clothing/belts_righthand.dmi'
 	)
 	force = 12
-	flags_equip_slot = SLOT_WAIST|SLOT_BACK|SLOT_SUIT_STORE
+	flags_equip_slot = SLOT_WAIST|SLOT_BACK|SLOT_SUIT_STORE    // SS220 EDIT
 	can_hold = list(/obj/item/weapon/sword/ceremonial)
 
 /obj/item/storage/large_holster/ceremonial_sword/full/fill_preset_inventory()
