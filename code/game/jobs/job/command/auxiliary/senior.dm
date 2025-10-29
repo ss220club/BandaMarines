@@ -28,15 +28,16 @@
 	return filtered_job_options
 
 AddTimelock(/datum/job/command/senior, list(
-	JOB_SQUAD_ROLES = 0 HOURS, // SS220 EDIT
+	// SS220 EDIT START
+	JOB_SQUAD_ROLES = 3 HOURS,
 
-	JOB_ENGINEER_ROLES = 0 HOURS, // SS220 EDIT
-	JOB_POLICE_ROLES = 0 HOURS, // SS220 EDIT
-	JOB_MEDIC_ROLES = 0 HOURS, // SS220 EDIT
+	JOB_ENGINEER_ROLES = 3 HOURS,
+	JOB_POLICE_ROLES = 3 HOURS,
+	JOB_MEDIC_ROLES = 3 HOURS,
 
-	JOB_COMMAND_ROLES = 0 HOURS, // SS220 EDIT
+	JOB_COMMAND_ROLES = 3 HOURS,
 ))
-
+// SS220 EDIT END
 /obj/effect/landmark/start/senior
 	name = JOB_SEA
 	icon_state = "sea_spawn"
