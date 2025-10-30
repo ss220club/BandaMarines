@@ -3,7 +3,7 @@
 
 // Civilian
 
-/datum/equipment_preset/survivor/hybrisa-fixed/civilian
+/datum/equipment_preset/survivor/hybrisa_fix/civilian
 	name = "Hybrisa-Fixed - Civilian"
 	assignment = "Civilian"
 	skills = /datum/skills/civilian/survivor
@@ -12,7 +12,7 @@
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
-/datum/equipment_preset/survivor/hybrisa-fixed/civilian/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/survivor/hybrisa_fix/civilian/load_gear(mob/living/carbon/human/new_human)
 
 	var/random_gear = rand(1,10)
 	switch(random_gear)
@@ -74,7 +74,7 @@
 
 // Office Workers
 
-/datum/equipment_preset/survivor/hybrisa-fixed/civilian_office
+/datum/equipment_preset/survivor/hybrisa_fix/civilian_office
 	name = "Hybrisa-Fixed - Civilian - Office Worker"
 	assignment = "Office Worker"
 	skills = /datum/skills/civilian/survivor
@@ -83,7 +83,7 @@
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
-/datum/equipment_preset/survivor/hybrisa-fixed/civilian_office/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/survivor/hybrisa_fix/civilian_office/load_gear(mob/living/carbon/human/new_human)
 
 	var/random_gear = rand(1,6)
 	switch(random_gear)
@@ -121,7 +121,7 @@
 
 // Weymart Employee
 
-/datum/equipment_preset/survivor/hybrisa-fixed/weymart
+/datum/equipment_preset/survivor/hybrisa_fix/weymart
 	name = "Hybrisa-Fixed - Civilian - Weymart Employee"
 	assignment = "Weymart Employee"
 	skills = /datum/skills/civilian/survivor
@@ -130,7 +130,7 @@
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
-/datum/equipment_preset/survivor/hybrisa-fixed/weymart/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/survivor/hybrisa_fix/weymart/load_gear(mob/living/carbon/human/new_human)
 
 	var/random_gear = rand(1,50)
 	switch(random_gear)
@@ -148,7 +148,7 @@
 
 // Sanitation
 
-/datum/equipment_preset/survivor/hybrisa-fixed/sanitation
+/datum/equipment_preset/survivor/hybrisa_fix/sanitation
 	name = "Hybrisa-Fixed - Civilian - Material Reprocessing Technician"
 	assignment = "Material Reprocessing Technician"
 	skills = /datum/skills/civilian/survivor
@@ -157,7 +157,7 @@
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
-/datum/equipment_preset/survivor/hybrisa-fixed/sanitation/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/survivor/hybrisa_fix/sanitation/load_gear(mob/living/carbon/human/new_human)
 
 	var/random_gear = rand(1,50)
 	switch(random_gear)
@@ -193,7 +193,7 @@
 
 // Pizza Galaxy
 
-/datum/equipment_preset/survivor/hybrisa-fixed/pizza_galaxy
+/datum/equipment_preset/survivor/hybrisa_fix/pizza_galaxy
 	name = "Hybrisa-Fixed - Civilian - Pizza Galaxy Delivery Driver"
 	assignment = "Pizza Galaxy Delivery Driver"
 	idtype = /obj/item/card/id/pizza
@@ -203,7 +203,7 @@
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
-/datum/equipment_preset/survivor/hybrisa-fixed/pizza_galaxy/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/survivor/hybrisa_fix/pizza_galaxy/load_gear(mob/living/carbon/human/new_human)
 
 	var/random_gear = rand(1,65)
 	switch(random_gear)
@@ -229,7 +229,7 @@
 
 // Fire Protection Specialist
 
-/datum/equipment_preset/survivor/hybrisa-fixed/fire_fighter
+/datum/equipment_preset/survivor/hybrisa_fix/fire_fighter
 	name = "Hybrisa-Fixed - Civilian - Fire Protection Specialist"
 	assignment = "Fire Protection Specialist"
 	role_comm_title = "FPS"
@@ -239,7 +239,7 @@
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
-/datum/equipment_preset/survivor/hybrisa-fixed/fire_fighter/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/survivor/hybrisa_fix/fire_fighter/load_gear(mob/living/carbon/human/new_human)
 
 	var/random_gear = rand(1,50)
 	switch(random_gear)
@@ -266,7 +266,7 @@
 
 // Cuppa Joe's Employee
 
-/datum/equipment_preset/survivor/hybrisa-fixed/cuppa_joes
+/datum/equipment_preset/survivor/hybrisa_fix/cuppa_joes
 	name = "Hybrisa-Fixed - Civilian - Cuppa Joe's Barista"
 	assignment = "Cuppa Joe's Barista"
 	skills = /datum/skills/civilian/survivor
@@ -275,7 +275,7 @@
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
-/datum/equipment_preset/survivor/hybrisa-fixed/cuppa_joes/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/survivor/hybrisa_fix/cuppa_joes/load_gear(mob/living/carbon/human/new_human)
 
 	var/random_gear = rand(1,50)
 	switch(random_gear)
@@ -298,7 +298,7 @@
 
 // NSPA - (Neroid Sector Policing Authority) - TWE style Police, like the CMB but for heavy TWE focused colonies.
 
-/datum/equipment_preset/survivor/hybrisa-fixed/nspa_constable
+/datum/equipment_preset/survivor/hybrisa_fix/nspa_constable
 
 	name = "Hybrisa-Fixed - NSPA Constable"
 	assignment = "NSPA Constable"
@@ -311,7 +311,7 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC,ACCESS_CIVILIAN_RESEARCH,ACCESS_CIVILIAN_ENGINEERING,ACCESS_CIVILIAN_LOGISTICS,ACCESS_CIVILIAN_BRIG,ACCESS_CIVILIAN_MEDBAY,ACCESS_CIVILIAN_COMMAND,)
 	survivor_variant = SECURITY_SURVIVOR
 
-/datum/equipment_preset/survivor/hybrisa-fixed/nspa_constable/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/survivor/hybrisa_fix/nspa_constable/load_gear(mob/living/carbon/human/new_human)
 
 	var/choice = rand(1,100)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/hybrisa/nspa_officer(new_human), WEAR_BODY)
@@ -345,7 +345,7 @@
 
 // Doctors / Science
 
-/datum/equipment_preset/survivor/hybrisa-fixed/doctor
+/datum/equipment_preset/survivor/hybrisa_fix/doctor
 	name = "Hybrisa-Fixed - Medical Doctor"
 	assignment = "Doctor"
 	skills = /datum/skills/civilian/survivor/doctor
@@ -355,7 +355,7 @@
 
 	survivor_variant = MEDICAL_SURVIVOR
 
-/datum/equipment_preset/survivor/hybrisa-fixed/doctor/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/survivor/hybrisa_fix/doctor/load_gear(mob/living/carbon/human/new_human)
 
 	var/choice = rand(1,45)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel/med(new_human), WEAR_BACK)
@@ -379,7 +379,7 @@
 
 // Nova Medica - Paramedic
 
-/datum/equipment_preset/survivor/hybrisa-fixed/paramedic
+/datum/equipment_preset/survivor/hybrisa_fix/paramedic
 	name = "Hybrisa-Fixed - Emergency Medical Technician - Paramedic"
 	assignment = "Emergency Medical Technician - Paramedic"
 	paygrades = list(PAY_SHORT_CPARA = JOB_PLAYTIME_TIER_0)
@@ -391,7 +391,7 @@
 
 	survivor_variant = MEDICAL_SURVIVOR
 
-/datum/equipment_preset/survivor/hybrisa-fixed/paramedic/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/survivor/hybrisa_fix/paramedic/load_gear(mob/living/carbon/human/new_human)
 
 	var/choice = rand(1,25)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel/med(new_human), WEAR_BACK)
@@ -421,7 +421,7 @@
 
 // Science
 
-/datum/equipment_preset/survivor/hybrisa-fixed/scientist_xenoarchaeologist
+/datum/equipment_preset/survivor/hybrisa_fix/scientist_xenoarchaeologist
 	name = "Hybrisa-Fixed - Xenoarchaeologist"
 	assignment = "Xenoarchaeologist"
 	skills = /datum/skills/civilian/survivor/scientist
@@ -431,7 +431,7 @@
 
 	survivor_variant = SCIENTIST_SURVIVOR
 
-/datum/equipment_preset/survivor/hybrisa-fixed/scientist_xenoarchaeologist/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/survivor/hybrisa_fix/scientist_xenoarchaeologist/load_gear(mob/living/carbon/human/new_human)
 	var/random_gear = rand(1,55)
 	switch(random_gear)
 		if(1 to 25)
@@ -474,7 +474,7 @@
 			new_human.equip_to_slot_or_del(new /obj/item/device/flashlight/lantern(new_human.back), WEAR_IN_BACK)
 	..()
 
-/datum/equipment_preset/survivor/hybrisa-fixed/scientist_xenobiologist
+/datum/equipment_preset/survivor/hybrisa_fix/scientist_xenobiologist
 	name = "Hybrisa-Fixed - Xenobiologist"
 	assignment = "Xenobiologist"
 	skills = /datum/skills/civilian/survivor/scientist
@@ -484,7 +484,7 @@
 
 	survivor_variant = SCIENTIST_SURVIVOR
 
-/datum/equipment_preset/survivor/hybrisa-fixed/scientist_xenobiologist/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/survivor/hybrisa_fix/scientist_xenobiologist/load_gear(mob/living/carbon/human/new_human)
 	var/random_gear = rand(1,50)
 	switch(random_gear)
 		if(1 to 20)
@@ -515,7 +515,7 @@
 
 // Engineering & Maintenance
 
-/datum/equipment_preset/survivor/hybrisa-fixed/heavy_vehicle_operator
+/datum/equipment_preset/survivor/hybrisa_fix/heavy_vehicle_operator
 	name = "Hybrisa-Fixed - Heavy Vehicle Operator"
 	assignment = "Heavy Vehicle Operator"
 	skills = /datum/skills/civilian/survivor/trucker
@@ -524,7 +524,7 @@
 
 	survivor_variant = ENGINEERING_SURVIVOR
 
-/datum/equipment_preset/survivor/hybrisa-fixed/heavy_vehicle_operator/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/survivor/hybrisa_fix/heavy_vehicle_operator/load_gear(mob/living/carbon/human/new_human)
 
 	var/choice = rand(1,6)
 	new_human.equip_to_slot_or_del(new /obj/item/hardpoint/locomotion/van_wheels(new_human), WEAR_R_HAND)
@@ -583,7 +583,7 @@
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/storage/black_vest(new_human), WEAR_ACCESSORY)
 	..()
 
-/datum/equipment_preset/survivor/hybrisa-fixed/electrical_engineer
+/datum/equipment_preset/survivor/hybrisa_fix/electrical_engineer
 	name = "Hybrisa-Fixed - Electrical Engineer"
 	assignment = "Electrical Engineer"
 	skills = /datum/skills/civilian/survivor/engineer
@@ -592,7 +592,7 @@
 
 	survivor_variant = ENGINEERING_SURVIVOR
 
-/datum/equipment_preset/survivor/hybrisa-fixed/electrical_engineer/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/survivor/hybrisa_fix/electrical_engineer/load_gear(mob/living/carbon/human/new_human)
 	var/choice = rand(1,3)
 	switch(choice)
 		if(1)
@@ -629,7 +629,7 @@
 
 // Construction Worker
 
-/datum/equipment_preset/survivor/hybrisa-fixed/construction_worker
+/datum/equipment_preset/survivor/hybrisa_fix/construction_worker
 	name = "Hybrisa-Fixed - Construction Worker"
 	assignment = "Construction Worker"
 	skills = /datum/skills/civilian/survivor/engineer
@@ -638,7 +638,7 @@
 
 	survivor_variant = ENGINEERING_SURVIVOR
 
-/datum/equipment_preset/survivor/hybrisa-fixed/construction_worker/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/survivor/hybrisa_fix/construction_worker/load_gear(mob/living/carbon/human/new_human)
 	var/choice = rand(1,3)
 	switch(choice)
 		if(1)
@@ -678,7 +678,7 @@
 
 // Weyland Yutani Corpo
 
-/datum/equipment_preset/survivor/corporate/hybrisa-fixed
+/datum/equipment_preset/survivor/corporate/hybrisa_fix
 	name = "Hybrisa-Fixed - Corporate Liaison"
 	assignment = "Corporate Liaison"
 	skills = /datum/skills/civilian/survivor
@@ -692,7 +692,7 @@
 
 	survivor_variant = CORPORATE_SURVIVOR
 
-/datum/equipment_preset/survivor/corporate/hybrisa-fixed/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/survivor/corporate/hybrisa_fix/load_gear(mob/living/carbon/human/new_human)
 	var/choice = rand(1,45)
 	switch(choice)
 		if(1 to 10)
@@ -750,7 +750,7 @@
 
 // WY Goons
 
-/datum/equipment_preset/survivor/hybrisa-fixed/corporate_goon
+/datum/equipment_preset/survivor/hybrisa_fix/corporate_goon
 	name = "Hybrisa-Fixed - Weyland-Yutani - Corporate Security Guard"
 	assignment = "Weyland-Yutani - Corporate Security Guard"
 	assignment = JOB_WY_GOON
@@ -768,7 +768,7 @@
 
 	survivor_variant = SECURITY_SURVIVOR
 
-/datum/equipment_preset/survivor/hybrisa-fixed/corporate_goon/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/survivor/hybrisa_fix/corporate_goon/load_gear(mob/living/carbon/human/new_human)
 
 	var/choice = rand(1,30)
 	switch(choice)
@@ -825,7 +825,7 @@
 
 // WY - Pilot
 
-/datum/equipment_preset/survivor/hybrisa-fixed/wey_po
+/datum/equipment_preset/survivor/hybrisa_fix/wey_po
 	name = "Hybrisa-Fixed - Weyland-Yutani - Commercial Pilot"
 	assignment = "Weyland-Yutani - Commercial Pilot"
 	skills = /datum/skills/civilian/survivor/wy_pilot
@@ -837,7 +837,7 @@
 
 	survivor_variant = CORPORATE_SURVIVOR
 
-/datum/equipment_preset/survivor/hybrisa-fixed/wey_po/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/survivor/hybrisa_fix/wey_po/load_gear(mob/living/carbon/human/new_human)
 
 	var/random_gear = rand(1,4)
 	new_human.equip_to_slot_or_del(new /obj/item/device/radio/headset/distress/WY(new_human), WEAR_L_EAR)
@@ -859,14 +859,14 @@
 //////////////// KELLAND MINING /////////////////////
 ////////////////////////////////////////////////////
 
-/datum/equipment_preset/survivor/hybrisa-fixed/kelland_miner
+/datum/equipment_preset/survivor/hybrisa_fix/kelland_miner
 	name = "Hybrisa-Fixed - KMCC - Miner"
 	assignment = "KMCC - Miner"
 	skills = /datum/skills/civilian/survivor/miner
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC, ACCESS_CIVILIAN_ENGINEERING, ACCESS_CIVILIAN_LOGISTICS)
 
-/datum/equipment_preset/survivor/hybrisa-fixed/kelland_miner/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/survivor/hybrisa_fix/kelland_miner/load_gear(mob/living/carbon/human/new_human)
 
 	var/random_gear = rand(1,85)
 	switch(random_gear)
@@ -922,18 +922,18 @@
 //////////////// SNYTHETICS /////////////////////////
 ////////////////////////////////////////////////////
 
-/datum/equipment_preset/synth/survivor/hybrisa-fixed
+/datum/equipment_preset/synth/survivor/hybrisa_fix
 	flags = EQUIPMENT_PRESET_STUB
 
 // Civilian
 
-/datum/equipment_preset/synth/survivor/hybrisa-fixed/civilian
+/datum/equipment_preset/synth/survivor/hybrisa_fix/civilian
 	name = "Hybrisa-Fixed - Synthetic - Civilian"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
-/datum/equipment_preset/synth/survivor/hybrisa-fixed/civilian/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/synth/survivor/hybrisa_fix/civilian/load_gear(mob/living/carbon/human/new_human)
 	var/choice = rand(1,7)
 	switch(choice)
 		if(1) // Weymart-Employee
@@ -1011,13 +1011,13 @@
 
 // Engineer
 
-/datum/equipment_preset/synth/survivor/hybrisa-fixed/engineer_survivor
+/datum/equipment_preset/synth/survivor/hybrisa_fix/engineer_survivor
 	name = "Hybrisa-Fixed - Synthetic - Engineer"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 
 	survivor_variant = ENGINEERING_SURVIVOR
 
-/datum/equipment_preset/synth/survivor/hybrisa-fixed/engineer_survivor/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/synth/survivor/hybrisa_fix/engineer_survivor/load_gear(mob/living/carbon/human/new_human)
 	var/choice = rand(1,5)
 	switch(choice)
 		if(1)
@@ -1082,13 +1082,13 @@
 
 // Medical
 
-/datum/equipment_preset/synth/survivor/hybrisa-fixed/paramedic
+/datum/equipment_preset/synth/survivor/hybrisa_fix/paramedic
 	name = "Hybrisa-Fixed - Synthetic - Emergency Medical Technician - Paramedic"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 
 	survivor_variant = MEDICAL_SURVIVOR
 
-/datum/equipment_preset/synth/survivor/hybrisa-fixed/paramedic/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/synth/survivor/hybrisa_fix/paramedic/load_gear(mob/living/carbon/human/new_human)
 	var/choice = rand(1,25)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel/med, WEAR_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/white, WEAR_FEET)
@@ -1118,13 +1118,13 @@
 
 // Security
 
-/datum/equipment_preset/synth/survivor/hybrisa-fixed/detective
+/datum/equipment_preset/synth/survivor/hybrisa_fix/detective
 	name = "Hybrisa-Fixed - Synthetic - Detective"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 
 	survivor_variant = SECURITY_SURVIVOR
 
-/datum/equipment_preset/synth/survivor/hybrisa-fixed/detective/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/synth/survivor/hybrisa_fix/detective/load_gear(mob/living/carbon/human/new_human)
 	var/choice = rand(1,2)
 	switch(choice)
 		if(1)
@@ -1157,13 +1157,13 @@
 
 // Corporate
 
-/datum/equipment_preset/synth/survivor/hybrisa-fixed/exec_bodyguard
+/datum/equipment_preset/synth/survivor/hybrisa_fix/exec_bodyguard
 	name = "Hybrisa-Fixed - Synthetic - Executive Bodyguard"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 
 	survivor_variant = CORPORATE_SURVIVOR
 
-/datum/equipment_preset/synth/survivor/hybrisa-fixed/exec_bodyguard/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/synth/survivor/hybrisa_fix/exec_bodyguard/load_gear(mob/living/carbon/human/new_human)
 	var/choice = rand(1,45)
 	switch(choice)
 		if(1 to 10)
@@ -1216,13 +1216,13 @@
 
 // Science
 
-/datum/equipment_preset/synth/survivor/hybrisa-fixed/xenoarchaeologist
+/datum/equipment_preset/synth/survivor/hybrisa_fix/xenoarchaeologist
 	name = "Hybrisa-Fixed - Synthetic - Xenoarchaeologist"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 
 	survivor_variant = SCIENTIST_SURVIVOR
 
-/datum/equipment_preset/synth/survivor/hybrisa-fixed/xenoarchaeologist/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/synth/survivor/hybrisa_fix/xenoarchaeologist/load_gear(mob/living/carbon/human/new_human)
 	var/random_gear = rand(1,55)
 	switch(random_gear)
 		if(1 to 25)
