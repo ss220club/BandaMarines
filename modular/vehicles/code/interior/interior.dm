@@ -47,13 +47,6 @@
 	desc = "An interior wall."
 	icon = 'icons/obj/vehicles/interiors/pizza_van_interior.dmi'
 	icon_state = "exterior_2"
-	density = TRUE
-	opacity = FALSE
-	anchored = TRUE
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	layer = TURF_LAYER
-	flags_atom = NOINTERACT
-	unacidable = TRUE
 
 /obj/effect/vehicle_roof/uscm_van/med
 	name = "\improper van interior roof"

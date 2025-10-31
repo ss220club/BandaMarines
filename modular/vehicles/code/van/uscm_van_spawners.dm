@@ -56,25 +56,25 @@
 
 //PRESET: wheels installed, destroyed
 /obj/effect/vehicle_spawner/uscm_van/med/decrepit/spawn_vehicle()
-	var/obj/vehicle/multitile/uscm_van/med/PIZZA = new (loc)
+	var/obj/vehicle/multitile/uscm_van/med/MED = new (loc)
 
-	load_misc(PIZZA)
-	load_hardpoints(PIZZA)
-	handle_direction(PIZZA)
-	load_damage(PIZZA)
-	PIZZA.update_icon()
+	load_misc(MED)
+	load_hardpoints(MED)
+	handle_direction(MED)
+	load_damage(MED)
+	MED.update_icon()
 
 /obj/effect/vehicle_spawner/uscm_van/med/decrepit/load_hardpoints(obj/vehicle/multitile/uscm_van/med/V)
 	V.add_hardpoint(new /obj/item/hardpoint/locomotion/van_wheels)
 
 //PRESET: wheels installed
 /obj/effect/vehicle_spawner/uscm_van/med/fixed/spawn_vehicle()
-	var/obj/vehicle/multitile/uscm_van/med/PIZZA = new (loc)
+	var/obj/vehicle/multitile/uscm_van/med/MED = new (loc)
 
-	load_misc(PIZZA)
-	load_hardpoints(PIZZA)
-	handle_direction(PIZZA)
-	PIZZA.update_icon()
+	load_misc(MED)
+	load_hardpoints(MED)
+	handle_direction(MED)
+	MED.update_icon()
 
 /obj/effect/vehicle_spawner/uscm_van/med/fixed/load_hardpoints(obj/vehicle/multitile/uscm_van/med/V)
 	V.add_hardpoint(new /obj/item/hardpoint/locomotion/van_wheels)

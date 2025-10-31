@@ -1662,13 +1662,6 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 
 		SSshuttle.vehicle_elevator.request(SSshuttle.getDock("adminlevel vehicle"))
 		to_chat(usr, SPAN_NOTICE("Elevator lowering..."))
-
-	else if(href_list["raise_elevator"])
-		if(SSshuttle.vehicle_elevator.z == upper_turf.z)
-			to_chat(usr, SPAN_WARNING("The elevator is already raised!"))
-			return
-		SSshuttle.vehicle_elevator.request(SSshuttle.getDock("almayer vehicle"))
-		to_chat(usr, SPAN_NOTICE("Elevator raising..."))
 // BANDAMARINES EDIT END
 	add_fingerprint(usr)
 	updateUsrDialog()
