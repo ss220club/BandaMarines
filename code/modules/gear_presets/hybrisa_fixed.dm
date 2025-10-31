@@ -400,6 +400,97 @@
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/aviator/silver(new_human), WEAR_EYES)
 
 	..()
+
+
+/////////////////////////////////////////////////
+//////////////////// NSPA ///////////////////////
+/////////////////////////////////////////////////
+
+/datum/equipment_preset/hybrisa_event/nspa_constable
+	name = "Hybrisa - NSPA - Constable"
+	assignment = "NSPA - Constable"
+	skills = /datum/skills/civilian/survivor
+	flags = EQUIPMENT_PRESET_START_OF_ROUND
+	access = list(ACCESS_CIVILIAN_PUBLIC)
+	paygrades = list(PAY_SHORT_CST = JOB_PLAYTIME_TIER_0)
+	idtype = /obj/item/card/id/nspa_silver
+
+	survivor_variant = CIVILIAN_SURVIVOR
+
+/datum/equipment_preset/hybrisa_event/nspa_constable/load_gear(mob/living/carbon/human/new_human)
+
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/hybrisa/nspa_officer(new_human), WEAR_BODY)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(new_human), WEAR_FEET)
+	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel/black(new_human), WEAR_BACK)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/hybrisa/nspa_peaked_cap(new_human), WEAR_HEAD)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/sechud/blue(new_human), WEAR_EYES)
+
+	..()
+
+/datum/equipment_preset/hybrisa_event/nspa_senconstable
+	name = "Hybrisa - NSPA - Senior Constable"
+	assignment = "NSPA - Senior Constable"
+	skills = /datum/skills/civilian/survivor
+	flags = EQUIPMENT_PRESET_START_OF_ROUND
+	access = list(ACCESS_CIVILIAN_PUBLIC)
+	paygrades = list(PAY_SHORT_SC = JOB_PLAYTIME_TIER_0)
+	idtype = /obj/item/card/id/nspa_silver
+
+	survivor_variant = CIVILIAN_SURVIVOR
+
+/datum/equipment_preset/hybrisa_event/nspa_senconstable/load_gear(mob/living/carbon/human/new_human)
+
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/hybrisa/nspa_officer(new_human), WEAR_BODY)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(new_human), WEAR_FEET)
+	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel/black(new_human), WEAR_BACK)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/hybrisa/nspa_peaked_cap_goldandsilver(new_human), WEAR_HEAD)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/sechud/blue(new_human), WEAR_EYES)
+
+	..()
+
+/datum/equipment_preset/hybrisa_event/nspa_sergeant
+	name = "Hybrisa - NSPA - Sergeant"
+	assignment = "NSPA - Sergeant"
+	skills = /datum/skills/civilian/survivor
+	flags = EQUIPMENT_PRESET_START_OF_ROUND
+	access = list(ACCESS_CIVILIAN_PUBLIC)
+	paygrades = list(PAY_SHORT_SGT = JOB_PLAYTIME_TIER_0)
+	idtype = /obj/item/card/id/nspa_silver_gold
+
+	survivor_variant = CIVILIAN_SURVIVOR
+
+/datum/equipment_preset/hybrisa_event/nspa_sergeant/load_gear(mob/living/carbon/human/new_human)
+
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/hybrisa/nspa_officer(new_human), WEAR_BODY)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(new_human), WEAR_FEET)
+	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel/black(new_human), WEAR_BACK)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/hybrisa/nspa_peaked_cap_gold(new_human), WEAR_HEAD)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/sechud/blue(new_human), WEAR_EYES)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/CMB/hybrisa/nspa_formal_jacket(new_human), WEAR_JACKET)
+
+	..()
+
+/datum/equipment_preset/hybrisa_event/nspa_inspector
+	name = "Hybrisa - NSPA - Inspector"
+	assignment = "NSPA - Inspector"
+	skills = /datum/skills/civilian/survivor
+	flags = EQUIPMENT_PRESET_START_OF_ROUND
+	access = list(ACCESS_CIVILIAN_PUBLIC)
+	paygrades = list(PAY_SHORT_INSP = JOB_PLAYTIME_TIER_0)
+	idtype = /obj/item/card/id/nspa_gold
+
+	survivor_variant = CIVILIAN_SURVIVOR
+
+/datum/equipment_preset/hybrisa_event/nspa_inspector/load_gear(mob/living/carbon/human/new_human)
+
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/hybrisa/nspa_officer(new_human), WEAR_BODY)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(new_human), WEAR_FEET)
+	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel/black(new_human), WEAR_BACK)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/fedora/grey(new_human), WEAR_HEAD)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/sechud/blue(new_human), WEAR_EYES)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/CMB/trenchcoat/grey(new_human), WEAR_JACKET)
+
+	..()
 ////////////////////////////////////////////////////
 //////////////////// CIVILIAN ///////////////////////
 ////////////////////////////////////////////////////
