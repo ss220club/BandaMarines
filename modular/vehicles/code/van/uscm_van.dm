@@ -1,7 +1,6 @@
-// Military truck M35b — минимальный, наследует от van
 /obj/vehicle/multitile/uscm_van
-	name = "Военный грузовик M35b"
-	desc = "Крепкий старый военный грузовик, вы знаете, что делать, вход сзади и сбоку."
+	name = "M577-T Mule"
+	desc = "Старый, надёжный транспорт USCM, любимец механиков и проклятье водителей. Приспособлен для любых атмосферных условий, устойчив к перегреву, радиации и глупости экипажа."
 	layer = ABOVE_XENO_LAYER
 
 	icon = 'modular/vehicles/icons/uscm_van.dmi'
@@ -25,11 +24,11 @@
 
 	vehicle_flags = VEHICLE_CLASS_WEAK
 
-	passengers_slots = 8
+	passengers_slots = 10
 	xenos_slots = 3
 
 	misc_multipliers = list(
-		"move" = 0.5, // fucking annoying how this is the only way to modify speed
+		"move" = 0.5,
 		"accuracy" = 1,
 		"cooldown" = 1
 	)
@@ -186,7 +185,7 @@
 
 	if(iswelder(O) && health >= initial(health))
 		if(!HAS_TRAIT(O, TRAIT_TOOL_BLOWTORCH))
-			to_chat(user, SPAN_WARNING("You need a stronger blowtorch!"))
+			to_chat(user, SPAN_WARNING("Вам нужно больше сварочного топлива!"))
 			return
 		var/obj/item/hardpoint/health
 		for(var/obj/item/hardpoint/potential_hardpoint in hardpoints)
@@ -205,14 +204,14 @@
 /obj/vehicle/multitile/uscm_van/handle_click(mob/living/user, atom/A, list/mods)
 	if(mods[SHIFT_CLICK] && !mods[ALT_CLICK])
 		if(overdrive_next > world.time)
-			to_chat(user, SPAN_WARNING("You can't activate overdrive yet! Wait [round((overdrive_next - world.time) / 10, 0.1)] seconds."))
+			to_chat(user, SPAN_WARNING("Пока нельзя активировать ускорение! Подождите [round((overdrive_next - world.time) / 10, 0.1)] секунд."))
 			return
 
 		misc_multipliers["move"] -= overdrive_speed_mult
 		addtimer(CALLBACK(src, PROC_REF(reset_overdrive)), overdrive_duration)
 
 		overdrive_next = world.time + overdrive_cooldown
-		to_chat(user, SPAN_NOTICE("You activate overdrive."))
+		to_chat(user, SPAN_NOTICE("Вы активировали ускорение."))
 		playsound(src, 'sound/vehicles/box_van_overdrive.ogg', 75, FALSE)
 		return
 
@@ -244,51 +243,3 @@
 		return FALSE
 
 	return ..()
-
-/*
-** PRESETS SPAWNERS
-*/
-
-/obj/effect/vehicle_spawner/uscm_van
-	name = "M35b Box Van Spawner"
-	icon = 'modular/vehicles/icons/uscm_van.dmi'
-	icon_state = "van_base"
-
-/obj/effect/vehicle_spawner/uscm_van/Initialize()
-	. = ..()
-	spawn_vehicle()
-	qdel(src)
-
-//PRESET: no hardpoints
-/obj/effect/vehicle_spawner/uscm_van/spawn_vehicle()
-	var/obj/vehicle/multitile/uscm_van/VAN = new (loc)
-
-	load_misc(VAN)
-	handle_direction(VAN)
-	VAN.update_icon()
-
-//PRESET: wheels installed, destroyed
-/obj/effect/vehicle_spawner/uscm_van/decrepit/spawn_vehicle()
-	var/obj/vehicle/multitile/uscm_van/VAN = new (loc)
-
-	load_misc(VAN)
-	load_hardpoints(VAN)
-	handle_direction(VAN)
-	load_damage(VAN)
-	VAN.update_icon()
-
-/obj/effect/vehicle_spawner/uscm_van/decrepit/load_hardpoints(obj/vehicle/multitile/uscm_van/V)
-	V.add_hardpoint(new /obj/item/hardpoint/locomotion/van_wheels)
-
-//PRESET: wheels installed
-/obj/effect/vehicle_spawner/uscm_van/fixed/spawn_vehicle()
-	var/obj/vehicle/multitile/uscm_van/VAN = new (loc)
-
-	load_misc(VAN)
-	load_hardpoints(VAN)
-	handle_direction(VAN)
-	VAN.update_icon()
-
-/obj/effect/vehicle_spawner/uscm_van/fixed/load_hardpoints(obj/vehicle/multitile/uscm_van/V)
-	V.add_hardpoint(new /obj/item/hardpoint/locomotion/van_wheels)
-

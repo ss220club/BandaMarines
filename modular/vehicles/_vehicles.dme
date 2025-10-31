@@ -24,3 +24,6 @@
 #include "code/arc/arc_fix.dm"
 #include "code/interior/interior.dm"
 #include "code/interior/interior_map_modul.dm"
+#include "code/van/uscm_van_med.dm"
+#include "code/van/uscm_van_verbs.dm"
+#include "code/van/uscm_van_spawners.dm"

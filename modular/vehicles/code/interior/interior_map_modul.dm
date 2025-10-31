@@ -13,3 +13,7 @@
 /datum/map_template/interior/modul/uscm_van
 	name = "USCM Van"
 	interior_id = "uscm_van"
+
+/datum/map_template/interior/modul/uscm_van/med
+	name = "USCM Van"
+	interior_id = "uscm_van_med"

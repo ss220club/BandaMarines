@@ -1,18 +1,18 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "c" = (
-/obj/structure/interior_wall/uscm_van{
+/obj/structure/interior_wall/uscm_van/med{
 	icon_state = "back_1"
 	},
 /turf/open/void/vehicle,
 /area/space)
 "e" = (
-/obj/structure/interior_wall/uscm_van{
+/obj/structure/interior_wall/uscm_van/med{
 	icon_state = "back_3"
 	},
 /turf/open/void/vehicle,
 /area/space)
 "f" = (
-/obj/effect/vehicle_roof/uscm_van{
+/obj/effect/vehicle_roof/uscm_van/med{
 	icon_state = "front_2"
 	},
 /turf/open/void/vehicle,
@@ -20,7 +20,7 @@
 "h" = (
 /obj/effect/landmark/interior/spawn/entrance{
 	dir = 8;
-	exit_type = /obj/structure/interior_exit/vehicle/uscm_van/backright;
+	exit_type = /obj/structure/interior_exit/vehicle/uscm_van/med/backright;
 	name = "back right entrance marker";
 	pixel_x = -32;
 	tag = "back_right"
@@ -30,30 +30,30 @@
 	dir = 1
 	},
 /obj/structure/bed/chair/vehicle{
-	pixel_x = -8;
+	pixel_x = -7;
 	dir = 1
 	},
-/turf/open/shuttle/vehicle/med/slate,
-/area/interior/vehicle/box_van)
+/turf/open/shuttle/vehicle/med/gray,
+/area/interior/vehicle/apc/med)
 "i" = (
-/obj/effect/vehicle_roof/uscm_van{
+/obj/effect/vehicle_roof/uscm_van/med{
 	icon_state = "front_1"
 	},
 /turf/open/void/vehicle,
 /area/space)
 "j" = (
-/obj/structure/interior_wall/uscm_van,
-/obj/effect/vehicle_roof/uscm_van{
+/obj/structure/interior_wall/uscm_van/med,
+/obj/effect/vehicle_roof/uscm_van/med{
 	icon_state = "roof_4"
 	},
 /turf/open/void/vehicle,
 /area/space)
 "n" = (
-/obj/structure/interior_wall/uscm_van{
+/obj/structure/interior_wall/uscm_van/med{
 	icon_state = "background_2";
-	alpha = 50;
+	pixel_y = 32;
 	layer = 5.2;
-	pixel_y = 32
+	alpha = 50
 	},
 /turf/open/void/vehicle,
 /area/space)
@@ -61,43 +61,35 @@
 /obj/effect/landmark/interior/spawn/interior_viewport/simple{
 	pixel_y = 30
 	},
-/obj/structure/machinery/cm_vending/sorted/vehicle_supply{
+/obj/structure/bed/chair/vehicle{
+	pixel_x = 8;
 	pixel_y = 12
 	},
-/obj/structure/extinguisher_cabinet/lifeboat{
-	icon = 'icons/obj/vehicles/interiors/general.dmi';
-	pixel_x = -12;
-	pixel_y = 37
-	},
-/obj/structure/bed/chair/vehicle{
-	pixel_x = 7;
-	dir = 8;
-	pixel_y = 1
-	},
-/obj/structure/machinery/cm_vending/sorted/medical/wall_med/vehicle{
-	pixel_x = -25;
-	pixel_y = 37
-	},
-/obj/effect/vehicle_roof/uscm_van{
+/obj/effect/vehicle_roof/uscm_van/med{
 	icon_state = "roof_3"
 	},
 /obj/effect/landmark/interior/spawn/telephone{
 	pixel_y = 38;
 	pixel_x = 12
 	},
-/turf/open/shuttle/vehicle/med/slate,
-/area/interior/vehicle/box_van)
+/obj/structure/extinguisher_cabinet/lifeboat{
+	icon = 'icons/obj/vehicles/interiors/general.dmi';
+	pixel_x = -12;
+	pixel_y = 33
+	},
+/turf/open/shuttle/vehicle/med/gray,
+/area/interior/vehicle/apc/med)
 "r" = (
-/obj/structure/interior_wall/uscm_van{
+/obj/structure/interior_wall/uscm_van/med{
 	icon_state = "exterior_3"
 	},
-/obj/effect/vehicle_roof/uscm_van{
+/obj/effect/vehicle_roof/uscm_van/med{
 	icon_state = "roof_5"
 	},
 /turf/open/void/vehicle,
 /area/space)
 "s" = (
-/obj/structure/interior_wall/uscm_van{
+/obj/structure/interior_wall/uscm_van/med{
 	icon_state = "back_2"
 	},
 /turf/open/void/vehicle,
@@ -105,38 +97,38 @@
 "t" = (
 /obj/effect/landmark/interior/spawn/entrance{
 	dir = 1;
-	exit_type = /obj/structure/interior_exit/vehicle/uscm_van/left;
+	exit_type = /obj/structure/interior_exit/vehicle/uscm_van/med/left;
 	name = "left entrance marker";
 	pixel_y = 32;
 	tag = "left"
 	},
 /obj/effect/landmark/interior/spawn/vehicle_driver_seat{
 	dir = 4;
-	icon_state = "comfychair_black"
+	icon_state = "comfychair_beige"
 	},
 /obj/effect/landmark/interior/spawn/interior_viewport/simple/windshield{
 	icon_state = "windshield_viewport_bottom";
-	icon = 'icons/obj/vehicles/interiors/box_van_interior.dmi'
+	icon = 'icons/obj/vehicles/interiors/pizza_van_interior.dmi'
 	},
-/obj/effect/vehicle_roof/uscm_van{
+/obj/effect/vehicle_roof/uscm_van/med{
 	icon_state = "front_roof_2"
 	},
 /turf/open/shuttle/vehicle/floor_3_11,
-/area/interior/vehicle/box_van)
+/area/interior/vehicle/apc/med)
 "v" = (
 /obj/effect/landmark/interior/spawn/interior_viewport/simple/windshield{
-	icon = 'icons/obj/vehicles/interiors/box_van_interior.dmi'
+	icon = 'icons/obj/vehicles/interiors/pizza_van_interior.dmi'
 	},
-/obj/effect/vehicle_roof/uscm_van{
+/obj/effect/vehicle_roof/uscm_van/med{
 	icon_state = "interior_door"
 	},
-/obj/effect/vehicle_roof/uscm_van{
+/obj/effect/vehicle_roof/uscm_van/med{
 	icon_state = "front_roof_1"
 	},
 /turf/open/void/vehicle,
 /area/space)
 "w" = (
-/obj/effect/vehicle_roof/uscm_van{
+/obj/effect/vehicle_roof/uscm_van/med{
 	icon_state = "front_3"
 	},
 /turf/open/void/vehicle,
@@ -144,73 +136,70 @@
 "y" = (
 /obj/effect/landmark/interior/spawn/entrance{
 	alpha = 50;
-	exit_type = /obj/structure/interior_exit/vehicle/uscm_van/right;
+	exit_type = /obj/structure/interior_exit/vehicle/uscm_van/med/right;
 	name = "right entrance marker";
 	tag = "right"
 	},
-/obj/structure/bed/chair/comfy/black{
+/obj/structure/bed/chair/comfy/beige{
 	dir = 4
 	},
 /turf/open/shuttle/vehicle/floor_3_12,
-/area/interior/vehicle/box_van)
+/area/interior/vehicle/apc/med)
 "G" = (
 /obj/effect/landmark/interior/spawn/interior_viewport/simple{
 	alpha = 100;
 	pixel_y = -2
 	},
-/obj/structure/bed/chair/vehicle{
-	pixel_x = -8;
-	dir = 1
-	},
-/obj/structure/bed/chair/vehicle{
-	pixel_x = 8;
-	dir = 1
-	},
-/turf/open/shuttle/vehicle/med/slate,
-/area/interior/vehicle/box_van)
+/obj/structure/curtain/open/medical,
+/obj/structure/bed/roller/hospital_empty/bigrollerempty3,
+/turf/open/shuttle/vehicle/med/gray,
+/area/interior/vehicle/apc/med)
 "J" = (
-/obj/structure/interior_wall/uscm_van{
+/obj/structure/interior_wall/uscm_van/med{
 	icon_state = "background_3";
-	alpha = 50;
+	pixel_y = 32;
 	layer = 5.2;
-	pixel_y = 32
+	alpha = 50
 	},
 /turf/open/void/vehicle,
 /area/space)
 "M" = (
 /obj/effect/landmark/interior/spawn/entrance{
 	dir = 8;
-	exit_type = /obj/structure/interior_exit/vehicle/uscm_van/backleft;
+	exit_type = /obj/structure/interior_exit/vehicle/uscm_van/med/backleft;
 	name = "back left entrance marker";
 	pixel_x = -32;
 	tag = "back_left"
 	},
-/obj/effect/vehicle_roof/uscm_van{
+/obj/effect/vehicle_roof/uscm_van/med{
 	icon_state = "roof_2"
 	},
+/obj/structure/machinery/cm_vending/sorted/medical/blood/vehicle{
+	pixel_x = 18;
+	pixel_y = 8
+	},
+/obj/structure/machinery/cm_vending/sorted/medical/vehicle{
+	pixel_y = 8;
+	pixel_x = -5
+	},
+/obj/structure/sign/safety/medical{
+	pixel_y = 32
+	},
 /obj/structure/sign/poster/propaganda{
-	pixel_x = -8;
-	pixel_y = 33
+	pixel_x = 7;
+	pixel_y = 36
 	},
-/obj/structure/bed/chair/vehicle{
-	pixel_x = -8;
-	pixel_y = 16
-	},
-/obj/structure/bed/chair/vehicle{
-	pixel_x = 8;
-	pixel_y = 16
-	},
-/turf/open/shuttle/vehicle/med/slate,
-/area/interior/vehicle/box_van)
+/turf/open/shuttle/vehicle/med/gray,
+/area/interior/vehicle/apc/med)
 "O" = (
 /turf/open/void/vehicle,
 /area/space)
 "V" = (
-/obj/structure/interior_wall/uscm_van{
+/obj/structure/interior_wall/uscm_van/med{
 	icon_state = "exterior_door";
-	alpha = 50;
+	pixel_y = 32;
 	layer = 5.2;
-	pixel_y = 32
+	alpha = 50
 	},
 /turf/open/void/vehicle,
 /area/space)
