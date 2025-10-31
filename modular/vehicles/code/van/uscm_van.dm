@@ -171,9 +171,9 @@
 	for(var/icon in mobs_under)
 		remove_under_van(icon)
 
-	for(var/icon in GLOB.player_list)
-		var/mob/mob = icon
-		mob.client.images -= normal_image
+	for(var/mob/mob in GLOB.player_list)
+		if(mob?.client)
+			mob.client.images -= normal_image
 
 	QDEL_NULL(lighting_holder)
 
@@ -187,14 +187,14 @@
 		if(!HAS_TRAIT(O, TRAIT_TOOL_BLOWTORCH))
 			to_chat(user, SPAN_WARNING("Вам нужно больше сварочного топлива!"))
 			return
-		var/obj/item/hardpoint/health
+		var/obj/item/hardpoint/hardpoint_to_repair
 		for(var/obj/item/hardpoint/potential_hardpoint in hardpoints)
 			if(potential_hardpoint.health < initial(potential_hardpoint.health))
-				health = potential_hardpoint
+				hardpoint_to_repair = potential_hardpoint
 				break
 
-		if(health)
-			health.handle_repair(O, user)
+		if(hardpoint_to_repair)
+			hardpoint_to_repair.handle_repair(O, user)
 			update_icon()
 			return
 
