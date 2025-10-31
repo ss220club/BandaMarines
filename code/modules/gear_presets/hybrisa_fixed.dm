@@ -363,7 +363,7 @@
 
 	..()
 
-/datum/equipment_preset/hybrisa_event/nspa_senior_constable
+/datum/equipment_preset/hybrisa_event/nspa_seniorconstable
 
 	name = "Hybrisa - Fixed - NSPA Senior Constable"
 	assignment = "NSPA Senior Constable"
@@ -371,12 +371,12 @@
 	paygrades = list(PAY_SHORT_SC = JOB_PLAYTIME_TIER_0)
 	skills = /datum/skills/civilian/survivor/marshal
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
-	idtype = /obj/item/card/id/nspa_silver_gold
+	idtype = /obj/item/card/id/nspa_silver
 	faction = FACTION_NSPA
 	access = list(ACCESS_CIVILIAN_PUBLIC,ACCESS_CIVILIAN_RESEARCH,ACCESS_CIVILIAN_ENGINEERING,ACCESS_CIVILIAN_LOGISTICS,ACCESS_CIVILIAN_BRIG,ACCESS_CIVILIAN_MEDBAY,ACCESS_CIVILIAN_COMMAND,)
 	survivor_variant = SECURITY_SURVIVOR
 
-	/datum/equipment_preset/hybrisa_event/nspa_senior_constable/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/hybrisa_event/nspa_seniorconstable/load_gear(mob/living/carbon/human/new_human)
 
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/hybrisa/nspa_officer(new_human), WEAR_BODY)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel/black(new_human), WEAR_BACK)
@@ -394,25 +394,24 @@
 	paygrades = list(PAY_SHORT_SGT = JOB_PLAYTIME_TIER_0)
 	skills = /datum/skills/civilian/survivor/marshal
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
-	idtype = /obj/item/card/id/nspa_gold
+	idtype = /obj/item/card/id/nspa_silver_gold
 	faction = FACTION_NSPA
 	access = list(ACCESS_CIVILIAN_PUBLIC,ACCESS_CIVILIAN_RESEARCH,ACCESS_CIVILIAN_ENGINEERING,ACCESS_CIVILIAN_LOGISTICS,ACCESS_CIVILIAN_BRIG,ACCESS_CIVILIAN_MEDBAY,ACCESS_CIVILIAN_COMMAND,)
 	survivor_variant = SECURITY_SURVIVOR
 
-	/datum/equipment_preset/hybrisa_event/nspa_sergeant/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/hybrisa_event/nspa_sergeant/load_gear(mob/living/carbon/human/new_human)
 
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/hybrisa/nspa_officer(new_human), WEAR_BODY)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel/black(new_human), WEAR_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(new_human), WEAR_FEET)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/sechud/blue(new_human), WEAR_EYES)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/hybrisa/nspa_peaked_cap_gold(new_human), WEAR_HEAD)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/CMB/hybrisa/nspa_formal_jacket(new_human), WEAR_JACKET)
 
 	..()
 
 	/datum/equipment_preset/hybrisa_event/nspa_inspector
 
-	name = "Hybrisa - Fixed - NSPA Sergeant"
+	name = "Hybrisa - Fixed - NSPA Inspector"
 	assignment = "NSPA Inspector"
 	faction_group = FACTION_LIST_SURVIVOR_NSPA
 	paygrades = list(PAY_SHORT_INSP = JOB_PLAYTIME_TIER_0)
@@ -423,7 +422,7 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC,ACCESS_CIVILIAN_RESEARCH,ACCESS_CIVILIAN_ENGINEERING,ACCESS_CIVILIAN_LOGISTICS,ACCESS_CIVILIAN_BRIG,ACCESS_CIVILIAN_MEDBAY,ACCESS_CIVILIAN_COMMAND,)
 	survivor_variant = SECURITY_SURVIVOR
 
-	/datum/equipment_preset/hybrisa_event/nspa_inspector/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/hybrisa_event/nspa_inspector/load_gear(mob/living/carbon/human/new_human)
 
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/hybrisa/nspa_officer(new_human), WEAR_BODY)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel/black(new_human), WEAR_BACK)
@@ -431,8 +430,10 @@
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/sechud/blue(new_human), WEAR_EYES)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/fedora/grey(new_human), WEAR_HEAD)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/CMB/trenchcoat/grey(new_human), WEAR_JACKET)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(new_human), WEAR_HANDS)
 
 	..()
+
 //////////////// MEDICAL & SCIENCE //////////////////
 ////////////////////////////////////////////////////
 
