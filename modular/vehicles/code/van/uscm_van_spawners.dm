@@ -53,6 +53,11 @@
 
 //PRESET: no hardpoints
 /obj/effect/vehicle_spawner/uscm_van/med/spawn_vehicle()
+	var/obj/vehicle/multitile/uscm_van/med/MED = new (loc)
+
+	load_misc(MED)
+	handle_direction(MED)
+	MED.update_icon()
 
 //PRESET: wheels installed, destroyed
 /obj/effect/vehicle_spawner/uscm_van/med/decrepit/spawn_vehicle()
