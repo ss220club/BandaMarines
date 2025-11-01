@@ -539,7 +539,10 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 			clan_info.clan_rank = GLOB.clan_ranks_ordered[CLAN_RANK_ADMIN]
 			clan_info.permissions |= CLAN_PERMISSION_ALL
 		else
-			clan_info.permissions &= ~CLAN_PERMISSION_ADMIN_MANAGER // Only the leader can manage the ancients
+			// SS220 EDIT - START
+			if(clan_info.clan_rank != GLOB.clan_ranks_ordered[CLAN_RANK_ADMIN])
+				clan_info.permissions &= ~CLAN_PERMISSION_ADMIN_MANAGER
+			// SS220 EDIT - END
 
 		clan_info.save()
 
