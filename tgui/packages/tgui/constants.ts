@@ -258,6 +258,11 @@ export const RADIO_CHANNELS = [
     color: '#779cc2',
   },
   {
+    name: 'Mech',
+    freq: 1476,
+    color: '#1b748c',
+  },
+  {
     name: 'МедИс',
     freq: 1482,
     color: '#008160',
