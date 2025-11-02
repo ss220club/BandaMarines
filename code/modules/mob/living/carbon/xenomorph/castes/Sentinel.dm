@@ -222,4 +222,4 @@
 		behavior.next_slash_buffed = FALSE
 
 	to_chat(unbuffslash_user, SPAN_XENODANGER("Мы чувствуем, что действие нейротоксина в наших когтях ослабевает!"))
-	button.icon_state = "template"
+	button.icon_state = "template_xeno"

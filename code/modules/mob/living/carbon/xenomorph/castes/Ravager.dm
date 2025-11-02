@@ -155,8 +155,8 @@
 	var/datum/behavior_delegate/ravager_base/behavior = xeno.behavior_delegate
 
 	activated_once = FALSE
-	button.icon_state = "template"
-	xeno.visible_message(SPAN_XENOWARNING("[xeno] светиться от окружающих его врагов!"), SPAN_XENOWARNING("Мы чувствуем прилив сил от окружающих нас врагов!")) // SS220 EDIT ADDICTION
+	button.icon_state = "template_xeno_xeno"
+	xeno.visible_message(SPAN_XENOWARNING("[xeno] светиться от окружающих его врагов!"), SPAN_XENOWARNING("Мы чувствуем прилив сил от окружающих нас врагов!"))
 	xeno.create_empower()
 
 	var/list/mobs_in_range = oviewers(empower_range, xeno)
