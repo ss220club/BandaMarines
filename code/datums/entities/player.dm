@@ -538,11 +538,8 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 		if(check_whitelist_status(WHITELIST_YAUTJA_LEADER))
 			clan_info.clan_rank = GLOB.clan_ranks_ordered[CLAN_RANK_ADMIN]
 			clan_info.permissions |= CLAN_PERMISSION_ALL
-		else
-			// SS220 EDIT - START
-			if(clan_info.clan_rank != GLOB.clan_ranks_ordered[CLAN_RANK_ADMIN])
-				clan_info.permissions &= ~CLAN_PERMISSION_ADMIN_MANAGER
-			// SS220 EDIT - END
+		//else // SS220 EDIT - Расширение прав Ancient
+		//	clan_info.permissions &= ~CLAN_PERMISSION_ADMIN_MANAGER // Only the leader can manage the ancients
 
 		clan_info.save()
 
