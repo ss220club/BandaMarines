@@ -127,7 +127,7 @@ instrumental = "подсумком для инструментов"
 prepositional = "подсумке для инструментов"
 gender = "male"
 
-["First-Aid Pouch (Refillable Injectors)"] # Unique Vendor Name
+["First-Aid Pouch (Refillable Autoinjectors)"] # Unique Vendor Name
 nominative = "медицинский подсумок (инжекторы)"
 
 ["First-Aid Pouch (Splints, Gauze, Ointment)"] # Unique Vendor Name
