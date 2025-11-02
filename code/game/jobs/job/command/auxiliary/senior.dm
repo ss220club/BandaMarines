@@ -38,6 +38,7 @@ AddTimelock(/datum/job/command/senior, list(
 	JOB_COMMAND_ROLES = 3 HOURS,
 	// SS220 EDIT END
 ))
+
 /obj/effect/landmark/start/senior
 	name = JOB_SEA
 	icon_state = "sea_spawn"
