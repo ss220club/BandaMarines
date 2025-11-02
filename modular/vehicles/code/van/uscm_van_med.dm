@@ -5,5 +5,5 @@
 
 	interior_map = /datum/map_template/interior/modul/uscm_van/med
 
-	passengers_slots = 8
+	passengers_slots = 6
 	xenos_slots = 3

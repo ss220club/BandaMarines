@@ -77,6 +77,7 @@
 	pixel_x = -12;
 	pixel_y = 33
 	},
+/obj/item/pamphlet/skill/vc/low,
 /turf/open/shuttle/vehicle/med/gray,
 /area/interior/vehicle/apc/med)
 "r" = (
@@ -113,7 +114,6 @@
 /obj/effect/vehicle_roof/uscm_van/med{
 	icon_state = "front_roof_2"
 	},
-/obj/item/pamphlet/skill/vc/low,
 /turf/open/shuttle/vehicle/floor_3_11,
 /area/interior/vehicle/apc/med)
 "v" = (
@@ -190,6 +190,7 @@
 	pixel_x = 7;
 	pixel_y = 36
 	},
+/obj/item/pamphlet/skill/vc/low,
 /turf/open/shuttle/vehicle/med/gray,
 /area/interior/vehicle/apc/med)
 "O" = (

@@ -24,7 +24,7 @@
 
 	vehicle_flags = VEHICLE_CLASS_WEAK
 
-	passengers_slots = 10
+	passengers_slots = 7
 	xenos_slots = 3
 
 	misc_multipliers = list(
