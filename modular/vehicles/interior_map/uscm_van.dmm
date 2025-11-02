@@ -121,6 +121,7 @@
 /obj/effect/vehicle_roof/uscm_van{
 	icon_state = "front_roof_2"
 	},
+/obj/item/pamphlet/skill/vc/low,
 /turf/open/shuttle/vehicle/floor_3_11,
 /area/interior/vehicle/box_van)
 "v" = (

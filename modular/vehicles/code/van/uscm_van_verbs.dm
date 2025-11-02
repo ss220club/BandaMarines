@@ -7,7 +7,6 @@
 	))
 	if(seat == VEHICLE_DRIVER)
 		add_verb(M.client, list(
-			/obj/vehicle/multitile/proc/toggle_door_lock,
 			/obj/vehicle/multitile/proc/activate_horn,
 		))
 
@@ -19,7 +18,6 @@
 	SStgui.close_user_uis(M, src)
 	if(seat == VEHICLE_DRIVER)
 		remove_verb(M.client, list(
-			/obj/vehicle/multitile/proc/toggle_door_lock,
 			/obj/vehicle/multitile/proc/activate_horn,
 		))
 
