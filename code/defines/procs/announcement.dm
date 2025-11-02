@@ -11,10 +11,11 @@
 #define TTS_DEFAULT_ANNOUNCER new /datum/announcer
 #define TTS_ARES_ANNOUNCER new /datum/announcer/ares
 #define TTS_QUEEN_MOTHER_ANNOUNCER new /datum/announcer/queen_mother
+#define TTS_SILENT_ANNOUNCER new /datum/announcer/silent
 // SS220 ADD END - TTS
 
 //xenomorph hive announcement
-/proc/xeno_announcement(message, hivenumber, title = QUEEN_ANNOUNCE)
+/proc/xeno_announcement(message, hivenumber, title = QUEEN_ANNOUNCE, announcer = TTS_QUEEN_MOTHER_ANNOUNCER) // BANDAMARINES EDIT - ORIGINAL: /proc/xeno_announcement(message, hivenumber, title = QUEEN_ANNOUNCE)
 	var/list/targets = GLOB.living_xeno_list + GLOB.dead_mob_list
 	if(hivenumber == "everything")
 		for(var/mob/M in targets)
@@ -22,7 +23,7 @@
 			if(!isobserver(X) && !istype(X)) //filter out any potential non-xenomorphs/observers mobs
 				targets.Remove(X)
 
-		announcement_helper(message, title, targets, sound(get_sfx("queen"),wait = 0,volume = 50), announcer = TTS_QUEEN_MOTHER_ANNOUNCER) // SS220 EDIT - TTS
+		announcement_helper(message, title, targets, sound(get_sfx("queen"),wait = 0,volume = 50), announcer = announcer) // SS220 EDIT - TTS
 	else
 		for(var/mob/M in targets)
 			if(isobserver(M))
@@ -31,30 +32,34 @@
 			if(!istype(X) || !X.ally_of_hivenumber(hivenumber)) //additionally filter out those of wrong hive
 				targets.Remove(X)
 
-		announcement_helper(message, title, targets, sound(get_sfx("queen"),wait = 0,volume = 50), announcer = TTS_QUEEN_MOTHER_ANNOUNCER) // SS220 EDIT - TTS
+		announcement_helper(message, title, targets, sound(get_sfx("queen"),wait = 0,volume = 50), announcer = announcer) // SS220 EDIT - TTS
 
 
 //general marine announcement
-/proc/marine_announcement(message, title = COMMAND_ANNOUNCE, sound_to_play = sound('sound/misc/notice2.ogg'), faction_to_display = FACTION_MARINE, add_PMCs = FALSE, signature, logging = ARES_LOG_MAIN)
+/proc/marine_announcement(message, title = COMMAND_ANNOUNCE, sound_to_play = sound('sound/misc/notice2.ogg'), faction_to_display = FACTION_MARINE, add_PMCs = FALSE, signature, logging = ARES_LOG_MAIN, announcer = TTS_ARES_ANNOUNCER) // BANDAMARINES EDIT - ORIGINAL: /proc/marine_announcement(message, title = COMMAND_ANNOUNCE, sound_to_play = sound('sound/misc/notice2.ogg'), faction_to_display = FACTION_MARINE, add_PMCs = FALSE, signature, logging = ARES_LOG_MAIN)
 	var/list/targets = GLOB.human_mob_list + GLOB.dead_mob_list
 	if(faction_to_display == FACTION_MARINE)
 		for(var/mob/M in targets)
 			if(isobserver(M)) //observers see everything
 				continue
-			var/mob/living/carbon/human/H = M
-			if(!istype(H) || H.stat != CONSCIOUS || isyautja(H)) //base human checks
-				targets.Remove(H)
+			var/mob/living/carbon/human/receiver = M
+			if(!istype(receiver) || receiver.stat != CONSCIOUS || isyautja(receiver)) //base human checks
+				targets.Remove(receiver)
 				continue
-			if(is_mainship_level(H.z) && istype(GLOB.master_mode, /datum/game_mode/extended/faction_clash )) // People on ship see everything, unless it is faction clash
+			if(is_mainship_level(receiver.z) && !(istype(GLOB.master_mode, /datum/game_mode/extended/faction_clash))) // People on ship see everything, unless it is faction clash
 				continue
 
 			// If they have iff AND a marine headset they will recieve announcements
-			var/obj/item/card/id/card = H.get_idcard()
-			if ((FACTION_MARINE in card?.faction_group) && (istype(H.wear_l_ear, /obj/item/device/radio/headset/almayer) || istype(H.wear_r_ear, /obj/item/device/radio/headset/almayer)))
+			var/obj/item/card/id/card = receiver.get_idcard()
+			if ((FACTION_MARINE in card?.faction_group) && (istype(receiver.wear_l_ear, /obj/item/device/radio/headset/almayer) || istype(receiver.wear_r_ear, /obj/item/device/radio/headset/almayer)))
 				continue
 
-			if((H.faction != faction_to_display && !add_PMCs) || (H.faction != faction_to_display && add_PMCs && !(H.faction in FACTION_LIST_WY)) && !(faction_to_display in H.faction_group)) //faction checks
-				targets.Remove(H)
+			/// If they're in a joint-USCM job they'll get announcements regardless.
+			if((receiver.job in USCM_SHARED_JOBS) && (istype(receiver.wear_l_ear, /obj/item/device/radio/headset) || istype(receiver.wear_r_ear, /obj/item/device/radio/headset)))
+				continue
+
+			if((receiver.faction != faction_to_display && !add_PMCs) || (receiver.faction != faction_to_display && add_PMCs && !(receiver.faction in FACTION_LIST_WY)) && !(faction_to_display in receiver.faction_group)) //faction checks
+				targets.Remove(receiver)
 
 		switch(logging)
 			if(ARES_LOG_MAIN)
@@ -84,7 +89,7 @@
 	if(!isnull(signature))
 		message += "<br><br><i> Авторизация, <br> [signature]</i>"
 
-	announcement_helper(message, title, targets, sound_to_play, announcer = TTS_ARES_ANNOUNCER) // SS220 EDIT - TTS
+	announcement_helper(message, title, targets, sound_to_play, announcer = announcer) // SS220 EDIT - TTS
 
 //AI announcement that uses talking into comms
 /proc/ai_announcement(message, sound_to_play = sound('sound/misc/interference.ogg'), logging = ARES_LOG_MAIN)
@@ -120,7 +125,7 @@
 
 //AI shipside announcement, that uses announcement mechanic instead of talking into comms
 //to ensure that all humans on ship hear it regardless of comms and power
-/proc/shipwide_ai_announcement(message, title = MAIN_AI_SYSTEM, sound_to_play = sound('sound/misc/interference.ogg'), signature, ares_logging = ARES_LOG_MAIN, quiet = FALSE)
+/proc/shipwide_ai_announcement(message, title = MAIN_AI_SYSTEM, sound_to_play = sound('sound/misc/interference.ogg'), signature, ares_logging = ARES_LOG_MAIN, quiet = FALSE, announcer = TTS_ARES_ANNOUNCER) // BANDAMARINES EDIT - ORIGINAL: /proc/shipwide_ai_announcement(message, title = MAIN_AI_SYSTEM, sound_to_play = sound('sound/misc/interference.ogg'), signature, ares_logging = ARES_LOG_MAIN, quiet = FALSE)
 	var/list/targets = GLOB.human_mob_list + GLOB.dead_mob_list
 	for(var/mob/target as anything in targets)
 		if(isobserver(target))
@@ -137,7 +142,7 @@
 		if(ARES_LOG_SECURITY)
 			log_ares_security(title, message, signature)
 
-	announcement_helper(message, title, targets, sound_to_play, quiet, TTS_ARES_ANNOUNCER) // SS220 EDIT - TTS
+	announcement_helper(message, title, targets, sound_to_play, quiet, announcer = announcer) // SS220 EDIT - TTS
 
 /proc/all_hands_on_deck(message, title = MAIN_AI_SYSTEM, sound_to_play = sound('sound/misc/sound_misc_boatswain.ogg'))
 	shipwide_ai_announcement(message, title, sound_to_play, null, ARES_LOG_MAIN, FALSE)
