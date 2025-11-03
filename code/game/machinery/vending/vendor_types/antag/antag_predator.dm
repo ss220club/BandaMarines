@@ -109,6 +109,7 @@ GLOBAL_LIST_INIT(cm_vending_young_yautja, list(
 		list("Wrist Blades", 0,list(/obj/item/bracer_attachments/wristblades, /obj/item/bracer_attachments/wristblades), MARINE_CAN_BUY_ATTACHMENT, VENDOR_ITEM_MANDATORY),
 		list("The Fearsome Scimitars", 0, list(/obj/item/bracer_attachments/scimitars, /obj/item/bracer_attachments/scimitars), MARINE_CAN_BUY_SECONDARY, VENDOR_ITEM_RECOMMENDED),
 		list("The Skewering Scimitars", 0, list(/obj/item/bracer_attachments/scimitars_alt, /obj/item/bracer_attachments/scimitars_alt), MARINE_CAN_BUY_SECONDARY, VENDOR_ITEM_RECOMMENDED),
+		list("The Chain Gauntlets", 0, list(/obj/item/bracer_attachments/chain_gauntlets, /obj/item/bracer_attachments/chain_gauntlets, /obj/item/yautja/chain), MARINE_CAN_BUY_SECONDARY, VENDOR_ITEM_RECOMMENDED),
 			))
 
 GLOBAL_LIST_INIT(cm_vending_thrall, list(
@@ -161,7 +162,7 @@ GLOBAL_LIST_INIT(cm_vending_blooded_thrall, list(
 /obj/structure/machinery/cm_vending/clothing/yautja/hunter/can_access_to_vend(mob/user, display = TRUE, ignore_hack = FALSE)
 	if(!allowed(user))
 		if(display)
-			to_chat(user, SPAN_WARNING("Access denied."))
+			to_chat(user, SPAN_WARNING("Доступ запрещён."))
 			vend_fail()
 		return FALSE
 
@@ -215,7 +216,7 @@ GLOBAL_LIST_INIT(cm_vending_blooded_thrall, list(
 /obj/structure/machinery/cm_vending/clothing/yautja/young_blood/can_access_to_vend(mob/user, display = TRUE, ignore_hack = FALSE)
 	if(!allowed(user))
 		if(display)
-			to_chat(user, SPAN_WARNING("Access denied."))
+			to_chat(user, SPAN_WARNING("Доступ запрещён."))
 			vend_fail()
 		return FALSE
 
@@ -255,11 +256,11 @@ GLOBAL_LIST_INIT(cm_vending_blooded_thrall, list(
 	if(!hacked || ignore_hack)
 		if(!allowed(user))
 			if(display)
-				to_chat(user, SPAN_WARNING("Access denied."))
+				to_chat(user, SPAN_WARNING("Доступ запрещён."))
 				vend_fail()
 			return FALSE
 	if(!isthrall(user))
-		to_chat(user, SPAN_WARNING("Access denied."))
+		to_chat(user, SPAN_WARNING("Доступ запрещён."))
 		vend_fail()
 	return FALSE
 
@@ -292,11 +293,11 @@ GLOBAL_LIST_INIT(cm_vending_blooded_thrall, list(
 	if(!hacked || ignore_hack)
 		if(!allowed(user))
 			if(display)
-				to_chat(user, SPAN_WARNING("Access denied."))
+				to_chat(user, SPAN_WARNING("Доступ запрещён."))
 				vend_fail()
 			return FALSE
 	if(isyautja(user))
-		to_chat(user, SPAN_WARNING("Access denied."))
+		to_chat(user, SPAN_WARNING("Доступ запрещён."))
 		vend_fail()
 	return FALSE
 

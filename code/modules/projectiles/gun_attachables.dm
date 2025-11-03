@@ -90,7 +90,6 @@ Defined in conflicts.dm of the #defines folder.
 	var/list/list/traits_to_give
 	/// List of traits to be given to the gun itself.
 	var/list/gun_traits
-	var/hotkey_id // SS220 EDIT ADDICTION
 
 /obj/item/attachable/Initialize(mapload, ...)
 	. = ..()
@@ -193,6 +192,7 @@ Defined in conflicts.dm of the #defines folder.
 			break
 
 	forceMove(get_turf(detaching_gun))
+	user?.put_in_hands(src, TRUE)
 
 	if(sharp)
 		detaching_gun.sharp = 0
@@ -366,6 +366,10 @@ Defined in conflicts.dm of the #defines folder.
 	item_state = "wy_bayonet"
 	attach_icon = "wy_bayonet_a"
 	unacidable = TRUE
+
+/obj/item/attachable/bayonet/wy/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/wy)
 
 /obj/item/attachable/bayonet/upp
 	AUTOWIKI_SKIP(TRUE)
@@ -736,13 +740,13 @@ Defined in conflicts.dm of the #defines folder.
 	detaching_gun.fire_sound = initial(detaching_gun.fire_sound)
 	return ..()
 
-// Mateba barrels
+// Mateba(Unica) barrels
 
 /obj/item/attachable/mateba
-	name = "standard mateba barrel"
+	name = "standard Unica barrel"
 	icon = 'icons/obj/items/weapons/guns/attachments/barrel.dmi'
 	icon_state = "mateba_medium"
-	desc = "A standard mateba barrel. Offers a balance between accuracy and fire rate."
+	desc = "A standard unica barrel. Offers a balance between accuracy and fire rate."
 	slot = "special"
 	flags_attach_features = NO_FLAGS
 
@@ -765,9 +769,9 @@ Defined in conflicts.dm of the #defines folder.
 	icon_state = "mateba_medium_a"
 
 /obj/item/attachable/mateba/long
-	name = "marksman mateba barrel"
+	name = "marksman Unica barrel"
 	icon_state = "mateba_long"
-	desc = "A marksman mateba barrel. Offers a greater accuracy at the cost of fire rate."
+	desc = "A marksman Unica barrel. Offers a greater accuracy at the cost of fire rate."
 	flags_attach_features = NO_FLAGS
 	hud_offset_mod = -1
 
@@ -788,9 +792,9 @@ Defined in conflicts.dm of the #defines folder.
 	icon_state = "mateba_long_a"
 
 /obj/item/attachable/mateba/short
-	name = "snubnose mateba barrel"
+	name = "snubnose Unica barrel"
 	icon_state = "mateba_short"
-	desc = "A snubnosed mateba barrel. Offers a fast fire rate at the cost of accuracy."
+	desc = "A snubnosed Unica barrel. Offers a fast fire rate at the cost of accuracy."
 	hud_offset_mod = 2
 
 /obj/item/attachable/mateba/short/New()
@@ -813,19 +817,19 @@ Defined in conflicts.dm of the #defines folder.
 
 /obj/item/attachable/reddot
 	name = "S5 red-dot sight"
-	desc = "An ARMAT S5 red-dot sight. A zero-magnification optic that offers faster, and more accurate target acquisition."
+	desc = "An Armat S5 red-dot sight. A zero-magnification optic that offers faster, and more accurate target acquisition."
 	desc_lore = "An all-weather collimator sight, designated as the AN/PVQ-64 Dot Sight. Equipped with a sunshade to increase clarity in bright conditions and resist weathering. Compact and efficient, a marvel of military design, until you realize that this is actually just an off-the-shelf design that got a military designation slapped on."
 	icon = 'icons/obj/items/weapons/guns/attachments/rail.dmi'
 	icon_state = "reddot"
 	attach_icon = "reddot_a"
 	slot = "rail"
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_ATTACHMENT_RAIL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/reddot/New()
 	..()
 	accuracy_mod = HIT_ACCURACY_MULT_TIER_4
 	accuracy_unwielded_mod = HIT_ACCURACY_MULT_TIER_1
 	movement_onehanded_acc_penalty_mod = MOVEMENT_ACCURACY_PENALTY_MULT_TIER_5
+	AddElement(/datum/element/corp_label/armat)
 
 /obj/item/attachable/reddot/small
 	name = "S5-Micro dot sight"
@@ -844,13 +848,12 @@ Defined in conflicts.dm of the #defines folder.
 
 /obj/item/attachable/reflex
 	name = "S6 reflex sight"
-	desc = "An ARMAT S6 reflex sight. A zero-magnification alternative to iron sights with a more open optic window when compared to the S5 red-dot. Helps to reduce scatter during automated fire."
+	desc = "An Armat S6 reflex sight. A zero-magnification alternative to iron sights with a more open optic window when compared to the S5 red-dot. Helps to reduce scatter during automated fire."
 	desc_lore = "A simple folding reflex sight designated as the AN/PVG-72 Reflex Sight, compatible with most rail systems. Bulky and built to last, it can link with military HUDs for limited point-of-aim calculations."
 	icon = 'icons/obj/items/weapons/guns/attachments/rail.dmi'
 	icon_state = "reflex"
 	attach_icon = "reflex_a"
 	slot = "rail"
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_ATTACHMENT_RAIL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/reflex/New()
 	..()
@@ -859,6 +862,7 @@ Defined in conflicts.dm of the #defines folder.
 	scatter_mod = -SCATTER_AMOUNT_TIER_10
 	burst_scatter_mod = -1
 	movement_onehanded_acc_penalty_mod = MOVEMENT_ACCURACY_PENALTY_MULT_TIER_5
+	AddElement(/datum/element/corp_label/armat)
 
 
 /obj/item/attachable/flashlight
@@ -874,7 +878,7 @@ Defined in conflicts.dm of the #defines folder.
 	slot = "rail"
 	matter = list("metal" = 50,"glass" = 20)
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION
-	attachment_action_type = /datum/action/item_action/toggle
+	attachment_action_type = /datum/action/item_action/toggle/rail_flashlight
 	activation_sound = 'sound/handling/light_on_1.ogg'
 	deactivation_sound = 'sound/handling/click_2.ogg'
 	var/original_state = "flashlight"
@@ -885,7 +889,6 @@ Defined in conflicts.dm of the #defines folder.
 
 	var/datum/action/item_action/activation
 	var/obj/item/attached_item
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_ATTACHMENT_RAIL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/flashlight/on_enter_storage(obj/item/storage/internal/S)
 	..()
@@ -900,7 +903,7 @@ Defined in conflicts.dm of the #defines folder.
 
 	attached_item = S.master_object
 	RegisterSignal(attached_item, COMSIG_PARENT_QDELETING, PROC_REF(remove_attached_item))
-	activation = new /datum/action/item_action/toggle(src, S.master_object)
+	activation = new /datum/action/item_action/toggle/rail_flashlight(src, S.master_object)
 
 	if(ismob(S.master_object.loc))
 		activation.give_to(S.master_object.loc)
@@ -927,6 +930,8 @@ Defined in conflicts.dm of the #defines folder.
 		. = ..()
 	else
 		activate_attachment(attached_item, owner)
+		for(var/datum/action/item_action as anything in holder.actions)
+			item_action.update_button_icon()
 
 /obj/item/attachable/flashlight/activate_attachment(obj/item/weapon/gun/G, mob/living/user, turn_off)
 	turn_light(user, turn_off ? !turn_off : !light_on)
@@ -1014,9 +1019,9 @@ Defined in conflicts.dm of the #defines folder.
 	icon_state = "flashgrip"
 	attach_icon = "flashgrip_a"
 	slot = "under"
+	attachment_action_type = /datum/action/item_action/toggle/flashlight_grip
 	original_state = "flashgrip"
 	original_attach = "flashgrip_a"
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/flashlight/grip/New()
 	..()
@@ -1036,9 +1041,9 @@ Defined in conflicts.dm of the #defines folder.
 	icon_state = "vplaserlight"
 	attach_icon = "vplaserlight_a"
 	slot = "under"
+	attachment_action_type = /datum/action/item_action/toggle/flashlight_grip
 	original_state = "vplaserlight"
 	original_attach = "vplaserlight_a"
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/flashlight/laser_light_combo/New()
 	..()
@@ -1062,7 +1067,6 @@ Defined in conflicts.dm of the #defines folder.
 	slot = "rail"
 	pixel_shift_x = 13
 	var/retrieval_slot = WEAR_J_STORE
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_ATTACHMENT_RAIL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/magnetic_harness/New()
 	..()
@@ -1092,7 +1096,6 @@ Defined in conflicts.dm of the #defines folder.
 	slot = "under"
 	wield_delay_mod = WIELD_DELAY_VERY_FAST
 	retrieval_slot = WEAR_BACK
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/magnetic_harness/lever_sling/New()
 	..()
@@ -1132,11 +1135,10 @@ Defined in conflicts.dm of the #defines folder.
 	icon = 'icons/obj/items/weapons/guns/attachments/rail.dmi'
 	icon_state = "iffbarrel"
 	attach_icon = "iffbarrel_a"
-	desc = "An experimental B8 Smart-Scope. Based on the technologies used in the Smart Gun by ARMAT, this sight has integrated IFF systems. It can only attach to the M4RA Battle Rifle, the M44 Combat Revolver, and the M41A MK2 Pulse Rifle."
+	desc = "An experimental B8 Smart-Scope. Based on the technologies used in the Smart Gun by Armat, this sight has integrated IFF systems. It can only attach to the M4RA Battle Rifle, the M44 Combat Revolver, and the M41A MK2 Pulse Rifle."
 	desc_lore = "An experimental fire-control optic capable of linking into compatible IFF systems on certain weapons, designated the XAN/PVG-110 Smart Scope. Experimental technology developed by Armat, who have assured that all previously reported issues with false-negative IFF recognitions have been solved. Make sure to check the sight after every deployment, just in case."
 	slot = "rail"
 	pixel_shift_y = 15
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_ATTACHMENT_RAIL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/alt_iff_scope/New()
 	..()
@@ -1164,13 +1166,13 @@ Defined in conflicts.dm of the #defines folder.
 	icon = 'icons/obj/items/weapons/guns/attachments/rail.dmi'
 	icon_state = "sniperscope"
 	attach_icon = "sniperscope_a"
-	desc = "An ARMAT S8 telescopic eye piece. Fixed at 4x zoom. Press the 'use rail attachment' HUD icon or use the verb of the same name to zoom."
+	desc = "An Armat S8 telescopic eye piece. Fixed at 4x zoom. Press the 'use rail attachment' HUD icon or use the verb of the same name to zoom."
 	desc_lore = "An intermediate-power Armat scope designated as the AN/PVQ-31 4x Optic. Fairly basic, but both durable and functional... enough. 780 meters is about as far as one can push the 10x24mm cartridge, really."
 	slot = "rail"
 	aim_speed_mod = SLOWDOWN_ADS_SCOPE //Extra slowdown when wielded
 	wield_delay_mod = WIELD_DELAY_FAST
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION
-	attachment_action_type = /datum/action/item_action/toggle
+	attachment_action_type = /datum/action/item_action/toggle/scope
 	var/zoom_offset = 11
 	var/zoom_viewsize = 12
 	var/allows_movement = 0
@@ -1179,7 +1181,6 @@ Defined in conflicts.dm of the #defines folder.
 	var/damage_falloff_scoped_buff
 	var/ignore_clash_fog = FALSE
 	var/using_scope
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_ATTACHMENT_RAIL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/scope/New()
 	..()
@@ -1229,6 +1230,7 @@ Defined in conflicts.dm of the #defines folder.
 	G.accuracy_mult -= accuracy_scoped_buff
 	G.modify_fire_delay(-delay_scoped_nerf)
 	G.damage_falloff_mult -= damage_falloff_scoped_buff
+	user.update_action_buttons()
 
 /obj/item/attachable/scope/activate_attachment(obj/item/weapon/gun/G, mob/living/carbon/user, turn_off)
 	if(turn_off || G.zoom)
@@ -1257,11 +1259,14 @@ Defined in conflicts.dm of the #defines folder.
 
 /obj/item/attachable/scope/variable_zoom
 	name = "S10 variable zoom telescopic scope"
-	desc = "An ARMAT S10 telescopic eye piece. Can be switched between 2x zoom, which allows the user to move while scoped in, and 4x zoom. Press the 'use rail attachment' HUD icon or use the verb of the same name to zoom."
-	attachment_action_type = /datum/action/item_action/toggle
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_ATTACHMENT_RAIL // SS220 EDIT ADDICTION
+	desc = "An Armat S10 telescopic eye piece. Can be switched between 2x zoom, which allows the user to move while scoped in, and 4x zoom. Press the 'use rail attachment' HUD icon or use the verb of the same name to zoom."
+	attachment_action_type = /datum/action/item_action/toggle/scope
 	var/dynamic_aim_slowdown = SLOWDOWN_ADS_MINISCOPE_DYNAMIC
 	var/zoom_level = ZOOM_LEVEL_4X
+
+/obj/item/attachable/scope/variable_zoom/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/armat)
 
 /obj/item/attachable/scope/variable_zoom/Attach(obj/item/weapon/gun/G)
 	. = ..()
@@ -1306,6 +1311,7 @@ Defined in conflicts.dm of the #defines folder.
 /datum/action/item_action/toggle_zoom_level/New()
 	..()
 	name = "Toggle Zoom Level"
+	action_icon_state = "zoom_in"
 	button.name = name
 
 /datum/action/item_action/toggle_zoom_level/action_activate()
@@ -1313,6 +1319,17 @@ Defined in conflicts.dm of the #defines folder.
 	var/obj/item/weapon/gun/G = holder_item
 	var/obj/item/attachable/scope/variable_zoom/S = G.attachments["rail"]
 	S.toggle_zoom_level()
+	update_button_icon()
+
+/datum/action/item_action/toggle_zoom_level/update_button_icon()
+	var/obj/item/weapon/gun/G = holder_item
+	var/obj/item/attachable/scope/variable_zoom/S = G.attachments["rail"]
+	if(S.zoom_level == ZOOM_LEVEL_2X)
+		action_icon_state = "zoom_in"
+	else
+		action_icon_state = "zoom_out"
+	button.overlays.Cut()
+	button.overlays += image('icons/mob/hud/actions.dmi', button, action_icon_state)
 
 //other variable zoom scopes
 
@@ -1335,7 +1352,7 @@ Defined in conflicts.dm of the #defines folder.
 	name = "S10 variable zoom telescopic scope"
 	icon_state = "3we_scope"
 	attach_icon = "3we_scope_a"
-	desc = "An ARMAT S10 telescopic eye piece. Can be switched between 2x zoom, which allows the user to move while scoped in, and 4x zoom. Press the 'use rail attachment' HUD icon or use the verb of the same name to zoom."
+	desc = "An Armat S10 telescopic eye piece. Can be switched between 2x zoom, which allows the user to move while scoped in, and 4x zoom. Press the 'use rail attachment' HUD icon or use the verb of the same name to zoom."
 
 #undef ZOOM_LEVEL_2X
 #undef ZOOM_LEVEL_4X
@@ -1345,7 +1362,7 @@ Defined in conflicts.dm of the #defines folder.
 	name = "S4 2x telescopic mini-scope"
 	icon_state = "miniscope"
 	attach_icon = "miniscope_a"
-	desc = "An ARMAT S4 telescoping eye piece. Fixed at a modest 2x zoom. Press the 'use rail attachment' HUD icon or use the verb of the same name to zoom."
+	desc = "An Armat S4 telescoping eye piece. Fixed at a modest 2x zoom. Press the 'use rail attachment' HUD icon or use the verb of the same name to zoom."
 	desc_lore = "A light-duty optic, designated as the AN/PVQ-45 2x Optic. Suited towards short to medium-range engagements. Users are advised to zero it often, as the first mass-production batch had a tendency to drift in one direction or another with sustained use."
 	slot = "rail"
 	zoom_offset = 6
@@ -1353,13 +1370,14 @@ Defined in conflicts.dm of the #defines folder.
 	allows_movement = TRUE
 	aim_speed_mod = 0
 	var/dynamic_aim_slowdown = SLOWDOWN_ADS_MINISCOPE_DYNAMIC
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_ATTACHMENT_RAIL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/scope/mini/New()
 	..()
 	delay_mod = 0
 	delay_scoped_nerf = FIRE_DELAY_TIER_SMG
 	damage_falloff_scoped_buff = -0.2 //has to be negative
+	AddElement(/datum/element/corp_label/armat)
+
 
 /obj/item/attachable/scope/mini/apply_scoped_buff(obj/item/weapon/gun/G, mob/living/carbon/user)
 	. = ..()
@@ -1395,15 +1413,19 @@ Defined in conflicts.dm of the #defines folder.
 
 /obj/item/attachable/scope/mini/nsg23
 	name = "W-Y S4 2x advanced telescopic mini-scope"
-	desc = "An ARMAT S4 telescoping eye piece, custom-tuned by W-Y scientists to be as ergonomic as possible."
+	desc = "An Armat S4 telescoping eye piece, custom-tuned by W-Y scientists to be as ergonomic as possible."
 	icon_state = "miniscope_nsg23"
 	attach_icon = "miniscope_nsg23_a"
 	zoom_offset = 7
 	dynamic_aim_slowdown = SLOWDOWN_ADS_NONE
 
+/obj/item/attachable/scope/mini/nsg23/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/wy)
+
 /obj/item/attachable/scope/mini/xm88
 	name = "XS-9 targeting relay"
-	desc = "An ARMAT XS-9 optical interface. Unlike a traditional scope, this rail-mounted device features no telescoping lens. Instead, the firearm's onboard targeting system relays data directly to the optic for the system operator to reference in realtime."
+	desc = "An Armat XS-9 optical interface. Unlike a traditional scope, this rail-mounted device features no telescoping lens. Instead, the firearm's onboard targeting system relays data directly to the optic for the system operator to reference in realtime."
 	icon_state = "boomslang-scope"
 	zoom_offset = 7
 	dynamic_aim_slowdown = SLOWDOWN_ADS_NONE
@@ -1428,7 +1450,7 @@ Defined in conflicts.dm of the #defines folder.
 	aim_speed_mod = SLOWDOWN_ADS_SCOPE //Extra slowdown when wielded
 	wield_delay_mod = WIELD_DELAY_FAST
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION
-	attachment_action_type = /datum/action/item_action/toggle
+	attachment_action_type = /datum/action/item_action/toggle/vulture_scope
 	/// Weakref to the user of the scope
 	var/datum/weakref/scope_user
 	/// If the scope is currently in use
@@ -1481,7 +1503,6 @@ Defined in conflicts.dm of the #defines folder.
 	var/spotter_spotting = FALSE
 	/// How much time it takes to adjust the position of the scope. Adjusting the offset will take half of this time
 	var/adjust_delay = 1 SECONDS
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_ATTACHMENT_RAIL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/vulture_scope/Initialize(mapload, ...)
 	. = ..()
@@ -1927,7 +1948,6 @@ Defined in conflicts.dm of the #defines folder.
 	var/stock_activated = TRUE
 	var/collapse_delay  = 0
 	var/list/deploy_message = list("collapse", "extend")
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
 
 /obj/item/attachable/stock/proc/apply_on_weapon(obj/item/weapon/gun/gun)
 	return TRUE
@@ -1976,7 +1996,6 @@ Defined in conflicts.dm of the #defines folder.
 	pixel_shift_x = 32
 	pixel_shift_y = 15
 	hud_offset_mod = 6 //*Very* long sprite.
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
 
 /obj/item/attachable/stock/shotgun/New()
 	..()
@@ -2011,8 +2030,7 @@ Defined in conflicts.dm of the #defines folder.
 	wield_delay_mod = WIELD_DELAY_NONE //starts collapsed so no delay mod
 	collapse_delay = 0.5 SECONDS
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION
-	attachment_action_type = /datum/action/item_action/toggle
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
+	attachment_action_type = /datum/action/item_action/toggle/stock
 
 /obj/item/attachable/stock/synth/collapsible/New()
 	..()
@@ -2121,7 +2139,6 @@ Defined in conflicts.dm of the #defines folder.
 	pixel_shift_x = 32
 	pixel_shift_y = 15
 	hud_offset_mod = 2
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
 
 /obj/item/attachable/stock/double/New()
 	..()
@@ -2337,7 +2354,6 @@ Defined in conflicts.dm of the #defines folder.
 	pixel_shift_y = 10
 	wield_delay_mod = WIELD_DELAY_FAST
 	hud_offset_mod = 3
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
 
 /obj/item/attachable/stock/rifle/New()
 	..()
@@ -2369,8 +2385,7 @@ Defined in conflicts.dm of the #defines folder.
 	wield_delay_mod = WIELD_DELAY_NONE //starts collapsed so no delay mod
 	collapse_delay = 0.5 SECONDS
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION
-	attachment_action_type = /datum/action/item_action/toggle
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
+	attachment_action_type = /datum/action/item_action/toggle/stock
 
 /obj/item/attachable/stock/rifle/collapsible/New()
 	..()
@@ -2434,8 +2449,7 @@ Defined in conflicts.dm of the #defines folder.
 	wield_delay_mod = WIELD_DELAY_NONE //starts collapsed so no delay mod
 	collapse_delay = 0.5 SECONDS
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION
-	attachment_action_type = /datum/action/item_action/toggle
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
+	attachment_action_type = /datum/action/item_action/toggle/stock
 
 /obj/item/attachable/stock/rifle/collapsible/ak4047/New()
 	..()
@@ -2499,8 +2513,7 @@ Defined in conflicts.dm of the #defines folder.
 	wield_delay_mod = WIELD_DELAY_NONE //starts collapsed so no delay mod
 	collapse_delay = 0.5 SECONDS
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION
-	attachment_action_type = /datum/action/item_action/toggle
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
+	attachment_action_type = /datum/action/item_action/toggle/stock
 
 /obj/item/attachable/stock/rifle/collapsible/m41ae2/New()
 	..()
@@ -2546,8 +2559,7 @@ Defined in conflicts.dm of the #defines folder.
 	wield_delay_mod = WIELD_DELAY_NONE //starts collapsed so no delay mod
 	collapse_delay = 0.5 SECONDS
 	flags_attach_features = ATTACH_ACTIVATION
-	attachment_action_type = /datum/action/item_action/toggle
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
+	attachment_action_type = /datum/action/item_action/toggle/stock
 	var/base_icon = "m16_folding"
 
 /obj/item/attachable/stock/xm177/Initialize()
@@ -2679,7 +2691,6 @@ Defined in conflicts.dm of the #defines folder.
 	pixel_shift_y = 8
 	wield_delay_mod = WIELD_DELAY_NORMAL
 	hud_offset_mod = 2
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
 
 /obj/item/attachable/stock/carbine/New()
 	..()
@@ -2727,7 +2738,7 @@ Defined in conflicts.dm of the #defines folder.
 
 /obj/item/attachable/stock/smg
 	name = "submachinegun stock"
-	desc = "A rare ARMAT stock distributed in small numbers to USCM forces. Compatible with the M39, this stock reduces recoil and improves accuracy, but at a reduction to handling and agility. Seemingly a bit more effective in a brawl"
+	desc = "A rare Armat stock distributed in small numbers to USCM forces. Compatible with the M39, this stock reduces recoil and improves accuracy, but at a reduction to handling and agility. Seemingly a bit more effective in a brawl"
 	slot = "stock"
 	melee_mod = 15
 	size_mod = 1
@@ -2737,7 +2748,6 @@ Defined in conflicts.dm of the #defines folder.
 	pixel_shift_y = 11
 	wield_delay_mod = WIELD_DELAY_FAST
 	hud_offset_mod = 5
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
 
 /obj/item/attachable/stock/smg/New()
 	..()
@@ -2747,6 +2757,7 @@ Defined in conflicts.dm of the #defines folder.
 	delay_mod = 0
 	movement_onehanded_acc_penalty_mod = -MOVEMENT_ACCURACY_PENALTY_MULT_TIER_5
 	aim_speed_mod = CONFIG_GET(number/slowdown_low)
+	AddElement(/datum/element/corp_label/armat)
 
 
 /obj/item/attachable/stock/smg/collapsible
@@ -2760,11 +2771,10 @@ Defined in conflicts.dm of the #defines folder.
 	pixel_shift_x = 43
 	pixel_shift_y = 11
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION
-	attachment_action_type = /datum/action/item_action/toggle
+	attachment_action_type = /datum/action/item_action/toggle/stock
 	hud_offset_mod = 5
 	collapsible = TRUE
 	var/base_icon = "smgstockc"
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
 
 /obj/item/attachable/stock/smg/collapsible/New()
 	..()
@@ -2888,14 +2898,13 @@ Defined in conflicts.dm of the #defines folder.
 	pixel_shift_y = 19
 	wield_delay_mod = WIELD_DELAY_FAST
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION
-	attachment_action_type = /datum/action/item_action/toggle
+	attachment_action_type = /datum/action/item_action/toggle/stock
 	hud_offset_mod = 7 //Extremely long.
 	var/folded = FALSE
 	var/list/allowed_hat_items = list(
 					/obj/item/ammo_magazine/revolver,
 					/obj/item/ammo_magazine/revolver/marksman,
 					/obj/item/ammo_magazine/revolver/heavy)
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT // SS220 EDIT ADDICTION
 
 /obj/item/attachable/stock/revolver/New()
 	..()
@@ -3068,6 +3077,7 @@ Defined in conflicts.dm of the #defines folder.
 	current_rounds = 0
 	max_rounds = 3
 	max_range = 7
+	attachment_action_type = /datum/action/item_action/toggle/ugl
 	slot = "under"
 	fire_sound = 'sound/weapons/gun_m92_attachable.ogg'
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_RELOADABLE|ATTACH_WEAPON
@@ -3077,7 +3087,6 @@ Defined in conflicts.dm of the #defines folder.
 	var/cocked = TRUE // has the UGL been cocked via opening and closing the breech?
 	var/open_sound = 'sound/weapons/handling/ugl_open.ogg'
 	var/close_sound = 'sound/weapons/handling/ugl_close.ogg'
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/attached_gun/grenade/Initialize()
 	. = ..()
@@ -3121,6 +3130,8 @@ Defined in conflicts.dm of the #defines folder.
 	if(istype(loc, /obj/item/weapon/gun))
 		var/obj/item/weapon/gun/gun = loc
 		gun.update_attachable(slot)
+		for(var/datum/action/item_action as anything in gun.actions)
+			item_action.update_button_icon()
 
 /obj/item/attachable/attached_gun/grenade/proc/pump(mob/user) //for want of a better proc name
 	if(breech_open) // if it was ALREADY open
@@ -3274,11 +3285,11 @@ Defined in conflicts.dm of the #defines folder.
 	fire_sound = 'sound/weapons/gun_flamethrower3.ogg'
 	gun_activate_sound = 'sound/weapons/handling/gun_underbarrel_flamer_activate.ogg'
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_RELOADABLE|ATTACH_WEAPON
+	attachment_action_type = /datum/action/item_action/toggle/flamer
 	var/burn_level = BURN_LEVEL_TIER_1
 	var/burn_duration = BURN_TIME_TIER_1
 	var/round_usage_per_tile = 1
 	var/intense_mode = FALSE
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/attached_gun/flamer/New()
 	..()
@@ -3303,6 +3314,8 @@ Defined in conflicts.dm of the #defines folder.
 	if(isgun(loc))
 		var/obj/item/weapon/gun/gun = loc
 		gun.update_attachable(slot)
+		for(var/datum/action/item_action as anything in gun.actions)
+			item_action.update_button_icon()
 
 /obj/item/attachable/attached_gun/flamer/unique_action(mob/user)
 	..()
@@ -3459,20 +3472,21 @@ Defined in conflicts.dm of the #defines folder.
 	name = "\improper U7 underbarrel shotgun"
 	icon_state = "masterkey"
 	attach_icon = "masterkey_a"
-	desc = "An ARMAT U7 tactical shotgun. Attaches to the underbarrel of most weapons. Only capable of loading up to five buckshot shells. Specialized for breaching into buildings."
+	desc = "An Armat U7 tactical shotgun. Attaches to the underbarrel of most weapons. Only capable of loading up to five buckshot shells. Specialized for breaching into buildings."
 	w_class = SIZE_MEDIUM
 	max_rounds = 5
 	current_rounds = 5
 	ammo = /datum/ammo/bullet/shotgun/buckshot/masterkey
+	attachment_action_type = /datum/action/item_action/toggle/ubs
 	slot = "under"
 	fire_sound = 'sound/weapons/gun_shotgun_u7.ogg'
 	gun_activate_sound = 'sound/weapons/handling/gun_u7_activate.ogg'
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_PROJECTILE|ATTACH_RELOADABLE|ATTACH_WEAPON
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/attached_gun/shotgun/New()
 	..()
 	attachment_firing_delay = FIRE_DELAY_TIER_5*3
+	AddElement(/datum/element/corp_label/armat)
 
 /obj/item/attachable/attached_gun/shotgun/get_examine_text(mob/user)
 	. = ..()
@@ -3511,12 +3525,10 @@ Defined in conflicts.dm of the #defines folder.
 	w_class = SIZE_MEDIUM
 	max_rounds = 6
 	current_rounds = 6
-	ammo = /datum/ammo/bullet/shotgun/buckshot/masterkey
 	slot = "under"
 	fire_sound = 'sound/weapons/gun_shotgun_u7.ogg'
 	gun_activate_sound = 'sound/weapons/handling/gun_u7_activate.ogg'
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_PROJECTILE|ATTACH_RELOADABLE|ATTACH_WEAPON
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/attached_gun/shotgun/af13/New()
 	..()
@@ -3564,7 +3576,6 @@ Defined in conflicts.dm of the #defines folder.
 	fire_sound = 'sound/weapons/gun_shotgun_u7.ogg'
 	gun_activate_sound = 'sound/weapons/handling/gun_u7_activate.ogg'
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_PROJECTILE|ATTACH_RELOADABLE|ATTACH_WEAPON|ATTACH_WIELD_OVERRIDE
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/attached_gun/shotgun/af13b/New()
 	..()
@@ -3606,11 +3617,11 @@ Defined in conflicts.dm of the #defines folder.
 	attach_icon = "extinguisher_a"
 	desc = "A Taiho-Technologies HME-12 underbarrel extinguisher. Attaches to the underbarrel of most weapons. Point at flame before applying pressure."
 	w_class = SIZE_MEDIUM
+	attachment_action_type = /datum/action/item_action/toggle/ext
 	slot = "under"
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_WEAPON|ATTACH_MELEE
 	var/obj/item/tool/extinguisher/internal_extinguisher
 	current_rounds = 1 //This has to be done to pass the fire_attachment check.
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/attached_gun/extinguisher/get_examine_text(mob/user)
 	. = ..()
@@ -3660,7 +3671,7 @@ Defined in conflicts.dm of the #defines folder.
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_WEAPON|ATTACH_MELEE|ATTACH_IGNORE_EMPTY
 	pixel_shift_x = 4
 	pixel_shift_y = 14
-
+	attachment_action_type = /datum/action/item_action/toggle/nozzle
 	max_range = 6
 	last_fired = 0
 	attachment_firing_delay = 2 SECONDS
@@ -3673,15 +3684,16 @@ Defined in conflicts.dm of the #defines folder.
 		'sound/weapons/gun_flamethrower2.ogg',
 		'sound/weapons/gun_flamethrower3.ogg'
 	)
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/attached_gun/flamer_nozzle/handle_attachment_description(slot)
 	return "It has a [icon2html(src)] [name] mounted beneath the barrel.<br>"
 
-/obj/item/attachable/attached_gun/flamer_nozzle/activate_attachment(obj/item/weapon/gun/G, mob/living/user, turn_off)
+/obj/item/attachable/attached_gun/flamer_nozzle/activate_attachment(obj/item/weapon/gun/firearm, mob/living/user, turn_off)
 	. = ..()
-	attach_icon = "flamer_nozzle_a_[G.active_attachable == src ? 0 : 1]"
-	G.update_icon()
+	attach_icon = "flamer_nozzle_a_[firearm.active_attachable == src ? 0 : 1]"
+	firearm.update_icon()
+	for(var/datum/action/item_action as anything in firearm.actions)
+		item_action.update_button_icon()
 
 /obj/item/attachable/attached_gun/flamer_nozzle/fire_attachment(atom/target, obj/item/weapon/gun/gun, mob/living/user)
 	. = ..()
@@ -3743,7 +3755,6 @@ Defined in conflicts.dm of the #defines folder.
 	size_mod = 1
 	slot = "under"
 	pixel_shift_x = 20
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/verticalgrip/New()
 	..()
@@ -3765,7 +3776,6 @@ Defined in conflicts.dm of the #defines folder.
 	size_mod = 1
 	slot = "under"
 	pixel_shift_x = 20
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/gyro
 	name = "gyroscopic stabilizer"
@@ -3774,7 +3784,6 @@ Defined in conflicts.dm of the #defines folder.
 	icon_state = "gyro"
 	attach_icon = "gyro_a"
 	slot = "under"
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/gyro/New()
 	..()
@@ -3803,7 +3812,6 @@ Defined in conflicts.dm of the #defines folder.
 	slot = "under"
 	pixel_shift_x = 17
 	pixel_shift_y = 17
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/lasersight/New()
 	..()
@@ -3842,7 +3850,7 @@ Defined in conflicts.dm of the #defines folder.
 	size_mod = 2
 	melee_mod = -10
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION
-	attachment_action_type = /datum/action/item_action/toggle
+	attachment_action_type = /datum/action/item_action/toggle/bipod
 	var/initial_mob_dir = NORTH // the dir the mob faces the moment it deploys the bipod
 	var/bipod_deployed = FALSE
 	/// If this should anchor the user while in use
@@ -3853,7 +3861,6 @@ Defined in conflicts.dm of the #defines folder.
 	var/old_firemode = null
 	// if this bipod has a camo skin
 	var/camo_bipod = FALSE
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/bipod/New()
 	..()
@@ -4042,9 +4049,9 @@ Defined in conflicts.dm of the #defines folder.
 	playsound(owner, 'sound/weapons/handling/gun_burst_toggle.ogg', 15, 1)
 
 	if(attached_bipod.full_auto_switch)
-		button.icon_state = "template_on"
+		action_icon_state = "full_auto_switch_off"
 	else
-		button.icon_state = "template"
+		action_icon_state = "full_auto_switch"
 
 	button.overlays.Cut()
 	button.overlays += image('icons/mob/hud/actions.dmi', button, action_icon_state)
@@ -4147,7 +4154,6 @@ Defined in conflicts.dm of the #defines folder.
 	icon_state = "rapidfire"
 	attach_icon = "rapidfire_a"
 	slot = "under"
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/burstfire_assembly/New()
 	..()
@@ -4163,7 +4169,6 @@ Defined in conflicts.dm of the #defines folder.
 	icon_state = "rxfm5_eva_doodad"
 	attach_icon = "rxfm5_eva_doodad_a"
 	slot = "under"
-	hotkey_id = COMSIG_KB_HUMAN_WEAPON_UNDERBARREL // SS220 EDIT ADDICTION
 
 /obj/item/attachable/eva_doodad/New()
 	..()

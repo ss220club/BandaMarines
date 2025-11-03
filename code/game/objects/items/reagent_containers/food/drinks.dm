@@ -23,9 +23,10 @@
 
 /obj/item/reagent_container/food/drinks/attack(mob/M, mob/user)
 	var/datum/reagents/R = src.reagents
+	var/ru_name = declent_ru(GENITIVE) // SS220 EDIT ADDICTION
 
 	if(!R.total_volume || !R)
-		to_chat(user, SPAN_DANGER("The [src.name] is empty!"))
+		to_chat(user, SPAN_DANGER("Содержимое [ru_name] закончилось!")) // SS220 EDIT ADDICTION
 		return FALSE
 
 	if(HAS_TRAIT(M, TRAIT_CANNOT_EAT))
@@ -33,7 +34,7 @@
 		return FALSE
 
 	if(M == user)
-		to_chat(M, SPAN_NOTICE(" You swallow a gulp from \the [src]."))
+		to_chat(M, SPAN_NOTICE("Вы делаете глоток из [ru_name].")) // SS220 EDIT ADDICTION
 		if(reagents.total_volume)
 			reagents.set_source_mob(user)
 			reagents.trans_to_ingest(M, gulp_size)
@@ -275,7 +276,7 @@
 /obj/item/reagent_container/food/drinks/cup/attack_self(mob/user)
 	. = ..()
 	if(user.a_intent == INTENT_HARM)
-		user.visible_message(SPAN_WARNING("[user] crushes \the [src]!"), SPAN_WARNING("You crush \the [src]!"))
+		user.visible_message(SPAN_WARNING("[user] раздавливает [declent_ru()]!"), SPAN_WARNING("Вы раздавливаете [declent_ru()]!"))
 		if(reagents.total_volume > 0)
 			reagents.clear_reagents()
 			playsound(src.loc, 'sound/effects/slosh.ogg', 25, 1, 3)
@@ -345,6 +346,7 @@
 /obj/item/reagent_container/food/drinks/flask/weylandyutani/Initialize()
 	. = ..()
 	reagents.add_reagent("fruit_beer", 60)
+	AddElement(/datum/element/corp_label/wy)
 
 /obj/item/reagent_container/food/drinks/flask/canteen
 	name = "canteen"
@@ -405,6 +407,10 @@
 	desc = "A matte gray coffee mug bearing the Weyland-Yutani logo on its front. Either issued as corporate standard, or bought as a souvenir for people who love the Company oh so dearly. Probably the former."
 	icon_state = "wycup"
 	item_state = "wycup"
+
+/obj/item/reagent_container/food/drinks/coffeecup/wy/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/wy)
 
 // Hybrisa
 

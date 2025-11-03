@@ -809,9 +809,12 @@
 		var/mob/living/carbon/human/H = puller
 		if(H.ally_of_hivenumber(hivenumber))
 			return TRUE
-		puller.apply_effect(rand(caste.tacklestrength_min,caste.tacklestrength_max), WEAKEN)
 		playsound(puller.loc, 'sound/weapons/pierce.ogg', 25, 1)
 		puller.visible_message(SPAN_WARNING("[puller] tried to pull [src] but instead gets a tail swipe to the head!"))
+		if(stealth)
+			puller.apply_effect(caste.tacklestrength_min, WEAKEN)
+			return FALSE
+		puller.apply_effect(rand(caste.tacklestrength_min,caste.tacklestrength_max), WEAKEN)
 		return FALSE
 	if(issynth(puller) && (mob_size >= 4 || istype(src, /mob/living/carbon/xenomorph/warrior)))
 		var/mob/living/carbon/human/synthetic/puller_synth = puller
@@ -1022,7 +1025,7 @@
 		caste.aura_strength = 0
 	if(aura_strength == 0 && current_aura)
 		current_aura = null
-		to_chat(src, SPAN_XENOWARNING("We lose our pheromones."))
+		to_chat(src, SPAN_XENOWARNING("Мы перестаём выделять феромоны."))
 
 	// Also recalculate received pheros now
 	for(var/capped_aura in received_phero_caps)
