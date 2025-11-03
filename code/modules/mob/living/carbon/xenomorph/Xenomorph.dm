@@ -640,12 +640,12 @@
 	name = "[name_prefix][number_decorator][age_display][declent_ru_initial(caste.display_name || caste.caste_type, NOMINATIVE, caste.display_name || caste.caste_type)][name_display]"
 	ru_names_rename(ru_names_list(
 		base = name,
-		nominative = "[name_prefix][number_decorator][declent_ru_initial(age_display, NOMINATIVE, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, NOMINATIVE, caste.display_name || caste.caste_type)][name_display]",
-		genitive = "[name_prefix][number_decorator][declent_ru_initial(age_display, GENITIVE, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, GENITIVE, caste.display_name || caste.caste_type)][name_display]",
-		dative = "[name_prefix][number_decorator][declent_ru_initial(age_display, DATIVE, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, DATIVE, caste.display_name || caste.caste_type)][name_display]",
-		accusative = "[name_prefix][number_decorator][declent_ru_initial(age_display, ACCUSATIVE, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, ACCUSATIVE, caste.display_name || caste.caste_type)][name_display]",
-		instrumental = "[name_prefix][number_decorator][declent_ru_initial(age_display, INSTRUMENTAL, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, INSTRUMENTAL, caste.display_name || caste.caste_type)][name_display]",
-		prepositional = "[name_prefix][number_decorator][declent_ru_initial(age_display, PREPOSITIONAL, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, PREPOSITIONAL, caste.display_name || caste.caste_type)][name_display]",
+		nominative = "[name_prefix][declent_ru_initial(number_decorator, NOMINATIVE, number_decorator)][declent_ru_initial(age_display, NOMINATIVE, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, NOMINATIVE, caste.display_name || caste.caste_type)][name_display]",
+		genitive = "[name_prefix][declent_ru_initial(number_decorator, NOMINATIVE, number_decorator)][declent_ru_initial(age_display, GENITIVE, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, GENITIVE, caste.display_name || caste.caste_type)][name_display]",
+		dative = "[name_prefix][declent_ru_initial(number_decorator, NOMINATIVE, number_decorator)][declent_ru_initial(age_display, DATIVE, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, DATIVE, caste.display_name || caste.caste_type)][name_display]",
+		accusative = "[name_prefix][declent_ru_initial(number_decorator, NOMINATIVE, number_decorator)][declent_ru_initial(age_display, ACCUSATIVE, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, ACCUSATIVE, caste.display_name || caste.caste_type)][name_display]",
+		instrumental = "[name_prefix][declent_ru_initial(number_decorator, NOMINATIVE, number_decorator)][declent_ru_initial(age_display, INSTRUMENTAL, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, INSTRUMENTAL, caste.display_name || caste.caste_type)][name_display]",
+		prepositional = "[name_prefix][declent_ru_initial(number_decorator, NOMINATIVE, number_decorator)][declent_ru_initial(age_display, PREPOSITIONAL, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, PREPOSITIONAL, caste.display_name || caste.caste_type)][name_display]",
 		gender = "[declent_ru_initial(caste.display_name || caste.caste_type, "gender", caste.display_name || caste.caste_type)]",
 	))
 
