@@ -1,6 +1,6 @@
 /obj/item/device/working_joe_pda
 	name = "KN5500 PDA"
-	desc = "A portable interface used by Working-Joes, capable of connecting to the local command AI to relay tasking information. Built to withstand a nuclear bomb."
+	desc = "A Karnak Electronics portable interface used by Working-Joes, capable of connecting to the local command AI to relay tasking information. Built to withstand a nuclear bomb."
 	icon_state = "karnak_off"
 	item_state = "wj_pda"
 	icon = 'icons/obj/items/synth/wj_pda.dmi'
@@ -43,6 +43,7 @@
 /obj/item/device/working_joe_pda/Initialize(mapload, ...)
 	link_systems(override = FALSE)
 	. = ..()
+	AddElement(/datum/element/corp_label/karnak)
 
 /obj/item/device/working_joe_pda/proc/notify()
 	if(notify_sounds)
@@ -108,7 +109,7 @@
 	data["local_current_menu"] = current_menu
 	data["local_last_page"] = last_menu
 	data["local_logged_in"] = last_login
-	data["local_access_text"] = "access level [authentication], [ares_auth_to_text(authentication)]."
+	data["local_access_text"] = "уровень доступа [authentication], [ares_auth_to_text(authentication)]." // SS220 EDIT ADDICTION
 	data["local_access_level"] = authentication
 	data["local_notify_sounds"] = notify_sounds
 
@@ -151,7 +152,7 @@
 				playsound(src, 'sound/machines/buzz-two.ogg', 15, 1)
 				return FALSE
 			if(authentication)
-				datacore.apollo_login_list += "[last_login] at [worldtime2text()], Access Level [authentication] - [ares_auth_to_text(authentication)]."
+				datacore.apollo_login_list += "[last_login] ([worldtime2text()]), уровень доступа [authentication] - [ares_auth_to_text(authentication)]." // SS220 EDIT ADDICTION
 			current_menu = "main"
 			last_menu = "main"
 			update_icon()
@@ -432,6 +433,6 @@
 
 /obj/item/device/working_joe_pda/uscm
 	name = "KN5500/2 PDA"
-	desc = "A portable interface used by AI technicians, capable of connecting to the local command AI to relay tasking information. Built to withstand a nuclear bomb."
+	desc = "A Karnak Electronics portable interface used by AI technicians, capable of connecting to the local command AI to relay tasking information. Built to withstand a nuclear bomb."
 	icon_state = "karnak_uscm_off"
 	base_icon_state = "karnak_uscm"

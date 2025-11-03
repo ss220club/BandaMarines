@@ -389,7 +389,10 @@ DEFINES in setup.dm, referenced here.
 
 	user.visible_message(SPAN_NOTICE("[user] begins attaching [attachment] to [src]."),
 	SPAN_NOTICE("You begin attaching [attachment] to [src]."), null, 4)
-	if(do_after(user, 1.5 SECONDS, INTERRUPT_ALL, BUSY_ICON_FRIENDLY, numticks = 2))
+	var/attach_delay = 1.5 SECONDS
+	if(istype(attachment, /obj/item/attachable/bayonet))
+		attach_delay = 0.3 SECONDS
+	if(do_after(user, attach_delay, INTERRUPT_ALL, BUSY_ICON_FRIENDLY, numticks = 2))
 		if(attachment && attachment.loc)
 			user.visible_message(SPAN_NOTICE("[user] attaches [attachment] to [src]."),
 			SPAN_NOTICE("You attach [attachment] to [src]."), null, 4)
@@ -605,7 +608,7 @@ DEFINES in setup.dm, referenced here.
 						return
 
 		if(!equip_to_appropriate_slot(active_hand, 0))
-			to_chat(src, SPAN_DANGER("You are unable to equip that."))
+			to_chat(src, SPAN_DANGER("Вы не можете надеть это."))
 	else //empty hand, start checking slots and holsters
 
 		//default order: suit, belt, back, pockets, uniform, shoes, wear_mask
@@ -673,7 +676,10 @@ DEFINES in setup.dm, referenced here.
 	usr.visible_message(SPAN_NOTICE("[usr] begins stripping [attachment] from [src]."),
 	SPAN_NOTICE("You begin stripping [attachment] from [src]."), null, 4)
 
-	if(!do_after(usr, 1.5 SECONDS, INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
+	var/detach_delay = 1.5 SECONDS
+	if(istype(attachment, /obj/item/attachable/bayonet))
+		detach_delay = 0.3 SECONDS
+	if(!do_after(usr, detach_delay, INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
 		return
 
 	if(!(attachment == attachments[attachment.slot]))
