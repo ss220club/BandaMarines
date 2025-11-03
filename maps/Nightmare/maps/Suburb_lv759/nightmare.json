@@ -17,9 +17,9 @@
 	},
     {
 		"type": "map_insert",
-		"landmark": "W-y_monorail",
+		"landmark": "w-y_monorail",
 		"chance": 1.0,
-		"path": "W-y_monorail.dmm",
+		"path": "w-y_monorail.dmm",
         "when": { "lvevent": "twe_iasf" }
 	}
 ]

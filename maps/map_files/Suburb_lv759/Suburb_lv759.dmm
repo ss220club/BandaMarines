@@ -20155,7 +20155,7 @@
 /area/Suburb_lv759/indoors/wy_research_complex/cargo)
 "inb" = (
 /obj/effect/landmark/nightmare{
-	insert_tag = "W-y_monorail"
+	insert_tag = "w-y_monorail"
 	},
 /turf/closed/wall/r_wall/biodome,
 /area/space)
@@ -40710,6 +40710,12 @@
 	},
 /turf/open/floor/corsat/officetiles,
 /area/Suburb_lv759/indoors/wy_research_complex/mainlabs)
+"qxq" = (
+/obj/effect/landmark/nightmare{
+	insert_tag = "w-y_monorail"
+	},
+/turf/open/space/basic,
+/area/space)
 "qxC" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/road/roadmiddle{
@@ -124845,7 +124851,7 @@ aiD
 tlR
 lQl
 lQl
-lQl
+qxq
 lQl
 lQl
 lQl
