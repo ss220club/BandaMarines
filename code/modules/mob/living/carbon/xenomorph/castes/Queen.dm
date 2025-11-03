@@ -474,8 +474,8 @@
 /mob/living/carbon/xenomorph/queen/generate_name()
 	if(!nicknumber)
 		generate_and_set_nicknumber()
-	var/name_prefix = hive.prefix_fem || hive.prefix
 	// BANDAMARINES EDIT START
+	var/name_prefix = hive.prefix_fem || hive.prefix
 	var/queen_status = "Queen"
 	if(queen_aged)
 		age_xeno()
