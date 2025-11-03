@@ -1,0 +1,610 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ar" = (
+/obj/structure/bed/chair/vehicle/white{
+	pixel_x = -7;
+	pixel_y = 16;
+	buckle_offset_x = -7;
+	buckle_offset_y = 16
+	},
+/obj/structure/bed/chair/vehicle/white{
+	pixel_x = 9;
+	pixel_y = 16;
+	buckle_offset_x = 9;
+	buckle_offset_y = 16
+	},
+/turf/open/floor/almayer/test_floor4,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"bk" = (
+/obj/structure/closet/crate{
+	desc = "One of those old special operations crates from back in the day. After a leaked report from a meeting of SOF leadership lambasted the crates as 'waste of operational funds' the crates were removed from service.";
+	name = "special operations crate"
+	},
+/turf/open/floor/almayer/test_floor5,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"bH" = (
+/obj/structure/machinery/light/dropship/blue{
+	dir = 4
+	},
+/turf/closed/shuttle/twe_dropship/transparent{
+	icon_state = "5,14_alt"
+	},
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"cO" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	density = 0
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"df" = (
+/obj/effect/landmark/survivor_spawner/twe/iasf/paratrooper,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"dp" = (
+/obj/effect/landmark/survivor_spawner/twe/iasf/pilot,
+/turf/open/floor/almayer/test_floor4,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"eO" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "2,0"
+	},
+/obj/structure/machinery/light/dropship/blue{
+	dir = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"gD" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "0,8"
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"hC" = (
+/obj/effect/landmark/survivor_spawner/twe/iasf/engi,
+/turf/open/floor/almayer/test_floor4,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"hV" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "6,13";
+	density = 0;
+	pixel_x = -13;
+	pixel_y = -1
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"ii" = (
+/turf/open/auto_turf/sand_white/layer0,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"js" = (
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "7,6"
+	},
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"jC" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "4,15"
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"li" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "2,1"
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"ln" = (
+/obj/structure/machinery/door/airlock/hatch/cockpit/two{
+	req_access = null;
+	req_one_access = null;
+	dir = 1;
+	name = "\improper UD4-UK - cockpit"
+	},
+/turf/open/floor/almayer/test_floor4,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"lr" = (
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "1,4"
+	},
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"me" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "4,10"
+	},
+/turf/open/floor/almayer/test_floor4,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"mC" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "6,1"
+	},
+/turf/open/floor/plating,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"nF" = (
+/obj/structure/machinery/light/dropship/blue{
+	dir = 8
+	},
+/turf/closed/shuttle/twe_dropship/transparent{
+	icon_state = "3,14_alt"
+	},
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"nS" = (
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "4,7"
+	},
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"pg" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "7,12"
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"pm" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "3,11"
+	},
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "6,2"
+	},
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"qp" = (
+/obj/structure/machinery/light/dropship/blue{
+	dir = 8
+	},
+/obj/structure/machinery/light/dropship/blue{
+	dir = 4
+	},
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "4,8"
+	},
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"qw" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "5,15"
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"rp" = (
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"rK" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "3,15"
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"vW" = (
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "8,6"
+	},
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"wP" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "6,0"
+	},
+/obj/structure/machinery/light/dropship/blue{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"wV" = (
+/obj/item/trash/cigbutt{
+	pixel_x = -10;
+	pixel_y = 13
+	},
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"xp" = (
+/obj/item/clothing/head/helmet/marine/veteran/royal_marine/generic,
+/obj/effect/landmark/survivor_spawner/twe/iasf/medic,
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"xS" = (
+/turf/closed/shuttle/twe_dropship/transparent{
+	icon_state = "3,13_alt"
+	},
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"zg" = (
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "7,3"
+	},
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"zJ" = (
+/obj/effect/landmark/survivor_spawner/twe/iasf/squad_leader,
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"Am" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "7,1"
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"Bg" = (
+/obj/structure/machinery/light/dropship/red{
+	dir = 8
+	},
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "0,7"
+	},
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"Bk" = (
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "8,4"
+	},
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"Bt" = (
+/obj/structure/bed/chair/vehicle/white{
+	dir = 4;
+	pixel_x = -6;
+	pixel_y = 1;
+	buckle_offset_x = -6;
+	buckle_offset_y = 1
+	},
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"CF" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "1,12"
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"EF" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "2,13";
+	density = 0;
+	pixel_x = 13;
+	pixel_y = -1
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"Fy" = (
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "2,12"
+	},
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"GK" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "1,2"
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"Ii" = (
+/obj/structure/bed/chair/dropship/pilot{
+	dir = 1
+	},
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"It" = (
+/obj/structure/machinery/door/airlock/hatch/cockpit/two{
+	req_access = null;
+	req_one_access = null;
+	dir = 1;
+	name = "\improper UD4-UK"
+	},
+/turf/open/floor/almayer/test_floor4,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"II" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "8,3"
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"JV" = (
+/turf/closed/shuttle/twe_dropship/transparent{
+	icon_state = "5,13_alt"
+	},
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"Lb" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "8,8"
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"Lt" = (
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "7,4"
+	},
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"LT" = (
+/obj/structure/bed/chair/vehicle/white{
+	pixel_x = -7;
+	pixel_y = 16;
+	buckle_offset_x = -7;
+	buckle_offset_y = 16
+	},
+/obj/structure/bed/chair/vehicle/white{
+	pixel_x = 9;
+	pixel_y = 16;
+	buckle_offset_x = 9;
+	buckle_offset_y = 16
+	},
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"Mj" = (
+/obj/structure/bed/chair/vehicle/white{
+	dir = 8;
+	pixel_x = 6;
+	pixel_y = 1;
+	buckle_offset_x = 6;
+	buckle_offset_y = 1
+	},
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"NC" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "7,0"
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"NS" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "8,0";
+	density = 0
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"Oj" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "7,2"
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"Qe" = (
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "0,4"
+	},
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"Qr" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "4,1";
+	density = 0
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"QA" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "1,1"
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"Rn" = (
+/obj/item/parachute,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"Ro" = (
+/obj/structure/machinery/power/apc/no_power/east,
+/obj/structure/closet/crate{
+	desc = "One of those old special operations crates from back in the day. After a leaked report from a meeting of SOF leadership lambasted the crates as 'waste of operational funds' the crates were removed from service.";
+	name = "special operations crate"
+	},
+/obj/item/ammo_box/magazine/p90,
+/obj/item/ammo_box/magazine/p90,
+/turf/open/floor/almayer/test_floor5,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"SH" = (
+/obj/structure/machinery/door/airlock/hatch/cockpit/two{
+	req_access = null;
+	req_one_access = null;
+	name = "\improper UD4-UK"
+	},
+/turf/open/floor/almayer/test_floor4,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"TH" = (
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "1,11"
+	},
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"Vu" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "3,11"
+	},
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "2,2"
+	},
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"WZ" = (
+/obj/structure/bed/chair/vehicle/white{
+	pixel_x = 9;
+	pixel_y = 16;
+	buckle_offset_x = 9;
+	buckle_offset_y = 16
+	},
+/obj/structure/bed/chair/vehicle/white{
+	pixel_x = -7;
+	pixel_y = 16;
+	buckle_offset_x = -7;
+	buckle_offset_y = 16
+	},
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"Xk" = (
+/obj/structure/machinery/light/dropship/green{
+	dir = 4
+	},
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "8,7"
+	},
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"YA" = (
+/turf/closed/shuttle/twe_dropship{
+	icon_state = "0,6"
+	},
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"YQ" = (
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"YU" = (
+/obj/structure/machinery/big_computers/computerblack/computer3{
+	pixel_y = -19;
+	layer = 2.9;
+	icon_state = "blacksensor_comp3_off"
+	},
+/turf/closed/shuttle/twe_dropship/transparent{
+	icon_state = "4,14"
+	},
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"Zg" = (
+/obj/structure/shuttle/part/twe_cosmetic1/transparent{
+	icon_state = "1,0"
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+
+(1,1,1) = {"
+ii
+YQ
+Rn
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+df
+Rn
+YQ
+"}
+(2,1,1) = {"
+YQ
+df
+YQ
+YQ
+YQ
+YQ
+gD
+Bg
+YA
+Qe
+II
+wV
+cO
+YQ
+"}
+(3,1,1) = {"
+YQ
+YQ
+EF
+CF
+xS
+SH
+TH
+TH
+lr
+lr
+GK
+QA
+Zg
+ii
+"}
+(4,1,1) = {"
+rK
+nF
+xS
+Fy
+WZ
+zJ
+Bt
+Bt
+Bt
+bk
+Vu
+li
+eO
+YQ
+"}
+(5,1,1) = {"
+jC
+YU
+Ii
+ln
+dp
+me
+qp
+nS
+ar
+hC
+It
+Qr
+YQ
+ii
+"}
+(6,1,1) = {"
+qw
+bH
+JV
+Fy
+LT
+xp
+Mj
+Mj
+Mj
+Ro
+pm
+mC
+wP
+YQ
+"}
+(7,1,1) = {"
+YQ
+YQ
+hV
+pg
+JV
+SH
+zg
+zg
+Lt
+js
+Oj
+Am
+NC
+YQ
+"}
+(8,1,1) = {"
+df
+YQ
+YQ
+YQ
+YQ
+YQ
+Lb
+Xk
+vW
+Bk
+II
+YQ
+NS
+YQ
+"}
+(9,1,1) = {"
+YQ
+Rn
+rp
+ii
+ii
+rp
+rp
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+"}
+(10,1,1) = {"
+YQ
+YQ
+ii
+rp
+YQ
+rp
+YQ
+YQ
+YQ
+YQ
+YQ
+Rn
+df
+YQ
+"}

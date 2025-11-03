@@ -1,0 +1,2130 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aI" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/item/paper_bin,
+/obj/item/tool/pen/blue{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/turf/open/floor/plating,
+/area/space)
+"br" = (
+/obj/structure/barricade/sandbags/wired{
+	dir = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"bA" = (
+/obj/structure/barricade/sandbags/wired{
+	dir = 1
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"bE" = (
+/obj/structure/largecrate/random/barrel/true_random,
+/obj/item/mortar_shell/incendiary,
+/obj/item/mortar_shell/incendiary,
+/obj/item/mortar_shell/incendiary,
+/obj/item/mortar_shell/incendiary,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"bI" = (
+/obj/effect/vehicle_spawner/clf_van/fixed,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"bK" = (
+/turf/open/auto_turf/strata_grass/layer0_mud_alt,
+/area/space)
+"cI" = (
+/obj/structure/prop/rock/brown{
+	dir = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"db" = (
+/obj/structure/barricade/sandbags/wired{
+	dir = 4
+	},
+/turf/open/auto_turf/sand_white/layer0,
+/area/space)
+"dd" = (
+/obj/structure/machinery/defenses/sentry/premade/lowammo/random/dumb{
+	dir = 4
+	},
+/turf/open/auto_turf/sand_white/layer0,
+/area/space)
+"dn" = (
+/turf/open/gm/river,
+/area/space)
+"dH" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stack/rods{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/structure/barricade/metal/wired{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/space)
+"ec" = (
+/obj/effect/landmark/survivor_spawner/clf/hybrisa,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"fe" = (
+/obj/structure/machinery/defenses/sentry/premade/lowammo/random/dumb{
+	dir = 1
+	},
+/turf/open/auto_turf/sand_white/layer0,
+/area/space)
+"fy" = (
+/obj/structure/largecrate/supply/supplies/flares,
+/turf/open/floor/plating,
+/area/space)
+"fA" = (
+/obj/structure/closet/crate/ammo,
+/obj/item/ammo_box/magazine/mp5,
+/obj/item/ammo_box/magazine/mar30,
+/obj/item/ammo_magazine/shotgun/slugs,
+/obj/item/ammo_magazine/shotgun/buckshot{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/obj/item/ammo_magazine/shotgun/incendiary,
+/obj/item/ammo_magazine/shotgun/buckshot,
+/obj/item/ammo_magazine/shotgun/buckshot,
+/turf/open/floor/plating/platebot,
+/area/space)
+"fC" = (
+/obj/item/stack/rods{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/ammo_magazine/smg/mp5,
+/turf/open/floor/plating,
+/area/space)
+"gb" = (
+/obj/structure/machinery/defenses/sentry/premade/lowammo/random/dumb{
+	dir = 4
+	},
+/turf/open/floor/plating/platebot,
+/area/space)
+"gd" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/trash/cigbutt,
+/turf/open/floor/plating,
+/area/space)
+"ge" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/chair{
+	dir = 8;
+	pixel_y = 3
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"ha" = (
+/obj/effect/landmark/objective_landmark/medium,
+/obj/item/ammo_magazine/smg/mp5,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/plating,
+/area/space)
+"hb" = (
+/obj/item/device/binoculars,
+/turf/open/floor/plating,
+/area/space)
+"hm" = (
+/obj/structure/barricade/sandbags/wired{
+	dir = 4
+	},
+/obj/structure/barricade/sandbags/wired{
+	dir = 1
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"hp" = (
+/obj/structure/airlock_assembly/multi_tile{
+	dir = 8
+	},
+/turf/open/floor/plating/platebot,
+/area/space)
+"hI" = (
+/obj/structure/prop/rock/brown{
+	dir = 5
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"hM" = (
+/turf/open/floor/plating/platebot,
+/area/space)
+"hW" = (
+/obj/structure/sign/poster/wylogo,
+/obj/item/attachable/bayonet/upp{
+	anchored = 1;
+	layer = 3.6;
+	pixel_x = -9;
+	pixel_y = -7
+	},
+/turf/closed/wall/strata_outpost,
+/area/space)
+"ix" = (
+/obj/effect/landmark/survivor_spawner/clf/hybrisa,
+/turf/open/auto_turf/sand_white/layer0,
+/area/space)
+"jh" = (
+/obj/structure/sign/banners/clf_worn,
+/turf/closed/wall/strata_outpost/reinforced,
+/area/space)
+"jr" = (
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/item/maintenance_jack,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"jv" = (
+/obj/structure/closet/crate/construction,
+/obj/item/bodybag/tarp,
+/obj/item/circuitboard/apc,
+/obj/item/circuitboard/airlock,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"jy" = (
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/item/storage/box/clf,
+/obj/structure/sign/poster/clf{
+	pixel_y = 32
+	},
+/obj/item/prop/flower_vase/redwhiteflowers,
+/turf/open/floor/plating,
+/area/space)
+"jD" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/open/floor/plating,
+/area/space)
+"jV" = (
+/obj/structure/largecrate/supply/ammo/shotgun,
+/turf/open/floor/plating,
+/area/space)
+"kd" = (
+/obj/item/defenses/handheld/planted_flag/clf,
+/turf/open/floor/plating,
+/area/space)
+"kr" = (
+/obj/effect/landmark/survivor_spawner/clf/hybrisa,
+/turf/open/auto_turf/strata_grass/layer0_mud_alt,
+/area/space)
+"ku" = (
+/obj/structure/prop/rock/brown,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"kO" = (
+/obj/structure/machinery/colony_floodlight,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"kR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/power/apc/power/north{
+	start_charge = 20
+	},
+/turf/open/floor/plating,
+/area/space)
+"mf" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/bedroll{
+	dir = 5
+	},
+/obj/item/prop/colony/usedbandage{
+	dir = 10
+	},
+/turf/open/floor/plating,
+/area/space)
+"mn" = (
+/obj/item/device/flashlight/lamp/tripod/grey{
+	light_power = 0.4;
+	light_range = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"mr" = (
+/obj/structure/prop/static_tank/fuel,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"mu" = (
+/obj/structure/machinery/space_heater,
+/turf/open/floor/plating,
+/area/space)
+"mv" = (
+/obj/structure/barricade/sandbags/wired,
+/turf/open/auto_turf/sand_white/layer0,
+/area/space)
+"mw" = (
+/turf/closed/wall/strata_outpost,
+/area/space)
+"nt" = (
+/obj/structure/largecrate/random/barrel/medical,
+/obj/item/mortar_shell/flare,
+/obj/item/mortar_shell/flare,
+/obj/item/mortar_shell/flare,
+/obj/item/mortar_shell/flare,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"nL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/storage/box/m56d_hmg,
+/turf/open/floor/plating,
+/area/space)
+"nM" = (
+/obj/structure/barricade/sandbags/wired{
+	dir = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
+/area/space)
+"nZ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/toy/plush/rock,
+/turf/open/floor/plating,
+/area/space)
+"ok" = (
+/turf/open/auto_turf/sand_white/layer0,
+/area/space)
+"op" = (
+/obj/item/trash/cigbutt,
+/turf/open/floor/plating,
+/area/space)
+"oE" = (
+/obj/structure/barricade/metal/wired{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/turf/open/floor/plating,
+/area/space)
+"oI" = (
+/turf/closed/wall/hybrisa/rock,
+/area/space)
+"ph" = (
+/obj/item/flag/plantable/clf,
+/obj/item/trash/twe_mre,
+/obj/item/ammo_box/magazine/mar50,
+/turf/open/floor/plating,
+/area/space)
+"pX" = (
+/obj/structure/largecrate/random/secure,
+/obj/item/stack/sheet/plasteel/med_large_stack,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"qf" = (
+/obj/structure/barricade/plasteel/wired{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space)
+"qh" = (
+/obj/structure/barricade/sandbags/wired{
+	dir = 1
+	},
+/turf/open/auto_turf/sand_white/layer0,
+/area/space)
+"ql" = (
+/obj/structure/prop/rock/brown{
+	dir = 6
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"qo" = (
+/obj/structure/girder{
+	health = 0
+	},
+/turf/open/floor/plating/platebot,
+/area/space)
+"qV" = (
+/obj/structure/closet/crate/ammo,
+/obj/item/clothing/accessory/storage/webbing/black,
+/obj/item/clothing/accessory/storage/webbing/black,
+/obj/item/clothing/accessory/storage/webbing/black,
+/obj/item/clothing/accessory/storage/webbing/black,
+/turf/open/floor/plating,
+/area/space)
+"rx" = (
+/obj/structure/barricade/plasteel/wired{
+	dir = 4;
+	closed = 0
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"rA" = (
+/obj/structure/girder,
+/turf/open/floor/plating/platebot,
+/area/space)
+"sd" = (
+/obj/structure/cargo_container/kelland/left,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"sz" = (
+/obj/structure/bed/stool,
+/obj/item/ammo_magazine/rifle/mar40/extended,
+/turf/open/floor/plating,
+/area/space)
+"sB" = (
+/obj/structure/sign/poster/clf,
+/turf/closed/wall/strata_outpost,
+/area/space)
+"sG" = (
+/obj/structure/tent/big,
+/turf/open/auto_turf/strata_grass/layer0_mud_alt,
+/area/space)
+"sZ" = (
+/obj/structure/sign/poster/clf{
+	pixel_y = 32
+	},
+/turf/open/floor/plating/platebot,
+/area/space)
+"tc" = (
+/obj/effect/landmark/corpsespawner/clf,
+/turf/open/floor/plating,
+/area/space)
+"tZ" = (
+/obj/structure/barricade/sandbags{
+	pixel_y = 14
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"ue" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/metal/wired{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space)
+"ug" = (
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/item/storage/belt/marine/m16,
+/obj/item/weapon/gun/rifle/m16/m16a5,
+/obj/item/ammo_magazine/rifle/m16/ap,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/turf/open/floor/plating,
+/area/space)
+"uw" = (
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/item/weapon/gun/smg/fp9000,
+/obj/item/ammo_magazine/smg/fp9000,
+/obj/item/ammo_magazine/smg/fp9000,
+/obj/item/ammo_magazine/smg/fp9000,
+/obj/item/ammo_magazine/smg/fp9000,
+/obj/item/ammo_magazine/smg/fp9000,
+/turf/open/floor/plating,
+/area/space)
+"uZ" = (
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/structure/machinery/faxmachine{
+	department = "CLF - Cell 42"
+	},
+/turf/open/floor/plating,
+/area/space)
+"vA" = (
+/obj/effect/landmark/objective_landmark/medium,
+/turf/open/floor/plating,
+/area/space)
+"vE" = (
+/obj/structure/barricade/sandbags/wired{
+	dir = 4
+	},
+/obj/structure/machinery/m56d_hmg{
+	rounds = 700;
+	dir = 4
+	},
+/turf/open/auto_turf/sand_white/layer0,
+/area/space)
+"wm" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_magazine/smg/mp5,
+/turf/open/floor/plating,
+/area/space)
+"wu" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/open/floor/plating,
+/area/space)
+"wA" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/landmark/survivor_spawner/clf_medic/hybrisa,
+/turf/open/floor/plating,
+/area/space)
+"wK" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/space)
+"wZ" = (
+/obj/structure/airlock_assembly/multi_tile,
+/turf/open/floor/plating/plating_catwalk/shiva,
+/area/space)
+"xK" = (
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/effect/spawner/random/powercell,
+/obj/effect/landmark/objective_landmark/science,
+/obj/item/map/lv759_map,
+/turf/open/floor/plating,
+/area/space)
+"xS" = (
+/obj/structure/machinery/defenses/sentry/premade/lowammo/random/dumb{
+	dir = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
+/area/space)
+"xY" = (
+/obj/structure/cargo_container/grant/leftmid,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"yl" = (
+/obj/structure/largecrate/supply/supplies/flares,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"yF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/device/flashlight/lamp/tripod/grey{
+	light_power = 0.4;
+	light_range = 4
+	},
+/obj/item/prop/colony/usedbandage{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space)
+"zi" = (
+/obj/item/ammo_magazine/handful/shotgun/incendiary,
+/turf/open/auto_turf/strata_grass/layer0_mud_alt,
+/area/space)
+"As" = (
+/obj/structure/machinery/power/power_generator/port_gen,
+/turf/open/floor/plating,
+/area/space)
+"AW" = (
+/obj/structure/largecrate/supply/ammo/m56d,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"Br" = (
+/obj/item/tool/warning_cone,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"Cj" = (
+/obj/structure/surface/rack,
+/obj/item/weapon/gun/rifle/mar40/carbine,
+/turf/open/floor/plating,
+/area/space)
+"Cl" = (
+/obj/structure/largecrate/machine,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"CC" = (
+/obj/structure/barricade/sandbags/wired{
+	dir = 1
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
+/area/space)
+"CK" = (
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/item/storage/belt/medical/full{
+	pixel_y = 17
+	},
+/obj/item/storage/firstaid/regular,
+/turf/open/floor/plating,
+/area/space)
+"CQ" = (
+/obj/item/trash/chips,
+/turf/open/floor/plating,
+/area/space)
+"Df" = (
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/item/weapon/gun/smg/mp5/mp5a5/tactical,
+/obj/item/ammo_magazine/smg/mp5,
+/turf/open/floor/plating,
+/area/space)
+"DH" = (
+/obj/structure/sign/banners/clf_flag,
+/turf/closed/wall/strata_outpost,
+/area/space)
+"Eb" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/survivor_spawner/clf_lead/hybrisa,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"Et" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/largecrate/guns/merc,
+/obj/item/weapon/gun/rifle/mar40/lmg,
+/turf/open/floor/plating,
+/area/space)
+"Eu" = (
+/obj/item/ammo_box/magazine/misc/mre/wy/empty,
+/turf/open/floor/plating,
+/area/space)
+"EB" = (
+/obj/structure/barricade/plasteel/wired{
+	dir = 1;
+	closed = 0
+	},
+/turf/open/auto_turf/sand_white/layer0,
+/area/space)
+"EM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/metal/wired{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/space)
+"EU" = (
+/obj/structure/largecrate/random/secure,
+/obj/item/stack/sheet/metal/med_large_stack,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"Fp" = (
+/obj/structure/barricade/plasteel/wired{
+	dir = 1;
+	closed = 0
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"Gb" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/open/auto_turf/sand_white/layer0,
+/area/space)
+"Gx" = (
+/obj/structure/flora/bush/ausbushes/var3/brflowers,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"GC" = (
+/obj/item/device/flashlight/flare/on,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"GP" = (
+/obj/structure/barricade/sandbags/wired{
+	dir = 4
+	},
+/obj/structure/machinery/m56d_hmg{
+	rounds = 700;
+	dir = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
+/area/space)
+"In" = (
+/turf/closed/shuttle{
+	dir = 1;
+	icon_state = "pwall"
+	},
+/area/space)
+"IG" = (
+/obj/structure/largecrate/supply/medicine,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"IK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_magazine/rifle/mar40/extended,
+/turf/open/floor/plating,
+/area/space)
+"Jx" = (
+/turf/open/floor/plating/plating_catwalk/shiva,
+/area/space)
+"JP" = (
+/obj/structure/barricade/sandbags/wired{
+	dir = 4
+	},
+/obj/structure/barricade/sandbags/wired,
+/turf/open/auto_turf/sand_white/layer0,
+/area/space)
+"Kt" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/open/floor/plating,
+/area/space)
+"Ky" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"KH" = (
+/obj/structure/largecrate/random/secure,
+/obj/item/stack/sheet/metal/med_large_stack,
+/obj/item/stack/sheet/metal/med_large_stack,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"KI" = (
+/obj/structure/prop/structure_lattice{
+	dir = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"Lh" = (
+/turf/closed/wall/strata_outpost/reinforced,
+/area/space)
+"Mn" = (
+/obj/structure/machinery/defenses/sentry/premade/lowammo/random/dumb{
+	dir = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"ML" = (
+/obj/structure/prop/dam/crane/cargo{
+	layer = 3.3
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"MP" = (
+/obj/structure/barricade/sandbags{
+	dir = 8;
+	pixel_y = 2
+	},
+/obj/item/ammo_casing,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"NH" = (
+/obj/structure/barricade/sandbags/wired{
+	dir = 1
+	},
+/obj/structure/machinery/m56d_hmg{
+	dir = 1
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"Oj" = (
+/obj/structure/machinery/space_heater,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"Ot" = (
+/obj/structure/bed/bedroll{
+	dir = 5
+	},
+/obj/item/prop/colony/usedbandage{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space)
+"Oy" = (
+/obj/structure/machinery/defenses/sentry/premade/lowammo/random/dumb{
+	dir = 1
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"Pi" = (
+/obj/structure/girder/displaced,
+/turf/open/floor/plating/platebot,
+/area/space)
+"PZ" = (
+/obj/item/ammo_casing,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"Qr" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/device/flashlight/lamp/tripod/grey{
+	light_power = 0.4;
+	light_range = 4
+	},
+/turf/open/floor/plating,
+/area/space)
+"Qw" = (
+/obj/item/clothing/head/headband/rebel,
+/turf/open/floor/plating,
+/area/space)
+"QB" = (
+/obj/structure/cargo_container/grant/rightmid,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"QT" = (
+/obj/effect/landmark/survivor_spawner/clf_engi/hybrisa,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"Re" = (
+/obj/structure/bed/bedroll,
+/turf/open/auto_turf/strata_grass/layer0_mud_alt,
+/area/space)
+"Rj" = (
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/effect/spawner/random/gun/clf_primary,
+/turf/open/floor/plating,
+/area/space)
+"Ro" = (
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/space)
+"Rw" = (
+/obj/structure/barricade/sandbags/wired,
+/obj/structure/machinery/m56d_hmg{
+	dir = 1
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"RC" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/random/tool,
+/turf/open/floor/plating,
+/area/space)
+"RI" = (
+/obj/structure/barricade/sandbags/wired,
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
+/area/space)
+"RL" = (
+/obj/structure/barricade/sandbags{
+	dir = 8;
+	pixel_y = -3
+	},
+/obj/structure/barricade/sandbags{
+	pixel_y = 14
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"RZ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"Sy" = (
+/obj/structure/sign/poster/clf{
+	pixel_y = 32
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"Sz" = (
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"SG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/surface/rack,
+/obj/item/weapon/gun/pistol/heavy,
+/obj/item/ammo_magazine/pistol/heavy,
+/obj/item/ammo_magazine/pistol/heavy,
+/obj/item/ammo_magazine/pistol/heavy,
+/obj/item/ammo_magazine/pistol/heavy,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"SJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/surface/rack,
+/obj/item/reagent_container/food/drinks/bottle/whiskey,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"SK" = (
+/obj/structure/closet/crate/trashcart,
+/obj/item/stack/sheet/wood/small_stack,
+/obj/item/storage/beer_pack,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"SL" = (
+/obj/structure/largecrate/random/case/double,
+/obj/item/stack/sheet/metal/med_large_stack,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"Tp" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/largecrate/black_market/clf_supplies,
+/turf/open/floor/plating,
+/area/space)
+"TE" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/surface/table,
+/obj/item/paper_bin{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/obj/item/tool/pen,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"Uq" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"Uy" = (
+/obj/structure/barricade/sandbags/wired{
+	dir = 1
+	},
+/obj/structure/barricade/sandbags/wired{
+	dir = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
+/area/space)
+"UI" = (
+/obj/structure/tent/big,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"UK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/surface/rack,
+/obj/item/weapon/gun/shotgun/pump/dual_tube/cmb{
+	pixel_y = -5
+	},
+/obj/item/weapon/gun/shotgun/pump/dual_tube/cmb{
+	pixel_y = 9
+	},
+/obj/item/weapon/gun/shotgun/pump/dual_tube/cmb,
+/turf/open/floor/plating,
+/area/space)
+"UQ" = (
+/obj/structure/fence,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"Vh" = (
+/obj/structure/cargo_container/grant/right,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"VN" = (
+/obj/effect/landmark/survivor_spawner/clf/hybrisa,
+/turf/open/floor/plating,
+/area/space)
+"WH" = (
+/obj/structure/barricade/sandbags{
+	dir = 8;
+	pixel_y = 2
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"WI" = (
+/obj/structure/largecrate/random/barrel/true_random,
+/obj/item/mortar_shell/he,
+/obj/item/mortar_shell/he,
+/obj/item/mortar_shell/he,
+/obj/item/mortar_shell/he,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"WX" = (
+/obj/structure/largecrate/supply/floodlights,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"WZ" = (
+/obj/structure/window_frame/strata,
+/turf/open/floor/plating/platebot,
+/area/space)
+"XB" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stack/rods{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/turf/open/floor/plating,
+/area/space)
+"XE" = (
+/obj/structure/machinery/space_heater,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/space)
+"XG" = (
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"XH" = (
+/obj/item/ammo_casing,
+/obj/item/device/flashlight/flare/on,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"XM" = (
+/obj/structure/cargo_container/kelland/right,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"XV" = (
+/turf/open/floor/plating,
+/area/space)
+"Ys" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/surface/table,
+/obj/structure/machinery/faxmachine{
+	department = "CLF - Cell 42"
+	},
+/obj/item/paper/trijent/clf,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"Yv" = (
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
+/area/space)
+"YT" = (
+/obj/structure/barricade/sandbags/wired,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"Zy" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/coffin/woodencrate{
+	pixel_y = 8
+	},
+/obj/item/mre_food_packet/clf{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/obj/item/mre_food_packet/clf{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/obj/item/mre_food_packet/clf{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/obj/item/mre_food_packet/clf{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/obj/item/mre_food_packet/clf{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/obj/item/mre_food_packet/clf{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/obj/item/mre_food_packet/clf{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/turf/open/floor/plating,
+/area/space)
+"ZB" = (
+/obj/structure/largecrate/random,
+/obj/item/mortar_kit,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"ZO" = (
+/obj/structure/target,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/space)
+"ZZ" = (
+/obj/item/ammo_magazine/smg/mp5,
+/turf/open/floor/plating,
+/area/space)
+
+(1,1,1) = {"
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+In
+"}
+(2,1,1) = {"
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+In
+"}
+(3,1,1) = {"
+oI
+oI
+oI
+Sz
+Sz
+Sz
+Sz
+Re
+Re
+sG
+Sz
+bK
+Sz
+Sz
+ML
+ZB
+Sz
+Sz
+ZO
+Sz
+Sz
+Sz
+Sz
+UQ
+UQ
+UQ
+UQ
+oI
+In
+"}
+(4,1,1) = {"
+oI
+oI
+Ys
+TE
+UI
+Sz
+Sz
+zi
+kr
+bK
+bK
+Sz
+Sz
+Sz
+Sz
+bE
+QT
+Sz
+Sz
+Sz
+ZO
+Sz
+Sz
+Sz
+Sz
+Sz
+UQ
+oI
+In
+"}
+(5,1,1) = {"
+oI
+oI
+ge
+Eb
+Ky
+Sz
+Sz
+Re
+Re
+bK
+ok
+bK
+Sz
+nt
+WI
+Cl
+Sz
+Sz
+ZO
+PZ
+XH
+Sz
+Sz
+Sz
+Sz
+Sz
+UQ
+oI
+In
+"}
+(6,1,1) = {"
+oI
+oI
+SG
+SJ
+RZ
+Sz
+Sz
+Sz
+Sz
+Sz
+SK
+ok
+Sz
+ok
+Sz
+Sz
+Sz
+Sz
+PZ
+Sz
+Sz
+PZ
+Sz
+Sz
+Sz
+Sz
+UQ
+oI
+In
+"}
+(7,1,1) = {"
+oI
+oI
+oI
+Ro
+xY
+jv
+Oj
+Sz
+Sz
+bI
+Sz
+ok
+Sz
+Sz
+Sz
+ok
+Sz
+Sz
+RL
+WH
+MP
+WH
+tZ
+Sz
+Sz
+Sz
+UQ
+oI
+In
+"}
+(8,1,1) = {"
+oI
+oI
+oI
+Sz
+QB
+sd
+AW
+Sz
+Sz
+Sz
+Gb
+Sz
+XG
+ok
+ok
+Sz
+Yv
+Sz
+Sz
+PZ
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+UQ
+oI
+In
+"}
+(9,1,1) = {"
+oI
+oI
+oI
+Sz
+Vh
+XM
+mn
+Uq
+Sz
+ok
+Sz
+jr
+kO
+Br
+Sz
+Sz
+Sz
+ok
+Sz
+Sz
+ok
+Sz
+Sz
+Sz
+Sz
+Sz
+UQ
+oI
+In
+"}
+(10,1,1) = {"
+oI
+oI
+oI
+mw
+mw
+mw
+mw
+mw
+Jx
+WZ
+WZ
+mw
+Lh
+Sz
+Sz
+ok
+Sz
+Yv
+ok
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+UQ
+oI
+In
+"}
+(11,1,1) = {"
+bA
+Sz
+mw
+sB
+XV
+XV
+jV
+XV
+XB
+XV
+XV
+Qr
+Lh
+Sy
+ok
+Sz
+ok
+Sz
+Sz
+Yv
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+UQ
+oI
+In
+"}
+(12,1,1) = {"
+bA
+fe
+mw
+nZ
+XV
+VN
+vA
+IK
+XE
+gd
+XV
+aI
+Lh
+Sz
+Yv
+ok
+Yv
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+UQ
+oI
+In
+"}
+(13,1,1) = {"
+bA
+Sz
+mw
+mw
+qo
+rA
+mw
+Lh
+kR
+hb
+sz
+uZ
+mw
+Sz
+ok
+Sz
+Yv
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+UQ
+oI
+In
+"}
+(14,1,1) = {"
+Fp
+Sz
+DH
+mf
+Ot
+CK
+xK
+Lh
+mw
+Jx
+Jx
+fA
+rA
+Sz
+Sz
+Yv
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+UQ
+oI
+In
+"}
+(15,1,1) = {"
+CC
+Sz
+mw
+yF
+gd
+wA
+XV
+CQ
+nL
+IK
+Kt
+Cj
+rA
+Yv
+ok
+Yv
+ok
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+UQ
+oI
+In
+"}
+(16,1,1) = {"
+bA
+fe
+mw
+hW
+Et
+ph
+As
+Eu
+qf
+oE
+ue
+UK
+qo
+Sz
+Sz
+ok
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+UQ
+oI
+In
+"}
+(17,1,1) = {"
+CC
+ok
+oI
+mw
+mw
+mw
+mw
+mw
+sZ
+qo
+Pi
+mw
+mw
+XG
+Sz
+ok
+ok
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+UQ
+oI
+In
+"}
+(18,1,1) = {"
+NH
+Sz
+ok
+xS
+ok
+dd
+ec
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+ok
+Sz
+Sz
+ok
+Sz
+Sz
+Sz
+Sz
+Sz
+UQ
+oI
+In
+"}
+(19,1,1) = {"
+hm
+vE
+br
+nM
+vE
+nM
+db
+Sz
+Sz
+Sz
+Sz
+cI
+Sz
+ok
+Sz
+ok
+Sz
+Sz
+Sz
+ok
+ok
+Sz
+Sz
+Sz
+Sz
+Sz
+UQ
+oI
+In
+"}
+(20,1,1) = {"
+Sz
+Sz
+Sz
+ok
+ok
+ok
+EB
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Yv
+Sz
+ok
+ok
+Sz
+ok
+ok
+Sz
+ok
+Sz
+Sz
+Sz
+Sz
+UQ
+oI
+In
+"}
+(21,1,1) = {"
+Sz
+Sz
+Sz
+Sz
+ok
+ok
+Fp
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+ok
+ok
+Yv
+Sz
+Sz
+ok
+Sz
+Sz
+ok
+Sz
+ok
+Sz
+Sz
+UQ
+oI
+In
+"}
+(22,1,1) = {"
+Sz
+Sz
+Sz
+ok
+ok
+Sz
+Fp
+Sz
+Sz
+Sz
+ok
+Sz
+Sz
+Yv
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+ok
+Sz
+Sz
+Sz
+Sz
+UQ
+oI
+In
+"}
+(23,1,1) = {"
+Sz
+ku
+Sz
+ok
+Yv
+Yv
+mv
+Sz
+Sz
+Sz
+ok
+ok
+Sz
+ok
+ok
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+UQ
+oI
+In
+"}
+(24,1,1) = {"
+Sz
+Sz
+Sz
+Yv
+ok
+Sz
+RI
+Oy
+Sz
+Yv
+ix
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+GC
+Sz
+KH
+Sz
+oI
+oI
+In
+"}
+(25,1,1) = {"
+Sz
+Sz
+Sz
+Sz
+ok
+ok
+Rw
+Sz
+ok
+Sz
+Yv
+ok
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+WX
+yl
+pX
+oI
+oI
+oI
+In
+"}
+(26,1,1) = {"
+oI
+Sz
+ok
+ok
+ok
+ok
+YT
+Mn
+Sz
+ok
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+oI
+SL
+mr
+Sz
+sd
+KI
+IG
+oI
+oI
+oI
+oI
+In
+"}
+(27,1,1) = {"
+Sz
+Sz
+ok
+ok
+ok
+Sz
+JP
+nM
+GP
+Sz
+Sz
+ok
+Sz
+Sz
+Sz
+Sz
+Sz
+EU
+oI
+oI
+Sz
+XM
+oI
+oI
+oI
+oI
+oI
+oI
+In
+"}
+(28,1,1) = {"
+Sz
+Sz
+ql
+Sz
+ok
+Sz
+ok
+Sz
+Sz
+bA
+Sz
+Lh
+mw
+rA
+Pi
+Jx
+WZ
+WZ
+mw
+mw
+mw
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+In
+"}
+(29,1,1) = {"
+Sz
+Sz
+Yv
+Sz
+ok
+Yv
+ok
+Yv
+Gx
+bA
+Oy
+Lh
+jy
+EM
+dH
+XV
+ZZ
+Qw
+uw
+Df
+mw
+mw
+oI
+oI
+oI
+oI
+oI
+oI
+In
+"}
+(30,1,1) = {"
+Sz
+Gx
+Sz
+Sz
+ok
+ok
+Sz
+ok
+Sz
+bA
+Sz
+jh
+Rj
+op
+XV
+VN
+op
+wm
+wK
+fC
+ug
+mw
+oI
+oI
+oI
+oI
+oI
+oI
+In
+"}
+(31,1,1) = {"
+Sz
+ok
+ok
+ok
+Sz
+ok
+ok
+Sz
+Sz
+Fp
+Yv
+mw
+Zy
+XV
+jD
+qV
+Lh
+mw
+mw
+qo
+mw
+mw
+oI
+oI
+oI
+oI
+oI
+oI
+In
+"}
+(32,1,1) = {"
+Sz
+ok
+ok
+Sz
+ok
+Yv
+ok
+Sz
+hI
+qh
+ok
+mw
+mw
+Jx
+wZ
+rA
+Lh
+tc
+kd
+fy
+wK
+mw
+oI
+oI
+oI
+oI
+oI
+oI
+In
+"}
+(33,1,1) = {"
+Sz
+Sz
+ok
+Sz
+ok
+Sz
+Yv
+Sz
+Sz
+bA
+ok
+hp
+XV
+wK
+wu
+XV
+op
+ha
+mu
+XV
+Tp
+mw
+oI
+oI
+oI
+oI
+oI
+oI
+In
+"}
+(34,1,1) = {"
+Sz
+dn
+Sz
+Sz
+ok
+ok
+ok
+Sz
+Sz
+bA
+Oy
+hM
+wK
+RC
+wK
+XV
+wu
+XV
+wK
+Qr
+mw
+mw
+oI
+oI
+oI
+oI
+oI
+oI
+In
+"}
+(35,1,1) = {"
+dn
+dn
+dn
+ok
+ok
+ok
+ok
+ok
+Sz
+bA
+ok
+mw
+gb
+mw
+mw
+gb
+Pi
+mw
+mw
+mw
+mw
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+In
+"}
+(36,1,1) = {"
+dn
+dn
+dn
+Sz
+ok
+Sz
+ok
+Sz
+Sz
+Uy
+br
+br
+db
+rx
+br
+db
+br
+br
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+In
+"}

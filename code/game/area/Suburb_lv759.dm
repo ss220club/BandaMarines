@@ -130,6 +130,30 @@
 /area/Suburb_lv759/outdoors/colony_streets/cottage3
 	name = "cottage3"
 	icon_state = "colonystreets_west"
+
+/area/Suburb_lv759/outdoors/colony_streets/cottage4
+	name = "cottage4"
+	icon_state = "colonystreets_west"
+
+/area/Suburb_lv759/outdoors/colony_streets/cottage5
+	name = "cottage5"
+	icon_state = "colonystreets_west"
+
+/area/Suburb_lv759/outdoors/colony_streets/cottage6
+	name = "cottage6"
+	icon_state = "colonystreets_west"
+
+/area/Suburb_lv759/outdoors/colony_streets/cottage7
+	name = "cottage7"
+	icon_state = "colonystreets_west"
+
+/area/Suburb_lv759/outdoors/colony_streets/cottage8
+	name = "cottage8"
+	icon_state = "colonystreets_west"
+
+/area/Suburb_lv759/outdoors/colony_streets/cottage9
+	name = "cottage9"
+	icon_state = "colonystreets_west"
 // WY Security Checkpoints
 
 /area/Suburb_lv759/indoors/wy_security
@@ -167,6 +191,12 @@
 	is_resin_allowed = FALSE
 	flags_area = AREA_NOTUNNEL
 	linked_lz = DROPSHIP_LZ2
+
+/area/Suburb_lv759/indoors/spaceport/ifas_ship
+	name = "UD4-UK 'For The The Empress'  "
+	icon_state = "wydropship"
+	requires_power = FALSE
+	minimap_color = MINIMAP_AREA_COLONY
 
 // Weyland-Yutani Advanced Bio-Genomic Research Complex
 
@@ -348,22 +378,26 @@
 	ambience_exterior = AMBIENCE_LAB
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Suburb_lv759/atmos/reactor_garage
-	name = "Atmospheric Processor - Garage"
-	icon_state = "green"
-	ceiling = CEILING_UNDERGROUND_METAL_BLOCK_CAS
+// public spaceport
 
-/area/Suburb_lv759/atmos/command_centre
-	name = "Atmospheric Processor - Central Command"
-	icon_state = "red"
-	ceiling = CEILING_UNDERGROUND_METAL_BLOCK_CAS
+/area/Suburb_lv759/indoors/public_spaceport
+	name = "Public space port"
+	unoviable_timer = FALSE
+	ceiling_muffle = FALSE
 
-/area/Suburb_lv759/atmos/east_reactor
-	name = "Atmospheric Processor - Eastern Reactor"
-	icon_state = "blue"
+/area/Suburb_lv759/indoors/public_spaceport/hangarbay
+	name = "Public space port - Hangar Bay"
+	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/Suburb_lv759/atmos/outdoor
-	name = "Atmospheric Processor - Outdoors"
-	icon_state = "quart"
-	ceiling = CEILING_NONE
-	soundscape_playlist = SCAPE_PL_LV522_OUTDOORS
+/area/Suburb_lv759/indoors/public_spaceport/cafeteria
+	name = "public_spaceport - Cafeteria"
+	ambience_exterior = AMBIENCE_LAB
+	soundscape_playlist = SCAPE_PL_LV759_INDOORS
+
+/area/Suburb_lv759/indoors/public_spaceport/vehicledeploymentbay
+	name = "public_spaceport - Vehicle Deployment & Maintenance Bay"
+	ambience_exterior = AMBIENCE_LAB
+	soundscape_playlist = SCAPE_PL_LV759_INDOORS
+
+
+

@@ -1,0 +1,25 @@
+[
+
+    {
+		"type": "map_insert",
+		"landmark": "clf-campe",
+		"chance": 1.0,
+		"path": "clf-campe.dmm",
+		"when": { "lvevent": "clfraid" }
+    },
+
+    {
+		"type": "map_insert",
+		"landmark": "twe_paragroup",
+		"chance": 0.28,
+		"path": "twe_paragroup.dmm",
+        "when": { "lvevent": "none" }
+	},
+    {
+		"type": "map_insert",
+		"landmark": "W-y_monorail",
+		"chance": 1.0,
+		"path": "W-y_monorail.dmm",
+        "when": { "lvevent": "twe_iasf" }
+	}
+]

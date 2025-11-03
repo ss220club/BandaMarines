@@ -1,0 +1,1016 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"am" = (
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"be" = (
+/obj/structure/cryofeed,
+/obj/structure/platform{
+	dir = 1
+	},
+/turf/open/floor/platebot,
+/area/space)
+"cS" = (
+/obj/structure/cryofeed/right,
+/obj/structure/platform{
+	dir = 1
+	},
+/turf/open/floor/platebot,
+/area/space)
+"dX" = (
+/turf/open/floor/platebot,
+/area/space)
+"eT" = (
+/obj/effect/landmark/survivor_spawner/bigred_crashed_pmc,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"eZ" = (
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_x = 16;
+	pixel_y = -1
+	},
+/turf/closed/wall/r_wall/biodome,
+/area/space)
+"fA" = (
+/obj/structure/barricade/handrail{
+	dir = 4
+	},
+/obj/structure/machinery/iv_drip,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"fE" = (
+/obj/item/ammo_magazine/rifle/l23/rubber,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"fQ" = (
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_x = 16;
+	pixel_y = -1
+	},
+/obj/effect/vehicle_spawner/apc_pmc/decrepit{
+	dir = 8
+	},
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"gS" = (
+/obj/item/ammo_magazine/rifle,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"ho" = (
+/obj/item/weapon/gun/rifle/m41a/corporate/no_lock,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"hE" = (
+/turf/closed/wall/r_wall/biodome,
+/area/space)
+"jd" = (
+/obj/structure/cryofeed/right,
+/obj/structure/platform{
+	layer = 3.1
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/platebot,
+/area/space)
+"js" = (
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_x = 16;
+	pixel_y = -1
+	},
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"jv" = (
+/obj/structure/barricade/handrail{
+	dir = 8
+	},
+/obj/effect/landmark/survivor_spawner/shivas_panic_room_commando,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"kc" = (
+/obj/structure/barricade/deployable{
+	damage_state = 2;
+	health = 140;
+	icon_state = "folding_2";
+	pixel_y = 2;
+	dir = 1
+	},
+/obj/structure/machinery/m56d_hmg{
+	dir = 1
+	},
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"kv" = (
+/obj/effect/landmark/survivor_spawner/bigred_crashed_pmc_leader,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"lI" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/roller,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"lP" = (
+/obj/structure/cryofeed,
+/turf/open/floor/platebot,
+/area/space)
+"mL" = (
+/obj/structure/barricade/handrail{
+	dir = 1;
+	layer = 2.7;
+	pixel_y = 2
+	},
+/turf/open/shuttle/dropship/light_grey_left_to_right,
+/area/space)
+"mQ" = (
+/obj/item/storage/belt/marine/wy,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"mY" = (
+/obj/structure/platform{
+	dir = 8
+	},
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_x = 16;
+	pixel_y = -1
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/void,
+/area/space)
+"nq" = (
+/obj/effect/decal/cleanable/blood,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"nN" = (
+/obj/structure/prop/M24,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"or" = (
+/obj/structure/barricade/handrail{
+	dir = 1;
+	layer = 2.7;
+	pixel_y = 2
+	},
+/obj/structure/barricade/handrail{
+	dir = 4;
+	layer = 3.3;
+	pixel_y = 3
+	},
+/turf/open/shuttle/dropship/light_grey_top_right,
+/area/space)
+"oD" = (
+/obj/structure/barricade/handrail,
+/obj/structure/barricade/handrail{
+	dir = 4
+	},
+/turf/open/shuttle/dropship/light_grey_bottom_right,
+/area/space)
+"qi" = (
+/obj/structure/bed/bedroll{
+	dir = 5
+	},
+/turf/open/shuttle/dropship/can_surgery,
+/area/space)
+"qz" = (
+/obj/structure/bed/bedroll{
+	dir = 5
+	},
+/obj/effect/landmark/corpsespawner/pmc,
+/obj/item/prop/colony/usedbandage{
+	dir = 4
+	},
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"qC" = (
+/obj/effect/landmark/survivor_spawner/bigred_crashed_cl,
+/turf/open/shuttle/dropship,
+/area/space)
+"qL" = (
+/obj/effect/decal/cleanable/blood{
+	dir = 4;
+	icon_state = "gib6"
+	},
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"qQ" = (
+/obj/structure/cryofeed,
+/obj/structure/platform{
+	layer = 3.1
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/platebot,
+/area/space)
+"rm" = (
+/obj/structure/barricade/handrail{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood{
+	dir = 4;
+	icon_state = "gib6"
+	},
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"rx" = (
+/obj/item/ammo_box/rounds/heap/empty,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"sb" = (
+/obj/item/ammo_magazine/smg/m39/ap,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"si" = (
+/obj/item/ammo_magazine/rifle/extended,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"sw" = (
+/obj/item/ammo_magazine/rifle/extended,
+/obj/item/ammo_magazine/rifle/extended,
+/obj/item/ammo_magazine/rifle/nsg23,
+/obj/item/ammo_magazine/rifle/nsg23,
+/obj/structure/closet/crate/secure/weyland,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"un" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/gun/smg/m39/corporate,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"uu" = (
+/obj/structure/cryofeed/right,
+/turf/open/floor/platebot,
+/area/space)
+"uw" = (
+/obj/effect/landmark/corpsespawner/hybrisa/civilian,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"uz" = (
+/obj/structure/platform{
+	dir = 8
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/void,
+/area/space)
+"vg" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_box/magazine/m39/heap/empty,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"vk" = (
+/obj/structure/barricade/handrail,
+/obj/structure/barricade/handrail{
+	dir = 8
+	},
+/turf/open/shuttle/dropship/light_grey_bottom_left,
+/area/space)
+"wx" = (
+/obj/structure/barricade/handrail{
+	dir = 8
+	},
+/obj/structure/closet/crate/secure/weyland,
+/obj/item/weapon/gun/rifle/m41a/corporate/no_lock,
+/obj/item/weapon/gun/rifle/m41a/corporate/no_lock,
+/obj/item/ammo_magazine/smg/m39/extended,
+/obj/item/ammo_magazine/rifle,
+/obj/item/ammo_magazine/rifle,
+/obj/item/ammo_magazine/rifle,
+/obj/item/ammo_magazine/rifle,
+/obj/item/ammo_box/magazine/misc/mre/pmc,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"wO" = (
+/obj/structure/platform_decoration{
+	dir = 8
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/void,
+/area/space)
+"xl" = (
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"xv" = (
+/obj/structure/machinery/door/poddoor/almayer/blended,
+/obj/structure/blocker/invisible_wall,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"zf" = (
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_x = 16;
+	pixel_y = -1
+	},
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"zg" = (
+/obj/structure/platform_decoration{
+	dir = 4
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/void,
+/area/space)
+"Ar" = (
+/obj/effect/decal/cleanable/blood,
+/obj/item/ammo_magazine/smg/m39/ap,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"AV" = (
+/obj/structure/surface/table/almayer,
+/obj/item/storage/belt/medical/full/with_defib_and_analyzer,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"Br" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_magazine/rifle/nsg23,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"CY" = (
+/obj/item/ammo_box/magazine/m39/ext/empty,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"DQ" = (
+/obj/structure/barricade/handrail{
+	dir = 8
+	},
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_x = 16;
+	pixel_y = -1
+	},
+/obj/item/ammo_box/magazine/misc/mre/emergency/empty,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"DV" = (
+/obj/structure/barricade/handrail{
+	dir = 8
+	},
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"Ep" = (
+/obj/structure/barricade/handrail{
+	dir = 8
+	},
+/obj/item/weapon/gun/rifle/nsg23/no_lock,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"EG" = (
+/obj/structure/machinery/door/poddoor/almayer/blended,
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/platebot,
+/area/space)
+"Fz" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"FG" = (
+/obj/effect/landmark/survivor_spawner/bigred_crashed_pmc_engineer,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"FJ" = (
+/obj/structure/barricade/handrail{
+	dir = 1;
+	layer = 2.7;
+	pixel_y = 2
+	},
+/obj/effect/landmark/survivor_spawner/bigred_crashed_pmc,
+/turf/open/shuttle/dropship/light_grey_left_to_right,
+/area/space)
+"FM" = (
+/obj/effect/landmark/corpsespawner/hybrisa_goon,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"FU" = (
+/obj/structure/platform{
+	dir = 4;
+	layer = 2.7
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/void,
+/area/space)
+"GL" = (
+/obj/item/prop/colony/usedbandage{
+	dir = 1
+	},
+/obj/effect/landmark/survivor_spawner/bigred_crashed_pmc_medic,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"HQ" = (
+/obj/effect/landmark/corpsespawner/hybrisa_goon,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"Ln" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/prop/dam/crane{
+	bound_height = 32;
+	climbable = 1;
+	layer = 3.5;
+	pixel_y = -23
+	},
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"Me" = (
+/obj/structure/catwalk,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"Mk" = (
+/obj/structure/barricade/handrail{
+	dir = 4
+	},
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"Mu" = (
+/obj/item/ammo_magazine/rifle/nsg23,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"My" = (
+/obj/structure/barricade/handrail{
+	dir = 4
+	},
+/obj/item/reagent_container/blood/empty,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"MH" = (
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_x = 16;
+	pixel_y = -1
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/void,
+/area/space)
+"Nr" = (
+/obj/effect/decal/cleanable/blood/xeno,
+/obj/structure/barricade/deployable{
+	dir = 1;
+	pixel_y = -13;
+	pixel_x = -3
+	},
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"NB" = (
+/obj/item/ammo_magazine/rifle/l23/rubber,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"Ou" = (
+/obj/structure/barricade/handrail,
+/obj/item/reagent_container/blood/empty,
+/turf/open/shuttle/dropship/light_grey_left_to_right,
+/area/space)
+"Ov" = (
+/obj/structure/platform{
+	layer = 3.1
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/platebot,
+/area/space)
+"Oy" = (
+/obj/structure/cargo_container/wy/right{
+	pixel_y = 4;
+	pixel_x = 4;
+	layer = 6
+	},
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"OH" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/prop/colony/usedbandage{
+	dir = 10
+	},
+/turf/open/shuttle/dropship/can_surgery,
+/area/space)
+"OK" = (
+/obj/structure/closet/crate/secure/weyland,
+/obj/item/weapon/gun/rifle/nsg23/no_lock,
+/obj/item/explosive/grenade/high_explosive/pmc,
+/obj/item/explosive/grenade/high_explosive/pmc,
+/obj/item/weapon/gun/rifle/m41a/corporate/no_lock,
+/obj/item/device/motiondetector/hacked/pmc,
+/obj/item/defenses/handheld/planted_flag/wy,
+/obj/item/ammo_box/magazine/misc/mre/pmc,
+/turf/open/shuttle/dropship/can_surgery/light_grey_bottom_right,
+/area/space)
+"PS" = (
+/obj/structure/platform{
+	dir = 4;
+	layer = 2.7
+	},
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_x = 16;
+	pixel_y = -1
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/void,
+/area/space)
+"Qh" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"Rf" = (
+/obj/structure/barricade/handrail{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"RE" = (
+/obj/effect/decal/cleanable/blood{
+	pixel_x = -1;
+	pixel_y = -12
+	},
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"RW" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_x = 16;
+	pixel_y = -1
+	},
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"Sn" = (
+/obj/item/storage/belt/marine/wy,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"Sv" = (
+/turf/open/shuttle/dropship/can_surgery,
+/area/space)
+"SO" = (
+/obj/effect/decal/cleanable/blood/xeno,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"TH" = (
+/obj/structure/barricade/handrail,
+/turf/open/shuttle/dropship/light_grey_left_to_right,
+/area/space)
+"TU" = (
+/obj/structure/barricade/deployable{
+	damage_state = 2;
+	health = 140;
+	icon_state = "folding_2";
+	pixel_y = 2;
+	dir = 1
+	},
+/obj/effect/landmark/survivor_spawner/bigred_crashed_pmc,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"UG" = (
+/obj/item/stack/medical/advanced/bruise_pack/upgraded{
+	amount = 2
+	},
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"VB" = (
+/obj/structure/barricade/handrail{
+	dir = 1;
+	layer = 2.7;
+	pixel_y = 2
+	},
+/obj/structure/barricade/handrail{
+	dir = 8
+	},
+/turf/open/shuttle/dropship/light_grey_top_left,
+/area/space)
+"Wc" = (
+/obj/structure/barricade/handrail{
+	dir = 8
+	},
+/obj/structure/cargo_container/wy/left{
+	pixel_y = 4;
+	pixel_x = 4;
+	layer = 6
+	},
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"Wt" = (
+/obj/item/storage/pouch/magazine/large/wy,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"Xr" = (
+/obj/structure/blocker/invisible_wall,
+/turf/open/void,
+/area/space)
+"XN" = (
+/obj/structure/barricade/handrail{
+	dir = 4
+	},
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_x = 16;
+	pixel_y = -1
+	},
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"XR" = (
+/obj/structure/platform{
+	dir = 1
+	},
+/turf/open/floor/platebot,
+/area/space)
+"Yb" = (
+/obj/structure/closet/crate/secure/weyland,
+/obj/item/storage/belt/medical/lifesaver/wy,
+/obj/item/storage/belt/gun/m4a3/wy/vp78,
+/obj/item/storage/pouch/firstaid/full/pills/wy,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"ZF" = (
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_x = 16;
+	pixel_y = -1
+	},
+/obj/item/ammo_box/magazine/m39,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+
+(1,1,1) = {"
+hE
+hE
+hE
+hE
+hE
+hE
+hE
+hE
+hE
+hE
+hE
+hE
+eZ
+hE
+hE
+hE
+hE
+hE
+hE
+hE
+hE
+"}
+(2,1,1) = {"
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+MH
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+EG
+"}
+(3,1,1) = {"
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+MH
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+EG
+"}
+(4,1,1) = {"
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+PS
+FU
+FU
+FU
+FU
+FU
+wO
+Xr
+EG
+"}
+(5,1,1) = {"
+Ov
+VB
+DV
+Ln
+Qh
+Rf
+DV
+DV
+DV
+DV
+Wc
+wx
+DQ
+DV
+Ep
+jv
+DV
+vk
+XR
+dX
+EG
+"}
+(6,1,1) = {"
+Ov
+mL
+Fz
+am
+am
+sb
+am
+Sn
+am
+am
+Oy
+sw
+ZF
+am
+vg
+Br
+qC
+TH
+XR
+dX
+EG
+"}
+(7,1,1) = {"
+jd
+mL
+ho
+FM
+nq
+am
+kv
+am
+un
+Fz
+am
+am
+js
+gS
+am
+am
+Sv
+TH
+cS
+uu
+EG
+"}
+(8,1,1) = {"
+Me
+TU
+SO
+CY
+xl
+xl
+xl
+nN
+xl
+xl
+xl
+xl
+zf
+Mu
+Wt
+RE
+xl
+am
+Me
+Me
+xv
+"}
+(9,1,1) = {"
+Me
+qL
+kc
+eT
+xl
+xl
+xl
+xl
+xl
+fE
+mQ
+Qh
+RW
+Qh
+UG
+si
+Qh
+am
+Me
+Me
+xv
+"}
+(10,1,1) = {"
+Me
+Nr
+HQ
+Ar
+xl
+xl
+xl
+xl
+xl
+uw
+FG
+Qh
+zf
+xl
+xl
+xl
+lI
+am
+Me
+Me
+xv
+"}
+(11,1,1) = {"
+qQ
+FJ
+am
+rx
+am
+am
+am
+am
+am
+OK
+Fz
+am
+fQ
+am
+am
+GL
+OH
+Ou
+be
+lP
+EG
+"}
+(12,1,1) = {"
+Ov
+mL
+am
+NB
+am
+am
+Fz
+Fz
+Fz
+am
+Yb
+am
+js
+am
+qz
+AV
+qi
+TH
+XR
+dX
+EG
+"}
+(13,1,1) = {"
+Ov
+or
+Mk
+Mk
+Mk
+Mk
+Mk
+Mk
+Mk
+Mk
+Mk
+Mk
+XN
+Mk
+rm
+fA
+My
+oD
+XR
+dX
+EG
+"}
+(14,1,1) = {"
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+uz
+mY
+uz
+uz
+uz
+uz
+uz
+zg
+Xr
+EG
+"}
+(15,1,1) = {"
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+MH
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+EG
+"}
+(16,1,1) = {"
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+MH
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+Xr
+EG
+"}
+(17,1,1) = {"
+hE
+hE
+hE
+hE
+hE
+hE
+hE
+hE
+hE
+hE
+hE
+hE
+hE
+hE
+hE
+hE
+hE
+hE
+hE
+hE
+hE
+"}
