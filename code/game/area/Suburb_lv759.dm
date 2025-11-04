@@ -154,6 +154,18 @@
 /area/Suburb_lv759/outdoors/colony_streets/cottage9
 	name = "cottage9"
 	icon_state = "colonystreets_west"
+
+/area/Suburb_lv759/outdoors/colony_streets/cottage10
+	name = "cottage10"
+	icon_state = "colonystreets_west"
+
+/area/Suburb_lv759/outdoors/colony_streets/cottage11
+	name = "cottage11"
+	icon_state = "colonystreets_west"
+
+/area/Suburb_lv759/outdoors/colony_streets/garage
+	name = "garage"
+	icon_state = "colonystreets_west"
 // WY Security Checkpoints
 
 /area/Suburb_lv759/indoors/wy_security
@@ -384,20 +396,33 @@
 	name = "Public space port"
 	unoviable_timer = FALSE
 	ceiling_muffle = FALSE
+	linked_lz = DROPSHIP_LZ1
 
 /area/Suburb_lv759/indoors/public_spaceport/hangarbay
 	name = "Public space port - Hangar Bay"
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
+	linked_lz = DROPSHIP_LZ1
 
 /area/Suburb_lv759/indoors/public_spaceport/cafeteria
-	name = "public_spaceport - Cafeteria"
+	name = "public spaceport - Cafeteria"
 	ambience_exterior = AMBIENCE_LAB
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
+	linked_lz = DROPSHIP_LZ1
 
 /area/Suburb_lv759/indoors/public_spaceport/vehicledeploymentbay
-	name = "public_spaceport - Vehicle Deployment & Maintenance Bay"
+	name = "public spaceport - Vehicle Deployment & Maintenance Bay"
 	ambience_exterior = AMBIENCE_LAB
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
+	linked_lz = DROPSHIP_LZ1
 
+/area/Suburb_lv759/indoors/public_spaceport/hangarbay
+	name = "Weyland-Yutani -public spaceport - Hangar Bay"
+	icon_state = "wylab"
+	ambience_exterior = AMBIENCE_LAB_HALLWAY
+	soundscape_playlist = SCAPE_PL_LV759_INDOORS
+	linked_lz = DROPSHIP_LZ1
 
-
+/area/Suburb_lv759/indoors/public_spaceport/transformer_substation
+	name = "public spaceport - transformer substation - "
+	icon_state = "recycling"
+	linked_lz = DROPSHIP_LZ1
