@@ -768,7 +768,7 @@
 
 		log_game("[key_name_admin(user)] has enabled their cloaking device.")
 		if(!silent)
-			M.visible_message(SPAN_WARNING("[M] vanishes into thin air!"), SPAN_NOTICE("You are now invisible to normal detection."))
+			M.visible_message(SPAN_WARNING("[capitalize(M.declent_ru(NOMINATIVE))] vanishes into thin air!"), SPAN_NOTICE("You are now invisible to normal detection."))
 			var/sound_to_use
 			if(invisibility_sound == PRED_TECH_MODERN)
 				sound_to_use = 'sound/effects/pred_cloakon_modern.ogg'

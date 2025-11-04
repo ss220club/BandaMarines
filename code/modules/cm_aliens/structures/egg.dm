@@ -119,7 +119,7 @@
 /obj/effect/alien/egg/attack_alien(mob/living/carbon/xenomorph/M)
 	if(status == EGG_BURST || status == EGG_DESTROYED)
 		M.animation_attack_on(src)
-		M.visible_message(SPAN_XENONOTICE("[M] очищает вылупившееся яйцо."), // SS220 EDIT ADDICTION
+		M.visible_message(SPAN_XENONOTICE("[capitalize(M.declent_ru(NOMINATIVE))] очищает вылупившееся яйцо."), // SS220 EDIT ADDICTION
 		SPAN_XENONOTICE("Мы очищаем вылупившееся яйцо."))
 		playsound(src.loc, "alien_resin_break", 25)
 		qdel(src)
@@ -127,7 +127,7 @@
 
 	if(M.hivenumber != hivenumber)
 		M.animation_attack_on(src)
-		M.visible_message(SPAN_XENOWARNING("[M] раздавливает [declent_ru()]."), // SS220 EDIT ADDICTION
+		M.visible_message(SPAN_XENOWARNING("[capitalize(M.declent_ru(NOMINATIVE))] раздавливает [declent_ru()]."), // SS220 EDIT ADDICTION
 			SPAN_XENOWARNING("Мы раздавливаем [declent_ru()]")) // SS220 EDIT ADDICTION
 		Burst(TRUE)
 		return XENO_ATTACK_ACTION

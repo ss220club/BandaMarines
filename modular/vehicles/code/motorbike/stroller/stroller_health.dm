@@ -39,11 +39,11 @@
 			unbuckle()
 			affected_mob.apply_effect(1, WEAKEN)
 			affected_mob.throw_atom(src, 1, VEHICLE_SPEED_FASTER, M, TRUE)
-			M.visible_message(SPAN_DANGER("[M] сшибает [src]!"), SPAN_DANGER("Мы сшибаем [src]!"))
+			M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] сшибает [src]!"), SPAN_DANGER("Мы сшибаем [src]!"))
 		affected_mob.attack_alien(M)	// Шанс попасть по сидящему
 	M.animation_attack_on(src)
 	playsound(src, hit_bed_sound, 25, 1)
-	M.visible_message(SPAN_DANGER("[M] кромсает [src]!"),
+	M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] кромсает [src]!"),
 	SPAN_DANGER("Мы кромсаем [src]."))
 	health -= M.melee_damage_upper
 	healthcheck()

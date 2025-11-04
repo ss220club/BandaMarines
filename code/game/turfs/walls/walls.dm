@@ -412,12 +412,12 @@
 			return
 		else
 			if((prob(40)))
-				M.visible_message(SPAN_DANGER("[M] smashes through [src]."),
+				M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] smashes through [src]."),
 				SPAN_DANGER("You smash through the wall."))
 				dismantle_wall(1)
 				return
 			else
-				M.visible_message(SPAN_WARNING("[M] smashes against [src]."),
+				M.visible_message(SPAN_WARNING("[capitalize(M.declent_ru(NOMINATIVE))] smashes against [src]."),
 				SPAN_WARNING("You smash against the wall."))
 				take_damage(rand(25, 75), M)
 				return

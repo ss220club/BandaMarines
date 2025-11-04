@@ -97,7 +97,7 @@
 	var/obj/item/caught_item = get_fishing_loot(T, A, get_common_weight(), get_uncommon_weight(), get_rare_weight(), get_ultra_rare_weight())
 	caught_item.throw_atom(get_turf(M), 2, 2, spin = TRUE, launch_type = HIGH_LAUNCH)
 	playsound(src, fishing_success, 50, 1)
-	M.visible_message(SPAN_NOTICE("[M] fishes up \the [caught_item]!"), SPAN_NOTICE("You fish up \the [caught_item]!"))
+	M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] fishes up \the [caught_item]!"), SPAN_NOTICE("You fish up \the [caught_item]!"))
 
 	QDEL_NULL(loaded_bait)
 

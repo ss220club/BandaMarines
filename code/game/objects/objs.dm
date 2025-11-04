@@ -318,10 +318,10 @@
 		if(istype(src, /obj/structure/bed/roller))
 			var/obj/structure/bed/roller/roller = src
 			if(!roller.can_carry_big)
-				to_chat(user, SPAN_WARNING("[M] is too big to buckle in."))
+				to_chat(user, SPAN_WARNING("[capitalize(M.declent_ru(NOMINATIVE))] is too big to buckle in."))
 				return
 			if(M.stat != DEAD)
-				to_chat(user, SPAN_WARNING("[M] resists your attempt to buckle!"))
+				to_chat(user, SPAN_WARNING("[capitalize(M.declent_ru(NOMINATIVE))] resists your attempt to buckle!"))
 				return
 		if(M.stat != DEAD)
 			return
@@ -345,7 +345,7 @@
 	var/ru_name = declent_ru(DATIVE) // SS220 EDIT ADDICTION
 	if (M == user)
 		M.visible_message(
-			SPAN_NOTICE("[M] пристёгивается!"), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] пристёгивается!"), // SS220 EDIT ADDICTION
 			SPAN_NOTICE("Вы пристёгиваетесь к [ru_name]."), // SS220 EDIT ADDICTION
 			SPAN_NOTICE("Вы слышите металлический щелчок."))
 	else

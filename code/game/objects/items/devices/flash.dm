@@ -164,5 +164,5 @@
 				var/mob/living/carbon/M = loc
 				if(M.flash_eyes())
 					M.apply_effect(10, WEAKEN)
-					M.visible_message(SPAN_DISARM("[M] is blinded by \the [src]!"))
+					M.visible_message(SPAN_DISARM("[capitalize(M.declent_ru(NOMINATIVE))] is blinded by \the [src]!"))
 

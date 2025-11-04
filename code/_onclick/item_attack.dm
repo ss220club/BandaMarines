@@ -76,7 +76,7 @@
 
 	if (user.a_intent == INTENT_HELP && ((user.client?.prefs && user.client?.prefs?.toggle_prefs & TOGGLE_HELP_INTENT_SAFETY) || (user.mob_flags & SURGERY_MODE_ON)))
 		playsound(loc, 'sound/effects/pop.ogg', 25, 1)
-		user.visible_message(SPAN_NOTICE("[M] тыкает [showname] [declent_ru(INSTRUMENTAL)]"),
+		user.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] тыкает [showname] [declent_ru(INSTRUMENTAL)]"),
 			SPAN_NOTICE("Вы тыкаете [M == user ? "себя":M] [declent_ru(INSTRUMENTAL)]."), null, 4) // SS220 EDIT ADDICTION
 
 		return FALSE
@@ -97,7 +97,7 @@
 		var/used_verb = "attacked"
 		if(LAZYLEN(attack_verb))
 			used_verb = pick(attack_verb)
-		user.visible_message(SPAN_DANGER("[M] has been [used_verb] with [src][showname]."),
+		user.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] has been [used_verb] with [src][showname]."),
 			SPAN_DANGER("You [used_verb] [M == user ? "yourself":M] with [src]."), null, 5, CHAT_TYPE_MELEE_HIT)
 
 		user.animation_attack_on(M)

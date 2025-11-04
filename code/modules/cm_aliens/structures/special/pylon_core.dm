@@ -434,12 +434,12 @@
 	. = ..()
 
 /obj/effect/alien/resin/special/pylon/core/proc/startDestroying(mob/living/carbon/xenomorph/M)
-	xeno_message(SPAN_XENOANNOUNCE("[M] уничтожает [declent_ru()]!"), 3, linked_hive.hivenumber) // SS220 EDIT ADDICTION
-	visible_message(SPAN_DANGER("[M] начинает уничтожать [declent_ru()]!")) // SS220 EDIT ADDICTION
+	xeno_message(SPAN_XENOANNOUNCE("[capitalize(M.declent_ru(NOMINATIVE))] уничтожает [declent_ru()]!"), 3, linked_hive.hivenumber) // SS220 EDIT ADDICTION
+	visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] начинает уничтожать [declent_ru()]!")) // SS220 EDIT ADDICTION
 	last_attempt = world.time //spamcheck
 	if(!do_after(M, 5 SECONDS , INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_HOSTILE))
 		to_chat(M,SPAN_WARNING("Вы перестаёте уничтожать [declent_ru()].")) // SS220 EDIT ADDICTION
-		visible_message(SPAN_WARNING("[M] перестал уничтожать [declent_ru()].")) // SS220 EDIT ADDICTION
+		visible_message(SPAN_WARNING("[capitalize(M.declent_ru(NOMINATIVE))] перестал уничтожать [declent_ru()].")) // SS220 EDIT ADDICTION
 		last_attempt = world.time // update the spam check
 		return XENO_NO_DELAY_ACTION
 	qdel(src)

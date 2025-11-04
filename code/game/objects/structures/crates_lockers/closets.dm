@@ -86,7 +86,7 @@
 		if(isliving(M))
 			var/mob/living/living_M = M
 			if(living_M.mobility_flags & MOBILITY_MOVE)
-				M.visible_message(SPAN_WARNING("[M] suddenly gets out of [src]!"),
+				M.visible_message(SPAN_WARNING("[capitalize(M.declent_ru(NOMINATIVE))] suddenly gets out of [src]!"),
 				SPAN_WARNING("You get out of [src] and get your bearings!"))
 
 /// Attempts to open this closet by user, skipping checks that prevent opening if forced

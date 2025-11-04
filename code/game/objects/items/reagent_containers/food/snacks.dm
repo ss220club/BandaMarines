@@ -33,7 +33,7 @@
 	if(!reagents.total_volume)
 		if(M == usr)
 			to_chat(usr, SPAN_NOTICE("Вы полностью доели [declent_ru(ACCUSATIVE)].")) // SS220 EDIT ADDICTION
-		M.visible_message(SPAN_NOTICE("[M] полностью доедает [declent_ru(ACCUSATIVE)].")) // SS220 EDIT ADDICTION
+		M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] полностью доедает [declent_ru(ACCUSATIVE)].")) // SS220 EDIT ADDICTION
 		usr.drop_inv_item_on_ground(src) //so icons update :[
 
 		if(trash)

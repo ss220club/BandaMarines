@@ -308,7 +308,7 @@
 	if(islarva(M))
 		return //Larvae can't do shit
 
-	M.visible_message(SPAN_DANGER("[M] has slashed [src]!"),
+	M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] has slashed [src]!"),
 	SPAN_DANGER("You slash [src]!"))
 	M.animation_attack_on(src)
 	M.flick_attack_overlay(src, "slash")

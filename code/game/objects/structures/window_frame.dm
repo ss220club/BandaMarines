@@ -117,7 +117,7 @@
 			var/mob/living/M = G.grabbed_thing
 			if(user.grab_level >= GRAB_AGGRESSIVE)
 				if(get_dist(src, M) > 1)
-					to_chat(user, SPAN_WARNING("[M] needs to be next to [src]."))
+					to_chat(user, SPAN_WARNING("[capitalize(M.declent_ru(NOMINATIVE))] needs to be next to [src]."))
 				else
 					if(user.action_busy)
 						return

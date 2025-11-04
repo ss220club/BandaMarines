@@ -1080,10 +1080,10 @@
 	update_health(rand(M.melee_damage_lower, M.melee_damage_upper))
 	playsound(src, 'sound/effects/woodhit.ogg', 25, 1)
 	if(health <= 0)
-		M.visible_message(SPAN_DANGER("[M] slices [src] apart!"),
+		M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] slices [src] apart!"),
 		SPAN_DANGER("You slice [src] apart!"), null, 5, CHAT_TYPE_XENO_COMBAT)
 	else
-		M.visible_message(SPAN_DANGER("[M] slashes [src]!"),
+		M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] slashes [src]!"),
 		SPAN_DANGER("You slash [src]!"), null, 5, CHAT_TYPE_XENO_COMBAT)
 	return XENO_ATTACK_ACTION
 

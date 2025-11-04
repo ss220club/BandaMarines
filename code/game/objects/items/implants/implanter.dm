@@ -30,7 +30,7 @@
 		if (T1 && ((M == user) || do_after(user, 50, INTERRUPT_ALL, BUSY_ICON_GENERIC)))
 			if(user && M && (get_turf(M) == T1) && src && src.imp)
 				if(src.imp.implanted(M, user))
-					M.visible_message(SPAN_WARNING("[M] has been implanted by [user]."))
+					M.visible_message(SPAN_WARNING("[capitalize(M.declent_ru(NOMINATIVE))] has been implanted by [user]."))
 
 					M.attack_log += text("\[[time_stamp()]\] <font color='orange'> Implanted with [src.name] ([src.imp.name]) by [key_name(user)]</font>")
 					user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] ([src.imp.name]) to implant [key_name(M)]</font>")

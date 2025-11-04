@@ -75,7 +75,7 @@
 	if (M == user)
 		to_chat(M, SPAN_NOTICE("You seat yourself onto the toilet"))
 	else
-		to_chat(user, SPAN_NOTICE("[M] has been seated onto the toilet by [user]."))
+		to_chat(user, SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] has been seated onto the toilet by [user]."))
 		to_chat(M, SPAN_NOTICE("You have been seated onto the toilet by [user]."))
 
 

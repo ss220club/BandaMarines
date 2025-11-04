@@ -210,7 +210,7 @@
 	var/turf/cur_loc = M.loc
 
 	playsound(loc, 'sound/effects/metal_creaking.ogg', 25, TRUE)
-	M.visible_message(SPAN_DANGER("[M] starts wrenching apart \the [src]'s panels and reaching inside it!"),
+	M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] starts wrenching apart \the [src]'s panels and reaching inside it!"),
 	SPAN_DANGER("You start wrenching apart \the [src]'s panels and reaching inside it!"), null, 5, CHAT_TYPE_XENO_COMBAT)
 	xeno_attack_delay(M)
 	if(do_after(M, 40, INTERRUPT_ALL, BUSY_ICON_HOSTILE))
@@ -227,11 +227,11 @@
 			stop_processing()
 		update_icon()
 		msg_admin_niche("[key_name(M)] has destroyed the sensor tower.")
-		M.visible_message(SPAN_DANGER("[M] pulls apart \the [src]'s panels and breaks all its internal wiring and tubing!"),
+		M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] pulls apart \the [src]'s panels and breaks all its internal wiring and tubing!"),
 		SPAN_DANGER("You pull apart \the [src]'s panels and break all its internal wiring and tubing!"), null, 5, CHAT_TYPE_XENO_COMBAT)
 		playsound(loc, 'sound/effects/meteorimpact.ogg', 25, 1)
 	else
-		M.visible_message(SPAN_DANGER("[M] stops destroying \the [src]'s internal machinery!"),
+		M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] stops destroying \the [src]'s internal machinery!"),
 		SPAN_DANGER("You stop destroying \the [src]'s internal machinery!"), null, 5, CHAT_TYPE_XENO_COMBAT)
 	return XENO_NO_DELAY_ACTION
 

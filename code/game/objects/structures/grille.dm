@@ -79,7 +79,7 @@
 		return
 
 	playsound(loc, 'sound/effects/grillehit.ogg', 25, 1)
-	M.visible_message(SPAN_WARNING("[M] smashes against [src]."),
+	M.visible_message(SPAN_WARNING("[capitalize(M.declent_ru(NOMINATIVE))] smashes against [src]."),
 					SPAN_WARNING("You smash against [src]."),
 					"You hear twisting metal.")
 

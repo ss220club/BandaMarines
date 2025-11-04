@@ -86,7 +86,7 @@
 		return XENO_NO_DELAY_ACTION
 	else
 		M.animation_attack_on(src)
-		M.visible_message(SPAN_XENONOTICE("[M] царапает [declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
+		M.visible_message(SPAN_XENONOTICE("[capitalize(M.declent_ru(NOMINATIVE))] царапает [declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
 		SPAN_XENONOTICE("Мы царапаем [declent_ru(ACCUSATIVE)].")) // SS220 EDIT ADDICTION
 		if(istype(src, /obj/effect/alien/resin/sticky))
 			playsound(loc, "alien_resin_move", 25)
@@ -103,7 +103,7 @@
 	return XENO_ATTACK_ACTION
 
 /obj/effect/alien/resin/attack_animal(mob/living/M as mob)
-	M.visible_message(SPAN_DANGER("[M] tears \the [src]!"),
+	M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] tears \the [src]!"),
 	SPAN_DANGER("You tear \the [name]."))
 	if(istype(src, /obj/effect/alien/resin/sticky))
 		playsound(loc, "alien_resin_move", 25)
@@ -859,7 +859,7 @@
 /obj/effect/alien/resin/resin_pillar/attack_alien(mob/living/carbon/xenomorph/M)
 	if(!brittle)
 		M.animation_attack_on(src)
-		M.visible_message(SPAN_XENONOTICE("[M] царапает [declent_ru(ACCUSATIVE)], но удар отскакивает!"), // SS220 EDIT ADDICTION
+		M.visible_message(SPAN_XENONOTICE("[capitalize(M.declent_ru(NOMINATIVE))] царапает [declent_ru(ACCUSATIVE)], но удар отскакивает!"), // SS220 EDIT ADDICTION
 		SPAN_XENONOTICE("Вы царапаете [declent_ru(ACCUSATIVE)], но удар отскакивает!")) // SS220 EDIT ADDICTION
 		return XENO_ATTACK_ACTION
 

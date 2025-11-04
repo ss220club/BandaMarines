@@ -790,7 +790,7 @@
 
 	if(!burn_damage)
 		if(HAS_TRAIT(M, TRAIT_HAULED))
-			M.visible_message(SPAN_WARNING("[M] is shielded from the flames!"), SPAN_WARNING("You are shielded from the flames!"))
+			M.visible_message(SPAN_WARNING("[capitalize(M.declent_ru(NOMINATIVE))] is shielded from the flames!"), SPAN_WARNING("You are shielded from the flames!"))
 		else
 			to_chat(M, SPAN_DANGER("[isxeno(M) ? "We" : "You"] step over the flames."))
 		return

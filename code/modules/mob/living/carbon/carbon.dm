@@ -307,11 +307,11 @@
 	if(shake_action) // We are incapacitated in some fashion
 		if(client)
 			sleeping = max(0,sleeping-5)
-		M.visible_message(SPAN_NOTICE("[M] shakes [src] trying to [shake_action]"),
+		M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] shakes [src] trying to [shake_action]"),
 			SPAN_NOTICE("You shake [src] trying to [shake_action]"), null, 4)
 
 	else if(body_position == LYING_DOWN) // We're just chilling on the ground, let us be
-		M.visible_message(SPAN_NOTICE("[M] stares and waves impatiently at [src] lying on the ground."),
+		M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] stares and waves impatiently at [src] lying on the ground."),
 			SPAN_NOTICE("You stare and wave at [src] just lying on the ground."), null, 4)
 
 	else
@@ -319,7 +319,7 @@
 		if(istype(H))
 			H.species.hug(H, src, H.zone_selected)
 		else
-			M.visible_message(SPAN_NOTICE("[M] похлопывает [src] по спине, чтобы [t_him] стало лучше!"), // SS220 EDIT ADDICTION
+			M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] похлопывает [src] по спине, чтобы [t_him] стало лучше!"), // SS220 EDIT ADDICTION
 				SPAN_NOTICE("Вы похлопываете [src] по спине, чтобы [t_him] стало лучше!"), null, 4)
 			playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 5)
 		return

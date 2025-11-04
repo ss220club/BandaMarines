@@ -222,17 +222,17 @@
 				to_chat(M, SPAN_WARNING("Похоже у [src] кружится голова. Не стоит [t_him] сейчас беспокоить."))
 			else
 				set_resting(FALSE)
-		M.visible_message(SPAN_NOTICE("[M] трясёт [src], пытаясь разбудить [t_him]!"), // SS220 EDIT ADDICTION
+		M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] трясёт [src], пытаясь разбудить [t_him]!"), // SS220 EDIT ADDICTION
 			SPAN_NOTICE("Вы трясёте [declent_ru()], пытаясь разбудить [t_him]!"), null, 4) // SS220 EDIT ADDICTION
 	else if(HAS_TRAIT(src, TRAIT_INCAPACITATED))
-		M.visible_message(SPAN_NOTICE("[M] трясёт [src], пытаясь вывести [t_him] из ступора!"),
+		M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] трясёт [src], пытаясь вывести [t_him] из ступора!"),
 			SPAN_NOTICE("Вы трясёте [src], пытаясь вывести [t_him] из ступора!"), null, 4)
 	else
 		var/mob/living/carbon/human/H = M
 		if(istype(H))
 			H.species.hug(H, src, H.zone_selected)
 		else
-			M.visible_message(SPAN_NOTICE("[M] похлопывает [src] по спине, чтобы [t_him] стало лучше!"),
+			M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] похлопывает [src] по спине, чтобы [t_him] стало лучше!"),
 				SPAN_NOTICE("Вы похлопываете [src] по спине, чтобы [t_him] стало лучше!"), null, 4)
 			playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 5)
 		return
