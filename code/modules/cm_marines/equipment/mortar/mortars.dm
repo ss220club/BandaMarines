@@ -90,7 +90,7 @@
 		return XENO_NO_DELAY_ACTION
 
 	if(fixed)
-		to_chat(xeno, SPAN_XENOWARNING("Опоры [declent_ru()] прикреплены болтами и сварены. Похоже, его не получиться сдвинуть с места.")) // SS220 EDIT ADDICTION
+		to_chat(xeno, SPAN_XENOWARNING("Опоры [declent_ru(GENITIVE)] прикреплены болтами и сварены. Похоже, это не получится сдвинуть с места.")) // SS220 EDIT ADDICTION
 		return XENO_NO_DELAY_ACTION
 
 	if(firing)
@@ -99,8 +99,8 @@
 		playsound(src, "acid_hit", 25, 1)
 		playsound(xeno, "alien_help", 25, 1)
 		xeno.apply_damage(10, BURN)
-		xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] пытается опрокинуть раскалённый [declent_ru()], но получает ожог и отступает!"), // SS220 EDIT ADDICTION
-		SPAN_XENOWARNING("Мы пытаемся опрокинуть раскалённый [declent_ru()]! Подождите немного, прежде чем попробовать снова.")) // SS220 EDIT ADDICTION
+		xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] пытается опрокинуть раскалённ[genderize_ru(gender, "ый", "ую", "ый", "ые")] [declent_ru(ACCUSATIVE)], но получает ожог и отступает!"), // SS220 EDIT ADDICTION
+		SPAN_XENOWARNING("Мы пытаемся опрокинуть раскалённ[genderize_ru(gender, "ый", "ую", "ый", "ые")] [declent_ru(ACCUSATIVE)]! Подождите немного, прежде чем попробовать снова.")) // SS220 EDIT ADDICTION
 		return XENO_ATTACK_ACTION
 
 	xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] lashes at the [src] and knocks it over!"),

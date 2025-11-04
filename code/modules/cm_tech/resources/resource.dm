@@ -154,7 +154,7 @@
 
 /obj/structure/resource_node/attack_alien(mob/living/carbon/xenomorph/M)
 	if(!isxeno_builder(M))
-		to_chat(M, SPAN_XENOWARNING("Вы не можете строить на [declent_ru()].")) // SS220 EDIT ADDICTION
+		to_chat(M, SPAN_XENOWARNING("Вы не можете строить на [declent_ru(PREPOSITIONAL)].")) // SS220 EDIT ADDICTION
 		return XENO_NO_DELAY_ACTION
 
 	if(!active)
@@ -165,15 +165,15 @@
 		to_chat(M, SPAN_WARNING("Вы уже заняты чем-то другим."))
 		return XENO_NO_DELAY_ACTION
 
-	M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] начинает подключать [declent_ru()] к улью."), // SS220 EDIT ADDICTION
-	SPAN_XENONOTICE("Вы начинаете подключать [declent_ru()] к улью."), max_distance = 3) // SS220 EDIT ADDICTION
+	M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] начинает подключать [declent_ru(ACCUSATIVE)] к улью."), // SS220 EDIT ADDICTION
+	SPAN_XENONOTICE("Вы начинаете подключать [declent_ru(ACCUSATIVE)] к улью."), max_distance = 3) // SS220 EDIT ADDICTION
 	xeno_attack_delay(M)
 
 	if(!do_after(M, time_to_build, BEHAVIOR_IMMOBILE|INTERRUPT_ALL, BUSY_ICON_BUILD, src, INTERRUPT_ALL))
-		to_chat(M, SPAN_XENOWARNING("Вы прекращаете подключать [declent_ru()] к улью.")) // SS220 EDIT ADDICTION
+		to_chat(M, SPAN_XENOWARNING("Вы прекращаете подключать [declent_ru(ACCUSATIVE)] к улью.")) // SS220 EDIT ADDICTION
 		return XENO_NO_DELAY_ACTION
 
-	M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] подключает [declent_ru()] к улью."), // SS220 EDIT ADDICTION
-	SPAN_XENONOTICE("Вы подключаете [declent_ru()] к улью."), max_distance = 3) // SS220 EDIT ADDICTION
+	M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] подключает [declent_ru(ACCUSATIVE)] к улью."), // SS220 EDIT ADDICTION
+	SPAN_XENONOTICE("Вы подключаете [declent_ru(ACCUSATIVE)] к улью."), max_distance = 3) // SS220 EDIT ADDICTION
 
 	return XENO_NO_DELAY_ACTION

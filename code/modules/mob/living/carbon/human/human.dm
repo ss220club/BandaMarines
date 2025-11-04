@@ -842,13 +842,13 @@
 		if(!holo_card_color)
 			return
 		holo_card_color = null
-		to_chat(user, SPAN_NOTICE("Вы убираете статус из медголокарты [declent_ru()].")) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_NOTICE("Вы убираете статус из медголокарты [declent_ru(GENITIVE)].")) // SS220 EDIT ADDICTION
 	else if(newcolor != holo_card_color)
 		if(newcolor == "black" && is_revivable() && check_tod())
 			to_chat(user, SPAN_WARNING("Пациента ещё можно спасти!"))
 			return
 		holo_card_color = newcolor
-		to_chat(user, SPAN_NOTICE("Вы устанавливаете статус «[translated_value]» в медголокарте [src].")) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_NOTICE("Вы устанавливаете статус «[translated_value]» в медголокарте [declent_ru(GENITIVE)].")) // SS220 EDIT ADDICTION
 	hud_set_holocard()
 
 /mob/living/carbon/human/tgui_interact(mob/user, datum/tgui/ui) // I'M SORRY, SO FUCKING SORRY

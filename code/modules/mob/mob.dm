@@ -760,7 +760,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 	var/list/visible_implants = list()
 	for(var/obj/item/O in embedded)
 		if(O.w_class > class)
-			visible_implants[capitalize(O.declent_ru())] = O // SS220 EDIT ADDICTION
+			visible_implants[capitalize(O.declent_ru(NOMINATIVE))] = O // SS220 EDIT ADDICTION
 	return visible_implants
 
 /mob/proc/yank_out_object()
@@ -792,7 +792,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 		if(self)
 			to_chat(src, "В вашем теле нет ничего, что можно было бы вытащить.") // SS220 EDIT ADDICTION
 		else
-			to_chat(usr, "В теле [declent_ru()] нет ничего, что можно было бы вытащить.") // SS220 EDIT ADDICTION
+			to_chat(usr, "В теле [declent_ru(GENITIVE)] нет ничего, что можно было бы вытащить.") // SS220 EDIT ADDICTION
 		remove_verb(src, /mob/proc/yank_out_object)
 		return
 
@@ -809,7 +809,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 		if(usr.get_active_hand())
 			to_chat(usr, SPAN_WARNING("Вам нужна свободная рука для этого!"))
 			return FALSE
-		to_chat(usr, SPAN_WARNING("Вы пытаетесь вытащить [selection_ru] из тела [src].")) // SS220 EDIT ADDICTION
+		to_chat(usr, SPAN_WARNING("Вы пытаетесь вытащить [selection_ru] из тела [declent_ru(GENITIVE)].")) // SS220 EDIT ADDICTION
 
 	if(!do_after(usr, 2 SECONDS * selection.w_class * usr.get_skill_duration_multiplier(SKILL_SURGERY), INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
 		return
@@ -817,7 +817,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 	if(self)
 		visible_message(SPAN_BOLDWARNING("[capitalize(declent_ru(NOMINATIVE))] вытаскивает [selection_ru] из своего тела."),SPAN_BOLDWARNING("Вы вытаскиваете [selection_ru] из своего тела."), null, 5) // SS220 EDIT ADDICTION
 	else
-		visible_message(SPAN_BOLDWARNING("[usr] вытаскивает [selection_ru] из тела [declent_ru()]."),SPAN_BOLDWARNING("[usr] вытаскивает [selection_ru] из вашего тела."), null, 5) // SS220 EDIT ADDICTION
+		visible_message(SPAN_BOLDWARNING("[capitalize(usr.declent_ru(NOMINATIVE))] вытаскивает [selection_ru] из тела [declent_ru(GENITIVE)]."),SPAN_BOLDWARNING("[capitalize(usr.declent_ru(NOMINATIVE))] вытаскивает [selection_ru] из вашего тела."), null, 5) // SS220 EDIT ADDICTION
 
 	if(length(valid_objects) == 1) //Yanking out last object - removing verb.
 		remove_verb(src, /mob/proc/yank_out_object)

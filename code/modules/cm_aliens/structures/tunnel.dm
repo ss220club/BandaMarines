@@ -227,8 +227,8 @@
 			to_chat(user, SPAN_XENOWARNING("Мы слишком малы, чтобы засыпать этот туннель!"))
 			return XENO_NO_DELAY_ACTION
 
-		user.visible_message(SPAN_XENODANGER("[capitalize(user.declent_ru(NOMINATIVE))] начинает засыпать [declent_ru()] землёй."), // SS220 EDIT ADDICTION
-		SPAN_XENONOTICE("Мы начинаем засыпать [declent_ru()] землёй с помощью наших больших когтей."), max_distance = 3) // SS220 EDIT ADDICTION
+		user.visible_message(SPAN_XENODANGER("[capitalize(user.declent_ru(NOMINATIVE))] начинает засыпать [declent_ru(ACCUSATIVE)] землёй."), // SS220 EDIT ADDICTION
+		SPAN_XENONOTICE("Мы начинаем засыпать [declent_ru(ACCUSATIVE)] землёй с помощью наших больших когтей."), max_distance = 3) // SS220 EDIT ADDICTION
 		xeno_attack_delay(user)
 
 		if(!do_after(user, 10 SECONDS, INTERRUPT_ALL, BUSY_ICON_HOSTILE, src, INTERRUPT_ALL_OUT_OF_RANGE, max_dist = 1))
@@ -254,7 +254,7 @@
 		return XENO_NO_DELAY_ACTION
 
 	if(!length(hive.tunnels))
-		to_chat(user, SPAN_WARNING("Похоже, что [declent_ru()] больше никуда не ведёт."))
+		to_chat(user, SPAN_WARNING("Похоже, что [declent_ru(NOMINATIVE)] больше никуда не ведёт."))
 		return XENO_NO_DELAY_ACTION
 
 	if(length(contents) > 2)
@@ -272,11 +272,11 @@
 		tunnel_time = TUNNEL_ENTER_LARVA_DELAY
 
 	if(user.mob_size >= MOB_SIZE_BIG)
-		user.visible_message(SPAN_XENONOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает протискивать своё огромное тело в [declent_ru()]."), // SS220 EDIT ADDICTION
-			SPAN_XENONOTICE("Мы начинаем протискивать своё огромное тело в [declent_ru()] (<i>[tunnel_desc]</i>).")) // SS220 EDIT ADDICTION
+		user.visible_message(SPAN_XENONOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает протискивать своё огромное тело в [declent_ru(ACCUSATIVE)]."), // SS220 EDIT ADDICTION
+			SPAN_XENONOTICE("Мы начинаем протискивать своё огромное тело в [declent_ru(ACCUSATIVE)] (<i>[tunnel_desc]</i>).")) // SS220 EDIT ADDICTION
 	else
-		user.visible_message(SPAN_XENONOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает забираться в [declent_ru()]."), // SS220 EDIT ADDICTION
-			SPAN_XENONOTICE("Мы начинаем забираться в [declent_ru()] (<i>[tunnel_desc]</i>).")) // SS220 EDIT ADDICTION
+		user.visible_message(SPAN_XENONOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает забираться в [declent_ru(ACCUSATIVE)]."), // SS220 EDIT ADDICTION
+			SPAN_XENONOTICE("Мы начинаем забираться в [declent_ru(ACCUSATIVE)] (<i>[tunnel_desc]</i>).")) // SS220 EDIT ADDICTION
 
 	xeno_attack_delay(user)
 	if(!do_after(user, tunnel_time, INTERRUPT_NO_NEEDHAND, BUSY_ICON_GENERIC))
@@ -289,7 +289,7 @@
 		return XENO_NO_DELAY_ACTION
 
 	if(!length(hive.tunnels)) //Make sure other tunnels exist
-		to_chat(user, SPAN_WARNING("Похоже, что [declent_ru()] больше никуда не ведёт.")) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_WARNING("Похоже, что [declent_ru(NOMINATIVE)] больше никуда не ведёт.")) // SS220 EDIT ADDICTION
 		return XENO_NO_DELAY_ACTION
 
 	user.forceMove(src) //become one with the tunnel
