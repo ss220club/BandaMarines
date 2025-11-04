@@ -919,8 +919,8 @@ User can be passed as null, (a gun reloading itself for instance), so we need to
 	if(!in_chamber)
 		ready_in_chamber()
 		cock_gun(user)
-	user.visible_message(SPAN_NOTICE("[user] заряжает [magazine.declent_ru()] в [declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
-		SPAN_NOTICE("Вы заряжаете [magazine.declent_ru()] в [declent_ru(ACCUSATIVE)]!"), null, 3, CHAT_TYPE_COMBAT_ACTION) // SS220 EDIT ADDICTION
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] заряжает [magazine.declent_ru(ACCUSATIVE)] в [declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
+		SPAN_NOTICE("Вы заряжаете [magazine.declent_ru(ACCUSATIVE)] в [declent_ru(ACCUSATIVE)]!"), null, 3, CHAT_TYPE_COMBAT_ACTION) // SS220 EDIT ADDICTION
 	if(reload_sound)
 		playsound(user, reload_sound, 25, 1, 5)
 
@@ -1970,7 +1970,7 @@ not all weapons use normal magazines etc. load_into_chamber() itself is designed
 	if(slashed_light)
 		playsound(loc, "alien_claw_metal", 25, 1)
 		xeno.animation_attack_on(src)
-		xeno.visible_message(SPAN_XENOWARNING("[xeno] ломает свет на [declent_ru()]!"), SPAN_XENONOTICE("Вы ломаете свет на [declent_ru()]!")) // SS220 EDIT ADDICTION
+		xeno.visible_message(SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] ломает свет на [declent_ru(PREPOSITIONAL)]!"), SPAN_XENONOTICE("Вы ломаете свет на [declent_ru(PREPOSITIONAL)]!")) // SS220 EDIT ADDICTION
 	return XENO_ATTACK_ACTION
 
 /// Setter proc to toggle burst firing

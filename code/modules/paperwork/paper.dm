@@ -492,7 +492,7 @@
 			return
 
 		// SS220 START EDIT ADDICTION
-		stamps += (stamps=="" ? "<HR>" : "<BR>") + "<i>На этом документе стоит [P.declent_ru()].</i>"
+		stamps += (stamps=="" ? "<HR>" : "<BR>") + "<i>На этом документе стоит [P.declent_ru(NOMINATIVE)].</i>"
 		stamps_list += list(list(
 			"name" = P.icon_state,
 			"position" = list("x" = rand(20, 80), "y" = rand(0, 100)),

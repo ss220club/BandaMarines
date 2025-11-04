@@ -1256,7 +1256,7 @@ treat_grafted var tells it to apply to grafted but unsalved wounds, for burn kit
 	if(!W || QDELETED(W) || (W.flags_item & (NODROP|DELONDROP)) || W.embeddable == FALSE)
 		return
 	if(!silent)
-		owner.visible_message(SPAN_DANGER("[capitalize(W.declent_ru())] застревает в ране!")) // SS220 EDIT ADDICTION
+		owner.visible_message(SPAN_DANGER("[capitalize(W.declent_ru(NOMINATIVE))] застревает в ране!")) // SS220 EDIT ADDICTION
 	implants += W
 	start_processing()
 
