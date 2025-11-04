@@ -182,7 +182,7 @@
 		if(huggers_cur)
 			//Hugger explosion, like an egg morpher
 			var/obj/item/clothing/mask/facehugger/hugger
-			visible_message(SPAN_XENOWARNING("Шумная масса крошечных чужих пытается вырваться из [declent_ru()]!")) // SS220 EDIT ADDICTION
+			visible_message(SPAN_XENOWARNING("Шумная масса крошечных чужих пытается вырваться из [declent_ru(GENITIVE)]!")) // SS220 EDIT ADDICTION
 			for(var/i in 1 to huggers_cur)
 				if(prob(chance))
 					hugger = new(loc, hivenumber)
@@ -196,7 +196,7 @@
 		eggs_cur = 0
 
 		if(eggs_dropped) //Checks whether or not to announce egg drop.
-			xeno_message(SPAN_XENOANNOUNCE("[capitalize(declent_ru(NOMINATIVE))] уронил несколько драгоценных яиц!"), 2, hive.hivenumber) // SS220 EDIT ADDICTION
+			xeno_message(SPAN_XENOANNOUNCE("[capitalize(declent_ru(NOMINATIVE))] роняет несколько драгоценных яиц!"), 2, hive.hivenumber) // SS220 EDIT ADDICTION
 
 /mob/living/carbon/xenomorph/carrier/recalculate_actions()
 	. = ..()
@@ -259,11 +259,11 @@
 		var/obj/item/clothing/mask/facehugger/F = T
 		if(isturf(F.loc) && Adjacent(F))
 			if(F.hivenumber != hivenumber)
-				to_chat(src, SPAN_WARNING("Этот лицехват заражён!"))
+				to_chat(src, SPAN_WARNING("Этот [F.declent_ru(NOMINATIVE)] не наш!"))
 				drop_inv_item_on_ground(F)
 				return
 			if(on_fire)
-				to_chat(src, SPAN_WARNING("Прикосновение к [F], когда вы горите, сожжёт его!")) // SS220 EDIT ADDICTION
+				to_chat(src, SPAN_WARNING("Прикосновение к [F.declent_ru(DATIVE)], когда вы горите, сожжёт его!")) // SS220 EDIT ADDICTION
 				return
 			store_hugger(F)
 			return
@@ -273,10 +273,10 @@
 		var/obj/effect/alien/resin/special/eggmorph/morpher = T
 		if(Adjacent(morpher))
 			if(morpher.linked_hive && (morpher.linked_hive.hivenumber != hivenumber))
-				to_chat(src, SPAN_WARNING("That egg morpher is tainted!"))
+				to_chat(src, SPAN_WARNING("Этот [morpher.declent_ru(NOMINATIVE)] не наш!"))
 				return
 			if(on_fire)
-				to_chat(src, SPAN_WARNING("Прикосновение к [morpher], когда вы горите, сожжёт лицехватов внутри!")) // SS220 EDIT ADDICTION
+				to_chat(src, SPAN_WARNING("Прикосновение к [morpher.declent_ru(DATIVE)], когда вы горите, сожжёт лицехватов внутри!")) // SS220 EDIT ADDICTION
 				return
 			store_huggers_from_egg_morpher(morpher)
 			return

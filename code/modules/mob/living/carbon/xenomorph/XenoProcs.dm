@@ -317,7 +317,7 @@
 		if(ishuman(M) && (M.dir in reverse_nearby_direction(dir)))
 			var/mob/living/carbon/human/H = M
 			if(H.check_shields(15, "the pounce")) //Human shield block.
-				visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [H]!"), // SS220 EDIT ADDICTION
+				visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [H.declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
 					SPAN_XENODANGER("Мы врезаемся в [H]!"), null, 5) // SS220 EDIT ADDICTION
 				KnockDown(1)
 				Stun(1)
@@ -327,20 +327,20 @@
 
 			if(isyautja(H))
 				if(H.check_shields(0, "the pounce", 1))
-					visible_message(SPAN_DANGER("[capitalize(H.declent_ru(NOMINATIVE))] блокирует прыжок [declent_ru()] с помощью комби-палки!"), SPAN_XENODANGER("[capitalize(H.declent_ru(NOMINATIVE))] блокирует наш прыжок с помощью комби-палки!"), null, 5) // SS220 EDIT ADDICTION
+					visible_message(SPAN_DANGER("[capitalize(H.declent_ru(NOMINATIVE))] блокирует прыжок [declent_ru(GENITIVE)] с помощью комби-палки!"), SPAN_XENODANGER("[capitalize(H.declent_ru(NOMINATIVE))] блокирует наш прыжок с помощью комби-палки!"), null, 5) // SS220 EDIT ADDICTION
 					apply_effect(3, WEAKEN)
 					throwing = FALSE
 					playsound(H, "bonk", 75, FALSE)
 					return
 				else if(prob(75)) //Body slam the fuck out of xenos jumping at your front.
-					visible_message(SPAN_DANGER("[capitalize(H.declent_ru(NOMINATIVE))] сбивает [declent_ru()] с ног!"), // SS220 EDIT ADDICTION
+					visible_message(SPAN_DANGER("[capitalize(H.declent_ru(NOMINATIVE))] сбивает [declent_ru(ACCUSATIVE)] с ног!"), // SS220 EDIT ADDICTION
 						SPAN_XENODANGER("[capitalize(H.declent_ru(NOMINATIVE))] сбивает нас с ног!"), null, 5) // SS220 EDIT ADDICTION
 					KnockDown(3)
 					Stun(3)
 					throwing = FALSE
 					return
 			if(iscolonysynthetic(H) && prob(60))
-				visible_message(SPAN_DANGER("[capitalize(H.declent_ru(NOMINATIVE))] выдерживает прыжок и сбивает [declent_ru()] с ног!"), // SS220 EDIT ADDICTION
+				visible_message(SPAN_DANGER("[capitalize(H.declent_ru(NOMINATIVE))] выдерживает прыжок и сбивает [declent_ru(ACCUSATIVE)] с ног!"), // SS220 EDIT ADDICTION
 					SPAN_XENODANGER("[capitalize(H.declent_ru(NOMINATIVE))] сбивает нас с ног после того, как выдержал прыжок!"), null, 5) // SS220 EDIT ADDICTION
 				KnockDown(1.5)
 				Stun(1.5)
@@ -348,7 +348,7 @@
 				return
 
 
-	visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] [pounceAction.action_text] на [M]!"), SPAN_XENODANGER("Мы [pounceAction.action_text] на [M]!"), null, 5) // SS220 EDIT ADDICTION
+	visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] [pounceAction.action_text] на [M.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы [pounceAction.action_text] на [M.declent_ru(ACCUSATIVE)]!"), null, 5) // SS220 EDIT ADDICTION
 
 	if (pounceAction.knockdown)
 		M.KnockDown(pounceAction.knockdown_duration)

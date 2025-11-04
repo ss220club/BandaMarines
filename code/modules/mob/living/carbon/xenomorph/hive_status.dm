@@ -612,7 +612,7 @@
 			if(!(cur_area.flags_atom & AREA_ALLOW_XENO_JOIN))
 				continue
 
-		var/xeno_name = xeno.declent_ru()
+		var/xeno_name = xeno.declent_ru(NOMINATIVE)
 		// goddamn fucking larvas with their weird ass maturing system
 		// its name updates with its icon, unlike other castes which only update the mature/elder, etc. prefix on evolve
 		if(istype(xeno, /mob/living/carbon/xenomorph/larva))
