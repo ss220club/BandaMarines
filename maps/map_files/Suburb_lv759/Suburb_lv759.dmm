@@ -268,8 +268,9 @@
 /turf/open/floor/dark,
 /area/Suburb_lv759/indoors/caves)
 "afM" = (
-/turf/open/floor/corsat,
-/area/Suburb_lv759/indoors/public_spaceport/vehicledeploymentbay)
+/obj/structure/machinery/power/apc/power/west,
+/turf/open/floor/almayer/plate,
+/area/Suburb_lv759/indoors/wy_research_complex/changingroom)
 "afN" = (
 /obj/structure/largecrate/random/barrel/white,
 /turf/open/floor/almayer/test_floor5,
@@ -2066,6 +2067,10 @@
 "aNQ" = (
 /turf/open/floor/strata/red3/west,
 /area/Suburb_lv759/indoors/public_spaceport/hangarbay)
+"aNT" = (
+/obj/structure/machinery/power/apc/power/west,
+/turf/open/floor/hybrisa/tile/darkgrey_bigtile,
+/area/Suburb_lv759/indoors/public_spaceport/cafeteria)
 "aOf" = (
 /obj/structure/prop/hybrisa/misc/machinery/screens/frame{
 	pixel_y = 32;
@@ -2634,7 +2639,6 @@
 	},
 /obj/effect/landmark/objective_landmark/far,
 /obj/effect/landmark/objective_landmark/far,
-/obj/structure/machinery/power/apc/no_power/east,
 /obj/effect/decal/hybrisa/trash,
 /obj/structure/machinery/light/double{
 	dir = 4;
@@ -7009,7 +7013,6 @@
 /turf/open/hybrisa/street/asphalt,
 /area/Suburb_lv759/outdoors/landing_zone_1)
 "cHY" = (
-/obj/structure/machinery/power/apc/no_power/south,
 /obj/structure/machinery/door/airlock/hybrisa/personal_solid/autoname,
 /obj/structure/sign/poster/corporate{
 	pixel_y = 32
@@ -16675,7 +16678,6 @@
 /turf/open/floor/prison/floor_plate,
 /area/Suburb_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "gfC" = (
-/obj/structure/machinery/power/apc/no_power/east,
 /obj/item/paper/crumpled{
 	pixel_x = -25;
 	pixel_y = -7
@@ -19856,6 +19858,7 @@
 	pixel_x = 8;
 	pixel_y = 2
 	},
+/obj/structure/machinery/power/apc/power/west,
 /turf/open/floor/hybrisa/tile/tilewhitecheckered,
 /area/Suburb_lv759/indoors/wy_research_complex/cafeteriakitchen)
 "hrO" = (
@@ -27236,7 +27239,6 @@
 /turf/open/floor/almayer/plating,
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaycentral)
 "kfu" = (
-/obj/structure/machinery/power/apc/no_power/east,
 /obj/structure/prop/server_equipment/broken,
 /turf/open/floor/almayer/plating/northeast,
 /area/Suburb_lv759/indoors/public_spaceport/vehicledeploymentbay)
@@ -41394,7 +41396,6 @@
 /turf/open/floor/strata/floor3,
 /area/Suburb_lv759/indoors/wy_research_complex/xenobiology)
 "oYF" = (
-/obj/structure/machinery/power/apc/no_power/east,
 /obj/structure/bed/sofa/hybrisa/sofa/black{
 	icon_state = "couch_vet3_black";
 	pixel_x = 12
@@ -43578,7 +43579,6 @@
 /obj/structure/surface/table/reinforced/prison{
 	color = "#b7b8b2"
 	},
-/obj/structure/machinery/power/apc/no_power/south,
 /turf/open/floor/corsat/officetiles,
 /area/Suburb_lv759/indoors/wy_research_complex/changingroom)
 "pPF" = (
@@ -69317,7 +69317,7 @@ vSa
 vzU
 gSg
 aOk
-mEe
+aNT
 mEe
 mEe
 mEe
@@ -77909,7 +77909,7 @@ uDt
 bqP
 rtm
 fnn
-afM
+rtm
 ipp
 boU
 iUx
@@ -108757,7 +108757,7 @@ hBE
 qcD
 fbx
 oQn
-eCF
+afM
 eCF
 dFv
 pIk
