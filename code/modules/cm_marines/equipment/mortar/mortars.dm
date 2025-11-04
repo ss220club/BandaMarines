@@ -99,11 +99,11 @@
 		playsound(src, "acid_hit", 25, 1)
 		playsound(xeno, "alien_help", 25, 1)
 		xeno.apply_damage(10, BURN)
-		xeno.visible_message(SPAN_DANGER("[xeno] пытается опрокинуть раскалённый [declent_ru()], но получает ожог и отступает!"), // SS220 EDIT ADDICTION
+		xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] пытается опрокинуть раскалённый [declent_ru()], но получает ожог и отступает!"), // SS220 EDIT ADDICTION
 		SPAN_XENOWARNING("Мы пытаемся опрокинуть раскалённый [declent_ru()]! Подождите немного, прежде чем попробовать снова.")) // SS220 EDIT ADDICTION
 		return XENO_ATTACK_ACTION
 
-	xeno.visible_message(SPAN_DANGER("[xeno] lashes at the [src] and knocks it over!"),
+	xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] lashes at the [src] and knocks it over!"),
 	SPAN_DANGER("You knock the [src] over!"))
 	xeno.animation_attack_on(src)
 	xeno.flick_attack_overlay(src, "slash")

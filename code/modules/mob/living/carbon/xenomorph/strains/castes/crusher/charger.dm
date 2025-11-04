@@ -702,7 +702,7 @@
 	if(!target_dir)
 		return
 
-	Xeno.visible_message(SPAN_XENOWARNING("[Xeno] отпрыгивает в сторону!"), SPAN_XENOHIGHDANGER("Мы отпрыгиваем в сторону!")) // SS220 EDIT ADDICTION
+	Xeno.visible_message(SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] отпрыгивает в сторону!"), SPAN_XENOHIGHDANGER("Мы отпрыгиваем в сторону!")) // SS220 EDIT ADDICTION
 	Xeno.spin(5,1) // note: This spins the sprite and DOES NOT affect directional armor
 	var/start_charging = HAS_TRAIT(Xeno, TRAIT_CHARGING)
 	SEND_SIGNAL(Xeno, COMSIG_XENO_STOP_MOMENTUM)

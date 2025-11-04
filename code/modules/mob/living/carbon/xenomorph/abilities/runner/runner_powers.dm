@@ -12,7 +12,7 @@
 	if (!check_and_use_plasma_owner())
 		return
 
-	xeno.visible_message(SPAN_XENOWARNING("[xeno] выпускает залп костяных осколков в сторону [affected_atom]!"), SPAN_XENOWARNING("Мы выпускаем залп костяных осколков в сторону [affected_atom]!")) // SS220 EDIT ADDICTION
+	xeno.visible_message(SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] выпускает залп костяных осколков в сторону [affected_atom]!"), SPAN_XENOWARNING("Мы выпускаем залп костяных осколков в сторону [affected_atom]!")) // SS220 EDIT ADDICTION
 
 	var/turf/target = locate(affected_atom.x, affected_atom.y, affected_atom.z)
 	var/obj/projectile/projectile = new /obj/projectile(xeno.loc, create_cause_data(initial(xeno.caste_type), xeno))

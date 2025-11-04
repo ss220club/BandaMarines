@@ -626,7 +626,7 @@
 			return
 		fuel_drain()
 		to_chat(xeno, SPAN_NOTICE("You continue to extinguish [src]."))
-	visible_message(SPAN_WARNING("[xeno] extinguishes [src]!"))
+	visible_message(SPAN_WARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] extinguishes [src]!"))
 
 /obj/structure/prop/brazier/campfire/proc/fuel_drain(looping)
 	remaining_fuel--
@@ -697,7 +697,7 @@
 			return
 		xeno.animation_attack_on(src)
 		playsound(loc, 'sound/effects/metalhit.ogg', 25, 1)
-		xeno.visible_message(SPAN_DANGER("[xeno] slices [src] apart!"),
+		xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] slices [src] apart!"),
 		SPAN_DANGER("We slice [src] apart!"), null, 5, CHAT_TYPE_XENO_COMBAT)
 		deconstruct(FALSE)
 		return XENO_ATTACK_ACTION

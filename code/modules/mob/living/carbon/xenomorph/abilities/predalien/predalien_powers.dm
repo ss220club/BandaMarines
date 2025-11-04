@@ -11,7 +11,7 @@
 		return
 
 	playsound(xeno.loc, pick(predalien_roar), 75, 0, status = 0)
-	xeno.visible_message(SPAN_XENOHIGHDANGER("[xeno] издаёт гортанный рёв!")) // SS220 EDIT ADDICTION
+	xeno.visible_message(SPAN_XENOHIGHDANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] издаёт гортанный рёв!")) // SS220 EDIT ADDICTION
 	xeno.create_shriekwave(7) //Adds the visual effect. Wom wom wom, 7 shriekwaves
 	FOR_DVIEW(var/mob/living/carbon/carbon, 7, xeno, HIDE_INVISIBLE_OBSERVER)
 		if(ishuman(carbon))
@@ -45,7 +45,7 @@
 	if(!istype(predalienbehavior))
 		return
 	if(targeting == AOETARGETGUT)
-		xeno.visible_message(SPAN_XENOHIGHDANGER("[xeno] начинает вскапывать землю, готовясь к мощному удару!"), SPAN_XENOHIGHDANGER("Мы начинаем вскапывать землю, готовясь к мощному удару!")) // SS220 EDIT ADDICTION
+		xeno.visible_message(SPAN_XENOHIGHDANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] начинает вскапывать землю, готовясь к мощному удару!"), SPAN_XENOHIGHDANGER("Мы начинаем вскапывать землю, готовясь к мощному удару!")) // SS220 EDIT ADDICTION
 		ADD_TRAIT(xeno, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Eviscerate"))
 		xeno.anchored = TRUE
 		if (do_after(xeno, (activation_delay_aoe), INTERRUPT_ALL | BEHAVIOR_IMMOBILE, BUSY_ICON_HOSTILE))
@@ -62,7 +62,7 @@
 				if(!check_clear_path_to_target(xeno, carbon))
 					continue
 
-				xeno.visible_message(SPAN_XENOHIGHDANGER("[xeno] разрывает внутренности [carbon]!"), SPAN_XENOHIGHDANGER("Мы разрываем внутренности [carbon]!")) // SS220 EDIT ADDICTION
+				xeno.visible_message(SPAN_XENOHIGHDANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] разрывает внутренности [carbon]!"), SPAN_XENOHIGHDANGER("Мы разрываем внутренности [carbon]!")) // SS220 EDIT ADDICTION
 				carbon.spawn_gibs()
 				xeno.animation_attack_on(carbon)
 				xeno.spin_circle()
@@ -102,7 +102,7 @@
 		xeno.anchored = TRUE
 
 		if(do_after(xeno, activation_delay, INTERRUPT_ALL | BEHAVIOR_IMMOBILE, BUSY_ICON_HOSTILE))
-			xeno.visible_message(SPAN_XENOHIGHDANGER("[xeno] разрывает внутренности [carbon]!"), SPAN_XENOHIGHDANGER("Мы разрываем внутренности [carbon]!")) // SS220 EDIT ADDICTION
+			xeno.visible_message(SPAN_XENOHIGHDANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] разрывает внутренности [carbon]!"), SPAN_XENOHIGHDANGER("Мы разрываем внутренности [carbon]!")) // SS220 EDIT ADDICTION
 			carbon.spawn_gibs()
 			playsound(get_turf(carbon), 'sound/effects/gibbed.ogg', 50, 1)
 			carbon.apply_effect(get_xeno_stun_duration(carbon, 0.5), WEAKEN)

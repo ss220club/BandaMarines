@@ -314,7 +314,7 @@
 
 	xeno.emote("roar")
 	target.apply_effect(2, WEAKEN)
-	xeno.visible_message(SPAN_XENODANGER("[xeno] переезжает [target_to_check], растаптывая их под своими ногами!"), SPAN_XENODANGER("Мы растаптываем [target_to_check] под своими ногами!")) // SS220 EDIT ADDICTION
+	xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] переезжает [target_to_check], растаптывая их под своими ногами!"), SPAN_XENODANGER("Мы растаптываем [target_to_check] под своими ногами!")) // SS220 EDIT ADDICTION
 
 	target_to_check.apply_armoured_damage(get_xeno_damage_slash(target_to_check, direct_hit_damage), ARMOR_MELEE, BRUTE)
 	xeno.throw_carbon(target_to_check, xeno.dir, 3)
@@ -397,7 +397,7 @@
 		return
 
 	playsound(xeno, 'sound/effects/bang.ogg', 25)
-	xeno.visible_message(SPAN_XENODANGER("[xeno] врезается в землю!"), SPAN_XENODANGER("Мы врезаемся в землю!")) // SS220 EDIT ADDICTION
+	xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] врезается в землю!"), SPAN_XENODANGER("Мы врезаемся в землю!")) // SS220 EDIT ADDICTION
 	xeno.create_stomp()
 
 
@@ -414,7 +414,7 @@
 
 		new /datum/effects/xeno_slow(targets, xeno, ttl = get_xeno_stun_duration(targets, effect_duration))
 		targets.apply_effect(get_xeno_stun_duration(targets, 0.2), WEAKEN)
-		to_chat(targets, SPAN_XENOHIGHDANGER("[xeno] сбивает вас с ног!")) // SS220 EDIT ADDICTION
+		to_chat(targets, SPAN_XENOHIGHDANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] сбивает вас с ног!")) // SS220 EDIT ADDICTION
 
 	apply_cooldown()
 	return ..()
@@ -436,7 +436,7 @@
 		return
 
 	playsound(get_turf(xeno), 'sound/effects/bang.ogg', 25, 0)
-	xeno.visible_message(SPAN_XENODANGER("[xeno] сотрясает землю!"), SPAN_XENODANGER("Мы сотрясаем землю!")) // SS220 EDIT ADDICTION
+	xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] сотрясает землю!"), SPAN_XENODANGER("Мы сотрясаем землю!")) // SS220 EDIT ADDICTION
 	xeno.create_stomp()
 
 	for (var/mob/living/carbon/target_to_stomp in get_turf(xeno)) // MOBS ONTOP
@@ -481,7 +481,7 @@
 	if (!check_and_use_plasma_owner())
 		return
 
-	xeno.visible_message(SPAN_XENOWARNING("[xeno] пригибается, повышая свою защиту!"), SPAN_XENOHIGHDANGER("Мы пригибаемся, повышая свою защиту!")) // SS220 EDIT ADDICTION
+	xeno.visible_message(SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] пригибается, повышая свою защиту!"), SPAN_XENOHIGHDANGER("Мы пригибаемся, повышая свою защиту!")) // SS220 EDIT ADDICTION
 	button.icon_state = "template_active"
 
 	xeno.create_crusher_shield()

@@ -216,7 +216,7 @@
 		xeno.balloon_alert(xeno, "our crest is lowered!", text_color = "#7d32bb", delay = 1 SECONDS)
 		return
 
-	xeno.visible_message(SPAN_XENOWARNING("[xeno] размахивает хвостом по широкой дуге!"), // SS220 EDIT ADDICTION
+	xeno.visible_message(SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] размахивает хвостом по широкой дуге!"), // SS220 EDIT ADDICTION
 	SPAN_XENOWARNING("Мы размахиваем хвостом по широкой дуге!"))
 
 	if(!check_and_use_plasma_owner())
@@ -242,7 +242,7 @@
 		if(human.mob_size < MOB_SIZE_BIG)
 			human.apply_effect(get_xeno_stun_duration(human, 1), WEAKEN)
 
-		to_chat(human, SPAN_XENOWARNING("[xeno] атаковал вас взмахом хвоста!")) // SS220 EDIT ADDICTION
+		to_chat(human, SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] атаковал вас взмахом хвоста!")) // SS220 EDIT ADDICTION
 		playsound(human,'sound/weapons/alien_claw_block.ogg', 50, 1)
 
 	apply_cooldown()

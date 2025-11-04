@@ -143,10 +143,10 @@
 			to_chat(xeno, SPAN_WARNING("Мы уже заняты чем-то другим."))
 			return
 		SEND_SIGNAL(xeno, COMSIG_MOB_EFFECT_CLOAK_CANCEL)
-		xeno.visible_message(SPAN_DANGER("[xeno] starts to restrain [pulled]!"),
+		xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] starts to restrain [pulled]!"),
 		SPAN_DANGER("We start restraining [pulled]!"), null, 5)
 		if(HAS_TRAIT(xeno, TRAIT_CLOAKED)) //cloaked don't show the visible message, so we gotta work around
-			to_chat(pulled, FONT_SIZE_HUGE(SPAN_DANGER("[xeno] пытается вас связать!"))) // SS220 EDIT ADDICTION
+			to_chat(pulled, FONT_SIZE_HUGE(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] пытается вас связать!"))) // SS220 EDIT ADDICTION
 		if(do_after(xeno, 50, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE))
 			if((isxeno(pulled.loc) && !xeno.hauled_mob) || HAS_TRAIT(pulled, TRAIT_HAULED))
 				to_chat(xeno, SPAN_WARNING("Someone already took \the [pulled]."))

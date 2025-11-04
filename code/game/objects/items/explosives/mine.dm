@@ -270,7 +270,7 @@
 			return XENO_NO_DELAY_ACTION
 
 	xeno.animation_attack_on(src)
-	xeno.visible_message(SPAN_DANGER("[xeno] has slashed [src]!"),
+	xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] has slashed [src]!"),
 		SPAN_DANGER("You slash [src]!"))
 	playsound(loc, 'sound/weapons/slice.ogg', 25, 1)
 

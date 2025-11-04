@@ -77,7 +77,7 @@
 	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] labels [A] as \"[label]\"."),
 	SPAN_NOTICE("You label [A] as \"[label]\"."))
 
-	log_admin("[capitalize(user.declent_ru(NOMINATIVE))] has labeled [A.name] with label \"[label]\". (CKEY: ([user.ckey]))")
+	log_admin("[user] has labeled [A.name] with label \"[label]\". (CKEY: ([user.ckey]))")
 
 	A.AddComponent(/datum/component/label, label)
 

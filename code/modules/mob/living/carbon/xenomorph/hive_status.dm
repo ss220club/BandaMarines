@@ -1478,7 +1478,7 @@
 		to_chat(xeno, SPAN_XENOANNOUNCE("Вы потеряли связь с ульем. Теперь у вас нет Королевы, только ваши хозяева."))
 		to_chat(xeno, SPAN_NOTICE("Ваши инстинкты изменились, вы чувствуете необходимость защищать [english_list(xeno.iff_tag.faction_groups, "no one")].")) // SS220 EDIT ADDICTION
 		return
-	xeno.visible_message(SPAN_XENOWARNING("[xeno] вырывает [xeno.iff_tag]!"), SPAN_XENOWARNING("Мы вырываем из своего тела [xeno.iff_tag]! Во имя улья!")) // SS220 EDIT ADDICTION
+	xeno.visible_message(SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] вырывает [xeno.iff_tag]!"), SPAN_XENOWARNING("Мы вырываем из своего тела [xeno.iff_tag]! Во имя улья!")) // SS220 EDIT ADDICTION
 	xeno.adjustBruteLoss(50)
 	xeno.iff_tag.forceMove(get_turf(xeno))
 	xeno.iff_tag = null
@@ -1491,7 +1491,7 @@
 			continue
 		if(!(faction in xeno.iff_tag.faction_groups))
 			continue
-		xeno.visible_message(SPAN_XENOWARNING("[xeno] вырывает [xeno.iff_tag]!"), SPAN_XENOWARNING("Мы вырываем из своего тела [xeno.iff_tag]! Во имя улья!")) // SS220 EDIT ADDICTION
+		xeno.visible_message(SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] вырывает [xeno.iff_tag]!"), SPAN_XENOWARNING("Мы вырываем из своего тела [xeno.iff_tag]! Во имя улья!")) // SS220 EDIT ADDICTION
 		xeno.adjustBruteLoss(50)
 		xeno.iff_tag.forceMove(get_turf(xeno))
 		xeno.iff_tag = null

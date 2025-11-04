@@ -116,7 +116,7 @@
 		return XENO_NO_DELAY_ACTION
 
 	if(islarva(xeno)) //Larvas can't eat people
-		xeno.visible_message(SPAN_DANGER("[xeno] nudges its head against \the [src]."),
+		xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] nudges its head against \the [src]."),
 		SPAN_DANGER("We nudge our head against \the [src]."), null, null, CHAT_TYPE_XENO_FLUFF)
 		return
 
@@ -147,7 +147,7 @@
 			if(Adjacent(xeno)) //Logic!
 				xeno.start_pulling(src)
 
-				xeno.visible_message(SPAN_WARNING("[xeno] grabs \the [src]!"),
+				xeno.visible_message(SPAN_WARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] grabs \the [src]!"),
 				SPAN_WARNING("You grab \the [src]!"), null, 5, CHAT_TYPE_XENO_FLUFF)
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
 

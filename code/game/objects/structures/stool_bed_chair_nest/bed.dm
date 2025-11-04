@@ -186,12 +186,12 @@
 			var/mob/M = G.grabbed_thing
 			var/atom/blocker = LinkBlocked(user, user.loc, loc)
 			if(!Adjacent(M))
-				visible_message(SPAN_DANGER("[M] слишком далеко, чтобы переместить [M.ru_p_them()] на [declent_ru()].")) // SS220 EDIT ADDICTION
+				visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] слишком далеко, чтобы переместить [M.ru_p_them()] на [declent_ru(ACCUSATIVE)].")) // SS220 EDIT ADDICTION
 				return FALSE
 			if(blocker)
-				to_chat(user, SPAN_WARNING("Вам мешает [blocker.declent_ru()]!")) // SS220 EDIT ADDICTION
+				to_chat(user, SPAN_WARNING("Вам мешает [blocker.declent_ru(NOMINATIVE)]!")) // SS220 EDIT ADDICTION
 				return FALSE
-			to_chat(user, SPAN_NOTICE("Вы перемещаете [M] на [declent_ru()].")) // SS220 EDIT ADDICTION
+			to_chat(user, SPAN_NOTICE("Вы перемещаете [M.declent_ru(ACCUSATIVE)] на [declent_ru(ACCUSATIVE)].")) // SS220 EDIT ADDICTION
 			M.forceMove(loc)
 		return TRUE
 

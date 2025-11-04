@@ -20,7 +20,7 @@
 			return
 		xeno.animation_attack_on(src)
 		playsound(loc, 'sound/effects/metalhit.ogg', 25, 1)
-		xeno.visible_message(SPAN_DANGER("[xeno] slices [src] apart!"),
+		xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] slices [src] apart!"),
 		SPAN_DANGER("We slice [src] apart!"), null, 5, CHAT_TYPE_XENO_COMBAT)
 		deconstruct(FALSE)
 		return XENO_ATTACK_ACTION
@@ -623,7 +623,7 @@ GLOBAL_DATUM_INIT(above_blackness_backdrop, /atom/movable/above_blackness_backdr
 		if(unslashable)
 			return
 		xeno.animation_attack_on(src)
-		xeno.visible_message(SPAN_DANGER("[xeno] slices [src] apart!"))
+		xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] slices [src] apart!"))
 		playsound(src, 'sound/effects/woodhit.ogg')
 		to_chat(xeno, SPAN_WARNING("We slice the [src] apart!"))
 		deconstruct(FALSE)

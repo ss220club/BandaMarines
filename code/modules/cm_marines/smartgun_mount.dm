@@ -737,7 +737,7 @@
 	if(xeno.IsAdvancedToolUser() && xeno.a_intent == INTENT_HELP)
 		try_mount_gun(xeno)
 		return XENO_NO_DELAY_ACTION
-	xeno.visible_message(SPAN_DANGER("[xeno] has slashed [src]!"),
+	xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] has slashed [src]!"),
 	SPAN_DANGER("You slash [src]!"))
 	xeno.animation_attack_on(src)
 	xeno.flick_attack_overlay(src, "slash")

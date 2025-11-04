@@ -65,7 +65,7 @@
 	if(node)
 		to_convert = node.children.Copy()
 
-	xeno.visible_message(SPAN_XENONOTICE("[xeno] извергает пульсирующий узел и сажает его в землю!"), // SS220 EDIT ADDICTION
+	xeno.visible_message(SPAN_XENONOTICE("[capitalize(xeno.declent_ru(NOMINATIVE))] извергает пульсирующий узел и сажает его в землю!"), // SS220 EDIT ADDICTION
 	SPAN_XENONOTICE("Мы извергаем пульсирующий узел и сажаем его в землю!"), null, 5)
 	var/obj/effect/alien/weeds/node/new_node = new node_type(xeno.loc, src, xeno)
 
@@ -896,7 +896,7 @@
 		if(xeno.ammo.pre_spit_warn)
 			playsound(xeno.loc,"alien_drool", 55, 1)
 		to_chat(xeno, SPAN_WARNING("We begin to prepare a large spit!"))
-		xeno.visible_message(SPAN_WARNING("[xeno] prepares to spit a massive glob!"),
+		xeno.visible_message(SPAN_WARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] prepares to spit a massive glob!"),
 		SPAN_WARNING("We begin to spit [xeno.ammo.name]!"))
 		if (!do_after(xeno, xeno.ammo.spit_windup, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_HOSTILE))
 			to_chat(xeno, SPAN_XENODANGER("Мы отменяем кислотный плевок."))
@@ -908,7 +908,7 @@
 		spitting = FALSE
 		return
 
-	xeno.visible_message(SPAN_XENOWARNING("[xeno] плюёт в [atom]!"), // SS220 EDIT ADDICTION
+	xeno.visible_message(SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] плюёт в [atom]!"), // SS220 EDIT ADDICTION
 	SPAN_XENOWARNING("Мы плюём [xeno.ammo.name] в [atom]!")) // SS220 EDIT ADDICTION
 	playsound(xeno.loc, sound_to_play, 25, 1)
 
@@ -948,7 +948,7 @@
 	if (!xeno.can_bombard_turf(turf, range, bombard_source))
 		return FALSE
 
-	xeno.visible_message(SPAN_XENODANGER("[xeno] зарывается на месте!"), SPAN_XENODANGER("Мы зарываемся на месте!")) // SS220 EDIT ADDICTION
+	xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] зарывается на месте!"), SPAN_XENODANGER("Мы зарываемся на месте!")) // SS220 EDIT ADDICTION
 	if (!do_after(xeno, activation_delay, interrupt_flags, BUSY_ICON_HOSTILE))
 		to_chat(xeno, SPAN_XENODANGER("Мы отменяем дальнобойный плевок."))
 		return FALSE
@@ -961,7 +961,7 @@
 
 	apply_cooldown()
 
-	xeno.visible_message(SPAN_XENODANGER("[xeno] запускает огромный шар кислоты в [atom]!"), SPAN_XENODANGER("Вы запускаете огромный шар кислоты в [atom]!")) // SS220 EDIT ADDICTION
+	xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] запускает огромный шар кислоты в [atom]!"), SPAN_XENODANGER("Вы запускаете огромный шар кислоты в [atom]!")) // SS220 EDIT ADDICTION
 	playsound(get_turf(xeno), 'sound/effects/blobattack.ogg', 25, 1)
 
 	recursive_spread(turf, effect_range, effect_range)
