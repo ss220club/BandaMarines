@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { useBackend } from '../backend';
-import { Button, Input, LabeledList, Section } from '../components';
+import { Button, Input, LabeledList, NoticeBox, Section } from '../components';
 import { Window } from '../layouts';
 
 type DeclineData = {
@@ -23,7 +23,7 @@ export const DeclineNameEditor = (props) => {
   const [instrumental, setInstrumental] = useState(data.instrumental);
   const [prepositional, setPrepositional] = useState(data.prepositional);
   return (
-    <Window width={450} height={250}>
+    <Window width={450} height={325}>
       <Window.Content>
         <Section title={''}>
           <LabeledList>
@@ -105,6 +105,11 @@ export const DeclineNameEditor = (props) => {
           >
             Подтвердить
           </Button.Confirm>
+          <NoticeBox color="bad" warning textAlign="center">
+            Вы отвечаете за корректность и подверждаете отсутствие злого умысла
+            при склонении (например, полная смена имени в других падежах).
+            Склонения имени подвергаются таким же правилам, как и имя персонажа.
+          </NoticeBox>
         </Section>
       </Window.Content>
     </Window>
