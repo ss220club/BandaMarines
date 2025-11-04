@@ -395,7 +395,7 @@
 			new /obj/effect/overlay/temp/point/big(T, src, A)
 		else
 			new /obj/effect/overlay/temp/point/big/squad(T, src, A, squad.equipment_color)
-	visible_message(SPAN_INFO("<b>[declent_ru()]</b> указывает на [A.declent_ru(ACCUSATIVE)]"), null, null, 5) // SS220 EDIT ADDICTION
+	visible_message(SPAN_INFO("<b>[capitalize(declent_ru(NOMINATIVE))]</b> указывает на [A.declent_ru(ACCUSATIVE)]."), null, null, 5) // SS220 EDIT ADDICTION
 	return TRUE
 
 ///Is this mob important enough to point with big arrows?

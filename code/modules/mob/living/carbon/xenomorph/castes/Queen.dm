@@ -209,7 +209,7 @@
 
 		next_point = world.time + point_delay
 
-		var/message = SPAN_XENONOTICE("<b>[declent_ru_initial(Q::name, ACCUSATIVE, Q::name)]</b> указывает на [declent_ru_initial(A::name, ACCUSATIVE, A::name)].") // SS220 EDIT ADDICTION
+		var/message = SPAN_XENONOTICE("<b>[capitalize(Q.declent_ru(NOMINATIVE))]</b> указывает на [A.declent_ru(ACCUSATIVE)].") // SS220 EDIT ADDICTION
 
 		to_chat(Q, message)
 		for(var/mob/living/carbon/xenomorph/X in viewers(7, src))
@@ -1234,7 +1234,7 @@
 	var/obj/effect/overlay/temp/point/big/greyscale/point = new(target_turf, src, target_atom)
 	point.color = "#a800a8"
 
-	visible_message(SPAN_XENOQUEEN("<b>[declent_ru()]</b> указывает на [target_atom.declent_ru(ACCUSATIVE)]"), null, null, 5) // SS220 EDIT ADDICTION
+	visible_message(SPAN_XENOQUEEN("<b>[capitalize(declent_ru(NOMINATIVE))]</b> указывает на [target_atom.declent_ru(ACCUSATIVE)]."), null, null, 5) // SS220 EDIT ADDICTION
 
 #undef XENO_QUEEN_AGE_TIME
 #undef XENO_QUEEN_TEMP_AGE_DURATION
