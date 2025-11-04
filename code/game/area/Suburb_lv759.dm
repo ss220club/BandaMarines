@@ -415,7 +415,7 @@
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 	linked_lz = DROPSHIP_LZ1
 
-/area/Suburb_lv759/indoors/public_spaceport/hangarbay
+/area/Suburb_lv759/indoors/public_spaceport/w_y_hangarbay
 	name = "Weyland-Yutani -public spaceport - Hangar Bay"
 	icon_state = "wylab"
 	ambience_exterior = AMBIENCE_LAB_HALLWAY
