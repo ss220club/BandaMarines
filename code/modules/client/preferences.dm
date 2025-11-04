@@ -406,10 +406,10 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 			dat += "<div id='column1'>"
 			dat += "<h1><u><b>Имя:</b></u> "
 			dat += "<a href='byond://?_src_=prefs;preference=name;task=input'><b>[real_name]</b></a>"
+			dat += "<a href='byond://?_src_=prefs;preference=name;task=random'>&reg</A></h1>"
 			// SS220 ADDITION START
 			dat += "<a href='byond://?_src_=prefs;preference=declined_name;task=open'>Склонение имени</a><br>"
 			// SS220 ADDITION END
-			dat += "<a href='byond://?_src_=prefs;preference=name;task=random'>&reg</A></h1>"
 			dat += "<b>Always Pick Random Name:</b> <a href='byond://?_src_=prefs;preference=rand_name'><b>[be_random_name ? "Yes" : "No"]</b></a><br>"
 			dat += "<b>Always Pick Random Appearance:</b> <a href='byond://?_src_=prefs;preference=rand_body'><b>[be_random_body ? "Yes" : "No"]</b></a><br><br>"
 
