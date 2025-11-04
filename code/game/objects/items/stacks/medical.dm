@@ -38,7 +38,7 @@
 		return TRUE
 
 	if(!affecting)
-		to_chat(user, SPAN_WARNING("[H] has no [parse_zone(user.zone_selected)]!"))
+		to_chat(user, SPAN_WARNING("[capitalize(H.declent_ru(NOMINATIVE))] has no [parse_zone(user.zone_selected)]!"))
 		return 1
 
 	if(affecting.display_name == "head")

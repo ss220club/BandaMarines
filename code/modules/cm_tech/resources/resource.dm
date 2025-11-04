@@ -140,7 +140,7 @@
 		to_chat(H, SPAN_WARNING("Вы уже заняты чем-то другим."))
 		return
 
-	H.visible_message(SPAN_DANGER("[H] starts to set up [src]."),
+	H.visible_message(SPAN_DANGER("[capitalize(H.declent_ru(NOMINATIVE))] starts to set up [src]."),
 	SPAN_NOTICE("You begin to set up [src]."), max_distance = 3)
 	playsound(src.loc, 'sound/items/Ratchet.ogg', 25, 1)
 
@@ -149,7 +149,7 @@
 		return
 
 	playsound(src.loc, 'sound/items/Ratchet.ogg', 25, 1)
-	H.visible_message(SPAN_DANGER("[H] sets up [src]."),
+	H.visible_message(SPAN_DANGER("[capitalize(H.declent_ru(NOMINATIVE))] sets up [src]."),
 	SPAN_NOTICE("You set up [src]."), max_distance = 3)
 
 /obj/structure/resource_node/attack_alien(mob/living/carbon/xenomorph/M)

@@ -135,7 +135,7 @@
 			to_chat(user, SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] нельзя посадить под объекты, которые будут его перекрывать собой.")) // SS220 EDIT ADDICTION
 			return
 
-	user.visible_message(SPAN_XENONOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает сажать [declent_ru()]."), SPAN_XENONOTICE("Вы начинаете сажать [declent_ru()]."), null, 5) // SS220 EDIT ADDICTION
+	user.visible_message(SPAN_XENONOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает сажать [declent_ru(ACCUSATIVE)]."), SPAN_XENONOTICE("Вы начинаете сажать [declent_ru(ACCUSATIVE)]."), null, 5) // SS220 EDIT ADDICTION
 
 	var/plant_time = 35
 	if(isdrone(user))
@@ -192,7 +192,7 @@
 		return XENO_NO_DELAY_ACTION
 	if(user.caste.can_hold_eggs == CAN_HOLD_TWO_HANDS)
 		if(user.r_hand || user.l_hand)
-			to_chat(user, SPAN_XENOWARNING("Вам нужны оба свободных когтя, чтобы держать [declent_ru()].")) // SS220 EDIT ADDICTION
+			to_chat(user, SPAN_XENOWARNING("Вам нужны обе свободные лапы, чтобы держать [declent_ru(ACCUSATIVE)].")) // SS220 EDIT ADDICTION
 		else
 			attack_hand(user)
 		return XENO_NO_DELAY_ACTION

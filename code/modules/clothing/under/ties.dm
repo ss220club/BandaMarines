@@ -235,7 +235,7 @@
 		if(user == H)
 			to_chat(user, SPAN_WARNING("You aren't wearing anything you can pin [src] to."))
 		else
-			to_chat(user, SPAN_WARNING("[H] isn't wearing anything you can pin [src] to."))
+			to_chat(user, SPAN_WARNING("[capitalize(H.declent_ru(NOMINATIVE))] isn't wearing anything you can pin [src] to."))
 		return
 
 	if(user == H)
@@ -253,7 +253,7 @@
 			if(!do_after(user, 20, INTERRUPT_ALL, BUSY_ICON_FRIENDLY, H))
 				return
 			if(!(U == H.w_uniform || U == H.wear_suit))
-				to_chat(user, SPAN_WARNING("[H] took off \his [U.name] before you could finish pinning [src] to it."))
+				to_chat(user, SPAN_WARNING("[capitalize(H.declent_ru(NOMINATIVE))] took off \his [U.name] before you could finish pinning [src] to it."))
 				return
 			user.affected_message(H,
 			SPAN_NOTICE("You pin [src] to [H]'s [U.name]."),
@@ -268,7 +268,7 @@
 			if(!do_after(user, 10, INTERRUPT_ALL, BUSY_ICON_HOSTILE, H))
 				return
 			if(!(U == H.w_uniform || U == H.wear_suit))
-				to_chat(user, SPAN_WARNING("[H] took off \his [U.name] before you could finish pinning [src] to \him."))
+				to_chat(user, SPAN_WARNING("[capitalize(H.declent_ru(NOMINATIVE))] took off \his [U.name] before you could finish pinning [src] to \him."))
 				return
 			user.affected_message(H,
 			SPAN_DANGER("You slam the [src.name]'s pin through [H]'s [U.name] and into \his chest."),

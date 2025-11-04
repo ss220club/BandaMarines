@@ -162,7 +162,7 @@
 	if(ishuman(buckled_mob) && isxeno(user))
 		var/mob/living/carbon/human/H = buckled_mob
 		if(H.recently_nested)
-			to_chat(user, SPAN_WARNING("[H] was nested recently. Wait a bit."))
+			to_chat(user, SPAN_WARNING("[capitalize(H.declent_ru(NOMINATIVE))] was nested recently. Wait a bit."))
 			return
 		if(H.stat != DEAD)
 			if(alert(user, "[H] is still alive and kicking! Are we sure we want to remove them from the nest?", "Confirmation", "Yes", "No") != "Yes")

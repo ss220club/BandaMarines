@@ -153,7 +153,7 @@
 				update_icon()
 				return
 			else
-				to_chat(user, SPAN_WARNING("[H] is beyond repairs!"))
+				to_chat(user, SPAN_WARNING("[capitalize(H.declent_ru(NOMINATIVE))] is beyond repairs!"))
 				return
 
 	var/repair_message = "welding structural struts back in place"

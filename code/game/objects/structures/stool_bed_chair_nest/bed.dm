@@ -168,7 +168,7 @@
 			if (H==usr && !H.is_mob_incapacitated() && Adjacent(H) && in_range(src, over_object))
 				var/obj/item/I = new foldabletype(get_turf(src))
 				H.put_in_hands(I)
-				H.visible_message(SPAN_WARNING("[H] grabs [src] from the floor!"),
+				H.visible_message(SPAN_WARNING("[capitalize(H.declent_ru(NOMINATIVE))] grabs [src] from the floor!"),
 				SPAN_WARNING("You grab [src] from the floor!"))
 				qdel(src)
 

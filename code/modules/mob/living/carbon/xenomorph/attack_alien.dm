@@ -46,21 +46,21 @@
 		if(INTENT_HARM)
 			if(attacking_xeno.claw_restrained())
 				attacking_xeno.animation_attack_on(src)
-				attacking_xeno.visible_message(SPAN_NOTICE("[capitalize(attacking_xeno.declent_ru(NOMINATIVE))] пытается ударить [declent_ru()]"), // SS220 EDIt ADDICTION
-				SPAN_XENONOTICE("Мы пытаемся ударить [declent_ru()], но терпим неудачу из-за наших оков!")) // SS220 EDIt ADDICTION
+				attacking_xeno.visible_message(SPAN_NOTICE("[capitalize(attacking_xeno.declent_ru(NOMINATIVE))] пытается ударить [declent_ru(ACCUSATIVE)]"), // SS220 EDIt ADDICTION
+				SPAN_XENONOTICE("Мы пытаемся ударить [declent_ru(ACCUSATIVE)], но терпим неудачу из-за наших оков!")) // SS220 EDIt ADDICTION
 				return XENO_ATTACK_ACTION
 
 			if(attacking_xeno.can_not_harm(src, check_hive_flags=FALSE)) // We manually check hive_flags later
 				attacking_xeno.animation_attack_on(src)
-				attacking_xeno.visible_message(SPAN_NOTICE("[capitalize(attacking_xeno.declent_ru(NOMINATIVE))] кусает [declent_ru()]"), // SS220 EDIt ADDICTION
-				SPAN_XENONOTICE("Мы кусаем [declent_ru()]")) // SS220 EDIt ADDICTION
+				attacking_xeno.visible_message(SPAN_NOTICE("[capitalize(attacking_xeno.declent_ru(NOMINATIVE))] кусает [declent_ru(ACCUSATIVE)]"), // SS220 EDIt ADDICTION
+				SPAN_XENONOTICE("Мы кусаем [declent_ru(ACCUSATIVE)]")) // SS220 EDIt ADDICTION
 				return XENO_ATTACK_ACTION
 
 			if(attacking_xeno.behavior_delegate && attacking_xeno.behavior_delegate.handle_slash(src))
 				return XENO_NO_DELAY_ACTION
 
 			if(stat == DEAD)
-				to_chat(attacking_xeno, SPAN_WARNING("[src] is dead, why would we want to touch it?"))
+				to_chat(attacking_xeno, SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] мертво, зачем нам это трогать?"))
 				return XENO_NO_DELAY_ACTION
 
 			if(attacking_xeno.caste && !attacking_xeno.caste.is_intelligent)
@@ -710,7 +710,7 @@
 		if(islarva(M))
 			return
 		else
-			M.visible_message(SPAN_XENONOTICE("[capitalize(M.declent_ru(NOMINATIVE))] царапает [declent_ru()]!"), // SS220 EDIT ADDICTION
+			M.visible_message(SPAN_XENONOTICE("[capitalize(M.declent_ru(NOMINATIVE))] царапает [declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
 			SPAN_XENONOTICE("Мы царапаем [declent_ru(ACCUSATIVE)]."), null, null, CHAT_TYPE_XENO_COMBAT) // SS220 EDIT ADDICTION
 			playsound(loc, "alien_resin_break", 25)
 
@@ -882,7 +882,7 @@
 		to_chat(M, SPAN_XENONOTICE("[capitalize(declent_ru(NOMINATIVE))] уже сломан!")) // SS220 EDIT ADDICTION
 		return XENO_NO_DELAY_ACTION
 	else if(beenhit >= XENO_HITS_TO_CUT_WIRES && M.mob_size < MOB_SIZE_BIG)
-		to_chat(M, SPAN_XENONOTICE("У нас недостаточно силы, чтобы нанести много урона по [declent_ru()].")) // SS220 EDIT ADDICTION
+		to_chat(M, SPAN_XENONOTICE("У нас недостаточно силы, чтобы нанести много урона по [declent_ru(DATIVE)].")) // SS220 EDIT ADDICTION
 		return XENO_NO_DELAY_ACTION
 	M.animation_attack_on(src)
 	M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] [M.slashes_verb] [src]!"),

@@ -41,7 +41,7 @@
 /mob/living/carbon/xenomorph/get_status_tab_items()
 	. = ..()
 
-	. += "Имя: [declent_ru()]"
+	. += "Имя: [declent_ru(NOMINATIVE)]"
 
 	. += ""
 
@@ -327,21 +327,21 @@
 
 			if(isyautja(H))
 				if(H.check_shields(0, "the pounce", 1))
-					visible_message(SPAN_DANGER("[H] блокирует прыжок [declent_ru()] с помощью комби-палки!"), SPAN_XENODANGER("[H] блокирует наш прыжок с помощью комби-палки!"), null, 5) // SS220 EDIT ADDICTION
+					visible_message(SPAN_DANGER("[capitalize(H.declent_ru(NOMINATIVE))] блокирует прыжок [declent_ru()] с помощью комби-палки!"), SPAN_XENODANGER("[capitalize(H.declent_ru(NOMINATIVE))] блокирует наш прыжок с помощью комби-палки!"), null, 5) // SS220 EDIT ADDICTION
 					apply_effect(3, WEAKEN)
 					throwing = FALSE
 					playsound(H, "bonk", 75, FALSE)
 					return
 				else if(prob(75)) //Body slam the fuck out of xenos jumping at your front.
-					visible_message(SPAN_DANGER("[H] сбивает [declent_ru()] с ног!"), // SS220 EDIT ADDICTION
-						SPAN_XENODANGER("[H] сбивает нас с ног!"), null, 5) // SS220 EDIT ADDICTION
+					visible_message(SPAN_DANGER("[capitalize(H.declent_ru(NOMINATIVE))] сбивает [declent_ru()] с ног!"), // SS220 EDIT ADDICTION
+						SPAN_XENODANGER("[capitalize(H.declent_ru(NOMINATIVE))] сбивает нас с ног!"), null, 5) // SS220 EDIT ADDICTION
 					KnockDown(3)
 					Stun(3)
 					throwing = FALSE
 					return
 			if(iscolonysynthetic(H) && prob(60))
-				visible_message(SPAN_DANGER("[H] выдерживает прыжок и сбивает [declent_ru()] с ног!"), // SS220 EDIT ADDICTION
-					SPAN_XENODANGER("[H] сбивает нас с ног после того, как выдержал прыжок!"), null, 5) // SS220 EDIT ADDICTION
+				visible_message(SPAN_DANGER("[capitalize(H.declent_ru(NOMINATIVE))] выдерживает прыжок и сбивает [declent_ru()] с ног!"), // SS220 EDIT ADDICTION
+					SPAN_XENODANGER("[capitalize(H.declent_ru(NOMINATIVE))] сбивает нас с ног после того, как выдержал прыжок!"), null, 5) // SS220 EDIT ADDICTION
 				KnockDown(1.5)
 				Stun(1.5)
 				throwing = FALSE
