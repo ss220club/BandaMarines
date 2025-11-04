@@ -249,8 +249,8 @@
 	var/ru_name_fluff_tool = declent_ru_initial(fluff_tool, ACCUSATIVE, fluff_tool) // SS220 EDIT ADDICTION
 	var/ru_name = capitalize(declent_ru(NOMINATIVE)) // SS220 EDIT ADDICTION
 	playsound(get_turf(src), sound_release, 25, 1)
-	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] активирует [ru_name_fluff_tool] на <b>[target.declent_ru(GENITIVE)]</b>."), // SS220 EDIT ADDICTION
-		SPAN_HELPFUL("Вы активируете [ru_name_fluff_tool] на <b>[target.declent_ru(GENITIVE)]</b>.")) // SS220 EDIT ADDICTION
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] активирует [ru_name_fluff_tool] на <b>[target.declent_ru(PREPOSITIONAL)]</b>."), // SS220 EDIT ADDICTION
+		SPAN_HELPFUL("Вы активируете [ru_name_fluff_tool] на <b>[target.declent_ru(PREPOSITIONAL)]</b>.")) // SS220 EDIT ADDICTION
 	target.visible_message(SPAN_DANGER("Тело [target.declent_ru(GENITIVE)] слегка дёргается."))
 	shock_cooldown = world.time + 10 //1 second cooldown before you can shock again
 

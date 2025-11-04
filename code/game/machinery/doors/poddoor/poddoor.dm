@@ -58,7 +58,7 @@
 	playsound(loc, 'sound/effects/metal_creaking.ogg', 25, TRUE)
 
 	if(!do_after(X, time, INTERRUPT_ALL, BUSY_ICON_HOSTILE, src, INTERRUPT_ALL))
-		to_chat(X, "Вы прекращаете взламывать [declent_ru(ACCUSATIVE)] open.")
+		to_chat(X, "Вы прекращаете взламывать [declent_ru(ACCUSATIVE)].")
 		return
 
 	X.visible_message(SPAN_DANGER("[capitalize(X.declent_ru(NOMINATIVE))] взламывает [declent_ru(ACCUSATIVE)]."),
