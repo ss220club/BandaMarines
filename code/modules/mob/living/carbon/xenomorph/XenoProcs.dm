@@ -317,7 +317,7 @@
 		if(ishuman(M) && (M.dir in reverse_nearby_direction(dir)))
 			var/mob/living/carbon/human/H = M
 			if(H.check_shields(15, "the pounce")) //Human shield block.
-				visible_message(SPAN_DANGER("[declent_ru()] врезается в [H]!"), // SS220 EDIT ADDICTION
+				visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [H]!"), // SS220 EDIT ADDICTION
 					SPAN_XENODANGER("Мы врезаемся в [H]!"), null, 5) // SS220 EDIT ADDICTION
 				KnockDown(1)
 				Stun(1)
@@ -348,7 +348,7 @@
 				return
 
 
-	visible_message(SPAN_DANGER("[declent_ru()] [pounceAction.action_text] на [M]!"), SPAN_XENODANGER("Мы [pounceAction.action_text] на [M]!"), null, 5) // SS220 EDIT ADDICTION
+	visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] [pounceAction.action_text] на [M]!"), SPAN_XENODANGER("Мы [pounceAction.action_text] на [M]!"), null, 5) // SS220 EDIT ADDICTION
 
 	if (pounceAction.knockdown)
 		M.KnockDown(pounceAction.knockdown_duration)
@@ -463,7 +463,7 @@
 		to_chat(src, SPAN_WARNING("We are not hauling anyone."))
 		return
 	user.handle_unhaul()
-	visible_message(SPAN_XENOWARNING("[declent_ru()] выпускает хоста [user] из своей хватки!"), // SS220 EDIT ADDICTION
+	visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] выпускает хоста [user] из своей хватки!"), // SS220 EDIT ADDICTION
 	SPAN_XENOWARNING("Мы выпускаем хоста [user] из своей хватки!"), null, 5) // SS220 EDIT ADDICTION
 	playsound(src, 'sound/voice/alien_growl1.ogg', 15)
 	log_interact(src, user, "[key_name(src)] released [key_name(user)] at [get_area_name(loc)]")

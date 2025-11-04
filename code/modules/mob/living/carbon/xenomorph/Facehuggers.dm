@@ -425,14 +425,14 @@
 			return
 		var/obj/effect/alien/resin/trap/T = locate() in loc
 		if(T && T.trap_type == RESIN_TRAP_EMPTY)
-			visible_message(SPAN_XENOWARNING("[declent_ru()] заползает в [T]!")) // SS220 EDIT ADDICTION
+			visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] заползает в [T]!")) // SS220 EDIT ADDICTION
 			T.hivenumber = hivenumber
 			T.set_state(RESIN_TRAP_HUGGER)
 			qdel(src)
 			return
 		var/obj/effect/alien/resin/special/eggmorph/M = locate() in loc
 		if(istype(M) && M.stored_huggers < M.huggers_max_amount)
-			visible_message(SPAN_XENOWARNING("[declent_ru()] заползает обратно в [M]!")) // SS220 EDIT ADDICTION
+			visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] заползает обратно в [M]!")) // SS220 EDIT ADDICTION
 			M.stored_huggers++
 			qdel(src)
 			return
@@ -507,7 +507,7 @@
 	die()
 
 /obj/item/clothing/mask/facehugger/proc/return_to_egg(obj/effect/alien/egg/E)
-	visible_message(SPAN_XENOWARNING("[declent_ru()] заползает обратно в [E]!")) // SS220 EDIT ADDICTION
+	visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] заползает обратно в [E]!")) // SS220 EDIT ADDICTION
 	E.status = EGG_GROWN
 	E.icon_state = "Egg"
 	E.deploy_egg_triggers()

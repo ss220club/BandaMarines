@@ -115,7 +115,7 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 		return
 	to_chat(src, SPAN_XENONOTICE("Похоже, что улей может поддержать нашу эволюцию в [SPAN_BOLD(castepick)]!")) // SS220 EDIT ADDICTION
 
-	visible_message(SPAN_XENONOTICE("[declent_ru()] начинает извиваться и дрожать."), // SS220 EDIT ADDICTION
+	visible_message(SPAN_XENONOTICE("[capitalize(declent_ru(NOMINATIVE))] начинает извиваться и дрожать."), // SS220 EDIT ADDICTION
 	SPAN_XENONOTICE("Мы начинаем извиваться и дрожать."))
 	xeno_jitter(25)
 	evolving = TRUE

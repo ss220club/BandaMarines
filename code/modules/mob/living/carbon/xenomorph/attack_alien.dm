@@ -879,7 +879,7 @@
 /obj/structure/machinery/power/apc/attack_alien(mob/living/carbon/xenomorph/M)
 
 	if(stat & BROKEN)
-		to_chat(M, SPAN_XENONOTICE("[declent_ru()] уже сломан!")) // SS220 EDIT ADDICTION
+		to_chat(M, SPAN_XENONOTICE("[capitalize(declent_ru(NOMINATIVE))] уже сломан!")) // SS220 EDIT ADDICTION
 		return XENO_NO_DELAY_ACTION
 	else if(beenhit >= XENO_HITS_TO_CUT_WIRES && M.mob_size < MOB_SIZE_BIG)
 		to_chat(M, SPAN_XENONOTICE("У нас недостаточно силы, чтобы нанести много урона по [declent_ru()].")) // SS220 EDIT ADDICTION

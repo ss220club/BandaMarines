@@ -574,7 +574,7 @@
 
 		if(!no_msg)
 			animation_attack_on(M)
-			visible_message(SPAN_WARNING("[declent_ru()] несильно хватает [M]."), null, null, 5) // SS220 EDIT ADDICTION
+			visible_message(SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] несильно хватает [M]."), null, null, 5) // SS220 EDIT ADDICTION
 
 		if(M.mob_size > MOB_SIZE_HUMAN || !(M.status_flags & CANPUSH))
 			G.icon_state = "!reinforce"
@@ -815,7 +815,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 		return
 
 	if(self)
-		visible_message(SPAN_BOLDWARNING("[declent_ru()] вытаскивает [selection_ru] из своего тела."),SPAN_BOLDWARNING("Вы вытаскиваете [selection_ru] из своего тела."), null, 5) // SS220 EDIT ADDICTION
+		visible_message(SPAN_BOLDWARNING("[capitalize(declent_ru(NOMINATIVE))] вытаскивает [selection_ru] из своего тела."),SPAN_BOLDWARNING("Вы вытаскиваете [selection_ru] из своего тела."), null, 5) // SS220 EDIT ADDICTION
 	else
 		visible_message(SPAN_BOLDWARNING("[usr] вытаскивает [selection_ru] из тела [declent_ru()]."),SPAN_BOLDWARNING("[usr] вытаскивает [selection_ru] из вашего тела."), null, 5) // SS220 EDIT ADDICTION
 

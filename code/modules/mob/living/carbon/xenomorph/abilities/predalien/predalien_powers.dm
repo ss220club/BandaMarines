@@ -278,7 +278,7 @@
 				return
 
 		if(should_neckgrab && living_mob.mob_size < MOB_SIZE_BIG)
-			visible_message(SPAN_XENOWARNING("[declent_ru()] хватает [living_mob] за ногу и швыряет на землю!"), // SS220 EDIT ADDICTION
+			visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] хватает [living_mob] за ногу и швыряет на землю!"), // SS220 EDIT ADDICTION
 			SPAN_XENOWARNING("Мы хватаем [living_mob] за ногу и швыряем на землю!")) // more flair // SS220 EDIT ADDICTION
 			smashing = TRUE
 			living_mob.drop_held_items()

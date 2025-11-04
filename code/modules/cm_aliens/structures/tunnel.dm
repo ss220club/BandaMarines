@@ -235,7 +235,7 @@
 			to_chat(user, SPAN_XENOWARNING("Мы прекращаем засыпать туннель."))
 			return XENO_NO_DELAY_ACTION
 
-		src.visible_message(SPAN_XENODANGER("[declent_ru()] засыпает туннель!"), max_distance = 3)
+		src.visible_message(SPAN_XENODANGER("[capitalize(declent_ru(NOMINATIVE))] засыпает туннель!"), max_distance = 3)
 		qdel(src)
 
 		return XENO_NO_DELAY_ACTION

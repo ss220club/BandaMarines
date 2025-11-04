@@ -73,7 +73,7 @@
 		var/obj/item/clothing/mask/facehugger/hugger = item
 		if(hugger.stat != DEAD)
 			if(stored_huggers >= huggers_max_amount)
-				to_chat(user, SPAN_XENOWARNING("[declent_ru()] уже занят дитём.")) // SS220 EDIT ADDICTION
+				to_chat(user, SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] уже занят дитём.")) // SS220 EDIT ADDICTION
 				return
 			if(user)
 				visible_message(SPAN_XENOWARNING("[capitalize(user.declent_ru(NOMINATIVE))] помещает [hugger] обратно в [declent_ru()]."), // SS220 EDIT ADDICTION
@@ -91,7 +91,7 @@
 	if(istype(item, /obj/item/xeno_egg))
 		var/obj/item/xeno_egg/egg = item
 		if(stored_huggers >= huggers_max_amount)
-			to_chat(user, SPAN_XENOWARNING("[declent_ru()] уже занят дитём.")) // SS220 EDIT ADDICTION
+			to_chat(user, SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] уже занят дитём.")) // SS220 EDIT ADDICTION
 			return
 		if(user)
 			visible_message(SPAN_XENOWARNING("[capitalize(user.declent_ru(NOMINATIVE))] извлекает лицехвата из [egg] и помещает его в [declent_ru()]."), // SS220 EDIT ADDICTION

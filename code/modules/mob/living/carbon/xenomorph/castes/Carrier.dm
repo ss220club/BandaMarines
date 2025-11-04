@@ -196,7 +196,7 @@
 		eggs_cur = 0
 
 		if(eggs_dropped) //Checks whether or not to announce egg drop.
-			xeno_message(SPAN_XENOANNOUNCE("[declent_ru()] уронил несколько драгоценных яиц!"), 2, hive.hivenumber) // SS220 EDIT ADDICTION
+			xeno_message(SPAN_XENOANNOUNCE("[capitalize(declent_ru(NOMINATIVE))] уронил несколько драгоценных яиц!"), 2, hive.hivenumber) // SS220 EDIT ADDICTION
 
 /mob/living/carbon/xenomorph/carrier/recalculate_actions()
 	. = ..()
@@ -310,7 +310,7 @@
 			A.update_button_icon()
 		drop_inv_item_on_ground(F)
 		F.throw_atom(T, 4, caste.throwspeed)
-		visible_message(SPAN_XENOWARNING("[declent_ru()] бросает что-то в сторону [T]!"), // SS220 EDIT ADDICTION
+		visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] бросает что-то в сторону [T]!"), // SS220 EDIT ADDICTION
 			SPAN_XENOWARNING("Мы бросаем лицехвата в сторону [T]!")) // SS220 EDIT ADDICTION
 		spawn(caste.hugger_delay)
 			threw_a_hugger = 0
@@ -388,7 +388,7 @@
 	if(!morpher_safety_checks(morpher))
 		return
 
-	visible_message(SPAN_XENOWARNING("[declent_ru()] начинает помещать лицехватов в [morpher] из своих яиц..."), SPAN_XENONOTICE("Мы начинаем помещать детей в [morpher] из наших яиц...")) // SS220 EDIT ADDICTION
+	visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] начинает помещать лицехватов в [morpher] из своих яиц..."), SPAN_XENONOTICE("Мы начинаем помещать детей в [morpher] из наших яиц...")) // SS220 EDIT ADDICTION
 	while(eggs_cur > 0)
 		if(!morpher_safety_checks(morpher))
 			return

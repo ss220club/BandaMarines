@@ -836,7 +836,7 @@
 		return
 	var/translated_value = holocard_translations[newcolor] // SS220 EDIT ADDICTION
 	if(get_dist(user, src) > 7)
-		to_chat(user, SPAN_WARNING("[declent_ru()] слишком далеко от вас.")) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] слишком далеко от вас.")) // SS220 EDIT ADDICTION
 		return
 	if(newcolor == "none")
 		if(!holo_card_color)
@@ -932,7 +932,7 @@
 	apply_effect(5, STUN)
 	if(stat == 2) //One last corpse check
 		return
-	src.visible_message(SPAN_WARNING("[declent_ru()] блюёт!"), SPAN_WARNING("Вы блюёте!"), null, 5)
+	src.visible_message(SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] блюёт!"), SPAN_WARNING("Вы блюёте!"), null, 5)
 	playsound(loc, 'sound/effects/splat.ogg', 25, 1, 7)
 
 	var/turf/location = loc

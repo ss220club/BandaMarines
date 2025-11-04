@@ -124,7 +124,7 @@
 	if(istype(affected_atom, /obj/vehicle/multitile))
 		var/obj/vehicle/multitile/multitile_vehicle = affected_atom
 		multitile_vehicle.take_damage_type(20 / acid.acid_delay, "acid", src)
-		visible_message(SPAN_XENOWARNING("[declent_ru()] плюётся отвратительной субстанцией на [multitile_vehicle], которая тут же начинает шипеть и растворяться от кислоты!"), // SS220 EDIT ADDICTION
+		visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] плюётся отвратительной субстанцией на [multitile_vehicle], которая тут же начинает шипеть и растворяться от кислоты!"), // SS220 EDIT ADDICTION
 			SPAN_XENOWARNING("Мы плюёмся отвратительной субстанцией на [multitile_vehicle], которая тут же начинает шипеть и растворяться от кислоты!"), null, 5) // SS220 EDIT ADDICTION
 		playsound(loc, "sound/bullets/acid_impact1.ogg", 25)
 		QDEL_IN(acid, 20)
@@ -133,7 +133,7 @@
 	acid.add_hiddenprint(src)
 	acid.name += " ([affected_atom])"
 
-	visible_message(SPAN_XENOWARNING("[declent_ru()] плюётся отвратительной субстанцией на [affected_atom], которая тут же начинает шипеть и растворяться от кислоты!"), // SS220 EDIT ADDICTION
+	visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] плюётся отвратительной субстанцией на [affected_atom], которая тут же начинает шипеть и растворяться от кислоты!"), // SS220 EDIT ADDICTION
 	SPAN_XENOWARNING("Мы плюёмся отвратительной субстанцией на [affected_atom], которая тут же начинает шипеть и растворяться от кислоты!"), null, 5) // SS220 EDIT ADDICTION
 	playsound(loc, "sound/bullets/acid_impact1.ogg", 25)
 
@@ -184,7 +184,7 @@
 	target.set_state(RESIN_TRAP_ACID1 + ACIDER_ACID_LEVEL - 1)
 
 	playsound(target, 'sound/effects/refill.ogg', 25, 1)
-	visible_message(SPAN_XENOWARNING("[declent_ru()] наполняет смоляную ловушку кислотой!"), // SS220 EDIT ADDICTION
+	visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] наполняет смоляную ловушку кислотой!"), // SS220 EDIT ADDICTION
 	SPAN_XENOWARNING("Вы наполняете смоляную ловушку кислотой!"), null, 5)
 	return TRUE
 

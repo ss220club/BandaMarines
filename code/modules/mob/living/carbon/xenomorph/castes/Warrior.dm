@@ -118,7 +118,7 @@
 			living_mob.Stun(duration)
 			if(living_mob.pulledby != src)
 				return // Grab was broken, probably as Stun side effect (eg. target getting knocked away from a manned M56D)
-			visible_message(SPAN_XENOWARNING("[declent_ru()] хватает [living_mob] за горло!"), // SS220 EDIT ADDICTION
+			visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] хватает [living_mob] за горло!"), // SS220 EDIT ADDICTION
 			SPAN_XENOWARNING("Мы хватаем [living_mob] за горло!")) // SS220 EDIT ADDICTION
 			warrior_delegate.lunging = TRUE
 			addtimer(CALLBACK(src, PROC_REF(stop_lunging)), get_xeno_stun_duration(living_mob, 2) SECONDS + 1 SECONDS)
@@ -216,7 +216,7 @@
 	if(limb.body_part == BODY_FLAG_HEAD)
 		limb_time = rand(90,110)
 
-	visible_message(SPAN_XENOWARNING("[declent_ru()] начинает отрывать [declent_ru_initial(limb.display_name, ACCUSATIVE, limb.display_name)] [mob] с невероятной силой!"), // SS220 EDIT ADDICTION
+	visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] начинает отрывать [declent_ru_initial(limb.display_name, ACCUSATIVE, limb.display_name)] [mob] с невероятной силой!"), // SS220 EDIT ADDICTION
 	SPAN_XENOWARNING("Мы начинаем отрывать [declent_ru_initial(limb.display_name, ACCUSATIVE, limb.display_name)] [mob] с невероятной силой!")) // SS220 EDIT ADDICTION
 
 	if(!do_after(src, limb_time, INTERRUPT_ALL|INTERRUPT_DIFF_SELECT_ZONE, BUSY_ICON_HOSTILE) || mob.stat == DEAD || mob.status_flags & XENO_HOST)
@@ -255,7 +255,7 @@
 	if(limb.status & LIMB_DESTROYED)
 		return FALSE
 
-	visible_message(SPAN_XENOWARNING("[declent_ru()] отрывает [declent_ru_initial(limb.display_name, ACCUSATIVE, limb.display_name)] [mob] от тела!"), // SS220 EDIT ADDICTION
+	visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] отрывает [declent_ru_initial(limb.display_name, ACCUSATIVE, limb.display_name)] [mob] от тела!"), // SS220 EDIT ADDICTION
 	SPAN_XENOWARNING("[capitalize(declent_ru_initial(limb.display_name, ACCUSATIVE, limb.display_name))] [mob] отрывается от тела!")) // SS220 EDIT ADDICTION
 	src.attack_log += text("\[[time_stamp()]\] <font color='red'>ripped the [limb.display_name] off of [mob.name] ([mob.ckey]) 2/2 progress</font>")
 	mob.attack_log += text("\[[time_stamp()]\] <font color='orange'>had their [limb.display_name] ripped off by [src.name] ([src.ckey]) 2/2 progress</font>")

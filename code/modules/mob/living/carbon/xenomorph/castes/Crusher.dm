@@ -82,21 +82,21 @@
 	//Barricade collision
 	else if (istype(target, /obj/structure/barricade))
 		var/obj/structure/barricade/blockade_in_path = target
-		visible_message(SPAN_DANGER("[declent_ru()] врезается в [blockade_in_path] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [blockade_in_path] и тормозим!")) // SS220 EDIT ADDICTION
+		visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [blockade_in_path] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [blockade_in_path] и тормозим!")) // SS220 EDIT ADDICTION
 
 		blockade_in_path.Collided(src)
 		. =  FALSE
 
 	else if (istype(target, /obj/vehicle/multitile))
 		var/obj/vehicle/multitile/vehicle_in_path = target
-		visible_message(SPAN_DANGER("[declent_ru()] врезается в [vehicle_in_path] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [vehicle_in_path] и тормозим!")) // SS220 EDIT ADDICTION
+		visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [vehicle_in_path] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [vehicle_in_path] и тормозим!")) // SS220 EDIT ADDICTION
 
 		vehicle_in_path.Collided(src)
 		. = FALSE
 
 	else if (istype(target, /obj/structure/machinery/m56d_hmg))
 		var/obj/structure/machinery/m56d_hmg/weapon_in_path = target
-		visible_message(SPAN_DANGER("[declent_ru()] таранит [weapon_in_path]!"), SPAN_XENODANGER("Мы тараним [weapon_in_path]!")) // SS220 EDIT ADDICTION
+		visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] таранит [weapon_in_path]!"), SPAN_XENODANGER("Мы тараним [weapon_in_path]!")) // SS220 EDIT ADDICTION
 		playsound(loc, "punch", 25, 1)
 		weapon_in_path.CrusherImpact()
 		. =  FALSE
@@ -134,7 +134,7 @@
 
 	else if (istype(target, /obj/structure/machinery/defenses))
 		var/obj/structure/machinery/defenses/defenses_in_path = target
-		visible_message(SPAN_DANGER("[declent_ru()] таранит [defenses_in_path]!"), SPAN_XENODANGER("Мы тараним [defenses_in_path]!")) // SS220 EDIT ADDICTION
+		visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] таранит [defenses_in_path]!"), SPAN_XENODANGER("Мы тараним [defenses_in_path]!")) // SS220 EDIT ADDICTION
 
 		if (!defenses_in_path.unacidable)
 			playsound(loc, "punch", 25, 1)
@@ -150,7 +150,7 @@
 		if (vending_in_path.unslashable)
 			. = FALSE
 		else
-			visible_message(SPAN_DANGER("[declent_ru()] врезается прямо в [vending_in_path]!"), SPAN_XENODANGER("Мы врезаемся прямо в [vending_in_path]!")) // SS220 EDIT ADDICTION
+			visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается прямо в [vending_in_path]!"), SPAN_XENODANGER("Мы врезаемся прямо в [vending_in_path]!")) // SS220 EDIT ADDICTION
 			playsound(loc, "punch", 25, 1)
 			vending_in_path.tip_over()
 
@@ -167,7 +167,7 @@
 		if (vending_in_path.unslashable)
 			. = FALSE
 		else
-			visible_message(SPAN_DANGER("[declent_ru()] врезается прямо в [vending_in_path]!"), SPAN_XENODANGER("Мы врезаемся прямо в [vending_in_path]!")) // SS220 EDIT ADDICTION
+			visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается прямо в [vending_in_path]!"), SPAN_XENODANGER("Мы врезаемся прямо в [vending_in_path]!")) // SS220 EDIT ADDICTION
 			playsound(loc, "punch", 25, 1)
 			vending_in_path.tip_over()
 
@@ -195,7 +195,7 @@
 			if (objects_in_path.unacidable)
 				. = FALSE
 			else if (objects_in_path.anchored)
-				visible_message(SPAN_DANGER("[declent_ru()] раздавливает [objects_in_path]!"), SPAN_XENODANGER("Мы раздавливаем [objects_in_path]!")) // SS220 EDIT ADDICTION
+				visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] раздавливает [objects_in_path]!"), SPAN_XENODANGER("Мы раздавливаем [objects_in_path]!")) // SS220 EDIT ADDICTION
 				if(length(objects_in_path.contents)) //Hopefully won't auto-delete things inside crushed stuff.
 					var/turf/turf_for_obj = get_turf(src)
 					for(var/atom/movable/stuff_to_move in turf_for_obj.contents) stuff_to_move.forceMove(turf_for_obj)
@@ -206,7 +206,7 @@
 			else
 				if(objects_in_path.buckled_mob)
 					objects_in_path.unbuckle()
-				visible_message(SPAN_WARNING("[declent_ru()] отбрасывает [objects_in_path] в сторону!"), SPAN_XENOWARNING("Мы отбрасываем [objects_in_path] в сторону.")) //Canisters, crates etc. go flying. // SS220 EDIT ADDICTION
+				visible_message(SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] отбрасывает [objects_in_path] в сторону!"), SPAN_XENOWARNING("Мы отбрасываем [objects_in_path] в сторону.")) //Canisters, crates etc. go flying. // SS220 EDIT ADDICTION
 				playsound(loc, "punch", 25, 1)
 
 				var/impact_range = 2

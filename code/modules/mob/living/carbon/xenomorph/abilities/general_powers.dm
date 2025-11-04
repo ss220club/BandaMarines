@@ -385,7 +385,7 @@
 	target.set_state(RESIN_TRAP_ACID1 + acid_level - 1)
 
 	playsound(target, 'sound/effects/refill.ogg', 25, 1)
-	visible_message(SPAN_XENOWARNING("[declent_ru()] наполняет смоляную ловушку кислотой!"), // SS220 EDIT ADDICTION
+	visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] наполняет смоляную ловушку кислотой!"), // SS220 EDIT ADDICTION
 	SPAN_XENOWARNING("Вы наполняете смоляную ловушку кислотой!"), null, 5)
 	return TRUE
 
@@ -409,7 +409,7 @@
 	if(!pheromone)
 		if(current_aura)
 			current_aura = null
-			visible_message(SPAN_XENOWARNING("[declent_ru()] перестаёт выделять феромоны."), // SS220 EDIT ADDICTION
+			visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] перестаёт выделять феромоны."), // SS220 EDIT ADDICTION
 			SPAN_XENOWARNING("Мы перестаём выделять феромоны."), null, 5)
 		else
 			if(!check_plasma(emit_cost))
@@ -439,7 +439,7 @@
 			return
 		use_plasma(emit_cost)
 		current_aura = pheromone
-		visible_message(SPAN_XENOWARNING("[declent_ru()] начинает выделять [pheromone]-феромоны."), // SS220 EDIT ADDICTION
+		visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] начинает выделять [pheromone]-феромоны."), // SS220 EDIT ADDICTION
 		SPAN_XENOWARNING("Мы начинаем выделять [pheromone]-феромоны."), null, 5) // SS220 EDIT ADDICTION
 		SEND_SIGNAL(src, COMSIG_XENO_START_EMIT_PHEROMONES, pheromone)
 		playsound(loc, "alien_drool", 25)

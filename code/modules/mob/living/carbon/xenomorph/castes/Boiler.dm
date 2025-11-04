@@ -329,7 +329,7 @@
 	target.set_state(RESIN_TRAP_GAS)
 
 	playsound(target, 'sound/effects/refill.ogg', 25, 1)
-	visible_message(SPAN_XENOWARNING("[declent_ru()] наполняет смоляную ловушку газом!"), // SS220 EDIT ADDICTION
+	visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] наполняет смоляную ловушку газом!"), // SS220 EDIT ADDICTION
 	SPAN_XENOWARNING("Вы наполняете смоляную ловушку газом!"), null, 5)
 	return TRUE
 

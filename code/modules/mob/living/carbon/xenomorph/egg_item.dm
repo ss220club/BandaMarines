@@ -116,15 +116,15 @@
 
 	var/datum/hive_status/hive = GLOB.hive_datum[hivenumber]
 	if(!any_weeds && !hive_weeds) //you need at least some weeds to plant on.
-		to_chat(user, SPAN_XENOWARNING("[declent_ru()] должен быть посажен на lowertext(hive.prefix)-траву.")) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] должен быть посажен на lowertext(hive.prefix)-траву.")) // SS220 EDIT ADDICTION
 		return
 
 	if(!hive_weeds && needs_hive_weeds)
-		to_chat(user, SPAN_XENOWARNING("[declent_ru()] можно посадить только на [lowertext(hive.prefix)]-траву улья.")) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] можно посадить только на [lowertext(hive.prefix)]-траву улья.")) // SS220 EDIT ADDICTION
 		return
 
 	if(istype(get_area(T), /area/interior))
-		to_chat(user, SPAN_XENOWARNING("[declent_ru()] нельзя посадить внутри транспортного средства.")) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] нельзя посадить внутри транспортного средства.")) // SS220 EDIT ADDICTION
 		return
 
 	for(var/obj/object in T.contents)
@@ -132,7 +132,7 @@
 			continue
 		var/obj/effect/alien/egg/xeno_egg = /obj/effect/alien/egg
 		if(object.layer > initial(xeno_egg.layer))
-			to_chat(user, SPAN_XENOWARNING("[declent_ru()] нельзя посадить под объекты, которые будут его перекрывать собой.")) // SS220 EDIT ADDICTION
+			to_chat(user, SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] нельзя посадить под объекты, которые будут его перекрывать собой.")) // SS220 EDIT ADDICTION
 			return
 
 	user.visible_message(SPAN_XENONOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает сажать [declent_ru()]."), SPAN_XENONOTICE("Вы начинаете сажать [declent_ru()]."), null, 5) // SS220 EDIT ADDICTION
@@ -159,7 +159,7 @@
 			else if(weed.weed_strength >= WEED_LEVEL_STANDARD)
 				newegg = new /obj/effect/alien/egg/carrier_egg(T,hivenumber, user)
 			else
-				to_chat(user, SPAN_XENOWARNING("[declent_ru()] нельзя посадить на эту траву.")) // SS220 EDIT ADDICTION
+				to_chat(user, SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] нельзя посадить на эту траву.")) // SS220 EDIT ADDICTION
 				return
 
 			newegg.flags_embryo = flags_embryo

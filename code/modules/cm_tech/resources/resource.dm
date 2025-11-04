@@ -134,7 +134,7 @@
 		return
 
 	if(!active)
-		to_chat(H, SPAN_WARNING("[declent_ru()] сейчас неактивен!"))
+		to_chat(H, SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] сейчас неактивен!"))
 		return
 	if(H.action_busy)
 		to_chat(H, SPAN_WARNING("Вы уже заняты чем-то другим."))
@@ -158,7 +158,7 @@
 		return XENO_NO_DELAY_ACTION
 
 	if(!active)
-		to_chat(M, SPAN_XENOWARNING("[declent_ru()] сейчас неактивен!")) // SS220 EDIT ADDICTION
+		to_chat(M, SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] сейчас неактивен!")) // SS220 EDIT ADDICTION
 		return XENO_NO_DELAY_ACTION
 
 	if(M.action_busy)
