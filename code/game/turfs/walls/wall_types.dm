@@ -434,7 +434,7 @@
 	baseturfs = /turf/open/floor/sandstone/runed
 
 /turf/closed/wall/mineral/sandstone/runed/attack_alien(mob/living/carbon/xenomorph/user)
-	visible_message("[user] scrapes uselessly against [src] with their claws.")
+	visible_message("[capitalize(user.declent_ru(NOMINATIVE))] scrapes uselessly against [src] with their claws.")
 	return
 
 /turf/closed/wall/mineral/sandstone/runed/decor

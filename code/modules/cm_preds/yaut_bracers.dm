@@ -824,7 +824,7 @@
 
 	REMOVE_TRAIT(user, TRAIT_CLOAKED, TRAIT_SOURCE_EQUIPMENT(WEAR_HANDS))
 	log_game("[key_name_admin(user)] has disabled their cloaking device.")
-	user.visible_message(SPAN_WARNING("[user] shimmers into existence!"), SPAN_WARNING("Your cloaking device deactivates."))
+	user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] shimmers into existence!"), SPAN_WARNING("Your cloaking device deactivates."))
 	var/sound_to_use
 	if(invisibility_sound == PRED_TECH_MODERN)
 		sound_to_use = 'sound/effects/pred_cloakoff_modern.ogg'
@@ -1453,7 +1453,7 @@
 
 	if(user.get_active_hand() == held_mob && victim && victim.gloves == bracer)
 		log_interact(user, victim, "[key_name(user)] unlocked the [bracer.name] of [key_name(victim)].")
-		user.visible_message(SPAN_WARNING("[user] presses a few buttons on [victim]'s wrist bracer."),SPAN_DANGER("You unlock the bracer."))
+		user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] presses a few buttons on [victim]'s wrist bracer."),SPAN_DANGER("You unlock the bracer."))
 		bracer.toggle_lock_internal(victim)
 		return TRUE
 

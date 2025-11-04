@@ -122,7 +122,7 @@ YOU TO 200 DAMAGE. I ASK NOT FOR MY OWN MEDIC EGOSTROKING, BUT FOR THE GOOD OF T
 		//possessive_their = user.p_their() // SS220 EDIT ADDICTION
 		if(!looping) //start message.
 			skill_msg = pick("awkwardly", "slowly and carefully")
-			user.visible_message(SPAN_NOTICE("[user] начинает [skill_msg] лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на [ru_name_target_limb]."), // SS220 EDIT ADDICTION
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает [skill_msg] лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на [ru_name_target_limb]."), // SS220 EDIT ADDICTION
 				SPAN_HELPFUL("Вы начинаете [skill_msg] лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на своей [ru_name_target_limb].")) // SS220 EDIT ADDICTION
 			target.custom_pain("Вы чувствуете как затягиваются [description_wounds == "wounds" ? "раны" : "ожоги"] на [ru_name_target_limb]!") // SS220 EDIT ADDICTION
 	else
@@ -131,8 +131,8 @@ YOU TO 200 DAMAGE. I ASK NOT FOR MY OWN MEDIC EGOSTROKING, BUT FOR THE GOOD OF T
 		if(!looping)
 			user.affected_message(target,
 				SPAN_HELPFUL("Вы начинаете [skill_msg] лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на [ru_name_target_limb] [target]."), // SS220 EDIT ADDICTION
-				SPAN_HELPFUL("[user] начинает [skill_msg] лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на вашей [ru_name_target_limb]."), // SS220 EDIT ADDICTION
-				SPAN_NOTICE("[user] начинает [skill_msg] лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на [ru_name_target_limb] [target].")) // SS220 EDIT ADDICTION
+				SPAN_HELPFUL("[capitalize(user.declent_ru(NOMINATIVE))] начинает [skill_msg] лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на вашей [ru_name_target_limb]."), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает [skill_msg] лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на [ru_name_target_limb] [target].")) // SS220 EDIT ADDICTION
 			target.custom_pain("Вы чувствуете как затягиваются [description_wounds == "wounds" ? "раны" : "ожоги"] на [ru_name_target_limb]!") // SS220 EDIT ADDICTION
 
 	if(target.pain?.feels_pain && target.stat == CONSCIOUS && target.pain.reduction_pain < PAIN_REDUCTION_HEAVY && prob(max(0, PAIN_REDUCTION_HEAVY - target.pain.reduction_pain))) //This is based on surgery pain failure code but more lenient.
@@ -162,13 +162,13 @@ YOU TO 200 DAMAGE. I ASK NOT FOR MY OWN MEDIC EGOSTROKING, BUT FOR THE GOOD OF T
 	if(added_sutures & SUTURED_FULLY)
 		user.affected_message(target,
 			SPAN_HELPFUL("Вы заканчиваете лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на [ru_name_target_limb] [target]."),
-			SPAN_HELPFUL("[user] заканчивает лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на вашей [ru_name_target_limb]."),
-			SPAN_NOTICE("[user] заканчивает лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на [ru_name_target_limb] [target]."))
+			SPAN_HELPFUL("[capitalize(user.declent_ru(NOMINATIVE))] заканчивает лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на вашей [ru_name_target_limb]."),
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] заканчивает лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на [ru_name_target_limb] [target]."))
 	else
 		user.affected_message(target,
 			SPAN_HELPFUL("Вы вылечиваете часть повреждений от [description_wounds == "wounds" ? "ран" : "ожогов"] на [ru_name_target_limb] [target]."),
-			SPAN_HELPFUL("[user] вылечивает часть повреждений от [description_wounds == "wounds" ? "ран" : "ожогов"] на вашей [ru_name_target_limb]."),
-			SPAN_NOTICE("[user] вылечивает часть повреждений от [description_wounds == "wounds" ? "ран" : "ожогов"] на [ru_name_target_limb] [target]."))
+			SPAN_HELPFUL("[capitalize(user.declent_ru(NOMINATIVE))] вылечивает часть повреждений от [description_wounds == "wounds" ? "ран" : "ожогов"] на вашей [ru_name_target_limb]."),
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] вылечивает часть повреждений от [description_wounds == "wounds" ? "ран" : "ожогов"] на [ru_name_target_limb] [target]."))
 
 		suture(suturing_item, user, target, target_limb, TRUE) //Loop - untreated wounds remain.
 

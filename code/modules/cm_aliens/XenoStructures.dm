@@ -868,7 +868,7 @@
 /obj/effect/alien/resin/resin_pillar/attackby(obj/item/W, mob/living/user)
 	user.animation_attack_on(src)
 	if(!brittle)
-		user.visible_message(SPAN_DANGER("[user] hits \the [src], but \the [W] bounces off!"),
+		user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] hits \the [src], but \the [W] bounces off!"),
 			SPAN_DANGER("You hit \the [name], but \the [W] bounces off!"))
 		return
 

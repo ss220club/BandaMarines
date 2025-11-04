@@ -212,11 +212,11 @@
 	if(buildstate || require_fusion_cell && !HasFuel())
 		if(is_on)
 			to_chat(user, SPAN_NOTICE("You press [src]'s emergency shutdown button."))
-			visible_message(SPAN_NOTICE("[user] presses [src]'s emergency shutdown button."))
+			visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] presses [src]'s emergency shutdown button."))
 			start_functioning(FALSE)
 			return
 
-		visible_message(SPAN_NOTICE("[user] starts to hold [src]'s emergency start lever."))
+		visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts to hold [src]'s emergency start lever."))
 		if(!do_after(user, 3 SECONDS, INTERRUPT_ALL, BUSY_ICON_BUILD, src))
 			to_chat(user, SPAN_NOTICE("You let go of the emergency start lever."))
 			return FALSE

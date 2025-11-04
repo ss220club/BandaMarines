@@ -116,13 +116,13 @@
 	var/obj/item/tool/shovel/shovel = item
 	if(!istype(shovel) || shovel.folded || user.action_busy)
 		return
-	visible_message(SPAN_HIGHDANGER("[user] is trying to tear down [src]"))
+	visible_message(SPAN_HIGHDANGER("[capitalize(user.declent_ru(NOMINATIVE))] is trying to tear down [src]"))
 	playsound(src, 'sound/items/paper_ripped.ogg', 25, 1)
 
 	if(!do_after(user, 150, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_HOSTILE, src) || QDELETED(src))
 		return
 
-	visible_message(SPAN_HIGHDANGER("[user] tears down [src]"))
+	visible_message(SPAN_HIGHDANGER("[capitalize(user.declent_ru(NOMINATIVE))] tears down [src]"))
 	playsound(src, 'sound/items/paper_ripped.ogg', 25, 1)
 	qdel(src)
 

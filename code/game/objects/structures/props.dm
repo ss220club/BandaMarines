@@ -123,7 +123,7 @@
 	..()
 	if(lit)
 		lit = !lit
-		visible_message("[user] extinguishes the lanterns on [src].",
+		visible_message("[capitalize(user.declent_ru(NOMINATIVE))] extinguishes the lanterns on [src].",
 			"You extinguish the fires on [src].")
 		Update()
 	return
@@ -183,7 +183,7 @@
 		if(W.heat_source > 200)
 			L = 1
 	if(L)
-		visible_message("[user] quietly goes from lantern to lantern on the torii, lighting the wicks in each one.")
+		visible_message("[capitalize(user.declent_ru(NOMINATIVE))] quietly goes from lantern to lantern on the torii, lighting the wicks in each one.")
 		lit = TRUE
 		Update()
 
@@ -481,13 +481,13 @@
 			if(!wooden_boards.use(5))
 				to_chat(user, SPAN_WARNING("Not enough wood!"))
 				return
-			user.visible_message(SPAN_NOTICE("[user] fills [src] with [hit_item]."))
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] fills [src] with [hit_item]."))
 		if(STATE_IGNITE)
 			if(!hit_item.heat_source)
 				return ..()
 			if(!do_after(user, 3 SECONDS, INTERRUPT_MOVED, BUSY_ICON_BUILD))
 				return
-			user.visible_message(SPAN_NOTICE("[user] ignites [src] with [hit_item]."))
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] ignites [src] with [hit_item]."))
 
 	new frame_type(loc)
 	qdel(src)
@@ -600,7 +600,7 @@
 			return
 		fuel_drain()
 		to_chat(user, SPAN_NOTICE("You continue to extinguish [src]."))
-	visible_message(SPAN_NOTICE("[user] extinguishes [src]."))
+	visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] extinguishes [src]."))
 
 /obj/structure/prop/brazier/campfire/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item, /obj/item/stack/sheet/wood))
@@ -613,7 +613,7 @@
 	if(!fuel.use(1))
 		to_chat(user, SPAN_NOTICE("You do not have enough [attacking_item] to fuel [src]."))
 		return
-	visible_message(SPAN_NOTICE("[user] fuels [src] with [fuel]."))
+	visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] fuels [src] with [fuel]."))
 	remaining_fuel++
 
 /obj/structure/prop/brazier/campfire/attack_alien(mob/living/carbon/xenomorph/xeno)
@@ -999,7 +999,7 @@
 		var/obj/item/dogtag/dog = W
 		if(!tagged)
 			tagged = TRUE
-			user.visible_message(SPAN_NOTICE("[user] drapes [W] around [src]."))
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] drapes [W] around [src]."))
 			dogtag_name = popleft(dog.fallen_names)
 			dogtag_assign = popleft(dog.fallen_assgns)
 			dogtag_blood = popleft(dog.fallen_blood_types)
@@ -1048,13 +1048,13 @@
 		var/message = sanitize(input(user, "What do you write on [src]?", "Inscription"))
 		if(!message)
 			return
-		user.visible_message(SPAN_NOTICE("[user] begins to [action_msg] [src]."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins to [action_msg] [src]."),
 			SPAN_NOTICE("You begin to [action_msg] [src]."), null, 4)
 
 		if(!do_after(user, length(message) * time_multiplier, INTERRUPT_ALL, BUSY_ICON_GENERIC))
 			to_chat(user, SPAN_WARNING("You were interrupted!"))
 		else
-			user.visible_message(SPAN_NOTICE("[user] uses \his [W.name] to [action_msg] [src]."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] uses \his [W.name] to [action_msg] [src]."),
 				SPAN_NOTICE("You [action_msg] [src] with your [W.name]."), null, 4)
 			if(inscription)
 				inscription += "\n[message]"

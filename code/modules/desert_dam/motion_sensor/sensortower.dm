@@ -147,14 +147,14 @@
 			if(WT.remove_fuel(1, user))
 
 				playsound(loc, 'sound/items/weldingtool_weld.ogg', 25)
-				user.visible_message(SPAN_NOTICE("[user] starts welding \the [src]'s internal damage."),
+				user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts welding \the [src]'s internal damage."),
 				SPAN_NOTICE("You start welding \the [src]'s internal damage."))
 				if(do_after(user, 200 * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
 					if(buildstate != SENSORTOWER_BUILDSTATE_BLOWTORCH || is_on || !WT.isOn())
 						return FALSE
 					playsound(loc, 'sound/items/Welder2.ogg', 25, 1)
 					buildstate = SENSORTOWER_BUILDSTATE_WIRECUTTERS
-					user.visible_message(SPAN_NOTICE("[user] welds \the [src]'s internal damage."),
+					user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] welds \the [src]'s internal damage."),
 					SPAN_NOTICE("You weld \the [src]'s internal damage."))
 					update_icon()
 					return TRUE
@@ -168,14 +168,14 @@
 				to_chat(user, SPAN_WARNING("You have no clue how to repair this thing."))
 				return FALSE
 			playsound(loc, 'sound/items/Wirecutter.ogg', 25, 1)
-			user.visible_message(SPAN_NOTICE("[user] starts securing \the [src]'s wiring."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts securing \the [src]'s wiring."),
 			SPAN_NOTICE("You start securing \the [src]'s wiring."))
 			if(do_after(user, 120 * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD, numticks = 12))
 				if(buildstate != SENSORTOWER_BUILDSTATE_WIRECUTTERS || is_on)
 					return FALSE
 				playsound(loc, 'sound/items/Wirecutter.ogg', 25, 1)
 				buildstate = SENSORTOWER_BUILDSTATE_WRENCH
-				user.visible_message(SPAN_NOTICE("[user] secures \the [src]'s wiring."),
+				user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] secures \the [src]'s wiring."),
 				SPAN_NOTICE("You secure \the [src]'s wiring."))
 				update_icon()
 				return TRUE
@@ -185,14 +185,14 @@
 				to_chat(user, SPAN_WARNING("You have no clue how to repair this thing."))
 				return FALSE
 			playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
-			user.visible_message(SPAN_NOTICE("[user] starts repairing \the [src]'s tubing and plating."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts repairing \the [src]'s tubing and plating."),
 			SPAN_NOTICE("You start repairing \the [src]'s tubing and plating."))
 			if(do_after(user, 150 * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
 				if(buildstate != SENSORTOWER_BUILDSTATE_WRENCH || is_on)
 					return FALSE
 				playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
 				buildstate = SENSORTOWER_BUILDSTATE_WORKING
-				user.visible_message(SPAN_NOTICE("[user] repairs \the [src]'s tubing and plating."),
+				user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] repairs \the [src]'s tubing and plating."),
 				SPAN_NOTICE("You repair \the [src]'s tubing and plating."))
 				update_icon()
 				return TRUE

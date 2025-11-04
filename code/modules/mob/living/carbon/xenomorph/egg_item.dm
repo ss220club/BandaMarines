@@ -74,7 +74,7 @@
 				to_chat(user, SPAN_WARNING("The floor needs to be clear to plant this!"))
 				return
 
-	user.visible_message(SPAN_NOTICE("[user] starts planting [src]."),
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts planting [src]."),
 					SPAN_NOTICE("You start planting [src]."), null, 5)
 	if(!do_after(user, 50, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
 		return
@@ -135,7 +135,7 @@
 			to_chat(user, SPAN_XENOWARNING("[declent_ru()] нельзя посадить под объекты, которые будут его перекрывать собой.")) // SS220 EDIT ADDICTION
 			return
 
-	user.visible_message(SPAN_XENONOTICE("[user] начинает сажать [declent_ru()]."), SPAN_XENONOTICE("Вы начинаете сажать [declent_ru()]."), null, 5) // SS220 EDIT ADDICTION
+	user.visible_message(SPAN_XENONOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает сажать [declent_ru()]."), SPAN_XENONOTICE("Вы начинаете сажать [declent_ru()]."), null, 5) // SS220 EDIT ADDICTION
 
 	var/plant_time = 35
 	if(isdrone(user))

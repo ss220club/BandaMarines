@@ -23,7 +23,7 @@
 	. = ..()
 	var/is_male = user.gender == MALE ? "" : "а" // SS220 EDIT ADDICTION
 	var/ru_name = declent_ru(GENITIVE) // SS220 EDIT ADDICTION
-	user.visible_message(SPAN_NOTICE("[user] установил[is_male] [ru_name]!"), SPAN_NOTICE("Вы установили [ru_name].")) // SS220 EDIT ADDICTION
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] установил[is_male] [ru_name]!"), SPAN_NOTICE("Вы установили [ru_name].")) // SS220 EDIT ADDICTION
 	user.drop_inv_item_on_ground(src)
 	anchored = TRUE
 	update_icon()

@@ -26,8 +26,8 @@
 	var/ru_name_tool = tool.declent_ru() // SS220 EDIT ADDICTION
 	user.affected_message(target,
 		SPAN_NOTICE("Вы начинаете зашивать разрез на [ru_name_affected_limb] [target], используя [ru_name_tool]."), // SS220 EDIT ADDICTION
-		SPAN_NOTICE("[user] начинает зашивать разрез на [ru_name_affected_limb], используя [ru_name_tool]."), // SS220 EDIT ADDICTION
-		SPAN_NOTICE("[user] начинает зашивать разрез на [ru_name_affected_limb] [target], используя [ru_name_tool].")) // SS220 EDIT ADDICTION
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает зашивать разрез на [ru_name_affected_limb], используя [ru_name_tool]."), // SS220 EDIT ADDICTION
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает зашивать разрез на [ru_name_affected_limb] [target], используя [ru_name_tool].")) // SS220 EDIT ADDICTION
 
 	target.custom_pain("Вы чувствуете, как игла прокалывает вашу плоть на [ru_name_affected_limb]!") // SS220 EDIT ADDICTION
 	log_interact(user, target, "[key_name(user)] began suturing an incision in [key_name(target)]'s [surgery.affected_limb.display_name] with \the [tool].")
@@ -49,15 +49,15 @@
 	if(added_sutures & SUTURED_FULLY)
 		user.affected_message(target,
 			SPAN_NOTICE("Вы завершаете зашивать разрез на [ru_name_affected_limb] [target]."), // SS220 EDIT ADDICTION
-			SPAN_NOTICE("[user] завершает зашивать разрез на [ru_name_affected_limb]."), // SS220 EDIT ADDICTION
-			SPAN_NOTICE("[user] завершает зашивать разрез на [ru_name_affected_limb] [target].")) // SS220 EDIT ADDICTION
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] завершает зашивать разрез на [ru_name_affected_limb]."), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] завершает зашивать разрез на [ru_name_affected_limb] [target].")) // SS220 EDIT ADDICTION
 
 		log_interact(user, target, "[key_name(user)] finished suturing an incision in [key_name(target)]'s [surgery.affected_limb.display_name] with \the [tool], ending [surgery].")
 	else
 		user.affected_message(target,
 			SPAN_NOTICE("Вы завершаете зашивать разрез на [ru_name_affected_limb] [target], однако некоторые повреждения ещё остаются."), // SS220 EDIT ADDICTION
-			SPAN_NOTICE("[user] завершает зашивать разрез на [ru_name_affected_limb], однако некоторые повреждения ещё остаются."), // SS220 EDIT ADDICTION
-			SPAN_NOTICE("[user] завершает зашивать разрез на [ru_name_affected_limb] [target], однако некоторые повреждения ещё остаются.")) // SS220 EDIT ADDICTION
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] завершает зашивать разрез на [ru_name_affected_limb], однако некоторые повреждения ещё остаются."), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] завершает зашивать разрез на [ru_name_affected_limb] [target], однако некоторые повреждения ещё остаются.")) // SS220 EDIT ADDICTION
 
 		log_interact(user, target, "[key_name(user)] finished suturing an incision in [key_name(target)]'s [surgery.affected_limb.display_name] with \the [tool], ending [surgery].")
 

@@ -69,7 +69,7 @@
 			if(!user.hand)
 				which_hand = "r_hand"
 			triggered(user, which_hand)
-			user.visible_message(SPAN_WARNING("[user] accidentally sets off [src], breaking their fingers."), SPAN_WARNING("You accidentally trigger [src]!"))
+			user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] accidentally sets off [src], breaking their fingers."), SPAN_WARNING("You accidentally trigger [src]!"))
 			return
 		to_chat(user, SPAN_NOTICE("You disarm [src]."))
 	armed = !armed
@@ -84,7 +84,7 @@
 			if(!user.hand)
 				which_hand = "r_hand"
 			triggered(user, which_hand)
-			user.visible_message(SPAN_WARNING("[user] accidentally sets off [src], breaking their fingers."),SPAN_WARNING("You accidentally trigger [src]!"))
+			user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] accidentally sets off [src], breaking their fingers."),SPAN_WARNING("You accidentally trigger [src]!"))
 			return
 	..()
 

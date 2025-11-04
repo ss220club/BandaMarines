@@ -76,7 +76,7 @@
 				to_chat(user, SPAN_XENOWARNING("[declent_ru()] уже занят дитём.")) // SS220 EDIT ADDICTION
 				return
 			if(user)
-				visible_message(SPAN_XENOWARNING("[user] помещает [hugger] обратно в [declent_ru()]."), // SS220 EDIT ADDICTION
+				visible_message(SPAN_XENOWARNING("[capitalize(user.declent_ru(NOMINATIVE))] помещает [hugger] обратно в [declent_ru()]."), // SS220 EDIT ADDICTION
 					SPAN_XENONOTICE("Вы помещаете дитя обратно в [declent_ru()].")) // SS220 EDIT ADDICTION
 				user.temp_drop_inv_item(hugger)
 			else
@@ -94,7 +94,7 @@
 			to_chat(user, SPAN_XENOWARNING("[declent_ru()] уже занят дитём.")) // SS220 EDIT ADDICTION
 			return
 		if(user)
-			visible_message(SPAN_XENOWARNING("[user] извлекает лицехвата из [egg] и помещает его в [declent_ru()]."), // SS220 EDIT ADDICTION
+			visible_message(SPAN_XENOWARNING("[capitalize(user.declent_ru(NOMINATIVE))] извлекает лицехвата из [egg] и помещает его в [declent_ru()]."), // SS220 EDIT ADDICTION
 				SPAN_XENONOTICE("Вы извлекаете дитя из яйца и помещаете его в [declent_ru()].")) // SS220 EDIT ADDICTION
 			user.temp_drop_inv_item(egg)
 		stored_huggers = min(huggers_max_amount, stored_huggers + 1)

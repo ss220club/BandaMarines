@@ -205,7 +205,7 @@
 
 	if (user)
 		playsound(user, unload_sound, 25, 1)
-		user.visible_message(SPAN_NOTICE("[user] unloads [current_mag] from [src]."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] unloads [current_mag] from [src]."),
 		SPAN_NOTICE("You unload [current_mag] from [src]."))
 
 	current_mag.update_icon()

@@ -273,8 +273,8 @@
 					SPAN_NOTICE("Вы слышите металлический щелчок."))
 			else
 				buckled_mob.visible_message(
-					SPAN_NOTICE("[user] отстёгивает [buckled_mob.name] от [ru_name]."), // SS220 EDIT ADDICTION
-					SPAN_NOTICE("[user] отстёгивает вас от [ru_name]."), // SS220 EDIT ADDICTION
+					SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] отстёгивает [buckled_mob.name] от [ru_name]."), // SS220 EDIT ADDICTION
+					SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] отстёгивает вас от [ru_name]."), // SS220 EDIT ADDICTION
 					SPAN_NOTICE("Вы слышите металлический щелчок."))
 			unbuckle(buckled_mob)
 			add_fingerprint(user)
@@ -350,8 +350,8 @@
 			SPAN_NOTICE("Вы слышите металлический щелчок."))
 	else
 		M.visible_message(
-			SPAN_NOTICE("[user] пристёгивает [M] к [ru_name]!"), // SS220 EDIT ADDICTION
-			SPAN_NOTICE("[user] пристёгивает вас к [ru_name]."),  // SS220 EDIT ADDICTION
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] пристёгивает [M] к [ru_name]!"), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] пристёгивает вас к [ru_name]."),  // SS220 EDIT ADDICTION
 			SPAN_NOTICE("Вы слышите металлический щелчок."))
 
 /obj/Move(NewLoc, direct)

@@ -68,15 +68,15 @@
 		if(tool_type == /obj/item/tool/surgery/bonegel)
 			user.affected_message(target,
 				SPAN_NOTICE("Вы начинаете наносить гель на [ru_name_affected_bone] [target], используя [ru_name_tool]."), // SS220 EDIT ADDICTION
-				SPAN_NOTICE("[user] начинает наносить гель на вашу [ru_name_affected_bone], используя [ru_name_tool]."), // SS220 EDIT ADDICTION
-				SPAN_NOTICE("[user] начинает наносить гель на [ru_name_affected_bone] [target], используя [ru_name_tool].")) // SS220 EDIT ADDICTION
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает наносить гель на вашу [ru_name_affected_bone], используя [ru_name_tool]."), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает наносить гель на [ru_name_affected_bone] [target], используя [ru_name_tool].")) // SS220 EDIT ADDICTION
 
 			target.custom_pain("Вы чувствуете, как что-то жжёт внутри вашей [ru_name_affected_bone]!", 1)
 		else
 			user.affected_message(target,
 				SPAN_NOTICE("Вы начинаете вкручивать металлические штифты в сломанные кости на [ru_name_affected_bone] [target], используя [ru_name_tool]."), // SS220 EDIT ADDICTION
-				SPAN_NOTICE("[user] начинает вкручивать металлические штифты в сломанные кости на вашей [ru_name_affected_bone], используя [ru_name_tool]."), // SS220 EDIT ADDICTION
-				SPAN_NOTICE("[user] начинает вкручивать металлические штифты в сломанные кости на [ru_name_affected_bone] [target], используя [ru_name_tool].")) // SS220 EDIT ADDICTION
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает вкручивать металлические штифты в сломанные кости на вашей [ru_name_affected_bone], используя [ru_name_tool]."), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает вкручивать металлические штифты в сломанные кости на [ru_name_affected_bone] [target], используя [ru_name_tool].")) // SS220 EDIT ADDICTION
 
 			target.custom_pain("Вы чувствуете, как что-то закручивается внутрь вашей [ru_name_affected_bone]!", 1)
 			playsound(target.loc, 'sound/items/Screwdriver.ogg', 25, TRUE)
@@ -84,15 +84,15 @@
 		if(tool_type == /obj/item/tool/surgery/bonegel)
 			user.affected_message(target,
 				SPAN_NOTICE("Вы начинаете наносить гель на [ru_name_affected_limb] [target], используя [ru_name_tool]."), // SS220 EDIT ADDICTION
-				SPAN_NOTICE("[user] начинает наносить гель на вашу [ru_name_affected_limb], используя [ru_name_tool]."), // SS220 EDIT ADDICTION
-				SPAN_NOTICE("[user] начинает наносить гель на [ru_name_affected_limb] [target], используя [ru_name_tool].")) // SS220 EDIT ADDICTION
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает наносить гель на вашу [ru_name_affected_limb], используя [ru_name_tool]."), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает наносить гель на [ru_name_affected_limb] [target], используя [ru_name_tool].")) // SS220 EDIT ADDICTION
 
 			target.custom_pain("Вы чувствуете, как что-то жжёт внутри вашей [ru_name_affected_limb]!", 1) // SS220 EDIT ADDICTION
 		else
 			user.affected_message(target,
 				SPAN_NOTICE("Вы начинаете вкручивать металлические штифты в сломанные кости на [ru_name_affected_limb] [target], используя [ru_name_tool]."), // SS220 EDIT ADDICTION
-				SPAN_NOTICE("[user] начинает вкручивать металлические штифты в сломанные кости на вашей [ru_name_affected_limb], используя [ru_name_tool]."), // SS220 EDIT ADDICTION
-				SPAN_NOTICE("[user] начинает вкручивать металлические штифты в сломанные кости на [ru_name_affected_limb] [target], используя [ru_name_tool].")) // SS220 EDIT ADDICTION
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает вкручивать металлические штифты в сломанные кости на вашей [ru_name_affected_limb], используя [ru_name_tool]."), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает вкручивать металлические штифты в сломанные кости на [ru_name_affected_limb] [target], используя [ru_name_tool].")) // SS220 EDIT ADDICTION
 
 			target.custom_pain("Вы чувствуете, как что-то закручивается внутрь вашей [ru_name_affected_limb]!", 1)
 
@@ -107,26 +107,26 @@
 		if(tool_type == /obj/item/tool/surgery/bonegel)
 			user.affected_message(target,
 				SPAN_NOTICE("Вы наносите гель на [ru_name_affected_limb] [target], используя [ru_name_tool]."),
-				SPAN_NOTICE("[user] наносит гель на вашу [ru_name_affected_limb], используя [ru_name_tool]."),
-				SPAN_NOTICE("[user] наносит гель на [ru_name_affected_limb] [target], используя [ru_name_tool]."))
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] наносит гель на вашу [ru_name_affected_limb], используя [ru_name_tool]."),
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] наносит гель на [ru_name_affected_limb] [target], используя [ru_name_tool]."))
 		else
 			user.affected_message(target,
 				SPAN_NOTICE("Вы наспех укрепляете кости [ru_name_affected_limb] [target], словно какой-то [improvised_desc]."), // SS220 EDIT ADDICTION
-				SPAN_NOTICE("[user] наспех укрепляет кости вашей [ru_name_affected_limb], словно какой-то [improvised_desc]."), // SS220 EDIT ADDICTION
-				SPAN_NOTICE("[user] наспех укрепляет кости [ru_name_affected_limb] [target], словно какой-то [improvised_desc].")) // SS220 EDIT ADDICTION
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] наспех укрепляет кости вашей [ru_name_affected_limb], словно какой-то [improvised_desc]."), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] наспех укрепляет кости [ru_name_affected_limb] [target], словно какой-то [improvised_desc].")) // SS220 EDIT ADDICTION
 	else
 		if(tool_type == /obj/item/tool/surgery/bonegel)
 			user.affected_message(target,
 				SPAN_NOTICE("Вы наносите гель на [ru_name_affected_limb] [target], используя [ru_name_tool]."),
-				SPAN_NOTICE("[user] наносит гель на вашу [ru_name_affected_limb], используя [ru_name_tool]."),
-				SPAN_NOTICE("[user] наносит гель на [ru_name_affected_limb] [target], используя [ru_name_tool]."))
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] наносит гель на вашу [ru_name_affected_limb], используя [ru_name_tool]."),
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] наносит гель на [ru_name_affected_limb] [target], используя [ru_name_tool]."))
 			user.update_inv_l_hand()
 			user.update_inv_r_hand()
 		else
 			user.affected_message(target,
 				SPAN_NOTICE("Вы наспех укрепляете кости [ru_name_affected_limb] [target], словно какой-то [improvised_desc]."), // SS220 EDIT ADDICTION
-				SPAN_NOTICE("[user] наспех укрепляет кости вашей [ru_name_affected_limb], словно какой-то [improvised_desc]."), // SS220 EDIT ADDICTION
-				SPAN_NOTICE("[user] наспех укрепляет кости [ru_name_affected_limb] [target], словно какой-то [improvised_desc].")) // SS220 EDIT ADDICTION
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] наспех укрепляет кости вашей [ru_name_affected_limb], словно какой-то [improvised_desc]."), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] наспех укрепляет кости [ru_name_affected_limb] [target], словно какой-то [improvised_desc].")) // SS220 EDIT ADDICTION
 
 	log_interact(user, target, "[key_name(user)] successfully began repairing bones in [key_name(target)]'s [surgery.affected_limb.display_name] with \the [tool], starting [surgery].")
 
@@ -176,23 +176,23 @@
 		if("head")
 			user.affected_message(target,
 				SPAN_NOTICE("Вы начинаете собирать кусочки черепа [target], используя [ru_name_tool]."),
-				SPAN_NOTICE("[user] начинает собирать кусочки вашего черепа, используя [ru_name_tool]."),
-				SPAN_NOTICE("[user] начинает собирать кусочки черепа [target], используя [ru_name_tool]."))
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает собирать кусочки вашего черепа, используя [ru_name_tool]."),
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает собирать кусочки черепа [target], используя [ru_name_tool]."))
 		if("chest")
 			user.affected_message(target,
 				SPAN_NOTICE("Вы начинаете вправлять сломанные рёбра [target], используя [ru_name_tool]."),
-				SPAN_NOTICE("[user] начинает вправлять ваши сломанные рёбра, используя [ru_name_tool]."),
-				SPAN_NOTICE("[user] начинает вправлять сломанные рёбра [target], используя [ru_name_tool]."))
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает вправлять ваши сломанные рёбра, используя [ru_name_tool]."),
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает вправлять сломанные рёбра [target], используя [ru_name_tool]."))
 		if("groin")
 			user.affected_message(target,
 				SPAN_NOTICE("Вы начинаете вправлять сломанный таз [target], используя [ru_name_tool]."),
-				SPAN_NOTICE("[user] начинает вправлять ваш сломанный таз, используя [ru_name_tool]."),
-				SPAN_NOTICE("[user] начинает вправлять сломанный таз [target], используя [ru_name_tool]."))
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает вправлять ваш сломанный таз, используя [ru_name_tool]."),
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает вправлять сломанный таз [target], используя [ru_name_tool]."))
 		else
 			user.affected_message(target,
 				SPAN_NOTICE("Вы начинаете вправлять сломанные кости [ru_name_affected_limb] [target], используя [ru_name_tool]."),
-				SPAN_NOTICE("[user] начинает вправлять сломанные кости в вашей [ru_name_affected_limb], используя [ru_name_tool]."),
-				SPAN_NOTICE("[user] начинает вправлять сломанные кости [ru_name_affected_limb] [target], используя [ru_name_tool]."))
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает вправлять сломанные кости в вашей [ru_name_affected_limb], используя [ru_name_tool]."),
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает вправлять сломанные кости [ru_name_affected_limb] [target], используя [ru_name_tool]."))
 
 	target.custom_pain("Вы вот-вот потеряете сознание от боли в вашей [ru_name_affected_limb]!", 1)
 	log_interact(user, target, "[key_name(user)] attempted to begin setting bones in [key_name(target)]'s [surgery.affected_limb.display_name] with \the [tool].")
@@ -202,13 +202,13 @@
 	if(surgery.affected_bone)
 		user.affected_message(target,
 			SPAN_NOTICE("Вы вправляете [ru_name_affected_limb] [target]."),
-			SPAN_NOTICE("[user] вправляет вашу [ru_name_affected_limb]."),
-			SPAN_NOTICE("[user] вправляет [ru_name_affected_limb] [target]."))
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] вправляет вашу [ru_name_affected_limb]."),
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] вправляет [ru_name_affected_limb] [target]."))
 	else
 		user.affected_message(target,
 			SPAN_NOTICE("Вы вправляете [ru_name_affected_limb] [target]."),
-			SPAN_NOTICE("[user] вправляет вашу [ru_name_affected_limb]."),
-			SPAN_NOTICE("[user] вправляет [ru_name_affected_limb] [target]."))
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] вправляет вашу [ru_name_affected_limb]."),
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] вправляет [ru_name_affected_limb] [target]."))
 
 	user.count_niche_stat(STATISTICS_NICHE_SURGERY_BONES)
 	if(surgery.affected_limb.status & LIMB_SPLINTED_INDESTRUCTIBLE)

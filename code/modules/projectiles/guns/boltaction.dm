@@ -269,7 +269,7 @@
 	var/direction = REVERSE_DIR(user.dir)
 	if(direction && !step(user, direction))
 		user.animation_attack_on(get_step(user, direction))
-		user.visible_message(SPAN_DANGER("[user] врезается в препятствие!"), SPAN_HIGHDANGER("Вы врезаетесь в препятствие!"), null, 4, CHAT_TYPE_TAKING_HIT)
+		user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] врезается в препятствие!"), SPAN_HIGHDANGER("Вы врезаетесь в препятствие!"), null, 4, CHAT_TYPE_TAKING_HIT)
 		user.apply_damage(MELEE_FORCE_TIER_2)
 
 	shake_camera(user, 7, 6) // Around 2x worse than getting hit with a heavy round

@@ -107,7 +107,7 @@
 
 			playsound(user.loc, 'sound/effects/thud.ogg', 40, 1, 6)
 
-			user.visible_message(SPAN_NOTICE("[user] starts to collapse [src]!"), SPAN_NOTICE("You start collapsing [src]!"))
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts to collapse [src]!"), SPAN_NOTICE("You start collapsing [src]!"))
 
 			if(user.action_busy || !do_after(user, TUNNEL_COLLAPSING_TIME * ((100 - destroying_shovel.shovelspeed) * 0.01), INTERRUPT_ALL, BUSY_ICON_BUILD))
 				return
@@ -227,7 +227,7 @@
 			to_chat(user, SPAN_XENOWARNING("Мы слишком малы, чтобы засыпать этот туннель!"))
 			return XENO_NO_DELAY_ACTION
 
-		user.visible_message(SPAN_XENODANGER("[user] начинает засыпать [declent_ru()] землёй."), // SS220 EDIT ADDICTION
+		user.visible_message(SPAN_XENODANGER("[capitalize(user.declent_ru(NOMINATIVE))] начинает засыпать [declent_ru()] землёй."), // SS220 EDIT ADDICTION
 		SPAN_XENONOTICE("Мы начинаем засыпать [declent_ru()] землёй с помощью наших больших когтей."), max_distance = 3) // SS220 EDIT ADDICTION
 		xeno_attack_delay(user)
 
@@ -272,10 +272,10 @@
 		tunnel_time = TUNNEL_ENTER_LARVA_DELAY
 
 	if(user.mob_size >= MOB_SIZE_BIG)
-		user.visible_message(SPAN_XENONOTICE("[user] начинает протискивать своё огромное тело в [declent_ru()]."), // SS220 EDIT ADDICTION
+		user.visible_message(SPAN_XENONOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает протискивать своё огромное тело в [declent_ru()]."), // SS220 EDIT ADDICTION
 			SPAN_XENONOTICE("Мы начинаем протискивать своё огромное тело в [declent_ru()] (<i>[tunnel_desc]</i>).")) // SS220 EDIT ADDICTION
 	else
-		user.visible_message(SPAN_XENONOTICE("[user] начинает забираться в [declent_ru()]."), // SS220 EDIT ADDICTION
+		user.visible_message(SPAN_XENONOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает забираться в [declent_ru()]."), // SS220 EDIT ADDICTION
 			SPAN_XENONOTICE("Мы начинаем забираться в [declent_ru()] (<i>[tunnel_desc]</i>).")) // SS220 EDIT ADDICTION
 
 	xeno_attack_delay(user)

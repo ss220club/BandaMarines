@@ -40,7 +40,7 @@
 /obj/structure/largecrate/attackby(obj/item/W as obj, mob/user as mob)
 	if(HAS_TRAIT(W, TRAIT_TOOL_CROWBAR))
 		unpack()
-		user.visible_message(SPAN_NOTICE("[user] pries \the [src] open."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] pries \the [src] open."),
 							SPAN_NOTICE("You pry open \the [src]."))
 	else
 		return attack_hand(user)

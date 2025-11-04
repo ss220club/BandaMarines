@@ -536,7 +536,7 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 			ammo_level = "almost empty."
 		if(M.current_rounds == 0)
 			ammo_level = "empty. Uh oh."
-		user.visible_message("[user] bashes [M] against their helmet", "You bash [M] against your helmet. It is [ammo_level]")
+		user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] bashes [M] against their helmet", "You bash [M] against your helmet. It is [ammo_level]")
 		helmet_bash_cooldown = world.time + 20 SECONDS
 		return
 

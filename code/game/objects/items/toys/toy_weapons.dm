@@ -159,7 +159,7 @@
 	else if (bullets == 0)
 		user.apply_effect(5, WEAKEN)
 		for(var/mob/O in viewers(GLOB.world_view_size, user))
-			O.show_message(SPAN_DANGER("[user] realized they were out of ammo and starting scrounging for some!"), SHOW_MESSAGE_VISIBLE)
+			O.show_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] realized they were out of ammo and starting scrounging for some!"), SHOW_MESSAGE_VISIBLE)
 
 
 /obj/item/toy/crossbow/attack(mob/living/M as mob, mob/user as mob)

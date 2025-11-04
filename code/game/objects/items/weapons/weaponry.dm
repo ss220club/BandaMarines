@@ -248,7 +248,7 @@
 		if(prob(50))
 			user.visible_message(SPAN_DANGER("[M] and [user] cross blades!"))
 		else
-			M.visible_message(SPAN_DANGER("[user] and [M] cross blades!"))
+			M.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] and [M] cross blades!"))
 		playsound(user, 'sound/weapons/bladeslice.ogg', 25, 1)
 		playsound(M, 'sound/weapons/bladeslice.ogg', 25, 1)
 		user.animation_attack_on(M)

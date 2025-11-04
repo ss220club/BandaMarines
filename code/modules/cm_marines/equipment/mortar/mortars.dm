@@ -247,7 +247,7 @@
 	if(!can_fire_at(user, test_targ_x = deobfuscate_x(temp_targ_x), test_targ_y = deobfuscate_y(temp_targ_y), test_targ_z = deobfuscate_z(temp_targ_z)))
 		return
 
-	user.visible_message(SPAN_NOTICE("[user] starts adjusting [src]'s firing angle and distance."),
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts adjusting [src]'s firing angle and distance."),
 	SPAN_NOTICE("You start adjusting [src]'s firing angle and distance to match the new coordinates."))
 	busy = TRUE
 
@@ -260,7 +260,7 @@
 	busy = FALSE
 	if(!success)
 		return
-	user.visible_message(SPAN_NOTICE("[user] finishes adjusting [src]'s firing angle and distance."),
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] finishes adjusting [src]'s firing angle and distance."),
 	SPAN_NOTICE("You finish adjusting [src]'s firing angle and distance to match the new coordinates."))
 	targ_x = deobfuscate_x(temp_targ_x)
 	targ_y = deobfuscate_y(temp_targ_y)
@@ -318,7 +318,7 @@
 	if(!can_fire_at(user, test_dial_x = temp_dial_x, test_dial_y = temp_dial_y))
 		return
 
-	user.visible_message(SPAN_NOTICE("[user] starts dialing [src]'s firing angle and distance."),
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts dialing [src]'s firing angle and distance."),
 	SPAN_NOTICE("You start dialing [src]'s firing angle and distance to match the new coordinates."))
 	busy = TRUE
 
@@ -331,7 +331,7 @@
 	busy = FALSE
 	if(!success)
 		return
-	user.visible_message(SPAN_NOTICE("[user] finishes dialing [src]'s firing angle and distance."),
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] finishes dialing [src]'s firing angle and distance."),
 	SPAN_NOTICE("You finish dialing [src]'s firing angle and distance to match the new coordinates."))
 	dial_x = temp_dial_x
 	dial_y = temp_dial_y
@@ -413,14 +413,14 @@
 			if(deviation_turf && !lase_mode) // Mortar is accurate in lase mode
 				target_turf = deviation_turf
 
-		user.visible_message(SPAN_NOTICE("[user] starts loading \a [mortar_shell.name] into [src]."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts loading \a [mortar_shell.name] into [src]."),
 		SPAN_NOTICE("You start loading \a [mortar_shell.name] into [src]."))
 		playsound(loc, 'sound/weapons/gun_mortar_reload.ogg', 50, 1)
 		busy = TRUE
 		var/success = do_after(user, 1.5 SECONDS, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE)
 		busy = FALSE
 		if(success)
-			user.visible_message(SPAN_NOTICE("[user] loads \a [mortar_shell.name] into [src]."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] loads \a [mortar_shell.name] into [src]."),
 			SPAN_NOTICE("You load \a [mortar_shell.name] into [src]."))
 			visible_message("[icon2html(src, viewers(src))] [SPAN_DANGER("The [name] fires!")]")
 			user.drop_inv_item_to_loc(mortar_shell, src)
@@ -453,10 +453,10 @@
 			to_chat(user, SPAN_WARNING("[src]'s barrel is still steaming hot. Wait a few seconds and stop firing it."))
 			return
 		playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
-		user.visible_message(SPAN_NOTICE("[user] starts undeploying [src]."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts undeploying [src]."),
 				SPAN_NOTICE("You start undeploying [src]."))
 		if(do_after(user, 4 SECONDS, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
-			user.visible_message(SPAN_NOTICE("[user] undeploys [src]."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] undeploys [src]."),
 				SPAN_NOTICE("You undeploy [src]."))
 			playsound(loc, 'sound/items/Deconstruct.ogg', 25, 1)
 			var/obj/item/mortar_kit/mortar = new /obj/item/mortar_kit(loc)
@@ -467,7 +467,7 @@
 
 	if(HAS_TRAIT(item, TRAIT_TOOL_SCREWDRIVER))
 		if(do_after(user, 1 SECONDS, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
-			user.visible_message(SPAN_NOTICE("[user] toggles the targeting computer on [src]."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] toggles the targeting computer on [src]."),
 				SPAN_NOTICE("You toggle the targeting computer on [src]."))
 			computer_enabled = !computer_enabled
 			playsound(loc, 'sound/machines/switch.ogg', 25, 1)
@@ -611,7 +611,7 @@
 	if(CEILING_IS_PROTECTED(area.ceiling, CEILING_PROTECTION_TIER_1) && is_ground_level(deploy_turf.z))
 		to_chat(user, SPAN_WARNING("You probably shouldn't deploy [src] indoors."))
 		return
-	user.visible_message(SPAN_NOTICE("[user] starts deploying [src]."),
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts deploying [src]."),
 		SPAN_NOTICE("You start deploying [src]."))
 	playsound(deploy_turf, 'sound/items/Deconstruct.ogg', 25, 1)
 	if(do_after(user, 4 SECONDS, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
@@ -620,10 +620,10 @@
 			mortar.linked_designator = linked_designator
 		if(!is_ground_level(deploy_turf.z))
 			mortar.ship_side = TRUE
-			user.visible_message(SPAN_NOTICE("[user] deploys [src]."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] deploys [src]."),
 				SPAN_NOTICE("You deploy [src]. This is a bad idea."))
 		else
-			user.visible_message(SPAN_NOTICE("[user] deploys [src]."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] deploys [src]."),
 				SPAN_NOTICE("You deploy [src]."))
 		playsound(deploy_turf, 'sound/weapons/gun_mortar_unpack.ogg', 25, 1)
 		mortar.name = src.name

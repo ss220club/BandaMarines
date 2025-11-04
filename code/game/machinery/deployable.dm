@@ -44,7 +44,7 @@
 		if (src.health < src.maxhealth)
 			src.health = src.maxhealth
 			src.req_access = list(ACCESS_MARINE_PREP)
-			visible_message(SPAN_DANGER("[user] repairs \the [src]!"))
+			visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] repairs \the [src]!"))
 			return
 		return
 	else

@@ -128,7 +128,7 @@
 /obj/item/clothing/mask/facehugger/attack_alien(mob/living/carbon/xenomorph/user)
 	if(user.hivenumber != hivenumber)
 		user.animation_attack_on(src)
-		user.visible_message(SPAN_XENOWARNING("[user] раздавливает [declent_ru()]."), SPAN_XENOWARNING("Вы раздавливаете [declent_ru()]")) // SS220 EDIT ADDICTION
+		user.visible_message(SPAN_XENOWARNING("[capitalize(user.declent_ru(NOMINATIVE))] раздавливает [declent_ru()]."), SPAN_XENOWARNING("Вы раздавливаете [declent_ru()]")) // SS220 EDIT ADDICTION
 		die()
 		return XENO_ATTACK_ACTION
 

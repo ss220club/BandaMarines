@@ -86,7 +86,7 @@
 
 //Unsafe proc
 /obj/structure/bed/proc/do_buckle_bodybag(obj/structure/closet/bodybag/B, mob/user)
-	B.visible_message(SPAN_NOTICE("[user] buckles [B] to [src]!"))
+	B.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] buckles [B] to [src]!"))
 	B.roller_buckled = src
 	B.forceMove(loc)
 	B.setDir(dir)
@@ -233,7 +233,7 @@
 			return
 		if (user == usr && !user.is_mob_incapacitated() && Adjacent(user) && in_range(src, over_object))
 			user.put_in_hands(rollerholder)
-			user.visible_message(SPAN_INFO("[user] grabs [src] from the floor!"),
+			user.visible_message(SPAN_INFO("[capitalize(user.declent_ru(NOMINATIVE))] grabs [src] from the floor!"),
 			SPAN_INFO("You grab [src] from the floor!"))
 			forceMove(rollerholder)
 

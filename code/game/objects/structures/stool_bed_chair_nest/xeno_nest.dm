@@ -230,8 +230,8 @@
 	if(ishuman_strict(mob))
 		securing_time = 75
 
-	user.visible_message(SPAN_WARNING("[user] pins [mob] into [src], preparing the securing resin."),
-	SPAN_WARNING("[user] pins [mob] into [src], preparing the securing resin."))
+	user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] pins [mob] into [src], preparing the securing resin."),
+	SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] pins [mob] into [src], preparing the securing resin."))
 	var/M_loc = mob.loc
 	if(!do_after(user, securing_time, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE))
 		return
@@ -267,8 +267,8 @@
 	return TRUE
 
 /obj/structure/bed/nest/send_buckling_message(mob/M, mob/user)
-	M.visible_message(SPAN_XENONOTICE("[user] выделяет густую, отвратительную смолу, закрепляя [M] в [src]!"), // SS220 EDIT ADDICTION
-	SPAN_XENONOTICE("[user] обрызгивает вас зловонной смолой, запирая вас в [src]!"), // SS220 EDIT ADDICTION
+	M.visible_message(SPAN_XENONOTICE("[capitalize(user.declent_ru(NOMINATIVE))] выделяет густую, отвратительную смолу, закрепляя [M] в [src]!"), // SS220 EDIT ADDICTION
+	SPAN_XENONOTICE("[capitalize(user.declent_ru(NOMINATIVE))] обрызгивает вас зловонной смолой, запирая вас в [src]!"), // SS220 EDIT ADDICTION
 	SPAN_NOTICE("You hear squelching."))
 	playsound(loc, "alien_resin_move", 50)
 

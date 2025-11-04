@@ -388,7 +388,7 @@
 
 /obj/structure/girder/attack_animal(mob/living/simple_animal/user)
 	if(user.wall_smash)
-		visible_message(SPAN_DANGER("[user] smashes [src] apart!"))
+		visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] smashes [src] apart!"))
 		dismantle()
 		return
 	return ..()

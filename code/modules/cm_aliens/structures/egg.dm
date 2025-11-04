@@ -265,7 +265,7 @@
 		switch(status)
 			if(EGG_BURST)
 				if(user)
-					visible_message(SPAN_XENOWARNING("[user] помещает [F] обратно в [declent_ru()]."), // SS220 EDIT ADDICTION
+					visible_message(SPAN_XENOWARNING("[capitalize(user.declent_ru(NOMINATIVE))] помещает [F] обратно в [declent_ru()]."), // SS220 EDIT ADDICTION
 						SPAN_XENONOTICE("Мы помещаем дитя обратно в [declent_ru()].")) // SS220 EDIT ADDICTION
 					user.temp_drop_inv_item(F)
 				else
