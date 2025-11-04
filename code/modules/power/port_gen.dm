@@ -115,7 +115,7 @@ display floor(lastgen) and phorontank amount
 		return XENO_NO_DELAY_ACTION
 
 	attacking_xeno.animation_attack_on(src)
-	attacking_xeno.visible_message(SPAN_DANGER("[attacking_xeno] slashes [src]!"), SPAN_DANGER("You slash [src]!"))
+	attacking_xeno.visible_message(SPAN_DANGER("[capitalize(attacking_xeno.declent_ru(NOMINATIVE))] slashes [src]!"), SPAN_DANGER("You slash [src]!"))
 	playsound(attacking_xeno, pick('sound/effects/metalhit.ogg', 'sound/weapons/alien_claw_metal1.ogg', 'sound/weapons/alien_claw_metal2.ogg', 'sound/weapons/alien_claw_metal3.ogg'), 25, 1)
 
 	if(is_on)

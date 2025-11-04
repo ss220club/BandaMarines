@@ -28,7 +28,7 @@
 			if(on_fire)
 				extinguish_mob(attacking_xeno)
 			else
-				attacking_xeno.visible_message(SPAN_NOTICE("[attacking_xeno] caresses [src] with its claws."),
+				attacking_xeno.visible_message(SPAN_NOTICE("[capitalize(attacking_xeno.declent_ru(NOMINATIVE))] caresses [src] with its claws."),
 				SPAN_NOTICE("We caress [src] with our claws."), null, 5, CHAT_TYPE_XENO_FLUFF)
 
 		if(INTENT_GRAB)
@@ -46,13 +46,13 @@
 		if(INTENT_HARM)
 			if(attacking_xeno.claw_restrained())
 				attacking_xeno.animation_attack_on(src)
-				attacking_xeno.visible_message(SPAN_NOTICE("[attacking_xeno] пытается ударить [declent_ru()]"), // SS220 EDIt ADDICTION
+				attacking_xeno.visible_message(SPAN_NOTICE("[capitalize(attacking_xeno.declent_ru(NOMINATIVE))] пытается ударить [declent_ru()]"), // SS220 EDIt ADDICTION
 				SPAN_XENONOTICE("Мы пытаемся ударить [declent_ru()], но терпим неудачу из-за наших оков!")) // SS220 EDIt ADDICTION
 				return XENO_ATTACK_ACTION
 
 			if(attacking_xeno.can_not_harm(src, check_hive_flags=FALSE)) // We manually check hive_flags later
 				attacking_xeno.animation_attack_on(src)
-				attacking_xeno.visible_message(SPAN_NOTICE("[attacking_xeno] кусает [declent_ru()]"), // SS220 EDIt ADDICTION
+				attacking_xeno.visible_message(SPAN_NOTICE("[capitalize(attacking_xeno.declent_ru(NOMINATIVE))] кусает [declent_ru()]"), // SS220 EDIt ADDICTION
 				SPAN_XENONOTICE("Мы кусаем [declent_ru()]")) // SS220 EDIt ADDICTION
 				return XENO_ATTACK_ACTION
 
@@ -74,17 +74,17 @@
 				if(embryo_allied)
 					if(HAS_TRAIT(src, TRAIT_NESTED))
 						attacking_xeno.animation_attack_on(src)
-						attacking_xeno.visible_message(SPAN_NOTICE("[attacking_xeno] nibbles [src]"),
+						attacking_xeno.visible_message(SPAN_NOTICE("[capitalize(attacking_xeno.declent_ru(NOMINATIVE))] nibbles [src]"),
 						SPAN_XENONOTICE("We nibble [src], as it has a sister inside we should not harm."))
 						return XENO_NO_DELAY_ACTION
 					if(!HAS_FLAG(attacking_xeno.hive.hive_flags, XENO_SLASH_INFECTED))
 						attacking_xeno.animation_attack_on(src)
-						attacking_xeno.visible_message(SPAN_NOTICE("[attacking_xeno] nibbles [src]"),
+						attacking_xeno.visible_message(SPAN_NOTICE("[capitalize(attacking_xeno.declent_ru(NOMINATIVE))] nibbles [src]"),
 						SPAN_XENONOTICE("We nibble [src], as queen forbade slashing of infected hosts!"))
 						return XENO_ATTACK_ACTION
 				if(!HAS_FLAG(attacking_xeno.hive.hive_flags, XENO_SLASH_NORMAL))
 					attacking_xeno.animation_attack_on(src)
-					attacking_xeno.visible_message(SPAN_NOTICE("[attacking_xeno] nibbles [src]"),
+					attacking_xeno.visible_message(SPAN_NOTICE("[capitalize(attacking_xeno.declent_ru(NOMINATIVE))] nibbles [src]"),
 					SPAN_XENONOTICE("We nibble [src], as queen forbade slashing!"))
 					return XENO_ATTACK_ACTION
 
@@ -110,7 +110,7 @@
 			if(!damage)
 				playsound(attacking_xeno.loc, 'sound/weapons/alien_claw_swipe.ogg', 25, 1)
 				attacking_xeno.animation_attack_on(src)
-				attacking_xeno.visible_message(SPAN_DANGER("[attacking_xeno] lunges at [src]!"),
+				attacking_xeno.visible_message(SPAN_DANGER("[capitalize(attacking_xeno.declent_ru(NOMINATIVE))] lunges at [src]!"),
 				SPAN_DANGER("We lunge at [src]!"), null, 5, CHAT_TYPE_XENO_COMBAT)
 				return XENO_ATTACK_ACTION
 
@@ -134,7 +134,7 @@
 					knock_chance += min(floor(damage * 0.25), 10) //Maximum of 15% chance.
 					if(prob(knock_chance))
 						playsound(loc, "alien_claw_metal", 25, 1)
-						attacking_xeno.visible_message(SPAN_DANGER("[attacking_xeno] smashes off [src]'s [wear_mask.name]!"),
+						attacking_xeno.visible_message(SPAN_DANGER("[capitalize(attacking_xeno.declent_ru(NOMINATIVE))] smashes off [src]'s [wear_mask.name]!"),
 						SPAN_DANGER("We smash off [src]'s [wear_mask.name]!"), null, 5)
 						drop_inv_item_on_ground(wear_mask)
 						if(isyautja(src))
@@ -158,7 +158,7 @@
 
 			//The normal attack proceeds
 			playsound(loc, slash_noise, 25, TRUE)
-			attacking_xeno.visible_message(SPAN_DANGER("[attacking_xeno] [attacking_xeno.slashes_verb] [src]!"),
+			attacking_xeno.visible_message(SPAN_DANGER("[capitalize(attacking_xeno.declent_ru(NOMINATIVE))] [attacking_xeno.slashes_verb] [src]!"),
 			SPAN_DANGER("We [attacking_xeno.slash_verb] [src]!"), null, null, CHAT_TYPE_XENO_COMBAT)
 
 			handle_blood_splatter(get_dir(attacking_xeno.loc, src.loc))
@@ -228,13 +228,13 @@
 				var/stun_resisted = strength != stun.last_amount
 				playsound(loc, 'sound/weapons/alien_knockdown.ogg', 25, stun_resisted ? 1.5 : 0)
 				KnockDown(stun.last_amount) // Purely for knockdown visuals. All the heavy lifting is done by Stun
-				attacking_xeno.visible_message(SPAN_DANGER("[attacking_xeno] tackles down [src]!"),
+				attacking_xeno.visible_message(SPAN_DANGER("[capitalize(attacking_xeno.declent_ru(NOMINATIVE))] tackles down [src]!"),
 				SPAN_DANGER("We tackle down [src]!"), null, 5, CHAT_TYPE_XENO_COMBAT)
 				SEND_SIGNAL(src, COMSIG_MOB_TACKLED_DOWN, attacking_xeno)
 				knocked_down = TRUE
 			else
 				playsound(loc, 'sound/weapons/alien_claw_swipe.ogg', 25, 1)
-				attacking_xeno.visible_message(SPAN_DANGER("[attacking_xeno] tries to tackle [src]!"),
+				attacking_xeno.visible_message(SPAN_DANGER("[capitalize(attacking_xeno.declent_ru(NOMINATIVE))] tries to tackle [src]!"),
 				SPAN_DANGER("We try to tackle [src]!"), null, 5, CHAT_TYPE_XENO_COMBAT)
 				knocked_down = FALSE
 
