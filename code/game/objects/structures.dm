@@ -35,7 +35,7 @@
 /obj/structure/attack_animal(mob/living/user)
 	if(breakable)
 		if(user.wall_smash)
-			visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] smashes [src] apart!"))
+			visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] уничтожает [declent_ru(ACCUSATIVE)] на части!"))
 			deconstruct(FALSE)
 
 /obj/structure/attackby(obj/item/W, mob/user)
@@ -139,11 +139,11 @@
 		if(user.loc == TT)
 			TT = get_turf(src)
 
-	var/climb_string = final_climb_delay < 1 SECONDS ? "[user] перепрыгивает через [ru_name]!" : "[user] залезает на [ru_name]!" // SS220 EDIT ADDICTION
+	var/climb_string = final_climb_delay < 1 SECONDS ? "[capitalize(user.declent_ru(NOMINATIVE))] перепрыгивает через [ru_name]!" : "[capitalize(user.declent_ru(NOMINATIVE))] залезает на [ru_name]!" // SS220 EDIT ADDICTION
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(skillcheck(H, SKILL_ENDURANCE, SKILL_ENDURANCE_MASTER))
-			climb_string = "[user] тактикульно перепрыгивает через [ru_name]!" // SS220 EDIT ADDICTION
+			climb_string = "[capitalize(user.declent_ru(NOMINATIVE))] тактикульно перепрыгивает через [ru_name]!" // SS220 EDIT ADDICTION
 	user.visible_message(SPAN_WARNING(climb_string))
 
 	var/list/grabbed_things = list()

@@ -308,8 +308,8 @@
 	if(islarva(M))
 		return //Larvae can't do shit
 
-	M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] has slashed [src]!"),
-	SPAN_DANGER("You slash [src]!"))
+	M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] [ru_attack_verb("slashed")] [declent_ru(ACCUSATIVE)]!"),
+	SPAN_DANGER("Вы [ru_attack_verb("slash")] [declent_ru(ACCUSATIVE)]!"))
 	M.animation_attack_on(src)
 	M.flick_attack_overlay(src, "slash")
 	playsound(loc, "alien_claw_metal", 25)

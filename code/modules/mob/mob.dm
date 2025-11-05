@@ -574,7 +574,7 @@
 
 		if(!no_msg)
 			animation_attack_on(M)
-			visible_message(SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] несильно хватает [M]."), null, null, 5) // SS220 EDIT ADDICTION
+			visible_message(SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] несильно хватает [M.declent_ru(ACCUSATIVE)]."), null, null, 5) // SS220 EDIT ADDICTION
 
 		if(M.mob_size > MOB_SIZE_HUMAN || !(M.status_flags & CANPUSH))
 			G.icon_state = "!reinforce"

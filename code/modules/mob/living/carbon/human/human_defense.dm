@@ -176,7 +176,7 @@ Contains most of the procs that are called when a mob is attacked by something
 	//IF there is an override, use that, otherwise, check if selected zone is valid, if it is, use that, otherwise use chest
 
 	if(!target_zone) //this should NEVER happen
-		visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] misses [src] with \the [I]!"), null, null, 5)
+		visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] промахивается по [declent_ru(DATIVE)] [I.declent_ru(INSTRUMENTAL)]!"), null, null, 5)
 		return FALSE
 
 	var/obj/limb/affecting = get_limb(target_zone)

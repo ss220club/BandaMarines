@@ -222,10 +222,10 @@
 				to_chat(M, SPAN_WARNING("Похоже у [declent_ru(GENITIVE)] кружится голова. Не стоит [t_him] сейчас беспокоить."))
 			else
 				set_resting(FALSE)
-		M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] трясёт [src], пытаясь разбудить [t_him]!"), // SS220 EDIT ADDICTION
+		M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] трясёт [declent_ru(ACCUSATIVE)], пытаясь разбудить [t_him]!"), // SS220 EDIT ADDICTION
 			SPAN_NOTICE("Вы трясёте [declent_ru(ACCUSATIVE)], пытаясь разбудить [t_him]!"), null, 4) // SS220 EDIT ADDICTION
 	else if(HAS_TRAIT(src, TRAIT_INCAPACITATED))
-		M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] трясёт [src], пытаясь вывести [t_him] из ступора!"),
+		M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] трясёт [declent_ru(ACCUSATIVE)], пытаясь вывести [t_him] из ступора!"),
 			SPAN_NOTICE("Вы трясёте [declent_ru(ACCUSATIVE)], пытаясь вывести [t_him] из ступора!"), null, 4)
 	else
 		var/mob/living/carbon/human/H = M

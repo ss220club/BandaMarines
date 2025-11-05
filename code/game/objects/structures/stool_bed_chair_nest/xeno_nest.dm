@@ -267,8 +267,8 @@
 	return TRUE
 
 /obj/structure/bed/nest/send_buckling_message(mob/M, mob/user)
-	M.visible_message(SPAN_XENONOTICE("[capitalize(user.declent_ru(NOMINATIVE))] выделяет густую, отвратительную смолу, закрепляя [M] в [src]!"), // SS220 EDIT ADDICTION
-	SPAN_XENONOTICE("[capitalize(user.declent_ru(NOMINATIVE))] обрызгивает вас зловонной смолой, запирая вас в [src]!"), // SS220 EDIT ADDICTION
+	M.visible_message(SPAN_XENONOTICE("[capitalize(user.declent_ru(NOMINATIVE))] выделяет густую, отвратительную смолу, закрепляя [M.declent_ru(ACCUSATIVE)] в [declent_ru(PREPOSITIONAL)]!"), // SS220 EDIT ADDICTION
+	SPAN_XENONOTICE("[capitalize(user.declent_ru(NOMINATIVE))] обрызгивает вас зловонной смолой, запирая вас в [declent_ru(PREPOSITIONAL)]!"), // SS220 EDIT ADDICTION
 	SPAN_NOTICE("You hear squelching."))
 	playsound(loc, "alien_resin_move", 50)
 

@@ -321,12 +321,12 @@
 				continue
 
 			if (range > 1)
-				xeno.visible_message(SPAN_XENOHIGHDANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] разрывает внутренности [targets_to_hit]!"), SPAN_XENOHIGHDANGER("Мы разрываем внутренности [targets_to_hit]!"))
+				xeno.visible_message(SPAN_XENOHIGHDANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] разрывает внутренности [targets_to_hit.declent_ru(GENITIVE)]!"), SPAN_XENOHIGHDANGER("Мы разрываем внутренности [targets_to_hit]!"))
 				targets_to_hit.spawn_gibs()
 				playsound(get_turf(targets_to_hit), 'sound/effects/gibbed.ogg', 30, 1)
 				targets_to_hit.apply_effect(get_xeno_stun_duration(targets_to_hit, 1), WEAKEN)
 			else
-				xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] царапает [targets_to_hit]!"), SPAN_XENODANGER("Мы царапаем [targets_to_hit]!")) // SS220 EDIT ADDICTION
+				xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] царапает [targets_to_hit.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы царапаем [targets_to_hit]!")) // SS220 EDIT ADDICTION
 				playsound(get_turf(targets_to_hit), "alien_claw_flesh", 30, 1)
 
 			targets_to_hit.apply_armoured_damage(get_xeno_damage_slash(targets_to_hit, damage), ARMOR_MELEE, BRUTE, "chest", 20)

@@ -463,8 +463,8 @@
 		to_chat(src, SPAN_WARNING("We are not hauling anyone."))
 		return
 	user.handle_unhaul()
-	visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] выпускает хоста [user] из своей хватки!"), // SS220 EDIT ADDICTION
-	SPAN_XENOWARNING("Мы выпускаем хоста [user] из своей хватки!"), null, 5) // SS220 EDIT ADDICTION
+	visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] выпускает [user.declent_ru(ACCUSATIVE)] из своей хватки!"), // SS220 EDIT ADDICTION
+	SPAN_XENOWARNING("Мы выпускаем [user.declent_ru(ACCUSATIVE)] из своей хватки!"), null, 5) // SS220 EDIT ADDICTION
 	playsound(src, 'sound/voice/alien_growl1.ogg', 15)
 	log_interact(src, user, "[key_name(src)] released [key_name(user)] at [get_area_name(loc)]")
 	if(stuns)

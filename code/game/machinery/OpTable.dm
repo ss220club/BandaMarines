@@ -100,9 +100,9 @@
 	if(!anes_tank)
 		to_chat(user, SPAN_WARNING("К столу не подключён анестезийный баллон, подключите его."))
 		return
-	H.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает подключать [H] к системе анестезии.")) // SS220 EDIT ADDICTION
+	H.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает подключать [H.declent_ru(ACCUSATIVE)] к системе анестезии.")) // SS220 EDIT ADDICTION
 	if(!do_after(user, 25, INTERRUPT_NO_NEEDHAND, BUSY_ICON_FRIENDLY))
-		to_chat(user, SPAN_NOTICE("Вы перестаете одевать маску на лицо [H]."))
+		to_chat(user, SPAN_NOTICE("Вы перестаете одевать маску на лицо [H.declent_ru(GENITIVE)]."))
 		return
 
 	if(H.buckled || buckled_mob || H.loc != loc)
@@ -135,7 +135,7 @@
 		return
 	var/mob/living/carbon/human/H = target
 	H.internal = anes_tank
-	H.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] одевает маску на лицо [H] и включает анестезию.")) // SS220 EDIT ADDICTION
+	H.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] одевает маску на лицо [H.declent_ru(GENITIVE)] и включает анестезию.")) // SS220 EDIT ADDICTION
 	to_chat(H, SPAN_INFO("Вы чувствуете себя сонливо."))
 	H.setDir(SOUTH)
 	start_processing()
@@ -153,7 +153,7 @@
 		if(ishuman(user)) //Checks for whether a xeno is unbuckling from the operating table
 			H.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] выключает систему анестезии и снимает маску с [H].")) // SS220 EDIT ADDICTION
 		else
-			H.visible_message(SPAN_WARNING("Маска срывается с [H]!")) // SS220 EDIT ADDICTION
+			H.visible_message(SPAN_WARNING("Маска срывается с [H.declent_ru(GENITIVE)]!")) // SS220 EDIT ADDICTION
 		stop_processing()
 		patient_exam = 0
 		..()

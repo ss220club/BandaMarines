@@ -334,7 +334,7 @@ GLOBAL_LIST_EMPTY(shuttle_controls)
 				shuttle.launch(src)
 				if(onboard && !shuttle.iselevator)
 					M.count_niche_stat(STATISTICS_NICHE_FLIGHT)
-			msg_admin_niche("[capitalize(M.declent_ru(NOMINATIVE))] ([M.key]) launched \a [shuttle.iselevator? "elevator" : "shuttle"] using [src].")
+			msg_admin_niche("[M] ([M.key]) launched \a [shuttle.iselevator? "elevator" : "shuttle"] using [src].")
 
 	ui_interact(usr)
 

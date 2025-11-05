@@ -153,10 +153,10 @@ FIRE ALARM
 	var/area/area = get_area(src)
 
 	if (area.flags_alarm_state & ALARM_WARNING_FIRE)
-		user.visible_message(SPAN_INFO("[capitalize(user.declent_ru(NOMINATIVE))] выключает [src]."), SPAN_INFO("Вы выключаете [src].")) // SS220 EDIT ADDICTION
+		user.visible_message(SPAN_INFO("[capitalize(user.declent_ru(NOMINATIVE))] выключает [declent_ru(ACCUSATIVE)]."), SPAN_INFO("Вы выключаете [declent_ru(ACCUSATIVE)].")) // SS220 EDIT ADDICTION
 		reset()
 	else
-		user.visible_message(SPAN_INFO("[capitalize(user.declent_ru(NOMINATIVE))] включает [src]."), SPAN_INFO("Вы включаете [src].")) // SS220 EDIT ADDICTION
+		user.visible_message(SPAN_INFO("[capitalize(user.declent_ru(NOMINATIVE))] включает [declent_ru(ACCUSATIVE)]."), SPAN_INFO("Вы включаете [declent_ru(ACCUSATIVE)].")) // SS220 EDIT ADDICTION
 		alarm()
 
 	return

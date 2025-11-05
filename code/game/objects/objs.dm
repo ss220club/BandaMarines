@@ -268,12 +268,12 @@
 			var/ru_name = declent_ru(GENITIVE) // SS220 EDIT ADDICTION
 			if(buckled_mob == user)
 				buckled_mob.visible_message(
-					SPAN_NOTICE("[buckled_mob.name] отстёгивается!"), // SS220 EDIT ADDICTION
+					SPAN_NOTICE("[capitalize(buckled_mob.declent_ru(NOMINATIVE))] отстёгивается!"), // SS220 EDIT ADDICTION
 					SPAN_NOTICE("Вы отстёгиваетесь от [ru_name]."), // SS220 EDIT ADDICTION
 					SPAN_NOTICE("Вы слышите металлический щелчок."))
 			else
 				buckled_mob.visible_message(
-					SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] отстёгивает [buckled_mob.name] от [ru_name]."), // SS220 EDIT ADDICTION
+					SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] отстёгивает [buckled_mob.declent_ru(ACCUSATIVE)] от [ru_name]."), // SS220 EDIT ADDICTION
 					SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] отстёгивает вас от [ru_name]."), // SS220 EDIT ADDICTION
 					SPAN_NOTICE("Вы слышите металлический щелчок."))
 			unbuckle(buckled_mob)
@@ -350,7 +350,7 @@
 			SPAN_NOTICE("Вы слышите металлический щелчок."))
 	else
 		M.visible_message(
-			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] пристёгивает [M] к [ru_name]!"), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] пристёгивает [M.declent_ru(ACCUSATIVE)] к [ru_name]!"), // SS220 EDIT ADDICTION
 			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] пристёгивает вас к [ru_name]."),  // SS220 EDIT ADDICTION
 			SPAN_NOTICE("Вы слышите металлический щелчок."))
 

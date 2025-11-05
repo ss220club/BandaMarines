@@ -275,8 +275,8 @@
 	target.xeno_jitter(1 SECONDS)
 	target.flick_heal_overlay(3 SECONDS, "#44253d")
 
-	target.visible_message(SPAN_XENONOTICE("[capitalize(xeno.declent_ru(NOMINATIVE))] взрывается, покрывая [target] потоком исцеляющей смолы!")) // SS220 EDIT ADDICTION
-	xeno_message(SPAN_XENOANNOUNCE("[capitalize(xeno.declent_ru(NOMINATIVE))] жертвует собой, чтобы исцелить [target]!"), 2, target.hive.hivenumber) // SS220 EDIT ADDICTION
+	target.visible_message(SPAN_XENONOTICE("[capitalize(xeno.declent_ru(NOMINATIVE))] взрывается, покрывая [target.declent_ru(ACCUSATIVE)] потоком исцеляющей смолы!")) // SS220 EDIT ADDICTION
+	xeno_message(SPAN_XENOANNOUNCE("[capitalize(xeno.declent_ru(NOMINATIVE))] жертвует собой, чтобы исцелить [target.declent_ru(ACCUSATIVE)]!"), 2, target.hive.hivenumber) // SS220 EDIT ADDICTION
 
 	var/datum/behavior_delegate/drone_healer/behavior_delegate = xeno.behavior_delegate
 	if(istype(behavior_delegate) && behavior_delegate.transferred_amount >= behavior_delegate.required_transferred_amount && xeno.client && xeno.hive)

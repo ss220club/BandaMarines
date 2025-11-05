@@ -150,8 +150,8 @@
 	if(!locate(/obj/effect/alien/weeds) in current_turf)
 		return
 	xeno.use_plasma(plasma_cost)
-	xeno.visible_message(SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] создала яйцеклад!"), // SS220 EDIT ADDICTION
-	SPAN_XENOWARNING("Вы создали яйцеклад!"))
+	xeno.visible_message(SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] создаёт яйцеклад!"), // SS220 EDIT ADDICTION
+	SPAN_XENOWARNING("Вы создаёте яйцеклад!"))
 	xeno.mount_ovipositor()
 	return ..()
 
@@ -179,11 +179,11 @@
 			if(targeted_xeno.stat == DEAD)
 				to_chat(xeno, SPAN_XENOWARNING("Вы не можете сделать лидером мёртвых."))
 				return
-			to_chat(xeno, SPAN_XENONOTICE("Вы выбрали [targeted_xeno] в качестве лидера улья.")) // SS220 EDIT ADDICTION
+			to_chat(xeno, SPAN_XENONOTICE("Вы выбрали [targeted_xeno.declent_ru(ACCUSATIVE)] в качестве лидера улья.")) // SS220 EDIT ADDICTION
 			to_chat(targeted_xeno, SPAN_XENOANNOUNCE("[capitalize(xeno.declent_ru(NOMINATIVE))] выбрала вас в качестве лидера улья. Другие ксеноморфы должны слушаться вас. Вы также будете служить маяком для феромонов Королевы.")) // SS220 EDIT ADDICTION
 		else
 			hive.remove_hive_leader(targeted_xeno)
-			to_chat(xeno, SPAN_XENONOTICE("Вы сняли [targeted_xeno] с должности лидера улья.")) // SS220 EDIT ADDICTION
+			to_chat(xeno, SPAN_XENONOTICE("Вы сняли [targeted_xeno.declent_ru(ACCUSATIVE)] с должности лидера улья.")) // SS220 EDIT ADDICTION
 			to_chat(targeted_xeno, SPAN_XENOANNOUNCE("[capitalize(xeno.declent_ru(NOMINATIVE))] сняла вас с должности лидера улья. Ваши права и способности лидера отозваны.")) // SS220 EDIT ADDICTION
 	else
 		var/list/possible_xenos = list()

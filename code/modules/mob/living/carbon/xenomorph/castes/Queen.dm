@@ -1040,8 +1040,8 @@
 	if(!check_plasma(200))
 		return FALSE
 
-	visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] начинает медленно поднимать [victim] в воздух."), // SS220 EDIT ADDICTION
-	SPAN_XENOWARNING("Вы начинаете сосредотачивать свою ярость, медленно поднимая [victim] в воздух.")) // SS220 EDIT ADDICTION
+	visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] начинает медленно поднимать [victim.declent_ru(ACCUSATIVE)] в воздух."), // SS220 EDIT ADDICTION
+	SPAN_XENOWARNING("Вы начинаете сосредотачивать свою ярость, медленно поднимая [victim.declent_ru(ACCUSATIVE)] в воздух.")) // SS220 EDIT ADDICTION
 	if(do_after(src, 80, INTERRUPT_ALL, BUSY_ICON_HOSTILE, victim))
 		if(!victim)
 			return FALSE
@@ -1052,8 +1052,8 @@
 
 		use_plasma(200)
 
-		visible_message(SPAN_XENODANGER("[capitalize(declent_ru(NOMINATIVE))] яростно разбивает и разрывает [victim] на части!"), // SS220 EDIT ADDICTION
-		SPAN_XENODANGER("Вы внезапно выпускаете чистую ярость на [victim], мгновенно разрывая его на части!")) // SS220 EDIT ADDICTION
+		visible_message(SPAN_XENODANGER("[capitalize(declent_ru(NOMINATIVE))] яростно разбивает и разрывает [victim.declent_ru(ACCUSATIVE)] на части!"), // SS220 EDIT ADDICTION
+		SPAN_XENODANGER("Вы внезапно выпускаете чистую ярость на [victim.declent_ru(ACCUSATIVE)], мгновенно разрывая его на части!")) // SS220 EDIT ADDICTION
 		emote("roar")
 
 		attack_log += text("\[[time_stamp()]\] <font color='red'>gibbed [key_name(victim)]</font>")

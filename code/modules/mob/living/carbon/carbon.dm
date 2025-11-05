@@ -319,7 +319,7 @@
 		if(istype(H))
 			H.species.hug(H, src, H.zone_selected)
 		else
-			M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] похлопывает [src] по спине, чтобы [t_him] стало лучше!"), // SS220 EDIT ADDICTION
+			M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] похлопывает [declent_ru(ACCUSATIVE)] по спине, чтобы [t_him] стало лучше!"), // SS220 EDIT ADDICTION
 				SPAN_NOTICE("Вы похлопываете [src] по спине, чтобы [t_him] стало лучше!"), null, 4)
 			playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 5)
 		return

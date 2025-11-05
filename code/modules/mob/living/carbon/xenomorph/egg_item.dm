@@ -46,10 +46,10 @@
 /obj/item/xeno_egg/get_examine_text(mob/user)
 	. = ..()
 	if(isxeno(user))
-		. += "A queen egg, it needs to be planted on weeds to start growing."
+		. += "Королевское яйцо, которое должно быть посажено на траве для роста."
 		if(hivenumber != XENO_HIVE_NORMAL)
 			var/datum/hive_status/hive = GLOB.hive_datum[hivenumber]
-			. += "This one appears to belong to the [hive.name]"
+			. += "Яйцо принадлежит [hive.name]"
 
 /obj/item/xeno_egg/afterattack(atom/target, mob/user, proximity)
 	if(istype(target, /obj/effect/alien/resin/special/eggmorph))
@@ -67,14 +67,14 @@
 /obj/item/xeno_egg/proc/plant_egg_human(mob/living/carbon/human/user, turf/T)
 	if(user.hivenumber != hivenumber)
 		if(!istype(T, /turf/open/floor/almayer/research/containment))
-			to_chat(user, SPAN_WARNING("Best not to plant this thing outside of a containment cell."))
+			to_chat(user, SPAN_WARNING("Лучше не садить [declent_ru(ACCUSATIVE)] вне камеры содержания."))
 			return
 		for (var/obj/O in T)
 			if (!istype(O, /obj/structure/machinery/light))
-				to_chat(user, SPAN_WARNING("The floor needs to be clear to plant this!"))
+				to_chat(user, SPAN_WARNING("На полу должно быть пусто, чтобы посадить [declent_ru(ACCUSATIVE)]!"))
 				return
 
-	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts planting [src]."),
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает садить [declent_ru(ACCUSATIVE)]."),
 					SPAN_NOTICE("You start planting [src]."), null, 5)
 	if(!do_after(user, 50, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
 		return
@@ -116,7 +116,7 @@
 
 	var/datum/hive_status/hive = GLOB.hive_datum[hivenumber]
 	if(!any_weeds && !hive_weeds) //you need at least some weeds to plant on.
-		to_chat(user, SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] должен быть посажен на lowertext(hive.prefix)-траву.")) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] должен быть посажен на [lowertext(hive.prefix)]-траву.")) // SS220 EDIT ADDICTION
 		return
 
 	if(!hive_weeds && needs_hive_weeds)

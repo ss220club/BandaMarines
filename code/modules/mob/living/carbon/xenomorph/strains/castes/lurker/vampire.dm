@@ -97,7 +97,7 @@
 			if (HAS_TRAIT(target, TRAIT_NESTED))
 				continue
 
-			xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] атакует [target]!"), // SS220 EDIT ADDICTION
+			xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] атакует [target.declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
 			SPAN_XENOWARNING("Мы атакуем [target] несколько раз!")) // SS220 EDIT ADDICTION
 			xeno.flick_attack_overlay(target, "slash")
 			target.last_damage_data = create_cause_data(xeno.caste_type, xeno)
@@ -243,8 +243,8 @@
 				to_chat(xeno, SPAN_WARNING("We should not harm this host! It has a sister inside."))
 				return
 
-	xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] агрессивно хватает [target_carbon] за голову."), // SS220 EDIT ADDICTION
-	SPAN_XENOWARNING("Мы агрессивно хватаем [target_carbon] за голову.")) // SS220 EDIT ADDICTION
+	xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] агрессивно хватает [target_carbon.declent_ru(ACCUSATIVE)] за голову."), // SS220 EDIT ADDICTION
+	SPAN_XENOWARNING("Мы агрессивно хватаем [target_carbon.declent_ru(ACCUSATIVE)] за голову.")) // SS220 EDIT ADDICTION
 
 	if(!do_after(xeno, 0.8 SECONDS, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE, numticks = 2)) // would be 0.75 but that doesn't really work with numticks
 		return
@@ -258,9 +258,9 @@
 		to_chat(xeno, SPAN_XENODANGER("Цель умерла, прежде чем вы смогли пронзить её голову! Будьте осторожнее в следующий раз!"))
 		return
 
-	to_chat(xeno, SPAN_XENOHIGHDANGER("Мы пронзаем голову [target_carbon] своей внутренней челюстью!")) // SS220 EDIT ADDICTION
+	to_chat(xeno, SPAN_XENOHIGHDANGER("Мы пронзаем голову [target_carbon.declent_ru(GENITIVE)] своей внутренней челюстью!")) // SS220 EDIT ADDICTION
 	playsound(target_carbon,'sound/weapons/alien_bite2.ogg', 50, TRUE)
-	xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] пронзает голову [target_carbon] своей внутренней челюстью!")) // SS220 EDIT ADDICTION
+	xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] пронзает голову [target_carbon.declent_ru(GENITIVE)] своей внутренней челюстью!")) // SS220 EDIT ADDICTION
 	xeno.flick_attack_overlay(target_carbon, "headbite")
 	xeno.animation_attack_on(target_carbon, pixel_offset = 16)
 	target_carbon.apply_armoured_damage(60, ARMOR_MELEE, BRUTE, "head", 5) //DIE

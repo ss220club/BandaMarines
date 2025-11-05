@@ -310,8 +310,8 @@
 			A.update_button_icon()
 		drop_inv_item_on_ground(F)
 		F.throw_atom(T, 4, caste.throwspeed)
-		visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] бросает что-то в сторону [T]!"), // SS220 EDIT ADDICTION
-			SPAN_XENOWARNING("Мы бросаем лицехвата в сторону [T]!")) // SS220 EDIT ADDICTION
+		visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] бросает что-то в сторону [T.declent_ru(GENITIVE)]!"), // SS220 EDIT ADDICTION
+			SPAN_XENOWARNING("Мы бросаем лицехвата в сторону [T.declent_ru(GENITIVE)]!")) // SS220 EDIT ADDICTION
 		spawn(caste.hugger_delay)
 			threw_a_hugger = 0
 			for(var/X in actions)
@@ -388,19 +388,19 @@
 	if(!morpher_safety_checks(morpher))
 		return
 
-	visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] начинает помещать лицехватов в [morpher] из своих яиц..."), SPAN_XENONOTICE("Мы начинаем помещать детей в [morpher] из наших яиц...")) // SS220 EDIT ADDICTION
+	visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] начинает помещать лицехватов в [morpher.declent_ru(ACCUSATIVE)] из своих яиц..."), SPAN_XENONOTICE("Мы начинаем помещать детей в [morpher] из наших яиц...")) // SS220 EDIT ADDICTION
 	while(eggs_cur > 0)
 		if(!morpher_safety_checks(morpher))
 			return
 
 		if(!do_after(src, 0.75 SECONDS, INTERRUPT_ALL, BUSY_ICON_GENERIC))
-			to_chat(src, SPAN_WARNING("Мы перестаём наполнять [morpher] нашими детьми.")) // SS220 EDIT ADDICTION
+			to_chat(src, SPAN_WARNING("Мы перестаём наполнять [morpher.declent_ru(ACCUSATIVE)] нашими детьми.")) // SS220 EDIT ADDICTION
 			return
 
 		playsound(src.loc, "sound/effects/alien_egg_move.ogg", 20, TRUE)
 		morpher.stored_huggers = min(morpher.huggers_max_amount, morpher.stored_huggers + 1)
 		eggs_cur--
-		to_chat(src, SPAN_XENONOTICE("Мы вынимаем одного из детей из яйца и помещаем его в [morpher]. Сейчас в нём: [eggs_cur] / [eggs_max].")) // SS220 EDIT ADDICTION
+		to_chat(src, SPAN_XENONOTICE("Мы вынимаем одного из детей из яйца и помещаем его в [morpher.declent_ru(ACCUSATIVE)]. Сейчас в нём: [eggs_cur] / [eggs_max].")) // SS220 EDIT ADDICTION
 
 /mob/living/carbon/xenomorph/carrier/proc/morpher_safety_checks(obj/effect/alien/resin/special/eggmorph/morpher)
 	if(morpher.linked_hive && (morpher.linked_hive.hivenumber != hivenumber))
@@ -408,11 +408,11 @@
 		return FALSE
 
 	if(morpher.stored_huggers == morpher.huggers_max_amount)
-		to_chat(src, SPAN_WARNING("[morpher] уже занят дитём."))
+		to_chat(src, SPAN_WARNING("[capitalize(morpher.declent_ru(NOMINATIVE))] уже полностью занят детьми."))
 		return FALSE
 
 	if(eggs_cur < 1)
-		to_chat(src, SPAN_WARNING("We don't have any eggs left!"))
+		to_chat(src, SPAN_WARNING("У нас больше нет яиц!"))
 		return FALSE
 
 	return TRUE

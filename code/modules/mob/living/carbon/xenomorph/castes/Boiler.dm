@@ -155,7 +155,7 @@
 
 			new /obj/effect/xenomorph/acid_damage_delay(turf, damage, 7, FALSE, "В вас выпустили струю кислоты!", xeno)
 
-		xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] выпускает мощный кислотный взрыв в сторону [affected_atom]!"), SPAN_XENODANGER("Мы выпускаем мощный кислотный взрыв в сторону [affected_atom]!")) // SS220 EDIT ADDICTION
+		xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] выпускает мощный кислотный взрыв в сторону [affected_atom.declent_ru(GENITIVE)]!"), SPAN_XENODANGER("Мы выпускаем мощный кислотный взрыв в сторону [affected_atom.declent_ru(GENITIVE)]!")) // SS220 EDIT ADDICTION
 		remove_stack_effects("Мы чувствуем, что наша скорость передвижения снижается!")
 		return TRUE
 

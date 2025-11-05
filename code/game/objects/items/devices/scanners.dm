@@ -110,7 +110,7 @@ K9 SCANNER
 		SStgui.close_user_uis(user, src)
 		last_scan = last_health_display.ui_data(user, DETAIL_LEVEL_HEALTHANALYSER)
 		last_health_display.look_at(user, DETAIL_LEVEL_HEALTHANALYSER, bypass_checks = FALSE, ignore_delay = FALSE, alien = alien)
-	to_chat(user, SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] проанализировал показатели [target_mob].")) // SS220 EDIT ADDICTION
+	to_chat(user, SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] анализирует показатели [target_mob.declent_ru(GENITIVE)].")) // SS220 EDIT ADDICTION
 	playsound(src.loc, 'sound/items/healthanalyzer.ogg', 50)
 	src.add_fingerprint(user)
 	return

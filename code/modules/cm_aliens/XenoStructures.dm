@@ -103,8 +103,8 @@
 	return XENO_ATTACK_ACTION
 
 /obj/effect/alien/resin/attack_animal(mob/living/M as mob)
-	M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] tears \the [src]!"),
-	SPAN_DANGER("You tear \the [name]."))
+	M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] [ru_attack_verb("tears")] [declent_ru(ACCUSATIVE)]!"),
+	SPAN_DANGER("Вы [ru_attack_verb("tear")] [declent_ru(ACCUSATIVE)]."))
 	if(istype(src, /obj/effect/alien/resin/sticky))
 		playsound(loc, "alien_resin_move", 25)
 	else
@@ -868,8 +868,8 @@
 /obj/effect/alien/resin/resin_pillar/attackby(obj/item/W, mob/living/user)
 	user.animation_attack_on(src)
 	if(!brittle)
-		user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] hits \the [src], but \the [W] bounces off!"),
-			SPAN_DANGER("You hit \the [name], but \the [W] bounces off!"))
+		user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] [ru_attack_verb("hits")] [declent_ru(ACCUSATIVE)], но [W.declent_ru(NOMINATIVE)] отскакивает!"),
+			SPAN_DANGER("Вы [ru_attack_verb("hit")] [declent_ru(ACCUSATIVE)], но [W.declent_ru(NOMINATIVE)] отскакивает!"))
 		return
 
 	return ..()
