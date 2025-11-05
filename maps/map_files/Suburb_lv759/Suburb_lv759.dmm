@@ -1413,9 +1413,7 @@
 /area/Suburb_lv759/outdoors/landing_zone_2)
 "aDl" = (
 /obj/structure/machinery/iv_drip,
-/turf/open/floor/kutjevo/colors/cyan/inner_corner/east{
-	icon_state = "cyan3"
-	},
+/turf/open/floor/kutjevo/colors/cyan/edge/east,
 /area/Suburb_lv759/indoors/wy_research_complex/medical_annex)
 "aDq" = (
 /obj/structure/blocker/invisible_wall,
@@ -28447,9 +28445,7 @@
 /obj/item/prop/colony/usedbandage{
 	dir = 10
 	},
-/turf/open/floor/kutjevo/colors/cyan/inner_corner/west{
-	icon_state = "cyan3"
-	},
+/turf/open/floor/kutjevo/colors/cyan/edge/west,
 /area/Suburb_lv759/indoors/wy_research_complex/medical_annex)
 "kDO" = (
 /obj/item/stool{
