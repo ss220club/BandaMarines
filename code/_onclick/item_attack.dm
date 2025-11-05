@@ -62,7 +62,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(!H.melee_allowed)
-			to_chat(H, SPAN_DANGER("You are currently unable to attack."))
+			to_chat(H, SPAN_DANGER("Вы сейчас не можете атаковать."))
 			return FALSE
 
 	var/showname = "Неизвестный" // SS220 EDIT ADDICTION
@@ -95,8 +95,8 @@
 		var/used_verb = "attacked"
 		if(LAZYLEN(attack_verb))
 			used_verb = pick(attack_verb)
-		user.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] has been [used_verb] with [src][showname]."),
-			SPAN_DANGER("You [used_verb] [M == user ? "yourself":M] with [src]."), null, 5, CHAT_TYPE_MELEE_HIT)
+		user.visible_message(SPAN_DANGER("[showname] [ru_attack_verb(used_verb)] [M.declent_ru(ACCUSATIVE)] [declent_ru(INSTRUMENTAL)]."),
+			SPAN_DANGER("Вы [ru_attack_verb(used_verb)]е [M == user ? "себя": M.declent_ru(ACCUSATIVE)] [declent_ru(INSTRUMENTAL)]."), null, 5, CHAT_TYPE_MELEE_HIT)
 
 		user.animation_attack_on(M)
 		user.flick_attack_overlay(M, "punch")
@@ -112,7 +112,7 @@
 				M.apply_damage(power,BRUTE)
 			if("fire")
 				M.apply_damage(power,BURN)
-				to_chat(M, SPAN_WARNING("It burns!"))
+				to_chat(M, SPAN_WARNING("Горячо!"))
 		if(power > 5)
 			M.last_damage_data = create_cause_data(initial(name), user)
 			user.track_hit(initial(name))
