@@ -65,19 +65,17 @@
 			to_chat(H, SPAN_DANGER("You are currently unable to attack."))
 			return FALSE
 
-	var/showname = "" // SS220 EDIT ADDICTION
+	var/showname = "Неизвестный" // SS220 EDIT ADDICTION
 	if(user)
 		if(M == user)
-			showname = " себя" // SS220 EDIT ADDICTION
-		else
-			showname = " [user]" // SS220 EDIT ADDICTION
+			showname = "[capitalize(user.declent_ru(NOMINATIVE))]" // SS220 EDIT ADDICTION
 	if(!(user in viewers(M, null)))
-		showname = "" // SS220 EDIT ADDICTION
+		showname = "Неизвестный" // SS220 EDIT ADDICTION
 
 	if (user.a_intent == INTENT_HELP && ((user.client?.prefs && user.client?.prefs?.toggle_prefs & TOGGLE_HELP_INTENT_SAFETY) || (user.mob_flags & SURGERY_MODE_ON)))
 		playsound(loc, 'sound/effects/pop.ogg', 25, 1)
-		user.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] тыкает [showname] [declent_ru(INSTRUMENTAL)]"),
-			SPAN_NOTICE("Вы тыкаете [M == user ? "себя":M] [declent_ru(INSTRUMENTAL)]."), null, 4) // SS220 EDIT ADDICTION
+		user.visible_message(SPAN_NOTICE("[showname] тыкает [M == user ? "себя" : M.declent_ru(ACCUSATIVE)] [declent_ru(INSTRUMENTAL)]."),
+			SPAN_NOTICE("Вы тыкаете [M == user ? "себя" : M.declent_ru(ACCUSATIVE)] [declent_ru(INSTRUMENTAL)]."), null, 4) // SS220 EDIT ADDICTION
 
 		return FALSE
 
