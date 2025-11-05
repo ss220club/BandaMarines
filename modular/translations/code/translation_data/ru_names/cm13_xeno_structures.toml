@@ -218,3 +218,21 @@ accusative = "плазменное дерево"
 instrumental = "плазменным деревом"
 prepositional = "плазменном дереве"
 gender = "neuter"
+
+["weed node"]
+nominative = "узел травы"
+genitive = "узла травы"
+dative = "узлу травы"
+accusative = "узел травы"
+instrumental = "узлом травы"
+prepositional = "узле травы"
+gender = "male"
+
+["weeds"]
+nominative = "трава"
+genitive = "травы"
+dative = "траве"
+accusative = "траву"
+instrumental = "травой"
+prepositional = "траве"
+gender = "female"
