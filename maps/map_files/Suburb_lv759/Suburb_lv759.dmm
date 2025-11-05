@@ -8127,7 +8127,6 @@
 	layer = 3.33;
 	pixel_y = 2
 	},
-/obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/corsat/box,
 /area/Suburb_lv759/indoors/wy_research_complex/mainlabs)
 "dci" = (
@@ -8361,13 +8360,6 @@
 /obj/effect/landmark/objective_landmark/close,
 /turf/open/floor/hybrisa/carpet/rug_colorable/black/southwest,
 /area/Suburb_lv759/indoors/wy_research_complex/changingroom)
-"dfr" = (
-/obj/structure/reagent_dispensers/fueltank,
-/obj/structure/machinery/light{
-	light_power = 0.7
-	},
-/turf/open/floor/shiva/floor3,
-/area/Suburb_lv759/outdoors/landing_zone_2)
 "dfP" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice8";
@@ -13831,14 +13823,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
 /area/Suburb_lv759/indoors/caves/Monorail)
-"fco" = (
-/obj/structure/machinery/alarm{
-	pixel_y = 24
-	},
-/obj/structure/reagent_dispensers/fueltank,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/prison,
-/area/Suburb_lv759/indoors/wy_research_complex/hallwaynorth)
 "fcq" = (
 /turf/closed/wall/strata_outpost/reinforced,
 /area/Suburb_lv759/outdoors/colony_streets/cottage8)
@@ -20246,7 +20230,6 @@
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaycentral)
 "hzw" = (
 /obj/effect/decal/cleanable/liquid_fuel,
-/obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/strata/multi_tiles,
 /area/Suburb_lv759/indoors/wy_research_complex/hangarbay)
 "hzy" = (
@@ -21551,7 +21534,6 @@
 /obj/structure/machinery/alarm{
 	pixel_y = 24
 	},
-/obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "hYq" = (
@@ -24736,7 +24718,6 @@
 /turf/open/floor/prison/floor_plate/southwest,
 /area/Suburb_lv759/indoors/caves/Monorail)
 "jhH" = (
-/obj/structure/reagent_dispensers/fueltank,
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -25207,10 +25188,6 @@
 	},
 /turf/open/floor/corsat,
 /area/Suburb_lv759/indoors/public_spaceport/vehicledeploymentbay)
-"jsw" = (
-/obj/structure/reagent_dispensers/fueltank,
-/turf/open/floor/prison/floor_plate,
-/area/Suburb_lv759/outdoors)
 "jsH" = (
 /obj/structure/platform{
 	dir = 4
@@ -26576,7 +26553,6 @@
 	pixel_y = 11
 	},
 /obj/effect/decal/cleanable/liquid_fuel,
-/obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/strata/orange_edge/north,
 /area/Suburb_lv759/indoors/wy_research_complex/hangarbay)
 "jRn" = (
@@ -33534,7 +33510,6 @@
 	icon_state = "N";
 	pixel_y = 1
 	},
-/obj/structure/reagent_dispensers/fueltank/spacecraft,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/open/floor/corsat,
 /area/Suburb_lv759/indoors/public_spaceport/vehicledeploymentbay)
@@ -34637,7 +34612,6 @@
 /obj/structure/machinery/light{
 	dir = 4
 	},
-/obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/wy_research_complex/cargo)
 "mCz" = (
@@ -35753,10 +35727,6 @@
 /obj/structure/prop/hybrisa/vehicles/Meridian/Light_Blue,
 /turf/open/hybrisa/street/asphalt,
 /area/Suburb_lv759/indoors/public_spaceport)
-"mVS" = (
-/obj/structure/reagent_dispensers/fueltank,
-/turf/open/floor/plating/asteroidfloor/north,
-/area/Suburb_lv759/indoors/wy_research_complex)
 "mVU" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/cell_stripe/east,
@@ -35777,10 +35747,6 @@
 /obj/effect/decal/hybrisa/road/lines2,
 /turf/open/hybrisa/street/roadlines4,
 /area/Suburb_lv759/outdoors/landing_zone_1)
-"mWl" = (
-/obj/structure/reagent_dispensers/fueltank,
-/turf/open/floor/prison,
-/area/Suburb_lv759/indoors/wy_research_complex)
 "mWu" = (
 /obj/item/reagent_container/food/snacks/packaged_burger{
 	pixel_x = 1
@@ -36324,10 +36290,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/asteroidfloor/north,
 /area/Suburb_lv759/indoors/public_spaceport)
-"nfx" = (
-/obj/structure/reagent_dispensers/fueltank/gas,
-/turf/open/floor/almayer/floor,
-/area/Suburb_lv759/outdoors/landing_zone_1)
 "nfE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -39181,10 +39143,6 @@
 /obj/effect/landmark/map_item,
 /turf/open/shuttle/dropship/dark_grey_bottom,
 /area/Suburb_lv759/indoors/caves/Monorail)
-"onD" = (
-/obj/structure/reagent_dispensers/fueltank,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
 "onI" = (
 /obj/item/reagent_container/food/snacks/mre_pack/meal4{
 	desc = "A tray of standard W-Y 'flight' food. This one is what resembles a Pizza. Disgusting.";
@@ -39664,10 +39622,6 @@
 /obj/structure/largecrate/random/case/double,
 /turf/open/floor/prison/floor_marked/southwest,
 /area/Suburb_lv759/outdoors/landing_zone_2)
-"ouq" = (
-/obj/structure/reagent_dispensers/fueltank,
-/turf/open/floor/prison/floor_plate/southwest,
-/area/Suburb_lv759/indoors/caves/Monorail)
 "our" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/darkyellowcorners2/southwest,
@@ -43322,7 +43276,6 @@
 /turf/closed/wall/hybrisa/research/reinforced,
 /area/Suburb_lv759/indoors/wy_research_complex/mainlabs)
 "pKJ" = (
-/obj/structure/reagent_dispensers/fueltank,
 /obj/structure/machinery/light/spot{
 	dir = 8;
 	pixel_x = -8
@@ -44979,11 +44932,6 @@
 /obj/item/trash/cigbutt,
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/public_spaceport/w_y_hangarbay)
-"qrz" = (
-/obj/structure/pipes/standard/simple/hidden/dark,
-/obj/structure/reagent_dispensers/fueltank,
-/turf/open/floor/prison/floor_plate/southwest,
-/area/Suburb_lv759/indoors/wy_research_complex/hangarbay)
 "qrH" = (
 /obj/item/prop/colony/canister{
 	pixel_x = 4;
@@ -46601,7 +46549,6 @@
 /turf/open/floor/prison/floor_plate,
 /area/Suburb_lv759/indoors/caves/Monorail)
 "qSF" = (
-/obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/prison/darkyellow2,
 /area/Suburb_lv759/outdoors/colony_streets/cottage11)
 "qSM" = (
@@ -47653,7 +47600,6 @@
 /area/Suburb_lv759/indoors/caves/Monorail)
 "rna" = (
 /obj/effect/decal/cleanable/liquid_fuel,
-/obj/structure/reagent_dispensers/fueltank/spacecraft,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/open/floor/strata/blue3/east,
 /area/Suburb_lv759/indoors/public_spaceport/w_y_hangarbay)
@@ -49538,13 +49484,6 @@
 	},
 /turf/open/floor/kutjevo/colors,
 /area/Suburb_lv759/indoors/wy_research_complex/securityarmory)
-"rSL" = (
-/obj/effect/decal/warning_stripes{
-	icon_state = "cargo"
-	},
-/obj/structure/reagent_dispensers/fueltank,
-/turf/open/floor/prison,
-/area/Suburb_lv759/indoors/wy_research_complex/cargo)
 "rSN" = (
 /obj/structure/pipes/standard/simple/hidden/dark,
 /obj/structure/largecrate/random,
@@ -49555,7 +49494,6 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Suburb_lv759/outdoors/colony_streets/cottage5)
 "rTg" = (
-/obj/structure/reagent_dispensers/fueltank/spacecraft,
 /obj/effect/decal/warning_stripes{
 	icon_state = "N";
 	pixel_y = 1
@@ -50851,13 +50789,6 @@
 /turf/closed/shuttle/ert{
 	icon_state = "twe21"
 	},
-/area/Suburb_lv759/outdoors/landing_zone_1)
-"suM" = (
-/obj/structure/reagent_dispensers/fueltank/gas,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/almayer/floor,
 /area/Suburb_lv759/outdoors/landing_zone_1)
 "suY" = (
 /obj/effect/landmark/survivor_spawner,
@@ -57944,26 +57875,6 @@
 /obj/structure/sign/poster/wylogo,
 /turf/closed/wall/hybrisa/spaceport/reinforced,
 /area/Suburb_lv759/indoors/public_spaceport/cafeteria)
-"uZs" = (
-/obj/structure/showcase{
-	breakable = 1;
-	density = 0;
-	desc = null;
-	icon_state = "igniter0";
-	name = "floor panel"
-	},
-/obj/structure/reagent_dispensers/fueltank/spacecraft,
-/obj/effect/hybrisa/misc/fake/wire/red{
-	pixel_x = 4
-	},
-/obj/effect/hybrisa/misc/fake/wire/blue{
-	pixel_x = -4
-	},
-/obj/effect/hybrisa/misc/fake/wire/yellow{
-	dir = 1
-	},
-/turf/open/floor/corsat/officetiles,
-/area/Suburb_lv759/indoors/public_spaceport/vehicledeploymentbay)
 "uZu" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/kutjevo/colors/red/edge/southeast,
@@ -59518,10 +59429,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/closed/wall/almayer/outer,
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaynorth)
-"vDS" = (
-/obj/structure/reagent_dispensers/fueltank,
-/turf/open/floor/shiva/floor3,
-/area/Suburb_lv759/outdoors)
 "vDW" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/closed/wall/strata_outpost,
@@ -65387,7 +65294,6 @@
 	icon_state = "W";
 	layer = 2.5
 	},
-/obj/structure/reagent_dispensers/fueltank/spacecraft,
 /turf/open/floor/almayer/plating/northeast,
 /area/Suburb_lv759/indoors/public_spaceport/vehicledeploymentbay)
 "xJQ" = (
@@ -68957,7 +68863,7 @@ yam
 mMX
 xEV
 ltY
-onD
+yam
 yam
 kGO
 yam
@@ -74381,7 +74287,7 @@ tIW
 wrK
 hMr
 gzH
-uZs
+tVP
 sie
 xrG
 dcV
@@ -80736,7 +80642,7 @@ qTK
 piB
 piB
 iqh
-suM
+lNj
 lNj
 ngD
 ngD
@@ -81098,7 +81004,7 @@ cPe
 gyk
 oBD
 wxD
-dfr
+nHa
 hDL
 qHC
 qHC
@@ -81234,7 +81140,7 @@ klG
 myi
 qUN
 vLU
-nfx
+bnh
 xmc
 rxb
 cMA
@@ -85375,7 +85281,7 @@ qqR
 dEI
 lui
 teX
-jsw
+hnm
 hBq
 lgk
 oYf
@@ -100574,7 +100480,7 @@ hBq
 eZd
 gls
 mPk
-vDS
+mPk
 bBu
 bpl
 hBq
@@ -106780,7 +106686,7 @@ dvx
 bAh
 utE
 exX
-qrz
+utE
 qrH
 qkC
 cPF
@@ -107929,7 +107835,7 @@ hkG
 xmC
 sUm
 sUm
-mVS
+sUm
 hkG
 qlq
 rBt
@@ -108713,7 +108619,7 @@ fym
 ben
 tuf
 coq
-fco
+cMi
 mbe
 urP
 xOp
@@ -114246,7 +114152,7 @@ hkG
 hkG
 hkG
 jpm
-mWl
+fHw
 fHw
 ejl
 inH
@@ -119562,7 +119468,7 @@ bUj
 ebx
 tsX
 kpp
-rSL
+saC
 asz
 vae
 oOR
@@ -132666,7 +132572,7 @@ ubP
 gsU
 uea
 lUz
-ouq
+dyQ
 mMW
 lxK
 jMN
