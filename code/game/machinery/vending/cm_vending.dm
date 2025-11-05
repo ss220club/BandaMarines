@@ -785,7 +785,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 	if(!hacked || ignore_hack)
 		if(!allowed(user))
 			if(display)
-				to_chat(user, SPAN_WARNING("Access denied."))
+				to_chat(user, SPAN_WARNING("Доступ запрещён."))
 				vend_fail()
 			return FALSE
 
@@ -824,7 +824,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 //-----------TGUI PROCS------------------------
 /obj/structure/machinery/cm_vending/ui_static_data(mob/user)
 	. = list()
-	.["vendor_name"] = capitalize(declent_ru(NOMINATIVE)) // SS220 - EDIT ADDITTION
+	.["vendor_name"] = capitalize(declent_ru(NOMINATIVE)) // SS220 EDIT ADDICTION
 	.["vendor_type"] = "base"
 	.["theme"] = vendor_theme
 	if(vend_flags & VEND_FACTION_THEMES)
@@ -1439,6 +1439,7 @@ GLOBAL_LIST_INIT(cm_vending_gear_corresponding_types_list, list(
 						clothing.attach_accessory(user, new_item)
 			else
 				user.equip_to_appropriate_slot(new_item)
+				new_item.update_icon()
 
 	if(vend_flags & VEND_TO_HAND)
 		if(user.client?.prefs && (user.client?.prefs?.toggle_prefs & TOGGLE_VEND_ITEM_TO_HAND))
