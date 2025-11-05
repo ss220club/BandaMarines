@@ -5,7 +5,7 @@
 	job_title = JOB_COLONIST
 
 	skills = /datum/skills/civilian
-	languages = list(LANGUAGE_ENGLISH)
+	languages = list(LANGUAGE_JAPANESE, LANGUAGE_ENGLISH)
 	paygrades = list(PAY_SHORT_CIV = JOB_PLAYTIME_TIER_0)
 	idtype = /obj/item/card/id/lanyard
 	faction = FACTION_COLONIST
@@ -37,7 +37,7 @@
 /datum/equipment_preset/hybrisa_event/kelland_cleaner
 	name = "Hybrisa - Kelland - Cleaning Technician"
 	assignment = "KMCC - Cleaning Technician"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/kelland/sanitation
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
@@ -57,7 +57,7 @@
 /datum/equipment_preset/hybrisa_event/kelland_reprocess
 	name = "Hybrisa - Kelland - Material Reprocessing Technician"
 	assignment = "KMCC - Material Reprocessing Technician"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/kelland/sanitation
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
@@ -76,7 +76,7 @@
 /datum/equipment_preset/hybrisa_event/kelland_engineer1
 	name = "Hybrisa - Kelland - Engineer1"
 	assignment = "KMCC - DynaGrid Engineer"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/kelland/engineer
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
@@ -97,7 +97,7 @@
 /datum/equipment_preset/hybrisa_event/kelland_engineer2
 	name = "Hybrisa - Kelland - Engineer2"
 	assignment = "KMCC - DynaGrid Engineer"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/kelland/engineer
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
@@ -117,7 +117,7 @@
 /datum/equipment_preset/hybrisa_event/kelland_electrician1
 	name = "Hybrisa - Kelland - Electrician1"
 	assignment = "KMCC - DynaGrid Electrician"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/kelland/electrician
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
@@ -138,7 +138,7 @@
 /datum/equipment_preset/hybrisa_event/kelland_electrician2
 	name = "Hybrisa - Kelland - Electrician2"
 	assignment = "KMCC - DynaGrid Electrician"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/kelland/electrician
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
@@ -158,7 +158,7 @@
 /datum/equipment_preset/hybrisa_event/kelland_telecomms
 	name = "Hybrisa - Kelland - Telecommunications Technician"
 	assignment = "KMCC - DynaGrid Telecommunications Technician"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/kelland/telecomms
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
@@ -179,7 +179,7 @@
 /datum/equipment_preset/hybrisa_event/kelland_chiefengineer
 	name = "Hybrisa - Kelland - Chief Engineer"
 	assignment = "KMCC - DynaGrid Chief Engineer"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/kelland/ce
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id
@@ -201,7 +201,7 @@
 /datum/equipment_preset/hybrisa_event/kelland_engichef
 	name = "Hybrisa - Kelland - Mess Technician"
 	assignment = "KMCC - DynaGrid Mess Technician"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/kelland/messtech
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
@@ -220,7 +220,7 @@
 /datum/equipment_preset/hybrisa_event/kelland_miner
 	name = "Hybrisa - Kelland - Miner"
 	assignment = "KMCC - Miner"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/kelland/miner
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
@@ -238,7 +238,7 @@
 /datum/equipment_preset/hybrisa_event/kelland_leadminer
 	name = "Hybrisa - Kelland - Foreman"
 	assignment = "KMCC - Foreman"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/kelland/leadminer
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id
@@ -257,7 +257,7 @@
 /datum/equipment_preset/hybrisa_event/kelland_cargotech1
 	name = "Hybrisa - Kelland - Cargo Technician1"
 	assignment = "KMCC - Cargo Technician"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/kelland/cargotech
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
@@ -277,7 +277,7 @@
 /datum/equipment_preset/hybrisa_event/kelland_cargotech2
 	name = "Hybrisa - Kelland - Cargo Technician2"
 	assignment = "KMCC - Cargo Technician"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/kelland/cargotech
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
@@ -297,7 +297,7 @@
 /datum/equipment_preset/hybrisa_event/kelland_cargotech3
 	name = "Hybrisa - Kelland - Cargo Technician3"
 	assignment = "KMCC - Cargo Technician"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/kelland/cargotech
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
@@ -317,7 +317,7 @@
 /datum/equipment_preset/hybrisa_event/kelland_quartermaster
 	name = "Hybrisa - Kelland - Quartermaster"
 	assignment = "KMCC - Quartermaster"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/kelland/quartermaster
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id
@@ -338,7 +338,7 @@
 /datum/equipment_preset/hybrisa_event/kelland_airtraffic
 	name = "Hybrisa - Kelland - Air Traffic Controller"
 	assignment = "KMCC - Air Traffic Controller"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/kelland/airtraffic
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id
@@ -358,11 +358,11 @@
 /datum/equipment_preset/hybrisa_event/kelland_manager
 	name = "Hybrisa - Kelland - Manager"
 	assignment = "KMCC - Manager"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/kelland/manager
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	paygrades = list(PAY_SHORT_WYC8 = JOB_PLAYTIME_TIER_0)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/silver/cl/hyperdyne
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -408,7 +408,7 @@
 /datum/equipment_preset/hybrisa_event/nspa_constable
 	name = "Hybrisa - NSPA - Constable"
 	assignment = "NSPA - Constable"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/nspa/constable
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	paygrades = list(PAY_SHORT_CST = JOB_PLAYTIME_TIER_0)
@@ -429,7 +429,7 @@
 /datum/equipment_preset/hybrisa_event/nspa_senconstable
 	name = "Hybrisa - NSPA - Senior Constable"
 	assignment = "NSPA - Senior Constable"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/nspa/senior_constable
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	paygrades = list(PAY_SHORT_SC = JOB_PLAYTIME_TIER_0)
@@ -450,7 +450,7 @@
 /datum/equipment_preset/hybrisa_event/nspa_sergeant
 	name = "Hybrisa - NSPA - Sergeant"
 	assignment = "NSPA - Sergeant"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/nspa/sergeant
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	paygrades = list(PAY_SHORT_SGT = JOB_PLAYTIME_TIER_0)
@@ -472,7 +472,7 @@
 /datum/equipment_preset/hybrisa_event/nspa_inspector
 	name = "Hybrisa - NSPA - Inspector"
 	assignment = "NSPA - Inspector"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/nspa/inspector
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	paygrades = list(PAY_SHORT_INSP = JOB_PLAYTIME_TIER_0)
@@ -498,7 +498,7 @@
 /datum/equipment_preset/hybrisa_event/weymart_worker
 	name = "Hybrisa - Weyland-Yutani - Weymart Employee"
 	assignment = "Weyland-Yutani - Weymart Employee"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/weyland/weymart_worker
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
@@ -519,7 +519,6 @@
 	skills = /datum/skills/working_joe
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id
 
 	languages = list(LANGUAGE_ENGLISH, LANGUAGE_APOLLO, LANGUAGE_JAPANESE, LANGUAGE_SPANISH)
 
@@ -541,7 +540,7 @@
 /datum/equipment_preset/hybrisa_event/weymart_manager
 	name = "Hybrisa - Weyland-Yutani - Weymart Manager"
 	assignment = "Weyland-Yutani - Weymart Manager"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/weyland/weymart_manager
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
@@ -559,7 +558,7 @@
 /datum/equipment_preset/hybrisa_event/wypilot
 	name = "Hybrisa - Weyland-Yutani - Commercial Pilot"
 	assignment = "Weyland-Yutani - Commercial Pilot"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/weyland/pilot
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/gold
@@ -579,9 +578,10 @@
 /datum/equipment_preset/hybrisa_event/meridianoffice1
 	name = "Hybrisa - Meridian - Office Worker1"
 	assignment = "Meridian - Office Worker"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/weyland/officeworker_meridian
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
+	idtype = /obj/item/card/id/data
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -597,9 +597,10 @@
 /datum/equipment_preset/hybrisa_event/meridianoffice2
 	name = "Hybrisa - Meridian - Office Worker2"
 	assignment = "Meridian - Office Worker"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/weyland/officeworker_meridian
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
+	idtype = /obj/item/card/id/data
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -615,9 +616,10 @@
 /datum/equipment_preset/hybrisa_event/wyoffice1
 	name = "Hybrisa - Weyland-Yutani - Office Worker1"
 	assignment = "Weyland-Yutani - Office Worker"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/weyland/officeworker
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
+	idtype = /obj/item/card/id/silver/clearance_badge/cl
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -633,9 +635,10 @@
 /datum/equipment_preset/hybrisa_event/wyoffice2
 	name = "Hybrisa - Weyland-Yutani - Office Worker2"
 	assignment = "Weyland-Yutani - Office Worker"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/weyland/officeworker
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
+	idtype = /obj/item/card/id/silver/clearance_badge/cl
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -651,9 +654,10 @@
 /datum/equipment_preset/hybrisa_event/wyoffice3
 	name = "Hybrisa - Weyland-Yutani - Office Worker3"
 	assignment = "Weyland-Yutani - Office Worker"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/weyland/officeworker
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
+	idtype = /obj/item/card/id/silver/clearance_badge/cl
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -669,9 +673,10 @@
 /datum/equipment_preset/hybrisa_event/wyoffice4
 	name = "Hybrisa - Weyland-Yutani - Office Worker4"
 	assignment = "Weyland-Yutani - Office Worker"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/weyland/officeworker
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
+	idtype = /obj/item/card/id/silver/clearance_badge/cl
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -686,7 +691,7 @@
 /datum/equipment_preset/hybrisa_event/meridiantech
 	name = "Hybrisa - Meridian - Car Mechanic"
 	assignment = "Meridian - Car Mechanic"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/weyland/techmeridian
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
@@ -709,9 +714,10 @@
 /datum/equipment_preset/hybrisa_event/wyexec
 	name = "Hybrisa - Weyland-Yutani - Senior Executive"
 	assignment = "Weyland-Yutani - Senior Executive"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/weyland/sen_executive
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
+	idtype = /obj/item/card/id/pmc
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -727,26 +733,10 @@
 /datum/equipment_preset/hybrisa_event/meridianmanager
 	name = "Hybrisa - Meridian - Manager"
 	assignment = "Meridian - Manager"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/weyland/meridian_manager
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-
-	survivor_variant = CIVILIAN_SURVIVOR
-
-/datum/equipment_preset/hybrisa_event/meridianmanager/load_gear(mob/living/carbon/human/new_human)
-
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/hybrisa/wy_exec_suit_uniform/brown(new_human), WEAR_BODY)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(new_human), WEAR_FEET)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/CMB/trenchcoat(new_human), WEAR_JACKET)
-	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel/norm/red_line(new_human), WEAR_BACK)
-	..()
-
-/datum/equipment_preset/hybrisa_event/meridianmanager
-	name = "Hybrisa - Meridian - Manager"
-	assignment = "Meridian - Manager"
-	skills = /datum/skills/civilian/survivor
-	flags = EQUIPMENT_PRESET_START_OF_ROUND
-	access = list(ACCESS_CIVILIAN_PUBLIC)
+	idtype = /obj/item/card/id
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -759,13 +749,13 @@
 	..()
 
 /datum/equipment_preset/hybrisa_event/wyh_supervisor
-	name = "Hybrisa - Weyland-Yutani - Supervisor"
+	name = "Hybrisa - Weyland-Yutani - Colony Supervisor"
 	assignment = "Weyland-Yutani - Colony Supervisor"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/weyland/supervisor
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	paygrades = list(PAY_SHORT_WYC8 = JOB_PLAYTIME_TIER_0)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/general
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -783,11 +773,11 @@
 /datum/equipment_preset/hybrisa_event/wyh_guard
 	name = "Hybrisa - Weyland-Yutani - Personal Protection Officer"
 	assignment = "Weyland-Yutani - Personal Protection Officer"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/weyland/ppo
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	paygrades = list(PAY_SHORT_WYC8 = JOB_PLAYTIME_TIER_0)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/pmc/commando
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -821,10 +811,10 @@
 /datum/equipment_preset/hybrisa_event/pizza_worker
 	name = "Hybrisa - Pizza Galaxy - Cashier"
 	assignment = "Pizza Galaxy - Cashier"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/pizza/cashier
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/pizza
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -838,10 +828,10 @@
 /datum/equipment_preset/hybrisa_event/pizza_manager
 	name = "Hybrisa - Pizza Galaxy - Manager"
 	assignment = "Pizza Galaxy - Manager"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/pizza/manager
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/pizza
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -856,10 +846,10 @@
 /datum/equipment_preset/hybrisa_event/pizza_chef
 	name = "Hybrisa - Pizza Galaxy - Chef"
 	assignment = "Pizza Galaxy - Chef"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/pizza/chef
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/pizza
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -875,10 +865,10 @@
 /datum/equipment_preset/hybrisa_event/pizza_deliverydriver
 	name = "Hybrisa - Pizza Galaxy - Delivery Driver"
 	assignment = "Pizza Galaxy - Delivery Driver"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/pizza/delivery
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/pizza
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -899,10 +889,9 @@
 /datum/equipment_preset/hybrisa_event/cuppa_waitress
 	name = "Hybrisa - Cuppa Joe's - Waitress"
 	assignment = "Cuppa Joe's - Waitress"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/cuppa/waitress
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -917,10 +906,10 @@
 /datum/equipment_preset/hybrisa_event/cuppa_manager
 	name = "Hybrisa - Cuppa Joe's - Manager"
 	assignment = "Cuppa Joe's - Manager"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/cuppa/manager
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/data
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -934,10 +923,9 @@
 /datum/equipment_preset/hybrisa_event/cuppa_barista
 	name = "Hybrisa - Cuppa Joe's - Barista"
 	assignment = "Cuppa Joe's - Barista"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/cuppa/barista
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -955,10 +943,10 @@
 /datum/equipment_preset/hybrisa_event/ngc_manager
 	name = "Hybrisa - Night Gold Casino - Manager"
 	assignment = "Night Gold Casino - Manager"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/ngc/manager
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/souto
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -976,10 +964,10 @@
 /datum/equipment_preset/hybrisa_event/ngc_bouncer1
 	name = "Hybrisa - Night Gold Casino - Bouncer1"
 	assignment = "Night Gold Casino - Bouncer"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/ngc/goon
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/data
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -997,10 +985,10 @@
 /datum/equipment_preset/hybrisa_event/ngc_bouncer2
 	name = "Hybrisa - Night Gold Casino - Bouncer2"
 	assignment = "Night Gold Casino - Bouncer"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/ngc/goon
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/data
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -1019,10 +1007,10 @@
 /datum/equipment_preset/hybrisa_event/ngc_bartender
 	name = "Hybrisa - Night Gold Casino - Bartender"
 	assignment = "Night Gold Casino - Bartender"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/ngc/bartender
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/data
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -1044,10 +1032,10 @@
 /datum/equipment_preset/hybrisa_event/nm_emt1
 	name = "Hybrisa - Nova Medica - Emergency Medical Technician1"
 	assignment = "Nova Medica - Emergency Medical Technician"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/novamedica/emt
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/silver
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -1064,10 +1052,10 @@
 /datum/equipment_preset/hybrisa_event/nm_emt2
 	name = "Hybrisa - Nova Medica - Emergency Medical Technician2"
 	assignment = "Nova Medica - Emergency Medical Technician"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/novamedica/emt
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/silver
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -1084,10 +1072,10 @@
 /datum/equipment_preset/hybrisa_event/nm_nurse1
 	name = "Hybrisa - Nova Medica - Nurse1"
 	assignment = "Nova Medica - Nurse"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/novamedica/nurse
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/silver
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -1105,10 +1093,10 @@
 /datum/equipment_preset/hybrisa_event/nm_nurse2
 	name = "Hybrisa - Nova Medica - Nurse2"
 	assignment = "Nova Medica - Nurse"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/novamedica/nurse
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/silver
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -1126,10 +1114,10 @@
 /datum/equipment_preset/hybrisa_event/nm_firefighter
 	name = "Hybrisa - Nova Medica - Fire Protection Specialist"
 	assignment = "Nova Medica - Fire Protection Specialist"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/novamedica/firefighter
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/data
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -1146,10 +1134,10 @@
 /datum/equipment_preset/hybrisa_event/nm_doctor1
 	name = "Hybrisa - Nova Medica - Medical Doctor1"
 	assignment = "Nova Medica - Medical Doctor"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/novamedica/doctor
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/silver
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -1168,10 +1156,10 @@
 /datum/equipment_preset/hybrisa_event/nm_doctor2
 	name = "Hybrisa - Nova Medica - Medical Doctor2"
 	assignment = "Nova Medica - Medical Doctor"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/novamedica/doctor
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/silver
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -1186,17 +1174,17 @@
 
 	..()
 
-/datum/equipment_preset/hybrisa_event/nm_virologist
-	name = "Hybrisa - Nova Medica - Virologist"
-	assignment = "Nova Medica - Virologist"
-	skills = /datum/skills/civilian/survivor
+/datum/equipment_preset/hybrisa_event/nm_coroner
+	name = "Hybrisa - Nova Medica - Coroner"
+	assignment = "Nova Medica - Coroner"
+	skills = /datum/skills/hybrisa_event/novamedica/coroner
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/silver
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
-/datum/equipment_preset/hybrisa_event/nm_virologist/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/hybrisa_event/nm_coroner/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical(new_human), WEAR_BODY)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/white(new_human), WEAR_FEET)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/gloves/latex(new_human), WEAR_HANDS)
@@ -1206,13 +1194,34 @@
 
 	..()
 
+/datum/equipment_preset/hybrisa_event/nm_virologist
+	name = "Hybrisa - Nova Medica - Virologist"
+	assignment = "Nova Medica - Virologist"
+	skills = /datum/skills/hybrisa_event/novamedica/virologist
+	flags = EQUIPMENT_PRESET_START_OF_ROUND
+	access = list(ACCESS_CIVILIAN_PUBLIC)
+	idtype = /obj/item/card/id/silver
+
+	survivor_variant = CIVILIAN_SURVIVOR
+
+/datum/equipment_preset/hybrisa_event/nm_virologist/load_gear(mob/living/carbon/human/new_human)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical(new_human), WEAR_BODY)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/white(new_human), WEAR_FEET)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/gloves/latex(new_human), WEAR_HANDS)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/labcoat/virologist(new_human), WEAR_JACKET)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/mask/surgical(new_human), WEAR_FACE)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/glasses/hud/health(new_human), WEAR_EYES)
+	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel/vir(new_human), WEAR_BACK)
+
+	..()
+
 /datum/equipment_preset/hybrisa_event/nm_dispatcher
 	name = "Hybrisa - Nova Medica - Dispatcher"
 	assignment = "Nova Medica - Dispatcher"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/novamedica/dispatcher
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/silver
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -1228,10 +1237,10 @@
 /datum/equipment_preset/hybrisa_event/nm_cmo
 	name = "Hybrisa - Nova Medica - Chief Medical Officer"
 	assignment = "Nova Medica - Chief Medical Officer"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/novamedica/cmo
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/silver
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -1255,10 +1264,10 @@
 /datum/equipment_preset/hybrisa_event/jack
 	name = "Hybrisa - Jack's Surplus - Jack"
 	assignment = "Jack's Surplus - Owner"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/surplus/jack
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/data
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -1274,10 +1283,9 @@
 /datum/equipment_preset/hybrisa_event/jack_assistant
 	name = "Hybrisa - Jack's Surplus - Employee"
 	assignment = "Jack's Surplus - Employee"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/surplus/jacks_assistant
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -1295,10 +1303,10 @@
 /datum/equipment_preset/hybrisa_event/iasf_veteran
 	name = "Hybrisa - Independent - IASF Veteran"
 	assignment = "IASF - Itto Kaii"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/iasf_veteran
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/dogtag
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -1316,10 +1324,10 @@
 /datum/equipment_preset/hybrisa_event/cr_veteran
 	name = "Hybrisa - Independent - FORECON Veteran"
 	assignment = "FORECON - Staff Sergeant"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/forecon_veteran
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/dogtag
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -1340,10 +1348,9 @@
 /datum/equipment_preset/hybrisa_event/reporter
 	name = "Hybrisa - Independent - Reporter"
 	assignment = "Daily Bagels Hybrisa - Reporter"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/reporter
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -1363,7 +1370,7 @@
 /datum/equipment_preset/hybrisa_event/hobo_hoarder
 	name = "Hybrisa - Hobo - Hoarder"
 	assignment = "Access"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/hobo/hoarder
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = null
@@ -1380,7 +1387,7 @@
 /datum/equipment_preset/hybrisa_event/hobo_brawler
 	name = "Hybrisa - Hobo - Brawler"
 	assignment = "Access"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/hobo/brawler
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = null
@@ -1398,7 +1405,7 @@
 /datum/equipment_preset/hybrisa_event/hobo_escapist
 	name = "Hybrisa - Hobo - Escapist"
 	assignment = "Access"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/hobo/escapist
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = null
@@ -1414,10 +1421,9 @@
 /datum/equipment_preset/hybrisa_event/carp_cook
 	name = "Hybrisa - Independent - Cook"
 	assignment = "Carpe Carp - Cook"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/cook
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -1433,10 +1439,9 @@
 /datum/equipment_preset/hybrisa_event/carp_bartender
 	name = "Hybrisa - Independent - Bartender"
 	assignment = "Carpe Carp - Bartender"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/bartender
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
@@ -1451,14 +1456,14 @@
 /datum/equipment_preset/hybrisa_event/grandhotel
 	name = "Hybrisa - Independent - Hotel Administrator"
 	assignment = "Grand Prospera Hotel - Administrator"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/hotel_admin
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
-	idtype = /obj/item/card/id/silver/clearance_badge/manager
+	idtype = /obj/item/card/id/data
 
 	survivor_variant = CIVILIAN_SURVIVOR
 
-/datum/equipment_preset/hybrisa_event/carp_bartender/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/hybrisa_event/grandhotel/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/liaison_suit/field(new_human), WEAR_BODY)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup/brown(new_human), WEAR_FEET)
 
@@ -1467,7 +1472,7 @@
 /datum/equipment_preset/hybrisa_event/civilian
 	name = "Hybrisa - Independent - Civilian"
 	assignment = "Civilian"
-	skills = /datum/skills/civilian/survivor
+	skills = /datum/skills/hybrisa_event/civilian
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
