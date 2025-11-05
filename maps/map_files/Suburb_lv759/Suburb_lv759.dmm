@@ -1335,6 +1335,10 @@
 	},
 /turf/open/floor/corsat/officetiles,
 /area/Suburb_lv759/indoors/wy_research_complex/researchanddevelopment)
+"aBU" = (
+/obj/structure/prop/hybrisa/vehicles/Meridian/Light_Blue,
+/turf/open/hybrisa/street/asphalt,
+/area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "aCh" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/kutjevo,
@@ -1993,7 +1997,7 @@
 /area/Suburb_lv759/indoors/wy_research_complex/xenobiology)
 "aMW" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/corpsespawner/hybrisa_goon,
+/obj/effect/landmark/corpsespawner/hybrisa_goon/burst,
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/wy_research_complex/hangarbayshuttle)
 "aMX" = (
@@ -3519,6 +3523,15 @@
 /obj/structure/cargo_container/wy/mid,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Suburb_lv759/outdoors/landing_zone_2)
+"bvK" = (
+/obj/structure/prop/hybrisa/vehicles/Meridian/WeylandYutani/damage_2{
+	dir = 1;
+	pixel_y = -12;
+	layer = 3.9;
+	icon_state = "meridian_wy_damage_2"
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "bvM" = (
 /obj/structure/machinery/light{
 	dir = 1
@@ -7116,6 +7129,14 @@
 /obj/effect/landmark/corpsespawner/hybrisa_goon,
 /turf/open/floor/prison/darkyellow2/north,
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaynorth)
+"cLw" = (
+/obj/structure/desertdam/decals/road_edge{
+	pixel_x = -19;
+	pixel_y = -23
+	},
+/obj/item/explosive/mine/active/no_iff,
+/turf/open/asphalt/cement/cement3,
+/area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "cLA" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "E";
@@ -8518,6 +8539,15 @@
 	},
 /turf/open/floor/plating,
 /area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"diV" = (
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_y = 2;
+	layer = 5.2
+	},
+/obj/item/explosive/mine/active/no_iff,
+/turf/open/hybrisa/street/sidewalkcenter/west,
+/area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "djc" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "W";
@@ -11880,10 +11910,8 @@
 /turf/open/floor/almayer_hull,
 /area/Suburb_lv759/bunker/checkpoint)
 "erg" = (
-/obj/effect/decal/warning_stripes{
-	icon_state = "N"
-	},
-/turf/open/hybrisa/street/sidewalkcenter/west,
+/obj/structure/prop/hybrisa/vehicles/Meridian/Taxi/damage_3,
+/turf/open/hybrisa/street/asphalt,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "erk" = (
 /obj/structure/surface/table/holotable{
@@ -15948,8 +15976,8 @@
 /turf/open/floor/almayer/plating/northeast,
 /area/Suburb_lv759/indoors/public_spaceport/vehicledeploymentbay)
 "fTu" = (
-/obj/effect/vehicle_spawner/box_van,
-/turf/open/hybrisa/street/sidewalkcenter/east,
+/obj/structure/prop/hybrisa/vehicles/Colony_Crawlers,
+/turf/open/hybrisa/street/asphalt,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "fTA" = (
 /obj/structure/surface/table/reinforced,
@@ -24457,6 +24485,10 @@
 	},
 /turf/open/floor/corsat/officetiles,
 /area/Suburb_lv759/outdoors/colony_streets/cottage5)
+"jdr" = (
+/obj/item/explosive/mine/active/no_iff,
+/turf/open/hybrisa/street/asphalt,
+/area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "jdu" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice12";
@@ -25157,11 +25189,17 @@
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Suburb_lv759/outdoors/landing_zone_2)
 "jtH" = (
-/obj/effect/decal/warning_stripes{
-	icon_state = "N"
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3"
 	},
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Suburb_lv759/outdoors/colony_streets/Main_road)
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/doubleroad/lines2{
+	pixel_y = 4
+	},
+/obj/structure/prop/hybrisa/vehicles/Long_Truck/WY_Blue,
+/turf/open/hybrisa/street/asphalt,
+/area/Suburb_lv759/outdoors)
 "jtK" = (
 /obj/effect/decal/hybrisa/road/lines2,
 /obj/effect/decal/hybrisa/road/lines5,
@@ -27986,6 +28024,10 @@
 	},
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Suburb_lv759/outdoors/landing_zone_2)
+"kva" = (
+/obj/item/explosive/mine/pmc/active,
+/turf/open/hybrisa/street/asphalt,
+/area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "kvd" = (
 /obj/structure/prop/hybrisa/boulders/smallboulderdark/boulder_dark1,
 /turf/open/auto_turf/hybrisa_auto_turf/layer2,
@@ -28744,7 +28786,9 @@
 /turf/closed/wall/r_wall/biodome,
 /area/Suburb_lv759/indoors/wy_research_complex/hangarbay)
 "kJM" = (
-/obj/effect/vehicle_spawner/apc_pmc/fixed,
+/obj/effect/vehicle_spawner/apc_pmc/decrepit{
+	dir = 8
+	},
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Suburb_lv759/indoors/wy_research_complex/hangarbayshuttle)
 "kJR" = (
@@ -29646,6 +29690,10 @@
 /obj/structure/cargo_container/horizontal/blue/top,
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/wy_research_complex)
+"kYy" = (
+/obj/effect/vehicle_spawner/box_van/decrepit,
+/turf/open/hybrisa/street/sidewalkcenter/west,
+/area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "kYK" = (
 /obj/structure/closet/secure_closet/freezer/fridge/full{
 	pixel_y = 4;
@@ -32875,6 +32923,10 @@
 /obj/effect/landmark/corpsespawner/hybrisa/civilian_office,
 /turf/open/floor/strata/multi_tiles/west,
 /area/Suburb_lv759/outdoors/colony_streets/pizza)
+"lZC" = (
+/obj/effect/vehicle_spawner/box_van/pizza_van/decrepit,
+/turf/open/hybrisa/street/asphalt,
+/area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "lZM" = (
 /obj/structure/cargo_container/uscm/borodino/left,
 /turf/open/floor/plating/asteroidfloor/north,
@@ -33358,7 +33410,9 @@
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaycentral)
 "mho" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/machinery/defenses/sentry/premade/lowammo/dumb,
+/obj/structure/machinery/defenses/sentry/premade/lowammo/dumb{
+	dir = 3
+	},
 /turf/open/floor/asteroidwarning/west,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "mhq" = (
@@ -34201,9 +34255,6 @@
 /turf/open/floor/almayer/black,
 /area/Suburb_lv759/indoors/wy_research_complex/cargo)
 "mvz" = (
-/obj/effect/decal/warning_stripes{
-	icon_state = "N"
-	},
 /obj/item/tool/warning_cone{
 	pixel_x = -9;
 	pixel_y = 20
@@ -34832,8 +34883,8 @@
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Suburb_lv759/outdoors)
 "mHZ" = (
-/obj/effect/vehicle_spawner/box_van,
-/turf/open/hybrisa/street/sidewalkcenter/west,
+/obj/effect/vehicle_spawner/box_van/decrepit,
+/turf/open/hybrisa/street/asphalt,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "mIh" = (
 /obj/structure/cable/heavyduty{
@@ -37954,6 +38005,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/wy_research_complex)
+"nPL" = (
+/obj/item/explosive/mine/active/no_iff,
+/turf/open/hybrisa/street/sidewalkcenter/west,
+/area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "nPX" = (
 /turf/open/floor/prison/darkyellowcorners2/north,
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaycentral)
@@ -38451,7 +38506,9 @@
 /area/Suburb_lv759/indoors/wy_research_complex/dormsbedroom)
 "nZR" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/machinery/defenses/sentry/premade/lowammo/dumb,
+/obj/structure/machinery/defenses/sentry/premade/lowammo/dumb{
+	dir = 4
+	},
 /turf/open/floor/asteroidwarning/east,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "nZZ" = (
@@ -43187,9 +43244,6 @@
 /turf/open/floor/prison/floor_plate,
 /area/Suburb_lv759/indoors/caves/passage_to_bunker)
 "pLH" = (
-/obj/effect/decal/warning_stripes{
-	icon_state = "N"
-	},
 /obj/structure/prop/hybrisa/airport/dropshipnosecone{
 	dir = 4
 	},
@@ -44298,7 +44352,9 @@
 /turf/open/floor/hybrisa/carpet/blue_grey,
 /area/space)
 "qgK" = (
-/obj/structure/machinery/defenses/sentry/premade/lowammo/dumb,
+/obj/structure/machinery/defenses/sentry/premade/lowammo/dumb{
+	dir = 3
+	},
 /turf/open/floor/asteroidwarning/west,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "qgL" = (
@@ -47771,6 +47827,10 @@
 	},
 /turf/open/floor/kutjevo/tan/multi_tiles/southeast,
 /area/Suburb_lv759/outdoors/colony_streets/cottage)
+"rrw" = (
+/obj/structure/prop/hybrisa/vehicles/Mining_Crawlers/Fuel,
+/turf/open/hybrisa/street/asphalt,
+/area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "rrB" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/hybrisa/tile/tilegrey,
@@ -49159,9 +49219,6 @@
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "rNZ" = (
-/obj/effect/decal/warning_stripes{
-	icon_state = "N"
-	},
 /obj/structure/prop/hybrisa/airport/dropshipnosecone{
 	dir = 1
 	},
@@ -49493,6 +49550,7 @@
 /area/Suburb_lv759/indoors/wy_research_complex/weaponresearchlabtesting)
 "rUz" = (
 /obj/effect/decal/cleanable/blood/xeno,
+/obj/item/explosive/mine/active/no_iff,
 /turf/open/hybrisa/street/sidewalkcenter/east,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "rUB" = (
@@ -49813,6 +49871,7 @@
 	pixel_x = -19;
 	pixel_y = -23
 	},
+/obj/item/explosive/mine/active/no_iff,
 /turf/open/asphalt/cement/cement14,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "scG" = (
@@ -50778,7 +50837,9 @@
 /turf/open/floor/plating,
 /area/Suburb_lv759/outdoors/landing_zone_2)
 "swH" = (
-/obj/structure/machinery/defenses/sentry/premade/lowammo/dumb,
+/obj/structure/machinery/defenses/sentry/premade/lowammo/dumb{
+	dir = 4
+	},
 /turf/open/floor/asteroidwarning/east,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "swK" = (
@@ -50787,6 +50848,14 @@
 	},
 /turf/open/floor/plating/asteroidfloor/north,
 /area/Suburb_lv759/indoors/public_spaceport)
+"swT" = (
+/obj/structure/desertdam/decals/road_edge{
+	pixel_x = 23;
+	pixel_y = -13
+	},
+/obj/item/explosive/mine/active/no_iff,
+/turf/open/asphalt/cement/cement13,
+/area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "sxc" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "W";
@@ -52620,8 +52689,8 @@
 /turf/open/floor/strata/faux_wood,
 /area/Suburb_lv759/indoors/wy_research_complex/dormsbedroom)
 "tfb" = (
-/obj/effect/vehicle_spawner/box_van,
-/turf/open/hybrisa/street/asphalt,
+/obj/item/explosive/mine/active/no_iff,
+/turf/open/hybrisa/street/sidewalkcenter/east,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "tfl" = (
 /obj/structure/machinery/access_button,
@@ -53910,7 +53979,7 @@
 /area/Suburb_lv759/indoors/wy_research_complex/changingroom)
 "tDp" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/corpsespawner/pmc,
+/obj/effect/landmark/corpsespawner/hybrisa_goon/lead,
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/wy_research_complex/hangarbayshuttle)
 "tDO" = (
@@ -54531,6 +54600,10 @@
 	pixel_y = 7
 	},
 /turf/open/hybrisa/street/asphalt,
+/area/Suburb_lv759/outdoors/colony_streets/Main_road)
+"tND" = (
+/obj/effect/vehicle_spawner/box_van/decrepit,
+/turf/open/hybrisa/street/sidewalkcenter/east,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "tNK" = (
 /obj/item/trash/cigbutt,
@@ -56547,12 +56620,8 @@
 /turf/open/floor/almayer/test_floor5,
 /area/Suburb_lv759/indoors/wy_research_complex/securityarmory)
 "uBD" = (
-/obj/structure/barricade/handrail/sandstone/b{
-	color = "#c2d6d6";
-	dir = 8
-	},
-/obj/structure/machinery/defenses/sentry/premade/lowammo/dumb,
-/turf/open/floor/asteroidwarning/east,
+/obj/item/explosive/mine/pmc/active,
+/turf/open/hybrisa/street/sidewalkcenter/west,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "uBP" = (
 /obj/structure/platform/metal/strata/east,
@@ -65250,6 +65319,10 @@
 	layer = 6
 	},
 /obj/structure/machinery/defenses/sentry/premade/lowammo/dumb,
+/obj/structure/barricade/sandbags/wired{
+	icon_state = "sandbag_0";
+	pixel_y = -8
+	},
 /turf/open/hybrisa/street/sidewalkcenter/east,
 /area/Suburb_lv759/indoors/wy_security/checkpoint_northeast)
 "xMv" = (
@@ -87712,7 +87785,7 @@ qHC
 qTI
 bsp
 kGJ
-qyy
+jtH
 qHC
 qHC
 qHC
@@ -88970,7 +89043,7 @@ gBd
 gBd
 gBd
 gti
-xBq
+bvK
 tNr
 quw
 gBd
@@ -89196,7 +89269,7 @@ dvy
 wBA
 vHP
 sLL
-sLL
+swT
 cXf
 sLL
 sLL
@@ -89222,7 +89295,7 @@ jDk
 jDk
 jDk
 fdu
-xBq
+fnY
 xBq
 eSG
 jDk
@@ -89435,7 +89508,7 @@ nnX
 qOp
 vwj
 slj
-slj
+tfb
 slj
 slj
 slj
@@ -89445,14 +89518,14 @@ slj
 slj
 slj
 slj
-slj
+tfb
 rEO
 slj
 slj
 dHv
 slj
 slj
-slj
+tfb
 slj
 nJu
 slj
@@ -89494,7 +89567,7 @@ slj
 slj
 slj
 slj
-slj
+tND
 slj
 slj
 slj
@@ -89586,7 +89659,7 @@ slj
 slj
 slj
 slj
-slj
+tND
 slj
 slj
 slj
@@ -89703,7 +89776,7 @@ xBq
 xBq
 xBq
 kOg
-xBq
+kva
 xBq
 xBq
 koD
@@ -89713,7 +89786,7 @@ xBq
 xBq
 xBq
 xBq
-tfb
+xBq
 xBq
 xBq
 xBq
@@ -89727,7 +89800,7 @@ xBq
 xBq
 xBq
 xBq
-xBq
+erg
 xBq
 xBq
 lmB
@@ -89743,6 +89816,13 @@ xBq
 xBq
 xBq
 xBq
+fTu
+xBq
+xBq
+xBq
+xBq
+xBq
+aBU
 xBq
 xBq
 xBq
@@ -89755,6 +89835,7 @@ xBq
 xBq
 xBq
 xBq
+mHZ
 xBq
 xBq
 xBq
@@ -89762,15 +89843,7 @@ xBq
 xBq
 xBq
 xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
-xBq
+rrw
 xBq
 xBq
 xBq
@@ -89793,7 +89866,7 @@ xBq
 xBq
 xBq
 xBq
-xBq
+mHZ
 xBq
 xBq
 xBq
@@ -89861,7 +89934,7 @@ xBq
 xBq
 xBq
 xBq
-xBq
+mHZ
 xBq
 xBq
 xBq
@@ -89938,7 +90011,7 @@ gSQ
 mPT
 jsN
 xtl
-qgi
+uBD
 qgi
 qgi
 qgi
@@ -90010,7 +90083,7 @@ qgi
 qgi
 qgi
 qgi
-mHZ
+qgi
 qgi
 qgi
 qgi
@@ -90048,7 +90121,7 @@ qgi
 qgi
 qgi
 qgi
-erg
+qgi
 rKA
 qgi
 qgi
@@ -90456,7 +90529,7 @@ slj
 slj
 rEO
 slj
-slj
+tfb
 slj
 slj
 slj
@@ -90465,7 +90538,7 @@ slj
 nJu
 slj
 slj
-fTu
+slj
 slj
 slj
 slj
@@ -90702,14 +90775,14 @@ xBq
 xBq
 xBq
 xBq
-xBq
+jdr
 xBq
 xBq
 xBq
 qEU
 xBq
 xBq
-xBq
+kva
 xBq
 xBq
 xBq
@@ -90756,6 +90829,7 @@ xBq
 xBq
 xBq
 xBq
+aBU
 xBq
 xBq
 xBq
@@ -90777,8 +90851,7 @@ xBq
 xBq
 xBq
 xBq
-xBq
-xBq
+mHZ
 xBq
 xBq
 xBq
@@ -90792,6 +90865,7 @@ xBq
 xBq
 xBq
 xBq
+mHZ
 xBq
 xBq
 xBq
@@ -90801,8 +90875,7 @@ xBq
 xBq
 xBq
 xBq
-xBq
-xBq
+lZC
 xBq
 pLH
 syN
@@ -90835,7 +90908,7 @@ lmB
 xBq
 xBq
 xBq
-xBq
+mHZ
 xBq
 xBq
 xBq
@@ -90863,7 +90936,7 @@ xBq
 xBq
 xBq
 xBq
-xBq
+mHZ
 xBq
 xBq
 xBq
@@ -90951,17 +91024,17 @@ qgi
 qgi
 qgi
 gfY
-qgi
+nPL
 qgi
 qgi
 qgi
 fex
 qgi
 qgi
-hkn
+diV
 fex
 qgi
-qgi
+nPL
 qgi
 hNM
 qgi
@@ -91010,7 +91083,7 @@ qgi
 qgi
 qgi
 qgi
-qgi
+kYy
 qgi
 qgi
 qgi
@@ -91199,7 +91272,7 @@ hJo
 uox
 bta
 vFU
-fmd
+cLw
 gCg
 gCg
 fmd
@@ -91458,7 +91531,7 @@ pfc
 iik
 iik
 iik
-uBD
+iik
 iik
 iik
 iik
@@ -91560,7 +91633,7 @@ gBd
 gBd
 gBd
 gBd
-jtH
+gBd
 cNo
 gBd
 xKY
@@ -91710,7 +91783,7 @@ lVp
 qlE
 lVp
 lVp
-vlW
+qgK
 vlW
 vlW
 vlW
@@ -91812,7 +91885,7 @@ gBd
 gBd
 gBd
 gBd
-jtH
+gBd
 cNo
 cNo
 gBd

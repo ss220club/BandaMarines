@@ -27,8 +27,6 @@
 /obj/structure/largecrate/random/barrel/true_random,
 /obj/item/mortar_shell/incendiary,
 /obj/item/mortar_shell/incendiary,
-/obj/item/mortar_shell/incendiary,
-/obj/item/mortar_shell/incendiary,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
 "bI" = (
@@ -124,6 +122,10 @@
 	dir = 8
 	},
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"gy" = (
+/obj/item/clothing/head/helmet/marine/veteran/mercenary/miner/clf,
+/turf/open/floor/plating,
 /area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
 "ha" = (
 /obj/effect/landmark/objective_landmark/medium,
@@ -504,6 +506,10 @@
 /obj/structure/largecrate/supply/ammo/m56d,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Bo" = (
+/obj/item/weapon/gun/launcher/grenade/m84,
+/turf/open/auto_turf/sand_white/layer0,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
 "Br" = (
 /obj/item/tool/warning_cone,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
@@ -787,11 +793,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/surface/rack,
-/obj/item/weapon/gun/pistol/heavy,
-/obj/item/ammo_magazine/pistol/heavy,
-/obj/item/ammo_magazine/pistol/heavy,
-/obj/item/ammo_magazine/pistol/heavy,
-/obj/item/ammo_magazine/pistol/heavy,
+/obj/item/weapon/gun/launcher/rocket/m57a4,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
 "SJ" = (
@@ -881,8 +883,6 @@
 /area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
 "WI" = (
 /obj/structure/largecrate/random/barrel/true_random,
-/obj/item/mortar_shell/he,
-/obj/item/mortar_shell/he,
 /obj/item/mortar_shell/he,
 /obj/item/mortar_shell/he,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
@@ -1304,7 +1304,7 @@ XV
 jV
 XV
 XB
-XV
+gy
 XV
 Qr
 Lh
@@ -1668,7 +1668,7 @@ Sz
 ok
 ok
 Sz
-ok
+Bo
 ok
 Sz
 Sz

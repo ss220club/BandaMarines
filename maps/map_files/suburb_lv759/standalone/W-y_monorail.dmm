@@ -42,17 +42,6 @@
 /obj/item/ammo_magazine/rifle/l23/rubber,
 /turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
 /area/space)
-"fQ" = (
-/obj/structure/prop/invuln/lattice_prop{
-	icon_state = "lattice12";
-	pixel_x = 16;
-	pixel_y = -1
-	},
-/obj/effect/vehicle_spawner/apc_pmc/decrepit{
-	dir = 8
-	},
-/turf/open/shuttle/dropship/dark_grey_bottom,
-/area/space)
 "gS" = (
 /obj/item/ammo_magazine/rifle,
 /turf/open/shuttle/dropship/dark_grey_bottom,
@@ -124,18 +113,6 @@
 "mQ" = (
 /obj/item/storage/belt/marine/wy,
 /turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
-/area/space)
-"mY" = (
-/obj/structure/platform{
-	dir = 8
-	},
-/obj/structure/prop/invuln/lattice_prop{
-	icon_state = "lattice12";
-	pixel_x = 16;
-	pixel_y = -1
-	},
-/obj/structure/blocker/invisible_wall,
-/turf/open/void,
 /area/space)
 "nq" = (
 /obj/effect/decal/cleanable/blood,
@@ -244,11 +221,13 @@
 /turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
 /area/space)
 "uz" = (
-/obj/structure/platform{
-	dir = 8
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_x = 16;
+	pixel_y = -1
 	},
-/obj/structure/blocker/invisible_wall,
-/turf/open/void,
+/obj/effect/vehicle_spawner/apc_pmc/fixed,
+/turf/open/shuttle/dropship/dark_grey_bottom,
 /area/space)
 "vg" = (
 /obj/effect/decal/cleanable/dirt,
@@ -299,13 +278,6 @@
 	pixel_y = -1
 	},
 /turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
-/area/space)
-"zg" = (
-/obj/structure/platform_decoration{
-	dir = 4
-	},
-/obj/structure/blocker/invisible_wall,
-/turf/open/void,
 /area/space)
 "Ar" = (
 /obj/effect/decal/cleanable/blood,
@@ -647,52 +619,6 @@ hE
 hE
 "}
 (2,1,1) = {"
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-MH
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-EG
-"}
-(3,1,1) = {"
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-MH
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-EG
-"}
-(4,1,1) = {"
 FU
 FU
 FU
@@ -715,7 +641,7 @@ wO
 Xr
 EG
 "}
-(5,1,1) = {"
+(3,1,1) = {"
 Ov
 VB
 DV
@@ -738,7 +664,7 @@ XR
 dX
 EG
 "}
-(6,1,1) = {"
+(4,1,1) = {"
 Ov
 mL
 Fz
@@ -761,7 +687,7 @@ XR
 dX
 EG
 "}
-(7,1,1) = {"
+(5,1,1) = {"
 jd
 mL
 ho
@@ -784,7 +710,7 @@ cS
 uu
 EG
 "}
-(8,1,1) = {"
+(6,1,1) = {"
 Me
 TU
 SO
@@ -807,7 +733,7 @@ Me
 Me
 xv
 "}
-(9,1,1) = {"
+(7,1,1) = {"
 Me
 qL
 kc
@@ -830,7 +756,7 @@ Me
 Me
 xv
 "}
-(10,1,1) = {"
+(8,1,1) = {"
 Me
 Nr
 HQ
@@ -853,7 +779,7 @@ Me
 Me
 xv
 "}
-(11,1,1) = {"
+(9,1,1) = {"
 qQ
 FJ
 am
@@ -866,7 +792,7 @@ am
 OK
 Fz
 am
-fQ
+uz
 am
 am
 GL
@@ -876,7 +802,7 @@ be
 lP
 EG
 "}
-(12,1,1) = {"
+(10,1,1) = {"
 Ov
 mL
 am
@@ -899,7 +825,7 @@ XR
 dX
 EG
 "}
-(13,1,1) = {"
+(11,1,1) = {"
 Ov
 or
 Mk
@@ -922,30 +848,7 @@ XR
 dX
 EG
 "}
-(14,1,1) = {"
-uz
-uz
-uz
-uz
-uz
-uz
-uz
-uz
-uz
-uz
-uz
-uz
-mY
-uz
-uz
-uz
-uz
-uz
-zg
-Xr
-EG
-"}
-(15,1,1) = {"
+(12,1,1) = {"
 Xr
 Xr
 Xr
@@ -968,30 +871,7 @@ Xr
 Xr
 EG
 "}
-(16,1,1) = {"
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-MH
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-Xr
-EG
-"}
-(17,1,1) = {"
+(13,1,1) = {"
 hE
 hE
 hE
