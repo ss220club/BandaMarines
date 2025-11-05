@@ -14,7 +14,6 @@
 
 	minimap_icon = "surv"
 	minimap_background = "background_civillian"
-	var/survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/load_name(mob/living/carbon/human/new_human, randomise)
 	new_human.gender = pick(MALE, FEMALE)
@@ -41,7 +40,6 @@
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/kelland_cleaner/load_gear(mob/living/carbon/human/new_human)
 
@@ -61,7 +59,6 @@
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/kelland_reprocess/load_gear(mob/living/carbon/human/new_human)
 
@@ -80,7 +77,6 @@
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/kelland_engineer1/load_gear(mob/living/carbon/human/new_human)
 
@@ -101,7 +97,6 @@
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/kelland_engineer2/load_gear(mob/living/carbon/human/new_human)
 
@@ -121,7 +116,6 @@
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/kelland_electrician1/load_gear(mob/living/carbon/human/new_human)
 
@@ -142,7 +136,6 @@
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/kelland_electrician2/load_gear(mob/living/carbon/human/new_human)
 
@@ -162,7 +155,6 @@
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/kelland_telecomms/load_gear(mob/living/carbon/human/new_human)
 
@@ -184,7 +176,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/kelland_chiefengineer/load_gear(mob/living/carbon/human/new_human)
 
@@ -205,7 +196,6 @@
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/kelland_engichef/load_gear(mob/living/carbon/human/new_human)
 
@@ -224,7 +214,6 @@
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/kelland_miner/load_gear(mob/living/carbon/human/new_human)
 
@@ -243,7 +232,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/kelland_leadminer/load_gear(mob/living/carbon/human/new_human)
 
@@ -261,7 +249,6 @@
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/kelland_cargotech1/load_gear(mob/living/carbon/human/new_human)
 
@@ -281,7 +268,6 @@
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/kelland_cargotech2/load_gear(mob/living/carbon/human/new_human)
 
@@ -301,7 +287,6 @@
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/kelland_cargotech3/load_gear(mob/living/carbon/human/new_human)
 
@@ -322,7 +307,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/kelland_quartermaster/load_gear(mob/living/carbon/human/new_human)
 
@@ -343,7 +327,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/kelland_airtraffic/load_gear(mob/living/carbon/human/new_human)
 
@@ -364,7 +347,6 @@
 	paygrades = list(PAY_SHORT_WYC8 = JOB_PLAYTIME_TIER_0)
 	idtype = /obj/item/card/id/silver/cl/hyperdyne
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/kelland_manager/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(new_human), WEAR_HANDS)
@@ -384,7 +366,6 @@
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 
 	var/survivor_variant = CIVILIAN_SURVIVOR
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/synth/hybrisa_event/kellandsynth/load_gear(mob/living/carbon/human/new_human)
 
@@ -414,7 +395,6 @@
 	paygrades = list(PAY_SHORT_CST = JOB_PLAYTIME_TIER_0)
 	idtype = /obj/item/card/id/nspa_silver
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/nspa_constable/load_gear(mob/living/carbon/human/new_human)
 
@@ -435,7 +415,6 @@
 	paygrades = list(PAY_SHORT_SC = JOB_PLAYTIME_TIER_0)
 	idtype = /obj/item/card/id/nspa_silver
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/nspa_senconstable/load_gear(mob/living/carbon/human/new_human)
 
@@ -456,7 +435,6 @@
 	paygrades = list(PAY_SHORT_SGT = JOB_PLAYTIME_TIER_0)
 	idtype = /obj/item/card/id/nspa_silver_gold
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/nspa_sergeant/load_gear(mob/living/carbon/human/new_human)
 
@@ -478,7 +456,6 @@
 	paygrades = list(PAY_SHORT_INSP = JOB_PLAYTIME_TIER_0)
 	idtype = /obj/item/card/id/nspa_gold
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/nspa_inspector/load_gear(mob/living/carbon/human/new_human)
 
@@ -502,7 +479,6 @@
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/weymart_worker/load_gear(mob/living/carbon/human/new_human)
 
@@ -516,17 +492,40 @@
 /datum/equipment_preset/synth/hybrisa_event/weymart_joe
 	name = "Hybrisa - Weyland-Yutani - Weymart Joe"
 	assignment = "Weyland-Yutani - Weymart Joe"
-	skills = /datum/skills/working_joe
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
-	access = list(ACCESS_CIVILIAN_PUBLIC)
 
+	skills = /datum/skills/working_joe
 	languages = list(LANGUAGE_ENGLISH, LANGUAGE_APOLLO, LANGUAGE_JAPANESE, LANGUAGE_SPANISH)
-
+	/// Used to set species when loading race
 	var/joe_type = SYNTH_WORKING_JOE
 
 	remove_tts = TRUE // BANDAMARINES ADD
-	var/survivor_variant = CIVILIAN_SURVIVOR
-	survivor_variant = CIVILIAN_SURVIVOR
+
+/datum/equipment_preset/synth/hybrisa_event/weymart_joe/New()
+	. = ..()
+	access = get_access(ACCESS_LIST_MARINE_ALL)
+
+/datum/equipment_preset/synth/hybrisa_event/weymart_joe/load_race(mob/living/carbon/human/new_human)
+	. = ..()
+	new_human.set_species(joe_type)
+	new_human.bubble_icon = "robot"
+	new_human.gender = MALE
+	new_human.flavor_text = ""
+	new_human.h_style = "Bald"
+	new_human.f_style = "Shaved"
+	new_human.r_eyes = 0
+	new_human.g_eyes = 255
+	new_human.b_eyes = 0
+	new_human.r_hair = 100
+	new_human.g_hair = 88
+	new_human.b_hair = 74
+	new_human.r_facial = 255
+	new_human.g_facial = 255
+	new_human.b_facial = 255
+
+/datum/equipment_preset/synth/hybrisa_event/weymart_joe/load_vanity(mob/living/carbon/human/new_human)
+	return
+
 
 /datum/equipment_preset/synth/hybrisa_event/weymart_joe/load_gear(mob/living/carbon/human/new_human)
 
@@ -544,7 +543,6 @@
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/weymart_manager/load_gear(mob/living/carbon/human/new_human)
 
@@ -563,7 +561,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/gold
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/wypilot/load_gear(mob/living/carbon/human/new_human)
 
@@ -583,7 +580,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/data
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/meridianoffice1/load_gear(mob/living/carbon/human/new_human)
 
@@ -602,7 +598,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/data
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/meridianoffice2/load_gear(mob/living/carbon/human/new_human)
 
@@ -621,7 +616,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/silver/clearance_badge/cl
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/wyoffice1/load_gear(mob/living/carbon/human/new_human)
 
@@ -640,7 +634,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/silver/clearance_badge/cl
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/wyoffice2/load_gear(mob/living/carbon/human/new_human)
 
@@ -659,7 +652,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/silver/clearance_badge/cl
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/wyoffice3/load_gear(mob/living/carbon/human/new_human)
 
@@ -678,7 +670,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/silver/clearance_badge/cl
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/wyoffice4/load_gear(mob/living/carbon/human/new_human)
 
@@ -695,7 +686,6 @@
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/meridiantech/load_gear(mob/living/carbon/human/new_human)
 
@@ -719,7 +709,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/pmc
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/wyexec/load_gear(mob/living/carbon/human/new_human)
 
@@ -738,7 +727,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/meridianmanager/load_gear(mob/living/carbon/human/new_human)
 
@@ -757,7 +745,6 @@
 	paygrades = list(PAY_SHORT_WYC8 = JOB_PLAYTIME_TIER_0)
 	idtype = /obj/item/card/id/general
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/wyh_supervisor/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(new_human), WEAR_HANDS)
@@ -779,7 +766,6 @@
 	paygrades = list(PAY_SHORT_WYC8 = JOB_PLAYTIME_TIER_0)
 	idtype = /obj/item/card/id/pmc/commando
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/wyh_guard/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/gloves/marine/veteran(new_human), WEAR_HANDS)
@@ -816,7 +802,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/pizza
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/pizza_worker/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/hybrisa/pizza_galaxy(new_human), WEAR_BODY)
@@ -833,7 +818,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/pizza
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/pizza_manager/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/hybrisa/pizza_galaxy(new_human), WEAR_BODY)
@@ -851,7 +835,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/pizza
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/pizza_chef/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/hybrisa/pizza_galaxy(new_human), WEAR_BODY)
@@ -870,7 +853,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/pizza
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/pizza_deliverydriver/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/hybrisa/pizza_galaxy(new_human), WEAR_BODY)
@@ -893,7 +875,6 @@
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/cuppa_waitress/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/hybrisa/cuppa_joes(new_human), WEAR_BODY)
@@ -911,7 +892,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/data
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/cuppa_manager/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/hybrisa/cuppa_joes(new_human), WEAR_BODY)
@@ -927,7 +907,6 @@
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/cuppa_barista/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/hybrisa/cuppa_joes(new_human), WEAR_BODY)
@@ -948,7 +927,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/souto
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/ngc_manager/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/hybrisa/wy_exec_suit_uniform/brown/jacket(new_human), WEAR_BODY)
@@ -969,7 +947,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/data
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/ngc_bouncer1/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/marine/veteran/UPP/army/alt(new_human), WEAR_BODY)
@@ -990,7 +967,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/data
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/ngc_bouncer2/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/tshirt/gray_blu(new_human), WEAR_BODY)
@@ -1012,7 +988,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/data
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/ngc_bartender/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/detective/grey(new_human), WEAR_BODY)
@@ -1037,7 +1012,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/silver
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/nm_emt1/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/hybrisa/paramedic(new_human), WEAR_BODY)
@@ -1057,7 +1031,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/silver
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/nm_emt2/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/hybrisa/paramedic/red(new_human), WEAR_BODY)
@@ -1077,7 +1050,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/silver
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/nm_nurse1/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical/purple(new_human), WEAR_BODY)
@@ -1098,7 +1070,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/silver
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/nm_nurse2/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical/green(new_human), WEAR_BODY)
@@ -1119,7 +1090,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/data
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/nm_firefighter/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/utility/gray(new_human), WEAR_BODY)
@@ -1139,7 +1109,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/silver
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/nm_doctor1/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical/blue(new_human), WEAR_BODY)
@@ -1161,7 +1130,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/silver
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/nm_doctor2/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical(new_human), WEAR_BODY)
@@ -1182,7 +1150,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/silver
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/nm_coroner/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical(new_human), WEAR_BODY)
@@ -1202,7 +1169,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/silver
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/nm_virologist/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical(new_human), WEAR_BODY)
@@ -1223,7 +1189,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/silver
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/nm_dispatcher/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical/olive(new_human), WEAR_BODY)
@@ -1242,13 +1207,11 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/silver
 
-	survivor_variant = CIVILIAN_SURVIVOR
-
 /datum/equipment_preset/hybrisa_event/nm_cmo/load_gear(mob/living/carbon/human/new_human)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/chief_medical_officer(new_human), WEAR_BODY)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/white(new_human), WEAR_FEET)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(new_human), WEAR_FEET)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/cmo(new_human), WEAR_BODY)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/labcoat/cmo(new_human), WEAR_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/gloves/latex(new_human), WEAR_HANDS)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/labcoat/officer(new_human), WEAR_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/mask/surgical(new_human), WEAR_FACE)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/belt/medical/lifesaver(new_human), WEAR_WAIST)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/glasses/hud/health(new_human), WEAR_EYES)
@@ -1269,7 +1232,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/data
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/jack/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/burgundy(new_human), WEAR_BODY)
@@ -1287,7 +1249,6 @@
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/jack_assistant/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/colonist/workwear/pink(new_human), WEAR_BODY)
@@ -1308,7 +1269,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/dogtag
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/iasf_veteran/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/marine/officer/royal_marine/iasf(new_human), WEAR_BODY)
@@ -1329,7 +1289,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/dogtag
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/cr_veteran/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/marine/reconnaissance(new_human), WEAR_BODY)
@@ -1352,7 +1311,6 @@
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/reporter/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/marine/reporter/black(new_human), WEAR_BODY)
@@ -1375,7 +1333,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = null
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/hobo_hoarder/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/colonist/steward(new_human), WEAR_BODY)
@@ -1392,7 +1349,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = null
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/hobo_brawler/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/shorts/black(new_human), WEAR_BODY)
@@ -1410,7 +1366,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = null
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/hobo_escapist/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/color/escaped_prisoner_colony(new_human), WEAR_BODY)
@@ -1425,7 +1380,6 @@
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/carp_cook/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/marine/chef(new_human), WEAR_BODY)
@@ -1443,7 +1397,6 @@
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/carp_bartender/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/waiter(new_human), WEAR_BODY)
@@ -1461,7 +1414,6 @@
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 	idtype = /obj/item/card/id/data
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/grandhotel/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/liaison_suit/field(new_human), WEAR_BODY)
@@ -1476,7 +1428,6 @@
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(ACCESS_CIVILIAN_PUBLIC)
 
-	survivor_variant = CIVILIAN_SURVIVOR
 
 /datum/equipment_preset/hybrisa_event/civilian/load_gear(mob/living/carbon/human/new_human)
 
