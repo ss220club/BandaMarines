@@ -39948,6 +39948,7 @@
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "ozp" = (
 /obj/structure/platform,
+
 /obj/structure/cable/heavyduty{
 	icon_state = "1-2-4"
 	},
