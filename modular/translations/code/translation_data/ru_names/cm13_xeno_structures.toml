@@ -173,3 +173,39 @@ dative = "конструкционному узлу"
 accusative = "конструкционный узел"
 instrumental = "конструкционным узлом"
 prepositional = "конструкционном узле"
+
+["queen resin wall"]
+nominative = "королевская смоляная стена"
+genitive = "королевской смоляной стены"
+dative = "королевской смоляной стене"
+accusative = "королевскую смоляную стену"
+instrumental = "королевской смоляной стеной"
+prepositional = "королевской смоляной стене"
+gender = "female"
+
+["queen resin membrane"]
+nominative = "королевская смоляная мембрана"
+genitive = "королевской смоляной мембраны"
+dative = "королевской смоляной мембране"
+accusative = "королевскую смоляную мембрану"
+instrumental = "королевской смоляной мембраной"
+prepositional = "королевской смоляной мембране"
+gender = "female"
+
+["queen resin door"]
+nominative = "королевская смоляная дверь"
+genitive = "королевской смоляной двери"
+dative = "королевской смоляной двери"
+accusative = "королевскую смоляную дверь"
+instrumental = "королевской смоляной дверью"
+prepositional = "королевской смоляной двери"
+gender = "female"
+
+["acid pillar"]
+nominative = "кислотная башня"
+genitive = "кислотной башни"
+dative = "кислотной башне"
+accusative = "кислотную башню"
+instrumental = "кислотной башней"
+prepositional = "кислотной башне"
+gender = "female"
