@@ -86,7 +86,7 @@ YOU TO 200 DAMAGE. I ASK NOT FOR MY OWN MEDIC EGOSTROKING, BUT FOR THE GOOD OF T
 
 	switch(suturable_damage) //SEND_SIGNAL returns 0 by default if there's no signal to answer.
 		if(CANNOT_SUTURE) //Datum exists, no suturable damage types.
-			to_chat(user, SPAN_WARNING("У [user == target ? "вас" : target.declent_ru(GENITIVE).declent_ru(GENITIVE)] нет [description_wounds == "wounds" ? "ран" : "ожогов"] на [user == target ? "вашей" : ""] [ru_name_target_limb].")) // SS220 EDIT ADDICTION
+			to_chat(user, SPAN_WARNING("У [user == target ? "вас" : target.declent_ru(GENITIVE)] нет [description_wounds == "wounds" ? "ран" : "ожогов"] на [user == target ? "вашей" : ""] [ru_name_target_limb].")) // SS220 EDIT ADDICTION
 			return
 		if(FULLY_SUTURED) //Datum exist, all suturable damage types have been fully sutured.
 			to_chat(user, SPAN_WARNING("[user == target ? "Ваши [description_wounds == "wounds" ? "раны" : "ожоги"]" : "[description_wounds == "wounds" ? "Раны" : "Ожоги"]"] на [ru_name_target_limb] [user == target ? "" : target] уже были обработаны.")) // SS220 EDIT ADDICTION
