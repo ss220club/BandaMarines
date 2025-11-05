@@ -20,7 +20,7 @@
 /obj/item/clothing/accessory/ranks/New()
 	..()
 	name = "[initial(name)] ([rank_short])"
-	ru_names_rename(ru_names_toml(src::name, suffix = " ([declent_ru_initial(rank_short, NOMINATIVE, rank_short)])", override_base = name)) // SS220 - EDIT ADDITTION
+	ru_names_rename(ru_names_toml(src::name, suffix = " ([declent_ru_initial(rank_short, NOMINATIVE, rank_short)])", override_base = name)) // SS220 EDIT ADDICTION
 	desc = "[initial(desc)] This one is for the rank <b>[get_paygrades(rank_short)]</b>."
 
 /*################################################
@@ -70,6 +70,16 @@
 /obj/item/clothing/accessory/ranks/marine/e9c
 	rank_short = PAY_SHORT_ME9C
 	icon_state = "ranks_snco"
+
+/obj/item/clothing/accessory/ranks/marine/wo
+	name = "rank boards"
+	rank_short = PAY_SHORT_MWO
+	icon_state = "ranks_warrant"
+
+/obj/item/clothing/accessory/ranks/marine/cwo
+	name = "rank boards"
+	rank_short = PAY_SHORT_MCWO
+	icon_state = "ranks_chiefwarrant"
 
 //OFFICERS
 /obj/item/clothing/accessory/ranks/marine/o1

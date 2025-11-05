@@ -293,6 +293,9 @@
 /datum/game_mode/colonialmarines/proc/clear_proximity_resin()
 	var/datum/cause_data/cause_data = create_cause_data(/obj/effect/particle_effect/smoke/weedkiller::name)
 
+	if(!active_lz)
+		pick_a_lz()
+
 	for(var/area/near_area as anything in GLOB.all_areas)
 		var/area_lz = near_area.linked_lz
 		if(!area_lz)
@@ -398,7 +401,7 @@
 
 	if(LAZYFIND(role_needs_comms, role_in_charge))
 		//If the role needs comms we let them know about the headset.
-		announce_addendum += "\nA Command headset is availible in the CIC Command Tablet cabinet."
+		announce_addendum += "\nA Command headset is available in the CIC Command Tablet cabinet."
 
 	if(LAZYFIND(role_needs_id, role_in_charge))
 		//If the role needs senior command access, we need to add it to the ID card.
@@ -450,9 +453,8 @@
 					xeno_message("The Hive is ready for a new Queen to evolve. The Hive can only survive for a limited time without a Queen!", 3, hive.hivenumber)
 
 
-
-		if(!active_lz && world.time > lz_selection_timer)
-			select_lz(locate(/obj/structure/machinery/computer/shuttle/dropship/flight/lz1))
+		if(!active_lz && ROUND_TIME > lz_selection_timer)
+			pick_a_lz()
 
 		// Automated bioscan / Queen Mother message
 		if(world.time > bioscan_current_interval) //If world time is greater than required bioscan time.
@@ -472,8 +474,8 @@
 						for(var/i in GLOB.living_xeno_list)
 							var/mob/M = i
 							sound_to(M, sound(get_sfx("queen"), wait = 0, volume = 50))
-							to_chat(M, SPAN_XENOANNOUNCE("The Queen Mother reaches into your mind from worlds away."))
-							to_chat(M, SPAN_XENOANNOUNCE("To my children and their Queen. I sense the large doors that trap us will open in 30 seconds."))
+							to_chat(M, SPAN_XENOANNOUNCE("Королева-мать проникает в ваш разум издалека."))
+							to_chat(M, SPAN_XENOANNOUNCE("Моим детям и их Королеве: я чувствую, что большие двери, которые нас сдерживают, откроются через 30 секунд."))
 						addtimer(CALLBACK(src, PROC_REF(open_podlocks), "map_lockdown"), 300)
 
 			if(GLOB.round_should_check_for_win)
@@ -485,7 +487,7 @@
 				hive = GLOB.hive_datum[hivenumber]
 				hive.evolution_without_ovipositor = FALSE
 				if(hive.living_xeno_queen && !hive.living_xeno_queen.ovipositor)
-					to_chat(hive.living_xeno_queen, SPAN_XENODANGER("It is time to settle down and let your children grow."))
+					to_chat(hive.living_xeno_queen, SPAN_XENODANGER("Пора успокоиться и позволить вашим детям расти."))
 			evolution_ovipositor_threshold = TRUE
 			msg_admin_niche("Xenomorphs now require the queen's ovipositor for evolution progress.")
 
@@ -552,6 +554,13 @@
 // Resource Towers
 
 /datum/game_mode/colonialmarines/ds_first_drop(obj/docking_port/mobile/marine_dropship)
+	if(!active_lz)
+		var/dest_id = marine_dropship.destination?.id
+		if(dest_id == DROPSHIP_LZ1)
+			select_lz(locate(/obj/structure/machinery/computer/shuttle/dropship/flight/lz1))
+		else if (dest_id == DROPSHIP_LZ2)
+			select_lz(locate(/obj/structure/machinery/computer/shuttle/dropship/flight/lz2))
+
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(show_blurb_uscm)), DROPSHIP_DROP_MSG_DELAY)
 	addtimer(CALLBACK(src, PROC_REF(warn_resin_clear), marine_dropship), DROPSHIP_DROP_FIRE_DELAY)
 	DB_ENTITY(/datum/entity/survivor_survival) // Record surv survival right now
