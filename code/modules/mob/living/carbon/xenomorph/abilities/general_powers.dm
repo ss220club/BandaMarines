@@ -432,12 +432,10 @@
 			else
 				//BANDAMARINES EDIT START
 				var/static/list/phero_selections = list("Help" = image(icon = 'icons/mob/radial.dmi', icon_state = "radial_help"), "Frenzy" = image(icon = 'icons/mob/radial.dmi', icon_state = "phero_frenzy"), "Warding" = image(icon = 'icons/mob/radial.dmi', icon_state = "phero_warding"), "Recovery" = image(icon = 'icons/mob/radial.dmi', icon_state = "phero_recov"))
-				var/list/phero_selections_ru = list()
-				for(var/key in phero_selections)
-					if(phero_selections_en_to_ru[key])
-						phero_selections_ru[phero_selections_en_to_ru[key]] = phero_selections[key]
-					else
-						phero_selections_ru[key] = phero_selections[key]
+				var/static/list/phero_selections_ru = list()
+				if(!length(phero_selections_ru))
+					for(var/key in phero_selections)
+						phero_selections_ru[phero_selections_en_to_ru[key] || key] = phero_selections[key]
 				var/pheromone_ru = show_radial_menu(src, src.client?.eye, phero_selections_ru)
 				pheromone = lowertext(phero_selections_ru_to_en[pheromone_ru] || pheromone_ru)
 				// BANDAMARINES EDIT END
