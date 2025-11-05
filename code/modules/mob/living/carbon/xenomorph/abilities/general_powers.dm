@@ -775,14 +775,19 @@
 		to_chat(xeno, SPAN_WARNING("The weeds are still recovering from the death of the hive core, wait until the weeds have recovered!"))
 		return FALSE
 	if(xeno.hive.has_structure(XENO_STRUCTURE_CORE) || !xeno.hive.can_build_structure(XENO_STRUCTURE_CORE))
-		choice = tgui_input_list(xeno, "Choose a structure to build", "Build structure", xeno.hive.hive_structure_types + "help", theme = "hive_status")
+		var/static/list/hive_structure_types_en_to_ru = list()
+		if(!length(hive_structure_types_en_to_ru))
+			for(var/structure_name in xeno.hive.hive_structure_types)
+				hive_structure_types_en_to_ru[structure_name] = capitalize(declent_ru_initial(structure_name, NOMINATIVE, structure_name))
+			hive_structure_types_en_to_ru["help"] = "Подсказка"
+		choice = tgui_input_list(xeno, "Выберите структуру для простойки", "Строительство структур", hive_structure_types_en_to_ru, theme = "hive_status", associative_list = TRUE)
 		if(!choice)
 			return
 		if(choice == "help")
 			var/message = "Placing a construction node creates a template for special structures that can benefit the hive, which require the insertion of plasma to construct the following:<br>"
 			for(var/structure_name in xeno.hive.hive_structure_types)
 				var/datum/construction_template/xenomorph/structure_type = xeno.hive.hive_structure_types[structure_name]
-				message += "<b>[capitalize_first_letters(structure_name)]</b> - [initial(structure_type.description)]<br>"
+				message += "<b>[capitalize(declent_ru_initial(structure_name, NOMINATIVE, structure_name))]</b> - [initial(structure_type.description)]<br>"
 			to_chat(xeno, SPAN_NOTICE(message))
 			return TRUE
 	if(!xeno.check_state(TRUE) || !xeno.check_plasma(400))

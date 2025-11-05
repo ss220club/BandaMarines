@@ -209,3 +209,12 @@ accusative = "кислотную башню"
 instrumental = "кислотной башней"
 prepositional = "кислотной башне"
 gender = "female"
+
+["plasma tree"]
+nominative = "плазменное дерево"
+genitive = "плазменного дерева"
+dative = "плазменному дереву"
+accusative = "плазменное дерево"
+instrumental = "плазменным деревом"
+prepositional = "плазменном дереве"
+gender = "neuter"
