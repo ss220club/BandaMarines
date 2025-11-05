@@ -4439,7 +4439,6 @@
 	pixel_x = -18;
 	pixel_y = 6
 	},
-/obj/structure/pipes/standard/simple/hidden/dark,
 /turf/closed/wall/hybrisa/spaceport/reinforced,
 /area/Suburb_lv759/indoors/public_spaceport/hangarbay)
 "bKa" = (
@@ -6593,13 +6592,6 @@
 "cAF" = (
 /turf/open/floor/hybrisa/carpet/rug_colorable/biege/southeast,
 /area/Suburb_lv759/indoors/public_spaceport/cafeteria)
-"cAI" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/pipes/standard/simple/hidden/green{
-	dir = 4
-	},
-/turf/closed/wall/strata_outpost,
-/area/Suburb_lv759/indoors/caves/passage_to_bunker)
 "cAT" = (
 /obj/structure/platform{
 	dir = 4;
@@ -31923,16 +31915,6 @@
 /obj/structure/largecrate/random/barrel/true_random,
 /turf/open/floor/almayer/cargo,
 /area/Suburb_lv759/indoors/public_spaceport/hangarbay)
-"lIa" = (
-/obj/structure/pipes/standard/simple/hidden/green{
-	dir = 4
-	},
-/obj/structure/bed/sofa/hybrisa/sofa/black{
-	icon_state = "couch_vet1_black";
-	pixel_x = 13
-	},
-/turf/open/floor/prison,
-/area/Suburb_lv759/indoors/caves/passage_to_bunker)
 "lIe" = (
 /obj/structure/window/reinforced,
 /obj/effect/decal/warning_stripes{
@@ -35012,7 +34994,6 @@
 /turf/open/floor/kutjevo/grey/plate,
 /area/Suburb_lv759/indoors/wy_research_complex/securityarmory)
 "mKL" = (
-/obj/structure/pipes/standard/simple/hidden/dark,
 /obj/effect/decal/hybrisa/dirt,
 /turf/closed/wall/hybrisa/research/reinforced,
 /area/Suburb_lv759/indoors/wy_research_complex/changingroom)
@@ -38445,7 +38426,6 @@
 	pixel_x = -13;
 	pixel_y = 11
 	},
-/obj/structure/pipes/standard/simple/hidden/dark,
 /obj/structure/machinery/light/blue{
 	dir = 8;
 	pixel_x = 1;
@@ -51239,16 +51219,6 @@
 	},
 /turf/open/shuttle/escapepod/floor0,
 /area/Suburb_lv759/indoors/caves/passage_to_bunker)
-"sFz" = (
-/obj/effect/decal/warning_stripes{
-	icon_state = "N";
-	pixel_y = 1
-	},
-/obj/structure/pipes/standard/simple/hidden/green{
-	dir = 4
-	},
-/turf/open/floor/prison/floor_plate,
-/area/Suburb_lv759/indoors/caves/passage_to_bunker)
 "sFR" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/kutjevo/tan/alt_edge/east,
@@ -52347,12 +52317,6 @@
 	icon_state = "36"
 	},
 /area/Suburb_lv759/indoors/caves/Monorail)
-"sZF" = (
-/obj/structure/pipes/standard/simple/hidden/dark{
-	dir = 4
-	},
-/turf/closed/wall/biodome,
-/area/Suburb_lv759/outdoors/colony_streets/pizza)
 "sZG" = (
 /obj/structure/closet/crate/secure/weyland,
 /obj/structure/prop/invuln/lattice_prop{
@@ -53098,9 +53062,6 @@
 /turf/open/auto_turf/hybrisa_auto_turf/layer2,
 /area/Suburb_lv759/indoors/caves)
 "tnc" = (
-/obj/structure/surface/table/reinforced/prison{
-	color = "#b7b8b2"
-	},
 /obj/structure/surface/table/reinforced/prison{
 	color = "#b7b8b2"
 	},
@@ -57873,10 +57834,6 @@
 	},
 /turf/open/floor/kutjevo/colors/cyan/inner_corner/east,
 /area/Suburb_lv759/indoors/wy_research_complex/medical_annex)
-"vcf" = (
-/obj/structure/pipes/standard/simple/hidden/dark,
-/turf/closed/wall/hybrisa/spaceport/reinforced,
-/area/Suburb_lv759/indoors/public_spaceport/hangarbay)
 "vcg" = (
 /obj/structure/platform_decoration{
 	dir = 8
@@ -62691,12 +62648,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
 /area/Suburb_lv759/outdoors/colony_streets/cottage9)
-"wPR" = (
-/obj/structure/pipes/standard/simple/hidden/dark{
-	dir = 4
-	},
-/turf/closed/wall/r_wall/biodome,
-/area/Suburb_lv759/indoors/wy_research_complex/weaponresearchlab)
 "wPV" = (
 /turf/open/hybrisa/street/sidewalk/south,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
@@ -72107,7 +72058,7 @@ yiX
 yiX
 yiX
 yiX
-vcf
+vHe
 doV
 eFa
 aFh
@@ -72365,7 +72316,7 @@ iCZ
 vHe
 iCZ
 rOn
-tHI
+vHe
 vHe
 vHe
 vHe
@@ -79680,7 +79631,7 @@ yiX
 yiX
 hHX
 lCV
-sZF
+lCV
 lCV
 lCV
 lCV
@@ -115337,7 +115288,7 @@ unl
 cEQ
 cEQ
 cEQ
-wPR
+cEQ
 cEQ
 cEQ
 cEQ
@@ -128152,10 +128103,10 @@ qdW
 qRP
 lrI
 gsX
-lIa
+mQk
 xhf
 xTD
-sFz
+ffA
 syf
 mQk
 jNX
@@ -128404,10 +128355,10 @@ qdW
 iRw
 lrI
 vDW
-cAI
+vDW
 xhf
 nBg
-sFz
+ffA
 aJC
 aJC
 jNX
@@ -128656,10 +128607,10 @@ qdW
 hZq
 lrI
 lrI
-hyu
+jNX
 xhf
 oyv
-sFz
+ffA
 lrI
 lrI
 jNX
@@ -128908,10 +128859,10 @@ qdW
 sNI
 jNX
 lrI
-cix
+lrI
 lrI
 dcG
-hyu
+jNX
 lrI
 lrI
 gOQ
