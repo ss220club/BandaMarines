@@ -50,6 +50,13 @@
 /obj/item/weapon/gun/rifle/m41a/corporate/no_lock,
 /turf/open/shuttle/dropship/dark_grey_bottom,
 /area/space)
+"hu" = (
+/obj/structure/barricade/handrail{
+	dir = 8
+	},
+/obj/item/ammo_magazine/hardpoint/boyars_dualcannon,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
 "hE" = (
 /turf/closed/wall/r_wall/biodome,
 /area/space)
@@ -91,6 +98,11 @@
 /area/space)
 "kv" = (
 /obj/effect/landmark/survivor_spawner/bigred_crashed_pmc_leader,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"ld" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/blocker/invisible_wall,
 /turf/open/shuttle/dropship/dark_grey_bottom,
 /area/space)
 "lI" = (
@@ -141,6 +153,10 @@
 	dir = 4
 	},
 /turf/open/shuttle/dropship/light_grey_bottom_right,
+/area/space)
+"pF" = (
+/obj/item/ammo_magazine/hardpoint/m56_cupola/frontal_cannon,
+/turf/open/shuttle/dropship/dark_grey_bottom,
 /area/space)
 "qi" = (
 /obj/structure/bed/bedroll{
@@ -206,6 +222,13 @@
 /obj/item/ammo_magazine/rifle/nsg23,
 /obj/structure/closet/crate/secure/weyland,
 /turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
+"sE" = (
+/obj/structure/barricade/handrail{
+	dir = 4
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
 /area/space)
 "un" = (
 /obj/effect/decal/cleanable/dirt,
@@ -279,6 +302,10 @@
 	},
 /turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
 /area/space)
+"zW" = (
+/obj/structure/blocker/invisible_wall,
+/turf/open/shuttle/dropship/dark_grey_bottom,
+/area/space)
 "Ar" = (
 /obj/effect/decal/cleanable/blood,
 /obj/item/ammo_magazine/smg/m39/ap,
@@ -296,6 +323,10 @@
 /area/space)
 "CY" = (
 /obj/item/ammo_box/magazine/m39/ext/empty,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"DP" = (
+/obj/item/ammo_magazine/hardpoint/m56_cupola/frontal_cannon,
 /turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
 /area/space)
 "DQ" = (
@@ -370,12 +401,13 @@
 /area/space)
 "Ln" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/prop/dam/crane{
-	bound_height = 32;
-	climbable = 1;
-	layer = 3.5;
-	pixel_y = -23
+/obj/structure/barricade/handrail{
+	dir = 8
 	},
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/space)
+"Lv" = (
+/obj/structure/blocker/invisible_wall,
 /turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
 /area/space)
 "Me" = (
@@ -504,6 +536,12 @@
 /turf/open/shuttle/dropship/dark_grey_bottom,
 /area/space)
 "Sv" = (
+/obj/structure/prop/dam/crane{
+	bound_height = 32;
+	climbable = 1;
+	layer = 3.5;
+	pixel_y = -23
+	},
 /turf/open/shuttle/dropship/can_surgery,
 /area/space)
 "SO" = (
@@ -646,13 +684,13 @@ Ov
 VB
 DV
 Ln
-Qh
+Ln
 Rf
+hu
 DV
 DV
 DV
 DV
-Wc
 wx
 DQ
 DV
@@ -675,7 +713,7 @@ am
 Sn
 am
 am
-Oy
+am
 sw
 ZF
 am
@@ -702,7 +740,7 @@ am
 am
 js
 gS
-am
+pF
 am
 Sv
 TH
@@ -720,7 +758,7 @@ xl
 xl
 nN
 xl
-xl
+DP
 xl
 xl
 zf
@@ -738,10 +776,10 @@ Me
 qL
 kc
 eT
-xl
-xl
-xl
-xl
+Lv
+Lv
+Lv
+Lv
 xl
 fE
 mQ
@@ -761,10 +799,10 @@ Me
 Nr
 HQ
 Ar
-xl
-xl
-xl
-xl
+Lv
+Lv
+Lv
+Lv
 xl
 uw
 FG
@@ -784,11 +822,11 @@ qQ
 FJ
 am
 rx
-am
-am
-am
-am
-am
+zW
+zW
+zW
+zW
+Wc
 OK
 Fz
 am
@@ -807,11 +845,11 @@ Ov
 mL
 am
 NB
-am
-am
-Fz
-Fz
-Fz
+zW
+zW
+ld
+ld
+Oy
 am
 Yb
 am
@@ -830,10 +868,10 @@ Ov
 or
 Mk
 Mk
-Mk
-Mk
-Mk
-Mk
+sE
+sE
+sE
+sE
 Mk
 Mk
 Mk
