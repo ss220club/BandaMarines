@@ -183,11 +183,11 @@ GLOBAL_LIST(ob_type_fuel_requirements)
 	ob_cannon_busy = FALSE
 	chambered_tray = TRUE
 	var/misfuel = get_misfuel_amount()
-	var/message = "[key_name(user)] зарядил орбитальную бомбардировочную пушку."
-	var/ares_message = "Заряд загружен."
+	var/message = "[key_name(user)] chambered the Orbital Bombardment cannon."
+	var/ares_message = "Shell chambered."
 	if(misfuel)
-		message += " Он неправильно заправлен на [misfuel] единиц!"
-		ares_message += " Обнаружен дисбаланс топлива!"
+		message += " It is misfueled by [misfuel] units!"
+		ares_message += " Fuel imbalance detected!"
 	message_admins(message, x, y, z)
 	log_ares_bombardment(user, lowertext(tray.warhead.name), ares_message)
 
