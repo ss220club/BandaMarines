@@ -3,8 +3,8 @@
         "type": "pick", "name": "Riot Control",
         "choices": [
             { "weight": 2, "type": "def", "values": { "riot_in_progress": "none" } },
-            { "weight": 7, "type": "def", "values": { "riot_in_progress": "riot" } },
-            { "weight": 5, "type": "def", "values": { "riot_in_progress": "rocinante" } }
+            { "weight": 5, "type": "def", "values": { "riot_in_progress": "riot" } },
+            { "weight": 3, "type": "def", "values": { "riot_in_progress": "rocinante" } }
         ]
     }
 ]
