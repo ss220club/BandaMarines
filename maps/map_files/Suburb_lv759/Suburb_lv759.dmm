@@ -33410,8 +33410,8 @@
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaycentral)
 "mho" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/machinery/defenses/sentry/premade/lowammo/dumb{
-	dir = 3
+/obj/structure/machinery/defenses/sentry/omni{
+	choice_categories = list("IFF STATUS" = list("WY"))
 	},
 /turf/open/floor/asteroidwarning/west,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
@@ -38515,8 +38515,8 @@
 /area/Suburb_lv759/indoors/wy_research_complex/dormsbedroom)
 "nZR" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/machinery/defenses/sentry/premade/lowammo/dumb{
-	dir = 4
+/obj/structure/machinery/defenses/sentry/omni{
+	choice_categories = list("IFF STATUS" = list("WY"))
 	},
 /turf/open/floor/asteroidwarning/east,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
@@ -44361,8 +44361,8 @@
 /turf/open/floor/hybrisa/carpet/blue_grey,
 /area/space)
 "qgK" = (
-/obj/structure/machinery/defenses/sentry/premade/lowammo/dumb{
-	dir = 3
+/obj/structure/machinery/defenses/sentry/omni{
+	choice_categories = list("IFF STATUS" = list("WY"))
 	},
 /turf/open/floor/asteroidwarning/west,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
@@ -50846,8 +50846,8 @@
 /turf/open/floor/plating,
 /area/Suburb_lv759/outdoors/landing_zone_2)
 "swH" = (
-/obj/structure/machinery/defenses/sentry/premade/lowammo/dumb{
-	dir = 4
+/obj/structure/machinery/defenses/sentry/omni{
+	choice_categories = list("IFF STATUS" = list("WY"))
 	},
 /turf/open/floor/asteroidwarning/east,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
