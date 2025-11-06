@@ -232,12 +232,12 @@ GLOBAL_LIST_EMPTY(orbital_cannon_cancellation)
 	var/turf/target = locate(target_x, target_y, T.z)
 	var/area/target_area = get_area(target)
 
-	message_admins(FONT_SIZE_HUGE("ПРЕДУПРЕЖДЕНИЕ: [key_name(user)] произвел орбитальную бомбардировку в '[target_area]' для отряда '[squad_behalf]' с посадкой в ([target.x],[target.y],[target.z])"), target.x, target.y, target.z)
-	var/message = "Исходная цель орбитальной бомбардировки была ([T.x],[T.y],[T.z]) - смещение на [abs(off_x)+abs(off_y)]"
+	message_admins(FONT_SIZE_HUGE("ALERT: [key_name(user)] fired an orbital bombardment in '[target_area]' for squad '[squad_behalf]' landing at ([target.x],[target.y],[target.z])"), target.x, target.y, target.z)
+	var/message = "Orbital bombardment original target was ([T.x],[T.y],[T.z]) - offset by [abs(off_x)+abs(off_y)]"
 	if(inaccurate_fuel)
-		message += " - Он неправильно заправлен на [inaccurate_fuel] единиц!"
+		message += " - It was misfueled by [inaccurate_fuel] units!"
 	message_admins(message, T.x, T.y, T.z)
-	log_attack("[key_name(user)] произвел орбитальную бомбардировку в [area.name] для отряда '[squad_behalf]'")
+	log_attack("[key_name(user)] fired an orbital bombardment in [area.name] for squad '[squad_behalf]'")
 
 	if(user)
 		tray.warhead.source_mob = user
