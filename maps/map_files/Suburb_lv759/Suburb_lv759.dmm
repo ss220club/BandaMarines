@@ -29691,8 +29691,8 @@
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/wy_research_complex)
 "kYy" = (
-/obj/effect/vehicle_spawner/box_van/decrepit,
-/turf/open/hybrisa/street/sidewalkcenter/west,
+/obj/structure/prop/hybrisa/vehicles/Meridian/Light_Blue/damage_2,
+/turf/open/hybrisa/street/asphalt,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "kYK" = (
 /obj/structure/closet/secure_closet/freezer/fridge/full{
@@ -34883,8 +34883,17 @@
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Suburb_lv759/outdoors)
 "mHZ" = (
-/obj/effect/vehicle_spawner/box_van/decrepit,
-/turf/open/hybrisa/street/asphalt,
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_y = 8;
+	layer = 5.2
+	},
+/obj/structure/prop/hybrisa/vehicles/Meridian/Light_Blue{
+	icon_state = "meridian_lightblue_damage_3";
+	health = 1250;
+	dir = 8
+	},
+/turf/open/hybrisa/street/sidewalkcenter/east,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "mIh" = (
 /obj/structure/cable/heavyduty{
@@ -54602,8 +54611,8 @@
 /turf/open/hybrisa/street/asphalt,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "tND" = (
-/obj/effect/vehicle_spawner/box_van/decrepit,
-/turf/open/hybrisa/street/sidewalkcenter/east,
+/obj/structure/prop/hybrisa/vehicles/Meridian/Shell,
+/turf/open/hybrisa/street/asphalt,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "tNK" = (
 /obj/item/trash/cigbutt,
@@ -89567,7 +89576,7 @@ slj
 slj
 slj
 slj
-tND
+slj
 slj
 slj
 slj
@@ -89659,7 +89668,7 @@ slj
 slj
 slj
 slj
-tND
+slj
 slj
 slj
 slj
@@ -89835,7 +89844,7 @@ xBq
 xBq
 xBq
 xBq
-mHZ
+xBq
 xBq
 xBq
 xBq
@@ -89861,14 +89870,14 @@ xBq
 xBq
 xBq
 xBq
+kYy
 xBq
 xBq
 xBq
 xBq
 xBq
-mHZ
 xBq
-xBq
+tND
 xBq
 xBq
 xBq
@@ -89934,7 +89943,7 @@ xBq
 xBq
 xBq
 xBq
-mHZ
+xBq
 xBq
 xBq
 xBq
@@ -90560,7 +90569,7 @@ slj
 slj
 slj
 oFo
-oFo
+mHZ
 slj
 slj
 slj
@@ -90837,6 +90846,7 @@ xBq
 xBq
 xBq
 xBq
+kOg
 xBq
 xBq
 xBq
@@ -90851,8 +90861,7 @@ xBq
 xBq
 xBq
 xBq
-mHZ
-xBq
+kOg
 xBq
 xBq
 xBq
@@ -90865,7 +90874,7 @@ xBq
 xBq
 xBq
 xBq
-mHZ
+xBq
 xBq
 xBq
 xBq
@@ -90908,7 +90917,7 @@ lmB
 xBq
 xBq
 xBq
-mHZ
+xBq
 xBq
 xBq
 xBq
@@ -90936,7 +90945,7 @@ xBq
 xBq
 xBq
 xBq
-mHZ
+xBq
 xBq
 xBq
 xBq
@@ -91083,7 +91092,7 @@ qgi
 qgi
 qgi
 qgi
-kYy
+qgi
 qgi
 qgi
 qgi
@@ -91121,7 +91130,7 @@ qgi
 qgi
 qgi
 qgi
-qgi
+fex
 qgi
 qgi
 qgi
