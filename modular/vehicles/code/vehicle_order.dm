@@ -1,6 +1,7 @@
 // Минимальное количество игроков для открытия категорий
 #define MIN_PLAYERS_HEAVY_SUPPORT 140
-#define MIN_PLAYERS_LIGHT_VEHICLE 1
+#define MIN_PLAYERS_LIGHT_RECON 1
+#define MIN_PLAYERS_LIGHT_VEHICLE 40
 
 // Лимиты на количество техники по категориям
 #define LIMIT_HEAVY_SUPPORT_VEHICLES 1
@@ -24,7 +25,7 @@
 		if("heavy support vehicles")
 			return clients >= MIN_PLAYERS_HEAVY_SUPPORT
 		if("light recon vehicle")
-			return clients >= MIN_PLAYERS_LIGHT_VEHICLE
+			return clients >= MIN_PLAYERS_LIGHT_RECON
 		if("light carrier")
 			return clients >= MIN_PLAYERS_LIGHT_VEHICLE
 		else

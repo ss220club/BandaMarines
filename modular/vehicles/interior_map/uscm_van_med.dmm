@@ -25,14 +25,7 @@
 	pixel_x = -32;
 	tag = "back_right"
 	},
-/obj/structure/bed/chair/vehicle{
-	pixel_x = 8;
-	dir = 1
-	},
-/obj/structure/bed/chair/vehicle{
-	pixel_x = -7;
-	dir = 1
-	},
+/obj/structure/bed/roller/hospital_empty/bigrollerempty3,
 /turf/open/shuttle/vehicle/med/gray,
 /area/interior/vehicle/apc/med)
 "i" = (
@@ -58,26 +51,17 @@
 /turf/open/void/vehicle,
 /area/space)
 "o" = (
-/obj/effect/landmark/interior/spawn/interior_viewport/simple{
-	pixel_y = 30
-	},
-/obj/structure/bed/chair/vehicle{
-	pixel_x = 8;
-	pixel_y = 12
-	},
 /obj/effect/vehicle_roof/uscm_van/med{
 	icon_state = "roof_3"
 	},
-/obj/effect/landmark/interior/spawn/telephone{
-	pixel_y = 38;
-	pixel_x = 12
-	},
-/obj/structure/extinguisher_cabinet/lifeboat{
-	icon = 'icons/obj/vehicles/interiors/general.dmi';
-	pixel_x = -12;
-	pixel_y = 33
-	},
 /obj/item/pamphlet/skill/vc/low,
+/obj/effect/landmark/interior/spawn/interior_viewport/simple{
+	pixel_y = 35
+	},
+/obj/effect/landmark/interior/spawn/telephone{
+	pixel_y = 29;
+	pixel_x = 7
+	},
 /turf/open/shuttle/vehicle/med/gray,
 /area/interior/vehicle/apc/med)
 "r" = (
@@ -151,8 +135,14 @@
 	alpha = 100;
 	pixel_y = -2
 	},
-/obj/structure/curtain/open/medical,
-/obj/structure/bed/roller/hospital_empty/bigrollerempty3,
+/obj/structure/bed/chair/vehicle{
+	pixel_x = 9;
+	dir = 1
+	},
+/obj/structure/bed/chair/vehicle{
+	pixel_x = -7;
+	dir = 1
+	},
 /turf/open/shuttle/vehicle/med/gray,
 /area/interior/vehicle/apc/med)
 "J" = (
@@ -175,22 +165,15 @@
 /obj/effect/vehicle_roof/uscm_van/med{
 	icon_state = "roof_2"
 	},
+/obj/item/pamphlet/skill/vc/low,
+/obj/structure/machinery/cm_vending/sorted/medical/vehicle{
+	pixel_y = 20;
+	pixel_x = -4
+	},
 /obj/structure/machinery/cm_vending/sorted/medical/blood/vehicle{
 	pixel_x = 18;
-	pixel_y = 8
+	pixel_y = 20
 	},
-/obj/structure/machinery/cm_vending/sorted/medical/vehicle{
-	pixel_y = 8;
-	pixel_x = -5
-	},
-/obj/structure/sign/safety/medical{
-	pixel_y = 32
-	},
-/obj/structure/sign/poster/propaganda{
-	pixel_x = 7;
-	pixel_y = 36
-	},
-/obj/item/pamphlet/skill/vc/low,
 /turf/open/shuttle/vehicle/med/gray,
 /area/interior/vehicle/apc/med)
 "O" = (

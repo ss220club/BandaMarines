@@ -58,34 +58,21 @@
 /turf/open/void/vehicle,
 /area/space)
 "o" = (
-/obj/effect/landmark/interior/spawn/interior_viewport/simple{
-	pixel_y = 30
-	},
-/obj/structure/machinery/cm_vending/sorted/vehicle_supply{
-	pixel_y = 12
-	},
-/obj/structure/extinguisher_cabinet/lifeboat{
-	icon = 'icons/obj/vehicles/interiors/general.dmi';
-	pixel_x = -12;
-	pixel_y = 37
-	},
-/obj/structure/bed/chair/vehicle{
-	pixel_x = 7;
-	dir = 8;
-	pixel_y = 1
-	},
-/obj/structure/machinery/cm_vending/sorted/medical/wall_med/vehicle{
-	pixel_x = -25;
-	pixel_y = 37
-	},
 /obj/effect/vehicle_roof/uscm_van{
 	icon_state = "roof_3"
 	},
-/obj/effect/landmark/interior/spawn/telephone{
-	pixel_y = 38;
-	pixel_x = 12
-	},
 /obj/item/pamphlet/skill/vc/low,
+/obj/effect/landmark/interior/spawn/interior_viewport/simple{
+	pixel_y = 35
+	},
+/obj/structure/machinery/cm_vending/sorted/medical/wall_med/vehicle{
+	pixel_x = -5;
+	pixel_y = 27
+	},
+/obj/effect/landmark/interior/spawn/telephone{
+	pixel_y = 29;
+	pixel_x = 7
+	},
 /turf/open/shuttle/vehicle/med/slate,
 /area/interior/vehicle/box_van)
 "r" = (
@@ -189,19 +176,11 @@
 /obj/effect/vehicle_roof/uscm_van{
 	icon_state = "roof_2"
 	},
-/obj/structure/sign/poster/propaganda{
-	pixel_x = -8;
-	pixel_y = 33
-	},
-/obj/structure/bed/chair/vehicle{
-	pixel_x = -8;
-	pixel_y = 16
-	},
-/obj/structure/bed/chair/vehicle{
-	pixel_x = 8;
-	pixel_y = 16
-	},
 /obj/item/pamphlet/skill/vc/low,
+/obj/structure/machinery/cm_vending/sorted/vehicle_supply{
+	pixel_y = 26;
+	pixel_x = 3
+	},
 /turf/open/shuttle/vehicle/med/slate,
 /area/interior/vehicle/box_van)
 "O" = (
