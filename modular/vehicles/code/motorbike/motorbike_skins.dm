@@ -1,6 +1,11 @@
-// Мотоцикл с коляской
-/obj/vehicle/motorbike/full
-	create_stroller = TRUE
+// Мотоцикл с пассажирской коляской
+/obj/vehicle/motorbike/passenger/full
+	create_sidecar = 1 //переименовать переменную и изменить на цифровое значение
+
+// Мотоцикл с грузовой коляской
+/obj/vehicle/motorbike/cargo/full
+	create_sidecar = 2 //переименовать переменную и изменить на цифровое значение
+
 
 // ==========================================
 // ============== Camo skin ===============
@@ -10,11 +15,17 @@
 /obj/vehicle/motorbike/camo
 	need_camo = TRUE
 
-/obj/structure/bed/chair/stroller/camo
+/obj/structure/bed/chair/sidecar/passenger/camo
 	need_camo = TRUE
 
-/obj/vehicle/motorbike/camo/full
-	create_stroller = TRUE
+/obj/structure/bed/chair/sidecar/cargo/camo
+	need_camo = TRUE
+
+/obj/vehicle/motorbike/camo/passenger/full
+	create_sidecar = 1
+
+/obj/vehicle/motorbike/camo/cargo/full
+	create_sidecar = 2
 
 // Функции выбора скина
 /obj/vehicle/motorbike/proc/select_gamemode_skin()
@@ -31,7 +42,7 @@
 		if("urban")
 			icon_skin = skin
 
-/obj/structure/bed/chair/stroller/proc/select_gamemode_skin()
+/obj/structure/bed/chair/sidecar/proc/select_gamemode_skin()
 	if(flags_atom & NO_GAMEMODE_SKIN)
 		return
 	var/skin = SSmapping.configs[GROUND_MAP].camouflage_type
@@ -52,13 +63,19 @@
 	icon_state = "moto_ural_desert"
 	icon_skin = "desert"
 
-/obj/structure/bed/chair/stroller/desert
-	icon_state = "moto_ural_stroller_desert"
+/obj/structure/bed/chair/sidecar/passenger/desert
+	icon_state = "moto_ural_sidecar_passenger_desert"
 	icon_skin = "desert"
 
-/obj/vehicle/motorbike/desert/full
-	create_stroller = TRUE
+/obj/structure/bed/chair/sidecar/cargo/desert
+	icon_state = "moto_ural_sidecar_cargo_desert"
+	icon_skin = "desert"
 
+/obj/vehicle/motorbike/desert/passenger/full
+	create_sidecar = 1 //переименовать переменную и изменить на цифровое значение
+
+/obj/vehicle/motorbike/desert/cargo/full
+	create_sidecar = 2 //переименовать переменную и изменить на цифровое значение
 
 // ==========================================
 // =============== Snow skin ================
@@ -67,13 +84,19 @@
 	icon_state = "moto_ural_snow"
 	icon_skin = "snow"
 
-/obj/structure/bed/chair/stroller/snow
-	icon_state = "moto_ural_stroller_snow"
+/obj/structure/bed/chair/sidecar/passenger/snow
+	icon_state = "moto_ural_sidecar_passenger_snow"
 	icon_skin = "snow"
 
-/obj/vehicle/motorbike/snow/full
-	create_stroller = TRUE
+/obj/structure/bed/chair/sidecar/cargo/snow
+	icon_state = "moto_ural_sidecar_cargo_snow"
+	icon_skin = "snow"
 
+/obj/vehicle/motorbike/snow/passenger/full
+	create_sidecar = 1 //переименовать переменную и изменить на цифровое значение
+
+/obj/vehicle/motorbike/snow/cargo/full
+	create_sidecar = 2 //переименовать переменную и изменить на цифровое значение
 
 // ==========================================
 // =============== Urban skin ===============
@@ -82,13 +105,19 @@
 	icon_state = "moto_ural_urban"
 	icon_skin = "urban"
 
-/obj/structure/bed/chair/stroller/urban
-	icon_state = "moto_ural_stroller_urban"
+/obj/structure/bed/chair/sidecar/passenger/urban
+	icon_state = "moto_ural_sidecar_passenger_urban"
 	icon_skin = "urban"
 
-/obj/vehicle/motorbike/urban/full
-	create_stroller = TRUE
+/obj/structure/bed/chair/sidecar/cargo/urban
+	icon_state = "moto_ural_sidecar_cargo_urban"
+	icon_skin = "urban"
 
+/obj/vehicle/motorbike/urban/passenger/full
+	create_sidecar = 1 //переименовать переменную и изменить на цифровое значение
+
+/obj/vehicle/motorbike/urban/cargo/full
+	create_sidecar = 2 //переименовать переменную и изменить на цифровое значение
 
 // ==========================================
 // ================== Debug =================
@@ -104,26 +133,26 @@
 	wrench_time = 5
 	welder_health = 200
 
-/obj/vehicle/motorbike/debug/full
-	create_stroller = TRUE
+/obj/vehicle/motorbike/passenger/debug/full
+	create_sidecar = 1 //переименовать переменную и изменить на цифровое значение
 
 
 /obj/vehicle/motorbike/debug/New(loc, skin)
-	create_stroller = FALSE
+	create_sidecar = 0 //переименовать переменную и изменить на цифровое значение
 	. = ..(loc, skin)
-	create_stroller = initial(create_stroller)
-	if(create_stroller)
-		stroller = new /obj/structure/bed/chair/stroller/debug(src, icon_skin)
-		update_stroller(TRUE)
+	create_sidecar = initial(create_sidecar) //переименовать переменную
+	if(create_sidecar == 1) //переименовать переменную и переписать логику
+		sidecar = new /obj/structure/bed/chair/sidecar/passenger/debug(src, icon_skin)
+		update_sidecar(TRUE)
 		update_connect_params()
 	update_overlay()
 
-/obj/structure/bed/chair/stroller/debug
+/obj/structure/bed/chair/sidecar/passenger/debug
 	name = "Коляска главного инженера"
 	desc = "Эта коляска сделана из пластитаниума. Разве такой материал вообще существует?"
 	health = 1000000
 	maxhealth = 1000000
-	icon_state = "moto_ural_stroller_urban"
+	icon_state = "moto_ural_sidecar_passenger_urban"
 	icon_skin = "urban"
 	buckle_time = 0.5 SECONDS
 	mounted_time_to_disassembly = 0.5 SECONDS

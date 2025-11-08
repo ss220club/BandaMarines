@@ -3,7 +3,7 @@
 		return FALSE
 	. = ..()
 	if(M.loc == src.loc && M.buckled)
-		update_stroller(TRUE)
+		update_sidecar(TRUE)
 		play_start_sound()
 
 /obj/vehicle/motorbike/proc/try_buckle_mob(mob/M, mob/user)
@@ -24,7 +24,7 @@
 		to_chat(user, SPAN_WARNING("Кто-то был быстрее!"))
 		return FALSE
 	do_buckle(M, user)
-	update_stroller(TRUE)
+	update_sidecar(TRUE)
 	play_start_sound()
 	return TRUE
 
@@ -33,8 +33,9 @@
 	if(buckled_mob)
 		density = TRUE
 		add_vehicle_verbs(M)
-		if(stroller)
-			stroller.update_bike_permutated(TRUE)
+		if(sidecar)
+			if(istype(sidecar,/obj/structure/bed/chair/sidecar/passenger))
+				sidecar.update_bike_permutated(TRUE)
 		RegisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN), PROC_REF(unbuckle))
 	else
 		density = initial(density)
@@ -42,8 +43,9 @@
 	update_drive_skill_parameters()
 
 /obj/vehicle/motorbike/unbuckle()
-	if(stroller)	// Выносим сюда, а то неправильно уберет, т.к. моб уже отвязан
-		stroller.reset_bike_permutated(TRUE)
+	if(sidecar)
+		if(istype(sidecar,/obj/structure/bed/chair/sidecar/passenger))	// Выносим сюда, а то неправильно уберет, т.к. моб уже отвязан
+			sidecar.reset_bike_permutated(TRUE)
 	buckled_mob.set_glide_size(initial(buckled_mob.glide_size))
 	UnregisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN))
 	. = ..()
