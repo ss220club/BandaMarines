@@ -83,7 +83,7 @@
 		else
 			to_chat(user, SPAN_WARNING("В [O] не хватает топлива!"))
 		if(health >= maxhealth)
-			welding_step = TRUE //Наверное смена флага лучше тут.
+			welding_step = TRUE
 		return TRUE
 
 	else if(istype(O, /obj/item/stack/sheet/metal))
@@ -121,15 +121,15 @@
 		L.animation_attack_on(src)
 		playsound(src.loc, 'sound/items/air_release.ogg', 25, 1)
 		if(wires_stored >= wires_need)
-			coil_step = TRUE //Наверное смене флага лучше тут.
+			coil_step = TRUE
 		return TRUE
 
 	else if(screw_need && !screw_step && HAS_TRAIT(O, TRAIT_TOOL_SCREWDRIVER))
 		if(!welding_step)
-			to_chat(user, SPAN_NOTICE("Сначала привари металл к корпусу"))
+			to_chat(user, SPAN_WARNING("Сначала приварите металл к корпусу"))
 			return
 		if(!coil_step)
-			to_chat(user, SPAN_NOTICE("Сначала присоедини новые провода"))
+			to_chat(user, SPAN_WARNING("Сначала присоедините новые провода"))
 			return
 		to_chat(user, SPAN_WARNING("Вы вкручиваете винты у [src]. Ожидайте."))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, 1)
