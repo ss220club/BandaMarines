@@ -230,8 +230,8 @@
 
 
 /obj/structure/prop/almayer/cannon_cables
-	name = "\improper Cannon cables"
-	desc = "Some large cables."
+	name = "\improper Кабели орбитальной пушки"
+	desc = "Несколько крупных кабелей."
 	icon = 'icons/obj/structures/props/almayer/almayer_props.dmi'
 	icon_state = "cannon_cables"
 	density = FALSE
@@ -248,8 +248,8 @@
 
 
 /obj/structure/prop/almayer/cannon_cable_connector
-	name = "\improper Cannon cable connector"
-	desc = "A connector for the large cannon cables."
+	name = "\improper Разъем кабеля орбитальной пушки"
+	desc = "Соединитель для больших кабелей системы орбитальной пушки."
 	icon = 'icons/obj/structures/props/almayer/almayer_props.dmi'
 	icon_state = "cannon_cable_connector"
 	density = TRUE

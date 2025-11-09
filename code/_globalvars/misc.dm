@@ -67,12 +67,12 @@ GLOBAL_VAR_INIT(destroy_cancel, FALSE)
 GLOBAL_VAR_INIT(last_mob_gid, 0)
 
 GLOBAL_LIST_INIT(almayer_ship_sections, list(
-	"Upper deck Foreship",
-	"Upper deck Midship",
-	"Upper deck Aftship",
-	"Lower deck Foreship",
-	"Lower deck Midship",
-	"Lower deck Aftship"
+	"Верхняя палуба, носовая часть",
+	"Верхняя палуба, центральная часть",
+	"Верхняя палуба, кормовая часть",
+	"Нижняя палуба, носовая часть",
+	"Нижняя палуба, центральная часть",
+	"Нижняя палуба, кормовая часть"
 ))
 
 

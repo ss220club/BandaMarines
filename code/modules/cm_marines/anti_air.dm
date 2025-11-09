@@ -1,8 +1,8 @@
 GLOBAL_DATUM(almayer_aa_cannon, /obj/structure/anti_air_cannon)
 
 /obj/structure/anti_air_cannon
-	name = "\improper IX-50 MGAD Cannon"
-	desc = "The IX-50 is a state-of-the-art Micro-Gravity and Air Defense system capable of independently tracking and neutralizing threats with rockets strapped onto them."
+	name = "\improper IX-50 MGAD Пушка"
+	desc = "IX-50 — это современная система микрогравитационной и воздушной обороны, способная независимо отслеживать и нейтрализовать угрозы ракетами, прикрепленными к ней."
 	icon = 'icons/effects/128x128.dmi'
 	icon_state = "anti_air_cannon"
 	density = TRUE
@@ -36,8 +36,8 @@ GLOBAL_DATUM(almayer_aa_cannon, /obj/structure/anti_air_cannon)
 	return
 
 /obj/structure/machinery/computer/aa_console
-	name = "\improper MGAD System Console"
-	desc = "The console controlling anti air tracking systems."
+	name = "\improper Консоль системы MGAD"
+	desc = "Консоль, управляющая системами отслеживания противовоздушной обороны."
 	icon_state = "ob_console"
 	dir = WEST
 	flags_atom = ON_BORDER|CONDUCT|FPRINT
@@ -126,11 +126,11 @@ GLOBAL_DATUM(almayer_aa_cannon, /obj/structure/anti_air_cannon)
 		return TRUE
 
 	if(!skillcheck(user, SKILL_ENGINEER, SKILL_ENGINEER_TRAINED))
-		to_chat(user, SPAN_WARNING("You have no idea how to use that console."))
+		to_chat(user, SPAN_WARNING("Вы не знаете, как пользоваться этой консолью."))
 		return TRUE
 
 	if(!allowed(user))
-		to_chat(user, SPAN_WARNING("You do not have access to this."))
+		to_chat(user, SPAN_WARNING("У вас нет доступа к этому."))
 		return TRUE
 
 	tgui_interact(user)

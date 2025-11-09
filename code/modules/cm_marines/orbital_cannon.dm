@@ -5,8 +5,8 @@ GLOBAL_DATUM(almayer_orbital_cannon, /obj/structure/orbital_cannon)
 GLOBAL_LIST(ob_type_fuel_requirements)
 
 /obj/structure/orbital_cannon
-	name = "\improper Orbital Cannon"
-	desc = "The USCM Orbital Cannon System. Used for shooting large targets on the planet that is orbited. It accelerates its payload with solid fuel for devastating results upon impact."
+	name = "\improper Орбитальная пушка"
+	desc = "Орбитальная пушечная система ККМП США. Используется для стрельбы по крупным целям на поверхности планеты. Ускоряет боевую нагрузку твёрдым топливом для достижения разрушительного эффекта при попадании."
 	icon = 'icons/effects/128x128.dmi'
 	icon_state = "OBC_unloaded"
 	density = TRUE
@@ -82,15 +82,15 @@ GLOBAL_LIST(ob_type_fuel_requirements)
 
 	if(!tray.warhead)
 		if(user)
-			to_chat(user, SPAN_WARNING("No warhead in the tray, loading operation cancelled."))
+			to_chat(user, SPAN_WARNING("В пусковой кассете нет боевой части, операция по загрузке отменена."))
 		return
 
 	if(tray.fuel_amt < 1)
-		to_chat(user, SPAN_WARNING("No solid fuel in the tray, loading operation cancelled."))
+		to_chat(user, SPAN_WARNING("В пусковой кассете нет твёрдого топлива, операция по загрузке отменена."))
 		return
 
 	if(loaded_tray)
-		to_chat(user, SPAN_WARNING("Tray is already loaded."))
+		to_chat(user, SPAN_WARNING("Пусковая кассета уже загружена."))
 		return
 
 	tray.forceMove(src)
@@ -116,11 +116,11 @@ GLOBAL_LIST(ob_type_fuel_requirements)
 		return
 
 	if(chambered_tray)
-		to_chat(user, "The tray cannot be unloaded after it has been chambered, fire the gun first.")
+		to_chat(user, "Пусковую кассету нельзя выгружать после того, как она была помещена в патронник, сначала выстрелите из неё.")
 		return
 
 	if(!loaded_tray)
-		to_chat(user, "No loaded tray to unload.")
+		to_chat(user, "Нет загруженной пусковой кассеты для выгрузки.")
 		return
 
 	flick("OBC_unloading",src)
@@ -152,21 +152,21 @@ GLOBAL_LIST(ob_type_fuel_requirements)
 		return
 	if(!loaded_tray)
 		if(user)
-			to_chat(user, SPAN_WARNING("You need to load the tray before firing the payload."))
+			to_chat(user, SPAN_WARNING("Перед выстрелом необходимо загрузить пусковую кассету."))
 		return
 	if(!tray.warhead)
 		if(user)
-			to_chat(user, SPAN_WARNING("No warhead in the tray, cancelling chambering operation."))
+			to_chat(user, SPAN_WARNING("В пусковой кассете нет боевой части, операция по зарядке отменена."))
 		return
 
 	if(tray.fuel_amt < 1)
 		if(user)
-			to_chat(user, SPAN_WARNING("No solid fuel in the tray, cancelling chambering operation."))
+			to_chat(user, SPAN_WARNING("В пусковой кассете нет твёрдого топлива, операция заряжания отменена."))
 		return
 
 	if(!COOLDOWN_FINISHED(src, ob_chambering_cooldown)) //fired at least once
 		if(user)
-			to_chat(user, SPAN_WARNING("[src]'s barrel is still too hot, let it cool down for [COOLDOWN_TIMELEFT(src, ob_chambering_cooldown)/10] more seconds."))
+			to_chat(user, SPAN_WARNING("[src] cтвол ещё слишком горячий, дайте ему остыть в течение [COOLDOWN_TIMELEFT(src, ob_chambering_cooldown)/10] секунд."))
 		return
 
 	flick("OBC_chambering",src)
@@ -257,8 +257,8 @@ GLOBAL_LIST_EMPTY(orbital_cannon_cancellation)
 	update_icon()
 
 /obj/structure/orbital_tray
-	name = "loading tray"
-	desc = "The orbital cannon's loading tray."
+	name = "Пусковая кассета"
+	desc = "Пусковая кассета орбитальной пушки."
 	icon = 'icons/obj/structures/props/almayer/almayer_props64.dmi'
 	icon_state = "cannon_tray"
 	density = TRUE
@@ -305,26 +305,26 @@ GLOBAL_LIST_EMPTY(orbital_cannon_cancellation)
 
 		if(PC.loaded)
 			if(!istype(PC.loaded, /obj/structure/ob_ammo))
-				to_chat(user, SPAN_WARNING("There is no way you can put \the [PC.loaded] into \the [src]!"))
+				to_chat(user, SPAN_WARNING("Невозможно поместить \the [PC.loaded] в \the [src]!"))
 				return TRUE
 
 			var/obj/structure/ob_ammo/OA = PC.loaded
 			if(OA.is_solid_fuel)
 				if(fuel_amt >= 6)
-					to_chat(user, SPAN_WARNING("\The [src] can't accept more solid fuel."))
+					to_chat(user, SPAN_WARNING("\The [src] не может принимать больше твёрдого топлива."))
 					return TRUE
 				if(!warhead)
-					to_chat(user, SPAN_WARNING("A warhead must be placed in \the [src] first."))
+					to_chat(user, SPAN_WARNING("Боеголовка должна быть сначала помещена в \the [src]."))
 					return TRUE
-				to_chat(user, SPAN_NOTICE("You load \the [OA] into \the [src]."))
+				to_chat(user, SPAN_NOTICE("Вы загружаете \the [OA] в \the [src]."))
 				fuel_amt++
 				qdel(OA)
 			else
 				if(warhead)
-					to_chat(user, SPAN_WARNING("\The [src] already has \the [warhead] loaded."))
+					to_chat(user, SPAN_WARNING("В \the [src] уже загружена \the [warhead]."))
 					return TRUE
 				else
-					to_chat(user, SPAN_NOTICE("You load \the [OA] into \the [src]."))
+					to_chat(user, SPAN_NOTICE("Вы загружаете \the [OA] в \the [src]."))
 					warhead = OA
 					OA.forceMove(src)
 
@@ -374,10 +374,10 @@ GLOBAL_LIST_EMPTY(orbital_cannon_cancellation)
 
 /obj/structure/ob_ammo/get_examine_text(mob/user)
 	. = ..()
-	. += "Moving this will require some sort of lifter."
+	. += "Для перемещения этого потребуется какой-то подъемник."
 
 /obj/structure/ob_ammo/warhead
-	name = "theoretical orbital ammo"
+	name = "теоретический орбитальный боезапас"
 	var/warhead_kind
 	var/shake_frequency
 	var/max_shake_factor
@@ -451,10 +451,10 @@ GLOBAL_LIST_EMPTY(orbital_cannon_cancellation)
 
 		if(HAS_TRAIT(user, TRAIT_FLOORED))
 			continue
-		to_chat(user, SPAN_WARNING("You are thrown off balance and fall to the ground!"))
+		to_chat(user, SPAN_WARNING("Вы теряете равновесие и падаете на землю!"))
 
 /obj/structure/ob_ammo/warhead/explosive
-	name = "\improper HE orbital warhead"
+	name = "\improper Фугасная орбитальная боеголовка"
 	warhead_kind = "explosive"
 	icon_state = "ob_warhead_1"
 	shake_frequency = 3
@@ -500,7 +500,7 @@ GLOBAL_LIST_EMPTY(orbital_cannon_cancellation)
 	qdel(src)
 
 /obj/structure/ob_ammo/warhead/incendiary
-	name = "\improper Incendiary orbital warhead"
+	name = "\improper Зажигательная орбитальная боеголовка"
 	warhead_kind = "incendiary"
 	icon_state = "ob_warhead_2"
 	shake_frequency = 1
@@ -531,7 +531,7 @@ GLOBAL_LIST_EMPTY(orbital_cannon_cancellation)
 	qdel(src)
 
 /obj/structure/ob_ammo/warhead/cluster
-	name = "\improper Cluster orbital warhead"
+	name = "\improper Кластерная орбитальная боеголовка"
 	warhead_kind = "cluster"
 	icon_state = "ob_warhead_3"
 	shake_frequency = 2
@@ -575,7 +575,7 @@ GLOBAL_LIST_EMPTY(orbital_cannon_cancellation)
 	addtimer(CALLBACK(src, PROC_REF(handle_ob_shake), loc), 1 SECONDS)
 
 /obj/structure/ob_ammo/ob_fuel
-	name = "solid fuel"
+	name = "Бак с твёрдым топливом"
 	icon_state = "ob_fuel"
 	is_solid_fuel = 1
 
@@ -585,8 +585,8 @@ GLOBAL_LIST_EMPTY(orbital_cannon_cancellation)
 	pixel_y = rand(-5,5)
 
 /obj/structure/machinery/computer/orbital_cannon_console
-	name = "\improper Orbital Cannon Console"
-	desc = "The console controlling the orbital cannon loading systems."
+	name = "\improper Консоль орбитальной пушки"
+	desc = "Консоль, управляющая системами загрузки орбитальной пушки."
 	icon_state = "ob_console"
 	dir = WEST
 	flags_atom = ON_BORDER|CONDUCT|FPRINT
@@ -679,7 +679,7 @@ GLOBAL_LIST_EMPTY(orbital_cannon_cancellation)
 		return
 
 	if(!skillcheck(user, SKILL_ENGINEER, SKILL_ENGINEER_TRAINED))
-		to_chat(user, SPAN_WARNING("You have no idea how to use that console."))
+		to_chat(user, SPAN_WARNING("Вы не имеете представления, как пользоваться этой консолью."))
 		return TRUE
 
 	tgui_interact(user)
