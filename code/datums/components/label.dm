@@ -85,7 +85,7 @@
 	examine_list += SPAN_NOTICE("It has a label with some words written on it. Use a hand labeler to remove it.")
 
 /// Applies a label to the name of the parent in the format of: "parent_name (label)"
-/datum/component/label/proc/apply_label(old_label = "") // SS220 EDIT ADDICTION
+/datum/component/label/proc/apply_label()
 	var/atom/owner = parent
 	owner.ru_names_rename(ru_names_toml(owner.name, suffix = " ([label_name])"))
 	owner.name += " ([label_name])"
