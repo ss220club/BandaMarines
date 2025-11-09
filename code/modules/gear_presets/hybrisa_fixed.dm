@@ -1,8 +1,8 @@
 /datum/equipment_preset/hybrisa_event
 
-	name = JOB_COLONIST
-	assignment = JOB_COLONIST
-	job_title = JOB_COLONIST
+	name = "Hybrisa - Civilian"
+	assignment = "Resident"
+	job_title = "Civilian"
 	flags = EQUIPMENT_PRESET_EXTRA
 	skills = /datum/skills/civilian
 	languages = list(LANGUAGE_JAPANESE, LANGUAGE_ENGLISH)

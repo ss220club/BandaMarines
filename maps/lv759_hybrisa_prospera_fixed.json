@@ -7,33 +7,10 @@
 
     "weather_holder": "/datum/weather_ss_map_holder/lv759_hybrisa_prospera",
     "survivor_types": [
-        "/datum/equipment_preset/hybrisa_event/civilian",
-        "/datum/equipment_preset/hybrisa_event/civilian_office",
-        "/datum/equipment_preset/hybrisa_event/weymart",
-        "/datum/equipment_preset/hybrisa_event/sanitation",
-        "/datum/equipment_preset/hybrisa_event/pizza_galaxy",
-        "/datum/equipment_preset/hybrisa_event/fire_fighter",
-        "/datum/equipment_preset/hybrisa_event/cuppa_joes",
-        "/datum/equipment_preset/hybrisa_event/kelland_miner",
-        "/datum/equipment_preset/hybrisa_event/doctor",
-        "/datum/equipment_preset/hybrisa_event/paramedic",
-        "/datum/equipment_preset/hybrisa_event/scientist_xenobiologist",
-        "/datum/equipment_preset/hybrisa_event/scientist_xenoarchaeologist",
-        "/datum/equipment_preset/hybrisa_event/nspa_constable",
-        "/datum/equipment_preset/hybrisa_event/electrical_engineer",
-        "/datum/equipment_preset/hybrisa_event/construction_worker",
-        "/datum/equipment_preset/hybrisa_event/heavy_vehicle_operator",
-        "/datum/equipment_preset/hybrisa_event/corporate_liaisonn",
-        "/datum/equipment_preset/hybrisa_event/wey_po",
-        "/datum/equipment_preset/hybrisa_event/corporate_goon"
+        "/datum/equipment_preset/hybrisa_event/civilian"
     ],
 	"synth_survivor_types": [
-        "/datum/equipment_preset/synth/hybrisa_event/engineer_survivor",
-        "/datum/equipment_preset/synth/hybrisa_event/detective",
-        "/datum/equipment_preset/synth/hybrisa_event/xenoarchaeologist",
-        "/datum/equipment_preset/synth/hybrisa_event/civilian",
-        "/datum/equipment_preset/synth/hybrisa_event/paramedic",
-        "/datum/equipment_preset/synth/hybrisa_event/exec_bodyguard"
+        "/datum/equipment_preset/synth/hybrisa_event/kellandsynth"
     ],
     "defcon_triggers": [
         3750,
@@ -49,7 +26,16 @@
         "monkey"
     ],
     "environment_traits": { "Fog": true },
-    "traits": [{ "Ground": true }],
+    "traits": [
+        {
+            "Ground": true,
+            "Up": 1
+        },
+        {
+            "Ground": true,
+            "Down": -1
+        }
+    ],
     "nightmare_path": "maps/Nightmare/maps/LV759_Hybrisa_Prospera_Fixed/",
     "xvx_hives": {
         "xeno_hive_alpha": 0,
