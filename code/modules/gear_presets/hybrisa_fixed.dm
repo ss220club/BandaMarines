@@ -358,7 +358,7 @@
 	assignment = "KMCC - Manager"
 	skills = /datum/skills/hybrisa_event/kelland/manager
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
-	idtype = /obj/item/card/id/silver/cl/hyperdyne
+	idtype = /obj/item/card/id/pmc
 
 /datum/equipment_preset/hybrisa_event/kelland_manager/New()
 	. = ..()
