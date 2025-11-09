@@ -14,6 +14,7 @@
 	bound_y = 0
 
 	interior_map = /datum/map_template/interior/modul/uscm_van
+	minimap_icon_state = "van"
 
 	entrances = list(
 		"left" = list(2, 0),
