@@ -95,7 +95,7 @@
 	else
 		var/mob/living/carbon/human/H = locate() in contents
 		if(H)
-			ru_names_rename(ru_names_toml(bag_name, suffix = " [H.get_visible_name()]"))
+			ru_names_rename(ru_names_toml(bag_name, suffix = " ([H.get_visible_name()])"))
 			name = "[bag_name] ([H.get_visible_name()])"
 		else
 			ru_names_rename(ru_names_toml(bag_name, suffix = " (пусто)", override_base = "[bag_name] (empty)"))
