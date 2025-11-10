@@ -2844,12 +2844,6 @@
 	},
 /turf/open/floor/hybrisa/wood/blackwood,
 /area/Suburb_lv759/indoors/public_spaceport/cafeteria)
-"bhP" = (
-/obj/effect/vehicle_spawner/apc_pmc/decrepit{
-	dir = 8
-	},
-/turf/open/shuttle/dropship/dark_grey_bottom,
-/area/Suburb_lv759/indoors/caves/Monorail)
 "bhQ" = (
 /obj/structure/platform{
 	layer = 2.7;
@@ -22532,7 +22526,7 @@
 /obj/structure/machinery/light/small{
 	dir = 4
 	},
-/obj/effect/spawner/random/sentry/highchance,
+/obj/effect/spawner/random/sentry/midchance,
 /turf/open/floor/almayer/test_floor5,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "ipC" = (
@@ -32207,12 +32201,12 @@
 /turf/open/hybrisa/street/asphalt,
 /area/Suburb_lv759/outdoors/landing_zone_1)
 "lMu" = (
-/obj/effect/spawner/random/sentry/highchance,
 /obj/structure/machinery/light/small{
 	dir = 8;
 	pixel_x = -11;
 	pixel_y = 10
 	},
+/obj/effect/spawner/random/sentry/lowchance,
 /turf/open/floor/almayer/test_floor5,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "lMF" = (
@@ -131811,7 +131805,7 @@ mEf
 dIF
 mEf
 mEf
-bhP
+mEf
 mEf
 mEf
 toF
