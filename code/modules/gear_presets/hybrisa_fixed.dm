@@ -1146,6 +1146,10 @@
 	access = list(ACCESS_HYBRISA_NOVAMEDICA_GENERAL, ACCESS_HYBRISA_NOVAMEDICA_TOWER)
 	idtype = /obj/item/card/id/data
 
+/datum/job/generate_money_account(mob/living/carbon/human/account_user)
+	var/generated_account = generate_money_account(account_user)
+	addtimer(CALLBACK(src, PROC_REF(announce_entry_message), account_user, generated_account), 2 SECONDS)
+	return
 
 /datum/equipment_preset/hybrisa_event/nm_firefighter/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/utility/gray(new_human), WEAR_BODY)

@@ -96,6 +96,10 @@
 	name = "curtain"
 	icon_state = "colorable"
 
+/obj/structure/curtain/colorable_blinds
+	name = "blinds"
+	icon_state = "colorable_transparent"
+
 /obj/structure/curtain/colorable_transparent
 	name = "blinds"
 	icon_state = "colorable_transparent"
@@ -107,6 +111,10 @@
 /obj/structure/curtain/open/colorable
 	name = "curtain"
 	icon_state = "colorable"
+
+/obj/structure/curtain/open/colorable_blinds
+	name = "blinds"
+	icon_state = "colorable_transparent"
 
 /obj/structure/curtain/open/colorable_transparent
 	name = "blinds"
