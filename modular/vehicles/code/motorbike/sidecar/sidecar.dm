@@ -162,7 +162,8 @@
 /obj/structure/bed/chair/sidecar/proc/reload_connected()
 	if(!connected)
 		return
-	// В passenger
+	if(connected.buckled_mob)
+		connected.buckled_mob.pixel_x = initial(connected.buckled_mob.pixel_x)
 	connected.pixel_x = initial(connected.pixel_x)
 
 
