@@ -20,7 +20,7 @@
 	//=============================================
 
 	//=========== Смещение при коннекте ===========
-	// пока ничего менять не надо. :)
+	pixel_east = list(2, -18)
 	//=============================================
 
 	//================= loading ===================
@@ -33,8 +33,9 @@
 	.=..()
 	// Если загружен, то отображаем покрывало на коляске
 	if(loaded)
-		var/image/I_crate = new(icon = 'modular/vehicles/icons/moto48x48.dmi', icon_state = "moto_sidecar_cargo_loaded_overlay", layer = layer_above) //over sidecar
-		overlays += I_crate
+		icon_state = "[icon_base]_[icon_skin]_loaded"
+	var/image/I = new(icon = 'modular/vehicles/icons/moto48x48.dmi', icon_state = "[icon_state]-layer", layer = layer_above) //over mobs //отвечает за отображение по слоям
+	overlays += I
 
 /obj/structure/bed/chair/sidecar/cargo/healthcheck(damage = 0)
 	if(health - damage <= 0)

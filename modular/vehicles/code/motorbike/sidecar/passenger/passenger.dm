@@ -38,7 +38,7 @@
 /obj/structure/bed/chair/sidecar/passenger/update_overlay()
 	.=..()
 	//==== оверлей коляски поверх моба =======
-	var/image/I = new(icon = 'modular/vehicles/icons/moto48x48.dmi', icon_state = "[icon_state]-overlay", layer = layer_above) //over mobs
+	var/image/I = new(icon = 'modular/vehicles/icons/moto48x48.dmi', icon_state = "[icon_state]-overlay", layer = layer_above) //over mobs //отвечает за отображение по слоям
 	overlays += I
 	//========================================
 	//=== оверлей пулемета поверх коляски ====
@@ -48,7 +48,7 @@
 			gun_overlay = "m2c"
 		if(mounted.rounds <= 0)
 			gun_overlay += "_e"
-		var/image/I_gun = new(icon = 'modular/vehicles/icons/moto48x48.dmi', icon_state = "moto_ural_[gun_overlay]", layer = layer_above) //over mobs
+		var/image/I_gun = new(icon = 'modular/vehicles/icons/moto48x48.dmi', icon_state = "moto_ural_[gun_overlay]", layer = layer_above) //over mobs //отвечает за отображение по слоям
 		overlays += I_gun
 	//========================================
 
@@ -82,7 +82,7 @@
 		return
 	pixel_x = initial(pixel_x)
 	pixel_y = initial(pixel_y)
-	layer = initial(layer)
+	layer = initial(layer) //отвечает за отображение по слоям
 	if(target != src)
 		update_connected(target)
 	update_buckle_mob() // В passenger

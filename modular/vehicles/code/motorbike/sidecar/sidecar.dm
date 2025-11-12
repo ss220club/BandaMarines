@@ -42,18 +42,22 @@
 	var/list/pixel_south = list(-14, -4)
 	var/list/pixel_east = list(2, -9)
 	var/list/pixel_west = list(-2, 0)
+	//=============================================
+
+	//отвечает за отображение по слоям
+	//=================слои отрисовки==============
 	layer = LYING_LIVING_MOB_LAYER
 	var/layer_west = LYING_BETWEEN_MOB_LAYER
 	var/layer_above = ABOVE_MOB_LAYER
 	//=============================================
 
-	var/obj/connected	// Приконекченный мотоцикл
+	var/obj/connected // Приконекченный байк
 
 /obj/structure/bed/chair/sidecar/Initialize()
 	. = ..()
 	update_overlay()
 
-/obj/structure/bed/chair/sidecar/New(loc, skin) // Переписать под параметр type_sidecar
+/obj/structure/bed/chair/sidecar/New(loc, skin)
 	if(skin)
 		icon_skin = skin
 	else if(need_camo)
@@ -67,10 +71,10 @@
 		disconnect()
 
 /obj/structure/bed/chair/sidecar/proc/update_overlay()
-	overlays.Cut() //Очистка оверлеев. Основа используется из базового класса.
+	overlays.Cut() //Очистка от слоев оверлея.
 	icon_state = "[icon_base]_[icon_skin]"
 
-/obj/structure/bed/chair/sidecar/get_examine_text(mob/user) //нужен для всех колясок
+/obj/structure/bed/chair/sidecar/get_examine_text(mob/user)
 	. = ..()
 	if(!isxeno(user))
 		. += SPAN_NOTICE("Прочность: [health/maxhealth*100]%")
@@ -80,7 +84,8 @@
 
 /obj/structure/bed/chair/sidecar/proc/connect(atom/connection)
 	connected = connection
-	forceMove(connected.loc) // Обновляем местоположение, мы ж не хотим видеть коляску в чмстилище
+	forceMove(connected.loc)
+	// Обновляем местоположение, мы ж не хотим видеть коляску в чмстилище
 	RegisterSignal(connected, COMSIG_MOVABLE_MOVED, PROC_REF(handle_parent_move))
 	// Доп параметры для корректной обработки состояния "ОНО КАК ОБЪЕКТ НО СУКА НЕ ОБЪЕКТ"
 	density = initial(density)
@@ -116,7 +121,7 @@
 		return
 	pixel_x = initial(pixel_x)
 	pixel_y = initial(pixel_y)
-	layer = initial(layer)
+	layer = initial(layer) //отвечает за отображение по слоям
 	if(target != src)
 		update_connected(target)
 	centralize_to_turf()
@@ -137,7 +142,7 @@
 		if(WEST)
 			pixel_x += pixel_west[1]
 			pixel_y += pixel_west[2]
-			layer = layer_west - 0.01
+			layer = layer_west - 0.01 //отвечает за отображение по слоям
 
 /obj/structure/bed/chair/sidecar/proc/centralize_to_turf()
 	if(!pixel_x_sides)
@@ -340,8 +345,8 @@
 
 // ==========================================
 
-/obj/structure/bed/chair/sidecar/proc/update_bike_permutated() //определяется в passender
+/obj/structure/bed/chair/sidecar/proc/update_bike_permutated() //определяется в passenger
 	return
 
-/obj/structure/bed/chair/sidecar/proc/reset_bike_permutated() //определяется в passender
+/obj/structure/bed/chair/sidecar/proc/reset_bike_permutated() //определяется в passenger
 	return
