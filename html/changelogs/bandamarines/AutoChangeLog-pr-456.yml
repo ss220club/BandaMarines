@@ -1,0 +1,4 @@
+author: "666Evil666Child666"
+delete-after: True
+changes:
+  - bugfix: "исправлена невозможность установки пулемета"
