@@ -115,7 +115,7 @@
 
 // Сборка
 /obj/structure/bed/chair/stroller/proc/assembly(obj/item/O, mob/user)
-	to_chat(user, "Вы устанавливаете [mounted.declent_ru(ACCUSATIVE)] на [declent_ru(ACCUSATIVE)]...")
+	to_chat(user, "Вы устанавливаете [O.declent_ru(ACCUSATIVE)] на [declent_ru(ACCUSATIVE)]...")
 	if(!do_after(user, mounted_time_to_assembly * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
 		return FALSE
 
