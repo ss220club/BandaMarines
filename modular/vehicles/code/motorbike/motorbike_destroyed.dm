@@ -234,7 +234,7 @@
 /obj/motorbike_destroyed/sidecar
 	name = "Раздолбанная родительская коляска"
 	desc = "Рухлядь, больше не способная работать. Почему она вообще существует?"
-	icon_state = "moto_ural_sidecar_classic-destroyed"	// Для отображения на картах
+	icon_state = "moto_ural_sidecar_classic_-destroyed"	// Для отображения на картах
 	icon_base = "moto_ural_sidecar"
 	obj_to_create_when_finish = null
 
