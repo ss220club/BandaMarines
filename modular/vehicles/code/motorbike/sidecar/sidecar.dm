@@ -5,7 +5,7 @@
 
 	//======= Для отображения в игре ==============
 	icon = 'modular/vehicles/icons/moto48x48.dmi'
-	icon_state = "moto_ural_sidecar"	// Для отображения на картах. //сюда бы смешную заглушку, чтобы понимать, что создал не то.
+	icon_state = "moto_ural_sidecar_classic"	// Для отображения на картах. //сюда бы смешную заглушку, чтобы понимать, что создал не то.
 	var/icon_base = "moto_ural_sidecar"
 	var/icon_skin = "classic"
 	var/icon_destroyed = "destroyed"
