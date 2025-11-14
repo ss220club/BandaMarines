@@ -89,7 +89,7 @@
 		var/to_firer = "You fire the [name]!"
 		if(has_charge_meter)
 			to_firer = "[round((cell.charge / charge_cost), 1)] / [max_shots] SHOTS REMAINING"
-		user.visible_message(SPAN_DANGER("[user] fires \the [src]!"),
+		user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] стреляет из [declent_ru(GENITIVE)]!"),
 		SPAN_DANGER("[to_firer]"), message_flags = CHAT_TYPE_WEAPON_USE)
 		return AUTOFIRE_CONTINUE
 
@@ -134,6 +134,10 @@
 	starting_attachment_types = list(/obj/item/attachable/scope/variable_zoom/eva, /obj/item/attachable/eva_doodad)
 	has_charge_meter = FALSE
 	charge_icon = "+rxfm5_empty"
+
+/obj/item/weapon/gun/energy/rxfm5_eva/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/wy)
 
 /obj/item/weapon/gun/energy/rxfm5_eva/set_gun_attachment_offsets()
 	attachable_offset = list("muzzle_x" = 0, "muzzle_y" = 0,"rail_x" = 12, "rail_y" = 21, "under_x" = 16, "under_y" = 10, "stock_x" = 0, "stock_y" = 0)

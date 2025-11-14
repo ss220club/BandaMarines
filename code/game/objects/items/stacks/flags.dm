@@ -103,14 +103,14 @@
 	if(user.action_busy)
 		return
 
-	user.visible_message(SPAN_NOTICE("[user] starts taking [src] down..."), SPAN_NOTICE("You start taking [src] down..."))
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts taking [src] down..."), SPAN_NOTICE("You start taking [src] down..."))
 
 	playsound(loc, 'sound/effects/flag_raising.ogg', 30)
 	if(!do_after(user, 6 SECONDS, INTERRUPT_ALL, BUSY_ICON_GENERIC) || QDELETED(src))
 		return
 
 	playsound(loc, 'sound/effects/flag_raised.ogg', 30)
-	user.visible_message(SPAN_NOTICE("[user] starts takes [src] down!"), SPAN_NOTICE("You take [src] down!"))
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts takes [src] down!"), SPAN_NOTICE("You take [src] down!"))
 	var/obj/item/flag/plantable/flag_item = new flag_type(loc)
 	user.put_in_hands(flag_item)
 	COOLDOWN_START(flag_item, warcry_cooldown_item, COOLDOWN_TIMELEFT(src, warcry_cooldown_struc))
@@ -142,12 +142,25 @@
 			return
 		xeno.animation_attack_on(src)
 		playsound(loc, 'sound/effects/metalhit.ogg', 25, 1)
-		xeno.visible_message(SPAN_DANGER("[xeno] slashes [src]!"), SPAN_DANGER("We slash [src]!"), null, 5, CHAT_TYPE_XENO_COMBAT)
+		xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] [ru_attack_verb("slashes")] [declent_ru(ACCUSATIVE)]!"), SPAN_DANGER("Вы [ru_attack_verb("slash")] [declent_ru(ACCUSATIVE)]!"), null, 5, CHAT_TYPE_XENO_COMBAT)
 		update_health(rand(xeno.melee_damage_lower, xeno.melee_damage_upper))
 		return XENO_ATTACK_ACTION
 	else
 		to_chat(xeno, SPAN_WARNING("We stare at [src] cluelessly."))
 		return XENO_NONCOMBAT_ACTION
+
+/obj/structure/flag/plantable/handle_tail_stab(mob/living/carbon/xenomorph/xeno)
+	if(unslashable || health <= 0)
+		return TAILSTAB_COOLDOWN_NONE
+	playsound(src, 'sound/effects/metalhit.ogg', 25, 1)
+	update_health(xeno.melee_damage_upper)
+	if(health <= 0)
+		xeno.visible_message(SPAN_DANGER("[xeno] destroys [src] with its tail!"),
+		SPAN_DANGER("We destroy [src] with our tail!"), null, 5, CHAT_TYPE_XENO_COMBAT)
+	else
+		xeno.visible_message(SPAN_DANGER("[xeno] strikes [src] with its tail!"),
+		SPAN_DANGER("We strike [src] with our tail!"), null, 5, CHAT_TYPE_XENO_COMBAT)
+	return TAILSTAB_COOLDOWN_NORMAL
 
 /obj/structure/flag/plantable/bullet_act(obj/projectile/bullet)
 	bullet_ping(bullet)
@@ -157,7 +170,7 @@
 
 /obj/structure/flag/plantable/attackby(obj/item/weapon, mob/living/user)
 	if(!explo_proof)
-		visible_message(SPAN_DANGER("[src] has been hit by [user] with [weapon]!"), null, 5, CHAT_TYPE_MELEE_HIT)
+		visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] ударяет [declent_ru(ACCUSATIVE)] [weapon.declent_ru(INSTRUMENTAL)]!"), null, 5, CHAT_TYPE_MELEE_HIT) // SS220 EDIT ADDICTION
 		user.animation_attack_on(src)
 		playsound(loc, 'sound/effects/metalhit.ogg', 25, 1)
 		update_health(weapon.force * weapon.demolition_mod)
@@ -224,12 +237,12 @@
 			to_chat(usr, SPAN_WARNING("You need a clear, open area to plant [src], something is blocking the way in front of you!"))
 			return
 
-	user.visible_message(SPAN_NOTICE("[user] starts planting [src] into the ground..."), SPAN_NOTICE("You start planting [src] into the ground..."))
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts planting [src] into the ground..."), SPAN_NOTICE("You start planting [src] into the ground..."))
 	playsound(user, 'sound/effects/flag_raising.ogg', 30)
 	if(!do_after(user, 6 SECONDS, INTERRUPT_ALL, BUSY_ICON_GENERIC))
 		return
 
-	user.visible_message(SPAN_NOTICE("[user] plants [src] into the ground!"), SPAN_NOTICE("You plant [src] into the ground!"))
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] plants [src] into the ground!"), SPAN_NOTICE("You plant [src] into the ground!"))
 	var/obj/structure/flag/plantable/planted_flag = new flag_type(turf_to_plant)
 
 	// If there are more than 14 allies nearby, play a stronger rallying cry.

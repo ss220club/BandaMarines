@@ -25,6 +25,8 @@ export const JOBS_RU = {
   Echo: 'Эхо',
   Foxtrot: 'Фокстрот',
   Intel: 'Интел',
+  Command: 'Командование',
+  Security: 'Охрана',
   SOF: 'ССО',
   CBRN: 'РХБЗ',
   FORECON: 'РАЗВЕДКА',
@@ -380,7 +382,7 @@ export const JOBS_RU = {
   Observer: 'Наблюдатель',
 
   // Other
-  Infected: 'Зараженные',
+  Infected: 'Заражённые',
 
   Unemployed: 'Неизвестно',
 };

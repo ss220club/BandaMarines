@@ -32,6 +32,8 @@
 	var/metal_add_time = 2 DECISECONDS
 	var/welding_step = FALSE
 	var/coil_step  = FALSE		// Время требуемое для прикладывания 1 штучки (в 1 секунде 10 дец)
+	var/welding_step = FALSE
+	var/coil_step  = FALSE
 	var/screw_need = TRUE
 	var/screw_step = FALSE
 	var/screw_time = 20 SECONDS
@@ -84,6 +86,8 @@
 				welding_step = TRUE //Наверное смене флага лучше тут.
 		else
 			to_chat(user, SPAN_WARNING("В [O] не хватает топлива!"))
+		if(health >= maxhealth)
+			welding_step = TRUE
 		return TRUE
 
 	else if(istype(O, /obj/item/stack/sheet/metal))
@@ -122,6 +126,8 @@
 		playsound(src.loc, 'sound/items/air_release.ogg', 25, 1)
 		if(wires_stored >= wires_need)
 			coil_step = TRUE
+		if(wires_stored >= wires_need)
+			coil_step = TRUE
 		return TRUE
 
 	else if(screw_need && !screw_step && HAS_TRAIT(O, TRAIT_TOOL_SCREWDRIVER))
@@ -131,12 +137,18 @@
 		if(!coil_step)
 			to_chat(user, SPAN_NOTICE("Сначало присоедини новые провода"))
 			return
-		to_chat(user, SPAN_WARNING("Вы вкручиваете болты у [src]. Ожидайте."))
+		if(!welding_step)
+			to_chat(user, SPAN_WARNING("Сначала приварите металл к корпусу"))
+			return
+		if(!coil_step)
+			to_chat(user, SPAN_WARNING("Сначала присоедините новые провода"))
+			return
+		to_chat(user, SPAN_WARNING("Вы вкручиваете винты у [src]. Ожидайте."))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, 1)
 		L.animation_attack_on(src)
 		if(!do_after(user, screw_time * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
 			return FALSE
-		to_chat(user, SPAN_NOTICE("Вы вкрутили болты у [src]."))
+		to_chat(user, SPAN_NOTICE("Вы вкрутили винты у [src]."))
 		playsound(src.loc, 'sound/items/Screwdriver2.ogg', 25, 1)
 		screw_step = TRUE
 		L.animation_attack_on(src)
@@ -161,7 +173,7 @@
 	if(health < maxhealth)
 		required += "Необходимо сварить приложенные листы металла."
 	if(screw_need && !screw_step)
-		required += "Болты корпуса необходимо заключительно закрутить."
+		required += "Винты корпуса необходимо заключительно закрутить."
 	if(length(required))
 		return "Корпус [src.name] требует: [english_list(required, and_text = "\n\t", comma_text = "\n\t", nothing_text = FALSE)]"
 	return FALSE

@@ -121,7 +121,7 @@
 
 /obj/item/card/id/attack_self(mob/user as mob)
 	..()
-	user.visible_message("[user] shows you: [icon2html(src, viewers(user))] [name]: assignment: [assignment]")
+	user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] shows you: [icon2html(src, viewers(user))] [name]: assignment: [assignment]")
 	src.add_fingerprint(user)
 
 /obj/item/card/id/proc/set_user_data(mob/living/carbon/human/H)
@@ -183,6 +183,10 @@
 	item_state = "silver_id"
 	var/credits_to_give = 15 //gives the equivalent clearance access in credits
 
+/obj/item/card/id/silver/clearance_badge/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/wy)
+
 /obj/item/card/id/silver/clearance_badge/scientist
 	name = "corporate scientist badge"
 	desc = "A corporate holo-badge. It is fingerprint locked with clearance level 4 access. It is commonly held by corporate scientists."
@@ -214,6 +218,10 @@
 	icon_state = "gold"
 	item_state = "gold_id"
 
+/obj/item/card/id/souto/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/souta)
+
 /obj/item/card/id/gold
 	name = "identification holo-badge"
 	desc = "A gold plated holo-badge which shows power and might."
@@ -231,6 +239,13 @@
 	desc = "A corporate holo-badge. It's a unique Corporate orange and white."
 	icon_state = "cl"
 	item_state = "cl_id"
+
+/obj/item/card/id/silver/cl/Initialize()
+	. = ..()
+	if(istype(src, /obj/item/card/id/silver/cl/hyperdyne))
+		AddElement(/datum/element/corp_label/hyperdyne)
+	else
+		AddElement(/datum/element/corp_label/wy)
 
 /obj/item/card/id/silver/cl/hyperdyne
 	name = "corporate holo-badge"
@@ -253,6 +268,7 @@
 
 /obj/item/card/id/pmc/New()
 	access = get_access(ACCESS_LIST_WY_ALL)
+	AddElement(/datum/element/corp_label/wy)
 	..()
 
 /obj/item/card/id/pmc/commando
@@ -316,6 +332,10 @@
 	desc = "A standard-issue holo-badge for personnel within the UPP's People's Armed Police. It displays the officer's rank and affiliation."
 	icon_state = "data"
 	paygrade = PAY_SHORT_PAP_MLTS
+
+/obj/item/card/id/PaP/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/norcomm)
 
 /obj/item/card/id/general
 	name = "general officer holo-badge"

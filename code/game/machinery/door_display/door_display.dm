@@ -223,7 +223,7 @@
 /obj/structure/machinery/door_display/research_cell/tgui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "ResearchDoorDisplay", "[src.name]")
+		ui = new(user, src, "ResearchDoorDisplay", "[capitalize(name)]")
 		ui.open()
 
 /obj/structure/machinery/door_display/research_cell/ui_state(mob/user)
@@ -305,7 +305,7 @@
 /obj/structure/machinery/door_display/research_cell/attack_hand(mob/user)
 	. = ..()
 	if(!allowed(user))
-		to_chat(user, SPAN_WARNING("Access denied!"))
+		to_chat(user, SPAN_WARNING("Доступ запрещён"))
 
 	tgui_interact(user)
 

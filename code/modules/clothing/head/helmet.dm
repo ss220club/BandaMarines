@@ -429,15 +429,16 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 /obj/item/clothing/head/helmet/marine/Initialize(mapload, new_protection[] = list(MAP_ICE_COLONY = ICE_PLANET_MIN_COLD_PROT))
 	. = ..()
 	AddComponent(/datum/component/overwatch_console_control)
+	AddElement(/datum/element/corp_label/armat)
 	if(!(flags_atom & NO_NAME_OVERRIDE))
 		name = "[specialty]"
-		var/suffix = "" // SS220 - EDIT ADDITTION
+		var/suffix = "" // SS220 EDIT ADDICTION
 		if(SSmapping.configs[GROUND_MAP].environment_traits[MAP_COLD])
 			name += " snow helmet"
-			suffix = " (Зимний камуфляж)" // SS220 - EDIT ADDITTION
+			suffix = " (Зимний камуфляж)" // SS220 EDIT ADDICTION
 		else
 			name += " helmet"
-		ru_names_rename(ru_names_toml(replacetext(name," snow",""), suffix = suffix, override_base = name)) // SS220 - EDIT ADDITTION
+		ru_names_rename(ru_names_toml(replacetext(name," snow",""), suffix = suffix, override_base = name)) // SS220 EDIT ADDICTION
 
 	if(!(flags_atom & NO_GAMEMODE_SKIN))
 		select_gamemode_skin(type, null, new_protection)
@@ -525,17 +526,17 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 /obj/item/clothing/head/helmet/marine/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/ammo_magazine) && world.time > helmet_bash_cooldown && user)
 		var/obj/item/ammo_magazine/M = attacking_item
-		var/ammo_level = "more than half full."
+		var/ammo_level = "больше половины."
 		playsound(user, 'sound/items/trayhit1.ogg', 15, FALSE)
 		if(M.current_rounds == (M.max_rounds/2))
-			ammo_level = "half full."
+			ammo_level = "половина."
 		if(M.current_rounds < (M.max_rounds/2))
-			ammo_level = "less than half full."
+			ammo_level = "меньше половины."
 		if(M.current_rounds < (M.max_rounds/6))
-			ammo_level = "almost empty."
+			ammo_level = "почти пусто."
 		if(M.current_rounds == 0)
-			ammo_level = "empty. Uh oh."
-		user.visible_message("[user] bashes [M] against their helmet", "You bash [M] against your helmet. It is [ammo_level]")
+			ammo_level = "пусто. Ой-ой."
+		user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] [ru_attack_verb("bashes")] [M.declent_ru(ACCUSATIVE)] об свой шлем.", "Вы [ru_attack_verb("bash")] [M.declent_ru(ACCUSATIVE)] об свой шлем. Внутри [ammo_level].")
 		helmet_bash_cooldown = world.time + 20 SECONDS
 		return
 
@@ -781,6 +782,15 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 /obj/item/clothing/head/helmet/marine/see_emote(mob/living/sourcemob, emote, audible)
 	SEND_SIGNAL(src, COMSIG_BROADCAST_SEE_EMOTE, sourcemob, emote, audible, loc == sourcemob && audible)
 
+/datum/action/item_action/cycle_helmet_huds
+	var/supported_custom_icons = list(
+		"hud_marine",
+		"nvg_sight_down",
+		"med_sight_down",
+		"sec_sight_down",
+		"blank_hud_sight_down"
+	)
+
 /datum/action/item_action/cycle_helmet_huds/New(Target, obj/item/holder)
 	. = ..()
 	name = "Cycle helmet HUD"
@@ -802,13 +812,16 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 
 	action_icon_state = new_visor.action_icon_string
 	button.overlays.Cut()
-	button.overlays += image('icons/obj/items/clothing/helmet_visors.dmi', button, action_icon_state)
+	button.overlays += image('icons/mob/hud/actions.dmi', button, action_icon_state)
+
+/datum/action/item_action/cycle_helmet_huds/update_button_icon()
+	return
 
 /// Sets the action overlay to default hud sight up
 /datum/action/item_action/cycle_helmet_huds/proc/set_default_overlay()
-	action_icon_state = "hud_sight_up"
+	action_icon_state = "hud_deploy"
 	button.overlays.Cut()
-	button.overlays += image('icons/obj/items/clothing/helmet_visors.dmi', button, action_icon_state)
+	button.overlays += image('icons/mob/hud/actions.dmi', button, action_icon_state)
 
 /obj/item/clothing/head/helmet/marine/tech
 	name = "\improper M10 technician helmet"
@@ -1029,7 +1042,7 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 	name = "Use Phone"
 	button.name = name
 	button.overlays.Cut()
-	var/image/IMG = image('icons/obj/structures/phone.dmi', button, "scout_microphone")
+	var/image/IMG = image('icons/mob/hud/actions.dmi', button, "microphone")
 	button.overlays += IMG
 
 /datum/action/item_action/radio_helmet/use_phone/action_activate()
@@ -1175,6 +1188,9 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 	built_in_visors = list(new /obj/item/device/helmet_visor, new /obj/item/device/helmet_visor/medical/advanced)
 	inserted_visors = list(new /obj/item/device/helmet_visor/po_visor)
 	max_inserted_visors = 1
+
+/obj/item/clothing/head/helmet/marine/pilot/novisor //For vendors that give sepreate visor options
+	inserted_visors = list()
 
 /obj/item/clothing/head/helmet/marine/pilot/tex
 	name = "\improper Tex's MK30 tactical helmet"
@@ -1361,6 +1377,10 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 	flags_marine_helmet = HELMET_GARB_OVERLAY|HELMET_DAMAGE_OVERLAY
 	clothing_traits = list(TRAIT_EAR_PROTECTION)
 	built_in_visors = list(new /obj/item/device/helmet_visor/security)
+
+/obj/item/clothing/head/helmet/marine/veteran/cmb/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/armat)
 
 /obj/item/clothing/head/helmet/marine/veteran/cmb/engi
 	built_in_visors = list(new /obj/item/device/helmet_visor/security, new /obj/item/device/helmet_visor/welding_visor)
@@ -1891,6 +1911,10 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 	icon_state = "generic_helm"
 	item_state = "generic_helm"
 	flags_marine_helmet = HELMET_GARB_OVERLAY
+
+/obj/item/clothing/head/helmet/marine/veteran/royal_marine/generic/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/alphatech)
 
 /obj/item/clothing/head/helmet/marine/veteran/royal_marine/pilot
 	name = "\improper PH-4 'Spitfire' flight helmet"

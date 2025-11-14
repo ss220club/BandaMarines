@@ -123,7 +123,7 @@
 	..()
 	if(lit)
 		lit = !lit
-		visible_message("[user] extinguishes the lanterns on [src].",
+		visible_message("[capitalize(user.declent_ru(NOMINATIVE))] extinguishes the lanterns on [src].",
 			"You extinguish the fires on [src].")
 		Update()
 	return
@@ -183,7 +183,7 @@
 		if(W.heat_source > 200)
 			L = 1
 	if(L)
-		visible_message("[user] quietly goes from lantern to lantern on the torii, lighting the wicks in each one.")
+		visible_message("[capitalize(user.declent_ru(NOMINATIVE))] quietly goes from lantern to lantern on the torii, lighting the wicks in each one.")
 		lit = TRUE
 		Update()
 
@@ -256,6 +256,10 @@
 	name = "Yutani OS server box"
 	desc = "Yutani OS is a proprietary operating system used by the Company to run most all of their servers, banking, and management systems. A code leak in 2144 led some amateur hackers to believe that Yutani OS is loosely based on the 2017 release of TempleOS. But the Company has refuted these claims."
 	icon_state = "yutani_server_on"
+
+/obj/structure/prop/server_equipment/yutani_server/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/wy)
 
 /obj/structure/prop/server_equipment/yutani_server/broken
 	icon_state = "yutani_server_broken"
@@ -477,13 +481,13 @@
 			if(!wooden_boards.use(5))
 				to_chat(user, SPAN_WARNING("Not enough wood!"))
 				return
-			user.visible_message(SPAN_NOTICE("[user] fills [src] with [hit_item]."))
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] fills [src] with [hit_item]."))
 		if(STATE_IGNITE)
 			if(!hit_item.heat_source)
 				return ..()
 			if(!do_after(user, 3 SECONDS, INTERRUPT_MOVED, BUSY_ICON_BUILD))
 				return
-			user.visible_message(SPAN_NOTICE("[user] ignites [src] with [hit_item]."))
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] ignites [src] with [hit_item]."))
 
 	new frame_type(loc)
 	qdel(src)
@@ -596,7 +600,7 @@
 			return
 		fuel_drain()
 		to_chat(user, SPAN_NOTICE("You continue to extinguish [src]."))
-	visible_message(SPAN_NOTICE("[user] extinguishes [src]."))
+	visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] extinguishes [src]."))
 
 /obj/structure/prop/brazier/campfire/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item, /obj/item/stack/sheet/wood))
@@ -609,7 +613,7 @@
 	if(!fuel.use(1))
 		to_chat(user, SPAN_NOTICE("You do not have enough [attacking_item] to fuel [src]."))
 		return
-	visible_message(SPAN_NOTICE("[user] fuels [src] with [fuel]."))
+	visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] fuels [src] with [fuel]."))
 	remaining_fuel++
 
 /obj/structure/prop/brazier/campfire/attack_alien(mob/living/carbon/xenomorph/xeno)
@@ -622,7 +626,7 @@
 			return
 		fuel_drain()
 		to_chat(xeno, SPAN_NOTICE("You continue to extinguish [src]."))
-	visible_message(SPAN_WARNING("[xeno] extinguishes [src]!"))
+	visible_message(SPAN_WARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] extinguishes [src]!"))
 
 /obj/structure/prop/brazier/campfire/proc/fuel_drain(looping)
 	remaining_fuel--
@@ -693,13 +697,22 @@
 			return
 		xeno.animation_attack_on(src)
 		playsound(loc, 'sound/effects/metalhit.ogg', 25, 1)
-		xeno.visible_message(SPAN_DANGER("[xeno] slices [src] apart!"),
+		xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] slices [src] apart!"),
 		SPAN_DANGER("We slice [src] apart!"), null, 5, CHAT_TYPE_XENO_COMBAT)
 		deconstruct(FALSE)
 		return XENO_ATTACK_ACTION
 	else
 		attack_hand(xeno)
 		return XENO_NONCOMBAT_ACTION
+
+/obj/structure/prop/ice_colony/dense/handle_tail_stab(mob/living/carbon/xenomorph/xeno)
+	if(unslashable)
+		return TAILSTAB_COOLDOWN_NONE
+	playsound(src, 'sound/effects/metalhit.ogg', 25, 1)
+	deconstruct(FALSE)
+	xeno.visible_message(SPAN_DANGER("[xeno] destroys [src] with its tail!"),
+	SPAN_DANGER("We destroy [src] with our tail!"), null, 5, CHAT_TYPE_XENO_COMBAT)
+	return TAILSTAB_COOLDOWN_NORMAL
 
 /obj/structure/prop/ice_colony/dense/ice_tray
 	name = "ice slab tray"
@@ -995,7 +1008,7 @@
 		var/obj/item/dogtag/dog = W
 		if(!tagged)
 			tagged = TRUE
-			user.visible_message(SPAN_NOTICE("[user] drapes [W] around [src]."))
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] drapes [W] around [src]."))
 			dogtag_name = popleft(dog.fallen_names)
 			dogtag_assign = popleft(dog.fallen_assgns)
 			dogtag_blood = popleft(dog.fallen_blood_types)
@@ -1044,13 +1057,13 @@
 		var/message = sanitize(input(user, "What do you write on [src]?", "Inscription"))
 		if(!message)
 			return
-		user.visible_message(SPAN_NOTICE("[user] begins to [action_msg] [src]."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins to [action_msg] [src]."),
 			SPAN_NOTICE("You begin to [action_msg] [src]."), null, 4)
 
 		if(!do_after(user, length(message) * time_multiplier, INTERRUPT_ALL, BUSY_ICON_GENERIC))
 			to_chat(user, SPAN_WARNING("You were interrupted!"))
 		else
-			user.visible_message(SPAN_NOTICE("[user] uses \his [W.name] to [action_msg] [src]."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] uses \his [W.name] to [action_msg] [src]."),
 				SPAN_NOTICE("You [action_msg] [src] with your [W.name]."), null, 4)
 			if(inscription)
 				inscription += "\n[message]"
@@ -1076,12 +1089,25 @@
 	update_health(rand(M.melee_damage_lower, M.melee_damage_upper))
 	playsound(src, 'sound/effects/woodhit.ogg', 25, 1)
 	if(health <= 0)
-		M.visible_message(SPAN_DANGER("[M] slices [src] apart!"),
+		M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] slices [src] apart!"),
 		SPAN_DANGER("You slice [src] apart!"), null, 5, CHAT_TYPE_XENO_COMBAT)
 	else
-		M.visible_message(SPAN_DANGER("[M] slashes [src]!"),
+		M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] slashes [src]!"),
 		SPAN_DANGER("You slash [src]!"), null, 5, CHAT_TYPE_XENO_COMBAT)
 	return XENO_ATTACK_ACTION
+
+/obj/structure/prop/wooden_cross/handle_tail_stab(mob/living/carbon/xenomorph/xeno)
+	if(unslashable || health <= 0)
+		return TAILSTAB_COOLDOWN_NONE
+	playsound(src, 'sound/effects/metalhit.ogg', 25, 1)
+	update_health(xeno.melee_damage_upper)
+	if(health <= 0)
+		xeno.visible_message(SPAN_DANGER("[xeno] destroys [src] with its tail!"),
+		SPAN_DANGER("We destroy [src] with our tail!"), null, 5, CHAT_TYPE_XENO_COMBAT)
+	else
+		xeno.visible_message(SPAN_DANGER("[xeno] strikes [src] with its tail!"),
+		SPAN_DANGER("We strike [src] with our tail!"), null, 5, CHAT_TYPE_XENO_COMBAT)
+	return TAILSTAB_COOLDOWN_NORMAL
 
 /obj/structure/prop/wooden_cross/update_icon()
 	if(tagged)

@@ -1,6 +1,6 @@
 #define WO_MAX_WAVE 15
 
-//Global proc for checking if the game is whiskey outpost so I dont need to type if(gamemode == whiskey outpost) 50000 times
+//Global proc for checking if the game is whiskey outpost so I don't need to type if(gamemode == whiskey outpost) 50000 times
 /proc/Check_WO()
 	if(SSticker.mode == GAMEMODE_WHISKEY_OUTPOST || GLOB.master_mode == GAMEMODE_WHISKEY_OUTPOST)
 		return 1
@@ -40,7 +40,7 @@
 
 	latejoin_larva_drop = 0 //You never know
 
-	//var/mob/living/carbon/human/Commander //If there is no Commander, marines wont get any supplies
+	//var/mob/living/carbon/human/Commander //If there is no Commander, marines won't get any supplies
 	//No longer relevant to the game mode, since supply drops are getting changed.
 	var/checkwin_counter = 0
 	var/finished = 0
@@ -118,7 +118,7 @@
 
 	CONFIG_SET(flag/remove_gun_restrictions, TRUE)
 	sleep(10)
-	to_world(SPAN_ROUND_HEADER("The current game mode is - WHISKEY OUTPOST!"))
+	to_world(SPAN_ROUND_HEADER("Текущий режим игры - «АВАНПОСТ ВИСКИ»")) // SS220 EDIT ADDICTION
 	to_world(SPAN_ROUNDBODY("It is the year 2177 on the planet LV-624, five years before the arrival of the USS Almayer and the 2nd 'Falling Falcons' Battalion in the sector"))
 	to_world(SPAN_ROUNDBODY("The 3rd 'Dust Raiders' Battalion is charged with establishing a USCM presence in the Neroid Sector"))
 	to_world(SPAN_ROUNDBODY("[SSmapping.configs[GROUND_MAP].map_name], one of the Dust Raider bases being established in the sector, has come under attack from unrecognized alien forces"))

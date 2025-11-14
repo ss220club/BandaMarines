@@ -111,7 +111,7 @@
 		if(E)
 			var/safety = H.get_eye_protection()
 			if(!safety)
-				user.visible_message(SPAN_DANGER("[user] stabs [H] in the eyes with [src]!"),
+				user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] stabs [H] in the eyes with [src]!"),
 					SPAN_DANGER("You stab [H] in the eyes with [src]!"))
 				E.take_damage(rand(8,20))
 	return ..()
@@ -281,18 +281,18 @@
 /obj/item/tool/weldingtool/afterattack(obj/target, mob/user, proximity)
 	if(!proximity)
 		return
-	if (istype(target, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,target) <= 1)
+	if (istype(target, /obj/structure/reagent_dispensers/tank/fuel) && get_dist(src,target) <= 1)
 		if(!welding)
 			target.reagents.trans_to(src, max_fuel)
 			weld_tick = 0
-			user.visible_message(SPAN_NOTICE("[user] refills [src]."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] refills [src]."),
 			SPAN_NOTICE("You refill [src]."))
 			playsound(src.loc, 'sound/effects/refill.ogg', 25, 1, 3)
 		else
 			message_admins("[key_name_admin(user)] triggered a fueltank explosion with a blowtorch.")
 			log_game("[key_name(user)] triggered a fueltank explosion with a blowtorch.")
 			to_chat(user, SPAN_DANGER("You begin welding on the fueltank, and in a last moment of lucidity realize this might not have been the smartest thing you've ever done."))
-			var/obj/structure/reagent_dispensers/fueltank/tank = target
+			var/obj/structure/reagent_dispensers/tank/fuel/tank = target
 			tank.explode()
 		return
 	if (welding)
@@ -413,7 +413,7 @@
 			if(EYE_PROTECTION_FLAVOR)
 				to_chat(user, SPAN_DANGER("Your eyes sting a little."))
 				E.take_damage(rand(1, 2), TRUE)
-				if(E.damage > 8) // dont abuse your funny flavor glasses
+				if(E.damage > 8) // don't abuse your funny flavor glasses
 					E.take_damage(2, TRUE)
 			if(EYE_PROTECTION_NONE)
 				to_chat(user, SPAN_WARNING("Your eyes burn."))
@@ -473,11 +473,15 @@
 		reagents = max_fuel
 
 /obj/item/tool/weldingtool/simple
-	name = "\improper ME3 hand welder"
-	desc = "A compact, handheld welding torch used by the marines of the United States Colonial Marine Corps for cutting and welding jobs on the field."
+	name = "\improper Seegson MCT"
+	desc = "MCT, standing for Mechanical Cutting Torch, is a compact, handheld welding torch produced by Seegson, mainly used by technicians and Working Joe units."
 	max_fuel = 5
 	has_welding_screen = TRUE
 	icon_state = "welder_b"
+
+/obj/item/tool/weldingtool/simple/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/seegson)
 
 /*
  * Crowbar
@@ -562,7 +566,7 @@
 	. = ..()
 	playsound(src, 'sound/weapons/punchmiss.ogg', 15, TRUE, 3)
 	if(crowbar_mode) //Switch to wrench mode | Remove bolts
-		user.visible_message(SPAN_INFO("[user] changes their grip on [src]. They will now use it as a wrench."),
+		user.visible_message(SPAN_INFO("[capitalize(user.declent_ru(NOMINATIVE))] changes their grip on [src]. They will now use it as a wrench."),
 		SPAN_NOTICE("You change your grip on [src]. You will now use it as a wrench."))
 		crowbar_mode = FALSE
 		animate(src, transform = matrix(0, MATRIX_ROTATE), time = 2, easing = EASE_IN)
@@ -573,7 +577,7 @@
 		return
 
 	//Switch to crowbar mode | Pry open doors if super strong trait
-	user.visible_message(SPAN_INFO("[user] changes their grip on [src]. They will now use it as a crowbar."),
+	user.visible_message(SPAN_INFO("[capitalize(user.declent_ru(NOMINATIVE))] changes their grip on [src]. They will now use it as a crowbar."),
 	SPAN_NOTICE("You change your grip on [src]. You will now use it as a crowbar."))
 	crowbar_mode = TRUE
 	animate(src, transform = matrix(180, MATRIX_ROTATE), time = 2, easing = EASE_IN)
@@ -606,7 +610,7 @@
 		if(!attacked_door.density) //If its open
 			return
 
-		user.visible_message(SPAN_DANGER("[user] jams [src] into [attacked_door] and starts to pry it open."),
+		user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] jams [src] into [attacked_door] and starts to pry it open."),
 		SPAN_DANGER("You jam [src] into [attacked_door] and start to pry it open."))
 		playsound(src, "pry", 15, TRUE)
 		if(!do_after(user, prying_time, INTERRUPT_ALL, BUSY_ICON_HOSTILE))
@@ -615,11 +619,11 @@
 		if(!attacked_door.density)
 			return
 		if(attacked_door.locked)
-			user.visible_message(SPAN_DANGER("[user] fails to force [attacked_door] open with [src]."),
+			user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] fails to force [attacked_door] open with [src]."),
 			SPAN_DANGER("You fail to force [attacked_door] open with [src]."))
 			return
 
-		user.visible_message(SPAN_DANGER("[user] forces [attacked_door] open with [src]."),
+		user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] forces [attacked_door] open with [src]."),
 		SPAN_DANGER("You force [attacked_door] open with [src]."))
 		attacked_door.open(TRUE)
 		return
@@ -631,13 +635,13 @@
 
 	if(requires_skills_unbolt)
 		if(!skillcheck(user, SKILL_ENGINEER, SKILL_ENGINEER_MASTER)) //Engi 3 is much faster
-			user.visible_message(SPAN_DANGER("[user] begins to search for [attacked_door]'s bolts!"),
+			user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] begins to search for [attacked_door]'s bolts!"),
 			SPAN_NOTICE("You search for [attacked_door]'s bolts."))
 			if(!do_after(user, unskilled_unbolt_time, INTERRUPT_ALL, BUSY_ICON_HOSTILE, src, INTERRUPT_ALL)) //Otherwise it takes an extra 15 seconds
 				to_chat(user, SPAN_WARNING("You fail to find the bolts on [attacked_door]."))
 				return
 
-	user.visible_message(SPAN_DANGER("[user] begins to disable [attacked_door]'s bolts!"),
+	user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] begins to disable [attacked_door]'s bolts!"),
 	SPAN_NOTICE("You start to disable [attacked_door]'s bolts."))
 	playsound(attacked_door, "pry", 25, TRUE)
 
@@ -645,7 +649,7 @@
 		to_chat(user, SPAN_WARNING("You decide not to disable the bolts on [attacked_door]."))
 		return
 
-	user.visible_message(SPAN_DANGER("[user] disables the bolts on [attacked_door]."),
+	user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] disables the bolts on [attacked_door]."),
 	SPAN_NOTICE("You unbolt [attacked_door]."))
 	attacked_door.unlock(TRUE)
 	return
@@ -667,7 +671,7 @@
 				if(!resin_door.density || user.action_busy || user.a_intent == INTENT_HARM)
 					return
 
-				user.visible_message(SPAN_DANGER("[user] jams [src] into [resin_door] and starts to pry it open."),
+				user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] jams [src] into [resin_door] and starts to pry it open."),
 				SPAN_DANGER("You jam [src] into [resin_door] and start to pry it open."))
 				playsound(user, 'sound/weapons/wristblades_hit.ogg', 15, TRUE)
 
@@ -675,7 +679,7 @@
 					to_chat(user, SPAN_NOTICE("You stop prying [resin_door] open."))
 					return
 
-				user.visible_message(SPAN_DANGER("[user] forces [resin_door] open with [src]."),
+				user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] forces [resin_door] open with [src]."),
 				SPAN_DANGER("You force [resin_door] open with [src]."))
 				resin_door.open()
 				return
@@ -751,7 +755,7 @@ Welding backpack
 	if(!proximity) // this replaces and improves the get_dist(src,target) <= 1 checks used previously
 		return
 	if(istype(target, /obj/structure/reagent_dispensers))
-		if(!(istypestrict(target, /obj/structure/reagent_dispensers/fueltank)))
+		if(!(istypestrict(target, /obj/structure/reagent_dispensers/tank/fuel)))
 			to_chat(user, SPAN_NOTICE("This must be filled with a fuel tank."))
 			return
 		if(reagents.total_volume < max_fuel)

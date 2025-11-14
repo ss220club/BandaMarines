@@ -618,7 +618,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 			if(istype(src, /obj/structure/machinery/computer/overwatch/groundside_operations))
 				for(var/datum/squad/resolve_root in GLOB.RoleAuthority.squads)
 					if(resolve_root.name == "Root" && resolve_root.faction == faction)
-						current_squad = resolve_root	// manually overrides the target squad to 'root', since goc's dont know how
+						current_squad = resolve_root	// manually overrides the target squad to 'root', since goc's don't know how
 						break
 			if(current_squad?.release_overwatch())
 				if(isSilicon(user))
@@ -791,7 +791,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 					if(cam == new_cam) //if we switch to a console that is already watching this cam
 						return
 				if(!new_cam || !new_cam.can_use())
-					to_chat(user, "[icon2html(src, user)] [SPAN_WARNING("Searching for camera. No camera found for this marine! Tell your squad to put their cameras on!")]")
+					to_chat(user, "[icon2html(src, user)] [SPAN_WARNING("Поиск камеры... Камера не обнаружена! Сообщите отряду о необходимости включить камеры!")]")
 				else if(cam && cam == new_cam)//click the camera you're watching a second time to stop watching.
 					visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("Stopping camera view of [cam_target].")]")
 					for(var/datum/weakref/user_ref in concurrent_users)
@@ -825,7 +825,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 				if(istype(src, /obj/structure/machinery/computer/overwatch/groundside_operations))
 					for(var/datum/squad/resolve_root in GLOB.RoleAuthority.squads)
 						if(resolve_root.name == "Root" && resolve_root.faction == faction)
-							current_squad = resolve_root	// manually overrides the target squad to 'root', since goc's dont know how
+							current_squad = resolve_root	// manually overrides the target squad to 'root', since goc's don't know how
 							break
 				if(!current_squad || current_squad.assume_overwatch(user))
 					operator = user
@@ -869,7 +869,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 			if(squad == "root" && show_command_squad)
 				for(var/datum/squad/resolve_root in GLOB.RoleAuthority.squads)
 					if(resolve_root.name == "Root" && resolve_root.faction == faction)
-						current_squad = resolve_root	// manually overrides the target squad to 'root', since goc's dont know how
+						current_squad = resolve_root	// manually overrides the target squad to 'root', since goc's don't know how
 			else
 				current_squad = locate(params["squad"])
 
@@ -896,7 +896,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 				to_chat(usr, SPAN_WARNING("Please allow at least [COOLDOWN_COMM_MESSAGE*0.1] second\s to pass between announcements."))
 				return FALSE
 			if(announcement_faction != FACTION_MARINE && usr.faction != announcement_faction)
-				to_chat(usr, SPAN_WARNING("Access denied."))
+				to_chat(usr, SPAN_WARNING("Доступ запрещён."))
 				return
 			var/input = stripped_multiline_input(usr, "Please write a message to announce to the station crew.", "Priority Announcement", "")
 			if(!input || !(usr in dview(1, src)))
@@ -922,16 +922,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 					COOLDOWN_START(src, cooldown_message, COOLDOWN_COMM_MESSAGE)
 
 		if("selectlz")
-			if(SSticker.mode.active_lz)
-				return
-			var/lz_choices = list("lz1", "lz2")
-			var/new_lz = tgui_input_list(usr, "Select primary LZ", "LZ Select", lz_choices)
-			if(!new_lz)
-				return
-			if(new_lz == "lz1")
-				SSticker.mode.select_lz(locate(/obj/structure/machinery/computer/shuttle/dropship/flight/lz1))
-			else
-				SSticker.mode.select_lz(locate(/obj/structure/machinery/computer/shuttle/dropship/flight/lz2))
+			SSticker.mode.pick_a_lz(usr)
 
 		if("messageUSCM")
 			if(!COOLDOWN_FINISHED(src, cooldown_central))

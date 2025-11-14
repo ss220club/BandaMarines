@@ -31,6 +31,9 @@
 /obj/structure/machinery/medical_pod/attack_alien(mob/living/carbon/xenomorph/M)
 	eject()
 
+/obj/structure/machinery/medical_pod/handle_tail_stab(mob/living/carbon/xenomorph/xeno)
+	return TAILSTAB_COOLDOWN_NONE
+
 /obj/structure/machinery/medical_pod/update_icon()
 	if(occupant)
 		icon_state = "[base_icon_state]_closed"
@@ -202,7 +205,7 @@
 			return
 
 		if(push_in_timer)
-			visible_message(SPAN_NOTICE("[user] starts putting [to_put_in] into \the [src]."), null, null, 3)
+			visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts putting [to_put_in] into \the [src]."), null, null, 3)
 			if(!do_after(usr, push_in_timer, INTERRUPT_NO_NEEDHAND, BUSY_ICON_GENERIC))
 				return
 			if(src.occupant)

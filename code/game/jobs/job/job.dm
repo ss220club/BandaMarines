@@ -118,11 +118,20 @@
 	else
 		return time_required - get_job_playtime(C, roles)
 
+/client/proc/can_skip_role_lock()
+	if(admin_holder && (admin_holder.rights & (R_NOLOCK | R_ADMIN)))
+		return TRUE
+	if(GLOB.community_awards[ckey])
+		for(var/award in GLOB.community_awards[ckey])
+			if(award == "SDTimeAward")
+				return TRUE
+	return FALSE
+
 /datum/job/proc/can_play_role(client/client)
 	if(!CONFIG_GET(flag/use_timelocks))
 		return TRUE
 
-	if(client.admin_holder && (client.admin_holder.rights & (R_NOLOCK | R_ADMIN)))
+	if(client.can_skip_role_lock())
 		return TRUE
 
 	if(get_job_playtime(client, title) > minimum_playtime_as_job)
@@ -152,29 +161,29 @@
 /datum/job/proc/get_access()
 	if(!gear_preset)
 		return null
-	if(GLOB.gear_path_presets_list[gear_preset])
-		return GLOB.gear_path_presets_list[gear_preset].access
+	if(GLOB.equipment_presets.gear_path_presets_list[gear_preset])
+		return GLOB.equipment_presets.gear_path_presets_list[gear_preset].access
 	return null
 
 /datum/job/proc/get_skills()
 	if(!gear_preset)
 		return null
-	if(GLOB.gear_path_presets_list[gear_preset])
-		return GLOB.gear_path_presets_list[gear_preset].skills
+	if(GLOB.equipment_presets.gear_path_presets_list[gear_preset])
+		return GLOB.equipment_presets.gear_path_presets_list[gear_preset].skills
 	return null
 
 /datum/job/proc/get_paygrade()
 	if(!gear_preset)
 		return ""
-	if(GLOB.gear_path_presets_list[gear_preset])
-		return GLOB.gear_path_presets_list[gear_preset].paygrades[1]
+	if(GLOB.equipment_presets.gear_path_presets_list[gear_preset])
+		return GLOB.equipment_presets.gear_path_presets_list[gear_preset].paygrades[1]
 	return ""
 
 /datum/job/proc/get_comm_title()
 	if(!gear_preset)
 		return ""
-	if(GLOB.gear_path_presets_list[gear_preset])
-		return GLOB.gear_path_presets_list[gear_preset].role_comm_title
+	if(GLOB.equipment_presets.gear_path_presets_list[gear_preset])
+		return GLOB.equipment_presets.gear_path_presets_list[gear_preset].role_comm_title
 	return ""
 
 /datum/job/proc/set_spawn_positions(count)
@@ -222,13 +231,16 @@
 		title_given = lowertext(disp_title)
 
 		//Document syntax cannot have tabs for proper formatting.
+		// SS220 START EDIT ADDICTION
 		var/entrydisplay = boxed_message("\
 			[SPAN_ROLE_BODY("|______________________|")] \n\
 			[SPAN_ROLE_HEADER("Вы - [title_given]")] \n\
-			[flags_startup_parameters & ROLE_ADMIN_NOTIFY ? SPAN_ROLE_HEADER("Вы играете за должность, которая важна для игрового прогресса. Если вам нужно отключиться, сообщите об этом администраторам через AdminHelp.") : ""] \n\
-			[SPAN_ROLE_BODY("[generate_entry_message(H)]<br>[M ? "Ваш номер аккаунта: <b>[M.account_number]</b>. Ваш пинкод: <b>[M.remote_access_pin]</b>." : "У вас нет банковского счета."]")] \n\
+			[flags_startup_parameters & ROLE_ADMIN_NOTIFY ? SPAN_ROLE_HEADER("Вы играете важную роль в игре. Если вам нужно отключиться, пожалуйста, сообщите об этом через AdminHelp.") : ""] \n\
+			[SPAN_ROLE_BODY("[generate_entry_message(H)]<br>")] \n\
+			[M ? SPAN_ROLE_BODY("Номер вашего банковского счёта: <b>[M.account_number]</b>. Пин-код: <b>[M.remote_access_pin]</b>.") : SPAN_ROLE_BODY("У вас нет банковского счёта.")] \n\
 			[SPAN_ROLE_BODY("|______________________|")] \
 		")
+		// SS220 END EDIT ADDICTION
 		to_chat_spaced(H, html = entrydisplay)
 
 /datum/job/proc/generate_entry_conditions(mob/living/M, whitelist_status)

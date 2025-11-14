@@ -103,7 +103,7 @@
 	health -= rand(M.melee_damage_lower, M.melee_damage_upper)
 	playsound(src, 'sound/items/paper_ripped.ogg', 25, 1)
 
-	M.visible_message(SPAN_DANGER("[M] [M.slashes_verb] [src]!"),
+	M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] [ru_attack_verb(M.slashes_verb)] [declent_ru(ACCUSATIVE)]!"),
 	SPAN_DANGER("You [M.slash_verb] [src]!"), null, 5, CHAT_TYPE_XENO_COMBAT)
 
 	if(health <= 0)
@@ -112,17 +112,31 @@
 
 	return XENO_ATTACK_ACTION
 
+/obj/structure/tent/handle_tail_stab(mob/living/carbon/xenomorph/xeno)
+	if(unslashable || health <= 0)
+		return TAILSTAB_COOLDOWN_NONE
+	playsound(src, 'sound/items/paper_ripped.ogg', 25, 1)
+	health -= xeno.melee_damage_upper
+	if(health <= 0)
+		xeno.visible_message(SPAN_DANGER("[xeno] collapses [src] with its tail!"),
+		SPAN_DANGER("We collapse [src] with our tail!"), null, 5, CHAT_TYPE_XENO_COMBAT)
+		qdel(src)
+	else
+		xeno.visible_message(SPAN_DANGER("[xeno] strikes [src] with its tail!"),
+		SPAN_DANGER("We strike [src] with our tail!"), null, 5, CHAT_TYPE_XENO_COMBAT)
+	return TAILSTAB_COOLDOWN_NORMAL
+
 /obj/structure/tent/attackby(obj/item/item, mob/user)
 	var/obj/item/tool/shovel/shovel = item
 	if(!istype(shovel) || shovel.folded || user.action_busy)
 		return
-	visible_message(SPAN_HIGHDANGER("[user] is trying to tear down [src]"))
+	visible_message(SPAN_HIGHDANGER("[capitalize(user.declent_ru(NOMINATIVE))] is trying to tear down [src]"))
 	playsound(src, 'sound/items/paper_ripped.ogg', 25, 1)
 
 	if(!do_after(user, 150, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_HOSTILE, src) || QDELETED(src))
 		return
 
-	visible_message(SPAN_HIGHDANGER("[user] tears down [src]"))
+	visible_message(SPAN_HIGHDANGER("[capitalize(user.declent_ru(NOMINATIVE))] tears down [src]"))
 	playsound(src, 'sound/items/paper_ripped.ogg', 25, 1)
 	qdel(src)
 

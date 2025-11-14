@@ -104,11 +104,11 @@
 
 /obj/item/proc/get_examine_line(mob/user)
 	if(blood_color)
-		. = SPAN_WARNING("[icon2html(src, user)] <font color='[blood_color == COLOR_OIL ? COLOR_OIL_TEXT : blood_color]'>[blood_color == COLOR_OIL ? "замасленн[genderize_ru(gender, "ый", "ая", "ое", "ые")] " : "окровавленн[genderize_ru(gender, "ый", "ая", "ое", "ые")] "] [declent_ru(ACCUSATIVE)]</font>") // SS220 - EDIT ADDITTION
-	// SS220 - START ADDITTION
+		. = SPAN_WARNING("[icon2html(src, user)] <font color='[blood_color == COLOR_OIL ? COLOR_OIL_TEXT : blood_color]'>[blood_color == COLOR_OIL ? "замасленн[genderize_ru(gender, "ый", "ую", "ое", "ые")]" : "окровавленн[genderize_ru(gender, "ый", "ую", "ое", "ые")]"] [declent_ru(ACCUSATIVE)]</font>") // SS220 EDIT ADDICTION
+	// SS220 START EDIT ADDICTION
 	else if(istype(src, /obj/item/clothing/accessory/medal) || istype(src, /obj/item/clothing/accessory/ranks))
 		. = "[icon2html(src, user)] [declent_ru(INSTRUMENTAL)]"
-	// SS220 - END ADDITTION
+	// SS220 END ADDICTION
 	else
 		. = "[icon2html(src, user)] [declent_ru(ACCUSATIVE)]"
 
@@ -265,16 +265,17 @@
 /obj/proc/manual_unbuckle(mob/user as mob)
 	if(buckled_mob)
 		if(buckled_mob.buckled == src)
-			if(buckled_mob != user)
+			var/ru_name = declent_ru(GENITIVE) // SS220 EDIT ADDICTION
+			if(buckled_mob == user)
 				buckled_mob.visible_message(
-					SPAN_NOTICE("[buckled_mob.name] was unbuckled by [user.name]!"),
-					SPAN_NOTICE("You were unbuckled from [src] by [user.name]."),
-					SPAN_NOTICE("You hear metal clanking."))
+					SPAN_NOTICE("[capitalize(buckled_mob.declent_ru(NOMINATIVE))] отстёгивается!"), // SS220 EDIT ADDICTION
+					SPAN_NOTICE("Вы отстёгиваетесь от [ru_name]."), // SS220 EDIT ADDICTION
+					SPAN_NOTICE("Вы слышите металлический щелчок."))
 			else
 				buckled_mob.visible_message(
-					SPAN_NOTICE("[buckled_mob.name] unbuckled [buckled_mob.p_them()]self!"),
-					SPAN_NOTICE("You unbuckle yourself from [src]."),
-					SPAN_NOTICE("You hear metal clanking"))
+					SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] отстёгивает [buckled_mob.declent_ru(ACCUSATIVE)] от [ru_name]."), // SS220 EDIT ADDICTION
+					SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] отстёгивает вас от [ru_name]."), // SS220 EDIT ADDICTION
+					SPAN_NOTICE("Вы слышите металлический щелчок."))
 			unbuckle(buckled_mob)
 			add_fingerprint(user)
 			return 1
@@ -317,10 +318,10 @@
 		if(istype(src, /obj/structure/bed/roller))
 			var/obj/structure/bed/roller/roller = src
 			if(!roller.can_carry_big)
-				to_chat(user, SPAN_WARNING("[M] is too big to buckle in."))
+				to_chat(user, SPAN_WARNING("[capitalize(M.declent_ru(NOMINATIVE))] is too big to buckle in."))
 				return
 			if(M.stat != DEAD)
-				to_chat(user, SPAN_WARNING("[M] resists your attempt to buckle!"))
+				to_chat(user, SPAN_WARNING("[capitalize(M.declent_ru(NOMINATIVE))] resists your attempt to buckle!"))
 				return
 		if(M.stat != DEAD)
 			return
@@ -341,16 +342,17 @@
 		return TRUE
 
 /obj/proc/send_buckling_message(mob/M, mob/user)
+	var/ru_name = declent_ru(DATIVE) // SS220 EDIT ADDICTION
 	if (M == user)
 		M.visible_message(
-			SPAN_NOTICE("[M] buckles in!"),
-			SPAN_NOTICE("You buckle yourself to [src]."),
-			SPAN_NOTICE("You hear metal clanking."))
+			SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] пристёгивается!"), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("Вы пристёгиваетесь к [ru_name]."), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("Вы слышите металлический щелчок."))
 	else
 		M.visible_message(
-			SPAN_NOTICE("[M] is buckled in to [src] by [user]!"),
-			SPAN_NOTICE("You are buckled in to [src] by [user]."),
-			SPAN_NOTICE("You hear metal clanking"))
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] пристёгивает [M.declent_ru(ACCUSATIVE)] к [ru_name]!"), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] пристёгивает вас к [ru_name]."),  // SS220 EDIT ADDICTION
+			SPAN_NOTICE("Вы слышите металлический щелчок."))
 
 /obj/Move(NewLoc, direct)
 	. = ..()

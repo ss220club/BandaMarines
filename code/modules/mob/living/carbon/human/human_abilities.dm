@@ -46,6 +46,33 @@
 	action_icon_state = "order_focus"
 	order_type = COMMAND_ORDER_FOCUS
 
+/datum/action/human_action/cycle_voice_level
+	name = "Cycle Voice Level"
+	action_icon_state = "leadership_voice_low"
+
+/datum/action/human_action/cycle_voice_level/action_activate()
+	. = ..()
+	if(!ishuman(owner)) // i actually don't know if this is necessary
+		return
+	var/mob/living/carbon/human/my_voice = owner
+	my_voice.cycle_voice_level()
+	update_button_icon()
+
+/datum/action/human_action/cycle_voice_level/update_button_icon()
+	var/mob/living/carbon/human/my_voice = owner
+	switch(my_voice.langchat_styles) // honestly, could probably merge this one with the cycle_voice_level proc
+		if("", null)
+			action_icon_state = "leadership_voice_off"
+
+		if("langchat_smaller_bolded")
+			action_icon_state = "leadership_voice_low"
+
+		if("langchat_bolded")
+			action_icon_state = "leadership_voice_high"
+
+	button.overlays.Cut()
+	button.overlays += image('icons/mob/hud/actions.dmi', button, action_icon_state)
+
 /datum/action/human_action/psychic_whisper
 	name = "Psychic Whisper"
 	action_icon_state = "cultist_channel_hivemind"
@@ -57,11 +84,11 @@
 	var/mob/living/carbon/human/human_owner = owner
 
 	if(human_owner.client.prefs.muted & MUTE_IC)
-		to_chat(human_owner, SPAN_DANGER("You cannot whisper (muted)."))
+		to_chat(human_owner, SPAN_DANGER("Вы не можете шептать (вы заглушены)."))
 		return FALSE
 
 	if(human_owner.stat == DEAD)
-		to_chat(human_owner, SPAN_WARNING("You cannot talk while dead."))
+		to_chat(human_owner, SPAN_WARNING("Вы не можете говорить, будучи мёртвым."))
 		return FALSE
 
 	var/list/target_list = list()
@@ -88,11 +115,11 @@
 	var/mob/living/carbon/human/human_owner = owner
 
 	if(human_owner.client.prefs.muted & MUTE_IC)
-		to_chat(human_owner, SPAN_DANGER("You cannot whisper (muted)."))
+		to_chat(human_owner, SPAN_DANGER("Вы не можете шептать (вы заглушены)."))
 		return FALSE
 
 	if(human_owner.stat == DEAD)
-		to_chat(human_owner, SPAN_WARNING("You cannot talk while dead."))
+		to_chat(human_owner, SPAN_WARNING("Вы не можете говорить, будучи мёртвым."))
 		return FALSE
 
 	human_owner.psychic_radiance()
@@ -296,7 +323,7 @@ CULT
 		to_chat(H, SPAN_WARNING("You have decided not to obtain your equipment."))
 		return
 
-	H.visible_message(SPAN_DANGER("[H] gets onto their knees and begins praying."),
+	H.visible_message(SPAN_DANGER("[capitalize(H.declent_ru(NOMINATIVE))] gets onto their knees and begins praying."),
 	SPAN_WARNING("You get onto your knees to pray."))
 
 	if(!do_after(H, 3 SECONDS, INTERRUPT_ALL, BUSY_ICON_HOSTILE))
@@ -318,7 +345,7 @@ CULT
 
 	playsound(H.loc, 'sound/voice/scream_horror1.ogg', 25)
 
-	H.visible_message(SPAN_HIGHDANGER("[H] puts on their robes."), SPAN_WARNING("You put on your robes."))
+	H.visible_message(SPAN_HIGHDANGER("[capitalize(H.declent_ru(NOMINATIVE))] puts on their robes."), SPAN_WARNING("You put on your robes."))
 	for(var/datum/action/human_action/activable/cult/obtain_equipment/O in H.actions)
 		O.remove_from(H)
 
@@ -382,7 +409,7 @@ CULT
 		to_chat(H, SPAN_XENOMINORWARNING("You decide not to convert [chosen]."))
 		return
 
-	var/datum/equipment_preset/preset = GLOB.gear_path_presets_list[/datum/equipment_preset/other/xeno_cultist]
+	var/datum/equipment_preset/preset = GLOB.equipment_presets.gear_path_presets_list[/datum/equipment_preset/other/xeno_cultist]
 	preset.load_race(chosen)
 	preset.load_status(chosen, H.hivenumber)
 

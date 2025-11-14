@@ -42,6 +42,12 @@
 	/// The required level of a skill for opening this storage if it is inside another storage type
 	var/required_skill_level_for_nest_opening = null
 
+	/// Can this storage be used to instantly grab pills from
+	var/instant_pill_grabbable = FALSE
+
+	/// What mode is the storage instant grab mode in if you are grabbing pills from it
+	var/instant_pill_grab_mode = 1 //On by default
+
 /obj/item/storage/MouseDrop(obj/over_object as obj)
 	if(CAN_PICKUP(usr, src) && !HAS_TRAIT(usr, TRAIT_HAULED))
 		if(over_object == usr) // this must come before the screen objects only block
@@ -475,7 +481,7 @@ GLOBAL_LIST_EMPTY_TYPED(item_storage_box_cache, /datum/item_storage_box)
 
 	if(!can_hold_type(W.type, user))
 		if(!stop_messages)
-			to_chat(usr, SPAN_NOTICE("[src] cannot hold [W]."))
+			to_chat(usr, SPAN_NOTICE("В [declent_ru(PREPOSITIONAL)] нельзя поместить [W.declent_ru(ACCUSATIVE)].")) // SS220 EDIT ADDICTION
 		return
 
 	var/w_limit_bypassed = 0
@@ -568,8 +574,8 @@ W is always an item. stop_warning prevents messaging. user may be null.**/
 		add_fingerprint(user)
 		if(!prevent_warning)
 			var/visidist = W.w_class >= 3 ? 3 : 1
-			user.visible_message(SPAN_NOTICE("[user] puts [W] into [src]."),
-								SPAN_NOTICE("You put \the [W] into [src]."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] помещает [W.declent_ru(ACCUSATIVE)] в [declent_ru(ACCUSATIVE)]"), // SS220 EDIT ADDICTION
+								SPAN_NOTICE("Вы помещаете [W.declent_ru(ACCUSATIVE)] в [declent_ru(ACCUSATIVE)]"), // SS220 EDIT ADDICTION
 								null, visidist)
 	orient2hud()
 	for(var/mob/M in can_see_content())
@@ -716,25 +722,26 @@ W is always an item. stop_warning prevents messaging. user may be null.**/
 	if (!isturf(T) || get_dist(src, T) > 1)
 		T = get_turf(src)
 
+	var/ru_name = declent_ru(ACCUSATIVE) // SS220 EDIT ADDICTION
 	if(!can_storage_interact(user))
-		to_chat(user, SPAN_WARNING("Access denied."))
+		to_chat(user, SPAN_WARNING("Доступ запрещён."))
 		return
 
 	if(!length(contents))
-		to_chat(user, SPAN_WARNING("[src] is already empty."))
+		to_chat(user, SPAN_WARNING("[ru_name] уже пустой.")) // SS220 EDIT ADDICTION
 		return
 
 	if (!(storage_flags & STORAGE_QUICK_EMPTY))
-		user.visible_message(SPAN_NOTICE("[user] starts to empty \the [src]..."),
-			SPAN_NOTICE("You start to empty \the [src]..."))
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает опустошать [ru_name]..."), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("Вы начинате опустошать [ru_name]...")) // SS220 EDIT ADDICTION
 		if (!do_after(user, 2 SECONDS, INTERRUPT_ALL, BUSY_ICON_GENERIC))
 			return
 
 	storage_close(user)
 	for (var/obj/item/I in contents)
 		remove_from_storage(I, T, user)
-	user.visible_message(SPAN_NOTICE("[user] empties \the [src]."),
-		SPAN_NOTICE("You empty \the [src]."))
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] опустошает [ru_name]..."), // SS220 EDIT ADDICTION
+		SPAN_NOTICE("Вы опустошаете [ru_name]...")) // SS220 EDIT ADDICTION
 	if (use_sound)
 		playsound(loc, use_sound, 25, TRUE, 3)
 
@@ -764,20 +771,20 @@ W is always an item. stop_warning prevents messaging. user may be null.**/
 	if(!length(contents))
 		if(prob(25) && isxeno(user))
 			user.drop_inv_item_to_loc(src, tile)
-			user.visible_message(SPAN_NOTICE("[user] shakes \the [src] off."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] shakes \the [src] off."),
 				SPAN_NOTICE("You shake \the [src] off."))
 		else
-			user.visible_message(SPAN_NOTICE("[user] shakes \the [src] but nothing falls out."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] shakes \the [src] but nothing falls out."),
 				SPAN_NOTICE("You shake \the [src] but nothing falls out. It feels empty."))
 		return
 
 	if(!can_storage_interact(user))
-		user.visible_message(SPAN_NOTICE("[user] shakes \the [src] but nothing falls out."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] shakes \the [src] but nothing falls out."),
 			SPAN_NOTICE("You shake \the [src] but nothing falls out. Access denied."))
 		return
 
 	if(!prob(75))
-		user.visible_message(SPAN_NOTICE("[user] shakes \the [src] but nothing falls out."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] shakes \the [src] but nothing falls out."),
 			SPAN_NOTICE("You shake \the [src] but nothing falls out."))
 		return
 
@@ -790,7 +797,7 @@ W is always an item. stop_warning prevents messaging. user may be null.**/
 	if(!istype(item_obj))
 		return
 	remove_from_storage(item_obj, tile, user)
-	user.visible_message(SPAN_NOTICE("[user] shakes \the [src] and \a [item_obj] falls out."),
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] shakes \the [src] and \a [item_obj] falls out."),
 		SPAN_NOTICE("You shake \the [src] and \a [item_obj] falls out."))
 
 /obj/item/storage/proc/dump_ammo_to(obj/item/ammo_magazine/ammo_dumping, mob/user, amount_to_dump = 5) //amount_to_dump should never actually need to be used as default value
@@ -865,6 +872,8 @@ W is always an item. stop_warning prevents messaging. user may be null.**/
 		verbs -= /obj/item/storage/verb/empty_verb
 		verbs -= /obj/item/storage/verb/toggle_click_empty
 		verbs -= /obj/item/storage/verb/shake_verb
+	if (!instant_pill_grabbable) // For removing pills from bottles quickly
+		verbs -= /obj/item/storage/verb/toggle_pill_bottle_mode
 
 	boxes = new
 	boxes.name = "storage"
@@ -1012,3 +1021,11 @@ Returns FALSE if no top level turf (a loc was null somewhere, or a non-turf atom
 
 	if(!cur_atom)
 		return FALSE
+
+/obj/item/storage/verb/toggle_pill_bottle_mode() //A verb that can (should) only be used if in hand/equipped
+	set category = "Object"
+	set name = "Toggle pill bottle mode"
+	set src in usr
+	if(src && ishuman(usr))
+		instant_pill_grab_mode = !instant_pill_grab_mode
+		to_chat(usr, SPAN_NOTICE("You will now [instant_pill_grab_mode ? "take pills directly from bottles": "no longer take pills directly from bottles"]."))

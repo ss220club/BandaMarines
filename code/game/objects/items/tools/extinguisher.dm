@@ -72,8 +72,8 @@
 	..()
 	safety = !safety
 	src.icon_state = "[sprite_name][!safety]"
-	src.desc = "The safety is [safety ? "on" : "off"]."
-	to_chat(user, "The safety is [safety ? "on" : "off"].")
+	src.desc = "[safety ? "Предохранитель поставлен." : "Предохранитель cнят."]."
+	to_chat(user, "[safety ? "Предохранитель поставлен." : "Предохранитель cнят."].")
 
 /obj/item/tool/extinguisher/attack(mob/living/M, mob/living/user)
 	if (M == user && !safety && reagents && reagents.total_volume > EXTINGUISHER_WATER_USE_AMT)
@@ -82,7 +82,7 @@
 		return ..()
 
 /obj/item/tool/extinguisher/afterattack(atom/target, mob/user , flag)
-	if(istype(target, /obj/structure/reagent_dispensers/watertank) && get_dist(user,target) <= 1)
+	if(istype(target, /obj/structure/reagent_dispensers/tank/water) && get_dist(user,target) <= 1)
 		var/obj/object = target
 		if(object.reagents.contains_harmful_substances())
 			to_chat(user, SPAN_WARNING("You cannot re-fill the extinguisher with the contents of this."))

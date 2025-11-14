@@ -12,6 +12,15 @@ instrumental = "униформой ККМП"
 prepositional = "униформе ККМП"
 gender = "female"
 
+["USCM Poncho"]
+nominative = "пончо ККМП"
+genitive = "пончо ККМП"
+dative = "пончо ККМП"
+accusative = "пончо ККМП"
+instrumental = "пончо ККМП"
+prepositional = "пончо ККМП"
+gender = "neuter"
+
 ["USCM Combat Technician Uniform"] # Unique Vendor Name
 nominative = "униформа ККМП техника"
 
@@ -124,12 +133,12 @@ prepositional = "зимней куртке врача"
 gender = "female"
 
 ["M68 Thermal Cloak"]
-nominative = "камуфляжный плащ-неведимка M68"
-genitive = "камуфляжного плаща-неведимки M68"
-dative = "камуфляжному плащу-неведимке M68"
-accusative = "камуфляжный плащ-неведимку M68"
-instrumental = "камуфляжным плащом-неведимкой M68"
-prepositional = "камуфляжном плаще-неведимке M68"
+nominative = "камуфляжный плащ-невидимка M68"
+genitive = "камуфляжного плаща-невидимки M68"
+dative = "камуфляжному плащу-невидимке M68"
+accusative = "камуфляжный плащ-невидимку M68"
+instrumental = "камуфляжным плащом-невидимкой M68"
+prepositional = "камуфляжном плаще-невидимке M68"
 gender = "male"
 
 ["M3 sniper's smock"]
@@ -1041,12 +1050,12 @@ gender = "female"
 # MARK: masks
 
 ["heat absorbent coif"]
-nominative = "инфракрасная балаклава"
-genitive = "инфракрасной балаклавы"
-dative = "инфракрасной балаклаве"
-accusative = "инфракрасную балаклаву"
-instrumental = "инфракрасной балаклавой"
-prepositional = "инфракрасной балаклаве"
+nominative = "теплоизоляционная балаклава"
+genitive = "теплоизоляционной балаклавы"
+dative = "теплоизоляционной балаклаве"
+accusative = "теплоизоляционную балаклаву"
+instrumental = "теплоизоляционной балаклавой"
+prepositional = "теплоизоляционной балаклаве"
 gender = "female"
 
 ["rebreather"]

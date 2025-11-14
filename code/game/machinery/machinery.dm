@@ -166,7 +166,7 @@ Class Procs:
 		GLOB.processing_machines -= src
 		GLOB.power_machines -= src
 
-/obj/structure/machinery/process()//If you dont use process or power why are you here
+/obj/structure/machinery/process()//If you don't use process or power why are you here
 	return PROCESS_KILL
 
 /obj/structure/machinery/get_examine_text(mob/user)
@@ -277,7 +277,7 @@ Class Procs:
 	if (ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.getBrainLoss() >= 60)
-			visible_message(SPAN_DANGER("[H] stares cluelessly at [src] and drools."))
+			visible_message(SPAN_DANGER("[capitalize(H.declent_ru(NOMINATIVE))] stares cluelessly at [src] and drools."))
 			return TRUE
 		else if(prob(H.getBrainLoss()))
 			to_chat(user, SPAN_DANGER("You momentarily forget how to use [src]."))

@@ -79,7 +79,7 @@
 		to_chat(user, SPAN_WARNING("Subject may not have abiotic items on."))
 		return
 
-	user.visible_message(SPAN_DANGER("[user] starts to put [victim] into the gibber!"))
+	user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] starts to put [victim] into the gibber!"))
 	add_fingerprint(user)
 
 	///If synth is getting gibbed, we will 'soft gib' them, but this is still pretty LRP so let admin know.
@@ -90,7 +90,7 @@
 		log_attack("[key_name(user)] tried to delimb [victim] using a gibber ([victim.key]) in [area.name]")
 		to_chat(user, SPAN_DANGER("What are you doing..."))
 		if(do_after(user, 30 SECONDS, INTERRUPT_ALL, BUSY_ICON_HOSTILE && grabbed && grabbed.grabbed_thing && !occupant))
-			user.visible_message(SPAN_DANGER("[user] stuffs [victim] into the gibber!"))
+			user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] stuffs [victim] into the gibber!"))
 			victim.forceMove(src)
 			occupant = victim
 			update_icon()
@@ -103,13 +103,13 @@
 		log_attack("[key_name(user)] tried to gib [victim] ([victim.key]) in [area.name]")
 		to_chat(user, SPAN_DANGER("Are you insane?!"))
 		if(do_after(user, 30 SECONDS, INTERRUPT_ALL, BUSY_ICON_HOSTILE && grabbed && grabbed.grabbed_thing && !occupant))
-			user.visible_message(SPAN_DANGER("[user] stuffs [victim] into the gibber!"))
+			user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] stuffs [victim] into the gibber!"))
 			victim.forceMove(src)
 			occupant = victim
 			update_icon()
 
 	else if(do_after(user, 3 SECONDS * user.get_skill_duration_multiplier(SKILL_DOMESTIC), INTERRUPT_ALL, BUSY_ICON_HOSTILE) && grabbed && grabbed.grabbed_thing && !occupant)
-		user.visible_message(SPAN_DANGER("[user] stuffs [victim] into the gibber!"))
+		user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] stuffs [victim] into the gibber!"))
 		victim.forceMove(src)
 		occupant = victim
 		update_icon()
@@ -216,7 +216,7 @@
 		newmeat.name = newmeat.made_from_player + newmeat.name
 		allmeat[i] = newmeat
 
-		// Synths wont die to this (on it's own at least), dont log as a gib
+		// Synths won't die to this (on it's own at least), don't log as a gib
 		if(synthetic)
 			if(occupant.client) // Log still
 				occupant.attack_log += "\[[time_stamp()]\] Was delimbed by <b>[key_name(user)]</b>"

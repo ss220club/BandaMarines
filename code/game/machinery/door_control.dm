@@ -50,6 +50,9 @@
 /obj/structure/machinery/door_control/attack_alien(mob/user as mob)
 	return
 
+/obj/structure/machinery/door_control/handle_tail_stab(mob/living/carbon/xenomorph/xeno)
+	return TAILSTAB_COOLDOWN_NONE
+
 /obj/structure/machinery/door_control/attackby(obj/item/W, mob/user as mob)
 	return src.attack_hand(user)
 
@@ -125,14 +128,14 @@
 		return
 
 	if(!allowed(user) && (wires & 1) && !force )
-		to_chat(user, SPAN_DANGER("Access Denied"))
+		to_chat(user, SPAN_DANGER("Доступ запрещён."))
 		flick(initial(icon_state) + "-denied",src)
 		return
 
 	use_power(5)
 	icon_state = initial(icon_state) + "1"
 	add_fingerprint(user)
-	to_chat(user, SPAN_NOTICE("You press \the [name] button."))
+	to_chat(user, SPAN_NOTICE("Вы нажимаете кнопку «[name]».")) // SS220 EDIT ADDICTION
 
 	switch(normaldoorcontrol)
 		if(CONTROL_NORMAL_DOORS)
@@ -172,7 +175,7 @@
 		return
 
 	if(!allowed(user) && (wires & 1) && !force)
-		to_chat(user, SPAN_DANGER("Access Denied"))
+		to_chat(user, SPAN_DANGER("Доступ запрещён."))
 		flick(initial(icon_state) + "-denied",src)
 		return
 
@@ -229,7 +232,7 @@
 
 	use_power(5)
 	add_fingerprint(user)
-	to_chat(user, SPAN_NOTICE("You press \the [name] button."))
+	to_chat(user, SPAN_NOTICE("Вы нажимаете кнопку «[name]».")) // SS220 EDIT ADDICTION
 
 	switch(normaldoorcontrol)
 		if(CONTROL_NORMAL_DOORS)

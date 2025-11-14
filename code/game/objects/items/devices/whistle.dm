@@ -6,7 +6,7 @@
 	w_class = SIZE_TINY
 	flags_atom = FPRINT|CONDUCT
 	flags_equip_slot = SLOT_FACE
-	actions_types = list(/datum/action/item_action/toggle/use)
+	actions_types = list(/datum/action/item_action/toggle/use/whistle)
 	item_icons = list(
 		WEAR_FACE = 'icons/mob/humans/onmob/clothing/masks/objects.dmi'
 	)
@@ -36,7 +36,7 @@
 		to_chat(user, SPAN_DANGER("You are out of breath after using [src]! Wait [COOLDOWN_SECONDSLEFT(src, spam_cooldown)] second\s."))
 		return
 
-	user.visible_message(SPAN_WARNING("[user] blows into [src]!"))
+	user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] blows into [src]!"))
 	playsound(get_turf(src), 'sound/items/whistle.ogg', volume, 1, vary = 0)
 
 	COOLDOWN_START(src, spam_cooldown, spam_cooldown_time)

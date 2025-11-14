@@ -16,6 +16,8 @@
 	var/hugger_ckey
 	/// The total time the person is hugged divided by stages until burst
 	var/per_stage_hugged_time = 90 //Set in Initialize due to config
+	/// How How many units of stims are drained per tick
+	var/stim_drain = 2
 
 /obj/item/alien_embryo/Initialize(mapload, ...)
 	. = ..()
@@ -84,8 +86,11 @@
 	var/datum/hive_status/hive = GLOB.hive_datum[hivenumber]
 
 	var/is_nested = HAS_TRAIT(affected_mob, TRAIT_NESTED)
-	if(is_nested && !(affected_mob.stat & DEAD) && stage <= 3 && affected_mob.reagents && affected_mob.reagents.get_reagent_amount("host_stabilizer") < 1)
-		affected_mob.reagents.add_reagent("host_stabilizer", 1)
+	if(is_nested && !(affected_mob.stat & DEAD) && stage <= 3 && affected_mob.reagents)
+		if(affected_mob.reagents.get_reagent_amount("host_stabilizer") < 1)
+			affected_mob.reagents.add_reagent("host_stabilizer", 1)
+		for(var/datum/reagent/generated/stim in affected_mob.reagents.reagent_list)
+			affected_mob.reagents.remove_reagent(stim.id, stim_drain, TRUE)
 
 	//Low temperature seriously hampers larva growth (as in, way below livable), so does stasis
 	if(!hive.hardcore) // Cannot progress if the hive has entered hardcore mode.
@@ -274,12 +279,12 @@
 		if(HAS_TRAIT(affected_mob, TRAIT_LISPING))
 			ADD_TRAIT(new_xeno, TRAIT_LISPING, affected_mob)
 
-		to_chat(new_xeno, SPAN_XENOANNOUNCE("You are a xenomorph larva inside a host! Move to burst out of it!"))
-		to_chat(new_xeno, "<B>Your job is to spread the hive and protect the Queen. If there's no Queen, you can become the Queen yourself by evolving into a drone.</B>")
-		to_chat(new_xeno, "Talk in Hivemind using <strong>;</strong> (e.g. ';My life for the queen!')")
+		to_chat(new_xeno, SPAN_XENOANNOUNCE("Вы - грудолом внутри хоста! Двигайтесь, чтобы вырваться из него!"))
+		to_chat(new_xeno, SPAN_XENO("<B>Ваша задача - защищать Королеву и улей, однако если Королевы нет, вы можете стать ею! Просто эволюционировав в Королеву.</B>")) // SS220 EDIT ADDICTION
+		to_chat(new_xeno, SPAN_XENO("Для общения в Разуме улья, используйте символ <strong>;</strong> (например, ';Жизнь за Королеву!')"))
 		playsound_client(new_xeno.client, 'sound/effects/xeno_newlarva.ogg', 25, 1)
 
-	// Inform observers to grab some popcorn if it isnt nested
+	// Inform observers to grab some popcorn if it isn't nested
 	if(!HAS_TRAIT(affected_mob, TRAIT_NESTED))
 		var/area/burst_area = get_area(src)
 		var/area_text = burst_area ? " at <b>[burst_area]</b>" : ""
@@ -352,7 +357,7 @@
 		burstcount++
 
 		if(!larva_embryo.ckey && larva_embryo.burrowable && loc && is_ground_level(loc.z) && (locate(/obj/structure/bed/nest) in loc) && hive.living_xeno_queen && hive.living_xeno_queen.z == loc.z)
-			larva_embryo.visible_message(SPAN_XENODANGER("[larva_embryo] quickly burrows into the ground."))
+			larva_embryo.visible_message(SPAN_XENODANGER("[larva_embryo] быстро зарывается под землю.")) // SS220 EDIT ADDICTION
 			if(GLOB.round_statistics && !larva_embryo.statistic_exempt)
 				GLOB.round_statistics.track_new_participant(faction, 0) // keep stats sane
 			hive.stored_larva++
@@ -361,7 +366,7 @@
 
 		if(!victim.first_xeno)
 			if(hive.hive_orders)
-				to_chat(larva_embryo, SPAN_XENOHIGHDANGER("The Queen's will overwhelms our instincts..."))
+				to_chat(larva_embryo, SPAN_XENOHIGHDANGER("Воля Королевы подавляет наши инстинкты..."))
 				to_chat(larva_embryo, SPAN_XENOHIGHDANGER("\"[hive.hive_orders]\""))
 			log_attack("[key_name(victim)] chestbursted in [get_area_name(larva_embryo)] at X[victim.x], Y[victim.y], Z[victim.z]. The larva was [key_name(larva_embryo)].") //this is so that admins are not spammed with los logs
 

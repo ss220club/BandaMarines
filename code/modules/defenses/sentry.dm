@@ -224,7 +224,7 @@
 			return
 
 		playsound(loc, 'sound/items/Screwdriver.ogg', 25, 1)
-		user.visible_message(SPAN_NOTICE("[user] rotates [src]."), SPAN_NOTICE("You rotate [src]."))
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] rotates [src]."), SPAN_NOTICE("You rotate [src]."))
 		setDir(turn(dir, -90))
 		update_minimap_icon()
 		return
@@ -238,13 +238,13 @@
 			to_chat(user, SPAN_WARNING("You only know how to swap [M.name] when it's empty."))
 			return
 
-		user.visible_message(SPAN_NOTICE("[user] begins swapping a new [O.name] into [src]."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins swapping a new [O.name] into [src]."),
 		SPAN_NOTICE("You begin swapping a new [O.name] into [src]."))
 		if(!do_after(user, 70 * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL, BUSY_ICON_FRIENDLY, src))
 			return
 
 		playsound(loc, 'sound/weapons/unload.ogg', 25, 1)
-		user.visible_message(SPAN_NOTICE("[user] swaps a new [O.name] into [src]."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] swaps a new [O.name] into [src]."),
 		SPAN_NOTICE("You swap a new [O.name] into [src]."))
 
 		ammo = O
@@ -657,6 +657,11 @@
 			. += SPAN_INFO("Its battery indicator is flashing red.")
 		if(TURRET_BATTERY_STATE_DEAD)
 			. += SPAN_INFO("It appears to be offline.")
+
+/obj/structure/machinery/defenses/sentry/premade/deployable/colony/landing_zone/handle_vehicle_bump(obj/vehicle/multitile/bumping_vehicle)
+	var/mob/driver = bumping_vehicle.seats[VEHICLE_DRIVER]
+	to_chat(driver, SPAN_WARNING("[src] is in the way!"))
+	return FALSE // Prevent movement over
 
 /obj/structure/machinery/defenses/sentry/premade/deployable/colony/landing_zone/proc/set_battery_state(state)
 	battery_state = state

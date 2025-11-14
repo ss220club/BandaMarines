@@ -575,7 +575,7 @@ ICEY GRASS. IT LOOKS LIKE IT'S MADE OF ICE.
 	if(stash.w_class == SIZE_TINY)
 		user.drop_inv_item_to_loc(stash, src)
 		stashed_item = stash
-		user.visible_message("[user] puts something in [src].", "You hide [stash] in [src].")
+		user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] puts something in [src].", "You hide [stash] in [src].")
 		return
 
 	to_chat(user, SPAN_WARNING("[stash] is too big to fit into [src]!"))
@@ -751,7 +751,7 @@ ICEY GRASS. IT LOOKS LIKE IT'S MADE OF ICE.
 			//this bush marks the edge of the map, you can't destroy it
 			to_chat(user, SPAN_DANGER("You flail away at the undergrowth, but it's too thick here."))
 		else
-			user.visible_message(SPAN_DANGER("[user] flails away at [src] with [I]."), SPAN_DANGER("You flail away at [src] with [I]."))
+			user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] flails away at [src] with [I]."), SPAN_DANGER("You flail away at [src] with [I]."))
 			playsound(src.loc, 'sound/effects/vegetation_hit.ogg', 25, 1)
 			health -= damage
 			if(health < 0)
@@ -803,6 +803,15 @@ ICEY GRASS. IT LOOKS LIKE IT'S MADE OF ICE.
 	current_xenomorph.animation_attack_on(src)
 	playsound(src, 'sound/effects/vegetation_hit.ogg', 25, 1)
 	current_xenomorph.visible_message(SPAN_DANGER("[current_xenomorph] slashes at [src]!"),
-	SPAN_DANGER("You slash at [src]!"), null, 5, CHAT_TYPE_XENO_COMBAT)
+	SPAN_DANGER("We slash at [src]!"), null, 5, CHAT_TYPE_XENO_COMBAT)
 	update_health(rand(current_xenomorph.melee_damage_lower, current_xenomorph.melee_damage_upper))
 	return XENO_ATTACK_ACTION
+
+/obj/structure/flora/jungle/thickbush/large_jungle_bush/handle_tail_stab(mob/living/carbon/xenomorph/xeno)
+	if(unslashable)
+		return TAILSTAB_COOLDOWN_NONE
+	playsound(src, 'sound/effects/vegetation_hit.ogg', 25, 1)
+	xeno.visible_message(SPAN_DANGER("[xeno] slashes at [src] with its tail!"),
+	SPAN_DANGER("We slash at [src] with our tail!"), null, 5, CHAT_TYPE_XENO_COMBAT)
+	update_health(xeno.melee_damage_upper)
+	return TAILSTAB_COOLDOWN_NORMAL

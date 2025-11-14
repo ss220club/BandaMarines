@@ -180,7 +180,7 @@
 				to_chat(user, SPAN_WARNING("You have already unloaded \the [src]."))
 				return
 			playsound(user, unload_sound, 25, 1)
-			user.visible_message(SPAN_NOTICE("[user] unloads [ammo] from [src]."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] unloads [ammo] from [src]."),
 			SPAN_NOTICE("You unload [ammo] from [src]."))
 			make_rocket(user, drop_override, 0)
 			current_mag.current_rounds = 0
@@ -224,6 +224,10 @@
 	has_empty_icon = TRUE
 	auto_retrieval_slot = WEAR_J_STORE
 	attachable_allowed = list()
+
+/obj/item/weapon/gun/launcher/rocket/m5/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/armat)
 
 /obj/item/weapon/gun/launcher/rocket/m5/Fire(atom/target, mob/living/user, params, reflex, dual_wield)
 	. = ..()
@@ -274,6 +278,10 @@
 	flags_gun_features = GUN_WIELDED_FIRING_ONLY
 	flags_item = TWOHANDED
 
+/obj/item/weapon/gun/launcher/rocket/anti_tank/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/armat)
+
 /obj/item/weapon/gun/launcher/rocket/anti_tank/set_bullet_traits()
 	. = ..()
 	LAZYADD(traits_to_give, list(
@@ -300,14 +308,14 @@
 		to_chat(M, SPAN_WARNING("\The [src] has already been fired - you can't fold it back up again!"))
 		return
 
-	M.visible_message(SPAN_NOTICE("[M] begins to fold up \the [src]."), SPAN_NOTICE("You start to fold and collapse closed \the [src]."))
+	M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] begins to fold up \the [src]."), SPAN_NOTICE("You start to fold and collapse closed \the [src]."))
 
 	if(!do_after(M, 2 SECONDS, INTERRUPT_ALL, BUSY_ICON_GENERIC))
 		to_chat(M, SPAN_NOTICE("You stop folding up \the [src]"))
 		return
 
 	fold(M)
-	M.visible_message(SPAN_NOTICE("[M] finishes folding \the [src]."), SPAN_NOTICE("You finish folding \the [src]."))
+	M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] finishes folding \the [src]."), SPAN_NOTICE("You finish folding \the [src]."))
 
 /obj/item/weapon/gun/launcher/rocket/anti_tank/disposable/proc/fold(mob/user)
 	var/obj/item/prop/folded_anti_tank_sadar/F = new /obj/item/prop/folded_anti_tank_sadar(src.loc)
@@ -348,7 +356,7 @@
 	garbage = FALSE
 
 /obj/item/prop/folded_anti_tank_sadar/attack_self(mob/user)
-	user.visible_message(SPAN_NOTICE("[user] begins to unfold \the [src]."), SPAN_NOTICE("You start to unfold and expand \the [src]."))
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins to unfold \the [src]."), SPAN_NOTICE("You start to unfold and expand \the [src]."))
 	playsound(src, 'sound/items/component_pickup.ogg', 20, TRUE, 5)
 
 	if(!do_after(user, 4 SECONDS, INTERRUPT_ALL, BUSY_ICON_GENERIC))
@@ -357,7 +365,7 @@
 
 	unfold(user)
 
-	user.visible_message(SPAN_NOTICE("[user] finishes unfolding \the [src]."), SPAN_NOTICE("You finish unfolding \the [src]."))
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] finishes unfolding \the [src]."), SPAN_NOTICE("You finish unfolding \the [src]."))
 	playsound(src, 'sound/items/component_pickup.ogg', 20, TRUE, 5)
 	. = ..()
 
@@ -387,6 +395,10 @@
 	flags_gun_features = GUN_SPECIALIST|GUN_WIELDED_FIRING_ONLY
 
 	flags_item = TWOHANDED|NO_CRYO_STORE
+
+/obj/item/weapon/gun/launcher/rocket/upp/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/norcomm)
 
 /obj/item/weapon/gun/launcher/rocket/upp/set_gun_attachment_offsets()
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 6, "rail_y" = 19, "under_x" = 19, "under_y" = 14, "stock_x" = -6, "stock_y" = 16, "special_x" = 37, "special_y" = 16)
@@ -434,9 +446,12 @@
 	var/f_aiming_time = 4 SECONDS
 	var/aiming = FALSE
 
+/obj/item/weapon/gun/launcher/rocket/brute/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/armat)
+
 /obj/item/weapon/gun/launcher/rocket/brute/set_gun_attachment_offsets()
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 8, "rail_y" = 17, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
-
 
 /obj/item/weapon/gun/launcher/rocket/brute/set_bullet_traits()
 	LAZYADD(traits_to_give, list(

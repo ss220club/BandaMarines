@@ -52,7 +52,7 @@
 		return
 
 	if(!isqueen(usr) && !allowed(usr))
-		to_chat(usr, SPAN_DANGER("Access denied."))
+		to_chat(usr, SPAN_DANGER("Доступ запрещён."))
 		return TRUE
 
 	if(href_list["move"])
@@ -189,7 +189,7 @@
 
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "NavigationShuttle", "[ert.name] Navigation Computer")
+		ui = new(user, src, "NavigationShuttle", "[capitalize(ert.name)] Navigation Computer")
 		ui.open()
 
 
@@ -387,7 +387,7 @@
 			return
 		to_chat(user, SPAN_NOTICE("You start to remove the lockout."))
 		override_being_removed = TRUE
-		user.visible_message(SPAN_NOTICE("[user] starts to type on [src]."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts to type on [src]."),
 			SPAN_NOTICE("You try to take back control over the lifeboat. It will take around [remaining_time / 10] seconds."))
 		while(remaining_time > 20 SECONDS)
 			if(!do_after(user, 20 SECONDS, INTERRUPT_ALL|INTERRUPT_CHANGED_LYING, BUSY_ICON_HOSTILE, numticks = 20))
@@ -482,9 +482,12 @@
 			lifeboat.playing_launch_announcement_alarm = FALSE
 			var/obj/docking_port/stationary/lifeboat_dock/lifeboat_dock = lifeboat.get_docked()
 			lifeboat_dock.open_dock()
-			xeno_message(SPAN_XENOANNOUNCE("We have wrested away control of one of the metal birds! They shall not escape!"), 3, xeno.hivenumber)
+			xeno_message(SPAN_XENOANNOUNCE("Мы получили контроль над металлической птицей! У них больше нет пути к побегу!"), 3, xeno.hivenumber)
 			launch_initiated = FALSE
 			remaining_time = initial(remaining_time)
 		return XENO_NO_DELAY_ACTION
 	else
 		return ..()
+
+/obj/structure/machinery/computer/shuttle/lifeboat/handle_tail_stab(mob/living/carbon/xenomorph/xeno)
+	return TAILSTAB_COOLDOWN_NONE

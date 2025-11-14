@@ -123,14 +123,22 @@
 /obj/structure/bed/chair/comfy/vehicle/attackby(obj/item/W, mob/living/user)
 	return
 
-/obj/structure/bed/chair/comfy/vehicle/attack_alien(mob/living/carbon/xenomorph/X, dam_bonus)
-
-	if(X.is_mob_incapacitated() || !Adjacent(X))
+/obj/structure/bed/chair/comfy/vehicle/attack_alien(mob/living/carbon/xenomorph/user)
+	if(user.is_mob_incapacitated() || !Adjacent(user))
 		return
 
 	if(buckled_mob)
-		manual_unbuckle(X)
+		manual_unbuckle(user)
 		return
+
+/obj/structure/bed/chair/comfy/vehicle/handle_tail_stab(mob/living/carbon/xenomorph/xeno)
+	if(!buckled_mob)
+		return TAILSTAB_COOLDOWN_NONE
+	manual_unbuckle(xeno)
+	playsound(src, 'sound/effects/metalhit.ogg', 25, 1)
+	xeno.visible_message(SPAN_DANGER("[xeno] smacks [src] with its tail!"),
+	SPAN_DANGER("We smack [src] with our tail!"), null, 5, CHAT_TYPE_XENO_COMBAT)
+	return TAILSTAB_COOLDOWN_LOW
 
 //custom vehicle seats for armored vehicles
 //spawners located in interior_landmarks
@@ -397,7 +405,7 @@
 
 /obj/structure/bed/chair/vehicle/attack_alien(mob/living/user)
 	if(!unslashable)
-		user.visible_message(SPAN_WARNING("[user] smashes \the [src]!"),
+		user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] smashes \the [src]!"),
 		SPAN_WARNING("You smash \the [src]!"))
 		playsound(loc, pick('sound/effects/metalhit.ogg', 'sound/weapons/alien_claw_metal1.ogg', 'sound/weapons/alien_claw_metal2.ogg', 'sound/weapons/alien_claw_metal3.ogg'), 25, 1)
 		if(!broken)
@@ -405,6 +413,17 @@
 		else
 			deconstruct(FALSE)
 
+/obj/structure/bed/chair/vehicle/handle_tail_stab(mob/living/carbon/xenomorph/xeno)
+	if(unslashable)
+		return TAILSTAB_COOLDOWN_NONE
+	playsound(src, 'sound/effects/metalhit.ogg', 25, 1)
+	xeno.visible_message(SPAN_DANGER("[xeno] smashes [src] with its tail!"),
+	SPAN_DANGER("We smash [src] with our tail!"), null, 5, CHAT_TYPE_XENO_COMBAT)
+	if(!broken)
+		break_seat()
+	else
+		deconstruct(FALSE)
+	return TAILSTAB_COOLDOWN_NORMAL
 
 /obj/structure/bed/chair/vehicle/attackby(obj/item/W, mob/living/user)
 	if((iswelder(W) && broken))
@@ -414,10 +433,10 @@
 		var/obj/item/tool/weldingtool/C = W
 		if(C.remove_fuel(0,user))
 			playsound(src.loc, 'sound/items/weldingtool_weld.ogg', 25)
-			user.visible_message(SPAN_WARNING("[user] begins repairing \the [src]."),
+			user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] begins repairing \the [src]."),
 			SPAN_WARNING("You begin repairing \the [src]."))
 			if(do_after(user, 2 SECONDS, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD) && broken)
-				user.visible_message(SPAN_WARNING("[user] repairs \the [src]."),
+				user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] repairs \the [src]."),
 				SPAN_WARNING("You repair \the [src]."))
 				repair_seat()
 				return

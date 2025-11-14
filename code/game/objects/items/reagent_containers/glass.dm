@@ -13,7 +13,7 @@
 	icon_state = null
 	item_state = null
 	amount_per_transfer_from_this = 10
-	possible_transfer_amounts = list(5,10,15,25,30,60)
+	possible_transfer_amounts = list(5,10,15,20,25,30,40,50,60)
 	volume = 60
 	flags_atom = FPRINT|OPENCONTAINER
 	transparent = TRUE
@@ -185,7 +185,7 @@
 		if(!tmp_label)
 			if(prior_label_text)
 				log_admin("[key_name(usr)] has removed label from [src].")
-				user.visible_message(SPAN_NOTICE("[user] removes label from [src]."),
+				user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] removes label from [src]."),
 									SPAN_NOTICE("You remove the label from [src]."))
 				labelcomponent.clear_label()
 			return
@@ -195,7 +195,7 @@
 		if(prior_label_text == tmp_label)
 			to_chat(user, SPAN_WARNING("The label already says \"[tmp_label]\"."))
 			return
-		user.visible_message(SPAN_NOTICE("[user] labels [src] as \"[tmp_label]\"."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] labels [src] as \"[tmp_label]\"."),
 		SPAN_NOTICE("You label [src] as \"[tmp_label]\"."))
 		AddComponent(/datum/component/label, tmp_label)
 		playsound(src, "paper_writing", 15, TRUE)
@@ -347,7 +347,7 @@
 	matter = list("glass" = 5000)
 	volume = 120
 	amount_per_transfer_from_this = 10
-	possible_transfer_amounts = list(5,10,15,25,30,60,120)
+	possible_transfer_amounts = list(5,10,15,20,25,30,40,50,60,80,100,120)
 
 /obj/item/reagent_container/glass/beaker/silver
 	name = "large silver beaker"
@@ -357,7 +357,7 @@
 	volume = 240
 	matter = list("silver" = 5000)
 	amount_per_transfer_from_this = 10
-	possible_transfer_amounts = list(5,10,15,25,30,60,120,240)
+	possible_transfer_amounts = list(5,10,15,20,25,30,40,50,60,80,100,120,150,240)
 	pixel_y = 5
 
 /obj/item/reagent_container/glass/beaker/noreact
@@ -367,6 +367,7 @@
 	matter = list("glass" = 500)
 	volume = 60
 	amount_per_transfer_from_this = 10
+
 	flags_atom = FPRINT|OPENCONTAINER|NOREACT
 
 /obj/item/reagent_container/glass/beaker/bluespace
@@ -377,7 +378,7 @@
 	matter = list("glass" = 10000)
 	volume = 300
 	amount_per_transfer_from_this = 10
-	possible_transfer_amounts = list(5,10,15,20,25,30,40,60,80,120,300)
+	possible_transfer_amounts = list(5,10,15,20,25,30,40,50,60,80,100,120,150,240,300)
 
 
 /obj/item/reagent_container/glass/beaker/vial
@@ -388,7 +389,7 @@
 	volume = 30
 	amount_per_transfer_from_this = 10
 	matter = list()
-	possible_transfer_amounts = list(5,10,15,25,30)
+	possible_transfer_amounts = list(5,10,15,20,25,30)
 	flags_atom = FPRINT|OPENCONTAINER
 	ground_offset_x = 9
 	ground_offset_y = 8
@@ -570,22 +571,37 @@
 	. = ..()
 	update_icon()
 
-/obj/item/reagent_container/glass/pressurized_canister/attackby(obj/item/I, mob/user)
-	return
+/obj/item/reagent_container/glass/pressurized_canister/on_reagent_change()
+	update_icon()
 
 /obj/item/reagent_container/glass/pressurized_canister/afterattack(obj/target, mob/user, flag)
 	if(!istype(target, /obj/structure/reagent_dispensers))
 		return
 	. = ..()
 
-/obj/item/reagent_container/glass/pressurized_canister/on_reagent_change()
-	update_icon()
+/obj/item/reagent_container/glass/pressurized_canister/update_icon() 	 //Canister now has a clear indicator on what's inside and how much.
+	overlays.Cut()
 
-/obj/item/reagent_container/glass/pressurized_canister/update_icon()
-	color = COLOR_WHITE
-	if(reagents)
-		color = mix_color_from_reagents(reagents.reagent_list)
+	if(reagents && reagents.total_volume)
+		var/image/filling
+		var/percent = floor((reagents.total_volume / volume) * 100)
+		switch(percent)
+			if(1 to 25)
+				filling = image('icons/obj/items/reagentfillings.dmi', src, "[icon_state]-25")
+			if(26 to 50)
+				filling = image('icons/obj/items/reagentfillings.dmi', src, "[icon_state]-50")
+			if(51 to 75)
+				filling = image('icons/obj/items/reagentfillings.dmi', src, "[icon_state]-75")
+			if(76 to INFINITY)
+				filling = image('icons/obj/items/reagentfillings.dmi', src, "[icon_state]-100")
+			else
+				return ..()
+
+		filling.color = mix_color_from_reagents(reagents.reagent_list)
+		overlays += filling
 	..()
+
+
 
 /obj/item/reagent_container/glass/bucket
 	desc = "It's a bucket. Holds 120 units."
@@ -709,7 +725,7 @@
 	if(!proximity)
 		return
 	if(istype(AM) && (src in user))
-		user.visible_message("[user] starts to wipe down [AM] with [src]!")
+		user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] starts to wipe down [AM] with [src]!")
 		if(do_after(user,30, INTERRUPT_ALL, BUSY_ICON_GENERIC))
-			user.visible_message("[user] finishes wiping off [AM]!")
+			user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] finishes wiping off [AM]!")
 			AM.clean_blood()
