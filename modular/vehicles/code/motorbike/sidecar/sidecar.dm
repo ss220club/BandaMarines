@@ -223,7 +223,7 @@
 	if(M.melee_damage_upper == 0)
 		return
 	health -= M.melee_damage_upper
-	src.visible_message(SPAN_DANGER("<B>[M] [M.attacktext] [src]!</B>"))
+	src.visible_message(SPAN_DANGER("<B>[capitalize(M.declent_ru(NOMINATIVE))] [ru_attack_verb(M.attacktext)] [declent_ru(ACCUSATIVE)]!</B>"))
 	M.attack_log += text("\[[time_stamp()]\] <font color='red'>рвет [src.name]</font>")
 	if(prob(10))
 		new /obj/effect/decal/cleanable/blood/oil(src.loc)
@@ -236,8 +236,8 @@
 		return
 	M.animation_attack_on(src)
 	playsound(src, hit_bed_sound, 25, 1)
-	M.visible_message(SPAN_DANGER("[M] кромсает [src]!"),
-	SPAN_DANGER("Мы кромсаем [src]."))
+	M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] кромсает [declent_ru(ACCUSATIVE)]!"),
+	SPAN_DANGER("Мы кромсаем [declent_ru(ACCUSATIVE)]."))
 	health -= M.melee_damage_upper
 	healthcheck()
 	return XENO_ATTACK_ACTION
