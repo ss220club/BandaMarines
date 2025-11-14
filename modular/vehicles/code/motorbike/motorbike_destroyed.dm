@@ -29,9 +29,7 @@
 	var/wires_add_time = 3 DECISECONDS	// Время требуемое для прикладывания 1 штучки (в 1 секунде 10 дец)
 	var/metal_need = 25	// В стаке 50 Штук -	var/obj/item/stack/sheet/metal
 	var/metal_stored = 0
-	var/metal_add_time = 2 DECISECONDS
-	var/welding_step = FALSE
-	var/coil_step  = FALSE		// Время требуемое для прикладывания 1 штучки (в 1 секунде 10 дец)
+	var/metal_add_time = 2 DECISECONDS // Время требуемое для прикладывания 1 штучки (в 1 секунде 10 дец)E
 	var/welding_step = FALSE
 	var/coil_step  = FALSE
 	var/screw_need = TRUE
