@@ -79,6 +79,10 @@ Radiochat range: 1441 to 1489 (most devices refuse to be tune to other frequency
 #define CMB_FREQ 1220
 #define CIA_FREQ 1225
 
+//Event-Hybrisa
+#define NSPA_FREQ 1226
+#define NOVAMEDICA_FREQ 1227
+
 //WY Channels (1230-1249)
 #define WY_FREQ 1231
 #define PMC_CMD_FREQ 1232
@@ -167,6 +171,8 @@ GLOBAL_LIST_INIT(radiochannels, list(
 	RADIO_CHANNEL_DUTCH_DOZEN = DUT_FREQ,
 	RADIO_CHANNEL_ROYAL_MARINE = RMC_FREQ,
 	RADIO_CHANNEL_CIA = CIA_FREQ,
+	RADIO_CHANNEL_NSPA = NSPA_FREQ,
+	RADIO_CHANNEL_NOVAMEDICA = NOVAMEDICA_FREQ,
 
 	RADIO_CHANNEL_HIGHCOM = HC_FREQ,
 	RADIO_CHANNEL_PROVOST = PVST_FREQ,
@@ -300,6 +306,8 @@ SUBSYSTEM_DEF(radio)
 		"[VAI_FREQ]" = "vairadio",
 		"[RMC_FREQ]" = "rmcradio",
 		"[CIA_FREQ]" = "ciaradio",
+		"[NSPA_FREQ]" = "nsparadio",
+		"[NOVAMEDICA_FREQ]" = "novamedicaradio",
 		"[CMB_FREQ]" = "cmbradio",
 		"[ALPHA_FREQ]" = "alpharadio",
 		"[BRAVO_FREQ]" = "bravoradio",

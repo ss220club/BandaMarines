@@ -82,6 +82,10 @@
 #define RADIO_CHANNEL_ROYAL_MARINE "Royal Marine"
 #define RADIO_CHANNEL_CIA "CIA"
 
+//Event-Hybrisa
+#define RADIO_CHANNEL_NSPA "NSPA"
+#define RADIO_CHANNEL_NOVAMEDICA "Nova-Medica"
+
 #define RADIO_CHANNEL_YAUTJA "Yautja"
 #define RADIO_CHANNEL_YAUTJA_OVERSEER "Overseer"
 
