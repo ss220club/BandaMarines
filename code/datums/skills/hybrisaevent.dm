@@ -1142,7 +1142,7 @@ HOBO
 
 /datum/skills/hybrisa_event/hobo/brawler
 
-	name = "Hobo	"
+	name = "Hobo"
 	skills = list(
 		SKILL_CQC = SKILL_CQC_TRAINED,
 		SKILL_MELEE_WEAPONS = SKILL_MELEE_DEFAULT,

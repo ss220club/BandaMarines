@@ -1143,11 +1143,6 @@
 	access = list(ACCESS_HYBRISA_NOVAMEDICA_GENERAL, ACCESS_HYBRISA_NOVAMEDICA_TOWER)
 	idtype = /obj/item/card/id/data
 
-/datum/job/generate_money_account(mob/living/carbon/human/account_user)
-	var/generated_account = generate_money_account(account_user)
-	addtimer(CALLBACK(src, PROC_REF(announce_entry_message), account_user, generated_account), 2 SECONDS)
-	return
-
 /datum/equipment_preset/hybrisa_event/nm_firefighter/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/utility/gray(new_human), WEAR_BODY)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/marine/urban(new_human), WEAR_FEET)
@@ -1453,7 +1448,7 @@
 	assignment = "Carpe Carp - Cook"
 	skills = /datum/skills/hybrisa_event/cook
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
-	access = list(ACCESS_HYBRISA_BAR_KITCHEN, ACCESS_HYBRISA_ENTERTAIMENT)
+	access = list(ACCESS_HYBRISA_BAR_KITCHEN, ACCESS_HYBRISA_ENTERTAINMENT)
 
 
 /datum/equipment_preset/hybrisa_event/carp_cook/load_gear(mob/living/carbon/human/new_human)
@@ -1470,7 +1465,7 @@
 	assignment = "Carpe Carp - Bartender"
 	skills = /datum/skills/hybrisa_event/bartender
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
-	access = list(ACCESS_HYBRISA_BAR_KITCHEN, ACCESS_HYBRISA_ENTERTAIMENT)
+	access = list(ACCESS_HYBRISA_BAR_KITCHEN, ACCESS_HYBRISA_ENTERTAINMENT)
 
 
 /datum/equipment_preset/hybrisa_event/carp_bartender/load_gear(mob/living/carbon/human/new_human)
