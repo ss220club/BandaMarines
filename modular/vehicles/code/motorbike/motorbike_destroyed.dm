@@ -29,7 +29,7 @@
 	var/wires_add_time = 3 DECISECONDS	// Время требуемое для прикладывания 1 штучки (в 1 секунде 10 дец)
 	var/metal_need = 25	// В стаке 50 Штук -	var/obj/item/stack/sheet/metal
 	var/metal_stored = 0
-	var/metal_add_time = 2 DECISECONDS // Время требуемое для прикладывания 1 штучки (в 1 секунде 10 дец)E
+	var/metal_add_time = 2 DECISECONDS // Время требуемое для прикладывания 1 штучки (в 1 секунде 10 дец)
 	var/welding_step = FALSE
 	var/coil_step  = FALSE
 	var/screw_need = TRUE
@@ -128,10 +128,10 @@
 
 	else if(screw_need && !screw_step && HAS_TRAIT(O, TRAIT_TOOL_SCREWDRIVER))
 		if(!welding_step)
-			to_chat(user, SPAN_NOTICE("Сначало привари металл к корпусу"))
+			to_chat(user, SPAN_NOTICE("Сначала приварите металл к корпусу"))
 			return
 		if(!coil_step)
-			to_chat(user, SPAN_NOTICE("Сначало присоедини новые провода"))
+			to_chat(user, SPAN_NOTICE("Сначала присоедините новые провода"))
 			return
 		to_chat(user, SPAN_WARNING("Вы вкручиваете винты у [src]. Ожидайте."))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, 1)
@@ -231,6 +231,16 @@
 
 	qdel(src)
 
+/obj/motorbike_destroyed/sidecar
+	name = "Раздолбанная родительская коляска"
+	desc = "Рухлядь, больше не способная работать. Почему она вообще существует?"
+	icon_state = "moto_ural_sidecar_classic-destroyed"	// Для отображения на картах
+	icon_base = "moto_ural_sidecar"
+	obj_to_create_when_finish = null
+
+	wires_need = 1
+	metal_need = 1
+	maxhealth = 40
 
 /obj/motorbike_destroyed/sidecar/cargo
 	name = "Раздолбанная грузовая коляска"
@@ -255,6 +265,3 @@
 	wires_need = 40
 	metal_need = 40
 	maxhealth = 2000
-
-
-

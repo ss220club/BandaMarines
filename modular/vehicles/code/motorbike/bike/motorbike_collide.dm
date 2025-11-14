@@ -67,7 +67,7 @@
 		unbuckle()
 
 	// Эффекты для пассажира
-	if(sidecar?.buckled_mob) //нужно ли делать проверку на тип дочурки?
+	if(sidecar?.buckled_mob)
 		var/mob/living/L = sidecar.buckled_mob
 		L.apply_damage(damage * 0.5, BRUTE)
 		L.apply_effect(current_speed_level, STUN)
@@ -161,7 +161,7 @@
 
 	if(mod)
 		apply_collision_effects(occupant, 1/mod)
-		if(sidecar?.buckled_mob) //нужно ли делать проверку на тип дочурки?
+		if(sidecar?.buckled_mob)
 			var/mob/living/carbon/second_occupant = sidecar.buckled_mob
 			apply_collision_effects(second_occupant, 1.5/mod)
 

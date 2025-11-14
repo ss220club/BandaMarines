@@ -12,10 +12,23 @@
 #include "code/motorbike/bike/motorbike_movement.dm"
 #include "code/motorbike/bike/motorbike_collide.dm"
 
-//коляски
+
+//sidecar
 #include "code/motorbike/sidecar/sidecar.dm"
+#include "code/motorbike/sidecar/sidecar_guns.dm"
+#include "code/motorbike/sidecar/sidecar_actions.dm"
+#include "code/motorbike/sidecar/sidecar_movement.dm"
+#include "code/motorbike/sidecar/sidecar_health.dm"
+//passenger
 #include "code/motorbike/sidecar/passenger/passenger.dm"
+#include "code/motorbike/sidecar/passenger/passenger_buckle.dm"
+#include "code/motorbike/sidecar/passenger/passenger_guns.dm"
+#include "code/motorbike/sidecar/passenger/passenger_health.dm"
+#include "code/motorbike/sidecar/passenger/passenger_movement.dm"
+//cargo
 #include "code/motorbike/sidecar/cargo/cargo.dm"
+#include "code/motorbike/sidecar/cargo/cargo_health.dm"
+#include "code/motorbike/sidecar/cargo/cargo_loading.dm"
 
 //другое
 #include "code/motorbike/motorbike_destroyed.dm"

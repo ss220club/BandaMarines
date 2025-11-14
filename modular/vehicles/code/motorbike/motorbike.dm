@@ -71,7 +71,7 @@
 		else if(create_sidecar == 2)
 			sidecar = new /obj/structure/bed/chair/sidecar/cargo(src, icon_skin) //грузовая
 		else
-			to_chat(world, SPAN_WARNING("Внимание: Попытка присоединения несуществующей коляски"))
+			to_chat(world, SPAN_WARNING("Внимание: Попытка присоединения несуществующего типа коляски"))
 		if(sidecar)
 			update_connect_params()
 			update_sidecar(TRUE)
