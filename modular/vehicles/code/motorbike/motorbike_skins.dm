@@ -1,10 +1,10 @@
 // Мотоцикл с пассажирской коляской
 /obj/vehicle/motorbike/passenger/full
-	create_sidecar = 1 //переименовать переменную и изменить на цифровое значение
+	create_sidecar = 1
 
 // Мотоцикл с грузовой коляской
 /obj/vehicle/motorbike/cargo/full
-	create_sidecar = 2 //переименовать переменную и изменить на цифровое значение
+	create_sidecar = 2
 
 
 // ==========================================
@@ -72,10 +72,10 @@
 	icon_skin = "desert"
 
 /obj/vehicle/motorbike/desert/passenger/full
-	create_sidecar = 1 //переименовать переменную и изменить на цифровое значение
+	create_sidecar = 1
 
 /obj/vehicle/motorbike/desert/cargo/full
-	create_sidecar = 2 //переименовать переменную и изменить на цифровое значение
+	create_sidecar = 2
 
 // ==========================================
 // =============== Snow skin ================
@@ -93,10 +93,10 @@
 	icon_skin = "snow"
 
 /obj/vehicle/motorbike/snow/passenger/full
-	create_sidecar = 1 //переименовать переменную и изменить на цифровое значение
+	create_sidecar = 1
 
 /obj/vehicle/motorbike/snow/cargo/full
-	create_sidecar = 2 //переименовать переменную и изменить на цифровое значение
+	create_sidecar = 2
 
 // ==========================================
 // =============== Urban skin ===============
@@ -114,10 +114,10 @@
 	icon_skin = "urban"
 
 /obj/vehicle/motorbike/urban/passenger/full
-	create_sidecar = 1 //переименовать переменную и изменить на цифровое значение
+	create_sidecar = 1
 
 /obj/vehicle/motorbike/urban/cargo/full
-	create_sidecar = 2 //переименовать переменную и изменить на цифровое значение
+	create_sidecar = 2
 
 // ==========================================
 // ================== Debug =================
@@ -134,14 +134,14 @@
 	welder_health = 200
 
 /obj/vehicle/motorbike/passenger/debug/full
-	create_sidecar = 1 //переименовать переменную и изменить на цифровое значение
+	create_sidecar = 1
 
 
 /obj/vehicle/motorbike/debug/New(loc, skin)
-	create_sidecar = 0 //переименовать переменную и изменить на цифровое значение
+	create_sidecar = 0
 	. = ..(loc, skin)
-	create_sidecar = initial(create_sidecar) //переименовать переменную
-	if(create_sidecar == 1) //переименовать переменную и переписать логику
+	create_sidecar = initial(create_sidecar)
+	if(create_sidecar == 1)
 		sidecar = new /obj/structure/bed/chair/sidecar/passenger/debug(src, icon_skin)
 		update_sidecar(TRUE)
 		update_connect_params()

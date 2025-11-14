@@ -72,8 +72,9 @@
 			sidecar = new /obj/structure/bed/chair/sidecar/cargo(src, icon_skin) //грузовая
 		else
 			to_chat(world, SPAN_WARNING("Внимание: Попытка присоединения несуществующей коляски"))
-		update_connect_params()
-		update_sidecar(TRUE)
+		if(sidecar)
+			update_connect_params()
+			update_sidecar(TRUE)
 	update_overlay()
 
 /obj/vehicle/motorbike/Initialize()

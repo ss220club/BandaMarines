@@ -124,8 +124,6 @@
 		playsound(src.loc, 'sound/items/air_release.ogg', 25, 1)
 		if(wires_stored >= wires_need)
 			coil_step = TRUE
-		if(wires_stored >= wires_need)
-			coil_step = TRUE
 		return TRUE
 
 	else if(screw_need && !screw_step && HAS_TRAIT(O, TRAIT_TOOL_SCREWDRIVER))
@@ -134,12 +132,6 @@
 			return
 		if(!coil_step)
 			to_chat(user, SPAN_NOTICE("Сначало присоедини новые провода"))
-			return
-		if(!welding_step)
-			to_chat(user, SPAN_WARNING("Сначала приварите металл к корпусу"))
-			return
-		if(!coil_step)
-			to_chat(user, SPAN_WARNING("Сначала присоедините новые провода"))
 			return
 		to_chat(user, SPAN_WARNING("Вы вкручиваете винты у [src]. Ожидайте."))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, 1)
@@ -154,7 +146,7 @@
 		return TRUE
 
 	var/spare_text = get_spare_text()
-	if(spare_text != "")
+	if(spare_text)
 		to_chat(user, SPAN_NOTICE(spare_text))
 	else
 		L.animation_attack_on(src)
@@ -239,16 +231,6 @@
 
 	qdel(src)
 
-/obj/motorbike_destroyed/sidecar
-	name = "Раздолбанная родительская коляска"
-	desc = "Рухлядь, больше не способная работать. Почему он вообще существует?"
-	icon_state = "moto_ural_sidecar_-destroyed"	// Для отображения на картах
-	icon_base = "moto_ural_sidecar"
-	obj_to_create_when_finish = /obj/structure/bed/chair/sidecar
-
-	wires_need = 40
-	metal_need = 40
-	maxhealth = 2000
 
 /obj/motorbike_destroyed/sidecar/cargo
 	name = "Раздолбанная грузовая коляска"

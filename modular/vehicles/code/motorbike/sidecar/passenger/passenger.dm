@@ -57,12 +57,12 @@
 
 /obj/structure/bed/chair/sidecar/passenger/connect(atom/connection)
 	.=..(connection)
-	update_bike_permutated() // В passenger
+	update_bike_permutated()
 
 /obj/structure/bed/chair/sidecar/passenger/disconnect()
 	if(connected)
 		UnregisterSignal(connected, COMSIG_MOVABLE_MOVED)
-	update_bike_permutated() // В passenger
+	update_bike_permutated()
 	reload_connected()
 	connected = null
 	density = !density
@@ -85,7 +85,7 @@
 	layer = initial(layer) //отвечает за отображение по слоям
 	if(target != src)
 		update_connected(target)
-	update_buckle_mob() // В passenger
+	update_buckle_mob()
 	centralize_to_turf()
 
 /obj/structure/bed/chair/sidecar/passenger/centralize_to_turf()
@@ -98,30 +98,26 @@
 		if(NORTH, SOUTH)
 			var/ndir = dir == NORTH ? -1 : 1	// На севере нам нужно проделать всё "в другую сторону"
 			pixel_x += pixel_x_sides * ndir // Централизуем коляску
-			// В passenger
 			if(buckled_mob)
 				buckled_mob.pixel_x += pixel_x_sides * ndir	// Сидящего
-			//============
 			if(connected)
 				connected.pixel_x += pixel_x_sides * ndir	// Приконекченное мото
 				if(connected.buckled_mob)	// Приконекченного сидящего в мото
 					connected.buckled_mob.pixel_x += pixel_x_sides * ndir
 		if(EAST, WEST)
-			// В passenger
 			if(buckled_mob)
 				buckled_mob.pixel_x = get_buckled_mob_pixel_x()
-			//============
 
-/obj/structure/bed/chair/sidecar/passenger/proc/get_buckled_mob_pixel_x() // В passenger
+/obj/structure/bed/chair/sidecar/passenger/proc/get_buckled_mob_pixel_x()
 	return buckled_mob.pixel_x = pixel_x - initial(pixel_x) - 1
 
-/obj/structure/bed/chair/sidecar/passenger/proc/get_buckled_mob_pixel_y() // В passenger
+/obj/structure/bed/chair/sidecar/passenger/proc/get_buckled_mob_pixel_y()
 	return pixel_y - initial(pixel_y) + buckling_y
 
 // ==========================================
 // ============== Нормализация ==============
 
-/obj/structure/bed/chair/sidecar/passenger/proc/reload_buckle_mob() // В passenger
+/obj/structure/bed/chair/sidecar/passenger/proc/reload_buckle_mob()
 	if(!buckled_mob)
 		return
 	buckled_mob.pixel_x = initial(buckled_mob.pixel_x)
@@ -145,10 +141,8 @@
 	setDir(temp_dir)
 	step(A, temp_dir)	// Толкаем в сторону, если на пути стена, то "шаг" не совершится
 	setDir(old_dir)
-	// В passenger
 	if(buckled_mob)
 		buckled_mob.setDir(old_dir)
-	// ===========
 
 // ==========================================
 // =============Health и урон ===============
@@ -156,15 +150,13 @@
 /obj/structure/bed/chair/sidecar/passenger/healthcheck(damage = 0)
 	if(health - damage <= 0)
 		disconnect()
-		update_mob_gun_signal(TRUE) // В passenger
+		update_mob_gun_signal(TRUE)
 		// После уничтожения - создается разрушенный каркас
 		new /obj/motorbike_destroyed/sidecar/passenger(src.loc, icon_skin) //поменять путь в motorbike_destroyed для sidecar
-		// В passenger
 		if(mounted)
 			mounted.forceMove(src.loc)
 			mounted.update_health(mounted.health) // Разрушенный каркас, патроны и тому подобное
 		unbuckle()
-		//============
 		deconstruct(FALSE)
 		QDEL_NULL(src)
 
@@ -206,16 +198,14 @@
 	return XENO_ATTACK_ACTION
 
 /obj/structure/bed/chair/sidecar/passenger/bullet_act(obj/projectile/P)
-	// В passenger
 	if(buckled_mob && prob(hit_chance_buckled) && buckled_mob.get_projectile_hit_chance(P))
 		return buckled_mob.bullet_act(P)	// Сидящие тоже могут получить пулю в задницу
-	//============
 	.=..()
 
 // ==========================================
 // ================= Guns ===================
 
-/obj/structure/bed/chair/sidecar/passenger // В passenger
+/obj/structure/bed/chair/sidecar/passenger
 	var/obj/structure/machinery/m56d_hmg/mounted
 	var/allowed_types_to_mount = list(
 		/obj/item/device/m56d_gun,
@@ -232,14 +222,14 @@
 // ==========================================
 // ================ Пулеметы ================
 
-/obj/structure/machinery/m56d_hmg/low // В passenger
+/obj/structure/machinery/m56d_hmg/low
 	// Стрельба
 	shoot_degree = 65
 	fire_delay = 0.4 SECONDS
 	burst_fire_delay = 0.3 SECONDS
 	autofire_slow_mult = 1.2
 
-/obj/structure/machinery/m56d_hmg/auto/low // В passenger
+/obj/structure/machinery/m56d_hmg/auto/low
 	// Стрельба
 	shoot_degree = 45
 	fire_delay = 0.2 SECONDS
@@ -251,11 +241,11 @@
 // ============== Безопасность ==============
 // Убираем возможность убить байкера.
 
-/obj/structure/machinery/m56d_hmg // В passenger
+/obj/structure/machinery/m56d_hmg
 	var/list/objects_for_permutated = list()	// Кого не стоит дополнительно задевать, кроме стрелка.
 
 // Даем пуле понимание кого "не трогать"
-/obj/structure/machinery/m56d_hmg/load_into_chamber() // В passenger
+/obj/structure/machinery/m56d_hmg/load_into_chamber()
 	. = ..()
 	if(!in_chamber)
 		return .
@@ -264,7 +254,7 @@
 	for(var/i in objects_for_permutated)
 		in_chamber.permutated |= i
 
-/obj/structure/bed/chair/sidecar/passenger/update_bike_permutated(only_mob = FALSE) // В passenger
+/obj/structure/bed/chair/sidecar/passenger/update_bike_permutated(only_mob = FALSE)
 	if(!mounted)
 		return
 	if(!connected)
@@ -275,7 +265,7 @@
 		return
 	mounted.objects_for_permutated.Add(connected.buckled_mob)
 
-/obj/structure/bed/chair/sidecar/passenger/reset_bike_permutated(only_mob = FALSE) // В passenger
+/obj/structure/bed/chair/sidecar/passenger/reset_bike_permutated(only_mob = FALSE)
 	if(!mounted)
 		return
 	// Убираем возможность "задеть" байкера.
@@ -291,7 +281,7 @@
 // ==========================================
 // ============== Взаимодействие =============
 
-/obj/structure/bed/chair/sidecar/passenger/get_examine_text(mob/user) // В passenger
+/obj/structure/bed/chair/sidecar/passenger/get_examine_text(mob/user)
 	. = ..()
 	if(!mounted)
 		return
@@ -303,7 +293,7 @@
 		return
 	. += SPAN_NOTICE("В [mounted.declent_ru(INSTRUMENTAL)] боекомплект [mounted.rounds]/[mounted.rounds_max]")
 
-/obj/structure/bed/chair/sidecar/passenger/attackby(obj/item/O as obj, mob/user as mob) // В passenger
+/obj/structure/bed/chair/sidecar/passenger/attackby(obj/item/O as obj, mob/user as mob)
 	if(!ishuman(user) && !HAS_TRAIT(user, TRAIT_OPPOSABLE_THUMBS))
 		return ..()
 
@@ -329,7 +319,7 @@
 	. = ..()
 
 // Сборка
-/obj/structure/bed/chair/sidecar/passenger/proc/assembly(obj/item/O, mob/user) // В passenger
+/obj/structure/bed/chair/sidecar/passenger/proc/assembly(obj/item/O, mob/user)
 	to_chat(user, "Вы устанавливаете [O.declent_ru(ACCUSATIVE)] на [declent_ru(ACCUSATIVE)]...")
 	if(!do_after(user, mounted_time_to_assembly * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
 		return FALSE
@@ -367,7 +357,7 @@
 		QDEL_NULL(O)
 
 // Разборка
-/obj/structure/bed/chair/sidecar/passenger/proc/dissasemble(obj/item/O, mob/user) // В passenger
+/obj/structure/bed/chair/sidecar/passenger/proc/dissasemble(obj/item/O, mob/user)
 	if(!mounted)
 		return FALSE
 	if(mounted.locked)
@@ -393,7 +383,7 @@
 	return TRUE
 
 // Перезарядка
-/obj/structure/bed/chair/sidecar/passenger/proc/reload(obj/item/O, mob/user) // В passenger
+/obj/structure/bed/chair/sidecar/passenger/proc/reload(obj/item/O, mob/user)
 	if(!skillcheck(user, SKILL_FIREARMS, SKILL_FIREARMS_TRAINED))
 		to_chat(user, SPAN_WARNING("Вы недостаточно натренированы, чтобы работать с этим калибром!"))
 		return
@@ -405,11 +395,11 @@
 // ==========================================
 // ================ Сигналы =================
 
-#define COMSIG_MOB_MG_ENTER_VC "mob_vc_mg_enter"  // В passenger
-#define COMSIG_MOB_MG_EXIT_VC "mob_vc_mg_exit"    // В passenger
+#define COMSIG_MOB_MG_ENTER_VC "mob_vc_mg_enter"
+#define COMSIG_MOB_MG_EXIT_VC "mob_vc_mg_exit"
 
 // Стрельба
-/obj/structure/bed/chair/sidecar/passenger/proc/update_mob_gun_signal(force_reset = FALSE) // В passenger
+/obj/structure/bed/chair/sidecar/passenger/proc/update_mob_gun_signal(force_reset = FALSE)
 	if(!buckled_mob)
 		return
 	if(!ishuman_strict(buckled_mob))
@@ -428,18 +418,18 @@
 		RegisterSignal(buckled_mob, COMSIG_MOB_MG_EXIT_VC, PROC_REF(on_unset_gun_interaction))
 		give_action(buckled_mob, /datum/action/human_action/mg_enter_vc)
 
-/obj/structure/bed/chair/sidecar/passenger/proc/on_set_gun_interaction() // В passenger
+/obj/structure/bed/chair/sidecar/passenger/proc/on_set_gun_interaction()
 	SIGNAL_HANDLER
 	mounted.on_set_interaction_vc(buckled_mob)
 
-/obj/structure/bed/chair/sidecar/passenger/proc/on_unset_gun_interaction() // В passenger
+/obj/structure/bed/chair/sidecar/passenger/proc/on_unset_gun_interaction()
 	SIGNAL_HANDLER
 	mounted.on_unset_interaction_vc(buckled_mob)
 
-/obj/structure/bed/chair/sidecar/passenger/proc/update_gun_dir() // В passenger
+/obj/structure/bed/chair/sidecar/passenger/proc/update_gun_dir()
 	mounted.setDir(dir)
 
-/obj/structure/machinery/m56d_hmg/proc/on_set_interaction_vc(mob/user) // В passenger
+/obj/structure/machinery/m56d_hmg/proc/on_set_interaction_vc(mob/user)
 	//ADD_TRAIT(user, TRAIT_IMMOBILIZED, INTERACTION_TRAIT)
 	give_action(user, /datum/action/human_action/mg_exit_vc)
 	remove_action(user, /datum/action/human_action/mg_enter_vc)
@@ -457,7 +447,7 @@
 	update_mouse_pointer(operator, TRUE)
 	flags_atom |= RELAY_CLICK
 
-/obj/structure/machinery/m56d_hmg/proc/on_unset_interaction_vc(mob/user) // В passenger
+/obj/structure/machinery/m56d_hmg/proc/on_unset_interaction_vc(mob/user)
 	//REMOVE_TRAIT(user, TRAIT_IMMOBILIZED, INTERACTION_TRAIT)
 	give_action(user, /datum/action/human_action/mg_enter_vc)
 	remove_action(user, /datum/action/human_action/mg_exit_vc)
@@ -484,11 +474,11 @@
 // ==========================================
 // ================ Actions =================
 
-/datum/action/human_action/mg_enter_vc // В passenger
+/datum/action/human_action/mg_enter_vc
 	name = "Использовать орудие"
 	action_icon_state = "frontline_toggle_on"
 
-/datum/action/human_action/mg_enter_vc/action_activate() // В passenger
+/datum/action/human_action/mg_enter_vc/action_activate()
 	. = ..()
 	if(!can_use_action())
 		return
@@ -497,11 +487,11 @@
 	SEND_SIGNAL(human_user, COMSIG_MOB_MG_ENTER_VC)
 
 
-/datum/action/human_action/mg_exit_vc // В passenger
+/datum/action/human_action/mg_exit_vc
 	name = "Отставить орудие"
 	action_icon_state = "cancel_view"
 
-/datum/action/human_action/mg_exit_vc/action_activate() // В passenger
+/datum/action/human_action/mg_exit_vc/action_activate()
 	. = ..()
 	if(!can_use_action())
 		return
@@ -516,7 +506,7 @@
 
 // =============== Усаживание ===============
 
-/obj/structure/bed/chair/sidecar/passenger/buckle_mob(mob/living/carbon/human/mob, mob/user) // В passenger
+/obj/structure/bed/chair/sidecar/passenger/buckle_mob(mob/living/carbon/human/mob, mob/user)
 	if(!try_buckle_mob(mob, user))
 		return TRUE
 	. = ..()
@@ -535,7 +525,7 @@
 		(M.mob_size <= MOB_SIZE_XENO_VERY_SMALL)
 		)
 
-/obj/structure/bed/chair/sidecar/passenger/proc/try_buckle_mob(mob/M, mob/user) // В passenger
+/obj/structure/bed/chair/sidecar/passenger/proc/try_buckle_mob(mob/M, mob/user)
 	if(!ismob(M) || (get_dist(src, user) > 1) || user.stat || buckled_mob || M.buckled)
 		return FALSE
 	if(!ishumansynth_strict(user))
@@ -552,7 +542,7 @@
 		playsound(src, buckling_sound, 20)
 	return TRUE
 
-/obj/structure/bed/chair/sidecar/passenger/afterbuckle(mob/M) // В passenger
+/obj/structure/bed/chair/sidecar/passenger/afterbuckle(mob/M)
 	. = ..()
 	if(buckled_mob)
 		update_buckle_mob()
@@ -566,7 +556,7 @@
 		update_drag_delay(buckled_mob)
 		reset_bike_permutated(TRUE)
 
-/obj/structure/bed/chair/sidecar/passenger/unbuckle() // В passenger
+/obj/structure/bed/chair/sidecar/passenger/unbuckle()
 	// Отдельно, иначе возникнет ситуация где сигнал не успевает убраться,
 	// т.к. нам ВСЕГДА нужен моб чтобы убрать у него сигнал
 	update_mob_gun_signal(TRUE)
@@ -577,7 +567,7 @@
 // ==========================================
 // =============== Обновление ===============
 
-/obj/structure/bed/chair/sidecar/passenger/proc/update_buckle_mob() // В passenger
+/obj/structure/bed/chair/sidecar/passenger/proc/update_buckle_mob()
 	if(!buckled_mob)
 		return
 	buckled_mob.pixel_x = get_buckled_mob_pixel_x()

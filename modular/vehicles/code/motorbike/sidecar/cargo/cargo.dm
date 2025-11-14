@@ -60,10 +60,8 @@
 	if(!ishuman(user))
 		return
 
-	if(istype(A, /obj/structure/closet/crate))
-		var/obj/structure/closet/crate/C = null
-		C = A
-
+	if(istype(A, /obj/structure/closet/crate) || istype(A, /obj/structure/closet/coffin))
+		var/obj/structure/closet/C = A
 		if(C.anchored)
 			to_chat(user, SPAN_WARNING("The [C] is anchored and cannot be loaded into \the [src]!"))
 			return
@@ -73,18 +71,6 @@
 				return
 		load_object(user, A)
 
-	if(istype(A, /obj/structure/closet/coffin))
-		var/obj/structure/closet/coffin/C = null
-		C = A
-
-		if(C.anchored)
-			to_chat(user, SPAN_WARNING("The [C] is anchored and cannot be loaded into \the [src]!"))
-			return
-		for(var/X in C)
-			if(ismob(X))
-				to_chat(user, SPAN_WARNING("\The [C] cannot be loaded into \the [src], it has a creature inside!"))
-				return
-		load_object(user, A)
 
 
 /obj/structure/bed/chair/sidecar/cargo/MouseDrop(atom/over_object)
