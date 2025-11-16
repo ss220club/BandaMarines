@@ -14890,6 +14890,10 @@
 /obj/structure/blocker/invisible_wall,
 /turf/open/void,
 /area/Suburb_lv759/indoors/wy_research_complex)
+"fxd" = (
+/obj/item/clothing/suit/storage/hybrisa/wy_Pilot,
+/turf/open/floor/prison/floor_plate,
+/area/Suburb_lv759/indoors/caves/Monorail)
 "fxf" = (
 /obj/structure/surface/table/reinforced/prison{
 	color = "#6b675e"
@@ -44713,14 +44717,12 @@
 /area/Suburb_lv759/indoors/public_spaceport/hangarbay)
 "qng" = (
 /obj/structure/closet/crate,
-/obj/item/clothing/suit/storage/marine/veteran/mercenary/miner,
-/obj/item/clothing/suit/storage/marine/veteran/mercenary/miner,
-/obj/item/clothing/head/helmet/marine/veteran/mercenary/miner,
-/obj/item/clothing/head/helmet/marine/veteran/mercenary/miner,
 /obj/structure/machinery/light/small/blue{
 	light_color = "#dae2ff";
 	dir = 1
 	},
+/obj/item/clothing/suit/storage/webbing/brown,
+/obj/item/clothing/suit/storage/webbing/brown,
 /turf/open/floor/dark,
 /area/Suburb_lv759/indoors/caves)
 "qnw" = (
@@ -49131,7 +49133,6 @@
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "rMK" = (
 /obj/structure/surface/table/almayer,
-/obj/item/device/implanter/subdermal_armor,
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/wy_research_complex/cargo)
 "rMY" = (
@@ -93452,7 +93453,7 @@ jPZ
 jPZ
 jPZ
 jPZ
-vlW
+jPZ
 jPZ
 jPZ
 jPZ
@@ -93696,7 +93697,7 @@ vlW
 vlW
 jPZ
 jPZ
-vlW
+jPZ
 jPZ
 jPZ
 jPZ
@@ -93965,11 +93966,11 @@ foY
 foY
 foY
 foY
-jgi
+iCq
 tmN
 iCq
 iCq
-jgi
+iCq
 iCq
 uzu
 iCq
@@ -94732,7 +94733,7 @@ jgi
 iCq
 iCq
 ioD
-jgi
+iCq
 iCq
 iCq
 iCq
@@ -94985,7 +94986,7 @@ nmP
 iCq
 iCq
 tmN
-jgi
+iCq
 iCq
 iCq
 iCq
@@ -95239,7 +95240,7 @@ jgi
 iCq
 iCq
 iCq
-jgi
+iCq
 iCq
 iCq
 jgi
@@ -95999,7 +96000,7 @@ iCq
 iCq
 iCq
 iCq
-iCq
+tmN
 iCq
 iCq
 jgi
@@ -96510,7 +96511,7 @@ iCq
 iCq
 iCq
 iCq
-jgi
+iCq
 iCq
 jgi
 jgi
@@ -96760,7 +96761,7 @@ jgi
 iCq
 iCq
 iCq
-jgi
+iCq
 iCq
 iCq
 iCq
@@ -97264,7 +97265,7 @@ jgi
 jgi
 jgi
 naM
-jgi
+iCq
 iCq
 iCq
 iCq
@@ -97505,7 +97506,7 @@ nmP
 nmP
 nmP
 nmP
-nmP
+foY
 foY
 foY
 iCq
@@ -97516,9 +97517,9 @@ jgi
 jgi
 jgi
 jgi
-jgi
-jgi
-jgi
+iCq
+iCq
+iCq
 tmN
 iCq
 jgi
@@ -98010,7 +98011,7 @@ nmP
 nmP
 nmP
 nmP
-nmP
+foY
 foY
 iCq
 jgi
@@ -99020,8 +99021,8 @@ weW
 nmP
 nmP
 nmP
-jgi
-jgi
+iCq
+iCq
 iCq
 iCq
 iCq
@@ -99274,7 +99275,7 @@ weW
 nmP
 jgi
 jgi
-jgi
+iCq
 iCq
 iCq
 iCq
@@ -99529,7 +99530,7 @@ jgi
 iCq
 iCq
 iCq
-jgi
+iCq
 jgi
 jgi
 jgi
@@ -99806,7 +99807,7 @@ iCq
 iCq
 iCq
 iCq
-jgi
+iCq
 iVg
 iCq
 jgi
@@ -100031,7 +100032,7 @@ ftN
 iCq
 iCq
 iCq
-jgi
+iCq
 rEg
 iCq
 iCq
@@ -100041,7 +100042,7 @@ iCq
 iCq
 iCq
 iCq
-jgi
+iCq
 tmN
 iCq
 jgi
@@ -100056,8 +100057,8 @@ iCq
 iCq
 iCq
 iCq
-jgi
-jgi
+iCq
+iCq
 jgi
 jgi
 jgi
@@ -100287,8 +100288,8 @@ hQo
 hQo
 iCq
 iCq
-jgi
-jgi
+iCq
+iCq
 iCq
 iCq
 vvj
@@ -100540,7 +100541,7 @@ hQo
 iCq
 iCq
 iCq
-jgi
+iCq
 naM
 iCq
 jgi
@@ -100558,8 +100559,8 @@ iCq
 iCq
 tmN
 iCq
-jgi
-jgi
+iCq
+iCq
 jgi
 jgi
 jgi
@@ -100810,7 +100811,7 @@ iCq
 iCq
 iCq
 iCq
-jgi
+iCq
 iCq
 iCq
 jgi
@@ -101566,7 +101567,7 @@ tYP
 iCq
 iCq
 iCq
-jgi
+iCq
 iCq
 jgi
 jgi
@@ -101810,7 +101811,7 @@ jgi
 jgi
 jgi
 jgi
-jgi
+iCq
 iCq
 iCq
 iCq
@@ -102573,12 +102574,12 @@ iCq
 iCq
 iCq
 iCq
-jgi
-jgi
+iCq
+iCq
 iCq
 iCq
 tmN
-jgi
+iCq
 jgi
 jgi
 iCq
@@ -102830,7 +102831,7 @@ tiS
 iCq
 iCq
 iCq
-jgi
+iCq
 naM
 iCq
 iCq
@@ -104854,8 +104855,8 @@ btT
 jgi
 jgi
 jgi
-iCq
-iCq
+fGo
+fGo
 iCq
 iCq
 fGo
@@ -105106,8 +105107,8 @@ btT
 jgi
 jgi
 jgi
-iCq
-jgi
+fGo
+fGo
 tiS
 tiS
 fGo
@@ -105869,8 +105870,8 @@ tmN
 iCq
 iCq
 iCq
-jgi
-jgi
+iCq
+iCq
 jgi
 jgi
 jgi
@@ -106215,7 +106216,7 @@ iCq
 iCq
 iCq
 iCq
-iCq
+tmN
 iCq
 iCq
 iCq
@@ -106460,7 +106461,7 @@ jgi
 jgi
 iCq
 iCq
-iCq
+tmN
 jgi
 jgi
 iCq
@@ -106618,7 +106619,7 @@ btT
 jgi
 jgi
 jgi
-jgi
+iCq
 iCq
 iCq
 iCq
@@ -107126,9 +107127,9 @@ iCq
 tmN
 iCq
 iCq
-jgi
 iCq
-jgi
+iCq
+iCq
 iCq
 iCq
 iCq
@@ -107376,7 +107377,7 @@ jgi
 iCq
 iCq
 iCq
-jgi
+iCq
 iCq
 jgi
 jgi
@@ -107451,7 +107452,7 @@ uxE
 oct
 iCq
 iCq
-iCq
+tmN
 iCq
 iCq
 iCq
@@ -107467,12 +107468,12 @@ jgi
 jgi
 iCq
 iCq
-jgi
 iCq
 iCq
 iCq
 iCq
-jgi
+iCq
+iCq
 iCq
 jgi
 iCq
@@ -107628,7 +107629,7 @@ iCq
 iCq
 iCq
 iCq
-jgi
+iCq
 jgi
 jgi
 jgi
@@ -107721,7 +107722,7 @@ iCq
 iCq
 iCq
 iCq
-iCq
+tmN
 iCq
 iCq
 wMx
@@ -107963,6 +107964,7 @@ iCq
 iCq
 iCq
 iCq
+tmN
 iCq
 iCq
 iCq
@@ -107975,7 +107977,6 @@ iCq
 iCq
 iCq
 iCq
-jgi
 iCq
 iCq
 iCq
@@ -108477,7 +108478,7 @@ iCq
 iCq
 iCq
 iCq
-jgi
+iCq
 jgi
 iCq
 iCq
@@ -108884,7 +108885,7 @@ jgi
 jgi
 jgi
 iVg
-jgi
+iCq
 tmN
 iCq
 iCq
@@ -110380,7 +110381,7 @@ lrY
 wNk
 iCq
 iCq
-iCq
+tmN
 iCq
 iCq
 jgi
@@ -110644,10 +110645,10 @@ iCq
 iCq
 iCq
 iCq
-jgi
 iCq
 iCq
-jgi
+iCq
+iCq
 iCq
 iCq
 jgi
@@ -111398,7 +111399,7 @@ iCq
 iCq
 iCq
 iCq
-jgi
+tmN
 iCq
 iCq
 jgi
@@ -111644,7 +111645,7 @@ jgi
 jgi
 jgi
 iCq
-iCq
+tmN
 iCq
 iCq
 iCq
@@ -111895,7 +111896,7 @@ jgi
 jgi
 jgi
 jgi
-jgi
+iCq
 iCq
 iCq
 iCq
@@ -112983,7 +112984,7 @@ iCq
 iCq
 iCq
 iCq
-jgi
+iCq
 iCq
 jgi
 jgi
@@ -113482,7 +113483,7 @@ iCq
 iCq
 efn
 jgi
-jgi
+iCq
 dci
 iCq
 iCq
@@ -113912,7 +113913,7 @@ jgi
 jgi
 jgi
 jgi
-jgi
+iCq
 iCq
 iCq
 iCq
@@ -114166,7 +114167,7 @@ jgi
 jgi
 iCq
 iCq
-iCq
+tmN
 iCq
 jgi
 jgi
@@ -114269,9 +114270,9 @@ jgi
 jgi
 tCA
 vvj
-jgi
-jgi
-jgi
+iCq
+iCq
+iCq
 iCq
 iCq
 nWp
@@ -114521,8 +114522,8 @@ qbR
 wMx
 iCq
 iCq
-jgi
-jgi
+iCq
+iCq
 iCq
 iCq
 iCq
@@ -114753,7 +114754,7 @@ iCq
 iCq
 iCq
 iCq
-jgi
+iCq
 jgi
 jgi
 jgi
@@ -115036,7 +115037,7 @@ jgi
 jgi
 jgi
 nmP
-nmP
+foY
 foY
 foY
 foY
@@ -115292,7 +115293,7 @@ foY
 foY
 foY
 foY
-nmP
+foY
 nmP
 nmP
 nmP
@@ -115545,7 +115546,7 @@ foY
 foY
 fnO
 foY
-nmP
+foY
 iYa
 nmP
 nmP
@@ -115562,7 +115563,7 @@ nmP
 rBt
 rBt
 rBt
-rBt
+qlq
 qlq
 qlq
 rBt
@@ -115813,7 +115814,7 @@ nmP
 nmP
 rBt
 rBt
-rBt
+qlq
 qlq
 qlq
 ddJ
@@ -116047,7 +116048,7 @@ nmP
 foY
 foY
 foY
-nmP
+foY
 foY
 foY
 foY
@@ -116264,7 +116265,7 @@ iCq
 iCq
 jgi
 iCq
-jgi
+iCq
 iCq
 iCq
 iCq
@@ -116299,9 +116300,9 @@ nmP
 foY
 foY
 nmP
-nmP
 foY
-nmP
+foY
+foY
 foY
 foY
 foY
@@ -116316,7 +116317,7 @@ nmP
 nmP
 nmP
 rBt
-rBt
+qlq
 qlq
 qlq
 rBt
@@ -116552,8 +116553,8 @@ foY
 foY
 nmP
 nmP
-nmP
-nmP
+foY
+foY
 foY
 foY
 foY
@@ -116566,7 +116567,7 @@ nmP
 nmP
 nmP
 nmP
-nmP
+foY
 qlq
 qlq
 qlq
@@ -116764,7 +116765,7 @@ jgi
 nRu
 iCq
 iCq
-jgi
+iCq
 jgi
 jgi
 vVj
@@ -116817,8 +116818,8 @@ nmP
 nmP
 nmP
 foY
-nmP
-nmP
+foY
+foY
 qlq
 eqM
 qlq
@@ -117018,11 +117019,11 @@ iCq
 iCq
 iCq
 iCq
-jgi
 iCq
 iCq
+iCq
 jgi
-jgi
+iCq
 iCq
 iCq
 iCq
@@ -117067,7 +117068,7 @@ foY
 nmP
 nmP
 nmP
-nmP
+foY
 ety
 foY
 foY
@@ -117312,13 +117313,13 @@ foY
 ety
 foY
 gOP
+foY
+foY
+foY
+foY
+foY
 nmP
 foY
-foY
-foY
-foY
-nmP
-nmP
 foY
 foY
 foY
@@ -117563,17 +117564,17 @@ nmP
 nmP
 foY
 nmP
-nmP
-nmP
 foY
 foY
 foY
 foY
 foY
-nmP
 foY
 foY
-ety
+foY
+foY
+foY
+foY
 nmP
 rBt
 rBt
@@ -117816,7 +117817,7 @@ nmP
 nmP
 nmP
 nmP
-nmP
+foY
 foY
 foY
 foY
@@ -118322,12 +118323,12 @@ nmP
 nmP
 foY
 foY
-nmP
+foY
 nmP
 nmP
 foY
 foY
-nmP
+foY
 nmP
 nmP
 nmP
@@ -118828,8 +118829,8 @@ nmP
 foY
 foY
 foY
-nmP
-nmP
+foY
+foY
 foY
 foY
 qID
@@ -119020,7 +119021,7 @@ iCq
 iCq
 jgi
 jgi
-jgi
+iCq
 iCq
 tYP
 iCq
@@ -119271,7 +119272,7 @@ vsF
 iCq
 iCq
 iCq
-jgi
+iCq
 iCq
 iCq
 iCq
@@ -119330,8 +119331,8 @@ nmP
 nmP
 nmP
 foY
-nmP
-nmP
+foY
+foY
 fnO
 foY
 foY
@@ -119583,7 +119584,7 @@ nmP
 nmP
 fMB
 nmP
-nmP
+foY
 foY
 foY
 foY
@@ -119707,7 +119708,7 @@ jgi
 jgi
 jgi
 iCq
-iCq
+tmN
 iCq
 iCq
 jgi
@@ -119836,8 +119837,8 @@ nmP
 nmP
 nmP
 nmP
-nmP
-nmP
+foY
+foY
 foY
 foY
 ety
@@ -120595,7 +120596,7 @@ nmP
 nmP
 nmP
 nmP
-nmP
+foY
 foY
 foY
 foY
@@ -121861,7 +121862,7 @@ foY
 foY
 foY
 foY
-nmP
+foY
 nmP
 nmP
 nmP
@@ -122109,12 +122110,12 @@ nmP
 nmP
 nmP
 nmP
-nmP
 foY
 foY
 foY
-nmP
-nmP
+foY
+foY
+foY
 nmP
 nmP
 nmP
@@ -122226,7 +122227,7 @@ jgi
 jgi
 iCq
 iCq
-iCq
+tmN
 iCq
 jgi
 jgi
@@ -122867,8 +122868,8 @@ nmP
 nmP
 nmP
 nmP
-nmP
-nmP
+foY
+foY
 foY
 foY
 foY
@@ -131429,7 +131430,7 @@ oSh
 pUm
 eLe
 aoK
-aoK
+fxd
 sPK
 aoK
 aoK
