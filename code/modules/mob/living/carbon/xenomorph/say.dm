@@ -122,7 +122,7 @@
 				if(S.client.prefs && S.client.prefs.toggles_chat & CHAT_GHOSTHIVEMIND)
 					track = "(<a href='byond://?src=\ref[S];track=\ref[src]'>посмотреть</a>)" // SS220 EDIT ADDICTION
 					if(isqueen(src))
-						var/mob/hologram/queen/queen_eye = client?.eye
+						var/mob/hologram/queen/queen_eye = client?.get_eye()
 						if(istype(queen_eye))
 							track += " (<a href='byond://?src=\ref[S];track=\ref[queen_eye]'>посмотреть</a>)" // SS220 EDIT ADDICTION
 						ghostrend = SPAN_XENOQUEEN("Разум улья, [ru_name][track] [ru_say_verb("hisses")], <span class='normal'>'[message]'</span>") // SS220 EDIT ADDICTION
