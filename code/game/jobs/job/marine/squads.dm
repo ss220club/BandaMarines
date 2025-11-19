@@ -829,10 +829,6 @@
 	if(earpiece)
 		earpiece.locate_setting = TRACKER_SL
 
-	var/obj/item/device/radio/headset/earpiece = old_lead.get_type_in_ears(/obj/item/device/radio/headset)
-	if(earpiece)
-		earpiece.locate_setting = TRACKER_SL
-
 //Not a safe proc. Returns null if squads or jobs aren't set up.
 //Mostly used in the marine squad console in marine_consoles.dm.
 /proc/get_squad_by_name(text)

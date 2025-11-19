@@ -551,7 +551,7 @@
 	if (pose)
 		if( findtext(pose,".",length(pose)) == 0 && findtext(pose,"!",length(pose)) == 0 && findtext(pose,"?",length(pose)) == 0 )
 			pose = addtext(pose,".") //Makes sure all emotes end with a period.
-		msg += "\n[t_He] [t_is] [pose]"
+		msg += "\n[t_He] [pose]" // BANDAMARINES EDIT
 
 	. += msg
 
