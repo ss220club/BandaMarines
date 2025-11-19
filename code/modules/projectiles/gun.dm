@@ -590,9 +590,9 @@ As sniper rifles have both and weapon mods can change them as well. ..() deals w
 		return .
 	var/dat = ""
 	if(flags_gun_features & GUN_TRIGGER_SAFETY)
-		dat += "The safety's on!<br>"
+		dat += "Предохранитель поставлен.<br>"
 	else
-		dat += "The safety's off!<br>"
+		dat += "Предохранитель cнят.<br>"
 
 	for(var/slot in attachments)
 		var/obj/item/attachable/R = attachments[slot]
@@ -789,7 +789,7 @@ As sniper rifles have both and weapon mods can change them as well. ..() deals w
 			return
 
 	flags_item ^= WIELDED
-	name += " (Wielded)"
+	//name += " (Wielded)" // SS220 EDIT ADDICTION
 	item_state += "_w"
 	slowdown = initial(slowdown) + aim_slowdown
 	place_offhand(user, initial(name))
@@ -940,8 +940,8 @@ User can be passed as null, (a gun reloading itself for instance), so we need to
 	if(!in_chamber)
 		ready_in_chamber()
 		cock_gun(user)
-	user.visible_message(SPAN_NOTICE("[user] loads [magazine] into [src]!"),
-		SPAN_NOTICE("You load [magazine] into [src]!"), null, 3, CHAT_TYPE_COMBAT_ACTION)
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] заряжает [magazine.declent_ru(ACCUSATIVE)] в [declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
+		SPAN_NOTICE("Вы заряжаете [magazine.declent_ru(ACCUSATIVE)] в [declent_ru(ACCUSATIVE)]!"), null, 3, CHAT_TYPE_COMBAT_ACTION) // SS220 EDIT ADDICTION
 	if(reload_sound)
 		playsound(user, reload_sound, 25, 1, 5)
 
@@ -964,7 +964,7 @@ User can be passed as null, (a gun reloading itself for instance), so we need to
 		user.put_in_hands(current_mag)
 
 	playsound(user, unload_sound, 25, 1, 5)
-	user.visible_message(SPAN_NOTICE("[user] unloads [current_mag] from [src]."),
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] unloads [current_mag] from [src]."),
 	SPAN_NOTICE("You unload [current_mag] from [src]."), null, 4, CHAT_TYPE_COMBAT_ACTION)
 	current_mag.update_icon()
 	current_mag = null
@@ -1009,14 +1009,14 @@ User can be passed as null, (a gun reloading itself for instance), so we need to
 	cock_gun(user)
 	if(in_chamber)
 		if(user.client?.prefs?.toggle_prefs & TOGGLE_COCKING_TO_HAND && !user.get_inactive_hand())
-			user.visible_message(SPAN_NOTICE("[user] cocks [src], catching the [in_chamber.name] after it leaves its chamber!"),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] cocks [src], catching the [in_chamber.name] after it leaves its chamber!"),
 			SPAN_NOTICE("You cock [src], catching the [in_chamber.name] after leaving its chamber!"), null, 4, CHAT_TYPE_COMBAT_ACTION)
 		else
-			user.visible_message(SPAN_NOTICE("[user] cocks [src], clearing a [in_chamber.name] from its chamber."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] cocks [src], clearing a [in_chamber.name] from its chamber."),
 			SPAN_NOTICE("You cock [src], clearing a [in_chamber.name] from its chamber."), null, 4, CHAT_TYPE_COMBAT_ACTION)
 		unload_chamber(user)
 	else
-		user.visible_message(SPAN_NOTICE("[user] cocks [src]."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] cocks [src]."),
 		SPAN_NOTICE("You cock [src]."), null, 4, CHAT_TYPE_COMBAT_ACTION)
 	display_ammo(user)
 	ready_in_chamber() //This will already check for everything else, loading the next bullet.
@@ -1382,13 +1382,13 @@ and you're good to go.
 
 		var/obj/item/weapon/gun/revolver/current_revolver = src
 		if(istype(current_revolver) && current_revolver.russian_roulette)
-			attacked_mob.visible_message(SPAN_WARNING("[user] puts their revolver to their head, ready to pull the trigger."))
+			attacked_mob.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] puts their revolver to their head, ready to pull the trigger."))
 		else
-			attacked_mob.visible_message(SPAN_WARNING("[user] sticks their gun in their mouth, ready to pull the trigger."))
+			attacked_mob.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] sticks their gun in their mouth, ready to pull the trigger."))
 
 		flags_gun_features ^= GUN_CAN_POINTBLANK //If they try to click again, they're going to hit themselves.
 		if(!do_after(user, 2 SECONDS, INTERRUPT_ALL, BUSY_ICON_HOSTILE) || !able_to_fire(user))
-			attacked_mob.visible_message(SPAN_NOTICE("[user] decided life was worth living."))
+			attacked_mob.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] decided life was worth living."))
 			flags_gun_features ^= GUN_CAN_POINTBLANK //Reset this.
 			return (ATTACKBY_HINT_NO_AFTERATTACK|ATTACKBY_HINT_UPDATE_NEXT_MOVE)
 
@@ -1397,7 +1397,7 @@ and you're good to go.
 			active_attachable.activate_attachment(src, null, TRUE)//We're not firing off a nade into our mouth.
 		var/obj/projectile/projectile_to_fire = load_into_chamber(user)
 		if(projectile_to_fire) //We actually have a projectile, let's move on.
-			user.visible_message(SPAN_WARNING("[user] pulls the trigger!"))
+			user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] pulls the trigger!"))
 			var/actual_sound
 			if(active_attachable && active_attachable.fire_sound)
 				actual_sound = active_attachable.fire_sound
@@ -1457,7 +1457,7 @@ and you're good to go.
 			return ..()
 		if(flags_gun_features & GUN_CANT_EXECUTE)
 			return ..()
-		user.visible_message(SPAN_DANGER("[user] puts [src] up to [attacked_mob], steadying their aim."), SPAN_WARNING("You put [src] up to [attacked_mob], steadying your aim."),null, null, CHAT_TYPE_COMBAT_ACTION)
+		user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] puts [src] up to [attacked_mob], steadying their aim."), SPAN_WARNING("You put [src] up to [attacked_mob], steadying your aim."),null, null, CHAT_TYPE_COMBAT_ACTION)
 		if(!do_after(user, 3 SECONDS, INTERRUPT_ALL|INTERRUPT_DIFF_INTENT, BUSY_ICON_HOSTILE))
 			return (ATTACKBY_HINT_NO_AFTERATTACK|ATTACKBY_HINT_UPDATE_NEXT_MOVE)
 
@@ -1541,7 +1541,7 @@ and you're good to go.
 			damage_buff += BULLET_DAMAGE_MULT_TIER_4
 		projectile_to_fire.damage *= damage_buff //Multiply the damage for point blank.
 		if(bullets_fired == 1) //First shot gives the PB message.
-			user.visible_message(SPAN_DANGER("[user] fires [src] point blank at [attacked_mob]!"),
+			user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] fires [src] point blank at [attacked_mob]!"),
 				SPAN_WARNING("You fire [src] point blank at [attacked_mob]!"), null, null, CHAT_TYPE_WEAPON_USE)
 
 		user.track_shot(initial(name))
@@ -1612,7 +1612,7 @@ and you're good to go.
 					user.swap_hand()
 
 		if(EXECUTION_CHECK) //Continue execution if on the correct intent. Accounts for change via the earlier do_after
-			user.visible_message(SPAN_DANGER("[user] has executed [attacked_mob] with [src]!"), SPAN_DANGER("You have executed [attacked_mob] with [src]!"), message_flags = CHAT_TYPE_WEAPON_USE)
+			user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] has executed [attacked_mob] with [src]!"), SPAN_DANGER("You have executed [attacked_mob] with [src]!"), message_flags = CHAT_TYPE_WEAPON_USE)
 			attacked_mob.death()
 			bullets_to_fire = bullets_fired //Giant bursts are not compatible with precision killshots.
 		// No projectile code to handhold us, we do the cleaning ourselves:
@@ -1693,7 +1693,7 @@ not all weapons use normal magazines etc. load_into_chamber() itself is designed
 				return FALSE
 
 		if(flags_gun_features & GUN_TRIGGER_SAFETY)
-			to_chat(user, SPAN_WARNING("The safety is on!"))
+			to_chat(user, SPAN_WARNING("Предохранитель поставлен."))
 			gun_user.balloon_alert(gun_user, "safety on")
 			return
 
@@ -1760,7 +1760,7 @@ not all weapons use normal magazines etc. load_into_chamber() itself is designed
 	if(istype(current_gun, /obj/item/weapon/gun/flamer))
 		dry_fire_text = "<b>*pshhhh*</b>"
 	else
-		dry_fire_text = "<b>*click*</b>"
+		dry_fire_text = "<b>*щелчок*</b>"
 
 	if(user)
 		to_chat(user, SPAN_WARNING(dry_fire_text))
@@ -1782,7 +1782,7 @@ not all weapons use normal magazines etc. load_into_chamber() itself is designed
 		if(user.client.prefs.toggle_prefs & TOGGLE_AMMO_DISPLAY_TYPE && gun_firemode == GUN_FIREMODE_SEMIAUTO && current_mag.current_rounds % 5 != 0 && current_mag.current_rounds > 15)
 			return
 		var/chambered = in_chamber ? TRUE : FALSE
-		to_chat(user, SPAN_DANGER("[current_mag.current_rounds][chambered ? "+1" : ""] / [current_mag.max_rounds] ROUNDS REMAINING"))
+		to_chat(user, SPAN_DANGER("ОСТАЛОСЬ [current_mag.current_rounds][chambered ? "+1" : ""] / [current_mag.max_rounds] ПАТРОНОВ")) // SS220 EDIT ADDICTION
 
 //This proc applies some bonus effects to the shot/makes the message when a bullet is actually fired.
 /obj/item/weapon/gun/proc/apply_bullet_effects(obj/projectile/projectile_to_fire, mob/user, reflex = 0, dual_wield = 0)
@@ -2009,7 +2009,7 @@ not all weapons use normal magazines etc. load_into_chamber() itself is designed
 	if(slashed_light)
 		playsound(loc, "alien_claw_metal", 25, 1)
 		xeno.animation_attack_on(src)
-		xeno.visible_message(SPAN_XENOWARNING("[xeno] slashes the lights on [src]!"), SPAN_XENONOTICE("You slash the lights on [src]!"))
+		xeno.visible_message(SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] ломает свет на [declent_ru(PREPOSITIONAL)]!"), SPAN_XENONOTICE("Вы ломаете свет на [declent_ru(PREPOSITIONAL)]!")) // SS220 EDIT ADDICTION
 	return XENO_ATTACK_ACTION
 
 /// Setter proc to toggle burst firing
@@ -2201,7 +2201,7 @@ not all weapons use normal magazines etc. load_into_chamber() itself is designed
 	if(gun_area.ceiling <= CEILING_GLASS)
 		gun_turf.ceiling_debris()
 
-	user.visible_message(SPAN_HIGHDANGER(uppertext("[user] FIRES THEIR [name] INTO THE AIR!")),
+	user.visible_message(SPAN_HIGHDANGER(uppertext("[capitalize(user.declent_ru(NOMINATIVE))] FIRES THEIR [name] INTO THE AIR!")),
 	SPAN_HIGHDANGER(uppertext("YOU FIRE YOUR [name] INTO THE AIR!")))
 
 	playsound(user, fire_sound, 120, FALSE)

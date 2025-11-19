@@ -650,7 +650,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 			if(current_squad)
 				var/input = sanitize_control_chars(tgui_input_text(user, "Please write a message to announce to the squad:", "Squad Message"))
 				if(input)
-					current_squad.transmit_alert("", input, "", "Squad Message:", user) //message, adds username
+					current_squad.transmit_alert("", input, "", "Сообщение отряду:", user) //message, adds username
 					visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("Message '[input]' sent to all Marines of squad '[current_squad]'.")]")
 					log_overwatch("[key_name(user)] sent '[input]' to squad [current_squad].")
 
@@ -658,7 +658,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 			if(current_squad)
 				var/input = sanitize_control_chars(tgui_input_text(user, "Please write a message to announce to the squad leader:", "SL Message"))
 				if(input)
-					current_squad.transmit_alert("", input, "", "Squad Leader Message:", user, only_leader=TRUE) //message, adds username, only to leader
+					current_squad.transmit_alert("", input, "", "Сообщение лидера отряда:", user, only_leader=TRUE) //message, adds username, only to leader
 					visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("Message '[input]' sent to Squad Leader [current_squad.squad_leader] of squad '[current_squad]'.")]")
 					log_overwatch("[key_name(user)] sent '[input]' to Squad Leader [current_squad.squad_leader] of squad [current_squad].")
 
@@ -793,7 +793,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 					if(cam == new_cam) //if we switch to a console that is already watching this cam
 						return
 				if(!new_cam || !new_cam.can_use())
-					to_chat(user, "[icon2html(src, user)] [SPAN_WARNING("Searching for camera. No camera found for this marine! Tell your squad to put their cameras on!")]")
+					to_chat(user, "[icon2html(src, user)] [SPAN_WARNING("Поиск камеры... Камера не обнаружена! Сообщите отряду о необходимости включить камеры!")]")
 				else if(cam && cam == new_cam)//click the camera you're watching a second time to stop watching.
 					visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("Stopping camera view of [cam_target].")]")
 					for(var/datum/weakref/user_ref in concurrent_users)
@@ -900,7 +900,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 				to_chat(user, SPAN_WARNING("Please allow at least [COOLDOWN_COMM_MESSAGE*0.1] second\s to pass between announcements."))
 				return FALSE
 			if(announcement_faction != FACTION_MARINE && user.faction != announcement_faction)
-				to_chat(user, SPAN_WARNING("Access denied."))
+				to_chat(user, SPAN_WARNING("Доступ запрещён."))
 				return
 			var/input = stripped_multiline_input(user, "Please write a message to announce to the station crew.", "Priority Announcement", "")
 			if(!input || !(user in dview(1, src)))

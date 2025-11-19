@@ -463,7 +463,7 @@
 		if(squad_leader && squad_leader.stat == CONSCIOUS && squad_leader.client)
 			playsound_client(squad_leader.client, 'sound/effects/radiostatic.ogg', squad_leader.loc, 25, FALSE)
 			if(squad_leader in targets_to_garble)
-				squad_leader.play_screen_text("<span class='langchat' style=font-size:16pt;text-align:center valign='top'><u>[title_text]</u></span><br>[garbled_text]", /atom/movable/screen/text/screen_text/command_order, message_color)
+				squad_leader.play_screen_text("<span class='langchat_notification' style=text-align:center valign='top'><u>[title_text]</u></span><br>[garbled_text]", /atom/movable/screen/text/screen_text/command_order, message_color) // SS220 EDIT: font
 			else
 				squad_leader.play_screen_text("<span class='langchat' style=font-size:16pt;text-align:center valign='top'><u>[title_text]</u></span><br>[text]", /atom/movable/screen/text/screen_text/command_order, message_color)
 		return
@@ -472,9 +472,9 @@
 		if(marine.stat == CONSCIOUS && marine.client) //Only living and connected people in our squad
 			playsound_client(marine.client, 'sound/effects/radiostatic.ogg', marine.loc, 25, FALSE)
 			if(marine in targets_to_garble)
-				marine.play_screen_text("<span class='langchat' style=font-size:16pt;text-align:center valign='top'><u>[title_text]</u></span><br>[garbled_text]", /atom/movable/screen/text/screen_text/command_order, message_color)
+				marine.play_screen_text("<span class='langchat_notification' style=text-align:center valign='top'><u>[title_text]</u></span><br>[garbled_text]", /atom/movable/screen/text/screen_text/command_order, message_color)
 			else
-				marine.play_screen_text("<span class='langchat' style=font-size:16pt;text-align:center valign='top'><u>[title_text]</u></span><br>[text]", /atom/movable/screen/text/screen_text/command_order, message_color)
+				marine.play_screen_text("<span class='langchat' style=font-size:16pt;text-align:center valign='top'><u>[title_text]</u></span><br>[text]", /atom/movable/screen/text/screen_text/command_order, message_color) // SS220 EDIT: font
 
 /// Displays a message to the squad members in chat
 /datum/squad/proc/send_message(text="", transmitter=null, only_leader=FALSE, list/targets_to_garble=null, garbled_text="")
@@ -596,7 +596,12 @@
 	if(!istype(id_card))
 		return FALSE //No ID found
 
+	// SS220 EDIT START	 TRANSLATE
 	var/assignment = target_mob.job
+	var/datum/job/job_temp = GET_MAPPED_ROLE(target_mob.job)
+	if(job_temp && job_temp.disp_title)
+		assignment = job_temp.disp_title
+	// SS220 EDIT END	 TRANSLATE
 	var/paygrade
 
 	var/list/extra_access = list()
@@ -604,15 +609,15 @@
 	var/mob_role = GET_DEFAULT_ROLE(target_mob.job)
 	switch(mob_role)
 		if(JOB_SQUAD_ENGI)
-			assignment = JOB_SQUAD_ENGI
+			assignment = JOB_SQUAD_ENGI_RU	// SS220 EDIT TRANSLATE
 			id_card.claimedgear = FALSE
 		if(JOB_SQUAD_MEDIC)
-			assignment = JOB_SQUAD_MEDIC
+			assignment = JOB_SQUAD_MEDIC_RU	// SS220 EDIT TRANSLATE
 			id_card.claimedgear = FALSE
 		if(JOB_SQUAD_SPECIALIST)
-			assignment = JOB_SQUAD_SPECIALIST
+			assignment = JOB_SQUAD_SPECIALIST_RU	// SS220 EDIT TRANSLATE
 		if(JOB_SQUAD_TEAM_LEADER)
-			assignment = JOB_SQUAD_TEAM_LEADER
+			assignment = JOB_SQUAD_TEAM_LEADER_RU	// SS220 EDIT TRANSLATE
 			target_mob.important_radio_channels += radio_freq
 			for(var/lead in 1 to roles_cap[JOB_SQUAD_TEAM_LEADER])
 				if(!fireteam_leaders["FT[lead]"])
@@ -621,43 +626,43 @@
 					break
 
 		if(JOB_SQUAD_SMARTGUN)
-			assignment = JOB_SQUAD_SMARTGUN
+			assignment = JOB_SQUAD_SMARTGUN_RU	// SS220 EDIT TRANSLATE
 		if(JOB_SQUAD_LEADER)
 			if(squad_leader && GET_DEFAULT_ROLE(squad_leader.job) != JOB_SQUAD_LEADER) //field promoted SL
 				var/old_lead = squad_leader
 				demote_squad_leader() //replaced by the real one
 				SStracking.start_tracking(tracking_id, old_lead)
-			assignment = squad_type + " Leader"
+			assignment = "Командир " + squad_type_ru	// SS220 EDIT TRANSLATE
 			squad_leader = target_mob
 			SStracking.set_leader(tracking_id, target_mob)
 			SStracking.start_tracking("marine_sl", target_mob)
 
 		if(JOB_UPP_ENGI)
-			assignment = JOB_SQUAD_ENGI
+			assignment = JOB_SQUAD_ENGI_RU	// SS220 EDIT TRANSLATE
 			id_card.claimedgear = FALSE
 		if(JOB_UPP_MEDIC)
-			assignment = JOB_SQUAD_MEDIC
+			assignment = JOB_SQUAD_MEDIC_RU	// SS220 EDIT TRANSLATE
 			id_card.claimedgear = FALSE
 		if(JOB_UPP_SPECIALIST)
-			assignment = JOB_SQUAD_SPECIALIST
+			assignment = JOB_SQUAD_SPECIALIST_RU	// SS220 EDIT TRANSLATE
 		if(JOB_UPP_LEADER)
 			if(squad_leader && GET_DEFAULT_ROLE(squad_leader.job) != JOB_UPP_LEADER) //field promoted SL
 				var/old_lead = squad_leader
 				demote_squad_leader() //replaced by the real one
 				SStracking.start_tracking(tracking_id, old_lead)
-			assignment = squad_type + " Leader"
+			assignment = "Командир " + squad_type_ru	// SS220 EDIT TRANSLATE
 			squad_leader = target_mob
 			SStracking.set_leader(tracking_id, target_mob)
 			SStracking.start_tracking("marine_sl", target_mob)
 
 		if(JOB_MARINE_RAIDER)
-			assignment = JOB_MARINE_RAIDER
+			assignment = JOB_MARINE_RAIDER_RU	// SS220 EDIT TRANSLATE
 			if(name == JOB_MARINE_RAIDER)
-				assignment = "Smartgunner Specialist"
+				assignment = "Спец-Оператор"
 		if(JOB_MARINE_RAIDER_SG)
-			assignment = JOB_MARINE_RAIDER_SG
+			assignment = JOB_MARINE_RAIDER_SG_RU
 			if(name == JOB_MARINE_RAIDER_SG)
-				assignment = "Special Operator"
+				assignment = "Специалист-смартганнер"
 		if(JOB_MARINE_RAIDER_SL)
 			assignment = JOB_MARINE_RAIDER_SL
 			if(name == JOB_MARINE_RAIDER || name == JOB_MARINE_RAIDER_SG)
@@ -665,21 +670,21 @@
 					var/old_lead = squad_leader
 					demote_squad_leader() //replaced by the real one
 					SStracking.start_tracking(tracking_id, old_lead)
-				assignment = squad_type + " Leader"
+				assignment = "Командир " + squad_type_ru	// SS220 EDIT TRANSLATE
 				squad_leader = target_mob
 				SStracking.set_leader(tracking_id, target_mob)
 				SStracking.start_tracking("marine_sl", target_mob)
 				mob_role = JOB_SQUAD_LEADER
 		if(JOB_MARINE_RAIDER_CMD)
-			assignment = JOB_MARINE_RAIDER_CMD
+			assignment = JOB_MARINE_RAIDER_CMD_RU
 			if(name == JOB_MARINE_RAIDER || name == JOB_MARINE_RAIDER_SG)
-				assignment = "Officer"
+				assignment = "Офицер"
 
 	if(mob_role in roles_cap)
 		roles_in[mob_role]++
 
 	RegisterSignal(target_mob, COMSIG_PARENT_QDELETING, PROC_REF(personnel_deleted), override = TRUE)
-	if(assignment != JOB_SQUAD_LEADER)
+	if(mob_role != JOB_SQUAD_LEADER)
 		SStracking.start_tracking(tracking_id, target_mob)
 
 	count++ //Add up the tally. This is important in even squad distribution.
@@ -691,7 +696,7 @@
 	target_mob.assigned_squad = src //Add them to the squad
 	id_card.access += (src.access + extra_access) //Add their squad access to their ID
 	if(prepend_squad_name_to_assignment)
-		id_card.assignment = "[name] [assignment]"
+		id_card.assignment = "[assignment] [get_name_ru()]"	// SS220 EDIT TRANSLATE
 	else
 		id_card.assignment = assignment
 
@@ -818,7 +823,11 @@
 	old_lead.hud_set_squad()
 	old_lead.update_inv_head() //updating marine helmet leader overlays
 	old_lead.update_inv_wear_suit()
-	to_chat(old_lead, FONT_SIZE_BIG(SPAN_BLUE("You're no longer the [squad_type] Leader for [src]!")))
+	to_chat(old_lead, FONT_SIZE_BIG(SPAN_BLUE("Вы больше не лидер [squad_type] для [src]!"))) // SS220 EDIT ADDICTION
+
+	var/obj/item/device/radio/headset/earpiece = old_lead.get_type_in_ears(/obj/item/device/radio/headset)
+	if(earpiece)
+		earpiece.locate_setting = TRACKER_SL
 
 	var/obj/item/device/radio/headset/earpiece = old_lead.get_type_in_ears(/obj/item/device/radio/headset)
 	if(earpiece)
@@ -857,7 +866,7 @@
 			else
 				SStracking.stop_tracking(H.assigned_fireteam, H) //remove from previous FT group
 				if(H.stat == CONSCIOUS)
-					to_chat(fireteam_leaders[fireteam], FONT_SIZE_BIG(SPAN_BLUE("[H.mind ? H.comm_title : ""] [H] was unassigned from your fireteam.")))
+					to_chat(fireteam_leaders[fireteam], FONT_SIZE_BIG(SPAN_BLUE("[H.mind ? H.comm_title : ""] [H] был отстранён от вашей группы."))) // SS220 EDIT ADDICTION
 		fireteams[H.assigned_fireteam].Remove(H)
 		var/ft = H.assigned_fireteam
 		H.assigned_fireteam = fireteam
@@ -867,12 +876,12 @@
 		if(fireteam_leaders[fireteam]) //if TL exists -> FT group, otherwise -> SL group
 			SStracking.start_tracking(fireteam, H)
 			if(H.stat == CONSCIOUS)
-				to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were assigned to [fireteam]. Report to your Fireteam Leader ASAP.")))
-			to_chat(fireteam_leaders[fireteam], FONT_SIZE_BIG(SPAN_BLUE("[H.mind ? H.comm_title : ""] [H] was assigned to your fireteam.")))
+				to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("Вы были назначены в [fireteam]. Немедленно доложитесь своему командиру группы."))) // SS220 EDIT ADDICTION
+			to_chat(fireteam_leaders[fireteam], FONT_SIZE_BIG(SPAN_BLUE("[H.mind ? H.comm_title : ""] [H] был назначен в вашу группу."))) // SS220 EDIT ADDICTION
 		else
 			SStracking.start_tracking(tracking_id, H)
 			if(H.stat == CONSCIOUS)
-				to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were assigned to [fireteam].")))
+				to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("Вы были назначены в [fireteam]."))) // SS220 EDIT ADDICTION
 	else
 		fireteams[fireteam].Add(H)
 		H.assigned_fireteam = fireteam //adding to fireteam
@@ -882,10 +891,10 @@
 			SStracking.stop_tracking(tracking_id, H) //remove from previous FT group
 			SStracking.start_tracking(fireteam, H)
 			if(H.stat == CONSCIOUS)
-				to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were assigned to [fireteam]. Report to your Fireteam Leader ASAP.")))
-			to_chat(fireteam_leaders[fireteam], FONT_SIZE_BIG(SPAN_BLUE("[H.mind ? H.comm_title : ""] [H] was assigned to your fireteam.")))
+				to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("Вы были назначены в [fireteam]. Немедленно доложитесь своему командиру группы."))) // SS220 EDIT ADDICTION
+			to_chat(fireteam_leaders[fireteam], FONT_SIZE_BIG(SPAN_BLUE("[H.mind ? H.comm_title : ""] [H] был назначен в вашу группу."))) // SS220 EDIT ADDICTION
 		if(H.stat == CONSCIOUS)
-			to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were assigned to [fireteam].")))
+			to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("Вы были назначены в [fireteam]."))) // SS220 EDIT ADDICTION
 
 	var/obj/item/device/radio/headset/earpiece = H.get_type_in_ears(/obj/item/device/radio/headset)
 	if(earpiece)
@@ -902,9 +911,9 @@
 	if(fireteam_leaders[ft])
 		SStracking.stop_tracking(ft, H) //remove from FT group
 		SStracking.start_tracking(tracking_id, H) //add to SL group
-		to_chat(fireteam_leaders[ft], FONT_SIZE_HUGE(SPAN_BLUE("[H.mind ? H.comm_title : ""] [H] was unassigned from your fireteam.")))
+		to_chat(fireteam_leaders[ft], FONT_SIZE_HUGE(SPAN_BLUE("[H.mind ? H.comm_title : ""] [H] был отстранён от вашей группы.")))  // SS220 EDIT ADDICTION
 	if(!H.stat)
-		to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were unassigned from [ft].")))
+		to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("Вы были отстранены от [ft].")))
 
 	var/obj/item/device/radio/headset/earpiece = H.get_type_in_ears(/obj/item/device/radio/headset)
 	if(earpiece)
@@ -920,7 +929,7 @@
 	SStracking.set_leader(H.assigned_fireteam, H) //Set FT leader as leader of this group
 	SStracking.start_tracking("marine_sl", H)
 	if(H.stat == CONSCIOUS)
-		to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were assigned as [fireteam] Team Leader.")))
+		to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("Вы были назначены командиром [fireteam]."))) // SS220 EDIT ADDICTION
 
 	var/obj/item/device/radio/headset/earpiece = H.get_type_in_ears(/obj/item/device/radio/headset)
 	if(earpiece)
@@ -936,7 +945,7 @@
 		reassign_ft_tracker_group(fireteam, H.assigned_fireteam, tracking_id) //transfer whole FT to SL group
 		update_fireteam(fireteam)
 	if(!H.stat)
-		to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("You were unassigned as [fireteam] Team Leader.")))
+		to_chat(H, FONT_SIZE_HUGE(SPAN_BLUE("Вы были отстранены от должности командира [fireteam].")))
 
 	var/obj/item/device/radio/headset/earpiece = H.get_type_in_ears(/obj/item/device/radio/headset)
 	if(earpiece)
@@ -1043,18 +1052,18 @@
 			target_mob.squad_status = null
 		if("M.I.A.")
 			target_mob.squad_status = choice
-			to_chat(squad_leader, FONT_SIZE_BIG(SPAN_BLUE("You set [target_mob]'s status as Missing In Action.")))
+			to_chat(squad_leader, FONT_SIZE_BIG(SPAN_BLUE("Вы установили статус [target_mob] как пропавший без вести»."))) // SS220 EDIT ADDICTION
 			if(target_mob.stat == CONSCIOUS)
-				to_chat(target_mob, FONT_SIZE_HUGE(SPAN_BLUE("You were marked as Missing In Action by Squad Leader.")))
+				to_chat(target_mob, FONT_SIZE_HUGE(SPAN_BLUE("Вы были отмечены как пропавший без вести командиром отряда.")))
 		if("K.I.A.")
 			target_mob.squad_status = choice
 			if(target_mob.assigned_fireteam)
 				if(fireteam_leaders[target_mob.assigned_fireteam] == target_mob)
 					unassign_ft_leader(target_mob.assigned_fireteam, TRUE, FALSE)
 				unassign_fireteam(target_mob, FALSE)
-			to_chat(squad_leader, FONT_SIZE_BIG(SPAN_BLUE("You set [target_mob]'s status as Killed In Action. If they were Team Leader or in fireteam, they were demoted and unassigned.")))
+			to_chat(squad_leader, FONT_SIZE_BIG(SPAN_BLUE("Вы установили статус [target_mob] как погибший в бою. Если это был командир отряда или группы, он был понижен в звании и снят с должности."))) // SS220 EDIT ADDICTION
 			if(target_mob.stat == CONSCIOUS)
-				to_chat(target_mob, FONT_SIZE_HUGE(SPAN_BLUE("You were marked as Killed In Action by Squad Leader.")))
+				to_chat(target_mob, FONT_SIZE_HUGE(SPAN_BLUE("Вы были отмечены как погибший в бою командиром отряда.")))
 		else
 			return
 	if(target_mob.assigned_fireteam)
