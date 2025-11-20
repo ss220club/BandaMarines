@@ -194,11 +194,11 @@
 		garbled_message = get_garbled_announcement(message, length(postfix), faction_to_garble)
 		log_garble("[garbled_count] received '[garbled_message]' for faction [faction_to_garble].")
 
-	var/tts_message = message // BANDAMARINES EDIT - Garbled message
-
 	for(var/mob/target in targets)
 		if(istype(target, /mob/new_player))
 			continue
+
+		var/tts_message = message // BANDAMARINES EDIT - Garbled message
 
 		if(target in targets_to_garble)
 			to_chat_spaced(target, html = "[SPAN_ANNOUNCEMENT_HEADER(title)]<br><br>[SPAN_ANNOUNCEMENT_BODY(garbled_message)]", type = MESSAGE_TYPE_RADIO)
