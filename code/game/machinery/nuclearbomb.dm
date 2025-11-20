@@ -341,8 +341,8 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 			humans_other -= current_mob
 
 	if(timer_warning) //we check for timer warnings first
-		announcement_helper("ВНИМАНИЕ.\n\nДО ДЕТОНАЦИИ ЗАРЯДА - [floor(timeleft/10)] СЕКУНД.", "[MAIN_AI_SYSTEM]: Мониторинг ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
-		announcement_helper("ВНИМАНИЕ.\n\nДО ДЕТОНАЦИИ ЗАРЯДА - [floor(timeleft/10)] СЕКУНД.", "HQ Intel Division", humans_other, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
+		announcement_helper("ВНИМАНИЕ.\n\nДО ДЕТОНАЦИИ ЗАРЯДА - [floor(timeleft/10)] СЕКУНД.", "[MAIN_AI_SYSTEM]: Мониторинг ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
+		announcement_helper("ВНИМАНИЕ.\n\nДО ДЕТОНАЦИИ ЗАРЯДА - [floor(timeleft/10)] СЕКУНД.", "HQ Intel Division", humans_other, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
 		//preds part
 		var/t_left = duration2text_sec(floor(rand(timeleft - timeleft / 10, timeleft + timeleft / 10)))
 		elder_overseer_message("Человеческое устройство очистки было активировано. У вас есть примерно [t_left] секунд, чтобы покинуть охотничьи угодья до его детонации.") // SS220 EDIT ADDICTION
@@ -364,8 +364,8 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 
 	var/datum/hive_status/hive
 	if(timing)
-		announcement_helper("ВНИМАНИЕ.\n\nЯДЕРНЫЙ ЗАРЯД РАЗВЁРНУТ.\n\nДО ДЕТОНАЦИИ - [floor(timeleft/10)] СЕКУНД.", "[MAIN_AI_SYSTEM]: Датчик ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
-		announcement_helper("ВНИМАНИЕ.\n\nЯДЕРНЫЙ ЗАРЯД РАЗВЁРНУТ.\n\nДО ДЕТОНАЦИИ - [floor(timeleft/10)] СЕКУНД.", "HQ Nuclear Tracker", humans_other, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
+		announcement_helper("ВНИМАНИЕ.\n\nЯДЕРНЫЙ ЗАРЯД РАЗВЁРНУТ.\n\nДО ДЕТОНАЦИИ - [floor(timeleft/10)] СЕКУНД.", "[MAIN_AI_SYSTEM]: Датчик ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
+		announcement_helper("ВНИМАНИЕ.\n\nЯДЕРНЫЙ ЗАРЯД РАЗВЁРНУТ.\n\nДО ДЕТОНАЦИИ - [floor(timeleft/10)] СЕКУНД.", "HQ Nuclear Tracker", humans_other, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
 		var/t_left = duration2text_sec(floor(rand(timeleft - timeleft / 10, timeleft + timeleft / 10)))
 		elder_overseer_message("Человеческое устройство очистки было развернуто. У вас есть примерно [t_left] секунд, чтобы покинуть охотничьи угодья до начала дешифровки.") // SS220 EDIT ADDICTION
 		for(var/hivenumber in GLOB.hive_datum)
@@ -374,8 +374,8 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 				continue
 			xeno_announcement(SPAN_XENOANNOUNCE("Носители развернули убийцу ульев около «[get_area_name(loc)]»! Остановите их любой ценой!"), hive.hivenumber, XENO_GENERAL_ANNOUNCE) // SS220 EDIT ADDICTION
 	else
-		announcement_helper("ВНИМАНИЕ.\n\nЯДЕРНЫЙ ЗАРЯД ДЕАКТИВИРОВАН.", "[MAIN_AI_SYSTEM]: Датчик ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
-		announcement_helper("ВНИМАНИЕ.\n\nЯДЕРНЫЙ ЗАРЯД ДЕАКТИВИРОВАН.", "HQ Intel Division", humans_other, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
+		announcement_helper("ВНИМАНИЕ.\n\nЯДЕРНЫЙ ЗАРЯД ДЕАКТИВИРОВАН.", "[MAIN_AI_SYSTEM]: Датчик ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
+		announcement_helper("ВНИМАНИЕ.\n\nЯДЕРНЫЙ ЗАРЯД ДЕАКТИВИРОВАН.", "HQ Intel Division", humans_other, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
 		elder_overseer_message("Сигнатура человеческого устройства очистки исчезла.")
 		for(var/hivenumber in GLOB.hive_datum)
 			hive = GLOB.hive_datum[hivenumber]
@@ -610,8 +610,8 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 
 	if(timer_warning)
 		if(timer_warning == NUKE_DECRYPT_SHOW_TIMER_COMPLETE)
-			announcement_helper("ВНИМАНИЕ.\n\nДЕШИФРОВКА ЗАВЕРШЕНА.\n\nЯДЕРНЫЙ ЗАРЯД АКТИВИРОВАН.\n\nДЕТОНАЦИЯ ЧЕРЕЗ [floor(timeleft/10)] СЕКУНД.", "[MAIN_AI_SYSTEM]: Мониторинг ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
-			announcement_helper("ВНИМАНИЕ.\n\nЯДЕРНЫЙ ЗАРЯД АКТИВИРОВАН.\n\nДЕТОНАЦИЯ ЧЕРЕЗ [floor(timeleft/10)] СЕКУНД.", "HQ Nuclear Tracker", humans_other, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
+			announcement_helper("ВНИМАНИЕ.\n\nДЕШИФРОВКА ЗАВЕРШЕНА.\n\nЯДЕРНЫЙ ЗАРЯД АКТИВИРОВАН.\n\nДЕТОНАЦИЯ ЧЕРЕЗ [floor(timeleft/10)] СЕКУНД.", "[MAIN_AI_SYSTEM]: Мониторинг ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
+			announcement_helper("ВНИМАНИЕ.\n\nЯДЕРНЫЙ ЗАРЯД АКТИВИРОВАН.\n\nДЕТОНАЦИЯ ЧЕРЕЗ [floor(timeleft/10)] СЕКУНД.", "HQ Nuclear Tracker", humans_other, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
 			var/t_left = duration2text_sec(floor(rand(timeleft - timeleft / 10, timeleft + timeleft / 10)))
 			elder_overseer_message("Человеческое устройство очистки было дешифровано. У вас есть примерно [t_left] секунд, чтобы покинуть охотничьи угодья до его активации.") // SS220 EDIT ADDICTION
 			var/datum/hive_status/hive
@@ -621,8 +621,8 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 					continue
 				xeno_announcement(SPAN_XENOANNOUNCE("Носители расшифровали убийцу ульев около «[get_area_name(loc)]»! Остановите их любой ценой!"), hive.hivenumber, XENO_GENERAL_ANNOUNCE) // SS220 EDIT ADDICTION
 			return
-		announcement_helper("ДО ЗАВЕРШЕНИЯ ДЕШИФРОВКИ - [floor(decryption_time/10)] СЕКУНД.", "[MAIN_AI_SYSTEM]: Мониторинг ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
-		announcement_helper("ДО ЗАВЕРШЕНИЯ ДЕШИФРОВКИ - [floor(decryption_time/10)] СЕКУНД.", "HQ Intel Division", humans_other, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
+		announcement_helper("ДО ЗАВЕРШЕНИЯ ДЕШИФРОВКИ - [floor(decryption_time/10)] СЕКУНД.", "[MAIN_AI_SYSTEM]: Мониторинг ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
+		announcement_helper("ДО ЗАВЕРШЕНИЯ ДЕШИФРОВКИ - [floor(decryption_time/10)] СЕКУНД.", "HQ Intel Division", humans_other, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
 
 		//preds part
 		var/time_left = duration2text_sec(floor(rand(decryption_time - decryption_time / 10, decryption_time + decryption_time / 10)))
@@ -643,8 +643,8 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 
 	var/datum/hive_status/hive
 	if(decrypting)
-		announcement_helper("ВНИМАНИЕ.\n\nНАЧАТА ДЕШИФРОВКА ЯДЕРНОГО ЗАРЯДА.\n\nДО ЗАВЕРШЕНИЯ ДЕШИФРОВКИ - [floor(decryption_time/10)] СЕКУНД.", "[MAIN_AI_SYSTEM]: Мониторинг ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
-		announcement_helper("ВНИМАНИЕ.\n\nНАЧАТА ДЕШИФРОВКА ЯДЕРНОГО ЗАРЯДА.\n\nДО ЗАВЕРШЕНИЯ ДЕШИФРОВКИ - [floor(decryption_time/10)] СЕКУНД.", "HQ Nuclear Tracker", humans_other, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
+		announcement_helper("ВНИМАНИЕ.\n\nНАЧАТА ДЕШИФРОВКА ЯДЕРНОГО ЗАРЯДА.\n\nДО ЗАВЕРШЕНИЯ ДЕШИФРОВКИ - [floor(decryption_time/10)] СЕКУНД.", "[MAIN_AI_SYSTEM]: Мониторинг ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
+		announcement_helper("ВНИМАНИЕ.\n\nНАЧАТА ДЕШИФРОВКА ЯДЕРНОГО ЗАРЯДА.\n\nДО ЗАВЕРШЕНИЯ ДЕШИФРОВКИ - [floor(decryption_time/10)] СЕКУНД.", "HQ Nuclear Tracker", humans_other, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
 		var/time_left = duration2text_sec(floor(rand(decryption_time - decryption_time / 10, decryption_time + decryption_time / 10)))
 		elder_overseer_message("Инициализирована дешифровка кодов человеческого устройства очистки. У вас есть примерно [time_left] секунд, чтобы покинуть охотничьи угодья до завершения дешифровки.") // SS220 EDIT ADDICTION
 		for(var/hivenumber in GLOB.hive_datum)
@@ -654,8 +654,8 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 			xeno_announcement(SPAN_XENOANNOUNCE("Носители начали фазу расшифровки кодов убийцы ульев около «[get_area_name(loc)]»! У вас есть примерно [time_left] секунд, чтобы уничтожить хотя бы одно коммуникационное реле!"), hive.hivenumber, XENO_GENERAL_ANNOUNCE) // SS220 EDIT ADDICTION
 		return
 
-	announcement_helper("ВНИМАНИЕ.\n\nДЕШИФРОВКА ЯДЕРНОГО ЗАРЯДА ОСТАНОВЛЕНА.\n\nНеожиданная остановка расшифровки привела к потере данных.", "[MAIN_AI_SYSTEM]: Мониторинг ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
-	announcement_helper("ВНИМАНИЕ.\n\nДЕШИФРОВКА ЯДЕРНОГО ЗАРЯДА ОСТАНОВЛЕНА.", "HQ Intel Division", humans_other, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
+	announcement_helper("ВНИМАНИЕ.\n\nДЕШИФРОВКА ЯДЕРНОГО ЗАРЯДА ОСТАНОВЛЕНА.\n\nНеожиданная остановка расшифровки привела к потере данных.", "[MAIN_AI_SYSTEM]: Мониторинг ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
+	announcement_helper("ВНИМАНИЕ.\n\nДЕШИФРОВКА ЯДЕРНОГО ЗАРЯДА ОСТАНОВЛЕНА.", "HQ Intel Division", humans_other, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
 	elder_overseer_message("Сигнатура человеческого устройства очистки исчезла.")
 	for(var/hivenumber in GLOB.hive_datum)
 		hive = GLOB.hive_datum[hivenumber]
