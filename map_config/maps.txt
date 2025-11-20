@@ -67,4 +67,5 @@ map whiskey_outpost_v2
 endmap
 
 map suburb_lv759
+	minplayers 100
 endmap

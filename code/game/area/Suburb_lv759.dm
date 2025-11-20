@@ -14,7 +14,7 @@
 /area/Suburb_lv759/indoors
 	name = "Hybrisa - Indoors"
 	icon_state = "cliff_blocked"//because this is a PARENT TYPE and you should not be using it and should also be changing the icon!!!
-	ceiling = CEILING_METAL
+	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 	ambience_exterior = AMBIENCE_HYBRISA_INTERIOR
 
@@ -91,6 +91,7 @@
 
 /area/Suburb_lv759/indoors/caves/Monorail
 	name = "Monorail"
+	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
 	icon_state = "power0"
 
 
