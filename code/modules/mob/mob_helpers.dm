@@ -120,7 +120,7 @@ GLOBAL_LIST_INIT(limb_types_by_name, list(
 		return message
 
 	var/output_message = ""
-	var/message_length = length(message)
+	var/message_length = length_char(message) // BANDAMARINES EDIT - Fix garbled announcement
 	var/index = 1
 	while(index <= message_length)
 		var/char = copytext_char(message, index, index + 1) // SS220 EDIT - RU fix
@@ -164,8 +164,8 @@ GLOBAL_LIST_INIT(limb_types_by_name, list(
 
 	// output string after parse
 	var/output_message = ""
-	for(var/character_index in 1 to length(message))
-		var/current_char = message[character_index]
+	for(var/character_index in 1 to length_char(message)) // BANDAMARINES EDIT - Fix garbled announcement
+		var/current_char = copytext_char(message, character_index, character_index + 1) // BANDAMARINES EDIT - Fix garbled announcement
 
 		// Apparent edge case safety, we only want to check the < and > on the edges of the tag.
 		if(!parsing_message)
@@ -222,7 +222,7 @@ GLOBAL_LIST_INIT(last_announcement_time, list(FACTION_MARINE = 0))
 	var/clarity_min = CONFIG_GET(number/announcement_min_clarity)
 	var/clarity_max = CONFIG_GET(number/announcement_max_clarity)
 
-	var/length_clamped = clamp(length(message) - length_modifier, length_min_bound, length_max_bound)
+	var/length_clamped = clamp(length_char(message) - length_modifier, length_min_bound, length_max_bound) // BANDAMARINES EDIT - Fix garbled announcement
 	var/length_scalar = SCALE(length_clamped, length_min_bound, length_max_bound)
 	var/duration_scalar = 1
 	if(faction_for_cooldown)

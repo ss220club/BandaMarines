@@ -7,15 +7,8 @@
 #define XENO_GENERAL_ANNOUNCE "Вы чувствуете нечто необычное..." //general xeno announcement that don't involve Queen, for nuke for example
 #define HIGHER_FORCE_ANNOUNCE SPAN_ANNOUNCEMENT_HEADER_BLUE("Unknown Higher Force")
 
-// SS220 ADD START - TTS
-#define TTS_DEFAULT_ANNOUNCER new /datum/announcer
-#define TTS_ARES_ANNOUNCER new /datum/announcer/ares
-#define TTS_QUEEN_MOTHER_ANNOUNCER new /datum/announcer/queen_mother
-#define TTS_SILENT_ANNOUNCER new /datum/announcer/silent
-// SS220 ADD END - TTS
-
 //xenomorph hive announcement
-/proc/xeno_announcement(message, hivenumber, title = QUEEN_ANNOUNCE, announcer = TTS_QUEEN_MOTHER_ANNOUNCER) // BANDAMARINES EDIT - ORIGINAL: /proc/xeno_announcement(message, hivenumber, title = QUEEN_ANNOUNCE)
+/proc/xeno_announcement(message, hivenumber, title = QUEEN_ANNOUNCE, announcer = GLOB.tts_announcers[TTS_QUEEN_MOTHER_ANNOUNCER_KEY]) // BANDAMARINES EDIT - ORIGINAL: /proc/xeno_announcement(message, hivenumber, title = QUEEN_ANNOUNCE)
 	var/list/targets = GLOB.living_xeno_list + GLOB.dead_mob_list
 	if(hivenumber == "everything")
 		for(var/mob/M in targets)
@@ -36,7 +29,7 @@
 
 
 //general marine announcement
-/proc/marine_announcement(message, title = COMMAND_ANNOUNCE, sound_to_play = sound('sound/misc/notice2.ogg'), faction_to_display = FACTION_MARINE, add_PMCs = FALSE, signature, logging = ARES_LOG_MAIN, announcer = TTS_ARES_ANNOUNCER) // BANDAMARINES EDIT - ORIGINAL: /proc/marine_announcement(message, title = COMMAND_ANNOUNCE, sound_to_play = sound('sound/misc/notice2.ogg'), faction_to_display = FACTION_MARINE, add_PMCs = FALSE, signature, logging = ARES_LOG_MAIN)
+/proc/marine_announcement(message, title = COMMAND_ANNOUNCE, sound_to_play = sound('sound/misc/notice2.ogg'), faction_to_display = FACTION_MARINE, add_PMCs = FALSE, signature, logging = ARES_LOG_MAIN, announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY]) // BANDAMARINES EDIT - ORIGINAL: /proc/marine_announcement(message, title = COMMAND_ANNOUNCE, sound_to_play = sound('sound/misc/notice2.ogg'), faction_to_display = FACTION_MARINE, add_PMCs = FALSE, signature, logging = ARES_LOG_MAIN)
 	var/list/targets = GLOB.human_mob_list + GLOB.dead_mob_list
 	var/list/targets_to_garble = list()
 	var/list/coms_zs = SSradio.get_available_tcomm_zs(COMM_FREQ)
@@ -168,7 +161,7 @@
 
 //AI shipside announcement, that uses announcement mechanic instead of talking into comms
 //to ensure that all humans on ship hear it regardless of comms and power
-/proc/shipwide_ai_announcement(message, title = MAIN_AI_SYSTEM, sound_to_play = sound('sound/misc/interference.ogg'), signature, ares_logging = ARES_LOG_MAIN, quiet = FALSE, announcer = TTS_ARES_ANNOUNCER) // BANDAMARINES EDIT - ORIGINAL: /proc/shipwide_ai_announcement(message, title = MAIN_AI_SYSTEM, sound_to_play = sound('sound/misc/interference.ogg'), signature, ares_logging = ARES_LOG_MAIN, quiet = FALSE)
+/proc/shipwide_ai_announcement(message, title = MAIN_AI_SYSTEM, sound_to_play = sound('sound/misc/interference.ogg'), signature, ares_logging = ARES_LOG_MAIN, quiet = FALSE, announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY]) // BANDAMARINES EDIT - ORIGINAL: /proc/shipwide_ai_announcement(message, title = MAIN_AI_SYSTEM, sound_to_play = sound('sound/misc/interference.ogg'), signature, ares_logging = ARES_LOG_MAIN, quiet = FALSE)
 	var/list/targets = GLOB.human_mob_list + GLOB.dead_mob_list
 	for(var/mob/target as anything in targets)
 		if(isobserver(target))
@@ -190,7 +183,7 @@
 /proc/all_hands_on_deck(message, title = MAIN_AI_SYSTEM, sound_to_play = sound('sound/misc/sound_misc_boatswain.ogg'))
 	shipwide_ai_announcement(message, title, sound_to_play, null, ARES_LOG_MAIN, FALSE)
 
-/proc/announcement_helper(message, title, list/targets, sound_to_play, quiet, postfix, list/targets_to_garble, faction_to_garble, datum/announcer/announcer = TTS_DEFAULT_ANNOUNCER) // SS220 EDIT - TTS)
+/proc/announcement_helper(message, title, list/targets, sound_to_play, quiet, postfix, list/targets_to_garble, faction_to_garble, datum/announcer/announcer = GLOB.tts_announcers[TTS_DEFAULT_ANNOUNCER_KEY]) // SS220 EDIT - TTS)
 	if(!message || !title || !targets) //Shouldn't happen
 		return
 
@@ -205,8 +198,11 @@
 		if(istype(target, /mob/new_player))
 			continue
 
+		var/tts_message = message // BANDAMARINES EDIT - Garbled message
+
 		if(target in targets_to_garble)
 			to_chat_spaced(target, html = "[SPAN_ANNOUNCEMENT_HEADER(title)]<br><br>[SPAN_ANNOUNCEMENT_BODY(garbled_message)]", type = MESSAGE_TYPE_RADIO)
+			tts_message = garbled_message // BANDAMARINES EDIT - Garbled message
 		else
 			to_chat_spaced(target, html = "[SPAN_ANNOUNCEMENT_HEADER(title)]<br><br>[SPAN_ANNOUNCEMENT_BODY(message)]", type = MESSAGE_TYPE_RADIO)
 
@@ -218,5 +214,5 @@
 		// SS220 ADD START - TTS
 		if(isobserver(target) && !(target.client?.prefs?.toggles_sound & SOUND_OBSERVER_ANNOUNCEMENTS))
 			continue
-		announcer.Message(message = message, receivers = list(target))
+		announcer.Message(message = tts_message, receivers = list(target)) // BANDAMARINES EDIT - Garbled message
 		// SS220 ADD END - TTS
