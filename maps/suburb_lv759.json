@@ -1,13 +1,12 @@
 {
     "map_name": "Suburb LV-759 Hybrisa Prospera",
     "short_name": "Suburb Hybrisa",
-    "map_path": "map_files/suburb_lv759",
-    "map_file": "suburb_lv759.dmm",
+    "map_path": "map_files/Suburb_lv759",
+    "map_file": "Suburb_lv759.dmm",
 
     "weather_holder": "/datum/weather_ss_map_holder/lv759_hybrisa_prospera",
     "survivor_types": [
         "/datum/equipment_preset/survivor/hybrisa/civilian",
-        "/datum/equipment_preset/survivor/hybrisa/sanitation",
         "/datum/equipment_preset/survivor/hybrisa/pizza_galaxy",
         "/datum/equipment_preset/survivor/hybrisa/fire_fighter",
         "/datum/equipment_preset/survivor/hybrisa/doctor",
