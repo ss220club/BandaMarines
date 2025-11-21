@@ -858,6 +858,8 @@
 	// SS220 EDIT - TTS
 	if(SStts220.is_enabled)
 		S["tts_seed"] >> tts_seed
+	S["declined_name"] >> declined_name
+	declined_name = sanitize_declined_name()
 	// =================================
 
 	return 1
@@ -947,9 +949,10 @@
 	S["exploit_record"] << exploit_record
 
 	// =================================
-	// SS220 EDIT - TTS
+	// SS220 EDIT
 	if(SStts220.is_enabled)
 		S["tts_seed"] << tts_seed
+	S["declined_name"] << declined_name
 	// =================================
 
 	return 1
