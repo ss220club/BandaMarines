@@ -1,0 +1,237 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"cO" = (
+/obj/effect/landmark/survivor_spawner/twe/iasf/engi,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"df" = (
+/obj/effect/landmark/survivor_spawner/twe/iasf/paratrooper,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"eO" = (
+/obj/effect/landmark/survivor_spawner/twe/iasf/squad_leader,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"hC" = (
+/obj/item/parachute,
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"ii" = (
+/turf/open/auto_turf/sand_white/layer0,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"mC" = (
+/turf/closed/wall/strata_outpost,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"nS" = (
+/turf/open/floor/almayer/test_floor4,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"qp" = (
+/obj/effect/vehicle_spawner/arc,
+/turf/open/floor/almayer/test_floor4,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"rp" = (
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"rK" = (
+/obj/effect/landmark/survivor_spawner/twe/iasf/medic,
+/turf/open/auto_turf/sand_white/layer0,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"wP" = (
+/turf/open/floor/plating,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"wV" = (
+/obj/item/trash/cigbutt{
+	pixel_x = -10;
+	pixel_y = 13
+	},
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"Bg" = (
+/obj/item/ammo_magazine/hardpoint/arc_sentry,
+/obj/item/ammo_magazine/hardpoint/arc_sentry,
+/obj/item/ammo_magazine/hardpoint/arc_sentry,
+/obj/item/storage/belt/medical/lifesaver/full,
+/obj/structure/droppod/container,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"Qr" = (
+/obj/structure/machinery/power/apc/no_power/east,
+/turf/open/floor/plating,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"Rn" = (
+/obj/item/parachute,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"WZ" = (
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"Xk" = (
+/obj/item/ammo_box/magazine/p90,
+/obj/item/ammo_box/magazine/p90,
+/obj/structure/droppod/container,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+"YQ" = (
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/indoors/spaceport/ifas_ship)
+
+(1,1,1) = {"
+ii
+YQ
+Rn
+df
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+df
+Rn
+YQ
+"}
+(2,1,1) = {"
+YQ
+df
+YQ
+YQ
+Rn
+YQ
+YQ
+Bg
+YQ
+YQ
+YQ
+wV
+YQ
+YQ
+"}
+(3,1,1) = {"
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+ii
+"}
+(4,1,1) = {"
+YQ
+YQ
+YQ
+YQ
+WZ
+WZ
+WZ
+WZ
+WZ
+YQ
+YQ
+YQ
+YQ
+YQ
+"}
+(5,1,1) = {"
+YQ
+YQ
+YQ
+YQ
+nS
+nS
+qp
+nS
+nS
+YQ
+YQ
+Qr
+YQ
+ii
+"}
+(6,1,1) = {"
+YQ
+YQ
+YQ
+YQ
+WZ
+WZ
+WZ
+WZ
+WZ
+YQ
+YQ
+mC
+wP
+YQ
+"}
+(7,1,1) = {"
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+"}
+(8,1,1) = {"
+df
+YQ
+eO
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+YQ
+"}
+(9,1,1) = {"
+YQ
+Rn
+hC
+ii
+rK
+rp
+rp
+YQ
+YQ
+Rn
+YQ
+YQ
+Xk
+YQ
+"}
+(10,1,1) = {"
+YQ
+YQ
+ii
+rp
+YQ
+hC
+YQ
+YQ
+cO
+YQ
+YQ
+YQ
+YQ
+YQ
+"}

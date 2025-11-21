@@ -1,0 +1,2076 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aI" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/item/paper_bin,
+/obj/item/tool/pen/blue{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"br" = (
+/obj/structure/barricade/sandbags/wired{
+	dir = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"bA" = (
+/obj/structure/barricade/sandbags/wired{
+	dir = 1
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"bE" = (
+/obj/structure/largecrate/random/barrel/true_random,
+/obj/item/mortar_shell/incendiary,
+/obj/item/mortar_shell/incendiary,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"bI" = (
+/obj/effect/vehicle_spawner/clf_van/fixed,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"bK" = (
+/turf/open/auto_turf/strata_grass/layer0_mud_alt,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"cI" = (
+/obj/structure/prop/rock/brown{
+	dir = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"db" = (
+/obj/structure/barricade/sandbags/wired{
+	dir = 4
+	},
+/turf/open/auto_turf/sand_white/layer0,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"dn" = (
+/turf/open/gm/river,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"dH" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stack/rods{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/structure/barricade/metal/wired{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"ec" = (
+/obj/effect/landmark/survivor_spawner/clf/hybrisa,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"fe" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/item/tool/shovel/etool,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"fy" = (
+/obj/structure/largecrate/supply/supplies/flares,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"fA" = (
+/obj/structure/closet/crate/ammo,
+/obj/item/ammo_box/magazine/mp5,
+/obj/item/ammo_box/magazine/mar30,
+/obj/item/ammo_magazine/shotgun/slugs,
+/obj/item/ammo_magazine/shotgun/buckshot{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/obj/item/ammo_magazine/shotgun/incendiary,
+/obj/item/ammo_magazine/shotgun/buckshot,
+/obj/item/ammo_magazine/shotgun/buckshot,
+/turf/open/floor/plating/platebot,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"fC" = (
+/obj/item/stack/rods{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/ammo_magazine/smg/mp5,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"gb" = (
+/obj/structure/machinery/defenses/sentry/premade/lowammo/random/dumb{
+	dir = 4
+	},
+/turf/open/floor/plating/platebot,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"gd" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/trash/cigbutt,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"ge" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/chair{
+	dir = 8;
+	pixel_y = 3
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"gm" = (
+/obj/structure/barricade/sandbags/wired,
+/obj/structure/barricade/sandbags/wired{
+	dir = 8
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"gy" = (
+/obj/item/clothing/head/helmet/marine/veteran/mercenary/miner/clf,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"ha" = (
+/obj/effect/landmark/objective_landmark/medium,
+/obj/item/ammo_magazine/smg/mp5,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"hb" = (
+/obj/item/device/binoculars,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"hm" = (
+/obj/structure/barricade/sandbags/wired,
+/obj/structure/barricade/sandbags/wired{
+	dir = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"hp" = (
+/obj/structure/airlock_assembly/multi_tile{
+	dir = 8
+	},
+/turf/open/floor/plating/platebot,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"hI" = (
+/obj/structure/prop/rock/brown{
+	dir = 5
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"hM" = (
+/turf/open/floor/plating/platebot,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"hW" = (
+/obj/structure/sign/poster/wylogo,
+/obj/item/attachable/bayonet/upp{
+	anchored = 1;
+	layer = 3.6;
+	pixel_x = -9;
+	pixel_y = -7
+	},
+/turf/closed/wall/strata_outpost,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"ix" = (
+/obj/effect/landmark/survivor_spawner/clf/hybrisa,
+/turf/open/auto_turf/sand_white/layer0,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"jh" = (
+/obj/structure/sign/banners/clf_worn,
+/turf/closed/wall/strata_outpost/reinforced,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"jr" = (
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/item/maintenance_jack,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"jv" = (
+/obj/structure/closet/crate/construction,
+/obj/item/bodybag/tarp,
+/obj/item/circuitboard/apc,
+/obj/item/circuitboard/airlock,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"jy" = (
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/item/storage/box/clf,
+/obj/structure/sign/poster/clf{
+	pixel_y = 32
+	},
+/obj/item/prop/flower_vase/redwhiteflowers,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"jD" = (
+/obj/structure/barricade/sandbags/wired{
+	dir = 8
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"jV" = (
+/obj/structure/largecrate/supply/ammo/shotgun,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"kd" = (
+/obj/item/defenses/handheld/planted_flag/clf,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"kr" = (
+/obj/effect/landmark/survivor_spawner/clf/hybrisa,
+/turf/open/auto_turf/strata_grass/layer0_mud_alt,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"ku" = (
+/obj/structure/prop/rock/brown,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"kO" = (
+/obj/structure/machinery/colony_floodlight,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"kR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/power/apc/power/north{
+	start_charge = 20
+	},
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"mf" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/bedroll{
+	dir = 5
+	},
+/obj/item/prop/colony/usedbandage{
+	dir = 10
+	},
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"mn" = (
+/obj/item/device/flashlight/lamp/tripod/grey{
+	light_power = 0.4;
+	light_range = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"mr" = (
+/obj/structure/barricade/plasteel/wired,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"mu" = (
+/obj/structure/machinery/space_heater,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"mv" = (
+/obj/structure/barricade/sandbags/wired,
+/turf/open/auto_turf/sand_white/layer0,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"mw" = (
+/turf/closed/wall/strata_outpost,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"nt" = (
+/obj/structure/largecrate/random/barrel/medical,
+/obj/item/mortar_shell/flare,
+/obj/item/mortar_shell/flare,
+/obj/item/mortar_shell/flare,
+/obj/item/mortar_shell/flare,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"nL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/storage/box/m56d_hmg,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"nM" = (
+/obj/structure/barricade/sandbags/wired{
+	dir = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"nZ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/toy/plush/rock,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"ok" = (
+/turf/open/auto_turf/sand_white/layer0,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"op" = (
+/obj/item/trash/cigbutt,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"oE" = (
+/obj/structure/barricade/metal/wired{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"oI" = (
+/turf/closed/wall/hybrisa/rock,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"ph" = (
+/obj/item/flag/plantable/clf,
+/obj/item/trash/twe_mre,
+/obj/item/ammo_box/magazine/mar50,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"pX" = (
+/obj/structure/largecrate/random/secure,
+/obj/item/stack/sheet/plasteel/med_large_stack,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"qf" = (
+/obj/structure/barricade/plasteel/wired{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"qh" = (
+/obj/structure/barricade/sandbags/wired{
+	dir = 1
+	},
+/turf/open/auto_turf/sand_white/layer0,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"ql" = (
+/obj/structure/prop/rock/brown{
+	dir = 6
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"qo" = (
+/obj/structure/girder{
+	health = 0
+	},
+/turf/open/floor/plating/platebot,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"qV" = (
+/obj/structure/closet/crate/ammo,
+/obj/item/clothing/accessory/storage/webbing/black,
+/obj/item/clothing/accessory/storage/webbing/black,
+/obj/item/clothing/accessory/storage/webbing/black,
+/obj/item/clothing/accessory/storage/webbing/black,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"rx" = (
+/obj/structure/barricade/plasteel/wired{
+	dir = 4;
+	closed = 0
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"rA" = (
+/obj/structure/girder,
+/turf/open/floor/plating/platebot,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"sd" = (
+/obj/structure/cargo_container/kelland/left,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"sz" = (
+/obj/structure/bed/stool,
+/obj/item/ammo_magazine/rifle/mar40/extended,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"sB" = (
+/obj/structure/sign/poster/clf,
+/turf/closed/wall/strata_outpost,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"sG" = (
+/obj/structure/tent/big,
+/turf/open/auto_turf/strata_grass/layer0_mud_alt,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"sZ" = (
+/obj/structure/sign/poster/clf{
+	pixel_y = 32
+	},
+/turf/open/floor/plating/platebot,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"tc" = (
+/obj/effect/landmark/corpsespawner/clf,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"tZ" = (
+/obj/structure/barricade/plasteel/wired,
+/turf/open/auto_turf/sand_white/layer0,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"ue" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/metal/wired{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"ug" = (
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/item/storage/belt/marine/m16,
+/obj/item/weapon/gun/rifle/m16/m16a5,
+/obj/item/ammo_magazine/rifle/m16/ap,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"uw" = (
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/item/weapon/gun/smg/fp9000,
+/obj/item/ammo_magazine/smg/fp9000,
+/obj/item/ammo_magazine/smg/fp9000,
+/obj/item/ammo_magazine/smg/fp9000,
+/obj/item/ammo_magazine/smg/fp9000,
+/obj/item/ammo_magazine/smg/fp9000,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"uZ" = (
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/structure/machinery/faxmachine{
+	department = "CLF - Cell 42"
+	},
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"vA" = (
+/obj/effect/landmark/objective_landmark/medium,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"vE" = (
+/obj/item/tool/shovel/etool,
+/turf/open/floor/plating/plating_catwalk/shiva,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"wm" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_magazine/smg/mp5,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"wu" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"wA" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/landmark/survivor_spawner/clf_medic/hybrisa,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"wK" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"wZ" = (
+/obj/structure/airlock_assembly/multi_tile,
+/turf/open/floor/plating/plating_catwalk/shiva,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"xK" = (
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/effect/spawner/random/powercell,
+/obj/effect/landmark/objective_landmark/science,
+/obj/item/map/lv759_map,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"xS" = (
+/obj/structure/cargo_container/upp_small/container_1/left,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"xY" = (
+/obj/structure/cargo_container/grant/leftmid,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"yl" = (
+/obj/structure/largecrate/supply/supplies/flares,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"yF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/device/flashlight/lamp/tripod/grey{
+	light_power = 0.4;
+	light_range = 4
+	},
+/obj/item/prop/colony/usedbandage{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"zi" = (
+/obj/item/ammo_magazine/handful/shotgun/incendiary,
+/turf/open/auto_turf/strata_grass/layer0_mud_alt,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"As" = (
+/obj/structure/machinery/power/power_generator/port_gen,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"AW" = (
+/obj/structure/largecrate/supply/ammo/m56d,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Bo" = (
+/obj/item/weapon/gun/launcher/grenade/m84,
+/turf/open/auto_turf/sand_white/layer0,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Br" = (
+/obj/item/tool/warning_cone,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Cj" = (
+/obj/structure/surface/rack,
+/obj/item/weapon/gun/rifle/mar40/carbine,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Cl" = (
+/obj/structure/largecrate/machine,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"CC" = (
+/obj/structure/barricade/sandbags/wired{
+	dir = 1
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"CK" = (
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/item/storage/belt/medical/full{
+	pixel_y = 17
+	},
+/obj/item/storage/firstaid/regular,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"CQ" = (
+/obj/item/trash/chips,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Df" = (
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/item/weapon/gun/smg/mp5/mp5a5/tactical,
+/obj/item/ammo_magazine/smg/mp5,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"DH" = (
+/obj/structure/sign/banners/clf_flag,
+/turf/closed/wall/strata_outpost,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Eb" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/survivor_spawner/clf_lead/hybrisa,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Et" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/largecrate/guns/merc,
+/obj/item/weapon/gun/rifle/mar40/lmg,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Eu" = (
+/obj/item/ammo_box/magazine/misc/mre/wy/empty,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"EB" = (
+/obj/structure/barricade/plasteel/wired{
+	dir = 1;
+	closed = 0
+	},
+/turf/open/auto_turf/sand_white/layer0,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"EM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/metal/wired{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"EU" = (
+/obj/structure/largecrate/random/secure,
+/obj/item/stack/sheet/metal/med_large_stack,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Fp" = (
+/obj/structure/barricade/plasteel/wired{
+	dir = 1;
+	closed = 0
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"FC" = (
+/obj/structure/machinery/defenses/sentry/premade/lowammo/random/dumb,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Gb" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/open/auto_turf/sand_white/layer0,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Gx" = (
+/obj/structure/flora/bush/ausbushes/var3/brflowers,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"GC" = (
+/obj/item/device/flashlight/flare/on,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"GP" = (
+/obj/structure/barricade/sandbags/wired{
+	dir = 4
+	},
+/obj/structure/machinery/m56d_hmg{
+	rounds = 700;
+	dir = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"IG" = (
+/obj/structure/largecrate/supply/medicine,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"IK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_magazine/rifle/mar40/extended,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Jx" = (
+/turf/open/floor/plating/plating_catwalk/shiva,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"JP" = (
+/obj/effect/landmark/corpsespawner/clf,
+/obj/effect/decal/cleanable/blood,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Kt" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Ky" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"KH" = (
+/obj/structure/largecrate/random/secure,
+/obj/item/stack/sheet/metal/med_large_stack,
+/obj/item/stack/sheet/metal/med_large_stack,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"KI" = (
+/obj/structure/prop/structure_lattice{
+	dir = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Lh" = (
+/turf/closed/wall/strata_outpost/reinforced,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Mn" = (
+/obj/structure/machinery/defenses/sentry/premade/lowammo/random/dumb{
+	dir = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"ML" = (
+/obj/structure/prop/dam/crane/cargo{
+	layer = 3.3
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"MP" = (
+/obj/structure/barricade/sandbags{
+	dir = 8;
+	pixel_y = 2
+	},
+/obj/item/ammo_casing,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"NH" = (
+/obj/item/tool/shovel/etool,
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Oj" = (
+/obj/structure/machinery/space_heater,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Ot" = (
+/obj/structure/bed/bedroll{
+	dir = 5
+	},
+/obj/item/prop/colony/usedbandage{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Oy" = (
+/obj/structure/machinery/defenses/sentry/premade/lowammo/random/dumb{
+	dir = 1
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Pi" = (
+/obj/structure/girder/displaced,
+/turf/open/floor/plating/platebot,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"PZ" = (
+/obj/item/ammo_casing,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Qr" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/device/flashlight/lamp/tripod/grey{
+	light_power = 0.4;
+	light_range = 4
+	},
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Qw" = (
+/obj/item/clothing/head/headband/rebel,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"QB" = (
+/obj/structure/cargo_container/grant/rightmid,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"QT" = (
+/obj/effect/landmark/survivor_spawner/clf_engi/hybrisa,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Re" = (
+/obj/structure/bed/bedroll,
+/turf/open/auto_turf/strata_grass/layer0_mud_alt,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Rj" = (
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/obj/effect/spawner/random/gun/clf_primary,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Ro" = (
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Rw" = (
+/obj/structure/cargo_container/upp_small/container_1/right,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"RC" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/random/tool,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"RI" = (
+/obj/structure/barricade/sandbags/wired,
+/obj/structure/barricade/sandbags/wired{
+	dir = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"RL" = (
+/obj/structure/barricade/sandbags{
+	dir = 8;
+	pixel_y = -3
+	},
+/obj/structure/barricade/sandbags{
+	pixel_y = 14
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"RZ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Sy" = (
+/obj/structure/sign/poster/clf{
+	pixel_y = 32
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Sz" = (
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"SG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/surface/rack,
+/obj/item/weapon/gun/launcher/rocket/m57a4,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"SJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/surface/rack,
+/obj/item/reagent_container/food/drinks/bottle/whiskey,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"SK" = (
+/obj/structure/closet/crate/trashcart,
+/obj/item/stack/sheet/wood/small_stack,
+/obj/item/storage/beer_pack,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"SL" = (
+/obj/structure/largecrate/random/case/double,
+/obj/item/stack/sheet/metal/med_large_stack,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Tp" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/largecrate/black_market/clf_supplies,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"TE" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/surface/table,
+/obj/item/paper_bin{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/obj/item/tool/pen,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Uq" = (
+/obj/structure/barricade/sandbags/wired,
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Uy" = (
+/obj/structure/barricade/sandbags/wired{
+	dir = 1
+	},
+/obj/structure/barricade/sandbags/wired{
+	dir = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"UI" = (
+/obj/structure/tent/big,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"UK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/surface/rack,
+/obj/item/weapon/gun/shotgun/pump/dual_tube/cmb{
+	pixel_y = -5
+	},
+/obj/item/weapon/gun/shotgun/pump/dual_tube/cmb{
+	pixel_y = 9
+	},
+/obj/item/weapon/gun/shotgun/pump/dual_tube/cmb,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"UQ" = (
+/obj/item/device/flashlight/flare/on,
+/obj/structure/barricade/sandbags/wired,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Vh" = (
+/obj/structure/cargo_container/grant/right,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"VN" = (
+/obj/effect/landmark/survivor_spawner/clf/hybrisa,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"WH" = (
+/obj/structure/barricade/sandbags{
+	dir = 8;
+	pixel_y = 2
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"WI" = (
+/obj/structure/largecrate/random/barrel/true_random,
+/obj/item/mortar_shell/he,
+/obj/item/mortar_shell/he,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"WX" = (
+/obj/structure/largecrate/supply/floodlights,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"WZ" = (
+/obj/structure/window_frame/strata,
+/turf/open/floor/plating/platebot,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"XB" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stack/rods{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"XE" = (
+/obj/structure/machinery/space_heater,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"XG" = (
+/obj/structure/surface/table/holotable{
+	color = "#424a50"
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"XH" = (
+/obj/item/ammo_casing,
+/obj/item/device/flashlight/flare/on,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"XM" = (
+/obj/structure/cargo_container/kelland/right,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"XV" = (
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Ys" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/surface/table,
+/obj/structure/machinery/faxmachine{
+	department = "CLF - Cell 42"
+	},
+/obj/item/paper/trijent/clf,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Yv" = (
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"YT" = (
+/obj/structure/barricade/sandbags/wired,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"Zy" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/coffin/woodencrate{
+	pixel_y = 8
+	},
+/obj/item/mre_food_packet/clf{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/obj/item/mre_food_packet/clf{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/obj/item/mre_food_packet/clf{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/obj/item/mre_food_packet/clf{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/obj/item/mre_food_packet/clf{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/obj/item/mre_food_packet/clf{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/obj/item/mre_food_packet/clf{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"ZB" = (
+/obj/structure/largecrate/random,
+/obj/item/mortar_kit,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"ZO" = (
+/obj/structure/target,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"ZZ" = (
+/obj/item/ammo_magazine/smg/mp5,
+/turf/open/floor/plating,
+/area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+
+(1,1,1) = {"
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+"}
+(2,1,1) = {"
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+"}
+(3,1,1) = {"
+oI
+oI
+oI
+Sz
+Sz
+Sz
+Sz
+Re
+Re
+sG
+Sz
+bK
+Sz
+Sz
+ML
+ZB
+Sz
+Sz
+ZO
+Sz
+Sz
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+"}
+(4,1,1) = {"
+oI
+oI
+Ys
+TE
+UI
+Sz
+Sz
+zi
+kr
+bK
+bK
+Sz
+Sz
+Sz
+Sz
+bE
+QT
+Sz
+Sz
+Sz
+ZO
+Sz
+oI
+oI
+oI
+Sz
+oI
+oI
+"}
+(5,1,1) = {"
+oI
+oI
+ge
+Eb
+Ky
+Sz
+Sz
+Re
+Re
+bK
+ok
+bK
+Sz
+nt
+WI
+Cl
+Sz
+Sz
+ZO
+PZ
+XH
+Sz
+Sz
+oI
+Sz
+Sz
+oI
+Sz
+"}
+(6,1,1) = {"
+oI
+oI
+SG
+SJ
+RZ
+Sz
+Sz
+Sz
+Sz
+Sz
+SK
+ok
+Sz
+ok
+Sz
+Sz
+Sz
+Sz
+PZ
+Sz
+Sz
+PZ
+Sz
+Sz
+gm
+Sz
+Sz
+Sz
+"}
+(7,1,1) = {"
+oI
+oI
+oI
+Ro
+xY
+jv
+Oj
+Sz
+Sz
+bI
+Sz
+ok
+Sz
+Sz
+Sz
+ok
+Sz
+Sz
+RL
+WH
+MP
+WH
+Sz
+jD
+YT
+Sz
+Sz
+Sz
+"}
+(8,1,1) = {"
+oI
+oI
+oI
+Sz
+QB
+sd
+AW
+Sz
+Sz
+Sz
+Gb
+Sz
+XG
+ok
+ok
+Sz
+Yv
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+YT
+Sz
+Sz
+Sz
+"}
+(9,1,1) = {"
+oI
+oI
+oI
+Sz
+Vh
+XM
+mn
+Sz
+Sz
+ok
+Sz
+jr
+kO
+Br
+Sz
+Sz
+Sz
+ok
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+mr
+Sz
+Sz
+Sz
+"}
+(10,1,1) = {"
+oI
+oI
+oI
+mw
+mw
+mw
+mw
+mw
+Jx
+WZ
+WZ
+mw
+Lh
+Sz
+Sz
+ok
+Sz
+Yv
+ok
+Sz
+Sz
+Sz
+Sz
+FC
+YT
+Sz
+Sz
+Sz
+"}
+(11,1,1) = {"
+bA
+Sz
+mw
+sB
+XV
+XV
+jV
+XV
+XB
+gy
+XV
+Qr
+Lh
+Sy
+ok
+Sz
+ok
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+UQ
+Sz
+Sz
+Sz
+"}
+(12,1,1) = {"
+bA
+ok
+XV
+nZ
+XV
+VN
+vA
+IK
+XE
+gd
+XV
+aI
+Lh
+Sz
+Yv
+ok
+Yv
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+tZ
+ok
+Sz
+Sz
+"}
+(13,1,1) = {"
+bA
+Sz
+mw
+mw
+qo
+rA
+mw
+Lh
+kR
+hb
+sz
+uZ
+mw
+Sz
+ok
+Sz
+Yv
+Sz
+Sz
+Sz
+ok
+Sz
+Sz
+Sz
+mr
+Sz
+ok
+Sz
+"}
+(14,1,1) = {"
+Fp
+Sz
+DH
+mf
+Ot
+CK
+xK
+Lh
+mw
+vE
+Jx
+fA
+rA
+Sz
+Sz
+Yv
+Sz
+Sz
+Sz
+Sz
+Sz
+ok
+ok
+FC
+Uq
+Sz
+ok
+ok
+"}
+(15,1,1) = {"
+CC
+Sz
+mw
+yF
+gd
+wA
+XV
+CQ
+nL
+IK
+Kt
+Cj
+rA
+Yv
+ok
+Yv
+ok
+Sz
+Sz
+Sz
+Sz
+Sz
+ok
+ok
+Uq
+Sz
+Sz
+Sz
+"}
+(16,1,1) = {"
+bA
+ok
+mw
+hW
+Et
+ph
+As
+Eu
+qf
+oE
+ue
+UK
+qo
+Sz
+Sz
+ok
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Yv
+tZ
+ok
+Yv
+Yv
+"}
+(17,1,1) = {"
+CC
+ok
+oI
+mw
+mw
+mw
+mw
+mw
+sZ
+qo
+Pi
+mw
+mw
+XG
+Sz
+ok
+ok
+Sz
+Sz
+Sz
+Sz
+Sz
+ok
+Sz
+RI
+Sz
+ok
+ok
+"}
+(18,1,1) = {"
+Sz
+Sz
+ok
+oI
+oI
+ok
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+ok
+Sz
+JP
+Sz
+Sz
+FC
+YT
+Sz
+Sz
+Sz
+ok
+"}
+(19,1,1) = {"
+Sz
+oI
+oI
+oI
+oI
+GP
+db
+Sz
+Sz
+Sz
+ec
+cI
+Sz
+ok
+Sz
+ok
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+YT
+Sz
+Sz
+ok
+Sz
+"}
+(20,1,1) = {"
+oI
+oI
+oI
+oI
+ok
+ok
+EB
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Yv
+Sz
+ok
+ok
+Sz
+ok
+ok
+Sz
+Sz
+Sz
+YT
+Sz
+GC
+Sz
+Sz
+"}
+(21,1,1) = {"
+oI
+oI
+oI
+oI
+ok
+ok
+Fp
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+ok
+ok
+Yv
+Sz
+Sz
+ok
+ok
+Sz
+Sz
+Sz
+mr
+Sz
+Sz
+Sz
+Sz
+"}
+(22,1,1) = {"
+oI
+oI
+oI
+ok
+ok
+Sz
+Fp
+Sz
+Sz
+Sz
+ok
+Sz
+Sz
+Yv
+Sz
+Sz
+Sz
+Sz
+Sz
+ok
+Sz
+Sz
+FC
+YT
+Sz
+Sz
+Sz
+Sz
+"}
+(23,1,1) = {"
+oI
+ku
+Sz
+ok
+Yv
+Yv
+mv
+Sz
+Sz
+Sz
+ok
+ok
+Sz
+Bo
+ok
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+YT
+Sz
+Sz
+Sz
+Sz
+"}
+(24,1,1) = {"
+oI
+Sz
+Sz
+Yv
+ok
+Sz
+Uq
+Oy
+Sz
+NH
+ix
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+GC
+Sz
+KH
+Sz
+oI
+Sz
+Sz
+Sz
+"}
+(25,1,1) = {"
+Sz
+Sz
+Sz
+Sz
+ok
+ok
+YT
+Sz
+ok
+Sz
+Yv
+ok
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+WX
+yl
+pX
+oI
+oI
+oI
+Sz
+Sz
+"}
+(26,1,1) = {"
+oI
+Sz
+ok
+ok
+ok
+ok
+YT
+Mn
+Sz
+ok
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+Sz
+oI
+SL
+xS
+KI
+IG
+oI
+oI
+oI
+oI
+Sz
+Sz
+"}
+(27,1,1) = {"
+Sz
+Sz
+ok
+Yv
+Yv
+Sz
+hm
+nM
+GP
+Sz
+Sz
+ok
+Sz
+Sz
+Sz
+Sz
+Sz
+EU
+oI
+Rw
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+Sz
+"}
+(28,1,1) = {"
+Sz
+Sz
+ql
+Sz
+ok
+Sz
+ok
+Sz
+Sz
+bA
+Sz
+Lh
+mw
+rA
+Pi
+Jx
+WZ
+WZ
+mw
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+Sz
+"}
+(29,1,1) = {"
+Sz
+Sz
+Yv
+Sz
+ok
+Yv
+ok
+Yv
+Gx
+bA
+Oy
+Lh
+jy
+EM
+dH
+XV
+ZZ
+Qw
+uw
+Df
+mw
+mw
+oI
+oI
+oI
+oI
+oI
+oI
+"}
+(30,1,1) = {"
+Sz
+Gx
+Sz
+Sz
+ok
+ok
+Sz
+ok
+Sz
+bA
+Sz
+jh
+Rj
+op
+XV
+VN
+op
+wm
+wK
+fC
+ug
+mw
+oI
+oI
+oI
+oI
+oI
+oI
+"}
+(31,1,1) = {"
+Sz
+ok
+ok
+ok
+Sz
+ok
+ok
+Sz
+Sz
+Fp
+Yv
+mw
+Zy
+XV
+fe
+qV
+Lh
+mw
+mw
+qo
+mw
+mw
+oI
+oI
+oI
+oI
+oI
+oI
+"}
+(32,1,1) = {"
+Sz
+ok
+ok
+Sz
+ok
+Yv
+ok
+Sz
+hI
+qh
+ok
+mw
+mw
+Jx
+wZ
+rA
+Lh
+tc
+kd
+fy
+wK
+mw
+oI
+oI
+oI
+oI
+oI
+oI
+"}
+(33,1,1) = {"
+Sz
+Sz
+ok
+Sz
+ok
+Sz
+Yv
+Sz
+Sz
+bA
+ok
+hp
+XV
+wK
+wu
+XV
+op
+ha
+mu
+XV
+Tp
+mw
+oI
+oI
+oI
+oI
+oI
+oI
+"}
+(34,1,1) = {"
+Sz
+dn
+Sz
+Sz
+ok
+ok
+ok
+Sz
+Sz
+bA
+Oy
+hM
+wK
+RC
+wK
+XV
+wu
+XV
+wK
+Qr
+mw
+mw
+oI
+oI
+oI
+oI
+oI
+oI
+"}
+(35,1,1) = {"
+dn
+dn
+dn
+ok
+ok
+ok
+ok
+ok
+Sz
+bA
+ok
+mw
+gb
+mw
+mw
+gb
+Pi
+mw
+mw
+mw
+mw
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+"}
+(36,1,1) = {"
+dn
+dn
+dn
+Sz
+ok
+Sz
+ok
+Sz
+Sz
+Uy
+br
+br
+db
+rx
+br
+db
+br
+br
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+oI
+"}
