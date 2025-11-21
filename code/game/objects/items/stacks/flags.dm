@@ -278,23 +278,6 @@
 // UNITED AMERICAS FLAG //
 //////////////////////////
 
-/// Общая процедура для применения ауры бонуса Hold от флага
-/proc/apply_flag_aura(atom/source, buff_range, buff_faction, buff_intensity)
-	var/turf/T = get_turf(source)
-	if(!T)
-		return
-
-	for(var/mob/living/carbon/human/H in range(buff_range, T))
-		if(H.stat == DEAD)
-			continue
-		if(!ishumansynth_strict(H))
-			continue
-		// Давать бонус только союзникам той же фракции
-		if(H.faction != buff_faction)
-			continue
-
-		H.activate_order_buff(COMMAND_ORDER_HOLD, buff_intensity, 2 SECONDS)
-
 /obj/item/flag/plantable/ua
 	name = "\improper United Americas flag"
 	desc = "The flag of the United Americas. This one looks ready to be planted into the ground."
@@ -305,75 +288,12 @@
 	play_warcry = TRUE
 	warcry_sound = 'sound/effects/flag_warcry_ua.ogg'
 	warcry_extra_sound = 'sound/effects/flag_warcry_ua_extra.ogg'
-	/// Радиус эффекта бонуса приказа "Держать позицию"
-	var/buff_range = COMMAND_ORDER_RANGE
-	/// Интенсивность бонуса приказа "Держать позицию"
-	var/buff_intensity = 2
-	/// Фракция, которая получает бонус
-	var/buff_faction = FACTION_MARINE
-
-/obj/item/flag/plantable/ua/equipped(mob/user, slot, silent)
-	. = ..()
-	// Запускать обработку когда флаг держат в руках
-	if(slot == WEAR_L_HAND || slot == WEAR_R_HAND)
-		START_PROCESSING(SSobj, src)
-
-/obj/item/flag/plantable/ua/dropped(mob/user)
-	. = ..()
-	STOP_PROCESSING(SSobj, src)
-
-/obj/item/flag/plantable/ua/Destroy()
-	STOP_PROCESSING(SSobj, src)
-	return ..()
-
-/obj/item/flag/plantable/ua/process()
-	if(!ismob(loc))
-		STOP_PROCESSING(SSobj, src)
-		return
-
-	var/mob/M = loc
-	// Проверить что флаг все еще в руках
-	if(M.l_hand != src && M.r_hand != src)
-		STOP_PROCESSING(SSobj, src)
-		return
-
-	if(!get_turf(M))
-		return
-
-	apply_area_effect(M)
-
-/obj/item/flag/plantable/ua/proc/apply_area_effect(mob/flag_holder)
-	if(!flag_holder || !flag_holder.loc)
-		return
-	apply_flag_aura(flag_holder, buff_range, buff_faction, buff_intensity)
 
 /obj/structure/flag/plantable/ua
 	name = "\improper United Americas flag"
 	desc = "The flag of the United Americas. Semper fi."
 	icon_state = "flag_ua_planted"
 	flag_type = /obj/item/flag/plantable/ua
-	/// Радиус эффекта бонуса приказа "Держать позицию"
-	var/buff_range = COMMAND_ORDER_RANGE
-	/// Интенсивность бонуса приказа "Держать позицию"
-	var/buff_intensity = 2
-	/// Фракция, которая получает бонус
-	var/buff_faction = FACTION_MARINE
-
-/obj/structure/flag/plantable/ua/Initialize()
-	. = ..()
-	START_PROCESSING(SSobj, src)
-
-/obj/structure/flag/plantable/ua/Destroy()
-	STOP_PROCESSING(SSobj, src)
-	return ..()
-
-/obj/structure/flag/plantable/ua/process()
-	apply_area_effect()
-
-/obj/structure/flag/plantable/ua/proc/apply_area_effect()
-	if(!loc || health <= 0)
-		return
-	apply_flag_aura(src, buff_range, buff_faction, buff_intensity)
 
 // UNION OF PROGRESSIVE PEOPLES FLAG //
 //////////////////////////
