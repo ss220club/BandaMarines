@@ -1,7 +1,7 @@
 /datum/modpack/vehicles
 	name = "Транспорт"
-	desc = "Новые транспорты: Мопеды с колясками и установленными пулеметами."
-	author = "phantomru"
+	desc = "Новые транспорты: Мопеды с колясками и установленными пулеметами, буханки."
+	author = "phantomru, namen"
 
 /datum/modpack/vehicles/pre_initialize()
 	. = ..()

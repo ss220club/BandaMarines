@@ -43,3 +43,16 @@
 	if(trap_type != RESIN_TRAP_EMPTY)
 		return
 	. = ..()
+
+
+// ==========================================
+
+// Значки на миникарте для буханок
+/obj/vehicle/multitile/uscm_van/update_minimap_icon(modules_broken)
+	if(!minimap_icon_state)
+		return
+	SSminimaps.remove_marker(src)
+	minimap_icon_state = initial(minimap_icon_state)
+	if(health <= 0 || modules_broken)
+		minimap_icon_state += "_wreck"
+	SSminimaps.add_marker(src, minimap_flags, image('modular/vehicles/icons/map_icons.dmi', null, minimap_icon_state, HIGH_FLOAT_LAYER))
