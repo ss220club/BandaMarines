@@ -75,4 +75,3 @@
 /obj/structure/bed/chair/sidecar/proc/handle_parent_move(atom/movable/mover, atom/oldloc, direction) //нужен для всех колясок
 	SIGNAL_HANDLER
 	forceMove(get_turf(mover))
-

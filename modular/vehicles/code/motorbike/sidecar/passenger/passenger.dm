@@ -54,14 +54,5 @@
 	update_bike_permutated()
 
 /obj/structure/bed/chair/sidecar/passenger/disconnect()
-	if(connected)
-		UnregisterSignal(connected, COMSIG_MOVABLE_MOVED)
-	update_bike_permutated()
-	reload_connected()
-	connected = null
-	density = !density
-	anchored = !anchored
-	update_drag_delay()
-	update_position(src, TRUE)
-	push_to_left_side(src)
-
+	reset_bike_permutated()
+	.=..()
