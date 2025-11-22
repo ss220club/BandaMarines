@@ -57,14 +57,12 @@
 		select_gamemode_skin()
 	. = ..(loc, icon_skin)
 	if(create_sidecar != NO_SIDECAR)
-		switch(create_sidecar)
-			if(PASSENGER_SIDECAR)
-				sidecar = new /obj/structure/bed/chair/sidecar/passenger(src, icon_skin) //пассажирская
-			if(CARGO_SIDECAR)
-				sidecar = new /obj/structure/bed/chair/sidecar/cargo(src, icon_skin) //грузовая
-			else
-				to_chat(world, SPAN_WARNING("Внимание: Попытка присоединения несуществующей коляски"))
-
+		if(create_sidecar == PASSENGER_SIDECAR)
+			sidecar = new /obj/structure/bed/chair/sidecar/passenger(src, icon_skin) //пассажирская
+		else if(create_sidecar == CARGO_SIDECAR)
+			sidecar = new /obj/structure/bed/chair/sidecar/cargo(src, icon_skin) //грузовая
+		else
+			to_chat(world, SPAN_WARNING("Внимание: Попытка присоединения несуществующей коляски"))
 		if(sidecar)
 			update_connect_params()
 			update_sidecar(TRUE)

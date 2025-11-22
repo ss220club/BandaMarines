@@ -62,6 +62,9 @@
 			to_chat(user, SPAN_WARNING("[O] недостаточен для ремонта корпуса!"))
 			return FALSE
 		var/obj/item/tool/weldingtool/WT = O
+		if(health >= maxhealth)
+			to_chat(user, SPAN_NOTICE("Корпус [src.name] в починке не нуждается!"))
+			return TRUE
 		if(WT.remove_fuel(1, user))
 			if(!do_after(user, welder_time * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL, BUSY_ICON_BUILD))
 				to_chat(user, SPAN_NOTICE("Вы прервали сварку корпуса [src.name] с помощью [O]."))
