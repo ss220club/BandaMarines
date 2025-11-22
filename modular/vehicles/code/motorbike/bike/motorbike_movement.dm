@@ -113,7 +113,7 @@
 			move_delay = move_delay_intermediate
 		if(3)
 			move_delay = move_delay_maximum
-	if(!stroller)
+	if(!sidecar)
 		move_delay *= lightweight_speed_mod
 
 /obj/vehicle/motorbike/proc/reset_speed()
@@ -152,13 +152,13 @@
 // ==========================================
 // ========== Движение с коляской ===========
 
-/obj/vehicle/motorbike/proc/update_stroller(force_update = FALSE)
-	if(stroller)
-		stroller.update_position(src, force_update)
+/obj/vehicle/motorbike/proc/update_sidecar(force_update = FALSE)
+	if(sidecar)
+		sidecar.update_position(src, force_update)
 
 /obj/vehicle/motorbike/handle_rotation()
 	if(buckled_mob)
 		buckled_mob.setDir(dir)
 	play_rotate_sound()
-	update_stroller()
+	update_sidecar()
 	forward_dir = dir

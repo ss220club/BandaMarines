@@ -16,7 +16,7 @@
 /datum/supply_packs/motorbike_stroller
 	name = "Vehicle - Motorbike stroller (x1)"
 	contains = list(
-		/obj/structure/bed/chair/stroller/camo,
+		/obj/structure/bed/chair/sidecar/passenger/camo,
 	)
 	cost = 20
 	containertype = /obj/structure/largecrate

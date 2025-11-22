@@ -1,12 +1,12 @@
 // ==========================================
 // =============== Усаживание ===============
 
-/obj/structure/bed/chair/stroller/buckle_mob(mob/living/carbon/human/mob, mob/user)
+/obj/structure/bed/chair/sidecar/passenger/buckle_mob(mob/living/carbon/human/mob, mob/user)
 	if(!try_buckle_mob(mob, user))
 		return TRUE
 	. = ..()
 
-/obj/structure/bed/chair/stroller/proc/can_xeno_buckle(mob/M)
+/obj/structure/bed/chair/sidecar/passenger/proc/can_xeno_buckle(mob/M)
 	// Мы можем посадить небольшого ксеноса, если он будет помогать лапками в граб интенте. Как на кровати.
 	// мы сможем украсть руню или ящерку, если они не особо сопротивляться будут
 	// Мы можем посадить: Lesser Drones, Люди
@@ -20,7 +20,7 @@
 		(M.mob_size <= MOB_SIZE_XENO_VERY_SMALL)
 		)
 
-/obj/structure/bed/chair/stroller/proc/try_buckle_mob(mob/M, mob/user)
+/obj/structure/bed/chair/sidecar/passenger/proc/try_buckle_mob(mob/M, mob/user)
 	if(!ismob(M) || (get_dist(src, user) > 1) || user.stat || buckled_mob || M.buckled)
 		return FALSE
 	if(!ishumansynth_strict(user))
@@ -37,7 +37,7 @@
 		playsound(src, buckling_sound, 20)
 	return TRUE
 
-/obj/structure/bed/chair/stroller/afterbuckle(mob/M)
+/obj/structure/bed/chair/sidecar/passenger/afterbuckle(mob/M)
 	. = ..()
 	if(buckled_mob)
 		update_buckle_mob()
@@ -51,7 +51,7 @@
 		update_drag_delay()
 		reset_bike_permutated(TRUE)
 
-/obj/structure/bed/chair/stroller/unbuckle()
+/obj/structure/bed/chair/sidecar/passenger/unbuckle()
 	// Отдельно, иначе возникнет ситуация где сигнал не успевает убраться,
 	// т.к. нам ВСЕГДА нужен моб чтобы убрать у него сигнал
 	update_mob_gun_signal(TRUE)
@@ -59,11 +59,10 @@
 	UnregisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN))
 	. = ..()
 
-
 // ==========================================
 // =============== Обновление ===============
 
-/obj/structure/bed/chair/stroller/proc/update_buckle_mob()
+/obj/structure/bed/chair/sidecar/passenger/proc/update_buckle_mob()
 	if(!buckled_mob)
 		return
 	buckled_mob.pixel_x = get_buckled_mob_pixel_x()
@@ -76,3 +75,4 @@
 		buckled_mob.layer = initial(buckled_mob.layer)
 	if(mounted)
 		update_gun_dir()
+

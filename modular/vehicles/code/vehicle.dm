@@ -34,8 +34,8 @@
 			to_chat(M, SPAN_XENOHIGHDANGER("Вы попали в яму полную смолы!"))
 		if(istype(O, /obj/vehicle/motorbike))
 			var/obj/vehicle/motorbike/OM = O
-			if(OM.stroller && OM.stroller.buckled_mob)
-				var/mob/living/M = OM.stroller.buckled_mob
+			if(istype(OM.sidecar, /obj/structure/bed/chair/sidecar/passenger) && OM.sidecar.buckled_mob) // заменить на passenger
+				var/mob/living/M = OM.sidecar.buckled_mob //нужно ли делать проверку на тип дочурки?
 				OM.unbuckle() // Просто сбрасываем позади
 				M.apply_effect(2, WEAKEN)
 				to_chat(M, SPAN_XENOHIGHDANGER("Вы упали с тележки после того как байк въехал в яму полную смолы!"))
