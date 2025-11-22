@@ -68,3 +68,6 @@
 	setDir(old_dir)
 	if(buckled_mob)
 		buckled_mob.setDir(old_dir)
+
+/obj/structure/bed/chair/sidecar/passenger/update_drag_delay()
+	drag_delay = (buckled_mob) ? drag_delay_heavy : initial(drag_delay)

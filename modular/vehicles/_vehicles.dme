@@ -27,6 +27,7 @@
 #include "code/motorbike/sidecar/passenger/passenger_movement.dm"
 //cargo
 #include "code/motorbike/sidecar/cargo/cargo.dm"
+#include "code/motorbike/sidecar/cargo/cargo_movement.dm"
 #include "code/motorbike/sidecar/cargo/cargo_health.dm"
 #include "code/motorbike/sidecar/cargo/cargo_loading.dm"
 

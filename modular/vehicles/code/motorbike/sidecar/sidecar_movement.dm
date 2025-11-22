@@ -109,5 +109,6 @@
 	step(A, temp_dir)	// Толкаем в сторону, если на пути стена, то "шаг" не совершится
 	setDir(old_dir)
 
-/obj/structure/bed/chair/sidecar/proc/update_drag_delay(condition)
-	drag_delay = condition ? drag_delay_heavy : initial(drag_delay)
+/obj/structure/bed/chair/sidecar/proc/update_drag_delay() //переопределить дочернем классе
+	return
+	//drag_delay = (условие замедления) ? drag_delay_heavy : initial(drag_delay) - пример

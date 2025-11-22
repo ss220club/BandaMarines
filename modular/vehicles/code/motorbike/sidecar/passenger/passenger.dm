@@ -61,7 +61,7 @@
 	connected = null
 	density = !density
 	anchored = !anchored
-	update_drag_delay(buckled_mob)
+	update_drag_delay()
 	update_position(src, TRUE)
 	push_to_left_side(src)
 

@@ -62,10 +62,6 @@
 			to_chat(user, SPAN_WARNING("[O] недостаточен для ремонта корпуса!"))
 			return FALSE
 		var/obj/item/tool/weldingtool/WT = O
-		if(health >= maxhealth)
-			to_chat(user, SPAN_NOTICE("Корпус [src.name] в починке не нуждается!"))
-			//welding_step = TRUE //не лучшее место для смены флажка, так как могут не кликнуть лишний раз сваркой
-			return TRUE
 		if(WT.remove_fuel(1, user))
 			if(!do_after(user, welder_time * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL, BUSY_ICON_BUILD))
 				to_chat(user, SPAN_NOTICE("Вы прервали сварку корпуса [src.name] с помощью [O]."))
@@ -77,8 +73,6 @@
 			to_chat(user, SPAN_NOTICE("Вы сварили корпус [src.name] с помощью [O]. Сварено на [procent]%"))
 			health = min(health + welder_health * WT.w_class, maxhealth)
 			playsound(src.loc, 'sound/items/Welder.ogg', 25, 1)
-			if(health >= maxhealth)
-				welding_step = TRUE //Наверное смене флага лучше тут.
 		else
 			to_chat(user, SPAN_WARNING("В [O] не хватает топлива!"))
 		if(health >= maxhealth)
