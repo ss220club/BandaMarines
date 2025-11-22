@@ -42,5 +42,3 @@
 		to_chat(user, SPAN_WARNING("В [O] не хватает топлива!"))
 		return FALSE
 	return TRUE
-
-// ==========================================

@@ -9,7 +9,6 @@
 	var/icon_skin = "classic"
 	var/icon_tag_destroyed = "destroyed"
 	var/type_sidecar = "stroller" // Тип коляски, для скинов
-	//=============================================
 
 	var/obj/obj_to_create_when_finish = /obj/vehicle/motorbike
 
@@ -18,7 +17,6 @@
 	var/maxhealth = 1250 // Раздолбанное чинить сложнее
 	drag_delay = 10	// Тяжело тащить груду хлама
 	projectile_coverage = PROJECTILE_COVERAGE_LOW
-	//=============================================
 
 
 	//============= Параметры починки  ==============
@@ -35,7 +33,6 @@
 	var/screw_need = TRUE
 	var/screw_step = FALSE
 	var/screw_time = 20 SECONDS
-	//=============================================
 
 /obj/motorbike_destroyed/New(loc, skin) // Переписать под параметр type_sidecar
 	icon_skin = skin

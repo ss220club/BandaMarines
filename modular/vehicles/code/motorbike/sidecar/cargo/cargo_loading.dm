@@ -4,7 +4,6 @@
 	var/obj/crate = null
 	var/loaded = FALSE
 	var/load_time = 5 SECONDS
-	//=============================================
 
 /obj/structure/bed/chair/sidecar/cargo/MouseDrop_T(atom/movable/A, mob/user)
 	. = ..()

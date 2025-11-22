@@ -1,10 +1,10 @@
 // Мотоцикл с пассажирской коляской
 /obj/vehicle/motorbike/passenger/full
-	create_sidecar = 1
+	create_sidecar = PASSENGER_SIDECAR
 
 // Мотоцикл с грузовой коляской
 /obj/vehicle/motorbike/cargo/full
-	create_sidecar = 2
+	create_sidecar = CARGO_SIDECAR
 
 
 // ==========================================
@@ -22,10 +22,10 @@
 	need_camo = TRUE
 
 /obj/vehicle/motorbike/camo/passenger/full
-	create_sidecar = 1
+	create_sidecar = PASSENGER_SIDECAR
 
 /obj/vehicle/motorbike/camo/cargo/full
-	create_sidecar = 2
+	create_sidecar = CARGO_SIDECAR
 
 // Функции выбора скина
 /obj/vehicle/motorbike/proc/select_gamemode_skin()
@@ -72,10 +72,10 @@
 	icon_skin = "desert"
 
 /obj/vehicle/motorbike/desert/passenger/full
-	create_sidecar = 1
+	create_sidecar = PASSENGER_SIDECAR
 
 /obj/vehicle/motorbike/desert/cargo/full
-	create_sidecar = 2
+	create_sidecar = CARGO_SIDECAR
 
 // ==========================================
 // =============== Snow skin ================
@@ -93,10 +93,10 @@
 	icon_skin = "snow"
 
 /obj/vehicle/motorbike/snow/passenger/full
-	create_sidecar = 1
+	create_sidecar = PASSENGER_SIDECAR
 
 /obj/vehicle/motorbike/snow/cargo/full
-	create_sidecar = 2
+	create_sidecar = CARGO_SIDECAR
 
 // ==========================================
 // =============== Urban skin ===============
@@ -114,10 +114,10 @@
 	icon_skin = "urban"
 
 /obj/vehicle/motorbike/urban/passenger/full
-	create_sidecar = 1
+	create_sidecar = PASSENGER_SIDECAR
 
 /obj/vehicle/motorbike/urban/cargo/full
-	create_sidecar = 2
+	create_sidecar = CARGO_SIDECAR
 
 // ==========================================
 // ================== Debug =================
@@ -134,14 +134,14 @@
 	welder_health = 200
 
 /obj/vehicle/motorbike/passenger/debug/full
-	create_sidecar = 1
+	create_sidecar = PASSENGER_SIDECAR
 
 
 /obj/vehicle/motorbike/debug/New(loc, skin)
-	create_sidecar = 0
+	create_sidecar = NO_SIDECAR
 	. = ..(loc, skin)
 	create_sidecar = initial(create_sidecar)
-	if(create_sidecar == 1)
+	if(create_sidecar == PASSENGER_SIDECAR)
 		sidecar = new /obj/structure/bed/chair/sidecar/passenger/debug(src, icon_skin)
 		update_sidecar(TRUE)
 		update_connect_params()
