@@ -62,6 +62,11 @@
 /mob/living/carbon/xenomorph/ravager/add_tts_component()
 	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/zarya)
 
+/mob/living/carbon/xenomorph/despoiler/add_tts_component()
+	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/grandmother)
+
+/mob/living/carbon/xenomorph/reaper/add_tts_component()
+	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/witch)
 
 // Tier 4
 /mob/living/carbon/xenomorph/queen/add_tts_component()
