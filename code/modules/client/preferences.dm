@@ -405,9 +405,12 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	switch(current_menu)
 		if(MENU_MARINE)
 			dat += "<div id='column1'>"
-			dat += "<h1><u><b>Name:</b></u> "
+			dat += "<h1><u><b>Имя:</b></u> "
 			dat += "<a href='byond://?_src_=prefs;preference=name;task=input'><b>[real_name]</b></a>"
 			dat += "<a href='byond://?_src_=prefs;preference=name;task=random'>&reg</A></h1>"
+			// SS220 ADDITION START
+			dat += "<a href='byond://?_src_=prefs;preference=declined_name;task=open'>Склонение имени</a><br>"
+			// SS220 ADDITION END
 			dat += "<b>Always Pick Random Name:</b> <a href='byond://?_src_=prefs;preference=rand_name'><b>[be_random_name ? "Yes" : "No"]</b></a><br>"
 			dat += "<b>Always Pick Random Appearance:</b> <a href='byond://?_src_=prefs;preference=rand_body'><b>[be_random_body ? "Yes" : "No"]</b></a><br><br>"
 
@@ -1181,6 +1184,11 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 				if("open")
 					var/datum/tts_seeds_explorer/explorer = new
 					explorer.tgui_interact(user)
+		if("declined_name")
+			switch(href_list["task"])
+				if("open")
+					var/datum/decline_name_editor/editor = new
+					editor.tgui_interact(user)
 		// SS220 ADDITION END
 
 	switch (href_list["task"])
