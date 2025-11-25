@@ -3,7 +3,7 @@
 
 /datum/roundstart_spawn/motorbike
 	object_to_spawn = list(
-		/obj/vehicle/motorbike/camo/full,
+		/obj/vehicle/motorbike/camo/passenger/full,
 		// /obj/item/pamphlet/skill/vc/low,
 	)
 	min_spawns = 1
@@ -21,7 +21,7 @@
 
 /datum/roundstart_spawn/motorbike/mp
 	object_to_spawn = list(
-		/obj/vehicle/motorbike/urban/full,	// Городской
+		/obj/vehicle/motorbike/urban/passenger/full,	// Городской
 		// /obj/item/pamphlet/skill/vc/low,
 	)
 	attached_to_type = /obj/effect/landmark/late_join/chief_police
