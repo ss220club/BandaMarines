@@ -86,4 +86,5 @@
 			if(ismob(X))
 				to_chat(user, SPAN_WARNING("\The [C] cannot be loaded into \the [src], it has a creature inside!"))
 				return TRUE
-	return FALSE
+		return FALSE
+	return TRUE
