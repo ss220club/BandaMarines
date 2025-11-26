@@ -20,16 +20,7 @@
 	if(!ishuman(user))
 		return
 
-	if(istype(A, /obj/structure/closet/crate) || istype(A, /obj/structure/closet/coffin))
-		var/obj/structure/closet/C = A
-		if(C.anchored)
-			to_chat(user, SPAN_WARNING("The [C] is anchored and cannot be loaded into \the [src]!"))
-			return
-		for(var/X in C)
-			if(ismob(X))
-				to_chat(user, SPAN_WARNING("\The [C] cannot be loaded into \the [src], it has a creature inside!"))
-				return
-		load_object(user, A)
+	load_object(user, A)
 
 /obj/structure/bed/chair/sidecar/cargo/MouseDrop(atom/over_object)
 	.= ..()
@@ -45,8 +36,14 @@
 		to_chat(user, SPAN_WARNING("\The [src] must be empty in order to load \the [target]!"))
 		return
 
+	if(check_object(target, user)) //проверяет состояние загружаемого объекта и его ивентарь на наличие живности
+		return
+
 	if(!do_after(user, load_time, INTERRUPT_ALL, BUSY_ICON_GENERIC, src)) // проверка на прерывание
 		to_chat(user,SPAN_WARNING("You were interrupted while loading \the [src]!"))
+		return
+
+	if(check_object(target, user)) //проверяет состояние загружаемого объекта и его ивентарь на наличие живности после загрузки
 		return
 
 	if(loaded) // повторная проверка на загруженность. Может кто-то уже загрузил пока мы тут...
@@ -77,3 +74,17 @@
 	loaded = FALSE
 	update_overlay()
 	update_drag_delay(loaded)
+
+/obj/structure/bed/chair/sidecar/cargo/proc/check_object(atom/movable/A, mob/user)
+	//проверяет состояние загружаемого объекта и его ивентарь на наличие живности
+	if(istype(A, /obj/structure/closet/crate) || istype(A, /obj/structure/closet/coffin))
+		var/obj/structure/closet/C = A
+		if(C.anchored)
+			to_chat(user, SPAN_WARNING("The [C] is anchored and cannot be loaded into \the [src]!"))
+			return TRUE
+		for(var/X in C)
+			if(ismob(X))
+				to_chat(user, SPAN_WARNING("\The [C] cannot be loaded into \the [src], it has a creature inside!"))
+				return TRUE
+		return FALSE
+	return TRUE
