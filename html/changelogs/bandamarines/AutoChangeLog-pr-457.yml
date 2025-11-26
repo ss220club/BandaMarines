@@ -1,5 +1,0 @@
-author: "666Evil666Child666"
-delete-after: True
-changes:
-  - rscadd: "Добавлен новый вид колясок"
-  - code_imp: "Код коляски stroller был разбит на родительский sidecar и дочерний passenger и cargo"
