@@ -585,7 +585,7 @@
 /// Disables loading Techwebs and additional Z-Levels
 #define PERF_TOGGLE_TECHWEBS (1<<4)
 
-/// Maptext styles // SS220 EDIT - font change langchat_smaller_bolded 7 to 6px
+/// Maptext styles
 #define MAP_STYLESHEET "\
 img.icon { width: auto; height: auto } \
 .center { text-align: center; } \
