@@ -31,9 +31,16 @@
 		return
 
 	var/obj/effect/alien/weeds/node/node = locate() in turf
-	if(node && node.weed_strength >= xeno.weed_level)
-		to_chat(xeno, SPAN_WARNING("There's a pod here already!"))
-		return
+	if(node)
+		if(node.weed_strength > xeno.weed_level)
+			to_chat(xeno, SPAN_WARNING("The node here is too strong to uproot."))
+			return
+		if(!do_after(xeno, 1 SECONDS, INTERRUPT_ALL, BUSY_ICON_GENERIC, node, INTERRUPT_ALL))
+			to_chat(xeno, SPAN_WARNING("There's a pod here already! You decide to not replace it."))
+			return
+		to_chat(xeno, SPAN_NOTICE("We uproot and replace the weed node."))
+		playsound(xeno.loc, "alien_resin_break", 25)
+		qdel(node)
 
 	var/obj/effect/alien/resin/trap/resin_trap = locate() in turf
 	if(resin_trap)
@@ -436,7 +443,7 @@
 				if(!length(phero_selections_ru))
 					for(var/key in phero_selections)
 						phero_selections_ru[phero_selections_en_to_ru[key] || key] = phero_selections[key]
-				var/pheromone_ru = show_radial_menu(src, src.client?.eye, phero_selections_ru)
+				var/pheromone_ru = show_radial_menu(src, src.client?.get_eye(), phero_selections_ru)
 				pheromone = lowertext(phero_selections_ru_to_en[pheromone_ru] || pheromone_ru)
 				// BANDAMARINES EDIT END
 				if(pheromone == "help")

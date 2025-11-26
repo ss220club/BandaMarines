@@ -2,6 +2,7 @@
 
 #include "code/vehicle.dm"
 
+//мотобайк
 #include "code/motorbike/motorbike.dm"
 #include "code/motorbike/bike/motorbile_sound.dm"
 #include "code/motorbike/bike/motorbike_verbs.dm"
@@ -10,11 +11,35 @@
 #include "code/motorbike/bike/motorbike_health.dm"
 #include "code/motorbike/bike/motorbike_movement.dm"
 #include "code/motorbike/bike/motorbike_collide.dm"
-#include "code/motorbike/stroller/stroller.dm"
-#include "code/motorbike/stroller/stroller_health.dm"
-#include "code/motorbike/stroller/stroller_buckle.dm"
-#include "code/motorbike/stroller/stroller_movement.dm"
-#include "code/motorbike/stroller/stroller_guns.dm"
-#include "code/motorbike/stroller/stroller_actions.dm"
+
+
+//sidecar
+#include "code/motorbike/sidecar/sidecar.dm"
+#include "code/motorbike/sidecar/sidecar_guns.dm"
+#include "code/motorbike/sidecar/sidecar_actions.dm"
+#include "code/motorbike/sidecar/sidecar_movement.dm"
+#include "code/motorbike/sidecar/sidecar_health.dm"
+//passenger
+#include "code/motorbike/sidecar/passenger/passenger.dm"
+#include "code/motorbike/sidecar/passenger/passenger_buckle.dm"
+#include "code/motorbike/sidecar/passenger/passenger_guns.dm"
+#include "code/motorbike/sidecar/passenger/passenger_health.dm"
+#include "code/motorbike/sidecar/passenger/passenger_movement.dm"
+//cargo
+#include "code/motorbike/sidecar/cargo/cargo.dm"
+#include "code/motorbike/sidecar/cargo/cargo_movement.dm"
+#include "code/motorbike/sidecar/cargo/cargo_health.dm"
+#include "code/motorbike/sidecar/cargo/cargo_loading.dm"
+
+//другое
 #include "code/motorbike/motorbike_destroyed.dm"
 #include "code/motorbike/motorbike_skins.dm"
+#include "code/van/uscm_van.dm"
+#include "code/van/van_choice/van_choice.dm"
+#include "code/vehicle_order.dm"
+#include "code/arc/arc_fix.dm"
+#include "code/interior/interior.dm"
+#include "code/interior/interior_map_modul.dm"
+#include "code/van/uscm_van_med.dm"
+#include "code/van/uscm_van_verbs.dm"
+#include "code/van/uscm_van_spawners.dm"

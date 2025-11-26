@@ -34,8 +34,8 @@
 			to_chat(M, SPAN_XENOHIGHDANGER("Вы попали в яму полную смолы!"))
 		if(istype(O, /obj/vehicle/motorbike))
 			var/obj/vehicle/motorbike/OM = O
-			if(OM.stroller && OM.stroller.buckled_mob)
-				var/mob/living/M = OM.stroller.buckled_mob
+			if(istype(OM.sidecar, /obj/structure/bed/chair/sidecar/passenger) && OM.sidecar.buckled_mob) // заменить на passenger
+				var/mob/living/M = OM.sidecar.buckled_mob //нужно ли делать проверку на тип дочурки?
 				OM.unbuckle() // Просто сбрасываем позади
 				M.apply_effect(2, WEAKEN)
 				to_chat(M, SPAN_XENOHIGHDANGER("Вы упали с тележки после того как байк въехал в яму полную смолы!"))
@@ -43,3 +43,16 @@
 	if(trap_type != RESIN_TRAP_EMPTY)
 		return
 	. = ..()
+
+
+// ==========================================
+
+// Значки на миникарте для буханок
+/obj/vehicle/multitile/uscm_van/update_minimap_icon(modules_broken)
+	if(!minimap_icon_state)
+		return
+	SSminimaps.remove_marker(src)
+	minimap_icon_state = initial(minimap_icon_state)
+	if(health <= 0 || modules_broken)
+		minimap_icon_state += "_wreck"
+	SSminimaps.add_marker(src, minimap_flags, image('modular/vehicles/icons/map_icons.dmi', null, minimap_icon_state, HIGH_FLOAT_LAYER))

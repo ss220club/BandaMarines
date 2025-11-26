@@ -321,6 +321,7 @@
 		xeno_message(SPAN_XENOANNOUNCE("The doors of the metal bird have been overridden! Rejoice!"), 3, xeno.hivenumber)
 		message_admins("[key_name(xeno)] has locked the dropship '[dropship]'", xeno.x, xeno.y, xeno.z)
 		notify_ghosts(header = "Dropship Locked", message = "[xeno] has locked [dropship]!", source = xeno, action = NOTIFY_ORBIT)
+		SScmtv.spectate_event("Dropship Locked", src)
 		return
 
 	if(dropship_control_lost)
@@ -375,7 +376,7 @@
 	hijack.fire()
 	GLOB.alt_ctrl_disabled = TRUE
 
-	marine_announcement("Обнаружен незапланированный вылет дропшипа из оперативной зоны. Вероятен захват. Автопилот отключен.", "Оповещение дропшипа", 'sound/AI/hijack.ogg', logging = ARES_LOG_SECURITY, announcer = TTS_SILENT_ANNOUNCER) // BANDAMARINES EDIT - ORIGINAL: marine_announcement("Unscheduled dropship departure detected from operational area. Hijack likely. Shutting down autopilot.", "Dropship Alert", 'sound/AI/hijack.ogg', logging = ARES_LOG_SECURITY)
+	marine_announcement("Обнаружен незапланированный вылет дропшипа из оперативной зоны. Вероятен захват. Автопилот отключен.", "Оповещение дропшипа", 'sound/AI/hijack.ogg', logging = ARES_LOG_SECURITY, announcer = GLOB.tts_announcers[TTS_SILENT_ANNOUNCER_KEY]) // BANDAMARINES EDIT - ORIGINAL: marine_announcement("Unscheduled dropship departure detected from operational area. Hijack likely. Shutting down autopilot.", "Dropship Alert", 'sound/AI/hijack.ogg', logging = ARES_LOG_SECURITY)
 	log_ares_flight("Unknown", "Unscheduled dropship departure detected from operational area. Hijack likely. Shutting down autopilot.")
 	addtimer(CALLBACK(src, PROC_REF(hijack_general_quarters)), 10 SECONDS)
 	var/mob/living/carbon/xenomorph/xeno = user

@@ -1,5 +1,5 @@
 #define SAVEFILE_VERSION_MIN 8
-#define SAVEFILE_VERSION_MAX 32
+#define SAVEFILE_VERSION_MAX 33
 
 //handles converting savefiles to new formats
 //MAKE SURE YOU KEEP THIS UP TO DATE!
@@ -221,6 +221,12 @@
 		var/pref_toggles
 		S["toggle_prefs"] >> pref_toggles
 		pref_toggles |= TOGGLE_LEADERSHIP_SPOKEN_ORDERS // Enables it by default for new saves
+		S["toggle_prefs"] << pref_toggles
+
+	if(savefile_version < 33)
+		var/pref_toggles
+		S["toggle_prefs"] >> pref_toggles
+		pref_toggles |= TOGGLE_COCKING_TO_HAND // enabled by default for new saves
 		S["toggle_prefs"] << pref_toggles
 
 	savefile_version = SAVEFILE_VERSION_MAX
@@ -852,6 +858,8 @@
 	// SS220 EDIT - TTS
 	if(SStts220.is_enabled)
 		S["tts_seed"] >> tts_seed
+	S["declined_name"] >> declined_name
+	declined_name = sanitize_declined_name()
 	// =================================
 
 	return 1
@@ -941,9 +949,10 @@
 	S["exploit_record"] << exploit_record
 
 	// =================================
-	// SS220 EDIT - TTS
+	// SS220 EDIT
 	if(SStts220.is_enabled)
 		S["tts_seed"] << tts_seed
+	S["declined_name"] << declined_name
 	// =================================
 
 	return 1

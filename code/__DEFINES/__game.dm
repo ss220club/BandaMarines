@@ -126,6 +126,7 @@
 #define CHAT_GHOSTHIVEMIND (1<<12)
 #define CHAT_NICHELOGS (1<<13)
 #define CHAT_LISTENINGBUG (1<<14)
+#define CHAT_GHOSTANNOUNCECLARITY (1<<15)
 
 //toggles_ghost
 #define GHOST_HEALTH_SCAN  (1<<0)
@@ -500,8 +501,8 @@
 /// Minimum Y height up to which we keep dividing the tree (meaning cells can be half that)
 #define QUADTREE_BOUNDARY_MINIMUM_HEIGHT 12
 
-
-#define QTREE_EXCLUDE_OBSERVER 1
+/// Whether to filter to only living mobs
+#define QTREE_FILTER_LIVING 1
 
 /// Return mob list instead of client list.
 #define QTREE_SCAN_MOBS 2
@@ -593,7 +594,7 @@ img.icon { width: auto; height: auto } \
 .langchat_small { font-family: 'Spess Font'; font-size: 6pt; } \
 .langchat_yell { font-size: 12pt; } \
 .langchat_bolded { font-family: 'Press Start 2P'; font-size: 6pt; } \
-.langchat_smaller_bolded { font-weight: bold; font-size: 7px; } \
+.langchat_smaller_bolded { font-weight: bold; font-size: 6px; } \
 .langchat_announce { font-family: 'Pix Cyrillic'; font-size: 12pt; } \
 .langchat_bolditalicbig { font-family: 'TinyUnicode'; font-size: 24pt; } \
 .langchat_italic { font-family: 'TinyUnicode'; font-size: 12pt; } \
