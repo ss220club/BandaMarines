@@ -152,6 +152,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaynorth)
+"adG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/bullet{
+	pixel_x = 8;
+	pixel_y = -4
+	},
+/turf/open/floor/prison/darkyellow2/north,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "adJ" = (
 /obj/structure/platform/metal/almayer/north,
 /turf/open/floor/corsat/squares,
@@ -1157,6 +1165,16 @@
 /obj/structure/largecrate/random/case/double,
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/wy_research_complex)
+"ayH" = (
+/obj/structure/catwalk,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/heavyduty{
+	icon_state = "1-2"
+	},
+/obj/structure/largecrate/supply/supplies/mre/twe,
+/turf/open/floor/almayer/floor,
+/area/Suburb_lv759/outdoors/landing_zone_1)
 "ayQ" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 4
@@ -2982,6 +3000,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/cmo,
 /area/Suburb_lv759/indoors/wy_research_complex/dormsbedroom)
+"blP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/bullet{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/turf/open/floor/prison/darkyellow2/north,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "blQ" = (
 /obj/item/reagent_container/food/drinks/cans/aspen,
 /turf/open/floor/almayer/blackfull/west,
@@ -3035,6 +3061,12 @@
 	},
 /turf/open/floor/hybrisa/tile/darkgrey_bigtile,
 /area/Suburb_lv759/indoors/public_spaceport/cafeteria)
+"bmH" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_magazine/smg/fp9000,
+/turf/open/floor/prison/darkyellow2/north,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaynorth)
 "bnm" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -3559,6 +3591,18 @@
 /obj/item/stack/sheet/metal,
 /turf/open/floor/prison/ramptop,
 /area/Suburb_lv759/indoors/public_spaceport/vehicledeploymentbay)
+"bwq" = (
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice3";
+	pixel_x = 6;
+	pixel_y = 19
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_magazine/smg/mp5,
+/obj/item/ammo_box/magazine/mp5/empty,
+/turf/open/floor/prison/darkyellow2,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "bwu" = (
 /obj/structure/shuttle/engine/heater{
 	pixel_x = 16;
@@ -3933,6 +3977,12 @@
 	},
 /turf/open/floor/corsat/officetiles,
 /area/Suburb_lv759/indoors/wy_research_complex/changingroom)
+"bBj" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_magazine/smg/mp5,
+/turf/open/floor/prison,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "bBu" = (
 /obj/structure/machinery/light/small{
 	light_power = 0.4;
@@ -4168,6 +4218,12 @@
 	},
 /turf/open/floor/strata/multi_tiles,
 /area/Suburb_lv759/indoors/public_spaceport)
+"bFn" = (
+/obj/structure/platform{
+	layer = 3.1
+	},
+/turf/closed/wall/almayer/outer,
+/area/Suburb_lv759/indoors/wy_research_complex)
 "bFw" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "S"
@@ -4534,8 +4590,12 @@
 /area/Suburb_lv759/indoors/public_spaceport/hangarbay)
 "bMh" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/auto_turf/hybrisa_auto_turf/layer2,
-/area/Suburb_lv759/indoors/caves)
+/obj/effect/decal/hybrisa/bloodtrail{
+	dir = 8
+	},
+/obj/item/ammo_box/magazine/mp5,
+/turf/open/floor/almayer/plating,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaycentral)
 "bMj" = (
 /obj/structure/window/framed/hybrisa/colony/reinforced,
 /obj/structure/machinery/door/poddoor/hybrisa/open_shutters{
@@ -5208,6 +5268,14 @@
 	},
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/wy_research_complex)
+"cao" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/bullet{
+	pixel_x = 11;
+	pixel_y = 8
+	},
+/turf/open/floor/prison/darkyellow2,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "caF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -5424,9 +5492,10 @@
 /turf/open/auto_turf/sand_white/layer0,
 /area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
 "cfF" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
-/turf/open/auto_turf/hybrisa_auto_turf/layer2,
-/area/Suburb_lv759/outdoors/colony_streets/Main_road)
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/prison/darkyellow2/west,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "cfG" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/structure/prop/hybrisa/misc/trash/blue,
@@ -5487,13 +5556,14 @@
 /turf/open/floor/prison/bluecorner/north,
 /area/Suburb_lv759/outdoors/colony_streets/cottage5)
 "chj" = (
-/obj/structure/platform{
-	density = 0;
-	dir = 8;
-	icon_state = "platform_deco"
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/bullet{
+	pixel_x = -4;
+	pixel_y = -2
 	},
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Suburb_lv759/outdoors/colony_streets/Main_road)
+/turf/open/floor/prison/darkyellow2/north,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaynorth)
 "chq" = (
 /obj/structure/platform_decoration/metal/almayer/north,
 /obj/effect/decal/warning_stripes{
@@ -6377,7 +6447,7 @@
 	pixel_y = 4
 	},
 /obj/effect/landmark/corpsespawner/hybrisa_goon,
-/obj/item/weapon/gun/smg/mp5/mp5a5/tactical,
+/obj/item/weapon/gun/smg/mp5,
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/public_spaceport/hangarbay)
 "cwB" = (
@@ -7087,6 +7157,7 @@
 "cLm" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/corpsespawner/hybrisa_goon,
+/obj/item/weapon/gun/smg/p90,
 /turf/open/floor/prison/darkyellow2/north,
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaynorth)
 "cLw" = (
@@ -7189,6 +7260,16 @@
 	},
 /turf/open/floor/plating/asteroidfloor/north,
 /area/Suburb_lv759/indoors/public_spaceport)
+"cNe" = (
+/obj/structure/pipes/standard/simple/hidden/dark,
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_x = 16;
+	pixel_y = -8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/prison,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "cNj" = (
 /obj/structure/platform_decoration/metal/strata/east,
 /obj/effect/decal/warning_stripes{
@@ -9354,9 +9435,6 @@
 /obj/structure/machinery/light/double,
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/wy_research_complex/hangarbayshuttle)
-"dvV" = (
-/turf/open/floor/almayer/plating,
-/area/Suburb_lv759/indoors/wy_security/checkpoint_west)
 "dwb" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "SE-out";
@@ -9549,6 +9627,10 @@
 "dyC" = (
 /turf/open/floor/plating/platebot,
 /area/Suburb_lv759/outdoors/colony_streets/CLF_Camp)
+"dyN" = (
+/obj/item/clothing/mask/gas/upp_pfb,
+/turf/open/floor/prison,
+/area/Suburb_lv759/outdoors/landing_zone_2)
 "dyO" = (
 /obj/structure/cargo_container/arious/leftmid{
 	layer = 5
@@ -10430,6 +10512,10 @@
 /obj/structure/machinery/sentry_holder/wy{
 	pixel_y = 26
 	},
+/obj/item/ammo_casing/bullet{
+	pixel_x = -10;
+	pixel_y = 10
+	},
 /turf/open/floor/prison/darkyellow2,
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaynorth)
 "dPv" = (
@@ -11248,7 +11334,7 @@
 	icon_state = "gib6";
 	pixel_y = 12
 	},
-/obj/item/weapon/gun/smg/mp5/mp5a5,
+/obj/item/weapon/gun/smg/mp5,
 /turf/open/floor/almayer/plating,
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaycentral)
 "eem" = (
@@ -11574,12 +11660,8 @@
 /area/Suburb_lv759/indoors/wy_research_complex/medical_annex)
 "ekV" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/hybrisa/bloodtrail{
-	dir = 8
-	},
-/obj/item/ammo_box/magazine/mp5,
-/turf/open/floor/almayer/plating,
-/area/Suburb_lv759/indoors/wy_research_complex/hallwaycentral)
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/Suburb_lv759/indoors/caves)
 "elb" = (
 /obj/structure/platform/metal/almayer,
 /turf/open/floor/corsat/squares,
@@ -12269,6 +12351,10 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/barricade/deployable{
 	dir = 4
+	},
+/obj/item/ammo_casing/bullet{
+	pixel_x = -10;
+	pixel_y = 10
 	},
 /turf/open/floor/prison/darkyellow2,
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaynorth)
@@ -13482,6 +13568,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/wy_research_complex/cargo)
+"eWT" = (
+/obj/structure/pipes/standard/simple/hidden/dark,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "eWU" = (
 /obj/structure/bed/roller/hospital_empty/bigrollerempty{
 	dir = 8;
@@ -14542,6 +14633,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/darkyellow2/west,
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
+"frU" = (
+/obj/item/clothing/under/hybrisa/wy_pilot,
+/turf/open/hybrisa/dropship/dropship3,
+/area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "fsg" = (
 /obj/structure/prop/dam/truck/cargo{
 	dir = 8
@@ -14605,9 +14700,13 @@
 	},
 /area/Suburb_lv759/indoors/public_spaceport/hangarbay)
 "fsX" = (
-/obj/structure/tunnel/maint_tunnel/hybrisa/no_xeno_desc,
-/turf/open/floor/almayer/plating/northeast,
-/area/Suburb_lv759/indoors/public_spaceport/vehicledeploymentbay)
+/obj/structure/window/reinforced{
+	dir = 4;
+	pixel_y = 4
+	},
+/obj/item/ammo_box/magazine/p90/empty,
+/turf/open/floor/strata/multi_tiles,
+/area/Suburb_lv759/indoors/public_spaceport)
 "ftr" = (
 /turf/closed/wall/hybrisa/spaceport/reinforced,
 /area/Suburb_lv759/outdoors/landing_zone_1)
@@ -16724,6 +16823,11 @@
 /obj/structure/largecrate/black_market/confiscated_weaponry,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Suburb_lv759/outdoors/landing_zone_2)
+"gjV" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_box/magazine/misc/mre/pmc/empty,
+/turf/open/floor/strata/floor2,
+/area/Suburb_lv759/indoors/wy_research_complex/securityarmory)
 "gke" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "S"
@@ -17923,6 +18027,16 @@
 	pixel_x = 16;
 	pixel_y = -8
 	},
+/turf/open/floor/prison/darkyellow2/west,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
+"gEC" = (
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_x = 16;
+	pixel_y = -8
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/darkyellow2/west,
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "gED" = (
@@ -20567,12 +20681,6 @@
 /obj/structure/bed/chair,
 /turf/open/floor/almayer/blackfull/west,
 /area/Suburb_lv759/indoors/wy_research_complex/cafeteria)
-"hIu" = (
-/obj/structure/platform{
-	layer = 3.1
-	},
-/turf/closed/wall/almayer/outer,
-/area/Suburb_lv759/indoors/wy_research_complex)
 "hIy" = (
 /obj/structure/machinery/door_control{
 	id = "general_garage";
@@ -20978,6 +21086,10 @@
 /obj/item/weapon/shield/riot/metal,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Suburb_lv759/indoors/wy_research_complex/securityarmory)
+"hRu" = (
+/obj/item/ammo_magazine/rifle/mar40,
+/turf/open/floor/prison/cell_stripe/east,
+/area/Suburb_lv759/outdoors/landing_zone_2)
 "hRx" = (
 /obj/structure/machinery/elevator_strut/bottom,
 /obj/item/lightstick/red/variant/planted,
@@ -21077,6 +21189,10 @@
 /obj/structure/prop/hybrisa/misc/floorprops/grate,
 /turf/open/floor/prison/cell_stripe,
 /area/Suburb_lv759/indoors/public_spaceport/transformer_substation)
+"hTy" = (
+/obj/item/ammo_casing/bullet,
+/turf/open/floor/prison,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "hTA" = (
 /turf/closed/wall/almayer,
 /area/Suburb_lv759/indoors/wy_research_complex/changingroom)
@@ -22105,7 +22221,7 @@
 	dir = 4
 	},
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Suburb_lv759/outdoors/colony_streets/Main_road)
+/area/Suburb_lv759/outdoors)
 "ikm" = (
 /obj/structure/surface/table/reinforced/black,
 /obj/item/implantcase/death_alarm{
@@ -22775,6 +22891,7 @@
 	pixel_y = 8
 	},
 /obj/effect/landmark/corpsespawner/hybrisa_goon,
+/obj/item/weapon/gun/smg/mp5,
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/public_spaceport/hangarbay)
 "ixq" = (
@@ -23384,6 +23501,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_magazine/rifle/m16,
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/wy_research_complex/cargo)
 "iIS" = (
@@ -24004,6 +24122,10 @@
 	},
 /turf/open/floor/prison/floor_plate,
 /area/Suburb_lv759/outdoors/landing_zone_2)
+"iUW" = (
+/obj/item/weapon/gun/rifle/m16,
+/turf/open/floor/almayer/test_floor4,
+/area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "iVa" = (
 /obj/structure/platform{
 	dir = 8
@@ -25997,11 +26119,11 @@
 /area/Suburb_lv759/indoors/wy_research_complex/cargo)
 "jIY" = (
 /obj/structure/surface/rack,
-/obj/item/weapon/gun/smg/mp5/mp5a5,
 /obj/structure/window/reinforced{
 	dir = 4;
 	pixel_y = 4
 	},
+/obj/item/weapon/gun/smg/mp5,
 /turf/open/floor/strata/multi_tiles,
 /area/Suburb_lv759/indoors/public_spaceport)
 "jJa" = (
@@ -26132,6 +26254,11 @@
 /obj/item/stack/sheet/plasteel/small_stack,
 /turf/open/floor/almayer/cargo,
 /area/Suburb_lv759/indoors/wy_research_complex/cargo)
+"jLS" = (
+/obj/structure/pipes/standard/simple/hidden/dark,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/prison,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "jMv" = (
 /obj/structure/prop/almayer/computers/sensor_computer1{
 	name = "computer"
@@ -26334,8 +26461,14 @@
 /turf/open/floor/almayer/plating,
 /area/Suburb_lv759/indoors/wy_research_complex/reception)
 "jPZ" = (
-/turf/open/auto_turf/hybrisa_auto_turf/layer2,
-/area/Suburb_lv759/outdoors/colony_streets/Main_road)
+/obj/structure/closet/crate,
+/obj/item/weapon/gun/rifle/ak4047,
+/obj/item/ammo_magazine/rifle/ak4047,
+/obj/item/ammo_magazine/rifle/ak4047,
+/obj/item/ammo_magazine/rifle/ak4047,
+/obj/item/ammo_magazine/rifle/ak4047,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/landing_zone_2)
 "jQc" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "W"
@@ -26765,9 +26898,13 @@
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/wy_research_complex/cargo)
 "jYK" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/auto_turf/hybrisa_auto_turf/layer3,
-/area/Suburb_lv759/indoors/caves)
+/obj/structure/stairs/perspective{
+	icon_state = "p_stair_ew_full_cap";
+	layer = 3.5;
+	color = "#6e6e6e"
+	},
+/turf/open/floor/prison/floor_plate,
+/area/Suburb_lv759/indoors/wy_security/checkpoint_west)
 "jYZ" = (
 /obj/structure/prop/hybrisa/misc/fake/lattice/full,
 /obj/structure/pipes/standard/tank/carbon_dioxide{
@@ -27961,6 +28098,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
+"kvZ" = (
+/obj/structure/pipes/standard/simple/hidden/green,
+/obj/item/ammo_magazine/rifle/mar40,
+/turf/open/floor/prison,
+/area/Suburb_lv759/outdoors/landing_zone_2)
 "kwc" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -28434,12 +28576,10 @@
 /turf/open/auto_turf/strata_grass/layer0_mud,
 /area/Suburb_lv759/outdoors)
 "kEQ" = (
-/obj/structure/platform{
-	density = 0;
-	icon_state = "platform_deco"
-	},
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Suburb_lv759/outdoors/colony_streets/Main_road)
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/bullet,
+/turf/open/floor/prison/darkyellow2/northeast,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaynorth)
 "kFf" = (
 /obj/structure/pipes/standard/simple/hidden/green,
 /turf/open/floor/prison/cell_stripe/north,
@@ -29373,7 +29513,7 @@
 	insert_tag = "twe_paragroup"
 	},
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Suburb_lv759/outdoors/colony_streets/Main_road)
+/area/Suburb_lv759/outdoors)
 "kUX" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/platebotc,
@@ -29541,8 +29681,10 @@
 /area/Suburb_lv759/indoors/wy_research_complex/cafeteriakitchen)
 "kXm" = (
 /obj/structure/closet/crate/weapon,
-/obj/item/ammo_box/magazine/p90/empty,
-/obj/item/ammo_box/magazine/mp5/empty,
+/obj/item/weapon/gun/smg/m39/corporate/no_lock,
+/obj/item/ammo_magazine/smg/m39,
+/obj/item/ammo_magazine/smg/m39,
+/obj/item/ammo_magazine/smg/m39,
 /turf/open/floor/strata/multi_tiles,
 /area/Suburb_lv759/indoors/public_spaceport)
 "kXw" = (
@@ -31109,6 +31251,14 @@
 /obj/effect/landmark/objective_landmark/science,
 /turf/open/floor/plating/plating_catwalk,
 /area/Suburb_lv759/indoors/wy_research_complex/xenobiology)
+"lvr" = (
+/obj/item/ammo_casing/bullet{
+	pixel_x = 2;
+	pixel_y = 3
+	},
+/obj/item/ammo_magazine/smg/fp9000,
+/turf/open/floor/prison,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaynorth)
 "lvL" = (
 /obj/structure/stairs/perspective{
 	color = "#6e6e6e";
@@ -31757,13 +31907,7 @@
 /turf/open/floor/prison,
 /area/Suburb_lv759/outdoors/landing_zone_1)
 "lFP" = (
-/obj/item/reagent_container/glass/bucket{
-	pixel_x = 6;
-	pixel_y = 8
-	},
-/obj/item/tool/mop{
-	pixel_y = 23
-	},
+/obj/structure/prop/hybrisa/airport/deadpilot1,
 /turf/open/hybrisa/dropship/dropship4,
 /area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "lGe" = (
@@ -32345,6 +32489,7 @@
 /obj/structure/barricade/deployable{
 	dir = 4
 	},
+/obj/item/ammo_magazine/smg/fp9000,
 /turf/open/floor/prison/darkyellow2/north,
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaynorth)
 "lQO" = (
@@ -32572,6 +32717,10 @@
 /obj/structure/window_frame/corsat,
 /turf/open/floor/hybrisa/tile/tilebeigecheckered,
 /area/Suburb_lv759/indoors/wy_research_complex/dormsbedroom)
+"lUI" = (
+/obj/item/ammo_box/magazine/mp5/empty,
+/turf/open/floor/strata/multi_tiles,
+/area/Suburb_lv759/indoors/public_spaceport)
 "lUJ" = (
 /obj/structure/window/framed/almayer{
 	icon_state = "alm_rwindow2"
@@ -33411,6 +33560,7 @@
 	pixel_x = 3;
 	pixel_y = 4
 	},
+/obj/item/weapon/gun/smg/mp5,
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "miH" = (
@@ -33946,9 +34096,16 @@
 /turf/open/floor/kutjevo/colors/red/edge/east,
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaycentral)
 "mrE" = (
+/obj/structure/pipes/standard/simple/hidden/dark,
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_x = 16;
+	pixel_y = -8
+	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Suburb_lv759/outdoors/colony_streets/Main_road)
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "mrL" = (
 /obj/structure/machinery/disposal{
 	pixel_y = 15;
@@ -34782,6 +34939,12 @@
 /obj/structure/pipes/standard/simple/hidden/green,
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/caves/passage_to_bunker)
+"mIu" = (
+/obj/structure/pipes/standard/simple/hidden/dark,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "mIz" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice12";
@@ -35547,6 +35710,7 @@
 /area/Suburb_lv759/indoors/wy_research_complex)
 "mVU" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/gun/rifle/mar40/carbine,
 /turf/open/floor/prison/cell_stripe/east,
 /area/Suburb_lv759/outdoors/landing_zone_2)
 "mWc" = (
@@ -35944,13 +36108,16 @@
 /turf/open/floor/shiva/floor3,
 /area/Suburb_lv759/indoors/public_spaceport)
 "ncM" = (
-/obj/structure/prop/almayer/cannon_cable_connector{
-	name = "\improper Control Module";
-	pixel_y = 13;
-	unacidable = 0
+/obj/structure/pipes/standard/simple/hidden/dark,
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_x = 16;
+	pixel_y = -8
 	},
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Suburb_lv759/outdoors/colony_streets/Main_road)
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/prison,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "nde" = (
 /obj/structure/bed/sofa/vert/white/bot,
 /turf/open/floor/kutjevo/tan,
@@ -36161,6 +36328,11 @@
 	},
 /turf/open/floor/hybrisa/tile/tilegrey,
 /area/Suburb_lv759/indoors/wy_research_complex/reception)
+"nfZ" = (
+/obj/item/ammo_casing/bullet,
+/obj/item/weapon/gun/smg/fp9000,
+/turf/open/floor/prison,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaynorth)
 "ngi" = (
 /obj/structure/prop/invuln/overhead_pipe{
 	pixel_x = 6;
@@ -38184,12 +38356,7 @@
 /turf/open/floor/kutjevo/colors/cyan/edge/north,
 /area/Suburb_lv759/indoors/wy_research_complex/medical_annex)
 "nVY" = (
-/obj/structure/stairs/perspective{
-	icon_state = "p_stair_ew_full_cap";
-	layer = 3.5;
-	color = "#6e6e6e"
-	},
-/turf/open/floor/prison/floor_plate,
+/turf/open/floor/almayer/plating,
 /area/Suburb_lv759/indoors/wy_security/checkpoint_west)
 "nWd" = (
 /obj/effect/decal/cleanable/dirt,
@@ -38392,6 +38559,14 @@
 	},
 /turf/open/floor/almayer/plate,
 /area/Suburb_lv759/indoors/wy_research_complex/changingroom)
+"oaw" = (
+/obj/structure/machinery/door/poddoor/railing{
+	dir = 2;
+	id = "vehicle_elevator_railing"
+	},
+/obj/item/ammo_magazine/rifle/m16,
+/turf/open/floor/prison,
+/area/Suburb_lv759/indoors/wy_research_complex/cargo)
 "oaA" = (
 /obj/structure/window/reinforced{
 	dir = 8;
@@ -38891,7 +39066,6 @@
 	},
 /obj/structure/closet/crate,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/storage/pouch/medkit/full_advanced,
 /turf/open/floor/prison/floor_marked/southwest,
 /area/Suburb_lv759/outdoors/landing_zone_2)
 "omN" = (
@@ -39140,6 +39314,8 @@
 /obj/item/ammo_magazine/shotgun/beanbag/es7/slug,
 /obj/item/ammo_magazine/shotgun/beanbag/es7,
 /obj/item/ammo_magazine/shotgun/beanbag/es7,
+/obj/item/ammo_magazine/shotgun/beanbag/es7/slug,
+/obj/item/ammo_magazine/shotgun/beanbag/es7/slug,
 /obj/item/weapon/gun/shotgun/es7,
 /turf/open/floor/almayer/test_floor5,
 /area/Suburb_lv759/indoors/wy_research_complex/securityarmory)
@@ -39235,6 +39411,11 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/strata/floor3,
 /area/Suburb_lv759/indoors/public_spaceport/hangarbay)
+"orA" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/xeno,
+/turf/open/floor/prison/darkyellow2,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaynorth)
 "orJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/largecrate,
@@ -40030,6 +40211,16 @@
 /obj/structure/pipes/standard/simple/hidden/dark,
 /turf/open/floor/almayer/black,
 /area/Suburb_lv759/indoors/wy_research_complex/cargo)
+"oFn" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/obj/structure/closet/secure_closet/security,
+/obj/item/clothing/under/marine/veteran/pmc/corporate/hybrisa/lead,
+/obj/item/clothing/head/helmet/marine/veteran/pmc/corporate/hybrisa/lead,
+/obj/item/clothing/suit/storage/marine/veteran/pmc/light/corporate/lead,
+/turf/open/floor/strata/red3/north,
+/area/Suburb_lv759/indoors/wy_research_complex/securityarmory)
 "oFo" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice12";
@@ -40148,6 +40339,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/asteroidfloor/north,
 /area/Suburb_lv759/indoors/public_spaceport)
+"oHs" = (
+/obj/item/weapon/gun/smg/mp5,
+/turf/closed/wall/r_wall/biodome,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaynorth)
 "oHK" = (
 /obj/structure/machinery/light/small,
 /turf/open/floor/kutjevo/multi_tiles/southeast,
@@ -41075,6 +41270,10 @@
 "oYf" = (
 /turf/open/auto_turf/hybrisa_auto_turf/layer0,
 /area/Suburb_lv759/outdoors)
+"oYg" = (
+/obj/item/weapon/gun/revolver/m44/custom/webley,
+/turf/open/floor/almayer/floor,
+/area/Suburb_lv759/outdoors/landing_zone_1)
 "oYj" = (
 /obj/item/tool/pickaxe/drill,
 /obj/effect/decal/cleanable/blood,
@@ -41260,6 +41459,18 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/white,
 /area/Suburb_lv759/indoors/public_spaceport/cafeteria)
+"pao" = (
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice3";
+	pixel_x = 6;
+	pixel_y = 19
+	},
+/obj/item/ammo_casing/bullet{
+	pixel_x = 8;
+	pixel_y = -4
+	},
+/turf/open/floor/prison,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaynorth)
 "pax" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "S";
@@ -41843,6 +42054,10 @@
 	},
 /turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
 /area/Suburb_lv759/indoors/caves/Monorail)
+"pnz" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/auto_turf/hybrisa_auto_turf/layer3,
+/area/Suburb_lv759/indoors/caves)
 "pnE" = (
 /obj/item/clothing/suit/apron/cuppa_joes,
 /turf/open/floor/hybrisa/metal/metalwhitefull,
@@ -42533,6 +42748,10 @@
 	},
 /turf/open/floor/plating/warnplate/east,
 /area/Suburb_lv759/outdoors/colony_streets/cottage9)
+"pAD" = (
+/obj/item/weapon/gun/rifle/mar40/carbine,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/landing_zone_2)
 "pAK" = (
 /obj/effect/decal/cleanable/blood/oil/streak,
 /obj/effect/decal/warning_stripes{
@@ -43369,6 +43588,10 @@
 /obj/structure/barricade/handrail/strata,
 /turf/open/floor/prison,
 /area/Suburb_lv759/outdoors/landing_zone_1)
+"pQY" = (
+/obj/item/ammo_magazine/rifle/m16,
+/turf/open/floor/almayer/test_floor4,
+/area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "pRa" = (
 /obj/structure/pipes/standard/simple/hidden/dark{
 	dir = 4
@@ -44407,6 +44630,11 @@
 /obj/structure/window/framed/corsat,
 /turf/open/floor/plating,
 /area/Suburb_lv759/outdoors/colony_streets/pizza)
+"qls" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/bullet,
+/turf/open/floor/prison,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "qlE" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/asteroidwarning/west,
@@ -44715,6 +44943,16 @@
 	},
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/Suburb_lv759/outdoors/landing_zone_2)
+"qsd" = (
+/obj/structure/pipes/standard/simple/hidden/dark,
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_x = 16;
+	pixel_y = -8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "qsu" = (
 /obj/structure/machinery/light/double{
 	dir = 4;
@@ -44881,7 +45119,7 @@
 	},
 /obj/effect/landmark/corpsespawner/hybrisa_goon/lead,
 /obj/effect/decal/cleanable/blood,
-/obj/item/weapon/gun/smg/mp5/mp5a5/tactical,
+/obj/item/weapon/gun/smg/mp5,
 /turf/open/floor/almayer/plating,
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaycentral)
 "qvJ" = (
@@ -45190,9 +45428,6 @@
 	},
 /turf/open/floor/shiva/floor3,
 /area/Suburb_lv759/outdoors/colony_streets/garage)
-"qCn" = (
-/turf/open/auto_turf/hybrisa_auto_turf/layer3,
-/area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "qCq" = (
 /obj/structure/surface/table/reinforced/prison,
 /obj/item/reagent_container/food/drinks/coffee{
@@ -45892,6 +46127,11 @@
 /obj/item/trash/cigbutt,
 /turf/open/floor/prison/darkyellow2/southwest,
 /area/Suburb_lv759/outdoors/colony_streets/cottage6)
+"qMh" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/largecrate/supply/floodlights,
+/turf/open/floor/almayer/floor,
+/area/Suburb_lv759/outdoors/landing_zone_1)
 "qMj" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "N"
@@ -46637,6 +46877,10 @@
 	},
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
+"qXT" = (
+/obj/item/ammo_magazine/rifle/m16,
+/turf/open/floor/plating/platingdmg2,
+/area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "qXV" = (
 /obj/structure/barricade/handrail/sandstone/b{
 	color = "#c2d6d6";
@@ -48226,7 +48470,7 @@
 	unacidable = 0
 	},
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Suburb_lv759/outdoors/colony_streets/Main_road)
+/area/Suburb_lv759/outdoors)
 "rAp" = (
 /obj/effect/decal/hybrisa/road/lines1,
 /obj/structure/prop/hybrisa/vehicles/Small_Truck/Medical_Cargo{
@@ -48894,9 +49138,14 @@
 	},
 /area/Suburb_lv759/indoors/caves)
 "rMG" = (
-/obj/structure/prop/hybrisa/cavedecor/stalagmite5,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Suburb_lv759/outdoors/colony_streets/Main_road)
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/bullet{
+	pixel_x = -10;
+	pixel_y = 10
+	},
+/turf/open/floor/prison/darkyellow2,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaynorth)
 "rMK" = (
 /obj/structure/surface/table/almayer,
 /turf/open/floor/prison,
@@ -49210,6 +49459,16 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Suburb_lv759/outdoors/colony_streets/cottage5)
+"rTe" = (
+/obj/structure/prop/invuln/overhead_pipe{
+	dir = 8;
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_magazine/smg/mp5,
+/turf/open/floor/prison,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "rTg" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "N";
@@ -49529,7 +49788,6 @@
 /obj/item/trash/cigbutt,
 /obj/effect/decal/hybrisa/dirt,
 /obj/item/ammo_casing/bullet,
-/obj/item/weapon/gun/smg/mp5/mp5a5,
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/public_spaceport/hangarbay)
 "saR" = (
@@ -50011,6 +50269,11 @@
 	},
 /turf/open/floor/prison/blue/east,
 /area/Suburb_lv759/outdoors/colony_streets/cottage5)
+"skE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/gun/rifle/m16,
+/turf/open/floor/prison,
+/area/Suburb_lv759/indoors/wy_research_complex/cargo)
 "skM" = (
 /obj/structure/machinery/door/airlock/multi_tile/almayer/engidoor/glass/colony{
 	dir = 1
@@ -51454,7 +51717,6 @@
 	pixel_y = 6
 	},
 /obj/structure/surface/rack,
-/obj/item/weapon/gun/smg/m39/corporate/no_lock,
 /turf/open/floor/strata/multi_tiles,
 /area/Suburb_lv759/indoors/public_spaceport)
 "sOX" = (
@@ -52741,6 +53003,10 @@
 	},
 /turf/open/floor/plating/warnplate/east,
 /area/Suburb_lv759/outdoors/colony_streets/cottage9)
+"tkV" = (
+/obj/item/ammo_magazine/rifle/ak4047,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/Suburb_lv759/outdoors/landing_zone_2)
 "tla" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/cleanable/blood/drip,
@@ -55754,6 +56020,7 @@
 	icon_state = "mgibbl2";
 	pixel_y = 8
 	},
+/obj/item/ammo_magazine/smg/mp5,
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "uqf" = (
@@ -56665,6 +56932,9 @@
 /obj/structure/fence,
 /turf/open/floor/shiva/floor3,
 /area/Suburb_lv759/indoors/public_spaceport)
+"uJn" = (
+/turf/open/auto_turf/hybrisa_auto_turf/layer3,
+/area/Suburb_lv759/outdoors)
 "uJx" = (
 /obj/item/stool{
 	pixel_x = -4;
@@ -56927,10 +57197,9 @@
 /turf/open/floor/prison/darkyellow2/west,
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "uOd" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/gun/rifle/m16/m16a5,
-/turf/open/floor/prison,
-/area/Suburb_lv759/indoors/wy_research_complex/cargo)
+/obj/item/pizzabox/pizza_galaxy/meat,
+/turf/open/floor/platingdmg3,
+/area/Suburb_lv759/outdoors/colony_streets/Main_road)
 "uOg" = (
 /obj/structure/machinery/light/double{
 	dir = 4
@@ -57649,6 +57918,11 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/strata/blue3/east,
 /area/Suburb_lv759/indoors/public_spaceport/hangarbay)
+"vdb" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/bullet,
+/turf/open/floor/prison/darkyellow2/southwest,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "vdu" = (
 /mob/living/simple_animal/cat/kitten,
 /obj/effect/decal/cleanable/flour,
@@ -58009,6 +58283,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/corpsespawner/hybrisa_goon,
+/obj/item/weapon/gun/smg/p90,
 /turf/open/floor/prison/darkyellow2,
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaynorth)
 "vkD" = (
@@ -58573,6 +58848,11 @@
 	},
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/wy_research_complex/cargo)
+"vva" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_magazine/smg/mp5,
+/turf/open/floor/prison,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "vvj" = (
 /turf/open/auto_turf/hybrisa_auto_turf/layer3,
 /area/Suburb_lv759/indoors/caves)
@@ -59812,7 +60092,7 @@
 "vQy" = (
 /obj/item/device/flashlight/lamp/tripod,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Suburb_lv759/outdoors/colony_streets/Main_road)
+/area/Suburb_lv759/outdoors)
 "vQG" = (
 /obj/structure/barricade/handrail/strata,
 /obj/structure/prop/invuln/overhead_pipe{
@@ -60371,6 +60651,10 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/plating/platingdmg1,
 /area/Suburb_lv759/indoors/caves)
+"wbe" = (
+/obj/item/ammo_magazine/rifle/mar40,
+/turf/open/floor/prison,
+/area/Suburb_lv759/outdoors/landing_zone_2)
 "wbg" = (
 /obj/structure/largecrate/random/secure,
 /obj/effect/decal/cleanable/dirt,
@@ -61159,6 +61443,10 @@
 	},
 /turf/open/shuttle/dropship/dark_grey_bottom,
 /area/Suburb_lv759/indoors/caves/Monorail)
+"wpQ" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/Suburb_lv759/outdoors)
 "wqc" = (
 /obj/item/trash/cigbutt,
 /turf/open/floor/corsat/officetiles,
@@ -62097,7 +62385,7 @@
 "wJx" = (
 /obj/structure/prop/dam/drill,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/Suburb_lv759/outdoors/colony_streets/Main_road)
+/area/Suburb_lv759/outdoors)
 "wJz" = (
 /obj/structure/largecrate/supply/floodlights,
 /obj/effect/decal/cleanable/blood,
@@ -64527,6 +64815,16 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/Suburb_lv759/indoors/wy_research_complex/hangarbayshuttle)
+"xED" = (
+/obj/structure/catwalk,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/heavyduty{
+	icon_state = "1-2"
+	},
+/obj/structure/closet/crate/weapon,
+/obj/item/weapon/gun/smg/p90/twe,
+/turf/open/floor/almayer/floor,
+/area/Suburb_lv759/outdoors/landing_zone_1)
 "xEJ" = (
 /obj/item/paper,
 /obj/effect/decal/hybrisa/trash{
@@ -64983,9 +65281,23 @@
 	},
 /turf/open/floor/hybrisa/tile/tilewhite,
 /area/Suburb_lv759/indoors/wy_research_complex/xenobiology)
+"xMy" = (
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice3";
+	pixel_x = 6;
+	pixel_y = 19
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/gun/smg/mp5,
+/turf/open/floor/prison,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
 "xME" = (
 /obj/effect/decal/hybrisa/bloodtrail{
 	dir = 4
+	},
+/obj/item/ammo_casing/bullet{
+	pixel_x = 11;
+	pixel_y = 8
 	},
 /turf/open/floor/prison,
 /area/Suburb_lv759/indoors/wy_research_complex/hallwaysoutheast)
@@ -65937,6 +66249,14 @@
 	},
 /turf/open/floor/plating/warnplate/west,
 /area/Suburb_lv759/outdoors)
+"ygK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/bullet{
+	pixel_x = 11;
+	pixel_y = 8
+	},
+/turf/open/floor/prison,
+/area/Suburb_lv759/indoors/wy_research_complex/hallwaynorth)
 "ygQ" = (
 /obj/structure/platform_decoration/metal/strata,
 /obj/effect/decal/warning_stripes{
@@ -67971,7 +68291,7 @@ lRI
 gjQ
 lRI
 aZO
-lRI
+tkV
 bcv
 bSw
 tlR
@@ -68206,7 +68526,7 @@ bnn
 gtK
 scb
 xGJ
-ykA
+kvZ
 haV
 ykA
 stC
@@ -68218,9 +68538,9 @@ kIj
 dXc
 pNU
 jtF
+jPZ
 lRI
-lRI
-lRI
+tkV
 lRI
 lRI
 lRI
@@ -68455,11 +68775,11 @@ lRI
 gYU
 eRK
 nKi
-nKi
+wbe
 eQb
 eQb
 nKi
-nKi
+dyN
 nKi
 pLX
 xtz
@@ -68710,7 +69030,7 @@ cSV
 kdV
 mVU
 iFg
-iFg
+hRu
 iFg
 ita
 opW
@@ -68723,7 +69043,7 @@ lRI
 lRI
 lRI
 lAI
-lRI
+tkV
 iYP
 lRI
 lRI
@@ -70490,7 +70810,7 @@ lRI
 txV
 liS
 njh
-lRI
+tkV
 lRI
 bcv
 bSw
@@ -70733,7 +71053,7 @@ lAI
 lRI
 lRI
 lRI
-lRI
+pAD
 rhO
 lRI
 lRI
@@ -75804,10 +76124,10 @@ qHC
 ufQ
 ufQ
 ufQ
-yiX
-yiX
-yiX
-yiX
+qHQ
+qHQ
+qHQ
+qHQ
 vHe
 vHe
 gAH
@@ -78648,7 +78968,7 @@ tiO
 tiO
 tiO
 tiO
-fsX
+tiO
 iUx
 aOU
 tyL
@@ -79952,8 +80272,8 @@ oJg
 aYT
 nkV
 pyg
-ehX
-fKc
+ayH
+xED
 mXF
 ehX
 piB
@@ -80204,7 +80524,7 @@ vLU
 ngD
 lzN
 qTK
-piB
+qMh
 piB
 iqh
 lNj
@@ -80705,7 +81025,7 @@ klG
 myi
 qUN
 vLU
-nfx
+oYg
 xmc
 rxb
 cMA
@@ -81924,7 +82244,7 @@ gHa
 qHQ
 rnR
 kHg
-xgY
+lUI
 qHQ
 uff
 hDG
@@ -82175,7 +82495,7 @@ aPz
 iCE
 qHQ
 jIY
-ndY
+fsX
 wDC
 qHQ
 fWI
@@ -85245,7 +85565,7 @@ eXX
 yfy
 iCk
 lqm
-dvV
+nVY
 xDy
 uEp
 uyt
@@ -85497,7 +85817,7 @@ dec
 yfy
 yfy
 lqm
-dvV
+nVY
 kME
 fxl
 tdC
@@ -85749,7 +86069,7 @@ eXX
 yfy
 yfy
 lqm
-nVY
+jYK
 xDy
 qWZ
 jIO
@@ -88020,12 +88340,12 @@ quw
 cBR
 gwB
 wPV
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
 haU
 bcv
 bcv
@@ -90286,7 +90606,7 @@ tKu
 gxW
 gxW
 gVA
-gsh
+uOd
 qBx
 qBx
 lOy
@@ -90543,7 +90863,7 @@ agT
 lPb
 qBx
 gsh
-lPb
+pQY
 agT
 qXC
 xBq
@@ -90786,7 +91106,7 @@ rTr
 plE
 bHZ
 yff
-yff
+frU
 yff
 yff
 yff
@@ -90795,7 +91115,7 @@ agT
 lPb
 gsh
 gsh
-lPb
+iUW
 agT
 xBq
 qgi
@@ -91046,7 +91366,7 @@ gxW
 wiA
 sOR
 qBx
-lOy
+qXT
 rIL
 swn
 gBd
@@ -91845,7 +92165,7 @@ vlW
 gBd
 gBd
 gBd
-gBd
+qHC
 gBd
 gBd
 gBd
@@ -91951,212 +92271,212 @@ vlW
 vlW
 vlW
 vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-oML
-gBd
-gBd
-gBd
-gBd
-gBd
-oML
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-oML
-ooy
-ooy
-ooy
-ooy
-ooy
-oML
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-oML
-ooy
-ooy
-ooy
-ooy
-ooy
-oML
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-rjr
-rjr
-vlW
-vlW
-vlW
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-oML
-ooy
-ooy
-ooy
-ooy
-ooy
-oML
-gBd
-gti
-xBq
-tNr
-quw
-oML
-ooy
-ooy
-ooy
-ooy
-ooy
-oML
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-vlW
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-vlW
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+haU
+qHC
+qHC
+qHC
+qHC
+qHC
+haU
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+haU
+bcv
+bcv
+bcv
+bcv
+bcv
+haU
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+haU
+bcv
+bcv
+bcv
+bcv
+bcv
+haU
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+oYf
+oYf
+bSw
+bSw
+bSw
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+haU
+bcv
+bcv
+bcv
+bcv
+bcv
+haU
+qHC
+qTI
+bsp
+kGJ
+qyy
+haU
+bcv
+bcv
+bcv
+bcv
+bcv
+haU
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+bSw
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+bSw
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
 uBg
 eTg
 aDq
@@ -92203,212 +92523,212 @@ vlW
 vlW
 vlW
 vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-vlW
-vlW
-gBd
-gBd
-gBd
-dPF
-dPF
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-oML
-gBd
-gBd
-gBd
-gBd
-gBd
-oML
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-oML
-gBd
-gBd
-gBd
-gBd
-gBd
-oML
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-rjr
-gBd
-gBd
-vlW
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-vlW
-gBd
-gBd
-oML
-gBd
-gBd
-gBd
-gBd
-gBd
-oML
-gBd
-gti
-xBq
-tNr
-quw
-oML
-gBd
-gBd
-gBd
-gBd
-gBd
-oML
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-gBd
-gBd
-vlW
-vlW
-vlW
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+bSw
+bSw
+qHC
+qHC
+qHC
+fyN
+fyN
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+haU
+qHC
+qHC
+qHC
+qHC
+qHC
+haU
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+haU
+qHC
+qHC
+qHC
+qHC
+qHC
+haU
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+oYf
+qHC
+qHC
+bSw
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+bSw
+qHC
+qHC
+haU
+qHC
+qHC
+qHC
+qHC
+qHC
+haU
+qHC
+qTI
+bsp
+kGJ
+qyy
+haU
+qHC
+qHC
+qHC
+qHC
+qHC
+haU
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+qHC
+qHC
+bSw
+bSw
+bSw
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
 uBg
 eTg
 aDq
@@ -92455,212 +92775,212 @@ vlW
 vlW
 vlW
 vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-vlW
-gBd
-gBd
-gBd
-dPF
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gti
-xBq
-tNr
-quw
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-dyk
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-rjr
-gBd
-gBd
-rjr
-rjr
-vlW
-vlW
-vlW
-vlW
-dyk
-gBd
-gBd
-vlW
-vlW
-rMG
-dyk
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-dyk
-gBd
-gBd
-gBd
-gBd
-rjr
-dyk
-gBd
-gBd
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+bSw
+qHC
+qHC
+qHC
+fyN
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qTI
+bsp
+kGJ
+qyy
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+kHG
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+oYf
+qHC
+qHC
+oYf
+oYf
+bSw
+bSw
+bSw
+bSw
+kHG
+qHC
+qHC
+bSw
+bSw
+xrU
+kHG
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+kHG
+qHC
+qHC
+qHC
+qHC
+oYf
+kHG
+qHC
+qHC
 uBg
 uBg
 uBg
@@ -92707,212 +93027,212 @@ vlW
 vlW
 vlW
 vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-gBd
-gBd
-dPF
-gBd
-dPF
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-gBd
-gBd
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-rjr
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gti
-xBq
-tNr
-quw
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-vlW
-vlW
-jPZ
-jPZ
-vlW
-vlW
-jPZ
-jPZ
-jPZ
-jPZ
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-rjr
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-rjr
-rjr
-gBd
-gBd
-gBd
-rjr
-gBd
-rjr
-vlW
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+qHC
+qHC
+fyN
+qHC
+fyN
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+qHC
+qHC
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+oYf
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qTI
+bsp
+kGJ
+qyy
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+bSw
+bSw
+vhv
+vhv
+bSw
+bSw
+vhv
+vhv
+vhv
+vhv
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+oYf
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+oYf
+oYf
+qHC
+qHC
+qHC
+oYf
+qHC
+oYf
+bSw
 vlW
 vlW
 vlW
@@ -92959,195 +93279,195 @@ vlW
 vlW
 vlW
 vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-mrE
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+lgk
 vQy
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-dPF
-gBd
-gBd
-vlW
-vlW
-gBd
-vlW
-vlW
-gBd
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+fyN
+qHC
+qHC
+bSw
+bSw
+qHC
+bSw
+bSw
+qHC
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
 kUK
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-gBd
-rjr
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gti
-xBq
-tNr
-quw
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-jPZ
-jPZ
-gBd
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-jPZ
-jPZ
-jPZ
-jPZ
-jPZ
-jPZ
-jPZ
-jPZ
-jPZ
-jPZ
-jPZ
-jPZ
-qCn
-jPZ
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-gBd
-gBd
-gBd
-rjr
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+qHC
+oYf
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qTI
+bsp
+kGJ
+qyy
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+vhv
+vhv
+qHC
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+vhv
+vhv
+vhv
+vhv
+vhv
+vhv
+vhv
+vhv
+vhv
+vhv
+vhv
+vhv
+uJn
+vhv
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+qHC
+qHC
+qHC
+oYf
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
 osc
 osc
 osc
@@ -93155,16 +93475,16 @@ osc
 osc
 wJx
 rAd
-ncM
-gBd
-rjr
-gBd
-rjr
-gBd
-gBd
-gBd
-gBd
-vlW
+vBN
+qHC
+oYf
+qHC
+oYf
+qHC
+qHC
+qHC
+qHC
+bSw
 vlW
 vlW
 vlW
@@ -93211,21 +93531,21 @@ vlW
 vlW
 vlW
 vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-kEQ
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+lvo
 ikh
 ikh
 ikh
@@ -93235,90 +93555,22 @@ ikh
 ikh
 ikh
 ikh
-chj
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-dPF
-gBd
-gBd
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-rjr
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gti
-xBq
-tNr
-quw
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
+mbR
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+fyN
+qHC
+qHC
+bSw
+bSw
+bSw
+bSw
 bSw
 bSw
 bSw
@@ -93328,95 +93580,163 @@ qHC
 qHC
 qHC
 qHC
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-vlW
-gBd
-gBd
-jPZ
-jPZ
-vlW
-vlW
-jPZ
-jPZ
-jPZ
-jPZ
-jPZ
-jPZ
-jPZ
-jPZ
-jPZ
-jPZ
-jPZ
-jPZ
-jPZ
-jPZ
-jPZ
-jPZ
-jPZ
-cfF
-jPZ
-jPZ
-jPZ
-vlW
-vlW
-vlW
-vlW
-gBd
-gBd
-gBd
-gBd
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-vlW
-rjr
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-gBd
-rjr
-gBd
-gBd
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+oYf
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qTI
+bsp
+kGJ
+qyy
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+bSw
+qHC
+qHC
+vhv
+vhv
+bSw
+bSw
+vhv
+vhv
+vhv
+vhv
+vhv
+vhv
+vhv
+vhv
+vhv
+vhv
+vhv
+vhv
+vhv
+vhv
+vhv
+vhv
+vhv
+wpQ
+vhv
+vhv
+vhv
+bSw
+bSw
+bSw
+bSw
+qHC
+qHC
+qHC
+qHC
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+bSw
+oYf
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+qHC
+oYf
+qHC
+qHC
 osc
 tbk
 slq
 bcU
 osc
-gBd
-gBd
-rjr
-rjr
-rjr
-gBd
-gBd
-gBd
-rjr
-gBd
-gBd
-gBd
+qHC
+qHC
+oYf
+oYf
+oYf
+qHC
+qHC
+qHC
+oYf
+qHC
+qHC
+qHC
 vlW
 vlW
 vlW
@@ -93618,10 +93938,10 @@ tmN
 iCq
 iCq
 iCq
-iCq
-uzu
-iCq
-iCq
+fGo
+riH
+fGo
+tiS
 jgi
 jgi
 jgi
@@ -93870,7 +94190,7 @@ iCq
 iCq
 iCq
 iCq
-iCq
+tiS
 uzu
 iCq
 iCq
@@ -94122,7 +94442,7 @@ jgi
 jgi
 jgi
 iCq
-iCq
+tiS
 iCq
 iCq
 tYP
@@ -94851,7 +95171,7 @@ iCq
 iCq
 iCq
 iCq
-jYK
+pnz
 jgi
 iCq
 iCq
@@ -95603,7 +95923,7 @@ iCq
 iCq
 jgi
 iCq
-bMh
+ekV
 unl
 bFa
 asu
@@ -96148,8 +96468,8 @@ jgi
 jgi
 jgi
 jgi
-iCq
-iCq
+fGo
+tiS
 jgi
 iCq
 iCq
@@ -97139,7 +97459,7 @@ pwe
 qvJ
 iSw
 kZT
-qMj
+oFn
 hqz
 boQ
 kZT
@@ -97644,7 +97964,7 @@ sHR
 iAf
 kZT
 wob
-coA
+gjV
 uBo
 kZT
 cLU
@@ -98428,10 +98748,10 @@ jgi
 jgi
 jgi
 jgi
-iCq
-iCq
-iCq
-iCq
+tiS
+fGo
+fGo
+tiS
 jgi
 jgi
 jgi
@@ -100333,10 +100653,10 @@ jgi
 jgi
 jgi
 jgi
-iCq
-iCq
-iCq
-iCq
+tiS
+fGo
+fGo
+tiS
 jgi
 jgi
 jgi
@@ -100710,7 +101030,7 @@ uIS
 iCq
 iCq
 iCq
-tiS
+iCq
 iCq
 jgi
 jgi
@@ -100960,9 +101280,9 @@ iCq
 iCq
 iCq
 iCq
-tTN
+iCq
 vvj
-tiS
+iCq
 iCq
 jgi
 jgi
@@ -101208,7 +101528,7 @@ jgi
 jgi
 iCq
 iCq
-czH
+iCq
 iCq
 tYP
 iCq
@@ -101315,9 +101635,9 @@ jgi
 jgi
 jgi
 jgi
-iCq
-iCq
-iCq
+tiS
+fGo
+tiS
 jgi
 jgi
 jgi
@@ -101464,9 +101784,9 @@ iCq
 iCq
 iCq
 iCq
-sKq
 iCq
-tiS
+iCq
+iCq
 iCq
 vsF
 jgi
@@ -101568,7 +101888,7 @@ jgi
 jgi
 jgi
 iCq
-iCq
+tmN
 iCq
 jgi
 jgi
@@ -101718,7 +102038,7 @@ tmN
 iCq
 iCq
 vsF
-tiS
+iCq
 iCq
 iCq
 iCq
@@ -101843,11 +102163,11 @@ jgi
 jgi
 wMx
 jgi
-iCq
-iCq
-iCq
-iCq
-iCq
+fGo
+tiS
+fGo
+tiS
+fGo
 jgi
 jgi
 jgi
@@ -101970,7 +102290,7 @@ iCq
 iCq
 iCq
 iCq
-tiS
+iCq
 iCq
 iCq
 iCq
@@ -102424,7 +102744,7 @@ fiE
 saW
 fiE
 fiE
-ekV
+bMh
 fiE
 fiE
 uvw
@@ -102474,7 +102794,7 @@ jgi
 iCq
 iCq
 iCq
-tiS
+iCq
 iCq
 iCq
 iCq
@@ -102726,7 +103046,7 @@ jgi
 jgi
 iCq
 iCq
-tiS
+iCq
 iCq
 tYP
 iCq
@@ -103241,7 +103561,7 @@ iCq
 tmN
 tiS
 iCq
-lQQ
+iCq
 jgi
 jgi
 jgi
@@ -103335,31 +103655,31 @@ jgi
 jgi
 jgi
 iCq
-iCq
-iCq
-jgi
-jgi
-jgi
-jgi
-jgi
-jgi
-jgi
-jgi
-jgi
-jgi
-jgi
-jgi
-jgi
-jgi
-jgi
-jgi
-jgi
-iCq
-iCq
-iCq
-iCq
-iCq
 tmN
+iCq
+jgi
+jgi
+jgi
+jgi
+jgi
+jgi
+jgi
+jgi
+jgi
+jgi
+jgi
+jgi
+jgi
+jgi
+jgi
+jgi
+jgi
+iCq
+iCq
+iCq
+fGo
+tiS
+rvV
 qaN
 jgi
 jgi
@@ -104849,7 +105169,7 @@ jgi
 jgi
 jgi
 jgi
-iCq
+tmN
 iCq
 iCq
 iCq
@@ -105131,13 +105451,13 @@ iCq
 iCq
 iCq
 iCq
+tiS
 iCq
 iCq
 iCq
 iCq
 iCq
-iCq
-iCq
+tiS
 iCq
 vvj
 iCq
@@ -105383,13 +105703,13 @@ iCq
 iCq
 iCq
 iCq
-iCq
+fGo
 iCq
 iCq
 tmN
 iCq
 iCq
-iCq
+fGo
 iCq
 jgi
 jgi
@@ -105635,13 +105955,13 @@ iCq
 iCq
 iCq
 iCq
+tiS
 iCq
 iCq
 iCq
 iCq
 iCq
-iCq
-iCq
+tiS
 iCq
 iCq
 iCq
@@ -105860,8 +106180,8 @@ iCq
 jgi
 jgi
 iCq
-iCq
-iCq
+fGo
+fGo
 iCq
 tmN
 iCq
@@ -105877,7 +106197,7 @@ iCq
 iCq
 vvj
 iCq
-iCq
+tiS
 iCq
 iCq
 iCq
@@ -105893,7 +106213,7 @@ jgi
 jgi
 iCq
 iCq
-iCq
+tiS
 iCq
 iCq
 iCq
@@ -106112,8 +106432,8 @@ tmN
 jgi
 jgi
 iCq
-iCq
-iCq
+fGo
+fGo
 iCq
 iCq
 iCq
@@ -106129,7 +106449,7 @@ iCq
 iCq
 iCq
 iCq
-iCq
+fGo
 iCq
 iCq
 iCq
@@ -106144,8 +106464,8 @@ hkG
 hkG
 jgi
 jgi
-iCq
-iCq
+tiS
+fGo
 wMx
 iCq
 iCq
@@ -106381,7 +106701,7 @@ iCq
 iCq
 iCq
 iCq
-iCq
+fGo
 iCq
 iCq
 iCq
@@ -106403,8 +106723,8 @@ jgi
 iCq
 iCq
 tmN
-iCq
-iCq
+fGo
+fGo
 iCq
 jgi
 rEg
@@ -106617,7 +106937,7 @@ iCq
 iCq
 iCq
 iCq
-iCq
+tmN
 iCq
 iCq
 iCq
@@ -106633,7 +106953,7 @@ iCq
 iCq
 iCq
 iCq
-iCq
+tiS
 tmN
 iCq
 iCq
@@ -107123,8 +107443,8 @@ iCq
 iCq
 iCq
 iCq
-iCq
-iCq
+fGo
+fGo
 iCq
 iCq
 jgi
@@ -107375,14 +107695,14 @@ iCq
 wMx
 iCq
 iCq
+fGo
+fGo
 iCq
 iCq
 iCq
 iCq
-iCq
-iCq
-iCq
-iCq
+tiS
+tmN
 iCq
 iCq
 jgi
@@ -107618,6 +107938,8 @@ iCq
 iCq
 iCq
 iCq
+fGo
+fGo
 iCq
 iCq
 iCq
@@ -107631,9 +107953,7 @@ iCq
 iCq
 iCq
 iCq
-iCq
-iCq
-iCq
+tiS
 iCq
 iCq
 jgi
@@ -107870,8 +108190,8 @@ iCq
 iCq
 iCq
 iCq
-iCq
-iCq
+fGo
+fGo
 iCq
 iCq
 iCq
@@ -108126,8 +108446,8 @@ iCq
 iCq
 iCq
 iCq
-iCq
-iCq
+fGo
+fGo
 iCq
 tmN
 iCq
@@ -108378,8 +108698,8 @@ sCw
 iCq
 iCq
 iCq
-iCq
-iCq
+fGo
+fGo
 iCq
 iCq
 iCq
@@ -111051,7 +111371,7 @@ iCq
 iCq
 jgi
 jgi
-iCq
+lQQ
 iCq
 iCq
 iCq
@@ -111193,7 +111513,7 @@ hBT
 wcN
 dqE
 mWl
-hIu
+bFn
 kAT
 duw
 duw
@@ -111290,15 +111610,15 @@ jgi
 jgi
 jgi
 jgi
-iCq
-iCq
+fGo
+fGo
 tmN
 iCq
+fGo
+fGo
 iCq
-iCq
-iCq
-iCq
-iCq
+fGo
+fGo
 iCq
 jgi
 jgi
@@ -111542,16 +111862,16 @@ jgi
 jgi
 jgi
 jgi
-iCq
-iCq
-iCq
-iCq
-iCq
-iCq
-iCq
-jgi
-jgi
-jgi
+fGo
+fGo
+tiS
+tiS
+fGo
+fGo
+tiS
+fGo
+fGo
+tiS
 jgi
 jgi
 iVg
@@ -111800,10 +112120,10 @@ iCq
 iCq
 iCq
 iCq
-jgi
-jgi
-jgi
-jgi
+iCq
+iCq
+iCq
+iCq
 jgi
 jgi
 iCq
@@ -112052,21 +112372,21 @@ iCq
 iCq
 iCq
 iCq
-jgi
-jgi
-jgi
-jgi
-jgi
-iCq
+tmN
 iCq
 iCq
 iCq
 jgi
+iCq
+iCq
+iCq
+iCq
 jgi
-iCq
-iCq
-iCq
-iCq
+jgi
+tiS
+fGo
+tiS
+fGo
 jgi
 jgi
 jgi
@@ -112301,13 +112621,13 @@ jgi
 jgi
 iCq
 iCq
+tYP
 iCq
 iCq
-jgi
-jgi
-jgi
-jgi
-jgi
+iCq
+iCq
+tTN
+iCq
 iCq
 iCq
 iCq
@@ -112555,13 +112875,13 @@ iCq
 iCq
 iCq
 iCq
-jgi
-jgi
-jgi
-jgi
-jgi
 iCq
 iCq
+iCq
+iCq
+iCq
+iCq
+czH
 iCq
 iCq
 jgi
@@ -112803,15 +113123,15 @@ jgi
 jgi
 jgi
 jgi
+vsF
 iCq
 iCq
+tmN
 iCq
 iCq
-jgi
-jgi
-jgi
-jgi
-jgi
+sKq
+iCq
+iCq
 iCq
 iCq
 iCq
@@ -112918,8 +113238,8 @@ iCq
 iCq
 iCq
 iCq
-iCq
-iCq
+fGo
+fGo
 jgi
 jgi
 jgi
@@ -113059,13 +113379,13 @@ iCq
 iCq
 iCq
 iCq
-jgi
-jgi
-jgi
-jgi
-jgi
-vsF
 iCq
+iCq
+iCq
+iCq
+iCq
+vsF
+tmN
 iCq
 jgi
 jgi
@@ -113166,12 +113486,12 @@ iCq
 iCq
 tmN
 iCq
+fGo
+fGo
 iCq
 iCq
-iCq
-iCq
-iCq
-iCq
+fGo
+fGo
 qbR
 qbR
 jgi
@@ -113311,12 +113631,12 @@ iCq
 iCq
 iCq
 iCq
-jgi
-jgi
-jgi
-jgi
-jgi
-jgi
+iCq
+iCq
+iCq
+iCq
+iCq
+iCq
 iCq
 iCq
 iCq
@@ -113418,12 +113738,12 @@ iCq
 iCq
 iCq
 iCq
-iCq
-iCq
+fGo
+fGo
 iCq
 iCq
 tmN
-iCq
+tiS
 iCq
 jgi
 jgi
@@ -113559,17 +113879,17 @@ jgi
 jgi
 jgi
 jgi
+fGo
+fGo
 iCq
 iCq
+fGo
+fGo
 iCq
+fGo
 iCq
-iCq
-jgi
-jgi
-jgi
-jgi
-jgi
-iCq
+fGo
+fGo
 iCq
 nWp
 jgi
@@ -113675,7 +113995,7 @@ iCq
 iCq
 iVg
 iCq
-iCq
+tiS
 iCq
 iCq
 jgi
@@ -113811,23 +114131,23 @@ jgi
 jgi
 jgi
 jgi
-iCq
-iCq
-iCq
-tmN
-iCq
+fGo
+fGo
+tiS
+rvV
+fGo
+fGo
+tiS
+fGo
+tiS
+fGo
+fGo
+tiS
+tiS
 jgi
-jgi
-jgi
-jgi
-jgi
-iCq
-iCq
-iCq
-jgi
-iCq
-tmN
-iCq
+fGo
+rvV
+tiS
 jgi
 jgi
 jgi
@@ -113927,7 +114247,7 @@ iCq
 jgi
 jgi
 jgi
-iCq
+fGo
 iCq
 iCq
 iCq
@@ -114069,10 +114389,10 @@ iCq
 iCq
 iCq
 iCq
-jgi
-jgi
-jgi
-jgi
+iCq
+iCq
+iCq
+iCq
 iCq
 iCq
 iCq
@@ -114317,13 +114637,13 @@ jgi
 jgi
 jgi
 jgi
+vsF
 iCq
 iCq
 iCq
 iCq
 iCq
-jgi
-jgi
+iCq
 iCq
 iCq
 iCq
@@ -114811,7 +115131,7 @@ wNk
 hgU
 akh
 oCw
-vIl
+hTy
 lrY
 wNk
 jgi
@@ -115544,14 +115864,14 @@ tRU
 urE
 urE
 tRU
-urE
-urE
+grD
+grD
 tRU
+grD
+grD
+rah
 urE
-urE
-tRU
-urE
-urE
+grD
 tRU
 urE
 urE
@@ -115795,17 +116115,17 @@ sns
 vpY
 bcQ
 lQj
-xcm
+qsd
+jLS
+mIu
+ncM
+eWT
 lQj
-bcQ
-vpY
-bcQ
+mrE
 lQj
-xcm
-lQj
-bcQ
-vpY
-bcQ
+eWT
+cNe
+eWT
 lQj
 xcm
 iGp
@@ -116047,18 +116367,18 @@ sns
 gEn
 yiN
 yiN
-gEn
+gEC
 yiN
 yiN
-gEn
-yiN
-yiN
-gEn
-yiN
+gEC
+cfF
 yiN
 gEn
+cfF
 yiN
+gEn
 yiN
+cfF
 gEn
 bPN
 dMC
@@ -116070,7 +116390,7 @@ dMC
 bDR
 ler
 iOm
-xxH
+vdb
 tIw
 qWc
 wNk
@@ -116324,7 +116644,7 @@ hOg
 bjW
 rfg
 sfP
-wfZ
+blP
 wNk
 jgi
 jgi
@@ -116421,7 +116741,7 @@ iCq
 iCq
 iCq
 iCq
-iCq
+tiS
 iCq
 iCq
 iCq
@@ -116574,8 +116894,8 @@ dsV
 arJ
 hBz
 sdU
-jxg
-dWJ
+cao
+bBj
 mit
 wNk
 jgi
@@ -116673,14 +116993,14 @@ iCq
 iCq
 iCq
 iCq
+fGo
 iCq
 iCq
 iCq
 iCq
 iCq
-iCq
-iCq
-iCq
+fGo
+fGo
 iCq
 iCq
 dgw
@@ -116711,7 +117031,7 @@ iCq
 iCq
 iCq
 iCq
-iCq
+fGo
 jgi
 jgi
 jgi
@@ -116827,7 +117147,7 @@ dWJ
 vRx
 wSP
 oLW
-tIw
+qls
 wfZ
 wNk
 jgi
@@ -116925,14 +117245,14 @@ iCq
 iCq
 iCq
 iCq
+tiS
 iCq
 iCq
 iCq
 iCq
 iCq
-iCq
-iCq
-iCq
+fGo
+fGo
 iCq
 iCq
 qJp
@@ -116963,8 +117283,8 @@ vVj
 iCq
 iCq
 iCq
-iCq
-iCq
+fGo
+fGo
 jgi
 iCq
 iCq
@@ -117077,10 +117397,10 @@ xmy
 gyI
 ikI
 uuQ
-ckl
+rTe
 oCw
 rVQ
-tIw
+vva
 wNk
 jgi
 jgi
@@ -117216,7 +117536,7 @@ iCq
 iCq
 iCq
 iCq
-iCq
+tiS
 iCq
 iCq
 iCq
@@ -117466,9 +117786,9 @@ jgi
 jgi
 iCq
 iCq
+tmN
 iCq
-iCq
-iCq
+fGo
 iCq
 iCq
 iCq
@@ -117720,7 +118040,7 @@ iCq
 iCq
 iCq
 iCq
-iCq
+tiS
 iCq
 iCq
 iCq
@@ -117834,8 +118154,8 @@ ojI
 wNk
 oSO
 udt
-yec
-lnE
+bwq
+xMy
 qoH
 wNk
 jgi
@@ -118221,8 +118541,8 @@ jgi
 jgi
 jgi
 jgi
-iCq
-iCq
+fGo
+tiS
 jgi
 jgi
 iCq
@@ -118340,7 +118660,7 @@ uuQ
 ckl
 dsc
 xME
-wfZ
+adG
 wNk
 jgi
 jgi
@@ -118517,7 +118837,7 @@ coq
 kcX
 kcX
 kcX
-kcX
+oHs
 kcX
 kcX
 kcX
@@ -119533,7 +119853,7 @@ ixN
 lfS
 lSy
 sGi
-uOd
+skE
 rAA
 sGi
 sGi
@@ -121040,7 +121360,7 @@ tGG
 tGG
 aFb
 ooU
-oAc
+oaw
 sld
 sld
 sld
@@ -121509,7 +121829,7 @@ iCq
 iCq
 iCq
 iCq
-iCq
+fGo
 jgi
 jgi
 jgi
@@ -121757,12 +122077,12 @@ jgi
 jgi
 jgi
 jgi
-iCq
-iCq
-iCq
-iCq
-iCq
-iCq
+fGo
+fGo
+tiS
+tiS
+fGo
+fGo
 jgi
 jgi
 jgi
@@ -122010,7 +122330,7 @@ jgi
 jgi
 jgi
 jgi
-iCq
+fGo
 iCq
 iCq
 iCq
@@ -124556,7 +124876,7 @@ qdW
 qdW
 jgi
 kcX
-inH
+orA
 ckf
 xhg
 gED
@@ -125060,7 +125380,7 @@ qdW
 qdW
 jgi
 kcX
-leR
+rMG
 eZW
 cLm
 gED
@@ -125313,7 +125633,7 @@ aJC
 jgi
 kcX
 wwM
-gtg
+pao
 kMn
 vHj
 jEo
@@ -125818,7 +126138,7 @@ jgi
 kcX
 leR
 fJw
-ndy
+bmH
 gED
 wAt
 rnB
@@ -126070,7 +126390,7 @@ jgi
 kcX
 leR
 urP
-ndy
+chj
 gED
 wAt
 rnB
@@ -126573,7 +126893,7 @@ aJC
 jgi
 kcX
 vkz
-ckf
+lvr
 fAc
 gED
 ddP
@@ -126825,7 +127145,7 @@ aJC
 jgi
 kcX
 eyE
-ckf
+nfZ
 lQE
 awM
 xOp
@@ -127329,8 +127649,8 @@ aZS
 kFr
 pXw
 leR
-urP
-egp
+ygK
+kEQ
 wtG
 eSu
 rEh
