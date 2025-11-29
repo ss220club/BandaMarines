@@ -249,8 +249,8 @@
 	pixel_x = 16;
 	pixel_y = -1
 	},
-/obj/effect/vehicle_spawner/apc_pmc/fixed,
-/turf/open/shuttle/dropship/dark_grey_bottom,
+/obj/effect/vehicle_spawner/box_van/pizza_van,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
 /area/space)
 "vg" = (
 /obj/effect/decal/cleanable/dirt,
@@ -807,7 +807,7 @@ xl
 uw
 FG
 Qh
-zf
+uz
 xl
 xl
 xl
@@ -830,7 +830,7 @@ Wc
 OK
 Fz
 am
-uz
+js
 am
 am
 GL
