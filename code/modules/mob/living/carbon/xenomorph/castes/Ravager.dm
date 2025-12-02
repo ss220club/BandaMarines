@@ -252,7 +252,7 @@
 	behavior.mid_charge = TRUE
 	xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] использует удар щитом, когда он мчится на [human.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы используем удар щитом, когда мчимся на [human]!")) // SS220 EDIT ADDICTION
 	human.apply_effect(behavior.knockdown_amount, WEAKEN)
-	human.attack_alien(xeno, rand(xeno.melee_damage_lower, xeno.melee_damage_upper))
+	human.attack_alien(xeno, rand(xeno.melee_damage_lower, xeno.melee_damage_upper), unblockable=TRUE)
 	behavior.mid_charge = FALSE
 
 	var/facing = get_dir(xeno, human)
