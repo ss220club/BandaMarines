@@ -120,10 +120,10 @@ GLOBAL_LIST_INIT(limb_types_by_name, list(
 		return message
 
 	var/output_message = ""
-	var/message_length = length(message)
+	var/message_length = length_char(message) // BANDAMARINES EDIT - Fix garbled announcement
 	var/index = 1
 	while(index <= message_length)
-		var/char = copytext(message, index, index + 1)
+		var/char = copytext_char(message, index, index + 1) // SS220 EDIT - RU fix
 		if(char == " " || prob(clear_char_probability))
 			output_message += char
 		else
@@ -164,8 +164,8 @@ GLOBAL_LIST_INIT(limb_types_by_name, list(
 
 	// output string after parse
 	var/output_message = ""
-	for(var/character_index in 1 to length(message))
-		var/current_char = message[character_index]
+	for(var/character_index in 1 to length_char(message)) // BANDAMARINES EDIT - Fix garbled announcement
+		var/current_char = copytext_char(message, character_index, character_index + 1) // BANDAMARINES EDIT - Fix garbled announcement
 
 		// Apparent edge case safety, we only want to check the < and > on the edges of the tag.
 		if(!parsing_message)
@@ -222,7 +222,7 @@ GLOBAL_LIST_INIT(last_announcement_time, list(FACTION_MARINE = 0))
 	var/clarity_min = CONFIG_GET(number/announcement_min_clarity)
 	var/clarity_max = CONFIG_GET(number/announcement_max_clarity)
 
-	var/length_clamped = clamp(length(message) - length_modifier, length_min_bound, length_max_bound)
+	var/length_clamped = clamp(length_char(message) - length_modifier, length_min_bound, length_max_bound) // BANDAMARINES EDIT - Fix garbled announcement
 	var/length_scalar = SCALE(length_clamped, length_min_bound, length_max_bound)
 	var/duration_scalar = 1
 	if(faction_for_cooldown)
@@ -244,7 +244,7 @@ GLOBAL_LIST_INIT(last_announcement_time, list(FACTION_MARINE = 0))
 	var/newphrase=""
 	var/newletter=""
 	while(counter>=1)
-		newletter=copytext(phrase,(leng-counter)+1,(leng-counter)+2)
+		newletter=copytext_char(phrase,(leng-counter)+1,(leng-counter)+2) // SS220 Edit - RU fix
 		if(rand(1,3)==3)
 			if(lowertext(newletter)=="o")
 				newletter="u"
@@ -343,23 +343,30 @@ GLOBAL_LIST_INIT(last_announcement_time, list(FACTION_MARINE = 0))
  * Replaces S and similar sounds with 'th' and such. Stolen from tg.
  */
 /proc/lisp_replace(message)
-	var/static/regex/replace_s = new("s+h?h?", REGEX_FLAG_GLOBAL)
-	var/static/regex/replace_S = new("S+H?H?", REGEX_FLAG_GLOBAL)
-	var/static/regex/replace_z = new("z+h?h?", REGEX_FLAG_GLOBAL)
-	var/static/regex/replace_Z = new("Z+H?H?", REGEX_FLAG_GLOBAL)
-	var/static/regex/replace_x = new("x+h?h?", REGEX_FLAG_GLOBAL)
-	var/static/regex/replace_X = new("X+H?H?", REGEX_FLAG_GLOBAL)
-	var/static/regex/replace_ceci = new("ceh?|cih?", REGEX_FLAG_GLOBAL)
-	var/static/regex/replace_CECI = new("CEH?|CIH?", REGEX_FLAG_GLOBAL)
+	//SS220 START EDIT ADDICTION
+	var/static/regex/replace_s = new("с+ш?ш?", REGEX_FLAG_GLOBAL)
+	var/static/regex/replace_S = new("С+Ш?Ш?", REGEX_FLAG_GLOBAL)
+	var/static/regex/replace_z = new("з+ж?ж?", REGEX_FLAG_GLOBAL)
+	var/static/regex/replace_Z = new("З+Ж?Ж?", REGEX_FLAG_GLOBAL)
+	var/static/regex/replace_sh = new("ш+щ?", REGEX_FLAG_GLOBAL)
+	var/static/regex/replace_SH = new("Ш+Щ?", REGEX_FLAG_GLOBAL)
+	var/static/regex/replace_ch = new("ч+щ?", REGEX_FLAG_GLOBAL)
+	var/static/regex/replace_CH = new("Ч+Щ?", REGEX_FLAG_GLOBAL)
+	var/static/regex/replace_ts = new("ц+ь?", REGEX_FLAG_GLOBAL)
+	var/static/regex/replace_TS = new("Ц+Ь?", REGEX_FLAG_GLOBAL)
+
 	if(message[1] != "*")
-		message = replace_s.Replace(message, "th")
-		message = replace_S.Replace(message, "TH")
-		message = replace_z.Replace(message, "th")
-		message = replace_Z.Replace(message, "TH")
-		message = replace_ceci.Replace(message, "th")
-		message = replace_CECI.Replace(message, "TH")
-		message = replace_x.Replace(message, "ckth")
-		message = replace_X.Replace(message, "CKTH")
+		message = replace_s.Replace(message, "ф")
+		message = replace_S.Replace(message, "Ф")
+		message = replace_z.Replace(message, "ф")
+		message = replace_Z.Replace(message, "Ф")
+		message = replace_sh.Replace(message, "фф")
+		message = replace_SH.Replace(message, "ФФ")
+		message = replace_ch.Replace(message, "фь")
+		message = replace_CH.Replace(message, "ФЬ")
+		message = replace_ts.Replace(message, "тф")
+		message = replace_TS.Replace(message, "ТФ")
+	//SS220 END EDIT ADDICTION
 	return message
 
 #define PIXELS_PER_STRENGTH_VAL 28

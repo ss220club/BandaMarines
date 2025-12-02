@@ -7,8 +7,8 @@
 
 	tier = /datum/tier/one
 
-	announce_name = "M540-B ARC ACQUIRED"
-	announce_message = "An M540-B Armored Recon Carrier has been authorized and will be delivered in the vehicle bay."
+	announce_name = "ПРИОБРЕТЕНИЕ M540-B ARC"
+	announce_message = "Получена авторизация на \"Разведывательный бронетранспортёр M540-B\". Он будет доставлен в отсек транспортных средств."
 
 	flags = TREE_FLAG_MARINE
 
@@ -35,10 +35,15 @@
 		return FALSE
 
 	comp.spent = FALSE
+	/* //BANDAMARINES EDIT START - ORIGINAL:
 	QDEL_NULL_LIST(comp.vehicles)
 	comp.vehicles = list(
 		new /datum/vehicle_order/arc()
 	)
+	*/
+	comp.vehicles += new /datum/vehicle_order/arc()
+	// BANDAMARINES EDIT END
+
 	comp.allowed_roles = list(JOB_SYNTH, JOB_SEA, JOB_SO, JOB_XO, JOB_CO, JOB_GENERAL)
 	comp.req_access = list(ACCESS_MARINE_COMMAND)
 	comp.req_one_access = list()
