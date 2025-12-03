@@ -4,8 +4,8 @@
 
 #include "code/button_tooltips.dm"
 #include "code/pronouns.dm"
-// #include "code/ru_ammunition_desc.dm" // Add it directly in code
-// #include "code/ru_weapon_desc.dm" // Add it directly in code
+// #include "code/ru_ammunition_desc.dm" // MOVE TO ORIGINAL CODE
+// #include "code/ru_weapon_desc.dm" // MOVE TO ORIGINAL CODE
 #include "code/ru_names/ru_name_base.dm"
 #include "code/ru_names/ru_vendors.dm"
 #include "code/ru_names/ru_date.dm"

@@ -520,11 +520,10 @@ This function completely restores a damaged organ to perfect condition.
 	if(!is_ff && type != BURN && !(status & (LIMB_ROBOT|LIMB_SYNTHSKIN)))
 		take_damage_internal_bleeding(damage)
 
-	var/ru_name = (type == BRUISE) ? "" : declent_ru(PREPOSITIONAL) // SS220 EDIT ADDICTION
 	if((type != BURN) && !(status & LIMB_SPLINTED_INDESTRUCTIBLE) && (status & LIMB_SPLINTED) && damage > 5 && prob(50 + damage * 2.5)) //If they have it splinted, the splint won't hold.
 		status &= ~LIMB_SPLINTED
 		playsound(get_turf(loc), 'sound/items/splintbreaks.ogg', 20)
-		to_chat(owner, SPAN_HIGHDANGER("Шина на вашей [ru_name] разваливается!"))
+		to_chat(owner, SPAN_HIGHDANGER("Шина на [declent_ru(PREPOSITIONAL)] разваливается!"))
 		owner.pain.apply_pain(PAIN_BONE_BREAK_SPLINTED)
 		owner.update_med_icon()
 
@@ -546,8 +545,8 @@ This function completely restores a damaged organ to perfect condition.
 					owner.add_splatter_floor(get_turf(loc))
 				if(prob(25))
 					//maybe have a separate message for BRUISE type damage?
-					owner.visible_message(SPAN_WARNING("Рана на [ru_name] [owner.name] расширяется с неприятным звуком."), // SS220 EDIT ADDICTION
-					SPAN_WARNING("Рана на вашей [ru_name] расширяется с неприятным звуком."), // SS220 EDIT ADDICTION
+					owner.visible_message(SPAN_WARNING("Рана на [declent_ru(PREPOSITIONAL)] у [owner.declent_ru(GENITIVE)] расширяется с неприятным звуком."),
+					SPAN_WARNING("Рана на [declent_ru(PREPOSITIONAL)] расширяется с неприятным звуком."),
 					SPAN_WARNING("Вы слышите неприятный звук, как будто плоть разрывается."))
 				return
 
