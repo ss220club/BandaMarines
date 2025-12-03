@@ -574,8 +574,8 @@ W is always an item. stop_warning prevents messaging. user may be null.**/
 		add_fingerprint(user)
 		if(!prevent_warning)
 			var/visidist = W.w_class >= 3 ? 3 : 1
-			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] помещает [W.declent_ru(ACCUSATIVE)] в [declent_ru(ACCUSATIVE)]"), // SS220 EDIT ADDICTION
-								SPAN_NOTICE("Вы помещаете [W.declent_ru(ACCUSATIVE)] в [declent_ru(ACCUSATIVE)]"), // SS220 EDIT ADDICTION
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] помещает [W.declent_ru(ACCUSATIVE)] в [declent_ru(ACCUSATIVE)]."),
+								SPAN_NOTICE("Вы помещаете [W.declent_ru(ACCUSATIVE)] в [declent_ru(ACCUSATIVE)]."),
 								null, visidist)
 	orient2hud()
 	for(var/mob/M in can_see_content())
