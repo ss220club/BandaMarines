@@ -527,7 +527,6 @@
 	// BANDAMARINES EDIT END
 
 	full_designation = "[name_client_prefix][nicknumber][name_client_postfix]"
-	color = hive.color
 
 	//Update linked data so they show up properly
 	change_real_name(src, name)
