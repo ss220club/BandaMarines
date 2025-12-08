@@ -30,6 +30,7 @@
 	success_sound = 'sound/surgery/scalpel2.ogg'
 	failure_sound = 'sound/surgery/organ2.ogg'
 
+//TODO220 - review the translation and remove unnecessary code additions
 /datum/surgery_step/incision/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
 	var/ru_name_affected_limb = declent_ru_initial(surgery.affected_limb.display_name, PREPOSITIONAL, surgery.affected_limb.display_name) // SS220 EDIT ADDICTION
 
@@ -70,11 +71,11 @@
 
 			surgery.status += 2 //IMS completes all steps.
 
-		switch(target_zone) //forces application of overlays
-			if("chest")
-				target.overlays += image('icons/mob/humans/dam_human.dmi', "chest_surgery_closed")
-			if("head")
-				target.overlays += image('icons/mob/humans/dam_human.dmi', "skull_surgery_closed")
+			switch(target_zone) //forces application of overlays
+				if("chest")
+					target.overlays += image('icons/mob/humans/dam_human.dmi', "chest_surgery_closed")
+				if("head")
+					target.overlays += image('icons/mob/humans/dam_human.dmi', "skull_surgery_closed")
 
 		if(/obj/item/tool/surgery/scalpel/laser)
 			user.affected_message(target,
