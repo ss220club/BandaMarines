@@ -1,10 +1,10 @@
 // Главный чекер урона у vehicle, повторяем здесь же
-/obj/structure/bed/chair/stroller/proc/healthcheck(damage = 0)
+/obj/structure/bed/chair/sidecar/passenger/healthcheck(damage = 0)
 	if(health - damage <= 0)
 		disconnect()
 		update_mob_gun_signal(TRUE)
 		// После уничтожения - создается разрушенный каркас
-		new /obj/motorbike_destroyed/stroller(src.loc, icon_skin)
+		new /obj/motorbike_destroyed/sidecar/passenger(src.loc, icon_skin)
 		if(mounted)
 			mounted.forceMove(src.loc)
 			mounted.update_health(mounted.health) // Разрушенный каркас, патроны и тому подобное
@@ -12,11 +12,7 @@
 		deconstruct(FALSE)
 		QDEL_NULL(src)
 
-/obj/structure/bed/chair/stroller/update_health(damage = 0)
-	healthcheck(damage)
-	. = ..()
-
-/obj/structure/bed/chair/stroller/attack_animal(mob/living/simple_animal/M as mob)
+/obj/structure/bed/chair/sidecar/passenger/attack_animal(mob/living/simple_animal/M as mob)
 	if(M.melee_damage_upper == 0)
 		return
 	if(buckled_mob && prob(hit_chance_buckled))	// Шанс попасть по сидящему
@@ -28,7 +24,7 @@
 		new /obj/effect/decal/cleanable/blood/oil(src.loc)
 	healthcheck()
 
-/obj/structure/bed/chair/stroller/attack_alien(mob/living/carbon/xenomorph/M)
+/obj/structure/bed/chair/sidecar/passenger/attack_alien(mob/living/carbon/xenomorph/M)
 	if(unslashable)
 		return
 	if(M.melee_damage_upper == 0)
@@ -49,19 +45,7 @@
 	healthcheck()
 	return XENO_ATTACK_ACTION
 
-/obj/structure/bed/chair/stroller/bullet_act(obj/projectile/P)
+/obj/structure/bed/chair/sidecar/passenger/bullet_act(obj/projectile/P)
 	if(buckled_mob && prob(hit_chance_buckled) && buckled_mob.get_projectile_hit_chance(P))
 		return buckled_mob.bullet_act(P)	// Сидящие тоже могут получить пулю в задницу
-	var/damage = P.damage
-	health -= damage
-	..()
-	healthcheck()
-	return TRUE
-
-/obj/structure/bed/chair/stroller/ex_act(severity)
-	health -= severity*0.05
-	health -= severity*0.1
-	healthcheck()
-	return
-
-
+	.=..()

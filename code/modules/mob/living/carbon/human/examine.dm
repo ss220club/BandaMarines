@@ -221,7 +221,7 @@
 				damage += limb_surgeries
 
 			if(length(damage))
-				msg += SPAN_WARNING("У [t_theirs] [english_list(damage, final_comma_text = ",")] на [t_his] [o.declent_ru(PREPOSITIONAL)]!\n")
+				msg += SPAN_WARNING("У [t_theirs] [english_list(damage, final_comma_text = ",")] на [o.declent_ru(PREPOSITIONAL)]!\n")
 
 	if(holo_card_color)
 		// SS220 START EDIT ADDICTION

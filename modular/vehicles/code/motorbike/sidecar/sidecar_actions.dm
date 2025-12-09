@@ -1,7 +1,7 @@
 // ==========================================
 // ======== Действия с инструментами ========
 
-/obj/structure/bed/chair/stroller/attackby(obj/item/O as obj, mob/user as mob)
+/obj/structure/bed/chair/sidecar/attackby(obj/item/O as obj, mob/user as mob)
 	if(user.action_busy)
 		to_chat(user, SPAN_WARNING("Вы уже чем-то заняты!"))
 		return
@@ -19,7 +19,7 @@
 	//if (iswire())
 	. = ..()
 
-/obj/structure/bed/chair/stroller/proc/handle_welder(obj/item/O, mob/user)
+/obj/structure/bed/chair/sidecar/proc/handle_welder(obj/item/O, mob/user)
 	if(!HAS_TRAIT(O, TRAIT_TOOL_BLOWTORCH))
 		to_chat(user, SPAN_WARNING("[O] недостаточен для ремонта корпуса!"))
 		return FALSE

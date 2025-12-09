@@ -1,4 +1,4 @@
-/obj/structure/bed/chair/stroller
+/obj/structure/bed/chair/sidecar/passenger
 	var/obj/structure/machinery/m56d_hmg/mounted
 	var/allowed_types_to_mount = list(
 		/obj/item/device/m56d_gun,
@@ -30,7 +30,6 @@
 	cadeblockers_range = 0
 	autofire_slow_mult = 1.2
 
-
 // ==========================================
 // ============== Безопасность ==============
 // Убираем возможность убить байкера.
@@ -48,7 +47,7 @@
 	for(var/i in objects_for_permutated)
 		in_chamber.permutated |= i
 
-/obj/structure/bed/chair/stroller/proc/update_bike_permutated(only_mob = FALSE)
+/obj/structure/bed/chair/sidecar/passenger/update_bike_permutated(only_mob = FALSE)
 	if(!mounted)
 		return
 	if(!connected)
@@ -59,7 +58,7 @@
 		return
 	mounted.objects_for_permutated.Add(connected.buckled_mob)
 
-/obj/structure/bed/chair/stroller/proc/reset_bike_permutated(only_mob = FALSE)
+/obj/structure/bed/chair/sidecar/passenger/reset_bike_permutated(only_mob = FALSE)
 	if(!mounted)
 		return
 	// Убираем возможность "задеть" байкера.
@@ -72,11 +71,10 @@
 		return
 	mounted.objects_for_permutated.Remove(connected.buckled_mob)
 
-
 // ==========================================
 // ============== Взаимодействие =============
 
-/obj/structure/bed/chair/stroller/get_examine_text(mob/user)
+/obj/structure/bed/chair/sidecar/passenger/get_examine_text(mob/user)
 	. = ..()
 	if(!mounted)
 		return
@@ -88,7 +86,7 @@
 		return
 	. += SPAN_NOTICE("В [mounted.declent_ru(INSTRUMENTAL)] боекомплект [mounted.rounds]/[mounted.rounds_max]")
 
-/obj/structure/bed/chair/stroller/attackby(obj/item/O as obj, mob/user as mob)
+/obj/structure/bed/chair/sidecar/passenger/attackby(obj/item/O as obj, mob/user as mob)
 	if(!ishuman(user) && !HAS_TRAIT(user, TRAIT_OPPOSABLE_THUMBS))
 		return ..()
 
@@ -114,7 +112,7 @@
 	. = ..()
 
 // Сборка
-/obj/structure/bed/chair/stroller/proc/assembly(obj/item/O, mob/user)
+/obj/structure/bed/chair/sidecar/passenger/proc/assembly(obj/item/O, mob/user)
 	to_chat(user, "Вы устанавливаете [O.declent_ru(ACCUSATIVE)] на [declent_ru(ACCUSATIVE)]...")
 	if(!do_after(user, mounted_time_to_assembly * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
 		return FALSE
@@ -152,7 +150,7 @@
 		QDEL_NULL(O)
 
 // Разборка
-/obj/structure/bed/chair/stroller/proc/dissasemble(obj/item/O, mob/user)
+/obj/structure/bed/chair/sidecar/passenger/proc/dissasemble(obj/item/O, mob/user)
 	if(!mounted)
 		return FALSE
 	if(mounted.locked)
@@ -178,7 +176,7 @@
 	return TRUE
 
 // Перезарядка
-/obj/structure/bed/chair/stroller/proc/reload(obj/item/O, mob/user)
+/obj/structure/bed/chair/sidecar/passenger/proc/reload(obj/item/O, mob/user)
 	if(!skillcheck(user, SKILL_FIREARMS, SKILL_FIREARMS_TRAINED))
 		to_chat(user, SPAN_WARNING("Вы недостаточно натренированы, чтобы работать с этим калибром!"))
 		return
@@ -187,16 +185,14 @@
 	mounted.attackby(O, user)
 	update_overlay()
 
-
 // ==========================================
 // ================ Сигналы =================
 
 #define COMSIG_MOB_MG_ENTER_VC "mob_vc_mg_enter"
 #define COMSIG_MOB_MG_EXIT_VC "mob_vc_mg_exit"
 
-
 // Стрельба
-/obj/structure/bed/chair/stroller/proc/update_mob_gun_signal(force_reset = FALSE)
+/obj/structure/bed/chair/sidecar/passenger/proc/update_mob_gun_signal(force_reset = FALSE)
 	if(!buckled_mob)
 		return
 	if(!ishuman_strict(buckled_mob))
@@ -215,15 +211,15 @@
 		RegisterSignal(buckled_mob, COMSIG_MOB_MG_EXIT_VC, PROC_REF(on_unset_gun_interaction))
 		give_action(buckled_mob, /datum/action/human_action/mg_enter_vc)
 
-/obj/structure/bed/chair/stroller/proc/on_set_gun_interaction()
+/obj/structure/bed/chair/sidecar/passenger/proc/on_set_gun_interaction()
 	SIGNAL_HANDLER
 	mounted.on_set_interaction_vc(buckled_mob)
 
-/obj/structure/bed/chair/stroller/proc/on_unset_gun_interaction()
+/obj/structure/bed/chair/sidecar/passenger/proc/on_unset_gun_interaction()
 	SIGNAL_HANDLER
 	mounted.on_unset_interaction_vc(buckled_mob)
 
-/obj/structure/bed/chair/stroller/proc/update_gun_dir()
+/obj/structure/bed/chair/sidecar/passenger/proc/update_gun_dir()
 	mounted.setDir(dir)
 
 /obj/structure/machinery/m56d_hmg/proc/on_set_interaction_vc(mob/user)
@@ -268,7 +264,9 @@
 		operator = null
 	flags_atom &= ~RELAY_CLICK
 
+// ==========================================
 // ================ Actions =================
+
 /datum/action/human_action/mg_enter_vc
 	name = "Использовать орудие"
 	action_icon_state = "frontline_toggle_on"
@@ -294,9 +292,4 @@
 	var/mob/living/carbon/human/human_user = owner
 	SEND_SIGNAL(human_user, COMSIG_MOB_MG_EXIT_VC)
 
-
-
 #undef COMSIG_MOB_MG_EXIT
-
-
-// ==========================================
