@@ -63,3 +63,9 @@
 	desc += ..()
 	desc += "Замедляет цель на [convert_effect_time(3, SLOW)] сек."
 	return desc
+
+/datum/ammo/xeno/acid/despoiler/get_description()
+	var/desc = ""
+	desc += ..()
+	desc += "Наносит кислоту на цель и вокруг цели, и улучшает существующую до второго уровня на основной цели."
+	return desc

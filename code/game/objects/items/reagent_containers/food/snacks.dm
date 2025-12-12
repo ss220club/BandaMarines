@@ -6,7 +6,7 @@
 
 /obj/item/reagent_container/food/snacks
 	name = "snack"
-	desc = "yummy"
+	desc = "Yummy."
 	icon = 'icons/obj/items/food/junkfood.dmi'
 	icon_state = null
 	item_icons = list(
@@ -340,7 +340,7 @@
 
 /obj/item/reagent_container/food/snacks/chips
 	name = "chips"
-	desc = "Commander Riker's What-The-Crisps"
+	desc = "Commander Riker's What-The-Crisps."
 	icon_state = "chips"
 	trash = /obj/item/trash/chips
 	filling_color = "#E8C31E"
@@ -649,7 +649,7 @@
 
 /obj/item/reagent_container/food/snacks/carpmeat
 	name = "carp fillet"
-	desc = "A fillet of spess carp meat"
+	desc = "A fillet of spess carp meat."
 	icon_state = "fishfillet"
 	icon = 'icons/obj/items/food/fish.dmi'
 	filling_color = "#FFDEFE"
@@ -695,7 +695,7 @@
 
 /obj/item/reagent_container/food/snacks/tomatomeat
 	name = "tomato slice"
-	desc = "A slice from a huge tomato"
+	desc = "A slice from a huge tomato."
 	icon_state = "tomatomeat"
 	icon = 'icons/obj/items/food/slices.dmi'
 	filling_color = "#DB0000"
@@ -1353,7 +1353,7 @@
 
 /obj/item/reagent_container/food/snacks/spacylibertyduff
 	name = "Spacy Liberty Duff"
-	desc = "Jello gelatin, from Alfred Hubbard's cookbook"
+	desc = "Jello gelatin, from Alfred Hubbard's cookbook."
 	icon_state = "spacylibertyduff"
 	icon = 'icons/obj/items/food/dishes.dmi'
 	trash = /obj/item/trash/snack_bowl
@@ -1367,7 +1367,7 @@
 
 /obj/item/reagent_container/food/snacks/amanitajelly
 	name = "Amanita Jelly"
-	desc = "Looks curiously toxic"
+	desc = "Looks curiously toxic."
 	icon_state = "amanitajelly"
 	icon = 'icons/obj/items/food/dishes.dmi'
 	trash = /obj/item/trash/snack_bowl
@@ -1410,7 +1410,7 @@
 
 /obj/item/reagent_container/food/snacks/bloodsoup
 	name = "Tomato soup"
-	desc = "Smells like copper"
+	desc = "Smells like copper."
 	icon_state = "tomatosoup"
 	icon = 'icons/obj/items/food/soups_salads.dmi'
 	filling_color = COLOR_RED
@@ -1963,7 +1963,7 @@
 
 /obj/item/reagent_container/food/snacks/spesslaw
 	name = "Spesslaw"
-	desc = "A lawyer's favourite"
+	desc = "A lawyer's favourite."
 	icon_state = "spesslaw"
 	icon = 'icons/obj/items/food/dishes.dmi'
 	filling_color = "#DE4545"
@@ -2082,7 +2082,7 @@
 
 /obj/item/reagent_container/food/snacks/mint
 	name = "mint"
-	desc = "it is only wafer thin."
+	desc = "It is only wafer thin."
 	icon_state = "mint"
 	icon = 'icons/obj/items/food/dishes.dmi'
 	filling_color = "#F2F2F2"
@@ -2381,7 +2381,7 @@
 
 /obj/item/reagent_container/food/snacks/cheesecakeslice
 	name = "Cheese Cake slice"
-	desc = "Slice of pure cheestisfaction"
+	desc = "Slice of pure cheestisfaction."
 	icon_state = "cheesecake_slice"
 	icon = 'icons/obj/items/food/cakes.dmi'
 	trash = /obj/item/trash/plate
@@ -2485,7 +2485,7 @@
 
 /obj/item/reagent_container/food/snacks/sliceable/chocolatecake
 	name = "Chocolate Cake"
-	desc = "A cake with added chocolate"
+	desc = "A cake with added chocolate."
 	icon_state = "chocolatecake"
 	icon = 'icons/obj/items/food/cakes.dmi'
 	slice_path = /obj/item/reagent_container/food/snacks/chocolatecakeslice
@@ -2609,7 +2609,7 @@
 
 /obj/item/reagent_container/food/snacks/birthdaycakeslice
 	name = "Birthday Cake slice"
-	desc = "A slice of your birthday"
+	desc = "A slice of your birthday."
 	icon_state = "birthdaycakeslice"
 	icon = 'icons/obj/items/food/cakes.dmi'
 	trash = /obj/item/trash/plate
@@ -2671,7 +2671,7 @@
 
 /obj/item/reagent_container/food/snacks/sliceable/applecake
 	name = "Apple Cake"
-	desc = "A cake centred with Apple"
+	desc = "A cake centred with Apple."
 	icon_state = "applecake"
 	icon = 'icons/obj/items/food/cakes.dmi'
 	slice_path = /obj/item/reagent_container/food/snacks/applecakeslice
@@ -2811,7 +2811,7 @@
 
 /obj/item/reagent_container/food/snacks/sliceable/pizza/mushroompizza
 	name = "Mushroompizza"
-	desc = "Very special pizza"
+	desc = "Very special pizza."
 	icon_state = "mushroompizza"
 	slice_path = /obj/item/reagent_container/food/snacks/mushroompizzaslice
 
@@ -2831,7 +2831,7 @@
 
 /obj/item/reagent_container/food/snacks/sliceable/pizza/vegetablepizza
 	name = "Vegetable pizza"
-	desc = "No one of Tomato Sapiens were harmed during making this pizza"
+	desc = "No one of Tomato Sapiens were harmed during making this pizza."
 	icon_state = "vegetablepizza"
 	slice_path = /obj/item/reagent_container/food/snacks/vegetablepizzaslice
 
