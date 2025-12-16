@@ -124,6 +124,10 @@
 	if(!isnull(signature))
 		message += "<br><br><i> Авторизация, <br> [signature]</i>"
 
+/// BANDASTATION EDIT START - No Garble on Lowpop
+	if(length(GLOB.player_list) < 50)
+		targets_to_garble.Cut()
+/// BANDASTATION EDIT END - No Garble on Lowpop
 	announcement_helper(message, title, targets, sound_to_play, FALSE, targets_to_garble, FACTION_MARINE, announcer = announcer) // SS220 EDIT - TTS
 
 //AI announcement that uses talking into comms
