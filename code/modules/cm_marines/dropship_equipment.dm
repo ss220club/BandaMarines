@@ -177,7 +177,9 @@
 	name = "\improper A/A-32-P Sentry Defense System"
 	desc = "A box that deploys a sentry turret. Fits on both the external weapon and crew compartment attach points of dropships. You need a powerloader to lift it."
 	density = FALSE
+	// BANDASTATION EDIT
 	health = 200
+	// BANDASTATION EDIT END
 	icon_state = "sentry_system"
 	is_interactable = TRUE
 	point_cost = 200
