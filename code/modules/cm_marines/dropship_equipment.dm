@@ -177,7 +177,7 @@
 	name = "\improper A/A-32-P Sentry Defense System"
 	desc = "A box that deploys a sentry turret. Fits on both the external weapon and crew compartment attach points of dropships. You need a powerloader to lift it."
 	density = FALSE
-	health = 200 // BANDASTATION EDIT
+	health = null
 	icon_state = "sentry_system"
 	is_interactable = TRUE
 	point_cost = 200
@@ -193,6 +193,8 @@
 	if(!deployed_turret)
 		deployed_turret = new(src)
 		deployed_turret.deployment_system = src
+		health = deployed_turret.health_max // BANDASTATION EDIT
+
 
 /obj/structure/dropship_equipment/sentry_holder/get_examine_text(mob/user)
 	. = ..()
