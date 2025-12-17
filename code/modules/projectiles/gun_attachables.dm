@@ -176,11 +176,14 @@ Defined in conflicts.dm of the #defines folder.
 	if(!istype(detaching_gun))
 		return //Guns only
 
+	if(!user && ishuman(detaching_gun.loc))
+		user = detaching_gun.loc //Specifically for when called by Attach which doesn't pass a user.
+
 	if(user)
 		detaching_gun.on_detach(user, src)
 
 	if(flags_attach_features & ATTACH_ACTIVATION)
-		activate_attachment(detaching_gun, null, TRUE)
+		activate_attachment(detaching_gun, user, TRUE)
 
 	detaching_gun.attachments[slot] = null
 	detaching_gun.recalculate_attachment_bonuses()
@@ -1296,14 +1299,14 @@ Defined in conflicts.dm of the #defines folder.
 		zoom_offset = 11
 		zoom_viewsize = 12
 		allows_movement = 0
-		to_chat(usr, SPAN_NOTICE("Zoom level switched to 4x"))
+		to_chat(usr, SPAN_NOTICE("Zoom level switched to 4x."))
 		return
 	else
 		zoom_level = ZOOM_LEVEL_2X
 		zoom_offset = 6
 		zoom_viewsize = 7
 		allows_movement = 1
-		to_chat(usr, SPAN_NOTICE("Zoom level switched to 2x"))
+		to_chat(usr, SPAN_NOTICE("Zoom level switched to 2x."))
 		return
 
 /datum/action/item_action/toggle_zoom_level
@@ -3155,7 +3158,7 @@ Defined in conflicts.dm of the #defines folder.
 	if(!istype(G) && G != null)
 		G = user.get_active_hand()
 	if(!G)
-		to_chat(user, SPAN_WARNING("You need to hold \the [src] to do that"))
+		to_chat(user, SPAN_WARNING("You need to hold \the [src] to do that."))
 		return
 
 	pump(user)
@@ -3925,6 +3928,7 @@ Defined in conflicts.dm of the #defines folder.
 	RegisterSignal(gun, COMSIG_ITEM_DROPPED, PROC_REF(handle_drop))
 
 /obj/item/attachable/bipod/Detach(mob/user, obj/item/weapon/gun/detaching_gun)
+	..()
 	UnregisterSignal(detaching_gun, COMSIG_ITEM_DROPPED)
 
 	//clear out anything related to full auto switching
@@ -3938,7 +3942,6 @@ Defined in conflicts.dm of the #defines folder.
 
 	if(bipod_deployed)
 		undeploy_bipod(detaching_gun, user)
-	..()
 
 /obj/item/attachable/bipod/update_icon()
 	if(bipod_deployed)
@@ -3974,7 +3977,7 @@ Defined in conflicts.dm of the #defines folder.
 	scatter_mod = SCATTER_AMOUNT_TIER_9
 	recoil_mod = RECOIL_AMOUNT_TIER_5
 	burst_scatter_mod = 0
-	delay_mod = FIRE_DELAY_TIER_12
+	delay_mod = FIRE_DELAY_TIER_11
 	//if we are no longer on full auto, don't bother switching back to the old firemode
 	if(full_auto_switch && gun.gun_firemode == GUN_FIREMODE_AUTOMATIC && gun.gun_firemode != old_firemode)
 		gun.do_toggle_firemode(user, null, old_firemode)
