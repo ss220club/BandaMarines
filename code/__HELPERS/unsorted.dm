@@ -1709,6 +1709,7 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 
 	if(!mobs_only)
 		pois.Add(get_multi_vehicles())
+		pois.Add(get_spec_vehicles()) // SS220 EDIT - Spec Vehicles Support
 
 	return pois
 

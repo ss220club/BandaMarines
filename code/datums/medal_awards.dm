@@ -101,7 +101,7 @@ GLOBAL_LIST_INIT(medal_references, generate_medal_references())
 		var/recipient_name = record.fields["name"]
 		recipient_ranks[recipient_name] = record.fields["rank"]
 		possible_recipients += recipient_name
-	var/chosen_recipient = tgui_input_list(usr, "Who do you want to award a medal to?", "Medal Recipient", possible_recipients)
+	var/chosen_recipient = tgui_input_list(usr, "Кому вы хотите вручить медаль?", "Получатель медали", possible_recipients) // SS220 EDIT ADDICTION
 	if(!chosen_recipient)
 		return FALSE
 
@@ -117,12 +117,12 @@ GLOBAL_LIST_INIT(medal_references, generate_medal_references())
 		medal_options = GLOB.medal_options["marine_medals_xo"]
 
 	// Pick a medal
-	var/medal_type = tgui_input_list(usr, "What type of medal do you want to award?", "Medal Type", medal_options)
+	var/medal_type = tgui_input_list(usr, "Какую медаль вы хотите вручить?", "Тип медали", medal_options)
 	if(!medal_type)
 		return FALSE
 
 	// Write a citation
-	var/citation = strip_html(input("What should the medal citation read?", "Medal Citation", null, null) as message|null, MAX_PAPER_MESSAGE_LEN)
+	var/citation = strip_html(input("Что должно быть написано на медали?", "Надпись на медали", null, null) as message|null, MAX_PAPER_MESSAGE_LEN) // SS220 EDIT ADDICTION
 	if(!citation)
 		return FALSE
 

@@ -1,14 +1,14 @@
-#define COMMAND_ANNOUNCE "Command Announcement"
-#define UPP_COMMAND_ANNOUNCE "UPP Command Announcement"
-#define CLF_COMMAND_ANNOUNCE "CLF Command Announcement"
-#define PMC_COMMAND_ANNOUNCE "PMC Command Announcement"
-#define QUEEN_ANNOUNCE "The words of the Queen reverberate in your head..."
-#define QUEEN_MOTHER_ANNOUNCE "Queen Mother Psychic Directive"
-#define XENO_GENERAL_ANNOUNCE "You sense something unusual..." //general xeno announcement that don't involve Queen, for nuke for example
+#define COMMAND_ANNOUNCE "Оповещение командования"
+#define UPP_COMMAND_ANNOUNCE "Оповещение командования UPP"
+#define CLF_COMMAND_ANNOUNCE "Оповещение командования CLF"
+#define PMC_COMMAND_ANNOUNCE "Оповещение командования PMC"
+#define QUEEN_ANNOUNCE "Слова Королевы звучат у вас в голове..."
+#define QUEEN_MOTHER_ANNOUNCE "Экстрасенсорная директива Королевы-Матери"
+#define XENO_GENERAL_ANNOUNCE "Вы чувствуете нечто необычное..." //general xeno announcement that don't involve Queen, for nuke for example
 #define HIGHER_FORCE_ANNOUNCE SPAN_ANNOUNCEMENT_HEADER_BLUE("Unknown Higher Force")
 
 //xenomorph hive announcement
-/proc/xeno_announcement(message, hivenumber, title = QUEEN_ANNOUNCE)
+/proc/xeno_announcement(message, hivenumber, title = QUEEN_ANNOUNCE, announcer = GLOB.tts_announcers[TTS_QUEEN_MOTHER_ANNOUNCER_KEY]) // BANDAMARINES EDIT - ORIGINAL: /proc/xeno_announcement(message, hivenumber, title = QUEEN_ANNOUNCE)
 	var/list/targets = GLOB.living_xeno_list + GLOB.dead_mob_list
 	if(hivenumber == "everything")
 		for(var/mob/M in targets)
@@ -16,7 +16,7 @@
 			if(!isobserver(X) && !istype(X)) //filter out any potential non-xenomorphs/observers mobs
 				targets.Remove(X)
 
-		announcement_helper(message, title, targets, sound(get_sfx("queen"),wait = 0,volume = 50))
+		announcement_helper(message, title, targets, sound(get_sfx("queen"),wait = 0,volume = 50), announcer = announcer) // SS220 EDIT - TTS
 	else
 		for(var/mob/M in targets)
 			if(isobserver(M))
@@ -25,11 +25,11 @@
 			if(!istype(X) || !X.ally_of_hivenumber(hivenumber)) //additionally filter out those of wrong hive
 				targets.Remove(X)
 
-		announcement_helper(message, title, targets, sound(get_sfx("queen"),wait = 0,volume = 50))
+		announcement_helper(message, title, targets, sound(get_sfx("queen"),wait = 0,volume = 50), announcer = announcer) // SS220 EDIT - TTS
 
 
 //general marine announcement
-/proc/marine_announcement(message, title = COMMAND_ANNOUNCE, sound_to_play = sound('sound/misc/notice2.ogg'), faction_to_display = FACTION_MARINE, add_PMCs = FALSE, signature, logging = ARES_LOG_MAIN)
+/proc/marine_announcement(message, title = COMMAND_ANNOUNCE, sound_to_play = sound('sound/misc/notice2.ogg'), faction_to_display = FACTION_MARINE, add_PMCs = FALSE, signature, logging = ARES_LOG_MAIN, announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY]) // BANDAMARINES EDIT - ORIGINAL: /proc/marine_announcement(message, title = COMMAND_ANNOUNCE, sound_to_play = sound('sound/misc/notice2.ogg'), faction_to_display = FACTION_MARINE, add_PMCs = FALSE, signature, logging = ARES_LOG_MAIN)
 	var/list/targets = GLOB.human_mob_list + GLOB.dead_mob_list
 	var/list/targets_to_garble = list()
 	var/list/coms_zs = SSradio.get_available_tcomm_zs(COMM_FREQ)
@@ -122,9 +122,9 @@
 				targets_to_garble += current_human
 
 	if(!isnull(signature))
-		message += "<br><br><i> Signed by, <br> [signature]</i>"
+		message += "<br><br><i> Авторизация, <br> [signature]</i>"
 
-	announcement_helper(message, title, targets, sound_to_play, FALSE, targets_to_garble, FACTION_MARINE)
+	announcement_helper(message, title, targets, sound_to_play, FALSE, targets_to_garble, FACTION_MARINE, announcer = announcer) // SS220 EDIT - TTS
 
 //AI announcement that uses talking into comms
 /proc/ai_announcement(message, sound_to_play = sound('sound/misc/interference.ogg'), logging = ARES_LOG_MAIN)
@@ -160,7 +160,7 @@
 
 //AI shipside announcement, that uses announcement mechanic instead of talking into comms
 //to ensure that all humans on ship hear it regardless of comms and power
-/proc/shipwide_ai_announcement(message, title = MAIN_AI_SYSTEM, sound_to_play = sound('sound/misc/interference.ogg'), signature, ares_logging = ARES_LOG_MAIN, quiet = FALSE)
+/proc/shipwide_ai_announcement(message, title = MAIN_AI_SYSTEM, sound_to_play = sound('sound/misc/interference.ogg'), signature, ares_logging = ARES_LOG_MAIN, quiet = FALSE, announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY]) // BANDAMARINES EDIT - ORIGINAL: /proc/shipwide_ai_announcement(message, title = MAIN_AI_SYSTEM, sound_to_play = sound('sound/misc/interference.ogg'), signature, ares_logging = ARES_LOG_MAIN, quiet = FALSE)
 	var/list/targets = GLOB.human_mob_list + GLOB.dead_mob_list
 	for(var/mob/target as anything in targets)
 		if(isobserver(target))
@@ -170,19 +170,19 @@
 			targets.Remove(target)
 
 	if(!isnull(signature))
-		message += "<br><br><i> Signed by, <br> [signature]</i>"
+		message += "<br><br><i> Авторизация, <br> [signature]</i>"
 	switch(ares_logging)
 		if(ARES_LOG_MAIN)
 			log_ares_announcement(title, message, signature)
 		if(ARES_LOG_SECURITY)
 			log_ares_security(title, message, signature)
 
-	announcement_helper(message, title, targets, sound_to_play, quiet)
+	announcement_helper(message, title, targets, sound_to_play, quiet, announcer = announcer) // SS220 EDIT - TTS
 
 /proc/all_hands_on_deck(message, title = MAIN_AI_SYSTEM, sound_to_play = sound('sound/misc/sound_misc_boatswain.ogg'))
 	shipwide_ai_announcement(message, title, sound_to_play, null, ARES_LOG_MAIN, FALSE)
 
-/proc/announcement_helper(message, title, list/targets, sound_to_play, quiet, list/targets_to_garble, faction_to_garble)
+/proc/announcement_helper(message, title, list/targets, sound_to_play, quiet, list/targets_to_garble, faction_to_garble, datum/announcer/announcer = GLOB.tts_announcers[TTS_DEFAULT_ANNOUNCER_KEY]) // SS220 EDIT - TTS)
 	if(!message || !title || !targets) //Shouldn't happen
 		return
 
@@ -196,8 +196,11 @@
 		if(istype(target, /mob/new_player))
 			continue
 
+		var/tts_message = message // BANDAMARINES EDIT - Garbled message
+
 		if(target in targets_to_garble)
 			to_chat_spaced(target, html = "[SPAN_ANNOUNCEMENT_HEADER(title)]<br><br>[SPAN_ANNOUNCEMENT_BODY(garbled_message)]", type = MESSAGE_TYPE_RADIO)
+			tts_message = garbled_message // BANDAMARINES EDIT - Garbled message
 		else
 			to_chat_spaced(target, html = "[SPAN_ANNOUNCEMENT_HEADER(title)]<br><br>[SPAN_ANNOUNCEMENT_BODY(message)]", type = MESSAGE_TYPE_RADIO)
 
@@ -205,3 +208,9 @@
 			if(isobserver(target) && !(target.client?.prefs?.toggles_sound & SOUND_OBSERVER_ANNOUNCEMENTS))
 				continue
 			playsound_client(target.client, sound_to_play, target, vol = 45)
+
+		// SS220 ADD START - TTS
+		if(isobserver(target) && !(target.client?.prefs?.toggles_sound & SOUND_OBSERVER_ANNOUNCEMENTS))
+			continue
+		announcer.Message(message = tts_message, receivers = list(target)) // BANDAMARINES EDIT - Garbled message
+		// SS220 ADD END - TTS
