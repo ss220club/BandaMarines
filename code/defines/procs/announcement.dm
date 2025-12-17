@@ -54,7 +54,7 @@
 			if(is_shipside && !(istype(GLOB.master_mode, /datum/game_mode/extended/faction_clash))) // People on ship see everything, unless it is faction clash
 				continue // Valid target w/o garble
 
-			if(!is_shipside && !(current_turf?.z in coms_zs))
+			if(!is_shipside && !(current_turf?.z in coms_zs) && length(GLOB.player_list) <= CONFIG_GET(number/lowpop_amount_of_players)) /// BANDASTATION EDIT - No Garble on Lowpop
 				targets_to_garble += current_human
 
 			// If they have iff AND a marine headset they will recieve announcements
@@ -124,10 +124,6 @@
 	if(!isnull(signature))
 		message += "<br><br><i> Авторизация, <br> [signature]</i>"
 
-/// BANDASTATION EDIT START - No Garble on Lowpop
-	if(length(GLOB.player_list) < 50)
-		targets_to_garble.Cut()
-/// BANDASTATION EDIT END - No Garble on Lowpop
 	announcement_helper(message, title, targets, sound_to_play, FALSE, targets_to_garble, FACTION_MARINE, announcer = announcer) // SS220 EDIT - TTS
 
 //AI announcement that uses talking into comms

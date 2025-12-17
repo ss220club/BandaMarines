@@ -17,3 +17,6 @@ SERVER_TYPE default
 
 ## Enables diagonal movement
 # DIAGONAL_MOVE
+
+## Amount of players to consider lowpop game
+# lowpop_amount_of_players 50
