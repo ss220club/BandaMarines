@@ -56,8 +56,8 @@
 /mob/living/carbon/xenomorph/crusher/add_tts_component()
 	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/ysera)
 
-// /mob/living/carbon/xenomorph/despoiler/add_tts_component()
-//	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/grandmother)
+/mob/living/carbon/xenomorph/despoiler/add_tts_component()
+	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/grandmother)
 
 /mob/living/carbon/xenomorph/praetorian/add_tts_component()
 	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/tyrande_hs)

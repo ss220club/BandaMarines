@@ -129,6 +129,7 @@
 #include "code/xeno/xeno_abilities/castes/carrier.dm"
 #include "code/xeno/xeno_abilities/castes/crusher.dm"
 #include "code/xeno/xeno_abilities/castes/defender.dm"
+#include "code/xeno/xeno_abilities/castes/despoiler.dm"
 #include "code/xeno/xeno_abilities/castes/facehugger.dm"
 #include "code/xeno/xeno_abilities/castes/hivelord.dm"
 #include "code/xeno/xeno_abilities/castes/king.dm"

@@ -278,7 +278,7 @@
 		if(H.species.can_shred(H))
 
 			user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] smashes [src] to no avail."),
-					SPAN_WARNING("You beat against [src] to no effect"),
+					SPAN_WARNING("You beat against [src] to no effect."),
 					"You hear twisting metal.")
 
 	if(!damage_dealt)
