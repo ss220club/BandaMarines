@@ -108,7 +108,7 @@ GLOBAL_LIST_INIT(whitelisted_client_procs, list(
 			topiclimiter[SECOND_COUNT] = 0
 		topiclimiter[SECOND_COUNT] += 1
 		if (topiclimiter[SECOND_COUNT] > stl)
-			to_chat(src, SPAN_DANGER("Your previous action was ignored because you've done too many in a second"))
+			to_chat(src, SPAN_DANGER("Your previous action was ignored because you've done too many in a second."))
 			return
 
 	// Tgui Topic middleware
@@ -168,7 +168,7 @@ GLOBAL_LIST_INIT(whitelisted_client_procs, list(
 			for(var/photo in info.photo_list)
 				usr << browse_rsc(info.photo_list[photo], photo)
 
-		show_browser(usr, "<body class='paper'>[info.data]</body>", "Fax Message", "Fax Message")
+		show_browser(usr, "<body class='paper'>[info.data]</body>", "Fax Message", "Fax Message", width=DEFAULT_PAPER_WIDTH, height=DEFAULT_PAPER_HEIGHT, extra_stylesheets=info.extra_stylesheets, extra_headers=info.extra_headers)
 
 	else if(href_list["medals_panel"])
 		GLOB.medals_panel.tgui_interact(mob)
@@ -323,7 +323,7 @@ GLOBAL_LIST_INIT(whitelisted_client_procs, list(
 		to_chat_immediate(src, SPAN_DANGER("<b>Ваша версия BYOND устарела:</b>"))
 		to_chat_immediate(src, CONFIG_GET(string/client_error_message))
 		to_chat_immediate(src, "Ваша версия BYOND: [byond_build] ([byond_version].[byond_build])")
-		to_chat_immediate(src, "Рекомендуемая версия BYOND: [breaking_build] ([breaking_version].[breaking_build]) или новее")
+		to_chat_immediate(src, "Рекомендуемая версия BYOND: [breaking_build] ([breaking_version].[breaking_build]) или новее.")
 		to_chat_immediate(src, "Для загрузки последних версий BYOND посетите <a href=\"https://www.byond.com/download\">официальный сайт</a> продукта.")
 		return FALSE
 

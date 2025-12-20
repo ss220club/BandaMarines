@@ -502,8 +502,8 @@
 /obj/item/book/manual/surgery
 	name = "Хирургическое Справочное Руководство"
 	desc = "Детализированное справочное руководство по хирургическим процедурам. Для тех моментов, когда вы забыли о каком-либо этапе хирургической операции."
-	icon_state = "book_medical"
-	item_state = "book_medical"
+	icon_state = "book_surgery"
+	item_state = "book_surgery"
 	author = "Бюро медицины и хирургии колониальной морской пехоты"
 	title = "Хирургическое Справочное Руководство"
 
@@ -879,7 +879,7 @@
 
 /obj/item/book/manual/nuclear
 	name = "Fission Mailed: How to Operate a Blockbuster"
-	desc = "A book containing important information and instructions regarding the operation of a 'Blockbuster' Large Atomic Fission Demolition Device"
+	desc = "A book containing important information and instructions regarding the operation of a 'Blockbuster' Large Atomic Fission Demolition Device."
 	icon_state = "book_nuclear"
 	item_state = "book_nuclear"
 	author = "Nuclear Regulatory Commission of the United Americas"
