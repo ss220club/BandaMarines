@@ -50,7 +50,7 @@
 /datum/action/xeno_action/activable/acid_mine
 	desc = "Создаёт область мин размером 3x3, которая взрывается через %DETONATION_DELAY%\
 		<br>Наносит %DAMAGE% урона при взрыве.\
-		<br>Усиленный взрыв создаёт кислоту на носителях с периодическим уроном (всего %DAMAGE_ACID%).\
+		<br>Усиленный взрыв создаёт кислоту на носителях с периодическим уроном %DAMAGE_ACID% в секунду.\
 		<br>Наносит на %DAMAGE_TRAP%% больше урона по тем, кто находися в ловушке из Deploy Trap.\
 		<br>Каждое успешное попадание по носителю уменьшает текущую перезарядку Deploy Trap на %COOLDOWN_REDUCTION%"
 
@@ -58,7 +58,7 @@
 	replace_in_desc("%DETONATION_DELAY%", delay / 10, DESCRIPTION_REPLACEMENT_TIME)
 	replace_in_desc("%DAMAGE%", damage)
 	replace_in_desc("%DAMAGE_TRAP%", 45)
-	replace_in_desc("%DAMAGE_ACID%", /datum/effects/acid::damage_in_total_human)
+	replace_in_desc("%DAMAGE_ACID%", /datum/effects/acid::damage_per_process_human)
 	replace_in_desc("%COOLDOWN_REDUCTION%", 4, DESCRIPTION_REPLACEMENT_TIME)
 
 /datum/action/xeno_action/activable/acid_shotgun

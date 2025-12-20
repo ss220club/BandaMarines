@@ -354,8 +354,8 @@
 			SPAN_NOTICE("Вы слышите металлический щелчок."))
 	else
 		M.visible_message(
-			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] пристёгивает [M.declent_ru(ACCUSATIVE)] к [ru_name]!"), // SS220 EDIT ADDICTION
-			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] пристёгивает вас к [ru_name]."),  // SS220 EDIT ADDICTION
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] пристёгивает [M.declent_ru(ACCUSATIVE)] к [ru_name]!"),
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] пристёгивает вас к [ru_name]."),
 			SPAN_NOTICE("Вы слышите металлический щелчок."))
 
 /obj/Move(NewLoc, direct)
