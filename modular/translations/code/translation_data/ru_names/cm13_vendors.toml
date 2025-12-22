@@ -91,9 +91,6 @@ nominative = "РЮКЗАКИ (ВОЗЬМИТЕ 1)"
 ["blood packs"]
 nominative = "ПАКЕТЫ ДЛЯ КРОВИ"
 
-[boots]
-nominative = "БОТИНКИ"
-
 ["shoes (choose 1)"]
 nominative = "БОТИНКИ (ВОЗЬМИТЕ 1)"
 
