@@ -18,16 +18,18 @@
 		// Add original name for searching purposes
 		if(!product_entry["english_name"])
 			product_entry["english_name"] = product_entry[1]
+		// Do we have override name for this, such as "Flare Pouch (Full)"
 		var/new_name = declent_ru_initial(product_entry[1])
-		// We have override name for this, such as "Flare Pouch (Full)"
-		if(!isnull(new_name))
-			product_entry[1] = capitalize(new_name)
-			continue
-		// Try to get translated item name
-		if(product_entry[3] && ispath(product_entry[3], /atom))
+		// Try to get translated item name if not
+		if(isnull(new_name) && product_entry[3] && ispath(product_entry[3], /atom))
 			var/atom/product_entry_item = product_entry[3]
 			new_name = declent_ru_initial(product_entry_item::name)
-			// Use untranslated name then
-			if(isnull(new_name))
-				continue
-			product_entry[1] = capitalize(new_name)
+		// Abort if we don't have a name
+		if(isnull(new_name))
+			continue
+		// Is it a category?
+		if(isnull(product_entry[3]))
+			new_name = uppertext(new_name)
+		else
+			new_name = capitalize(new_name)
+		product_entry[1] = new_name
