@@ -876,11 +876,11 @@ gender = "female"
 
 ["inflatable wall"]
 nominative = "надувная стена"
-genitive = "защитной каски"
-dative = "защитной каске"
-accusative = "защитную каску"
-instrumental = "защитной каской"
-prepositional = "защитной каске"
+genitive = "надувной стены"
+dative = "надувной стене"
+accusative = "надувную стену"
+instrumental = "надувной стеной"
+prepositional = "надувной стене"
 gender = "female"
 
 ["popped inflatable wall"]

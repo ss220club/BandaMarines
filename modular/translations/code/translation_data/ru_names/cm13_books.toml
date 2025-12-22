@@ -55,11 +55,11 @@ gender = "neuter"
 ["loader instructional pamphlet"]
 nominative = "инструкция для заряжающего"
 genitive = "инструкции для заряжающего"
-dative = "инструкции для заряжающему"
+dative = "инструкции для заряжающего"
 accusative = "инструкцию для заряжающего"
-instrumental = "инструкцией для заряжающим"
-prepositional = "инструкции для заряжающем"
-gender = "male"
+instrumental = "инструкцией для заряжающего"
+prepositional = "инструкции для заряжающего"
+gender = "female"
 
 ["spotter instructional pamphlet"]
 nominative = "инструкция для корректировщика огня"
