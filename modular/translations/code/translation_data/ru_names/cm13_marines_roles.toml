@@ -1,7 +1,4 @@
-# ВНИМАНИЕ!!! Если вы собираетесь меня перевод, синхронизируйте перевод
-# tgui/packages/tgui/interfaces/BandaMarines/MarineJobs.tsx
-
-["Rifleman"]
+[rifleman]
 nominative = "Стрелок"
 genitive = "Стрелок"
 dative = "Стрелок"
@@ -10,7 +7,7 @@ instrumental = "Стрелок"
 prepositional = "Стрелок"
 gender = "male"
 
-["Squad Leader"]
+["squad leader"]
 nominative = "Командир отряда"
 genitive = "Командир отряда"
 dative = "Командир отряда"
@@ -19,7 +16,7 @@ instrumental = "Командир отряда"
 prepositional = "Командир отряда"
 gender = "male"
 
-["Combat Technician"]
+["combat technician"]
 nominative = "Полевой техник"
 genitive = "Полевой техник"
 dative = "Полевой техник"
@@ -28,7 +25,7 @@ instrumental = "Полевой техник"
 prepositional = "Полевой техник"
 gender = "male"
 
-["Hospital Corpsman"]
+["hospital corpsman"]
 nominative = "Полевой санитар"
 genitive = "Полевой санитар"
 dative = "Полевой санитар"
@@ -37,7 +34,7 @@ instrumental = "Полевой санитар"
 prepositional = "Полевой санитар"
 gender = "male"
 
-["Weapons Specialist"]
+["weapons specialist"]
 nominative = "Оружейный специалист"
 genitive = "Оружейный специалист"
 dative = "Оружейный специалист"
@@ -46,7 +43,7 @@ instrumental = "Оружейный специалист"
 prepositional = "Оружейный специалист"
 gender = "male"
 
-["Fireteam Leader"]
+["fireteam leader"]
 nominative = "Командир группы"
 genitive = "Командир группы"
 dative = "Командир группы"
@@ -55,7 +52,7 @@ instrumental = "Командир группы"
 prepositional = "Командир группы"
 gender = "male"
 
-["Smartgunner"]
+[smartgunner]
 nominative = "Смартганнер"
 genitive = "Смартганнер"
 dative = "Смартганнер"
@@ -64,7 +61,7 @@ instrumental = "Смартганнер"
 prepositional = "Смартганнер"
 gender = "male"
 
-["Colonist"]
+[colonist]
 nominative = "Колонист"
 genitive = "Колонист"
 dative = "Колонист"
@@ -73,7 +70,7 @@ instrumental = "Колонист"
 prepositional = "Колонист"
 gender = "male"
 
-["Passenger"]
+[passenger]
 nominative = "Пассажир"
 genitive = "Пассажир"
 dative = "Пассажир"
@@ -82,7 +79,7 @@ instrumental = "Пассажир"
 prepositional = "Пассажир"
 gender = "male"
 
-["Survivor"]
+[survivor]
 nominative = "Выживший"
 genitive = "Выживший"
 dative = "Выживший"
@@ -91,7 +88,7 @@ instrumental = "Выживший"
 prepositional = "Выживший"
 gender = "male"
 
-["Synth Survivor"]
+["synth survivor"]
 nominative = "Выживший-cинтетик"
 genitive = "Выживший-cинтетик"
 dative = "Выживший-cинтетик"
@@ -100,7 +97,7 @@ instrumental = "Выживший-cинтетик"
 prepositional = "Выживший-cинтетик"
 gender = "male"
 
-["CO Survivor"]
+["co survivor"]
 nominative = "Выживший КО"
 genitive = "Выживший КО"
 dative = "Выживший КО"
@@ -109,7 +106,7 @@ instrumental = "Выживший КО"
 prepositional = "Выживший КО"
 gender = "male"
 
-["Chief Medical Officer"]
+["chief medical officer"]
 nominative = "Главврач"
 genitive = "Главврач"
 dative = "Главврач"
@@ -118,7 +115,7 @@ instrumental = "Главврач"
 prepositional = "Главврач"
 gender = "male"
 
-["Doctor"]
+[doctor]
 nominative = "Доктор"
 genitive = "Доктор"
 dative = "Доктор"
@@ -127,7 +124,7 @@ instrumental = "Доктор"
 prepositional = "Доктор"
 gender = "male"
 
-["Surgeon"]
+[surgeon]
 nominative = "Хирург"
 genitive = "Хирург"
 dative = "Хирург"
@@ -136,7 +133,7 @@ instrumental = "Хирург"
 prepositional = "Хирург"
 gender = "male"
 
-["Field Doctor"]
+["field doctor"]
 nominative = "Полевой врач"
 genitive = "Полевой врач"
 dative = "Полевой врач"
@@ -145,7 +142,7 @@ instrumental = "Полевой врач"
 prepositional = "Полевой врач"
 gender = "male"
 
-["Nurse"]
+[nurse]
 nominative = "Медработник"
 genitive = "Медработник"
 dative = "Медработник"
@@ -154,7 +151,7 @@ instrumental = "Медработник"
 prepositional = "Медработник"
 gender = "male"
 
-["Researcher"]
+[researcher]
 nominative = "Исследователь"
 genitive = "Исследователь"
 dative = "Исследователь"
@@ -163,7 +160,7 @@ instrumental = "Исследователь"
 prepositional = "Исследователь"
 gender = "male"
 
-["Corporate Liaison"]
+["corporate liaison"]
 nominative = "Связной корпорации"
 genitive = "Связной корпорации"
 dative = "Связной корпорации"
@@ -172,7 +169,7 @@ instrumental = "Связной корпорации"
 prepositional = "Связной корпорации"
 gender = "male"
 
-["Combat Correspondent"]
+["combat correspondent"]
 nominative = "Полевой корреспондент"
 genitive = "Полевой корреспондент"
 dative = "Полевой корреспондент"
@@ -181,7 +178,7 @@ instrumental = "Полевой корреспондент"
 prepositional = "Полевой корреспондент"
 gender = "male"
 
-["Mess Technician"]
+["mess technician"]
 nominative = "Кок"
 genitive = "Кок"
 dative = "Кок"
@@ -190,7 +187,7 @@ instrumental = "Кок"
 prepositional = "Кок"
 gender = "male"
 
-["Synthetic"]
+[synthetic]
 nominative = "Синтетик"
 genitive = "Синтетик"
 dative = "Синтетик"
@@ -199,7 +196,7 @@ instrumental = "Синтетик"
 prepositional = "Синтетик"
 gender = "male"
 
-["Synthetic K9"]
+["synthetic k9"]
 nominative = "Синтетик K9"
 genitive = "Синтетик K9"
 dative = "Синтетик K9"
@@ -208,7 +205,7 @@ instrumental = "Синтетик K9"
 prepositional = "Синтетик K9"
 gender = "male"
 
-["Working Joe"]
+["working joe"]
 nominative = "Рабочий Джо"
 genitive = "Рабочий Джо"
 dative = "Рабочий Джо"
@@ -217,7 +214,7 @@ instrumental = "Рабочий Джо"
 prepositional = "Рабочий Джо"
 gender = "male"
 
-["Commanding Officer"]
+["commanding officer"]
 nominative = "Командующий офицер"
 genitive = "Командующий офицер"
 dative = "Командующий офицер"
@@ -226,7 +223,7 @@ instrumental = "Командующий офицер"
 prepositional = "Командующий офицер"
 gender = "male"
 
-["Executive Officer"]
+["executive officer"]
 nominative = "Исполнительный офицер"
 genitive = "Исполнительный офицер"
 dative = "Исполнительный офицер"
@@ -235,7 +232,7 @@ instrumental = "Исполнительный офицер"
 prepositional = "Исполнительный офицер"
 gender = "male"
 
-["Staff Officer"]
+["staff officer"]
 nominative = "Штаб-офицер"
 genitive = "Штаб-офицер"
 dative = "Штаб-офицер"
@@ -244,7 +241,7 @@ instrumental = "Штаб-офицер"
 prepositional = "Штаб-офицер"
 gender = "male"
 
-["Auxiliary Support Officer"]
+["auxiliary support officer"]
 nominative = "Офицер поддержки"
 genitive = "Офицер поддержки"
 dative = "Офицер поддержки"
@@ -253,7 +250,7 @@ instrumental = "Офицер поддержки"
 prepositional = "Офицер поддержки"
 gender = "male"
 
-["Gunship Pilot"]
+["gunship pilot"]
 nominative = "Пилот боевого корабля"
 genitive = "Пилот боевого корабля"
 dative = "Пилот боевого корабля"
@@ -262,7 +259,7 @@ instrumental = "Пилот боевого корабля"
 prepositional = "Пилот боевого корабля"
 gender = "male"
 
-["Dropship Pilot"]
+["dropship pilot"]
 nominative = "Пилот десантного корабля"
 genitive = "Пилот десантного корабля"
 dative = "Пилот десантного корабля"
@@ -271,7 +268,7 @@ instrumental = "Пилот десантного корабля"
 prepositional = "Пилот десантного корабля"
 gender = "male"
 
-["Tank Crew"]
+["tank crew"]
 nominative = "Танкист"
 genitive = "Танкист"
 dative = "Танкист"
@@ -280,7 +277,7 @@ instrumental = "Танкист"
 prepositional = "Танкист"
 gender = "male"
 
-["Dropship Crew Chief"]
+["dropship crew chief"]
 nominative = "Офицер десантного корабля"
 genitive = "Офицер десантного корабля"
 dative = "Офицер десантного корабля"
@@ -289,7 +286,7 @@ instrumental = "Офицер десантного корабля"
 prepositional = "Офицер десантного корабля"
 gender = "male"
 
-["Intelligence Officer"]
+["intelligence officer"]
 nominative = "Офицер разведки"
 genitive = "Офицер разведки"
 dative = "Офицер разведки"
@@ -298,7 +295,7 @@ instrumental = "Офицер разведки"
 prepositional = "Офицер разведки"
 gender = "male"
 
-["Military Police"]
+["military police"]
 nominative = "Военная полиция"
 genitive = "Военная полиция"
 dative = "Военная полиция"
@@ -307,7 +304,7 @@ instrumental = "Военная полиция"
 prepositional = "Военная полиция"
 gender = "male"
 
-["Military Warden"]
+["military warden"]
 nominative = "Военный смотритель"
 genitive = "Военный смотритель"
 dative = "Военный смотритель"
@@ -316,7 +313,7 @@ instrumental = "Военный смотритель"
 prepositional = "Военный смотритель"
 gender = "male"
 
-["Chief MP"]
+["chief mp"]
 nominative = "Шеф военной полиции"
 genitive = "Шеф военной полиции"
 dative = "Шеф военной полиции"
@@ -325,7 +322,7 @@ instrumental = "Шеф военной полиции"
 prepositional = "Шеф военной полиции"
 gender = "male"
 
-["Senior Enlisted Advisor"]
+["senior enlisted advisor"]
 nominative = "Старший инструктор"
 genitive = "Старшего инструктора"
 dative = "Старшему инструктору"
@@ -334,7 +331,7 @@ instrumental = "Старшим инструктором"
 prepositional = "Старшем инструкторе"
 gender = "male"
 
-["Chief Engineer"]
+["chief engineer"]
 nominative = "Главный инженер"
 genitive = "Главного инженера"
 dative = "Главному инженеру"
@@ -343,7 +340,7 @@ instrumental = "Главным инженером"
 prepositional = "Главном инженере"
 gender = "male"
 
-["Maintenance Technician"]
+["maintenance technician"]
 nominative = "Техник-ремонтник"
 genitive = "Техник-ремонтник"
 dative = "Техник-ремонтник"
@@ -352,7 +349,7 @@ instrumental = "Техник-ремонтник"
 prepositional = "Техник-ремонтник"
 gender = "male"
 
-["Ordnance Technician"]
+["ordnance technician"]
 nominative = "Орудийный техник"
 genitive = "Орудийный техник"
 dative = "Орудийный техник"
@@ -361,7 +358,7 @@ instrumental = "Орудийный техник"
 prepositional = "Орудийный техник"
 gender = "male"
 
-["Quartermaster"]
+[quartermaster]
 nominative = "Квартирмейстер"
 genitive = "Квартирмейстер"
 dative = "Квартирмейстер"
@@ -370,7 +367,7 @@ instrumental = "Квартирмейстер"
 prepositional = "Квартирмейстер"
 gender = "male"
 
-["Cargo Technician"]
+["cargo technician"]
 nominative = "Грузовой техник"
 genitive = "Грузового техника"
 dative = "Грузовому технику"
@@ -379,7 +376,7 @@ instrumental = "Грузовым техником"
 prepositional = "Грузовом технике"
 gender = "male"
 
-["Marine Raider"]
+["marine raider"]
 nominative = "Рейдер"
 genitive = "Рейдер"
 dative = "Рейдер"
@@ -388,7 +385,7 @@ instrumental = "Рейдер"
 prepositional = "Рейдер"
 gender = "male"
 
-["Marine Raider Team Lead"]
+["marine raider team lead"]
 nominative = "Комотряда-рейдер"
 genitive = "Комотряда-рейдер"
 dative = "Комотряда-рейдер"
@@ -397,7 +394,7 @@ instrumental = "Комотряда-рейдер"
 prepositional = "Комотряда-рейдер"
 gender = "male"
 
-["Marine Raider Platoon Lead"]
+["marine raider platoon lead"]
 nominative = "Комгруппы-рейдер"
 genitive = "Комгруппы-рейдер"
 dative = "Комгруппы-рейдер"
@@ -406,7 +403,7 @@ instrumental = "Комгруппы-рейдер"
 prepositional = "Комгруппы-рейдер"
 gender = "male"
 
-["Stowaway"]
+[stowaway]
 nominative = "Безбилетник"
 genitive = "Безбилетник"
 dative = "Безбилетник"
@@ -415,7 +412,7 @@ instrumental = "Безбилетник"
 prepositional = "Безбилетник"
 gender = "male"
 
-["USCM Marine"]
+["uscm marine"]
 nominative = "Морпех ККМП"
 genitive = "Морпех ККМП"
 dative = "Морпех ККМП"
@@ -424,7 +421,7 @@ instrumental = "Морпех ККМП"
 prepositional = "Морпех ККМП"
 gender = "male"
 
-["USCM Colonel"]
+["uscm colonel"]
 nominative = "Полковник ККМП"
 genitive = "Полковник ККМП"
 dative = "Полковник ККМП"
@@ -433,7 +430,7 @@ instrumental = "Полковник ККМП"
 prepositional = "Полковник ККМП"
 gender = "male"
 
-["USCM Observer"]
+["uscm observer"]
 nominative = "Наблюдатель ККМП"
 genitive = "Наблюдатель ККМП"
 dative = "Наблюдатель ККМП"
@@ -442,7 +439,7 @@ instrumental = "Наблюдатель ККМП"
 prepositional = "Наблюдатель ККМП"
 gender = "male"
 
-["USCM General"]
+["uscm general"]
 nominative = "Генерал ККМП"
 genitive = "Генерал ККМП"
 dative = "Генерал ККМП"
@@ -451,7 +448,7 @@ instrumental = "Генерал ККМП"
 prepositional = "Генерал ККМП"
 gender = "male"
 
-["Assistant Commandant of the Marine Corps"]
+["assistant commandant of the marine corps"]
 nominative = "Заместитель коменданта КМП"
 genitive = "Заместитель коменданта КМП"
 dative = "Заместитель коменданта КМП"
@@ -460,7 +457,7 @@ instrumental = "Заместитель коменданта КМП"
 prepositional = "Заместитель коменданта КМП"
 gender = "male"
 
-["Commandant of the Marine Corps"]
+["commandant of the marine corps"]
 nominative = "Комендант КМП"
 genitive = "Комендант КМП"
 dative = "Комендант КМП"
@@ -469,7 +466,7 @@ instrumental = "Комендант КМП"
 prepositional = "Комендант КМП"
 gender = "male"
 
-["Platoon Corpsman"]
+["platoon corpsman"]
 nominative = "Санитар отряда"
 genitive = "Санитар отряда"
 dative = "Санитар отряда"
@@ -478,7 +475,7 @@ instrumental = "Санитар отряда"
 prepositional = "Санитар отряда"
 gender = "male"
 
-["Platoon Squad Leader"]
+["platoon squad leader"]
 nominative = "Командир отряда"
 genitive = "Командир отряда"
 dative = "Командир отряда"
@@ -487,7 +484,7 @@ instrumental = "Командир отряда"
 prepositional = "Командир отряда"
 gender = "male"
 
-["Reconnaissance Support Technician"]
+["reconnaissance support technician"]
 nominative = "Специалист по рекогносцировке"
 genitive = "Специалист по рекогносцировке"
 dative = "Специалист по рекогносцировке"

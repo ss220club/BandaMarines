@@ -1,6 +1,3 @@
-# Uncategorized books
-# books, notes, manuals, pamphlets <- everything character wears
-
 ["vehicle training manual"]
 nominative = "руководство по эксплуатации ТС"
 genitive = "руководства по эксплуатации ТС"
@@ -10,10 +7,10 @@ instrumental = "руководством по эксплуатации ТС"
 prepositional = "руководстве по эксплуатации ТС"
 gender = "male"
 
-["JTAC Pamphlet"] # Unique Vendor Name
+["jtac pamphlet"]
 nominative = "инструкция для JTAC"
 
-["JTAC instructional pamphlet"]
+["jtac instructional pamphlet"]
 nominative = "инструкция для JTAC"
 genitive = "инструкции для JTAC"
 dative = "инструкции для JTAC"
@@ -22,7 +19,7 @@ instrumental = "инструкцией для JTAC"
 prepositional = "инструкции для JTAC"
 gender = "female"
 
-["Engineering Pamphlet"] # Unique Vendor Name
+["engineering pamphlet"]
 nominative = "инструкция для инженера"
 
 ["engineer instructional pamphlet"]
@@ -43,7 +40,7 @@ instrumental = "руководством по эксплуатации пуле�
 prepositional = "руководстве по эксплуатации пулемёта"
 gender = "neuter"
 
-["Powerloader Certifcation"] # Unique Vendor Name
+["powerloader certifcation"]
 nominative = "руководство по эксплуатации погрузчика «Caterpillar»"
 
 ["powerloader instructional pamphlet"]
@@ -55,7 +52,7 @@ instrumental = "руководством по эксплуатации погр�
 prepositional = "руководстве по эксплуатации погрузчика «Caterpillar»"
 gender = "neuter"
 
-["Loader instructional pamphlet"]
+["loader instructional pamphlet"]
 nominative = "инструкция для заряжающего"
 genitive = "инструкции для заряжающего"
 dative = "инструкции для заряжающему"
@@ -64,7 +61,7 @@ instrumental = "инструкцией для заряжающим"
 prepositional = "инструкции для заряжающем"
 gender = "male"
 
-["Spotter instructional pamphlet"]
+["spotter instructional pamphlet"]
 nominative = "инструкция для корректировщика огня"
 genitive = "инструкции для корректировщика огня"
 dative = "инструкции для корректировщика огня"
@@ -73,7 +70,7 @@ instrumental = "инструкцией для корректировщика о�
 prepositional = "инструкции для корректировщика огня"
 gender = "female"
 
-["M707 instructional pamphlet"]
+["m707 instructional pamphlet"]
 nominative = "инструкция для снайпера M707"
 genitive = "инструкции для снайпера M707"
 dative = "инструкции для снайпера M707"
@@ -82,7 +79,7 @@ instrumental = "инструкцией для снайпера M707"
 prepositional = "инструкции для снайпера M707"
 gender = "female"
 
-["Mortar Operator instructional pamphlet"]
+["mortar operator instructional pamphlet"]
 nominative = "инструкция для специалиста миномётчика"
 genitive = "инструкции для специалиста миномётчика"
 dative = "инструкции для специалиста миномётчика"
@@ -100,7 +97,7 @@ instrumental = "инструкцией для полевого разведчи�
 prepositional = "инструкции для полевого разведчика"
 gender = "female"
 
-["Principles and Practice of Medicine"]
+["principles and practice of medicine"]
 nominative = "Справочник «Медицинские основы и практики»"
 genitive = "Справочника «Медицинские основы и практики»"
 dative = "Справочнику «Медицинские основы и практики»"
@@ -109,7 +106,7 @@ instrumental = "Справочником «Медицинские основы �
 prepositional = "Справочнике «Медицинские основы и практики»"
 gender = "male"
 
-["Supply Manifest"]
+["supply manifest"]
 nominative = "грузовой манифест"
 genitive = "грузового манифеста"
 dative = "грузовому манифесту"
@@ -118,7 +115,7 @@ instrumental = "грузовым манифестом"
 prepositional = "грузовом манифесте"
 gender = "male"
 
-["Requisition Form"]
+["requisition form"]
 nominative = "бланк заявки"
 genitive = "бланка заявки"
 dative = "бланку заявки"

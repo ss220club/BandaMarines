@@ -1,5 +1,3 @@
-# Paygrade shorthand defines, to allow clearer designation.
-
 ["rank pins"]
 nominative = "погоны"
 genitive = "погон"
@@ -18,240 +16,176 @@ instrumental = "погонами"
 prepositional = "погонах"
 gender = "plural"
 
-# MARINE
-
-# ME1, Private
-["ME1"]
+[me1]
 nominative = "Ряд."
 
-# ME2, Private First Class
-["ME2"]
+[me2]
 nominative = "Ряд. 1 класса"
 
-# ME3, Lance Corporal
-["ME3"]
+[me3]
 nominative = "Мл.к-л"
 
-# ME4, Corporal
-["ME4"]
+[me4]
 nominative = "К-л"
 
-# ME5, Sergeant
-["ME5"]
+[me5]
 nominative = "С-т"
 
-# ME6, Staff Sergeant
-["ME6"]
+[me6]
 nominative = "Ш/с-т"
 
-# ME7, Gunnery Sergeant
-["ME7"]
+[me7]
 nominative = "К/с-т"
 
-# ME8, Master Sergeant
-["ME8"]
+[me8]
 nominative = "М/с-т"
 
-# ME8E, First Sergeant
-["ME8E"]
+[me8e]
 nominative = "П/с-т"
 
-# ME9, Master Gunnery Sergeant
-["ME9"]
+[me9]
 nominative = "Ст.К/с-т"
 
-# ME9E, Sergeant Major
-["ME9E"]
+[me9e]
 nominative = "С-м"
 
-# ME9C, Sergeant Major of the Colonial Marine Corps
-["ME9C"]
+[me9c]
 nominative = "С-м КМ"
 
-# MO1, Second Lieutenant
-["MO1"]
+[mo1]
 nominative = "В/Л-т"
 
-# MO2, First Lieutenant
-["MO2"]
+[mo2]
 nominative = "П/л-т"
 
-# MO3, Captain
-["MO3"]
+[mo3]
 nominative = "К-н"
 
-# MO4, Major
-["MO4"]
+[mo4]
 nominative = "М-р"
 
-# MO5, Lieutenant Colonel
-["MO5"]
+[mo5]
 nominative = "Л-т/п-к"
 
-# MO6, Colonel
-["MO6"]
+[mo6]
 nominative = "П-к"
 
-# MO6E, Senior Colonel
-["MO6E"]
+[mo6e]
 nominative = "Ст.п-к"
 
-# MO6C, Division Colonel
-["MO6C"]
+[mo6c]
 nominative = "Див.п-к"
 
-# MO7, Brigadier General
-["MO7"]
+[mo7]
 nominative = "Бриг.ген."
 
-# MO8, Major General
-["MO8"]
+[mo8]
 nominative = "Ген.м-р"
 
-# MO9, Lieutenant General
-["MO9"]
+[mo9]
 nominative = "Ген.л-т"
 
-# MO10, General
-["MO10"]
+[mo10]
 nominative = "Ген."
 
-# MO10C, Assistant Commandant of the Marine Corps
-["MO10C"]
+[mo10c]
 nominative = "Зам.к-т КМП"
 
-# MO10S, Commandant of the Marine Corps
-["MO10S"]
+[mo10s]
 nominative = "К-т КМП"
 
-# SYN_K9, Synthetic K9
-["SYN_K9"]
+[syn_k9]
 nominative = "В/л-т, боевой санитар"
 
-# NAVY
-
-# NE1, Seaman Recruit
-["NE1"]
+[ne1]
 nominative = "Мат.рек."
 
-# NE2M, Seaman Apprentice
-["NE2"]
+[ne2]
 nominative = "Мл.мат."
 
-# NE3, Seaman
-["NE3"]
+[ne3]
 nominative = "Мат."
 
-# NE4, Petty Officer 3rd Class
-["NE4"]
+[ne4]
 nominative = "П/оф-р 3 класса"
 
-# NE5, Petty Officer 2nd Class
-["NE5"]
+[ne5]
 nominative = "П/оф-р 2 класса"
 
-# NE6, Petty Officer 1st Class
-["NE6"]
+[ne6]
 nominative = "П/оф-р 1 класса"
 
-# NE7, Chief Petty Officer
-["NE7"]
+[ne7]
 nominative = "Ч-П/оф-р"
 
-# NE8, Senior Chief Petty Officer
-["NE8"]
+[ne8]
 nominative = "Ст.Ч-П/оф-р"
 
-# NE8C, Command Senior Chief Petty Officer
-["NE8C"]
+[ne8c]
 nominative = "Г/ст.Ч-П/оф-р"
 
-# NE9, Master Chief Petty Officer
-["NE9"]
+[ne9]
 nominative = "М-р.Ч-П/оф-р"
 
-# NE9C, Command Master Chief Petty Officer
-["NE9C"]
+[ne9c]
 nominative = "Г/м-р.Ч-П/оф-р"
 
-# NO1, Ensign
-["NO1"]
+[no1]
 nominative = "Э-н"
 
-# NO2, Lieutenant Junior Grade
-["NO2"]
+[no2]
 nominative = "Мл.л-т"
 
-# NO3, Lieutenant
-["NO3"]
+[no3]
 nominative = "Л-т"
 
-# NO4, Lieutenant Commander
-["NO4"]
+[no4]
 nominative = "Л-т.кмдр."
 
-# NO5, Commander
-["NO5"]
+[no5]
 nominative = "Кмдр."
 
-# NO6, Captain
-["NO6"]
+[no6]
 nominative = "К-н"
 
-# NO6E, Commodore
-["NO6E"]
+[no6e]
 nominative = "Км-р"
 
-# NO6C, Senior Commodore
-["NO6C"]
+[no6c]
 nominative = "Ст.Км-р"
 
-# NO7, Rear Admiral (Lower Half)
-["NO7"]
+[no7]
 nominative = "К-адм. мл.ранга"
 
-# NO8, Rear Admiral (Upper Half)
-["NO8"]
+[no8]
 nominative = "К-адм. ст.ранга"
 
-# NO9, Vice Admiral
-["NO9"]
+[no9]
 nominative = "В-адм."
 
-# NO10, Admiral
-["NO10"]
+[no10]
 nominative = "Адм."
 
-# NO10C, Chief of Naval Operations
-["NO10C"]
+[no10c]
 nominative = "Нач.ВМО"
 
-# PROVOST
-
-# PvI, Provost Advisor
-["PVA"]
+[pva]
 nominative = "Сов."
 
-# PvI, Provost Inspector
-["PVI"]
+[pvi]
 nominative = "Ин-р"
 
-# PvCI, Provost Chief Inspector
-["PVCI"]
+[pvci]
 nominative = "Ин-р оф-р"
 
-# PvDM, Provost Deputy Marshal
-["PVDM"]
+[pvdm]
 nominative = "М-л/нам."
 
-# PvM, Provost Marshal
-["PVM"]
+[pvm]
 nominative = "М-л"
 
-# PvSM, Provost Sector Marshal
-["PVSM"]
+[pvsm]
 nominative = "С/м-л"
 
-# PvCM, Provost Chief Marshal
-["PVCM"]
+[pvcm]
 nominative = "Нач.м-л"

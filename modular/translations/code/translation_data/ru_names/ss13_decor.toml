@@ -1,7 +1,4 @@
-# Uncategorized decor
-# Any stuff that serves mostly to add atmosphere. Even if it can be interacted
-
-["sleeper"]
+[sleeper]
 nominative = "слипер"
 genitive = "слипера"
 dative = "слиперу"
@@ -19,7 +16,7 @@ instrumental = "консолью слипера"
 prepositional = "консоли слипера"
 gender = "female"
 
-["ASRS console"]
+["asrs console"]
 nominative = "консоль АСС"
 genitive = "консоли АСС"
 dative = "консоли АСС"
@@ -27,4 +24,3 @@ accusative = "консоль АСС"
 instrumental = "консолью АСС"
 prepositional = "консоли АСС"
 gender = "female"
-

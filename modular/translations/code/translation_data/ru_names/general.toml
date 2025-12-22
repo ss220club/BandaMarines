@@ -1,6 +1,4 @@
-# system windows and other general stuff
-
-["APOLLO Maintenance Controller"]
+["apollo maintenance controller"]
 nominative = "терминал обслуживания «АПОЛЛО»"
 genitive = "терминала обслуживания «АПОЛЛО»"
 dative = "терминалу обслуживания «АПОЛЛО»"

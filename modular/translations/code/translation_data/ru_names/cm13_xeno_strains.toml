@@ -1,7 +1,4 @@
-# ВНИМАНИЕ!!! Если вы собираетесь меня перевод для чужих снизу, синхронизируйте перевод с:
-# tgui\packages\tgui\interfaces\BandaMarines\XenoCastes.tsx
-
-["Observer"]
+[observer]
 nominative = "Наблюдатель"
 genitive = "Наблюдателя"
 dative = "Наблюдателю"
@@ -10,7 +7,7 @@ instrumental = "Наблюдателем"
 prepositional = "Наблюдателе"
 gender = "male"
 
-["Gardener"]
+[gardener]
 nominative = "Садовник"
 genitive = "Садовника"
 dative = "Садовнику"
@@ -19,7 +16,7 @@ instrumental = "Садовником"
 prepositional = "Садовнике"
 gender = "male"
 
-["Healer"]
+[healer]
 nominative = "Лекарь"
 genitive = "Лекаря"
 dative = "Лекарю"
@@ -28,7 +25,7 @@ instrumental = "Лекарем"
 prepositional = "Лекаре"
 gender = "male"
 
-["Steel Crest"]
+["steel crest"]
 nominative = "Стальной гребень"
 genitive = "Стального гребня"
 dative = "Стальному гребню"
@@ -37,7 +34,7 @@ instrumental = "Стальным гребнем"
 prepositional = "Стальном гребне"
 gender = "male"
 
-["Eggsac"]
+[eggsac]
 nominative = "Яйценос"
 genitive = "Яйценоса"
 dative = "Яйценосу"
@@ -46,7 +43,7 @@ instrumental = "Яйценосом"
 prepositional = "Яйценосе"
 gender = "male"
 
-["Resin Whisperer"]
+["resin whisperer"]
 nominative = "Заклинатель смолы"
 genitive = "Заклинателя смолы"
 dative = "Заклинателю смолы"
@@ -55,7 +52,7 @@ instrumental = "Заклинателем смолы"
 prepositional = "Заклинателе смолы"
 gender = "male"
 
-["Vampire"]
+[vampire]
 nominative = "Вампир"
 genitive = "Вампира"
 dative = "Вампиру"
@@ -64,7 +61,7 @@ instrumental = "Вампиром"
 prepositional = "Вампире"
 gender = "male"
 
-["Charger"]
+[charger]
 nominative = "Таран"
 genitive = "Тарана"
 dative = "Тарану"
@@ -73,7 +70,7 @@ instrumental = "Тараном"
 prepositional = "Таране"
 gender = "male"
 
-["Dancer"]
+[dancer]
 nominative = "Танцор"
 genitive = "Танцора"
 dative = "Танцору"
@@ -82,7 +79,7 @@ instrumental = "Танцором"
 prepositional = "Танцоре"
 gender = "male"
 
-["Oppressor"]
+[oppressor]
 nominative = "Угнетатель"
 genitive = "Угнетателя"
 dative = "Угнетателю"
@@ -91,7 +88,7 @@ instrumental = "Угнетателем"
 prepositional = "Угнетателе"
 gender = "male"
 
-["Vanguard"]
+[vanguard]
 nominative = "Авангард"
 genitive = "Авангарда"
 dative = "Авангарду"
@@ -100,7 +97,7 @@ instrumental = "Авангардом"
 prepositional = "Авангарде"
 gender = "male"
 
-["Valkyrie"]
+[valkyrie]
 nominative = "Валькирия"
 genitive = "Валькирии"
 dative = "Валькирии"
@@ -109,7 +106,7 @@ instrumental = "Валькирией"
 prepositional = "Валькирии"
 gender = "female"
 
-["Trapper"]
+[trapper]
 nominative = "Ловчий"
 genitive = "Ловчего"
 dative = "Ловчему"
@@ -118,7 +115,7 @@ instrumental = "Ловчим"
 prepositional = "Ловчем"
 gender = "male"
 
-["Berserker"]
+[berserker]
 nominative = "Берсерк"
 genitive = "Берсерка"
 dative = "Берсерку"
@@ -127,7 +124,7 @@ instrumental = "Берсерком"
 prepositional = "Берсерке"
 gender = "male"
 
-["Hedgehog"]
+[hedgehog]
 nominative = "Дикобраз"
 genitive = "Дикобраза"
 dative = "Дикобразу"

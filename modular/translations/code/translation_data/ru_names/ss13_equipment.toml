@@ -1,7 +1,4 @@
-# Uncategorized equipment
-# Tools of any kind (hemostat, screwdriver), necessary equipment (zipties, handcuffs)
-
-["crowbar"]
+[crowbar]
 nominative = "монтировка"
 genitive = "монтировки"
 dative = "монтировке"
@@ -10,7 +7,7 @@ instrumental = "монтировкой"
 prepositional = "монтировке"
 gender = "female"
 
-["wrench"]
+[wrench]
 nominative = "разводной ключ"
 genitive = "разводного ключа"
 dative = "разводному ключу"
@@ -19,7 +16,7 @@ instrumental = "разводным ключом"
 prepositional = "разводном ключе"
 gender = "male"
 
-["Cable (x5)"] # Unique Design Name
+["cable (x5)"]
 nominative = "моток проводов (x5)"
 
 ["cable coil"]
@@ -40,7 +37,7 @@ instrumental = "проводом"
 prepositional = "проводе"
 gender = "male"
 
-["toolbox"]
+[toolbox]
 nominative = "ящик для инструментов"
 genitive = "ящика для инструментов"
 dative = "ящику для инструментов"

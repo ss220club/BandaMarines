@@ -1,6 +1,3 @@
-# Uncategorized clothing
-# pouches and holsters <- everything character wears
-
 ["marine's holster"]
 nominative = "кобура морпеха"
 genitive = "кобуры морпеха"
@@ -10,7 +7,7 @@ instrumental = "кобурой морпеха"
 prepositional = "кобуре морпеха"
 gender = "female"
 
-["Flare Pouch (Full)"] # Unique Vendor Name
+["flare pouch (full)"]
 nominative = "подсумок для осветительных огней (полный)"
 
 ["flare pouch"]
@@ -31,7 +28,7 @@ instrumental = "сумкой для кассет"
 prepositional = "сумке для кассет"
 gender = "female"
 
-["Drop Pouch Crate (x4)"] # Unique Vendor Name
+["drop pouch crate (x4)"]
 nominative = "ящик для экипировки (наплечный подсумок x 4)"
 
 ["drop pouch"]
@@ -79,7 +76,7 @@ instrumental = "подсумком строителя"
 prepositional = "подсумке строителя"
 gender = "male"
 
-["Bayonet Sheath (Full)"] # Unique Vendor Name
+["bayonet sheath (full)"]
 nominative = "подсумок для ножей"
 
 ["bayonet sheath"]
@@ -100,7 +97,7 @@ instrumental = "подсумком для взрывчатки"
 prepositional = "подсумке для взрывчатки"
 gender = "male"
 
-["Electronics Pouch (Full)"] # Unique Vendor Name
+["electronics pouch (full)"]
 nominative = "подсумок электрика (полный)"
 
 ["electronics pouch"]
@@ -112,10 +109,10 @@ instrumental = "подсумком электрика"
 prepositional = "подсумке электрика"
 gender = "male"
 
-["Tools Pouch (Full)"] # Unique Vendor Name
+["tools pouch (full)"]
 nominative = "подсумок для инструментов (полный)"
 
-["Tools Pouch (Empty)"] # Unique Vendor Name
+["tools pouch (empty)"]
 nominative = "подсумок для инструментов (пустой)"
 
 ["tools pouch"]
@@ -127,13 +124,13 @@ instrumental = "подсумком для инструментов"
 prepositional = "подсумке для инструментов"
 gender = "male"
 
-["First-Aid Pouch (Refillable Autoinjectors)"] # Unique Vendor Name
+["first-aid pouch (refillable autoinjectors)"]
 nominative = "медицинский подсумок (инжекторы)"
 
-["First-Aid Pouch (Splints, Gauze, Ointment)"] # Unique Vendor Name
+["first-aid pouch (splints, gauze, ointment)"]
 nominative = "медицинский подсумок (шины, бинты, мазь)"
 
-["First-Aid Pouch (Pill Packets)"] # Unique Vendor Name
+["first-aid pouch (pill packets)"]
 nominative = "медицинский подсумок (таблетки)"
 
 ["first-aid pouch"]
@@ -145,10 +142,10 @@ instrumental = "медицинским подсумком"
 prepositional = "медицинском подсумке"
 gender = "male"
 
-["Autoinjector Pouch (Full)"] # Unique Vendor Name
+["autoinjector pouch (full)"]
 nominative = "подсумок для инжекторов (полный)"
 
-["Autoinjector Pouch"] # Unique Vendor Name
+["autoinjector pouch"]
 nominative = "подсумок для инжекторов"
 
 ["auto-injector pouch"]
@@ -160,7 +157,7 @@ instrumental = "подсумком для инжекторов"
 prepositional = "подсумке для инжекторов"
 gender = "male"
 
-["Document Pouch"] # Unique Vendor Name
+["document pouch"]
 nominative = "сумка для документов"
 
 ["small document pouch"]
@@ -226,7 +223,7 @@ instrumental = "подсумком для медицины"
 prepositional = "подсумке для медицины"
 gender = "male"
 
-["Sling Pouch"] # Unique Vendor Name
+["sling pouch"]
 nominative = "ременная сумка"
 
 ["sling strap"]
@@ -265,10 +262,10 @@ instrumental = "подсумком для магазинов"
 prepositional = "подсумке для магазинов"
 gender = "male"
 
-["Large Pouch 2x(pistol,magazine,general)"] # Unique Vendor Name
+["large pouch 2x(pistol,magazine,general)"]
 nominative = "ящик для экипировки (большие подсумки x 6)"
 
-["medical pouches crate (1x firstaid, medical, syringe, medkit, autoinjector)"] # Unique Vendor Name
+["medical pouches crate (1x firstaid, medical, syringe, medkit, autoinjector)"]
 nominative = "ящик для экипировки (медицинские подсумки x 5)"
 
 ["large magazine pouch"]
@@ -298,10 +295,10 @@ instrumental = "большим подсумком для пистолетных 
 prepositional = "большом подсумке для пистолетных магазинов"
 gender = "male"
 
-["Machete Pouch (Full)"] # Unique Vendor Name
+["machete pouch (full)"]
 nominative = "ножны H6B для мачете M2132"
 
-["H6B pattern M2132 machete scabbard"]
+["h6b pattern m2132 machete scabbard"]
 nominative = "ножны H6B для мачете M2132"
 genitive = "ножен H6B для мачете M2132"
 dative = "ножнам H6B для мачете M2132"
@@ -310,7 +307,7 @@ instrumental = "ножнами H6B для мачете M2132"
 prepositional = "ножнах H6B для мачете M2132"
 gender = "plural"
 
-["Pistol Pouch"] # Unique Vendor Name
+["pistol pouch"]
 nominative = "кобура для пистолета"
 
 ["sidearm pouch"]
@@ -340,25 +337,25 @@ instrumental = "большим подсумок-патронташем для д
 prepositional = "большом подсумок-патронташе для дробовика"
 gender = "male"
 
-["Pressurized Reagent Canister Pouch (Bicaridine)"] # Unique Vendor Name
+["pressurized reagent canister pouch (bicaridine)"]
 nominative = "подсумок с капсулой для реагентов (Bicaridine)"
 
-["Pressurized Reagent Canister Pouch (Kelotane)"] # Unique Vendor Name
+["pressurized reagent canister pouch (kelotane)"]
 nominative = "подсумок с капсулой для реагентов (Kelotane)"
 
-["Pressurized Reagent Canister Pouch (Revival Mix - Tricordrazine)"] # Unique Vendor Name
+["pressurized reagent canister pouch (revival mix - tricordrazine)"]
 nominative = "подсумок с капсулой для реагентов (Epinephrine, Inaprovaline, Tricordrazine)"
 
-["Pressurized Reagent Canister Pouch (Revival Mix - Peridaxon)"] # Unique Vendor Name
+["pressurized reagent canister pouch (revival mix - peridaxon)"]
 nominative = "подсумок с капсулой для реагентов (Epinephrine, Inaprovaline, Peridaxon)"
 
-["Pressurized Reagent Canister Pouch (Tricordrazine)"] # Unique Vendor Name
+["pressurized reagent canister pouch (tricordrazine)"]
 nominative = "подсумок с капсулой для реагентов (Tricordrazine)"
 
-["Pressurized Reagent Canister Pouch (EMPTY)"] # Unique Vendor Name
+["pressurized reagent canister pouch (empty)"]
 nominative = "подсумок с капсулой для реагентов (Пустой)"
 
-["Pressurized Reagent Canister Pouch"]
+["pressurized reagent canister pouch"]
 nominative = "подсумок с капсулой для реагентов"
 genitive = "подсумка с капсулой для реагентов"
 dative = "подсумку с капсулой для реагентов"
@@ -367,7 +364,7 @@ instrumental = "подсумком с капсулой для реагентов
 prepositional = "подсумке с капсулой для реагентов"
 gender = "male"
 
-["Vial Pouch (Full)"] # Unique Vendor Name
+["vial pouch (full)"]
 nominative = "подсумок для пробирок (полный)"
 
 ["vial pouch"]
@@ -379,10 +376,10 @@ instrumental = "подсумком для пробирок"
 prepositional = "подсумке для пробирок"
 gender = "male"
 
-["Leg Pouch "] # Unique Vendor Name
+["leg pouch "]
 nominative = "набедренный подсумок"
 
-["Leg Pouch"]
+["leg pouch"]
 nominative = "набедренный подсумок"
 genitive = "набедренного подсумка"
 dative = "набедренному подсумку"
@@ -391,10 +388,10 @@ instrumental = "набедренным подсумком"
 prepositional = "набедренном подсумке"
 gender = "male"
 
-["Leg Pouch (Black)"] # Unique Vendor Name
+["leg pouch (black)"]
 nominative = "чёрный набедренный подсумок"
 
-["Black Leg Pouch"]
+["black leg pouch"]
 nominative = "чёрный набедренный подсумок"
 genitive = "чёрного набедренного подсумка"
 dative = "чёрному набедренному подсумку"

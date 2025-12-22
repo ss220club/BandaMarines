@@ -1,357 +1,340 @@
-# Colonial Marines vendors names
-
-# MARK: unique vendors categories
-
-["RADIO"]
+[radio]
 nominative = "СВЯЗЬ"
 
-["RADIO (TAKE ALL)"]
+["radio (take all)"]
 nominative = "СВЯЗЬ (ВОЗЬМИТЕ ВСЁ)"
 
-["WEBBINGS"]
+[webbings]
 nominative = "ЖИЛЕТЫ"
 
-["RADIO KEYS"]
+["radio keys"]
 nominative = "КЛЮЧИ ШИФРОВАНИЯ"
 
-["PRIMARY FIREARMS"]
+["primary firearms"]
 nominative = "ОСНОВНОЕ ВООРУЖЕНИЕ"
 
-["Main Weapons (CHOOSE 1)"]
+["main weapons (choose 1)"]
 nominative = "ОСНОВНОЕ ВООРУЖЕНИЕ (ВОЗЬМИТЕ 1)"
 
-["PRIMARY AMMUNITION"]
+["primary ammunition"]
 nominative = "БОЕПРИПАСЫ ДЛЯ ОСНОВНОГО ОРУЖИЯ"
 
-["PRIMARY NONLETHAL AMMUNITION"]
+["primary nonlethal ammunition"]
 nominative = "ОСНОВНОЕ НЕЛЕТАЛЬНОЕ ВООРУЖЕНИЕ"
 
-["SIDEARM NONLETHAL AMMUNITION"]
+["sidearm nonlethal ammunition"]
 nominative = "ДОПОЛНИТЕЛЬНОЕ НЕЛЕТАЛЬНОЕ ВООРУЖЕНИЕ"
 
-["SIDEARMS"]
+[sidearms]
 nominative = "ДОПОЛНИТЕЛЬНОЕ ВООРУЖЕНИЕ"
 
-["SIDEARM AMMUNITION"]
+["sidearm ammunition"]
 nominative = "БОЕПРИПАСЫ ДЛЯ ДОПОЛНИТЕЛЬНОГО ОРУЖИЯ"
 
-["REGULAR AMMUNITION"]
+["regular ammunition"]
 nominative = "БОЕПРИПАСЫ"
 
-["AMMUNITION"]
+[ammunition]
 nominative = "БОЕПРИПАСЫ"
 
-["ARMOR-PIERCING AMMUNITION"]
+["armor-piercing ammunition"]
 nominative = "БРОНЕБОЙНЫЕ МАГАЗИНЫ"
 
-["EXTENDED AMMUNITION"]
+["extended ammunition"]
 nominative = "РАСШИРЕННЫЕ МАГАЗИНЫ"
 
-["SPECIAL AMMUNITION"]
+["special ammunition"]
 nominative = "ОСОБЫЕ БОЕПРИПАСЫ"
 
-["RESTRICTED GEAR"]
+["restricted gear"]
 nominative = "ЭКИПИРОВКА С ОГРАНИЧЕННЫМ ДОСТУПОМ"
 
-["RESTRICTED FIREARMS"]
+["restricted firearms"]
 nominative = "ВООРУЖЕНИЕ С ОГРАНИЧЕННЫМ ДОСТУПОМ"
 
-["RESTRICTED FIREARM AMMUNITION"]
+["restricted firearm ammunition"]
 nominative = "БОЕПРИПАСЫ С ОГРАНИЧЕННЫМ ДОСТУПОМ"
 
-["AMMUNITION BOXES"]
+["ammunition boxes"]
 nominative = "КОРОБКИ С БОЕПРИПАСАМИ"
 
-["MAGAZINE BOXES"]
+["magazine boxes"]
 nominative = "КОРОБКИ С БОЕПРИПАСАМИ"
 
-["EXPLOSIVES"]
+[explosives]
 nominative = "ВЗРЫВЧАТЫЕ ВЕЩЕСТВА"
 
-["EQUIPMENT"]
+[equipment]
 nominative = "ЭКИПИРОВКА"
 
-["STANDARD EQUIPMENT"]
+["standard equipment"]
 nominative = "СТАНДАРТНАЯ ЭКИПИРОВКА"
 
-["STANDARD EQUIPMENT (TAKE ALL)"]
+["standard equipment (take all)"]
 nominative = "СТАНДАРТНАЯ ЭКИПИРОВКА (ВОЗЬМИТЕ ВСЁ)"
 
-["CIVILIAN EQUIPMENT (TAKE ALL)"]
+["civilian equipment (take all)"]
 nominative = "ГРАЖДАНСКАЯ ЭКИПИРОВКА (ВОЗЬМИТЕ ВСЁ)"
 
-["COMBAT EQUIPMENT (TAKE ALL)"]
+["combat equipment (take all)"]
 nominative = "БОЕВАЯ ЭКИПИРОВКА (ВОЗЬМИТЕ ВСЁ)"
 
-["COMBAT EQUIPMENT (COMBAT USE ONLY)"]
+["combat equipment (combat use only)"]
 nominative = "БОЕВАЯ ЭКИПИРОВКА (ВОЗЬМИТЕ ВСЁ)"
 
-["COMBAT HELMET (CHOOSE 1)"]
+["combat helmet (choose 1)"]
 nominative = "ШЛЕМЫ (ВОЗЬМИТЕ 1)"
 
-["BAGS (CHOOSE 1)"]
+["bags (choose 1)"]
 nominative = "РЮКЗАКИ (ВОЗЬМИТЕ 1)"
 
-["BLOOD PACKS"]
+["blood packs"]
 nominative = "ПАКЕТЫ ДЛЯ КРОВИ"
 
-["BOOTS"]
+[boots]
 nominative = "БОТИНКИ"
 
-["SHOES (CHOOSE 1)"]
+["shoes (choose 1)"]
 nominative = "БОТИНКИ (ВОЗЬМИТЕ 1)"
 
-["GLOVES"]
-nominative = "ПЕРЧАТКИ"
-
-["GLOVES (CHOOSE 1)"]
+["gloves (choose 1)"]
 nominative = "ПЕРЧАТКИ (ВОЗЬМИТЕ 1)"
 
-["ACCESSORIES (CHOOSE 1)"]
+["accessories (choose 1)"]
 nominative = "РАЗГРУЗКИ (ВОЗЬМИТЕ 1)"
 
-["GLASSES (CHOOSE 1)"]
+["glasses (choose 1)"]
 nominative = "ОЧКИ (ВОЗЬМИТЕ 1)"
 
-["BINOCULARS"]
-nominative = "ОПТИЧЕСКИЕ ПРИБОРЫ"
-
-["POUCHES"]
+[pouches]
 nominative = "ПОДСУМКИ"
 
-["POUCHES (CHOOSE 1)"]
+["pouches (choose 1)"]
 nominative = "ПОДСУМКИ (ВОЗЬМИТЕ 1)"
 
-["POUCHES (CHOOSE 2)"]
+["pouches (choose 2)"]
 nominative = "ПОДСУМКИ (ВОЗЬМИТЕ 2)"
 
-["HUDS (CHOOSE 1)"]
+["huds (choose 1)"]
 nominative = "ИЛС (ВОЗЬМИТЕ 1)"
 
-["EYEWEAR (CHOOSE 1)"]
+["eyewear (choose 1)"]
 nominative = "ИЛС (ВОЗЬМИТЕ 1)"
 
-["OPTICS"]
+[optics]
 nominative = "ВИЗОРЫ И ИЛС"
 
-["HELMET OPTICS"]
+["helmet optics"]
 nominative = "ВИЗОРЫ И ИЛС"
 
-["PAMPHLETS"]
+[pamphlets]
 nominative = "ИНСТРУКЦИИ"
 
-["BELTS"]
+[belts]
 nominative = "ПОЯС"
 
-["BELTS (CHOOSE 1)"]
+["belts (choose 1)"]
 nominative = "ПОЯС (ВОЗЬМИТЕ 1)"
 
-["MASK"]
+[mask]
 nominative = "МАСКИ"
 
-["MASK (CHOOSE 1)"]
+["mask (choose 1)"]
 nominative = "МАСКИ (ВОЗЬМИТЕ 1)"
 
-["ARMOR"]
+[armor]
 nominative = "БРОНЯ"
 
-["ARMORS"]
+[armors]
 nominative = "БРОНЯ"
 
-["ARMOR (CHOOSE 1)"]
+["armor (choose 1)"]
 nominative = "БРОНЯ (ВОЗЬМИТЕ 1)"
 
-["ARMOR AND CLOTHING"]
+["armor and clothing"]
 nominative = "БРОНЯ И ОДЕЖДА"
 
-["PERSONAL SIDEARM (CHOOSE 1)"]
+["personal sidearm (choose 1)"]
 nominative = "ЛИЧНОЕ ОРУЖИЕ (ВОЗЬМИТЕ 1)"
 
-["UNIFORM"]
+[uniform]
 nominative = "УНИФОРМА"
 
-["UNIFORM (CHOOSE 1)"]
+["uniform (choose 1)"]
 nominative = "УНИФОРМА (ВОЗЬМИТЕ 1)"
 
-["SUIT (CHOOSE 1)"]
+["suit (choose 1)"]
 nominative = "ВЕРХНЯЯ ОДЕЖДА (ВОЗЬМИТЕ 1)"
 
-["HEADWEAR (CHOOSE 1)"]
+["headwear (choose 1)"]
 nominative = "ГОЛОВНОЙ УБОР (ВОЗЬМИТЕ 1)"
 
-["HELMET (CHOOSE 1)"]
+["helmet (choose 1)"]
 nominative = "ШЛЕМЫ (ВОЗЬМИТЕ 1)"
 
-["BACKPACKS"]
+[backpacks]
 nominative = "РЮКЗАКИ"
 
-["BACKPACK"]
-nominative = "РЮКЗАКИ"
-
-["BACKPACK (CHOOSE 1)"]
+["backpack (choose 1)"]
 nominative = "РЮКЗАКИ (ВОЗЬМИТЕ 1)"
 
-["RESTRICTED BACKPACKS"]
+["restricted backpacks"]
 nominative = "СПЕЦРЮКЗАКИ"
 
-["RESTRICTED POUCHES"]
+["restricted pouches"]
 nominative = "СПЕЦПОДСУМКИ"
 
-["BAG (CHOOSE 1)"]
+["bag (choose 1)"]
 nominative = "РЮКЗАКИ (ВОЗЬМИТЕ 1)"
 
-["BELT (CHOOSE 1)"]
+["belt (choose 1)"]
 nominative = "ПОЯС (ВОЗЬМИТЕ 1)"
 
-["BELT (CHOOSE 2)"]
+["belt (choose 2)"]
 nominative = "ПОЯС (ВОЗЬМИТЕ 2)"
 
-["CLOTHING ITEMS"]
+["clothing items"]
 nominative = "СНАРЯЖЕНИЕ"
 
-["UTILITIES"]
+[utilities]
 nominative = "ВСПОМОГАТЕЛЬНОЕ СНАРЯЖЕНИЕ"
 
-["UTILITY"]
+[utility]
 nominative = "ВСПОМОГАТЕЛЬНОЕ СНАРЯЖЕНИЕ"
 
-["ESSENTIAL DEVICES"]
+["essential devices"]
 nominative = "ВСПОМОГАТЕЛЬНОЕ СНАРЯЖЕНИЕ"
 
-["ATTACHMENTS"]
+[attachments]
 nominative = "ОБВЕСЫ"
 
-["ATTACHMENT (CHOOSE 1)"]
+["attachment (choose 1)"]
 nominative = "ОБВЕСЫ (ВОЗЬМИТЕ 1)"
 
-["ATTACHMENTS (CHOOSE 1)"]
+["attachments (choose 1)"]
 nominative = "ОБВЕСЫ (ВОЗЬМИТЕ 1)"
 
-["GUN ATTACHMENTS (CHOOSE 1)"]
+["gun attachments (choose 1)"]
 nominative = "ОБВЕСЫ (ВОЗЬМИТЕ 1)"
 
-["MISC"]
+[misc]
 nominative = "ДРУГОЕ"
 
-["MISCELLANEOUS"]
+[miscellaneous]
 nominative = "ДРУГОЕ"
 
-["ENGINEERING SUPPLIES"]
+["engineering supplies"]
 nominative = "ИНЖЕНЕРНОЕ ОБОРУДОВАНИЕ"
 
-["REPAIR TOOLS"]
+["repair tools"]
 nominative = "ОБСЛУЖИВАНИЕ ВООРУЖЕНИЯ"
 
-["TOOLS"]
+[tools]
 nominative = "ИНСТРУМЕНТЫ"
 
-["FLARE AND LIGHT"]
+["flare and light"]
 nominative = "СИГНАЛЫ И ОСВЕЩЕНИЕ"
 
-["ENGINEER SET (MANDATORY)"]
+["engineer set (mandatory)"]
 nominative = "НАБОР ИНЖЕНЕРА (ОБЯЗАТЕЛЬНО)"
 
-["HANDHELD DEFENSE (CHOOSE 1)"]
+["handheld defense (choose 1)"]
 nominative = "СТАЦИОНАРНЫЕ СИСТЕМЫ (ВОЗЬМИТЕ 1)"
 
-["BARREL"]
+[barrel]
 nominative = "ДУЛЬНЫЕ УСТРОЙСТВА"
 
-["RAIL"]
+[rail]
 nominative = "МОДУЛИ ДЛЯ ВЕРХНЕЙ ПЛАНКИ"
 
-["UNDERBARREL"]
+[underbarrel]
 nominative = "ПОДСТВОЛЬНЫЕ МОДУЛИ"
 
-["STOCK"]
+[stock]
 nominative = "ПРИКЛАДЫ"
 
-["SUPPLIES"]
+[supplies]
 nominative = "ПРИПАСЫ"
 
-["WEAPONS SPECIALIST SETS (CHOOSE 1)"]
+["weapons specialist sets (choose 1)"]
 nominative = "ЯЩИКИ СПЕЦИАЛИСТОВ (ВОЗЬМИТЕ 1)"
 
-["EXTRA SCOUT AMMUNITION"]
+["extra scout ammunition"]
 nominative = "ДОПОЛНИТЕЛЬНЫЕ БОЕПРИПАСЫ РАЗВЕДЧИКА"
 
-["EXTRA SNIPER AMMUNITION"]
+["extra sniper ammunition"]
 nominative = "ДОПОЛНИТЕЛЬНЫЕ БОЕПРИПАСЫ СНАЙПЕРА"
 
-["EXTRA DEMOLITIONIST AMMUNITION"]
+["extra demolitionist ammunition"]
 nominative = "ДОПОЛНИТЕЛЬНЫЕ БОЕПРИПАСЫ ПОДРЫВНИКА"
 
-["EXTRA GRENADES"]
+["extra grenades"]
 nominative = "ДОПОЛНИТЕЛЬНЫЕ БОЕПРИПАСЫ ГРАНАТОМЁТЧИКА"
 
-["EXTRA FLAMETHROWER TANKS"]
+["extra flamethrower tanks"]
 nominative = "ДОПОЛНИТЕЛЬНЫЕ БОЕПРИПАСЫ ОГНЕМЁТЧИКА"
 
-["FLASKS"]
+[flasks]
 nominative = "ФЛЯГИ"
 
-["PREPARED MEALS"]
+["prepared meals"]
 nominative = "ГОТОВЫЕ БЛЮДА"
 
-["FIELD SUPPLIES"]
+["field supplies"]
 nominative = "ПРИПАСЫ"
 
-["AUTOINJECTORS"]
+[autoinjectors]
 nominative = "ИНЖЕКТОРЫ"
 
-["LIQUID BOTTLES"]
+["liquid bottles"]
 nominative = "СОСУДЫ С РЕАГЕНТАМИ"
 
-["PILL BOTTLES"]
+["pill bottles"]
 nominative = "БАНКИ С ТАБЛЕТКАМИ"
 
-["MEDICAL UTILITIES"]
+["medical utilities"]
 nominative = "МЕДИЦИНСКОЕ СНАРЯЖЕНИЕ"
 
-["MEDICAL SET (MANDATORY)"]
+["medical set (mandatory)"]
 nominative = "МЕДИЦИНСКИЙ НАБОР (ОБЯЗАТЕЛЬНО)"
 
-["SNOW GEAR (SNOW USE ONLY)"]
+["snow gear (snow use only)"]
 nominative = "ЗИМНЕЕ СНАРЯЖЕНИЕ"
 
-["Spare Equipment"]
+["spare equipment"]
 nominative = "РЕЗЕРВНАЯ ЭКИПИРОВКА"
 
-# MARK: unique stuff names in vendors
-
-["Medical HUD Glasses"]
+["medical hud glasses"]
 nominative = "ИЛС очки врача"
 
-["Security HUD Glasses"]
+["security hud glasses"]
 nominative = "ИЛС очки охраны"
 
-["Soldier Combat Boots"]
+["soldier combat boots"]
 nominative = "ботинки солдата"
 
-["UPP Sapper Welderpack"]
+["upp sapper welderpack"]
 nominative = "рюкзак СПН сапёра"
 
-["UM5 Medium Personal Armor"]
+["um5 medium personal armor"]
 nominative = "средняя броня UM5"
 
-["UL6 Light Personal Armor"]
+["ul6 light personal armor"]
 nominative = "лёгкая броня UL6"
 
-["Soldier Combat Gloves"]
+["soldier combat gloves"]
 nominative = "перчатки солдата"
 
-["Standard Marine Apparel"]
+["standard marine apparel"]
 nominative = "стандартная экипировка морпеха"
 
-["Essential Engineer Set"]
+["essential engineer set"]
 nominative = "стандартный инженерный набор"
 
-["Essential Medical Set"]
+["essential medical set"]
 nominative = "стандартный медицинский набор"
 
-# MARK: base
-
-["ColMarTech Food Vendor"]
+["colmartech food vendor"]
 nominative = "раздатчик еды «КолМорТех»"
 genitive = "раздатчика еды «КолМорТех»"
 dative = "раздатчику еды «КолМорТех»"
@@ -360,7 +343,7 @@ instrumental = "раздатчиком еды «КолМорТех»"
 prepositional = "раздатчике еды «КолМорТех»"
 gender = "male"
 
-["ColMarTech Commanding Officer Equipment Rack"]
+["colmartech commanding officer equipment rack"]
 nominative = "раздатчик экипировки командующего офицера «КолМорТех»"
 genitive = "раздатчика экипировки командующего офицера «КолМорТех»"
 dative = "раздатчику экипировки командующего офицера «КолМорТех»"
@@ -369,7 +352,7 @@ instrumental = "раздатчиком экипировки командующе
 prepositional = "раздатчике экипировки командующего офицера «КолМорТех»"
 gender = "male"
 
-["ColMarTech Maintenance Technician Equipment Rack"]
+["colmartech maintenance technician equipment rack"]
 nominative = "раздатчик экипировки техника «КолМорТех»"
 genitive = "раздатчика экипировки техника «КолМорТех»"
 dative = "раздатчику экипировки техника «КолМорТех»"
@@ -378,7 +361,7 @@ instrumental = "раздатчиком экипировки техника «К�
 prepositional = "раздатчике экипировки техника «КолМорТех»"
 gender = "male"
 
-["ColMarTech Combat Correspondent Equipment Rack"]
+["colmartech combat correspondent equipment rack"]
 nominative = "раздатчик экипировки корреспондента «КолМорТех»"
 genitive = "раздатчика экипировки корреспондента «КолМорТех»"
 dative = "раздатчику экипировки корреспондента «КолМорТех»"
@@ -387,7 +370,7 @@ instrumental = "раздатчиком экипировки корреспонд
 prepositional = "раздатчике экипировки корреспондента «КолМорТех»"
 gender = "male"
 
-["ColMarTech Medical Equipment Rack"]
+["colmartech medical equipment rack"]
 nominative = "раздатчик экипировки врача «КолМорТех»"
 genitive = "раздатчика экипировки врача «КолМорТех»"
 dative = "раздатчику экипировки врача «КолМорТех»"
@@ -396,7 +379,7 @@ instrumental = "раздатчиком экипировки врача «Кол�
 prepositional = "раздатчике экипировки врача «КолМорТех»"
 gender = "male"
 
-["ColMarTech Military Police Gear Rack"]
+["colmartech military police gear rack"]
 nominative = "раздатчик вооружения военной полиции «КолМорТех»"
 genitive = "раздатчика вооружения военной полиции «КолМорТех»"
 dative = "раздатчику вооружения военной полиции «КолМорТех»"
@@ -405,7 +388,7 @@ instrumental = "раздатчиком вооружения военной по�
 prepositional = "раздатчике вооружения военной полиции «КолМорТех»"
 gender = "male"
 
-["ColMarTech Military Police Equipment Rack"]
+["colmartech military police equipment rack"]
 nominative = "раздатчик экипировки военной полиции «КолМорТех»"
 genitive = "раздатчика экипировки военной полиции «КолМорТех»"
 dative = "раздатчику экипировки военной полиции «КолМорТех»"
@@ -414,7 +397,7 @@ instrumental = "раздатчиком экипировки военной по�
 prepositional = "раздатчике экипировки военной полиции «КолМорТех»"
 gender = "male"
 
-["ColMarTech Military Warden Equipment Rack"]
+["colmartech military warden equipment rack"]
 nominative = "раздатчик экипировки военного смотрителя «КолМорТех»"
 genitive = "раздатчика экипировки военного смотрителя «КолМорТех»"
 dative = "раздатчику экипировки военного смотрителя «КолМорТех»"
@@ -423,7 +406,7 @@ instrumental = "раздатчиком экипировки военного с�
 prepositional = "раздатчике экипировки военного смотрителя «КолМорТех»"
 gender = "male"
 
-["ColMarTech Dropship Crew Equipment Rack"]
+["colmartech dropship crew equipment rack"]
 nominative = "раздатчик экипировки пилота «КолМорТех»"
 genitive = "раздатчика экипировки пилота «КолМорТех»"
 dative = "раздатчику экипировки пилота «КолМорТех»"
@@ -432,7 +415,7 @@ instrumental = "раздатчиком экипировки пилота «Ко�
 prepositional = "раздатчике экипировки пилота «КолМорТех»"
 gender = "male"
 
-["ColMarTech Senior Officer Equipment Rack"]
+["colmartech senior officer equipment rack"]
 nominative = "раздатчик экипировки штаб-офицера «КолМорТех»"
 genitive = "раздатчика экипировки штаб-офицера «КолМорТех»"
 dative = "раздатчику экипировки штаб-офицера «КолМорТех»"
@@ -441,7 +424,7 @@ instrumental = "раздатчиком экипировки штаб-офице�
 prepositional = "раздатчике экипировки штаб-офицера «КолМорТех»"
 gender = "male"
 
-["ColMarTech Staff Officer Equipment Rack"]
+["colmartech staff officer equipment rack"]
 nominative = "раздатчик экипировки штаб-офицера «КолМорТех»"
 genitive = "раздатчика экипировки штаб-офицера «КолМорТех»"
 dative = "раздатчику экипировки штаб-офицера «КолМорТех»"
@@ -450,7 +433,7 @@ instrumental = "раздатчиком экипировки штаб-офице�
 prepositional = "раздатчике экипировки штаб-офицера «КолМорТех»"
 gender = "male"
 
-["ColMarTech Synthetic Equipment Rack"]
+["colmartech synthetic equipment rack"]
 nominative = "раздатчик экипировки синтетика «КолМорТех»"
 genitive = "раздатчика экипировки синтетика «КолМорТех»"
 dative = "раздатчику экипировки синтетика «КолМорТех»"
@@ -459,7 +442,7 @@ instrumental = "раздатчиком экипировки синтетика �
 prepositional = "раздатчике экипировки синтетика «КолМорТех»"
 gender = "male"
 
-["ColMarTech Vehicle Crewman Gear Rack"]
+["colmartech vehicle crewman gear rack"]
 nominative = "раздатчик вооружения экипажа корабля «КолМорТех»"
 genitive = "раздатчика вооружения экипажа корабля «КолМорТех»"
 dative = "раздатчику вооружения экипажа корабля «КолМорТех»"
@@ -468,7 +451,7 @@ instrumental = "раздатчиком вооружения экипажа ко�
 prepositional = "раздатчике вооружения экипажа корабля «КолМорТех»"
 gender = "male"
 
-["ColMarTech Vehicle Crewman Equipment Rack"]
+["colmartech vehicle crewman equipment rack"]
 nominative = "раздатчик экипировки экипажа корабля «КолМорТех»"
 genitive = "раздатчика экипировки экипажа корабля «КолМорТех»"
 dative = "раздатчику экипировки экипажа корабля «КолМорТех»"
@@ -477,7 +460,7 @@ instrumental = "раздатчиком экипировки экипажа ко�
 prepositional = "раздатчике экипировки экипажа корабля «КолМорТех»"
 gender = "male"
 
-["Armat Systems Attachments Vendor"]
+["armat systems attachments vendor"]
 nominative = "раздатчик обвесов «АрматСистемс»"
 genitive = "раздатчика обвесов «АрматСистемс»"
 dative = "раздатчику обвесов «АрматСистемс»"
@@ -486,7 +469,7 @@ instrumental = "раздатчиком обвесов «АрматСистемс
 prepositional = "раздатчике обвесов «АрматСистемс»"
 gender = "male"
 
-["ColMarTech Automated Armaments Vendor"]
+["colmartech automated armaments vendor"]
 nominative = "раздатчик вооружения «КолМорТех»"
 genitive = "раздатчика вооружения «КолМорТех»"
 dative = "раздатчику вооружения «КолМорТех»"
@@ -495,7 +478,7 @@ instrumental = "раздатчиком вооружения «КолМорТех
 prepositional = "раздатчике вооружения «КолМорТех»"
 gender = "male"
 
-["ColMarTech Automated Munition Vendor"]
+["colmartech automated munition vendor"]
 nominative = "раздатчик боеприпасов «КолМорТех»"
 genitive = "раздатчика боеприпасов «КолМорТех»"
 dative = "раздатчику боеприпасов «КолМорТех»"
@@ -504,7 +487,7 @@ instrumental = "раздатчиком боеприпасов «КолМорТе
 prepositional = "раздатчике боеприпасов «КолМорТех»"
 gender = "male"
 
-["ColMarTech Surplus Uniform Vendor"]
+["colmartech surplus uniform vendor"]
 nominative = "раздатчик униформы «КолМорТех»"
 genitive = "раздатчика униформы «КолМорТех»"
 dative = "раздатчику униформы «КолМорТех»"
@@ -513,7 +496,7 @@ instrumental = "раздатчиком униформы «КолМорТех»"
 prepositional = "раздатчике униформы «КолМорТех»"
 gender = "male"
 
-["ColMarTech Squad ComTech Gear Rack"]
+["colmartech squad comtech gear rack"]
 nominative = "раздатчик вооружения техника «КолМорТех»"
 genitive = "раздатчика вооружения техника «КолМорТех»"
 dative = "раздатчику вооружения техника «КолМорТех»"
@@ -522,7 +505,7 @@ instrumental = "раздатчиком вооружения техника «К�
 prepositional = "раздатчике вооружения техника «КолМорТех»"
 gender = "male"
 
-["ColMarTech Squad ComTech Equipment Rack"]
+["colmartech squad comtech equipment rack"]
 nominative = "раздатчик экипировки техника «КолМорТех»"
 genitive = "раздатчика экипировки техника «КолМорТех»"
 dative = "раздатчику экипировки техника «КолМорТех»"
@@ -531,7 +514,7 @@ instrumental = "раздатчиком экипировки техника «К�
 prepositional = "раздатчике экипировки техника «КолМорТех»"
 gender = "male"
 
-["ColMarTech Squad ComTech Tools Vendor"]
+["colmartech squad comtech tools vendor"]
 nominative = "раздатчик инструментов техника «КолМорТех»"
 genitive = "раздатчика инструментов техника «КолМорТех»"
 dative = "раздатчику инструментов техника «КолМорТех»"
@@ -540,7 +523,7 @@ instrumental = "раздатчиком инструментов техника �
 prepositional = "раздатчике инструментов техника «КолМорТех»"
 gender = "male"
 
-["ColMarTech Squad Leader Gear Rack"]
+["colmartech squad leader gear rack"]
 nominative = "раздатчик вооружения командира отряда «КолМорТех»"
 genitive = "раздатчика вооружения командира отряда «КолМорТех»"
 dative = "раздатчику вооружения командира отряда «КолМорТех»"
@@ -549,7 +532,7 @@ instrumental = "раздатчиком вооружения командира �
 prepositional = "раздатчике вооружения командира отряда «КолМорТех»"
 gender = "male"
 
-["ColMarTech Squad Leader Equipment Rack"]
+["colmartech squad leader equipment rack"]
 nominative = "раздатчик экипировки командира отряда «КолМорТех»"
 genitive = "раздатчика экипировки командира отряда «КолМорТех»"
 dative = "раздатчику экипировки командира отряда «КолМорТех»"
@@ -558,7 +541,7 @@ instrumental = "раздатчиком экипировки командира �
 prepositional = "раздатчике экипировки командира отряда «КолМорТех»"
 gender = "male"
 
-["ColMarTech Squad Medical Gear Rack"]
+["colmartech squad medical gear rack"]
 nominative = "раздатчик вооружения санитара «КолМорТех»"
 genitive = "раздатчика вооружения санитара «КолМорТех»"
 dative = "раздатчику вооружения санитара «КолМорТех»"
@@ -567,7 +550,7 @@ instrumental = "раздатчиком вооружения санитара «�
 prepositional = "раздатчике вооружения санитара «КолМорТех»"
 gender = "male"
 
-["ColMarTech Squad Medical Equipment Rack"]
+["colmartech squad medical equipment rack"]
 nominative = "раздатчик экипировки санитара «КолМорТех»"
 genitive = "раздатчика экипировки санитара «КолМорТех»"
 dative = "раздатчику экипировки санитара «КолМорТех»"
@@ -576,7 +559,7 @@ instrumental = "раздатчиком экипировки санитара «�
 prepositional = "раздатчике экипировки санитара «КолМорТех»"
 gender = "male"
 
-["ColMarTech Automated Marine Gear Rack"]
+["colmartech automated marine gear rack"]
 nominative = "раздатчик вооружения стрелка «КолМорТех»"
 genitive = "раздатчика вооружения стрелка «КолМорТех»"
 dative = "раздатчику вооружения стрелка «КолМорТех»"
@@ -585,7 +568,7 @@ instrumental = "раздатчиком вооружения стрелка «К�
 prepositional = "раздатчике вооружения стрелка «КолМорТех»"
 gender = "male"
 
-["ColMarTech Automated Marine Equipment Rack"]
+["colmartech automated marine equipment rack"]
 nominative = "раздатчик экипировки стрелка «КолМорТех»"
 genitive = "раздатчика экипировки стрелка «КолМорТех»"
 dative = "раздатчику экипировки стрелка «КолМорТех»"
@@ -594,7 +577,7 @@ instrumental = "раздатчиком экипировки стрелка «К�
 prepositional = "раздатчике экипировки стрелка «КолМорТех»"
 gender = "male"
 
-["ColMarTech Squad Smartgun Gear Rack"]
+["colmartech squad smartgun gear rack"]
 nominative = "раздатчик вооружения смартганнера «КолМорТех»"
 genitive = "раздатчика вооружения смартганнера «КолМорТех»"
 dative = "раздатчику вооружения смартганнера «КолМорТех»"
@@ -603,7 +586,7 @@ instrumental = "раздатчиком вооружения смартганне
 prepositional = "раздатчике вооружения смартганнера «КолМорТех»"
 gender = "male"
 
-["ColMarTech Squad Smartgun Equipment Rack"]
+["colmartech squad smartgun equipment rack"]
 nominative = "раздатчик экипировки смартганнера «КолМорТех»"
 genitive = "раздатчика экипировки смартганнера «КолМорТех»"
 dative = "раздатчику экипировки смартганнера «КолМорТех»"
@@ -612,7 +595,7 @@ instrumental = "раздатчиком экипировки смартганне
 prepositional = "раздатчике экипировки смартганнера «КолМорТех»"
 gender = "male"
 
-["ColMarTech Squad Weapons Specialist Gear Rack"]
+["colmartech squad weapons specialist gear rack"]
 nominative = "раздатчик вооружения оружейного специалиста «КолМорТех»"
 genitive = "раздатчика вооружения оружейного специалиста «КолМорТех»"
 dative = "раздатчику вооружения оружейного специалиста «КолМорТех»"
@@ -621,7 +604,7 @@ instrumental = "раздатчиком вооружения оружейного
 prepositional = "раздатчике вооружения оружейного специалиста «КолМорТех»"
 gender = "male"
 
-["ColMarTech Squad Weapons Specialist Equipment Rack"]
+["colmartech squad weapons specialist equipment rack"]
 nominative = "раздатчик экипировки оружейного специалиста «КолМорТех»"
 genitive = "раздатчика экипировки оружейного специалиста «КолМорТех»"
 dative = "раздатчику экипировки оружейного специалиста «КолМорТех»"
@@ -630,7 +613,7 @@ instrumental = "раздатчиком экипировки оружейного
 prepositional = "раздатчике экипировки оружейного специалиста «КолМорТех»"
 gender = "male"
 
-["ColMarTech Automated Weapons Rack"]
+["colmartech automated weapons rack"]
 nominative = "раздатчик вооружения «КолМорТех»"
 genitive = "раздатчика вооружения «КолМорТех»"
 dative = "раздатчику вооружения «КолМорТех»"
@@ -639,7 +622,7 @@ instrumental = "раздатчиком вооружения «КолМорТех
 prepositional = "раздатчике вооружения «КолМорТех»"
 gender = "male"
 
-["ColMarTech Automated Munition Squad Vendor"]
+["colmartech automated munition squad vendor"]
 nominative = "раздатчик боеприпасов для отряда «КолМорТех»"
 genitive = "раздатчика боеприпасов для отряда «КолМорТех»"
 dative = "раздатчику боеприпасов для отряда «КолМорТех»"
@@ -648,7 +631,7 @@ instrumental = "раздатчиком боеприпасов для отряд�
 prepositional = "раздатчике боеприпасов для отряда «КолМорТех»"
 gender = "male"
 
-["ColMarTech Automated Utilities Squad Vendor"]
+["colmartech automated utilities squad vendor"]
 nominative = "раздатчик снаряжения для отряда «КолМорТех»"
 genitive = "раздатчика снаряжения для отряда «КолМорТех»"
 dative = "раздатчику снаряжения для отряда «КолМорТех»"
@@ -657,7 +640,7 @@ instrumental = "раздатчиком снаряжения для отряда 
 prepositional = "раздатчике снаряжения для отряда «КолМорТех»"
 gender = "male"
 
-["Armat Systems Squad Attachments Vendor"]
+["armat systems squad attachments vendor"]
 nominative = "раздатчик обвесов для отряда «Армат Системс»"
 genitive = "раздатчика обвесов для отряда «Армат Системс»"
 dative = "раздатчику обвесов для отряда «Армат Системс»"
@@ -666,7 +649,7 @@ instrumental = "раздатчиком обвесов для отряда «Ар
 prepositional = "раздатчике обвесов для отряда «Армат Системс»"
 gender = "male"
 
-["MM Blood Dispenser"]
+["mm blood dispenser"]
 nominative = "раздатчик пакетов для крови"
 genitive = "раздатчика пакетов для крови"
 dative = "раздатчику пакетов для крови"
@@ -693,7 +676,7 @@ instrumental = "раздатчиком алкоголя"
 prepositional = "раздатчике алкоголя"
 gender = "male"
 
-["NanoMed"]
+[nanomed]
 nominative = "НаноМед"
 genitive = "НаноМеда"
 dative = "НаноМеду"
@@ -702,7 +685,7 @@ instrumental = "НаноМедом"
 prepositional = "НаноМеде"
 gender = "male"
 
-["Hot Drinks machine"]
+["hot drinks machine"]
 nominative = "автомат горячих напитков"
 genitive = "автомата горячих напитков"
 dative = "автомату горячих напитков"
@@ -711,7 +694,7 @@ instrumental = "автоматом горячих напитков"
 prepositional = "автомате горячих напитков"
 gender = "male"
 
-["Hot Foods Machine"]
+["hot foods machine"]
 nominative = "автомат горячей еды"
 genitive = "автомата горячей еды"
 dative = "автомату горячей еды"
@@ -720,7 +703,7 @@ instrumental = "автоматом горячей еды"
 prepositional = "автомате горячей еды"
 gender = "male"
 
-["Souto Softdrinks"]
+["souto softdrinks"]
 nominative = "прохладительные напитки «Соуто»"
 genitive = "прохладительных напитков «Соуто»"
 dative = "прохладительным напиткам «Соуто»"
@@ -729,7 +712,7 @@ instrumental = "прохладительными напитками «Соуто
 prepositional = "прохладительных напитках «Соуто»"
 gender = "plural"
 
-["Koorlander brand cigarette machine"]
+["koorlander brand cigarette machine"]
 nominative = "торговый автомат «Koorlander»"
 genitive = "торгового автомата «Koorlander»"
 dative = "торговому автомату «Koorlander»"
@@ -738,7 +721,7 @@ instrumental = "торговым автоматом «Koorlander»"
 prepositional = "торговом автомате «Koorlander»"
 gender = "male"
 
-["Rec-Vend"]
+[rec-vend]
 nominative = "торговый автомат «Rec-Vend»"
 genitive = "торгового автомата «Rec-Vend»"
 dative = "торговому автомату «Rec-Vend»"
@@ -765,7 +748,7 @@ instrumental = "раздатчиком медицинских реагентов
 prepositional = "раздатчике медицинских реагентов"
 gender = "male"
 
-["Wey-Med Plus"]
+["wey-med plus"]
 nominative = "раздатчик «Вей-Мед+»"
 genitive = "раздатчика «Вей-Мед+»"
 dative = "раздатчику «Вей-Мед+»"
