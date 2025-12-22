@@ -32,6 +32,7 @@ GLOBAL_LIST_EMPTY(ru_names)
 /proc/ru_names_toml(name, prefix, suffix, override_base)
 	. = list()
 	var/formatted_name = format_text(name)
+	formatted_name = lowertext(formatted_name)
 	// The world didn't initialize properly yet
 	if(isnull(GLOB.ru_names))
 		return .
@@ -41,9 +42,6 @@ GLOBAL_LIST_EMPTY(ru_names)
 		var/list/tomls_path = flist(root)
 		if(!length(tomls_path))
 			return .
-#ifdef UNIT_TESTS
-		var/list/duplicate_list = list()
-#endif
 		for(var/toml_file in tomls_path)
 			var/full_path = root + toml_file
 			if(!fexists(full_path))
@@ -52,14 +50,7 @@ GLOBAL_LIST_EMPTY(ru_names)
 			for(var/key in file_data)
 				if(GLOB.ru_names[key])
 					continue
-#ifdef UNIT_TESTS
-					duplicate_list += key
-#endif
 				GLOB.ru_names[key] = file_data[key]
-#ifdef UNIT_TESTS
-		if(length(duplicate_list))
-			CRASH("Multiple ru_names entries detected. Keys are: [english_list(duplicate_list)]")
-#endif
 	if(GLOB.ru_names[formatted_name])
 		var/list/entry = GLOB.ru_names[formatted_name]
 
