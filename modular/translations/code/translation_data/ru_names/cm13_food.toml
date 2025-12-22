@@ -1157,7 +1157,7 @@ dative = "мясу рыбы"
 accusative = "мясо рыбы"
 instrumental = "мясом рыбы"
 prepositional = "мясе рыбы"
-gender = "neutral"
+gender = "neuter"
 
 ["plant matter"]
 nominative = "растительная масса"
@@ -1202,7 +1202,7 @@ dative = "тесту"
 accusative = "тесто"
 instrumental = "тестом"
 prepositional = "тесте"
-gender = "neutral"
+gender = "neuter"
 
 [bread]
 nominative = "хлеб"
@@ -1265,7 +1265,7 @@ dative = "капсациновому маслу"
 accusative = "капсаициновое масло"
 instrumental = "капсациновым маслом"
 prepositional = "капсациновом масле"
-gender = "neutral"
+gender = "neuter"
 
 ["condensed capsaicin"]
 nominative = "концентрат капсаицина"
@@ -1292,7 +1292,7 @@ dative = "морозному маслу"
 accusative = "морозное масло"
 instrumental = "морозным маслом"
 prepositional = "морозном масле"
-gender = "neutral"
+gender = "neuter"
 
 ["table salt"]
 nominative = "столовая соль"

@@ -839,7 +839,7 @@ dative = "топливу для сварки"
 accusative = "топливо для сварки"
 instrumental = "топливом для сварки"
 prepositional = "топливе для сварки"
-gender = "neutral"
+gender = "neuter"
 
 [mass-spectrometer]
 nominative = "масс-спектрометр"
