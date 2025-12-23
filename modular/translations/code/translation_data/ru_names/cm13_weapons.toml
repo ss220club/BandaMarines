@@ -47,6 +47,10 @@ instrumental = "импульсной винтовкой M41A MK1"
 prepositional = "импульсной винтовке M41A MK1"
 gender = "female"
 
+["m41a pulse rifle mk1"]
+nominative = "импульсная винтовка M41A MK1"
+tags = ["nominative_only", "cm13"]
+
 ["m41a pulse rifle mk1 case"]
 nominative = "кейс для импульсной винтовки M41A MK1"
 genitive = "кейса для импульсной винтовки M41A MK1"
@@ -99,6 +103,10 @@ accusative = "огнемёт M240A1"
 instrumental = "огнемётом M240A1"
 prepositional = "огнемёте M240A1"
 gender = "male"
+
+["m240 incinerator unit"]
+nominative = "огнемёт M240"
+tags = ["nominative_only", "cm13"]
 
 ["m240 incinerator case"]
 nominative = "кейс для огнемёта M240"
