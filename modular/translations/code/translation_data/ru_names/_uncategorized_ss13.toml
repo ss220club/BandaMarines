@@ -23978,12 +23978,7 @@ gender = "female"
 
 [poly]
 nominative = "Поли"
-genitive = ""
-dative = ""
-accusative = ""
-instrumental = ""
-prepositional = ""
-gender = ""
+tags = ["nominative_only"]
 
 ["the ghost of poly"]
 nominative = "призрак Поли"
@@ -24397,7 +24392,7 @@ dative = "ДНК хранилищу"
 accusative = "ДНК хранилище"
 instrumental = "ДНК хранилищем"
 prepositional = "ДНК хранилище"
-gender = ""
+gender = "neuter"
 
 ["glimmering residue"]
 nominative = "мерцающий осадок"
@@ -24406,4 +24401,13 @@ dative = "мерцающему осадку"
 accusative = "мерцающий осадок"
 instrumental = "мерцающим осадком"
 prepositional = "мерцающем осадке"
-gender = ""
+gender = "male"
+
+[headset]
+nominative = "гарнитура"
+genitive = "гарнитуры"
+dative = "гарнитуре"
+accusative = "гарнитуру"
+instrumental = "гарнитурой"
+prepositional = "гарнитуре"
+gender = "female"

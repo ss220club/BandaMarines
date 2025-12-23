@@ -18,6 +18,7 @@ gender = "female"
 
 ["m40 hedp grenades x6"]
 nominative = "граната M40 HEDP (разрывная) x 6"
+tags = ["nominative_only", "cm13"]
 
 ["m40 hedp grenade"]
 nominative = "граната M40 HEDP (разрывная)"
@@ -39,6 +40,7 @@ gender = "female"
 
 ["m40 hidp incendiary grenade x6"]
 nominative = "граната M40 HIDP (зажигательная) x 6"
+tags = ["nominative_only", "cm13"]
 
 ["m40 hidp incendiary grenade"]
 nominative = "граната M40 HIDP (зажигательная)"
@@ -51,9 +53,11 @@ gender = "female"
 
 ["m40 ccdp chemical compound smoke grenade"]
 nominative = "граната M40 CCDP (фосфорная)"
+tags = ["nominative_only", "cm13"]
 
 ["m40 ccdp chemical compound grenades x6"]
 nominative = "граната M40 CCDP (фосфорная) x 6"
+tags = ["nominative_only", "cm13"]
 
 ["m40 ccdp grenade"]
 nominative = "граната M40 CCDP (фосфорная)"
@@ -75,9 +79,11 @@ gender = "female"
 
 ["m74 agm-frag airburst grenade"]
 nominative = "прыгающая граната M74 AGM-F (осколочная)"
+tags = ["nominative_only", "cm13"]
 
 ["m74 agm-f fragmentation grenades x6"]
 nominative = "прыгающая граната M74 AGM-F (осколочная) x 6"
+tags = ["nominative_only", "cm13"]
 
 ["m74 agm-f 40mm grenade"]
 nominative = "прыгающая граната M74 AGM-F (осколочная)"
@@ -90,9 +96,11 @@ gender = "female"
 
 ["m74 agm-incendiary airburst grenade"]
 nominative = "прыгающая граната M74 AGM-I (зажигательная)"
+tags = ["nominative_only", "cm13"]
 
 ["m74 agm-i incendiary grenades x6"]
 nominative = "прыгающая граната M74 AGM-I (зажигательная) x 6"
+tags = ["nominative_only", "cm13"]
 
 ["m74 agm-i 40mm grenade"]
 nominative = "прыгающая граната M74 AGM-I (зажигательная)"
@@ -105,9 +113,11 @@ gender = "female"
 
 ["m74 agm-smoke airburst grenade"]
 nominative = "прыгающая граната M74 AGM-S (дымовая)"
+tags = ["nominative_only", "cm13"]
 
 ["m74 agm-s smoke grenades x6"]
 nominative = "прыгающая граната M74 AGM-S (дымовая) x 6"
+tags = ["nominative_only", "cm13"]
 
 ["m74 agm-s 40mm grenade"]
 nominative = "прыгающая граната M74 AGM-S (дымовая)"
@@ -120,6 +130,7 @@ gender = "female"
 
 ["m74 agm-star shell"]
 nominative = "прыгающая граната M74 AGM-S «Звезда»"
+tags = ["nominative_only", "cm13"]
 
 ["m74 agm-s star shell"]
 nominative = "прыгающая граната M74 AGM-S «Звезда»"
@@ -132,6 +143,7 @@ gender = "female"
 
 ["m74 agm-hornet shell"]
 nominative = "прыгающая граната M74 AGM-H «Шершень»"
+tags = ["nominative_only", "cm13"]
 
 ["m74 agm-h 40mm hornet shell"]
 nominative = "прыгающая граната M74 AGM-H «Шершень»"
@@ -153,12 +165,15 @@ gender = "female"
 
 ["g2 electroshock grenade pack x6"]
 nominative = "электрошоковая граната G2 x 6"
+tags = ["nominative_only", "cm13"]
 
 ["m40 hirr baton slug"]
 nominative = "граната M40 HIRR (резина)"
+tags = ["nominative_only", "cm13"]
 
 ["hirr baton slugs"]
 nominative = "граната M40 HIRR (резина)"
+tags = ["nominative_only", "cm13"]
 
 ["hirr baton slug"]
 nominative = "граната M40 HIRR (резина)"
@@ -171,6 +186,7 @@ gender = "female"
 
 ["m40 mfhs metal foam grenade"]
 nominative = "граната M40 MFHS (пена)"
+tags = ["nominative_only", "cm13"]
 
 ["m40 mfhs grenade"]
 nominative = "граната M40 MFHS (пена)"
@@ -444,6 +460,7 @@ gender = "female"
 
 ["84mm high-explosive rocket"]
 nominative = "ракета (84мм разрывная)"
+tags = ["nominative_only", "cm13"]
 
 ["84mm high explosive rocket"]
 nominative = "ракета (84мм разрывная)"

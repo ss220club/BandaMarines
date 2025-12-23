@@ -7,9 +7,6 @@ instrumental = "штурмовым карабином M4RA"
 prepositional = "штурмовом карабине M4RA"
 gender = "male"
 
-["m39 submachine gun"]
-nominative = "пистолет-пулемёт M39"
-
 ["m39 submachinegun"]
 nominative = "пистолет-пулемёт M39"
 genitive = "пистолета-пулемёта M39"
@@ -39,12 +36,7 @@ gender = "male"
 
 ["m41a mk1 rifle crate (x2 mk1, x2 magazines)"]
 nominative = "ящик для вооружения (M41A MK1 x 2, магазин для M41A MK1 x 2)"
-
-["m41a mk1 pulse rifle"]
-nominative = "импульсная винтовка M41A MK1"
-
-["m41a pulse rifle mk1"]
-nominative = "импульсная винтовка M41A MK1"
+tags = ["nominative_only", "cm13"]
 
 ["m41a pulse rifle"]
 nominative = "импульсная винтовка M41A MK1"
@@ -84,6 +76,7 @@ gender = "male"
 
 ["m56d heavy machine gun (x1)"]
 nominative = "ящик для вооружения (M56D x 1)"
+tags = ["nominative_only", "cm13"]
 
 ["m56d heavy machine gun case"]
 nominative = "кейс для тяжёлого пулемёта M56D"
@@ -96,9 +89,7 @@ gender = "male"
 
 ["m240 flamethrower crate (m240 x2, broiler-t fuelback x2)"]
 nominative = "ящик для вооружения (M240 x 2, топливный бак G4-1 x 2)"
-
-["m240 incinerator unit"]
-nominative = "огнемёт M240"
+tags = ["nominative_only", "cm13"]
 
 ["m240a1 incinerator unit"]
 nominative = "огнемёт M240A1"
@@ -129,6 +120,7 @@ gender = "male"
 
 ["m79 grenade launcher crate (x2 guncases)"]
 nominative = "ящик для вооружения (M79 x 2)"
+tags = ["nominative_only", "cm13"]
 
 ["m79 grenade launcher"]
 nominative = "гранатомёт M79"
@@ -150,6 +142,7 @@ gender = "male"
 
 ["m2c heavy machine gun (x1)"]
 nominative = "ящик для вооружения (M2C x 1)"
+tags = ["nominative_only", "cm13"]
 
 ["m2c heavy machine gun"]
 nominative = "тяжёлый пулемёт M2C"
@@ -207,6 +200,7 @@ gender = "male"
 
 ["mod 88 pistol"]
 nominative = "боевой пистолет 88M4"
+tags = ["nominative_only", "cm13"]
 
 ["88 mod 4 combat pistol"]
 nominative = "боевой пистолет 88M4"
@@ -219,6 +213,7 @@ gender = "male"
 
 ["m44 revolver"]
 nominative = "боевой револьвер M44"
+tags = ["nominative_only", "cm13"]
 
 ["m44 combat revolver"]
 nominative = "боевой револьвер M44"
@@ -231,6 +226,7 @@ gender = "male"
 
 ["m4a3 pistol"]
 nominative = "служебный пистолет M4A3"
+tags = ["nominative_only", "cm13"]
 
 ["m4a3 service pistol"]
 nominative = "служебный пистолет M4A3"
@@ -243,6 +239,7 @@ gender = "male"
 
 ["m82f flare gun"]
 nominative = "сигнальная ракетница M82F"
+tags = ["nominative_only", "cm13"]
 
 ["m82-f flare gun"]
 nominative = "сигнальная ракетница M82F"
@@ -255,6 +252,7 @@ gender = "female"
 
 ["vp-78 hand cannon crate (x2)"]
 nominative = "ящик для вооружения (VP-78 x 2)"
+tags = ["nominative_only", "cm13"]
 
 ["vp78 pistol"]
 nominative = "пистолет VP-78"
@@ -276,9 +274,11 @@ gender = "male"
 
 ["mou-53 break action shotgun crate (x2)"]
 nominative = "ящик для вооружения (MOU-53 x 1)"
+tags = ["nominative_only", "cm13"]
 
 ["mou-53 shotgun"]
 nominative = "переломный дробовик MOU53"
+tags = ["nominative_only", "cm13"]
 
 ["mou53 break action shotgun"]
 nominative = "переломный дробовик MOU53"
@@ -300,6 +300,7 @@ gender = "male"
 
 ["xm88 heavy rifle crate (xm88 x2)"]
 nominative = "ящик для вооружения (XM88 x 2)"
+tags = ["nominative_only", "cm13"]
 
 ["xm88 heavy rifle"]
 nominative = "тяжёлая винтовка XM88"
@@ -312,6 +313,7 @@ gender = "female"
 
 ["m41ae2 hpr crate (hpr x2, hpr ammo box x2)"]
 nominative = "ящик для вооружения (M41AE2 x 2, патронный короб для M41AE2 x 2)"
+tags = ["nominative_only", "cm13"]
 
 ["m41ae2 heavy pulse rifle"]
 nominative = "тяжёлая импульсная винтовка M41AE2"
@@ -333,9 +335,11 @@ gender = "male"
 
 ["su-6 smart pistol crate (x2)"]
 nominative = "ящик для вооружения (SU-6 x 2)"
+tags = ["nominative_only", "cm13"]
 
 ["su-6 smart pistol"]
 nominative = "умный пистолет SU-6"
+tags = ["nominative_only", "cm13"]
 
 ["su-6 smartpistol"]
 nominative = "умный пистолет SU-6"
@@ -411,6 +415,7 @@ gender = "female"
 
 ["m707 anti material rifle"]
 nominative = "антиматериальная снайперская винтовка M707"
+tags = ["nominative_only", "cm13"]
 
 ["m707 anti-materiel rifle case"]
 nominative = "кейс для антиматериальной снайперской винтовки M707"

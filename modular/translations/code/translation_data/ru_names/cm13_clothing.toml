@@ -16,9 +16,6 @@ instrumental = "пончо ККМП"
 prepositional = "пончо ККМП"
 gender = "neuter"
 
-["uscm combat technician uniform"]
-nominative = "униформа ККМП техника"
-
 ["uscm comtech uniform"]
 nominative = "униформа ККМП техника"
 genitive = "униформы ККМП техника"
@@ -28,9 +25,6 @@ instrumental = "униформой ККМП техника"
 prepositional = "униформе ККМП техника"
 gender = "female"
 
-["uscm hospital corpsman uniform"]
-nominative = "униформа ККМП санитара"
-
 ["uscm corpsman uniform"]
 nominative = "униформа ККМП санитара"
 genitive = "униформы ККМП санитара"
@@ -39,9 +33,6 @@ accusative = "униформу ККМП санитара"
 instrumental = "униформой ККМП санитара"
 prepositional = "униформе ККМП санитара"
 gender = "female"
-
-["doctor uniform"]
-nominative = "униформа врача"
 
 ["medical doctor's uniform"]
 nominative = "униформа врача"
@@ -54,6 +45,7 @@ gender = "female"
 
 ["officer outfit crate"]
 nominative = "ящик для экипировки (офицерская униформа x 5)"
+tags = ["nominative_only", "cm13"]
 
 ["quartermaster suit"]
 nominative = "униформа квартирмейстера"
@@ -147,9 +139,11 @@ gender = "male"
 
 ["standard backpack"]
 nominative = "рюкзак"
+tags = ["nominative_only", "cm13"]
 
 ["combat pack"]
 nominative = "военный рюкзак"
+tags = ["nominative_only", "cm13"]
 
 ["lightweight imp backpack"]
 nominative = "военный лёгкий рюкзак"
@@ -162,6 +156,7 @@ gender = "male"
 
 ["mortar shell backpack"]
 nominative = "рюкзак для миномётных мин"
+tags = ["nominative_only", "cm13"]
 
 ["uscm mortar shell backpack"]
 nominative = "рюкзак ККМП для миномётных снарядов"
@@ -174,6 +169,7 @@ gender = "male"
 
 ["technician backpack"]
 nominative = "рюкзак техника"
+tags = ["nominative_only", "cm13"]
 
 ["uscm technician backpack"]
 nominative = "рюкзак ККМП техника"
@@ -193,9 +189,6 @@ instrumental = "рюкзаком ККМП санитара"
 prepositional = "рюкзаке ККМП санитара"
 gender = "male"
 
-["imp ammo pack"]
-nominative = "поняга для ящиков с боеприпасами"
-
 ["imp ammo rack"]
 nominative = "поняга для ящиков с боеприпасами"
 genitive = "поняги для ящиков с боеприпасами"
@@ -207,6 +200,7 @@ gender = "female"
 
 ["radio telephone backpack"]
 nominative = "рюкзак связиста"
+tags = ["nominative_only", "cm13"]
 
 ["uscm radio telephone pack"]
 nominative = "рюкзак ККМП связиста"
@@ -219,6 +213,7 @@ gender = "male"
 
 ["technician welderpack"]
 nominative = "рюкзак сварщика"
+tags = ["nominative_only", "cm13"]
 
 ["uscm technician welderpack"]
 nominative = "рюкзак ККМП сварщика"
@@ -231,6 +226,7 @@ gender = "male"
 
 ["pyrotechnician g4-1 fueltank"]
 nominative = "топливный бак G4-1 огнемётчика"
+tags = ["nominative_only", "cm13"]
 
 ["uscm pyrotechnician g4-1 fueltank"]
 nominative = "топливный бак G4-1 ККМП огнемётчика"
@@ -261,9 +257,11 @@ gender = "female"
 
 ["technician chestrig"]
 nominative = "разгрузочная система техника"
+tags = ["nominative_only", "cm13"]
 
 ["technician satchel"]
 nominative = "сумка техника"
+tags = ["nominative_only", "cm13"]
 
 ["uscm technician chestrig"]
 nominative = "разгрузочная система ККМП техника"
@@ -303,6 +301,7 @@ gender = "female"
 
 ["technician welder-satchel"]
 nominative = "сумка сварщика"
+tags = ["nominative_only", "cm13"]
 
 ["uscm technician welder-satchel"]
 nominative = "сумка ККМП сварщика"
@@ -315,6 +314,7 @@ gender = "female"
 
 ["grenade satchel"]
 nominative = "сумка для гранат"
+tags = ["nominative_only", "cm13"]
 
 ["uscm imp m63a1 grenade satchel"]
 nominative = "сумка ККМП для гранат"
@@ -325,23 +325,18 @@ instrumental = "сумкой ККМП для гранат"
 prepositional = "сумке ККМП для гранат"
 gender = "female"
 
-["shotgun scabbard"]
-nominative = "чехол L44 для дробовика M37A2"
-
-["l44 m37a2 scabbard"]
-nominative = "чехол L44 для дробовика M37A2"
-genitive = "чехла L44 для дробовика M37A2"
-dative = "чехлу L44 для дробовика M37A2"
-accusative = "чехол L44 для дробовика M37A2"
-instrumental = "чехлом L44 для дробовика M37A2"
-prepositional = "чехле L44 для дробовика M37A2"
+["l44 shotgun scabbard"]
+nominative = "чехол L44 для дробовика"
+genitive = "чехла L44 для дробовика"
+dative = "чехлу L44 для дробовика"
+accusative = "чехол L44 для дробовика"
+instrumental = "чехлом L44 для дробовика"
+prepositional = "чехле L44 для дробовика"
 gender = "male"
 
 ["machete scabbard (full)"]
-nominative = "чехол H5 для мачете M2132"
-
-["smartgunner machete scabbard"]
-nominative = "чехол H5 для мачете M2132"
+nominative = "чехол H5 для мачете M2132 (с мачете)"
+tags = ["nominative_only", "cm13"]
 
 ["h5 pattern m2132 machete scabbard"]
 nominative = "чехол H5 для мачете M2132"
@@ -354,6 +349,7 @@ gender = "male"
 
 ["webbing crate (x4)"]
 nominative = "ящик для экипировки (коричневый нагрудный жилет x 4)"
+tags = ["nominative_only", "cm13"]
 
 [webbing]
 nominative = "коричневый нагрудный жилет"
@@ -366,6 +362,7 @@ gender = "male"
 
 ["brown and black webbing crate (x2 each)"]
 nominative = "ящик для экипировки (разгрузочный жилет x 2)"
+tags = ["nominative_only", "cm13"]
 
 ["brown webbing vest"]
 nominative = "коричневый разгрузочный жилет"
@@ -405,9 +402,11 @@ gender = "male"
 
 ["knife vest crate (x3)"]
 nominative = "ящик для экипировки (жилет с ножнами x 4)"
+tags = ["nominative_only", "cm13"]
 
 ["knife webbing"]
 nominative = "жилет с ножнами"
+tags = ["nominative_only", "cm13"]
 
 ["m272 pattern knife vest"]
 nominative = "жилет M272 с ножнами"
@@ -420,6 +419,7 @@ gender = "male"
 
 ["black webbing crate (x4)"]
 nominative = "ящик для экипировки (чёрный нагрудный жилет x 4)"
+tags = ["nominative_only", "cm13"]
 
 ["black webbing"]
 nominative = "чёрный нагрудный жилет"
@@ -432,6 +432,7 @@ gender = "male"
 
 ["small tool webbing (full)"]
 nominative = "разгрузочный жилет для инструментов (полный)"
+tags = ["nominative_only", "cm13"]
 
 ["small tool webbing"]
 nominative = "разгрузочный жилет для инструментов"
@@ -462,6 +463,7 @@ gender = "plural"
 
 ["insulated gloves (yellow/tan)"]
 nominative = "жёлтые изоляционные перчатки"
+tags = ["nominative_only", "cm13"]
 
 ["marine insulated gloves"]
 nominative = "изоляционные перчатки морпеха"
@@ -474,6 +476,7 @@ gender = "plural"
 
 ["insulated gloves (black)"]
 nominative = "чёрные изоляционные перчатки"
+tags = ["nominative_only", "cm13"]
 
 ["marine insulated black gloves"]
 nominative = "чёрные изоляционные перчатки морпеха"
@@ -520,9 +523,6 @@ instrumental = "серыми боевыми перчатками морпеха"
 prepositional = "серых боевых перчатках морпеха"
 gender = "plural"
 
-["combat sterile gloves"]
-nominative = "боевые перчатки санитара"
-
 ["marine medical combat gloves"]
 nominative = "боевые перчатки санитара"
 genitive = "боевых перчаток санитара"
@@ -543,15 +543,19 @@ gender = "female"
 
 ["marine brown combat boots"]
 nominative = "коричневые боевые ботинки морпеха"
+tags = ["nominative_only", "cm13"]
 
 ["marine jungle combat boots"]
 nominative = "зелёные боевые ботинки морпеха"
+tags = ["nominative_only", "cm13"]
 
 ["marine grey combat boots"]
 nominative = "серые боевые ботинки морпеха"
+tags = ["nominative_only", "cm13"]
 
 ["marine urban combat boots"]
 nominative = "урбанистские боевые ботинки морпеха"
+tags = ["nominative_only", "cm13"]
 
 ["marine combat boots"]
 nominative = "боевые ботинки морпеха"
@@ -561,9 +565,6 @@ accusative = "боевые ботинки морпеха"
 instrumental = "боевыми ботинками морпеха"
 prepositional = "боевых ботинках морпеха"
 gender = "plural"
-
-["m276 general pistol holster rig"]
-nominative = "пояс M276 с кобурой для пистолета"
 
 ["m276 pattern general pistol holster rig"]
 nominative = "пояс M276 с кобурой для пистолета"
@@ -583,12 +584,6 @@ instrumental = "поясом M276 с кобурой для SU-6"
 prepositional = "поясе M276 с кобурой для SU-6"
 gender = "male"
 
-["m276 pattern general revolver holster rig"]
-nominative = "пояс M276 с кобурой для револьвера"
-
-["m276 general revolver holster rig"]
-nominative = "пояс M276 с кобурой для револьвера"
-
 ["m276 pattern general revoler holster rig"]
 nominative = "пояс M276 с кобурой для револьвера"
 genitive = "пояса M276 с кобурой для револьвера"
@@ -597,9 +592,6 @@ accusative = "пояс M276 с кобурой для револьвера"
 instrumental = "поясом M276 с кобурой для револьвера"
 prepositional = "поясе M276 с кобурой для револьвера"
 gender = "male"
-
-["m276 mortar operator belt"]
-nominative = "пояс M276 миномётчика"
 
 ["m276 pattern mortar operator belt"]
 nominative = "пояс M276 миномётчика"
@@ -619,12 +611,6 @@ instrumental = "поясом M300 с патронташем для .458 SOCOM"
 prepositional = "поясе M300 с патронташем для .458 SOCOM"
 gender = "male"
 
-["m276 shotgun shell loading rig"]
-nominative = "пояс M276 с патронташем для дробовика"
-
-["shotgun shell loading rig"]
-nominative = "пояс с патронташем для дробовика"
-
 ["m276 pattern shotgun shell loading rig"]
 nominative = "пояс M276 с патронташем для дробовика"
 genitive = "пояса M276 с патронташем для дробовика"
@@ -633,9 +619,6 @@ accusative = "пояс M276 с патронташем для дробовика"
 instrumental = "поясом M276 с патронташем для дробовика"
 prepositional = "поясе M276 с патронташем для дробовика"
 gender = "male"
-
-["m276 g8-a general utility pouch"]
-nominative = "пояс G8-A общего назначения"
 
 ["g8-a general utility pouch"]
 nominative = "пояс G8-A общего назначения"
@@ -648,6 +631,7 @@ gender = "male"
 
 ["m276 toolbelt rig (full)"]
 nominative = "пояс M276 для инструментов (полный)"
+tags = ["nominative_only", "cm13"]
 
 ["m276 pattern toolbelt rig"]
 nominative = "пояс M276 для инструментов"
@@ -660,9 +644,7 @@ gender = "male"
 
 ["m276 knife rig (full)"]
 nominative = "пояс M276 для ножей (полный)"
-
-["m276 knife rig"]
-nominative = "пояс M276 для ножей"
+tags = ["nominative_only", "cm13"]
 
 ["m276 pattern knife rig"]
 nominative = "пояс M276 для ножей"
@@ -675,6 +657,7 @@ gender = "male"
 
 ["military police belt"]
 nominative = "пояс военной полиции"
+tags = ["nominative_only", "cm13"]
 
 ["m276 pattern military police rig"]
 nominative = "пояс M276 военной полиции"
@@ -685,9 +668,6 @@ instrumental = "поясом M276 военной полиции"
 prepositional = "поясе M276 военной полиции"
 gender = "male"
 
-["m276 m39 holster rig"]
-nominative = "пояс M276 с креплением для M39"
-
 ["m276 pattern m39 holster rig"]
 nominative = "пояс M276 с креплением для M39"
 genitive = "пояса M276 с креплением для M39"
@@ -696,9 +676,6 @@ accusative = "пояс M276 с креплением для M39"
 instrumental = "поясом M276 с креплением для M39"
 prepositional = "поясе M276 с креплением для M39"
 gender = "male"
-
-["m276 m10 holster rig"]
-nominative = "пояс M276 с кобурой для M10"
 
 ["m276 pattern m10 holster rig"]
 nominative = "пояс M276 с кобурой для M10"
@@ -720,9 +697,7 @@ gender = "male"
 
 ["m276 medical storage rig (full)"]
 nominative = "пояс M276 санитара (полный)"
-
-["m276 medical storage rig"]
-nominative = "пояс M276 санитара"
+tags = ["nominative_only", "cm13"]
 
 ["m276 pattern medical storage rig"]
 nominative = "пояс M276 санитара"
@@ -733,14 +708,9 @@ instrumental = "поясом M276 санитара"
 prepositional = "поясе M276 санитара"
 gender = "male"
 
-["m276 medical lifesaver rig"]
-nominative = "пояс M276 спасателя"
-
-["m276 lifesaver bag"]
-nominative = "пояс M276 спасателя"
-
 ["m276 lifesaver bag (full)"]
 nominative = "пояс M276 спасателя (полный)"
+tags = ["nominative_only", "cm13"]
 
 ["m276 pattern lifesaver bag"]
 nominative = "пояс M276 спасателя"
@@ -759,9 +729,6 @@ accusative = "пояс M804 пулемётчика"
 instrumental = "поясом M804 пулемётчика"
 prepositional = "поясе M804 пулемётчика"
 gender = "male"
-
-["m276 ammo load rig"]
-nominative = "пояс M276 для магазинов"
 
 ["m276 pattern ammo load rig"]
 nominative = "пояс M276 для магазинов"
@@ -782,13 +749,12 @@ prepositional = "поясе для магазинов"
 gender = "male"
 
 ["m276 combat toolbelt rig (full)"]
-nominative = "пояс M276 для инструментов с кобурой"
+nominative = "пояс M276 для инструментов с кобурой (полный)"
+tags = ["nominative_only", "cm13"]
 
 ["m276 holster toolrig (full)"]
-nominative = "пояс M276 для инструментов с кобурой"
-
-["m276 holster toolrig"]
-nominative = "пояс M276 для инструментов с кобурой"
+nominative = "пояс M276 для инструментов с кобурой (полный)"
+tags = ["nominative_only", "cm13"]
 
 ["m276 pattern combat toolbelt rig"]
 nominative = "пояс M276 для инструментов с кобурой"
@@ -799,12 +765,6 @@ instrumental = "поясом M276 для инструментов с кобур�
 prepositional = "поясе M276 для инструментов с кобурой"
 gender = "male"
 
-["m276 m82f holster rig"]
-nominative = "пояс M276 с кобурой для M82F"
-
-["m276 pattern m82f holster rig"]
-nominative = "пояс M276 с кобурой для M82F"
-
 ["m276 pattern m82f flare gun holster rig"]
 nominative = "пояс M276 с кобурой для M82F"
 genitive = "пояса M276 с кобурой для M82F"
@@ -814,11 +774,9 @@ instrumental = "поясом M276 с кобурой для M82F"
 prepositional = "поясе M276 с кобурой для M82F"
 gender = "male"
 
-["m276 m40 grenade rig"]
-nominative = "пояс M276 для гранат M40"
-
 ["m276 m40 grenade rig (empty)"]
-nominative = "пояс M276 для гранат M40"
+nominative = "пояс M276 для гранат M40 (пустой)"
+tags = ["nominative_only", "cm13"]
 
 ["m276 pattern m40 grenade rig"]
 nominative = "пояс M276 для гранат M40"
@@ -883,9 +841,6 @@ instrumental = "шлемом офицера М10"
 prepositional = "шлеме офицера М10"
 gender = "male"
 
-["m10 pattern technician helmet"]
-nominative = "шлем М10 техника"
-
 ["m10 technician helmet"]
 nominative = "шлем техника М10"
 genitive = "шлема техника М10"
@@ -903,9 +858,6 @@ accusative = "шлем санитара М10"
 instrumental = "шлемом санитара М10"
 prepositional = "шлеме санитара М10"
 gender = "male"
-
-["m10 corpsman helmet"]
-nominative = "шлем санитара М10"
 
 ["m10 white corpsman helmet"]
 nominative = "белый шлем санитара М10"
@@ -1033,9 +985,6 @@ instrumental = "респиратором"
 prepositional = "респираторе"
 gender = "male"
 
-["m5 integrated gas mask"]
-nominative = "тактический противогаз M5"
-
 ["m5 integrated gasmask"]
 nominative = "тактический противогаз M5"
 genitive = "тактического противогаза M5"
@@ -1053,9 +1002,6 @@ accusative = "медицинский фартук"
 instrumental = "медицинским фартуком"
 prepositional = "медицинском фартуке"
 gender = "male"
-
-["snow scarf"]
-nominative = "зимний шарф"
 
 ["tactical scarf"]
 nominative = "тактический шарф"

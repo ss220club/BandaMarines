@@ -18,6 +18,7 @@ gender = "male"
 
 ["mixed binoculars crate (x2 per, x6 total)"]
 nominative = "ящик для снаряжения (ЛЦУ x 2, дальномер x 2, бинокль x 2)"
+tags = ["nominative_only", "cm13"]
 
 ["laser designator"]
 nominative = "лазерный целеуказатель"
@@ -73,9 +74,6 @@ instrumental = "свистком"
 prepositional = "свистке"
 gender = "male"
 
-[e-tool]
-nominative = "малая пехотная лопата"
-
 ["entrenching tool"]
 nominative = "малая пехотная лопата"
 genitive = "малой пехотной лопаты"
@@ -87,9 +85,11 @@ gender = "female"
 
 ["fulton recovery device crate (x4)"]
 nominative = "ящик для снаряжения (СВЭ «Фултон» x 80)"
+tags = ["nominative_only", "cm13"]
 
 ["jtac radio kit crate (x1 full flare gun belt, x2 m89-s signal flare packs, 1x laser designator, 1x jtac radio key, 1x radiopack)"]
 nominative = "ящик для экипировки (набор связиста JTAC: сигнальная ракетница x 1, пояс с кобурой x 1, ключ шифрования x 1, ЛЦУ x 1, рюкзак связиста x 1, сигнальный огонь x 16)"
+tags = ["nominative_only", "cm13"]
 
 ["jtac radio kit"]
 nominative = "набор связиста JTAC"
@@ -102,6 +102,7 @@ gender = "male"
 
 ["field intelligence support kit crate (x1 fulton pack, x1 data detector, x1 intel pamphlet, x1 large document pouch, 1x intel radio key)"]
 nominative = "ящик для экипировки (набор полевого разведчика: СВЭ «Фултон» x 20, инструкция x 1, ключ шифрования x 1, сканер данных x 1, подсумок для документов x 1)"
+tags = ["nominative_only", "cm13"]
 
 ["field intelligence support kit"]
 nominative = "набор полевого разведчика"
@@ -111,9 +112,6 @@ accusative = "набор полевого разведчика"
 instrumental = "набором полевого разведчика"
 prepositional = "наборе полевого разведчика"
 gender = "male"
-
-["fulton device stack"]
-nominative = "система воздушной эвакуации «Фултон»"
 
 ["fulton recovery device"]
 nominative = "система воздушной эвакуации «Фултон»"
@@ -132,9 +130,6 @@ accusative = "сканер данных"
 instrumental = "сканером данных"
 prepositional = "сканере данных"
 gender = "male"
-
-[headset]
-nominative = "гарнитура"
 
 ["marine radio headset"]
 nominative = "гарнитура морпеха"
@@ -298,9 +293,6 @@ instrumental = "гарнитурой исследователя"
 prepositional = "гарнитуре исследователя"
 gender = "female"
 
-["alpha squad"]
-nominative = "ключ шифрования связи - отряд «Альфа»"
-
 ["alpha squad radio encryption key"]
 nominative = "ключ шифрования связи - отряд «Альфа»"
 genitive = "ключа шифрования связи - отряд «Альфа»"
@@ -309,9 +301,6 @@ accusative = "ключ шифрования связи - отряд «Альфа
 instrumental = "ключом шифрования связи - отряд «Альфа»"
 prepositional = "ключе шифрования связи - отряд «Альфа»"
 gender = "male"
-
-["bravo squad"]
-nominative = "ключ шифрования связи - отряд «Браво»"
 
 ["bravo squad radio encryption key"]
 nominative = "ключ шифрования связи - отряд «Браво»"
@@ -322,9 +311,6 @@ instrumental = "ключом шифрования связи - отряд «Бр
 prepositional = "ключе шифрования связи - отряд «Браво»"
 gender = "male"
 
-["сharlie squad"]
-nominative = "ключ шифрования связи - отряд «Чарли»"
-
 ["charlie squad radio encryption key"]
 nominative = "ключ шифрования связи - отряд «Чарли»"
 genitive = "ключа шифрования связи - отряд «Чарли»"
@@ -333,9 +319,6 @@ accusative = "ключ шифрования связи - отряд «Чарли
 instrumental = "ключом шифрования связи - отряд «Чарли»"
 prepositional = "ключе шифрования связи - отряд «Чарли»"
 gender = "male"
-
-["delta squad"]
-nominative = "ключ шифрования связи - отряд «Дельта»"
 
 ["delta squad radio encryption key"]
 nominative = "ключ шифрования связи - отряд «Дельта»"
@@ -346,9 +329,6 @@ instrumental = "ключом шифрования связи - отряд «Де
 prepositional = "ключе шифрования связи - отряд «Дельта»"
 gender = "male"
 
-["echo squad"]
-nominative = "ключ шифрования связи - отряд «Эхо»"
-
 ["echo squad radio encryption key"]
 nominative = "ключ шифрования связи - отряд «Эхо»"
 genitive = "ключа шифрования связи - отряд «Эхо»"
@@ -357,9 +337,6 @@ accusative = "ключ шифрования связи - отряд «Эхо»"
 instrumental = "ключом шифрования связи - отряд «Эхо»"
 prepositional = "ключе шифрования связи - отряд «Эхо»"
 gender = "male"
-
-[colony]
-nominative = "ключ шифрования связи - выжившие"
 
 ["colony radio encryption key"]
 nominative = "ключ шифрования связи - выжившие"
@@ -426,6 +403,7 @@ gender = "male"
 
 ["parachute crate (x20)"]
 nominative = "ящик для снаряжения (парашют x 20)"
+tags = ["nominative_only", "cm13"]
 
 [parachute]
 nominative = "парашют"
@@ -546,6 +524,7 @@ gender = "neuter"
 
 ["motion detector (x2)"]
 nominative = "ящик для снаряжения (детектор движения x 2)"
+tags = ["nominative_only", "cm13"]
 
 ["motion detector"]
 nominative = "детектор движения"
@@ -567,12 +546,15 @@ gender = "female"
 
 ["empty sandbags crate (x50)"]
 nominative = "ящик для инженерного оборудования (пустые мешки для песка x 50)"
+tags = ["nominative_only", "cm13"]
 
 ["sandbags construction kit (sandbags x50, etool x2)"]
 nominative = "ящик для инженерного оборудования (пустые мешки для песка x 50, лопата x 2)"
+tags = ["nominative_only", "cm13"]
 
 ["sandbags (empty) x10"]
 nominative = "пустые мешки для песка x 10"
+tags = ["nominative_only", "cm13"]
 
 ["empty sandbags"]
 nominative = "пустые мешки для песка"
@@ -585,9 +567,11 @@ gender = "male"
 
 ["sandbags (full) x5"]
 nominative = "мешки с песком x 5"
+tags = ["nominative_only", "cm13"]
 
 ["sandbags x25"]
 nominative = "мешки с песком x 25"
+tags = ["nominative_only", "cm13"]
 
 [sandbags]
 nominative = "мешки с песком"
@@ -600,9 +584,7 @@ gender = "male"
 
 ["plastic explosives crate (x3)"]
 nominative = "ящик для взрывчатых веществ (С-4 x 3)"
-
-["plastic explosive"]
-nominative = "пластичная взрывчатка С-4"
+tags = ["nominative_only", "cm13"]
 
 ["plastic explosives"]
 nominative = "пластичная взрывчатка С-4"
@@ -634,19 +616,13 @@ instrumental = "набором для ремонта оружия"
 prepositional = "наборе для ремонта оружия"
 gender = "male"
 
-["firearm lubricant"]
+["gun oil"]
 nominative = "оружейная смазка"
-
-["combat lubricant"]
-nominative = "оружейная смазка"
-
-["multi-purpose combat lubricant"]
-nominative = "универсальная оружейная смазка"
-genitive = "универсальной оружейной смазки"
-dative = "универсальной оружейной смазке"
-accusative = "универсальную оружейную смазку"
-instrumental = "универсальной оружейной смазкой"
-prepositional = "универсальной оружейной смазке"
+genitive = " оружейной смазки"
+dative = "оружейной смазке"
+accusative = "оружейную смазку"
+instrumental = "оружейной смазкой"
+prepositional = "оружейной смазке"
 gender = "female"
 
 ["combat flashlight"]
@@ -660,6 +636,7 @@ gender = "male"
 
 ["flashlights (x8)"]
 nominative = "ящик для оборудования (фонарики x 8)"
+tags = ["nominative_only", "cm13"]
 
 ["box of combat flashlights"]
 nominative = "коробка с армейскими фонариками"
@@ -672,6 +649,7 @@ gender = "female"
 
 ["signal flare packs crate (x4)"]
 nominative = "ящик для снаряжения (сигнальный огонь x 32)"
+tags = ["nominative_only", "cm13"]
 
 ["box of m89 signal flare packs"]
 nominative = "коробка сигнальных огней M89-S"
@@ -693,6 +671,7 @@ gender = "female"
 
 ["high-capacity power cells (x8)"]
 nominative = "ящик для оборудования (батарея большой ёмкости x 8)"
+tags = ["nominative_only", "cm13"]
 
 ["box of high-capacity power cells"]
 nominative = "коробка батарей большой ёмкости"
@@ -714,6 +693,7 @@ gender = "female"
 
 ["flare packs crate (x20)"]
 nominative = "ящик для снаряжения (осветительный огонь x 160)"
+tags = ["nominative_only", "cm13"]
 
 ["box of m94 marking flare packs"]
 nominative = "коробка осветительных огней M94"
@@ -751,9 +731,6 @@ instrumental = "ноутбуком управления стационарным
 prepositional = "ноутбуке управления стационарными системами"
 gender = "male"
 
-["spare pdt/l battle buddy kit"]
-nominative = "аварийный маячок морпеха «Напарник»"
-
 ["boots! pdt/l battle buddy kit"]
 nominative = "аварийный маячок морпеха «Напарник»"
 genitive = "аварийного маячка морпеха «Напарник»"
@@ -765,9 +742,11 @@ gender = "male"
 
 ["folding barricades (x3)"]
 nominative = "ящик для инженерного оборудования (баррикада x 3)"
+tags = ["nominative_only", "cm13"]
 
 ["mb-6 folding barricade (x3)"]
 nominative = "сложенная баррикада MB-6 x 3"
+tags = ["nominative_only", "cm13"]
 
 ["mb-6 folding barricade"]
 nominative = "сложенная баррикада MB-6"
@@ -798,33 +777,43 @@ gender = "male"
 
 ["electrical maintenance crate (toolbox x2, insulated x2, cell x2, hi-cap cell x2)"]
 nominative = "ящик для оборудования электрика (инструменты x 2, перчатки x 2, батарея x 2, батарея большой ёмкости x 2)"
+tags = ["nominative_only", "cm13"]
 
 ["mechanical maintenance crate (utility belt x3, hazard vest x3, welding helmet x2, hard hat x1)"]
 nominative = "ящик для оборудования (пояс для инструментов x 3, жилет x 3, сварочная маска x 2, каска x 1)"
+tags = ["nominative_only", "cm13"]
 
 ["oxygen internals crate (x3 masks, x3 tanks)"]
 nominative = "ящик для снабжения (противогаз x 3, воздушный баллон x 3)"
+tags = ["nominative_only", "cm13"]
 
 ["emergency equipment (x2 toolbox, x2 hazard vest, x5 oxygen tank, x5 masks)"]
 nominative = "ящик для снабжения (язик для инструментов x 2, сигнальный жилет x 2, кислородный баллон x 5, противогаз x 5)"
+tags = ["nominative_only", "cm13"]
 
 ["empty boxes (x10)"]
 nominative = "ящик для снабжения (пустая коробка x 10)"
+tags = ["nominative_only", "cm13"]
 
 ["assorted janitorial supplies"]
 nominative = "ящик для оборудования уборщика (обеспечение)"
+tags = ["nominative_only", "cm13"]
 
 [posters]
 nominative = "ящик для снабжения (плакат x 5)"
+tags = ["nominative_only", "cm13"]
 
 ["boxes of crayons"]
 nominative = "ящик для снабжения (цветные карандаши x 5)"
+tags = ["nominative_only", "cm13"]
 
 ["assorted presents"]
 nominative = "ящик для снабжения (подарок x 5)"
+tags = ["nominative_only", "cm13"]
 
 ["wrapping supplies"]
 nominative = "ящик для снабжения (обёрточная бумага x 4, кусачки x 2)"
+tags = ["nominative_only", "cm13"]
 
 ["welding helmet"]
 nominative = "сварочная маска"
@@ -846,6 +835,7 @@ gender = "female"
 
 ["inflatable barriers (x9 doors, x12 walls)"]
 nominative = "ящик для оборудования (надувные двери x 9, надувные стены x 12)"
+tags = ["nominative_only", "cm13"]
 
 ["inflatable barrier box"]
 nominative = "коробка надувных укрытий"
@@ -894,6 +884,7 @@ gender = "female"
 
 ["replacement lights (x42 tube, x21 bulb)"]
 nominative = "ящик для оборудования (трубчатая лампа x 42, лампочка x 21)"
+tags = ["nominative_only", "cm13"]
 
 ["box of replacement lights"]
 nominative = "коробка сменных ламп"
@@ -1005,18 +996,23 @@ gender = "female"
 
 ["assembly crate"]
 nominative = "ящик для оборудования орудийного техника (запал x 5, датчик x 5, таймер x 5)"
+tags = ["nominative_only", "cm13"]
 
 ["pyrotechnics crate"]
 nominative = "ящик для оборудования орудийного техника (мензурки x 15)"
+tags = ["nominative_only", "cm13"]
 
 ["phoron crate"]
 nominative = "ящик для исследовательского оборудования (Solid phoron x 2)"
+tags = ["nominative_only", "cm13"]
 
 ["precious metals crate"]
 nominative = "ящик для исследовательского оборудования (золото x 1, серебро x 1, уран x 1)"
+tags = ["nominative_only", "cm13"]
 
 ["plastic crate"]
 nominative = "ящик для исследовательского оборудования (пластик x 20)"
+tags = ["nominative_only", "cm13"]
 
 [plastic]
 nominative = "лист пластика"
@@ -1029,6 +1025,7 @@ gender = "male"
 
 ["xenomorph iff tag case (x7 tags)"]
 nominative = "ящик для исследовательского оборудования (метка ксеноморфа x 7)"
+tags = ["nominative_only", "cm13"]
 
 ["xenomorph tag case"]
 nominative = "кейс для меток ксеноморфов"
@@ -1050,6 +1047,7 @@ gender = "female"
 
 ["explosives production crate"]
 nominative = "ящик для оборудования орудийного техника (газовые баллоны x 10)"
+tags = ["nominative_only", "cm13"]
 
 ["hydrogen canister"]
 nominative = "газовый баллон (hydrogen)"
@@ -1206,15 +1204,19 @@ gender = "male"
 
 ["glass sheets (x50)"]
 nominative = "ящик для инженерного оборудования (стекло x 50)"
+tags = ["nominative_only", "cm13"]
 
 ["wooden planks (x50)"]
 nominative = "ящик для инженерного оборудования (деревянная доска x 50)"
+tags = ["nominative_only", "cm13"]
 
 ["metal sheets (x50)"]
 nominative = "ящик для инженерного оборудования (листы металла x 50)"
+tags = ["nominative_only", "cm13"]
 
 ["metal x10"]
 nominative = "листы металла x 10"
+tags = ["nominative_only", "cm13"]
 
 ["metal sheets"]
 nominative = "лист металла"
@@ -1236,9 +1238,11 @@ gender = "plural"
 
 ["plasteel sheets (x40)"]
 nominative = "ящик для инженерного оборудования (листы пластали x 40)"
+tags = ["nominative_only", "cm13"]
 
 ["plasteel x10"]
 nominative = "листы пластали x 10"
+tags = ["nominative_only", "cm13"]
 
 [plasteel]
 nominative = "лист пластали"
@@ -1287,18 +1291,23 @@ gender = "male"
 
 ["m402 mortar crate (mortar x1, mortar shell backpack x1)"]
 nominative = "ящик для вооружения (миномётный комплекс x 1, рюкзак ККМП для миномётных снарядов x 1)"
+tags = ["nominative_only", "cm13"]
 
 ["m402 mortar shells crate (x6 he)"]
 nominative = "ящик для ракет к M402 (разрывная x 6)"
+tags = ["nominative_only", "cm13"]
 
 ["m402 mortar shells crate (x6 incend)"]
 nominative = "ящик для ракет к M402 (зажигательная x 6)"
+tags = ["nominative_only", "cm13"]
 
 ["m402 mortar shells crate (x6 flare/camera)"]
 nominative = "ящик для ракет к M402 (камерная-осветительная x 6)"
+tags = ["nominative_only", "cm13"]
 
 ["m402 mortar shells crate (x6 frag)"]
 nominative = "ящик для ракет к M402 (осколочная x 6)"
+tags = ["nominative_only", "cm13"]
 
 ["mortar kit"]
 nominative = "ящик для переносного миномётного комплекса M402"
@@ -1320,12 +1329,15 @@ gender = "male"
 
 ["replacement re700 rotary cannon (x1)"]
 nominative = "ящик для вооружения (вращающаяся турель RE700 x 1)"
+tags = ["nominative_only", "cm13"]
 
 ["vehicle - motorbike (x1)"]
 nominative = "ящик для транспорта (мотоцикл x 1, руководство x 1)"
+tags = ["nominative_only", "cm13"]
 
 ["vehicle - motorbike stroller (x1)"]
 nominative = "ящик для транспорта (мотоциклетная коляска x 1)"
+tags = ["nominative_only", "cm13"]
 
 ["re700 rotary cannon"]
 nominative = "вращающаяся турель RE700"
@@ -1372,9 +1384,6 @@ instrumental = "стационарным пулемётом СА 571-C (неус
 prepositional = "стационарном пулемёте СА 571-C (неустановленный)"
 gender = "male"
 
-["sentry upgrade kit"]
-nominative = "инженерный набор улучшений"
-
 ["engineering upgrade kit"]
 nominative = "инженерный набор улучшений"
 genitive = "инженерного набора улучшений"
@@ -1383,9 +1392,6 @@ accusative = "инженерный набор улучшений"
 instrumental = "инженерным набором улучшений"
 prepositional = "инженерном наборе улучшений"
 gender = "male"
-
-["es-11 mobile fuel canister"]
-nominative = "баллон с топливом для сварки ES-11"
 
 ["es-11 fuel canister"]
 nominative = "баллон с топливом для сварки ES-11"
@@ -1396,9 +1402,6 @@ instrumental = "баллоном с топливом для сварки ES-11"
 prepositional = "баллоне с топливом для сварки ES-11"
 gender = "male"
 
-["synthetic reset key"]
-nominative = "ключ перезапуска синтетика «ВейЮ»"
-
 ["w-y synthetic reset key"]
 nominative = "ключ перезапуска синтетика «ВейЮ»"
 genitive = "ключа перезапуска синтетика «ВейЮ»"
@@ -1408,11 +1411,9 @@ instrumental = "ключом перезапуска синтетика «Вей�
 prepositional = "ключе перезапуска синтетика «ВейЮ»"
 gender = "male"
 
-["medical helmet optic"]
-nominative = "простой медицинский ИЛС"
-
 ["advanced medical optic (corpsman only)"]
 nominative = "простой  медицинский ИЛС (ТОЛЬКО ДЛЯ САНИТАРА)"
+tags = ["nominative_only", "cm13"]
 
 ["basic medical optic"]
 nominative = "простой медицинский ИЛС"
@@ -1513,9 +1514,6 @@ instrumental = "ИЛС «ЗдравКом»"
 prepositional = "ИЛС «ЗдравКом»"
 gender = "male"
 
-["combined medical and reagent scanner hud glasses"]
-nominative = "ИЛС «ЗдравКом» (модифицированные)"
-
 ["custom healthmate hud"]
 nominative = "ИЛС «ЗдравКом» (модифицированные)"
 genitive = "ИЛС «ЗдравКом» (модифицированные)"
@@ -1525,9 +1523,6 @@ instrumental = "ИЛС «ЗдравКом» (модифицированные)"
 prepositional = "ИЛС «ЗдравКом» (модифицированные)"
 gender = "male"
 
-["prescription combined medical and reagent scanner hud glasses"]
-nominative = "ИЛС «ЗдравКом» с диоптриями (модифицированные)"
-
 ["prescription custom healthmate hud"]
 nominative = "ИЛС «ЗдравКом» с диоптриями (модифицированные)"
 genitive = "ИЛС «ЗдравКом» с диоптриями (модифицированные)"
@@ -1536,9 +1531,6 @@ accusative = "ИЛС «ЗдравКом» с диоптриями (модифи�
 instrumental = "ИЛС «ЗдравКом» с диоптриями (модифицированные)"
 prepositional = "ИЛС «ЗдравКом» с диоптриями (модифицированные)"
 gender = "male"
-
-["prescription medical hud glasses"]
-nominative = "ИЛС «ЗдравКом» с диоптриями"
 
 ["prescription healthmate hud"]
 nominative = "ИЛС «ЗдравКом» с диоптриями"

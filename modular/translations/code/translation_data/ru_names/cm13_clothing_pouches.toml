@@ -9,6 +9,7 @@ gender = "female"
 
 ["flare pouch (full)"]
 nominative = "подсумок для осветительных огней (полный)"
+tags = ["nominative_only", "cm13"]
 
 ["flare pouch"]
 nominative = "подсумок для осветительных огней"
@@ -30,6 +31,7 @@ gender = "female"
 
 ["drop pouch crate (x4)"]
 nominative = "ящик для экипировки (наплечный подсумок x 4)"
+tags = ["nominative_only", "cm13"]
 
 ["drop pouch"]
 nominative = "наплечный подсумок"
@@ -78,6 +80,7 @@ gender = "male"
 
 ["bayonet sheath (full)"]
 nominative = "подсумок для ножей"
+tags = ["nominative_only", "cm13"]
 
 ["bayonet sheath"]
 nominative = "подсумок для ножей"
@@ -99,6 +102,7 @@ gender = "male"
 
 ["electronics pouch (full)"]
 nominative = "подсумок электрика (полный)"
+tags = ["nominative_only", "cm13"]
 
 ["electronics pouch"]
 nominative = "подсумок электрика"
@@ -111,9 +115,11 @@ gender = "male"
 
 ["tools pouch (full)"]
 nominative = "подсумок для инструментов (полный)"
+tags = ["nominative_only", "cm13"]
 
 ["tools pouch (empty)"]
 nominative = "подсумок для инструментов (пустой)"
+tags = ["nominative_only", "cm13"]
 
 ["tools pouch"]
 nominative = "подсумок для инструментов"
@@ -126,12 +132,15 @@ gender = "male"
 
 ["first-aid pouch (refillable autoinjectors)"]
 nominative = "медицинский подсумок (инжекторы)"
+tags = ["nominative_only", "cm13"]
 
 ["first-aid pouch (splints, gauze, ointment)"]
 nominative = "медицинский подсумок (шины, бинты, мазь)"
+tags = ["nominative_only", "cm13"]
 
 ["first-aid pouch (pill packets)"]
 nominative = "медицинский подсумок (таблетки)"
+tags = ["nominative_only", "cm13"]
 
 ["first-aid pouch"]
 nominative = "медицинский подсумок"
@@ -144,11 +153,9 @@ gender = "male"
 
 ["autoinjector pouch (full)"]
 nominative = "подсумок для инжекторов (полный)"
+tags = ["nominative_only", "cm13"]
 
 ["autoinjector pouch"]
-nominative = "подсумок для инжекторов"
-
-["auto-injector pouch"]
 nominative = "подсумок для инжекторов"
 genitive = "подсумка для инжекторов"
 dative = "подсумку для инжекторов"
@@ -156,9 +163,6 @@ accusative = "подсумок для инжекторов"
 instrumental = "подсумком для инжекторов"
 prepositional = "подсумке для инжекторов"
 gender = "male"
-
-["document pouch"]
-nominative = "сумка для документов"
 
 ["small document pouch"]
 nominative = "сумка для документов"
@@ -223,9 +227,6 @@ instrumental = "подсумком для медицины"
 prepositional = "подсумке для медицины"
 gender = "male"
 
-["sling pouch"]
-nominative = "ременная сумка"
-
 ["sling strap"]
 nominative = "ременная сумка"
 genitive = "ременной сумки"
@@ -264,9 +265,11 @@ gender = "male"
 
 ["large pouch 2x(pistol,magazine,general)"]
 nominative = "ящик для экипировки (большие подсумки x 6)"
+tags = ["nominative_only", "cm13"]
 
 ["medical pouches crate (1x firstaid, medical, syringe, medkit, autoinjector)"]
 nominative = "ящик для экипировки (медицинские подсумки x 5)"
+tags = ["nominative_only", "cm13"]
 
 ["large magazine pouch"]
 nominative = "большой подсумок для магазинов"
@@ -296,7 +299,8 @@ prepositional = "большом подсумке для пистолетных �
 gender = "male"
 
 ["machete pouch (full)"]
-nominative = "ножны H6B для мачете M2132"
+nominative = "ножны H6B для мачете M2132 (с мачете)"
+tags = ["nominative_only", "cm13"]
 
 ["h6b pattern m2132 machete scabbard"]
 nominative = "ножны H6B для мачете M2132"
@@ -306,9 +310,6 @@ accusative = "ножны H6B для мачете M2132"
 instrumental = "ножнами H6B для мачете M2132"
 prepositional = "ножнах H6B для мачете M2132"
 gender = "plural"
-
-["pistol pouch"]
-nominative = "кобура для пистолета"
 
 ["sidearm pouch"]
 nominative = "кобура для пистолета"
@@ -339,21 +340,27 @@ gender = "male"
 
 ["pressurized reagent canister pouch (bicaridine)"]
 nominative = "подсумок с капсулой для реагентов (Bicaridine)"
+tags = ["nominative_only", "cm13"]
 
 ["pressurized reagent canister pouch (kelotane)"]
 nominative = "подсумок с капсулой для реагентов (Kelotane)"
+tags = ["nominative_only", "cm13"]
 
 ["pressurized reagent canister pouch (revival mix - tricordrazine)"]
 nominative = "подсумок с капсулой для реагентов (Epinephrine, Inaprovaline, Tricordrazine)"
+tags = ["nominative_only", "cm13"]
 
 ["pressurized reagent canister pouch (revival mix - peridaxon)"]
 nominative = "подсумок с капсулой для реагентов (Epinephrine, Inaprovaline, Peridaxon)"
+tags = ["nominative_only", "cm13"]
 
 ["pressurized reagent canister pouch (tricordrazine)"]
 nominative = "подсумок с капсулой для реагентов (Tricordrazine)"
+tags = ["nominative_only", "cm13"]
 
 ["pressurized reagent canister pouch (empty)"]
 nominative = "подсумок с капсулой для реагентов (Пустой)"
+tags = ["nominative_only", "cm13"]
 
 ["pressurized reagent canister pouch"]
 nominative = "подсумок с капсулой для реагентов"
@@ -366,6 +373,7 @@ gender = "male"
 
 ["vial pouch (full)"]
 nominative = "подсумок для пробирок (полный)"
+tags = ["nominative_only", "cm13"]
 
 ["vial pouch"]
 nominative = "подсумок для пробирок"
@@ -376,9 +384,6 @@ instrumental = "подсумком для пробирок"
 prepositional = "подсумке для пробирок"
 gender = "male"
 
-["leg pouch "]
-nominative = "набедренный подсумок"
-
 ["leg pouch"]
 nominative = "набедренный подсумок"
 genitive = "набедренного подсумка"
@@ -387,9 +392,6 @@ accusative = "набедренный подсумок"
 instrumental = "набедренным подсумком"
 prepositional = "набедренном подсумке"
 gender = "male"
-
-["leg pouch (black)"]
-nominative = "чёрный набедренный подсумок"
 
 ["black leg pouch"]
 nominative = "чёрный набедренный подсумок"

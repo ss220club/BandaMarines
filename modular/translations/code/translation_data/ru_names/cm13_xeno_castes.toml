@@ -222,6 +222,7 @@ accusative = "Молодого "
 instrumental = "Молодым "
 prepositional = "Молодом "
 gender = "male"
+tags = ["cm13"]
 
 ["взрослый "]
 nominative = "Взрослый "
@@ -231,6 +232,7 @@ accusative = "Взрослого "
 instrumental = "Взрослым "
 prepositional = "Взрослом "
 gender = "male"
+tags = ["cm13"]
 
 ["кровавый "]
 nominative = "Кровавый "
@@ -240,6 +242,7 @@ accusative = "Кровавого "
 instrumental = "Кровавым "
 prepositional = "Кровавом "
 gender = "male"
+tags = ["cm13"]
 
 ["старший "]
 nominative = "Старший "
@@ -249,6 +252,7 @@ accusative = "Старшего "
 instrumental = "Старшим "
 prepositional = "Старшем "
 gender = "male"
+tags = ["cm13"]
 
 ["древний "]
 nominative = "Древний "
@@ -258,6 +262,7 @@ accusative = "Древнего "
 instrumental = "Древним "
 prepositional = "Древнем "
 gender = "male"
+tags = ["cm13"]
 
 ["прайм "]
 nominative = "Прайм "
@@ -267,6 +272,7 @@ accusative = "Прайм "
 instrumental = "Прайм "
 prepositional = "Прайм "
 gender = "male"
+tags = ["cm13"]
 
 ["юный "]
 nominative = "Юный "
@@ -276,6 +282,7 @@ accusative = "Юного "
 instrumental = "Юным "
 prepositional = "Юном "
 gender = "male"
+tags = ["cm13"]
 
 ["бывалый "]
 nominative = "Бывалый "
@@ -285,6 +292,7 @@ accusative = "Бывалого "
 instrumental = "Бывалым "
 prepositional = "Бывалом "
 gender = "male"
+tags = ["cm13"]
 
 ["губительный "]
 nominative = "Губительный "
@@ -294,6 +302,7 @@ accusative = "Губительного "
 instrumental = "Губительным "
 prepositional = "Губительном "
 gender = "male"
+tags = ["cm13"]
 
 ["королевский "]
 nominative = "Королевский "
@@ -303,6 +312,7 @@ accusative = "Королевского "
 instrumental = "Королевским "
 prepositional = "Королевском "
 gender = "male"
+tags = ["cm13"]
 
 ["адский "]
 nominative = "Адский "
@@ -312,6 +322,7 @@ accusative = "Адского "
 instrumental = "Адским "
 prepositional = "Адском "
 gender = "male"
+tags = ["cm13"]
 
 ["молодая "]
 nominative = "Молодая "
@@ -321,6 +332,7 @@ accusative = "Молодую "
 instrumental = "Молодой "
 prepositional = "Молодой "
 gender = "female"
+tags = ["cm13"]
 
 ["старшая "]
 nominative = "Старшая "
@@ -330,6 +342,7 @@ accusative = "Старшую "
 instrumental = "Старшей "
 prepositional = "Старшей "
 gender = "female"
+tags = ["cm13"]
 
 ["древняя "]
 nominative = "Древняя "
@@ -339,6 +352,7 @@ accusative = "Древнюю "
 instrumental = "Древней "
 prepositional = "Древней "
 gender = "female"
+tags = ["cm13"]
 
 ["неокрепшая "]
 nominative = "Неокрепшая "
@@ -348,3 +362,4 @@ accusative = "Неокрепшую "
 instrumental = "Неокрепшей "
 prepositional = "Неокрепшей "
 gender = "female"
+tags = ["cm13"]
