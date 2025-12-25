@@ -1656,6 +1656,10 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 		if(!is_mainship_level(SSshuttle.vehicle_elevator.z))
 			return
 
+		if(vehicle_elevator_safety_check(get_area(SSshuttle.vehicle_elevator)))
+			to_chat(usr, SPAN_WARNING("Система безопасности не может позволить вам оставить на лифте живые организмы или транспорт."))
+			return
+
 		if(SSshuttle.vehicle_elevator.z == lower_turf.z)
 			to_chat(usr, SPAN_WARNING("The elevator is already lowered!"))
 			return
