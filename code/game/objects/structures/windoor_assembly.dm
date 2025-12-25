@@ -64,7 +64,7 @@
 					return
 				var/obj/item/tool/weldingtool/welder = attacking_item
 				if(welder.remove_fuel(0,user))
-					user.visible_message("[user] dissassembles the windoor assembly.", "You start to dissassemble the windoor assembly.")
+					user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] dissassembles the windoor assembly.", "You start to dissassemble the windoor assembly.")
 					playsound(loc, 'sound/items/Welder2.ogg', 25, 1)
 
 					construction_busy = TRUE
@@ -90,7 +90,7 @@
 					to_chat(user, SPAN_WARNING("[src] must be secured on a proper surface!"))
 					return
 				playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
-				user.visible_message("[user] secures the windoor assembly to the floor.", "You start to secure the windoor assembly to the floor.")
+				user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] secures the windoor assembly to the floor.", "You start to secure the windoor assembly to the floor.")
 
 				construction_busy = TRUE
 				if(do_after(user, 40 * user.get_skill_duration_multiplier(SKILL_CONSTRUCTION), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
@@ -108,7 +108,7 @@
 			//Unwrenching an unsecure assembly un-anchors it. Step 4 undone
 			else if(HAS_TRAIT(attacking_item, TRAIT_TOOL_WRENCH) && anchored)
 				playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
-				user.visible_message("[user] unsecures the windoor assembly to the floor.", "You start to unsecure the windoor assembly to the floor.")
+				user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] unsecures the windoor assembly to the floor.", "You start to unsecure the windoor assembly to the floor.")
 
 				construction_busy = TRUE
 				if(do_after(user, 40 * user.get_skill_duration_multiplier(SKILL_CONSTRUCTION), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
@@ -144,7 +144,7 @@
 
 			//Adding cable to the assembly. Step 5 complete.
 			else if(istype(attacking_item, /obj/item/stack/cable_coil) && anchored)
-				user.visible_message("[user] wires the windoor assembly.", "You start to wire the windoor assembly.")
+				user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] wires the windoor assembly.", "You start to wire the windoor assembly.")
 
 				var/obj/item/stack/cable_coil/coil = attacking_item
 				construction_busy = TRUE
@@ -164,7 +164,7 @@
 			//Removing wire from the assembly. Step 5 undone.
 			if(HAS_TRAIT(attacking_item, TRAIT_TOOL_WIRECUTTERS) && !electronics)
 				playsound(loc, 'sound/items/Wirecutter.ogg', 25, 1)
-				user.visible_message("[user] cuts the wires from the airlock assembly.", "You start to cut the wires from airlock assembly.")
+				user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] cuts the wires from the airlock assembly.", "You start to cut the wires from airlock assembly.")
 
 				construction_busy = TRUE
 				if(do_after(user, 40 * user.get_skill_duration_multiplier(SKILL_CONSTRUCTION), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
@@ -187,7 +187,7 @@
 				if(board.fried)
 					return
 				playsound(loc, 'sound/items/Screwdriver.ogg', 25, 1)
-				user.visible_message("[user] installs the electronics into the airlock assembly.", "You start to install electronics into the airlock assembly.")
+				user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] installs the electronics into the airlock assembly.", "You start to install electronics into the airlock assembly.")
 
 				construction_busy = TRUE
 				if(do_after(user, 40 * user.get_skill_duration_multiplier(SKILL_CONSTRUCTION), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
@@ -207,7 +207,7 @@
 			//Screwdriver to remove airlock electronics. Step 6 undone.
 			else if(HAS_TRAIT(attacking_item, TRAIT_TOOL_SCREWDRIVER) && electronics)
 				playsound(loc, 'sound/items/Screwdriver.ogg', 25, 1)
-				user.visible_message("[user] removes the electronics from the airlock assembly.", "You start to uninstall electronics from the airlock assembly.")
+				user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] removes the electronics from the airlock assembly.", "You start to uninstall electronics from the airlock assembly.")
 
 				construction_busy = TRUE
 				if(do_after(user, 40 * user.get_skill_duration_multiplier(SKILL_CONSTRUCTION), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
@@ -231,7 +231,7 @@
 					return
 				close_browser(user, "windoor_access")
 				playsound(loc, 'sound/items/Crowbar.ogg', 25, 1)
-				user.visible_message("[user] pries the windoor into the frame.", "You start prying the windoor into the frame.")
+				user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] pries the windoor into the frame.", "You start prying the windoor into the frame.")
 
 				construction_busy = TRUE
 				if(do_after(user, 40 * user.get_skill_duration_multiplier(SKILL_CONSTRUCTION), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
