@@ -1,4 +1,0 @@
-author: "larentoun"
-delete-after: True
-changes:
-  - code_imp: "Изменено то, как хранятся переводы - теперь они только в lowercase."
