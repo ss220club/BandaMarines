@@ -313,10 +313,10 @@
 		throwing = FALSE
 		return
 
-	if (pounceAction.can_be_shield_blocked)
+	if(pounceAction.can_be_shield_blocked)
 		if(ishuman(M) && (M.dir in reverse_nearby_direction(dir)))
 			var/mob/living/carbon/human/H = M
-			if(H.check_shields(15, "the pounce")) //Human shield block.
+			if(H.check_shields("the pounce", get_dir(H, src), attack_type = SHIELD_ATTACK_POUNCE, custom_response = TRUE)) //Human shield block.
 				visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [H.declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
 					SPAN_XENODANGER("Мы врезаемся в [H]!"), null, 5) // SS220 EDIT ADDICTION
 				KnockDown(1)
@@ -327,14 +327,14 @@
 
 			if(isyautja(H))
 				if(H.check_shields(0, "the pounce", 1))
-					visible_message(SPAN_DANGER("[capitalize(H.declent_ru(NOMINATIVE))] блокирует прыжок [declent_ru(GENITIVE)] с помощью комби-палки!"), SPAN_XENODANGER("[capitalize(H.declent_ru(NOMINATIVE))] блокирует наш прыжок с помощью комби-палки!"), null, 5) // SS220 EDIT ADDICTION
+					visible_message(SPAN_DANGER("[H] blocks the pounce of [src] with the combistick!"), SPAN_XENODANGER("[H] blocks our pouncing form with the combistick!"), null, 5)
 					apply_effect(3, WEAKEN)
 					throwing = FALSE
 					playsound(H, "bonk", 75, FALSE)
 					return
 				else if(prob(75)) //Body slam the fuck out of xenos jumping at your front.
-					visible_message(SPAN_DANGER("[capitalize(H.declent_ru(NOMINATIVE))] сбивает [declent_ru(ACCUSATIVE)] с ног!"), // SS220 EDIT ADDICTION
-						SPAN_XENODANGER("[capitalize(H.declent_ru(NOMINATIVE))] сбивает нас с ног!"), null, 5) // SS220 EDIT ADDICTION
+					visible_message(SPAN_DANGER("[H] body slams [src]!"),
+						SPAN_XENODANGER("[H] body slams us!"), null, 5)
 					KnockDown(3)
 					Stun(3)
 					throwing = FALSE

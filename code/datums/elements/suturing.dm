@@ -125,6 +125,7 @@ YOU TO 200 DAMAGE. I ASK NOT FOR MY OWN MEDIC EGOSTROKING, BUT FOR THE GOOD OF T
 			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает [skill_msg] лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на [ru_name_target_limb]."), // SS220 EDIT ADDICTION
 				SPAN_HELPFUL("Вы начинаете [skill_msg] лечить [description_wounds == "wounds" ? "раны" : "ожоги"] на своей [ru_name_target_limb].")) // SS220 EDIT ADDICTION
 			target.custom_pain("Вы чувствуете, как затягиваются [description_wounds == "wounds" ? "раны" : "ожоги"] на [ru_name_target_limb]!") // SS220 EDIT ADDICTION
+
 	else
 		//possessive = "\the [target]'s" // SS220 EDIT ADDICTION
 		//possessive_their = "\the [target]'s" // SS220 EDIT ADDICTION
@@ -275,7 +276,7 @@ maximum_heal = total amount of each damage type that can be healed - IE TRUE/TRU
 					continue
 				if(W.damage_type == BURN)
 					W.salved |= WOUND_SUTURED
-
+	target_limb.status &= ~LIMB_THIRD_DEGREE_BURNS
 	target_limb.heal_damage(brute_to_heal, burn_to_heal)
 
 	if(!suture_brute && !suture_burn)

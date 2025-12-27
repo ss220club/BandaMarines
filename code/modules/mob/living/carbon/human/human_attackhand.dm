@@ -11,8 +11,8 @@
 
 	var/is_male = attacking_mob.gender == MALE ? "" : "а" // SS220 EDUT ADDICTION
 	var/ru_name = declent_ru(GENITIVE)
-	if((attacking_mob != src) && check_shields(0, attacking_mob.name))
-		visible_message(SPAN_DANGER("<B>[attacking_mob] попытался прикоснуться к [ru_name]!</B>"), null, null, 5)
+	if((attacking_mob != src) && check_shields(attacking_mob.name, get_dir(src, attacking_mob), custom_response = TRUE))
+		visible_message(SPAN_DANGER("<B>[capitalize(attacking_mob.declent_ru(NOMINATIVE))] не удаётся прикоснуться к [declent_ru(DATIVE)]!</B>"), null, null, 5)
 		return FALSE
 
 	switch(attacking_mob.a_intent)
@@ -315,6 +315,11 @@
 			postscript += " <b>(НАНОШИНА)</b>"
 		else if(org.status & LIMB_SPLINTED)
 			postscript += " <b>(ШИНА)</b>"
+		if(org.status & LIMB_THIRD_DEGREE_BURNS)
+			postscript += "<b>(ТЯЖЕЛЫЙ ОЖОГ)</b>"
+		if(org.status & LIMB_ESCHAR)
+			postscript += " <b>(СТРУП)</b>"
+
 
 		if(postscript)
 			limb_message += "\t [capitalize(org.declent_ru(NOMINATIVE))] [SPAN_WARNING("[english_list(status)].[postscript]")]"

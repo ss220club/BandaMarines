@@ -1,6 +1,4 @@
-# Colonial Marines items, attachments and stuff
-
-["Zippo lighter"]
+["zippo lighter"]
 nominative = "зажигалка «Zippo»"
 genitive = "зажигалки «Zippo»"
 dative = "зажигалке «Zippo»"
@@ -9,7 +7,7 @@ instrumental = "зажигалкой «Zippo»"
 prepositional = "зажигалке «Zippo»"
 gender = "female"
 
-["blue Zippo lighter"]
+["blue zippo lighter"]
 nominative = "синяя зажигалка «Zippo»"
 genitive = "синей зажигалки «Zippo»"
 dative = "синей зажигалке «Zippo»"
@@ -18,7 +16,7 @@ instrumental = "синей зажигалкой «Zippo»"
 prepositional = "синей зажигалке «Zippo»"
 gender = "female"
 
-["MRE spork"]
+["mre spork"]
 nominative = "одноразовая вилка"
 genitive = "одноразовой вилки"
 dative = "одноразовой вилке"
@@ -27,7 +25,7 @@ instrumental = "одноразовой вилкой"
 prepositional = "одноразовой вилке"
 gender = "female"
 
-["fortune"]
+[fortune]
 nominative = "предсказание"
 genitive = "предсказания"
 dative = "предсказанию"
@@ -72,7 +70,7 @@ instrumental = "зелёной краской для лица"
 prepositional = "зелёной краске для лица"
 gender = "female"
 
-["Holy Bible"]
+["holy bible"]
 nominative = "Библия"
 genitive = "Библии"
 dative = "Библии"
@@ -117,7 +115,7 @@ instrumental = "окурком"
 prepositional = "окурке"
 gender = "male"
 
-["Welding kit"]
+["welding kit"]
 nominative = "топливо для сварки"
 genitive = "топлива для сварки"
 dative = "топливу для сварки"
@@ -216,7 +214,7 @@ instrumental = "кассетой «Восход»"
 prepositional = "кассете «Восход»"
 gender = "female"
 
-["walkman"]
+[walkman]
 nominative = "кассетный плеер"
 genitive = "кассетного плеера"
 dative = "кассетному плееру"
@@ -225,7 +223,7 @@ instrumental = "кассетным плеером"
 prepositional = "кассетном плеере"
 gender = "male"
 
-["deck of UNO cards"]
+["deck of uno cards"]
 nominative = "игральные карты «UNO»"
 genitive = "игральных карт «UNO»"
 dative = "игральным картам «UNO»"
@@ -234,7 +232,7 @@ instrumental = "игральными картами «UNO»"
 prepositional = "игральных картах «UNO»"
 gender = "plural"
 
-["notepad"]
+[notepad]
 nominative = "блокнот"
 genitive = "блокнота"
 dative = "блокноту"
@@ -243,7 +241,7 @@ instrumental = "блокнотом"
 prepositional = "блокноте"
 gender = "male"
 
-["Colonial Space Grunts"]
+["colonial space grunts"]
 nominative = "настольная игра «Колониальные космогромилы»"
 genitive = "настольной игры «Колониальные космогромилы»"
 dative = "настольной игре «Колониальные космогромилы»"
@@ -252,7 +250,7 @@ instrumental = "настольной игрой «Колониальные ко�
 prepositional = "настольной игре «Колониальные космогромилы»"
 gender = "female"
 
-["d20"]
+[d20]
 nominative = "игральный кубик «Д20»"
 genitive = "игрального кубика «Д20»"
 dative = "игральному кубику «Д20»"
@@ -261,7 +259,7 @@ instrumental = "игральным кубиком «Д20»"
 prepositional = "игральном кубике «Д20»"
 gender = "male"
 
-["d6"]
+[d6]
 nominative = "игральный кубик «Д6»"
 genitive = "игрального кубика «Д6»"
 dative = "игральному кубику «Д6»"
@@ -270,7 +268,7 @@ instrumental = "игральным кубиком «Д6»"
 prepositional = "игральном кубике «Д6»"
 gender = "male"
 
-["WeyYu Gold Military Trading Card packet"]
+["weyyu gold military trading card packet"]
 nominative = "пачка сигарет «ВейЮ Gold» с набором военных карточек"
 genitive = "пачки сигарет «ВейЮ Gold» с набором военных карточек"
 dative = "пачке сигарет «ВейЮ Gold» с набором военных карточек"
@@ -279,7 +277,7 @@ instrumental = "пачкой сигарет «ВейЮ Gold» с набором 
 prepositional = "пачке сигарет «ВейЮ Gold» с набором военных карточек"
 gender = "female"
 
-["pack of Red WeyYu Military Trading Cards"]
+["pack of red weyyu military trading cards"]
 nominative = "набор красных военных карточек «ВейЮ»"
 genitive = "набора красных военных карточек «ВейЮ»"
 dative = "набору красных военных карточек «ВейЮ»"
@@ -288,7 +286,7 @@ instrumental = "набором красных военных карточек «
 prepositional = "наборе красных военных карточек «ВейЮ»"
 gender = "male"
 
-["Red WeyYu Military Trading Card"]
+["red weyyu military trading card"]
 nominative = "красная военная карточка «ВейЮ»"
 genitive = "красной военной карточки «ВейЮ»"
 dative = "красной военной карточке «ВейЮ»"
@@ -297,7 +295,7 @@ instrumental = "красной военной карточкой «ВейЮ»"
 prepositional = "красной военной карточке «ВейЮ»"
 gender = "female"
 
-["Green WeyYu Military Trading Card"]
+["green weyyu military trading card"]
 nominative = "зелёная военная карточка «ВейЮ»"
 genitive = "зелёной военной карточки «ВейЮ»"
 dative = "зелёной военной карточке «ВейЮ»"
@@ -306,7 +304,7 @@ instrumental = "зелёной военной карточкой «ВейЮ»"
 prepositional = "зелёной военной карточке «ВейЮ»"
 gender = "female"
 
-["Blue WeyYu Military Trading Card"]
+["blue weyyu military trading card"]
 nominative = "синяя военная карточка «ВейЮ»"
 genitive = "синей военной карточки «ВейЮ»"
 dative = "синей военной карточке «ВейЮ»"
@@ -315,7 +313,7 @@ instrumental = "синей военной карточкой «ВейЮ»"
 prepositional = "синей военной карточке «ВейЮ»"
 gender = "female"
 
-["Koorlander Gold packet"]
+["koorlander gold packet"]
 nominative = "пачка сигарет «Koorlander Gold»"
 genitive = "пачки сигарет «Koorlander Gold»"
 dative = "пачке сигарет «Koorlander Gold»"
@@ -324,7 +322,7 @@ instrumental = "пачкой сигарет «Koorlander Gold»"
 prepositional = "пачке сигарет «Koorlander Gold»"
 gender = "female"
 
-["Lucky Strikes Packet"]
+["lucky strikes packet"]
 nominative = "пачка сигарет «Lucky Strikes»"
 genitive = "пачки сигарет «Lucky Strikes»"
 dative = "пачке сигарет «Lucky Strikes»"
@@ -333,7 +331,7 @@ instrumental = "пачкой сигарет «Lucky Strikes»"
 prepositional = "пачке сигарет «Lucky Strikes»"
 gender = "female"
 
-["Lucky Strikes Mini Packet"]
+["lucky strikes mini packet"]
 nominative = "пачка сигарет «Lucky Strikes Mini»"
 genitive = "пачки сигарет «Lucky Strikes Mini»"
 dative = "пачке сигарет «Lucky Strikes Mini»"
@@ -342,7 +340,7 @@ instrumental = "пачкой сигарет «Lucky Strikes Mini»"
 prepositional = "пачке сигарет «Lucky Strikes Mini»"
 gender = "female"
 
-["Lady Fingers packet"]
+["lady fingers packet"]
 nominative = "пачка сигарет «Lady Fingers»"
 genitive = "пачки сигарет «Lady Fingers»"
 dative = "пачке сигарет «Lady Fingers»"
@@ -351,7 +349,7 @@ instrumental = "пачкой сигарет «Lady Fingers»"
 prepositional = "пачке сигарет «Lady Fingers»"
 gender = "female"
 
-["Turquoise American Spirit Packet"]
+["turquoise american spirit packet"]
 nominative = "пачка сигарет «Turquoise American Spirit»"
 genitive = "пачки сигарет «Turquoise American Spirit»"
 dative = "пачке сигарет «Turquoise American Spirit»"
@@ -360,7 +358,7 @@ instrumental = "пачкой сигарет «Turquoise American Spirit»"
 prepositional = "пачке сигарет «Turquoise American Spirit»"
 gender = "female"
 
-["Yellow American Spirit Packet"]
+["yellow american spirit packet"]
 nominative = "пачка сигарет «Yellow American Spirit»"
 genitive = "пачки сигарет «Yellow American Spirit»"
 dative = "пачке сигарет «Yellow American Spirit»"
@@ -369,7 +367,7 @@ instrumental = "пачкой сигарет «Yellow American Spirit»"
 prepositional = "пачке сигарет «Yellow American Spirit»"
 gender = "female"
 
-["Tarback tube"]
+["tarback tube"]
 nominative = "футляр для сигар «Tarback»"
 genitive = "футляра для сигар «Tarback»"
 dative = "футляру для сигар «Tarback»"
@@ -378,7 +376,7 @@ instrumental = "футляром для сигар «Tarback»"
 prepositional = "футляре для сигар «Tarback»"
 gender = "male"
 
-["Tarbacks case"]
+["tarbacks case"]
 nominative = "портсигар «Tarback»"
 genitive = "портсигара «Tarback»"
 dative = "портсигару «Tarback»"
@@ -387,7 +385,7 @@ instrumental = "портсигаром «Tarback»"
 prepositional = "портсигаре «Tarback»"
 gender = "male"
 
-["Tarback cigar"]
+["tarback cigar"]
 nominative = "сигара «Tarback»"
 genitive = "сигары «Tarback»"
 dative = "сигаре «Tarback»"
@@ -396,7 +394,7 @@ instrumental = "сигарой «Tarback»"
 prepositional = "сигаре «Tarback»"
 gender = "female"
 
-["Koorlander matchbook"]
+["koorlander matchbook"]
 nominative = "спичечный коробок «Koorlander»"
 genitive = "спичечного коробка «Koorlander»"
 dative = "спичечному коробку «Koorlander»"
@@ -414,7 +412,7 @@ instrumental = "коричневым спичечным коробком"
 prepositional = "коричневом спичечном коробке"
 gender = "male"
 
-["crayon"]
+[crayon]
 nominative = "мелок"
 genitive = "мелка"
 dative = "мелку"
@@ -423,7 +421,7 @@ instrumental = "мелком"
 prepositional = "мелке"
 gender = "male"
 
-["match"]
+[match]
 nominative = "спичка"
 genitive = "спички"
 dative = "спичке"
@@ -486,7 +484,7 @@ instrumental = "бронзовой пепельницей"
 prepositional = "бронзовой пепельнице"
 gender = "female"
 
-["basketball"]
+[basketball]
 nominative = "баскетбольный мяч"
 genitive = "баскетбольного мяча"
 dative = "баскетбольному мячу"
@@ -504,7 +502,7 @@ instrumental = "деревянной тростью"
 prepositional = "деревянной трости"
 gender = "female"
 
-["megaphone"]
+[megaphone]
 nominative = "мегафон"
 genitive = "мегафона"
 dative = "мегафону"
@@ -522,7 +520,7 @@ instrumental = "кофейной кружкой"
 prepositional = "кофейной кружке"
 gender = "female"
 
-["USCM coffee mug"]
+["uscm coffee mug"]
 nominative = "кофейная кружка ККМП"
 genitive = "кофейной кружки ККМП"
 dative = "кофейной кружке ККМП"
@@ -540,10 +538,10 @@ instrumental = "авиаторами"
 prepositional = "авиаторах"
 gender = "male"
 
-["USCM MRE crate(x2)"] # Unique Vendor Name
+["uscm mre crate(x2)"]
 nominative = "ящик для коробок с едой (MRE x 2)"
 
-["box of MREs"]
+["box of mres"]
 nominative = "коробка MRE"
 genitive = "коробки MRE"
 dative = "коробке MRE"
@@ -768,9 +766,6 @@ instrumental = "коробкой с фонариками"
 prepositional = "коробке с фонариками"
 gender = "female"
 
-["Engineer Kit"] # Unique Vendor Name
-nominative = "кейс для оснастки"
-
 ["engineer kit"]
 nominative = "кейс для оснастки"
 genitive = "кейса для оснастки"
@@ -780,13 +775,13 @@ instrumental = "кейсом для оснастки"
 prepositional = "кейсе для оснастки"
 gender = "male"
 
-["Ballistic goggles"] # Unique Vendor Name
+["ballistic goggles"]
 nominative = "баллистические очки"
 
-["M1A1 Ballistic goggles"] # Unique Vendor Name
+["m1a1 ballistic goggles"]
 nominative = "баллистические очки M1A1"
 
-["M1A1 marine ballistic goggles"]
+["m1a1 marine ballistic goggles"]
 nominative = "баллистические очки M1A1"
 genitive = "баллистических очков M1A1"
 dative = "баллистическим очкам M1A1"
@@ -795,7 +790,7 @@ instrumental = "баллистическими очками M1A1"
 prepositional = "баллистических очках M1A1"
 gender = "plural"
 
-["Prescription ballistic goggles"] # Unique Vendor Name
+["prescription ballistic goggles"]
 nominative = "баллистические очки с диоптриями"
 
 ["prescription marine ballistic goggles"]
@@ -807,9 +802,7 @@ instrumental = "баллистическими очками с диоптрия�
 prepositional = "баллистических очках с диоптриями"
 gender = "plural"
 
-# в описании потом добавить шутку, адаптирование:
-# официально - защитные очки с диоптриями, неофициально - Забудь о девушках
-["Marine RPG glasses"]
+["marine rpg glasses"]
 nominative = "очки ЗОД морпеха"
 genitive = "очков ЗОД морпеха"
 dative = "очкам ЗОД морпеха"
@@ -818,10 +811,10 @@ instrumental = "очками ЗОД морпеха"
 prepositional = "очках ЗОД морпеха"
 gender = "plural"
 
-["W-Y brand rechargeable mini-battery"] # Unique Vendor Name
+["w-y brand rechargeable mini-battery"]
 nominative = "аккумуляторная мини-батарея «ВейЮ»"
 
-["W-Y rechargeable mini-battery"]
+["w-y rechargeable mini-battery"]
 nominative = "аккумуляторная мини-батарея «ВейЮ»"
 genitive = "аккумуляторной мини-батареи «ВейЮ»"
 dative = "аккумуляторной мини-батарее «ВейЮ»"
@@ -830,7 +823,7 @@ instrumental = "аккумуляторной мини-батареей «Вей�
 prepositional = "аккумуляторной мини-батарее «ВейЮ»"
 gender = "female"
 
-["M10 Helmet Netting"] # Unique Vendor Name
+["m10 helmet netting"]
 nominative = "маскчехол для шлема"
 
 ["combat netting"]
@@ -842,10 +835,10 @@ instrumental = "маскчехлом для шлема"
 prepositional = "маскчехле для шлема"
 gender = "male"
 
-["M10 Helmet Rain Cover"] # Unique Vendor Name
+["m10 helmet rain cover"]
 nominative = "дождевик для шлема"
 
-["raincover"]
+[raincover]
 nominative = "дождевик для шлема"
 genitive = "дождевика для шлема"
 dative = "дождевику для шлема"
@@ -854,7 +847,7 @@ instrumental = "дождевиком для шлема"
 prepositional = "дождевике для шлема"
 gender = "male"
 
-["USCM flair"]
+["uscm flair"]
 nominative = "значок «Талант ККМП»"
 genitive = "значка «Талант ККМП»"
 dative = "значку «Талант ККМП»"
@@ -863,10 +856,10 @@ instrumental = "значком «Талант ККМП»"
 prepositional = "значке «Талант ККМП»"
 gender = "male"
 
-["Falling Falcons Shoudler Patch"] # Unique Vendor Name
+["falling falcons shoudler patch"]
 nominative = "шеврон ККМП «Пикирующий сокол»"
 
-["USCM Falling Falcons patch"]
+["uscm falling falcons patch"]
 nominative = "шеврон ККМП «Пикирующий сокол»"
 genitive = "шеврона ККМП «Пикирующий сокол»"
 dative = "шеврону ККМП «Пикирующий сокол»"
@@ -875,10 +868,10 @@ instrumental = "шевроном ККМП «Пикирующий сокол»"
 prepositional = "шевроне ККМП «Пикирующий сокол»"
 gender = "male"
 
-["Falling Falcons UA Shoudler Patch"] # Unique Vendor Name
+["falling falcons ua shoudler patch"]
 nominative = "шеврон ККМП СА «Пикирующий сокол»"
 
-["USCM Falling Falcons UA patch"]
+["uscm falling falcons ua patch"]
 nominative = "шеврон ККМП СА «Пикирующий сокол»"
 genitive = "шеврона ККМП СА «Пикирующий сокол»"
 dative = "шеврону ККМП СА «Пикирующий сокол»"
@@ -887,7 +880,7 @@ instrumental = "шевроном ККМП СА «Пикирующий сокол
 prepositional = "шевроне ККМП СА «Пикирующий сокол»"
 gender = "male"
 
-["USCM large chest patch"]
+["uscm large chest patch"]
 nominative = "большой шеврон ККМП"
 genitive = "большого шеврона ККМП"
 dative = "большому шеврону ККМП"
@@ -896,10 +889,10 @@ instrumental = "большим шевроном ККМП"
 prepositional = "большом шевроне ККМП"
 gender = "male"
 
-["USCM Shoulder Patch"] # Unique Vendor Name
+["uscm shoulder patch"]
 nominative = "шеврон ККМП"
 
-["USCM patch"]
+["uscm patch"]
 nominative = "шеврон ККМП"
 genitive = "шеврона ККМП"
 dative = "шеврону ККМП"
@@ -908,13 +901,13 @@ instrumental = "шевроном ККМП"
 prepositional = "шевроне ККМП"
 gender = "male"
 
-["United Americas Shoulder patch"] # Unique Vendor Name
+["united americas shoulder patch"]
 nominative = "шеврон Соединённых Америк"
 
-["United Americas Flag Shoulder patch"] # Unique Vendor Name
+["united americas flag shoulder patch"]
 nominative = "шеврон флага Соединённых Америк"
 
-["United Americas patch"]
+["united americas patch"]
 nominative = "шеврон Соединённых Америк"
 genitive = "шеврона Соединённых Америк"
 dative = "шеврону Соединённых Америк"
@@ -923,7 +916,7 @@ instrumental = "шевроном Соединённых Америк"
 prepositional = "шевроне Соединённых Америк"
 gender = "male"
 
-["Field Medic patch"]
+["field medic patch"]
 nominative = "шеврон полевого медика"
 genitive = "шеврона полевого медика"
 dative = "шеврону полевого медика"
@@ -932,7 +925,7 @@ instrumental = "шевроном полевого медика"
 prepositional = "шевроне полевого медика"
 gender = "male"
 
-["Attachable Dogtags"]
+["attachable dogtags"]
 nominative = "шнур для жетона"
 genitive = "шнура для жетона"
 dative = "шнуру для жетона"
@@ -949,8 +942,6 @@ accusative = "краску для всего тела"
 instrumental = "краской для всего тела"
 prepositional = "краске для всего тела"
 gender = "female"
-
-# MARK: medals
 
 ["bronze medal"]
 nominative = "бронзовая медаль"
@@ -1150,7 +1141,7 @@ instrumental = "смятый бумагой"
 prepositional = "смятый бумаге"
 gender = "female"
 
-["crumbled FSR ration"]
+["crumbled fsr ration"]
 nominative = "смятый рацион FSR"
 genitive = "смятый рациона FSR"
 dative = "смятый рациону FSR"
@@ -1159,7 +1150,7 @@ instrumental = "смятый рационом FSR"
 prepositional = "смятый рационе FSR"
 gender = "male"
 
-["crumbled W-Y ration"]
+["crumbled w-y ration"]
 nominative = "смятый рацион ВейЮ"
 genitive = "смятый рациона ВейЮ"
 dative = "смятый рациону ВейЮ"
@@ -1168,7 +1159,7 @@ instrumental = "смятый рационом ВейЮ"
 prepositional = "смятый рационе ВейЮ"
 gender = "male"
 
-["crumbled PMC CFR"]
+["crumbled pmc cfr"]
 nominative = "смятый рацион ЧВК CFR"
 genitive = "смятый рациона ЧВК CFR"
 dative = "смятый рациону ЧВК CFR"
@@ -1177,7 +1168,7 @@ instrumental = "смятый рационом ЧВК CFR"
 prepositional = "смятый рационе ЧВК CFR"
 gender = "male"
 
-["crumbled TWE ORP"]
+["crumbled twe orp"]
 nominative = "смятый рацион TWE ORP"
 genitive = "смятый рациона TWE ORP"
 dative = "смятый рациону TWE ORP"
@@ -1186,7 +1177,7 @@ instrumental = "смятый рационом TWE ORP"
 prepositional = "смятый рационе TWE ORP"
 gender = "male"
 
-["crumbled UPP IRP"]
+["crumbled upp irp"]
 nominative = "смятый ИРП UPP"
 genitive = "смятый ИРП UPP"
 dative = "смятый ИРП UPP"
@@ -1195,7 +1186,7 @@ instrumental = "смятый ИРП UPP"
 prepositional = "смятый ИРП UPP"
 gender = "male"
 
-["crumbled USCM MRE"]
+["crumbled uscm mre"]
 nominative = "смятый ИРП ККМП"
 genitive = "смятый ИРП ККМП"
 dative = "смятый ИРП ККМП"
@@ -1204,7 +1195,7 @@ instrumental = "смятый ИРП ККМП"
 prepositional = "смятый ИРП ККМП"
 gender = "male"
 
-["bucket"]
+[bucket]
 nominative = "ведро"
 genitive = "ведра"
 dative = "ведру"
@@ -1213,7 +1204,7 @@ instrumental = "ведром"
 prepositional = "ведре"
 gender = "neuter"
 
-["mop"]
+[mop]
 accusative = "швабру"
 dative = "швабре"
 genitive = "швабры"
@@ -1249,15 +1240,6 @@ prepositional = "воздушном баллоне"
 gender = "male"
 
 ["space cleaner"]
-nominative = "космочист"
-genitive = "космочиста"
-dative = "космочисту"
-accusative = "космочиста"
-instrumental = "космочистом"
-prepositional = "космочисте"
-gender = "male"
-
-["Space cleaner"]
 nominative = "космочист"
 genitive = "космочиста"
 dative = "космочисту"
@@ -1302,7 +1284,7 @@ instrumental = "коробкой цветных карандашей"
 prepositional = "коробке цветных карандашей"
 gender = "female"
 
-["box"]
+[box]
 nominative = "коробка"
 genitive = "коробки"
 dative = "коробке"
@@ -1320,7 +1302,7 @@ instrumental = "свёрнутым плакатом"
 prepositional = "свёрнутом плакате"
 gender = "male"
 
-["gift"]
+[gift]
 nominative = "подарок"
 genitive = "подарка"
 dative = "подарку"
@@ -1338,7 +1320,7 @@ instrumental = "обёрточной бумагой"
 prepositional = "обёрточной бумаге"
 gender = "female"
 
-["APPROVED rubber stamp"]
+["approved rubber stamp"]
 nominative = "печать «ОДОБРЕНО»"
 genitive = "печати «ОДОБРЕНО»"
 dative = "печати «ОДОБРЕНО»"
@@ -1347,7 +1329,7 @@ instrumental = "печатью «ОДОБРЕНО»"
 prepositional = "печати «ОДОБРЕНО»"
 gender = "female"
 
-["DENIED rubber stamp"]
+["denied rubber stamp"]
 nominative = "печать «ОТКАЗАНО»"
 genitive = "печати «ОТКАЗАНО»"
 dative = "печати «ОТКАЗАНО»"
@@ -1365,7 +1347,7 @@ instrumental = "печатью квартирмейстера"
 prepositional = "печати квартирмейстера"
 gender = "female"
 
-["screwdriver"]
+[screwdriver]
 nominative = "отвёртка"
 genitive = "отвёртки"
 dative = "отвёртке"

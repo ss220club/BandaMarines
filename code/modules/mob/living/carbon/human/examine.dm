@@ -221,7 +221,7 @@
 				damage += limb_surgeries
 
 			if(length(damage))
-				msg += SPAN_WARNING("У [t_theirs] [english_list(damage, final_comma_text = ",")] на [t_his] [o.declent_ru(PREPOSITIONAL)]!\n")
+				msg += SPAN_WARNING("У [t_theirs] [english_list(damage, final_comma_text = ",")] на [o.declent_ru(PREPOSITIONAL)]!\n")
 
 	if(holo_card_color)
 		// SS220 START EDIT ADDICTION
@@ -311,15 +311,15 @@
 					if(W.damage_type == BURN)
 						switch(W.salved & (WOUND_BANDAGED|WOUND_SUTURED))
 							if(WOUND_BANDAGED)
-								this_wound_desc = "обработанн[genderize_ru(W.declent_ru("gender"), "ый", "ая", "ое", "ыx")] [this_wound_desc]"
+								this_wound_desc = "Обработанн[genderize_ru(W.declent_ru("gender"), "ый", "ая", "ое", "ыx")] [this_wound_desc]"
 							if(WOUND_SUTURED, (WOUND_BANDAGED|WOUND_SUTURED)) //Grafting has priority.
-								this_wound_desc = "пересаженн[genderize_ru(W.declent_ru("gender"), "ый", "ая", "ое", "ыx")] [this_wound_desc]" //??????!
+								this_wound_desc = "Пересаженн[genderize_ru(W.declent_ru("gender"), "ый", "ая", "ое", "ыx")] [this_wound_desc]" //??????!
 					else
 						switch(W.bandaged & (WOUND_BANDAGED|WOUND_SUTURED))
 							if(WOUND_BANDAGED, (WOUND_BANDAGED|WOUND_SUTURED)) //Bandages go over the top.
-								this_wound_desc = "перевязанн[genderize_ru(W.declent_ru("gender"), "ый", "ая", "ое", "ыx")] [this_wound_desc]"
+								this_wound_desc = "Перевязанн[genderize_ru(W.declent_ru("gender"), "ый", "ая", "ое", "ыx")] [this_wound_desc]"
 							if(WOUND_SUTURED)
-								this_wound_desc = "зашит[genderize_ru(W.declent_ru("gender"), "ый", "ая", "ое", "ыx")] [this_wound_desc]"
+								this_wound_desc = "Зашит[genderize_ru(W.declent_ru("gender"), "ый", "ая", "ое", "ыx")] [this_wound_desc]"
 
 					if(wound_descriptors[this_wound_desc])
 						wound_descriptors[this_wound_desc] += W.amount

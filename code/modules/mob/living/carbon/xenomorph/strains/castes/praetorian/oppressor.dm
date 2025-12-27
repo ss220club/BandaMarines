@@ -112,21 +112,54 @@
 			break
 
 		var/blocked = FALSE
-		for(var/obj/structure/structure in temp)
-			if(structure.opacity || ((istype(structure, /obj/structure/barricade) || istype(structure, /obj/structure/girder) && structure.density || istype(structure, /obj/structure/machinery/door)) && structure.density))
-				blocked = TRUE
-				break
+		var/allow_one_more_step = FALSE
+		for(var/obj/structure in temp)
+			if(istype(structure, /obj/effect/particle_effect/smoke))
+				continue
+			if(!structure.density && !structure.opacity)
+				continue
+			if(istype(structure, /obj/structure/window/reinforced))
+				var/obj/structure/window/reinforced/pane_glass = structure
+				var/pane_facing = pane_glass.dir
+				if(pane_facing == turn(facing, 180))
+					blocked = TRUE
+				else if(pane_facing == facing)
+					allow_one_more_step = TRUE
+				continue
+			if(istype(structure, /obj/structure/surface/table))
+				var/obj/structure/surface/table/flip_table = structure
+				var/table_facing = flip_table.dir
+				if(flip_table.flipped)
+					if(table_facing == turn(facing, 180))
+						blocked = TRUE
+					else if(table_facing == facing)
+						allow_one_more_step = TRUE
+				continue
+			if(istype(structure, /obj/structure/barricade))
+				var/obj/structure/barricade/cade = structure
+				var/cade_facing = cade.dir
+				if(cade_facing == turn(facing, 180))
+					blocked = TRUE
+				else if(cade_facing == facing)
+					allow_one_more_step = TRUE
+				continue
+			if(structure.pass_flags.flags_can_pass_all & PASS_HIGH_OVER)
+				continue
+			blocked = TRUE
 		if(blocked)
 			break
 
 		turf = temp
 
-		if (turf in turflist)
+		if(turf in turflist)
 			break
 
 		turflist += turf
 		facing = get_dir(turf, atom)
 		telegraph_atom_list += new /obj/effect/xenomorph/xeno_telegraph/abduct_hook(turf, windup)
+
+		if(allow_one_more_step)
+			break
 
 	if(!length(turflist))
 		to_chat(abduct_user, SPAN_XENOWARNING("Нам не хватает места, чтобы развернуть хвост!"))
@@ -159,39 +192,39 @@
 	abduct_user.visible_message(SPAN_XENODANGER("[abduct_user] молниеносно разворачивает хвост и выпускает его в сторону [atom]!"), SPAN_XENODANGER("Мы молниеносно разворачиваем хвост и выпускаем его в сторону [atom]!")) // SS220 EDIT ADDICTION
 
 	var/list/targets = list()
-	for (var/turf/target_turf in turflist)
-		for (var/mob/living/carbon/target in target_turf)
+	for(var/turf/target_turf in turflist)
+		for(var/mob/living/carbon/target in target_turf)
 			if(!isxeno_human(target) || abduct_user.can_not_harm(target) || target.is_dead() || target.is_mob_incapacitated(TRUE) || target.mob_size >= MOB_SIZE_BIG)
 				continue
 
 			targets += target
-	if (LAZYLEN(targets) == 1)
+	if(LAZYLEN(targets) == 1)
 		abduct_user.balloon_alert(abduct_user, "slowed one target", text_color = "#51a16c")
-	else if (LAZYLEN(targets) == 2)
+	else if(LAZYLEN(targets) == 2)
 		abduct_user.balloon_alert(abduct_user, "rooted two targets", text_color = "#51a16c")
-	else if (LAZYLEN(targets) >= 3)
+	else if(LAZYLEN(targets) >= 3)
 		abduct_user.balloon_alert(abduct_user, "stunned [LAZYLEN(targets)] targets", text_color = "#51a16c")
 
 	apply_cooldown()
 
-	for (var/mob/living/carbon/target in targets)
-		abduct_user.visible_message(SPAN_XENODANGER("Сегментированный хвост [abduct_user] обвивается вокруг [target]!"), SPAN_XENODANGER("Наш хвост обвивается вокруг [target]!")) // SS220 EDIT ADDICTION
+	for(var/mob/living/carbon/target in targets)
+		abduct_user.visible_message(SPAN_XENODANGER("Сегментированный хвост [abduct_user] обвивается вокруг [target]!"), SPAN_XENODANGER("Наш хвост обвивается вокруг [target]!"))
 
 		target.apply_effect(0.2, WEAKEN)
 
-		if (LAZYLEN(targets) == 1)
+		if(LAZYLEN(targets) == 1)
 			new /datum/effects/xeno_slow(target, abduct_user, null, null, 2.5 SECONDS)
 			target.apply_effect(1, SLOW)
-		else if (LAZYLEN(targets) == 2)
+		else if(LAZYLEN(targets) == 2)
 			ADD_TRAIT(target, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Abduct"))
-			if (ishuman(target))
+			if(ishuman(target))
 				var/mob/living/carbon/human/target_human = target
 				target_human.update_xeno_hostile_hud()
 			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(unroot_human), target, TRAIT_SOURCE_ABILITY("Abduct")), get_xeno_stun_duration(target, 2.5 SECONDS))
 			to_chat(target, SPAN_XENOHIGHDANGER("[abduct_user] прижал вас к земле из-за чего вы обездвижены!")) // SS220 EDIT ADDICTION
 
 			target.set_effect(2, DAZE)
-		else if (LAZYLEN(targets) >= 3)
+		else if(LAZYLEN(targets) >= 3)
 			target.apply_effect(get_xeno_stun_duration(target, 1.3), WEAKEN)
 			to_chat(target, SPAN_XENOHIGHDANGER("Вы врезаетесь в других жертв [abduct_user]!")) // SS220 EDIT ADDICTION
 

@@ -111,8 +111,8 @@
 		return
 
 	var/datum/resin_construction/resing_construction = GLOB.resin_constructions_list[hivelord.selected_resin]
-	target_turf.visible_message(SPAN_XENONOTICE("Трава начинает дико пульсировать и принимать форму [resing_construction.construction_name]!"), null, 5) // SS220 EDIT ADDICTION
-	to_chat(owner, SPAN_XENONOTICE("Мы фокусируем нашу плазму на траву под нами и заставляем её принять форму [resing_construction.construction_name].")) // SS220 EDIT ADDICTION
+	target_turf.visible_message(SPAN_XENONOTICE("Трава начинает дико пульсировать и принимать форму [declent_ru_initial(resing_construction.construction_name, GENITIVE, resing_construction.construction_name)]!"), null, 5)
+	to_chat(owner, SPAN_XENONOTICE("Мы фокусируем нашу плазму на траву под нами и заставляем её принять форму [declent_ru_initial(resing_construction.construction_name, GENITIVE, resing_construction.construction_name)]."))
 	playsound(target_turf, "alien_resin_build", 25)
 	return TRUE
 

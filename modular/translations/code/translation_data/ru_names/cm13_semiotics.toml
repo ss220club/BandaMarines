@@ -1,6 +1,4 @@
-# Colonial Marines semiotics (signs, ikons, blocks in the wall)
-
-["NO SMOKING"]
+["no smoking"]
 nominative = "НЕ КУРИТЬ"
 genitive = "НЕ КУРИТЬ"
 dative = "НЕ КУРИТЬ"
@@ -36,7 +34,7 @@ instrumental = "«Общий санузел»"
 prepositional = "«Общий санузел»"
 gender = "neuter"
 
-["HVAC semiotic"]
+["hvac semiotic"]
 nominative = "«ОВиК»"
 genitive = "«ОВиК»"
 dative = "«ОВиК»"
@@ -72,7 +70,7 @@ instrumental = "«Лестница»"
 prepositional = "«Лестница»"
 gender = "neuter"
 
-["North semiotic"]
+["north semiotic"]
 nominative = "«Север»"
 genitive = "«Север»"
 dative = "«Север»"
@@ -81,7 +79,7 @@ instrumental = "«Север»"
 prepositional = "«Север»"
 gender = "neuter"
 
-["West semiotic"]
+["west semiotic"]
 nominative = "«Запад»"
 genitive = "«Запад»"
 dative = "«Запад»"
@@ -90,7 +88,7 @@ instrumental = "«Запад»"
 prepositional = "«Запад»"
 gender = "neuter"
 
-["East semiotic"]
+["east semiotic"]
 nominative = "«Восток»"
 genitive = "«Восток»"
 dative = "«Восток»"
@@ -99,7 +97,7 @@ instrumental = "«Восток»"
 prepositional = "«Восток»"
 gender = "neuter"
 
-["South semiotic"]
+["south semiotic"]
 nominative = "«Юг»"
 genitive = "«Юг»"
 dative = "«Юг»"
@@ -288,7 +286,7 @@ instrumental = "«Гидрологическая опасность»"
 prepositional = "«Гидрологическая опасность»"
 gender = "neuter"
 
-["Stairs"]
+[stairs]
 nominative = "«Лестница»"
 genitive = "«Лестница»"
 dative = "«Лестница»"
@@ -297,7 +295,7 @@ instrumental = "«Лестница»"
 prepositional = "«Лестница»"
 gender = "neuter"
 
-["Bathroom"]
+[bathroom]
 nominative = "«Санузел»"
 genitive = "«Санузел»"
 dative = "«Санузел»"
@@ -360,7 +358,7 @@ instrumental = "«Пожарная опасность»"
 prepositional = "«Пожарная опасность»"
 gender = "neuter"
 
-["Warning: Hazardous Environment"]
+["warning: hazardous environment"]
 nominative = "«Аварийная зона»"
 genitive = "«Аварийная зона»"
 dative = "«Аварийная зона»"

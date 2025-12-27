@@ -36,6 +36,12 @@
     "map_item_type": "/obj/item/map/kutjevo_map",
     "announce_text": "Получен автоматический сигнал бедствия из колонии Вейланд-Ютани - нефтеперерабатывающего комплекса Кутжево, известного своими ботаническими исследованиями, экспортом, обработкой и рафинированием сырья. Для расследования сложившейся ситуации был отправлен ###SHIPNAME###.",
     "liaison_briefing": "maps/map_briefings/cl_brief_kutjevo.html",
+    "co_briefing": {
+        "Hawks": "maps/map_briefings/commanding_officer/kutjevo/KUTJEVOcpo.html",
+        "Doves": "maps/map_briefings/commanding_officer/kutjevo/KUTJEVOhmm.html",
+        "Magpies": "maps/map_briefings/commanding_officer/kutjevo/KUTJEVOmodi.html",
+        "Unaligned": "maps/map_briefings/commanding_officer/kutjevo/KUTJEVOunaligned.html"
+    },
     "monkey_types": [
         "neaera",
         "stok"
