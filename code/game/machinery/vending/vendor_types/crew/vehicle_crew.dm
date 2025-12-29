@@ -156,7 +156,7 @@ GLOBAL_LIST_INIT(cm_vending_vehicle_crew_tank, list(
 	list("LTAA-AP Minigun", 0, /obj/effect/essentials_set/tank/gatling, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_REGULAR),
 
 	list("SECONDARY WEAPON", 0, null, null, null),
-	list("TOW Launcher", 0, /obj/effect/essentials_set/tank/tow, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_REGULAR), //BANDAMARINES EDIT - TANK SUPREMACY
+//	list("TOW Launcher", 0, /obj/effect/essentials_set/tank/tow, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_REGULAR), //BANDAMARINES EDIT - TANK SUPREMACY
 	list("M92T Grenade Launcher", 0, /obj/effect/essentials_set/tank/tankgl, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_REGULAR),
 	list("M56 Cupola", 0, /obj/effect/essentials_set/tank/m56cupola, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_REGULAR),
 	list("LZR-N Flamer Unit", 0, /obj/effect/essentials_set/tank/tankflamer, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_RECOMMENDED),
