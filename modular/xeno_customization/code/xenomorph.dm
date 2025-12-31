@@ -32,7 +32,7 @@
 	AddComponent(/datum/component/xeno_customization, to_apply)
 
 /mob/living/carbon/xenomorph/proc/apply_skin_from_vv(mob/user)
-	var/list/available_skins = GLOB.xeno_customizations[caste.caste_type]
+	var/list/available_skins = GLOB.xeno_customizations_by_caste[caste.caste_type]
 	if(!length(available_skins))
 		to_chat(user, SPAN_NOTICE("Извините, нет доступных кастомизаций!"))
 		return

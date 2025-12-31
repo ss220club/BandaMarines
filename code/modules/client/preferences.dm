@@ -541,6 +541,10 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 			dat += "<b>Show Queen Name:</b> <a href='byond://?_src_=prefs;preference=show_queen_name'><b>[show_queen_name? "Yes" : "No"]</b></a><br>"
 			dat += "<b>Default Xeno Night Vision Level:</b> <a href='byond://?_src_=prefs;preference=xeno_vision_level_pref;task=input'><b>[xeno_vision_level_pref]</b></a><br>"
 
+			// BANDAMARINES EDIT START
+			dat += "<a href='byond://?_src_=prefs;preference=xeno_customization_picker;task=open'>Кастомизация ксеноморфа</a><br>"
+			// BANDAMARINES EDIT END
+
 			var/tempnumber = rand(1, 999)
 			var/postfix_text = xeno_postfix ? ("-"+xeno_postfix) : ""
 			var/prefix_text = xeno_prefix ? xeno_prefix : "XX"
