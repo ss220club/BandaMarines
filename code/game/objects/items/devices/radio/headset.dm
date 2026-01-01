@@ -779,7 +779,7 @@
 	name = "marine alpha radio headset"
 	desc = "This is used by Alpha squad members. When worn, grants access to Squad Leader tracker. Click tracker with empty hand to open Squad Info window."
 	icon_state = "alpha_headset"
-	initial_keys = list(/obj/item/device/encryptionkey/public, /obj/item/device/encryptionkey/alpha) // SS220 TGUI CHAT ADDICTION
+	initial_keys = list(/obj/item/device/encryptionkey/almayer, /obj/item/device/encryptionkey/alpha) // SS220 TGUI CHAT ADDICTION
 	frequency = ALPHA_FREQ //default frequency is alpha squad channel, not PUB_FREQ
 
 /obj/item/device/radio/headset/almayer/marine/alpha/lead
@@ -824,7 +824,7 @@
 	name = "marine bravo radio headset"
 	desc = "This is used by Bravo squad members. When worn, grants access to Squad Leader tracker. Click tracker with empty hand to open Squad Info window."
 	icon_state = "bravo_headset"
-	initial_keys = list(/obj/item/device/encryptionkey/public, /obj/item/device/encryptionkey/bravo) // SS220 TGUI CHAT ADDICTION
+	initial_keys = list(/obj/item/device/encryptionkey/almayer, /obj/item/device/encryptionkey/bravo) // SS220 TGUI CHAT ADDICTION
 	frequency = BRAVO_FREQ
 
 /obj/item/device/radio/headset/almayer/marine/bravo/lead
@@ -869,7 +869,7 @@
 	name = "marine charlie radio headset"
 	desc = "This is used by Charlie squad members. When worn, grants access to Squad Leader tracker. Click tracker with empty hand to open Squad Info window."
 	icon_state = "charlie_headset"
-	initial_keys = list(/obj/item/device/encryptionkey/public, /obj/item/device/encryptionkey/charlie) // SS220 TGUI CHAT ADDICTION
+	initial_keys = list(/obj/item/device/encryptionkey/almayer, /obj/item/device/encryptionkey/charlie) // SS220 TGUI CHAT ADDICTION
 	frequency = CHARLIE_FREQ
 
 /obj/item/device/radio/headset/almayer/marine/charlie/lead
@@ -914,7 +914,7 @@
 	name = "marine delta radio headset"
 	desc = "This is used by Delta squad members. When worn, grants access to Squad Leader tracker. Click tracker with empty hand to open Squad Info window."
 	icon_state = "delta_headset"
-	initial_keys = list(/obj/item/device/encryptionkey/public, /obj/item/device/encryptionkey/delta) // SS220 TGUI CHAT ADDICTION
+	initial_keys = list(/obj/item/device/encryptionkey/almayer, /obj/item/device/encryptionkey/delta) // SS220 TGUI CHAT ADDICTION
 	frequency = DELTA_FREQ
 
 /obj/item/device/radio/headset/almayer/marine/delta/lead
@@ -959,7 +959,7 @@
 	name = "marine echo radio headset"
 	desc = "This is used by Echo squad members. When worn, grants access to Squad Leader tracker. Click tracker with empty hand to open Squad Info window."
 	icon_state = "echo_headset"
-	initial_keys = list(/obj/item/device/encryptionkey/public, /obj/item/device/encryptionkey/echo) // SS220 TGUI CHAT ADDICTION
+	initial_keys = list(/obj/item/device/encryptionkey/almayer, /obj/item/device/encryptionkey/echo) // SS220 TGUI CHAT ADDICTION
 	frequency = ECHO_FREQ
 
 /obj/item/device/radio/headset/almayer/marine/echo/lead
@@ -1005,7 +1005,7 @@
 	name = "marine foxtrot radio headset"
 	desc = "This is used by Foxtrot squad members. When worn, grants access to Squad Leader tracker. Click tracker with empty hand to open Squad Info window."
 	icon_state = "cryo_headset"
-	initial_keys = list(/obj/item/device/encryptionkey/public, /obj/item/device/encryptionkey/cryo) // SS220 TGUI CHAT ADDICTION
+	initial_keys = list(/obj/item/device/encryptionkey/almayer, /obj/item/device/encryptionkey/cryo) // SS220 TGUI CHAT ADDICTION
 	frequency = CRYO_FREQ
 
 /obj/item/device/radio/headset/almayer/marine/cryo/lead
@@ -1049,7 +1049,7 @@
 	name = "mortar crew radio headset"
 	desc = "This is used by the dust raider's bunker mortar crew to get feedback on how good the hits of that 80mm rain turned out. Comes with access to the engineering channel with :e, JTAC for coordinating with :j, Intel with :t, and request more shells supply with :u - this ain't Winchester Outpost!"
 	icon_state = "ce_headset"
-	initial_keys = list(/obj/item/device/encryptionkey/public, /obj/item/device/encryptionkey/mortar) // SS220 TGUI CHAT ADDICTION
+	initial_keys = list(/obj/item/device/encryptionkey/almayer, /obj/item/device/encryptionkey/mortar) // SS220 TGUI CHAT ADDICTION
 	volume = RADIO_VOLUME_RAISED
 
 //*************************************
