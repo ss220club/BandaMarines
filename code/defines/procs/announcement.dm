@@ -29,7 +29,8 @@
 
 
 //general marine announcement
-/proc/marine_announcement(message, title = COMMAND_ANNOUNCE, sound_to_play = sound('sound/misc/notice2.ogg'), faction_to_display = FACTION_MARINE, add_PMCs = FALSE, signature, logging = ARES_LOG_MAIN, announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY]) // BANDAMARINES EDIT - ORIGINAL: /proc/marine_announcement(message, title = COMMAND_ANNOUNCE, sound_to_play = sound('sound/misc/notice2.ogg'), faction_to_display = FACTION_MARINE, add_PMCs = FALSE, signature, logging = ARES_LOG_MAIN)
+/proc/marine_announcement(message, title = COMMAND_ANNOUNCE, sound_to_play = sound('sound/misc/notice2.ogg'), faction_to_display = FACTION_MARINE, add_PMCs = FALSE, signature, logging = ARES_LOG_MAIN, announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY], tts_component) // BANDAMARINES EDIT - ORIGINAL: /proc/marine_announcement(message, title = COMMAND_ANNOUNCE, sound_to_play = sound('sound/misc/notice2.ogg'), faction_to_display = FACTION_MARINE, add_PMCs = FALSE, signature, logging = ARES_LOG_MAIN)
+	var/tts_message //BANDAMARINES ADDITION
 	var/list/targets = GLOB.human_mob_list + GLOB.dead_mob_list
 	var/list/targets_to_garble = list()
 	var/list/coms_zs = SSradio.get_available_tcomm_zs(COMM_FREQ)
@@ -122,9 +123,10 @@
 				targets_to_garble += current_human
 
 	if(!isnull(signature))
+		tts_message = message  //BANDAMARINES ADDITION
 		message += "<br><br><i> Авторизация, <br> [signature]</i>"
 
-	announcement_helper(message, title, targets, sound_to_play, FALSE, targets_to_garble, FACTION_MARINE, announcer = announcer) // SS220 EDIT - TTS
+	announcement_helper(message, title, targets, sound_to_play, FALSE, targets_to_garble, FACTION_MARINE, announcer = announcer, tts_component = tts_component, tts_message = tts_message) // SS220 EDIT - TTS
 
 //AI announcement that uses talking into comms
 /proc/ai_announcement(message, sound_to_play = sound('sound/misc/interference.ogg'), logging = ARES_LOG_MAIN)
@@ -161,6 +163,7 @@
 //AI shipside announcement, that uses announcement mechanic instead of talking into comms
 //to ensure that all humans on ship hear it regardless of comms and power
 /proc/shipwide_ai_announcement(message, title = MAIN_AI_SYSTEM, sound_to_play = sound('sound/misc/interference.ogg'), signature, ares_logging = ARES_LOG_MAIN, quiet = FALSE, announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY]) // BANDAMARINES EDIT - ORIGINAL: /proc/shipwide_ai_announcement(message, title = MAIN_AI_SYSTEM, sound_to_play = sound('sound/misc/interference.ogg'), signature, ares_logging = ARES_LOG_MAIN, quiet = FALSE)
+	var/tts_message //BANDAMARINES ADDITION
 	var/list/targets = GLOB.human_mob_list + GLOB.dead_mob_list
 	for(var/mob/target as anything in targets)
 		if(isobserver(target))
@@ -170,6 +173,7 @@
 			targets.Remove(target)
 
 	if(!isnull(signature))
+		tts_message = message //BANDAMARINES ADDITION
 		message += "<br><br><i> Авторизация, <br> [signature]</i>"
 	switch(ares_logging)
 		if(ARES_LOG_MAIN)
@@ -177,30 +181,35 @@
 		if(ARES_LOG_SECURITY)
 			log_ares_security(title, message, signature)
 
-	announcement_helper(message, title, targets, sound_to_play, quiet, announcer = announcer) // SS220 EDIT - TTS
+	announcement_helper(message, title, targets, sound_to_play, quiet, announcer = announcer, tts_message = tts_message) // SS220 EDIT - TTS
 
 /proc/all_hands_on_deck(message, title = MAIN_AI_SYSTEM, sound_to_play = sound('sound/misc/sound_misc_boatswain.ogg'))
 	shipwide_ai_announcement(message, title, sound_to_play, null, ARES_LOG_MAIN, FALSE)
 
-/proc/announcement_helper(message, title, list/targets, sound_to_play, quiet, list/targets_to_garble, faction_to_garble, datum/announcer/announcer = GLOB.tts_announcers[TTS_DEFAULT_ANNOUNCER_KEY]) // SS220 EDIT - TTS)
+/proc/announcement_helper(message, title, list/targets, sound_to_play, quiet, list/targets_to_garble, faction_to_garble, datum/announcer/announcer = GLOB.tts_announcers[TTS_DEFAULT_ANNOUNCER_KEY], datum/component/tts_component/tts_component, tts_message) // SS220 EDIT - TTS)
 	if(!message || !title || !targets) //Shouldn't happen
 		return
-
+ //BANDAMARINES ADDITION start
+	if(!isnull(tts_component))
+		announcer.tts_seed = tts_component.tts_seed
+	else
+		announcer.tts_seed = /datum/tts_seed/silero/volibear
+ //BANDAMARINES ADDITION end
 	var/garbled_message
+	var/garbled_tts //BANDAMARINES ADDITION
 	var/garbled_count = length(targets_to_garble)
 	if(garbled_count)
 		garbled_message = get_garbled_announcement(message, faction_to_garble)
+		garbled_tts = get_garbled_announcement(tts_message, faction_to_garble) //BANDAMARINES ADDITION
 		log_garble("[garbled_count] received '[garbled_message]' for faction [faction_to_garble].")
 
 	for(var/mob/target in targets)
 		if(istype(target, /mob/new_player))
 			continue
 
-		var/tts_message = message // BANDAMARINES EDIT - Garbled message
-
 		if(target in targets_to_garble)
 			to_chat_spaced(target, html = "[SPAN_ANNOUNCEMENT_HEADER(title)]<br><br>[SPAN_ANNOUNCEMENT_BODY(garbled_message)]", type = MESSAGE_TYPE_RADIO)
-			tts_message = garbled_message // BANDAMARINES EDIT - Garbled message
+			tts_message = garbled_tts // BANDAMARINES EDIT - Garbled message
 		else
 			to_chat_spaced(target, html = "[SPAN_ANNOUNCEMENT_HEADER(title)]<br><br>[SPAN_ANNOUNCEMENT_BODY(message)]", type = MESSAGE_TYPE_RADIO)
 
