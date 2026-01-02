@@ -30,7 +30,7 @@
 
 //general marine announcement
 /proc/marine_announcement(message, title = COMMAND_ANNOUNCE, sound_to_play = sound('sound/misc/notice2.ogg'), faction_to_display = FACTION_MARINE, add_PMCs = FALSE, signature, logging = ARES_LOG_MAIN, announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY], tts_component) // BANDAMARINES EDIT - ORIGINAL: /proc/marine_announcement(message, title = COMMAND_ANNOUNCE, sound_to_play = sound('sound/misc/notice2.ogg'), faction_to_display = FACTION_MARINE, add_PMCs = FALSE, signature, logging = ARES_LOG_MAIN)
-	var/tts_message //BANDAMARINES ADDITION
+	var/tts_message = message //BANDAMARINES ADDITION
 	var/list/targets = GLOB.human_mob_list + GLOB.dead_mob_list
 	var/list/targets_to_garble = list()
 	var/list/coms_zs = SSradio.get_available_tcomm_zs(COMM_FREQ)
@@ -123,7 +123,6 @@
 				targets_to_garble += current_human
 
 	if(!isnull(signature))
-		tts_message = message  //BANDAMARINES ADDITION
 		message += "<br><br><i> Авторизация, <br> [signature]</i>"
 
 	announcement_helper(message, title, targets, sound_to_play, FALSE, targets_to_garble, FACTION_MARINE, announcer = announcer, tts_component = tts_component, tts_message = tts_message) // SS220 EDIT - TTS
@@ -163,7 +162,7 @@
 //AI shipside announcement, that uses announcement mechanic instead of talking into comms
 //to ensure that all humans on ship hear it regardless of comms and power
 /proc/shipwide_ai_announcement(message, title = MAIN_AI_SYSTEM, sound_to_play = sound('sound/misc/interference.ogg'), signature, ares_logging = ARES_LOG_MAIN, quiet = FALSE, announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY]) // BANDAMARINES EDIT - ORIGINAL: /proc/shipwide_ai_announcement(message, title = MAIN_AI_SYSTEM, sound_to_play = sound('sound/misc/interference.ogg'), signature, ares_logging = ARES_LOG_MAIN, quiet = FALSE)
-	var/tts_message //BANDAMARINES ADDITION
+	var/tts_message = message //BANDAMARINES ADDITION
 	var/list/targets = GLOB.human_mob_list + GLOB.dead_mob_list
 	for(var/mob/target as anything in targets)
 		if(isobserver(target))
@@ -173,7 +172,6 @@
 			targets.Remove(target)
 
 	if(!isnull(signature))
-		tts_message = message //BANDAMARINES ADDITION
 		message += "<br><br><i> Авторизация, <br> [signature]</i>"
 	switch(ares_logging)
 		if(ARES_LOG_MAIN)
