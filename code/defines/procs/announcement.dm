@@ -187,12 +187,12 @@
 /proc/announcement_helper(message, title, list/targets, sound_to_play, quiet, list/targets_to_garble, faction_to_garble, datum/announcer/announcer = GLOB.tts_announcers[TTS_DEFAULT_ANNOUNCER_KEY], datum/component/tts_component/tts_component, tts_message) // SS220 EDIT - TTS)
 	if(!message || !title || !targets) //Shouldn't happen
 		return
- //BANDAMARINES ADDITION start
+	//BANDAMARINES ADDITION start
 	if(!isnull(tts_component))
 		announcer = GLOB.tts_announcers[TTS_CUSTOM_ANNOUNCER_KEY]
 		announcer.tts_seed = tts_component.tts_seed
 
- //BANDAMARINES ADDITION end
+	//BANDAMARINES ADDITION end
 	var/garbled_message
 	var/garbled_tts //BANDAMARINES ADDITION
 	var/garbled_count = length(targets_to_garble)
