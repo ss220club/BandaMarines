@@ -16,7 +16,7 @@
 			if(!isobserver(X) && !istype(X)) //filter out any potential non-xenomorphs/observers mobs
 				targets.Remove(X)
 
-		announcement_helper(message, title, targets, sound(get_sfx("queen"),wait = 0,volume = 50), announcer = announcer, tts_message = message) // SS220 EDIT - TTS
+		announcement_helper(message, title, targets, sound(get_sfx("queen"),wait = 0,volume = 50), announcer = announcer) // SS220 EDIT - TTS
 	else
 		for(var/mob/M in targets)
 			if(isobserver(M))
@@ -25,7 +25,7 @@
 			if(!istype(X) || !X.ally_of_hivenumber(hivenumber)) //additionally filter out those of wrong hive
 				targets.Remove(X)
 
-		announcement_helper(message, title, targets, sound(get_sfx("queen"),wait = 0,volume = 50), announcer = announcer, tts_message = message) // SS220 EDIT - TTS
+		announcement_helper(message, title, targets, sound(get_sfx("queen"),wait = 0,volume = 50), announcer = announcer) // SS220 EDIT - TTS
 
 
 //general marine announcement
@@ -191,6 +191,8 @@
 	if(!isnull(tts_component))
 		announcer = GLOB.tts_announcers[TTS_CUSTOM_ANNOUNCER_KEY]
 		announcer.tts_seed = tts_component.tts_seed
+	if(isnull(tts_message))
+		tts_message = message
 
 	//BANDAMARINES ADDITION end
 	var/garbled_message
