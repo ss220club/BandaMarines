@@ -574,7 +574,7 @@
 		to_chat(user_xeno, SPAN_WARNING("We don't have personal allies."))
 		return
 
-	if(tgui_alert(user_xeno, "Вы уверены, что хотите отменить личные союзы?", "Отмена личных союзов", list("Да", "Нет"), 10 SECONDS) == "Нет") // SS220 EDIT ADDICTION
+	if(tgui_alert(user_xeno, "Вы уверены, что хотите отменить личные союзы?", "Отмена личных союзов", list("Да", "Нет"), 10 SECONDS) != "Да")
 		return
 
 	if(!length(hive.personal_allies))

@@ -1082,7 +1082,7 @@
 
 	if(display_ammo)
 		var/chambered = in_chamber ? TRUE : FALSE
-		to_chat(operator, SPAN_DANGER("ОСТАЛОСЬ [rounds][chambered ? "+1" : ""] / [rounds_max] ПАТРОНОВ")) // SS220 EDIT ADDICTION
+		to_chat(operator, SPAN_DANGER("ОСТАЛ[declension_ru(rounds, "СЯ", "ОСЬ", "ОСЬ")] [rounds][chambered ? "+1" : ""] / [rounds_max] ПАТРОН[declension_ru(rounds, "", "А", "ОВ")]."))
 
 /// Toggles the gun's firemode one down the list
 /obj/structure/machinery/m56d_hmg/proc/do_toggle_firemode(mob/user, new_firemode)

@@ -253,7 +253,7 @@
 	chat_color = "#5a2c2c"
 	radio_freq = SOF_FREQ
 	minimap_color = "#5a2c2c"
-	background_icon = "background_civillian"
+	background_icon = "background_civilian"
 
 	active = FALSE
 	roundstart = FALSE
@@ -465,7 +465,7 @@
 			if(squad_leader in targets_to_garble)
 				squad_leader.play_screen_text("<span class='langchat_notification' style=text-align:center valign='top'><u>[title_text]</u></span><br>[garbled_text]", /atom/movable/screen/text/screen_text/command_order, message_color) // SS220 EDIT: font
 			else
-				squad_leader.play_screen_text("<span class='langchat' style=font-size:16pt;text-align:center valign='top'><u>[title_text]</u></span><br>[text]", /atom/movable/screen/text/screen_text/command_order, message_color)
+				squad_leader.play_screen_text("<span class='langchat' style=font-size:12pt;text-align:center valign='top'><u>[title_text]</u></span><br>[text]", /atom/movable/screen/text/screen_text/command_order, message_color)
 		return
 
 	for(var/mob/living/carbon/human/marine in marines_list)
@@ -474,7 +474,7 @@
 			if(marine in targets_to_garble)
 				marine.play_screen_text("<span class='langchat_notification' style=text-align:center valign='top'><u>[title_text]</u></span><br>[garbled_text]", /atom/movable/screen/text/screen_text/command_order, message_color)
 			else
-				marine.play_screen_text("<span class='langchat' style=font-size:16pt;text-align:center valign='top'><u>[title_text]</u></span><br>[text]", /atom/movable/screen/text/screen_text/command_order, message_color) // SS220 EDIT: font
+				marine.play_screen_text("<span class='langchat' style=font-size:12pt;text-align:center valign='top'><u>[title_text]</u></span><br>[text]", /atom/movable/screen/text/screen_text/command_order, message_color) // SS220 EDIT: font
 
 /// Displays a message to the squad members in chat
 /datum/squad/proc/send_message(text="", transmitter=null, only_leader=FALSE, list/targets_to_garble=null, garbled_text="")

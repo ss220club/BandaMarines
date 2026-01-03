@@ -922,7 +922,7 @@ GLOBAL_LIST_INIT(airlock_wire_descriptions, flatten_numeric_alist(alist(
 					qdel(x)
 				break
 
-/obj/structure/machinery/door/airlock/handle_tail_stab(mob/living/carbon/xenomorph/xeno)
+/obj/structure/machinery/door/airlock/handle_tail_stab(mob/living/carbon/xenomorph/xeno, blunt_stab)
 	if(isElectrified() && arePowerSystemsOn())
 		var/datum/effect_system/spark_spread/sparks = new /datum/effect_system/spark_spread
 		sparks.set_up(5, 1, src)
@@ -931,8 +931,8 @@ GLOBAL_LIST_INIT(airlock_wire_descriptions, flatten_numeric_alist(alist(
 		xeno.Stun(1)
 
 	playsound(src, 'sound/effects/metalhit.ogg', 50, TRUE)
-	xeno.visible_message(SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] бьёт хвостом по [declent_ru(DATIVE)]!"), SPAN_XENOWARNING("Вы бьёте хвостом по [declent_ru(DATIVE)]!")) // SS220 EDIT ADDICTION
-	xeno.emote("tail")
+	xeno.visible_message(SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] бьёт хвостом по [declent_ru(DATIVE)]!"), SPAN_XENOWARNING("Вы бьёте хвостом по [declent_ru(DATIVE)]!"))
+	xeno.tail_stab_animation(src, blunt_stab)
 	var/damage = xeno.melee_damage_upper * TAILSTAB_AIRLOCK_DAMAGE_MULTIPLIER
 	take_damage(damage, xeno)
 	return TAILSTAB_COOLDOWN_NORMAL

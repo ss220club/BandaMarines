@@ -40,7 +40,7 @@
 	var/choice = tgui_input_list(user, "Какую кастомизацию добавить?", "Кастомизация Ксеноморфа", available_skins)
 	if(!choice)
 		return
-	var/datum/xeno_customization_option/choosen_customization = GLOB.xeno_customizations[caste.caste_type][choice]
+	var/datum/xeno_customization_option/choosen_customization = available_skins[choice]
 
 	apply_skin(user, choosen_customization, force = TRUE)
 
