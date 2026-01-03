@@ -22,3 +22,12 @@ accusative = "медицинскую сумку"
 instrumental = "медицинской сумкой"
 prepositional = "медицинской сумке"
 gender = "female"
+
+[boots]
+nominative = "ботинки"
+genitive = "ботинок"
+dative = "ботинкам"
+accusative = "ботинки"
+instrumental = "ботинками"
+prepositional = "ботинках"
+gender = "plural"
