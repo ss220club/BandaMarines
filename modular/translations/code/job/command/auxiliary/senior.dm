@@ -10,8 +10,6 @@
 	total_positions = 2	// сейчас нам нужно таких побольше, много людей требуют обучения.
 	spawn_positions = 2	// Если щас уже апрель 2025 и больше, то можно убирать эти 2 строки.
 
-///datum/job/command/senior/filter_job_option(mob/job_applicant)
-//	return job_options	// Там всеравно опшинс по всратому сделали. Передавали звания как должность...
 
 // Доп перевод: /datum/job/command/senior/on_config_load()
 // Доп перевод: /datum/job/command/senior/announce_entry_message(mob/living/carbon/human/H)
