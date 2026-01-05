@@ -1,5 +1,5 @@
 /// Assoc list: Caste Name - (Customization Name - Customization Datum)
-GLOBAL_LIST_INIT_TYPED(xeno_customizations_by_caste, /datum/xeno_customization_option, setup_all_xeno_customizations())
+GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 GLOBAL_LIST_EMPTY(xeno_customizations_by_key)
 
 /proc/setup_all_xeno_customizations()
