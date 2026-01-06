@@ -43,7 +43,6 @@
 	sound_effect = SOUND_EFFECT_ROBOT
 
 /datum/announcer/custom
-	tts_seed
 	sound_effect = SOUND_EFFECT_RADIO
 
 /// Беззвучный анонсер на случай, если не нужно проигрывать ттс
