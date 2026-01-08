@@ -41,7 +41,7 @@
 			to_chat(owner, SPAN_ALERTWARNING("Кастомизация '[option.name]' у '[option.caste]' была убрана у вас! Причина: [option.is_locked_with_reasons(owner.mob)]"))
 			continue
 		sanitized_list += key
-		xeno_customizations["[option.caste]"] += list(key = option)
+		xeno_customizations["[option.caste]"] += list(option.key = option)
 	xeno_customizations_string = jointext(sanitized_list, ",")
 	save_preferences()
 
@@ -111,13 +111,13 @@
 /datum/preferences/proc/apply_xeno_customizations_to_preview()
 	var/list/previous_customizations = preview_dummy_xeno.GetComponents(/datum/component/xeno_customization)
 	QDEL_LIST(previous_customizations)
-	for(var/datum/xeno_customization_option/option_by_caste as anything in selected_preview_customizations)
+	for(var/datum/xeno_customization_option/option_by_caste in selected_preview_customizations)
 		preview_dummy_xeno.apply_xeno_customization(owner.mob, option_by_caste, force = TRUE)
 
 /datum/preferences/proc/reset_xeno_customizations_for_preview()
 	selected_preview_customizations = list()
 	for(var/option_key as anything in xeno_customizations[selected_caste])
-		var/datum/xeno_customization_option/option_by_caste = xeno_customizations[selected_caste][option_key]
+		var/datum/xeno_customization_option/option_by_caste = GLOB.xeno_customizations_by_key[option_key]
 		selected_preview_customizations += option_by_caste
 
 /datum/preferences/proc/add_xeno_customization_for_preview(customization_key)
@@ -127,7 +127,8 @@
 		return
 	if(new_customization in selected_preview_customizations)
 		selected_preview_customizations -= new_customization
-		xeno_customizations[new_customization.caste] -= new_customization.key
+		if(xeno_customizations[new_customization.caste])
+			xeno_customizations[new_customization.caste] -= new_customization.key
 		save_and_sanitize_xeno_customization()
 		update_preview_icon()
 		return

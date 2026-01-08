@@ -1,5 +1,5 @@
 GLOBAL_LIST_EMPTY(xeno_customizations_by_key)
-/// Assoc list: Caste Name - (Customization Name - Customization Datum)
+/// Assoc list: Caste Name - (Customization Key - Customization Datum)
 GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 
 /proc/setup_all_xeno_customizations()
@@ -15,7 +15,7 @@ GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 		if(!select.key)
 			stack_trace("Xeno Customization [select.type] doesn't have a key!")
 			continue
-		data["[select.caste]"] += list("[select.name]" = select)
+		data["[select.caste]"] += list("[select.key]" = select)
 		if(GLOB.xeno_customizations_by_key["[select.key]"])
 			stack_trace("Xeno Customization [select.type] has a duplicate key!")
 			continue

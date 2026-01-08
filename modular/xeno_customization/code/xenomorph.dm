@@ -1,6 +1,9 @@
 #define VV_HK_ADD_XENO_CUSTOMIZATION "add_xeno_customization"
 #define VV_HK_REMOVE_XENO_CUSTOMIZATION "remove_xeno_customization"
 
+/mob/living/carbon/xenomorph
+	var/do_not_override_customizations = FALSE
+
 /mob/living/carbon/xenomorph/update_icons()
 	. = ..()
 	SEND_SIGNAL(src, COMSIG_XENO_UPDATE_ICONS, icon_state)
@@ -72,6 +75,19 @@
 		apply_xeno_customization_from_vv(usr)
 	if(href_list[VV_HK_REMOVE_XENO_CUSTOMIZATION] && check_rights(R_VAREDIT))
 		remove_skin_from_vv(usr)
+
+/mob/living/carbon/xenomorph/proc/apply_xeno_customization_from_prefs()
+	if(!client || !client.prefs || do_not_override_customizations)
+		return
+	for(var/datum/component/xeno_customization/previous_customizations in GetComponents(/datum/component/xeno_customization))
+		qdel(previous_customizations)
+	for(var/key in client.prefs.xeno_customizations[caste.caste_type])
+		var/datum/xeno_customization_option/option_to_apply = GLOB.xeno_customizations_by_key[key]
+		apply_xeno_customization(src, option_to_apply)
+
+/mob/living/carbon/xenomorph/Login()
+	. = ..()
+	apply_xeno_customization_from_prefs()
 
 #undef VV_HK_ADD_XENO_CUSTOMIZATION
 #undef VV_HK_REMOVE_XENO_CUSTOMIZATION

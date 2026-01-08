@@ -39,11 +39,11 @@
 	var/list/data = list()
 	data["selected_caste"] = holder.prefs.selected_caste
 	data["selected_customizations_for_caste"] = list()
-	for(var/datum/xeno_customization_option/option as anything in holder.prefs.selected_preview_customizations)
+	for(var/datum/xeno_customization_option/option in holder.prefs.selected_preview_customizations)
 		data["selected_customizations_for_caste"] += list(option.key)
 	data["available_customizations_for_caste"] = list()
 	for(var/option_key in GLOB.xeno_customizations_by_caste[holder.prefs.selected_caste])
-		var/datum/xeno_customization_option/option = GLOB.xeno_customizations_by_caste[holder.prefs.selected_caste][option_key]
+		var/datum/xeno_customization_option/option = GLOB.xeno_customizations_by_key[option_key]
 		var/list/option_data = list()
 		option_data["name"] = option.name
 		option_data["caste"] = option.caste
