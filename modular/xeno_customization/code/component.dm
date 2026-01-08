@@ -82,7 +82,7 @@
 		user.client.images += original_image
 
 /datum/component/xeno_customization/proc/remove_from_everyone_view(full_remove = FALSE)
-	for(var/mob/player in seeables)
+	for(var/mob/player as anything in seeables)
 		remove_from_player_view(player, full_remove)
 
 /datum/component/xeno_customization/proc/on_viewer_destroy(mob/user)

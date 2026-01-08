@@ -25,7 +25,7 @@ export const XenoCustomizationPicker = (props) => {
     available_customizations_for_caste,
   } = data;
   return (
-    <Window width={600} height={350} theme="hive_status">
+    <Window width={600} height={350}>
       <Window.Content>
         <Stack fill>
           <Stack.Item>
@@ -36,25 +36,23 @@ export const XenoCustomizationPicker = (props) => {
             />
           </Stack.Item>
           <Stack.Item>
-            {available_customizations_for_caste.map((customization, i) => (
-              <Button
-                key={i}
-                selected={
-                  selected_customizations_for_caste
-                    ? selected_customizations_for_caste.includes(
-                        customization.key,
-                      )
-                    : false
-                }
-                onClick={() =>
-                  act('add_to_preview', {
-                    new_customization: customization.key,
-                  })
-                }
-              >
-                {customization.name}
-              </Button>
-            ))}
+            {available_customizations_for_caste.length
+              ? available_customizations_for_caste.map((customization, i) => (
+                  <Button
+                    key={i}
+                    selected={selected_customizations_for_caste.includes(
+                      customization.key,
+                    )}
+                    onClick={() =>
+                      act('add_to_preview', {
+                        new_customization: customization.key,
+                      })
+                    }
+                  >
+                    {customization.name}
+                  </Button>
+                ))
+              : 'Кастомизаций нет'}
           </Stack.Item>
           <Stack.Item>
             <Button onClick={() => act('save')}>Save</Button>

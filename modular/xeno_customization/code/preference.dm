@@ -86,6 +86,7 @@
 	preview_front_xeno.vis_contents.Cut()
 	preview_front_xeno.vis_contents += preview_dummy_xeno
 	preview_front_xeno.icon_state = bg_state
+	owner.remove_from_screen(preview_front_xeno)
 	owner.add_to_screen(preview_front_xeno)
 
 	var/matrix/increased_button = new()
@@ -124,6 +125,7 @@
 		return
 	if(new_customization in selected_preview_customizations)
 		selected_preview_customizations -= new_customization
+		update_preview_icon()
 		return
 	// Add additional logic for checking slots
 	selected_preview_customizations += new_customization
