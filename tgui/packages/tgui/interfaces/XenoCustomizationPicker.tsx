@@ -1,5 +1,5 @@
 import { useBackend } from 'tgui/backend';
-import { ByondUi, Dropdown, Stack } from 'tgui/components';
+import { Dropdown, Stack } from 'tgui/components';
 import { Window } from 'tgui/layouts';
 
 type Data = {
@@ -11,23 +11,11 @@ type Data = {
 
 export const XenoCustomizationPicker = (props) => {
   const { act, data } = useBackend<Data>();
-  const { selected_caste, selected_customizations, assigned_map, castes } =
-    data;
+  const { selected_caste, selected_customizations, castes } = data;
   return (
     <Window width={600} height={350} theme="hive_status">
       <Window.Content>
         <Stack fill>
-          <Stack.Item grow={1} mt={1}>
-            <ByondUi
-              className="CameraPanel"
-              height="100%"
-              width="100%"
-              params={{
-                id: assigned_map,
-                type: 'map',
-              }}
-            />
-          </Stack.Item>
           <Stack.Item>
             <Dropdown
               options={castes}

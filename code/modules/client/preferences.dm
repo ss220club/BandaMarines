@@ -542,7 +542,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 			dat += "<b>Default Xeno Night Vision Level:</b> <a href='byond://?_src_=prefs;preference=xeno_vision_level_pref;task=input'><b>[xeno_vision_level_pref]</b></a><br>"
 
 			// BANDAMARINES EDIT START
-			dat += "<a href='byond://?_src_=prefs;preference=xeno_customization_picker;task=open'>Кастомизация ксеноморфа</a><br>"
+			dat += "<a href='byond://?_src_=prefs;preference=xeno_customization_picker;task=open'><b>Кастомизация ксеноморфа</b></a><br>"
 			// BANDAMARINES EDIT END
 
 			var/tempnumber = rand(1, 999)
