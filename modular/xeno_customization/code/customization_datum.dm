@@ -20,6 +20,7 @@ GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 			stack_trace("Xeno Customization [select.type] has a duplicate key!")
 			continue
 		GLOB.xeno_customizations_by_key["[select.key]"] = select
+	return data
 
 /datum/xeno_customization_option
 	var/name = "Call a coder!"

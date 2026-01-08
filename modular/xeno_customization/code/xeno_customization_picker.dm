@@ -1,7 +1,5 @@
 /datum/xeno_customization_picker
 	var/client/holder
-	/// Reference list for previewing
-	var/list/datum/xeno_customization_option/selected_preview_customizations = list()
 
 /datum/xeno_customization_picker/New(user)
 	. = ..()
@@ -14,7 +12,6 @@
 	else
 		var/mob/user_mob = user
 		holder = user_mob.client
-	selected_preview_customizations = holder.prefs.xeno_customizations
 	tgui_interact(holder.mob)
 
 /datum/xeno_customization_picker/ui_close(mob/user)
@@ -41,8 +38,16 @@
 
 /datum/xeno_customization_picker/ui_data(mob/user)
 	var/list/data = list()
-	data["selected_customizations"] = selected_preview_customizations[holder.prefs.selected_caste]
 	data["selected_caste"] = holder.prefs.selected_caste
+	for(var/datum/xeno_customization_option/option as anything in holder.prefs.selected_preview_customizations)
+		data["selected_customizations_for_caste"] += list(option.key)
+	for(var/option_key in GLOB.xeno_customizations_by_caste[holder.prefs.selected_caste])
+		var/datum/xeno_customization_option/option = GLOB.xeno_customizations_by_caste[holder.prefs.selected_caste][option_key]
+		var/list/option_data = list()
+		option_data["name"] = option.name
+		option_data["caste"] = option.caste
+		option_data["key"] = option.key
+		data["available_customizations_for_caste"] += list(option_data)
 	return data
 
 /datum/xeno_customization_picker/ui_state(mob/user)
@@ -55,11 +60,10 @@
 	switch(action)
 		if("save")
 			holder.prefs.save_and_sanitize_xeno_customization()
-		if("preview")
-			return
+		if("add_to_preview")
+			holder.prefs.add_xeno_customization_for_preview(params["new_customization"])
 		if("change_caste")
-			holder.prefs.selected_caste = params["new_caste"]
-			holder.prefs.update_preview_icon()
+			holder.prefs.change_preview_xeno(params["new_caste"])
 
 /mob/living/carbon/xenomorph/proc/previewfy()
 	GLOB.xeno_mob_list -= src

@@ -13,6 +13,9 @@
 	var/atom/movable/screen/rotate/alt/rotate_left_xeno
 	var/atom/movable/screen/rotate/rotate_right_xeno
 
+	/// Reference list for previewing
+	var/list/datum/xeno_customization_option/selected_preview_customizations = list()
+
 /datum/preferences/process_link(mob/user, list/href_list)
 	if(href_list["preference"] == "xeno_customization_visibility")
 		var/choice = tgui_input_list(user, "What is your lore preference?", "Xeno Customization Visibility", GLOB.xeno_customization_visibility_options)
@@ -65,6 +68,7 @@
 	if(preview_dummy_xeno?.caste_type != selected_caste)
 		QDEL_NULL(preview_dummy_xeno)
 	if(isnull(preview_dummy_xeno))
+		reset_xeno_customizations_for_preview()
 		switch(selected_caste)
 			if(XENO_CASTE_PREDALIEN)
 				preview_dummy_xeno = new /mob/living/carbon/xenomorph/predalien/tutorial(null, null, XENO_HIVE_TUTORIAL)
@@ -73,7 +77,7 @@
 				preview_dummy_xeno = new xeno(null, null, XENO_HIVE_TUTORIAL)
 		preview_dummy_xeno.previewfy()
 
-	// Apply modifications here
+	apply_xeno_customizations_to_preview()
 
 	if(isnull(preview_front_xeno))
 		preview_front_xeno = new()
@@ -101,3 +105,33 @@
 		rotate_right_xeno.transform = increased_button
 	rotate_right_xeno.assigned_atom = preview_dummy_xeno
 	owner.add_to_screen(rotate_right_xeno)
+
+/datum/preferences/proc/apply_xeno_customizations_to_preview()
+	var/list/previous_customizations = preview_dummy_xeno.GetComponents(/datum/component/xeno_customization)
+	QDEL_LIST(previous_customizations)
+	for(var/datum/xeno_customization_option/option_by_caste as anything in selected_preview_customizations)
+		preview_dummy_xeno.apply_skin(owner.mob, option_by_caste, force = TRUE)
+
+/datum/preferences/proc/reset_xeno_customizations_for_preview()
+	selected_preview_customizations = list()
+	for(var/datum/xeno_customization_option/option_by_caste as anything in xeno_customizations[selected_caste])
+		selected_preview_customizations += option_by_caste
+
+/datum/preferences/proc/add_xeno_customization_for_preview(customization_key)
+	var/datum/xeno_customization_option/new_customization = GLOB.xeno_customizations_by_key[customization_key]
+	if(isnull(new_customization))
+		to_chat(owner.mob, "Увы, нет такого ключа")
+		return
+	if(new_customization in selected_preview_customizations)
+		selected_preview_customizations -= new_customization
+		return
+	// Add additional logic for checking slots
+	selected_preview_customizations += new_customization
+	update_preview_icon()
+
+/datum/preferences/proc/change_preview_xeno(caste)
+	if(!(caste in ALL_XENO_CASTES))
+		to_chat(owner.mob, "Не существует такой касты")
+		return
+	selected_caste = caste
+	update_preview_icon()
