@@ -35,6 +35,10 @@
 	for(var/key in xeno_customization_list)
 		var/datum/xeno_customization_option/option = GLOB.xeno_customizations_by_key[key]
 		if(isnull(option))
+			to_chat(owner, SPAN_ALERTWARNING("Кастомизация с ключём '[key]' была убрана у вас! Она больше не существует!"))
+			continue
+		if(option.is_locked_with_reasons(owner.mob))
+			to_chat(owner, SPAN_ALERTWARNING("Кастомизация '[option.name]' у '[option.caste]' была убрана у вас! Причина: [option.is_locked_with_reasons(owner.mob)]"))
 			continue
 		sanitized_list += key
 		xeno_customizations["[option.caste]"] += list(key = option)
