@@ -33,9 +33,9 @@ GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 	var/donation_level
 	var/full_body_customization = FALSE
 
-/datum/xeno_customization_option/proc/is_locked(mob/user)
+/datum/xeno_customization_option/proc/is_locked_with_reasons(mob/user)
+	var/list/reasons = list()
 	// Do it later when SSCentral is active
 	if(donation_level)
-		to_chat(user, SPAN_WARNING("У вас не хватает уровня подписки!"))
-		return TRUE
-	return FALSE
+		reasons += "У вас не хватает уровня подписки! "
+	return reasons.Join()

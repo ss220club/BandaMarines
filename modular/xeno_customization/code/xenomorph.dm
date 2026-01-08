@@ -9,7 +9,7 @@
 	. = ..()
 	SEND_SIGNAL(src, COMSIG_ALTER_GHOST, ghost)
 
-/mob/living/carbon/xenomorph/proc/apply_skin(mob/user, datum/xeno_customization_option/to_apply, force)
+/mob/living/carbon/xenomorph/proc/apply_xeno_customization(mob/user, datum/xeno_customization_option/to_apply, force)
 	if(!istype(to_apply))
 		to_chat(user, SPAN_WARNING("Данная кастомизация не существует!"))
 		return
@@ -18,20 +18,22 @@
 	var/list/conflicting_names = list()
 	for(var/datum/component/xeno_customization/applied_customization in applied_customizations)
 		if(applied_customization.option.name == to_apply.name)
-			to_chat(user, SPAN_NOTICE("Эта кастомизация уже имеется!"))
+			to_chat(user, SPAN_WARNING("Кастомизация '[to_apply.name]' уже имеется!"))
 			return
 		if(to_apply.slot & applied_customization.option.slot)
 			conflicting_names += "[applied_customization.option.name]"
 	if(length(conflicting_names))
-		to_chat(user, SPAN_WARNING("У [to_apply.name] конфликт с: [english_list(conflicting_names)]"))
+		to_chat(user, SPAN_WARNING("Кастомизация '[to_apply.name]' конфликтует с: [english_list(conflicting_names)]"))
 		return
 
-	if(!force && to_apply.is_locked(user))
-		return // Message is handled in proc/is_locked()
+	if(!force && to_apply.is_locked_with_reasons(user))
+		to_chat(user, "Кастомизация недоступна по следующим причинам: [to_apply.is_locked_with_reasons()]")
+		return
 
+	. = TRUE
 	AddComponent(/datum/component/xeno_customization, to_apply)
 
-/mob/living/carbon/xenomorph/proc/apply_skin_from_vv(mob/user)
+/mob/living/carbon/xenomorph/proc/apply_xeno_customization_from_vv(mob/user)
 	var/list/available_skins = GLOB.xeno_customizations_by_caste[caste.caste_type]
 	if(!length(available_skins))
 		to_chat(user, SPAN_NOTICE("Извините, нет доступных кастомизаций!"))
@@ -42,7 +44,7 @@
 		return
 	var/datum/xeno_customization_option/choosen_customization = available_skins[choice]
 
-	apply_skin(user, choosen_customization, force = TRUE)
+	apply_xeno_customization(user, choosen_customization, force = TRUE)
 
 /mob/living/carbon/xenomorph/proc/remove_skin_from_vv(mob/user)
 	var/list/datum/component/xeno_customization/applied_customizations = GetComponents(/datum/component/xeno_customization)
@@ -67,7 +69,7 @@
 	if(!.)
 		return
 	if(href_list[VV_HK_ADD_XENO_CUSTOMIZATION] && check_rights(R_VAREDIT))
-		apply_skin_from_vv(usr)
+		apply_xeno_customization_from_vv(usr)
 	if(href_list[VV_HK_REMOVE_XENO_CUSTOMIZATION] && check_rights(R_VAREDIT))
 		remove_skin_from_vv(usr)
 

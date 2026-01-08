@@ -14,6 +14,7 @@ type XenoCustomization = {
   name: string;
   caste: string;
   key: string;
+  no_access_text: string;
 };
 
 export const XenoCustomizationPicker = (props) => {
@@ -48,14 +49,18 @@ export const XenoCustomizationPicker = (props) => {
                         new_customization: customization.key,
                       })
                     }
+                    tooltip={
+                      customization.no_access_text
+                        ? 'Доступно только превью. Причина: ' +
+                          customization.no_access_text
+                        : ''
+                    }
+                    color={customization.no_access_text ? 'red' : null}
                   >
                     {customization.name}
                   </Button>
                 ))
               : 'Кастомизаций нет'}
-          </Stack.Item>
-          <Stack.Item>
-            <Button onClick={() => act('save')}>Save</Button>
           </Stack.Item>
         </Stack>
       </Window.Content>

@@ -48,6 +48,7 @@
 		option_data["name"] = option.name
 		option_data["caste"] = option.caste
 		option_data["key"] = option.key
+		option_data["no_access_text"] = option.is_locked_with_reasons(user)
 		data["available_customizations_for_caste"] += list(option_data)
 	return data
 
@@ -59,9 +60,6 @@
 	if(.)
 		return
 	switch(action)
-		if("save")
-			// Todo - make it work
-			holder.prefs.save_and_sanitize_xeno_customization()
 		if("add_to_preview")
 			holder.prefs.add_xeno_customization_for_preview(params["new_customization"])
 		if("change_caste")
