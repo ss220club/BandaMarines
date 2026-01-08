@@ -84,6 +84,7 @@
 /datum/xeno_customization_picker/ui_static_data(mob/user)
 	var/list/data = list()
 	// get all customizations
+	data["castes"] = ALL_XENO_CASTES
 	return data
 
 /datum/xeno_customization_picker/ui_data(mob/user)
@@ -105,6 +106,9 @@
 			holder.prefs.save_and_sanitize_xeno_customization()
 		if("preview")
 			return
+		if("change_caste")
+			selected_caste = params["new_caste"]
+			update_preview_icon()
 
 /mob/living/carbon/xenomorph/proc/previewfy()
 	GLOB.xeno_mob_list -= src
