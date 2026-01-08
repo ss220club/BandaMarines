@@ -1,23 +1,7 @@
 import { useBackend } from 'tgui/backend';
 import { ByondUi } from 'tgui/components';
-import { Section, Stack } from 'tgui/components';
+import { Section } from 'tgui/components';
 import { Window } from 'tgui/layouts';
-
-const CharacterPreview = (props: {
-  readonly height: string;
-  readonly id: string;
-}) => {
-  return (
-    <ByondUi
-      width="220px"
-      height={props.height}
-      params={{
-        id: props.id,
-        type: 'map',
-      }}
-    />
-  );
-};
 
 type Data = {
   selected_caste: string;
@@ -31,13 +15,16 @@ export const XenoCustomizationPicker = (props) => {
   return (
     <Window width={600} height={350} theme="hive_status">
       <Window.Content>
-        <Stack fill>
-          <Stack.Item>
-            <Section fill title={`Каста: ${selected_caste}`}>
-              {<CharacterPreview id={assigned_map} height="100%" />}
-            </Section>
-          </Stack.Item>
-        </Stack>
+        <Section fill title={`Каста: ${selected_caste}`}>
+          <ByondUi
+            width="100%"
+            height="100%"
+            params={{
+              id: assigned_map,
+              type: 'map',
+            }}
+          />
+        </Section>
       </Window.Content>
     </Window>
   );

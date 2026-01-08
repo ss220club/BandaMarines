@@ -15,8 +15,7 @@
 		SEND_SIGNAL(user, COMSIG_XENO_CUSTOMIZATION_VISIBILITY)
 	if(href_list["preference"] == "xeno_customization_picker")
 		if(!xeno_customization_picker)
-			xeno_customization_picker = new(src)
-		xeno_customization_picker.tgui_interact(user)
+			xeno_customization_picker = new(user.client)
 	. = ..()
 
 /datum/preferences/proc/read_and_sanitize_xeno_customization()
