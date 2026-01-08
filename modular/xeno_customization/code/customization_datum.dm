@@ -1,6 +1,6 @@
-/// Assoc list: Caste Name - (Customization Name - Customization Datum)
-// GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 GLOBAL_LIST_EMPTY(xeno_customizations_by_key)
+/// Assoc list: Caste Name - (Customization Name - Customization Datum)
+GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 
 /proc/setup_all_xeno_customizations()
 	var/list/data = list()
@@ -18,8 +18,8 @@ GLOBAL_LIST_EMPTY(xeno_customizations_by_key)
 		data["[select.caste]"] += list("[select.name]" = select)
 		if(GLOB.xeno_customizations_by_key["[select.key]"])
 			stack_trace("Xeno Customization [select.type] has a duplicate key!")
+			continue
 		GLOB.xeno_customizations_by_key["[select.key]"] = select
-	return data
 
 /datum/xeno_customization_option
 	var/name = "Call a coder!"
