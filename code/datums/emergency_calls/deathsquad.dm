@@ -7,7 +7,6 @@
 	mob_max = 8
 	mob_min = 5
 	arrival_message = "'!`2*%уб#*ить и*х$## вс!ех%. ни&*как(их^ с&ви*де%те##й.'"
-	objectives = "Для объекта введён протокол \"Белое пятно\". Убедитесь, что нет ни следов заражения, ни свидетелей."
 	probability = 0
 	shuttle_id = MOBILE_SHUTTLE_ID_ERT2
 	home_base = /datum/lazy_template/ert/weyland_station
@@ -17,6 +16,9 @@
 	max_heavies = 2
 	hostility = TRUE
 
+/datum/emergency_call/death/New()
+	. = ..()
+	objectives = "Для объекта введён протокол \"Белое пятно\". Убедитесь, что нет ни следов заражения, ни свидетелей."
 
 // DEATH SQUAD--------------------------------------------------------------------------------
 /datum/emergency_call/death/create_member(datum/mind/player, turf/override_spawn_loc)
