@@ -55,9 +55,6 @@ export const XenoCustomizationPicker = (props) => {
                   ? available_customizations_for_caste.map(
                       (customization, i) => (
                         <Stack key={i} fill>
-                          <Stack.Item grow={1}>
-                            <AddToPreviewButton customization={customization} />
-                          </Stack.Item>
                           <Stack.Item>
                             <TooltipXenoVisibility
                               customization={customization}
@@ -67,6 +64,9 @@ export const XenoCustomizationPicker = (props) => {
                             <TooltipXenoAvailable
                               customization={customization}
                             />
+                          </Stack.Item>
+                          <Stack.Item grow={1}>
+                            <AddToPreviewButton customization={customization} />
                           </Stack.Item>
                         </Stack>
                       ),
@@ -85,6 +85,21 @@ const AddToPreviewButton = (props) => {
   const { act, data } = useBackend<Data>();
   const { selected_customizations_for_caste, used_slots_for_caste } = data;
   const { customization } = props;
+  const legsUsed =
+    customization.slot_bitflag & 1 && used_slots_for_caste & 1 ? 'ноги ' : '';
+  const bodyUsed =
+    customization.slot_bitflag & 2 && used_slots_for_caste & 2
+      ? 'туловище '
+      : '';
+  const armsUsed =
+    customization.slot_bitflag & 4 && used_slots_for_caste & 4 ? 'руки ' : '';
+  const headUsed =
+    customization.slot_bitflag & 8 && used_slots_for_caste & 8 ? 'голова ' : '';
+  const tailUsed =
+    customization.slot_bitflag & 16 && used_slots_for_caste & 16
+      ? 'хвост '
+      : '';
+  const allBodyPieces = legsUsed + bodyUsed + armsUsed + headUsed + tailUsed;
   return (
     <Button
       fluid
@@ -97,6 +112,12 @@ const AddToPreviewButton = (props) => {
       disabled={
         customization.slot_bitflag & used_slots_for_caste &&
         !selected_customizations_for_caste.includes(customization.key)
+      }
+      tooltip={
+        customization.slot_bitflag & used_slots_for_caste &&
+        !selected_customizations_for_caste.includes(customization.key)
+          ? 'Уже заняты следующие слоты: ' + allBodyPieces
+          : null
       }
     >
       {customization.name}
@@ -126,18 +147,17 @@ const TooltipXenoAvailable = (props) => {
   const { act, data } = useBackend<Data>();
   const { customization } = props;
   const isAvailable = !customization.no_access_text;
-  return (
+  return !isAvailable ? (
     <Tooltip
       content={
         !isAvailable
           ? 'Доступно только превью. Причина: ' + customization.no_access_text
-          : ''
+          : null
       }
     >
-      <Icon
-        name={isAvailable ? 'unlock' : 'lock'}
-        color={isAvailable ? 'green' : 'red'}
-      />
+      <Icon name="lock" color="red" />
     </Tooltip>
+  ) : (
+    <Icon name="unlock" color="green" />
   );
 };

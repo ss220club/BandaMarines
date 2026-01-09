@@ -37,5 +37,5 @@ GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 	var/list/reasons = list()
 	// Do it later when SSCentral is active
 	if(donation_level)
-		reasons += "У вас не хватает уровня подписки! "
+		reasons += "Необходим уровень подписки: [donation_level]. "
 	return reasons.Join()
