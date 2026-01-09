@@ -79,3 +79,8 @@
 	status_flags = GODMODE|CANPUSH
 	vis_flags = null
 	plane = 91
+
+/mob/living/carbon/xenomorph/hellhound/previewfy()
+	. = ..()
+	GLOB.hellhound_list -= src
+	SSmob.living_misc_mobs -= src
