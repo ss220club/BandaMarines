@@ -1,0 +1,249 @@
+["rank pins"]
+nominative = "погоны"
+genitive = "погон"
+dative = "погонам"
+accusative = "погоны"
+instrumental = "погонами"
+prepositional = "погонах"
+gender = "plural"
+
+["rank boards"]
+nominative = "погоны"
+genitive = "погон"
+dative = "погонам"
+accusative = "погоны"
+instrumental = "погонами"
+prepositional = "погонах"
+gender = "plural"
+
+[me1]
+nominative = "Ряд."
+tags = ["nominative_only", "cm13"]
+
+[me2]
+nominative = "Ряд. 1 класса"
+tags = ["nominative_only", "cm13"]
+
+[me3]
+nominative = "Мл.к-л"
+tags = ["nominative_only", "cm13"]
+
+[me4]
+nominative = "К-л"
+tags = ["nominative_only", "cm13"]
+
+[me5]
+nominative = "С-т"
+tags = ["nominative_only", "cm13"]
+
+[me6]
+nominative = "Ш/с-т"
+tags = ["nominative_only", "cm13"]
+
+[me7]
+nominative = "К/с-т"
+tags = ["nominative_only", "cm13"]
+
+[me8]
+nominative = "М/с-т"
+tags = ["nominative_only", "cm13"]
+
+[me8e]
+nominative = "П/с-т"
+tags = ["nominative_only", "cm13"]
+
+[me9]
+nominative = "Ст.К/с-т"
+tags = ["nominative_only", "cm13"]
+
+[me9e]
+nominative = "С-м"
+tags = ["nominative_only", "cm13"]
+
+[me9c]
+nominative = "С-м КМ"
+tags = ["nominative_only", "cm13"]
+
+[mo1]
+nominative = "В/Л-т"
+tags = ["nominative_only", "cm13"]
+
+[mo2]
+nominative = "П/л-т"
+tags = ["nominative_only", "cm13"]
+
+[mo3]
+nominative = "К-н"
+tags = ["nominative_only", "cm13"]
+
+[mo4]
+nominative = "М-р"
+tags = ["nominative_only", "cm13"]
+
+[mo5]
+nominative = "Л-т/п-к"
+tags = ["nominative_only", "cm13"]
+
+[mo6]
+nominative = "П-к"
+tags = ["nominative_only", "cm13"]
+
+[mo6e]
+nominative = "Ст.п-к"
+tags = ["nominative_only", "cm13"]
+
+[mo6c]
+nominative = "Див.п-к"
+tags = ["nominative_only", "cm13"]
+
+[mo7]
+nominative = "Бриг.ген."
+tags = ["nominative_only", "cm13"]
+
+[mo8]
+nominative = "Ген.м-р"
+tags = ["nominative_only", "cm13"]
+
+[mo9]
+nominative = "Ген.л-т"
+tags = ["nominative_only", "cm13"]
+
+[mo10]
+nominative = "Ген."
+tags = ["nominative_only", "cm13"]
+
+[mo10c]
+nominative = "Зам.к-т КМП"
+tags = ["nominative_only", "cm13"]
+
+[mo10s]
+nominative = "К-т КМП"
+tags = ["nominative_only", "cm13"]
+
+[syn_k9]
+nominative = "В/л-т, боевой санитар"
+tags = ["nominative_only", "cm13"]
+
+[ne1]
+nominative = "Мат.рек."
+tags = ["nominative_only", "cm13"]
+
+[ne2]
+nominative = "Мл.мат."
+tags = ["nominative_only", "cm13"]
+
+[ne3]
+nominative = "Мат."
+tags = ["nominative_only", "cm13"]
+
+[ne4]
+nominative = "П/оф-р 3 класса"
+tags = ["nominative_only", "cm13"]
+
+[ne5]
+nominative = "П/оф-р 2 класса"
+tags = ["nominative_only", "cm13"]
+
+[ne6]
+nominative = "П/оф-р 1 класса"
+tags = ["nominative_only", "cm13"]
+
+[ne7]
+nominative = "Ч-П/оф-р"
+tags = ["nominative_only", "cm13"]
+
+[ne8]
+nominative = "Ст.Ч-П/оф-р"
+tags = ["nominative_only", "cm13"]
+
+[ne8c]
+nominative = "Г/ст.Ч-П/оф-р"
+tags = ["nominative_only", "cm13"]
+
+[ne9]
+nominative = "М-р.Ч-П/оф-р"
+tags = ["nominative_only", "cm13"]
+
+[ne9c]
+nominative = "Г/м-р.Ч-П/оф-р"
+tags = ["nominative_only", "cm13"]
+
+[no1]
+nominative = "Э-н"
+tags = ["nominative_only", "cm13"]
+
+[no2]
+nominative = "Мл.л-т"
+tags = ["nominative_only", "cm13"]
+
+[no3]
+nominative = "Л-т"
+tags = ["nominative_only", "cm13"]
+
+[no4]
+nominative = "Л-т.кмдр."
+tags = ["nominative_only", "cm13"]
+
+[no5]
+nominative = "Кмдр."
+tags = ["nominative_only", "cm13"]
+
+[no6]
+nominative = "К-н"
+tags = ["nominative_only", "cm13"]
+
+[no6e]
+nominative = "Км-р"
+tags = ["nominative_only", "cm13"]
+
+[no6c]
+nominative = "Ст.Км-р"
+tags = ["nominative_only", "cm13"]
+
+[no7]
+nominative = "К-адм. мл.ранга"
+tags = ["nominative_only", "cm13"]
+
+[no8]
+nominative = "К-адм. ст.ранга"
+tags = ["nominative_only", "cm13"]
+
+[no9]
+nominative = "В-адм."
+tags = ["nominative_only", "cm13"]
+
+[no10]
+nominative = "Адм."
+tags = ["nominative_only", "cm13"]
+
+[no10c]
+nominative = "Нач.ВМО"
+tags = ["nominative_only", "cm13"]
+
+[pva]
+nominative = "Сов."
+tags = ["nominative_only", "cm13"]
+
+[pvi]
+nominative = "Ин-р"
+tags = ["nominative_only", "cm13"]
+
+[pvci]
+nominative = "Ин-р оф-р"
+tags = ["nominative_only", "cm13"]
+
+[pvdm]
+nominative = "М-л/нам."
+tags = ["nominative_only", "cm13"]
+
+[pvm]
+nominative = "М-л"
+tags = ["nominative_only", "cm13"]
+
+[pvsm]
+nominative = "С/м-л"
+tags = ["nominative_only", "cm13"]
+
+[pvcm]
+nominative = "Нач.м-л"
+tags = ["nominative_only", "cm13"]
