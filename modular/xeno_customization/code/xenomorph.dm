@@ -30,7 +30,7 @@
 		return
 
 	if(!force && to_apply.is_locked_with_reasons(user))
-		to_chat(user, "Кастомизация недоступна по следующим причинам: [to_apply.is_locked_with_reasons()]")
+		to_chat(user, "Кастомизация недоступна по следующим причинам: [to_apply.is_locked_with_reasons(user)]")
 		return
 
 	. = TRUE
@@ -49,7 +49,7 @@
 
 	apply_xeno_customization(user, choosen_customization, force = TRUE)
 
-/mob/living/carbon/xenomorph/proc/remove_skin_from_vv(mob/user)
+/mob/living/carbon/xenomorph/proc/remove_xeno_customization_from_vv(mob/user)
 	var/list/datum/component/xeno_customization/applied_customizations = GetComponents(/datum/component/xeno_customization)
 	if(!length(applied_customizations))
 		to_chat(user, SPAN_WARNING("Не найдены задейственные кастомизации."))
@@ -74,7 +74,7 @@
 	if(href_list[VV_HK_ADD_XENO_CUSTOMIZATION] && check_rights(R_VAREDIT))
 		apply_xeno_customization_from_vv(usr)
 	if(href_list[VV_HK_REMOVE_XENO_CUSTOMIZATION] && check_rights(R_VAREDIT))
-		remove_skin_from_vv(usr)
+		remove_xeno_customization_from_vv(usr)
 
 /mob/living/carbon/xenomorph/proc/apply_xeno_customization_from_prefs()
 	if(!client || !client.prefs || do_not_override_customizations)

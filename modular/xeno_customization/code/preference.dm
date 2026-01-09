@@ -30,20 +30,24 @@
 
 /datum/preferences/proc/read_and_sanitize_xeno_customization()
 	xeno_customizations = list()
+	var/bad_detected = FALSE
 	var/list/sanitized_list = list()
 	var/list/xeno_customization_list = splittext_char(xeno_customizations_string, ",")
 	for(var/key in xeno_customization_list)
 		var/datum/xeno_customization_option/option = GLOB.xeno_customizations_by_key[key]
 		if(isnull(option))
 			to_chat(owner, SPAN_ALERTWARNING("Кастомизация с ключём '[key]' была убрана у вас! Она больше не существует!"))
+			bad_detected = TRUE
 			continue
 		if(option.is_locked_with_reasons(owner.mob))
 			to_chat(owner, SPAN_ALERTWARNING("Кастомизация '[option.name]' у '[option.caste]' была убрана у вас! Причина: [option.is_locked_with_reasons(owner.mob)]"))
+			bad_detected = TRUE
 			continue
 		sanitized_list += key
 		xeno_customizations["[option.caste]"] += list(option.key = option)
 	xeno_customizations_string = jointext(sanitized_list, ",")
-	save_preferences()
+	if(bad_detected)
+		save_preferences()
 
 /// Is not updating Database values! Only for in-round customizations. Save Preferences button WILL save to DataBase.
 /datum/preferences/proc/save_and_sanitize_xeno_customization()
@@ -116,7 +120,7 @@
 
 /datum/preferences/proc/reset_xeno_customizations_for_preview()
 	selected_preview_customizations = list()
-	for(var/option_key as anything in xeno_customizations[selected_caste])
+	for(var/option_key in xeno_customizations[selected_caste])
 		var/datum/xeno_customization_option/option_by_caste = GLOB.xeno_customizations_by_key[option_key]
 		selected_preview_customizations += option_by_caste
 
