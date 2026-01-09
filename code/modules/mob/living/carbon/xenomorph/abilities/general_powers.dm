@@ -560,7 +560,7 @@
 			xeno.anchored = FALSE
 		post_windup_effects()
 
-	xeno.visible_message(SPAN_XENOWARNING("[xeno] [action_text][findtext(action_text, "e", -1) || findtext(action_text, "p", -1) ? "s" : "es"] в [A]!"), SPAN_XENOWARNING("Мы [action_text] в [A]!")) // SS220 EDIT ADDICTION
+	xeno.visible_message(SPAN_XENOWARNING("[xeno] [action_text][findtext(action_text, "e", -1) || findtext(action_text, "p", -1) ? "s" : "es"] в [target]!"), SPAN_XENOWARNING("Мы [action_text] в [target]!")) // SS220 EDIT ADDICTION
 
 	pre_pounce_effects()
 
