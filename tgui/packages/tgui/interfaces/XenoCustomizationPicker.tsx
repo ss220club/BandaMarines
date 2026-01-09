@@ -40,12 +40,12 @@ export const XenoCustomizationPicker = (props) => {
     available_customizations_for_caste,
     used_slots_for_caste,
   } = data;
-  const showAll = 999;
   const showLegs = 1;
   const showBody = 2;
   const showArms = 4;
   const showHead = 8;
   const showTail = 16;
+  const showAll = showLegs + showBody + showArms + showHead + showTail;
   const [toShowBit, setShowBit] = useState(showAll);
 
   const castesRu = castes.map((value) => CastesRu(value));
