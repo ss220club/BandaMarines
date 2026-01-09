@@ -78,8 +78,11 @@
 	if(!user.client)
 		return
 	user.client.images -= to_show
-	if(option.full_body_customization && !full_remove)
-		user.client.images += original_image
+	if(full_remove)
+		user.client.images -= original_image
+		return
+	if(option.full_body_customization)
+		user.client.images |= original_image
 
 /datum/component/xeno_customization/proc/remove_from_everyone_view(full_remove = FALSE)
 	for(var/mob/player as anything in seeables)
