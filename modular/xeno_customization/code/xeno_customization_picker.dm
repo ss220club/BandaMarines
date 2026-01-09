@@ -39,8 +39,10 @@
 	var/list/data = list()
 	data["selected_caste"] = holder.prefs.selected_caste
 	data["selected_customizations_for_caste"] = list()
+	data["used_slots_for_caste"] = null
 	for(var/datum/xeno_customization_option/option in holder.prefs.selected_preview_customizations)
 		data["selected_customizations_for_caste"] += list(option.key)
+		data["used_slots_for_caste"] |= option.slot
 	data["available_customizations_for_caste"] = list()
 	for(var/option_key in GLOB.xeno_customizations_by_caste[holder.prefs.selected_caste])
 		var/datum/xeno_customization_option/option = GLOB.xeno_customizations_by_key[option_key]
@@ -49,6 +51,8 @@
 		option_data["caste"] = option.caste
 		option_data["key"] = option.key
 		option_data["no_access_text"] = option.is_locked_with_reasons(user)
+		option_data["slot_bitflag"] = option.slot
+		option_data["customization_type"] = option.customization_type
 		data["available_customizations_for_caste"] += list(option_data)
 	return data
 
