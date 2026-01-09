@@ -33,13 +33,7 @@ type XenoCustomization = {
 
 export const XenoCustomizationPicker = (props) => {
   const { act, data } = useBackend<Data>();
-  const {
-    selected_caste,
-    selected_customizations_for_caste,
-    castes,
-    available_customizations_for_caste,
-    used_slots_for_caste,
-  } = data;
+  const { selected_caste, castes, available_customizations_for_caste } = data;
   const showLegs = 1;
   const showBody = 2;
   const showArms = 4;
@@ -177,21 +171,23 @@ const AddToPreviewButton = (props) => {
   const { act, data } = useBackend<Data>();
   const { selected_customizations_for_caste, used_slots_for_caste } = data;
   const { customization } = props;
-  const legsUsed =
-    customization.slot_bitflag & 1 && used_slots_for_caste & 1 ? 'ноги ' : '';
-  const bodyUsed =
-    customization.slot_bitflag & 2 && used_slots_for_caste & 2
-      ? 'туловище '
-      : '';
-  const armsUsed =
-    customization.slot_bitflag & 4 && used_slots_for_caste & 4 ? 'руки ' : '';
-  const headUsed =
-    customization.slot_bitflag & 8 && used_slots_for_caste & 8 ? 'голова ' : '';
-  const tailUsed =
-    customization.slot_bitflag & 16 && used_slots_for_caste & 16
-      ? 'хвост '
-      : '';
-  const allBodyPieces = legsUsed + bodyUsed + armsUsed + headUsed + tailUsed;
+
+  const slots = [
+    { bit: 1, name: 'ноги' },
+    { bit: 2, name: 'туловище' },
+    { bit: 4, name: 'руки' },
+    { bit: 8, name: 'голова' },
+    { bit: 16, name: 'хвост' },
+  ];
+  const conflictingSlots = slots
+    .filter(
+      (slot) =>
+        customization.slot_bitflag & slot.bit &&
+        used_slots_for_caste & slot.bit,
+    )
+    .map((slot) => slot.name);
+  const allBodyPieces = conflictingSlots.join(' ');
+
   return (
     <Button
       fluid
@@ -218,7 +214,6 @@ const AddToPreviewButton = (props) => {
 };
 
 const TooltipXenoVisibility = (props) => {
-  const { act, data } = useBackend<Data>();
   const { customization } = props;
   const isLoreFriendly =
     customization.customization_type === 'xeno_customization_lore_friendly';

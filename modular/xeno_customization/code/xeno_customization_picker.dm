@@ -39,7 +39,7 @@
 	var/list/data = list()
 	data["selected_caste"] = holder.prefs.selected_caste
 	data["selected_customizations_for_caste"] = list()
-	data["used_slots_for_caste"] = null
+	data["used_slots_for_caste"] = 0
 	for(var/datum/xeno_customization_option/option in holder.prefs.selected_preview_customizations)
 		data["selected_customizations_for_caste"] += list(option.key)
 		data["used_slots_for_caste"] |= option.slot
