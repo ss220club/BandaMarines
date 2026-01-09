@@ -11,6 +11,8 @@ import {
 } from 'tgui/components';
 import { Window } from 'tgui/layouts';
 
+import { CastesRu, ReverseCastesRu } from './BandaMarines/XenoCastes';
+
 type Data = {
   selected_caste: string;
   selected_customizations_for_caste: string[];
@@ -45,17 +47,13 @@ export const XenoCustomizationPicker = (props) => {
   const showHead = 8;
   const showTail = 16;
   const [toShowBit, setShowBit] = useState(showAll);
+
+  const castesRu = castes.map((value) => CastesRu(value));
+
   return (
-    <Window width={600} height={350}>
+    <Window width={500} height={350}>
       <Window.Content>
         <Stack fill>
-          <Stack.Item>
-            <Dropdown
-              options={castes}
-              selected={selected_caste}
-              onSelected={(value) => act('change_caste', { new_caste: value })}
-            />
-          </Stack.Item>
           <Stack.Item>
             <Section fill title="Слот" align="center">
               <Flex direction="column">
@@ -124,7 +122,23 @@ export const XenoCustomizationPicker = (props) => {
             </Section>
           </Stack.Item>
           <Stack.Item grow>
-            <Section fill title="Кастомизация">
+            <Section
+              fill
+              title="Кастомизация"
+              scrollable
+              buttons={
+                <Dropdown
+                  menuWidth="15rem"
+                  width="15rem"
+                  options={castesRu}
+                  selected={CastesRu(selected_caste)}
+                  displayText={CastesRu(selected_caste)}
+                  onSelected={(value) =>
+                    act('change_caste', { new_caste: ReverseCastesRu(value) })
+                  }
+                />
+              }
+            >
               <Flex direction="column">
                 {available_customizations_for_caste.length
                   ? available_customizations_for_caste
@@ -212,7 +226,7 @@ const TooltipXenoVisibility = (props) => {
     <Tooltip
       content={
         isLoreFriendly
-          ? 'Кастомизация будет видна (Lore Friendly)'
+          ? 'Кастомизация будет видна всем (Lore Friendly)'
           : 'Кастомизация не будет видна всем (Non-Lore Friendly)'
       }
     >
