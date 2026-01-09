@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useBackend } from 'tgui/backend';
 import {
   Button,
@@ -37,6 +38,13 @@ export const XenoCustomizationPicker = (props) => {
     available_customizations_for_caste,
     used_slots_for_caste,
   } = data;
+  const showAll = 999;
+  const showLegs = 1;
+  const showBody = 2;
+  const showArms = 4;
+  const showHead = 8;
+  const showTail = 16;
+  const [toShowBit, setShowBit] = useState(showAll);
   return (
     <Window width={600} height={350}>
       <Window.Content>
@@ -48,12 +56,83 @@ export const XenoCustomizationPicker = (props) => {
               onSelected={(value) => act('change_caste', { new_caste: value })}
             />
           </Stack.Item>
+          <Stack.Item>
+            <Section fill title="Слот" align="center">
+              <Flex direction="column">
+                <Button
+                  onClick={() => setShowBit(showAll)}
+                  selected={toShowBit === showAll}
+                >
+                  Все
+                </Button>
+                <Button
+                  onClick={() => setShowBit(showLegs)}
+                  disabled={
+                    available_customizations_for_caste.filter(
+                      (customization) => customization.slot_bitflag & showLegs,
+                    ).length === 0
+                  }
+                  selected={toShowBit === showLegs}
+                >
+                  Ноги
+                </Button>
+                <Button
+                  onClick={() => setShowBit(showBody)}
+                  disabled={
+                    available_customizations_for_caste.filter(
+                      (customization) => customization.slot_bitflag & showBody,
+                    ).length === 0
+                  }
+                  selected={toShowBit === showBody}
+                >
+                  Туловище
+                </Button>
+                <Button
+                  onClick={() => setShowBit(showArms)}
+                  disabled={
+                    available_customizations_for_caste.filter(
+                      (customization) => customization.slot_bitflag & showArms,
+                    ).length === 0
+                  }
+                  selected={toShowBit === showArms}
+                >
+                  Руки
+                </Button>
+                <Button
+                  onClick={() => setShowBit(showHead)}
+                  disabled={
+                    available_customizations_for_caste.filter(
+                      (customization) => customization.slot_bitflag & showHead,
+                    ).length === 0
+                  }
+                  selected={toShowBit === showHead}
+                >
+                  Голова
+                </Button>
+                <Button
+                  onClick={() => setShowBit(showTail)}
+                  disabled={
+                    available_customizations_for_caste.filter(
+                      (customization) => customization.slot_bitflag & showTail,
+                    ).length === 0
+                  }
+                  selected={toShowBit === showTail}
+                >
+                  Хвост
+                </Button>
+              </Flex>
+            </Section>
+          </Stack.Item>
           <Stack.Item grow>
-            <Section fill>
+            <Section fill title="Кастомизация">
               <Flex direction="column">
                 {available_customizations_for_caste.length
-                  ? available_customizations_for_caste.map(
-                      (customization, i) => (
+                  ? available_customizations_for_caste
+                      .filter(
+                        (customization) =>
+                          customization.slot_bitflag & toShowBit,
+                      )
+                      .map((customization, i) => (
                         <Stack key={i} fill>
                           <Stack.Item>
                             <TooltipXenoVisibility
@@ -69,8 +148,7 @@ export const XenoCustomizationPicker = (props) => {
                             <AddToPreviewButton customization={customization} />
                           </Stack.Item>
                         </Stack>
-                      ),
-                    )
+                      ))
                   : 'Кастомизаций нет'}
               </Flex>
             </Section>
