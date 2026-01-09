@@ -8,7 +8,7 @@
 	var/list/mob/seeables = list()
 	/// Holds xeno's icon for full body customization
 	var/icon/original_icon
-	/// Holds xeno's image for showing full body customization
+	/// Holds xeno's image for showing default icon for those who have full body customization disabled
 	var/image/original_image
 
 /datum/component/xeno_customization/Initialize(datum/xeno_customization_option/option)
@@ -21,6 +21,8 @@
 	if(option.full_body_customization)
 		original_icon = xeno.icon
 		original_image = image(xeno.icon, xeno)
+		original_image.layer = xeno.layer
+		original_image.plane = xeno.plane
 	update_customization_icons(xeno, xeno.icon_state)
 	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_LOGGED_IN, PROC_REF(on_new_player_login))
 	for(var/mob/player in GLOB.player_list)
@@ -118,6 +120,7 @@
 		xeno.icon = null
 		to_show.icon_state = icon_state
 		original_image.icon_state = icon_state
+		original_image.layer = xeno.layer
 		if(!(icon_state in icon_states(option.icon_path)))
 			xeno.icon = original_icon
 		return
