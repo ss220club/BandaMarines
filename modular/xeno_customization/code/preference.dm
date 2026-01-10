@@ -9,7 +9,7 @@
 	var/mob/living/carbon/xenomorph/preview_dummy_xeno
 	var/selected_caste = XENO_CASTE_RAVAGER
 	var/selected_strain
-	var/selected_position
+	var/selected_position = "Ходьба"
 	var/selected_dir = SOUTH
 
 	var/atom/movable/screen/preview/preview_front_xeno
@@ -134,7 +134,7 @@
 		preview_dummy_xeno.apply_xeno_customization(owner.mob, to_apply = option_by_caste, force = TRUE, override_viewers = list(owner.mob))
 
 /datum/preferences/proc/reset_xeno_customizations_for_preview()
-	selected_position = "Ходьба"
+	change_preview_xeno_positions(selected_position)
 	selected_strain = preview_dummy_xeno.strain?.name || "Normal"
 	selected_preview_customizations = list()
 	for(var/option_key in xeno_customizations[selected_caste])
