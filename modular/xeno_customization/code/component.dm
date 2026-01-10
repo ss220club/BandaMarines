@@ -38,11 +38,13 @@
 	RegisterSignal(parent, COMSIG_XENO_UPDATE_ICONS, PROC_REF(update_customization_icons))
 	RegisterSignal(parent, COMSIG_ALTER_GHOST, PROC_REF(on_ghost))
 	RegisterSignal(parent, COMSIG_ATOM_UPDATE_FILTERS, PROC_REF(on_update_filters))
+	RegisterSignal(parent, COMSIG_ATOM_GET_ORBIT_SIZE, PROC_REF(on_get_orbit_size))
 
 /datum/component/xeno_customization/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_XENO_UPDATE_ICONS)
 	UnregisterSignal(parent, COMSIG_ALTER_GHOST)
 	UnregisterSignal(parent, COMSIG_ATOM_UPDATE_FILTERS)
+	UnregisterSignal(parent, COMSIG_ATOM_GET_ORBIT_SIZE)
 
 /datum/component/xeno_customization/Destroy(force, silent)
 	remove_from_everyone_view(full_remove = TRUE)
@@ -67,6 +69,14 @@
 
 	to_show?.filters = owner.filters
 	original_image?.filters = owner.filters
+
+/datum/component/xeno_customization/proc/on_get_orbit_size(atom/owner, list/orbit_size)
+	SIGNAL_HANDLER
+
+	if(!option.full_body_customization)
+		return
+	var/icon/I = icon(original_icon, owner.icon_state, owner.dir)
+	orbit_size[1] = (I.Width() + I.Height()) * 0.5
 
 /datum/component/xeno_customization/proc/on_new_player_login(subsystem, mob/user)
 	SIGNAL_HANDLER

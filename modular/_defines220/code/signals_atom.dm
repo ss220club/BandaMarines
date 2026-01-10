@@ -11,3 +11,5 @@
 #define COMSIG_ATOM_TTS_TRAIT_REMOVE "atom_tts_trait_remove"
 ///from base of atom/update_filters()
 #define COMSIG_ATOM_UPDATE_FILTERS "atom_update_filters"
+///from base of atom/get_orbit_size(): (list/orbit_size)
+#define COMSIG_ATOM_GET_ORBIT_SIZE "atom_get_orbit_size"
