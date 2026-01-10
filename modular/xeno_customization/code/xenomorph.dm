@@ -100,3 +100,20 @@
 
 #undef VV_HK_ADD_XENO_CUSTOMIZATION
 #undef VV_HK_REMOVE_XENO_CUSTOMIZATION
+
+/mob/living/carbon/xenomorph/proc/previewfy()
+	GLOB.xeno_mob_list -= src
+	GLOB.mob_list -= src
+	GLOB.dead_mob_list -= src
+	GLOB.alive_mob_list -= src
+	GLOB.living_xeno_list -= src
+	change_real_name(src, "Test Dummy")
+	status_flags = GODMODE|CANPUSH
+	vis_flags = null
+	plane = 91
+	overlays.Cut()
+
+/mob/living/carbon/xenomorph/hellhound/previewfy()
+	. = ..()
+	GLOB.hellhound_list -= src
+	SSmob.living_misc_mobs -= src

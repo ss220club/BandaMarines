@@ -27,6 +27,9 @@ type Data = {
   used_slots_for_caste: number;
   selected_strain: string;
   available_strains_for_caste: string[];
+  positions: string[];
+  selected_position: string;
+  slots: CustomizationSlot[];
 };
 
 type XenoCustomization = {
@@ -38,6 +41,11 @@ type XenoCustomization = {
   customization_type: string;
 };
 
+type CustomizationSlot = {
+  name: string;
+  bitflag: number;
+};
+
 export const XenoCustomizationPicker = (props) => {
   const { act, data } = useBackend<Data>();
   const {
@@ -46,14 +54,11 @@ export const XenoCustomizationPicker = (props) => {
     available_customizations_for_caste,
     selected_strain,
     available_strains_for_caste,
+    positions,
+    selected_position,
+    slots,
   } = data;
-  const showLegs = 1;
-  const showBody = 2;
-  const showArms = 4;
-  const showHead = 8;
-  const showTail = 16;
-  const showAll = showLegs + showBody + showArms + showHead + showTail;
-  const [toShowBit, setShowBit] = useState(showAll);
+  const [toShowBit, setShowBit] = useState(slots[1].bitflag);
 
   const castesRu = castes.map((value) => CastesRu(value));
   const strainsRu = available_strains_for_caste.map((value) => StrainRu(value));
@@ -63,71 +68,42 @@ export const XenoCustomizationPicker = (props) => {
       <Window.Content>
         <Stack fill>
           <Stack.Item>
-            <Section fill title="Слот" align="center">
-              <Flex direction="column">
-                <Button
-                  onClick={() => setShowBit(showAll)}
-                  selected={toShowBit === showAll}
-                >
-                  Все
-                </Button>
-                <Button
-                  onClick={() => setShowBit(showLegs)}
-                  disabled={
-                    available_customizations_for_caste.filter(
-                      (customization) => customization.slot_bitflag & showLegs,
-                    ).length === 0
-                  }
-                  selected={toShowBit === showLegs}
-                >
-                  Ноги
-                </Button>
-                <Button
-                  onClick={() => setShowBit(showBody)}
-                  disabled={
-                    available_customizations_for_caste.filter(
-                      (customization) => customization.slot_bitflag & showBody,
-                    ).length === 0
-                  }
-                  selected={toShowBit === showBody}
-                >
-                  Туловище
-                </Button>
-                <Button
-                  onClick={() => setShowBit(showArms)}
-                  disabled={
-                    available_customizations_for_caste.filter(
-                      (customization) => customization.slot_bitflag & showArms,
-                    ).length === 0
-                  }
-                  selected={toShowBit === showArms}
-                >
-                  Руки
-                </Button>
-                <Button
-                  onClick={() => setShowBit(showHead)}
-                  disabled={
-                    available_customizations_for_caste.filter(
-                      (customization) => customization.slot_bitflag & showHead,
-                    ).length === 0
-                  }
-                  selected={toShowBit === showHead}
-                >
-                  Голова
-                </Button>
-                <Button
-                  onClick={() => setShowBit(showTail)}
-                  disabled={
-                    available_customizations_for_caste.filter(
-                      (customization) => customization.slot_bitflag & showTail,
-                    ).length === 0
-                  }
-                  selected={toShowBit === showTail}
-                >
-                  Хвост
-                </Button>
-              </Flex>
-            </Section>
+            <Flex direction="column">
+              <Section fill title="Позиция" align="center">
+                <Flex direction="column">
+                  {positions.map((new_position, i) => (
+                    <Button
+                      key={i}
+                      onClick={() =>
+                        act('change_position', { new_position: new_position })
+                      }
+                      selected={selected_position === new_position}
+                    >
+                      {new_position}
+                    </Button>
+                  ))}
+                </Flex>
+              </Section>
+              <Section fill title="Слот" align="center">
+                <Flex direction="column">
+                  {slots.map((slot_data, i) => (
+                    <Button
+                      key={i}
+                      onClick={() => setShowBit(slot_data.bitflag)}
+                      disabled={
+                        available_customizations_for_caste.filter(
+                          (customization) =>
+                            customization.slot_bitflag & slot_data.bitflag,
+                        ).length === 0
+                      }
+                      selected={toShowBit === slot_data.bitflag}
+                    >
+                      {slot_data.name}
+                    </Button>
+                  ))}
+                </Flex>
+              </Section>
+            </Flex>
           </Stack.Item>
           <Stack.Item grow>
             <Section
@@ -147,6 +123,7 @@ export const XenoCustomizationPicker = (props) => {
                         new_strain: ReverseStrainRu(value),
                       })
                     }
+                    disabled={strainsRu.length === 1}
                   />
                   <Dropdown
                     menuWidth="15rem"

@@ -9,6 +9,8 @@
 	var/mob/living/carbon/xenomorph/preview_dummy_xeno
 	var/selected_caste = XENO_CASTE_RAVAGER
 	var/selected_strain
+	var/selected_position
+	var/selected_dir = SOUTH
 
 	var/atom/movable/screen/preview/preview_front_xeno
 	var/atom/movable/screen/rotate/alt/rotate_left_xeno
@@ -65,6 +67,7 @@
 
 /datum/preferences/proc/clear_xeno_dummy()
 	SIGNAL_HANDLER
+	selected_dir = preview_dummy_xeno?.dir || selected_dir
 	QDEL_NULL(preview_dummy_xeno)
 
 /datum/preferences/update_preview_icon(refresh_limb_status)
@@ -78,7 +81,7 @@
 	owner.remove_from_screen(rotate_left)
 	owner.remove_from_screen(rotate_right)
 	if(preview_dummy_xeno?.caste_type != selected_caste)
-		QDEL_NULL(preview_dummy_xeno)
+		clear_xeno_dummy()
 	if(isnull(preview_dummy_xeno))
 		switch(selected_caste)
 			if(XENO_CASTE_PREDALIEN)
@@ -87,6 +90,7 @@
 				var/mob/living/carbon/xenomorph/xeno = GLOB.RoleAuthority.get_caste_by_text(selected_caste)
 				preview_dummy_xeno = new xeno(null, null, XENO_HIVE_TUTORIAL)
 		preview_dummy_xeno.previewfy()
+		preview_dummy_xeno.setDir(selected_dir)
 		reset_xeno_customizations_for_preview()
 
 	apply_xeno_customizations_to_preview()
@@ -130,6 +134,7 @@
 		preview_dummy_xeno.apply_xeno_customization(owner.mob, to_apply = option_by_caste, force = TRUE, override_viewers = list(owner.mob))
 
 /datum/preferences/proc/reset_xeno_customizations_for_preview()
+	selected_position = "Ходьба"
 	selected_strain = preview_dummy_xeno.strain?.name || "Normal"
 	selected_preview_customizations = list()
 	for(var/option_key in xeno_customizations[selected_caste])
@@ -168,7 +173,7 @@
 	if(strain == "Normal")
 		if(selected_strain != strain)
 			selected_strain = strain
-			QDEL_NULL(preview_dummy_xeno)
+			clear_xeno_dummy()
 			update_preview_icon()
 		return
 	var/datum/xeno_strain/strain_to_apply
@@ -183,3 +188,24 @@
 	if(strain_to_apply._add_to_xeno(preview_dummy_xeno))
 		selected_strain = strain
 		update_preview_icon()
+
+/datum/preferences/proc/change_preview_xeno_positions(new_position)
+	preview_dummy_xeno.rejuvenate()
+	preview_dummy_xeno.previewfy()
+	preview_dummy_xeno.body_position = STANDING_UP
+	REMOVE_TRAIT(preview_dummy_xeno, TRAIT_FLOORED, "preview")
+	switch(new_position)
+		if("Ходьба")
+			selected_position = "Ходьба"
+		if("Отдых")
+			selected_position = "Отдых"
+			preview_dummy_xeno.body_position = LYING_DOWN
+		if("Оглушение")
+			selected_position = "Оглушение"
+			ADD_TRAIT(preview_dummy_xeno, TRAIT_FLOORED, "preview")
+		if("Мёртв")
+			selected_position = "Мёртв"
+			preview_dummy_xeno.death()
+		else
+			to_chat(owner, SPAN_WARNING("Неизвестная позиция ксеноморфа: [new_position]"))
+	preview_dummy_xeno.update_icons()

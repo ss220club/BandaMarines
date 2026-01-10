@@ -33,6 +33,14 @@
 /datum/xeno_customization_picker/ui_static_data(mob/user)
 	var/list/data = list()
 	data["castes"] = ALL_XENO_CASTES
+	data["positions"] = list("Ходьба", "Отдых", "Оглушение", "Мёртв")
+	data["slots"] = list(
+		list("name" = "Все", "bitflag" = CUSTOMIZATION_SLOT_ALL),
+		list("name" = "Ноги", "bitflag" = CUSTOMIZATION_SLOT_LEGS),
+		list("name" = "Туловище", "bitflag" = CUSTOMIZATION_SLOT_BODY),
+		list("name" = "Руки", "bitflag" = CUSTOMIZATION_SLOT_ARMS),
+		list("name" = "Голова", "bitflag" = CUSTOMIZATION_SLOT_HEAD),
+		list("name" = "Хвост", "bitflag" = CUSTOMIZATION_SLOT_TAIL))
 	return data
 
 /datum/xeno_customization_picker/ui_data(mob/user)
@@ -59,6 +67,7 @@
 	for(var/strain_path in user.client.prefs.preview_dummy_xeno.caste.available_strains)
 		var/datum/xeno_strain/strain = strain_path
 		data["available_strains_for_caste"] += strain::name
+	data["selected_position"] = holder.prefs.selected_position
 	return data
 
 /datum/xeno_customization_picker/ui_state(mob/user)
@@ -75,19 +84,6 @@
 			holder.prefs.change_preview_xeno(params["new_caste"])
 		if("change_strain")
 			holder.prefs.change_preview_xeno_strain(params["new_strain"])
+		if("change_position")
+			holder.prefs.change_preview_xeno_positions(params["new_position"])
 	return TRUE
-
-/mob/living/carbon/xenomorph/proc/previewfy()
-	GLOB.xeno_mob_list -= src
-	GLOB.mob_list -= src
-	GLOB.dead_mob_list -= src
-	GLOB.alive_mob_list -= src
-	change_real_name(src, "Test Dummy")
-	status_flags = GODMODE|CANPUSH
-	vis_flags = null
-	plane = 91
-
-/mob/living/carbon/xenomorph/hellhound/previewfy()
-	. = ..()
-	GLOB.hellhound_list -= src
-	SSmob.living_misc_mobs -= src
