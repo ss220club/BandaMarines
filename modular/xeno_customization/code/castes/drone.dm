@@ -14,3 +14,4 @@
 	icon_path = 'modular/xeno_customization/icons/drone/flashlight.dmi'
 	caste = XENO_CASTE_DRONE
 	slot = CUSTOMIZATION_SLOT_TAIL
+	timelock = JOB_PLAYTIME_TIER_2
