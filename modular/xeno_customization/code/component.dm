@@ -37,10 +37,12 @@
 /datum/component/xeno_customization/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_XENO_UPDATE_ICONS, PROC_REF(update_customization_icons))
 	RegisterSignal(parent, COMSIG_ALTER_GHOST, PROC_REF(on_ghost))
+	RegisterSignal(parent, COMSIG_ATOM_UPDATE_FILTERS, PROC_REF(on_update_filters))
 
 /datum/component/xeno_customization/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_XENO_UPDATE_ICONS)
 	UnregisterSignal(parent, COMSIG_ALTER_GHOST)
+	UnregisterSignal(parent, COMSIG_ATOM_UPDATE_FILTERS)
 
 /datum/component/xeno_customization/Destroy(force, silent)
 	remove_from_everyone_view(full_remove = TRUE)
@@ -59,6 +61,12 @@
 		ghost.icon = original_icon
 		return
 	// TODO: show customizations for everyone on ghost?
+
+/datum/component/xeno_customization/proc/on_update_filters(atom/owner)
+	SIGNAL_HANDLER
+
+	to_show?.filters = owner.filters
+	original_image?.filters = owner.filters
 
 /datum/component/xeno_customization/proc/on_new_player_login(subsystem, mob/user)
 	SIGNAL_HANDLER
