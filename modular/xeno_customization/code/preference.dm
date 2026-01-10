@@ -8,6 +8,7 @@
 
 	var/mob/living/carbon/xenomorph/preview_dummy_xeno
 	var/selected_caste = XENO_CASTE_RAVAGER
+	var/selected_strain
 
 	var/atom/movable/screen/preview/preview_front_xeno
 	var/atom/movable/screen/rotate/alt/rotate_left_xeno
@@ -79,7 +80,6 @@
 	if(preview_dummy_xeno?.caste_type != selected_caste)
 		QDEL_NULL(preview_dummy_xeno)
 	if(isnull(preview_dummy_xeno))
-		reset_xeno_customizations_for_preview()
 		switch(selected_caste)
 			if(XENO_CASTE_PREDALIEN)
 				preview_dummy_xeno = new /mob/living/carbon/xenomorph/predalien/tutorial(null, null, XENO_HIVE_TUTORIAL)
@@ -87,6 +87,7 @@
 				var/mob/living/carbon/xenomorph/xeno = GLOB.RoleAuthority.get_caste_by_text(selected_caste)
 				preview_dummy_xeno = new xeno(null, null, XENO_HIVE_TUTORIAL)
 		preview_dummy_xeno.previewfy()
+		reset_xeno_customizations_for_preview()
 
 	apply_xeno_customizations_to_preview()
 
@@ -129,6 +130,7 @@
 		preview_dummy_xeno.apply_xeno_customization(owner.mob, to_apply = option_by_caste, force = TRUE, override_viewers = list(owner.mob))
 
 /datum/preferences/proc/reset_xeno_customizations_for_preview()
+	selected_strain = preview_dummy_xeno.strain?.name || "Normal"
 	selected_preview_customizations = list()
 	for(var/option_key in xeno_customizations[selected_caste])
 		var/datum/xeno_customization_option/option_by_caste = GLOB.xeno_customizations_by_key[option_key]
@@ -161,3 +163,23 @@
 		return
 	selected_caste = caste
 	update_preview_icon()
+
+/datum/preferences/proc/change_preview_xeno_strain(strain)
+	if(strain == "Normal")
+		if(selected_strain != strain)
+			selected_strain = strain
+			QDEL_NULL(preview_dummy_xeno)
+			update_preview_icon()
+		return
+	var/datum/xeno_strain/strain_to_apply
+	for(var/strain_path in preview_dummy_xeno.caste.available_strains)
+		var/datum/xeno_strain/strain_to_check = strain_path
+		if(strain_to_check::name == strain)
+			strain_to_apply = new strain_to_check()
+			break
+	if(!strain_to_apply)
+		to_chat(owner, SPAN_WARNING("Подвид [strain] не найден для [preview_dummy_xeno.caste.caste_type]!"))
+		return
+	if(strain_to_apply._add_to_xeno(preview_dummy_xeno))
+		selected_strain = strain
+		update_preview_icon()

@@ -11,7 +11,12 @@ import {
 } from 'tgui/components';
 import { Window } from 'tgui/layouts';
 
-import { CastesRu, ReverseCastesRu } from './BandaMarines/XenoCastes';
+import {
+  CastesRu,
+  ReverseCastesRu,
+  ReverseStrainRu,
+  StrainRu,
+} from './BandaMarines/XenoCastes';
 
 type Data = {
   selected_caste: string;
@@ -20,6 +25,8 @@ type Data = {
   assigned_map: string;
   castes: string[];
   used_slots_for_caste: number;
+  selected_strain: string;
+  available_strains_for_caste: string[];
 };
 
 type XenoCustomization = {
@@ -33,7 +40,13 @@ type XenoCustomization = {
 
 export const XenoCustomizationPicker = (props) => {
   const { act, data } = useBackend<Data>();
-  const { selected_caste, castes, available_customizations_for_caste } = data;
+  const {
+    selected_caste,
+    castes,
+    available_customizations_for_caste,
+    selected_strain,
+    available_strains_for_caste,
+  } = data;
   const showLegs = 1;
   const showBody = 2;
   const showArms = 4;
@@ -43,9 +56,10 @@ export const XenoCustomizationPicker = (props) => {
   const [toShowBit, setShowBit] = useState(showAll);
 
   const castesRu = castes.map((value) => CastesRu(value));
+  const strainsRu = available_strains_for_caste.map((value) => StrainRu(value));
 
   return (
-    <Window width={500} height={350}>
+    <Window width={600} height={350}>
       <Window.Content>
         <Stack fill>
           <Stack.Item>
@@ -121,16 +135,30 @@ export const XenoCustomizationPicker = (props) => {
               title="Кастомизация"
               scrollable
               buttons={
-                <Dropdown
-                  menuWidth="15rem"
-                  width="15rem"
-                  options={castesRu}
-                  selected={CastesRu(selected_caste)}
-                  displayText={CastesRu(selected_caste)}
-                  onSelected={(value) =>
-                    act('change_caste', { new_caste: ReverseCastesRu(value) })
-                  }
-                />
+                <Flex direction="row">
+                  <Dropdown
+                    menuWidth="10rem"
+                    width="10rem"
+                    options={strainsRu}
+                    selected={StrainRu(selected_strain)}
+                    displayText={StrainRu(selected_strain)}
+                    onSelected={(value) =>
+                      act('change_strain', {
+                        new_strain: ReverseStrainRu(value),
+                      })
+                    }
+                  />
+                  <Dropdown
+                    menuWidth="15rem"
+                    width="15rem"
+                    options={castesRu}
+                    selected={CastesRu(selected_caste)}
+                    displayText={CastesRu(selected_caste)}
+                    onSelected={(value) =>
+                      act('change_caste', { new_caste: ReverseCastesRu(value) })
+                    }
+                  />
+                </Flex>
               }
             >
               <Flex direction="column">

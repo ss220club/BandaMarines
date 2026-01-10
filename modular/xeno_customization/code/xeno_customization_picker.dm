@@ -54,6 +54,11 @@
 		option_data["slot_bitflag"] = option.slot
 		option_data["customization_type"] = option.customization_type
 		data["available_customizations_for_caste"] += list(option_data)
+	data["selected_strain"] = holder.prefs.selected_strain
+	data["available_strains_for_caste"] = list("Normal")
+	for(var/strain_path in user.client.prefs.preview_dummy_xeno.caste.available_strains)
+		var/datum/xeno_strain/strain = strain_path
+		data["available_strains_for_caste"] += strain::name
 	return data
 
 /datum/xeno_customization_picker/ui_state(mob/user)
@@ -68,6 +73,8 @@
 			holder.prefs.add_xeno_customization_for_preview(params["new_customization"])
 		if("change_caste")
 			holder.prefs.change_preview_xeno(params["new_caste"])
+		if("change_strain")
+			holder.prefs.change_preview_xeno_strain(params["new_strain"])
 	return TRUE
 
 /mob/living/carbon/xenomorph/proc/previewfy()
