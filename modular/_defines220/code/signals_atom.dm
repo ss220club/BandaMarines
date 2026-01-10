@@ -9,3 +9,5 @@
 #define COMSIG_ATOM_TTS_TRAIT_ADD "atom_tts_trait_add"
 ///from base of atom/tts_trait_remove(): (trait)
 #define COMSIG_ATOM_TTS_TRAIT_REMOVE "atom_tts_trait_remove"
+///from base of atom/update_filters()
+#define COMSIG_ATOM_UPDATE_FILTERS "atom_update_filters"
