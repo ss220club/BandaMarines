@@ -543,6 +543,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 
 			// BANDAMARINES EDIT START
 			dat += "<a href='byond://?_src_=prefs;preference=xeno_customization_picker;task=open'><b>Кастомизация ксеноморфа</b></a><br>"
+			dat += "<b>Background:</b> <a href='byond://?_src_=prefs;preference=cycle_bg'><b>Cycle Background</b></a><br><br>"
 			// BANDAMARINES EDIT END
 
 			var/tempnumber = rand(1, 999)

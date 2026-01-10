@@ -12,6 +12,7 @@
 	var/atom/movable/screen/preview/preview_front_xeno
 	var/atom/movable/screen/rotate/alt/rotate_left_xeno
 	var/atom/movable/screen/rotate/rotate_right_xeno
+	var/atom/movable/screen/preview/background_xeno
 
 	/// Reference list for previewing
 	var/list/datum/xeno_customization_option/selected_preview_customizations = list()
@@ -70,6 +71,7 @@
 		owner.remove_from_screen(preview_front_xeno)
 		owner.remove_from_screen(rotate_left_xeno)
 		owner.remove_from_screen(rotate_right_xeno)
+		owner.remove_from_screen(background_xeno)
 		return ..()
 	owner.remove_from_screen(preview_front)
 	owner.remove_from_screen(rotate_left)
@@ -93,7 +95,7 @@
 		preview_front_xeno.screen_loc = "preview:0,-2:16"
 	preview_front_xeno.vis_contents.Cut()
 	preview_front_xeno.vis_contents += preview_dummy_xeno
-	preview_front_xeno.icon_state = bg_state
+	preview_front_xeno.icon_state = null
 	owner.remove_from_screen(preview_front_xeno)
 	owner.add_to_screen(preview_front_xeno)
 
@@ -112,6 +114,13 @@
 		rotate_right_xeno.transform = increased_button
 	rotate_right_xeno.assigned_atom = preview_dummy_xeno
 	owner.add_to_screen(rotate_right_xeno)
+
+	if(isnull(background_xeno))
+		background_xeno = new()
+		background_xeno.screen_loc = "preview:-1,-1:-16 to 1,0:-16"
+		background_xeno.name = "background"
+	background_xeno.icon_state = bg_state
+	owner.add_to_screen(background_xeno)
 
 /datum/preferences/proc/apply_xeno_customizations_to_preview()
 	var/list/previous_customizations = preview_dummy_xeno.GetComponents(/datum/component/xeno_customization)
