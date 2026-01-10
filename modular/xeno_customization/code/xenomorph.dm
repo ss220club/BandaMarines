@@ -20,7 +20,7 @@
 	. = ..()
 	SEND_SIGNAL(src, COMSIG_ALTER_GHOST, ghost)
 
-/mob/living/carbon/xenomorph/proc/apply_xeno_customization(mob/user, datum/xeno_customization_option/to_apply, force)
+/mob/living/carbon/xenomorph/proc/apply_xeno_customization(mob/user, datum/xeno_customization_option/to_apply, force, list/mob/override_viewers)
 	if(!istype(to_apply))
 		to_chat(user, SPAN_WARNING("Данная кастомизация не существует!"))
 		return
@@ -43,7 +43,7 @@
 		return
 
 	. = TRUE
-	AddComponent(/datum/component/xeno_customization, to_apply)
+	AddComponent(/datum/component/xeno_customization, to_apply, override_viewers)
 
 /mob/living/carbon/xenomorph/proc/apply_xeno_customization_from_vv(mob/user)
 	var/list/available_skins = GLOB.xeno_customizations_by_caste[caste.caste_type]

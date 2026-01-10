@@ -6,6 +6,8 @@
 	var/image/to_show
 	/// List of players who are ready/already see customization
 	var/list/mob/seeables = list()
+	/// A specific set of players set to see the customizations; used in preferences
+	var/list/mob/override_list
 	/// Holds xeno's icon for full body customization
 	var/icon/original_icon
 	/// Holds xeno's image for showing default icon for those who have full body customization disabled
@@ -13,10 +15,11 @@
 	/// Icon State currently duplicating
 	var/icon_state_to_show
 
-/datum/component/xeno_customization/Initialize(datum/xeno_customization_option/option)
+/datum/component/xeno_customization/Initialize(datum/xeno_customization_option/option, list/mob/override_viewers)
 	if(!isxeno(parent))
 		return COMPONENT_INCOMPATIBLE
 	var/mob/living/carbon/xenomorph/xeno = parent
+	override_list = override_viewers
 
 	src.option = option
 	to_show = image(option.icon_path, parent)
@@ -27,7 +30,8 @@
 		original_image.plane = xeno.plane
 	update_customization_icons(xeno, xeno.icon_state)
 	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_LOGGED_IN, PROC_REF(on_new_player_login))
-	for(var/mob/player in GLOB.player_list)
+	var/list/to_show_list = override_list || GLOB.player_list
+	for(var/mob/player in to_show_list)
 		add_to_player_view(player)
 
 /datum/component/xeno_customization/RegisterWithParent()
@@ -59,6 +63,8 @@
 /datum/component/xeno_customization/proc/on_new_player_login(subsystem, mob/user)
 	SIGNAL_HANDLER
 
+	if(length(override_list))
+		return
 	add_to_player_view(user)
 
 /datum/component/xeno_customization/proc/add_to_player_view(mob/user)

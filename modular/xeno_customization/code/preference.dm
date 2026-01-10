@@ -126,7 +126,7 @@
 	var/list/previous_customizations = preview_dummy_xeno.GetComponents(/datum/component/xeno_customization)
 	QDEL_LIST(previous_customizations)
 	for(var/datum/xeno_customization_option/option_by_caste in selected_preview_customizations)
-		preview_dummy_xeno.apply_xeno_customization(owner.mob, option_by_caste, force = TRUE)
+		preview_dummy_xeno.apply_xeno_customization(owner.mob, to_apply = option_by_caste, force = TRUE, override_viewers = list(owner.mob))
 
 /datum/preferences/proc/reset_xeno_customizations_for_preview()
 	selected_preview_customizations = list()
@@ -146,7 +146,7 @@
 		save_and_sanitize_xeno_customization()
 		update_preview_icon()
 		return
-	if(!preview_dummy_xeno.apply_xeno_customization(owner.mob, new_customization, force = TRUE))
+	if(!preview_dummy_xeno.apply_xeno_customization(owner.mob, to_apply = new_customization, force = TRUE, override_viewers = list(owner.mob)))
 		return
 	selected_preview_customizations += new_customization
 	if(!new_customization.is_locked_with_reasons(owner))
