@@ -23,19 +23,34 @@ GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 	return data
 
 /datum/xeno_customization_option
+	/// UI name
 	var/name = "Call a coder!"
 	/// Stored in database
 	var/key
+	/// Whom to show this customization to
 	var/customization_type = XENO_CUSTOMIZATION_NON_LORE_FRIENDLY
+	/// Icon Path for the customization
 	var/icon_path
+	/// Caste this customization restricted to
 	var/caste
+	/// Slots this customization uses; can't use multiple customizations with the same slot.
 	var/slot
-	var/donation_level
+	/// Do we completely replace the original icon; these icon states need to fully replicate icon state name, ie "Normal Runner Walking"
 	var/full_body_customization = FALSE
+	// Restrictions
+	/// Required time played as that caste
+	var/timelock = JOB_PLAYTIME_TIER_0
+	/// Required donation tier
+	var/donation_level = 0
 
-/datum/xeno_customization_option/proc/is_locked_with_reasons(mob/user)
+/datum/xeno_customization_option/proc/is_locked_with_reasons(client/user)
 	var/list/reasons = list()
 	// Do it later when SSCentral is active
 	if(donation_level)
 		reasons += "Необходим уровень подписки: [donation_level]. "
+	if(timelock)
+		var/played_as_caste = get_job_playtime(user, caste)
+		if(played_as_caste < timelock)
+			var/hours = timelock / (1 HOURS)
+			reasons += "Необходимое время на этой касте: [hours] час[declension_ru(hours, "", "а", "ов")]."
 	return reasons.Join()
