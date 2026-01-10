@@ -28,7 +28,7 @@
 	var/list/datum/component/xeno_customization/applied_customizations = GetComponents(/datum/component/xeno_customization)
 	var/list/conflicting_names = list()
 	for(var/datum/component/xeno_customization/applied_customization in applied_customizations)
-		if(applied_customization.option.name == to_apply.name)
+		if(applied_customization.option.key == to_apply.key)
 			to_chat(user, SPAN_WARNING("Кастомизация '[to_apply.name]' уже имеется!"))
 			return
 		if(to_apply.slot & applied_customization.option.slot)
@@ -39,7 +39,7 @@
 
 	var/is_locked_reasons = to_apply.is_locked_with_reasons(user.client)
 	if(!force && is_locked_reasons)
-		to_chat(user, "Кастомизация недоступна по следующим причинам: [is_locked_reasons]")
+		to_chat(user, SPAN_ALERTWARNING("Кастомизация недоступна по следующим причинам: [is_locked_reasons]"))
 		return
 
 	. = TRUE
