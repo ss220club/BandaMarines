@@ -16,6 +16,10 @@
 	. = ..()
 	SEND_SIGNAL(src, COMSIG_ALTER_GHOST, ghost)
 
+/mob/living/carbon/xenomorph/larva/alter_ghost(mob/dead/observer/ghost)
+	. = ..()
+	SEND_SIGNAL(src, COMSIG_ALTER_GHOST, ghost)
+
 /mob/living/carbon/xenomorph/proc/apply_xeno_customization(mob/user, datum/xeno_customization_option/to_apply, force)
 	if(!istype(to_apply))
 		to_chat(user, SPAN_WARNING("Данная кастомизация не существует!"))
