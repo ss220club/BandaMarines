@@ -37,8 +37,9 @@
 		to_chat(user, SPAN_WARNING("Кастомизация '[to_apply.name]' конфликтует с: [english_list(conflicting_names)]"))
 		return
 
-	if(!force && to_apply.is_locked_with_reasons(user))
-		to_chat(user, "Кастомизация недоступна по следующим причинам: [to_apply.is_locked_with_reasons(user)]")
+	var/is_locked_reasons = to_apply.is_locked_with_reasons(user.client)
+	if(!force && is_locked_reasons)
+		to_chat(user, "Кастомизация недоступна по следующим причинам: [is_locked_reasons]")
 		return
 
 	. = TRUE

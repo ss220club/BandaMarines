@@ -39,8 +39,9 @@
 			to_chat(owner, SPAN_ALERTWARNING("Кастомизация с ключём '[key]' была убрана у вас! Она больше не существует!"))
 			bad_detected = TRUE
 			continue
-		if(option.is_locked_with_reasons(owner.mob))
-			to_chat(owner, SPAN_ALERTWARNING("Кастомизация '[option.name]' у '[option.caste]' была убрана у вас! Причина: [option.is_locked_with_reasons(owner.mob)]"))
+		var/is_locked_reasons = option.is_locked_with_reasons(owner)
+		if(is_locked_reasons)
+			to_chat(owner, SPAN_ALERTWARNING("Кастомизация '[option.name]' у '[option.caste]' была убрана у вас! Причина: [is_locked_reasons]"))
 			bad_detected = TRUE
 			continue
 		sanitized_list += key
@@ -139,7 +140,7 @@
 	if(!preview_dummy_xeno.apply_xeno_customization(owner.mob, new_customization, force = TRUE))
 		return
 	selected_preview_customizations += new_customization
-	if(!new_customization.is_locked_with_reasons(owner.mob))
+	if(!new_customization.is_locked_with_reasons(owner))
 		var/list/new_entry = list(new_customization.key = new_customization)
 		xeno_customizations[new_customization.caste] += new_entry
 		save_and_sanitize_xeno_customization()

@@ -50,7 +50,7 @@
 		option_data["name"] = option.name
 		option_data["caste"] = option.caste
 		option_data["key"] = option.key
-		option_data["no_access_text"] = option.is_locked_with_reasons(user)
+		option_data["no_access_text"] = option.is_locked_with_reasons(user.client)
 		option_data["slot_bitflag"] = option.slot
 		option_data["customization_type"] = option.customization_type
 		data["available_customizations_for_caste"] += list(option_data)
