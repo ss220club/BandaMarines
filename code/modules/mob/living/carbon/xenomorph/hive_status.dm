@@ -282,7 +282,7 @@
 		X.hud_update()
 
 	var/area/A = get_area(X)
-	if(!should_block_game_interaction(X) || (A.flags_atom & AREA_ALLOW_XENO_JOIN))
+	if(!should_block_game_interaction(X) || (A?.flags_atom & AREA_ALLOW_XENO_JOIN)) // BANDAMARINES EDIT - Xeno Customizations; var/A null check
 		totalXenos += X
 		if(X.tier == 2)
 			tier_2_xenos += X
