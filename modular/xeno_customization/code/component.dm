@@ -51,9 +51,10 @@
 /datum/component/xeno_customization/proc/on_ghost(mob/user, mob/dead/observer/ghost)
 	SIGNAL_HANDLER
 
-	if(!option.full_body_customization)
+	if(option.full_body_customization)
+		ghost.icon = original_icon
 		return
-	ghost.icon = to_show.icon
+	// TODO: show customizations for everyone on ghost?
 
 /datum/component/xeno_customization/proc/on_new_player_login(subsystem, mob/user)
 	SIGNAL_HANDLER
