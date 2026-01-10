@@ -10,6 +10,8 @@
 	var/icon/original_icon
 	/// Holds xeno's image for showing default icon for those who have full body customization disabled
 	var/image/original_image
+	/// Icon State currently duplicating
+	var/icon_state_to_show
 
 /datum/component/xeno_customization/Initialize(datum/xeno_customization_option/option)
 	if(!isxeno(parent))
@@ -115,18 +117,21 @@
 	SIGNAL_HANDLER
 
 	to_show.layer = xeno.layer
+	icon_state_to_show = icon_state
 
 	if(option.full_body_customization)
 		xeno.icon = null
-		to_show.icon_state = icon_state
-		original_image.icon_state = icon_state
+		to_show.icon_state = icon_state_to_show
+		original_image.icon_state = icon_state_to_show
 		original_image.layer = xeno.layer
-		if(!(icon_state in icon_states(option.icon_path)))
+		if(!(icon_state_to_show in icon_states(option.icon_path)))
 			xeno.icon = original_icon
+			original_image.icon_state = null
 		return
 
+	// It's an overlay over the icon; we don't need "Normal Runner", only the last part.
 	var/list/split = splittext(icon_state, " ")
-	var/xeno_state = split[length(split)]
-	if(xeno_state == "Down" && split[length(split) - 1] == "Knocked")
-		xeno_state = "Knocked Down"
-	to_show.icon_state = xeno_state
+	icon_state_to_show = split[length(split)]
+	if(icon_state_to_show == "Down" && split[length(split) - 1] == "Knocked")
+		icon_state_to_show = "Knocked Down"
+	to_show.icon_state = icon_state_to_show
