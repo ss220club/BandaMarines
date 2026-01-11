@@ -57,6 +57,7 @@ const CASTES_RU = {
   Predalien: 'Чужехищник',
   Hellhound: 'Адская гончая',
   Abomination: 'Абоминация',
+  Despoiler: 'Разлагатель',
 };
 
 export function CastesRu(value: string) {
