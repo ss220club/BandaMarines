@@ -67,4 +67,14 @@
 
 	return display_list
 
+// проверка лифта (только в момент нажатия)
+/proc/vehicle_elevator_safety_check(atom/A)
+	if(isliving(A))
+		return TRUE
+	if(istype(A, /obj/vehicle))
+		return TRUE
+	for(var/atom/B in A.contents)
+		if(vehicle_elevator_safety_check(B))
+			return TRUE
+	return FALSE
 
