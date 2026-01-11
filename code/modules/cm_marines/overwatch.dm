@@ -920,7 +920,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 					log_announcement("[key_name(user)] has announced the following to the ship: [input]")
 					COOLDOWN_START(src, cooldown_shipside_message, COOLDOWN_COMM_MESSAGE)
 				else
-					marine_announcement(input, announcement_title, faction_to_display = announcement_faction, add_PMCs = add_pmcs, signature = signed)
+					marine_announcement(input, announcement_title, faction_to_display = announcement_faction, add_PMCs = add_pmcs, signature = signed, tts_component = user.GetComponent(/datum/component/tts_component)) //BANDAMARINES ADDITION
 					message_admins("[key_name(user)] has made a command announcement.")
 					log_announcement("[key_name(user)] has announced the following: [input]")
 					COOLDOWN_START(src, cooldown_message, COOLDOWN_COMM_MESSAGE)
