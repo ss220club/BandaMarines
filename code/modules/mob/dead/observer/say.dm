@@ -59,7 +59,14 @@
 	if(client.prefs?.toggles_chat & CHAT_GHOSTEARS && speaker.z == z && get_dist(speaker, src) <= GLOB.world_view_size)
 		message = "<b>[message]</b>"
 
-	to_chat(src, "<span class='game say'><span class='name'>[comm_paygrade][speaker_name]</span>[alt_name] [track][verb], <span class='message'><span class='[style]'>\"[message]\"</span></span></span>")
+	// BANDAMARINES EDIT START
+	if(speaker_name == speaker.name)
+		speaker_name = speaker.declent_ru(NOMINATIVE)
+	if(speaker.z == z && get_dist(speaker, src) <= GLOB.world_view_size)
+		speaker.cast_tts(src, message)
+	// BANDAMARINES EDIT END
+
+	to_chat(src, "<span class='game say'><span class='name'>[comm_paygrade][speaker_name]</span>[alt_name] [track][ru_say_verb(verb)], <span class='message'><span class='[style]'>\"[message]\"</span></span></span>")
 	if(speech_sound && speaker.z == z && get_dist(speaker, src) <= GLOB.world_view_size)
 		var/turf/source = get_turf(speaker)
 		playsound_client(client, speech_sound, source, sound_vol)

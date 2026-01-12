@@ -427,6 +427,17 @@
 	else
 		owner.typing_indicators = TRUE
 
+	// BANDAMARINES EDIT START
+	S["xeno_customization_visibility"] >> xeno_customization_visibility
+	xeno_customization_visibility = sanitize_inlist(xeno_customization_visibility, GLOB.xeno_customization_visibility_options, XENO_CUSTOMIZATION_SHOW_LORE_FRIENDLY)
+	S["xeno_customizations"] >> xeno_customizations_string
+	read_and_sanitize_xeno_customization()
+	S["quick_cast"] >> quick_cast
+	quick_cast = sanitize_integer(quick_cast, FALSE, TRUE, FALSE)
+	S["screentips"] >> screentips
+	screentips = sanitize_integer(screentips, FALSE, TRUE, TRUE)
+	// BANDAMARINES EDIT END
+
 	return 1
 
 /datum/preferences/proc/load_preferences_sanitize()
@@ -530,7 +541,8 @@
 	if(!observer_huds)
 		observer_huds = list("Medical HUD" = FALSE, "Security HUD" = FALSE, "Squad HUD" = FALSE, "Xeno Status HUD" = FALSE, HUD_MENTOR_SIGHT = FALSE)
 
-	volume_preferences = sanitize_volume_preferences(volume_preferences, list(1, 0.5, 1, 0.6)) // Game, music, admin midis, lobby music
+	volume_preferences = sanitize_volume_preferences(volume_preferences, list(1, 0.5, 1, 0.6, // Game, music, admin midis, lobby music
+		1, 0.5, 0.5)) // Local, Radio,  Announces - SS220 TTS EDIT from "modular/text_to_speech/code/sound.dm"
 
 /datum/preferences/proc/save_preferences()
 	if(!path)
@@ -660,6 +672,13 @@
 	S["show_cooldown_messages"] << show_cooldown_messages
 
 	S["chem_presets"] << chem_presets
+
+	// BANDAMARINES EDIT START
+	S["xeno_customization_visibility"] << xeno_customization_visibility
+	S["quick_cast"] << quick_cast
+	S["screentips"] << screentips
+	S["xeno_customizations"] << xeno_customizations_string
+	// BANDAMARINES EDIT END
 
 	return TRUE
 
@@ -838,6 +857,14 @@
 		preferred_squad = "None"
 	preferred_spec = sanitize_list(preferred_spec, allow=GLOB.specialist_set_name_dict)
 
+	// =================================
+	// SS220 EDIT - TTS
+	if(SStts220.is_enabled)
+		S["tts_seed"] >> tts_seed
+	S["declined_name"] >> declined_name
+	declined_name = sanitize_declined_name()
+	// =================================
+
 	return 1
 
 /datum/preferences/proc/save_character()
@@ -923,6 +950,13 @@
 
 	S["uplinklocation"] << uplinklocation
 	S["exploit_record"] << exploit_record
+
+	// =================================
+	// SS220 EDIT
+	if(SStts220.is_enabled)
+		S["tts_seed"] << tts_seed
+	S["declined_name"] << declined_name
+	// =================================
 
 	return 1
 
