@@ -88,6 +88,7 @@
 /mob/living/carbon/xenomorph/proc/apply_xeno_customization_from_prefs()
 	if(!client || !client.prefs || do_not_override_customizations)
 		return
+	client.prefs.read_and_sanitize_xeno_customization()
 	for(var/datum/component/xeno_customization/previous_customizations in GetComponents(/datum/component/xeno_customization))
 		qdel(previous_customizations)
 	for(var/key in client.prefs.xeno_customizations[caste.caste_type])
