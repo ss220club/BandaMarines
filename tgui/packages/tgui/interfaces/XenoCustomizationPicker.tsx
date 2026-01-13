@@ -58,7 +58,7 @@ export const XenoCustomizationPicker = (props) => {
     selected_position,
     slots,
   } = data;
-  const [toShowBit, setShowBit] = useState(slots[1].bitflag);
+  const [toShowBit, setShowBit] = useState(slots[0].bitflag);
 
   const castesRu = castes.map((value) => CastesRu(value));
   const strainsRu = available_strains_for_caste.map((value) => StrainRu(value));
