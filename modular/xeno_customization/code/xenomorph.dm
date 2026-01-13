@@ -56,7 +56,7 @@
 		return
 	var/datum/xeno_customization_option/choosen_customization = available_skins[choice]
 
-	apply_xeno_customization(user, choosen_customization, force = TRUE)
+	apply_xeno_customization(user.client, choosen_customization, force = TRUE)
 
 /mob/living/carbon/xenomorph/proc/remove_xeno_customization_from_vv(mob/user)
 	var/list/datum/component/xeno_customization/applied_customizations = GetComponents(/datum/component/xeno_customization)
@@ -92,7 +92,7 @@
 		qdel(previous_customizations)
 	for(var/key in client.prefs.xeno_customizations[caste.caste_type])
 		var/datum/xeno_customization_option/option_to_apply = GLOB.xeno_customizations_by_key[key]
-		apply_xeno_customization(src, option_to_apply)
+		apply_xeno_customization(client, option_to_apply)
 
 /mob/living/carbon/xenomorph/Login()
 	. = ..()
