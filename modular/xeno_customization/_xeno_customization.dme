@@ -2,7 +2,6 @@
 
 #include "code/_defines.dm"
 
-#include "code/client.dm"
 #include "code/component.dm"
 #include "code/customization_datum.dm"
 #include "code/preference.dm"

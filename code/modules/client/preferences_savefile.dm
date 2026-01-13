@@ -542,7 +542,7 @@
 
 	// BANDAMARINES EDIT START
 	xeno_customization_visibility = sanitize_inlist(xeno_customization_visibility, GLOB.xeno_customization_visibility_options, XENO_CUSTOMIZATION_SHOW_LORE_FRIENDLY)
-	// Xeno Customizations are sanitized in client/load_player_data, we need DB and player entity ready for this
+	// Xeno Customizations are sanitized in /datum/xeno_customization_picker/setup(), we need DB and player entity ready for this
 	quick_cast = sanitize_integer(quick_cast, FALSE, TRUE, FALSE)
 	screentips = sanitize_integer(screentips, FALSE, TRUE, TRUE)
 	// BANDAMARINES EDIT END
