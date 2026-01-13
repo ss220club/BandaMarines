@@ -214,6 +214,15 @@ instrumental = "Императрицей"
 prepositional = "Императрице"
 gender = "female"
 
+[despoiler]
+nominative = "Разлагатель"
+genitive = "Разлагателя"
+dative = "Разлагателю"
+accusative = "Разлагателя"
+instrumental = "Разлагателем"
+prepositional = "Разлагателе"
+gender = "male"
+
 ["молодой "]
 nominative = "Молодой "
 genitive = "Молодого "

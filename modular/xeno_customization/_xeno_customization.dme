@@ -5,6 +5,7 @@
 #include "code/component.dm"
 #include "code/customization_datum.dm"
 #include "code/preference.dm"
+#include "code/xeno_customization_picker.dm"
 #include "code/xenomorph.dm"
 
 #include "code/castes/boiler.dm"
