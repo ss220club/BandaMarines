@@ -60,6 +60,7 @@
 	SIGNAL_HANDLER
 	play_move_sound()
 	set_glide_size(DELAY_TO_GLIDE_SIZE(move_delay)) // плавность
+	check_pulling()
 
 /obj/vehicle/motorbike/relaymove(mob/user, direction)
 	if(user.is_mob_incapacitated())
@@ -162,3 +163,10 @@
 	play_rotate_sound()
 	update_sidecar()
 	forward_dir = dir
+
+/obj/vehicle/motorbike/proc/check_pulling()
+	if(pulledby == null)
+		return
+	if(get_dist(src, pulledby) > 2)
+		pulledby.stop_pulling()
+
