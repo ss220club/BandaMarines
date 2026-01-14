@@ -123,9 +123,9 @@ Contains most of the procs that are called when a mob is attacked by something
 		return FALSE
 
 	if(LAZYLEN(I.attack_verb))
-		visible_message(SPAN_DANGER_BOLD("[capitalize(user.declent_ru(NOMINATIVE))] [ru_attack_verb(pick(I.attack_verb))] [affecting.declent_ru(ACCUSATIVE)] [declent_ru(ACCUSATIVE)], используя [I.declent_ru(ACCUSATIVE)]."), null, null, 5) // SS220 EDIT ADDICTION
+		visible_message(SPAN_DANGER_BOLD("[capitalize(user.declent_ru(NOMINATIVE))] [ru_attack_verb(pick(I.attack_verb))] [affecting.declent_ru(ACCUSATIVE)] [declent_ru(GENITIVE)], используя [I.declent_ru(ACCUSATIVE)]."), null, null, 5) // SS220 EDIT ADDICTION
 	else
-		visible_message(SPAN_DANGER_BOLD("[capitalize(user.declent_ru(NOMINATIVE))] атакует [affecting.declent_ru(ACCUSATIVE)] [declent_ru(ACCUSATIVE)], используя [I.declent_ru(ACCUSATIVE)]."), null, null, 5) // SS220 EDIT ADDICTION
+		visible_message(SPAN_DANGER_BOLD("[capitalize(user.declent_ru(NOMINATIVE))] атакует [affecting.declent_ru(ACCUSATIVE)] [declent_ru(GENITIVE)], используя [I.declent_ru(ACCUSATIVE)]."), null, null, 5) // SS220 EDIT ADDICTION
 
 	var/armor = getarmor(affecting, ARMOR_MELEE)
 
