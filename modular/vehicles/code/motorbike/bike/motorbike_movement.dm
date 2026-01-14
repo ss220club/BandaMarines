@@ -167,6 +167,6 @@
 /obj/vehicle/motorbike/proc/check_pulling()
 	if(pulledby == null)
 		return
-	if(get_dist(src, pulledby) > 2)
+	if(get_dist(src, pulledby) >= 2)
 		pulledby.stop_pulling()
 
