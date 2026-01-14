@@ -1,4 +1,0 @@
-author: "Ingakem"
-delete-after: True
-changes:
-  - balance: "При лоупопе шифровка анонсов из-за выключенных телекоммов выключается."
