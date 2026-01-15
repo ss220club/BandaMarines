@@ -8,12 +8,13 @@
 	var/list/mob/seeables = list()
 	/// A specific set of players set to see the customizations; used in preferences
 	var/list/mob/override_list
-	/// Holds xeno's icon for full body customization
-	var/icon/original_icon
-	/// Holds xeno's image for showing default icon for those who have full body customization disabled
-	var/image/original_image
-	/// Icon State currently duplicating
-	var/icon_state_to_show
+
+
+	///The mob's original render_target value
+	var/initial_render_target_value
+	var/atom/movable/render_source_atom
+	var/image/non_lore_image
+	var/image/lore_image
 
 /datum/component/xeno_customization/Initialize(datum/xeno_customization_option/option, list/mob/override_viewers)
 	if(!isxeno(parent))
@@ -23,11 +24,10 @@
 
 	src.option = option
 	to_show = image(option.icon_path, parent)
-	if(option.full_body_customization)
-		original_icon = xeno.icon
-		original_image = image(xeno.icon, xeno)
-		original_image.layer = xeno.layer
-		original_image.plane = xeno.plane
+
+	setup_render_source()
+	add_images()
+
 	update_customization_icons(xeno, xeno.icon_state)
 	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_LOGGED_IN, PROC_REF(on_new_player_login))
 	var/list/to_show_list = override_list || GLOB.player_list
@@ -37,46 +37,83 @@
 /datum/component/xeno_customization/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_XENO_UPDATE_ICONS, PROC_REF(update_customization_icons))
 	RegisterSignal(parent, COMSIG_ALTER_GHOST, PROC_REF(on_ghost))
-	RegisterSignal(parent, COMSIG_ATOM_UPDATE_FILTERS, PROC_REF(on_update_filters))
-	RegisterSignal(parent, COMSIG_ATOM_GET_ORBIT_SIZE, PROC_REF(on_get_orbit_size))
 
 /datum/component/xeno_customization/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_XENO_UPDATE_ICONS)
 	UnregisterSignal(parent, COMSIG_ALTER_GHOST)
-	UnregisterSignal(parent, COMSIG_ATOM_UPDATE_FILTERS)
-	UnregisterSignal(parent, COMSIG_ATOM_GET_ORBIT_SIZE)
 
 /datum/component/xeno_customization/Destroy(force, silent)
-	remove_from_everyone_view(full_remove = TRUE)
-	qdel(to_show)
-	if(option.full_body_customization)
-		var/mob/living/carbon/xenomorph/xeno = parent
-		xeno.icon = original_icon
-		qdel(original_image)
-		original_icon = null
+	remove_from_everyone_view()
+	var/mob/owner = parent
+	var/list/datum/component/remaining_customizations = parent.GetComponents(/datum/component/xeno_customization)
+	if(length(remaining_customizations) == 1)
+		owner.vis_contents -= render_source_atom
+		owner.render_target = initial_render_target_value
+	else
+		remove_images()
+	QDEL_NULL(render_source_atom)
 	. = ..()
+
+/datum/component/xeno_customization/proc/add_images()
+	if(option.full_body_customization)
+		lore_image.icon = to_show
+		non_lore_image.icon = to_show
+		return
+
+	non_lore_image.overlays |= to_show
+	if(option.customization_type == XENO_CUSTOMIZATION_LORE_FRIENDLY)
+		lore_image.overlays |= to_show
+
+/datum/component/xeno_customization/proc/remove_images()
+	var/mob/owner = parent
+	if(option.full_body_customization)
+		lore_image.icon = owner.icon
+		non_lore_image.icon = owner.icon
+		return
+	lore_image.overlays -= to_show
+	non_lore_image.overlays -= to_show
+
+/datum/component/xeno_customization/proc/setup_render_source()
+	// Find existing
+	for(var/datum/component/xeno_customization/current_customization in parent.GetComponents(/datum/component/xeno_customization))
+		if(current_customization.render_source_atom)
+			render_source_atom = current_customization.render_source_atom
+			non_lore_image = current_customization.non_lore_image
+			lore_image = current_customization.lore_image
+			initial_render_target_value = current_customization.initial_render_target_value
+			return
+	// Well, time to create new ones
+	var/mob/owner = parent
+
+	render_source_atom = new()
+
+	render_source_atom.appearance_flags |= (RESET_COLOR | RESET_TRANSFORM)
+	render_source_atom.vis_flags |= (VIS_INHERIT_ID | VIS_INHERIT_PLANE | VIS_INHERIT_LAYER | VIS_UNDERLAY)
+	render_source_atom.render_source = "*xeno_customization_[REF(parent)]"
+
+	initial_render_target_value = owner.render_target
+	owner.render_target = "*xeno_customization_[REF(parent)]"
+	owner.vis_contents.Add(render_source_atom)
+
+	non_lore_image = new(render_source_atom)
+	lore_image = new(render_source_atom)
+	non_lore_image.loc = render_source_atom
+	lore_image.loc = render_source_atom
+	non_lore_image.override = TRUE
+	lore_image.override = TRUE
+
+	non_lore_image.pixel_x = 0
+	lore_image.pixel_x = 0
+	non_lore_image.pixel_y = 0
+	lore_image.pixel_y = 0
 
 /datum/component/xeno_customization/proc/on_ghost(mob/user, mob/dead/observer/ghost)
 	SIGNAL_HANDLER
 
 	if(option.full_body_customization)
-		ghost.icon = original_icon
+		ghost.icon = non_lore_image.icon
 		return
 	// TODO: show customizations for everyone on ghost?
-
-/datum/component/xeno_customization/proc/on_update_filters(atom/owner)
-	SIGNAL_HANDLER
-
-	to_show?.filters = owner.filters
-	original_image?.filters = owner.filters
-
-/datum/component/xeno_customization/proc/on_get_orbit_size(atom/owner, list/orbit_size)
-	SIGNAL_HANDLER
-
-	if(!option.full_body_customization)
-		return
-	var/icon/I = icon(original_icon, owner.icon_state, owner.dir)
-	orbit_size[1] = (I.Width() + I.Height()) * 0.5
 
 /datum/component/xeno_customization/proc/on_new_player_login(subsystem, mob/user)
 	SIGNAL_HANDLER
@@ -94,28 +131,20 @@
 		seeables += user
 		RegisterSignal(user, COMSIG_XENO_CUSTOMIZATION_VISIBILITY, PROC_REF(add_to_player_view))
 		RegisterSignal(user, COMSIG_PARENT_QDELETING, PROC_REF(on_viewer_destroy))
-	if(!check_visibility_pref(user))
-		remove_from_player_view(user)
-		return
-	user.client.images |= to_show
-	if(option.full_body_customization)
-		user.client.images -= original_image
+	check_visibility_pref(user)
 
-/datum/component/xeno_customization/proc/remove_from_player_view(mob/user, full_remove = FALSE)
+/datum/component/xeno_customization/proc/remove_from_player_view(mob/user)
 	SIGNAL_HANDLER
 
 	if(!user.client)
 		return
-	user.client.images -= to_show
-	if(full_remove)
-		user.client.images -= original_image
-		return
-	if(option.full_body_customization)
-		user.client.images |= original_image
 
-/datum/component/xeno_customization/proc/remove_from_everyone_view(full_remove = FALSE)
+	user.client.images -= lore_image
+	user.client.images -= non_lore_image
+
+/datum/component/xeno_customization/proc/remove_from_everyone_view()
 	for(var/mob/player as anything in seeables)
-		remove_from_player_view(player, full_remove)
+		remove_from_player_view(player)
 
 /datum/component/xeno_customization/proc/on_viewer_destroy(mob/user)
 	SIGNAL_HANDLER
@@ -125,38 +154,32 @@
 	UnregisterSignal(user, COMSIG_PARENT_QDELETING)
 
 /datum/component/xeno_customization/proc/check_visibility_pref(mob/user)
+	remove_from_player_view(user)
 	switch(user.client.prefs.xeno_customization_visibility)
 		if(XENO_CUSTOMIZATION_SHOW_ALL)
-			if(option.customization_type == XENO_CUSTOMIZATION_NON_LORE_FRIENDLY && !(isxeno(user) || isobserver(user) || isnewplayer(user)))
-				return FALSE
-			return TRUE
-		if(XENO_CUSTOMIZATION_SHOW_NONE)
-			return FALSE
+			//if(!(isxeno(user) || isobserver(user) || isnewplayer(user)))
+			//	return
+			user.client.images += non_lore_image
 		if(XENO_CUSTOMIZATION_SHOW_LORE_FRIENDLY)
-			if(option.customization_type == XENO_CUSTOMIZATION_NON_LORE_FRIENDLY)
-				return FALSE
-			return TRUE
-	return TRUE
+			user.client.images |= lore_image
+		if(XENO_CUSTOMIZATION_SHOW_NONE)
+			return
 
 /datum/component/xeno_customization/proc/update_customization_icons(mob/living/carbon/xenomorph/xeno, icon_state)
 	SIGNAL_HANDLER
 
-	to_show.layer = xeno.layer
-	icon_state_to_show = icon_state
-
 	if(option.full_body_customization)
-		xeno.icon = null
-		to_show.icon_state = icon_state_to_show
-		original_image.icon_state = icon_state_to_show
-		original_image.layer = xeno.layer
-		if(!(icon_state_to_show in icon_states(option.icon_path)))
-			xeno.icon = original_icon
-			original_image.icon_state = null
+		if(!(xeno.icon_state in icon_states(to_show.icon)))
+			non_lore_image.icon = xeno.icon
+			lore_image.icon = xeno.icon
+		else
+			non_lore_image.icon = to_show.icon
+			lore_image.icon = to_show.icon
 		return
 
 	// It's an overlay over the icon; we don't need "Normal Runner", only the last part.
 	var/list/split = splittext(icon_state, " ")
-	icon_state_to_show = split[length(split)]
+	var/icon_state_to_show = split[length(split)]
 	if(icon_state_to_show == "Down" && split[length(split) - 1] == "Knocked")
 		icon_state_to_show = "Knocked Down"
 	to_show.icon_state = icon_state_to_show
