@@ -56,8 +56,8 @@
 
 /datum/component/xeno_customization/proc/add_images()
 	if(option.full_body_customization)
-		lore_image.icon = to_show
-		non_lore_image.icon = to_show
+		lore_image.icon = to_show.icon
+		non_lore_image.icon = to_show.icon
 		return
 
 	non_lore_image.overlays |= to_show
@@ -157,9 +157,9 @@
 	remove_from_player_view(user)
 	switch(user.client.prefs.xeno_customization_visibility)
 		if(XENO_CUSTOMIZATION_SHOW_ALL)
-			//if(!(isxeno(user) || isobserver(user) || isnewplayer(user)))
-			//	return
-			user.client.images += non_lore_image
+			if(!(isxeno(user) || isobserver(user) || isnewplayer(user)))
+				return
+			user.client.images |= non_lore_image
 		if(XENO_CUSTOMIZATION_SHOW_LORE_FRIENDLY)
 			user.client.images |= lore_image
 		if(XENO_CUSTOMIZATION_SHOW_NONE)
