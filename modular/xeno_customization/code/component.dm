@@ -56,8 +56,9 @@
 
 /datum/component/xeno_customization/proc/add_images()
 	if(option.full_body_customization)
-		lore_image.icon = to_show.icon
 		non_lore_image.icon = to_show.icon
+		if(option.customization_type == XENO_CUSTOMIZATION_LORE_FRIENDLY)
+			lore_image.icon = to_show.icon
 		return
 
 	non_lore_image.overlays |= to_show
@@ -173,8 +174,7 @@
 			non_lore_image.icon = xeno.icon
 			lore_image.icon = xeno.icon
 		else
-			non_lore_image.icon = to_show.icon
-			lore_image.icon = to_show.icon
+			add_images()
 		return
 
 	// It's an overlay over the icon; we don't need "Normal Runner", only the last part.
