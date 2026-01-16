@@ -1709,6 +1709,7 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 
 	if(!mobs_only)
 		pois.Add(get_multi_vehicles())
+		pois.Add(get_spec_vehicles()) // SS220 EDIT - Spec Vehicles Support
 
 	return pois
 
@@ -1774,6 +1775,11 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 
 	if(include_hunting_grounds && target_area?.flags_area & AREA_YAUTJA_HUNTING_GROUNDS)
 		return TRUE
+
+	// BANDAMARINES EDIT ADD START
+	if(isnull(target.loc))
+		return TRUE
+	// BANDAMARINES EDIT END
 
 	return FALSE
 

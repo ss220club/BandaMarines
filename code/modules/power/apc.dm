@@ -353,7 +353,7 @@ GLOBAL_LIST_INIT(apc_wire_descriptions, flatten_numeric_alist(alist(
 /obj/structure/machinery/power/apc/proc/toggle_breaker(mob/user)
 	operating = !operating
 	update()
-	msg_admin_niche("[user] turned [operating ? "on" : "off"] \the [src] in [AREACOORD(src)] [ADMIN_JMP(loc)].")
+	msg_admin_niche("[capitalize(user.declent_ru(NOMINATIVE))] turned [operating ? "on" : "off"] \the [src] in [AREACOORD(src)] [ADMIN_JMP(loc)].")
 	update_icon()
 
 // the very fact that i have to override this screams to me that apcs shouldn't be under machinery - spookydonut
@@ -613,15 +613,15 @@ GLOBAL_LIST_INIT(apc_wire_descriptions, flatten_numeric_alist(alist(
 				to_chat(user, SPAN_WARNING("Disconnect the terminal first."))
 				return
 			playsound(loc, 'sound/items/Crowbar.ogg', 25, 1)
-			user.visible_message(SPAN_NOTICE("[user] starts removing [src]'s power control board."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts removing [src]'s power control board."),
 			SPAN_NOTICE("You start removing [src]'s power control board.")) //lpeters - fixed grammar issues
 			if(do_after(user, 50 * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD) && has_electronics == 1)
 				has_electronics = 0
 				if((stat & BROKEN))
-					user.visible_message(SPAN_NOTICE("[user] breaks [src]'s charred power control board and removes the remains."),
+					user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] breaks [src]'s charred power control board and removes the remains."),
 					SPAN_NOTICE("You break [src]'s charred power control board and remove the remains."))
 				else
-					user.visible_message(SPAN_NOTICE("[user] removes [src]'s power control board."),
+					user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] removes [src]'s power control board."),
 					SPAN_NOTICE("You remove [src]'s power control board."))
 					new /obj/item/circuitboard/apc(loc)
 				SSclues.create_print(get_turf(user), user, "The fingerprint contains specks of electronics.")
@@ -650,7 +650,7 @@ GLOBAL_LIST_INIT(apc_wire_descriptions, flatten_numeric_alist(alist(
 				return
 			if(user.drop_inv_item_to_loc(attacking_item, src))
 				cell = attacking_item
-				user.visible_message(SPAN_NOTICE("[user] inserts [attacking_item] into [src]!"),
+				user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] inserts [attacking_item] into [src]!"),
 					SPAN_NOTICE("You insert [attacking_item] into [src]!"))
 				chargecount = 0
 				update_icon()
@@ -667,13 +667,13 @@ GLOBAL_LIST_INIT(apc_wire_descriptions, flatten_numeric_alist(alist(
 					has_electronics = 2
 					stat &= ~MAINT
 					playsound(loc, 'sound/items/Screwdriver.ogg', 25, 1)
-					user.visible_message(SPAN_NOTICE("[user] screws [src]'s circuit electronics into place."),
+					user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] screws [src]'s circuit electronics into place."),
 					SPAN_NOTICE("You screw [src]'s circuit electronics into place."))
 				else if(has_electronics == 2)
 					has_electronics = 1
 					stat |= MAINT
 					playsound(loc, 'sound/items/Screwdriver.ogg', 25, 1)
-					user.visible_message(SPAN_NOTICE("[user] unfastens [src]'s circuit electronics."),
+					user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] unfastens [src]'s circuit electronics."),
 					SPAN_NOTICE("You unfasten [src]'s circuit electronics."))
 				else
 					to_chat(user, SPAN_WARNING("There is nothing to secure."))
@@ -682,7 +682,7 @@ GLOBAL_LIST_INIT(apc_wire_descriptions, flatten_numeric_alist(alist(
 		else
 			wiresexposed = !wiresexposed
 			beenhit = wiresexposed ? XENO_HITS_TO_EXPOSE_WIRES_MIN : 0
-			user.visible_message(SPAN_NOTICE("[user] [wiresexposed ? "exposes" : "unexposes"] [src]'s wiring."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] [wiresexposed ? "exposes" : "unexposes"] [src]'s wiring."),
 			SPAN_NOTICE("You [wiresexposed ? "expose" : "unexpose"] [src]'s wiring."))
 			playsound(loc, 'sound/items/Screwdriver.ogg', 25, 1)
 			update_icon()
@@ -702,11 +702,11 @@ GLOBAL_LIST_INIT(apc_wire_descriptions, flatten_numeric_alist(alist(
 		else
 			if(allowed(usr))
 				locked = !locked
-				user.visible_message(SPAN_NOTICE("[user] [locked ? "locks" : "unlocks"] [src]'s interface."),
+				user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] [locked ? "locks" : "unlocks"] [src]'s interface."),
 				SPAN_NOTICE("You [locked ? "lock" : "unlock"] [src]'s interface."))
 				update_icon()
 			else
-				to_chat(user, SPAN_WARNING("Access denied."))
+				to_chat(user, SPAN_WARNING("Доступ запрещён."))
 	else if(iswire(attacking_item) && !terminal && opened && has_electronics != 2)
 		if(!skillcheck(user, SKILL_ENGINEER, SKILL_ENGINEER_TRAINED))
 			to_chat(user, SPAN_WARNING("You have no idea what to do with [src]."))
@@ -718,7 +718,7 @@ GLOBAL_LIST_INIT(apc_wire_descriptions, flatten_numeric_alist(alist(
 		if(coil.get_amount() < 10)
 			to_chat(user, SPAN_WARNING("You need more wires."))
 			return
-		user.visible_message(SPAN_NOTICE("[user] starts wiring [src]'s frame."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts wiring [src]'s frame."),
 		SPAN_NOTICE("You start wiring [src]'s frame."))
 		playsound(loc, 'sound/items/Deconstruct.ogg', 25, 1)
 		if(do_after(user, 20 * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD) && !terminal && opened && has_electronics != 2)
@@ -730,7 +730,7 @@ GLOBAL_LIST_INIT(apc_wire_descriptions, flatten_numeric_alist(alist(
 				spark.start()
 				return
 			if(coil.use(10))
-				user.visible_message(SPAN_NOTICE("[user] wires [src]'s frame."),
+				user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] wires [src]'s frame."),
 				SPAN_NOTICE("You wire [src]'s frame."))
 				make_terminal()
 				terminal.connect_to_network()
@@ -741,7 +741,7 @@ GLOBAL_LIST_INIT(apc_wire_descriptions, flatten_numeric_alist(alist(
 		if(loc:intact_tile)
 			to_chat(user, SPAN_WARNING("You must remove the floor plating in front of the APC first."))
 			return
-		user.visible_message(SPAN_NOTICE("[user] starts removing [src]'s wiring and terminal."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts removing [src]'s wiring and terminal."),
 		SPAN_NOTICE("You start removing [src]'s wiring and terminal."))
 		playsound(loc, 'sound/items/Deconstruct.ogg', 25, 1)
 		if(do_after(user, 50 * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD, src))
@@ -754,7 +754,7 @@ GLOBAL_LIST_INIT(apc_wire_descriptions, flatten_numeric_alist(alist(
 				spark.start()
 				return
 			new /obj/item/stack/cable_coil(loc,10)
-			user.visible_message(SPAN_NOTICE("[user] removes [src]'s wiring and terminal."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] removes [src]'s wiring and terminal."),
 			SPAN_NOTICE("You remove [src]'s wiring and terminal."))
 			qdel(terminal)
 			terminal = null
@@ -762,12 +762,12 @@ GLOBAL_LIST_INIT(apc_wire_descriptions, flatten_numeric_alist(alist(
 		if(!skillcheck(user, SKILL_ENGINEER, SKILL_ENGINEER_TRAINED))
 			to_chat(user, SPAN_WARNING("You have no idea what to do with [attacking_item]."))
 			return
-		user.visible_message(SPAN_NOTICE("[user] starts inserting the power control board into [src]."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts inserting the power control board into [src]."),
 		SPAN_NOTICE("You start inserting the power control board into [src]."))
 		playsound(loc, 'sound/items/Deconstruct.ogg', 25, 1)
 		if(do_after(user, 15, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
 			has_electronics = 1
-			user.visible_message(SPAN_NOTICE("[user] inserts the power control board into [src]."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] inserts the power control board into [src]."),
 			SPAN_NOTICE("You insert the power control board into [src]."))
 			qdel(attacking_item)
 	else if(istype(attacking_item, /obj/item/circuitboard/apc) && opened && has_electronics == 0 && (stat & BROKEN))
@@ -787,13 +787,13 @@ GLOBAL_LIST_INIT(apc_wire_descriptions, flatten_numeric_alist(alist(
 		if(torch.get_fuel() < 3)
 			to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 			return
-		user.visible_message(SPAN_NOTICE("[user] starts welding [src]'s frame."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts welding [src]'s frame."),
 		SPAN_NOTICE("You start welding [src]'s frame."))
 		playsound(loc, 'sound/items/Welder.ogg', 25, 1)
 		if(do_after(user, 50 * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD, src))
 			if(QDELETED(src) || !torch.remove_fuel(3, user))
 				return
-			user.visible_message(SPAN_NOTICE("[user] welds [src]'s frame apart."), SPAN_NOTICE("You weld [src]'s frame apart."))
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] welds [src]'s frame apart."), SPAN_NOTICE("You weld [src]'s frame apart."))
 			deconstruct()
 			return
 	else if(istype(attacking_item, /obj/item/frame/apc) && opened && (stat & BROKEN))
@@ -803,10 +803,10 @@ GLOBAL_LIST_INIT(apc_wire_descriptions, flatten_numeric_alist(alist(
 		if(has_electronics)
 			to_chat(user, SPAN_WARNING("You cannot repair this APC until you remove the electronics still inside."))
 			return
-		user.visible_message(SPAN_NOTICE("[user] begins replacing [src]'s damaged frontal panel with a new one."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins replacing [src]'s damaged frontal panel with a new one."),
 		SPAN_NOTICE("You begin replacing [src]'s damaged frontal panel with a new one."))
 		if(do_after(user, 50 * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
-			user.visible_message(SPAN_NOTICE("[user] replaces [src]'s damaged frontal panel with a new one."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] replaces [src]'s damaged frontal panel with a new one."),
 			SPAN_NOTICE("You replace [src]'s damaged frontal panel with a new one."))
 			user.count_niche_stat(STATISTICS_NICHE_REPAIR_APC)
 			qdel(attacking_item)
@@ -818,7 +818,7 @@ GLOBAL_LIST_INIT(apc_wire_descriptions, flatten_numeric_alist(alist(
 	else
 		if(((stat & BROKEN)) && !opened && attacking_item.force >= 5)
 			opened = APC_COVER_REMOVED
-			user.visible_message(SPAN_WARNING("[user] knocks down [src]'s cover with [attacking_item]!"),
+			user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] knocks down [src]'s cover with [attacking_item]!"),
 				SPAN_WARNING("You knock down [src]'s cover with [attacking_item]!"))
 			update_icon()
 		else
@@ -826,7 +826,7 @@ GLOBAL_LIST_INIT(apc_wire_descriptions, flatten_numeric_alist(alist(
 				return attack_hand(user)
 			if(!opened && wiresexposed && (HAS_TRAIT(attacking_item, TRAIT_TOOL_MULTITOOL) || HAS_TRAIT(attacking_item, TRAIT_TOOL_WIRECUTTERS)))
 				return attack_hand(user)
-			user.visible_message(SPAN_DANGER("[user] hits [src] with [attacking_item]!"),
+			user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] hits [src] with [attacking_item]!"),
 			SPAN_DANGER("You hit [src] with [attacking_item]!"))
 
 /obj/structure/machinery/power/apc/deconstruct(disassembled = TRUE)
@@ -929,7 +929,7 @@ GLOBAL_LIST_INIT(apc_wire_descriptions, flatten_numeric_alist(alist(
 			cell.update_icon()
 
 			src.cell = null
-			user.visible_message(SPAN_NOTICE("[user] removes the power cell from [src]!"),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] removes the power cell from [src]!"),
 			SPAN_NOTICE("You remove the power cell from [src]."))
 			charging = APC_NOT_CHARGING
 			update_icon()
@@ -1044,7 +1044,7 @@ GLOBAL_LIST_INIT(apc_wire_descriptions, flatten_numeric_alist(alist(
 	if(istype(H))
 		if(H.getBrainLoss() >= 60)
 			for(var/mob/M as anything in viewers(src, null))
-				H.visible_message(SPAN_WARNING("[H] stares cluelessly at [src] and drools."),
+				H.visible_message(SPAN_WARNING("[capitalize(H.declent_ru(NOMINATIVE))] stares cluelessly at [src] and drools."),
 				SPAN_WARNING("You stare cluelessly at [src] and drool."))
 			return 0
 		else if(prob(H.getBrainLoss()))
