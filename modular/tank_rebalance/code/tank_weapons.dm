@@ -19,7 +19,7 @@
 	accuracy = HIT_ACCURACY_TIER_4
 
 /obj/item/hardpoint/primary/minigun
-	spinup_time = 6 SECONDS
+	spinup_time = 8 SECONDS
 	scatter = 16
 	firing_arc = 120
 
