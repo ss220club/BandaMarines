@@ -2,18 +2,20 @@
 	dupe_mode = COMPONENT_DUPE_ALLOWED
 	/// The thing to show
 	var/datum/xeno_customization_option/option
-	/// What is actually showed
+	/// What the selected option is showing, be it an overlay or full body replacement
 	var/image/to_show
 	/// List of players who are ready/already see customization
 	var/list/mob/seeables = list()
 	/// A specific set of players set to see the customizations; used in preferences
 	var/list/mob/override_list
 
-
-	///The mob's original render_target value
+	/// The mob's original render_target value, when all components are deleted
 	var/initial_render_target_value
+	/// What players with "Show None" preference enabled see, a duplicate of the original xeno icon
 	var/atom/movable/render_source_atom
+	/// The image players with "Non-Lore Friendly" preference enabled see, replacing the original xeno icon
 	var/image/non_lore_image
+	/// The image players with "Lore-Friendly" preference enabled see, replacing the original xeno icon
 	var/image/lore_image
 
 /datum/component/xeno_customization/Initialize(datum/xeno_customization_option/option, list/mob/override_viewers)
@@ -49,9 +51,12 @@
 	if(length(remaining_customizations) == 1)
 		owner.vis_contents -= render_source_atom
 		owner.render_target = initial_render_target_value
+		QDEL_NULL(render_source_atom)
+		QDEL_NULL(non_lore_image)
+		QDEL_NULL(lore_image)
+		initial_render_target_value = null
 	else
 		remove_images()
-	QDEL_NULL(render_source_atom)
 	. = ..()
 
 /datum/component/xeno_customization/proc/add_images()
@@ -84,25 +89,24 @@
 			initial_render_target_value = current_customization.initial_render_target_value
 			return
 	// Well, time to create new ones
-	var/mob/owner = parent
+	var/mob/living/carbon/xenomorph/xeno = parent
 
 	render_source_atom = new()
 
-	render_source_atom.appearance_flags |= (RESET_COLOR | RESET_TRANSFORM)
+	render_source_atom.name = "xeno customization vis"
 	render_source_atom.vis_flags |= (VIS_INHERIT_ID | VIS_INHERIT_PLANE | VIS_INHERIT_LAYER | VIS_UNDERLAY)
 	render_source_atom.render_source = "*xeno_customization_[REF(parent)]"
 
-	initial_render_target_value = owner.render_target
-	owner.render_target = "*xeno_customization_[REF(parent)]"
-	owner.vis_contents.Add(render_source_atom)
+	initial_render_target_value = xeno.render_target
+	xeno.render_target = "*xeno_customization_[REF(parent)]"
+	xeno.vis_contents.Add(render_source_atom)
 
-	non_lore_image = new(render_source_atom)
-	lore_image = new(render_source_atom)
-	non_lore_image.loc = render_source_atom
-	lore_image.loc = render_source_atom
+	non_lore_image = image(render_source_atom, render_source_atom)
+	lore_image = image(render_source_atom, render_source_atom)
+	//non_lore_image.loc = xeno
+	//lore_image.loc = xeno
 	non_lore_image.override = TRUE
 	lore_image.override = TRUE
-
 	non_lore_image.pixel_x = 0
 	lore_image.pixel_x = 0
 	non_lore_image.pixel_y = 0
