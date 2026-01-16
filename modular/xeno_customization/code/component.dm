@@ -142,6 +142,7 @@
 
 	user.client.images -= lore_image
 	user.client.images -= non_lore_image
+	user.client.images -= to_show
 
 /datum/component/xeno_customization/proc/remove_from_everyone_view()
 	for(var/mob/player as anything in seeables)
@@ -161,8 +162,10 @@
 			if(!(isxeno(user) || isobserver(user) || isnewplayer(user)))
 				return
 			user.client.images |= non_lore_image
+			user.client.images |= to_show
 		if(XENO_CUSTOMIZATION_SHOW_LORE_FRIENDLY)
 			user.client.images |= lore_image
+			user.client.images |= to_show
 		if(XENO_CUSTOMIZATION_SHOW_NONE)
 			return
 
