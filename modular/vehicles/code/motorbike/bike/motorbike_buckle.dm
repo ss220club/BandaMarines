@@ -45,6 +45,7 @@
 	if(sidecar)
 		// Выносим сюда, а то неправильно уберет, т.к. моб уже отвязан
 		sidecar.reset_bike_permutated(TRUE)
-	buckled_mob.set_glide_size(initial(buckled_mob.glide_size))
-	UnregisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN))
+	if(buckled_mob)
+		buckled_mob.set_glide_size(initial(buckled_mob.glide_size))
+		UnregisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN))
 	. = ..()
