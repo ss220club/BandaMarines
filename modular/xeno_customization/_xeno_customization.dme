@@ -2,6 +2,7 @@
 
 #include "code/_defines.dm"
 
+#include "code/abilities.dm"
 #include "code/component.dm"
 #include "code/customization_datum.dm"
 #include "code/preference.dm"
