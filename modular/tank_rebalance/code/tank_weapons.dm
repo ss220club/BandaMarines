@@ -16,13 +16,12 @@
 	max_rounds = 4
 
 /datum/ammo/bullet/tank/minigun
-	accuracy = HIT_ACCURACY_TIER_5
+	accuracy = HIT_ACCURACY_TIER_4
 
 /obj/item/hardpoint/primary/minigun
-	spinup_time = 3 SECONDS
+	spinup_time = 6 SECONDS
 	scatter = 16
 	firing_arc = 120
-	fire_delay = 0.5
 
 /obj/item/hardpoint/holder/tank_turret
 	rotation_windup = 5
