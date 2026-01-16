@@ -12,6 +12,7 @@
 	else
 		var/mob/user_mob = user
 		holder = user_mob.client
+	holder.prefs.read_and_sanitize_xeno_customization()
 	tgui_interact(holder.mob)
 
 /datum/xeno_customization_picker/ui_close(mob/user)
