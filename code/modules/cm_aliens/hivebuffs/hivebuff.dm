@@ -96,32 +96,32 @@
 ///Wrapper for on_engage(), handles checking if the buff can be actually purchased as well as adding buff to the active_hivebuffs and used_hivebuffs for the hive.
 /datum/hivebuff/proc/_on_engage(mob/living/carbon/xenomorph/purchasing_mob, obj/effect/alien/resin/special/pylon/purchased_pylon)
 	if(!_roundtime_check())
-		to_chat(purchasing_mob, SPAN_XENONOTICE("Our hive is not mature enough yet to purchase this!"))
+		to_chat(purchasing_mob, SPAN_XENONOTICE("Наш улей ещё недостаточно развит, чтобы приобрести это!"))
 		return
 
 	if(!_check_num_required_pylons())
-		to_chat(purchasing_mob, SPAN_XENONOTICE("Our hive does not have the required number of available pylons! We require [number_of_required_pylons]"))
+		to_chat(purchasing_mob, SPAN_XENONOTICE("В нашем улье недостаточно доступных пилонов! Нам нужно [number_of_required_pylons]")) // SS220 EDIT ADDICTION
 		return FALSE
 
 	if(!_check_danger())
-		to_chat(purchasing_mob, SPAN_XENONOTICE("There is not enough danger to warrant hive buffs."))
+		to_chat(purchasing_mob, SPAN_XENONOTICE("Недостаточно опасно, чтобы оправдать улучшения улья."))
 		return FALSE
 
 	if(!_check_can_afford_buff())
-		to_chat(purchasing_mob, SPAN_XENONOTICE("Our hive cannot afford [name]! [hive.buff_points] / [cost] points."))
+		to_chat(purchasing_mob, SPAN_XENONOTICE("Наш улей не может позволить себе [name]! [hive.buff_points] / [cost] очков.")) // SS220 EDIT ADDICTION
 		return FALSE
 
 	if(!_check_pass_active())
-		to_chat(purchasing_mob, SPAN_XENONOTICE("Our hive can't benefit from [name] yet!"))
+		to_chat(purchasing_mob, SPAN_XENONOTICE("Наш улей ещё не может получить выгоду от [name]!")) // SS220 EDIT ADDICTION
 		return FALSE
 
 	if(!_check_pass_reusable())
-		to_chat(purchasing_mob, SPAN_XENONOTICE("Our hive has already used [name] and cannot use it again!"))
+		to_chat(purchasing_mob, SPAN_XENONOTICE("Наш улей уже использовал [name] и не может использовать это снова!")) // SS220 EDIT ADDICTION
 		return FALSE
 
 	var/datum/hivebuff/cooldown_buff = locate(type) in hive.cooldown_hivebuffs
 	if(cooldown_buff)
-		to_chat(purchasing_mob, SPAN_XENONOTICE("Our hive has already used [name] recently! Wait [DisplayTimeText(timeleft(cooldown_buff._timer_id_cooldown))]."))
+		to_chat(purchasing_mob, SPAN_XENONOTICE("Наш улей уже использовал [name] недавно! Подождите [DisplayTimeText(timeleft(cooldown_buff._timer_id_cooldown))].")) // SS220 EDIT ADDICTION
 		return FALSE
 
 	if(!_check_pass_combineable())
@@ -129,7 +129,7 @@
 		for(var/buff in hive.active_hivebuffs)
 			active_buffs += buff + " "
 		active_buffs = trim_right(active_buffs)
-		to_chat(purchasing_mob, SPAN_XENONOTICE("[name] cannot be used with other active buffs! Wait for those to end first. Active buffs: [active_buffs]"))
+		to_chat(purchasing_mob, SPAN_XENONOTICE("[name] не может быть использован вместе с другими активными улучшениями! Сначала дождитесь их окончания. Активные улучшения: [active_buffs]")) // SS220 EDIT ADDICTION
 		return FALSE
 
 	if(!handle_special_checks())
@@ -277,7 +277,7 @@
 /// Deducts points from the hive buff points equal to the cost of the buff
 /datum/hivebuff/proc/_purchase_and_deduct(mob/purchasing_mob)
 	if(!_check_can_afford_buff())
-		to_chat(purchasing_mob, SPAN_XENONOTICE("Something went wrong, try again."))
+		to_chat(purchasing_mob, SPAN_XENONOTICE("Что-то пошло не так, попробуйте ещё раз."))
 		return FALSE
 
 	hive.buff_points -= cost
@@ -345,7 +345,7 @@
 	desc = "Provides 5 larva instantly to the hive."
 	radial_icon = "larba"
 
-	engage_flavourmessage = "Королева приобрела дополнительно 5 грудоломов, чтобы пополнить улей!"
+	engage_flavourmessage = "Королева приобрела 5 дополнительных грудоломов для улья!"
 	cost = 5
 	number_of_required_pylons = 1
 	is_reusable = FALSE
@@ -358,7 +358,7 @@
 	name = "Boon of Evolution"
 	desc = "Doubles evolution speed for 5 minutes."
 	tier = HIVEBUFF_TIER_MINOR
-	engage_flavourmessage = "The Queen has blessed us with faster evolution."
+	engage_flavourmessage = "Королева благословила нас на более быструю эволюцию."
 	duration = 5 MINUTES
 	number_of_required_pylons = 1
 	var/value_before_buff
@@ -400,7 +400,7 @@
 
 	is_reusable = TRUE
 	cost = 0
-	special_fail_message = "Only one hatchery may exist at a time."
+	special_fail_message = "Только одно гнездо может существовать одновременно."
 	cooldown_duration = 15 MINUTES // This buff ceases instantly so we need to incorporation the spawning time too
 	number_of_required_pylons = 2
 
@@ -411,11 +411,11 @@
 
 /datum/hivebuff/game_ender_caste/handle_special_checks()
 	if(locate(/mob/living/carbon/xenomorph/king) in hive.totalXenos)
-		special_fail_message = "Only one King may exist at a time."
+		special_fail_message = "Только один Король может существовать одновременно."
 		return FALSE
 
 	if(!hive.hive_location)
-		special_fail_message = "You must first construct a hive core."
+		special_fail_message = "Сначала вы должны построить ядро улья."
 		return FALSE
 
 	return !hive.has_hatchery
@@ -449,7 +449,7 @@
 			break
 
 	if(!spawn_turf)
-		engage_failure_message = "Unable to find a viable spawn point for the King."
+		engage_failure_message = "Не удалось найти подходящую точку появления для Короля."
 		return FALSE
 
 	for(var/obj/effect/alien/resin/special/pylon/pylon as anything in hive.active_endgame_pylons)
@@ -465,7 +465,7 @@
 	desc = "Makes all xenomorphs immune to fire for 5 minutes."
 	tier = HIVEBUFF_TIER_MINOR
 
-	engage_flavourmessage = "The Queen has imbued us with flame-resistant chitin."
+	engage_flavourmessage = "Королева наделила нас огнеупорным хитином."
 	duration = 5 MINUTES
 	number_of_required_pylons = 1
 	radial_icon = "shield"
@@ -474,45 +474,39 @@
 	if(!xeno.caste)
 		return
 
-	if(!(xeno.caste.fire_immunity & FIRE_IMMUNITY_NO_IGNITE))
-		RegisterSignal(xeno, COMSIG_LIVING_PREIGNITION, PROC_REF(fire_immune))
+	var/valid_immunity = xeno.fire_immunity
+	if(xeno.fire_immunity & FIRE_IMMUNITY_XENO_FRENZY)
+		valid_immunity -= FIRE_IMMUNITY_XENO_FRENZY
 
-	if(xeno.caste.fire_immunity == FIRE_IMMUNITY_NONE)
-		RegisterSignal(xeno, list(COMSIG_LIVING_FLAMER_CROSSED, COMSIG_LIVING_FLAMER_FLAMED), PROC_REF(flamer_crossed_immune))
+	if((valid_immunity & FIRE_IMMUNITY_COMPLETE)) // Already completely fire immune, return
+		return
 
+
+	switch(valid_immunity)
+		if(FIRE_IMMUNITY_NONE) // No immunities whatsoever, make immune to ignition but not fire damage
+			RegisterSignal(xeno, COMSIG_LIVING_PREIGNITION, TYPE_PROC_REF(/mob/living/carbon/xenomorph, preignition_no_ignition))
+			RegisterSignal(xeno, list(COMSIG_LIVING_FLAMER_CROSSED, COMSIG_LIVING_FLAMER_FLAMED), TYPE_PROC_REF(/mob/living/carbon/xenomorph, flamer_cross_no_ignition))
+
+		if(FIRE_IMMUNITY_NO_DAMAGE) // Immune to damage but not ignition, make them immune to ignition
+			RegisterSignal(xeno, COMSIG_LIVING_PREIGNITION, TYPE_PROC_REF(/mob/living/carbon/xenomorph, preignition_no_ignition))
+			RegisterSignal(xeno, list(COMSIG_LIVING_FLAMER_CROSSED, COMSIG_LIVING_FLAMER_FLAMED), TYPE_PROC_REF(/mob/living/carbon/xenomorph, flamer_cross_no_ignition))
+
+		if(FIRE_IMMUNITY_NO_IGNITE) // Immune to ignition but not damage, make them immune to damage
+			RegisterSignal(xeno, list(COMSIG_LIVING_FLAMER_CROSSED, COMSIG_LIVING_FLAMER_FLAMED), TYPE_PROC_REF(/mob/living/carbon/xenomorph, flamer_cross_no_damage))
+
+		if(FIRE_IMMUNITY_BURROWER) // Burrower, get same immunities as FIRE_IMMUNITY_NONE
+			RegisterSignal(xeno, COMSIG_LIVING_PREIGNITION, TYPE_PROC_REF(/mob/living/carbon/xenomorph, preignition_no_ignition))
+			RegisterSignal(xeno, list(COMSIG_LIVING_FLAMER_CROSSED, COMSIG_LIVING_FLAMER_FLAMED), TYPE_PROC_REF(/mob/living/carbon/xenomorph, flamer_cross_no_ignition))
 
 /datum/hivebuff/fire/remove_buff_effects(mob/living/carbon/xenomorph/xeno)
-	if(!(xeno.caste.fire_immunity & FIRE_IMMUNITY_NO_IGNITE))
-		UnregisterSignal(xeno, COMSIG_LIVING_PREIGNITION)
-	if(xeno.caste.fire_immunity == FIRE_IMMUNITY_NONE)
-		UnregisterSignal(xeno, list(
-				COMSIG_LIVING_FLAMER_CROSSED,
-				COMSIG_LIVING_FLAMER_FLAMED
-			))
-
-/datum/hivebuff/fire/proc/flamer_crossed_immune(mob/living/living, datum/reagent/reagent)
-	SIGNAL_HANDLER
-
-	if(reagent.fire_penetrating)
-		return
-
-	. |= COMPONENT_NO_IGNITE
-
-
-/datum/hivebuff/fire/proc/fire_immune(mob/living/living)
-	SIGNAL_HANDLER
-
-	if(living.fire_reagent?.fire_penetrating && !HAS_TRAIT(living, TRAIT_ABILITY_BURROWED))
-		return
-
-	return COMPONENT_CANCEL_IGNITION
+	xeno.refresh_fire_immunity() // Returns all affected Xenos back to whatever fire immunity is logged on the mob
 
 /datum/hivebuff/adaptability
 	name = "Boon of Adaptability"
 	desc = "Allows each xenomorph to change to a different caste of the same tier."
 	tier = HIVEBUFF_TIER_MAJOR
 
-	engage_flavourmessage = "The Queen has blessed us with adaptability."
+	engage_flavourmessage = "Королева благословила нас на адаптивность."
 	duration = 0
 	cost = 2
 	number_of_required_pylons = 2
@@ -531,10 +525,10 @@
 
 /datum/hivebuff/attack
 	name = "Boon of Aggression"
-	desc = "Increases all xenomorph damage by 5 for 5 minutes"
+	desc = "Increases all xenomorph damage by 5 for 5 minutes."
 	tier = HIVEBUFF_TIER_MINOR
 
-	engage_flavourmessage = "The Queen has imbued us with sharp claws."
+	engage_flavourmessage = "Королева наделила нас острыми когтями."
 	duration = 5 MINUTES
 	number_of_required_pylons = 1
 	radial_icon = "slash"
@@ -549,10 +543,10 @@
 
 /datum/hivebuff/attack/major
 	name = "Major Boon of Aggression"
-	desc = "Increases all xenomorph damage by 10 for 10 minutes"
+	desc = "Increases all xenomorph damage by 10 for 10 minutes."
 	tier = HIVEBUFF_TIER_MAJOR
 
-	engage_flavourmessage = "The Queen has imbued us with razor-sharp claws."
+	engage_flavourmessage = "Королева наделила нас бритвенно-острыми когтями."
 	duration = 10 MINUTES
 	number_of_required_pylons = 2
 	cost = 2

@@ -260,9 +260,6 @@
 	if(wielded_item && (wielded_item.flags_item & WIELDED)) //this segment checks if the item in your hand is twohanded.
 		var/obj/item/weapon/twohanded/offhand/offhand = get_inactive_hand()
 		if(offhand && (offhand.flags_item & WIELDED))
-			to_chat(src, SPAN_WARNING("Your other hand is too busy holding \the [offhand.name]")) //So it's an offhand.
-			return
-		else
 			wielded_item.unwield(src) //Get rid of it.
 	if(wielded_item && wielded_item.zoom) //Adding this here while we're at it
 		wielded_item.zoom(src)
@@ -296,7 +293,7 @@
 /mob/living/carbon/proc/help_shake_act(mob/living/carbon/M)
 	if(src == M)
 		return
-	var/t_him = p_them()
+	var/t_him = ru_p_thereto()
 
 	var/shake_action
 	if(stat == DEAD || HAS_TRAIT(src, TRAIT_INCAPACITATED) || sleeping) // incap implies also unconscious or knockedout
@@ -307,11 +304,11 @@
 	if(shake_action) // We are incapacitated in some fashion
 		if(client)
 			sleeping = max(0,sleeping-5)
-		M.visible_message(SPAN_NOTICE("[M] shakes [src] trying to [shake_action]"),
+		M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] shakes [src] trying to [shake_action]"),
 			SPAN_NOTICE("You shake [src] trying to [shake_action]"), null, 4)
 
 	else if(body_position == LYING_DOWN) // We're just chilling on the ground, let us be
-		M.visible_message(SPAN_NOTICE("[M] stares and waves impatiently at [src] lying on the ground."),
+		M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] stares and waves impatiently at [src] lying on the ground."),
 			SPAN_NOTICE("You stare and wave at [src] just lying on the ground."), null, 4)
 
 	else
@@ -319,8 +316,8 @@
 		if(istype(H))
 			H.species.hug(H, src, H.zone_selected)
 		else
-			M.visible_message(SPAN_NOTICE("[M] pats [src] on the back to make [t_him] feel better!"),
-				SPAN_NOTICE("You pat [src] on the back to make [t_him] feel better!"), null, 4)
+			M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] похлопывает [declent_ru(ACCUSATIVE)] по спине, чтобы [t_him] стало лучше!"), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("Вы похлопываете [src] по спине, чтобы [t_him] стало лучше!"), null, 4)
 			playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 5)
 		return
 
@@ -411,7 +408,7 @@
 
 		if(!(thrown_thing.try_to_throw(src)))
 			return
-		visible_message(SPAN_WARNING("[src] бросает [declent_ru_initial(thrown_thing::name, ACCUSATIVE, thrown_thing::name)]."), null, null, 5) // SS220 EDIT ADDICTION
+		visible_message(SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] бросает [thrown_thing.declent_ru(ACCUSATIVE)]."), null, null, 5) // SS220 EDIT ADDICTION
 
 		if(!lastarea)
 			lastarea = get_area(src.loc)
@@ -471,7 +468,7 @@
 	set category = "IC"
 
 	if(sleeping)
-		to_chat(usr, SPAN_DANGER("You are already sleeping"))
+		to_chat(usr, SPAN_DANGER("You are already sleeping."))
 		return
 	if(alert(src,"You sure you want to sleep for a while?","Sleep","Yes","No") == "Yes")
 		sleeping = 20 //Short nap
@@ -504,6 +501,9 @@
 
 // Adding traits, etc after xeno restrains and hauls us
 /mob/living/carbon/human/proc/handle_haul(mob/living/carbon/xenomorph/xeno)
+	SetStun(0, ignore_canstun=TRUE)
+	SetKnockDown(0, ignore_canstun=TRUE)
+
 	ADD_TRAIT(src, TRAIT_FLOORED, TRAIT_SOURCE_XENO_HAUL)
 	ADD_TRAIT(src, TRAIT_HAULED, TRAIT_SOURCE_XENO_HAUL)
 	ADD_TRAIT(src, TRAIT_NO_STRAY, TRAIT_SOURCE_XENO_HAUL)

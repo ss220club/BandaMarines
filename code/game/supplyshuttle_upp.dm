@@ -11,7 +11,7 @@ GLOBAL_DATUM_INIT(supply_controller_upp, /datum/controller/supply/upp, new())
 
 /obj/structure/machinery/computer/supply/upp
 	name = "UPP supply console"
-	desc = "A console for the General Supply Storage"
+	desc = "A console for the General Supply Storage."
 	circuit = /obj/item/circuitboard/computer/supplycomp/upp
 	faction = FACTION_UPP
 
@@ -24,7 +24,7 @@ GLOBAL_DATUM_INIT(supply_controller_upp, /datum/controller/supply/upp, new())
 
 /obj/structure/machinery/computer/supply/asrs/upp/attack_hand(mob/user as mob) //does not return when on non alamyer z level
 	if(!allowed(user))
-		to_chat(user, SPAN_DANGER("Access Denied."))
+		to_chat(user, SPAN_DANGER("Доступ запрещён."))
 		return
 
 	if(..())

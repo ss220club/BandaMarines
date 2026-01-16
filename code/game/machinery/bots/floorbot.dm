@@ -92,7 +92,7 @@
 			if(open)
 				to_chat(user, SPAN_WARNING("Please close the access panel before locking it."))
 			else
-				to_chat(user, SPAN_WARNING("Access denied."))
+				to_chat(user, SPAN_WARNING("Доступ запрещён."))
 		src.updateUsrDialog()
 	else
 		. = ..()
@@ -241,7 +241,7 @@
 	src.anchored = TRUE
 	src.icon_state = "floorbot-c"
 	if(istype(target, /turf/open/space/))
-		visible_message(SPAN_DANGER("[src] begins to repair the hole"))
+		visible_message(SPAN_DANGER("[src] begins to repair the hole."))
 		var/obj/item/stack/tile/plasteel/T = new /obj/item/stack/tile/plasteel
 		src.repairing = 1
 		spawn(50)

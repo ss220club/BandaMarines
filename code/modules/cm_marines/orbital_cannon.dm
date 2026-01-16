@@ -392,7 +392,7 @@ GLOBAL_LIST_EMPTY(orbital_cannon_cancellation)
 
 	var/cancellation_token = rand(0,32000)
 	GLOB.orbital_cannon_cancellation["[cancellation_token]"] = src
-	message_admins(FONT_SIZE_XL("<A href='byond://?_src_=admin_holder;[HrefToken(forceGlobal = TRUE)];admincancelob=1;cancellation=[cancellation_token]'>НАЖМИТЕ ЗДЕСЬ, ЧТОБЫ ОТМЕНИТЬ ОБ</a>"))
+	message_admins(FONT_SIZE_XL("<A href='byond://?_src_=admin_holder;[HrefToken(forceGlobal = TRUE)];admincancelob=1;cancellation=[cancellation_token]'>CLICK TO CANCEL THIS OB</a>"))
 
 	var/relative_dir
 	for(var/mob/M in long_range(30, target))
@@ -610,7 +610,7 @@ GLOBAL_LIST_EMPTY(orbital_cannon_cancellation)
 /obj/structure/machinery/computer/orbital_cannon_console/tgui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "OrbitalCannonConsole", "[src.name]")
+		ui = new(user, src, "OrbitalCannonConsole", "[capitalize(name)]")
 		ui.open()
 
 /obj/structure/machinery/computer/orbital_cannon_console/ui_state(mob/user)

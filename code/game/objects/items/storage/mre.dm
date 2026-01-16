@@ -55,7 +55,7 @@
 		var/obj/item/mre_food_packet/entree/packet = locate() in src //Name is determined from entree's contents_food name
 		var/obj/item/reagent_container/food/snacks/mre_food/food = packet.contents_food
 		name += " ([food.name])"
-		ru_names_rename(ru_names_toml(src::name, suffix = " ([declent_ru_initial(food.name, NOMINATIVE, food.name)])", override_base = name)) // SS220 - EDIT ADDITTION
+		ru_names_rename(ru_names_toml(src::name, suffix = " ([declent_ru_initial(food.name, NOMINATIVE, food.name)])", override_base = name)) // SS220 EDIT ADDICTION
 	if(should_have_spread)
 		choose_spread()
 		storage_slots += 1
@@ -168,6 +168,10 @@
 	snack = /obj/item/mre_food_packet/wy/snack
 	dessert = /obj/item/mre_food_packet/wy/dessert
 
+/obj/item/storage/box/mre/pmc/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/wy)
+
 /obj/item/storage/box/mre/pmc/choose_cigarettes()
 	var/cig_type = rand(1, 2)
 	switch(cig_type)
@@ -245,7 +249,7 @@
 
 /obj/item/storage/box/mre/fsr
 	name = "\improper FSR combat ration"
-	desc = "First Strike Ration, produced by the same manufacturere that produces MREs for UA militaries, but oriented on a civillian and private markets."
+	desc = "First Strike Ration, produced by the same manufacturere that produces MREs for UA militaries, but oriented on a civilian and private markets."
 	icon_state = "merc_mealpack"
 	icon_closed = "merc_mealpack"
 	icon_opened = "merc_mealpackopened"
@@ -279,6 +283,10 @@
 	should_have_spread = FALSE
 	should_have_cookie = FALSE
 	should_have_utencil = FALSE
+
+/obj/item/storage/box/mre/wy/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/wy)
 
 /obj/item/storage/box/mre/wy/choose_drink()
 	new /obj/item/reagent_container/food/drinks/cans/bugjuice(src)
@@ -316,6 +324,10 @@
 	should_have_spread = FALSE
 	should_have_cookie = FALSE
 	should_have_utencil = TRUE
+
+/obj/item/storage/box/mre/upp/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/norcomm)
 
 /obj/item/storage/box/mre/upp/choose_utencil()
 	new /obj/item/tool/kitchen/utensil/pspoon(src)

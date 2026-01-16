@@ -12,7 +12,6 @@
 	var/obj/item/camera_holder = null
 	var/datum/squad/current_squad = null
 
-	var/datum/tacmap/tacmap
 	var/minimap_type = MINIMAP_FLAG_USCM
 
 	var/is_announcement_active = TRUE
@@ -27,20 +26,18 @@
 
 	var/list/concurrent_users = list()
 
+	var/minimap_flag = MINIMAP_FLAG_USCM
+
 /obj/structure/machinery/computer/groundside_operations/Initialize()
 	if(SSticker.mode && MODE_HAS_FLAG(MODE_FACTION_CLASH))
 		add_pmcs = FALSE
 	else if(SSticker.current_state < GAME_STATE_PLAYING)
 		RegisterSignal(SSdcs, COMSIG_GLOB_MODE_PRESETUP, PROC_REF(disable_pmc))
-	if(announcement_faction == FACTION_MARINE)
-		tacmap = new /datum/tacmap/drawing(src, minimap_type)
-	else
-		tacmap = new(src, minimap_type) // Non-drawing version
 
+	AddComponent(/datum/component/tacmap, has_drawing_tools = TRUE, minimap_flag = minimap_flag, has_update = TRUE)
 	return ..()
 
 /obj/structure/machinery/computer/groundside_operations/Destroy()
-	QDEL_NULL(tacmap)
 	QDEL_NULL(cam)
 	current_squad = null
 	concurrent_users = null
@@ -226,11 +223,10 @@
 
 	usr.set_interaction(src)
 	switch(href_list["operation"])
-
 		if("mapview")
-			tacmap.tgui_interact(usr)
-			return
-
+			var/mob/user = usr
+			var/datum/component/tacmap/tacmap_component = GetComponent(/datum/component/tacmap)
+			tacmap_component.show_tacmap(user)
 		if("announce")
 			var/mob/living/carbon/human/human_user = usr
 			var/obj/item/card/id/idcard = human_user.get_active_hand()
@@ -253,7 +249,7 @@
 				to_chat(usr, SPAN_WARNING("Please allow at least [COOLDOWN_COMM_MESSAGE*0.1] second\s to pass between announcements."))
 				return FALSE
 			if(announcement_faction != FACTION_MARINE && usr.faction != announcement_faction)
-				to_chat(usr, SPAN_WARNING("Access denied."))
+				to_chat(usr, SPAN_WARNING("Доступ запрещён."))
 				return
 			var/input = stripped_multiline_input(usr, "Пожалуйста, напишите сообщение для экипажа станции.", "Приоритетное оповещение", "")
 			if(!input || !is_announcement_active || !(usr in dview(1, src)))
@@ -278,16 +274,7 @@
 			open_medal_panel(usr, src)
 
 		if("selectlz")
-			if(SSticker.mode.active_lz)
-				return
-			var/lz_choices = list("lz1", "lz2")
-			var/new_lz = tgui_input_list(usr, "Select primary LZ", "LZ Select", lz_choices)
-			if(!new_lz)
-				return
-			if(new_lz == "lz1")
-				SSticker.mode.select_lz(locate(/obj/structure/machinery/computer/shuttle/dropship/flight/lz1))
-			else
-				SSticker.mode.select_lz(locate(/obj/structure/machinery/computer/shuttle/dropship/flight/lz2))
+			SSticker.mode.pick_a_lz(usr)
 
 		if("pick_squad")
 			var/list/squad_list = list()
@@ -325,7 +312,7 @@
 				if(new_holder)
 					new_cam = new_holder.get_camera()
 				if(!new_cam || !new_cam.can_use())
-					to_chat(usr, "[icon2html(src, usr)] [SPAN_WARNING("Searching for camera. No camera found for this marine! Tell your squad to put their cameras on!")]")
+					to_chat(usr, "[icon2html(src, usr)] [SPAN_WARNING("Поиск камеры... Камера не обнаружена! Сообщите отряду о необходимости включить камеры!")]")
 				else if(cam && cam == new_cam)//click the camera you're watching a second time to stop watching.
 					visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("Stopping camera view of [cam_target].")]")
 					usr.UnregisterSignal(cam, COMSIG_PARENT_QDELETING)
@@ -382,6 +369,9 @@
 
 /obj/structure/machinery/computer/groundside_operations/on_unset_interaction(mob/user)
 	..()
+
+	var/datum/component/tacmap/tacmap_component = GetComponent(/datum/component/tacmap)
+	tacmap_component.on_unset_interaction(user)
 
 	if(!isRemoteControlling(user))
 		if(cam)

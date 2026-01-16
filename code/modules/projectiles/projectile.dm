@@ -16,6 +16,7 @@
 	alpha = 0 // We want this thing to be transparent when it drops on a turf because it will be on the user's turf. We then want to make it opaque as it travels.
 	layer = FLY_LAYER
 	animate_movement = NO_STEPS //disables gliding because it fights against what animate() is doing
+	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 
 	var/datum/ammo/ammo //The ammo data which holds most of the actual info.
 
@@ -976,8 +977,8 @@
 		apply_stamina_damage(P.ammo.stamina_damage, P.def_zone, ARMOR_ENERGY) // Stamina damage is energy
 
 	//Shields
-	if( !(ammo_flags & AMMO_ROCKET) ) //No, you can't block rockets.
-		if(prob(75) && check_shields(damage * 0.65, "[P]") ) // Lower chance to block bullets
+	if(!(ammo_flags & AMMO_ROCKET)) //No, you can't block rockets.
+		if(check_shields("[P]", get_dir(src, P.firer), attack_type = SHIELD_ATTACK_PROJECTILE)) // Lower chance to block bullets
 			P.ammo.on_shield_block(src)
 			bullet_ping(P)
 			return
@@ -1010,7 +1011,7 @@
 		damage_result = armor_damage_reduction(GLOB.marine_ranged, damage, armor, P.ammo.penetration)
 
 		if(damage_result <= 5)
-			to_chat(src,SPAN_XENONOTICE("Your armor absorbs the force of [P]!"))
+			to_chat(src,SPAN_XENONOTICE("Ваша броня поглощает силу удара [P]!")) // SS220 EDIT ADDICTION
 		if(damage_result <= 3)
 			damage_result = 0
 			bullet_ping(P)
@@ -1074,7 +1075,7 @@
 
 	var/ammo_flags = P.ammo.flags_ammo_behavior | P.projectile_override_flags
 
-	if((ammo_flags & AMMO_FLAME) && (caste.fire_immunity & (FIRE_IMMUNITY_NO_IGNITE|FIRE_IMMUNITY_NO_DAMAGE)))
+	if((ammo_flags & AMMO_FLAME) && (fire_immunity & (FIRE_IMMUNITY_NO_IGNITE || FIRE_IMMUNITY_NO_DAMAGE || FIRE_IMMUNITY_COMPLETE)))
 		to_chat(src, SPAN_AVOIDHARM("You shrug off the glob of flame."))
 		bullet_message(P, damaging = FALSE)
 		return
@@ -1258,8 +1259,8 @@
 	if(!P)
 		return
 	if(damaging && COOLDOWN_FINISHED(src, shot_cooldown))
-		visible_message(SPAN_DANGER("[src] is hit by the [P.name] in the [parse_zone(P.def_zone)]!"),
-			SPAN_HIGHDANGER("[isxeno(src) ? "We" : "You"] are hit by the [P.name] in the [parse_zone(P.def_zone)]!"), null, 4, CHAT_TYPE_TAKING_HIT)
+		visible_message(SPAN_DANGER("[capitalize(P.declent_ru(NOMINATIVE))] попадает по [declent_ru(DATIVE)] в [declent_ru_initial(parse_zone(P.def_zone), ACCUSATIVE, parse_zone(P.def_zone))]!"), // SS220 EDIT ADDICTION
+			SPAN_HIGHDANGER("[capitalize(P.declent_ru(NOMINATIVE))] попадает по [isxeno(src) ? "нам" : "вам"] в [declent_ru_initial(parse_zone(P.def_zone), ACCUSATIVE, parse_zone(P.def_zone))]!"), null, 4, CHAT_TYPE_TAKING_HIT) // SS220 EDIT ADDICTION
 		COOLDOWN_START(src, shot_cooldown, 1 SECONDS)
 
 	var/shot_from = P.shot_from ? " from \a [P.shot_from]" : ""

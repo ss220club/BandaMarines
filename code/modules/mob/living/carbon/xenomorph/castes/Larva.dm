@@ -44,7 +44,6 @@
 		/datum/action/xeno_action/onclick/xeno_resting,
 		/datum/action/xeno_action/watch_xeno,
 		/datum/action/xeno_action/onclick/xenohide,
-		/datum/action/xeno_action/onclick/tacmap,
 	)
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
@@ -69,11 +68,25 @@
 		generate_name()
 	return ..()
 
+/mob/living/carbon/xenomorph/larva/warn_away_timer()
+	if(away_timer != XENO_LEAVE_TIMER_LARVA - XENO_AVAILABLE_TIMER)
+		return
+	if(aghosted)
+		return
+	if(health <= 0)
+		return
+	var/area/area = get_area(src)
+	if(should_block_game_interaction(src) && (!area || !(area.flags_area & AREA_ALLOW_XENO_JOIN)))
+		return //xenos on admin z level don't count
+
+	to_chat(client, SPAN_ALERTWARNING("You are inactive and will be available to ghosts in [XENO_AVAILABLE_TIMER] second\s!"))
+	playsound_client(client, sound('sound/effects/xeno_evolveready.ogg'))
+
 /mob/living/carbon/xenomorph/larva/initialize_pass_flags(datum/pass_flags_container/pass_flags)
 	..()
 	if (pass_flags)
 		pass_flags.flags_pass = PASS_MOB_THRU|PASS_FLAGS_CRAWLER
-		pass_flags.flags_can_pass_all = PASS_ALL^PASS_OVER_THROW_ITEM
+		pass_flags.flags_can_pass_all = PASS_ALL|PASS_OVER_THROW_ITEM
 
 /mob/living/carbon/xenomorph/larva/corrupted
 	AUTOWIKI_SKIP(TRUE)
@@ -122,7 +135,7 @@
 	hud_set_hunter()
 
 /mob/living/carbon/xenomorph/larva/evolve_message()
-	to_chat(src, SPAN_XENODANGER("Strength ripples through your small form. You are ready to be shaped to the Queen's will. <a href='byond://?src=\ref[src];evolve=1;'>Evolve</a>"))
+	to_chat(src, SPAN_XENODANGER("Сила пронизывает вашу маленькую форму. Вы готовы <a href='byond://?src=\ref[src];evolve=1;'>эволюционировать</a> по воле Королевы.")) // SS220 EDIT ADDICTION
 	playsound_client(client, sound('sound/effects/xeno_evolveready.ogg'))
 
 	var/datum/action/xeno_action/onclick/evolve/evolve_action = new()
@@ -231,7 +244,16 @@ Also handles the "Mature / Bloody naming convention. Call this to update the nam
 		progress = "Кровавый "
 
 	name = "[name_prefix][progress][declent_ru_initial("Larva", NOMINATIVE, "Larva")] ([nicknumber])"
-	ru_names_rename(ru_names_toml("Larva", prefix = "[name_prefix][progress]", suffix = " ([nicknumber])", override_base = name))
+	ru_names_rename(ru_names_list(
+		base = name,
+		nominative = "[name_prefix][declent_ru_initial(progress, NOMINATIVE, progress)][declent_ru_initial("Larva", NOMINATIVE, "Larva")] ([nicknumber])",
+		genitive = "[name_prefix][declent_ru_initial(progress, GENITIVE, progress)][declent_ru_initial("Larva", GENITIVE, "Larva")] ([nicknumber])",
+		dative = "[name_prefix][declent_ru_initial(progress, DATIVE, progress)][declent_ru_initial("Larva", DATIVE, "Larva")] ([nicknumber])",
+		accusative = "[name_prefix][declent_ru_initial(progress, ACCUSATIVE, progress)][declent_ru_initial("Larva", ACCUSATIVE, "Larva")] ([nicknumber])",
+		instrumental = "[name_prefix][declent_ru_initial(progress, INSTRUMENTAL, progress)][declent_ru_initial("Larva", INSTRUMENTAL, "Larva")] ([nicknumber])",
+		prepositional = "[name_prefix][declent_ru_initial(progress, PREPOSITIONAL, progress)][declent_ru_initial("Larva", PREPOSITIONAL, "Larva")] ([nicknumber])",
+		gender = "[declent_ru_initial("Larva", "gender", MALE)]",
+	))
 
 	//Update linked data so they show up properly
 	change_real_name(src, name)

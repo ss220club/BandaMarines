@@ -210,7 +210,7 @@
 	if(M.a_intent == INTENT_HELP || !bleed_layer)
 		return ..()
 
-	M.visible_message(SPAN_NOTICE("[M] starts clearing out \the [src]..."), SPAN_NOTICE("You start clearing out \the [src]..."), null, 5, CHAT_TYPE_XENO_COMBAT)
+	M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] starts clearing out \the [src]..."), SPAN_NOTICE("You start clearing out \the [src]..."), null, 5, CHAT_TYPE_XENO_COMBAT)
 	playsound(M.loc, 'sound/weapons/alien_claw_swipe.ogg', 25, 1)
 
 	while(bleed_layer > 0)
@@ -303,7 +303,7 @@
 	icon_state = "grass_0"
 	icon_prefix = "grass"
 	layer_name = list("ground","lush thick grass")
-	desc = "grass, dirt, mud, and other assorted high moisture cave flooring."
+	desc = "Grass, dirt, mud, and other assorted high moisture cave flooring."
 
 /turf/open/auto_turf/strata_grass/insert_self_into_baseturfs()
 	baseturfs += /turf/open/auto_turf/strata_grass/layer0

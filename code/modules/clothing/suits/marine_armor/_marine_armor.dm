@@ -92,7 +92,7 @@
 	var/flashlight_cooldown = 0 //Cooldown for toggling the light
 	var/locate_cooldown = 0 //Cooldown for SL locator
 	var/armor_overlays[]
-	actions_types = list(/datum/action/item_action/toggle)
+	actions_types = list(/datum/action/item_action/toggle/lamp)
 	var/flags_marine_armor = ARMOR_SQUAD_OVERLAY|ARMOR_LAMP_OVERLAY
 	var/specialty = "M3 pattern marine" //Same thing here. Give them a specialty so that they show up correctly in vendors. speciality does NOTHING if you have NO_NAME_OVERRIDE
 	w_class = SIZE_HUGE
@@ -117,13 +117,13 @@
 	. = ..()
 	if(!(flags_atom & NO_NAME_OVERRIDE))
 		name = "[specialty]"
-		var/suffix = "" // SS220 - EDIT ADDITTION
+		var/suffix = "" // SS220 EDIT ADDICTION
 		if(SSmapping.configs[GROUND_MAP].environment_traits[MAP_COLD])
 			name += " snow armor" //Leave marine out so that armors don't have to have "Marine" appended (see: generals).
-			suffix = " (Зимний камуфляж)" // SS220 - EDIT ADDITTION
+			suffix = " (Зимний камуфляж)" // SS220 EDIT ADDICTION
 		else
 			name += " armor"
-		ru_names_rename(ru_names_toml(replacetext(name," snow",""), suffix = suffix, override_base = name)) // SS220 - EDIT ADDITTION
+		ru_names_rename(ru_names_toml(replacetext(name," snow",""), suffix = suffix, override_base = name)) // SS220 EDIT ADDICTION
 
 	if(!(flags_atom & NO_GAMEMODE_SKIN))
 		select_gamemode_skin(type)
@@ -140,6 +140,7 @@
 	pockets.max_storage_space = 8
 
 	light_holder = new(src)
+	AddElement(/datum/element/corp_label/armat)
 
 /obj/item/clothing/suit/storage/marine/Destroy()
 	QDEL_NULL(light_holder)
@@ -369,7 +370,7 @@
 	armor_bio = CLOTHING_ARMOR_MEDIUMLOW
 	armor_internaldamage = CLOTHING_ARMOR_MEDIUMLOW
 	slowdown = SLOWDOWN_ARMOR_LIGHT
-	uniform_restricted = list(/obj/item/clothing/under/marine/officer, /obj/item/clothing/under/rank/qm_suit, /obj/item/clothing/under/rank/chief_medical_officer, /obj/item/clothing/under/marine/dress)
+	uniform_restricted = list(/obj/item/clothing/under/marine/officer, /obj/item/clothing/under/rank/qm_suit, /obj/item/clothing/under/rank/cmo, /obj/item/clothing/under/marine/dress)
 	specialty = "M3 pattern officer"
 	item_state_slots = list(WEAR_JACKET = "officer")
 	black_market_value = 20
@@ -770,4 +771,3 @@
 		WEAR_JACKET = 'icons/mob/humans/onmob/clothing/suits/armor.dmi'
 	)
 	flags_atom = NO_GAMEMODE_SKIN|NO_NAME_OVERRIDE
-

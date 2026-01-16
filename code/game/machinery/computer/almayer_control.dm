@@ -28,7 +28,7 @@
 		return
 
 	if(!allowed(user))
-		to_chat(usr, SPAN_WARNING("Access denied."))
+		to_chat(usr, SPAN_WARNING("Доступ запрещён."))
 		return FALSE
 
 	if(!istype(loc.loc, /area/almayer/command/cic)) //Has to be in the CIC. Can also be a generic CIC area to communicate, if wanted.
@@ -42,7 +42,7 @@
 /obj/structure/machinery/computer/almayer_control/tgui_interact(mob/user, datum/tgui/ui, datum/ui_state/state)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "AlmayerControl", "[name]")
+		ui = new(user, src, "AlmayerControl", "[capitalize(name)]")
 		ui.open()
 
 /obj/structure/machinery/computer/almayer_control/ui_status(mob/user, datum/ui_state/state)

@@ -65,7 +65,7 @@
 			var/turf/closed/wall/W = turf
 
 			// Direction from wall to the mob generating acid on the wall turf
-			var/ambiguous_dir_msg = SPAN_XENOWARNING("We are unsure which direction to melt through [W]. Face it directly and try again.")
+			var/ambiguous_dir_msg = SPAN_XENOWARNING("У нас достаточно кислоты, чтобы проделать дыру в [W], однако сначала нужно повернуться к ней лицом.") // SS220 EDIT ADDICTION
 			var/dir_to = get_dir(src, W)
 			switch(dir_to)
 				if(WEST, EAST, NORTH, SOUTH)
@@ -89,12 +89,12 @@
 						to_chat(src, ambiguous_dir_msg)
 						return
 
-			var/acided_hole_type = W.acided_hole_dir & (EAST|WEST) ? "a hole horizontally" : "a hole vertically"
-			to_chat(src, SPAN_XENOWARNING("We begin generating enough acid to melt [acided_hole_type] through [W]."))
+			var/acided_hole_type = W.acided_hole_dir & (EAST|WEST) ? "горизонтальную дыру" : "вертикальную дыру"
+			to_chat(src, SPAN_XENOWARNING("У нас достаточно кислоты, чтобы проделать [acided_hole_type] в [W].")) // SS220 EDIT ADDICTION
 		else
-			to_chat(src, SPAN_XENOWARNING("We begin generating enough acid to melt through [turf]."))
+			to_chat(src, SPAN_XENOWARNING("У нас достаточно кислоты, чтобы растворить [turf].")) // SS220 EDIT ADDICTION
 	else
-		to_chat(src, SPAN_WARNING("You cannot dissolve [O]."))
+		to_chat(src, SPAN_WARNING("Вы не можете растворить [O].")) // SS220 EDIT ADDICTION
 		return
 
 	if(!do_after(src, wait_time, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE))
@@ -103,11 +103,11 @@
 	// AGAIN BECAUSE SOMETHING COULD'VE ACIDED THE PLACE
 	for(var/obj/effect/xenomorph/acid/A in turf)
 		if(acid_type == A.type && A.acid_t == O)
-			to_chat(src, SPAN_WARNING("[A] is already drenched in acid."))
+			to_chat(src, SPAN_WARNING("Это было бы пустой тратой кислоты...")) // SS220 EDIT ADDICTION
 			return
 
 	if(HAS_TRAIT(src, TRAIT_ABILITY_BURROWED)) //Checked again to account for people trying to place acid while channeling the burrow ability
-		to_chat(src, SPAN_WARNING("We can't melt [O] from here!"))
+		to_chat(src, SPAN_WARNING("Мы не можем растворить [O] отсюда!")) // SS220 EDIT ADDICTION
 		return
 
 	if(!check_state())
@@ -123,10 +123,10 @@
 		if(istype(O,/obj/item/explosive/plastic))
 			var/obj/item/explosive/plastic/E = O
 			if(E.plant_target && !E.plant_target.Adjacent(src))
-				to_chat(src, SPAN_WARNING("We can't reach [O]."))
+				to_chat(src, SPAN_WARNING("Мы не можем достать до [O].")) // SS220 EDIT ADDICTION
 				return
 		else
-			to_chat(src, SPAN_WARNING("[O] is too far away."))
+			to_chat(src, SPAN_WARNING("[O] слишком далеко!")) // SS220 EDIT ADDICTION
 			return
 
 	use_plasma(plasma_cost)
@@ -136,8 +136,8 @@
 	if(istype(O, /obj/vehicle/multitile))
 		var/obj/vehicle/multitile/R = O
 		R.take_damage_type(40 / A.acid_delay, "acid", src)
-		visible_message(SPAN_XENOWARNING("[src] vomits globs of vile stuff at \the [O]. It sizzles under the bubbling mess of acid!"),
-			SPAN_XENOWARNING("We vomit globs of vile stuff at [O]. It sizzles under the bubbling mess of acid!"), null, 5)
+		visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] плюётся отвратительной субстанцией на [O.declent_ru(ACCUSATIVE)], которая тут же начинает шипеть и растворяться от кислоты!"), // SS220 EDIT ADDICTION
+			SPAN_XENOWARNING("Мы плюёмся отвратительной субстанцией на [O.declent_ru(ACCUSATIVE)], которая тут же начинает шипеть и растворяться от кислоты!"), null, 5) // SS220 EDIT ADDICTION
 		playsound(loc, "sound/bullets/acid_impact1.ogg", 25)
 		QDEL_IN(A, 20)
 		return
@@ -156,8 +156,8 @@
 	if(!isturf(O))
 		msg_admin_attack("[src.name] ([src.ckey]) spat acid on [O] in [get_area(src)] ([src.loc.x],[src.loc.y],[src.loc.z]).", src.loc.x, src.loc.y, src.loc.z)
 		attack_log += text("\[[time_stamp()]\] <font color='green'>Spat acid on [O]</font>")
-	visible_message(SPAN_XENOWARNING("[src] vomits globs of vile stuff all over [O]. It begins to sizzle and melt under the bubbling mess of acid!"),
-	SPAN_XENOWARNING("We vomit globs of vile stuff all over [O]. It begins to sizzle and melt under the bubbling mess of acid!"), null, 5)
+	visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] плюётся отвратительной субстанцией на [O.declent_ru(ACCUSATIVE)], которая тут же начинает шипеть и растворяться от кислоты!"), // SS220 EDIT ADDICTION
+	SPAN_XENOWARNING("Мы плюёмся отвратительной субстанцией на [O.declent_ru(ACCUSATIVE)], которая тут же начинает шипеть и растворяться от кислоты!"), null, 5) // SS220 EDIT ADDICTION
 	playsound(loc, "sound/bullets/acid_impact1.ogg", 25)
 
 /proc/unroot_human(mob/living/carbon/H, trait_source)
@@ -169,7 +169,7 @@
 	if(ishuman(H))
 		var/mob/living/carbon/human/turf = H
 		turf.update_xeno_hostile_hud()
-	to_chat(H, SPAN_XENOHIGHDANGER("We can move again!"))
+	to_chat(H, SPAN_XENOHIGHDANGER("Мы снова можем двигаться!"))
 
 /mob/living/carbon/xenomorph/proc/zoom_in()
 	if(!HAS_TRAIT(src, TRAIT_ABILITY_SIGHT_IGNORE_REST) && (stat || resting))
@@ -182,22 +182,23 @@
 		return
 	if(!client)
 		return
+	QDEL_NULL(observed_atom)
 	is_zoomed = 1
 	client.change_view(viewsize)
 	var/viewoffset = 32 * tileoffset
 	switch(dir)
 		if(NORTH)
-			client.pixel_x = 0
-			client.pixel_y = viewoffset
+			client.set_pixel_x(0)
+			client.set_pixel_y(viewoffset)
 		if(SOUTH)
-			client.pixel_x = 0
-			client.pixel_y = -viewoffset
+			client.set_pixel_x(0)
+			client.set_pixel_y(-viewoffset)
 		if(EAST)
-			client.pixel_x = viewoffset
-			client.pixel_y = 0
+			client.set_pixel_x(viewoffset)
+			client.set_pixel_y(0)
 		if(WEST)
-			client.pixel_x = -viewoffset
-			client.pixel_y = 0
+			client.set_pixel_x(-viewoffset)
+			client.set_pixel_y(0)
 
 	for (var/datum/action/xeno_action/onclick/toggle_long_range/action in actions)
 		action.on_zoom_in()
@@ -207,8 +208,8 @@
 	if(!client)
 		return
 	client.change_view(GLOB.world_view_size)
-	client.pixel_x = 0
-	client.pixel_y = 0
+	client.set_pixel_x(0)
+	client.set_pixel_y(0)
 	is_zoomed = 0
 	// Since theres several ways we can get here, we need to update the ability button state and handle action's specific effects
 	for (var/datum/action/xeno_action/onclick/toggle_long_range/action in actions)
@@ -333,8 +334,8 @@
 	use_plasma(amount)
 	target.gain_plasma(amount)
 	target.xeno_jitter(1 SECONDS)
-	to_chat(target, SPAN_XENOWARNING("[src] has transfered [amount] plasma to us. We now have [target.plasma_stored]."))
-	to_chat(src, SPAN_XENOWARNING("We have transferred [amount] plasma to [target]. We now have [plasma_stored]."))
+	to_chat(target, SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] передаёт нам [amount] ед. плазмы. Теперь у нас [target.plasma_stored] ед. плазмы.")) // SS220 EDIT ADDICTION
+	to_chat(src, SPAN_XENOWARNING("Мы передаём [amount] ед. плазмы [target.declent_ru(DATIVE)]. У нас осталось [plasma_stored] ед. плазмы.")) // SS220 EDIT ADDICTION
 	playsound(src, "alien_drool", 25)
 
 /mob/living/carbon/xenomorph/proc/check_can_transfer_plasma(mob/living/carbon/xenomorph/target, max_range)

@@ -11,28 +11,21 @@
         var/image/vulture_icon = image(VULTURE_HUD_ICONS, src, "hudsquad_vulture")
         holder.overlays += vulture_icon
 
-/datum/equipment_preset/get_minimap_icon(mob/living/carbon/human/user)
-    var/image/final_icon = ..()
-
-    var/obj/item/card/id/ID = user.get_idcard()
-    if(ID.minimap_icon_override == "vulture")
-        var/mutable_appearance/icon = image(VULTURE_MAP_ICONS, "vulture")
-        icon.appearance_flags = RESET_COLOR
-        final_icon.overlays += icon
-
-    return final_icon
-
 /obj/item/pamphlet/trait/can_use(mob/living/carbon/human/user)
     if(user.job != JOB_SQUAD_MARINE)
-        to_chat(user, SPAN_WARNING("Only squad riflemen can use this."))
+        to_chat(user, SPAN_WARNING("Это может использовать только стрелок отряда."))
         return FALSE
 
     var/obj/item/card/id/ID = user.get_idcard()
     if(!ID) //not wearing an ID
-        to_chat(user, SPAN_WARNING("You should wear your ID before doing this."))
+        to_chat(user, SPAN_WARNING("Перед тем как это использовать, вы должны надеть ваш ID."))
         return FALSE
     if(!ID.check_biometrics(user))
-        to_chat(user, SPAN_WARNING("You should wear your ID before doing this."))
+        to_chat(user, SPAN_WARNING("Перед тем как это использовать, вы должны надеть ваш ID."))
+        return FALSE
+    var/obj/item/device/radio/headset/headset = user.get_type_in_ears(/obj/item/device/radio/headset)
+    if(!headset)
+        to_chat(user, SPAN_WARNING("Перед тем как это использовать, вы должны надеть ваш наушник."))
         return FALSE
 
     return ..()
@@ -48,7 +41,8 @@
 
     var/obj/item/device/radio/headset/headset = user.get_type_in_ears(/obj/item/device/radio/headset)
     if(headset)
-        headset.update_minimap_icon()
+        headset.minimap_path_blips_override = VULTURE_MAP_ICONS // --- Предложение так решить проблему  (рабочее, пупс лучший)
+        user.update_minimap_icon()
 
     GLOB.data_core.manifest_modify(user.real_name, WEAKREF(user), "Оператор ПТО")
 

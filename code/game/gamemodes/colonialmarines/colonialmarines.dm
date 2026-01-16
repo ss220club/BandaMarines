@@ -19,7 +19,7 @@
 	monkey_amount = 5
 	corpses_to_spawn = 0
 	flags_round_type = MODE_INFESTATION|MODE_FOG_ACTIVATED|MODE_NEW_SPAWN
-	static_comms_amount = 1
+	static_comms_amount = 2
 	var/round_status_flags
 	var/next_stat_check = 0
 	var/list/running_round_stats = list()
@@ -293,6 +293,9 @@
 /datum/game_mode/colonialmarines/proc/clear_proximity_resin()
 	var/datum/cause_data/cause_data = create_cause_data(/obj/effect/particle_effect/smoke/weedkiller::name)
 
+	if(!active_lz)
+		pick_a_lz()
+
 	for(var/area/near_area as anything in GLOB.all_areas)
 		var/area_lz = near_area.linked_lz
 		if(!area_lz)
@@ -357,21 +360,21 @@
 		var/rendered_announce_text = replacetext(SSmapping.configs[GROUND_MAP].announce_text, "###SHIPNAME###", MAIN_SHIP_NAME)
 		marine_announcement(rendered_announce_text, "[MAIN_SHIP_NAME]")
 
-/datum/game_mode/proc/ares_command_check()
+/datum/game_mode/proc/ares_command_check(mob/living/carbon/human/commander = null, force = FALSE)
+	/// Job of the person being auto-promoted.
 	var/role_in_charge
+	/// human being auto-promoted.
 	var/mob/living/carbon/human/person_in_charge
-
-	var/list/role_needs_id = list(JOB_SO, JOB_CHIEF_ENGINEER, JOB_DROPSHIP_PILOT, JOB_CAS_PILOT, JOB_INTEL)
-	var/list/role_needs_comms = list(JOB_CHIEF_POLICE, JOB_CMO, JOB_CHIEF_ENGINEER, JOB_DROPSHIP_PILOT, JOB_CAS_PILOT, JOB_INTEL)
+	/// Extra info to add to the ARES announcement announcing the promotion.
 	var/announce_addendum
-
-	var/datum/squad/intel_squad = GLOB.RoleAuthority.squads_by_type[/datum/squad/marine/intel]
-	var/list/intel_officers = intel_squad.marines_list
 
 	//Basically this follows the list of command staff in order of CoC,
 	//then if the role lacks senior command access it gives the person that access
 
-	if(GLOB.marine_leaders[JOB_CO] || GLOB.marine_leaders[JOB_XO])
+	if(SSticker.mode.acting_commander && !force) // If there's already an aCO; don't set a new one, unless forced.
+		return
+
+	if((GLOB.marine_leaders[JOB_CO] || GLOB.marine_leaders[JOB_XO]) && !force)
 		return
 	//If we have a CO or XO, we're good no need to announce anything.
 
@@ -381,36 +384,45 @@
 		if(job_by_chain == JOB_SO && GLOB.marine_leaders[JOB_SO])
 			person_in_charge = pick(GLOB.marine_leaders[JOB_SO])
 			break
-		if(job_by_chain == JOB_INTEL && !!length(intel_officers))
-			person_in_charge = pick(intel_officers)
+		if(job_by_chain == JOB_INTEL && GLOB.marine_officers[JOB_INTEL])
+			person_in_charge = pick(GLOB.marine_officers[JOB_INTEL])
 			break
+		if(job_by_chain == JOB_DOCTOR && GLOB.marine_officers[JOB_DOCTOR])
+			person_in_charge = pick(GLOB.marine_officers[JOB_DOCTOR])
+			break
+
 		//If the job is a list we have to stop here
 		if(person_in_charge)
-			continue
+			break
 
 		var/datum/job/job_datum = GLOB.RoleAuthority.roles_for_mode[job_by_chain]
-		person_in_charge = job_datum.get_active_player_on_job()
+		person_in_charge = job_datum?.get_active_player_on_job()
 		if(!isnull(person_in_charge))
 			break
 
-	if(isnull(person_in_charge))
-		return
+	if(commander) // pre-provided commander overrides the automatic selection.
+		person_in_charge = commander
+		role_in_charge = person_in_charge.job
 
-	if(LAZYFIND(role_needs_comms, role_in_charge))
-		//If the role needs comms we let them know about the headset.
-		announce_addendum += "\nA Command headset is availible in the CIC Command Tablet cabinet."
+	if(!person_in_charge)
+		return log_admin("No valid commander found for automatic promotion.")
 
-	if(LAZYFIND(role_needs_id, role_in_charge))
-		//If the role needs senior command access, we need to add it to the ID card.
-		var/obj/item/card/id/card = person_in_charge.get_idcard()
-		if(card)
-			var/list/access = card.access
-			access.Add(list(ACCESS_MARINE_SENIOR, ACCESS_MARINE_DATABASE))
+	SSticker.mode.acting_commander = person_in_charge // Prevents double-dipping.
+
+	var/obj/item/card/id/card = person_in_charge.get_idcard()
+	if(card)
+		var/static/to_add = list(ACCESS_MARINE_SENIOR, ACCESS_MARINE_DATABASE, ACCESS_MARINE_COMMAND)
+
+		var/new_access = card.access | to_add
+		if(card.access ~! new_access)
+			card.access = new_access
 			announce_addendum += "\nSenior Command access added to ID."
 
+	announce_addendum += "\nA Command headset is available in the Command Tablet cabinet."
+
 	//does an announcement to the crew about the commander & alerts admins to that change for logs.
-	shipwide_ai_announcement("Due to the absence of command staff, commander authority now falls to [role_in_charge] [person_in_charge], who will assume command until further notice. Please direct all inquiries and follow instructions accordingly. [announce_addendum]", MAIN_AI_SYSTEM, 'sound/misc/interference.ogg')
-	message_admins("[key_name(person_in_charge, 1)] [ADMIN_JMP_USER(person_in_charge)] has been designated the operation commander.")
+	shipwide_ai_announcement("Acting Commander authority has been transferred to: [role_in_charge] [person_in_charge], who will assume command until further notice. Please direct all inquiries and follow instructions accordingly. [announce_addendum]", MAIN_AI_SYSTEM, 'sound/misc/interference.ogg')
+	message_admins("[key_name(person_in_charge, TRUE)] [ADMIN_JMP_USER(person_in_charge)] has been designated the operation commander.")
 	return
 
 
@@ -450,9 +462,8 @@
 					xeno_message("The Hive is ready for a new Queen to evolve. The Hive can only survive for a limited time without a Queen!", 3, hive.hivenumber)
 
 
-
-		if(!active_lz && world.time > lz_selection_timer)
-			select_lz(locate(/obj/structure/machinery/computer/shuttle/dropship/flight/lz1))
+		if(!active_lz && ROUND_TIME > lz_selection_timer)
+			pick_a_lz()
 
 		// Automated bioscan / Queen Mother message
 		if(world.time > bioscan_current_interval) //If world time is greater than required bioscan time.
@@ -472,8 +483,8 @@
 						for(var/i in GLOB.living_xeno_list)
 							var/mob/M = i
 							sound_to(M, sound(get_sfx("queen"), wait = 0, volume = 50))
-							to_chat(M, SPAN_XENOANNOUNCE("The Queen Mother reaches into your mind from worlds away."))
-							to_chat(M, SPAN_XENOANNOUNCE("To my children and their Queen. I sense the large doors that trap us will open in 30 seconds."))
+							to_chat(M, SPAN_XENOANNOUNCE("Королева-мать проникает в ваш разум издалека."))
+							to_chat(M, SPAN_XENOANNOUNCE("Моим детям и их Королеве: я чувствую, что большие двери, которые нас сдерживают, откроются через 30 секунд."))
 						addtimer(CALLBACK(src, PROC_REF(open_podlocks), "map_lockdown"), 300)
 
 			if(GLOB.round_should_check_for_win)
@@ -484,8 +495,8 @@
 			for(var/hivenumber in GLOB.hive_datum)
 				hive = GLOB.hive_datum[hivenumber]
 				hive.evolution_without_ovipositor = FALSE
-				if(!hive.allow_no_queen_evo && hive.living_xeno_queen && !hive.living_xeno_queen.ovipositor)
-					to_chat(hive.living_xeno_queen, SPAN_XENODANGER("It is time to settle down and let your children grow."))
+				if(hive.living_xeno_queen && !hive.living_xeno_queen.ovipositor)
+					to_chat(hive.living_xeno_queen, SPAN_XENODANGER("Пора успокоиться и позволить вашим детям расти."))
 			evolution_ovipositor_threshold = TRUE
 			msg_admin_niche("Xenomorphs now require the queen's ovipositor for evolution progress.")
 
@@ -552,6 +563,13 @@
 // Resource Towers
 
 /datum/game_mode/colonialmarines/ds_first_drop(obj/docking_port/mobile/marine_dropship)
+	if(!active_lz)
+		var/dest_id = marine_dropship.destination?.id
+		if(dest_id == DROPSHIP_LZ1)
+			select_lz(locate(/obj/structure/machinery/computer/shuttle/dropship/flight/lz1))
+		else if (dest_id == DROPSHIP_LZ2)
+			select_lz(locate(/obj/structure/machinery/computer/shuttle/dropship/flight/lz2))
+
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(show_blurb_uscm)), DROPSHIP_DROP_MSG_DELAY)
 	addtimer(CALLBACK(src, PROC_REF(warn_resin_clear), marine_dropship), DROPSHIP_DROP_FIRE_DELAY)
 	DB_ENTITY(/datum/entity/survivor_survival) // Record surv survival right now

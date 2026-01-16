@@ -138,6 +138,12 @@
 	LAZYADD(traits_to_give, list(
 		BULLET_TRAIT_ENTRY(/datum/element/bullet_trait_incendiary, stacks = 2.5)
 	))
+/datum/ammo/flare/no_ignite
+	max_range = 21
+
+/datum/ammo/flare/no_ignite/set_bullet_traits()
+	return
+
 
 /datum/ammo/flare/on_hit_mob(mob/M,obj/projectile/P)
 	drop_flare(get_turf(M), P, P.firer)
@@ -301,7 +307,7 @@
 				for(var/obj/item/reagent_container/food/drinks/cans/souto/S in P.contents)
 					M.put_in_active_hand(S)
 					for(var/mob/O in viewers(GLOB.world_view_size, P)) //find all people in view.
-						O.show_message(SPAN_DANGER("[M] catches [S]!"), SHOW_MESSAGE_VISIBLE) //Tell them the can was caught.
+						O.show_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] catches [S]!"), SHOW_MESSAGE_VISIBLE) //Tell them the can was caught.
 					return //Can was caught.
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M

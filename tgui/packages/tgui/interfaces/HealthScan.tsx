@@ -1,3 +1,4 @@
+import { round } from 'common/math';
 import type { BooleanLike } from 'common/react';
 import { useBackend } from 'tgui/backend';
 import {
@@ -27,6 +28,8 @@ type LimbData = {
   internal_bleeding: BooleanLike;
   limb_status?: string;
   limb_splint?: string;
+  limb_third_degree_burns?: string;
+  limb_eschar?: string;
   limb_type?: string;
   open_incision: BooleanLike | string;
   open_zone_incision: string;
@@ -152,7 +155,7 @@ const Patient = (props) => {
   const holocardMessages = {
     red: 'Необходима срочная помощь',
     orange: 'Необходима операция',
-    purple: 'Инфицирован паразитом XX-121',
+    purple: 'Заражён паразитом XX-121',
     black: 'Скончался',
     none: 'Нет данных',
   };
@@ -394,7 +397,8 @@ const Misc = (props) => {
                 bloodpct > 0.9 ? 'green' : bloodpct > 0.7 ? 'orange' : 'red'
               }
             >
-              {Math.round(blood_amount / 5.6)}%, {blood_amount * 10} мл
+              {Math.round(blood_amount / 5.6)}%, {round(blood_amount * 10, 2)}{' '}
+              мл
             </Box>
           </LabeledList.Item>
         ) : null}
@@ -497,7 +501,7 @@ const ScannerChems = (props) => {
     <Section title={ui_mode ? null : 'Вещества в организме'}>
       {has_unknown_chemicals ? (
         <NoticeBox warning color="grey">
-          Unknown reagents detected.
+          Регистрируются неизвестные вещества.
         </NoticeBox>
       ) : null}
       <Stack vertical>
@@ -613,6 +617,16 @@ const ScannerLimbs = (props) => {
                   {limb.limb_splint ? (
                     <Box inline color={'lime'} bold>
                       {ui_mode ? '[Ш]' : `[Наложена шина]`}
+                    </Box>
+                  ) : null}
+                  {limb.limb_third_degree_burns ? (
+                    <Box inline color={'red'} bold>
+                      {ui_mode ? '[S]' : `[${limb.limb_third_degree_burns}]`}
+                    </Box>
+                  ) : null}
+                  {limb.limb_eschar ? (
+                    <Box inline color={'red'} bold>
+                      {ui_mode ? '[E]' : `[${limb.limb_eschar}]`}
                     </Box>
                   ) : null}
                   {limb.limb_type ? (

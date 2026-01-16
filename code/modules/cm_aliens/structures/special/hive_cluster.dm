@@ -30,7 +30,7 @@
 	RegisterSignal(SSdcs, COMSIG_GLOB_STOP_BOOST_XENOMORPH_WALLS, PROC_REF(stop_boost))
 /obj/effect/alien/resin/special/cluster/proc/update_minimap_icon()
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, z, MINIMAP_FLAG_XENO, "cluster")
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/ui_icons/map_blips.dmi', null, "cluster"))
 
 /obj/effect/alien/resin/special/cluster/Destroy()
 	QDEL_NULL(node)
@@ -92,10 +92,10 @@
 		return
 	var/can_repair = damaged || health < maxhealth
 	if(!can_repair)
-		to_chat(xeno, SPAN_XENONOTICE("\The [name] is in good condition, you don't need to repair it."))
+		to_chat(xeno, SPAN_XENONOTICE("[name] в хорошем состоянии и не нуждается в ремонте.")) // SS220 EDIT ADDICTION
 		return
 
-	to_chat(xeno, SPAN_XENONOTICE("We begin adding the plasma to \the [name] to repair it."))
+	to_chat(xeno, SPAN_XENONOTICE("Мы начинаем ремонтировать [name], используя плазму.")) // SS220 EDIT ADDICTION
 	xeno_attack_delay(xeno)
 	if(!do_after(xeno, CLUSTER_REPAIR_TIME, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD, src) || !can_repair)
 		return
@@ -121,7 +121,7 @@
 			continue
 		addtimer(CALLBACK(W, TYPE_PROC_REF(/obj/effect/alien/weeds, weed_expand), node), CLUSTER_WEEDS_REGROWTH_TIME, TIMER_UNIQUE)
 
-	to_chat(xeno, SPAN_XENONOTICE("We have successfully repaired \the [name]."))
+	to_chat(xeno, SPAN_XENONOTICE("Мы успешно отремонтировали [name].")) // SS220 EDIT ADDICTION
 	playsound(loc, "alien_resin_build", 25)
 
 /obj/effect/alien/resin/special/cluster/proc/place_node()

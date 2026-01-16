@@ -230,7 +230,7 @@
 	else if(HAS_TRAIT(W, TRAIT_TOOL_WRENCH) && step_state == STATE_WIRECUTTER)
 		to_chat(user, SPAN_NOTICE("You start wrenching it apart."))
 		playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
-		if(!do_after(user, 4 SECONDS * user.get_skill_duration_multiplier(SKILL_CONSTRUCTION), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
+		if(!do_after(user, 4 SECONDS * user.get_skill_duration_multiplier(SKILL_CONSTRUCTION), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD, src))
 			return TRUE
 		to_chat(user, SPAN_NOTICE("You wrenched it apart!"))
 		deconstruct(TRUE)
@@ -388,7 +388,7 @@
 
 /obj/structure/girder/attack_animal(mob/living/simple_animal/user)
 	if(user.wall_smash)
-		visible_message(SPAN_DANGER("[user] smashes [src] apart!"))
+		visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] smashes [src] apart!"))
 		dismantle()
 		return
 	return ..()
@@ -420,17 +420,37 @@
 	M.animation_attack_on(src)
 	health -= floor(rand(M.melee_damage_lower, M.melee_damage_upper) * 0.5)
 	if(health <= 0)
-		M.visible_message(SPAN_DANGER("[M] smashes [src] apart!"),
+		M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] smashes [src] apart!"),
 		SPAN_DANGER("We slice [src] apart!"), null, 5, CHAT_TYPE_XENO_COMBAT)
 		playsound(loc, 'sound/effects/metalhit.ogg', 25, TRUE)
 		dismantle()
 	if(state == STATE_DESTROYED)
 		qdel(src)
 	else
-		M.visible_message(SPAN_DANGER("[M] smashes [src]!"),
+		M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] smashes [src]!"),
 		SPAN_DANGER("We [M.slash_verb] [src]!"), null, 5, CHAT_TYPE_XENO_COMBAT)
 		playsound(loc, 'sound/effects/metalhit.ogg', 25, TRUE)
 	return XENO_ATTACK_ACTION
+
+/obj/structure/girder/handle_tail_stab(mob/living/carbon/xenomorph/xeno, blunt_stab)
+	if(xeno.caste && xeno.caste.tier < 2 && xeno.claw_type < CLAW_TYPE_VERY_SHARP)
+		return TAILSTAB_COOLDOWN_NONE
+	if(unacidable || unslashable)
+		return TAILSTAB_COOLDOWN_NONE
+	playsound(src, 'sound/effects/metalhit.ogg', 25, 1)
+	update_health(xeno.melee_damage_upper)
+	health -= xeno.melee_damage_upper
+	if(health <= 0)
+		xeno.visible_message(SPAN_DANGER("[xeno] destroys [src] with its tail!"),
+		SPAN_DANGER("We destroy [src] with our tail!"), null, 5, CHAT_TYPE_XENO_COMBAT)
+		dismantle()
+	if(state == STATE_DESTROYED)
+		qdel(src)
+	else
+		xeno.visible_message(SPAN_DANGER("[xeno] strikes [src] with its tail!"),
+		SPAN_DANGER("We strike [src] with our tail!"), null, 5, CHAT_TYPE_XENO_COMBAT)
+	xeno.tail_stab_animation(src, blunt_stab)
+	return TAILSTAB_COOLDOWN_NORMAL
 
 #undef STATE_STANDARD
 #undef STATE_DISMANTLING

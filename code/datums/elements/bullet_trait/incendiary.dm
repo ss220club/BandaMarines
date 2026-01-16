@@ -48,7 +48,7 @@
 /datum/element/bullet_trait_incendiary/proc/ignite_xeno(datum/target, mob/living/carbon/xenomorph/projectile_target, damage, damage_actual)
 	SIGNAL_HANDLER
 
-	if(projectile_target.caste.fire_immunity & FIRE_IMMUNITY_NO_IGNITE)
+	if(projectile_target.fire_immunity & (FIRE_IMMUNITY_NO_IGNITE || FIRE_IMMUNITY_COMPLETE))
 		if(projectile_target.stat)
 			to_chat(projectile_target, SPAN_AVOIDHARM("You shrug off some persistent flames."))
 		return
@@ -56,5 +56,5 @@
 	projectile_target.IgniteMob()
 	projectile_target.visible_message(
 		SPAN_DANGER("[projectile_target] bursts into flames!"),
-		SPAN_XENODANGER("You burst into flames!! Auuugh! Resist to put out the flames!")
+		SPAN_XENODANGER("Вы загораетесь!!! Ааааа! Немедленно потушите пламя!")
 	)

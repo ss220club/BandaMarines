@@ -59,6 +59,13 @@ GLOBAL_LIST_INIT(cm_vending_gear_intelligence_officer, list(
 
 		list("SPARE INTEL KIT", 0, null, null, null),
 		list("Field Intelligence Support Kit (For untrained personnel)", 20, /obj/item/storage/box/kit/mini_intel, null, VENDOR_ITEM_REGULAR),
+
+		// SS220 EDIT - START
+		list("ОБОРУДОВАНИЕ", 0, null, null, null),
+		list("Мотоцикл (Камуфляж)", 0, /obj/vehicle/motorbike/camo, CIVILIAN_CAN_BUY_SHOES, VENDOR_ITEM_REGULAR),
+		list("Пассажирская коляска (Камуфляж)", 0, /obj/structure/bed/chair/sidecar/passenger/camo, CIVILIAN_CAN_BUY_SHOES, VENDOR_ITEM_REGULAR),
+		list("Грузовая коляска (Камуфляж)", 0, /obj/structure/bed/chair/sidecar/cargo/camo, CIVILIAN_CAN_BUY_SHOES, VENDOR_ITEM_REGULAR),
+		// SS220 EDIT - END
 	))
 
 /obj/structure/machinery/cm_vending/gear/intelligence_officer
@@ -77,7 +84,6 @@ GLOBAL_LIST_INIT(cm_vending_clothing_intelligence_officer, list(
 		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
 		list("Insulated Gloves (Yellow/Tan)", 0, /obj/item/clothing/gloves/marine/insulated, MARINE_CAN_BUY_GLOVES, VENDOR_ITEM_MANDATORY),
 		list("Insulated Gloves (Black)", 0, /obj/item/clothing/gloves/marine/insulated/black, MARINE_CAN_BUY_GLOVES, VENDOR_ITEM_MANDATORY),
-		list("Headset", 0, /obj/item/device/radio/headset/almayer/intel, MARINE_CAN_BUY_EAR, VENDOR_ITEM_MANDATORY),
 		list("MRE", 0, /obj/item/storage/box/mre, MARINE_CAN_BUY_MRE, VENDOR_ITEM_MANDATORY),
 
 		list("ARMOR (CHOOSE 1)", 0, null, null, null),
@@ -108,7 +114,7 @@ GLOBAL_LIST_INIT(cm_vending_clothing_intelligence_officer, list(
 
 		list("POUCHES (CHOOSE 2)", 0, null, null, null),
 		list("Document Pouch", 0, /obj/item/storage/pouch/document, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_RECOMMENDED),
-		list("First-Aid Pouch (Refillable Injectors)", 0, /obj/item/storage/pouch/firstaid/full, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
+		list("First-Aid Pouch (Refillable Autoinjectors)", 0, /obj/item/storage/pouch/firstaid/full, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("First-Aid Pouch (Splints, Gauze, Ointment)", 0, /obj/item/storage/pouch/firstaid/full/alternate, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("First-Aid Pouch (Pills)", 0, /obj/item/storage/pouch/firstaid/full/pills, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("Flare Pouch (Full)", 0, /obj/item/storage/pouch/flare/full, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),

@@ -185,25 +185,25 @@
 	set category = "Abilities.Psychic"
 
 	if(stat == DEAD)
-		to_chat(src, SPAN_WARNING("You cannot talk while dead."))
+		to_chat(src, SPAN_WARNING("Вы не можете говорить, будучи мёртвым."))
 		return FALSE
 
-	var/whisper = tgui_input_text(src, "What do you wish to say?", "Psychic Whisper")
+	var/whisper = tgui_input_text(src, "Что вы хотите сказать?", "Пси-шёпот") // SS220 EDIT ADDICTION
 	if(whisper)
 		log_say("PsychicWhisper: [key_name(src)]->[target_mob.key] : [whisper] (AREA: [get_area_name(loc)])")
 		if(!istype(target_mob, /mob/living/carbon/xenomorph))
-			to_chat(target_mob, SPAN_XENOQUEEN("You hear a strange, alien voice in your head... \"[SPAN_PSYTALK(whisper)]\""))
+			to_chat(target_mob, SPAN_XENOQUEEN("Вы слышите странный, чужой голос в своей голове... '[SPAN_PSYTALK(whisper)]'")) // SS220 EDIT ADDICTION
 		else
-			to_chat(target_mob, SPAN_XENOQUEEN("You hear the voice of [src] resonate in your head... \"[SPAN_PSYTALK(whisper)]\""))
-		to_chat(src, SPAN_XENOWARNING("You said: \"[whisper]\" to [target_mob]"))
+			to_chat(target_mob, SPAN_XENOQUEEN("Вы слышите голос [declent_ru(GENITIVE)] отражающийся в вашей голове... '[SPAN_PSYTALK(whisper)]'")) // SS220 EDIT ADDICTION
+		to_chat(src, SPAN_XENOWARNING("Вы сказали: '[whisper]' обращаясь к [target_mob.real_name]")) // SS220 EDIT ADDICTION
 		FOR_DVIEW(var/mob/dead/observer/ghost, 12, src, SEE_INVISIBLE_OBSERVER)
 			if(!isobserver(ghost) || !ghost.client)
 				continue
 			if(ghost.client.prefs.toggles_chat & CHAT_GHOSTHIVEMIND)
 				var/rendered_message
-				var/human_track = "(<a href='byond://?src=\ref[ghost];track=\ref[src]'>F</a>)"
-				var/target_track = "(<a href='byond://?src=\ref[ghost];track=\ref[target_mob]'>F</a>)"
-				rendered_message = SPAN_XENOLEADER("PsychicWhisper: [real_name][human_track] to [target_mob.real_name][target_track], <span class='normal'>'[SPAN_PSYTALK(whisper)]'</span>")
+				var/human_track = "(<a href='byond://?src=\ref[ghost];track=\ref[src]'>(от кого?))</a>)"
+				var/target_track = "(<a href='byond://?src=\ref[ghost];track=\ref[target_mob]'>(с кем?)</a>)"
+				rendered_message = SPAN_XENOLEADER("Пси-шёпот: [real_name][human_track] обращаясь к [target_mob.real_name][target_track], <span class='normal'>'[SPAN_PSYTALK(whisper)]'</span>") // SS220 EDIT ADDICTION
 				ghost.show_message(rendered_message, SHOW_MESSAGE_AUDIBLE)
 	return FALSE
 
@@ -213,10 +213,10 @@
 	set category = "Abilities.Psychic"
 
 	if(stat == DEAD)
-		to_chat(src, SPAN_WARNING("You cannot talk while dead."))
+		to_chat(src, SPAN_WARNING("Вы не можете говорить, будучи мёртвым."))
 		return FALSE
 
-	var/whisper = tgui_input_text(src, "What do you wish to say?", "Psychic Radiance")
+	var/whisper = tgui_input_text(src, "Что вы хотите сказать?", "Пси-сияние") // SS220 EDIT ADDICTION
 	var/list/target_list = list()
 	if(!whisper)
 		return FALSE
@@ -225,23 +225,23 @@
 			continue
 		target_list += possible_target
 		if(!istype(possible_target, /mob/living/carbon/xenomorph))
-			to_chat(possible_target, SPAN_XENOQUEEN("You hear a strange, alien voice in your head... \"[SPAN_PSYTALK(whisper)]\""))
+			to_chat(possible_target, SPAN_XENOQUEEN("Вы слышите странный, чужой голос в своей голове... '[SPAN_PSYTALK(whisper)]'"))
 		else
-			to_chat(possible_target, SPAN_XENOQUEEN("You hear the voice of [src] resonate in your head... \"[SPAN_PSYTALK(whisper)]\""))
+			to_chat(possible_target, SPAN_XENOQUEEN("Вы слышите голос [declent_ru(GENITIVE)] отражающийся в вашей голове... '[SPAN_PSYTALK(whisper)]'")) // SS220 EDIT ADDICTION
 	FOR_DVIEW_END
 	if(!length(target_list))
-		to_chat(src, SPAN_XENOWARNING("There is no one around to hear you..."))
+		to_chat(src, SPAN_XENOWARNING("Рядом никого нет, чтобы услышать вас..."))
 		return FALSE
 	var/targetstring = english_list(target_list)
-	to_chat(src, SPAN_XENONOTICE("You said: \"[whisper]\" to [targetstring]"))
+	to_chat(src, SPAN_XENONOTICE("Вы сказали: '[whisper]' обращаясь к [targetstring]")) // SS220 EDIT ADDICTION
 	log_say("PsychicRadiance: [key_name(src)]->[targetstring] : [whisper] (AREA: [get_area_name(src)])")
 	FOR_DVIEW(var/mob/dead/observer/ghost, 12, src, SEE_INVISIBLE_OBSERVER)
 		if(!isobserver(ghost) || !ghost.client)
 			continue
 		if(ghost.client.prefs.toggles_chat & CHAT_GHOSTHIVEMIND)
 			var/rendered_message
-			var/human_track = "(<a href='byond://?src=\ref[ghost];track=\ref[src]'>F</a>)"
-			rendered_message = SPAN_XENOLEADER("PsychicRadiance: [real_name][human_track] to [targetstring], <span class='normal'>'[SPAN_PSYTALK(whisper)]'</span>")
+			var/human_track = "(<a href='byond://?src=\ref[ghost];track=\ref[src]'>посмотреть</a>)" // SS220 EDIT ADDICTION
+			rendered_message = SPAN_XENOLEADER("Пси-cияние: [real_name][human_track] обращаясь к [targetstring], <span class='normal'>'[SPAN_PSYTALK(whisper)]'</span>") // SS220 EDIT ADDICTION
 			ghost.show_message(rendered_message, SHOW_MESSAGE_AUDIBLE)
 	return TRUE
 
@@ -289,7 +289,7 @@
 //	SEND_SIGNAL(src, COMSIG_LIVING_RESTING, new_resting, silent, instant)
 //	update_resting() // HUD icons
 
-/mob/living/carbon/human/proc/toggle_inherent_nightvison()
+/mob/living/carbon/human/proc/toggle_inherent_nightvision()
 	set category = "Synthetic"
 	set name = "Toggle Nightvision"
 	set desc = "Toggles inherent nightvision."
@@ -380,17 +380,17 @@
 	var/viewoffset = 32 * tileoffset
 	switch(dir)
 		if(NORTH)
-			client.pixel_x = 0
-			client.pixel_y = viewoffset
+			client.set_pixel_x(0)
+			client.set_pixel_y(viewoffset)
 		if(SOUTH)
-			client.pixel_x = 0
-			client.pixel_y = -viewoffset
+			client.set_pixel_x(0)
+			client.set_pixel_y(-viewoffset)
 		if(EAST)
-			client.pixel_x = viewoffset
-			client.pixel_y = 0
+			client.set_pixel_x(viewoffset)
+			client.set_pixel_y(0)
 		if(WEST)
-			client.pixel_x = -viewoffset
-			client.pixel_y = 0
+			client.set_pixel_x(-viewoffset)
+			client.set_pixel_y(0)
 
 /mob/living/carbon/human/proc/disable_zoom()
 	SIGNAL_HANDLER
@@ -398,6 +398,6 @@
 		return
 	UnregisterSignal(src, COMSIG_MOB_MOVE_OR_LOOK)
 	client.change_view(GLOB.world_view_size)
-	client.pixel_x = 0
-	client.pixel_y = 0
+	client.set_pixel_x(0)
+	client.set_pixel_y(0)
 	is_zoomed = FALSE

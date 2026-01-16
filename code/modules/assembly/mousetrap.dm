@@ -42,11 +42,9 @@
 					affecting = H.get_limb(type)
 					H.apply_effect(3, STUN)
 		if(affecting)
-			if(affecting.take_damage(1, 0))
-				H.UpdateDamageIcon()
-			H.updatehealth()
+			affecting.take_damage(1, 0)
 	else if(ismouse(target))
-		var/mob/living/simple_animal/mouse/M = target
+		var/mob/living/simple_animal/small/mouse/M = target
 		visible_message(SPAN_DANGER("<b>SPLAT!</b>"))
 		M.splat()
 	if(!target)
@@ -69,7 +67,7 @@
 			if(!user.hand)
 				which_hand = "r_hand"
 			triggered(user, which_hand)
-			user.visible_message(SPAN_WARNING("[user] accidentally sets off [src], breaking their fingers."), SPAN_WARNING("You accidentally trigger [src]!"))
+			user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] accidentally sets off [src], breaking their fingers."), SPAN_WARNING("You accidentally trigger [src]!"))
 			return
 		to_chat(user, SPAN_NOTICE("You disarm [src]."))
 	armed = !armed
@@ -84,7 +82,7 @@
 			if(!user.hand)
 				which_hand = "r_hand"
 			triggered(user, which_hand)
-			user.visible_message(SPAN_WARNING("[user] accidentally sets off [src], breaking their fingers."),SPAN_WARNING("You accidentally trigger [src]!"))
+			user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] accidentally sets off [src], breaking their fingers."),SPAN_WARNING("You accidentally trigger [src]!"))
 			return
 	..()
 
@@ -94,7 +92,7 @@
 		if(ishuman(AM))
 			var/mob/living/carbon/H = AM
 			triggered(H)
-			H.visible_message(SPAN_WARNING("[H] accidentally steps on [src]."),SPAN_WARNING("You accidentally step on [src]"))
+			H.visible_message(SPAN_WARNING("[capitalize(H.declent_ru(NOMINATIVE))] accidentally steps on [src]."),SPAN_WARNING("You accidentally step on [src]"))
 		if(ismouse(AM))
 			triggered(AM)
 	..()

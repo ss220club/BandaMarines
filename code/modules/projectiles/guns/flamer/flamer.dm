@@ -205,7 +205,7 @@
 
 	if (user)
 		playsound(user, unload_sound, 25, 1)
-		user.visible_message(SPAN_NOTICE("[user] unloads [current_mag] from [src]."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] unloads [current_mag] from [src]."),
 		SPAN_NOTICE("You unload [current_mag] from [src]."))
 
 	current_mag.update_icon()
@@ -301,7 +301,7 @@
 		return
 
 	var/source_turf = get_turf(user)
-	var/smoke_range = 5 // the max range the smoke will travel
+	var/smoke_range = 4 // the max range the smoke will travel
 	var/distance = 0 // the distance traveled
 	var/use_multiplier = 3 // if you want to increase the ammount of units drained from the tank
 	var/units_in_smoke = 35 // the smoke overlaps a little so this much is probably already good
@@ -415,6 +415,10 @@
 /obj/item/weapon/gun/flamer/m240
 	name = "\improper M240A1 incinerator unit"
 	desc = "M240A1 incinerator unit has proven to be one of the most effective weapons at clearing out soft-targets. This is a weapon to be feared and respected as it is quite deadly."
+
+/obj/item/weapon/gun/flamer/m240/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/wy)
 
 /obj/item/weapon/gun/flamer/m240/underextinguisher
 	starting_attachment_types = list(/obj/item/attachable/attached_gun/extinguisher)
@@ -649,6 +653,9 @@
 		var/turf/open/scorch_turf_target = loc
 		if(scorch_turf_target.scorchable)
 			scorch_turf_target.scorch(burnlevel)
+		var/obj/effect/decal/cleanable/liquid_fuel/liquid = LAZYACCESS(scorch_turf_target.cleanables, CLEANABLE_IGNITABLE)
+		if(liquid && istype(liquid))
+			INVOKE_NEXT_TICK(liquid, TYPE_PROC_REF(/obj/effect/decal/cleanable/liquid_fuel, ignite))
 
 	if (istype(loc, /turf/open/auto_turf/snow))
 		var/turf/open/auto_turf/snow/S = loc
@@ -706,7 +713,7 @@
 		ignited_morb.apply_damage(firedamage, BURN)
 		animation_flash_color(ignited_morb, tied_reagent.burncolor) //pain hit flicker
 
-		var/msg = "Augh! You are roasted by the flames!"
+		var/msg = "Аааа! Вы загораетесь!!!"
 		if (isxeno(ignited_morb))
 			to_chat(ignited_morb, SPAN_XENODANGER(msg))
 		else
@@ -786,7 +793,7 @@
 
 	if(!burn_damage)
 		if(HAS_TRAIT(M, TRAIT_HAULED))
-			M.visible_message(SPAN_WARNING("[M] is shielded from the flames!"), SPAN_WARNING("You are shielded from the flames!"))
+			M.visible_message(SPAN_WARNING("[capitalize(M.declent_ru(NOMINATIVE))] is shielded from the flames!"), SPAN_WARNING("You are shielded from the flames!"))
 		else
 			to_chat(M, SPAN_DANGER("[isxeno(M) ? "We" : "You"] step over the flames."))
 		return
@@ -982,6 +989,10 @@
 	current_mag = /obj/item/ammo_magazine/flamer_tank/flammenwerfer
 
 	attachable_allowed = null
+
+/obj/item/weapon/gun/flamer/flammenwerfer3/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/wy)
 
 /obj/item/weapon/gun/flamer/flammenwerfer3/get_fire_sound()
 	var/list/fire_sounds = list(

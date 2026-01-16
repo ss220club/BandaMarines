@@ -29,6 +29,8 @@
 	pixel_y = -6
 	old_x = -8
 	old_y = -6
+	xenonid_pixel_x = -1
+	xenonid_pixel_y = 0
 	layer = MOB_LAYER
 	mob_flags = NOBIOSCAN
 	see_in_dark = 8
@@ -52,7 +54,6 @@
 		/datum/action/xeno_action/watch_xeno,
 		/datum/action/xeno_action/onclick/xenohide,
 		/datum/action/xeno_action/activable/pounce/facehugger,
-		/datum/action/xeno_action/onclick/tacmap,
 	)
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
@@ -88,11 +89,14 @@
 		3 MINUTES,\
 	)
 
+/mob/living/carbon/xenomorph/facehugger/warn_away_timer()
+	return // Ghostizing will just convert to regular hugger
+
 /mob/living/carbon/xenomorph/facehugger/initialize_pass_flags(datum/pass_flags_container/PF)
 	..()
 	if (PF)
 		PF.flags_pass = PASS_MOB_THRU|PASS_FLAGS_CRAWLER
-		PF.flags_can_pass_all = PASS_ALL^PASS_OVER_THROW_ITEM
+		PF.flags_can_pass_all = PASS_ALL|PASS_OVER_THROW_ITEM
 
 /mob/living/carbon/xenomorph/facehugger/Logout()
 	. = ..()
@@ -130,12 +134,12 @@
 		if(time_of_birth + 3 SECONDS > world.time)
 			return
 		if(morpher.linked_hive.hivenumber != hivenumber)
-			to_chat(src, SPAN_XENOWARNING("This isn't your hive's eggmorpher!"))
+			to_chat(src, SPAN_XENOWARNING("[capitalize(morpher.declent_ru(NOMINATIVE))] не принадлежит вашему улью!"))
 			return
 		if(morpher.stored_huggers >= morpher.huggers_max_amount)
-			to_chat(src, SPAN_XENOWARNING("\The [morpher] is already full of children."))
+			to_chat(src, SPAN_XENOWARNING("[capitalize(morpher.declent_ru(NOMINATIVE))] уже полностью занят детьми."))
 			return
-		visible_message(SPAN_WARNING("\The [src] climbs back into \the [morpher]."), SPAN_XENONOTICE("You climb into \the [morpher]."))
+		visible_message(SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] заползает обратно в [morpher.declent_ru(ACCUSATIVE)]."), SPAN_XENONOTICE("Вы заползаете обратно в [morpher].")) // SS220 EDIT ADDICTION
 		morpher.stored_huggers++
 		qdel(src)
 		return
@@ -143,19 +147,19 @@
 	if(ishuman(A))
 		var/mob/living/carbon/human/human = A
 		if((human.body_position != LYING_DOWN) && (!HAS_TRAIT(human, TRAIT_NESTED)))
-			to_chat(src, SPAN_WARNING("You can't reach \the [human], they need to be lying down or nested."))
+			to_chat(src, SPAN_WARNING("Вы не можете достать до [human.declent_ru(GENITIVE)], они должны лежать или быть размещёнными на смоляной стене.")) // SS220 EDIT ADDICTION
 			return
 		if(!can_hug(human, hivenumber))
-			to_chat(src, SPAN_WARNING("You can't infect \the [human]..."))
+			to_chat(src, SPAN_WARNING("Вы не можете заразить [human.declent_ru(ACCUSATIVE)]...")) // SS220 EDIT ADDICTION
 			return
-		visible_message(SPAN_WARNING("\The [src] starts climbing onto \the [human]'s face..."), SPAN_XENONOTICE("You start climbing onto \the [human]'s face..."))
+		visible_message(SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] начинает заползать на лицо [human.declent_ru(GENITIVE)]..."), SPAN_XENONOTICE("Вы начинаете заползать на лицо [human.declent_ru(GENITIVE)]...")) // SS220 EDIT ADDICTION
 		if(!do_after(src, FACEHUGGER_CLIMB_DURATION, INTERRUPT_ALL, BUSY_ICON_HOSTILE, human, INTERRUPT_MOVED, BUSY_ICON_HOSTILE))
 			return
 		if((human.body_position != LYING_DOWN) && (!HAS_TRAIT(human, TRAIT_NESTED)))
-			to_chat(src, SPAN_WARNING("You can't reach \the [human], they need to be lying down or nested."))
+			to_chat(src, SPAN_WARNING("Вы не можете достать до [human.declent_ru(GENITIVE)], они должны лежать или быть размещёнными на смоляной стене.")) // SS220 EDIT ADDICTION
 			return
 		if(!can_hug(human, hivenumber))
-			to_chat(src, SPAN_WARNING("You can't infect \the [human]..."))
+			to_chat(src, SPAN_WARNING("Вы не можете заразить [human.declent_ru(ACCUSATIVE)]...")) // SS220 EDIT ADDICTION
 			return
 		handle_hug(human)
 		return
@@ -176,7 +180,7 @@
 	qdel(src)
 	return did_hug
 
-/mob/living/carbon/xenomorph/facehugger/ghostize(can_reenter_corpse, aghosted)
+/mob/living/carbon/xenomorph/facehugger/ghostize(can_reenter_corpse = FALSE, aghosted = FALSE, transfer = FALSE)
 	if(!aghosted && !can_reenter_corpse && !QDELETED(src) && stat != DEAD)
 		// Become a npc once again
 		new /obj/item/clothing/mask/facehugger(loc, hivenumber)

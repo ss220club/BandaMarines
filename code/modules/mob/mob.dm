@@ -282,7 +282,7 @@
 		if(del_on_fail)
 			qdel(W)
 		else if(!disable_warning)
-			to_chat(src, SPAN_WARNING("You are unable to equip that.")) //Only print if del_on_fail is false
+			to_chat(src, SPAN_WARNING("Вы не можете надеть это.")) //Only print if del_on_fail is false
 		return FALSE
 
 	var/start_loc = W.loc
@@ -312,7 +312,7 @@
 		if(del_on_fail)
 			qdel(W)
 		else if(!disable_warning)
-			to_chat(src, SPAN_WARNING("You are unable to equip that.")) //Only print if del_on_fail is false
+			to_chat(src, SPAN_WARNING("Вы не можете надеть это.")) //Only print if del_on_fail is false
 		return
 	equip_to_slot(W, slot) //This proc should not ever fail.
 	if(permanent)
@@ -363,14 +363,14 @@
 	if(client)
 		if(istype(focus, /atom/movable))
 			client.perspective = EYE_PERSPECTIVE
-			client.eye = focus
+			client.set_eye(focus)
 		else
 			if(isturf(loc))
-				client.eye = client.mob
+				client.set_eye(client.mob)
 				client.perspective = MOB_PERSPECTIVE
 			else
 				client.perspective = EYE_PERSPECTIVE
-				client.eye = loc
+				client.set_eye(loc)
 
 		client.mouse_pointer_icon = initial(client.mouse_pointer_icon)
 
@@ -395,7 +395,7 @@
 			new /obj/effect/overlay/temp/point/big(T, src, A)
 		else
 			new /obj/effect/overlay/temp/point/big/squad(T, src, A, squad.equipment_color)
-	visible_message("<b>[src]</b> points to [A]", null, null, 5)
+	visible_message(SPAN_INFO("<b>[capitalize(declent_ru(NOMINATIVE))]</b> указывает на [A.declent_ru(ACCUSATIVE)]."), null, null, 5) // SS220 EDIT ADDICTION
 	return TRUE
 
 ///Is this mob important enough to point with big arrows?
@@ -574,7 +574,7 @@
 
 		if(!no_msg)
 			animation_attack_on(M)
-			visible_message(SPAN_WARNING("[src] has grabbed [M] passively!"), null, null, 5)
+			visible_message(SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] несильно хватает [M.declent_ru(ACCUSATIVE)]."), null, null, 5) // SS220 EDIT ADDICTION
 
 		if(M.mob_size > MOB_SIZE_HUMAN || !(M.status_flags & CANPUSH))
 			G.icon_state = "!reinforce"
@@ -621,20 +621,20 @@ note dizziness decrements automatically in the mob's Life() proc.
 		SEND_SIGNAL(src, COMSIG_MOB_ANIMATING)
 		if(client)
 			if(buckled || resting)
-				client.pixel_x = 0
-				client.pixel_y = 0
+				client.set_pixel_x(0)
+				client.set_pixel_y(0)
 			else
 				var/amplitude = dizziness*(sin(dizziness * 0.044 * world.time) + 1) / 70
-				client.pixel_x = amplitude * sin(0.008 * dizziness * world.time)
-				client.pixel_y = amplitude * cos(0.008 * dizziness * world.time)
+				client.set_pixel_x(amplitude * sin(0.008 * dizziness * world.time))
+				client.set_pixel_y(amplitude * cos(0.008 * dizziness * world.time))
 				if(prob(1))
 					to_chat(src, "The dizziness is becoming unbearable! It should pass faster if you lie down.")
 		sleep(1)
 	//endwhile - reset the pixel offsets to zero
 	is_dizzy = 0
 	if(client)
-		client.pixel_x = 0
-		client.pixel_y = 0
+		client.set_pixel_x(0)
+		client.set_pixel_y(0)
 		to_chat(src, "The dizziness has passed, you're starting to feel better.")
 
 // jitteriness - copy+paste of dizziness
@@ -760,7 +760,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 	var/list/visible_implants = list()
 	for(var/obj/item/O in embedded)
 		if(O.w_class > class)
-			visible_implants += O
+			visible_implants[capitalize(O.declent_ru(NOMINATIVE))] = O // SS220 EDIT ADDICTION
 	return visible_implants
 
 /mob/proc/yank_out_object()
@@ -776,11 +776,11 @@ note dizziness decrements automatically in the mob's Life() proc.
 	recalculate_move_delay = TRUE
 
 	if(usr.stat)
-		to_chat(usr, "You are unconscious and cannot do that!")
+		to_chat(usr, "Вы без сознания и не можете этого сделать!") // SS220 EDIT ADDICTION
 		return
 
 	if(usr.is_mob_restrained())
-		to_chat(usr, "You are restrained and cannot do that!")
+		to_chat(usr, "Вы связаны и не можете этого сделать!") // SS220 EDIT ADDICTION
 		return
 
 	var/self
@@ -790,33 +790,34 @@ note dizziness decrements automatically in the mob's Life() proc.
 	var/list/valid_objects = get_visible_implants()
 	if(!valid_objects)
 		if(self)
-			to_chat(src, "You have nothing stuck in your body that is large enough to remove.")
+			to_chat(src, "В вашем теле нет ничего, что можно было бы вытащить.") // SS220 EDIT ADDICTION
 		else
-			to_chat(usr, "[src] has nothing stuck in their wounds that is large enough to remove.")
+			to_chat(usr, "В теле [declent_ru(GENITIVE)] нет ничего, что можно было бы вытащить.") // SS220 EDIT ADDICTION
 		remove_verb(src, /mob/proc/yank_out_object)
 		return
 
-	var/obj/item/selection = tgui_input_list(usr, "What do you want to yank out?", "Embedded objects", valid_objects)
+	var/obj/item/selection = tgui_input_list(usr, "Что вы хотите вытащить?", "Посторонние объекты", valid_objects) // SS220 EDIT ADDICTION
+	if(!selection || !src || !usr || !istype(selection)) // SS220 EDIT ADDICTION
+		return // SS220 EDIT ADDICTION
+	var/selection_ru = lowertext(selection) // SS220 EDIT ADDICTION
 	if(self)
 		if(get_active_hand())
-			to_chat(src, SPAN_WARNING("You need an empty hand for this!"))
+			to_chat(src, SPAN_WARNING("Вам нужна свободная рука для этого!"))
 			return FALSE
-		to_chat(src, SPAN_WARNING("You attempt to get a good grip on [selection] in your body."))
+		to_chat(src, SPAN_WARNING("Вы пытаетесь вытащить [selection_ru] из своего тела.")) // SS220 EDIT ADDICTION
 	else
 		if(usr.get_active_hand())
-			to_chat(usr, SPAN_WARNING("You need an empty hand for this!"))
+			to_chat(usr, SPAN_WARNING("Вам нужна свободная рука для этого!"))
 			return FALSE
-		to_chat(usr, SPAN_WARNING("You attempt to get a good grip on [selection] in [src]'s body."))
+		to_chat(usr, SPAN_WARNING("Вы пытаетесь вытащить [selection_ru] из тела [declent_ru(GENITIVE)].")) // SS220 EDIT ADDICTION
 
 	if(!do_after(usr, 2 SECONDS * selection.w_class * usr.get_skill_duration_multiplier(SKILL_SURGERY), INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
 		return
-	if(!selection || !src || !usr || !istype(selection))
-		return
 
 	if(self)
-		visible_message(SPAN_WARNING("<b>[src] rips [selection] out of their body.</b>"),SPAN_WARNING("<b>You rip [selection] out of your body.</b>"), null, 5)
+		visible_message(SPAN_BOLDWARNING("[capitalize(declent_ru(NOMINATIVE))] вытаскивает [selection_ru] из своего тела."),SPAN_BOLDWARNING("Вы вытаскиваете [selection_ru] из своего тела."), null, 5) // SS220 EDIT ADDICTION
 	else
-		visible_message(SPAN_WARNING("<b>[usr] rips [selection] out of [src]'s body.</b>"),SPAN_WARNING("<b>[usr] rips [selection] out of your body.</b>"), null, 5)
+		visible_message(SPAN_BOLDWARNING("[capitalize(usr.declent_ru(NOMINATIVE))] вытаскивает [selection_ru] из тела [declent_ru(GENITIVE)]."),SPAN_BOLDWARNING("[capitalize(usr.declent_ru(NOMINATIVE))] вытаскивает [selection_ru] из вашего тела."), null, 5) // SS220 EDIT ADDICTION
 
 	if(length(valid_objects) == 1) //Yanking out last object - removing verb.
 		remove_verb(src, /mob/proc/yank_out_object)
@@ -977,12 +978,14 @@ note dizziness decrements automatically in the mob's Life() proc.
 			end_of_conga = TRUE //Only mobs can continue the cycle.
 	var/area/new_area = get_area(destination)
 	for(var/atom/movable/AM in conga_line)
-		var/oldLoc
+		var/atom/oldLoc
 		if(AM.loc)
 			oldLoc = AM.loc
 			AM.loc.Exited(AM,destination)
 		AM.loc = destination
 		AM.loc.Entered(AM,oldLoc)
+		if(oldLoc.z != destination.z)
+			SEND_SIGNAL(AM, COMSIG_MOVABLE_Z_CHANGED)
 		var/area/old_area
 		if(oldLoc)
 			old_area = get_area(oldLoc)
@@ -1027,26 +1030,26 @@ note dizziness decrements automatically in the mob's Life() proc.
 			//Set the thing unless it's us
 			if(A != src)
 				client.perspective = EYE_PERSPECTIVE
-				client.eye = A
+				client.set_eye(A)
 			else
-				client.eye = client.mob
+				client.set_eye(client.mob)
 				client.perspective = MOB_PERSPECTIVE
 		else if(isturf(A))
 			//Set to the turf unless it's our current turf
 			if(A != loc)
 				client.perspective = EYE_PERSPECTIVE
-				client.eye = A
+				client.set_eye(A)
 			else
-				client.eye = client.mob
+				client.set_eye(client.mob)
 				client.perspective = MOB_PERSPECTIVE
 	else
 		//Reset to common defaults: mob if on turf, otherwise current loc
 		if(isturf(loc))
-			client.eye = client.mob
+			client.set_eye(client.mob)
 			client.perspective = MOB_PERSPECTIVE
 		else
 			client.perspective = EYE_PERSPECTIVE
-			client.eye = loc
+			client.set_eye(loc)
 
 	return TRUE
 

@@ -111,7 +111,7 @@
 	hive.hive_structure_types[XENO_STRUCTURE_NEST] = /datum/construction_template/xenomorph/nest
 	hive.hive_structures_limit[XENO_STRUCTURE_NEST]++
 
-	xeno_message(SPAN_XENOANNOUNCE("The hive senses that a headhunter has been infected! The thick resin nest is now available in the special structures list!"),hivenumber = hive.hivenumber)
+	xeno_message(SPAN_XENOANNOUNCE("Улей чувствует, что охотник за головами был заражён! Густое смоляное гнездо теперь доступно в списке специальных построек!"),hivenumber = hive.hivenumber)
 
 /datum/species/yautja/handle_death(mob/living/carbon/human/H, gibbed)
 	if(gibbed)
@@ -213,6 +213,7 @@
 				limb.time_to_knit = 600 // 1 minute to self heal bone break, time is in tenths of a second
 
 	hunter.set_languages(list(LANGUAGE_YAUTJA))
+	hunter.hud_used?.hide_actions_toggle.update_button_icon(hunter)
 	give_action(hunter, /datum/action/yautja_emote_panel)
 	give_action(hunter, /datum/action/predator_action/mark_for_hunt)
 	give_action(hunter, /datum/action/predator_action/mark_panel)

@@ -36,7 +36,7 @@
 	icon_state = null
 
 /obj/structure/blocker/invisible_wall/water
-	desc = "You cannot wade out any further"
+	desc = "You cannot wade out any further."
 	icon_state = "map_blocker"
 
 /obj/structure/blocker/fog
@@ -77,7 +77,7 @@
 	if(user.action_busy)
 		return
 
-	var/choice = tgui_alert(user, "Are you sure you want to traverse the fog and escape the preserve?", "[src]", list("No", "Yes"), 15 SECONDS)
+	var/choice = tgui_alert(user, "Are you sure you want to traverse the fog and escape the preserve?", "[src]", list("Yes", "No"), 15 SECONDS)
 	if(!choice)
 		return
 
@@ -91,7 +91,7 @@
 		to_chat(user, SPAN_NOTICE("You lose your way and come back."))
 		return
 
-	announce_dchat("[user.real_name] has escaped from the hunting grounds!")
+	announce_dchat("[user.real_name] сбежал из охотничих угодий!")
 	playsound(user, 'sound/misc/fog_escape.ogg')
 	qdel(user)
 

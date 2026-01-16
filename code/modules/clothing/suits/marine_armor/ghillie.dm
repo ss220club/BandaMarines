@@ -19,7 +19,7 @@
 	var/camouflage_enter_delay = 4 SECONDS
 	var/can_camo = TRUE
 
-	actions_types = list(/datum/action/item_action/toggle, /datum/action/item_action/specialist/prepare_position)
+	actions_types = list(/datum/action/item_action/toggle/lamp, /datum/action/item_action/specialist/prepare_position)
 
 /obj/item/clothing/suit/storage/marine/ghillie/dropped(mob/user)
 	if(ishuman(user) && !issynth(user))
@@ -29,10 +29,9 @@
 
 /obj/item/clothing/suit/storage/marine/ghillie/select_gamemode_skin()
 	. = ..()
-	switch(SSmapping.configs[GROUND_MAP].camouflage_type)
-		if("urban")
-			name = "\improper M3-LS pattern sniper armor"
-			desc = "A lightweight version of M3 pattern armor, with an integrated thermal signature dampering device, used by USCM snipers on urban recon missions. Very lightweight, but doesn't protect much."
+	if(SSmapping.configs[GROUND_MAP].camouflage_type == "urban" || "classic")
+		name = "\improper M3-LS pattern sniper armor"
+		desc = "A lightweight version of M3 pattern armor, with an integrated thermal signature dampering device, used by USCM snipers on urban recon missions. Very lightweight, but doesn't protect much."
 
 /obj/item/clothing/suit/storage/marine/ghillie/verb/camouflage()
 	set name = "Prepare Position"
@@ -56,7 +55,7 @@
 		deactivate_camouflage(H)
 		return
 
-	H.visible_message(SPAN_DANGER("[H] goes prone, and begins adjusting \his ghillie suit!"), SPAN_NOTICE("You go prone, and begins adjusting your ghillie suit."), max_distance = 4)
+	H.visible_message(SPAN_DANGER("[capitalize(H.declent_ru(NOMINATIVE))] goes prone, and begins adjusting \his ghillie suit!"), SPAN_NOTICE("You go prone, and begins adjusting your ghillie suit."), max_distance = 4)
 	hide_in_progress = TRUE
 	H.unset_interaction() // If we're sticking to a machine gun or what not.
 	if(!do_after(H, camouflage_enter_delay, INTERRUPT_NO_NEEDHAND|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))

@@ -3,8 +3,6 @@
  * also scraps of paper
  */
 
-#define MAX_FIELDS 51
-
 /obj/item/paper
 	name = "paper"
 	gender = PLURAL
@@ -29,17 +27,25 @@
 	ground_offset_x = 9
 	ground_offset_y = 8
 
-	var/info //What's actually written on the paper.
-	var/info_links //A different version of the paper which includes html links at fields and EOF
-	var/stamps //The (text for the) stamps on the paper.
-	var/stamps_list // SS220 - EDIT ADDITTION
-	var/fields //Amount of user created fields
+	///What's actually written on the paper.
+	var/info
+	///A different version of the paper which includes html links at fields and EOF
+	var/info_links
+	///Optional additional stylesheets in the form name=filename
+	var/list/extra_stylesheets
+	///Optional additional header content
+	var/list/extra_headers
+	///The (text for the) stamps on the paper.
+	var/stamps_list // SS220 EDIT ADDICTION
+	var/stamps
+	///Amount of user created fields
+	var/fields
 	var/list/stamped
 	var/ico[0] //Icons and
 	var/offset_x[0] //offsets stored for later
 	var/offset_y[0] //usage by the photocopier
 
-	// any photos that might be attached to the paper
+	/// any photos that might be attached to the paper
 	var/list/photo_list
 
 	var/deffont = "Verdana"
@@ -59,7 +65,7 @@
 /obj/item/paper/Initialize(mapload, photo_list)
 	. = ..()
 	stamps = ""
-	stamps_list = list() // SS220 - EDIT ADDITTION
+	stamps_list = list() // SS220 EDIT ADDICTION
 	src.photo_list = photo_list
 
 	if(info != initial(info))
@@ -116,7 +122,7 @@
 	var/paper_info = info
 	if(scramble)
 		paper_info = stars_decode_html(info)
-	show_browser(user, "<BODY class='paper'>[paper_info][stamps]</BODY>", name, name, width = 650, height = 700)
+	show_browser(user, "<BODY class='paper'>[paper_info][stamps]</BODY>", name, name, width=DEFAULT_PAPER_WIDTH, height=DEFAULT_PAPER_HEIGHT, extra_stylesheets=extra_stylesheets, extra_headers=extra_headers)
 	onclose(user, name)
 
 /obj/item/paper/verb/rename()
@@ -135,16 +141,12 @@
 	..()
 	read_paper(user)
 
-/obj/item/paper/attack_remote(mob/living/silicon/ai/user as mob)
-	var/dist
-	dist = get_dist(src, user)
+/obj/item/paper/attack_remote(mob/living/silicon/ai/user)
+	var/dist = get_dist(src, user)
 	if(dist < 2)
 		read_paper(user)
 	else
-		//Show scrambled paper
-		show_browser(user, "<BODY class='paper'>[stars(info)][stamps]</BODY>", name, name)
-		onclose(user, name)
-	return
+		read_paper(user, scramble=TRUE)
 
 /obj/item/paper/attack(mob/living/carbon/human/M, mob/living/carbon/user)
 
@@ -153,7 +155,7 @@
 			return
 
 		user.visible_message(SPAN_NOTICE("You show the paper to [M]."),
-		SPAN_NOTICE("[user] holds up a paper and shows it to [M]."))
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] holds up a paper and shows it to [M]."))
 		examine(M)
 
 	else if(user.zone_selected == "mouth") // lipstick wiping
@@ -164,10 +166,10 @@
 				H.lip_style = null
 				H.update_body()
 			else
-				user.visible_message(SPAN_WARNING("[user] begins to wipe [H]'s face paint off with \the [src]."),
+				user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] begins to wipe [H]'s face paint off with \the [src]."),
 									SPAN_NOTICE("You begin to wipe off [H]'s face paint."))
 				if(do_after(user, 10, INTERRUPT_ALL, BUSY_ICON_FRIENDLY) && do_after(H, 10, INTERRUPT_ALL, BUSY_ICON_GENERIC)) //user needs to keep their active hand, H does not.
-					user.visible_message(SPAN_NOTICE("[user] wipes [H]'s face paint off with \the [src]."),
+					user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] wipes [H]'s face paint off with \the [src]."),
 										SPAN_NOTICE("You wipe off [H]'s face paint."))
 					H.lip_style = null
 					H.update_body()
@@ -221,15 +223,15 @@
 
 /obj/item/paper/proc/updateinfolinks()
 	info_links = info
-	for(var/i=1,  i<=min(fields, MAX_FIELDS), i++)
-		addtofield(i, "<font face=\"[deffont]\"><A href='byond://?src=\ref[src];write=[i]'>write</A></font>", 1)
+	for(var/i=1, i<=min(fields, PAPER_MAX_FIELDS), i++)
+		addtofield(i, "<font face=\"[deffont]\"><A href='byond://?src=\ref[src];write=[i]'>write</A></font>", links=TRUE)
 	info_links = info_links + "<font face=\"[deffont]\"><A href='byond://?src=\ref[src];write=end'>write</A></font>"
 
 
 /obj/item/paper/proc/clearpaper()
 	info = null
 	stamps = null
-	stamps_list = list() // SS220 - EDIT ADDITTION
+	stamps_list = list() // SS220 EDIT ADDICTION
 	stamped = list()
 	overlays.Cut()
 	updateinfolinks()
@@ -248,6 +250,8 @@
 	paper_text = replacetext(paper_text, "\[/i\]", "</I>")
 	paper_text = replacetext(paper_text, "\[u\]", "<U>")
 	paper_text = replacetext(paper_text, "\[/u\]", "</U>")
+	paper_text = replacetext(paper_text, "\[s\]", "<S>")
+	paper_text = replacetext(paper_text, "\[/s\]", "</S>")
 	paper_text = replacetext(paper_text, "\[large\]", "<font size=\"4\">")
 	paper_text = replacetext(paper_text, "\[/large\]", "</font>")
 	paper_text = replacetext(paper_text, "\[sign\]", "<font face=\"[signfont]\"><i>[user ? user.real_name : "Anonymous"]</i></font>")
@@ -256,6 +260,13 @@
 	paper_text = replacetext(paper_text, "\[time\]", "<font face=\"[signfont]\"><i>[worldtime2text("hh:mm")]</i></font>")
 	paper_text = replacetext(paper_text, "\[date+time\]", "<font face=\"[signfont]\"><i>[worldtime2text("hh:mm")], [time2text(REALTIMEOFDAY, "Day DD Month [GLOB.game_year]")]</i></font>")
 	paper_text = replacetext(paper_text, "\[field\]", "<span class=\"paper_field\"></span>")
+	paper_text = replacetext(paper_text, "\[name\]", "[user ? user.name : "Anonymous"]")
+	paper_text = replacetext(paper_text, "\[rank\]", "[user ? user.get_paygrade(0) : "None"]")
+	paper_text = replacetext(paper_text, "\[job\]", "[user ? user.job : "None"]")
+	paper_text = replacetext(paper_text, "\[op\]", "[GLOB.round_statistics ? GLOB.round_statistics.round_name : "None"]")
+	paper_text = replacetext(paper_text, "\[colony\]", "[SSmapping.configs[GROUND_MAP].map_name]")
+	paper_text = replacetext(paper_text, "\[ship\]", "[MAIN_SHIP_NAME]")
+
 
 	paper_text = replacetext(paper_text, "\[h1\]", "<H1>")
 	paper_text = replacetext(paper_text, "\[/h1\]", "</H1>")
@@ -317,7 +328,7 @@
 		if(i==0)
 			break
 		laststart = i+1
-		fields = min(fields+1, MAX_FIELDS)
+		fields = min(fields+1, PAPER_MAX_FIELDS)
 		//NOTE: The max here will include the auto-created field when hitting a paper with a pen. So it should be [your_desired_number]+1.
 
 /obj/item/paper/proc/openhelp(mob/user as mob)
@@ -337,6 +348,13 @@
 		\[sign\] : Inserts a signature of your name in a foolproof way.<br>
 		\[field\] : Inserts an invisible field which lets you start type from there. Useful for forms.<br>
 		<br>
+		\[name\] : Your name, but not in signature font!<br>
+		\[s\] - \[/s\] | strikethrough!<br>
+		\[job\] : Your job noted on your ID.<br>
+		\[rank\] : Your rank/paygrade.<br>
+		\[op\] : The name of the Operation.<br>
+		\[colony\] : The name of the Map.<br>
+		\[ship\] : The name of the main Ship.<br>
 		<b><center>Pen exclusive commands</center></b><br>
 		\[small\] - \[/small\] : Decreases the <font size = \"1\">size</font> of the text.<br>
 		\[list\] - \[/list\] : A list.<br>
@@ -432,7 +450,7 @@
 			info += t // Oh, he wants to edit to the end of the file, let him.
 			updateinfolinks()
 
-		show_browser(usr, "<BODY class='paper'>[info_links][stamps]</BODY>", name, name) // Update the window
+		show_browser(usr, "<BODY class='paper'>[info_links][stamps]</BODY>", name, name, extra_stylesheets=extra_stylesheets, extra_headers=extra_headers) // Update the window
 
 		update_icon()
 		playsound(src, "paper_writing", 15, TRUE)
@@ -467,7 +485,7 @@
 			if(!p.on)
 				to_chat(user, SPAN_NOTICE("Your pen is not on!"))
 				return
-		show_browser(user, "<BODY class='paper'>[info_links][stamps]</BODY>", name, name) // Update the window
+		show_browser(user, "<BODY class='paper'>[info_links][stamps]</BODY>", name, name, width=DEFAULT_PAPER_WIDTH, height=DEFAULT_PAPER_HEIGHT, extra_stylesheets=extra_stylesheets, extra_headers=extra_headers) // Update the window
 		//openhelp(user)
 		return
 
@@ -475,14 +493,14 @@
 		if((!in_range(src, usr) && loc != user && !( istype(loc, /obj/item/clipboard) ) && loc.loc != user && user.get_active_hand() != P))
 			return
 
-		// SS220 - START EDIT ADDITTION
-		stamps += (stamps=="" ? "<HR>" : "<BR>") + "<i>На этом документе стоит [declent_ru_initial(P.name, NOMINATIVE, P.name)].</i>"
+		// SS220 START EDIT ADDICTION
+		stamps += (stamps=="" ? "<HR>" : "<BR>") + "<i>На этом документе стоит [P.declent_ru(NOMINATIVE)].</i>"
 		stamps_list += list(list(
 			"name" = P.icon_state,
 			"position" = list("x" = rand(20, 80), "y" = rand(0, 100)),
 			"rotation" = rand(-60, 60)
 		))
-		// SS220 - END EDIT ADDITTION
+		// SS220 END EDIT ADDICTION
 
 		playsound(src, 'sound/effects/alien_footstep_medium3.ogg', 20, TRUE, 6)
 
@@ -710,6 +728,7 @@
 
 	var/datum/asset/asset = get_asset_datum(/datum/asset/simple/paper)
 	info = "<center><img src = [asset.get_url_mappings()["logo_wy.png"]]></center><BR>\n<span class=\"paper_field\"></span>"
+	icon_state = initial(icon_state)
 
 /obj/item/paper/uscm
 	icon_state = "paper_uscm"
@@ -719,6 +738,7 @@
 
 	var/datum/asset/asset = get_asset_datum(/datum/asset/simple/paper)
 	info = "<center><img src = [asset.get_url_mappings()["logo_uscm.png"]]></center><BR>\n<span class=\"paper_field\"></span>"
+	icon_state = initial(icon_state)
 
 /obj/item/paper/research_notes
 	icon_state = "paper_wy_words"
@@ -769,7 +789,7 @@
 			GLOB.chemical_reagents_list[chemical_to_generate.id] = chemical_to_generate
 			chemical_to_generate.generate_assoc_recipe()
 	var/datum/asset/asset = get_asset_datum(/datum/asset/simple/paper)
-	var/txt = "<center><img src = [asset.get_url_mappings()["logo_wy.png"]]><HR><I><B>Официальный документ Вейланд-Ютани</B><BR>Запись об эксперименте</I><HR><H2>" // SS220 - EDIT ADDITTION
+	var/txt = "<center><img src = [asset.get_url_mappings()["logo_wy.png"]]><HR><I><B>Официальный документ Вейланд-Ютани</B><BR>Запись об эксперименте</I><HR><H2>" // SS220 EDIT ADDICTION
 	switch(note_type)
 		if("synthesis")
 			var/datum/chemical_reaction/reaction_generated = GLOB.chemical_reactions_list[chemical_to_generate.id]
@@ -807,9 +827,10 @@
 					txt += "<BR><B>Inert</B><BR> -  The reaction has no indicators.<BR>"
 				txt += "<BR>The following properties have been discovered during tests:<BR><font size = \"2.5\">[chemical_to_generate.description]\n"
 				txt += "<BR>Overdoses at: [chemical_to_generate.overdose] units</font><BR>\n"
+				txt += "<BR>Critically Overdoses at: [chemical_to_generate.overdose_critical] units</font><BR>\n"
 				icon_state = "paper_wy_full_report"
 			else
-				txt += "<BR>\nВ настоящее время проводятся испытания для выявления химических свойств.<BR>\n" // SS220 - EDIT ADDITTION
+				txt += "<BR>\nВ настоящее время проводятся испытания для выявления химических свойств.<BR>\n" // SS220 EDIT ADDICTION
 			var/is_volatile = FALSE
 			if(chemical_to_generate.chemfiresupp)
 				is_volatile = TRUE
@@ -819,22 +840,22 @@
 						is_volatile = TRUE
 						break
 			if(is_volatile)
-				txt += "<BR><B>\nПРЕДУПРЕЖДЕНИЕ: НЕСТАБИЛЬНЫЙ РЕАГЕНТ. СМЕШИВАЙТЕ ОСТОРОЖНО.</B><BR>\n" // SS220 - EDIT ADDITTION
-			txt += "<BR>\n<HR> - <I>Вейланд-Ютани</I>" // SS220 - EDIT ADDITTION
+				txt += "<BR><B>\nПРЕДУПРЕЖДЕНИЕ: НЕСТАБИЛЬНЫЙ РЕАГЕНТ. СМЕШИВАЙТЕ ОСТОРОЖНО.</B><BR>\n" // SS220 EDIT ADDICTION
+			txt += "<BR>\n<HR> - <I>Вейланд-Ютани</I>" // SS220 EDIT ADDICTION
 		if("test")
-			name = "Эксперимент [pick("C","Q","V","W","X","Y","Z")][rand(100,999)][pick("a","b","c")]" // SS220 - EDIT ADDITTION
+			name = "Эксперимент [pick("C","Q","V","W","X","Y","Z")][rand(100,999)][pick("a","b","c")]" // SS220 EDIT ADDICTION
 			icon_state = "paper_wy_synthesis"
-			txt += "Примечание для [name]</H2></center>" // SS220 - EDIT ADDITTION
-			txt += "Испытуемый <I>[rand(10000,99999)]</I> испытал [pick(chemical_to_generate.properties)] эффекта во время тестирования [chemical_to_generate.name]. <BR>\nНа текущий момент проводятся испытания для выявления других свойств.<BR>\n" // SS220 - EDIT ADDITTION
-			txt += "<BR>\n<HR> - <I>Вейланд-Ютани</I>" // SS220 - EDIT ADDITTION
+			txt += "Примечание для [name]</H2></center>" // SS220 EDIT ADDICTION
+			txt += "Испытуемый <I>[rand(10000,99999)]</I> испытал [pick(chemical_to_generate.properties)] эффекта во время тестирования [chemical_to_generate.name]. <BR>\nНа текущий момент проводятся испытания для выявления других свойств.<BR>\n" // SS220 EDIT ADDICTION
+			txt += "<BR>\n<HR> - <I>Вейланд-Ютани</I>" // SS220 EDIT ADDICTION
 		if("grant")
 			if(!grant)
 				grant = rand(2,4)
 			icon_state = "paper_wy_grant"
-			name = "Грант на исследования" // SS220 - EDIT ADDITTION
-			txt += "Грант на исследования Вейланд-Ютани</H2></center>" // SS220 - EDIT ADDITTION
-			txt += "Уважаемый исследователь. Компания Вейланд-Ютани проявила большой интерес к вашим последним научным достижениям. Для дальнейшей поддержки вашей работы мы направили вам этот исследовательский грант в размере [grant] кредитов. Пожалуйста, отсканируйте данные в вашем терминале Вейланд-Ютани, чтобы получить его.<BR>\n" // SS220 - EDIT ADDITTION
-			txt += "<BR>\n<HR> - <I>Вейланд-Ютани</I>" // SS220 - EDIT ADDITTION
+			name = "Грант на исследования" // SS220 EDIT ADDICTION
+			txt += "Грант на исследования Вейланд-Ютани</H2></center>" // SS220 EDIT ADDICTION
+			txt += "Уважаемый исследователь. Компания Вейланд-Ютани проявила большой интерес к вашим последним научным достижениям. Для дальнейшей поддержки вашей работы мы направили вам этот исследовательский грант в размере [grant] кредитов. Пожалуйста, отсканируйте данные в вашем терминале Вейланд-Ютани, чтобы получить его.<BR>\n" // SS220 EDIT ADDICTION
+			txt += "<BR>\n<HR> - <I>Вейланд-Ютани</I>" // SS220 EDIT ADDICTION
 		if("ciph_hint")
 			icon_state = "paper_wy_words"
 			name = "Transmission Intercepted"
@@ -914,7 +935,7 @@
 	picked_property = pick(PROPERTY_LEGENDARY_LIST)
 	hint = GLOB.combining_properties[picked_property]
 	if(length(hint) < LEGENDARY_COMBINE_PROPERTIES)
-		return INITIALIZE_HINT_QDEL //shouldnt happen, will happen.
+		return INITIALIZE_HINT_QDEL //shouldn't happen, will happen.
 
 
 /obj/item/paper/research_notes/grant
@@ -957,6 +978,7 @@
 				info += "<BR><B>Inert</B><BR> -  The reaction has no indicators.<BR>"
 			info += "<font size = \"2.5\">[S.description]\n"
 			info += "<BR>Overdoses at: [S.overdose] units\n"
+			info += "<BR>Critically Overdoses at: [S.overdose_critical] units\n"
 			info += "<BR>Standard duration multiplier of [REAGENTS_METABOLISM/S.custom_metabolism]x</font><BR>\n"
 			completed = TRUE
 			icon_state = "paper_wy_full_report"
@@ -984,6 +1006,7 @@
 			info += "<BR><B>Inert</B><BR> -  The reaction has no indicators.<BR>"
 		info += "<font size = \"2.5\">[S.description]\n"
 		info += "<BR>Overdoses at: [S.overdose] units\n"
+		info += "<BR>Critically Overdoses at: [S.overdose_critical] units\n"
 		info += "<BR>Standard duration multiplier: [REAGENTS_METABOLISM/S.custom_metabolism]x</font><BR>\n"
 		completed = TRUE
 		icon_state = "paper_wy_full_report"
@@ -1176,8 +1199,6 @@
 	info = parsepencode(template, null, null, FALSE)
 	update_icon()
 
-#undef MAX_FIELDS
-
 /obj/item/paper/colonial_grunts
 	icon = 'icons/obj/items/paper.dmi'
 	icon_state = "paper_stack_words"
@@ -1211,3 +1232,13 @@
 
 	var/datum/asset/asset = get_asset_datum(/datum/asset/simple/paper)
 	info = replacetext(info, "%%WYLOGO%%", asset.get_url_mappings()["logo_wy.png"])
+
+/obj/item/paper/captain_brief
+	name = "Classified Operations Briefing"
+	desc = "A classified document from USCM high-command about the colony the ship is responding to."
+	icon_state = "paper_uscm_words"
+
+	// important documents should not be turned into hats
+	flags_equip_slot = FALSE
+	flags_armor_protection = FALSE
+

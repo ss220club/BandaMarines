@@ -117,65 +117,35 @@
 				hear_hivemind = Hu.hivenumber
 
 		if(!QDELETED(S) && (isxeno(S) || S.stat == DEAD || hear_hivemind) && !istype(S,/mob/new_player))
-			var/mob/living/carbon/xenomorph/xeno = src
+			var/mob/living/carbon/xenomorph/X = src
+			var/ru_name = declent_ru(NOMINATIVE) // SS220 EDIT ADDICTION
 			if(istype(S,/mob/dead/observer))
 				if(S.client.prefs && S.client.prefs.toggles_chat & CHAT_GHOSTHIVEMIND)
-					track = "(<a href='byond://?src=\ref[S];track=\ref[src]'>F</a>)"
-					var/broadcast_tier = "normal"
-					if(xeno.is_hive_ruler())
-						var/mob/hologram/queen/queen_eye = client?.eye
+					track = "(<a href='byond://?src=\ref[S];track=\ref[src]'>посмотреть</a>)" // SS220 EDIT ADDICTION
+					if(isqueen(src))
+						var/mob/hologram/queen/queen_eye = client?.get_eye()
 						if(istype(queen_eye))
-							track += " (<a href='byond://?src=\ref[S];track=\ref[queen_eye]'>E</a>)"
-						broadcast_tier = "royal"
+							track += " (<a href='byond://?src=\ref[S];track=\ref[queen_eye]'>посмотреть</a>)" // SS220 EDIT ADDICTION
+						ghostrend = SPAN_XENOQUEEN("Разум улья, [ru_name][track] [ru_say_verb("hisses")], <span class='normal'>'[message]'</span>") // SS220 EDIT ADDICTION
 					else if(hive.leading_cult_sl == src)
-						broadcast_tier = "leader"
-					else if(istype(xeno))
-						if(IS_XENO_LEADER(xeno))
-							broadcast_tier = "leader"
-						if(ismatriarch(xeno))
-							broadcast_tier = "royal"
-
-					ghostrend = get_hivemind_render(hive.hivenumber, broadcast_tier, message, "[src.name][track]")
-
+						ghostrend = SPAN_XENOQUEEN("Разум улья, [ru_name][track] [ru_say_verb("hisses")], <span class='normal'>'[message]'</span>") // SS220 EDIT ADDICTION
+					else if(istype(X) && IS_XENO_LEADER(X))
+						ghostrend = SPAN_XENOLEADER("Разум улья, лидер [ru_name][track] [ru_say_verb("hisses")], <span class='normal'>'[message]'</span>") // SS220 EDIT ADDICTION
+					else
+						ghostrend = SPAN_XENO("Разум улья, [ru_name][track] [ru_say_verb("hisses")], <span class='normal'>'[message]'</span>") // SS220 EDIT ADDICTION
 					S.show_message(ghostrend, SHOW_MESSAGE_AUDIBLE)
 					cast_tts(S, message, S, TTS_LOCALYZE_RADIO, SOUND_EFFECT_HIVEMIND) // BANDAMARINES EDIT ADD - TTS
 
 			else if(hive.hivenumber == xeno_hivenumber(S) || hive.hivenumber == hear_hivemind)
 				if(isxeno(src) && isxeno(S))
-					overwatch_insert = " (<a href='byond://?src=\ref[S];[overwatch_target]=\ref[src];[overwatch_src]=\ref[S]'>смотреть</a>)"
+					overwatch_insert = " (<a href='byond://?src=\ref[S];[overwatch_target]=\ref[src];[overwatch_src]=\ref[S]'>посмотреть</a>)" // SS220 EDIT ADDICTION
 
-				var/broadcast_tier = "normal"
-				if(isqueen(src) || (hive.leading_cult_sl == src))
-					broadcast_tier = "royal"
-				else if(istype(xeno))
-					if(IS_XENO_LEADER(xeno))
-						broadcast_tier = "leader"
-					if(xeno.is_hive_ruler())
-						broadcast_tier = "royal"
-					if(ismatriarch(xeno))
-						broadcast_tier = "royal"
-
-				rendered = get_hivemind_render(hive.hivenumber, broadcast_tier, message, "[src.name][overwatch_insert]")
+				if(isqueen(src) || hive.leading_cult_sl == src)
+					rendered = SPAN_XENOQUEEN("Разум улья, [ru_name][overwatch_insert] [ru_say_verb("hisses")], <span class='normal'>'[message]'</span>") // SS220 EDIT ADDICTION
+				else if(istype(X) && IS_XENO_LEADER(X))
+					rendered = SPAN_XENOLEADER("Разум улья, лидер [ru_name][overwatch_insert] [ru_say_verb("hisses")], <span class='normal'>'[message]'</span>") // SS220 EDIT ADDICTION
+				else
+					rendered = SPAN_XENO("Разум улья, [ru_name][overwatch_insert] [ru_say_verb("hisses")], <span class='normal'>'[message]'</span>") // SS220 EDIT ADDICTION
 
 				S.show_message(rendered, SHOW_MESSAGE_AUDIBLE)
 				cast_tts(S, message, S, TTS_LOCALYZE_RADIO, SOUND_EFFECT_HIVEMIND) // BANDAMARINES EDIT ADD - TTS
-
-/mob/living/carbon/proc/get_hivemind_render(hivenumber, tier, message, tracker)
-	if(hivenumber != XENO_HIVE_PATHOGEN)
-		var/the_message = "Hivemind, [tracker] hisses, <span class='normal'>'[message]'</span>"
-		switch(tier)
-			if("royal")
-				return SPAN_XENOQUEEN(the_message)
-			if("leader")
-				return SPAN_XENOLEADER("Hivemind, Leader [tracker] hisses, <span class='normal'>'[message]'</span>")
-			if("normal")
-				return SPAN_XENO(the_message)
-	else
-		var/the_message = "[LANGUAGE_PATHOGEN_MIND], [tracker] clicks, <span class='normal'>'[message]'</span>"
-		switch(tier)
-			if("royal")
-				return SPAN_PATHOGEN_QUEEN(the_message)
-			if("leader")
-				return SPAN_PATHOGEN_LEADER("[LANGUAGE_PATHOGEN_MIND], Leader [tracker] clicks, <span class='normal'>'[message]'</span>")
-			if("normal")
-				return SPAN_PATHOGEN(the_message)

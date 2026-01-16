@@ -161,19 +161,19 @@
 			if(!user.grab_level >= GRAB_AGGRESSIVE)
 				to_chat(user, SPAN_WARNING("You need a better grip to force [grabbed_mob] in there!"))
 				return FALSE
-			user.visible_message(SPAN_WARNING("[user] starts putting [grabbed_mob] into [src]."),
+			user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] starts putting [grabbed_mob] into [src]."),
 			SPAN_WARNING("You start putting [grabbed_mob] into [src]."))
 			if(!do_after(user, 2 SECONDS, INTERRUPT_ALL, BUSY_ICON_HOSTILE))
-				user.visible_message(SPAN_WARNING("[user] stops putting [grabbed_mob] into [src]."),
+				user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] stops putting [grabbed_mob] into [src]."),
 				SPAN_WARNING("You stop putting [grabbed_mob] into [src]."))
 				return FALSE
 
 			grabbed_mob.forceMove(src)
-			user.visible_message(SPAN_WARNING("[user] puts [grabbed_mob] into [src]."),
-			SPAN_WARNING("[user] puts [grabbed_mob] into [src]."))
+			user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] puts [grabbed_mob] into [src]."),
+			SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] puts [grabbed_mob] into [src]."))
 			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Has placed [key_name(grabbed_mob)] in disposals.</font>")
 			grabbed_mob.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [user] ([user.ckey])</font>")
-			msg_admin_attack("[user] ([user.ckey]) placed [key_name(grabbed_mob)] in a disposals unit in [get_area(user)] ([user.loc.x],[user.loc.y],[user.loc.z]).", user.loc.x, user.loc.y, user.loc.z)
+			msg_admin_attack("[capitalize(user.declent_ru(NOMINATIVE))] ([user.ckey]) placed [key_name(grabbed_mob)] in a disposals unit in [get_area(user)] ([user.loc.x],[user.loc.y],[user.loc.z]).", user.loc.x, user.loc.y, user.loc.z)
 			flush(TRUE)//Forcibly flushing someone if forced in by another player.
 			return TRUE
 		return FALSE
@@ -182,7 +182,7 @@
 		return
 
 	if(user.drop_inv_item_to_loc(I, src))
-		user.visible_message(SPAN_NOTICE("[user] places [I] into [src]."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] places [I] into [src]."),
 		SPAN_NOTICE("You place [I] into [src]."))
 		//Something to dispose!
 		start_processing()
@@ -205,7 +205,7 @@
 	var/target_loc = target.loc
 
 	if(target == user)
-		visible_message(SPAN_NOTICE("[user] starts climbing into the disposal."))
+		visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts climbing into the disposal."))
 
 	if(!do_after(user, 40, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE))
 		return FALSE
@@ -216,7 +216,7 @@
 		return FALSE
 
 	if(target == user)
-		user.visible_message(SPAN_NOTICE("[user] climbs into [src]."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] climbs into [src]."),
 		SPAN_NOTICE("You climb into [src]."))
 		user.attack_log += text("\[[time_stamp()]\] <font color='red'>[key_name(user)] climbed into a disposals bin!</font>")
 
@@ -235,12 +235,12 @@
 ///Leave the disposal
 /obj/structure/machinery/disposal/proc/go_out(mob/living/user)
 	if(user.client)
-		user.client.eye = user.client.mob
+		user.client.set_eye(user.client.mob)
 		user.client.perspective = MOB_PERSPECTIVE
 	user.forceMove(loc)
 	user.apply_effect(2, STUN)
 	if(user.mobility_flags & MOBILITY_MOVE)
-		user.visible_message(SPAN_WARNING("[user] suddenly climbs out of [src]!"),
+		user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] suddenly climbs out of [src]!"),
 		SPAN_WARNING("You climb out of [src] and get your bearings!"))
 		update()
 
@@ -257,7 +257,7 @@
 /obj/structure/machinery/disposal/tgui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "Disposals", "[src.name]")
+		ui = new(user, src, "Disposals", "[capitalize(name)]")
 		ui.open()
 
 /obj/structure/machinery/disposal/ui_data(mob/user)
@@ -466,7 +466,6 @@
 	var/active = 0 //True if the holder is moving, otherwise inactive
 	dir = 0
 	var/count = 2048 //Can travel 2048 steps before going inactive (in case of loops)
-	var/has_fat_guy = 0 //True if contains a fat person
 	var/destinationTag = "" //Changes if contains a delivery container
 	var/tomail = 0 //Changes if contains wrapped package
 	var/hasmob = 0 //If it contains a mob
@@ -528,12 +527,6 @@
 			for(var/mob/living/H in src)
 				H.take_overall_damage(20, 0, "Blunt Trauma") //Horribly maim any living creature jumping down disposals.  c'est la vie
 
-		if(has_fat_guy && prob(2)) //Chance of becoming stuck per segment if contains a fat guy
-			active = 0
-			//Find the fat guys
-			for(var/mob/living/carbon/human/H in src)
-
-			break
 		sleep(1) //Was 1
 		var/obj/structure/disposalpipe/curr = loc
 		if(!curr && loc)
@@ -572,10 +565,8 @@
 		if(ismob(AM))
 			var/mob/M = AM
 			if(M.client) //If a client mob, update eye to follow this holder
-				M.client.eye = src
+				M.client.set_eye(src)
 
-	if(other.has_fat_guy)
-		has_fat_guy = 1
 	qdel(other)
 
 /obj/structure/disposalholder/proc/settag(new_tag)
@@ -812,7 +803,7 @@
 			//Check if anything changed over 2 seconds
 			var/turf/uloc = user.loc
 			var/atom/wloc = W.loc
-			user.visible_message(SPAN_NOTICE("[user] starts slicing [src]."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts slicing [src]."),
 			SPAN_NOTICE("You start slicing [src]."))
 			sleep(30)
 			if(!W.isOn())
@@ -1308,7 +1299,7 @@
 			//Check if anything changed over 2 seconds
 			var/turf/uloc = user.loc
 			var/atom/wloc = W.loc
-			user.visible_message(SPAN_NOTICE("[user] starts slicing [src]."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts slicing [src]."),
 			SPAN_NOTICE("You start slicing [src]."))
 			sleep(30)
 			if(!W.isOn())
@@ -1461,7 +1452,7 @@
 /mob/pipe_eject(direction)
 	if(client)
 		client.perspective = MOB_PERSPECTIVE
-		client.eye = src
+		client.set_eye(src)
 
 /obj/effect/decal/cleanable/blood/gibs/pipe_eject(direction)
 	var/list/dirs

@@ -201,7 +201,7 @@
 	var/mob/living/synth = occupant
 
 	if(synth.client)
-		synth.client.eye = synth.client.mob
+		synth.client.set_eye(synth.client.mob)
 		synth.client.perspective = MOB_PERSPECTIVE
 
 	synth.forceMove(loc)
@@ -239,7 +239,7 @@
 	M.stop_pulling()
 	if(M && M.client)
 		M.client.perspective = EYE_PERSPECTIVE
-		M.client.eye = src
+		M.client.set_eye(src)
 	M.forceMove(src)
 	src.occupant = M
 	start_processing()
@@ -279,7 +279,7 @@
 			to_chat(user, SPAN_NOTICE("The [name] is already occupied!"))
 			return
 
-		visible_message(SPAN_NOTICE("[user] starts putting [G.grabbed_thing] into the [name]."), null, null, 3)
+		visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts putting [G.grabbed_thing] into the [name]."), null, null, 3)
 
 		if(do_after(user, 20, INTERRUPT_ALL, BUSY_ICON_GENERIC))
 			if(occupant)

@@ -30,7 +30,7 @@
 		if(!iff_tag)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have an IFF tag to remove."))
 			return
-		user.visible_message(SPAN_NOTICE("[user] starts removing \the [src]'s IFF tag..."), SPAN_NOTICE("You start removing \the [src]'s IFF tag..."), max_distance = 3)
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts removing \the [src]'s IFF tag..."), SPAN_NOTICE("You start removing \the [src]'s IFF tag..."), max_distance = 3)
 		if(!do_after(user, 5 SECONDS * SURGERY_TOOLS_PINCH[item.type], INTERRUPT_ALL, BUSY_ICON_GENERIC, src, INTERRUPT_DIFF_LOC, BUSY_ICON_GENERIC))
 			return
 		if(!iff_tag)
@@ -38,7 +38,7 @@
 			return
 		user.put_in_hands(iff_tag)
 		iff_tag = null
-		user.visible_message(SPAN_NOTICE("[user] removes \the [src]'s IFF tag."), SPAN_NOTICE("You remove \the [src]'s IFF tag."), max_distance = 3)
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] removes \the [src]'s IFF tag."), SPAN_NOTICE("You remove \the [src]'s IFF tag."), max_distance = 3)
 		if(hive.hivenumber == XENO_HIVE_RENEGADE) //it's important to know their IFF settings for renegade
 			to_chat(src, SPAN_NOTICE("With the removal of the device, your instincts have returned to normal."))
 		return
@@ -136,7 +136,7 @@
 
 	return modified_damage
 
-/mob/living/carbon/xenomorph/apply_damage(damage = 0, damagetype = BRUTE, def_zone = null, used_weapon = null, sharp = 0, edge = 0, force = FALSE, enviro = FALSE)
+/mob/living/carbon/xenomorph/apply_damage(damage = 0, damagetype = BRUTE, def_zone = null, used_weapon = null, sharp = 0, edge = 0, force = FALSE, enviro = FALSE , chemical = FALSE)
 	if(!damage)
 		return
 
@@ -271,7 +271,7 @@
 		var/splash_chance = 40 //Base chance of getting splashed. Decreases with # of victims.
 		var/i = 0 //Tally up our victims.
 
-		for(var/mob/living/carbon/human/victim in orange(radius, src)) //Loop through all nearby victims, including the tile.
+		for(var/mob/living/carbon/human/victim in range(radius, src)) //Loop through all nearby victims, including the tile.
 			splash_chance = 65 - (i * 5)
 			if(HAS_TRAIT(victim, TRAIT_HAULED))
 				continue

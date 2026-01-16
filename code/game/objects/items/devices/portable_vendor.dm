@@ -61,12 +61,12 @@
 		return
 
 	if(!allowed(user))
-		to_chat(user, SPAN_WARNING("Access denied."))
+		to_chat(user, SPAN_WARNING("Доступ запрещён."))
 		return
 
 	var/obj/item/card/id/idcard = human_user.get_idcard()
 	if(!idcard) //not wearing an ID
-		to_chat(human_user, SPAN_WARNING("Access denied. No ID card detected"))
+		to_chat(human_user, SPAN_WARNING("Access denied. No ID card detected."))
 		return
 
 	if(!idcard.check_biometrics(human_user))
@@ -150,7 +150,7 @@
 	user.set_interaction(src)
 
 	if(!allowed(user))
-		to_chat(user, SPAN_WARNING("Access denied."))
+		to_chat(user, SPAN_WARNING("Доступ запрещён."))
 		return
 
 	var/mob/living/carbon/human/human_user = user

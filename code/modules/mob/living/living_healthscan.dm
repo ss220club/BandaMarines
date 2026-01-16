@@ -56,7 +56,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 	if(!ui)
 		ui = new(user, src, "HealthScan", "Health Scan")
 		ui.open()
-		ui.set_autoupdate(FALSE)
+		ui.set_autoupdate(isobserver(user))
 
 /**
  * Returns TRUE if the target is either dead or appears to be dead.
@@ -184,17 +184,26 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 				bleeding_check = TRUE
 				break
 
-			if((!limb.brute_dam && !limb.burn_dam && !(limb.status & LIMB_DESTROYED)) && !bleeding_check && !internal_bleeding_check && !(implant && detail_level >= DETAIL_LEVEL_BODYSCAN ) && !(limb.status & LIMB_UNCALIBRATED_PROSTHETIC) && !(limb.status & LIMB_BROKEN) && !(limb.status & LIMB_SPLINTED) && !(limb.status & LIMB_SPLINTED_INDESTRUCTIBLE) && !(limb.get_incision_depth()))
+			if(!limb.brute_dam && !limb.burn_dam && !(limb.status & (LIMB_THIRD_DEGREE_BURNS|LIMB_ESCHAR|LIMB_DESTROYED|LIMB_UNCALIBRATED_PROSTHETIC|LIMB_BROKEN|LIMB_SPLINTED|LIMB_SPLINTED_INDESTRUCTIBLE)) && !bleeding_check && !internal_bleeding_check && !(implant && detail_level >= DETAIL_LEVEL_BODYSCAN) && !(limb.get_incision_depth()))
 				continue
+
 			var/list/core_body_parts = list("head", "chest", "groin")
+			var/eschar = null
+			if(limb.status & LIMB_ESCHAR)
+				eschar = "Eschar"
+			var/third_degree_burns = null
+			if(limb.status & LIMB_THIRD_DEGREE_BURNS)
+				third_degree_burns = "Severe burns"
 			var/list/current_list = list(
-				"name" = capitalize(declent_ru_initial(limb.display_name, NOMINATIVE, limb.display_name)), // SS220 - EDIT ADDITTION
+				"name" = capitalize(declent_ru_initial(limb.display_name, NOMINATIVE, limb.display_name)), // SS220 EDIT ADDICTION
 				"brute" = floor(limb.brute_dam),
 				"burn" = floor(limb.burn_dam),
 				"bandaged" = limb.is_bandaged(),
 				"salved" = limb.is_salved(),
 				"missing" = (limb.status & LIMB_DESTROYED),
 				"limb_status" = null,
+				"limb_third_degree_burns" = third_degree_burns,
+				"limb_eschar" = eschar,
 				"bleeding" = bleeding_check,
 				"implant" = implant,
 				"internal_bleeding" = internal_bleeding_check
@@ -277,7 +286,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 		data["limbs_damaged"] = length(limb_data_lists)
 		data["internal_bleeding"] = internal_bleeding
 		data["body_temperature"] = "[round(human_target_mob.bodytemperature-T0C, 0.1)]℃ ([round(human_target_mob.bodytemperature*1.8-459.67, 0.1)]℉)" // METRIC RULES IMPERIAL DROOLS
-		data["pulse"] = "[human_target_mob.get_pulse(GETPULSE_TOOL)] уд./мин" // SS220 - EDIT ADDITTION
+		data["pulse"] = "[human_target_mob.get_pulse(GETPULSE_TOOL)] уд./мин" // SS220 EDIT ADDICTION
 		data["implants"] = unknown_implants
 		data["core_fracture"] = core_fracture_detected
 
@@ -287,9 +296,9 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 			if(!organ.damage)
 				continue
 			var/current_organ = list(
-				"name" = capitalize(declent_ru_initial(organ.name, NOMINATIVE, organ.name)), // SS220 - EDIT ADDITTION,
+				"name" = capitalize(declent_ru_initial(organ.name, NOMINATIVE, organ.name)), // SS220 EDIT ADDICTION,
 				"damage" = organ.damage,
-				"status" = organ.organ_status == ORGAN_BROKEN ? "Тяжёлое" : "Лёгкое", // SS220 - EDIT ADDITTION
+				"status" = organ.organ_status == ORGAN_BROKEN ? "Тяжёлое" : "Лёгкое", // SS220 EDIT ADDICTION
 				"robotic" = organ.robotic
 			)
 			damaged_organs += list(current_organ)
@@ -301,19 +310,19 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 		if(!permadead)
 			if(human_target_mob.getBruteLoss(robotic_only = TRUE) > 20)
 				advice += list(list(
-					"advice" = "Use a blowtorch or nanopaste to repair the damaged areas.",
+					"advice" = "Используйте паяльную лампу или нанопасту для устранения повреждений.",
 					"icon" = "tools",
 					"color" = "red" //BRI'ISH????
 					))
 			if(human_target_mob.getFireLoss(robotic_only = TRUE) > 20)
 				advice += list(list(
-					"advice" = "Use a cable coil or nanopaste to repair the burned areas.",
+					"advice" = "Используйте связку проводов или нанопасту для устранения ожогов.",
 					"icon" = "plug",
 					"color" = "orange"
 					))
 			if(unknown_implants)
 				advice += list(list(
-					"advice" = "Recommend that the patient does not move - embedded objects.",
+					"advice" = "Пациенту рекомендуется не двигаться из-за посторонних предметов в его теле.",
 					"icon" = "window-close",
 					"color" = "red"
 					))
@@ -321,45 +330,45 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 				if((human_target_mob.health + 20) > HEALTH_THRESHOLD_DEAD)
 					if(issynth(human_target_mob))
 						advice += list(list(
-							"advice" = "Reboot the synthetic with a reset key!",
+							"advice" = "Используйте ключ перезапуска синтетика!",
 							"icon" = "robot",
 							"color" = "green"
 							))
 					else
 						advice += list(list(
-							"advice" = "Apply shock via defibrillator!",
+							"advice" = "Используйте дефибриллятор!",
 							"icon" = "bolt",
 							"color" = "yellow"
 							))
 				else
 					if(human_target_mob.getBruteLoss(organic_only = TRUE) > 30)
 						advice += list(list(
-							"advice" = "Use trauma kits or surgical line to repair the lacerated areas.",
+							"advice" = "Используйте травма-киты или хирургическую нить для устранения повреждений.",
 							"icon" = "band-aid",
 							"color" = "green" //BRI'ISH????
 							))
 					if(human_target_mob.getFireLoss(organic_only = TRUE) > 30)
 						advice += list(list(
-							"advice" = "Use burn kits or synth-graft to repair the burned areas.",
+							"advice" = "Используйте бёрн-киты или синтетический лоскут для устранения ожогов.",
 							"icon" = "band-aid",
 							"color" = "orange" //BRI'ISH????
 							))
 					if(((human_target_mob.health + 50) < HEALTH_THRESHOLD_DEAD) && !issynth(human_target_mob))
 						advice += list(list(
-							"advice" = "Administer a single dose of epinephrine.",
+							"advice" = "Пациенту рекомендуется доза вещества «Epinephrine».",
 							"icon" = "syringe",
 							"color" = "olive"
 							))
 			if(!issynth(human_target_mob))
 				if(human_target_mob.blood_volume <= 500 && !chemicals_lists["nutriment"])
 					advice += list(list(
-						"advice" = "Administer food or recommend that the patient eat.",
+						"advice" = "Пациенту рекомендуется приём пищи.",
 						"icon" = "pizza-slice",
 						"color" = "white"
 						))
 				if(human_target_mob.getToxLoss() > 10)
 					temp_advice = list(list(
-						"advice" = "Administer a single dose of dylovene.",
+						"advice" = "Пациенту рекомендуется доза вещества «Dylovene».",
 						"icon" = "syringe",
 						"color" = "green"
 						))
@@ -370,7 +379,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 						advice += temp_advice
 				if((human_target_mob.getToxLoss() > 50 || (human_target_mob.getOxyLoss() > 50 && human_target_mob.blood_volume > 400) || human_target_mob.getBrainLoss() >= 10))
 					temp_advice = list(list(
-						"advice" = "Administer a single dose of peridaxon.",
+						"advice" = "Пациенту рекомендуется доза вещества «Peridaxon».",
 						"icon" = "syringe",
 						"color" = "grey"
 						))
@@ -381,7 +390,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 						advice += temp_advice
 				if(human_target_mob.getOxyLoss() > 50)
 					temp_advice = list(list(
-						"advice" = "Administer a single dose of dexalin.",
+						"advice" = "Пациенту рекомендуется доза вещества «Dexalin».",
 						"icon" = "syringe",
 						"color" = "blue"
 						))
@@ -392,7 +401,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 						advice += temp_advice
 				if(human_target_mob.getFireLoss(organic_only = TRUE) > 30)
 					temp_advice = list(list(
-						"advice" = "Administer a single dose of kelotane.",
+						"advice" = "Пациенту рекомендуется доза вещества «Kelotane» и обработка тяжелых ожогов китами.",
 						"icon" = "syringe",
 						"color" = "yellow"
 						))
@@ -403,7 +412,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 						advice += temp_advice
 				if(human_target_mob.getBruteLoss(organic_only = TRUE) > 30)
 					temp_advice = list(list(
-						"advice" = "Administer a single dose of bicaridine.",
+						"advice" = "Пациенту рекомендуется доза вещества «Bicaridine».",
 						"icon" = "syringe",
 						"color" = "red"
 						))
@@ -414,7 +423,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 						advice += temp_advice
 				if(human_target_mob.health < 0)
 					temp_advice = list(list(
-						"advice" = "Administer a single dose of inaprovaline.",
+						"advice" = "Пациенту рекомендуется доза вещества «Inaprovaline».",
 						"icon" = "syringe",
 						"color" = "purple"
 						))
@@ -430,7 +439,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 
 				if(has_pain && !chemicals_lists["paracetamol"])
 					temp_advice = list(list(
-						"advice" = "Administer a single dose of tramadol.",
+						"advice" = "Пациенту рекомендуется доза вещества «Tramadol».",
 						"icon" = "syringe",
 						"color" = "white"
 						))
@@ -442,7 +451,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 
 				if(chemicals_lists["paracetamol"])
 					advice += list(list(
-						"advice" = "Do NOT administer tramadol.",
+						"advice" = "НЕ давайте пациенту дозу вещества «Tramadol».",
 						"icon" = "window-close",
 						"color" = "red"
 						))
@@ -489,14 +498,16 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 			if(ishuman(target_mob))
 				var/mob/living/carbon/human/target_human = target_mob
 				target_human.change_holo_card(ui.user)
-				return TRUE
+				ui.send_update(list("holocard" = get_holo_card_color(target_mob)))
+				return FALSE
 		if("change_ui_mode")
 			switch(ui_mode)
 				if(UI_MODE_CLASSIC)
 					ui_mode = UI_MODE_MINIMAL
 				if(UI_MODE_MINIMAL)
 					ui_mode = UI_MODE_CLASSIC
-			return TRUE
+			ui.send_update(list("ui_mode" = ui_mode))
+			return FALSE
 
 /// legacy proc for to_chat messages on health analysers
 /mob/living/proc/health_scan(mob/living/carbon/human/user, ignore_delay = FALSE, show_limb_damage = TRUE, show_browser = TRUE, alien = FALSE, do_checks = TRUE) // ahem. FUCK WHOEVER CODED THIS SHIT AS NUMBERS AND NOT DEFINES.
@@ -504,7 +515,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 		if((user.getBrainLoss() >= 60) && prob(50))
 			to_chat(user, SPAN_WARNING("You try to analyze the floor's vitals!"))
 			for(var/mob/O in viewers(src, null))
-				O.show_message(SPAN_WARNING("[user] has analyzed the floor's vitals!"), 1)
+				O.show_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] has analyzed the floor's vitals!"), 1)
 			user.show_message(SPAN_NOTICE("Health Analyzer results for The floor:\n\t Overall Status: Healthy"), 1)
 			user.show_message(SPAN_NOTICE("\t Damage Specifics: [0]-[0]-[0]-[0]"), 1)
 			user.show_message(SPAN_NOTICE("Key: Suffocation/Toxin/Burns/Brute"), 1)

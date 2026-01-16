@@ -212,11 +212,11 @@
 	if(buildstate || require_fusion_cell && !HasFuel())
 		if(is_on)
 			to_chat(user, SPAN_NOTICE("You press [src]'s emergency shutdown button."))
-			visible_message(SPAN_NOTICE("[user] presses [src]'s emergency shutdown button."))
+			visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] presses [src]'s emergency shutdown button."))
 			start_functioning(FALSE)
 			return
 
-		visible_message(SPAN_NOTICE("[user] starts to hold [src]'s emergency start lever."))
+		visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts to hold [src]'s emergency start lever."))
 		if(!do_after(user, 3 SECONDS, INTERRUPT_ALL, BUSY_ICON_BUILD, src))
 			to_chat(user, SPAN_NOTICE("You let go of the emergency start lever."))
 			return FALSE
@@ -244,7 +244,7 @@
 	if(overloaded)
 		xeno.animation_attack_on(src)
 		playsound(src, 'sound/effects/metalhit.ogg', 25, 1)
-		xeno.visible_message(SPAN_DANGER("[xeno] [xeno.slashes_verb] [src], stopping its overload process!"),
+		xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] [xeno.slashes_verb] [src], stopping its overload process!"),
 		SPAN_DANGER("You [xeno.slash_verb] [src], stopping its overload process!"), null, 5, CHAT_TYPE_XENO_COMBAT)
 		set_overloading(FALSE)
 		return
@@ -257,7 +257,7 @@
 			break
 		xeno.animation_attack_on(src)
 		playsound(src, 'sound/effects/metalhit.ogg', 25, 1)
-		xeno.visible_message(SPAN_DANGER("[xeno] [xeno.slashes_verb] [src], [is_on ? "disabling" : "damaging"] it!"))
+		xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] [xeno.slashes_verb] [src], [is_on ? "disabling" : "damaging"] it!"))
 		switch(buildstate)
 			if(BUILDSTATE_FUNCTIONAL)
 				visible_message(SPAN_DANGER("[src] starts to fall apart!"))
@@ -268,6 +268,9 @@
 		buildstate = clamp(buildstate + 1, BUILDSTATE_FUNCTIONAL, BUILDSTATE_DAMAGE_WELD)
 		update_icon()
 		looping = TRUE
+
+/obj/structure/machinery/power/power_generator/reactor/handle_tail_stab(mob/living/carbon/xenomorph/xeno, blunt_stab)
+	return TAILSTAB_COOLDOWN_NONE
 
 /obj/structure/machinery/power/power_generator/reactor/attackby(obj/item/attacking_item, mob/user)
 	//Fuel Cells
@@ -450,6 +453,14 @@
 	repair_time *= user.get_skill_duration_multiplier(SKILL_ENGINEER)
 	if(!skillcheck(user, SKILL_ENGINEER, SKILL_ENGINEER_TRAINED))
 		repair_time += 5 SECONDS
+
+	switch(repair_type)
+		if(BUILDSTATE_DAMAGE_WELD)
+			playsound(loc, 'sound/items/Welder.ogg', 25, 1)
+		if(BUILDSTATE_DAMAGE_WIRE)
+			playsound(loc, 'sound/items/Wirecutter.ogg', 25, 1)
+		if(BUILDSTATE_DAMAGE_WRENCH)
+			playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
 
 	to_chat(user, SPAN_NOTICE("You start repairing [src] with [tool]."))
 	if(!do_after(user, repair_time, INTERRUPT_ALL, BUSY_ICON_BUILD, src))

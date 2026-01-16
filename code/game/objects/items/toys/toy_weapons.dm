@@ -7,7 +7,7 @@
 
 
 /*
- * Toy gun: Why isnt this an /obj/item/weapon/gun?
+ * Toy gun: Why isn't this an /obj/item/weapon/gun?
  */
 /obj/item/toy/gun
 	name = "cap gun"
@@ -60,7 +60,7 @@
 	playsound(user, 'sound/weapons/Gunshot.ogg', 15, 1)
 	src.bullets--
 	for(var/mob/O in viewers(user, null))
-		O.show_message(SPAN_DANGER("<B>[user] fires a cap gun at [target]!</B>"), SHOW_MESSAGE_VISIBLE, SPAN_DANGER("You hear a gunshot"), SHOW_MESSAGE_AUDIBLE)
+		O.show_message(SPAN_DANGER("<B>[user] fires a cap gun at [target]!</B>"), SHOW_MESSAGE_VISIBLE, SPAN_DANGER("You hear a gunshot."), SHOW_MESSAGE_AUDIBLE)
 
 /obj/item/toy/gun_ammo
 	name = "ammo-caps"
@@ -136,7 +136,7 @@
 					if(M == user)
 						continue
 					for(var/mob/O in viewers(GLOB.world_view_size, D))
-						O.show_message(SPAN_DANGER("[M] was hit by the foam dart!"), SHOW_MESSAGE_VISIBLE)
+						O.show_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] was hit by the foam dart!"), SHOW_MESSAGE_VISIBLE)
 					new /obj/item/toy/crossbow_ammo(M.loc)
 					qdel(D)
 					return
@@ -159,7 +159,7 @@
 	else if (bullets == 0)
 		user.apply_effect(5, WEAKEN)
 		for(var/mob/O in viewers(GLOB.world_view_size, user))
-			O.show_message(SPAN_DANGER("[user] realized they were out of ammo and starting scrounging for some!"), SHOW_MESSAGE_VISIBLE)
+			O.show_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] realized they were out of ammo and starting scrounging for some!"), SHOW_MESSAGE_VISIBLE)
 
 
 /obj/item/toy/crossbow/attack(mob/living/M as mob, mob/user as mob)
@@ -170,7 +170,7 @@
 		for(var/mob/O in viewers(M, null))
 			if(O.client)
 				O.show_message(SPAN_DANGER("<B>[user] casually lines up a shot with [M]'s head and pulls the trigger!</B>"), SHOW_MESSAGE_VISIBLE, SPAN_DANGER("You hear the sound of foam against skull!"), SHOW_MESSAGE_AUDIBLE)
-				O.show_message(SPAN_DANGER("[M] was hit in the head by the foam dart!"), SHOW_MESSAGE_VISIBLE)
+				O.show_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] was hit in the head by the foam dart!"), SHOW_MESSAGE_VISIBLE)
 
 		playsound(user.loc, 'sound/items/syringeproj.ogg', 15, 1)
 		new /obj/item/toy/crossbow_ammo(M.loc)
@@ -178,7 +178,7 @@
 	else if (M.body_position == LYING_DOWN && src.bullets == 0)
 		for(var/mob/O in viewers(M, null))
 			if (O.client)
-				O.show_message(SPAN_DANGER("<B>[user] casually lines up a shot with [M]'s head, pulls the trigger, then realizes they are out of ammo and drops to the floor in search of some!</B>"), SHOW_MESSAGE_VISIBLE, SPAN_DANGER("You hear someone fall"), SHOW_MESSAGE_AUDIBLE)
+				O.show_message(SPAN_DANGER("<B>[user] casually lines up a shot with [M]'s head, pulls the trigger, then realizes they are out of ammo and drops to the floor in search of some!</B>"), SHOW_MESSAGE_VISIBLE, SPAN_DANGER("You hear someone fall."), SHOW_MESSAGE_AUDIBLE)
 		user.apply_effect(5, WEAKEN)
 	return
 
@@ -214,7 +214,6 @@
 	var/active = 0
 	var/sword_type = "blue"
 	w_class = SIZE_SMALL
-	flags_item = NOSHIELD
 	attack_verb = list("attacked", "struck", "hit")
 
 /obj/item/toy/sword/red
@@ -259,7 +258,6 @@
 	icon = 'icons/obj/items/weapons/melee/swords.dmi'
 	icon_state = "katana"
 	flags_atom = FPRINT|CONDUCT
-	flags_item = NOSHIELD
 	flags_equip_slot = SLOT_WAIST|SLOT_BACK
 	force = 5
 	throwforce = 5

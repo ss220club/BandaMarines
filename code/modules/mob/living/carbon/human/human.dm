@@ -96,7 +96,7 @@
 	. = ..()
 
 	. += ""
-	if(ishumansynth_strict(src)) // So that yautja or other species dont see the ships security alert
+	if(ishumansynth_strict(src)) // So that yautja or other species don't see the ships security alert
 		. += "Security Level: [uppertext(get_security_level())]"
 
 	if(species?.has_species_tab_items)
@@ -113,13 +113,19 @@
 	if(assigned_squad)
 		if(assigned_squad.overwatch_officer)
 			. += "Overwatch Officer: [assigned_squad.overwatch_officer.get_paygrade()][assigned_squad.overwatch_officer.name]"
-		if(assigned_squad.primary_objective)
-			. += "Primary Objective: [html_decode(assigned_squad.primary_objective)]"
-		if(assigned_squad.secondary_objective)
-			. += "Secondary Objective: [html_decode(assigned_squad.secondary_objective)]"
-	if(faction == FACTION_MARINE)
-		. += ""
-		. += "<a href='byond://?MapView=1'>View Tactical Map</a>"
+		if(assigned_squad.primary_objective || assigned_squad.secondary_objective)
+			var/turf/current_turf = get_turf(src)
+			var/is_shipside = is_mainship_level(current_turf?.z)
+			var/garbled = !is_shipside && !(current_turf?.z in SSradio.last_command_zs)
+			if(!garbled) // They've now gotten a connection
+				squad_primary_objective_ungarbled = TRUE
+				squad_secondary_objective_ungarbled = TRUE
+			var/primary_garbled = garbled && !squad_primary_objective_ungarbled
+			var/secondary_garbled = garbled && !squad_secondary_objective_ungarbled
+			if(assigned_squad.primary_objective)
+				. += "Primary Objective: [html_decode(primary_garbled ? assigned_squad.primary_objective_garbled : assigned_squad.primary_objective)]"
+			if(assigned_squad.secondary_objective)
+				. += "Secondary Objective: [html_decode(secondary_garbled ? assigned_squad.secondary_objective_garbled : assigned_squad.secondary_objective)]"
 	if(mobility_aura)
 		. += "Active Order: MOVE"
 	if(protection_aura)
@@ -204,13 +210,11 @@
 	else
 		return
 
-	var/update = 0
-
 	//Focus half the blast on one organ
 	var/mob/attack_source = last_damage_data?.resolve_mob()
 	var/obj/limb/take_blast = pick(limbs)
 	if(take_blast)
-		update |= take_blast.take_damage(b_loss * 0.5, f_loss * 0.5, used_weapon = "Explosive blast", attack_source = attack_source)
+		take_blast.take_damage(b_loss * 0.5, f_loss * 0.5, used_weapon = "Explosive blast", attack_source = attack_source)
 	pain?.apply_pain(b_loss * 0.5, BRUTE)
 	pain?.apply_pain(f_loss * 0.5, BURN)
 
@@ -242,11 +246,9 @@
 				limb_multiplier = 0.05
 			if("l_arm")
 				limb_multiplier = 0.05
-		update |= temp.take_damage(b_loss * limb_multiplier, f_loss * limb_multiplier, used_weapon = weapon_message, attack_source = attack_source)
+		temp.take_damage(b_loss * limb_multiplier, f_loss * limb_multiplier, used_weapon = weapon_message, attack_source = attack_source)
 		pain.apply_pain(b_loss * limb_multiplier, BRUTE)
 		pain.apply_pain(f_loss * limb_multiplier, BURN)
-	if(update)
-		UpdateDamageIcon()
 	return TRUE
 
 
@@ -421,7 +423,7 @@
 					var/obj/item/card/id/dogtag/DT = wear_id
 					if(!DT.dogtag_taken)
 						if(stat == DEAD)
-							to_chat(usr, SPAN_NOTICE("You take [src]'s information tag, leaving the ID tag"))
+							to_chat(usr, SPAN_NOTICE("You take [src]'s information tag, leaving the ID tag."))
 							DT.dogtag_taken = TRUE
 							DT.icon_state = DT.tags_taken_icon
 							var/obj/item/dogtag/D = new(loc)
@@ -492,7 +494,7 @@
 			return
 
 		if(target.squad_status == "K.I.A.")
-			to_chat(sl, "[FONT_SIZE_BIG("<font color='red'>You can't assign K.I.A. marines to fireteams.</font>")]")
+			to_chat(sl, "[FONT_SIZE_BIG("<font color='red'>Вы не можете назначать погибших в бою морпехов в группы.</font>")]")
 			return
 
 		target.assigned_squad.manage_fireteams(target)
@@ -644,7 +646,7 @@
 						for(var/datum/data/record/R in GLOB.data_core.general)
 							if(R.fields["id"] == E.fields["id"])
 
-								var/setmedical = tgui_input_list(usr, "Specify a new medical status for this person.", "Medical HUD", R.fields["p_stat"], list("*SSD*", "*Deceased*", "Physically Unfit", "Active", "Disabled", "Cancel"))
+								var/setmedical = tgui_input_list(usr, "Specify a new medical status for this person.", "Medical HUD", R.fields["p_stat"], list("SSD", "Deceased", "Injured", "Inactive", "Active", "Disabled", "Cancel"))
 
 								if(hasHUD(usr,"medical"))
 									if(setmedical != "Cancel")
@@ -709,7 +711,7 @@
 										to_chat(usr, R.fields["com_[counter]"])
 										counter++
 									if(counter == 1)
-										to_chat(usr, "No comment found")
+										to_chat(usr, "No comment found.")
 									to_chat(usr, "<a href='byond://?src=\ref[src];medrecordadd=1'>\[Add comment\]</a>")
 
 			if(!read)
@@ -774,7 +776,7 @@
 	if(href_list["scanreport"])
 		if(hasHUD(usr,"medical"))
 			if(!skillcheck(usr, SKILL_MEDICAL, SKILL_MEDICAL_MEDIC))
-				to_chat(usr, SPAN_WARNING("You're not trained to use this."))
+				to_chat(usr, SPAN_WARNING("Вы не знаете как использовать это."))
 				return
 			if(!has_species(src, "Human"))
 				to_chat(usr, SPAN_WARNING("This only works on humans."))
@@ -813,45 +815,45 @@
 	if(!skillcheck(user, SKILL_MEDICAL, SKILL_MEDICAL_MEDIC))
 		// Removing your own holocard when you are not trained
 		if(user == src && holo_card_color)
-			if(tgui_alert(user, "Вы уверены, что хотите сбросить статус своей медголокарты?", "Сброс статуса медголокарты", list("Да", "Нет")) != "Да") // SS220 - EDIT ADDITTION
+			if(tgui_alert(user, "Вы уверены, что хотите сбросить статус своей медголокарты?", "Сброс статуса медголокарты", list("Да", "Нет")) == "Нет") // SS220 EDIT ADDICTION
 				return
 			holo_card_color = null
-			to_chat(user, SPAN_NOTICE("Вы сбрасываете статус своей медголокарты.")) // SS220 - EDIT ADDITTION
+			to_chat(user, SPAN_NOTICE("Вы сбрасываете статус своей медголокарты."))
 			hud_set_holocard()
 			return
-		to_chat(user, SPAN_WARNING("Вы не знаете как использовать это устройство.")) // SS220 - EDIT ADDITTION
+		to_chat(user, SPAN_WARNING("Вы не знаете как использовать это."))
 		return
 	if(!has_species(src, "Human"))
-		to_chat(user, SPAN_WARNING("Статус медголокарты можно изменить только у людей.")) // SS220 - EDIT ADDITTION
+		to_chat(user, SPAN_WARNING("Статус медголокарты можно изменить только у людей."))
 		return
 
-	// SS220 - START ADDITTION
+	// SS220 START EDIT ADDICTION
 	var/holocard_translations = list(
 		"black" = "Скончался",
 		"red" = "Необходима срочная помощь",
 		"orange" = "Необходима операция",
-		"purple" = "Инфицирован паразитом XX-121",
+		"purple" = "Заражён паразитом XX-121",
 		"none" = "Нет данных"
 	)
 	var/newcolor = tgui_input_list(user, "Укажите причину болезни пациента:", "Медголокарта", holocard_translations, associative_list = TRUE)
-	// SS220 - END ADDITTION
+	// SS220 EDIT ADDICTION
 	if(!newcolor)
 		return
-	var/translated_value = holocard_translations[newcolor] // SS220 - EDIT ADDITTION
+	var/translated_value = holocard_translations[newcolor] // SS220 EDIT ADDICTION
 	if(get_dist(user, src) > 7)
-		to_chat(user, SPAN_WARNING("Пациент [src] слишком далеко от вас.")) // SS220 - EDIT ADDITTION
+		to_chat(user, SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] слишком далеко от вас.")) // SS220 EDIT ADDICTION
 		return
 	if(newcolor == "none")
 		if(!holo_card_color)
 			return
 		holo_card_color = null
-		to_chat(user, SPAN_NOTICE("Вы снимаете статус в медголокарте пациента [src].")) // SS220 - EDIT ADDITTION
+		to_chat(user, SPAN_NOTICE("Вы убираете статус из медголокарты [declent_ru(GENITIVE)].")) // SS220 EDIT ADDICTION
 	else if(newcolor != holo_card_color)
 		if(newcolor == "black" && is_revivable() && check_tod())
-			to_chat(user, SPAN_WARNING("Пациента ещё можно спасти!")) // SS220 - EDIT ADDITTION
+			to_chat(user, SPAN_WARNING("Пациента ещё можно спасти!"))
 			return
 		holo_card_color = newcolor
-		to_chat(user, SPAN_NOTICE("Вы устанавливаете статус «[translated_value]» в медголокарте пациента [src].")) // SS220 - EDIT ADDITTION
+		to_chat(user, SPAN_NOTICE("Вы устанавливаете статус «[translated_value]» в медголокарте [declent_ru(GENITIVE)].")) // SS220 EDIT ADDICTION
 	hud_set_holocard()
 
 /mob/living/carbon/human/tgui_interact(mob/user, datum/tgui/ui) // I'M SORRY, SO FUCKING SORRY
@@ -935,7 +937,7 @@
 	apply_effect(5, STUN)
 	if(stat == 2) //One last corpse check
 		return
-	src.visible_message(SPAN_WARNING("[src] throws up!"), SPAN_WARNING("You throw up!"), null, 5)
+	src.visible_message(SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] блюёт!"), SPAN_WARNING("Вы блюёте!"), null, 5)
 	playsound(loc, 'sound/effects/splat.ogg', 25, 1, 7)
 
 	var/turf/location = loc
@@ -1012,6 +1014,8 @@
 	for(var/obj/item/W in embedded_items)
 		if(!istype(W, /obj/item/shard/shrapnel))
 			visible_objects += W
+			// временно отключаю перевод до выяснения обстоятельств крашей
+			// visible_objects[capitalize(W.declent_ru())] = W // SS220 EDIT ADDICTION
 	return visible_objects
 
 
@@ -1047,35 +1051,35 @@
 	var/msg
 	///Is the target the user or somebody else?
 	var/self = (target == src)
-	to_chat(usr,SPAN_NOTICE("You [self ? "take a moment to analyze yourself." : "start analyzing [target.name]."]"))
+	to_chat(usr, SPAN_NOTICE("Используя свои медицинские навыки вы проверяете [self ? "своё состояние." : "состояние [target.name]."]")) // SS220 EDIT ADDICTION
 
 	if(self)
 		var/list/broken_limbs = target.get_broken_limbs() - list("chest","head","groin")
 		if(length(broken_limbs))
-			msg += "Your [english_list(broken_limbs)] [length(broken_limbs) > 1 ? "are" : "is"] broken.\n"
+			msg += "У вас перелом [english_list(broken_limbs, declent = GENITIVE)].\n" // SS220 EDIT ADDICTION
 	if(target.toxloss > 20)
-		msg += "[self ? "Your" : "Their"] skin is slightly green.\n"
+		msg += "[self ? "Ваша" : target.ru_p_them(TRUE)] кожа слегка позеленела.\n" // SS220 EDIT ADDICTION
 
 	if(target.is_bleeding())
-		msg += "[self ? "You" : "They"] have bleeding wounds on [self ? "your" : "their"] body.\n"
+		msg += "У [self ? "вас" : target.ru_p_theirs()] кровотечение.\n" // SS220 EDIT ADDICTION
 
 	if(!self && skillcheck(usr, SKILL_SURGERY, SKILL_SURGERY_NOVICE))
 		for(var/datum/effects/bleeding/internal/internal_bleed in target.effects_list)
-			msg += "They have bloating and discoloration on their [internal_bleed.limb.display_name].\n"
+			msg += "У [target.ru_p_theirs()] изменился цвет кожи и наблюдается припухлость в [declent_ru_initial(internal_bleed.limb.display_name, DATIVE, internal_bleed.limb.display_name)].\n" // SS220 EDIT ADDICTION
 
 	switch(target.stat)
 		if(DEAD)
 			if(target.check_tod() && target.is_revivable())
-				msg += "They're not breathing."
+				msg += "[target.ru_p_they(TRUE)] не дышит." // SS220 EDIT ADDICTION
 			else
 				if(has_limb("head"))
-					msg += "Their eyes have gone blank, there are no signs of life."
+					msg += "[target.ru_p_them(TRUE)] взгляд потускнел и [target.ru_p_they()] не подаёт признаков жизни." // SS220 EDIT ADDICTION
 				else
-					msg += "They are definitely dead."
+					msg += "[target.ru_p_they(TRUE)] определённо [target.gender == MALE ? "мёртв" : "мертва"]." // SS220 EDIT ADDICTION
 		if(UNCONSCIOUS)
-			msg += "They seem to be unconscious.\n"
+			msg += "[target.ru_p_they(TRUE)], похоже, без сознания.\n" // SS220 EDIT ADDICTION
 		if(CONSCIOUS)
-			msg += "[self ? "You're" : "They're"] alive and breathing."
+			msg += "У [self ? "вас" : target.ru_p_theirs()], в целом, всё в порядке." // SS220 EDIT ADDICTION
 
 	to_chat(src, SPAN_WARNING(msg))
 
@@ -1088,6 +1092,16 @@
 		to_chat(usr, SPAN_WARNING("You have no access to [MAIN_SHIP_NAME] crew manifest."))
 		return
 	GLOB.crew_manifest.open_ui(src)
+
+/mob/living/carbon/human/verb/view_tacmaps()
+	set name = "View Tacmap"
+	set category = "IC"
+
+	if(faction != FACTION_MARINE && !(FACTION_MARINE in faction_group))
+		to_chat(usr, SPAN_WARNING("You have no access to [MAIN_SHIP_NAME] tactical map."))
+		return
+
+	GLOB.tacmap_viewer.tgui_interact(src)
 
 /mob/living/carbon/human/verb/view_objective_memory()
 	set name = "View intel objectives"
@@ -1135,6 +1149,13 @@
 	if(tgui_alert(src, "Did it work?", "Confirm", list("Yes", "No"), 10 SECONDS) == "No")
 		for(var/datum/cm_objective/Objective in src.mind.objective_memory.disks)
 			src.mind.objective_memory.disks -= Objective
+
+/mob/living/carbon/human/look_up()
+	if(is_zoomed)
+		to_chat(src, SPAN_WARNING("You cannot look up while zoomed!"))
+		return
+
+	. = ..()
 
 /mob/living/carbon/human/proc/set_species(new_species, default_color)
 	if(!new_species)
@@ -1400,17 +1421,15 @@
 	if(SEND_SIGNAL(src, COMSIG_HUMAN_UPDATE_SIGHT) & COMPONENT_OVERRIDE_UPDATE_SIGHT)
 		return
 
-	sight &= ~BLIND // Never have blind on by default
-
 	lighting_alpha = default_lighting_alpha
-	sight &= ~(SEE_TURFS|SEE_MOBS|SEE_OBJS|SEE_BLACKNESS)
+	sight &= ~(SEE_MOBS|SEE_OBJS|BLIND)
+
 	see_in_dark = species.darksight
 	sight |= species.flags_sight
-	if(glasses)
-		process_glasses(glasses)
 
-	if(!(sight & SEE_TURFS) && !(sight & SEE_MOBS) && !(sight & SEE_OBJS))
-		sight |= SEE_BLACKNESS
+	process_glasses(glasses)
+
+	sight |= (SEE_BLACKNESS|SEE_TURFS)
 
 	SEND_SIGNAL(src, COMSIG_HUMAN_POST_UPDATE_SIGHT)
 	sync_lighting_plane_alpha()
@@ -1542,7 +1561,7 @@
 					if(new_splint.amount == 0)
 						qdel(new_splint) //we only removed nano splints
 					msg = "[user == target ? "their own":"\proper [target]'s"]"
-					target.visible_message(SPAN_NOTICE("[user] removes [msg] [amount_removed>1 ? "splints":"splint"]."),
+					target.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] removes [msg] [amount_removed>1 ? "splints":"splint"]."),
 						SPAN_NOTICE("Your [amount_removed>1 ? "splints are":"splint is"] removed."))
 					target.update_med_icon()
 			else
@@ -1879,4 +1898,3 @@
 		if(PULSE_THREADY)
 			return method ? ">250" : "extremely weak and fast, patient's artery feels like a thread"
 // output for machines^ ^^^^^^^output for people^^^^^^^^^
-

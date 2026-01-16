@@ -1,5 +1,6 @@
 /datum/xeno_customization_option/queen_socks
 	name = "Носки"
+	key = "queen_socks"
 	customization_type = XENO_CUSTOMIZATION_NON_LORE_FRIENDLY
 	icon_path = 'modular/xeno_customization/icons/queen/socks.dmi'
 	caste = XENO_CASTE_QUEEN
@@ -8,6 +9,7 @@
 
 /datum/xeno_customization_option/queen_dress
 	name = "Платье"
+	key = "queen_dress"
 	customization_type = XENO_CUSTOMIZATION_NON_LORE_FRIENDLY
 	icon_path = 'modular/xeno_customization/icons/queen/dress.dmi'
 	caste = XENO_CASTE_QUEEN

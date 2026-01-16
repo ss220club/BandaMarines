@@ -134,11 +134,11 @@
 
 		open = !open
 		if(open)
-			src.visible_message("[user] opens the maintenance hatch of [src]", SPAN_NOTICE("You open [src]'s maintenance hatch."))
+			src.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] opens the maintenance hatch of [src]", SPAN_NOTICE("You open [src]'s maintenance hatch."))
 			on = 0
 			icon_state="mulebot-hatch"
 		else
-			src.visible_message("[user] closes the maintenance hatch of [src]", SPAN_NOTICE("You close [src]'s maintenance hatch."))
+			src.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] closes the maintenance hatch of [src]", SPAN_NOTICE("You close [src]'s maintenance hatch."))
 			icon_state = "mulebot0"
 
 		updateDialog()
@@ -146,15 +146,15 @@
 		if (src.health < maxhealth)
 			src.health = min(maxhealth, src.health+25)
 			user.visible_message(
-				SPAN_DANGER("[user] repairs [src]!"),
+				SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] repairs [src]!"),
 				SPAN_NOTICE("You repair [src]!")
 			)
 		else
-			to_chat(user, SPAN_NOTICE(" [src] does not need a repair!"))
+			to_chat(user, SPAN_NOTICE("[src] does not need a repair!"))
 	else if(load && ismob(load))  // chance to knock off rider
 		if(prob(1+I.force * 2))
 			unload(0)
-			user.visible_message(SPAN_DANGER("[user] knocks [load] off [src] with \the [I]!"), SPAN_DANGER("You knock [load] off [src] with \the [I]!"))
+			user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] knocks [load] off [src] with \the [I]!"), SPAN_DANGER("You knock [load] off [src] with \the [I]!"))
 		else
 			to_chat(user, "You hit [src] with \the [I] but to no effect.")
 	else
@@ -294,7 +294,7 @@
 					locked = !locked
 					updateDialog()
 				else
-					to_chat(usr, SPAN_DANGER("Access denied."))
+					to_chat(usr, SPAN_DANGER("Доступ запрещён."))
 					return
 			if("power")
 				if (src.on)
@@ -410,15 +410,15 @@
 				if (held_item && HAS_TRAIT(held_item, TRAIT_TOOL_MULTITOOL))
 					switch(href_list["wire"])
 						if("1","2")
-							to_chat(usr, SPAN_NOTICE(" [icon2html(src, usr)] The charge light flickers."))
+							to_chat(usr, SPAN_NOTICE("[icon2html(src, usr)] The charge light flickers."))
 						if("4")
-							to_chat(usr, SPAN_NOTICE(" [icon2html(src, usr)] The external warning lights flash briefly."))
+							to_chat(usr, SPAN_NOTICE("[icon2html(src, usr)] The external warning lights flash briefly."))
 						if("8")
-							to_chat(usr, SPAN_NOTICE(" [icon2html(src, usr)] The load platform clunks."))
+							to_chat(usr, SPAN_NOTICE("[icon2html(src, usr)] The load platform clunks."))
 						if("16", "32")
-							to_chat(usr, SPAN_NOTICE(" [icon2html(src, usr)] The drive motor whines briefly."))
+							to_chat(usr, SPAN_NOTICE("[icon2html(src, usr)] The drive motor whines briefly."))
 						else
-							to_chat(usr, SPAN_NOTICE(" [icon2html(src, usr)] You hear a radio crackle."))
+							to_chat(usr, SPAN_NOTICE("[icon2html(src, usr)] You hear a radio crackle."))
 				else
 					to_chat(usr, SPAN_NOTICE(" You need a multitool!"))
 
@@ -493,7 +493,7 @@
 		var/mob/M = C
 		if(M.client)
 			M.client.perspective = EYE_PERSPECTIVE
-			M.client.eye = src
+			M.client.set_eye(src)
 
 	mode = 0
 	send_status()
@@ -515,7 +515,7 @@
 		var/mob/M = load
 		if(M.client)
 			M.client.perspective = MOB_PERSPECTIVE
-			M.client.eye = src
+			M.client.set_eye(src)
 
 
 	if(dirn)
@@ -541,7 +541,7 @@
 			var/mob/M = AM
 			if(M.client)
 				M.client.perspective = MOB_PERSPECTIVE
-				M.client.eye = src
+				M.client.set_eye(src)
 	mode = 0
 
 

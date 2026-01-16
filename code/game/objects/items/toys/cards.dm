@@ -317,7 +317,7 @@
 
 /obj/item/toy/handcard/aceofspades
 	icon_state = "spades_ace"
-	desc = "An Ace of Spades"
+	desc = "An Ace of Spades."
 	item_state_slots = list(WEAR_AS_GARB = "ace_of_spades")
 
 /obj/item/toy/handcard/uno_reverse_red
@@ -495,7 +495,7 @@
 			name = "a playing card"
 			desc = "A playing card."
 
-	ru_names_rename(ru_names_toml(name)) // SS220 - EDIT ADDITTION
+	ru_names_rename(ru_names_toml(name)) // SS220 EDIT ADDICTION
 	if(length(cards) >= 200)
 		// BYOND will flat out choke when using thousands of cards for some unknown reason,
 		// possibly due to the transformed overlay stacking below. Nobody's gonna see the

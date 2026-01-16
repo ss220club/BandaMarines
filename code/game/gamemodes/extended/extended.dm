@@ -3,11 +3,12 @@
 	config_tag = "Extended"
 	required_players = 0
 	latejoin_larva_drop = 0
+	static_comms_amount = 2
 	votable = FALSE
 	taskbar_icon = 'icons/taskbar/gml_colonyrp.png'
 
 /datum/game_mode/extended/announce()
-	to_world("<B>The current game mode is - Extended!</B>")
+	to_world(SPAN_INFO_BOLD("Текущий режим игры - «Расширенный»")) // SS220 EDIT ADDICTION
 
 /datum/game_mode/extended/get_roles_list()
 	return GLOB.ROLES_USCM

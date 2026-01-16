@@ -193,9 +193,7 @@
 	var/J = job_pref_to_gear_preset()
 	if(isnull(preview_dummy))
 		preview_dummy = new()
-
-	preview_dummy.blocks_emissive = FALSE
-	preview_dummy.update_emissive_block()
+		RegisterSignal(preview_dummy, COMSIG_PARENT_QDELETING, PROC_REF(clear_xeno_dummy)) // BANDAMARINES EDIT
 
 	clear_equipment()
 	if(refresh_limb_status)
@@ -218,6 +216,10 @@
 		gear.equip_to_user(preview_dummy, override_checks = TRUE, drop_instead_of_del = FALSE)
 
 	arm_equipment(preview_dummy, J, FALSE, FALSE, owner, show_job_gear)
+
+	for(var/obj/limb/L in preview_dummy.limbs)
+		L.blocks_emissive = EMISSIVE_BLOCK_NONE
+	preview_dummy.regenerate_icons()
 
 	// If the dummy was equipped with marine armor.
 	var/jacket = preview_dummy.get_item_by_slot(WEAR_JACKET)

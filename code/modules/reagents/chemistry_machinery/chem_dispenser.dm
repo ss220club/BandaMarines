@@ -22,7 +22,7 @@
 	var/accept_beaker_only = TRUE
 	var/obj/item/reagent_container/beaker = null
 	var/ui_check = 0
-	var/static/list/possible_transfer_amounts = list(5,10,20,30,40)
+	var/static/list/possible_transfer_amounts = list(5,10,15,20,30,40,60)
 	/// List of typepaths for reagent containers that a chem dispenser will accept; all containers allowed if empty.
 	var/list/whitelisted_containers = list()
 	var/list/dispensable_reagents = list(
@@ -59,18 +59,18 @@
 /obj/structure/machinery/chem_dispenser/research
 	network = "Research"
 
-/obj/structure/machinery/chem_dispenser/process()
-	if(!chem_storage)
-		chem_storage = GLOB.chemical_data.connect_chem_storage(network)
 
 /obj/structure/machinery/chem_dispenser/Initialize()
-	. = ..()
+	..()
 	dispensable_reagents = sortList(dispensable_reagents)
-	start_processing()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/structure/machinery/chem_dispenser/LateInitialize()
+	chem_storage = GLOB.chemical_data.connect_chem_storage(network)
 
 /obj/structure/machinery/chem_dispenser/Destroy()
-	if(!chem_storage)
-		chem_storage = GLOB.chemical_data.disconnect_chem_storage(network)
+	GLOB.chemical_data.disconnect_chem_storage(network)
+	chem_storage = null
 	return ..()
 
 /obj/structure/machinery/chem_dispenser/ex_act(severity)
@@ -134,7 +134,7 @@
 /obj/structure/machinery/chem_dispenser/tgui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "ChemDispenser", capitalize(declent_ru())) // SS220 - EDIT ADDITTION
+		ui = new(user, src, "ChemDispenser", capitalize(declent_ru(NOMINATIVE))) // SS220 EDIT ADDICTION
 		ui.open()
 
 /obj/structure/machinery/chem_dispenser/ui_static_data(mob/user)
@@ -221,7 +221,7 @@
 /obj/structure/machinery/chem_dispenser/attackby(obj/item/reagent_container/attacking_object, mob/user)
 	if(istype(attacking_object, /obj/item/reagent_container/glass) || istype(attacking_object, /obj/item/reagent_container/food))
 		if(accept_beaker_only && istype(attacking_object,/obj/item/reagent_container/food))
-			to_chat(user, SPAN_NOTICE("This machine only accepts beakers"))
+			to_chat(user, SPAN_NOTICE("This machine only accepts beakers."))
 			return
 		//If the dispenser has a whitelist with stuff in it, and the attacking object ain't in there, don't accept it.
 		if(length(whitelisted_containers) && !(attacking_object.type in whitelisted_containers))
@@ -245,11 +245,11 @@
 			if(DISPENSER_UNHACKABLE)
 				to_chat(user, SPAN_NOTICE("[src] cannot be hacked."))
 			if(DISPENSER_NOT_HACKED)
-				user.visible_message("[user] modifies [src] with [attacking_object], turning a light on.", "You enable a light in [src].")
+				user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] modifies [src] with [attacking_object], turning a light on.", "You enable a light in [src].")
 				dispensable_reagents += hacked_reagents
 				hacked_check = DISPENSER_HACKED
 			if(DISPENSER_HACKED)
-				user.visible_message("[user] modifies [src] with [attacking_object], turning a light off.", "You disable a light in [src].")
+				user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] modifies [src] with [attacking_object], turning a light off.", "You disable a light in [src].")
 				dispensable_reagents -= hacked_reagents
 				hacked_check = DISPENSER_NOT_HACKED
 
@@ -266,10 +266,10 @@
 		playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
 		anchored = !anchored
 		if(anchored)
-			user.visible_message("[user] tightens the bolts securing [src] to the surface.", "You tighten the bolts securing [src] to the surface.")
+			user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] tightens the bolts securing [src] to the surface.", "You tighten the bolts securing [src] to the surface.")
 			return
 
-		user.visible_message("[user] unfastens the bolts securing [src] to the surface.", "You unfasten the bolts securing [src] to the surface.")
+		user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] unfastens the bolts securing [src] to the surface.", "You unfasten the bolts securing [src] to the surface.")
 
 /obj/structure/machinery/chem_dispenser/attack_remote(mob/user as mob)
 	return src.attack_hand(user)
@@ -349,6 +349,7 @@
 		"grapejuice",
 		"lemonjuice",
 		"banana",
+		"chocolatesyrup",
 	)
 	hacked_reagents = list(
 		"milk",

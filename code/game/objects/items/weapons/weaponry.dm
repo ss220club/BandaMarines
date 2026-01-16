@@ -1,5 +1,5 @@
 /obj/item/weapon/banhammer
-	desc = "A banhammer"
+	desc = "A banhammer."
 	name = "banhammer"
 	icon = 'icons/obj/items/toy.dmi'
 	icon_state = "toyhammer"
@@ -83,6 +83,7 @@
 	throwforce = 7
 	attack_verb = list("smashed", "beaten", "slammed", "struck", "smashed", "battered", "cracked")
 	hitsound = 'sound/weapons/genhit3.ogg'
+	shield_flags = CAN_SHIELD_BASH
 
 /obj/item/weapon/baseballbat/metal
 	name = "\improper metal baseball bat"
@@ -246,9 +247,9 @@
 	if( ( istype(M.get_active_hand(), /obj/item/weapon/sword/katana) || istype(M.get_inactive_hand(), /obj/item/weapon/sword/katana) ) && M != user )
 
 		if(prob(50))
-			user.visible_message(SPAN_DANGER("[M] and [user] cross blades!"))
+			user.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] and [user] cross blades!"))
 		else
-			M.visible_message(SPAN_DANGER("[user] and [M] cross blades!"))
+			M.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] and [M] cross blades!"))
 		playsound(user, 'sound/weapons/bladeslice.ogg', 25, 1)
 		playsound(M, 'sound/weapons/bladeslice.ogg', 25, 1)
 		user.animation_attack_on(M)
@@ -270,7 +271,7 @@
 		var/used_verb = "attacked"
 		if(LAZYLEN(attack_verb))
 			used_verb = pick(attack_verb)
-		user.visible_message(SPAN_DANGER("[M] has been [used_verb] with [src][showname]."),
+		user.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] has been [used_verb] with [src][showname]."),
 						SPAN_DANGER("You [used_verb] [M] with [src]."), null, 5)
 
 		playsound(loc, 'sound/weapons/bladeslice.ogg', 25, 1)

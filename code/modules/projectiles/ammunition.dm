@@ -274,6 +274,7 @@ bullets/shells. ~N
 	flags_atom = FPRINT|CONDUCT
 	flags_magazine = AMMUNITION_HANDFUL
 	attack_speed = 3 // should make reloading less painful
+	var/ammo_source = null // for referencing where the ammo comes from
 	var/singular_name = "generic" // for referencing the singular name of the ammo rather than a handful of something each time
 
 /obj/item/ammo_magazine/handful/Initialize(mapload, spawn_empty)
@@ -315,7 +316,7 @@ If it is the same and the other stack isn't full, transfer an amount (default 1)
 	var/multiple_handful_name = bullet.multiple_handful_name
 
 	name = "handful of [ammo_name + (multiple_handful_name ? " ":"s ") + "([new_caliber])"]"
-	ru_names_rename(ru_names_toml(name)) // SS220 - EDIT ADDITTION
+	ru_names_rename(ru_names_toml(name)) // SS220 EDIT ADDICTION
 
 	default_ammo = new_ammo
 	caliber = new_caliber
@@ -323,6 +324,7 @@ If it is the same and the other stack isn't full, transfer an amount (default 1)
 	current_rounds = new_rounds
 	gun_type = new_gun_type
 	handful_state = bullet.handful_state
+	ammo_source = bullet
 	singular_name = ammo_name
 	if(bullet.handful_color)
 		color = bullet.handful_color
@@ -396,13 +398,3 @@ Turn() or Shift() as there is virtually no overhead. ~N
 	name = "spent shell"
 	icon_state = "shell"
 
-/obj/item/ammo_box/magazine/lever_action/xm88
-	name = "\improper .458 bullets box (.458 x 300)"
-	icon_state = "base_458"
-	overlay_ammo_type = "_blank"
-	overlay_gun_type = "_458"
-	overlay_content = "_458"
-	magazine_type = /obj/item/ammo_magazine/lever_action/xm88
-
-/obj/item/ammo_box/magazine/lever_action/xm88/empty
-	empty = TRUE

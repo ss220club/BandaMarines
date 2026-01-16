@@ -169,30 +169,28 @@
 		V.handle_acidic_environment(src)
 
 //damages human that comes in contact
-/obj/effect/xenomorph/spray/proc/apply_spray(mob/living/carbon/H, should_stun = TRUE)
+/obj/effect/xenomorph/spray/proc/apply_spray(mob/living/carbon/human, should_stun = TRUE)
 
-	if(H.body_position == STANDING_UP)
-		to_chat(H, SPAN_DANGER("Your feet scald and burn! Argh!"))
-		if(ishuman(H))
-			H.emote("pain")
+	if(human.body_position == STANDING_UP)
+		to_chat(human, SPAN_DANGER("Your feet scald and burn! Argh!"))
+		if(ishuman(human))
+			human.emote("pain")
 			if(should_stun)
-				H.KnockDown(stun_duration)
-			H.apply_armoured_damage(damage_amount * 0.4, ARMOR_BIO, BURN, "l_foot")
-			H.apply_armoured_damage(damage_amount * 0.4, ARMOR_BIO, BURN, "r_foot")
+				human.KnockDown(stun_duration)
+			human.apply_armoured_damage(damage_amount * 0.4, ARMOR_BIO, BURN, "l_foot")
+			human.apply_armoured_damage(damage_amount * 0.4, ARMOR_BIO, BURN, "r_foot")
 
-		else if (isxeno(H))
-			var/mob/living/carbon/xenomorph/X = H
+		else if (isxeno(human))
+			var/mob/living/carbon/xenomorph/X = human
 			if (X.mob_size < MOB_SIZE_BIG && should_stun)
 				X.KnockDown(stun_duration)
 			X.emote("hiss")
-			H.apply_armoured_damage(damage_amount * 0.4 * XVX_ACID_DAMAGEMULT, ARMOR_BIO, BURN)
+			human.apply_armoured_damage(damage_amount * 0.4 * XVX_ACID_DAMAGEMULT, ARMOR_BIO, BURN)
 
-		H.last_damage_data = cause_data
-		H.UpdateDamageIcon()
-		H.updatehealth()
+		human.last_damage_data = cause_data
 	else
-		H.apply_armoured_damage(damage_amount*0.33, ARMOR_BIO, BURN) //This is ticking damage!
-		to_chat(H, SPAN_DANGER("You are scalded by the burning acid!"))
+		human.apply_armoured_damage(damage_amount*0.33, ARMOR_BIO, BURN) //This is ticking damage!
+		to_chat(human, SPAN_DANGER("You are scalded by the burning acid!"))
 
 /obj/effect/xenomorph/spray/weak
 	name = "weak splatter"
@@ -215,7 +213,7 @@
 
 		var/buffed_splash = FALSE
 		var/datum/effects/acid/acid_effect = locate() in hooman.effects_list
-		if(acid_effect && acid_effect.acid_enhanced == FALSE) // can't stack the bonus every splash. thatd be nuts!
+		if(acid_effect)
 			buffed_splash = TRUE
 			damage += bonus_damage
 
@@ -238,8 +236,6 @@
 		hooman.apply_armoured_damage(damage * 0.25, ARMOR_BIO, BURN, "r_foot", 20)
 		hooman.apply_armoured_damage(damage * 0.25, ARMOR_BIO, BURN, "l_leg", 20)
 		hooman.apply_armoured_damage(damage * 0.25, ARMOR_BIO, BURN, "r_leg", 20)
-		hooman.UpdateDamageIcon()
-		hooman.updatehealth()
 	else if (isxeno(carbone))
 		..(carbone, FALSE)
 
@@ -267,27 +263,25 @@
 
 /obj/effect/xenomorph/spray/praetorian/apply_spray(mob/living/carbon/M)
 	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/human/human = M
 
-		var/datum/effects/prae_acid_stacks/PAS = locate() in H.effects_list
+		var/datum/effects/prae_acid_stacks/PAS = locate() in human.effects_list
 
 		if(!PAS)
-			PAS = new /datum/effects/prae_acid_stacks(H)
+			PAS = new /datum/effects/prae_acid_stacks(human)
 			PAS.increment_stack_count()
 		else
 			PAS.increment_stack_count(2)
 
-		if(H.body_position == STANDING_UP)
-			to_chat(H, SPAN_DANGER("Your feet scald and burn! Argh!"))
-			H.emote("pain")
-			H.last_damage_data = cause_data
-			H.apply_armoured_damage(damage_amount * 0.5, ARMOR_BIO, BURN, "l_foot", 50)
-			H.apply_armoured_damage(damage_amount * 0.5, ARMOR_BIO, BURN, "r_foot", 50)
-			H.UpdateDamageIcon()
-			H.updatehealth()
+		if(human.body_position == STANDING_UP)
+			to_chat(human, SPAN_DANGER("Your feet scald and burn! Argh!"))
+			human.emote("pain")
+			human.last_damage_data = cause_data
+			human.apply_armoured_damage(damage_amount * 0.5, ARMOR_BIO, BURN, "l_foot", 50)
+			human.apply_armoured_damage(damage_amount * 0.5, ARMOR_BIO, BURN, "r_foot", 50)
 		else
-			H.apply_armoured_damage(damage_amount*0.33, ARMOR_BIO, BURN) //This is ticking damage!
-			to_chat(H, SPAN_DANGER("You are scalded by the burning acid!"))
+			human.apply_armoured_damage(damage_amount*0.33, ARMOR_BIO, BURN) //This is ticking damage!
+			to_chat(human, SPAN_DANGER("You are scalded by the burning acid!"))
 	else if (isxeno(M))
 		..(M)
 
@@ -385,7 +379,7 @@
 
 /obj/effect/xenomorph/acid/proc/handle_barricade()
 	if(prob(in_weather))
-		visible_message(SPAN_XENOWARNING("Acid on \The [acid_t] subsides!"))
+		visible_message(SPAN_XENOWARNING("Кислота на [acid_t.declent_ru(PREPOSITIONAL)] перестаёт шипеть!")) // SS220 EDIT ADDICTION
 		return NONE
 	var/obj/structure/barricade/cade = acid_t
 	cade.take_acid_damage(barricade_damage)
@@ -424,13 +418,13 @@
 
 	switch(ticks_left)
 		if(6)
-			visible_message(SPAN_XENOWARNING("\The [acid_t] is barely holding up against the acid!"))
+			visible_message(SPAN_XENOWARNING("[capitalize(acid_t.declent_ru(NOMINATIVE))] скоро разрушится из-за действия кислоты!")) // SS220 EDIT ADDICTION
 		if(4)
-			visible_message(SPAN_XENOWARNING("\The [acid_t]\s structure is being melted by the acid!"))
+			visible_message(SPAN_XENOWARNING("[capitalize(acid_t.declent_ru(NOMINATIVE))] сильно повреждается из-за действия кислоты!")) // SS220 EDIT ADDICTION
 		if(2)
-			visible_message(SPAN_XENOWARNING("\The [acid_t] is struggling to withstand the acid!"))
+			visible_message(SPAN_XENOWARNING("[capitalize(acid_t.declent_ru(NOMINATIVE))] повреждается из-за действия кислоты!")) // SS220 EDIT ADDICTION
 		if(0 to 1)
-			visible_message(SPAN_XENOWARNING("\The [acid_t] begins to crumble under the acid!"))
+			visible_message(SPAN_XENOWARNING("[capitalize(acid_t.declent_ru(NOMINATIVE))] начинает разрушаться под действием кислоты!")) // SS220 EDIT ADDICTION
 
 /obj/effect/xenomorph/acid/proc/finish_melting()
 	playsound(src, "acid_hit", 25, TRUE)
@@ -438,14 +432,14 @@
 	if(istype(acid_t, /obj/item/weapon/gun))
 		var/obj/item/weapon/gun/acid_gun = acid_t
 		if(acid_gun.has_second_wind)
-			visible_message(SPAN_XENODANGER("[acid_t] loses its shine as the acid bubbles against it."))
+			visible_message(SPAN_XENODANGER("[capitalize(acid_t.declent_ru(NOMINATIVE))] теряет свой блеск, когда кислота начинает пузыриться на [genderize_ru(acid_t.gender, "нём", "ней", "нём", "них")].")) // SS220 EDIT ADDICTION
 			acid_gun.has_second_wind = FALSE
 			playsound(src, 'sound/weapons/handling/gun_jam_click.ogg', 25, TRUE)
 			qdel(src)
 			return
 
 	if(istype(acid_t, /turf))
-		visible_message(SPAN_XENODANGER("[acid_t] is terribly damaged by the acid covering it!"))
+		visible_message(SPAN_XENODANGER("[capitalize(acid_t.declent_ru(NOMINATIVE))] сильно повреждается покрывающей [genderize_ru(acid_t.gender, "его", "её", "его", "их")] кислотой!")) // SS220 EDIT ADDICTION
 		if(istype(acid_t, /turf/closed/wall))
 			var/turf/closed/wall/wall = acid_t
 			new /obj/effect/acid_hole(wall)
@@ -455,22 +449,22 @@
 
 	else if (istype(acid_t, /obj/structure/girder))
 		var/obj/structure/girder/girder = acid_t
-		visible_message(SPAN_XENODANGER("[acid_t] collapses and falls in on itself as the acid melts its frame!"))
+		visible_message(SPAN_XENODANGER("[capitalize(acid_t.declent_ru(NOMINATIVE))] рушится и падает, когда кислота полностью разъедает [genderize_ru(acid_t.gender, "его", "её", "его", "их")] каркас!")) // SS220 EDIT ADDICTION
 		girder.dismantle()
 
 	else if(istype(acid_t, /obj/structure/window/framed))
 		var/obj/structure/window/framed/window = acid_t
-		visible_message(SPAN_XENODANGER("[acid_t] audibly cracks and fails as the acid bubbles against it!"))
+		visible_message(SPAN_XENODANGER("[capitalize(acid_t.declent_ru(NOMINATIVE))] громко трещит, когда кислота начинает пузыриться на [genderize_ru(acid_t.gender, "нём", "ней", "нём", "них")]!")) // SS220 EDIT ADDICTION
 		window.deconstruct(disassembled = FALSE)
 
 	else if(istype(acid_t, /obj/structure/barricade))
-		visible_message(SPAN_XENODANGER("[acid_t] cracks and fragments as the acid sizzles against it!"))
+		visible_message(SPAN_XENODANGER("[capitalize(acid_t.declent_ru(NOMINATIVE))] трещит и рассыпается, когда кислота полностью разъедает [genderize_ru(acid_t.gender, "его", "её", "его", "их")]!")) // SS220 EDIT ADDICTION
 		pass() // Don't delete it, just damaj
 
 	else
 		for(var/mob/mob in acid_t)
 			mob.forceMove(loc)
-		visible_message(SPAN_XENODANGER("[acid_t] collapses under its own weight into a puddle of goop and undigested debris!"))
+		visible_message(SPAN_XENODANGER("[capitalize(acid_t.declent_ru(NOMINATIVE))] обрушивается под собственной тяжестью в лужу из слизи и не разъевшихся обломков!")) // SS220 EDIT ADDICTION
 		qdel(acid_t)
 	qdel(src)
 
@@ -482,10 +476,10 @@
 	if(istype(acid_t, /obj/item/weapon/gun))
 		var/obj/item/weapon/gun/acid_gun = acid_t
 		if(!acid_gun.has_second_wind)
-			visible_message(SPAN_XENODANGER("[acid_t] seems unaffected and continues to deform!"))
+			visible_message(SPAN_XENODANGER("[capitalize(acid_t.declent_ru(NOMINATIVE))] кажется невредимым, но продолжает деформироваться!")) // SS220 EDIT ADDICTION
 			return FALSE
 		else
-			visible_message(SPAN_XENODANGER("The sizzling on [acid_t] quiets as the acid is sprayed off of it!"))
+			visible_message(SPAN_XENODANGER("Шипение на [acid_t.declent_ru(PREPOSITIONAL)] затихает, когда кислота смывается с него!")) // SS220 EDIT ADDICTION
 			qdel(src)
 			return TRUE
 
@@ -525,21 +519,21 @@
 	if (!istype(src) || !isturf(loc))
 		qdel(src)
 		return
-	for (var/mob/living/carbon/H in loc)
-		if (isxeno(H))
+	for (var/mob/living/carbon/human in loc)
+		if (isxeno(human))
 			if(!source_xeno)
 				continue
 
-			var/mob/living/carbon/xenomorph/X = H
+			var/mob/living/carbon/xenomorph/X = human
 			if (source_xeno.can_not_harm(X))
 				continue
 
-		if (!H.stat)
-			if(source_xeno.can_not_harm(H))
+		if (!human.stat)
+			if(source_xeno.can_not_harm(human))
 				continue
-			H.apply_armoured_damage(damage, ARMOR_BIO, BURN)
-			animation_flash_color(H)
-			to_chat(H, SPAN_XENODANGER("You are scalded by acid as a massive glob explodes nearby!"))
+			human.apply_armoured_damage(damage, ARMOR_BIO, BURN)
+			animation_flash_color(human)
+			to_chat(human, SPAN_XENODANGER("Вас ошпарило кислотой, когда рядом взрывается огромный кислотный шар!"))
 
 	icon_state = "boiler_bombard_heavy"
 
@@ -623,11 +617,15 @@
 			H.apply_armoured_damage(damage * XVX_ACID_DAMAGEMULT * xeno_empower_modifier, ARMOR_BIO, BURN)
 		else
 			if(empowered)
-				new /datum/effects/acid(H, linked_xeno, initial(linked_xeno.caste_type))
+				var/datum/effects/acid/acid_effect = locate() in H.effects_list
+				if(acid_effect)
+					acid_effect.prolong_duration()
+				else
+					new /datum/effects/acid(H, linked_xeno, initial(linked_xeno.caste_type))
 			var/found = null
-			for (var/datum/effects/boiler_trap/F in H.effects_list)
-				if (F.cause_data && F.cause_data.resolve_mob() == linked_xeno)
-					found = F
+			for (var/datum/effects/boiler_trap/trap in H.effects_list)
+				if (trap.cause_data && trap.cause_data.resolve_mob() == linked_xeno)
+					found = trap
 					break
 			if(found)
 				H.apply_armoured_damage(damage*immobilized_multiplier, ARMOR_BIO, BURN)
@@ -650,11 +648,11 @@
 	for (var/obj/structure/barricade/B in loc)
 		B.take_acid_damage(damage*(1.15 + 0.55 * empowered))
 
-	for (var/mob/living/carbon/H in loc)
-		if (H.stat == DEAD)
+	for (var/mob/living/carbon/human in loc)
+		if (human.stat == DEAD)
 			continue
 
-		if(H.ally_of_hivenumber(hivenumber))
+		if(human.ally_of_hivenumber(hivenumber))
 			continue
 
 		total_hits++
