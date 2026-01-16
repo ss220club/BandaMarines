@@ -64,8 +64,8 @@
 		render_source_atom.lore_image.icon = owner.icon
 		render_source_atom.non_lore_image.icon = owner.icon
 		return
-	render_source_atom.lore_image.overlays -= to_show
-	render_source_atom.non_lore_image.overlays -= to_show
+	render_source_atom.lore_image?.overlays -= to_show
+	render_source_atom.non_lore_image?.overlays -= to_show
 
 /datum/component/xeno_customization/proc/setup_render_source()
 	// Find existing
@@ -187,8 +187,8 @@
 	lore_image.pixel_y = 0
 
 /atom/movable/xeno_customization_vis_obj/Destroy(force)
-	QDEL_NULL(non_lore_image)
-	QDEL_NULL(lore_image)
 	parent_xeno.render_target = initial_render_target_value
 	parent_xeno.vis_contents -= src
+	QDEL_NULL(non_lore_image)
+	QDEL_NULL(lore_image)
 	. = ..()
