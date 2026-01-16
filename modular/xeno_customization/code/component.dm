@@ -9,14 +9,8 @@
 	/// A specific set of players set to see the customizations; used in preferences
 	var/list/mob/override_list
 
-	/// The mob's original render_target value, when all components are deleted
-	var/initial_render_target_value
-	/// What players with "Show None" preference enabled see, a duplicate of the original xeno icon
-	var/atom/movable/render_source_atom
-	/// The image players with "Non-Lore Friendly" preference enabled see, replacing the original xeno icon
-	var/image/non_lore_image
-	/// The image players with "Lore-Friendly" preference enabled see, replacing the original xeno icon
-	var/image/lore_image
+	/// Where images are stored
+	var/atom/movable/xeno_customization_vis_obj/render_source_atom
 
 /datum/component/xeno_customization/Initialize(datum/xeno_customization_option/option, list/mob/override_viewers)
 	if(!isxeno(parent))
@@ -46,77 +40,47 @@
 
 /datum/component/xeno_customization/Destroy(force, silent)
 	remove_from_everyone_view()
-	var/mob/owner = parent
 	var/list/datum/component/remaining_customizations = parent.GetComponents(/datum/component/xeno_customization)
 	if(length(remaining_customizations) == 1)
-		owner.vis_contents -= render_source_atom
-		owner.render_target = initial_render_target_value
 		QDEL_NULL(render_source_atom)
-		QDEL_NULL(non_lore_image)
-		QDEL_NULL(lore_image)
-		initial_render_target_value = null
 	else
 		remove_images()
 	. = ..()
 
 /datum/component/xeno_customization/proc/add_images()
 	if(option.full_body_customization)
-		non_lore_image.icon = to_show.icon
+		render_source_atom.non_lore_image.icon = to_show.icon
 		if(option.customization_type == XENO_CUSTOMIZATION_LORE_FRIENDLY)
-			lore_image.icon = to_show.icon
+			render_source_atom.lore_image.icon = to_show.icon
 		return
 
-	non_lore_image.overlays |= to_show
+	render_source_atom.non_lore_image.overlays |= to_show
 	if(option.customization_type == XENO_CUSTOMIZATION_LORE_FRIENDLY)
-		lore_image.overlays |= to_show
+		render_source_atom.lore_image.overlays |= to_show
 
 /datum/component/xeno_customization/proc/remove_images()
 	var/mob/owner = parent
 	if(option.full_body_customization)
-		lore_image.icon = owner.icon
-		non_lore_image.icon = owner.icon
+		render_source_atom.lore_image.icon = owner.icon
+		render_source_atom.non_lore_image.icon = owner.icon
 		return
-	lore_image.overlays -= to_show
-	non_lore_image.overlays -= to_show
+	render_source_atom.lore_image.overlays -= to_show
+	render_source_atom.non_lore_image.overlays -= to_show
 
 /datum/component/xeno_customization/proc/setup_render_source()
 	// Find existing
 	for(var/datum/component/xeno_customization/current_customization in parent.GetComponents(/datum/component/xeno_customization))
 		if(current_customization.render_source_atom)
 			render_source_atom = current_customization.render_source_atom
-			non_lore_image = current_customization.non_lore_image
-			lore_image = current_customization.lore_image
-			initial_render_target_value = current_customization.initial_render_target_value
 			return
 	// Well, time to create new ones
-	var/mob/living/carbon/xenomorph/xeno = parent
-
-	render_source_atom = new()
-
-	render_source_atom.name = "xeno customization vis"
-	render_source_atom.vis_flags |= (VIS_INHERIT_ID | VIS_INHERIT_PLANE | VIS_INHERIT_LAYER | VIS_UNDERLAY)
-	render_source_atom.render_source = "*xeno_customization_[REF(parent)]"
-
-	initial_render_target_value = xeno.render_target
-	xeno.render_target = "*xeno_customization_[REF(parent)]"
-	xeno.vis_contents.Add(render_source_atom)
-
-	non_lore_image = image(render_source_atom, render_source_atom)
-	lore_image = image(render_source_atom, render_source_atom)
-	//non_lore_image.loc = xeno
-	//lore_image.loc = xeno
-	non_lore_image.override = TRUE
-	lore_image.override = TRUE
-	non_lore_image.pixel_x = 0
-	lore_image.pixel_x = 0
-	non_lore_image.pixel_y = 0
-	lore_image.pixel_y = 0
+	render_source_atom = new(parent)
 
 /datum/component/xeno_customization/proc/on_ghost(mob/user, mob/dead/observer/ghost)
 	SIGNAL_HANDLER
 
 	if(option.full_body_customization)
-		ghost.icon = non_lore_image.icon
+		ghost.icon = render_source_atom.non_lore_image.icon
 		return
 	// TODO: show customizations for everyone on ghost?
 
@@ -144,8 +108,8 @@
 	if(!user.client)
 		return
 
-	user.client.images -= lore_image
-	user.client.images -= non_lore_image
+	user.client.images -= render_source_atom.lore_image
+	user.client.images -= render_source_atom.non_lore_image
 	user.client.images -= to_show
 
 /datum/component/xeno_customization/proc/remove_from_everyone_view()
@@ -165,10 +129,10 @@
 		if(XENO_CUSTOMIZATION_SHOW_ALL)
 			if(!(isxeno(user) || isobserver(user) || isnewplayer(user)))
 				return
-			user.client.images |= non_lore_image
+			user.client.images |= render_source_atom.non_lore_image
 			user.client.images |= to_show
 		if(XENO_CUSTOMIZATION_SHOW_LORE_FRIENDLY)
-			user.client.images |= lore_image
+			user.client.images |= render_source_atom.lore_image
 			user.client.images |= to_show
 		if(XENO_CUSTOMIZATION_SHOW_NONE)
 			return
@@ -178,8 +142,8 @@
 
 	if(option.full_body_customization)
 		if(!(xeno.icon_state in icon_states(to_show.icon)))
-			non_lore_image.icon = xeno.icon
-			lore_image.icon = xeno.icon
+			render_source_atom.non_lore_image.icon = xeno.icon
+			render_source_atom.lore_image.icon = xeno.icon
 		else
 			add_images()
 		return
@@ -190,3 +154,41 @@
 	if(icon_state_to_show == "Down" && split[length(split) - 1] == "Knocked")
 		icon_state_to_show = "Knocked Down"
 	to_show.icon_state = icon_state_to_show
+
+/atom/movable/xeno_customization_vis_obj
+	vis_flags = VIS_INHERIT_ID | VIS_INHERIT_PLANE | VIS_INHERIT_LAYER | VIS_UNDERLAY
+	var/mob/living/carbon/xenomorph/parent_xeno
+	/// The image players with "Non-Lore Friendly" preference enabled see, replacing the original xeno icon
+	var/image/non_lore_image
+	/// The image players with "Lore-Friendly" preference enabled see, replacing the original xeno icon
+	var/image/lore_image
+	/// The mob's original render_target value, when all components are deleted
+	var/initial_render_target_value
+
+/atom/movable/xeno_customization_vis_obj/Initialize(mapload, ...)
+	. = ..()
+	parent_xeno = loc
+	render_source = "*xeno_customization_[REF(parent_xeno)]"
+
+	initial_render_target_value = parent_xeno.render_target
+	parent_xeno.render_target = "*xeno_customization_[REF(parent_xeno)]"
+
+	parent_xeno.vis_contents += src
+
+	non_lore_image = image(src, src)
+	lore_image = image(src, src)
+	//non_lore_image.loc = xeno
+	//lore_image.loc = xeno
+	non_lore_image.override = TRUE
+	lore_image.override = TRUE
+	non_lore_image.pixel_x = 0
+	lore_image.pixel_x = 0
+	non_lore_image.pixel_y = 0
+	lore_image.pixel_y = 0
+
+/atom/movable/xeno_customization_vis_obj/Destroy(force)
+	QDEL_NULL(non_lore_image)
+	QDEL_NULL(lore_image)
+	parent_xeno.render_target = initial_render_target_value
+	parent_xeno.vis_contents -= src
+	. = ..()
