@@ -52,4 +52,6 @@ GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 		if(get_job_playtime(user, caste) < timelock)
 			var/hours = timelock / (1 HOURS)
 			. += "Необходимое время на этой касте: [hours] час[declension_ru(hours, "", "а", "ов")]. "
+	if(full_body_customization)
+		. += "Полная замена тела находится на переработке. "
 	return .
