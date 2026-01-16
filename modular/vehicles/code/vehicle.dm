@@ -30,20 +30,16 @@
 			var/mob/living/M = O.buckled_mob
 			O.unbuckle()
 			M.forceMove(get_turf(O))
-			HasProximity(M)
-			to_chat(M, SPAN_XENOHIGHDANGER("Вы попали в яму полную смолы!"))
+			M.apply_effect(2, WEAKEN)
+			to_chat(M, SPAN_HIGHDANGER("Вы въехали на ловушку!"))
 		if(istype(O, /obj/vehicle/motorbike))
 			var/obj/vehicle/motorbike/OM = O
 			if(istype(OM.sidecar, /obj/structure/bed/chair/sidecar/passenger) && OM.sidecar.buckled_mob) // заменить на passenger
 				var/mob/living/M = OM.sidecar.buckled_mob //нужно ли делать проверку на тип дочурки?
 				OM.unbuckle() // Просто сбрасываем позади
 				M.apply_effect(2, WEAKEN)
-				to_chat(M, SPAN_XENOHIGHDANGER("Вы упали с тележки после того как байк въехал в яму полную смолы!"))
-
-	if(trap_type != RESIN_TRAP_EMPTY)
-		return
+				to_chat(M, SPAN_HIGHDANGER("Вы упали с тележки после того, как байк въехал на ловушку!"))
 	. = ..()
-
 
 // ==========================================
 
