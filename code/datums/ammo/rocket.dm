@@ -159,20 +159,20 @@
 	shell_speed = AMMO_SPEED_TIER_3
 
 /datum/ammo/rocket/ltb/on_hit_mob(mob/mob, obj/projectile/projectile)
-	cell_explosion(get_turf(mob), 180, 50, EXPLOSION_FALLOFF_SHAPE_LINEAR, null, projectile.weapon_cause_data) //BANDAMARINES EDIT - TANK SUPREMACY
-	cell_explosion(get_turf(mob), 160, 100, EXPLOSION_FALLOFF_SHAPE_LINEAR, null, projectile.weapon_cause_data) //BANDAMARINES EDIT - TANK SUPREMACY
+	cell_explosion(get_turf(mob), 190, 50, EXPLOSION_FALLOFF_SHAPE_LINEAR, null, projectile.weapon_cause_data) //BANDAMARINES EDIT - TANK SUPREMACY
+	cell_explosion(get_turf(mob), 170, 100, EXPLOSION_FALLOFF_SHAPE_LINEAR, null, projectile.weapon_cause_data) //BANDAMARINES EDIT - TANK SUPREMACY
 
 /datum/ammo/rocket/ltb/on_hit_obj(obj/object, obj/projectile/projectile)
-	cell_explosion(get_turf(object), 180, 50, EXPLOSION_FALLOFF_SHAPE_LINEAR, null, projectile.weapon_cause_data) //BANDAMARINES EDIT - TANK SUPREMACY
-	cell_explosion(get_turf(object), 160, 100, EXPLOSION_FALLOFF_SHAPE_LINEAR, null, projectile.weapon_cause_data) //BANDAMARINES EDIT - TANK SUPREMACY
+	cell_explosion(get_turf(object), 190, 50, EXPLOSION_FALLOFF_SHAPE_LINEAR, null, projectile.weapon_cause_data) //BANDAMARINES EDIT - TANK SUPREMACY
+	cell_explosion(get_turf(object), 170, 100, EXPLOSION_FALLOFF_SHAPE_LINEAR, null, projectile.weapon_cause_data) //BANDAMARINES EDIT - TANK SUPREMACY
 
 /datum/ammo/rocket/ltb/on_hit_turf(turf/turf, obj/projectile/projectile)
-	cell_explosion(get_turf(turf), 180, 50, EXPLOSION_FALLOFF_SHAPE_LINEAR, null, projectile.weapon_cause_data) //BANDAMARINES EDIT - TANK SUPREMACY
-	cell_explosion(get_turf(turf), 160, 100, EXPLOSION_FALLOFF_SHAPE_LINEAR, null, projectile.weapon_cause_data) //BANDAMARINES EDIT - TANK SUPREMACY
+	cell_explosion(get_turf(turf), 190, 50, EXPLOSION_FALLOFF_SHAPE_LINEAR, null, projectile.weapon_cause_data) //BANDAMARINES EDIT - TANK SUPREMACY
+	cell_explosion(get_turf(turf), 170, 100, EXPLOSION_FALLOFF_SHAPE_LINEAR, null, projectile.weapon_cause_data) //BANDAMARINES EDIT - TANK SUPREMACY
 
 /datum/ammo/rocket/ltb/do_at_max_range(obj/projectile/projectile)
-	cell_explosion(get_turf(projectile), 180, 50, EXPLOSION_FALLOFF_SHAPE_LINEAR, null, projectile.weapon_cause_data) //BANDAMARINES EDIT - TANK SUPREMACY
-	cell_explosion(get_turf(projectile), 160, 100, EXPLOSION_FALLOFF_SHAPE_LINEAR, null, projectile.weapon_cause_data) //BANDAMARINES EDIT - TANK SUPREMACY
+	cell_explosion(get_turf(projectile), 190, 50, EXPLOSION_FALLOFF_SHAPE_LINEAR, null, projectile.weapon_cause_data) //BANDAMARINES EDIT - TANK SUPREMACY
+	cell_explosion(get_turf(projectile), 170, 100, EXPLOSION_FALLOFF_SHAPE_LINEAR, null, projectile.weapon_cause_data) //BANDAMARINES EDIT - TANK SUPREMACY
 
 /datum/ammo/rocket/wp
 	name = "white phosphorous rocket"

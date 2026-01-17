@@ -39,4 +39,4 @@
 /obj/item/hardpoint/special/firing_port_weapon
 	scatter = 2
 	fire_delay = 0.2 SECONDS
-	firing_arc = 180
+	firing_arc = 160
