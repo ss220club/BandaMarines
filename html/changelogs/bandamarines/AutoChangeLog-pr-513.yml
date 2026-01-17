@@ -1,4 +1,0 @@
-author: "larentoun"
-delete-after: True
-changes:
-  - bugfix: "Активация ловушек происходит теперь всегда, а не только если ты на мотоцикле."
