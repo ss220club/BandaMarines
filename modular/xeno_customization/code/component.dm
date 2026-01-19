@@ -61,14 +61,7 @@
 
 /// Called when the component is created and is modifying the image
 /datum/component/xeno_customization/proc/add_images()
-	var/mob/living/carbon/xenomorph/xeno = parent
-	if(option.full_body_customization)
-		subtract_filter = filter(type="alpha", icon = xeno.icon)
-	else if(option.subtract_icon_path)
-		subtract_filter = filter(type="alpha", icon = option.icon_path)
-
-	apply_subtract_filter()
-
+	apply_subtract()
 	render_source_atom.non_lore_image.overlays |= to_show
 	if(option.customization_type == XENO_CUSTOMIZATION_LORE_FRIENDLY)
 		render_source_atom.lore_image.overlays |= to_show
@@ -77,7 +70,7 @@
 /datum/component/xeno_customization/proc/remove_images()
 	render_source_atom.lore_image?.overlays -= to_show
 	render_source_atom.non_lore_image?.overlays -= to_show
-	remove_subtract_filter()
+	remove_subtract()
 
 /// Creates a reference to a render_source_atom, which holds the main image to show
 /datum/component/xeno_customization/proc/setup_render_source()
@@ -176,14 +169,18 @@
 		return
 	to_show.filters = owner.filters
 
-/datum/component/xeno_customization/proc/apply_subtract_filter()
-	if(isnull(subtract_filter))
-		return
+/datum/component/xeno_customization/proc/apply_subtract()
+	remove_subtract()
+	var/mob/living/carbon/xenomorph/xeno = parent
+	if(option.full_body_customization)
+		subtract_filter = filter(type="alpha", icon = xeno.icon)
+	else if(option.subtract_icon_path)
+		subtract_filter = filter(type="alpha", icon = option.subtract_icon_path)
 	render_source_atom.non_lore_image.filters += subtract_filter
 	if(option.customization_type == XENO_CUSTOMIZATION_LORE_FRIENDLY)
 		render_source_atom.lore_image.filters += subtract_filter
 
-/datum/component/xeno_customization/proc/remove_subtract_filter()
+/datum/component/xeno_customization/proc/remove_subtract()
 	if(isnull(subtract_filter))
 		return
 	render_source_atom.lore_image?.filters -= subtract_filter
@@ -235,10 +232,12 @@
 		return
 
 	// It's an overlay over the icon; we don't need "Normal Runner", only the last part.
-	var/list/split = splittext(icon_state, " ")
-	var/icon_state_to_show = split[length(split)]
-	if(icon_state_to_show == "Down" && split[length(split) - 1] == "Knocked")
+	var/icon_state_to_show
+	if(findtext(icon_state, "Knocked Down"))
 		icon_state_to_show = "Knocked Down"
+	else
+		var/list/split = splittext(icon_state, " ")
+		icon_state_to_show = split[length(split)]
 	to_show.icon_state = icon_state_to_show
 
 /atom/movable/xeno_customization_vis_obj
