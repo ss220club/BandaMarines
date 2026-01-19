@@ -4,6 +4,8 @@
 	var/datum/xeno_customization_option/option
 	/// What the selected option is showing, be it an overlay or full body replacement
 	var/image/to_show
+	/// Image to substract parts of (or an entire) icon
+	var/image/substract_image
 	/// List of players who are ready/already see customization
 	var/list/mob/seeables = list()
 	/// A specific set of players set to see the customizations; used in preferences
@@ -11,6 +13,8 @@
 
 	/// Where images are stored
 	var/atom/movable/xeno_customization_vis_obj/render_source_atom
+	/// Is the customization allowed to be showed right now? Usually for checking icon_state existing.
+	var/active = TRUE
 
 /datum/component/xeno_customization/Initialize(datum/xeno_customization_option/option, list/mob/override_viewers)
 	if(!isxeno(parent))
@@ -24,19 +28,21 @@
 	setup_render_source()
 	add_images()
 
-	update_customization_icons(xeno, xeno.icon_state)
 	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_LOGGED_IN, PROC_REF(on_new_player_login))
 	var/list/to_show_list = override_list || GLOB.player_list
 	for(var/mob/player in to_show_list)
 		add_to_player_view(player)
+	update_customization_icons(xeno, xeno.icon_state)
 
 /datum/component/xeno_customization/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_XENO_UPDATE_ICONS, PROC_REF(update_customization_icons))
 	RegisterSignal(parent, COMSIG_ALTER_GHOST, PROC_REF(on_ghost))
+	RegisterSignal(parent, COMSIG_ATOM_UPDATE_FILTERS, PROC_REF(on_update_filters))
 
 /datum/component/xeno_customization/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_XENO_UPDATE_ICONS)
 	UnregisterSignal(parent, COMSIG_ALTER_GHOST)
+	UnregisterSignal(parent, COMSIG_ATOM_UPDATE_FILTERS)
 
 /datum/component/xeno_customization/Destroy(force, silent)
 	remove_from_everyone_view()
@@ -47,26 +53,32 @@
 		remove_images()
 	. = ..()
 
+/// Called when the component is created and is modifying the image
 /datum/component/xeno_customization/proc/add_images()
+	// TODO: add substract_image logic for non-full-body
 	if(option.full_body_customization)
-		render_source_atom.non_lore_image.icon = to_show.icon
+		var/mob/living/carbon/xenomorph/xeno = parent
+		substract_image = image(xeno, xeno)
+		substract_image.blend_mode = BLEND_SUBTRACT
+
+	if(substract_image)
+		render_source_atom.non_lore_image.overlays |= substract_image
 		if(option.customization_type == XENO_CUSTOMIZATION_LORE_FRIENDLY)
-			render_source_atom.lore_image.icon = to_show.icon
-		return
+			render_source_atom.lore_image.overlays |= substract_image
 
 	render_source_atom.non_lore_image.overlays |= to_show
 	if(option.customization_type == XENO_CUSTOMIZATION_LORE_FRIENDLY)
 		render_source_atom.lore_image.overlays |= to_show
 
+/// Called when the component is being deleted to clear image from itself
 /datum/component/xeno_customization/proc/remove_images()
-	var/mob/owner = parent
-	if(option.full_body_customization)
-		render_source_atom.lore_image.icon = owner.icon
-		render_source_atom.non_lore_image.icon = owner.icon
-		return
 	render_source_atom.lore_image?.overlays -= to_show
 	render_source_atom.non_lore_image?.overlays -= to_show
+	if(substract_image)
+		render_source_atom.lore_image?.overlays -= substract_image
+		render_source_atom.non_lore_image?.overlays -= substract_image
 
+/// Creates a reference to a render_source_atom, which holds the main image to show
 /datum/component/xeno_customization/proc/setup_render_source()
 	// Find existing
 	for(var/datum/component/xeno_customization/current_customization in parent.GetComponents(/datum/component/xeno_customization))
@@ -76,13 +88,14 @@
 	// Well, time to create new ones
 	render_source_atom = new(parent)
 
+/// What image is created when the ghost is created
 /datum/component/xeno_customization/proc/on_ghost(mob/user, mob/dead/observer/ghost)
 	SIGNAL_HANDLER
 
 	if(option.full_body_customization)
-		ghost.icon = render_source_atom.non_lore_image.icon
+		ghost.icon = option.icon_path
 		return
-	// TODO: show customizations for everyone on ghost?
+	ghost.overlays |= icon(option.icon_path, "Walking")
 
 /datum/component/xeno_customization/proc/on_new_player_login(subsystem, mob/user)
 	SIGNAL_HANDLER
@@ -102,20 +115,31 @@
 		RegisterSignal(user, COMSIG_PARENT_QDELETING, PROC_REF(on_viewer_destroy))
 	check_visibility_pref(user)
 
+/// Remove the image from a specific player's screen
 /datum/component/xeno_customization/proc/remove_from_player_view(mob/user)
 	SIGNAL_HANDLER
 
 	if(!user.client)
 		return
-
 	user.client.images -= render_source_atom.lore_image
 	user.client.images -= render_source_atom.non_lore_image
 	user.client.images -= to_show
+	if(substract_image)
+		user.client.images -= substract_image
 
+/// Hide this customization from all seeables
 /datum/component/xeno_customization/proc/remove_from_everyone_view()
+	active = FALSE
 	for(var/mob/player as anything in seeables)
 		remove_from_player_view(player)
 
+/// Show this customization to all seeables
+/datum/component/xeno_customization/proc/add_to_everyone_view()
+	active = TRUE
+	for(var/mob/player as anything in seeables)
+		add_to_player_view(player)
+
+/// When user is destroyed we clear our seeables list
 /datum/component/xeno_customization/proc/on_viewer_destroy(mob/user)
 	SIGNAL_HANDLER
 
@@ -123,6 +147,7 @@
 	UnregisterSignal(user, COMSIG_XENO_CUSTOMIZATION_VISIBILITY)
 	UnregisterSignal(user, COMSIG_PARENT_QDELETING)
 
+/// Adding images to player's screen
 /datum/component/xeno_customization/proc/check_visibility_pref(mob/user)
 	remove_from_player_view(user)
 	switch(user.client.prefs.xeno_customization_visibility)
@@ -130,22 +155,41 @@
 			if(!(isxeno(user) || isobserver(user) || isnewplayer(user)))
 				return
 			user.client.images |= render_source_atom.non_lore_image
+			if(substract_image)
+				user.client.images |= substract_image
 			user.client.images |= to_show
+
 		if(XENO_CUSTOMIZATION_SHOW_LORE_FRIENDLY)
 			user.client.images |= render_source_atom.lore_image
+			if(option.customization_type != XENO_CUSTOMIZATION_LORE_FRIENDLY)
+				return
+			if(substract_image)
+				user.client.images |= substract_image
 			user.client.images |= to_show
+
 		if(XENO_CUSTOMIZATION_SHOW_NONE)
 			return
 
+/datum/component/xeno_customization/proc/on_update_filters(mob/owner)
+	SIGNAL_HANDLER
+
+	if(!option.full_body_customization)
+		return
+	to_show.filters = owner.filters
+
+/// Update the image's icon_state and other important stuff like layers.
 /datum/component/xeno_customization/proc/update_customization_icons(mob/living/carbon/xenomorph/xeno, icon_state)
 	SIGNAL_HANDLER
 
+	to_show.layer = xeno.layer
+
 	if(option.full_body_customization)
-		if(!(xeno.icon_state in icon_states(to_show.icon)))
-			render_source_atom.non_lore_image.icon = xeno.icon
-			render_source_atom.lore_image.icon = xeno.icon
-		else
-			add_images()
+		if(active && !(icon_exists(to_show.icon, xeno.icon_state)))
+			remove_from_everyone_view()
+			return
+		if(!active && ((icon_exists(to_show.icon, xeno.icon_state))))
+			add_to_everyone_view()
+		to_show.icon_state = icon_state
 		return
 
 	// It's an overlay over the icon; we don't need "Normal Runner", only the last part.
