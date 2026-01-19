@@ -66,7 +66,8 @@
 		substract_image = image(xeno, xeno)
 		substract_image.blend_mode = BLEND_SUBTRACT
 	else if(option.substract_icon_path)
-		substract_image = image(option.substract_icon_path, xeno)
+		substract_image = image(xeno, xeno)
+		substract_image.icon = option.icon_path
 		substract_image.blend_mode = BLEND_SUBTRACT
 
 	if(substract_image)
