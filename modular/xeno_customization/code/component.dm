@@ -128,12 +128,14 @@
 	active = FALSE
 	for(var/mob/player as anything in seeables)
 		remove_from_player_view(player)
+	remove_subtract()
 
 /// Show this customization to all seeables
 /datum/component/xeno_customization/proc/add_to_everyone_view()
 	active = TRUE
 	for(var/mob/player as anything in seeables)
 		add_to_player_view(player)
+	apply_subtract()
 
 /// When user is destroyed we clear our seeables list
 /datum/component/xeno_customization/proc/on_viewer_destroy(mob/user)
@@ -175,7 +177,8 @@
 	if(option.full_body_customization)
 		subtract_filter = filter(type="alpha", icon = xeno.icon)
 	else if(option.subtract_icon_path)
-		subtract_filter = filter(type="alpha", icon = option.subtract_icon_path)
+		var/icon/mask = icon(option.subtract_icon_path, "Sleeping")
+		subtract_filter = filter(type="alpha", icon = mask, flags = MASK_INVERSE)
 	render_source_atom.non_lore_image.filters += subtract_filter
 	if(option.customization_type == XENO_CUSTOMIZATION_LORE_FRIENDLY)
 		render_source_atom.lore_image.filters += subtract_filter
@@ -221,6 +224,8 @@
 		return
 
 	to_show.layer = xeno.layer
+	render_source_atom.non_lore_image.icon_state = icon_state
+	render_source_atom.lore_image.icon_state = icon_state
 
 	if(option.full_body_customization)
 		if(active && !(icon_exists(to_show.icon, xeno.icon_state)))
