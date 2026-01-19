@@ -4,8 +4,8 @@
 	var/datum/xeno_customization_option/option
 	/// What the selected option is showing, be it an overlay or full body replacement
 	var/image/to_show
-	/// Image to substract parts of (or an entire) icon
-	var/image/substract_image
+	/// Image to subtract parts of (or an entire) icon
+	var/subtract_filter
 	/// List of players who are ready/already see customization
 	var/list/mob/seeables = list()
 	/// A specific set of players set to see the customizations; used in preferences
@@ -63,17 +63,11 @@
 /datum/component/xeno_customization/proc/add_images()
 	var/mob/living/carbon/xenomorph/xeno = parent
 	if(option.full_body_customization)
-		substract_image = image(xeno, xeno)
-		substract_image.blend_mode = BLEND_SUBTRACT
-	else if(option.substract_icon_path)
-		substract_image = image(xeno, xeno)
-		substract_image.icon = option.icon_path
-		substract_image.blend_mode = BLEND_SUBTRACT
+		subtract_filter = filter(type="alpha", icon = xeno.icon)
+	else if(option.subtract_icon_path)
+		subtract_filter = filter(type="alpha", icon = option.icon_path)
 
-	if(substract_image)
-		render_source_atom.non_lore_image.overlays |= substract_image
-		if(option.customization_type == XENO_CUSTOMIZATION_LORE_FRIENDLY)
-			render_source_atom.lore_image.overlays |= substract_image
+	apply_subtract_filter()
 
 	render_source_atom.non_lore_image.overlays |= to_show
 	if(option.customization_type == XENO_CUSTOMIZATION_LORE_FRIENDLY)
@@ -83,9 +77,7 @@
 /datum/component/xeno_customization/proc/remove_images()
 	render_source_atom.lore_image?.overlays -= to_show
 	render_source_atom.non_lore_image?.overlays -= to_show
-	if(substract_image)
-		render_source_atom.lore_image?.overlays -= substract_image
-		render_source_atom.non_lore_image?.overlays -= substract_image
+	remove_subtract_filter()
 
 /// Creates a reference to a render_source_atom, which holds the main image to show
 /datum/component/xeno_customization/proc/setup_render_source()
@@ -105,8 +97,8 @@
 		ghost.icon = option.icon_path
 		return
 	/*
-	if(option.substract_icon_path)
-		ghost.icon.Blend(icon(option.substract_icon_path, "Walking"), BLEND_SUBTRACT)
+	if(option.subtract_icon_path)
+		ghost.icon.Blend(icon(option.subtract_icon_path, "Walking"), BLEND_SUBTRACT)
 	ghost.icon.Blend(icon(option.icon_path, "Walking"))
 	*/
 
@@ -137,8 +129,6 @@
 	user.client.images -= render_source_atom.lore_image
 	user.client.images -= render_source_atom.non_lore_image
 	user.client.images -= to_show
-	if(substract_image)
-		user.client.images -= substract_image
 
 /// Hide this customization from all seeables
 /datum/component/xeno_customization/proc/remove_from_everyone_view()
@@ -168,16 +158,12 @@
 			if(!(isxeno(user) || isobserver(user) || isnewplayer(user)))
 				return
 			user.client.images |= render_source_atom.non_lore_image
-			if(substract_image)
-				user.client.images |= substract_image
 			user.client.images |= to_show
 
 		if(XENO_CUSTOMIZATION_SHOW_LORE_FRIENDLY)
 			user.client.images |= render_source_atom.lore_image
 			if(option.customization_type != XENO_CUSTOMIZATION_LORE_FRIENDLY)
 				return
-			if(substract_image)
-				user.client.images |= substract_image
 			user.client.images |= to_show
 
 		if(XENO_CUSTOMIZATION_SHOW_NONE)
@@ -189,6 +175,19 @@
 	if(!option.full_body_customization)
 		return
 	to_show.filters = owner.filters
+
+/datum/component/xeno_customization/proc/apply_subtract_filter()
+	if(isnull(subtract_filter))
+		return
+	render_source_atom.non_lore_image.filters += subtract_filter
+	if(option.customization_type == XENO_CUSTOMIZATION_LORE_FRIENDLY)
+		render_source_atom.lore_image.filters += subtract_filter
+
+/datum/component/xeno_customization/proc/remove_subtract_filter()
+	if(isnull(subtract_filter))
+		return
+	render_source_atom.lore_image?.filters -= subtract_filter
+	render_source_atom.non_lore_image?.filters -= subtract_filter
 
 /// Check if the strain is correct
 /datum/component/xeno_customization/proc/strain_check()
@@ -233,7 +232,6 @@
 		if(!active && ((icon_exists(to_show.icon, xeno.icon_state))))
 			add_to_everyone_view()
 		to_show.icon_state = icon_state
-		substract_image?.icon_state = icon_state
 		return
 
 	// It's an overlay over the icon; we don't need "Normal Runner", only the last part.
@@ -242,7 +240,6 @@
 	if(icon_state_to_show == "Down" && split[length(split) - 1] == "Knocked")
 		icon_state_to_show = "Knocked Down"
 	to_show.icon_state = icon_state_to_show
-	substract_image?.icon_state = icon_state_to_show
 
 /atom/movable/xeno_customization_vis_obj
 	vis_flags = VIS_INHERIT_ID | VIS_INHERIT_PLANE | VIS_INHERIT_LAYER | VIS_UNDERLAY

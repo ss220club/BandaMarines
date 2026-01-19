@@ -49,7 +49,7 @@ GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 	/// Icon Path for the customization
 	var/icon_path
 	/// Icon Path for substracting from the original icon
-	var/substract_icon_path
+	var/subtract_icon_path
 	/// Caste this customization restricted to
 	var/caste
 	/// Strain this customization restricted to
