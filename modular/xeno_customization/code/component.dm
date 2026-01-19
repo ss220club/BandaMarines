@@ -4,7 +4,7 @@
 	var/datum/xeno_customization_option/option
 	/// What the selected option is showing, be it an overlay or full body replacement
 	var/image/to_show
-	/// Image to subtract parts of (or an entire) icon
+	/// Our filter that allows to subtract parts of (or an entire) icon
 	var/subtract_filter
 	/// List of players who are ready/already see customization
 	var/list/mob/seeables = list()
