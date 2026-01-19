@@ -48,7 +48,7 @@ GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 	var/customization_type = XENO_CUSTOMIZATION_NON_LORE_FRIENDLY
 	/// Icon Path for the customization
 	var/icon_path
-	/// Icon Path for substracting from the original icon
+	/// Icon Path for substracting from the original icon; Any color is fine
 	var/subtract_icon_path
 	/// Caste this customization restricted to
 	var/caste
