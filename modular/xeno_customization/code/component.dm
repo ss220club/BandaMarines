@@ -15,6 +15,8 @@
 	var/atom/movable/xeno_customization_vis_obj/render_source_atom
 	/// Is the customization allowed to be showed right now? Usually for checking icon_state existing.
 	var/active = TRUE
+	/// Is customization currently allowed to update? Used for strain check.
+	var/updating = TRUE
 
 /datum/component/xeno_customization/Initialize(datum/xeno_customization_option/option, list/mob/override_viewers)
 	if(!isxeno(parent))
@@ -32,17 +34,26 @@
 	var/list/to_show_list = override_list || GLOB.player_list
 	for(var/mob/player in to_show_list)
 		add_to_player_view(player)
+	/*
+	if(option.strain)
+		if(option.strain == "Normal" && xeno.strain)
+			wait_for_strain()
+		if(option.strain != "Normal" && (!xeno.strain || (!xeno.strain.name != option.strain)))
+			wait_for_strain()
+	*/
 	update_customization_icons(xeno, xeno.icon_state)
 
 /datum/component/xeno_customization/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_XENO_UPDATE_ICONS, PROC_REF(update_customization_icons))
 	RegisterSignal(parent, COMSIG_ALTER_GHOST, PROC_REF(on_ghost))
 	RegisterSignal(parent, COMSIG_ATOM_UPDATE_FILTERS, PROC_REF(on_update_filters))
+	RegisterSignal(parent, COMSIG_XENO_STRAIN_ADD, PROC_REF(on_strain_change))
 
 /datum/component/xeno_customization/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_XENO_UPDATE_ICONS)
 	UnregisterSignal(parent, COMSIG_ALTER_GHOST)
 	UnregisterSignal(parent, COMSIG_ATOM_UPDATE_FILTERS)
+	UnregisterSignal(parent, COMSIG_XENO_STRAIN_ADD)
 
 /datum/component/xeno_customization/Destroy(force, silent)
 	remove_from_everyone_view()
@@ -55,10 +66,12 @@
 
 /// Called when the component is created and is modifying the image
 /datum/component/xeno_customization/proc/add_images()
-	// TODO: add substract_image logic for non-full-body
+	var/mob/living/carbon/xenomorph/xeno = parent
 	if(option.full_body_customization)
-		var/mob/living/carbon/xenomorph/xeno = parent
 		substract_image = image(xeno, xeno)
+		substract_image.blend_mode = BLEND_SUBTRACT
+	else if(option.substract_icon_path)
+		substract_image = image(option.substract_icon_path, xeno)
 		substract_image.blend_mode = BLEND_SUBTRACT
 
 	if(substract_image)
@@ -95,7 +108,11 @@
 	if(option.full_body_customization)
 		ghost.icon = option.icon_path
 		return
-	ghost.overlays |= icon(option.icon_path, "Walking")
+	/*
+	if(option.substract_icon_path)
+		ghost.icon.Blend(icon(option.substract_icon_path, "Walking"), BLEND_SUBTRACT)
+	ghost.icon.Blend(icon(option.icon_path, "Walking"))
+	*/
 
 /datum/component/xeno_customization/proc/on_new_player_login(subsystem, mob/user)
 	SIGNAL_HANDLER
@@ -177,9 +194,25 @@
 		return
 	to_show.filters = owner.filters
 
+/datum/component/xeno_customization/proc/wait_for_strain()
+	remove_from_everyone_view()
+	updating = FALSE
+
+/datum/component/xeno_customization/proc/on_strain_change(mob/living/carbon/xenomorph/xeno, datum/xeno_strain/new_strain)
+	SIGNAL_HANDLER
+
+	if(new_strain.name != option.strain)
+		return
+	updating = TRUE
+	add_to_everyone_view()
+	update_customization_icons(xeno, xeno.icon_state)
+
 /// Update the image's icon_state and other important stuff like layers.
 /datum/component/xeno_customization/proc/update_customization_icons(mob/living/carbon/xenomorph/xeno, icon_state)
 	SIGNAL_HANDLER
+
+	if(!updating)
+		return
 
 	to_show.layer = xeno.layer
 
@@ -190,6 +223,7 @@
 		if(!active && ((icon_exists(to_show.icon, xeno.icon_state))))
 			add_to_everyone_view()
 		to_show.icon_state = icon_state
+		substract_image?.icon_state = icon_state
 		return
 
 	// It's an overlay over the icon; we don't need "Normal Runner", only the last part.
@@ -198,6 +232,7 @@
 	if(icon_state_to_show == "Down" && split[length(split) - 1] == "Knocked")
 		icon_state_to_show = "Knocked Down"
 	to_show.icon_state = icon_state_to_show
+	substract_image?.icon_state = icon_state_to_show
 
 /atom/movable/xeno_customization_vis_obj
 	vis_flags = VIS_INHERIT_ID | VIS_INHERIT_PLANE | VIS_INHERIT_LAYER | VIS_UNDERLAY

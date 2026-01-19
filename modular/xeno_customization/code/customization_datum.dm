@@ -22,6 +22,23 @@ GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 		GLOB.xeno_customizations_by_key["[select.key]"] = select
 	return data
 
+/*
+	Icon States for universal customizations (strains included) must include ONLY the "state":
+		*Walking
+		*Running
+		*Knocked Down
+		*Sleeping
+		*Dead
+		...etc
+	Full body replacement must include FULL ICON STATE name:
+		*Normal Runner Walking
+		*Normal Runner Running
+		*Normal Runner Knocked Down
+		*Normal Runner Sleeping
+		*Normal Runner Dead
+		...etc
+*/
+
 /datum/xeno_customization_option
 	/// UI name
 	var/name = "Call a coder!"
@@ -31,8 +48,12 @@ GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 	var/customization_type = XENO_CUSTOMIZATION_NON_LORE_FRIENDLY
 	/// Icon Path for the customization
 	var/icon_path
+	/// Icon Path for substracting from the original icon
+	var/substract_icon_path
 	/// Caste this customization restricted to
 	var/caste
+	/// Strain this customization restricted to
+	var/strain
 	/// Slots this customization uses; can't use multiple customizations with the same slot.
 	var/slot
 	/// Do we completely replace the original icon; these icon states need to fully replicate icon state name, ie "Normal Runner Walking"
