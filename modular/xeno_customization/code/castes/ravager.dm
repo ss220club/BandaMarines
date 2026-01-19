@@ -11,7 +11,7 @@
 	name = "(Берсерк) Ветеран второй ксеновской"
 	key = "ravager_berserker_veteran"
 	customization_type = XENO_CUSTOMIZATION_NON_LORE_FRIENDLY
-	icon_path = 'modular/xeno_customization/icons/ravager/berserker_veteran_empty.dmi'
+	icon_path = 'modular/xeno_customization/icons/ravager/berserker_veteran.dmi'
 	substract_icon_path = 'modular/xeno_customization/icons/ravager/berserker_veteran_substract.dmi'
 	caste = XENO_CASTE_RAVAGER
 	strain = RAVAGER_BERSERKER
