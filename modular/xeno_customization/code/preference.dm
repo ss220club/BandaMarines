@@ -128,8 +128,7 @@
 	owner.add_to_screen(background_xeno)
 
 /datum/preferences/proc/apply_xeno_customizations_to_preview()
-	var/list/previous_customizations = preview_dummy_xeno.GetComponents(/datum/component/xeno_customization)
-	QDEL_LIST(previous_customizations)
+	preview_dummy_xeno.remove_all_xeno_customizations()
 	for(var/datum/xeno_customization_option/option_by_caste in selected_preview_customizations)
 		preview_dummy_xeno.apply_xeno_customization(owner.mob, to_apply = option_by_caste, force = TRUE, override_viewers = list(owner.mob))
 
