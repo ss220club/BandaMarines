@@ -34,13 +34,8 @@
 	var/list/to_show_list = override_list || GLOB.player_list
 	for(var/mob/player in to_show_list)
 		add_to_player_view(player)
-	/*
 	if(option.strain)
-		if(option.strain == "Normal" && xeno.strain)
-			wait_for_strain()
-		if(option.strain != "Normal" && (!xeno.strain || (!xeno.strain.name != option.strain)))
-			wait_for_strain()
-	*/
+		strain_check()
 	update_customization_icons(xeno, xeno.icon_state)
 
 /datum/component/xeno_customization/RegisterWithParent()
@@ -194,12 +189,26 @@
 		return
 	to_show.filters = owner.filters
 
-/datum/component/xeno_customization/proc/wait_for_strain()
+/// Check if the strain is correct
+/datum/component/xeno_customization/proc/strain_check()
+	// If the option is Normal-specific, don't remove it
+	if(option.strain == "Normal")
+		return
+	var/mob/living/carbon/xenomorph/xeno = parent
+	// Correct strain, do nothing
+	if(xeno.strain && (xeno.strain.name == option.strain))
+		return
 	remove_from_everyone_view()
 	updating = FALSE
 
+/// Changing to non-strain is creating a new mob
 /datum/component/xeno_customization/proc/on_strain_change(mob/living/carbon/xenomorph/xeno, datum/xeno_strain/new_strain)
 	SIGNAL_HANDLER
+
+	// Coming back to Normal will create a new mob anyway
+	if(option.strain == "Normal")
+		qdel(src)
+		return
 
 	if(new_strain.name != option.strain)
 		return
