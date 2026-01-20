@@ -295,7 +295,7 @@
 		return
 
 	range_mode = !range_mode
-	to_chat(user, SPAN_NOTICE("Вы переключаете режим [declent_ru(NOMINATIVE)] на режим [range_mode? "дальномера" : "наводки для НАП"]."))
+	to_chat(user, SPAN_NOTICE("Вы переключаете режим [declent_ru(GENITIVE)] на режим [range_mode? "дальномера" : "наводки для НАП"]."))
 	update_icon()
 	playsound(usr, 'sound/machines/click.ogg', 15, 1)
 
