@@ -165,7 +165,8 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 			"phone_category" = T.phone_category,
 			"phone_color" = T.phone_color,
 			"phone_id" = T.phone_id,
-			"phone_icon" = T.phone_icon
+			"phone_icon" = T.phone_icon,
+			"phone_id_en" = T.phone_id_en // BANDAMARINES EDIT - Translations
 		))
 
 	.["transmitters"] = transmitters
@@ -175,7 +176,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	transmitters -= phone_id
 
 	if(!length(transmitters) || !(calling_phone_id in transmitters))
-		to_chat(user, SPAN_PURPLE("[icon2html(src, user)] No transmitters could be located to call!"))
+		to_chat(user, SPAN_PURPLE("[icon2html(src, user)] Не обнаружены доступные для звонка передатчики!"))
 		return
 
 	var/obj/structure/transmitter/T = transmitters[calling_phone_id]
@@ -191,7 +192,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	T.last_caller = src.phone_id
 	T.update_icon()
 
-	to_chat(user, SPAN_PURPLE("[icon2html(src, user)] Dialing [calling_phone_id].."))
+	to_chat(user, SPAN_PURPLE("[icon2html(src, user)] Звоним [calling_phone_id]..."))
 	playsound(get_turf(user), pickup_sound)
 	timeout_timer_id = addtimer(CALLBACK(src, PROC_REF(reset_call), TRUE), timeout_duration, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_STOPPABLE)
 	outring_loop.start()
@@ -205,10 +206,10 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	switch(do_not_disturb)
 		if(PHONE_DND_ON)
 			do_not_disturb = PHONE_DND_OFF
-			to_chat(user, SPAN_NOTICE("Do Not Disturb has been disabled. You can now receive calls."))
+			to_chat(user, SPAN_NOTICE("Режим «Не беспокоить» отключен. Вы теперь будете получать звонки."))
 		if(PHONE_DND_OFF)
 			do_not_disturb = PHONE_DND_ON
-			to_chat(user, SPAN_WARNING("Do Not Disturb has been enabled. No calls will be received."))
+			to_chat(user, SPAN_WARNING("Режим «Не беспокоить» включен. Вы больше не будете получать звонки."))
 		else
 			return FALSE
 	return TRUE
@@ -233,13 +234,13 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 
 	if(T.attached_to && ismob(T.attached_to.loc))
 		var/mob/M = T.attached_to.loc
-		to_chat(M, SPAN_PURPLE("[icon2html(src, M)] [phone_id] has picked up."))
+		to_chat(M, SPAN_PURPLE("[icon2html(src, M)] [phone_id] принимает звонок."))
 		playsound(T.attached_to.loc, 'sound/machines/telephone/remote_pickup.ogg', 20)
 		if(T.timeout_timer_id)
 			deltimer(T.timeout_timer_id)
 			T.timeout_timer_id = null
 
-	to_chat(user, SPAN_PURPLE("[icon2html(src, user)] Picked up a call from [T.phone_id]."))
+	to_chat(user, SPAN_PURPLE("[icon2html(src, user)] Принят звонок от [T.phone_id]."))
 	playsound(get_turf(user), pickup_sound)
 
 	T.outring_loop.stop()
@@ -266,17 +267,17 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	if(T)
 		if(T.attached_to && ismob(T.attached_to.loc))
 			var/mob/M = T.attached_to.loc
-			to_chat(M, SPAN_PURPLE("[icon2html(src, M)] You hear a click as the phone goes dead. [phone_id] has hung up on you."))
+			to_chat(M, SPAN_PURPLE("[icon2html(src, M)] Вы слышите щелчок, когда телефон отключается. [phone_id] повесили трубку."))
 			T.hangup_loop.start()
 
 		if(attached_to && ismob(attached_to.loc))
 			var/mob/M = attached_to.loc
 			if(timeout)
-				to_chat(M, SPAN_PURPLE("[icon2html(src, M)] Your call to [T.phone_id] has reached voicemail, nobody picked up the phone."))
+				to_chat(M, SPAN_PURPLE("[icon2html(src, M)] Ваш звонок к [T.phone_id] достиг голосовой почты, никто не поднял трубку."))
 				busy_loop.start()
 				outring_loop.stop()
 			else
-				to_chat(M, SPAN_PURPLE("[icon2html(src, M)] You have hung up on [T.phone_id]."))
+				to_chat(M, SPAN_PURPLE("[icon2html(src, M)] Вы повесили трубку [T.phone_id]."))
 
 	if(outbound_call)
 		outbound_call.inbound_call = null
