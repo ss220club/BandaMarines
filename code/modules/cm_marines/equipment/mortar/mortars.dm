@@ -324,8 +324,8 @@
 		user.visible_message(SPAN_WARNING("[src] is set to laser targeting mode, switch to coordinate targeting in order to dial coordinates!"))
 		return
 	if(manual)
-		temp_dial_x = tgui_input_number(user, "Задайте поправку долготы с -10 до 10.", "Долгота", 0, 10, -10)
-		temp_dial_y = tgui_input_number(user, "Задайте поправку широты с -10 до 10.", "Широта", 0, 10, -10)
+		temp_dial_x = tgui_input_number(user, "Задайте поправку долготы от -10 до 10.", "Долгота", 0, 10, -10)
+		temp_dial_y = tgui_input_number(user, "Задайте поправку широты от -10 до 10.", "Широта", 0, 10, -10)
 
 	if(!can_fire_at(user, test_dial_x = temp_dial_x, test_dial_y = temp_dial_y))
 		return
