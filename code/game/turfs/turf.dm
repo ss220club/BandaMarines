@@ -651,7 +651,7 @@
 	if(LAZYLEN(linked_pylons))
 		switch(get_pylon_protection_level())
 			if(TURF_PROTECTION_MORTAR)
-				return "Потолок сделан из легкой смолы. Не кажется, что оно особо крепкое."
+				return "Потолок сделан из тонкой смолы. Не кажется, что оно особо крепкое."
 			if(TURF_PROTECTION_CAS)
 				return "Потолок сделан из смолы. На первый взгляд, по толщине как пещеры."
 			if(TURF_PROTECTION_OB)
