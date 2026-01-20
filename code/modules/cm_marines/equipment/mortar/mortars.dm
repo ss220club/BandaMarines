@@ -252,9 +252,9 @@
 		user.visible_message(SPAN_WARNING("[src] is set to laser targeting mode, switch to coordinate targeting in order to dial coordinates!"))
 		return
 	if(manual)
-		temp_targ_x = tgui_input_real_number(user, "Input the longitude of the target.")
-		temp_targ_y = tgui_input_real_number(user, "Input the latitude of the target.")
-		temp_targ_z = tgui_input_real_number(user, "Input the height of the target.")
+		temp_targ_x = tgui_input_real_number(user, "Введите долготу цели.")
+		temp_targ_y = tgui_input_real_number(user, "Введите широту цели.")
+		temp_targ_z = tgui_input_real_number(user, "Введите высоту цели.")
 
 	if(!can_fire_at(user, test_targ_x = deobfuscate_x(temp_targ_x), test_targ_y = deobfuscate_y(temp_targ_y), test_targ_z = deobfuscate_z(temp_targ_z)))
 		return
@@ -324,8 +324,8 @@
 		user.visible_message(SPAN_WARNING("[src] is set to laser targeting mode, switch to coordinate targeting in order to dial coordinates!"))
 		return
 	if(manual)
-		temp_dial_x = tgui_input_number(user, "Set longitude adjustement from -10 to 10.", "Longitude", 0, 10, -10)
-		temp_dial_y = tgui_input_number(user, "Set latitude adjustement from -10 to 10.", "Latitude", 0, 10, -10)
+		temp_dial_x = tgui_input_number(user, "Задайте поправку долготы с -10 до 10.", "Долгота", 0, 10, -10)
+		temp_dial_y = tgui_input_number(user, "Задайте поправку широты с -10 до 10.", "Широта", 0, 10, -10)
 
 	if(!can_fire_at(user, test_dial_x = temp_dial_x, test_dial_y = temp_dial_y))
 		return
