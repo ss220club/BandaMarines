@@ -267,7 +267,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	if(T)
 		if(T.attached_to && ismob(T.attached_to.loc))
 			var/mob/M = T.attached_to.loc
-			to_chat(M, SPAN_PURPLE("[icon2html(src, M)] Вы слышите щелчок, когда телефон отключается. [phone_id] сбрасывает звонок."))
+			to_chat(M, SPAN_PURPLE("[icon2html(src, M)] Вы слышите щелчок, когда телефон отключается. [phone_id] завершает вызов."))
 			T.hangup_loop.start()
 
 		if(attached_to && ismob(attached_to.loc))
@@ -277,7 +277,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 				busy_loop.start()
 				outring_loop.stop()
 			else
-				to_chat(M, SPAN_PURPLE("[icon2html(src, M)] Вы сбрасываете звонок от [T.phone_id]."))
+				to_chat(M, SPAN_PURPLE("[icon2html(src, M)] Вы завершаете вызов [T.phone_id]."))
 
 	if(outbound_call)
 		outbound_call.inbound_call = null
