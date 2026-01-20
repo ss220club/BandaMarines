@@ -149,16 +149,16 @@
 		if(mods[CLICK_CATCHER])
 			return FALSE
 		if(user.z != targeted_atom.z && !coord)
-			to_chat(user, SPAN_WARNING("You cannot get a direct laser from where you are."))
+			to_chat(user, SPAN_WARNING("Вы не можете получить прямую наводку с текущего местоположения."))
 			return FALSE
 		if(!(is_ground_level(targeted_atom.z)))
-			to_chat(user, SPAN_WARNING("INVALID TARGET: target must be on the surface."))
+			to_chat(user, SPAN_WARNING("НЕДОПУСТИМАЯ ЦЕЛЬ: цель должна находиться на поверхности."))
 			return FALSE
 		if(user.sight & SEE_TURFS)
 			var/list/turf/path = get_line(user, targeted_atom, include_start_atom = FALSE)
 			for(var/turf/T in path)
 				if(T.opacity)
-					to_chat(user, SPAN_WARNING("There is something in the way of the laser!"))
+					to_chat(user, SPAN_WARNING("Что-то находится на пути лазера!"))
 					return FALSE
 		acquire_target(targeted_atom, user)
 		return TRUE
@@ -167,16 +167,16 @@
 /obj/item/device/binoculars/range/proc/stop_targeting(mob/living/carbon/human/user)
 	if(coord)
 		QDEL_NULL(coord)
-		to_chat(user, SPAN_WARNING("You stop lasing."))
+		to_chat(user, SPAN_WARNING("Вы прекращаете наводку."))
 
 /obj/item/device/binoculars/range/proc/acquire_target(atom/targeted_atom, mob/living/carbon/human/user)
 	set waitfor = 0
 
 	if(coord)
-		to_chat(user, SPAN_WARNING("You're already targeting something."))
+		to_chat(user, SPAN_WARNING("Вы уже наводитесь на что-то.."))
 		return
 	if(world.time < laser_cooldown)
-		to_chat(user, SPAN_WARNING("[src]'s laser battery is recharging."))
+		to_chat(user, SPAN_WARNING("Батарея лазера [declent_ru(GENITIVE)] на перезарядке."))
 		return
 
 	var/acquisition_time = target_acquisition_delay
@@ -197,7 +197,7 @@
 	if(!istype(TU) || user.action_busy)
 		return
 	playsound(src, 'sound/effects/nightvision.ogg', 35)
-	to_chat(user, SPAN_NOTICE("INITIATING LASER TARGETING. Stand still."))
+	to_chat(user, SPAN_NOTICE("НАЧИНАЕТСЯ ЛАЗЕРНОЕ НАВЕДЕНИЕ. Стойте на месте."))
 	if(!do_after(user, acquisition_time, INTERRUPT_ALL, BUSY_ICON_GENERIC) || world.time < laser_cooldown)
 		return
 	var/obj/effect/overlay/temp/laser_coordinate/LT = new (TU, las_name, user)
@@ -216,7 +216,7 @@
 	if(rangefinder_popup)
 		tgui_interact(user)
 	else
-		to_chat(user, SPAN_NOTICE(FONT_SIZE_LARGE("УПРОЩЁННЫЕ КООРДИНАТЫ ЦЕЛИ. ДОЛГОТА [last_x]. ШИРОТА [last_y], HEIGHT [last_z]"))) // SS220 EDIT ADDICTION
+		to_chat(user, SPAN_NOTICE(FONT_SIZE_LARGE("УПРОЩЁННЫЕ КООРДИНАТЫ ЦЕЛИ. ДОЛГОТА [last_x]. ШИРОТА [last_y], ВЫСОТА [last_z]"))) // SS220 EDIT ADDICTION
 
 /obj/item/device/binoculars/range/tgui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -264,8 +264,8 @@
 
 /obj/item/device/binoculars/range/designator/get_examine_text(mob/user)
 	. = ..()
-	. += SPAN_NOTICE("Tracking ID for CAS: [tracking_id].")
-	. += SPAN_NOTICE("[src] is currently set to [range_mode ? "range finder" : "CAS marking"] mode.")
+	. += SPAN_NOTICE("Идентификатор наводки для НАП: [tracking_id].")
+	. += SPAN_NOTICE("[capitalize(declent_ru(NOMINATIVE))] находится в режиме [range_mode ? "дальномера" : "наводки для НАП"].")
 
 /obj/item/device/binoculars/range/designator/clicked(mob/user, list/mods)
 	if(mods[ALT_CLICK])
@@ -279,7 +279,7 @@
 	..()
 	if(laser)
 		QDEL_NULL(laser)
-		to_chat(user, SPAN_WARNING("You stop lasing."))
+		to_chat(user, SPAN_WARNING("Вы прекращаете наводку."))
 
 /obj/item/device/binoculars/range/designator/verb/toggle_mode()
 	set category = "Object"
@@ -295,7 +295,7 @@
 		return
 
 	range_mode = !range_mode
-	to_chat(user, SPAN_NOTICE("You switch [src] to [range_mode? "range finder" : "CAS marking"] mode."))
+	to_chat(user, SPAN_NOTICE("Вы переключаете режим [declent_ru(NOMINATIVE)] на режим [range_mode? "дальномера" : "наводки для НАП"]."))
 	update_icon()
 	playsound(usr, 'sound/machines/click.ogg', 15, 1)
 
@@ -312,11 +312,11 @@
 	set waitfor = 0
 
 	if(laser || coord)
-		to_chat(user, SPAN_WARNING("You're already targeting something."))
+		to_chat(user, SPAN_WARNING("Вы уже наводитесь на что-то.."))
 		return
 
 	if(world.time < laser_cooldown)
-		to_chat(user, SPAN_WARNING("[src]'s laser battery is recharging."))
+		to_chat(user, SPAN_WARNING("Батарея лазера [declent_ru(GENITIVE)] на перезарядке."))
 		return
 
 	var/acquisition_time = target_acquisition_delay
@@ -351,12 +351,12 @@
 		is_outside = FALSE
 
 	if(!is_outside && !range_mode) //rangefinding works regardless of ceiling
-		to_chat(user, SPAN_WARNING("INVALID TARGET: target must be visible from high altitude."))
+		to_chat(user, SPAN_WARNING("НЕДОПУСТИМАЯ ЦЕЛЬ: цель должна быть видна с воздуха."))
 		return
 	if(user.action_busy)
 		return
 	playsound(src, 'sound/effects/nightvision.ogg', 35)
-	to_chat(user, SPAN_NOTICE("INITIATING LASER TARGETING. Stand still."))
+	to_chat(user, SPAN_NOTICE("НАЧИНАЕТСЯ ЛАЗЕРНОЕ НАВЕДЕНИЕ. Стойте на месте."))
 	if(!do_after(user, acquisition_time, INTERRUPT_ALL, BUSY_ICON_GENERIC) || world.time < laser_cooldown || laser)
 		return
 	if(range_mode)
@@ -372,7 +372,7 @@
 				QDEL_NULL(coord)
 				break
 	else
-		to_chat(user, SPAN_NOTICE("TARGET ACQUIRED. LASER TARGETING IS ONLINE. DON'T MOVE."))
+		to_chat(user, SPAN_NOTICE("ЦЕЛЬ ПОЛУЧЕНА. ЛАЗЕРНОЕ НАВЕДЕНИЕ АКТИВНО. НЕ ДВИГАЙТЕСЬ."))
 		var/obj/effect/overlay/temp/laser_target/LT = new (TU, las_name, user, tracking_id)
 		laser = LT
 		SEND_SIGNAL(src, COMSIG_DESIGNATOR_LASE)
