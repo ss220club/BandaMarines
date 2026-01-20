@@ -192,7 +192,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	T.last_caller = src.phone_id
 	T.update_icon()
 
-	to_chat(user, SPAN_PURPLE("[icon2html(src, user)] Звоним [calling_phone_id]..."))
+	to_chat(user, SPAN_PURPLE("[icon2html(src, user)] Начинаем вызов: [calling_phone_id]..."))
 	playsound(get_turf(user), pickup_sound)
 	timeout_timer_id = addtimer(CALLBACK(src, PROC_REF(reset_call), TRUE), timeout_duration, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_STOPPABLE)
 	outring_loop.start()
@@ -234,13 +234,13 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 
 	if(T.attached_to && ismob(T.attached_to.loc))
 		var/mob/M = T.attached_to.loc
-		to_chat(M, SPAN_PURPLE("[icon2html(src, M)] [phone_id] принимает звонок."))
+		to_chat(M, SPAN_PURPLE("[icon2html(src, M)] [phone_id] принимает вызов."))
 		playsound(T.attached_to.loc, 'sound/machines/telephone/remote_pickup.ogg', 20)
 		if(T.timeout_timer_id)
 			deltimer(T.timeout_timer_id)
 			T.timeout_timer_id = null
 
-	to_chat(user, SPAN_PURPLE("[icon2html(src, user)] Принят звонок от [T.phone_id]."))
+	to_chat(user, SPAN_PURPLE("[icon2html(src, user)] Принят вызов от [T.phone_id]."))
 	playsound(get_turf(user), pickup_sound)
 
 	T.outring_loop.stop()
@@ -273,7 +273,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 		if(attached_to && ismob(attached_to.loc))
 			var/mob/M = attached_to.loc
 			if(timeout)
-				to_chat(M, SPAN_PURPLE("[icon2html(src, M)] Ваш звонок к [T.phone_id] достиг голосовой почты, никто не поднял трубку."))
+				to_chat(M, SPAN_PURPLE("[icon2html(src, M)] Вызов [T.phone_id] достиг голосовой почты, никто не поднял трубку."))
 				busy_loop.start()
 				outring_loop.stop()
 			else
@@ -523,10 +523,10 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	if(can_be_raised)
 		if(raised)
 			set_raised(FALSE, user)
-			to_chat(user, SPAN_NOTICE("You lower [src]."))
+			to_chat(user, SPAN_NOTICE("Вы опускаете [declent_ru(ACCUSATIVE)]."))
 		else
 			set_raised(TRUE, user)
-			to_chat(user, SPAN_NOTICE("You raise [src] to your ear."))
+			to_chat(user, SPAN_NOTICE("Вы поднимаете [declent_ru(ACCUSATIVE)] к своему уху."))
 	else
 		set_raised(TRUE, user)
 

@@ -105,7 +105,7 @@
 			. += tab_item
 
 	if(faction == FACTION_MARINE & !isnull(SSticker) && !isnull(SSticker.mode) && !isnull(SSticker.mode.active_lz) && !isnull(SSticker.mode.active_lz.loc) && !isnull(SSticker.mode.active_lz.loc.loc))
-		. += "Основная ЗВ: [SSticker.mode.active_lz.loc.loc.name]"
+		. += "Основная ЗП: [SSticker.mode.active_lz.loc.loc.name]"
 
 	if(faction == FACTION_MARINE & !isnull(SSticker) && !isnull(SSticker.mode))
 		. += "Название операции: [GLOB.round_statistics.round_name]"
