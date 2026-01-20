@@ -277,7 +277,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 				busy_loop.start()
 				outring_loop.stop()
 			else
-				to_chat(M, SPAN_PURPLE("[icon2html(src, M)] Вы повесили трубку [T.phone_id]."))
+				to_chat(M, SPAN_PURPLE("[icon2html(src, M)] Вы сбрасываете звонок от [T.phone_id]."))
 
 	if(outbound_call)
 		outbound_call.inbound_call = null
