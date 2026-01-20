@@ -197,7 +197,7 @@
 	if(!istype(TU) || user.action_busy)
 		return
 	playsound(src, 'sound/effects/nightvision.ogg', 35)
-	to_chat(user, SPAN_NOTICE("НАЧИНАЕТСЯ ЛАЗЕРНОЕ НАВЕДЕНИЕ. Стойте на месте."))
+	to_chat(user, SPAN_NOTICE("НАЧИНАЕТСЯ ЛАЗЕРНАЯ НАВОДКА. Стойте на месте."))
 	if(!do_after(user, acquisition_time, INTERRUPT_ALL, BUSY_ICON_GENERIC) || world.time < laser_cooldown)
 		return
 	var/obj/effect/overlay/temp/laser_coordinate/LT = new (TU, las_name, user)
@@ -239,7 +239,7 @@
 //LASER DESIGNATOR with ability to acquire coordinates and CAS lasing support
 /obj/item/device/binoculars/range/designator
 	name = "laser designator"
-	desc = "A laser designator with two modes: target marking for CAS with IR laser and rangefinding. Ctrl + Click turf to target something. Ctrl + Click designator to stop lasing. Alt + Click designator to switch modes."
+	desc = "Имеет два режима: наводка для НАП с помощью ИК-лазера и определение дальности. Ctrl+ЛКМ на пол для начало наводки. Ctrl+ЛКМ на целеуказателе, чтобы остановить лазерную наводку. Alt+ЛКМ на целеуказателе, чтобы переключить режим."
 	var/obj/effect/overlay/temp/laser_target/laser
 	var/range_mode = 0 //Able to be switched between modes, 0 for cas laser, 1 for finding coordinates.
 	var/tracking_id //a set tracking id used for CAS
@@ -356,7 +356,7 @@
 	if(user.action_busy)
 		return
 	playsound(src, 'sound/effects/nightvision.ogg', 35)
-	to_chat(user, SPAN_NOTICE("НАЧИНАЕТСЯ ЛАЗЕРНОЕ НАВЕДЕНИЕ. Стойте на месте."))
+	to_chat(user, SPAN_NOTICE("НАЧИНАЕТСЯ ЛАЗЕРНАЯ НАВОДКА. Стойте на месте."))
 	if(!do_after(user, acquisition_time, INTERRUPT_ALL, BUSY_ICON_GENERIC) || world.time < laser_cooldown || laser)
 		return
 	if(range_mode)
@@ -372,7 +372,7 @@
 				QDEL_NULL(coord)
 				break
 	else
-		to_chat(user, SPAN_NOTICE("ЦЕЛЬ ПОЛУЧЕНА. ЛАЗЕРНОЕ НАВЕДЕНИЕ АКТИВНО. НЕ ДВИГАЙТЕСЬ."))
+		to_chat(user, SPAN_NOTICE("ЦЕЛЬ ПОЛУЧЕНА. ЛАЗЕРНАЯ НАВОДКА АКТИВНА. НЕ ДВИГАЙТЕСЬ."))
 		var/obj/effect/overlay/temp/laser_target/LT = new (TU, las_name, user, tracking_id)
 		laser = LT
 		SEND_SIGNAL(src, COMSIG_DESIGNATOR_LASE)
@@ -391,7 +391,7 @@
 //IMPROVED LASER DESIGNATER, faster cooldown, faster target acquisition, can be found only in scout spec kit
 /obj/item/device/binoculars/range/designator/scout
 	name = "scout laser designator"
-	desc = "An improved laser designator, issued to USCM scouts, with two modes: target marking for CAS with IR laser and rangefinding. Ctrl + Click turf to target something. Ctrl + Click designator to stop lasing. Alt + Click designator to switch modes."
+	desc = "Улучшенная версия для разведчиков ККМП. Имеет два режима: наводка для НАП с помощью ИК-лазера и определение дальности. Ctrl+ЛКМ на пол для начало наводки. Ctrl+ЛКМ на целеуказателе, чтобы остановить лазерную наводку. Alt+ЛКМ на целеуказателе, чтобы переключить режим."
 	unacidable = TRUE
 	explo_proof = TRUE
 	cooldown_duration = 80
@@ -399,7 +399,7 @@
 
 /obj/item/device/binoculars/range/designator/spotter
 	name = "spotter's laser designator"
-	desc = "A specially-designed laser designator, issued to USCM spotters, with two modes: target marking for CAS with IR laser and rangefinding. Ctrl + Click turf to target something. Ctrl + Click designator to stop lasing. Alt + Click designator to switch modes. Additionally, a trained spotter can laze targets for a USCM marksman, increasing the speed of target acquisition. A targeting beam will connect the binoculars to the target, but it may inherit the user's cloak, if possible."
+	desc = "Специальный вариант для корректировщиков ККМП. Имеет два режима: наводка для НАП с помощью ИК-лазера и определение дальности. Ctrl+ЛКМ на пол для начало наводки. Ctrl+ЛКМ на целеуказателе, чтобы остановить лазерную наводку. Alt+ЛКМ на целеуказателе, чтобы переключить режим. Также, обученный корректировщик может обозначать цели для снайпера ККМП, увеличивая скорость наводки на цель. Лазерный луч будет указываться с бинокля на цель, но это может ухудшить маскировку пользователя, при ее наличии."
 	unacidable = TRUE
 	explo_proof = TRUE
 	var/is_spotting = FALSE
