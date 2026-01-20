@@ -173,7 +173,7 @@
 	set waitfor = 0
 
 	if(coord)
-		to_chat(user, SPAN_WARNING("Вы уже наводитесь на что-то.."))
+		to_chat(user, SPAN_WARNING("Вы уже наводитесь на что-то."))
 		return
 	if(world.time < laser_cooldown)
 		to_chat(user, SPAN_WARNING("Батарея лазера [declent_ru(GENITIVE)] на перезарядке."))
@@ -312,7 +312,7 @@
 	set waitfor = 0
 
 	if(laser || coord)
-		to_chat(user, SPAN_WARNING("Вы уже наводитесь на что-то.."))
+		to_chat(user, SPAN_WARNING("Вы уже наводитесь на что-то."))
 		return
 
 	if(world.time < laser_cooldown)
