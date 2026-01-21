@@ -97,7 +97,7 @@
 
 	. += ""
 	if(ishumansynth_strict(src)) // So that yautja or other species don't see the ships security alert
-		. += "Security Level: [uppertext(get_security_level())]"
+		. += "Уровень тревоги: [uppertext(get_security_level())]"
 
 	if(species?.has_species_tab_items)
 		var/list/species_tab_items = species.get_status_tab_items(src)
@@ -105,14 +105,14 @@
 			. += tab_item
 
 	if(faction == FACTION_MARINE & !isnull(SSticker) && !isnull(SSticker.mode) && !isnull(SSticker.mode.active_lz) && !isnull(SSticker.mode.active_lz.loc) && !isnull(SSticker.mode.active_lz.loc.loc))
-		. += "Primary LZ: [SSticker.mode.active_lz.loc.loc.name]"
+		. += "Основная ЗП: [SSticker.mode.active_lz.loc.loc.name]"
 
 	if(faction == FACTION_MARINE & !isnull(SSticker) && !isnull(SSticker.mode))
-		. += "Operation Name: [GLOB.round_statistics.round_name]"
+		. += "Название операции: [GLOB.round_statistics.round_name]"
 
 	if(assigned_squad)
 		if(assigned_squad.overwatch_officer)
-			. += "Overwatch Officer: [assigned_squad.overwatch_officer.get_paygrade()][assigned_squad.overwatch_officer.name]"
+			. += "Координатор: [assigned_squad.overwatch_officer.get_paygrade()][assigned_squad.overwatch_officer.name]"
 		if(assigned_squad.primary_objective || assigned_squad.secondary_objective)
 			var/turf/current_turf = get_turf(src)
 			var/is_shipside = is_mainship_level(current_turf?.z)
@@ -123,15 +123,15 @@
 			var/primary_garbled = garbled && !squad_primary_objective_ungarbled
 			var/secondary_garbled = garbled && !squad_secondary_objective_ungarbled
 			if(assigned_squad.primary_objective)
-				. += "Primary Objective: [html_decode(primary_garbled ? assigned_squad.primary_objective_garbled : assigned_squad.primary_objective)]"
+				. += "Основная задача: [html_decode(primary_garbled ? assigned_squad.primary_objective_garbled : assigned_squad.primary_objective)]"
 			if(assigned_squad.secondary_objective)
-				. += "Secondary Objective: [html_decode(secondary_garbled ? assigned_squad.secondary_objective_garbled : assigned_squad.secondary_objective)]"
+				. += "Вторичная задача: [html_decode(secondary_garbled ? assigned_squad.secondary_objective_garbled : assigned_squad.secondary_objective)]"
 	if(mobility_aura)
-		. += "Active Order: MOVE"
+		. += "Активный приказ: MOVE"
 	if(protection_aura)
-		. += "Active Order: HOLD"
+		. += "Активный приказ: HOLD"
 	if(marksman_aura)
-		. += "Active Order: FOCUS"
+		. += "Активный приказ: FOCUS"
 
 	if(SShijack)
 		var/eta_status = SShijack.get_evac_eta()

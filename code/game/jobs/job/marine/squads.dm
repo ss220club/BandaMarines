@@ -434,12 +434,12 @@
 	var/datum/sound_template/sfx
 
 	if(user)
-		message = "[user.name] transmits: [FONT_SIZE_LARGE("<b>[message]<b>")]"
+		message = "[user.name] передаёт: [FONT_SIZE_LARGE("<b>[message]<b>")]"
 		sfx = new()
 		sfx.file = 'sound/effects/radiostatic.ogg'
 		sfx.channel = get_free_channel()
 		sfx.y = 3
-	message = "[SPAN_BLUE("<B>[leader_only ? "SL " : ""]Overwatch:</b> [message]")]"
+	message = "[SPAN_BLUE("<B>[leader_only ? "КО " : ""]Координатор:</b> [message]")]"
 
 	var/list/client/targets = list()
 	if(leader_only)
@@ -488,9 +488,9 @@
 			if(transmitter)
 				squad_leader << sound('sound/effects/tech_notification.ogg')
 			if(squad_leader in targets_to_garble)
-				to_chat(squad_leader, "[SPAN_BLUE("<B>SL Overwatch:</b> [nametext][garbled_text]")]", type = MESSAGE_TYPE_RADIO)
+				to_chat(squad_leader, "[SPAN_BLUE("<B>КО Координатор:</b> [nametext][garbled_text]")]", type = MESSAGE_TYPE_RADIO)
 			else
-				to_chat(squad_leader, "[SPAN_BLUE("<B>SL Overwatch:</b> [nametext][text]")]", type = MESSAGE_TYPE_RADIO)
+				to_chat(squad_leader, "[SPAN_BLUE("<B>КО Координатор:</b> [nametext][text]")]", type = MESSAGE_TYPE_RADIO)
 		return
 
 	for(var/mob/living/carbon/human/marine in marines_list)
@@ -498,9 +498,9 @@
 			if(transmitter)
 				marine << sound('sound/effects/tech_notification.ogg')
 			if(marine in targets_to_garble)
-				to_chat(marine, "[SPAN_BLUE("<B>Overwatch:</b> [nametext][garbled_text]")]", type = MESSAGE_TYPE_RADIO)
+				to_chat(marine, "[SPAN_BLUE("<B>Координатор:</b> [nametext][garbled_text]")]", type = MESSAGE_TYPE_RADIO)
 			else
-				to_chat(marine, "[SPAN_BLUE("<B>Overwatch:</b> [nametext][text]")]", type = MESSAGE_TYPE_RADIO)
+				to_chat(marine, "[SPAN_BLUE("<B>Координатор:</b> [nametext][text]")]", type = MESSAGE_TYPE_RADIO)
 
 /// Displays a message to squad members in chat and directly on the game map with potential coms garble for only the text argument
 /datum/squad/proc/transmit_alert(prefix="", text="", postfix="", maptext_title="", transmitter=null, only_leader=FALSE)
