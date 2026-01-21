@@ -123,67 +123,42 @@ export const RADIO_CHANNELS = [
     color: '#fe9b24',
   },
   {
-<<<<<<< HEAD
     name: 'WY Corp',
-=======
-    name: 'Ком. ЧВК',
-    freq: 1232,
-    color: '#4dc5ce',
-  },
-  {
-    name: 'ЧВК',
->>>>>>> b3f901d7dcc190638fa74b2acd9e1306d3a89049
     freq: 1233,
     color: '#f5a747',
   },
   {
-<<<<<<< HEAD
     name: 'WY Sec',
     freq: 1233,
     color: '#d07a11',
   },
   {
-    name: 'PMC CMD',
-=======
-    name: 'Инж. ЧВК',
->>>>>>> b3f901d7dcc190638fa74b2acd9e1306d3a89049
+    name: 'Ком. ЧВК',
     freq: 1234,
     color: '#4dc5ce',
   },
   {
-<<<<<<< HEAD
-    name: 'PMC',
-=======
-    name: 'Мед. ЧВК',
->>>>>>> b3f901d7dcc190638fa74b2acd9e1306d3a89049
+    name: 'ЧВК',
     freq: 1235,
     color: '#4dc5ce',
   },
   {
-<<<<<<< HEAD
-    name: 'PMC ENG',
-=======
-    name: 'Корп. ЧВК',
->>>>>>> b3f901d7dcc190638fa74b2acd9e1306d3a89049
+    name: 'Инж. ЧВК',
     freq: 1236,
     color: '#4dc5ce',
   },
   {
-<<<<<<< HEAD
-    name: 'PMC MED',
+    name: 'Мед. ЧВК',
     freq: 1237,
     color: '#4dc5ce',
   },
   {
-    name: 'PMC CCT',
+    name: 'Корп. ЧВК',
     freq: 1238,
     color: '#4dc5ce',
   },
   {
-    name: 'Deathsquad',
-=======
     name: 'Отряд смерти',
->>>>>>> b3f901d7dcc190638fa74b2acd9e1306d3a89049
     freq: 1239,
     color: '#fe9b24',
   },

@@ -68,8 +68,8 @@
 	var/t_theirs = ru_p_theirs() // SS220 EDIT ADDICTION
 	//var/t_has = "has" // SS220 EDIT ADDICTION
 	//var/t_is = "is" // SS220 EDIT ADDICTION
-	var/t_do = "does"
-	var/t_seem = "seems"
+	//var/t_do = "does" // SS220 EDIT ADDITION
+	//var/t_seem = "seems" // SS220 EDIT ADDITION
 
 	var/id_paygrade = ""
 	var/obj/item/card/id/I = get_idcard()
@@ -183,9 +183,9 @@
 					found_iff = TRUE
 			if(found_iff)
 				if(get_target_lock(human_with_gun.get_id_faction_group()) > 0)
-					msg += SPAN_HELPFUL("[t_He] [t_is] compatible with your weapon's IFF.\n")
+					msg += SPAN_HELPFUL("[t_He] is compatible with your weapon's IFF.\n")
 				else
-					msg += SPAN_DANGER("[t_He] [t_is] not compatible with your weapon's IFF. They will be shot by your weapon!\n")
+					msg += SPAN_DANGER("[t_He] is not compatible with your weapon's IFF. They will be shot by your weapon!\n")
 	//Restraints
 	if(handcuffed)
 		msg += SPAN_ORANGE("[t_His] руки в [handcuffed.declent_ru(PREPOSITIONAL)].\n")
