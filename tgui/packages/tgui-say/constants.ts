@@ -154,8 +154,28 @@ export const RADIO_PREFIXES = {
     label: 'Гипердайн',
   },
   ':y ': {
-    id: null,
-    label: 'ВейЮ',
+    id: 'wy',
+    label: 'W-Y Corp',
+  },
+  '.y ': {
+    id: 'wy',
+    label: 'W-Y Corp',
+  },
+  '#y ': {
+    id: 'wysec',
+    label: 'W-Y Sec',
+  },
+  ':1 ': {
+    id: 'wypub',
+    label: 'W-Y Pub',
+  },
+  '.1 ': {
+    id: 'wypub',
+    label: 'W-Y Pub',
+  },
+  '#1 ': {
+    id: 'wypub',
+    label: 'W-Y Pub',
   },
   ':z ': {
     id: null,
