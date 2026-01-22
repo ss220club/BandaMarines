@@ -198,6 +198,16 @@ prepositional = "зоне посадки 2 «Каменные поля»"
 gender = "female"
 tags = [ "cm13",]
 
+["new varadero - pontoon dock"]
+nominative = "зона посадки 1 «Понтонный причал»"
+genitive = "зоны посадки 1 «Понтонный причал»"
+dative = "зоне посадки 1 «Понтонный причал»"
+accusative = "зону посадки 1 «Понтонный причал»"
+instrumental = "зоной посадки 1 «Понтонный причал»"
+prepositional = "зоне посадки 1 «Понтонный причал»"
+gender = "female"
+tags = [ "cm13",]
+
 ["new varadero - dropship alamo landing zone"]
 nominative = "зона посадки 1 на «Нью-Варадеро» для Аламо"
 genitive = "зоны посадки 1 на «Нью-Варадеро» для Аламо"
@@ -205,6 +215,16 @@ dative = "зоне посадки 1 на «Нью-Варадеро» для Ал
 accusative = "зону посадки 1 на «Нью-Варадеро» для Аламо"
 instrumental = "зоной посадки 1 на «Нью-Варадеро» для Аламо"
 prepositional = "зоне посадки 1 на «Нью-Варадеро» для Аламо"
+gender = "female"
+tags = [ "cm13",]
+
+["new varadero - palm airfield"]
+nominative = "зона посадки 2 «Пальмовый аэродром»"
+genitive = "зоны посадки 2 «Пальмовый аэродром»"
+dative = "зоне посадки 2 «Пальмовый аэродром»"
+accusative = "зону посадки 2 «Пальмовый аэродром»"
+instrumental = "зоной посадки 2 «Пальмовый аэродром»"
+prepositional = "зоне посадки 2 «Пальмовый аэродром»"
 gender = "female"
 tags = [ "cm13",]
 
@@ -245,5 +265,25 @@ dative = "зоне посадки 2 «Робототехника»"
 accusative = "зону посадки 2 «Робототехника»"
 instrumental = "зоной посадки 2 «Робототехника»"
 prepositional = "зоне посадки 2 «Робототехника»"
+gender = "female"
+tags = [ "cm13",]
+
+["kutjevo - landing zone dunes"]
+nominative = "зона посадки 1 «Дюны»"
+genitive = "зоны посадки 1 «Дюны»"
+dative = "зоне посадки 1 «Дюны»"
+accusative = "зону посадки 1 «Дюны»"
+instrumental = "зоной посадки 1 «Дюны»"
+prepositional = "зоне посадки 1 «Дюны»"
+gender = "female"
+tags = [ "cm13",]
+
+["kutjevo auxilliary landing zone"]
+nominative = "зона посадки 2 «Вспомогательная»"
+genitive = "зоны посадки 2 «Вспомогательная»"
+dative = "зоне посадки 2 «Вспомогательная»"
+accusative = "зону посадки 2 «Вспомогательная»"
+instrumental = "зоной посадки 2 «Вспомогательная»"
+prepositional = "зоне посадки 2 «Вспомогательная»"
 gender = "female"
 tags = [ "cm13",]
