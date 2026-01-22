@@ -142,6 +142,7 @@ SUBSYSTEM_DEF(tts220)
 		"клф" = "Кэ Эл Фэ",
 		"ккмп" = "Кэ Кэ Эм Пэ",
 		"вю" = "Вэй Ю",
+		"зп", "Зэ Пэ",
 	)
 
 	var/static/list/tts_job_replacements = list(
