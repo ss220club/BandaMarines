@@ -72,7 +72,7 @@
 	/// If hit limit of larva from pylons
 	var/hit_larva_pylon_limit = FALSE
 
-	var/list/hive_inherant_traits
+	var/list/hive_inherited_traits
 
 	// Cultist Info
 	var/mob/living/carbon/leading_cult_sl
@@ -282,7 +282,7 @@
 		X.hud_update()
 
 	var/area/A = get_area(X)
-	if(!should_block_game_interaction(X) || (A.flags_atom & AREA_ALLOW_XENO_JOIN))
+	if(!should_block_game_interaction(X) || (A?.flags_atom & AREA_ALLOW_XENO_JOIN)) // BANDAMARINES EDIT - Xeno Customizations; var/A null check
 		totalXenos += X
 		if(X.tier == 2)
 			tier_2_xenos += X
@@ -1319,7 +1319,7 @@
 	color = "#6abd99"
 	ui_color = "#6abd99"
 
-	hive_inherant_traits = list(TRAIT_XENONID, TRAIT_NO_COLOR)
+	hive_inherited_traits = list(TRAIT_XENONID, TRAIT_NO_COLOR)
 	latejoin_burrowed = FALSE
 
 /datum/hive_status/corrupted/tamed

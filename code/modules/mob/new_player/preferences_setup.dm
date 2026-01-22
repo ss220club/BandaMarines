@@ -193,6 +193,7 @@
 	var/J = job_pref_to_gear_preset()
 	if(isnull(preview_dummy))
 		preview_dummy = new()
+		RegisterSignal(preview_dummy, COMSIG_PARENT_QDELETING, PROC_REF(clear_xeno_dummy)) // BANDAMARINES EDIT
 
 	clear_equipment()
 	if(refresh_limb_status)
@@ -295,6 +296,8 @@
 			return /datum/equipment_preset/uscm_ship/dcc/full
 		if(JOB_CORPORATE_LIAISON)
 			return /datum/equipment_preset/uscm_ship/liaison
+		if(JOB_CORPORATE_BODYGUARD)
+			return /datum/equipment_preset/uscm_ship/corp_sec
 		if(JOB_COMBAT_REPORTER)
 			return /datum/equipment_preset/uscm_ship/reporter
 		if(JOB_SYNTH)

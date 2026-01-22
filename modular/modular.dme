@@ -36,3 +36,4 @@
 #include "tank_rebalance/_tank_rebalance.dme"
 #include "queen_minor/_queen_minor.dme"
 #include "limb_case/_limb_case.dme"
+#include "balance/_balance.dme"

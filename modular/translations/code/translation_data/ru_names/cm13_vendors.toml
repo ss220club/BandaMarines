@@ -1,406 +1,406 @@
 [radio]
 nominative = "СВЯЗЬ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["radio (take all)"]
 nominative = "СВЯЗЬ (ВОЗЬМИТЕ ВСЁ)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [webbings]
 nominative = "ЖИЛЕТЫ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["radio keys"]
 nominative = "КЛЮЧИ ШИФРОВАНИЯ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["primary firearms"]
 nominative = "ОСНОВНОЕ ВООРУЖЕНИЕ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["main weapons (choose 1)"]
 nominative = "ОСНОВНОЕ ВООРУЖЕНИЕ (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["primary ammunition"]
 nominative = "БОЕПРИПАСЫ ДЛЯ ОСНОВНОГО ОРУЖИЯ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["primary nonlethal ammunition"]
 nominative = "ОСНОВНОЕ НЕЛЕТАЛЬНОЕ ВООРУЖЕНИЕ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["sidearm nonlethal ammunition"]
 nominative = "ДОПОЛНИТЕЛЬНОЕ НЕЛЕТАЛЬНОЕ ВООРУЖЕНИЕ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [sidearms]
 nominative = "ДОПОЛНИТЕЛЬНОЕ ВООРУЖЕНИЕ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["sidearm ammunition"]
 nominative = "БОЕПРИПАСЫ ДЛЯ ДОПОЛНИТЕЛЬНОГО ОРУЖИЯ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["regular ammunition"]
 nominative = "БОЕПРИПАСЫ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [ammunition]
 nominative = "БОЕПРИПАСЫ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["armor-piercing ammunition"]
 nominative = "БРОНЕБОЙНЫЕ МАГАЗИНЫ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["extended ammunition"]
 nominative = "РАСШИРЕННЫЕ МАГАЗИНЫ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["special ammunition"]
 nominative = "ОСОБЫЕ БОЕПРИПАСЫ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["restricted gear"]
 nominative = "ЭКИПИРОВКА С ОГРАНИЧЕННЫМ ДОСТУПОМ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["restricted firearms"]
 nominative = "ВООРУЖЕНИЕ С ОГРАНИЧЕННЫМ ДОСТУПОМ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["restricted firearm ammunition"]
 nominative = "БОЕПРИПАСЫ С ОГРАНИЧЕННЫМ ДОСТУПОМ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["ammunition boxes"]
 nominative = "КОРОБКИ С БОЕПРИПАСАМИ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine boxes"]
 nominative = "КОРОБКИ С БОЕПРИПАСАМИ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [explosives]
 nominative = "ВЗРЫВЧАТЫЕ ВЕЩЕСТВА"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [equipment]
 nominative = "ЭКИПИРОВКА"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["standard equipment"]
 nominative = "СТАНДАРТНАЯ ЭКИПИРОВКА"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["standard equipment (take all)"]
 nominative = "СТАНДАРТНАЯ ЭКИПИРОВКА (ВОЗЬМИТЕ ВСЁ)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["civilian equipment (take all)"]
 nominative = "ГРАЖДАНСКАЯ ЭКИПИРОВКА (ВОЗЬМИТЕ ВСЁ)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["combat equipment (take all)"]
 nominative = "БОЕВАЯ ЭКИПИРОВКА (ВОЗЬМИТЕ ВСЁ)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["combat equipment (combat use only)"]
 nominative = "БОЕВАЯ ЭКИПИРОВКА (ВОЗЬМИТЕ ВСЁ)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["combat helmet (choose 1)"]
 nominative = "ШЛЕМЫ (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["bags (choose 1)"]
 nominative = "РЮКЗАКИ (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["blood packs"]
 nominative = "ПАКЕТЫ ДЛЯ КРОВИ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["shoes (choose 1)"]
 nominative = "БОТИНКИ (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["gloves (choose 1)"]
 nominative = "ПЕРЧАТКИ (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["accessories (choose 1)"]
 nominative = "РАЗГРУЗКИ (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["glasses (choose 1)"]
 nominative = "ОЧКИ (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [pouches]
 nominative = "ПОДСУМКИ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["pouches (choose 1)"]
 nominative = "ПОДСУМКИ (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["pouches (choose 2)"]
 nominative = "ПОДСУМКИ (ВОЗЬМИТЕ 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["huds (choose 1)"]
 nominative = "ИЛС (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["eyewear (choose 1)"]
 nominative = "ИЛС (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [optics]
 nominative = "ВИЗОРЫ И ИЛС"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["helmet optics"]
 nominative = "ВИЗОРЫ И ИЛС"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [pamphlets]
 nominative = "ИНСТРУКЦИИ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [belts]
 nominative = "ПОЯС"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["belts (choose 1)"]
 nominative = "ПОЯС (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [mask]
 nominative = "МАСКИ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["mask (choose 1)"]
 nominative = "МАСКИ (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [armor]
 nominative = "БРОНЯ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [armors]
 nominative = "БРОНЯ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["armor (choose 1)"]
 nominative = "БРОНЯ (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["armor and clothing"]
 nominative = "БРОНЯ И ОДЕЖДА"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["personal sidearm (choose 1)"]
 nominative = "ЛИЧНОЕ ОРУЖИЕ (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [uniform]
 nominative = "УНИФОРМА"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["uniform (choose 1)"]
 nominative = "УНИФОРМА (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["suit (choose 1)"]
 nominative = "ВЕРХНЯЯ ОДЕЖДА (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["headwear (choose 1)"]
 nominative = "ГОЛОВНОЙ УБОР (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["helmet (choose 1)"]
 nominative = "ШЛЕМЫ (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [backpacks]
 nominative = "РЮКЗАКИ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["backpack (choose 1)"]
 nominative = "РЮКЗАКИ (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["restricted backpacks"]
 nominative = "СПЕЦРЮКЗАКИ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["restricted pouches"]
 nominative = "СПЕЦПОДСУМКИ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["bag (choose 1)"]
 nominative = "РЮКЗАКИ (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["belt (choose 1)"]
 nominative = "ПОЯС (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["belt (choose 2)"]
 nominative = "ПОЯС (ВОЗЬМИТЕ 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["clothing items"]
 nominative = "СНАРЯЖЕНИЕ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [utilities]
 nominative = "ВСПОМОГАТЕЛЬНОЕ СНАРЯЖЕНИЕ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [utility]
 nominative = "ВСПОМОГАТЕЛЬНОЕ СНАРЯЖЕНИЕ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["essential devices"]
 nominative = "ВСПОМОГАТЕЛЬНОЕ СНАРЯЖЕНИЕ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [attachments]
 nominative = "ОБВЕСЫ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["attachment (choose 1)"]
 nominative = "ОБВЕСЫ (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["attachments (choose 1)"]
 nominative = "ОБВЕСЫ (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["gun attachments (choose 1)"]
 nominative = "ОБВЕСЫ (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [misc]
 nominative = "ДРУГОЕ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [miscellaneous]
 nominative = "ДРУГОЕ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["engineering supplies"]
 nominative = "ИНЖЕНЕРНОЕ ОБОРУДОВАНИЕ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["repair tools"]
 nominative = "ОБСЛУЖИВАНИЕ ВООРУЖЕНИЯ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [tools]
 nominative = "ИНСТРУМЕНТЫ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["flare and light"]
 nominative = "СИГНАЛЫ И ОСВЕЩЕНИЕ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["engineer set (mandatory)"]
 nominative = "НАБОР ИНЖЕНЕРА (ОБЯЗАТЕЛЬНО)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["handheld defense (choose 1)"]
 nominative = "СТАЦИОНАРНЫЕ СИСТЕМЫ (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [barrel]
 nominative = "ДУЛЬНЫЕ УСТРОЙСТВА"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [rail]
 nominative = "МОДУЛИ ДЛЯ ВЕРХНЕЙ ПЛАНКИ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [underbarrel]
 nominative = "ПОДСТВОЛЬНЫЕ МОДУЛИ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [stock]
 nominative = "ПРИКЛАДЫ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [supplies]
 nominative = "ПРИПАСЫ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["weapons specialist sets (choose 1)"]
 nominative = "ЯЩИКИ СПЕЦИАЛИСТОВ (ВОЗЬМИТЕ 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["extra scout ammunition"]
 nominative = "ДОПОЛНИТЕЛЬНЫЕ БОЕПРИПАСЫ РАЗВЕДЧИКА"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["extra sniper ammunition"]
 nominative = "ДОПОЛНИТЕЛЬНЫЕ БОЕПРИПАСЫ СНАЙПЕРА"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["extra demolitionist ammunition"]
 nominative = "ДОПОЛНИТЕЛЬНЫЕ БОЕПРИПАСЫ ПОДРЫВНИКА"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["extra grenades"]
 nominative = "ДОПОЛНИТЕЛЬНЫЕ БОЕПРИПАСЫ ГРАНАТОМЁТЧИКА"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["extra flamethrower tanks"]
 nominative = "ДОПОЛНИТЕЛЬНЫЕ БОЕПРИПАСЫ ОГНЕМЁТЧИКА"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [flasks]
 nominative = "ФЛЯГИ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["prepared meals"]
 nominative = "ГОТОВЫЕ БЛЮДА"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["field supplies"]
 nominative = "ПРИПАСЫ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [autoinjectors]
 nominative = "ИНЖЕКТОРЫ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["liquid bottles"]
 nominative = "СОСУДЫ С РЕАГЕНТАМИ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["pill bottles"]
 nominative = "БАНКИ С ТАБЛЕТКАМИ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["medical utilities"]
 nominative = "МЕДИЦИНСКОЕ СНАРЯЖЕНИЕ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["medical set (mandatory)"]
 nominative = "МЕДИЦИНСКИЙ НАБОР (ОБЯЗАТЕЛЬНО)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["snow gear (snow use only)"]
 nominative = "ЗИМНЕЕ СНАРЯЖЕНИЕ"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["spare equipment"]
 nominative = "РЕЗЕРВНАЯ ЭКИПИРОВКА"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["medical hud glasses"]
 nominative = "ИЛС очки врача"

@@ -1,5 +1,6 @@
 /datum/xeno_customization_option/burrower_socks
 	name = "Носки"
+	key = "burrower_socks"
 	customization_type = XENO_CUSTOMIZATION_NON_LORE_FRIENDLY
 	icon_path = 'modular/xeno_customization/icons/burrower/socks.dmi'
 	caste = XENO_CASTE_BURROWER

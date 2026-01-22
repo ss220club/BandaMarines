@@ -123,9 +123,9 @@ Contains most of the procs that are called when a mob is attacked by something
 		return FALSE
 
 	if(LAZYLEN(I.attack_verb))
-		visible_message(SPAN_DANGER_BOLD("[capitalize(user.declent_ru(NOMINATIVE))] [ru_attack_verb(pick(I.attack_verb))] [declent_ru(ACCUSATIVE)] в [affecting.declent_ru(ACCUSATIVE)], используя [I.declent_ru(ACCUSATIVE)]."), null, null, 5) // SS220 EDIT ADDICTION
+		visible_message(SPAN_DANGER_BOLD("[capitalize(user.declent_ru(NOMINATIVE))] [ru_attack_verb(pick(I.attack_verb))] [affecting.declent_ru(ACCUSATIVE)] [declent_ru(GENITIVE)], используя [I.declent_ru(ACCUSATIVE)]."), null, null, 5) // SS220 EDIT ADDICTION
 	else
-		visible_message(SPAN_DANGER_BOLD("[capitalize(user.declent_ru(NOMINATIVE))] атакует [declent_ru(ACCUSATIVE)] в [affecting.declent_ru(ACCUSATIVE)], используя [I.declent_ru(ACCUSATIVE)]."), null, null, 5) // SS220 EDIT ADDICTION
+		visible_message(SPAN_DANGER_BOLD("[capitalize(user.declent_ru(NOMINATIVE))] атакует [affecting.declent_ru(ACCUSATIVE)] [declent_ru(GENITIVE)], используя [I.declent_ru(ACCUSATIVE)]."), null, null, 5) // SS220 EDIT ADDICTION
 
 	var/armor = getarmor(affecting, ARMOR_MELEE)
 
@@ -267,7 +267,7 @@ Contains most of the procs that are called when a mob is attacked by something
 		if (assailant)
 			src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been hit with \a [O], thrown by [key_name(M)]</font>")
 			M.attack_log += text("\[[time_stamp()]\] <font color='red'>Hit [key_name(src)] with a thrown [O]</font>")
-			if(!istype(src,/mob/living/simple_animal/mouse))
+			if(!istype(src,/mob/living/simple_animal/small/mouse))
 				msg_admin_attack("[key_name(src)] was hit by \a [O], thrown by [key_name(M)] in [get_area(src)] ([src.loc.x],[src.loc.y],[src.loc.z]).", src.loc.x, src.loc.y, src.loc.z)
 
 	if(last_damage_source)
