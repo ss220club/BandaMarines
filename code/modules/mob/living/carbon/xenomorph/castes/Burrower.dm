@@ -122,7 +122,7 @@
 		return
 
 	var/area/current_area = get_area(current_turf)
-	if(current_area.flags_area & AREA_NOTUNNEL)
+	if(current_area.flags_area & AREA_NOBURROW)
 		to_chat(src, SPAN_XENOWARNING("Здесь нет возможности выкопать туннель."))
 		return
 
@@ -238,7 +238,7 @@
 		return
 
 	var/area/area_to_get = get_area(target)
-	if(area_to_get.flags_area & AREA_NOTUNNEL || get_dist(src, target) > 15)
+	if(area_to_get.flags_area & AREA_NOBURROW || get_dist(src, target) > 15)
 		to_chat(src, SPAN_XENOWARNING("Мы не можем прокопать туннель здесь."))
 		return
 
@@ -351,7 +351,8 @@
 		to_chat(xenomorph, SPAN_XENOWARNING("Мы не можем сделать это отсюда."))
 		return
 
-	if(!turf.can_dig_xeno_tunnel() || !is_ground_level(turf.z))
+	var/area/current_area = get_area(turf)
+	if(!turf.can_dig_xeno_tunnel() || !is_ground_level(turf.z) || current_area.flags_area & AREA_NOTUNNEL)
 		to_chat(xenomorph, SPAN_XENOWARNING("Мы скребёмся, но не можем выкопать туннель через этот пол."))
 		return
 

@@ -327,7 +327,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 					"color" = "red"
 					))
 			if(human_target_mob.stat == DEAD)
-				if((human_target_mob.health + 20) > HEALTH_THRESHOLD_DEAD)
+				if((human_target_mob.health + 20) > human_target_mob.health_threshold_dead)
 					if(issynth(human_target_mob))
 						advice += list(list(
 							"advice" = "Используйте ключ перезапуска синтетика!",
@@ -353,7 +353,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 							"icon" = "band-aid",
 							"color" = "orange" //BRI'ISH????
 							))
-					if(((human_target_mob.health + 50) < HEALTH_THRESHOLD_DEAD) && !issynth(human_target_mob))
+					if(((human_target_mob.health + 50) < human_target_mob.health_threshold_dead) && !issynth(human_target_mob))
 						advice += list(list(
 							"advice" = "Пациенту рекомендуется доза вещества «Epinephrine».",
 							"icon" = "syringe",

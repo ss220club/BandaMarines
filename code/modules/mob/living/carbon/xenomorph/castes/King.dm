@@ -305,7 +305,7 @@
 		return
 
 	var/area/target_area = get_area(target_turf)
-	if(target_area.flags_area & AREA_NOTUNNEL)
+	if(target_area.flags_area & AREA_NOBURROW)
 		to_chat(xeno, SPAN_XENONOTICE("Мы не можем прыгнуть в эту область!"))
 
 	var/list/leap_line = get_line(xeno, target)
