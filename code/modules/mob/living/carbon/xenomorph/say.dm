@@ -108,6 +108,8 @@
 	var/ghostrend
 	var/rendered
 
+	message = sanitize_tts_symbols(message) // BANDASTATION EDIT ADD - Show normal text
+
 	for (var/mob/S in GLOB.player_list)
 		var/hear_hivemind = 0
 		if(ishuman(S))

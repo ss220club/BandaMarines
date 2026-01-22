@@ -1,10 +1,3 @@
-/*
-Тут нету комбинировки, но потенциально нужно будет использовать
-/mob/combine_message(list/message_pieces, verb, mob/speaker, always_stars)
-	. = ..()
-	return replace_characters(., list("+"))
-*/
-
 /mob/hear_say(message, verb = "says", datum/language/language = null, alt_name = "", italics = 0, mob/speaker = null, sound/speech_sound, sound_vol)
 	. = ..()
 	if(!speaker)
@@ -27,16 +20,10 @@
 		return
 	speaker.cast_tts(src, message, src, TTS_LOCALYZE_RADIO, SOUND_EFFECT_RADIO, postSFX = 'modular/text_to_speech/code/sound/radio_chatter.ogg')
 
-/*
-/atom/atom_say(message)
-	. = ..()
-	if(!message)
-		return
-	for(var/mob/M in get_mobs_in_view(7, src))
-		cast_tts(M, message)
+/proc/sanitize_tts_symbols(message)
+	var/regex/finding_stress = regex(@{"\+(?=[а-яА-ЯёЁ])"}, "g")
+	message = finding_stress.Replace_char(message, "")
 
-	По идее нам не нужно, тот же телефон и прочие структуры используют
-/obj/item/phone/proc/handle_hear(message, datum/language/L, mob/speaking)
-	что внутри уже использует hear_radio
-	TODO: нужно в целом проверить нормально ли "слышится" ТТС по телефону.
-*/
+	var/regex/finding_many_dots = regex(@{"\.{4,}"}, "g")
+	message = finding_many_dots.Replace_char(message, "...")
+	return message
