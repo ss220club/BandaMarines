@@ -45,7 +45,7 @@ gender = "female"
 
 ["officer outfit crate"]
 nominative = "ящик для экипировки (офицерская униформа x 5)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["quartermaster suit"]
 nominative = "униформа квартирмейстера"
@@ -139,11 +139,11 @@ gender = "male"
 
 ["standard backpack"]
 nominative = "рюкзак"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["combat pack"]
 nominative = "военный рюкзак"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["lightweight imp backpack"]
 nominative = "военный лёгкий рюкзак"
@@ -156,7 +156,7 @@ gender = "male"
 
 ["mortar shell backpack"]
 nominative = "рюкзак для миномётных мин"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["uscm mortar shell backpack"]
 nominative = "рюкзак ККМП для миномётных снарядов"
@@ -169,7 +169,7 @@ gender = "male"
 
 ["technician backpack"]
 nominative = "рюкзак техника"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["uscm technician backpack"]
 nominative = "рюкзак ККМП техника"
@@ -200,7 +200,7 @@ gender = "female"
 
 ["radio telephone backpack"]
 nominative = "рюкзак связиста"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["uscm radio telephone pack"]
 nominative = "рюкзак ККМП связиста"
@@ -213,7 +213,7 @@ gender = "male"
 
 ["technician welderpack"]
 nominative = "рюкзак сварщика"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["uscm technician welderpack"]
 nominative = "рюкзак ККМП сварщика"
@@ -226,7 +226,7 @@ gender = "male"
 
 ["pyrotechnician g4-1 fueltank"]
 nominative = "топливный бак G4-1 огнемётчика"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["uscm pyrotechnician g4-1 fueltank"]
 nominative = "топливный бак G4-1 ККМП огнемётчика"
@@ -257,11 +257,11 @@ gender = "female"
 
 ["technician chestrig"]
 nominative = "разгрузочная система техника"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["technician satchel"]
 nominative = "сумка техника"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["uscm technician chestrig"]
 nominative = "разгрузочная система ККМП техника"
@@ -301,7 +301,7 @@ gender = "female"
 
 ["technician welder-satchel"]
 nominative = "сумка сварщика"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["uscm technician welder-satchel"]
 nominative = "сумка ККМП сварщика"
@@ -314,7 +314,7 @@ gender = "female"
 
 ["grenade satchel"]
 nominative = "сумка для гранат"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["uscm imp m63a1 grenade satchel"]
 nominative = "сумка ККМП для гранат"
@@ -336,7 +336,7 @@ gender = "male"
 
 ["machete scabbard (full)"]
 nominative = "чехол H5 для мачете M2132 (с мачете)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["h5 pattern m2132 machete scabbard"]
 nominative = "чехол H5 для мачете M2132"
@@ -349,7 +349,7 @@ gender = "male"
 
 ["webbing crate (x4)"]
 nominative = "ящик для экипировки (коричневый нагрудный жилет x 4)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [webbing]
 nominative = "коричневый нагрудный жилет"
@@ -362,7 +362,7 @@ gender = "male"
 
 ["brown and black webbing crate (x2 each)"]
 nominative = "ящик для экипировки (разгрузочный жилет x 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["brown webbing vest"]
 nominative = "коричневый разгрузочный жилет"
@@ -402,11 +402,11 @@ gender = "male"
 
 ["knife vest crate (x3)"]
 nominative = "ящик для экипировки (жилет с ножнами x 4)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["knife webbing"]
 nominative = "жилет с ножнами"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m272 pattern knife vest"]
 nominative = "жилет M272 с ножнами"
@@ -419,7 +419,7 @@ gender = "male"
 
 ["black webbing crate (x4)"]
 nominative = "ящик для экипировки (чёрный нагрудный жилет x 4)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["black webbing"]
 nominative = "чёрный нагрудный жилет"
@@ -432,7 +432,7 @@ gender = "male"
 
 ["small tool webbing (full)"]
 nominative = "разгрузочный жилет для инструментов (полный)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["small tool webbing"]
 nominative = "разгрузочный жилет для инструментов"
@@ -463,7 +463,7 @@ gender = "plural"
 
 ["insulated gloves (yellow/tan)"]
 nominative = "жёлтые изоляционные перчатки"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["marine insulated gloves"]
 nominative = "изоляционные перчатки морпеха"
@@ -476,7 +476,7 @@ gender = "plural"
 
 ["insulated gloves (black)"]
 nominative = "чёрные изоляционные перчатки"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["marine insulated black gloves"]
 nominative = "чёрные изоляционные перчатки морпеха"
@@ -543,19 +543,19 @@ gender = "female"
 
 ["marine brown combat boots"]
 nominative = "коричневые боевые ботинки морпеха"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["marine jungle combat boots"]
 nominative = "зелёные боевые ботинки морпеха"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["marine grey combat boots"]
 nominative = "серые боевые ботинки морпеха"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["marine urban combat boots"]
 nominative = "урбанистские боевые ботинки морпеха"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["marine combat boots"]
 nominative = "боевые ботинки морпеха"
@@ -631,7 +631,7 @@ gender = "male"
 
 ["m276 toolbelt rig (full)"]
 nominative = "пояс M276 для инструментов (полный)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m276 pattern toolbelt rig"]
 nominative = "пояс M276 для инструментов"
@@ -644,7 +644,7 @@ gender = "male"
 
 ["m276 knife rig (full)"]
 nominative = "пояс M276 для ножей (полный)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m276 pattern knife rig"]
 nominative = "пояс M276 для ножей"
@@ -657,7 +657,7 @@ gender = "male"
 
 ["military police belt"]
 nominative = "пояс военной полиции"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m276 pattern military police rig"]
 nominative = "пояс M276 военной полиции"
@@ -697,7 +697,7 @@ gender = "male"
 
 ["m276 medical storage rig (full)"]
 nominative = "пояс M276 санитара (полный)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m276 pattern medical storage rig"]
 nominative = "пояс M276 санитара"
@@ -710,7 +710,7 @@ gender = "male"
 
 ["m276 lifesaver bag (full)"]
 nominative = "пояс M276 спасателя (полный)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m276 pattern lifesaver bag"]
 nominative = "пояс M276 спасателя"
@@ -750,11 +750,11 @@ gender = "male"
 
 ["m276 combat toolbelt rig (full)"]
 nominative = "пояс M276 для инструментов с кобурой (полный)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m276 holster toolrig (full)"]
 nominative = "пояс M276 для инструментов с кобурой (полный)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m276 pattern combat toolbelt rig"]
 nominative = "пояс M276 для инструментов с кобурой"
@@ -776,7 +776,7 @@ gender = "male"
 
 ["m276 m40 grenade rig (empty)"]
 nominative = "пояс M276 для гранат M40 (пустой)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m276 pattern m40 grenade rig"]
 nominative = "пояс M276 для гранат M40"

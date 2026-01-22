@@ -6,6 +6,7 @@ accusative = "Грудолома"
 instrumental = "Грудоломом"
 prepositional = "Грудоломе"
 gender = "male"
+tags = [ "cm13",]
 
 ["predalien larva"]
 nominative = "Грудолом чужехищника"
@@ -15,6 +16,7 @@ accusative = "Грудолома чужехищника"
 instrumental = "Грудоломом чужехищника"
 prepositional = "Грудоломе чужехищника"
 gender = "male"
+tags = [ "cm13",]
 
 [facehugger]
 nominative = "лицехват"
@@ -25,6 +27,7 @@ instrumental = "лицехватом"
 prepositional = "лицехвате"
 gender = "male"
 
+tags = [ "cm13",]
 ["lesser drone"]
 nominative = "Трутень"
 genitive = "Трутня"
@@ -34,6 +37,7 @@ instrumental = "Трутнем"
 prepositional = "Трутне"
 gender = "male"
 
+tags = [ "cm13",]
 [drone]
 nominative = "Дрон"
 genitive = "Дрона"
@@ -42,6 +46,7 @@ accusative = "Дрона"
 instrumental = "Дроном"
 prepositional = "Дроне"
 gender = "male"
+tags = [ "cm13",]
 
 [runner]
 nominative = "Бегун"
@@ -51,6 +56,7 @@ accusative = "Бегуна"
 instrumental = "Бегуном"
 prepositional = "Бегуне"
 gender = "male"
+tags = [ "cm13",]
 
 [sentinel]
 nominative = "Страж"
@@ -60,6 +66,7 @@ accusative = "Стража"
 instrumental = "Стражем"
 prepositional = "Страже"
 gender = "male"
+tags = [ "cm13",]
 
 [defender]
 nominative = "Защитник"
@@ -69,6 +76,7 @@ accusative = "Защитника"
 instrumental = "Защитником"
 prepositional = "Защитнике"
 gender = "male"
+tags = [ "cm13",]
 
 [burrower]
 nominative = "Копатель"
@@ -78,6 +86,7 @@ accusative = "Копателя"
 instrumental = "Копателем"
 prepositional = "Копателе"
 gender = "male"
+tags = [ "cm13",]
 
 [carrier]
 nominative = "Носитель"
@@ -87,6 +96,7 @@ accusative = "Носителя"
 instrumental = "Носителем"
 prepositional = "Носителе"
 gender = "male"
+tags = [ "cm13",]
 
 [hivelord]
 nominative = "Владыка улья"
@@ -96,6 +106,7 @@ accusative = "Владыку улья"
 instrumental = "Владыкой улья"
 prepositional = "Владыке улья"
 gender = "male"
+tags = [ "cm13",]
 
 [lurker]
 nominative = "Охотник"
@@ -105,6 +116,7 @@ accusative = "Охотника"
 instrumental = "Охотником"
 prepositional = "Охотнике"
 gender = "male"
+tags = [ "cm13",]
 
 [warrior]
 nominative = "Воин"
@@ -114,6 +126,7 @@ accusative = "Воина"
 instrumental = "Воином"
 prepositional = "Воине"
 gender = "male"
+tags = [ "cm13",]
 
 [spitter]
 nominative = "Плевун"
@@ -123,6 +136,7 @@ accusative = "Плевуна"
 instrumental = "Плевуном"
 prepositional = "Плевуне"
 gender = "male"
+tags = [ "cm13",]
 
 [boiler]
 nominative = "Бойлер"
@@ -132,6 +146,7 @@ accusative = "Бойлера"
 instrumental = "Бойлером"
 prepositional = "Бойлере"
 gender = "male"
+tags = [ "cm13",]
 
 [praetorian]
 nominative = "Преторианец"
@@ -141,6 +156,7 @@ accusative = "Преторианца"
 instrumental = "Преторианцем"
 prepositional = "Преторианце"
 gender = "male"
+tags = [ "cm13",]
 
 [crusher]
 nominative = "Крушитель"
@@ -150,6 +166,7 @@ accusative = "Крушителя"
 instrumental = "Крушителем"
 prepositional = "Крушителе"
 gender = "male"
+tags = [ "cm13",]
 
 [ravager]
 nominative = "Опустошитель"
@@ -159,6 +176,7 @@ accusative = "Опустошителя"
 instrumental = "Опустошителем"
 prepositional = "Опустошителе"
 gender = "male"
+tags = [ "cm13",]
 
 [king]
 nominative = "Король"
@@ -168,6 +186,7 @@ accusative = "Короля"
 instrumental = "Королем"
 prepositional = "Короле"
 gender = "male"
+tags = [ "cm13",]
 
 [queen]
 nominative = "Королева"
@@ -177,6 +196,7 @@ accusative = "Королеву"
 instrumental = "Королевой"
 prepositional = "Королеве"
 gender = "female"
+tags = [ "cm13",]
 
 [predalien]
 nominative = "Чужехищник"
@@ -186,6 +206,7 @@ accusative = "Чужехищника"
 instrumental = "Чужехищником"
 prepositional = "Чужехищнике"
 gender = "male"
+tags = [ "cm13",]
 
 [hellhound]
 nominative = "Адская гончая"
@@ -195,6 +216,7 @@ accusative = "Адскую гончую"
 instrumental = "Адской гончей"
 prepositional = "Адской гончей"
 gender = "female"
+tags = [ "cm13",]
 
 [abomination]
 nominative = "Абоминация"
@@ -204,6 +226,7 @@ accusative = "Абоминацию"
 instrumental = "Абоминацией"
 prepositional = "Абоминации"
 gender = "female"
+tags = [ "cm13",]
 
 [empress]
 nominative = "Императрица"
@@ -213,6 +236,7 @@ accusative = "Императрицу"
 instrumental = "Императрицей"
 prepositional = "Императрице"
 gender = "female"
+tags = [ "cm13",]
 
 [despoiler]
 nominative = "Разлагатель"
@@ -222,6 +246,7 @@ accusative = "Разлагателя"
 instrumental = "Разлагателем"
 prepositional = "Разлагателе"
 gender = "male"
+tags = [ "cm13",]
 
 ["молодой "]
 nominative = "Молодой "
@@ -231,7 +256,7 @@ accusative = "Молодого "
 instrumental = "Молодым "
 prepositional = "Молодом "
 gender = "male"
-tags = ["cm13"]
+tags = [ "cm13",]
 
 ["взрослый "]
 nominative = "Взрослый "
@@ -241,7 +266,7 @@ accusative = "Взрослого "
 instrumental = "Взрослым "
 prepositional = "Взрослом "
 gender = "male"
-tags = ["cm13"]
+tags = [ "cm13",]
 
 ["кровавый "]
 nominative = "Кровавый "
@@ -251,7 +276,7 @@ accusative = "Кровавого "
 instrumental = "Кровавым "
 prepositional = "Кровавом "
 gender = "male"
-tags = ["cm13"]
+tags = [ "cm13",]
 
 ["старший "]
 nominative = "Старший "
@@ -261,7 +286,7 @@ accusative = "Старшего "
 instrumental = "Старшим "
 prepositional = "Старшем "
 gender = "male"
-tags = ["cm13"]
+tags = [ "cm13",]
 
 ["древний "]
 nominative = "Древний "
@@ -271,7 +296,7 @@ accusative = "Древнего "
 instrumental = "Древним "
 prepositional = "Древнем "
 gender = "male"
-tags = ["cm13"]
+tags = [ "cm13",]
 
 ["прайм "]
 nominative = "Прайм "
@@ -281,7 +306,7 @@ accusative = "Прайм "
 instrumental = "Прайм "
 prepositional = "Прайм "
 gender = "male"
-tags = ["cm13"]
+tags = [ "cm13",]
 
 ["юный "]
 nominative = "Юный "
@@ -291,7 +316,7 @@ accusative = "Юного "
 instrumental = "Юным "
 prepositional = "Юном "
 gender = "male"
-tags = ["cm13"]
+tags = [ "cm13",]
 
 ["бывалый "]
 nominative = "Бывалый "
@@ -301,7 +326,7 @@ accusative = "Бывалого "
 instrumental = "Бывалым "
 prepositional = "Бывалом "
 gender = "male"
-tags = ["cm13"]
+tags = [ "cm13",]
 
 ["губительный "]
 nominative = "Губительный "
@@ -311,7 +336,7 @@ accusative = "Губительного "
 instrumental = "Губительным "
 prepositional = "Губительном "
 gender = "male"
-tags = ["cm13"]
+tags = [ "cm13",]
 
 ["королевский "]
 nominative = "Королевский "
@@ -321,7 +346,7 @@ accusative = "Королевского "
 instrumental = "Королевским "
 prepositional = "Королевском "
 gender = "male"
-tags = ["cm13"]
+tags = [ "cm13",]
 
 ["адский "]
 nominative = "Адский "
@@ -331,7 +356,7 @@ accusative = "Адского "
 instrumental = "Адским "
 prepositional = "Адском "
 gender = "male"
-tags = ["cm13"]
+tags = [ "cm13",]
 
 ["молодая "]
 nominative = "Молодая "
@@ -341,7 +366,7 @@ accusative = "Молодую "
 instrumental = "Молодой "
 prepositional = "Молодой "
 gender = "female"
-tags = ["cm13"]
+tags = [ "cm13",]
 
 ["старшая "]
 nominative = "Старшая "
@@ -351,7 +376,7 @@ accusative = "Старшую "
 instrumental = "Старшей "
 prepositional = "Старшей "
 gender = "female"
-tags = ["cm13"]
+tags = [ "cm13",]
 
 ["древняя "]
 nominative = "Древняя "
@@ -361,7 +386,7 @@ accusative = "Древнюю "
 instrumental = "Древней "
 prepositional = "Древней "
 gender = "female"
-tags = ["cm13"]
+tags = [ "cm13",]
 
 ["неокрепшая "]
 nominative = "Неокрепшая "
@@ -371,4 +396,4 @@ accusative = "Неокрепшую "
 instrumental = "Неокрепшей "
 prepositional = "Неокрепшей "
 gender = "female"
-tags = ["cm13"]
+tags = [ "cm13",]
