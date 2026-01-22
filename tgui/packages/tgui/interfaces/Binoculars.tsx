@@ -31,12 +31,12 @@ export const Binoculars = () => {
       {' '}
       <Window.Content scrollable>
         <Section
-          title="SIMPLIFIED COORDINATES OF TARGET"
+          title="УПРОЩЕННЫЕ КООРДИНАТЫ ЦЕЛИ"
           textAlign="center"
           fontSize="15px"
         >
           <Box fontSize="30px" mb={2}>
-            LONGITUDE : {x_coord}, LATITUDE : {y_coord}, HEIGHT : {z_coord}
+            ДОЛГОТА : {x_coord}, ШИРОТА : {y_coord}, ВЫСОТА : {z_coord}
           </Box>
           <Box textAlign="center">
             <Button
