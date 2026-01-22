@@ -382,11 +382,10 @@ GLOBAL_LIST_INIT(apc_wire_descriptions, flatten_numeric_alist(alist(
 	if(isarea(A) && src.areastring == null)
 		area = A
 		name = "\improper [area.name] APC"
-		ru_names_rename(ru_names_toml(area.name, suffix = " (ЛКП)", override_base = name))
 	else
 		area = get_area_name(areastring)
 		name = "\improper [area.name] APC"
-		ru_names_rename(ru_names_toml(area.name, suffix = " (ЛКП)", override_base = name))
+	ru_names_rename(ru_names_toml(area.name, suffix = " (ЛКП)", override_base = name))
 
 	update_icon()
 	make_terminal()
