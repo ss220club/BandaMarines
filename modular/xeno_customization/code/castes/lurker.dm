@@ -1,5 +1,6 @@
 /datum/xeno_customization_option/lurker_socks
 	name = "Носки"
+	key = "lurker_socks"
 	customization_type = XENO_CUSTOMIZATION_NON_LORE_FRIENDLY
 	icon_path = 'modular/xeno_customization/icons/lurker/socks.dmi'
 	caste = XENO_CASTE_LURKER

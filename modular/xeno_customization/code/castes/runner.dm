@@ -1,5 +1,6 @@
-/datum/xeno_customization_option/roony
+/datum/xeno_customization_option/runner_rouny
 	name = "Rouny"
+	key = "runner_rouny"
 	customization_type = XENO_CUSTOMIZATION_NON_LORE_FRIENDLY
 	icon_path = 'modular/xeno_customization/icons/runner/rouny.dmi'
 	caste = XENO_CASTE_RUNNER

@@ -68,6 +68,8 @@
 	var/t_theirs = ru_p_theirs() // SS220 EDIT ADDICTION
 	//var/t_has = "has" // SS220 EDIT ADDICTION
 	//var/t_is = "is" // SS220 EDIT ADDICTION
+	//var/t_do = "does" // SS220 EDIT ADDITION
+	//var/t_seem = "seems" // SS220 EDIT ADDITION
 
 	var/id_paygrade = ""
 	var/obj/item/card/id/I = get_idcard()
@@ -181,9 +183,9 @@
 					found_iff = TRUE
 			if(found_iff)
 				if(get_target_lock(human_with_gun.get_id_faction_group()) > 0)
-					msg += SPAN_HELPFUL("[capitalize(t_He)] is compatible with your weapon's IFF.\n")
+					msg += SPAN_HELPFUL("[t_He] is compatible with your weapon's IFF.\n")
 				else
-					msg += SPAN_DANGER("[capitalize(t_He)] is not compatible with your weapon's IFF. They will be shot by your weapon!\n")
+					msg += SPAN_DANGER("[t_He] is not compatible with your weapon's IFF. They will be shot by your weapon!\n")
 	//Restraints
 	if(handcuffed)
 		msg += SPAN_ORANGE("[t_His] руки в [handcuffed.declent_ru(PREPOSITIONAL)].\n")
@@ -225,7 +227,7 @@
 
 	if(holo_card_color)
 		// SS220 START EDIT ADDICTION
-		var/holo_card_color_ru = list(
+		var/static/list/holo_card_color_ru = list(
 			red = "красная",
 			purple = "фиолетовая",
 			orange = "оранжевая",
@@ -285,7 +287,7 @@
 						wound_flavor_text["[temp.display_name]"] = SPAN_WARNING("У [t_theirs] [temp.status & LIMB_UNCALIBRATED_PROSTHETIC ? " нефункционирующий" : ""] протез [temp.declent_ru(GENITIVE)]!\n")
 						continue
 				else
-					wound_flavor_text["[temp.display_name]"] = SPAN_WARNING("У [t_theirs] [temp.status & LIMB_UNCALIBRATED_PROSTHETIC ? " нефункционирующий" : ""] [temp.status & LIMB_SYNTHSKIN ? "синтетический" : "кибернетический"] протез [temp.declent_ru(GENITIVE)]. У него")
+					wound_flavor_text["[temp.display_name]"] = SPAN_WARNING("У [t_theirs] [temp.status & LIMB_UNCALIBRATED_PROSTHETIC ? " нефункционирующий" : ""] [temp.status & LIMB_SYNTHSKIN ? "синтетический" : "кибернетический"] протез [temp.declent_ru(GENITIVE)]. У протеза")
 				if(temp.brute_dam)
 					switch(temp.brute_dam)
 						if(0 to 20)
@@ -481,7 +483,7 @@
 		msg += SPAN_WARNING(SPAN_BOLD("У [t_theirs] огромное отверстие в груди!\n"))
 
 	for(var/implant in get_visible_implants())
-		msg += SPAN_BOLDWARNING("У [t_theirs] торчит [lowertext(implant)] в теле!") + "\n" // SS220 EDIT ADDICTION
+		msg += SPAN_WARNING("У [t_theirs] торчит [lowertext(implant)] в теле!") + "\n" // SS220 EDIT ADDICTION
 
 	if(hasHUD(user,"security") || (observer && observer.HUD_toggled["Security HUD"]))
 		var/perpref

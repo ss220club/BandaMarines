@@ -5,7 +5,7 @@ gender = "female"
 ["ugly ripped cut"]
 nominative = "уродливый рваный порез"
 gender = "male"
-tags = ["cm13"]
+tags = [ "cm13",]
 
 ["ripped cut"]
 nominative = "рваный порез"

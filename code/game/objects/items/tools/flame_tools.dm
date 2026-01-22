@@ -110,14 +110,14 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		)
 	icon_state = "match"
 	item_state = "match"
+	attack_verb = list("poked", "jabbed", "pricked", "prodded")
+	damtype = "brute"
 	var/burnt = 0
 	var/smoketime = 10 SECONDS
 	var/burnt_name = "burnt match"
 	w_class = SIZE_TINY
 	light_range = 2
 	light_power = 1
-
-	attack_verb = list("burnt", "singed")
 
 /obj/item/tool/match/afterattack(atom/target, mob/living/carbon/human/user, proximity_flag, click_parameters)
 	if(istype(user) && istype(target, /obj/item/clothing/shoes/marine) && user.shoes == target && light_match(user))
@@ -153,6 +153,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	set_light_on(toggle_on)
 
 /obj/item/tool/match/proc/light_match(mob/user)
+	attack_verb = list("burned", "singed", "scorched", "seared")
 	if(heat_source || burnt)
 		return
 	heat_source = 1000
@@ -169,6 +170,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	return TRUE
 
 /obj/item/tool/match/proc/burn_out()
+	attack_verb = list("poked", "jabbed", "pricked", "prodded")
 	heat_source = 0
 	burnt = 1
 	damtype = "brute"
@@ -212,7 +214,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	flags_equip_slot = SLOT_EAR | SLOT_FACE
 	flags_obj = parent_type::flags_obj|OBJ_IS_HELMET_GARB
 	flags_atom = CAN_BE_SYRINGED
-	attack_verb = list("burnt", "singed")
+	attack_verb = list("poked", "jabbed", "pricked", "prodded")
+	damtype = "brute"
 	blood_overlay_type = ""
 	light_color = LIGHT_COLOR_ORANGE
 	/// Note - these are in masks.dmi not in cigarette.dmi
@@ -226,7 +229,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/cigarette/Initialize()
 	. = ..()
 	flags_atom |= NOREACT // so it doesn't react until you light it
-	create_reagents(chem_volume) // making the cigarrete a chemical holder with a maximum volume of 15
+	create_reagents(chem_volume) // making the cigarette a chemical holder with a maximum volume of 15
 	reagents.add_reagent("nicotine",10)
 	if(w_class == SIZE_TINY)
 		AddElement(/datum/element/mouth_drop_item)
@@ -333,10 +336,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/cigarette/proc/light(flavor_text)
 	SIGNAL_HANDLER
-
 	if(!heat_source)
 		heat_source = 1000
 		damtype = "fire"
+		attack_verb = list("burnt", "singed", "scorched", "seared")
 		if(reagents.handle_volatiles())
 			qdel(src)
 			return
@@ -408,7 +411,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		var/obj/item/butt = new type_butt(T)
 		transfer_fingerprints_to(butt)
 		//if(M)
-			//M.temp_drop_inv_item(src) //un-equip it so the overlays can updat
+			//M.temp_drop_inv_item(src) //un-equip it so the overlays can update
 		qdel(src)
 		. = butt
 	else
@@ -416,6 +419,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		heat_source = 0
 		icon_state = icon_off
 		item_state = icon_off
+		attack_verb = list("poked", "jabbed", "pricked", "prodded")
+		damtype = "brute"
 	if(M)
 		M.update_inv_wear_mask()
 
@@ -745,7 +750,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	flags_atom = FPRINT|CONDUCT
 	flags_equip_slot = SLOT_WAIST
 	flags_obj = parent_type::flags_obj|OBJ_IS_HELMET_GARB
-	attack_verb = list("burnt", "singed")
+	attack_verb = list("poked", "jabbed", "pricked", "prodded")
+	damtype = "brute"
 
 /obj/item/tool/lighter/zippo
 	name = "\improper Zippo lighter"
@@ -833,6 +839,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			heat_source = 1500
 			icon_state = icon_on
 			item_state = icon_on
+
 			if(istype(src, /obj/item/tool/lighter/zippo) )
 				user.visible_message(SPAN_ROSE("Without even breaking stride, [user] flips open and lights [src] in one smooth movement."))
 				playsound(src.loc,"zippo_open",10, 1, 3)
@@ -848,7 +855,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 					else
 						user.apply_damage(2,BURN,"r_hand")
 					user.visible_message(SPAN_NOTICE("After a few attempts, [user] manages to light [src], they however burn their finger in the process."))
-
+			attack_verb = list("burned", "branded", "scorched", "seared")
+			damtype = "fire"
 			set_light_range(2)
 			set_light_on(TRUE)
 			START_PROCESSING(SSobj, src)
@@ -863,6 +871,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		heat_source = 0
 		icon_state = icon_off
 		item_state = icon_off
+		attack_verb = list("smacked", "hit", "struck")
+		damtype = "brute"
 		if(!silent)
 			if(istype(src, /obj/item/tool/lighter/zippo) )
 				bearer.visible_message(SPAN_ROSE("You hear a quiet click, as [bearer] shuts off [src] without even looking at what they're doing."))

@@ -11,6 +11,7 @@
 #include "code/ru_names/ru_date.dm"
 #include "code/ru_names/ru_access.dm"
 #include "code/ru_names/ru_reagents.dm"
+#include "code/telephone/phone.dm"
 #include "code/translate_dirs.dm"
 #include "code/translate_emotes.dm"
 #include "code/translate_preferences.dm"

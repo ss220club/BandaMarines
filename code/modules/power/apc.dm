@@ -167,6 +167,7 @@ GLOBAL_LIST_INIT(apc_wire_descriptions, flatten_numeric_alist(alist(
 		opened = APC_COVER_OPEN
 		operating = 0
 		name = "\improper [area.name] APC"
+		ru_names_rename(ru_names_toml(area.name, suffix = " (ЛКП)", override_base = name))
 		stat |= MAINT
 		update_icon()
 		addtimer(CALLBACK(src, PROC_REF(update)), 5)
@@ -384,6 +385,7 @@ GLOBAL_LIST_INIT(apc_wire_descriptions, flatten_numeric_alist(alist(
 	else
 		area = get_area_name(areastring)
 		name = "\improper [area.name] APC"
+	ru_names_rename(ru_names_toml(area.name, suffix = " (ЛКП)", override_base = name))
 
 	update_icon()
 	make_terminal()

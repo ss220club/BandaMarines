@@ -288,7 +288,7 @@
 				P.trigger(target)
 				target.reagents.remove_reagent(R.id, 1)
 				break
-	if(target.health > HEALTH_THRESHOLD_DEAD)
+	if(target.health > target.health_threshold_dead)
 		user.visible_message(SPAN_NOTICE("[ru_name] издаёт звуковой сигнал: «[fluff_revive_message]»..."))
 		msg_admin_niche("[key_name_admin(user)] successfully revived [key_name_admin(target)] with [src].")
 		playsound(get_turf(src), sound_success, 25, 0)

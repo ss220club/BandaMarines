@@ -1,5 +1,6 @@
 /datum/xeno_customization_option/warrior_socks
 	name = "Носки"
+	key = "warrior_socks"
 	customization_type = XENO_CUSTOMIZATION_NON_LORE_FRIENDLY
 	icon_path = 'modular/xeno_customization/icons/warrior/socks.dmi'
 	caste = XENO_CASTE_WARRIOR
@@ -8,6 +9,7 @@
 
 /datum/xeno_customization_option/warrior_rouny
 	name = "Rouny"
+	key = "warrior_rouny"
 	customization_type = XENO_CUSTOMIZATION_NON_LORE_FRIENDLY
 	icon_path = 'modular/xeno_customization/icons/warrior/rouny.dmi'
 	caste = XENO_CASTE_WARRIOR
