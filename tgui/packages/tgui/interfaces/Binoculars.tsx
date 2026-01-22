@@ -24,7 +24,7 @@ export const Binoculars = () => {
   const y_coord = data.ycoord;
   const z_coord = data.zcoord;
 
-  const coordinatesString = `LONGTITUDE: ${x_coord}, LATITUDE: ${y_coord}, HEIGHT: ${z_coord}`;
+  const coordinatesString = `ДОЛГОТА: ${x_coord}, ШИРОТА: ${y_coord}, ВЫСОТА: ${z_coord}`;
 
   return (
     <Window width={450} height={300}>
