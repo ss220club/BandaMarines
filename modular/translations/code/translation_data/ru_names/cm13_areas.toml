@@ -239,12 +239,12 @@ gender = "female"
 tags = [ "cm13",]
 
 ["alamo landing zone"]
-nominative = "зона посадки 1 «Нексус»"
-genitive = "зоны посадки 1 «Нексус»"
-dative = "зоне посадки 1 «Нексус»"
-accusative = "зону посадки 1 «Нексус»"
-instrumental = "зоной посадки 1 «Нексус»"
-prepositional = "зоне посадки 1 «Нексус»"
+nominative = "зона посадки Аламо"
+genitive = "зоны посадки Аламо"
+dative = "зоне посадки Аламо"
+accusative = "зону посадки Аламо"
+instrumental = "зоной посадки Аламо"
+prepositional = "зоне посадки Аламо"
 gender = "female"
 tags = [ "cm13",]
 
