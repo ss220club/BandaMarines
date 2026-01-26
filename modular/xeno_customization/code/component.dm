@@ -5,7 +5,7 @@
 	/// What the selected option is showing, be it an overlay or full body replacement
 	var/atom/movable/to_show
 	/// Our filter that allows to subtract parts of (or an entire) icon
-	var/subtract_filter
+	var/dm_filter/subtract_filter
 	/// List of players who are ready/already see customization
 	var/list/mob/seeables = list()
 	/// A specific set of players set to see the customizations; used in preferences
@@ -171,11 +171,19 @@
 /datum/component/xeno_customization/proc/apply_subtract()
 	remove_subtract()
 	var/mob/living/carbon/xenomorph/xeno = parent
+	var/subtract_icon_path
 	if(option.full_body_customization)
-		subtract_filter = filter(type="alpha", icon = xeno.icon)
+		subtract_icon_path = xeno.icon
 	else if(option.subtract_icon_path)
-		var/icon/mask = icon(option.subtract_icon_path, "Sleeping")
-		subtract_filter = filter(type="alpha", icon = mask, flags = MASK_INVERSE)
+		subtract_icon_path = option.subtract_icon_path
+	var/atom/movable/remove_me
+	remove_me = new()
+	remove_me.icon = subtract_icon_path
+	remove_me.icon_state = xeno.icon_state
+	remove_me.vis_flags |= VIS_INHERIT_DIR | VIS_INHERIT_ID | VIS_INHERIT_LAYER | VIS_INHERIT_PLANE
+	remove_me.render_target = "*testme_[REF(src)]"
+	subtract_filter = filter(type="alpha", render_source = remove_me.render_target, flags = MASK_INVERSE)
+	render_source_atom.non_lore_image.vis_contents += remove_me
 	render_source_atom.non_lore_image.filters += subtract_filter
 	if(option.customization_type == XENO_CUSTOMIZATION_LORE_FRIENDLY)
 		render_source_atom.lore_image.filters += subtract_filter
