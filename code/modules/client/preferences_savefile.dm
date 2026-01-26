@@ -379,6 +379,8 @@
 	S["tooltips"] >> tooltips
 	S["key_bindings"] >> key_bindings
 
+	S["custom_keybinds"] >> custom_keybinds
+
 	S["tgui_lock"] >> tgui_lock
 	S["tgui_fancy"] >> tgui_fancy
 	S["window_scale"] >> window_scale
@@ -428,6 +430,8 @@
 						LAZYADD(key_bindings[bound_key], list(instance.name))
 
 	S["remembered_key_bindings"] << GLOB.keybindings_by_name
+
+	load_custom_keybinds()
 
 	if(toggles_chat & SHOW_TYPING)
 		owner.typing_indicators = FALSE
@@ -546,6 +550,12 @@
 	quick_cast = sanitize_integer(quick_cast, FALSE, TRUE, FALSE)
 	screentips = sanitize_integer(screentips, FALSE, TRUE, TRUE)
 	// BANDAMARINES EDIT END
+
+	if(!islist(custom_keybinds))
+		custom_keybinds = new /list(KEYBIND_CUSTOM_MAX)
+
+	if(length(custom_keybinds) != KEYBIND_CUSTOM_MAX)
+		custom_keybinds.len = KEYBIND_CUSTOM_MAX
 
 /datum/preferences/proc/save_preferences()
 	if(!path)
@@ -675,6 +685,8 @@
 	S["show_cooldown_messages"] << show_cooldown_messages
 
 	S["chem_presets"] << chem_presets
+
+	S["custom_keybinds"] << custom_keybinds
 
 	// BANDAMARINES EDIT START
 	S["xeno_customization_visibility"] << xeno_customization_visibility
@@ -1020,6 +1032,21 @@
 				LAZYREMOVE(key_bindings[entry], conflicted.name)
 
 		LAZYADD(key_bindings["Unbound"], conflicted.name) // set it to unbound to prevent this from opening up again in the future
+
+/datum/preferences/proc/load_custom_keybinds()
+	key_to_custom_keybind = list()
+
+	for(var/keybind in custom_keybinds)
+		if(!("keybinding" in keybind))
+			continue // unbound
+
+		var/datum/keybinding/custom/custom_key = new
+		custom_key.keybind_type = keybind["type"]
+		custom_key.contents = keybind["contents"]
+		custom_key.when_human = keybind["when_human"]
+		custom_key.when_xeno = keybind["when_xeno"]
+
+		key_to_custom_keybind[keybind["keybinding"]] = custom_key
 
 #undef SAVEFILE_VERSION_MAX
 #undef SAVEFILE_VERSION_MIN

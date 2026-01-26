@@ -72,7 +72,7 @@
 	/// If hit limit of larva from pylons
 	var/hit_larva_pylon_limit = FALSE
 
-	var/list/hive_inherant_traits
+	var/list/hive_inherited_traits
 
 	// Cultist Info
 	var/mob/living/carbon/leading_cult_sl
@@ -173,6 +173,30 @@
 
 	/// Has a King hatchery
 	var/has_hatchery = FALSE
+
+	// Hive Stat Modifiers
+	// Makes sweeping increases/decreases to certain stats of Xenos in the Hive
+	// Flat decreases obviously just need - added before the value (except for speed cause speed is special and needs the opposite)
+	var/list/hive_stat_modifier_multiplier = list(
+		"damage" = XENO_HIVE_STATMOD_MULT_NONE,
+		"health" = XENO_HIVE_STATMOD_MULT_NONE,
+		"armor" = XENO_HIVE_STATMOD_MULT_NONE,
+		"explosivearmor" = XENO_HIVE_STATMOD_MULT_NONE,
+		"plasmapool" = XENO_HIVE_STATMOD_MULT_NONE,
+		"plasmagain" = XENO_HIVE_STATMOD_MULT_NONE,
+		"speed" = XENO_HIVE_STATMOD_MULT_NONE,
+		"evasion" = XENO_HIVE_STATMOD_MULT_NONE,
+	)
+	var/list/hive_stat_modifier_flat = list(
+		"damage" = XENO_HIVE_STATMOD_FLAT_NONE,
+		"health" = XENO_HIVE_STATMOD_FLAT_NONE,
+		"armor" = XENO_HIVE_STATMOD_FLAT_NONE,
+		"explosivearmor" = XENO_HIVE_STATMOD_FLAT_NONE,
+		"plasmapool" = XENO_HIVE_STATMOD_FLAT_NONE,
+		"plasmagain" = XENO_HIVE_STATMOD_FLAT_NONE,
+		"speed" = XENO_HIVE_STATMOD_FLAT_NONE,
+		"evasion" = XENO_HIVE_STATMOD_FLAT_NONE,
+	)
 
 /datum/hive_status/New()
 	hive_ui = new(src)
@@ -1237,6 +1261,27 @@
 
 	need_round_end_check = TRUE
 
+	hive_stat_modifier_multiplier = list(
+		"damage" = XENO_HIVE_STATMOD_MULT_NONE,
+		"health" = XENO_HIVE_STATMOD_MULT_MED,
+		"armor" = XENO_HIVE_STATMOD_MULT_NONE,
+		"explosivearmor" = XENO_HIVE_STATMOD_MULT_NONE,
+		"plasmapool" = XENO_HIVE_STATMOD_MULT_NONE,
+		"plasmagain" = XENO_HIVE_STATMOD_MULT_LOW,
+		"speed" = XENO_HIVE_STATMOD_MULT_NONE,
+		"evasion" = XENO_HIVE_STATMOD_MULT_NONE,
+	)
+	hive_stat_modifier_flat = list(
+		"damage" = XENO_HIVE_STATMOD_FLAT_10,
+		"health" = XENO_HIVE_STATMOD_FLAT_NONE,
+		"armor" = XENO_HIVE_STATMOD_FLAT_15,
+		"explosivearmor" = XENO_HIVE_STATMOD_FLAT_30,
+		"plasmapool" = XENO_HIVE_STATMOD_FLAT_NONE,
+		"plasmagain" = XENO_HIVE_STATMOD_FLAT_NONE,
+		"speed" = -XENO_HIVE_STATMOD_FLAT_LOWMED_SPEED,
+		"evasion" = XENO_HIVE_STATMOD_FLAT_NONE,
+	)
+
 /datum/hive_status/forsaken/can_delay_round_end(mob/living/carbon/xenomorph/xeno)
 	return FALSE
 
@@ -1319,7 +1364,7 @@
 	color = "#6abd99"
 	ui_color = "#6abd99"
 
-	hive_inherant_traits = list(TRAIT_XENONID, TRAIT_NO_COLOR)
+	hive_inherited_traits = list(TRAIT_XENONID, TRAIT_NO_COLOR)
 	latejoin_burrowed = FALSE
 
 /datum/hive_status/corrupted/tamed
