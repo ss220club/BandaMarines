@@ -3,7 +3,7 @@
 	/// The thing to show
 	var/datum/xeno_customization_option/option
 	/// What the selected option is showing, be it an overlay or full body replacement
-	var/image/to_show
+	var/atom/movable/to_show
 	/// Our filter that allows to subtract parts of (or an entire) icon
 	var/subtract_filter
 	/// List of players who are ready/already see customization
@@ -25,7 +25,9 @@
 	override_list = override_viewers
 
 	src.option = option
-	to_show = image(option.icon_path, parent)
+	to_show = new(parent)
+	to_show.icon = option.icon_path
+	to_show.vis_flags = VIS_INHERIT_LAYER | VIS_INHERIT_PLANE | VIS_INHERIT_ID | VIS_INHERIT_DIR
 
 	setup_render_source()
 	add_images()
@@ -62,14 +64,14 @@
 /// Called when the component is created and is modifying the image
 /datum/component/xeno_customization/proc/add_images()
 	apply_subtract()
-	render_source_atom.non_lore_image.overlays |= to_show
+	render_source_atom.non_lore_image.vis_contents |= to_show
 	if(option.customization_type == XENO_CUSTOMIZATION_LORE_FRIENDLY)
-		render_source_atom.lore_image.overlays |= to_show
+		render_source_atom.lore_image.vis_contents |= to_show
 
 /// Called when the component is being deleted to clear image from itself
 /datum/component/xeno_customization/proc/remove_images()
-	render_source_atom.lore_image?.overlays -= to_show
-	render_source_atom.non_lore_image?.overlays -= to_show
+	render_source_atom.lore_image?.vis_contents -= to_show
+	render_source_atom.non_lore_image?.vis_contents -= to_show
 	remove_subtract()
 
 /// Creates a reference to a render_source_atom, which holds the main image to show
@@ -121,7 +123,6 @@
 		return
 	user.client.images -= render_source_atom.lore_image
 	user.client.images -= render_source_atom.non_lore_image
-	user.client.images -= to_show
 
 /// Hide this customization from all seeables
 /datum/component/xeno_customization/proc/remove_from_everyone_view()
@@ -153,13 +154,9 @@
 			if(!(isxeno(user) || isobserver(user) || isnewplayer(user)))
 				return
 			user.client.images |= render_source_atom.non_lore_image
-			user.client.images |= to_show
 
 		if(XENO_CUSTOMIZATION_SHOW_LORE_FRIENDLY)
 			user.client.images |= render_source_atom.lore_image
-			if(option.customization_type != XENO_CUSTOMIZATION_LORE_FRIENDLY)
-				return
-			user.client.images |= to_show
 
 		if(XENO_CUSTOMIZATION_SHOW_NONE)
 			return
@@ -223,7 +220,9 @@
 	if(!updating)
 		return
 
-	to_show.layer = xeno.layer
+	render_source_atom.non_lore_image.layer = xeno.layer
+	render_source_atom.lore_image.layer = xeno.layer
+
 	render_source_atom.non_lore_image.icon_state = icon_state
 	render_source_atom.lore_image.icon_state = icon_state
 
@@ -246,7 +245,7 @@
 	to_show.icon_state = icon_state_to_show
 
 /atom/movable/xeno_customization_vis_obj
-	vis_flags = VIS_INHERIT_ID | VIS_INHERIT_PLANE | VIS_INHERIT_LAYER | VIS_UNDERLAY
+	vis_flags = VIS_INHERIT_ID | VIS_INHERIT_PLANE | VIS_INHERIT_LAYER | VIS_UNDERLAY | VIS_INHERIT_DIR
 	var/mob/living/carbon/xenomorph/parent_xeno
 	/// The image players with "Non-Lore Friendly" preference enabled see, replacing the original xeno icon
 	var/image/non_lore_image
@@ -267,8 +266,6 @@
 
 	non_lore_image = image(src, src)
 	lore_image = image(src, src)
-	//non_lore_image.loc = xeno
-	//lore_image.loc = xeno
 	non_lore_image.override = TRUE
 	lore_image.override = TRUE
 	non_lore_image.pixel_x = 0
