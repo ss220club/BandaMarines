@@ -4,6 +4,7 @@
 	var/datum/xeno_customization_option/option
 	/// What the selected option is showing, be it an overlay or full body replacement
 	var/atom/movable/to_show
+	var/atom/movable/to_remove
 	/// Our filter that allows to subtract parts of (or an entire) icon
 	var/dm_filter/subtract_filter
 	/// List of players who are ready/already see customization
@@ -176,14 +177,13 @@
 		subtract_icon_path = xeno.icon
 	else if(option.subtract_icon_path)
 		subtract_icon_path = option.subtract_icon_path
-	var/atom/movable/remove_me
-	remove_me = new()
-	remove_me.icon = subtract_icon_path
-	remove_me.icon_state = xeno.icon_state
-	remove_me.vis_flags |= VIS_INHERIT_DIR | VIS_INHERIT_ID | VIS_INHERIT_LAYER | VIS_INHERIT_PLANE
-	remove_me.render_target = "*testme_[REF(src)]"
-	subtract_filter = filter(type="alpha", render_source = remove_me.render_target, flags = MASK_INVERSE)
-	render_source_atom.non_lore_image.vis_contents += remove_me
+	to_remove = new()
+	to_remove.icon = subtract_icon_path
+	to_remove.icon_state = xeno.icon_state
+	to_remove.vis_flags |= VIS_INHERIT_DIR | VIS_INHERIT_ID | VIS_INHERIT_LAYER | VIS_INHERIT_PLANE
+	to_remove.render_target = "*testme_[REF(src)]"
+	subtract_filter = filter(type="alpha", render_source = to_remove.render_target, flags = MASK_INVERSE)
+	render_source_atom.non_lore_image.vis_contents += to_remove
 	render_source_atom.non_lore_image.filters += subtract_filter
 	if(option.customization_type == XENO_CUSTOMIZATION_LORE_FRIENDLY)
 		render_source_atom.lore_image.filters += subtract_filter
@@ -241,6 +241,7 @@
 		if(!active && ((icon_exists(to_show.icon, xeno.icon_state))))
 			add_to_everyone_view()
 		to_show.icon_state = icon_state
+		to_remove?.icon_state = icon_state
 		return
 
 	// It's an overlay over the icon; we don't need "Normal Runner", only the last part.
@@ -251,6 +252,7 @@
 		var/list/split = splittext(icon_state, " ")
 		icon_state_to_show = split[length(split)]
 	to_show.icon_state = icon_state_to_show
+	to_remove?.icon_state = icon_state_to_show
 
 /atom/movable/xeno_customization_vis_obj
 	vis_flags = VIS_INHERIT_ID | VIS_INHERIT_PLANE | VIS_INHERIT_LAYER | VIS_UNDERLAY | VIS_INHERIT_DIR
