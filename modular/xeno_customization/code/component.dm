@@ -4,6 +4,7 @@
 	var/datum/xeno_customization_option/option
 	/// What the selected option is showing, be it an overlay or full body replacement
 	var/atom/movable/to_show
+	/// Is how we subtract parts of an icon, by showing it and applying subtract_filter to an image
 	var/atom/movable/to_remove
 	/// Our filter that allows to subtract parts of (or an entire) icon
 	var/dm_filter/subtract_filter
@@ -60,6 +61,8 @@
 		QDEL_NULL(render_source_atom)
 	else
 		remove_images()
+	QDEL_NULL(to_show)
+	QDEL_NULL(to_remove)
 	. = ..()
 
 /// Called when the component is created and is modifying the image
@@ -73,7 +76,9 @@
 /datum/component/xeno_customization/proc/remove_images()
 	render_source_atom.lore_image?.vis_contents -= to_show
 	render_source_atom.non_lore_image?.vis_contents -= to_show
+	QDEL_NULL(to_show)
 	remove_subtract()
+	QDEL_NULL(to_remove)
 
 /// Creates a reference to a render_source_atom, which holds the main image to show
 /datum/component/xeno_customization/proc/setup_render_source()
@@ -172,26 +177,33 @@
 /datum/component/xeno_customization/proc/apply_subtract()
 	remove_subtract()
 	var/mob/living/carbon/xenomorph/xeno = parent
-	var/subtract_icon_path
-	if(option.full_body_customization)
-		subtract_icon_path = xeno.icon
-	else if(option.subtract_icon_path)
-		subtract_icon_path = option.subtract_icon_path
-	to_remove = new()
-	to_remove.icon = subtract_icon_path
-	to_remove.icon_state = xeno.icon_state
-	to_remove.vis_flags |= VIS_INHERIT_DIR | VIS_INHERIT_ID | VIS_INHERIT_LAYER | VIS_INHERIT_PLANE
-	to_remove.render_target = "*testme_[REF(src)]"
-	subtract_filter = filter(type="alpha", render_source = to_remove.render_target, flags = MASK_INVERSE)
-	render_source_atom.non_lore_image.vis_contents += to_remove
+	if(!to_remove)
+		var/subtract_icon_path
+		if(option.full_body_customization)
+			subtract_icon_path = xeno.icon
+		else if(option.subtract_icon_path)
+			subtract_icon_path = option.subtract_icon_path
+		if(!subtract_icon_path)
+			return
+		to_remove = new(xeno)
+		to_remove.icon = subtract_icon_path
+		to_remove.vis_flags |= VIS_INHERIT_DIR | VIS_INHERIT_ID | VIS_INHERIT_LAYER | VIS_INHERIT_PLANE
+		to_remove.render_target = "*subtract_filter_[REF(src)]"
+		subtract_filter = filter(type="alpha", render_source = to_remove.render_target, flags = MASK_INVERSE)
+	if(!to_remove)
+		return
+	render_source_atom.non_lore_image.vis_contents |= to_remove
 	render_source_atom.non_lore_image.filters += subtract_filter
 	if(option.customization_type == XENO_CUSTOMIZATION_LORE_FRIENDLY)
+		render_source_atom.non_lore_image.vis_contents |= to_remove
 		render_source_atom.lore_image.filters += subtract_filter
 
 /datum/component/xeno_customization/proc/remove_subtract()
-	if(isnull(subtract_filter))
+	if(isnull(to_remove))
 		return
+	render_source_atom.lore_image?.vis_contents -= to_remove
 	render_source_atom.lore_image?.filters -= subtract_filter
+	render_source_atom.non_lore_image?.vis_contents -= to_remove
 	render_source_atom.non_lore_image?.filters -= subtract_filter
 
 /// Check if the strain is correct
