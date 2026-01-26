@@ -30,6 +30,7 @@
 	if(href_list["preference"] == "xeno_customization_picker")
 		if(!xeno_customization_picker)
 			xeno_customization_picker = new(user.client)
+		xeno_customization_picker.tgui_interact(user)
 	. = ..()
 
 /datum/preferences/proc/read_and_sanitize_xeno_customization()

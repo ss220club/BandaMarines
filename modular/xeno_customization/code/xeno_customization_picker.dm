@@ -13,10 +13,10 @@
 		var/mob/user_mob = user
 		holder = user_mob.client
 	holder.prefs.read_and_sanitize_xeno_customization()
-	tgui_interact(holder.mob)
 
 /datum/xeno_customization_picker/ui_close(mob/user)
 	. = ..()
+	holder?.prefs.xeno_customization_picker = null
 	qdel(src)
 
 /datum/xeno_customization_picker/tgui_interact(mob/user, datum/tgui/ui)
@@ -25,11 +25,6 @@
 		ui = new(user, src, "XenoCustomizationPicker", "Xeno Customization")
 		ui.open()
 		ui.set_autoupdate(FALSE)
-
-/datum/xeno_customization_picker/ui_close(mob/user)
-	. = ..()
-	holder.prefs.xeno_customization_picker = null
-	qdel(src)
 
 /datum/xeno_customization_picker/ui_static_data(mob/user)
 	var/list/data = list()
