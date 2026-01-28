@@ -135,7 +135,7 @@
 
 			else if(hive.hivenumber == xeno_hivenumber(S) || hive.hivenumber == hear_hivemind)
 				if(isxeno(src) && isxeno(S))
-					overwatch_insert = " (<a href='byond://?src=\ref[S];[overwatch_target]=\ref[src];[overwatch_src]=\ref[S]'>смотреть</a>)"
+					overwatch_insert = " (<a href='byond://?src=\ref[S];[overwatch_target]=\ref[src];[overwatch_src]=\ref[S]'>следить</a>)"
 
 				if(isqueen(src) || hive.leading_cult_sl == src)
 					rendered = SPAN_XENOQUEEN("Разум улья, [declent_ru(NOMINATIVE)][overwatch_insert] [ru_say_verb("hisses")], <span class='normal'>'[sanitize_tts_symbols(message)]'</span>")
