@@ -1601,7 +1601,7 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 		if(used >= limit)
 			dat += "<font color='gray'>[order.name] (limit reached)</font><br>"
 			continue
-		if(!category_unlocked(category))
+		if(!category_unlocked(category, src))
 			dat += "<font color='gray'>[order.name] (category locked)</font><br>"
 			continue
 
@@ -1621,7 +1621,7 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 			return
 
 		var/category = get_vehicle_category(order)
-		if(!category_unlocked(category))
+		if(!category_unlocked(category, src))
 			to_chat(usr, SPAN_WARNING("[category] category not available yet!"))
 			return
 
