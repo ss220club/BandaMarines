@@ -1,6 +1,6 @@
 // Минимальное количество игроков для открытия категорий
 #define MIN_PLAYERS_HEAVY_SUPPORT 85
-#define MIN_PLAYERS_LIGHT_SUPPORT 75
+#define MIN_PLAYERS_LIGHT_SUPPORT 70
 #define MIN_PLAYERS_LIGHT_RECON 1
 #define MIN_PLAYERS_LIGHT_VEHICLE 40
 
