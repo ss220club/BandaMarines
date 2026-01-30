@@ -137,7 +137,7 @@
 				if(!input || authenticated != 2 || world.time < cooldown_message + COOLDOWN_COMM_MESSAGE_LONG || !(usr in dview(1, src)))
 					return FALSE
 
-				marine_announcement(input)
+				marine_announcement(input, tts_component = human_user.GetComponent(/datum/component/tts_component)) //BANDAMARINES ADDITION
 				message_admins("[key_name(usr)] has made a command announcement.")
 				log_announcement("[key_name(usr)] has announced the following: [input]")
 				cooldown_message = world.time
