@@ -92,7 +92,7 @@
 	remove_all_xeno_customizations()
 	for(var/key in client.prefs.xeno_customizations[caste.caste_type])
 		var/datum/xeno_customization_option/option_to_apply = GLOB.xeno_customizations_by_key[key]
-		apply_xeno_customization(client, option_to_apply)
+		apply_xeno_customization(src, option_to_apply)
 
 /mob/living/carbon/xenomorph/proc/remove_all_xeno_customizations()
 	var/list/previous_customizations = GetComponents(/datum/component/xeno_customization)
