@@ -170,11 +170,11 @@
 	update_preview_icon()
 
 /datum/preferences/proc/change_preview_xeno_strain(strain)
+	if(selected_strain == strain)
+		return
+	clear_xeno_dummy()
+	update_preview_icon()
 	if(strain == "Normal")
-		if(selected_strain != strain)
-			selected_strain = strain
-			clear_xeno_dummy()
-			update_preview_icon()
 		return
 	var/datum/xeno_strain/strain_to_apply
 	for(var/strain_path in preview_dummy_xeno.caste.available_strains)
@@ -188,6 +188,8 @@
 	if(strain_to_apply._add_to_xeno(preview_dummy_xeno))
 		selected_strain = strain
 		update_preview_icon()
+	else
+		to_chat(owner, SPAN_WARNING("Подвид [strain] не смог примениться!"))
 
 /datum/preferences/proc/change_preview_xeno_positions(new_position)
 	preview_dummy_xeno.rejuvenate()
