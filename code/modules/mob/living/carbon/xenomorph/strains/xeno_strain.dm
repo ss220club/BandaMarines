@@ -55,6 +55,7 @@
 	if(flavor_description)
 		to_chat(xeno, SPAN_XENOLEADER(flavor_description))
 	xeno.recalculate_actions() // BANDAMARINES EDIT - Xeno Translate
+	SEND_SIGNAL(xeno, COMSIG_XENO_STRAIN_ADD, src) // BANDAMARINES EDIT - Xeno Customization
 	return TRUE
 
 /**
