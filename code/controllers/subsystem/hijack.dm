@@ -173,7 +173,7 @@ SUBSYSTEM_DEF(hijack)
 	var/message = ""
 
 	for(var/area/cycled_area as anything in progress_areas)
-		message += "[cycled_area] - [cycled_area.power_equip ? "Онлайн" : "Оффлайн"]\n"
+		message += "[cycled_area.declent_ru(NOMINATIVE)] - [cycled_area.power_equip ? "Онлайн" : "Оффлайн"]\n"
 		progress_areas[cycled_area] = cycled_area.power_equip
 
 	message += "\nИз-за низкой орбиты для эвакуации не с поверхности требуется дополнительное топливо.\nПоддерживайте функциональность заправочных станций для оптимальных условий эвакуации."
@@ -182,7 +182,7 @@ SUBSYSTEM_DEF(hijack)
 
 ///Called when an area power status is changed to announce that it has been changed
 /datum/controller/subsystem/hijack/proc/announce_area_power_change(area/changed_area)
-	var/message = "[changed_area] - [changed_area.power_equip ? "Онлайн" : "Оффлайн"]"
+	var/message = "[changed_area.declent_ru(NOMINATIVE)] - [changed_area.power_equip ? "Онлайн" : "Оффлайн"]"
 
 	marine_announcement(message, HIJACK_ANNOUNCE)
 
@@ -195,9 +195,9 @@ SUBSYSTEM_DEF(hijack)
 
 	for(var/area/cycled_area as anything in progress_areas)
 		if(cycled_area.power_equip)
-			xeno_warning_areas += "[cycled_area], "
+			xeno_warning_areas += "[cycled_area.declent_ru(NOMINATIVE)], "
 			continue
-		marine_warning_areas += "[cycled_area], "
+		marine_warning_areas += "[cycled_area.declent_ru(NOMINATIVE)], "
 
 	if(xeno_warning_areas)
 		xeno_warning_areas = copytext(xeno_warning_areas, 1, -2)
@@ -357,6 +357,7 @@ SUBSYSTEM_DEF(hijack)
 /datum/controller/subsystem/hijack/proc/detonate_sd()
 	set waitfor = FALSE
 	sd_detonated = TRUE
+	SSticker?.roundend_check_paused = TRUE
 	var/creak_picked = pick('sound/effects/creak1.ogg', 'sound/effects/creak2.ogg', 'sound/effects/creak3.ogg')
 	for(var/mob/current_mob as anything in GLOB.mob_list)
 		var/turf/current_turf = get_turf(current_mob)
@@ -426,10 +427,11 @@ SUBSYSTEM_DEF(hijack)
 
 
 	sleep(0.5 SECONDS)
-	if(SSticker.mode)
-		SSticker.mode.check_win()
 
-	if(!SSticker.mode) //Just a safety, just in case a mode isn't running, somehow.
+	SSticker?.roundend_check_paused = FALSE
+	if(SSticker?.mode)
+		SSticker.mode.check_win()
+	else //Just a safety, just in case a mode isn't running, somehow.
 		to_world(SPAN_ROUNDBODY("Resetting in 30 seconds!"))
 		sleep(30 SECONDS)
 		log_game("Rebooting due to nuclear detonation.")
