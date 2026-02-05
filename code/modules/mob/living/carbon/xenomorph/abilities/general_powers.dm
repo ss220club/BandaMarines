@@ -805,11 +805,13 @@
 		return FALSE
 	if(xeno.hive.has_structure(XENO_STRUCTURE_CORE) || !xeno.hive.can_build_structure(XENO_STRUCTURE_CORE))
 		var/static/list/hive_structure_types_en_to_ru = list()
-		if(!length(hive_structure_types_en_to_ru))
-			for(var/structure_name in xeno.hive.hive_structure_types)
-				hive_structure_types_en_to_ru[structure_name] = capitalize(declent_ru_initial(structure_name, NOMINATIVE, structure_name))
+		for(var/structure_name in xeno.hive.hive_structure_types)
+			if(hive_structure_types_en_to_ru[structure_name])
+				continue
+			hive_structure_types_en_to_ru[structure_name] = capitalize(declent_ru_initial(structure_name, NOMINATIVE, structure_name))
+			hive_structure_types_en_to_ru.Remove("help")
 			hive_structure_types_en_to_ru["help"] = "Подсказка"
-		choice = tgui_input_list(xeno, "Выберите структуру для простойки", "Строительство структур", hive_structure_types_en_to_ru, theme = "hive_status", associative_list = TRUE)
+		choice = tgui_input_list(xeno, "Выберите структуру для постройки", "Строительство структур", hive_structure_types_en_to_ru, theme = "hive_status", associative_list = TRUE)
 		if(!choice)
 			return
 		if(choice == "help")
