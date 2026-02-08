@@ -1,7 +1,4 @@
-# ВНИМАНИЕ!!! Если вы собираетесь меня перевод для чужих снизу, синхронизируйте перевод с:
-# tgui\packages\tgui\interfaces\BandaMarines\XenoCastes.tsx
-
-["Observer"]
+[observer]
 nominative = "Наблюдатель"
 genitive = "Наблюдателя"
 dative = "Наблюдателю"
@@ -9,8 +6,9 @@ accusative = "Наблюдателя"
 instrumental = "Наблюдателем"
 prepositional = "Наблюдателе"
 gender = "male"
+tags = [ "cm13",]
 
-["Gardener"]
+[gardener]
 nominative = "Садовник"
 genitive = "Садовника"
 dative = "Садовнику"
@@ -18,8 +16,9 @@ accusative = "Садовника"
 instrumental = "Садовником"
 prepositional = "Садовнике"
 gender = "male"
+tags = [ "cm13",]
 
-["Healer"]
+[healer]
 nominative = "Лекарь"
 genitive = "Лекаря"
 dative = "Лекарю"
@@ -27,8 +26,9 @@ accusative = "Лекаря"
 instrumental = "Лекарем"
 prepositional = "Лекаре"
 gender = "male"
+tags = [ "cm13",]
 
-["Steel Crest"]
+["steel crest"]
 nominative = "Стальной гребень"
 genitive = "Стального гребня"
 dative = "Стальному гребню"
@@ -36,8 +36,9 @@ accusative = "Стальной гребень"
 instrumental = "Стальным гребнем"
 prepositional = "Стальном гребне"
 gender = "male"
+tags = [ "cm13",]
 
-["Eggsac"]
+[eggsac]
 nominative = "Яйценос"
 genitive = "Яйценоса"
 dative = "Яйценосу"
@@ -45,8 +46,9 @@ accusative = "Яйценоса"
 instrumental = "Яйценосом"
 prepositional = "Яйценосе"
 gender = "male"
+tags = [ "cm13",]
 
-["Resin Whisperer"]
+["resin whisperer"]
 nominative = "Заклинатель смолы"
 genitive = "Заклинателя смолы"
 dative = "Заклинателю смолы"
@@ -54,8 +56,9 @@ accusative = "Заклинателя смолы"
 instrumental = "Заклинателем смолы"
 prepositional = "Заклинателе смолы"
 gender = "male"
+tags = [ "cm13",]
 
-["Vampire"]
+[vampire]
 nominative = "Вампир"
 genitive = "Вампира"
 dative = "Вампиру"
@@ -63,8 +66,9 @@ accusative = "Вампира"
 instrumental = "Вампиром"
 prepositional = "Вампире"
 gender = "male"
+tags = [ "cm13",]
 
-["Charger"]
+[charger]
 nominative = "Таран"
 genitive = "Тарана"
 dative = "Тарану"
@@ -72,8 +76,9 @@ accusative = "Таран"
 instrumental = "Тараном"
 prepositional = "Таране"
 gender = "male"
+tags = [ "cm13",]
 
-["Dancer"]
+[dancer]
 nominative = "Танцор"
 genitive = "Танцора"
 dative = "Танцору"
@@ -81,8 +86,9 @@ accusative = "Танцора"
 instrumental = "Танцором"
 prepositional = "Танцоре"
 gender = "male"
+tags = [ "cm13",]
 
-["Oppressor"]
+[oppressor]
 nominative = "Угнетатель"
 genitive = "Угнетателя"
 dative = "Угнетателю"
@@ -90,8 +96,9 @@ accusative = "Угнетателя"
 instrumental = "Угнетателем"
 prepositional = "Угнетателе"
 gender = "male"
+tags = [ "cm13",]
 
-["Vanguard"]
+[vanguard]
 nominative = "Авангард"
 genitive = "Авангарда"
 dative = "Авангарду"
@@ -99,8 +106,9 @@ accusative = "Авангард"
 instrumental = "Авангардом"
 prepositional = "Авангарде"
 gender = "male"
+tags = [ "cm13",]
 
-["Valkyrie"]
+[valkyrie]
 nominative = "Валькирия"
 genitive = "Валькирии"
 dative = "Валькирии"
@@ -108,8 +116,9 @@ accusative = "Валькирию"
 instrumental = "Валькирией"
 prepositional = "Валькирии"
 gender = "female"
+tags = [ "cm13",]
 
-["Trapper"]
+[trapper]
 nominative = "Ловчий"
 genitive = "Ловчего"
 dative = "Ловчему"
@@ -117,8 +126,9 @@ accusative = "Ловчего"
 instrumental = "Ловчим"
 prepositional = "Ловчем"
 gender = "male"
+tags = [ "cm13",]
 
-["Berserker"]
+[berserker]
 nominative = "Берсерк"
 genitive = "Берсерка"
 dative = "Берсерку"
@@ -126,8 +136,9 @@ accusative = "Берсерка"
 instrumental = "Берсерком"
 prepositional = "Берсерке"
 gender = "male"
+tags = [ "cm13",]
 
-["Hedgehog"]
+[hedgehog]
 nominative = "Дикобраз"
 genitive = "Дикобраза"
 dative = "Дикобразу"
@@ -135,3 +146,4 @@ accusative = "Дикобраза"
 instrumental = "Дикобразом"
 prepositional = "Дикобразе"
 gender = "male"
+tags = [ "cm13",]

@@ -32,34 +32,13 @@ GLOBAL_LIST_EMPTY(ru_names)
 /proc/ru_names_toml(name, prefix, suffix, override_base)
 	. = list()
 	var/formatted_name = format_text(name)
+	formatted_name = lowertext(formatted_name)
 	// The world didn't initialize properly yet
 	if(isnull(GLOB.ru_names))
 		return .
 	// Fill ru_names
 	if(!length(GLOB.ru_names))
-		var/root = "[PATH_TO_TRANSLATE_DATA]/ru_names/"
-		var/list/tomls_path = flist(root)
-		if(!length(tomls_path))
-			return .
-#ifdef UNIT_TESTS
-		var/list/duplicate_list = list()
-#endif
-		for(var/toml_file in tomls_path)
-			var/full_path = root + toml_file
-			if(!fexists(full_path))
-				continue
-			var/list/file_data = rustg_read_toml_file(full_path)
-			for(var/key in file_data)
-				if(GLOB.ru_names[key])
-					continue
-#ifdef UNIT_TESTS
-					duplicate_list += key
-#endif
-				GLOB.ru_names[key] = file_data[key]
-#ifdef UNIT_TESTS
-		if(length(duplicate_list))
-			CRASH("Multiple ru_names entries detected. Keys are: [english_list(duplicate_list)]")
-#endif
+		_ru_names_toml_init()
 	if(GLOB.ru_names[formatted_name])
 		var/list/entry = GLOB.ru_names[formatted_name]
 
@@ -80,6 +59,29 @@ GLOBAL_LIST_EMPTY(ru_names)
 			"[prefix][prepositional_form][suffix]",
 			gender = "[entry["gender"] || null]",
 		)
+
+/proc/_ru_names_toml_init()
+	var/root = "[PATH_TO_TRANSLATE_DATA]/ru_names/"
+	var/list/tomls_path = flist(root)
+	if(!length(tomls_path))
+		return .
+	for(var/toml_file in tomls_path)
+		var/full_path = root + toml_file
+		if(!fexists(full_path))
+			continue
+		var/list/file_data = rustg_read_toml_file(full_path)
+		for(var/key in file_data)
+			var/ignore = FALSE
+			if(GLOB.ru_names[key])
+				continue
+			if(file_data[key]["tags"])
+				for(var/tag in TRANSLATE_TAGS_TO_IGNORE)
+					if(tag in file_data[key]["tags"])
+						ignore = TRUE
+						break
+			if(ignore)
+				continue
+			GLOB.ru_names[key] = file_data[key]
 
 /atom/Initialize(mapload, ...)
 	. = ..()

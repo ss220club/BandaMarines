@@ -14,10 +14,6 @@
 	if(!action_cooldown_check())
 		return
 
-	if(SSticker?.mode?.hardcore)
-		to_chat(xenomorph, SPAN_XENOWARNING("Чъё-то присутствие здесь мешает нам рыть туннель."))
-		return
-
 	if(HAS_TRAIT(xenomorph, TRAIT_ABILITY_BURROWED))
 		xenomorph.tunnel(get_turf(A))
 	else

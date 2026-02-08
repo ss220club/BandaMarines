@@ -35,16 +35,22 @@
 		add_vehicle_verbs(M)
 		if(sidecar)
 			sidecar.update_bike_permutated(TRUE)
-		RegisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN), PROC_REF(unbuckle))
+		RegisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN), PROC_REF(trigger_unbuckle))
 	else
 		density = initial(density)
 		remove_vehicle_verbs(M)
 	update_drive_skill_parameters()
 
+/obj/vehicle/motorbike/proc/trigger_unbuckle()
+	SIGNAL_HANDLER
+
+	unbuckle()
+
 /obj/vehicle/motorbike/unbuckle()
 	if(sidecar)
 		// Выносим сюда, а то неправильно уберет, т.к. моб уже отвязан
 		sidecar.reset_bike_permutated(TRUE)
-	buckled_mob.set_glide_size(initial(buckled_mob.glide_size))
-	UnregisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN))
+	if(buckled_mob)
+		buckled_mob.set_glide_size(initial(buckled_mob.glide_size))
+		UnregisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN))
 	. = ..()

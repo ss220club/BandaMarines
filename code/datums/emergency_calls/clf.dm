@@ -5,12 +5,15 @@
 	name = "Colonial Liberation Front (Squad)"
 	mob_max = 10
 	arrival_message = "'Внимание, вы вторглись на нашу суверенную территорию. Не ждите от нас прощения.'"
-	objectives = "Нападите на КМП и устройте как можно больше диверсий. Убедитесь, что все выжившие спаслись, находясь под вашим арестом."
 	probability = 20
 	hostility = TRUE
 	home_base = /datum/lazy_template/ert/clf_station
 	var/max_synths = 1
 	var/synths = 0
+
+/datum/emergency_call/clf/New()
+	. = ..()
+	objectives = "Нападите на КМП и устройте как можно больше диверсий. Убедитесь, что все выжившие спаслись, находясь под вашим арестом."
 
 /datum/emergency_call/clf/print_backstory(mob/living/carbon/human/H)
 	if(ishuman_strict(H))

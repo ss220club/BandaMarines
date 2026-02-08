@@ -1,4 +1,4 @@
-["heart"]
+[heart]
 nominative = "сердце"
 genitive = "сердца"
 dative = "сердцу"
@@ -7,7 +7,7 @@ instrumental = "сердцем"
 prepositional = "сердце"
 gender = "neuter"
 
-["lungs"]
+[lungs]
 nominative = "лёгкие"
 genitive = "лёгких"
 dative = "лёгким"
@@ -16,7 +16,7 @@ instrumental = "лёгкими"
 prepositional = "лёгких"
 gender = "plural"
 
-["liver"]
+[liver]
 nominative = "печень"
 genitive = "печени"
 dative = "печени"
@@ -25,7 +25,7 @@ instrumental = "печенью"
 prepositional = "печени"
 gender = "female"
 
-["stomach"]
+[stomach]
 nominative = "желудок"
 genitive = "желудка"
 dative = "желудку"
@@ -34,7 +34,7 @@ instrumental = "желудком"
 prepositional = "желудке"
 gender = "male"
 
-["appendix"]
+[appendix]
 nominative = "аппендикс"
 genitive = "аппендикса"
 dative = "аппендиксу"
@@ -43,7 +43,7 @@ instrumental = "аппендиксом"
 prepositional = "аппендиксе"
 gender = "male"
 
-["eyes"]
+[eyes]
 nominative = "глаза"
 genitive = "глаз"
 dative = "глазам"
@@ -52,7 +52,7 @@ instrumental = "глазами"
 prepositional = "глазах"
 gender = "plural"
 
-["ears"]
+[ears]
 nominative = "уши"
 genitive = "ушей"
 dative = "ушам"
@@ -61,7 +61,7 @@ instrumental = "ушами"
 prepositional = "ушах"
 gender = "plural"
 
-["tongue"]
+[tongue]
 nominative = "язык"
 genitive = "языка"
 dative = "языку"
@@ -88,7 +88,7 @@ instrumental = "раздвоенным языком"
 prepositional = "раздвоенном языке"
 gender = "male"
 
-["tail"]
+[tail]
 nominative = "кошачий хвост"
 genitive = "кошачьего хвоста"
 dative = "кошачьему хвосту"
@@ -196,7 +196,7 @@ instrumental = "синтетическим мечом-клинком"
 prepositional = "синтетическом мече-клинке"
 gender = "male"
 
-["Limb Design Disk"]
+["limb design disk"]
 nominative = "диск с дизайном конечностей"
 genitive = "диска с дизайном конечностей"
 dative = "диску с дизайном конечностей"
@@ -205,7 +205,7 @@ instrumental = "диском с дизайном конечностей"
 prepositional = "диске с дизайном конечностей"
 gender = "male"
 
-["Felinid Organ Design Disk"]
+["felinid organ design disk"]
 nominative = "диск с дизайном органов фелинида"
 genitive = "диска с дизайном органов фелинида"
 dative = "диску с дизайном органов фелинида"
@@ -214,7 +214,7 @@ instrumental = "диском с дизайном органов фелинида
 prepositional = "диске с дизайном органов фелинида"
 gender = "male"
 
-["Lizard Organ Design Disk"]
+["lizard organ design disk"]
 nominative = "диск с дизайном органов унатха"
 genitive = "диска с дизайном органов унатха"
 dative = "диску с дизайном органов унатха"
@@ -223,7 +223,7 @@ instrumental = "диском с дизайном органов унатха"
 prepositional = "диске с дизайном органов унатха"
 gender = "male"
 
-["Plasmaman Organ Design Disk"]
+["plasmaman organ design disk"]
 nominative = "диск с дизайном органов плазмамена"
 genitive = "диска с дизайном органов плазмамена"
 dative = "диску с дизайном органов плазмамена"
@@ -232,7 +232,7 @@ instrumental = "диском с дизайном органов плазмаме
 prepositional = "диске с дизайном органов плазмамена"
 gender = "male"
 
-["Ethereal Organ Design Disk"]
+["ethereal organ design disk"]
 nominative = "диск с дизайном органов эфирала"
 genitive = "диска с дизайном органов эфирала"
 dative = "диску с дизайном органов эфирала"
@@ -493,7 +493,7 @@ instrumental = "инструментальным имплантом"
 prepositional = "инструментальном импланте"
 gender = "male"
 
-["medical HUD implant"]
+["medical hud implant"]
 nominative = "имплант медицинского ИЛС"
 genitive = "импланта медицинского ИЛС"
 dative = "импланту медицинского ИЛС"
@@ -502,7 +502,7 @@ instrumental = "имплантом медицинского ИЛС"
 prepositional = "импланте медицинского ИЛС"
 gender = "male"
 
-["security HUD implant"]
+["security hud implant"]
 nominative = "имплант охранного ИЛС"
 genitive = "импланта охранного ИЛС"
 dative = "импланту охранного ИЛС"
@@ -511,7 +511,7 @@ instrumental = "имплантом охранного ИЛС"
 prepositional = "импланте охранного ИЛС"
 gender = "male"
 
-["diagnostic HUD implant"]
+["diagnostic hud implant"]
 nominative = "имплант диагностического ИЛС"
 genitive = "импланта диагностического ИЛС"
 dative = "импланту диагностического ИЛС"
@@ -565,7 +565,7 @@ instrumental = "имплантом антидроп"
 prepositional = "импланте антидроп"
 gender = "male"
 
-["CNS rebooter implant"]
+["cns rebooter implant"]
 nominative = "имплант перезапуска ЦНС"
 genitive = "импланта перезапуска ЦНС"
 dative = "импланту перезапуска ЦНС"
@@ -574,7 +574,7 @@ instrumental = "имплантом перезапуска ЦНС"
 prepositional = "импланте перезапуска ЦНС"
 gender = "male"
 
-["Herculean gravitronic spinal implant"]
+["herculean gravitronic spinal implant"]
 nominative = "Геркулесный гравитронный спинномозговой имплант"
 genitive = "Геркулесного гравитронного спинномозгового импланта"
 dative = "Геркулесному гравитронному спинномозговому импланту"
@@ -583,7 +583,7 @@ instrumental = "Геркулесным гравитронным спинномо
 prepositional = "Геркулесном гравитронном спинномозговом импланте"
 gender = "male"
 
-["CNS skillchip connector implant"]
+["cns skillchip connector implant"]
 nominative = "имплант подключения скилл-чипов к ЦНС"
 genitive = "импланта подключения скилл-чипов к ЦНС"
 dative = "импланту подключения скилл-чипов к ЦНС"
@@ -601,7 +601,7 @@ instrumental = "имплантом питающей помпы"
 prepositional = "импланте питающей помпы"
 gender = "male"
 
-["nutriment pump implant PLUS"]
+["nutriment pump implant plus"]
 nominative = "имплант питающей помпы ПЛЮС"
 genitive = "импланта питающей помпы ПЛЮС"
 dative = "импланту питающей помпы ПЛЮС"

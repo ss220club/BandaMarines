@@ -68,7 +68,7 @@ Additional game mode variables.
 	//Some gameplay variables.
 	var/round_checkwin = 0
 	var/round_finished
-	var/round_started = 5 //This is a simple timer so we don't accidently check win conditions right in post-game
+	var/round_started = 5 //This is a simple timer so we don't accidentally check win conditions right in post-game
 	var/list/round_toxic_river = list() //List of all toxic river locations
 	var/round_time_lobby //Base time for the lobby, for fog dispersal.
 	var/round_time_river
@@ -118,13 +118,13 @@ Additional game mode variables.
 
 //===================================================\\
 
-				//GAME MODE INITIATLIZE\\
+				//GAME MODE INITIALIZE\\
 
 //===================================================\\
 
 /datum/game_mode/proc/initialize_special_clamps()
 	xeno_starting_num = clamp((GLOB.readied_players/CONFIG_GET(number/xeno_number_divider)), xeno_required_num, INFINITY) //(n, minimum, maximum)
-	surv_starting_num = clamp((GLOB.readied_players/CONFIG_GET(number/surv_number_divider)), 2, 8) //this doesnt run
+	surv_starting_num = clamp((GLOB.readied_players/CONFIG_GET(number/surv_number_divider)), 2, 8) //this doesn't run
 	marine_starting_num = length(GLOB.player_list) - xeno_starting_num - surv_starting_num
 	for(var/datum/squad/target_squad in GLOB.RoleAuthority.squads)
 		if(target_squad)
@@ -139,7 +139,7 @@ Additional game mode variables.
 
 //===================================================\\
 
-				//PREDATOR INITIATLIZE\\
+				//PREDATOR INITIALIZE\\
 
 //===================================================\\
 
@@ -375,7 +375,7 @@ Additional game mode variables.
 
 //===================================================\\
 
-			//XENOMORPH INITIATLIZE\\
+			//XENOMORPH INITIALIZE\\
 
 //===================================================\\
 
@@ -859,17 +859,22 @@ Additional game mode variables.
 	new_queen.generate_name()
 
 	SSround_recording.recorder.track_player(new_queen)
-
-	to_chat(new_queen, "<B>You are now the alien queen!</B>")
-	to_chat(new_queen, "<B>Your job is to spread the hive.</B>")
-	to_chat(new_queen, "<B>You should start by building a hive core.</B>")
-	to_chat(new_queen, "Talk in Hivemind using <strong>;</strong> (e.g. ';Hello my children!')")
+	if(Check_WO())
+		to_chat(new_queen, "<B>You are now the alien queen!</B>")
+		to_chat(new_queen, "<B>Your job is to assist the hive in assaulting the human outpost!</B>")
+		to_chat(new_queen, "<B>You should start by planting weeds and growing an ovipositor, your children will appear around round time 0:20. You will be able to leave your cave after the round time reaches 1:00.</B>")
+		to_chat(new_queen, "Talk in Hivemind using <strong>;</strong> (e.g. ';Hello my children!')")
+	else
+		to_chat(new_queen, "<B>You are now the alien queen!</B>")
+		to_chat(new_queen, "<B>Your job is to spread the hive.</B>")
+		to_chat(new_queen, "<B>You should start by building a hive core.</B>")
+		to_chat(new_queen, "Talk in Hivemind using <strong>;</strong> (e.g. ';Hello my children!')")
 
 	new_queen.update_icons()
 
 //===================================================\\
 
-			//SURVIVOR INITIATLIZE\\
+			//SURVIVOR INITIALIZE\\
 
 //===================================================\\
 
@@ -1044,11 +1049,11 @@ Additional game mode variables.
 
 //===================================================\\
 
-			//MARINE GEAR INITIATLIZE\\
+			//MARINE GEAR INITIALIZE\\
 
 //===================================================\\
 
-//We do NOT want to initilialize the gear before everyone is properly spawned in
+//We do NOT want to initialize the gear before everyone is properly spawned in
 /datum/game_mode/proc/initialize_post_marine_gear_list()
 	init_gear_scale()
 
@@ -1148,6 +1153,10 @@ Additional game mode variables.
 		if(show_warning)
 			to_chat(joe_candidate, SPAN_WARNING("You are not whitelisted! You may apply on the forums to be whitelisted as a synth."))
 		return
+
+	if(MODE_HAS_MODIFIER(/datum/gamemode_modifier/disable_wj_spawns))
+		to_chat(joe_candidate, SPAN_WARNING("Working Joes are disabled from spawning!"))
+		return FALSE
 
 	if(MODE_HAS_MODIFIER(/datum/gamemode_modifier/disable_wj_respawns) && (joe_candidate.ckey in joes)) // No joe respawns if already a joe before
 		to_chat(joe_candidate, SPAN_WARNING("Working Joe respawns are disabled!"))

@@ -21,6 +21,10 @@
 	if(SSticker?.mode?.hardcore)
 		hardcore = TRUE //For WO disposing of corpses
 
+	if(MODE_HAS_MODIFIER(/datum/gamemode_modifier/more_crit))
+		health_threshold_dead = -150
+		health_threshold_crit = -100
+
 /mob/living/carbon/human/initialize_pass_flags(datum/pass_flags_container/PF)
 	..()
 	if (PF)
@@ -97,7 +101,7 @@
 
 	. += ""
 	if(ishumansynth_strict(src)) // So that yautja or other species don't see the ships security alert
-		. += "Security Level: [uppertext(get_security_level())]"
+		. += "Уровень тревоги: [uppertext(get_security_level())]"
 
 	if(species?.has_species_tab_items)
 		var/list/species_tab_items = species.get_status_tab_items(src)
@@ -105,14 +109,14 @@
 			. += tab_item
 
 	if(faction == FACTION_MARINE & !isnull(SSticker) && !isnull(SSticker.mode) && !isnull(SSticker.mode.active_lz) && !isnull(SSticker.mode.active_lz.loc) && !isnull(SSticker.mode.active_lz.loc.loc))
-		. += "Primary LZ: [SSticker.mode.active_lz.loc.loc.name]"
+		. += "Основная ЗП: [SSticker.mode.active_lz.loc.loc.name]"
 
 	if(faction == FACTION_MARINE & !isnull(SSticker) && !isnull(SSticker.mode))
-		. += "Operation Name: [GLOB.round_statistics.round_name]"
+		. += "Название операции: [GLOB.round_statistics.round_name]"
 
 	if(assigned_squad)
 		if(assigned_squad.overwatch_officer)
-			. += "Overwatch Officer: [assigned_squad.overwatch_officer.get_paygrade()][assigned_squad.overwatch_officer.name]"
+			. += "Координатор: [assigned_squad.overwatch_officer.get_paygrade()][assigned_squad.overwatch_officer.name]"
 		if(assigned_squad.primary_objective || assigned_squad.secondary_objective)
 			var/turf/current_turf = get_turf(src)
 			var/is_shipside = is_mainship_level(current_turf?.z)
@@ -123,15 +127,15 @@
 			var/primary_garbled = garbled && !squad_primary_objective_ungarbled
 			var/secondary_garbled = garbled && !squad_secondary_objective_ungarbled
 			if(assigned_squad.primary_objective)
-				. += "Primary Objective: [html_decode(primary_garbled ? assigned_squad.primary_objective_garbled : assigned_squad.primary_objective)]"
+				. += "Основная задача: [html_decode(primary_garbled ? assigned_squad.primary_objective_garbled : assigned_squad.primary_objective)]"
 			if(assigned_squad.secondary_objective)
-				. += "Secondary Objective: [html_decode(secondary_garbled ? assigned_squad.secondary_objective_garbled : assigned_squad.secondary_objective)]"
+				. += "Вторичная задача: [html_decode(secondary_garbled ? assigned_squad.secondary_objective_garbled : assigned_squad.secondary_objective)]"
 	if(mobility_aura)
-		. += "Active Order: MOVE"
+		. += "Активный приказ: MOVE"
 	if(protection_aura)
-		. += "Active Order: HOLD"
+		. += "Активный приказ: HOLD"
 	if(marksman_aura)
-		. += "Active Order: FOCUS"
+		. += "Активный приказ: FOCUS"
 
 	if(SShijack)
 		var/eta_status = SShijack.get_evac_eta()
@@ -416,7 +420,7 @@
 	if(href_list["item"])
 		if(!usr.is_mob_incapacitated() && Adjacent(usr))
 			if(href_list["item"] == "id")
-				if(MODE_HAS_MODIFIER(/datum/gamemode_modifier/disable_stripdrag_enemy) && (stat == DEAD || health < HEALTH_THRESHOLD_CRIT) && !get_target_lock(usr.faction_group))
+				if(MODE_HAS_MODIFIER(/datum/gamemode_modifier/disable_stripdrag_enemy) && (stat == DEAD || health < health_threshold_crit) && !get_target_lock(usr.faction_group))
 					to_chat(usr, SPAN_WARNING("You can't strip a crit or dead member of another faction!"))
 					return
 				if(istype(wear_id, /obj/item/card/id/dogtag) && (undefibbable || !skillcheck(usr, SKILL_POLICE, SKILL_POLICE_SKILLED)))
@@ -441,7 +445,7 @@
 			if(!usr.action_busy || skillcheck(usr, SKILL_POLICE, SKILL_POLICE_SKILLED))
 				var/slot = href_list["item"]
 				var/obj/item/what = get_item_by_slot(slot)
-				if(MODE_HAS_MODIFIER(/datum/gamemode_modifier/disable_stripdrag_enemy) && (stat == DEAD || health < HEALTH_THRESHOLD_CRIT) && !get_target_lock(usr.faction_group))
+				if(MODE_HAS_MODIFIER(/datum/gamemode_modifier/disable_stripdrag_enemy) && (stat == DEAD || health < health_threshold_crit) && !get_target_lock(usr.faction_group))
 					if(!MODE_HAS_MODIFIER(/datum/gamemode_modifier/disable_strip_essentials) || (what in list(head, wear_suit, w_uniform, shoes)))
 						to_chat(usr, SPAN_WARNING("You can't strip a crit or dead member of another faction!"))
 						return
@@ -453,7 +457,7 @@
 
 	if(href_list["sensor"])
 		if(!usr.action_busy && !usr.is_mob_incapacitated() && Adjacent(usr))
-			if(MODE_HAS_MODIFIER(/datum/gamemode_modifier/disable_stripdrag_enemy) && (stat == DEAD || health < HEALTH_THRESHOLD_CRIT) && !get_target_lock(usr.faction_group))
+			if(MODE_HAS_MODIFIER(/datum/gamemode_modifier/disable_stripdrag_enemy) && (stat == DEAD || health < health_threshold_crit) && !get_target_lock(usr.faction_group))
 				to_chat(usr, SPAN_WARNING("You can't tweak the sensors of a crit or dead member of another faction!"))
 				return
 			attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had their sensors toggled by [key_name(usr)]</font>")
@@ -1727,7 +1731,7 @@
 			return // time leniency for lag which also might make this whole thing pointless but the server
 		for(var/mob/O in viewers(src))//  lags so hard that 40s isn't lenient enough - Quarxink
 			O.show_message(SPAN_DANGER("<B>[src] manages to remove [restraint]!</B>"), SHOW_MESSAGE_VISIBLE)
-		to_chat(src, SPAN_NOTICE(" You successfully remove [restraint]."))
+		to_chat(src, SPAN_NOTICE("You successfully remove [restraint]."))
 		drop_inv_item_on_ground(restraint)
 
 /mob/living/carbon/human/equip_to_appropriate_slot(obj/item/W, ignore_delay = 1, list/slot_equipment_priority)

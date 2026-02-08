@@ -608,11 +608,11 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 				current_squad = selected_squad
 				operator = user
 				if(current_squad.name == "Root")
-					visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("Welcome [operator.name], access credentials verified. All tactical functions initialized.")]")
+					visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("Добро пожаловать, [operator.name], авторизация подтверждена. Все тактические функции инициализированы.")]")
 				else
-					current_squad.send_squad_message("Attention - Your squad has been selected for Overwatch. Check your Status pane for objectives.", displayed_icon = src)
-					current_squad.send_squad_message("Your Overwatch officer is: [operator.name].", displayed_icon = src)
-					visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("Tactical data for squad '[current_squad]' loaded. All tactical functions initialized.")]")
+					current_squad.send_squad_message("Внимание - вашему отряд был назначен координатор. Проверьте статус панель на обновленные задачи.", displayed_icon = src)
+					current_squad.send_squad_message("Ваш координатор: [operator.name].", displayed_icon = src)
+					visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("Тактическая информация для отряда «[current_squad]» загружена. Все тактические функции инициализированы.")]")
 				return TRUE
 
 		if("logout")
@@ -623,13 +623,13 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 						break
 			if(current_squad?.release_overwatch())
 				if(isSilicon(user))
-					current_squad.send_squad_message("Attention. [operator.name] has released overwatch system control. Overwatch functions deactivated.", displayed_icon = src)
-					to_chat(user, "[icon2html(src, user)] [SPAN_BOLDNOTICE("Overwatch system control override disengaged.")]")
+					current_squad.send_squad_message("Внимание. [operator.name] отключается от системы координации. Функции координатора отключены", displayed_icon = src)
+					to_chat(user, "[icon2html(src, user)] [SPAN_BOLDNOTICE("Управление системой координации было отключено.")]")
 				else
 					var/mob/living/carbon/human/human_operator = operator
 					var/obj/item/card/id/ID = human_operator.get_idcard()
-					current_squad.send_squad_message("Attention. [ID ? "[ID.rank] ":""][operator ? "[operator.name]":"sysadmin"] is no longer your Overwatch officer. Overwatch functions deactivated.", displayed_icon = src)
-					visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("Overwatch systems deactivated. Goodbye, [ID ? "[ID.rank] ":""][operator ? "[operator.name]":"sysadmin"].")]")
+					current_squad.send_squad_message("Внимание. [ID ? "[ID.rank] ":""][operator ? "[operator.name]":"sysadmin"] более не ваш координатор. Системы координации отключены.", displayed_icon = src)
+					visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("Системы координации отключены. До свидания, [ID ? "[ID.rank] ":""][operator ? "[operator.name]":"sysadmin"].")]")
 			operator = null
 			current_squad = null
 			if(cam)
@@ -774,7 +774,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 
 		if("watch_camera")
 			if(isRemoteControlling(user))
-				to_chat(user, "[icon2html(src, user)] [SPAN_WARNING("Unable to override console camera viewer. Track with camera instead. ")]")
+				to_chat(user, "[icon2html(src, user)] [SPAN_WARNING("Unable to override console camera viewer. Track with camera instead.")]")
 				return
 			if(!params["target_ref"])
 				return
@@ -823,7 +823,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 		if("change_operator")
 			if(operator != user)
 				if(operator && isSilicon(operator))
-					visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("AI override in progress. Access denied.")]")
+					visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("Обнаружена перезапись контроля ИИ. Доступ отказан.")]")
 					return
 				if(istype(src, /obj/structure/machinery/computer/overwatch/groundside_operations))
 					for(var/datum/squad/resolve_root in GLOB.RoleAuthority.squads)
@@ -833,13 +833,13 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 				if(!current_squad || current_squad.assume_overwatch(user))
 					operator = user
 				if(isSilicon(user))
-					to_chat(user, "[icon2html(src, user)] [SPAN_BOLDNOTICE("Overwatch system AI override protocol successful.")]")
-					current_squad?.send_squad_message("Attention. [operator.name] has engaged overwatch system control override.", displayed_icon = src)
+					to_chat(user, "[icon2html(src, user)] [SPAN_BOLDNOTICE("Перезапись системы координации для ИИ завершена.")]")
+					current_squad?.send_squad_message("Внимание. [operator.name] подключается к системе координации.", displayed_icon = src)
 				else
 					var/mob/living/carbon/human/human = operator
 					var/obj/item/card/id/ID = human.get_idcard()
-					visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("Basic overwatch systems initialized. Welcome, [ID ? "[ID.rank] ":""][operator.name]. Please select a squad.")]")
-					current_squad?.send_squad_message("Attention. Your Overwatch officer is now [ID ? "[ID.rank] ":""][operator.name].", displayed_icon = src)
+					visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("Основные функции системы координации инициализированы. Добро пожаловать, [ID ? "[ID.rank] ":""][operator.name]. Пожалуйста, выберите отряд.")]")
+					current_squad?.send_squad_message("Внимание. Вашим координатором теперь является: [ID ? "[ID.rank] ":""][operator.name].", displayed_icon = src)
 				return TRUE
 
 		// groundside ops functions
@@ -916,7 +916,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 
 				if(announcement_type == "shipside")
 					shipwide_ai_announcement(input, COMMAND_SHIP_ANNOUNCE, signature = signed)
-					message_admins("[key_name(user)] has made a shipwide annoucement.")
+					message_admins("[key_name(user)] has made a shipwide announcement.")
 					log_announcement("[key_name(user)] has announced the following to the ship: [input]")
 					COOLDOWN_START(src, cooldown_shipside_message, COOLDOWN_COMM_MESSAGE)
 				else
@@ -930,9 +930,9 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 
 		if("messageUSCM")
 			if(!COOLDOWN_FINISHED(src, cooldown_central))
-				to_chat(user, SPAN_WARNING("Arrays are re-cycling.  Please stand by."))
+				to_chat(user, SPAN_WARNING("Arrays are re-cycling. Please stand by."))
 				return FALSE
-			var/input = stripped_input(user, "Please choose a message to transmit to USCM.  Please be aware that this process is very expensive, and abuse will lead to termination.  Transmission does not guarantee a response. There is a small delay before you may send another message. Be clear and concise.", "To abort, send an empty message.", "")
+			var/input = stripped_input(user, "Please choose a message to transmit to USCM. Please be aware that this process is very expensive, and abuse will lead to termination. Transmission does not guarantee a response. There is a small delay before you may send another message. Be clear and concise.", "To abort, send an empty message.", "")
 			if(!input || !(user in dview(1, src)) || !COOLDOWN_FINISHED(src, cooldown_central))
 				return FALSE
 
@@ -1102,7 +1102,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 		current_squad.send_message("Attention: A new Squad Leader has been set: [selected_sl.real_name].")
 		visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("[selected_sl.real_name] is the new Squad Leader of squad '[current_squad]'! Logging to enlistment file.")]")
 
-	to_chat(selected_sl, "[icon2html(src, selected_sl)] <font size='3' color='blue'><B>Overwatch: You've been promoted to \'[selected_sl.job == JOB_SQUAD_LEADER ? "SQUAD LEADER" : "ACTING SQUAD LEADER"]\' for [current_squad.name]. Your headset has access to the command channel ([command_channel_key]).</B></font>")
+	to_chat(selected_sl, "[icon2html(src, selected_sl)] <font size='3' color='blue'><B>Координатор: Вы были повышены до \'[selected_sl.job == JOB_SQUAD_LEADER ? "КОМАНДИР ОТРЯДА" : "ИО КОМАНДИРА ОТРЯДА"]\' для [current_squad.name]. Ваш наушник теперь имеет доступ к каналам связи командования ([command_channel_key]).</B></font>")
 	to_chat(user, "[icon2html(src, usr)] [selected_sl.real_name] is [current_squad]'s new leader!")
 
 	if(selected_sl.assigned_fireteam)
@@ -1190,6 +1190,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 		user.unset_interaction()
 	var/datum/component/tacmap/tacmap_component = GetComponent(/datum/component/tacmap)
 	tacmap_component.on_unset_interaction(user)
+	tacmap_component.close_popout_tacmaps(user)
 
 /// checks if the human has an overwatch camera at all
 /obj/structure/machinery/computer/overwatch/proc/marine_has_camera(mob/living/carbon/human/marine)
@@ -1280,7 +1281,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 							usr << insub
 						else
 							visible_message(insub)
-						to_chat(wanted_marine, "[icon2html(src, wanted_marine)] <font size='3' color='blue'><B>Overwatch:</b> You've been reported for insubordination by your overwatch officer.</font>")
+						to_chat(wanted_marine, "[icon2html(src, wanted_marine)] <font size='3' color='blue'><B>Координатор:</b> Ваш координатор сообщил о вашем нарушении субординации.</font>")
 						wanted_marine.sec_hud_set_security_status()
 					return
 
@@ -1334,7 +1335,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 	. = transfer_marine_to_squad(transfer_marine, new_squad, old_squad, card)
 	if(.)
 		visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("[transfer_marine] has been transfered from squad '[old_squad]' to squad '[new_squad]'. Logging to enlistment file.")]")
-		to_chat(transfer_marine, "[icon2html(src, transfer_marine)] <font size='3' color='blue'><B>\[Overwatch\]:</b> You've been transfered to [new_squad]!</font>")
+		to_chat(transfer_marine, "[icon2html(src, transfer_marine)] <font size='3' color='blue'><B>\[Координатор\]:</b> Вы были назначены в [new_squad]!</font>")
 	else
 		visible_message("[icon2html(src, viewers(src))] [SPAN_BOLDNOTICE("[transfer_marine] transfer from squad '[old_squad]' to squad '[new_squad]' unsuccessful.")]")
 

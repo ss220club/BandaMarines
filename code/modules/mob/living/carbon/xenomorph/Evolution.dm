@@ -85,10 +85,6 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 		return
 
 	if(castepick == XENO_CASTE_QUEEN) //Special case for dealing with queenae
-		if(hardcore)
-			to_chat(src, SPAN_WARNING("Nuh-uhh."))
-			return
-
 		if(SSticker.mode && hive.xeno_queen_timer > world.time)
 			to_chat(src, SPAN_WARNING("We must wait about [DisplayTimeText(hive.xeno_queen_timer - world.time, 1)] for the hive to recover from the previous Queen's death."))
 			return
@@ -101,6 +97,16 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 		else
 			to_chat(src, SPAN_WARNING("We require more plasma! Currently at: [plasma_stored] / [required_plasma]."))
 			return
+
+	if(Check_WO())
+		if(castepick != XENO_CASTE_QUEEN) //Prevent evolutions into T2s and T3s in WO
+			to_chat(src, SPAN_WARNING ("The Hive can only support evolving into Queens!"))
+			return
+		on_mob_jump()
+		forceMove(get_turf(pick(GLOB.queen_spawns)))
+	else if(hardcore)
+		to_chat(src, SPAN_WARNING("Nuh-uhh."))
+		return
 
 	if(evolution_threshold && castepick != XENO_CASTE_QUEEN) //Does the caste have an evolution timer? Then check it
 		if(evolution_stored < evolution_threshold)
@@ -189,7 +195,7 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 	new_xeno.generate_name()
 	if(new_xeno.client)
 		new_xeno.set_lighting_alpha(level_to_switch_to)
-	if(new_xeno.health - getBruteLoss(src) - getFireLoss(src) > 0) //Cmon, don't kill the new one! Shouldnt be possible though
+	if(new_xeno.health - getBruteLoss(src) - getFireLoss(src) > 0) //Cmon, don't kill the new one! Shouldn't be possible though
 		new_xeno.bruteloss = bruteloss //Transfers the damage over.
 		new_xeno.fireloss = fireloss //Transfers the damage over.
 		new_xeno.updatehealth()
@@ -252,10 +258,6 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 
 	if(HAS_TRAIT(src, TRAIT_HIVEMIND_INTERFERENCE))
 		to_chat(src, SPAN_WARNING("Наша связь с ульем подавляется... Мы должны немного подождать."))
-		return FALSE
-
-	if(hardcore)
-		to_chat(src, SPAN_WARNING("Nuh-uh."))
 		return FALSE
 
 	if(lock_evolve)
@@ -380,6 +382,10 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 			to_chat(src, SPAN_WARNING("Мы не можем регрессировать."))
 		return FALSE
 
+	if(hardcore)
+		to_chat(src, SPAN_WARNING("We can't deevolve."))
+		return FALSE
+
 	var/alleged_queens = hive.get_potential_queen_count()
 	if(hive.allow_queen_evolve && !hive.living_xeno_queen && alleged_queens < 2 && isdrone(src))
 		to_chat(src, SPAN_XENONOTICE("В улье сейчас нет сестры, которая могла бы стать Королевой! Вы должны стать дроном, чтобы улей выжил!"))
@@ -421,7 +427,7 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 		GLOB.deevolved_ckeys += new_xeno.ckey
 
 /mob/living/carbon/xenomorph/proc/transmute(newcaste, message="Мы регрессируем в нашу предыдущую форму.")
-	// We have to delete the organ before creating the new xeno because all old_xeno contents are dropped to the ground on Initalize()
+	// We have to delete the organ before creating the new xeno because all old_xeno contents are dropped to the ground on Initialize()
 	var/obj/item/organ/xeno/organ = locate() in src
 	if(!isnull(organ))
 		qdel(organ)

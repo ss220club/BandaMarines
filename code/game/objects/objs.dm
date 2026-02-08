@@ -11,9 +11,6 @@
 	var/throwforce = 1
 	/// If we have a user using us, this will be set on. We will check if the user has stopped using us, and thus stop updating and LAGGING EVERYTHING!
 	var/in_use = FALSE
-	var/mob/living/buckled_mob
-	/// Bed-like behaviour, forces mob.lying = buckle_lying if not set to [NO_BUCKLE_LYING].
-	var/buckle_lying = NO_BUCKLE_LYING
 	var/can_buckle = FALSE
 	/**Applied to surgery times for mobs buckled prone to it or lying on the same tile, if the surgery
 	cares about surface conditions. The lowest multiplier of objects on the tile is used.**/
@@ -229,9 +226,6 @@
 		manual_unbuckle(user)
 	else . = ..()
 
-/obj/proc/handle_rotation()
-	return
-
 /obj/MouseDrop(atom/over_object)
 	if(!can_buckle)
 		. = ..()
@@ -242,152 +236,6 @@
 			return
 		buckle_mob(M, user)
 	else . = ..()
-
-/obj/proc/afterbuckle(mob/M as mob) // Called after somebody buckled / unbuckled
-	handle_rotation() // To be removed when we have full dir support in set_buckled
-	SEND_SIGNAL(src, COMSIG_OBJ_AFTER_BUCKLE, buckled_mob)
-	if(!buckled_mob)
-		UnregisterSignal(M, COMSIG_PARENT_QDELETING)
-	else
-		RegisterSignal(buckled_mob, COMSIG_PARENT_QDELETING, PROC_REF(unbuckle))
-	return buckled_mob
-
-/obj/proc/unbuckle()
-	SIGNAL_HANDLER
-	if(buckled_mob && buckled_mob.buckled == src)
-		buckled_mob.clear_alert(ALERT_BUCKLED)
-		buckled_mob.set_buckled(null)
-		buckled_mob.anchored = initial(buckled_mob.anchored)
-
-		var/M = buckled_mob
-		REMOVE_TRAITS_IN(buckled_mob, TRAIT_SOURCE_BUCKLE)
-		buckled_mob = null
-
-		afterbuckle(M)
-
-
-/obj/proc/manual_unbuckle(mob/user as mob)
-	if(buckled_mob)
-		if(buckled_mob.buckled == src)
-			var/ru_name = declent_ru(GENITIVE) // SS220 EDIT ADDICTION
-			if(buckled_mob == user)
-				buckled_mob.visible_message(
-					SPAN_NOTICE("[capitalize(buckled_mob.declent_ru(NOMINATIVE))] отстёгивается!"), // SS220 EDIT ADDICTION
-					SPAN_NOTICE("Вы отстёгиваетесь от [ru_name]."), // SS220 EDIT ADDICTION
-					SPAN_NOTICE("Вы слышите металлический щелчок."))
-			else
-				buckled_mob.visible_message(
-					SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] отстёгивает [buckled_mob.declent_ru(ACCUSATIVE)] от [ru_name]."), // SS220 EDIT ADDICTION
-					SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] отстёгивает вас от [ru_name]."), // SS220 EDIT ADDICTION
-					SPAN_NOTICE("Вы слышите металлический щелчок."))
-			unbuckle(buckled_mob)
-			add_fingerprint(user)
-			return 1
-
-	return 0
-
-
-//trying to buckle a mob
-/obj/proc/buckle_mob(mob/M, mob/user)
-	if (!ismob(M) || (get_dist(src, user) > 1) || user.stat || buckled_mob || M.buckled || !isturf(user.loc))
-		return
-
-	if (user.is_mob_incapacitated() || HAS_TRAIT(user, TRAIT_IMMOBILIZED) || HAS_TRAIT(user, TRAIT_FLOORED))
-		to_chat(user, SPAN_WARNING("You can't do this right now."))
-		return
-
-	if (isxeno(user) && !HAS_TRAIT(user, TRAIT_OPPOSABLE_THUMBS))
-		to_chat(user, SPAN_WARNING("You don't have the dexterity to do that, try a nest."))
-		return
-	if (iszombie(user))
-		return
-
-	if(density)
-		density = FALSE
-		if(!step(M, get_dir(M, src)) && loc != M.loc)
-			density = TRUE
-			return
-		density = TRUE
-	else
-		if(M.loc != src.loc)
-			step_towards(M, src) //buckle if you're right next to it
-			if(M.loc != src.loc)
-				return
-			. = buckle_mob(M)
-	if (M.mob_size <= MOB_SIZE_XENO)
-		if ((M.stat == DEAD && istype(src, /obj/structure/bed/roller) || HAS_TRAIT(M, TRAIT_OPPOSABLE_THUMBS)))
-			do_buckle(M, user)
-			return
-	if ((M.mob_size > MOB_SIZE_HUMAN))
-		if(istype(src, /obj/structure/bed/roller))
-			var/obj/structure/bed/roller/roller = src
-			if(!roller.can_carry_big)
-				to_chat(user, SPAN_WARNING("[capitalize(M.declent_ru(NOMINATIVE))] is too big to buckle in."))
-				return
-			if(M.stat != DEAD)
-				to_chat(user, SPAN_WARNING("[capitalize(M.declent_ru(NOMINATIVE))] resists your attempt to buckle!"))
-				return
-		if(M.stat != DEAD)
-			return
-	do_buckle(M, user)
-
-// the actual buckling proc
-// Yes I know this is not style but its unreadable otherwise
-/obj/proc/do_buckle(mob/living/target, mob/user)
-	send_buckling_message(target, user)
-	if (src && src.loc)
-		target.throw_alert(ALERT_BUCKLED, /atom/movable/screen/alert/buckled)
-		target.set_buckled(src)
-		target.forceMove(src.loc)
-		target.setDir(dir)
-		src.buckled_mob = target
-		src.add_fingerprint(user)
-		afterbuckle(target)
-		return TRUE
-
-/obj/proc/send_buckling_message(mob/M, mob/user)
-	var/ru_name = declent_ru(DATIVE) // SS220 EDIT ADDICTION
-	if (M == user)
-		M.visible_message(
-			SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] пристёгивается!"), // SS220 EDIT ADDICTION
-			SPAN_NOTICE("Вы пристёгиваетесь к [ru_name]."), // SS220 EDIT ADDICTION
-			SPAN_NOTICE("Вы слышите металлический щелчок."))
-	else
-		M.visible_message(
-			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] пристёгивает [M.declent_ru(ACCUSATIVE)] к [ru_name]!"),
-			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] пристёгивает вас к [ru_name]."),
-			SPAN_NOTICE("Вы слышите металлический щелчок."))
-
-/obj/Move(NewLoc, direct)
-	. = ..()
-	handle_rotation()
-	if(. && buckled_mob && !handle_buckled_mob_movement(loc,direct)) //movement fails if buckled mob's move fails.
-		. = FALSE
-
-/obj/forceMove(atom/dest)
-	. = ..()
-
-	// Bring the buckled_mob with us. No Move(), on_move callbacks, or any of this bullshit, we just got teleported
-	if(buckled_mob && loc == dest)
-		buckled_mob.forceMove(dest)
-
-/obj/proc/handle_buckled_mob_movement(NewLoc, direct)
-	if(!buckled_mob.Move(NewLoc, direct))
-		forceMove(buckled_mob.loc)
-		last_move_dir = buckled_mob.last_move_dir
-		buckled_mob.inertia_dir = last_move_dir
-		return FALSE
-
-	// Even if the movement is entirely managed by the object, notify the buckled mob that it's moving for its handler.
-	//It won't be called otherwise because it's a function of client_move or pulled mob, neither of which accounts for this.
-	SEND_SIGNAL(buckled_mob, COMSIG_MOB_MOVE_OR_LOOK, TRUE, direct, direct)
-	return TRUE
-
-/obj/BlockedPassDirs(atom/movable/mover, target_dir)
-	if(mover == buckled_mob) //can't collide with the thing you're buckled to
-		return NO_BLOCKED_MOVEMENT
-
-	return ..()
 
 /obj/item/proc/get_mob_overlay(mob/user_mob, slot, default_bodytype = "Default")
 	var/bodytype = default_bodytype
