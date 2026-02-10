@@ -113,7 +113,7 @@
 					var/paygrade = get_paygrades(id.paygrade, FALSE, human_user.gender)
 					signed = "[paygrade] [id.registered_name]"
 
-			marine_announcement(input, announcement_title, faction_to_display = announcement_faction, add_PMCs = add_pmcs, signature = signed)
+			marine_announcement(input, announcement_title, faction_to_display = announcement_faction, add_PMCs = add_pmcs, signature = signed, tts_component = user.GetComponent(/datum/component/tts_component)) //BANDAMARINES ADDITION
 			message_admins("[key_name(user)] has made a command announcement.")
 			log_announcement("[key_name(user)] has announced the following: [input]")
 			COOLDOWN_START(src, announcement_cooldown, cooldown_between_messages)
