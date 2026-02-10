@@ -10,8 +10,6 @@ GLOBAL_PROTECT(href_token)
 	var/rights = 0
 	var/fakekey = null
 
-	var/static/list/cached_admin_tokens = list()
-
 	var/href_token
 
 	var/datum/marked_datum
@@ -30,13 +28,7 @@ GLOBAL_PROTECT(href_token)
 		return
 	rank = initial_rank
 	rights = initial_rights
-
-	if(ckey in cached_admin_tokens)
-		href_token = cached_admin_tokens[ckey]
-	else
-		href_token = GenerateToken()
-		cached_admin_tokens[ckey] = href_token
-
+	href_token = GenerateToken()
 	GLOB.admin_datums[ckey] = src
 	extra_titles = new_extra_titles
 	if(rights & R_PROFILER)
