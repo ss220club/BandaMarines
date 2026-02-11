@@ -1,0 +1,5 @@
+author: "PhantornRU"
+delete-after: True
+changes:
+  - admin: "Фикс прав админов"
+  - bugfix: "Также мейнтейнеры стали мейнтейнерами."
