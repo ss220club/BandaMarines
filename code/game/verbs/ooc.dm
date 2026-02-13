@@ -67,6 +67,7 @@ CLIENT_VERB(ooc, msg as text)
 		display_colour = CONFIG_GET(string/ooc_color_default)
 
 	msg = process_chat_markup(msg, list("*"))
+	msg = emoji_parse(msg) //ss220 emojis in ooc
 	var/ooc_prefix = handle_ooc_prefix()
 	for(var/client/C in GLOB.clients)
 		if(C.prefs.toggles_chat & CHAT_OOC)
