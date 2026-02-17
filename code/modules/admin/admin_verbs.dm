@@ -284,6 +284,10 @@ GLOBAL_LIST_INIT(admin_mob_event_verbs_hideable, list(
 	/client/proc/admin_create_account
 ))
 
+GLOBAL_LIST_INIT(faxresp_verbs, list(
+	/client/proc/create_custom_paper_fax
+))
+
 //verbs which can be hidden - needs work
 GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/cmd_assume_direct_control,
@@ -366,6 +370,8 @@ GLOBAL_LIST_INIT(mentor_verbs, list(
 		add_verb(src, GLOB.admin_verbs_stealth)
 	if(check_whitelist_status(WHITELIST_YAUTJA_LEADER))
 		add_verb(src, GLOB.clan_verbs)
+	if(check_whitelist_status(WHITELIST_FAX_RESPONDER))
+		add_verb(src, GLOB.faxresp_verbs)
 
 /client/proc/remove_admin_verbs()
 	remove_verb(src, list(
