@@ -317,8 +317,8 @@
 		if(ishuman(carbon_mob) && (carbon_mob.dir in reverse_nearby_direction(dir)))
 			var/mob/living/carbon/human/human_mob = carbon_mob
 			if(human_mob.check_shields("the pounce", get_dir(human_mob, src), attack_type = SHIELD_ATTACK_POUNCE, custom_response = TRUE)) //Human shield block.
-				visible_message(SPAN_DANGER("[src] slams into [human_mobdeclent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION]!"),
-					SPAN_XENODANGER("Мы врезаемся в [human_mob.declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
+				visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [human_mob.declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
+					SPAN_XENODANGER("Мы врезаемся в [human_mob.declent_ru(ACCUSATIVE)]!, null, 5"), // SS220 EDIT ADDICTION
 				KnockDown(1)
 				Stun(1)
 				throwing = FALSE //Reset throwing manually.
