@@ -3,6 +3,7 @@ GLOBAL_LIST_EMPTY(admin_ranks) //list of all ranks with associated rights
 //load our rank - > rights associations
 /proc/load_admin_ranks()
 	GLOB.admin_ranks.Cut()
+	var/previous_rights = NONE // SS220 EDIT
 
 	//load text from file
 	var/list/Lines = file2list("config/admin_ranks.txt")
@@ -25,7 +26,11 @@ GLOBAL_LIST_EMPTY(admin_ranks) //list of all ranks with associated rights
 			if("Removed")
 				continue //Reserved
 
-		GLOB.admin_ranks[rank] = get_rights(List.Copy(2))
+		// SS220 EDIT START
+		var/rights = get_rights(List.Copy(2), previous_rights)
+		GLOB.admin_ranks[rank] = rights
+		previous_rights = rights
+		// SS220 EDIT END
 
 	#ifdef TESTING
 	var/msg = "Permission Sets Built:\n"
@@ -34,13 +39,17 @@ GLOBAL_LIST_EMPTY(admin_ranks) //list of all ranks with associated rights
 	testing(msg)
 	#endif
 
-/proc/get_rights(input_list)
+/proc/get_rights(input_list, inherited_rights = NONE) // SS220 EDIT
 	var/rights = NONE
 
 	for(var/right in input_list)
-		right = ckey(right) // lower text + trim
+		right = ckey(right) // SS220 EDIT
 
 		switch(right)
+			// SS220 EDIT START
+			if("@","prev")
+				rights |= inherited_rights
+			// SS220 EDIT END
 			if("buildmode","build")
 				rights |= R_BUILDMODE
 			if("admin")
@@ -88,8 +97,11 @@ GLOBAL_LIST_EMPTY(admin_ranks) //list of all ranks with associated rights
 		log_debug("Clearing [admin] from APP/admin.")
 		world.SetConfig("APP/admin", admin, null)
 
-	if(CONFIG_GET(string/cmdb_url) && CONFIG_GET(string/cmdb_api_key) && fetch_api_admins())
-		return
+	// SS220 EDIT START
+	// API-backed admin loading is intentionally disabled; admins/ranks are loaded from config files only.
+	// if(CONFIG_GET(string/cmdb_url) && CONFIG_GET(string/cmdb_api_key) && fetch_api_admins())
+	// 	return
+	// SS220 EDIT END
 
 	//clear the datums references
 	GLOB.admin_datums.Cut()

@@ -650,38 +650,38 @@
 	if(LAZYLEN(linked_pylons))
 		switch(get_pylon_protection_level())
 			if(TURF_PROTECTION_MORTAR)
-				return "The ceiling above is made of light resin. Doesn't look like it's going to stop much."
+				return "Потолок сделан из тонкой смолы. Не кажется, что оно особо крепкое."
 			if(TURF_PROTECTION_CAS)
-				return "The ceiling above is made of resin. Seems about as strong as a cavern roof."
+				return "Потолок сделан из смолы. На первый взгляд, по толщине как пещеры."
 			if(TURF_PROTECTION_OB)
-				return "The ceiling above is made of thick resin. Nothing is getting through that."
+				return "Потолок сделан из плотной смолы. Ничего не пройдет сквозь неё."
 
 	var/area/A = get_area(src)
 	switch(A.ceiling)
 		if(CEILING_GLASS)
-			return "The ceiling above is glass. That's not going to stop anything."
+			return "Потолок сделан из стекла. Он ничего не остановит."
 		if(CEILING_METAL)
-			return "The ceiling above is metal. You can't see through it with a camera from above. It will likely stop medevac pickups but not CAS."
+			return "Потолок сделан из металла. Камера с воздуха не увидит сквозь неё. Скорее всего, остановит сбор медэваков, но не НАП."
 		if(CEILING_UNDERGROUND_ALLOW_CAS)
-			return "It is underground. A thin cavern roof lies above. It will likely stop medevac pickups but not CAS."
+			return "Под землёй. Тонкий пещерный потолок сверху. Скорее всего, остановит сбор медэваков, но не НАП."
 		if(CEILING_UNDERGROUND_BLOCK_CAS)
-			return "It is underground. The cavern roof lies above. Can probably stop most ordnance."
+			return "Под землёй. Пещерный потолок сверху. Скорее всего, остановит большинство снарядов."
 		if(CEILING_UNDERGROUND_METAL_ALLOW_CAS)
-			return "It is underground. The ceiling above is made of thin metal. It will likely stop medevac pickups but not CAS."
+			return "Под землёй. Потолок сделан из тонкого металла. Скорее всего, остановит сбор медэваков, но не НАП."
 		if(CEILING_UNDERGROUND_METAL_BLOCK_CAS)
-			return "It is underground. The ceiling above is made of metal. Can probably stop most ordnance."
+			return "Под землёй. Потолок сделан из металла. Скорее всего, остановит большинство снарядов."
 		if(CEILING_DEEP_UNDERGROUND)
-			return "It is deep underground. The cavern roof lies above. Nothing is getting through that."
+			return "Глубоко под землёй. Пещерный потолок сверху. Ничего не пройдет сквозь это."
 		if(CEILING_DEEP_UNDERGROUND_METAL)
-			return "It is deep underground. The ceiling above is made of thick metal. Nothing is getting through that."
+			return "Глубоко под землёй. Потолок сделан из плотного металла. Ничего не пройдет сквозь это."
 		if(CEILING_REINFORCED_METAL)
-			return "The ceiling above is heavy reinforced metal. Nothing is getting through that."
+			return "Потолок сделан из тяжелого усиленного металла. Ничего не пройдет сквозь это."
 		if(CEILING_SANDSTONE_ALLOW_CAS)
-			return "The ceiling above is sandstone. That's not going to stop anything."
+			return "Потолок сделан из песчаника. Он ничего не остановит."
 		if(CEILING_UNDERGROUND_SANDSTONE_BLOCK_CAS)
-			return "It is underground. The ceiling above is made of sandstone. Can probably stop most ordnance."
+			return "Под землёй. Потолок сделан из песчаника. Скорее всего, остановит большинство снарядов."
 		else
-			return "It is in the open."
+			return "На открытой местности."
 
 /turf/proc/wet_floor()
 	return
