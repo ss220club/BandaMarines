@@ -192,9 +192,9 @@
 /mob/living/carbon/human/proc/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, inrange, params)
 	return
 
-/mob/living/carbon/human/help_shake_act(mob/living/carbon/M)
+/mob/living/carbon/human/help_shake_act(mob/living/carbon/mob)
 	//Target is us
-	if(src == M)
+	if(src == mob)
 		check_for_injuries()
 		return
 
@@ -211,28 +211,28 @@
 	//		t_him = "them"
 	// SS220 END EDIT ADDICTION
 
-	if (w_uniform)
-		w_uniform.add_fingerprint(M)
+	if(w_uniform)
+		w_uniform.add_fingerprint(mob)
 
 	if(HAS_TRAIT(src, TRAIT_FLOORED) || HAS_TRAIT(src, TRAIT_KNOCKEDOUT) || body_position == LYING_DOWN || sleeping)
 		if(client)
 			sleeping = max(0,src.sleeping-5)
 		if(!sleeping)
 			if(is_dizzy)
-				to_chat(M, SPAN_WARNING("Похоже у [declent_ru(GENITIVE)] кружится голова. Не стоит [t_him] сейчас беспокоить."))
+				to_chat(mob, SPAN_WARNING("Похоже у [declent_ru(GENITIVE)] кружится голова. Не стоит [t_him] сейчас беспокоить."))
 			else
 				set_resting(FALSE)
-		M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] трясёт [declent_ru(ACCUSATIVE)], пытаясь разбудить [t_him]!"), // SS220 EDIT ADDICTION
+		mob.visible_message(SPAN_NOTICE("[capitalize(mob.declent_ru(NOMINATIVE))] трясёт [declent_ru(ACCUSATIVE)], пытаясь разбудить [t_him]!"), // SS220 EDIT ADDICTION
 			SPAN_NOTICE("Вы трясёте [declent_ru(ACCUSATIVE)], пытаясь разбудить [t_him]!"), null, 4) // SS220 EDIT ADDICTION
 	else if(HAS_TRAIT(src, TRAIT_INCAPACITATED))
-		M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] трясёт [declent_ru(ACCUSATIVE)], пытаясь вывести [t_him] из ступора!"),
+		mob.visible_message(SPAN_NOTICE("[capitalize(mob.declent_ru(NOMINATIVE))] трясёт [declent_ru(ACCUSATIVE)], пытаясь вывести [t_him] из ступора!"),
 			SPAN_NOTICE("Вы трясёте [declent_ru(ACCUSATIVE)], пытаясь вывести [t_him] из ступора!"), null, 4)
 	else
-		var/mob/living/carbon/human/H = M
-		if(istype(H))
-			H.species.hug(H, src, H.zone_selected)
+		var/mob/living/carbon/human/human = mob
+		if(istype(human))
+			human.species.hug(human, src, human.zone_selected)
 		else
-			M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] похлопывает [declent_ru(ACCUSATIVE)] по спине, чтобы [t_him] стало лучше!"),
+			mob.visible_message(SPAN_NOTICE("[capitalize(mob.declent_ru(NOMINATIVE))] похлопывает [declent_ru(ACCUSATIVE)] по спине, чтобы [t_him] стало лучше!"),
 				SPAN_NOTICE("Вы похлопываете [declent_ru(ACCUSATIVE)] по спине, чтобы [t_him] стало лучше!"), null, 4)
 			playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 5)
 		return

@@ -142,11 +142,11 @@
 	//name = "UPP General Armii (Cryo)"
 	assignment = JOB_UPP_GENERAL_RU
 
-/datum/equipment_preset/upp/synth
+/datum/equipment_preset/synth/upp
 	//name = "UPP Synthetic (Cryo)"
 	assignment = JOB_UPP_SUPPORT_SYNTH_RU
 
-/datum/equipment_preset/upp/synth/combat
+/datum/equipment_preset/synth/upp/combat
 	//name = "UPP Combat Synthetic (Cryo)"
 	assignment = JOB_UPP_COMBAT_SYNTH_RU
 
