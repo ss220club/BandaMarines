@@ -1,3 +1,4 @@
+// BANDAMARINES EDIT START
 /client/proc/create_custom_paper_fax()
 	set name = "Create Custom Paper Responder"
 	set category = "OOC.Whitelist"
@@ -11,7 +12,7 @@
 		return
 	
 	customise_paper()
-	
+// BANDAMARINES EDIT END
 /client/proc/create_custom_paper()
 	set name = "Create Custom Paper"
 	set category = "Admin.Events"
