@@ -1,0 +1,42 @@
+/client/proc/create_custom_paper_fax()
+	set name = "Create Custom Paper FResponder"
+	set category = "OOC.Whitelist"
+
+	if(!check_whitelist_status(WHITELIST_FAX_RESPONDER))
+		to_chat(src, SPAN_WARNING("Только лица с вайтлистом на роль факс респондера имеют право использовать эту команду."))
+		return
+
+	if(usr.faction != FACTION_FAX)
+		to_chat(src, SPAN_WARNING("Вы должны быть любым доступным факс респондером для использования этой команды."))
+		return
+	custom_paper()
+/client/proc/custom_paper(obj/item/paper/sheet)
+	var/new_sheet = FALSE
+	if(!sheet)
+		new_sheet = TRUE
+		sheet = new /obj/item/paper
+	var/new_name = input(usr, "Enter new item name:", "Customising paper", sheet.name) as text|null
+	if(!new_name)
+		if(new_sheet)
+			qdel(sheet)
+		return
+	var/new_text = input(usr, "Enter new content:", "Customising [new_name]", sheet.info) as message|null
+	if(!new_text)
+		if(new_sheet)
+			qdel(sheet)
+		return
+	show_browser(usr, "<body class='paper'>[new_text]</body>", "Custom paper preview", "custom_paper_preview", width = DEFAULT_PAPER_WIDTH, height = DEFAULT_PAPER_HEIGHT)
+	if(alert(usr, "Make this new content?", "Customising [new_name]", "OK", "Cancel") == "Cancel")
+		close_browser(usr, "custom_paper_preview")
+		if(new_sheet)
+			qdel(sheet)
+		return
+	close_browser(usr, "custom_paper_preview")
+	sheet.name = new_name
+	sheet.info = new_text
+	sheet.updateinfolinks()
+	sheet.update_icon()
+	if(new_sheet)
+		sheet.loc = get_turf(usr)
+	message_admins("[key_name_admin(usr)] [new_sheet ? "created" : "edited"] a paper named [new_name].", sheet.loc.x, sheet.loc.y, sheet.loc.z)
+	

@@ -37,3 +37,4 @@
 #include "queen_minor/_queen_minor.dme"
 #include "limb_case/_limb_case.dme"
 #include "balance/_balance.dme"
+#include "faxresp/_faxresp.dme"
