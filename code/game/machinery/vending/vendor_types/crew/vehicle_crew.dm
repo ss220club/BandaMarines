@@ -18,7 +18,7 @@
 	var/selected_vehicle
 	var/budget_points = 0
 	var/available_categories = VEHICLE_ALL_AVAILABLE
-	var/list/last_display_list //BANDAMARINES ADD
+	var/list/last_display_list //BANDAMARINES EDIT
 
 	available_points_to_display = 0
 
@@ -66,7 +66,7 @@
 	SIGNAL_HANDLER
 	UnregisterSignal(SSdcs, COMSIG_GLOB_VEHICLE_ORDERED)
 
-	// BANDAMARINES ADD Start
+	// BANDAMARINES EDIT Start
 	selected_vehicle = spawner.category
 	if(selected_vehicle == "APC")
 		marine_announcement("В поддержку наземных сил операции вам будет предоставлен БТР.")
@@ -76,7 +76,7 @@
 	selected_vehicle = spawner.category
 	if(selected_vehicle == "VAN")
 		marine_announcement("В поддержку наземных сил операции вам будет предоставлен Грузовик.")
-	// BANDAMARINES ADD End
+	// BANDAMARINES EDIT End
 
 	if(!selected_vehicle)
 		selected_vehicle = "TANK" // The whole thing seems to be based upon the assumption you unlock tank as an override, defaulting to APC
