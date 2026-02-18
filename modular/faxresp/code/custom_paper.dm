@@ -10,6 +10,7 @@
 		to_chat(src, SPAN_WARNING("Вы должны быть любым доступным факс респондером для использования этой команды."))
 		return
 	custom_paper()
+	
 /client/proc/custom_paper(obj/item/paper/sheet)
 	var/new_sheet = FALSE
 	if(!sheet)
