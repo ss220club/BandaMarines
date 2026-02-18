@@ -283,6 +283,7 @@ const marineSplitter = (members: Array<Observable>) => {
   const SOFSquad: Array<Observable> = [];
   const other: Array<Observable> = [];
   const provost: Array<Observable> = [];
+  const ArmySquad: Array<Observable> = [];
 
   // SS220 EDIT - TRANSLATE code/__DEFINES/bandamarines/ru_jobs.dm
   members.forEach((x) => {
@@ -314,26 +315,29 @@ const marineSplitter = (members: Array<Observable>) => {
       SOFSquad.push(x);
     } else if (x.job?.includes(JobsRu('Provost'))) {
       provost.push(x);
+    } else if (x.job?.includes('Army')) {
+      ArmySquad.push(x);
     } else {
       other.push(x);
     }
   });
 
   const squads = [
-    buildSquadObservable(JobsRu('MUTINY'), 'red', mutineers),
-    buildSquadObservable(JobsRu('LOYALIST'), 'blue', loyalists),
-    buildSquadObservable(JobsRu('NON-COMBAT'), 'green', nonCombatants),
-    buildSquadObservable(JobsRu('Alpha'), 'red', alphaSquad),
-    buildSquadObservable(JobsRu('Bravo'), 'yellow', bravoSquad),
-    buildSquadObservable(JobsRu('Charlie'), 'purple', charlieSquad),
-    buildSquadObservable(JobsRu('Delta'), 'blue', deltaSquad),
-    buildSquadObservable(JobsRu('Foxtrot'), 'brown', foxtrotSquad),
-    buildSquadObservable(JobsRu('Echo'), 'teal', echoSquad),
-    buildSquadObservable(JobsRu('CBRN'), 'dark-blue', CBRNSquad),
-    buildSquadObservable(JobsRu('FORECON'), 'green', FORECONSquad),
-    buildSquadObservable(JobsRu('SOF'), 'red', SOFSquad),
-    buildSquadObservable(JobsRu('Other'), 'grey', other),
-    buildSquadObservable(JobsRu('ProvostCategory'), 'red', provost),
+    buildSquadObservable('MUTINY', 'red', mutineers),
+    buildSquadObservable('LOYALIST', 'blue', loyalists),
+    buildSquadObservable('NON-COMBAT', 'green', nonCombatants),
+    buildSquadObservable('Alpha', 'red', alphaSquad),
+    buildSquadObservable('Bravo', 'yellow', bravoSquad),
+    buildSquadObservable('Charlie', 'purple', charlieSquad),
+    buildSquadObservable('Delta', 'blue', deltaSquad),
+    buildSquadObservable('Foxtrot', 'brown', foxtrotSquad),
+    buildSquadObservable('Echo', 'teal', echoSquad),
+    buildSquadObservable('CBRN', 'dark-blue', CBRNSquad),
+    buildSquadObservable('FORECON', 'green', FORECONSquad),
+    buildSquadObservable('SOF', 'red', SOFSquad),
+    buildSquadObservable('Other', 'grey', other),
+    buildSquadObservable('Provost', 'red', provost),
+    buildSquadObservable('Army', 'green', ArmySquad),
   ];
   return squads;
 };

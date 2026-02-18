@@ -24,9 +24,9 @@
 		return
 
 	for(var/mob/M in receivers)
-		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), null, M, message_tts, tts_seed, TTS_LOCALYZE_ANNOUNCE, sound_effect, TTS_TRAIT_RATE_MEDIUM)
+		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), M, M, message_tts, tts_seed, TTS_LOCALYZE_ANNOUNCE, sound_effect, TTS_TRAIT_RATE_MEDIUM)
 	for(var/mob/M in garbled_receivers)
-		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), null, M, garbled_message_tts, tts_seed, TTS_LOCALYZE_ANNOUNCE, sound_effect, TTS_TRAIT_RATE_MEDIUM)
+		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), M, M, garbled_message_tts, tts_seed, TTS_LOCALYZE_ANNOUNCE, sound_effect, TTS_TRAIT_RATE_MEDIUM)
 
 
 // Announcers
@@ -41,6 +41,9 @@
 /datum/announcer/yautja
 	tts_seed = TTS_SEED_YAUTJA_ANNOUNCE
 	sound_effect = SOUND_EFFECT_ROBOT
+
+/datum/announcer/custom
+	sound_effect = SOUND_EFFECT_RADIO
 
 /// Беззвучный анонсер на случай, если не нужно проигрывать ттс
 /datum/announcer/silent
