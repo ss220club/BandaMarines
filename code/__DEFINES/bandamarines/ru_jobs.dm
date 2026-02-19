@@ -381,3 +381,13 @@
 
 /// For monthly time tracking
 #define JOB_OBSERVER_RU "Наблюдатель"
+
+//---------- ARMY ----------//
+#define JOB_ARMY_TROOPER_RU "US Army Trooper"
+#define JOB_ARMY_ENGI_RU "US Army Combat Engineering Technician"
+#define JOB_ARMY_MEDIC_RU "US Army Combat Medical Technician"
+#define JOB_ARMY_MARKSMAN_RU "US Army Marksman"
+#define JOB_ARMY_SMARTGUNNER_RU "US Army Heavy Gunner"
+#define JOB_ARMY_SNCO_RU "US Army Squad Leader"
+#define JOB_ARMY_CO_RU "US Army Commander"
+#define JOB_ARMY_SYN_RU "US Army Synthetic"

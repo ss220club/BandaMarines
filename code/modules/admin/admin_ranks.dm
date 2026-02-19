@@ -43,7 +43,7 @@ GLOBAL_LIST_EMPTY(admin_ranks) //list of all ranks with associated rights
 	var/rights = NONE
 
 	for(var/right in input_list)
-		right = ckey(right) // SS220 EDIT
+		right = ckey(right) // lower text + trim
 
 		switch(right)
 			// SS220 EDIT START

@@ -300,7 +300,7 @@
 	move_delay = .
 
 
-/mob/living/carbon/xenomorph/proc/pounced_mob(mob/living/L)
+/mob/living/carbon/xenomorph/proc/pounced_mob(mob/living/pounced_mob)
 	// This should only be called back by a mob that has pounce, so no need to check
 	var/datum/action/xeno_action/activable/pounce/pounceAction = get_action(src, /datum/action/xeno_action/activable/pounce)
 
@@ -308,62 +308,55 @@
 	if(!check_state() || (!throwing && !pounceAction.action_cooldown_check()))
 		return
 
-	var/mob/living/carbon/M = L
-	if(M.stat == DEAD || M.mob_size >= MOB_SIZE_BIG || can_not_harm(L) || M == src)
+	var/mob/living/carbon/carbon_mob = pounced_mob
+	if(carbon_mob.stat == DEAD || carbon_mob.mob_size >= MOB_SIZE_BIG || can_not_harm(pounced_mob) || carbon_mob == src)
 		throwing = FALSE
 		return
 
 	if(pounceAction.can_be_shield_blocked)
-		if(ishuman(M) && (M.dir in reverse_nearby_direction(dir)))
-			var/mob/living/carbon/human/H = M
-			if(H.check_shields("the pounce", get_dir(H, src), attack_type = SHIELD_ATTACK_POUNCE, custom_response = TRUE)) //Human shield block.
-				visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [H.declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
-					SPAN_XENODANGER("Мы врезаемся в [H]!"), null, 5) // SS220 EDIT ADDICTION
+		if(ishuman(carbon_mob) && (carbon_mob.dir in reverse_nearby_direction(dir)))
+			var/mob/living/carbon/human/human_mob = carbon_mob
+			if(human_mob.check_shields("the pounce", get_dir(human_mob, src), attack_type = SHIELD_ATTACK_POUNCE, custom_response = TRUE)) //Human shield block.
+				visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [human_mob.declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
+					SPAN_XENODANGER("Мы врезаемся в [human_mob]!"), null, 5) // SS220 EDIT ADDICTION
 				KnockDown(1)
 				Stun(1)
 				throwing = FALSE //Reset throwing manually.
-				playsound(H, "bonk", 75, FALSE) //bonk
+				playsound(human_mob, "bonk", 75, FALSE) //bonk
 				return
 
-			if(isyautja(H))
-				if(H.check_shields(0, "the pounce", 1))
-					visible_message(SPAN_DANGER("[H] blocks the pounce of [src] with the combistick!"), SPAN_XENODANGER("[H] blocks our pouncing form with the combistick!"), null, 5)
-					apply_effect(3, WEAKEN)
-					throwing = FALSE
-					playsound(H, "bonk", 75, FALSE)
-					return
-				else if(prob(75)) //Body slam the fuck out of xenos jumping at your front.
-					visible_message(SPAN_DANGER("[H] body slams [src]!"),
-						SPAN_XENODANGER("[H] body slams us!"), null, 5)
-					KnockDown(3)
-					Stun(3)
-					throwing = FALSE
-					return
-			if(iscolonysynthetic(H) && prob(60))
-				visible_message(SPAN_DANGER("[capitalize(H.declent_ru(NOMINATIVE))] выдерживает прыжок и сбивает [declent_ru(ACCUSATIVE)] с ног!"), // SS220 EDIT ADDICTION
-					SPAN_XENODANGER("[capitalize(H.declent_ru(NOMINATIVE))] сбивает нас с ног после того, как выдержал прыжок!"), null, 5) // SS220 EDIT ADDICTION
+			if(isyautja(human_mob) && prob(75))//Body slam the fuck out of xenos jumping at your front.
+				visible_message(SPAN_DANGER("[human_mob] body slams [src]!"),
+					SPAN_XENODANGER("[human_mob] body slams us!"), null, 5)
+				KnockDown(3)
+				Stun(3)
+				throwing = FALSE
+				return
+			if(HAS_TRAIT(human_mob, TRAIT_POUNCE_RESISTANT) && prob(60))
+				visible_message(SPAN_DANGER("[capitalize(human_mob.declent_ru(NOMINATIVE))] выдерживает прыжок и сбивает [declent_ru(ACCUSATIVE)] с ног!"),
+					SPAN_XENODANGER("[capitalize(human_mob.declent_ru(NOMINATIVE))] сбивает нас с ног после того, как выдержал прыжок!"), null, 5)
 				KnockDown(1.5)
 				Stun(1.5)
 				throwing = FALSE
 				return
 
 
-	visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] [pounceAction.action_text] на [M.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы [pounceAction.action_text] на [M.declent_ru(ACCUSATIVE)]!"), null, 5) // SS220 EDIT ADDICTION
+	visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] [pounceAction.action_text] на [carbon_mob.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы [pounceAction.action_text] на [carbon_mob.declent_ru(ACCUSATIVE)]!"), null, 5) // SS220 EDIT ADDICTION
 
 	if (pounceAction.knockdown)
-		M.KnockDown(pounceAction.knockdown_duration)
-		M.Stun(pounceAction.knockdown_duration) // To replicate legacy behavior. Otherwise M39 Armbrace users for example can still shoot
-		step_to(src, M)
+		carbon_mob.KnockDown(pounceAction.knockdown_duration)
+		carbon_mob.Stun(pounceAction.knockdown_duration) // To replicate legacy behavior. Otherwise M39 Armbrace users for example can still shoot
+		step_to(src, carbon_mob)
 
 	if (pounceAction.freeze_self)
 		if(pounceAction.freeze_play_sound)
 			playsound(loc, rand(0, 100) < 95 ? 'sound/voice/alien_pounce.ogg' : 'sound/voice/alien_pounce2.ogg', 25, 1)
 		ADD_TRAIT(src, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Pounce"))
 		pounceAction.freeze_timer_id = addtimer(CALLBACK(src, PROC_REF(unfreeze_pounce)), pounceAction.freeze_time, TIMER_STOPPABLE)
-	pounceAction.additional_effects(M)
+	pounceAction.additional_effects(carbon_mob)
 
 	if(pounceAction.slash)
-		M.attack_alien(src, pounceAction.slash_bonus_damage)
+		carbon_mob.attack_alien(src, pounceAction.slash_bonus_damage)
 
 	throwing = FALSE //Reset throwing since something was hit.
 
