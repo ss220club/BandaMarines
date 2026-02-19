@@ -244,6 +244,7 @@
 	playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
 
 /mob/living/carbon/human/proc/check_for_injuries()
+	/* BANDAMARINES EDIT REMOVE - we don't need it
 	var/t_him = "it"
 	switch(gender)
 		if(MALE)
@@ -252,6 +253,7 @@
 			t_him = "her"
 		if(PLURAL)
 			t_him = "them"
+	*/
 
 	visible_message(SPAN_NOTICE("[capitalize(declent_ru(NOMINATIVE))] осматривает себя."),
 	SPAN_NOTICE("Вы осматриваете своё тело в поисках ран."), null, 3)

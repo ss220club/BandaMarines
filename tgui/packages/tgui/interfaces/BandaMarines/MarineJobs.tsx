@@ -66,6 +66,7 @@ export const JOBS_RU = {
   Ghosts: 'Призраки',
   Misc: 'Прочие',
   NPCs: 'НИПы',
+  Army: 'Армия',
   // MARK: Roles
   Rifleman: 'Стрелок',
   'Squad Leader': 'Командир отряда',

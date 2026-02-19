@@ -315,7 +315,7 @@ const marineSplitter = (members: Array<Observable>) => {
       SOFSquad.push(x);
     } else if (x.job?.includes(JobsRu('Provost'))) {
       provost.push(x);
-    } else if (x.job?.includes('Army')) {
+    } else if (x.job?.includes(JobsRu('Army'))) {
       ArmySquad.push(x);
     } else {
       other.push(x);
@@ -323,23 +323,6 @@ const marineSplitter = (members: Array<Observable>) => {
   });
 
   const squads = [
-<<<<<<< HEAD
-    buildSquadObservable('MUTINY', 'red', mutineers),
-    buildSquadObservable('LOYALIST', 'blue', loyalists),
-    buildSquadObservable('NON-COMBAT', 'green', nonCombatants),
-    buildSquadObservable('Alpha', 'red', alphaSquad),
-    buildSquadObservable('Bravo', 'yellow', bravoSquad),
-    buildSquadObservable('Charlie', 'purple', charlieSquad),
-    buildSquadObservable('Delta', 'blue', deltaSquad),
-    buildSquadObservable('Foxtrot', 'brown', foxtrotSquad),
-    buildSquadObservable('Echo', 'teal', echoSquad),
-    buildSquadObservable('CBRN', 'dark-blue', CBRNSquad),
-    buildSquadObservable('FORECON', 'green', FORECONSquad),
-    buildSquadObservable('SOF', 'red', SOFSquad),
-    buildSquadObservable('Other', 'grey', other),
-    buildSquadObservable('Provost', 'red', provost),
-    buildSquadObservable('Army', 'green', ArmySquad),
-=======
     buildSquadObservable(JobsRu('MUTINY'), 'red', mutineers),
     buildSquadObservable(JobsRu('LOYALIST'), 'blue', loyalists),
     buildSquadObservable(JobsRu('NON-COMBAT'), 'green', nonCombatants),
@@ -354,7 +337,7 @@ const marineSplitter = (members: Array<Observable>) => {
     buildSquadObservable(JobsRu('SOF'), 'red', SOFSquad),
     buildSquadObservable(JobsRu('Other'), 'grey', other),
     buildSquadObservable(JobsRu('ProvostCategory'), 'red', provost),
->>>>>>> 92b124617f2b18d70a30553860b04ada5faf0e7a
+    buildSquadObservable(JobsRu('Army'), 'green', ArmySquad),
   ];
   return squads;
 };
