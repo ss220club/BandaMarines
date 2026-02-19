@@ -185,3 +185,20 @@
 	//meme role
 	//name = "UPP Conscript"
 	assignment = JOB_UPP_CONSCRIPT_RU
+
+//*****************************************************************************************************/
+
+/datum/equipment_preset/us_army
+	assignment = JOB_ARMY_TROOPER_RU
+
+/datum/equipment_preset/us_army/standard
+	assignment = JOB_ARMY_TROOPER_RU
+
+/datum/equipment_preset/corpse/tyrargo/us_army_trooper
+	assignment = JOB_ARMY_TROOPER_RU
+
+/datum/equipment_preset/survivor/army
+	assignment = JOB_ARMY_TROOPER_RU
+
+/datum/equipment_preset/survivor/army/standard
+	assignment = JOB_ARMY_TROOPER_RU
