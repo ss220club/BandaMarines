@@ -56,15 +56,27 @@
 
 	return INITIALIZE_HINT_NORMAL
 
-// показываем сразу все листы в консоли gear вместо одного
-/obj/structure/machinery/cm_vending/gear/vehicle_crew/get_listed_products(mob/user)
-	var/list/display_list = list()
+// Прок проверки лифта
+/proc/vehicle_elevator_safety_check(atom/A)
+	if(isliving(A))
+		return TRUE
+	if(istype(A, /obj/vehicle))
+		return TRUE
+	for(var/atom/B in A.contents)
+		if(vehicle_elevator_safety_check(B))
+			return TRUE
+	return FALSE
 
-	display_list += GLOB.cm_vending_vehicle_crew_tank
-	display_list += GLOB.cm_vending_vehicle_crew_arc
-	display_list += GLOB.cm_vending_vehicle_crew_apc
+// Вторая проверка лифта после вызова
+/obj/docking_port/mobile/vehicle_elevator/canMove()
+	var/obj/docking_port/stationary/S = get_docked()
+	// Проверяем только если лифт сейчас в ангаре
+	if(istype(S, /obj/docking_port/stationary/vehicle_elevator/almayer))
+		if(vehicle_elevator_safety_check(get_area(src)))
+			set_mode(SHUTTLE_IDLE)
+			stop_gears()
+			open_railings()
+			playsound(return_center_turf(), 'sound/machines/buzz-two.ogg', 50, 0)
+			return FALSE
 
-
-	return display_list
-
-
+	return TRUE

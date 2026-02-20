@@ -18,6 +18,7 @@
 	var/selected_vehicle
 	var/budget_points = 0
 	var/available_categories = VEHICLE_ALL_AVAILABLE
+	var/list/last_display_list //BANDAMARINES EDIT
 
 	available_points_to_display = 0
 
@@ -65,17 +66,17 @@
 	SIGNAL_HANDLER
 	UnregisterSignal(SSdcs, COMSIG_GLOB_VEHICLE_ORDERED)
 
-	// BANDAMARINES ADD Start
+	// BANDAMARINES EDIT Start
 	selected_vehicle = spawner.category
 	if(selected_vehicle == "APC")
 		marine_announcement("В поддержку наземных сил операции вам будет предоставлен БТР.")
 	selected_vehicle = spawner.category
 	if(selected_vehicle == "ARC")
-		marine_announcement("В поддержку наземных сил операции вам будет предоставлен БМР.")
+		marine_announcement("В поддержку наземных сил операции вам будет предоставлен БРМ.")
 	selected_vehicle = spawner.category
 	if(selected_vehicle == "VAN")
 		marine_announcement("В поддержку наземных сил операции вам будет предоставлен Грузовик.")
-	// BANDAMARINES ADD End
+	// BANDAMARINES EDIT End
 
 	if(!selected_vehicle)
 		selected_vehicle = "TANK" // The whole thing seems to be based upon the assumption you unlock tank as an override, defaulting to APC
@@ -94,8 +95,16 @@
 	switch(selected_vehicle)
 		if("TANK")
 			if(available_categories)
-				display_list = GLOB.cm_vending_vehicle_crew_tank
+// BANDAMARINES EDIT START
+				last_display_list = GLOB.cm_vending_vehicle_crew_tank
 
+		if("APC")
+			if(available_categories)
+				last_display_list = GLOB.cm_vending_vehicle_crew_apc
+
+	if(last_display_list)
+		return last_display_list
+/*
 		if("ARC")
 			display_list = GLOB.cm_vending_vehicle_crew_arc
 
@@ -104,6 +113,8 @@
 				display_list = GLOB.cm_vending_vehicle_crew_apc
 		else //APC stuff costs more to prevent 4000 points spent on shitton of ammunition
 			display_list = GLOB.cm_vending_vehicle_crew_apc_spare
+*/
+// BANDAMARINES EDIT END
 	return display_list
 
 /obj/structure/machinery/cm_vending/gear/vehicle_crew/ui_data(mob/user)
