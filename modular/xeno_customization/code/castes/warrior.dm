@@ -18,12 +18,12 @@
 	donation_level = 5
 
 // Author: @piromage
-/datum/xeno_customization_option/warrior_spiky
-	name = "Колючий воин"
-	key = "warrior_spiky"
+/datum/xeno_customization_option/warrior_beast
+	name = "Бестия"
+	key = "warrior_beast"
 	customization_type = XENO_CUSTOMIZATION_LORE_FRIENDLY
-	icon_path = 'modular/xeno_customization/icons/warrior/spiky.dmi'
+	icon_path = 'modular/xeno_customization/icons/warrior/beast.dmi'
+	subtract_icon_path = 'modular/xeno_customization/icons/warrior/beast_subtract.dmi'
 	caste = XENO_CASTE_WARRIOR
 	slot = CUSTOMIZATION_SLOT_ALL
-	full_body_customization = TRUE
 	timelock = JOB_PLAYTIME_TIER_2
