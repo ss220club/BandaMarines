@@ -738,10 +738,10 @@
 	// Rare easter egg
 	if(nicknumber == 666)
 		number_decorator = "Адский "
-	if(nicknumber == 220)					// BANDAMARINES
-		number_decorator = "Проклятый "		// ADDITION
-	if(show_name_numbers)
-		name_display = show_only_numbers ? " ([nicknumber])" : " ([name_client_prefix][nicknumber][name_client_postfix])"
+	if(nicknumber == 220)					// BANDAMARINES	EDIT
+		number_decorator = "Проклятый "
+if(show_name_numbers)
+name_display = show_only_numbers ? " ([nicknumber])" : " ([name_client_prefix][nicknumber][name_client_postfix])"
 	name = "[name_prefix][number_decorator][age_display][declent_ru_initial(caste.display_name || caste.caste_type, NOMINATIVE, caste.display_name || caste.caste_type)][name_display]"
 	ru_names_rename(ru_names_list(
 		base = name,
