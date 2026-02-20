@@ -20,7 +20,7 @@ type Data = {
 
 const CATEGORIES_RU = {
   Management: 'Менеджеры',
-  Maintainers: 'Основатели',
+  Maintainers: 'Мейнтейнеры',
   Administrators: 'Администраторы',
   Moderators: 'Модераторы',
   Mentors: 'Менторы',
