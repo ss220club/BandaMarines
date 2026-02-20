@@ -30,6 +30,7 @@
 	if(href_list["preference"] == "xeno_customization_picker")
 		if(!xeno_customization_picker)
 			xeno_customization_picker = new(user.client)
+		xeno_customization_picker.tgui_interact(user)
 	. = ..()
 
 /datum/preferences/proc/read_and_sanitize_xeno_customization()
@@ -128,8 +129,7 @@
 	owner.add_to_screen(background_xeno)
 
 /datum/preferences/proc/apply_xeno_customizations_to_preview()
-	var/list/previous_customizations = preview_dummy_xeno.GetComponents(/datum/component/xeno_customization)
-	QDEL_LIST(previous_customizations)
+	preview_dummy_xeno.remove_all_xeno_customizations()
 	for(var/datum/xeno_customization_option/option_by_caste in selected_preview_customizations)
 		preview_dummy_xeno.apply_xeno_customization(owner.mob, to_apply = option_by_caste, force = TRUE, override_viewers = list(owner.mob))
 
@@ -170,11 +170,11 @@
 	update_preview_icon()
 
 /datum/preferences/proc/change_preview_xeno_strain(strain)
+	if(selected_strain == strain)
+		return
+	clear_xeno_dummy()
+	update_preview_icon()
 	if(strain == "Normal")
-		if(selected_strain != strain)
-			selected_strain = strain
-			clear_xeno_dummy()
-			update_preview_icon()
 		return
 	var/datum/xeno_strain/strain_to_apply
 	for(var/strain_path in preview_dummy_xeno.caste.available_strains)
@@ -188,6 +188,8 @@
 	if(strain_to_apply._add_to_xeno(preview_dummy_xeno))
 		selected_strain = strain
 		update_preview_icon()
+	else
+		to_chat(owner, SPAN_WARNING("Подвид [strain] не смог примениться!"))
 
 /datum/preferences/proc/change_preview_xeno_positions(new_position)
 	preview_dummy_xeno.rejuvenate()
