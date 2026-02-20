@@ -94,9 +94,14 @@
 /datum/component/xeno_customization/proc/on_ghost(mob/user, mob/dead/observer/ghost)
 	SIGNAL_HANDLER
 
+	ghost.render_target = null
+
+	return
+	/* Will do it later
 	if(option.full_body_customization)
 		ghost.icon = option.icon_path
 		return
+	*/
 	/*
 	if(option.subtract_icon_path)
 		ghost.icon.Blend(icon(option.subtract_icon_path, "Walking"), BLEND_SUBTRACT)
@@ -195,7 +200,7 @@
 	render_source_atom.non_lore_image.vis_contents |= to_remove
 	render_source_atom.non_lore_image.filters += subtract_filter
 	if(option.customization_type == XENO_CUSTOMIZATION_LORE_FRIENDLY)
-		render_source_atom.non_lore_image.vis_contents |= to_remove
+		render_source_atom.lore_image.vis_contents |= to_remove
 		render_source_atom.lore_image.filters += subtract_filter
 
 /datum/component/xeno_customization/proc/remove_subtract()
