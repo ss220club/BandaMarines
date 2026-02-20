@@ -6,7 +6,7 @@
 	disp_icon = "tank"
 	disp_icon_state = "snowplow"
 
-	health = 500 //BANDAMARINES EDIT - TANK SUPREMACY
+	health = 500 //BANDAMARINES EDIT - Original: 150
 	activatable = 1
 
 /obj/item/hardpoint/armor/snowplow/livingmob_interact(mob/living/M)
@@ -14,7 +14,7 @@
 	targ = get_step(M, owner.dir)
 	targ = get_step(M, owner.dir)
 	M.throw_atom(targ, 4, SPEED_FAST, src, 1)
-	M.apply_damage(100 + rand(50, 50), BRUTE) //BANDAMARINES EDIT - TANK SUPREMACY
+	M.apply_damage(100 + rand(50, 50), BRUTE) //BANDAMARINES EDIT - Original: (7 + rand(0, 3)
 
 /obj/item/hardpoint/armor/snowplow/on_move(turf/old, turf/new_turf, move_dir)
 	if(health <= 0)
