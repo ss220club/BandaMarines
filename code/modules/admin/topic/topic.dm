@@ -228,6 +228,10 @@
 			owner.cmd_admin_do_stickyban()
 			return
 
+		if(hascall(src, "modular_handle_sticky_topic_action"))
+			if(call(src, "modular_handle_sticky_topic_action")(href_list))
+				return
+
 		var/datum/entity/stickyban/sticky = DB_ENTITY(/datum/entity/stickyban, href_list["sticky"])
 		if(!sticky)
 			return

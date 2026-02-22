@@ -279,9 +279,14 @@ GLOBAL_DATUM(Banlist, /savefile)
 /datum/admins/proc/stickypanel()
 	var/add_sticky = "<a href='byond://?src=\ref[src];[HrefToken()];sticky=1;new_sticky=1'>Add Sticky Ban</a>"
 	var/find_sticky = "<a href='byond://?src=\ref[src];[HrefToken()];sticky=1;find_sticky=1'>Find Sticky Ban</a>"
+	var/list/sticky_links = list(add_sticky, find_sticky)
+	if(hascall(src, "modular_sticky_panel_links"))
+		var/list/modular_links = call(src, "modular_sticky_panel_links")()
+		if(islist(modular_links) && length(modular_links))
+			sticky_links += modular_links
 
 	var/data = {"
-	<b>Sticky Bans:</b> [add_sticky] [find_sticky]
+	<b>Sticky Bans:</b> [jointext(sticky_links, " ")]
 	<br>
 	<input type='search' id='filter' onkeyup='handle_filter()' onblur='handle_filter()' name='filter_text' value='' style='width:100%;'>
 	<br>

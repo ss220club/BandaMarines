@@ -6,9 +6,15 @@ SUBSYSTEM_DEF(stickyban)
 /datum/controller/subsystem/stickyban/Initialize()
 	var/list/all_bans = world.GetConfig("ban")
 
+	if(hascall(src, "modular_set_expected_legacy_jobs"))
+		call(src, "modular_set_expected_legacy_jobs")(length(all_bans))
+
 	for(var/existing_ban in all_bans)
 		var/list/ban_data = params2list(world.GetConfig("ban", existing_ban))
 		INVOKE_ASYNC(src, PROC_REF(import_sticky), existing_ban, ban_data)
+
+	if(hascall(src, "modular_post_initialize"))
+		call(src, "modular_post_initialize")()
 
 	return SS_INIT_SUCCESS
 
@@ -16,6 +22,9 @@ SUBSYSTEM_DEF(stickyban)
  * Returns a list of [/datum/view_record/stickyban]s, or null, if no stickybans are found. All arguments are optional, but you should pass at least one if you want any results.
  */
 /datum/controller/subsystem/stickyban/proc/check_for_sticky_ban(ckey, address, computer_id)
+	if(hascall(src, "modular_check_for_sticky_ban"))
+		return call(src, "modular_check_for_sticky_ban")(ckey, address, computer_id)
+
 	var/list/stickyban_ids = list()
 
 	for(var/datum/view_record/stickyban_matched_ckey/matched_ckey as anything in get_impacted_ckey_records(ckey))
@@ -57,6 +66,9 @@ SUBSYSTEM_DEF(stickyban)
  * - computer_id, string, optional
  */
 /datum/controller/subsystem/stickyban/proc/match_sticky(existing_ban_id, ckey, address, computer_id)
+	if(hascall(src, "modular_match_sticky"))
+		return call(src, "modular_match_sticky")(existing_ban_id, ckey, address, computer_id)
+
 	if(!existing_ban_id)
 		return
 
@@ -178,6 +190,9 @@ SUBSYSTEM_DEF(stickyban)
  * remains active.
  */
 /datum/controller/subsystem/stickyban/proc/get_impacted_ckey_records(key)
+	if(hascall(src, "modular_get_impacted_ckey_records"))
+		return call(src, "modular_get_impacted_ckey_records")(key)
+
 	key = ckey(key)
 
 	return DB_VIEW(/datum/view_record/stickyban_matched_ckey,
@@ -206,6 +221,9 @@ SUBSYSTEM_DEF(stickyban)
  * Connections matching this CID will be blocked - provided the linked stickyban is active.
  */
 /datum/controller/subsystem/stickyban/proc/get_impacted_cid_records(cid)
+	if(hascall(src, "modular_get_impacted_cid_records"))
+		return call(src, "modular_get_impacted_cid_records")(cid)
+
 	if(cid in CONFIG_GET(str_list/ignored_cids))
 		return list()
 
@@ -218,12 +236,18 @@ SUBSYSTEM_DEF(stickyban)
  * Connections matchin this IP will be blocked - provided the linked stickyban is active.
  */
 /datum/controller/subsystem/stickyban/proc/get_impacted_ip_records(ip)
+	if(hascall(src, "modular_get_impacted_ip_records"))
+		return call(src, "modular_get_impacted_ip_records")(ip)
+
 	return DB_VIEW(/datum/view_record/stickyban_matched_ip,
 		DB_COMP("ip", DB_EQUALS, ip)
 	)
 
 /// Legacy import from pager bans to database bans.
 /datum/controller/subsystem/stickyban/proc/import_sticky(identifier, list/ban_data)
+	if(hascall(src, "modular_import_sticky"))
+		return call(src, "modular_import_sticky")(identifier, ban_data)
+
 	WAIT_DB_READY
 
 	if(ban_data["type"] != "sticky")
@@ -239,6 +263,10 @@ SUBSYSTEM_DEF(stickyban)
  * We abuse the on_insert from ndatabase here to ensure we have the synced ID of the new stickyban when applying a *lot* of associated bans. If we don't have a matching pager ban with the new sticky's identifier, we stop.
  */
 /datum/entity_meta/stickyban/on_insert(datum/entity/stickyban/new_sticky)
+	if(hascall(src, "modular_on_insert"))
+		if(call(src, "modular_on_insert")(new_sticky))
+			return
+
 	var/list/ban_data = params2list(world.GetConfig("ban", new_sticky.identifier))
 
 	if(!length(ban_data))
