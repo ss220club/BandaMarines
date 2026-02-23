@@ -68,6 +68,9 @@
 	var/list/seen_ids = list()
 
 	for(var/id in raw_ids)
+		if(isnull(id) || id == "")
+			continue
+
 		var/id_key = "[id]"
 		if(seen_ids[id_key])
 			continue
@@ -88,7 +91,11 @@
 	var/total_ids = length(sticky_ids)
 
 	for(var/i in 1 to total_ids)
-		current_chunk += sticky_ids[i]
+		var/sticky_id = sticky_ids[i]
+		if(isnull(sticky_id) || sticky_id == "")
+			continue
+
+		current_chunk += sticky_id
 		if(length(current_chunk) < chunk_size && i < total_ids)
 			continue
 
@@ -99,6 +106,7 @@
 			target_set["[match.vars["linked_stickyban"]]"] = TRUE
 
 		current_chunk = list()
+		stoplag()
 
 /datum/controller/subsystem/stickyban/proc/run_startup_cleanup()
 	WAIT_DB_READY
@@ -232,7 +240,8 @@
 	modular_collect_sticky_match_presence(stickies_with_matches, /datum/view_record/stickyban_matched_ip, unique_sticky_ids, match_query_chunk_size)
 
 	var/deactivated = 0
-	for(var/sticky_id in unique_sticky_ids)
+	for(var/i in 1 to length(unique_sticky_ids))
+		var/sticky_id = unique_sticky_ids[i]
 		if(stickies_with_matches["[sticky_id]"])
 			continue
 
@@ -248,5 +257,8 @@
 		sticky.save()
 		sticky.sync()
 		deactivated++
+
+		if(!(i % 100))
+			stoplag()
 
 	return deactivated
