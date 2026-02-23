@@ -6,6 +6,7 @@ SUBSYSTEM_DEF(stickyban)
 /datum/controller/subsystem/stickyban/Initialize()
 	var/list/all_bans = world.GetConfig("ban")
 
+	// SS220 EDIT: модуль задаёт точное количество задач legacy-импорта.
 	if(hascall(src, "modular_set_expected_legacy_jobs"))
 		call(src, "modular_set_expected_legacy_jobs")(length(all_bans))
 
@@ -13,6 +14,7 @@ SUBSYSTEM_DEF(stickyban)
 		var/list/ban_data = params2list(world.GetConfig("ban", existing_ban))
 		INVOKE_ASYNC(src, PROC_REF(import_sticky), existing_ban, ban_data)
 
+	// SS220 EDIT: модульный post-init для детерминированного запуска очистки.
 	if(hascall(src, "modular_post_initialize"))
 		call(src, "modular_post_initialize")()
 
@@ -22,6 +24,7 @@ SUBSYSTEM_DEF(stickyban)
  * Returns a list of [/datum/view_record/stickyban]s, or null, if no stickybans are found. All arguments are optional, but you should pass at least one if you want any results.
  */
 /datum/controller/subsystem/stickyban/proc/check_for_sticky_ban(ckey, address, computer_id)
+	// SS220 EDIT: модульный поиск с дедупликацией и безопасной legacy-политикой.
 	if(hascall(src, "modular_check_for_sticky_ban"))
 		return call(src, "modular_check_for_sticky_ban")(ckey, address, computer_id)
 
@@ -66,6 +69,7 @@ SUBSYSTEM_DEF(stickyban)
  * - computer_id, string, optional
  */
 /datum/controller/subsystem/stickyban/proc/match_sticky(existing_ban_id, ckey, address, computer_id)
+	// SS220 EDIT: модульная политика матчей stickyban.
 	if(hascall(src, "modular_match_sticky"))
 		return call(src, "modular_match_sticky")(existing_ban_id, ckey, address, computer_id)
 
@@ -190,6 +194,7 @@ SUBSYSTEM_DEF(stickyban)
  * remains active.
  */
 /datum/controller/subsystem/stickyban/proc/get_impacted_ckey_records(key)
+	// SS220 EDIT: модульный фильтр impacted CKEY записей.
 	if(hascall(src, "modular_get_impacted_ckey_records"))
 		return call(src, "modular_get_impacted_ckey_records")(key)
 
@@ -221,6 +226,7 @@ SUBSYSTEM_DEF(stickyban)
  * Connections matching this CID will be blocked - provided the linked stickyban is active.
  */
 /datum/controller/subsystem/stickyban/proc/get_impacted_cid_records(cid)
+	// SS220 EDIT: модульный фильтр impacted CID записей.
 	if(hascall(src, "modular_get_impacted_cid_records"))
 		return call(src, "modular_get_impacted_cid_records")(cid)
 
@@ -236,6 +242,7 @@ SUBSYSTEM_DEF(stickyban)
  * Connections matchin this IP will be blocked - provided the linked stickyban is active.
  */
 /datum/controller/subsystem/stickyban/proc/get_impacted_ip_records(ip)
+	// SS220 EDIT: модульный фильтр impacted IP записей.
 	if(hascall(src, "modular_get_impacted_ip_records"))
 		return call(src, "modular_get_impacted_ip_records")(ip)
 
@@ -245,6 +252,7 @@ SUBSYSTEM_DEF(stickyban)
 
 /// Legacy import from pager bans to database bans.
 /datum/controller/subsystem/stickyban/proc/import_sticky(identifier, list/ban_data)
+	// SS220 EDIT: модульный legacy-import с защитой от runtime сбоев.
 	if(hascall(src, "modular_import_sticky"))
 		return call(src, "modular_import_sticky")(identifier, ban_data)
 
@@ -263,6 +271,7 @@ SUBSYSTEM_DEF(stickyban)
  * We abuse the on_insert from ndatabase here to ensure we have the synced ID of the new stickyban when applying a *lot* of associated bans. If we don't have a matching pager ban with the new sticky's identifier, we stop.
  */
 /datum/entity_meta/stickyban/on_insert(datum/entity/stickyban/new_sticky)
+	// SS220 EDIT: модульное selective-bypass поведение для legacy-импорта.
 	if(hascall(src, "modular_on_insert"))
 		if(call(src, "modular_on_insert")(new_sticky))
 			return

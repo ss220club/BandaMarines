@@ -228,6 +228,7 @@
 			owner.cmd_admin_do_stickyban()
 			return
 
+		// SS220 EDIT: делегируем модульные sticky-действия в modular/admin.
 		if(hascall(src, "modular_handle_sticky_topic_action"))
 			if(call(src, "modular_handle_sticky_topic_action")(href_list))
 				return

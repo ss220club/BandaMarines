@@ -91,6 +91,9 @@
 		return null
 
 	var/datum/entity/stickyban/sticky_entity = DB_ENTITY(/datum/entity/stickyban, selected_id)
+	if(!sticky_entity)
+		return null
+
 	sticky_entity.sync()
 	return sticky_entity
 

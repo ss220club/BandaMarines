@@ -1,9 +1,12 @@
+/// Возвращает модульные ссылки для sticky-панели.
 /datum/admins/proc/modular_sticky_panel_links()
 	return list(
 		"<a href='byond://?src=\ref[src];[HrefToken()];sticky=1;purge_ckey_global=1'>Purge Sticky CKEY</a>",
 		"<a href='byond://?src=\ref[src];[HrefToken()];sticky=1;sticky_audit=1'>Stickyban Audit</a>"
 	)
 
+/// Обрабатывает модульные sticky-действия из Topic().
+/// Возвращает TRUE, если действие полностью обработано модулем.
 /datum/admins/proc/modular_handle_sticky_topic_action(list/href_list)
 	if(href_list["sticky_audit"])
 		var/list/audit = SSstickyban.run_stickyban_audit()

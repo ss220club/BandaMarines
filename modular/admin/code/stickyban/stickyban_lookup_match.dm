@@ -60,7 +60,7 @@
 	if(!existing_ban_id)
 		return
 
-	// Keep anti-bloat behavior: do not auto-link by CKEY on login.
+	// Сохраняем политику против раздувания таблиц: не создаём авто-связь по CKEY при логине.
 	if(address)
 		add_matched_ip(existing_ban_id, address)
 
@@ -80,8 +80,14 @@
 	)
 
 /datum/controller/subsystem/stickyban/proc/modular_get_impacted_cid_records(cid)
-	if(!cid || cid in CONFIG_GET(str_list/ignored_cids))
+	if(!cid)
 		return list()
+
+	var/list/ignored_cids = CONFIG_GET(str_list/ignored_cids)
+	// Избегаем двусмысленного порядка операций с оператором `in`.
+	if(islist(ignored_cids))
+		if(cid in ignored_cids)
+			return list()
 
 	return DB_VIEW(/datum/view_record/stickyban_matched_cid,
 		DB_COMP("cid", DB_EQUALS, cid)

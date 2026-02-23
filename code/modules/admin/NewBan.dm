@@ -280,6 +280,7 @@ GLOBAL_DATUM(Banlist, /savefile)
 	var/add_sticky = "<a href='byond://?src=\ref[src];[HrefToken()];sticky=1;new_sticky=1'>Add Sticky Ban</a>"
 	var/find_sticky = "<a href='byond://?src=\ref[src];[HrefToken()];sticky=1;find_sticky=1'>Find Sticky Ban</a>"
 	var/list/sticky_links = list(add_sticky, find_sticky)
+	// SS220 EDIT: модульные ссылки stickyban-панели.
 	if(hascall(src, "modular_sticky_panel_links"))
 		var/list/modular_links = call(src, "modular_sticky_panel_links")()
 		if(islist(modular_links) && length(modular_links))

@@ -17,13 +17,13 @@
 	modular_legacy_import_expected = total_jobs
 	modular_legacy_expected_from_hook = TRUE
 
-	// If initialization already finished and there are no jobs, cleanup can run now.
+	// Инициализация уже могла завершиться, тогда cleanup можно запустить сразу.
 	modular_try_run_startup_cleanup()
 
 /datum/controller/subsystem/stickyban/proc/modular_post_initialize()
 	modular_cleanup_ready = TRUE
 
-	// Backward-compatible fallback for partial cherry-picks without upstream hook.
+	// Резервная ветка для совместимости, если upstream-хук не был подтянут.
 	if(!modular_legacy_expected_from_hook)
 		var/legacy_entries = length(world.GetConfig("ban"))
 		if(legacy_entries > modular_legacy_import_expected)
@@ -51,6 +51,6 @@
 	modular_try_run_startup_cleanup()
 
 /datum/entity_meta/stickyban/proc/modular_on_insert(datum/entity/stickyban/new_sticky)
-	if(!SSstickyban)
+	if(!SSstickyban || !new_sticky)
 		return FALSE
 	return SSstickyban.modular_in_legacy_insert

@@ -39,7 +39,7 @@
 	var/list/datum/entity/entities_to_sync = list()
 	var/const/sync_chunk_size = 100
 
-	// Phase 1: queue all deletes first.
+	// Фаза 1: сначала отправляем все удаления.
 	for(var/id in unique_ids_to_delete)
 		var/datum/entity/to_delete = DB_ENTITY(entity_type, id)
 		if(!to_delete)
@@ -48,7 +48,7 @@
 		to_delete.delete()
 		entities_to_sync += to_delete
 
-	// Phase 2: wait for DB consistency.
+	// Фаза 2: дожидаемся консистентности БД.
 	var/deleted = 0
 	for(var/i in 1 to length(entities_to_sync))
 		var/datum/entity/to_sync = entities_to_sync[i]
@@ -75,6 +75,30 @@
 		deduped_ids += id
 
 	return deduped_ids
+
+/datum/controller/subsystem/stickyban/proc/modular_collect_sticky_match_presence(list/target_set, view_type, list/sticky_ids, chunk_size = 500)
+	if(!islist(target_set) || !length(sticky_ids))
+		return
+
+	if(!isnum(chunk_size))
+		chunk_size = 500
+	chunk_size = max(1, round(chunk_size))
+
+	var/list/current_chunk = list()
+	var/total_ids = length(sticky_ids)
+
+	for(var/i in 1 to total_ids)
+		current_chunk += sticky_ids[i]
+		if(length(current_chunk) < chunk_size && i < total_ids)
+			continue
+
+		var/list/datum/view_record/matches = DB_VIEW(view_type,
+			DB_COMP("linked_stickyban", DB_IN, current_chunk)
+		)
+		for(var/datum/view_record/match as anything in matches)
+			target_set["[match.vars["linked_stickyban"]]"] = TRUE
+
+		current_chunk = list()
 
 /datum/controller/subsystem/stickyban/proc/run_startup_cleanup()
 	WAIT_DB_READY
@@ -197,21 +221,27 @@
 	if(!length(sticky_ids))
 		return 0
 
+	var/list/unique_sticky_ids = modular_dedupe_ids(sticky_ids)
+	if(!length(unique_sticky_ids))
+		return 0
+
+	var/list/stickies_with_matches = list()
+	var/const/match_query_chunk_size = 500
+	modular_collect_sticky_match_presence(stickies_with_matches, /datum/view_record/stickyban_matched_ckey, unique_sticky_ids, match_query_chunk_size)
+	modular_collect_sticky_match_presence(stickies_with_matches, /datum/view_record/stickyban_matched_cid, unique_sticky_ids, match_query_chunk_size)
+	modular_collect_sticky_match_presence(stickies_with_matches, /datum/view_record/stickyban_matched_ip, unique_sticky_ids, match_query_chunk_size)
+
 	var/deactivated = 0
-	for(var/sticky_id in sticky_ids)
+	for(var/sticky_id in unique_sticky_ids)
+		if(stickies_with_matches["[sticky_id]"])
+			continue
+
 		var/datum/entity/stickyban/sticky = DB_ENTITY(/datum/entity/stickyban, sticky_id)
 		if(!sticky)
 			continue
 
 		sticky.sync()
 		if(!sticky.active)
-			continue
-
-		if(length(DB_VIEW(/datum/view_record/stickyban_matched_ckey, DB_COMP("linked_stickyban", DB_EQUALS, sticky_id))))
-			continue
-		if(length(DB_VIEW(/datum/view_record/stickyban_matched_cid, DB_COMP("linked_stickyban", DB_EQUALS, sticky_id))))
-			continue
-		if(length(DB_VIEW(/datum/view_record/stickyban_matched_ip, DB_COMP("linked_stickyban", DB_EQUALS, sticky_id))))
 			continue
 
 		sticky.active = FALSE
