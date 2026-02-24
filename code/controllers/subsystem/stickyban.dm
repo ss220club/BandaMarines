@@ -89,6 +89,12 @@ SUBSYSTEM_DEF(stickyban)
  * Adds a new tracked stickyban, and returns a [/datum/entity/stickyban] if it was successful. Blocking, sleeps.
  */
 /datum/controller/subsystem/stickyban/proc/add_stickyban(identifier, reason, message, datum/entity/player/banning_admin, override_date)
+	// SS220 EDIT: идемпотентный резолвер strict-key, чтобы не плодить root-дубли.
+	if(hascall(src, "modular_resolve_stickyban_for_add"))
+		var/datum/entity/stickyban/existing_sticky = call(src, "modular_resolve_stickyban_for_add")(identifier, reason, message, banning_admin, override_date)
+		if(istype(existing_sticky, /datum/entity/stickyban))
+			return existing_sticky
+
 	var/datum/entity/stickyban/new_sticky = DB_ENTITY(/datum/entity/stickyban)
 	new_sticky.identifier = identifier
 	new_sticky.reason = reason

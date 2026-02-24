@@ -20,18 +20,11 @@
 		return audit
 
 	var/list/sticky_lookup = list()
-	var/list/active_identifier_to_ids = list()
 	for(var/datum/view_record/stickyban/sticky as anything in all_stickies)
 		sticky_lookup["[sticky.id]"] = TRUE
 
 		if(sticky.active)
 			audit["active_stickies"]++
-
-			var/identifier_key = "[sticky.identifier]"
-			if(!islist(active_identifier_to_ids[identifier_key]))
-				active_identifier_to_ids[identifier_key] = list()
-			var/list/identifier_ids = active_identifier_to_ids[identifier_key]
-			identifier_ids += sticky.id
 		else
 			audit["inactive_stickies"]++
 
@@ -56,15 +49,25 @@
 			active_empty_examples += "[sticky.identifier] (id=[sticky.id])"
 
 	var/list/root_duplicate_examples = list()
-	for(var/identifier_key in active_identifier_to_ids)
-		var/list/identifier_ids = active_identifier_to_ids[identifier_key]
-		if(length(identifier_ids) <= 1)
+	var/list/root_duplicate_groups = modular_collect_root_duplicate_groups()
+	if(!islist(root_duplicate_groups))
+		root_duplicate_groups = list()
+
+	audit["root_duplicate_groups"] = length(root_duplicate_groups)
+	for(var/list/group_data as anything in root_duplicate_groups)
+		var/list/stickies = group_data["stickies"]
+		if(!islist(stickies) || !length(stickies))
 			continue
 
-		audit["root_duplicate_groups"]++
-		audit["root_duplicate_rows"] += length(identifier_ids)
-		if(length(root_duplicate_examples) < 20)
-			root_duplicate_examples += "[identifier_key] -> [jointext(identifier_ids, ", ")]"
+		audit["root_duplicate_rows"] += length(stickies)
+		if(length(root_duplicate_examples) >= 20)
+			continue
+
+		var/datum/view_record/stickyban/sample = stickies[1]
+		var/list/group_ids = list()
+		for(var/datum/view_record/stickyban/current as anything in stickies)
+			group_ids += current.id
+		root_duplicate_examples += "[sample.identifier] | [sample.reason] | [sample.message] -> [jointext(group_ids, ", ")]"
 
 	var/list/report_lines = list()
 	report_lines += "<b>Stickyban Audit</b>"
@@ -77,7 +80,7 @@
 	if(length(active_empty_examples))
 		report_lines += "Active-empty examples: [jointext(active_empty_examples, "; ")]"
 
-	report_lines += "Active root duplicate identifiers (report-only): [audit["root_duplicate_groups"]] groups / [audit["root_duplicate_rows"]] rows."
+	report_lines += "Root strict-key duplicates (report-only): [audit["root_duplicate_groups"]] groups / [audit["root_duplicate_rows"]] rows."
 	if(length(root_duplicate_examples))
 		report_lines += "Root duplicate examples: [jointext(root_duplicate_examples, "; ")]"
 

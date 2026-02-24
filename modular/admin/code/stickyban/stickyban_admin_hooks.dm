@@ -2,7 +2,8 @@
 /datum/admins/proc/modular_sticky_panel_links()
 	return list(
 		"<a href='byond://?src=\ref[src];[HrefToken()];sticky=1;purge_ckey_global=1'>Purge Sticky CKEY</a>",
-		"<a href='byond://?src=\ref[src];[HrefToken()];sticky=1;sticky_audit=1'>Stickyban Audit</a>"
+		"<a href='byond://?src=\ref[src];[HrefToken()];sticky=1;sticky_audit=1'>Stickyban Audit</a>",
+		"<a href='byond://?src=\ref[src];[HrefToken()];sticky=1;sticky_normalize=1'>Stickyban Normalize Duplicates</a>"
 	)
 
 /// Обрабатывает модульные sticky-действия из Topic().
@@ -35,6 +36,22 @@
 		to_chat(owner, SPAN_ADMIN("Stickyban purge for [ckey_to_purge]: removed [purged_records] CKEY entries across [touched_stickies] stickybans, deactivated [deactivated_stickies] empty stickybans."))
 		message_admins("[key_name_admin(owner)] has globally purged stickyban CKEY matches for [ckey_to_purge] ([purged_records] rows removed, [deactivated_stickies] stickybans deactivated).")
 		important_message_external("[owner] has globally purged stickyban CKEY matches for [ckey_to_purge].", "Stickyban CKEY Purged")
+		return TRUE
+
+	if(href_list["sticky_normalize"])
+		var/list/normalize_summary = SSstickyban.modular_normalize_root_duplicates(TRUE)
+		if(!islist(normalize_summary))
+			normalize_summary = list()
+
+		var/groups = normalize_summary["groups"] || 0
+		var/found = normalize_summary["duplicates_found"] || 0
+		var/roots_deleted = normalize_summary["duplicates_deleted"] || 0
+		var/matches_moved = normalize_summary["matches_moved"] || 0
+		var/errors = normalize_summary["errors"] || 0
+
+		to_chat(owner, SPAN_ADMIN("Stickyban normalize completed: groups=[groups], duplicates_found=[found], roots_deleted=[roots_deleted], matches_moved=[matches_moved], errors=[errors]."))
+		message_admins("[key_name_admin(owner)] ran Stickyban Normalize Duplicates (groups=[groups], duplicates_found=[found], roots_deleted=[roots_deleted], matches_moved=[matches_moved], errors=[errors]).")
+		important_message_external("[owner] ran Stickyban Normalize Duplicates.", "Stickyban Duplicates Normalized")
 		return TRUE
 
 	return FALSE

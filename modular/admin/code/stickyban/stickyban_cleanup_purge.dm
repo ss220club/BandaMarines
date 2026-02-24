@@ -128,6 +128,18 @@
 	if(candidate_total || deleted_total)
 		log_world("StickyBan startup cleanup: candidates=[candidate_total], deleted=[deleted_total] (CKEY=[ckey_stats["deleted"] || 0], CID=[cid_stats["deleted"] || 0], IP=[ip_stats["deleted"] || 0]).")
 
+	// Нормализация root-дублей strict-key после базовой очистки связей.
+	var/list/dedup_summary = modular_normalize_root_duplicates(TRUE)
+	if(!islist(dedup_summary))
+		dedup_summary = list()
+
+	var/dedup_groups = dedup_summary["groups"] || 0
+	var/dedup_deleted = dedup_summary["duplicates_deleted"] || 0
+	var/dedup_moved = dedup_summary["matches_moved"] || 0
+	var/dedup_errors = dedup_summary["errors"] || 0
+	if(dedup_groups || dedup_deleted || dedup_moved || dedup_errors)
+		log_world("StickyBan startup root dedup: groups=[dedup_groups], duplicates_deleted=[dedup_deleted], matches_moved=[dedup_moved], errors=[dedup_errors].")
+
 /datum/controller/subsystem/stickyban/proc/cleanup_ckey_matches(list/sticky_lookup, perform_deletes = TRUE, list/stickies_with_matches = null)
 	var/list/datum/view_record/stickyban_matched_ckey/all_records = DB_VIEW(/datum/view_record/stickyban_matched_ckey)
 	if(!length(all_records))

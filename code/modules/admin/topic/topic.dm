@@ -275,6 +275,18 @@
 					if(!(tgui_alert(owner, "Are you sure you want to remove this stickyban? Identifier: [sticky.identifier] Reason: [sticky.reason]", "Confirm", list("Yes", "No")) == "Yes"))
 						return
 
+					// SS220 EDIT: модульное удаление strict-key кластера (включая дубли и inactive).
+					if(hascall(SSstickyban, "modular_delete_stickyban_cluster"))
+						var/list/cluster_summary = call(SSstickyban, "modular_delete_stickyban_cluster")(sticky.id, TRUE)
+						if(islist(cluster_summary))
+							var/cluster_size = cluster_summary["cluster_size"] || 0
+							var/roots_deleted = cluster_summary["roots_deleted"] || 0
+							var/matches_deleted = cluster_summary["matches_deleted"] || 0
+							if(cluster_size || roots_deleted || matches_deleted)
+								message_admins("[key_name_admin(owner)] has deleted stickyban cluster '[sticky.identifier]' (cluster=[cluster_size], roots_deleted=[roots_deleted], matches_deleted=[matches_deleted]).")
+								important_message_external("[owner] has deleted stickyban cluster '[sticky.identifier]'.", "Stickyban Cluster Deleted")
+								return
+
 					sticky.active = FALSE
 					sticky.save()
 
