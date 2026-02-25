@@ -65,3 +65,7 @@ endmap
 
 map whiskey_outpost_v2
 endmap
+
+map tyrargo_rift
+    minplayers 110
+endmap
