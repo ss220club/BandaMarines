@@ -259,7 +259,7 @@
 		var/obj/item/clothing/mask/facehugger/child = object
 		if(isturf(child.loc) && Adjacent(child))
 			if(child.hivenumber != hivenumber)
-				to_chat(src, SPAN_WARNING("Этот [F.declent_ru(NOMINATIVE)] не наш!"))
+				to_chat(src, SPAN_WARNING("Этот [child.declent_ru(NOMINATIVE)] не наш!"))
 				drop_inv_item_on_ground(child)
 				return
 			if(on_fire)
