@@ -3,7 +3,7 @@ var/sound = pick('modular/shave_marine/sound/shave_1.ogg', 'modular/shave_marine
 	var/uses = 0
 	var/interaction_time = 2 SECONDS
 /obj/item/attachable/bayonet/verb/shave()
-	set name = "Shave yourself"
+	set name = "Поправить стрижку"
 	set category = "Object"
 	set src in usr
 	
