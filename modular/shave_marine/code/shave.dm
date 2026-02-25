@@ -82,7 +82,7 @@ var/sound = pick('modular/shave_marine/sound/shave_1.ogg', 'modular/shave_marine
 		if(human_user.gender == MALE && human_user.f_style != "Shaved")
 			if(uses < 4)
 				playsound(src, sound, 25, 1)
-				user.langchat_speech("Ссекает лишние волоски с бороды", viewers, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
+				user.langchat_speech("ссекает лишние волоски с бороды", viewers, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
 				for(var/mob/M in viewers)
 					M.show_message(SPAN_ROSE("[capitalize(user.declent_ru(NOMINATIVE))] ссекает лишние волоски с бороды своим [src]!"), SHOW_MESSAGE_VISIBLE)
 				uses += 1
@@ -92,7 +92,7 @@ var/sound = pick('modular/shave_marine/sound/shave_1.ogg', 'modular/shave_marine
 					return
 			else if(uses >= 4)
 				playsound(src, 'modular/shave_marine/sound/shave_fail.ogg', 25, 1)
-				user.langchat_speech("Резко срезает остатки своей бороды", viewers, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
+				user.langchat_speech("резко срезает остатки своей бороды", viewers, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
 				for(var/mob/M in viewers)
 					M.show_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] резко срезает остатки бороды своим [src]! это не круто..."), SHOW_MESSAGE_VISIBLE)
 				human_user.f_style = "Shaved"
@@ -114,7 +114,7 @@ var/sound = pick('modular/shave_marine/sound/shave_1.ogg', 'modular/shave_marine
 		else
 			if(uses < 4)
 				playsound(src, sound, 25, 1)
-				user.langchat_speech("Ссекает лишние волоски с причёски", viewers, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
+				user.langchat_speech("ссекает лишние волоски с причёски", viewers, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
 				for(var/mob/M in viewers)
 					M.show_message(SPAN_ROSE("[capitalize(user.declent_ru(NOMINATIVE))] ссекает лишние волоски с причёски своим [src]!"), SHOW_MESSAGE_VISIBLE)
 				uses += 1
@@ -124,7 +124,7 @@ var/sound = pick('modular/shave_marine/sound/shave_1.ogg', 'modular/shave_marine
 					return
 			else if(uses >= 4)
 				playsound(src, 'modular/shave_marine/sound/shave_fail.ogg', 25, 1)
-				user.langchat_speech("Резко срезает остатки своих волос", viewers, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
+				user.langchat_speech("резко срезает остатки своих волос", viewers, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
 				for(var/mob/M in viewers)
 					M.show_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] резко срезает остатки волос своим [src]! это не круто..."), SHOW_MESSAGE_VISIBLE)
 				human_user.h_style = "Bald"
