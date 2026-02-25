@@ -6,7 +6,7 @@
 /datum/controller/subsystem/stickyban/proc/modular_normalize_text_field(value)
 	var/text_value = isnull(value) ? "" : "[value]"
 	text_value = replacetext(text_value, "\t", " ")
-	text_value = replacetext(text_value, "\r", " ")
+	text_value = replacetext(text_value, ascii2text(13), " ")
 	text_value = replacetext(text_value, "\n", " ")
 	text_value = trim(text_value)
 
