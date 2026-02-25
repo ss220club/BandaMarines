@@ -275,18 +275,28 @@
 					if(!(tgui_alert(owner, "Are you sure you want to remove this stickyban? Identifier: [sticky.identifier] Reason: [sticky.reason]", "Confirm", list("Yes", "No")) == "Yes"))
 						return
 
-					// SS220 EDIT: модульное удаление strict-key кластера (включая дубли и inactive).
+					// SS220 EDIT START: модульное удаление strict-key кластера (включая дубли и inactive).
 					if(hascall(SSstickyban, "modular_delete_stickyban_cluster"))
 						var/list/cluster_summary = call(SSstickyban, "modular_delete_stickyban_cluster")(sticky.id, TRUE)
 						if(islist(cluster_summary))
+							var/status = cluster_summary["status"] || "partial"
 							var/cluster_size = cluster_summary["cluster_size"] || 0
 							var/roots_deleted = cluster_summary["roots_deleted"] || 0
 							var/matches_deleted = cluster_summary["matches_deleted"] || 0
-							if(cluster_size || roots_deleted || matches_deleted)
+							var/cluster_errors = cluster_summary["errors"] || 0
+							if(status == "ok")
 								message_admins("[key_name_admin(owner)] has deleted stickyban cluster '[sticky.identifier]' (cluster=[cluster_size], roots_deleted=[roots_deleted], matches_deleted=[matches_deleted]).")
 								important_message_external("[owner] has deleted stickyban cluster '[sticky.identifier]'.", "Stickyban Cluster Deleted")
-								return
+							else
+								to_chat(owner, SPAN_WARNING("Stickyban cluster delete status=[status]. cluster=[cluster_size], roots_deleted=[roots_deleted], matches_deleted=[matches_deleted], errors=[cluster_errors]."))
+								message_admins("[key_name_admin(owner)] attempted stickyban cluster delete '[sticky.identifier]' (status=[status], cluster=[cluster_size], roots_deleted=[roots_deleted], matches_deleted=[matches_deleted], errors=[cluster_errors]).")
+							return
+						else
+							to_chat(owner, SPAN_WARNING("Stickyban cluster delete returned invalid summary."))
+							message_admins("[key_name_admin(owner)] attempted stickyban cluster delete '[sticky.identifier]' but got invalid summary.")
+							return
 
+					// SS220 EDIT END: fallback деактивации только при отсутствии модульного hook.
 					sticky.active = FALSE
 					sticky.save()
 

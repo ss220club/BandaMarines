@@ -49,7 +49,7 @@
 			active_empty_examples += "[sticky.identifier] (id=[sticky.id])"
 
 	var/list/root_duplicate_examples = list()
-	var/list/root_duplicate_groups = modular_collect_root_duplicate_groups()
+	var/list/root_duplicate_groups = modular_collect_root_duplicate_groups(TRUE, TRUE)
 	if(!islist(root_duplicate_groups))
 		root_duplicate_groups = list()
 
@@ -67,7 +67,9 @@
 		var/list/group_ids = list()
 		for(var/datum/view_record/stickyban/current as anything in stickies)
 			group_ids += current.id
-		root_duplicate_examples += "[sample.identifier] | [sample.reason] | [sample.message] -> [jointext(group_ids, ", ")]"
+		var/strict_key = group_data["strict_key"] || modular_build_normalized_strict_key(sample.identifier, sample.reason, sample.message)
+		var/strict_key_view = replacetext("[strict_key]", "\x1E", " | ")
+		root_duplicate_examples += "[sample.identifier] | [sample.reason] | [sample.message] | key=[strict_key_view] -> [jointext(group_ids, ", ")]"
 
 	var/list/report_lines = list()
 	report_lines += "<b>Stickyban Audit</b>"

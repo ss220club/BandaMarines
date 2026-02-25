@@ -6,6 +6,7 @@
 	var/modular_cleanup_done = FALSE
 	var/modular_cleanup_ready = FALSE
 	var/modular_in_legacy_insert = FALSE
+	var/modular_root_dedup_in_progress = FALSE
 
 /datum/controller/subsystem/stickyban/proc/modular_set_expected_legacy_jobs(total_jobs)
 	if(!isnum(total_jobs))

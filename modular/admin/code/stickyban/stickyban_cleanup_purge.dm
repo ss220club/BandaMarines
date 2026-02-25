@@ -133,12 +133,15 @@
 	if(!islist(dedup_summary))
 		dedup_summary = list()
 
+	var/dedup_status = dedup_summary["status"] || "noop"
 	var/dedup_groups = dedup_summary["groups"] || 0
+	var/dedup_before = dedup_summary["before_duplicates"] || 0
+	var/dedup_after = dedup_summary["after_duplicates"] || 0
 	var/dedup_deleted = dedup_summary["duplicates_deleted"] || 0
 	var/dedup_moved = dedup_summary["matches_moved"] || 0
 	var/dedup_errors = dedup_summary["errors"] || 0
-	if(dedup_groups || dedup_deleted || dedup_moved || dedup_errors)
-		log_world("StickyBan startup root dedup: groups=[dedup_groups], duplicates_deleted=[dedup_deleted], matches_moved=[dedup_moved], errors=[dedup_errors].")
+	if(dedup_groups || dedup_before || dedup_after || dedup_deleted || dedup_moved || dedup_errors || dedup_status != "noop")
+		log_world("StickyBan startup root dedup: status=[dedup_status], groups=[dedup_groups], before=[dedup_before], after=[dedup_after], duplicates_deleted=[dedup_deleted], matches_moved=[dedup_moved], errors=[dedup_errors].")
 
 /datum/controller/subsystem/stickyban/proc/cleanup_ckey_matches(list/sticky_lookup, perform_deletes = TRUE, list/stickies_with_matches = null)
 	var/list/datum/view_record/stickyban_matched_ckey/all_records = DB_VIEW(/datum/view_record/stickyban_matched_ckey)

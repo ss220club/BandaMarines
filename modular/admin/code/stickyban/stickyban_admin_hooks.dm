@@ -43,15 +43,20 @@
 		if(!islist(normalize_summary))
 			normalize_summary = list()
 
+		var/status = normalize_summary["status"] || "noop"
 		var/groups = normalize_summary["groups"] || 0
-		var/found = normalize_summary["duplicates_found"] || 0
+		var/found = normalize_summary["before_duplicates"] || (normalize_summary["duplicates_found"] || 0)
+		var/after_duplicates = normalize_summary["after_duplicates"] || 0
 		var/roots_deleted = normalize_summary["duplicates_deleted"] || 0
 		var/matches_moved = normalize_summary["matches_moved"] || 0
 		var/errors = normalize_summary["errors"] || 0
 
-		to_chat(owner, SPAN_ADMIN("Stickyban normalize completed: groups=[groups], duplicates_found=[found], roots_deleted=[roots_deleted], matches_moved=[matches_moved], errors=[errors]."))
-		message_admins("[key_name_admin(owner)] ran Stickyban Normalize Duplicates (groups=[groups], duplicates_found=[found], roots_deleted=[roots_deleted], matches_moved=[matches_moved], errors=[errors]).")
+		to_chat(owner, SPAN_ADMIN("Stickyban normalize completed: status=[status], groups=[groups], duplicates_before=[found], duplicates_after=[after_duplicates], roots_deleted=[roots_deleted], matches_moved=[matches_moved], errors=[errors]."))
+		message_admins("[key_name_admin(owner)] ran Stickyban Normalize Duplicates (status=[status], groups=[groups], duplicates_before=[found], duplicates_after=[after_duplicates], roots_deleted=[roots_deleted], matches_moved=[matches_moved], errors=[errors]).")
 		important_message_external("[owner] ran Stickyban Normalize Duplicates.", "Stickyban Duplicates Normalized")
+
+		// Немедленно обновляем панель, чтобы админ видел фактический результат мутации.
+		stickypanel()
 		return TRUE
 
 	return FALSE
