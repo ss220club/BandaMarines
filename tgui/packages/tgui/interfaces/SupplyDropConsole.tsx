@@ -68,7 +68,7 @@ export const SupplyDropConsole = () => {
         )}
         <Section title="Supply Drop">
           <LabeledList>
-            <LabeledList.Item label="Longitude">
+            <LabeledList.Item label="Долгота">
               <NumberInput
                 width="4em"
                 step={1}
@@ -78,7 +78,7 @@ export const SupplyDropConsole = () => {
                 onChange={(value) => act('set_x', { set_x: `${value}` })}
               />
             </LabeledList.Item>
-            <LabeledList.Item label="Latitude">
+            <LabeledList.Item label="Широта">
               <NumberInput
                 width="4em"
                 step={1}
@@ -88,7 +88,7 @@ export const SupplyDropConsole = () => {
                 onChange={(value) => act('set_y', { set_y: `${value}` })}
               />
             </LabeledList.Item>
-            <LabeledList.Item label="Height">
+            <LabeledList.Item label="Высота">
               <NumberInput
                 width="4em"
                 step={1}
@@ -104,7 +104,7 @@ export const SupplyDropConsole = () => {
             title="Supply Pad Status"
             buttons={
               <Button icon="sync-alt" onClick={() => act('refresh_pad')}>
-                Update
+                Обновить
               </Button>
             }
           >
