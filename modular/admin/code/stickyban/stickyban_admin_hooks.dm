@@ -16,11 +16,12 @@
 		var/orphan_rows = audit["orphan_rows"] || 0
 		var/duplicate_rows = audit["duplicate_rows"] || 0
 		var/active_empty = audit["active_empty_stickies"] || 0
-		var/root_duplicate_groups = audit["root_duplicate_groups"] || 0
+		var/identifier_duplicate_groups = audit["identifier_duplicate_groups"] || (audit["root_duplicate_groups"] || 0)
+		var/graph_duplicate_groups = audit["graph_duplicate_groups"] || 0
 
 		show_browser(owner, report_html, "Аудит Stickyban", "sticky_audit", width = 950, height = 520)
-		to_chat(owner, SPAN_ADMIN("Аудит Stickyban завершен: кандидаты=[candidate_rows], сироты=[orphan_rows], дубли=[duplicate_rows], active-empty=[active_empty], группы дублей root=[root_duplicate_groups]."))
-		message_admins("[key_name_admin(owner)] запустил аудит Stickyban (кандидаты=[candidate_rows], сироты=[orphan_rows], дубли=[duplicate_rows], active-empty=[active_empty], группы дублей root=[root_duplicate_groups]).")
+		to_chat(owner, SPAN_ADMIN("Аудит Stickyban завершен: кандидаты=[candidate_rows], сироты=[orphan_rows], дубли-пар=[duplicate_rows], active-empty=[active_empty], identifier-группы=[identifier_duplicate_groups], graph-кластеры=[graph_duplicate_groups]."))
+		message_admins("[key_name_admin(owner)] запустил аудит Stickyban (кандидаты=[candidate_rows], сироты=[orphan_rows], дубли-пар=[duplicate_rows], active-empty=[active_empty], identifier-группы=[identifier_duplicate_groups], graph-кластеры=[graph_duplicate_groups]).")
 		return TRUE
 
 	if(href_list["purge_ckey_global"])
@@ -44,18 +45,19 @@
 			normalize_summary = list()
 
 		var/status = normalize_summary["status"] || "noop"
-		var/groups = normalize_summary["groups"] || 0
-		var/found = normalize_summary["before_duplicates"] || (normalize_summary["duplicates_found"] || 0)
-		var/after_duplicates = normalize_summary["after_duplicates"] || 0
+		var/id_before = normalize_summary["before_identifier_duplicates"] || (normalize_summary["before_duplicates"] || (normalize_summary["duplicates_found"] || 0))
+		var/id_after = normalize_summary["after_identifier_duplicates"] || (normalize_summary["after_duplicates"] || 0)
+		var/graph_groups = normalize_summary["before_graph_clusters"] || 0
+		var/graph_before = normalize_summary["before_graph_duplicates"] || 0
+		var/graph_after = normalize_summary["after_graph_duplicates"] || 0
 		var/roots_deleted = normalize_summary["duplicates_deleted"] || 0
 		var/matches_moved = normalize_summary["matches_moved"] || 0
 		var/errors = normalize_summary["errors"] || 0
 
-		to_chat(owner, SPAN_ADMIN("Нормализация дублей Stickyban завершена: статус=[status], групп=[groups], дублей до=[found], дублей после=[after_duplicates], root удалено=[roots_deleted], связей перенесено=[matches_moved], ошибок=[errors]."))
-		message_admins("[key_name_admin(owner)] запустил нормализацию дублей Stickyban (статус=[status], групп=[groups], дублей до=[found], дублей после=[after_duplicates], root удалено=[roots_deleted], связей перенесено=[matches_moved], ошибок=[errors]).")
-		important_message_external("[owner] запустил нормализацию дублей Stickyban.", "Нормализация дублей Stickyban")
+		to_chat(owner, SPAN_ADMIN("Нормализация Stickyban завершена: статус=[status], id-дубли до=[id_before], id-дубли после=[id_after], graph-кластеров=[graph_groups], graph-дублей до=[graph_before], graph-дублей после=[graph_after], root удалено=[roots_deleted], связей перенесено=[matches_moved], ошибок=[errors]."))
+		message_admins("[key_name_admin(owner)] запустил нормализацию Stickyban (статус=[status], id-дубли до=[id_before], id-дубли после=[id_after], graph-кластеров=[graph_groups], graph-дублей до=[graph_before], graph-дублей после=[graph_after], root удалено=[roots_deleted], связей перенесено=[matches_moved], ошибок=[errors]).")
+		important_message_external("[owner] запустил нормализацию Stickyban (identifier + graph).", "Нормализация Stickyban")
 
-		// Немедленно обновляем панель, чтобы админ видел фактический результат мутации.
 		stickypanel()
 		return TRUE
 

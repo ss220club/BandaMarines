@@ -3,28 +3,10 @@
 		return ""
 	return ckey(trim("[identifier]"))
 
-/datum/controller/subsystem/stickyban/proc/modular_normalize_text_field(value)
-	var/text_value = isnull(value) ? "" : "[value]"
-	text_value = replacetext(text_value, "\t", " ")
-	text_value = replacetext(text_value, ascii2text(13), " ")
-	text_value = replacetext(text_value, "\n", " ")
-	text_value = trim(text_value)
-
-	while(findtext(text_value, "  "))
-		text_value = replacetext(text_value, "  ", " ")
-
-	return text_value
-
-/datum/controller/subsystem/stickyban/proc/modular_build_normalized_strict_key(identifier, reason, message)
-	return "[modular_normalize_identifier(identifier)]\x1E[modular_normalize_text_field(reason)]\x1E[modular_normalize_text_field(message)]"
-
-/datum/controller/subsystem/stickyban/proc/modular_build_sticky_strict_key(identifier, reason, message)
-	// Совместимость со старым именем: используем нормализованный strict-key.
-	return modular_build_normalized_strict_key(identifier, reason, message)
-
-/datum/controller/subsystem/stickyban/proc/modular_collect_stickies_for_normalized_key(strict_key, include_inactive = TRUE)
+/datum/controller/subsystem/stickyban/proc/modular_collect_stickies_for_identifier(identifier, include_inactive = TRUE)
 	var/list/matches = list()
-	if(!strict_key)
+	var/normalized_identifier = modular_normalize_identifier(identifier)
+	if(!normalized_identifier)
 		return matches
 
 	var/list/datum/view_record/stickyban/all_stickies = DB_VIEW(/datum/view_record/stickyban)
@@ -32,7 +14,7 @@
 		if(!include_inactive && !sticky.active)
 			continue
 
-		if(modular_build_normalized_strict_key(sticky.identifier, sticky.reason, sticky.message) != strict_key)
+		if(modular_normalize_identifier(sticky.identifier) != normalized_identifier)
 			continue
 
 		matches += sticky
@@ -45,7 +27,7 @@
 
 	var/canonical_id
 	var/canonical_active = FALSE
-	var/canonical_id_num = 0
+	var/canonical_id_num = -1
 
 	for(var/datum/view_record/stickyban/sticky as anything in stickies)
 		if(!sticky)
@@ -66,52 +48,128 @@
 			canonical_id_num = current_id_num
 			continue
 
-		if(current_active == canonical_active && current_id_num < canonical_id_num)
+		if(current_active == canonical_active && current_id_num > canonical_id_num)
 			canonical_id = sticky.id
 			canonical_id_num = current_id_num
 
 	return canonical_id
 
-/datum/controller/subsystem/stickyban/proc/modular_collect_root_duplicate_groups(normalized = TRUE, include_inactive = TRUE)
+/datum/controller/subsystem/stickyban/proc/modular_pick_newest_sticky_id(list/datum/view_record/stickyban/stickies)
+	var/newest_id
+	var/newest_id_num = -1
+
+	for(var/datum/view_record/stickyban/sticky as anything in stickies)
+		if(!sticky)
+			continue
+
+		var/current_id_num = text2num("[sticky.id]")
+		if(current_id_num <= newest_id_num)
+			continue
+
+		newest_id = sticky.id
+		newest_id_num = current_id_num
+
+	return newest_id
+
+/datum/controller/subsystem/stickyban/proc/modular_pick_cluster_identifier(list/datum/view_record/stickyban/stickies, canonical_id)
+	var/newest_identifier = ""
+	var/newest_id_num = -1
+	var/fallback_identifier = ""
+	var/fallback_id_num = -1
+
+	for(var/datum/view_record/stickyban/sticky as anything in stickies)
+		if(!sticky)
+			continue
+
+		var/current_id_num = text2num("[sticky.id]")
+		var/normalized_identifier = modular_normalize_identifier(sticky.identifier)
+
+		if(current_id_num > newest_id_num)
+			newest_id_num = current_id_num
+			newest_identifier = normalized_identifier
+
+		if(normalized_identifier && current_id_num > fallback_id_num)
+			fallback_id_num = current_id_num
+			fallback_identifier = normalized_identifier
+
+	if(newest_identifier)
+		return newest_identifier
+
+	if(fallback_identifier)
+		return fallback_identifier
+
+	return "legacy_empty_[canonical_id]"
+
+/datum/controller/subsystem/stickyban/proc/modular_apply_cluster_fields_to_canonical(canonical_id, list/datum/view_record/stickyban/stickies)
+	var/datum/entity/stickyban/canonical_sticky = DB_ENTITY(/datum/entity/stickyban, canonical_id)
+	if(!canonical_sticky)
+		return FALSE
+
+	var/newest_id = modular_pick_newest_sticky_id(stickies)
+	var/datum/view_record/stickyban/newest_view
+	for(var/datum/view_record/stickyban/sticky as anything in stickies)
+		if("[sticky.id]" == "[newest_id]")
+			newest_view = sticky
+			break
+
+	var/new_identifier = modular_pick_cluster_identifier(stickies, canonical_id)
+	var/new_admin_id = null
+	if(newest_id)
+		var/datum/entity/stickyban/newest_entity = DB_ENTITY(/datum/entity/stickyban, newest_id)
+		if(newest_entity)
+			newest_entity.sync()
+			new_admin_id = newest_entity.adminid
+
+	canonical_sticky.sync()
+	canonical_sticky.identifier = new_identifier
+	canonical_sticky.active = TRUE
+	if(newest_view)
+		canonical_sticky.reason = newest_view.reason
+		canonical_sticky.message = newest_view.message
+		canonical_sticky.date = newest_view.date
+	canonical_sticky.adminid = new_admin_id
+	canonical_sticky.save()
+	canonical_sticky.sync()
+	return TRUE
+
+/datum/controller/subsystem/stickyban/proc/modular_collect_root_duplicate_groups(include_inactive = TRUE)
 	WAIT_DB_READY
 
 	var/list/duplicate_groups = list()
-	var/list/grouped_by_key = list()
+	var/list/grouped_by_identifier = list()
 	var/list/datum/view_record/stickyban/all_stickies = DB_VIEW(/datum/view_record/stickyban)
 
 	for(var/datum/view_record/stickyban/sticky as anything in all_stickies)
 		if(!include_inactive && !sticky.active)
 			continue
 
-		var/strict_key
-		if(normalized)
-			strict_key = modular_build_normalized_strict_key(sticky.identifier, sticky.reason, sticky.message)
-		else
-			strict_key = "[sticky.identifier]\x1E[sticky.reason]\x1E[sticky.message]"
+		var/identifier_key = modular_normalize_identifier(sticky.identifier)
+		if(!identifier_key)
+			continue
 
-		if(!islist(grouped_by_key[strict_key]))
-			grouped_by_key[strict_key] = list()
+		if(!islist(grouped_by_identifier[identifier_key]))
+			grouped_by_identifier[identifier_key] = list()
 
-		var/list/current_group = grouped_by_key[strict_key]
+		var/list/current_group = grouped_by_identifier[identifier_key]
 		current_group += sticky
 
-	for(var/strict_key in grouped_by_key)
-		var/list/current_group = grouped_by_key[strict_key]
+	for(var/identifier_key in grouped_by_identifier)
+		var/list/current_group = grouped_by_identifier[identifier_key]
 		if(length(current_group) <= 1)
 			continue
 
-		var/list/group_data = list(
-			"strict_key" = strict_key,
+		duplicate_groups[length(duplicate_groups) + 1] = list(
+			"identifier" = identifier_key,
 			"stickies" = current_group,
 		)
-		duplicate_groups[length(duplicate_groups) + 1] = group_data
 
 	return duplicate_groups
 
 /datum/controller/subsystem/stickyban/proc/modular_build_duplicate_stats(list/duplicate_groups)
 	var/list/stats = list(
 		"groups" = 0,
-		"duplicates" = 0
+		"duplicates" = 0,
+		"rows" = 0,
 	)
 
 	for(var/list/group_data as anything in duplicate_groups)
@@ -119,44 +177,291 @@
 		if(!islist(stickies) || length(stickies) <= 1)
 			continue
 
+		var/group_size = length(stickies)
 		stats["groups"]++
-		stats["duplicates"] += max(0, length(stickies) - 1)
+		stats["rows"] += group_size
+		stats["duplicates"] += max(0, group_size - 1)
 
 	return stats
+
+/datum/controller/subsystem/stickyban/proc/modular_add_graph_edge(list/neighbors, left_id_key, right_id_key)
+	if(!left_id_key || !right_id_key || left_id_key == right_id_key)
+		return
+
+	if(!islist(neighbors[left_id_key]))
+		neighbors[left_id_key] = list()
+	if(!islist(neighbors[right_id_key]))
+		neighbors[right_id_key] = list()
+
+	var/list/left_neighbors = neighbors[left_id_key]
+	var/list/right_neighbors = neighbors[right_id_key]
+	left_neighbors[right_id_key] = TRUE
+	right_neighbors[left_id_key] = TRUE
+
+/datum/controller/subsystem/stickyban/proc/modular_connect_graph_group(list/neighbors, list/group_id_keys)
+	if(length(group_id_keys) <= 1)
+		return
+
+	var/anchor_key = group_id_keys[1]
+	for(var/i in 2 to length(group_id_keys))
+		modular_add_graph_edge(neighbors, anchor_key, group_id_keys[i])
+
+/datum/controller/subsystem/stickyban/proc/modular_build_graph_index(include_inactive = TRUE, use_ip_gated = TRUE)
+	WAIT_DB_READY
+
+	var/list/graph_index = list(
+		"sticky_by_id" = list(),
+		"target_ids" = list(),
+		"neighbors" = list(),
+		"strong_signal_by_id" = list(),
+		"identifier_key_by_id" = list(),
+	)
+
+	var/list/sticky_by_id = graph_index["sticky_by_id"]
+	var/list/target_ids = graph_index["target_ids"]
+	var/list/neighbors = graph_index["neighbors"]
+	var/list/strong_signal_by_id = graph_index["strong_signal_by_id"]
+	var/list/identifier_key_by_id = graph_index["identifier_key_by_id"]
+
+	var/list/target_set = list()
+	var/list/identifier_to_ids = list()
+	var/list/ckey_to_ids = list()
+	var/list/cid_to_ids = list()
+	var/list/ip_to_ids = list()
+
+	var/list/datum/view_record/stickyban/all_stickies = DB_VIEW(/datum/view_record/stickyban)
+	for(var/datum/view_record/stickyban/sticky as anything in all_stickies)
+		if(!include_inactive && !sticky.active)
+			continue
+
+		var/id_key = "[sticky.id]"
+		target_ids += id_key
+		target_set[id_key] = TRUE
+		sticky_by_id[id_key] = sticky
+		identifier_key_by_id[id_key] = modular_normalize_identifier(sticky.identifier)
+		if(!islist(neighbors[id_key]))
+			neighbors[id_key] = list()
+
+		var/identifier_key = identifier_key_by_id[id_key]
+		if(identifier_key)
+			if(!islist(identifier_to_ids[identifier_key]))
+				identifier_to_ids[identifier_key] = list()
+			var/list/identifier_id_set = identifier_to_ids[identifier_key]
+			identifier_id_set[id_key] = TRUE
+
+	if(!length(target_ids))
+		return graph_index
+
+	var/list/datum/view_record/stickyban_matched_ckey/ckey_rows = DB_VIEW(/datum/view_record/stickyban_matched_ckey,
+		DB_COMP("whitelisted", DB_EQUALS, FALSE)
+	)
+	for(var/datum/view_record/stickyban_matched_ckey/row as anything in ckey_rows)
+		var/id_key = "[row.linked_stickyban]"
+		if(!target_set[id_key])
+			continue
+
+		var/key = ckey(row.ckey)
+		if(!key)
+			continue
+
+		if(!islist(ckey_to_ids[key]))
+			ckey_to_ids[key] = list()
+		var/list/ckey_id_set = ckey_to_ids[key]
+		ckey_id_set[id_key] = TRUE
+
+	var/list/datum/view_record/stickyban_matched_cid/cid_rows = DB_VIEW(/datum/view_record/stickyban_matched_cid)
+	for(var/datum/view_record/stickyban_matched_cid/row as anything in cid_rows)
+		var/id_key = "[row.linked_stickyban]"
+		if(!target_set[id_key])
+			continue
+
+		var/cid_value = "[row.cid]"
+		if(!cid_value)
+			continue
+
+		if(!islist(cid_to_ids[cid_value]))
+			cid_to_ids[cid_value] = list()
+		var/list/cid_id_set = cid_to_ids[cid_value]
+		cid_id_set[id_key] = TRUE
+
+	var/list/datum/view_record/stickyban_matched_ip/ip_rows = DB_VIEW(/datum/view_record/stickyban_matched_ip)
+	for(var/datum/view_record/stickyban_matched_ip/row as anything in ip_rows)
+		var/id_key = "[row.linked_stickyban]"
+		if(!target_set[id_key])
+			continue
+
+		var/ip_value = "[row.ip]"
+		if(!ip_value)
+			continue
+
+		if(!islist(ip_to_ids[ip_value]))
+			ip_to_ids[ip_value] = list()
+		var/list/ip_id_set = ip_to_ids[ip_value]
+		ip_id_set[id_key] = TRUE
+
+	for(var/identifier_key in identifier_to_ids)
+		var/list/identifier_id_set = identifier_to_ids[identifier_key]
+		if(length(identifier_id_set) <= 1)
+			continue
+
+		var/list/group_id_keys = list()
+		for(var/id_key in identifier_id_set)
+			group_id_keys += id_key
+			strong_signal_by_id[id_key] = TRUE
+		modular_connect_graph_group(neighbors, group_id_keys)
+
+	for(var/key in ckey_to_ids)
+		var/list/ckey_id_set = ckey_to_ids[key]
+		if(length(ckey_id_set) <= 1)
+			continue
+
+		var/list/group_id_keys = list()
+		for(var/id_key in ckey_id_set)
+			group_id_keys += id_key
+			strong_signal_by_id[id_key] = TRUE
+		modular_connect_graph_group(neighbors, group_id_keys)
+
+	for(var/cid_value in cid_to_ids)
+		var/list/cid_id_set = cid_to_ids[cid_value]
+		if(length(cid_id_set) <= 1)
+			continue
+
+		var/list/group_id_keys = list()
+		for(var/id_key in cid_id_set)
+			group_id_keys += id_key
+			strong_signal_by_id[id_key] = TRUE
+		modular_connect_graph_group(neighbors, group_id_keys)
+
+	for(var/ip_value in ip_to_ids)
+		var/list/ip_id_set = ip_to_ids[ip_value]
+		if(length(ip_id_set) <= 1)
+			continue
+
+		var/list/group_id_keys = list()
+		for(var/id_key in ip_id_set)
+			if(!use_ip_gated || strong_signal_by_id[id_key])
+				group_id_keys += id_key
+		if(length(group_id_keys) <= 1)
+			continue
+
+		modular_connect_graph_group(neighbors, group_id_keys)
+
+	return graph_index
+
+/datum/controller/subsystem/stickyban/proc/modular_collect_graph_clusters(include_inactive = TRUE, use_ip_gated = TRUE, include_singletons = FALSE)
+	var/list/graph_index = modular_build_graph_index(include_inactive, use_ip_gated)
+	var/list/sticky_by_id = graph_index["sticky_by_id"]
+	var/list/target_ids = graph_index["target_ids"]
+	var/list/neighbors = graph_index["neighbors"]
+
+	var/list/visited = list()
+	var/list/clusters = list()
+
+	for(var/id_key in target_ids)
+		if(visited[id_key])
+			continue
+
+		var/list/stack = list(id_key)
+		visited[id_key] = TRUE
+		var/list/cluster_id_keys = list()
+
+		while(length(stack))
+			var/current_key = stack[length(stack)]
+			stack.len--
+			cluster_id_keys += current_key
+
+			var/list/current_neighbors = neighbors[current_key]
+			if(!islist(current_neighbors) || !length(current_neighbors))
+				continue
+
+			for(var/neighbor_key in current_neighbors)
+				if(visited[neighbor_key])
+					continue
+				visited[neighbor_key] = TRUE
+				stack += neighbor_key
+
+		if(!include_singletons && length(cluster_id_keys) <= 1)
+			continue
+
+		var/list/datum/view_record/stickyban/stickies = list()
+		var/list/cluster_ids = list()
+		for(var/node_key in cluster_id_keys)
+			var/datum/view_record/stickyban/sticky = sticky_by_id[node_key]
+			if(!sticky)
+				continue
+			stickies += sticky
+			cluster_ids += sticky.id
+
+		clusters[length(clusters) + 1] = list(
+			"stickies" = stickies,
+			"cluster_ids" = modular_dedupe_ids(cluster_ids),
+		)
+
+	return clusters
+
+/datum/controller/subsystem/stickyban/proc/modular_build_graph_cluster_stats(list/graph_clusters)
+	var/list/stats = list(
+		"groups" = 0,
+		"duplicates" = 0,
+		"rows" = 0,
+	)
+
+	for(var/list/cluster_data as anything in graph_clusters)
+		var/list/cluster_ids = cluster_data["cluster_ids"]
+		if(!islist(cluster_ids))
+			continue
+
+		var/cluster_size = length(cluster_ids)
+		if(cluster_size <= 1)
+			continue
+
+		stats["groups"]++
+		stats["rows"] += cluster_size
+		stats["duplicates"] += max(0, cluster_size - 1)
+
+	return stats
+
+/datum/controller/subsystem/stickyban/proc/modular_collect_graph_cluster_ids_for_seed_ids(list/seed_ids, include_inactive = TRUE, use_ip_gated = TRUE)
+	var/list/result_ids = list()
+	if(!length(seed_ids))
+		return result_ids
+
+	var/list/seed_set = list()
+	for(var/seed_id in seed_ids)
+		if(isnull(seed_id) || seed_id == "")
+			continue
+		seed_set["[seed_id]"] = TRUE
+
+	if(!length(seed_set))
+		return result_ids
+
+	var/list/graph_clusters = modular_collect_graph_clusters(include_inactive, use_ip_gated, TRUE)
+	for(var/list/cluster_data as anything in graph_clusters)
+		var/list/cluster_ids = cluster_data["cluster_ids"]
+		if(!islist(cluster_ids) || !length(cluster_ids))
+			continue
+
+		var/has_seed = FALSE
+		for(var/cluster_id in cluster_ids)
+			if(seed_set["[cluster_id]"])
+				has_seed = TRUE
+				break
+
+		if(!has_seed)
+			continue
+
+		result_ids += cluster_ids
+
+	return modular_dedupe_ids(result_ids)
 
 /datum/controller/subsystem/stickyban/proc/modular_collect_match_record_ids_for_stickies(view_type, list/sticky_ids, chunk_size = 500)
 	var/list/record_ids = list()
 	if(!length(sticky_ids))
 		return record_ids
 
-	if(!isnum(chunk_size))
-		chunk_size = 500
-	chunk_size = max(1, round(chunk_size))
-
-	var/list/unique_sticky_ids = modular_dedupe_ids(sticky_ids)
-	if(!length(unique_sticky_ids))
-		return record_ids
-
-	var/list/current_chunk = list()
-	var/total_ids = length(unique_sticky_ids)
-
-	for(var/i in 1 to total_ids)
-		var/sticky_id = unique_sticky_ids[i]
-		if(isnull(sticky_id) || sticky_id == "")
-			continue
-
-		current_chunk += sticky_id
-		if(length(current_chunk) < chunk_size && i < total_ids)
-			continue
-
-		var/list/datum/view_record/matches = DB_VIEW(view_type,
-			DB_COMP("linked_stickyban", DB_IN, current_chunk)
-		)
-		for(var/datum/view_record/match as anything in matches)
-			record_ids += match.vars["id"]
-
-		current_chunk = list()
-		stoplag()
+	var/list/datum/view_record/matches = modular_collect_match_rows_for_sticky_ids(view_type, sticky_ids, chunk_size)
+	for(var/datum/view_record/match as anything in matches)
+		record_ids += match.vars["id"]
 
 	return modular_dedupe_ids(record_ids)
 
@@ -165,19 +470,7 @@
 	if(!normalized_identifier)
 		return null
 
-	var/target_key = modular_build_normalized_strict_key(normalized_identifier, reason, message)
-	var/list/datum/view_record/stickyban/candidates = DB_VIEW(/datum/view_record/stickyban,
-		DB_COMP("active", DB_EQUALS, TRUE)
-	)
-	if(!length(candidates))
-		return null
-
-	var/list/datum/view_record/stickyban/matched_candidates = list()
-	for(var/datum/view_record/stickyban/candidate as anything in candidates)
-		if(modular_build_normalized_strict_key(candidate.identifier, candidate.reason, candidate.message) != target_key)
-			continue
-		matched_candidates += candidate
-
+	var/list/datum/view_record/stickyban/matched_candidates = modular_collect_stickies_for_identifier(normalized_identifier, TRUE)
 	if(!length(matched_candidates))
 		return null
 
@@ -190,13 +483,22 @@
 		return null
 
 	existing_sticky.sync()
+	existing_sticky.identifier = normalized_identifier
+	existing_sticky.reason = reason
+	existing_sticky.message = message
+	existing_sticky.active = TRUE
+	if(banning_admin)
+		existing_sticky.adminid = banning_admin.id
+	existing_sticky.date = override_date ? override_date : "[time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")]"
+	existing_sticky.save()
+	existing_sticky.sync()
 	return existing_sticky
 
 /datum/controller/subsystem/stickyban/proc/modular_move_matches_to_canonical(canonical_id, duplicate_id)
 	var/list/summary = list(
 		"source_rows" = 0,
 		"deleted_rows" = 0,
-		"errors" = 0
+		"errors" = 0,
 	)
 	if(!canonical_id || !duplicate_id || "[canonical_id]" == "[duplicate_id]")
 		return summary
@@ -305,39 +607,69 @@
 		"before_duplicates" = 0,
 		"after_groups" = 0,
 		"after_duplicates" = 0,
+		"before_identifier_groups" = 0,
+		"before_identifier_duplicates" = 0,
+		"after_identifier_groups" = 0,
+		"after_identifier_duplicates" = 0,
+		"before_graph_clusters" = 0,
+		"before_graph_duplicates" = 0,
+		"after_graph_clusters" = 0,
+		"after_graph_duplicates" = 0,
+		"graph_clusters_processed" = 0,
 		"status" = "noop",
 	)
 
-	var/list/initial_groups = modular_collect_root_duplicate_groups(TRUE, TRUE)
-	var/list/initial_stats = modular_build_duplicate_stats(initial_groups)
-	summary["before_groups"] = initial_stats["groups"] || 0
-	summary["before_duplicates"] = initial_stats["duplicates"] || 0
-	summary["groups"] = summary["before_groups"]
-	summary["duplicates_found"] = summary["before_duplicates"]
+	var/list/identifier_groups_before = modular_collect_root_duplicate_groups(TRUE)
+	var/list/identifier_stats_before = modular_build_duplicate_stats(identifier_groups_before)
+	var/list/graph_clusters_before = modular_collect_graph_clusters(TRUE, TRUE, FALSE)
+	var/list/graph_stats_before = modular_build_graph_cluster_stats(graph_clusters_before)
 
-	if(!summary["before_duplicates"])
-		summary["after_groups"] = 0
-		summary["after_duplicates"] = 0
+	summary["before_identifier_groups"] = identifier_stats_before["groups"] || 0
+	summary["before_identifier_duplicates"] = identifier_stats_before["duplicates"] || 0
+	summary["before_graph_clusters"] = graph_stats_before["groups"] || 0
+	summary["before_graph_duplicates"] = graph_stats_before["duplicates"] || 0
+
+	summary["before_groups"] = summary["before_identifier_groups"]
+	summary["before_duplicates"] = summary["before_identifier_duplicates"]
+	summary["groups"] = summary["before_identifier_groups"]
+	summary["duplicates_found"] = summary["before_identifier_duplicates"]
+
+	if(!summary["before_graph_duplicates"])
+		summary["after_identifier_groups"] = summary["before_identifier_groups"]
+		summary["after_identifier_duplicates"] = summary["before_identifier_duplicates"]
+		summary["after_graph_clusters"] = summary["before_graph_clusters"]
+		summary["after_graph_duplicates"] = summary["before_graph_duplicates"]
+		summary["after_groups"] = summary["after_identifier_groups"]
+		summary["after_duplicates"] = summary["after_identifier_duplicates"]
 		return summary
 
 	if(!perform_mutation)
-		summary["after_groups"] = summary["before_groups"]
-		summary["after_duplicates"] = summary["before_duplicates"]
+		summary["status"] = "preview"
+		summary["after_identifier_groups"] = summary["before_identifier_groups"]
+		summary["after_identifier_duplicates"] = summary["before_identifier_duplicates"]
+		summary["after_graph_clusters"] = summary["before_graph_clusters"]
+		summary["after_graph_duplicates"] = summary["before_graph_duplicates"]
+		summary["after_groups"] = summary["after_identifier_groups"]
+		summary["after_duplicates"] = summary["after_identifier_duplicates"]
 		return summary
 
 	if(modular_root_dedup_in_progress)
 		summary["status"] = "busy"
-		summary["after_groups"] = summary["before_groups"]
-		summary["after_duplicates"] = summary["before_duplicates"]
+		summary["after_identifier_groups"] = summary["before_identifier_groups"]
+		summary["after_identifier_duplicates"] = summary["before_identifier_duplicates"]
+		summary["after_graph_clusters"] = summary["before_graph_clusters"]
+		summary["after_graph_duplicates"] = summary["before_graph_duplicates"]
+		summary["after_groups"] = summary["after_identifier_groups"]
+		summary["after_duplicates"] = summary["after_identifier_duplicates"]
 		return summary
 
 	modular_root_dedup_in_progress = TRUE
 	var/list/roots_to_delete = list()
-	var/group_counter = 0
+	var/processed_clusters = 0
 
 	try
-		for(var/list/group_data as anything in initial_groups)
-			var/list/stickies = group_data["stickies"]
+		for(var/list/cluster_data as anything in graph_clusters_before)
+			var/list/datum/view_record/stickyban/stickies = cluster_data["stickies"]
 			if(!islist(stickies) || length(stickies) <= 1)
 				continue
 
@@ -345,6 +677,9 @@
 			if(isnull(canonical_id))
 				summary["errors"]++
 				continue
+
+			if(!modular_apply_cluster_fields_to_canonical(canonical_id, stickies))
+				summary["errors"]++
 
 			var/canonical_key = "[canonical_id]"
 			for(var/datum/view_record/stickyban/sticky as anything in stickies)
@@ -356,23 +691,32 @@
 				summary["errors"] += move_summary["errors"] || 0
 				roots_to_delete += sticky.id
 
-			group_counter++
-			if(!(group_counter % 25))
+			processed_clusters++
+			if(!(processed_clusters % 25))
 				stoplag()
 
+		summary["graph_clusters_processed"] = processed_clusters
 		summary["duplicates_deleted"] = modular_delete_root_records_batch(roots_to_delete)
 	catch(var/exception/normalization_error)
 		summary["errors"]++
-		log_world("StickyBan root dedup runtime error: [normalization_error]")
+		log_world("StickyBan graph normalize runtime error: [normalization_error]")
 
 	modular_root_dedup_in_progress = FALSE
 
-	var/list/final_groups = modular_collect_root_duplicate_groups(TRUE, TRUE)
-	var/list/final_stats = modular_build_duplicate_stats(final_groups)
-	summary["after_groups"] = final_stats["groups"] || 0
-	summary["after_duplicates"] = final_stats["duplicates"] || 0
+	var/list/identifier_groups_after = modular_collect_root_duplicate_groups(TRUE)
+	var/list/identifier_stats_after = modular_build_duplicate_stats(identifier_groups_after)
+	var/list/graph_clusters_after = modular_collect_graph_clusters(TRUE, TRUE, FALSE)
+	var/list/graph_stats_after = modular_build_graph_cluster_stats(graph_clusters_after)
 
-	if(summary["after_duplicates"] <= 0 && summary["errors"] <= 0)
+	summary["after_identifier_groups"] = identifier_stats_after["groups"] || 0
+	summary["after_identifier_duplicates"] = identifier_stats_after["duplicates"] || 0
+	summary["after_graph_clusters"] = graph_stats_after["groups"] || 0
+	summary["after_graph_duplicates"] = graph_stats_after["duplicates"] || 0
+
+	summary["after_groups"] = summary["after_identifier_groups"]
+	summary["after_duplicates"] = summary["after_identifier_duplicates"]
+
+	if(summary["after_graph_duplicates"] <= 0 && summary["errors"] <= 0)
 		summary["status"] = "ok"
 	else
 		summary["status"] = "partial"
@@ -388,7 +732,7 @@
 		"matches_deleted" = 0,
 		"errors" = 0,
 		"status" = "noop",
-		"strict_key" = "",
+		"identifier" = "",
 	)
 	if(!source_sticky_id)
 		return summary
@@ -402,17 +746,14 @@
 		return summary
 	source_sticky.sync()
 
-	var/strict_key = modular_build_normalized_strict_key(source_sticky.identifier, source_sticky.reason, source_sticky.message)
-	summary["strict_key"] = strict_key
-	if(!strict_key)
-		return summary
+	summary["identifier"] = modular_normalize_identifier(source_sticky.identifier)
 
-	var/list/datum/view_record/stickyban/cluster_records = modular_collect_stickies_for_normalized_key(strict_key, include_inactive)
-	var/list/cluster_ids = list()
-	for(var/datum/view_record/stickyban/sticky as anything in cluster_records)
-		cluster_ids += sticky.id
-
+	var/list/seed_ids = list(source_sticky.id)
+	var/list/cluster_ids = modular_collect_graph_cluster_ids_for_seed_ids(seed_ids, include_inactive, TRUE)
 	cluster_ids = modular_dedupe_ids(cluster_ids)
+	if(!length(cluster_ids))
+		cluster_ids += source_sticky.id
+
 	summary["cluster_size"] = length(cluster_ids)
 	if(!summary["cluster_size"])
 		return summary

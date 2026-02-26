@@ -1,3 +1,33 @@
+/datum/controller/subsystem/stickyban/proc/modular_collect_whitelisted_cluster_ids_for_ckey(list/seed_ids, key, include_inactive = TRUE)
+	var/list/exempt_ids = list()
+	if(!length(seed_ids))
+		return exempt_ids
+
+	key = ckey(key)
+	if(!key)
+		return exempt_ids
+
+	var/list/cluster_ids = modular_collect_graph_cluster_ids_for_seed_ids(seed_ids, include_inactive, TRUE)
+	cluster_ids = modular_dedupe_ids(cluster_ids)
+	if(!length(cluster_ids))
+		return exempt_ids
+
+	var/list/datum/view_record/stickyban_matched_ckey/whitelisted_records = DB_VIEW(/datum/view_record/stickyban_matched_ckey,
+		DB_AND(
+			DB_COMP("linked_stickyban", DB_IN, cluster_ids),
+			DB_COMP("ckey", DB_EQUALS, key),
+			DB_COMP("whitelisted", DB_EQUALS, TRUE)
+		)
+	)
+	if(!length(whitelisted_records))
+		return exempt_ids
+
+	var/list/whitelisted_root_ids = list()
+	for(var/datum/view_record/stickyban_matched_ckey/record as anything in whitelisted_records)
+		whitelisted_root_ids += record.linked_stickyban
+
+	return modular_collect_graph_cluster_ids_for_seed_ids(whitelisted_root_ids, include_inactive, TRUE)
+
 /datum/controller/subsystem/stickyban/proc/modular_check_for_sticky_ban(ckey, address, computer_id)
 	var/list/stickyban_id_set = list()
 
@@ -29,27 +59,20 @@
 
 	ckey = ckey(ckey)
 	if(ckey)
-		var/list/sticky_ids = list()
+		var/list/seed_ids = list()
 		for(var/datum/view_record/stickyban/current_sticky as anything in stickies)
-			sticky_ids += current_sticky.id
+			seed_ids += current_sticky.id
 
-		if(length(sticky_ids))
-			var/list/datum/view_record/stickyban_matched_ckey/whitelisted_records = DB_VIEW(/datum/view_record/stickyban_matched_ckey,
-				DB_AND(
-					DB_COMP("linked_stickyban", DB_IN, sticky_ids),
-					DB_COMP("ckey", DB_EQUALS, ckey),
-					DB_COMP("whitelisted", DB_EQUALS, TRUE)
-				)
-			)
+		var/list/exempt_cluster_ids = modular_collect_whitelisted_cluster_ids_for_ckey(seed_ids, ckey, TRUE)
+		exempt_cluster_ids = modular_dedupe_ids(exempt_cluster_ids)
+		if(length(exempt_cluster_ids))
+			var/list/exempt_set = list()
+			for(var/exempt_id in exempt_cluster_ids)
+				exempt_set["[exempt_id]"] = TRUE
 
-			if(length(whitelisted_records))
-				var/list/whitelisted_sticky_ids = list()
-				for(var/datum/view_record/stickyban_matched_ckey/whitelisted_record as anything in whitelisted_records)
-					whitelisted_sticky_ids["[whitelisted_record.linked_stickyban]"] = TRUE
-
-				for(var/datum/view_record/stickyban/current_sticky as anything in stickies.Copy())
-					if(whitelisted_sticky_ids["[current_sticky.id]"])
-						stickies -= current_sticky
+			for(var/datum/view_record/stickyban/current_sticky as anything in stickies.Copy())
+				if(exempt_set["[current_sticky.id]"])
+					stickies -= current_sticky
 
 	if(!length(stickies))
 		return FALSE
@@ -60,7 +83,13 @@
 	if(!existing_ban_id)
 		return
 
-	// Сохраняем политику против раздувания таблиц: не создаём авто-связь по CKEY при логине.
+	ckey = ckey(ckey)
+	if(ckey)
+		var/list/exempt_cluster_ids = modular_collect_whitelisted_cluster_ids_for_ckey(list(existing_ban_id), ckey, TRUE)
+		if(length(exempt_cluster_ids))
+			return
+
+	// Сохраняем anti-bloat политику: не создаем авто-связь по CKEY на логине.
 	if(address)
 		add_matched_ip(existing_ban_id, address)
 
@@ -84,7 +113,6 @@
 		return list()
 
 	var/list/ignored_cids = CONFIG_GET(str_list/ignored_cids)
-	// Избегаем двусмысленного порядка операций с оператором `in`.
 	if(islist(ignored_cids))
 		if(cid in ignored_cids)
 			return list()
