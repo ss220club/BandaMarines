@@ -148,7 +148,7 @@
 	name = "chat"
 
 /datum/asset/spritesheet/chat/register()
-	InsertAll("emoji", 'icons/emoji.dmi')
+	InsertAll("emoji", EMOJI_SET) // SS220 EDIT emojis
 	// pre-loading all lanugage icons also helps to avoid meta
 /* InsertAll("language", 'icons/misc/language.dmi')
 	// catch languages which are pulling icons from another file

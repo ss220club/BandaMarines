@@ -276,6 +276,9 @@ IGNORED_CIDS 4055623708
 ## Extra line of info to append to showrevinfo verb
 # CODE_MODIFICATIONS_MESSAGE Additional code modifications available at <a href='https://google.com'>https://google.com</a>.
 
+## Is emojis allowed
+EMOJIS
+
 ## =====================================
 ## SS220
 ## TTS

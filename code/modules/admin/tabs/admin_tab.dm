@@ -291,7 +291,7 @@
 	var/color = "mod"
 	if(check_rights(R_PERMISSIONS, show_msg = FALSE))
 		color = "adminmod"
-
+	msg = emoji_parse(msg) // SS220 EDIT asay emojis
 	var/channel = "ADMIN:"
 	channel = "[admin_holder.rank]:"
 	var/ooc_prefix = handle_ooc_prefix()
@@ -400,7 +400,7 @@
 		return
 
 	log_adminpm("MENTOR: [key_name(src)] : [msg]")
-
+	msg = emoji_parse(msg) // SS220 EDIT msay emojis
 	var/color = "mentorsay"
 	var/channel = "Mentor:"
 	channel = "[admin_holder.rank]:"
