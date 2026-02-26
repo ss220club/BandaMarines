@@ -1003,48 +1003,10 @@
 /turf/open/floor/prison/floor_plate,
 /area/lv522/outdoors/nw_rockies)
 "adD" = (
-/obj/structure/machinery/door/airlock/dropship_hatch/two,
-/turf/open/shuttle/dropship/can_surgery/light_grey_single_wide_up_to_down,
-/area/lv522/landing_zone_forecon/UD6_Tornado)
-"adE" = (
-/turf/closed/shuttle/dropship3/tornado{
-	icon_state = "81"
-	},
-/area/lv522/landing_zone_forecon/UD6_Tornado)
-"adF" = (
-/obj/structure/shuttle/part/dropship3/transparent/outer_left_weapons{
-	name = "\improper Tornado"
-	},
-/turf/open/floor/plating,
-/area/lv522/landing_zone_forecon/UD6_Tornado)
-"adG" = (
-/obj/structure/surface/table/reinforced/almayer_B,
-/obj/item/reagent_container/food/condiment/saltshaker,
-/turf/open/floor/prison/darkredfull2,
-/area/lv522/indoors/lone_buildings/chunk)
-"adH" = (
-/obj/structure/shuttle/part/dropship3/transparent/inner_left_weapons{
-	name = "\improper Tornado"
-	},
-/turf/open/floor/plating,
-/area/lv522/landing_zone_forecon/UD6_Tornado)
-"adI" = (
-/obj/structure/shuttle/part/dropship3/transparent/inner_right_weapons{
-	name = "\improper Tornado"
-	},
-/turf/open/floor/plating,
-/area/lv522/landing_zone_forecon/UD6_Tornado)
-"adJ" = (
-/obj/structure/shuttle/part/dropship3/transparent/outer_right_weapons{
-	name = "\improper Tornado"
-	},
-/turf/open/floor/plating,
-/area/lv522/landing_zone_forecon/UD6_Tornado)
-"adK" = (
 /obj/structure/largecrate/random/secure,
 /turf/open/asphalt/cement/cement15,
 /area/lv522/indoors/lone_buildings/engineering)
-"adL" = (
+"adE" = (
 /obj/structure/platform_decoration/metal/almayer,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/portable_atmospherics/canister/empty/phoron{
@@ -1055,21 +1017,54 @@
 	},
 /turf/open/asphalt/cement,
 /area/lv522/indoors/lone_buildings/engineering)
-"adM" = (
+"adF" = (
 /obj/structure/surface/table/almayer,
 /obj/item/storage/toolbox/electrical,
 /turf/open/asphalt/cement,
 /area/lv522/indoors/lone_buildings/engineering)
-"adN" = (
+"adG" = (
+/obj/structure/surface/table/reinforced/almayer_B,
+/obj/item/reagent_container/food/condiment/saltshaker,
+/turf/open/floor/prison/darkredfull2,
+/area/lv522/indoors/lone_buildings/chunk)
+"adH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/surface/table/almayer,
 /obj/effect/spawner/random/powercell,
 /turf/open/asphalt/cement,
 /area/lv522/indoors/lone_buildings/engineering)
-"adO" = (
+"adI" = (
 /obj/structure/largecrate/random/barrel/red,
 /turf/open/asphalt/cement/cement4,
 /area/lv522/indoors/lone_buildings/engineering)
+"adJ" = (
+/turf/open/asphalt/cement/cement4,
+/area/lv522/indoors/lone_buildings/engineering)
+"adK" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/asphalt/cement/cement4,
+/area/lv522/indoors/lone_buildings/engineering)
+"adL" = (
+/obj/structure/largecrate/random/barrel/yellow,
+/turf/open/asphalt/cement/cement4,
+/area/lv522/indoors/lone_buildings/engineering)
+"adM" = (
+/obj/structure/largecrate/random,
+/turf/open/auto_turf/sand_white/layer0,
+/area/lv522/outdoors/colony_streets/north_west_street)
+"adN" = (
+/obj/item/lightstick/red/spoke/planted{
+	pixel_x = 6;
+	pixel_y = 11
+	},
+/turf/open/auto_turf/sand_white/layer0,
+/area/lv522/outdoors/colony_streets/north_west_street)
+"adO" = (
+/obj/structure/prop/ice_colony/ground_wire{
+	dir = 1
+	},
+/turf/open/auto_turf/shale/layer1,
+/area/lv522/outdoors/colony_streets/north_west_street)
 "adP" = (
 /obj/structure/barricade/deployable{
 	dir = 4
@@ -1174,38 +1169,6 @@
 /turf/open/asphalt/cement,
 /area/lv522/indoors/lone_buildings/engineering)
 "aeg" = (
-/turf/open/asphalt/cement/cement4,
-/area/lv522/indoors/lone_buildings/engineering)
-"aeh" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/asphalt/cement/cement4,
-/area/lv522/indoors/lone_buildings/engineering)
-"aei" = (
-/obj/structure/largecrate/random/barrel/yellow,
-/turf/open/asphalt/cement/cement4,
-/area/lv522/indoors/lone_buildings/engineering)
-"aej" = (
-/obj/structure/largecrate/random,
-/turf/open/auto_turf/sand_white/layer0,
-/area/lv522/outdoors/colony_streets/north_west_street)
-"aek" = (
-/obj/item/lightstick/red/spoke/planted{
-	pixel_x = 6;
-	pixel_y = 11
-	},
-/turf/open/auto_turf/sand_white/layer0,
-/area/lv522/outdoors/colony_streets/north_west_street)
-"ael" = (
-/obj/structure/prop/ice_colony/ground_wire{
-	dir = 1
-	},
-/turf/open/auto_turf/shale/layer1,
-/area/lv522/outdoors/colony_streets/north_west_street)
-"aem" = (
-/obj/structure/barricade/plasteel/metal,
-/turf/open/asphalt/cement/cement12,
-/area/lv522/outdoors/colony_streets/north_street)
-"aen" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "W"
 	},
@@ -1218,7 +1181,7 @@
 	},
 /turf/open/floor/plating,
 /area/lv522/outdoors/colony_streets/north_west_street)
-"aeo" = (
+"aeh" = (
 /obj/structure/prop/dam/crane/cargo{
 	dir = 1;
 	pixel_x = -1;
@@ -1226,7 +1189,7 @@
 	},
 /turf/open/auto_turf/sand_white/layer0,
 /area/lv522/outdoors/colony_streets/north_west_street)
-"aep" = (
+"aei" = (
 /obj/item/lightstick/red/spoke/planted{
 	layer = 3.1;
 	pixel_x = -7;
@@ -1234,7 +1197,7 @@
 	},
 /turf/open/auto_turf/sand_white/layer0,
 /area/lv522/outdoors/colony_streets/north_west_street)
-"aeq" = (
+"aej" = (
 /obj/structure/fence,
 /obj/effect/decal/warning_stripes{
 	icon_state = "E";
@@ -1245,13 +1208,13 @@
 	},
 /turf/open/floor/prison/floor_plate,
 /area/lv522/outdoors/colony_streets/north_west_street)
-"aer" = (
+"aek" = (
 /obj/structure/barricade/wooden{
 	dir = 8
 	},
 /turf/open/auto_turf/shale/layer1,
 /area/lv522/outdoors/colony_streets/north_west_street)
-"aes" = (
+"ael" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "E";
 	pixel_x = 1
@@ -1271,12 +1234,49 @@
 	},
 /turf/open/floor/plating,
 /area/lv522/outdoors/colony_streets/north_west_street)
-"aet" = (
+"aem" = (
+/obj/structure/barricade/plasteel/metal,
+/turf/open/asphalt/cement/cement12,
+/area/lv522/outdoors/colony_streets/north_street)
+"aen" = (
 /obj/structure/barricade/wooden{
 	dir = 8
 	},
 /turf/open/auto_turf/shale/layer2,
 /area/lv522/outdoors/colony_streets/north_west_street)
+"aeo" = (
+/obj/structure/machinery/door/airlock/dropship_hatch/two,
+/turf/open/shuttle/dropship/can_surgery/light_grey_single_wide_up_to_down,
+/area/lv522/landing_zone_forecon/UD6_Tornado)
+"aep" = (
+/turf/closed/shuttle/dropship3/tornado{
+	icon_state = "81"
+	},
+/area/lv522/landing_zone_forecon/UD6_Tornado)
+"aeq" = (
+/obj/structure/shuttle/part/dropship3/transparent/outer_left_weapons{
+	name = "\improper Tornado"
+	},
+/turf/open/floor/plating,
+/area/lv522/landing_zone_forecon/UD6_Tornado)
+"aer" = (
+/obj/structure/shuttle/part/dropship3/transparent/inner_left_weapons{
+	name = "\improper Tornado"
+	},
+/turf/open/floor/plating,
+/area/lv522/landing_zone_forecon/UD6_Tornado)
+"aes" = (
+/obj/structure/shuttle/part/dropship3/transparent/inner_right_weapons{
+	name = "\improper Tornado"
+	},
+/turf/open/floor/plating,
+/area/lv522/landing_zone_forecon/UD6_Tornado)
+"aet" = (
+/obj/structure/shuttle/part/dropship3/transparent/outer_right_weapons{
+	name = "\improper Tornado"
+	},
+/turf/open/floor/plating,
+/area/lv522/landing_zone_forecon/UD6_Tornado)
 "aeD" = (
 /obj/structure/largecrate/random,
 /obj/effect/decal/cleanable/dirt,
@@ -51113,10 +51113,10 @@ sjY
 hJZ
 ien
 hJZ
-aeo
+aeh
 hJZ
 hJZ
-adO
+adI
 ien
 teE
 gBf
@@ -51322,9 +51322,9 @@ hJZ
 hJZ
 hJZ
 hJZ
-aeg
+adJ
 teE
-adL
+adE
 vHP
 wPV
 tyl
@@ -51526,9 +51526,9 @@ hJZ
 adv
 thI
 hJZ
-aek
+adN
 hJZ
-aeh
+adK
 tfO
 nIR
 abe
@@ -51734,7 +51734,7 @@ thI
 hJZ
 tPv
 clY
-aeh
+adK
 nKj
 nIR
 gJL
@@ -51938,9 +51938,9 @@ clY
 ien
 hJZ
 mwX
-ael
+adO
 sjY
-aeg
+adJ
 nKj
 nIR
 ttf
@@ -52139,15 +52139,15 @@ sHy
 sNk
 acB
 adu
-aeq
+aej
 ien
 ien
 ien
 tPv
 hJZ
 bOX
-aeh
-adM
+adK
+adF
 mIx
 pxO
 wdj
@@ -52344,16 +52344,16 @@ acC
 sDf
 sNQ
 acB
-aet
-aer
+aen
+aek
 clY
 ien
 hJZ
 tPv
 hJZ
 clY
-aeh
-adN
+adK
+adH
 she
 tNS
 tEW
@@ -52558,7 +52558,7 @@ hJZ
 tPv
 hJZ
 hJZ
-aei
+adL
 she
 she
 nKj
@@ -52761,16 +52761,16 @@ clY
 clY
 clY
 sjY
-aep
+aei
 hJZ
-aej
+adM
 ien
 tjg
 tfZ
 nKj
 she
 she
-adK
+adD
 yiM
 mGC
 pfJ
@@ -52962,13 +52962,13 @@ sDf
 sLZ
 acB
 acB
-aes
-aes
-aen
-aen
-aen
-aen
-aen
+ael
+ael
+aeg
+aeg
+aeg
+aeg
+aeg
 xoj
 xoj
 ien
@@ -83211,13 +83211,13 @@ qUL
 qUL
 nSF
 qUL
-adF
+aeq
 sCp
 toY
 uwQ
 wzg
-adD
-adD
+aeo
+aeo
 bpZ
 wRL
 pAd
@@ -83417,7 +83417,7 @@ qUL
 qUL
 nSF
 qUL
-adH
+aer
 sIA
 dpS
 qbP
@@ -84036,7 +84036,7 @@ qUL
 rii
 rCi
 ssU
-adE
+aep
 bYC
 dNx
 dNx
@@ -84241,7 +84241,7 @@ qUL
 qUL
 qUL
 pTW
-adI
+aes
 sIA
 goC
 jAX
@@ -84447,7 +84447,7 @@ qUL
 qUL
 qUL
 qUL
-adJ
+aet
 tcu
 tSo
 vjv

@@ -317,9 +317,11 @@
 /datum/emergency_call/young_bloods/remove_nonqualifiers(list/datum/mind/candidates_list)
 	var/list/datum/mind/youngblood_candidates_clean = list()
 	for(var/datum/mind/youngblood_candidate in candidates_list)
+		/* BANDAMARINES - Remove - Start
 		if(check_timelock(youngblood_candidate.current?.client, JOB_YOUNGBLOOD_ROLES_LIST, youngblood_time))
 			to_chat(youngblood_candidate.current, SPAN_WARNING("You did not qualify for the ERT beacon because you have already reached the maximum time allowed for Youngblood, please consider applying for Predator on the forums."))
 			continue
+		BANDAMARINES - Remove - End */
 		if(check_timelock(youngblood_candidate.current?.client, JOB_SQUAD_ROLES_LIST, time_required_for_job) && (youngblood_candidate.current?.client.get_total_xeno_playtime() >= time_required_for_job))
 			youngblood_candidates_clean.Add(youngblood_candidate)
 			continue
