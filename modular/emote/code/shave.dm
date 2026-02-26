@@ -1,19 +1,21 @@
-var/sound = pick('modular/shave_marine/sound/shave_1.ogg', 'modular/shave_marine/sound/shave_2.ogg', 'modular/shave_marine/sound/shave_3.ogg', 'modular/shave_marine/sound/shave_4.ogg', 'modular/shave_marine/sound/shave_5.ogg')
 /obj/item/attachable/bayonet
-	var/uses = 0
+	var/uses = SHAVE_START_USES
 	var/interaction_time = 2 SECONDS
+	var/shave_sound_list = list('modular/emote/sound/shave_1.ogg', 'modular/emote/sound/shave_2.ogg', 'modular/emote/sound/shave_3.ogg', 'modular/emote/sound/shave_4.ogg', 'modular/emote/sound/shave_5.ogg')
+
 /obj/item/attachable/bayonet/verb/shave()
 	set name = "Поправить стрижку"
 	set category = "Object"
 	set src in usr
-	
+
 	var/mob/living/carbon/human/human_user = usr
 	if(!istype(human_user))
 		return
 		
+	var/shave_sound = pick(shave_sound_list)
 	var/list/species_facial_hair = GLOB.facial_hair_styles_list
 	var/list/species_hair = GLOB.hair_styles_list
-	
+
 	if(human_user.species)
 		species_facial_hair = list()
 		for(var/current_style in GLOB.facial_hair_styles_list)
@@ -36,24 +38,24 @@ var/sound = pick('modular/shave_marine/sound/shave_1.ogg', 'modular/shave_marine
 
 	var/new_beard_style
 	var/new_hair_style
-	
+
 	if(human_user.gender == MALE && human_user.f_style != "Shaved")
 		new_beard_style = tgui_input_list(human_user, "Выберите стиль бороды", "Бритьё", species_facial_hair)
-		
+
 	new_hair_style = tgui_input_list(human_user, "Выберите стиль волос", "Стрижка", species_hair)
 
 	if(loc != human_user)
 		to_chat(human_user, SPAN_NOTICE("Вы слишком далеко от [src] чтобы стричься."))
 		return
-		
+
 	if(!new_beard_style && !new_hair_style)
 		return
-		
-	playsound(src, sound, 25, 1)
-	
+
+	playsound(src, shave_sound, 25, 1)
+
 	if(!do_after(human_user, interaction_time, INTERRUPT_ALL, BUSY_ICON_GENERIC))
 		return
-		
+
 	if(human_user.h_style == "Bald" && human_user.f_style == "Shaved")
 		human_user.apply_damage(rand(1, 5), BRUTE, "head", src)
 		human_user.apply_effect(4, WEAKEN)
@@ -61,11 +63,11 @@ var/sound = pick('modular/shave_marine/sound/shave_1.ogg', 'modular/shave_marine
 		to_chat(human_user, SPAN_WARNING("Вы попытались что-то срезать с лысины, но порезались ножом и сильно спугались! Вы странный человек..."))
 		human_user.hallucination += rand(5, 15)
 		return
-		
+
 	if(new_beard_style)
 		human_user.f_style = new_beard_style
 		human_user.visible_message(SPAN_ROSE("[human_user] ровняет растительность на лице своим [src]!"))
-		
+
 	if(new_hair_style)
 		human_user.h_style = new_hair_style
 		human_user.visible_message(SPAN_ROSE("[human_user] ссекает лишние волоски своим [src]!"))
@@ -74,24 +76,25 @@ var/sound = pick('modular/shave_marine/sound/shave_1.ogg', 'modular/shave_marine
 /obj/item/attachable/bayonet/unique_action(mob/user)
 	var/mob/living/carbon/human/human_user = user
 	var/list/viewers = get_mobs_in_view(GLOB.world_view_size, user)
-	
+	var/shave_sound = pick(shave_sound_list)
+
 	if(!istype(human_user))
 		return
-		
+
 	if(user.a_intent == INTENT_HELP && user.zone_selected == "mouth")
 		if(human_user.gender == MALE && human_user.f_style != "Shaved")
-			if(uses < 4)
-				playsound(src, sound, 25, 1)
+			if(uses < MAX_SHAVE_USES)
+				playsound(src, shave_sound, 25, 1)
 				user.langchat_speech("ссекает лишние волоски с бороды", viewers, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
 				for(var/mob/M in viewers)
 					M.show_message(SPAN_ROSE("[capitalize(user.declent_ru(NOMINATIVE))] ссекает лишние волоски с бороды своим [src]!"), SHOW_MESSAGE_VISIBLE)
 				uses += 1
-				
+
 				if(!do_after(human_user, interaction_time, INTERRUPT_ALL, BUSY_ICON_GENERIC))
 					shave_fail(human_user)
 					return
-			else if(uses >= 4)
-				playsound(src, 'modular/shave_marine/sound/shave_fail.ogg', 25, 1)
+			else if(uses >= MAX_SHAVE_USES)
+				playsound(src, 'modular/emote/sound/shave_fail.ogg', 25, 1)
 				user.langchat_speech("резко срезает остатки своей бороды", viewers, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
 				for(var/mob/M in viewers)
 					M.show_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] резко срезает остатки бороды своим [src]! это не круто..."), SHOW_MESSAGE_VISIBLE)
@@ -100,10 +103,10 @@ var/sound = pick('modular/shave_marine/sound/shave_1.ogg', 'modular/shave_marine
 				human_user.apply_damage(rand(1, 5), BRUTE, "head", src)
 				human_user.emote("pain")
 				to_chat(human_user, SPAN_WARNING("Вы порезали лезвием своё лицо! Наверное глупо было ровнять бороду ножом?"))
-				uses = 0
+				uses = SHAVE_START_USES
 		else
 			to_chat(human_user, SPAN_NOTICE("У тебя нет бороды, что ты хочешь ровнять?"))
-			
+
 	else if(user.a_intent == INTENT_HELP && user.zone_selected == "head")
 		if(human_user.h_style == "Bald")
 			human_user.apply_damage(rand(1, 5), BRUTE, "head", src)
@@ -112,18 +115,18 @@ var/sound = pick('modular/shave_marine/sound/shave_1.ogg', 'modular/shave_marine
 			to_chat(human_user, SPAN_WARNING("Вы порезали лезвием свою лысину и сильно испугались! Вы странный человек..."))
 			human_user.hallucination += rand(5, 15)
 		else
-			if(uses < 4)
-				playsound(src, sound, 25, 1)
+			if(uses < MAX_SHAVE_USES)
+				playsound(src, shave_sound, 25, 1)
 				user.langchat_speech("ссекает лишние волоски с причёски", viewers, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
 				for(var/mob/M in viewers)
 					M.show_message(SPAN_ROSE("[capitalize(user.declent_ru(NOMINATIVE))] ссекает лишние волоски с причёски своим [src]!"), SHOW_MESSAGE_VISIBLE)
 				uses += 1
-				
+
 				if(!do_after(human_user, interaction_time, INTERRUPT_ALL, BUSY_ICON_GENERIC))
 					shave_fail(human_user)
 					return
-			else if(uses >= 4)
-				playsound(src, 'modular/shave_marine/sound/shave_fail.ogg', 25, 1)
+			else if(uses >= MAX_SHAVE_USES)
+				playsound(src, 'modular/emote/sound/shave_fail.ogg', 25, 1)
 				user.langchat_speech("резко срезает остатки своих волос", viewers, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
 				for(var/mob/M in viewers)
 					M.show_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] резко срезает остатки волос своим [src]! это не круто..."), SHOW_MESSAGE_VISIBLE)
@@ -132,8 +135,8 @@ var/sound = pick('modular/shave_marine/sound/shave_1.ogg', 'modular/shave_marine
 				human_user.apply_damage(rand(1, 5), BRUTE, "head", src)
 				human_user.emote("pain")
 				to_chat(human_user, SPAN_WARNING("Вы порезали лезвием свою лысину! Наверное глупо было ровнять волосы ножом?"))
-				uses = 0
-	else 
+				uses = SHAVE_START_USES
+	else
 		to_chat(human_user, SPAN_NOTICE("Ты долго смотришь на нож из-за страха порезаться. Правда боишься?"))
 		if(uses >= 1)
 			to_chat(human_user, SPAN_WARNING("У тебя кружится голова из-за панического страха лезвий! Ты видишь странное отражение на своём [src]..."))
@@ -141,9 +144,9 @@ var/sound = pick('modular/shave_marine/sound/shave_1.ogg', 'modular/shave_marine
 				M.show_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] трясётся от страха, глядя на свой [src]!"), SHOW_MESSAGE_VISIBLE)
 			human_user.sway_jitter(2,1)
 			human_user.hallucination += 90
-			uses = 0
+			uses = SHAVE_START_USES
 			return
-		uses = 0
+		uses = SHAVE_START_USES
 		human_user.hallucination = 0
 
 /obj/item/attachable/bayonet/proc/shave_fail(mob/living/carbon/human/human_user)
@@ -153,4 +156,4 @@ var/sound = pick('modular/shave_marine/sound/shave_1.ogg', 'modular/shave_marine
 	to_chat(human_user, SPAN_WARNING("Вы резко дёрнули лезвием и порезались!"))
 	human_user.emote("pain")
 	human_user.hallucination += rand(5, 15)
-	uses = 0
+	uses = SHAVE_START_USES
