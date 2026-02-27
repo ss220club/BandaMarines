@@ -10,5 +10,5 @@
 	INVOKE_ASYNC(src, PROC_REF(run_startup_cleanup))
 
 /datum/entity_meta/stickyban/proc/modular_on_insert(datum/entity/stickyban/new_sticky)
-	// Всегда перехватываем legacy on_insert логику из хардкода.
+	// Всегда перехватываем legacy on_insert-логику из хардкода.
 	return TRUE

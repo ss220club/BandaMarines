@@ -186,7 +186,11 @@
 		if(stickies_with_matches)
 			stickies_with_matches[sticky_id] = TRUE
 
-		var/pair_key = "[sticky_id]|[record.ckey]"
+		var/normalized_key = ckey(record.ckey)
+		if(!normalized_key)
+			normalized_key = trim("[record.ckey]")
+
+		var/pair_key = "[sticky_id]|[normalized_key]"
 		var/datum/view_record/stickyban_matched_ckey/current_keep = keep_by_pair[pair_key]
 		if(!current_keep)
 			keep_by_pair[pair_key] = record

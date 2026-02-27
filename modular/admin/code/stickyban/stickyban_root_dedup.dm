@@ -100,6 +100,13 @@
 
 	return "legacy_empty_[canonical_id]"
 
+/datum/controller/subsystem/stickyban/proc/modular_cluster_has_active_sticky(list/datum/view_record/stickyban/stickies)
+	for(var/datum/view_record/stickyban/sticky as anything in stickies)
+		if(sticky && sticky.active)
+			return TRUE
+
+	return FALSE
+
 /datum/controller/subsystem/stickyban/proc/modular_apply_cluster_fields_to_canonical(canonical_id, list/datum/view_record/stickyban/stickies)
 	var/datum/entity/stickyban/canonical_sticky = DB_ENTITY(/datum/entity/stickyban, canonical_id)
 	if(!canonical_sticky)
@@ -120,9 +127,11 @@
 			newest_entity.sync()
 			new_admin_id = newest_entity.adminid
 
+	var/has_active_cluster = modular_cluster_has_active_sticky(stickies)
+
 	canonical_sticky.sync()
 	canonical_sticky.identifier = new_identifier
-	canonical_sticky.active = TRUE
+	canonical_sticky.active = has_active_cluster
 	if(newest_view)
 		canonical_sticky.reason = newest_view.reason
 		canonical_sticky.message = newest_view.message
@@ -206,7 +215,7 @@
 	for(var/i in 2 to length(group_id_keys))
 		modular_add_graph_edge(neighbors, anchor_key, group_id_keys[i])
 
-/datum/controller/subsystem/stickyban/proc/modular_build_graph_index(include_inactive = TRUE, use_ip_gated = TRUE)
+/datum/controller/subsystem/stickyban/proc/modular_build_graph_index(include_inactive = TRUE, use_ip_gated = TRUE, include_whitelisted_ckey = FALSE)
 	WAIT_DB_READY
 
 	var/list/graph_index = list(
@@ -214,14 +223,12 @@
 		"target_ids" = list(),
 		"neighbors" = list(),
 		"strong_signal_by_id" = list(),
-		"identifier_key_by_id" = list(),
 	)
 
 	var/list/sticky_by_id = graph_index["sticky_by_id"]
 	var/list/target_ids = graph_index["target_ids"]
 	var/list/neighbors = graph_index["neighbors"]
 	var/list/strong_signal_by_id = graph_index["strong_signal_by_id"]
-	var/list/identifier_key_by_id = graph_index["identifier_key_by_id"]
 
 	var/list/target_set = list()
 	var/list/identifier_to_ids = list()
@@ -238,11 +245,10 @@
 		target_ids += id_key
 		target_set[id_key] = TRUE
 		sticky_by_id[id_key] = sticky
-		identifier_key_by_id[id_key] = modular_normalize_identifier(sticky.identifier)
 		if(!islist(neighbors[id_key]))
 			neighbors[id_key] = list()
 
-		var/identifier_key = identifier_key_by_id[id_key]
+		var/identifier_key = modular_normalize_identifier(sticky.identifier)
 		if(identifier_key)
 			if(!islist(identifier_to_ids[identifier_key]))
 				identifier_to_ids[identifier_key] = list()
@@ -252,9 +258,13 @@
 	if(!length(target_ids))
 		return graph_index
 
-	var/list/datum/view_record/stickyban_matched_ckey/ckey_rows = DB_VIEW(/datum/view_record/stickyban_matched_ckey,
-		DB_COMP("whitelisted", DB_EQUALS, FALSE)
-	)
+	var/list/datum/view_record/stickyban_matched_ckey/ckey_rows
+	if(include_whitelisted_ckey)
+		ckey_rows = DB_VIEW(/datum/view_record/stickyban_matched_ckey)
+	else
+		ckey_rows = DB_VIEW(/datum/view_record/stickyban_matched_ckey,
+			DB_COMP("whitelisted", DB_EQUALS, FALSE)
+		)
 	for(var/datum/view_record/stickyban_matched_ckey/row as anything in ckey_rows)
 		var/id_key = "[row.linked_stickyban]"
 		if(!target_set[id_key])
@@ -348,8 +358,8 @@
 
 	return graph_index
 
-/datum/controller/subsystem/stickyban/proc/modular_collect_graph_clusters(include_inactive = TRUE, use_ip_gated = TRUE, include_singletons = FALSE)
-	var/list/graph_index = modular_build_graph_index(include_inactive, use_ip_gated)
+/datum/controller/subsystem/stickyban/proc/modular_collect_graph_clusters(include_inactive = TRUE, use_ip_gated = TRUE, include_singletons = FALSE, include_whitelisted_ckey = FALSE)
+	var/list/graph_index = modular_build_graph_index(include_inactive, use_ip_gated, include_whitelisted_ckey)
 	var/list/sticky_by_id = graph_index["sticky_by_id"]
 	var/list/target_ids = graph_index["target_ids"]
 	var/list/neighbors = graph_index["neighbors"]
@@ -421,7 +431,7 @@
 
 	return stats
 
-/datum/controller/subsystem/stickyban/proc/modular_collect_graph_cluster_ids_for_seed_ids(list/seed_ids, include_inactive = TRUE, use_ip_gated = TRUE)
+/datum/controller/subsystem/stickyban/proc/modular_collect_graph_cluster_ids_for_seed_ids(list/seed_ids, include_inactive = TRUE, use_ip_gated = TRUE, include_whitelisted_ckey = FALSE)
 	var/list/result_ids = list()
 	if(!length(seed_ids))
 		return result_ids
@@ -435,7 +445,7 @@
 	if(!length(seed_set))
 		return result_ids
 
-	var/list/graph_clusters = modular_collect_graph_clusters(include_inactive, use_ip_gated, TRUE)
+	var/list/graph_clusters = modular_collect_graph_clusters(include_inactive, use_ip_gated, TRUE, include_whitelisted_ckey)
 	for(var/list/cluster_data as anything in graph_clusters)
 		var/list/cluster_ids = cluster_data["cluster_ids"]
 		if(!islist(cluster_ids) || !length(cluster_ids))
@@ -621,7 +631,7 @@
 
 	var/list/identifier_groups_before = modular_collect_root_duplicate_groups(TRUE)
 	var/list/identifier_stats_before = modular_build_duplicate_stats(identifier_groups_before)
-	var/list/graph_clusters_before = modular_collect_graph_clusters(TRUE, TRUE, FALSE)
+	var/list/graph_clusters_before = modular_collect_graph_clusters(TRUE, TRUE, FALSE, TRUE)
 	var/list/graph_stats_before = modular_build_graph_cluster_stats(graph_clusters_before)
 
 	summary["before_identifier_groups"] = identifier_stats_before["groups"] || 0
@@ -705,7 +715,7 @@
 
 	var/list/identifier_groups_after = modular_collect_root_duplicate_groups(TRUE)
 	var/list/identifier_stats_after = modular_build_duplicate_stats(identifier_groups_after)
-	var/list/graph_clusters_after = modular_collect_graph_clusters(TRUE, TRUE, FALSE)
+	var/list/graph_clusters_after = modular_collect_graph_clusters(TRUE, TRUE, FALSE, TRUE)
 	var/list/graph_stats_after = modular_build_graph_cluster_stats(graph_clusters_after)
 
 	summary["after_identifier_groups"] = identifier_stats_after["groups"] || 0
@@ -749,7 +759,7 @@
 	summary["identifier"] = modular_normalize_identifier(source_sticky.identifier)
 
 	var/list/seed_ids = list(source_sticky.id)
-	var/list/cluster_ids = modular_collect_graph_cluster_ids_for_seed_ids(seed_ids, include_inactive, TRUE)
+	var/list/cluster_ids = modular_collect_graph_cluster_ids_for_seed_ids(seed_ids, include_inactive, TRUE, TRUE)
 	cluster_ids = modular_dedupe_ids(cluster_ids)
 	if(!length(cluster_ids))
 		cluster_ids += source_sticky.id
@@ -780,5 +790,53 @@
 	else
 		summary["status"] = "partial"
 		summary["errors"] += max(0, summary["cluster_size"] - summary["roots_deleted"])
+
+	return summary
+
+/datum/controller/subsystem/stickyban/proc/modular_whitelist_ckey_cluster(source_sticky_id, key, include_inactive = TRUE)
+	WAIT_DB_READY
+
+	var/list/summary = list(
+		"cluster_size" = 0,
+		"roots_processed" = 0,
+		"errors" = 0,
+		"status" = "noop",
+		"ckey" = "",
+	)
+	if(!source_sticky_id)
+		return summary
+
+	key = ckey(key)
+	if(!key)
+		return summary
+	summary["ckey"] = key
+
+	var/datum/entity/stickyban/source_sticky = DB_ENTITY(/datum/entity/stickyban, source_sticky_id)
+	if(!source_sticky)
+		return summary
+	source_sticky.sync()
+
+	var/list/cluster_ids = modular_collect_graph_cluster_ids_for_seed_ids(list(source_sticky.id), include_inactive, TRUE, TRUE)
+	cluster_ids = modular_dedupe_ids(cluster_ids)
+	if(!length(cluster_ids))
+		cluster_ids += source_sticky.id
+	cluster_ids = modular_dedupe_ids(cluster_ids)
+
+	summary["cluster_size"] = length(cluster_ids)
+	if(!summary["cluster_size"])
+		return summary
+
+	try
+		for(var/root_id in cluster_ids)
+			whitelist_ckey(root_id, key)
+			summary["roots_processed"]++
+	catch(var/exception/whitelist_error)
+		summary["errors"]++
+		log_world("StickyBan cluster whitelist runtime error for [source_sticky_id]/[key]: [whitelist_error]")
+
+	if(summary["errors"] <= 0 && summary["roots_processed"] >= summary["cluster_size"])
+		summary["status"] = "ok"
+	else
+		summary["status"] = "partial"
 
 	return summary

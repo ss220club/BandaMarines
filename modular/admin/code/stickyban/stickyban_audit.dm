@@ -92,7 +92,7 @@
 		identifier_duplicate_examples += "identifier=[group_identifier] -> [group_ids_text]"
 
 	var/list/graph_duplicate_examples = list()
-	var/list/graph_clusters = modular_collect_graph_clusters(TRUE, TRUE, FALSE)
+	var/list/graph_clusters = modular_collect_graph_clusters(TRUE, TRUE, FALSE, TRUE)
 	if(!islist(graph_clusters))
 		graph_clusters = list()
 

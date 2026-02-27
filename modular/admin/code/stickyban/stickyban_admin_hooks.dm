@@ -9,6 +9,40 @@
 /// Обрабатывает модульные sticky-действия из Topic().
 /// Возвращает TRUE, если действие полностью обработано модулем.
 /datum/admins/proc/modular_handle_sticky_topic_action(list/href_list)
+	if(href_list["whitelist_ckey"])
+		var/sticky_id = href_list["sticky"]
+		if(!sticky_id)
+			return FALSE
+
+		var/datum/entity/stickyban/sticky = DB_ENTITY(/datum/entity/stickyban, sticky_id)
+		if(!sticky)
+			to_chat(owner, SPAN_WARNING("Stickyban не найден, whitelist не применен."))
+			return TRUE
+		sticky.sync()
+
+		var/ckey_to_whitelist = ckey(tgui_input_text(owner, "Какой CKEY добавить в белый список для граф-кластера Stickyban '[sticky.identifier]'?", "Белый список Stickyban"))
+		if(!ckey_to_whitelist)
+			return TRUE
+
+		var/list/summary = SSstickyban.modular_whitelist_ckey_cluster(sticky.id, ckey_to_whitelist, TRUE)
+		if(!islist(summary))
+			summary = list()
+
+		var/status = summary["status"] || "partial"
+		var/cluster_size = summary["cluster_size"] || 0
+		var/roots_processed = summary["roots_processed"] || 0
+		var/errors = summary["errors"] || 0
+
+		if(status == "ok")
+			to_chat(owner, SPAN_ADMIN("Whitelist применен для [ckey_to_whitelist]: кластер=[cluster_size], root обработано=[roots_processed], ошибок=[errors]."))
+			message_admins("[key_name_admin(owner)] применил whitelist [ckey_to_whitelist] к stickyban-кластеру '[sticky.identifier]' (кластер=[cluster_size], root=[roots_processed]).")
+			important_message_external("[owner] добавил [ckey_to_whitelist] в whitelist stickyban-кластера '[sticky.identifier]'.", "CKEY Whitelisted")
+		else
+			to_chat(owner, SPAN_WARNING("Whitelist Stickyban выполнен частично: статус=[status], кластер=[cluster_size], root обработано=[roots_processed], ошибок=[errors]."))
+			message_admins("[key_name_admin(owner)] попытался применить cluster-whitelist [ckey_to_whitelist] к '[sticky.identifier]' (status=[status], cluster=[cluster_size], roots=[roots_processed], errors=[errors]).")
+
+		return TRUE
+
 	if(href_list["sticky_audit"])
 		var/list/audit = SSstickyban.run_stickyban_audit()
 		var/report_html = audit["report_html"] || "<b>Аудит Stickyban</b><br>Нет данных."

@@ -7,7 +7,8 @@
 	if(!key)
 		return exempt_ids
 
-	var/list/cluster_ids = modular_collect_graph_cluster_ids_for_seed_ids(seed_ids, include_inactive, TRUE)
+	// Для whitelist-проверки используем расширенный граф: учитываем и whitelisted CKEY-связи.
+	var/list/cluster_ids = modular_collect_graph_cluster_ids_for_seed_ids(seed_ids, include_inactive, TRUE, TRUE)
 	cluster_ids = modular_dedupe_ids(cluster_ids)
 	if(!length(cluster_ids))
 		return exempt_ids
@@ -26,7 +27,7 @@
 	for(var/datum/view_record/stickyban_matched_ckey/record as anything in whitelisted_records)
 		whitelisted_root_ids += record.linked_stickyban
 
-	return modular_collect_graph_cluster_ids_for_seed_ids(whitelisted_root_ids, include_inactive, TRUE)
+	return modular_collect_graph_cluster_ids_for_seed_ids(whitelisted_root_ids, include_inactive, TRUE, TRUE)
 
 /datum/controller/subsystem/stickyban/proc/modular_check_for_sticky_ban(ckey, address, computer_id)
 	var/list/stickyban_id_set = list()
