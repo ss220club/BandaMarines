@@ -209,10 +209,6 @@ export const RADIO_PREFIXES = {
     id: null,
     label: 'Спец.Опер.',
   },
-  ':Y ': {
-    id: null,
-    label: 'В-Ю Корп',
-  },
   ':z ': {
     id: null,
     label: 'ВысшКоманд.',
