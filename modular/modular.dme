@@ -38,3 +38,4 @@
 #include "limb_case/_limb_case.dme"
 #include "emote/_shave.dme"
 #include "balance/_balance.dme"
+#include "emojis220/_emojis.dme"
