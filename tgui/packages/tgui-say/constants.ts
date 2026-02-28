@@ -44,8 +44,6 @@ export const RADIO_PREFIXES_MAP: Record<string, string> = {
   ':з ': ':p ',
   ':ф ': ':a ',
   ':ы ': ':s ',
-  '№Ы ': '#S ',
-  '№К ': '#R ',
   ':в ': ':d ',
   ':а ': ':f ',
   ':п ': ':g ',
