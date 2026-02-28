@@ -44,6 +44,8 @@ export const RADIO_PREFIXES_MAP: Record<string, string> = {
   ':з ': ':p ',
   ':ф ': ':a ',
   ':ы ': ':s ',
+  '№Ы ': '#S ',
+  '№К ': '#R ',
   ':в ': ':d ',
   ':а ': ':f ',
   ':п ': ':g ',
@@ -137,6 +139,14 @@ export const RADIO_PREFIXES = {
     id: null,
     label: 'ЦРУ',
   },
+  '#s ': {
+    id: null,
+    label: 'Хищники',
+  },
+  '#r ': {
+    id: null,
+    label: 'Хищники',
+  },
   ':t ': {
     id: 'Intel',
     label: 'Разведка',
@@ -155,30 +165,106 @@ export const RADIO_PREFIXES = {
   },
   ':y ': {
     id: 'wy',
-    label: 'W-Y Corp',
+    label: 'В-Ю Корп',
   },
   '.y ': {
     id: 'wy',
-    label: 'W-Y Corp',
+    label: 'В-Ю Корп.',
   },
   '#y ': {
     id: 'wysec',
-    label: 'W-Y Sec',
+    label: 'В-Ю Безопас.',
   },
   ':1 ': {
     id: 'wypub',
-    label: 'W-Y Pub',
+    label: 'В-Ю Общий',
   },
   '.1 ': {
     id: 'wypub',
-    label: 'W-Y Pub',
+    label: 'В-Ю Общий',
   },
   '#1 ': {
     id: 'wypub',
-    label: 'W-Y Pub',
+    label: 'В-Ю Общий',
+  },
+  '#z ': {
+    id: null,
+    label: 'ЧВК Кмд.',
+  },
+  '#p ': {
+    id: null,
+    label: 'ЧВК В-Ю',
+  },
+  '#e ': {
+    id: null,
+    label: 'ЧВК Инж.',
+  },
+  '#o ': {
+    id: null,
+    label: 'ЧВК CCT',
+  },
+  '#f ': {
+    id: null,
+    label: 'ЧВК Мед.',
+  },
+  '#k ': {
+    id: null,
+    label: 'Спец.Опер.',
+  },
+  ':Y ': {
+    id: null,
+    label: 'В-Ю Корп',
   },
   ':z ': {
     id: null,
     label: 'ВысшКоманд.',
+  },
+  '#l ': {
+    id: null,
+    label: 'Провост',
+  },
+  '#g ': {
+    id: null,
+    label: 'КОФ',
+  },
+  '#c ': {
+    id: null,
+    label: 'КОФ Кмд.',
+  },
+  '#b ': {
+    id: null,
+    label: 'КОФ Инж.',
+  },
+  '#a ': {
+    id: null,
+    label: 'КОФ Мед.',
+  },
+  '#d ': {
+    id: null,
+    label: 'КОФ ССТ',
+  },
+  '#u ': {
+    id: null,
+    label: 'СПН',
+  },
+  '#v ': {
+    id: null,
+    label: 'СПН Кмд.',
+  },
+  '#n ': {
+    id: null,
+    label: 'СПН Инж.',
+  },
+  '#m ': {
+    id: null,
+    label: 'СПН Мед.',
+  },
+  '#j ': {
+    id: null,
+    label: 'СПН ССТ',
+  },
+  '#t ': {
+    id: null,
+    label: 'СПН Кмдс.',
   },
 } as const;

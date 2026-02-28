@@ -78,8 +78,8 @@ export function getPrefix(value: string): keyof typeof RADIO_PREFIXES | null {
       .slice(0, 3)
       ?.toLowerCase()
       ?.replace('.', ':')
-      ?.replace('#', ':')
-      ?.replace('№', ':'),
+//      ?.replace('#', ':')
+//      ?.replace('№', ':'),
   ) as keyof typeof RADIO_PREFIXES;
 
   if (!RADIO_PREFIXES[adjusted]) {
