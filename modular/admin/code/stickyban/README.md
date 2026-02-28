@@ -11,14 +11,23 @@
 - Источник истины: только DB.
 - Legacy import отключен no-op перехватчиком.
 
+## Сервисная структура (SOLID)
+- `stickyban_common.dm`: константы сигналов, общие ключи, мелкие helper-утилиты.
+- `stickyban_graph_service.dm`: кэш графа, инвалидация, traversal по готовому индексу.
+- `stickyban_whitelist_service.dm`: CRUD и синхронизация глобального whitelist.
+- `stickyban_cleanup_service.dm`: утилиты cleanup/dedupe/delete для match-таблиц.
+- `stickyban_audit_service.dm`: сбор метрик и формирование отчета аудита.
+- `stickyban_admin_actions.dm`: отдельные action-handler для admin Topic.
+- Файлы `*_hooks.dm`, `stickyban_audit.dm`, `stickyban_global_whitelist.dm` оставлены как thin facade к сервисам.
+
 ## Двухуровневый whitelist
 - Уровень 1: глобальный реестр `stickyban_whitelist` по `ckey` (персистентный).
-- Уровень 2: локальные `whitelisted`-связи в `stickyban_matched_ckey` (совместимость с текущим runtime).
+- Уровень 2: локальные `whitelisted`-связи в `stickyban_matched_ckey` (совместимость с runtime).
 - Выдача whitelist из sticky-панели записывает и в global, и в cluster.
-- При удалении sticky-кластера локальные whitelist-связи сначала поднимаются в global.
+- При удалении sticky-кластера локальные whitelist-связи поднимаются в global.
 - При `purge_ckey_globally` глобально whitelisted CKEY сохраняет whitelist-защиту.
 
-## Политика авто-блокировки (анти-ложные срабатывания)
+## Политика авто-блокировки
 - Direct CKEY hit блокирует сразу.
 - Иначе блокировка только при минимум 2 разных сигналах из набора `CKEY/CID/IP`.
 - Одиночный CID или одиночный IP не блокирует.
@@ -26,13 +35,20 @@
   - авто-блокировка не применяется;
   - `match_sticky` не записывает новые IP/CID-связи.
 
-## Графовая модель кластера
-- Сильные связи:
-  - одинаковый нормализованный `identifier`;
-  - общий `CKEY`;
-  - общий `CID`.
-- IP используется как gated-сигнал (только для root, у которых уже есть сильный сигнал).
+## Графовая модель и кэш hot-path
+- Сильные связи: `identifier`, `CKEY`, `CID`.
+- IP используется как gated-сигнал (только для root с уже имеющимся сильным сигналом).
 - Для whitelist/delete используется расширенный граф (включая `whitelisted` CKEY-связи).
+
+### Контракт кэша графа
+- Кэш хранится в `SSstickyban`:
+  - `modular_graph_cache`
+  - `modular_graph_cache_stamp`
+  - `modular_graph_cache_rev`
+  - `modular_graph_cache_reason`
+- TTL кэша: `STICKY_GRAPH_CACHE_TTL_DS` (по умолчанию 5 секунд).
+- Используется в hot-path проверки stickyban при логине.
+- Инвалидация выполняется через `modular_invalidate_graph_cache(reason)` при мутациях root/match-данных.
 
 ## Нормализация дублей
 - Нормализатор схлопывает граф-кластеры в canonical root.
@@ -60,3 +76,4 @@
 - `Аудит Stickyban`: состояние таблиц + дубли + global whitelist + политика матчинг-порогов.
 - `Нормализовать дубли Stickyban`: принудительное схлопывание дублей по графу.
 - `Очистить Sticky CKEY`: удаляет CKEY-связи по всему stickyban, но сохраняет whitelist-защиту.
+

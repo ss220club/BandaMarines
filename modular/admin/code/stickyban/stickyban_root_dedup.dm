@@ -358,56 +358,14 @@
 
 	return graph_index
 
-/datum/controller/subsystem/stickyban/proc/modular_collect_graph_clusters(include_inactive = TRUE, use_ip_gated = TRUE, include_singletons = FALSE, include_whitelisted_ckey = FALSE)
-	var/list/graph_index = modular_build_graph_index(include_inactive, use_ip_gated, include_whitelisted_ckey)
-	var/list/sticky_by_id = graph_index["sticky_by_id"]
-	var/list/target_ids = graph_index["target_ids"]
-	var/list/neighbors = graph_index["neighbors"]
+/datum/controller/subsystem/stickyban/proc/modular_collect_graph_clusters(include_inactive = TRUE, use_ip_gated = TRUE, include_singletons = FALSE, include_whitelisted_ckey = FALSE, use_cache = FALSE)
+	var/list/graph_index
+	if(use_cache)
+		graph_index = modular_get_graph_index_cached(include_inactive, use_ip_gated, include_whitelisted_ckey)
+	else
+		graph_index = modular_build_graph_index(include_inactive, use_ip_gated, include_whitelisted_ckey)
 
-	var/list/visited = list()
-	var/list/clusters = list()
-
-	for(var/id_key in target_ids)
-		if(visited[id_key])
-			continue
-
-		var/list/stack = list(id_key)
-		visited[id_key] = TRUE
-		var/list/cluster_id_keys = list()
-
-		while(length(stack))
-			var/current_key = stack[length(stack)]
-			stack.len--
-			cluster_id_keys += current_key
-
-			var/list/current_neighbors = neighbors[current_key]
-			if(!islist(current_neighbors) || !length(current_neighbors))
-				continue
-
-			for(var/neighbor_key in current_neighbors)
-				if(visited[neighbor_key])
-					continue
-				visited[neighbor_key] = TRUE
-				stack += neighbor_key
-
-		if(!include_singletons && length(cluster_id_keys) <= 1)
-			continue
-
-		var/list/datum/view_record/stickyban/stickies = list()
-		var/list/cluster_ids = list()
-		for(var/node_key in cluster_id_keys)
-			var/datum/view_record/stickyban/sticky = sticky_by_id[node_key]
-			if(!sticky)
-				continue
-			stickies += sticky
-			cluster_ids += sticky.id
-
-		clusters[length(clusters) + 1] = list(
-			"stickies" = stickies,
-			"cluster_ids" = modular_dedupe_ids(cluster_ids),
-		)
-
-	return clusters
+	return modular_collect_graph_clusters_from_index(graph_index, include_singletons)
 
 /datum/controller/subsystem/stickyban/proc/modular_build_graph_cluster_stats(list/graph_clusters)
 	var/list/stats = list(
@@ -431,38 +389,18 @@
 
 	return stats
 
-/datum/controller/subsystem/stickyban/proc/modular_collect_graph_cluster_ids_for_seed_ids(list/seed_ids, include_inactive = TRUE, use_ip_gated = TRUE, include_whitelisted_ckey = FALSE)
-	var/list/result_ids = list()
+/datum/controller/subsystem/stickyban/proc/modular_collect_graph_cluster_ids_for_seed_ids(list/seed_ids, include_inactive = TRUE, use_ip_gated = TRUE, include_whitelisted_ckey = FALSE, use_cache = FALSE)
 	if(!length(seed_ids))
-		return result_ids
+		return list()
 
-	var/list/seed_set = list()
-	for(var/seed_id in seed_ids)
-		if(isnull(seed_id) || seed_id == "")
-			continue
-		seed_set["[seed_id]"] = TRUE
+	// Hot-path: берем component только от seed-id, не итерируем весь список кластеров.
+	var/list/graph_index
+	if(use_cache)
+		graph_index = modular_get_graph_index_cached(include_inactive, use_ip_gated, include_whitelisted_ckey)
+	else
+		graph_index = modular_build_graph_index(include_inactive, use_ip_gated, include_whitelisted_ckey)
 
-	if(!length(seed_set))
-		return result_ids
-
-	var/list/graph_clusters = modular_collect_graph_clusters(include_inactive, use_ip_gated, TRUE, include_whitelisted_ckey)
-	for(var/list/cluster_data as anything in graph_clusters)
-		var/list/cluster_ids = cluster_data["cluster_ids"]
-		if(!islist(cluster_ids) || !length(cluster_ids))
-			continue
-
-		var/has_seed = FALSE
-		for(var/cluster_id in cluster_ids)
-			if(seed_set["[cluster_id]"])
-				has_seed = TRUE
-				break
-
-		if(!has_seed)
-			continue
-
-		result_ids += cluster_ids
-
-	return modular_dedupe_ids(result_ids)
+	return modular_collect_component_ids_from_graph_index(graph_index, seed_ids)
 
 /datum/controller/subsystem/stickyban/proc/modular_collect_match_record_ids_for_stickies(view_type, list/sticky_ids, chunk_size = 500)
 	var/list/record_ids = list()
@@ -502,6 +440,7 @@
 	existing_sticky.date = override_date ? override_date : "[time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")]"
 	existing_sticky.save()
 	existing_sticky.sync()
+	modular_invalidate_graph_cache("resolve_stickyban_for_add")
 	return existing_sticky
 
 /datum/controller/subsystem/stickyban/proc/modular_move_matches_to_canonical(canonical_id, duplicate_id)
@@ -601,6 +540,9 @@
 
 		if(!(i % sync_chunk_size))
 			stoplag()
+
+	if(deleted > 0)
+		modular_invalidate_graph_cache("delete_root_records_batch")
 
 	return deleted
 
@@ -731,6 +673,9 @@
 	else
 		summary["status"] = "partial"
 
+	if((summary["duplicates_deleted"] || 0) > 0 || (summary["matches_moved"] || 0) > 0)
+		modular_invalidate_graph_cache("normalize_root_duplicates")
+
 	return summary
 
 /datum/controller/subsystem/stickyban/proc/modular_delete_stickyban_cluster(source_sticky_id, include_inactive = TRUE)
@@ -760,7 +705,7 @@
 	summary["identifier"] = modular_normalize_identifier(source_sticky.identifier)
 
 	var/list/seed_ids = list(source_sticky.id)
-	var/list/cluster_ids = modular_collect_graph_cluster_ids_for_seed_ids(seed_ids, include_inactive, TRUE, TRUE)
+	var/list/cluster_ids = modular_collect_graph_cluster_ids_for_seed_ids(seed_ids, include_inactive, TRUE, TRUE, FALSE)
 	cluster_ids = modular_dedupe_ids(cluster_ids)
 	if(!length(cluster_ids))
 		cluster_ids += source_sticky.id
@@ -832,7 +777,7 @@
 	else
 		summary["errors"]++
 
-	var/list/cluster_ids = modular_collect_graph_cluster_ids_for_seed_ids(list(source_sticky.id), include_inactive, TRUE, TRUE)
+	var/list/cluster_ids = modular_collect_graph_cluster_ids_for_seed_ids(list(source_sticky.id), include_inactive, TRUE, TRUE, FALSE)
 	cluster_ids = modular_dedupe_ids(cluster_ids)
 	if(!length(cluster_ids))
 		cluster_ids += source_sticky.id
@@ -854,5 +799,8 @@
 		summary["status"] = "ok"
 	else
 		summary["status"] = "partial"
+
+	if((summary["roots_processed"] || 0) > 0)
+		modular_invalidate_graph_cache("whitelist_ckey_cluster")
 
 	return summary
