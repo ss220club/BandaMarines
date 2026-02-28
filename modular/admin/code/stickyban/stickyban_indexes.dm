@@ -46,12 +46,15 @@
 		/datum/entity/stickyban_matched_ckey,
 		/datum/entity/stickyban_matched_cid,
 		/datum/entity/stickyban_matched_ip,
+		/datum/entity/stickyban_whitelist,
 	)
 	var/list/target_index_names = list(
 		"stickyban_identifier_unique_idx" = TRUE,
 		"stickyban_ckey_pair_unique_idx" = TRUE,
 		"stickyban_cid_pair_unique_idx" = TRUE,
 		"stickyban_ip_pair_unique_idx" = TRUE,
+		"stickyban_whitelist_ckey_unique_idx" = TRUE,
+		"stickyban_whitelist_date_idx" = TRUE,
 	)
 
 	for(var/entity_type in target_entity_types)
@@ -121,4 +124,11 @@
 		modular_stickyban_build_index("stickyban_ip_lookup_idx", list("ip")),
 		modular_stickyban_build_index("stickyban_ip_by_sticky_idx", list("linked_stickyban")),
 		modular_stickyban_build_index("stickyban_ip_pair_unique_idx", list("linked_stickyban", "ip"), DB_INDEXHINT_UNIQUE)
+	))
+
+/datum/entity_meta/stickyban_whitelist/New()
+	. = ..()
+	modular_stickyban_merge_indexes(src, list(
+		modular_stickyban_build_index("stickyban_whitelist_ckey_unique_idx", list("ckey"), DB_INDEXHINT_UNIQUE),
+		modular_stickyban_build_index("stickyban_whitelist_date_idx", list("date")),
 	))

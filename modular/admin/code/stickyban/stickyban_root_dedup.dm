@@ -740,6 +740,7 @@
 		"cluster_size" = 0,
 		"roots_deleted" = 0,
 		"matches_deleted" = 0,
+		"whitelist_preserved" = 0,
 		"errors" = 0,
 		"status" = "noop",
 		"identifier" = "",
@@ -770,6 +771,14 @@
 
 	modular_root_dedup_in_progress = TRUE
 	try
+		var/list/datum/view_record/stickyban_matched_ckey/whitelist_rows = modular_collect_match_rows_for_sticky_ids(/datum/view_record/stickyban_matched_ckey, cluster_ids)
+		for(var/datum/view_record/stickyban_matched_ckey/row as anything in whitelist_rows)
+			if(!row.whitelisted)
+				continue
+			var/datum/entity/stickyban_whitelist/global_entry = modular_add_sticky_global_whitelist(row.ckey, null, source_sticky.id)
+			if(global_entry)
+				summary["whitelist_preserved"]++
+
 		var/list/ckey_match_ids = modular_collect_match_record_ids_for_stickies(/datum/view_record/stickyban_matched_ckey, cluster_ids)
 		var/list/cid_match_ids = modular_collect_match_record_ids_for_stickies(/datum/view_record/stickyban_matched_cid, cluster_ids)
 		var/list/ip_match_ids = modular_collect_match_record_ids_for_stickies(/datum/view_record/stickyban_matched_ip, cluster_ids)
@@ -793,12 +802,13 @@
 
 	return summary
 
-/datum/controller/subsystem/stickyban/proc/modular_whitelist_ckey_cluster(source_sticky_id, key, include_inactive = TRUE)
+/datum/controller/subsystem/stickyban/proc/modular_whitelist_ckey_cluster(source_sticky_id, key, include_inactive = TRUE, admin_ckey = null)
 	WAIT_DB_READY
 
 	var/list/summary = list(
 		"cluster_size" = 0,
 		"roots_processed" = 0,
+		"global_saved" = FALSE,
 		"errors" = 0,
 		"status" = "noop",
 		"ckey" = "",
@@ -815,6 +825,12 @@
 	if(!source_sticky)
 		return summary
 	source_sticky.sync()
+
+	var/datum/entity/stickyban_whitelist/global_entry = modular_add_sticky_global_whitelist(key, admin_ckey, source_sticky.id)
+	if(global_entry)
+		summary["global_saved"] = TRUE
+	else
+		summary["errors"]++
 
 	var/list/cluster_ids = modular_collect_graph_cluster_ids_for_seed_ids(list(source_sticky.id), include_inactive, TRUE, TRUE)
 	cluster_ids = modular_dedupe_ids(cluster_ids)

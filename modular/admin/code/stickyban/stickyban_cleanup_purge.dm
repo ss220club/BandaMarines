@@ -3,11 +3,15 @@
 		"purged_records" = 0,
 		"touched_stickies" = 0,
 		"deactivated_stickies" = 0,
+		"preserved_whitelist" = 0,
+		"global_whitelisted" = FALSE,
 	)
 
 	key = ckey(key)
 	if(!key)
 		return summary
+
+	summary["global_whitelisted"] = modular_is_sticky_ckey_globally_whitelisted(key)
 
 	var/list/datum/view_record/stickyban_matched_ckey/matches = DB_VIEW(/datum/view_record/stickyban_matched_ckey,
 		DB_COMP("ckey", DB_EQUALS, key)
@@ -18,8 +22,16 @@
 	var/list/sticky_set = list()
 	var/list/ids_to_delete = list()
 	for(var/datum/view_record/stickyban_matched_ckey/match as anything in matches)
+		// Если CKEY защищен глобальным whitelist, не трогаем whitelist-связи.
+		if(summary["global_whitelisted"] && match.whitelisted)
+			summary["preserved_whitelist"]++
+			continue
+
 		sticky_set["[match.linked_stickyban]"] = match.linked_stickyban
 		ids_to_delete += match.id
+
+	if(!length(ids_to_delete))
+		return summary
 
 	var/list/touched_sticky_ids = list()
 	for(var/sticky_id in sticky_set)
@@ -38,7 +50,7 @@
 	var/list/datum/entity/entities_to_sync = list()
 	var/const/sync_chunk_size = 100
 
-	// Фаза 1: ставим все удаления в очередь.
+	// Фаза 1: ставим удаления в очередь.
 	for(var/id in unique_ids_to_delete)
 		var/datum/entity/to_delete = DB_ENTITY(entity_type, id)
 		if(!to_delete)
@@ -47,7 +59,7 @@
 		to_delete.delete()
 		entities_to_sync += to_delete
 
-	// Фаза 2: синхронизируемся для консистентности БД.
+	// Фаза 2: синхронизируем удаление с БД.
 	var/deleted = 0
 	for(var/i in 1 to length(entities_to_sync))
 		var/datum/entity/to_sync = entities_to_sync[i]
@@ -123,9 +135,16 @@
 /datum/controller/subsystem/stickyban/proc/run_startup_cleanup()
 	WAIT_DB_READY
 
+	var/list/global_sync_summary = modular_sync_global_whitelist_from_local_rows()
+	if(islist(global_sync_summary))
+		var/global_sync_status = global_sync_summary["status"] || "noop"
+		var/global_sync_scanned = global_sync_summary["scanned"] || 0
+		var/global_sync_synced = global_sync_summary["synced"] || 0
+		var/global_sync_errors = global_sync_summary["errors"] || 0
+		if(global_sync_scanned || global_sync_synced || global_sync_errors || global_sync_status != "noop")
+			log_world("StickyBan startup whitelist sync: status=[global_sync_status], scanned=[global_sync_scanned], synced=[global_sync_synced], errors=[global_sync_errors].")
+
 	var/list/datum/view_record/stickyban/all_stickies = DB_VIEW(/datum/view_record/stickyban)
-	if(!length(all_stickies))
-		return
 
 	var/list/sticky_lookup = list()
 	for(var/datum/view_record/stickyban/sticky as anything in all_stickies)

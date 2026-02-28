@@ -1,3 +1,13 @@
+/datum/controller/subsystem/stickyban/proc/modular_count_signal_bits(signal_mask)
+	var/signal_count = 0
+	if(signal_mask & 1)
+		signal_count++
+	if(signal_mask & 2)
+		signal_count++
+	if(signal_mask & 4)
+		signal_count++
+	return signal_count
+
 /datum/controller/subsystem/stickyban/proc/modular_collect_whitelisted_cluster_ids_for_ckey(list/seed_ids, key, include_inactive = TRUE)
 	var/list/exempt_ids = list()
 	if(!length(seed_ids))
@@ -30,17 +40,40 @@
 	return modular_collect_graph_cluster_ids_for_seed_ids(whitelisted_root_ids, include_inactive, TRUE, TRUE)
 
 /datum/controller/subsystem/stickyban/proc/modular_check_for_sticky_ban(ckey, address, computer_id)
+	ckey = ckey(ckey)
+	if(ckey && modular_is_sticky_ckey_globally_whitelisted(ckey))
+		return FALSE
+
+	var/list/signal_mask_by_id = list()
+	var/list/sticky_id_by_key = list()
 	var/list/stickyban_id_set = list()
 
 	for(var/datum/view_record/stickyban_matched_ckey/matched_ckey as anything in get_impacted_ckey_records(ckey))
-		stickyban_id_set["[matched_ckey.linked_stickyban]"] = matched_ckey.linked_stickyban
+		var/id_key = "[matched_ckey.linked_stickyban]"
+		sticky_id_by_key[id_key] = matched_ckey.linked_stickyban
+		var/current_mask = signal_mask_by_id[id_key] || 0
+		signal_mask_by_id[id_key] = current_mask | 1
 
 	for(var/datum/view_record/stickyban_matched_cid/matched_cid as anything in get_impacted_cid_records(computer_id))
-		stickyban_id_set["[matched_cid.linked_stickyban]"] = matched_cid.linked_stickyban
+		var/id_key = "[matched_cid.linked_stickyban]"
+		sticky_id_by_key[id_key] = matched_cid.linked_stickyban
+		var/current_mask = signal_mask_by_id[id_key] || 0
+		signal_mask_by_id[id_key] = current_mask | 2
 
 	if(!SSipcheck.is_whitelisted(ckey))
 		for(var/datum/view_record/stickyban_matched_ip/matched_ip as anything in get_impacted_ip_records(address))
-			stickyban_id_set["[matched_ip.linked_stickyban]"] = matched_ip.linked_stickyban
+			var/id_key = "[matched_ip.linked_stickyban]"
+			sticky_id_by_key[id_key] = matched_ip.linked_stickyban
+			var/current_mask = signal_mask_by_id[id_key] || 0
+			signal_mask_by_id[id_key] = current_mask | 4
+
+	for(var/id_key in signal_mask_by_id)
+		var/current_mask = signal_mask_by_id[id_key] || 0
+		var/has_direct_ckey_hit = !!(current_mask & 1)
+		var/signal_count = modular_count_signal_bits(current_mask)
+		if(!has_direct_ckey_hit && signal_count < 2)
+			continue
+		stickyban_id_set[id_key] = sticky_id_by_key[id_key]
 
 	if(!length(stickyban_id_set))
 		return FALSE
@@ -58,7 +91,6 @@
 	if(!length(stickies))
 		return FALSE
 
-	ckey = ckey(ckey)
 	if(ckey)
 		var/list/seed_ids = list()
 		for(var/datum/view_record/stickyban/current_sticky as anything in stickies)
@@ -85,6 +117,9 @@
 		return
 
 	ckey = ckey(ckey)
+	if(ckey && modular_is_sticky_ckey_globally_whitelisted(ckey))
+		return
+
 	if(ckey)
 		var/list/exempt_cluster_ids = modular_collect_whitelisted_cluster_ids_for_ckey(list(existing_ban_id), ckey, TRUE)
 		if(length(exempt_cluster_ids))

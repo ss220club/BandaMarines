@@ -5,56 +5,58 @@
 - Хардкод вне модуляра не изменяется.
 - Интеграция идет через существующие `hascall/call`-хуки.
 
-## Базовые инварианты
+## Ключевые инварианты
 - Канонический ключ root: `identifier = ckey(trim(identifier))`.
-- Для пустого/мусорного `identifier` используется синтетика `legacy_empty_<root_id>`.
+- Для пустого/мусорного `identifier` используется `legacy_empty_<root_id>`.
 - Источник истины: только DB.
-- Legacy import отключен модульным no-op перехватом.
+- Legacy import отключен no-op перехватчиком.
 
-## Графовая модель кластеров
+## Двухуровневый whitelist
+- Уровень 1: глобальный реестр `stickyban_whitelist` по `ckey` (персистентный).
+- Уровень 2: локальные `whitelisted`-связи в `stickyban_matched_ckey` (совместимость с текущим runtime).
+- Выдача whitelist из sticky-панели записывает и в global, и в cluster.
+- При удалении sticky-кластера локальные whitelist-связи сначала поднимаются в global.
+- При `purge_ckey_globally` глобально whitelisted CKEY сохраняет whitelist-защиту.
+
+## Политика авто-блокировки (анти-ложные срабатывания)
+- Direct CKEY hit блокирует сразу.
+- Иначе блокировка только при минимум 2 разных сигналах из набора `CKEY/CID/IP`.
+- Одиночный CID или одиночный IP не блокирует.
+- Для globally whitelisted CKEY:
+  - авто-блокировка не применяется;
+  - `match_sticky` не записывает новые IP/CID-связи.
+
+## Графовая модель кластера
 - Сильные связи:
   - одинаковый нормализованный `identifier`;
-  - общий `CID`;
-  - общий `CKEY`.
-- Ограниченная IP-связь:
-  - IP используется только для root, которые уже имеют сильный сигнал.
-- Для whitelist/delete используется расширенный режим графа:
-  - учитываются и `whitelisted` CKEY-строки, чтобы whitelist не терял связность на legacy-дублях.
+  - общий `CKEY`;
+  - общий `CID`.
+- IP используется как gated-сигнал (только для root, у которых уже есть сильный сигнал).
+- Для whitelist/delete используется расширенный граф (включая `whitelisted` CKEY-связи).
 
 ## Нормализация дублей
-- Нормализация обрабатывает граф-кластеры дублей и переносит match-строки в canonical root.
+- Нормализатор схлопывает граф-кластеры в canonical root.
 - Canonical root выбирается по правилу:
-  - сначала active;
-  - затем максимальный `id`.
-- `reason/message/date/adminid` берутся из newest root (максимальный `id`).
-- Важное правило:
-  - если в кластере нет active root, canonical не активируется принудительно.
+  1. active имеет приоритет;
+  2. при равенстве берется максимальный `id`.
+- `reason/message/date/adminid` у canonical берутся из newest root (максимальный `id`).
+- Match-строки переносятся в canonical, дубли root удаляются.
 
-## Whitelist и «отлепление»
-- Whitelist в админ-действии применяется на весь граф-кластер выбранного root.
-- Проверка stickyban учитывает whitelist по расширенному граф-кластеру.
-- Это предотвращает ситуацию, когда один legacy-root whitelisted, а соседний дубль продолжает банить.
-
-## Удаление кластера
-- Удаление stickyban из UI работает как удаление граф-кластера:
-  - удаляются root в кластере;
-  - удаляются их CKEY/CID/IP match-строки.
-- Кластер определяется в расширенном режиме графа (с учетом whitelist-CKEY связности).
-
-## Индексы
-- Ожидаемые уникальные инварианты:
+## Индексы и startup-поток
+- Уникальные инварианты:
   - `stickyban(identifier)`
   - `stickyban_matched_ckey(linked_stickyban, ckey)`
   - `stickyban_matched_cid(linked_stickyban, cid)`
   - `stickyban_matched_ip(linked_stickyban, ip)`
-- На старте выполняется best-effort ресинк индексов через adapter sync.
-
-## Стартовый поток
-1. Cleanup сирот/дубликатов в match-таблицах.
-2. Graph normalize root-дублей.
-3. Best-effort ресинк stickyban-индексов.
+  - `stickyban_whitelist(ckey)`
+- На старте:
+  1. Синхронизация local whitelist -> global whitelist.
+  2. Cleanup сирот/дубликатов в match-таблицах.
+  3. Graph normalize root-дублей.
+  4. Best-effort ресинк индексов.
 
 ## Админ-операции
-- Аудит: состояние таблиц, кандидаты cleanup, дубли по identifier и граф-кластерам.
-- Normalize: принудительное схлопывание дублей по графу.
-- Purge CKEY: глобальная очистка CKEY-связей.
+- `Sticky WL`: отдельная панель глобального whitelist, поиск по CKEY, add/remove.
+- `Аудит Stickyban`: состояние таблиц + дубли + global whitelist + политика матчинг-порогов.
+- `Нормализовать дубли Stickyban`: принудительное схлопывание дублей по графу.
+- `Очистить Sticky CKEY`: удаляет CKEY-связи по всему stickyban, но сохраняет whitelist-защиту.

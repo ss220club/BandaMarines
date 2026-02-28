@@ -1,4 +1,5 @@
 #include "stickyban/stickyban_state_hooks.dm"
+#include "stickyban/stickyban_global_whitelist.dm"
 #include "stickyban/stickyban_lookup_match.dm"
 #include "stickyban/stickyban_legacy_import.dm"
 #include "stickyban/stickyban_cleanup_purge.dm"

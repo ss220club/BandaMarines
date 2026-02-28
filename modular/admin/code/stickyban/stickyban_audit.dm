@@ -15,16 +15,28 @@
 		"graph_duplicate_groups" = 0,
 		"graph_duplicate_rows" = 0,
 		"graph_duplicate_duplicates" = 0,
+		"global_whitelist_total" = 0,
+		"global_whitelist_examples" = list(),
 		// Ключи совместимости для существующего UI.
 		"root_duplicate_groups" = 0,
 		"root_duplicate_rows" = 0,
 		"report_html" = "<b>Аудит Stickyban</b><br>Нет данных.",
 	)
 
+	var/list/datum/view_record/stickyban_whitelist/global_whitelist_rows = modular_get_sticky_global_whitelists()
+	audit["global_whitelist_total"] = length(global_whitelist_rows)
+
+	var/list/global_whitelist_examples = list()
+	for(var/datum/view_record/stickyban_whitelist/row as anything in global_whitelist_rows)
+		if(length(global_whitelist_examples) >= 20)
+			break
+		var/entry_admin = row.admin_ckey || "-"
+		var/entry_date = row.date || "-"
+		global_whitelist_examples += "[row.ckey] (admin=[entry_admin], date=[entry_date])"
+	audit["global_whitelist_examples"] = global_whitelist_examples
+
 	var/list/datum/view_record/stickyban/all_stickies = DB_VIEW(/datum/view_record/stickyban)
 	audit["total_stickies"] = length(all_stickies)
-	if(!length(all_stickies))
-		return audit
 
 	var/list/sticky_lookup = list()
 	for(var/datum/view_record/stickyban/sticky as anything in all_stickies)
@@ -125,14 +137,17 @@
 	var/graph_duplicate_groups = audit["graph_duplicate_groups"] || 0
 	var/graph_duplicate_rows = audit["graph_duplicate_rows"] || 0
 	var/graph_duplicate_duplicates = audit["graph_duplicate_duplicates"] || 0
+	var/global_whitelist_total = audit["global_whitelist_total"] || 0
 
 	var/list/report_lines = list()
 	report_lines += "<b>Аудит Stickyban</b>"
+	report_lines += "Политика авто-блокировки: direct CKEY или минимум 2 сигнала (CKEY/CID/IP)."
 	report_lines += "Всего stickyban: [total_stickies] (active: [active_stickies], inactive: [inactive_stickies])."
 	report_lines += "Кандидаты на очистку (без мутаций): [candidate_rows] (CKEY: [ckey_candidates], CID: [cid_candidates], IP: [ip_candidates])."
 	report_lines += "Сиротские строки: [orphan_rows] (CKEY: [ckey_orphans], CID: [cid_orphans], IP: [ip_orphans])."
 	report_lines += "Дубли строк-пар: [duplicate_rows] (CKEY: [ckey_duplicates], CID: [cid_duplicates], IP: [ip_duplicates])."
 	report_lines += "Пустые active stickyban: [active_empty_stickies]."
+	report_lines += "Глобальный whitelist: [global_whitelist_total]."
 
 	if(length(active_empty_examples))
 		var/active_empty_text = jointext(active_empty_examples, "; ")
@@ -147,6 +162,10 @@
 	if(length(graph_duplicate_examples))
 		var/graph_examples_text = jointext(graph_duplicate_examples, "; ")
 		report_lines += "Примеры граф-кластеров: [graph_examples_text]"
+
+	if(length(global_whitelist_examples))
+		var/global_examples_text = jointext(global_whitelist_examples, "; ")
+		report_lines += "Примеры global whitelist: [global_examples_text]"
 
 	audit["report_html"] = jointext(report_lines, "<br>")
 	return audit
