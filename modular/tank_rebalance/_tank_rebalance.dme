@@ -1,0 +1,4 @@
+#include "_tank_rebalance.dm"
+
+#include "code/ltb_try_fire.dm"
+#include "code/tank_weapons.dm"
