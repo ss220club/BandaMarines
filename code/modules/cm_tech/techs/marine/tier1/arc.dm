@@ -42,7 +42,7 @@
 	)
 	*/
 	comp.vehicles += new /datum/vehicle_order/arc()
-	// BANDAMARINES EDIT END
+	/*
 
 	comp.allowed_roles = list(JOB_SYNTH, JOB_SEA, JOB_SO, JOB_XO, JOB_CO, JOB_GENERAL)
 	comp.req_access = list(ACCESS_MARINE_COMMAND)
@@ -54,5 +54,6 @@
 	gearcomp.vendor_role = list()
 	gearcomp.selected_vehicle = "ARC"
 	gearcomp.available_categories = VEHICLE_ALL_AVAILABLE
-
+	*/
+	// BANDAMARINES EDIT END
 	return TRUE

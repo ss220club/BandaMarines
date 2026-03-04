@@ -136,7 +136,7 @@
 	if(message)
 		if(!check_rights(R_SERVER,0))
 			message = adminscrub(message,500)
-		to_chat_spaced(world, type = MESSAGE_TYPE_SYSTEM, html = SPAN_ANNOUNCEMENT_HEADER_ADMIN("<b>[usr.client.admin_holder.fakekey ? "Administrator" : usr.key] Announces:</b>\n \t [message]"))
+		to_chat_spaced(world, type = MESSAGE_TYPE_SYSTEM, html = SPAN_ANNOUNCEMENT_HEADER_ADMIN("<b>[usr.client.admin_holder.fakekey ? "Administrator" : usr.client.username()] Announces:</b>\n \t [message]"))
 		log_admin("Announce: [key_name(usr)] : [message]")
 
 /datum/admins/proc/player_notes_show(key as text)
@@ -256,7 +256,7 @@
 	set category = "Admin"
 	set hidden = TRUE
 
-	cmd_admin_say(msg)
+	cmd_mentor_say(msg) // SS220 EDIT - Original: cmd_admin_say
 
 /client/proc/cmd_admin_say(msg as text)
 	set name = "Asay" //Gave this shit a shorter name so you only have to time out "asay" rather than "admin say" to use it --NeoFite
@@ -271,7 +271,7 @@
 	if (!msg)
 		return
 
-	REDIS_PUBLISH("byond.asay", "author" = src.key, "message" = strip_html(msg), "admin" = CLIENT_HAS_RIGHTS(src, R_ADMIN), "rank" = admin_holder.rank)
+	REDIS_PUBLISH("byond.asay", "author" = src.username(), "message" = strip_html(msg), "admin" = CLIENT_HAS_RIGHTS(src, R_ADMIN), "rank" = admin_holder.rank)
 
 	if(findtext(msg, "@") || findtext(msg, "#"))
 		var/list/link_results = check_asay_links(msg)
@@ -291,7 +291,7 @@
 	var/color = "mod"
 	if(check_rights(R_PERMISSIONS, show_msg = FALSE))
 		color = "adminmod"
-
+	msg = emoji_parse(msg) // SS220 EDIT asay emojis
 	var/channel = "ADMIN:"
 	channel = "[admin_holder.rank]:"
 	var/ooc_prefix = handle_ooc_prefix()
@@ -400,7 +400,7 @@
 		return
 
 	log_adminpm("MENTOR: [key_name(src)] : [msg]")
-
+	msg = emoji_parse(msg) // SS220 EDIT msay emojis
 	var/color = "mentorsay"
 	var/channel = "Mentor:"
 	channel = "[admin_holder.rank]:"

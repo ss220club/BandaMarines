@@ -283,6 +283,7 @@ const marineSplitter = (members: Array<Observable>) => {
   const SOFSquad: Array<Observable> = [];
   const other: Array<Observable> = [];
   const provost: Array<Observable> = [];
+  const ArmySquad: Array<Observable> = [];
 
   // SS220 EDIT - TRANSLATE code/__DEFINES/bandamarines/ru_jobs.dm
   members.forEach((x) => {
@@ -314,6 +315,8 @@ const marineSplitter = (members: Array<Observable>) => {
       SOFSquad.push(x);
     } else if (x.job?.includes(JobsRu('Provost'))) {
       provost.push(x);
+    } else if (x.job?.includes(JobsRu('Army'))) {
+      ArmySquad.push(x);
     } else {
       other.push(x);
     }
@@ -334,6 +337,7 @@ const marineSplitter = (members: Array<Observable>) => {
     buildSquadObservable(JobsRu('SOF'), 'red', SOFSquad),
     buildSquadObservable(JobsRu('Other'), 'grey', other),
     buildSquadObservable(JobsRu('ProvostCategory'), 'red', provost),
+    buildSquadObservable(JobsRu('Army'), 'green', ArmySquad),
   ];
   return squads;
 };
