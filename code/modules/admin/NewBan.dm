@@ -277,11 +277,17 @@ GLOBAL_DATUM(Banlist, /savefile)
 	unban_panel.tgui_interact(owner.mob)
 
 /datum/admins/proc/stickypanel()
-	var/add_sticky = "<a href='byond://?src=\ref[src];[HrefToken()];sticky=1;new_sticky=1'>Add Sticky Ban</a>"
-	var/find_sticky = "<a href='byond://?src=\ref[src];[HrefToken()];sticky=1;find_sticky=1'>Find Sticky Ban</a>"
+	var/add_sticky = "<a href='byond://?src=\ref[src];[HrefToken()];sticky=1;new_sticky=1'>Добавить Sticky Ban</a>"
+	var/find_sticky = "<a href='byond://?src=\ref[src];[HrefToken()];sticky=1;find_sticky=1'>Найти Sticky Ban</a>"
+	var/list/sticky_links = list(add_sticky, find_sticky)
+	//SS220 EDIT: модульные ссылки stickyban-панели.
+	if(hascall(src, "modular_sticky_panel_links"))
+		var/list/modular_links = call(src, "modular_sticky_panel_links")()
+		if(islist(modular_links) && length(modular_links))
+			sticky_links += modular_links
 
 	var/data = {"
-	<b>Sticky Bans:</b> [add_sticky] [find_sticky]
+	<b>Sticky Bans:</b> [jointext(sticky_links, " ")]
 	<br>
 	<input type='search' id='filter' onkeyup='handle_filter()' onblur='handle_filter()' name='filter_text' value='' style='width:100%;'>
 	<br>
@@ -293,19 +299,20 @@ GLOBAL_DATUM(Banlist, /savefile)
 	)
 
 	for(var/datum/view_record/stickyban/current_sticky in stickies)
-		var/whitelist_link = "<a href='byond://?src=\ref[src];[HrefToken()];sticky=[current_sticky.id];whitelist_ckey=1'>(WHITELIST)</a>"
-		var/remove_sticky_link = "<a href='byond://?src=\ref[src];[HrefToken()];sticky=[current_sticky.id];remove=1'>(REMOVE)</a>"
-		var/add_to_sticky_link = "<a href='byond://?src=\ref[src];[HrefToken()];sticky=[current_sticky.id];add=1'>(ADD)</a>"
+		var/whitelist_link = "<a href='byond://?src=\ref[src];[HrefToken()];sticky=[current_sticky.id];whitelist_ckey=1'>(БЕЛЫЙ СПИСОК)</a>"
+		var/remove_sticky_link = "<a href='byond://?src=\ref[src];[HrefToken()];sticky=[current_sticky.id];remove=1'>(УДАЛИТЬ)</a>"
+		var/add_to_sticky_link = "<a href='byond://?src=\ref[src];[HrefToken()];sticky=[current_sticky.id];add=1'>(ДОБАВИТЬ)</a>"
 
 		var/impacted_ckey_link = "<a href='byond://?src=\ref[src];[HrefToken()];sticky=[current_sticky.id];view_all_ckeys=1'>CKEYs</a>"
 		var/impacted_ip_link = "<a href='byond://?src=\ref[src];[HrefToken()];sticky=[current_sticky.id];view_all_ips=1'>IPs</a>"
 		var/impacted_cid_link = "<a href='byond://?src=\ref[src];[HrefToken()];sticky=[current_sticky.id];view_all_cids=1'>CIDs</a>"
 
-		data += "<tr><td>[whitelist_link][remove_sticky_link][add_to_sticky_link]</td><td>Identifier: [current_sticky.identifier]</td><td>Reason: [current_sticky.reason]</td><td>Message: [current_sticky.message]</td> <td>Admin: [current_sticky.admin]</td> <td>View: [impacted_ckey_link][impacted_ip_link][impacted_cid_link]</td></tr>"
+		//SS220 EDIT: локализация подписей в таблице sticky-панели.
+		data += "<tr><td>[whitelist_link][remove_sticky_link][add_to_sticky_link]</td><td>Идентификатор: [current_sticky.identifier]</td><td>Причина: [current_sticky.reason]</td><td>Сообщение: [current_sticky.message]</td> <td>Админ: [current_sticky.admin]</td> <td>Просмотр: [impacted_ckey_link][impacted_ip_link][impacted_cid_link]</td></tr>"
 
 	data += "</table>"
 
-	show_browser(owner, data, "Stickyban Panel", "sticky", width = 875, height = 400)
+	show_browser(owner, data, "Панель Stickyban", "sticky", width = 875, height = 400)	//SS220 EDIT
 
 //////////////////////////////////// DEBUG ////////////////////////////////////
 
@@ -374,28 +381,28 @@ GLOBAL_DATUM(Banlist, /savefile)
 
 /client/proc/cmd_admin_do_stickyban(identifier, reason, message, list/impacted_ckeys, list/impacted_cids, list/impacted_ips)
 	if(!identifier)
-		identifier = tgui_input_text(src, "Name of the primary CKEY you are adding a stickyban to.", "BuildABan")
+		identifier = tgui_input_text(src, "Укажите основной CKEY, для которого создаётся stickyban.", "Создание Stickyban") //SS220 EDIT
 	if(!identifier)
 		return
 
 	if(!message)
-		message = tgui_input_text(src, "What message should be given to the impacted users?", "BuildABan", encode = FALSE)
+		message = tgui_input_text(src, "Какое сообщение показывать затронутым пользователям?", "Создание Stickyban", encode = FALSE) //SS220 EDIT
 	if(!message)
 		return
 
 	if(!reason)
-		reason = tgui_input_text(src, "What's the reason for the ban? This is shown internally, and not displayed in public notes and ban messages. Include as much detail as necessary.", "BuildABan", multiline = TRUE, encode = FALSE)
+		reason = tgui_input_text(src, "Укажите причину бана. Этот текст используется внутри админки и не показывается в публичных заметках и бан-сообщениях.", "Создание Stickyban", multiline = TRUE, encode = FALSE) //SS220 EDIT
 	if(!reason)
 		return
 
 	if(!length(impacted_ckeys))
-		impacted_ckeys = splittext(tgui_input_text(src, "Which CKEYs should be impacted by this ban? Include the primary ckey, separated by semicolons.", "BuildABan", "player1;player2;player3"), ";")
+		impacted_ckeys = splittext(tgui_input_text(src, "Какие CKEY должны быть затронуты этим баном? Укажите также основной ckey. Разделитель: ';'.", "Создание Stickyban", "player1;player2;player3"), ";") //SS220 EDIT
 
 	if(!length(impacted_cids))
-		impacted_cids = splittext(tgui_input_text(src, "Which CIDs should be impacted by this ban? Separate with semicolons.", "BuildABan", "12345678;87654321"), ";")
+		impacted_cids = splittext(tgui_input_text(src, "Какие CID должны быть затронуты этим баном? Разделитель: ';'.", "Создание Stickyban", "12345678;87654321"), ";") //SS220 EDIT
 
 	if(!length(impacted_ips))
-		impacted_ips = splittext(tgui_input_text(src, "Which IPs should be impacted by this ban? Separate with semicolons.", "BuildABan", "1.1.1.1;8.8.8.8"), ";")
+		impacted_ips = splittext(tgui_input_text(src, "Какие IP должны быть затронуты этим баном? Разделитель: ';'.", "Создание Stickyban", "1.1.1.1;8.8.8.8"), ";") //SS220 EDIT
 
 	// BANDAMARINES ADD - START
 	if(HAS_CIRILLIC(reason) || HAS_CIRILLIC(message) || HAS_CIRILLIC(identifier))
@@ -406,7 +413,7 @@ GLOBAL_DATUM(Banlist, /savefile)
 	var/datum/entity/stickyban/new_sticky = SSstickyban.add_stickyban(identifier, reason, message, player_data)
 
 	if(!new_sticky)
-		to_chat(src, SPAN_ADMIN("Failed to apply stickyban."))
+		to_chat(src, SPAN_ADMIN("Не удалось применить stickyban.")) //SS220 EDIT
 		return
 
 	for(var/ckey in impacted_ckeys)
