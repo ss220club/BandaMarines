@@ -123,14 +123,14 @@
 		return
 
 	if(!allowed(user) && (wires & 1) && !force )
-		to_chat(user, SPAN_DANGER("Access Denied."))
+		to_chat(user, SPAN_DANGER("Доступ запрещён."))
 		flick(initial(icon_state) + "-denied",src)
 		return
 
 	use_power(5)
 	icon_state = initial(icon_state) + "1"
 	add_fingerprint(user)
-	to_chat(user, SPAN_NOTICE("You press \the [name] button."))
+	to_chat(user, SPAN_NOTICE("Вы нажимаете кнопку «[name]».")) // SS220 EDIT ADDICTION
 
 	switch(normaldoorcontrol)
 		if(CONTROL_NORMAL_DOORS)
@@ -170,7 +170,7 @@
 		return
 
 	if(!allowed(user) && (wires & 1) && !force)
-		to_chat(user, SPAN_DANGER("Access Denied."))
+		to_chat(user, SPAN_DANGER("Доступ запрещён."))
 		flick(initial(icon_state) + "-denied",src)
 		return
 
@@ -227,7 +227,7 @@
 
 	use_power(5)
 	add_fingerprint(user)
-	to_chat(user, SPAN_NOTICE("You press \the [name] button."))
+	to_chat(user, SPAN_NOTICE("Вы нажимаете кнопку «[name]».")) // SS220 EDIT ADDICTION
 
 	switch(normaldoorcontrol)
 		if(CONTROL_NORMAL_DOORS)
@@ -307,7 +307,7 @@
 		to_chat(user, SPAN_WARNING("The colony-wide lockdown has already been lifted."))
 		return
 	. = ..()
-	marine_announcement("The colony-wide lockdown protocols have been lifted.")
+	marine_announcement("Протоколы о блокировке всей колонии отменены.")
 	used = TRUE
 
 // Research
@@ -324,7 +324,7 @@
 		to_chat(user, SPAN_WARNING("The WY-Research-Facility lockdown has already been lifted."))
 		return
 	. = ..()
-	marine_announcement("The WY-Research-Facility lockdown protocols have been lifted.")
+	marine_announcement("Протоколы блокировки исследовательского центра В-Ю отменены.")
 	used = TRUE
 
 /// Automatic door control that doesn't act as a button but instead searches for mobs every process in its own area
