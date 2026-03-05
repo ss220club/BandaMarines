@@ -258,6 +258,11 @@ export const RADIO_CHANNELS = [
     color: '#9b0612',
   },
   {
+    name: 'Армия',
+    freq: 1476,
+    color: '#318779',
+  },
+  {
     name: 'Стационарная сеть',
     freq: 1480,
     color: '#844300',

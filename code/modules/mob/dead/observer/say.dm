@@ -66,7 +66,7 @@
 		speaker.cast_tts(src, message)
 	// BANDAMARINES EDIT END
 
-	to_chat(src, "<span class='game say'><span class='name'>[comm_paygrade][speaker_name]</span>[alt_name] [track][ru_say_verb(verb)], <span class='message'><span class='[style]'>\"[message]\"</span></span></span>")
+	to_chat(src, "<span class='game say'><span class='name'>[comm_paygrade][speaker_name]</span>[alt_name] [track][ru_say_verb(verb)], <span class='message'><span class='[style]'>\"[sanitize_tts_symbols(message)]\"</span></span></span>") // BANDAMARINES EDIT - Show normal message
 	if(speech_sound && speaker.z == z && get_dist(speaker, src) <= GLOB.world_view_size)
 		var/turf/source = get_turf(speaker)
 		playsound_client(client, speech_sound, source, sound_vol)

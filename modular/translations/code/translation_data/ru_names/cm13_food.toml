@@ -1620,4 +1620,4 @@ gender = "neuter"
 
 ["surplus boxes of ingredients(x6 boxes)"]
 nominative = "ящик для коробок с едой (обеспечение)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]

@@ -54,7 +54,7 @@ gender = "male"
 
 ["burstfire assembly attachment crate (x2)"]
 nominative = "ящик для обвесов к оружию (скользящая угловая рукоятка x 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["burst fire assembly"]
 nominative = "скользящая угловая рукоятка"
@@ -67,7 +67,7 @@ gender = "female"
 
 ["extended barrel attachment crate (x6)"]
 nominative = "ящик для обвесов к оружию (удлинитель ствола x 6)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["extended barrel"]
 nominative = "удлинитель ствола"
@@ -80,7 +80,7 @@ gender = "male"
 
 ["barrel charger attachment crate (x2)"]
 nominative = "ящик для обвесов к оружию (рельсовый модератор x 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["barrel charger"]
 nominative = "рельсовый модератор"
@@ -93,7 +93,7 @@ gender = "male"
 
 ["compensator attachment crate (x6)"]
 nominative = "ящик для обвесов к оружию (ДТК x 6)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["recoil compensator"]
 nominative = "дульный тормоз-компенсатор"
@@ -106,7 +106,7 @@ gender = "male"
 
 ["shotgun choke attachment crate (x4)"]
 nominative = "ящик для обвесов к оружию (чок x 4)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["shotgun choke"]
 nominative = "чок для дробовика"
@@ -119,7 +119,7 @@ gender = "male"
 
 ["suppressor attachment crate (x8)"]
 nominative = "ящик для обвесов к оружию (глушитель x 8)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [suppressor]
 nominative = "глушитель"
@@ -141,7 +141,7 @@ gender = "male"
 
 ["magnetic harness attachment crate (x6)"]
 nominative = "ящик для обвесов к оружию (магнитный ланъярд x 6)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magnetic harness"]
 nominative = "магнитный ланъярд"
@@ -154,7 +154,7 @@ gender = "male"
 
 ["mini railscope attachment crate (x2)"]
 nominative = "ящик для обвесов к оружию (прицел S4 x 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["s4 2x telescopic mini-scope"]
 nominative = "оптический прицел S4 2x"
@@ -167,7 +167,7 @@ gender = "male"
 
 ["red-dot sight attachment crate (x8)"]
 nominative = "ящик для обвесов к оружию (ЛЦУ S5 x 8)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["s5 red-dot sight"]
 nominative = "тактический ЛЦУ S5"
@@ -189,7 +189,7 @@ gender = "male"
 
 ["railscope attachment crate (x2)"]
 nominative = "ящик для обвесов к оружию (прицел S8 x 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["s8 4x telescopic scope"]
 nominative = "оптический прицел S8 4x"
@@ -202,7 +202,7 @@ gender = "male"
 
 ["bipod attachment crate (x6)"]
 nominative = "ящик для обвесов к оружию (сошки x 6)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 [bipod]
 nominative = "сошки"
@@ -242,7 +242,7 @@ gender = "female"
 
 ["gyroscopic stabilizer attachment crate (x2)"]
 nominative = "ящик для обвесов к оружию (стабилизатор x 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["gyroscopic stabilizer"]
 nominative = "гироскопический стабилизатор"
@@ -273,7 +273,7 @@ gender = "neuter"
 
 ["underbarrel shotgun attachment crate (x4)"]
 nominative = "ящик для обвесов к оружию (подствольный дробовик x 4)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["u7 underbarrel shotgun"]
 nominative = "подствольный дробовик U7"
@@ -286,7 +286,7 @@ gender = "male"
 
 ["foregrip attachment crate (x8)"]
 nominative = "ящик для обвесов к оружию (вертикальная рукоятка x 4, угловой упор x 4)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["vertical grip"]
 nominative = "вертикальная рукоятка"
@@ -308,7 +308,7 @@ gender = "male"
 
 ["shotgun stock attachment crate (x4)"]
 nominative = "ящик для обвесов к оружию (приклад для M37 x 4)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m37 wooden stock"]
 nominative = "приклад деревянный для M37"
@@ -330,7 +330,7 @@ gender = "male"
 
 ["m39 folding stock"]
 nominative = "складной приклад для M39"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["submachinegun folding stock"]
 nominative = "складной приклад для M39"
@@ -364,10 +364,17 @@ gender = "male"
 
 ["submachinegun stock attachment crate (x4)"]
 nominative = "ящик для обвесов к оружию (приклад для M39 x 4)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m39 stock"]
 nominative = "приклад полимерный для M39"
+genitive = ""
+dative = ""
+accusative = ""
+instrumental = ""
+prepositional = ""
+gender = ""
+tags = [ "nominative_only",]
 
 ["submachinegun stock"]
 nominative = "приклад полимерный для M39"
@@ -380,7 +387,7 @@ gender = "male"
 
 ["rifle stock attachment crate (x4)"]
 nominative = "ящик для обвесов к оружию (приклад для M41A x 4)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m41a solid stock"]
 nominative = "приклад полимерный для M41A"
@@ -402,11 +409,11 @@ gender = "male"
 
 ["stock attachments crate (x3 each , 1 paratroopers)"]
 nominative = "ящик для обвесов к оружию (обеспечение)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["revolver stock attachment crate (x4)"]
 nominative = "ящик для обвесов к оружию (приклад для M44 x 4)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m44 magnum sharpshooter stock"]
 nominative = "приклад проволочный для M44"
@@ -428,7 +435,7 @@ gender = "male"
 
 ["underslung grenade launcher"]
 nominative = "подствольный гранатомёт U1"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["u1 grenade launcher"]
 nominative = "подствольный гранатомёт U1"
@@ -441,7 +448,7 @@ gender = "male"
 
 ["underbarrel extinguisher attachment crate (x4)"]
 nominative = "ящик для обвесов к оружию (подствольный огнетушитель x 4)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["hme-12 underbarrel extinguisher"]
 nominative = "подствольный огнетушитель HME-12"
@@ -454,7 +461,7 @@ gender = "male"
 
 ["underbarrel flamer attachment crate (x4)"]
 nominative = "ящик для обвесов к оружию (подствольный огнемёт x 4)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["mini flamethrower"]
 nominative = "подствольный огнемёт"
@@ -476,7 +483,7 @@ gender = "male"
 
 ["m240 incinerator tank (napthal)"]
 nominative = "топливный резервуар для M240 (UT-Napthal)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m240 incinerator tank"]
 nominative = "топливный резервуар для M240"
@@ -498,15 +505,15 @@ gender = "male"
 
 ["m240-t mixed fuel tank crate (extended x1, type-b x1, type-x x1)"]
 nominative = "ящик для топливных резервуаров к M240-T (UT-Napthal x 1, В-Gel x 1, Х-Gel x 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m240-t extended fuel tank crate (extended x3)"]
 nominative = "ящик для топливных резервуаров к M240-T (UT-Napthal x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["large incinerator tank"]
 nominative = "топливный резервуар для M240-T (UT-Napthal)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m240 large incinerator tank"]
 nominative = "большой топливный резервуар для M240-T"
@@ -519,7 +526,7 @@ gender = "male"
 
 ["m240-t type-b fuel tank crate (x1)"]
 nominative = "ящик для топливных резервуаров к M240-T (В-Gel x 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m240 large incinerator tank (b)"]
 nominative = "топливный резервуар для M240-T (В-Gel)"
@@ -532,7 +539,7 @@ gender = "male"
 
 ["m240-t type-x fuel tank crate (x1)"]
 nominative = "ящик для топливных резервуаров к M240-T (Х-Gel x 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m240 large incinerator tank (x)"]
 nominative = "топливный резервуар для M240-T (Х-Gel)"
@@ -545,7 +552,7 @@ gender = "male"
 
 ["m56d drum magazine crate (x1)"]
 nominative = "ящик для барабанных магазинов (M56D x 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m56d drum magazine (10x28mm caseless)"]
 nominative = "барабанный магазин для M56D (10x28мм SP)"
@@ -558,7 +565,7 @@ gender = "male"
 
 ["m2c ammunition crate (x2)"]
 nominative = "ящик для патронных коробов (M2C x 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m2c ammunition box (10x28mm tungsten rounds)"]
 nominative = "патронный короб для M2C (10x28мм SP)"
@@ -580,7 +587,7 @@ gender = "male"
 
 ["m56 smartgun battery crate (x4)"]
 nominative = "ящик c батареями для M56 Smartgun (DV9 x 4)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["dv9 smartgun battery"]
 nominative = "батарея DV9 для M56 Smartgun"
@@ -593,7 +600,7 @@ gender = "female"
 
 ["m56 smartgun drum crate (x2)"]
 nominative = "ящик c барабанными магазинами (M56 Smartgun x 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m56 smartgun drum"]
 nominative = "барабанный магазин для M56 Smartgun"
@@ -777,7 +784,7 @@ gender = "male"
 
 ["magazine box (m4a3, 16x regular mags)"]
 nominative = "ящик для коробок с магазинами (M4A3 x 16)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m4a3 magazine (9mm)"]
 nominative = "магазин для M4A3 (9мм)"
@@ -889,23 +896,23 @@ gender = "male"
 
 ["m4ra scout mixed magazine crate (regular x2, incendiary x2, impact x2)"]
 nominative = "ящик для магазинов (M4RA-C HV x 2, M4RA-C HV-Incendiary x 2, M4RA-C HV-Impact x 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m4ra scout magazine crate (x5)"]
 nominative = "ящик для магазинов (M4RA-C HV x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m4ra scout incendiary magazine crate (x3)"]
 nominative = "ящик для магазинов (M4RA-C HV-Incendiary x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m4ra scout impact magazine crate (x3)"]
 nominative = "ящик для магазинов (M4RA-C HV-Impact x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["a19 high velocity magazine (10x24mm)"]
 nominative = "магазин для M4RA-C (10x24мм HV)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["a19 hv magazine (10x24mm)"]
 nominative = "магазин для M4RA-C (10x24мм HV)"
@@ -936,19 +943,19 @@ gender = "male"
 
 ["m42a sniper mixed magazine crate (marksman x2, flak x2, incendiary x2)"]
 nominative = "ящик для магазинов (M42A x 2, M42A Flak x 2, M42A Incendiary x 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m42a sniper standard magazine crate (x5)"]
 nominative = "ящик для магазинов (M42A x 5)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m42a sniper flak magazine crate (x5)"]
 nominative = "ящик для магазинов (M42A Flak x 5)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m42a sniper incendiary magazine crate (x5)"]
 nominative = "ящик для магазинов (M42A Incendiary x 5)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m42a marksman magazine (10x28mm caseless)"]
 nominative = "магазин для M42A (10x28мм)"
@@ -988,7 +995,7 @@ gender = "male"
 
 ["xm43e1 anti-materiel rifle marksman magazines crate (x3)"]
 nominative = "ящик для магазинов (XM43E1 x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["xm43e1 marksman magazine (10x99mm)"]
 nominative = "магазин для XM43E1 (10x99мм)"
@@ -1001,9 +1008,9 @@ gender = "male"
 
 ["m707 anti-materiel rifle ammo crate"]
 nominative = "ящик для магазинов (M707 x 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
-["m707 \"vulture\" magazine (20x102mm)"]
+["m707 \\\"vulture\\\" magazine (20x102mm)"]
 nominative = "магазин для M707 «Стервятник» (20x102мм)"
 genitive = "магазина для M707 «Стервятник» (20x102мм)"
 dative = "магазину для M707 «Стервятник» (20x102мм)"
@@ -1014,9 +1021,9 @@ gender = "male"
 
 ["m707 anti-materiel rifle holo target ammo crate"]
 nominative = "ящик для магазинов (M707 Holo-Target x 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
-["m707 \"vulture\" holo-target magazine (20x102mm)"]
+["m707 \\\"vulture\\\" holo-target magazine (20x102mm)"]
 nominative = "магазин для M707 «Стервятник» (20x102мм Holo-Target)"
 genitive = "магазина для M707 «Стервятник» (20x102мм Holo-Target)"
 dative = "магазину для M707 «Стервятник» (20x102мм Holo-Target)"
@@ -1027,11 +1034,11 @@ gender = "male"
 
 ["sharp operator mixed magazine crate (explosive x2, flechette x2, incendiary x2)"]
 nominative = "ящик для дротиковых картриджей к P9 «Шарп» (9X-E осколочные x 2, 9X-F флешетты x 2, 9X-T зажигательные x 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["sharp operator explosive magazine crate (x5)"]
 nominative = "ящик для дротиковых картриджей к P9 «Шарп» (9X-E осколочные x 5)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["9x-e sticky explosive dart magazine"]
 nominative = "дротиковый картридж для P9 «Шарп» (9X-E осколочные)"
@@ -1044,7 +1051,7 @@ gender = "male"
 
 ["sharp operator incendiary magazine crate (x5)"]
 nominative = "ящик для дротиковых картриджей к P9 «Шарп» (9X-E зажигательные x 5)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["9x-t sticky incendiary dart magazine"]
 nominative = "дротиковый картридж для P9 «Шарп» (9X-T зажигательные)"
@@ -1057,7 +1064,7 @@ gender = "male"
 
 ["sharp operator flechette magazine crate (x5)"]
 nominative = "ящик для дротиковых картриджей к P9 «Шарп» (9X-E флешетты x 5)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["9x-f flechette dart magazine"]
 nominative = "дротиковый картридж для P9 «Шарп» (9X-F флешетты)"
@@ -1088,7 +1095,7 @@ gender = "male"
 
 ["m15 fragmentation grenades crate (x6)"]
 nominative = "ящик для взрывчатых веществ (граната M15 x 6)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m15 fragmentation grenade packet"]
 nominative = "упаковка гранат (M15 осколочная x3)"
@@ -1185,15 +1192,15 @@ gender = "female"
 
 ["m40 hedp grenade packet"]
 nominative = "упаковка гранат (M40 HEDP разрывная x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m40 hedp high explosive packet (x3 grenades)"]
 nominative = "упаковка гранат (M40 HEDP разрывная x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m40 hedp grenade pack (x6)"]
 nominative = "упаковка гранат (M40 HEDP разрывная x 6)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["hedp grenade packet"]
 nominative = "упаковка гранат (M40 HEDP разрывная x 3)"
@@ -1206,11 +1213,11 @@ gender = "female"
 
 ["m40 hedp blast grenades crate (x6)"]
 nominative = "ящик для взрывчатых веществ (M40 HEDP разрывная x 6)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m40 hedp blast grenade box crate (x25)"]
 nominative = "ящик для взрывчатых веществ (M40 HEDP разрывная x 25)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m40 hedp grenade box"]
 nominative = "ящик гранат (M40 HEDP разрывная x 25)"
@@ -1223,15 +1230,15 @@ gender = "male"
 
 ["m40 hidp incendiary packet (x3 grenades)"]
 nominative = "упаковка гранат (M40 HIDP зажигательная x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m40 hidp grenade packet"]
 nominative = "упаковка гранат (M40 HIDP зажигательная x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m40 hidp grenade pack (x6)"]
 nominative = "ящик гранат (M40 HIDP зажигательная x 6)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["hidp grenade packet"]
 nominative = "упаковка гранат (M40 HIDP зажигательная x 3)"
@@ -1253,15 +1260,15 @@ gender = "male"
 
 ["m40 ccdp chemical compound grenades crate (x6)"]
 nominative = "ящик для взрывчатых веществ (M40 CCDP фосфорная x 6)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m40 wpdp white phosphorus packet (x3 grenades)"]
 nominative = "упаковка гранат (M40 WPDP фосфорная x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m40 ccdp grenade packet"]
 nominative = "упаковка гранат (M40 CCDP фосфорная x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["ccdp grenade packet"]
 nominative = "упаковка гранат (M40 CCDP фосфорная x 3)"
@@ -1286,11 +1293,11 @@ gender = "male"
 
 ["m40 hefa fragmentation grenade box crate (x25)"]
 nominative = "ящик для взрывчатых веществ (M40 HEFA осколочная x 25)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m40 hefa fragmentation grenades crate (x6)"]
 nominative = "ящик для взрывчатых веществ (M40 HEFA осколочная x 6)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["hefa grenade packet"]
 nominative = "упаковка гранат (M40 HEFA осколочная x 3)"
@@ -1312,11 +1319,11 @@ gender = "female"
 
 ["m40 hsdp grenade packet"]
 nominative = "упаковка гранат (M40 HSDP дымовая x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m40 hsdp smoke packet (x3 grenades)"]
 nominative = "упаковка гранат (M40 HSDP дымовая x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["hsdp grenade packet"]
 nominative = "упаковка гранат (M40 HSDP дымовая x 3)"
@@ -1329,7 +1336,7 @@ gender = "female"
 
 ["m40 mfhs grenade packet"]
 nominative = "упаковка гранат (M40 MFHS пена x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["mfhs foam grenade packet"]
 nominative = "упаковка гранат (M40 MFHS пена x 3)"
@@ -1342,11 +1349,11 @@ gender = "female"
 
 ["m40 hirr baton slug crate (x6)"]
 nominative = "ящик для взрывчатых веществ (M40 HIRR резина x 6)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m40 hirr baton slug packet"]
 nominative = "упаковка гранат (M40 HIRR резина x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["hirr baton slug packet"]
 nominative = "упаковка гранат (M40 HIRR резина x 3)"
@@ -1359,19 +1366,19 @@ gender = "female"
 
 ["m74 airburst grenades crate (x6)"]
 nominative = "ящик для взрывчатых веществ (M74 AGM-F осколочная x 6)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m74 agm-frag airburst packet (x3 airburst grenades)"]
 nominative = "упаковка прыгающих гранат (M74 AGM-F осколочная x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m74 agm-f grenade packet"]
 nominative = "упаковка прыгающих гранат (M74 AGM-F осколочная x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m74 agm-f grenade pack (x6)"]
 nominative = "упаковка прыгающих гранат (M74 AGM-F осколочная x 6)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m74 airburst grenade packet"]
 nominative = "упаковка прыгающих гранат (M74 AGM-F осколочная x 3)"
@@ -1384,7 +1391,7 @@ gender = "female"
 
 ["m74 airburst grenade munition fragmentation grenade box crate (x25)"]
 nominative = "ящик для взрывчатых веществ (M74 AGM-F осколочная x 25)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m74 agm-f grenade box"]
 nominative = "ящик прыгающих гранат (M74 AGM-F осколочная x 25)"
@@ -1397,19 +1404,19 @@ gender = "male"
 
 ["m74 airburst grenade munition incendiary grenades crate (x6)"]
 nominative = "ящик для взрывчатых веществ (M74 AGM-I зажигательная x 6)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m74 agm-incendiary airburst packet (x3 airburst grenades)"]
 nominative = "упаковка прыгающих гранат (M74 AGM-I зажигательная x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m74 agm-i grenade packet"]
 nominative = "упаковка прыгающих гранат (M74 AGM-I зажигательная x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m74 agm-i grenade pack (x6)"]
 nominative = "упаковка прыгающих гранат (M74 AGM-I зажигательная x 6)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m74 airburst incendiary grenade packet"]
 nominative = "упаковка прыгающих гранат (M74 AGM-I зажигательная x 3)"
@@ -1422,7 +1429,7 @@ gender = "female"
 
 ["m74 airburst grenade munition incendiary grenades box crate (x25)"]
 nominative = "ящик для взрывчатых веществ (M74 AGM-I зажигательная x 25)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m74 agm-i grenade box"]
 nominative = "ящик прыгающих гранат (M74 AGM-I зажигательная x 25)"
@@ -1435,15 +1442,15 @@ gender = "male"
 
 ["m74 airburst grenade munition smoke grenades crate (x6)"]
 nominative = "ящик для взрывчатых веществ (M74 AGM-S дымовая x 6)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m74 agm-smoke airburst packet (x3 airburst grenades)"]
 nominative = "упаковка прыгающих гранат (M74 AGM-S дымовая x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m74 agm-s smoke grenade packet"]
 nominative = "упаковка прыгающих гранат (M74 AGM-S дымовая x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m74 airburst smoke grenade packet"]
 nominative = "упаковка прыгающих гранат (M74 AGM-S дымовая x 3)"
@@ -1456,7 +1463,7 @@ gender = "female"
 
 ["m74 agm-star shell grenade crate (x6)"]
 nominative = "ящик для взрывчатых веществ (M74 AGM-S «Звезда» x 6)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m74 agm-s star shell packet"]
 nominative = "упаковка прыгающих гранат (M74 AGM-S «Звезда» x 3)"
@@ -1469,11 +1476,11 @@ gender = "female"
 
 ["m74 agm-hornet grenade crate (x6)"]
 nominative = "ящик для взрывчатых веществ (M74 AGM-H «Шершень» x 6)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m74 agm-hornet airburst packet (x3 airburst grenades"]
 nominative = "упаковка прыгающих гранат (M74 AGM-H «Шершень» x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m74 agm-h hornet shell packet"]
 nominative = "упаковка прыгающих гранат (M74 AGM-H «Шершень» x 3)"
@@ -1486,11 +1493,11 @@ gender = "female"
 
 ["g2 electroshock grenades crate (x6)"]
 nominative = "ящик для взрывчатых веществ (G2 x 6)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["g2 electroshock grenade packet (x3 grenades)"]
 nominative = "упаковка электрошоковых гранат (G2 x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["g2 electroshock grenade packet"]
 nominative = "упаковка электрошоковых гранат (G2 x 3)"
@@ -1503,11 +1510,11 @@ gender = "female"
 
 ["surplus explosives crate (claymore mine x5, m40 hidp x2, m40 hedp x2, m15 frag x2, m12 blast x2, m40 mfhs x2)"]
 nominative = "ящик для взрывчатых веществ (мина M20 x 5, M40 зажигательная x 2, M40 разрывная x 2, M40 пена x 2, M15 осколочная x 2, M12 разрывная x 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["claymore mines crate (x10)"]
 nominative = "ящик для взрывчатых веществ (мина M20 x 10)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m20 mine box"]
 nominative = "упаковка мин M20 x 5"
@@ -1520,7 +1527,7 @@ gender = "male"
 
 ["magazine box (l54, 16x regular mags)"]
 nominative = "ящик для коробок с магазинами (L54 x 16)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine box (l54 x 16)"]
 nominative = "коробка для магазинов (L54 x 16)"
@@ -1533,7 +1540,7 @@ gender = "male"
 
 ["magazine box (l54, 16x ap mags)"]
 nominative = "ящик для коробок с магазинами (L54 AP x 16)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine box (ap l54 x 16)"]
 nominative = "коробка для магазинов (L54 AP x 16)"
@@ -1546,7 +1553,7 @@ gender = "male"
 
 ["magazine box (l54, 16x hp mags)"]
 nominative = "ящик для коробок с магазинами (L54 HP x 16)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine box (hp l54 x 16)"]
 nominative = "коробка для магазинов (L54 HP x 16)"
@@ -1559,7 +1566,7 @@ gender = "male"
 
 ["magazine box (m10, 22x regular mags)"]
 nominative = "ящик для коробок с магазинами (M10 x 22)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine box (m10 x 22)"]
 nominative = "коробка для магазинов (M10 x 22)"
@@ -1572,7 +1579,7 @@ gender = "male"
 
 ["magazine box (m10, 14x extended mags)"]
 nominative = "ящик для коробок с магазинами (M10 расширенные x 12)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine box (ext m10 x 14)"]
 nominative = "коробка для магазинов (M10 расширенные x 14)"
@@ -1585,7 +1592,7 @@ gender = "male"
 
 ["magazine box (m10, 12x drum mags)"]
 nominative = "ящик для коробок с барабанами (M10 x 12)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine box (drum m10 x 12)"]
 nominative = "коробка для барабанов (M10 x 12)"
@@ -1598,7 +1605,7 @@ gender = "male"
 
 ["magazine box (m39, 12x regular mags)"]
 nominative = "ящик для коробок с магазинами (M39 x 12)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine box (m39 x 12)"]
 nominative = "коробка для магазинов (M39 x 12)"
@@ -1611,7 +1618,7 @@ gender = "male"
 
 ["magazine box (m39, 12x ap mags)"]
 nominative = "ящик для коробок с магазинами (M39 AP x 12)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine box (ap m39 x 12)"]
 nominative = "коробка для магазинов (M39 AP x 12)"
@@ -1633,7 +1640,7 @@ gender = "male"
 
 ["magazine box (m41a, 10x regular mags)"]
 nominative = "ящик для коробок с магазинами (M41A x 10)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine box (m41a x 10)"]
 nominative = "коробка для магазинов (M41A x 10)"
@@ -1646,7 +1653,7 @@ gender = "male"
 
 ["magazine box (m41a, 10x ap mags)"]
 nominative = "ящик для коробок с магазинами (M41A AP x 10)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine box (ap m41a x 10)"]
 nominative = "коробка для магазинов (M41A AP x 10)"
@@ -1659,7 +1666,7 @@ gender = "male"
 
 ["magazine box (m41a, 8x extended mags)"]
 nominative = "ящик для коробок с магазинами (M41A расширенные x 8)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine box (ext m41a x 8)"]
 nominative = "коробка для магазинов (M41A расширенные x 8)"
@@ -1681,7 +1688,7 @@ gender = "male"
 
 ["magazine box (m4a3, 16x ap mags)"]
 nominative = "ящик для коробок с магазинами (M4A3 AP x 16)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine box (ap m4a3 x 16)"]
 nominative = "коробка для магазинов (M4A3 AP x 16)"
@@ -1694,7 +1701,7 @@ gender = "male"
 
 ["magazine box (m4a3, 16x hp mags)"]
 nominative = "ящик для коробок с магазинами (M4A3 HP x 16)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine box (hp m4a3 x 16)"]
 nominative = "коробка для магазинов (M4A3 HP x 16)"
@@ -1707,11 +1714,11 @@ gender = "male"
 
 ["magazine box (m4ra, 16x regular mags)"]
 nominative = "ящик для коробок с магазинами (M4RA x 16)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine box (m4ra, 16x mags)"]
 nominative = "ящик для коробок с магазинами (M4RA x 16)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine box (m4ra x 16)"]
 nominative = "коробка для магазинов (M4RA x 16)"
@@ -1724,7 +1731,7 @@ gender = "male"
 
 ["magazine box (m4ra, 16x ap mags)"]
 nominative = "ящик для коробок с магазинами (M4RA AP x 16)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine box (ap m4ra x 16)"]
 nominative = "коробка для магазинов (M4RA AP x 16)"
@@ -1737,11 +1744,11 @@ gender = "male"
 
 ["magazine box (m4ra, 12x extended mags)"]
 nominative = "ящик для коробок с магазинами (M4RA расширенные x 16)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine box (ext m4ra x 16)"]
 nominative = "коробка для магазинов (M4RA расширенные x 16)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine box (ext m4ra x 12)"]
 nominative = "коробка для магазинов (M4RA расширенные x 16)"
@@ -1754,11 +1761,11 @@ gender = "male"
 
 ["m41ae2 hpr magazines crate (hpr ammo box x2)"]
 nominative = "ящик для патронных коробов (M41AE2 x 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine box (m41ae2 x 8)"]
 nominative = "коробка для патронных коробов (M41AE2 x 8)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine (m41ae2 x 8)"]
 nominative = "коробка для патронных коробов (M41AE2 x 8)"
@@ -1771,7 +1778,7 @@ gender = "male"
 
 ["m41ae2 hpr holo-target magazines crate (hpr ht ammo box x2)"]
 nominative = "ящик для патронных коробов (M41AE2 Holo-Target x 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine box (m41ae2 holo-target x 8)"]
 nominative = "коробка для патронных коробов (M41AE2 Holo-Target x 8)"
@@ -1802,7 +1809,7 @@ gender = "male"
 
 ["shell box (100x buckshot shells)"]
 nominative = "ящик для коробок с патронами дробовика (картечь x 100)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["shotgun shell box (buckshot x 100)"]
 nominative = "коробка для патронов дробовика (картечь x 100)"
@@ -1815,7 +1822,7 @@ gender = "male"
 
 ["shell box (100x flechette shells)"]
 nominative = "ящик для коробок с патронами (флешетты x 100)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["shotgun shell box (flechette x 100)"]
 nominative = "коробка для патронов дробовика (флешетты x 100)"
@@ -1828,7 +1835,7 @@ gender = "male"
 
 ["shell box (100x slug shells)"]
 nominative = "ящик для коробок с патронами дробовика (пуля x 100)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["shotgun shell box (slugs x 100)"]
 nominative = "коробка для патронов дробовика (пуля x 100)"
@@ -1841,7 +1848,7 @@ gender = "male"
 
 ["shotgun shell box (16g) (breaching x 120)"]
 nominative = "коробка для патронов дробовика (бетонобойные x 120)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["16-gauge shotgun shell box (breaching x 120)"]
 nominative = "коробка для патронов дробовика (бетонобойные x 120)"
@@ -1854,7 +1861,7 @@ gender = "male"
 
 ["magazine box (88 mod 4 ap, 16x mags)"]
 nominative = "ящик для коробок с магазинами (88M4 AP x 16)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine box (88 mod 4 ap x 16)"]
 nominative = "коробка для магазинов (88M4 AP x 16)"
@@ -1867,7 +1874,7 @@ gender = "male"
 
 ["magazine box (su-6, 16x mags)"]
 nominative = "ящик для коробок с магазинами (SU-6 x 16)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine box (su-6 x 16)"]
 nominative = "коробка для магазинов (SU-6 x 16)"
@@ -1880,7 +1887,7 @@ gender = "male"
 
 ["magazine box (vp78, 16x mags)"]
 nominative = "ящик для коробок с магазинами (VP-78 x 16)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine box (vp78 x 16)"]
 nominative = "коробка для магазинов (VP-78 x 16)"
@@ -1902,13 +1909,13 @@ gender = "male"
 
 [".458 bullets box crate (x300 rounds)"]
 nominative = "ящик для коробок с патронами (.458 SOCOM x 300)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["rounds box (.458 socom x 300)"]
 nominative = "коробка для патронов (.458 SOCOM x 300)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
-["box of .458 socom rounds"]
+["box of.458 socom rounds"]
 nominative = "коробка для патронов (.458 SOCOM)"
 genitive = "коробки для патронов (.458 SOCOM)"
 dative = "коробке для патронов (.458 SOCOM)"
@@ -1955,7 +1962,7 @@ gender = "male"
 
 ["speed loaders box (m44, 16x)"]
 nominative = "ящик для коробок со сменными барабанами (M44 x 16)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["speed loaders box (m44 x 16)"]
 nominative = "коробка со сменными барабанами (M44 x 16)"
@@ -1968,7 +1975,7 @@ gender = "female"
 
 ["speed loaders box (marksman m44, 16x)"]
 nominative = "ящик для коробок со сменными барабанами (M44 Marksman x 16)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["speed loaders box (marksman m44 x 16)"]
 nominative = "коробка со сменными барабанами (M44 Marksman x 16)"
@@ -1981,7 +1988,7 @@ gender = "male"
 
 ["speed loaders box (heavy m44, 16x)"]
 nominative = "ящик для коробок со сменными барабанами (M44 Heavy x 16)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["speed loaders box (heavy m44 x 16)"]
 nominative = "коробка со сменными барабанами (M44 Heavy x 16)"
@@ -1994,7 +2001,7 @@ gender = "male"
 
 ["nailgun magazine box (7x45mm)"]
 nominative = "коробка для магазинов (Гвоздепистолет x 10)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["magazine box (nailgun x 10)"]
 nominative = "коробка для магазинов (Гвоздепистолет x 10)"
@@ -2007,7 +2014,7 @@ gender = "male"
 
 ["smg ammo box crate (10x20mm) (x600 rounds)"]
 nominative = "ящик для коробок с патронами (10x20мм x 600)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["smg hv ammunition box (10x20mm)"]
 nominative = "коробка для патронов (10x20мм HV)"
@@ -2020,7 +2027,7 @@ gender = "female"
 
 ["smg ap ammo box crate (10x20mm ap) (x600 rounds)"]
 nominative = "ящик для коробок с патронами (10x20мм AP x 600)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["smg ammunition box (10x20mm ap)"]
 nominative = "коробка для патронов (10 x 20мм AP)"
@@ -2033,7 +2040,7 @@ gender = "female"
 
 ["rifle ammo box crate (10x24mm) (x600 rounds)"]
 nominative = "ящик для коробок с патронами (10x24мм x 600)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["rifle ammunition box (10x24mm)"]
 nominative = "коробка для патронов (10x24мм)"
@@ -2046,7 +2053,7 @@ gender = "female"
 
 ["rifle ap ammo box crate (10x24mm ap) (x600 rounds)"]
 nominative = "ящик для коробок с патронами (10x24мм AP x 600)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["rifle ammunition box (10x24mm ap)"]
 nominative = "коробка для патронов (10x24мм AP)"
@@ -2059,7 +2066,7 @@ gender = "female"
 
 ["ua 12-g sentry shotgun ammunition (x2)"]
 nominative = "ящик для патронных коробов (СА 12-G x 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["12g buckshot drum"]
 nominative = "патронный короб для СА 12-G (картечь x 2)"
@@ -2072,7 +2079,7 @@ gender = "male"
 
 ["ua 42-f sentry flamer ammunition (x2)"]
 nominative = "ящик для топливных резервуаров (СА 42-F x 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["sentry incinerator tank"]
 nominative = "топливный резервуар для СА 42-F"
@@ -2085,7 +2092,7 @@ gender = "male"
 
 ["ua 45-f mini sentry flamer ammunition (x2)"]
 nominative = "ящик для топливных резервуаров (СА 42-F Mini x 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["mini sentry incinerator tank"]
 nominative = "топливный резервуар для СА 42-F Mini"
@@ -2098,7 +2105,7 @@ gender = "male"
 
 ["ua 60-fp sentry plasma incinerator tank (x2)"]
 nominative = "ящик для топливных резервуаров (СА 60-F Plasma x 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["plasma sentry incinerator tank"]
 nominative = "топливный резервуар для СА 60-F Plasma"
@@ -2111,7 +2118,7 @@ gender = "male"
 
 ["ua 571-c sentry ammunition (x2)"]
 nominative = "ящик для патронных коробов (СА 571-C x 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m30 ammo drum (10x28mm caseless)"]
 nominative = "патронный короб для СА 571-C (10x28мм)"
@@ -2124,39 +2131,39 @@ gender = "male"
 
 ["m240 ut-napthal fuel (x4)"]
 nominative = "ящик для топливных резервуаров (UT-Napthal x 4)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m240 napalm b-gel (x4)"]
 nominative = "ящик для топливных резервуаров (B-Gel x 4)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m240 fuel crate (x2 normal, x2 b-gel)"]
 nominative = "ящик для топливных резервуаров (UT-Napthal x 2, B-Gel x 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["surplus ammo crate (various uscm magazines x10)"]
 nominative = "ящик для боеприпасов ККМП (обеспечение)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m5 rpg rocket crate (he x1, ap x1, wp x1)"]
 nominative = "ящик для ракет к РПГ M5 (разрывная x 1, бронебойная x 1, фосфорная x 1)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m5 rpg he rocket crate (x3)"]
 nominative = "ящик для ракет к РПГ M5 (разрывная x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m5 rpg ap rocket crate (x3)"]
 nominative = "ящик для ракет к РПГ M5 (бронебойная x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m5 rpg wp rocket crate (x3)"]
 nominative = "ящик для ракет к РПГ M5 (фосфорная x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m6h-brute breaching rocket crate (x6)"]
 nominative = "ящик для ракет к M6H-BRUTE (M5510 x 6)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["demolitionist equipment case"]
 nominative = "ящик специалиста подрывника"
@@ -2268,7 +2275,7 @@ gender = "female"
 
 ["tow launcher magazines (x3)"]
 nominative = "ящик для зарядов к пусковой установке (TOW x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["tow launcher magazine"]
 nominative = "заряды для пусковой установки TOW"
@@ -2290,7 +2297,7 @@ gender = "female"
 
 ["m34a2-a multipurpose turret smoke screen magazines (x4)"]
 nominative = "ящик для дымовых зарядов к многоцелевой пушке (M34A2-A x 4)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["turret smoke screen magazine"]
 nominative = "дымовые заряды для многоцелевой пушки M34A2-A"
@@ -2303,7 +2310,7 @@ gender = "male"
 
 ["m-87f flare launcher magazines (x4)"]
 nominative = "ящик для зарядов к осветительной системе (M-87F x 4)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m-87f flare launcher magazine"]
 nominative = "заряды для осветительной системы M-87F"
@@ -2316,7 +2323,7 @@ gender = "male"
 
 ["ltb cannon magazines (x3)"]
 nominative = "ящик для снарядов к пушке (LTB x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["ltb cannon magazine"]
 nominative = "снаряды для пушки LTB"
@@ -2329,7 +2336,7 @@ gender = "male"
 
 ["ltaa-ap minigun magazines (x3)"]
 nominative = "ящик для патронных коробов к минигану (LTAA-AP x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["ltaa-ap minigun magazine"]
 nominative = "патронный короб для минигана LTAA-AP"
@@ -2342,7 +2349,7 @@ gender = "male"
 
 ["ac3-e autocannon magazines (x5)"]
 nominative = "ящик для патронных коробов к автоматической турели (AC3-E x 5)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["ac3-e autocannon magazine"]
 nominative = "патронный короб для автоматической турели AC3-E"
@@ -2355,7 +2362,7 @@ gender = "male"
 
 ["pars-159 boyars dualcannon magazines (x5)"]
 nominative = "ящик для патронных коробов к двуствольной турели (PARS-159 x 5)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["pars-159 dualcannon iff magazine"]
 nominative = "патронный короб для двуствольной турели PARS-159"
@@ -2368,7 +2375,7 @@ gender = "male"
 
 ["re700 rotary cannon magazines (x3)"]
 nominative = "ящик для патронных коробов к вращающейся турели (RE700 x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["re700 rotary cannon magazine"]
 nominative = "патронный короб для вращающейся турели RE700"
@@ -2381,7 +2388,7 @@ gender = "male"
 
 ["bleihagel re-re700 frontal cannon magazines (x2)"]
 nominative = "ящик для патронных коробов к вращающейся турели (RE-RE700 «Bleihagel» x 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["re-re700 frontal cannon magazine"]
 nominative = "патронный короб для лобовой турели RE-RE700 «Bleihagel»"
@@ -2394,7 +2401,7 @@ gender = "male"
 
 ["m56 cupola magazines (x2)"]
 nominative = "ящик для патронных коробов к башенной турели (M56 x 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m56 cupola magazine"]
 nominative = "патронный короб для башенной турели M56"
@@ -2407,7 +2414,7 @@ gender = "male"
 
 ["lzr-n flamer unit fuel tanks (x2)"]
 nominative = "ящик для топливных резервуаров к танковому огнемёту (LZR-N x 2)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["lzr-n flamer unit fuel tank"]
 nominative = "топливный резервуар для танкового огнемёта LZR-N"
@@ -2420,7 +2427,7 @@ gender = "male"
 
 ["m92t grenade launcher magazines (x5)"]
 nominative = "ящик для гранатных блоков к гранатомёту (M92T x 5)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["m92t grenade launcher magazine"]
 nominative = "гранатный блок для гранатомёта M92T"
@@ -2433,7 +2440,7 @@ gender = "male"
 
 ["drg-n offensive flamer unit fuel tanks (x3)"]
 nominative = "ящик для топливных резервуаров к танковому огнемёту (DRG-N x 3)"
-tags = ["nominative_only", "cm13"]
+tags = [ "nominative_only", "cm13",]
 
 ["drg-n offensive flamer unit fuel tank"]
 nominative = "топливный резервуар для танкового огнемёта DRG-N"

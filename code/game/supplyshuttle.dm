@@ -1601,7 +1601,7 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 		if(used >= limit)
 			dat += "<font color='gray'>[order.name] (limit reached)</font><br>"
 			continue
-		if(!category_unlocked(category))
+		if(!category_unlocked(category, src))
 			dat += "<font color='gray'>[order.name] (category locked)</font><br>"
 			continue
 
@@ -1621,7 +1621,7 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 			return
 
 		var/category = get_vehicle_category(order)
-		if(!category_unlocked(category))
+		if(!category_unlocked(category, src))
 			to_chat(usr, SPAN_WARNING("[category] category not available yet!"))
 			return
 
@@ -1654,6 +1654,10 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 
 	else if(href_list["lower_elevator"])
 		if(!is_mainship_level(SSshuttle.vehicle_elevator.z))
+			return
+
+		if(vehicle_elevator_safety_check(get_area(SSshuttle.vehicle_elevator)))
+			to_chat(usr, SPAN_WARNING("Система безопасности не может позволить вам оставить на лифте живые организмы или транспорт."))
 			return
 
 		if(SSshuttle.vehicle_elevator.z == lower_turf.z)

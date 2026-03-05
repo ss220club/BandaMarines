@@ -137,7 +137,7 @@
 				if(!input || authenticated != 2 || world.time < cooldown_message + COOLDOWN_COMM_MESSAGE_LONG || !(usr in dview(1, src)))
 					return FALSE
 
-				marine_announcement(input)
+				marine_announcement(input, tts_component = human_user.GetComponent(/datum/component/tts_component)) //BANDAMARINES ADDITION
 				message_admins("[key_name(usr)] has made a command announcement.")
 				log_announcement("[key_name(usr)] has announced the following: [input]")
 				cooldown_message = world.time
@@ -205,6 +205,14 @@
 
 				if(SSticker.mode.force_end_at == 0)
 					to_chat(usr, SPAN_WARNING("ARES has denied your request for operational security reasons."))
+					return FALSE
+
+				if(SShijack.in_ftl)
+					to_chat(usr, SPAN_WARNING("The ship's hyperdrive is currently active - a beacon cannot be launched."))
+					return FALSE
+
+				if(SShijack.crashed || SShijack.hijack_status == HIJACK_OBJECTIVES_GROUND_CRASH)
+					to_chat(usr, SPAN_WARNING("The ship's systems are unresponsive - a beacon cannot be launched."))
 					return FALSE
 
 				if(world.time < cooldown_request + COOLDOWN_COMM_REQUEST)
@@ -303,9 +311,9 @@
 		if("messageUSCM")
 			if(authenticated == 2)
 				if(world.time < cooldown_central + COOLDOWN_COMM_CENTRAL)
-					to_chat(usr, SPAN_WARNING("Arrays recycling.  Please stand by."))
+					to_chat(usr, SPAN_WARNING("Arrays recycling. Please stand by."))
 					return FALSE
-				var/input = stripped_input(usr, "Please choose a message to transmit to USCM.  Please be aware that this process is very expensive, and abuse will lead to termination.  Transmission does not guarantee a response. There is a small delay before you may send another message. Be clear and concise.", "To abort, send an empty message.", "")
+				var/input = stripped_input(usr, "Please choose a message to transmit to USCM. Please be aware that this process is very expensive, and abuse will lead to termination. Transmission does not guarantee a response. There is a small delay before you may send another message. Be clear and concise.", "To abort, send an empty message.", "")
 				if(!input || !(usr in dview(1, src)) || authenticated != 2 || world.time < cooldown_central + COOLDOWN_COMM_CENTRAL)
 					return FALSE
 

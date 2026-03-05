@@ -22,7 +22,6 @@
 	var/datum/unarmed_attack/secondary_unarmed // For empty hand harm-intent attack if the first fails.
 	var/slowdown = 0
 	var/gluttonous // Can eat some mobs. 1 for monkeys, 2 for people.
-	var/rarity_value = 1  // Relative rarity/collector value for this species. Only used by ninja and cultists atm.
 	var/unarmed_type =    /datum/unarmed_attack
 	var/secondary_unarmed_type = /datum/unarmed_attack/bite
 	var/pain_type   = /datum/pain/human
@@ -76,6 +75,7 @@
 	var/flesh_color = "#FFC896" //Pink.
 	var/base_color   //Used when setting species.
 	var/hair_color   //If the species only has one hair color
+	var/no_grad_style //Hair gradients or no
 
 	//Currently, this is only used for flavor in surgery messages. Can be changed for individual species (i.e. synths)
 	var/flesh_type = "flesh"
@@ -274,9 +274,11 @@
 		if(protagonist_plays != antagonist_plays)
 			var/static/list/what_beats_what = list("Камень" = "Ножницы", "Ножницы" = "Бумагу", "Бумагу" = "Камень")
 			if(antagonist_plays == what_beats_what[protagonist_plays])
-				winner_text = "Победитель [H]!" // SS220 EDIT ADDICTION
+				winner_text = "Победитель - [H]!"
+				SEND_SIGNAL(H, COMSIG_HUMAN_WON_RPS)
 			else
-				winner_text = "Победитель [target]!" // SS220 EDIT ADDICTION
+				winner_text = "Победитель - [target]!"
+				SEND_SIGNAL(target, COMSIG_HUMAN_WON_RPS)
 		H.visible_message(SPAN_NOTICE("[capitalize(H.declent_ru(NOMINATIVE))] выбрасывает <b>[protagonist_plays]</b>![winner_text]"), SPAN_NOTICE("Вы выбрасываете <b>«[protagonist_plays]»</b>! [winner_text]"), max_distance = 5)
 		target.visible_message(SPAN_NOTICE("[target] выбрасывает <b>[antagonist_plays]</b>![winner_text]"), SPAN_NOTICE("Вы выбрасываете <b>«[antagonist_plays]»</b>! [winner_text]"), max_distance = 5)
 		playsound(target, "clownstep", 35, TRUE)

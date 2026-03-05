@@ -43,7 +43,7 @@ GLOBAL_LIST_INIT(telephone_ru_names, list(
     "Brig Cells" = "Камеры содержания брига",
     "Brig Main Offices" = "Офисы брига",
     "Brig Warden's Office" = "Офис военного смотрителя",
-    "Brig CMP's Office" = "Офис шефа военной плиции",
+    "Brig CMP's Office" = "Офис шефа военной полиции",
 
 	// Command
     "Command" = "Штаб",

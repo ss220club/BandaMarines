@@ -16,7 +16,7 @@
 
 /obj/item/map/attack_self(mob/user) //Open the map
 	..()
-	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] открывает [declent_ru(ACCUSATIVE)]. "))
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] открывает [declent_ru(ACCUSATIVE)]."))
 	initialize_map()
 
 /obj/item/map/attack()
@@ -142,12 +142,10 @@
 	html_link = "images/9/94/New_Varadero.png"
 	color = "red"
 
-/obj/item/map/cape_river
-	name = "\improper Cape River map"
-	desc = "A labeled blueprint of the Con-Am mining outpost Cape River"
-	html_link = "images/4/46/Cape_River.png"
-	color = "red"
-
+/obj/item/map/tyrargo_rift
+	name = "\improper Tyrargo Rift map"
+	desc = "A labeled blueprint of the UA city Tyrargo Rift"
+	html_link = "images/7/79/Tyrargo_Rift.png"
 
 GLOBAL_LIST_INIT_TYPED(map_type_list, /obj/item/map, setup_all_maps())
 
@@ -167,7 +165,7 @@ GLOBAL_LIST_INIT_TYPED(map_type_list, /obj/item/map, setup_all_maps())
 		MAP_LV522_CHANCES_CLAIM = new /obj/item/map/lv522_map(),
 		MAP_LV759_HYBRISA_PROSPERA = new /obj/item/map/lv759_map(),
 		MAP_NEW_VARADERO = new /obj/item/map/new_varadero(),
-		MAP_CAPE_RIVER = new /obj/item/map/cape_river()
+		MAP_TYRARGO_RIFT = new /obj/item/map/tyrargo_rift()
 	)
 
 //used by marine equipment machines to spawn the correct map.
