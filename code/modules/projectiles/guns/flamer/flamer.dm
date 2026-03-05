@@ -205,7 +205,7 @@
 
 	if (user)
 		playsound(user, unload_sound, 25, 1)
-		user.visible_message(SPAN_NOTICE("[user] unloads [current_mag] from [src]."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] unloads [current_mag] from [src]."),
 		SPAN_NOTICE("You unload [current_mag] from [src]."))
 
 	current_mag.update_icon()
@@ -740,7 +740,7 @@ GLOBAL_LIST_EMPTY(flamer_particles)
 		ignited_morb.apply_damage(firedamage, BURN)
 		animation_flash_color(ignited_morb, tied_reagent.burncolor) //pain hit flicker
 
-		var/msg = "Augh! You are roasted by the flames!"
+		var/msg = "Аааа! Вы загораетесь!!!"
 		if (isxeno(ignited_morb))
 			to_chat(ignited_morb, SPAN_XENODANGER(msg))
 		else

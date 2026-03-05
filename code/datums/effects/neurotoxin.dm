@@ -158,7 +158,7 @@
 			KnockDown(1)
 		if(17 to 24)
 			//Fake CAS sequence
-			playsound_client(client,'sound/weapons/dropship_sonic_boom.ogg', vol = 5)
+			playsound_client(client,'modular/aesthetics_sounds/sound/dropship_sonic_boom.ogg', vol = 5)  // BANDAMARINES EDIT - Dropship soundeffects update
 
 			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), src,"A DROPSHIP FIRES [pick(SPAN_UNDERLINE("TOWARDS THE [pick("WEST","EAST","SOUTH","NORTH")]"),SPAN_UNDERLINE("RIGHT ONTOP OF YOU!"))]!"), 3.5 SECONDS)
 			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound_client), client,'sound/effects/rocketpod_fire.ogg', null, 5), 4 SECONDS)
