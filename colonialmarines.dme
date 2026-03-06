@@ -1237,7 +1237,6 @@
 #include "code\game\objects\items\misc.dm"
 #include "code\game\objects\items\ore.dm"
 #include "code\game\objects\items\paint.dm"
-#include "code\game\objects\items\pamphlets.dm"
 #include "code\game\objects\items\research_upgrades.dm"
 #include "code\game\objects\items\shards.dm"
 #include "code\game\objects\items\stock_parts.dm"
