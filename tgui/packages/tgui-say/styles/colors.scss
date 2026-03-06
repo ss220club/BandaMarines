@@ -46,6 +46,7 @@ $cia: hsl(16, 75%, 60%);
 $provost: hsl(355, 93%, 32%);
 $yautja: hsl(133, 74%, 46%);
 $hyperdyne: hsl(23, 100%, 55%);
+$army: hsl(170, 47%, 36%);
 
 $_channel_map: (
   'Говорить': oklch(0.775 0.05 255),
@@ -77,13 +78,15 @@ $_channel_map: (
   'Команд': oklch(0.52 0.087 220.814),
   'Гипердайн': oklch(0.494 0.093 20.114),
   'ВейЮ': oklch(0.775 0.166 63.656),
+  'army': $army,
   'ВысшКоманд': oklch(0.76 0.106 202.146),
   'Улей': oklch(0.525 0.075 325),
   'Хищники': oklch(0.648 0.156 125.42),
 );
 
-$channel-map: ();
 $channel_keys: map.keys($_channel_map) !default;
+
+$channel-map: ();
 
 @each $channel in $channel_keys {
   $channel-map: map.merge(

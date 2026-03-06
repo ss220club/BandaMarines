@@ -6,3 +6,6 @@
 2026-03-05:
   PhantornRU:
   - bugfix: StickyBan fixes
+2026-03-06:
+  larentoun:
+  - bugfix: Fix humans not seeing lore-friendly customizations

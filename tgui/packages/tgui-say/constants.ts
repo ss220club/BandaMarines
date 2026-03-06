@@ -134,8 +134,12 @@ export const RADIO_PREFIXES = {
     label: 'Улей',
   },
   ':s ': {
-    id: null,
+    id: 'cia',
     label: 'ЦРУ',
+  },
+  '.s ': {
+    id: 'army',
+    label: 'Армия',
   },
   '#s ': {
     id: null,
