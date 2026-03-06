@@ -67,6 +67,7 @@ CLIENT_VERB(ooc, msg as text)
 		display_colour = CONFIG_GET(string/ooc_color_default)
 
 	msg = process_chat_markup(msg, list("*"))
+	msg = emoji_parse(msg) // SS220 EDIT emojis in ooc
 	var/ooc_prefix = handle_ooc_prefix()
 	for(var/client/C in GLOB.clients)
 		if(C.prefs.toggles_chat & CHAT_OOC)
@@ -159,7 +160,7 @@ CLIENT_VERB(looc, msg as text)
 	var/list/heard = get_mobs_in_view(7, src.mob)
 	var/mob/S = src.mob
 
-	var/display_name = S.key
+	var/display_name = S.username()
 	if(S.stat != DEAD && !isobserver(S))
 		display_name = S.real_name
 
@@ -180,10 +181,11 @@ CLIENT_VERB(looc, msg as text)
 		var/transmit_language = isxeno(mob) ? LANGUAGE_XENOMORPH : LANGUAGE_ENGLISH
 		mob.langchat_speech("LOOC: [msg]", heard, GLOB.all_languages[transmit_language], "#6699cc") // BANDAMARINES EDIT add LOOC: and color #f557b8->#6699cc
 
-	// Now handle admins
-	display_name = S.key
+	// Now handle admins - show username (key) when different, otherwise just key
+	var/username = S.username()
+	display_name = username != S.key ? "[username] ([S.key])" : S.key
 	if(S.stat != DEAD && !isobserver(S))
-		display_name = "[S.real_name]/([S.key])"
+		display_name = "[S.real_name]/([username != S.key ? "[username] ([S.key])" : S.key])"
 
 	for(var/client/C in GLOB.admins)
 		if(!C.admin_holder || !(C.admin_holder.rights & R_MOD))

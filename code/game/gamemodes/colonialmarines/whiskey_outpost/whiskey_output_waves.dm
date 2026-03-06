@@ -119,7 +119,7 @@
 
 /datum/whiskey_outpost_wave/wave1
 	wave_number = 1
-	wave_castes = list(XENO_CASTE_RUNNER)
+	wave_castes = list(XENO_CASTE_RUNNER, XENO_CASTE_DRONE)
 	sound_effect = list('sound/effects/siren.ogg')
 	command_announcement = list("Мы отслеживаем существ, которые уничтожили наши патрули, направляющиеся к вашему аванпосту. На пути к аванпосту обнаружено несколько малых признаков жизни. Будьте наготове, мы попытаемся установить связь с ККС \"Алистон\", чтобы предупредить их об этих существах.", "Капитан Найш, командование третьего батальона, гарнизон LV-624")
 	scaling_factor = 0.3
@@ -132,7 +132,8 @@
 		XENO_CASTE_RUNNER,
 		XENO_CASTE_RUNNER,
 		XENO_CASTE_RUNNER,
-		XENO_CASTE_RUNNER,
+		XENO_CASTE_SENTINEL,
+		XENO_CASTE_DRONE,
 	)
 	scaling_factor = 0.4
 	wave_delay = 1 MINUTES //Early, quick waves
@@ -141,10 +142,11 @@
 	wave_number = 3
 	wave_castes = list(
 		XENO_CASTE_RUNNER,
-		XENO_CASTE_RUNNER,
+		XENO_CASTE_SENTINEL,
 		XENO_CASTE_LURKER,
 		XENO_CASTE_SPITTER,
 		XENO_CASTE_DEFENDER,
+		XENO_CASTE_DRONE,
 	)
 	scaling_factor = 0.6
 	wave_delay = 1 MINUTES //Early, quick waves
@@ -153,7 +155,7 @@
 	wave_number = 4
 	wave_castes = list(
 		XENO_CASTE_RUNNER,
-		XENO_CASTE_RUNNER,
+		XENO_CASTE_SENTINEL,
 		XENO_CASTE_LURKER,
 		XENO_CASTE_LURKER,
 		XENO_CASTE_SPITTER,
@@ -167,7 +169,7 @@
 	wave_number = 5
 	wave_castes = list(
 		XENO_CASTE_RUNNER,
-		XENO_CASTE_RUNNER,
+		XENO_CASTE_SENTINEL,
 		XENO_CASTE_LURKER,
 		XENO_CASTE_LURKER,
 		XENO_CASTE_SPITTER,
@@ -181,7 +183,7 @@
 	wave_number = 6
 	wave_castes = list(
 		XENO_CASTE_RUNNER,
-		XENO_CASTE_RUNNER,
+		XENO_CASTE_SENTINEL,
 		XENO_CASTE_LURKER,
 		XENO_CASTE_LURKER,
 		XENO_CASTE_LURKER,
@@ -198,7 +200,7 @@
 	wave_number = 7
 	wave_castes = list(XENO_CASTE_BURROWER)
 	wave_type = WO_STATIC_WAVE
-	number_of_xenos = 3
+	number_of_xenos = 4
 	command_announcement = list("Говорит старший лейтенант Айк Сэйкер, исполнительный офицер капитана Найша. Капитан все еще пытается установить контакт с миром. Взводу инженеров удалось подорвать главный вход в эту лощину, это даст вам небольшую передышку, пока чужие будут искать другой путь внутрь. Мы получаем сообщения о сейсмических волнах поблизости, возможно, под землей зарылись существа, не спускайте глаз со своих оборонительных сооружений. Я также получил сообщение, что к вам эвакуируются морпехи с захваченного аванпоста и помогут вам. Я раньше служил с ними, они превосходны!", "Старший лейтенант Айк Сэйкер, командование третьего батальона, гарнизон LV-624")
 
 /datum/whiskey_outpost_wave/wave8
@@ -213,11 +215,12 @@
 		XENO_CASTE_DEFENDER,
 		XENO_CASTE_DRONE,
 		XENO_CASTE_WARRIOR,
+		XENO_CASTE_HIVELORD,
 	)
 	sound_effect = list()
 	command_announcement = list("Говорит капитан Найш, на данный момент нам не удалось установить связь с внешним миром. Мы готовим наши минометы M402 для уничтожения приближающихся сил ксеносов на главной дороге. Ожидайте огневой поддержки.", "Капитан Найш, командование третьего батальона, гарнизон LV-624")
 
-/datum/whiskey_outpost_wave/wave9 //Ravager and Praetorian Added, Tier II more common, Tier I less common
+/datum/whiskey_outpost_wave/wave9 // Tier II more common, Tier I less common, Early Ravs and Early Boiler (Ideal only 1 boiler)
 	wave_number = 9
 	wave_castes = list(
 		XENO_CASTE_RUNNER,
@@ -227,15 +230,17 @@
 		XENO_CASTE_LURKER,
 		XENO_CASTE_LURKER,
 		XENO_CASTE_LURKER,
-		XENO_CASTE_SPITTER,
+		XENO_CASTE_SENTINEL,
 		XENO_CASTE_SPITTER,
 		XENO_CASTE_SPITTER,
 		XENO_CASTE_SPITTER,
 		XENO_CASTE_DEFENDER,
 		XENO_CASTE_DEFENDER,
 		XENO_CASTE_DRONE,
-		XENO_CASTE_DRONE,
+		XENO_CASTE_HIVELORD,
 		XENO_CASTE_WARRIOR,
+		XENO_CASTE_RAVAGER,
+		XENO_CASTE_BOILER,
 	)
 	sound_effect = list('sound/voice/alien_queen_command.ogg')
 	command_announcement = list("Потери нашего гарнизона достигают семидесяти процентов, мы теряем контроль над LV-624. Похоже, что авангард вражеских сил по-прежнему наступает, а большинство остальных взводов \"Пыльных рейдеров\" разбиты... Мы рассчитываем на то, что вы продолжите сопротивляться.", "Капитан Найш, командование третьего батальона, гарнизон LV-624")
@@ -250,14 +255,14 @@
 		XENO_CASTE_LURKER,
 		XENO_CASTE_LURKER,
 		XENO_CASTE_LURKER,
-		XENO_CASTE_SPITTER,
+		XENO_CASTE_SENTINEL,
 		XENO_CASTE_SPITTER,
 		XENO_CASTE_SPITTER,
 		XENO_CASTE_SPITTER,
 		XENO_CASTE_DEFENDER,
 		XENO_CASTE_DEFENDER,
 		XENO_CASTE_DRONE,
-		XENO_CASTE_DRONE,
+		XENO_CASTE_HIVELORD,
 		XENO_CASTE_WARRIOR,
 	)
 
@@ -271,14 +276,14 @@
 		XENO_CASTE_LURKER,
 		XENO_CASTE_LURKER,
 		XENO_CASTE_LURKER,
-		XENO_CASTE_SPITTER,
+		XENO_CASTE_SENTINEL,
 		XENO_CASTE_SPITTER,
 		XENO_CASTE_SPITTER,
 		XENO_CASTE_SPITTER,
 		XENO_CASTE_DEFENDER,
 		XENO_CASTE_DEFENDER,
 		XENO_CASTE_DRONE,
-		XENO_CASTE_DRONE,
+		XENO_CASTE_HIVELORD,
 		XENO_CASTE_WARRIOR,
 		XENO_CASTE_WARRIOR,
 	)
@@ -293,14 +298,14 @@
 		XENO_CASTE_LURKER,
 		XENO_CASTE_LURKER,
 		XENO_CASTE_LURKER,
-		XENO_CASTE_SPITTER,
+		XENO_CASTE_SENTINEL,
 		XENO_CASTE_SPITTER,
 		XENO_CASTE_SPITTER,
 		XENO_CASTE_SPITTER,
 		XENO_CASTE_DEFENDER,
 		XENO_CASTE_DEFENDER,
 		XENO_CASTE_DRONE,
-		XENO_CASTE_DRONE,
+		XENO_CASTE_HIVELORD,
 		XENO_CASTE_WARRIOR,
 		XENO_CASTE_WARRIOR,
 		XENO_CASTE_RAVAGER,

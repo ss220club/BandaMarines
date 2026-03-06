@@ -14,13 +14,15 @@
 	max_engineers = 1
 	max_heavies = 1
 	max_smartgunners = 0
+	hostility = null // Random in New if null
 	var/heavy_pick = TRUE // whether heavy should count as either a minigunner or shotgunner
 	var/max_synths = 1
 	var/synths = 0
 
 /datum/emergency_call/upp/New()
 	. = ..()
-	hostility = pick(50;FALSE,50;TRUE)
+	if(isnull(hostility))
+		hostility = pick(50;FALSE,50;TRUE)
 	arrival_message = "[MAIN_SHIP_NAME], э*то ф^от ОП*. уДа*аЯ ГруппА, #*раз*%нИе на ст*ко*%^у. орУ#%е в б@евую гт**%сть... ок@зт$ть по#@щь."
 	if(hostility)
 		objectives = "Уничтожьте силы UA, чтобы обеспечить дальнейшее присутствие UPP в этом секторе. Слушайтесь своих старших офицеров и любой ценой захватите [MAIN_SHIP_NAME]."
@@ -68,8 +70,8 @@
 		to_chat(H, SPAN_ROLE_HEADER("You are an Officer of the Union of Progressive People, a powerful socialist state that rivals the United Americas!"))
 	else if(synths < max_synths && HAS_FLAG(H.client.prefs.toggles_ert, PLAY_SYNTH) && H.client.check_whitelist_status(WHITELIST_SYNTHETIC))
 		synths++
-		to_chat(H, SPAN_ROLE_HEADER("You are a Combat Synthetic of the Union of Progressive People, a powerful socialist state that rivals the United Americas!"))
-		arm_equipment(H, /datum/equipment_preset/upp/synth/dressed, TRUE, TRUE)
+		to_chat(H, SPAN_ROLE_HEADER("You are a Synthetic of the Union of Progressive People, a powerful socialist state that rivals the United Americas!"))
+		arm_equipment(H, /datum/equipment_preset/synth/upp/dressed, TRUE, TRUE)
 	else if(medics < max_medics && HAS_FLAG(H.client.prefs.toggles_ert, PLAY_MEDIC) && check_timelock(H.client, JOB_SQUAD_MEDIC, time_required_for_job))
 		medics++
 		to_chat(H, SPAN_ROLE_HEADER("You are a Medic of the Union of Progressive People, a powerful socialist state that rivals the United Americas!"))

@@ -291,6 +291,7 @@ const marineSplitter = (members: Array<Observable>) => {
   const SOFSquad: Array<Observable> = [];
   const other: Array<Observable> = [];
   const provost: Array<Observable> = [];
+  const ArmySquad: Array<Observable> = [];
 
   // SS220 EDIT - TRANSLATE code/__DEFINES/bandamarines/ru_jobs.dm
   members.forEach((x) => {
@@ -322,6 +323,8 @@ const marineSplitter = (members: Array<Observable>) => {
       SOFSquad.push(x);
     } else if (x.job?.includes(JobsRu('Provost'))) {
       provost.push(x);
+    } else if (x.job?.includes(JobsRu('Army'))) {
+      ArmySquad.push(x);
     } else {
       other.push(x);
     }
@@ -342,6 +345,7 @@ const marineSplitter = (members: Array<Observable>) => {
     buildSquadObservable(JobsRu('SOF'), 'red', SOFSquad),
     buildSquadObservable(JobsRu('Other'), 'grey', other),
     buildSquadObservable(JobsRu('ProvostCategory'), 'red', provost),
+    buildSquadObservable(JobsRu('Army'), 'green', ArmySquad),
   ];
   return squads;
 };
@@ -480,20 +484,20 @@ const weyyuSplitter = (members: Array<Observable>) => {
   const whiteout: Array<Observable> = [];
   const wycommando: Array<Observable> = [];
   const pmc: Array<Observable> = [];
-  const goons: Array<Observable> = [];
+  const security: Array<Observable> = [];
   const other: Array<Observable> = [];
 
   members.forEach((x) => {
     if (x.job?.includes(JobsRu('Whiteout'))) {
       whiteout.push(x);
-    } else if (x.job?.includes(JobsRu('Death Squad'))) {
-      whiteout.push(x);
-    } else if (x.job?.includes('W-Y Commando')) {
+    } else if (x.job?.includes(JobsRu('W-Y Commando'))) {
       wycommando.push(x);
     } else if (x.job?.includes(JobsRu('PMC'))) {
       pmc.push(x);
-    } else if (x.job?.includes(JobsRu('Corporate Security'))) {
-      goons.push(x);
+    } else if (x.job?.includes(JobsRu('Security'))) {
+      security.push(x);
+    } else if (x.job?.includes(JobsRu('Bodyguard'))) {
+      security.push(x);
     } else {
       other.push(x);
     }
@@ -501,9 +505,9 @@ const weyyuSplitter = (members: Array<Observable>) => {
 
   const squads = [
     buildSquadObservable(JobsRu('PMCs'), 'white', pmc),
-    buildSquadObservable(JobsRu('Goons'), 'orange', goons),
+    buildSquadObservable(JobsRu('Security Forces'), 'orange', security),
     buildSquadObservable(JobsRu('Corporate'), 'white', other),
-    buildSquadObservable(JobsRu('W-Y Commando'), 'white', wycommando),
+    buildSquadObservable(JobsRu('W-Y Commandos'), 'white', wycommando),
     buildSquadObservable(JobsRu('Whiteout'), 'red', whiteout),
   ];
   return squads;

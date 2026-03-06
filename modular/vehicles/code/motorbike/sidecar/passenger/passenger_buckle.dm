@@ -44,12 +44,17 @@
 		update_drag_delay()
 		update_mob_gun_signal()
 		update_bike_permutated(TRUE)
-		RegisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN), PROC_REF(unbuckle))
+		RegisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN), PROC_REF(trigger_unbuckle))
 	else
 		if(connected)
 			push_to_left_side(buckled_mob)
 		update_drag_delay()
 		reset_bike_permutated(TRUE)
+
+/obj/structure/bed/chair/sidecar/passenger/proc/trigger_unbuckle()
+	SIGNAL_HANDLER
+
+	unbuckle()
 
 /obj/structure/bed/chair/sidecar/passenger/unbuckle()
 	// Отдельно, иначе возникнет ситуация где сигнал не успевает убраться,

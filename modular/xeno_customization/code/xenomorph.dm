@@ -89,11 +89,14 @@
 	if(!client || !client.prefs || do_not_override_customizations)
 		return
 	client.prefs.read_and_sanitize_xeno_customization()
-	for(var/datum/component/xeno_customization/previous_customizations in GetComponents(/datum/component/xeno_customization))
-		qdel(previous_customizations)
+	remove_all_xeno_customizations()
 	for(var/key in client.prefs.xeno_customizations[caste.caste_type])
 		var/datum/xeno_customization_option/option_to_apply = GLOB.xeno_customizations_by_key[key]
-		apply_xeno_customization(client, option_to_apply)
+		apply_xeno_customization(src, option_to_apply)
+
+/mob/living/carbon/xenomorph/proc/remove_all_xeno_customizations()
+	var/list/previous_customizations = GetComponents(/datum/component/xeno_customization)
+	QDEL_LIST(previous_customizations)
 
 /mob/living/carbon/xenomorph/Login()
 	. = ..()

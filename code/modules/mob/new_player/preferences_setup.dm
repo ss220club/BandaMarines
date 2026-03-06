@@ -296,6 +296,8 @@
 			return /datum/equipment_preset/uscm_ship/dcc/full
 		if(JOB_CORPORATE_LIAISON)
 			return /datum/equipment_preset/uscm_ship/liaison
+		if(JOB_CORPORATE_BODYGUARD)
+			return /datum/equipment_preset/uscm_ship/corp_sec
 		if(JOB_COMBAT_REPORTER)
 			return /datum/equipment_preset/uscm_ship/reporter
 		if(JOB_SYNTH)
@@ -361,7 +363,7 @@
 		if(JOB_UPP_COMMISSAR)
 			return /datum/equipment_preset/upp/commissar/dressed
 		if(JOB_UPP_SUPPORT_SYNTH)
-			return /datum/equipment_preset/upp/synth/dressed
+			return /datum/equipment_preset/synth/upp/dressed
 		if(JOB_UPP_JOE)
 			return /datum/equipment_preset/synth/working_joe/upp
 		if(JOB_UPP_PILOT)
