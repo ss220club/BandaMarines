@@ -175,6 +175,14 @@
 	attack_verb = list("slashed", "torn", "scraped", "gashed", "ripped")
 	pry_capable = IS_PRY_CAPABLE_FORCE
 	attack_speed = 1 SECONDS
+	var/infectious = TRUE
+	var/no_harm_faction = null
+
+/obj/item/weapon/zombie_claws/no_infect
+	infectious = FALSE
+
+/obj/item/weapon/zombie_claws/no_infect/pathogen
+	no_harm_faction = FACTION_PATHOGEN
 
 /obj/item/weapon/zombie_claws/attack(mob/living/target, mob/living/carbon/human/user)
 	if(iszombie(target))

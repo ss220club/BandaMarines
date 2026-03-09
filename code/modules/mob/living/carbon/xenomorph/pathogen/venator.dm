@@ -49,7 +49,6 @@
 		/datum/action/xeno_action/activable/prae_impale/venator, //Macro 2
 		/datum/action/xeno_action/activable/venator_savage, // Macro 3
 		/datum/action/xeno_action/onclick/blight_slash,
-		/datum/action/xeno_action/onclick/tacmap,
 	)
 	claw_type = CLAW_TYPE_VERY_SHARP
 
@@ -77,6 +76,11 @@
 /datum/action/xeno_action/activable/tail_stab/pathogen_t3
 	name = "Spike Lash"
 	stab_range = 3
+
+/datum/action/xeno_action/activable/tail_stab/pathogen_t3/proc/reset_direction(mob/living/carbon/xenomorph/stabbing_xeno, last_dir, new_dir)
+	// If the xenomorph is still holding the same direction as the tail stab animation's changed it to, reset it back to the old direction so the xenomorph isn't stuck facing backwards.
+	if(new_dir == stabbing_xeno.dir)
+		stabbing_xeno.setDir(last_dir)
 
 /datum/action/xeno_action/activable/tail_stab/pathogen_t3/ability_act(mob/living/carbon/xenomorph/stabbing_xeno, mob/living/carbon/target, obj/limb/limb)
 

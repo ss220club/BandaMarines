@@ -47,7 +47,6 @@
 		/datum/action/xeno_action/onclick/crusher_stomp/pathogen_brute, // Macro 1
 		/datum/action/xeno_action/activable/oppressor_punch, // Macro 2
 		/datum/action/xeno_action/onclick/crusher_shield, // Macro 3
-		/datum/action/xeno_action/onclick/tacmap,
 	)
 	claw_type = CLAW_TYPE_VERY_SHARP
 
@@ -130,10 +129,6 @@
 			bound_xeno.attack_log += text("\[[time_stamp()]\] <font color='red'>slashed [key_name(aoe_targets)]</font>")
 		log_attack("[key_name(bound_xeno)] slashed [key_name(aoe_targets)]")
 		aoe_targets.apply_armoured_damage(get_xeno_damage_slash(aoe_targets, damage), ARMOR_MELEE, BRUTE, bound_xeno.zone_selected)
-
-	var/datum/action/xeno_action/activable/pounce/crusher_charge/cAction = get_action(bound_xeno, /datum/action/xeno_action/activable/pounce/crusher_charge)
-	if (!cAction.action_cooldown_check())
-		cAction.reduce_cooldown(cdr_amount)
 
 	var/datum/action/xeno_action/onclick/crusher_shield/sAction = get_action(bound_xeno, /datum/action/xeno_action/onclick/crusher_shield)
 	if (!sAction.action_cooldown_check())

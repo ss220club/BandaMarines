@@ -51,7 +51,6 @@
 		/datum/action/xeno_action/activable/rav_spikes, // Macro 2
 		/datum/action/xeno_action/onclick/spike_shed, // Macro 3
 		/datum/action/xeno_action/onclick/blight_wave, // Macro 4
-		/datum/action/xeno_action/onclick/tacmap,
 	)
 	claw_type = CLAW_TYPE_VERY_SHARP
 
@@ -219,6 +218,11 @@
 	xeno_cooldown = 120 SECONDS
 	plasma_cost = 400
 	ability_primacy = XENO_NOT_PRIMARY_ACTION
+
+/datum/action/xeno_action/onclick/blight_wave/overmind/can_use_action(silent = FALSE, override_flags)
+	if(owner?.status_flags & INCORPOREAL)
+		return FALSE
+	return ..()
 
 /datum/action/xeno_action/onclick/blight_wave/use_ability(atom/target)
 	var/mob/living/carbon/xenomorph/xeno = owner
