@@ -313,9 +313,9 @@
 		if(!istype(Turf, /turf/closed/wall))
 			var/turf/placed
 			if(thick_build)
-				placed = Turf.PlaceOnTop(/turf/closed/wall/resin/weedbound/thick)
+				placed = Turf.place_on_top(/turf/closed/wall/resin/weedbound/thick)
 			else
-				placed = Turf.PlaceOnTop(/turf/closed/wall/resin/weedbound/normal)
+				placed = Turf.place_on_top(/turf/closed/wall/resin/weedbound/normal)
 
 			var/turf/closed/wall/resin/Res = get_turf(Turf)
 			if(istype(Res))
@@ -465,7 +465,7 @@
 		var/total_plasma_cost = get_total_plasma_cost(xeno)
 		. += SPAN_NOTICE("You sense that feeding [SPAN_BOLDNOTICE("[total_plasma_cost]")] plasma with our hand to this node will secrete a [SPAN_BOLDNOTICE("[mark_meaning]")], you also heard that using plasma fruit works too.")
 
-//Should not be upgradable because its not "stable" but special actions should create thick variant
+//Should not be upgradable because it's not "stable" but special actions should create thick variant
 /turf/closed/wall/resin/weedbound //NEVER use this variant, use subtypes
 	name = "weedbound resin wall"
 	desc = "An oddly solidified resin wall with a layered pattern that reminds you of flower buds."
@@ -737,7 +737,7 @@
 			xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] создаёт слабую смоляную стену!"), // SS220 EDIT ADDICTION
 				SPAN_XENONOTICE("Мы создаём слабую смоляную стену!"), null, 5)
 
-			node_loc.PlaceOnTop(/turf/closed/wall/resin/reflective/weak)
+			node_loc.place_on_top(/turf/closed/wall/resin/reflective/weak)
 			var/turf/closed/wall/resin/reflective/weak/good_wall = node_loc
 			if(good_wall)
 				good_wall.hivenumber = xeno.hivenumber
@@ -814,7 +814,7 @@
 
 	var/obj/effect/alien/weeds/target_weeds = locate(/obj/effect/alien/weeds) in target_turf
 	if(!target_weeds)
-		to_chat(xeno, SPAN_WARNING("The are no weeds to create a connection!"))
+		to_chat(xeno, SPAN_WARNING("There are no weeds to create a connection!"))
 		return
 
 	if(target_weeds.hivenumber != xeno.hivenumber)
