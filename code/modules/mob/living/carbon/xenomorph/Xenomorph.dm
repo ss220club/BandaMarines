@@ -633,11 +633,6 @@
 		age_xeno()
 	full_designation = "[name_client_prefix][nicknumber][name_client_postfix]"
 
-	if(!static_name) //I hate this but it will do as a temporary measure
-		if(HAS_TRAIT(src, TRAIT_PATHOGEN_OVERMIND))
-			name = "Overmind ([full_designation])"
-		else
-
 	var/age_display = show_age_prefix ? age_prefix : ""
 	var/name_display = ""
 	// Rare easter egg
