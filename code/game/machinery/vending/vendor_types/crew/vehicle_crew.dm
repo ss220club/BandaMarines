@@ -64,7 +64,7 @@
 
 /obj/structure/machinery/cm_vending/gear/vehicle_crew/proc/populate_products(datum/source, obj/effect/vehicle_spawner/spawner) // BANDAMARINES EDIT obj/vehicle/multitile/V -> obj/effect/vehicle_spawner/spawner
 	SIGNAL_HANDLER
-	UnregisterSignal(SSdcs, COMSIG_GLOB_VEHICLE_ORDERED)
+	//UnregisterSignal(SSdcs, COMSIG_GLOB_VEHICLE_ORDERED) // BANDAMARINES EDIT
 
 	// BANDAMARINES EDIT Start
 	selected_vehicle = spawner.category
