@@ -103,8 +103,8 @@
 	log_hivemind("[key_name(src)] : [message] (AREA: [get_area_name(loc)])")
 
 	var/track = ""
-	var/overwatch_target = XENO_OVERWATCH_TARGET_HREF
-	var/overwatch_src = XENO_OVERWATCH_SRC_HREF
+//	var/overwatch_target = XENO_OVERWATCH_TARGET_HREF
+//	var/overwatch_src = XENO_OVERWATCH_SRC_HREF
 	var/overwatch_insert = ""
 	var/ghostrend
 	var/rendered
