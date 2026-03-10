@@ -1590,7 +1590,7 @@
 		package = 0
 
 /obj/item/reagent_container/food/snacks/monkeycube/On_Consume(mob/M)
-	to_chat(M, SPAN_WARNING("Something inside of you suddently expands!"))
+	to_chat(M, SPAN_WARNING("Something inside of you suddenly expands!"))
 
 	if (istype(M, /mob/living/carbon/human))
 		//Do not try to understand.
@@ -3026,7 +3026,7 @@
 /obj/item/pizzabox/vegetable/Initialize()
 	. = ..()
 	pizza = new /obj/item/reagent_container/food/snacks/sliceable/pizza/vegetablepizza(src)
-	boxtag = "Gourmet Vegatable"
+	boxtag = "Gourmet Vegetable"
 
 /obj/item/pizzabox/mushroom/Initialize()
 	. = ..()
@@ -3065,7 +3065,7 @@
 /obj/item/pizzabox/pizza_galaxy/vegetable/Initialize()
 	. = ..()
 	pizza = new /obj/item/reagent_container/food/snacks/sliceable/pizza/vegetablepizza(src)
-	boxtag = "Gourmet Vegatable"
+	boxtag = "Gourmet Vegetable"
 
 /obj/item/pizzabox/pizza_galaxy/mushroom/Initialize()
 	. = ..()
