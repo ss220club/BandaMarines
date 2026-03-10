@@ -84,6 +84,7 @@
 #define SPAN_DANGER_BOLD(X) "<span class='bolddanger'>[X]</span>" // SS220 EDIT ADDICTION
 #define SPAN_USERDANGER(X) "<span class='userdanger'>[X]</span>"
 #define SPAN_HIGHDANGER(X) "<span class='highdanger'>[X]</span>"
+#define SPAN_EFFINGHIGHDANGER(X) "<span class='effinghighdanger'>[X]</span>"
 
 #define SPAN_CENTERBOLD(X) "<span class='centerbold'>[X]</span>"
 

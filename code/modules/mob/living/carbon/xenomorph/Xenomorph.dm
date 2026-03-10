@@ -152,6 +152,7 @@
 	var/show_age_prefix = TRUE
 	var/show_name_numbers = TRUE
 	var/show_only_numbers = FALSE
+	var/static_name = FALSE
 	var/evolution_stored = 0 //How much evolution they have stored
 	var/evolution_threshold = 200
 	var/tier = 1 //This will track their "tier" to restrict/limit evolutions
@@ -559,8 +560,12 @@
 	if(!flags)
 		flags = get_minimap_flag_for_faction(hivenumber)
 
+	var/icon_file = 'icons/ui_icons/map_blips.dmi'
+	if(hivenumber == XENO_HIVE_PATHOGEN)
+		icon_file = 'icons/mob/pathogen/neo_blips.dmi'
+
 	var/image/background = image('icons/ui_icons/map_blips.dmi', null, caste.minimap_background)
-	var/image/xeno = image('icons/ui_icons/map_blips.dmi', null, caste.minimap_icon)
+	var/image/xeno = image(icon_file, null, caste.minimap_icon)
 	background.overlays += xeno
 	if(IS_XENO_LEADER(src))
 		var/image/overlay = image('icons/ui_icons/map_blips.dmi', null, "xenoleader")
@@ -627,6 +632,11 @@
 		name_client_postfix = client.xeno_postfix ? ("-"+client.xeno_postfix) : ""
 		age_xeno()
 	full_designation = "[name_client_prefix][nicknumber][name_client_postfix]"
+
+	if(!static_name) //I hate this but it will do as a temporary measure
+		if(HAS_TRAIT(src, TRAIT_PATHOGEN_OVERMIND))
+			name = "Overmind ([full_designation])"
+		else
 
 	var/age_display = show_age_prefix ? age_prefix : ""
 	var/name_display = ""
@@ -795,6 +805,8 @@
 
 	if(HAS_TRAIT(src,TRAIT_ABILITY_BURROWED))
 		return
+	if(status_flags & INCORPOREAL)
+		return FALSE //Incorporeal things can't grab or be grabbed.
 	if(!isliving(AM))
 		return FALSE
 	var/mob/living/L = AM

@@ -214,7 +214,7 @@
 		to_chat(queen, SPAN_WARNING("You must select a valid turf to heal around."))
 		return
 
-	if(!SSmapping.same_z_map(queen.loc.z, target_turf.loc.z))
+	if(!cross_map_heal && !SSmapping.same_z_map(queen.loc.z, target_turf.loc.z))
 		to_chat(queen, SPAN_XENOWARNING("Вы слишком далеко, чтобы сделать это здесь."))
 		return
 
@@ -764,7 +764,10 @@
 			return
 
 		to_chat(xeno, SPAN_XENOWARNING("Вы сажаете узел в [turf_to_get]")) // SS220 EDIT ADDICTION
-		new /obj/effect/alien/weeds/node(turf_to_get, null, owner)
+		if(xeno.hivenumber == XENO_HIVE_PATHOGEN)
+			new /obj/effect/alien/weeds/node/pathogen(turf_to_get, null, owner)
+		else
+			new /obj/effect/alien/weeds/node(turf_to_get, null, owner)
 		playsound(turf_to_get, "alien_resin_build", 35)
 		apply_cooldown_override(node_plant_cooldown)
 		return

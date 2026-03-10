@@ -43,6 +43,7 @@ GLOBAL_LIST_INIT_TYPED(huds, /datum/mob_hud, flatten_numeric_alist(alist(
 	MOB_HUD_EXECUTE = new /datum/mob_hud/execute_hud(),
 	MOB_HUD_NEW_PLAYER = new /datum/mob_hud/new_player(),
 	MOB_HUD_SPYCAMS = new /datum/mob_hud/spy_cams(),
+	MOB_HUD_MYCOTOXIN = new /datum/mob_hud/pathogen_myco(),
 	)))
 
 /datum/mob_hud

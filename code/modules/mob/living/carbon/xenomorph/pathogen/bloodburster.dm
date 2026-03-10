@@ -53,7 +53,6 @@
 		/datum/action/xeno_action/activable/tail_stab,
 		/datum/action/xeno_action/onclick/xenohide,
 		/datum/action/xeno_action/activable/pounce/runner, // Macro 1
-		/datum/action/xeno_action/onclick/tacmap,
 	)
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
@@ -174,6 +173,8 @@
 	set waitfor = 0
 	if(victim.chestburst || loc != victim)
 		return
+	if(!client)
+		free_for_ghosts(TRUE)
 	victim.mob_flags |= BLOOD_BURSTING
 	victim.chestburst = TRUE
 	to_chat(src, SPAN_DANGER("We start bursting out of [victim]'s body!"))
