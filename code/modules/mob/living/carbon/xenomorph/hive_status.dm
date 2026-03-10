@@ -1770,7 +1770,6 @@
 	color = "#bdc9c4"
 	ui_color = "#bdc9c4"
 
-	hive_inherant_traits = list(TRAIT_NO_COLOR)
 	latejoin_burrowed = FALSE
 	allow_no_queen_actions = TRUE
 	allow_queen_evolve = FALSE

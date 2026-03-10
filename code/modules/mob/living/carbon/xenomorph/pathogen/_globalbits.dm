@@ -136,8 +136,6 @@
 	minimum_evolve_time = 0
 	pathogen_creature = TRUE
 	language = LANGUAGE_PATHOGEN
-	fire_immunity = FIRE_MODIFIER
-	fire_modifier_mult = FIRE_MULTIPLIER_MEDIUM
 
 //####################################################################
 //####################################################################
