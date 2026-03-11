@@ -7,7 +7,7 @@
 	disp_icon = "humvee"
 	disp_icon_state = "snowplow"
 
-	health = 200
+	health = 250
 	activatable = 1
 
 /obj/item/hardpoint/armor/humvee_snowplow/livingmob_interact(mob/living/M)
@@ -15,7 +15,7 @@
 	targ = get_step(M, owner.dir)
 	targ = get_step(M, owner.dir)
 	M.throw_atom(targ, 4, SPEED_FAST, src, 1)
-	M.apply_damage(7 + rand(0, 3), BRUTE)
+	M.apply_damage(50 + rand(25, 25), BRUTE)
 
 /obj/item/hardpoint/armor/humvee_snowplow/on_move(turf/old, turf/new_turf, move_dir)
 	if(health <= 0)
