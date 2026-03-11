@@ -33,6 +33,7 @@
 		E.name = name
 	if(desc != initial(desc))
 		E.desc = desc
+	E.layer = layer //BANDAMARINES EDIT
 	E.interior = I
 	E.entrance_id = tag
 	E.setDir(dir)

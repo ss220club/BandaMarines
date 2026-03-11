@@ -3,7 +3,7 @@
 //uscm_van
 /obj/effect/vehicle_spawner/uscm_van
 	name = "M577-T Mule"
-	icon = 'modular/vehicles/icons/uscm_van.dmi'
+	icon = 'modular/vehicles/icons/uscm_van/uscm_van.dmi'
 	icon_state = "van_base"
 
 /obj/effect/vehicle_spawner/uscm_van/Initialize()
@@ -48,7 +48,7 @@
 //uscm_van/med
 /obj/effect/vehicle_spawner/uscm_van/med
 	name = "M577-M Husky Spawner"
-	icon = 'modular/vehicles/icons/uscm_van_med.dmi'
+	icon = 'modular/vehicles/icons/uscm_van/uscm_van_med.dmi'
 	icon_state = "van_base"
 
 //PRESET: no hardpoints

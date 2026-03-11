@@ -64,7 +64,7 @@
 
 /obj/structure/machinery/cm_vending/gear/vehicle_crew/proc/populate_products(datum/source, obj/effect/vehicle_spawner/spawner) // BANDAMARINES EDIT obj/vehicle/multitile/V -> obj/effect/vehicle_spawner/spawner
 	SIGNAL_HANDLER
-	UnregisterSignal(SSdcs, COMSIG_GLOB_VEHICLE_ORDERED)
+	//UnregisterSignal(SSdcs, COMSIG_GLOB_VEHICLE_ORDERED)
 
 	// BANDAMARINES EDIT Start
 	selected_vehicle = spawner.category
@@ -76,6 +76,8 @@
 	selected_vehicle = spawner.category
 	if(selected_vehicle == "VAN")
 		marine_announcement("В поддержку наземных сил операции вам будет предоставлен Грузовик.")
+	if(selected_vehicle == "HWC")
+		marine_announcement("В поддержку наземных сил операции вам будет предоставлен Бронеавтомобиль.")
 	// BANDAMARINES EDIT End
 
 	if(!selected_vehicle)
@@ -90,6 +92,7 @@
 	if(!user)
 		display_list += GLOB.cm_vending_vehicle_crew_tank
 		display_list += GLOB.cm_vending_vehicle_crew_apc
+		display_list += GLOB.cm_vending_vehicle_crew_humvee // BANDAMARINES EDIT
 		return display_list
 
 	switch(selected_vehicle)
@@ -101,6 +104,10 @@
 		if("APC")
 			if(available_categories)
 				last_display_list = GLOB.cm_vending_vehicle_crew_apc
+
+		if("HWC")
+			if(available_categories)
+				last_display_list = GLOB.cm_vending_vehicle_crew_humvee
 
 	if(last_display_list)
 		return last_display_list
@@ -231,6 +238,27 @@ GLOBAL_LIST_INIT(cm_vending_vehicle_crew_arc, list(
 
 	list("WHEELS", 0, null, null, null),
 	list("Replacement ARC Wheels", 0, /obj/item/hardpoint/locomotion/arc_wheels, VEHICLE_TREADS_AVAILABLE, VENDOR_ITEM_MANDATORY)))
+
+// BANDAMARINES EDIT START
+GLOBAL_LIST_INIT(cm_vending_vehicle_crew_humvee, list(
+	list("STARTING KIT SELECTION:", 0, null, null, null),
+
+	list("PRIMARY WEAPON", 0, null, null, null),
+	list("M24-RC1 Remote Cannon", 0, /obj/effect/essentials_set/humvee/autocannon, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_MANDATORY),
+
+	list("SECONDARY WEAPON", 0, null, null, null),
+	list("M-77F Flare Launcher", 0, /obj/effect/essentials_set/humvee/humvee_flare_launcher, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_MANDATORY),
+//	list("M24-RC1 Thermobaric Launcher", 0, /obj/effect/essentials_set/humvee/humvee_launcher, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_MANDATORY),
+
+	list("SUPPORT MODULE", 0, null, null, null),
+	list("M24-JTMV Overhead Lights", 0, /obj/item/hardpoint/support/humvee_overhead_lights, VEHICLE_SUPPORT_AVAILABLE, VENDOR_ITEM_MANDATORY),
+
+	list("ARMOR", 0, null, null, null),
+	list("M24-JTMV Snowplow", 0, /obj/item/hardpoint/armor/humvee_snowplow, VEHICLE_ARMOR_AVAILABLE, VENDOR_ITEM_MANDATORY),
+
+	list("REPLACEMENT WHEELS", 0, null, null, null),
+	list("Replacement M24-JTMV Wheels", 0, /obj/item/hardpoint/locomotion/humvee_wheels, VEHICLE_TREADS_AVAILABLE, VENDOR_ITEM_MANDATORY)))
+// BANDAMARINES EDIT END
 
 //------------WEAPONS RACK---------------
 

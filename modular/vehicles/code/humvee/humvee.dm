@@ -1,61 +1,72 @@
-/obj/vehicle/multitile/uscm_van
-	name = "M577-T Mule"
-	desc = "Старый, надёжный транспорт USCM, любимец механиков и проклятье водителей. Приспособлен для любых атмосферных условий, устойчив к перегреву, радиации и глупости экипажа."
-	layer = ABOVE_XENO_LAYER
+/obj/vehicle/multitile/humvee
+	name = "\improper M2420 JTMV-HWC Heavy Weapon Carrier"
+	desc = "Многоцелевой бронетранспортер M2422 JTMV. Легкобронированная машина. Входы сзади и по бокам."
 
-	icon = 'modular/vehicles/icons/uscm_van/uscm_van.dmi'
-	icon_state = "van_base"
-	pixel_y = 8
+	icon = 'modular/vehicles/icons/humvee/humvee.dmi'
+	icon_state = "humvee_base"
+	pixel_x = -48
+	pixel_y = -48
 
 	bound_width = 64
 	bound_height = 64
 
-	bound_x = 0
-	bound_y = 0
+	bound_x = -32
+	bound_y = -32
 
-	interior_map = /datum/map_template/interior/modul/uscm_van
-	minimap_icon_state = "van"
+	health = 500
 
-	entrances = list(
-		"left" = list(2, 0),
-		"right" = list(-1, 0),
-		"back_left" = list(1, 2),
-		"back_right" = list(0, 2)
-	)
+	interior_map = /datum/map_template/interior/modul/humvee
+	minimap_icon_state = "humvee"
 
-	vehicle_flags = VEHICLE_CLASS_WEAK
-
-	passengers_slots = 7
+	passengers_slots =  4
 	xenos_slots = 3
 
 	misc_multipliers = list(
-		"move" = 0.5,
+		"move" = 0.8, 
 		"accuracy" = 1,
 		"cooldown" = 1
 	)
 
-	movement_sound = 'sound/vehicles/box_van_driving.ogg'
-	honk_sound = 'sound/vehicles/box_van_horn.ogg'
-
-	vehicle_light_range = 8
-
-	move_max_momentum = 3
-
-	hardpoints_allowed = list(
-		/obj/item/hardpoint/locomotion/van_wheels,
+	entrances = list(
+		"right" = list(-2, -1),
+		"left" = list(1, -1),
+		"back left" = list(1, 0),
+		"back right" = list(-2, 0),
 	)
 
-	move_turn_momentum_loss_factor = 1
+	entrance_speed = 0.5 SECONDS
 
-	req_access = list()
-	req_one_access = list()
+	required_skill = SKILL_VEHICLE_SMALL
 
-	door_locked = FALSE
+	movement_sound = 'modular/sounds/sound/vehicles/humvee/humvee_driving.ogg'
+	honk_sound = 'modular/sounds/sound/vehicles/humvee/humvee_horn.ogg'
+
+	luminosity = 7
+
+	hardpoints_allowed = list(
+		/obj/item/hardpoint/locomotion/humvee_wheels,
+	)
+
+	seats = list(
+		VEHICLE_DRIVER = null,
+	)
+
+	active_hp = list(
+		VEHICLE_DRIVER = null,
+	)
+
+	vehicle_flags = VEHICLE_CLASS_WEAK
 
 	mob_size_required_to_hit = MOB_SIZE_XENO
 
+
+	//Включает возможность пролезать под Humvee
+	var/allow_squeeze_under = TRUE
+	//Включает возможность ускорения Humvee
+	var/has_overdrive = TRUE
+
 	var/overdrive_next = 0
-	var/overdrive_cooldown = 15 SECONDS
+	var/overdrive_cooldown = 30 SECONDS
 	var/overdrive_duration = 3 SECONDS
 	var/overdrive_speed_mult = 0.3 // Additive (30% more speed, adds to 80% more speed)
 
@@ -70,7 +81,53 @@
 	var/next_push = 0
 	var/push_delay = 0.5 SECONDS
 
-/obj/vehicle/multitile/uscm_van/Initialize()
+
+	dmg_multipliers = list(
+		"all" = 1,
+		"acid" = 1.8,
+		"slash" = 1.1,
+		"bullet" = 0.6,
+		"explosive" = 0.8,
+		"blunt" = 0.8,
+		"abstract" = 1,
+	)
+
+	move_max_momentum = 2
+	move_momentum_build_factor = 1.5
+	move_turn_momentum_loss_factor = 0.8
+
+	vehicle_ram_multiplier = VEHICLE_TRAMPLE_DAMAGE_APC_REDUCTION
+
+/obj/vehicle/multitile/humvee/relaymove(mob/user, direction)
+	if(user == seats[VEHICLE_DRIVER])
+		// Check if wheels are installed
+		if(!(locate(/obj/item/hardpoint/locomotion/humvee_wheels) in hardpoints))
+			return FALSE
+
+		return ..()
+
+	if(user != seats[VEHICLE_GUNNER])
+		return FALSE
+
+	var/obj/item/hardpoint/holder/humvee_turret/T = null
+	for(var/obj/item/hardpoint/holder/humvee_turret/TT in hardpoints)
+		T = TT
+		break
+	if(!T)
+		return FALSE
+
+	if(direction == GLOB.reverse_dir[T.dir] || direction == T.dir)
+		return FALSE
+
+	T.user_rotation(user, turning_angle(T.dir, direction))
+	update_icon()
+
+	return TRUE
+
+
+// Делаем лучше
+
+/obj/vehicle/multitile/humvee/Initialize()
 	. = ..()
 	under_image = image(icon, src, icon_state, layer = BELOW_MOB_LAYER)
 	under_image.alpha = 127
@@ -84,24 +141,14 @@
 	for(var/icon in GLOB.player_list)
 		add_default_image(SSdcs, icon)
 
-/obj/vehicle/multitile/uscm_van/crew_mousedown(datum/source, atom/object, turf/location, control, params)
-	var/list/modifiers = params2list(params)
-	if(modifiers[SHIFT_CLICK] || modifiers[MIDDLE_CLICK] || modifiers[RIGHT_CLICK] || modifiers[BUTTON4] || modifiers[BUTTON5]) //don't step on examine, point, etc
-		return
-
-	switch(get_mob_seat(source))
-		if(VEHICLE_DRIVER)
-			if(modifiers[LEFT_CLICK] && modifiers[CTRL_CLICK])
-				activate_horn()
-
-/obj/vehicle/multitile/uscm_van/BlockedPassDirs(atom/movable/mover, target_dir)
+/obj/vehicle/multitile/humvee/BlockedPassDirs(atom/movable/mover, target_dir)
 	if(mover in mobs_under) //can't collide with the thing you're buckled to
 		return NO_BLOCKED_MOVEMENT
 
 	if(isliving(mover))
 		var/mob/living/mob = mover
-		if(mob.mob_flags & SQUEEZE_UNDER_VEHICLES)
-			add_under_van(mob)
+		if(allow_squeeze_under && (mob.mob_flags & SQUEEZE_UNDER_VEHICLES)) // SQUEEZE_UNDER_VEHICLES это слишком много ксеносов, надо уменьшить пулл
+			add_under_humvee(mob)
 			return NO_BLOCKED_MOVEMENT
 
 		if(mob.body_position == LYING_DOWN)
@@ -114,10 +161,8 @@
 
 	return ..()
 
-/*
-** PRESETS
-*/
-/obj/vehicle/multitile/uscm_van/pre_movement()
+
+/obj/vehicle/multitile/humvee/pre_movement()
 	if(locate(/obj/effect/alien/weeds) in loc)
 		move_momentum *= momentum_loss_on_weeds_factor
 
@@ -126,21 +171,21 @@
 	for(var/icon in mobs_under)
 		var/mob/mob = icon
 		if(!(mob.loc in locs))
-			remove_under_van(mob)
+			remove_under_humvee(mob)
 
-/obj/vehicle/multitile/uscm_van/proc/add_under_van(mob/living/living)
+/obj/vehicle/multitile/humvee/proc/add_under_humvee(mob/living/living)
 	if(living in mobs_under)
 		return
 
 	mobs_under += living
-	RegisterSignal(living, COMSIG_PARENT_QDELETING, PROC_REF(remove_under_van))
+	RegisterSignal(living, COMSIG_PARENT_QDELETING, PROC_REF(remove_under_humvee))
 	RegisterSignal(living, COMSIG_MOB_LOGGED_IN, PROC_REF(add_client))
-	RegisterSignal(living, COMSIG_MOVABLE_MOVED, PROC_REF(check_under_van))
+	RegisterSignal(living, COMSIG_MOVABLE_MOVED, PROC_REF(check_under_humvee))
 
 	if(living.client)
 		add_client(living)
 
-/obj/vehicle/multitile/uscm_van/proc/remove_under_van(mob/living/living)
+/obj/vehicle/multitile/humvee/proc/remove_under_humvee(mob/living/living)
 	SIGNAL_HANDLER
 	mobs_under -= living
 
@@ -154,23 +199,23 @@
 		COMSIG_MOVABLE_MOVED,
 	))
 
-/obj/vehicle/multitile/uscm_van/proc/check_under_van(mob/mob, turf/oldloc, direction)
+/obj/vehicle/multitile/humvee/proc/check_under_humvee(mob/mob, turf/oldloc, direction)
 	SIGNAL_HANDLER
 	if(!(mob.loc in locs))
-		remove_under_van(mob)
+		remove_under_humvee(mob)
 
-/obj/vehicle/multitile/uscm_van/proc/add_client(mob/living/living)
+/obj/vehicle/multitile/humvee/proc/add_client(mob/living/living)
 	SIGNAL_HANDLER
 	living.client.images += under_image
 	living.client.images -= normal_image
 
-/obj/vehicle/multitile/uscm_van/proc/add_default_image(subsystem, mob/mob)
+/obj/vehicle/multitile/humvee/proc/add_default_image(subsystem, mob/mob)
 	SIGNAL_HANDLER
 	mob.client.images += normal_image
 
-/obj/vehicle/multitile/uscm_van/Destroy()
+/obj/vehicle/multitile/humvee/Destroy()
 	for(var/icon in mobs_under)
-		remove_under_van(icon)
+		remove_under_humvee(icon)
 
 	for(var/mob/mob in GLOB.player_list)
 		if(mob?.client)
@@ -180,7 +225,7 @@
 
 	return ..()
 
-/obj/vehicle/multitile/uscm_van/attackby(obj/item/O, mob/user)
+/obj/vehicle/multitile/humvee/attackby(obj/item/O, mob/user)
 	if(user.z != z)
 		return ..()
 
@@ -202,8 +247,10 @@
 	. = ..()
 
 
-/obj/vehicle/multitile/uscm_van/handle_click(mob/living/user, atom/A, list/mods)
+/obj/vehicle/multitile/humvee/handle_click(mob/living/user, atom/A, list/mods)
 	if(mods[SHIFT_CLICK] && !mods[ALT_CLICK])
+		if(!has_overdrive)
+			return
 		if(overdrive_next > world.time)
 			to_chat(user, SPAN_WARNING("Пока нельзя активировать ускорение! Подождите [round((overdrive_next - world.time) / 10, 0.1)] секунд."))
 			return
@@ -218,17 +265,17 @@
 
 	return ..()
 
-/obj/vehicle/multitile/uscm_van/proc/reset_overdrive()
+/obj/vehicle/multitile/humvee/proc/reset_overdrive()
 	misc_multipliers["move"] += overdrive_speed_mult
 
-/obj/vehicle/multitile/uscm_van/get_projectile_hit_boolean(obj/projectile/P)
-	if(src == P.original) //clicking on the van itself will hit it.
+/obj/vehicle/multitile/humvee/get_projectile_hit_boolean(obj/projectile/P)
+	if(src == P.original) //clicking on the humvee itself will hit it.
 		var/hitchance = P.get_effective_accuracy()
 		if(prob(hitchance))
 			return TRUE
 	return FALSE
 
-/obj/vehicle/multitile/uscm_van/Collide(atom/A)
+/obj/vehicle/multitile/humvee/Collide(atom/A)
 	if(!seats[VEHICLE_DRIVER])
 		return FALSE
 
