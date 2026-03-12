@@ -143,20 +143,7 @@
 	return FALSE
 
 /datum/job/proc/can_play_role(client/client)
-	if(!CONFIG_GET(flag/use_timelocks))
-		return TRUE
-
-	if(client.can_skip_role_lock())
-		return TRUE
-
-	if(get_job_playtime(client, title) > minimum_playtime_as_job)
-		return TRUE
-
-	for(var/prereq in minimum_playtimes)
-		var/datum/timelock/T = prereq
-		if(!T.can_play(client))
-			return FALSE
-
+	// Timelocks are intentionally disabled so all jobs are available immediately.
 	return TRUE
 
 /// Whether the client passes requirements for the scenario
@@ -164,14 +151,7 @@
 	return TRUE
 
 /datum/job/proc/get_role_requirements(client/C)
-	var/list/return_requirements = list()
-	for(var/prereq in minimum_playtimes)
-		var/datum/timelock/T = prereq
-		var/time_required = T.get_role_requirement(C)
-		if(time_required > 0)
-			return_requirements[T] = time_required
-
-	return return_requirements
+	return list()
 
 /datum/job/proc/get_access()
 	if(!gear_preset)
