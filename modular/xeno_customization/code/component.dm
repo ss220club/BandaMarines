@@ -162,7 +162,9 @@
 	remove_from_player_view(user)
 	switch(user.client.prefs.xeno_customization_visibility)
 		if(XENO_CUSTOMIZATION_SHOW_ALL)
+			// Only Xenos and Observers can see Non-Lore-Friendly customizations
 			if(!(isxeno(user) || isobserver(user) || isnewplayer(user)))
+				user.client.images |= render_source_atom.lore_image
 				return
 			user.client.images |= render_source_atom.non_lore_image
 

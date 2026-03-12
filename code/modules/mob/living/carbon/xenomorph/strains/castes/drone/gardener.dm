@@ -77,7 +77,7 @@
 
 	var/obj/effect/alien/weeds/target_weeds = locate(/obj/effect/alien/weeds) in target_turf
 	if(!target_weeds)
-		to_chat(xeno, SPAN_WARNING("The are no weeds to plant a fruit within!"))
+		to_chat(xeno, SPAN_WARNING("There are no weeds to plant a fruit within!"))
 		return
 
 	if(target_weeds.hivenumber != xeno.hivenumber)
@@ -294,7 +294,7 @@
 	else if(target_weeds && istype(target_turf, /turf/open) && target_weeds.hivenumber == xeno.hivenumber)
 		xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] создаёт слабую смоляную стену!"), // SS220 EDIT ADDICTION
 		SPAN_XENONOTICE("Мы создаём слабую смоляную стену!"), null, 5)
-		target_turf.PlaceOnTop(/turf/closed/wall/resin/weak)
+		target_turf.place_on_top(/turf/closed/wall/resin/weak)
 		var/turf/closed/wall/resin/weak_wall = target_turf
 		weak_wall.hivenumber = xeno.hivenumber
 		set_hive_data(weak_wall, xeno.hivenumber)

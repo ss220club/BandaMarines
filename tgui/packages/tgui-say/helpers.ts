@@ -74,12 +74,9 @@ export function getPrefix(value: string): keyof typeof RADIO_PREFIXES | null {
   }
 
   const adjusted = normalizeRadioPrefixes(
-    value
-      .slice(0, 3)
-      ?.toLowerCase()
-      ?.replace('.', ':')
-      ?.replace('#', ':')
-      ?.replace('№', ':'),
+    value.slice(0, 3)?.toLowerCase()?.replace('.', ':'),
+    //      ?.replace('#', ':')
+    //      ?.replace('№', ':'),
   ) as keyof typeof RADIO_PREFIXES;
 
   if (!RADIO_PREFIXES[adjusted]) {
