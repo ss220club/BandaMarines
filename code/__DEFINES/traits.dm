@@ -167,6 +167,8 @@
 #define TRAIT_HAULED "hauled"
 // only used by valkyrie
 #define TRAIT_VALKYRIE_ARMORED "trait_valkyrie_armored"
+/// When a pathogen creature is acting as overmind.
+#define TRAIT_PATHOGEN_OVERMIND "trait_pathogen_overmind"
 /// Prevents mob from riding mobs when buckled onto something
 #define TRAIT_CANT_RIDE "cant_ride"
 
@@ -397,6 +399,7 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 		"TRAIT_CARDPLAYING_THUMBS" = TRAIT_CARDPLAYING_THUMBS,
 		"TRAIT_INTERFERENCE" = TRAIT_HIVEMIND_INTERFERENCE,
 		"TRAIT_VALKYRIE_ARMOR" = TRAIT_VALKYRIE_ARMORED,
+		"TRAIT_PATHOGEN_OVERMIND" = TRAIT_PATHOGEN_OVERMIND,
 	),
 	/datum/hive_status = list(
 		"TRAIT_XENONID" = TRAIT_XENONID,
@@ -541,3 +544,5 @@ GLOBAL_LIST(trait_name_map)
 #define TURF_Z_TRANSPARENT_TRAIT "turf_z_transparent"
 /// traits from wall hiding
 #define WALL_HIDING_TRAIT "wallhiding"
+/// trait effect related to the pathogen overmind
+#define OVERMIND_TRAIT "overmind"
