@@ -1,11 +1,13 @@
 // Минимальное количество игроков для открытия категорий
 #define MIN_PLAYERS_HEAVY_SUPPORT 65
-#define MIN_PLAYERS_LIGHT_SUPPORT 65
+#define MIN_PLAYERS_MEDIUM_SUPPORT 65
+#define MIN_PLAYERS_LIGHT_SUPPORT 40
 #define MIN_PLAYERS_LIGHT_RECON 1
 #define MIN_PLAYERS_LIGHT_VEHICLE 40
 
 // Лимиты на количество техники по категориям
 #define LIMIT_HEAVY_SUPPORT_VEHICLES 1
+#define LIMIT_MEDIUM_SUPPORT_VEHICLES 1
 #define LIMIT_LIGHT_SUPPORT_VEHICLES 1
 #define LIMIT_LIGHT_RECON_VEHICLES   1
 #define LIMIT_LIGHT_CARRIERS         1
@@ -15,10 +17,12 @@
 	if(istype(order, /datum/vehicle_order/tank))
 		return "heavy support vehicles"
 	if(istype(order, /datum/vehicle_order/apc) || istype(order, /datum/vehicle_order/apc/med) || istype(order, /datum/vehicle_order/apc/cmd))
+		return "medium support vehicles"
+	if(istype(order, /datum/vehicle_order/humvee/apc))
 		return "light support vehicles"
 	if(istype(order, /datum/vehicle_order/arc))
 		return "light recon vehicle"
-	if(istype(order, /datum/vehicle_order/van))
+	if(istype(order, /datum/vehicle_order/van) || istype(order, /datum/vehicle_order/humvee/medical) || istype(order, /datum/vehicle_order/humvee/transport))
 		return "light carrier"
 	return "other"
 
@@ -29,6 +33,8 @@
 	var/player_count = FALSE
 	switch(category)
 		if("heavy support vehicles")
+			player_count = (clients >= MIN_PLAYERS_HEAVY_SUPPORT)
+		if("medium support vehicles")
 			player_count = (clients >= MIN_PLAYERS_HEAVY_SUPPORT)
 		if("light support vehicles")
 			player_count = (clients >= MIN_PLAYERS_LIGHT_SUPPORT)
@@ -44,11 +50,15 @@
 
 	if(console)
 		if(category == "heavy support vehicles")
-			if(console.category_given["light support vehicles"] > 0)
+			if(console.category_given["light support vehicles"] > 0 || console.category_given["medium support vehicles"] > 0)
+				return FALSE
+
+		if(category == "medium support vehicles")
+			if(console.category_given["light support vehicles"] > 0 || console.category_given["heavy support vehicles"] > 0)
 				return FALSE
 
 		if(category == "light support vehicles")
-			if(console.category_given["heavy support vehicles"] > 0)
+			if(console.category_given["heavy support vehicles"] > 0 || console.category_given["medium support vehicles"] > 0)
 				return FALSE
 
 	return TRUE
@@ -63,15 +73,23 @@
 
 	category_limits = list(
 		"heavy support vehicles" = LIMIT_HEAVY_SUPPORT_VEHICLES,
+		"medium support vehicles" = LIMIT_MEDIUM_SUPPORT_VEHICLES,
 		"light support vehicles" = LIMIT_LIGHT_SUPPORT_VEHICLES,
 		"light recon vehicle" = LIMIT_LIGHT_RECON_VEHICLES,
 		"light carrier" = LIMIT_LIGHT_CARRIERS
 	)
 	category_given = list(
 		"heavy support vehicles" = 0,
+		"medium support vehicles" = 0,
 		"light support vehicles" = 0,
 		"light recon vehicle" = 0,
 		"light carrier" = 0
+	)
+
+	category_required_roles = list(
+		"heavy support vehicles" = list(JOB_TANK_CREW),
+		"medium support vehicles" = list(JOB_TANK_CREW),
+		"light support vehicles" = list(JOB_TANK_CREW)
 	)
 
 	spent = FALSE
@@ -101,6 +119,19 @@
 			stop_gears()
 			open_railings()
 			playsound(return_center_turf(), 'sound/machines/buzz-two.ogg', 50, 0)
+			return FALSE
+
+	return TRUE
+
+// Прок проверки танкистов
+/proc/category_has_access(mob/user, category, obj/structure/machinery/computer/supply/asrs/vehicle/console)
+	if(!console)
+		return TRUE
+
+	var/list/req_roles = console.category_required_roles[category]
+
+	if(req_roles)
+		if(!(user.job in req_roles))
 			return FALSE
 
 	return TRUE

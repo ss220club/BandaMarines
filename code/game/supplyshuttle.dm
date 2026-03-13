@@ -1398,6 +1398,7 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 	var/list/allowed_roles = list(JOB_TANK_CREW)
 
 	var/list/vehicles
+	var/list/category_required_roles // BANDAMARINES EDIT
 
 /datum/vehicle_order
 	var/name = "vehicle order"
@@ -1589,11 +1590,16 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 		dat += "[capitalize(category)]: [used]/[limit] used ([limit - used] remaining)<br>"
 
 	dat += "<hr><h4>Available Vehicles</h4>"
+	var/last_category = null
 	for(var/d in vehicles)
 		var/datum/vehicle_order/order = d
 		var/category = get_vehicle_category(order)
 		var/used = category_given[category]
 		var/limit = category_limits[category]
+
+		if(category != last_category)
+			dat += "<h4>[capitalize(category)]</h4>"
+			last_category = category
 
 		if(order.has_vehicle_lock())
 			dat += order.failure_message
@@ -1606,8 +1612,8 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 			continue
 
 		dat += "<a href='byond://?src=\ref[src];get_vehicle=\ref[order]'>[order.name]</a> ([category])<br>"
-
-	show_browser(H, dat, asrs_name, "computer", width = 575, height = 450)
+		
+	show_browser(H, dat, asrs_name, "computer", width = 600, height = 600)
 
 /obj/structure/machinery/computer/supply/asrs/vehicle/Topic(href, href_list)
 	. = ..()
@@ -1623,6 +1629,10 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 		var/category = get_vehicle_category(order)
 		if(!category_unlocked(category, src))
 			to_chat(usr, SPAN_WARNING("[category] category not available yet!"))
+			return
+		
+		if(!category_has_access(usr, category, src))
+			to_chat(usr, SPAN_WARNING("You don't have access to this vehicle category!"))
 			return
 
 		var/used = category_given[category]
