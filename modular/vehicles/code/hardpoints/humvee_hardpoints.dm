@@ -344,6 +344,10 @@
 	health = 200
 	firing_arc = 60
 
+	use_muzzle_flash = TRUE
+	angle_muzzleflash = FALSE
+	muzzleflash_icon_state = "muzzle_laser"
+
 	ammo = new /obj/item/ammo_magazine/hardpoint/humvee_launcher
 	max_clips = 1
 

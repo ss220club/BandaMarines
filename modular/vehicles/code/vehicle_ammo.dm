@@ -87,7 +87,7 @@
 /obj/item/ammo_magazine/hardpoint/humvee_launcher
 	name = "Магазин для реактивного огнемёта M24-JTMV"
 	icon = 'icons/obj/items/weapons/guns/ammo_by_faction/event.dmi'
-	desc = "Вторичное вооружение M24-JTMV. Представляет собой пакет из четырех термобарических гранат, начинённых огнесмесью."
+	desc = "Магазин для вторичного вооружения M24-JTMV. Представляет собой пакет из четырех термобарических гранат, начинённых огнесмесью."
 	caliber = "rocket" //correlates to any rocket mags
 	icon_state = "quad_rocket"
 	w_class = SIZE_LARGE
