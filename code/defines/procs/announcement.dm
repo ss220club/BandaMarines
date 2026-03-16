@@ -195,10 +195,7 @@
 		announcer.tts_seed = tts_component.tts_seed
 	if(isnull(tts_message))
 		tts_message = message
-
 	//BANDAMARINES ADDITION end
-	if(SSradio.force_announcement_garble)
-		targets_to_garble = targets.Copy()
 	var/garbled_message
 	var/garbled_tts //BANDAMARINES ADDITION
 	var/garbled_count = length(targets_to_garble)
