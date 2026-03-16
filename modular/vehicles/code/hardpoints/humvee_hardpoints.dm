@@ -78,6 +78,7 @@
 
 	accepted_hardpoints = list(
 		/obj/item/hardpoint/primary/humvee_cannon,
+		/obj/item/hardpoint/primary/humvee_grenade_launcher,
 		/obj/item/hardpoint/secondary/humvee_flare_launcher,
 		/obj/item/hardpoint/secondary/humvee_launcher,
 	)
@@ -360,6 +361,57 @@
 
 	scatter = 4
 	fire_delay = 40.0 SECONDS
+
+// Grenade launcher
+/obj/item/hardpoint/primary/humvee_grenade_launcher
+	name = "\improper Автогранатомет M24-Mk48"
+	desc = "Дистанционно управляемый автогранатомет с магазинным питанием для бронемашины M2420 JTMV-HWC, стреляющий гранатами M40."
+	icon = 'modular/vehicles/icons/humvee/humvee_hardpoints.dmi'
+
+	icon_state = "humveecannon"
+	disp_icon = "humvee"
+	disp_icon_state = "humveecannon"
+	activation_sounds = list('sound/weapons/gun_m92_attachable.ogg')
+
+	health = 250
+	firing_arc = 90
+
+	ammo = new /obj/item/ammo_magazine/hardpoint/humvee_grenade_launcher
+	max_clips = 3
+
+	use_muzzle_flash = TRUE
+	angle_muzzleflash = FALSE
+	muzzleflash_icon_state = "muzzle_laser"
+
+	muzzle_flash_pos = list(
+		"1" = list(-17, -6),
+		"2" = list(-16, -58),
+		"4" = list(12, -31),
+		"8" = list(-44, -32)
+	)
+
+	scatter = 10
+//	fire_delay = 5.0 SECONDS
+	gun_firemode = GUN_FIREMODE_BURSTFIRE
+	gun_firemode_list = list(
+		GUN_FIREMODE_BURSTFIRE,
+	)
+	burst_amount = 3
+	burst_delay = 0.35 SECONDS
+	extra_delay = 5.0 SECONDS
+
+/obj/item/hardpoint/primary/humvee_grenade_launcher/set_bullet_traits()
+	..()
+	LAZYADD(traits_to_give, list(
+		BULLET_TRAIT_ENTRY(/datum/element/bullet_trait_iff)
+	))
+
+/obj/item/hardpoint/primary/humvee_grenade_launcher/try_fire(atom/target, mob/living/user, params)
+	if(get_turf(target) in owner.locs)
+		to_chat(user, SPAN_WARNING("Цель слишком близко."))
+		return NONE
+
+	return ..()
 
 // lights
 /obj/item/hardpoint/support/humvee_overhead_lights

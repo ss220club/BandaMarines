@@ -66,6 +66,49 @@
 	cell_explosion(get_turf(projectile), 60, 20, EXPLOSION_FALLOFF_SHAPE_LINEAR, null, projectile.weapon_cause_data)
 	drop_flame(get_turf(projectile), projectile.weapon_cause_data)
 
+// ammo grenade
+/datum/ammo/humvee_grenade_launcher
+	name = "grenade shell"
+	ping = null
+	damage_type = BRUTE
+	icon_state = "hornet_round"
+	var/shrapnel_count = 20
+	var/dispersion_angle = 90
+	shrapnel_type = /datum/ammo/bullet/shrapnel/metal
+	flags_ammo_behavior = AMMO_IGNORE_COVER
+
+	damage = 60
+	accuracy = HIT_ACCURACY_TIER_3
+	max_range = 9
+
+/datum/ammo/humvee_grenade_launcher/proc/apply_explosion_overlay(turf/T)
+	var/obj/effect/overlay/O = new /obj/effect/overlay(T)
+	O.name = "grenade"
+	O.icon = 'icons/effects/explosion.dmi'
+	flick("grenade", O)
+	QDEL_IN(O, 7)
+
+/datum/ammo/humvee_grenade_launcher/proc/detonate(turf/T, obj/projectile/projectile)
+	set waitfor = 0
+	apply_explosion_overlay(T)
+	cell_explosion(T, 40, 20, EXPLOSION_FALLOFF_SHAPE_LINEAR, null, projectile.weapon_cause_data)
+	sleep(3)
+	create_shrapnel(T, shrapnel_count, dir2angle(projectile.dir), dispersion_angle, shrapnel_type, projectile.weapon_cause_data, FALSE, 0.15, TRUE)
+
+/datum/ammo/humvee_grenade_launcher/on_hit_mob(mob/mob, obj/projectile/projectile)
+	mob.ex_act(50, projectile.dir, projectile.weapon_cause_data, 50)
+	mob.apply_effect(3, SUPERSLOW)
+	detonate(get_turf(mob), projectile)
+
+/datum/ammo/humvee_grenade_launcher/on_hit_obj(obj/object, obj/projectile/projectile)
+	detonate(get_turf(object), projectile)
+
+/datum/ammo/humvee_grenade_launcher/on_hit_turf(turf/turf, obj/projectile/projectile)
+	detonate(turf, projectile)
+
+/datum/ammo/humvee_grenade_launcher/do_at_max_range(obj/projectile/projectile)
+	detonate(get_turf(projectile), projectile)
+
 // ammo magazine
 /obj/item/ammo_magazine/hardpoint/humvee_cannon
 	name = "Магазин для автопушки M24-RC1 (10x28мм)"
@@ -94,6 +137,25 @@
 	default_ammo = /datum/ammo/rocket/humvee_launcher
 	max_rounds = 4
 	gun_type = /obj/item/hardpoint/secondary/humvee_launcher
+
+/obj/item/ammo_magazine/hardpoint/humvee_grenade_launcher
+	name = "Магазин для автомотического гранатомета M24-Mk48"
+	desc = "Магазин, заряженный гранатами М40. Используется для перезарядки гранатомета М24-Мк47 с магазинным питанием."
+	caliber = "grenade"
+	icon_state = "glauncher_2"
+	icon = 'icons/obj/items/weapons/guns/ammo_by_faction/USCM/vehicles.dmi'
+	w_class = SIZE_LARGE
+	default_ammo = /datum/ammo/humvee_grenade_launcher
+	max_rounds = 32
+	gun_type = /obj/item/hardpoint/primary/humvee_grenade_launcher
+
+/obj/item/ammo_magazine/hardpoint/tank_glauncher/update_icon()
+	if(current_rounds >= max_rounds)
+		icon_state = "glauncher_2"
+	else if(current_rounds <= 0)
+		icon_state = "glauncher_0"
+	else
+		icon_state = "glauncher_1"
 
 // gear set
 /obj/effect/essentials_set/humvee/autocannon
