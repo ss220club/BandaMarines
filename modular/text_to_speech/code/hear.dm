@@ -4,6 +4,8 @@
 		return
 	if(!say_understands(speaker, language))
 		return
+	if(speaker == src && speaker.tts_suppress_local_radio)
+		return
 	speaker.cast_tts(src, message)
 
 /mob/hear_radio(
@@ -18,7 +20,7 @@
 		return
 	if(!say_understands(speaker, language))
 		return
-	speaker.cast_tts(src, message, src, TTS_LOCALYZE_RADIO, SOUND_EFFECT_RADIO, postSFX = 'modular/text_to_speech/code/sound/radio_chatter.ogg')
+	speaker.cast_tts(src, message, src, is_local = FALSE, is_radio = TRUE, postSFX = 'modular/text_to_speech/code/sound/radio_chatter.ogg')
 
 /proc/sanitize_tts_symbols(message)
 	var/regex/finding_stress = regex(@{"\+(?=[а-яА-ЯёЁ])"}, "g")

@@ -889,6 +889,15 @@
 			to_chat(target_mob, SPAN_XENOQUEEN("Вы слышите странный, чужой голос в своей голове... '[SPAN_PSYTALK(whisper)]'")) // SS220 EDIT ADDICTION
 		else
 			to_chat(target_mob, SPAN_XENOQUEEN("Вы слышите голос [xeno_player] отражающийся в вашей голове... '[SPAN_PSYTALK(whisper)]'")) // SS220 EDIT ADDICTION
+		xeno_player.cast_tts(
+			target_mob,
+			whisper,
+			target_mob,
+			is_local = FALSE,
+			is_radio = TRUE,
+			additional_effects = list(/datum/singleton/sound_effect/telepathy),
+			tts_channel_override = CHANNEL_TTS_HIVEMIND
+		)
 		to_chat(xeno_player, SPAN_XENONOTICE("Вы сказали: '[whisper]' обращаясь к [target_mob.real_name]")) // SS220 EDIT ADDICTION
 
 		for(var/mob/dead/observer/ghost as anything in GLOB.observer_list)
@@ -926,6 +935,15 @@
 			to_chat(possible_target, SPAN_XENOQUEEN("Вы слышите странный, чужой голос в своей голове... '[SPAN_PSYTALK(whisper)]'"))
 		else
 			to_chat(possible_target, SPAN_XENOQUEEN("Вы слышите голос [xeno_player] отражающийся в вашей голове... '[SPAN_PSYTALK(whisper)]'")) // SS220 EDIT ADDICTION
+		xeno_player.cast_tts(
+			possible_target,
+			whisper,
+			possible_target,
+			is_local = FALSE,
+			is_radio = TRUE,
+			additional_effects = list(/datum/singleton/sound_effect/telepathy),
+			tts_channel_override = CHANNEL_TTS_HIVEMIND
+		)
 	FOR_DVIEW_END
 	if(!length(target_list))
 		return
@@ -1002,6 +1020,15 @@
 				if(target.client)
 					xenomorph.use_plasma(plasma_cost)
 					to_chat(target, "[queen_order]")
+					xenomorph.cast_tts(
+						target,
+						input,
+						target,
+						is_local = FALSE,
+						is_radio = TRUE,
+						additional_effects = list(/datum/singleton/sound_effect/telepathy),
+						tts_channel_override = CHANNEL_TTS_HIVEMIND
+					)
 					log_admin("[queen_order]")
 					message_admins("[key_name_admin(xenomorph)] has given the following Queen order to [target]: \"[input]\"", 1)
 					xenomorph.use_plasma(give_order_plasma_cost)

@@ -63,7 +63,7 @@
 			if(!(seed_name in SStts220.tts_seeds))
 				return
 
-			INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), usr, usr, phrase, SStts220.tts_seeds[seed_name], TTS_LOCALYZE_LOCAL)
+			INVOKE_ASYNC(SStts220, TYPE_PROC_REF(/datum/controller/subsystem/tts220, get_tts), usr, usr, phrase, SStts220.tts_seeds[seed_name], TRUE)
 		if("select_voice")
 			var/seed_name = params["seed"]
 

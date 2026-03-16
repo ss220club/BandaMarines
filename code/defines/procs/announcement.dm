@@ -187,6 +187,8 @@
 /proc/announcement_helper(message, title, list/targets, sound_to_play, quiet, list/targets_to_garble, faction_to_garble, datum/announcer/announcer = GLOB.tts_announcers[TTS_DEFAULT_ANNOUNCER_KEY], datum/component/tts_component/tts_component, tts_message) // SS220 EDIT - TTS)
 	if(!message || !title || !targets) //Shouldn't happen
 		return
+	if(isnull(targets_to_garble))
+		targets_to_garble = list()
 	//BANDAMARINES ADDITION start
 	if(!isnull(tts_component))
 		announcer = GLOB.tts_announcers[TTS_CUSTOM_ANNOUNCER_KEY]
@@ -195,12 +197,21 @@
 		tts_message = message
 
 	//BANDAMARINES ADDITION end
+	if(SSradio.force_announcement_garble)
+		targets_to_garble = targets.Copy()
 	var/garbled_message
 	var/garbled_tts //BANDAMARINES ADDITION
 	var/garbled_count = length(targets_to_garble)
 	if(garbled_count)
-		garbled_message = get_garbled_announcement(message, faction_to_garble)
 		garbled_tts = get_garbled_announcement(tts_message, faction_to_garble) //BANDAMARINES ADDITION
+		// Keep TTS garble in sync with the main text, but also garble the signature/HTML-only suffix for chat.
+		garbled_message = garbled_tts
+		if(message != tts_message)
+			var/prefix_pos = findtext(message, tts_message)
+			if(prefix_pos == 1)
+				var/signature_suffix = copytext(message, length(tts_message) + 1)
+				if(signature_suffix)
+					garbled_message = "[garbled_tts][get_garbled_announcement(signature_suffix, faction_to_garble)]"
 		log_garble("[garbled_count] received '[garbled_message]' for faction [faction_to_garble].")
 
 	for(var/mob/target in targets)

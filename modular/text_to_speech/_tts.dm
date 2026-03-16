@@ -1,4 +1,4 @@
 /datum/modpack/tts
 	name = "Text-To-Speech"
-	desc = "Озвучка фраз."
+	desc = "2д космонавтики говорят вслух."
 	author = "furior, phantomru"

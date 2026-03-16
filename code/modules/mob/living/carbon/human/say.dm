@@ -178,7 +178,10 @@
 			italics = 1
 			message_range = 2
 
+		var/old_tts_suppress_local_radio = tts_suppress_local_radio
+		tts_suppress_local_radio = (message_mode && length(used_radios))
 		..(message, speaking, verb, alt_name, italics, message_range, speech_sound, sound_vol, 0, message_mode) //ohgod we should really be passing a datum here.
+		tts_suppress_local_radio = old_tts_suppress_local_radio
 
 		INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/carbon/human, say_to_radios), used_radios, message, message_mode, verb, speaking)
 

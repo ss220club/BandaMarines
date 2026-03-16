@@ -1,12 +1,12 @@
 /datum/component/tts_component
-	var/datum/tts_seed/tts_seed
-	var/list/traits = list()
+	var/datum/tts_seed/tts_seed = null
+	var/list/effects = list()
 
 /datum/component/tts_component/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_ATOM_TTS_SEED_CHANGE, PROC_REF(tts_seed_change))
 	RegisterSignal(parent, COMSIG_ATOM_TTS_CAST, PROC_REF(cast_tts))
-	RegisterSignal(parent, COMSIG_ATOM_TTS_TRAIT_ADD, PROC_REF(tts_trait_add))
-	RegisterSignal(parent, COMSIG_ATOM_TTS_TRAIT_REMOVE, PROC_REF(tts_trait_remove))
+	RegisterSignal(parent, COMSIG_ATOM_TTS_TRAIT_ADD, PROC_REF(tts_effects_add))
+	RegisterSignal(parent, COMSIG_ATOM_TTS_TRAIT_REMOVE, PROC_REF(tts_effects_remove))
 
 /datum/component/tts_component/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_ATOM_TTS_SEED_CHANGE)
@@ -14,7 +14,7 @@
 	UnregisterSignal(parent, COMSIG_ATOM_TTS_TRAIT_ADD)
 	UnregisterSignal(parent, COMSIG_ATOM_TTS_TRAIT_REMOVE)
 
-/datum/component/tts_component/Initialize(datum/tts_seed/new_tts_seed, ...)
+/datum/component/tts_component/Initialize(datum/tts_seed/new_tts_seed, list/effects)
 	if(!isatom(parent))
 		return COMPONENT_INCOMPATIBLE
 	if(ispath(new_tts_seed) && SStts220.tts_seeds[initial(new_tts_seed.name)])
@@ -25,16 +25,14 @@
 		tts_seed = get_random_tts_seed_by_gender()
 	if(!tts_seed) // Something went terribly wrong
 		return COMPONENT_INCOMPATIBLE
-	if(length(args) < 2)
-		return
-	for(var/trait in 2 to length(args))
-		traits += args[trait]
+	if(length(effects))
+		src.effects |= effects
 
 /datum/component/tts_component/proc/return_tts_seed()
 	SIGNAL_HANDLER
 	return tts_seed
 
-/datum/component/tts_component/proc/select_tts_seed(mob/chooser, silent_target = FALSE, override = FALSE, fancy_voice_input_tgui = FALSE, list/new_traits = null)
+/datum/component/tts_component/proc/select_tts_seed(mob/chooser, silent_target = FALSE, overrides, list/new_sound_effects)
 	if(!chooser)
 		if(ismob(parent))
 			chooser = parent
@@ -46,186 +44,174 @@
 	var/datum/tts_seed/new_tts_seed
 
 	if(chooser == being_changed)
-		var/datum/preferences/active_character = chooser.client?.prefs
-		if(being_changed.gender == active_character.gender)
-			if(alert(chooser, "Оставляем голос вашего персонажа [active_character.real_name] - [active_character.tts_seed]?", "Выбор голоса", "Нет", "Да") ==  "Да")
-				if(!SStts220.tts_seeds[active_character.tts_seed])
-					to_chat(chooser, span_warning("Отсутствует tts_seed для значения \"[active_character.tts_seed]\". Текущий голос - [tts_seed.name]"))
+		var/datum/preferences/prefs = chooser.client.prefs
+		var/prefs_tts_seed = prefs?.tts_seed
+		if(being_changed.gender == prefs?.gender)
+			if(tgui_alert(chooser, "Оставляем голос вашего персонажа [prefs?.real_name] - [prefs_tts_seed]?", "Выбор голоса", list("Нет", "Да")) == "Да")
+				if(!SStts220.tts_seeds[prefs_tts_seed])
+					to_chat(chooser, span_warning("Отсутствует tts_seed для значения \"[prefs_tts_seed]\". Текущий голос - [tts_seed]"))
 					return null
-				new_tts_seed = SStts220.tts_seeds[active_character.tts_seed]
-				if(new_traits)
-					traits = new_traits
-				INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), chooser, chooser, tts_test_str, new_tts_seed, TTS_LOCALYZE_LOCAL, get_effect())
+				new_tts_seed = SStts220.tts_seeds[prefs_tts_seed]
+				if(length(new_sound_effects))
+					effects = new_sound_effects
+				INVOKE_ASYNC(SStts220, TYPE_PROC_REF(/datum/controller/subsystem/tts220, get_tts), null, chooser, tts_test_str, new_tts_seed, FALSE, get_effects())
 				return new_tts_seed
 
-	var/tts_seeds
-	var/tts_gender = get_converted_tts_seed_gender()
-	var/list/tts_seeds_by_gender = SStts220.tts_seeds_by_gender[tts_gender]
-	tts_seeds_by_gender |= SStts220.tts_seeds_by_gender[TTS_GENDER_ANY]
-	if(check_rights(R_VAREDIT, FALSE, chooser) || override || !ismob(being_changed))
-		tts_seeds = tts_seeds_by_gender
+	var/list/tts_seeds = list()
+	// Check gender restrictions
+	if(check_rights(R_ADMIN, FALSE, chooser) || overrides & TTS_OVERRIDE_GENDER || !ismob(being_changed))
+		tts_seeds |= SStts220.get_tts_by_gender(MALE)
+		tts_seeds |= SStts220.get_tts_by_gender(FEMALE)
+		tts_seeds |= SStts220.get_tts_by_gender(NEUTER)
+		tts_seeds |= SStts220.get_tts_by_gender(PLURAL)
 	else
-		tts_seeds = tts_seeds_by_gender && SStts220.get_available_seeds(being_changed) // && for lists means intersection
+		tts_seeds |= SStts220.get_tts_by_gender(being_changed.gender)
+		tts_seeds |= SStts220.get_tts_by_gender(NEUTER)
+	// Check donation restrictions
+	if(!check_rights(R_ADMIN, FALSE, chooser) && !(overrides & TTS_OVERRIDE_TIER))
+		tts_seeds = tts_seeds && SStts220.get_available_seeds(being_changed) // && for lists means intersection
+	if(!length(tts_seeds))
+		to_chat(chooser, span_warning("Не удалось найти голоса для пола! Текущий голос - [tts_seed.name]"))
+		return null
+
+	var/list/tts_seeds_assoc = list()
+	for(var/seed_key in tts_seeds)
+		tts_seeds_assoc["[seed_key]"] = "[seed_key]"
 
 	var/new_tts_seed_key
-	if(fancy_voice_input_tgui)
-		new_tts_seed_key = tgui_input_list(chooser, "Выберите голос персонажа", "Преобразуем голос", tts_seeds)
-	else
-		new_tts_seed_key = input(chooser, "Выберите голос персонажа", "Преобразуем голос") as null|anything in tts_seed
+	new_tts_seed_key = tgui_input_list(chooser, "Выберите голос персонажа", "Преобразуем голос", tts_seeds_assoc, default = tts_seed.name, associative_list = TRUE)
 	if(!new_tts_seed_key || !SStts220.tts_seeds[new_tts_seed_key])
 		to_chat(chooser, span_warning("Что-то пошло не так с выбором голоса. Текущий голос - [tts_seed.name]"))
 		return null
 
 	new_tts_seed = SStts220.tts_seeds[new_tts_seed_key]
-	if(new_traits)
-		traits = new_traits
+	if(length(new_sound_effects))
+		effects = new_sound_effects
 
 	if(!silent_target && being_changed != chooser && ismob(being_changed))
-		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), being_changed, being_changed, tts_test_str, new_tts_seed, TTS_LOCALYZE_LOCAL, get_effect())
+		SStts220.get_tts(
+			listener = being_changed,
+			message = tts_test_str,
+			tts_seed = new_tts_seed,
+			is_local = FALSE,
+			effect_types = get_effects()
+		)
 
 	if(chooser)
-		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), chooser, chooser, tts_test_str, new_tts_seed, TTS_LOCALYZE_LOCAL, get_effect())
+		SStts220.get_tts(
+			listener = chooser,
+			message = tts_test_str,
+			tts_seed = new_tts_seed,
+			is_local = FALSE,
+			effect_types = get_effects()
+		)
 
 	return new_tts_seed
 
-/datum/component/tts_component/proc/tts_seed_change(atom/being_changed, mob/chooser, override = FALSE, fancy_voice_input_tgui = FALSE, list/new_traits = null)
-	SIGNAL_HANDLER
-	INVOKE_ASYNC(src, PROC_REF(set_tts_seed), being_changed, chooser, override, fancy_voice_input_tgui, new_traits)
-
-/datum/component/tts_component/proc/set_tts_seed(atom/being_changed, mob/chooser, override = FALSE, fancy_voice_input_tgui = FALSE, list/new_traits = null)
-	var/datum/tts_seed/new_tts_seed = select_tts_seed(chooser = chooser, override = override, fancy_voice_input_tgui = fancy_voice_input_tgui, new_traits = new_traits)
+/datum/component/tts_component/proc/tts_seed_change(atom/being_changed, mob/chooser, overrides, list/new_sound_effects)
+	set waitfor = FALSE
+	var/datum/tts_seed/new_tts_seed = select_tts_seed(chooser = chooser, overrides = overrides, new_sound_effects = new_sound_effects)
 	if(!new_tts_seed)
 		return null
 	tts_seed = new_tts_seed
-	if(iscarbon(being_changed))
-		var/mob/living/carbon/carbon = being_changed
-		carbon.tts_seed = tts_seed
+	// FurryMarines does not track TTS via DNA; seed lives on the component.
 
 /datum/component/tts_component/proc/get_random_tts_seed_by_gender()
-	var/tts_gender = get_converted_tts_seed_gender()
-	var/list/tts_seeds = SStts220.tts_seeds_by_gender[tts_gender]
-	var/tts_random = pick(tts_seeds)
-	var/datum/tts_seed/seed = SStts220.tts_seeds[tts_random]
+	var/atom/being_changed = parent
+	var/tts_choice = SStts220.pick_tts_seed_by_gender(being_changed.gender)
+	var/datum/tts_seed/seed = SStts220.tts_seeds[tts_choice]
 	if(!seed)
 		return null
 	return seed
 
-/datum/component/tts_component/proc/get_converted_tts_seed_gender()
-	var/atom/being_changed = parent
-	switch(being_changed.gender)
-		if(MALE)
-			return TTS_GENDER_MALE
-		if(FEMALE)
-			return TTS_GENDER_FEMALE
-		else
-			return TTS_GENDER_ANY
+/datum/component/tts_component/proc/get_effects(list/additional_effects)
+	var/list/resulting_effects = effects.Copy()
+	if(length(additional_effects))
+		resulting_effects |= additional_effects
 
-/datum/component/tts_component/proc/get_effect(effect)
-	. = effect
-	switch(.)
-		if(SOUND_EFFECT_NONE)
-			if(TTS_TRAIT_ROBOTIZE in traits)
-				return SOUND_EFFECT_ROBOT
-		if(SOUND_EFFECT_RADIO)
-			if(TTS_TRAIT_ROBOTIZE in traits)
-				return SOUND_EFFECT_RADIO_ROBOT
-		if(SOUND_EFFECT_MEGAPHONE)
-			if(TTS_TRAIT_ROBOTIZE in traits)
-				return SOUND_EFFECT_MEGAPHONE_ROBOT
-	return .
+	return resulting_effects
 
-/datum/component/tts_component/proc/cast_tts(atom/speaker, mob/listener, message, atom/location, localyze_type = TTS_LOCALYZE_LOCAL, effect = SOUND_EFFECT_NONE, traits = TTS_TRAIT_RATE_FASTER, preSFX, postSFX)
+/datum/component/tts_component/proc/cast_tts(
+	atom/speaker,
+	mob/listener,
+	message,
+	atom/location,
+	is_local = TRUE,
+	is_radio = FALSE,
+	list/additional_effects = list(),
+	traits = TTS_TRAIT_RATE_FASTER,
+	preSFX,
+	postSFX,
+	tts_seed_override,
+	tts_channel_override,
+	check_deafness = TRUE
+)
+
 	SIGNAL_HANDLER
 
 	if(!message)
 		return
-	if(!(listener?.client) || listener.ear_deaf)
+	if(check_deafness && listener.ear_deaf)
 		return
 	if(!speaker)
 		speaker = parent
 	if(!location)
 		location = parent
-	if(islist(message))
-		if(!ismob(speaker))
-			return
-		//message = combine_message_tts(message, speaker, listener)
-		message = treat_tts_message(message)
-	if(effect == SOUND_EFFECT_RADIO)
-		if(listener == speaker && !isSilicon(parent)) // don't hear both radio and whisper from yourself
-			return
+	if(is_radio)
+		additional_effects |= /datum/singleton/sound_effect/radio
+		is_local = FALSE
+		if(isnull(tts_channel_override))
+			tts_channel_override = CHANNEL_TTS_RADIO
 
-	effect = get_effect(effect)
+	var/list/tts_args = list()
+	tts_args[TTS_CAST_SPEAKER] = speaker
+	tts_args[TTS_CAST_LISTENER] = listener
+	tts_args[TTS_CAST_MESSAGE] = message
+	tts_args[TTS_CAST_LOCATION] = location
+	tts_args[TTS_CAST_LOCAL] = is_local
+	tts_args[TTS_CAST_EFFECTS] = get_effects(additional_effects)
+	tts_args[TTS_CAST_TRAITS] = traits
+	tts_args[TTS_CAST_PRE_SFX] = preSFX
+	tts_args[TTS_CAST_POST_SFX] = postSFX
+	tts_args[TTS_CAST_SEED] = tts_seed_override || tts_seed
+	tts_args[TTS_PRIORITY] = TTS_PRIORITY_VOICE
+	tts_args[TTS_CHANNEL_OVERRIDE] = tts_channel_override
+	finalize_tts(tts_args)
 
-	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tts_cast), location, listener, message, tts_seed, localyze_type, effect, traits, preSFX, postSFX)
+/datum/component/tts_component/proc/finalize_tts(list/tts_args)
+	. = tts_args
 
-/datum/component/tts_component/proc/treat_tts_message(tts_message)
-	var/static/regex/length_regex = regex(@"(.+)\1\1\1", "gi")
-	while(length_regex.Find(tts_message))
-		var/replacement = tts_message[length_regex.index]+tts_message[length_regex.index]+tts_message[length_regex.index]
-		tts_message = replacetext(tts_message, length_regex.match, replacement, length_regex.index)
+	SEND_SIGNAL(parent, COMSIG_TTS_COMPONENT_PRE_CAST_TTS, .)
+	if(!.[TTS_CAST_SEED])
+		return
 
-	// removes repeated consonants at the start of a word: ex: sss
-	var/static/regex/word_start_regex = regex(@"\b([^aeiou\L])\1", "gi")
-	while(word_start_regex.Find(tts_message))
-		var/replacement = tts_message[word_start_regex.index]
-		tts_message = replacetext(tts_message, word_start_regex.match, replacement, word_start_regex.index)
-	return tts_message
+	SStts220.get_tts(
+		.[TTS_CAST_LOCATION],
+		.[TTS_CAST_LISTENER],
+		.[TTS_CAST_MESSAGE],
+		.[TTS_CAST_SEED],
+		.[TTS_CAST_LOCAL],
+		.[TTS_CAST_EFFECTS],
+		.[TTS_CAST_TRAITS],
+		.[TTS_CAST_PRE_SFX],
+		.[TTS_CAST_POST_SFX],
+		.[TTS_CHANNEL_OVERRIDE]
+	)
 
-/*
-/datum/component/tts_component/proc/combine_message_tts(list/message_pieces, mob/speaker, mob/listener)
-	var/iteration_count = 0
-	var/msg = ""
-	for(var/datum/multilingual_say_piece/say_piece in message_pieces)
-		iteration_count++
-		var/piece = say_piece.message
-		if(piece == "")
-			continue
-
-		if(say_piece.speaking?.flags & INNATE) // TTS should not read emotes like "laughts"
-			return ""
-
-		if(iteration_count == 1)
-			piece = capitalize(piece)
-
-		if(!listener.say_understands(speaker, say_piece.speaking))
-			if(isanimal(speaker))
-				var/mob/living/simple_animal/S = speaker
-				if(!LAZYLEN(S.speak))
-					continue
-				piece = pick(S.speak)
-			else if(say_piece.speaking)
-				piece = say_piece.speaking.scramble(piece)
-			else
-				continue
-		msg += (piece + " ")
-	return trim(msg)
-*/
-
-/datum/component/tts_component/proc/tts_trait_add(atom/user, trait)
+/datum/component/tts_component/proc/tts_effects_add(atom/user, list/new_sound_effects)
 	SIGNAL_HANDLER
 
-	if(!isnull(trait) && !(trait in traits))
-		traits += trait
+	if(!length(new_sound_effects))
+		return
 
-/datum/component/tts_component/proc/tts_trait_remove(atom/user, trait)
+	effects |= new_sound_effects
+
+/datum/component/tts_component/proc/tts_effects_remove(atom/user, list/sound_effects_to_remove)
 	SIGNAL_HANDLER
 
-	if(!isnull(trait) && (trait in traits))
-		traits -= trait
+	if(!length(sound_effects_to_remove))
+		return
+
+	effects -= sound_effects_to_remove
 
 // Component usage
-
-/*
-/client/create_response_team_part_1(new_gender, new_species, role, turf/spawn_location)
-	. = ..()
-	var/mob/living/ert_member = .
-	ert_member.change_tts_seed(src.mob)
-
-// можно заменить под: /datum/emergency_call/proc/create_member(datum/mind/M, turf/override_spawn_loc) //This is the parent, each type spawns its own variety.
-*/
-
-/mob/living/silicon/verb/synth_change_voice()
-	set name = "Смена голоса"
-	set desc = "Express yourself!"
-	set category = "Подсистемы"
-	change_tts_seed(src, fancy_voice_input_tgui = TRUE, new_traits = list(TTS_TRAIT_ROBOTIZE))
