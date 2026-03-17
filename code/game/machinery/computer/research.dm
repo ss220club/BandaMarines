@@ -33,7 +33,7 @@
 			if(!N.grant)
 				return
 			GLOB.chemical_data.update_credits(N.grant)
-			visible_message(SPAN_NOTICE("[user] scans the [N.name] on [src], collecting the [N.grant] research credits."))
+			visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] scans the [N.name] on [src], collecting the [N.grant] research credits."))
 			N.grant = 0
 			qdel(N)
 			return
@@ -62,7 +62,7 @@
 	if(istype(B, /obj/item/research_upgrades/reroll))
 		var/obj/item/research_upgrades/reroll/reroll = B
 		GLOB.chemical_data.reroll_chemicals()
-		visible_message(SPAN_NOTICE("[user] inserts [reroll] in [src], Rerolling contract chemicals."))
+		visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] inserts [reroll] in [src], Rerolling contract chemicals."))
 		qdel(reroll)
 
 /obj/structure/machinery/computer/research/ui_state(mob/user)
