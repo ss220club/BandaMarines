@@ -10,6 +10,7 @@ import {
 } from 'tgui/components';
 import { RADIO_CHANNELS } from 'tgui/constants';
 import { Window } from 'tgui/layouts';
+import { RuRadioLabel } from 'tgui-say/constants';
 
 type Data = {
   broadcasting: BooleanLike;
@@ -155,7 +156,7 @@ export const Radio = (props) => {
                         })
                       }
                     >
-                      {channel.name + ' '}
+                      {RuRadioLabel(channel.name) + ' '}
                       {channel.hotkey
                         ? '[' + channel.hotkey.toUpperCase() + ']'
                         : '[N/A]'}
