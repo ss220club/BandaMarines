@@ -79,12 +79,12 @@ ON_CONFIG_LOAD(/datum/autoreply/mentor/whitelist)
 	message = "Менторы, к сожалению, не смогут помочь вам в решении этого вопроса. Пожалуйста, свяжитесь с администрацией через \"AdminHelp\". В большинстве случаев нарушения правил не могут быть рассмотрены непосредственно в игре, и вам, скорее всего, будет предложено написать сообщение об игроке на нашем Discord-сервере SS220 <a href='[CONFIG_GET(string/discordurl)]'>здесь</a>." // SS220 - EDIT
 
 /datum/autoreply/mentor/event
-	title = "A: Специальное событие" // SS220 - EDIT
-	message = "В настоящее время проводится специальное событие, и многие вещи могли быть изменены или удалены, однако обычные правила продолжают действовать, кроме тех, о которых сообщил администратор." // SS220 - EDIT
+	title = "A: Event in Progress"
+	message = "There is currently a special event running and many things may be changed or different, however normal rules still apply unless you have been specifically instructed otherwise by a staff member."
 
-ON_CONFIG_LOAD(/datum/autoreply/mentor/changelog) // SS220 - EDIT
-	title = "C: Список изменений" // SS220 - EDIT
-	message = "Ответ на ваш вопрос можно найти в списке изменений. Перейдите во вкладку \"OOC\" и выберите пункт \"Changelog\" в правом верхнем углу экрана для просмотра списка или же зайдите на наш Discord-сервер SS220 <a href='[CONFIG_GET(string/discordurl)]'>здесь</a>." // SS220 - EDIT
+/datum/autoreply/mentor/changelog
+	title = "C: Changelog"
+	message = "The answer to your question can be found in the Changelog. Click the changelog button at the top-right of the screen to view it in-game, alternatively go the the CM-SS13 discord server where you can look at the cm-changelog channel to find links to any merged changes to the server."
 
 /datum/autoreply/mentor/join_server
 	title = "C: Подключение к игре" // SS220 - EDIT
