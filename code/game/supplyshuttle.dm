@@ -1395,7 +1395,10 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 	// Can only retrieve one vehicle per round
 	var/spent = FALSE
 	var/tank_unlocked = TRUE
-	var/list/allowed_roles = list(JOB_TANK_CREW)
+	var/list/allowed_roles //= list(JOB_TANK_CREW)
+
+	var/list/category_limits   // постоянные лимиты
+	var/list/category_given    // сколько уже выдали
 
 	var/list/vehicles
 	var/list/category_required_roles // BANDAMARINES EDIT
@@ -1465,217 +1468,159 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 	GLOB.VehicleElevatorConsole = null
 	return ..()
 
-/obj/structure/machinery/computer/supply/asrs/vehicle/attack_hand(mob/living/carbon/human/H as mob)
+
+/obj/structure/machinery/computer/supply/asrs/vehicle/tgui_interact(mob/user, datum/tgui/ui)
 	if(inoperable())
 		return
-/* //BANDAMARINES EDIT START - ORIGINAL:
-	if(LAZYLEN(allowed_roles) && !allowed_roles.Find(H.job)) //replaced Z-level restriction with role restriction.
-		to_chat(H, SPAN_WARNING("This console isn't for you."))
+
+	user.set_interaction(src)
+
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "VehicleASRS", "Vehicle Elevator")
+		ui.set_autoupdate(FALSE)
+		ui.open()
+
+
+/obj/structure/machinery/computer/supply/asrs/vehicle/attack_hand(mob/user as mob)
+	if(..())
 		return
 
-	if(!allowed(H))
-		to_chat(H, SPAN_DANGER("Доступ запрещён."))
-		return
-*/
-	H.set_interaction(src)
-	post_signal("supply_vehicle")
+	ui_interact(user)
 
-	var/dat = ""
-	var/turf/upper_turf = get_turf(SSshuttle.getDock("almayer vehicle"))
-/* //BANDAMARINES EDIT START - ORIGINAL:
-	if(!SSshuttle.vehicle_elevator)
-		return
 
-	dat += "Platform position: "
-	if (SSshuttle.vehicle_elevator.mode != SHUTTLE_IDLE)
-		dat += "Moving"
-	else
-		if(SSshuttle.vehicle_elevator.z == upper_turf.z)
-			dat += "Raised"
-			if(!spent)
-				dat += "<br>\[<a href='byond://?src=\ref[src];lower_elevator=1'>Lower</a>\]"
-		else
-			dat += "Lowered"
-	dat += "<br><hr>"
+/obj/structure/machinery/computer/supply/asrs/vehicle/attack_remote(mob/user)
+	return attack_hand(user)
 
-	if(spent)
-		dat += "No vehicles are available for retrieval."
-	else
-		dat += "Available vehicles:<br>"
 
-		for(var/d in vehicles)
-			var/datum/vehicle_order/VO = d
+/obj/structure/machinery/computer/supply/asrs/vehicle/ui_state(mob/user)
+	return GLOB.always_state
 
-			if(VO.has_vehicle_lock())
-				dat += VO.failure_message
-			else
-				dat += "<a href='byond://?src=\ref[src];get_vehicle=\ref[VO]'>[VO.name]</a><br>"
 
-	show_browser(H, dat, asrs_name, "computer", width = 575, height = 450)
-
-/obj/structure/machinery/computer/supply/asrs/vehicle/Topic(href, href_list)
+/obj/structure/machinery/computer/supply/asrs/vehicle/ui_data(mob/user)
 	. = ..()
 
+	var/list/data = list()
+
 	var/turf/upper_turf = get_turf(SSshuttle.getDock("almayer vehicle"))
-	var/turf/lower_turf = get_turf(SSshuttle.getDock("adminlevel vehicle"))
 
-	if(.)
-		return
+	data["elevator_moving"] = SSshuttle.vehicle_elevator.mode != SHUTTLE_IDLE
+	data["elevator_raised"] = SSshuttle.vehicle_elevator.z == upper_turf.z
 
-	if(!is_mainship_level(z))
-		return
-
-	if(spent)
-		return
-
-	if(!linked_supply_controller)
-		world.log << "## ERROR: Eek. The linked_supply_controller controller datum is missing somehow."
-		return
-
-	if (!SSshuttle.vehicle_elevator)
-		world.log << "## ERROR: Eek. The supply/elevator datum is missing somehow."
-		return
-
-	if(isturf(loc) && ( in_range(src, usr) || isSilicon(usr) ) )
-		usr.set_interaction(src)
-
-	if(href_list["get_vehicle"])
-		if((SSshuttle.vehicle_elevator.z == upper_turf.z) || SSshuttle.vehicle_elevator.mode != SHUTTLE_IDLE)
-			to_chat(usr, SPAN_WARNING("The elevator needs to be in the cargo bay dock to call a vehicle up!"))
-			return
-
-		var/turf/middle_turf = get_turf(SSshuttle.vehicle_elevator)
-
-		var/obj/vehicle/multitile/ordered_vehicle
-
-		var/datum/vehicle_order/VO = locate(href_list["get_vehicle"])
-		if(!(VO in vehicles))
-			return
-
-		if(VO?.has_vehicle_lock())
-			return
-
-		spent = TRUE
-		ordered_vehicle = new VO.ordered_vehicle(middle_turf)
-		SSshuttle.vehicle_elevator.request(SSshuttle.getDock("almayer vehicle"))
-
-		VO.on_created(ordered_vehicle)
-
-		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_VEHICLE_ORDERED, ordered_vehicle)
-
-	else if(href_list["lower_elevator"])
-		if(!is_mainship_level(SSshuttle.vehicle_elevator.z))
-			return
-
-		if(SSshuttle.vehicle_elevator.z == lower_turf.z)
-			to_chat(usr, SPAN_WARNING("The elevator is already lowered!"))
-			return
-
-		SSshuttle.vehicle_elevator.request(SSshuttle.getDock("adminlevel vehicle"))
-*/
-	dat += "<h3>Vehicle Elevator Status</h3>"
-	if(SSshuttle.vehicle_elevator.mode != SHUTTLE_IDLE)
-		dat += "Platform: <b>Moving</b><br>"
-	else if(SSshuttle.vehicle_elevator.z == upper_turf.z)
-		dat += "Platform: <b>Raised</b><br>"
-		dat += "<a href='byond://?src=\ref[src];lower_elevator=1'>Lower elevator</a><br>"
-	else
-		dat += "Platform: <b>Lowered</b><br>"
-		dat += "<a href='byond://?src=\ref[src];raise_elevator=1'>Raise elevator</a><br>"
-
-	dat += "<hr><h4>Vehicle Categories</h4>"
+	// Categories
+	var/list/categories = list()
 	for(var/category in category_limits)
 		var/used = category_given[category]
 		var/limit = category_limits[category]
-		dat += "[capitalize(category)]: [used]/[limit] used ([limit - used] remaining)<br>"
+		categories += list(list(
+			"name" = capitalize(category),
+			"used" = used,
+			"limit" = limit
+		))
+	data["categories"] = categories
 
-	dat += "<hr><h4>Available Vehicles</h4>"
-	var/last_category = null
+	// Vehicles
+	var/list/vehicle_list = list()
 	for(var/d in vehicles)
 		var/datum/vehicle_order/order = d
 		var/category = get_vehicle_category(order)
 		var/used = category_given[category]
 		var/limit = category_limits[category]
 
-		if(category != last_category)
-			dat += "<h4>[capitalize(category)]</h4>"
-			last_category = category
+		var/entry = list(
+		"id" = "\ref[order]",
+		"name" = order.name,
+		"category" = capitalize(category)
+		)
 
 		if(order.has_vehicle_lock())
-			dat += order.failure_message
-			continue
-		if(used >= limit)
-			dat += "<font color='gray'>[order.name] (limit reached)</font><br>"
-			continue
-		if(!category_unlocked(category, src))
-			dat += "<font color='gray'>[order.name] (category locked)</font><br>"
-			continue
+			entry["locked"] = TRUE
+			entry["failure_message"] = order.failure_message
+		else if(used >= limit)
+			entry["limit_reached"] = TRUE
+		else if(!category_unlocked(category, src))
+			entry["category_locked"] = TRUE
 
-		dat += "<a href='byond://?src=\ref[src];get_vehicle=\ref[order]'>[order.name]</a> ([category])<br>"
-		
-	show_browser(H, dat, asrs_name, "computer", width = 600, height = 600)
+		vehicle_list += list(entry)
 
-/obj/structure/machinery/computer/supply/asrs/vehicle/Topic(href, href_list)
+	data["vehicles"] = vehicle_list
+
+	return data
+
+
+
+/obj/structure/machinery/computer/supply/asrs/vehicle/ui_act(action, params)
 	. = ..()
 
 	var/turf/upper_turf = get_turf(SSshuttle.getDock("almayer vehicle"))
 	var/turf/lower_turf = get_turf(SSshuttle.getDock("adminlevel vehicle"))
 
-	if(href_list["get_vehicle"])
-		var/datum/vehicle_order/order = locate(href_list["get_vehicle"])
-		if(!(order in vehicles))
-			return
+	switch(action)
+		if("get_vehicle")
+			var/id = params["id"]
+			var/datum/vehicle_order/order = locate(id)
+			if(!(order in vehicles))
+				return
 
-		var/category = get_vehicle_category(order)
-		if(!category_unlocked(category, src))
-			to_chat(usr, SPAN_WARNING("[category] category not available yet!"))
-			return
-		
-		if(!category_has_access(usr, category, src))
-			to_chat(usr, SPAN_WARNING("You don't have access to this vehicle category!"))
-			return
+			var/category = get_vehicle_category(order)
+			if(!category_unlocked(category, src))
+				to_chat(usr, SPAN_WARNING("[category] category not available yet!"))
+				return
+			
+			if(!category_has_access(usr, category, src))
+				to_chat(usr, SPAN_WARNING("You don't have access to this vehicle category!"))
+				return
 
-		var/used = category_given[category]
-		var/limit = category_limits[category]
-		if(used >= limit)
-			to_chat(usr, SPAN_WARNING("Vehicle limit reached for [category]!"))
-			return
+			var/used = category_given[category]
+			var/limit = category_limits[category]
+			if(used >= limit)
+				to_chat(usr, SPAN_WARNING("Vehicle limit reached for [category]!"))
+				return
 
-		if(SSshuttle.vehicle_elevator.z != lower_turf.z || SSshuttle.vehicle_elevator.mode != SHUTTLE_IDLE)
-			to_chat(usr, SPAN_WARNING("The elevator must be lowered to retrieve a vehicle!"))
-			return
+			if(SSshuttle.vehicle_elevator.z != lower_turf.z || SSshuttle.vehicle_elevator.mode != SHUTTLE_IDLE)
+				to_chat(usr, SPAN_WARNING("The elevator must be lowered to retrieve a vehicle!"))
+				return
 
-		category_given[category] = used + 1
+			category_given[category] = used + 1
 
-		var/turf/spawn_turf = lower_turf
-		var/obj/vehicle/multitile/ordered_vehicle = new order.ordered_vehicle(spawn_turf)
-		to_chat(usr, SPAN_NOTICE("[order.name] retrieved. [limit - category_given[category]] remaining in [category] category."))
+			var/turf/spawn_turf = lower_turf
+			var/obj/vehicle/multitile/ordered_vehicle = new order.ordered_vehicle(spawn_turf)
+			to_chat(usr, SPAN_NOTICE("[order.name] retrieved. [limit - category_given[category]] remaining in [category] category."))
 
-		SSshuttle.vehicle_elevator.request(SSshuttle.getDock("almayer vehicle"))
-		order.on_created(ordered_vehicle)
-		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_VEHICLE_ORDERED, ordered_vehicle)
+			SSshuttle.vehicle_elevator.request(SSshuttle.getDock("almayer vehicle"))
+			order.on_created(ordered_vehicle)
+			SEND_GLOBAL_SIGNAL(COMSIG_GLOB_VEHICLE_ORDERED, ordered_vehicle)
+			SStgui.update_uis(src)
+			// через 10 секунд — обновляем ещё раз, когда лифт, скорее всего, доехал
+			spawn(102)
+				SStgui.update_uis(src)
 
-	else if(href_list["raise_elevator"])
-		if(SSshuttle.vehicle_elevator.z == upper_turf.z)
-			to_chat(usr, SPAN_WARNING("The elevator is already raised!"))
-			return
-		SSshuttle.vehicle_elevator.request(SSshuttle.getDock("almayer vehicle"))
-		to_chat(usr, SPAN_NOTICE("Elevator raising..."))
+		if("raise_elevator")
+			if(SSshuttle.vehicle_elevator.z == upper_turf.z)
+				to_chat(usr, SPAN_WARNING("The elevator is already raised!"))
+				return
+			SSshuttle.vehicle_elevator.request(SSshuttle.getDock("almayer vehicle"))
+			to_chat(usr, SPAN_NOTICE("Elevator raising..."))
+			SStgui.update_uis(src)
+			// через 10 секунд — обновляем ещё раз, когда лифт, скорее всего, доехал
+			spawn(102)
+				SStgui.update_uis(src)
 
-	else if(href_list["lower_elevator"])
-		if(!is_mainship_level(SSshuttle.vehicle_elevator.z))
-			return
+		if("lower_elevator")
+			if(!is_mainship_level(SSshuttle.vehicle_elevator.z))
+				return
 
-		if(vehicle_elevator_safety_check(get_area(SSshuttle.vehicle_elevator)))
-			to_chat(usr, SPAN_WARNING("Система безопасности не может позволить вам оставить на лифте живые организмы или транспорт."))
-			return
+			if(vehicle_elevator_safety_check(get_area(SSshuttle.vehicle_elevator)))
+				to_chat(usr, SPAN_WARNING("Система безопасности не может позволить вам оставить на лифте живые организмы или транспорт."))
+				return
 
-		if(SSshuttle.vehicle_elevator.z == lower_turf.z)
-			to_chat(usr, SPAN_WARNING("The elevator is already lowered!"))
-			return
+			if(SSshuttle.vehicle_elevator.z == lower_turf.z)
+				to_chat(usr, SPAN_WARNING("The elevator is already lowered!"))
+				return
 
-		SSshuttle.vehicle_elevator.request(SSshuttle.getDock("adminlevel vehicle"))
-		to_chat(usr, SPAN_NOTICE("Elevator lowering..."))
-// BANDAMARINES EDIT END
-	add_fingerprint(usr)
-	updateUsrDialog()
+			SSshuttle.vehicle_elevator.request(SSshuttle.getDock("adminlevel vehicle"))
+			to_chat(usr, SPAN_NOTICE("Elevator lowering..."))
+			SStgui.update_uis(src)
+			// через 10 секунд — обновляем ещё раз, когда лифт, скорее всего, доехал
+			spawn(102)
+				SStgui.update_uis(src)
