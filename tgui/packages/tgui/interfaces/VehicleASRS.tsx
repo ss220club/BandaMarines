@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useBackend } from 'tgui/backend';
 import {
   Box,
@@ -30,24 +30,28 @@ type CategoryInfo = {
 type Data = {
   elevator_moving: boolean;
   elevator_raised: boolean;
-
   categories: CategoryInfo[];
   vehicles: Vehicle[];
 };
 
-export const VehicleASRS = () => {
+export const VehicleASRS = (props) => {
   const { act, data } = useBackend<Data>();
 
+  // Состояния интерфейса
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [dots, setDots] = useState('.');
   const [progress, setProgress] = useState(0);
 
-  if (!data) {
-    return null;
-  }
+  if (!data) return null;
 
   const { elevator_moving, elevator_raised, categories, vehicles } = data;
 
-  // Анимация точек
+  // Фильтрация техники для активной вкладки
+  const filteredVehicles = vehicles.filter(
+    (v) => v.category === selectedCategory,
+  );
+
+  // Анимация ожидания (точки)
   useEffect(() => {
     const interval = setInterval(() => {
       setDots((prev) => (prev === '...' ? '.' : prev + '.'));
@@ -55,24 +59,18 @@ export const VehicleASRS = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // ✅ Исправленный прогресс (10 сек + плавный)
+  // Плавный прогресс-бар для движения платформы (10 секунд)
   useEffect(() => {
     if (!elevator_moving) {
       setProgress(0);
       return;
     }
-
     const start = Date.now();
-
     const interval = setInterval(() => {
       const elapsed = Date.now() - start;
       const t = Math.min(elapsed / 10000, 1);
-
-      const eased = 1 - Math.pow(1 - t, 3);
-
-      setProgress(eased);
+      setProgress(1 - Math.pow(1 - t, 3)); // Кубическое смягчение для реалистичности
     }, 100);
-
     return () => clearInterval(interval);
   }, [elevator_moving]);
 
@@ -80,118 +78,178 @@ export const VehicleASRS = () => {
     <Window width={520} height={600}>
       <Window.Content>
         <Stack fill vertical>
-          {/* 📊 Категории */}
-          <Stack.Item>
-            <Section title="Лимиты категорий">
-              <Stack vertical>
-                {categories.map((cat) => {
-                  const remaining = cat.limit - cat.used;
-
-                  return (
-                    <Box key={cat.name}>
-                      <Icon name="folder" mr={1} />
-                      <b>{cat.name}</b>
-                      <Box
-                        ml={2}
-                        color={
-                          (remaining <= 0 && 'bad') ||
-                          (remaining <= cat.limit / 2 && 'average') ||
-                          'good'
-                        }
-                      >
-                        {cat.used}/{cat.limit} (осталось {remaining})
-                      </Box>
-                    </Box>
-                  );
-                })}
-              </Stack>
-            </Section>
-          </Stack.Item>
-
-          {/* 🚗 Транспорт */}
+          {/* =========================================
+              ВЕРХНЯЯ ЧАСТЬ: ДИНАМИЧЕСКИЙ КОНТЕНТ (ВКЛАДКИ)
+              ========================================= */}
           <Stack.Item grow>
-            <Section title="Транспорт" fill scrollable>
-              <Stack vertical>
-                {vehicles.map((v, i) => {
-                  const prev = vehicles[i - 1];
-                  const showHeader = !prev || prev.category !== v.category;
+            {/* РЕЖИМ 1: СПИСОК КАТЕГОРИЙ */}
+            {!selectedCategory && (
+              <Section title="СИСТЕМА ХРАНЕНИЯ (ASRS)" fill scrollable>
+                <NoticeBox info mb={2}>
+                  Выберите категорию для запроса техники. Следите за лимитами
+                  развертывания.
+                </NoticeBox>
+                <Stack vertical>
+                  {categories.map((cat) => {
+                    const isFull = cat.used >= cat.limit;
+                    return (
+                      <Button
+                        key={cat.name}
+                        fluid
+                        height="36px"
+                        onClick={() => setSelectedCategory(cat.name)}
+                      >
+                        <Stack align="center" fill>
+                          <Stack.Item grow>
+                            <Icon name="folder" mr={1} opacity={0.7} />
+                            <b>{cat.name.toUpperCase()}</b>
+                          </Stack.Item>
+                          <Stack.Item>
+                            <Box color={isFull ? 'bad' : 'good'} bold>
+                              [{cat.used} / {cat.limit}]
+                            </Box>
+                          </Stack.Item>
+                          <Stack.Item>
+                            <Icon name="chevron-right" opacity={0.5} />
+                          </Stack.Item>
+                        </Stack>
+                      </Button>
+                    );
+                  })}
+                </Stack>
+              </Section>
+            )}
 
-                  return (
-                    <Fragment key={v.id}>
-                      {showHeader && (
-                        <Box mt={2} bold>
-                          <Icon name="list" mr={1} />
-                          {v.category}
-                        </Box>
-                      )}
+            {/* РЕЖИМ 2: ВЫБРАННАЯ КАТЕГОРИЯ (ТЕХНИКА) */}
+            {selectedCategory && (
+              <Section
+                title={`КАТЕГОРИЯ: ${selectedCategory.toUpperCase()}`}
+                fill
+                scrollable
+                buttons={
+                  <Button
+                    icon="arrow-left"
+                    color="transparent"
+                    onClick={() => setSelectedCategory(null)}
+                  >
+                    НАЗАД В МЕНЮ
+                  </Button>
+                }
+              >
+                <Stack vertical>
+                  {filteredVehicles.length === 0 ? (
+                    <Box color="label" textAlign="center" mt={2} italic>
+                      В данной категории нет доступной техники.
+                    </Box>
+                  ) : (
+                    filteredVehicles.map((v) => {
+                      const isDisabled =
+                        v.locked || v.limit_reached || v.category_locked;
 
-                      {Boolean(v.locked) && (
-                        <NoticeBox color="bad">{v.failure_message}</NoticeBox>
-                      )}
-
-                      {Boolean(v.limit_reached) && (
-                        <Box color="gray">{v.name} — лимит достигнут</Box>
-                      )}
-
-                      {Boolean(v.category_locked) && (
-                        <Box color="gray">
-                          {v.name} — категория заблокирована
-                        </Box>
-                      )}
-
-                      {!v.locked && !v.limit_reached && !v.category_locked && (
-                        <Button
-                          fluid
-                          icon="truck"
-                          onClick={() => act('get_vehicle', { id: v.id })}
+                      return (
+                        <Box
+                          key={v.id}
+                          mb={1}
+                          p={1}
+                          backgroundColor="rgba(0,0,0,0.2)"
                         >
-                          {v.name}
-                        </Button>
-                      )}
-                    </Fragment>
-                  );
-                })}
-              </Stack>
-            </Section>
+                          <Stack align="center">
+                            <Stack.Item grow>
+                              <Box bold fontSize="13px">
+                                <Icon name="truck" mr={1} opacity={0.7} />
+                                {v.name.toUpperCase()}
+                              </Box>
+                              {Boolean(v.locked) && (
+                                <Box color="bad" fontSize="11px" mt={0.5}>
+                                  <Icon name="exclamation-triangle" mr={0.5} />
+                                  {v.failure_message}
+                                </Box>
+                              )}
+                              {v.limit_reached && (
+                                <Box color="average" fontSize="11px" mt={0.5}>
+                                  ДОСТИГНУТ ЛИМИТ РАЗВЕРТЫВАНИЯ
+                                </Box>
+                              )}
+                            </Stack.Item>
+                            <Stack.Item>
+                              <Button
+                                icon="download"
+                                color={isDisabled ? 'transparent' : 'default'}
+                                disabled={isDisabled}
+                                onClick={() => act('get_vehicle', { id: v.id })}
+                              >
+                                ЗАПРОСИТЬ
+                              </Button>
+                            </Stack.Item>
+                          </Stack>
+                        </Box>
+                      );
+                    })
+                  )}
+                </Stack>
+              </Section>
+            )}
           </Stack.Item>
 
-          {/* 🚀 ЛИФТ */}
+          {/* =========================================
+              НИЖНЯЯ ЧАСТЬ: СТАТИЧНАЯ ПАНЕЛЬ ЛИФТА
+              ========================================= */}
           <Stack.Item>
-            <Section title="Транспортная платформа">
-              {/* статус */}
-              <Box mb={1}>
-                <Icon name="truck" mr={1} />
-                Статус: <b>{elevator_raised ? 'Поднята' : 'Опущена'}</b>
-              </Box>
-
-              {/* движение */}
-              {elevator_moving ? (
-                <>
-                  <NoticeBox>
-                    <Icon name="spinner" spin mr={1} />
-                    Платформа движется{dots}
-                  </NoticeBox>
-
-                  <Box mt={1}>
-                    <ProgressBar value={progress} />
+            <Section title="УПРАВЛЕНИЕ ТРАНСПОРТНОЙ ПЛАТФОРМОЙ">
+              <Stack align="center">
+                {/* Левая сторона: Статус */}
+                <Stack.Item grow>
+                  <Box fontSize="14px" color="label">
+                    <Icon
+                      name={elevator_moving ? 'cog' : 'server'}
+                      spin={elevator_moving}
+                      mr={1}
+                      color={elevator_moving ? 'average' : 'good'}
+                    />
+                    СТАТУС ПЛАТФОРМЫ:{' '}
+                    <Box
+                      as="span"
+                      bold
+                      color={elevator_moving ? 'average' : 'white'}
+                    >
+                      {elevator_moving
+                        ? `ТРАНСПОРТИРОВКА${dots}`
+                        : elevator_raised
+                          ? 'ПОДНЯТА'
+                          : 'ОПУЩЕНА'}
+                    </Box>
                   </Box>
-                </>
-              ) : null}
+                </Stack.Item>
 
-              {/* кнопка */}
-              <Box mt={2} textAlign="right">
-                <Button
-                  width="200px"
-                  height="40px"
-                  icon={elevator_raised ? 'power-off' : 'power-off'}
-                  disabled={elevator_moving}
-                  onClick={() =>
-                    act(elevator_raised ? 'lower_elevator' : 'raise_elevator')
-                  }
-                >
-                  {elevator_raised ? 'Опустить платформу' : 'Поднять платформу'}
-                </Button>
-              </Box>
+                {/* Правая сторона: Кнопка */}
+                <Stack.Item>
+                  <Button
+                    width="220px"
+                    height="40px"
+                    textAlign="center"
+                    fontSize="13px"
+                    bold
+                    icon="power-off"
+                    // Зеленая, если готова к использованию, серая если в движении
+                    color={elevator_moving ? 'default' : 'success'}
+                    disabled={elevator_moving}
+                    onClick={() =>
+                      act(elevator_raised ? 'lower_elevator' : 'raise_elevator')
+                    }
+                  >
+                    {elevator_raised
+                      ? 'ОПУСТИТЬ ПЛАТФОРМУ'
+                      : 'ПОДНЯТЬ ПЛАТФОРМУ'}
+                  </Button>
+                </Stack.Item>
+              </Stack>
+
+              {/* Прогресс-бар появляется только при движении */}
+              {elevator_moving && (
+                <Box mt={2}>
+                  <ProgressBar value={progress} color="average" />
+                </Box>
+              )}
             </Section>
           </Stack.Item>
         </Stack>
