@@ -894,7 +894,7 @@
 			whisper,
 			target_mob,
 			is_local = FALSE,
-			is_radio = TRUE,
+			is_radio = FALSE,
 			additional_effects = list(/datum/singleton/sound_effect/telepathy),
 			tts_channel_override = CHANNEL_TTS_HIVEMIND
 		)
@@ -940,7 +940,7 @@
 			whisper,
 			possible_target,
 			is_local = FALSE,
-			is_radio = TRUE,
+			is_radio = FALSE,
 			additional_effects = list(/datum/singleton/sound_effect/telepathy),
 			tts_channel_override = CHANNEL_TTS_HIVEMIND
 		)
@@ -1025,7 +1025,7 @@
 						input,
 						target,
 						is_local = FALSE,
-						is_radio = TRUE,
+						is_radio = FALSE,
 						additional_effects = list(/datum/singleton/sound_effect/telepathy),
 						tts_channel_override = CHANNEL_TTS_HIVEMIND
 					)
