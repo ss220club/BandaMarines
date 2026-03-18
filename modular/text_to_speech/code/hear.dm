@@ -4,8 +4,6 @@
 		return
 	if(!say_understands(speaker, language))
 		return
-	if(speaker == src && speaker.tts_suppress_local_radio)
-		return
 	speaker.cast_tts(src, message)
 
 /mob/hear_radio(
@@ -17,6 +15,8 @@
 	command = 0, no_paygrade = FALSE)
 	. = ..()
 	if(hard_to_hear || !speaker)
+		return
+	if(speaker == src)
 		return
 	if(!say_understands(speaker, language))
 		return

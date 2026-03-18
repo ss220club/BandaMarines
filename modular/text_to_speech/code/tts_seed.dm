@@ -1,9 +1,12 @@
 /atom/proc/add_tts_component()
 	return
 
+/atom/proc/remove_tts_component()
+	return
+
 /mob
 	var/datum/tts_seed/tts_seed
-	var/tmp/tts_suppress_local_radio = FALSE
+	var/tmp/tts_disabled = FALSE
 
 /atom/Initialize(mapload, ...)
 	. = ..()
@@ -14,6 +17,10 @@
 	change_tts_seed(src)
 
 /atom/proc/cast_tts(mob/listener, message, atom/location, is_local = TRUE, is_radio = FALSE, list/additional_effects = list(), traits = TTS_TRAIT_RATE_FASTER, preSFX, postSFX, tts_seed_override, tts_channel_override, check_deafness)
+	if(ismob(src))
+		var/mob/speaker = src
+		if(speaker.tts_disabled)
+			return
 	if(!GetComponent(/datum/component/tts_component))
 		add_tts_component()
 	if(!GetComponent(/datum/component/tts_component))
