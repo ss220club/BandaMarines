@@ -184,7 +184,6 @@
 #include "code\__DEFINES\typecheck\items.dm"
 #include "code\__DEFINES\typecheck\mobs_generic.dm"
 #include "code\__DEFINES\typecheck\xenos.dm"
-#include "code\__DEFINES\tts.dm" //bandamarines addition
 #include "code\__HELPERS\#maths.dm"
 #include "code\__HELPERS\_lists.dm"
 #include "code\__HELPERS\_time.dm"
