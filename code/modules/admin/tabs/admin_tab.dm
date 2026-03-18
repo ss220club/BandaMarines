@@ -256,7 +256,7 @@
 	set category = "Admin"
 	set hidden = TRUE
 
-	cmd_admin_say(msg)
+	cmd_mentor_say(msg) // SS220 EDIT - Original: cmd_admin_say
 
 /client/proc/cmd_admin_say(msg as text)
 	set name = "Asay" //Gave this shit a shorter name so you only have to time out "asay" rather than "admin say" to use it --NeoFite
