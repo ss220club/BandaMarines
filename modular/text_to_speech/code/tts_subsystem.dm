@@ -422,7 +422,7 @@ SUBSYSTEM_DEF(tts220)
 	output.volume = 100
 	if(!is_local || isnull(speaker))
 		output.wait = TRUE
-		output.environment = resolve_non_local_environment(listener, speaker)
+		output.environment = resolve_non_local_environment(listener, speaker, channel_override)
 		output.channel = channel_override
 		output.volume *= volume_multiplier
 		if(output.volume <= 0)
@@ -475,7 +475,9 @@ SUBSYSTEM_DEF(tts220)
 		return SOUND_ENVIRONMENT_NONE
 	return environment
 
-/datum/controller/subsystem/tts220/proc/resolve_non_local_environment(mob/listener, atom/speaker)
+/datum/controller/subsystem/tts220/proc/resolve_non_local_environment(mob/listener, atom/speaker, channel_override)
+	if(isnull(speaker))
+		return SOUND_ENVIRONMENT_NONE
 	return get_listener_environment(listener)
 
 /datum/controller/subsystem/tts220/proc/play_sfx_if_exists(mob/listener, sfx, sound/output)
