@@ -1395,7 +1395,7 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 	// Can only retrieve one vehicle per round
 	var/spent = FALSE
 	var/tank_unlocked = TRUE
-	var/list/allowed_roles //= list(JOB_TANK_CREW)
+	var/list/allowed_roles = list(JOB_TANK_CREW)
 
 	var/list/category_limits   // постоянные лимиты
 	var/list/category_given    // сколько уже выдали
@@ -1481,6 +1481,8 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 		ui.set_autoupdate(FALSE)
 		ui.open()
 
+/obj/structure/machinery/computer/supply/asrs/vehicle/allowed(mob/user)
+    return TRUE
 
 /obj/structure/machinery/computer/supply/asrs/vehicle/attack_hand(mob/user as mob)
 	if(..())

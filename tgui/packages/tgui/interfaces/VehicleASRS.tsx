@@ -28,8 +28,8 @@ type CategoryInfo = {
 };
 
 type Data = {
-  elevator_moving: boolean;
-  elevator_raised: boolean;
+  elevator_moving: boolean | number; // BYOND присылает 0 или 1
+  elevator_raised: boolean | number;
   categories: CategoryInfo[];
   vehicles: Vehicle[];
 };
@@ -37,7 +37,6 @@ type Data = {
 export const VehicleASRS = (props) => {
   const { act, data } = useBackend<Data>();
 
-  // Состояния интерфейса
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [dots, setDots] = useState('.');
   const [progress, setProgress] = useState(0);
@@ -46,12 +45,10 @@ export const VehicleASRS = (props) => {
 
   const { elevator_moving, elevator_raised, categories, vehicles } = data;
 
-  // Фильтрация техники для активной вкладки
   const filteredVehicles = vehicles.filter(
     (v) => v.category === selectedCategory,
   );
 
-  // Анимация ожидания (точки)
   useEffect(() => {
     const interval = setInterval(() => {
       setDots((prev) => (prev === '...' ? '.' : prev + '.'));
@@ -59,7 +56,6 @@ export const VehicleASRS = (props) => {
     return () => clearInterval(interval);
   }, []);
 
-  // Плавный прогресс-бар для движения платформы (10 секунд)
   useEffect(() => {
     if (!elevator_moving) {
       setProgress(0);
@@ -69,7 +65,7 @@ export const VehicleASRS = (props) => {
     const interval = setInterval(() => {
       const elapsed = Date.now() - start;
       const t = Math.min(elapsed / 10000, 1);
-      setProgress(1 - Math.pow(1 - t, 3)); // Кубическое смягчение для реалистичности
+      setProgress(1 - Math.pow(1 - t, 3));
     }, 100);
     return () => clearInterval(interval);
   }, [elevator_moving]);
@@ -78,12 +74,9 @@ export const VehicleASRS = (props) => {
     <Window width={520} height={600}>
       <Window.Content>
         <Stack fill vertical>
-          {/* =========================================
-              ВЕРХНЯЯ ЧАСТЬ: ДИНАМИЧЕСКИЙ КОНТЕНТ (ВКЛАДКИ)
-              ========================================= */}
           <Stack.Item grow>
             {/* РЕЖИМ 1: СПИСОК КАТЕГОРИЙ */}
-            {!selectedCategory && (
+            {!selectedCategory ? (
               <Section title="СИСТЕМА ХРАНЕНИЯ (ASRS)" fill scrollable>
                 <NoticeBox info mb={2}>
                   Выберите категорию для запроса техники. Следите за лимитами
@@ -118,10 +111,10 @@ export const VehicleASRS = (props) => {
                   })}
                 </Stack>
               </Section>
-            )}
+            ) : null}
 
-            {/* РЕЖИМ 2: ВЫБРАННАЯ КАТЕГОРИЯ (ТЕХНИКА) */}
-            {selectedCategory && (
+            {/* РЕЖИМ 2: ВЫБРАННАЯ КАТЕГОРИЯ */}
+            {selectedCategory ? (
               <Section
                 title={`КАТЕГОРИЯ: ${selectedCategory.toUpperCase()}`}
                 fill
@@ -159,23 +152,23 @@ export const VehicleASRS = (props) => {
                                 <Icon name="truck" mr={1} opacity={0.7} />
                                 {v.name.toUpperCase()}
                               </Box>
-                              {Boolean(v.locked) && (
+                              {v.locked ? (
                                 <Box color="bad" fontSize="11px" mt={0.5}>
                                   <Icon name="exclamation-triangle" mr={0.5} />
                                   {v.failure_message}
                                 </Box>
-                              )}
-                              {v.limit_reached && (
+                              ) : null}
+                              {v.limit_reached ? (
                                 <Box color="average" fontSize="11px" mt={0.5}>
                                   ДОСТИГНУТ ЛИМИТ РАЗВЕРТЫВАНИЯ
                                 </Box>
-                              )}
+                              ) : null}
                             </Stack.Item>
                             <Stack.Item>
                               <Button
                                 icon="download"
                                 color={isDisabled ? 'transparent' : 'default'}
-                                disabled={isDisabled}
+                                disabled={!!isDisabled}
                                 onClick={() => act('get_vehicle', { id: v.id })}
                               >
                                 ЗАПРОСИТЬ
@@ -188,12 +181,10 @@ export const VehicleASRS = (props) => {
                   )}
                 </Stack>
               </Section>
-            )}
+            ) : null}
           </Stack.Item>
 
-          {/* =========================================
-              НИЖНЯЯ ЧАСТЬ: СТАТИЧНАЯ ПАНЕЛЬ ЛИФТА
-              ========================================= */}
+          {/* НИЖНЯЯ ЧАСТЬ: СТАТИЧНАЯ ПАНЕЛЬ ЛИФТА */}
           <Stack.Item>
             <Section title="УПРАВЛЕНИЕ ТРАНСПОРТНОЙ ПЛАТФОРМОЙ">
               <Stack align="center">
@@ -202,7 +193,7 @@ export const VehicleASRS = (props) => {
                   <Box fontSize="14px" color="label">
                     <Icon
                       name={elevator_moving ? 'cog' : 'server'}
-                      spin={elevator_moving}
+                      spin={!!elevator_moving}
                       mr={1}
                       color={elevator_moving ? 'average' : 'good'}
                     />
@@ -226,17 +217,17 @@ export const VehicleASRS = (props) => {
                   <Button
                     width="220px"
                     height="40px"
-                    textAlign="center"
+                    lineHeight="38px" // Выравнивание по вертикали
+                    textAlign="center" // Выравнивание по горизонтали
                     fontSize="13px"
                     bold
-                    icon="power-off"
-                    // Зеленая, если готова к использованию, серая если в движении
-                    color={elevator_moving ? 'default' : 'success'}
-                    disabled={elevator_moving}
+                    color={elevator_moving ? 'green' : 'green'}
+                    disabled={!!elevator_moving}
                     onClick={() =>
                       act(elevator_raised ? 'lower_elevator' : 'raise_elevator')
                     }
                   >
+                    <Icon name="power-off" mr={1} />
                     {elevator_raised
                       ? 'ОПУСТИТЬ ПЛАТФОРМУ'
                       : 'ПОДНЯТЬ ПЛАТФОРМУ'}
@@ -244,12 +235,12 @@ export const VehicleASRS = (props) => {
                 </Stack.Item>
               </Stack>
 
-              {/* Прогресс-бар появляется только при движении */}
-              {elevator_moving && (
+              {/* Прогресс-бар появляется только при движении (Избавились от нуля!) */}
+              {elevator_moving ? (
                 <Box mt={2}>
                   <ProgressBar value={progress} color="average" />
                 </Box>
-              )}
+              ) : null}
             </Section>
           </Stack.Item>
         </Stack>
