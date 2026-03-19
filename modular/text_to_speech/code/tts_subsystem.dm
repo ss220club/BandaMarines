@@ -422,9 +422,8 @@ SUBSYSTEM_DEF(tts220)
 	output.volume = 100
 	if(!is_local || isnull(speaker))
 		output.wait = TRUE
-		output.environment = SOUND_ENVIRONMENT_NONE
+		output.environment = resolve_non_local_environment(listener, speaker)
 		output.channel = channel_override
-
 		output.volume *= volume_multiplier
 		if(output.volume <= 0)
 			return
@@ -444,7 +443,6 @@ SUBSYSTEM_DEF(tts220)
 
 	if(volume_multiplier <= 0)
 		return
-
 	// Scale pre/post SFX to user preference, playsound_local will handle its own scaling.
 	var/sfx_volume = output.volume * volume_multiplier
 	output.volume = sfx_volume
@@ -466,6 +464,19 @@ SUBSYSTEM_DEF(tts220)
 	)
 	output.volume = sfx_volume
 	play_sfx_if_exists(listener, postSFX, output)
+
+/datum/controller/subsystem/tts220/proc/get_listener_environment(mob/listener)
+	if(listener?.sound_environment_override != SOUND_ENVIRONMENT_NONE)
+		return listener.sound_environment_override
+
+	var/area/listener_area = get_area(listener)
+	var/environment = listener_area?.sound_environment
+	if(isnull(environment))
+		return SOUND_ENVIRONMENT_NONE
+	return environment
+
+/datum/controller/subsystem/tts220/proc/resolve_non_local_environment(mob/listener, atom/speaker)
+	return get_listener_environment(listener)
 
 /datum/controller/subsystem/tts220/proc/play_sfx_if_exists(mob/listener, sfx, sound/output)
 	if(sfx)

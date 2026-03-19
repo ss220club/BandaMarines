@@ -3,6 +3,9 @@
 /mob/living/silicon/ai/add_tts_component()
 	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/glados, list(/datum/singleton/sound_effect/robot))
 
+/mob/living/silicon/decoy/ship_ai/add_tts_component()
+	return
+
 /obj/item/nullrod/scythe/talking/add_tts_component()
 	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/sylvanas)
 

@@ -35,7 +35,4 @@
 
 	new_human.add_tts_component()
 	new_human.tts_seed = new_human.get_tts_seed()
-
-/mob/living/carbon/Initialize()
-	. = ..()
-	tts_seed = get_tts_seed()
+	INVOKE_ASYNC(new_human, TYPE_PROC_REF(/mob/living/carbon, change_tts_seed_ask))

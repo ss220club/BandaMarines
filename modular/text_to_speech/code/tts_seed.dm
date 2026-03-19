@@ -13,8 +13,14 @@
 	add_tts_component()
 
 /mob/living/carbon/proc/change_tts_seed_ask()
-	set waitfor = FALSE
-	change_tts_seed(src)
+	if(!client)
+		return
+
+	var/prompt = tgui_alert(src, "Хотите поменять свой голос? Текущий - [src.tts_seed]", "Смена TTS", list("Да", "Нет"))
+	if(prompt != "Да")
+		return
+
+	change_tts_seed(src, TRUE)
 
 /atom/proc/cast_tts(mob/listener, message, atom/location, is_local = TRUE, is_radio = FALSE, list/additional_effects = list(), traits = TTS_TRAIT_RATE_FASTER, preSFX, postSFX, tts_seed_override, tts_channel_override, check_deafness)
 	if(ismob(src))
