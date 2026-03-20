@@ -1,4 +1,4 @@
-#define TTS_REPLACEMENTS_FILE_PATH "config/bandastation/tts_replacements.json"
+#define TTS_REPLACEMENTS_FILE_PATH "config/tts_replacements.json"
 #define TTS_REPLACEMENTS_FALLBACK_FILE_PATH "config/example/tts_replacements.json"
 #define TTS_ACRONYM_REPLACEMENTS "tts_acronym_replacements"
 #define TTS_JOB_REPLACEMENTS "tts_job_replacements"
