@@ -1,4 +1,5 @@
 #define TTS_REPLACEMENTS_FILE_PATH "config/bandastation/tts_replacements.json"
+#define TTS_REPLACEMENTS_FALLBACK_FILE_PATH "config/example/tts_replacements.json"
 #define TTS_ACRONYM_REPLACEMENTS "tts_acronym_replacements"
 #define TTS_JOB_REPLACEMENTS "tts_job_replacements"
 
@@ -198,13 +199,16 @@ SUBSYSTEM_DEF(tts220)
 	tts_job_replacements = SStts220.tts_job_replacements
 
 /datum/controller/subsystem/tts220/proc/load_replacements()
-	if(!fexists(TTS_REPLACEMENTS_FILE_PATH))
-		log_debug("No file for TTS replacements located at: [TTS_REPLACEMENTS_FILE_PATH]. No replacements will be applied for TTS.")
+	var/replacements_file_path = TTS_REPLACEMENTS_FILE_PATH
+	if(!fexists(replacements_file_path))
+		replacements_file_path = TTS_REPLACEMENTS_FALLBACK_FILE_PATH
+	if(!fexists(replacements_file_path))
+		log_debug("No file for TTS replacements located at: [TTS_REPLACEMENTS_FILE_PATH] or [TTS_REPLACEMENTS_FALLBACK_FILE_PATH]. No replacements will be applied for TTS.")
 		return
 
-	var/tts_replacements_json = file2text(TTS_REPLACEMENTS_FILE_PATH)
+	var/tts_replacements_json = file2text(replacements_file_path)
 	if(!length(tts_replacements_json))
-		log_debug("TTS replacements file is empty at: [TTS_REPLACEMENTS_FILE_PATH].")
+		log_debug("TTS replacements file is empty at: [replacements_file_path].")
 		return
 
 	var/list/replacements = json_decode(tts_replacements_json)
@@ -602,6 +606,7 @@ SUBSYSTEM_DEF(tts220)
 		src.effects |= effects
 
 #undef TTS_REPLACEMENTS_FILE_PATH
+#undef TTS_REPLACEMENTS_FALLBACK_FILE_PATH
 #undef TTS_ACRONYM_REPLACEMENTS
 #undef TTS_JOB_REPLACEMENTS
 
