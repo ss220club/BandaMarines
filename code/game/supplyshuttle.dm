@@ -1388,11 +1388,11 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 	frequency.post_signal(src, status_signal)
 
 /obj/structure/machinery/computer/supply/asrs/vehicle
-	name = "vehicle ASRS console"
-	desc = "A console for an Automated Storage and Retrieval System. This one is tied to a deep storage unit for vehicles."
+	name = "Консоль ASRS техники"
+	desc = "Консоль автоматизированной системы хранения и поиска (ASRS). Данная консоль привязана к модулю глубокого хранения техники."
 	req_access = list(ACCESS_MARINE_CREWMAN)
 	circuit = /obj/item/circuitboard/computer/supplycomp/vehicle
-	// Can only retrieve one vehicle per round
+	// Можно получить только одну единицу техники за раунд
 	var/spent = FALSE
 	var/tank_unlocked = TRUE
 	var/list/allowed_roles = list(JOB_TANK_CREW)
@@ -1403,12 +1403,19 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 	var/list/vehicles
 	var/list/category_required_roles // BANDAMARINES EDIT
 
+// Новые списки для группировки
+	var/list/group_limits
+	var/list/group_given
+
+	// Привязка категорий к группам
+	var/list/category_to_group 
+
 /datum/vehicle_order
-	var/name = "vehicle order"
+	var/name = "заказ техники"
 
 	var/obj/vehicle/ordered_vehicle
 	var/unlocked = TRUE
-	var/failure_message = "<font color=\"red\"><b>Not enough resources were allocated to repair this vehicle during this operation.</b></font><br>"
+	var/failure_message = "<font color=\"red\"><b>Недостаточно ресурсов было выделено для ремонта этой техники в ходе данной операции.</b></font><br>"
 
 /datum/vehicle_order/proc/has_vehicle_lock()
 	return FALSE
@@ -1417,38 +1424,38 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 	return
 
 /datum/vehicle_order/tank
-	name = "M34A2 Longstreet Light Tank"
+	name = "Легкий танк M34A2 «Лонгстрит»"
 	ordered_vehicle = /obj/effect/vehicle_spawner/tank/decrepit
 
 /datum/vehicle_order/tank/has_vehicle_lock()
 	return
 
 /datum/vehicle_order/tank/broken
-	name = "Smashed M34A2 Longstreet Light Tank"
+	name = "Разбитый легкий танк M34A2 «Лонгстрит»"
 	ordered_vehicle = /obj/effect/vehicle_spawner/tank/hull/broken
 
 /datum/vehicle_order/tank/plain
-	name = "M34A2 Longstreet Light Tank"
+	name = "Легкий танк M34A2 «Лонгстрит»"
 	ordered_vehicle = /obj/effect/vehicle_spawner/tank
 
 /datum/vehicle_order/apc
-	name = "M577 Armored Personnel Carrier"
+	name = "Бронетранспортер M577"
 	ordered_vehicle = /obj/effect/vehicle_spawner/apc/decrepit
 
 /datum/vehicle_order/apc/med
-	name = "M577-MED Armored Personnel Carrier"
+	name = "Медицинский бронетранспортер M577-MED"
 	ordered_vehicle = /obj/effect/vehicle_spawner/apc_med/decrepit
 
 /datum/vehicle_order/apc/cmd
-	name = "M577-CMD Armored Personnel Carrier"
+	name = "Командный бронетранспортер M577-CMD"
 	ordered_vehicle = /obj/effect/vehicle_spawner/apc_cmd/decrepit
 
 /datum/vehicle_order/apc/empty
-	name = "Barebones M577 Armored Personal Carrier"
+	name = "Разобранный бронетранспортер M577"
 	ordered_vehicle = /obj/effect/vehicle_spawner/apc/unarmed/broken
 
 /datum/vehicle_order/arc
-	name = "M540-B Armored Recon Carrier"
+	name = "Разведывательная бронемашина M540-B"
 	ordered_vehicle = /obj/effect/vehicle_spawner/arc
 
 /datum/vehicle_order/arc/has_vehicle_lock()
@@ -1477,12 +1484,12 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, "VehicleASRS", "Vehicle Elevator")
+		ui = new(user, src, "VehicleASRS", name)
 		ui.set_autoupdate(FALSE)
 		ui.open()
 
 /obj/structure/machinery/computer/supply/asrs/vehicle/allowed(mob/user)
-    return TRUE
+	return TRUE
 
 /obj/structure/machinery/computer/supply/asrs/vehicle/attack_hand(mob/user as mob)
 	if(..())
@@ -1495,50 +1502,105 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 	return attack_hand(user)
 
 
+/obj/structure/machinery/computer/supply/asrs/vehicle/ui_status(mob/user)
+	. = ..()
+	if(inoperable(MAINT))
+		return UI_CLOSE
+
+	// Проверяем, находится ли пользователь на соседнем тайле
+	if(!user.Adjacent(src))
+		return UI_CLOSE
+
+
 /obj/structure/machinery/computer/supply/asrs/vehicle/ui_state(mob/user)
-	return GLOB.always_state
+	return GLOB.not_incapacitated_and_adjacent_state
 
 
 /obj/structure/machinery/computer/supply/asrs/vehicle/ui_data(mob/user)
 	. = ..()
-
 	var/list/data = list()
-
 	var/turf/upper_turf = get_turf(SSshuttle.getDock("almayer vehicle"))
 
 	data["elevator_moving"] = SSshuttle.vehicle_elevator.mode != SHUTTLE_IDLE
 	data["elevator_raised"] = SSshuttle.vehicle_elevator.z == upper_turf.z
 
-	// Categories
+	// 1. ОПРЕДЕЛЯЕМ СОСТАВ ГРУПП
+	var/list/combat_cats = list("Тяжелая бронетехника", "Бронетранспортеры", "Бронеавтомобили")
+	var/list/logistics_cats = list("Логистическая техника")
+	var/list/special_cats = list("Разведка")
+
+	// 2. СЧИТАЕМ ОБЩИЙ РАСХОД ДЛЯ КАЖДОЙ ГРУППЫ
+	var/list/group_totals = list("Огневая поддержка" = 0, "Логистика" = 0, "Специальныя техника" = 0)
+
+	for(var/cat in combat_cats)
+		group_totals["Огневая поддержка"] += category_given[cat]
+	for(var/cat in logistics_cats)
+		group_totals["Логистика"] += category_given[cat]
+	for(var/cat in special_cats)
+		group_totals["Специальныя техника"] += category_given[cat]
+
+	// 3. ПОДГОТОВКА КАТЕГОРИЙ (СУБКАТЕГОРИЙ)
 	var/list/categories = list()
 	for(var/category in category_limits)
-		var/used = category_given[category]
-		var/limit = category_limits[category]
+		var/main_cat_name
+		var/used_value
+
+		if(category in combat_cats)
+			main_cat_name = "Боевая поддержка"
+			used_value = group_totals["Огневая поддержка"]
+		else if(category in logistics_cats)
+			main_cat_name = "Логистика"
+			used_value = group_totals["Логистика"]
+		else if(category in special_cats)
+			main_cat_name = "Спецтехника"
+			used_value = group_totals["Специальныя техника"]
+		else
+			main_cat_name = "Другое"
+			used_value = category_given[category]
+
 		categories += list(list(
 			"name" = capitalize(category),
-			"used" = used,
-			"limit" = limit
+			"used" = used_value,
+			"limit" = category_limits[category],
+			"main_category" = main_cat_name
 		))
 	data["categories"] = categories
 
-	// Vehicles
+	// 4. ПОДГОТОВКА СПИСКА ТЕХНИКИ
 	var/list/vehicle_list = list()
 	for(var/d in vehicles)
 		var/datum/vehicle_order/order = d
 		var/category = get_vehicle_category(order)
-		var/used = category_given[category]
+		
+		var/main_cat_name
+		var/used_value
+
+		if(category in combat_cats)
+			main_cat_name = "Боевая поддержка"
+			used_value = group_totals["Огневая поддержка"]
+		else if(category in logistics_cats)
+			main_cat_name = "Логистика"
+			used_value = group_totals["Логистика"]
+		else if(category in special_cats)
+			main_cat_name = "Спецтехника"
+			used_value = group_totals["Специальныя техника"]
+		else
+			main_cat_name = "Другое"
+			used_value = category_given[category]
+
 		var/limit = category_limits[category]
 
 		var/entry = list(
-		"id" = "\ref[order]",
-		"name" = order.name,
-		"category" = capitalize(category)
+			"id" = "\ref[order]",
+			"name" = order.name,
+			"category" = capitalize(category),
+			"main_category" = main_cat_name
 		)
 
 		if(order.has_vehicle_lock())
 			entry["locked"] = TRUE
 			entry["failure_message"] = order.failure_message
-		else if(used >= limit)
+		else if(used_value >= limit)
 			entry["limit_reached"] = TRUE
 		else if(!category_unlocked(category, src))
 			entry["category_locked"] = TRUE
@@ -1546,83 +1608,117 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 		vehicle_list += list(entry)
 
 	data["vehicles"] = vehicle_list
-
 	return data
 
 
 
 /obj/structure/machinery/computer/supply/asrs/vehicle/ui_act(action, params)
-	. = ..()
+    . = ..()
+    if(.) return
 
-	var/turf/upper_turf = get_turf(SSshuttle.getDock("almayer vehicle"))
-	var/turf/lower_turf = get_turf(SSshuttle.getDock("adminlevel vehicle"))
+    var/turf/upper_turf = get_turf(SSshuttle.getDock("almayer vehicle"))
+    var/turf/lower_turf = get_turf(SSshuttle.getDock("adminlevel vehicle"))
 
-	switch(action)
-		if("get_vehicle")
-			var/id = params["id"]
-			var/datum/vehicle_order/order = locate(id)
-			if(!(order in vehicles))
-				return
+    switch(action)
+        if("get_vehicle")
+            var/id = params["id"]
+            var/datum/vehicle_order/order = locate(id)
+            if(!(order in vehicles))
+                return
 
-			var/category = get_vehicle_category(order)
-			if(!category_unlocked(category, src))
-				to_chat(usr, SPAN_WARNING("[category] category not available yet!"))
-				return
-			
-			if(!category_has_access(usr, category, src))
-				to_chat(usr, SPAN_WARNING("You don't have access to this vehicle category!"))
-				return
+            var/category = get_vehicle_category(order)
 
-			var/used = category_given[category]
-			var/limit = category_limits[category]
-			if(used >= limit)
-				to_chat(usr, SPAN_WARNING("Vehicle limit reached for [category]!"))
-				return
+            // --- ЛОГИКА ГРУПП (Сохранена из вашей новой версии) ---
+            var/list/combat_cats = list("Тяжелая бронетехника", "Бронетранспортеры", "Бронеавтомобили")
+            var/list/logistics_cats = list("Логистическая техника")
+            var/list/special_cats = list("Разведка")
 
-			if(SSshuttle.vehicle_elevator.z != lower_turf.z || SSshuttle.vehicle_elevator.mode != SHUTTLE_IDLE)
-				to_chat(usr, SPAN_WARNING("The elevator must be lowered to retrieve a vehicle!"))
-				return
+            var/list/current_group_list
+            if(category in combat_cats)
+                current_group_list = combat_cats
+            else if(category in logistics_cats)
+                current_group_list = logistics_cats
+            else if(category in special_cats)
+                current_group_list = special_cats
 
-			category_given[category] = used + 1
+            var/total_group_used = 0
+            if(current_group_list)
+                for(var/cat in current_group_list)
+                    total_group_used += category_given[cat]
+            else
+                total_group_used = category_given[category]
 
-			var/turf/spawn_turf = lower_turf
-			var/obj/vehicle/multitile/ordered_vehicle = new order.ordered_vehicle(spawn_turf)
-			to_chat(usr, SPAN_NOTICE("[order.name] retrieved. [limit - category_given[category]] remaining in [category] category."))
+            if(total_group_used >= category_limits[category])
+                to_chat(usr, SPAN_WARNING("Лимит для данной группы техники ([category]) исчерпан!"))
+                return
+            // -------------------------------------------------------
 
-			SSshuttle.vehicle_elevator.request(SSshuttle.getDock("almayer vehicle"))
-			order.on_created(ordered_vehicle)
-			SEND_GLOBAL_SIGNAL(COMSIG_GLOB_VEHICLE_ORDERED, ordered_vehicle)
-			SStgui.update_uis(src)
-			// через 10 секунд — обновляем ещё раз, когда лифт, скорее всего, доехал
-			spawn(102)
-				SStgui.update_uis(src)
+            if(!category_unlocked(category, src))
+                to_chat(usr, SPAN_WARNING("Эта категория еще заблокирована!"))
+                return
 
-		if("raise_elevator")
-			if(SSshuttle.vehicle_elevator.z == upper_turf.z)
-				to_chat(usr, SPAN_WARNING("The elevator is already raised!"))
-				return
-			SSshuttle.vehicle_elevator.request(SSshuttle.getDock("almayer vehicle"))
-			to_chat(usr, SPAN_NOTICE("Elevator raising..."))
-			SStgui.update_uis(src)
-			// через 10 секунд — обновляем ещё раз, когда лифт, скорее всего, доехал
-			spawn(102)
-				SStgui.update_uis(src)
+            if(!category_has_access(usr, category, src))
+                to_chat(usr, SPAN_WARNING("У вас нет прав для управления этой техникой!"))
+                return
 
-		if("lower_elevator")
-			if(!is_mainship_level(SSshuttle.vehicle_elevator.z))
-				return
+            // Лифт должен быть ВНИЗУ для выдачи
+            if(SSshuttle.vehicle_elevator.z != lower_turf.z || SSshuttle.vehicle_elevator.mode != SHUTTLE_IDLE)
+                to_chat(usr, SPAN_WARNING("Лифт должен находиться внизу в режиме ожидания!"))
+                return
 
-			if(vehicle_elevator_safety_check(get_area(SSshuttle.vehicle_elevator)))
-				to_chat(usr, SPAN_WARNING("Система безопасности не может позволить вам оставить на лифте живые организмы или транспорт."))
-				return
+            // ВЫДАЧА
+            category_given[category]++ 
+            var/obj/vehicle/multitile/ordered_vehicle = new order.ordered_vehicle(lower_turf)
+            to_chat(usr, SPAN_NOTICE("Запрос на [order.name] принят. Техника загружается на платформу."))
 
-			if(SSshuttle.vehicle_elevator.z == lower_turf.z)
-				to_chat(usr, SPAN_WARNING("The elevator is already lowered!"))
-				return
+            // Автоматическая отправка лифта наверх
+            SSshuttle.vehicle_elevator.request(SSshuttle.getDock("almayer vehicle"))
 
-			SSshuttle.vehicle_elevator.request(SSshuttle.getDock("adminlevel vehicle"))
-			to_chat(usr, SPAN_NOTICE("Elevator lowering..."))
-			SStgui.update_uis(src)
-			// через 10 секунд — обновляем ещё раз, когда лифт, скорее всего, доехал
-			spawn(102)
-				SStgui.update_uis(src)
+            order.on_created(ordered_vehicle)
+            SEND_GLOBAL_SIGNAL(COMSIG_GLOB_VEHICLE_ORDERED, ordered_vehicle)
+
+            SStgui.update_uis(src)
+            spawn(102)
+                SStgui.update_uis(src)
+            return TRUE
+
+        if("raise_elevator")
+            if(SSshuttle.vehicle_elevator.mode != SHUTTLE_IDLE)
+                return
+            if(SSshuttle.vehicle_elevator.z == upper_turf.z)
+                to_chat(usr, SPAN_WARNING("Лифт уже поднят!"))
+                return
+            
+            SSshuttle.vehicle_elevator.request(SSshuttle.getDock("almayer vehicle"))
+            to_chat(usr, SPAN_NOTICE("Лифт поднимается..."))
+            
+            SStgui.update_uis(src)
+            spawn(102)
+                SStgui.update_uis(src)
+            return TRUE
+
+        if("lower_elevator")
+            if(SSshuttle.vehicle_elevator.mode != SHUTTLE_IDLE)
+                return
+            
+            // Проверка: лифт должен быть на уровне корабля (Z-level)
+            if(!is_mainship_level(SSshuttle.vehicle_elevator.z))
+                return
+
+            // ПРОВЕРКА БЕЗОПАСНОСТИ (из старой версии)
+            // Не дает раздавить людей или оставить технику на платформе при спуске в "пустоту"
+            if(vehicle_elevator_safety_check(get_area(SSshuttle.vehicle_elevator)))
+                to_chat(usr, SPAN_WARNING("Система безопасности: очистите платформу от живых организмов и транспорта перед спуском!"))
+                return
+
+            if(SSshuttle.vehicle_elevator.z == lower_turf.z)
+                to_chat(usr, SPAN_WARNING("Лифт уже опущен!"))
+                return
+
+            SSshuttle.vehicle_elevator.request(SSshuttle.getDock("adminlevel vehicle"))
+            to_chat(usr, SPAN_NOTICE("Лифт опускается..."))
+            
+            SStgui.update_uis(src)
+            spawn(102)
+                SStgui.update_uis(src)
+            return TRUE

@@ -1,20 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useBackend } from 'tgui/backend';
-import {
-  Box,
-  Button,
-  Icon,
-  NoticeBox,
-  ProgressBar,
-  Section,
-  Stack,
-} from 'tgui/components';
+import { Box, Button, Icon, NoticeBox, Section, Stack } from 'tgui/components';
 import { Window } from 'tgui/layouts';
 
 type Vehicle = {
   id: string;
   name: string;
   category: string;
+  main_category: string;
+  description?: string;
   locked?: boolean;
   failure_message?: string;
   limit_reached?: boolean;
@@ -25,10 +19,11 @@ type CategoryInfo = {
   name: string;
   used: number;
   limit: number;
+  main_category: string;
 };
 
 type Data = {
-  elevator_moving: boolean | number; // BYOND присылает 0 или 1
+  elevator_moving: boolean | number;
   elevator_raised: boolean | number;
   categories: CategoryInfo[];
   vehicles: Vehicle[];
@@ -47,6 +42,16 @@ export const VehicleASRS = (props) => {
 
   const filteredVehicles = vehicles.filter(
     (v) => v.category === selectedCategory,
+  );
+
+  // Группируем категории по их главной группе (main_category)
+  const groupedCategories = categories.reduce(
+    (acc, cat) => {
+      if (!acc[cat.main_category]) acc[cat.main_category] = [];
+      acc[cat.main_category].push(cat);
+      return acc;
+    },
+    {} as Record<string, CategoryInfo[]>,
   );
 
   useEffect(() => {
@@ -71,52 +76,76 @@ export const VehicleASRS = (props) => {
   }, [elevator_moving]);
 
   return (
-    <Window width={520} height={600}>
+    <Window width={520} height={550}>
       <Window.Content>
         <Stack fill vertical>
           <Stack.Item grow>
-            {/* РЕЖИМ 1: СПИСОК КАТЕГОРИЙ */}
             {!selectedCategory ? (
               <Section title="СИСТЕМА ХРАНЕНИЯ (ASRS)" fill scrollable>
                 <NoticeBox info mb={2}>
-                  Выберите категорию для запроса техники. Следите за лимитами
-                  развертывания.
+                  Выберите категорию для запроса техники. Обратите внимание, что
+                  категории используют общий лимит группы.
                 </NoticeBox>
                 <Stack vertical>
-                  {categories.map((cat) => {
-                    const isFull = cat.used >= cat.limit;
-                    return (
-                      <Button
-                        key={cat.name}
-                        fluid
-                        height="36px"
-                        onClick={() => setSelectedCategory(cat.name)}
+                  {Object.entries(groupedCategories).map(
+                    ([mainCatName, cats]) => (
+                      <Box
+                        key={mainCatName}
+                        mb={2}
+                        p={1}
+                        backgroundColor="rgba(0,0,0,0.1)"
                       >
-                        <Stack align="center" fill>
-                          <Stack.Item grow>
-                            <Icon name="folder" mr={1} opacity={0.7} />
-                            <b>{cat.name.toUpperCase()}</b>
-                          </Stack.Item>
-                          <Stack.Item>
-                            <Box color={isFull ? 'bad' : 'good'} bold>
-                              [{cat.used} / {cat.limit}]
-                            </Box>
-                          </Stack.Item>
-                          <Stack.Item>
-                            <Icon name="chevron-right" opacity={0.5} />
-                          </Stack.Item>
-                        </Stack>
-                      </Button>
-                    );
-                  })}
+                        <Box bold color="label" mb={1} fontSize="14px">
+                          <Icon name="layer-group" mr={1} />
+                          ГРУППА: {mainCatName.toUpperCase()}
+                        </Box>
+                        {cats.map((cat) => {
+                          const isFull = cat.used >= cat.limit;
+                          return (
+                            <Button
+                              key={cat.name}
+                              fluid
+                              mb={1}
+                              height="38px"
+                              onClick={() => setSelectedCategory(cat.name)}
+                            >
+                              <Stack align="center" fill height="100%">
+                                <Stack.Item grow>
+                                  <Icon name="folder" mr={1} opacity={0.7} />
+                                  <Box as="span" bold fontSize="14px">
+                                    {cat.name}
+                                  </Box>
+                                </Stack.Item>
+                                <Stack.Item>
+                                  <Box color={isFull ? 'bad' : 'good'} bold>
+                                    <Icon
+                                      name={
+                                        isFull ? 'times-circle' : 'check-circle'
+                                      }
+                                      mr={1}
+                                    />
+                                    {isFull
+                                      ? 'Лимит группы'
+                                      : `Использовано: ${cat.used}/${cat.limit}`}
+                                  </Box>
+                                </Stack.Item>
+                                <Stack.Item>
+                                  <Icon name="chevron-right" opacity={0.5} />
+                                </Stack.Item>
+                              </Stack>
+                            </Button>
+                          );
+                        })}
+                      </Box>
+                    ),
+                  )}
                 </Stack>
               </Section>
             ) : null}
 
-            {/* РЕЖИМ 2: ВЫБРАННАЯ КАТЕГОРИЯ */}
             {selectedCategory ? (
               <Section
-                title={`КАТЕГОРИЯ: ${selectedCategory.toUpperCase()}`}
+                title={`КАТЕГОРИЯ: ${selectedCategory}`}
                 fill
                 scrollable
                 buttons={
@@ -143,26 +172,35 @@ export const VehicleASRS = (props) => {
                         <Box
                           key={v.id}
                           mb={1}
-                          p={1}
+                          p={1.5}
                           backgroundColor="rgba(0,0,0,0.2)"
                         >
                           <Stack align="center">
                             <Stack.Item grow>
-                              <Box bold fontSize="13px">
-                                <Icon name="truck" mr={1} opacity={0.7} />
-                                {v.name.toUpperCase()}
+                              <Box bold fontSize="14px">
+                                <Icon name="box" mr={1} opacity={0.7} />
+                                <Box as="span" mr={1}>
+                                  {v.name}
+                                </Box>
                               </Box>
-                              {v.locked ? (
-                                <Box color="bad" fontSize="11px" mt={0.5}>
-                                  <Icon name="exclamation-triangle" mr={0.5} />
-                                  {v.failure_message}
+                              {v.locked && (
+                                <Box color="bad" fontSize="12px" mt={0.5}>
+                                  <Icon name="exclamation-triangle" mr={0.5} />В
+                                  ремонте или недоступно
                                 </Box>
-                              ) : null}
-                              {v.limit_reached ? (
-                                <Box color="average" fontSize="11px" mt={0.5}>
-                                  ДОСТИГНУТ ЛИМИТ РАЗВЕРТЫВАНИЯ
+                              )}
+                              {v.category_locked && (
+                                <Box color="average" fontSize="12px" mt={0.5}>
+                                  <Icon name="users-slash" mr={0.5} />
+                                  НЕДОСТУПНО
                                 </Box>
-                              ) : null}
+                              )}
+                              {v.limit_reached && (
+                                <Box color="average" fontSize="12px" mt={0.5}>
+                                  <Icon name="ban" mr={0.5} />
+                                  ИСЧЕРПАН ЛИМИТ ГРУППЫ ({v.main_category})
+                                </Box>
+                              )}
                             </Stack.Item>
                             <Stack.Item>
                               <Button
@@ -184,11 +222,9 @@ export const VehicleASRS = (props) => {
             ) : null}
           </Stack.Item>
 
-          {/* НИЖНЯЯ ЧАСТЬ: СТАТИЧНАЯ ПАНЕЛЬ ЛИФТА */}
           <Stack.Item>
             <Section title="УПРАВЛЕНИЕ ТРАНСПОРТНОЙ ПЛАТФОРМОЙ">
               <Stack align="center">
-                {/* Левая сторона: Статус */}
                 <Stack.Item grow>
                   <Box fontSize="14px" color="label">
                     <Icon
@@ -212,13 +248,12 @@ export const VehicleASRS = (props) => {
                   </Box>
                 </Stack.Item>
 
-                {/* Правая сторона: Кнопка */}
                 <Stack.Item>
                   <Button
                     width="220px"
                     height="40px"
-                    lineHeight="38px" // Выравнивание по вертикали
-                    textAlign="center" // Выравнивание по горизонтали
+                    lineHeight="38px"
+                    textAlign="center"
                     fontSize="13px"
                     bold
                     color={elevator_moving ? 'green' : 'green'}
@@ -234,13 +269,6 @@ export const VehicleASRS = (props) => {
                   </Button>
                 </Stack.Item>
               </Stack>
-
-              {/* Прогресс-бар появляется только при движении (Избавились от нуля!) */}
-              {elevator_moving ? (
-                <Box mt={2}>
-                  <ProgressBar value={progress} color="average" />
-                </Box>
-              ) : null}
             </Section>
           </Stack.Item>
         </Stack>
