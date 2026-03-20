@@ -44,7 +44,6 @@ export const VehicleASRS = (props) => {
     (v) => v.category === selectedCategory,
   );
 
-  // Группируем категории по их главной группе (main_category)
   const groupedCategories = categories.reduce(
     (acc, cat) => {
       if (!acc[cat.main_category]) acc[cat.main_category] = [];
@@ -88,19 +87,49 @@ export const VehicleASRS = (props) => {
                 </NoticeBox>
                 <Stack vertical>
                   {Object.entries(groupedCategories).map(
-                    ([mainCatName, cats]) => (
+                    ([mainCatName, cats]) => {
+                      const groupLimitInfo = cats[0];
+                      const isGroupFull =
+                        groupLimitInfo.used >= groupLimitInfo.limit;
+
+                      return (
                       <Box
                         key={mainCatName}
                         mb={2}
                         p={1}
                         backgroundColor="rgba(0,0,0,0.1)"
                       >
-                        <Box bold color="label" mb={1} fontSize="14px">
+                          <Stack align="center" mb={1}>
+                            <Stack.Item grow>
+                              <Box bold color="label" fontSize="14px">
                           <Icon name="layer-group" mr={1} />
                           ГРУППА: {mainCatName.toUpperCase()}
                         </Box>
+                            </Stack.Item>
+                            <Stack.Item>
+                              <Box color="label" bold fontSize="12px">
+                                <Icon
+                                  name={isGroupFull ? 'lock' : 'unlock'}
+                                  mr={1}
+                                />
+                                {isGroupFull
+                                  ? 'Резервы исчерпаны'
+                                  : `Резервы доступны`}
+                              </Box>
+                            </Stack.Item>
+                          </Stack>
+
                         {cats.map((cat) => {
-                          const isFull = cat.used >= cat.limit;
+                            const hasAvailableVehicles = vehicles.some(
+                              (v) =>
+                                v.category === cat.name &&
+                                !v.locked &&
+                                !v.limit_reached &&
+                                !v.category_locked,
+                            );
+                            const isFull =
+                              cat.used >= cat.limit || !hasAvailableVehicles;
+
                           return (
                             <Button
                               key={cat.name}
@@ -117,27 +146,34 @@ export const VehicleASRS = (props) => {
                                   </Box>
                                 </Stack.Item>
                                 <Stack.Item>
-                                  <Box color={isFull ? 'bad' : 'good'} bold>
+                                    <Box
+                                      color={isFull ? 'label' : 'text'}
+                                      opacity={0.8}
+                                      bold
+                                    >
                                     <Icon
                                       name={
-                                        isFull ? 'times-circle' : 'check-circle'
+                                          isFull ? 'minus-circle' : 'circle'
                                       }
                                       mr={1}
                                     />
-                                    {isFull
-                                      ? 'Лимит группы'
-                                      : `Использовано: ${cat.used}/${cat.limit}`}
+                                      {isFull ? 'Недоступно' : 'Доступно'}
                                   </Box>
                                 </Stack.Item>
                                 <Stack.Item>
-                                  <Icon name="chevron-right" opacity={0.5} />
+                                    <Icon
+                                      name="chevron-right"
+                                      opacity={0.5}
+                                      ml={1}
+                                    />
                                 </Stack.Item>
                               </Stack>
                             </Button>
                           );
                         })}
                       </Box>
-                    ),
+                      );
+                    },
                   )}
                 </Stack>
               </Section>
@@ -198,7 +234,7 @@ export const VehicleASRS = (props) => {
                               {v.limit_reached && (
                                 <Box color="average" fontSize="12px" mt={0.5}>
                                   <Icon name="ban" mr={0.5} />
-                                  ИСЧЕРПАН ЛИМИТ ГРУППЫ ({v.main_category})
+                                  Исчерпан лимит ({v.main_category})
                                 </Box>
                               )}
                             </Stack.Item>
@@ -227,18 +263,16 @@ export const VehicleASRS = (props) => {
               <Stack align="center">
                 <Stack.Item grow>
                   <Box fontSize="14px" color="label">
+                    <Box mb={1}>
                     <Icon
                       name={elevator_moving ? 'cog' : 'server'}
                       spin={!!elevator_moving}
                       mr={1}
                       color={elevator_moving ? 'average' : 'good'}
                     />
-                    СТАТУС ПЛАТФОРМЫ:{' '}
-                    <Box
-                      as="span"
-                      bold
-                      color={elevator_moving ? 'average' : 'white'}
-                    >
+                      СТАТУС ПЛАТФОРМЫ:
+                    </Box>
+                    <Box bold color={elevator_moving ? 'average' : 'white'}>
                       {elevator_moving
                         ? `ТРАНСПОРТИРОВКА${dots}`
                         : elevator_raised
@@ -256,7 +290,7 @@ export const VehicleASRS = (props) => {
                     textAlign="center"
                     fontSize="13px"
                     bold
-                    color={elevator_moving ? 'green' : 'green'}
+                    color="green"
                     disabled={!!elevator_moving}
                     onClick={() =>
                       act(elevator_raised ? 'lower_elevator' : 'raise_elevator')
