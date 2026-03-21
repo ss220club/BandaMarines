@@ -1,17 +1,9 @@
 // Минимальное количество игроков для открытия категорий
-<<<<<<< HEAD
-#define MIN_PLAYERS_HEAVY_SUPPORT   65
-#define MIN_PLAYERS_MEDIUM_SUPPORT  65
-#define MIN_PLAYERS_LIGHT_SUPPORT   40
-#define MIN_PLAYERS_LIGHT_RECON      1
-#define MIN_PLAYERS_LIGHT_VEHICLE   40
-=======
 #define MIN_PLAYERS_HEAVY_SUPPORT 65
 #define MIN_PLAYERS_MEDIUM_SUPPORT 65
 #define MIN_PLAYERS_LIGHT_SUPPORT 30
 #define MIN_PLAYERS_LIGHT_RECON 1
 #define MIN_PLAYERS_LIGHT_VEHICLE 40
->>>>>>> humvee
 
 // Лимиты на количество техники по категориям
 #define LIMIT_HEAVY_SUPPORT_VEHICLES   1
