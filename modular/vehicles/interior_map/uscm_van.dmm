@@ -61,7 +61,6 @@
 /obj/effect/vehicle_roof/uscm_van{
 	icon_state = "roof_3"
 	},
-/obj/item/pamphlet/skill/vc/low,
 /obj/effect/landmark/interior/spawn/interior_viewport/simple{
 	pixel_y = 35
 	},
@@ -176,7 +175,6 @@
 /obj/effect/vehicle_roof/uscm_van{
 	icon_state = "roof_2"
 	},
-/obj/item/pamphlet/skill/vc/low,
 /obj/structure/machinery/cm_vending/sorted/vehicle_supply{
 	pixel_y = 26;
 	pixel_x = 3

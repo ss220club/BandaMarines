@@ -1,5 +1,6 @@
 import type { Channel } from './ChannelIterator';
 import {
+  LANGUAGE_PREFIXES,
   LIVING_TYPES,
   type LivingType,
   RADIO_PREFIXES,
@@ -62,26 +63,84 @@ export const isSynth = (type: LivingType) => type === LIVING_TYPES.SYNTH;
 export const isYautja = (type: LivingType) => type === LIVING_TYPES.YAUTJA;
 
 const CHANNEL_REGEX = /^[:.#№][\wА-яёЁ]\s/;
+const LANGUAGE_REGEX = /^![\wА-яёЁ]\s/;
 
 function normalizeRadioPrefixes(input: string): string {
-  return RADIO_PREFIXES_MAP[input] ?? input;
+  const radioSymbol = input.slice(0, 1);
+  const radioKey = input.slice(1, 2);
+  const normalizedRadioKey = RADIO_PREFIXES_MAP[radioKey] || radioKey;
+
+  return radioSymbol + normalizedRadioKey + ' ';
 }
 
 /** Tests for a channel prefix, returning it or none */
-export function getPrefix(value: string): keyof typeof RADIO_PREFIXES | null {
-  if (!value || value.length < 3 || !CHANNEL_REGEX.test(value)) {
+export function getPrefix(
+  value: string,
+): keyof typeof RADIO_PREFIXES | keyof typeof LANGUAGE_PREFIXES | null {
+  if (!value || value.length < 3) {
     return null;
   }
 
-  const adjusted = normalizeRadioPrefixes(
-    value.slice(0, 3)?.toLowerCase()?.replace('.', ':'),
-    //      ?.replace('#', ':')
-    //      ?.replace('№', ':'),
-  ) as keyof typeof RADIO_PREFIXES;
+  const rawPrefix = value.slice(0, 3)?.toLowerCase();
+  const isRadioPrefix = CHANNEL_REGEX.test(value);
+  const isLanguagePrefix = LANGUAGE_REGEX.test(value);
+  const adjusted = isRadioPrefix
+    ? normalizeRadioPrefixes(rawPrefix)
+    : rawPrefix;
 
-  if (!RADIO_PREFIXES[adjusted]) {
+  if (isLanguagePrefix) {
+    return LANGUAGE_PREFIXES[adjusted as keyof typeof LANGUAGE_PREFIXES]
+      ? (adjusted as keyof typeof LANGUAGE_PREFIXES)
+      : null;
+  }
+
+  if (
+    !isRadioPrefix ||
+    !RADIO_PREFIXES[adjusted as keyof typeof RADIO_PREFIXES]
+  ) {
     return null;
   }
 
-  return adjusted;
+  return adjusted as keyof typeof RADIO_PREFIXES;
+}
+
+export type RadioPrefixType = keyof typeof RADIO_PREFIXES;
+export type LanguagePrefixType = keyof typeof LANGUAGE_PREFIXES;
+export type PrefixType = RadioPrefixType | LanguagePrefixType;
+
+export type PrefixData = {
+  id: string | null;
+  label: string;
+};
+
+export function isLanguagePrefix(
+  prefix: PrefixType,
+): prefix is LanguagePrefixType {
+  return !!LANGUAGE_PREFIXES[prefix as LanguagePrefixType];
+}
+
+export function resolvePrefixData(
+  prefix: PrefixType | null,
+): PrefixData | null {
+  if (!prefix) {
+    return null;
+  }
+
+  if (LANGUAGE_PREFIXES[prefix as LanguagePrefixType]) {
+    const data = LANGUAGE_PREFIXES[prefix as LanguagePrefixType];
+    return {
+      id: data.id,
+      label: data.label,
+    };
+  }
+
+  if (RADIO_PREFIXES[prefix as RadioPrefixType]) {
+    const data = RADIO_PREFIXES[prefix as RadioPrefixType];
+    return {
+      id: data.id,
+      label: data.label,
+    };
+  }
+
+  return null;
 }
