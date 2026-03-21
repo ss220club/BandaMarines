@@ -1,7 +1,7 @@
 // Минимальное количество игроков для открытия категорий
 #define MIN_PLAYERS_HEAVY_SUPPORT 65
 #define MIN_PLAYERS_MEDIUM_SUPPORT 65
-#define MIN_PLAYERS_LIGHT_SUPPORT 40
+#define MIN_PLAYERS_LIGHT_SUPPORT 30
 #define MIN_PLAYERS_LIGHT_RECON 1
 #define MIN_PLAYERS_LIGHT_VEHICLE 40
 
@@ -135,3 +135,8 @@
 			return FALSE
 
 	return TRUE
+
+// памплеты в карго
+/obj/structure/machinery/cm_vending/sorted/cargo_guns/populate_product_list(scale)
+	. = ..()
+	LAZYINSERT(listed_products, list(list("Vehicle Pamphlet", (2), /obj/item/pamphlet/skill/vc/low, VENDOR_ITEM_REGULAR)), 128)
