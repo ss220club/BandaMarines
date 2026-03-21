@@ -325,6 +325,8 @@
 /mob/living/proc/is_xeno_grabbable()
 	if(stat == DEAD)
 		return FALSE
+	if(status_flags & INCORPOREAL)
+		return FALSE
 
 	return TRUE
 

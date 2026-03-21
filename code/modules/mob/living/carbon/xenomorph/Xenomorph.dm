@@ -152,6 +152,7 @@
 	var/show_age_prefix = TRUE
 	var/show_name_numbers = TRUE
 	var/show_only_numbers = FALSE
+	var/static_name = FALSE
 	var/evolution_stored = 0 //How much evolution they have stored
 	var/evolution_threshold = 200
 	var/tier = 1 //This will track their "tier" to restrict/limit evolutions
@@ -381,7 +382,11 @@
 
 	//putting the organ in for research
 	if(organ_value != 0)
-		var/obj/item/organ/xeno/organ = new() //give
+		var/obj/item/organ/xeno/organ //give
+		if(hivenumber == XENO_HIVE_PATHOGEN)
+			organ = new /obj/item/organ/xeno/pathogen()
+		else
+			organ = new()
 		organ.forceMove(src)
 		organ.research_value = organ_value
 		organ.caste_origin = caste_type
@@ -544,6 +549,8 @@
 
 /mob/living/carbon/xenomorph/proc/handle_screech_act(mob/self, mob/living/carbon/xenomorph/queen/queen)
 	SIGNAL_HANDLER
+	if(tier == 4 || is_hive_ruler())
+		return COMPONENT_SCREECH_ACT_CANCEL
 	if(queen.can_not_harm(src))
 		return COMPONENT_SCREECH_ACT_CANCEL
 
@@ -553,8 +560,12 @@
 	if(!flags)
 		flags = get_minimap_flag_for_faction(hivenumber)
 
+	var/icon_file = 'icons/ui_icons/map_blips.dmi'
+	if(hivenumber == XENO_HIVE_PATHOGEN)
+		icon_file = 'icons/mob/pathogen/neo_blips.dmi'
+
 	var/image/background = image('icons/ui_icons/map_blips.dmi', null, caste.minimap_background)
-	var/image/xeno = image('icons/ui_icons/map_blips.dmi', null, caste.minimap_icon)
+	var/image/xeno = image(icon_file, null, caste.minimap_icon)
 	background.overlays += xeno
 	if(IS_XENO_LEADER(src))
 		var/image/overlay = image('icons/ui_icons/map_blips.dmi', null, "xenoleader")
@@ -789,6 +800,8 @@
 
 	if(HAS_TRAIT(src,TRAIT_ABILITY_BURROWED))
 		return
+	if(status_flags & INCORPOREAL)
+		return FALSE //Incorporeal things can't grab or be grabbed.
 	if(!isliving(AM))
 		return FALSE
 	var/mob/living/L = AM
@@ -859,6 +872,10 @@
 	var/datum/mob_hud/MH = GLOB.huds[MOB_HUD_XENO_INFECTION]
 	MH.add_hud_to(src, src)
 
+	if(is_pathogen_creature(src))
+		MH = GLOB.huds[MOB_HUD_MYCOTOXIN]
+		MH.add_hud_to(src, src)
+
 // Transfer any observing players over to the xeno's new body (`target`) on evolve/de-evolve.
 /mob/living/carbon/xenomorph/transfer_observers_to(atom/target)
 	for(var/mob/dead/observer/observer as anything in observers)
@@ -905,6 +922,9 @@
 
 	// Update the hive status UI
 	new_hive.hive_ui.update_all_xeno_data()
+
+	if(new_hivenumber == XENO_HIVE_PATHOGEN)
+		make_pathogen_speaker()
 
 	return TRUE
 
@@ -1101,6 +1121,8 @@
 		SPAN_NOTICE("We extinguish ourselves."), null, 5)
 
 /mob/living/carbon/xenomorph/proc/get_organ_icon()
+	if(hivenumber == XENO_HIVE_PATHOGEN)
+		return "m_heart_t[tier]"
 	return "heart_t[tier]"
 
 /mob/living/carbon/xenomorph/resist_restraints()

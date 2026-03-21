@@ -23,23 +23,34 @@
 	if(!client.prefs.playtime_perks)
 		age = XENO_NORMAL
 
-	/* BANDASTATION EDIT START - Age Prefixes
-	switch(age)
-		if(XENO_YOUNG)
-			age_prefix = "Young "
-		if(XENO_NORMAL)
-			age_prefix = ""
-		if(XENO_MATURE)
-			age_prefix = "Mature "
-		if(XENO_ELDER)
-			age_prefix = "Elder "
-		if(XENO_ANCIENT)
-			age_prefix = "Ancient "
-		if(XENO_PRIME)
-			age_prefix = "Prime "
-	*/
-	age_prefix = caste.get_age_prefix(age)
-	// BANDASTATION EDIT END
+	if(hivenumber == XENO_HIVE_PATHOGEN)
+		switch(age)
+			if(XENO_YOUNG)
+				age_prefix = "Fresh "
+			if(XENO_NORMAL)
+				age_prefix = ""
+			if(XENO_MATURE)
+				age_prefix = "Scarred "
+			if(XENO_ELDER)
+				age_prefix = "Enduring "
+			if(XENO_ANCIENT)
+				age_prefix = "Apex "
+			if(XENO_PRIME)
+				age_prefix = "Centennial "
+	else
+		switch(age)
+			if(XENO_YOUNG)
+				age_prefix = "Молодой "
+			if(XENO_NORMAL)
+				age_prefix = ""
+			if(XENO_MATURE)
+				age_prefix = "Взрослый "
+			if(XENO_ELDER)
+				age_prefix = "Старший "
+			if(XENO_ANCIENT)
+				age_prefix = "Древний "
+			if(XENO_PRIME)
+				age_prefix = "Прайм "
 
 	hud_update() //update the age level insignia on our xeno hud.
 
