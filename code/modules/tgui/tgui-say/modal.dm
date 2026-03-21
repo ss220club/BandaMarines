@@ -46,7 +46,7 @@
 	var/list/availableChannels = list()
 	var/livingType
 	var/last_channels_update = 0
-	var/channels_update_cooldown = 120 SECONDS
+	var/channels_update_cooldown = 10 SECONDS
 	// SS220 END TGUI CHAT EADDICTION
 
 /** Creates the new input window to exist in the background. */
