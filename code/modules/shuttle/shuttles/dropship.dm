@@ -171,7 +171,7 @@
 	if(automated_hangar_id && automated_lz_id && automated_delay && !automated_timer && mode == SHUTTLE_IDLE)
 		var/obj/docking_port/stationary/marine_dropship/docked_at = get_docked()
 		if(faction == FACTION_MARINE)
-			ai_silent_announcement("The [name] will automatically depart from [docked_at.name] in [automated_delay * 0.1] seconds.")
+			ai_silent_announcement("Автоматическое отправление дропшипа '[name]' с [docked_at.name] осуществлится через [automated_delay * 0.1] секунд.")
 
 		automated_timer = addtimer(CALLBACK(src, PROC_REF(automated_fly)), automated_delay, TIMER_STOPPABLE)
 
@@ -188,7 +188,7 @@
 	var/target_id = (docked_at?.id == automated_hangar_id) ? automated_lz_id : automated_hangar_id
 	SSshuttle.moveShuttle(id, target_id, TRUE)
 	if(faction == FACTION_MARINE)
-		ai_silent_announcement("Dropship '[name]' departing from [docked_at.name].")
+		ai_silent_announcement("Осуществляется вылет дропшипа '[name]' с [docked_at.name], будьте осторожны.")
 
 /obj/docking_port/stationary/marine_dropship
 	dir = NORTH
@@ -261,7 +261,7 @@
 		SSticker.mode.flags_round_type |= MODE_DS_LANDED
 
 	if(xeno_announce)
-		xeno_announcement(SPAN_XENOANNOUNCE("The dropship has landed."), "everything")
+		xeno_announcement(SPAN_XENOANNOUNCE("Корабль-носитель приземлился."), "everything")
 		xeno_announce = FALSE
 
 	for(var/obj/structure/dropship_equipment/eq as anything in dropship.equipments)

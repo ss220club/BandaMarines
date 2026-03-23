@@ -264,7 +264,7 @@
 	user.forceMove(loc)
 	user.apply_effect(2, STUN)
 	if(user.mobility_flags & MOBILITY_MOVE)
-		user.visible_message(SPAN_WARNING("[user] suddenly climbs out of [src]!"),
+		user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] suddenly climbs out of [src]!"),
 		SPAN_WARNING("You climb out of [src] and get your bearings!"))
 		update()
 
@@ -819,7 +819,7 @@
 			//Check if anything changed over 2 seconds
 			var/turf/uloc = user.loc
 			var/atom/wloc = W.loc
-			user.visible_message(SPAN_NOTICE("[user] starts slicing [src]."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts slicing [src]."),
 			SPAN_NOTICE("You start slicing [src]."))
 			sleep(30)
 			if(!W.isOn())
@@ -1315,7 +1315,7 @@
 			//Check if anything changed over 2 seconds
 			var/turf/uloc = user.loc
 			var/atom/wloc = W.loc
-			user.visible_message(SPAN_NOTICE("[user] starts slicing [src]."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts slicing [src]."),
 			SPAN_NOTICE("You start slicing [src]."))
 			sleep(30)
 			if(!W.isOn())
