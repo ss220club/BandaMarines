@@ -132,7 +132,7 @@
 					else
 						ghostrend = SPAN_XENO("Разум улья, [declent_ru(NOMINATIVE)][track] [ru_say_verb("hisses")], <span class='normal'>'[sanitize_tts_symbols(message)]'</span>")
 					S.show_message(ghostrend, SHOW_MESSAGE_AUDIBLE)
-					cast_tts(S, message, S, is_local = FALSE, is_radio = FALSE, additional_effects = list(/datum/singleton/sound_effect/telepathy), tts_channel_override = CHANNEL_TTS_HIVEMIND) // BANDAMARINES EDIT ADD - TTS
+					cast_tts(S, message, S, is_local = FALSE, additional_effects = list(/datum/singleton/sound_effect/telepathy), tts_channel_override = CHANNEL_TTS_HIVEMIND) // BANDAMARINES EDIT ADD - TTS
 
 			else if(hive.hivenumber == xeno_hivenumber(S) || hive.hivenumber == hear_hivemind)
 				if(isxeno(src) && isxeno(S))
@@ -146,4 +146,4 @@
 					rendered = SPAN_XENO("Разум улья, [declent_ru(NOMINATIVE)][overwatch_insert] [ru_say_verb("hisses")], <span class='normal'>'[sanitize_tts_symbols(message)]'</span>")
 
 				S.show_message(rendered, SHOW_MESSAGE_AUDIBLE)
-				cast_tts(S, message, S, is_local = FALSE, is_radio = FALSE, additional_effects = list(/datum/singleton/sound_effect/telepathy), tts_channel_override = CHANNEL_TTS_HIVEMIND) // BANDAMARINES EDIT ADD - TTS
+				cast_tts(S, message, S, is_local = FALSE, additional_effects = list(/datum/singleton/sound_effect/telepathy), tts_channel_override = CHANNEL_TTS_HIVEMIND) // BANDAMARINES EDIT ADD - TTS
