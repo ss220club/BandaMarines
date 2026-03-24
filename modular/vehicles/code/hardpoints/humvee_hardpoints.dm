@@ -369,7 +369,7 @@
 	var/light_power_upgrade = 8
 
 /obj/item/hardpoint/support/humvee_overhead_lights/proc/turn_off_lights()
-	var/obj/vehicle/multitile/humvee_owner = owner
+	var/obj/vehicle/multitile/modul/humvee_owner = owner
 	if(!istype(humvee_owner))
 		return
 
@@ -387,7 +387,7 @@
 
 /obj/item/hardpoint/support/humvee_overhead_lights/on_destroy()
 	. = ..()
-	var/obj/vehicle/multitile/humvee_owner = owner
+	var/obj/vehicle/multitile/modul/humvee_owner = owner
 	if(!istype(humvee_owner))
 		return
 	turn_off_lights()

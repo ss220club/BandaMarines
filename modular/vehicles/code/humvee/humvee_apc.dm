@@ -1,4 +1,4 @@
-/obj/vehicle/multitile/humvee/apc
+/obj/vehicle/multitile/modul/humvee/apc
 	name = "\improper Бронеавтомобиль M2420 JTMV-HWC"
 	desc = "Многоцелевой бронеавтомобиль M2420 JTMV. Легкобронированная машина. Входы сзади и по бокам."
 
@@ -16,6 +16,11 @@
 	)
 
 	interior_map = /datum/map_template/interior/modul/humvee/apc
+	minimap_icon_state = "humvee"
+
+	passengers_slots =  2 // танкисты всегда имеют 2 слота и не занимают passengers_slots
+	revivable_dead_slots = 3 // нужно на случай если танкисты умрут и нужно будет их достать
+	xenos_slots = 3
 
 	required_skill = SKILL_VEHICLE_LARGE
 

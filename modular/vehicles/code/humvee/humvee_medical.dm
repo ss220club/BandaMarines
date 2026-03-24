@@ -1,4 +1,4 @@
-/obj/vehicle/multitile/humvee/medical
+/obj/vehicle/multitile/modul/humvee/medical
 	name = "\improper Санитарный автомобиль M2421 JTMV"
 	desc = "Санитарный автомобиль M2421 JTMV. Легкобронированная машина. Входы сзади и по бокам."
 

@@ -13,7 +13,7 @@
 
 //PRESET: no hardpoints
 /obj/effect/vehicle_spawner/uscm_van/spawn_vehicle()
-	var/obj/vehicle/multitile/uscm_van/VAN = new (loc)
+	var/obj/vehicle/multitile/modul/uscm_van/VAN = new (loc)
 
 	load_misc(VAN)
 	handle_direction(VAN)
@@ -21,7 +21,7 @@
 
 //PRESET: wheels installed, destroyed
 /obj/effect/vehicle_spawner/uscm_van/decrepit/spawn_vehicle()
-	var/obj/vehicle/multitile/uscm_van/VAN = new (loc)
+	var/obj/vehicle/multitile/modul/uscm_van/VAN = new (loc)
 
 	load_misc(VAN)
 	load_hardpoints(VAN)
@@ -29,19 +29,19 @@
 	load_damage(VAN)
 	VAN.update_icon()
 
-/obj/effect/vehicle_spawner/uscm_van/decrepit/load_hardpoints(obj/vehicle/multitile/uscm_van/V)
+/obj/effect/vehicle_spawner/uscm_van/decrepit/load_hardpoints(obj/vehicle/multitile/modul/uscm_van/V)
 	V.add_hardpoint(new /obj/item/hardpoint/locomotion/van_wheels)
 
 //PRESET: wheels installed
 /obj/effect/vehicle_spawner/uscm_van/fixed/spawn_vehicle()
-	var/obj/vehicle/multitile/uscm_van/VAN = new (loc)
+	var/obj/vehicle/multitile/modul/uscm_van/VAN = new (loc)
 
 	load_misc(VAN)
 	load_hardpoints(VAN)
 	handle_direction(VAN)
 	VAN.update_icon()
 
-/obj/effect/vehicle_spawner/uscm_van/fixed/load_hardpoints(obj/vehicle/multitile/uscm_van/V)
+/obj/effect/vehicle_spawner/uscm_van/fixed/load_hardpoints(obj/vehicle/multitile/modul/uscm_van/V)
 	V.add_hardpoint(new /obj/item/hardpoint/locomotion/van_wheels)
 
 
@@ -53,7 +53,7 @@
 
 //PRESET: no hardpoints
 /obj/effect/vehicle_spawner/uscm_van/med/spawn_vehicle()
-	var/obj/vehicle/multitile/uscm_van/med/MED_VAN = new (loc)
+	var/obj/vehicle/multitile/modul/uscm_van/med/MED_VAN = new (loc)
 
 	load_misc(MED_VAN)
 	handle_direction(MED_VAN)
@@ -61,7 +61,7 @@
 
 //PRESET: wheels installed, destroyed
 /obj/effect/vehicle_spawner/uscm_van/med/decrepit/spawn_vehicle()
-	var/obj/vehicle/multitile/uscm_van/med/MED_VAN = new (loc)
+	var/obj/vehicle/multitile/modul/uscm_van/med/MED_VAN = new (loc)
 
 	load_misc(MED_VAN)
 	load_hardpoints(MED_VAN)
@@ -69,17 +69,17 @@
 	load_damage(MED_VAN)
 	MED_VAN.update_icon()
 
-/obj/effect/vehicle_spawner/uscm_van/med/decrepit/load_hardpoints(obj/vehicle/multitile/uscm_van/med/V)
+/obj/effect/vehicle_spawner/uscm_van/med/decrepit/load_hardpoints(obj/vehicle/multitile/modul/uscm_van/med/V)
 	V.add_hardpoint(new /obj/item/hardpoint/locomotion/van_wheels)
 
 //PRESET: wheels installed
 /obj/effect/vehicle_spawner/uscm_van/med/fixed/spawn_vehicle()
-	var/obj/vehicle/multitile/uscm_van/med/MED_VAN = new (loc)
+	var/obj/vehicle/multitile/modul/uscm_van/med/MED_VAN = new (loc)
 
 	load_misc(MED_VAN)
 	load_hardpoints(MED_VAN)
 	handle_direction(MED_VAN)
 	MED_VAN.update_icon()
 
-/obj/effect/vehicle_spawner/uscm_van/med/fixed/load_hardpoints(obj/vehicle/multitile/uscm_van/med/V)
+/obj/effect/vehicle_spawner/uscm_van/med/fixed/load_hardpoints(obj/vehicle/multitile/modul/uscm_van/med/V)
 	V.add_hardpoint(new /obj/item/hardpoint/locomotion/van_wheels)

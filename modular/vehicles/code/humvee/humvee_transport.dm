@@ -1,4 +1,4 @@
-/obj/vehicle/multitile/humvee/transport
+/obj/vehicle/multitile/modul/humvee/transport
 	name = "\improper Грузовой автомобиль M2422 JTMV"
 	desc = "Вспомогательный автомобиль M2422 JTMV. Легкобронированная машина. Входы сзади и по бокам."
 
