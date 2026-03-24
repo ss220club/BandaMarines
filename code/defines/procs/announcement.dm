@@ -208,7 +208,7 @@
 			if(prefix_pos == 1)
 				var/signature_suffix = copytext(message, length(tts_message) + 1)
 				if(signature_suffix)
-					garbled_message = "[garbled_tts][get_garbled_announcement(signature_suffix, faction_to_garble)]"
+					garbled_message = "[garbled_message][get_garbled_announcement(signature_suffix, faction_to_garble)]"
 		log_garble("[garbled_count] received '[garbled_message]' for faction [faction_to_garble].")
 
 	for(var/mob/target in targets)

@@ -43,12 +43,9 @@
 // SS220 ADDITION START
 #define CHANNEL_TTS_RADIO 1010
 #define CHANNEL_TTS_ANNOUNCEMENT 1009
-#define CHANNEL_TTS_TELEPATHY 1008
-#define CHANNEL_TTS_HIVEMIND 1007
+#define CHANNEL_TTS_HIVEMIND 1008
 // SS220 ADDITION END
 
-// Used to modulate TTS pitch for emotes
-#define EMOTE_TTS_PITCH_MULTIPLIER 0.12
 
 
 //default byond sound echo list index positions.

@@ -114,7 +114,6 @@
 	if(!new_tts_seed)
 		return null
 	tts_seed = new_tts_seed
-	// FurryMarines does not track TTS via DNA; seed lives on the component.
 
 /datum/component/tts_component/proc/get_random_tts_seed_by_gender()
 	var/atom/being_changed = parent

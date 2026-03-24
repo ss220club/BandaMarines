@@ -18,22 +18,22 @@
 
 	if(ammouncer)
 		for(var/mob/M in receivers)
-			ammouncer.cast_tts(M, message_tts, M, FALSE, FALSE, sound_effects, TTS_TRAIT_RATE_MEDIUM, null, null, tts_seed, CHANNEL_TTS_ANNOUNCEMENT)
+			ammouncer.cast_tts(listener = M, message = message_tts, location = M, is_local = FALSE, additional_effects = sound_effects, traits = TTS_TRAIT_RATE_MEDIUM, tts_seed_override = tts_seed, tts_channel_override = CHANNEL_TTS_ANNOUNCEMENT)
 		for(var/mob/M in garbled_receivers)
-			ammouncer.cast_tts(M, garbled_message_tts, M, FALSE, FALSE, sound_effects, TTS_TRAIT_RATE_MEDIUM, null, null, tts_seed, CHANNEL_TTS_ANNOUNCEMENT)
+			ammouncer.cast_tts(listener = M, message = garbled_message_tts, location = M, is_local = FALSE,, additional_effects = sound_effects, traits = TTS_TRAIT_RATE_MEDIUM, tts_seed_override = tts_seed, tts_channel_override = CHANNEL_TTS_ANNOUNCEMENT)
 		return
 
 	for(var/mob/M in receivers)
-		SStts220.get_tts(M, M, message_tts, tts_seed, FALSE, sound_effects, TTS_TRAIT_RATE_MEDIUM, null, null, CHANNEL_TTS_ANNOUNCEMENT)
+		SStts220.get_tts(speaker = M, listener = M, message = message_tts, tts_seed = tts_seed, is_local = FALSE, effect_types = sound_effects, traits = TTS_TRAIT_RATE_MEDIUM, channel_override = CHANNEL_TTS_ANNOUNCEMENT)
 	for(var/mob/M in garbled_receivers)
-		SStts220.get_tts(M, M, garbled_message_tts, tts_seed, FALSE, sound_effects, TTS_TRAIT_RATE_MEDIUM, null, null, CHANNEL_TTS_ANNOUNCEMENT)
+		SStts220.get_tts(speaker = M, listener = M, message = garbled_message_tts, tts_seed = tts_seed, is_local = FALSE, effect_types = sound_effects, traits = TTS_TRAIT_RATE_MEDIUM, channel_override = CHANNEL_TTS_ANNOUNCEMENT)
 
 
 // Announcers
 
 /datum/announcer/ares
 	tts_seed = TTS_SEED_ARES_ANNOUNCE
-	sound_effects = list(/datum/singleton/sound_effect/radio, /datum/singleton/sound_effect/robot)
+	sound_effects = list(/datum/singleton/sound_effect/robot, /datum/singleton/sound_effect/radio)
 
 /datum/announcer/queen_mother
 	tts_seed = TTS_SEED_QUEEN_MOTHER_ANNOUNCE
