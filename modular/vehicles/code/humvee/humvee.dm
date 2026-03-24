@@ -1,4 +1,4 @@
-/obj/vehicle/multitile/humvee
+/obj/vehicle/multitile/modul/humvee
 	name = "\improper M2420 JTMV-HWC Heavy Weapon Carrier"
 	desc = "Многоцелевой бронетранспортер M2422 JTMV. Легкобронированная машина. Входы сзади и по бокам."
 
@@ -16,7 +16,7 @@
 	health = 500
 
 	interior_map = /datum/map_template/interior/modul/humvee
-	minimap_icon_state = "humvee"
+	minimap_icon_state = "van"
 
 	passengers_slots =  4
 	xenos_slots = 3
@@ -98,7 +98,7 @@
 
 	vehicle_ram_multiplier = VEHICLE_TRAMPLE_DAMAGE_APC_REDUCTION
 
-/obj/vehicle/multitile/humvee/relaymove(mob/user, direction)
+/obj/vehicle/multitile/modul/humvee/relaymove(mob/user, direction)
 	if(user == seats[VEHICLE_DRIVER])
 		// Check if wheels are installed
 		if(!(locate(/obj/item/hardpoint/locomotion/humvee_wheels) in hardpoints))
@@ -127,7 +127,7 @@
 
 // Делаем лучше
 
-/obj/vehicle/multitile/humvee/Initialize()
+/obj/vehicle/multitile/modul/humvee/Initialize()
 	. = ..()
 	under_image = image(icon, src, icon_state, layer = BELOW_MOB_LAYER)
 	under_image.alpha = 127
@@ -141,7 +141,7 @@
 	for(var/icon in GLOB.player_list)
 		add_default_image(SSdcs, icon)
 
-/obj/vehicle/multitile/humvee/BlockedPassDirs(atom/movable/mover, target_dir)
+/obj/vehicle/multitile/modul/humvee/BlockedPassDirs(atom/movable/mover, target_dir)
 	if(mover in mobs_under) //can't collide with the thing you're buckled to
 		return NO_BLOCKED_MOVEMENT
 
@@ -162,7 +162,7 @@
 	return ..()
 
 
-/obj/vehicle/multitile/humvee/pre_movement()
+/obj/vehicle/multitile/modul/humvee/pre_movement()
 	if(locate(/obj/effect/alien/weeds) in loc)
 		move_momentum *= momentum_loss_on_weeds_factor
 
@@ -173,7 +173,7 @@
 		if(!(mob.loc in locs))
 			remove_under_humvee(mob)
 
-/obj/vehicle/multitile/humvee/proc/add_under_humvee(mob/living/living)
+/obj/vehicle/multitile/modul/humvee/proc/add_under_humvee(mob/living/living)
 	if(living in mobs_under)
 		return
 
@@ -185,7 +185,7 @@
 	if(living.client)
 		add_client(living)
 
-/obj/vehicle/multitile/humvee/proc/remove_under_humvee(mob/living/living)
+/obj/vehicle/multitile/modul/humvee/proc/remove_under_humvee(mob/living/living)
 	SIGNAL_HANDLER
 	mobs_under -= living
 
@@ -199,21 +199,21 @@
 		COMSIG_MOVABLE_MOVED,
 	))
 
-/obj/vehicle/multitile/humvee/proc/check_under_humvee(mob/mob, turf/oldloc, direction)
+/obj/vehicle/multitile/modul/humvee/proc/check_under_humvee(mob/mob, turf/oldloc, direction)
 	SIGNAL_HANDLER
 	if(!(mob.loc in locs))
 		remove_under_humvee(mob)
 
-/obj/vehicle/multitile/humvee/proc/add_client(mob/living/living)
+/obj/vehicle/multitile/modul/humvee/proc/add_client(mob/living/living)
 	SIGNAL_HANDLER
 	living.client.images += under_image
 	living.client.images -= normal_image
 
-/obj/vehicle/multitile/humvee/proc/add_default_image(subsystem, mob/mob)
+/obj/vehicle/multitile/modul/humvee/proc/add_default_image(subsystem, mob/mob)
 	SIGNAL_HANDLER
 	mob.client.images += normal_image
 
-/obj/vehicle/multitile/humvee/Destroy()
+/obj/vehicle/multitile/modul/humvee/Destroy()
 	for(var/icon in mobs_under)
 		remove_under_humvee(icon)
 
@@ -225,7 +225,7 @@
 
 	return ..()
 
-/obj/vehicle/multitile/humvee/attackby(obj/item/O, mob/user)
+/obj/vehicle/multitile/modul/humvee/attackby(obj/item/O, mob/user)
 	if(user.z != z)
 		return ..()
 
@@ -247,7 +247,7 @@
 	. = ..()
 
 
-/obj/vehicle/multitile/humvee/handle_click(mob/living/user, atom/A, list/mods)
+/obj/vehicle/multitile/modul/humvee/handle_click(mob/living/user, atom/A, list/mods)
 	if(mods[SHIFT_CLICK] && !mods[ALT_CLICK])
 		if(!has_overdrive)
 			return
@@ -265,17 +265,17 @@
 
 	return ..()
 
-/obj/vehicle/multitile/humvee/proc/reset_overdrive()
+/obj/vehicle/multitile/modul/humvee/proc/reset_overdrive()
 	misc_multipliers["move"] += overdrive_speed_mult
 
-/obj/vehicle/multitile/humvee/get_projectile_hit_boolean(obj/projectile/P)
+/obj/vehicle/multitile/modul/humvee/get_projectile_hit_boolean(obj/projectile/P)
 	if(src == P.original) //clicking on the humvee itself will hit it.
 		var/hitchance = P.get_effective_accuracy()
 		if(prob(hitchance))
 			return TRUE
 	return FALSE
 
-/obj/vehicle/multitile/humvee/Collide(atom/A)
+/obj/vehicle/multitile/modul/humvee/Collide(atom/A)
 	if(!seats[VEHICLE_DRIVER])
 		return FALSE
 

@@ -12,7 +12,7 @@
 	qdel(src)
 
 /obj/effect/vehicle_spawner/humvee/spawn_vehicle()
-	var/obj/vehicle/multitile/humvee/HUMVEE = new (loc)
+	var/obj/vehicle/multitile/modul/humvee/HUMVEE = new (loc)
 
 	load_misc(HUMVEE)
 	load_hardpoints(HUMVEE)
@@ -30,7 +30,7 @@
 	icon_state = "humvee_base"
 
 /obj/effect/vehicle_spawner/humvee/medical/spawn_vehicle()
-	var/obj/vehicle/multitile/humvee/medical/HUMVEE_MED = new (loc)
+	var/obj/vehicle/multitile/modul/humvee/medical/HUMVEE_MED = new (loc)
 
 	load_misc(HUMVEE_MED)
 	load_hardpoints(HUMVEE_MED)
@@ -47,7 +47,7 @@
 	icon_state = "humvee_base"
 
 /obj/effect/vehicle_spawner/humvee/transport/spawn_vehicle()
-	var/obj/vehicle/multitile/humvee/transport/HUMVEE_TRANSPORT = new (loc)
+	var/obj/vehicle/multitile/modul/humvee/transport/HUMVEE_TRANSPORT = new (loc)
 
 	load_misc(HUMVEE_TRANSPORT)
 	load_hardpoints(HUMVEE_TRANSPORT)
@@ -64,7 +64,7 @@
 	icon_state = "humvee_base"
 
 /obj/effect/vehicle_spawner/humvee/apc/spawn_vehicle()
-	var/obj/vehicle/multitile/humvee/apc/HUMVEE_APC = new (loc)
+	var/obj/vehicle/multitile/modul/humvee/apc/HUMVEE_APC = new (loc)
 
 	load_misc(HUMVEE_APC)
 	load_hardpoints(HUMVEE_APC)

@@ -1,4 +1,4 @@
-/obj/vehicle/multitile/uscm_van
+/obj/vehicle/multitile/modul/uscm_van
 	name = "M577-T Mule"
 	desc = "Старый, надёжный транспорт USCM, любимец механиков и проклятье водителей. Приспособлен для любых атмосферных условий, устойчив к перегреву, радиации и глупости экипажа."
 	layer = ABOVE_XENO_LAYER
@@ -70,7 +70,7 @@
 	var/next_push = 0
 	var/push_delay = 0.5 SECONDS
 
-/obj/vehicle/multitile/uscm_van/Initialize()
+/obj/vehicle/multitile/modul/uscm_van/Initialize()
 	. = ..()
 	under_image = image(icon, src, icon_state, layer = BELOW_MOB_LAYER)
 	under_image.alpha = 127
@@ -84,7 +84,7 @@
 	for(var/icon in GLOB.player_list)
 		add_default_image(SSdcs, icon)
 
-/obj/vehicle/multitile/uscm_van/crew_mousedown(datum/source, atom/object, turf/location, control, params)
+/obj/vehicle/multitile/modul/uscm_van/crew_mousedown(datum/source, atom/object, turf/location, control, params)
 	var/list/modifiers = params2list(params)
 	if(modifiers[SHIFT_CLICK] || modifiers[MIDDLE_CLICK] || modifiers[RIGHT_CLICK] || modifiers[BUTTON4] || modifiers[BUTTON5]) //don't step on examine, point, etc
 		return
@@ -94,7 +94,7 @@
 			if(modifiers[LEFT_CLICK] && modifiers[CTRL_CLICK])
 				activate_horn()
 
-/obj/vehicle/multitile/uscm_van/BlockedPassDirs(atom/movable/mover, target_dir)
+/obj/vehicle/multitile/modul/uscm_van/BlockedPassDirs(atom/movable/mover, target_dir)
 	if(mover in mobs_under) //can't collide with the thing you're buckled to
 		return NO_BLOCKED_MOVEMENT
 
@@ -117,7 +117,7 @@
 /*
 ** PRESETS
 */
-/obj/vehicle/multitile/uscm_van/pre_movement()
+/obj/vehicle/multitile/modul/uscm_van/pre_movement()
 	if(locate(/obj/effect/alien/weeds) in loc)
 		move_momentum *= momentum_loss_on_weeds_factor
 
@@ -128,7 +128,7 @@
 		if(!(mob.loc in locs))
 			remove_under_van(mob)
 
-/obj/vehicle/multitile/uscm_van/proc/add_under_van(mob/living/living)
+/obj/vehicle/multitile/modul/uscm_van/proc/add_under_van(mob/living/living)
 	if(living in mobs_under)
 		return
 
@@ -140,7 +140,7 @@
 	if(living.client)
 		add_client(living)
 
-/obj/vehicle/multitile/uscm_van/proc/remove_under_van(mob/living/living)
+/obj/vehicle/multitile/modul/uscm_van/proc/remove_under_van(mob/living/living)
 	SIGNAL_HANDLER
 	mobs_under -= living
 
@@ -154,21 +154,21 @@
 		COMSIG_MOVABLE_MOVED,
 	))
 
-/obj/vehicle/multitile/uscm_van/proc/check_under_van(mob/mob, turf/oldloc, direction)
+/obj/vehicle/multitile/modul/uscm_van/proc/check_under_van(mob/mob, turf/oldloc, direction)
 	SIGNAL_HANDLER
 	if(!(mob.loc in locs))
 		remove_under_van(mob)
 
-/obj/vehicle/multitile/uscm_van/proc/add_client(mob/living/living)
+/obj/vehicle/multitile/modul/uscm_van/proc/add_client(mob/living/living)
 	SIGNAL_HANDLER
 	living.client.images += under_image
 	living.client.images -= normal_image
 
-/obj/vehicle/multitile/uscm_van/proc/add_default_image(subsystem, mob/mob)
+/obj/vehicle/multitile/modul/uscm_van/proc/add_default_image(subsystem, mob/mob)
 	SIGNAL_HANDLER
 	mob.client.images += normal_image
 
-/obj/vehicle/multitile/uscm_van/Destroy()
+/obj/vehicle/multitile/modul/uscm_van/Destroy()
 	for(var/icon in mobs_under)
 		remove_under_van(icon)
 
@@ -180,7 +180,7 @@
 
 	return ..()
 
-/obj/vehicle/multitile/uscm_van/attackby(obj/item/O, mob/user)
+/obj/vehicle/multitile/modul/uscm_van/attackby(obj/item/O, mob/user)
 	if(user.z != z)
 		return ..()
 
@@ -202,7 +202,7 @@
 	. = ..()
 
 
-/obj/vehicle/multitile/uscm_van/handle_click(mob/living/user, atom/A, list/mods)
+/obj/vehicle/multitile/modul/uscm_van/handle_click(mob/living/user, atom/A, list/mods)
 	if(mods[SHIFT_CLICK] && !mods[ALT_CLICK])
 		if(overdrive_next > world.time)
 			to_chat(user, SPAN_WARNING("Пока нельзя активировать ускорение! Подождите [round((overdrive_next - world.time) / 10, 0.1)] секунд."))
@@ -218,17 +218,17 @@
 
 	return ..()
 
-/obj/vehicle/multitile/uscm_van/proc/reset_overdrive()
+/obj/vehicle/multitile/modul/uscm_van/proc/reset_overdrive()
 	misc_multipliers["move"] += overdrive_speed_mult
 
-/obj/vehicle/multitile/uscm_van/get_projectile_hit_boolean(obj/projectile/P)
+/obj/vehicle/multitile/modul/uscm_van/get_projectile_hit_boolean(obj/projectile/P)
 	if(src == P.original) //clicking on the van itself will hit it.
 		var/hitchance = P.get_effective_accuracy()
 		if(prob(hitchance))
 			return TRUE
 	return FALSE
 
-/obj/vehicle/multitile/uscm_van/Collide(atom/A)
+/obj/vehicle/multitile/modul/uscm_van/Collide(atom/A)
 	if(!seats[VEHICLE_DRIVER])
 		return FALSE
 
