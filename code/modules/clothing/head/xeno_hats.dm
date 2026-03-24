@@ -14,6 +14,28 @@
 	siemens_coefficient = 2
 	flags_armor_protection = BODY_FLAG_HEAD|BODY_FLAG_FACE|BODY_FLAG_EYES
 
+/obj/item/clothing/head/helmet/marine/xenos/select_gamemode_skin(expected_type, list/override_icon_state, list/override_protection)
+	. = ..()
+	if(flags_atom & MAP_COLOR_INDEX)
+		return
+	switch(SSmapping.configs[GROUND_MAP].camouflage_type)
+		if("jungle")
+			icon = 'icons/obj/items/clothing/hats/xeno_suits.dmi'
+			item_icons[WEAR_JACKET] = 'icons/mob/humans/onmob/clothing/head/xeno_hats.dmi'
+		if("classic")
+			icon = 'icons/obj/items/clothing/hats/xeno_suits.dmi'
+			item_icons[WEAR_JACKET] = 'icons/mob/humans/onmob/clothing/head/xeno_suits.dmi'
+		if("desert")
+			icon = 'icons/obj/items/clothing/hats/xeno_suits.dmi'
+			item_icons[WEAR_JACKET] = 'icons/mob/humans/onmob/clothing/head/xeno_suits.dmi'
+		if("snow")
+			icon = 'icons/obj/items/clothing/hats/xeno_suits.dmi'
+			item_icons[WEAR_JACKET] = 'icons/mob/humans/onmob/clothing/head/xeno_suits.dmi'
+		if("urban")
+			icon = 'icons/obj/items/clothing/hats/xeno_suits.dmi'
+			item_icons[WEAR_JACKET] = 'icons/mob/humans/onmob/clothing/head/xeno_suits.dmi'
+
+
 /obj/item/clothing/head/helmet/marine/xenos/runner
 	name = "runner mask"
 	icon_state = "runner_mask"

@@ -13,6 +13,27 @@
 	flags_inv_hide = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	siemens_coefficient = 2
 
+/obj/item/clothing/suit/storage/marine/xenos/select_gamemode_skin(expected_type, list/override_icon_state, list/override_protection)
+	. = ..()
+	if(flags_atom & MAP_COLOR_INDEX)
+		return
+	switch(SSmapping.configs[GROUND_MAP].camouflage_type)
+		if("jungle")
+			icon = 'icons/obj/items/clothing/suits/xeno_suits.dmi'
+			item_icons[WEAR_JACKET] = 'icons/mob/humans/onmob/clothing/suits/xeno_suits.dmi'
+		if("classic")
+			icon = 'icons/obj/items/clothing/suits/xeno_suits.dmi'
+			item_icons[WEAR_JACKET] = 'icons/mob/humans/onmob/clothing/suits/xeno_suits.dmi'
+		if("desert")
+			icon = 'icons/obj/items/clothing/suits/xeno_suits.dmi'
+			item_icons[WEAR_JACKET] = 'icons/mob/humans/onmob/clothing/suits/xeno_suits.dmi'
+		if("snow")
+			icon = 'icons/obj/items/clothing/suits/xeno_suits.dmi'
+			item_icons[WEAR_JACKET] = 'icons/mob/humans/onmob/clothing/suits/xeno_suits.dmi'
+		if("urban")
+			icon = 'icons/obj/items/clothing/suits/xeno_suits.dmi'
+			item_icons[WEAR_JACKET] = 'icons/mob/humans/onmob/clothing/suits/xeno_suits.dmi'
+
 /obj/item/clothing/suit/storage/marine/xenos/runner
 	name = "runner suit"
 	icon_state = "runner_suit"
