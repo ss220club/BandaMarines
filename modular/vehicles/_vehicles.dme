@@ -43,6 +43,7 @@
 #include "code/vehicle_structure.dm"
 #include "code/vehicle_areas.dm"
 #include "code/vehicle_ammo.dm"
+#include "code/supplyshuttle_override.dm"
 
 //humvee
 #include "code/humvee/humvee.dm"
