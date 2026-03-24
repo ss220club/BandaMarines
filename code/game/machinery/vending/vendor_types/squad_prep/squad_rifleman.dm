@@ -7,9 +7,9 @@ GLOBAL_LIST_INIT(cm_vending_clothing_marine, list(
 		list("Map", 0, /obj/item/map/current_map, MARINE_CAN_BUY_MAP, VENDOR_ITEM_MANDATORY),
 
 		list("ARMOR (CHOOSE 1)", 0, null, null, null),
-		list("Light Armor", 0, /obj/item/clothing/suit/storage/marine/light, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_REGULAR),
-		list("Medium Armor", 0, /obj/item/clothing/suit/storage/marine/medium, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_REGULAR),
-		list("Heavy Armor", 0, /obj/item/clothing/suit/storage/marine/heavy, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_REGULAR),
+		list("Light Armor", 0, list(/obj/item/clothing/suit/storage/marine/xenos/runner, /obj/item/clothing/head/helmet/marine/xenos/runner), MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_REGULAR),
+		list("Medium Armor", 0, list(/obj/item/clothing/suit/storage/marine/xenos, /obj/item/clothing/head/helmet/marine/xenos), MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_REGULAR),
+		list("Heavy Armor", 0, list(/obj/item/clothing/suit/storage/marine/xenos/defender, /obj/item/clothing/head/helmet/marine/xenos/defender), MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_REGULAR),
 
 		list("BACKPACK (CHOOSE 1)", 0, null, null, null),
 		list("Backpack", 0, /obj/item/storage/backpack/marine, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_REGULAR),
@@ -86,8 +86,9 @@ GLOBAL_LIST_INIT(cm_vending_clothing_marine, list(
 		list("SU-6 Smartpistol Magazine (.45)", 10, /obj/item/ammo_magazine/pistol/smart, null, VENDOR_ITEM_REGULAR),
 
 		list("ARMORS", 0, null, null, null),
-		list("M3 B12 Pattern Marine Armor", 30, /obj/item/clothing/suit/storage/marine/medium/leader, null, VENDOR_ITEM_REGULAR),
-		list("M4 Pattern Armor", 20, /obj/item/clothing/suit/storage/marine/medium/rto, null, VENDOR_ITEM_REGULAR),
+		list("M3 B12 Warrior", 30, list(/obj/item/clothing/suit/storage/marine/xenos/warrior, /obj/item/clothing/head/helmet/marine/xenos/warrior), null, VENDOR_ITEM_REGULAR),
+		list("M4 Lurker", 20, list(/obj/item/clothing/suit/storage/marine/xenos/lurker, /obj/item/clothing/head/helmet/marine/xenos/lurker), null, VENDOR_ITEM_REGULAR),
+		list("M4 Pattern Armor", 50, list(/obj/item/clothing/suit/storage/marine/specialist, /obj/item/clothing/head/helmet/marine/specialist), null, VENDOR_ITEM_REGULAR),
 
 		list("CLOTHING ITEMS", 0, null, null, null),
 		list("Webbing", 10, /obj/item/clothing/accessory/storage/webbing, null, VENDOR_ITEM_REGULAR),

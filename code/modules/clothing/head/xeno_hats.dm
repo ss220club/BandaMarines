@@ -1,4 +1,4 @@
-/obj/item/clothing/head/xenos
+/obj/item/clothing/head/helmet/marine/xenos
 	name = "drone mask"
 	desc = "A mask made to resemble a chitinous alien head. Who the hell made this, and most importantly, why?..."
 	icon_state = "drone_mask"
@@ -14,66 +14,66 @@
 	siemens_coefficient = 2
 	flags_armor_protection = BODY_FLAG_HEAD|BODY_FLAG_FACE|BODY_FLAG_EYES
 
-/obj/item/clothing/head/xenos/runner
+/obj/item/clothing/head/helmet/marine/xenos/runner
 	name = "runner mask"
 	icon_state = "runner_mask"
 
-/obj/item/clothing/head/xenos/lesser
+/obj/item/clothing/head/helmet/marine/xenos/lesser
 	name = "lesser drone_mask mask"
 	icon_state = "lesser_drone_mask"
 
-/obj/item/clothing/head/xenos/ravager
+/obj/item/clothing/head/helmet/marine/xenos/ravager
 	name = "ravager mask"
 	icon_state = "ravager_mask"
 
-/obj/item/clothing/head/xenos/king
+/obj/item/clothing/head/helmet/marine/xenos/king
 	name = "king mask"
 	icon_state = "king_mask"
 
-/obj/item/clothing/head/xenos/queen
+/obj/item/clothing/head/helmet/marine/xenos/queen
 	name = "queen mask"
 	icon_state = "queen_mask"
 
-/obj/item/clothing/head/xenos/burrower
+/obj/item/clothing/head/helmet/marine/xenos/burrower
 	name = "burrower mask"
 	icon_state = "burrower_mask"
 
-/obj/item/clothing/head/xenos/warrior
+/obj/item/clothing/head/helmet/marine/xenos/warrior
 	name = "warrior mask"
 	icon_state = "warrior_mask"
 
-/obj/item/clothing/head/xenos/defender
+/obj/item/clothing/head/helmet/marine/xenos/defender
 	name = "defender mask"
 	icon_state = "defender_mask"
 
-/obj/item/clothing/head/xenos/crusher
+/obj/item/clothing/head/helmet/marine/xenos/crusher
 	name = "crusher mask"
 	icon_state = "crusher_mask"
 
-/obj/item/clothing/head/xenos/carrier
+/obj/item/clothing/head/helmet/marine/xenos/carrier
 	name = "carrier mask"
 	icon_state = "carrier_mask"
 
-/obj/item/clothing/head/xenos/boiler
+/obj/item/clothing/head/helmet/marine/xenos/boiler
 	name = "boiler mask"
 	icon_state = "boiler_mask"
 
-/obj/item/clothing/head/xenos/spitter
+/obj/item/clothing/head/helmet/marine/xenos/spitter
 	name = "spitter mask"
 	icon_state = "spitter_mask"
 
-/obj/item/clothing/head/xenos/sentinel
+/obj/item/clothing/head/helmet/marine/xenos/sentinel
 	name = "sentinel mask"
 	icon_state = "sentinel_mask"
 
-/obj/item/clothing/head/xenos/praetorian
+/obj/item/clothing/head/helmet/marine/xenos/praetorian
 	name = "praetorian mask"
 	icon_state = "praetorian_mask"
 
-/obj/item/clothing/head/xenos/lurker
+/obj/item/clothing/head/helmet/marine/xenos/lurker
 	name = "lurker mask"
 	icon_state = "lurker_mask"
 
-/obj/item/clothing/head/xenos/hivelord
+/obj/item/clothing/head/helmet/marine/xenos/hivelord
 	name = "hivelord mask"
 	icon_state = "hivelord_mask"

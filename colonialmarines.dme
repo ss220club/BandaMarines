@@ -2722,5 +2722,13 @@
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
 #include "maps\_basemap.dm"
+#include "modular\species\_species.dm"
+#include "modular\species\code\emote.dm"
+#include "modular\species\code\species.dm"
+#include "modular\species\code\vulpkanin.dm"
+#include "modular\species\code\vulpkanin_hair.dm"
+#include "modular\species\code\organs\vulpkanin_organs.dm"
+#include "modular\species\code\vulpkanin\head_markings_picker.dm"
+#include "modular\species\code\vulpkanin\markings.dm"
 #include "modular\modular.dme" // BANDASTATION EDIT
 // END_INCLUDE
