@@ -1,17 +1,17 @@
 /datum/species/vulpkanin
 	name = "Vulpkanin"
 	name_plural = "Vulpkanin"
-	icobase = 'modular/species/icons/r_vulpkanin.dmi'
 	icobase = 'modular/species/icons/body.dmi'
 	draw_grayscale = TRUE
 	// primitive_form = /datum/species/monkey/vulpkanin
 	tail = "vulptail"
-	//primitive_form = /datum/species/monkey/vulpkanin
-	tail = "vulptail"
 	unarmed_type = /datum/unarmed_attack/claws
-
+	secondary_unarmed_type = /datum/unarmed_attack
 	flesh_color = "#966464"
 	base_color = "#CF4D2F"
+	gibbed_anim = "gibbed-m"
+	dusted_anim = "dust-m"
+	fire_sprite_sheet = 'icons/mob/humans/onmob/OnFire.dmi'
 
 	has_organ = list(
 		"heart" =    /datum/internal_organ/heart/vulpkanin,

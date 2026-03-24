@@ -734,8 +734,8 @@ Applied by gun suicide and high impact bullet executions, removed by rejuvenate,
 		overlays_standing[BODYPARTS_BACK_LAYER] = image(tail_s, icon_state = icon_name, "layer" = -BODYPARTS_BACK_LAYER)
 		overlays_standing[TAIL_LAYER] = image(tail_s, icon_state = "[icon_name]_f", "layer" = -TAIL_LAYER)
 		if(species.draw_grayscale)
-			overlays_standing[BODYPARTS_BACK_LAYER] = draw_color
-			overlays_standing[TAIL_LAYER] = draw_color
+			overlays_standing[BODYPARTS_BACK_LAYER].color = draw_color
+			overlays_standing[TAIL_LAYER].color = draw_color
 
 		apply_overlay(BODYPARTS_BACK_LAYER)
 		apply_overlay(TAIL_LAYER)
@@ -746,7 +746,7 @@ Applied by gun suicide and high impact bullet executions, removed by rejuvenate,
 	var/icon/tail_icon = GLOB.tail_icon_cache[icon_key]
 	if(!tail_icon)
 		//generate a new one
-		tail_icon = icon(species.icobase, "[species.get_tail(src)]")
+		tail_icon = icon('icons/effects/species.dmi', "[species.get_tail(src)]")
 		GLOB.tail_icon_cache[icon_key] = tail_icon
 
 	return tail_icon
