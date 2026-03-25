@@ -1,6 +1,6 @@
 // armor
 /obj/item/hardpoint/armor/humvee_snowplow
-	name = "\improper Отвал"
+	name = "\improper Инженерный отвал"
 	desc = "Расчищает путь в снегу для союзников. Похоже, на этом его применение не заканчивается."
 
 	icon_state = "snowplow"
