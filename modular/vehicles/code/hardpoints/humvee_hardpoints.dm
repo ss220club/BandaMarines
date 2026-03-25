@@ -27,22 +27,11 @@
 	var/turf/ahead = get_step(new_turf, move_dir)
 
 	var/list/turfs_ahead = list(ahead, get_step(ahead, turn(move_dir, 90)), get_step(ahead, turn(move_dir, -90)))
-	for(var/turf/T in turfs_ahead)
-		if(istype(T, /turf/open/snow))
-			var/turf/open/snow/ST = T
-			if(!ST || !ST.bleed_layer)
-				continue
-			new /obj/item/stack/snow(ST, ST.bleed_layer)
-			ST.bleed_layer = 0
-			ST.update_icon(1, 0)
-		else if(istype(T, /turf/open/auto_turf/snow))
-			var/turf/open/auto_turf/snow/S = T
-			if(!S || !S.bleed_layer)
-				continue
-			new /obj/item/stack/snow(S, S.bleed_layer)
-			S.changing_layer(0)
-		else
+	for(var/turf/open/auto_turf/snow/S in turfs_ahead)
+		if(!S.bleed_layer)
 			continue
+		new /obj/item/stack/snow(S, S.bleed_layer)
+		S.changing_layer(0)
 
 
 // turret
@@ -78,6 +67,7 @@
 
 	accepted_hardpoints = list(
 		/obj/item/hardpoint/primary/humvee_cannon,
+		/obj/item/hardpoint/primary/humvee_machinegun,
 		/obj/item/hardpoint/primary/humvee_grenade_launcher,
 		/obj/item/hardpoint/secondary/humvee_flare_launcher,
 		/obj/item/hardpoint/secondary/humvee_launcher,
@@ -231,7 +221,48 @@
 
 	return ..()
 
-// APC cannons
+// humvee_machinegun
+/obj/item/hardpoint/primary/humvee_machinegun
+	name = "\improper Тяжелый пулемет M2-RC1"
+	desc = "Спаренный тяжелый пулемет для бронемашины M2420 JTMV-HWC. Стреляет 10x28-мм вольфрамовыми снарядами. Эффективна против пехоты и легкобронированной техники."
+	icon = 'modular/vehicles/icons/humvee/humvee_hardpoints.dmi'
+
+	icon_state = "humveecannon"
+	disp_icon = "humvee"
+	disp_icon_state = "humveemachinegun"
+	activation_sounds = list('sound/weapons/gun_m60.ogg')
+
+	damage_multiplier = 0.2
+
+	health = 240
+	firing_arc = 90
+
+	origins = list(0, 0)
+
+	ammo = new /obj/item/ammo_magazine/hardpoint/humvee_machinegun
+	max_clips = 4
+
+	use_muzzle_flash = TRUE
+	angle_muzzleflash = FALSE
+	muzzleflash_icon_state = "muzzle_flash_double"
+
+	muzzle_flash_pos = list(
+		"1" = list(-17, -6),
+		"2" = list(-16, -58),
+		"4" = list(12, -31),
+		"8" = list(-44, -32)
+	)
+
+
+	scatter = 3
+	fire_delay = 0.2 SECONDS
+	gun_firemode = GUN_FIREMODE_AUTOMATIC
+	gun_firemode_list = list(
+		GUN_FIREMODE_AUTOMATIC,
+	)
+
+
+// APC cannon
 /obj/item/hardpoint/primary/humvee_cannon
 	name = "\improper Автопушка M24-RC1"
 	desc = "Одноствольная дистанционно управляемая автопушка для бронемашины M2420 JTMV-HWC. Стреляет 10x28-мм вольфрамовыми снарядами. Эффективна против пехоты и легкобронированной техники."

@@ -2,7 +2,7 @@
 /datum/ammo/bullet/humvee_cannon
 	name = "remote-cannon bullet"
 	icon = 'icons/obj/items/weapons/projectiles.dmi'
-	icon_state = "redbullet" //Red bullets to indicate friendly fire restriction
+	icon_state = "autocannon"
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_IGNORE_COVER
 
 	accurate_range = 22
@@ -10,12 +10,31 @@
 	accuracy_var_high = PROJECTILE_VARIANCE_TIER_8
 	max_range = 22
 	effective_range_max = 12
-	damage = 40
+	damage = 50
 	penetration = ARMOR_PENETRATION_TIER_6
 	damage_armor_punch = 0
 	pen_armor_punch = 0
-	shell_speed = 2*AMMO_SPEED_TIER_6
+	shell_speed = AMMO_SPEED_TIER_6
 	accuracy = HIT_ACCURACY_TIER_5
+	damage_enviro = TRUE
+
+/datum/ammo/bullet/humvee_machinegun
+	name = "remote-machinegun bullet"
+	icon = 'icons/obj/items/weapons/projectiles.dmi'
+	icon_state = "redbullet"
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_IGNORE_COVER
+
+	accurate_range = 12
+	accuracy_var_low = PROJECTILE_VARIANCE_TIER_8
+	accuracy_var_high = PROJECTILE_VARIANCE_TIER_8
+	max_range = 15
+	effective_range_max = 9
+	damage = 35
+	penetration = ARMOR_PENETRATION_TIER_4
+	damage_armor_punch = 0
+	pen_armor_punch = 0
+	shell_speed = AMMO_SPEED_TIER_3
+	accuracy = -HIT_ACCURACY_TIER_2
 	damage_enviro = TRUE
 
 // ammo rocket
@@ -72,8 +91,6 @@
 	ping = null
 	damage_type = BRUTE
 	icon_state = "hornet_round"
-	var/shrapnel_count = 20
-	var/dispersion_angle = 90
 	shrapnel_type = /datum/ammo/bullet/shrapnel/metal
 	flags_ammo_behavior = AMMO_IGNORE_COVER
 
@@ -92,8 +109,6 @@
 	set waitfor = 0
 	apply_explosion_overlay(T)
 	cell_explosion(T, 40, 20, EXPLOSION_FALLOFF_SHAPE_LINEAR, null, projectile.weapon_cause_data)
-	sleep(3)
-	create_shrapnel(T, shrapnel_count, dir2angle(projectile.dir), dispersion_angle, shrapnel_type, projectile.weapon_cause_data, FALSE, 0.15, TRUE)
 
 /datum/ammo/humvee_grenade_launcher/on_hit_mob(mob/mob, obj/projectile/projectile)
 	mob.ex_act(50, projectile.dir, projectile.weapon_cause_data, 50)
@@ -126,6 +141,19 @@
 		icon_state = "ace_autocannon"
 	else
 		icon_state = "ace_autocannon_empty"
+
+
+/obj/item/ammo_magazine/hardpoint/humvee_machinegun
+	name = "Коробы для Тяжелого пулемета M2-RC1 (10x28мм)"
+	desc = "Коробы для спаренного M24-RC1, заполненный вольфрамовыми снарядами калибра 10x28mm мм."
+	caliber = "10x28mm"
+	icon_state = "m2c"
+	item_state = "m2c"
+	icon = 'icons/obj/items/weapons/guns/ammo_by_faction/USCM/machineguns.dmi'
+	w_class = SIZE_LARGE
+	default_ammo = /datum/ammo/bullet/humvee_machinegun
+	max_rounds = 250
+	gun_type = /obj/item/hardpoint/primary/humvee_machinegun
 
 /obj/item/ammo_magazine/hardpoint/humvee_launcher
 	name = "Магазин для реактивного огнемёта M24-JTMV"
