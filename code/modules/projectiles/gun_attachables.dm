@@ -2362,6 +2362,9 @@ Defined in conflicts.dm of the #defines folder.
 	wield_delay_mod = WIELD_DELAY_FAST
 	hud_offset_mod = 3
 
+/obj/item/attachable/stock/rifle/las
+	name = "\improper Lasgun solid stock"
+
 /obj/item/attachable/stock/rifle/New()
 	..()
 	//it makes stuff much better when two-handed
@@ -2440,6 +2443,9 @@ Defined in conflicts.dm of the #defines folder.
 
 	gun.recalculate_attachment_bonuses()
 	gun.update_overlays(src, "stock")
+
+/obj/item/attachable/stock/rifle/collapsible/las
+	name = "\improper Lasgun folding stock"
 
 /obj/item/attachable/stock/rifle/collapsible/ak4047
 	name = "\improper AK-4047 folding stock"

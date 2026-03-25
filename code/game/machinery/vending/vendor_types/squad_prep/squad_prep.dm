@@ -21,6 +21,7 @@
 		list("M37A2 Pump Shotgun", floor(scale * 10), /obj/item/weapon/gun/shotgun/pump/m37a, VENDOR_ITEM_REGULAR),
 		list("M39 Submachine Gun", floor(scale * 10), /obj/item/weapon/gun/smg/m39, VENDOR_ITEM_REGULAR),
 		list("M41A Pulse Rifle MK2", floor(scale * 15), /obj/item/weapon/gun/rifle/m41a, VENDOR_ITEM_RECOMMENDED),
+		list("Imperial Lasgun", floor(scale * 15), /obj/item/weapon/gun/rifle/m41a, VENDOR_ITEM_RECOMMENDED),
 
 		list("PRIMARY AMMUNITION", -1, null, null),
 		list("Box of Flechette Shells (12g)", floor(scale * 3), /obj/item/ammo_magazine/shotgun/flechette, VENDOR_ITEM_REGULAR),
@@ -46,6 +47,7 @@
 		list("ATTACHMENTS", -1, null, null),
 		list("M39 Folding Stock", floor(scale * 5), /obj/item/attachable/stock/smg/collapsible, VENDOR_ITEM_REGULAR),
 		list("M41A Folding Stock", floor(scale * 5), /obj/item/attachable/stock/rifle/collapsible, VENDOR_ITEM_REGULAR),
+		list("Lasgun Folding Stock", floor(scale * 5), /obj/item/attachable/stock/rifle/collapsible, VENDOR_ITEM_REGULAR),
 		list("Rail Flashlight", floor(scale * 10), /obj/item/attachable/flashlight, VENDOR_ITEM_RECOMMENDED),
 		list("Underbarrel Flashlight Grip", floor(scale * 5), /obj/item/attachable/flashlight/grip, VENDOR_ITEM_RECOMMENDED),
 		list("Underslung Grenade Launcher", floor(scale * 10), /obj/item/attachable/attached_gun/grenade, VENDOR_ITEM_REGULAR), //They already get these as on-spawns, might as well formalize some spares.
@@ -69,6 +71,7 @@
 	listed_products = list(
 		list("PRIMARY FIREARMS", -1, null, null),
 		list("M41A Pulse Rifle MK2", 1, /obj/item/weapon/gun/rifle/m41a, VENDOR_ITEM_RECOMMENDED),
+		list("Imperial Lasgun", 1, /obj/item/weapon/gun/rifle/m41a/las, VENDOR_ITEM_RECOMMENDED),
 
 		list("PRIMARY AMMUNITION", -1, null, null),
 		list("M41A Magazine (10x24mm)", 1, /obj/item/ammo_magazine/rifle, VENDOR_ITEM_RECOMMENDED),
@@ -79,6 +82,7 @@
 	listed_products = list(
 		list("PRIMARY FIREARMS", -1, null, null),
 		list("M41A Pulse Rifle MK2", 0, /obj/item/weapon/gun/rifle/m41a, VENDOR_ITEM_RECOMMENDED),
+		list("Imperial Lasgun", 0, /obj/item/weapon/gun/rifle/m41a/las, VENDOR_ITEM_RECOMMENDED),
 
 		list("PRIMARY AMMUNITION", -1, null, null),
 		list("M41A Magazine (10x24mm)", 99, /obj/item/ammo_magazine/rifle, VENDOR_ITEM_RECOMMENDED),
@@ -418,6 +422,7 @@
 		list("M39 Arm Brace", 3.5, /obj/item/attachable/stock/smg/collapsible/brace, VENDOR_ITEM_REGULAR),	// SS220 EDIT - Balance attachments
 		list("M39 Stock", 3.5, /obj/item/attachable/stock/smg, VENDOR_ITEM_REGULAR),	// SS220 EDIT - Balance attachments
 		list("M41A Solid Stock", 3.5, /obj/item/attachable/stock/rifle, VENDOR_ITEM_REGULAR),	// SS220 EDIT - Balance attachments
+		list("Lasgun Solid Stock", 1.5, /obj/item/attachable/stock/rifle, VENDOR_ITEM_REGULAR),
 		list("M44 Magnum Sharpshooter Stock", 1.5, /obj/item/attachable/stock/revolver, VENDOR_ITEM_REGULAR)
 		)
 

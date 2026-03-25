@@ -22,6 +22,20 @@
 	ammo_band_icon = "+m41a_band"
 	ammo_band_icon_empty = "+m41a_band_e"
 
+/obj/item/ammo_magazine/rifle/las
+	name = "\improper Lasgun power pack"
+	default_ammo = /datum/ammo/bullet/rifle/lasbolt
+	icon_state = "las"
+	ammo_band_icon = "+las_band"
+	ammo_band_icon_empty = "+las_band_e"
+
+/obj/item/ammo_magazine/rifle/extended/las
+	name = "\improper Lasgun extended power pack"
+	icon_state = "las_extended"
+	bonus_overlay = "las_ex"
+	ammo_band_icon = "+las_band"
+	ammo_band_icon_empty = "+las_band_e"
+
 /obj/item/ammo_magazine/rifle/extended
 	name = "\improper M41A extended magazine (10x24mm)"
 	desc = "An extended 10x24mm assault rifle magazine."
@@ -48,6 +62,12 @@
 	default_ammo = /datum/ammo/bullet/rifle/heap
 	ammo_band_color = AMMO_BAND_COLOR_HEAP
 
+/obj/item/ammo_magazine/rifle/heap/las
+	name = "\improper Lasgun HEAP power pack (10x24mm)"
+	icon_state = "las"
+	ammo_band_icon = "+las_band"
+	ammo_band_icon_empty = "+las_band_e"
+
 /obj/item/ammo_magazine/rifle/heap/empty
 	current_rounds = 0
 
@@ -57,6 +77,13 @@
 	desc_lore = "Unlike standard HEAP magazines, these reserve bullets do not have depleted uranium tips. Instead, these rounds trade off some of their bullet package for a lighter weight, reducing damage but increasing penetration capabilities and muzzle velocity."
 	default_ammo = /datum/ammo/bullet/rifle/ap
 	ammo_band_color = AMMO_BAND_COLOR_AP
+
+/obj/item/ammo_magazine/rifle/ap/las
+	name = "\improper Lasgun AP power pack (10x24mm)"
+	default_ammo = /datum/ammo/bullet/rifle/ap/lasbolt_ap
+	icon_state = "las"
+	ammo_band_icon = "+las_band"
+	ammo_band_icon_empty = "+las_band_e"
 
 /obj/item/ammo_magazine/rifle/le
 	name = "\improper M41A LE magazine (10x24mm)"

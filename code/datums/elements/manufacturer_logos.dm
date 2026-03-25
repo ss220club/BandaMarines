@@ -78,6 +78,10 @@
 	manufacturer = "dltalt"
 	full_name = "<span class='corp_label_red'>Dl'talt Foundry</span>"
 
+/datum/element/corp_label/forgeworld
+	manufacturer = "forgeworld"
+	full_name = "<span class='corp_label_red'>Forge World Achlys III</span>"
+
 /datum/element/corp_label/Attach(datum/target)
 	. = ..()
 	if(!length(manufacturer))

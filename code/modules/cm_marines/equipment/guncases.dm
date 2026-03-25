@@ -192,10 +192,16 @@
 	storage_slots = 5
 	can_hold = list(/obj/item/weapon/gun/rifle/m41a, /obj/item/ammo_magazine/rifle)
 
+/obj/item/storage/box/guncase/las
+	name = "\improper Imperial Lasgun case"
+	desc = "A gun case containing the Imperial Lasgun"
+	storage_slots = 5
+	can_hold = list(/obj/item/weapon/gun/rifle/m41a/las, /obj/item/ammo_magazine/rifle/las)
+
 /obj/item/storage/box/guncase/m41a/fill_preset_inventory()
-	new /obj/item/weapon/gun/rifle/m41a(src)
+	new /obj/item/weapon/gun/rifle/m41a/las(src)
 	for(var/i = 1 to 4)
-		new /obj/item/ammo_magazine/rifle(src)
+		new /obj/item/ammo_magazine/rifle/las(src)
 
 
 //------------

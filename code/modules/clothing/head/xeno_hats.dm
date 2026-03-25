@@ -20,20 +20,20 @@
 		return
 	switch(SSmapping.configs[GROUND_MAP].camouflage_type)
 		if("jungle")
-			icon = 'icons/obj/items/clothing/hats/xeno_suits.dmi'
+			icon = 'icons/obj/items/clothing/hats/xeno_hats.dmi'
 			item_icons[WEAR_JACKET] = 'icons/mob/humans/onmob/clothing/head/xeno_hats.dmi'
 		if("classic")
-			icon = 'icons/obj/items/clothing/hats/xeno_suits.dmi'
-			item_icons[WEAR_JACKET] = 'icons/mob/humans/onmob/clothing/head/xeno_suits.dmi'
+			icon = 'icons/obj/items/clothing/hats/xeno_hats.dmi'
+			item_icons[WEAR_JACKET] = 'icons/mob/humans/onmob/clothing/head/xeno_hats.dmi'
 		if("desert")
-			icon = 'icons/obj/items/clothing/hats/xeno_suits.dmi'
-			item_icons[WEAR_JACKET] = 'icons/mob/humans/onmob/clothing/head/xeno_suits.dmi'
+			icon = 'icons/obj/items/clothing/hats/xeno_hats.dmi'
+			item_icons[WEAR_JACKET] = 'icons/mob/humans/onmob/clothing/head/xeno_hats.dmi'
 		if("snow")
-			icon = 'icons/obj/items/clothing/hats/xeno_suits.dmi'
-			item_icons[WEAR_JACKET] = 'icons/mob/humans/onmob/clothing/head/xeno_suits.dmi'
+			icon = 'icons/obj/items/clothing/hats/xeno_hats.dmi'
+			item_icons[WEAR_JACKET] = 'icons/mob/humans/onmob/clothing/head/xeno_hats.dmi'
 		if("urban")
-			icon = 'icons/obj/items/clothing/hats/xeno_suits.dmi'
-			item_icons[WEAR_JACKET] = 'icons/mob/humans/onmob/clothing/head/xeno_suits.dmi'
+			icon = 'icons/obj/items/clothing/hats/xeno_hats.dmi'
+			item_icons[WEAR_JACKET] = 'icons/mob/humans/onmob/clothing/head/xeno_hats.dmi'
 
 
 /obj/item/clothing/head/helmet/marine/xenos/runner

@@ -94,6 +94,11 @@
 /obj/item/ammo_box/magazine/empty
 	empty = TRUE
 
+/obj/item/ammo_box/magazine/las
+	name = "magazine box (LAS x 10)"
+	overlay_gun_type = "_las"
+	magazine_type = /obj/item/ammo_magazine/rifle/las
+
 //---------------------GENERAL PROCS
 
 /obj/item/ammo_box/magazine/Initialize()

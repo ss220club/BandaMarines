@@ -121,6 +121,19 @@
 	recoil_unwielded = RECOIL_AMOUNT_TIER_2
 
 
+/obj/item/weapon/gun/rifle/m41a/las
+	name = "\improper Imperial lasgun"
+	desc = "You're in the guard now, son."
+	icon_state = "las"
+	item_state = "las"
+	fire_sound = "gun_grimdark"
+	projectile_type = /obj/projectile/lasbolt
+	starting_attachment_types = list(/obj/item/attachable/stock/rifle/collapsible/las)
+
+/obj/item/weapon/gun/rifle/m41a/las/Initialize(mapload, ...)
+	. = ..()
+	AddElement(/datum/element/corp_label/forgeworld)
+
 //variant without ugl attachment
 /obj/item/weapon/gun/rifle/m41a/stripped
 	starting_attachment_types = list()
