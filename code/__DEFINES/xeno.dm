@@ -296,6 +296,7 @@
 #define XENO_PLASMA_TIER_6 600 * XENO_UNIVERSAL_PLASMAMULT
 #define XENO_PLASMA_TIER_8 800 * XENO_UNIVERSAL_PLASMAMULT
 #define XENO_PLASMA_TIER_10 1000 * XENO_UNIVERSAL_PLASMAMULT
+#define XENO_PLASMA_TIER_GAMBLER 1500 * XENO_UNIVERSAL_PLASMAMULT
 
 // Plasma gain bands
 #define XENO_PLASMA_GAIN_TIER_1 1
@@ -404,6 +405,7 @@
 // Drone strain flags
 #define DRONE_HEALER "Healer"
 #define DRONE_GARDENER "Gardener"
+#define DRONE_GAMBLER "Gambler"
 
 // Hivelord strain flags
 #define HIVELORD_RESIN_WHISPERER "Resin Whisperer"
@@ -420,6 +422,9 @@
 
 // Lurker strain flags
 #define LURKER_VAMPIRE "Vampire"
+
+// Warrior strain flags
+#define WARRIOR_YUJI "Yuji Itadori"
 
 // Ravager strain flags
 #define RAVAGER_HEDGEHOG "Hedgehog"
