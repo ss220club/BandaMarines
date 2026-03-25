@@ -6,7 +6,7 @@
 
 //Добавляем в карго заказ конечностей
 /datum/supply_packs/medical_limb_kit
-	name = "Набор запасных конечностей (Набор синтетических конечностей х 3)"
+	name = "???"
 	contains = list(
 		/obj/item/storage/robot_parts_kit,
 		/obj/item/storage/robot_parts_kit,

@@ -112,7 +112,7 @@
 	group = "Medical"
 
 /datum/supply_packs/surgery
-	name = "surgery crate (tray, anesthetic, surgeon gear)"
+	name = "???"
 	contains = list(
 		/obj/item/storage/surgical_tray,
 		/obj/item/clothing/mask/breath/medical,
@@ -128,7 +128,7 @@
 	group = "Medical"
 
 /datum/supply_packs/surgery/beds
-	name = "surgery crate (surgical beds)"
+	name = "???"
 	contains = list(
 		/obj/item/roller/surgical,
 		/obj/item/roller/surgical,
@@ -144,7 +144,7 @@
 	group = "Medical"
 
 /datum/supply_packs/field_doc
-	name = "field doctor crate (replacement field doctor gear)"
+	name = "???"
 	contains = list(
 		/obj/item/folded_tent/med,
 		/obj/item/clothing/accessory/storage/surg_vest/equipped,

@@ -1,77 +1,77 @@
 [radio]
-nominative = "СВЯЗЬ"
+nominative = "ДО СВЯЗИ"
 tags = [ "nominative_only", "cm13",]
 
 ["radio (take all)"]
-nominative = "СВЯЗЬ (ВОЗЬМИТЕ ВСЁ)"
+nominative = "ДО СВЯЗИ"
 tags = [ "nominative_only", "cm13",]
 
 [webbings]
-nominative = "ЖИЛЕТЫ"
+nominative = "разгрузка"
 tags = [ "nominative_only", "cm13",]
 
 ["radio keys"]
-nominative = "КЛЮЧИ ШИФРОВАНИЯ"
+nominative = "РАДИОХЕД"
 tags = [ "nominative_only", "cm13",]
 
 ["primary firearms"]
-nominative = "ОСНОВНОЕ ВООРУЖЕНИЕ"
+nominative = "ГЛАВНЫЙ КАЛИБР"
 tags = [ "nominative_only", "cm13",]
 
 ["main weapons (choose 1)"]
-nominative = "ОСНОВНОЕ ВООРУЖЕНИЕ (ВОЗЬМИТЕ 1)"
+nominative = "ТВОЙ КРУТОЙ СТВОЛ (ВОЗЬМИТЕ 1)"
 tags = [ "nominative_only", "cm13",]
 
 ["primary ammunition"]
-nominative = "БОЕПРИПАСЫ ДЛЯ ОСНОВНОГО ОРУЖИЯ"
+nominative = "ПАТРОНЫ ДЛЯ ПУКАЛКИ"
 tags = [ "nominative_only", "cm13",]
 
 ["primary nonlethal ammunition"]
-nominative = "ОСНОВНОЕ НЕЛЕТАЛЬНОЕ ВООРУЖЕНИЕ"
+nominative = "чего блять, нелетал?"
 tags = [ "nominative_only", "cm13",]
 
 ["sidearm nonlethal ammunition"]
-nominative = "ДОПОЛНИТЕЛЬНОЕ НЕЛЕТАЛЬНОЕ ВООРУЖЕНИЕ"
+nominative = "бредик"
 tags = [ "nominative_only", "cm13",]
 
 [sidearms]
-nominative = "ДОПОЛНИТЕЛЬНОЕ ВООРУЖЕНИЕ"
+nominative = "ДОПОЛНИТЕЛЬНЫЕ ШМАЛЯЛЫ"
 tags = [ "nominative_only", "cm13",]
 
 ["sidearm ammunition"]
-nominative = "БОЕПРИПАСЫ ДЛЯ ДОПОЛНИТЕЛЬНОГО ОРУЖИЯ"
+nominative = "Маслины"
 tags = [ "nominative_only", "cm13",]
 
 ["regular ammunition"]
-nominative = "БОЕПРИПАСЫ"
+nominative = "НАМ НУЖНЫ БОЕПРИПАСЫ"
 tags = [ "nominative_only", "cm13",]
 
 [ammunition]
-nominative = "БОЕПРИПАСЫ"
+nominative = "НАМ ТРЕБУЮТСЯ БОЕПРИПАСЫ"
 tags = [ "nominative_only", "cm13",]
 
 ["armor-piercing ammunition"]
-nominative = "БРОНЕБОЙНЫЕ МАГАЗИНЫ"
+nominative = "ПИЗДАБОЛЬНЫЕ МАГАЗИНЫ"
 tags = [ "nominative_only", "cm13",]
 
 ["extended ammunition"]
-nominative = "РАСШИРЕННЫЕ МАГАЗИНЫ"
+nominative = "БОЛЬШИЕ МАГАЗИНЫ"
 tags = [ "nominative_only", "cm13",]
 
 ["special ammunition"]
-nominative = "ОСОБЫЕ БОЕПРИПАСЫ"
+nominative = "ОСОБЫЕ пульки"
 tags = [ "nominative_only", "cm13",]
 
 ["restricted gear"]
-nominative = "ЭКИПИРОВКА С ОГРАНИЧЕННЫМ ДОСТУПОМ"
+nominative = "ЭКИПИРОВКА для пижонов"
 tags = [ "nominative_only", "cm13",]
 
 ["restricted firearms"]
-nominative = "ВООРУЖЕНИЕ С ОГРАНИЧЕННЫМ ДОСТУПОМ"
+nominative = "ВООРУЖЕНИЕ для пижонов"
 tags = [ "nominative_only", "cm13",]
 
 ["restricted firearm ammunition"]
-nominative = "БОЕПРИПАСЫ С ОГРАНИЧЕННЫМ ДОСТУПОМ"
+nominative = "БОЕПРИПАСЫ для пижонов"
 tags = [ "nominative_only", "cm13",]
 
 ["ammunition boxes"]
@@ -131,7 +131,7 @@ nominative = "ПЕРЧАТКИ (ВОЗЬМИТЕ 1)"
 tags = [ "nominative_only", "cm13",]
 
 ["accessories (choose 1)"]
-nominative = "РАЗГРУЗКИ (ВОЗЬМИТЕ 1)"
+nominative = "РАЗГРУЗКИ"
 tags = [ "nominative_only", "cm13",]
 
 ["glasses (choose 1)"]
@@ -339,51 +339,51 @@ nominative = "ПРИПАСЫ"
 tags = [ "nominative_only", "cm13",]
 
 ["weapons specialist sets (choose 1)"]
-nominative = "ЯЩИКИ СПЕЦИАЛИСТОВ (ВОЗЬМИТЕ 1)"
+nominative = "БЕРИ КОНЯ"
 tags = [ "nominative_only", "cm13",]
 
 ["extra scout ammunition"]
-nominative = "ДОПОЛНИТЕЛЬНЫЕ БОЕПРИПАСЫ РАЗВЕДЧИКА"
+nominative = "НЕ БЕРИ ЕГО КАПНУТ"
 tags = [ "nominative_only", "cm13",]
 
 ["extra sniper ammunition"]
-nominative = "ДОПОЛНИТЕЛЬНЫЕ БОЕПРИПАСЫ СНАЙПЕРА"
+nominative = "зачем?"
 tags = [ "nominative_only", "cm13",]
 
 ["extra demolitionist ammunition"]
-nominative = "ДОПОЛНИТЕЛЬНЫЕ БОЕПРИПАСЫ ПОДРЫВНИКА"
+nominative = "Вот ему бери"
 tags = [ "nominative_only", "cm13",]
 
 ["extra grenades"]
-nominative = "ДОПОЛНИТЕЛЬНЫЕ БОЕПРИПАСЫ ГРАНАТОМЁТЧИКА"
+nominative = "ему не бери, его гибнут"
 tags = [ "nominative_only", "cm13",]
 
 ["extra flamethrower tanks"]
-nominative = "ДОПОЛНИТЕЛЬНЫЕ БОЕПРИПАСЫ ОГНЕМЁТЧИКА"
+nominative = "а ему зачем"
 tags = [ "nominative_only", "cm13",]
 
 [flasks]
-nominative = "ФЛЯГИ"
+nominative = "ВЕРНЫЕ ФЛЯГИ"
 tags = [ "nominative_only", "cm13",]
 
 ["prepared meals"]
-nominative = "ГОТОВЫЕ БЛЮДА"
+nominative = "Вкусно и точка"
 tags = [ "nominative_only", "cm13",]
 
 ["field supplies"]
-nominative = "ПРИПАСЫ"
+nominative = "вставьте свою рекламу"
 tags = [ "nominative_only", "cm13",]
 
 [autoinjectors]
-nominative = "ИНЖЕКТОРЫ"
+nominative = "шприцы с наркотиками"
 tags = [ "nominative_only", "cm13",]
 
 ["liquid bottles"]
-nominative = "СОСУДЫ С РЕАГЕНТАМИ"
+nominative = "СОСУДЫ С НАРКОТИКАМИ"
 tags = [ "nominative_only", "cm13",]
 
 ["pill bottles"]
-nominative = "БАНКИ С ТАБЛЕТКАМИ"
+nominative = "БАНКИ С НАРКОТИКАМИ"
 tags = [ "nominative_only", "cm13",]
 
 ["medical utilities"]
@@ -391,7 +391,7 @@ nominative = "МЕДИЦИНСКОЕ СНАРЯЖЕНИЕ"
 tags = [ "nominative_only", "cm13",]
 
 ["medical set (mandatory)"]
-nominative = "МЕДИЦИНСКИЙ НАБОР (ОБЯЗАТЕЛЬНО)"
+nominative = "МЕДИЦИНСКИЙ НАБОР (не ОБЯЗАТЕЛЬНО)"
 tags = [ "nominative_only", "cm13",]
 
 ["snow gear (snow use only)"]

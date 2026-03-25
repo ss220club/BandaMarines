@@ -170,23 +170,23 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 		.["current_order"] += list(list_pack)
 
 	var/datum/shuttle/ferry/supply/shuttle = linked_supply_controller.shuttle
-	.["shuttle_status"] = "Поднять лифт" // SS220 EDIT ADDICTION
+	.["shuttle_status"] = "???" // SS220 EDIT ADDICTION
 	if (shuttle.has_arrive_time())
-		.["shuttle_status"] = "Движется" // SS220 EDIT ADDICTION
+		.["shuttle_status"] = "???" // SS220 EDIT ADDICTION
 		return
 
 	if (shuttle.at_station() )
-		.["shuttle_status"] = "Опустить лифт" // SS220 EDIT ADDICTION
+		.["shuttle_status"] = "???" // SS220 EDIT ADDICTION
 
 		switch(shuttle.docking_controller?.get_docking_status())
 			if ("docked")
-				.["shuttle_status"] = "поднять" // SS220 EDIT ADDICTION
+				.["shuttle_status"] = "???" // SS220 EDIT ADDICTION
 			if ("undocked")
-				.["shuttle_status"] = "опустить" // SS220 EDIT ADDICTION
+				.["shuttle_status"] = "???" // SS220 EDIT ADDICTION
 			if ("docking")
-				.["shuttle_status"] = "поднимается" // SS220 EDIT ADDICTION
+				.["shuttle_status"] = "???" // SS220 EDIT ADDICTION
 			if ("undocking")
-				.["shuttle_status"] = "опускается" // SS220 EDIT ADDICTION
+				.["shuttle_status"] = "???" // SS220 EDIT ADDICTION
 
 /obj/structure/machinery/computer/supply/ui_static_data(mob/user)
 	. = ..()
@@ -321,7 +321,7 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 			print_form(supply_order)
 
 			linked_supply_controller.requestlist += supply_order
-			system_message = "Спасибо за заказ. Грузовые техники обработают его как можно скорее." // SS220 EDIT ADDICTION
+			system_message = "???" // SS220 EDIT ADDICTION
 			return TRUE
 
 		if("acknowledged")

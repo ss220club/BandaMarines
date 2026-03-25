@@ -539,7 +539,7 @@ prepositional = "авиаторах"
 gender = "male"
 
 ["uscm mre crate(x2)"]
-nominative = "ящик для коробок с едой (MRE x 2)"
+nominative = "???"
 
 ["box of mres"]
 nominative = "коробка MRE"

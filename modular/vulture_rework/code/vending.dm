@@ -3,7 +3,7 @@
 	LAZYINSERT(listed_products, list(list("M707 Anti Material Rifle", (1), /obj/item/storage/box/guncase/vulture, VENDOR_ITEM_REGULAR)), 13)
 
 /datum/supply_packs/ammo_vulture_mag
-	name = "M707 Anti-Materiel Rifle Magazines crate (M707, 3x mags)"
+	name = "???"
 	contains = list(
 		/obj/item/ammo_magazine/rifle/boltaction/vulture,
 		/obj/item/ammo_magazine/rifle/boltaction/vulture,
@@ -15,7 +15,7 @@
 	group = "Ammo"
 
 /datum/supply_packs/ammo_vulture_mag_holo
-	name = "M707 Anti-Materiel Rifle Holo-Target Magazines crate (M707 HT, 3x mags)"
+	name = "???"
 	contains = list(
 		/obj/item/ammo_magazine/rifle/boltaction/vulture/holo_target,
 		/obj/item/ammo_magazine/rifle/boltaction/vulture/holo_target,

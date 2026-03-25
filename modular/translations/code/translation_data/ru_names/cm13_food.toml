@@ -116,7 +116,7 @@ prepositional = "готовом блюде ККМП (тофу)"
 gender = "neuter"
 
 ["uscm protein bar"]
-nominative = "Протеиновый батончик ККМП"
+nominative = "???"
 
 ["stale uscm protein bar"]
 nominative = "чёрствый протеиновый батончик ККМП"
@@ -983,7 +983,7 @@ prepositional = "попкорне"
 gender = "male"
 
 ["box of donuts (x5)"]
-nominative = "ящик для коробок с едой (пончики x 5)"
+nominative = "???"
 
 ["yum! donuts"]
 nominative = "коробка пончиков «Ням!»"
@@ -1004,7 +1004,7 @@ prepositional = "пончике с глазурью"
 gender = "male"
 
 ["pizza ready-to-eat (x3)"]
-nominative = "ящик для коробок с едой (пицца x 3)"
+nominative = "???"
 
 ["pizza box"]
 nominative = "коробка для пиццы"
@@ -1619,5 +1619,5 @@ prepositional = "вине «Особом для двубородых и усат
 gender = "neuter"
 
 ["surplus boxes of ingredients(x6 boxes)"]
-nominative = "ящик для коробок с едой (обеспечение)"
+nominative = "???"
 tags = [ "nominative_only", "cm13",]

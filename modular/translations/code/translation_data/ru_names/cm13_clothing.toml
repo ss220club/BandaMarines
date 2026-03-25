@@ -44,7 +44,7 @@ prepositional = "униформе врача"
 gender = "female"
 
 ["officer outfit crate"]
-nominative = "ящик для экипировки (офицерская униформа x 5)"
+nominative = "???"
 tags = [ "nominative_only", "cm13",]
 
 ["quartermaster suit"]
@@ -146,12 +146,12 @@ nominative = "военный рюкзак"
 tags = [ "nominative_only", "cm13",]
 
 ["lightweight imp backpack"]
-nominative = "военный лёгкий рюкзак"
-genitive = "военного лёгкого рюкзака"
-dative = "военному лёгкому рюкзаку"
-accusative = "военный лёгкий рюкзак"
-instrumental = "военным лёгким рюкзаком"
-prepositional = "военном лёгком рюкзаке"
+nominative = "РЮКЗАК ШКОЛЬНИКА"
+genitive = "РЮКЗАК ШКОЛЬНИКА"
+dative = "РЮКЗАК ШКОЛЬНИКА"
+accusative = "РЮКЗАК ШКОЛЬНИКА"
+instrumental = "РЮКЗАК ШКОЛЬНИКА"
+prepositional = "РЮКЗАК ШКОЛЬНИКА"
 gender = "male"
 
 ["mortar shell backpack"]
@@ -190,25 +190,25 @@ prepositional = "рюкзаке ККМП санитара"
 gender = "male"
 
 ["imp ammo rack"]
-nominative = "поняга для ящиков с боеприпасами"
-genitive = "поняги для ящиков с боеприпасами"
-dative = "поняге для ящиков с боеприпасами"
-accusative = "понягу для ящиков с боеприпасами"
-instrumental = "понягой для ящиков с боеприпасами"
-prepositional = "поняге для ящиков с боеприпасами"
+nominative = "поня"
+genitive = "поня"
+dative = "поня"
+accusative = "поня"
+instrumental = "поня"
+prepositional = "поня"
 gender = "female"
 
 ["radio telephone backpack"]
-nominative = "рюкзак связиста"
+nominative = "Детка, возьми телефон, я знаю ты хочешь позвонить..."
 tags = [ "nominative_only", "cm13",]
 
 ["uscm radio telephone pack"]
-nominative = "рюкзак ККМП связиста"
-genitive = "рюкзака ККМП связиста"
-dative = "рюкзаку ККМП связиста"
-accusative = "рюкзак ККМП связиста"
-instrumental = "рюкзаком ККМП связиста"
-prepositional = "рюкзаке ККМП связиста"
+nominative = "Детка, возьми телефон, я знаю ты хочешь позвонить..."
+genitive = "Детка, возьми телефон, я знаю ты хочешь позвонить..."
+dative = "Детка, возьми телефон, я знаю ты хочешь позвонить..."
+accusative = "Детка, возьми телефон, я знаю ты хочешь позвонить..."
+instrumental = "Детка, возьми телефон, я знаю ты хочешь позвонить..."
+prepositional = "Детка, возьми телефон, я знаю ты хочешь позвонить..."
 gender = "male"
 
 ["technician welderpack"]
@@ -282,152 +282,152 @@ prepositional = "разгрузочной системе сварщика"
 gender = "female"
 
 ["uscm satchel"]
-nominative = "сумка ККМП"
-genitive = "сумки ККМП"
-dative = "сумке ККМП"
-accusative = "сумку ККМП"
-instrumental = "сумкой ККМП"
-prepositional = "сумке ККМП"
+nominative = "Бизнесменская сумка"
+genitive = "Бизнесменская сумка"
+dative = "Бизнесменская сумка"
+accusative = "Бизнесменская сумка"
+instrumental = "Бизнесменская сумка"
+prepositional = "Бизнесменская сумка"
 gender = "female"
 
 ["uscm corpsman satchel"]
-nominative = "сумка ККМП санитара"
-genitive = "сумки ККМП санитара"
-dative = "сумке ККМП санитара"
-accusative = "сумку ККМП санитара"
-instrumental = "сумкой ККМП санитара"
-prepositional = "сумке ККМП санитара"
+nominative = "медик!!!"
+genitive = "медик!!!"
+dative = "медик!!!"
+accusative = "медик!!!"
+instrumental = "медик!!!"
+prepositional = "медик!!!"
 gender = "female"
 
 ["technician welder-satchel"]
-nominative = "сумка сварщика"
+nominative = "сварщик 5 разряд"
 tags = [ "nominative_only", "cm13",]
 
 ["uscm technician welder-satchel"]
-nominative = "сумка ККМП сварщика"
-genitive = "сумки ККМП сварщика"
-dative = "сумке ККМП сварщика"
-accusative = "сумку ККМП сварщика"
-instrumental = "сумкой ККМП сварщика"
-prepositional = "сумке ККМП сварщика"
+nominative = "сварщик 5 разряд"
+genitive = "сварщик 5 разряд"
+dative = "сварщик 5 разряд"
+accusative = "сварщик 5 разряд"
+instrumental = "сварщик 5 разряд"
+prepositional = "сварщик 5 разряд"
 gender = "female"
 
 ["grenade satchel"]
-nominative = "сумка для гранат"
+nominative = "террорист с гранатами"
 tags = [ "nominative_only", "cm13",]
 
 ["uscm imp m63a1 grenade satchel"]
-nominative = "сумка ККМП для гранат"
-genitive = "сумки ККМП для гранат"
-dative = "сумке ККМП для гранат"
-accusative = "сумку ККМП для гранат"
-instrumental = "сумкой ККМП для гранат"
-prepositional = "сумке ККМП для гранат"
+nominative = "террорист с гранатами"
+genitive = "террорист с гранатами"
+dative = "террорист с гранатами"
+accusative = "террорист с гранатами"
+instrumental = "террорист с гранатами"
+prepositional = "террорист с гранатами"
 gender = "female"
 
 ["l44 shotgun scabbard"]
-nominative = "чехол L44 для дробовика"
-genitive = "чехла L44 для дробовика"
-dative = "чехлу L44 для дробовика"
-accusative = "чехол L44 для дробовика"
-instrumental = "чехлом L44 для дробовика"
-prepositional = "чехле L44 для дробовика"
+nominative = "Псих с дробовиком"
+genitive = "Псих с дробовиком"
+dative = "Псих с дробовиком"
+accusative = "Псих с дробовиком"
+instrumental = "Псих с дробовиком"
+prepositional = "Псих с дробовиком"
 gender = "male"
 
 ["machete scabbard (full)"]
-nominative = "чехол H5 для мачете M2132 (с мачете)"
+nominative = "мачете в модной сумочке (с мачете)"
 tags = [ "nominative_only", "cm13",]
 
 ["h5 pattern m2132 machete scabbard"]
-nominative = "чехол H5 для мачете M2132"
-genitive = "чехла H5 для мачете M2132"
-dative = "чехлу H5 для мачете M2132"
-accusative = "чехол H5 для мачете M2132"
-instrumental = "чехлом H5 для мачете M2132"
-prepositional = "чехле H5 для мачете M2132"
+nominative = "мачете в модной сумочке"
+genitive = "мачете в модной сумочке"
+dative = "мачете в модной сумочке"
+accusative = "мачете в модной сумочке"
+instrumental = "мачете в модной сумочке"
+prepositional = "мачете в модной сумочке"
 gender = "male"
 
 ["webbing crate (x4)"]
-nominative = "ящик для экипировки (коричневый нагрудный жилет x 4)"
+nominative = "???"
 tags = [ "nominative_only", "cm13",]
 
 [webbing]
-nominative = "коричневый нагрудный жилет"
-genitive = "коричневого нагрудного жилета"
-dative = "коричневому нагрудному жилету"
-accusative = "коричневый нагрудный жилет"
-instrumental = "коричневым нагрудным жилетом"
-prepositional = "коричневом нагрудном жилете"
+nominative = "коричневый разгрузка"
+genitive = "коричневого разгрузка"
+dative = "коричневому разгрузка"
+accusative = "коричневый разгрузка"
+instrumental = "коричневым разгрузка"
+prepositional = "коричневом разгрузка"
 gender = "male"
 
 ["brown and black webbing crate (x2 each)"]
-nominative = "ящик для экипировки (разгрузочный жилет x 2)"
+nominative = "???"
 tags = [ "nominative_only", "cm13",]
 
 ["brown webbing vest"]
-nominative = "коричневый разгрузочный жилет"
-genitive = "коричневого разгрузочного жилета"
-dative = "коричневому разгрузочному жилету"
-accusative = "коричневый разгрузочный жилет"
-instrumental = "коричневым разгрузочным жилетом"
-prepositional = "коричневом разгрузочном жилете"
+nominative = "коричневый разгрузка"
+genitive = "коричневого разгрузка"
+dative = "коричневому разгрузка"
+accusative = "коричневый разгрузка"
+instrumental = "коричневым разгрузка"
+prepositional = "коричневом разгрузка"
 gender = "male"
 
 ["black webbing vest"]
-nominative = "чёрный разгрузочный жилет"
-genitive = "чёрного разгрузочного жилета"
-dative = "чёрному разгрузочному жилету"
-accusative = "чёрный разгрузочный жилет"
-instrumental = "чёрным разгрузочным жилетом"
-prepositional = "чёрном разгрузочном жилете"
+nominative = "чёрный разгрузка"
+genitive = "чёрного разгрузка"
+dative = "чёрному разгрузка"
+accusative = "чёрный разгрузка"
+instrumental = "чёрным разгрузка"
+prepositional = "чёрном разгрузка"
 gender = "male"
 
 ["surgical webbing vest"]
-nominative = "разгрузочный жилет хирурга"
-genitive = "разгрузочного жилета хирурга"
-dative = "разгрузочному жилету хирурга"
-accusative = "разгрузочный жилет хирурга"
-instrumental = "разгрузочным жилетом хирурга"
-prepositional = "разгрузочном жилете хирурга"
+nominative = "разгрузка"
+genitive = "разгрузка"
+dative = "разгрузка"
+accusative = "разгрузка"
+instrumental = "разгрузка"
+prepositional = "разгрузка"
 gender = "male"
 
 ["blue surgical webbing vest"]
-nominative = "синий разгрузочный жилет хирурга"
-genitive = "синего разгрузочного жилета хирурга"
-dative = "синему разгрузочному жилету хирурга"
-accusative = "синий разгрузочный жилет хирурга"
-instrumental = "синим разгрузочным жилетом хирурга"
-prepositional = "синем разгрузочном жилете хирурга"
+nominative = "разгрузка"
+genitive = "разгрузка"
+dative = "разгрузка"
+accusative = "разгрузка"
+instrumental = "разгрузка"
+prepositional = "разгрузка"
 gender = "male"
 
 ["knife vest crate (x3)"]
-nominative = "ящик для экипировки (жилет с ножнами x 4)"
+nominative = "???"
 tags = [ "nominative_only", "cm13",]
 
 ["knife webbing"]
-nominative = "жилет с ножнами"
+nominative = "ножички"
 tags = [ "nominative_only", "cm13",]
 
 ["m272 pattern knife vest"]
-nominative = "жилет M272 с ножнами"
-genitive = "жилета M272 с ножнами"
-dative = "жилету M272 с ножнами"
-accusative = "жилет M272 с ножнами"
-instrumental = "жилетом M272 с ножнами"
-prepositional = "жилете M272 с ножнами"
+nominative = "ножички"
+genitive = "ножички"
+dative = "ножички"
+accusative = "ножички"
+instrumental = "ножички"
+prepositional = "ножички"
 gender = "male"
 
 ["black webbing crate (x4)"]
-nominative = "ящик для экипировки (чёрный нагрудный жилет x 4)"
+nominative = "???"
 tags = [ "nominative_only", "cm13",]
 
 ["black webbing"]
-nominative = "чёрный нагрудный жилет"
-genitive = "чёрного нагрудного жилета"
-dative = "чёрному нагрудному жилету"
-accusative = "чёрный нагрудный жилет"
-instrumental = "чёрным нагрудным жилетом"
-prepositional = "чёрном нагрудном жилете"
+nominative = "черная разгрузка"
+genitive = "черная разгрузка"
+dative = "черная разгрузка"
+accusative = "черная разгрузка"
+instrumental = "черная разгрузка"
+prepositional = "черная разгрузка"
 gender = "male"
 
 ["small tool webbing (full)"]
@@ -444,12 +444,12 @@ prepositional = "разгрузочном жилете для инструмен
 gender = "male"
 
 ["external webbing"]
-nominative = "навесная разгрузка"
-genitive = "навесной разгрузки"
-dative = "навесной разгрузке"
-accusative = "навесную разгрузку"
-instrumental = "навесной разгрузкой"
-prepositional = "навесной разгрузке"
+nominative = "разгрузка"
+genitive = "разгрузка"
+dative = "разгрузка"
+accusative = "разгрузка"
+instrumental = "разгрузка"
+prepositional = "разгрузка"
 gender = "female"
 
 [gloves]
@@ -542,249 +542,249 @@ prepositional = "перчатках M3-G4 гранатомётчика"
 gender = "female"
 
 ["marine brown combat boots"]
-nominative = "коричневые боевые ботинки морпеха"
+nominative = "коричневые соевые ботинки морпеха"
 tags = [ "nominative_only", "cm13",]
 
 ["marine jungle combat boots"]
-nominative = "зелёные боевые ботинки морпеха"
+nominative = "зелёные соевые ботинки морпеха"
 tags = [ "nominative_only", "cm13",]
 
 ["marine grey combat boots"]
-nominative = "серые боевые ботинки морпеха"
+nominative = "серые соевые ботинки морпеха"
 tags = [ "nominative_only", "cm13",]
 
 ["marine urban combat boots"]
-nominative = "урбанистские боевые ботинки морпеха"
+nominative = "урбанистские соевые ботинки морпеха"
 tags = [ "nominative_only", "cm13",]
 
 ["marine combat boots"]
-nominative = "боевые ботинки морпеха"
-genitive = "боевых ботинок морпеха"
-dative = "боевым ботинкам морпеха"
-accusative = "боевые ботинки морпеха"
-instrumental = "боевыми ботинками морпеха"
-prepositional = "боевых ботинках морпеха"
+nominative = "соевые ботинки морпеха"
+genitive = "соевые ботинок морпеха"
+dative = "соевые ботинкам морпеха"
+accusative = "соевые ботинки морпеха"
+instrumental = "соевые ботинками морпеха"
+prepositional = "соевые ботинках морпеха"
 gender = "plural"
 
 ["m276 pattern general pistol holster rig"]
-nominative = "пояс M276 с кобурой для пистолета"
-genitive = "пояса M276 с кобурой для пистолета"
-dative = "поясу M276 с кобурой для пистолета"
-accusative = "пояс M276 с кобурой для пистолета"
-instrumental = "поясом M276 с кобурой для пистолета"
-prepositional = "поясе M276 с кобурой для пистолета"
+nominative = "пиздалет хочу пиздец"
+genitive = "пиздалет хочу пиздец"
+dative = "пиздалет хочу пиздец"
+accusative = "пиздалет хочу пиздец"
+instrumental = "пиздалет хочу пиздец"
+prepositional = "пиздалет хочу пиздец"
 gender = "male"
 
 ["m276 pattern su-6 smartpistol holster rig"]
-nominative = "пояс M276 с кобурой для SU-6"
-genitive = "пояса M276 с кобурой для SU-6"
-dative = "поясу M276 с кобурой для SU-6"
-accusative = "пояс M276 с кобурой для SU-6"
-instrumental = "поясом M276 с кобурой для SU-6"
-prepositional = "поясе M276 с кобурой для SU-6"
+nominative = "пояс для сучка 6 умная пиздец"
+genitive = "пояс для сучка 6 умная пиздец"
+dative = "пояс для сучка 6 умная пиздец"
+accusative = "пояс для сучка 6 умная пиздец"
+instrumental = "пояс для сучка 6 умная пиздец"
+prepositional = "пояс для сучка 6 умная пиздец"
 gender = "male"
 
 ["m276 pattern general revoler holster rig"]
-nominative = "пояс M276 с кобурой для револьвера"
-genitive = "пояса M276 с кобурой для револьвера"
-dative = "поясу M276 с кобурой для револьвера"
-accusative = "пояс M276 с кобурой для револьвера"
-instrumental = "поясом M276 с кобурой для револьвера"
-prepositional = "поясе M276 с кобурой для револьвера"
+nominative = "оцелот"
+genitive = "оцелот"
+dative = "оцелот"
+accusative = "оцелот"
+instrumental = "оцелот"
+prepositional = "оцелот"
 gender = "male"
 
 ["m276 pattern mortar operator belt"]
-nominative = "пояс M276 миномётчика"
-genitive = "пояса M276 миномётчика"
-dative = "поясу M276 миномётчика"
-accusative = "пояс M276 миномётчика"
-instrumental = "поясом M276 миномётчика"
-prepositional = "поясе M276 миномётчика"
+nominative = "Ало я миномётчик"
+genitive = "Ало я миномётчик"
+dative = "Ало я миномётчик"
+accusative = "Ало я миномётчик"
+instrumental = "Ало я миномётчик"
+prepositional = "Ало я миномётчик"
 gender = "male"
 
 ["m300 pattern.458 socom loading rig"]
-nominative = "пояс M300 с патронташем для .458 SOCOM"
-genitive = "пояса M300 с патронташем для .458 SOCOM"
-dative = "поясу M300 с патронташем для .458 SOCOM"
-accusative = "пояс M300 с патронташем для .458 SOCOM"
-instrumental = "поясом M300 с патронташем для .458 SOCOM"
-prepositional = "поясе M300 с патронташем для .458 SOCOM"
+nominative = "точка 458 способов сосать"
+genitive = "точка 458 способов сосать"
+dative = "точка 458 способов сосать"
+accusative = "точка 458 способов сосать"
+instrumental = "точка 458 способов сосать"
+prepositional = "точка 458 способов сосать"
 gender = "male"
 
 ["m276 pattern shotgun shell loading rig"]
-nominative = "пояс M276 с патронташем для дробовика"
-genitive = "пояса M276 с патронташем для дробовика"
-dative = "поясу M276 с патронташем для дробовика"
-accusative = "пояс M276 с патронташем для дробовика"
-instrumental = "поясом M276 с патронташем для дробовика"
-prepositional = "поясе M276 с патронташем для дробовика"
+nominative = "думгай"
+genitive = "думгай"
+dative = "думгай"
+accusative = "думгай"
+instrumental = "думгай"
+prepositional = "думгай"
 gender = "male"
 
 ["g8-a general utility pouch"]
-nominative = "пояс G8-A общего назначения"
-genitive = "пояса G8-A общего назначения"
-dative = "поясу G8-A общего назначения"
-accusative = "пояс G8-A общего назначения"
-instrumental = "поясом G8-A общего назначения"
-prepositional = "поясе G8-A общего назначения"
+nominative = "Вассерман"
+genitive = "Вассерман"
+dative = "Вассерман"
+accusative = "Вассерман"
+instrumental = "Вассерман"
+prepositional = "Вассерман"
 gender = "male"
 
 ["m276 toolbelt rig (full)"]
-nominative = "пояс M276 для инструментов (полный)"
+nominative = "батины инструменты (полный)"
 tags = [ "nominative_only", "cm13",]
 
 ["m276 pattern toolbelt rig"]
-nominative = "пояс M276 для инструментов"
-genitive = "пояса M276 для инструментов"
-dative = "поясу M276 для инструментов"
-accusative = "пояс M276 для инструментов"
-instrumental = "поясом M276 для инструментов"
-prepositional = "поясе M276 для инструментов"
+nominative = "батины инструменты"
+genitive = "батины инструменты"
+dative = "батины инструменты"
+accusative = "батины инструменты"
+instrumental = "батины инструменты"
+prepositional = "батины инструменты"
 gender = "male"
 
 ["m276 knife rig (full)"]
-nominative = "пояс M276 для ножей (полный)"
+nominative = "КРУТЫЕ НОЖИКИ (полный)"
 tags = [ "nominative_only", "cm13",]
 
 ["m276 pattern knife rig"]
-nominative = "пояс M276 для ножей"
-genitive = "пояса M276 для ножей"
-dative = "поясу M276 для ножей"
-accusative = "пояс M276 для ножей"
-instrumental = "поясом M276 для ножей"
-prepositional = "поясе M276 для ножей"
+nominative = "КРУТЫЕ НОЖИКИ"
+genitive = "КРУТЫЕ НОЖИКИ"
+dative = "КРУТЫЕ НОЖИКИ"
+accusative = "КРУТЫЕ НОЖИКИ"
+instrumental = "КРУТЫЕ НОЖИКИ"
+prepositional = "КРУТЫЕ НОЖИКИ"
 gender = "male"
 
 ["military police belt"]
-nominative = "пояс военной полиции"
+nominative = "пояс красного гандона"
 tags = [ "nominative_only", "cm13",]
 
 ["m276 pattern military police rig"]
-nominative = "пояс M276 военной полиции"
-genitive = "пояса M276 военной полиции"
-dative = "поясу M276 военной полиции"
-accusative = "пояс M276 военной полиции"
-instrumental = "поясом M276 военной полиции"
-prepositional = "поясе M276 военной полиции"
+nominative = "пояс красного гандона"
+genitive = "пояс красного гандона"
+dative = "пояс красного гандона"
+accusative = "пояс красного гандона"
+instrumental = "пояс красного гандона"
+prepositional = "пояс красного гандона"
 gender = "male"
 
 ["m276 pattern m39 holster rig"]
-nominative = "пояс M276 с креплением для M39"
-genitive = "пояса M276 с креплением для M39"
-dative = "поясу M276 с креплением для M39"
-accusative = "пояс M276 с креплением для M39"
-instrumental = "поясом M276 с креплением для M39"
-prepositional = "поясе M276 с креплением для M39"
+nominative = "м39 геймер"
+genitive = "м39 геймер"
+dative = "м39 геймер"
+accusative = "м39 геймер"
+instrumental = "м39 геймер"
+prepositional = "м39 геймер"
 gender = "male"
 
 ["m276 pattern m10 holster rig"]
-nominative = "пояс M276 с кобурой для M10"
-genitive = "пояса M276 с кобурой для M10"
-dative = "поясу M276 с кобурой для M10"
-accusative = "пояс M276 с кобурой для M10"
-instrumental = "поясом M276 с кобурой для M10"
-prepositional = "поясе M276 с кобурой для M10"
+nominative = "м10 хочу пиздец"
+genitive = "м10 хочу пиздец"
+dative = "м10 хочу пиздец"
+accusative = "м10 хочу пиздец"
+instrumental = "м10 хочу пиздец"
+prepositional = "м10 хочу пиздец"
 gender = "male"
 
 ["m277 pattern construction rig"]
-nominative = "пояс M277 строителя"
-genitive = "пояса M277 строителя"
-dative = "поясу M277 строителя"
-accusative = "пояс M277 строителя"
-instrumental = "поясом M277 строителя"
-prepositional = "поясе M277 строителя"
+nominative = "боб строитель"
+genitive = "боб строитель"
+dative = "боб строитель"
+accusative = "боб строитель"
+instrumental = "боб строитель"
+prepositional = "боб строитель"
 gender = "male"
 
 ["m276 medical storage rig (full)"]
-nominative = "пояс M276 санитара (полный)"
+nominative = "пояс нарколыги (полный)"
 tags = [ "nominative_only", "cm13",]
 
 ["m276 pattern medical storage rig"]
-nominative = "пояс M276 санитара"
-genitive = "пояса M276 санитара"
-dative = "поясу M276 санитара"
-accusative = "пояс M276 санитара"
-instrumental = "поясом M276 санитара"
-prepositional = "поясе M276 санитара"
+nominative = "пояс нарколыги"
+genitive = "пояс нарколыги"
+dative = "пояс нарколыги"
+accusative = "пояс нарколыги"
+instrumental = "пояс нарколыги"
+prepositional = "пояс нарколыги"
 gender = "male"
 
 ["m276 lifesaver bag (full)"]
-nominative = "пояс M276 спасателя (полный)"
+nominative = "пояс МЧС (полный)"
 tags = [ "nominative_only", "cm13",]
 
 ["m276 pattern lifesaver bag"]
-nominative = "пояс M276 спасателя"
-genitive = "пояса M276 спасателя"
-dative = "поясу M276 спасателя"
-accusative = "пояс M276 спасателя"
-instrumental = "поясом M276 спасателя"
-prepositional = "поясе M276 спасателя"
+nominative = "пояс МЧС"
+genitive = "пояс МЧС"
+dative = "пояс МЧС"
+accusative = "пояс МЧС"
+instrumental = "пояс МЧС"
+prepositional = "пояс МЧС"
 gender = "male"
 
 ["m804 heavygunner storage rig"]
-nominative = "пояс M804 пулемётчика"
-genitive = "пояса M804 пулемётчика"
-dative = "поясу M804 пулемётчика"
-accusative = "пояс M804 пулемётчика"
-instrumental = "поясом M804 пулемётчика"
-prepositional = "поясе M804 пулемётчика"
+nominative = "пояс шмальбы пулемета"
+genitive = "пояс шмальбы пулемета"
+dative = "пояс шмальбы пулемета"
+accusative = "пояс шмальбы пулемета"
+instrumental = "пояс шмальбы пулемета"
+prepositional = "пояс шмальбы пулемета"
 gender = "male"
 
 ["m276 pattern ammo load rig"]
-nominative = "пояс M276 для магазинов"
-genitive = "пояса M276 для магазинов"
-dative = "поясу M276 для магазинов"
-accusative = "пояс M276 для магазинов"
-instrumental = "поясом M276 для магазинов"
-prepositional = "поясе M276 для магазинов"
+nominative = "стрелять люблю пиздец"
+genitive = "стрелять люблю пиздец"
+dative = "стрелять люблю пиздец"
+accusative = "стрелять люблю пиздец"
+instrumental = "стрелять люблю пиздец"
+prepositional = "стрелять люблю пиздец"
 gender = "male"
 
 ["ammo load rig"]
-nominative = "пояс для магазинов"
-genitive = "пояса для магазинов"
-dative = "поясу для магазинов"
-accusative = "пояс для магазинов"
-instrumental = "поясом для магазинов"
-prepositional = "поясе для магазинов"
+nominative = "стрелять люблю пиздец"
+genitive = "стрелять люблю пиздец"
+dative = "стрелять люблю пиздец"
+accusative = "стрелять люблю пиздец"
+instrumental = "стрелять люблю пиздец"
+prepositional = "стрелять люблю пиздец"
 gender = "male"
 
 ["m276 combat toolbelt rig (full)"]
-nominative = "пояс M276 для инструментов с кобурой (полный)"
+nominative = "пиздалет и батины инструменты (полный)"
 tags = [ "nominative_only", "cm13",]
 
 ["m276 holster toolrig (full)"]
-nominative = "пояс M276 для инструментов с кобурой (полный)"
+nominative = "пиздалет и батины инструменты (полный)"
 tags = [ "nominative_only", "cm13",]
 
 ["m276 pattern combat toolbelt rig"]
-nominative = "пояс M276 для инструментов с кобурой"
-genitive = "пояса M276 для инструментов с кобурой"
-dative = "поясу M276 для инструментов с кобурой"
-accusative = "пояс M276 для инструментов с кобурой"
-instrumental = "поясом M276 для инструментов с кобурой"
-prepositional = "поясе M276 для инструментов с кобурой"
+nominative = "пиздалет и батины инструменты"
+genitive = "пиздалет и батины инструменты"
+dative = "пиздалет и батины инструменты"
+accusative = "пиздалет и батины инструменты"
+instrumental = "пиздалет и батины инструменты"
+prepositional = "пиздалет и батины инструменты"
 gender = "male"
 
 ["m276 pattern m82f flare gun holster rig"]
-nominative = "пояс M276 с кобурой для M82F"
-genitive = "пояса M276 с кобурой для M82F"
-dative = "поясу M276 с кобурой для M82F"
-accusative = "пояс M276 с кобурой для M82F"
-instrumental = "поясом M276 с кобурой для M82F"
-prepositional = "поясе M276 с кобурой для M82F"
+nominative = "светить люблю пиздец"
+genitive = "светить люблю пиздец"
+dative = "светить люблю пиздец"
+accusative = "светить люблю пиздец"
+instrumental = "светить люблю пиздец"
+prepositional = "светить люблю пиздец"
 gender = "male"
 
 ["m276 m40 grenade rig (empty)"]
-nominative = "пояс M276 для гранат M40 (пустой)"
+nominative = "гранаты люблю пиздец ( УВЫ пустой)"
 tags = [ "nominative_only", "cm13",]
 
 ["m276 pattern m40 grenade rig"]
-nominative = "пояс M276 для гранат M40"
-genitive = "пояса M276 для гранат M40"
-dative = "поясу M276 для гранат M40"
-accusative = "пояс M276 для гранат M40"
-instrumental = "поясом M276 для гранат M40"
-prepositional = "поясе M276 для гранат M40"
+nominative = "гранаты люблю пиздец"
+genitive = "гранаты люблю пиздец"
+dative = "гранаты люблю пиздец"
+accusative = "гранаты люблю пиздец"
+instrumental = "гранаты люблю пиздец"
+prepositional = "гранаты люблю пиздец"
 gender = "male"
 
 ["m103 pattern sharp magazine belt"]
@@ -797,12 +797,12 @@ prepositional = "поясе M103 для картриджей P9 «Шарп»"
 gender = "male"
 
 ["m276 pattern m40 grenade rig mk. ii"]
-nominative = "пояс M276MK2 для гранат M40"
-genitive = "пояса M276MK2 для гранат M40"
-dative = "поясу M276MK2 для гранат M40"
-accusative = "пояс M276MK2 для гранат M40"
-instrumental = "поясом M276MK2 для гранат M40"
-prepositional = "поясе M276MK2 для гранат M40"
+nominative = "гранаты люблю пиздец MK2"
+genitive = "гранаты люблю пиздец MK2"
+dative = "гранаты люблю пиздец MK2"
+accusative = "гранаты люблю пиздец MK2"
+instrumental = "гранаты люблю пиздец MK2"
+prepositional = "гранаты люблю пиздец MK2"
 gender = "male"
 
 ["m10 pattern marine helmet"]
@@ -896,48 +896,48 @@ prepositional = "шлеме сварщика М10"
 gender = "male"
 
 ["m3-t bombardier helmet"]
-nominative = "шлем подрывника M3-T"
-genitive = "шлема подрывника M3-T"
-dative = "шлему подрывника M3-T"
-accusative = "шлем подрывника M3-T"
-instrumental = "шлемом подрывника M3-T"
-prepositional = "шлеме подрывника M3-T"
+nominative = "шлем гиба"
+genitive = "шлема гиба"
+dative = "шлему гиба"
+accusative = "шлем гиба"
+instrumental = "шлемом гиба"
+prepositional = "шлеме гиба"
 gender = "male"
 
 ["m3-g4 grenadier helmet"]
-nominative = "шлем гранатомётчика M3-G4"
-genitive = "шлема гранатомётчика M3-G4"
-dative = "шлему гранатомётчика M3-G4"
-accusative = "шлем гранатомётчика M3-G4"
-instrumental = "шлемом гранатомётчика M3-G4"
-prepositional = "шлеме гранатомётчика M3-G4"
+nominative = "шлем защиты от налипки"
+genitive = "шлема защиты от налипки"
+dative = "шлему защиты от налипки"
+accusative = "шлем защиты от налипки"
+instrumental = "шлемом защиты от налипки"
+prepositional = "шлеме защиты от налипки"
 gender = "male"
 
 ["m3-s light helmet"]
-nominative = "шлем разведчика M3-S"
-genitive = "шлема разведчика M3-S"
-dative = "шлему разведчика M3-S"
-accusative = "шлем разведчика M3-S"
-instrumental = "шлемом разведчика M3-S"
-prepositional = "шлеме разведчика M3-S"
+nominative = "шлем капобота"
+genitive = "шлема капобота"
+dative = "шлему капобота"
+accusative = "шлем капобота"
+instrumental = "шлемом капобота"
+prepositional = "шлеме капобота"
 gender = "male"
 
 ["m45 ghillie helmet"]
-nominative = "маскшлем снайпера M45"
-genitive = "маскшлема снайпера M45"
-dative = "маскшлему снайпера M45"
-accusative = "маскшлем снайпера M45"
-instrumental = "маскшлемом снайпера M45"
-prepositional = "маскшлеме снайпера M45"
+nominative = "снупер"
+genitive = "снупер"
+dative = "снупер"
+accusative = "снупер"
+instrumental = "снупер"
+prepositional = "снупер"
 gender = "male"
 
 ["m35 pyrotechnician helmet"]
-nominative = "шлем огнемётчика M35"
-genitive = "шлема огнемётчика M35"
-dative = "шлему огнемётчика M35"
-accusative = "шлем огнемётчика M35"
-instrumental = "шлемом огнемётчика M35"
-prepositional = "шлеме огнемётчика M35"
+nominative = "пиро"
+genitive = "пиро"
+dative = "пиро"
+accusative = "пиро"
+instrumental = "пиро"
+prepositional = "пиро"
 gender = "male"
 
 ["patrol cap"]
@@ -968,21 +968,21 @@ prepositional = "хирургической шапочке"
 gender = "female"
 
 ["heat absorbent coif"]
-nominative = "теплоизоляционная балаклава"
-genitive = "теплоизоляционной балаклавы"
-dative = "теплоизоляционной балаклаве"
-accusative = "теплоизоляционную балаклаву"
-instrumental = "теплоизоляционной балаклавой"
-prepositional = "теплоизоляционной балаклаве"
+nominative = "балаклава срать неизвестность"
+genitive = "балаклава срать неизвестность"
+dative = "балаклава срать неизвестность"
+accusative = "балаклава срать неизвестность"
+instrumental = "балаклава срать неизвестность"
+prepositional = "балаклава срать неизвестность"
 gender = "female"
 
-[rebreather]
-nominative = "респиратор"
-genitive = "респиратора"
-dative = "респиратору"
-accusative = "респиратор"
-instrumental = "респиратором"
-prepositional = "респираторе"
+["rebreather"]
+nominative = "для строителей и красовальшиков"
+genitive = "для строителей и красовальшиков"
+dative = "для строителей и красовальшиков"
+accusative = "для строителей и красовальшиков"
+instrumental = "для строителей и красовальшиков"
+prepositional = "для строителей и красовальшиков"
 gender = "male"
 
 ["m5 integrated gasmask"]
@@ -1022,19 +1022,19 @@ prepositional = "фуражке главного врача"
 gender = "female"
 
 ["orange hazard vest"]
-nominative = "оранжевый сигнальный жилет"
-genitive = "оранжевого сигнального жилета"
-dative = "оранжевому сигнальному жилету"
-accusative = "оранжевый сигнальный жилет"
-instrumental = "оранжевым сигнальным жилетом"
-prepositional = "оранжевом сигнальном жилете"
+nominative = "оранжевый  жилет"
+genitive = "оранжевого  жилета"
+dative = "оранжевому  жилету"
+accusative = "оранжевый  жилет"
+instrumental = "оранжевым  жилетом"
+prepositional = "оранжевом  жилете"
 gender = "male"
 
 ["gas mask"]
-nominative = "противогаз"
-genitive = "противогаза"
-dative = "противогазу"
-accusative = "противогаз"
-instrumental = "противогазом"
-prepositional = "противогазе"
+nominative = "газик, без мазика"
+genitive = "газик, без мазика"
+dative = "газик, без мазика"
+accusative = "газик, без мазика"
+instrumental = "газик, без мазика"
+prepositional = "газик, без мазика"
 gender = "male"

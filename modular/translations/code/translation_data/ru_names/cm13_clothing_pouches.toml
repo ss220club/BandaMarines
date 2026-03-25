@@ -8,16 +8,16 @@ prepositional = "кобуре морпеха"
 gender = "female"
 
 ["flare pouch (full)"]
-nominative = "подсумок для осветительных огней (полный)"
+nominative = "светопалки (полный)"
 tags = [ "nominative_only", "cm13",]
 
 ["flare pouch"]
-nominative = "подсумок для осветительных огней"
-genitive = "подсумка для осветительных огней"
-dative = "подсумку для осветительных огней"
-accusative = "подсумок для осветительных огней"
-instrumental = "подсумком для осветительных огней"
-prepositional = "подсумке для осветительных огней"
+nominative = "светопалки"
+genitive = "светопалки"
+dative = "светопалки"
+accusative = "светопалки"
+instrumental = "светопалки"
+prepositional = "светопалки"
 gender = "male"
 
 ["cassette pouch"]
@@ -30,183 +30,183 @@ prepositional = "сумке для кассет"
 gender = "female"
 
 ["drop pouch crate (x4)"]
-nominative = "ящик для экипировки (наплечный подсумок x 4)"
+nominative = "???"
 tags = [ "nominative_only", "cm13",]
 
 ["drop pouch"]
-nominative = "наплечный подсумок"
-genitive = "наплечного подсумка"
-dative = "наплечному подсумку"
-accusative = "наплечный подсумок"
-instrumental = "наплечным подсумком"
-prepositional = "наплечном подсумке"
+nominative = "упасть сумка"
+genitive = "упасть сумка"
+dative = "упасть сумка"
+accusative = "упасть сумка"
+instrumental = "упасть сумка"
+prepositional = "упасть сумка"
 gender = "male"
 
 ["black drop pouch"]
-nominative = "чёрный наплечный подсумок"
-genitive = "чёрного наплечного подсумка"
-dative = "чёрному наплечному подсумку"
-accusative = "чёрный наплечный подсумок"
-instrumental = "чёрным наплечным подсумком"
-prepositional = "чёрном наплечном подсумке"
+nominative = "чёрный упасть сумка"
+genitive = "чёрный упасть сумка"
+dative = "чёрный упасть сумка"
+accusative = "чёрный упасть сумка"
+instrumental = "чёрный упасть сумка"
+prepositional = "чёрный упасть сумка"
 gender = "male"
 
 ["light general pouch"]
-nominative = "лёгкий подсумок общего назначения"
-genitive = "лёгкого подсумка общего назначения"
-dative = "лёгкому подсумку общего назначения"
-accusative = "лёгкий подсумок общего назначения"
-instrumental = "лёгким подсумком общего назначения"
-prepositional = "лёгком подсумке общего назначения"
+nominative = "Вассерман младший"
+genitive = "Вассерман младший"
+dative = "Вассерман младший"
+accusative = "Вассерман младший"
+instrumental = "Вассерман младший"
+prepositional = "Вассерман младший"
 gender = "male"
 
 ["medium general pouch"]
-nominative = "подсумок общего назначения"
-genitive = "подсумка общего назначения"
-dative = "подсумку общего назначения"
-accusative = "подсумок общего назначения"
-instrumental = "подсумком общего назначения"
-prepositional = "подсумке общего назначения"
+nominative = "средний Вассерман младший"
+genitive = "средний Вассерман младший"
+dative = "средний Вассерман младший"
+accusative = "средний Вассерман младший"
+instrumental = "средний Вассерман младший"
+prepositional = "средний Вассерман младший"
 gender = "male"
 
 ["construction pouch"]
-nominative = "подсумок строителя"
-genitive = "подсумка строителя"
-dative = "подсумку строителя"
-accusative = "подсумок строителя"
-instrumental = "подсумком строителя"
-prepositional = "подсумке строителя"
+nominative = "подсумок БОБА ФОБ БИЛДЕРА"
+genitive = "подсумок БОБА ФОБ БИЛДЕРА"
+dative = "подсумок БОБА ФОБ БИЛДЕРА"
+accusative = "подсумок БОБА ФОБ БИЛДЕРА"
+instrumental = "подсумок БОБА ФОБ БИЛДЕРА"
+prepositional = "подсумок БОБА ФОБ БИЛДЕРА"
 gender = "male"
 
 ["bayonet sheath (full)"]
-nominative = "подсумок для ножей"
+nominative = "ножики люблю пиздец"
 tags = [ "nominative_only", "cm13",]
 
 ["bayonet sheath"]
-nominative = "подсумок для ножей"
-genitive = "подсумка для ножей"
-dative = "подсумку для ножей"
-accusative = "подсумок для ножей"
-instrumental = "подсумком для ножей"
-prepositional = "подсумке для ножей"
+nominative = "ножики люблю пиздец"
+genitive = "ножики люблю пиздец"
+dative = "ножики люблю пиздец"
+accusative = "ножики люблю пиздец"
+instrumental = "ножики люблю пиздец"
+prepositional = "ножики люблю пиздец"
 gender = "male"
 
 ["explosive pouch"]
-nominative = "подсумок для взрывчатки"
-genitive = "подсумка для взрывчатки"
-dative = "подсумку для взрывчатки"
-accusative = "подсумок для взрывчатки"
-instrumental = "подсумком для взрывчатки"
-prepositional = "подсумке для взрывчатки"
+nominative = "бабах сумка"
+genitive = "бабах сумка"
+dative = "бабах сумка"
+accusative = "бабах сумка"
+instrumental = "бабах сумка"
+prepositional = "бабах сумка"
 gender = "male"
 
 ["electronics pouch (full)"]
-nominative = "подсумок электрика (полный)"
+nominative = "электроник (полный)"
 tags = [ "nominative_only", "cm13",]
 
 ["electronics pouch"]
-nominative = "подсумок электрика"
-genitive = "подсумка электрика"
-dative = "подсумку электрика"
-accusative = "подсумок электрика"
-instrumental = "подсумком электрика"
-prepositional = "подсумке электрика"
+nominative = "электроник"
+genitive = "электроник"
+dative = "электроник"
+accusative = "электроник"
+instrumental = "электроник"
+prepositional = "электроник"
 gender = "male"
 
 ["tools pouch (full)"]
-nominative = "подсумок для инструментов (полный)"
+nominative = "подсумок для ключа 3 на 9 (полный)"
 tags = [ "nominative_only", "cm13",]
 
 ["tools pouch (empty)"]
-nominative = "подсумок для инструментов (пустой)"
+nominative = "подсумок для ключа 3 на 9 (УВЫ пустой)"
 tags = [ "nominative_only", "cm13",]
 
 ["tools pouch"]
-nominative = "подсумок для инструментов"
-genitive = "подсумка для инструментов"
-dative = "подсумку для инструментов"
-accusative = "подсумок для инструментов"
-instrumental = "подсумком для инструментов"
-prepositional = "подсумке для инструментов"
+nominative = "карман для крестовой отвертки"
+genitive = "карман для крестовой отвертки"
+dative = "карман для крестовой отвертки"
+accusative = "карман для крестовой отвертки"
+instrumental = "карман для крестовой отвертки"
+prepositional = "карман для крестовой отвертки"
 gender = "male"
 
 ["first-aid pouch (refillable autoinjectors)"]
-nominative = "медицинский подсумок (инжекторы)"
+nominative = "наркоман со шприцами"
 tags = [ "nominative_only", "cm13",]
 
 ["first-aid pouch (splints, gauze, ointment)"]
-nominative = "медицинский подсумок (шины, бинты, мазь)"
+nominative = "помазаца хочу"
 tags = [ "nominative_only", "cm13",]
 
 ["first-aid pouch (pill packets)"]
-nominative = "медицинский подсумок (таблетки)"
+nominative = "колесики попить хочу"
 tags = [ "nominative_only", "cm13",]
 
 ["first-aid pouch"]
-nominative = "медицинский подсумок"
-genitive = "медицинского подсумка"
-dative = "медицинскому подсумку"
-accusative = "медицинский подсумок"
-instrumental = "медицинским подсумком"
-prepositional = "медицинском подсумке"
+nominative = "колесики попить хочу"
+genitive = "колесики попить хочу"
+dative = "колесики попить хочу"
+accusative = "колесики попить хочу"
+instrumental = "колесики попить хочу"
+prepositional = "колесики попить хочу"
 gender = "male"
 
 ["autoinjector pouch (full)"]
-nominative = "подсумок для инжекторов (полный)"
+nominative = "наркоман со шприцами (полный)"
 tags = [ "nominative_only", "cm13",]
 
 ["autoinjector pouch"]
-nominative = "подсумок для инжекторов"
-genitive = "подсумка для инжекторов"
-dative = "подсумку для инжекторов"
-accusative = "подсумок для инжекторов"
-instrumental = "подсумком для инжекторов"
-prepositional = "подсумке для инжекторов"
+nominative = "наркоман со шприцами"
+genitive = "наркоман со шприцами"
+dative = "наркоман со шприцами"
+accusative = "наркоман со шприцами"
+instrumental = "наркоман со шприцами"
+prepositional = "наркоман со шприцами"
 gender = "male"
 
 ["small document pouch"]
-nominative = "сумка для документов"
-genitive = "сумки для документов"
-dative = "сумке для документов"
-accusative = "сумку для документов"
-instrumental = "сумкой для документов"
-prepositional = "сумке для документов"
+nominative = "сумка для БУМАГА а3"
+genitive = "сумки для БУМАГА а3"
+dative = "сумке для БУМАГА а3"
+accusative = "сумку для БУМАГА а3"
+instrumental = "сумкой для БУМАГА а3"
+prepositional = "сумке для БУМАГА а3"
 gender = "female"
 
 ["large document pouch"]
-nominative = "подсумок для документов"
-genitive = "подсумка для документов"
-dative = "подсумку для документов"
-accusative = "подсумок для документов"
-instrumental = "подсумком для документов"
-prepositional = "подсумке для документов"
+nominative = "УМНЫЕ МЫСЛИ НА БУМАГИ А4"
+genitive = "УМНЫЕ МЫСЛИ НА БУМАГИ А4"
+dative = "УМНЫЕ МЫСЛИ НА БУМАГИ А4"
+accusative = "УМНЫЕ МЫСЛИ НА БУМАГИ А4"
+instrumental = "УМНЫЕ МЫСЛИ НА БУМАГИ А4"
+prepositional = "УМНЫЕ МЫСЛИ НА БУМАГИ А4"
 gender = "male"
 
 ["fuel tank strap pouch"]
-nominative = "подсумок для резервуаров к огнемёту"
-genitive = "подсумка для резервуаров к огнемёту"
-dative = "подсумку для резервуаров к огнемёту"
-accusative = "подсумок для резервуаров к огнемёту"
-instrumental = "подсумком для резервуаров к огнемёту"
-prepositional = "подсумке для резервуаров к огнемёту"
+nominative = "топливо в жопе"
+genitive = "топливо в жопе"
+dative = "топливо в жопе"
+accusative = "топливо в жопе"
+instrumental = "топливо в жопе"
+prepositional = "топливо в жопе"
 gender = "male"
 
 ["engineer kit pouch"]
-nominative = "подсумок с инженерным набором"
-genitive = "подсумка с инженерным набором"
-dative = "подсумку с инженерным набором"
-accusative = "подсумок с инженерным набором"
-instrumental = "подсумком с инженерным набором"
-prepositional = "подсумке с инженерным набором"
+nominative = "подсумок с инжнереной хуйней"
+genitive = "подсумка с инженерным хуйней"
+dative = "подсумку с инженерным хуйней"
+accusative = "подсумок с инженерным хуйней"
+instrumental = "подсумком с инженерным хуйней"
+prepositional = "подсумке с инженерным хуйней"
 gender = "male"
 
 ["first responder pouch"]
-nominative = "подсумок первой помощи"
-genitive = "подсумка первой помощи"
-dative = "подсумку первой помощи"
-accusative = "подсумок первой помощи"
-instrumental = "подсумком первой помощи"
-prepositional = "подсумке первой помощи"
+nominative = "подсумок МЧС"
+genitive = "подсумок МЧС"
+dative = "подсумок МЧС"
+accusative = "подсумок МЧС"
+instrumental = "подсумок МЧС"
+prepositional = "подсумок МЧС"
 gender = "male"
 
 ["syringe pouch"]
@@ -219,21 +219,21 @@ prepositional = "подсумке для шприцов"
 gender = "male"
 
 ["medical pouch"]
-nominative = "подсумок для медицины"
-genitive = "подсумка для медицины"
-dative = "подсумку для медицины"
-accusative = "подсумок для медицины"
-instrumental = "подсумком для медицины"
-prepositional = "подсумке для медицины"
+nominative = "подсумок для наркоты"
+genitive = "подсумок для наркоты"
+dative = "подсумок для наркоты"
+accusative = "подсумок для наркоты"
+instrumental = "подсумок для наркоты"
+prepositional = "подсумок для наркоты"
 gender = "male"
 
 ["sling strap"]
-nominative = "ременная сумка"
-genitive = "ременной сумки"
-dative = "ременной сумке"
-accusative = "ременную сумку"
-instrumental = "ременной сумкой"
-prepositional = "ременной сумке"
+nominative = "ремень сумка"
+genitive = "ремень сумка"
+dative = "ремень сумка"
+accusative = "ремень сумка"
+instrumental = "ремень сумка"
+prepositional = "ремень сумка"
 gender = "female"
 
 ["medical kit pouch"]
@@ -246,96 +246,96 @@ prepositional = "подсумке с набором санитара"
 gender = "male"
 
 ["large general pouch"]
-nominative = "большой подсумок общего назначения"
-genitive = "большого подсумка общего назначения"
-dative = "большому подсумку общего назначения"
-accusative = "большой подсумок общего назначения"
-instrumental = "большим подсумком общего назначения"
-prepositional = "большом подсумке общего назначения"
+nominative = "большой Вассерман младший"
+genitive = "большого Вассерман младший"
+dative = "большому Вассерман младший"
+accusative = "большой Вассерман младший"
+instrumental = "большим Вассерман младший"
+prepositional = "большом Вассерман младший"
 gender = "male"
 
 ["magazine pouch"]
-nominative = "подсумок для магазинов"
-genitive = "подсумка для магазинов"
-dative = "подсумку для магазинов"
-accusative = "подсумок для магазинов"
-instrumental = "подсумком для магазинов"
-prepositional = "подсумке для магазинов"
+nominative = "ПОДСУМОК ДЖОНА МАРИНА"
+genitive = "ПОДСУМОК ДЖОНА МАРИНА"
+dative = "ПОДСУМОК ДЖОНА МАРИНА"
+accusative = "ПОДСУМОК ДЖОНА МАРИНА"
+instrumental = "ПОДСУМОК ДЖОНА МАРИНА"
+prepositional = "ПОДСУМОК ДЖОНА МАРИНА"
 gender = "male"
 
 ["large pouch 2x(pistol,magazine,general)"]
-nominative = "ящик для экипировки (большие подсумки x 6)"
+nominative = "???"
 tags = [ "nominative_only", "cm13",]
 
 ["medical pouches crate (1x firstaid, medical, syringe, medkit, autoinjector)"]
-nominative = "ящик для экипировки (медицинские подсумки x 5)"
+nominative = "???"
 tags = [ "nominative_only", "cm13",]
 
 ["large magazine pouch"]
-nominative = "большой подсумок для магазинов"
-genitive = "большого подсумка для магазинов"
-dative = "большому подсумку для магазинов"
-accusative = "большой подсумок для магазинов"
-instrumental = "большим подсумком для магазинов"
-prepositional = "большом подсумке для магазинов"
+nominative = "БОЛЬШОЙ ПОДСУМОК ДЖОНА МАРИНА"
+genitive = "БОЛЬШОЙ ПОДСУМОК ДЖОНА МАРИНА"
+dative = "БОЛЬШОЙ ПОДСУМОК ДЖОНА МАРИНА"
+accusative = "БОЛЬШОЙ ПОДСУМОК ДЖОНА МАРИНА"
+instrumental = "БОЛЬШОЙ ПОДСУМОК ДЖОНА МАРИНА"
+prepositional = "БОЛЬШОЙ ПОДСУМОК ДЖОНА МАРИНА"
 gender = "male"
 
 ["pistol magazine pouch"]
-nominative = "подсумок для пистолетных магазинов"
-genitive = "подсумка для пистолетных магазинов"
-dative = "подсумку для пистолетных магазинов"
-accusative = "подсумок для пистолетных магазинов"
-instrumental = "подсумком для пистолетных магазинов"
-prepositional = "подсумке для пистолетных магазинов"
+nominative = "пистолет люблю, но не так сильно"
+genitive = "пистолет люблю, но не так сильно"
+dative = "пистолет люблю, но не так сильно"
+accusative = "пистолет люблю, но не так сильно"
+instrumental = "пистолет люблю, но не так сильно"
+prepositional = "пистолет люблю, но не так сильно"
 gender = "male"
 
 ["large pistol magazine pouch"]
-nominative = "большой подсумок для пистолетных магазинов"
-genitive = "большого подсумка для пистолетных магазинов"
-dative = "большому подсумку для пистолетных магазинов"
-accusative = "большой подсумок для пистолетных магазинов"
-instrumental = "большим подсумком для пистолетных магазинов"
-prepositional = "большом подсумке для пистолетных магазинов"
+nominative = "пистолет люблю, но сильно"
+genitive = "пистолет люблю, но сильно"
+dative = "пистолет люблю, но сильно"
+accusative = "пистолет люблю, но сильно"
+instrumental = "пистолет люблю, но сильно"
+prepositional = "пистолет люблю, но сильно"
 gender = "male"
 
 ["machete pouch (full)"]
-nominative = "ножны H6B для мачете M2132 (с мачете)"
+nominative = "мачете сумка (с мачете)"
 tags = [ "nominative_only", "cm13",]
 
 ["h6b pattern m2132 machete scabbard"]
-nominative = "ножны H6B для мачете M2132"
-genitive = "ножен H6B для мачете M2132"
-dative = "ножнам H6B для мачете M2132"
-accusative = "ножны H6B для мачете M2132"
-instrumental = "ножнами H6B для мачете M2132"
-prepositional = "ножнах H6B для мачете M2132"
+nominative = "мачете сумка"
+genitive = "мачете сумка"
+dative = "мачете сумка"
+accusative = "мачете сумка"
+instrumental = "мачете сумка"
+prepositional = "мачете сумка"
 gender = "plural"
 
 ["sidearm pouch"]
-nominative = "кобура для пистолета"
-genitive = "кобуры для пистолета"
-dative = "кобуре для пистолета"
-accusative = "кобуру для пистолета"
-instrumental = "кобурой для пистолета"
-prepositional = "кобуре для пистолета"
+nominative = "пиздалет в кармане"
+genitive = "пиздалет в кармане"
+dative = "пиздалет в кармане"
+accusative = "пиздалет в кармане"
+instrumental = "пиздалет в кармане"
+prepositional = "пиздалет в кармане"
 gender = "female"
 
 ["shotgun shell pouch"]
-nominative = "подсумок-патронташ для дробовика"
-genitive = "подсумка-патронташа для дробовика"
-dative = "подсумку-патронташу для дробовика"
-accusative = "подсумок-патронташ для дробовика"
-instrumental = "подсумком-патронташем для дробовика"
-prepositional = "подсумке-патронташе для дробовика"
+nominative = "думгай поменьше"
+genitive = "думгай поменьше"
+dative = "думгай поменьше"
+accusative = "думгай поменьше"
+instrumental = "думгай поменьше"
+prepositional = "думгай поменьше"
 gender = "male"
 
 ["large shotgun shell pouch"]
-nominative = "большой подсумок-патронташ для дробовика"
-genitive = "большого подсумок-патронташа для дробовика"
-dative = "большому подсумок-патронташу для дробовика"
-accusative = "большой подсумок-патронташ для дробовика"
-instrumental = "большим подсумок-патронташем для дробовика"
-prepositional = "большом подсумок-патронташе для дробовика"
+nominative = "думгай поменьше но побольше"
+genitive = "думгай поменьше но побольше"
+dative = "думгай поменьше но побольше"
+accusative = "думгай поменьше но побольше"
+instrumental = "думгай поменьше но побольше"
+prepositional = "думгай поменьше но побольше"
 gender = "male"
 
 ["pressurized reagent canister pouch (bicaridine)"]
@@ -385,19 +385,19 @@ prepositional = "подсумке для пробирок"
 gender = "male"
 
 ["leg pouch"]
-nominative = "набедренный подсумок"
-genitive = "набедренного подсумка"
-dative = "набедренному подсумку"
-accusative = "набедренный подсумок"
-instrumental = "набедренным подсумком"
-prepositional = "набедренном подсумке"
+nominative = "нога сумка"
+genitive = "нога сумка"
+dative = "нога сумка"
+accusative = "нога сумка"
+instrumental = "нога сумка"
+prepositional = "нога сумка"
 gender = "male"
 
 ["black leg pouch"]
-nominative = "чёрный набедренный подсумок"
-genitive = "чёрного набедренного подсумка"
-dative = "чёрному набедренному подсумку"
-accusative = "чёрный набедренный подсумок"
-instrumental = "чёрным набедренным подсумком"
-prepositional = "чёрном набедренном подсумке"
+nominative = "нога сумка черный"
+genitive = "нога сумка черный"
+dative = "нога сумка черный"
+accusative = "нога сумка черный"
+instrumental = "нога сумка черный"
+prepositional = "нога сумка черный"
 gender = "male"

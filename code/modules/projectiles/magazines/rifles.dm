@@ -32,6 +32,7 @@
 /obj/item/ammo_magazine/rifle/extended/las
 	name = "\improper Lasgun extended power pack"
 	icon_state = "las_extended"
+	default_ammo = /datum/ammo/bullet/rifle/lasbolt
 	bonus_overlay = "las_ex"
 	ammo_band_icon = "+las_band"
 	ammo_band_icon_empty = "+las_band_e"
@@ -64,6 +65,7 @@
 
 /obj/item/ammo_magazine/rifle/heap/las
 	name = "\improper Lasgun HEAP power pack (10x24mm)"
+	default_ammo = 	/datum/ammo/bullet/rifle/heap/lasbolt
 	icon_state = "las"
 	ammo_band_icon = "+las_band"
 	ammo_band_icon_empty = "+las_band_e"

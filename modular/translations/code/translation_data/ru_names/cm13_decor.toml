@@ -458,7 +458,7 @@ prepositional = "баке для реагентов"
 gender = "male"
 
 ["fuel tank crate (x1)"]
-nominative = "ящик для бака с топливом"
+nominative = "???"
 
 [fueltank]
 nominative = "бак для топлива"

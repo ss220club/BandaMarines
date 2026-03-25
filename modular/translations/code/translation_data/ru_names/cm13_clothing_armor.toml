@@ -80,7 +80,7 @@ gender = "female"
 nominative = "средняя броня"
 
 ["m4 pattern marine armor crate (x1 helmet, x1 armor)"]
-nominative = "ящик для экипировки (шлем M4 x 1, броня B12 x 1)"
+nominative = "???"
 
 ["m4 pattern armor"]
 nominative = "средняя броня морпеха M4"
@@ -107,7 +107,7 @@ prepositional = "лёгкой броне морпеха M3-L"
 gender = "female"
 
 ["b12 pattern marine armor crate (x1 helmet, x1 armor)"]
-nominative = "ящик для экипировки (шлем M11 x 1, броня B12 x 1)"
+nominative = "???"
 
 ["m3 b12 pattern marine armor"]
 nominative = "броня морпеха B12"

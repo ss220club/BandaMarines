@@ -307,3 +307,7 @@
 /datum/ammo/bullet/rifle/ap/lasbolt_ap
 	name = "armour piercing lasbolt"
 	icon_state = "lasbolt"
+
+/datum/ammo/bullet/rifle/heap/lasbolt
+	name = "heap lasbolt"
+	icon_state = "lasbolt"

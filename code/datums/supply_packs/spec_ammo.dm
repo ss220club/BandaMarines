@@ -153,7 +153,7 @@
 	group = "Weapons Specialist Ammo"
 
 /datum/supply_packs/ammo_scout_incendiary
-	name = "M4RA Scout Incendiary Magazine Crate (x4)"
+	name = "???"
 	contains = list(
 		/obj/item/ammo_magazine/rifle/m4ra/custom/incendiary,
 		/obj/item/ammo_magazine/rifle/m4ra/custom/incendiary,
@@ -166,7 +166,7 @@
 	group = "Weapons Specialist Ammo"
 
 /datum/supply_packs/ammo_scout_impact
-	name = "M4RA Scout Impact Magazine Crate (x4)"
+	name = "???"
 	contains = list(
 		/obj/item/ammo_magazine/rifle/m4ra/custom/impact,
 		/obj/item/ammo_magazine/rifle/m4ra/custom/impact,
