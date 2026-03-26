@@ -215,9 +215,11 @@
 		if(istype(target, /mob/new_player))
 			continue
 
+		var/tts_message_temp = tts_message // to keep tts_message from becoming garbled
+
 		if(target in targets_to_garble)
 			to_chat_spaced(target, html = "[SPAN_ANNOUNCEMENT_HEADER(title)]<br><br>[SPAN_ANNOUNCEMENT_BODY(garbled_message)]", type = MESSAGE_TYPE_RADIO)
-			tts_message = garbled_tts // BANDAMARINES EDIT - Garbled message
+			tts_message_temp = garbled_tts // BANDAMARINES EDIT - Garbled message
 		else
 			to_chat_spaced(target, html = "[SPAN_ANNOUNCEMENT_HEADER(title)]<br><br>[SPAN_ANNOUNCEMENT_BODY(message)]", type = MESSAGE_TYPE_RADIO)
 
@@ -229,5 +231,5 @@
 		// SS220 ADD START - TTS
 		if(isobserver(target) && !(target.client?.prefs?.toggles_sound & SOUND_OBSERVER_ANNOUNCEMENTS))
 			continue
-		announcer.Message(message = tts_message, receivers = list(target)) // BANDAMARINES EDIT - Garbled message
+		announcer.Message(message = tts_message_temp, receivers = list(target)) // BANDAMARINES EDIT - Garbled message
 		// SS220 ADD END - TTS
