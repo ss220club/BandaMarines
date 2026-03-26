@@ -108,7 +108,7 @@
 		))
 	data["categories"] = categories
 
-	// 4. ПОДГОТОВКА СПИСКА ТЕХНИКИ
+	// ПОДГОТОВКА СПИСКА ТЕХНИКИ
 	var/list/vehicle_list = list()
 	for(var/d in vehicles)
 		var/datum/vehicle_order/order = d

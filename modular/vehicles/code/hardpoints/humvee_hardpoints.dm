@@ -163,13 +163,13 @@
 	return data
 
 //gyro ON locks the turret in one direction, OFF will make turret turning when tank turns
-/obj/item/hardpoint/holder/humvee_turret/proc/toggle_gyro(mob/user)
+/obj/item/hardpoint/holder/humvee_turret/proc/toggle_gyro_modul(mob/user)
 	if(health <= 0)
-		to_chat(user, SPAN_WARNING("\The [src] системы стабилизации вышли из строя!"))
+		to_chat(user, SPAN_WARNING("Системы стабилизации модуля [src] вышли из строя!"))
 		return
 
 	gyro = !gyro
-	to_chat(user, SPAN_NOTICE("Вы переключаете \the [src] гироскопический стабилизатор [gyro ? "ON" :"OFF"]."))
+	to_chat(user, SPAN_NOTICE("Вы выключаете гироскопический стабилизатор модуля [src] [gyro ? "ВКЛ" :"ВЫКЛ"]."))
 
 /obj/item/hardpoint/holder/humvee_turret/proc/user_rotation(mob/user, deg)
 	// no rotating a broken turret

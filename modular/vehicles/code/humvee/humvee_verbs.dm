@@ -15,7 +15,7 @@
 	else if(seat == VEHICLE_GUNNER)
 		add_verb(M.client, list(
 			/obj/vehicle/multitile/proc/cycle_hardpoint,
-			/obj/vehicle/multitile/proc/toggle_gyrostabilizer,
+			/obj/vehicle/multitile/proc/toggle_gyrostabilizer_modul,
 		))
 
 
@@ -37,5 +37,27 @@
 	else if(seat == VEHICLE_GUNNER)
 		remove_verb(M.client, list(
 			/obj/vehicle/multitile/proc/cycle_hardpoint,
-			/obj/vehicle/multitile/proc/toggle_gyrostabilizer,
+			/obj/vehicle/multitile/proc/toggle_gyrostabilizer_modul,
 		))
+
+
+/obj/vehicle/multitile/proc/toggle_gyrostabilizer_modul()
+	set name = "Выключить гиростабилизатор башни"
+	set desc = "Включает гиростабилизатор башни, позволяя ей двигаться независимо от направления корпуса."
+	set category = "Vehicle"
+
+	var/mob/M = usr
+	if(!M || !istype(M))
+		return
+
+	var/obj/vehicle/multitile/V = M.interactee
+	if(!istype(V))
+		return
+
+	var/obj/item/hardpoint/holder/humvee_turret/T = null
+	for(var/obj/item/hardpoint/holder/humvee_turret/TT in V.hardpoints)
+		T = TT
+		break
+	if(!T)
+		return
+	T.toggle_gyro_modul(usr)
