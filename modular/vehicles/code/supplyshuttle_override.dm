@@ -72,14 +72,14 @@
 	var/list/special_cats = list("Разведка")
 
 	// ОБЩИЙ РАСХОД ДЛЯ КАЖДОЙ ГРУППЫ
-	var/list/group_totals = list("Огневая поддержка" = 0, "Логистика" = 0, "Специальныя техника" = 0)
+	var/list/group_totals = list("Огневая поддержка" = 0, "Логистика" = 0, "Специальная техника" = 0)
 
 	for(var/cat in combat_cats)
 		group_totals["Огневая поддержка"] += category_given[cat]
 	for(var/cat in logistics_cats)
 		group_totals["Логистика"] += category_given[cat]
 	for(var/cat in special_cats)
-		group_totals["Специальныя техника"] += category_given[cat]
+		group_totals["Специальная техника"] += category_given[cat]
 
 	// ПОДГОТОВКА КАТЕГОРИЙ
 	var/list/categories = list()
@@ -95,7 +95,7 @@
 			used_value = group_totals["Логистика"]
 		else if(category in special_cats)
 			main_cat_name = "Спецтехника"
-			used_value = group_totals["Специальныя техника"]
+			used_value = group_totals["Специальная техника"]
 		else
 			main_cat_name = "Другое"
 			used_value = category_given[category]
@@ -125,7 +125,7 @@
 			used_value = group_totals["Логистика"]
 		else if(category in special_cats)
 			main_cat_name = "Спецтехника"
-			used_value = group_totals["Специальныя техника"]
+			used_value = group_totals["Специальная техника"]
 		else
 			main_cat_name = "Другое"
 			used_value = category_given[category]
