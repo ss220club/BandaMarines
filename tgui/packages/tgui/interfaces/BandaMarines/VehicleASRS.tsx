@@ -93,18 +93,18 @@ export const VehicleASRS = (props) => {
                         groupLimitInfo.used >= groupLimitInfo.limit;
 
                       return (
-                      <Box
-                        key={mainCatName}
-                        mb={2}
-                        p={1}
-                        backgroundColor="rgba(0,0,0,0.1)"
-                      >
+                        <Box
+                          key={mainCatName}
+                          mb={2}
+                          p={1}
+                          backgroundColor="rgba(0,0,0,0.1)"
+                        >
                           <Stack align="center" mb={1}>
                             <Stack.Item grow>
                               <Box bold color="label" fontSize="14px">
-                          <Icon name="layer-group" mr={1} />
-                          ГРУППА: {mainCatName.toUpperCase()}
-                        </Box>
+                                <Icon name="layer-group" mr={1} />
+                                ГРУППА: {mainCatName.toUpperCase()}
+                              </Box>
                             </Stack.Item>
                             <Stack.Item>
                               <Box color="label" bold fontSize="12px">
@@ -119,7 +119,7 @@ export const VehicleASRS = (props) => {
                             </Stack.Item>
                           </Stack>
 
-                        {cats.map((cat) => {
+                          {cats.map((cat) => {
                             const hasAvailableVehicles = vehicles.some(
                               (v) =>
                                 v.category === cat.name &&
@@ -130,48 +130,48 @@ export const VehicleASRS = (props) => {
                             const isFull =
                               cat.used >= cat.limit || !hasAvailableVehicles;
 
-                          return (
-                            <Button
-                              key={cat.name}
-                              fluid
-                              mb={1}
-                              height="38px"
-                              onClick={() => setSelectedCategory(cat.name)}
-                            >
-                              <Stack align="center" fill height="100%">
-                                <Stack.Item grow>
-                                  <Icon name="folder" mr={1} opacity={0.7} />
-                                  <Box as="span" bold fontSize="14px">
-                                    {cat.name}
-                                  </Box>
-                                </Stack.Item>
-                                <Stack.Item>
+                            return (
+                              <Button
+                                key={cat.name}
+                                fluid
+                                mb={1}
+                                height="38px"
+                                onClick={() => setSelectedCategory(cat.name)}
+                              >
+                                <Stack align="center" fill height="100%">
+                                  <Stack.Item grow>
+                                    <Icon name="folder" mr={1} opacity={0.7} />
+                                    <Box as="span" bold fontSize="14px">
+                                      {cat.name}
+                                    </Box>
+                                  </Stack.Item>
+                                  <Stack.Item>
                                     <Box
                                       color={isFull ? 'label' : 'text'}
                                       opacity={0.8}
                                       bold
                                     >
-                                    <Icon
-                                      name={
+                                      <Icon
+                                        name={
                                           isFull ? 'minus-circle' : 'circle'
-                                      }
-                                      mr={1}
-                                    />
+                                        }
+                                        mr={1}
+                                      />
                                       {isFull ? 'Недоступно' : 'Доступно'}
-                                  </Box>
-                                </Stack.Item>
-                                <Stack.Item>
+                                    </Box>
+                                  </Stack.Item>
+                                  <Stack.Item>
                                     <Icon
                                       name="chevron-right"
                                       opacity={0.5}
                                       ml={1}
                                     />
-                                </Stack.Item>
-                              </Stack>
-                            </Button>
-                          );
-                        })}
-                      </Box>
+                                  </Stack.Item>
+                                </Stack>
+                              </Button>
+                            );
+                          })}
+                        </Box>
                       );
                     },
                   )}
@@ -264,12 +264,12 @@ export const VehicleASRS = (props) => {
                 <Stack.Item grow>
                   <Box fontSize="14px" color="label">
                     <Box mb={1}>
-                    <Icon
-                      name={elevator_moving ? 'cog' : 'server'}
-                      spin={!!elevator_moving}
-                      mr={1}
-                      color={elevator_moving ? 'average' : 'good'}
-                    />
+                      <Icon
+                        name={elevator_moving ? 'cog' : 'server'}
+                        spin={!!elevator_moving}
+                        mr={1}
+                        color={elevator_moving ? 'average' : 'good'}
+                      />
                       СТАТУС ПЛАТФОРМЫ:
                     </Box>
                     <Box bold color={elevator_moving ? 'average' : 'white'}>
