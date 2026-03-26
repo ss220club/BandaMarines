@@ -4,7 +4,7 @@
 	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/glados, list(/datum/singleton/sound_effect/robot))
 
 /mob/living/silicon/decoy/ship_ai/add_tts_component()
-	AddComponent(/datum/component/tts_component, TTS_SEED_ARES_ANNOUNCE, TTS_TRAIT_ROBOTIZE)
+	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/volibear, list(/datum/singleton/sound_effect/robot, /datum/singleton/sound_effect/radio))
 
 /mob/living/carbon/human/yiren/add_tts_component()
 	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/chen)
