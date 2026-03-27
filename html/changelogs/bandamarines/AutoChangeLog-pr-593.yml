@@ -1,4 +1,0 @@
-author: "larentoun"
-delete-after: True
-changes:
-  - qol: "Проверка орфографии вернулась в TGUI-say"
