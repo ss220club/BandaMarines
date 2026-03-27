@@ -19,7 +19,7 @@
 	minimap_icon_state = "humvee"
 
 	passengers_slots =  2 // танкисты всегда имеют 2 слота и не занимают passengers_slots
-	revivable_dead_slots = 3 // нужно на случай если танкисты умрут и нужно будет их достать
+	revivable_dead_slots = 2 // нужно на случай если танкисты умрут и нужно будет их достать
 	xenos_slots = 3
 
 	required_skill = SKILL_VEHICLE_LARGE
@@ -39,6 +39,25 @@
 		"back left" = list(1, 0),
 		"back right" = list(-2, 0),
 	)
+
+/obj/vehicle/multitile/modul/humvee/apc/load_role_reserved_slots()
+	var/datum/role_reserved_slots/RRS = new
+	RRS.category_name = "Crewmen"
+	RRS.roles = list(JOB_TANK_CREW, JOB_WO_CREWMAN, JOB_UPP_CREWMAN, JOB_PMC_CREWMAN)
+	RRS.total = 2
+	role_reserved_slots += RRS
+
+/obj/vehicle/multitile/modul/humvee/apc/initialize_cameras(change_tag = FALSE)
+	if(!camera)
+		camera = new /obj/structure/machinery/camera/vehicle(src)
+	if(change_tag)
+		camera.c_tag = "#[rand(1,100)] Бронеавтомобиль M2420 \"[nickname]\" JTMV-HWC" //this fluff allows it to be at the start of cams list
+		if(camera_int)
+			camera_int.c_tag = camera.c_tag + " интерьер" //this fluff allows it to be at the start of cams list
+	else
+		camera.c_tag = "#[rand(1,100)] Бронеавтомобиль M2420 JTMV-HWC"
+		if(camera_int)
+			camera_int.c_tag = camera.c_tag + " интерьер" //this fluff allows it to be at the start of cams list
 
 	hardpoints_allowed = list(
 		/obj/item/hardpoint/locomotion/humvee_wheels,
