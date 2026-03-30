@@ -134,7 +134,7 @@
 /datum/species/zombie/proc/handle_alert_ghost(mob/living/carbon/human/zombie)
 	var/mob/dead/observer/ghost = zombie.get_ghost()
 	if(ghost?.client)
-		playsound_client(ghost.client, 'sound/effects/adminhelp_new.ogg')
+		playsound_client(ghost.client, 'sound/effects/adminhelp-bwoink.ogg')
 		to_chat(ghost, SPAN_BOLDNOTICE(FONT_SIZE_LARGE("Вы восстали! (Откройте вкладку «Ghost» и выберите «Re-enter corpse» или <a href=\"byond://?src=\ref[ghost];reentercorpse=1\">нажмите здесь!</a>)"))) // SS220 EDIT ADDICTION
 
 /datum/species/zombie/proc/remove_from_revive(mob/living/carbon/human/zombie)

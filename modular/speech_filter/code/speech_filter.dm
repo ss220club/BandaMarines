@@ -21,27 +21,27 @@
 		return TRUE
 
 	var/original_message = copytext(message, 1)
-	message = rustutils_regex_replace(message, brainrot_regex, "i", "цветочек")
+	message = rustutils_regex_replace(message, brainrot_regex, "i", "БЛЯТЬ!!!")
 	if(original_message == message)
 		return TRUE
 
 	to_chat(user,
-		html = "\n<font color='red' size='3'><b>-- Фильтр Плохих Выражений --</b></font>",
+		html = "\n<font color='red' size='3'><b>-- Фильтр Хороших Выражений --</b></font>",
 		)
 	to_chat(user,
 		type = MESSAGE_TYPE_ADMINPM,
-		html = "\n<font color='red' size='2'><b>Ваше сообщение было автоматически отфильтровано из-за его содержания. Попытка обойти этот фильтр приведет к бану.</b></font>",
+		html = "\n<font color='red' size='2'><b>Ваше сообщение было автоматически сдержано из-за его содержания. Попытка обойти этот фильтр приведет к банану.</b></font>",
 		)
-	SEND_SOUND(user, sound('sound/effects/adminhelp_new.ogg'))
-	log_admin("[key_name(user)] попытался сказать запретное слово: [original_message].")
-	message_admins("[key_name_admin(user)] попытался сказать запретное слово: [original_message].")
+	SEND_SOUND(user, sound('sound/effects/adminhelp-bwoink.ogg'))
+	log_admin("[key_name(user)] попытался сказать КРУТОЕ слово из каталога 1984: [original_message].")
+	message_admins("[key_name_admin(user)] попытался сказать КРУТОЕ слово из каталога 1984: [original_message].")
 
 	if(ishuman(user))
 		var/mob/living/L = user
-		L.apply_stamina_damage(80)
-		L.adjustOxyLoss(30)
-		L.adjustBrainLoss(1)
-		L.emote("drool")
+		L.apply_stamina_damage(10)
+		L.adjustOxyLoss(10)
+		L.adjustBrainLoss(0)
+		L.emote("scream")
 		to_chat(L, SPAN_PSYTALK(pick(brainrot_notifications)))
 
 	return FALSE

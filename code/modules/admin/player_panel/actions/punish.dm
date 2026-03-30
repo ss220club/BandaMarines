@@ -282,7 +282,7 @@
 
 	to_chat(target_mob, FONT_SIZE_HUGE(SPAN_ADMINHELP("Внимание: ваше имя было изменено на [user.ckey].")))
 
-	playsound_client(target_mob.client, sound('sound/effects/adminhelp_new.ogg'), src, 50)
+	playsound_client(target_mob.client, sound('sound/effects/adminhelp-bwoink.ogg'), src, 50)
 
 /datum/player_action/ban_human_name
 	action_tag = "ban_human_name"
@@ -329,7 +329,7 @@
 	notes_add(target.ckey, "Human Name Banned by [user.ckey]", user.mob)
 
 	to_chat(target, FONT_SIZE_HUGE(SPAN_ADMINHELP("Внимание: [user.ckey] запретил вам использовать человеческие имена."))) // SS220 EDIT ADDICTION
-	playsound_client(target_client, sound('sound/effects/adminhelp_new.ogg'), src, 50)
+	playsound_client(target_client, sound('sound/effects/adminhelp-bwoink.ogg'), src, 50)
 
 	var/new_name = random_name(target.gender)
 	target_client.prefs.real_name = new_name

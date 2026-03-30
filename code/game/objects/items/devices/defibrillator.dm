@@ -215,7 +215,7 @@
 
 	var/mob/dead/observer/G = target.get_ghost()
 	if(istype(G) && G.client)
-		playsound_client(G.client, 'sound/effects/adminhelp_new.ogg')
+		playsound_client(G.client, 'sound/effects/adminhelp-bwoink.ogg')
 		to_chat(G, SPAN_BOLDNOTICE(FONT_SIZE_LARGE("Кто-то пытается оживить ваше тело. Вернитесь в него, если хотите возродиться!<br>(Откройте вкладку «Ghost» и выберите «Re-enter corpse» или <a href='byond://?src=\ref[G];reentercorpse=1'>нажмите здесь!</a>)"))) // SS220 EDIT ADDICTION
 
 	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает устанавливать [ru_name_fluff_tool] [fluff_target_part == "chest" ? "на груди" : "в порт перезапуска"] <b>[target.declent_ru(GENITIVE)]</b>."), // SS220 EDIT ADDICTION
