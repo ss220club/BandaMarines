@@ -32,8 +32,10 @@
 	var/player_count = FALSE
 
 	switch(category)
-		if("Тяжелая бронетехника", "Бронетранспортеры")
+		if("Тяжелая бронетехника")
 			player_count = (clients >= MIN_PLAYERS_HEAVY_SUPPORT)
+		if("Бронетранспортеры")
+			player_count = (clients >= MIN_PLAYERS_MEDIUM_SUPPORT)
 		if("Бронеавтомобили")
 			player_count = (clients >= MIN_PLAYERS_LIGHT_SUPPORT)
 		if("Разведка")
