@@ -652,21 +652,21 @@ nominative = "???"
 tags = [ "nominative_only", "cm13",]
 
 ["box of m89 signal flare packs"]
-nominative = "коробка сигнальных огней M89-S"
-genitive = "коробки сигнальных огней M89-S"
-dative = "коробке сигнальных огней M89-S"
-accusative = "коробку сигнальных огней M89-S"
-instrumental = "коробкой сигнальных огней M89-S"
-prepositional = "коробке сигнальных огней M89-S"
+nominative = "коробка сигнальных светопалок"
+genitive = "коробка сигнальных светопалок"
+dative = "коробка сигнальных светопалок"
+accusative = "коробка сигнальных светопалок"
+instrumental = "коробка сигнальных светопалок"
+prepositional = "коробка сигнальных светопалок"
 gender = "female"
 
 ["m89-s signal flare pack"]
-nominative = "упаковка сигнальных огней M89-S"
-genitive = "упаковки сигнальных огней M89-S"
-dative = "упаковке сигнальных огней M89-S"
-accusative = "упаковку сигнальных огней M89-S"
-instrumental = "упаковкой сигнальных огней M89-S"
-prepositional = "упаковке сигнальных огней M89-S"
+nominative = "упаковка светопалок"
+genitive = "упаковки светопалок"
+dative = "упаковка светопалок"
+accusative = "упаковка светопалок"
+instrumental = "упаковка светопалок"
+prepositional = "упаковка светопалок"
 gender = "female"
 
 ["high-capacity power cells (x8)"]
@@ -683,12 +683,12 @@ prepositional = "коробке батарей большой ёмкости"
 gender = "female"
 
 ["m94 marking flare pack"]
-nominative = "упаковка осветительных огней M94"
-genitive = "упаковки осветительных огней M94"
-dative = "упаковке осветительных огней M94"
-accusative = "упаковку осветительных огней M94"
-instrumental = "упаковкой осветительных огней M94"
-prepositional = "упаковке осветительных огней M94"
+nominative = "коробка сигнальных светопалок"
+genitive = "коробка сигнальных светопалок"
+dative = "коробка сигнальных светопалок"
+accusative = "коробка сигнальных светопалок"
+instrumental = "коробка сигнальных светопалок"
+prepositional = "коробка сигнальных светопалок"
 gender = "female"
 
 ["flare packs crate (x20)"]
@@ -696,30 +696,30 @@ nominative = "???"
 tags = [ "nominative_only", "cm13",]
 
 ["box of m94 marking flare packs"]
-nominative = "коробка осветительных огней M94"
-genitive = "коробки осветительных огней M94"
-dative = "коробке осветительных огней M94"
-accusative = "коробку осветительных огней M94"
-instrumental = "коробкой осветительных огней M94"
-prepositional = "коробке осветительных огней M94"
+nominative = "коробка светопалок"
+genitive = "коробка светопалок"
+dative = "коробка светопалок"
+accusative = "коробка светопалок"
+instrumental = "коробка светопалок"
+prepositional = "коробка светопалок"
 gender = "female"
 
 [flare]
-nominative = "осветительный огонь"
-genitive = "осветительного огня"
-dative = "осветительному огню"
-accusative = "осветительный огонь"
-instrumental = "осветительным огнём"
-prepositional = "осветительном огне"
+nominative = "осветительный светопалка"
+genitive = "осветительного светопалка"
+dative = "осветительному светопалка"
+accusative = "осветительный светопалка"
+instrumental = "осветительным светопалка"
+prepositional = "осветительном светопалка"
 gender = "male"
 
 ["signal flare"]
-nominative = "сигнальный огонь"
-genitive = "сигнального огня"
-dative = "сигнальному огню"
-accusative = "сигнальный огонь"
-instrumental = "сигнальным огнём"
-prepositional = "сигнальном огне"
+nominative = "сигнальный светопалка"
+genitive = "сигнального светопалка"
+dative = "сигнальному светопалка"
+accusative = "сигнальный светопалка"
+instrumental = "сигнальным светопалка"
+prepositional = "сигнальном светопалка"
 gender = "male"
 
 ["sentry gun network laptop"]
