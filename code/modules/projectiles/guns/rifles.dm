@@ -92,7 +92,7 @@
 		/obj/item/attachable/scope,
 		/obj/item/attachable/scope/mini,
 		/obj/item/attachable/stock/rifle/las,
-		/obj/item/attachable/stock/rifle/collapsible/las
+		/obj/item/attachable/stock/rifle/collapsible/las,
 	)
 	flags_gun_features = GUN_AUTO_EJECTOR|GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER
 	starting_attachment_types = list(/obj/item/attachable/attached_gun/grenade, /obj/item/attachable/stock/rifle/collapsible)
