@@ -1,234 +1,234 @@
 ["wound"]
-nominative = "рана"
+nominative = "пиздец"
 gender = "female"
 
 ["ugly ripped cut"]
-nominative = "уродливый рваный порез"
+nominative = "уродливый рваный пиздец"
 gender = "male"
 tags = [ "cm13",]
 
 ["ripped cut"]
-nominative = "рваный порез"
+nominative = "рваный пиздец"
 gender = "male"
 
 ["cut"]
-nominative = "порез"
+nominative = "пиздец"
 gender = "male"
 
 ["healing cut"]
-nominative = "заживающий порез"
+nominative = "заживающий пиздец"
 gender = "male"
 
 ["small scab"]
-nominative = "маленькая короста"
+nominative = "маленькая пиздец"
 gender = "female"
 
 ["ugly deep ripped cut"]
-nominative = "уродливый глубокий рваный порез"
+nominative = "уродливый глубокий рваный пиздец"
 gender = "male"
 
 ["deep ripped cut"]
-nominative = "глубокий рваный порез"
+nominative = "глубокий рваный пиздец"
 gender = "male"
 
 ["deep cut"]
-nominative = "глубокий порез"
+nominative = "глубокий пиздец"
 gender = "male"
 
 ["clotted cut"]
-nominative = "свернувшийся порез"
+nominative = "свернувшийся пиздец"
 gender = "male"
 
 ["scab"]
-nominative = "короста"
+nominative = "пиздец"
 gender = "female"
 
 ["fresh skin"]
-nominative = "свежая кожа"
+nominative = "свежая пиздец"
 gender = "female"
 
 ["ugly ripped flesh wound"]
-nominative = "уродливая рваная рана"
+nominative = "уродливая рваная пиздец"
 gender = "female"
 
 ["ugly flesh wound"]
-nominative = "уродливая рана"
+nominative = "уродливая пиздец"
 gender = "female"
 
 ["flesh wound"]
-nominative = "рана"
+nominative = "пиздец"
 gender = "female"
 
 ["blood soaked clot"]
-nominative = "пропитанный кровью сгусток"
+nominative = "пропитанный кровью пиздец"
 gender = "male"
 
 ["large scab"]
-nominative = "большая короста"
+nominative = "большая пиздец"
 gender = "female"
 
 ["gaping wound"]
-nominative = "зияющая рана"
+nominative = "зияющая пиздец"
 gender = "female"
 
 ["large blood soaked clot"]
-nominative = "большой пропитанный кровью сгусток"
+nominative = "большой пропитанный кровью пиздец"
 gender = "male"
 
 ["large clot"]
-nominative = "большой сгусток"
+nominative = "большой пиздец"
 gender = "male"
 
 ["small angry scar"]
-nominative = "маленький красный шрам"
+nominative = "маленький красный пиздец"
 gender = "male"
 
 ["small straight scar"]
-nominative = "маленький прямой шрам"
+nominative = "маленький прямой пиздец"
 gender = "male"
 
 ["big gaping wound"]
-nominative = "большая зияющая рана"
+nominative = "большая зияющая пиздец"
 gender = "female"
 
 ["healing gaping wound"]
-nominative = "заживающая зияющая рана"
+nominative = "заживающая зияющая пиздец"
 gender = "female"
 
 ["large angry scar"]
-nominative = "большой красный шрам"
+nominative = "большой красный пиздец"
 gender = "male"
 
 ["large straight scar"]
-nominative = "большой прямой шрам"
+nominative = "большой прямой пиздец"
 gender = "male"
 
 ["massive wound"]
-nominative = "массивная рана"
+nominative = "массивная пиздец"
 gender = "female"
 
 ["massive healing wound"]
-nominative = "массивная заживающая рана"
+nominative = "массивная заживающая пиздец"
 gender = "female"
 
 ["massive angry scar"]
-nominative = "массивный красный шрам"
+nominative = "массивный красный пиздец"
 gender = "male"
 
 ["massive jagged scar"]
-nominative = "массивный неровный шрам"
+nominative = "массивный неровный пиздец"
 gender = "male"
 
 ["monumental bruise"]
-nominative = "монументальный синяк"
+nominative = "монументальный пиздец"
 gender = "male"
 
 ["huge bruise"]
-nominative = "огромный синяк"
+nominative = "огромный пиздец"
 gender = "male"
 
 ["large bruise"]
-nominative = "большой синяк"
+nominative = "большой пиздец"
 gender = "male"
 
 ["moderate bruise"]
-nominative = "умеренный синяк"
+nominative = "умеренный пиздец"
 gender = "male"
 
 ["small bruise"]
-nominative = "маленький синяк"
+nominative = "маленький пиздец"
 gender = "male"
 
 ["tiny bruise"]
-nominative = "крошечный синяк"
+nominative = "крошечный пиздец"
 gender = "male"
 
 ["ripped burn"]
-nominative = "рваный ожог"
+nominative = "рваный пиздец"
 gender = "male"
 
 ["moderate burn"]
-nominative = "умеренный ожог"
+nominative = "умеренный пиздец"
 gender = "male"
 
 ["healing moderate burn"]
-nominative = "заживающий умеренный ожог"
+nominative = "заживающий умеренный пиздец"
 gender = "male"
 
 ["ripped large burn"]
-nominative = "рваный большой ожог"
+nominative = "рваный большой пиздец"
 gender = "male"
 
 ["large burn"]
-nominative = "большой ожог"
+nominative = "большой пиздец"
 gender = "male"
 
 ["healing large burn"]
-nominative = "заживающий большой ожог"
+nominative = "заживающий большой пиздец"
 gender = "male"
 
 ["ripped severe burn"]
-nominative = "рваный тяжелый ожог"
+nominative = "рваный тяжелый пиздец"
 gender = "male"
 
 ["severe burn"]
-nominative = "тяжелый ожог"
+nominative = "тяжелый пиздец"
 gender = "male"
 
 ["healing severe burn"]
-nominative = "заживающий тяжелый ожог"
+nominative = "заживающий тяжелый пиздец"
 gender = "male"
 
 ["burn scar"]
-nominative = "ожоговый шрам"
+nominative = "ожоговый пиздец"
 gender = "male"
 
 ["ripped deep burn"]
-nominative = "рваный глубокий ожог"
+nominative = "рваный глубокий пиздец"
 gender = "male"
 
 ["deep burn"]
-nominative = "глубокий ожог"
+nominative = "глубокий пиздец"
 gender = "male"
 
 ["healing deep burn"]
-nominative = "заживающий глубокий ожог"
+nominative = "заживающий глубокий пиздец"
 gender = "male"
 
 ["large burn scar"]
-nominative = "большой ожоговый шрам"
+nominative = "большой ожоговый пиздец"
 gender = "male"
 
 ["carbonised area"]
-nominative = "обугленная область"
+nominative = "обугленная пиздец"
 gender = "female"
 
 ["healing carbonised area"]
-nominative = "заживающая обугленная область"
+nominative = "заживающая обугленная пиздец"
 gender = "female"
 
 ["massive burn scar"]
-nominative = "массивный ожоговый шрам"
+nominative = "массивный ожоговый пиздец"
 gender = "male"
 
 ["bruised artery"]
-nominative = "повреждена артерия"
+nominative = "повреждена пиздец"
 gender = "female"
 
 ["clotted stump"]
-nominative = "свернувшийся обрубок"
+nominative = "свернувшийся пиздец"
 gender = "male"
 
 ["scarred stump"]
-nominative = "изуродованный обрубок"
+nominative = "изуродованный пиздец"
 gender = "male"
 
 ["ripped stump"]
-nominative = "рваный обрубок"
+nominative = "рваный пиздец"
 gender = "male"
 
 ["bloody stump"]
-nominative = "кровавый обрубок"
+nominative = "кровавый пиздец"
 gender = "male"
 
 ["wounds"]
@@ -237,286 +237,286 @@ gender = "plural"
 genitive = "ран"
 
 ["ugly ripped cuts"]
-nominative = "уродливые рваные порезы"
+nominative = "уродливые рваные пиздец"
 gender = "plural"
-genitive = "уродливых рваных порезов"
+genitive = "уродливых рваных пиздец"
 
 ["ripped cuts"]
-nominative = "рваные порезы"
+nominative = "рваные пиздец"
 gender = "plural"
-genitive = "рваных порезов"
+genitive = "рваных пиздец"
 
 ["cuts"]
-nominative = "порезы"
+nominative = "пиздец"
 gender = "plural"
-genitive = "порезов"
+genitive = "пиздец"
 
 ["healing cuts"]
-nominative = "заживающие порезы"
+nominative = "заживающие пиздец"
 gender = "plural"
-genitive = "заживающих порезов"
+genitive = "заживающих пиздец"
 
 ["small scabs"]
-nominative = "маленькие коросты"
+nominative = "маленькие пиздец"
 gender = "plural"
-genitive = "маленьких корост"
+genitive = "маленьких пиздец"
 
 ["ugly deep ripped cuts"]
-nominative = "уродливые глубокие рваные порезы"
+nominative = "уродливые глубокие рваные пиздец"
 gender = "plural"
-genitive = "уродливых глубоких рваных порезов"
+genitive = "уродливых глубоких рваных пиздец"
 
 ["deep ripped cuts"]
-nominative = "глубокие рваные порезы"
+nominative = "глубокие рваные пиздец"
 gender = "plural"
-genitive = "глубоких рваных порезов"
+genitive = "глубоких рваных пиздец"
 
 ["deep cuts"]
-nominative = "глубокие порезы"
+nominative = "глубокие пиздец"
 gender = "plural"
-genitive = "глубоких порезов"
+genitive = "глубоких пиздец"
 
 ["clotted cuts"]
-nominative = "свернувшиеся порезы"
+nominative = "свернувшиеся пиздец"
 gender = "plural"
-genitive = "свернувшихся порезов"
+genitive = "свернувшихся пиздец"
 
 ["scabs"]
-nominative = "коросты"
+nominative = "пиздец"
 gender = "plural"
-genitive = "корост"
+genitive = "пиздец"
 
 ["ugly ripped flesh wounds"]
-nominative = "уродливые рваные раны"
+nominative = "уродливые рваные пиздец"
 gender = "plural"
-genitive = "уродливых рваных ран"
+genitive = "уродливых рваных пиздец"
 
 ["ugly flesh wounds"]
-nominative = "уродливые раны"
+nominative = "уродливые пиздец"
 gender = "plural"
-genitive = "уродливых ран"
+genitive = "уродливых пиздец"
 
 ["flesh wounds"]
-nominative = "раны"
+nominative = "пиздец"
 gender = "plural"
 genitive = "ран"
 
 ["blood soaked clots"]
-nominative = "пропитанные кровью сгустки"
+nominative = "пропитанные кровью пиздец"
 gender = "plural"
-genitive = "пропитанных кровью сгустков"
+genitive = "пропитанных кровью пиздец"
 
 ["large scabs"]
-nominative = "большие коросты"
+nominative = "большие пиздец"
 gender = "plural"
-genitive = "больших корост"
+genitive = "больших пиздец"
 
 ["gaping wounds"]
-nominative = "зияющие раны"
+nominative = "зияющие пиздец"
 gender = "plural"
-genitive = "зияющих ран"
+genitive = "зияющих пиздец"
 
 ["large blood soaked clots"]
-nominative = "большие пропитанные кровью сгустки"
+nominative = "большие пропитанные кровью пиздец"
 gender = "plural"
-genitive = "больших пропитанных кровью сгустков"
+genitive = "больших пропитанных кровью пиздец"
 
 ["large clots"]
-nominative = "большие сгустки"
+nominative = "большие пиздец"
 gender = "plural"
-genitive = "больших сгустков"
+genitive = "больших пиздец"
 
 ["small angry scars"]
-nominative = "маленькие красные шрамы"
+nominative = "маленькие красные пиздец"
 gender = "plural"
-genitive = "маленьких красных шрамов"
+genitive = "маленьких красных пиздец"
 
 ["small straight scars"]
-nominative = "маленькие прямые шрамы"
+nominative = "маленькие прямые пиздец"
 gender = "plural"
-genitive = "маленьких прямых шрамов"
+genitive = "маленьких прямых пиздец"
 
 ["big gaping wounds"]
-nominative = "большие зияющие раны"
+nominative = "большие зияющие пиздец"
 gender = "plural"
-genitive = "больших зияющих ран"
+genitive = "больших зияющих пиздец"
 
 ["healing gaping wounds"]
-nominative = "заживающие зияющие раны"
+nominative = "заживающие зияющие пиздец"
 gender = "plural"
-genitive = "заживающих зияющих ран"
+genitive = "заживающих зияющих пиздец"
 
 ["large angry scars"]
-nominative = "большие красные шрамы"
+nominative = "большие красные пиздец"
 gender = "plural"
-genitive = "больших красных шрамов"
+genitive = "больших красных пиздец"
 
 ["large straight scars"]
-nominative = "большие прямые шрамы"
+nominative = "большие прямые пиздец"
 gender = "plural"
-genitive = "больших прямых шрамов"
+genitive = "больших прямых пиздец"
 
 ["massive wounds"]
-nominative = "массивные раны"
+nominative = "массивные пиздец"
 gender = "plural"
-genitive = "массивных ран"
+genitive = "массивных пиздец"
 
 ["massive healing wounds"]
-nominative = "массивные заживающие раны"
+nominative = "массивные заживающие пиздец"
 gender = "plural"
-genitive = "массивных заживающих ран"
+genitive = "массивных заживающих пиздец"
 
 ["massive angry scars"]
-nominative = "массивные красные шрамы"
+nominative = "массивные красные пиздец"
 gender = "plural"
-genitive = "массивных красных шрамов"
+genitive = "массивных красных пиздец"
 
 ["massive jagged scars"]
-nominative = "массивные неровные шрамы"
+nominative = "массивные неровные пиздец"
 gender = "plural"
-genitive = "массивных неровных шрамов"
+genitive = "массивных неровных пиздец"
 
 ["monumental bruises"]
-nominative = "монументальные синяки"
+nominative = "монументальные пиздец"
 gender = "plural"
-genitive = "монументальных синяков"
+genitive = "монументальных пиздец"
 
 ["huge bruises"]
-nominative = "огромные синяки"
+nominative = "огромные пиздец"
 gender = "plural"
-genitive = "огромных синяков"
+genitive = "огромных пиздец"
 
 ["large bruises"]
-nominative = "большие синяки"
+nominative = "большие пиздец"
 gender = "plural"
-genitive = "больших синяков"
+genitive = "больших пиздец"
 
 ["moderate bruises"]
-nominative = "умеренные синяки"
+nominative = "умеренные пиздец"
 gender = "plural"
-genitive = "умеренных синяков"
+genitive = "умеренных пиздец"
 
 ["small bruises"]
-nominative = "маленькие синяки"
+nominative = "маленькие пиздец"
 gender = "plural"
-genitive = "маленьких синяков"
+genitive = "маленьких пиздец"
 
 ["tiny bruises"]
-nominative = "крошечные синяки"
+nominative = "крошечные пиздец"
 gender = "plural"
-genitive = "крошечных синяков"
+genitive = "крошечных пиздец"
 
 ["ripped burns"]
-nominative = "рваные ожоги"
+nominative = "рваные пиздец"
 gender = "plural"
-genitive = "рваных ожогов"
+genitive = "рваных пиздец"
 
 ["moderate burns"]
-nominative = "умеренные ожоги"
+nominative = "умеренные пиздец"
 gender = "plural"
-genitive = "умеренных ожогов"
+genitive = "умеренных пиздец"
 
 ["healing moderate burns"]
-nominative = "заживающие умеренные ожоги"
+nominative = "заживающие умеренные пиздец"
 gender = "plural"
-genitive = "заживающих умеренных ожогов"
+genitive = "заживающих умеренных пиздец"
 
 ["fresh skins"]
-nominative = "свежие кожи"
+nominative = "свежие пиздец"
 gender = "plural"
-genitive = "свежих кож"
+genitive = "свежих пиздец"
 
 ["ripped large burns"]
-nominative = "рваные большие ожоги"
+nominative = "рваные большие пиздец"
 gender = "plural"
-genitive = "рваных больших ожогов"
+genitive = "рваных больших пиздец"
 
 ["large burns"]
-nominative = "большие ожоги"
+nominative = "большие пиздец"
 gender = "plural"
-genitive = "больших ожогов"
+genitive = "больших пиздец"
 
 ["healing large burns"]
-nominative = "заживающие большие ожоги"
+nominative = "заживающие большие пиздец"
 gender = "plural"
-genitive = "заживающих больших ожогов"
+genitive = "заживающих больших пиздец"
 
 ["ripped severe burns"]
-nominative = "рваные тяжелые ожоги"
+nominative = "рваные тяжелые пиздец"
 gender = "plural"
-genitive = "рваных тяжелых ожогов"
+genitive = "рваных тяжелых пиздец"
 
 ["severe burns"]
-nominative = "тяжелые ожоги"
+nominative = "тяжелые пиздец"
 gender = "plural"
-genitive = "тяжелых ожогов"
+genitive = "тяжелых пиздец"
 
 ["healing severe burns"]
-nominative = "заживающие тяжелые ожоги"
+nominative = "заживающие тяжелые пиздец"
 gender = "plural"
-genitive = "заживающих тяжелых ожогов"
+genitive = "заживающих тяжелых пиздец"
 
 ["burn scars"]
-nominative = "ожоговые шрамы"
+nominative = "ожоговые пиздец"
 gender = "plural"
-genitive = "ожоговых шрамов"
+genitive = "ожоговых пиздец"
 
 ["ripped deep burns"]
-nominative = "рваные глубокие ожоги"
+nominative = "рваные глубокие пиздец"
 gender = "plural"
-genitive = "рваных глубоких ожогов"
+genitive = "рваных глубоких пиздец"
 
 ["deep burns"]
-nominative = "глубокие ожоги"
+nominative = "глубокие пиздец"
 gender = "plural"
-genitive = "глубоких ожогов"
+genitive = "глубоких пиздец"
 
 ["healing deep burns"]
-nominative = "заживающие глубокие ожоги"
+nominative = "заживающие глубокие пиздец"
 gender = "plural"
-genitive = "заживающих глубоких ожогов"
+genitive = "заживающих глубоких пиздец"
 
 ["large burn scars"]
-nominative = "большие ожоговые шрамы"
+nominative = "большие ожоговые пиздец"
 gender = "plural"
-genitive = "больших ожоговых шрамов"
+genitive = "больших ожоговых пиздец"
 
 ["carbonised areas"]
-nominative = "обугленные области"
+nominative = "обугленные пиздец"
 gender = "plural"
-genitive = "обугленных областей"
+genitive = "обугленных областепиздецй"
 
 ["healing carbonised areas"]
-nominative = "заживающие обугленные области"
+nominative = "заживающие обугленные пиздец"
 gender = "plural"
-genitive = "заживающих обугленных областей"
+genitive = "заживающих обугленных пиздец"
 
 ["massive burn scars"]
-nominative = "массивные ожоговые шрамы"
+nominative = "массивные ожоговые пиздец"
 gender = "plural"
-genitive = "массивных ожоговых шрамов"
+genitive = "массивных ожоговых пиздец"
 
 ["bruised arterys"]
-nominative = "повреждённые артерии"
+nominative = "повреждённые пиздец"
 gender = "plural"
-genitive = "ушибленных артерий"
+genitive = "ушибленных пиздец"
 
 ["ripped stumps"]
-nominative = "рваные обрубки"
+nominative = "рваные пиздец"
 gender = "plural"
-genitive = "рваных обрубков"
+genitive = "рваных пиздец"
 
 ["bloody stumps"]
-nominative = "кровавые обрубки"
+nominative = "кровавые пиздец"
 gender = "plural"
-genitive = "кровавых обрубков"
+genitive = "кровавых пиздец"
 
 ["clotted stumps"]
-nominative = "свернувшиеся обрубки"
+nominative = "свернувшиеся пиздец"
 gender = "plural"
-genitive = "свернувшихся обрубков"
+genitive = "свернувшихся пиздец"
 
 ["scarred stumps"]
-nominative = "изуродованные обрубки"
+nominative = "изуродованные пиздец"
 gender = "plural"
-genitive = "изуродованных обрубков"
+genitive = "изуродованных пиздец"

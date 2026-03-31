@@ -19,192 +19,192 @@ gender = "male"
 tags = [ "cm13",]
 
 [facehugger]
-nominative = "лицехват"
-genitive = "лицехвата"
-dative = "лицехвату"
-accusative = "лицехвата"
-instrumental = "лицехватом"
-prepositional = "лицехвате"
+nominative = "дружок"
+genitive = "дружок"
+dative = "дружок"
+accusative = "дружок"
+instrumental = "дружок"
+prepositional = "дружок"
 gender = "male"
 
 tags = [ "cm13",]
 ["lesser drone"]
-nominative = "Трутень"
-genitive = "Трутня"
-dative = "Трутню"
-accusative = "Трутня"
-instrumental = "Трутнем"
-prepositional = "Трутне"
+nominative = "Метаеб"
+genitive = "Метаеб"
+dative = "Метаеб"
+accusative = "Метаеб"
+instrumental = "Метаеб"
+prepositional = "Метаеб"
 gender = "male"
 
 tags = [ "cm13",]
 [drone]
-nominative = "Дрон"
-genitive = "Дрона"
-dative = "Дрону"
-accusative = "Дрона"
-instrumental = "Дроном"
-prepositional = "Дроне"
+nominative = "Дрын"
+genitive = "Дрын"
+dative = "Дрын"
+accusative = "Дрын"
+instrumental = "Дрын"
+prepositional = "Дрын"
 gender = "male"
 tags = [ "cm13",]
 
 [runner]
-nominative = "Бегун"
-genitive = "Бегуна"
-dative = "Бегуну"
-accusative = "Бегуна"
-instrumental = "Бегуном"
-prepositional = "Бегуне"
+nominative = "Руни"
+genitive = "Руни"
+dative = "Руни"
+accusative = "Руни"
+instrumental = "Руни"
+prepositional = "Руни"
 gender = "male"
 tags = [ "cm13",]
 
 [sentinel]
-nominative = "Страж"
-genitive = "Стража"
-dative = "Стражу"
-accusative = "Стража"
-instrumental = "Стражем"
-prepositional = "Страже"
+nominative = "Бесполезный"
+genitive = "Бесполезный"
+dative = "Бесполезный"
+accusative = "Бесполезный"
+instrumental = "Бесполезный"
+prepositional = "Бесполезный"
 gender = "male"
 tags = [ "cm13",]
 
 [defender]
-nominative = "Защитник"
-genitive = "Защитника"
-dative = "Защитнику"
-accusative = "Защитника"
-instrumental = "Защитником"
-prepositional = "Защитнике"
+nominative = "Дефундя"
+genitive = "Дефундя"
+dative = "Дефундя"
+accusative = "Дефундя"
+instrumental = "Дефундя"
+prepositional = "Дефундя"
 gender = "male"
 tags = [ "cm13",]
 
 [burrower]
-nominative = "Копатель"
-genitive = "Копателя"
-dative = "Копателю"
-accusative = "Копателя"
-instrumental = "Копателем"
-prepositional = "Копателе"
+nominative = "Копалка"
+genitive = "Копалка"
+dative = "Копалка"
+accusative = "Копалка"
+instrumental = "Копалка"
+prepositional = "Копалка"
 gender = "male"
 tags = [ "cm13",]
 
 [carrier]
-nominative = "Носитель"
-genitive = "Носителя"
-dative = "Носителю"
-accusative = "Носителя"
-instrumental = "Носителем"
-prepositional = "Носителе"
+nominative = "Нянька"
+genitive = "Нянька"
+dative = "Нянька"
+accusative = "Нянька"
+instrumental = "Нянька"
+prepositional = "Нянька"
 gender = "male"
 tags = [ "cm13",]
 
 [hivelord]
-nominative = "Владыка улья"
-genitive = "Владыки улья"
-dative = "Владыке улья"
-accusative = "Владыку улья"
-instrumental = "Владыкой улья"
-prepositional = "Владыке улья"
+nominative = "Хайвлордик"
+genitive = "Хайвлордик"
+dative = "Хайвлордик"
+accusative = "Хайвлордик"
+instrumental = "Хайвлордик"
+prepositional = "Хайвлордик"
 gender = "male"
 tags = [ "cm13",]
 
 [lurker]
-nominative = "Охотник"
-genitive = "Охотника"
-dative = "Охотнику"
-accusative = "Охотника"
-instrumental = "Охотником"
-prepositional = "Охотнике"
+nominative = "Мудак"
+genitive = "Мудак"
+dative = "Мудак"
+accusative = "Мудак"
+instrumental = "Мудак"
+prepositional = "Мудак"
 gender = "male"
 tags = [ "cm13",]
 
 [warrior]
-nominative = "Воин"
-genitive = "Воина"
-dative = "Воину"
-accusative = "Воина"
-instrumental = "Воином"
-prepositional = "Воине"
+nominative = "Гандон"
+genitive = "Гандон"
+dative = "Гандон"
+accusative = "Гандон"
+instrumental = "Гандон"
+prepositional = "Гандон"
 gender = "male"
 tags = [ "cm13",]
 
 [spitter]
-nominative = "Плевун"
-genitive = "Плевуна"
-dative = "Плевуну"
-accusative = "Плевуна"
-instrumental = "Плевуном"
-prepositional = "Плевуне"
+nominative = "Токсичный"
+genitive = "Токсичный"
+dative = "Токсичный"
+accusative = "Токсичный"
+instrumental = "Токсичный"
+prepositional = "Токсичный"
 gender = "male"
 tags = [ "cm13",]
 
 [boiler]
-nominative = "Бойлер"
-genitive = "Бойлера"
-dative = "Бойлеру"
-accusative = "Бойлера"
-instrumental = "Бойлером"
-prepositional = "Бойлере"
+nominative = "Кипятильник"
+genitive = "Кипятильник"
+dative = "Кипятильник"
+accusative = "Кипятильник"
+instrumental = "Кипятильник"
+prepositional = "Кипятильник"
 gender = "male"
 tags = [ "cm13",]
 
 [praetorian]
-nominative = "Преторианец"
-genitive = "Преторианца"
-dative = "Преторианцу"
-accusative = "Преторианца"
-instrumental = "Преторианцем"
-prepositional = "Преторианце"
+nominative = "Преторианочка"
+genitive = "Преторианочка"
+dative = "Преторианочка"
+accusative = "Преторианочка"
+instrumental = "Преторианочка"
+prepositional = "Преторианочка"
 gender = "male"
 tags = [ "cm13",]
 
 [crusher]
-nominative = "Крушитель"
-genitive = "Крушителя"
-dative = "Крушителю"
-accusative = "Крушителя"
-instrumental = "Крушителем"
-prepositional = "Крушителе"
+nominative = "Ебалка"
+genitive = "Ебалка"
+dative = "Ебалка"
+accusative = "Ебалка"
+instrumental = "Ебалка"
+prepositional = "Ебалка"
 gender = "male"
 tags = [ "cm13",]
 
 [ravager]
-nominative = "Опустошитель"
-genitive = "Опустошителя"
-dative = "Опустошителю"
-accusative = "Опустошителя"
-instrumental = "Опустошителем"
-prepositional = "Опустошителе"
+nominative = "Убивец"
+genitive = "Убивец"
+dative = "Убивец"
+accusative = "Убивец"
+instrumental = "Убивец"
+prepositional = "Убивец"
 gender = "male"
 tags = [ "cm13",]
 
 [king]
-nominative = "Король"
-genitive = "Короля"
-dative = "Королю"
-accusative = "Короля"
-instrumental = "Королем"
-prepositional = "Короле"
+nominative = "Батя"
+genitive = "Батя"
+dative = "Батя"
+accusative = "Батя"
+instrumental = "Батя"
+prepositional = "Батя"
 gender = "male"
 tags = [ "cm13",]
 
 [queen]
-nominative = "Королева"
-genitive = "Королевы"
-dative = "Королеве"
-accusative = "Королеву"
-instrumental = "Королевой"
-prepositional = "Королеве"
+nominative = "Многодетная мать"
+genitive = "Многодетная мать"
+dative = "Многодетная мать"
+accusative = "Многодетная мать"
+instrumental = "Многодетная мать"
+prepositional = "Многодетная мать"
 gender = "female"
 tags = [ "cm13",]
 
 [predalien]
-nominative = "Чужехищник"
-genitive = "Чужехищника"
-dative = "Чужехищнику"
-accusative = "Чужехищника"
-instrumental = "Чужехищником"
-prepositional = "Чужехищнике"
+nominative = "Кракозябра"
+genitive = "Кракозябра"
+dative = "Кракозябра"
+accusative = "Кракозябра"
+instrumental = "Кракозябра"
+prepositional = "Кракозябра"
 gender = "male"
 tags = [ "cm13",]
 
@@ -219,42 +219,42 @@ gender = "female"
 tags = [ "cm13",]
 
 [abomination]
-nominative = "Абоминация"
-genitive = "Абоминации"
-dative = "Абоминации"
-accusative = "Абоминацию"
-instrumental = "Абоминацией"
-prepositional = "Абоминации"
+nominative = "Кракозябра"
+genitive = "Кракозябра"
+dative = "Кракозябра"
+accusative = "Кракозябра"
+instrumental = "Кракозябра"
+prepositional = "Кракозябра"
 gender = "female"
 tags = [ "cm13",]
 
 [empress]
-nominative = "Императрица"
-genitive = "Императрицы"
-dative = "Императрице"
-accusative = "Императрицу"
-instrumental = "Императрицей"
-prepositional = "Императрице"
+nominative = "Мамочка"
+genitive = "Мамочка"
+dative = "Мамочка"
+accusative = "Мамочка"
+instrumental = "Мамочка"
+prepositional = "Мамочка"
 gender = "female"
 tags = [ "cm13",]
 
 [despoiler]
-nominative = "Разлагатель"
-genitive = "Разлагателя"
-dative = "Разлагателю"
-accusative = "Разлагателя"
-instrumental = "Разлагателем"
-prepositional = "Разлагателе"
+nominative = "Наркоман"
+genitive = "Наркоман"
+dative = "Наркоман"
+accusative = "Наркоман"
+instrumental = "Наркоман"
+prepositional = "Наркоман"
 gender = "male"
 tags = [ "cm13",]
 
 ["молодой "]
-nominative = "Молодой "
-genitive = "Молодого "
-dative = "Молодому "
-accusative = "Молодого "
-instrumental = "Молодым "
-prepositional = "Молодом "
+nominative = "Юный "
+genitive = "Юный "
+dative = "Юный "
+accusative = "Юный "
+instrumental = "Юный "
+prepositional = "Юный "
 gender = "male"
 tags = [ "cm13",]
 
@@ -299,12 +299,12 @@ gender = "male"
 tags = [ "cm13",]
 
 ["прайм "]
-nominative = "Прайм "
-genitive = "Прайм "
-dative = "Прайм "
-accusative = "Прайм "
-instrumental = "Прайм "
-prepositional = "Прайм "
+nominative = "Супер-крутой "
+genitive = "Супер-крутой "
+dative = "Супер-крутой "
+accusative = "Супер-крутой "
+instrumental = "Супер-крутой "
+prepositional = "Супер-крутой "
 gender = "male"
 tags = [ "cm13",]
 
@@ -399,11 +399,11 @@ gender = "female"
 tags = [ "cm13",]
 
 ["неокрепшая "]
-nominative = "Неокрепшая "
-genitive = "Неокрепшей "
-dative = "Неокрепшей "
-accusative = "Неокрепшую "
-instrumental = "Неокрепшей "
-prepositional = "Неокрепшей "
+nominative = "СУПЕР СИЛЬНАЯ "
+genitive = "СУПЕР СИЛЬНАЯ "
+dative = "СУПЕР СИЛЬНАЯ "
+accusative = "СУПЕР СИЛЬНАЯ "
+instrumental = "СУПЕР СИЛЬНАЯ "
+prepositional = "СУПЕР СИЛЬНАЯ "
 gender = "female"
 tags = [ "cm13",]
