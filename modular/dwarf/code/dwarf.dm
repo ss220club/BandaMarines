@@ -5,7 +5,7 @@
 	icon = 'icons/obj/items/harvest.dmi'
 	icon_state = "amanita"
 	filling_color = "#FF0000"
-	plantname = "harebells"
+	plantname = "Странный гриб"
 
 /obj/item/reagent_container/food/snacks/grown/harebell/dwarf/On_Consume(mob/living/carbon/M, mob/living/user)
 	..()
@@ -20,7 +20,7 @@
 	icon = 'icons/obj/items/harvest.dmi'
 	icon_state = "reishi"
 	filling_color = "#FF4800"
-	plantname = "harebells"
+	plantname = "Особый гриб"
 
 /obj/item/reagent_container/food/snacks/grown/harebell/cure_dwarf/On_Consume(mob/living/carbon/M, mob/living/user)
 	..()
