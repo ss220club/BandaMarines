@@ -130,6 +130,15 @@
 		list("Black Drop Pouch", 0.75, /obj/item/clothing/accessory/storage/droppouch/black, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_REGULAR),
 		list("Shoulder Holster", 0.75, /obj/item/clothing/accessory/storage/holster, VENDOR_ITEM_REGULAR),
 
+		list("ARMOR?", -1, null, null),
+		list("M10 Pattern Lesser Drone Helmet", floor(scale * 15), /obj/item/clothing/head/helmet/marine/xeno, VENDOR_ITEM_REGULAR),
+		list("M10 Pattern Warrior Helmet", floor(scale * 15), /obj/item/clothing/head/helmet/marine/xeno/warrior, VENDOR_ITEM_REGULAR),
+		list("M10 Pattern Defender Helmet", floor(scale * 15), /obj/item/clothing/head/helmet/marine/xeno/defender, VENDOR_ITEM_REGULAR),
+
+		list("M3-L Pattern Lesser Drone Light Armor", floor(scale * 15), /obj/item/clothing/suit/storage/marine/light/xeno, VENDOR_ITEM_REGULAR),
+		list("M3 Pattern Warrior Medium Armor", floor(scale * 15), /obj/item/clothing/suit/storage/marine/medium/xeno, VENDOR_ITEM_REGULAR),
+		list("M3-EOD Pattern Defender Heavy Armor", floor(scale * 15), /obj/item/clothing/suit/storage/marine/heavy/xeno, VENDOR_ITEM_REGULAR),
+
 		list("ARMOR", -1, null, null),
 		list("M3 Pattern Carrier Marine Armor", floor(scale * 15), /obj/item/clothing/suit/storage/marine/medium/carrier, VENDOR_ITEM_REGULAR),
 		list("M3 Pattern Padded Marine Armor", floor(scale * 15), /obj/item/clothing/suit/storage/marine/medium/padded, VENDOR_ITEM_REGULAR),

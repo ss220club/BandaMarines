@@ -37,6 +37,7 @@ GLOBAL_LIST_INIT(cm_vending_gear_corporate_security_full, list(
 	list("HEADGEAR (CHOOSE 1)", 0, null, null, null),
 	list("Security Guard Armored Cap", 0, /obj/item/clothing/head/helmet/marine/veteran/pmc/guard/ppo, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_MANDATORY),
 	list("Corporate Security Helmet", 0, /obj/item/clothing/head/helmet/marine/veteran/pmc/corporate/ppo, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_MANDATORY),
+	list("Corporate Xeno Helmet", 0, /obj/item/clothing/head/helmet/marine/veteran/pmc/enclosed/xeno, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_MANDATORY),
 
 	list("MASK (CHOOSE 1)", 0, null, null, null),
 	list("Gas Mask", 0, /obj/item/clothing/mask/gas, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
@@ -44,6 +45,7 @@ GLOBAL_LIST_INIT(cm_vending_gear_corporate_security_full, list(
 
 	list("ARMOR (CHOOSE 1)", 0, null, null, null),
 	list("Corporate Security Armor", 0, /obj/item/clothing/suit/storage/marine/veteran/pmc/light/corporate/ppo, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_RECOMMENDED),
+	list("M4 PPO Pretorian Armor", 0, /obj/item/clothing/suit/storage/marine/veteran/pmc/light/corporate/ppo/strong/xeno, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_REGULAR),
 	list("M4 PPO Armor", 0, /obj/item/clothing/suit/storage/marine/veteran/pmc/light/corporate/ppo/strong, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_REGULAR),
 
 	list("GLOVES (CHOOSE 1)", 0, null, null, null),

@@ -7,9 +7,9 @@ GLOBAL_LIST_INIT(cm_vending_clothing_marine, list(
 		list("ХУЙНЯ", 0, /obj/item/map/current_map, MARINE_CAN_BUY_MAP, VENDOR_ITEM_MANDATORY),
 
 		list("БРОНЯ ДЛЯ КРУТЫХ", 0, null, null, null),
-		list("Руни", 0, list(/obj/item/clothing/suit/storage/marine/xenos/runner, /obj/item/clothing/head/helmet/marine/xenos/runner), MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_REGULAR),
-		list("Дрончик", 0, list(/obj/item/clothing/suit/storage/marine/xenos, /obj/item/clothing/head/helmet/marine/xenos), MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_REGULAR),
-		list("Дефундер", 0, list(/obj/item/clothing/suit/storage/marine/xenos/defender, /obj/item/clothing/head/helmet/marine/xenos/defender), MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_REGULAR),
+		list("Руни", 0, list(/obj/item/clothing/suit/storage/marine/MP/xeno, /obj/item/clothing/head/helmet/marine/MP/xeno), MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_REGULAR),
+		list("Друн", 0, list(/obj/item/clothing/suit/storage/marine/light/xeno, /obj/item/clothing/head/helmet/marine/xeno), MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_REGULAR),
+		list("Дефундер", 0, list(/obj/item/clothing/suit/storage/marine/heavy/xeno, /obj/item/clothing/head/helmet/marine/xeno/defender), MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_REGULAR),
 
 		list("ХРАНИЛИЩЕ ВСЕЙ ХУЙНИ", 0, null, null, null),
 		list("РЮКЗАК ШКОЛЬНИКА", 0, /obj/item/storage/backpack/marine, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_REGULAR),
@@ -86,8 +86,7 @@ GLOBAL_LIST_INIT(cm_vending_clothing_marine, list(
 		list("сучка 6 умная точка 45", 10, /obj/item/ammo_magazine/pistol/smart, null, VENDOR_ITEM_REGULAR),
 
 		list("КРУТЫЕ ШМОТКИ НА ПРЕСС", 0, null, null, null),
-		list("Варриор-гандон", 30, list(/obj/item/clothing/suit/storage/marine/xenos/warrior, /obj/item/clothing/head/helmet/marine/xenos/warrior), null, VENDOR_ITEM_REGULAR),
-		list("Люркер-гандон2", 20, list(/obj/item/clothing/suit/storage/marine/xenos/lurker, /obj/item/clothing/head/helmet/marine/xenos/lurker), null, VENDOR_ITEM_REGULAR),
+		list("Варриор-гандон", 10, list(/obj/item/clothing/suit/storage/marine/medium/xeno, /obj/item/clothing/head/helmet/marine/xeno/warrior), null, VENDOR_ITEM_REGULAR),
 		list("Бэ18 тяжелый хуй", 35, list(/obj/item/clothing/suit/storage/marine/specialist, /obj/item/clothing/head/helmet/marine/specialist), null, VENDOR_ITEM_REGULAR),
 
 		list("НАДЕТЬ НА ОДЕЖДУ", 0, null, null, null),

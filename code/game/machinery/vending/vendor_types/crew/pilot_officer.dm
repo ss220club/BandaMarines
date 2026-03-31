@@ -59,6 +59,8 @@
 
 GLOBAL_LIST_INIT(cm_vending_clothing_pilot_officer, list(
 		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
+		list("Carrier Mask", 0, /obj/item/clothing/head/xenos/carrier, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_MANDATORY),
+		list("Boiler Mask", 0, /obj/item/clothing/head/xenos/boiler, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_MANDATORY),
 		list("Pilot Officer Bodysuit", 0, /obj/item/clothing/under/marine/officer/pilot, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
 		list("Tactical Pilot Officer Flightsuit", 0, /obj/item/clothing/under/marine/officer/pilot/flight, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
 		list("Insulated Gloves (Yellow)", 0, /obj/item/clothing/gloves/marine/insulated, MARINE_CAN_BUY_GLOVES, VENDOR_ITEM_MANDATORY),
@@ -68,6 +70,8 @@ GLOBAL_LIST_INIT(cm_vending_clothing_pilot_officer, list(
 		list("MRE", 0, /obj/item/storage/box/mre, MARINE_CAN_BUY_MRE, VENDOR_ITEM_MANDATORY),
 
 		list("ARMOR (CHOOSE 1)", 0, null, null, null),
+		list("Carrier Suit", 0, /obj/item/clothing/suit/xenos/carrier, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
+		list("Boiler Suit", 0, /obj/item/clothing/suit/xenos/boiler, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
 		list("M70 Flak Jacket", 0, /obj/item/clothing/suit/storage/jacket/marine/pilot/armor, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
 		list("M3-VL Pattern Flak Vest", 0, /obj/item/clothing/suit/storage/marine/light/vest/dcc, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
 		list("M70B1 light flak jacket", 0, /obj/item/clothing/suit/storage/jacket/marine/pilot, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),

@@ -136,11 +136,11 @@ GLOBAL_LIST_INIT(cm_vending_clothing_leader, list(
 		list("Map", 0, /obj/item/map/current_map, MARINE_CAN_BUY_MAP, VENDOR_ITEM_MANDATORY),
 
 		list("BACKPACK (CHOOSE 1)", 0, null, null, null),
-		list("THE BACK", 0, /obj/item/storage/backpack/ivan, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_REGULAR),
+		list("THE BACK", 0, /obj/item/storage/backpack/ivan, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_RECOMMENDED),
 
 
 		list("BELT (CHOOSE 1)", 0, null, null, null),
-		list("THE RIG", 0, /obj/item/storage/belt/gun/type47/ivan, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_REGULAR),
+		list("THE RIG", 0, /obj/item/storage/belt/gun/type47/ivan, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
 
 		list("POUCHES (CHOOSE 2)", 0, null, null, null),
 		list("Autoinjector Pouch (Full)", 0, /obj/item/storage/pouch/autoinjector/full, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_RECOMMENDED),
