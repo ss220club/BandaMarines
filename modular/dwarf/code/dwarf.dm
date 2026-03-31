@@ -1,28 +1,32 @@
 
-/obj/item/reagent_container/food/snacks/grown/harebell/dwarf
+/obj/item/reagent_container/food/snacks/dwarf_mushroom
 	name = "Странный гриб"
 	desc = "Пульсирующий нарост, чьи споры кажутся неестественно тяжелыми. Кажется, если его съесть, мир вокруг станет... чуточку больше."
 	icon = 'icons/obj/items/harvest.dmi'
 	icon_state = "amanita"
-	filling_color = "#FF0000"
-	plantname = "Странный гриб"
 
-/obj/item/reagent_container/food/snacks/grown/harebell/dwarf/On_Consume(mob/living/carbon/M, mob/living/user)
+/obj/item/reagent_container/food/snacks/dwarf_mushroom/Initialize()
+	. = ..()
+	reagents.add_reagent("mushroom", 1)
+
+/obj/item/reagent_container/food/snacks/dwarf_mushroom/On_Consume(mob/living/carbon/M, mob/living/user)
 	..()
 	if(istype(M) && !HAS_TRAIT(M, "dwarf"))
 		add_dwarfism(M)
 	else if(istype(M))
 		to_chat(M, span_notice("На вкус как обычный сухой гриб. Ничего не произошло."))
 
-/obj/item/reagent_container/food/snacks/grown/harebell/cure_dwarf
+/obj/item/reagent_container/food/snacks/cure_dwarf_mushroom
 	name = "Особый гриб"
 	desc = "Особый гриб, который, как считается, помогает от всего."
 	icon = 'icons/obj/items/harvest.dmi'
 	icon_state = "reishi"
-	filling_color = "#FF4800"
-	plantname = "Особый гриб"
 
-/obj/item/reagent_container/food/snacks/grown/harebell/cure_dwarf/On_Consume(mob/living/carbon/M, mob/living/user)
+/obj/item/reagent_container/food/snacks/cure_dwarf_mushroom/Initialize()
+	. = ..()
+	reagents.add_reagent("mushroom", 1)
+
+/obj/item/reagent_container/food/snacks/cure_dwarf_mushroom/On_Consume(mob/living/carbon/M, mob/living/user)
 	..()
 	if(istype(M) && HAS_TRAIT(M, "dwarf"))
 		cure_dwarfism(M)
