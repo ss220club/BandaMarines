@@ -5,7 +5,7 @@
 	name = "Colonial Liberation Front (Squad)"
 	mob_max = 10
 	arrival_message = "'Внимание, вы вторглись на нашу суверенную территорию. Не ждите от нас прощения.'"
-	probability = 20
+	probability = 0
 	hostility = TRUE
 	home_base = /datum/lazy_template/ert/clf_station
 	var/max_synths = 1

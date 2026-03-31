@@ -5,7 +5,7 @@
 	mob_min = 3
 	arrival_message = "'Приготовьтесь сдаться в распоряжение ГЕФА!'"
 	objectives = "Вы - брат ордена ГЕФА! Вы и ваши братья должны вернуть как можно больше ГЕФА!"
-	probability = 0
+	probability = 1
 	hostility = TRUE
 
 /datum/emergency_call/hefa_knight/create_member(datum/mind/M, turf/override_spawn_loc)

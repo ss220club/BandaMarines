@@ -7,7 +7,7 @@
 	max_heavies = 10
 	arrival_message = "'Деус Вульт. Деус Вульт! ДЕУС ВУЛЬТ!!!'"
 	objectives = "Очистите место от всего нечестивого! Погибните славной смертью!"
-	probability = 0
+	probability = 1
 	hostility = TRUE
 
 /datum/emergency_call/deus_vult/create_member(datum/mind/M, turf/override_spawn_loc)

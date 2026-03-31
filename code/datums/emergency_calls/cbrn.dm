@@ -42,7 +42,7 @@
 /datum/emergency_call/cbrn/ert
 	name = "CBRN (Distress)"
 	arrival_message = "Внимание, говорит КСШ \"Курц\". Мы засекли ваш сигнал бедствия и направили отряд РХБЗ на ваш корабль. Ожидайте прибытия."
-	probability = 10
+	probability = 0
 
 /datum/emergency_call/cbrn/ert/New()
 	..()
