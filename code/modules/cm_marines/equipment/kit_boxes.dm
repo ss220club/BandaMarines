@@ -135,6 +135,8 @@
 	kit_name = "scout"
 
 /obj/item/storage/box/spec/scout/fill_preset_inventory()
+	new /obj/item/clothing/suit/storage/marine/M3S/xeno(src)
+	new /obj/item/clothing/head/helmet/marine/scout/xeno(src)
 	new /obj/item/clothing/suit/storage/marine/M3S(src)
 	new /obj/item/clothing/head/helmet/marine/radio_helmet/scout(src)
 	new /obj/item/clothing/glasses/night/M4RA(src)
