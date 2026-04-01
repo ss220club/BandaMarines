@@ -43,3 +43,4 @@
 #include "code/van/uscm_van_med.dm"
 #include "code/van/uscm_van_verbs.dm"
 #include "code/van/uscm_van_spawners.dm"
+#include "code/dwarf.dm"
