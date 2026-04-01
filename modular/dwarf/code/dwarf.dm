@@ -42,7 +42,7 @@
 		mat.Scale(0.7, 0.7)
 		animate(C, transform = mat, time = 20)
 		playsound(C, 'modular/sounds/sound/effects/swap.ogg',  25, 1)
-		C.visible_message(span_danger("[C] внезапно уменьшается!"), span_notice("Всё вокруг кажется огромным..."))
+		C.visible_message(SPAN_DANGER("[C] внезапно уменьшается!"), SPAN_NOTICE("Всё вокруг кажется огромным..."))
 
 /proc/cure_dwarfism(mob/living/carbon/C)
 	if(!istype(C))
@@ -51,4 +51,4 @@
 		REMOVE_TRAIT(C, "dwarf", "mushroom")
 		animate(C, transform = matrix(), time = 20)
 		playsound(C, 'modular/sounds/sound/effects/staff_healing.ogg',  25, 1)
-		C.visible_message(span_danger("[C] внезапно возвращается к нормальному размеру!"), span_notice("Мир снова стал привычного размера."))
+		C.visible_message(SPAN_DANGER("[C] внезапно возвращается к нормальному размеру!"), SPAN_NOTICE("Мир снова стал привычного размера."))
