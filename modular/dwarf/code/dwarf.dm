@@ -9,12 +9,12 @@
 	. = ..()
 	reagents.add_reagent("mushroom", 1)
 
-/obj/item/reagent_container/food/snacks/dwarf_mushroom/On_Consume(mob/living/carbon/M, mob/living/user)
-	..()
-	if(istype(M) && !HAS_TRAIT(M, "dwarf"))
-		add_dwarfism(M)
-	else if(istype(M))
-		to_chat(M, span_notice("На вкус как обычный сухой гриб. Ничего не произошло."))
+/obj/item/reagent_container/food/snacks/dwarf_mushroom/On_Consume(mob/M)  
+	..()  
+	if(istype(M, /mob/living/carbon) && !HAS_TRAIT(M, "dwarf"))  
+		add_dwarfism(M)  
+	else if(istype(M, /mob/living/carbon))  
+		to_chat(M, SPAN_NOTICE("На вкус как обычный сухой гриб. Ничего не произошло."))  
 
 /obj/item/reagent_container/food/snacks/cure_dwarf_mushroom
 	name = "Особый гриб"
@@ -26,17 +26,17 @@
 	. = ..()
 	reagents.add_reagent("mushroom", 1)
 
-/obj/item/reagent_container/food/snacks/cure_dwarf_mushroom/On_Consume(mob/living/carbon/M, mob/living/user)
-	..()
-	if(istype(M) && HAS_TRAIT(M, "dwarf"))
-		cure_dwarfism(M)
-	else if(istype(M))
-		to_chat(M, span_notice("На вкус как обычный сухой гриб. Ничего не произошло."))
+/obj/item/reagent_container/food/snacks/cure_dwarf_mushroom/On_Consume(mob/M)  
+	..()  
+	if(istype(M, /mob/living/carbon) && HAS_TRAIT(M, "dwarf"))  
+		cure_dwarfism(M)  
+	else if(istype(M, /mob/living/carbon))  
+		to_chat(M, SPAN_NOTICE("На вкус как обычный сухой гриб. Ничего не произошло."))  
 
 /proc/add_dwarfism(mob/living/carbon/C)
 	if(!istype(C))
 		return
-	if(istype(C) && !HAS_TRAIT(C, "dwarf"))
+	if(!HAS_TRAIT(C, "dwarf"))
 		ADD_TRAIT(C, "dwarf", "mushroom")
 		var/matrix/mat = matrix()
 		mat.Scale(0.7, 0.7)
