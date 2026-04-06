@@ -1,3 +1,4 @@
+
 //Xenomorph "generic" parent, does not actually appear in game
 //Many of these defines aren't referenced in the castes and so are assumed to be defaulted
 //Castes are all merely subchildren of this parent
@@ -45,7 +46,7 @@
 	see_in_dark = 12
 	recovery_constant = 1.5
 	see_invisible = SEE_INVISIBLE_LIVING
-	hud_possible = list(HEALTH_HUD_XENO, PLASMA_HUD, SPECIAL_HUD, PHEROMONE_HUD, QUEEN_OVERWATCH_HUD, ARMOR_HUD_XENO, XENO_STATUS_HUD, XENO_BANISHED_HUD, XENO_HOSTILE_ACID, XENO_HOSTILE_SLOW, XENO_HOSTILE_TAG, XENO_HOSTILE_FREEZE, HUNTER_HUD, NEW_PLAYER_HUD)
+	hud_possible = list(HEALTH_HUD_XENO, PLASMA_HUD, SPECIAL_HUD, PHEROMONE_HUD, QUEEN_OVERWATCH_HUD, ARMOR_HUD_XENO, XENO_STATUS_HUD, XENO_BANISHED_HUD, XENO_HOSTILE_ACID, XENO_HOSTILE_SLOW, XENO_HOSTILE_TAG, XENO_HOSTILE_TAG_SPREAD, XENO_HOSTILE_FREEZE, HUNTER_HUD, NEW_PLAYER_HUD)
 	unacidable = TRUE
 	rebounds = TRUE
 	faction = FACTION_XENOMORPH
@@ -68,6 +69,13 @@
 
 	var/static/list/walking_state_cache = list()
 	var/has_walking_icon_state = FALSE
+
+	/// Timer for dodge_threshold
+	var/last_projectile_time = 0
+	/// Counts how many bullets hit xeno before dodge_threshold occurs.
+	var/projectiles_counted = 0
+	/// Guaranteed bullet dodge every X bullet shoot (don't work when you are laying down or UNCONSCIOUS)
+	var/dodge_threshold = 0
 
 	//////////////////////////////////////////////////////////////////
 	//
@@ -178,7 +186,7 @@
 
 	/// List of actions (typepaths) that a
 	/// xenomorph type is given upon spawn
-	var/list/base_actions = list() // BANDASTATION EDIT - Bump Attacks. it's a list!
+	var/base_actions
 
 	/// this is the resin mark that is currently being tracked by the xeno
 	var/obj/effect/alien/resin/marker/tracked_marker
@@ -476,7 +484,6 @@
 	toggle_xeno_mobhud() //This is a verb, but fuck it, it just werks
 
 	. = ..()
-	generate_name() // BANDASTATION ADDITION
 
 					//Set leader to the new mob
 	if(old_xeno && hive && IS_XENO_LEADER(old_xeno))
@@ -626,22 +633,10 @@
 	var/name_display = ""
 	// Rare easter egg
 	if(nicknumber == 666)
-		number_decorator = "Адский "
-	if(nicknumber == 220)					// BANDAMARINES	EDIT
-		number_decorator = "Проклятый "
+		number_decorator = "Infernal "
 	if(show_name_numbers)
 		name_display = show_only_numbers ? " ([nicknumber])" : " ([name_client_prefix][nicknumber][name_client_postfix])"
-	name = "[name_prefix][number_decorator][age_display][declent_ru_initial(caste.display_name || caste.caste_type, NOMINATIVE, caste.display_name || caste.caste_type)][name_display]"
-	ru_names_rename(ru_names_list(
-		base = name,
-		nominative = "[name_prefix][declent_ru_initial(number_decorator, NOMINATIVE, number_decorator)][declent_ru_initial(age_display, NOMINATIVE, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, NOMINATIVE, caste.display_name || caste.caste_type)][name_display]",
-		genitive = "[name_prefix][declent_ru_initial(number_decorator, GENITIVE, number_decorator)][declent_ru_initial(age_display, GENITIVE, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, GENITIVE, caste.display_name || caste.caste_type)][name_display]",
-		dative = "[name_prefix][declent_ru_initial(number_decorator, DATIVE, number_decorator)][declent_ru_initial(age_display, DATIVE, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, DATIVE, caste.display_name || caste.caste_type)][name_display]",
-		accusative = "[name_prefix][declent_ru_initial(number_decorator, ACCUSATIVE, number_decorator)][declent_ru_initial(age_display, ACCUSATIVE, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, ACCUSATIVE, caste.display_name || caste.caste_type)][name_display]",
-		instrumental = "[name_prefix][declent_ru_initial(number_decorator, INSTRUMENTAL, number_decorator)][declent_ru_initial(age_display, INSTRUMENTAL, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, INSTRUMENTAL, caste.display_name || caste.caste_type)][name_display]",
-		prepositional = "[name_prefix][declent_ru_initial(number_decorator, PREPOSITIONAL, number_decorator)][declent_ru_initial(age_display, PREPOSITIONAL, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, PREPOSITIONAL, caste.display_name || caste.caste_type)][name_display]",
-		gender = "[declent_ru_initial(caste.display_name || caste.caste_type, "gender", caste.display_name || caste.caste_type)]",
-	))
+	name = "[name_prefix][number_decorator][age_display][caste.display_name || caste.caste_type][name_display]"
 
 	//Update linked data so they show up properly
 	change_real_name(src, name)
@@ -855,7 +850,7 @@
 
 
 	//and display them
-	add_to_all_mob_huds()
+	add_to_all_mob_huds(hivenumber)
 	var/datum/mob_hud/MH = GLOB.huds[MOB_HUD_XENO_INFECTION]
 	MH.add_hud_to(src, src)
 
@@ -1054,7 +1049,7 @@
 		caste.aura_strength = 0
 	if(aura_strength == 0 && current_aura)
 		current_aura = null
-		to_chat(src, SPAN_XENOWARNING("Мы перестаём выделять феромоны."))
+		to_chat(src, SPAN_XENOWARNING("We lose our pheromones."))
 
 	// Also recalculate received pheros now
 	for(var/capped_aura in received_phero_caps)

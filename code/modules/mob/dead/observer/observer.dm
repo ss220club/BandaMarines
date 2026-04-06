@@ -407,6 +407,9 @@
 				if("Xeno Status HUD")
 					the_hud = GLOB.huds[MOB_HUD_XENO_STATUS]
 					the_hud.add_hud_to(src, src)
+				if("Xeno Effects HUD")
+					the_hud = GLOB.huds[MOB_HUD_XENO_HOSTILE]
+					the_hud.add_hud_to(src, src)
 				if("Hunter HUD")
 					the_hud = GLOB.huds[MOB_HUD_HUNTER]
 					the_hud.add_hud_to(src, src)
@@ -591,16 +594,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			ghost.can_reenter_corpse = FALSE
 			nest.ghost_of_buckled_mob = ghost
 
-/mob/dead/observer/Move(atom/newloc, direct, glide_size_override = 32) // SS220 EDIT
+/mob/dead/observer/Move(atom/newloc, direct)
 	following = null
 	var/area/last_area = get_area(loc)
 	if(updatedir)
 		setDir(direct)//only update dir if we actually need it, so overlays won't spin on base sprites that don't have directions of their own
-
-	// SS220 ADD Start
-	if(glide_size_override)
-		set_glide_size(glide_size_override)
-	// SS220 ADD End
 
 	if(newloc)
 		abstract_move(newloc)
@@ -1119,8 +1117,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/dead/verb/join_as_lesser_drone()
 	set category = "Ghost.Join"
-	set name = "Присоединиться за трутня"
-	set desc = "Присоединиться за трутня, чтобы поддержать улей."
+	set name = "Join as a Lesser Drone"
+	set desc = "Try joining as a Lesser Drone to support the hive."
 
 	if (!client)
 		return

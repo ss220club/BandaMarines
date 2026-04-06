@@ -1,3 +1,4 @@
+
 //Some debug variables. Toggle them to 1 in order to see the related debug messages. Helpful when testing out formulas.
 #define DEBUG_HIT_CHANCE 0
 #define DEBUG_HUMAN_DEFENSE 0
@@ -892,20 +893,42 @@
 				else
 					return FALSE
 
-/mob/living/carbon/xenomorph/get_projectile_hit_chance(obj/projectile/P)
+/mob/living/carbon/xenomorph/get_projectile_hit_chance(obj/projectile/bullet)
 	. = ..()
 	if(.)
-		var/ammo_flags = P.ammo.flags_ammo_behavior | P.projectile_override_flags
-		if(SEND_SIGNAL(P, COMSIG_BULLET_CHECK_MOB_SKIPPING, src) & COMPONENT_SKIP_MOB\
-			|| P.runtime_iff_group && get_target_lock(P.runtime_iff_group))
+		var/ammo_flags = bullet.ammo.flags_ammo_behavior | bullet.projectile_override_flags
+		if(SEND_SIGNAL(bullet, COMSIG_BULLET_CHECK_MOB_SKIPPING, src) & COMPONENT_SKIP_MOB\
+			|| bullet.runtime_iff_group && get_target_lock(bullet.runtime_iff_group))
 			return FALSE
 
 		if(ammo_flags & AMMO_SKIPS_ALIENS)
-			var/mob/living/carbon/xenomorph/X = P.firer
-			if(!istype(X))
+			var/mob/living/carbon/xenomorph/xeno = bullet.firer
+			if(!istype(xeno))
 				return FALSE
-			if(X.hivenumber == hivenumber)
+			if(xeno.hivenumber == hivenumber)
 				return FALSE
+
+		if(dodge_threshold > 0)
+			if(body_position == LYING_DOWN || stat == UNCONSCIOUS)
+				projectiles_counted = 0
+				last_projectile_time = 0
+			else if(!(ammo_flags & (AMMO_SNIPER | AMMO_ROCKET)))
+				if(last_projectile_time && world.time - last_projectile_time >= 6 SECONDS)
+					projectiles_counted = 0
+
+				projectiles_counted++
+				last_projectile_time = world.time
+
+				if(projectiles_counted >= dodge_threshold)
+					projectiles_counted = 0
+					last_projectile_time = 0
+
+					xeno_jitter(5 DECISECONDS)
+					if(bullet.ammo.sound_miss)
+						playsound_client(client, bullet.ammo.sound_miss, get_turf(src), 75, TRUE)
+					visible_message(SPAN_AVOIDHARM("The [src] darts aside, evading [bullet]!"),
+						SPAN_AVOIDHARM("You react fast, and [bullet] narrowly misses you!"), null, 4, CHAT_TYPE_TAKING_HIT)
+					return FALSE
 
 		if(mob_size == MOB_SIZE_SMALL)
 			. -= 10
@@ -1019,7 +1042,7 @@
 		damage_result = armor_damage_reduction(GLOB.marine_ranged, damage, armor, P.ammo.penetration)
 
 		if(damage_result <= 5)
-			to_chat(src,SPAN_XENONOTICE("Ваша броня поглощает силу удара [P]!")) // SS220 EDIT ADDICTION
+			to_chat(src,SPAN_XENONOTICE("Your armor absorbs the force of [P]!"))
 		if(damage_result <= 3)
 			damage_result = 0
 			bullet_ping(P)
@@ -1267,8 +1290,8 @@
 	if(!P)
 		return
 	if(damaging && COOLDOWN_FINISHED(src, shot_cooldown))
-		visible_message(SPAN_DANGER("[capitalize(P.declent_ru(NOMINATIVE))] попадает по [declent_ru(DATIVE)] в [declent_ru_initial(parse_zone(P.def_zone), ACCUSATIVE, parse_zone(P.def_zone))]!"), // SS220 EDIT ADDICTION
-			SPAN_HIGHDANGER("[capitalize(P.declent_ru(NOMINATIVE))] попадает по [isxeno(src) ? "нам" : "вам"] в [declent_ru_initial(parse_zone(P.def_zone), ACCUSATIVE, parse_zone(P.def_zone))]!"), null, 4, CHAT_TYPE_TAKING_HIT) // SS220 EDIT ADDICTION
+		visible_message(SPAN_DANGER("[src] is hit by the [P.name] in the [parse_zone(P.def_zone)]!"),
+			SPAN_HIGHDANGER("[isxeno(src) ? "We" : "You"] are hit by the [P.name] in the [parse_zone(P.def_zone)]!"), null, 4, CHAT_TYPE_TAKING_HIT)
 		COOLDOWN_START(src, shot_cooldown, 1 SECONDS)
 
 	var/shot_from = P.shot_from ? " from \a [P.shot_from]" : ""
