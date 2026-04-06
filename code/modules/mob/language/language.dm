@@ -23,7 +23,7 @@
 
 /datum/language/proc/broadcast(mob/living/speaker, message, speaker_mask)
 
-	log_say(logis_speech_line(speaker, message, name)) //BANDAMARINES LOGIS EDIT
+	log_say(logis_speech_line(speaker, message, name), speaker) //BANDAMARINES LOGIS EDIT
 
 	for(var/mob/player in GLOB.player_list)
 

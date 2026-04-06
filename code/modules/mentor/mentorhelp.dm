@@ -90,7 +90,7 @@
 	var/list/mentor_counts = get_admin_counts(R_MENTOR)
 	var/logis_mhelp_line = logis_mentorhelp_ticket_line(opener, message, length(mentor_counts["present"]))
 	if(logis_mhelp_line)
-		log_admin_private(logis_mhelp_line)
+		log_to_logis("ADMIN", logis_mhelp_line)
 	 //BANDAMARINES LOGIS EDIT END
 	broadcast_unhandled(message, opener)
 	return TRUE

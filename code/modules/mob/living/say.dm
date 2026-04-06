@@ -192,11 +192,11 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 		if(message_mode) // we are talking into a radio
 			if(message_mode == "headset") // default value, means general
 				message_mode = "General"
-			log_say(logis_speech_line(src, message, message_mode)) //BANDAMARINES LOGIS EDIT
+			log_say(logis_speech_line(src, message, message_mode), src) //BANDAMARINES LOGIS EDIT
 		else // we talk normally
-			log_say(logis_speech_line(src, message)) //BANDAMARINES LOGIS EDIT
+			log_say(logis_speech_line(src, message), src) //BANDAMARINES LOGIS EDIT
 	else
-		log_say(logis_speech_line(src, message)) //BANDAMARINES LOGIS EDIT
+		log_say(logis_speech_line(src, message), src) //BANDAMARINES LOGIS EDIT
 
 	return 1
 

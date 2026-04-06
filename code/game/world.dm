@@ -96,7 +96,7 @@ GLOBAL_LIST_INIT(reboot_sfx, file2list("config/reboot_sfx.txt"))
 	GLOB.round_id = SSentity_manager.round.id
 
 	GLOB.log_directory = "data/logs/[time2text(world.realtime, "YYYY/MM-Month/DD-Day")]/round-"
-	GLOB.logis_logs_directory = "data/logis_logs/[time2text(world.realtime, "YYYY/MM/DD", TIMEZONE_UTC)]/round-" //BANDAMARINES LOGIS EDIT
+	GLOB.logis_logs_directory = "data/logis_logs/[time2text(world.realtime, "YYYY/MM/DD")]/round-" //BANDAMARINES LOGIS EDIT
 
 	if(GLOB.round_id)
 		GLOB.log_directory += GLOB.round_id

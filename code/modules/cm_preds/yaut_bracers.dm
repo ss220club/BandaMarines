@@ -1430,7 +1430,7 @@
 
 	user.show_speech_bubble(heard, "pred_translator1")
 
-	log_say(logis_speech_line(user, message, "Yautja Translator")) //BANDAMARINES LOGIS EDIT
+	log_say(logis_speech_line(user, message, "Yautja Translator"), user) //BANDAMARINES LOGIS EDIT
 
 	var/overhead_color = "#ff0505"
 	var/span_class = "yautja_translator"

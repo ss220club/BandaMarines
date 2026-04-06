@@ -85,48 +85,82 @@ GLOBAL_LIST_INIT(local_to_logis_logs_map, list(
 
 GLOBAL_VAR_INIT(log_end, world.system_type == UNIX ? ascii2text(13) : "")
 
-/proc/log_to_logis(local_category, text)
+/proc/log_to_logis(local_category, text, atom/source = null)
 	if(!GLOB.world_logis_game_log)
 		return
 
-	text = logis_normalize_entry_text(text, local_category)
+	text = logis_normalize_entry_text(text, local_category, source)
 	var/logis_category = GLOB.local_to_logis_logs_map[local_category] || LOGIS_LOG_CATEGORY_MISC
 	WRITE_LOG(GLOB.world_logis_game_log, "[logis_category]: [text]")
 
-/proc/logis_normalize_entry_text(text, local_category = null)
+/proc/logis_normalize_entry_text(text, local_category = null, atom/source = null)
 	if(!istext(text))
 		return text
 
 	var/normalized_text = sanitize_control_chars("[text]")
-	var/plain_text = strip_html(normalized_text)
+	var/source_ckey = source ? logis_ckey(source) : null
+	var/is_speech_category = local_category == "SAY" || local_category == "WHISPER" || local_category == "DEADCHAT" || local_category == "HIVEMIND"
+	var/static/regex/logis_strict_admin_line = regex(@"^(Mentorhelp|Adminhelp|HELP|PM): ", "i")
+
+	if(source_ckey)
+		if(findtext(normalized_text, "(CKEY:"))
+			var/static/regex/replace_ckey_field_hint = regex(@"\(CKEY:\s*[A-Za-z0-9_]*\)", "i")
+			normalized_text = replace_ckey_field_hint.Replace(normalized_text, "(CKEY: [source_ckey])")
+			return normalized_text
+
+		if(is_speech_category)
+			return normalized_text
+
+		if(local_category == "ADMIN")
+			var/plain_admin_text = findtext(normalized_text, "<") ? strip_html(normalized_text) : normalized_text
+			if(logis_strict_admin_line.Find(plain_admin_text))
+				return normalized_text
+
+		normalized_text += " (CKEY: [source_ckey])"
+		return normalized_text
+
+	var/needs_ckey_parse = findtext(normalized_text, "(CKEY:") || findtext(normalized_text, "/(") || findtext(normalized_text, "DEAD:") || findtext(normalized_text, "DEAD/")
+	if(!needs_ckey_parse)
+		return normalized_text
+
+	var/plain_text = findtext(normalized_text, "<") ? strip_html(normalized_text) : normalized_text
+	var/has_ckey_field = findtext(plain_text, "(CKEY:")
+	var/has_key_name_pattern = findtext(plain_text, "/(")
+	var/has_deadchat_pattern = findtext(plain_text, "DEAD:") || findtext(plain_text, "DEAD/")
 	var/parsed_ckey = null
-	var/skip_ckey_suffix = FALSE
-	if(local_category in list("SAY", "WHISPER", "DEADCHAT", "HIVEMIND"))
-		var/static/regex/logis_speech_prefix = regex(@"^.+\/\(.+?\) \(\d+,\d+,\d+\): ", "i")
-		skip_ckey_suffix = logis_speech_prefix.Find(plain_text)
-	else if(local_category == "ADMIN")
-		var/static/regex/logis_strict_admin_line = regex(@"^(Mentorhelp|Adminhelp|HELP|PM): ", "i")
-		skip_ckey_suffix = logis_strict_admin_line.Find(plain_text)
 
-	var/static/regex/ckey_from_field = regex(@"\(CKEY:\s*([A-Za-z0-9_]+)\)", "i")
-	if(ckey_from_field.Find(plain_text))
-		parsed_ckey = ckey(ckey_from_field.group[1])
+	if(has_ckey_field)
+		var/static/regex/ckey_from_field = regex(@"\(CKEY:\s*([A-Za-z0-9_]+)\)", "i")
+		if(ckey_from_field.Find(plain_text))
+			parsed_ckey = ckey(ckey_from_field.group[1])
 
-	if(!parsed_ckey)
+	if(!parsed_ckey && has_deadchat_pattern)
 		var/static/regex/ckey_from_deadchat = regex(@"DEAD[:/]\s*([A-Za-z0-9_]+)\/\(", "i")
 		if(ckey_from_deadchat.Find(plain_text))
 			parsed_ckey = ckey(ckey_from_deadchat.group[1])
 
-	if(!parsed_ckey)
+	if(!parsed_ckey && has_key_name_pattern)
 		var/static/regex/ckey_from_key_name = regex(@"(?:^|[\s:])([A-Za-z0-9_]+)\/\(")
 		if(ckey_from_key_name.Find(plain_text))
 			parsed_ckey = ckey(ckey_from_key_name.group[1])
 
+	if(!parsed_ckey)
+		return normalized_text
+
+	if(has_ckey_field)
+		var/static/regex/replace_ckey_field = regex(@"\(CKEY:\s*[A-Za-z0-9_]*\)", "i")
+		normalized_text = replace_ckey_field.Replace(normalized_text, "(CKEY: [parsed_ckey])")
+		return normalized_text
+
+	var/skip_ckey_suffix = FALSE
+	if(is_speech_category)
+		var/static/regex/logis_speech_prefix = regex(@"^.+\/\(.+?\) \(\d+,\d+,\d+\): ", "i")
+		skip_ckey_suffix = logis_speech_prefix.Find(plain_text)
+	else if(local_category == "ADMIN")
+		skip_ckey_suffix = logis_strict_admin_line.Find(plain_text)
+
 	if(parsed_ckey)
-		if(findtext(normalized_text, "(CKEY: "))
-			var/static/regex/replace_ckey_field = regex(@"\(CKEY:\s*[A-Za-z0-9_]*\)", "i")
-			normalized_text = replace_ckey_field.Replace(normalized_text, "(CKEY: [parsed_ckey])")
-		else if(!skip_ckey_suffix)
+		if(!skip_ckey_suffix)
 			normalized_text += " (CKEY: [parsed_ckey])"
 
 	return normalized_text
@@ -344,29 +378,29 @@ GLOBAL_VAR_INIT(log_end, world.system_type == UNIX ? ascii2text(13) : "")
 	GLOB.STUI.debug.Add("\[[time]]ACCESS: [text]")
 	GLOB.STUI.processing |= STUI_LOG_DEBUG
 
-/proc/log_say(text)
+/proc/log_say(text, atom/source = null)
 	var/time = time_stamp()
 	if (CONFIG_GET(flag/log_say))
 		WRITE_LOG(GLOB.world_game_log, "SAY: [text]")
-		log_to_logis("SAY", text)
+		log_to_logis("SAY", text, source)
 		LOG_REDIS("say", "\[[time]\] [text]")
 	GLOB.STUI.game.Add("\[[time]]SAY: [text]")
 	GLOB.STUI.processing |= STUI_LOG_GAME_CHAT
 
-/proc/log_deadchat(text)
+/proc/log_deadchat(text, atom/source = null)
 	var/time = time_stamp()
 	if (CONFIG_GET(flag/log_say))
 		WRITE_LOG(GLOB.world_game_log, "SAY: [text]")
-		log_to_logis("DEADCHAT", text)
+		log_to_logis("DEADCHAT", text, source)
 		LOG_REDIS("say", "\[[time]\] [text]")
 	GLOB.STUI.game.Add("\[[time]]SAY: [text]")
 	GLOB.STUI.processing |= STUI_LOG_GAME_CHAT
 
-/proc/log_hivemind(text)
+/proc/log_hivemind(text, atom/source = null)
 	var/time = time_stamp()
 	if (CONFIG_GET(flag/log_hivemind))
 		WRITE_LOG(GLOB.world_game_log, "HIVEMIND: [text]")
-		log_to_logis("HIVEMIND", text)
+		log_to_logis("HIVEMIND", text, source)
 		LOG_REDIS("hivemind", "\[[time]\] [text]")
 	GLOB.STUI.game.Add("\[[time]]HIVEMIND: [text]")
 	GLOB.STUI.processing |= STUI_LOG_GAME_CHAT
@@ -385,12 +419,12 @@ GLOBAL_VAR_INIT(log_end, world.system_type == UNIX ? ascii2text(13) : "")
 		WRITE_LOG(GLOB.world_game_log, "LOOC: [text]")
 		log_to_logis("LOOC", text)
 
-/proc/log_whisper(text)
+/proc/log_whisper(text, atom/source = null)
 	var/time = time_stamp()
 	if (CONFIG_GET(flag/log_whisper))
 		LOG_REDIS("whisper", "\[[time]\] [text]")
 		WRITE_LOG(GLOB.world_game_log, "WHISPER: [text]")
-		log_to_logis("WHISPER", text)
+		log_to_logis("WHISPER", text, source)
 	GLOB.STUI.game.Add("\[[time]]WHISPER: [text]")
 	GLOB.STUI.processing |= STUI_LOG_GAME_CHAT
 
@@ -404,7 +438,7 @@ GLOBAL_VAR_INIT(log_end, world.system_type == UNIX ? ascii2text(13) : "")
 	GLOB.STUI.processing |= STUI_LOG_GAME_CHAT
 
 /proc/log_attack(text)
-	text = sanitize_control_chars(strip_improper("[text]"))
+	text = strip_improper("[text]")
 
 	var/time = time_stamp()
 	if (CONFIG_GET(flag/log_attack))
@@ -547,7 +581,7 @@ GLOBAL_PROTECT(config_error_log)
 #endif
 
 /proc/start_log(log)
-	WRITE_LOG(log, "Starting up round ID [GLOB.round_id].\nStarting up. Round ID is [GLOB.round_id]\n-------------------------")
+	WRITE_LOG(log, "Starting up round ID [GLOB.round_id].\n-------------------------")
 
 /proc/shutdown_logging()
 	rustg_log_close_all()

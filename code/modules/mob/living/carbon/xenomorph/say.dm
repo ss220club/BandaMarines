@@ -99,7 +99,7 @@
 	if(!filter_message(src, message))
 		return
 
-	log_hivemind(logis_speech_line(src, message, "Hivemind")) //BANDAMARINES LOGIS EDIT
+	log_hivemind(logis_speech_line(src, message, "Hivemind"), src) //BANDAMARINES LOGIS EDIT
 
 	var/track = ""
 	var/overwatch_target = XENO_OVERWATCH_TARGET_HREF
