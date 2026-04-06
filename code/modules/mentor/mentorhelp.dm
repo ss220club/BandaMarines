@@ -91,7 +91,7 @@
 	var/logis_mhelp_line = logis_mentorhelp_ticket_line(opener, message, length(mentor_counts["present"]))
 	if(logis_mhelp_line)
 		log_to_logis("ADMIN", logis_mhelp_line)
-	 //BANDAMARINES LOGIS EDIT END
+	//BANDAMARINES LOGIS EDIT END
 	broadcast_unhandled(message, opener)
 	return TRUE
 
