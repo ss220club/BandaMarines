@@ -371,7 +371,7 @@ GLOBAL_LIST_EMPTY_TYPED(transmitters, /obj/structure/transmitter)
 	P.handle_hear(message, L, speaking)
 	attached_to.handle_hear(message, L, speaking)
 	playsound(P, "talk_phone", 5)
-	log_say("TELEPHONE: [key_name(speaking)] on Phone '[phone_id]' to '[T.phone_id]' said '[message]'")
+	log_say("TELEPHONE: [key_name(speaking)] on Phone '[phone_id]' to '[T.phone_id]' said '[message]' (AREA: [log_location(speaking)])") //BANDAMARINES LOGIS EDIT
 
 /obj/structure/transmitter/attackby(obj/item/W, mob/user)
 	if(W == attached_to)

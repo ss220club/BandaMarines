@@ -154,7 +154,7 @@ CLIENT_VERB(looc, msg as text)
 	if(!attempt_talking(msg))
 		return
 
-	log_ooc("(LOCAL) [mob.name]/[key] : [msg]")
+	log_looc("[mob.name]/[key] : [msg]") //BANDAMARINES LOGIS EDIT
 	GLOB.STUI.ooc.Add("\[[time_stamp()]] <font color='#6699CC'>LOOC: [mob.name]/[key]: [msg]</font><br>")
 	GLOB.STUI.processing |= STUI_LOG_OOC_CHAT
 	var/list/heard = get_mobs_in_view(7, src.mob)

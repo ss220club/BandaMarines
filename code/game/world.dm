@@ -96,11 +96,14 @@ GLOBAL_LIST_INIT(reboot_sfx, file2list("config/reboot_sfx.txt"))
 	GLOB.round_id = SSentity_manager.round.id
 
 	GLOB.log_directory = "data/logs/[time2text(world.realtime, "YYYY/MM-Month/DD-Day")]/round-"
+	GLOB.logis_logs_directory = "data/logis_logs/[time2text(world.realtime, "YYYY/MM/DD", TIMEZONE_UTC)]/round-" //BANDAMARINES LOGIS EDIT
 
 	if(GLOB.round_id)
 		GLOB.log_directory += GLOB.round_id
+		GLOB.logis_logs_directory += GLOB.round_id //BANDAMARINES LOGIS EDIT
 	else
 		GLOB.log_directory += "[replacetext(time_stamp(), ":", ".")]"
+		GLOB.logis_logs_directory += "[replacetext(time_stamp(), ":", ".")]" //BANDAMARINES LOGIS EDIT
 
 	runtime_logging_ready = TRUE // Setting up logging now, so disabling early logging
 	#if !defined(UNIT_TESTS) && !defined(AUTOWIKI)
@@ -113,6 +116,7 @@ GLOBAL_LIST_INIT(reboot_sfx, file2list("config/reboot_sfx.txt"))
 	GLOB.tgui_log = "[GLOB.log_directory]/tgui.log"
 	GLOB.world_href_log = "[GLOB.log_directory]/hrefs.log"
 	GLOB.world_game_log = "[GLOB.log_directory]/game.log"
+	GLOB.world_logis_game_log = "[GLOB.logis_logs_directory]/game.log"
 	GLOB.world_attack_log = "[GLOB.log_directory]/attack.log"
 	GLOB.world_runtime_log = "[GLOB.log_directory]/runtime.log"
 	GLOB.round_stats = "[GLOB.log_directory]/round_stats.log"
@@ -123,6 +127,7 @@ GLOBAL_LIST_INIT(reboot_sfx, file2list("config/reboot_sfx.txt"))
 	start_log(GLOB.tgui_log)
 	start_log(GLOB.world_href_log)
 	start_log(GLOB.world_game_log)
+	start_log(GLOB.world_logis_game_log)
 	start_log(GLOB.world_attack_log)
 	start_log(GLOB.world_runtime_log)
 	start_log(GLOB.round_stats)

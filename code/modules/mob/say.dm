@@ -62,7 +62,7 @@
 	if(!client?.attempt_talking(message))
 		return
 
-	log_say("DEAD/[key_name(src)] : [message]")
+	log_deadchat(logis_speech_line(src, message, "Deadchat")) //BANDAMARINES LOGIS EDIT
 
 	var/turf/my_turf = get_turf(src)
 	var/list/mob/langchat_listeners = list()

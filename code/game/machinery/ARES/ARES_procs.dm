@@ -283,10 +283,10 @@ GLOBAL_LIST_INIT(maintenance_categories, list(
 	var/msg = SPAN_STAFF_IC("<b><font color=orange>ARES:</font> [key_name(Sender, 1)] [ARES_MARK(Sender)] [ADMIN_PP(Sender)] [ADMIN_VV(Sender)] [ADMIN_SM(Sender)] [ADMIN_JMP_USER(Sender)] [ARES_REPLY(Sender, ref)]:</b> [text]")
 	conversation.conversation += "[last_login] at [worldtime2text()], '[text]'"
 	if(fake)
-		log_say("[key_name(Sender)] faked the message '[text]' from [last_login] in ARES 1:1.")
+		log_say("[key_name(Sender)] faked the message '[text]' from [last_login] in ARES 1:1. (AREA: [log_location(Sender)])") //BANDAMARINES LOGIS EDIT
 		msg = SPAN_STAFF_IC("<b><font color=orange>ARES:</font> [key_name(Sender, 1)] faked a message from '[last_login]':</b> [text]")
 	else
-		log_say("[key_name(Sender)] sent '[text]' to ARES 1:1.")
+		log_say("[key_name(Sender)] sent '[text]' to ARES 1:1. (AREA: [log_location(Sender)])") //BANDAMARINES LOGIS EDIT
 		for(var/client/admin in GLOB.admins)
 			if(admin.prefs.toggles_sound & SOUND_ARES_MESSAGE)
 				playsound_client(admin, 'sound/machines/chime.ogg', vol = 25)
