@@ -181,7 +181,7 @@
 		return
 
 	if(safety)
-		to_chat(user, SPAN_WARNING("The safety is on!"))
+		to_chat(user, SPAN_WARNING("Предохранитель поставлен."))
 		return
 
 	last_use = world.time
