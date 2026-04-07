@@ -11,3 +11,7 @@
       but can understand it.
   ori-disillusion-mirnov:
   - bugfix: walkman headphones will now show up again when you wear them on your ears
+2026-04-07:
+  MistChristmas:
+  - rscadd: Labels are more strict on what they allow. Only alphanumeric characters
+      plus common punctuation, spaces, underscore, hyphen, plus, and vertical bar.

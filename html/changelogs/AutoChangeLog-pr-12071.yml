@@ -1,4 +1,0 @@
-author: "MistChristmas"
-delete-after: True
-changes:
-  - rscadd: "Labels are more strict on what they allow. Only alphanumeric characters plus common punctuation, spaces, underscore, hyphen, plus, and vertical bar."
