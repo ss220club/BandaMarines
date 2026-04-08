@@ -1,0 +1,5 @@
+author: "ori-disillusion-mirnov"
+delete-after: True
+changes:
+  - imageadd: "readd old hudead and hudhcdead"
+  - imagedel: "deleted new huddead and hudhcdead"
