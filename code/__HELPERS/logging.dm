@@ -93,75 +93,49 @@ GLOBAL_VAR_INIT(log_end, world.system_type == UNIX ? ascii2text(13) : "")
 	var/logis_category = GLOB.local_to_logis_logs_map[local_category] || LOGIS_LOG_CATEGORY_MISC
 	WRITE_LOG(GLOB.world_logis_game_log, "[logis_category]: [text]")
 
+/proc/logis_replace_ckey_field(text, source_ckey)
+	var/ckey_field_start = findtext(text, "(CKEY:")
+	if(!ckey_field_start)
+		return text
+
+	var/ckey_field_end = findtext(text, ")", ckey_field_start)
+	if(!ckey_field_end)
+		return text
+
+	return "[copytext(text, 1, ckey_field_start)](CKEY: [source_ckey])[copytext(text, ckey_field_end + 1)]"
+
+/proc/logis_is_strict_admin_line(text)
+	if(!istext(text))
+		return FALSE
+
+	return findtext(text, "Mentorhelp: ") == 1 || findtext(text, "Adminhelp: ") == 1 || findtext(text, "HELP: ") == 1 || findtext(text, "PM: ") == 1
+
+/proc/logis_is_speech_line(text)
+	if(!istext(text))
+		return FALSE
+
+	return findtext(text, "/(") && findtext(text, ") (") && findtext(text, "): ")
+
 /proc/logis_normalize_entry_text(text, local_category = null, atom/source = null)
 	if(!istext(text))
 		return text
 
 	var/normalized_text = sanitize_control_chars("[text]")
 	var/source_ckey = source ? logis_ckey(source) : null
-	var/is_speech_category = local_category == "SAY" || local_category == "WHISPER" || local_category == "DEADCHAT" || local_category == "HIVEMIND"
-	var/static/regex/logis_strict_admin_line = regex(@"^(Mentorhelp|Adminhelp|HELP|PM): ", "i")
 
 	if(source_ckey)
 		if(findtext(normalized_text, "(CKEY:"))
-			var/static/regex/replace_ckey_field_hint = regex(@"\(CKEY:\s*[A-Za-z0-9_]*\)", "i")
-			normalized_text = replace_ckey_field_hint.Replace(normalized_text, "(CKEY: [source_ckey])")
+			normalized_text = logis_replace_ckey_field(normalized_text, source_ckey)
 			return normalized_text
 
-		if(is_speech_category)
+		if(logis_is_speech_line(normalized_text))
 			return normalized_text
 
-		if(local_category == "ADMIN")
-			var/plain_admin_text = findtext(normalized_text, "<") ? strip_html(normalized_text) : normalized_text
-			if(logis_strict_admin_line.Find(plain_admin_text))
-				return normalized_text
+		if(local_category == "ADMIN" && logis_is_strict_admin_line(normalized_text))
+			return normalized_text
 
 		normalized_text += " (CKEY: [source_ckey])"
 		return normalized_text
-
-	var/needs_ckey_parse = findtext(normalized_text, "(CKEY:") || findtext(normalized_text, "/(") || findtext(normalized_text, "DEAD:") || findtext(normalized_text, "DEAD/")
-	if(!needs_ckey_parse)
-		return normalized_text
-
-	var/plain_text = findtext(normalized_text, "<") ? strip_html(normalized_text) : normalized_text
-	var/has_ckey_field = findtext(plain_text, "(CKEY:")
-	var/has_key_name_pattern = findtext(plain_text, "/(")
-	var/has_deadchat_pattern = findtext(plain_text, "DEAD:") || findtext(plain_text, "DEAD/")
-	var/parsed_ckey = null
-
-	if(has_ckey_field)
-		var/static/regex/ckey_from_field = regex(@"\(CKEY:\s*([A-Za-z0-9_]+)\)", "i")
-		if(ckey_from_field.Find(plain_text))
-			parsed_ckey = ckey(ckey_from_field.group[1])
-
-	if(!parsed_ckey && has_deadchat_pattern)
-		var/static/regex/ckey_from_deadchat = regex(@"DEAD[:/]\s*([A-Za-z0-9_]+)\/\(", "i")
-		if(ckey_from_deadchat.Find(plain_text))
-			parsed_ckey = ckey(ckey_from_deadchat.group[1])
-
-	if(!parsed_ckey && has_key_name_pattern)
-		var/static/regex/ckey_from_key_name = regex(@"(?:^|[\s:])([A-Za-z0-9_]+)\/\(")
-		if(ckey_from_key_name.Find(plain_text))
-			parsed_ckey = ckey(ckey_from_key_name.group[1])
-
-	if(!parsed_ckey)
-		return normalized_text
-
-	if(has_ckey_field)
-		var/static/regex/replace_ckey_field = regex(@"\(CKEY:\s*[A-Za-z0-9_]*\)", "i")
-		normalized_text = replace_ckey_field.Replace(normalized_text, "(CKEY: [parsed_ckey])")
-		return normalized_text
-
-	var/skip_ckey_suffix = FALSE
-	if(is_speech_category)
-		var/static/regex/logis_speech_prefix = regex(@"^.+\/\(.+?\) \(\d+,\d+,\d+\): ", "i")
-		skip_ckey_suffix = logis_speech_prefix.Find(plain_text)
-	else if(local_category == "ADMIN")
-		skip_ckey_suffix = logis_strict_admin_line.Find(plain_text)
-
-	if(parsed_ckey)
-		if(!skip_ckey_suffix)
-			normalized_text += " (CKEY: [parsed_ckey])"
 
 	return normalized_text
 
