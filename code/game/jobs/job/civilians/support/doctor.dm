@@ -27,20 +27,23 @@
 	switch(option)
 		if(SURGEON_VARIANT)
 			gear_preset = /datum/equipment_preset/uscm_ship/uscm_medical/doctor/surgeon
+			disp_title = JOB_SURGEON_RU
 		if(PHARMACIST_VARIANT)
 			gear_preset = /datum/equipment_preset/uscm_ship/uscm_medical/doctor/pharmacist
+			disp_title = JOB_PHARMACIST_RU
 		else
 			gear_preset = /datum/equipment_preset/uscm_ship/uscm_medical/doctor
+			disp_title = JOB_DOCTOR_RU
 
 //check what job option you took and generate the corresponding the good texte.
 /datum/job/civilian/doctor/generate_entry_message(mob/living/carbon/human/target)
 	switch(doctor_variant)
 		if(SURGEON_VARIANT)
-			. = {"You're a commissioned officer of the USCM. <a href='[generate_wiki_link()]'>You are a doctor with a special interest in surgery.</a> Your primary job is keeping marines healthy and strong by fixing broken bones, blood vessels, and organs and performing foreign object extractions based on case severity. You are also very capable in medicine and pharmacology; if the pharmacy and triage bays are understaffed, and you have nobody left to operate on, it is also your job to develop chemicals and medicate patients. If you do not know what you are doing, mentorhelp so a mentor can assist you."}
+			. = {"Вы кадровый офицер ККМП. <a href='[generate_wiki_link()]'>Вы врач, специализирующийся на хирургии.</a> Ваша основная задача заключается в том, чтобы поддерживать здоровье морпехов, вправляя сломанные кости, залечивая кровяные сосуды и органы, вытаскивая инородные предметы из тел пациентов. Вы также сведущи в фармакологии и создании препаратов; если в фармакологическом и триажном отделениях не хватает персонала, и вам некого туда поставить на замену, в ваших обязанностях создание новых препаратов и назначение лечения для пациентов. Если вы не знаете, что делать, используйте "mentorhelp", чтобы ментор мог вам помочь."}
 		if(PHARMACIST_VARIANT)
-			. = {"You're a commissioned officer of the USCM. <a href='[generate_wiki_link()]'>You are a doctor with a special interest in chemistry and medicine.</a> Your primary job is providing the medical bay and marines with medicine and chemicals, and your secondary job is administering these medications to patients based on case severity. You are also very capable in surgery; if there are not enough doctors to operate on patients after you have met your quota, you must head to the surgery bay. If you do not know what you are doing, mentorhelp so a mentor can assist you."}
+			. = {"Вы кадровый офицер ККМП. <a href='[generate_wiki_link()]'>Вы врач, специализирующийся на фармакологии и химии.</a> Ваша основная задача заключается в создании препаратов и химикатов для медицинского отдела и морпехов, помимо этого вы же должны контролировать применение препаратов пациентами в зависимости от тяжести их диагноза. Вы также сведущи в хирургии; если врачей не хватает, чтобы оперировать раненых, то после создания установленной нормы лекарств, вы обязаны отправиться в хирургический отдел. Если вы не знаете, что делать, используйте "mentorhelp", чтобы ментор мог вам помочь."}
 		else
-			. = {"You're a commissioned officer of the USCM. <a href='[generate_wiki_link()]'>You are a doctor.</a> You are not specialized in any department, but you are nonetheless a jack of all trades with extensive knowledge in pharmacology, medicine, triage, and surgery. Your primary job is to assess and treat patients with medicine based on case severity, but you are also responsible for manufacturing chemicals and operating on patients if the pharmacy and surgery bays are understaffed. If you do not know what you are doing, mentorhelp so a mentor can assist you."}
+			. = {"Вы кадровый офицер ККМП. <a href='[generate_wiki_link()]'>Вы врач.</a> Вы не специализируетесь на какой-либо области, но несмотря на это вы остаетесь профессионалом своего дела с обширными знаниями в фармакологии, препаратах, триаже и хирургии. Ваша основная задача заключается в опознании угрозы здоровью пациента и его дальнейшем лечении в зависимости от тяжести диагноза. Однако в ваши обязанности также входит создание химикатов и реагентов, а также оперирование раненых, если в фармакологическом и хирургическом отделениях не хватает персонала. Если вы не знаете, что делать, используйте "mentorhelp", чтобы ментор мог вам помочь."}
 
 /datum/job/civilian/doctor/set_spawn_positions(count)
 	spawn_positions = doc_slot_formula(count)
