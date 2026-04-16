@@ -807,23 +807,29 @@
 
 /obj/item/clothing/accessory/poncho/green
 	icon_state = "poncho"
+	item_state = null
 
 /obj/item/clothing/accessory/poncho/brown
 	icon_state = "d_poncho"
+	item_state = null
 
 /obj/item/clothing/accessory/poncho/black
 	icon_state = "u_poncho"
+	item_state = null
 
 /obj/item/clothing/accessory/poncho/blue
 	icon_state = "c_poncho"
+	item_state = null
 
 /obj/item/clothing/accessory/poncho/purple
 	icon_state = "s_poncho"
+	item_state = null
 
 /obj/item/clothing/accessory/clf_cape
 	name = "torn CLF flag"
 	desc = "A torn up CLF flag with a pin that allows it to be worn as a cape."
 	icon_state = "clf_cape"
+	item_state = "clf_cape"
 	icon = 'icons/obj/items/clothing/accessory/ponchos.dmi'
 	inv_overlay_icon = 'icons/obj/items/clothing/accessory/inventory_overlays/ponchos.dmi'
 	accessory_icons = list(
