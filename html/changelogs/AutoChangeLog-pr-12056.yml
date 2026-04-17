@@ -1,0 +1,4 @@
+author: "Nomoresolvalou"
+delete-after: True
+changes:
+  - rscadd: "Added Weyland Yutani hat and patches to the synth loadout picker."
