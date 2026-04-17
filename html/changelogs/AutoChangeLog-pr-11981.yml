@@ -1,0 +1,4 @@
+author: "JackieEstegado"
+delete-after: True
+changes:
+  - qol: "Unpowered disposal bins can now be manually emptied by hand."
