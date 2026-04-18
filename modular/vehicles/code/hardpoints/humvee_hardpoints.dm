@@ -300,7 +300,7 @@
 		GUN_FIREMODE_BURSTFIRE,
 	)
 	burst_amount = 3
-	burst_delay = 0.25 SECONDS
+	burst_delay = 0.4 SECONDS
 	extra_delay = 0.6 SECONDS
 
 /obj/item/hardpoint/primary/humvee_cannon/set_bullet_traits()

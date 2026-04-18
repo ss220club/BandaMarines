@@ -2,12 +2,14 @@
 /datum/ammo/bullet/humvee_cannon
 	name = "remote-cannon bullet"
 	icon = 'icons/obj/items/weapons/projectiles.dmi'
-	icon_state = "autocannon"
+	icon_state = "bullet_large"
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_IGNORE_COVER
+	accurate_range_min = 3
 
 	accurate_range = 22
 	accuracy_var_low = PROJECTILE_VARIANCE_TIER_8
 	accuracy_var_high = PROJECTILE_VARIANCE_TIER_8
+	scatter = 0
 	max_range = 22
 	effective_range_max = 12
 	damage = 50
@@ -17,6 +19,19 @@
 	shell_speed = AMMO_SPEED_TIER_6
 	accuracy = HIT_ACCURACY_TIER_5
 	damage_enviro = TRUE
+
+/datum/ammo/bullet/humvee_cannon/on_hit_mob(mob/M,obj/projectile/P)
+	burst(get_turf(M),P,damage_type, 1 , 2)
+
+/datum/ammo/bullet/humvee_cannon/on_near_target(turf/T, obj/projectile/P)
+	burst(get_turf(T),P,damage_type, 1 , 2)
+	return 1
+
+/datum/ammo/bullet/humvee_cannon/on_hit_obj(obj/O,obj/projectile/P)
+	burst(get_turf(P),P,damage_type, 1 , 2)
+
+/datum/ammo/bullet/humvee_cannon/on_hit_turf(turf/T,obj/projectile/P)
+	burst(get_turf(T),P,damage_type, 1 , 2)
 
 /datum/ammo/bullet/humvee_machinegun
 	name = "remote-machinegun bullet"
