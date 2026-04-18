@@ -1,5 +1,0 @@
-author: "JackieEstegado"
-delete-after: True
-changes:
-  - bugfix: "Marines now need to take the wrappers off their food instead of just eating through it."
-  - qol: "Food wrappers will now go into a hand if possible, instead of onto the ground."

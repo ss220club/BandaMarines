@@ -1,4 +1,0 @@
-author: "MistChristmas"
-delete-after: True
-changes:
-  - rscadd: "Cooldowns to give and force showing papers. Force showing papers also need the receiving person to be on help intent as well."

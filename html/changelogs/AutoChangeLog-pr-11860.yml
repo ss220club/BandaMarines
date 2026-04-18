@@ -1,4 +1,0 @@
-author: "Red-byte3D"
-delete-after: True
-changes:
-  - balance: "Scouts HV bullets now add a small \"MD\" like blip to every non-faction you shoot, blipping continously and revealing their position like an MD would, for every marine thats close to the xenomorph for 10 seconds."
