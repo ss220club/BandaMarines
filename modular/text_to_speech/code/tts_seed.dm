@@ -6,7 +6,6 @@
 
 /mob
 	var/datum/tts_seed/tts_seed
-	var/tmp/tts_disabled = FALSE
 
 /atom/Initialize(mapload, ...)
 	. = ..()

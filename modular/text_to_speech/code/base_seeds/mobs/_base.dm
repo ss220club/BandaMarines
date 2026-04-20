@@ -1,21 +1,17 @@
 // Fallback values for TTS voices
 
 /mob/living/add_tts_component()
-	tts_disabled = FALSE
 	AddComponent(/datum/component/tts_component)
 
 /mob/living/silicon/add_tts_component()
-	tts_disabled = FALSE
 	AddComponent(/datum/component/tts_component, null, list(/datum/singleton/sound_effect/robot))
 
 /mob/living/carbon/add_tts_component()
-	tts_disabled = FALSE
 	var/random_tts_seed_key = SStts220.pick_tts_seed_by_gender(gender)
 	var/datum/tts_seed/random_tts_seed = SStts220.tts_seeds[random_tts_seed_key]
 	AddComponent(/datum/component/tts_component, random_tts_seed)
 
 /mob/living/remove_tts_component()
-	tts_disabled = TRUE
 	var/datum/component/tts_component/tts_component = GetComponent(/datum/component/tts_component)
 	if(tts_component)
 		tts_component.RemoveComponent()
