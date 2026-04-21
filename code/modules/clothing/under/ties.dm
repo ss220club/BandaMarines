@@ -807,18 +807,23 @@
 
 /obj/item/clothing/accessory/poncho/green
 	icon_state = "poncho"
+	item_state = "poncho"
 
 /obj/item/clothing/accessory/poncho/brown
 	icon_state = "d_poncho"
+	item_state = "d_poncho"
 
 /obj/item/clothing/accessory/poncho/black
 	icon_state = "u_poncho"
+	item_state = "u_poncho"
 
 /obj/item/clothing/accessory/poncho/blue
 	icon_state = "c_poncho"
+	item_state = "c_poncho"
 
 /obj/item/clothing/accessory/poncho/purple
 	icon_state = "s_poncho"
+	item_state = "s_poncho"
 
 /obj/item/clothing/accessory/clf_cape
 	name = "torn CLF flag"
