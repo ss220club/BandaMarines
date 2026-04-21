@@ -1,0 +1,4 @@
+author: "Drathek"
+delete-after: True
+changes:
+  - bugfix: "Fixes a couple stylesheet errors affecting tactical sign language (both chats) and hyperdyne radios (non-fancy chat)"
