@@ -72,11 +72,8 @@
 		update_cursor()
 
 	//BANDAMARINES LOGIS EDIT START
-	var/logis_manifest_entry = logis_manifest_line(src)
-	if(logis_manifest_entry)
-		log_game(logis_manifest_entry)
 	var/log_identity = logis_identity(src)
-	log_game("[log_identity] Client has taken ownership of mob [src]([src.type])")
+	log_game("[log_identity] Client [log_identity] has taken ownership of mob [src]([src.type]) ([log_location(src)])")
 	//BANDAMARINES LOGIS EDIT END
 /mob/proc/set_logged_in_mob()
 	GLOB.ckey_to_occupied_mob[client.ckey] = src
