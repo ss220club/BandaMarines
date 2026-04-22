@@ -190,22 +190,10 @@ GLOBAL_VAR_INIT(log_end, world.system_type == UNIX ? ascii2text(13) : "")
 		prefix += "([channel]) "
 	return "[prefix]'[message]'"
 
-/proc/logis_role_name(atom/source)
-	if(!ismob(source))
-		return null
-
-	var/mob/mob_source = source
-	if(mob_source.job)
-		return sanitize_control_chars(strip_improper("[mob_source.job]"))
-	return null
-
-/proc/logis_manifest_line(atom/source)
-	var/source_ckey = logis_ckey(source)
-	var/source_role = logis_role_name(source)
-	if(!source_ckey || !source_role)
-		return null
-
-	return "Игрок [source_ckey] вошел в раунд с профессией [source_role] (1/-1)"
+/proc/logis_emote_line(atom/source, message)
+	if(!source)
+		return "[message]"
+	return "[logis_identity(source)] ([REF(source)]) [message] ([log_location(source)])"
 
 /proc/logis_adminhelp_ticket_line(client/initiator, message, heard_count)
 	if(!initiator)
@@ -533,7 +521,13 @@ GLOBAL_PROTECT(config_error_log)
 	SEND_TEXT(world.log, text)
 
 /proc/log_admin_private(text)
-	log_admin(text)
+	var/time = time_stamp()
+	GLOB.admin_log.Add(text)
+	if (CONFIG_GET(flag/log_admin))
+		WRITE_LOG(GLOB.world_game_log, "ADMIN: [text]")
+		LOG_REDIS("admin", "\[[time]\] [text]")
+	GLOB.STUI.admin.Add("\[[time]]ADMIN: [text]")
+	GLOB.STUI.processing |= STUI_LOG_ADMIN
 
 #if defined(UNIT_TESTS) || defined(SPACEMAN_DMM)
 /proc/log_test(text)
