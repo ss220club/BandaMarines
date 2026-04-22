@@ -64,3 +64,7 @@
       chems not affected by this change.
   - rscadd: Space drugs are now (minorly) addictive!
   - bugfix: Fixed PROPERTY_HEMORRHAGING on radium, preventing it from working properly.
+2026-04-22:
+  Drathek:
+  - bugfix: Fixes a couple stylesheet errors affecting tactical sign language (both
+      chats) and hyperdyne radios (non-fancy chat)
