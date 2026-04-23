@@ -42,3 +42,23 @@
 	display_name = "USCM Poncho, purple"
 	path = /obj/item/clothing/accessory/poncho/purple
 	fluff_cost = 5
+
+/datum/gear/misc/poncho/blackcape
+	display_name = "Cape, black"
+	path = /obj/item/clothing/accessory/blackcape
+	fluff_cost = 3
+
+/datum/gear/misc/poncho/redcape
+	display_name = "Cape, red"
+	path = /obj/item/clothing/accessory/redcape
+	fluff_cost = 3
+
+/datum/gear/misc/poncho/uscmcape
+	display_name = "USCM Cape"
+	path = /obj/item/clothing/accessory/uscmcape
+	fluff_cost = 3
+
+/datum/gear/misc/poncho/twecape
+	display_name = "TWE Cape"
+	path = /obj/item/clothing/accessory/twecape
+	fluff_cost = 3
