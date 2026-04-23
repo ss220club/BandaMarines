@@ -68,3 +68,8 @@
   Drathek:
   - bugfix: Fixes a couple stylesheet errors affecting tactical sign language (both
       chats) and hyperdyne radios (non-fancy chat)
+2026-04-23:
+  Zenith:
+  - imagetweak: Added some colorable statue bases & a new carpet color.
+  - maptweak: Minor tweaks to Pred related coffins, statues and other Pred related
+      things on Trijent, LV & the Hunter Ship maps.
