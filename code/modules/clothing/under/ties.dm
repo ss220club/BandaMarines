@@ -825,6 +825,22 @@
 	icon_state = "s_poncho"
 	item_state = "s_poncho"
 
+/obj/item/clothing/accessory/poncho/blackcape
+	icon_state = "black_cape"
+	item_state = "black_cape"
+
+/obj/item/clothing/accessory/poncho/redcape
+	icon_state = "red_cape"
+	item_state = "red_cape"
+
+/obj/item/clothing/accessory/poncho/uscmcape
+	icon_state = "uscm_cape"
+	item_state = "uscm_cape"
+
+/obj/item/clothing/accessory/poncho/twecape
+	icon_state = "twe_cape"
+	item_state = "twe_cape"
+
 /obj/item/clothing/accessory/clf_cape
 	name = "torn CLF flag"
 	desc = "A torn up CLF flag with a pin that allows it to be worn as a cape."
