@@ -828,13 +828,11 @@
 /obj/item/clothing/accessory/cape
 	name = "cape"
 	desc = "a cape"
-	icon_state = "black_cape"
-	item_state = "black_cape"
-	icon = 'icons/obj/items/clothing/accessory/capes.dmi'
-	inv_overlay_icon = 'icons/obj/items/clothing/accessory/inventory_overlays/capes.dmi'
+	icon = 'modular/clothing/accessory/capes.dmi'
+	inv_overlay_icon = 'modular/clothing/accessory/inventory_overlays/capes.dmi'
 	accessory_icons = list(
-		WEAR_BODY = 'icons/obj/items/clothing/accessory/inventory_overlays/capes.dmi',
-		WEAR_JACKET = 'icons/obj/items/clothing/accessory/inventory_overlays/capes.dmi'
+		WEAR_BODY = 'modular/clothing/accessory/inventory_overlays/capes.dmi',
+		WEAR_JACKET = 'modular/clothing/accessory/inventory_overlays/capes.dmi'
 	)
 	worn_accessory_slot = ACCESSORY_SLOT_PONCHO
 
@@ -850,6 +848,8 @@
 	)
 
 /obj/item/clothing/accessory/cape/black_cape
+	icon_state = "black_cape"
+	item_state = "black_cape"
 
 /obj/item/clothing/accessory/cape/red_cape
 	icon_state = "red_cape"
