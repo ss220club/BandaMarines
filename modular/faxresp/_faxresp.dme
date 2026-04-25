@@ -1,3 +1,0 @@
-#include "_faxresp.dm"
-
-#include "code/custom_paper.dm"
