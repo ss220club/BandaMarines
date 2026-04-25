@@ -107,3 +107,10 @@
       indicate if dodge ability is active.
   - rscadd: Spectators now gain new HUD option called "Xeno Effects HUD", this hud
       allows you to see effects that are exclusive to Xeno players.
+2026-04-25:
+  Arom-beep:
+  - rscadd: Added hot key for smartgun aim assist
+  Gorap:
+  - balance: Allows NSG to have flashlight grip.
+  ori-disillusion-mirnov:
+  - balance: turing dispenser and xeno analyzer thingy are no longer meltable
