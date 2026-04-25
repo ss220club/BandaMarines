@@ -8,16 +8,24 @@ import { dragStartHandler } from 'tgui/drag';
 import { type Channel, ChannelIterator, CHANNELS } from './ChannelIterator';
 import { ChatHistory } from './ChatHistory';
 import {
+  EnChannelLabel,
   LARGE_WINDOW_SIZE,
-  LIVING_TYPES,
   type LivingType,
   MEDIUM_LINE_SIZE,
   MEDIUM_WINDOW_SIZE,
-  RADIO_PREFIXES,
+  RuPrefixLabel,
   SMALL_LINE_SIZE,
   SMALL_WINDOW_SIZE,
 } from './constants';
-import { getPrefix, windowClose, windowOpen, windowSet } from './helpers';
+import {
+  getPrefix,
+  isLanguagePrefix,
+  type PrefixType,
+  resolvePrefixData,
+  windowClose,
+  windowOpen,
+  windowSet,
+} from './helpers';
 import { byondMessages } from './timers';
 
 type ByondOpenType = {
@@ -37,12 +45,11 @@ type ByondUpdateChannelsType = {
   livingType: LivingType;
 };
 
-type RadioPrefixType = keyof typeof RADIO_PREFIXES;
+const CHANNEL_ID_NORMALIZE_REGEX = /[\s._-]+/g;
 
 export function TguiSay() {
-  const [livingType, setLivingType] = useState<LivingType>(LIVING_TYPES.HUMAN);
   const innerRef = useRef<HTMLTextAreaElement>(null);
-  const channelIterator = useRef(new ChannelIterator(livingType));
+  const channelIterator = useRef(new ChannelIterator());
   const chatHistory = useRef(new ChatHistory());
   const messages = useRef(byondMessages);
   const scale = useRef(true);
@@ -50,9 +57,7 @@ export function TguiSay() {
   // I initially wanted to make these an object or a reducer, but it's not really worth it.
   // You lose the granulatity and add a lot of boilerplate.
   const [buttonContent, setButtonContent] = useState('');
-  const [currentPrefix, setCurrentPrefix] = useState<RadioPrefixType | null>(
-    null,
-  );
+  const [currentPrefix, setCurrentPrefix] = useState<PrefixType | null>(null);
   const [lightMode, setLightMode] = useState(false);
   const [maxLength, setMaxLength] = useState(1024);
   const [size, setSize] = useState(SMALL_WINDOW_SIZE);
@@ -65,8 +70,9 @@ export function TguiSay() {
   const isDragging = useRef(false);
   const translateChannelLabel = channelIterator.current.translate();
   const theme = currentPrefix
-    ? RADIO_PREFIXES[currentPrefix].label
-    : translateChannelLabel;
+    ? resolvePrefixData(currentPrefix)?.id ||
+      EnChannelLabel(translateChannelLabel)
+    : EnChannelLabel(translateChannelLabel);
 
   function handleArrowKeys(direction: KEY.Up | KEY.Down): void {
     const chat = chatHistory.current;
@@ -101,7 +107,12 @@ export function TguiSay() {
     // User is on a chat history message
     if (!chat.isAtLatest()) {
       chat.reset();
-      setButtonContent(currentPrefix ?? channelIterator.current.translate());
+      const prefixLabel = resolvePrefixData(currentPrefix)?.label;
+      setButtonContent(
+        prefixLabel
+          ? RuPrefixLabel(prefixLabel)
+          : channelIterator.current.translate(),
+      );
 
       // Empty input, resets the channel
     } else if (
@@ -189,9 +200,21 @@ export function TguiSay() {
     const iterator = channelIterator.current;
     let newValue = event.currentTarget.value;
 
+    if (newValue.startsWith(';')) {
+      iterator.set(CHANNELS.COMMS);
+      setCurrentPrefix(null);
+      setButtonContent(iterator.translate());
+      newValue = newValue.slice(1);
+    }
+
     const newPrefix = getPrefix(newValue) ?? currentPrefix;
     if (canChangePrefix(newPrefix)) {
-      setButtonContent(RADIO_PREFIXES[newPrefix as RadioPrefixType].label);
+      const prefixLabel = resolvePrefixData(newPrefix)?.label;
+      setButtonContent(
+        prefixLabel
+          ? RuPrefixLabel(prefixLabel)
+          : channelIterator.current.translate(),
+      );
       setCurrentPrefix(newPrefix);
       newValue = newValue.slice(3);
       iterator.set(CHANNELS.SAY);
@@ -205,17 +228,31 @@ export function TguiSay() {
     setValue(newValue);
   }
 
-  function canChangePrefix(newPrefix: string | null): boolean {
-    if (newPrefix === currentPrefix) {
+  function canChangePrefix(newPrefix: PrefixType | null): boolean {
+    if (!newPrefix || newPrefix === currentPrefix) {
       return false;
     }
 
-    const channelId = RADIO_PREFIXES[newPrefix as RadioPrefixType]?.id ?? null;
+    if (isLanguagePrefix(newPrefix)) {
+      return true;
+    }
+
+    const channelId = resolvePrefixData(newPrefix)?.id ?? null;
     if (channelId === null) {
       return true;
     }
 
-    return Object.keys(availableChannels).includes(channelId);
+    const normalizedId = channelId
+      .toString()
+      .toLowerCase()
+      .replace(CHANNEL_ID_NORMALIZE_REGEX, '');
+
+    return Object.keys(availableChannels).some(
+      (availableChannel) =>
+        availableChannel
+          .toLowerCase()
+          .replace(CHANNEL_ID_NORMALIZE_REGEX, '') === normalizedId,
+    );
   }
 
   function handleKeyDown(
@@ -269,10 +306,16 @@ export function TguiSay() {
   }
 
   function handleUpdateChannels(data: ByondUpdateChannelsType): void {
+    const currentChannel = channelIterator.current.current();
+    channelIterator.current = new ChannelIterator(data.livingType);
+    channelIterator.current.set(currentChannel);
+
     setAvailableChannels(
       typeof data.availableChannels === 'object' ? data.availableChannels : {},
     );
-    setLivingType(data.livingType);
+    if (!currentPrefix) {
+      setButtonContent(channelIterator.current.translate());
+    }
   }
 
   function unloadChat(): void {
@@ -304,11 +347,6 @@ export function TguiSay() {
     }
   }, [value]);
 
-  useEffect(() => {
-    channelIterator.current = new ChannelIterator(livingType);
-    setButtonContent(channelIterator.current.translate());
-  }, [livingType]);
-
   return (
     <div
       className={classes([
@@ -336,7 +374,7 @@ export function TguiSay() {
           onInput={handleInput}
           onKeyDown={handleKeyDown}
           ref={innerRef}
-          spellCheck={false}
+          spellCheck
           value={value}
         />
       </div>

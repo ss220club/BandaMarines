@@ -8,7 +8,7 @@
 	var/list/mob_overlay = list()
 	var/overlay_state = null
 	var/inv_overlay_icon = 'icons/obj/items/clothing/accessory/inventory_overlays/ties.dmi'
-	var/list/accessory_icons = list(
+	accessory_icons = list(
 		WEAR_BODY = 'icons/mob/humans/onmob/clothing/accessory/ties.dmi',
 		WEAR_JACKET = 'icons/mob/humans/onmob/clothing/accessory/ties.dmi'
 	)
@@ -22,7 +22,7 @@
 	worn_accessory_slot = 1
 
 /obj/item/clothing/accessory/attack_self(mob/user)
-	if(can_become_accessory)
+	if(flags_obj & OBJ_CAN_ACCESSORIZE)
 		revert_from_accessory(user)
 		return
 	return ..()
@@ -391,7 +391,7 @@
 
 /obj/item/clothing/accessory/medal/gold/cross
 	name = MARINE_MEDAL_GALACTIC_CROSS
-	desc = "The second highest decoration within the USCM. Granted for acts of valor performed under extreme conditions. When the mission's success or the survival of fellow marines hinged upon extraordinary courage and quick thinking."
+	desc = "The second-highest decoration within the USCM. Granted for acts of valor performed under extreme conditions. When the mission's success or the survival of fellow marines hinged upon extraordinary courage and quick thinking."
 	icon_state = "ua_cross"
 	awarding_faction = FACTION_MARINE
 
@@ -499,7 +499,7 @@
 
 /obj/item/clothing/accessory/armband/squad
 	name = "squad armband"
-	desc = "An armband in squad colors, worn for ease of idenfication."
+	desc = "An armband in squad colors, worn for ease of identification."
 	icon_state = "armband_squad"
 	var/dummy_icon_state = "armband_%SQUAD%"
 	var/static/list/valid_icon_states
@@ -553,9 +553,8 @@
 
 //patches
 /obj/item/clothing/accessory/patch
-	name = "USCM patch"
-	desc = "A fire-resistant shoulder patch, worn by the men and women of the United States Colonial Marines."
-	icon_state = "uscmpatch"
+	name = "potato patch"
+	desc = "you shouldnt see this, ahelp if you do."
 	icon = 'icons/obj/items/clothing/accessory/patches.dmi'
 	accessory_icons = list(
 		WEAR_BODY = 'icons/mob/humans/onmob/clothing/accessory/patches.dmi',
@@ -569,12 +568,19 @@
 	worn_accessory_slot = ACCESSORY_SLOT_PATCH
 	worn_accessory_limit = 4
 
+/obj/item/clothing/accessory/patch/uscmpatch
+	name = "USCM patch"
+	desc = "A fire-resistant shoulder patch, worn by the men and women of the United States Colonial Marines."
+	icon_state = "uscmpatch"
+	item_state = "uscmpatch_right_shoulder"
+	item_state_slots = list(WEAR_AS_GARB = "uscmpatch_right_shoulder")
+	flags_obj = OBJ_IS_STYLISH
+	style_postfix = list("right_shoulder", "left_shoulder", "right_chest", "left_chest")
+
 /obj/item/clothing/accessory/patch/falcon
 	name = "USCM Falling Falcons patch"
 	desc = "A fire-resistant shoulder patch, worn by the men and women of the Falling Falcons, the 2nd battalion of the 4th brigade of the USCM."
 	icon_state = "fallingfalconspatch"
-	item_state_slots = list(WEAR_AS_GARB = "falconspatch")
-	flags_obj = OBJ_IS_HELMET_GARB
 
 /obj/item/clothing/accessory/patch/devils
 	name = "USCM Solar Devils patch"
@@ -780,6 +786,7 @@
 	name = "USCM Poncho"
 	desc = "The standard USCM poncho has variations for every climate. Custom fitted to be attached to standard USCM armor variants it is comfortable, warming or cooling as needed, and well-fit. A marine couldn't ask for more. Affectionately referred to as a \"woobie\"."
 	icon_state = "poncho"
+	item_state = "poncho"
 	icon = 'icons/obj/items/clothing/accessory/ponchos.dmi'
 	inv_overlay_icon = 'icons/obj/items/clothing/accessory/inventory_overlays/ponchos.dmi'
 	accessory_icons = list(
@@ -800,18 +807,23 @@
 
 /obj/item/clothing/accessory/poncho/green
 	icon_state = "poncho"
+	item_state = "poncho"
 
 /obj/item/clothing/accessory/poncho/brown
 	icon_state = "d_poncho"
+	item_state = "d_poncho"
 
 /obj/item/clothing/accessory/poncho/black
 	icon_state = "u_poncho"
+	item_state = "u_poncho"
 
 /obj/item/clothing/accessory/poncho/blue
 	icon_state = "c_poncho"
+	item_state = "c_poncho"
 
 /obj/item/clothing/accessory/poncho/purple
 	icon_state = "s_poncho"
+	item_state = "s_poncho"
 
 /obj/item/clothing/accessory/clf_cape
 	name = "torn CLF flag"
@@ -1504,6 +1516,31 @@ Wrist Accessories
 
 	. += " It reads: [SPAN_NOTICE("[worldtime2text()]")]"
 
+/obj/item/clothing/accessory/rosary
+	name = "rosary"
+	desc = "Jesus Saves Lives!"
+	icon_state = "rosary"
+	item_state = "rosary_neck"
+	icon = 'icons/obj/items/clothing/accessory/misc.dmi'
+	accessory_icons = list(
+		WEAR_BODY = 'icons/mob/humans/onmob/clothing/accessory/misc.dmi',
+		WEAR_JACKET = 'icons/mob/humans/onmob/clothing/accessory/misc.dmi',
+	)
+	item_state_slots = list(WEAR_AS_GARB = "rosary")
+	item_icons = list(
+		WEAR_AS_GARB = 'icons/mob/humans/onmob/clothing/helmet_garb/misc.dmi',
+	)
+	flags_obj = OBJ_IS_STYLISH
+	worn_accessory_slot = ACCESSORY_SLOT_DECOR
+	worn_accessory_limit = 2
+	style_postfix = list("neck", "left_wrist", "right_wrist")
+
+/obj/item/clothing/accessory/rosary/gold
+	name = "golden rosary"
+	desc = "Truly, one can be closest to God when adorned in gold, jewels, and riches whilst flaunting it about."
+	icon_state = "grosary"
+	item_state = "grosary_neck"
+	item_state_slots = list(WEAR_AS_GARB = "grosary")
 
 //TEMPORARY
 

@@ -480,6 +480,8 @@
 /obj/item/book/manual/marine_law
 	name = "Военный Закон"
 	desc = "Обычно эта книга является любимым чтивом любого сотрудника Военной полиции ККМП. Данная книга создана быть весами правосудия для стражей порядка колониальной морской пехоты Соединенных Штатов. Также у этой книги есть другие названия, вот их неполный список: 'Красная книга дьявола', 'Библия всех грешников', 'ТА САМАЯ КНИГА', 'Красный кирпич', 'Руководство по пыткам', 'Библия пыток всех грешников Красного дьявола'."
+	icon_state = "book_marine_law"
+	item_state = "book_marine_law"
 	author = "Головной офис колониальной морской пехоты"
 	title = "Военный Закон"
 	dat = {"
@@ -911,7 +913,7 @@
 					<li>Extend and anchor the nuclear device through its interface.</li>
 					<li>Turn the safety of the nuclear device off through its interface.</li>
 					<li>Make sure all forms of transmission by radio in the designated detonation zone are functional.</li>
-					<li>When decryption is completed, the device will AUTOMATICALLY begin it's detonation timer.<br>
+					<li>When decryption is completed, the device will AUTOMATICALLY begin its detonation timer.<br>
 					<b>Note</b>: The decryption time will usually take 10 minutes, and the device's timer is fixed to detonate at exactly 3 minutes.
 				</ul><br>
 

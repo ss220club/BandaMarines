@@ -23,7 +23,6 @@
 
 	is_intelligent = 1
 	evolution_allowed = FALSE
-	fire_immunity = FIRE_IMMUNITY_COMPLETE
 	caste_desc = "The Queen, in all her glory."
 	spit_types = list(/datum/ammo/xeno/toxin/queen, /datum/ammo/xeno/acid/spatter)
 	can_hold_facehuggers = 0
@@ -287,6 +286,8 @@
 	small_explosives_stun = FALSE
 	pull_speed = 3 //screech/neurodragging is cancer, at the very absolute least get some runner to do it for teamwork
 	organ_value = 8000 // queen is expensive
+	claw_type = CLAW_TYPE_VERY_SHARP
+	fire_immunity = FIRE_IMMUNITY_NO_DAMAGE|FIRE_IMMUNITY_NO_IGNITE
 
 	icon_xeno = 'icons/mob/xenos/castes/tier_4/queen.dmi'
 	icon_xenonid = 'icons/mob/xenonids/castes/tier_4/queen.dmi'
@@ -371,7 +372,6 @@
 		/datum/action/xeno_action/activable/xeno_spit/queen_macro, //third macro
 		/datum/action/xeno_action/onclick/shift_spits, //second macro
 	)
-	claw_type = CLAW_TYPE_VERY_SHARP
 
 	skull = /obj/item/skull/queen
 	pelt = /obj/item/pelt/queen
@@ -542,7 +542,7 @@
 		return FALSE
 	update_living_queens()
 
-/// Signal handler for COMSIG_XENO_TAKE_DAMAGE intended to extend temporary maturity by XENO_QUEEN_TEMP_AGE_EXTENSION up to XENO_QUEEN_TEMP_AGE_DURATION
+/// Signal handler for COMSIG_MOB_TAKE_DAMAGE intended to extend temporary maturity by XENO_QUEEN_TEMP_AGE_EXTENSION up to XENO_QUEEN_TEMP_AGE_DURATION
 /mob/living/carbon/xenomorph/queen/proc/on_take_damage(owner, damage_data, damage_type)
 	SIGNAL_HANDLER
 	if(queen_age_temp_timer_id == TIMER_ID_NULL)
@@ -559,7 +559,7 @@
 /mob/living/carbon/xenomorph/queen/proc/refresh_combat_effective()
 	if(queen_age_temp_timer_id != TIMER_ID_NULL && isnull(timeleft(queen_age_temp_timer_id)))
 		queen_age_temp_timer_id = TIMER_ID_NULL
-		UnregisterSignal(src, COMSIG_XENO_TAKE_DAMAGE)
+		UnregisterSignal(src, COMSIG_MOB_TAKE_DAMAGE)
 
 	refresh_combat_abilities()
 	recalculate_actions()
@@ -575,7 +575,7 @@
 		else
 			var/already_temp_mature = queen_age_temp_timer_id != TIMER_ID_NULL
 			if(!already_temp_mature)
-				RegisterSignal(src, COMSIG_XENO_TAKE_DAMAGE, PROC_REF(on_take_damage))
+				RegisterSignal(src, COMSIG_MOB_TAKE_DAMAGE, PROC_REF(on_take_damage))
 			queen_age_temp_timer_id = addtimer(CALLBACK(src, PROC_REF(refresh_combat_effective)), XENO_QUEEN_TEMP_AGE_DURATION, TIMER_OVERRIDE|TIMER_UNIQUE|TIMER_STOPPABLE|TIMER_NO_HASH_WAIT)
 			if(already_temp_mature)
 				return
@@ -588,7 +588,7 @@
 		if(queen_age_temp_timer_id != TIMER_ID_NULL)
 			deltimer(queen_age_temp_timer_id)
 			queen_age_temp_timer_id = TIMER_ID_NULL
-			UnregisterSignal(src, COMSIG_XENO_TAKE_DAMAGE)
+			UnregisterSignal(src, COMSIG_MOB_TAKE_DAMAGE)
 
 	refresh_combat_effective()
 
@@ -597,7 +597,7 @@
 		return
 	deltimer(queen_age_temp_timer_id)
 	queen_age_temp_timer_id = TIMER_ID_NULL
-	UnregisterSignal(src, COMSIG_XENO_TAKE_DAMAGE)
+	UnregisterSignal(src, COMSIG_MOB_TAKE_DAMAGE)
 	refresh_combat_effective()
 
 /// When not on ovipositor, refreshes all mobile_abilities including mobile_aged_abilities if applicable
@@ -691,7 +691,7 @@
 			. += "Временная зрелость: [time2text(timeleft(queen_age_temp_timer_id), "mm:ss")] осталось"
 
 /mob/living/carbon/xenomorph/queen/proc/set_orders()
-	set category = "Alien"
+	set category = "Alien.Hivemind-Control"
 	set name = "Set Hive Orders (50)"
 	set desc = "Give some specific orders to the hive. They can see this on the status pane."
 
@@ -716,7 +716,7 @@
 	last_special = world.time + 15 SECONDS
 
 /mob/living/carbon/xenomorph/queen/proc/hive_message()
-	set category = "Alien"
+	set category = "Alien.Hivemind"
 	set name = "Word of the Queen (50)"
 	set desc = "Send a message to all aliens in the hive that is big and visible."
 	if(client.prefs.muted & MUTE_IC)
@@ -754,7 +754,7 @@
 /mob/living/carbon/xenomorph/proc/claw_toggle()
 	set name = "Permit/Disallow Harming"
 	set desc = "Allows you to permit the hive to harm/slash."
-	set category = "Alien"
+	set category = "Alien.Hivemind-Control"
 
 	if(stat)
 		to_chat(src, SPAN_WARNING("Вы не можете сделать это сейчас."))
@@ -819,7 +819,7 @@
 /mob/living/carbon/xenomorph/proc/construction_toggle()
 	set name = "Permit/Disallow Construction Placement"
 	set desc = "Allows you to permit the hive to place construction nodes freely."
-	set category = "Alien"
+	set category = "Alien.Hivemind-Control"
 
 	if(stat)
 		to_chat(src, SPAN_WARNING("Вы не можете сделать это сейчас."))
@@ -885,7 +885,7 @@
 /mob/living/carbon/xenomorph/proc/destruction_toggle()
 	set name = "Permit/Disallow Special Structure Destruction"
 	set desc = "Allows you to permit the hive to destroy special structures freely."
-	set category = "Alien"
+	set category = "Alien.Hivemind-Control"
 
 	if(stat)
 		to_chat(src, SPAN_WARNING("Вы не можете сделать это сейчас."))
@@ -951,7 +951,7 @@
 /mob/living/carbon/xenomorph/proc/unnesting_toggle()
 	set name = "Permit/Disallow Unnesting"
 	set desc = "Allows you to restrict unnesting to drones."
-	set category = "Alien"
+	set category = "Alien.Hivemind-Control"
 
 	if(stat)
 		to_chat(src, SPAN_WARNING("Вы не можете сделать это сейчас."))
@@ -1146,6 +1146,14 @@
 
 	xeno_message(SPAN_XENOANNOUNCE("Королева создала яйцеклад, прогресс эволюции возобновлён."), 3, hivenumber)
 
+	// If minimap was open before going on ovi, switch to drawing tools version
+	var/datum/action/minimap/minimap_action = locate() in actions
+	if(minimap_action?.minimap_displayed)
+		minimap_action.toggle_minimap(FALSE)
+		var/datum/component/tacmap/tacmap_component = GetComponent(/datum/component/tacmap)
+		if(tacmap_component)
+			tacmap_component.show_tacmap(src)
+
 	START_PROCESSING(SShive_status, hive.hive_ui)
 
 	SEND_SIGNAL(src, COMSIG_QUEEN_MOUNT_OVIPOSITOR)
@@ -1197,6 +1205,19 @@
 
 	if(!instant_dismount)
 		xeno_message(SPAN_XENOANNOUNCE("Королева сбросила яйцеклад, прогресс эволюции приостановлен."), 3, hivenumber)
+
+	// Close tacmap drawing tools if open, and reopen the regular minimap
+	var/datum/component/tacmap/tacmap_component = GetComponent(/datum/component/tacmap)
+	var/had_tacmap_open = FALSE
+	if(tacmap_component && (src in tacmap_component.interactees))
+		tacmap_component.on_unset_interaction(src)
+		tacmap_component.close_popout_tacmaps(src)
+		had_tacmap_open = TRUE
+
+	if(had_tacmap_open)
+		var/datum/action/minimap/minimap_action = locate() in actions
+		if(minimap_action && !minimap_action.minimap_displayed)
+			minimap_action.action_activate()
 
 	SEND_SIGNAL(src, COMSIG_QUEEN_DISMOUNT_OVIPOSITOR, instant_dismount)
 

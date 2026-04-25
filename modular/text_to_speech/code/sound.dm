@@ -18,6 +18,11 @@
 	set category = "Preferences.Sound"
 	adjust_volume_prefs(VOLUME_TTS_ANNOUNCE, "Громкость TTS в анонсах", CHANNEL_TTS_ANNOUNCEMENT)
 
+/client/verb/adjust_volume_tts_hivemind()
+	set name = "Громкость TTS (Улей)"
+	set category = "Preferences.Sound"
+	adjust_volume_prefs(VOLUME_TTS_HIVEMIND, "Громкость TTS в улье", CHANNEL_TTS_HIVEMIND)
+
 /proc/get_rand_frequency()
 	return rand(32000, 55000) //Frequency stuff only works with 45kbps oggs.
 

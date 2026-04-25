@@ -1,6 +1,6 @@
 /datum/xeno_strain/valkyrie
 	name = PRAETORIAN_VALKYRIE
-	description = "You trade your ranged abilities and acid to gain the ability to emit strong pheromones and buff other Xenomorphs, giving them extra armor. An ability that knocksdown people in a 2 by 3 infront of you while also throwing back grenades. You get an ability that rejuvenates everyone in a certain range depending on your rage. You also trade your tailstab for an extinguisher, while it doesn't do damage it can put out both enemies and allies. This can be used to extuingish people on fire to help capture them."
+	description = "You trade your ranged abilities and acid to gain the ability to emit strong pheromones and buff other Xenomorphs, giving them extra armor. An ability that knocks down people in a 2 by 3 in front of you while also throwing back grenades. You get an ability that rejuvenates everyone in a certain range depending on your rage. You also trade your tailstab for an extinguisher, while it doesn't do damage it can put out both enemies and allies. This can be used to extinguish people on fire to help capture them."
 	flavor_description = "This one will deny her sisters' deaths until they earn it. Fight or be forgotten."
 	icon_state_prefix = "Warden"
 
@@ -54,7 +54,7 @@
 	base_fury = min(fury_max, base_fury + fury_per_life)
 
 	var/mob/living/carbon/xenomorph/praetorian/praetorian = bound_xeno
-	var/image/holder = praetorian.hud_list[PLASMA_HUD]
+	var/image/holder = praetorian.hud_list[SPECIAL_HUD]
 	holder.overlays.Cut()
 
 	if(praetorian.stat == DEAD)
@@ -65,7 +65,7 @@
 		holder.overlays += image('icons/mob/hud/hud.dmi', "xenoenergy[percentage_energy]")
 
 /datum/behavior_delegate/praetorian_valkyrie/handle_death(mob/M)
-	var/image/holder = bound_xeno.hud_list[PLASMA_HUD]
+	var/image/holder = bound_xeno.hud_list[SPECIAL_HUD]
 	holder.overlays.Cut()
 
 /datum/behavior_delegate/praetorian_valkyrie/melee_attack_additional_effects_self()
@@ -321,7 +321,7 @@
 
 	apply_cooldown()
 
-	valkyrie.visible_message(SPAN_XENODANGER("[valkyrie] яростно топает ногами, разрушая землю под собой!"), SPAN_XENODANGER("Мы посылаем ударную волну по земле, сбивая всех перед нами с ног!")) // SS220 EDIT ADDICTION
+	valkyrie.visible_message(SPAN_XENODANGER("[capitalize(valkyrie.declent_ru(NOMINATIVE))] яростно топает ногами, разрушая землю под собой!"), SPAN_XENODANGER("Мы посылаем ударную волну по земле, сбивая всех перед нами с ног!")) // SS220 EDIT ADDICTION
 	valkyrie.emote("roar")
 	playsound(valkyrie, 'sound/effects/alien_footstep_charge3.ogg', 35, 0)
 
