@@ -825,7 +825,20 @@
 	icon_state = "s_poncho"
 	item_state = "s_poncho"
 
-/obj/item/clothing/accessory/clf_cape
+/obj/item/clothing/accessory/cape
+	name = "cape"
+	desc = "a cape"
+	icon_state = "black_cape"
+	item_state = "black_cape"
+	icon = 'modular/clothing/accessory/capes.dmi'
+	inv_overlay_icon = 'modular/clothing/accessory/inventory_overlays/capes/black_cape.dmi'
+	accessory_icons = list(
+		WEAR_BODY = 'modular/clothing/onmob/accessory/ponchos.dmi',
+		WEAR_JACKET = 'modular/clothing/onmob/accessory/ponchos.dmi'
+	)
+	worn_accessory_slot = ACCESSORY_SLOT_PONCHO
+
+/obj/item/clothing/accessory/cape/clf_cape
 	name = "torn CLF flag"
 	desc = "A torn up CLF flag with a pin that allows it to be worn as a cape."
 	icon_state = "clf_cape"
@@ -835,9 +848,23 @@
 		WEAR_BODY = 'icons/mob/humans/onmob/clothing/accessory/ponchos.dmi',
 		WEAR_JACKET = 'icons/mob/humans/onmob/clothing/accessory/ponchos.dmi'
 	)
-	worn_accessory_slot = ACCESSORY_SLOT_PONCHO
 
+/obj/item/clothing/accessory/cape/black_cape
 
+/obj/item/clothing/accessory/cape/red_cape
+	icon_state = "red_cape"
+	item_state = "red_cape"
+	inv_overlay_icon = 'modular/clothing/accessory/inventory_overlays/capes/red_cape.dmi'
+
+/obj/item/clothing/accessory/cape/uscm_cape
+	icon_state = "uscm_cape"
+	item_state = "uscm_cape"
+	inv_overlay_icon = 'modular/clothing/accessory/inventory_overlays/capes/uscm_cape.dmi'
+
+/obj/item/clothing/accessory/cape/twe_cape
+	icon_state = "twe_cape"
+	item_state = "twe_cape"
+	inv_overlay_icon = 'modular/clothing/accessory/inventory_overlays/capes/twe_cape.dmi'
 //Ties that can store stuff
 
 /obj/item/storage/internal/accessory
