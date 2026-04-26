@@ -2,17 +2,15 @@
 #define FTL_HELMET_ONMOB_ICON 'modular/clothing/onmob/head/ftl_helmet.dmi'
 
 /obj/item/clothing/head/helmet/marine/rto/ftl
-	name = "m12 pattern dust helmet"
-	desc = "An experimental brain-bucket. A dust ruffle hangs from back instead of the standard lobster shell design. Moderately better at deflecting blunt objects at the cost of humiliation, can also hold a second visor optic. But who will be laughing at the memorial? Not you, you'll be busy getting medals for your fantastic leadership."
+	name = "m12 closed pattern dust helmet"
 	icon = FTL_HELMET_ICON
 	icon_state = "ftl_jungle"
-	item_state = "io"
+	specialty = "M12 pattern fireteam leader"
 	item_icons = list(
 		WEAR_HEAD = FTL_HELMET_ONMOB_ICON,
 		WEAR_L_HAND = 'icons/mob/humans/onmob/inhands/items_by_map/jungle_lefthand.dmi',
 		WEAR_R_HAND = 'icons/mob/humans/onmob/inhands/items_by_map/jungle_righthand.dmi'
 	)
-	specialty = "M12 pattern fireteam leader"
 
 /obj/item/clothing/head/helmet/marine/rto/ftl/select_gamemode_skin(expected_type, list/override_icon_state, list/override_protection)
 	. = ..()
