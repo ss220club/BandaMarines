@@ -34,6 +34,10 @@
 	readied_projectile_mult = PROJECTILE_BLOCK_PERC_100
 	COOLDOWN_DECLARE(attack_cooldown)
 	var/cooldown_time = 25 SECONDS
+	
+/obj/item/weapon/shield/riot/riot_mp/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/armat)
 
 /obj/item/weapon/shield/riot/riot_mp/raise_shield(mob/user)
 	if(skilllock && !skillcheck(user, SKILL_POLICE, skilllock))
@@ -106,3 +110,6 @@
 		target.throw_atom(get_step(target, user.dir), 1, SPEED_AVERAGE, user, FALSE)
 		target.apply_effect(3, DAZE)
 		target.apply_effect(6, SLOW)
+
+/obj/item/clothing/suit/armor/riot/marine
+	allowed = list(/obj/item/weapon/gun, /obj/item/storage/backpack/general_belt, /obj/item/storage/belt/gun)
