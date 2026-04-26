@@ -5,23 +5,25 @@
 
 /mob/living/proc/get_shield_armor_bonus()
 	var/obj/item/weapon/shield/S = get_readied_shield()
-	if(!S)
-		return 0
+	if(S)
+		return 80
 
-	if(S.shield_readied)
-		return 85
+	if(istype(l_hand, /obj/item/weapon/shield) || istype(r_hand, /obj/item/weapon/shield))
+		return 65
 
-	return 60
+	return 0
 
 /mob/living/carbon/human/getarmor_organ(obj/limb/E, type)
 	var/armor = ..()
 
 	if(type == ARMOR_BOMB)
-		armor += get_shield_armor_bonus()
+		armor = clamp(armor + get_shield_armor_bonus(), 0, 100)
 
 	return armor
 
-/obj/item/weapon/shield/riot
+/obj/item/weapon/shield/riot/riot_mp
+	name = "баллистический щит"
+	desc = "Тяжёлый щит производимый Armat Battlefield Systems для проведения штурмовых операций."
 	var/skilllock = SKILL_POLICE_SKILLED
 	icon_state = "ballisticshield"
 	item_state = "ballisticshield"
@@ -30,10 +32,19 @@
 	passive_projectile_mult = PROJECTILE_BLOCK_PERC_80
 	readied_block = SHIELD_CHANCE_MAX
 	readied_projectile_mult = PROJECTILE_BLOCK_PERC_100
+	COOLDOWN_DECLARE(attack_cooldown)
+	var/cooldown_time = 25 SECONDS
 
-/obj/item/weapon/shield/riot/raise_shield(mob/user)
+/obj/item/weapon/shield/riot/riot_mp/raise_shield(mob/user)
 	if(skilllock && !skillcheck(user, SKILL_POLICE, skilllock))
 		to_chat(user, SPAN_WARNING("Похоже, вы не знаете, как правильно использовать [src]..."))
+		return
+
+	var/mob/living/L = user
+	var/obj/item/weapon/shield/riot/riot_mp/other = L.get_readied_shield()
+
+	if(other && other != src)
+		to_chat(user, SPAN_WARNING("Вы уже держите поднятый щит в другой руке!"))
 		return
 
 	..()
@@ -41,19 +52,18 @@
 	if(ismob(user))
 		user.knockback_resistance = 0.3
 
-
-/obj/item/weapon/shield/riot/lower_shield(mob/user)
+/obj/item/weapon/shield/riot/riot_mp/lower_shield(mob/user)
 	if(ismob(user))
 		user.knockback_resistance = 1
 
 	..()
 
-/obj/item/weapon/shield/riot/dropped(mob/user)
+/obj/item/weapon/shield/riot/riot_mp/dropped(mob/user)
 	..()
 	if(ismob(user))
 		user.knockback_resistance = 1
 
-/obj/item/weapon/shield/riot/Destroy()
+/obj/item/weapon/shield/riot/riot_mp/Destroy()
 	var/mob/M = loc
 	if(ismob(M))
 		M.knockback_resistance = 1
@@ -68,7 +78,7 @@
 	return ..(mod_severity, direction)
 
 /mob/living/carbon/human/pull_response(mob/puller)
-	if(get_readied_shield())
+	if(istype(puller, /mob/living/carbon/human) && get_readied_shield())
 		playsound(loc, 'sound/items/block_shield.ogg', 25, TRUE)
 		visible_message(SPAN_WARNING("[src] отбивает попытку захвата своим щитом!"))
 		puller.apply_effect(1, WEAKEN)
@@ -77,7 +87,7 @@
 	return TRUE
 
 /mob/living/proc/get_readied_shield()
-	var/obj/item/weapon/shield/S
+	var/obj/item/weapon/shield/riot/riot_mp/S
 
 	S = l_hand
 	if(istype(S) && S.shield_readied)
@@ -88,7 +98,11 @@
 		return S
 
 	return null
-
-/obj/item/weapon/shield/riot/yautja/bracer_shield
-	passive_projectile_mult = PROJECTILE_BLOCK_PERC_40
-	readied_projectile_mult = PROJECTILE_BLOCK_PERC_60
+	
+/obj/item/weapon/shield/riot/riot_mp/attack(mob/living/target, mob/living/user)
+	. = ..()
+	if(. && (COOLDOWN_FINISHED(src, attack_cooldown)))
+		COOLDOWN_START(src, attack_cooldown, cooldown_time)
+		target.throw_atom(get_step(target, user.dir), 1, SPEED_AVERAGE, user, FALSE)
+		target.apply_effect(3, DAZE)
+		target.apply_effect(6, SLOW)
