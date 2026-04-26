@@ -1,0 +1,4 @@
+author: "KornFlaks"
+delete-after: True
+changes:
+  - rscadd: "King vote list is now randomized between different voters."
