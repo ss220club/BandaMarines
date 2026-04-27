@@ -2,4 +2,3 @@
 
 #include "code/new_shield.dm"
 #include "code/riot_shield_collide.dm"
-#include "code/obj_list.dm"

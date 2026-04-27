@@ -33,6 +33,7 @@
 	readied_block = SHIELD_CHANCE_MAX
 	readied_projectile_mult = PROJECTILE_BLOCK_PERC_100
 	COOLDOWN_DECLARE(attack_cooldown)
+	readied_slowdown = 2
 	var/cooldown_time = 25 SECONDS
 	
 /obj/item/weapon/shield/riot/riot_mp/Initialize()
