@@ -825,7 +825,7 @@
 	icon_state = "s_poncho"
 	item_state = "s_poncho"
 
-/obj/item/clothing/accessory/clf_cape
+/obj/item/clothing/accessory/cape/clf_cape
 	name = "torn CLF flag"
 	desc = "A torn up CLF flag with a pin that allows it to be worn as a cape."
 	icon_state = "clf_cape"
@@ -835,8 +835,6 @@
 		WEAR_BODY = 'icons/mob/humans/onmob/clothing/accessory/ponchos.dmi',
 		WEAR_JACKET = 'icons/mob/humans/onmob/clothing/accessory/ponchos.dmi'
 	)
-	worn_accessory_slot = ACCESSORY_SLOT_PONCHO
-
 
 //Ties that can store stuff
 
