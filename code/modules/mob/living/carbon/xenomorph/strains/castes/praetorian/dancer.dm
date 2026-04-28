@@ -214,13 +214,13 @@
 		return
 
 	if(!isxeno_human(target_atom) || dancer_user.can_not_harm(target_atom))
-		to_chat(dancer_user, SPAN_XENODANGER("We must target a hostile!"))
+		to_chat(dancer_user, SPAN_XENODANGER("Мы должны выбрать враждебную цель!"))
 		return
 
 	var/mob/living/carbon/target_carbon = target_atom
 
 	if(target_carbon.stat == DEAD)
-		to_chat(dancer_user, SPAN_XENOWARNING("[target_atom] is dead, why would we want to attack it?"))
+		to_chat(dancer_user, SPAN_XENOWARNING("[capitalize(target_atom.declent_ru(NOMINATIVE))] мёртво, зачем нам это атаковать?"))
 		return
 
 	var/dist = get_dist(dancer_user, target_carbon)
@@ -499,13 +499,13 @@
 		return
 
 	if(!isxeno_human(target_atom) || dancer_user.can_not_harm(target_atom))
-		to_chat(dancer_user, SPAN_XENODANGER("We must target a hostile!"))
+		to_chat(dancer_user, SPAN_XENODANGER("Мы должны выбрать враждебную цель!"))
 		return
 
 	var/mob/living/carbon/target_carbon = target_atom
 
 	if(target_carbon.stat == DEAD)
-		to_chat(dancer_user, SPAN_XENOWARNING("[target_atom] is dead, why would we want to attack it?"))
+		to_chat(dancer_user, SPAN_XENOWARNING("[capitalize(target_atom.declent_ru(NOMINATIVE))] мёртво, зачем нам это атаковать?"))
 		return
 
 	if(!check_and_use_plasma_owner())
@@ -568,17 +568,17 @@
 		if(Xeno.mob_size >= MOB_SIZE_BIG)
 			xeno_smashed = TRUE
 			shake_camera(Xeno, 10, 1)
-			dancer_user.visible_message(SPAN_XENODANGER("[dancer_user] smashes [Xeno] with it's tail!"), SPAN_XENODANGER("We smash [Xeno] with your tail!"))
-			to_chat(Xeno, SPAN_XENOHIGHDANGER("You feel dizzy as [dancer_user] smashes you with their tail!"))
+			dancer_user.visible_message(SPAN_XENODANGER("[dancer_user] хлыщет [Xeno] своим хвостом!"), SPAN_XENODANGER("Мы хлыщем [Xeno] своим хвостом!")) // SS220 EDIT ADDICTION
+			to_chat(Xeno, SPAN_XENOHIGHDANGER("Вы чувствуете головокружение, когда [dancer_user] хлыщет вас хвостом!")) // SS220 EDIT ADDICTION
 			dancer_user.animation_attack_on(Xeno)
 
 	if(!xeno_smashed)
 		if (stun_duration > 0)
 			target_carbon.apply_effect(stun_duration, WEAKEN)
-		dancer_user.visible_message(SPAN_XENODANGER("[dancer_user] trips [target_atom] with it's tail!"), SPAN_XENODANGER("We trip [target_atom] with our tail!"))
+		dancer_user.visible_message(SPAN_XENODANGER("[dancer_user] хлыщет [target_atom] своим хвостом!"), SPAN_XENODANGER("Мы хлыщем [target_atom] своим хвостом!")) // SS220 EDIT ADDICTION
 		dancer_user.spin_circle()
 		dancer_user.emote("tail")
-		to_chat(target_carbon, SPAN_XENOHIGHDANGER("You are swept off your feet by [dancer_user]!"))
+		to_chat(target_carbon, SPAN_XENOHIGHDANGER("[dancer_user] сбивает вас с ног!")) // SS220 EDIT ADDICTION
 	if(daze_duration > 0)
 		target_carbon.apply_effect(daze_duration, DAZE)
 	playsound(dancer_user, 'sound/effects/hit_kick.ogg', 75, 1)

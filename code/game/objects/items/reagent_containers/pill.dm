@@ -73,7 +73,7 @@
 				to_chat(H, SPAN_DANGER("You can't eat \the [fluff_text]s."))
 				return
 
-		M.visible_message(SPAN_NOTICE("[user] swallows [src]."),
+		M.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] swallows [src]."),
 		SPAN_HELPFUL("You swallow [src]."))
 		var/list/reagents_in_pill = list()
 		for(var/datum/reagent/R in reagents.reagent_list)
@@ -96,8 +96,8 @@
 
 		user.affected_message(M,
 			SPAN_HELPFUL("You <b>start feeding</b> [M] a [fluff_text]."),
-			SPAN_HELPFUL("[user] <b>starts feeding</b> you a [fluff_text]."),
-			SPAN_NOTICE("[user] starts feeding [M] a [fluff_text]."))
+			SPAN_HELPFUL("[capitalize(user.declent_ru(NOMINATIVE))] <b>starts feeding</b> you a [fluff_text]."),
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts feeding [M] a [fluff_text]."))
 
 		var/ingestion_time = 30
 		if(user.skills)
@@ -112,8 +112,8 @@
 
 		user.affected_message(M,
 			SPAN_HELPFUL("You <b>fed</b> [M] a [fluff_text]."),
-			SPAN_HELPFUL("[user] <b>fed</b> you a [fluff_text]."),
-			SPAN_NOTICE("[user] fed [M] a [fluff_text]."))
+			SPAN_HELPFUL("[capitalize(user.declent_ru(NOMINATIVE))] <b>fed</b> you a [fluff_text]."),
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] fed [M] a [fluff_text]."))
 		user.count_niche_stat(STATISTICS_NICHE_PILLS)
 
 		var/rgt_list_text = get_reagent_list_text()
@@ -150,7 +150,7 @@
 		var/loss = amount - target.reagents.maximum_volume
 
 		reagents.trans_to(target, reagents.total_volume)
-		user.visible_message(SPAN_NOTICE("[user] drops a [fluff_text] into [target]..."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] drops a [fluff_text] into [target]..."),
 		SPAN_NOTICE("You drop a [fluff_text] into [target][loss > 0 ? " but [target] overflows and takes [loss]u of your pill with it." : "..."]"),
 		SPAN_NOTICE("You hear somebody drop a pill into some liquid."), 2)
 
