@@ -1301,7 +1301,7 @@
 		if(ishuman(firingMob) && ishuman(src) && faction == firingMob.faction && !A?.statistic_exempt) //One human shot another, be worried about it but do everything basically the same //special_role should be null or an empty string if done correctly
 			if(!istype(bullet.ammo, /datum/ammo/energy/taser))
 				GLOB.round_statistics.total_friendly_fire_instances++
-				var/ff_msg = "[key_name(firingMob)] shot [key_name(src)] with \a [bullet][shot_from] in [get_area(firingMob)] [ADMIN_JMP(firingMob)] [ADMIN_PM(firingMob)]"
+				var/ff_msg = "[key_name(firingMob)] shot [key_name(src)] with \a [bullet][shot_from] in [log_location(firingMob)] [ADMIN_JMP(firingMob)] [ADMIN_PM(firingMob)]" //BANDAMARINES LOGIS EDIT
 				var/ff_living = TRUE
 				if(src.stat == DEAD)
 					ff_living = FALSE
@@ -1311,15 +1311,15 @@
 					var/mob/living/carbon/human/H = firingMob
 					H.track_friendly_fire(bullet.weapon_cause_data.cause_name)
 			else
-				msg_admin_attack("[key_name(firingMob)] tased [key_name(src)][shot_from] in [get_area(firingMob)] ([firingMob.x],[firingMob.y],[firingMob.z]).", firingMob.x, firingMob.y, firingMob.z)
+				msg_admin_attack("[key_name(firingMob)] tased [key_name(src)][shot_from] in [log_location(firingMob)].", firingMob.x, firingMob.y, firingMob.z) //BANDAMARINES LOGIS EDIT
 		else
-			msg_admin_attack("[key_name(firingMob)] shot [key_name(src)] with \a [bullet][shot_from] in [get_area(firingMob)] ([firingMob.x],[firingMob.y],[firingMob.z]).", firingMob.x, firingMob.y, firingMob.z)
-		attack_log += "\[[time_stamp()]\] <b>[key_name(firingMob)]</b> shot <b>[key_name(src)]</b> with \a <b>[bullet]</b>[shot_from] in [get_area(firingMob)]."
-		firingMob.attack_log += "\[[time_stamp()]\] <b>[key_name(firingMob)]</b> shot <b>[key_name(src)]</b> with \a <b>[bullet]</b>[shot_from] in [get_area(firingMob)]."
+			msg_admin_attack("[key_name(firingMob)] shot [key_name(src)] with \a [bullet][shot_from] in [log_location(firingMob)].", firingMob.x, firingMob.y, firingMob.z) //BANDAMARINES LOGIS EDIT
+		attack_log += "\[[time_stamp()]\] <b>[key_name(firingMob)]</b> shot <b>[key_name(src)]</b> with \a <b>[bullet]</b>[shot_from] in [log_location(firingMob)]." //BANDAMARINES LOGIS EDIT
+		firingMob.attack_log += "\[[time_stamp()]\] <b>[key_name(firingMob)]</b> shot <b>[key_name(src)]</b> with \a <b>[bullet]</b>[shot_from] in [log_location(firingMob)]." //BANDAMARINES LOGIS EDIT
 		return
 
 	attack_log += "\[[time_stamp()]\] <b>[bullet.firer ? bullet.firer : "SOMETHING??"]</b> shot <b>[key_name(src)]</b> with a <b>[bullet]</b>[shot_from]"
-	msg_admin_attack("[bullet.firer ? bullet.firer : "SOMETHING??"] shot [key_name(src)] with \a [bullet][shot_from] in [get_area(src)] ([loc.x],[loc.y],[loc.z]).", loc.x, loc.y, loc.z)
+	msg_admin_attack("[bullet.firer ? bullet.firer : "SOMETHING??"] shot [key_name(src)] with \a [bullet][shot_from] in [log_location(src)].", loc.x, loc.y, loc.z) //BANDAMARINES LOGIS EDIT
 
 //Abby -- Just check if they're 1 tile horizontal or vertical, no diagonals
 /proc/get_adj_simple(atom/Loc1,atom/Loc2)

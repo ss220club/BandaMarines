@@ -341,10 +341,11 @@
 	if(!A.loc)
 		message = "Invalid location"
 	else
+		var/area_text = sanitize_control_chars(strip_improper("[get_area(A)]")) //BANDAMARINES LOGIS EDIT
 		if(include_jmp_link)
-			message = "<a href='byond://?_src_=admin_holder;[HrefToken(forceGlobal = TRUE)];adminplayerobservecoodjump=1;X=[A.x];Y=[A.y];Z=[A.z]'>[get_area(A)]</a> ([A.x], [A.y], [A.z])"
+			message = "<a href='byond://?_src_=admin_holder;[HrefToken(forceGlobal = TRUE)];adminplayerobservecoodjump=1;X=[A.x];Y=[A.y];Z=[A.z]'>[area_text]</a> ([A.x], [A.y], [A.z])" //BANDAMARINES LOGIS EDIT
 		else
-			message = "[get_area(A)] ([A.x], [A.y], [A.z])"
+			message = "[area_text] ([A.x], [A.y], [A.z])" //BANDAMARINES LOGIS EDIT
 	return message
 
 //Adds 'char' ahead of 'text' until there are 'count' characters total
