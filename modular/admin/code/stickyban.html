@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../../"><link rel="stylesheet" href="dmdoc.css"><title>modular/admin/code/stickyban/README.md - byond</title></head><body><header><a href="index.html">byond</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a></header><main><h1>Модулярный Stickyban (Banda) <aside>modular/admin/code/stickyban/README.md</aside> <a href="https://github.com/ss220club/BandaMarines/blob/d3c9578d975be908a81277bb863dd25aefda8c9d/modular/admin/code/stickyban/README.md"><img src="git.png" width="16" height="16" title="modular/admin/code/stickyban/README.md"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><h2 id="область-изменений">Область изменений</h2>
+<ul>
+<li>Изменения выполняются только в <code>modular/admin/code/stickyban*</code>.</li>
+<li>Хардкод вне модуляра не изменяется.</li>
+<li>Интеграция идет через существующие <code>hascall/call</code>-хуки.</li>
+</ul>
+<h2 id="ключевые-инварианты">Ключевые инварианты</h2>
+<ul>
+<li>Канонический ключ root: <code>identifier = ckey(trim(identifier))</code>.</li>
+<li>Для пустого/мусорного <code>identifier</code> используется <code>legacy_empty_&lt;root_id&gt;</code>.</li>
+<li>Источник истины: только DB.</li>
+<li>Legacy import отключен no-op перехватчиком.</li>
+</ul>
+<h2 id="сервисная-структура-solid">Сервисная структура (SOLID)</h2>
+<ul>
+<li><code>stickyban_common.dm</code>: константы сигналов, общие ключи, мелкие helper-утилиты.</li>
+<li><code>stickyban_graph_service.dm</code>: кэш графа, инвалидация, traversal по готовому индексу.</li>
+<li><code>stickyban_whitelist_service.dm</code>: CRUD и синхронизация глобального whitelist.</li>
+<li><code>stickyban_cleanup_service.dm</code>: утилиты cleanup/dedupe/delete для match-таблиц.</li>
+<li><code>stickyban_audit_service.dm</code>: сбор метрик и формирование отчета аудита.</li>
+<li><code>stickyban_admin_actions.dm</code>: отдельные action-handler для admin Topic.</li>
+<li>Файлы <code>*_hooks.dm</code>, <code>stickyban_audit.dm</code>, <code>stickyban_global_whitelist.dm</code> оставлены как thin facade к сервисам.</li>
+</ul>
+<h2 id="двухуровневый-whitelist">Двухуровневый whitelist</h2>
+<ul>
+<li>Уровень 1: глобальный реестр <code>stickyban_whitelist</code> по <code>ckey</code> (персистентный).</li>
+<li>Уровень 2: локальные <code>whitelisted</code>-связи в <code>stickyban_matched_ckey</code> (совместимость с runtime).</li>
+<li>Выдача whitelist из sticky-панели записывает и в global, и в cluster.</li>
+<li>При удалении sticky-кластера локальные whitelist-связи поднимаются в global.</li>
+<li>При <code>purge_ckey_globally</code> глобально whitelisted CKEY сохраняет whitelist-защиту.</li>
+</ul>
+<h2 id="политика-авто-блокировки">Политика авто-блокировки</h2>
+<ul>
+<li>Direct CKEY hit блокирует сразу.</li>
+<li>Иначе блокировка только при минимум 2 разных сигналах из набора <code>CKEY/CID/IP</code>.</li>
+<li>Одиночный CID или одиночный IP не блокирует.</li>
+<li>Для globally whitelisted CKEY:
+<ul>
+<li>авто-блокировка не применяется;</li>
+<li><code>match_sticky</code> не записывает новые IP/CID-связи.</li>
+</ul>
+</li>
+</ul>
+<h2 id="графовая-модель-и-кэш-hot-path">Графовая модель и кэш hot-path</h2>
+<ul>
+<li>Сильные связи: <code>identifier</code>, <code>CKEY</code>, <code>CID</code>.</li>
+<li>IP используется как gated-сигнал (только для root с уже имеющимся сильным сигналом).</li>
+<li>Для whitelist/delete используется расширенный граф (включая <code>whitelisted</code> CKEY-связи).</li>
+</ul>
+<h3 id="контракт-кэша-графа">Контракт кэша графа</h3>
+<ul>
+<li>Кэш хранится в <code>SSstickyban</code>:
+<ul>
+<li><code>modular_graph_cache</code></li>
+<li><code>modular_graph_cache_stamp</code></li>
+<li><code>modular_graph_cache_rev</code></li>
+<li><code>modular_graph_cache_reason</code></li>
+</ul>
+</li>
+<li>TTL кэша: <code>STICKY_GRAPH_CACHE_TTL_DS</code> (по умолчанию 5 секунд).</li>
+<li>Используется в hot-path проверки stickyban при логине.</li>
+<li>Инвалидация выполняется через <code>modular_invalidate_graph_cache(reason)</code> при мутациях root/match-данных.</li>
+</ul>
+<h2 id="нормализация-дублей">Нормализация дублей</h2>
+<ul>
+<li>Нормализатор схлопывает граф-кластеры в canonical root.</li>
+<li>Canonical root выбирается по правилу:
+<ol>
+<li>active имеет приоритет;</li>
+<li>при равенстве берется максимальный <code>id</code>.</li>
+</ol>
+</li>
+<li><code>reason/message/date/adminid</code> у canonical берутся из newest root (максимальный <code>id</code>).</li>
+<li>Match-строки переносятся в canonical, дубли root удаляются.</li>
+</ul>
+<h2 id="индексы-и-startup-поток">Индексы и startup-поток</h2>
+<ul>
+<li>Уникальные инварианты:
+<ul>
+<li><code>stickyban(identifier)</code></li>
+<li><code>stickyban_matched_ckey(linked_stickyban, ckey)</code></li>
+<li><code>stickyban_matched_cid(linked_stickyban, cid)</code></li>
+<li><code>stickyban_matched_ip(linked_stickyban, ip)</code></li>
+<li><code>stickyban_whitelist(ckey)</code></li>
+</ul>
+</li>
+<li>На старте:
+<ol>
+<li>Синхронизация local whitelist -&gt; global whitelist.</li>
+<li>Cleanup сирот/дубликатов в match-таблицах.</li>
+<li>Graph normalize root-дублей.</li>
+<li>Best-effort ресинк индексов.</li>
+</ol>
+</li>
+</ul>
+<h2 id="админ-операции">Админ-операции</h2>
+<ul>
+<li><code>Sticky WL</code>: отдельная панель глобального whitelist, поиск по CKEY, add/remove.</li>
+<li><code>Аудит Stickyban</code>: состояние таблиц + дубли + global whitelist + политика матчинг-порогов.</li>
+<li><code>Нормализовать дубли Stickyban</code>: принудительное схлопывание дублей по графу.</li>
+<li><code>Очистить Sticky CKEY</code>: удаляет CKEY-связи по всему stickyban, но сохраняет whitelist-защиту.</li>
+</ul></td></tr></table></main><footer>colonialmarines.dme <a href="https://github.com/ss220club/BandaMarines/tree/d3c9578d975be908a81277bb863dd25aefda8c9d">d3c9578</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.11.0</a></footer></body></html>
