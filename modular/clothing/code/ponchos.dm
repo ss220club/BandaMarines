@@ -30,6 +30,30 @@
 	icon_state = "red_cape"
 	item_state = "red_cape"
 
+/obj/item/clothing/accessory/cape/green_cape
+	name = "torn green cape"
+	desc = "A torn up green cape."
+	icon_state = "green_cape"
+	item_state = "green_cape"
+
+/obj/item/clothing/accessory/cape/brown_cape
+	name = "torn brown cape"
+	desc = "A torn up brown cape."
+	icon_state = "brown_cape"
+	item_state = "brown_cape"
+
+/obj/item/clothing/accessory/cape/blue_cape
+	name = "torn blue cape"
+	desc = "A torn up blue cape."
+	icon_state = "blue_cape"
+	item_state = "blue_cape"
+
+/obj/item/clothing/accessory/cape/purple_cape
+	name = "torn purple cape"
+	desc = "A torn up purple cape."
+	icon_state = "purple_cape"
+	item_state = "purple_cape"
+
 /obj/item/clothing/accessory/cape/uscm_cape
 	name = "torn USCM flag"
 	desc = "A torn up USCM flag with a pin that allows it to be worn as a cape."
