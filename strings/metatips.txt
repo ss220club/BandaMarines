@@ -22,3 +22,8 @@ Alt-кликните по хранилищу, чтобы достать посл
 Карты могут и будут случайно модифицированы системой Nightmare - будьте начеку во время патрулирования!
 Вы можете пойти на GitHub, чтобы посмотреть код игры и предложить свои изменения.
 Resisting can interrupt many different wind-up actions such as de-oving.
+You have to save yourself before you can save others.
+When faced with overwhelming resistance, consider pulling back.
+To be a badass, you first must be bad.
+In the main lobby screen, you can click on the USCM logo to minimize the UI, allowing you to view the full artwork
+

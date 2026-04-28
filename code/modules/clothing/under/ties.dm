@@ -786,6 +786,7 @@
 	name = "USCM Poncho"
 	desc = "The standard USCM poncho has variations for every climate. Custom fitted to be attached to standard USCM armor variants it is comfortable, warming or cooling as needed, and well-fit. A marine couldn't ask for more. Affectionately referred to as a \"woobie\"."
 	icon_state = "poncho"
+	item_state = "poncho"
 	icon = 'icons/obj/items/clothing/accessory/ponchos.dmi'
 	inv_overlay_icon = 'icons/obj/items/clothing/accessory/inventory_overlays/ponchos.dmi'
 	accessory_icons = list(
@@ -806,18 +807,23 @@
 
 /obj/item/clothing/accessory/poncho/green
 	icon_state = "poncho"
+	item_state = "poncho"
 
 /obj/item/clothing/accessory/poncho/brown
 	icon_state = "d_poncho"
+	item_state = "d_poncho"
 
 /obj/item/clothing/accessory/poncho/black
 	icon_state = "u_poncho"
+	item_state = "u_poncho"
 
 /obj/item/clothing/accessory/poncho/blue
 	icon_state = "c_poncho"
+	item_state = "c_poncho"
 
 /obj/item/clothing/accessory/poncho/purple
 	icon_state = "s_poncho"
+	item_state = "s_poncho"
 
 /obj/item/clothing/accessory/clf_cape
 	name = "torn CLF flag"

@@ -69,15 +69,23 @@
 	replace_in_desc("%WEAKEN%", 0.5, DESCRIPTION_REPLACEMENT_TIME)
 	replace_in_desc("%SLOW%", 2.5, DESCRIPTION_REPLACEMENT_TIME)
 
+/datum/action/xeno_action/activable/tail_stab/harpoon_tail
+
+/datum/action/xeno_action/activable/tail_stab/harpoon_tail/apply_replaces_in_desc()
+	. = ..()
+	desc += "<br><br>В намерении обезоруживания, наносит %DISARM_DAMAGE% урона, игнорируя броню, и перезарядка умения будет ускорена."
+	replace_in_desc("%DISARM_DAMAGE%", /datum/behavior_delegate/praetorian_dancer::blunt_damage)
+
 /datum/action/xeno_action/activable/prae_impale
-	desc = "Удар хвостом, наносящий %DAMAGE% урона. Если цель имеет метку, она получит этот урон дважды."
+	desc = "Удар хвостом, наносящий %DAMAGE% урона на расстоянии %RANGE% Если цель имеет метку, она получит этот урон дважды."
 
 /datum/action/xeno_action/activable/prae_impale/apply_replaces_in_desc()
 	var/mob/living/carbon/xenomorph/dancer_user = owner
 	replace_in_desc("%DAMAGE%", round((dancer_user.melee_damage_lower + dancer_user.melee_damage_upper) / 2, 1))
+	replace_in_desc("%RANGE%", range, DESCRIPTION_REPLACEMENT_DISTANCE)
 
 /datum/action/xeno_action/onclick/prae_dodge
-	desc = "Увеличивает вашу скорость движения и позволяет ходить сквозь существ на %TIME%."
+	desc = "Увеличивает вашу скорость движения и позволяет ходить сквозь существ на %TIME% Раннее прерывание способности ускорит перезарядку."
 
 /datum/action/xeno_action/onclick/prae_dodge/apply_replaces_in_desc()
 	replace_in_desc("%TIME%", duration / 10, DESCRIPTION_REPLACEMENT_TIME)

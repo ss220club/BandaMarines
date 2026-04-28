@@ -1,4 +1,5 @@
 Кислотные столбы можно незаметно разместить рядом с дверью, чтобы удивить морпехов.
+Acid pillars are amazing at extinguishing fellow sisters- Place them near the frontline for maximum effect.
 Такие структуры ксеноморфов, как кластеры, стены или столбы, жизненно важны для вашей победы, будь они укрытием, задержкой или направлением морпехов.
 Всегда благодарите своих дронов и владык улья за поддержку улья!
 Не недооценивайте выживших. У них нет брони, но это делает их очень быстрыми, они от природы выносливее морпехов и имеют различные трюки в рукаве.
@@ -57,3 +58,9 @@ Alt-клик по трекеру Королевы позволяет вам на
 Защитники с опущенным гребнем могут открывать существующие дыры в стенах.
 Будучи защитником, вы можете нанести дополнительный урон ЛКП, опустив гребень и затем атаковав его.
 Любой ксеноморф с кислотой может плавить любые оконные рамы; вы можете использовать это для создания дополнительных троп.
+Any Xenomorph can close resin doors behind you when being chased! Click on an open door on any intent but harm to close it
+As a Xenomorph, be wary when prying open powered doors, as they'll automatically close after some time.
+As a Xenomorph, if you find that you keep getting yourself killed because you accidentally deactivate your abilities from double tapping their hotkeys, try disabling ability deactivation in your preferences!
+Xenomorphs can spit acid at claymores to activate them early - and if a marine is on top of a claymore while its activated… find out for yourself!
+As a Xenomorph, if you're aware that a marine has a Motion Detector, you can hold still while behind a door to get the drop on them!
+As a Queen, in the hive status window you can adjust health levels, so you only see those you need to heal.

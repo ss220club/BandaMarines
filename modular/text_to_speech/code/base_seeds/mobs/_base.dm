@@ -1,13 +1,15 @@
-//Fallback values for TTS voices
+// Fallback values for TTS voices
 
 /mob/living/add_tts_component()
 	AddComponent(/datum/component/tts_component)
 
-/mob/living/simple_animal/add_tts_component()
-	AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/angel)
-
 /mob/living/silicon/add_tts_component()
-	AddComponent(/datum/component/tts_component, null, TTS_TRAIT_ROBOTIZE)
+	AddComponent(/datum/component/tts_component, null, list(/datum/singleton/sound_effect/robot))
+
+/mob/living/carbon/add_tts_component()
+	var/random_tts_seed_key = SStts220.pick_tts_seed_by_gender(gender)
+	var/datum/tts_seed/random_tts_seed = SStts220.tts_seeds[random_tts_seed_key]
+	AddComponent(/datum/component/tts_component, random_tts_seed)
 
 /mob/living/remove_tts_component()
 	var/datum/component/tts_component/tts_component = GetComponent(/datum/component/tts_component)
@@ -17,15 +19,6 @@
 /mob/living/carbon/Initialize()
 	. = ..()
 	tts_seed = get_tts_seed()
-
-/mob/living/carbon/proc/change_tts_seed_ask()
-	if(!client)
-		return
-
-	var/alert = tgui_alert(src, "Хотите поменять свой голос? Текущий - [src.tts_seed]", "Смена TTS", list("Да","Нет"))
-	if(alert != "Да")
-		return
-	change_tts_seed(src, TRUE, TRUE)
 
 /datum/equipment_preset/load_preset(mob/living/carbon/human/new_human, randomise = FALSE, count_participant = FALSE, client/mob_client, show_job_gear = TRUE)
 	. = ..()
@@ -38,5 +31,4 @@
 
 	new_human.add_tts_component()
 	new_human.tts_seed = new_human.get_tts_seed()
-
 	INVOKE_ASYNC(new_human, TYPE_PROC_REF(/mob/living/carbon, change_tts_seed_ask))
