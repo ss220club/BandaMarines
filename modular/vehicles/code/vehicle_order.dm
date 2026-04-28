@@ -22,7 +22,9 @@
 		return "Бронеавтомобили"
 	if(istype(order, /datum/vehicle_order/arc))
 		return "Разведка"
-	if(istype(order, /datum/vehicle_order/van) || istype(order, /datum/vehicle_order/humvee/medical) || istype(order, /datum/vehicle_order/humvee/transport))
+	if(istype(order, /datum/vehicle_order/van/uscm_van/med) || istype(order, /datum/vehicle_order/humvee/medical))
+		return "Санитаркая техника"
+	if(istype(order, /datum/vehicle_order/van/uscm_van) || istype(order, /datum/vehicle_order/humvee/transport))
 		return "Логистическая техника"
 	return "другое"
 
@@ -40,6 +42,8 @@
 			player_count = (clients >= MIN_PLAYERS_LIGHT_SUPPORT)
 		if("Разведка")
 			player_count = (clients >= MIN_PLAYERS_LIGHT_RECON)
+		if("Санитаркая техника")
+			player_count = (clients >= MIN_PLAYERS_LIGHT_VEHICLE)
 		if("Логистическая техника")
 			player_count = (clients >= MIN_PLAYERS_LIGHT_VEHICLE)
 		else
@@ -58,6 +62,7 @@
 		"Бронетранспортеры" = LIMIT_MEDIUM_SUPPORT_VEHICLES,
 		"Бронеавтомобили" = LIMIT_LIGHT_SUPPORT_VEHICLES,
 		"Разведка" = LIMIT_LIGHT_RECON_VEHICLES,
+		"Санитаркая техника" = LIMIT_LIGHT_CARRIERS,
 		"Логистическая техника" = LIMIT_LIGHT_CARRIERS
 	)
 
@@ -66,6 +71,7 @@
 		"Бронетранспортеры" = 0,
 		"Бронеавтомобили" = 0,
 		"Разведка" = 0,
+		"Санитаркая техника" = 0,
 		"Логистическая техника" = 0
 	)
 
@@ -83,8 +89,9 @@
 		"Тяжелая бронетехника" = "Огневая поддержка",
 		"Бронетранспортеры"    = "Огневая поддержка",
 		"Бронеавтомобили"      = "Огневая поддержка",
-		"Логистическая техника" = "Логистика",
-		"Разведка"  = "Специальная техника"
+		"Разведка"  = "Специальная техника",
+		"Санитаркая техника" = "Логистика",
+		"Логистическая техника" = "Логистика"
 	)
 
 	spent = FALSE

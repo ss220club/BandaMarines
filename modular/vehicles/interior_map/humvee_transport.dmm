@@ -69,6 +69,16 @@
 	layer = 5.23;
 	alpha = 150
 	},
+/obj/structure/transmitter{
+	dir = 8;
+	layer = 3.1;
+	name = "Автомобильный телефон";
+	phone_category = "Vehicles";
+	phone_id = "Грузовой автомобиль M2422 JTMV";
+	pixel_x = 14;
+	pixel_y = 17;
+	desc = "Мелким шрифтом написано: «Для регистрации ваших данных в главном компьютере вставьте вашу ключ-карту в слот ниже. К сожалению, слот заклинило. Однако вы все еще можете пользоваться телефоном»."
+	},
 /turf/open/shuttle/vehicle,
 /area/interior/vehicle/humvee/transport)
 "y" = (

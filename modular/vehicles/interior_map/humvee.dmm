@@ -110,6 +110,16 @@
 	icon_state = "exit_door";
 	layer = 5.22
 	},
+/obj/structure/transmitter{
+	dir = 8;
+	layer = 3.1;
+	name = "Автомобильный телефон";
+	phone_category = "Vehicles";
+	phone_id = "Бронеавтомобиль M2420 JTMV-HWC";
+	pixel_x = 14;
+	pixel_y = 17;
+	desc = "Мелким шрифтом написано: «Для регистрации ваших данных в главном компьютере вставьте вашу ключ-карту в слот ниже. К сожалению, слот заклинило. Однако вы все еще можете пользоваться телефоном»."
+	},
 /turf/open/shuttle/vehicle,
 /area/interior/vehicle/humvee)
 "M" = (

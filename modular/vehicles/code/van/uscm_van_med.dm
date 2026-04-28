@@ -1,5 +1,5 @@
 /obj/vehicle/multitile/modul/uscm_van/med
-	name = "M577-M Husky"
+	name = "\improper Санитарный фургон M35-M"
 	icon = 'modular/vehicles/icons/uscm_van/uscm_van_med.dmi'
 	desc = "Старый, надёжный медицинский транспорт для личного состава USCM, любимец механиков и проклятье водителей. Приспособлен для любых атмосферных условий, устойчив к перегреву, радиации и глупости экипажа."
 

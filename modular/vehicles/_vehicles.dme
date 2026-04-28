@@ -37,14 +37,19 @@
 #include "code/vehicle_choice.dm"
 #include "code/vehicle_order.dm"
 #include "code/arc/arc_fix.dm"
+
+//interior
 #include "code/interior/interior.dm"
 #include "code/interior/interior_map_modul.dm"
-//#include "code/vehicle_tech.dm"
-#include "code/vehicle_structure.dm"
-#include "code/vehicle_areas.dm"
-#include "code/vehicle_ammo.dm"
-#include "code/supplyshuttle_override.dm"
-#include "code/vehicle_crew_override.dm"
+#include "code/interior/vehicle_structure.dm"
+#include "code/interior/vehicle_areas.dm"
+
+//hardpoints
+#include "code/hardpoints/vehicle_ammo.dm"
+
+//override
+#include "code/override/supplyshuttle_override.dm"
+#include "code/override/vehicle_crew_override.dm"
 
 //humvee
 #include "code/humvee/humvee.dm"

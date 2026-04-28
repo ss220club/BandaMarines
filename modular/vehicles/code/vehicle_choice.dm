@@ -6,11 +6,11 @@
 	category = "VAN"
 
 /datum/vehicle_order/van/uscm_van
-	name = "M577-C Mule Personnel Carrier"
+	name = "Грузовой фургон M35-T"
 	ordered_vehicle = /obj/effect/vehicle_spawner/uscm_van/fixed
 
 /datum/vehicle_order/van/uscm_van/med
-	name = "M577-M Husky Personnel Med Transport"
+	name = "Санитарный фургон M35-M"
 	ordered_vehicle = /obj/effect/vehicle_spawner/uscm_van/med/fixed
 
 // добавляем хамер в меню заказа техники

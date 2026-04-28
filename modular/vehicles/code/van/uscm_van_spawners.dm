@@ -2,7 +2,7 @@
 
 //uscm_van
 /obj/effect/vehicle_spawner/uscm_van
-	name = "M577-T Mule"
+	name = "Грузовой фургон M35-T Spawner"
 	icon = 'modular/vehicles/icons/uscm_van/uscm_van.dmi'
 	icon_state = "van_base"
 
@@ -47,7 +47,7 @@
 
 //uscm_van/med
 /obj/effect/vehicle_spawner/uscm_van/med
-	name = "M577-M Husky Spawner"
+	name = "Санитарный фургон M35-M Spawner"
 	icon = 'modular/vehicles/icons/uscm_van/uscm_van_med.dmi'
 	icon_state = "van_base"
 

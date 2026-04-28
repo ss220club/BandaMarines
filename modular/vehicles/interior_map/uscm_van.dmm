@@ -34,7 +34,7 @@
 	dir = 1
 	},
 /turf/open/shuttle/vehicle/med/slate,
-/area/interior/vehicle/box_van)
+/area/interior/vehicle/van/uscm)
 "i" = (
 /obj/effect/vehicle_roof/uscm_van{
 	icon_state = "front_1"
@@ -73,7 +73,7 @@
 	pixel_x = 7
 	},
 /turf/open/shuttle/vehicle/med/slate,
-/area/interior/vehicle/box_van)
+/area/interior/vehicle/van/uscm)
 "r" = (
 /obj/structure/interior_wall/uscm_van{
 	icon_state = "exterior_3"
@@ -109,7 +109,7 @@
 	icon_state = "front_roof_2"
 	},
 /turf/open/shuttle/vehicle/floor_3_11,
-/area/interior/vehicle/box_van)
+/area/interior/vehicle/van/uscm)
 "v" = (
 /obj/effect/landmark/interior/spawn/interior_viewport/simple/windshield{
 	icon = 'icons/obj/vehicles/interiors/box_van_interior.dmi'
@@ -139,7 +139,7 @@
 	dir = 4
 	},
 /turf/open/shuttle/vehicle/floor_3_12,
-/area/interior/vehicle/box_van)
+/area/interior/vehicle/van/uscm)
 "G" = (
 /obj/effect/landmark/interior/spawn/interior_viewport/simple{
 	alpha = 100;
@@ -154,7 +154,7 @@
 	dir = 1
 	},
 /turf/open/shuttle/vehicle/med/slate,
-/area/interior/vehicle/box_van)
+/area/interior/vehicle/van/uscm)
 "J" = (
 /obj/structure/interior_wall/uscm_van{
 	icon_state = "background_3";
@@ -180,7 +180,7 @@
 	pixel_x = 3
 	},
 /turf/open/shuttle/vehicle/med/slate,
-/area/interior/vehicle/box_van)
+/area/interior/vehicle/van/uscm)
 "O" = (
 /turf/open/void/vehicle,
 /area/space)
