@@ -10,7 +10,7 @@
 /obj/item/clothing/accessory/cape
 	name = "cape"
 	desc = "a cape"
-	icon = 'modular/clothing/accessory/capes.dmi'
+	icon = 'icons/obj/items/clothing/accessory/capes.dmi'
 	inv_overlay_icon = 'modular/clothing/accessory/inventory_overlays/capes.dmi'
 	accessory_icons = list(
 		WEAR_BODY = 'modular/clothing/accessory/inventory_overlays/capes.dmi',
