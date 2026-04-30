@@ -250,6 +250,15 @@ instrumental = "столом"
 prepositional = "столе"
 gender = "male"
 
+["barrel"]
+nominative = "бочка"
+genitive = "бочки"
+dative = "бочке"
+accusative = "бочку"
+instrumental = "бочкой"
+prepositional = "бочке"
+gender = "female"
+
 ["red barrel"]
 nominative = "красная бочка"
 genitive = "красной бочки"
