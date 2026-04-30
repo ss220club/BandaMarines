@@ -48,11 +48,6 @@
 	path = /obj/item/clothing/accessory/cape/black_cape
 	fluff_cost = 3
 
-/datum/gear/misc/cape/red_cape
-	display_name = "Cape, red"
-	path = /obj/item/clothing/accessory/cape/red_cape
-	fluff_cost = 3
-
 /datum/gear/misc/cape/green_cape
 	display_name = "Cape, green"
 	path = /obj/item/clothing/accessory/cape/green_cape
@@ -71,14 +66,4 @@
 /datum/gear/misc/cape/purple_cape
 	display_name = "Cape, purple"
 	path = /obj/item/clothing/accessory/cape/purple_cape
-	fluff_cost = 3
-
-/datum/gear/misc/cape/uscm_cape
-	display_name = "USCM Cape"
-	path = /obj/item/clothing/accessory/cape/uscm_cape
-	fluff_cost = 3
-
-/datum/gear/misc/cape/twe_cape
-	display_name = "TWE Cape"
-	path = /obj/item/clothing/accessory/cape/twe_cape
 	fluff_cost = 3
