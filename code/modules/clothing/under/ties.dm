@@ -825,7 +825,7 @@
 	icon_state = "s_poncho"
 	item_state = "s_poncho"
 
-/obj/item/clothing/accessory/cape/clf_cape
+/obj/item/clothing/accessory/cape/clf_cape //SS220 EDIT
 	name = "torn CLF flag"
 	desc = "A torn up CLF flag with a pin that allows it to be worn as a cape."
 	icon_state = "clf_cape"
