@@ -2,4 +2,3 @@
 
 #include "code/ftl_helmet.dm"
 #include "code/ponchos.dm"
-#include "_clothing.dm"
