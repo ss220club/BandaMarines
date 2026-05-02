@@ -436,20 +436,6 @@ const XenoList = (props) => {
       </Flex.Item>
       <Flex.Item mb={1}>
         <Flex align="baseline">
-          <Flex.Item>
-            <Button.Checkbox
-              inline
-              checked={showPlasma}
-              backgroundColor={showPlasma && hive_color}
-              onClick={() => setShowPlasma(!showPlasma)}
-            >
-              Show Plasma
-            </Button.Checkbox>
-          </Flex.Item>
-        </Flex>
-      </Flex.Item>
-      <Flex.Item mb={1}>
-        <Flex align="baseline">
           <Flex.Item width="100px">Максимальное здоровье:</Flex.Item>
           <Flex.Item>
             <NumberInput
