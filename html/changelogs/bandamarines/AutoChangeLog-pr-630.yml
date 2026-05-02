@@ -1,0 +1,4 @@
+author: "Zvezdablya"
+delete-after: True
+changes:
+  - rscadd: "Убрана кнопка \"Show Plasma\" из Hive Status."
