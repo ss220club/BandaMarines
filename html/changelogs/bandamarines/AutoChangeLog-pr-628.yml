@@ -1,0 +1,4 @@
+author: "Zvezdablya"
+delete-after: True
+changes:
+  - rscadd: "КО теперь может выдавать все планки ХО."
