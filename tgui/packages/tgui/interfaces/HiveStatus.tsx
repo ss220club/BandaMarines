@@ -434,7 +434,6 @@ const XenoList = (props) => {
           </Flex.Item>
         </Flex>
       </Flex.Item>
-      {/* 220 EDIT - DELETE  Show Plasma*/}
       <Flex.Item mb={1}>
         <Flex align="baseline">
           <Flex.Item width="100px">Максимальное здоровье:</Flex.Item>
