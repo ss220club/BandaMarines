@@ -2,7 +2,7 @@
 /mob/living/carbon/human/whisper(message as text)
 	var/alt_name = ""
 
-	log_whisper("[src.name]/[src.key] : [message]")
+	log_whisper(logis_speech_line(src, message, "Whisper"), src) //BANDAMARINES LOGIS EDIT
 
 	if (src.client)
 		if (src.client.prefs.muted & MUTE_IC)
@@ -115,7 +115,7 @@
 
 	spawn(30)
 		if(not_dead_speaker)
-			log_say("[name != "Unknown" ? name : "([real_name])"] \[Whisper\]: [message] (CKEY: [key]) (JOB: [job]) (AREA: [get_area_name(loc)])")
+			log_say(logis_speech_line(src, message, "Whisper"), src) //BANDAMARINES LOGIS EDIT
 
 	if (length(watching))
 		var/rendered = "<span class='game say'><span class='name'>[src.name]</span> whispers something.</span>"

@@ -71,5 +71,9 @@
 	if(client?.prefs.main_cursor)
 		update_cursor()
 
+	//BANDAMARINES LOGIS EDIT START
+	var/log_identity = logis_identity(src)
+	log_game("[log_identity] Client [log_identity] has taken ownership of mob [src]([src.type]) ([log_location(src)])")
+	//BANDAMARINES LOGIS EDIT END
 /mob/proc/set_logged_in_mob()
 	GLOB.ckey_to_occupied_mob[client.ckey] = src

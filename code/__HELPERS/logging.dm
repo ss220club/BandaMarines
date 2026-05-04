@@ -19,6 +19,54 @@
 // Log categories
 #define LOG_CATEGORY_NOT_FOUND "invalid_category"
 
+// LOGIS categories
+#define LOGIS_LOG_CATEGORY_ADMIN "ADMIN"
+#define LOGIS_LOG_CATEGORY_ADMINSAY "ADMINSAY"
+#define LOGIS_LOG_CATEGORY_ATTACK "ATTACK"
+#define LOGIS_LOG_CATEGORY_DEADCHAT "DEADCHAT"
+#define LOGIS_LOG_CATEGORY_DEBUG "DEBUG"
+#define LOGIS_LOG_CATEGORY_EMOTE "EMOTE"
+#define LOGIS_LOG_CATEGORY_GAME "GAME"
+#define LOGIS_LOG_CATEGORY_LOOC "LOOC"
+#define LOGIS_LOG_CATEGORY_OOC "OOC"
+#define LOGIS_LOG_CATEGORY_SAY "SAY"
+#define LOGIS_LOG_CATEGORY_VOTE "VOTE"
+#define LOGIS_LOG_CATEGORY_WHISPER "WHISPER"
+#define LOGIS_LOG_CATEGORY_WORLD "WORLD"
+#define LOGIS_LOG_CATEGORY_MISC "MISC"
+#define LOGIS_LOG_CATEGORY_ASSETS "ASSETS"
+#define LOGIS_LOG_CATEGORY_ACCESS "ACCESS"
+#define LOGIS_LOG_CATEGORY_ADMINWARN "ADMINWARN"
+#define LOGIS_LOG_CATEGORY_MENTORSAY "MENTORSAY"
+
+GLOBAL_LIST_INIT(local_to_logis_logs_map, list(
+	"ADMIN" = LOGIS_LOG_CATEGORY_ADMIN,
+	"DEADCHAT" = LOGIS_LOG_CATEGORY_DEADCHAT,
+	"ASSET" = LOGIS_LOG_CATEGORY_ASSETS,
+	"DEBUG" = LOGIS_LOG_CATEGORY_DEBUG,
+	"GAME" = LOGIS_LOG_CATEGORY_GAME,
+	"INTERACT" = LOGIS_LOG_CATEGORY_ATTACK,
+	"OVERWATCH" = LOGIS_LOG_CATEGORY_MISC,
+	"GARBLE" = LOGIS_LOG_CATEGORY_SAY,
+	"ID MOD" = LOGIS_LOG_CATEGORY_ACCESS,
+	"VOTE" = LOGIS_LOG_CATEGORY_VOTE,
+	"ACCESS" = LOGIS_LOG_CATEGORY_ACCESS,
+	"SAY" = LOGIS_LOG_CATEGORY_SAY,
+	"HIVEMIND" = LOGIS_LOG_CATEGORY_SAY,
+	"OOC" = LOGIS_LOG_CATEGORY_OOC,
+	"LOOC" = LOGIS_LOG_CATEGORY_LOOC,
+	"WHISPER" = LOGIS_LOG_CATEGORY_WHISPER,
+	"EMOTE" = LOGIS_LOG_CATEGORY_EMOTE,
+	"ATTACK" = LOGIS_LOG_CATEGORY_ATTACK,
+	"ADMINSAY" = LOGIS_LOG_CATEGORY_ADMINSAY,
+	"ADMINWARN" = LOGIS_LOG_CATEGORY_ADMINWARN,
+	"MISC" = LOGIS_LOG_CATEGORY_MISC,
+	"HIVE ORDER" = LOGIS_LOG_CATEGORY_MISC,
+	"ANNOUNCEMENT" = LOGIS_LOG_CATEGORY_WORLD,
+	"MENTORHELP" = LOGIS_LOG_CATEGORY_MENTORSAY,
+	"TOPIC" = LOGIS_LOG_CATEGORY_WORLD
+))
+
 #define DIRECT_OUTPUT(A, B) A << B
 #define SEND_TEXT(target, text) DIRECT_OUTPUT(target, text)
 #define SEND_SOUND(target, sound) DIRECT_OUTPUT(target, sound)
@@ -37,6 +85,131 @@
 
 GLOBAL_VAR_INIT(log_end, world.system_type == UNIX ? ascii2text(13) : "")
 
+/proc/log_to_logis(local_category, text, atom/source = null)
+	if(!GLOB.world_logis_game_log)
+		return
+
+	text = logis_normalize_entry_text(text, local_category, source)
+	var/logis_category = GLOB.local_to_logis_logs_map[local_category] || LOGIS_LOG_CATEGORY_MISC
+	WRITE_LOG(GLOB.world_logis_game_log, "[logis_category]: [text]")
+
+/proc/logis_replace_ckey_field(text, source_ckey)
+	var/ckey_field_start = findtext(text, "(CKEY:")
+	if(!ckey_field_start)
+		return text
+
+	var/ckey_field_end = findtext(text, ")", ckey_field_start)
+	if(!ckey_field_end)
+		return text
+
+	return "[copytext(text, 1, ckey_field_start)](CKEY: [source_ckey])[copytext(text, ckey_field_end + 1)]"
+
+/proc/logis_is_strict_admin_line(text)
+	if(!istext(text))
+		return FALSE
+
+	return findtext(text, "Mentorhelp: ") == 1 || findtext(text, "Adminhelp: ") == 1 || findtext(text, "HELP: ") == 1 || findtext(text, "PM: ") == 1
+
+/proc/logis_is_speech_line(text)
+	if(!istext(text))
+		return FALSE
+
+	return findtext(text, "/(") && findtext(text, ") (") && findtext(text, "): ")
+
+/proc/logis_normalize_entry_text(text, local_category = null, atom/source = null)
+	if(!istext(text))
+		return text
+
+	var/normalized_text = sanitize_control_chars("[text]")
+	var/source_ckey = source ? logis_ckey(source) : null
+
+	if(source_ckey)
+		if(findtext(normalized_text, "(CKEY:"))
+			normalized_text = logis_replace_ckey_field(normalized_text, source_ckey)
+			return normalized_text
+
+		if(logis_is_speech_line(normalized_text))
+			return normalized_text
+
+		if(local_category == "ADMIN" && logis_is_strict_admin_line(normalized_text))
+			return normalized_text
+
+		normalized_text += " (CKEY: [source_ckey])"
+		return normalized_text
+
+	return normalized_text
+
+/proc/log_location(atom/source)
+	if(!source)
+		return "Unknown Area (?, ?, ?)"
+
+	var/turf/source_turf = get_turf(source)
+	if(!source_turf)
+		return "Unknown Area (?, ?, ?)"
+
+	var/area_name = sanitize_control_chars(strip_improper(get_area_name(source_turf) || "Unknown Area"))
+	return "[area_name] ([source_turf.x],[source_turf.y],[source_turf.z])"
+
+/proc/logis_ckey(atom/source)
+	if(!ismob(source))
+		return null
+
+	var/mob/mob_source = source
+	if(mob_source.ckey)
+		return mob_source.ckey
+	if(mob_source.key)
+		return lowertext(mob_source.key)
+	return null
+
+/proc/logis_name(atom/source)
+	if(!ismob(source))
+		return "Unknown"
+
+	var/mob/mob_source = source
+	if(istype(mob_source, /mob/living/carbon/xenomorph))
+		var/mob/living/carbon/xenomorph/xeno_source = mob_source
+		if(xeno_source.nicknumber)
+			return "[xeno_source.nicknumber]"
+		if(xeno_source.full_designation)
+			return xeno_source.full_designation
+	return mob_source.real_name || mob_source.name || "Unknown"
+
+/proc/logis_identity(atom/source)
+	var/source_ckey = logis_ckey(source) || "*no key*"
+	return "[source_ckey]/([logis_name(source)])"
+
+/proc/logis_coords(atom/source)
+	var/turf/source_turf = get_turf(source)
+	if(!source_turf)
+		return "(0,0,0)"
+	return "([source_turf.x],[source_turf.y],[source_turf.z])"
+
+/proc/logis_speech_line(atom/source, message, channel = null)
+	var/prefix = "[logis_identity(source)] [logis_coords(source)]: "
+	if(channel)
+		prefix += "([channel]) "
+	return "[prefix]'[message]'"
+
+/proc/logis_emote_line(atom/source, message)
+	if(!source)
+		return "[message]"
+	return "[logis_identity(source)] ([REF(source)]) [message] ([log_location(source)])"
+
+/proc/logis_adminhelp_ticket_line(client/initiator, message, heard_count)
+	if(!initiator)
+		return null
+	return "Adminhelp: [key_name(initiator)]: [message]- heard by [heard_count] non-AFK admins."
+
+/proc/logis_help_ticket_line(client/initiator, message, heard_count)
+	if(!initiator)
+		return null
+	return "HELP: [key_name(initiator)]: [message]- heard by [heard_count] non-AFK admins."
+
+/proc/logis_mentorhelp_ticket_line(client/initiator, message, heard_count)
+	if(!initiator)
+		return null
+	return "Mentorhelp: [key_name(initiator)]: [message]- heard by [heard_count] non-AFK mentors."
+
 /proc/error(msg)
 	world.log << "## ERROR: [msg][GLOB.log_end]"
 	GLOB.STUI.debug.Add("\[[time_stamp()]]DEBUG: [msg]")
@@ -53,11 +226,12 @@ GLOBAL_VAR_INIT(log_end, world.system_type == UNIX ? ascii2text(13) : "")
 	GLOB.STUI.debug.Add("\[[time_stamp()]]TESTING: [msg]")
 	GLOB.STUI.processing |= STUI_LOG_DEBUG
 
-/proc/log_admin(text)
+/proc/log_admin(text, logis_category = "ADMIN")
 	var/time = time_stamp()
 	GLOB.admin_log.Add(text)
 	if (CONFIG_GET(flag/log_admin))
 		WRITE_LOG(GLOB.world_game_log, "ADMIN: [text]")
+		log_to_logis(logis_category, text)
 		LOG_REDIS("admin", "\[[time]\] [text]")
 	GLOB.STUI.admin.Add("\[[time]]ADMIN: [text]")
 	GLOB.STUI.processing |= STUI_LOG_ADMIN
@@ -67,12 +241,14 @@ GLOBAL_VAR_INIT(log_end, world.system_type == UNIX ? ascii2text(13) : "")
 	if (CONFIG_GET(flag/log_asset))
 		var/time = time_stamp()
 		WRITE_LOG(GLOB.world_game_log, "ASSET: [text]")
+		log_to_logis("ASSET", text)
 		LOG_REDIS("asset", "\[[time]\] [text]")
 
 /proc/log_adminpm(text)
 	GLOB.admin_log.Add(text)
 	if (CONFIG_GET(flag/log_admin))
 		WRITE_LOG(GLOB.world_game_log, "ADMIN: [text]")
+		log_to_logis("ADMIN", text)
 	GLOB.STUI.staff.Add("\[[time_stamp()]]ADMIN: [text]")
 	GLOB.STUI.processing |= STUI_LOG_STAFF_CHAT
 
@@ -83,6 +259,7 @@ GLOBAL_VAR_INIT(log_end, world.system_type == UNIX ? ascii2text(13) : "")
 	var/time = time_stamp()
 	if (CONFIG_GET(flag/log_debug))
 		WRITE_LOG(GLOB.world_game_log, "DEBUG: [text]")
+		log_to_logis("DEBUG", text)
 		LOG_REDIS("debug", "\[[time]\] [text]")
 
 	if(diary_only)
@@ -100,6 +277,7 @@ GLOBAL_VAR_INIT(log_end, world.system_type == UNIX ? ascii2text(13) : "")
 	var/time = time_stamp()
 	if (CONFIG_GET(flag/log_game))
 		WRITE_LOG(GLOB.world_game_log, "GAME: [text]")
+		log_to_logis("GAME", text)
 		LOG_REDIS("game", "\[[time]\] [text]")
 	GLOB.STUI.admin.Add("\[[time]]GAME: [text]")
 	GLOB.STUI.processing |= STUI_LOG_ADMIN
@@ -108,6 +286,7 @@ GLOBAL_VAR_INIT(log_end, world.system_type == UNIX ? ascii2text(13) : "")
 	var/time = time_stamp()
 	if (CONFIG_GET(flag/log_interact))
 		WRITE_LOG(GLOB.world_game_log, "INTERACT: [msg]")
+		log_to_logis("INTERACT", msg)
 		LOG_REDIS("interact", "\[[time]\] [msg]")
 	if(origin)
 		origin.attack_log += "\[[time]\]<font color='green'> [msg] </font>"
@@ -122,6 +301,7 @@ GLOBAL_VAR_INIT(log_end, world.system_type == UNIX ? ascii2text(13) : "")
 	var/time = time_stamp()
 	if (CONFIG_GET(flag/log_overwatch))
 		WRITE_LOG(GLOB.world_game_log, "OVERWATCH: [text]")
+		log_to_logis("OVERWATCH", text)
 		LOG_REDIS("overwatch", "\[[time]\] [text]")
 	GLOB.STUI.admin.Add("\[[time]]OVERWATCH: [text]")
 	GLOB.STUI.processing |= STUI_LOG_ADMIN
@@ -130,6 +310,7 @@ GLOBAL_VAR_INIT(log_end, world.system_type == UNIX ? ascii2text(13) : "")
 	var/time = time_stamp()
 	if (CONFIG_GET(flag/log_garble))
 		WRITE_LOG(GLOB.world_game_log, "GARBLE: [text]")
+		log_to_logis("GARBLE", text)
 		LOG_REDIS("garble", "\[[time]\] [text]")
 	GLOB.STUI.admin.Add("\[[time]]GARBLE: [text]")
 	GLOB.STUI.processing |= STUI_LOG_ADMIN
@@ -138,6 +319,7 @@ GLOBAL_VAR_INIT(log_end, world.system_type == UNIX ? ascii2text(13) : "")
 	var/time = time_stamp()
 	if (CONFIG_GET(flag/log_idmod))
 		WRITE_LOG(GLOB.world_game_log, "ID MOD: ([changer]) [msg]")
+		log_to_logis("ID MOD", "([changer]) [msg]")
 		LOG_REDIS("idmod", "\[[time]\] ([changer]) [msg]")
 	target_id.modification_log += "\[[time]]: [msg]"
 
@@ -145,6 +327,7 @@ GLOBAL_VAR_INIT(log_end, world.system_type == UNIX ? ascii2text(13) : "")
 	var/time = time_stamp()
 	if (CONFIG_GET(flag/log_vote))
 		WRITE_LOG(GLOB.world_game_log, "VOTE: [text]")
+		log_to_logis("VOTE", text)
 		LOG_REDIS("vote", "\[[time]\] [text]")
 
 
@@ -152,22 +335,34 @@ GLOBAL_VAR_INIT(log_end, world.system_type == UNIX ? ascii2text(13) : "")
 	var/time = time_stamp()
 	if (CONFIG_GET(flag/log_access))
 		WRITE_LOG(GLOB.world_game_log, "ACCESS: [text]")
+		log_to_logis("ACCESS", text)
 		LOG_REDIS("access", "\[[time]\] [text]")
 	GLOB.STUI.debug.Add("\[[time]]ACCESS: [text]")
 	GLOB.STUI.processing |= STUI_LOG_DEBUG
 
-/proc/log_say(text)
+/proc/log_say(text, atom/source = null)
 	var/time = time_stamp()
 	if (CONFIG_GET(flag/log_say))
 		WRITE_LOG(GLOB.world_game_log, "SAY: [text]")
+		log_to_logis("SAY", text, source)
 		LOG_REDIS("say", "\[[time]\] [text]")
 	GLOB.STUI.game.Add("\[[time]]SAY: [text]")
 	GLOB.STUI.processing |= STUI_LOG_GAME_CHAT
 
-/proc/log_hivemind(text)
+/proc/log_deadchat(text, atom/source = null)
+	var/time = time_stamp()
+	if (CONFIG_GET(flag/log_say))
+		WRITE_LOG(GLOB.world_game_log, "SAY: [text]")
+		log_to_logis("DEADCHAT", text, source)
+		LOG_REDIS("say", "\[[time]\] [text]")
+	GLOB.STUI.game.Add("\[[time]]SAY: [text]")
+	GLOB.STUI.processing |= STUI_LOG_GAME_CHAT
+
+/proc/log_hivemind(text, atom/source = null)
 	var/time = time_stamp()
 	if (CONFIG_GET(flag/log_hivemind))
 		WRITE_LOG(GLOB.world_game_log, "HIVEMIND: [text]")
+		log_to_logis("HIVEMIND", text, source)
 		LOG_REDIS("hivemind", "\[[time]\] [text]")
 	GLOB.STUI.game.Add("\[[time]]HIVEMIND: [text]")
 	GLOB.STUI.processing |= STUI_LOG_GAME_CHAT
@@ -177,12 +372,21 @@ GLOBAL_VAR_INIT(log_end, world.system_type == UNIX ? ascii2text(13) : "")
 	if (CONFIG_GET(flag/log_ooc))
 		LOG_REDIS("ooc", "\[[time]\] [text]")
 		WRITE_LOG(GLOB.world_game_log, "OOC: [text]")
+		log_to_logis("OOC", text)
 
-/proc/log_whisper(text)
+/proc/log_looc(text)
+	var/time = time_stamp()
+	if (CONFIG_GET(flag/log_ooc))
+		LOG_REDIS("ooc", "\[[time]\] (LOCAL) [text]")
+		WRITE_LOG(GLOB.world_game_log, "LOOC: [text]")
+		log_to_logis("LOOC", text)
+
+/proc/log_whisper(text, atom/source = null)
 	var/time = time_stamp()
 	if (CONFIG_GET(flag/log_whisper))
 		LOG_REDIS("whisper", "\[[time]\] [text]")
 		WRITE_LOG(GLOB.world_game_log, "WHISPER: [text]")
+		log_to_logis("WHISPER", text, source)
 	GLOB.STUI.game.Add("\[[time]]WHISPER: [text]")
 	GLOB.STUI.processing |= STUI_LOG_GAME_CHAT
 
@@ -191,24 +395,30 @@ GLOBAL_VAR_INIT(log_end, world.system_type == UNIX ? ascii2text(13) : "")
 	if (CONFIG_GET(flag/log_emote))
 		LOG_REDIS("emote", "\[[time]\] [text]")
 		WRITE_LOG(GLOB.world_game_log, "EMOTE: [text]")
+		log_to_logis("EMOTE", text)
 	GLOB.STUI.game.Add("\[[time]]<font color='#999999'>EMOTE: [text]</font>")
 	GLOB.STUI.processing |= STUI_LOG_GAME_CHAT
 
 /proc/log_attack(text)
+	text = strip_improper("[text]")
+
 	var/time = time_stamp()
 	if (CONFIG_GET(flag/log_attack))
 		LOG_REDIS("attack", "\[[time]\] [text]")
 		WRITE_LOG(GLOB.world_attack_log, "ATTACK: [text]")
+		log_to_logis("ATTACK", text)
 	GLOB.STUI.attack.Add("\[[time]]ATTACK: [text]")
 	GLOB.STUI.processing |= STUI_LOG_ATTACK
 
 /proc/log_adminsay(text)
 	if (CONFIG_GET(flag/log_adminchat))
 		WRITE_LOG(GLOB.world_game_log, "ADMINSAY: [text]")
+		log_to_logis("ADMINSAY", text)
 
 /proc/log_adminwarn(text)
 	if (CONFIG_GET(flag/log_adminwarn))
 		WRITE_LOG(GLOB.world_game_log, "ADMINWARN: [text]")
+		log_to_logis("ADMINWARN", text)
 	GLOB.STUI.admin.Add("\[[time_stamp()]]ADMIN: [text]")
 	GLOB.STUI.processing |= STUI_LOG_ADMIN
 
@@ -216,6 +426,7 @@ GLOBAL_VAR_INIT(log_end, world.system_type == UNIX ? ascii2text(13) : "")
 	var/time = time_stamp()
 	LOG_REDIS("misc", "\[[time]\] [text]")
 	WRITE_LOG(GLOB.world_game_log, "MISC: [text]")
+	log_to_logis("MISC", text)
 	GLOB.STUI?.debug.Add("\[[time]]MISC: [text]")
 
 /proc/log_strain(text)
@@ -227,18 +438,21 @@ GLOBAL_VAR_INIT(log_end, world.system_type == UNIX ? ascii2text(13) : "")
 	var/time = time_stamp()
 	LOG_REDIS("hiveorder", "\[[time]\] [text]")
 	WRITE_LOG(GLOB.world_game_log, "HIVE ORDER: [text]")
+	log_to_logis("HIVE ORDER", text)
 	GLOB.STUI.debug.Add("\[[time]]HIVE ORDER: [text]")
 
 /proc/log_announcement(text)
 	var/time = time_stamp()
 	LOG_REDIS("announcement", "\[[time]\] [text]")
 	WRITE_LOG(GLOB.world_game_log, "ANNOUNCEMENT: [text]")
+	log_to_logis("ANNOUNCEMENT", text)
 	GLOB.STUI.admin.Add("\[[time]]ANNOUNCEMENT: [text]")
 
 /proc/log_mhelp(text)
 	var/time = time_stamp()
 	LOG_REDIS("mhelp", "\[[time]\] [text]")
 	WRITE_LOG(GLOB.world_game_log, "MENTORHELP: [text]")
+	log_to_logis("MENTORHELP", text)
 	GLOB.STUI.admin.Add("\[[time]]MENTORHELP: [text]")
 
 /// Logging for game performance
@@ -286,6 +500,7 @@ GLOBAL_VAR_INIT(log_end, world.system_type == UNIX ? ascii2text(13) : "")
 
 /proc/log_topic(text)
 	WRITE_LOG(GLOB.world_game_log, "TOPIC: [text]")
+	log_to_logis("TOPIC", text)
 
 GLOBAL_VAR(config_error_log)
 GLOBAL_PROTECT(config_error_log)
@@ -306,7 +521,13 @@ GLOBAL_PROTECT(config_error_log)
 	SEND_TEXT(world.log, text)
 
 /proc/log_admin_private(text)
-	log_admin(text)
+	var/time = time_stamp()
+	GLOB.admin_log.Add(text)
+	if (CONFIG_GET(flag/log_admin))
+		WRITE_LOG(GLOB.world_game_log, "ADMIN: [text]")
+		LOG_REDIS("admin", "\[[time]\] [text]")
+	GLOB.STUI.admin.Add("\[[time]]ADMIN: [text]")
+	GLOB.STUI.processing |= STUI_LOG_ADMIN
 
 #if defined(UNIT_TESTS) || defined(SPACEMAN_DMM)
 /proc/log_test(text)
@@ -328,7 +549,7 @@ GLOBAL_PROTECT(config_error_log)
 #endif
 
 /proc/start_log(log)
-	WRITE_LOG(log, "Starting up round ID [GLOB.round_id]\n-------------------------)")
+	WRITE_LOG(log, "Starting up round ID [GLOB.round_id].\n-------------------------")
 
 /proc/shutdown_logging()
 	rustg_log_close_all()
