@@ -4,3 +4,5 @@
 #define LAZYCOPY_RANGE(L, START, END) ( L ? L.Copy(START, END) : list() )
 /// Cuts the L from element START to elememt END if L is initialized, otherwise returns an empty list.
 #define LAZYCUT(L, START, END) ( L ? L.Cut(START, END) : NOOP )
+#define MAX_SHAVE_USES 5
+#define SHAVE_START_USES 0
