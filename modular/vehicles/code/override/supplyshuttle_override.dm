@@ -1,6 +1,4 @@
-// =====================================================================
-// 1. ДОБАВЛЕНИЕ НОВЫХ ПЕРЕМЕННЫХ К ОРИГИНАЛЬНОМУ КЛАССУ
-// =====================================================================
+// Переменнные для интерфейса
 /obj/structure/machinery/computer/supply/asrs/vehicle
 	var/list/category_limits   // постоянные лимиты
 	var/list/category_given    // сколько уже выдали
@@ -11,11 +9,7 @@
 	var/list/group_given
 	var/list/category_to_group 
 
-
-// =====================================================================
-// 2. БЛОКИРОВКА СТАРОГО ИНТЕРФЕЙСА
-// =====================================================================
-
+// Блок старого интерфейса
 /obj/structure/machinery/computer/supply/asrs/vehicle/attack_hand(mob/user)
 	if(inoperable())
 		return
@@ -27,11 +21,7 @@
 /obj/structure/machinery/computer/supply/asrs/vehicle/Topic(href, href_list)
 	return
 
-
-// =====================================================================
-// 3. НОВАЯ TGUI ЛОГИКА
-// =====================================================================
-
+// Логика нового интерфейса
 /obj/structure/machinery/computer/supply/asrs/vehicle/tgui_interact(mob/user, datum/tgui/ui)
 	if(inoperable())
 		return
@@ -66,12 +56,12 @@
 	data["elevator_moving"] = SSshuttle.vehicle_elevator.mode != SHUTTLE_IDLE
 	data["elevator_raised"] = SSshuttle.vehicle_elevator.z == upper_turf.z
 
-	// СОСТАВ ГРУПП
+	// Состав групп
 	var/list/combat_cats = list("Тяжелая бронетехника", "Бронетранспортеры", "Бронеавтомобили")
 	var/list/logistics_cats = list("Логистическая техника", "Санитаркая техника")
 	var/list/special_cats = list("Разведка")
 
-	// ОБЩИЙ РАСХОД ДЛЯ КАЖДОЙ ГРУППЫ
+	// Общий расход групп
 	var/list/group_totals = list("Огневая поддержка" = 0, "Логистика" = 0, "Специальная техника" = 0)
 
 	for(var/cat in combat_cats)
@@ -81,7 +71,7 @@
 	for(var/cat in special_cats)
 		group_totals["Специальная техника"] += category_given[cat]
 
-	// ПОДГОТОВКА КАТЕГОРИЙ
+	// Подготовка категорий
 	var/list/categories = list()
 	for(var/category in category_limits)
 		var/main_cat_name
@@ -108,7 +98,7 @@
 		))
 	data["categories"] = categories
 
-	// ПОДГОТОВКА СПИСКА ТЕХНИКИ
+	// Подготовка списка техники
 	var/list/vehicle_list = list()
 	for(var/d in vehicles)
 		var/datum/vehicle_order/order = d

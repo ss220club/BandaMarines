@@ -1,16 +1,10 @@
-// =====================================================================
-// 1. ДОБАВЛЕНИЕ НОВЫХ ПЕРЕМЕННЫХ К ОРИГИНАЛЬНОМУ КЛАССУ
-// =====================================================================
 /obj/structure/machinery/cm_vending/gear/vehicle_crew
 	var/list/last_display_list
 
-// =====================================================================
-// 2. НОВАЯ ЛОГИКА
-// =====================================================================
+// Анонсы
 /obj/structure/machinery/cm_vending/gear/vehicle_crew/populate_products(datum/source, obj/effect/vehicle_spawner/spawner)
 	
 	selected_vehicle = spawner.category
-	// Логика анонсов BandaMarines
 	switch(selected_vehicle)
 		if("APC")
 			marine_announcement("В поддержку наземных сил операции вам будет предоставлен БТР.")
@@ -21,27 +15,25 @@
 		if("HWC")
 			marine_announcement("В поддержку наземных сил операции вам будет предоставлен Бронеавтомобиль.")
 		if("TANK")
-			// Специфическая логика для танка из оригинального CM
 			available_categories &= ~(VEHICLE_INTEGRAL_AVAILABLE)
 			marine_announcement("В поддержку наземных сил операции вам будет предоставлен Танк.")
 		
 		else
-			// Фолбэк, если категория не распознана
 			if(!selected_vehicle)
 				selected_vehicle = "TANK"
 				available_categories &= ~(VEHICLE_INTEGRAL_AVAILABLE)
 				marine_announcement("В поддержку наземных сил операции вам будет предоставлен танк.")
 
+// Вендор снаряжения техники
 /obj/structure/machinery/cm_vending/gear/vehicle_crew/get_listed_products(mob/user)
 	var/list/display_list = list()
 
 	if(!user)
 		display_list += GLOB.cm_vending_vehicle_crew_tank_modul
 		display_list += GLOB.cm_vending_vehicle_crew_apc_modul
-		display_list += GLOB.cm_vending_vehicle_crew_humvee_modul // Ваша добавка
+		display_list += GLOB.cm_vending_vehicle_crew_humvee_modul
 		return display_list
 
-	// 2. Логика выбора конкретного списка на основе выбранной техники
 	switch(selected_vehicle)
 		if("TANK")
 			if(available_categories)
@@ -58,9 +50,7 @@
 
 	return display_list
 
-// =====================================================================
-// 3. ЛСТЫ СНАРЯЖЕНИЯ 
-// =====================================================================
+// Листы снаряжения
 var/list/cm_vending_vehicle_crew_humvee
 
 // Танк
