@@ -8,12 +8,11 @@
 	disp_icon_state = "snowplow"
 
 	health = 250
-	activatable = 1
 
 /obj/item/hardpoint/armor/humvee_snowplow/livingmob_interact(mob/living/M)
 	var/turf/targ = get_step(M, owner.dir)
-	targ = get_step(M, owner.dir)
-	targ = get_step(M, owner.dir)
+	if(targ) targ = get_step(targ, owner.dir) // шаг уже от targ
+	if(targ) targ = get_step(targ, owner.dir) // и еще один шаг от targ
 	M.throw_atom(targ, 4, SPEED_FAST, src, 1)
 	M.apply_damage(50 + rand(25, 25), BRUTE)
 
@@ -21,17 +20,25 @@
 	if(health <= 0)
 		return
 
+	// Проверяем, что движемся именно вперед (отвалом)
 	if(dir != move_dir)
 		return
 
-	var/turf/ahead = get_step(new_turf, move_dir)
+	// Список тайлов, которые нужно почистить (используем |, чтобы избежать дубликатов)
+	var/list/turfs_to_clean = list()
 
-	var/list/turfs_ahead = list(ahead, get_step(ahead, turn(move_dir, 90)), get_step(ahead, turn(move_dir, -90)))
-	for(var/turf/open/auto_turf/snow/S in turfs_ahead)
-		if(!S.bleed_layer)
-			continue
-		new /obj/item/stack/snow(S, S.bleed_layer)
-		S.changing_layer(0)
+	// owner — это машина. owner.locs — список всех тайлов под ней.
+	for(var/turf/T in owner.locs)
+		var/turf/ahead = get_step(T, move_dir)
+		if(ahead && !(ahead in owner.locs))
+			turfs_to_clean |= ahead
+	for(var/turf/target in turfs_to_clean)
+		if(istype(target, /turf/open/auto_turf/snow))
+			var/turf/open/auto_turf/snow/S = target
+			if(!S.bleed_layer)
+				continue
+			new /obj/item/stack/snow(S, S.bleed_layer)
+			S.changing_layer(0)
 
 
 // turret
@@ -219,7 +226,7 @@
 
 	return ..()
 
-// APC cannons
+// APC cannon
 /obj/item/hardpoint/primary/humvee_cannon
 	name = "\improper Автопушка M24-RC1"
 	desc = "Одноствольная дистанционно управляемая автопушка для бронемашины M2420 JTMV-HWC. Стреляет 10x28-мм вольфрамовыми снарядами. Эффективна против пехоты и легкобронированной техники."
@@ -257,7 +264,7 @@
 		GUN_FIREMODE_BURSTFIRE,
 	)
 	burst_amount = 3
-	burst_delay = 0.25 SECONDS
+	burst_delay = 0.32 SECONDS
 	extra_delay = 0.6 SECONDS
 
 /obj/item/hardpoint/primary/humvee_cannon/set_bullet_traits()
