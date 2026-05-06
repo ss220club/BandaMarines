@@ -115,8 +115,8 @@ of predators), but can be added to include variant game modes (like humans vs. h
 //Spawns a larva in an appropriate location
 /datum/game_mode/proc/spawn_latejoin_larva()
 	var/mob/living/carbon/xenomorph/larva/new_xeno = new /mob/living/carbon/xenomorph/larva(get_turf(pick(GLOB.xeno_spawns)))
-	new_xeno.visible_message(SPAN_XENODANGER("A larva suddenly burrows out of the ground!"),
-	SPAN_XENODANGER("You burrow out of the ground and awaken from your slumber. For the Hive!"))
+	new_xeno.visible_message(SPAN_XENODANGER("Из земли внезапно появляется грудолом!"),
+	SPAN_XENODANGER("Вы вырываетесь из-под земли, просыпаясь от сна. Во имя Улья!"))
 	new_xeno << sound('sound/effects/xeno_newlarva.ogg')
 
 // Open podlocks with the given ID if they aren't already opened.
@@ -145,12 +145,12 @@ GLOBAL_VAR_INIT(next_admin_bioscan, 30 MINUTES)
 	if(active_lz)
 		return
 
-	var/lz1 = locate(/obj/structure/machinery/computer/shuttle/dropship/flight/lz1)
-	var/lz2 = locate(/obj/structure/machinery/computer/shuttle/dropship/flight/lz2)
+	var/atom/lz1 = locate(/obj/structure/machinery/computer/shuttle/dropship/flight/lz1) // BANDAMARINES EDIT - type
+	var/atom/lz2 = locate(/obj/structure/machinery/computer/shuttle/dropship/flight/lz2) // BANDAMARINES EDIT - type
 
 	if(lz1 && lz2 && user)
-		var/lz_choices = list("LZ 1", "LZ 2")
-		var/new_lz = tgui_input_list(user, "Select primary LZ", "LZ Select", lz_choices)
+		var/lz_choices = list("LZ 1" = lz1.loc.loc.declent_ru(NOMINATIVE) || "LZ 1", "LZ 2" = lz2.loc.loc.declent_ru(NOMINATIVE) || "LZ 2") // BANDAMARINES EDIT - Show full name
+		var/new_lz = tgui_input_list(user, "Выберите основную зону посадки", "Выбор ЗП", lz_choices, associative_list = TRUE) // BANDAMARINES EDIT - Show full name
 		if(!new_lz)
 			return
 		if(new_lz == "LZ 1")
@@ -170,8 +170,8 @@ GLOBAL_VAR_INIT(next_admin_bioscan, 30 MINUTES)
 		return
 	active_lz = console
 	// The announcement to all Humans.
-	var/name = "[MAIN_AI_SYSTEM] Operation Staging Order"
-	var/input = "Command Order Issued.\n\n[get_area(active_lz)] has been designated as the primary landing zone."
+	var/name = "[MAIN_AI_SYSTEM]: Постановлен приказ операции"
+	var/input = "Приказ командования отдан.\n\nНазначена основная зона посадки - [active_lz.loc.loc.declent_ru(NOMINATIVE)]."
 	marine_announcement(input, name)
 
 /datum/game_mode/proc/announce_bioscans()
