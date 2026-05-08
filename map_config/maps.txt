@@ -61,7 +61,6 @@ map lv759_hybrisa_prospera
 endmap
 
 map lv773_aegis_ridge
-	minplayers 110
 endmap
 
 map new_varadero

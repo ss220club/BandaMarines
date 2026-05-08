@@ -1,6 +1,3 @@
-#define FACTION_ROAF "Royal Orbital Air Force"
-#define FACTION_LIST_SURVIVOR_ROAF list(FACTION_ROAF)
-
 #define JOB_TWE_RAF_LIEUTENANT "ROAF Lieutenant"
 #define JOB_TWE_RAF_SQUAD_LEADER "ROAF Squad Leader"
 #define JOB_TWE_RAF_SNIPER "ROAF Sniper"

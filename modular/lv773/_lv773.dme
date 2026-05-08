@@ -7,7 +7,5 @@
 #include "code/datums/weather/weather_map_holders/lv773_aegis_ridge.dm"
 #include "code/game/area/LV773.dm"
 #include "code/game/objects/effects/landmarks/survivor_spawner.dm"
-#include "code/game/objects/items/devices/flash.dm"
-#include "code/game/objects/items/devices/light_trap.dm"
 #include "code/modules/gear_presets/survivors/lv_773/roaf_survivors.dm"
 #include "code/modules/projectiles/gun_attachables.dm"

@@ -251,6 +251,9 @@ GLOBAL_LIST_INIT_TYPED(huds, /datum/mob_hud, flatten_numeric_alist(alist(
 /datum/mob_hud/faction/iasf
 	faction_to_check = FACTION_IASF
 
+/datum/mob_hud/faction/roaf
+	faction_to_check = FACTION_ROAF
+
 /datum/mob_hud/faction/clf
 	faction_to_check = FACTION_CLF
 

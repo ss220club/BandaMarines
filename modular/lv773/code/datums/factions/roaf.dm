@@ -32,6 +32,3 @@
 
 	if(hud_icon_state)
 		holder.overlays += image(override_icon_file ? override_icon_file : base_icon_file, human, "roaf_[hud_icon_state]")
-
-/datum/mob_hud/faction/roaf
-	faction_to_check = FACTION_ROAF

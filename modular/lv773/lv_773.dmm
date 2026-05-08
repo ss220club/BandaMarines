@@ -1943,7 +1943,7 @@
 	color = "#848484"
 	},
 /obj/item/clothing/accessory/patch/twe,
-/obj/item/clothing/uniform/lv773/roaf_sniper,
+/obj/item/clothing/under/lv773/roaf_sniper,
 /obj/item/device/flashlight/lamp/on{
 	pixel_x = 8;
 	pixel_y = 12
@@ -3496,7 +3496,7 @@
 /area/space)
 "dwM" = (
 /obj/structure/bed/chair/comfy/teal{
-	dir = 1
+	dir = 4
 	},
 /turf/open/floor/almayer/silverfull2,
 /area/space)
@@ -5439,6 +5439,7 @@
 /turf/open/floor/hybrisa/carpet/rug_colorable/blue/north,
 /area/space)
 "fzb" = (
+/obj/effect/landmark/railgun_camera_pos,
 /turf/open/space/basic,
 /area/lv773)
 "fAd" = (
@@ -9951,7 +9952,7 @@
 /area/space)
 "ker" = (
 /obj/structure/bed/chair/comfy/teal{
-	dir = ы
+	dir = 4
 	},
 /turf/open/floor/almayer/silver2smooth3/west,
 /area/space)
@@ -12344,7 +12345,7 @@
 /obj/structure/closet/crate/trashcart{
 	opened = 1;
 	pixel_y = 15;
-	pixel_x = s
+	pixel_x = 5
 	},
 /obj/item/hybrisa/misc/trash_bag_full_prop{
 	pixel_x = -4;
@@ -15771,7 +15772,7 @@
 /area/space)
 "pZl" = (
 /turf/open/floor/hybrisa/carpet/carpet_colorable{
-	color = s
+	color = null
 	},
 /area/space)
 "pZm" = (
@@ -16364,7 +16365,7 @@
 /obj/structure/surface/rack{
 	color = "#848484";
 	pixel_y = 25;
-	pixel_x = s
+	pixel_x = 5
 	},
 /obj/item/clothing/under/marine/veteran/royal_marine/lt{
 	pixel_y = 25;
@@ -21915,7 +21916,7 @@
 /obj/structure/platform/metal/strata/west,
 /obj/structure/machinery/power/monitor{
 	name = "Main Power Grid Monitoring";
-	dir = e
+	dir = 8
 	},
 /obj/effect/decal/hybrisa/dirt,
 /obj/structure/machinery/light/small{

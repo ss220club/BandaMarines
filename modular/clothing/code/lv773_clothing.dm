@@ -1,7 +1,7 @@
 // ROAF - survior
 // Униформа
 
-/obj/item/clothing/uniform/lv773/roaf_pilot
+/obj/item/clothing/under/lv773/roaf_pilot
 	name = "\improper костюм пилота ROAF"
 	desc = "A pair of grey slacks and a white button-down shirt with a dark-grey tie and golden epaulettes signifying rank; a standard uniform for a commercial grade Weyland-Yutani affiliated Pilot."
 	icon = 'modular/clothing/icon/roaf/suit.dmi'
@@ -19,7 +19,7 @@
 	armor_rad = CLOTHING_ARMOR_NONE
 	armor_internaldamage = CLOTHING_ARMOR_LOW
 
-/obj/item/clothing/uniform/lv773/roaf_sniper
+/obj/item/clothing/under/lv773/roaf_sniper
 	name = "\improper комбинезон снайпера ROAF"
 	desc = "A pair of grey slacks and a white button-down shirt with a dark-grey tie and golden epaulettes signifying rank; a standard uniform for a commercial grade Weyland-Yutani affiliated Pilot."
 	icon = 'modular/clothing/icon/roaf/suit.dmi'

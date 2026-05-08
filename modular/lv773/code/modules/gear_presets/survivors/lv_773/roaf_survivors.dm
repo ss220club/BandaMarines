@@ -36,7 +36,7 @@
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest/lv773/suit_roaf(new_human), WEAR_JACKET)
 
 /datum/equipment_preset/survivor/roaf/proc/equip_roaf_uniform(mob/living/carbon/human/new_human)
-	var/obj/item/clothing/uniform/lv773/roaf_sniper/uniform = new()
+	var/obj/item/clothing/under/lv773/roaf_sniper/uniform = new()
 	if(prob(50))
 		uniform.roll_suit_jacket(new_human)
 	else
@@ -103,7 +103,7 @@
 
 /datum/equipment_preset/survivor/roaf/pilot/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/lv773/head_roaf_pilot(new_human), WEAR_HEAD)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/uniform/lv773/roaf_pilot(new_human), WEAR_BODY)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/lv773/roaf_pilot(new_human), WEAR_BODY)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest/lv773/suit_roaf_pilot(new_human), WEAR_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/p90/twe(new_human), WEAR_J_STORE)
 	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/p90/ap(new_human), WEAR_IN_JACKET)
@@ -121,7 +121,7 @@
 	skills = /datum/skills/survivor/roaf_sniper
 
 /datum/equipment_preset/survivor/roaf/sniper/load_gear(mob/living/carbon/human/new_human)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/uniform/lv773/roaf_sniper(new_human), WEAR_BODY)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/lv773/roaf_sniper(new_human), WEAR_BODY)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest/lv773/suit_roaf(new_human), WEAR_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/smock/lv773/hands_roaf(new_human), WEAR_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/lv773/head_roaf_hat(new_human), WEAR_HEAD)
@@ -165,7 +165,7 @@
 	minimap_icon = "synth"
 
 /datum/equipment_preset/synth/survivor/roaf_synth/load_gear(mob/living/carbon/human/new_human)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/uniform/lv773/roaf_sniper(new_human), WEAR_BODY)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/lv773/roaf_sniper(new_human), WEAR_BODY)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/storage/webbing/iasf(new_human), WEAR_ACCESSORY)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/lv773/head_roaf_hat(new_human), WEAR_HEAD)
 	new_human.equip_to_slot_or_del(new /obj/item/tool/screwdriver(new_human), WEAR_R_EAR)
@@ -215,7 +215,7 @@
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/tie/black(new_human), WEAR_ACCESSORY)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/mask/neckerchief/brown(new_human.back), WEAR_IN_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/gloves/marine/veteran/lv773/hands_roaf(new_human), WEAR_HANDS)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/uniform/lv773/roaf_pilot(new_human), WEAR_BODY)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/lv773/roaf_pilot(new_human), WEAR_BODY)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest/lv773/suit_roaf_pilot(new_human), WEAR_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/marine/lv773/shoes_roaf_pilot(new_human), WEAR_FEET)
 	new_human.equip_to_slot_or_del(new /obj/item/device/radio/headset/distress/roaf(new_human), WEAR_L_EAR)
