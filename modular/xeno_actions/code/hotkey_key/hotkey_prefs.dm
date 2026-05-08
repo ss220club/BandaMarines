@@ -2,8 +2,7 @@
 	. = ..()
 	if(!.)
 		return
-	if(owner?.mob)
-		SEND_SIGNAL(owner.mob, COMSIG_MOB_PREFERENCES_SAVED)
+	owner?.mob?.update_keybinds()
 
 /datum/preferences
 	var/xeno_show_hotkeys

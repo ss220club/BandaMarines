@@ -1,44 +1,7 @@
-/mob/living/carbon/xenomorph
-	var/list/user_binds = list()
-	var/list/user_binds_full_name = list()
+/datum/action/proc/update_hotkey_visual()
+	return
 
-/mob/living/carbon/xenomorph/proc/update_keybinds()
-	user_binds = list()
-	user_binds_full_name = list()
-	for(var/key in client.prefs.key_bindings)
-		for(var/kb_name in client.prefs.key_bindings[key])
-			var/datum/keybinding/instance = GLOB.keybindings_by_name[kb_name]
-			user_binds[kb_name] += list(key)
-			user_binds_full_name[instance.full_name] += list(key)
-
-/datum/action/xeno_action/give_to(mob/living/L)
-	. = ..()
-	initialize_hotkey_visual()
-
-/datum/action/xeno_action/remove_from(mob/L)
-	. = ..()
-	if(owner)
-		UnregisterSignal(owner, list(COMSIG_MOB_LOGGED_IN, COMSIG_MOB_PREFERENCES_SAVED))
-
-/datum/action/xeno_action/onclick/choose_resin/update_button_icon(selected_type, to_chat)
-	. = ..()
-	if(!selected_type)
-		return
-	update_hotkey_visual()
-
-/datum/action/xeno_action/proc/initialize_hotkey_visual()
-	// Register keybind changes, on login changes
-	RegisterSignal(owner, list(COMSIG_MOB_LOGGED_IN, COMSIG_MOB_PREFERENCES_SAVED), PROC_REF(reset_hotkeys))
-	update_hotkey_visual()
-
-/datum/action/xeno_action/proc/reset_hotkeys()
-	SIGNAL_HANDLER
-
-	var/mob/living/carbon/xenomorph/xeno_owner = owner
-	xeno_owner.update_keybinds()
-	update_hotkey_visual()
-
-/datum/action/xeno_action/proc/update_hotkey_visual()
+/datum/action/xeno_action/update_hotkey_visual()
 	if(!owner?.client)
 		return
 
@@ -46,18 +9,17 @@
 		button.set_maptext_hotkey()
 		return
 
-	var/mob/living/carbon/xenomorph/xeno_owner = owner
-	if(!length(xeno_owner.user_binds))
-		xeno_owner.update_keybinds()
+	if(!length(owner.user_binds))
+		owner.update_keybinds()
 
 	var/hotkey = null
 
 	// Try to get using unique name
-	hotkey = get_hotkey_on_full_name(xeno_owner.user_binds_full_name)
+	hotkey = get_hotkey_on_full_name(owner.user_binds_full_name)
 
 	// If no unique key, use standart keys
 	if(!hotkey && ability_primacy > XENO_NOT_PRIMARY_ACTION)
-		hotkey = get_hotkey_on_primacy(xeno_owner.user_binds)
+		hotkey = get_hotkey_on_primacy(owner.user_binds)
 
 	if(!hotkey)
 		button.set_maptext_hotkey()
