@@ -62,6 +62,8 @@
 	if(!hotkey)
 		button.set_maptext_hotkey()
 		return
+	hotkey = replacetext_char(hotkey, "+", "")
+	hotkey = replacetext_char(hotkey, "Shift", "Shft")
 	button.set_maptext_hotkey(SMALL_FONTS(7, hotkey), 4, 20)
 
 /datum/action/xeno_action/proc/get_hotkey_on_full_name(list/user_binds)
