@@ -4,6 +4,7 @@
 /atom/movable/screen/action_button/proc/set_maptext_hotkey(new_maptext, new_maptext_x, new_maptext_y)
 	overlays -= maptext_hotkey_overlay
 	if(!new_maptext)
+		QDEL_NULL(maptext_hotkey_overlay)
 		return
 	maptext_hotkey_overlay = image(null, null, null, layer + 0.1)
 	maptext_hotkey_overlay.maptext = new_maptext
