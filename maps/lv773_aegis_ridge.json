@@ -1,8 +1,8 @@
 {
 	"map_name": "LV-773 Aegis Ridge",
 	"short_name": "Aegis Ridge",
-	"map_path": "../modular/lv773",
-	"map_file": "lv_773.dmm",
+	"map_path": "map_files/LV773_Aegis_Ridge",
+	"map_file": "LV773_Aegis_Ridge.dmm",
 	"webmap_url": "LV773",
 	"weather_holder": "/datum/weather_ss_map_holder/lv773_aegis_ridge",
 	"survivor_types": [

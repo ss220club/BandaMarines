@@ -138,7 +138,7 @@
 	paygrades = list(PAY_SHORT_ROAFE4 = JOB_PLAYTIME_TIER_0)
 	assignment = "ROAF - Squad Leader"
 	job_title = JOB_TWE_RAF_SQUAD_LEADER
-	minimap_icon = "rmc_teamleader"
+	minimap_icon = "sl"
 	role_comm_title = "24/ROAF SL"
 	skills = /datum/skills/survivor/roaf_leader
 
@@ -195,7 +195,7 @@
 	skills = /datum/skills/survivor/roaf_lieutenant
 	paygrades = list(PAY_SHORT_ROAFO5 = JOB_PLAYTIME_TIER_0)
 	job_title = JOB_TWE_ROAF_COMMANDER
-	minimap_icon = "rmc_commander"
+	minimap_icon = "co"
 	minimap_background = "background_roaf"
 	idtype = /obj/item/card/id/gold
 	role_comm_title = "ROAF CDR"
