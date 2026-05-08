@@ -24,5 +24,6 @@
 #include "code/descriptions/xeno_abilities/castes/warrior.dm"
 #include "code/descriptions/~undefs.dm"
 
+#include "code/hotkey_key/hotkey_prefs.dm"
 #include "code/hotkey_key/hotkey_visual.dm"
 #include "code/hotkey_key/hotkey_xeno.dm"
