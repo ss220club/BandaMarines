@@ -1,7 +1,6 @@
 #include "_xeno_actions.dm"
 
 #include "code/descriptions/defines.dm"
-
 #include "code/descriptions/xeno_abilities/general_abilities.dm"
 #include "code/descriptions/xeno_abilities/xeno_action.dm"
 #include "code/descriptions/xeno_abilities/xeno_projectiles.dm"
@@ -23,5 +22,7 @@
 #include "code/descriptions/xeno_abilities/castes/sentinel.dm"
 #include "code/descriptions/xeno_abilities/castes/spitter.dm"
 #include "code/descriptions/xeno_abilities/castes/warrior.dm"
-
 #include "code/descriptions/~undefs.dm"
+
+#include "code/hotkey_key/hotkey_visual.dm"
+#include "code/hotkey_key/hotkey_xeno.dm"
