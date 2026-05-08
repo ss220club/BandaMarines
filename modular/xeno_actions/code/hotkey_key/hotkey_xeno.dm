@@ -42,6 +42,10 @@
 	if(!owner?.client)
 		return
 
+	if(!owner.client.prefs.xeno_show_hotkeys)
+		button.set_maptext_hotkey()
+		return
+
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	if(!length(xeno_owner.user_binds))
 		xeno_owner.update_keybinds()
