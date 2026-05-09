@@ -10,6 +10,7 @@
 /mob/proc/update_keybinds()
 	user_binds = list()
 	user_binds_full_name = list()
+	user_binds_signal = list()
 	for(var/key in client.prefs.key_bindings)
 		for(var/kb_name in client.prefs.key_bindings[key])
 			var/datum/keybinding/instance = GLOB.keybindings_by_name[kb_name]
