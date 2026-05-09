@@ -1,25 +1,28 @@
-/datum/action/proc/update_hotkey_visual()
-	return
+/datum/action/proc/get_hotkey_combo()
+	if(listen_signal)
+		. = get_hotkey_on_signal()
+	if(!.)
+		. = get_hotkey_on_full_name()
+	return .
 
-/datum/action/xeno_action/update_hotkey_visual()
+/datum/action/xeno_action/get_hotkey_combo()
+	. = ..()
+	if(!. && ability_primacy > XENO_NOT_PRIMARY_ACTION)
+		. = get_hotkey_on_primacy()
+	return .
+
+/datum/action/update_hotkey_visual()
 	if(!owner?.client)
 		return
 
-	if(!owner.client.prefs.xeno_show_hotkeys)
+	if(!owner.client.prefs.show_hotkeys)
 		button.set_maptext_hotkey()
 		return
 
 	if(!length(owner.user_binds))
 		owner.update_keybinds()
 
-	var/hotkey = null
-
-	// Try to get using unique name
-	hotkey = get_hotkey_on_full_name(owner.user_binds_full_name)
-
-	// If no unique key, use standart keys
-	if(!hotkey && ability_primacy > XENO_NOT_PRIMARY_ACTION)
-		hotkey = get_hotkey_on_primacy(owner.user_binds)
+	var/hotkey = get_hotkey_combo()
 
 	if(!hotkey)
 		button.set_maptext_hotkey()
@@ -28,12 +31,17 @@
 	hotkey = replacetext_char(hotkey, "Shift", "Shft")
 	button.set_maptext_hotkey(SMALL_FONTS(7, hotkey), 4, 20)
 
-/datum/action/xeno_action/proc/get_hotkey_on_full_name(list/user_binds)
-	if(!length(user_binds[name]))
+/datum/action/proc/get_hotkey_on_signal()
+	if(!length(owner.user_binds_signal[listen_signal]))
 		return null
-	return get_first_unbound_hotkey(user_binds[name])
+	return get_first_unbound_hotkey(owner.user_binds_signal[listen_signal])
 
-/datum/action/xeno_action/proc/get_hotkey_on_primacy(list/user_binds)
+/datum/action/proc/get_hotkey_on_full_name()
+	if(!length(owner.user_binds_full_name[name]))
+		return null
+	return get_first_unbound_hotkey(owner.user_binds_full_name[name])
+
+/datum/action/xeno_action/proc/get_hotkey_on_primacy()
 	var/static/list/primacy_keybinds_to_name = list(
 		"[XENO_PRIMARY_ACTION_1]" = /datum/keybinding/xenomorph/primary_attack_one::name,
 		"[XENO_PRIMARY_ACTION_2]" = /datum/keybinding/xenomorph/primary_attack_two::name,
@@ -47,11 +55,11 @@
 		"[XENO_BECOME_SEETHROUGH]" = /datum/keybinding/xenomorph/toggle_seethrough::name,
 	)
 
-	if(!length(user_binds[primacy_keybinds_to_name["[ability_primacy]"]]))
+	if(!length(owner.user_binds[primacy_keybinds_to_name["[ability_primacy]"]]))
 		return null
-	return get_first_unbound_hotkey(user_binds[primacy_keybinds_to_name["[ability_primacy]"]])
+	return get_first_unbound_hotkey(owner.user_binds[primacy_keybinds_to_name["[ability_primacy]"]])
 
-/datum/action/xeno_action/proc/get_first_unbound_hotkey(list/hotkeys)
+/datum/action/proc/get_first_unbound_hotkey(list/hotkeys)
 	for(var/keybind in hotkeys)
 		if(keybind == "Unbound")
 			continue

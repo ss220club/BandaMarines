@@ -557,7 +557,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 			dat += "<b>Default Xeno Night Vision Level:</b> <a href='byond://?_src_=prefs;preference=xeno_vision_level_pref;task=input'><b>[xeno_vision_level_pref]</b></a><br>"
 
 			// BANDAMARINES EDIT START
-			dat += "<b>Показывать горячие клавиши:</b> <a href='byond://?_src_=prefs;preference=xeno_show_hotkeys;task=input'><b>[xeno_show_hotkeys ? "Да" : "Нет"]</b></a><br>"
+			dat += "<b>Показывать горячие клавиши:</b> <a href='byond://?_src_=prefs;preference=show_hotkeys;task=input'><b>[show_hotkeys ? "Да" : "Нет"]</b></a><br>"
 			dat += "<a href='byond://?_src_=prefs;preference=xeno_customization_picker;task=open'><b>Кастомизация ксеноморфа</b></a><br>"
 			dat += "<b>Background:</b> <a href='byond://?_src_=prefs;preference=cycle_bg'><b>Cycle Background</b></a><br>"
 			dat += "<b>Xeno Customization Visibility:</b> <a href='byond://?_src_=prefs;preference=xeno_customization_visibility;task=input'><b>[xeno_customization_visibility]</b></a><br>"

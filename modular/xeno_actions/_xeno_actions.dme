@@ -27,5 +27,5 @@
 #include "code/hotkey_key/hotkey_prefs.dm"
 #include "code/hotkey_key/hotkey_visual.dm"
 #include "code/hotkey_key/hotkey_xeno_action_specific.dm"
-#include "code/hotkey_key/hotkey_xeno_action.dm"
+#include "code/hotkey_key/hotkey_action.dm"
 #include "code/hotkey_key/hotkey_mob.dm"
