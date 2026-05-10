@@ -85,6 +85,9 @@ GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 		. = FALSE
 		stack_trace("Xeno Customization [type] doesn't have a key!")
 
+	if(!.)
+		return .
+
 	if(full_body_customization)
 		return check_full_body_states()
 	return check_states()
