@@ -105,9 +105,12 @@ GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 	. = TRUE
 	var/datum/caste_datum/caste_datum = GLOB.xeno_datum_list[caste]
 	var/list/strains = list("Normal")
-	if(caste_datum.available_strains)
-		for(var/datum/xeno_strain/xeno_strain_type in caste_datum.available_strains)
-			strains += xeno_strain_type::name
+	if(strain)
+		strains = list(strain)
+	else
+		if(length(caste_datum.available_strains))
+			for(var/datum/xeno_strain/xeno_strain_type in caste_datum.available_strains)
+				strains += xeno_strain_type::name
 
 	for(var/strain_type in strains)
 		var/list/icon_states = icon_states(icon_path)
