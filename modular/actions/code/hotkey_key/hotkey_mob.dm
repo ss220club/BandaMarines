@@ -15,7 +15,9 @@
 		for(var/kb_name in client.prefs.key_bindings[key])
 			var/datum/keybinding/instance = GLOB.keybindings_by_name[kb_name]
 			user_binds[kb_name] += list(key)
-			user_binds_full_name[instance.full_name] += list(key)
-			user_binds_signal[instance.keybind_signal] += list(key)
+			if(instance.full_name)
+				user_binds_full_name[instance.full_name] += list(key)
+			if(instance.keybind_signal)
+				user_binds_signal[instance.keybind_signal] += list(key)
 	for(var/datum/action/action in actions)
 		action.update_hotkey_visual()
