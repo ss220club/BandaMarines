@@ -6,14 +6,7 @@ GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 	var/list/data = list()
 	for(var/customization in subtypesof(/datum/xeno_customization_option))
 		var/datum/xeno_customization_option/select = new customization()
-		if(!select.caste)
-			stack_trace("Xeno Customization [select.type] doesn't have a caste!")
-			continue
-		if(!select.icon_path)
-			stack_trace("Xeno Customization [select.type] doesn't have an icon path!")
-			continue
-		if(!select.key)
-			stack_trace("Xeno Customization [select.type] doesn't have a key!")
+		if(!select.is_correctly_configured())
 			continue
 		data["[select.caste]"] += list("[select.key]" = select)
 		if(GLOB.xeno_customizations_by_key["[select.key]"])
@@ -73,4 +66,46 @@ GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 		if(get_job_playtime(user, caste) < timelock)
 			var/hours = timelock / (1 HOURS)
 			. += "Необходимое время на этой касте: [hours] час[declension_ru(hours, "", "а", "ов")]. "
+	return .
+
+/datum/xeno_customization_option/proc/is_correctly_configured()
+	. = TRUE
+	if(!caste)
+		. = FALSE
+		stack_trace("Xeno Customization [type] doesn't have a caste!")
+	if(!icon_path)
+		. = FALSE
+		stack_trace("Xeno Customization [type] doesn't have an icon path!")
+	if(!key)
+		. = FALSE
+		stack_trace("Xeno Customization [type] doesn't have a key!")
+
+	var/list/icon_states = icon_states(icon_path)
+	var/static/list/movement_states = list(
+		"Walking", "Running", "Knocked Down", "Sleeping", "Dead",
+	)
+
+	if(!full_body_customization)
+		for(var/movement_state in movement_states)
+			if(movement_state in icon_states)
+				continue
+			. = FALSE
+			stack_trace("Xeno Customization [type] doesn't contain '[movement_state]' icon state! Review naming convention!")
+		return .
+
+	var/datum/caste_datum/caste_datum = GLOB.xeno_datum_list[caste]
+	var/list/strains = list("Normal")
+	if(caste_datum.available_strains)
+		for(var/datum/xeno_strain/xeno_strain_type in caste_datum.available_strains)
+			strains += xeno_strain_type::name
+
+	for(var/strain_type in strains)
+		for(var/movement_state in movement_states)
+			var/required_icon_state = "[strain_type] [caste] [movement_state]"
+			if(caste == XENO_CASTE_LARVA)
+				required_icon_state = "[caste] [movement_state]"
+			if((required_icon_state in icon_states))
+				continue
+			stack_trace("Xeno Customization [type] doesn't contain '[required_icon_state]' icon state! Review naming convention!")
+			. = FALSE
 	return .
