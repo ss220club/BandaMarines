@@ -42,3 +42,7 @@
 			continue
 		return keybind
 	return null
+
+/datum/action/give_to(mob/L)
+	. = ..()
+	update_hotkey_visual()

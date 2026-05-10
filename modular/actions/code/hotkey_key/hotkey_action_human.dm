@@ -3,10 +3,6 @@
 #define ATTACHMENT_SLOT_STOCK "stock"
 #define ATTACHMENT_SLOT_MUZZLE "muzzle"
 
-/datum/action/item_action/give_to(mob/L)
-	. = ..()
-	update_hotkey_visual()
-
 /datum/action/item_action/get_hotkey_combo()
 	. = ..()
 	if(!.)
@@ -149,3 +145,13 @@
 /datum/action/item_action/toggle/helmet_nvg/update_button_icon()
 	. = ..()
 	update_hotkey_visual()
+
+// MARK: Orders
+/datum/keybinding/human/issue_order/move
+	full_name = /datum/action/human_action/issue_order/move::name
+
+/datum/keybinding/human/issue_order/hold
+	full_name = /datum/action/human_action/issue_order/hold::name
+
+/datum/keybinding/human/issue_order/focus
+	full_name = /datum/action/human_action/issue_order/focus::name
