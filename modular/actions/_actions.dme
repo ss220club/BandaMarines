@@ -1,4 +1,4 @@
-#include "_xeno_actions.dm"
+#include "_actions.dm"
 
 #include "code/descriptions/defines.dm"
 #include "code/descriptions/xeno_abilities/general_abilities.dm"

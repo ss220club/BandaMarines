@@ -13,6 +13,10 @@
 		. = get_hotkey_on_slot()
 	return .
 
+/datum/action/item_action/update_button_icon()
+	. = ..()
+	update_hotkey_visual()
+
 /datum/action/item_action/proc/get_hotkey_on_slot()
 	var/static/list/slot_keybinds_to_name = list(
 		"[ATTACHMENT_SLOT_UNDER]" = /datum/keybinding/human/combat/underbarrel::name,
@@ -34,6 +38,31 @@
 #undef ATTACHMENT_SLOT_STOCK
 #undef ATTACHMENT_SLOT_MUZZLE
 
-/datum/action/item_action/smartgun/action_activate()
+/datum/action/item_action/smartgun/toggle_motion_detector/update_button_icon()
 	. = ..()
 	update_hotkey_visual()
+
+/datum/action/item_action/smartgun/toggle_auto_fire/update_icon()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/smartgun/toggle_frontline_mode/action_activate()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/smartgun/toggle_accuracy_improvement/action_activate()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/smartgun/toggle_lethal_mode/action_activate()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/smartgun/toggle_ammo_type/action_activate()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/co_sg/toggle_id_lock/action_activate()
+	. = ..()
+	update_hotkey_visual()
+
