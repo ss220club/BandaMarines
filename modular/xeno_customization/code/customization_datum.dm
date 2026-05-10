@@ -116,9 +116,9 @@ GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 			for(var/datum/xeno_strain/xeno_strain_type in caste_datum.available_strains)
 				strains += xeno_strain_type::name
 
+	var/list/icon_states = icon_states(icon_path)
+	var/list/subtract_icon_states = icon_states(subtract_icon_path)
 	for(var/strain_type in strains)
-		var/list/icon_states = icon_states(icon_path)
-		var/list/subtract_icon_states = icon_states(subtract_icon_path)
 		for(var/movement_state in REQUIRED_ICON_STATES)
 			var/required_icon_state = "[strain_type] [caste] [movement_state]"
 			if(!(required_icon_state in icon_states))
