@@ -22,7 +22,7 @@
 		button.set_maptext_hotkey()
 		return
 	hotkey = replacetext_char(hotkey, "+", "")
-	hotkey = replacetext_char(hotkey, "Shift", "Shft")
+	hotkey = replacetext_char(hotkey, "Shift", "Sft")
 	hotkey = replacetext_char(hotkey, "Space", "Spc")
 	button.set_maptext_hotkey(SMALL_FONTS(7, hotkey), 4, 20)
 
