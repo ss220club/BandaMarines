@@ -10,6 +10,7 @@ GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 			qdel(select)
 			continue
 		if(!select.is_correctly_configured())
+			qdel(select)
 			continue
 		data["[select.caste]"] += list("[select.key]" = select)
 		if(GLOB.xeno_customizations_by_key["[select.key]"])

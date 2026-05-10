@@ -7,9 +7,9 @@
 /datum/xeno_customization_option/larva/check_full_body_states()
 	. = TRUE
 	var/list/larva_types = list("Larva", "Bloody Larva")
+	var/list/icon_states = icon_states(icon_path)
+	var/list/subtract_icon_states = icon_states(subtract_icon_path)
 	for(var/larva_type in larva_types)
-		var/list/icon_states = icon_states(icon_path)
-		var/list/subtract_icon_states = icon_states(subtract_icon_path)
 		for(var/movement_state in LARVA_REQUIRED_STATES)
 			var/required_icon_state = "[larva_type][movement_state]"
 			if(!(required_icon_state in icon_states))
