@@ -45,7 +45,7 @@
 
 /obj/item/explosive/plastic/attack_hand(mob/user)
 	if(active)
-		to_chat(user, SPAN_WARNING("You can't just pickup [src] while it is active! Use a multitool!"))
+		to_chat(user, SPAN_WARNING("You can't just pick up [src] while it is active! Use a multitool!"))
 		return
 	. = ..()
 
@@ -68,8 +68,6 @@
 	to_chat(user, SPAN_NOTICE("Timer set for [timer] seconds."))
 
 /obj/item/explosive/plastic/afterattack(atom/target, mob/user, flag)
-	setDir(get_dir(user, target))
-
 	if(user.action_busy || !flag)
 		return
 	if(!skillcheck(user, req_skill, req_skill_level))
@@ -83,17 +81,18 @@
 		msg_admin_niche("[key_name(user)] attempted to prime \a [name] in [get_area(src)] [ADMIN_JMP(src.loc)]")
 		return
 
-	user.visible_message(SPAN_WARNING("[user] is trying to plant [name] on [target]!"),
-	SPAN_WARNING("You are trying to plant [name] on [target]!"))
+	user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] пытается установить [declent_ru(ACCUSATIVE)] на [target.declent_ru(ACCUSATIVE)]!"),
+	SPAN_WARNING("Вы пытаетесь установить [declent_ru(ACCUSATIVE)] на [target.declent_ru(ACCUSATIVE)]!"))
 	if(ismob(target))
 		var/mob/M = target
-		to_chat(M, FONT_SIZE_HUGE(SPAN_DANGER("[user] is trying to plant [name] on you!")))
+		to_chat(M, FONT_SIZE_HUGE(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] пытается установить [declent_ru(ACCUSATIVE)] на вас!"))) // SS220 EDIT ADDICTION
 
 	if(!do_after(user, deploying_time, INTERRUPT_ALL, BUSY_ICON_HOSTILE, target, INTERRUPT_MOVED, BUSY_ICON_HOSTILE))
 		if(!ismob(target))
 			disarm()
 		return
 
+	setDir(get_dir(user, target))
 	user.drop_held_item()
 	cause_data = create_cause_data(initial(name), user)
 	plant_target = target
@@ -102,7 +101,7 @@
 
 	if(!istype(target, /obj/structure/window) && !istype(target, /turf/closed))
 		user.drop_held_item()
-		target.contents += src
+		forceMove(target)
 		overlay = image('icons/obj/items/assemblies.dmi', overlay_image)
 		overlay.layer = ABOVE_XENO_LAYER
 		target.overlays += overlay
@@ -111,7 +110,7 @@
 
 	if(ismob(target))
 		var/mob/M = target
-		to_chat(M, FONT_SIZE_HUGE(SPAN_DANGER("[user] plants [name] on you!")))
+		to_chat(M, FONT_SIZE_HUGE(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] устанавливает [declent_ru(ACCUSATIVE)] на вас!"))) // SS220 EDIT ADDICTION
 		user.attack_log += "\[[time_stamp()]\] <font color='red'> [key_name(user)] successfully planted [name] on [key_name(target)]</font>"
 		msg_admin_niche("[key_name(user, user.client)] planted [src.name] on [key_name(target)] with [timer] second fuse")
 		log_game("[key_name(user)] planted [src.name] on [key_name(target)] with [timer] second fuse")
@@ -120,15 +119,16 @@
 		log_game("[key_name(user)] planted [src.name] on [target.name] at ([target.x],[target.y],[target.z]) with [timer] second fuse")
 
 	if(customizable)
-		user.visible_message(SPAN_WARNING("[user] plants [name] on [target]!"),
-		SPAN_WARNING("You plant [name] on [target]!"))
+		user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] устанавливает [declent_ru(ACCUSATIVE)] на [target.declent_ru(ACCUSATIVE)]!"),
+		SPAN_WARNING("Вы устанавливаете [declent_ru(ACCUSATIVE)] на [target.declent_ru(ACCUSATIVE)]!"))
 		activate_sensors()
 		if(!istimer(detonator.a_right) && !istimer(detonator.a_left))
 			icon_state = overlay_image
 	else
-		user.visible_message(SPAN_WARNING("[user] plants [name] on [target]!"),
-		SPAN_WARNING("You plant [name] on [target]! Timer counting down from [timer]."))
+		user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] устанавливает [declent_ru(ACCUSATIVE)] на [target.declent_ru(ACCUSATIVE)]!"),
+		SPAN_WARNING("Вы устанавливаете [declent_ru(ACCUSATIVE)] на [target.declent_ru(ACCUSATIVE)]! Таймер обратного отсчёта установлен на [timer] секунд."))
 		active = TRUE
+		anchored = TRUE
 		addtimer(CALLBACK(src, PROC_REF(prime)), timer * 10)
 
 /obj/item/explosive/plastic/attackby(obj/item/W, mob/user)
@@ -136,15 +136,15 @@
 		if(active)
 			if(user.action_busy)
 				return
-			user.visible_message(SPAN_NOTICE("[user] starts disarming [src]."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts disarming [src]."),
 			SPAN_NOTICE("You start disarming [src]."))
 			if(!do_after(user, 30, INTERRUPT_NO_NEEDHAND, BUSY_ICON_FRIENDLY))
-				user.visible_message(SPAN_WARNING("[user] stops disarming [src]."),
+				user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] stops disarming [src]."),
 					SPAN_WARNING("You stop disarming [src]."))
 				return
 			if(!active)//someone beat us to it
 				return
-			user.visible_message(SPAN_NOTICE("[user] finishes disarming [src]."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] finishes disarming [src]."),
 			SPAN_NOTICE("You finish disarming [src]."))
 			disarm()
 	else
@@ -174,6 +174,7 @@
 			if(!isigniter(detonator.a_left) && !issignaller(detonator.a_left))
 				detonator.a_left.activate()
 	active = FALSE
+	anchored = FALSE
 	update_icon()
 
 /obj/item/explosive/plastic/proc/can_place(mob/user, atom/target)
@@ -227,7 +228,7 @@
 	if(customizable && assembly_stage < ASSEMBLY_LOCKED)
 		return FALSE
 
-	return TRUE
+	return user.Adjacent(target)
 
 /obj/item/explosive/plastic/proc/calculate_pixel_offset(mob/user, atom/target)
 	switch(get_dir(user, target))

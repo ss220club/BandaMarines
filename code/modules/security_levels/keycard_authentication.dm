@@ -21,6 +21,8 @@
 	idle_power_usage = 2
 	active_power_usage = 6
 	power_channel = POWER_CHANNEL_ENVIRON
+	// so that folks don't constantly spam their ID, and play an 'id rejected' noise over and over
+	COOLDOWN_DECLARE(id_scan_cooldown)
 
 /obj/structure/machinery/keycard_auth/attack_remote(mob/user as mob)
 	to_chat(user, "The station AI is not to interact with these devices.")
@@ -32,7 +34,7 @@
 		return
 	if(istype(W,/obj/item/card/id))
 		var/obj/item/card/id/ID = W
-		if(ACCESS_MARINE_COMMAND in ID.access)
+		if((ACCESS_MARINE_COMMAND in ID.access) && (COOLDOWN_FINISHED(src, id_scan_cooldown)))
 			if(active == 1)
 				//This is not the device that made the initial request. It is the device confirming the request.
 				if(event_source)
@@ -40,6 +42,11 @@
 					event_source.event_confirmed_by = user
 			else if(screen == 2)
 				event_triggered_by = usr
+				if((event == "toggle_ob_safety") && !(ACCESS_MARINE_SENIOR in ID.access))	// need to be senior CIC staff to toggle ob safety
+					balloon_alert_to_viewers("insufficient clearance!")
+					playsound(loc, 'sound/items/defib_failed.ogg')
+					COOLDOWN_START(src, id_scan_cooldown, 1 SECONDS)
+					return
 				broadcast_request() //This is the device making the initial event request. It needs to broadcast to other devices
 
 /obj/structure/machinery/keycard_auth/power_change()
@@ -68,6 +75,7 @@
 		if(!CONFIG_GET(flag/ert_admin_call_only))
 			dat += "<li><A href='byond://?src=\ref[src];triggerevent=Emergency Response Team'>Emergency Response Team</A></li>"
 
+		dat += "<li><A href='byond://?src=\ref[src];triggerevent=toggle_ob_safety'>Toggle OB Cannon Safety</A></li>"
 		dat += "<li><A href='byond://?src=\ref[src];triggerevent=enable_maint_sec'>Enable Maintenance Security</A></li>"
 		dat += "<li><A href='byond://?src=\ref[src];triggerevent=disable_maint_sec'>Disable Maintenance Security</A></li>"
 		dat += "</ul>"
@@ -145,6 +153,8 @@
 			make_maint_all_access()
 		if("enable_maint_sec")
 			revoke_maint_all_access()
+		if("toggle_ob_safety")
+			toggle_ob_cannon_safety()
 
 /obj/structure/machinery/keycard_auth/proc/is_ert_blocked()
 	if(CONFIG_GET(flag/ert_admin_call_only))
@@ -160,6 +170,14 @@ GLOBAL_VAR_INIT(maint_all_access, TRUE)
 /proc/revoke_maint_all_access()
 	GLOB.maint_all_access = FALSE
 	ai_announcement("Требование доступа для технического обслуживания было возвращено на все шлюзы.")
+
+GLOBAL_VAR_INIT(ob_cannon_safety, FALSE)
+
+/proc/toggle_ob_cannon_safety()
+	GLOB.ob_cannon_safety = !GLOB.ob_cannon_safety
+	for(var/obj/structure/machinery/computer/overwatch/overwatch in GLOB.active_overwatch_consoles)
+		overwatch.toggle_ob_cannon_safety()
+
 
 // Keycard reader at the CORSAT locks
 /obj/structure/machinery/keycard_auth/lockdown
@@ -203,7 +221,7 @@ GLOBAL_VAR_INIT(maint_all_access, TRUE)
 			event_source.confirmed = 1
 			event_source.event_confirmed_by = usr
 		else
-			visible_message(SPAN_NOTICE("[src] states: ONLY ONE UNIQUE CODE DISK DETECTED"))
+			visible_message(SPAN_NOTICE("[src] states: ONLY ONE UNIQUE CODE DISK DETECTED."))
 
 	else if(screen == 2)
 		event_triggered_by = usr
@@ -242,11 +260,11 @@ GLOBAL_VAR_INIT(maint_all_access, TRUE)
 		dat += "Select an event to trigger:<ul>"
 		dat += "<li><A href='byond://?src=\ref[src];triggerevent=Lift Biohazard Lockdown'>Lift Lockdown</A></li>"
 		dat += "</ul>"
-		show_browser(user, dat, name, "keycard_auth", "size=500x300")
+		show_browser(user, dat, name, "keycard_auth", width = 500, height = 300)
 	if(screen == 2)
 		dat += "Please swipe your card to authorize the following event: <b>[event]</b>"
 		dat += "<p><A href='byond://?src=\ref[src];reset=1'>Back</A>"
-		show_browser(user, dat, name, "keycard_auth", "size=500x300")
+		show_browser(user, dat, name, "keycard_auth", width = 500, height = 300)
 	return
 
 /obj/structure/machinery/keycard_auth/lockdown/proc/timed_countdown(timeleft = 0)
@@ -259,26 +277,26 @@ GLOBAL_VAR_INIT(maint_all_access, TRUE)
 	if(istype(SSticker.mode, /datum/game_mode/colonialmarines))
 		var/datum/game_mode/colonialmarines/gCM = SSticker.mode
 		if(gCM.round_status_flags & ROUNDSTATUS_PODDOORS_OPEN)
-			visible_message(SPAN_NOTICE("[src] states: LOCKDOWN ALREADY LIFTED"))
+			visible_message(SPAN_NOTICE("[src] states: LOCKDOWN ALREADY LIFTED."))
 			return
 		gCM.round_status_flags |= ROUNDSTATUS_PODDOORS_OPEN // So we don't spam the message twice
 
-	var/text_timeleft = "[timeleft * 0.01] minutes"
+	var/text_timeleft = "[timeleft * 0.01] минут" // SS220 EDIT ADDICTION
 	var/next_interval = 1 MINUTES
 	if(timeleft <= 1 MINUTES)
 		next_interval = 55 SECONDS
-		text_timeleft = "[timeleft] minute"
+		text_timeleft = "[timeleft] минут" // SS220 EDIT ADDICTION
 	if(timeleft <= 5 SECONDS)
 		next_interval = timeleft
-		text_timeleft = "[timeleft] seconds"
+		text_timeleft = "[timeleft] секунд" // SS220 EDIT ADDICTION
 	var/input = "Подъем затвора станции через [text_timeleft] при ручном управлении."
 	var/title = announce_title
 	marine_announcement(input, title, 'sound/AI/commandreport.ogg')
 	for(var/mob/M in GLOB.player_list)
 		if(isxeno(M))
 			sound_to(M, sound(get_sfx("queen"), wait = 0, volume = 50))
-			to_chat(M, SPAN_XENOANNOUNCE("The Queen Mother reaches into your mind from worlds away."))
-			to_chat(M, SPAN_XENOANNOUNCE("To my children and their Queen. I sense the large doors that trap us will open in [text_timeleft]."))
+			to_chat(M, SPAN_XENOANNOUNCE("Королева-мать проникает в ваш разум издалека."))
+			to_chat(M, SPAN_XENOANNOUNCE("Моим детям и их Королеве: я чувствую, что большие двери, которые нас сдерживают, откроются через [text_timeleft].")) // SS220 EDIT ADDICTION
 	var/new_timeleft = timeleft - next_interval
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/structure/machinery/keycard_auth/lockdown, timed_countdown), new_timeleft), next_interval)
 
@@ -289,7 +307,7 @@ GLOBAL_VAR_INIT(maint_all_access, TRUE)
 			if(istype(SSticker.mode, /datum/game_mode/colonialmarines))
 				var/datum/game_mode/colonialmarines/gCM = SSticker.mode
 				if(gCM.round_status_flags & ROUNDSTATUS_PODDOORS_OPEN)
-					visible_message(SPAN_NOTICE("[src] states: LOCKDOWN ALREADY LIFTED"))
+					visible_message(SPAN_NOTICE("[src] states: LOCKDOWN ALREADY LIFTED."))
 					return
 				gCM.round_status_flags |= ROUNDSTATUS_PODDOORS_OPEN // So we don't spam the message twice
 			timed_countdown(3 MINUTES)

@@ -30,6 +30,9 @@
 	anchored = TRUE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
+/obj/effect/mist/steam
+	name = "steam"
+	icon_state = "steam"
 
 /obj/structure/machinery/shower/attack_hand(mob/M as mob)
 	on = !on
@@ -58,7 +61,7 @@
 					watertemp = "boiling"
 				if("boiling")
 					watertemp = "normal"
-			user.visible_message(SPAN_NOTICE("[user] adjusts the shower with \the [I]."), SPAN_NOTICE("You adjust the shower with \the [I]."))
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] adjusts the shower with \the [I]."), SPAN_NOTICE("You adjust the shower with \the [I]."))
 			add_fingerprint(user)
 
 
@@ -221,6 +224,6 @@
 		if(watertemp == "boiling")
 			C.bodytemperature = min(T90C, C.bodytemperature + BODYTEMP_HEATING_MAX)
 			C.recalculate_move_delay = TRUE
-			C.apply_damage(5, BURN)
+			C.apply_damage(5, BURN, enviro=TRUE)
 			to_chat(C, SPAN_DANGER("The water is searing!"))
 			return

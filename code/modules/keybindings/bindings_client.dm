@@ -1,6 +1,6 @@
 // Clients aren't datums so we have to define these procs indpendently.
 // These verbs are called for all key press and release events
-/client/verb/keyDown(_key as text)
+CLIENT_VERB(keyDown, _key as text)
 	set instant = TRUE
 	set hidden = TRUE
 
@@ -49,7 +49,7 @@
 	if(!movement_locked)
 		var/movement = movement_keys[_key]
 		if(!(next_move_dir_sub & movement))
-			next_move_dir_add |= movement
+			next_move_dir_add = movement // BANDAMARINES EDIT
 
 	// Client-level keybindings are ones anyone should be able to do at any time
 	// Things like taking screenshots, hitting tab, and adminhelps.
@@ -76,10 +76,15 @@
 		if(kb.can_use(src) && kb.down(src) && keycount >= MAX_COMMANDS_PER_KEY)
 			break
 
+	if(full_key in prefs.key_to_custom_keybind)
+		var/datum/keybinding/custom/kb = prefs.key_to_custom_keybind[full_key]
+		if(kb.can_use(src))
+			kb.down(src)
+
 	admin_holder?.key_down(_key, src)
 	mob.focus?.key_down(_key, src)
 
-/client/verb/keyUp(_key as text)
+CLIENT_VERB(keyUp, _key as text)
 	set instant = TRUE
 	set hidden = TRUE
 

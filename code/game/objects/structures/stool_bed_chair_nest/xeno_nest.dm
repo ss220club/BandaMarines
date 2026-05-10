@@ -57,6 +57,7 @@
 		pixel_y = buckling_y["[dir]"]
 		pixel_x = buckling_x["[dir]"]
 		if(dir == SOUTH)
+			buckled_mob.plane = TURF_PLANE
 			buckled_mob.layer = ABOVE_TURF_LAYER
 			if(ishuman(current_mob))
 				var/mob/living/carbon/human/current_human = current_mob
@@ -70,6 +71,7 @@
 	REMOVE_TRAIT(current_mob, TRAIT_UNDENSE, XENO_NEST_TRAIT)
 	if(dir == SOUTH)
 		current_mob.layer = initial(current_mob.layer)
+		current_mob.plane = initial(current_mob.plane)
 		if(!ishuman(current_mob))
 			var/mob/living/carbon/human/current_human = current_mob
 			for(var/obj/limb/current_mobs_limb in current_human.limbs)
@@ -98,7 +100,7 @@
 	if(iscarbon(user))
 		var/mob/living/carbon/carbon = user
 		if(HIVE_ALLIED_TO_HIVE(carbon.hivenumber, hivenumber))
-			to_chat(user, SPAN_XENOWARNING("We shouldn't interfere with the nest, leave that to the drones."))
+			to_chat(user, SPAN_XENOWARNING("Мы не должны вмешиваться в гнездо, оставьте это дронам."))
 			return
 	if(buckled_mob)
 		if(iswelder(W))
@@ -148,19 +150,19 @@
 
 	if(isxeno(user))
 		var/mob/living/carbon/xenomorph/X = user
-		if(!X.hive.unnesting_allowed && !isxeno_builder(X) && HIVE_ALLIED_TO_HIVE(X.hivenumber, hivenumber))
-			to_chat(X, SPAN_XENOWARNING("We shouldn't interfere with the nest, leave that to the drones."))
+		if((X.hive.hive_flags & XENO_UNNESTING_RESTRICTED) && !isxeno_builder(X) && HIVE_ALLIED_TO_HIVE(X.hivenumber, hivenumber))
+			to_chat(X, SPAN_XENOWARNING("Мы не должны вмешиваться в гнездо, оставьте это дронам."))
 			return
 	else if(iscarbon(user))
 		var/mob/living/carbon/H = user
 		if(HIVE_ALLIED_TO_HIVE(H.hivenumber, hivenumber))
-			to_chat(H, SPAN_XENOWARNING("We shouldn't interfere with the nest, leave that to the drones."))
+			to_chat(H, SPAN_XENOWARNING("Мы не должны вмешиваться в гнездо, оставьте это дронам."))
 			return
 
 	if(ishuman(buckled_mob) && isxeno(user))
 		var/mob/living/carbon/human/H = buckled_mob
 		if(H.recently_nested)
-			to_chat(user, SPAN_WARNING("[H] was nested recently. Wait a bit."))
+			to_chat(user, SPAN_WARNING("[capitalize(H.declent_ru(NOMINATIVE))] was nested recently. Wait a bit."))
 			return
 		if(H.stat != DEAD)
 			if(alert(user, "[H] is still alive and kicking! Are we sure we want to remove them from the nest?", "Confirmation", "Yes", "No") != "Yes")
@@ -216,7 +218,7 @@
 	if(mob == user)
 		return
 
-	var/mob/living/carbon/human/human = null
+	var/mob/living/carbon/human/human
 	if(ishuman(mob))
 		human = mob
 		if(human.body_position != LYING_DOWN) //Don't ask me why is has to be
@@ -228,8 +230,8 @@
 	if(ishuman_strict(mob))
 		securing_time = 75
 
-	user.visible_message(SPAN_WARNING("[user] pins [mob] into [src], preparing the securing resin."),
-	SPAN_WARNING("[user] pins [mob] into [src], preparing the securing resin."))
+	user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] pins [mob] into [src], preparing the securing resin."),
+	SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] pins [mob] into [src], preparing the securing resin."))
 	var/M_loc = mob.loc
 	if(!do_after(user, securing_time, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE))
 		return
@@ -264,9 +266,15 @@
 
 	return TRUE
 
+/obj/structure/bed/nest/proc/forced_buckle_mob(mob/mob, mob/user)
+	do_buckle(mob, user)
+	ADD_TRAIT(mob, TRAIT_NESTED, TRAIT_SOURCE_BUCKLE)
+	ADD_TRAIT(mob, TRAIT_NO_STRAY, TRAIT_SOURCE_BUCKLE)
+	SEND_SIGNAL(mob, COMSIG_MOB_NESTED, user)
+
 /obj/structure/bed/nest/send_buckling_message(mob/M, mob/user)
-	M.visible_message(SPAN_XENONOTICE("[user] secretes a thick, vile resin, securing [M] into [src]!"),
-	SPAN_XENONOTICE("[user] drenches you in a foul-smelling resin, trapping you in [src]!"),
+	M.visible_message(SPAN_XENONOTICE("[capitalize(user.declent_ru(NOMINATIVE))] выделяет густую, отвратительную смолу, закрепляя [M.declent_ru(ACCUSATIVE)] в [declent_ru(PREPOSITIONAL)]!"), // SS220 EDIT ADDICTION
+	SPAN_XENONOTICE("[capitalize(user.declent_ru(NOMINATIVE))] обрызгивает вас зловонной смолой, запирая вас в [declent_ru(PREPOSITIONAL)]!"), // SS220 EDIT ADDICTION
 	SPAN_NOTICE("You hear squelching."))
 	playsound(loc, "alien_resin_move", 50)
 
@@ -279,19 +287,26 @@
 	REMOVE_TRAIT(buckled_mob, TRAIT_NO_STRAY, TRAIT_SOURCE_BUCKLE)
 	var/mob/living/carbon/human/buckled_human = buckled_mob
 
-	var/mob/dead/observer/G = ghost_of_buckled_mob
-	var/datum/mind/M = G?.mind
+	var/mob/dead/observer/ghost_mob = ghost_of_buckled_mob
+	var/datum/mind/ghost_mind = ghost_mob?.mind
 	ghost_of_buckled_mob = null
 
 	. = ..() //Very important that this comes after, since it deletes the nest and clears ghost_of_buckled_mob
 
-	if(!istype(buckled_human) || !istype(G) || !istype(M) || buckled_human.undefibbable || buckled_human.mind || M.original != buckled_human || buckled_human.chestburst)
+	if(!istype(buckled_human) || buckled_human.undefibbable || buckled_human.chestburst)
+		return
+
+	var/client/user_client = ghost_mob?.client || buckled_human.client
+	if(user_client?.prefs.toggles_flashing & FLASH_UNNEST)
+		window_flash(user_client)
+
+	if(!istype(ghost_mob) || !istype(ghost_mind) || buckled_human.mind || ghost_mind.original != buckled_human)
 		return // Zealous checking as most is handled by ghost code
-	to_chat(G, FONT_SIZE_HUGE(SPAN_DANGER("You have been freed from your nest and may go back to your body! (Look for 'Re-enter Corpse' in Ghost verbs, or <a href='byond://?src=\ref[G];reentercorpse=1'>click here</a>!)")))
-	sound_to(G, 'sound/effects/attackblob.ogg')
-	if(buckled_human.client?.prefs.toggles_flashing & FLASH_UNNEST)
-		window_flash(buckled_human.client)
-	G.can_reenter_corpse = TRUE
+
+	to_chat(ghost_mob, FONT_SIZE_HUGE(SPAN_DANGER("Вы были освобождены из вашего гнезда и можете вернуться в своё тело! (Откройте вкладку «Ghost» и выберите «Re-enter corpse» или <a href='byond://?src=\ref[ghost_mob];reentercorpse=1'>нажмите здесь!</a>)"))) // SS220 EDIT ADDICTION
+	sound_to(ghost_mob, 'sound/effects/attackblob.ogg')
+
+	ghost_mob.can_reenter_corpse = TRUE
 
 /obj/structure/bed/nest/ex_act(power)
 	if(power >= EXPLOSION_THRESHOLD_VLOW)
@@ -320,8 +335,8 @@
 		return
 	if(M.a_intent == INTENT_HARM && !buckled_mob) //can't slash nest with an occupant.
 		M.animation_attack_on(src)
-		M.visible_message(SPAN_DANGER("\The [M] claws at \the [src]!"),
-		SPAN_DANGER("We claw at \the [src]."))
+		M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] царапает [declent_ru(ACCUSATIVE)]!"),
+		SPAN_DANGER("Мы царапаем [declent_ru(ACCUSATIVE)]."))
 		playsound(loc, "alien_resin_break", 25)
 		health -= (M.melee_damage_upper + 25) //Beef up the damage a bit
 		healthcheck()
@@ -370,7 +385,7 @@
 
 /obj/structure/bed/nest/structure/attack_hand(mob/user)
 	if(!isxeno(user))
-		to_chat(user, SPAN_NOTICE("The sticky resin is too strong for you to do anything to this nest"))
+		to_chat(user, SPAN_NOTICE("The sticky resin is too strong for you to do anything to this nest."))
 		return FALSE
 	. = ..()
 

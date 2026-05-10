@@ -1,5 +1,5 @@
 
-//Weyland-Yutani commandos. Friendly to USCM, hostile to xenos.
+//Weyland-Yutani PMCs. Friendly to USCM, hostile to xenos.
 /datum/emergency_call/pmc
 	name = "Weyland-Yutani PMC (Squad)"
 	mob_max = 6
@@ -38,7 +38,7 @@
 	else if(synths < max_synths && HAS_FLAG(mob.client.prefs.toggles_ert, PLAY_SYNTH) && mob.client.check_whitelist_status(WHITELIST_SYNTHETIC))
 		synths++
 		to_chat(mob, SPAN_ROLE_HEADER("You are a Weyland-Yutani PMC Support Synthetic!"))
-		arm_equipment(mob, /datum/equipment_preset/pmc/synth, TRUE, TRUE)
+		arm_equipment(mob, /datum/equipment_preset/synth/pmc, TRUE, TRUE)
 	else if(medics < max_medics && HAS_FLAG(mob.client.prefs.toggles_ert, PLAY_MEDIC) && check_timelock(mob.client, JOB_SQUAD_MEDIC, time_required_for_job))
 		medics++
 		to_chat(mob, SPAN_ROLE_HEADER("You are a Weyland-Yutani PMC Medic!"))
@@ -65,14 +65,14 @@
 		to_chat(M, SPAN_BOLD("You were born [pick(75;"in Europe", 15;"in Asia", 10;"on Mars")] to a [pick(75;"well-off", 15;"well-established", 10;"average")] family."))
 		to_chat(M, SPAN_BOLD("Joining the ranks of Weyland-Yutani has proven to be very profitable for you."))
 		to_chat(M, SPAN_BOLD("While you are officially an employee, much of your work is off the books. You work as a skilled mercenary."))
-		to_chat(M, SPAN_BOLD("You are [pick(50;"unaware of the xenomorph threat", 15;"acutely aware of the xenomorph threat", 10;"well-informed of the xenomorph threat")]"))
+		to_chat(M, SPAN_BOLD("You are [pick(50;"unaware of the xenomorph threat", 15;"acutely aware of the xenomorph threat", 10;"well-informed of the xenomorph threat")]."))
 	else
 		to_chat(M, SPAN_BOLD("You were brought online in a Weyland-Yutani synthetic production facility, knowing only your engineers for the first few weeks for your pseudo-life."))
 		to_chat(M, SPAN_BOLD("You were programmed with standard synthetic skills as per facility and geneva protocol."))
 		to_chat(M, SPAN_BOLD("Throughout your service, you gained recognition as a capable unit and your model was given equipment upgrades which USCM models lack."))
 		to_chat(M, SPAN_BOLD("You were given all available information about the xenomorph threat apart from classified data reserved for special employees."))
-	to_chat(M, SPAN_BOLD("You are part of  Weyland-Yutani Task Force Oberon that arrived in 2182 following the UA withdrawl of the Neroid Sector."))
-	to_chat(M, SPAN_BOLD("Task-force Oberon is stationed aboard the USCSS Royce, a powerful Weyland-Yutani cruiser that patrols the outer edges of the Neroid Sector. "))
+	to_chat(M, SPAN_BOLD("You are part of Weyland-Yutani Task Force Oberon that arrived in 2182 following the UA withdrawal of the Neroid Sector."))
+	to_chat(M, SPAN_BOLD("Task-force Oberon is stationed aboard the USCSS Royce, a powerful Weyland-Yutani cruiser that patrols the outer edges of the Neroid Sector."))
 	to_chat(M, SPAN_BOLD("Under the directive of Weyland-Yutani board member Johan Almric, you act as private security for Weyland-Yutani science teams."))
 	to_chat(M, SPAN_BOLD("The USCSS Royce contains a crew of roughly two hundred PMCs, and one hundred scientists and support personnel."))
 	to_chat(M, SPAN_BOLD("Ensure no damage is incurred against Weyland-Yutani. Make sure the CL is safe."))
@@ -95,13 +95,13 @@
 	mob_min = 2
 	probability = 0
 	max_medics = 2
-	max_smartgunners = 1
+	max_smartgunners = 0
 	var/checked_objective = FALSE
 
 /datum/emergency_call/pmc/chem_retrieval/New()
 	..()
 	dispatch_message = "[MAIN_SHIP_NAME], это ККС \"Ройс\". Мы высылаем на ваш борт вторую группу, чтобы изъять все образцы химического вещества, недавно отсканированные в вашем исследовательском отделе. Если вы не будете сотрудничать, команда уполномочена применить летальную силу и ликвидировать исследовательский отдел."
-	objectives = "Заберите из исследовательского отдела [MAIN_SHIP_NAME] все документы, образцы и химикаты, содержащие свойство \"DNA_Disintegrating\"."
+	objectives = "Заберите из исследовательского отдела [MAIN_SHIP_NAME] все документы и образцы химического вещества 'Ксеногенетический катализатор'. Убедитесь, что флакон не поврежден и содержит 30 единиц, доставьте его на станцию группы реагирования."
 
 /datum/emergency_call/pmc/chem_retrieval/proc/check_objective_info()
 	if(objective_info)
@@ -123,7 +123,7 @@
 
 	if(!leader && HAS_FLAG(H.client.prefs.toggles_ert, PLAY_LEADER) && check_timelock(H.client, JOB_SQUAD_LEADER, time_required_for_job))    //First one spawned is always the leader.
 		leader = H
-		to_chat(H, SPAN_ROLE_HEADER("You are a Weyland-Yutani PMC Squad Leader!"))
+		to_chat(H, SPAN_ROLE_HEADER("You are a Weyland-Yutani PMC Lead Investigator!"))
 		arm_equipment(H, /datum/equipment_preset/pmc/pmc_lead_investigator, TRUE, TRUE)
 	else if(medics < max_medics && HAS_FLAG(H.client.prefs.toggles_ert, PLAY_MEDIC) && check_timelock(H.client, JOB_SQUAD_MEDIC, time_required_for_job))
 		medics++
@@ -131,17 +131,20 @@
 		arm_equipment(H, /datum/equipment_preset/pmc/pmc_med_investigator, TRUE, TRUE)
 	else if(heavies < max_heavies && HAS_FLAG(H.client.prefs.toggles_ert, PLAY_SMARTGUNNER) && check_timelock(H.client, JOB_SQUAD_SMARTGUN, time_required_for_job))
 		heavies++
-		to_chat(H, SPAN_ROLE_HEADER("You are a Weyland-Yutani PMC Heavy Gunner!"))
-		arm_equipment(H, /datum/equipment_preset/pmc/pmc_gunner, TRUE, TRUE)
+		to_chat(H, SPAN_ROLE_HEADER("You are a Weyland-Yutani PMC Crowd Control Specialist!"))
+		arm_equipment(H, /datum/equipment_preset/pmc/pmc_riot_control, TRUE, TRUE)
 	else
 		to_chat(H, SPAN_ROLE_HEADER("You are a Weyland-Yutani PMC Detainer!"))
-		arm_equipment(H, /datum/equipment_preset/pmc/pmc_detainer, TRUE, TRUE)
+		arm_equipment(H, /datum/equipment_preset/pmc/pmc_security, TRUE, TRUE)
 
 	print_backstory(H)
 
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), H, SPAN_BOLD("Objectives:</b> [objectives]")), 1 SECONDS)
+
 /obj/effect/landmark/ert_spawns/distress_pmc
 	name = "Distress_PMC"
+	icon_state = "spawn_distress_pmc"
 
 /obj/effect/landmark/ert_spawns/distress_pmc/item
 	name = "Distress_PMCitem"
+	icon_state = "distress_item"

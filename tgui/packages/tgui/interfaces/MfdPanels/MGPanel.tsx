@@ -1,17 +1,22 @@
-import { useBackend } from '../../backend';
-import { Box, Stack } from '../../components';
-import { DropshipEquipment } from '../DropshipWeaponsConsole';
-import { MfdPanel, MfdProps } from './MultifunctionDisplay';
+import { useBackend } from 'tgui/backend';
+import { Box, Stack } from 'tgui/components';
+
+import type { DropshipEquipment } from '../DropshipWeaponsConsole';
+import { MfdPanel, type MfdProps } from './MultifunctionDisplay';
 import { mfdState, useEquipmentState } from './stateManagers';
-import { EquipmentContext, MGSpec } from './types';
+import type { EquipmentContext, MGSpec } from './types';
 
 const MgPanel = (props: DropshipEquipment) => {
   const mgData = props.data as MGSpec;
+  const ammoReadout =
+    mgData.rounds === null || mgData.rounds === undefined
+      ? 'DEPLETED'
+      : mgData.rounds + ' / ' + mgData.max_rounds;
 
   return (
     <Stack>
       <Stack.Item width="100px">
-        <svg />
+        <svg overflow="visible" />
       </Stack.Item>
       <Stack.Item>
         <Stack vertical width="300px" align="center">
@@ -24,9 +29,7 @@ const MgPanel = (props: DropshipEquipment) => {
             </h3>
           </Stack.Item>
           <Stack.Item>
-            <h3>
-              Ammo: {mgData.rounds} / {mgData.max_rounds}
-            </h3>
+            <h3>Ammo: {ammoReadout}</h3>
           </Stack.Item>
           <Stack.Item>
             <h3>
@@ -41,7 +44,7 @@ const MgPanel = (props: DropshipEquipment) => {
         </Stack>
       </Stack.Item>
       <Stack.Item width="100px">
-        <svg />
+        <svg overflow="visible" />
       </Stack.Item>
     </Stack>
   );

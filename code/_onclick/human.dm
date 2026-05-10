@@ -63,14 +63,13 @@
 	H.attack_log += text("\[[time_stamp()]\] <font color='red'>[s] [key_name(H)]</font>")
 	log_attack("[s] [key_name(H)]")
 
-	if(O.take_damage(1,0,1,1,"teeth marks"))
-		H.UpdateDamageIcon()
+	O.take_damage(1,0,1,1,"teeth marks")
 
 	last_chew = world.time
 
 /mob/living/carbon/human/UnarmedAttack(atom/A, proximity, click_parameters)
 
-	if(body_position == LYING_DOWN) //No attacks while laying down
+	if(body_position == LYING_DOWN && !HAS_TRAIT(src, TRAIT_HAULED)) //No attacks while laying down
 		return 0
 
 	var/obj/item/clothing/gloves/G = gloves // not typecast specifically enough in defines
@@ -86,6 +85,7 @@
 		to_chat(src, SPAN_NOTICE("You try to move your [temp.display_name], but cannot!"))
 		return
 
+	SEND_SIGNAL(src, COMSIG_HUMAN_UNARMED_ATTACK, A)
 	A.attack_hand(src, click_parameters)
 
 /datum/proc/handle_click(mob/living/carbon/human/user, atom/A, params) //Heres our handle click relay proc thing.
@@ -102,7 +102,7 @@
 		var/mob/living/carbon/xenomorph/xeno = dropping
 		if(xeno.back)
 			var/obj/item/back_item = xeno.back
-			if(xeno.stat != DEAD) // If the Xeno is alive, fight back
+			if((xeno.stat != DEAD) && !xeno.legcuffed) // If the Xeno is alive, fight back
 				var/mob/living/carbon/carbon_user = user
 				if(!carbon_user || !carbon_user.ally_of_hivenumber(xeno.hivenumber))
 					carbon_user.KnockDown(rand(xeno.caste.tacklestrength_min, xeno.caste.tacklestrength_max))
@@ -167,6 +167,6 @@
 		return
 
 	var/turf/target_turf = get_turf(get_step(src, Get_Compass_Dir(src, A)))
-	
+
 	if(istype(target_turf, /turf/open_space))
 		return target_turf.attack_hand(src)

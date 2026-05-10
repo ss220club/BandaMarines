@@ -3,8 +3,13 @@
 	mob_min = 1
 	mob_max = 4
 	hostility = TRUE
+	ignore_ftl_or_crash = TRUE
 	shuttle_id = ""
 	name_of_spawn = /obj/effect/landmark/ert_spawns/groundside_xeno
+	ert_message = "Забытые ксеноморфы пробуждаются"
+
+/datum/emergency_call/forsaken_xenos/New()
+	. = ..()
 	objectives = "Вас оставили охранять покинутую колонию. Не допускайте посторонних."
 
 /datum/emergency_call/forsaken_xenos/create_member(datum/mind/new_member, turf/override_spawn_loc)

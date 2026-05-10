@@ -25,8 +25,6 @@
 
 	minimap_icon = "xenoqueen"
 
-	fire_immunity = FIRE_IMMUNITY_NO_DAMAGE
-
 /mob/living/carbon/xenomorph/king
 	caste_type = XENO_CASTE_KING
 	name = XENO_CASTE_KING
@@ -46,10 +44,11 @@
 	claw_type = CLAW_TYPE_VERY_SHARP
 	age = -1
 	aura_strength = 6
+	fire_immunity = FIRE_IMMUNITY_NO_DAMAGE
 
 	base_actions = list(
 		/datum/action/xeno_action/onclick/xeno_resting,
-		/datum/action/xeno_action/onclick/regurgitate,
+		/datum/action/xeno_action/onclick/release_haul,
 		/datum/action/xeno_action/watch_xeno,
 		/datum/action/xeno_action/activable/tail_stab,
 		/datum/action/xeno_action/onclick/rend,
@@ -65,6 +64,9 @@
 
 	bubble_icon = "alienroyal"
 
+	skull = /obj/item/skull/king
+	pelt = /obj/item/pelt/king
+
 /mob/living/carbon/xenomorph/king/get_organ_icon()
 	return "heart_t3"
 
@@ -76,11 +78,31 @@
 /mob/living/carbon/xenomorph/king/Initialize()
 	. = ..()
 	AddComponent(/datum/component/footstep, 2 , 35, 11, 4, "alien_footstep_large")
-	RegisterSignal(src, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(check_block))
+	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(post_move))
+	if(!should_block_game_interaction(src, TRUE)) // don't let admin-level kings mess up alliances
+		hive = GLOB.hive_datum[hivenumber]
+		hive.banned_allies = list("All")
+		if(hive.break_all_alliances())
+			xeno_message(SPAN_XENOANNOUNCE("With the arrival of the King, all alliances have been broken."), 3, hivenumber)
 
-/mob/living/carbon/xenomorph/king/proc/check_block(mob/king, turf/new_loc)
+/mob/living/carbon/xenomorph/king/initialize_pass_flags(datum/pass_flags_container/pass_flags)
+	. = ..()
+	if(!pass_flags)
+		return
+
+	pass_flags.flags_pass |= PASS_MOB_THRU
+
+/mob/living/carbon/xenomorph/king/proc/post_move(mob/king)
 	SIGNAL_HANDLER
+
+	if(stat == DEAD)
+		return
+
+	var/turf/new_loc = get_turf(src)
+
 	for(var/mob/living/carbon/carbon in new_loc.contents)
+		if(carbon == src)
+			continue
 		if(isxeno(carbon))
 			var/mob/living/carbon/xenomorph/xeno = carbon
 			if(xeno.hivenumber == src.hivenumber && !(king.client?.prefs?.toggle_prefs & TOGGLE_AUTO_SHOVE_OFF))
@@ -94,6 +116,7 @@
 				carbon.apply_armoured_damage(20)
 				carbon.KnockDown((1 SECONDS) / GLOBAL_STATUS_MULTIPLIER)
 				playsound(src, 'sound/weapons/alien_knockdown.ogg', 25, 1)
+
 /mob/living/carbon/xenomorph/king/gib(datum/cause_data/cause = create_cause_data("gibbing", src))
 	death(cause, 1)
 
@@ -104,15 +127,10 @@
 	icon_xeno = 'icons/mob/xenos/castes/tier_4/rogueking.dmi'
 	icon = 'icons/mob/xenos/castes/tier_4/rogueking.dmi'
 
-/atom/movable/vis_obj/xeno_wounds/rogue
-	icon = 'icons/mob/xenos/castes/tier_4/roguedamage.dmi'
-
-/mob/living/carbon/xenomorph/king/rogue/Initialize(mapload, mob/living/carbon/xenomorph/old_xeno, hivenumber)
+/mob/living/carbon/xenomorph/king/death(cause, gibbed)
 	. = ..()
-	vis_contents -= wound_icon_holder
-	wound_icon_holder = new /atom/movable/vis_obj/xeno_wounds/rogue(null, src)
-	vis_contents += wound_icon_holder
-
+	if(hive)
+		hive.setup_banned_allies()
 
 /*
 	REND ABILITY
@@ -134,11 +152,11 @@
 		carbon.apply_armoured_damage(damage)
 		carbon.last_damage_data = create_cause_data(initial(xeno.name), xeno)
 		xeno.flick_attack_overlay(carbon, "slash")
-		to_chat(carbon, SPAN_DANGER("[xeno] slices into you with its razor sharp talons."))
+		to_chat(carbon, SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] slices into you with its razor sharp talons."))
 		log_attack("[key_name(xeno)] hit [key_name(carbon)] with [name]")
 		playsound(carbon, pick(slash_sounds), 30, TRUE)
 
-	xeno.visible_message(SPAN_DANGER("[xeno] slices around itself!"), SPAN_NOTICE("We slice around ourself!"))
+	xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] slices around itself!"), SPAN_NOTICE("We slice around ourself!"))
 	apply_cooldown()
 	..()
 
@@ -155,7 +173,7 @@
 	XENO_ACTION_CHECK_USE_PLASMA(xeno)
 
 	playsound(xeno, 'sound/voice/deep_alien_screech2.ogg', 75, 0, status = 0)
-	xeno.visible_message(SPAN_XENOHIGHDANGER("[xeno] emits a raspy guttural roar!"))
+	xeno.visible_message(SPAN_XENOHIGHDANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] издаёт скрежещущий горловой рёв!")) // SS220 EDIT ADDICTION
 	xeno.create_shriekwave()
 
 	var/datum/effect_system/smoke_spread/king_doom/smoke_gas = new()
@@ -269,48 +287,48 @@
 	XENO_ACTION_CHECK(xeno)
 
 	if(get_dist(owner, target) > range)
-		to_chat(xeno, SPAN_XENONOTICE("We cannot leap that far!"))
+		to_chat(xeno, SPAN_XENONOTICE("Мы не можем прыгнуть так далеко!"))
 		return
 
 	var/turf/target_turf = get_turf(target)
 
 	if(!target_turf || target_turf.density)
-		to_chat(xeno, SPAN_XENONOTICE("We cannot leap to that!"))
+		to_chat(xeno, SPAN_XENONOTICE("Мы не можем прыгнуть в эту область!"))
 		return
 
 	if(istype(target_turf, /turf/open/space))
-		to_chat(xeno, SPAN_XENONOTICE("It would not be wise to try to leap there..."))
+		to_chat(xeno, SPAN_XENONOTICE("Было бы неразумно пытаться прыгнуть эту область..."))
 		return
 
 	if(istype(target, /obj/vehicle/multitile))
-		to_chat(xeno, SPAN_XENONOTICE("It would not be wise to try to leap there..."))
+		to_chat(xeno, SPAN_XENONOTICE("Было бы неразумно пытаться прыгнуть эту область..."))
 		return
 
 	var/area/target_area = get_area(target_turf)
-	if(target_area.flags_area & AREA_NOTUNNEL)
-		to_chat(xeno, SPAN_XENONOTICE("We cannot leap to that area!"))
+	if(target_area.flags_area & AREA_NOBURROW)
+		to_chat(xeno, SPAN_XENONOTICE("Мы не можем прыгнуть в эту область!"))
 
 	var/list/leap_line = get_line(xeno, target)
 	for(var/turf/jump_turf in leap_line)
 		if(jump_turf.density)
-			to_chat(xeno, SPAN_XENONOTICE("We don't have a clear path to leap to that location!"))
+			to_chat(xeno, SPAN_XENONOTICE("Мы не можем прыгнуть в эту область, пока нам что-то мешает на пути к ней!"))
 			return
 
 		for(var/obj/structure/possible_blocker in jump_turf)
 			if(possible_blocker.density && !possible_blocker.throwpass)
-				to_chat(xeno, SPAN_XENONOTICE("There's something blocking us from leaping."))
+				to_chat(xeno, SPAN_XENONOTICE("Что-то мешает нам совершить прыжок."))
 				return
 
 	if(!check_and_use_plasma_owner())
-		to_chat(xeno, SPAN_XENONOTICE("We don't have enough plasma to use [name]."))
+		to_chat(xeno, SPAN_XENONOTICE("У нас недостаточно плазмы, чтобы использовать [name].")) // SS220 EDIT ADDICTION
 		return
 
 	var/turf/template_turf = get_step(target_turf, SOUTHWEST)
 
-	to_chat(xeno, SPAN_XENONOTICE("Our muscles tense as we prepare ourself for a giant leap."))
+	to_chat(xeno, SPAN_XENONOTICE("Наши мышцы напрягаются, когда мы готовимся к гигантскому прыжку."))
 	xeno.make_jittery(2 SECONDS)
 	if(!do_after(xeno, 2 SECONDS, INTERRUPT_ALL, BUSY_ICON_HOSTILE))
-		to_chat(xeno, SPAN_XENONOTICE("We relax our muslces and end our leap."))
+		to_chat(xeno, SPAN_XENONOTICE("Наши мышцы расслабляются, когда мы приземляемся на землю."))
 		return
 	if(leaping || !target)
 		return
@@ -356,9 +374,8 @@
 	owner.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	SLEEP_CHECK_DEATH(7, owner)
 
-	while(target_turf && owner.loc != target_turf)
-		owner.forceMove(get_step(owner, get_dir(owner, target_turf)))
-		SLEEP_CHECK_DEATH(0.5, owner)
+	SLEEP_CHECK_DEATH(0.5 * (abs(owner.x-target_turf.x) + abs(owner.y - target_turf.y) + abs(owner.z - target_turf.z)), owner)
+	owner.forceMove(target_turf)
 
 	animate(owner, alpha = 100, transform = matrix()*0.7, time = 7)
 	var/descentTime = 5
@@ -402,7 +419,7 @@
 			item.throw_atom(throwtarget, 2, SPEED_REALLY_FAST, owner, TRUE)
 
 	for(var/obj/structure/structure in orange(1, owner))
-		structure.ex_act(1000, get_dir(owner, structure))
+		INVOKE_ASYNC(structure, TYPE_PROC_REF(/atom, ex_act), 1000, get_dir(owner, structure))
 
 	for(var/mob/living in range(7, owner))
 		shake_camera(living, 15, 1)

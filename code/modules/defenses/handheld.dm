@@ -65,7 +65,10 @@
 	for(var/mob/M in T)
 		blocked = TRUE
 		break
-
+	var/area/area = get_area(T)
+	if(!area.allow_construction)
+		to_chat(user, SPAN_WARNING("You cannot deploy \a [src] here, find a more secure surface!"))
+		return
 	if(istype(T, /turf/open))
 		var/turf/open/floor = T
 		if(!floor.allow_construction)
@@ -219,7 +222,7 @@
 	if(!istype(target, /obj/item/ammo_magazine/sentry_flamer))
 		return .
 
-	user.visible_message(SPAN_NOTICE("[user] begins to tweak the ammo of [target]."), SPAN_NOTICE("You begin to tweak the ammo of [target]."))
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins to tweak the ammo of [target]."), SPAN_NOTICE("You begin to tweak the ammo of [target]."))
 
 	if(!do_after(user, 1 SECONDS, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD, target))
 		to_chat(user, SPAN_WARNING("You stop tweaking [target]'s ammo."))
@@ -227,7 +230,7 @@
 
 	var/obj/item/ammo_magazine/sentry_flamer/mag = new ammo_convert(get_turf(user))
 
-	user.visible_message(SPAN_NOTICE("[user] converts the ammo of [target] to [mag]"), SPAN_NOTICE("You convert the ammo of [target] to [mag]"))
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] converts the ammo of [target] to [mag]"), SPAN_NOTICE("You convert the ammo of [target] to [mag]"))
 
 	qdel(target)
 	user.put_in_any_hand_if_possible(mag)
@@ -379,3 +382,10 @@
 	deployment_time = 5 SECONDS
 	defense_type = /obj/structure/machinery/defenses/planted_flag/upp
 
+/obj/item/defenses/handheld/planted_flag/clf
+	name = "handheld CLF planted flag"
+	desc = "A compact version of the CLF defenses. Designed for deployment in the field."
+	icon = 'icons/obj/structures/machinery/defenses/clf_defenses.dmi'
+	icon_state = "CLF planted_flag_handheld"
+	deployment_time = 5 SECONDS
+	defense_type = /obj/structure/machinery/defenses/planted_flag/clf

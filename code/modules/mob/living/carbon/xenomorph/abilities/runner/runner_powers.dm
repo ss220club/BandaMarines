@@ -12,7 +12,7 @@
 	if (!check_and_use_plasma_owner())
 		return
 
-	xeno.visible_message(SPAN_XENOWARNING("[xeno] fires a burst of bone chips at [affected_atom]!"), SPAN_XENOWARNING("We fire a burst of bone chips at [affected_atom]!"))
+	xeno.visible_message(SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] выпускает залп костяных осколков в сторону [affected_atom.declent_ru(GENITIVE)]!"), SPAN_XENOWARNING("Мы выпускаем залп костяных осколков в сторону [affected_atom.declent_ru(GENITIVE)]!")) // SS220 EDIT ADDICTION
 
 	var/turf/target = locate(affected_atom.x, affected_atom.y, affected_atom.z)
 	var/obj/projectile/projectile = new /obj/projectile(xeno.loc, create_cause_data(initial(xeno.caste_type), xeno))
@@ -30,13 +30,13 @@
 /datum/action/xeno_action/activable/acider_acid/use_ability(atom/affected_atom)
 	var/mob/living/carbon/xenomorph/xeno = owner
 	if(!istype(affected_atom, /obj/item) && !istype(affected_atom, /obj/structure/) && !istype(affected_atom, /obj/vehicle/multitile))
-		to_chat(xeno, SPAN_XENOHIGHDANGER("Can only melt barricades and items!"))
+		to_chat(xeno, SPAN_XENOHIGHDANGER("Можно растворять только баррикады и предметы!"))
 		return
 	var/datum/behavior_delegate/runner_acider/behavior_delegate = xeno.behavior_delegate
 	if (!istype(behavior_delegate))
 		return
 	if(behavior_delegate.acid_amount < acid_cost)
-		to_chat(xeno, SPAN_XENOHIGHDANGER("Not enough acid stored!"))
+		to_chat(xeno, SPAN_XENOHIGHDANGER("Недостаточно кислоты!"))
 		return
 
 	xeno.corrosive_acid(affected_atom, acid_type, 0)
@@ -114,7 +114,7 @@
 	if (!istype(behavior_del))
 		return
 	if(behavior_del.acid_amount < behavior_del.melt_acid_cost)
-		to_chat(src, SPAN_XENOHIGHDANGER("Not enough acid stored!"))
+		to_chat(src, SPAN_XENOHIGHDANGER("Недостаточно кислоты!"))
 		return
 
 	behavior_del.modify_acid(-behavior_del.melt_acid_cost)
@@ -124,8 +124,8 @@
 	if(istype(affected_atom, /obj/vehicle/multitile))
 		var/obj/vehicle/multitile/multitile_vehicle = affected_atom
 		multitile_vehicle.take_damage_type(20 / acid.acid_delay, "acid", src)
-		visible_message(SPAN_XENOWARNING("[src] vomits globs of vile stuff at [multitile_vehicle]. It sizzles under the bubbling mess of acid!"),
-			SPAN_XENOWARNING("We vomit globs of vile stuff at [multitile_vehicle]. It sizzles under the bubbling mess of acid!"), null, 5)
+		visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] плюётся отвратительной субстанцией на [multitile_vehicle.declent_ru(ACCUSATIVE)], которая тут же начинает шипеть и растворяться от кислоты!"), // SS220 EDIT ADDICTION
+			SPAN_XENOWARNING("Мы плюёмся отвратительной субстанцией на [multitile_vehicle.declent_ru(ACCUSATIVE)], которая тут же начинает шипеть и растворяться от кислоты!"), null, 5) // SS220 EDIT ADDICTION
 		playsound(loc, "sound/bullets/acid_impact1.ogg", 25)
 		QDEL_IN(acid, 20)
 		return
@@ -133,10 +133,62 @@
 	acid.add_hiddenprint(src)
 	acid.name += " ([affected_atom])"
 
-	visible_message(SPAN_XENOWARNING("[src] vomits globs of vile stuff all over [affected_atom]. It begins to sizzle and melt under the bubbling mess of acid!"),
-	SPAN_XENOWARNING("We vomit globs of vile stuff all over [affected_atom]. It begins to sizzle and melt under the bubbling mess of acid!"), null, 5)
+	visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] плюётся отвратительной субстанцией на [affected_atom.declent_ru(ACCUSATIVE)], которая тут же начинает шипеть и растворяться от кислоты!"), // SS220 EDIT ADDICTION
+	SPAN_XENOWARNING("Мы плюёмся отвратительной субстанцией на [affected_atom.declent_ru(ACCUSATIVE)], которая тут же начинает шипеть и растворяться от кислоты!"), null, 5) // SS220 EDIT ADDICTION
 	playsound(loc, "sound/bullets/acid_impact1.ogg", 25)
 
+#define ACIDER_ACID_LEVEL 3
+
+/mob/living/carbon/xenomorph/runner/try_fill_trap(obj/effect/alien/resin/trap/target)
+	if(!istype(strain, /datum/xeno_strain/acider))
+		return ..()
+
+	if(!istype(target))
+		return FALSE
+
+	var/datum/behavior_delegate/runner_acider/behavior_del = behavior_delegate
+	if(!istype(behavior_del))
+		return FALSE
+
+	if(behavior_del.acid_amount < behavior_del.fill_acid_cost)
+		to_chat(src, SPAN_XENOHIGHDANGER("Недостаточно кислоты!"))
+		return FALSE
+
+	var/trap_acid_level = 0
+	if(target.trap_type >= RESIN_TRAP_ACID1)
+		trap_acid_level = 1 + target.trap_type - RESIN_TRAP_ACID1
+
+	if(trap_acid_level >= ACIDER_ACID_LEVEL) // Acid runners apply /obj/effect/xenomorph/acid/strong generally
+		to_chat(src, SPAN_XENONOTICE("В ловушке уже достаточно кислоты."))
+		return FALSE
+
+	to_chat(src, SPAN_XENONOTICE("Вы начинаете наполнять смоляную ловушку кислотой."))
+	xeno_attack_delay(src)
+	if(!do_after(src, 3 SECONDS, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE, src))
+		return FALSE
+
+	if(target.trap_type >= RESIN_TRAP_ACID1)
+		trap_acid_level = 1 + target.trap_type - RESIN_TRAP_ACID1
+
+	if(trap_acid_level >= ACIDER_ACID_LEVEL)
+		return FALSE
+
+	if(behavior_del.acid_amount < behavior_del.fill_acid_cost)
+		to_chat(src, SPAN_XENOHIGHDANGER("Недостаточно кислоты!"))
+		return FALSE
+
+	behavior_del.modify_acid(-behavior_del.fill_acid_cost)
+
+	target.cause_data = create_cause_data("resin acid trap", src)
+	target.setup_tripwires()
+	target.set_state(RESIN_TRAP_ACID1 + ACIDER_ACID_LEVEL - 1)
+
+	playsound(target, 'sound/effects/refill.ogg', 25, 1)
+	visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] наполняет смоляную ловушку кислотой!"), // SS220 EDIT ADDICTION
+	SPAN_XENOWARNING("Вы наполняете смоляную ловушку кислотой!"), null, 5)
+	return TRUE
+
+#undef ACIDER_ACID_LEVEL
 
 /datum/action/xeno_action/activable/acider_for_the_hive/use_ability(atom/affected_atom)
 	var/mob/living/carbon/xenomorph/xeno = owner
@@ -145,12 +197,12 @@
 		return
 
 	if(!isturf(xeno.loc))
-		to_chat(xeno, SPAN_XENOWARNING("It is too cramped in here to activate this!"))
+		to_chat(xeno, SPAN_XENOWARNING("Здесь слишком тесно, чтобы активировать таймер!"))
 		return
 
 	var/area/xeno_area = get_area(xeno)
 	if(xeno_area.flags_area & AREA_CONTAINMENT)
-		to_chat(xeno, SPAN_XENOWARNING("We can't activate this here!"))
+		to_chat(xeno, SPAN_XENOWARNING("Мы не можем активировать таймер здесь!"))
 		return
 
 	if(!xeno.check_state())
@@ -168,12 +220,12 @@
 		return
 
 	if(behavior_delegate.acid_amount < minimal_acid)
-		to_chat(xeno, SPAN_XENOWARNING("Not enough acid built up for an explosion."))
+		to_chat(xeno, SPAN_XENOWARNING("У нас недостаточно кислоты для активации таймера."))
 		return
 
-	notify_ghosts(header = "За улей!", message = "[xeno] is going to explode for the Hive!", source = xeno, action = NOTIFY_ORBIT)
+	notify_ghosts(header = "За улей!", message = "[xeno] is going to explode for the Hive!", source = xeno, action = NOTIFY_ORBIT) // SS220 EDIT ADDICTION
 
-	to_chat(xeno, SPAN_XENOWARNING("Our stomach starts turning and twisting, getting ready to compress the built up acid."))
+	to_chat(xeno, SPAN_XENOWARNING("Наш желудок начинает сжиматься, готовясь воспламенить накопленную кислоту."))
 	xeno.color = "#22FF22"
 	xeno.set_light_color("#22FF22")
 	xeno.set_light_range(3)
@@ -183,12 +235,13 @@
 	behavior_delegate.caboom_last_proc = 0
 	xeno.set_effect(behavior_delegate.caboom_timer*2, SUPERSLOW)
 
+	START_PROCESSING(SSfasteffects, src)
+
 	xeno.say(";ЗА УЛЕЙ!!!")
 	return ..()
 
 /datum/action/xeno_action/activable/acider_for_the_hive/proc/cancel_ability()
 	var/mob/living/carbon/xenomorph/xeno = owner
-
 	if(!istype(xeno))
 		return
 	var/datum/behavior_delegate/runner_acider/behavior_delegate = xeno.behavior_delegate
@@ -204,4 +257,20 @@
 	// -Original amount set - (time exploding + timer inaccuracy) * how much gets removed per tick / 2
 	xeno.adjust_effect(behavior_delegate.caboom_timer * -2 - (behavior_delegate.caboom_timer - behavior_delegate.caboom_left + 2) * xeno.life_slow_reduction * 0.5, SUPERSLOW)
 
-	to_chat(xeno, SPAN_XENOWARNING("We remove all our explosive acid before it combusted."))
+	to_chat(xeno, SPAN_XENOWARNING("Мы отменяем взрыв, прежде чем кислота воспламенится."))
+
+	STOP_PROCESSING(SSfasteffects, src)
+	button.set_maptext()
+
+/datum/action/xeno_action/activable/acider_for_the_hive/process(delta_time)
+	return update_caboom_maptext()
+
+/datum/action/xeno_action/activable/acider_for_the_hive/proc/update_caboom_maptext()
+	var/mob/living/carbon/xenomorph/xeno = owner
+	var/datum/behavior_delegate/runner_acider/delegate = xeno.behavior_delegate
+	if(!istype(delegate) || !delegate.caboom_trigger || delegate.caboom_left <= 0)
+		button.set_maptext()
+		return PROCESS_KILL
+
+	button.set_maptext(SMALL_FONTS_COLOR(7, delegate.caboom_left, "#e69d00"), 19, 2)
+	return

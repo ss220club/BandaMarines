@@ -1,27 +1,27 @@
 
-// Provost = ПроректорЯвляется вторым по значению после президента (ректора).
-// Отвечают за исследовательскую деятельность
+// Provost = начальство военной полиции на местах в виде Военной Прокуратуры.
+// Высшая законодательная и исполнительная власть в сфере Военного Закона.
 
 /datum/paygrade/provost/inspector
-	name = "Проректор-Инспектор"
-	prefix = "Инсп"
+	name = "Инспектор"
+	prefix = "Ин-р"
 
 /datum/paygrade/provost/inspector/chief
-	name = "Ректор-Иснпектор"
-	prefix = "ГлавИнсп"
+	name = "Инспектор-офицер"
+	prefix = "Ин-р оф-р"
 
 /datum/paygrade/provost/marshal/deputy
-	name = "Проректор-Маршал"
-	prefix = "ЗамМаршал"
+	name = "Маршал-наместник"
+	prefix = "М-л/нам."
 
 /datum/paygrade/provost/marshal
-	name = "Ректор-Маршал"
-	prefix = "Маршал"
+	name = "Маршал"
+	prefix = "М-л"
 
 /datum/paygrade/provost/sectormarshal
-	name = "Проректор-Маршал Сектора"
-	prefix = "СтМаршал"
+	name = "Секторный маршал"
+	prefix = "С/м-л"
 
 /datum/paygrade/provost/chiefmarshal
-	name = "Ректор-Маршал Сектора"
-	prefix = "Главный Маршал"
+	name = "Начальник-маршал"
+	prefix = "Нач.м-л"

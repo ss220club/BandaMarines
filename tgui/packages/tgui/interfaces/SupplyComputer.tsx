@@ -1,12 +1,10 @@
 import { randomPick, randomProb } from 'common/random';
-import { BooleanLike } from 'common/react';
+import type { BooleanLike } from 'common/react';
 import { storage } from 'common/storage';
-import { capitalizeFirst } from 'common/string';
 import { debounce } from 'common/timer';
-import { ReactNode, useEffect, useState } from 'react';
-
-import { resolveAsset } from '../assets';
-import { useBackend, useSharedState } from '../backend';
+import { Fragment, type ReactNode, useEffect, useState } from 'react';
+import { resolveAsset } from 'tgui/assets';
+import { useBackend, useSharedState } from 'tgui/backend';
 import {
   Box,
   Button as NativeButton,
@@ -20,9 +18,10 @@ import {
   NumberInput,
   Section,
   Stack,
-} from '../components';
-import { ButtonCheckbox } from '../components/Button';
-import { Window } from '../layouts';
+} from 'tgui/components';
+import { ButtonCheckbox } from 'tgui/components/Button';
+import { Window } from 'tgui/layouts';
+
 import { LoadingScreen } from './common/LoadingToolbox';
 
 type SupplyComputerData = {
@@ -56,11 +55,13 @@ type SupplyComputerData = {
 
 type Pack = {
   name: string;
+  english_name: string;
   cost: number;
   dollar_cost: number;
   contains: Item[];
   icon: Icon;
   category: string;
+  english_category: string;
   type: string;
 };
 
@@ -78,6 +79,7 @@ type Order = {
 
 type Item = {
   name: string;
+  english_name: string;
   quantity: number;
   icon: Icon;
 };
@@ -116,7 +118,7 @@ export const SupplyComputer = () => {
   useEffect(() => {
     if (system_message?.length) {
       setDisplayModal(
-        <Section title="System Message">
+        <Section title="Системное сообщение">
           <Stack vertical p={3}>
             <Stack.Item>{system_message}</Stack.Item>
             <Stack.Item pt={2}>
@@ -127,7 +129,7 @@ export const SupplyComputer = () => {
                   setDisplayModal(null);
                 }}
               >
-                Acknowledge
+                Хорошо
               </Button>
             </Stack.Item>
           </Stack>
@@ -150,8 +152,8 @@ export const SupplyComputer = () => {
     <Window width={1050} height={700} theme={theme}>
       <Window.Content>
         {!!modal && <Modal>{modal}</Modal>}
-        <Stack>
-          <Stack.Item>
+        <Stack fill>
+          <Stack.Item width="250px">
             <SideButtons
               menu={menu}
               selectedCategory={selectedCategory}
@@ -213,37 +215,37 @@ const SideButtons = (props: {
   };
 
   return (
-    <Stack vertical>
+    <Stack vertical fill>
       <Stack.Item>
-        <Section>
-          <Stack vertical>
+        <Section fill>
+          <Stack vertical fill>
             <Stack.Item>
               <Stack justify="space-between">
-                <Stack.Item>Supply Budget: ${points * 100}</Stack.Item>
+                <Stack.Item>Бюджет: ${points * 100}</Stack.Item>
                 <Stack.Item>
                   <Button
                     icon="gear"
                     onClick={() =>
                       setModal(
-                        <Section title="Settings">
+                        <Section title="Настройки">
                           <Stack p={2}>
                             <ButtonCheckbox
                               checked={theme === 'crtbrown'}
                               onClick={() => chooseTheme('crtbrown')}
                             >
-                              CRT: Brown
+                              Жёлтая тема
                             </ButtonCheckbox>
                             <ButtonCheckbox
                               checked={theme === 'crtgreen'}
                               onClick={() => chooseTheme('crtgreen')}
                             >
-                              CRT: Green
+                              Зелёная тема
                             </ButtonCheckbox>
                             <ButtonCheckbox
                               checked={theme === 'weyland_yutani'}
                               onClick={() => chooseTheme('weyland_yutani')}
                             >
-                              wyOS
+                              «ВейЮ» ОС
                             </ButtonCheckbox>
                           </Stack>
                         </Section>,
@@ -262,7 +264,7 @@ const SideButtons = (props: {
                     disabled={!can_launch}
                     onClick={() => act('send')}
                   >
-                    {capitalizeFirst(shuttle_status)}
+                    {shuttle_status}
                   </Button>
                 </Stack.Item>
                 {!!(can_cancel || can_force) && (
@@ -271,14 +273,14 @@ const SideButtons = (props: {
                       {!!can_force && (
                         <Button
                           icon="gauge-high"
-                          tooltip="Force"
+                          tooltip="Принудительно"
                           onClick={() => act('force_launch')}
                         />
                       )}
                       {!!can_cancel && (
                         <Button
                           icon="ban"
-                          tooltip="Cancel"
+                          tooltip="Отмена"
                           onClick={() => act('cancel_launch')}
                         />
                       )}
@@ -294,7 +296,7 @@ const SideButtons = (props: {
                 selected={menu === MenuOptions.CurrentOrder}
                 icon="basket-shopping"
               >
-                Current Order{used_points ? `: $${used_points * 100}` : ''}
+                Текущие{used_points ? `: $${used_points * 100}` : ''}
                 {used_dollars && used_dollars > 0
                   ? ` (WY$${used_dollars})`
                   : ''}
@@ -309,7 +311,7 @@ const SideButtons = (props: {
                   selected={menu === MenuOptions.Requests}
                   icon="hand-holding-dollar"
                 >
-                  Requests
+                  Запросы
                   {requests.length > 0 ? ` (${requests.length})` : ''}
                 </Button>
               </Stack.Item>
@@ -322,7 +324,7 @@ const SideButtons = (props: {
                   selected={menu === MenuOptions.Pending}
                   icon="clipboard-list"
                 >
-                  Pending Orders
+                  Ожидающие
                   {pending.length > 0 ? ` (${pending.length})` : ''}
                 </Button>
               </Stack.Item>
@@ -330,11 +332,11 @@ const SideButtons = (props: {
           </Stack>
         </Section>
       </Stack.Item>
-      <Stack.Item>
-        <Section scrollable height="470px">
-          <Stack vertical height="450px">
+      <Stack.Item grow>
+        <Section scrollable fill>
+          <Stack vertical>
             <Input
-              placeholder="Search..."
+              placeholder="Поиск..."
               fluid
               expensive
               onInput={(_, val) => {
@@ -346,10 +348,11 @@ const SideButtons = (props: {
                 }
               }}
             />
-            {valid_categories.sort().map((category) => (
-              <Stack.Item key={category}>
+            {valid_categories.sort().map((category, index) => (
+              <Stack.Item key={category} grow>
                 <Button
                   fluid
+                  style={{ whiteSpace: 'normal', wordBreak: 'break-word' }}
                   onClick={() => {
                     setMenu(MenuOptions.Categories);
                     setCategory(category);
@@ -359,7 +362,7 @@ const SideButtons = (props: {
                     category === selectedCategory
                   }
                 >
-                  {category}
+                  {valid_categories[index] || category}
                 </Button>
               </Stack.Item>
             ))}
@@ -393,11 +396,11 @@ const Options = (props: {
     case MenuOptions.Categories:
       return (
         <Section
-          title={categories.includes(category!) ? category : 'Search'}
+          title={categories.includes(category!) ? category : 'Поиск'}
           scrollable
-          height="650px"
+          fill
         >
-          <Box height="610px">
+          <Box>
             <RenderCategory category={category!} categories={categories} />
           </Box>
         </Section>
@@ -407,11 +410,7 @@ const Options = (props: {
       return <CurrentOrder />;
 
     case MenuOptions.BlackMarket:
-      return (
-        <Stack vertical justify="space-around" align="center" height="100%">
-          <BlackMarketMenu />
-        </Stack>
-      );
+      return <BlackMarketMenu />;
 
     case MenuOptions.Pending:
       return <PendingOrder />;
@@ -432,14 +431,14 @@ const CurrentOrder = () => {
 
   return (
     <Section
-      title="Current Order"
+      title="Текущие"
       scrollable
-      height="650px"
+      fill
       buttons={
         <Stack>
           {requester && (
             <Input
-              placeholder="Reason..."
+              placeholder="Причина..."
               onChange={(_, val) => setReason(val)}
             />
           )}
@@ -451,7 +450,7 @@ const CurrentOrder = () => {
                 : act('place_order');
             }}
           >
-            Place Order
+            Заказать
           </Button>
           <Button
             icon="trash"
@@ -459,7 +458,7 @@ const CurrentOrder = () => {
               act('discard_cart');
             }}
           >
-            Discard Order
+            Отменить
           </Button>
         </Stack>
       }
@@ -477,7 +476,7 @@ const PendingOrder = () => {
   const { pending } = data;
 
   return (
-    <Section title="Pending Orders" scrollable height="650px">
+    <Section title="Ожидающие" scrollable fill>
       <Stack vertical height="610px">
         {pending!.map((order) => (
           <RenderOrder order={order} key={order.order_num} />
@@ -493,7 +492,7 @@ const Requests = () => {
   const { requests } = data;
 
   return (
-    <Section title="Requests" scrollable height="650px">
+    <Section title="Запросы" scrollable fill>
       <Stack vertical height="610px">
         {requests!.map((order) => (
           <RenderOrder order={order} key={order.order_num} request />
@@ -513,20 +512,20 @@ const RenderOrder = (props: {
 
   return (
     <Stack.Item>
-      <Collapsible title={`Order #${order.order_num}`} open>
+      <Collapsible title={`Заказ №${order.order_num}`} open>
         <Stack vertical>
           <Stack justify="space-between">
             <Stack.Item>
               <Stack.Item>
                 <Stack>
-                  <Stack.Item bold>Ordered By:</Stack.Item>
+                  <Stack.Item bold>Заказчик:</Stack.Item>
                   <Stack.Item>{order.ordered_by}</Stack.Item>
                 </Stack>
               </Stack.Item>
               {!!order.reason && (
                 <Stack.Item pt={1}>
                   <Stack>
-                    <Stack.Item bold>Reason:</Stack.Item>
+                    <Stack.Item bold>Причина:</Stack.Item>
                     <Stack.Item>{order.reason}</Stack.Item>
                   </Stack>
                 </Stack.Item>
@@ -534,14 +533,14 @@ const RenderOrder = (props: {
               {order.approved_by && order.ordered_by !== order.approved_by && (
                 <Stack.Item pt={1}>
                   <Stack>
-                    <Stack.Item bold>Approved By:</Stack.Item>
+                    <Stack.Item bold>Утверждено:</Stack.Item>
                     <Stack.Item>{order.approved_by}</Stack.Item>
                   </Stack>
                 </Stack.Item>
               )}
               <Stack.Item pt={1}>
                 <Stack>
-                  <Stack.Item bold>Total Cost:</Stack.Item>
+                  <Stack.Item bold>Итоговая стоимость:</Stack.Item>
                   <Stack.Item>
                     $
                     {order.contents.reduce(
@@ -564,7 +563,7 @@ const RenderOrder = (props: {
                       })
                     }
                   >
-                    Approve
+                    Принять
                   </Button>
                   <Button
                     icon="xmark"
@@ -575,7 +574,7 @@ const RenderOrder = (props: {
                       })
                     }
                   >
-                    Deny
+                    Отказать
                   </Button>
                 </Stack>
               </Stack.Item>
@@ -630,20 +629,18 @@ const BlackMarketMenu = () => {
   }
 
   return (
-    <>
-      <Box
-        position="absolute"
-        right="20px"
-        top="20px"
-        p={2}
-        style={{ border: '1px solid' }}
-      >
-        WY${dollars}
-      </Box>
-      <Stack.Item>
+    <Stack vertical fill align="center" justify="space-evenly">
+      <Stack.Item mr="3%" align="end">
+        <Stack justify="space-evenly">
+          <Box p={2} style={{ border: '1px solid' }}>
+            WY${dollars}
+          </Box>
+        </Stack>
+      </Stack.Item>
+      <Stack.Item height="25%" width="75%">
         {blackmarketCategory ? (
-          <Section fitted height="330px" scrollable>
-            <Box height="310px">
+          <Section fill scrollable width="100%">
+            <Box>
               <RenderCategory
                 category={blackmarketCategory}
                 categories={contraband_categories}
@@ -672,7 +669,7 @@ const BlackMarketMenu = () => {
           </Stack>
         </Stack.Item>
       )}
-    </>
+    </Stack>
   );
 };
 
@@ -708,14 +705,14 @@ const MendozaDialogue = () => {
 
   if (!mendoza_status) {
     return (
-      <Stack vertical justify="center" width="400px">
+      <Stack vertical fill justify="space-around">
         <Stack.Item>.......</Stack.Item>
       </Stack>
     );
   }
 
   return stateFirst ? (
-    <Stack vertical justify="center" width="400px">
+    <Stack vertical fill justify="space-around">
       <Stack.Item>
         {
           "Hold on- holy shit, what? Hey, hey! Finally! I've set THAT circuit board for replacement shipping off god knows who long ago. I had totally given up on it."
@@ -748,7 +745,7 @@ const MendozaDialogue = () => {
       </Stack.Item>
     </Stack>
   ) : (
-    <Stack vertical justify="center" width="400px">
+    <Stack vertical fill justify="space-around">
       <Stack.Item>{pickedDialogue}</Stack.Item>
     </Stack>
   );
@@ -763,7 +760,9 @@ const RenderCart = () => {
     <Stack vertical>
       <Stack.Item>
         {current_order.map((ordered) => (
-          <RenderPack key={ordered.name} pack={ordered} />
+          <Fragment key={ordered.name}>
+            <RenderPack pack={ordered} />
+          </Fragment>
         ))}
       </Stack.Item>
     </Stack>
@@ -779,22 +778,29 @@ const RenderCategory = (props: {
   const { data } = useBackend<SupplyComputerData>();
   const { all_items, categories_to_objects } = data;
 
+  const lowerCaseCategory = category.toLowerCase();
   const validCategory = categories.includes(category);
+
   const relevant_items = validCategory
     ? categories_to_objects[category]
-    : all_items.filter(
-        (pack) =>
+    : all_items.filter((pack: Pack) => {
+        return (
           !pack.dollar_cost &&
-          pack.name.toLowerCase().includes(category.toLowerCase()),
-      );
+          (pack.name.toLowerCase().includes(lowerCaseCategory) ||
+            pack.english_name.toLowerCase().includes(lowerCaseCategory) ||
+            pack.category.toLowerCase().includes(lowerCaseCategory) ||
+            (pack.english_category &&
+              pack.english_category.toLowerCase().includes(lowerCaseCategory)))
+        );
+      });
 
   return (
-    <Stack vertical>
+    <Stack vertical fill>
       {relevant_items.map((item) => (
-        <>
-          <RenderPack key={item.name} pack={item} />
+        <Fragment key={item.type}>
+          <RenderPack pack={item} />
           <Divider />
-        </>
+        </Fragment>
       ))}
     </Stack>
   );
@@ -868,8 +874,8 @@ const RenderPack = (props: {
   }
 
   return (
-    <Stack.Item key={item.name}>
-      <Stack>
+    <Stack.Item grow key={item.name}>
+      <Stack fill>
         {orderedQuantity ? (
           <Stack.Item>
             <Box p={1} width="30px" textAlign="right" inline>
@@ -926,12 +932,12 @@ const RenderPack = (props: {
           {item.dollar_cost ? `WY$${item.dollar_cost}` : `$${item.cost * 100}`}
         </Stack.Item>
 
-        <Stack.Item p={1}>
-          <Stack vertical>
-            <Stack.Item>
-              <Stack justify="space-between">
-                <Stack.Item>
-                  <Stack>
+        <Stack.Item grow p={1}>
+          <Stack fill vertical>
+            <Stack.Item grow>
+              <Stack fill justify="space-between">
+                <Stack.Item grow>
+                  <Stack fill>
                     <Stack.Item>
                       {item.icon && (
                         <DmIcon
@@ -941,9 +947,7 @@ const RenderPack = (props: {
                         />
                       )}
                     </Stack.Item>
-                    <Stack.Item width={orderedQuantity ? '575px' : '500px'}>
-                      {item.name}
-                    </Stack.Item>
+                    <Stack.Item grow>{item.name}</Stack.Item>
                   </Stack>
                 </Stack.Item>
                 {item.contains.length > 0 && (

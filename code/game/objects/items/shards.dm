@@ -123,7 +123,7 @@
 
 /obj/item/large_shrapnel/at_rocket_dud/try_to_throw(mob/living/user)
 	to_chat(user, SPAN_NOTICE("You heft \the [src] up, preparing to throw it."))
-	user.visible_message(SPAN_DANGER("[user] strains to lift up \the [src]. It looks like they're trying to throw it!"))
+	user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] strains to lift up \the [src]. It looks like they're trying to throw it!"))
 	throw_range = 5
 	throw_channel = 2 SECONDS
 	if(HAS_TRAIT(user, TRAIT_SUPER_STRONG))
@@ -179,7 +179,7 @@
 /obj/item/large_shrapnel/at_rocket_dud/proc/manual_detonate(atom/target, mob/living/user, melee = 1, direction = null)
 	detonating = 1
 	if(user && (cause == "manually triggered"))
-		user.visible_message(SPAN_DANGER("[user] [melee?"slams \the [src] into":"throws \the [src] at"] [target]!"))
+		user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] [melee?"slams \the [src] into":"throws \the [src] at"] [target]!"))
 	if((!direction) && target && user)
 		direction = get_dir(user, target)
 	cell_explosion(get_turf(target), 200, 150, EXPLOSION_FALLOFF_SHAPE_LINEAR, direction, create_cause_data("[cause] UXO detonation", user))
@@ -272,3 +272,55 @@
 /obj/item/shard/shrapnel/tutorial
 	damage_on_move = 0
 
+/obj/item/sharp
+	name = "sharp dart shrapnel"
+	desc = "It looks like a used 9X-E Sticky Explosive Dart, useless now."
+	icon = 'icons/obj/items/weapons/projectiles.dmi'
+	icon_state = "sharp_explosive_dart"
+	sharp = IS_SHARP_ITEM_BIG
+	w_class = SIZE_SMALL
+	edge = TRUE
+	force = 0
+	throwforce = 0
+	garbage = TRUE
+	var/damage_on_move = 3
+	var/count = 1
+
+/obj/item/sharp/Initialize(mapload, dir)
+	. = ..()
+	if(dir && dir <= 6)
+		turn_object(90)
+	else
+		turn_object(270)
+
+/obj/item/sharp/proc/on_embed(mob/embedded_mob, obj/limb/target_organ)
+	return
+
+/obj/item/sharp/proc/on_embedded_movement(mob/living/embedded_mob)
+	if(!ishuman(embedded_mob))
+		return
+	var/mob/living/carbon/human/H = embedded_mob
+	if(H.species.flags & NO_SHRAPNEL)
+		return
+	var/obj/limb/organ = embedded_organ
+	if(istype(organ))
+		organ.take_damage(damage_on_move * count, 0, 0, no_limb_loss = TRUE)
+		embedded_mob.pain.apply_pain(damage_on_move * count)
+
+/obj/item/sharp/proc/turn_object(amount)
+	var/matrix/initial_matrix = matrix(transform)
+	initial_matrix.Turn(amount)
+	apply_transform(initial_matrix)
+
+/obj/item/sharp/explosive
+	name = "\improper 9X-E Sticky Explosive Dart"
+
+/obj/item/sharp/incendiary
+	name = "\improper 9X-T Sticky Incendiary Dart"
+	desc = "It looks like a used 9X-T Sticky Incendiary Dart, useless now."
+	icon_state = "sharp_incendiary_dart"
+
+/obj/item/sharp/flechette
+	name = "\improper 9X-F Flechette Dart"
+	desc = "It looks like a used 9X-F Flechette Dart, useless now."
+	icon_state = "sharp_flechette_dart"

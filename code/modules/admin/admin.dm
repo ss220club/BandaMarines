@@ -107,7 +107,7 @@
 		dat += "<br><br>"
 	dat += "</body></html>"
 
-	show_browser(usr, dat, "Info on [key]", "allplayerinfo", "size=480x480")
+	show_browser(usr, dat, "Info on [key]", "allplayerinfo", width = 480, height = 480)
 
 
 /datum/admins/proc/Jobbans()
@@ -128,7 +128,7 @@
 			u = "[c] - [r]"
 			dat += "<tr><td>[t] (<A href='byond://?src=\ref[src];[HrefToken(forceGlobal = TRUE)];removejobban=[u]'>unban</A>)</td></tr>"
 	dat += "</table>"
-	show_browser(usr, dat, "Job Bans", "ban", "size=400x400")
+	show_browser(usr, dat, "Job Bans", "ban", width = 400, height = 400)
 
 
 /datum/admins/proc/Game()
@@ -148,7 +148,7 @@
 		<A href='byond://?_src_=admin_holder;[HrefToken(forceGlobal = TRUE)];send_tip=1'>Immediately Send Tip</A><br>
 		"}
 
-	show_browser(usr, dat, "Game Panel", "admin2", "size=210x280")
+	show_browser(usr, dat, "Game Panel", "admin2", width = 210, height = 280)
 	return
 
 /////////////////////////////////////////////////////////////////////////////////////////////////admins2.dm merge
@@ -156,7 +156,7 @@
 
 /datum/admins/proc/toggleaban()
 	set category = "Server"
-	set desc = "Respawn basically"
+	set desc = "Respawn basically."
 	set name = "Toggle Respawn"
 	CONFIG_SET(flag/respawn, !CONFIG_GET(flag/respawn))
 	if (CONFIG_GET(flag/respawn))
@@ -171,7 +171,7 @@
 
 /datum/admins/proc/spawn_atom(object as text)
 	set category = "Debug"
-	set desc = "(atom path) Spawn an atom"
+	set desc = "(atom path) Spawn an atom."
 	set name = "Spawn"
 
 	if(!check_rights(R_SPAWN))
@@ -274,7 +274,7 @@
 		if("Add") //Not doing source choosing here intentionally to make this bit faster to use, you can always vv it.
 			ADD_TRAIT(D,chosen_trait,source)
 		if("Remove")
-			var/specific = input("All or specific source ?", "Trait Remove/Add") as null|anything in list("All","Specific")
+			var/specific = input("All or specific source?", "Trait Remove/Add") as null|anything in list("All","Specific")
 			if(!specific)
 				return
 			switch(specific)

@@ -6,6 +6,7 @@ GLOBAL_DATUM(railgun_eye_location, /datum/coords)
 
 /obj/effect/landmark/railgun_computer
 	name = "Railgun computer landmark"
+	icon_state = "computer_spawn"
 	desc = "A computer with an orange interface, it's idly blinking, awaiting a password."
 
 /obj/effect/landmark/railgun_computer/Initialize(mapload, ...)
@@ -16,6 +17,7 @@ GLOBAL_DATUM(railgun_eye_location, /datum/coords)
 
 /obj/effect/landmark/railgun_camera_pos
 	name = "Railgun camera position landmark"
+	icon_state = "railgun_cam"
 
 /obj/effect/landmark/railgun_camera_pos/Initialize(mapload, ...)
 	. = ..()
@@ -211,8 +213,8 @@ GLOBAL_DATUM(railgun_eye_location, /datum/coords)
 	#define INPUT_COORD "Input Co-ordinates"
 	if(tgui_alert(H, "View a specific co-ordinate, or continue without inputting a co-ordinate?", \
 		"Railgun Computer", list(INPUT_COORD, "Continue without inputting a co-ordinate")) == INPUT_COORD)
-		var/x_coord = tgui_input_real_number(H, "Longitude")
-		var/y_coord = tgui_input_real_number(H, "Latitude")
+		var/x_coord = tgui_input_real_number(H, "Долгота")
+		var/y_coord = tgui_input_real_number(H, "Широта")
 
 		if(!x_coord || !y_coord)
 			return

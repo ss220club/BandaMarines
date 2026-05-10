@@ -1,5 +1,5 @@
 /obj/item/weapon/banhammer
-	desc = "A banhammer"
+	desc = "A banhammer."
 	name = "banhammer"
 	icon = 'icons/obj/items/toy.dmi'
 	icon_state = "toyhammer"
@@ -83,16 +83,15 @@
 	throwforce = 7
 	attack_verb = list("smashed", "beaten", "slammed", "struck", "smashed", "battered", "cracked")
 	hitsound = 'sound/weapons/genhit3.ogg'
+	shield_flags = CAN_SHIELD_BASH
 
 /obj/item/weapon/baseballbat/metal
 	name = "\improper metal baseball bat"
-	desc = "A large metal baseball bat. Compared to its wooden cousin, the metal bat offers a bit more more force. Often carried by thugs and ruffians."
+	desc = "A large metal baseball bat. Compared to its wooden cousin, the metal bat offers a bit more force. Often carried by thugs and ruffians."
 	icon_state = "metalbat"
 	item_state = "metalbat"
 	force = MELEE_FORCE_STRONG
 	w_class = SIZE_MEDIUM
-
-
 
 /obj/item/weapon/butterfly
 	name = "butterfly knife"
@@ -150,7 +149,7 @@
 
 /obj/item/weapon/butterfly/katana
 	name = "katana"
-	desc = "A ancient weapon from Japan."
+	desc = "An ancient weapon from Japan."
 	icon_state = "samurai"
 	icon = 'icons/obj/items/weapons/melee/swords.dmi'
 	force = MELEE_FORCE_VERY_STRONG
@@ -231,9 +230,9 @@
 	/////////////////////////
 	M.last_damage_data = create_cause_data(initial(name), user)
 
-	user.attack_log += "\[[time_stamp()]\]<font color='red'> Attacked [key_name(M)] with [name] (INTENT: [uppertext(intent_text(user.a_intent))]) (DAMTYE: [uppertext(damtype)])</font>"
-	M.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [key_name(user)] with [name] (INTENT: [uppertext(intent_text(user.a_intent))]) (DAMTYE: [uppertext(damtype)])</font>"
-	msg_admin_attack("[key_name(user)] attacked [key_name(M)] with [name] (INTENT: [uppertext(intent_text(user.a_intent))]) (DAMTYE: [uppertext(damtype)]) in [get_area(user)] ([user.loc.x],[user.loc.y],[user.loc.z]).", user.loc.x, user.loc.y, user.loc.z)
+	user.attack_log += "\[[time_stamp()]\]<font color='red'> Attacked [key_name(M)] with [name] (INTENT: [uppertext(intent_text(user.a_intent))]) (DAMTYPE: [uppertext(damtype)])</font>"
+	M.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [key_name(user)] with [name] (INTENT: [uppertext(intent_text(user.a_intent))]) (DAMTYPE: [uppertext(damtype)])</font>"
+	msg_admin_attack("[key_name(user)] attacked [key_name(M)] with [name] (INTENT: [uppertext(intent_text(user.a_intent))]) (DAMTYPE: [uppertext(damtype)]) in [get_area(user)] ([user.loc.x],[user.loc.y],[user.loc.z]).", user.loc.x, user.loc.y, user.loc.z)
 
 	/////////////////////////
 
@@ -248,9 +247,9 @@
 	if( ( istype(M.get_active_hand(), /obj/item/weapon/sword/katana) || istype(M.get_inactive_hand(), /obj/item/weapon/sword/katana) ) && M != user )
 
 		if(prob(50))
-			user.visible_message(SPAN_DANGER("[M] and [user] cross blades!"))
+			user.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] and [user] cross blades!"))
 		else
-			M.visible_message(SPAN_DANGER("[user] and [M] cross blades!"))
+			M.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] and [M] cross blades!"))
 		playsound(user, 'sound/weapons/bladeslice.ogg', 25, 1)
 		playsound(M, 'sound/weapons/bladeslice.ogg', 25, 1)
 		user.animation_attack_on(M)
@@ -272,7 +271,7 @@
 		var/used_verb = "attacked"
 		if(LAZYLEN(attack_verb))
 			used_verb = pick(attack_verb)
-		user.visible_message(SPAN_DANGER("[M] has been [used_verb] with [src][showname]."),
+		user.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] has been [used_verb] with [src][showname]."),
 						SPAN_DANGER("You [used_verb] [M] with [src]."), null, 5)
 
 		playsound(loc, 'sound/weapons/bladeslice.ogg', 25, 1)

@@ -1,13 +1,7 @@
-#define SOUND_EFFECT_NONE 0
-#define SOUND_EFFECT_RADIO 1
-#define SOUND_EFFECT_ROBOT 2
-#define SOUND_EFFECT_RADIO_ROBOT 3
-#define SOUND_EFFECT_MEGAPHONE 4
-#define SOUND_EFFECT_MEGAPHONE_ROBOT 5
-
 #define VV_HK_SELECT_TTS_VOICE "select_tts_voice"
 
 #define VV_HK_MODIFY_TTS_TRAITS "changetts"
+#define VV_HK_MODIFY_TTS_TRAITS_PLAYER_CHOICE "changetts_let_player_choose"
 
 #define TTS_TRAIT_PITCH_WHISPER (1<<1)
 #define TTS_TRAIT_RATE_FASTER (1<<2)
@@ -63,6 +57,7 @@
 #define TTS_CATEGORY_DEEP_ROCK_GALACTIC "Deep Rock Galactic"
 #define TTS_CATEGORY_SUNBOY "Пророк Санбой"
 #define TTS_CATEGORY_WH40k "Warhammer 40k"
+#define TTS_CATEGORY_UNKNOWN "Загадка Силеро"
 
 #define TTS_GENDER_ANY "Любой"
 #define TTS_GENDER_MALE "Мужской"
@@ -90,3 +85,6 @@
 #define BIG_WORKER_TTS_LEVEL 3
 #define LITTLE_WORKER_TTS_LEVEL 1
 #define DONATOR_LEVEL_MAX 5
+
+#define TTS_OVERRIDE_GENDER (1<<0)
+#define TTS_OVERRIDE_TIER (1<<1)

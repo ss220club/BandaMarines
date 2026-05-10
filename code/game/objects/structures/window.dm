@@ -95,10 +95,11 @@
 	setDir(ini_dir)
 
 
-//create_debris creates debris like shards and rods. This also includes the window frame for explosions
-//If an user is passed, it will create a "user smashes through the window" message. AM is the item that hits
-//Please only fire this after a hit
-/obj/structure/window/proc/healthcheck(make_hit_sound = 1, make_shatter_sound = 1, create_debris = 1, mob/user, atom/movable/AM)
+/**
+ * Creates debris like shards and rods. This also includes the window frame for explosions.
+ * If an user is passed, it will create a "user smashes through the window" message. causing_atom is the item that hit this.
+ */
+/obj/structure/window/proc/healthcheck(make_hit_sound = TRUE, make_shatter_sound = TRUE, create_debris = TRUE, mob/user, atom/movable/causing_atom)
 	if(not_damageable)
 		if(make_hit_sound) //We'll still make the noise for immersion's sake
 			playsound(loc, 'sound/effects/Glasshit.ogg', 25, 1)
@@ -107,7 +108,8 @@
 		if(user && istype(user))
 			user.count_niche_stat(STATISTICS_NICHE_DESTRUCTION_WINDOWS, 1)
 			SEND_SIGNAL(user, COMSIG_MOB_DESTROY_WINDOW, src)
-			user.visible_message(SPAN_DANGER("[user] smashes through [src][AM ? " with [AM]":""]!"))
+			visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] smashes [src][causing_atom ? " with [causing_atom]!" : "!"]"),
+			SPAN_WARNING("[src] breaks!"), 7)
 			if(is_mainship_level(z))
 				SSclues.create_print(get_turf(user), user, "A small glass piece is found on the fingerprint.")
 		if(make_shatter_sound)
@@ -117,17 +119,17 @@
 		if(make_hit_sound)
 			playsound(loc, 'sound/effects/Glasshit.ogg', 25, 1)
 
-/obj/structure/window/bullet_act(obj/projectile/Proj)
+/obj/structure/window/bullet_act(obj/projectile/bullet)
 	//Tasers and the like should not damage windows.
-	var/ammo_flags = Proj.ammo.flags_ammo_behavior | Proj.projectile_override_flags
-	if(Proj.ammo.damage_type == HALLOSS || Proj.damage <= 0 || ammo_flags == AMMO_ENERGY)
-		return 0
+	var/ammo_flags = bullet.ammo.flags_ammo_behavior | bullet.projectile_override_flags
+	if(bullet.ammo.damage_type == HALLOSS || bullet.damage <= 0 || ammo_flags == AMMO_ENERGY)
+		return FALSE
 
 	if(!not_damageable) //Impossible to destroy
-		health -= Proj.damage
+		health -= bullet.damage
 	..()
-	healthcheck(user = Proj.firer)
-	return 1
+	healthcheck(user = bullet.firer, causing_atom = bullet)
+	return TRUE
 
 /obj/structure/window/ex_act(severity, explosion_direction, datum/cause_data/cause_data)
 	if(not_damageable) //Impossible to destroy
@@ -193,7 +195,7 @@
 			return
 
 		playsound(loc, 'sound/effects/glassbash.ogg', 25, 1)
-		user.visible_message(SPAN_WARNING("[user] bangs against [src]!"),
+		user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] bangs against [src]!"),
 		SPAN_WARNING("You bang against [src]!"),
 		SPAN_WARNING("You hear a banging sound."))
 		windowknock_cooldown = world.time + 100
@@ -201,7 +203,7 @@
 		if(windowknock_cooldown > world.time)
 			return
 		playsound(loc, 'sound/effects/glassknock.ogg', 15, 1)
-		user.visible_message(SPAN_NOTICE("[user] knocks on [src]."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] knocks on [src]."),
 		SPAN_NOTICE("You knock on [src]."),
 		SPAN_NOTICE("You hear a knocking sound."))
 		windowknock_cooldown = world.time + 100
@@ -211,7 +213,7 @@
 	if(!not_damageable) //Impossible to destroy
 		health -= damage
 	user.animation_attack_on(src)
-	user.visible_message(SPAN_DANGER("[user] smashes into [src]!"))
+	user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] smashes into [src]!"))
 	healthcheck(1, 1, 1, user)
 
 /obj/structure/window/attack_animal(mob/user as mob)
@@ -233,19 +235,19 @@
 			user.drop_held_item()
 			switch(state)
 				if(GRAB_PASSIVE)
-					M.visible_message(SPAN_WARNING("[user] slams [M] against \the [src]!"))
+					M.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] slams [M] against \the [src]!"))
 					M.apply_damage(7)
 					if(!not_damageable) //Impossible to destroy
 						health -= 10
 				if(GRAB_AGGRESSIVE)
-					M.visible_message(SPAN_DANGER("[user] bashes [M] against \the [src]!"))
+					M.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] bashes [M] against \the [src]!"))
 					if(prob(50))
 						M.apply_effect(1, WEAKEN)
 					M.apply_damage(10)
 					if(!not_damageable) //Impossible to destroy
 						health -= 25
 				if(GRAB_CHOKE)
-					M.visible_message(SPAN_DANGER("[user] crushes [M] against \the [src]!"))
+					M.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] crushes [M] against \the [src]!"))
 					M.apply_effect(5, WEAKEN)
 					M.apply_damage(20)
 					if(!not_damageable) //Impossible to destroy
@@ -264,6 +266,10 @@
 
 	if(HAS_TRAIT(W, TRAIT_TOOL_SCREWDRIVER) && !not_deconstructable)
 		if(!anchored)
+			var/area/area = get_area(W)
+			if(!area.allow_construction)
+				to_chat(user, SPAN_WARNING("\The [src] must be fastened on a proper surface!"))
+				return
 			var/turf/open/T = loc
 			var/obj/structure/blocker/anti_cade/AC = locate(/obj/structure/blocker/anti_cade) in T // for M2C HMG, look at smartgun_mount.dm
 			if(!(istype(T) && T.allow_construction))
@@ -323,7 +329,7 @@
 	deconstruct(FALSE)
 
 /obj/structure/window/clicked(mob/user, list/mods)
-	if(mods["alt"])
+	if(mods[ALT_CLICK])
 		revrotate(user)
 		return TRUE
 
@@ -422,7 +428,7 @@
 
 /obj/structure/window/reinforced/toughened
 	name = "safety glass"
-	desc = "A very tough looking window reinforced with tempered glass and bracing rods, probably bullet proof."
+	desc = "A very tough looking window reinforced with tempered glass and bracing rods, probably bulletproof."
 	icon_state = "rwindow"
 	basestate = "rwindow"
 	health = 300
@@ -568,6 +574,8 @@
 		new_window_frame.setDir(dir)
 	return ..()
 
+//Almayer windows
+
 /obj/structure/window/framed/almayer
 	name = "reinforced window"
 	desc = "A glass window with a special rod matrix inside a wall frame. It looks rather strong. Might take a few good hits to shatter it."
@@ -577,6 +585,7 @@
 	reinf = 1
 	dir = NORTHEAST
 	window_frame = /obj/structure/window_frame/almayer
+	plane = TURF_PLANE
 
 /obj/structure/window/framed/almayer/hull
 	name = "hull window"
@@ -659,6 +668,8 @@
 	unacidable = TRUE
 	health = 1000000 //Failsafe, shouldn't matter
 
+//Colony windows
+
 /obj/structure/window/framed/colony
 	name = "window"
 	icon_state = "col_window0"
@@ -667,22 +678,17 @@
 
 /obj/structure/window/framed/colony/reinforced
 	name = "reinforced window"
+	desc = "A glass window with a special rod matrix inside a wall frame. It looks rather strong. Might take a few good hits to shatter it."
 	icon_state = "col_rwindow0"
 	basestate = "col_rwindow"
-	desc = "A glass window with a special rod matrix inside a wall frame. It looks rather strong. Might take a few good hits to shatter it."
 	health = 100
 	reinf = 1
 	window_frame = /obj/structure/window_frame/colony/reinforced
 
 /obj/structure/window/framed/colony/reinforced/tinted
-	name =  "tinted reinforced window"
+	name = "tinted reinforced window"
 	desc = "A glass window with a special rod matrix inside a wall frame. It looks rather strong. Might take a few good hits to shatter it. This one is opaque. You have an uneasy feeling someone might be watching from the other side."
 	opacity = TRUE
-
-/obj/structure/window/framed/colony/reinforced/yautja
-	name = "alien reinforced window"
-	icon_state = "pred_window0"
-	basestate = "pred_window"
 
 /obj/structure/window/framed/colony/reinforced/hull
 	name = "hull window"
@@ -694,6 +700,12 @@
 	unacidable = TRUE
 	health = 1000000 //Failsafe, shouldn't matter
 
+//Yautja windows
+
+/obj/structure/window/framed/colony/reinforced/yautja
+	name = "alien reinforced window"
+	icon_state = "pred_window0"
+	basestate = "pred_window"
 
 /obj/structure/window/framed/colony/reinforced/hull/yautja
 	name = "alien hull window"
@@ -704,50 +716,48 @@
 
 /obj/structure/window/framed/chigusa
 	name = "reinforced window"
+	desc = "A glass window with a special rod matrix inside a wall frame. It looks rather strong. Might take a few good hits to shatter it."
 	icon_state = "chig_rwindow0"
 	basestate = "chig_rwindow"
-	desc = "A glass window with a special rod matrix inside a wall frame. It looks rather strong. Might take a few good hits to shatter it."
 	health = 100
 	reinf = 1
 	window_frame = /obj/structure/window_frame/chigusa
 
-
-//Desert Dam Windows
+//Trijent Dam windows
 
 /obj/structure/window/framed/hangar
 	name = "window"
+	desc = "A glass window inside a wall frame."
 	icon_state = "hngr_window0"
 	basestate = "hngr_window"
-	desc = "A glass window inside a wall frame."
 	health = 40
 	window_frame = /obj/structure/window_frame/hangar
 
 /obj/structure/window/framed/hangar/reinforced
 	name = "reinforced window"
+	desc = "A glass window with a special rod matrix inside a wall frame. It looks rather strong. Might take a few good hits to shatter it."
 	icon_state = "hngr_rwindow0"
 	basestate = "hngr_rwindow"
-	desc = "A glass window with a special rod matrix inside a wall frame. It looks rather strong. Might take a few good hits to shatter it."
 	health = 100
 	reinf = 1
 	window_frame = /obj/structure/window_frame/hangar/reinforced
 
 /obj/structure/window/framed/bunker
 	name = "window"
+	desc = "A glass window inside a wall frame."
 	icon_state = "bnkr_window0"
 	basestate = "bnkr_window"
-	desc = "A glass window inside a wall frame."
 	health = 40
 	window_frame = /obj/structure/window_frame/bunker
 
 /obj/structure/window/framed/bunker/reinforced
 	name = "reinforced window"
+	desc = "A glass window with a special rod matrix inside a wall frame. It looks rather strong. Might take a few good hits to shatter it."
 	icon_state = "bnkr_rwindow0"
 	basestate = "bnkr_rwindow"
-	desc = "A glass window with a special rod matrix inside a wall frame. It looks rather strong. Might take a few good hits to shatter it."
 	health = 100
 	reinf = 1
 	window_frame = /obj/structure/window_frame/bunker/reinforced
-
 
 /obj/structure/window/framed/wood
 	name = "window"
@@ -762,97 +772,151 @@
 	reinf = 1
 	icon_state = "wood_rwindow0"
 	basestate = "wood_rwindow"
-	window_frame = /obj/structure/window_frame/wood
+	window_frame = /obj/structure/window_frame/wood/reinforced
 
-//Strata windows
+//Sorokyne Strata windows
 
 /obj/structure/window/framed/strata
 	name = "window"
+	desc = "A glass window inside a wall frame."
 	icon = 'icons/turf/walls/strata_windows.dmi'
 	icon_state = "strata_window0"
 	basestate = "strata_window"
-	desc = "A glass window inside a wall frame."
 	health = 40
 	window_frame = /obj/structure/window_frame/strata
 
 /obj/structure/window/framed/strata/reinforced
 	name = "reinforced window"
+	desc = "A glass window. Light refracts incorrectly when looking through. It looks rather strong. Might take a few good hits to shatter it."
 	icon_state = "strata_window0"
 	basestate = "strata_window"
-	desc = "A glass window. Light refracts incorrectly when looking through. It looks rather strong. Might take a few good hits to shatter it."
 	health = 100
 	reinf = 1
 	window_frame = /obj/structure/window_frame/strata/reinforced
 
 /obj/structure/window/framed/strata/hull
+	name = "hull window"
+	desc = "A glass window. Something tells you this one is somehow indestructible."
 	icon_state = "strata_window0"
 	basestate = "strata_window"
-	desc = "A glass window. Something tells you this one is somehow indestructible."
 	not_damageable = TRUE
 	not_deconstructable = TRUE
 	unslashable = TRUE
 	unacidable = TRUE
 	health = 1000000
 
-//Kutjevo Windows
+//Kutjevo Refinery windows
 
 /obj/structure/window/framed/kutjevo
 	name = "window"
+	desc = "A glass window inside a wall frame."
 	icon = 'icons/turf/walls/kutjevo/kutjevo_windows.dmi'
 	icon_state = "kutjevo_window0"
 	basestate = "kutjevo_window"
-	desc = "A glass window inside a wall frame."
 	health = 40
 	window_frame = /obj/structure/window_frame/kutjevo
 
 /obj/structure/window/framed/kutjevo/reinforced
 	name = "reinforced window"
+	desc = "A glass window. Cross bars are visible. Might take a few good hits to shatter it."
 	icon_state = "kutjevo_window_alt0"
 	basestate = "kutjevo_window_alt"
-	desc = "A glass window. Cross bars are visible. Might take a few good hits to shatter it."
 	health = 100
 	reinf = 1
 	window_frame = /obj/structure/window_frame/kutjevo/reinforced
 
 /obj/structure/window/framed/kutjevo/reinforced/hull
-	icon_state = "kutjevo_window_hull"
+	name = "hull window"
 	desc = "A glass window. Something tells you this one is somehow indestructible."
+	icon_state = "kutjevo_window_hull"
 	not_damageable = TRUE
 	not_deconstructable = TRUE
 	unslashable = TRUE
 	unacidable = TRUE
 	health = 1000000
 
+//Shivas Snowball (Ice v3) windows
+
 /obj/structure/window/framed/shiva
 	name = "poly-kevlon framed window"
+	desc = "A semi-transparent pane of material set into a poly-kevlon frame. Very smashable."
 	icon = 'icons/turf/walls/ice_colony/shiva_windows.dmi'
 	icon_state = "shiva_window0"
 	basestate = "shiva_window"
-	desc = "A semi-transparent (not entirely opaque) pane of material set into a poly-kevlon frame. Very smashable."
 	health = 40
 	window_frame = /obj/structure/window_frame/shiva
 
-//Solaris windows
+/obj/structure/window/framed/shiva/reinforced
+	name = "reinforced poly-kevlon framed window"
+	desc = "A semi-transparent pane of material set into a poly-kevlon frame. Might take a few good hits to shatter it."
+	icon_state = "shiva_window_r0"
+	basestate = "shiva_window_r"
+	health = 100
+	reinf = 1
+	window_frame = /obj/structure/window_frame/shiva/reinforced
+
+/obj/structure/window/framed/shiva/grey
+	icon_state = "shiva_window_gr0"
+	basestate = "shiva_window_gr"
+	window_frame = /obj/structure/window_frame/shiva/grey
+
+/obj/structure/window/framed/shiva/reinforced/grey
+	icon_state = "shiva_window_gr_r0"
+	basestate = "shiva_window_gr_r"
+	window_frame = /obj/structure/window_frame/shiva/reinforced/grey
+
+/obj/structure/window/framed/shiva/orange
+	icon_state = "shiva_window_oj0"
+	basestate = "shiva_window_oj"
+	window_frame = /obj/structure/window_frame/shiva/orange
+
+/obj/structure/window/framed/shiva/blue
+	icon_state = "shiva_window_blu0"
+	basestate = "shiva_window_blu"
+	window_frame = /obj/structure/window_frame/shiva/blue
+
+/obj/structure/window/framed/shiva/pink
+	icon_state = "shiva_window_pnk0"
+	basestate = "shiva_window_pnk"
+	window_frame = /obj/structure/window_frame/shiva/pink
+
+/obj/structure/window/framed/shiva/white
+	icon_state = "shiva_window_wht0"
+	basestate = "shiva_window_wht"
+	window_frame = /obj/structure/window_frame/shiva/white
+
+/obj/structure/window/framed/shiva/red
+	icon_state = "shiva_window_red0"
+	basestate = "shiva_window_red"
+	window_frame = /obj/structure/window_frame/shiva/red
+
+//Solaris Ridge windows
 
 /obj/structure/window/framed/solaris
 	name = "window"
+	desc = "A glass window inside a wall frame."
 	icon = 'icons/turf/walls/solaris/solaris_windows.dmi'
 	icon_state = "solaris_window0"
 	basestate = "solaris_window"
-	desc = "A glass window inside a wall frame."
 	health = 40
 	window_frame = /obj/structure/window_frame/solaris
 
 /obj/structure/window/framed/solaris/reinforced
 	name = "reinforced window"
+	desc = "A glass window. The inside is reinforced with a few tempered matrix rods along the base. It looks rather strong. Might take a few good hits to shatter it."
 	icon_state = "solaris_rwindow0"
 	basestate = "solaris_rwindow"
-	desc = "A glass window. The inside is reinforced with a few tempered matrix rods along the base. It looks rather strong. Might take a few good hits to shatter it."
 	health = 100
 	reinf = 1
 	window_frame = /obj/structure/window_frame/solaris/reinforced
 
+/obj/structure/window/framed/solaris/reinforced/tinted
+	name = "tinted reinforced window"
+	desc = "A tinted glass window. It looks rather strong and opaque. Might take a few good hits to shatter it."
+	opacity = TRUE
+
 /obj/structure/window/framed/solaris/reinforced/hull
+	name = "hull window"
 	desc = "A glass window. Something tells you this one is somehow indestructible."
 	not_damageable = TRUE
 	not_deconstructable = TRUE
@@ -860,31 +924,28 @@
 	unacidable = TRUE
 	health = 1000000
 
-/obj/structure/window/framed/solaris/reinforced/tinted
-	desc = "A tinted glass window. It looks rather strong and opaque. Might take a few good hits to shatter it."
-	opacity = TRUE
-
-//GREYBOX DEV WINDOWS
+//Greybox development windows
 
 /obj/structure/window/framed/dev
 	name = "greybox window"
+	desc = "A glass window inside a wall frame. Just like in the orange box!"
 	icon = 'icons/turf/walls/dev/dev_windows.dmi'
 	icon_state = "dev_window0"
 	basestate = "dev_window"
-	desc = "A glass window inside a wall frame. Just like in the orange box!"
 	health = 40
 	window_frame = /obj/structure/window_frame/dev
 
 /obj/structure/window/framed/dev/reinforced
 	name = "greybox reinforced window"
+	desc = "A glass window inside a reinforced wall frame. Just like in the orange box!"
 	icon_state = "dev_rwindow0"
 	basestate = "dev_rwindow"
-	desc = "A glass window inside a reinforced wall frame. Just like in the orange box!"
 	health = 100
 	reinf = 1
 	window_frame = /obj/structure/window_frame/dev/reinforced
 
 /obj/structure/window/framed/dev/reinforced/hull
+	name = "greybox hull window"
 	desc = "A glass window. Something tells you this one is somehow indestructible."
 	not_damageable = TRUE
 	not_deconstructable = TRUE
@@ -892,9 +953,7 @@
 	unacidable = TRUE
 	health = 1000000
 
-
 //Prison windows
-
 
 /obj/structure/window/framed/prison
 	name = "window"
@@ -944,18 +1003,18 @@
 
 /obj/structure/window/framed/prison/cell
 	name = "cell window"
+	desc = "A glass window with a special rod matrix inside a wall frame."
 	icon_state = "prison_cellwindow0"
 	basestate = "prison_cellwindow"
-	desc = "A glass window with a special rod matrix inside a wall frame."
 
-//Biodome windows
+//Corsat windows
 
 /obj/structure/window/framed/corsat
+	icon = 'icons/turf/walls/windows_corsat.dmi'
 	name = "reinforced window"
 	desc = "A glass window with a special rod matrix inside a wall frame. It looks rather strong. Might take a few good hits to shatter it."
 	health = 100
-	reinf = TRUE
-	icon = 'icons/turf/walls/windows_corsat.dmi'
+	reinf = 1
 	icon_state = "padded_rwindow0"
 	basestate = "padded_rwindow"
 	window_frame = /obj/structure/window_frame/corsat
@@ -976,11 +1035,12 @@
 
 /obj/structure/window/framed/corsat/cell
 	name = "cell window"
+	desc = "A glass window with a special rod matrix inside a wall frame. This one was made out of exotic materials to prevent hull breaches. No way to get through here."
 	icon_state = "padded_cellwindow0"
 	basestate = "padded_cellwindow"
-	desc = "A glass window with a special rod matrix inside a wall frame. This one was made out of exotic materials to prevent hull breaches. No way to get through here."
 	not_damageable = TRUE
 	not_deconstructable = TRUE
+	unslashable = TRUE
 	unacidable = TRUE
 	health = 1000000 //Failsafe, shouldn't matter
 
@@ -1057,197 +1117,270 @@
 	basestate = "paddedsec_rwindow"
 	window_frame = /obj/structure/window_frame/corsat/security
 
-// Hybrisa Windows
+//UPP windows
 
+/obj/structure/window/framed/upp_ship
+	name = "window"
+	desc = "A glass window inside a wall frame."
+	icon = 'icons/turf/walls/upp_windows.dmi'
+	icon_state = "uppwall_window0"
+	basestate = "uppwall_window"
+	health = 40
+	window_frame = /obj/structure/window_frame/upp_ship
+
+/obj/structure/window/framed/upp_ship/reinforced
+	name = "reinforced window"
+	desc = "A glass window. Light refracts incorrectly when looking through. It looks rather strong. Might take a few good hits to shatter it."
+	health = 100
+	reinf = 1
+	window_frame = /obj/structure/window_frame/upp_ship/reinforced
+
+/obj/structure/window/framed/upp_ship/hull
+	name = "hull window"
+	desc = "A glass window with a special rod matrix inside a wall frame. This one was made out of exotic materials to prevent hull breaches. No way to get through here."
+	//	icon_state = "upp_rwindow0"
+	not_damageable = TRUE
+	not_deconstructable = TRUE
+	unslashable = TRUE
+	unacidable = TRUE
+	health = 1000000
+	window_frame = /obj/structure/window_frame/upp_ship/hull
+
+//UPP Almayer retexture windows
+
+/obj/structure/window/framed/upp
+	name = "window"
+	desc = "A glass window inside a wall frame."
+	icon = 'icons/turf/walls/upp_almayer_windows.dmi'
+	icon_state = "upp_window0"
+	basestate = "upp_window"
+	health = 40
+	window_frame = /obj/structure/window_frame/upp
+
+/obj/structure/window/framed/upp/reinforced
+	name = "reinforced window"
+	desc = "A glass window. Light refracts incorrectly when looking through. It looks rather strong. Might take a few good hits to shatter it."
+	icon_state = "upp_rwindow0"
+	basestate = "upp_rwindow"
+	health = 100
+	reinf = 1
+	window_frame = /obj/structure/window_frame/upp/reinforced
+
+/obj/structure/window/framed/upp/hull
+	name = "hull window"
+	desc = "A glass window. Something tells you this one is somehow indestructible."
+	//	icon_state = "upp_rwindow0"
+	not_damageable = TRUE
+	not_deconstructable = TRUE
+	unslashable = TRUE
+	unacidable = TRUE
+	health = 1000000
+	window_frame = /obj/structure/window_frame/upp/hull
+
+// Hybrisa windows
 
 // Colony
 /obj/structure/window/framed/hybrisa/colony
 	name = "window"
+	desc = "A glass window inside a wall frame."
 	icon = 'icons/turf/walls/hybrisa_colony_window.dmi'
 	icon_state = "strata_window0"
 	basestate = "strata_window"
-	desc = "A glass window inside a wall frame."
-	health = 40
+	health = 15
 	window_frame = /obj/structure/window_frame/hybrisa/colony
 
 /obj/structure/window/framed/hybrisa/colony/reinforced
 	name = "reinforced window"
+	desc = "A glass window. Light refracts incorrectly when looking through. It looks rather strong. Might take a few good hits to shatter it."
 	icon_state = "strata_window0"
 	basestate = "strata_window"
-	desc = "A glass window. Light refracts incorrectly when looking through. It looks rather strong. Might take a few good hits to shatter it."
 	health = 100
-	reinf = TRUE
+	reinf = 1
 	window_frame = /obj/structure/window_frame/hybrisa/colony/reinforced
 
 /obj/structure/window/framed/hybrisa/colony/hull
+	name = "hull window"
+	desc = "A glass window. Something tells you this one is somehow indestructible."
 	icon_state = "strata_window0"
 	basestate = "strata_window"
-	desc = "A glass window. Something tells you this one is somehow indestructible."
 	not_damageable = TRUE
 	not_deconstructable = TRUE
 	unslashable = TRUE
 	unacidable = TRUE
 	health = 1000000
+	window_frame = /obj/structure/window_frame/hybrisa/colony/hull
 
 // Research
 /obj/structure/window/framed/hybrisa/research
 	name = "window"
+	desc = "A glass window inside a wall frame."
 	icon = 'icons/turf/walls/hybrisaresearchbrown_windows.dmi'
 	icon_state = "strata_window0"
 	basestate = "strata_window"
-	desc = "A glass window inside a wall frame."
-	health = 40
+	health = 15
 	window_frame = /obj/structure/window_frame/hybrisa/research
 
 /obj/structure/window/framed/hybrisa/research/reinforced
 	name = "reinforced window"
+	desc = "A glass window. Light refracts incorrectly when looking through. It looks rather strong. Might take a few good hits to shatter it."
 	icon_state = "strata_window0"
 	basestate = "strata_window"
-	desc = "A glass window. Light refracts incorrectly when looking through. It looks rather strong. Might take a few good hits to shatter it."
 	health = 100
-	reinf = TRUE
+	reinf = 1
 	window_frame = /obj/structure/window_frame/hybrisa/research/reinforced
 
 /obj/structure/window/framed/hybrisa/research/hull
+	name = "hull window"
+	desc = "A glass window. Something tells you this one is somehow indestructible."
 	icon_state = "strata_window0"
 	basestate = "strata_window"
-	desc = "A glass window. Something tells you this one is somehow indestructible."
 	not_damageable = TRUE
 	not_deconstructable = TRUE
 	unslashable = TRUE
 	unacidable = TRUE
 	health = 1000000
+	window_frame = /obj/structure/window_frame/hybrisa/research/hull
 
-// Marshalls
-
+// Marshals
 /obj/structure/window/framed/hybrisa/marshalls
 	name = "window"
+	desc = "A glass window inside a wall frame."
 	icon = 'icons/turf/walls/hybrisa_marshalls_windows.dmi'
 	icon_state = "prison_window0"
 	basestate = "prison_window"
+	health = 15
 	window_frame = /obj/structure/window_frame/hybrisa/marshalls
+
 /obj/structure/window/framed/hybrisa/marshalls/reinforced
 	name = "reinforced window"
 	desc = "A glass window with a special rod matrix inside a wall frame. It looks rather strong. Might take a few good hits to shatter it."
-	health = 100
-	reinf = TRUE
 	icon_state = "prison_rwindow0"
 	basestate = "prison_rwindow"
+	health = 100
+	reinf = 1
 	window_frame = /obj/structure/window_frame/hybrisa/marshalls/reinforced
+
 /obj/structure/window/framed/hybrisa/marshalls/cell
 	name = "cell window"
+	desc = "A glass window with a special rod matrix inside a wall frame."
 	icon_state = "prison_cellwindow0"
 	basestate = "prison_cellwindow"
-	desc = "A glass window with a special rod matrix inside a wall frame."
+	health = 100
 
 // Hospital
-
 /obj/structure/window/framed/hybrisa/colony/hospital
 	name = "window"
+	desc = "A glass window inside a wall frame."
 	icon = 'icons/turf/walls/hybrisa_hospital_colonywindows.dmi'
 	icon_state = "strata_window0"
 	basestate = "strata_window"
-	desc = "A glass window inside a wall frame."
-	health = 40
+	health = 15
 	window_frame = /obj/structure/window_frame/hybrisa/colony/hospital
 
 /obj/structure/window/framed/hybrisa/colony/hospital/reinforced
 	name = "reinforced window"
+	desc = "A glass window. Light refracts incorrectly when looking through. It looks rather strong. Might take a few good hits to shatter it."
 	icon_state = "strata_window0"
 	basestate = "strata_window"
-	desc = "A glass window. Light refracts incorrectly when looking through. It looks rather strong. Might take a few good hits to shatter it."
 	health = 100
-	reinf = TRUE
+	reinf = 1
 	window_frame = /obj/structure/window_frame/hybrisa/colony/hospital/reinforced
 
 /obj/structure/window/framed/hybrisa/colony/hospital/hull
+	name = "hull window"
+	desc = "A glass window. Something tells you this one is somehow indestructible."
 	icon_state = "strata_window0"
 	basestate = "strata_window"
-	desc = "A glass window. Something tells you this one is somehow indestructible."
 	not_damageable = TRUE
 	not_deconstructable = TRUE
 	unslashable = TRUE
 	unacidable = TRUE
 	health = 1000000
+	window_frame = /obj/structure/window_frame/hybrisa/colony/hospital/hull
 
-// Office
-
+// Offices
 /obj/structure/window/framed/hybrisa/colony/office
 	name = "window"
+	desc = "A glass window inside a wall frame."
 	icon = 'icons/turf/walls/hybrisa_offices_windows.dmi'
 	icon_state = "strata_window0"
 	basestate = "strata_window"
-	desc = "A glass window inside a wall frame."
-	health = 40
+	health = 15
 	window_frame = /obj/structure/window_frame/hybrisa/colony/office
 
 /obj/structure/window/framed/hybrisa/colony/office/reinforced
 	name = "reinforced window"
+	desc = "A glass window. Light refracts incorrectly when looking through. It looks rather strong. Might take a few good hits to shatter it."
 	icon_state = "strata_window0"
 	basestate = "strata_window"
-	desc = "A glass window. Light refracts incorrectly when looking through. It looks rather strong. Might take a few good hits to shatter it."
 	health = 100
-	reinf = TRUE
+	reinf = 1
 	window_frame = /obj/structure/window_frame/hybrisa/colony/office/reinforced
 
 /obj/structure/window/framed/hybrisa/colony/office/hull
+	name = "hull window"
+	desc = "A glass window. Something tells you this one is somehow indestructible."
 	icon_state = "strata_window0"
 	basestate = "strata_window"
-	desc = "A glass window. Something tells you this one is somehow indestructible."
 	not_damageable = TRUE
 	not_deconstructable = TRUE
 	unslashable = TRUE
 	unacidable = TRUE
 	health = 1000000
+	window_frame = /obj/structure/window_frame/hybrisa/colony/office/hull
 
 // Engineering
-
 /obj/structure/window/framed/hybrisa/colony/engineering
 	name = "window"
+	desc = "A glass window inside a wall frame."
 	icon = 'icons/turf/walls/hybrisa_engineering_windows.dmi'
 	icon_state = "strata_window0"
 	basestate = "strata_window"
-	desc = "A glass window inside a wall frame."
-	health = 40
+	health = 15
 	window_frame = /obj/structure/window_frame/hybrisa/colony/engineering
 
 /obj/structure/window/framed/hybrisa/colony/engineering/reinforced
 	name = "reinforced window"
+	desc = "A glass window. Light refracts incorrectly when looking through. It looks rather strong. Might take a few good hits to shatter it."
 	icon_state = "strata_window0"
 	basestate = "strata_window"
-	desc = "A glass window. Light refracts incorrectly when looking through. It looks rather strong. Might take a few good hits to shatter it."
 	health = 100
-	reinf = TRUE
+	reinf = 1
 	window_frame = /obj/structure/window_frame/hybrisa/colony/engineering/reinforced
 
 /obj/structure/window/framed/hybrisa/colony/engineering/hull
+	name = "hull window"
+	desc = "A glass window. Something tells you this one is somehow indestructible."
 	icon_state = "strata_window0"
 	basestate = "strata_window"
-	desc = "A glass window. Something tells you this one is somehow indestructible."
 	not_damageable = TRUE
 	not_deconstructable = TRUE
 	unslashable = TRUE
 	unacidable = TRUE
 	health = 1000000
+	window_frame = /obj/structure/window_frame/hybrisa/colony/engineering/hull
 
 // Space-Port
-
 /obj/structure/window/framed/hybrisa/spaceport
 	name = "window"
 	icon = 'icons/turf/walls/hybrisa_spaceport_windows.dmi'
 	icon_state = "prison_window0"
 	basestate = "prison_window"
 	window_frame = /obj/structure/window_frame/hybrisa/spaceport
+	health = 15
+
 /obj/structure/window/framed/hybrisa/spaceport/reinforced
 	name = "reinforced window"
 	desc = "A glass window with a special rod matrix inside a wall frame. It looks rather strong. Might take a few good hits to shatter it."
-	health = 100
-	reinf = TRUE
 	icon_state = "prison_rwindow0"
 	basestate = "prison_rwindow"
+	health = 100
+	reinf = 1
 	window_frame = /obj/structure/window_frame/hybrisa/spaceport/reinforced
+
 /obj/structure/window/framed/hybrisa/spaceport/cell
 	name = "window"
+	desc = "A glass window with a special rod matrix inside a wall frame."
 	icon_state = "prison_cellwindow0"
 	basestate = "prison_cellwindow"
-	desc = "A glass window with a special rod matrix inside a wall frame."
+	health = 100

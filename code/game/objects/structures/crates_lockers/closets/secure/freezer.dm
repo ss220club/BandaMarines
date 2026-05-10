@@ -28,6 +28,7 @@
 	for(var/i = 0, i < 6, i++)
 		new /obj/item/reagent_container/food/snacks/flour(src)
 	new /obj/item/reagent_container/food/condiment/sugar(src)
+	new /obj/item/reagent_container/food/condiment/chocolate_syrup(src)
 	for(var/i = 0, i < 3, i++)
 		new /obj/item/reagent_container/food/snacks/meat/monkey(src)
 
@@ -65,6 +66,7 @@
 
 /obj/structure/closet/secure_closet/freezer/fridge/yautja
 	icon = 'icons/obj/structures/machinery/yautja_machines.dmi'
+	storage_capacity = 100
 
 /obj/structure/closet/secure_closet/freezer/fridge/groceries
 	name = "Groceries"
@@ -104,6 +106,7 @@
 
 /obj/structure/closet/secure_closet/freezer/fridge/groceries/yautja
 	icon = 'icons/obj/structures/machinery/yautja_machines.dmi'
+	storage_capacity = 100
 
 /obj/structure/closet/secure_closet/freezer/money
 	name = "Freezer"
@@ -127,7 +130,8 @@
 		new /obj/item/reagent_container/food/condiment/sugar(src)
 	for(var/i = 0, i < 6, i++)
 		new /obj/item/reagent_container/food/snacks/flour(src)
-	new /obj/item/reagent_container/food/condiment/enzyme(src)
+		new /obj/item/reagent_container/food/condiment/enzyme(src)
+		new /obj/item/reagent_container/food/condiment/chocolate_syrup(src)
 
 /obj/structure/closet/secure_closet/freezer/industry
 	name = "Industry Freezer"

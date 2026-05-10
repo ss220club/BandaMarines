@@ -17,7 +17,7 @@
 		buckled_mob.setDir(dir)
 
 /obj/structure/bed/chair/wheelchair/relaymove(mob/user, direction)
-	if((world.time <= l_move_time + move_delay) || (direction & (direction - 1))) // fix later // SS220 EDIT
+	if(world.time <= l_move_time + move_delay)
 		return
 	// Redundant check?
 	if(user.is_mob_incapacitated())
@@ -44,8 +44,8 @@
 			move_delay++
 		if(!working_hands)
 			return // No hands to drive your chair? Tough luck!
-		if(driver.pulling && driver.pulling.drag_delay && driver.get_pull_miltiplier()) //Dragging stuff can slow you down a bit.
-			var/pull_delay = driver.pulling.get_pull_drag_delay() * driver.get_pull_miltiplier()
+		if(driver.pulling && driver.pulling.drag_delay && driver.get_pull_multiplier()) //Dragging stuff can slow you down a bit.
+			var/pull_delay = driver.pulling.get_pull_drag_delay() * driver.get_pull_multiplier()
 			move_delay += max(driver.pull_speed + pull_delay + 3*driver.grab_level, 0) //harder grab makes you slower
 
 		if(isgun(driver.get_active_hand())) //Wheelchair user has a gun out, so obviously can't move

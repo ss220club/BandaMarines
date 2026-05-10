@@ -9,12 +9,15 @@
 	unique = 1
 
 
-/obj/item/book/manual/engineering_construction
-	name = "Station Repairs and Construction"
+//Engineering related manuals
+// SS220 - START EDIT TRANSLATE
+/obj/item/book/manual/engineering_guide
+	name = "Инструменты, Радиоволны И Электрические Сети"
+	desc = "Книга, содержащая основную, но в то же время важную информацию о инженерных процедурах."
 	icon_state = "book_engineering"
 	item_state = "book_engineering"
-	author = "Engineering Encyclopedia"
-	title = "Station Repairs and Construction"
+	author = "Ассоциация инженеров колониальной морской пехоты"
+	title = "Инструменты, Радиоволны И Электрические Сети"
 
 	dat = {"
 
@@ -22,7 +25,28 @@
 		</head>
 
 		<body>
-		<iframe width='100%' height='97%' src="https://cm-ss13.com/wiki/Guide_to_construction" frameborder="0" id="main_frame"></iframe>
+		<iframe style="width:100%; height:85vh;" src="https://bm.ss220.club/index.php/%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE_%D0%BF%D0%BE_%D0%B8%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80%D0%BD%D0%BE%D0%BC%D1%83_%D0%B4%D0%B5%D0%BB%D1%83" frameborder="0" id="main_frame"></iframe> </body>
+
+		</html>
+
+		"}
+
+
+/obj/item/book/manual/engineering_construction
+	name = "Сборка и Разборка"
+	desc = "Подробное руководство, включающее исчерпывающее количество диаграмм и таблиц, перечень надлежащих процедури необходимых ресурсов при строительстве любых объектов, от баррикад до напольной плитки."
+	icon_state = "book_engineering"
+	item_state = "book_engineering"
+	author = "Ассоциация инженеров колониальной морской пехоты"
+	title = "Сборка и Разборка: Руководство"
+
+	dat = {"
+
+		<html><head>
+		</head>
+
+		<body>
+		<iframe style="width:100%; height:85vh;" src="https://bm.ss220.club/index.php/%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE_%D0%BF%D0%BE_%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D1%82%D0%B2%D1%83" frameborder="0" id="main_frame"></iframe>
 		</body>
 
 		</html>
@@ -31,11 +55,12 @@
 
 
 /obj/item/book/manual/engineering_hacking
-	name = "Hacking"
+	name = "Взломай-ка: Как работают электрические приборы"
+	desc = "Руководство, посвященное 'взлому' шлюзов, торговых автоматов и всего остального, к чему сможет дотянутся рука инженера."
 	icon_state = "book_hacking"
 	item_state = "book_hacking"
-	author = "Engineering Encyclopedia"
-	title = "Hacking"
+	author = "Ассоциация инженеров колониальной морской пехоты"
+	title = "Взломай-ка: Как работают электрические приборы"
 
 	dat = {"
 
@@ -43,7 +68,70 @@
 		</head>
 
 		<body>
-		<iframe width='100%' height='97%' src="https://cm-ss13.com/wiki/Guide_to_Engineering#Hacking" frameborder="0" id="main_frame"></iframe>
+		<iframe style="width:100%; height:85vh;" src="https://bm.ss220.club/index.php/%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE_%D0%BF%D0%BE_%D0%B8%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80%D0%BD%D0%BE%D0%BC%D1%83_%D0%B4%D0%B5%D0%BB%D1%83#%D0%92%D0%B7%D0%BB%D0%BE%D0%BC" frameborder="0" id="main_frame"></iframe>
+		</body>
+
+		</html>
+
+		"}
+
+/obj/item/book/manual/ordnance
+	name = "Оружейные средства для новобранцев: или как я научился не гореть и полюбил Макскап"
+	desc = "Руководство, содержащее абсурдно подробную информацию о производстве, сборке и обращении со всеми известными видами взрывных устройств."
+	icon_state = "book_engineering2"
+	item_state = "book_engineering2"
+	author = "Ассоциация инженеров колониальной морской пехоты"
+	title = "Оружейные средства для новобранцев: или как я научился не гореть и полюбил Макскап"
+
+	dat = {"
+
+		<html><head>
+		</head>
+
+		<body>
+		<iframe style="width:100%; height:85vh;" src="https://bm.ss220.club/index.php/%D0%9E%D1%80%D1%83%D0%B6%D0%B5%D0%B9%D0%BD%D1%8B%D0%B9_%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D0%BA#%D0%9C%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%B0%D1%8F_%D0%B1%D0%BE%D0%B5%D0%BF%D1%80%D0%B8%D0%BF%D0%B0%D1%81%D0%BE%D0%B2" frameborder="0" id="main_frame"></iframe>
+		</body>
+
+		</html>
+
+		"}
+
+/obj/item/book/manual/comms
+	name = "Подпространственные Телекоммуникации И Вы"
+	desc = "Руководство по использованию каналов связи и советы о том, как быть услышанным на радиоволнах."
+	icon_state = "book_particle"
+	item_state = "book_particle"
+	author = "Ассоциация инженеров колониальной морской пехоты"
+	title = "Подпространственные Телекоммуникации И Вы"
+
+	dat = {"
+
+		<html><head>
+		</head>
+
+		<body>
+		<iframe style="width:100%; height:85vh;" src="https://bm.ss220.club/index.php/%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE_%D0%BD%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D1%8E%D1%89%D0%B8%D1%85_%D0%BC%D0%BE%D1%80%D0%BF%D0%B5%D1%85%D0%BE%D0%B2#%D0%9A%D0%BE%D0%BC%D0%BC%D1%83%D0%BD%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F" frameborder="0" id="main_frame"></iframe>
+		</body>
+
+		</html>
+
+		"}
+
+/obj/item/book/manual/reactor
+	name = "Правильная Реакция: Техническое обслуживание термоядерного реактора S-52"
+	desc = "Руководство, содержащее информацию о том, как проводить техническое обслуживание корабельных термоядерных реакторов S-52."
+	icon_state = "book_supermatter"
+	item_state = "book_supermatter"
+	author = "Ассоциация инженеров колониальной морской пехоты"
+	title = "Правильная Реакция: Техническое обслуживание термоядерного реактора S-52"
+
+	dat = {"
+
+		<html><head>
+		</head>
+
+		<body>
+		<iframe style="width:100%; height:85vh;" src="https://bm.ss220.club/index.php/%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE_%D0%BF%D0%BE_%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B5_%D1%80%D0%B5%D0%B0%D0%BA%D1%82%D0%BE%D1%80%D0%B0_S-52" frameborder="0" id="main_frame"></iframe>
 		</body>
 
 		</html>
@@ -51,12 +139,68 @@
 		"}
 
 
+/obj/item/book/manual/orbital_cannon_manual
+	name = "Руководство по системе орбитальной бомбардировки ККМП"
+	desc = "Эта книга содержит инструкции по эксплуатации стандартного орбитального артиллерийского орудия колониального корпуса морской пехоты."
+	icon_state = "book_engineering2"
+	item_state = "book_engineering2"
+	author = "Ассоциация инженеров колониальной морской пехоты"
+	title = "Руководство по системе орбитальной бомбардировки ККМП"
+
+	dat = {"
+
+		<html>
+				<head>
+				<style>
+				h1 {font-size: 21px; margin: 15px 0px 5px;}
+				h2 {font-size: 18px; margin: 15px 0px 5px;}
+				li {margin: 2px 0px 2px 15px;}
+				ul {margin: 5px; padding: 0px;}
+				ol {margin: 5px; padding: 0px 15px;}
+				body {font-size: 13px; font-family: Verdana;}
+				</style>
+				</head>
+				<body>
+
+				<h1>Руководство по системе орбитальной бомбардировки ККМП</h1>
+
+				<h2>Пошаговая инструкция:</h2>
+				<ol>
+					<li>Погрузите боеголовку на поддон орбитальной пушки (при помощи погрузчика).</li>
+					<li>Погрузите необходимое количество твердого топлива на поддон орбитальной пушки. <b>(уточните количество на консоли орбитальной пушки)</b></li>
+					<li>Откройте интерфейс консоли орбитальной пушки.</li>
+					<li>Загрузите поддон в пушку.</li>
+					<li>Зарядите  поддон в ствол орудия. <b>(ВЫГРУЗИТЬ СОДЕРЖИМОЕ ИЗ СТВОЛА ОРУДИЯ ПОСЛЕ ЗАГРУЗКИ ПОДДОНА В СТВОЛ НЕЛЬЗЯ!)</b></li>
+					<li>Старшие офицеры теперь могут выстрелить из орбитальной пушки через их консоль.</li>
+					<li>После выстрела извлеките поддон из орбитальной пушки.</li>
+					<li>Проверьте поддон, чтобы убедиться, что он пуст и в рабочем состоянии.</li>
+				</ol>
+
+				<h2>Устранение неполадок:</h2>
+
+				<ul>
+					<li>Если вы загрузили поддон с неправильной боевой нагрузкой, вы все еще можете извлечь его содержимое, если оно не было заряжено в ствол.</li>
+					<li>Неправильное содержимое ствола орудия не может быть вынуто, единственный вариант - очистить ствол выстрелом.</li>
+					<li>При отсутствии питания на консоли орбитальной пушки проверьте ЛКП в помещении консоли.</li>
+					<li>В случае поломки консоли орбитальной пушки, обратитесь в штаб главного командования ККМП для замены.</li>
+					<li>В случае повреждения самой орбитальной пушки не пытайтесь самостоятельно провести ремонт или использовать орудие.</li>
+					<li>Повреждения корпуса или пожара, убедитесь что поддон пуст и уберите горючие вещества и боеголовки в безопастное место.</li>
+					<li>В случае если поддон заклинивания поддона нанесите смазку на конвеер подачи.</li>
+					<li>В случае повреждения кабеля и/или коннекторов кабеля питания орбитальной пушки, обратитесь в штаб главного командования ККМП для замены.</li>
+				</ul>
+
+			</body>
+			</html>
+
+		"}
+
+
 /obj/item/book/manual/ripley_build_and_repair
-	name = "APLU \"Ripley\" Construction and Operation Manual"
-	icon_state = "rdbook"
-	item_state = "book_dark"
-	author = "Randall Varn, Einstein Engines Senior Mechanic"
-	title = "APLU \"Ripley\" Construction and Operation Manual"
+	name = "АСП \"Рипли\" Руководство по сборке и обслуживанию"
+	icon_state = "book_borg"
+	item_state = "book_borg"
+	author = "Главный механик Гарри Сноу, корпорация Вейланд-Ютани"
+	title = "АСП \"Рипли\" Руководство по сборке и обслуживанию"
 
 	dat = {"<html>
 				<head>
@@ -73,435 +217,67 @@
 				<body>
 				<center>
 				<br>
-				<b style='font-size: 12px;'>Weyland-Yutani - Building Better Worlds</b>
-				<h1>Autonomous Power Loader Unit \"Ripley\"</h1>
+				<b style='font-size: 12px;'> 'Вейланд-Ютани - Строя лучшие миры'</b>
+				<h1>Автономный Силовой Погрузчик \"Рипли\"</h1>
 				</center>
-				<h2>Specifications:</h2>
+				<h2>Спецификации:</h2>
 				<ul class="a">
-				<li><b>Class:</b> Autonomous Power Loader</li>
-				<li><b>Scope:</b> Logistics and Construction</li>
-				<li><b>Weight:</b> 820kg (without operator and with empty cargo compartment)</li>
-				<li><b>Height:</b> 2.5m</li>
-				<li><b>Width:</b> 1.8m</li>
-				<li><b>Top speed:</b> 5km/hour</li>
-				<li><b>Operation in vacuum/hostile environment:</b> Possible</b>
-				<li><b>Airtank volume:</b> 500 liters</li>
-				<li><b>Devices:</b>
+				<li><b>Класс:</b> Автономный Силовой Погрузчик.</li>
+				<li><b>Сфера применения:</b> Логистика и конструкционные работы.</li>
+				<li><b>Вес:</b> 820 кг. (Без учета веса оператора и при пустом грузовом отсеке)</li>
+				<li><b>Высота:</b> 2.5 м.</li>
+				<li><b>Ширина:</b> 1.8 м. </li>
+				<li><b>Максимальная скорость:</b> 5 км/час.</li>
+				<li><b>Возможность работы в экстремальных условиях или в вакууме:</b> Присутствует.</li>
+				<li><b>Объем дыхательных баков:</b> 500 литров.</li>
+				<li><b>Инструменты:</b>
 					<ul class="a">
-					<li>Hydraulic clamp</li>
-					<li>High-speed drill</li>
+					<li>Гидравлический зажим.</li>
+					<li>Высокоскоростной бур.</li>
 					</ul>
 				</li>
-				<li><b>Propulsion device:</b> Powercell-powered electro-hydraulic system</li>
-				<li><b>Powercell capacity:</b> Varies</li>
+				<li><b>Силовая установка:</b> Электро-гидравлическая силовая установка, работающая на силовых ячейках.</li>
+				<li><b>Емкость силовых ячеек:</b> В зависимости от модели ячейки.</li>
 				</ul>
 
-				<h2>Construction:</h2>
+				<h2>Сборка:</h2>
 				<ol>
-					<li>Connect all exosuit parts to the chassis frame.</li>
-					<li>Connect all hydraulic fittings and tighten them up with a wrench.</li>
-					<li>Adjust the servohydraulics with a screwdriver.</li>
-					<li>Wire the chassis (Cable is not included).</li>
-					<li>Use the wirecutters to remove the excess cable if needed.</li>
-					<li>Install the central control module (Not included. Use supplied datadisk to create one).</li>
-					<li>Secure the mainboard with a screwdriver.</li>
-					<li>Install the peripherals control module (Not included. Use supplied datadisk to create one).</li>
-					<li>Secure the peripherals control module with a screwdriver.</li>
-					<li>Install the internal armor plating (Not included due to Weyland-Yutani regulations. Can be made using 5 metal sheets).</li>
-					<li>Secure the internal armor plating with a wrench.</li>
-					<li>Weld the internal armor plating to the chassis.</li>
-					<li>Install the external reinforced armor plating (Not included due to Weyland-Yutani regulations. Can be made using 5 reinforced metal sheets).</li>
-					<li>Secure the external reinforced armor plating with a wrench.</li>
-					<li>Weld the external reinforced armor plating to the chassis.</li>
+					<li>Подключите все части экзокостюма к шасси.</li>
+					<li>Подключите все гидравлические соединения и затяните их разводным ключем.</li>
+					<li>Настройте сервоприводы гидравлической системы при помощи отвертки.</li>
+					<li>Подключите компоненты шасси проводами (не входят в комплект поставки).</li>
+					<li>Обрежьте излишки кабеля при необходимости.</li>
+					<li>Установите центральную плату управления  (не входит в комплект поставки. Для создания используйте диск из комплекта поставки).</li>
+					<li>Зафиксируйте материнскую плату отверткой.</li>
+					<li>Установите модуль управления периферийными устройствами (не входит в комплект поставки. Для создания используйте диск из комплекта поставки).</li>
+					<li>Зафиксируйте модуль управления отверткой.</li>
+					<li>Установите внутренний противоосколочный подбой (Не входит в комплект поставки, см. нормативные документы Вейланд-Ютани. Может быть собран на месте из 5 листов металла).</li>
+					<li>Закрепите подбой при помощи разводного ключа.</li>
+					<li>Приварите подбой к шасси.</li>
+					<li>Установите внешние бронеплиты (Не входят в комплект поставки, см. нормативные документы Вейланд-Ютани. Могут быть собраны на месте из 5 листов металла).</li>
+					<li>Закрепите бронеплиты при помощи разводного ключа.</li>
+					<li>Приварите бронеплиты к шасси.</li>
 				</ol>
 
-				<h2>Additional Information:</h2>
+				<h2>Дополнительная информация:</h2>
 				<ul>
-					<li>The firefighting variation is made in a similar fashion.</li>
-					<li>A firesuit must be connected to the firefighter chassis for heat shielding.</li>
-					<li>Internal armor is plasteel for additional strength.</li>
-					<li>External armor must be installed in 2 parts, totalling 10 sheets.</li>
-					<li>Completed mech is more resilient against fire, and is a bit more durable overall.</li>
-					<li>Weyland-Yutani is determined to ensure the safety of its <s>investments</s> employees.</li>
+					<li>Противопожарный вариант собирается аналогично, все отличния указаны ниже.</li>
+					<li>Для защиты от высоких температур необходимо укрепить шасси противопожарным материалом, например костюмом пожарного.</li>
+					<li>Внутренний подбой может быть собран из пластали для повышения прочности.</li>
+					<li>Внешние бронеплиты должны быть установленные в двух комплектах, в сумме требуя десяти листов металла.</li>
+					<li>Данный вариант не только более устойчив к открытому огню и высоким температурам, но и прочнее в целом.</li>
 				</ul>
+				<h2 style='font-size: 12px;'>Компания Вейланд-Ютани полна решимости обеспечить безопасность своих <s>инвестиций</s> сотрудников.</h2>
 				</body>
 			</html>
 			"}
-
-
-/obj/item/book/manual/research_and_development
-	name = "Research and Development 101"
-	icon_state = "rdbook"
-	item_state = "book_white"
-	author = "Dr. L. Ight"
-	title = "Research and Development 101"
-
-	dat = {"
-
-		<html><head>
-		</head>
-
-		<body>
-		<iframe width='100%' height='97%' src="https://cm-ss13.com/wiki/Researcher" frameborder="0" id="main_frame"></iframe>
-		</body>
-
-		</html>
-
-		"}
-
-
-/obj/item/book/manual/security_space_law
-	name = "Standard Operating Procedure"
-	desc = "A set of USCM guidelines for keeping law and order on their vessels."
-	icon_state = "book_sop"
-	item_state = "book_sop"
-	author = "USCM High Command"
-	title = "Standard Operating Procedure"
-
-	dat = {"
-
-		<html><head>
-		</head>
-
-		<body>
-		<iframe width='100%' height='97%' src="https://cm-ss13.com/wiki/Standard_Operating_Procedure" frameborder="0" id="main_frame"></iframe>
-		</body>
-
-		</html>
-
-		"}
-
-
-/obj/item/book/manual/marine_law
-	name = "Marine Law"
-	desc = "A set of guidelines for keeping law and order on military vessels."
-	icon_state = "bookSpaceLaw"
-	item_state = "book_law"
-	author = "USCM High Command"
-	title = "Marine Law"
-
-	dat = {"
-
-		<html><head>
-		</head>
-
-		<body>
-		<iframe width='100%' height='97%' src="http://cm-ss13.com/wiki/Marine_Law" frameborder="0" id="main_frame"></iframe>
-		</body>
-
-		</html>
-
-		"}
-
-
-/obj/item/book/manual/surgery
-	name = "Surgical Reference Manual"
-	desc = "A quick reference manual for surgical procedures."
-	icon_state = "book_medical"
-	item_state = "book_medical"
-	author = "Weyland-Yutani Medicine Department"
-	title = "Surgical Reference Manual"
-
-	dat = {"
-
-		<html><head>
-		</head>
-
-		<body>
-		<iframe width='100%' height='97%' src="https://cm-ss13.com/wiki/Surgery" frameborder="0" id="main_frame"></iframe>
-		</body>
-
-		</html>
-
-		"}
-
-
-/obj/item/book/manual/medical_diagnostics_manual
-	name = "WY Medical Diagnostics Manual"
-	desc = "First, do no harm. A detailed medical practitioner's guide."
-	icon_state = "book_medical"
-	item_state = "book_medical"
-	author = "Weyland-Yutani Medicine Department"
-	title = "WY Medical Diagnostics Manual"
-
-	dat = {"<html>
-				<head>
-				<style>
-				h1 {font-size: 18px; margin: 15px 0px 5px;}
-				h2 {font-size: 15px; margin: 15px 0px 5px;}
-				li {margin: 2px 0px 2px 15px;}
-				ul {margin: 5px; padding: 0px;}
-				ol {margin: 5px; padding: 0px 15px;}
-				body {font-size: 13px; font-family: Verdana;}
-				</style>
-				</head>
-				<body>
-				<br>
-				<h1>The Oath</h1>
-
-				<i>The Medical Oath sworn by recognised medical practitioners in the employ of Weyland-Yutani</i><br>
-
-				<ol>
-					<li>Now, as a new doctor, I solemnly promise that I will, to the best of my ability, serve humanity-caring for the sick, promoting good health, and alleviating pain and suffering.</li>
-					<li>I recognise that the practice of medicine is a privilege with which comes considerable responsibility and I will not abuse my position.</li>
-					<li>I will practise medicine with integrity, humility, honesty, and compassion-working with my fellow doctors and other colleagues to meet the needs of my patients.</li>
-					<li>I shall never intentionally do or administer anything to the overall harm of my patients.</li>
-					<li>I will not permit considerations of gender, race, religion, political affiliation, sexual orientation, nationality, or social standing to influence my duty of care.</li>
-					<li>I will oppose policies in breach of human rights and will not participate in them. I will strive to change laws that are contrary to my profession's ethics and will work towards a fairer distribution of health resources.</li>
-					<li>I will assist my patients to make informed decisions that coincide with their own values and beliefs and will uphold patient confidentiality.</li>
-					<li>I will recognise the limits of my knowledge and seek to maintain and increase my understanding and skills throughout my professional life. I will acknowledge and try to remedy my own mistakes and honestly assess and respond to those of others.</li>
-					<li>I will seek to promote the advancement of medical knowledge through teaching and research.</li>
-					<li>I make this declaration solemnly, freely, and upon my honour.</li>
-				</ol><br>
-
-				<HR COLOR="steelblue" WIDTH="60%" ALIGN="LEFT">
-
-				<iframe width='100%' height='100%' src="http://cm-ss13.com/wiki/Guide_to_Medicine" frameborder="0" id="main_frame"></iframe>
-				</body>
-			</html>
-
-		"}
-
-
-/obj/item/book/manual/engineering_guide
-	name = "Engineering Textbook"
-	icon_state = "book_engineering2"
-	item_state = "book_engineering2"
-	author = "Engineering Encyclopedia"
-	title = "Engineering Textbook"
-
-	dat = {"
-
-		<html><head>
-		</head>
-
-		<body>
-		<iframe width='100%' height='100%' src="https://cm-ss13.com/wiki/Guide_to_Engineering" frameborder="0" id="main_frame"></iframe> </body>
-
-		</html>
-
-		"}
-
-
-/obj/item/book/manual/chef_recipes
-	name = "Chef Recipes"
-	icon_state = "cooked_book"
-	item_state = "book_green"
-	author = "Victoria Ponsonby"
-	title = "Chef Recipes"
-
-	dat = {"<html>
-				<head>
-				<style>
-				h1 {font-size: 18px; margin: 15px 0px 5px;}
-				h2 {font-size: 15px; margin: 15px 0px 5px;}
-				h3 {font-size: 13px; margin: 15px 0px 5px;}
-				li {margin: 2px 0px 2px 15px;}
-				ul {margin: 5px; padding: 0px;}
-				ol {margin: 5px; padding: 0px 15px;}
-				body {font-size: 13px; font-family: Verdana;}
-				</style>
-				</head>
-				<body>
-
-				<h1>Food for Dummies</h1>
-				Here is a guide on basic food recipes and also how to not poison your customers accidentally.
-
-				<h3>Basics:</h3>
-				Knead an egg and some flour to make dough. Bake that to make a bun or flatten and cut it.
-
-				<h3>Burger:</h3>
-				Put a bun and some meat into the microwave and turn it on. Then wait.
-
-				<h3>Bread:</h3>
-				Put some dough and an egg into the microwave and then wait.
-
-				<h3>Waffles:</h3>
-				Add two lumps of dough and 10 units of sugar to the microwave and then wait.
-
-				<h3>Popcorn:</h3>
-				Add 1 corn to the microwave and wait.
-
-				<h3>Meat Steak:</h3>
-				Put a slice of meat, 1 unit of salt, and 1 unit of pepper into the microwave and wait.
-
-				<h3>Meat Pie:</h3>
-				Put a flattened piece of dough and some meat into the microwave and wait.
-
-				<h3>Boiled Spaghetti:</h3>
-				Put the spaghetti (processed flour) and 5 units of water into the microwave and wait.
-
-				<h3>Donuts:</h3>
-				Add some dough and 5 units of sugar to the microwave and wait.
-
-				<h3>Fries:</h3>
-				Add one potato to the processor, then bake them in the microwave.
-
-
-				</body>
-			</html>
-			"}
-
-
-/obj/item/book/manual/barman_recipes
-	name = "Barman Recipes"
-	icon_state = "barbook"
-	item_state = "book_red"
-	author = "Sir John Rose"
-	title = "Barman Recipes"
-
-	dat = {"<html>
-				<head>
-				<style>
-				h1 {font-size: 18px; margin: 15px 0px 5px;}
-				h2 {font-size: 15px; margin: 15px 0px 5px;}
-				h3 {font-size: 13px; margin: 15px 0px 5px;}
-				li {margin: 2px 0px 2px 15px;}
-				ul {margin: 5px; padding: 0px;}
-				ol {margin: 5px; padding: 0px 15px;}
-				body {font-size: 13px; font-family: Verdana;}
-				</style>
-				</head>
-				<body>
-
-				<h1>Drinks for Dummies</h1>
-				Here's a guide for some basic drinks.
-
-				<h3>Black Russian:</h3>
-				Mix vodka and Kahlua into a glass.
-
-				<h3>Cafe Latte:</h3>
-				Mix milk and coffee into a glass.
-
-				<h3>Classic Martini:</h3>
-				Mix vermouth and gin into a glass.
-
-				<h3>Gin Tonic:</h3>
-				Mix gin and tonic into a glass.
-
-				<h3>Grog:</h3>
-				Mix rum and water into a glass.
-
-				<h3>Irish Cream:</h3>
-				Mix cream and whiskey into a glass.
-
-				<h3>The Manly Dorf:</h3>
-				Mix ale and beer into a glass.
-
-				<h3>Mead:</h3>
-				Mix enzyme, water, and sugar into a glass.
-
-				<h3>Screwdriver:</h3>
-				Mix vodka and orange juice into a glass.
-
-				</body>
-			</html>
-			"}
-
-
-/obj/item/book/manual/detective
-	name = "The Film Noir: Proper Procedures for Investigations"
-	icon_state ="bookDetective"
-	item_state ="book_red"
-	author = "Weyland-Yutani"
-	title = "The Film Noir: Proper Procedures for Investigations"
-
-	dat = {"<html>
-				<head>
-				<style>
-				h1 {font-size: 18px; margin: 15px 0px 5px;}
-				h2 {font-size: 15px; margin: 15px 0px 5px;}
-				li {margin: 2px 0px 2px 15px;}
-				ul {margin: 5px; padding: 0px;}
-				ol {margin: 5px; padding: 0px 15px;}
-				body {font-size: 13px; font-family: Verdana;}
-				</style>
-				</head>
-				<body>
-				<h1>Detective Work</h1>
-
-				Between your bouts of self-narration and drinking whiskey on the rocks, you might get a case or two to solve.<br>
-				To have the best chance to solve your case, follow these directions:
-				<p>
-				<ol>
-					<li>Go to the crime scene. </li>
-					<li>Take your scanner and scan EVERYTHING (Yes, the doors, the tables, even the dog). </li>
-					<li>Once you are reasonably certain you have every scrap of evidence you can use, find all possible entry points and scan them, too. </li>
-					<li>Return to your office. </li>
-					<li>Using your forensic scanning computer, scan your scanner to upload all of your evidence into the database.</li>
-					<li>Browse through the resulting dossiers, looking for the one that either has the most complete set of prints, or the most suspicious items handled. </li>
-					<li>If you have 80% or more of the print (The print is displayed), go to step 10, otherwise continue to step 8.</li>
-					<li>Look for clues from the suit fibres you found on your perpetrator, and go about looking for more evidence with this new information, scanning as you go. </li>
-					<li>Try to get a fingerprint card of your perpetrator, as if used in the computer, the prints will be completed on their dossier.</li>
-					<li>Assuming you have enough of a print to see it, grab the biggest complete piece of the print and search the security records for it. </li>
-					<li>Since you now have both your dossier and the name of the person, print both out as evidence and get security to nab your baddie.</li>
-					<li>Give yourself a pat on the back and a bottle of the ship's finest vodka, you did it!</li>
-				</ol>
-				<p>
-				It really is that easy! Good luck!
-
-				</body>
-			</html>"}
-
-
-/obj/item/book/manual/nuclear
-	name = "Fission Mailed: Nuclear Sabotage 101"
-	icon_state = "bookNuclear"
-	item_state = "book_particle"
-	author = "The Colonial Liberation Front"
-	title = "Fission Mailed: Nuclear Sabotage 101"
-
-	dat = {"<html>
-				<head>
-				<style>
-				h1 {font-size: 21px; margin: 15px 0px 5px;}
-				h2 {font-size: 15px; margin: 15px 0px 5px;}
-				li {margin: 2px 0px 2px 15px;}
-				ul {margin: 5px; padding: 0px;}
-				ol {margin: 5px; padding: 0px 15px;}
-				body {font-size: 13px; font-family: Verdana;}
-				</style>
-				</head>
-				<body>
-				<h1>Nuclear Explosives 101</h1>
-				Hello and thank you for choosing the CLF for your nuclear information needs. Today's crash course will deal with the operation of a Fusion Class Weyland-Yutani made Nuclear Device.<br><br>
-
-				First and foremost, DO NOT TOUCH ANYTHING UNTIL THE BOMB IS IN PLACE. Pressing any button on the compacted bomb will cause it to extend and bolt itself into place. If this is done, to unbolt it, one must completely log in, which at this time may not be possible.<br>
-
-				<h2>To make the nuclear device functional</h2>
-				<ul>
-					<li>Place the nuclear device in the designated detonation zone.</li>
-					<li>Extend and anchor the nuclear device from its interface.</li>
-					<li>Insert the nuclear authorisation disk into the slot.</li>
-					<li>Type the numeric authorisation code into the keypad. This should have been provided.<br>
-					<b>Note</b>: If you make a mistake, press R to reset the device.
-					<li>Press the E button to log on to the device.</li>
-				</ul><br>
-
-				You now have activated the device. To deactivate the buttons at anytime, for example when you've already prepped the bomb for detonation, remove the authentication disk OR press R on the keypad.<br><br>
-				Now the bomb CAN ONLY be detonated using the timer. Manual detonation is not an option. Toggle off the SAFETY.<br>
-				<b>Note</b>: You wouldn't believe how many Syndicate Operatives with doctorates have forgotten this step.<br><br>
-
-				So use the - - and + + to set a detonation time between 5 seconds and 10 minutes. Then press the timer toggle button to start the countdown. Now remove the authentication disk so that the buttons deactivate.<br>
-				<b>Note</b>: THE BOMB IS STILL SET AND WILL DETONATE<br><br>
-
-				Now before you remove the disk, if you need to move the bomb, you can toggle off the anchor, move it, and re-anchor.<br><br>
-
-				Remember the order:<br>
-				<b>Disk, Code, Safety, Timer, Disk, RUN!</b><br><br>
-				Intelligence Analysts believe that normal Weyland-Yutani procedure is for the Commanding Officer, or Captain, to secure the nuclear authentication disk.<br><br>
-
-				Good luck!
-				</body>
-			</html>
-			"}
-
+// SS220 - END EDIT TRANSLATE
 
 /obj/item/book/manual/atmospipes
 	name = "Pipes and You: Getting To Know Your Scary Tools"
-	icon_state = "pipingbook"
+	icon_state = "book_piping"
 	item_state = "book_piping"
-	author = "Maria Crash, Senior Atmospherics Technician"
+	author = "Colonial Marines Engineer Association"
 	title = "Pipes and You: Getting To Know Your Scary Tools"
 	dat = {"<html>
 				<head>
@@ -515,7 +291,6 @@
 				</style>
 				</head>
 				<body>
-
 				<h1><a name="Contents">Contents</a></h1>
 				<ol>
 					<li><a href="#Foreword">Author's Foreword</a></li>
@@ -534,7 +309,6 @@
 				this will tell you what every device constructable by an ordinary pipe dispenser within atmospherics actually does.
 				You are not going to learn what to do with them to be the super best person ever, or how to play guitar with passive gates,
 				or something like that. Just what stuff does.<BR><BR>
-
 
 				<h1><a name="Basic"><B>Basic Pipes</B></a></h1>
 				<I>The boring ones.</I><BR>
@@ -608,9 +382,9 @@
 
 /obj/item/book/manual/evaguide
 	name = "EVA Gear and You: Not Spending All Day Inside"
-	icon_state = "evabook"
-	item_state = "book_blue"
-	author = "Maria Crash, Senior Atmospherics Technician"
+	icon_state = "book_eva"
+	item_state = "book_eva"
+	author = "Senior Technician Sandra Rose, Weyland-Yutani Corporation"
 	title = "EVA Gear and You: Not Spending All Day Inside"
 	dat = {"<html>
 				<head>
@@ -679,10 +453,489 @@
 			"}
 
 
+//Law related manuals
+
+// SS220 - START EDIT TRANSLATE
+/obj/item/book/manual/security_space_law
+	name = "Стандартные Рабочие Процедуры"
+	desc = "Одна из самых важных книг на борту любого судна колониальной морской пехоты Соединенных Штатовен, или, по крайней мере, именно так вы должны к ней относиться. На страницах книги содержатся рекомендации и процедуры ККМП, касающиеся всевозможных ситуаций."
+	icon_state = "book_sop"
+	item_state = "book_sop"
+	author = "Верховное командование колониальной морской пехоты"
+	title = "Стандартные Рабочие Процедуры"
+	dat = {"
+
+		<html><head>
+		</head>
+
+		<body>
+		<iframe style="width:100%; height:85vh;" src="https://bm.ss220.club/index.php/%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D0%B5_%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B5_%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D1%8B" frameborder="0" id="main_frame"></iframe>
+		</body>
+
+		</html>
+
+		"}
+
+
+/obj/item/book/manual/marine_law
+	name = "Военный Закон"
+	desc = "Обычно эта книга является любимым чтивом любого сотрудника Военной полиции ККМП. Данная книга создана быть весами правосудия для стражей порядка колониальной морской пехоты Соединенных Штатов. Также у этой книги есть другие названия, вот их неполный список: 'Красная книга дьявола', 'Библия всех грешников', 'ТА САМАЯ КНИГА', 'Красный кирпич', 'Руководство по пыткам', 'Библия пыток всех грешников Красного дьявола'."
+	icon_state = "book_marine_law"
+	item_state = "book_marine_law"
+	author = "Головной офис колониальной морской пехоты"
+	title = "Военный Закон"
+	dat = {"
+
+		<html><head>
+		</head>
+
+		<body>
+		<iframe style="width:100%; height:85vh;" src="https://bm.ss220.club/index.php/%D0%92%D0%BE%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9_%D0%B7%D0%B0%D0%BA%D0%BE%D0%BD" frameborder="0" id="main_frame"></iframe>
+		</body>
+
+		</html>
+
+		"}
+
+
+//Medical and Research related manuals
+
+
+/obj/item/book/manual/surgery
+	name = "Хирургическое Справочное Руководство"
+	desc = "Детализированное справочное руководство по хирургическим процедурам. Для тех моментов, когда вы забыли о каком-либо этапе хирургической операции."
+	icon_state = "book_surgery"
+	item_state = "book_surgery"
+	author = "Бюро медицины и хирургии колониальной морской пехоты"
+	title = "Хирургическое Справочное Руководство"
+
+	dat = {"
+
+		<html><head>
+		</head>
+
+		<body>
+		<iframe style="width:100%; height:85vh;" src="https://bm.ss220.club/index.php/%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE_%D0%BF%D0%BE_%D1%85%D0%B8%D1%80%D1%83%D1%80%D0%B3%D0%B8%D0%B8#%D0%A5%D0%B8%D1%80%D1%83%D1%80%D0%B3%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B5_%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8_1_%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D1%8F" frameborder="0" id="main_frame"></iframe>
+		</body>
+
+		</html>
+
+		"}
+
+
+
+/obj/item/book/manual/medical_diagnostics_manual
+	name = "Справочник «Медицинские основы и практики»"
+	desc = "Прежде всего, не навреди. Подробное, толстое и объемное руководство для практикующего врача, одно посвящение которого занимает первые пять страниц."
+	icon_state = "book_medical"
+	item_state = "book_medical"
+	author = "Главный врач Пьер Корбо, Бюро медицины и хирургии колониальной морской пехоты"
+	title = "Справочник «Медицинские основы и практики»"
+
+	dat = {"<html>
+				<head>
+				<style>
+				h1 {font-size: 18px; margin: 15px 0px 5px;}
+				h2 {font-size: 15px; margin: 15px 0px 5px;}
+				li {margin: 2px 0px 2px 15px;}
+				ul {margin: 5px; padding: 0px;}
+				ol {margin: 5px; padding: 0px 15px;}
+				body {font-size: 13px; font-family: Verdana;}
+				</style>
+				</head>
+				<body>
+				<br>
+				<h1>Клятва</h1>
+
+				<i>Ниже приводится медицинская клятва, которую приносят признанные практикующие врачи, проходящие службу в космосе повсюду, в том числе в военных подразделениях Объединенных Америк.</i><br>
+				<i>Ci-dessous, le serment medical prete par des medecins reconnus en service partout dans l'espace, y compris dans les branches militaires des Ameriques unies.</i><br>
+
+				<ol>
+					<li>Я торжественно клянусь, что как практикующий врач, я буду, насколько это в моих силах, служить человечеству, заботясь о больных, укрепляя их здоровье и облегчая боль и страдания.</li>
+					<li>Я признаю, что медицинская практика - это привилегия, которая влечет за собой значительную ответственность, и я не буду злоупотреблять своим положением.</li>
+					<li>Я буду честно исполнять врачебный долг, со смирением, честностью и состраданием, работая со своими коллегами-практикующими врачами и другими коллегами для удовлетворения потребностей моих пациентов.</li>
+					<li>Я никогда намеренно не буду делать или назначать что-либо, что может нанести вред моим пациентам.</li>
+					<li>Я не позволю соображениям пола, расы, религии, политической принадлежности, сексуальной ориентации, национальности или социального положения влиять на мои обязанности по уходу за пациентами.</li>
+					<li>Я буду выступать против политики, нарушающей права человека, и не буду в ней участвовать. Я буду стремиться изменить законы, противоречащие этике моей профессии, и буду работать над более справедливым распределением ресурсов здравоохранения.</li>
+					<li>Я буду помогать своим пациентам принимать обоснованные решения, которые совпадают с их собственными ценностями и убеждениями, и буду соблюдать конфиденциальность пациентов.</li>
+					<li>Я буду осознавать ограниченность своих знаний и стремиться постоянно совершенствовать своё профессиональное мастерство, беречь и развивать благородные традиции медицины. Я буду признавать и пытаться исправлять свои собственные ошибки, а также честно оценивать ошибки других и реагировать на них.</li>
+					<li>Я буду стремиться содействовать распространению медицинских знаний посредством преподавания и участия в научных исследований.</li>
+					<li>Я делаю это заявление торжественно, свободно и клянусь своей честью.</li>
+				</ol><br>
+
+				<HR COLOR="steelblue" WIDTH="60%" ALIGN="LEFT">
+
+				<h3>Основное руководство</h3>
+				<iframe style="width:100%; height:85vh;" src="https://bm.ss220.club/index.php/%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE_%D0%BF%D0%BE_%D0%BC%D0%B5%D0%B4%D0%B8%D1%86%D0%B8%D0%BD%D0%B5#%D0%94%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D0%B0" frameborder="0" id="main_frame"></iframe>
+				</body>
+			</html>
+
+		"}
+
+/obj/item/book/manual/chemistry
+	name = "Химические реакции и то, как они могут испортить вам день"
+	desc = "Подробное руководство, содержащее все, что вам нужно знать о химии. В данное издание включены рецепты реагентов и методика их приготовления."
+	icon_state = "book_chemistry"
+	item_state = "book_chemistry"
+	author = "Бюро медицины и хирургии колониальной морской пехоты"
+	title = "Химические реакции и то, как они могут испортить вам день"
+
+	dat = {"
+
+		<html><head>
+		</head>
+
+		<body>
+		<iframe style="width:100%; height:85vh;" src="https://bm.ss220.club/index.php/%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE_%D0%BF%D0%BE_%D1%85%D0%B8%D0%BC%D0%B8%D0%B8#%D0%98%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%8B" frameborder="0" id="main_frame"></iframe>
+		</body>
+
+		</html>
+
+		"}
+
+/obj/item/book/manual/research_and_development
+	name = "Исследования и разработки: Что здесь можно найти?"
+	desc = "Наука: на передовой технологий. Эта книга содержит глубоко специализированную и научную информацию о продолжающейся исследовательской миссии ККМП и корпорации 'Вейланд-Ютани': исследовать новые необычные миры; искать новую жизнь, изучать новые сплавы и новые вакцины; смело идти туда, где еще не был ни один ученый, фигурально или метафорически!"
+	icon_state = "book_research_development"
+	item_state = "book_research_development"
+	author = "Старший научный сотрудник Глен Брукс, корпорация 'Вейланд-Ютани'"
+	title = "Исследования и разработки: Что здесь можно найти?"
+
+	dat = {"
+
+		<html><head>
+		</head>
+
+		<body>
+		<iframe style="width:100%; height:85vh;" src="https://bm.ss220.club/index.php/%D0%98%D1%81%D1%81%D0%BB%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C#%D0%A5%D0%B8%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B5_%D0%B8%D1%81%D1%81%D0%BB%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F:_%D0%A4%D0%B0%D1%80%D0%BC%D0%B0%D0%BA%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F" frameborder="0" id="main_frame"></iframe>
+		</body>
+
+		</html>
+
+		"}
+
+// SS220 - END EDIT TRANSLATE
+//Un-related manuals
+
+
+/obj/item/book/manual/tychontackle
+	name = "After Action Report No.55: Operation Tychon Tackle"
+	desc = "An after action report of the infamous Operation 'Tychon Tackle', so big that it had to be turned into a book. Warning: Some information, such as personal names, have been REDACTED on this print."
+	icon_state = "book_light_red"
+	item_state = "book_light_red"
+	author = "Executive Officer 'REDACTED', USS Heyst, United Americas"
+	title = "After Action Report No.55: Operation Tychon Tackle"
+
+	dat = {"
+
+		<html><head>
+		</head><body class='Paper'
+
+		<body>
+		<iframe style="width:100%; height:85vh;" src="https://cm-ss13.com/wiki/After_Action_Report_No.55" frameborder="0" id="main_frame"></iframe>
+		</body>
+
+		</html>
+
+		"}
+
+
+/obj/item/book/manual/upphistory
+	name = "The Raise And Steadying of the Union of Progressive Peoples, By Robert Mendes"
+	desc = "A large, supposedly unbiased history book containing what's supposed to be the history of the so-called UPP."
+	icon_state = "book_upp"
+	item_state = "book_upp"
+	author = "Historian Robert Mendes, United Americas"
+	title = "The Raise And Steadying of the Union of Progressive Peoples, By Robert Mendes"
+
+	dat = {"
+
+		<html><head>
+		</head><body class='Paper'
+
+		<body>
+		<iframe style="width:100%; height:85vh;" src="https://cm-ss13.com/wiki/UPP" frameborder="0" id="main_frame"></iframe>
+		</body>
+
+		</html>
+
+		"}
+
+// SS220 - START EDIT TRANSLATE
+/obj/item/book/manual/paperwork
+	name = "Бюрократия и работа с документами: все, что вам нужно знать"
+	desc = "Книга, содержащая всевозможные знания и готовые формуляры для составления важных документов. Что-то ищите? Это точно есть в этой книге."
+	icon_state = "book"
+	item_state = "book"
+	author = "Верховное командование колониальной морской пехоты"
+	title = "Бюрократия и работа с документами: все, что вам нужно знать"
+
+	dat = {"
+
+		<html><head>
+		</head><body class='Paper'
+
+		<body>
+		<iframe style="width:100%; height:85vh;" src="https://bm.ss220.club/index.php/%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE_%D0%BF%D0%BE_%D0%B1%D1%83%D0%BC%D0%B0%D0%B6%D0%BD%D0%BE%D0%B9_%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B5" frameborder="0" id="main_frame"></iframe>
+		</body>
+
+		</html>
+
+		"}
+
+
+/obj/item/book/manual/rank
+	name = "Звания морской пехоты: Перечень рангов, званий и департаментов колониальных морских пехотинцев Соединенных Штатов"
+	desc = "Эта книга содержит информацию обо всех званиях в колониальной морской пехоте, порядке подчинения этих рангов и структуре департаментов."
+	icon_state = "book"
+	item_state = "book"
+	author = "Верховное командование колониальной морской пехоты"
+	title = "Звания морской пехоты: Перечень рангов, званий и департаментов морских пехотинцев"
+	dat = {"
+
+		<html><head>
+		</head><body class='Paper'
+
+		<body>
+		<iframe style="width:100%; height:85vh;" src="https://bm.ss220.club/index.php/%D0%97%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F#%D0%97%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F_%D0%9C%D0%BE%D1%80%D1%81%D0%BA%D0%BE%D0%B9_%D0%9F%D0%B5%D1%85%D0%BE%D1%82%D1%8B" frameborder="0" id="main_frame"></iframe>
+		</body>
+
+		</html>
+
+		"}
+
+
+/obj/item/book/manual/chef_recipes
+	name = "Сковородки и тарелки: Навигация по морской кухне"
+	desc = "Огромный талмуд, содержащий множество кулинарных рецептов, идеально подходит для тех, кто хочет действительно готовить, а не только пялится в микроволновую печь, ожидая показа мультиков."
+	icon_state = "cooked_book"
+	item_state = "cooked_book"
+	author = "Специалист по обслуживанию общественного питания Луис Кавенант, Соединенная Америка"
+	title = "Сковородки и тарелки: Навигация по морской кухне"
+
+	dat = {"<html><head>
+		</head><body class='Paper'
+
+
+				<head>
+				<style>
+				h1 {font-size: 18px; margin: 15px 0px 5px;}
+				h2 {font-size: 15px; margin: 15px 0px 5px;}
+				h3 {font-size: 13px; margin: 15px 0px 5px;}
+				li {margin: 2px 0px 2px 15px;}
+				ul {margin: 5px; padding: 0px;}
+				ol {margin: 5px; padding: 0px 15px;}
+				body {font-size: 13px; font-family: Verdana;}
+				</style>
+				</head>
+				<body>
+
+				<h1>Готовка для новых поваров</h1>
+				Это руководство направленно на новых специалистов в сфере общественного питания и для тех, у кого проблемы с памятью.
+
+				<h3>Основные ингредиенты:</h3>
+				Взбейте яйцо и добавьте немного муки чтобы получить тесто. Также тесто можно раскатать и нарезать на маленькие кусочки.
+				<br>Поместите тесто и немного соли (1 юнит) в микроволновку и разогрейте чтобы получить булочку.
+
+				<h3>Бургер:</h3>
+				Добавьте к булочке немного мяса и разогрейте в микроволновке.
+
+				<h3>Хлеб:</h3>
+				Приготовьте тесто и разогрейте его в микроволновке.
+
+				<h3>Вафли:</h3>
+				Поместите два куска теста и немного сахара (10 юнитов) в микроволновку и включите её.
+
+				<h3>Попкорн:</h3>
+				Разогрейте один початок кукурузы в микроволновке.
+
+				<h3>Мясной стейк:</h3>
+				Поместите в микроволновку кусок мяса, немного соли (1 юнит) и чуть-чуть перца (1 юнит).
+
+				<h3>Мясной пирог:</h3>
+				Поместите раскатанное тесто и кусок мяса в микроволновку и разогрейте.
+
+				<h3>Варенные спагетти:</h3>
+				Поместите сырые спагетти (получаются из муки) и немного воды (5 юнитов) в микроволновку и разогрейте.
+
+				<h3>Пончики:</h3>
+				Поместите тесто и немного сахара (5 юнитов) в микроволновку и разогрейте.
+
+				<h3>Жаренная картошка:</h3>
+				Переработайте одну картошину в измельчителе для еды, поместите в микроволновку и разогрейте
+
+				<h3>Еще больше рецептов</h3>
+				<iframe style="width:100%; height:85vh;" src="https://bm.ss220.club/index.php/%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE_%D0%BF%D0%BE_%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B5" frameborder="0" id="main_frame"></iframe>
+				</body>
+
+
+
+		</html>
+		"}
+
+/obj/item/book/manual/barman_recipes
+	name = "Записки бармена: Мешаем напитки, смешиваем чувства, растапливаем сердца"
+	desc = "Одна из самых популярных книг по приготовлению напитков, известная во всем мире. Это 39-е издание, впервые опубликованное в 1946 году после окончания Второй мировой войны сэром Хью Фэрфаксом, одним из самых престижных барменов всех времен."
+	icon_state = "barbook"
+	item_state = "barbook"
+	author = "Сэр Хью Фэрфакс, Империя трех миров"
+	title = "Записки бармена: Мешаем напитки, смешиваем чувства, растапливаем сердца"
+
+	dat = {"<html>
+			</head><body class='Paper'
+				<body>
+				<head>
+				<style>
+				h1 {font-size: 18px; margin: 15px 0px 5px;}
+				h2 {font-size: 15px; margin: 15px 0px 5px;}
+				h3 {font-size: 13px; margin: 15px 0px 5px;}
+				li {margin: 2px 0px 2px 15px;}
+				ul {margin: 5px; padding: 0px;}
+				ol {margin: 5px; padding: 0px 15px;}
+				body {font-size: 13px; font-family: Verdana;}
+				</style>
+				</head>
+				<body>
+
+				<h1>Напитки для новых ремесленников барного искусства</h1>
+				Ниже описаны рецепты некоторых весьма популярных напитков.
+
+				<h3>Черный Русский:</h3>
+				Смешайте водку и каулу (кофейный ликер) в стакане.
+
+				<h3>Латте:</h3>
+				Смешайте молоко и кофе в стакане.
+
+				<h3>Мартини:</h3>
+				Смешайте вермут и джин в стакане.
+
+				<h3>Джин-тоник:</h3>
+				Смешайте джин и тоник в стакане.
+
+				<h3>Грог:</h3>
+				Немного разбавьте ром водой, подавайте в стакане.
+
+				<h3>Ирландские сливки:</h3>
+				Смешайте виски и сливки в стакане.
+
+				<h3>Мужественный дворф:</h3>
+				Смешайте эль и пиво в стакане.
+
+				<h3>Медовуха:</h3>
+				Смешайте ферменты, воду и сахар в стакане.
+
+				<h3>Отвертка:</h3>
+				Смешайте водку и апельсиновый сок в стакане.
+
+				<h3>Еще больше рецептов вы можете найти ниже</h3>
+				<iframe style="width:100%; height:85vh;" src="https://bm.ss220.club/index.php/%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE_%D0%BF%D0%BE_%D0%BD%D0%B0%D0%BF%D0%B8%D1%82%D0%BA%D0%B0%D0%BC" frameborder="0" id="main_frame"></iframe>
+			</body>
+			</html>
+			"}
+// SS220 - END EDIT TRANSLATE
+
+/obj/item/book/manual/detective
+	name = "The Film Noir: Proper Procedures for Investigations"
+	icon_state ="book_detective"
+	item_state ="book_detective"
+	author = "Lawyer Ruben Knight, Weyland-Yutani Corporation"
+	title = "The Film Noir: Proper Procedures for Investigations"
+
+	dat = {"<html>
+				<head>
+				<style>
+				h1 {font-size: 18px; margin: 15px 0px 5px;}
+				h2 {font-size: 15px; margin: 15px 0px 5px;}
+				li {margin: 2px 0px 2px 15px;}
+				ul {margin: 5px; padding: 0px;}
+				ol {margin: 5px; padding: 0px 15px;}
+				body {font-size: 13px; font-family: Verdana;}
+				</style>
+				</head>
+				<body>
+				<h1>Detective Work</h1>
+
+				Between your bouts of self-narration and drinking whiskey on the rocks, you might get a case or two to solve.<br>
+				To have the best chance to solve your case, follow these directions:
+				<p>
+				<ol>
+					<li>Go to the crime scene. </li>
+					<li>Take your scanner and scan EVERYTHING (Yes, the doors, the tables, even the dog). </li>
+					<li>Once you are reasonably certain you have every scrap of evidence you can use, find all possible entry points and scan them, too. </li>
+					<li>Return to your office. </li>
+					<li>Using your forensic scanning computer, scan your scanner to upload all of your evidence into the database.</li>
+					<li>Browse through the resulting dossiers, looking for the one that either has the most complete set of prints, or the most suspicious items handled. </li>
+					<li>If you have 80% or more of the print (The print is displayed), go to step 10, otherwise continue to step 8.</li>
+					<li>Look for clues from the suit fibres you found on your perpetrator, and go about looking for more evidence with this new information, scanning as you go. </li>
+					<li>Try to get a fingerprint card of your perpetrator, as if used in the computer, the prints will be completed on their dossier.</li>
+					<li>Assuming you have enough of a print to see it, grab the biggest complete piece of the print and search the security records for it. </li>
+					<li>Since you now have both your dossier and the name of the person, print both out as evidence and get security to nab your baddie.</li>
+					<li>Give yourself a pat on the back and a bottle of the ship's finest vodka, you did it!</li>
+				</ol>
+				<p>
+				It really is that easy! Good luck!
+
+				</body>
+			</html>"}
+
+
+/obj/item/book/manual/nuclear
+	name = "Fission Mailed: How to Operate a Blockbuster"
+	desc = "A book containing important information and instructions regarding the operation of a 'Blockbuster' Large Atomic Fission Demolition Device."
+	icon_state = "book_nuclear"
+	item_state = "book_nuclear"
+	author = "Nuclear Regulatory Commission of the United Americas"
+	title = "Fission Mailed: How to Operate a Blockbuster"
+
+	dat = {"<html>
+				<head>
+				<style>
+				h1 {font-size: 21px; margin: 15px 0px 5px;}
+				h2 {font-size: 15px; margin: 15px 0px 5px;}
+				li {margin: 2px 0px 2px 15px;}
+				ul {margin: 5px; padding: 0px;}
+				ol {margin: 5px; padding: 0px 15px;}
+				body {font-size: 13px; font-family: Verdana;}
+				</style>
+				</head>
+				<body>
+				<h1>The Nuclear Explosive</h1>
+				Hello and thank you for choosing the Nuclear Regulatory Comission archive for your nuclear information needs. Today's crash course will deal with the operation of a 'Blockbuster' Large Atomic Fission Demolition Device (ELAFDD), designed and manufactured by the Colonial Marines Engineer Association with the purpose of allowing USCM patrol vessels to carry and utilize atomic ordnance without having the capabilities of remotely launching them.<br><br>
+
+				First and foremost, YOU CAN'T DO ANYTHING UNTIL THE BOMB IS IN PLACE. A specific button exists to allow for the deployment and anchoring of the device into place. If this is done, to unbolt it, you must utilize the same button you used to anchor.<br>
+
+				Secondly, the device requires decryption through dial-up connection, of which is then transmitted by radio back to the receiving vessel, make sure all telecommunication towers available on the designated detonation zone are operating with no problems.
+
+				<h2>To make the 'Blockbuster' functional</h2>
+				<ul>
+					<li>Make sure you have proper Identification access to the device's panel.</li>
+					<li>Place the nuclear device in the designated detonation zone.</li>
+					<li>Extend and anchor the nuclear device through its interface.</li>
+					<li>Turn the safety of the nuclear device off through its interface.</li>
+					<li>Make sure all forms of transmission by radio in the designated detonation zone are functional.</li>
+					<li>When decryption is completed, the device will AUTOMATICALLY begin its detonation timer.<br>
+					<b>Note</b>: The decryption time will usually take 10 minutes, and the device's timer is fixed to detonate at exactly 3 minutes.
+				</ul><br>
+
+				You now have activated the device. Remember: After decryption is completed, the detonation timer will automatically begin and you are UNABLE to cancel it.<br><br>
+				The bomb can ONLY be detonated using the timer. Manual detonation is not an option. Toggle off the SAFETY.<br>
+				<b>Note</b>: You wouldn't believe how much, statistically, our personnel forget to toggle it off when operating the device.<br><br>
+
+				If you wish or need to move the device to any other designated detonation zone at any point in time before the detonation timer begins, you need to firstly cancel decryption, and then toggle off the anchoring of the device, move it, and re-anchor, not forgetting to restart decryption.<br><br>
+
+				Remember the order:<br>
+				<b>Access, Position, Anchor, Safety, Transmission, Decryption, Begin, Vacate</b><br><br>
+
+				Farewell and happy demolitions.
+				</body>
+			</html>
+			"}
+
+// This book is ultra old
 /obj/item/book/manual/hydroponics_beekeeping
 	name = "The Ins and Outs of Apiculture - A Precise Art"
-	icon_state = "bookHydroponicsBees"
-	item_state = "book_green"
+	icon_state = "book_hydroponics_bees"
+	item_state = "book_hydroponics_bees"
 	author = "Beekeeper Dave"
 	title = "The Ins and Outs of Apiculture - A Precise Art"
 	dat = {"<html>
@@ -708,59 +961,6 @@
 				and aid them in fighting off poisons and disease.
 
 				</body>
-			</html>
-			"}
-
-
-/obj/item/book/manual/orbital_cannon_manual
-	name = "USCM Orbital Bombardment System Manual"
-	icon_state = "book_engineering"
-	item_state = "book_engineering"
-	author = "USCM R&D"
-	title = "USCM Orbital Bombardment System Manual"
-
-	dat = {"<html>
-				<head>
-				<style>
-				h1 {font-size: 21px; margin: 15px 0px 5px;}
-				h2 {font-size: 18px; margin: 15px 0px 5px;}
-				li {margin: 2px 0px 2px 15px;}
-				ul {margin: 5px; padding: 0px;}
-				ol {margin: 5px; padding: 0px 15px;}
-				body {font-size: 13px; font-family: Verdana;}
-				</style>
-				</head>
-				<body>
-
-				<h1>Guide to the USCM Orbital Bombardment System</h1>
-
-				<h2>Step by step instructions:</h2>
-				<ol>
-					<li>Load a warhead in the Orbital Cannon Tray (Powerloader required).</li>
-					<li>Load the required amount of solid fuel in the Orbital Cannon Tray <b>(See Orbital Cannon Console)</b>.</li>
-					<li>Open the Orbital Cannon Console's interface.</li>
-					<li>Load the Tray into the Cannon.</li>
-					<li>Chamber the Tray's content into the cannon barrel. <b>(can't be undone!)</b></li>
-					<li>The CIC staff can now fire the Orbital Cannon from any overwatch console.</li>
-					<li>After firing, unload the Tray from the Orbital Cannon.</li>
-					<li>Inspect the Tray to make sure it is empty and operational.</li>
-				</ol>
-
-				<h2>Troubleshooting:</h2>
-
-				<ul>
-					<li>If you've loaded a tray with an incorrect payload, you can still unload the tray's payload as long as it hasn't been chambered.</li>
-					<li>If an incorrect payload is chambered, it can only be removed by firing it.</li>
-					<li>If the Orbital Cannon Console has no power, check the Weapon Control Room's APC.</li>
-					<li>If the Orbital Cannon Console is broken, contact USCM HQ for a replacement.</li>
-					<li>In case of direct damage to the Orbital Cannon itself, do not attempt to use or repair the cannon.</li>
-					<li>In case of hull breach or fire, make sure to remove the Cannon's payload and move it to a safe location.</li>
-					<li>If the Orbital Tray jams, apply lubricant to the  conveyor belt.</li>
-					<li>If a cable of the Orbital Cannon System is severed, contact USCM HQ for a replacement.</li>
-					<li>If Cannon's cable connector breaks, turn off the Orbital Cannon Console and contact USCM HQ for a replacement.</li>
-				</ul>
-
-			</body>
 			</html>
 			"}
 

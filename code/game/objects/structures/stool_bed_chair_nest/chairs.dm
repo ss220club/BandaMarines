@@ -79,6 +79,11 @@
 	if(stacked_size)
 		stack_collapse()
 
+/obj/structure/bed/chair/handle_tail_stab(mob/living/carbon/xenomorph/xeno, blunt_stab)
+	. = ..()
+	if(stacked_size)
+		stack_collapse()
+
 /obj/structure/bed/chair/attackby(obj/item/I, mob/user)
 	if(HAS_TRAIT(I, TRAIT_TOOL_WRENCH) && stacked_size)
 		to_chat(user, SPAN_NOTICE("You'll need to unstack the chairs before you can take one apart."))
@@ -133,8 +138,9 @@
 	if(istype(AM, /mob/living) && stacked_size)
 		var/mob/living/M = AM
 		stack_collapse()
-		M.apply_effect(2, STUN)
-		M.apply_effect(2, WEAKEN)
+		if(ishumansynth_strict(M))
+			M.apply_effect(2, STUN)
+			M.apply_effect(2, WEAKEN)
 	else if(stacked_size > 8 && prob(50))
 		stack_collapse()
 
@@ -315,6 +321,10 @@
 	drag_delay = 1 //Pulling something on wheels is easy
 	picked_up_item = null
 
+/obj/structure/bed/chair/office/Initialize(mapload, ...)
+	. = ..()
+	RegisterSignal(src, COMSIG_MOVABLE_PREBUCKLE, PROC_REF(check_buckle))
+
 /obj/structure/bed/chair/office/Collide(atom/A)
 	..()
 	if(!buckled_mob)
@@ -339,6 +349,15 @@
 			victim.apply_effect(6, STUTTER)
 			victim.apply_damage(10, BRUTE, def_zone)
 		occupant.visible_message(SPAN_DANGER("[occupant] crashed into \the [A]!"))
+
+/// Signal handler for COMSIG_MOVABLE_PREBUCKLE to potentially block buckling.
+/obj/structure/bed/chair/office/proc/check_buckle(obj/bed, mob/buckle_target, mob/user)
+	SIGNAL_HANDLER
+
+	if(buckle_target.mob_size > MOB_SIZE_XENO)
+		if(!can_carry_big)
+			to_chat(user, SPAN_WARNING("[buckle_target] is too big to buckle in."))
+			return COMPONENT_BLOCK_BUCKLE
 
 /obj/structure/bed/chair/office/light
 	icon_state = "officechair_white"
@@ -455,7 +474,7 @@
 	if(chair_state != DROPSHIP_CHAIR_BROKEN)
 		playsound(loc, 'sound/effects/metalhit.ogg', 25, 1)
 		user.animation_attack_on(src)
-		user.visible_message(SPAN_WARNING("[user] smashes \the [src], shearing the bolts!"),
+		user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] smashes \the [src], shearing the bolts!"),
 		SPAN_WARNING("You smash \the [src], shearing the bolts!"))
 		fold_down(1)
 		return XENO_ATTACK_ACTION
@@ -471,10 +490,10 @@
 		var/obj/item/tool/weldingtool/C = W
 		if(C.remove_fuel(0,user))
 			playsound(src.loc, 'sound/items/weldingtool_weld.ogg', 25)
-			user.visible_message(SPAN_WARNING("[user] begins repairing \the [src]."),
+			user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] begins repairing \the [src]."),
 			SPAN_WARNING("You begin repairing \the [src]."))
 			if(do_after(user, 20, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
-				user.visible_message(SPAN_WARNING("[user] repairs \the [src]."),
+				user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] repairs \the [src]."),
 				SPAN_WARNING("You repair \the [src]."))
 				unfold_up()
 				return
@@ -485,20 +504,20 @@
 	if(HAS_TRAIT(W, TRAIT_TOOL_WRENCH))
 		switch(chair_state)
 			if(DROPSHIP_CHAIR_UNFOLDED)
-				user.visible_message(SPAN_WARNING("[user] begins loosening the bolts on \the [src]."),
+				user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] begins loosening the bolts on \the [src]."),
 				SPAN_WARNING("You begin loosening the bolts on \the [src]."))
 				playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
 				if(do_after(user, 20, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
-					user.visible_message(SPAN_WARNING("[user] loosens the bolts on \the [src], folding it into the decking."),
+					user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] loosens the bolts on \the [src], folding it into the decking."),
 					SPAN_WARNING("You loosen the bolts on \the [src], folding it into the decking."))
 					fold_down()
 					return
 			if(DROPSHIP_CHAIR_FOLDED)
-				user.visible_message(SPAN_WARNING("[user] begins unfolding \the [src]."),
+				user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] begins unfolding \the [src]."),
 				SPAN_WARNING("You begin unfolding \the [src]."))
 				playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
 				if(do_after(user, 20, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
-					user.visible_message(SPAN_WARNING("[user] unfolds \the [src] from the floor and tightens the bolts."),
+					user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] unfolds \the [src] from the floor and tightens the bolts."),
 					SPAN_WARNING("You unfold \the [src] from the floor and tighten the bolts."))
 					unfold_up()
 					return
@@ -512,10 +531,10 @@
 		var/obj/item/tool/weldingtool/C = W
 		if(C.remove_fuel(0,user))
 			playsound(src.loc, 'sound/items/weldingtool_weld.ogg', 25)
-			user.visible_message(SPAN_WARNING("[user] begins repairing \the [src]."),
+			user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] begins repairing \the [src]."),
 			SPAN_WARNING("You begin repairing \the [src]."))
 			if(do_after(user, 20, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
-				user.visible_message(SPAN_WARNING("[user] repairs \the [src]."),
+				user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] repairs \the [src]."),
 				SPAN_WARNING("You repair \the [src]."))
 				chair_state = DROPSHIP_CHAIR_FOLDED
 				return
@@ -579,6 +598,10 @@
 	if(isturf(target))
 		var/turf/open/T = target
 		if(!(istype(T)) || !proximity || T.density)
+			return
+		var/area/area = get_area(target)
+		if(!area.allow_construction)
+			to_chat(user, SPAN_WARNING("[src] must be assembled on a proper surface!"))
 			return
 		if(!T.allow_construction)
 			to_chat(user, SPAN_WARNING("[src] must be assembled on a proper surface!"))

@@ -31,6 +31,15 @@
 	if(player.whitelist_flags & WHITELIST_YAUTJA_LEADER)
 		options += WHITELIST_LEADER
 
+	var/datum/job/pred_job = GLOB.RoleAuthority.roles_by_name[JOB_PREDATOR]
+	if(!pred_job)
+		return
+	var/clanrank = pred_job.get_whitelist_status(user.client)
+	if(clanrank in list(CLAN_RANK_ELITE, CLAN_RANK_ELDER, CLAN_RANK_LEADER, CLAN_RANK_ADMIN))
+		.["can_use_unique"] = TRUE
+	else
+		.["can_use_unique"] = FALSE
+
 	.["available_statuses"] = options
 
 	.["hair_icon"] = /datum/sprite_accessory/yautja_hair::icon
@@ -59,12 +68,17 @@
 	.["caster_icon"] = /obj/item/weapon/gun/energy/yautja/plasma_caster::icon
 	.["caster_prefix"] = /obj/item/weapon/gun/energy/yautja/plasma_caster::base_icon_state
 
+	.["bracer_icon"] = /obj/item/clothing/gloves/yautja::icon
+
 	.["mask_accessory_icon"] = /obj/item/clothing/accessory/mask::icon
 	.["mask_accessory_types"] = PRED_MASK_ACCESSORY_TYPE_MAX
 
 	.["materials"] = PRED_MATERIALS
+	.["retro_materials"] = PRED_RETRO_MATERIALS
 	.["translators"] = PRED_TRANSLATORS
+	.["invisibility_sounds"] = PRED_INVIS_SOUNDS
 	.["legacies"] = PRED_LEGACIES
+	.["uniques"] = PRED_UNIQUES
 
 
 /datum/pred_picker/ui_data(mob/user)
@@ -83,7 +97,9 @@
 	.["yautja_status"] = prefs.yautja_status
 
 	.["use_legacy"] = prefs.predator_use_legacy
+	.["use_unique"] = prefs.predator_use_unique
 	.["translator_type"] = prefs.predator_translator_type
+	.["invisibility_sound"] = prefs.predator_invisibility_sound
 
 	.["armor_type"] = prefs.predator_armor_type
 	.["armor_material"] = prefs.predator_armor_material
@@ -97,6 +113,8 @@
 	.["mask_accessory_type"] = prefs.predator_accessory_type
 
 	.["caster_material"] = prefs.predator_caster_material
+
+	.["bracer_material"] = prefs.predator_bracer_material
 
 	.["cape_color"] = prefs.predator_cape_color
 
@@ -220,10 +238,17 @@
 
 		if("caster_material")
 			var/material = params["material"]
-			if(!material || !(material in PRED_MATERIALS))
+			if(!material || !(material in PRED_RETRO_MATERIALS))
 				return
 
 			prefs.predator_caster_material = material
+
+		if("bracer_material")
+			var/material = params["material"]
+			if(!material || !(material in PRED_RETRO_MATERIALS))
+				return
+
+			prefs.predator_bracer_material = material
 
 		if("mask_accessory")
 			var/accessory = params["type"]
@@ -240,6 +265,19 @@
 
 			prefs.predator_translator_type = selected
 
+		if("invisibility_sound")
+			var/selected = params["selected"]
+			if(!selected || !(selected in PRED_INVIS_SOUNDS))
+				return
+
+			prefs.predator_invisibility_sound = selected
+			var/sound_to_use
+			if(selected == PRED_TECH_MODERN)
+				sound_to_use = 'sound/effects/pred_cloakon_modern.ogg'
+			else
+				sound_to_use = 'sound/effects/pred_cloakon.ogg'
+			playsound_client(ui.user.client, sound_to_use, null, 35)
+
 		if("legacy")
 			var/selected = params["selected"]
 			if(!selected || !(selected in PRED_LEGACIES))
@@ -249,6 +287,21 @@
 				return
 
 			prefs.predator_use_legacy = selected
+
+		if("unique")
+			var/selected = params["selected"]
+			if(!selected || !(selected in PRED_UNIQUES))
+				return
+
+			var/datum/job/pred_job = GLOB.RoleAuthority.roles_by_name[JOB_PREDATOR]
+			if(!pred_job)
+				return
+			var/clanrank = pred_job.get_whitelist_status(ui.user.client)
+
+			if(!(clanrank in list(CLAN_RANK_ELITE, CLAN_RANK_ELDER, CLAN_RANK_LEADER, CLAN_RANK_ADMIN)))
+				return
+
+			prefs.predator_use_unique = selected
 
 		if("cape_color")
 			var/color = params["color"]

@@ -40,7 +40,7 @@
 	pixel_x = -12
 	old_x = -12
 
-	var/atom/movable/vis_obj/xeno_wounds/wound_icon_holder
+	var/atom/movable/vis_obj/wound_icon_holder
 
 /mob/living/simple_animal/hostile/alien/Initialize()
 	maxHealth = health
@@ -81,6 +81,10 @@
 	. = ..()
 	if(!. || !hivenumber)
 		return
+	if(ismonkey(target)) // So they don't kill Monkeys that Xenos need
+		return FALSE
+	if(ismouse(target)) // Mice and rats are beneath the Xenomorphs notice
+		return FALSE
 	if(istype(target, /mob/living/simple_animal/hostile/alien))
 		var/mob/living/simple_animal/hostile/alien/alien_target = target
 		if(alien_target.hivenumber == hivenumber)
@@ -110,8 +114,9 @@
 
 	wound_icon_holder.layer = layer + 0.01
 	wound_icon_holder.dir = dir
+	wound_icon_holder.icon = icon
 	var/health_threshold = max(ceil((health * 4) / (maxHealth)), 0) //From 0 to 4, in 25% chunks
-	if(health > HEALTH_THRESHOLD_DEAD)
+	if(health > health_threshold_dead)
 		if(health_threshold > 3)
 			wound_icon_holder.icon_state = "none"
 		else if(body_position == LYING_DOWN)
@@ -176,3 +181,6 @@
 
 	pixel_x = -12
 	old_x = -12
+
+/mob/living/simple_animal/hostile/alien/no_harm_animal
+	faction_group = list(FACTION_XENOMORPH, FACTION_MONKEY, FACTION_NEUTRAL)

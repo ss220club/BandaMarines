@@ -19,10 +19,12 @@
 	ground_offset_x = 2
 	ground_offset_y = 6
 
-	actions_types = list(/datum/action/item_action/toggle)
+	actions_types = list(/datum/action/item_action/toggle/flashlight)
 	var/on = FALSE
 	var/raillight_compatible = TRUE //Can this be turned into a rail light ?
 	var/toggleable = TRUE
+	/// Should the flashlight rotate when thrown?
+	var/rotation_on_throw = FALSE
 
 	var/can_be_broken = TRUE //can xenos swipe at this to break it/turn it off?
 	var/breaking_sound = 'sound/handling/click_2.ogg' //sound used when this happens
@@ -40,8 +42,9 @@
 		icon_state = initial(icon_state)
 
 /obj/item/device/flashlight/animation_spin(speed = 5, loop_amount = -1, clockwise = TRUE, sections = 3, angular_offset = 0, pixel_fuzz = 0)
-	clockwise = pick(TRUE, FALSE)
-	angular_offset = rand(360)
+	if(rotation_on_throw)
+		clockwise = pick(TRUE, FALSE)
+		angular_offset = rand(360)
 	return ..()
 
 /obj/item/device/flashlight/proc/update_brightness(mob/user = null)
@@ -126,7 +129,7 @@
 							SPAN_NOTICE("You wave the light in front of your eyes! Wow, that's trippy!"))
 			return
 
-		user.visible_message(SPAN_NOTICE("[user] directs [src] to [being]'s eyes."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] directs [src] to [being]'s eyes."),
 							SPAN_NOTICE("You direct [src] to [being]'s eyes."))
 
 		if(ishuman_strict(being)) //robots and aliens are unaffected
@@ -224,7 +227,7 @@
 				else
 					being.flash_eyes()
 					reaction = "don't really know what you are looking for, you don't know anything about medicine"
-			user.visible_message("[user] directs [src] to [being]'s eyes.", "You point [src] to [being.p_their()] eyes to begin analysing them further and... you [reaction].")
+			user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] directs [src] to [being]'s eyes.", "You point [src] to [being.p_their()] eyes to begin analysing them further and... you [reaction].")
 	return ..()
 
 /obj/item/device/flashlight/drone
@@ -324,6 +327,7 @@
 	actions = list() //just pull it manually, neckbeard.
 	raillight_compatible = 0
 	can_be_broken = FALSE
+	rotation_on_throw = TRUE
 	var/burnt_out = FALSE
 	var/fuel = 16 MINUTES
 	var/fuel_rate = AMOUNT_PER_TIME(1 SECONDS, 1 SECONDS)
@@ -403,12 +407,13 @@
 /obj/item/device/flashlight/flare/animation_spin(speed = 5, loop_amount = -1, clockwise = TRUE, sections = 3, angular_offset = 0, pixel_fuzz = 0)
 	pixel_fuzz = 16
 	return ..()
+
 /obj/item/device/flashlight/flare/pickup()
+	. = ..()
 	if(transform)
 		apply_transform(matrix()) // reset rotation
 	pixel_x = 0
 	pixel_y = 0
-	return ..()
 
 /obj/item/device/flashlight/flare/proc/burn_out()
 	turn_off()
@@ -449,7 +454,7 @@
 		if(!on)
 			return
 		var/hand = user.hand ? "l_hand" : "r_hand"
-		user.visible_message(SPAN_WARNING("[user] snuffs out [src]."),
+		user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] snuffs out [src]."),
 		SPAN_WARNING("You snuff out [src], singing your hand."))
 		user.apply_damage(7, BURN, hand)
 		burn_out()
@@ -459,7 +464,7 @@
 	. = ..()
 	// All good, turn it on.
 	if(.)
-		user.visible_message(SPAN_NOTICE("[user] activates the flare."), SPAN_NOTICE("You pull the cord on the flare, activating it!"))
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] activates the flare."), SPAN_NOTICE("You pull the cord on the flare, activating it!"))
 		playsound(src,'sound/handling/flare_activate_2.ogg', 50, 1) //cool guy sound
 		turn_on()
 		var/mob/living/carbon/enjoyer = user
@@ -585,6 +590,19 @@
 	light_color = "#d69c46"
 
 /obj/item/device/flashlight/lantern/on
+	on = TRUE
+
+/obj/item/device/flashlight/lantern/yautja
+	name = "lantern"
+	icon_state = "yautja"
+	item_state = ""
+	light_range = 6 // luminosity when on
+	desc = "A rugged alien lantern with a metallic frame, emitting a steady red glow. Its light has an unsettling, otherworldly aura."
+	light_color = "#f03939"
+
+/obj/item/device/flashlight/lantern/yautja/on
+	name = "lantern"
+	desc = "A rugged alien lantern with a metallic frame, emitting a steady red glow. Its light has an unsettling, otherworldly aura."
 	on = TRUE
 
 //Signal Flare

@@ -30,9 +30,9 @@
 		text = replacetext_char(text, char, repl_chars[char]) // SS220 EDIT - RU fix
 	return text
 
-///Helper for only alphanumeric characters plus common punctuation, spaces, underscore and hyphen _ -.
+///Helper for only alphanumeric characters plus common punctuation, spaces, underscore, hyphen, plus, vertical bar _ -+|.
 /proc/replace_non_alphanumeric_plus(text)
-	var/regex/alphanumeric = regex(@{"[^a-z0-9а-яА-ЯёЁ ,.?!\-_&]"}, "gi")
+	var/regex/alphanumeric = regex(@{"[^a-z0-9а-яА-ЯёЁ ,.?!|\-+_&]"}, "gi")
 	return alphanumeric.Replace(text, "")
 
 /proc/readd_quotes(text)
@@ -393,6 +393,11 @@
 #define SMALL_FONTS(FONTSIZE, MSG) "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: [FONTSIZE]px;\">[MSG]</span>"
 #define SMALL_FONTS_CENTRED(FONTSIZE, MSG) "<center><span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: [FONTSIZE]px;\">[MSG]</span></center>"
 #define SMALL_FONTS_COLOR(FONTSIZE, MSG, COLOR) "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: [FONTSIZE]px; color: [COLOR];\">[MSG]</span>"
+
+// SS220 ADDITION
+#define GRAND_9K(FONTSIZE, MSG) "<span style=\"font-family: 'Grand9K Pixel'; -dm-text-outline: 1 black; font-size: [FONTSIZE]px;\">[MSG]</span>"
+#define GRAND_9K_CENTRED(FONTSIZE, MSG) "<center><span style=\"font-family: 'Grand9K Pixel'; -dm-text-outline: 1 black; font-size: [FONTSIZE]px;\">[MSG]</span></center>"
+#define GRAND_9K_COLOR(FONTSIZE, MSG, COLOR) "<span style=\"font-family: 'Grand9K Pixel'; -dm-text-outline: 1 black; font-size: [FONTSIZE]px; color: [COLOR];\">[MSG]</span>"
 
 //finds the first occurrence of one of the characters from needles argument inside haystack
 //it may appear this can be optimised, but it really can't. findtext() is so much faster than anything you can do in byondcode.

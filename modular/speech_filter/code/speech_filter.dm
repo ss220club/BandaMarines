@@ -8,6 +8,9 @@
 	var/brainrot_regex
 
 /datum/controller/configuration/proc/filter_speech(client/user, message)
+	if(!has_discord_link(user))
+		return FALSE
+
 	if(!length(message))
 		return TRUE
 
@@ -30,7 +33,8 @@
 		html = "\n<font color='red' size='2'><b>Ваше сообщение было автоматически отфильтровано из-за его содержания. Попытка обойти этот фильтр приведет к бану.</b></font>",
 		)
 	SEND_SOUND(user, sound('sound/effects/adminhelp_new.ogg'))
-	log_admin("[user.ckey] попытался сказать запретное слово: [original_message].")
+	log_admin("[key_name(user)] попытался сказать запретное слово: [original_message].")
+	message_admins("[key_name_admin(user)] попытался сказать запретное слово: [original_message].")
 
 	if(ishuman(user))
 		var/mob/living/L = user

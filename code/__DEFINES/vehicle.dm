@@ -45,9 +45,6 @@
 
 #define HDPT_OFFSET_EMPTY list(NORTH = list(0, 0), SOUTH = list(0, 0), EAST = list(0, 0), WEST = list(0, 0))
 
-/// Toggle between Shift click and MMB click for gunner
-#define VEHICLE_TOGGLE_SHIFT_CLICK_GUNNER (1<<0)
-
 /// Vehicle Classes (for future)
 #define VEHICLE_CLASS_WEAK (1<<1) //light unarmored vehicles like colony vehicles/trucks/vans
 #define VEHICLE_CLASS_LIGHT (1<<2) //light class armor (APC, tank)
@@ -56,3 +53,23 @@
 // Other vehicle flags
 /// Vehicle can bypass vehicle blockers, typically going further into maps than intended
 #define VEHICLE_BYPASS_BLOCKERS (1<<5)
+
+//Ridden vehicle flags
+
+/// Does our vehicle require arms to operate? Also used for piggybacking on humans to reserve arms on the rider
+#define RIDER_NEEDS_ARMS (1<<0)
+// As above but only reserves 1 arm instead of 2
+#define RIDER_NEEDS_ARM (1<<1)
+/// Do we need legs to ride this (checks against TRAIT_FLOORED)
+#define RIDER_NEEDS_LEGS (1<<2)
+/// If the rider is disabled or loses their needed limbs, do they fall off?
+#define UNBUCKLE_DISABLED_RIDER (1<<3)
+// For fireman carries, the carrying human needs an arm
+#define CARRIER_NEEDS_ARM (1<<4)
+
+#define CAN_BUCKLE (1<<0)
+#define CAN_BE_BUCKLED (1<<1)
+#define BUCKLE_REQUIRES_RESTRAINTS (1<<2)
+#define BUCKLE_PREVENTS_PULL (1<<3)
+#define BUCKLE_NEEDS_HAND (1<<4)
+#define BUCKLE_NEEDS_TWO_HANDS (1<<5)

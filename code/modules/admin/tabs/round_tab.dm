@@ -13,7 +13,7 @@
 	var/cur_extra = SSticker.mode.pred_count_modifier
 	var/cur_count = SSticker.mode.pred_current_num
 	var/cur_max = SSticker.mode.calculate_pred_max()
-	var/real_count = length(SSticker.mode.predators)
+	var/real_count = length(SSticker.mode.yautja_hunters)
 	var/possible_min = min(cur_count - cur_max, cur_extra)
 	var/value = tgui_input_number(src, "How many additional predators can join? Current predator count: [cur_count]/[cur_max] (Real: [real_count]) Current setting: [cur_extra]", "Input:", default = cur_extra, min_value = possible_min, integer_only = TRUE)
 
@@ -88,7 +88,8 @@
 		return
 	GLOB.RoleAuthority.free_role_admin(GLOB.RoleAuthority.roles_for_mode[role], TRUE, src)
 
-/client/proc/modify_slot()
+
+/client/proc/modify_job_slot()
 	set name = "Adjust Job Slots"
 	set category = "Server.Round"
 
@@ -96,7 +97,7 @@
 		return
 
 	var/roles[] = new
-	var/datum/job/J
+	var/datum/job/selected_job
 
 	var/active_role_names = GLOB.gamemode_roles[GLOB.master_mode]
 	if(!active_role_names)
@@ -108,17 +109,32 @@
 			continue
 		roles += role_name
 
-	var/role = input("Please select role slot to modify", "Modify amount of slots")  as null|anything in roles
+	var/role = tgui_input_list(src, "Select a role to modify.", "Modify amount of slots", roles, 60 SECONDS)
 	if(!role)
 		return
-	J = GLOB.RoleAuthority.roles_by_name[role]
-	var/tpos = J.spawn_positions
-	var/num = tgui_input_number(src, "How many slots role [J.title] should have?\nCurrently taken slots: [J.current_positions]\nTotal amount of slots opened this round: [J.total_positions_so_far]","Number:", tpos)
-	if(isnull(num))
+
+	selected_job = GLOB.RoleAuthority.roles_by_name[role]
+
+	var/slot_type = tgui_input_list(src, "Modify roundstart or latejoin slots?", "Modify which slots?", list("Roundstart", "Latejoin"), 30 SECONDS)
+	if(!slot_type)
 		return
-	if(!GLOB.RoleAuthority.modify_role(J, num))
-		to_chat(usr, SPAN_BOLDNOTICE("Can't set job slots to be less than amount of log-ins or you are setting amount of slots less than minimal. Free slots first."))
-	message_admins("[key_name(usr)] adjusted job slots of [J.title] to be [num].")
+
+	var/tpos  = selected_job.spawn_positions
+	var/slot_number = tgui_input_number(src, "How many slots should [selected_job.title] have?\nCurrently taken slots: [selected_job.current_positions]\nTotal amount of slots opened this round: [selected_job.total_positions_so_far]\nAmount of roundstart slots available: [selected_job.spawn_positions]", "Number", tpos)
+	if(isnull(slot_number))
+		return
+
+	if(slot_type == "Roundstart")
+		var/confirmation = tgui_alert(src, "Altering roundstart slots will disable automatic slot scaling, are you sure?", "Confirm?", list("Yes", "No"), 30 SECONDS)
+		if(!confirmation || (confirmation == "No"))
+			return
+		selected_job.spawn_positions = slot_number
+		selected_job.scaled = FALSE
+	else if(slot_type == "Latejoin")
+		if(!GLOB.RoleAuthority.modify_role(selected_job, slot_number))
+			to_chat(usr, SPAN_BOLDNOTICE("Can't set job slots to be less than amount of log-ins or you are setting amount of slots less than minimal. Free slots first."))
+	message_admins("[key_name(usr)] adjusted [slot_type] job slots of [selected_job.title] to be [slot_number].")
+
 
 /client/proc/check_antagonists()
 	set name = "Check Antagonists"
@@ -138,31 +154,42 @@
 
 /datum/admins/proc/end_round()
 	set name = "End Round"
-	set desc = "Immediately ends the round, be very careful"
+	set desc = "Immediately ends the round, be very careful."
 	set category = "Server.Round"
 
 	if(!check_rights(R_SERVER) || !SSticker.mode)
 		return
 
-	if(alert("Are you sure you want to end the round?",,"Yes","No") != "Yes")
-		return
 	// trying to end the round before it even starts. bruh
 	if(!SSticker.mode)
 		return
 
-	SSticker.mode.round_finished = MODE_INFESTATION_DRAW_DEATH
-	message_admins("[key_name(usr)] has made the round end early.")
+	if(tgui_alert(usr, "Are you sure you want to end the round?", "End Round", list("Yes", "No"), 0) != "Yes")
+		return
+
+	var/winstate = tgui_input_list(usr, "What do you want the round end state to be?", "End Round", list("Custom", "Admin Intervention", MODE_INFESTATION_X_MAJOR, MODE_INFESTATION_X_MINOR, MODE_INFESTATION_M_MAJOR, MODE_INFESTATION_M_MINOR, MODE_INFESTATION_DRAW_DEATH, MODE_FACTION_CLASH_UPP_MAJOR, MODE_FACTION_CLASH_UPP_MINOR, MODE_INFECTION_ZOMBIE_WIN, MODE_GENERIC_DRAW_NUKE, MODE_BATTLEFIELD_W_MAJOR, MODE_BATTLEFIELD_W_MINOR, MODE_BATTLEFIELD_DRAW_STALEMATE, MODE_BATTLEFIELD_DRAW_DEATH))
+
+	if(winstate == "Custom")
+		winstate = tgui_input_text(usr, "Please enter a custom round end state.", "End Round", timeout = 0)
+	if(!winstate)
+		return
+
+	SSticker.force_ending = TRUE
+	SSticker.mode.round_finished = winstate
+
+	log_admin("[key_name(usr)] has made the round end early - [winstate].")
+	message_admins("[key_name(usr)] has made the round end early - [winstate].")
 	for(var/client/C in GLOB.admins)
 		to_chat(C, {"
 		<hr>
-		[SPAN_CENTERBOLD("Staff-Only Alert: <EM>[usr.key]</EM> has made the round end early")]
+		[SPAN_CENTERBOLD("Staff-Only Alert: <EM>[usr.key]</EM> has made the round end early - [winstate]")]
 		<hr>
 		"})
 	return
 
 /datum/admins/proc/delay()
 	set name = "Delay Round Start/End"
-	set desc = "Delay the game start/end"
+	set desc = "Delay the game start/end."
 	set category = "Server.Round"
 
 	if(!check_rights(R_SERVER))

@@ -127,7 +127,7 @@
 
 /datum/admins/proc/announce()
 	set name = "Admin Announcement"
-	set desc = "Announce your desires to the world"
+	set desc = "Announce your desires to the world."
 	set category = "Admin.Game"
 
 	if(!check_rights(0))
@@ -136,7 +136,7 @@
 	if(message)
 		if(!check_rights(R_SERVER,0))
 			message = adminscrub(message,500)
-		to_chat_spaced(world, type = MESSAGE_TYPE_SYSTEM, html = SPAN_ANNOUNCEMENT_HEADER_ADMIN(" <b>[usr.client.admin_holder.fakekey ? "Administrator" : usr.key] Announces:</b>\n \t [message]"))
+		to_chat_spaced(world, type = MESSAGE_TYPE_SYSTEM, html = SPAN_ANNOUNCEMENT_HEADER_ADMIN("<b>[usr.client.admin_holder.fakekey ? "Administrator" : usr.client.username()] Announces:</b>\n \t [message]"))
 		log_admin("Announce: [key_name(usr)] : [message]")
 
 /datum/admins/proc/player_notes_show(key as text)
@@ -193,7 +193,7 @@
 	dat += "<A href='byond://?src=\ref[src];[HrefToken()];add_player_info_confidential=[key]'>Add Confidential Note</A><br>"
 	dat += "<A href='byond://?src=\ref[src];[HrefToken()];player_notes_all=[key]'>Show Complete Record</A><br>"
 
-	show_browser(usr, dat, "Admin record for [key]", "adminplayerinfo", "size=480x480")
+	show_browser(usr, dat, "Admin record for [key]", "adminplayerinfo", width = 480, height = 480)
 
 /datum/admins/proc/check_ckey(target_key as text)
 	set name = "Check CKey"
@@ -256,7 +256,7 @@
 	set category = "Admin"
 	set hidden = TRUE
 
-	cmd_admin_say(msg)
+	cmd_mentor_say(msg) // SS220 EDIT - Original: cmd_admin_say
 
 /client/proc/cmd_admin_say(msg as text)
 	set name = "Asay" //Gave this shit a shorter name so you only have to time out "asay" rather than "admin say" to use it --NeoFite
@@ -271,7 +271,7 @@
 	if (!msg)
 		return
 
-	REDIS_PUBLISH("byond.asay", "author" = src.key, "message" = strip_html(msg), "admin" = CLIENT_HAS_RIGHTS(src, R_ADMIN), "rank" = admin_holder.rank)
+	REDIS_PUBLISH("byond.asay", "author" = src.username(), "message" = strip_html(msg), "admin" = CLIENT_HAS_RIGHTS(src, R_ADMIN), "rank" = admin_holder.rank)
 
 	if(findtext(msg, "@") || findtext(msg, "#"))
 		var/list/link_results = check_asay_links(msg)
@@ -291,7 +291,7 @@
 	var/color = "mod"
 	if(check_rights(R_PERMISSIONS, show_msg = FALSE))
 		color = "adminmod"
-
+	msg = emoji_parse(msg) // SS220 EDIT asay emojis
 	var/channel = "ADMIN:"
 	channel = "[admin_holder.rank]:"
 	var/ooc_prefix = handle_ooc_prefix()
@@ -351,11 +351,11 @@
 
 	var/list/subtle_message_options = list(SUBTLE_MESSAGE_IN_HEAD, SUBTLE_MESSAGE_WEYLAND, SUBTLE_MESSAGE_USCM, SUBTLE_MESSAGE_FACTION)
 	var/message_option = tgui_input_list(usr, "Choose the method of subtle messaging", "", subtle_message_options)
+	if(!message_option)
+		return
 
 	if(message_option == SUBTLE_MESSAGE_FACTION)
 		var/faction = input("Choose which faction", "") as text|null
-		if(!faction)
-			return
 		message_option = faction
 
 	var/input = input("Contents of the message", text("Subtle PM to In View")) as text|null
@@ -400,7 +400,7 @@
 		return
 
 	log_adminpm("MENTOR: [key_name(src)] : [msg]")
-
+	msg = emoji_parse(msg) // SS220 EDIT msay emojis
 	var/color = "mentorsay"
 	var/channel = "Mentor:"
 	channel = "[admin_holder.rank]:"
@@ -680,3 +680,28 @@
 		return
 
 	admin_holder.in_view_panel()
+
+/datum/admins/proc/set_commander()
+	if(!check_rights(R_MOD, FALSE))
+		return
+
+	if(!SSticker || SSticker.current_state != GAME_STATE_PLAYING)
+		to_chat(usr, SPAN_WARNING("The game hasn't started yet!"))
+		return
+
+	var/mob/living/carbon/human/commander = tgui_input_list(usr, "Choose someone to be the operation commander", "Choose an acting commander", GLOB.alive_human_list)
+	if(!commander)
+		return
+
+	SSticker.mode.ares_command_check(commander, TRUE)
+
+	log_admin("[key_name_admin(usr)] manually chose [key_name_admin(commander)], [commander?.job] as the acting commander.")
+
+/client/proc/set_commander()
+	set name = "Set Operations Commander"
+	set category = "Admin.Factions"
+
+	if(!admin_holder || !check_rights(R_MOD, FALSE))
+		return
+
+	admin_holder.set_commander()

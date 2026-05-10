@@ -41,6 +41,7 @@
 		list("Webbing", floor(scale * 5), /obj/item/clothing/accessory/storage/webbing, VENDOR_ITEM_REGULAR),
 		list("Knife Webbing", floor(scale * 1), /obj/item/clothing/accessory/storage/knifeharness, VENDOR_ITEM_REGULAR),
 		list("Drop Pouch", floor(scale * 2), /obj/item/clothing/accessory/storage/droppouch, VENDOR_ITEM_REGULAR),
+		list("Black Drop Pouch", floor(scale * 2), /obj/item/clothing/accessory/storage/droppouch/black, VENDOR_ITEM_REGULAR),
 		list("External Webbing", floor(scale * 5), /obj/item/clothing/suit/storage/webbing, VENDOR_ITEM_REGULAR),
 
 		list("BACKPACKS", -1, null, null),
@@ -100,9 +101,9 @@
 		list("Fire Extinguisher (Portable)", floor(scale * 3), /obj/item/tool/extinguisher/mini, VENDOR_ITEM_REGULAR),
 		list("High-Capacity Power Cell", floor(scale * 1), /obj/item/cell/high, VENDOR_ITEM_REGULAR),
 		list("Sentry Gun Network Laptop", 4, /obj/item/device/sentry_computer, VENDOR_ITEM_REGULAR),
-		list("JTAC Pamphlet", floor(scale * 1), /obj/item/pamphlet/skill/jtac, VENDOR_ITEM_REGULAR),
-		list("Engineering Pamphlet", floor(scale * 1), /obj/item/pamphlet/skill/engineer, VENDOR_ITEM_REGULAR),
-		list("Powerloader Certification", 0.75, /obj/item/pamphlet/skill/powerloader, VENDOR_ITEM_REGULAR),
+		list("JTAC Pamphlet", floor(scale * 1), /obj/item/pamphlet/upgradeable/jtac, VENDOR_ITEM_REGULAR),
+		list("Engineering Pamphlet", floor(scale * 1), /obj/item/pamphlet/upgradeable/engineer, VENDOR_ITEM_REGULAR),
+		list("Powerloader Certification", 0.75, /obj/item/pamphlet/upgradeable/powerloader, VENDOR_ITEM_REGULAR),
 		list("Spare PDT/L Battle Buddy Kit", floor(scale * 4), /obj/item/storage/box/pdt_kit, VENDOR_ITEM_REGULAR),
 		list("W-Y brand rechargeable mini-battery", floor(scale * 3), /obj/item/cell/crap, VENDOR_ITEM_REGULAR),
 		list("Nailgun Magazine (7x45mm)", floor(scale * 4), /obj/item/ammo_magazine/smg/nailgun, VENDOR_ITEM_REGULAR),
@@ -124,6 +125,22 @@
 		list("Nailgun Magazine Box (7x45mm)", floor(scale * 2), /obj/item/ammo_box/magazine/nailgun, VENDOR_ITEM_REGULAR),
 		)
 
+//Special cargo-specific vendor with vending offsets
+/obj/structure/machinery/cm_vending/sorted/cargo_guns/upp_cargo_guns
+	vend_flags = VEND_CLUTTER_PROTECTION | VEND_LIMITED_INVENTORY | VEND_LOAD_AMMO_BOXES | VEND_STOCK_DYNAMIC //We want to vend to turf not hand, since we are in requisitions
+	vend_dir = NORTH
+	vend_dir_whitelist = list(WEST, EAST)
+
+/obj/structure/machinery/cm_vending/sorted/cargo_guns/upp_cargo_guns/blend
+	icon_state = "upp_req_guns_wall"
+	vend_delay = 3
+	vend_sound = 'sound/machines/vending_drop.ogg'
+	tiles_with = list(
+		/obj/structure/window/framed/upp_ship,
+		/obj/structure/machinery/door/airlock,
+		/turf/closed/wall/upp_ship,
+	)
+
 //------------UPP AMMUNITION VENDOR---------------
 
 /obj/structure/machinery/cm_vending/sorted/cargo_ammo/upp_cargo_ammo
@@ -138,9 +155,9 @@
 		list("REGULAR AMMUNITION", -1, null, null),
 		list("Type 71 Magazine (5.45x39mm)", floor(scale * 100), /obj/item/ammo_magazine/rifle/type71, VENDOR_ITEM_REGULAR),
 		list("Type 64 Helical Magazine (7.62x19mm)", floor(scale * 100), /obj/item/ammo_magazine/smg/bizon, VENDOR_ITEM_REGULAR),
-		list("Handful of Heavy Buckshot Shells (8g)", floor(scale * 300), /obj/item/ammo_magazine/handful/shotgun/heavy/buckshot, VENDOR_ITEM_REGULAR),
-		list("Handful of Heavy Slug Shells (8g)", floor(scale * 300), /obj/item/ammo_magazine/handful/shotgun/heavy/slug, VENDOR_ITEM_REGULAR),
-		list("Handful of Heavy Flechette Shells (8g)", floor(scale * 300), /obj/item/ammo_magazine/handful/shotgun/heavy/flechette, VENDOR_ITEM_REGULAR),
+		list("Box of Heavy Buckshot Shells (8g)", floor(scale * 56), /obj/item/ammo_magazine/shotgun/heavy/buckshot, VENDOR_ITEM_REGULAR),
+		list("Box of Heavy Slugs (8g)", floor(scale * 56), /obj/item/ammo_magazine/shotgun/heavy/slug, VENDOR_ITEM_REGULAR),
+		list("Box of Heavy Flechette Shells (8g)", floor(scale * 56), /obj/item/ammo_magazine/shotgun/heavy/flechette, VENDOR_ITEM_REGULAR),
 		list("Type 73 Magazine (7.62x25mm Tokarev)", floor(scale * 40), /obj/item/ammo_magazine/pistol/t73, VENDOR_ITEM_REGULAR),
 		list("ZHNK-72 Speed Loader (7.62x38mmR)", floor(scale * 40), /obj/item/ammo_magazine/revolver/upp, VENDOR_ITEM_REGULAR),
 		list("NP92 Magazine (9x18mm Makarov)", floor(scale * 40), /obj/item/ammo_magazine/pistol/np92, VENDOR_ITEM_REGULAR),
@@ -166,6 +183,22 @@
 		list("Flamer Tank Box (UT-Napthal Fuel x 8)", 0, /obj/item/ammo_box/magazine/flamer, VENDOR_ITEM_REGULAR),
 		)
 
+//Special cargo-specific vendor with vending offsets
+/obj/structure/machinery/cm_vending/sorted/cargo_ammo/upp_cargo_ammo
+	vend_flags = VEND_CLUTTER_PROTECTION | VEND_LIMITED_INVENTORY | VEND_LOAD_AMMO_BOXES | VEND_STOCK_DYNAMIC //We want to vend to turf not hand, since we are in requisitions
+	vend_dir = NORTH
+	vend_dir_whitelist = list(NORTHWEST, NORTHEAST)
+
+/obj/structure/machinery/cm_vending/sorted/cargo_ammo/upp_cargo_ammo/blend
+	icon_state = "upp_req_ammo_wall"
+	vend_delay = 3
+	vend_sound = 'sound/machines/vending_drop.ogg'
+	tiles_with = list(
+		/obj/structure/window/framed/upp_ship,
+		/obj/structure/machinery/door/airlock,
+		/turf/closed/wall/upp_ship,
+	)
+
 //------------ATTACHMENTS VENDOR---------------
 
 /obj/structure/machinery/cm_vending/sorted/attachments/upp_attachments
@@ -183,7 +216,7 @@
 		list("Suppressor", 6.5, /obj/item/attachable/suppressor, VENDOR_ITEM_REGULAR),
 
 		list("RAIL", -1, null, null),
-		list("B8 Smart-Scope", 3.5, /obj/item/attachable/scope/mini_iff, VENDOR_ITEM_REGULAR),
+		list("B8 Smart-Scope", 3.5, /obj/item/attachable/alt_iff_scope, VENDOR_ITEM_REGULAR),
 		list("Magnetic Harness", 8.5, /obj/item/attachable/magnetic_harness, VENDOR_ITEM_REGULAR),
 		list("Rail Flashlight", 10.5, /obj/item/attachable/flashlight, VENDOR_ITEM_REGULAR),
 		list("S4 2x Telescopic Mini-Scope", 4.5, /obj/item/attachable/scope/mini, VENDOR_ITEM_REGULAR),
@@ -204,6 +237,22 @@
 		list("Underbarrel Flashlight Grip", 9.5, /obj/item/attachable/flashlight/grip, VENDOR_ITEM_REGULAR),
 		list("Vertical Grip", 9.5, /obj/item/attachable/verticalgrip, VENDOR_ITEM_REGULAR),
 		)
+
+//Special cargo-specific vendor with vending offsets
+/obj/structure/machinery/cm_vending/sorted/attachments/upp_attachments
+	vend_flags = VEND_CLUTTER_PROTECTION | VEND_LIMITED_INVENTORY | VEND_LOAD_AMMO_BOXES | VEND_STOCK_DYNAMIC //We want to vend to turf not hand, since we are in requisitions
+	vend_dir = NORTH
+	vend_dir_whitelist = list(SOUTHWEST, SOUTHEAST)
+
+/obj/structure/machinery/cm_vending/sorted/attachments/upp_attachments/blend
+	icon_state = "upp_req_attach_wall"
+	vend_delay = 3
+	vend_sound = 'sound/machines/vending_drop.ogg'
+	tiles_with = list(
+		/obj/structure/window/framed/upp_ship,
+		/obj/structure/machinery/door/airlock,
+		/turf/closed/wall/upp_ship,
+	)
 
 //------------UNIFORM VENDOR---------------
 

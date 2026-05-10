@@ -1,9 +1,6 @@
 /// Multiplier for Stun/KD/KO/etc durations in new backend, due to old system being based on life ticks
 #define GLOBAL_STATUS_MULTIPLIER 20 // each in-code unit is worth 20ds of duration
 
-#define HEALTH_THRESHOLD_DEAD -100
-#define HEALTH_THRESHOLD_CRIT -50
-
 //Some mob defines below
 #define AI_CAMERA_LUMINOSITY 6
 
@@ -84,6 +81,7 @@
 #define AGONY "agony" // Added in PAIN!
 #define STUTTER "stutter"
 #define EYE_BLUR "eye_blur"
+#define EYE_BLIND "eye_blind"
 #define DROWSY "drowsy"
 #define SLUR "slur"
 #define DAZE "daze"
@@ -121,6 +119,7 @@
 #define CANSLOW (1<<19)
 #define NO_PERMANENT_DAMAGE (1<<20)
 #define CORRUPTED_ALLY (1<<21)
+#define FAKESOUL (1<<22) // Lets things without souls pretend like they do
 
 // =============================
 // hive types
@@ -136,11 +135,13 @@
 #define XENO_HIVE_MUTATED "xeno_hive_mutated"
 #define XENO_HIVE_FORSAKEN "xeno_hive_forsaken"
 #define XENO_HIVE_YAUTJA "xeno_hive_yautja"
+#define XENO_HIVE_YAUTJA_BADBLOOD "xeno_hive_yautja_badblood"
+#define XENO_HIVE_HUNTED "xeno_hive_hunted"
 #define XENO_HIVE_RENEGADE "xeno_hive_renegade"
 
 #define XENO_HIVE_TUTORIAL "xeno_hive_tutorial"
 
-#define ALL_XENO_HIVES list(XENO_HIVE_NORMAL, XENO_HIVE_CORRUPTED, XENO_HIVE_ALPHA, XENO_HIVE_BRAVO, XENO_HIVE_CHARLIE, XENO_HIVE_DELTA, XENO_HIVE_FERAL, XENO_HIVE_TAMED, XENO_HIVE_MUTATED, XENO_HIVE_FORSAKEN, XENO_HIVE_YAUTJA, XENO_HIVE_RENEGADE, XENO_HIVE_TUTORIAL)
+#define ALL_XENO_HIVES list(XENO_HIVE_NORMAL, XENO_HIVE_CORRUPTED, XENO_HIVE_ALPHA, XENO_HIVE_BRAVO, XENO_HIVE_CHARLIE, XENO_HIVE_DELTA, XENO_HIVE_FERAL, XENO_HIVE_TAMED, XENO_HIVE_MUTATED, XENO_HIVE_FORSAKEN, XENO_HIVE_YAUTJA, XENO_HIVE_YAUTJA_BADBLOOD, XENO_HIVE_RENEGADE, XENO_HIVE_TUTORIAL)
 
 //=================================================
 
@@ -187,9 +188,12 @@
 #define SQUEEZE_UNDER_VEHICLES (1<<1)  // Only the van is supported as of now.
 #define EASY_SURGERY (1<<2)  // Surgeries on this mob don't require advanced skills.
 #define SURGERY_MODE_ON (1<<3)  // Mob on surgery mode, will attempt surgery when using relevant items on harm/disarm intent.
-#define MUTINEER (1<<4)  // Part of the Mutiny Gang
-#define GIVING (1<<5) // Is currently trying to give an item to someone
-#define NOBIOSCAN (1<<6)
+#define GIVING (1<<4) // Is currently trying to give an item to someone
+#define NOBIOSCAN (1<<5)
+#define HAS_SPAWNED_PET (1<<6) // Has spawned their special pet.
+#define MUTINY_MUTINEER (1<<7)  // Part of the Mutiny Gang
+#define MUTINY_LOYALIST (1<<8) // Allied with command.
+#define MUTINY_NONCOMBAT (1<<9) // NON COMBATANT.
 
 //=================================================
 
@@ -260,6 +264,10 @@
 #define ACTION_BLUE_POWER_UP 16
 #define ACTION_PURPLE_POWER_UP 17
 
+#define BUSY_ICON_CLIMBING 18
+
+#define EMOTE_ICON_WALLBOOSTING 19
+
 //defins for datum/hud
 
 #define HUD_STYLE_STANDARD 1
@@ -295,6 +303,7 @@
 #define EMOTING_HEADBUTT   (1<<2)
 #define EMOTING_TAIL_SWIPE (1<<3)
 #define EMOTING_ROCK_PAPER_SCISSORS (1<<4)
+#define EMOTING_WALL_BOOSTING (1<<5)
 
 //forcesay types
 #define SUDDEN 0

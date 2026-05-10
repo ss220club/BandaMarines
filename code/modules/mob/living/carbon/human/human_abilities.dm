@@ -46,6 +46,33 @@
 	action_icon_state = "order_focus"
 	order_type = COMMAND_ORDER_FOCUS
 
+/datum/action/human_action/cycle_voice_level
+	name = "Cycle Voice Level"
+	action_icon_state = "leadership_voice_low"
+
+/datum/action/human_action/cycle_voice_level/action_activate()
+	. = ..()
+	if(!ishuman(owner)) // i actually don't know if this is necessary
+		return
+	var/mob/living/carbon/human/my_voice = owner
+	my_voice.cycle_voice_level()
+	update_button_icon()
+
+/datum/action/human_action/cycle_voice_level/update_button_icon()
+	var/mob/living/carbon/human/my_voice = owner
+	switch(my_voice.langchat_styles) // honestly, could probably merge this one with the cycle_voice_level proc
+		if("", null)
+			action_icon_state = "leadership_voice_off"
+
+		if("langchat_smaller_bolded")
+			action_icon_state = "leadership_voice_low"
+
+		if("langchat_bolded")
+			action_icon_state = "leadership_voice_high"
+
+	button.overlays.Cut()
+	button.overlays += image('icons/mob/hud/actions.dmi', button, action_icon_state)
+
 /datum/action/human_action/psychic_whisper
 	name = "Psychic Whisper"
 	action_icon_state = "cultist_channel_hivemind"
@@ -57,11 +84,11 @@
 	var/mob/living/carbon/human/human_owner = owner
 
 	if(human_owner.client.prefs.muted & MUTE_IC)
-		to_chat(human_owner, SPAN_DANGER("You cannot whisper (muted)."))
+		to_chat(human_owner, SPAN_DANGER("Вы не можете шептать (вы заглушены)."))
 		return FALSE
 
 	if(human_owner.stat == DEAD)
-		to_chat(human_owner, SPAN_WARNING("You cannot talk while dead."))
+		to_chat(human_owner, SPAN_WARNING("Вы не можете говорить, будучи мёртвым."))
 		return FALSE
 
 	var/list/target_list = list()
@@ -88,11 +115,11 @@
 	var/mob/living/carbon/human/human_owner = owner
 
 	if(human_owner.client.prefs.muted & MUTE_IC)
-		to_chat(human_owner, SPAN_DANGER("You cannot whisper (muted)."))
+		to_chat(human_owner, SPAN_DANGER("Вы не можете шептать (вы заглушены)."))
 		return FALSE
 
 	if(human_owner.stat == DEAD)
-		to_chat(human_owner, SPAN_WARNING("You cannot talk while dead."))
+		to_chat(human_owner, SPAN_WARNING("Вы не можете говорить, будучи мёртвым."))
 		return FALSE
 
 	human_owner.psychic_radiance()
@@ -183,7 +210,7 @@ CULT
 
 	if(assigned_droppod)
 		if(tgui_alert(H, "Do you want to recall the current pod?",\
-			"Recall Droppod", list("No", "Yes")) == "Yes")
+			"Recall Droppod", list("Yes", "No")) == "Yes")
 			if(!assigned_droppod)
 				return
 
@@ -296,7 +323,7 @@ CULT
 		to_chat(H, SPAN_WARNING("You have decided not to obtain your equipment."))
 		return
 
-	H.visible_message(SPAN_DANGER("[H] gets onto their knees and begins praying."),
+	H.visible_message(SPAN_DANGER("[capitalize(H.declent_ru(NOMINATIVE))] gets onto their knees and begins praying."),
 	SPAN_WARNING("You get onto your knees to pray."))
 
 	if(!do_after(H, 3 SECONDS, INTERRUPT_ALL, BUSY_ICON_HOSTILE))
@@ -318,7 +345,7 @@ CULT
 
 	playsound(H.loc, 'sound/voice/scream_horror1.ogg', 25)
 
-	H.visible_message(SPAN_HIGHDANGER("[H] puts on their robes."), SPAN_WARNING("You put on your robes."))
+	H.visible_message(SPAN_HIGHDANGER("[capitalize(H.declent_ru(NOMINATIVE))] puts on their robes."), SPAN_WARNING("You put on your robes."))
 	for(var/datum/action/human_action/activable/cult/obtain_equipment/O in H.actions)
 		O.remove_from(H)
 
@@ -330,7 +357,7 @@ CULT
 		return
 	var/mob/living/carbon/human/Hu = owner
 
-	if(H.skills && (skillcheck(H, SKILL_LEADERSHIP, SKILL_LEAD_EXPERT) || skillcheck(H, SKILL_POLICE, SKILL_POLICE_SKILLED)))
+	if(H.skills && (skillcheck(H, SKILL_LEADERSHIP, SKILL_LEAD_SKILLED) || skillcheck(H, SKILL_POLICE, SKILL_POLICE_SKILLED)))
 		to_chat(Hu, SPAN_WARNING("This mind is too strong to target with your abilities."))
 		return
 
@@ -382,7 +409,7 @@ CULT
 		to_chat(H, SPAN_XENOMINORWARNING("You decide not to convert [chosen]."))
 		return
 
-	var/datum/equipment_preset/preset = GLOB.gear_path_presets_list[/datum/equipment_preset/other/xeno_cultist]
+	var/datum/equipment_preset/preset = GLOB.equipment_presets.gear_path_presets_list[/datum/equipment_preset/other/xeno_cultist]
 	preset.load_race(chosen)
 	preset.load_status(chosen, H.hivenumber)
 
@@ -447,10 +474,10 @@ CULT
 	playsound(get_turf(chosen), 'sound/scp/scare1.ogg', 25)
 
 /datum/action/human_action/activable/mutineer
-	name = "Mutiny abilities"
+	name = "Убеждения мятежника"
 
 /datum/action/human_action/activable/mutineer/mutineer_convert
-	name = "Convert"
+	name = "Убедить"
 	action_icon_state = "mutineer_convert"
 
 	var/list/converted = list()
@@ -466,21 +493,21 @@ CULT
 		return
 
 	if(skillcheck(chosen, SKILL_POLICE, SKILL_POLICE_MAX) || (chosen in converted))
-		to_chat(H, SPAN_WARNING("You can't convert [chosen]!"))
+		to_chat(H, SPAN_WARNING("Вы не можете убедить [chosen]!"))
 		return
 
-	to_chat(H, SPAN_NOTICE("Mutiny join request sent to [chosen]!"))
+	to_chat(H, SPAN_NOTICE("Запрос на присоединение к мятежку отправлен [chosen]!"))
 
-	if(tgui_alert(chosen, "Do you want to be a mutineer?", "Become Mutineer", list("Yes", "No")) != "Yes")
+	if(tgui_alert(chosen, "Желаете стать мятежником?", "Стать мятежником", list("Да", "Нет")) != "Да")
 		return
 
 	converted += chosen
-	to_chat(chosen, SPAN_WARNING("You'll become a mutineer when the mutiny begins. Prepare yourself and do not cause any harm until you've been made into a mutineer."))
+	to_chat(chosen, SPAN_WARNING("Когда начнется мятеж, ты присоединишься к нему. Подготовься и не причиняй вреда, пока тебя не сделают мятежником."))
 
 	message_admins("[key_name_admin(chosen)] has been converted into a mutineer by [key_name_admin(H)].")
 
 /datum/action/human_action/activable/mutineer/mutineer_begin
-	name = "Begin Mutiny"
+	name = "Стать мятежником"
 	action_icon_state = "mutineer_begin"
 
 /datum/action/human_action/activable/mutineer/mutineer_begin/action_activate()
@@ -488,23 +515,75 @@ CULT
 	if(!can_use_action())
 		return
 
-	var/mob/living/carbon/human/H = owner
+	var/mob/living/carbon/human/human_owner = owner
 
-	if(tgui_alert(H, "Are you sure you want to begin the mutiny?", "Begin Mutiny?", list("Yes", "No")) != "Yes")
+	if(tgui_alert(human_owner, "Вы уверены что хотите стать мятежником?", "Стать мятежником?", list("Да", "Нет")) != "Да")
 		return
 
-	shipwide_ai_announcement("ОПАСНОСТЬ: Получено сообщение, на корабле происходит мятеж. Код: Задержать, Арестовать, Защитить.")
-	var/datum/equipment_preset/other/mutineer/XC = new()
-
-	XC.load_status(H)
-	for(var/datum/action/human_action/activable/mutineer/mutineer_convert/converted in H.actions)
+	for(var/datum/action/human_action/activable/mutineer/mutineer_convert/converted in human_owner.actions)
 		for(var/mob/living/carbon/human/chosen in converted.converted)
-			XC.load_status(chosen)
-		converted.remove_from(H)
+			chosen.join_mutiny(TRUE, MUTINY_MUTINEER)
+		converted.remove_from(human_owner)
 
-	message_admins("[key_name_admin(H)] has begun the mutiny.")
-	remove_from(H)
+	human_owner.join_mutiny(TRUE, MUTINY_MUTINEER)
+	start_mutiny(human_owner.faction)
+	message_admins("[key_name_admin(human_owner)] has begun the mutiny.")
+	human_owner.set_selected_ability(null) // BANDAMARINES ADD
+	remove_from(human_owner)
 
+/proc/start_mutiny(mutiny_faction = FACTION_MARINE)
+	for(var/mob/living/carbon/human/person in GLOB.alive_human_list)
+		if(!person.client)
+			continue
+		if(person.faction != mutiny_faction)
+			continue
+		if(person.mob_flags & (MUTINY_MUTINEER|MUTINY_LOYALIST|MUTINY_NONCOMBAT))
+			continue
+
+		if(skillcheck(person, SKILL_POLICE, SKILL_POLICE_MAX) || (person.job in MUTINY_LOYALIST_ROLES) || (person.job in PROVOST_JOB_LIST))
+			INVOKE_ASYNC(person, TYPE_PROC_REF(/mob/living/carbon/human, join_mutiny), TRUE, MUTINY_LOYALIST)
+			continue
+
+		INVOKE_ASYNC(person, TYPE_PROC_REF(/mob/living/carbon/human, join_mutiny))
+
+	if(mutiny_faction == FACTION_MARINE)
+		shipwide_ai_announcement("ОПАСНОСТЬ: Получено сообщение, на корабле происходит мятеж. Код: Задержать, Арестовать, Защитить.")
+		set_security_level(SEC_LEVEL_RED, TRUE)
+
+/mob/living/carbon/human/proc/join_mutiny(forced = FALSE, forced_side = MUTINY_MUTINEER)
+	if(job == JOB_WORKING_JOE)
+		return FALSE
+	if(forced)
+		switch(forced_side)
+			if(MUTINY_MUTINEER)
+				var/datum/equipment_preset/other/mutiny/mutineer/preset = new()
+				preset.load_status(src)
+				return TRUE
+			if(MUTINY_LOYALIST)
+				var/datum/equipment_preset/other/mutiny/loyalist/preset = new()
+				preset.load_status(src)
+				return TRUE
+			if(MUTINY_NONCOMBAT)
+				var/datum/equipment_preset/other/mutiny/noncombat/preset = new()
+				preset.load_status(src)
+				return TRUE
+
+	var/options = list("МЯТЕЖНИКИ", "ЛОЯЛИСТЫ", "БЕЗДЕЙСТВУЮЩИЕ")
+	if(job == JOB_SYNTH)
+		options -= "МЯТЕЖНИКИ"
+	switch(tgui_alert(src, "Начался мятеж, с кем вы останетесь?", "Выберите сторону", options, 20 SECONDS))
+		if("МЯТЕЖНИКИ")
+			var/datum/equipment_preset/other/mutiny/mutineer/preset = new()
+			preset.load_status(src)
+			return TRUE
+		if("ЛОЯЛИСТЫ")
+			var/datum/equipment_preset/other/mutiny/loyalist/preset = new()
+			preset.load_status(src)
+			return TRUE
+		else
+			var/datum/equipment_preset/other/mutiny/noncombat/preset = new()
+			preset.load_status(src)
+			return TRUE
 
 /datum/action/human_action/cancel_view // cancel-camera-view, but a button
 	name = "Cancel View"
@@ -528,8 +607,8 @@ CULT
 	H.cancel_camera()
 	H.reset_view()
 	H.client.change_view(GLOB.world_view_size, target)
-	H.client.pixel_x = 0
-	H.client.pixel_y = 0
+	H.client.set_pixel_x(0)
+	H.client.set_pixel_y(0)
 
 //Similar to a cancel-camera-view button, but for mobs that were buckled to special vehicle seats.
 //Unbuckles them, which handles the view and offsets resets and other stuff.
@@ -561,8 +640,8 @@ CULT
 
 	H.unset_interaction()
 	H.client.change_view(GLOB.world_view_size, target)
-	H.client.pixel_x = 0
-	H.client.pixel_y = 0
+	H.client.set_pixel_x(0)
+	H.client.set_pixel_y(0)
 	H.reset_view()
 	remove_from(H)
 

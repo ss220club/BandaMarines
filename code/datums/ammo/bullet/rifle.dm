@@ -147,6 +147,35 @@
 	penetration= ARMOR_PENETRATION_TIER_7
 	shell_speed = AMMO_SPEED_TIER_6
 
+
+/datum/ammo/bullet/rifle/m4ra/custom_tracker
+	name = "A19 HV tracking round"
+	shrapnel_chance = 0
+	damage_falloff = 0
+	flags_ammo_behavior = AMMO_BALLISTIC
+	accurate_range_min = 4
+
+	damage = 55
+	scatter = -SCATTER_AMOUNT_TIER_8
+	penetration= ARMOR_PENETRATION_TIER_7
+	shell_speed = AMMO_SPEED_TIER_6
+
+/datum/ammo/bullet/rifle/m4ra/custom_tracker/on_hit_mob(mob/target_mob, obj/projectile/fired_projectile)
+	. = ..()
+
+	if(!isliving(target_mob))
+		return
+	if(!fired_projectile || !fired_projectile.firer)
+		return
+
+	var/mob/living/shot_target = target_mob
+	var/mob/living/shooting_mob = fired_projectile.firer
+
+	if(shot_target.faction == shooting_mob.faction)
+		return
+
+	shot_target.AddComponent(/datum/component/tracking_bullets, shooting_mob)
+
 /datum/ammo/bullet/rifle/m4ra/incendiary
 	name = "A19 high velocity incendiary bullet"
 	flags_ammo_behavior = AMMO_BALLISTIC
@@ -179,7 +208,7 @@
 /datum/ammo/bullet/rifle/m4ra/impact/knockback_effects(mob/living/living_mob, obj/projectile/fired_projectile)
 	if(iscarbonsizexeno(living_mob))
 		var/mob/living/carbon/xenomorph/target = living_mob
-		to_chat(target, SPAN_XENODANGER("You are shaken and slowed by the sudden impact!"))
+		to_chat(target, SPAN_XENODANGER("Вы были потрясены и замедлены внезапным ударом!"))
 		target.KnockDown(0.5-fired_projectile.distance_travelled/100) // purely for visual effect, noone actually cares
 		target.Stun(0.5-fired_projectile.distance_travelled/100)
 		target.apply_effect(2-fired_projectile.distance_travelled/20, SUPERSLOW)
@@ -227,7 +256,7 @@
 /datum/ammo/bullet/rifle/l23
 	name = "8.88mm rifle bullet"
 
-	damage = 55
+	damage = 50
 	penetration = ARMOR_PENETRATION_TIER_2
 
 /datum/ammo/bullet/rifle/l23/ap
@@ -286,3 +315,16 @@
 	damage = 0
 	stamina_damage = 22
 	shrapnel_chance = 0
+
+/datum/ammo/bullet/rifle/l64
+
+	name = "8.88x51 squash-head bullet"
+
+	damage = 40
+	penetration = ARMOR_PENETRATION_TIER_1
+
+/datum/ammo/bullet/rifle/l64/ap
+	name = "8.88x51 armour piercing squash-head bullet"
+
+	damage = 30
+	penetration = ARMOR_PENETRATION_TIER_8

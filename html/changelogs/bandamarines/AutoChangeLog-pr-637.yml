@@ -1,0 +1,4 @@
+author: "larentoun"
+delete-after: True
+changes:
+  - code_imp: "Xeno Customization теперь будет кричать в CI, что что-то не так."

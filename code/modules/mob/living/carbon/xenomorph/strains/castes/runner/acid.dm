@@ -1,6 +1,6 @@
 /datum/xeno_strain/acider
 	name = RUNNER_ACIDER
-	description = "At the cost of a little bit of your speed and all of your current abilities, you gain a considerable amount of health, some armor, and a new organ that fills with volatile acid over time. When outside of combat, only a limited amount of acid will generate. Your Tail Stab and slashes apply acid to living lifeforms that slowly burns them fills your acid glands. You also gain Corrosive Acid equivalent to that of a boiler that you can deploy more quickly than any other caste, at the cost of a chunk of your acid reserves with each use. Finally, after a twenty second windup, you can force your body to explode, covering everything near you with acid. The more acid you have stored, the more devastating the explosion will be, but during those twenty seconds before detonation you are slowed and give off several warning signals which give talls an opportunity to end you before you can detonate. If you successfully explode, you will reincarnate as a larva again!"
+	description = "At the cost of a little bit of your speed and all of your current abilities, you gain a considerable amount of health, some armor, and a new organ that fills with volatile acid over time. When outside of combat, only a limited amount of acid will generate. Your Tail Stab and slashes apply acid to living lifeforms that slowly burns them and fills your acid glands. You also gain Corrosive Acid equivalent to that of a boiler that you can deploy more quickly than any other caste, at the cost of a chunk of your acid reserves with each use. Finally, after a twenty second windup, you can force your body to explode, covering everything near you with acid. The more acid you have stored, the more devastating the explosion will be, but during those twenty seconds before detonation you are slowed and give off several warning signals which give talls an opportunity to end you before you can detonate. If you successfully explode, you will reincarnate as a larva again!"
 	flavor_description = "This one will be the last thing they hear. A martyr."
 	icon_state_prefix = "Acider"
 
@@ -45,7 +45,10 @@
 	/// Determines whether the combat acid generation is on or off
 	var/combat_gen_active = FALSE
 
+	/// How much acid is required to melt something
 	var/melt_acid_cost = 100
+	/// How much acid is required to fill a trap
+	var/fill_acid_cost = 75
 
 	var/list/caboom_sound = list('sound/effects/runner_charging_1.ogg','sound/effects/runner_charging_2.ogg')
 	var/caboom_loop = 1
@@ -86,11 +89,11 @@
 		if(target_human.stat == DEAD)
 			return
 
-	for(var/datum/effects/acid/acid_effect in target_mob.effects_list)
-		qdel(acid_effect)
-		break
-
-	new /datum/effects/acid(target_mob, bound_xeno, initial(bound_xeno.caste_type))
+	var/datum/effects/acid/acid_effect = locate() in target_mob.effects_list
+	if(acid_effect)
+		acid_effect.prolong_duration()
+	else
+		new /datum/effects/acid(target_mob, bound_xeno, initial(bound_xeno.caste_type))
 	if(isxeno_human(target_mob)) //Will the runner get acid stacks
 		var/obj/item/alien_embryo/embryo = locate(/obj/item/alien_embryo) in target_mob.contents
 		if(embryo?.stage >= 4) //very late stage hugged in case the runner unnests them
@@ -129,7 +132,7 @@
 		do_caboom()
 		return
 
-	var/image/holder = bound_xeno.hud_list[PLASMA_HUD]
+	var/image/holder = bound_xeno.hud_list[SPECIAL_HUD]
 	holder.overlays.Cut()
 	var/percentage_acid = round((acid_amount / max_acid) * 100, 10)
 	var/percentage_acid_cap = round((acid_gen_cap /max_acid) * 100, 10)
@@ -139,8 +142,9 @@
 		holder.overlays += image('icons/mob/hud/hud.dmi', "cap[percentage_acid_cap]")
 
 /datum/behavior_delegate/runner_acider/handle_death(mob/M)
-	var/image/holder = bound_xeno.hud_list[PLASMA_HUD]
+	var/image/holder = bound_xeno.hud_list[SPECIAL_HUD]
 	holder.overlays.Cut()
+	STOP_PROCESSING(SSfasteffects, src)
 
 /datum/behavior_delegate/runner_acider/proc/do_caboom()
 	if(!bound_xeno)
@@ -194,6 +198,12 @@
 		to_chat(src, SPAN_XENOWARNING("You cannot ventcrawl when you are about to explode!"))
 		return FALSE
 	return ..()
+
+/mob/living/carbon/xenomorph/runner/get_examine_text(mob/user)
+	. = ..()
+	var/datum/behavior_delegate/runner_acider/behavior = behavior_delegate
+	if(istype(behavior) && isxeno(user))
+		. += "it has [SPAN_GREEN(behavior.acid_amount)] acid!"
 
 /datum/behavior_delegate/runner_acider/proc/combat_gen_end() //This proc is triggerd once the combat acid timer runs out.
 	combat_gen_active = FALSE //turns combat acid off

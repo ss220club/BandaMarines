@@ -1,7 +1,8 @@
-//job options for doctors surgeon pharmacy technician(preparation of medecine and distribution)
+//Job options for doctors based on their specialty. They can all manufacture chemicals, administer medication, and operate on patients, but the variants have specialities that they prioritize in.
 
-#define DOCTOR_VARIANT JOB_DOCTOR_RU	// SS220 EDIT TRANSLATE
-#define SURGEON_VARIANT JOB_SURGEON_RU	// SS220 EDIT TRANSLATE
+#define DOCTOR_VARIANT JOB_DOCTOR_RU // SS220 EDIT TRANSLATE - Original: // "Doctor" // "I do not have a specialty; I go where I am needed most."
+#define PHARMACIST_VARIANT JOB_PHARMACIST_RU // SS220 EDIT TRANSLATE - Original: "Pharmaceutical Physician" // "I specialize in chemistry and medicine."
+#define SURGEON_VARIANT JOB_SURGEON_RU // SS220 EDIT TRANSLATE - Original: "Surgeon" // "I specialize in surgery and triage."
 
 // Doctor
 /datum/job/civilian/doctor
@@ -16,25 +17,33 @@
 	gear_preset = /datum/equipment_preset/uscm_ship/uscm_medical/doctor
 
 	// job option
-	job_options = list(DOCTOR_VARIANT = "Док", SURGEON_VARIANT = "Хир")
-	/// If this job is a doctor variant of the doctor role
-	var/doctor = TRUE
+	job_options = list(DOCTOR_VARIANT = "Врч", PHARMACIST_VARIANT = "Фрм", SURGEON_VARIANT = "Хир")
+	/// The doctor variant of the doctor role that was selected in handle_job_options
+	var/doctor_variant
 
 //check the job option. and change the gear preset
 /datum/job/civilian/doctor/handle_job_options(option)
-	if(option != SURGEON_VARIANT)
-		doctor = TRUE
-		gear_preset = /datum/equipment_preset/uscm_ship/uscm_medical/doctor
-	else
-		doctor = FALSE
-		gear_preset = /datum/equipment_preset/uscm_ship/uscm_medical/doctor/surgeon
+	doctor_variant = option
+	switch(option)
+		if(SURGEON_VARIANT)
+			gear_preset = /datum/equipment_preset/uscm_ship/uscm_medical/doctor/surgeon
+			disp_title = JOB_SURGEON_RU
+		if(PHARMACIST_VARIANT)
+			gear_preset = /datum/equipment_preset/uscm_ship/uscm_medical/doctor/pharmacist
+			disp_title = JOB_PHARMACIST_RU
+		else
+			gear_preset = /datum/equipment_preset/uscm_ship/uscm_medical/doctor
+			disp_title = JOB_DOCTOR_RU
 
 //check what job option you took and generate the corresponding the good texte.
-/datum/job/civilian/doctor/generate_entry_message(mob/living/carbon/human/H)
-	if(doctor)
-		. = {"You're a commissioned officer of the USCM. <a href='[generate_wiki_link()]'>You are a doctor and tasked with keeping the marines healthy and strong, usually in the form of surgery.</a> You are a jack of all trades in medicine: you can medicate, perform surgery and produce pharmaceuticals. If you do not know what you are doing, mentorhelp so a mentor can assist you."}
-	else
-		. = {"You're a commissioned officer of the USCM. <a href='[generate_wiki_link()]'>You are a surgeon and tasked with keeping the marines healthy and strong, usually in the form of surgery.</a> You are a doctor that specializes in surgery, but you are also very capable in pharmacy and triage. If you do not know what you are doing, mentorhelp so a mentor can assist you."}
+/datum/job/civilian/doctor/generate_entry_message(mob/living/carbon/human/target)
+	switch(doctor_variant)
+		if(SURGEON_VARIANT)
+			. = {"Вы кадровый офицер ККМП. <a href='[generate_wiki_link()]'>Вы врач, специализирующийся на хирургии.</a> Ваша основная задача заключается в том, чтобы поддерживать здоровье морпехов, вправляя сломанные кости, залечивая кровяные сосуды и органы, вытаскивая инородные предметы из тел пациентов. Вы также сведущи в фармакологии и создании препаратов; если в фармакологическом и триажном отделениях не хватает персонала, и у вас более нет раненых, требующих вашего внимания, в ваших обязанностях будет создание новых препаратов и назначение лечения для пациентов. Если вы не знаете, что делать, используйте "mentorhelp", чтобы ментор мог вам помочь."}
+		if(PHARMACIST_VARIANT)
+			. = {"Вы кадровый офицер ККМП. <a href='[generate_wiki_link()]'>Вы врач, специализирующийся на фармакологии и химии.</a> Ваша основная задача заключается в создании препаратов и химикатов для медицинского отдела и морпехов, помимо этого вы также должны контролировать применение препаратов пациентами в зависимости от тяжести их ран. Вы также сведущи в хирургии; если врачей не хватает, чтобы оперировать раненых, то после создания установленной нормы лекарств, вы обязаны отправиться в хирургический отдел. Если вы не знаете, что делать, используйте "mentorhelp", чтобы ментор мог вам помочь."}
+		else
+			. = {"Вы кадровый офицер ККМП. <a href='[generate_wiki_link()]'>Вы врач.</a> Вы не специализируетесь на какой-либо области, но несмотря на это вы остаетесь профессионалом своего дела с обширными знаниями в фармакологии, препаратах, триаже и хирургии. Ваша основная задача заключается в опознании угрозы здоровью пациента и его дальнейшем лечении в зависимости от тяжести полученных ран. Однако в ваши обязанности также входит создание химикатов и реагентов, а также оперирование раненых, если в фармакологическом и хирургическом отделениях не хватает персонала. Если вы не знаете, что делать, используйте "mentorhelp", чтобы ментор мог вам помочь."}
 
 /datum/job/civilian/doctor/set_spawn_positions(count)
 	spawn_positions = doc_slot_formula(count)
@@ -54,6 +63,17 @@
 AddTimelock(/datum/job/civilian/doctor, list(
 	JOB_MEDIC_ROLES = 1 HOURS
 ))
+
+/datum/job/civilian/doctor/generate_entry_conditions(mob/living/M, whitelist_status)
+	. = ..()
+	if(!islist(GLOB.marine_officers[JOB_DOCTOR]))
+		GLOB.marine_officers[JOB_DOCTOR] = list()
+	GLOB.marine_officers[JOB_DOCTOR] += M
+	RegisterSignal(M, COMSIG_PARENT_QDELETING, PROC_REF(cleanup_leader_candidate))
+
+/datum/job/civilian/doctor/proc/cleanup_leader_candidate(mob/M)
+	SIGNAL_HANDLER
+	GLOB.marine_officers[JOB_DOCTOR] -= M
 
 /obj/effect/landmark/start/doctor
 	name = JOB_DOCTOR

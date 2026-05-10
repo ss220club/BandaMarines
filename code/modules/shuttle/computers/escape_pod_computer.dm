@@ -23,14 +23,14 @@
 	if(..())
 		return
 	if(!allowed(user))
-		to_chat(user, SPAN_WARNING("Access denied!"))
+		to_chat(user, SPAN_WARNING("Доступ запрещён"))
 		return
 	tgui_interact(user)
 
 /obj/structure/machinery/computer/shuttle/escape_pod_panel/tgui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "EscapePodConsole", "[src.name]")
+		ui = new(user, src, "EscapePodConsole", "[capitalize(name)]")
 		ui.open()
 
 /obj/structure/machinery/computer/shuttle/escape_pod_panel/ui_state(mob/user)
@@ -43,7 +43,9 @@
 
 /obj/structure/machinery/computer/shuttle/escape_pod_panel/ui_data(mob/user)
 	. = list()
+
 	var/obj/docking_port/mobile/crashable/escape_shuttle/shuttle = SSshuttle.getShuttle(shuttleId)
+	var/turf/shuttle_location = get_turf(shuttle)
 
 	if(pod_state == STATE_IDLE && shuttle.evac_set)
 		pod_state = STATE_READY
@@ -60,6 +62,7 @@
 	.["door_state"] = door.density
 	.["door_lock"] = shuttle.door_handler.status == SHUTTLE_DOOR_LOCKED
 	.["can_delay"] = TRUE//launch_status[2]
+	.["in_ftl"] = !ignore_ftl_or_crash && SShijack.in_ftl && is_mainship_level(shuttle_location.z)
 	.["launch_without_evac"] = launch_without_evac
 
 
@@ -72,6 +75,10 @@
 	switch(action)
 		if("force_launch")
 			if(!launch_without_evac && pod_state != STATE_READY && pod_state != STATE_DELAYED)
+				return
+
+			var/turf/shuttle_location = get_turf(shuttle)
+			if(!ignore_ftl_or_crash && SShijack.in_ftl && is_mainship_level(shuttle_location.z))
 				return
 
 			shuttle.evac_launch()
@@ -133,7 +140,7 @@
 			to_chat(user, SPAN_WARNING("[src] immediately rejects [grabbed_mob]. \He passed away!"))
 			return FALSE
 
-		visible_message(SPAN_WARNING("[user] starts putting [grabbed_mob.name] into the cryo pod."), null, null, 3)
+		visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] starts putting [grabbed_mob.name] into the cryo pod."), null, null, 3)
 
 		if(do_after(user, 20, INTERRUPT_ALL, BUSY_ICON_GENERIC))
 			if(!grabbed_mob || !the_grab || !the_grab.grabbed_thing || !the_grab.grabbed_thing.loc || the_grab.grabbed_thing != grabbed_mob)
@@ -191,7 +198,7 @@
 		to_chat(user, SPAN_WARNING("The cryo pod is not responding to commands!"))
 		return FALSE
 
-	visible_message(SPAN_WARNING("[user] starts climbing into the cryo pod."), null, null, 3)
+	visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] starts climbing into the cryo pod."), null, null, 3)
 
 	if(do_after(user, 20, INTERRUPT_NO_NEEDHAND, BUSY_ICON_GENERIC))
 		user.stop_pulling()
@@ -209,12 +216,15 @@
 
 	being_forced = !being_forced
 	xeno_attack_delay(user)
-	visible_message(SPAN_WARNING("[user] begins to pry \the [src]'s cover!"), null, null, 3)
+	visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] begins to pry \the [src]'s cover!"), null, null, 3)
 	playsound(src,'sound/effects/metal_creaking.ogg', 25, 1)
 	if(do_after(user, 20, INTERRUPT_ALL, BUSY_ICON_HOSTILE))
 		go_out() //Force the occupant out.
 	being_forced = !being_forced
 	return XENO_NO_DELAY_ACTION
+
+/obj/structure/machinery/cryopod/evacuation/handle_tail_stab(mob/living/carbon/xenomorph/xeno, blunt_stab)
+	return TAILSTAB_COOLDOWN_NONE
 
 /obj/structure/machinery/cryopod/evacuation/proc/move_mob_inside(mob/M)
 	if(occupant)
@@ -230,11 +240,15 @@
 
 /obj/structure/machinery/door/airlock/evacuation
 	name = "\improper Evacuation Airlock"
-	icon = 'icons/obj/structures/doors/pod_doors.dmi'
+	icon = 'icons/obj/structures/doors/escapepoddoor_yellow.dmi'
 	unslashable = TRUE
 	unacidable = TRUE
 	var/obj/docking_port/mobile/crashable/escape_shuttle/linked_shuttle
 	var/start_locked = TRUE
+	opacity = FALSE
+	glass = TRUE
+	open_layer = ABOVE_MOB_LAYER
+	closed_layer = ABOVE_MOB_LAYER
 
 /obj/structure/machinery/door/airlock/evacuation/Initialize()
 	. = ..()

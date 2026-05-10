@@ -101,7 +101,6 @@
 		add_verb(M.client, list(
 			/obj/vehicle/multitile/proc/switch_hardpoint,
 			/obj/vehicle/multitile/proc/cycle_hardpoint,
-			/obj/vehicle/multitile/proc/toggle_shift_click,
 		))
 
 /obj/vehicle/multitile/apc/command/remove_seated_verbs(mob/living/M, seat)
@@ -122,7 +121,6 @@
 		remove_verb(M.client, list(
 			/obj/vehicle/multitile/proc/switch_hardpoint,
 			/obj/vehicle/multitile/proc/cycle_hardpoint,
-			/obj/vehicle/multitile/proc/toggle_shift_click,
 		))
 
 /obj/vehicle/multitile/apc/command/initialize_cameras(change_tag = FALSE)
@@ -150,7 +148,7 @@
 //taken from gear_access_point.dm
 /obj/vehicle/multitile/apc/command/proc/access_techpod(mob/user)
 	if(!ishuman(user) || !get_access_permission(user))
-		to_chat(user, SPAN_WARNING("Access denied."))
+		to_chat(user, SPAN_WARNING("Доступ запрещён."))
 		return
 
 	if(health < initial(health) * 0.5)

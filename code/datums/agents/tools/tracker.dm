@@ -29,9 +29,9 @@
 	active = TRUE
 	update_icon()
 
-	addtimer(CALLBACK(src, PROC_REF(deactive)), ping_duration)
+	addtimer(CALLBACK(src, PROC_REF(deactivated)), ping_duration)
 
-/obj/item/device/tracker/proc/deactive()
+/obj/item/device/tracker/proc/deactivated()
 	active = FALSE
 	update_icon()
 
@@ -39,7 +39,7 @@
 	if(!ishuman(user) || !skillcheckexplicit(user, SKILL_ANTAG, SKILL_ANTAG_AGENT))
 		return ..()
 
-	if(mods["alt"])
+	if(mods[ALT_CLICK])
 		if(!CAN_PICKUP(user, src))
 			return ..()
 		select_object(user)

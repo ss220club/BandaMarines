@@ -7,7 +7,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/giant_lizard
 	name = "giant lizard"
-	desc = "A large, wolf-like reptile. Its eyes are keenly focused on yours."
+	desc = "A large, synapsid-like creature. Its eyes are keenly focused on yours."
 	icon = 'icons/mob/mob_64.dmi'
 	icon_state = "Giant Lizard Running"
 	icon_living = "Giant Lizard Running"
@@ -35,7 +35,7 @@
 	speak_chance = 2
 	speak_emote = "hisses"
 	emote_hear = list("hisses.", "growls.", "roars.", "bellows.")
-	emote_see = list("shakes its head.", "wags its tail.", "yawns.")
+	emote_see = list("shakes its head.", "wags its tail.", "yawns.", "licks its eyeball.")
 
 	melee_damage_lower = 20
 	melee_damage_upper = 25
@@ -86,7 +86,7 @@
 	/// A weakref to the food object that the mob is trying to eat.
 	var/datum/weakref/food_target_ref
 	///A list of foods the mob is interested in eating. The mob will eat anything that has meat protein in it even if it's not in this list.
-	var/list/acceptable_foods = list(/obj/item/reagent_container/food/snacks/packaged_meal, /obj/item/reagent_container/food/snacks/resin_fruit)
+	var/list/acceptable_foods = list(/obj/item/reagent_container/food/snacks/mre_food, /obj/item/reagent_container/food/snacks/resin_fruit)
 	///Is the mob currently eating the food_target?
 	var/is_eating = FALSE
 	///Cooldown dictating how long the mob will wait between eating food.
@@ -155,7 +155,7 @@
 
 	RegisterSignal(src, COMSIG_ATOM_DIR_CHANGE, PROC_REF(change_tongue_offset))
 
-	GLOB.giant_lizards_alive++
+	GLOB.giant_lizards_alive += src
 	change_real_name(src, "[name] ([rand(1, 999)])")
 	pounce_callbacks[/mob] = DYNAMIC(/mob/living/simple_animal/hostile/retaliate/giant_lizard/proc/pounced_mob_wrapper)
 	pounce_callbacks[/turf] = DYNAMIC(/mob/living/simple_animal/hostile/retaliate/giant_lizard/proc/pounced_turf_wrapper)
@@ -164,7 +164,7 @@
 /mob/living/simple_animal/hostile/retaliate/giant_lizard/initialize_pass_flags(datum/pass_flags_container/pass_flags_container)
 	..()
 	if(pass_flags_container)
-		pass_flags_container.flags_pass |= PASS_FLAGS_CRAWLER
+		pass_flags_container.flags_pass |= PASS_FLAGS_CRAWLER|PASS_OVER_THROW_ITEM
 
 //regular pain datum will make the mob die when trying to pounce after taking enough damage.
 /mob/living/simple_animal/hostile/retaliate/giant_lizard/initialize_pain()
@@ -309,12 +309,16 @@
 /mob/living/simple_animal/hostile/retaliate/giant_lizard/rejuvenate()
 	//if the mob was dead beforehand, it's now alive and therefore it's an extra lizard to the count
 	if(stat == DEAD)
-		GLOB.giant_lizards_alive++
+		GLOB.giant_lizards_alive += src
 	return ..()
 
 /mob/living/simple_animal/hostile/retaliate/giant_lizard/death(datum/cause_data/cause_data, gibbed = FALSE, deathmessage = "lets out a waning growl....")
 	playsound(loc, 'sound/effects/giant_lizard_death.ogg', 70)
-	GLOB.giant_lizards_alive--
+	GLOB.giant_lizards_alive -= src
+	return ..()
+
+/mob/living/simple_animal/hostile/retaliate/giant_lizard/Destroy()
+	GLOB.giant_lizards_alive -= src
 	return ..()
 
 /mob/living/simple_animal/hostile/retaliate/giant_lizard/attack_hand(mob/living/carbon/human/attacking_mob)
@@ -363,7 +367,7 @@
 		handle_blood_splatter(get_dir(attacker.loc, loc))
 	return ..()
 
-/mob/living/simple_animal/hostile/retaliate/giant_lizard/apply_damage(damage, damagetype, def_zone, used_weapon, sharp, edge, force)
+/mob/living/simple_animal/hostile/retaliate/giant_lizard/apply_damage(damage, damagetype, def_zone, used_weapon, sharp, edge, force, enviro, chemical = FALSE)
 	Retaliate()
 	aggression_value = clamp(aggression_value + 5, 0, 30)
 	. = ..()
@@ -569,7 +573,7 @@
 		//xenos take extra damage
 		if(isxeno(target))
 			var/extra_damage = rand(melee_damage_lower, melee_damage_upper) * 0.33
-			target.apply_damage(extra_damage, BRUTE)
+			target.apply_damage(extra_damage, BRUTE, enviro=TRUE)
 
 		if(prob(33))
 			if(client && !is_retreating)
@@ -747,12 +751,12 @@
 	if(isliving(target_mob))
 		var/mob/living/target = target_mob
 		//invisible mobs will still randomly be attacked regardless of this check if the lizard is in combat (intended)
-		if(target.stat == DEAD || target.alpha <= 200)
+		if(target.stat == DEAD || target.alpha <= 200 || !isturf(target.loc))
 			return TRUE //TRUE means it's unattackable (amazing code!)
 	return FALSE
 
 //Immediately retaliate after being attacked.
-/mob/living/simple_animal/hostile/retaliate/giant_lizard/Retaliate()
+/mob/living/simple_animal/hostile/retaliate/giant_lizard/Retaliate(pack_attack = FALSE)
 	var/mob/living/target_mob = target_mob_ref?.resolve()
 	if(stat == DEAD || get_dist(src, target_mob) < 6 || on_fire)
 		return
@@ -762,15 +766,22 @@
 
 	target_mob = FindTarget()
 	target_mob_ref = WEAKREF(target_mob)
-	if(target_mob_ref) // qdeleted check
-		growl(target_mob)
-		MoveToTarget()
+	if(!target_mob_ref)
+		return
 
-	//basic pack behaviour
-	for(var/mob/living/simple_animal/hostile/retaliate/giant_lizard/pack_member in view(12, src))
-		if(pack_member == src || pack_member.target_mob_ref?.resolve())
+	growl(target_mob)
+	MoveToTarget()
+
+	if(pack_attack)
+		return
+
+	alert_others()
+
+/mob/living/simple_animal/hostile/retaliate/giant_lizard/proc/alert_others()
+	for(var/mob/living/simple_animal/hostile/retaliate/giant_lizard/pack_member as anything in GLOB.giant_lizards_alive)
+		if(pack_member == src || pack_member.target_mob_ref?.resolve() || get_dist(src, pack_member) > 7)
 			continue
-		pack_member.Retaliate()
+		pack_member.Retaliate(pack_attack = TRUE)
 
 ///Proc for moving to targets. walk_to() doesn't check for resting and status effects so we will do it ourselves.
 /mob/living/simple_animal/hostile/retaliate/giant_lizard/proc/MoveTo(target, distance = 1, retreat = FALSE, time = 6 SECONDS, return_to_combat = FALSE)
@@ -843,7 +854,9 @@
 
 	var/successful_attacks = 0
 	for(var/times_to_attack = 3, times_to_attack > 0, times_to_attack--)
+		//we got stunned, so we can ravage no longer
 		if(body_position == LYING_DOWN)
+			is_ravaging = FALSE
 			return
 
 		if(Adjacent(target))
@@ -858,7 +871,7 @@
 			target.handle_blood_splatter(get_dir(src.loc, target.loc))
 
 			if(target.body_position == LYING_DOWN)
-				target.apply_damage(damage, BRUTE)
+				target.apply_damage(damage, BRUTE, enviro=TRUE)
 				target.apply_effect(1, DAZE)
 				shake_camera(target, 1, 2)
 
@@ -895,31 +908,24 @@
 		return
 
 	if(ishuman(pounced_mob) && (pounced_mob.dir in reverse_nearby_direction(dir)))
-		var/mob/living/carbon/human/human = pounced_mob
-		if(human.check_shields(15, "the pounce")) //Human shield block.
-			visible_message(SPAN_DANGER("[src] slams into [human]!"))
+		var/mob/living/carbon/human/human_mob = pounced_mob
+		if(human_mob.check_shields("the pounce", get_dir(human_mob, src), attack_type = SHIELD_ATTACK_POUNCE, custom_response = TRUE)) //human_mob shield block.
+			visible_message(SPAN_DANGER("[src] slams into [human_mob]!"))
 			KnockDown(1)
 			Stun(1)
 			throwing = FALSE //Reset throwing manually.
-			playsound(human, "bonk", 75, FALSE) //bonk
+			playsound(human_mob, "bonk", 75, FALSE) //bonk
 			return
 
-		if(isyautja(human))
-			if(human.check_shields(0, "the pounce", 1))
-				visible_message(SPAN_DANGER("[human] blocks the pounce of [src] with the combistick!"))
-				apply_effect(3, WEAKEN)
-				throwing = FALSE
-				playsound(human, "bonk", 75, FALSE)
-				return
-			else if(prob(75)) //Body slam.
-				visible_message(SPAN_DANGER("[human] body slams [src]!"))
-				KnockDown(3)
-				Stun(3)
-				throwing = FALSE
-				playsound(loc, 'sound/weapons/alien_knockdown.ogg', 25, 1)
-				return
-		if(iscolonysynthetic(human) && prob(60))
-			visible_message(SPAN_DANGER("[human] withstands being pounced and slams down [src]!"))
+		if(isyautja(human_mob) && prob(75))//Body slam.
+			visible_message(SPAN_DANGER("[human_mob] body slams [src]!"))
+			KnockDown(3)
+			Stun(3)
+			throwing = FALSE
+			playsound(loc, 'sound/weapons/alien_knockdown.ogg', 25, 1)
+			return
+		if(HAS_TRAIT(human_mob, TRAIT_POUNCE_RESISTANT) && prob(60))
+			visible_message(SPAN_DANGER("[human_mob] withstands being pounced and slams down [src]!"))
 			KnockDown(1.5)
 			Stun(1.5)
 			throwing = FALSE

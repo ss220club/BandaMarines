@@ -1,16 +1,21 @@
-import { useBackend } from '../../backend';
-import { Box, Stack } from '../../components';
-import { DropshipEquipment } from '../DropshipWeaponsConsole';
-import { MfdPanel, MfdProps } from './MultifunctionDisplay';
+import { useBackend } from 'tgui/backend';
+import { Box, Stack } from 'tgui/components';
+
+import type { DropshipEquipment } from '../DropshipWeaponsConsole';
+import { MfdPanel, type MfdProps } from './MultifunctionDisplay';
 import { mfdState, useEquipmentState } from './stateManagers';
-import { EquipmentContext, SentrySpec } from './types';
+import type { EquipmentContext, SentrySpec } from './types';
 
 const SentryPanel = (props: DropshipEquipment) => {
   const sentryData = props.data as SentrySpec;
+  const ammoReadout =
+    sentryData.rounds === null || sentryData.rounds === undefined
+      ? 'DEPLETED'
+      : sentryData.rounds + ' / ' + sentryData.max_rounds;
   return (
     <Stack>
       <Stack.Item width="100px">
-        <svg />
+        <svg overflow="visible" />
       </Stack.Item>
       <Stack.Item>
         <Stack vertical width="300px" align="center">
@@ -23,9 +28,7 @@ const SentryPanel = (props: DropshipEquipment) => {
             </h3>
           </Stack.Item>
           <Stack.Item>
-            <h3>
-              Ammo: {sentryData.rounds} / {sentryData.max_rounds}
-            </h3>
+            <h3>Ammo: {ammoReadout}</h3>
           </Stack.Item>
           <Stack.Item>
             <h3>
@@ -52,7 +55,7 @@ const SentryPanel = (props: DropshipEquipment) => {
         </Stack>
       </Stack.Item>
       <Stack.Item width="100px">
-        <svg />
+        <svg overflow="visible" />
       </Stack.Item>
     </Stack>
   );

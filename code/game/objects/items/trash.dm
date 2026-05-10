@@ -26,10 +26,18 @@
 	icon_state = "burger"
 	desc = "A greasy plastic film that once held a Cheeseburger. Packaged by the Weyland-Yutani Corporation."
 
+/obj/item/trash/burger/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/wy)
+
 /obj/item/trash/buritto
 	name = "Burrito wrapper"
 	icon_state = "burrito"
 	desc = "A foul-smelling plastic film that once held a microwave burrito. Packaged by the Weyland-Yutani Corporation."
+
+/obj/item/trash/buritto/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/wy)
 
 /obj/item/trash/candy
 	name = "Candy"
@@ -64,6 +72,10 @@
 	icon_state = "hotdog"
 	desc = "A musty plastic film that once held a hotdog. Packaged by the Weyland-Yutani Corporation."
 
+/obj/item/trash/hotdog/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/wy)
+
 /obj/item/trash/kepler
 	name = "Kepler wrapper"
 	icon_state = "kepler"
@@ -72,17 +84,13 @@
 	name = "Kepler Flamehot wrapper"
 	icon_state = "flamehotkepler"
 
-/obj/item/trash/liquidfood
-	name = "\improper \"LiquidFood\" ration"
-	icon_state = "liquidfood"
-
-/obj/item/trash/pistachios
-	name = "Pistachios pack"
-	icon_state = "pistachios_pack"
-
 /obj/item/trash/popcorn
 	name = "Popcorn"
 	icon_state = "popcorn"
+
+/obj/item/trash/popcorn/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/wy)
 
 /obj/item/trash/raisins
 	name = "4no raisins"
@@ -105,7 +113,37 @@
 /obj/item/trash/uscm_mre
 	name = "\improper crumbled USCM MRE"
 	desc = "It has done its part for the USCM. Have you?"
-	icon = 'icons/obj/items/trash.dmi'
+	icon = 'icons/obj/items/storage/mre.dmi'
+	icon_state = "mealpackempty"
+
+/obj/item/trash/upp_mre
+	name = "\improper crumbled UPP IRP"
+	desc = "Hungry soldier is a dead soldier."
+	icon = 'icons/obj/items/storage/mre.dmi'
+	icon_state = "upp_mealpackempty"
+
+/obj/item/trash/twe_mre
+	name = "\improper crumbled TWE ORP"
+	desc = "Hunger never sets on the Empire..."
+	icon = 'icons/obj/items/storage/mre.dmi'
+	icon_state = "twe_mealpackempty"
+
+/obj/item/trash/pmc_mre
+	name = "\improper crumbled PMC CFR"
+	desc = "For a piece of crumbled wrapper, it sure has a high market cost."
+	icon = 'icons/obj/items/storage/mre.dmi'
+	icon_state = "pmc_mealpackempty"
+
+/obj/item/trash/wy_mre
+	name = "\improper crumbled W-Y ration"
+	desc = "Reminder, trashing on a workplace is punished with a cut in your daily ration."
+	icon = 'icons/obj/items/storage/mre.dmi'
+	icon_state = "wy_mealpackempty"
+
+/obj/item/trash/merc_mre
+	name = "\improper crumbled FSR ration"
+	desc = "Who left it in here? Civilians? Hikers? Military collectors? Undercover mercenaries?"
+	icon = 'icons/obj/items/storage/mre.dmi'
 	icon_state = "mealpackempty"
 
 /obj/item/trash/waffles

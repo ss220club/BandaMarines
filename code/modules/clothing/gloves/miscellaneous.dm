@@ -9,7 +9,7 @@
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROT
 
 /obj/item/clothing/gloves/cyborg
-	desc = "beep boop borp"
+	desc = "Beep boop borp."
 	name = "cyborg gloves"
 	icon_state = "black"
 	item_state = "r_hands"
@@ -18,7 +18,7 @@
 /obj/item/clothing/gloves/swat
 	desc = "These tactical gloves are somewhat fire and impact-resistant."
 	name = "\improper SWAT Gloves"
-	icon_state = "black"
+	icon_state = "veteran"
 	item_state = "black"
 	siemens_coefficient = 0.6
 
@@ -55,7 +55,11 @@
 	item_state = "ggloves"
 	siemens_coefficient = 0.9
 
-
+/obj/item/clothing/gloves/black_leather
+	name = "stylish leather gloves"
+	desc = "Supple, black leather gloves crafted from the finest leather. Stylish, durable, and ready for work or play."
+	icon_state = "black_leather"
+	item_state = "black"
 
 /obj/item/clothing/gloves/boxing
 	name = "boxing gloves"
@@ -85,12 +89,12 @@
 					return 1
 				if (L.halloss > 100)
 					playsound(loc, knockout_sound, 50, FALSE)
-					M.show_message(FONT_SIZE_LARGE(SPAN_WARNING("KNOCKOUT!")), SHOW_MESSAGE_VISIBLE)
+					M.show_message(FONT_SIZE_LARGE(SPAN_WARNING("НОКАУТ!")), SHOW_MESSAGE_VISIBLE) // SS220 EDIT ADDICTION
 					return 1
 				if (L.body_position == LYING_DOWN || L.stat == UNCONSCIOUS)//Can't beat 'em while they're down.
 					to_chat(M, SPAN_WARNING("You can't box with [A], they're already down!"))
 					return 1
-				M.visible_message(SPAN_DANGER("[M] [boxing_verb] [A]!"))
+				M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] [ru_attack_verb(boxing_verb)] [A.declent_ru(ACCUSATIVE)]!"))
 				L.apply_effect(painforce, AGONY)
 				M.animation_attack_on(L)
 				M.flick_attack_overlay(L, boxing_icon)

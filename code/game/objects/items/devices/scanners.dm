@@ -96,18 +96,21 @@ K9 SCANNER
 	QDEL_NULL(last_health_display)
 	return ..()
 
-/obj/item/device/healthanalyzer/attack(mob/living/M, mob/living/user)
+/obj/item/device/healthanalyzer/attack(mob/living/target_mob, mob/living/user)
+	if(!istype(target_mob, /mob/living/carbon) || isxeno(target_mob))
+		to_chat(user, SPAN_WARNING("[src] can't make sense of this creature."))
+		return
 	if(!popup_window)
-		last_scan = M.health_scan(user, FALSE, TRUE, popup_window, alien)
+		last_scan = target_mob.health_scan(user, FALSE, TRUE, popup_window, alien)
 	else
 		if (!last_health_display)
-			last_health_display = new(M)
+			last_health_display = new(target_mob)
 		else
-			last_health_display.target_mob = M
+			last_health_display.target_mob = target_mob
 		SStgui.close_user_uis(user, src)
 		last_scan = last_health_display.ui_data(user, DETAIL_LEVEL_HEALTHANALYSER)
 		last_health_display.look_at(user, DETAIL_LEVEL_HEALTHANALYSER, bypass_checks = FALSE, ignore_delay = FALSE, alien = alien)
-	to_chat(user, SPAN_NOTICE("[user] has analyzed [M]'s vitals."))
+	to_chat(user, SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] анализирует показатели [target_mob.declent_ru(GENITIVE)].")) // SS220 EDIT ADDICTION
 	playsound(src.loc, 'sound/items/healthanalyzer.ogg', 50)
 	src.add_fingerprint(user)
 	return
@@ -192,12 +195,12 @@ K9 SCANNER
 
 	user.show_message(SPAN_NOTICE("<B>Results:</B>"), 1)
 	if(abs(env_pressure - ONE_ATMOSPHERE) < 10)
-		user.show_message(SPAN_NOTICE("Pressure: [round(env_pressure,0.1)] kPa"), 1)
+		user.show_message(SPAN_NOTICE("Pressure: [round(env_pressure,0.1)] kPa."), 1)
 	else
-		user.show_message(SPAN_DANGER("Pressure: [round(env_pressure,0.1)] kPa"), 1)
+		user.show_message(SPAN_DANGER("Pressure: [round(env_pressure,0.1)] kPa."), 1)
 	if(env_pressure > 0)
 		user.show_message(SPAN_NOTICE("Gas Type: [env_gas]"), 1)
-		user.show_message(SPAN_NOTICE("Temperature: [floor(env_temp-T0C)]&deg;C"), 1)
+		user.show_message(SPAN_NOTICE("Temperature: [floor(env_temp-T0C)]&deg;C."), 1)
 
 	src.add_fingerprint(user)
 	return
@@ -295,11 +298,11 @@ K9 SCANNER
 				else
 					recent_fail = 1
 		if(dat)
-			to_chat(user, SPAN_NOTICE(" Chemicals found: [dat]"))
+			to_chat(user, SPAN_NOTICE("Chemicals found: [dat]"))
 		else
-			to_chat(user, SPAN_NOTICE(" No active chemical agents found in [O]."))
+			to_chat(user, SPAN_NOTICE("No active chemical agents found in [O]."))
 	else
-		to_chat(user, SPAN_NOTICE(" No significant chemical agents found in [O]."))
+		to_chat(user, SPAN_NOTICE("No significant chemical agents found in [O]."))
 
 	return
 
@@ -473,7 +476,7 @@ K9 SCANNER
 	if(isnull(market_value))
 		return ..()
 	market_value = POSITIVE(market_value)
-	user.visible_message(SPAN_WARNING("[user] presses a button on [src] and holds it over [hit_atom]..."), SPAN_WARNING("You scan [hit_atom]..."))
+	user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] presses a button on [src] and holds it over [hit_atom]..."), SPAN_WARNING("You scan [hit_atom]..."))
 	update_icon(market_value, TRUE)
 	playsound(user, 'sound/machines/twobeep.ogg', 15, TRUE)
 	to_chat(user, SPAN_NOTICE("You scan [hit_atom] and notice a reading on [src]'s pad, it says:<b> ITEM HAS [market_value] VALUE <b>"))
@@ -553,4 +556,3 @@ K9 SCANNER
 	else
 		to_chat(user, SPAN_BOLDNOTICE("[src] lights up: <b>--><--</b>"))
 	playsound(src, 'sound/machines/ping.ogg', 15, TRUE)
-

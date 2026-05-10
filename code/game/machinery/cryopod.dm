@@ -168,7 +168,7 @@ GLOBAL_LIST_INIT(frozen_items, list(SQUAD_MARINE_1 = list(), SQUAD_MARINE_2 = li
 //Cryopods themselves.
 /obj/structure/machinery/cryopod
 	name = "hypersleep chamber"
-	desc = "A large automated capsule with LED displays intended to put anyone inside into 'hypersleep', a form of non-cryogenic statis used on most ships, linked to a long-term hypersleep bay on a lower level."
+	desc = "A large automated capsule with LED displays intended to put anyone inside into 'hypersleep', a form of non-cryogenic stasis used on most ships, linked to a long-term hypersleep bay on a lower level."
 	icon = 'icons/obj/structures/machinery/cryogenics.dmi'
 	icon_state = "body_scanner_open"
 	density = TRUE
@@ -236,7 +236,7 @@ GLOBAL_LIST_INIT(frozen_items, list(SQUAD_MARINE_1 = list(), SQUAD_MARINE_2 = li
 	if(ishuman(occupant))
 		var/mob/living/carbon/human/cryo_human = occupant
 		switch(cryo_human.job)
-			if(JOB_POLICE, JOB_WARDEN, JOB_CHIEF_POLICE)
+			if(JOB_POLICE, JOB_POLICE_HG, JOB_WARDEN, JOB_CHIEF_POLICE)
 				dept_console = GLOB.frozen_items["MP"]
 			if(JOB_NURSE, JOB_DOCTOR, JOB_FIELD_DOCTOR, JOB_RESEARCHER, JOB_CMO)
 				dept_console = GLOB.frozen_items["Med"]
@@ -422,7 +422,7 @@ GLOBAL_LIST_INIT(frozen_items, list(SQUAD_MARINE_1 = list(), SQUAD_MARINE_2 = li
 
 		if(willing)
 
-			visible_message(SPAN_NOTICE("[user] starts putting [M] into [src]."),
+			visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts putting [M] into [src]."),
 			SPAN_NOTICE("You start putting [M] into [src]."))
 
 			if(!do_after(user, 20, INTERRUPT_ALL, BUSY_ICON_GENERIC))
@@ -465,7 +465,7 @@ GLOBAL_LIST_INIT(frozen_items, list(SQUAD_MARINE_1 = list(), SQUAD_MARINE_2 = li
 	go_out() //Not adding a delay for this because for some reason it refuses to work. Not a big deal imo
 	add_fingerprint(usr)
 
-	to_chat(usr, SPAN_NOTICE("You get out of \the [src]."))
+	to_chat(usr, SPAN_NOTICE("Вы выходите из [declent_ru(GENITIVE)]."))
 	if(!silent_exit)
 		visible_message(SPAN_WARNING("\The [src]'s casket starts moving!"))
 		var/mob/living/M = usr
@@ -528,7 +528,7 @@ GLOBAL_LIST_INIT(frozen_items, list(SQUAD_MARINE_1 = list(), SQUAD_MARINE_2 = li
 			to_chat(mob, SPAN_NOTICE("You feel cool air surround you. You go numb as your senses turn inward."))
 			to_chat(mob, SPAN_BOLDNOTICE("If you log out or close your client now, your character will permanently removed from the round in 10 minutes. If you ghost, timer will be decreased to 2 minutes."))
 			if(!should_block_game_interaction(src)) // Set their queue time now because the client has to actually leave to despawn and at that point the client is lost
-				mob.client.player_details.larva_queue_time = max(mob.client.player_details.larva_queue_time, world.time)
+				mob.client.player_details.larva_pool_time = max(mob.client.player_details.larva_pool_time, world.time)
 		var/area/location = get_area(src)
 		if(mob.job != GET_MAPPED_ROLE(JOB_SQUAD_MARINE))
 			message_admins("[key_name_admin(mob)], [mob.job], has entered \a [src] at [location] after playing for [duration2text(world.time - mob.life_time_start)].")
@@ -609,3 +609,10 @@ GLOBAL_LIST_INIT(frozen_items, list(SQUAD_MARINE_1 = list(), SQUAD_MARINE_2 = li
 
 	occupant.mind.transfer_to(new_player)
 	SEND_SIGNAL(occupant, COMSIG_MOB_END_TUTORIAL)
+
+/obj/structure/machinery/cryopod/no_store/yautja
+	icon = 'icons/obj/structures/machinery/yautja_machines.dmi'
+
+/obj/structure/machinery/cryopod/no_store/right/yautja
+	icon = 'icons/obj/structures/machinery/yautja_machines.dmi'
+	dir = WEST

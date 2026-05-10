@@ -152,7 +152,7 @@
 /turf/open/hybrisa/street/NSPA_2x2_emblem
 	icon_state = "NSPA_emblem_concrete_2x2"
 	name = "NSPA - Concrete Sakrua Emblem"
-	desc = "A concrete emblem resembling a (Sakura Flower), the symbol of the NSPA, below is is an inscription reading - (Empire and Honor, Bound by Duty. Duty Beyond Borders, Justice Across Worlds)."
+	desc = "A concrete emblem resembling a (Sakura Flower), the symbol of the NSPA, below it is an inscription reading - (Empire and Honor, Bound by Duty. Duty Beyond Borders, Justice Across Worlds)."
 
 /turf/open/hybrisa/street/NSPA_2x2_emblem/north
 	dir = NORTH
@@ -177,10 +177,7 @@
 	icon = 'icons/turf/floors/floors.dmi'
 	icon_state = "bcircuit"
 	allow_construction = FALSE
-
-
-/turf/open/hybrisa/street/underground_unweedable/is_weedable()
-	return NOT_WEEDABLE
+	is_weedable = NOT_WEEDABLE
 
 // Engineer Ship Hull
 
@@ -190,9 +187,7 @@
 	icon = 'icons/turf/floors/engineership.dmi'
 	icon_state = "engineerwallfloor1"
 	allow_construction = FALSE
-
-/turf/open/floor/hybrisa/engineership/ship_hull/is_weedable()
-	return NOT_WEEDABLE
+	is_weedable = NOT_WEEDABLE
 
 /turf/open/floor/hybrisa/engineership/ship_hull/non_weedable_hull
 	icon_state = "outerhull_dir"
@@ -248,6 +243,9 @@
 	icon_state = "carpet_colorable"
 	color = "#9f8184"
 
+/turf/open/floor/hybrisa/carpet/carpet_colorable/dark
+	icon_state = "carpet_colorable"
+	color = "#756e6a"
 
 /turf/open/floor/hybrisa/carpet/carpet_deco_colorable
 	icon_state = "carpet_deco_colorable"
@@ -439,6 +437,36 @@
 	dir = NORTHWEST
 
 /turf/open/floor/hybrisa/carpet/rug_colorable/biege/southeast
+	dir = SOUTHEAST
+
+// Rug Dark
+
+/turf/open/floor/hybrisa/carpet/rug_colorable/dark
+	icon_state = "rug_colorable"
+	color = "#756e6a"
+
+/turf/open/floor/hybrisa/carpet/rug_colorable/dark/south
+	dir = SOUTH
+
+/turf/open/floor/hybrisa/carpet/rug_colorable/dark/north
+	dir = NORTH
+
+/turf/open/floor/hybrisa/carpet/rug_colorable/dark/west
+	dir = WEST
+
+/turf/open/floor/hybrisa/carpet/rug_colorable/dark/east
+	dir = EAST
+
+/turf/open/floor/hybrisa/carpet/rug_colorable/dark/northeast
+	dir = NORTHEAST
+
+/turf/open/floor/hybrisa/carpet/rug_colorable/dark/southwest
+	dir = SOUTHWEST
+
+/turf/open/floor/hybrisa/carpet/rug_colorable/dark/northwest
+	dir = NORTHWEST
+
+/turf/open/floor/hybrisa/carpet/rug_colorable/dark/southeast
 	dir = SOUTHEAST
 
 /turf/open/floor/hybrisa/carpet/carpetfadedred
@@ -1034,9 +1062,7 @@
 	desc = "A strange metal pillar, unlike any metal you've seen before."
 	icon_state = "eng_pillar1"
 	allow_construction = FALSE
-
-/turf/open/floor/hybrisa/engineership/pillars/is_weedable()
-	return NOT_WEEDABLE
+	is_weedable = NOT_WEEDABLE
 
 /turf/open/floor/hybrisa/engineership/pillars/north/pillar1
 	icon_state = "eng_pillar1"
@@ -1080,7 +1106,7 @@
 	desc = "Nigh indestructible walls that make up the hull of an unknown ancient ship, looks like nothing you can do will penetrate the hull."
 	icon = 'icons/turf/walls/engineership.dmi'
 	icon_state = "metal"
-	walltype = WALL_HUNTERSHIP
+	walltype = WALL_ENGINEERSHIP
 	turf_flags = TURF_HULL
 
 /turf/closed/wall/engineership/destructible
@@ -1100,7 +1126,7 @@
 	turf_flags = TURF_HULL
 	baseturfs = /turf/open/floor/plating/hybrisa_rock
 
-// Marshalls
+// Marshals
 
 /turf/closed/wall/hybrisa/marhsalls
 	name = "metal wall"

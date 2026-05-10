@@ -12,7 +12,7 @@
 		/datum/action/xeno_action/active_toggle/toggle_speed,
 	)
 	actions_to_add = list(
-		/datum/action/xeno_action/activable/secrete_resin/remote, //third macro
+		/datum/action/xeno_action/activable/secrete_resin/remote/whisperer, //third macro
 		/datum/action/xeno_action/onclick/toggle_long_range/whisperer, //fourth macro
 		/datum/action/xeno_action/activable/transfer_plasma/hivelord, // readding it so it gets at the end of the ability list
 		/datum/action/xeno_action/active_toggle/toggle_speed, // readding it so it gets at the end of the ability list
@@ -31,10 +31,8 @@
 		// Also update the choose_resin icon since it resets
 		if(istype(action, /datum/action/xeno_action/onclick/choose_resin))
 			var/datum/action/xeno_action/onclick/choose_resin/choose_resin_ability = action
-			if(choose_resin_ability)
-				choose_resin_ability.update_button_icon(hivelord.selected_resin)
-				break // Don't need to keep looking
-
+			choose_resin_ability.update_button_icon(hivelord.selected_resin)
+			break // Don't need to keep looking
 /*
  * Coerce Resin ability
  */
@@ -49,7 +47,7 @@
 
 	no_cooldown_msg = TRUE
 
-	build_speed_mod = 2.5 // the actual building part takes twice as long
+	build_speed_mod = 2.5
 
 	macro_path = /datum/action/xeno_action/verb/verb_coerce_resin
 	action_type = XENO_ACTION_CLICK
@@ -57,15 +55,21 @@
 	var/last_use = 0
 	var/care_about_adjacency = TRUE
 
+/datum/action/xeno_action/activable/secrete_resin/remote/whisperer
+	xeno_cooldown = 1.5 SECONDS // Slower than a drone, faster than a queen.
+	xeno_cooldown_interrupt_penalty = 1 SECONDS // Penalty for being interrupted
+	xeno_cooldown_fail = 0.5 // She specializes in this, which is why she adapts better after mistakes.
+	build_speed_mod = 1.5 // She builds the walls and then proceeds to the next ones as planned without any unnecessary waiting.
+
 /datum/action/xeno_action/activable/secrete_resin/remote/use_ability(atom/target_atom, mods)
 	if(!can_remote_build())
-		to_chat(owner, SPAN_XENONOTICE("We must be standing on weeds to establish a connection to the resin."))
+		to_chat(owner, SPAN_XENONOTICE("Мы должны стоять на траве улья, чтобы установить связь со смолой."))
 		return
 
 	if(!action_cooldown_check())
 		return
 
-	if(mods["click_catcher"])
+	if(mods[CLICK_CATCHER])
 		return
 
 	var/turf/target_turf = get_turf(target_atom)
@@ -73,7 +77,7 @@
 		return
 
 	if(care_about_adjacency && !(target_turf in view(10, owner)))
-		to_chat(owner, SPAN_XENONOTICE("We must have a direct line of sight!"))
+		to_chat(owner, SPAN_XENONOTICE("Мы должны иметь прямую видимость!"))
 		return
 
 	/// Check if the target is a resin door and open or close it
@@ -84,9 +88,9 @@
 			var/obj/structure/mineral_door/resin/resin_door = target_atom
 			if(resin_door.TryToSwitchState(owner))
 				if(resin_door.open)
-					to_chat(owner, SPAN_XENONOTICE("We focus our connection to the resin and remotely close the resin door."))
+					to_chat(owner, SPAN_XENONOTICE("Мы фокусируем нашу связь со смолой и удалённо закрываем смоляные двери."))
 				else
-					to_chat(owner, SPAN_XENONOTICE("We focus our connection to the resin and remotely open the resin door."))
+					to_chat(owner, SPAN_XENONOTICE("Мы фокусируем нашу связь со смолой и удалённо открываем смоляные двери."))
 			return
 
 	// since actions are instanced per hivelord, and only one construction can be made at a time, tweaking the datum on the fly here is fine. you're going to have to figure something out if these conditions change, though
@@ -106,8 +110,8 @@
 		return
 
 	var/datum/resin_construction/resing_construction = GLOB.resin_constructions_list[hivelord.selected_resin]
-	target_turf.visible_message(SPAN_XENONOTICE("The weeds begin pulsating wildly and secrete resin in the shape of \a [resing_construction.construction_name]!"), null, 5)
-	to_chat(owner, SPAN_XENONOTICE("We focus our plasma into the weeds below us and force the weeds to secrete resin in the shape of \a [resing_construction.construction_name]."))
+	target_turf.visible_message(SPAN_XENONOTICE("Трава начинает дико пульсировать и принимать форму [declent_ru_initial(resing_construction.construction_name, GENITIVE, resing_construction.construction_name)]!"), null, 5)
+	to_chat(owner, SPAN_XENONOTICE("Мы фокусируем нашу плазму на траву под нами и заставляем её принять форму [declent_ru_initial(resing_construction.construction_name, GENITIVE, resing_construction.construction_name)]."))
 	playsound(target_turf, "alien_resin_build", 25)
 	return TRUE
 

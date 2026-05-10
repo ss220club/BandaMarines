@@ -2,7 +2,20 @@
 /mob/proc/hear_apollo()
 	return FALSE
 
-/mob/proc/hear_say(message, verb = "says", datum/language/language = null, alt_name = "", italics = 0, mob/speaker = null, sound/speech_sound, sound_vol)
+/mob/hologram/hear_say(message, verb = "says", datum/language/language = null, alt_name = "", italics = 0, mob/speaker = null, sound/speech_sound, sound_vol)
+	if(!hears_speech || !linked_mob)
+		return
+	if(speaker == linked_mob)
+		return
+	linked_mob.hear_say(message, verb, language, alt_name, italics, speaker, speech_sound, sound_vol)
+	/// I had to bastardise this because it was duplicating messages for some reason.
+	if(speaker && linked_mob.client && !linked_mob.ear_deaf)
+		if(!linked_mob.client?.prefs.lang_chat_disabled && linked_mob.say_understands(speaker, language))
+			speaker.langchat_display_image(linked_mob)
+	return
+
+
+/mob/proc/hear_say(message, verb = "says", datum/language/language = null, alt_name = "", italics = 0, mob/speaker = null, sound/speech_sound, sound_vol, message_mode)
 
 	if(!client && !(mind && mind.current != src))
 		return
@@ -46,11 +59,11 @@
 
 	if(sdisabilities & DISABILITY_DEAF || ear_deaf)
 		if(speaker == src)
-			to_chat(src, SPAN_WARNING("You cannot hear yourself speak!"))
+			to_chat(src, SPAN_WARNING("Вы не слышите себя!"))
 		else
-			to_chat(src, SPAN_LOCALSAY("<span class='prefix'>[comm_paygrade][speaker_name]</span>[alt_name] talks but you cannot hear them."))
+			to_chat(src, SPAN_LOCALSAY("<span class='prefix'>[comm_paygrade][speaker_name]</span>[alt_name] говорит, но вы ничего не слышите."))
 	else
-		to_chat(src, SPAN_LOCALSAY("<span class='prefix'>[comm_paygrade][speaker_name]</span>[alt_name] [ru_say_verb(verb)], <span class='[style]'>\"[message]\"</span>"))
+		to_chat(src, SPAN_LOCALSAY("<span class='prefix'>[comm_paygrade][speaker_name]</span>[alt_name] [ru_say_verb(verb)], <span class='[style]'>\"[sanitize_tts_symbols(message)]\"</span>")) // BANDAMARINES EDIT - Show normal message
 		if (speech_sound && (get_dist(speaker, src) <= GLOB.world_view_size && src.z == speaker.z))
 			var/turf/source = speaker? get_turf(speaker) : get_turf(src)
 			playsound_client(src.client, speech_sound, source, sound_vol, GET_RANDOM_FREQ)
@@ -134,14 +147,14 @@
 			to_chat(src, SPAN_WARNING("You feel your headset vibrate but can hear nothing from it!"), type = MESSAGE_TYPE_RADIO)
 	else if(track)
 		if(!command)
-			to_chat(src, "[part_a][comm_paygrade][track][part_b][ru_say_verb(verb)], <span class=\"[style]\">\"[message]\"</span></span></span>", type = MESSAGE_TYPE_RADIO)
+			to_chat(src, "[part_a][comm_paygrade][track][part_b][ru_say_verb(verb)], <span class=\"[style]\">\"[sanitize_tts_symbols(message)]\"</span></span></span>", type = MESSAGE_TYPE_RADIO)
 		else
-			to_chat(src, "<span class=\"[fontsize_style]\">[part_a][comm_paygrade][track][part_b][ru_say_verb(verb)], <span class=\"[style]\">\"[message]\"</span></span></span></span>", type = MESSAGE_TYPE_RADIO)
+			to_chat(src, "<span class=\"[fontsize_style]\">[part_a][comm_paygrade][track][part_b][ru_say_verb(verb)], <span class=\"[style]\">\"[sanitize_tts_symbols(message)]\"</span></span></span></span>", type = MESSAGE_TYPE_RADIO)
 	else
 		if(!command)
-			to_chat(src, "[part_a][comm_paygrade][speaker_name][part_b][ru_say_verb(verb)], <span class=\"[style]\">\"[message]\"</span></span></span>", type = MESSAGE_TYPE_RADIO)
+			to_chat(src, "[part_a][comm_paygrade][speaker_name][part_b][ru_say_verb(verb)], <span class=\"[style]\">\"[sanitize_tts_symbols(message)]\"</span></span></span>", type = MESSAGE_TYPE_RADIO)
 		else
-			to_chat(src, "<span class=\"[fontsize_style]\">[part_a][comm_paygrade][speaker_name][part_b][ru_say_verb(verb)], <span class=\"[style]\">\"[message]\"</span></span></span></span>", type = MESSAGE_TYPE_RADIO)
+			to_chat(src, "<span class=\"[fontsize_style]\">[part_a][comm_paygrade][speaker_name][part_b][ru_say_verb(verb)], <span class=\"[style]\">\"[sanitize_tts_symbols(message)]\"</span></span></span></span>", type = MESSAGE_TYPE_RADIO)
 
 /mob/proc/hear_signlang(message, verb = "gestures", datum/language/language, mob/speaker = null)
 	var/comm_paygrade = ""

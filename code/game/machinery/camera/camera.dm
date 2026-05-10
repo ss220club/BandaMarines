@@ -39,6 +39,8 @@
 	var/autoname = FALSE
 	var/autonumber = 0 //camera number in area
 
+	var/list/owner_factions = FACTION_LIST_NEUTRAL
+
 GLOBAL_LIST_EMPTY_TYPED(all_cameras, /obj/structure/machinery/camera)
 /obj/structure/machinery/camera/Initialize(mapload, ...)
 	. = ..()
@@ -160,7 +162,7 @@ GLOBAL_LIST_EMPTY_TYPED(all_cameras, /obj/structure/machinery/camera)
 		//to_chat(user, SPAN_NOTICE("You start to [panel_open ? ")close" : "open"] the camera's panel.")
 		//if(toggle_panel(user)) // No delay because no one likes screwdrivers trying to be hip and have a duration cooldown
 		panel_open = !panel_open
-		user.visible_message(SPAN_WARNING("[user] screws the camera's panel [panel_open ? "open" : "closed"]!"),
+		user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] screws the camera's panel [panel_open ? "open" : "closed"]!"),
 		SPAN_NOTICE("You screw the camera's panel [panel_open ? "open" : "closed"]."))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, 1)
 
@@ -214,9 +216,9 @@ GLOBAL_LIST_EMPTY_TYPED(all_cameras, /obj/structure/machinery/camera)
 	if(!silent)
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 25, 1)
 		if(status)
-			visible_message(SPAN_WARNING("[user] has reactivated [src]!"))
+			visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] has reactivated [src]!"))
 		else
-			visible_message(SPAN_WARNING("[user] has deactivated [src]!"))
+			visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] has deactivated [src]!"))
 	update_icon()
 	// now disconnect anyone using the camera
 	//Apparently, this will disconnect anyone even if the camera was re-activated.
@@ -258,7 +260,7 @@ GLOBAL_LIST_EMPTY_TYPED(all_cameras, /obj/structure/machinery/camera)
 /atom/proc/auto_turn()
 	//Automatically turns based on nearby walls.
 	var/turf/closed/wall/T = null
-	for(var/i = 1, i <= 8; i += i)
+	for(var/i = 1; i <= 8; i += i)
 		T = get_ranged_target_turf(src, i, 1)
 		if(istype(T))
 			//If someone knows a better way to do this, let me know. -Giacom
@@ -292,7 +294,7 @@ GLOBAL_LIST_EMPTY_TYPED(all_cameras, /obj/structure/machinery/camera)
 		return 0
 
 	//Do after stuff here
-	user.visible_message(SPAN_NOTICE("[user] starts to weld [src]."),
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts to weld [src]."),
 	SPAN_NOTICE("You start to weld [src]."))
 	playsound(loc, 'sound/items/weldingtool_weld.ogg', 25)
 	WT.eyecheck(user)
@@ -301,7 +303,7 @@ GLOBAL_LIST_EMPTY_TYPED(all_cameras, /obj/structure/machinery/camera)
 			to_chat(user, SPAN_WARNING("\The [WT] needs to be on!"))
 			return 0
 		playsound(loc, 'sound/items/Welder2.ogg', 25, 1)
-		user.visible_message(SPAN_NOTICE("[user] welds [src]."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] welds [src]."),
 		SPAN_NOTICE("You weld [src]."))
 		return 1
 	return 0
@@ -321,6 +323,9 @@ GLOBAL_LIST_EMPTY_TYPED(all_cameras, /obj/structure/machinery/camera)
 		return INITIALIZE_HINT_QDEL
 	linked_broadcasting = camera_item
 	c_tag = linked_broadcasting.get_broadcast_name()
+
+/obj/structure/machinery/camera/overwatch
+	network = list(CAMERA_NET_OVERWATCH)
 
 /obj/structure/machinery/camera/mortar
 	alpha = 0
@@ -363,7 +368,7 @@ GLOBAL_LIST_EMPTY_TYPED(all_cameras, /obj/structure/machinery/camera)
 
 /obj/structure/machinery/camera/cas/proc/view_directly(mob/living/carbon/human/user)
 	viewing_users += user
-	user.client?.eye = get_turf(src)
+	user.client?.set_eye(get_turf(src))
 	user.client?.perspective = EYE_PERSPECTIVE
 
 /obj/structure/machinery/camera/cas/proc/remove_from_view(mob/living/carbon/human/user)

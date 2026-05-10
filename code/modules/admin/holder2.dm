@@ -10,6 +10,8 @@ GLOBAL_PROTECT(href_token)
 	var/rights = 0
 	var/fakekey = null
 
+	var/static/list/cached_admin_tokens = list()
+
 	var/href_token
 
 	var/datum/marked_datum
@@ -28,7 +30,13 @@ GLOBAL_PROTECT(href_token)
 		return
 	rank = initial_rank
 	rights = initial_rights
-	href_token = GenerateToken()
+
+	if(ckey in cached_admin_tokens)
+		href_token = cached_admin_tokens[ckey]
+	else
+		href_token = GenerateToken()
+		cached_admin_tokens[ckey] = href_token
+
 	GLOB.admin_datums[ckey] = src
 	extra_titles = new_extra_titles
 	if(rights & R_PROFILER)
@@ -39,14 +47,34 @@ GLOBAL_PROTECT(href_token)
 /datum/admins/vv_edit_var(var_name, var_value)
 	return FALSE
 
-/datum/admins/proc/associate(client/C)
-	if(istype(C))
-		owner = C
-		owner.admin_holder = src
-		owner.add_admin_verbs()
-		owner.tgui_say.load()
-		owner.update_special_keybinds()
-		GLOB.admins |= C
+/datum/admins/can_vv_get(var_name)
+	if(var_name == NAMEOF(src, href_token))
+		return FALSE
+	return ..()
+
+/datum/admins/proc/associate(client/C, force = FALSE)
+	if(!istype(C))
+		return
+
+	if((rights & ~(RL_HARMLESS)) && !force && !check_or_create_twofactor_request(C))
+		addtimer(CALLBACK(src, PROC_REF(associate), C, FALSE), 3 SECONDS)
+		return
+
+	owner = C
+	owner.admin_holder = src
+	owner.add_admin_verbs()
+	owner.tgui_say.load()
+	owner.update_special_keybinds()
+	GLOB.admins |= C
+
+	if(rights & R_MOD)
+		notify_login()
+
+/datum/admins/proc/notify_login()
+	message_admins("Admin login: [key_name(owner)]")
+
+	var/list/adm = get_admin_counts(R_MOD)
+	REDIS_PUBLISH("byond.access", "type" = "login", "key" = owner.key, "remaining" = length(adm["total"]), "afk" = length(adm["afk"]))
 
 /datum/admins/proc/disassociate()
 	if(owner)

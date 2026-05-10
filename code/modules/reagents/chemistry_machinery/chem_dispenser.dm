@@ -20,10 +20,11 @@
 	var/network = "Ground"
 	var/amount = 30
 	var/accept_beaker_only = TRUE
-	var/pressurized_only = FALSE
 	var/obj/item/reagent_container/beaker = null
 	var/ui_check = 0
-	var/static/list/possible_transfer_amounts = list(5,10,20,30,40)
+	var/static/list/possible_transfer_amounts = list(5,10,15,20,30,40,60)
+	/// List of typepaths for reagent containers that a chem dispenser will accept; all containers allowed if empty.
+	var/list/whitelisted_containers = list()
 	var/list/dispensable_reagents = list(
 		"hydrogen",
 		"lithium",
@@ -58,18 +59,18 @@
 /obj/structure/machinery/chem_dispenser/research
 	network = "Research"
 
-/obj/structure/machinery/chem_dispenser/process()
-	if(!chem_storage)
-		chem_storage = GLOB.chemical_data.connect_chem_storage(network)
 
 /obj/structure/machinery/chem_dispenser/Initialize()
-	. = ..()
+	..()
 	dispensable_reagents = sortList(dispensable_reagents)
-	start_processing()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/structure/machinery/chem_dispenser/LateInitialize()
+	chem_storage = GLOB.chemical_data.connect_chem_storage(network)
 
 /obj/structure/machinery/chem_dispenser/Destroy()
-	if(!chem_storage)
-		chem_storage = GLOB.chemical_data.disconnect_chem_storage(network)
+	GLOB.chemical_data.disconnect_chem_storage(network)
+	chem_storage = null
 	return ..()
 
 /obj/structure/machinery/chem_dispenser/ex_act(severity)
@@ -116,7 +117,7 @@
 	return TRUE
 
 /obj/structure/machinery/chem_dispenser/clicked(mob/user, list/mods)
-	if(mods["alt"])
+	if(mods[ALT_CLICK])
 		if(!CAN_PICKUP(user, src))
 			return ..()
 		replace_beaker(user)
@@ -133,7 +134,7 @@
 /obj/structure/machinery/chem_dispenser/tgui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "ChemDispenser", name)
+		ui = new(user, src, "ChemDispenser", capitalize(declent_ru(NOMINATIVE))) // SS220 EDIT ADDICTION
 		ui.open()
 
 /obj/structure/machinery/chem_dispenser/ui_static_data(mob/user)
@@ -151,7 +152,12 @@
 	var/beakerCurrentVolume = 0
 	if(beaker && beaker.reagents && length(beaker.reagents.reagent_list))
 		for(var/datum/reagent/current_reagent in beaker.reagents.reagent_list)
-			beakerContents += list(list("name" = current_reagent.name, "volume" = current_reagent.volume))  // list in a list because Byond merges the first list...
+			// SS220 EDIT START ADDICTION
+			if(length(current_reagent.ru_names))
+				beakerContents += list(list("name" = current_reagent.declent_reagent_ru_from_obj(current_reagent, GENITIVE, current_reagent.name), "volume" = current_reagent.volume))
+			else
+				beakerContents += list(list("name" = current_reagent.name, "volume" = current_reagent.volume))  // list in a list because Byond merges the first list...
+			// SS220 EDIT END ADDICTION
 			beakerCurrentVolume += current_reagent.volume
 	.["beakerContents"] = beakerContents
 
@@ -167,7 +173,10 @@
 		var/datum/reagent/temp = GLOB.chemical_reagents_list[re]
 		if(temp)
 			var/chemname = temp.name
+			if (!isnull(network) && network != "Misc" && length(temp.ru_names))  // SS220 EDIT ADDICTION DONT TRANSLATE CHEM AND MEDIC REAGENTS
+				chemname = temp.ru_names["base"]  // SS220 EDIT ADDICTION
 			chemicals.Add(list(list("title" = chemname, "id" = temp.id)))
+	.["network"] = network // SS220 EDIT ADDICTION
 	.["chemicals"] = chemicals
 
 /obj/structure/machinery/chem_dispenser/ui_act(action, list/params)
@@ -212,10 +221,12 @@
 /obj/structure/machinery/chem_dispenser/attackby(obj/item/reagent_container/attacking_object, mob/user)
 	if(istype(attacking_object, /obj/item/reagent_container/glass) || istype(attacking_object, /obj/item/reagent_container/food))
 		if(accept_beaker_only && istype(attacking_object,/obj/item/reagent_container/food))
-			to_chat(user, SPAN_NOTICE("This machine only accepts beakers"))
+			to_chat(user, SPAN_NOTICE("This machine only accepts beakers."))
 			return
-		if(pressurized_only && !istype(attacking_object, /obj/item/reagent_container/glass/pressurized_canister))
-			to_chat(user, SPAN_NOTICE("This machine only accepts pressurized canisters"))
+		//If the dispenser has a whitelist with stuff in it, and the attacking object ain't in there, don't accept it.
+		if(length(whitelisted_containers) && !(attacking_object.type in whitelisted_containers))
+			//Currently this is only used for pressurized disepnsers
+			to_chat(user, SPAN_WARNING("This machine doesn't accept that container."))
 			return
 		if(user.drop_inv_item_to_loc(attacking_object, src))
 			var/obj/item/old_beaker = beaker
@@ -234,11 +245,11 @@
 			if(DISPENSER_UNHACKABLE)
 				to_chat(user, SPAN_NOTICE("[src] cannot be hacked."))
 			if(DISPENSER_NOT_HACKED)
-				user.visible_message("[user] modifies [src] with [attacking_object], turning a light on.", "You enable a light in [src].")
+				user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] modifies [src] with [attacking_object], turning a light on.", "You enable a light in [src].")
 				dispensable_reagents += hacked_reagents
 				hacked_check = DISPENSER_HACKED
 			if(DISPENSER_HACKED)
-				user.visible_message("[user] modifies [src] with [attacking_object], turning a light off.", "You disable a light in [src].")
+				user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] modifies [src] with [attacking_object], turning a light off.", "You disable a light in [src].")
 				dispensable_reagents -= hacked_reagents
 				hacked_check = DISPENSER_NOT_HACKED
 
@@ -255,10 +266,10 @@
 		playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
 		anchored = !anchored
 		if(anchored)
-			user.visible_message("[user] tightens the bolts securing [src] to the surface.", "You tighten the bolts securing [src] to the surface.")
+			user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] tightens the bolts securing [src] to the surface.", "You tighten the bolts securing [src] to the surface.")
 			return
 
-		user.visible_message("[user] unfastens the bolts securing [src] to the surface.", "You unfasten the bolts securing [src] to the surface.")
+		user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] unfastens the bolts securing [src] to the surface.", "You unfasten the bolts securing [src] to the surface.")
 
 /obj/structure/machinery/chem_dispenser/attack_remote(mob/user as mob)
 	return src.attack_hand(user)
@@ -279,16 +290,21 @@
 	ui_title = "Chem Dispenser 4000"
 	req_skill_level = SKILL_MEDICAL_MEDIC
 	accept_beaker_only = FALSE
-	pressurized_only = TRUE
+	whitelisted_containers = list(
+		/obj/item/reagent_container/glass/pressurized_canister,
+		/obj/item/reagent_container/glass/minitank //MS-11 Smart Refill Tank
+	)
 	dispensable_reagents = list(
 		"bicaridine",
 		"kelotane",
 		"anti_toxin",
 		"dexalin",
+		"dexalinp",
 		"inaprovaline",
 		"adrenaline",
 		"peridaxon",
 		"tramadol",
+		"oxycodone",
 		"tricordrazine",
 	)
 
@@ -333,6 +349,7 @@
 		"grapejuice",
 		"lemonjuice",
 		"banana",
+		"chocolatesyrup",
 	)
 	hacked_reagents = list(
 		"milk",

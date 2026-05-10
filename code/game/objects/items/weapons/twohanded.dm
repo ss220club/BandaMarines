@@ -12,6 +12,9 @@
 	force_wielded = MELEE_FORCE_VERY_STRONG
 	flags_item = TWOHANDED
 
+	shield_type = SHIELD_DIRECTIONAL_TWOHANDS
+	shield_chance = SHIELD_CHANCE_MED
+
 /obj/item/weapon/twohanded/update_icon()
 	return
 
@@ -40,9 +43,9 @@
 			return
 
 	flags_item    ^= WIELDED
-	name    += " (Wielded)"
+	place_offhand(user, name)
+	//name    += " (Wielded)" // SS220 EDIT ADDICTION
 	item_state += "_w"
-	place_offhand(user,initial(name))
 	return 1
 
 /obj/item/proc/unwield(mob/user)
@@ -50,7 +53,7 @@
 		return FALSE//Have to be actually a twohander and wielded.
 	flags_item ^= WIELDED
 	SEND_SIGNAL(src, COMSIG_ITEM_UNWIELD, user)
-	name = copytext(name,1,-10)
+	//name = copytext(name,1,-10) // SS220 EDIT ADDICTION
 	item_state  = copytext(item_state,1,-2)
 	remove_offhand(user)
 	return TRUE
@@ -62,6 +65,8 @@
 	offhand.name = "[item_name] - offhand"
 	offhand.desc = "Your second grip on the [item_name]."
 	offhand.flags_item |= WIELDED
+	offhand.force_wielded = 0 // no reason for these things to deal the same damage as the parent when they shouldnt be used for attacks anyway
+	offhand.force = 0 // ditto
 	user.put_in_inactive_hand(offhand)
 	user.update_inv_l_hand(0)
 	user.update_inv_r_hand()
@@ -111,6 +116,9 @@
 	name = "offhand"
 	flags_item = DELONDROP|TWOHANDED|WIELDED|CANTSTRIP
 
+	shield_type = SHIELD_NONE
+	shield_chance = SHIELD_CHANCE_NONE
+
 /obj/item/weapon/twohanded/offhand/unwield(mob/user)
 	if(flags_item & WIELDED)
 		flags_item &= ~WIELDED
@@ -150,6 +158,7 @@
 	flags_atom = FPRINT|QUICK_DRAWABLE|CONDUCT
 	flags_item = TWOHANDED
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
+	shield_flags = CAN_SHIELD_BASH
 
 /obj/item/weapon/twohanded/fireaxe/wield(mob/user)
 	. = ..()
@@ -172,7 +181,7 @@
 
 /obj/item/weapon/twohanded/sledgehammer
 	name = "sledgehammer"
-	desc = "a large block of metal on the end of a pole. Smashing!"
+	desc = "A large block of metal on the end of a pole. Smashing!"
 	icon_state = "sledgehammer"
 	item_state = "sledgehammer"
 	icon = 'icons/obj/items/weapons/melee/hammers.dmi'
@@ -214,11 +223,14 @@
 	wieldsound = 'sound/weapons/saberon.ogg'
 	unwieldsound = 'sound/weapons/saberoff.ogg'
 	flags_atom = FPRINT|QUICK_DRAWABLE|NOBLOODY
-	flags_item = NOSHIELD|TWOHANDED
+	flags_item = UNBLOCKABLE|TWOHANDED
 
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	sharp = IS_SHARP_ITEM_BIG
 	edge = 1
+
+	shield_type = SHIELD_ABSOLUTE_TWOHANDS
+	shield_chance = SHIELD_CHANCE_VHIGH
 
 /obj/item/weapon/twohanded/dualsaber/attack(target as mob, mob/living/user as mob)
 	..()
@@ -227,10 +239,6 @@
 			for(var/i in list(1,2,4,8,4,2,1,2,4,8,4,2))
 				user.setDir(i)
 				sleep(1)
-
-/obj/item/weapon/twohanded/dualsaber/IsShield()
-	if(flags_item & WIELDED)
-		return 1
 
 /obj/item/weapon/twohanded/dualsaber/wield(mob/user)
 	. = ..()
@@ -253,7 +261,7 @@
 	item_icons = list(
 		WEAR_L_HAND = 'icons/mob/humans/onmob/inhands/weapons/melee/spears_lefthand.dmi',
 		WEAR_R_HAND = 'icons/mob/humans/onmob/inhands/weapons/melee/spears_righthand.dmi',
-		WEAR_BACK = 'icons/mob/humans/onmob/clothing/back/misc.dmi'
+		WEAR_BACK = 'icons/mob/humans/onmob/clothing/back/melee_weapons.dmi'
 	)
 	w_class = SIZE_LARGE
 	flags_equip_slot = SLOT_BACK
@@ -261,9 +269,10 @@
 	throw_speed = SPEED_VERY_FAST
 	edge = 1
 	sharp = IS_SHARP_ITEM_SIMPLE
-	flags_item = NOSHIELD|TWOHANDED
+	flags_item = TWOHANDED
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb = list("attacked", "stabbed", "jabbed", "torn", "gored")
+	shield_chance = SHIELD_CHANCE_LOW
 
 /obj/item/weapon/twohanded/lungemine
 	name = "lunge mine"
@@ -279,8 +288,11 @@
 	force_wielded = 1
 	attack_verb = list("whacked")
 	hitsound = "swing_hit"
+	shield_chance = SHIELD_CHANCE_NONE
+	shield_type = SHIELD_NONE
 
 	var/detonating = FALSE
+	var/gib_user = TRUE
 	var/wielded_attack_verb = list("charged")
 	var/wielded_hitsound = null
 	var/unwielded_attack_verb = list("whacked")
@@ -331,17 +343,20 @@
 	detonating = TRUE
 	playsound(user, 'sound/items/Wirecutter.ogg', 50, 1)
 
-	sleep(3)
+	addtimer(CALLBACK(src, PROC_REF(lungemine_detonate), target, user), 0.3 SECONDS)
 
+/obj/item/weapon/twohanded/lungemine/proc/lungemine_detonate(atom/target, mob/user)
 	var/turf/epicenter = get_turf(target)
-	target.ex_act(400, null, src, user, 100)
 	cell_explosion(epicenter, detonation_force, 50, EXPLOSION_FALLOFF_SHAPE_LINEAR, null, create_cause_data(initial(name), user))
+	if(gib_user)
+		user.gib()
 	qdel(src)
 
 /obj/item/weapon/twohanded/lungemine/damaged
 	name = "damaged lunge mine"
 	desc = "A crude but intimidatingly bulky shaped explosive charge, fixed to the end of a pole. To use it, one must grasp it firmly in both hands, and thrust the prongs of the shaped charge into the target. That the resulting explosion occurs directly in front of the user's face was not an apparent concern of the designer. A true hero's weapon. This one seems pretty badly damaged, you probably shouldn't even pick it up from the ground."
 	detonation_force = 50
+	gib_user = FALSE
 
 /obj/item/weapon/twohanded/breacher
 	name = "\improper D2 Breaching Hammer"
@@ -350,7 +365,7 @@
 	item_icons = list(
 		WEAR_L_HAND = 'icons/mob/humans/onmob/inhands/equipment/tools_lefthand.dmi',
 		WEAR_R_HAND = 'icons/mob/humans/onmob/inhands/equipment/tools_righthand.dmi',
-		WEAR_BACK = 'icons/mob/humans/onmob/clothing/back/misc.dmi'
+		WEAR_BACK = 'icons/mob/humans/onmob/clothing/back/melee_weapons.dmi'
 	)
 	icon_state = "d2_breacher"
 	item_state = "d2_breacher"
@@ -369,16 +384,17 @@
 	item_state = "syn_breacher"
 	force_wielded = MELEE_FORCE_VERY_STRONG
 	really_heavy = TRUE
+	shield_chance = SHIELD_CHANCE_MEDHIGH
 	var/move_delay_addition = 1.5
 
 /obj/item/weapon/twohanded/breacher/synth/pickup(mob/user)
+	. = ..()
 	if(!(HAS_TRAIT(user, TRAIT_SUPER_STRONG)))
 		to_chat(user, SPAN_HIGHDANGER("You barely manage to lift [src] above your knees. This thing will probably be useless to you."))
 		user.apply_effect(3, EYE_BLUR)
 		RegisterSignal(user, COMSIG_HUMAN_POST_MOVE_DELAY, PROC_REF(handle_movedelay))
 
 		return
-	..()
 
 /obj/item/weapon/twohanded/breacher/synth/proc/handle_movedelay(mob/living/M, list/movedata)
 	SIGNAL_HANDLER

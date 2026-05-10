@@ -93,18 +93,18 @@
 		ADD_TRAIT(victim, TRAIT_FLOORED, CHOKEHOLD_TRAIT)
 
 /obj/item/grab/proc/progress_passive(mob/living/carbon/human/user, mob/living/victim)
-	if(SEND_SIGNAL(victim, COMSIG_MOB_AGGRESSIVELY_GRABBED, user) & COMSIG_MOB_AGGRESIVE_GRAB_CANCEL)
+	if(SEND_SIGNAL(victim, COMSIG_MOB_AGGRESSIVELY_GRABBED, user) & COMSIG_MOB_AGGRESSIVE_GRAB_CANCEL)
 		to_chat(user, SPAN_WARNING("You can't grab [victim] aggressively!"))
 		return
 
 	user.grab_level = GRAB_AGGRESSIVE
 	playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
-	user.visible_message(SPAN_WARNING("[user] has grabbed [victim] aggressively!"), null, null, 5)
+	user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] сильно хватает [victim.declent_ru(ACCUSATIVE)]."), null, null, 5) // SS220 EDIT ADDICTION
 
 /obj/item/grab/proc/progress_aggressive(mob/living/carbon/human/user, mob/living/victim)
 	user.grab_level = GRAB_CHOKE
 	playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
-	user.visible_message(SPAN_WARNING("[user] holds [victim] by the neck and starts choking them!"), null, null, 5)
+	user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] хватает [victim.declent_ru(ACCUSATIVE)] за шею и начинает душить!"), null, null, 5) // SS220 EDIT ADDICTION
 	msg_admin_attack("[key_name(user)] started to choke [key_name(victim)] at [get_area_name(victim)]", victim.loc.x, victim.loc.y, victim.loc.z)
 	victim.Move(user.loc, get_dir(victim.loc, user.loc))
 	victim.update_transform(TRUE)
@@ -118,53 +118,41 @@
 		if(!istype(pulled))
 			return
 		if(isxeno(pulled) || issynth(pulled))
-			to_chat(xeno, SPAN_WARNING("That wouldn't taste very good."))
+			to_chat(xeno, SPAN_WARNING("Это не имеет смысла."))
 			return 0
 		if(pulled.buckled)
-			to_chat(xeno, SPAN_WARNING("[pulled] is buckled to something."))
+			to_chat(xeno, SPAN_WARNING("[capitalize(pulled.declent_ru(NOMINATIVE))] привязан[genderize_ru(pulled.gender, "", "а", "", "ы")] к чему-то."))
 			return 0
 		if(pulled.stat == DEAD && !pulled.chestburst)
-			to_chat(xeno, SPAN_WARNING("Ew, [pulled] is already starting to rot."))
+			to_chat(xeno, SPAN_WARNING("Фу, [pulled.declent_ru(NOMINATIVE)] начинает уже гнить."))
 			return 0
-		if(length(xeno.stomach_contents)) //Only one thing in the stomach at a time, please
-			to_chat(xeno, SPAN_WARNING("We already have something in our stomach, there's no way that will fit."))
+		if(xeno.hauled_mob?.resolve()) // We can't carry more than one mob
+			to_chat(xeno, SPAN_WARNING("Вы можете тащить только одну цель."))
 			return 0
-			/* Saving this in case we want to allow devouring of dead bodies UNLESS their client is still online somewhere
+		if(HAS_TRAIT(pulled, TRAIT_HAULED))
+			to_chat(xeno, SPAN_WARNING("Кто-то уже тащит эту цель."))
+			return 0
+			/* Saving this in case we want to allow hauling of dead bodies UNLESS their client is still online somewhere
 			if(pulled.client) //The client is still inside the body
 			else // The client is observing
 				for(var/mob/dead/observer/G in player_list)
 					if(ckey(G.mind.original.ckey) == pulled.ckey)
-						to_chat(src, "You start to devour [pulled] but realize \he is already dead.")
+						to_chat(src, "You start to haul [pulled] but realize \he is already dead.")
 						return */
 		if(user.action_busy)
-			to_chat(xeno, SPAN_WARNING("We are already busy with something."))
+			to_chat(xeno, SPAN_WARNING("Мы уже заняты чем-то другим."))
 			return
 		SEND_SIGNAL(xeno, COMSIG_MOB_EFFECT_CLOAK_CANCEL)
-		xeno.visible_message(SPAN_DANGER("[xeno] starts to devour [pulled]!"),
-		SPAN_DANGER("We start to devour [pulled]!"), null, 5)
+		xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] пытается связать [pulled.declent_ru(ACCUSATIVE)]!"),
+		SPAN_DANGER("Мы начинаем связывать [pulled.declent_ru(ACCUSATIVE)]!"), null, 5)
 		if(HAS_TRAIT(xeno, TRAIT_CLOAKED)) //cloaked don't show the visible message, so we gotta work around
-			to_chat(pulled, FONT_SIZE_HUGE(SPAN_DANGER("[xeno] is trying to devour you!")))
+			to_chat(pulled, FONT_SIZE_HUGE(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] пытается вас связать!"))) // SS220 EDIT ADDICTION
 		if(do_after(xeno, 50, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE))
-			if(isxeno(pulled.loc) && !length(xeno.stomach_contents))
-				to_chat(xeno, SPAN_WARNING("Someone already ate \the [pulled]."))
+			if((isxeno(pulled.loc) && !xeno.hauled_mob) || HAS_TRAIT(pulled, TRAIT_HAULED))
+				to_chat(xeno, SPAN_WARNING("Кто-то уже схватил [pulled.declent_ru(ACCUSATIVE)]."))
 				return 0
-			if(xeno.pulling == pulled && !pulled.buckled && (pulled.stat != DEAD || pulled.chestburst) && !length(xeno.stomach_contents)) //make sure you've still got them in your claws, and alive
-				if(SEND_SIGNAL(pulled, COMSIG_MOB_DEVOURED, xeno) & COMPONENT_CANCEL_DEVOUR)
+			if(xeno.pulling == pulled && !pulled.buckled && (pulled.stat != DEAD || pulled.chestburst) && !xeno.hauled_mob?.resolve()) //make sure you've still got them in your claws, and alive
+				if(SEND_SIGNAL(pulled, COMSIG_MOB_HAULED, xeno) & COMPONENT_CANCEL_HAUL)
 					return FALSE
-
-				xeno.visible_message(SPAN_WARNING("[xeno] devours [pulled]!"),
-					SPAN_WARNING("We devour [pulled]!"), null, 5)
-				log_interact(xeno, pulled, "[key_name(xeno)] devoured [key_name(pulled)] at [get_area_name(xeno)]")
-
-				if(ishuman(pulled))
-					var/mob/living/carbon/human/pulled_human = pulled
-					pulled_human.disable_lights()
-
-				//Then, we place the mob where it ought to be
-				xeno.stomach_contents.Add(pulled)
-				xeno.devour_timer = world.time + 500 + rand(0,200) // 50-70 seconds
-				pulled.forceMove(xeno)
-				return TRUE
-		if(!(pulled in xeno.stomach_contents))
-			to_chat(xeno, SPAN_WARNING("We stop devouring [pulled]. They probably tasted gross anyways."))
-		return 0
+				xeno.haul(pulled)
+				xeno.stop_pulling()

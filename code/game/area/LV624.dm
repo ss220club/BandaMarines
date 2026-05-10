@@ -14,6 +14,7 @@
 //Jungle
 /area/lv624/ground/jungle
 	minimap_color = MINIMAP_AREA_JUNGLE
+	flags_area = AREA_YAUTJA_HANGABLE
 
 /area/lv624/ground/jungle/south_east_jungle
 	name ="\improper Southeast Jungle"
@@ -260,6 +261,11 @@
 	name ="\improper North Central Caves"
 	icon_state = "away3" //meh
 
+/area/lv624/ground/caves/north_central_caves/lake_house_tower
+	name = "\improper Lake House Communications Relay"
+	ceiling = CEILING_NONE
+	icon_state = "yellow"
+
 /area/lv624/ground/caves/south_central_caves
 	name ="\improper South Central Caves"
 	icon_state = "away2" //meh
@@ -402,7 +408,7 @@
 /area/lv624/lazarus/secure_storage
 	name = "\improper Secure Storage"
 	icon_state = "storage"
-	flags_area = AREA_NOTUNNEL
+	flags_area = AREA_NOBURROW
 	linked_lz = DROPSHIP_LZ2
 
 /area/lv624/lazarus/robotics

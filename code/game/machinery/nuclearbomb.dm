@@ -1,7 +1,7 @@
 GLOBAL_VAR_INIT(bomb_set, FALSE)
 /obj/structure/machinery/nuclearbomb
-	name = "\improper Nuclear Fission Explosive"
-	desc = "Nuke the entire site from orbit, it's the only way to be sure. Too bad we don't have any orbital nukes."
+	name = "\improper 'Blockbuster' Large Atomic Fission Demolition Device (LAFDEDE)"
+	desc = "Mainly intended as a demolition charge, this device, also called 'W-135', is primarily used by USCM space vessels that don't have the equipment to remotely nuke planets from orbit. According to the Nuclear Regulatory Commission of the United Americas, this device has an estimated yield of 15 to 30 kilotonnes of TNT, enough to flatten everything that moves in a 6.30 kilometer, or 3.9 mile range. It also weighs 422 kilograms, or 930 pounds."
 	icon = 'icons/obj/structures/machinery/nuclearbomb.dmi'
 	icon_state = "nuke"
 	density = TRUE
@@ -16,6 +16,9 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 	var/being_used = FALSE
 	var/end_round = TRUE
 	var/timer_announcements_flags = NUKE_SHOW_TIMER_ALL
+	var/decryption_time = 0
+	var/decryption_end_time = null
+	var/decrypting = FALSE
 	pixel_x = -16
 	use_power = USE_POWER_NONE
 	req_access = list()
@@ -32,7 +35,7 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 		return
 
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, z, MINIMAP_FLAG_ALL, "nuke[timing ? "_on" : "_off"]", 'icons/ui_icons/map_blips_large.dmi')
+	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image(icon='icons/UI_icons/map_blips_large.dmi', icon_state="nuke[timing ? "_on" : "_off"]", layer=VERY_HIGH_FLOAT_LAYER))
 
 /obj/structure/machinery/nuclearbomb/update_icon()
 	overlays.Cut()
@@ -88,9 +91,12 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, attack_hand), M)
 	return XENO_ATTACK_ACTION
 
+/obj/structure/machinery/nuclearbomb/handle_tail_stab(mob/living/carbon/xenomorph/xeno, blunt_stab)
+	return TAILSTAB_COOLDOWN_NONE
+
 /obj/structure/machinery/nuclearbomb/attackby(obj/item/O as obj, mob/user as mob)
 	if(anchored && timing && GLOB.bomb_set && HAS_TRAIT(O, TRAIT_TOOL_WIRECUTTERS))
-		user.visible_message(SPAN_INFO("[user] begins to defuse \the [src]."), SPAN_INFO("You begin to defuse \the [src]. This will take some time..."))
+		user.visible_message(SPAN_INFO("[capitalize(user.declent_ru(NOMINATIVE))] begins to defuse \the [src]."), SPAN_INFO("You begin to defuse \the [src]. This will take some time..."))
 		if(do_after(user, 150 * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE))
 			disable()
 			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
@@ -111,7 +117,7 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 
 		if(isqueen(user))
 			if(timing && GLOB.bomb_set)
-				user.visible_message(SPAN_INFO("[user] begins engulfing \the [src] with resin."), SPAN_INFO("You start regurgitating and engulfing the \the [src] with resin... stopping the electronics from working, this will take some time..."))
+				user.visible_message(SPAN_INFO("[capitalize(user.declent_ru(NOMINATIVE))] begins engulfing \the [src] with resin."), SPAN_INFO("You start regurgitating and engulfing the \the [src] with resin... stopping the electronics from working, this will take some time..."))
 				if(do_after(user, 5 SECONDS, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE))
 					disable()
 			return
@@ -126,7 +132,7 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 /obj/structure/machinery/nuclearbomb/tgui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "NuclearBomb", "[src.name]")
+		ui = new(user, src, "NuclearBomb", "[capitalize(name)]")
 		ui.open()
 
 /obj/structure/machinery/nuclearbomb/ui_state(mob/user)
@@ -152,6 +158,7 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 	data["allowed"] = allowed
 	data["being_used"] = being_used
 	data["decryption_complete"] = TRUE //this is overridden by techweb nuke UI_data later, this just makes it default to true
+	data["can_disengage"] = TRUE
 
 	return data
 
@@ -169,8 +176,13 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 			if(!ishuman(ui.user))
 				return
 
+			if(decryption_time != 0) //This should never get called unless the decryption process is still ongoing, in which case a user has modified their client.
+				to_chat(ui.user, SPAN_INFO("The encryption process must be completed first!"))
+				message_admins("[key_name(ui.user, 1)] [ADMIN_JMP_USER(ui.user)] attempted to activate [src] before it is ready, this shouldn't be possible.")
+				return
+
 			if(!allowed(ui.user))
-				to_chat(ui.user, SPAN_INFO("Access denied!"))
+				to_chat(ui.user, SPAN_INFO("Доступ запрещён"))
 				return
 
 			if(!anchored)
@@ -178,7 +190,7 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 				return
 
 			if(safety)
-				to_chat(ui.user, SPAN_INFO("The safety is still on."))
+				to_chat(ui.user, SPAN_INFO("Предохранитель поставлен."))
 				return
 
 			if(!A.can_build_special)
@@ -212,7 +224,7 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 
 		if("toggleSafety")
 			if(!allowed(ui.user))
-				to_chat(ui.user, SPAN_INFO("Access denied!"))
+				to_chat(ui.user, SPAN_INFO("Доступ запрещён"))
 				return
 			if(timing)
 				to_chat(ui.user, SPAN_INFO("Disengage first!"))
@@ -238,7 +250,7 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 			if(!ishuman(ui.user))
 				return
 			if(!allowed(ui.user))
-				to_chat(ui.user, SPAN_INFO("Access denied!"))
+				to_chat(ui.user, SPAN_INFO("Доступ запрещён"))
 				return
 			if(command_lockout)
 				command_lockout = FALSE
@@ -253,7 +265,7 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 				if(H.get_active_hand())
 					acc += H.get_active_hand().GetAccess()
 				if(!(ACCESS_MARINE_COMMAND in acc))
-					to_chat(ui.user, SPAN_INFO("Access denied!"))
+					to_chat(ui.user, SPAN_INFO("Доступ запрещён"))
 					return
 
 				command_lockout = TRUE
@@ -321,7 +333,7 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 	var/list/humans_other = GLOB.human_mob_list + GLOB.dead_mob_list
 	var/list/humans_uscm = list()
 	for(var/mob/current_mob as anything in humans_other)
-		if(current_mob.stat != CONSCIOUS || isyautja(current_mob))
+		if(current_mob.stat  == UNCONSCIOUS || isyautja(current_mob))
 			humans_other -= current_mob
 			continue
 		if(current_mob.faction == FACTION_MARINE || current_mob.faction == FACTION_SURVIVOR) //separating marines from other factions. Survs go here too
@@ -329,19 +341,19 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 			humans_other -= current_mob
 
 	if(timer_warning) //we check for timer warnings first
-		announcement_helper("ВНИМАНИЕ.\n\nДО ДЕТОНАЦИИ ЗАРЯДА - [floor(timeleft/10)] СЕКУНД.", "[MAIN_AI_SYSTEM]: Мониторинг ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
-		announcement_helper("ВНИМАНИЕ.\n\nДО ДЕТОНАЦИИ ЗАРЯДА - [floor(timeleft/10)] СЕКУНД.", "HQ Intel Division", humans_other, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
+		announcement_helper("ВНИМАНИЕ.\n\nДО ДЕТОНАЦИИ ЗАРЯДА - [floor(timeleft/10)] СЕКУНД.", "[MAIN_AI_SYSTEM]: Мониторинг ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
+		announcement_helper("ВНИМАНИЕ.\n\nДО ДЕТОНАЦИИ ЗАРЯДА - [floor(timeleft/10)] СЕКУНД.", "HQ Intel Division", humans_other, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
 		//preds part
 		var/t_left = duration2text_sec(floor(rand(timeleft - timeleft / 10, timeleft + timeleft / 10)))
-		yautja_announcement(SPAN_YAUTJABOLDBIG("ВНИМАНИЕ!\n\nУ вас есть примерно [t_left] секунд, чтобы покинуть охотничьи угодья до активации человеческого устройства очистки."))
+		elder_overseer_message("Человеческое устройство очистки было активировано. У вас есть примерно [t_left] секунд, чтобы покинуть охотничьи угодья до его детонации.") // SS220 EDIT ADDICTION
 		//xenos part
 		var/warning
 		if(timer_warning & NUKE_SHOW_TIMER_HALF)
-			warning = "Дрожь пробегает по нашему панцирю, мы чувствуем приближение конца... Убийца ульев прошел половину подготовительного этапа!"
+			warning = "Дрожь пробегает по нашему панцирю, мы чувствуем приближение конца... Убийца ульев уже на полпути к детонации!"
 		else if(timer_warning & NUKE_SHOW_TIMER_MINUTE)
-			warning = "Каждый наш орган чувств вопит... Убийца ульев близок к своему воплощению!"
+			warning = "Каждый наш орган чувств вопит... Убийца ульев почти готов к детонации!"
 		else
-			warning = "ОТКЛЮЧИТЕ ЭТО! ЖИВО!"
+			warning = "ОТКЛЮЧИТЕ ЕГО! СЕЙЧАС ЖЕ!"
 		var/datum/hive_status/hive
 		for(var/hivenumber in GLOB.hive_datum)
 			hive = GLOB.hive_datum[hivenumber]
@@ -352,24 +364,24 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 
 	var/datum/hive_status/hive
 	if(timing)
-		announcement_helper("ВНИМАНИЕ.\n\nЯДЕРНЫЙ ЗАРЯД АКТИВИРОВАН.\n\nДО ДЕТОНАЦИИ - [floor(timeleft/10)] СЕКУНД.", "[MAIN_AI_SYSTEM]: Датчик ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
-		announcement_helper("ВНИМАНИЕ.\n\nЯДЕРНЫЙ ЗАРЯД АКТИВИРОВАН.\n\nДО ДЕТОНАЦИИ - [floor(timeleft/10)] СЕКУНД.", "HQ Nuclear Tracker", humans_other, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
+		announcement_helper("ВНИМАНИЕ.\n\nЯДЕРНЫЙ ЗАРЯД РАЗВЁРНУТ.\n\nДО ДЕТОНАЦИИ - [floor(timeleft/10)] СЕКУНД.", "[MAIN_AI_SYSTEM]: Датчик ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
+		announcement_helper("ВНИМАНИЕ.\n\nЯДЕРНЫЙ ЗАРЯД РАЗВЁРНУТ.\n\nДО ДЕТОНАЦИИ - [floor(timeleft/10)] СЕКУНД.", "HQ Nuclear Tracker", humans_other, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
 		var/t_left = duration2text_sec(floor(rand(timeleft - timeleft / 10, timeleft + timeleft / 10)))
-		yautja_announcement(SPAN_YAUTJABOLDBIG("ВНИМАНИЕ!<br>Обнаружено человеческое устройство очистки. У вас есть примерно [t_left], чтобы покинуть охотничьи угодья до его активации."))
+		elder_overseer_message("Человеческое устройство очистки было развернуто. У вас есть примерно [t_left] секунд, чтобы покинуть охотничьи угодья до начала дешифровки.") // SS220 EDIT ADDICTION
 		for(var/hivenumber in GLOB.hive_datum)
 			hive = GLOB.hive_datum[hivenumber]
 			if(!length(hive.totalXenos))
 				continue
-			xeno_announcement(SPAN_XENOANNOUNCE("Носители развернули убийцу ульев в [get_area_name(loc)]! Остановите их любой ценой!"), hive.hivenumber, XENO_GENERAL_ANNOUNCE)
+			xeno_announcement(SPAN_XENOANNOUNCE("Носители развернули убийцу ульев около «[get_area_name(loc)]»! Остановите их любой ценой!"), hive.hivenumber, XENO_GENERAL_ANNOUNCE) // SS220 EDIT ADDICTION
 	else
-		announcement_helper("ВНИМАНИЕ.\n\nЯДЕРНЫЙ ЗАРЯД ДЕАКТИВИРОВАН.", "[MAIN_AI_SYSTEM]: Датчик ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
-		announcement_helper("ВНИМАНИЕ.\n\nЯДЕРНЫЙ ЗАРЯД ДЕАКТИВИРОВАН.", "HQ Intel Division", humans_other, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
-		yautja_announcement(SPAN_YAUTJABOLDBIG("ВНИМАНИЕ!<br>Сигнатура человеческого устройства очистки перестала проявляться."))
+		announcement_helper("ВНИМАНИЕ.\n\nЯДЕРНЫЙ ЗАРЯД ДЕАКТИВИРОВАН.", "[MAIN_AI_SYSTEM]: Датчик ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
+		announcement_helper("ВНИМАНИЕ.\n\nЯДЕРНЫЙ ЗАРЯД ДЕАКТИВИРОВАН.", "HQ Intel Division", humans_other, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
+		elder_overseer_message("Сигнатура человеческого устройства очистки исчезла.")
 		for(var/hivenumber in GLOB.hive_datum)
 			hive = GLOB.hive_datum[hivenumber]
 			if(!length(hive.totalXenos))
 				continue
-			xeno_announcement(SPAN_XENOANNOUNCE("Убийца ульев остановлен! Возрадуемся!"), hive.hivenumber, XENO_GENERAL_ANNOUNCE)
+			xeno_announcement(SPAN_XENOANNOUNCE("Убийца ульев был отключён! Возрадуемся!"), hive.hivenumber, XENO_GENERAL_ANNOUNCE)
 	return
 
 /obj/structure/machinery/nuclearbomb/ex_act(severity)
@@ -416,7 +428,7 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 	for(var/datum/interior/interior in SSinterior.interiors)
 		if(!interior.exterior || interior.exterior.z != z)
 			continue
-	
+
 		for(var/mob/living/passenger in interior.get_passengers())
 			if(!(passenger in (alive_mobs + dead_mobs)))
 				if(passenger.stat != DEAD)
@@ -425,12 +437,12 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 					qdel(embryo)
 
 	for(var/mob/current_mob in alive_mobs)
-		if(istype(current_mob.loc, /obj/structure/closet/secure_closet/freezer/fridge))
+		if(istype(current_mob.loc, /obj/structure/closet/secure_closet/freezer))
 			continue
 		current_mob.death(create_cause_data("nuclear explosion"))
 
 	for(var/mob/living/current_mob in (alive_mobs + dead_mobs))
-		if(istype(current_mob.loc, /obj/structure/closet/secure_closet/freezer/fridge))
+		if(istype(current_mob.loc, /obj/structure/closet/secure_closet/freezer))
 			continue
 		for(var/obj/item/alien_embryo/embryo in current_mob)
 			qdel(embryo)
@@ -445,11 +457,11 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 	return ..()
 
 /obj/structure/machinery/nuclearbomb/tech
-	var/decryption_time = 10 MINUTES
-	var/decryption_end_time = null
-	var/decrypting = FALSE
+	decryption_time = 10 MINUTES
+	decryption_end_time = null
+	decrypting = FALSE
 
-	timeleft = 1 MINUTES
+	timeleft = 3 MINUTES
 	timer_announcements_flags = NUKE_DECRYPT_SHOW_TIMER_ALL
 
 	var/list/linked_decryption_towers
@@ -477,22 +489,38 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 	.["decryption_time"] = duration2text_sec(decryption_time)
 
 	.["decryption_complete"] = decryption_time ? FALSE : TRUE
+	.["can_disengage"] = FALSE
 
 /obj/structure/machinery/nuclearbomb/tech/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	if(..())
+	if(!ishuman(ui.user))
+		return
+
+	if(!allowed(ui.user))
+		to_chat(ui.user, SPAN_INFO("Доступ запрещён"))
 		return
 
 	switch(action)
+		if("toggleNuke")
+			if(timing == -1)
+				return
+			if(timing)
+				to_chat(ui.user, SPAN_INFO("[src] is impossible to disengage now!"))
+				return
+		if("toggleSafety")
+			if(decrypting)
+				to_chat(ui.user, SPAN_INFO("Stop decryption first!"))
+				return
+		if("toggleAnchor")
+			if(decrypting)
+				to_chat(ui.user, SPAN_INFO("Stop decryption first!"))
+				return
 		if("toggleEncryption")
-			if(!ishuman(ui.user))
-				return
-
-			if(!allowed(ui.user))
-				to_chat(ui.user, SPAN_INFO("Access denied!"))
-				return
-
 			if(!anchored)
 				to_chat(ui.user, SPAN_INFO("Engage anchors first!"))
+				return
+
+			if(safety)
+				to_chat(ui.user, SPAN_INFO("Предохранитель поставлен."))
 				return
 
 			var/area/current_area = get_area(src)
@@ -527,10 +555,12 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 					//remove signal handlers
 					decryption_end_time = null
 					announce_to_players()
+					decryption_time = min(initial(decryption_time), decryption_time + 2 MINUTES)
 					message_admins("[src]'s encryption process has been deactivated by [key_name(ui.user, 1)] [ADMIN_JMP_USER(ui.user)]")
 				playsound(loc, 'sound/effects/thud.ogg', 100, 1)
 			being_used = FALSE
 			return TRUE
+	..()
 
 /obj/structure/machinery/nuclearbomb/tech/process()
 	if(!decrypting)
@@ -541,9 +571,14 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 	if(world.time > decryption_end_time)
 		decrypting = FALSE
 		decryption_time = 0
+		timing = TRUE
+		GLOB.bomb_set = TRUE
+		explosion_time = world.time + timeleft
+		update_minimap_icon()
 		announce_to_players(NUKE_DECRYPT_SHOW_TIMER_COMPLETE)
 		timer_announcements_flags &= ~NUKE_DECRYPT_SHOW_TIMER_COMPLETE
-		return PROCESS_KILL
+
+		return
 
 	if(!timer_announcements_flags)
 		return
@@ -566,41 +601,37 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 	var/list/humans_other = GLOB.human_mob_list + GLOB.dead_mob_list
 	var/list/humans_uscm = list()
 	for(var/mob/current_mob as anything in humans_other)
-		var/mob/living/carbon/human/current_human = current_mob
-		if(istype(current_human)) //if it's unconsious human or yautja, we remove them
-			if(current_human.stat != CONSCIOUS || isyautja(current_human))
-				humans_other -= current_mob
-				continue
+		if(current_mob.stat == UNCONSCIOUS || isyautja(current_mob))
+			humans_other -= current_mob
+			continue
 		if(current_mob.faction == FACTION_MARINE || current_mob.faction == FACTION_SURVIVOR)
 			humans_uscm += current_mob
 			humans_other -= current_mob
 
 	if(timer_warning)
 		if(timer_warning == NUKE_DECRYPT_SHOW_TIMER_COMPLETE)
-			announcement_helper("ДЕШИФРОВКА ЗАВЕРШЕНА", "[MAIN_AI_SYSTEM]: Мониторинг ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
-			announcement_helper("ДЕШИФРОВКА ЗАВЕРШЕНА", "HQ Intel Division", humans_other, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
-
-			yautja_announcement(SPAN_YAUTJABOLDBIG("ВНИМАНИЕ!\n\nМожет быть активировано человеческое устройство очистки."))
-
+			announcement_helper("ВНИМАНИЕ.\n\nДЕШИФРОВКА ЗАВЕРШЕНА.\n\nЯДЕРНЫЙ ЗАРЯД АКТИВИРОВАН.\n\nДЕТОНАЦИЯ ЧЕРЕЗ [floor(timeleft/10)] СЕКУНД.", "[MAIN_AI_SYSTEM]: Мониторинг ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
+			announcement_helper("ВНИМАНИЕ.\n\nЯДЕРНЫЙ ЗАРЯД АКТИВИРОВАН.\n\nДЕТОНАЦИЯ ЧЕРЕЗ [floor(timeleft/10)] СЕКУНД.", "HQ Nuclear Tracker", humans_other, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
+			var/t_left = duration2text_sec(floor(rand(timeleft - timeleft / 10, timeleft + timeleft / 10)))
+			elder_overseer_message("Человеческое устройство очистки было дешифровано. У вас есть примерно [t_left] секунд, чтобы покинуть охотничьи угодья до его активации.") // SS220 EDIT ADDICTION
 			var/datum/hive_status/hive
 			for(var/hivenumber in GLOB.hive_datum)
 				hive = GLOB.hive_datum[hivenumber]
 				if(!length(hive.totalXenos))
-					return
-				xeno_announcement(SPAN_XENOANNOUNCE("Мы чувствуем приближение нашей страшной погибели... Убийца ульев готов к применению. Наш единственный шанс - вывести из строя это устройство."), hive.hivenumber, XENO_GENERAL_ANNOUNCE)
+					continue
+				xeno_announcement(SPAN_XENOANNOUNCE("Носители расшифровали убийцу ульев около «[get_area_name(loc)]»! Остановите их любой ценой!"), hive.hivenumber, XENO_GENERAL_ANNOUNCE) // SS220 EDIT ADDICTION
 			return
-
-		announcement_helper("ДО ЗАВЕРШЕНИЯ ДЕШИФРОВКИ - [floor(decryption_time/10)] СЕКУНД.", "[MAIN_AI_SYSTEM]: Мониторинг ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
-		announcement_helper("ДО ЗАВЕРШЕНИЯ ДЕШИФРОВКИ - [floor(decryption_time/10)] СЕКУНД.", "HQ Intel Division", humans_other, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
+		announcement_helper("ДО ЗАВЕРШЕНИЯ ДЕШИФРОВКИ - [floor(decryption_time/10)] СЕКУНД.", "[MAIN_AI_SYSTEM]: Мониторинг ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
+		announcement_helper("ДО ЗАВЕРШЕНИЯ ДЕШИФРОВКИ - [floor(decryption_time/10)] СЕКУНД.", "HQ Intel Division", humans_other, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
 
 		//preds part
 		var/time_left = duration2text_sec(floor(rand(decryption_time - decryption_time / 10, decryption_time + decryption_time / 10)))
-		yautja_announcement(SPAN_YAUTJABOLDBIG("ВНИМАНИЕ!\n\nУ вас есть примерно [time_left] секунд, чтобы покинуть охотничьи угодья до того, как человеческое устройство очистки сможет быть активировано."))
+		elder_overseer_message("У вас есть примерно [time_left] секунд, чтобы покинуть охотничьи угодья до активации человеческого устройства очистки.") // SS220 EDIT ADDICTION
 
 		//xenos part
 		var/warning = "Время на исходе, ОСТАНОВИТЕ ИХ."
 		if(timer_warning & NUKE_DECRYPT_SHOW_TIMER_HALF)
-			warning = "Улей взволнован! Половина пути уже пройдена..."
+			warning = "Улей начинает беспокоиться! Половина пути уже пройдена..."
 
 		var/datum/hive_status/hive
 		for(var/hivenumber in GLOB.hive_datum)
@@ -612,25 +643,25 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 
 	var/datum/hive_status/hive
 	if(decrypting)
-		announcement_helper("ВНИМАНИЕ.\n\nНАЧАТА ДЕШИФРОВКА ЯДЕРНОГО ЗАРЯДА.\n\nДО ЗАВЕРШЕНИЯ ДЕШИФРОВКИ - [floor(decryption_time/10)] СЕКУНД.", "[MAIN_AI_SYSTEM]: Мониторинг ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
-		announcement_helper("ВНИМАНИЕ.\n\nНАЧАТА ДЕШИФРОВКА ЯДЕРНОГО ЗАРЯДА.\n\nДО ЗАВЕРШЕНИЯ ДЕШИФРОВКИ - [floor(decryption_time/10)] СЕКУНД.", "HQ Nuclear Tracker", humans_other, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
+		announcement_helper("ВНИМАНИЕ.\n\nНАЧАТА ДЕШИФРОВКА ЯДЕРНОГО ЗАРЯДА.\n\nДО ЗАВЕРШЕНИЯ ДЕШИФРОВКИ - [floor(decryption_time/10)] СЕКУНД.", "[MAIN_AI_SYSTEM]: Мониторинг ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
+		announcement_helper("ВНИМАНИЕ.\n\nНАЧАТА ДЕШИФРОВКА ЯДЕРНОГО ЗАРЯДА.\n\nДО ЗАВЕРШЕНИЯ ДЕШИФРОВКИ - [floor(decryption_time/10)] СЕКУНД.", "HQ Nuclear Tracker", humans_other, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
 		var/time_left = duration2text_sec(floor(rand(decryption_time - decryption_time / 10, decryption_time + decryption_time / 10)))
-		yautja_announcement(SPAN_YAUTJABOLDBIG("ВНИМАНИЕ!<br>Обнаружено человеческое устройство очистки. У вас есть примерно [time_left], прежде чем оно завершит свою подготовительную фазу."))
+		elder_overseer_message("Инициализирована дешифровка кодов человеческого устройства очистки. У вас есть примерно [time_left] секунд, чтобы покинуть охотничьи угодья до завершения дешифровки.") // SS220 EDIT ADDICTION
 		for(var/hivenumber in GLOB.hive_datum)
 			hive = GLOB.hive_datum[hivenumber]
 			if(!length(hive.totalXenos))
 				continue
-			xeno_announcement(SPAN_XENOANNOUNCE("Носители приступили к подготовительной фазе уничтожения улья в [get_area_name(loc)]! У вас есть [time_left], чтобы уничтожить хотя бы одно коммуникационное реле!"), hive.hivenumber, XENO_GENERAL_ANNOUNCE)
+			xeno_announcement(SPAN_XENOANNOUNCE("Носители начали фазу расшифровки кодов убийцы ульев около «[get_area_name(loc)]»! У вас есть примерно [time_left] секунд, чтобы уничтожить хотя бы одно коммуникационное реле!"), hive.hivenumber, XENO_GENERAL_ANNOUNCE) // SS220 EDIT ADDICTION
 		return
 
-	announcement_helper("ВНИМАНИЕ.\n\nДЕШИФРОВКА ЯДЕРНОГО ЗАРЯДА ОСТАНОВЛЕНА.", "[MAIN_AI_SYSTEM]: Мониторинг ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
-	announcement_helper("ВНИМАНИЕ.\n\nДЕШИФРОВКА ЯДЕРНОГО ЗАРЯДА ОСТАНОВЛЕНА.", "HQ Intel Division", humans_other, 'sound/misc/notice1.ogg', announcer = TTS_ARES_ANNOUNCER)	// SS220 TTS EDIT announcement
-	yautja_announcement(SPAN_YAUTJABOLDBIG("ВНИМАНИЕ!<br>Сигнатура человеческого устройства очистки перестала проявляться."))
+	announcement_helper("ВНИМАНИЕ.\n\nДЕШИФРОВКА ЯДЕРНОГО ЗАРЯДА ОСТАНОВЛЕНА.\n\nНеожиданная остановка расшифровки привела к потере данных.", "[MAIN_AI_SYSTEM]: Мониторинг ядерного устройства", humans_uscm, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
+	announcement_helper("ВНИМАНИЕ.\n\nДЕШИФРОВКА ЯДЕРНОГО ЗАРЯДА ОСТАНОВЛЕНА.", "HQ Intel Division", humans_other, 'sound/misc/notice1.ogg', announcer = GLOB.tts_announcers[TTS_ARES_ANNOUNCER_KEY])	// SS220 TTS EDIT announcement
+	elder_overseer_message("Сигнатура человеческого устройства очистки исчезла.")
 	for(var/hivenumber in GLOB.hive_datum)
 		hive = GLOB.hive_datum[hivenumber]
 		if(!length(hive.totalXenos))
 			continue
-		xeno_announcement(SPAN_XENOANNOUNCE("Подготовительная фаза убийцы ульев была прервана! Возрадуемся!"), hive.hivenumber, XENO_GENERAL_ANNOUNCE)
+		xeno_announcement(SPAN_XENOANNOUNCE("Подготовительная фаза убийцы ульев была остановлена! Возрадуемся!"), hive.hivenumber, XENO_GENERAL_ANNOUNCE)
 
 /obj/structure/machinery/nuclearbomb/tech/proc/connected_comm_shutdown(obj/structure/machinery/telecomms/relay/preset/tower/telecomm_unit)
 	SIGNAL_HANDLER
@@ -639,4 +670,15 @@ GLOBAL_VAR_INIT(bomb_set, FALSE)
 		return
 
 	decrypting = FALSE
+	decryption_time = min(initial(decryption_time), decryption_time + 2 MINUTES)
 	announce_to_players()
+
+/obj/structure/machinery/nuclearbomb/tech/attack_hand(mob/user)
+	if(!decrypting || !isqueen(user))
+		return ..()
+	user.visible_message(SPAN_INFO("[capitalize(user.declent_ru(NOMINATIVE))] begins engulfing \the [src] with resin."), SPAN_INFO("You start regurgitating and engulfing the \the [src] with resin... stopping the electronics from working, this will take some time..."))
+	if(do_after(user, 5 SECONDS, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE))
+		decrypting = FALSE
+		decryption_time = initial(decryption_time)
+		announce_to_players()
+	return

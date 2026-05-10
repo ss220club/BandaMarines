@@ -1,3 +1,12 @@
+#define KEYBIND_TYPE_SAY "say"
+#define KEYBIND_TYPE_ME "me"
+#define KEYBIND_TYPE_PICKSAY "picksay"
+
+#define COMSIG_KB_CUSTOM_KEYBIND_DOWN "keybinding_custom_down"
+
+#define KEYBIND_CUSTOM_MAX 60
+#define KEYBIND_CUSTOM_PICKSAY_MAX 30
+
 //Signals
 
 //General
@@ -29,12 +38,14 @@
 #define COMSIG_KB_CARBON_GIVEITEM_DOWN "keybinding_carbon_giveitem_down"
 #define COMSIG_KB_CARBON_WARCRY "keybinding_carbon_warcry"
 #define COMSIG_KB_CARBON_MEDIC "keybinding_carbon_medic"
+#define COMSIG_KB_CARBON_UNIQUEACTION "keybinding_carbon_uniqueaction"
 
 //Client
 #define COMSIG_KB_CLIENT_GETHELP_DOWN "keybinding_client_gethelp_down"
 #define COMSIG_KB_CLIENT_SCREENSHOT_DOWN "keybinding_client_screenshot_down"
 #define COMSIG_KB_CLIENT_TOGGLEFULLSCREEN_DOWN "keybinding_client_togglefullscreen_down"
 #define COMSIG_KB_CLIENT_MINIMALHUD_DOWN "keybinding_client_minimalhud_down"
+#define COMSIG_KB_CLIENT_SWITCHINPUT_DOWN "keybinding_client_switchinput_down"
 
 //Communication
 #define COMSIG_KB_CLIENT_OOC_DOWN "keybinding_client_ooc_down"
@@ -80,7 +91,6 @@
 #define COMSIG_KB_HUMAN_WEAPON_STOCKATTACHMENT "keybinding_human_weapon_stockattachment"
 #define COMSIG_KB_HUMAN_WEAPON_AUTOEJECT "keybinding_human_weapon_autoeject"
 #define COMSIG_KB_HUMAN_WEAPON_UNDERBARREL "keybinding_human_weapon_underbarrel"
-#define COMSIG_KB_HUMAN_WEAPON_UNIQUEACTION "keybinding_human_weapon_uniqueaction"
 #define COMSIG_KB_HUMAN_WEAPON_SAFETY "keybinding_human_weapon_safety"
 #define COMSIG_KB_HUMAN_WEAPON_UNLOAD "keybinding_human_weapon_unload"
 #define COMSIG_KB_HUMAN_WEAPON_ATTACHMENT "keybinding_human_weapon_attachment"
@@ -88,6 +98,7 @@
 #define COMSIG_KB_HUMAN_WEAPON_SHOTGUN_TUBE "keybinding_human_weapon_shotgun_tube"
 #define COMSIG_KB_HUMAN_WEAPON_TOGGLE_FRONTLINE_MODE "keybinding_human_weapon_toggle_frontline_mode"
 #define COMSIG_KB_HUMAN_WEAPON_TOGGLE_IFF "keybinding_human_weapon_toggle_iff"
+#define COMSIG_KB_HUMAN_WEAPON_TOGGLE_AIM_ASSIST "keybinding_human_weapon_toggle_aim_assist"
 
 //Living
 #define COMSIG_KB_SURGERY_INTENT_DOWN "keybinding_living_surgery_intent_down"
@@ -124,6 +135,8 @@
 #define COMSIG_KB_MOB_TARGETPREV_DOWN "keybinding_mob_targetprev_down"
 #define COMSIG_KB_MOB_BLOCKMOVEMENT_DOWN "keybinding_mob_blockmovement_down"
 #define COMSIG_KB_MOB_LOOK_UP "keybinding_mob_look_up"
+#define COMSIG_KB_MOB_TOGGLE_MINIMAP "keybinding_toggle_minimap"
+#define COMSIG_KB_MOB_MANIFEST "keybinding_mob_manifest"
 
 //Robot
 #define COMSIG_KB_SILICON_TOGGLEMODULEONE_DOWN "keybinding_silicon_togglemoduleone_down"
@@ -165,6 +178,7 @@
 #define COMSIG_KB_XENO_EVOLVE "keybinding_evolve"
 #define COMSIG_KB_XENO_PURCHASE_STRAIN "keybinding_purchase_strain"
 #define COMSIG_KB_XENO_RESET_STRAIN "keybinding_reset_strain"
+#define COMSIG_KB_XENO_BECOME_SEETHROUGH "keybinding_become_seethrough"
 
 // Yautja
 
@@ -202,11 +216,20 @@
 
 #define COMSIG_KB_YAUTJA_TELE_LOC "keybinding_yautja_tele_loc"
 #define COMSIG_KB_YAUTJA_FOLD_COMBISTICK "keybinding_yautja_fold_combistick"
+#define COMSIG_KB_YAUTJA_GAUNTLET_GUARD "keybinding_yautja_gauntlet_guard"
 
 #define COMSIG_KB_OBSERVER_JOIN_XENO "keybinding_observer_join_as_xeno"
 #define COMSIG_KB_OBSERVER_JOIN_ERT "keybinding_observer_join_ert"
 #define COMSIG_KB_OBSERVER_JOIN_PREDATOR "keybinding_observer_join_pred"
 #define COMSIG_KB_OBSERVER_JOIN_LESSER_DRONE "keybinding_observer_join_lesser_drone"
+
+// Vehicles
+
+#define COMSIG_KB_VEHICLE_TOGGLE_LOCKS "keybinding_vehicle_toggle_locks"
+#define COMSIG_KB_VEHICLE_GET_STATUS "keybinding_vehicle_get_status"
+#define COMSIG_KB_VEHICLE_CHANGE_SELECTED_WEAPON "keybinding_change_selected_weapon"
+#define COMSIG_KB_VEHICLE_ACTIVATE_HORN "keybinding_activate_horn"
+#define COMSIG_KB_VEHICLE_RELOAD_WEAPON "keybinding_reload_weapon"
 
 #define CATEGORY_CLIENT "CLIENT"
 #define CATEGORY_EMOTE "EMOTE"
@@ -218,6 +241,7 @@
 #define CATEGORY_HUMAN_INVENTORY "HUMAN INVENTORY"
 #define CATEGORY_ROBOT "ROBOT"
 #define CATEGORY_YAUTJA "YAUTJA"
+#define CATEGORY_VEHICLE "Vehicles"
 #define CATEGORY_MISC "MISC"
 #define CATEGORY_MOVEMENT "MOVEMENT"
 #define CATEGORY_COMMUNICATION "COMMUNICATION"
@@ -235,7 +259,8 @@
 #define WEIGHT_ROBOT 30
 #define WEIGHT_XENO 30
 #define WEIGHT_MOB 40
-#define WEIGHT_LIVING 50
-#define WEIGHT_DEAD 60
-#define WEIGHT_EMOTE 70
+#define WEIGHT_VEHICLE 50
+#define WEIGHT_LIVING 60
+#define WEIGHT_DEAD 70
+#define WEIGHT_EMOTE 80
 #define WEIGHT_LOWEST 999

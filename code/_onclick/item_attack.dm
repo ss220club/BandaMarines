@@ -2,6 +2,8 @@
 // Called when the item is in the active hand, and clicked; alternately, there is an 'activate held object' verb or you can hit pagedown.
 /obj/item/proc/attack_self(mob/user)
 	SHOULD_CALL_PARENT(TRUE)
+	if(HAS_TRAIT(user, TRAIT_HAULED))
+		return
 	SEND_SIGNAL(src, COMSIG_ITEM_ATTACK_SELF, user)
 	SEND_SIGNAL(user, COMSIG_MOB_ITEM_ATTACK_SELF, src)
 
@@ -19,7 +21,7 @@
 	. = ..()
 	if(W && !.)
 		if(!(W.flags_item & NOBLUDGEON))
-			visible_message(SPAN_DANGER("[src] has been hit by [user] with [W]."), null, null, 5, CHAT_TYPE_MELEE_HIT)
+			visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] ударя[pluralize_ru(user.gender, "ет", "ют")] [declent_ru(ACCUSATIVE)] [W.declent_ru(INSTRUMENTAL)]!"), null, null, 5, CHAT_TYPE_MELEE_HIT) // SS220 EDIT ADDICTION
 			user.animation_attack_on(src)
 			user.flick_attack_overlay(src, "punch")
 			return ATTACKBY_HINT_UPDATE_NEXT_MOVE
@@ -35,6 +37,8 @@
 		else if(initiate_surgery_moment(I, src, null, user))
 			return TRUE
 	*/
+	if(HAS_TRAIT(user, TRAIT_HAULED))
+		return
 	if(istype(I) && ismob(user))
 		return I.attack(src, user)
 
@@ -58,29 +62,26 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(!H.melee_allowed)
-			to_chat(H, SPAN_DANGER("You are currently unable to attack."))
+			to_chat(H, SPAN_DANGER("Вы сейчас не можете атаковать."))
 			return FALSE
 
-	var/showname = "."
+	var/showname = "Неизвестный" // SS220 EDIT ADDICTION
 	if(user)
-		if(M == user)
-			showname = " by themselves."
-		else
-			showname = " by [user]."
+		showname = "[capitalize(user.declent_ru(NOMINATIVE))]" // SS220 EDIT ADDICTION
 	if(!(user in viewers(M, null)))
-		showname = "."
+		showname = "Неизвестный" // SS220 EDIT ADDICTION
 
 	if (user.a_intent == INTENT_HELP && ((user.client?.prefs && user.client?.prefs?.toggle_prefs & TOGGLE_HELP_INTENT_SAFETY) || (user.mob_flags & SURGERY_MODE_ON)))
 		playsound(loc, 'sound/effects/pop.ogg', 25, 1)
-		user.visible_message(SPAN_NOTICE("[M] has been poked with [src][showname]"),
-			SPAN_NOTICE("You poke [M == user ? "yourself":M] with [src]."), null, 4)
+		user.visible_message(SPAN_NOTICE("[showname] тыкает [M == user ? "себя" : M.declent_ru(ACCUSATIVE)] [declent_ru(INSTRUMENTAL)]."),
+			SPAN_NOTICE("Вы тыкаете [M == user ? "себя" : M.declent_ru(ACCUSATIVE)] [declent_ru(INSTRUMENTAL)]."), null, 4) // SS220 EDIT ADDICTION
 
 		return FALSE
 
 	/////////////////////////
-	user.attack_log += "\[[time_stamp()]\]<font color='red'> Attacked [key_name(M)] with [name] (INTENT: [uppertext(intent_text(user.a_intent))]) (DAMTYE: [uppertext(damtype)])</font>"
-	M.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by  [key_name(user)] with [name] (INTENT: [uppertext(intent_text(user.a_intent))]) (DAMTYE: [uppertext(damtype)])</font>"
-	msg_admin_attack("[key_name(user)] attacked [key_name(M)] with [name] (INTENT: [uppertext(intent_text(user.a_intent))]) (DAMTYE: [uppertext(damtype)]) in [get_area(src)] ([src.loc.x],[src.loc.y],[src.loc.z]).", src.loc.x, src.loc.y, src.loc.z)
+	user.attack_log += "\[[time_stamp()]\]<font color='red'> Attacked [key_name(M)] with [name] (INTENT: [uppertext(intent_text(user.a_intent))]) (DAMTYPE: [uppertext(damtype)])</font>"
+	M.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by  [key_name(user)] with [name] (INTENT: [uppertext(intent_text(user.a_intent))]) (DAMTYPE: [uppertext(damtype)])</font>"
+	msg_admin_attack("[key_name(user)] attacked [key_name(M)] with [name] (INTENT: [uppertext(intent_text(user.a_intent))]) (DAMTYPE: [uppertext(damtype)]) in [get_area(src)] ([src.loc.x],[src.loc.y],[src.loc.z]).", src.loc.x, src.loc.y, src.loc.z)
 
 	/////////////////////////
 
@@ -93,8 +94,8 @@
 		var/used_verb = "attacked"
 		if(LAZYLEN(attack_verb))
 			used_verb = pick(attack_verb)
-		user.visible_message(SPAN_DANGER("[M] has been [used_verb] with [src][showname]."),
-			SPAN_DANGER("You [used_verb] [M == user ? "yourself":M] with [src]."), null, 5, CHAT_TYPE_MELEE_HIT)
+		user.visible_message(SPAN_DANGER("[showname] [ru_attack_verb(used_verb)] [M.declent_ru(ACCUSATIVE)] [declent_ru(INSTRUMENTAL)]."),
+			SPAN_DANGER("Вы [ru_attack_verb(used_verb)]е [M == user ? "себя": M.declent_ru(ACCUSATIVE)] [declent_ru(INSTRUMENTAL)]."), null, 5, CHAT_TYPE_MELEE_HIT)
 
 		user.animation_attack_on(M)
 		user.flick_attack_overlay(M, "punch")
@@ -110,7 +111,7 @@
 				M.apply_damage(power,BRUTE)
 			if("fire")
 				M.apply_damage(power,BURN)
-				to_chat(M, SPAN_WARNING("It burns!"))
+				to_chat(M, SPAN_WARNING("Горячо!"))
 		if(power > 5)
 			M.last_damage_data = create_cause_data(initial(name), user)
 			user.track_hit(initial(name))

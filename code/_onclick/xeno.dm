@@ -8,7 +8,7 @@
 	var/mob/alt
 
 	if(target == src) //Clicking self.
-		target = params2turf(click_parameters["screen-loc"], get_turf(src), client)
+		target = params2turf(click_parameters[SCREEN_LOC], get_turf(src), client)
 		tile_attack = TRUE
 
 	if(target.z != z)
@@ -21,6 +21,8 @@
 			if (!iscarbon(L))
 				if (!alt)
 					alt = L // last option is a simple mob
+				continue
+			if(HAS_TRAIT(L, TRAIT_NESTED))
 				continue
 
 			if (!L.is_xeno_grabbable() || L == src) //Xenos never attack themselves.
@@ -64,7 +66,8 @@
 					var/turf/target_turf = target
 					for(var/obj/flamer_fire/fire in target_turf)
 						firepatted = TRUE
-						if(!(caste.fire_immunity & FIRE_IMMUNITY_NO_DAMAGE) || fire.tied_reagent?.fire_penetrating)
+						var/penetrating = fire.tied_reagent?.fire_penetrating && !(fire_immunity & FIRE_IMMUNITY_IGNORE_PEN)
+						if(!(fire_immunity & FIRE_IMMUNITY_NO_DAMAGE) || penetrating)
 							var/firedamage = max(fire.burnlevel - check_fire_intensity_resistance(), 0) * 0.5
 							apply_damage(firedamage, BURN, fire)
 						if((fire.firelevel > fire_level_to_extinguish) && (!fire.fire_variant)) //If fire_variant = 0, default fire extinguish behavior.
@@ -144,7 +147,7 @@ so that it doesn't double up on the delays) so that it applies the delay immedia
 	if(activate_ability && selected_ability)
 		if(istype(target, /atom/movable/screen))
 			// Click through the UI: Currently this won't attempt to sprite click any mob there, just the turf
-			var/turf/turf = params2turf(mods["screen-loc"], get_turf(client.eye), client)
+			var/turf/turf = params2turf(mods[SCREEN_LOC], get_turf(client.get_eye()), client)
 			if(turf)
 				target = turf
 		selected_ability.use_ability_wrapper(target, mods)

@@ -26,25 +26,38 @@
 		to_chat(X, SPAN_WARNING("Can't do that with [blocker] in the way!"))
 		return FALSE
 
-	if(!istype(T) || T.is_weedable() < FULLY_WEEDABLE)
-		to_chat(X, SPAN_WARNING("You can't do that here."))
+	if(!istype(T))
 		return FALSE
+
+	if(T.is_weedable < FULLY_WEEDABLE)
+		var/has_node = FALSE
+		for(var/obj/effect/alien/resin/design/node in T)
+			has_node = TRUE
+			break
+
+		if(!has_node)
+			to_chat(X, SPAN_WARNING("You can't do that here without design nodes."))
+			return FALSE
+
+		if(!check_for_wall_or_door())
+			to_chat(X, SPAN_WARNING("This terrain is unsuitable for other resin secretions, only walls and doors can be built on this node."))
+			return FALSE
 
 	var/area/AR = get_area(T)
 	if(isnull(AR) || !(AR.is_resin_allowed))
 		if(!AR || AR.flags_area & AREA_UNWEEDABLE)
-			to_chat(X, SPAN_XENOWARNING("This area is unsuited to host the hive!"))
+			to_chat(X, SPAN_XENOWARNING("Эта область не подходит для размещения улья!"))
 			return
-		to_chat(X, SPAN_XENOWARNING("It's too early to spread the hive this far."))
+		to_chat(X, SPAN_XENOWARNING("Ещё слишком рано распространять улей так далеко."))
 		return FALSE
 
 	if(!(AR.resin_construction_allowed)) //disable resin walls not weed, in special circumstances EG. Stairs and Dropship turfs
-		to_chat(X, SPAN_WARNING("You sense this is not a suitable area for expanding the hive."))
+		to_chat(X, SPAN_WARNING("Вы чувствуете, что это место не подходит для расширения улья."))
 		return FALSE
 
 	var/obj/effect/alien/weeds/alien_weeds = locate() in T
 	if(!alien_weeds)
-		to_chat(X, SPAN_WARNING("You can only shape on weeds. Find some resin before you start building!"))
+		to_chat(X, SPAN_WARNING("Мы можем строить только на траве!"))
 		return FALSE
 
 	if(alien_weeds?.block_structures >= BLOCK_ALL_STRUCTURES)
@@ -61,14 +74,14 @@
 		return FALSE
 
 	if(istype(T, /turf/closed/wall)) // Can't build in walls with no density
-		to_chat(X, SPAN_WARNING("This area is too unstable to support a construction"))
+		to_chat(X, SPAN_WARNING("This area is too unstable to support a construction."))
 		return FALSE
 
 	if(!X.check_alien_construction(T, check_doors = !can_build_on_doors))
 		return FALSE
 
 	if(range_between_constructions)
-		for(var/i in urange(range_between_constructions, T))
+		for(var/i in long_range(range_between_constructions, T))
 			var/atom/A = i
 			if(A.type == build_path)
 				to_chat(X, SPAN_WARNING("This is too close to another similar structure!"))
@@ -76,8 +89,11 @@
 
 	return TRUE
 
-/datum/resin_construction/proc/build(turf/T, hivenumber, builder)
-	return
+/datum/resin_construction/proc/check_for_wall_or_door()
+	return FALSE
+
+/datum/resin_construction/proc/build()
+	return TRUE
 
 /datum/resin_construction/proc/check_thick_build(turf/build_turf, hivenumber, mob/living/carbon/xenomorph/builder)
 	var/can_build_thick = TRUE
@@ -101,16 +117,22 @@
 /datum/resin_construction/resin_turf/build(turf/build_turf, hivenumber, mob/living/carbon/xenomorph/builder)
 	var/path = check_thick_build(build_turf, hivenumber, builder) ? build_path_thick : build_path
 
-	build_turf.PlaceOnTop(path)
+	build_turf.place_on_top(path)
 
 	var/turf/closed/wall/resin/resin_wall = build_turf
 	if (istype(resin_wall) && pass_hivenumber)
 		resin_wall.hivenumber = hivenumber
 		resin_wall.set_resin_builder(builder)
 		set_hive_data(resin_wall, hivenumber)
+		while(resin_wall.upper_wall)
+			resin_wall = resin_wall.upper_wall
+			resin_wall.hivenumber = hivenumber
+			resin_wall.set_resin_builder(builder)
+			set_hive_data(resin_wall, hivenumber)
+
+	.=..() //we call parent after the turf is placed for correct link with upper_wall
 
 	return build_turf
-
 
 // Resin Walls
 /datum/resin_construction/resin_turf/wall
@@ -122,6 +144,15 @@
 
 	build_path = /turf/closed/wall/resin
 	build_animation_effect = /obj/effect/resin_construct/weak
+
+/datum/resin_construction/resin_turf/wall/check_for_wall_or_door()
+	return TRUE
+
+/datum/resin_construction/resin_turf/wall/above
+	name = "resin high wall"
+	cost = 0
+	scaling_cost = FALSE
+	build_path = /turf/closed/wall/resin/above
 
 /datum/resin_construction/resin_turf/wall/thick
 	name = "Thick Resin Wall"
@@ -217,6 +248,9 @@
 		to_chat(X, SPAN_WARNING("Resin doors need a wall or resin door next to them to stand up."))
 		return FALSE
 
+	return TRUE
+
+/datum/resin_construction/resin_obj/door/check_for_wall_or_door()
 	return TRUE
 
 /datum/resin_construction/resin_obj/door/queen

@@ -1,10 +1,15 @@
 //The mob should have a gender you want before running this proc. Will run fine without H
 /datum/preferences/proc/randomize_appearance(mob/living/carbon/human/H)
 	if(H)
-		if(H.gender == MALE)
-			gender = MALE
-		else
-			gender = FEMALE
+		switch(H.gender)
+			if(MALE)
+				gender = MALE
+			if(FEMALE)
+				gender = FEMALE
+			if(PLURAL)
+				gender = PLURAL
+			else
+				gender = pick(MALE, FEMALE)
 
 	skin_color = random_skin_color()
 	body_type = random_body_type()
@@ -188,9 +193,7 @@
 	var/J = job_pref_to_gear_preset()
 	if(isnull(preview_dummy))
 		preview_dummy = new()
-
-	preview_dummy.blocks_emissive = FALSE
-	preview_dummy.update_emissive_block()
+		RegisterSignal(preview_dummy, COMSIG_PARENT_QDELETING, PROC_REF(clear_xeno_dummy)) // BANDAMARINES EDIT
 
 	clear_equipment()
 	if(refresh_limb_status)
@@ -203,14 +206,20 @@
 	for (var/datum/character_trait/character_trait as anything in preview_dummy.traits)
 		character_trait.unapply_trait(preview_dummy)
 
-	for(var/gear_item in gear)
-		var/datum/gear/gear = GLOB.gear_datums_by_name[gear_item]
-		var/obj/item/item = new gear.path()
+	var/gear_to_preview = gear.Copy()
+	var/loadout_to_preview = get_active_loadout()
+	if(loadout_to_preview)
+		gear_to_preview += loadout_to_preview
 
-		if(!preview_dummy.equip_to_appropriate_slot(item))
-			qdel(item)
+	for(var/gear_type in gear_to_preview)
+		var/datum/gear/gear = GLOB.gear_datums_by_type[gear_type]
+		gear.equip_to_user(preview_dummy, override_checks = TRUE, drop_instead_of_del = FALSE)
 
 	arm_equipment(preview_dummy, J, FALSE, FALSE, owner, show_job_gear)
+
+	for(var/obj/limb/L in preview_dummy.limbs)
+		L.blocks_emissive = EMISSIVE_BLOCK_NONE
+	preview_dummy.regenerate_icons()
 
 	// If the dummy was equipped with marine armor.
 	var/jacket = preview_dummy.get_item_by_slot(WEAR_JACKET)
@@ -239,11 +248,16 @@
 		rotate_right.screen_loc = "preview:1:-16,0"
 	owner.add_to_screen(rotate_right)
 
-/datum/preferences/proc/job_pref_to_gear_preset()
-	var/high_priority
+/// Returns the role that is selected on High
+/datum/preferences/proc/get_high_priority_job()
 	for(var/job in job_preference_list)
 		if(job_preference_list[job] == 1)
-			high_priority = job
+			return job
+
+	return JOB_SQUAD_MARINE
+
+/datum/preferences/proc/job_pref_to_gear_preset()
+	var/high_priority = get_high_priority_job()
 
 	switch(high_priority)
 		// USCM JOBS
@@ -282,6 +296,8 @@
 			return /datum/equipment_preset/uscm_ship/dcc/full
 		if(JOB_CORPORATE_LIAISON)
 			return /datum/equipment_preset/uscm_ship/liaison
+		if(JOB_CORPORATE_BODYGUARD)
+			return /datum/equipment_preset/uscm_ship/corp_sec
 		if(JOB_COMBAT_REPORTER)
 			return /datum/equipment_preset/uscm_ship/reporter
 		if(JOB_SYNTH)
@@ -347,7 +363,7 @@
 		if(JOB_UPP_COMMISSAR)
 			return /datum/equipment_preset/upp/commissar/dressed
 		if(JOB_UPP_SUPPORT_SYNTH)
-			return /datum/equipment_preset/upp/synth/dressed
+			return /datum/equipment_preset/synth/upp/dressed
 		if(JOB_UPP_JOE)
 			return /datum/equipment_preset/synth/working_joe/upp
 		if(JOB_UPP_PILOT)
@@ -366,10 +382,14 @@
 		if(JOB_CO_SURVIVOR)
 			if(length(SSmapping.configs[GROUND_MAP].CO_survivor_types))
 				return pick(SSmapping.configs[GROUND_MAP].CO_survivor_types)
+			else if(length(SSmapping.configs[GROUND_MAP].CO_insert_survivor_types))
+				return pick(SSmapping.configs[GROUND_MAP].CO_insert_survivor_types)
 			return /datum/equipment_preset/uscm_co
 		if(JOB_PREDATOR)
 			var/datum/job/J = GLOB.RoleAuthority.roles_by_name[JOB_PREDATOR]
 			return J.gear_preset_whitelist["[JOB_PREDATOR][J.get_whitelist_status(owner)]"]
+		if(JOB_PRED_SURVIVOR)
+			return /datum/equipment_preset/yautja/stranded
 
 	return /datum/equipment_preset/uscm/private_equipped
 

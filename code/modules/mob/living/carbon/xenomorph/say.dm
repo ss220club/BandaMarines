@@ -1,14 +1,12 @@
 /mob/living/carbon/xenomorph/say(message)
 	var/verb = "says"
-	var/forced = 0
 	var/message_range = GLOB.world_view_size
 
-	if(client)
-		if(client.prefs.muted & MUTE_IC)
-			to_chat(src, SPAN_WARNING("You cannot speak in IC (Muted)."))
-			return
+	if(client?.prefs?.muted & MUTE_IC)
+		to_chat(src, SPAN_WARNING("You cannot speak in IC (Muted)."))
+		return
 
-	message =  trim(strip_html(message))
+	message = trim(strip_html(message))
 
 	if(stat == DEAD)
 		return say_dead(message)
@@ -16,75 +14,69 @@
 	if(stat == UNCONSCIOUS)
 		return //Unconscious? Nope.
 
-	if(copytext_char(message, 1, 2) == "*") // SS220 EDIT - RU fix
+	var/prefix = copytext_char(message, 1, 2) // SS220 EDIT - RU fix
+	if(prefix == "*")
 		if(!findtext(message, "*", 2)) //Second asterisk means it is markup for *bold*, not an *emote.
 			return emote(lowertext(copytext_char(message, 2)), intentional = TRUE) // SS220 EDIT - RU fix
 
-	var/datum/language/speaking = null
-	if(length(message) >= 2)
-		if(can_hivemind_speak && copytext_char(message,1,2) == ";" && length(languages)) // SS220 EDIT - RU fix
-			for(var/datum/language/L in languages)
-				if(L.flags & HIVEMIND)
-					verb = L.speech_verb
-					speaking = L
-					break
-		var/channel_prefix = copytext_char(message, 1, 3) // SS220 EDIT - RU fix
-		if(length(languages))
-			for(var/datum/language/L in languages)
-				if(lowertext(channel_prefix) == ":[L.key]" || lowertext(channel_prefix) == ".[L.key]" || uppertext(channel_prefix) == ":[convert_en_key_to_ru_key(L.key)]" || uppertext(channel_prefix) == ".[convert_en_key_to_ru_key(L.key)]") // BANDAMARINES EDIT
-					verb = L.speech_verb
-					speaking = L
-					break
+	var/hivemind_speak = FALSE
 
-	if(caste)
-		if(isnull(speaking) || (!can_hivemind_speak && (speaking.flags & HIVEMIND)) || speaking.key != "q") //Not hivemind? Then default to xenocommon. BRUTE FORCE YO
-			for(var/datum/language/L in languages)
-				if(L.key == speaking_key)
-					verb = L.speech_verb
-					speaking = L
-					forced = 1
-					break
+	if(prefix == ";")
+		message = capitalize(trim_left(copytext_char(message, 2))) // SS220 EDIT - RU fix
+		hivemind_speak = TRUE
+	else if(prefix == "." || prefix == "#" || prefix == ":" || prefix == ",")
+		message = capitalize(trim_left(copytext_char(message, 3))) // SS220 EDIT - RU fix
+		hivemind_speak = TRUE
+
+	if(!message)
+		return
+
+	if(hivemind_speak && can_hivemind_speak)
+		// Automatic punctuation
+		if(client?.prefs?.toggle_prefs & TOGGLE_AUTOMATIC_PUNCTUATION)
+			if(!(copytext_char(message, -1) in ENDING_PUNCT)) // SS220 EDIT - RU fix
+				message += "."
+
+		hivemind_talk(message)
+		return
+
+	var/datum/language/speaking = parse_language(message)
+	if(speaking)
+		verb = speaking.speech_verb
+		message = capitalize(trim_left(copytext_char(message, 3))) // SS220 EDIT - RU fix
 	else
-		if(!speaking || isnull(speaking))
-			for(var/datum/language/L in languages)
-				if(L.key == "0")
-					verb = L.speech_verb
-					speaking = L
-					forced = 1
-					break
+		speaking = get_default_language()
+		verb = speaking.speech_verb
+		message = capitalize(trim_left(strip_language(message)))
 
-	if(!(speaking.flags & HIVEMIND) && HAS_TRAIT(src, TRAIT_LISPING)) // Xenomorphs can lisp too. :) Only if they're not speaking in hivemind.
+	if(language_flags[speaking.name] & LANGUAGE_HEAR_ONLY)
+		speaking = get_default_language()
+
+	// Xenomorphs can lisp too. :) Only if they're not speaking in hivemind.
+	if((!(speaking.flags & HIVEMIND) || !can_hivemind_speak) && HAS_TRAIT(src, TRAIT_LISPING))
 		var/old_message = message
 		message = lisp_replace(message)
 		if(old_message != message)
 			verb = "lisps"
 
-	if(copytext_char(message,1,2) == ";") // SS220 EDIT - RU fix
-		message = trim(copytext_char(message,2)) // SS220 EDIT - RU fix
-	else if (copytext_char(message,1,3) == ":q" || copytext_char(message,1,3) == ":Q") // SS220 EDIT - RU fix
-		message = trim(copytext_char(message,3)) // SS220 EDIT - RU fix
-
-	message = capitalize(trim_left(message))
-
-	if(!message || stat)
+	if(!message)
 		return
 
 	// Automatic punctuation
-	if(client && client.prefs && client.prefs.toggle_prefs & TOGGLE_AUTOMATIC_PUNCTUATION)
+	if(client?.prefs?.toggle_prefs & TOGGLE_AUTOMATIC_PUNCTUATION)
 		if(!(copytext_char(message, -1) in ENDING_PUNCT)) // SS220 EDIT - RU fix
 			message += "."
-
-	if(forced)
-		if(speaking_noise)
-			playsound(loc, speaking_noise, 25, 1)
-		..(message, speaking, verb, null, null, message_range, null)
-	else
+	if((speaking.flags & HIVEMIND) && can_hivemind_speak)
 		hivemind_talk(message)
+		return
+
+	if(speaking_noise)
+		playsound(loc, speaking_noise, 25, 1)
+	..(message, speaking, verb, null, null, message_range, null)
 
 /mob/living/carbon/xenomorph/say_understands(mob/other, datum/language/speaking = null)
-
 	if(isxeno(other))
-		return 1
+		return TRUE
 	return ..()
 
 
@@ -103,14 +95,14 @@
 	if(!message || stat || !hive)
 		return
 
-	if(!hive.living_xeno_queen && !SSticker?.mode?.hardcore && !hive.allow_no_queen_actions && ROUND_TIME > SSticker.mode.round_time_evolution_ovipositor)
+	if(!hive.living_xeno_queen && !SSticker?.mode?.hardcore && !hive.allow_no_queen_actions && SSticker.mode.evolution_ovipositor_threshold)
 		to_chat(src, SPAN_WARNING("Нет Королевы. Вы одиноки."))
 		return
 
 	if(!filter_message(src, message))
 		return
 
-	log_hivemind("[key_name(src)] : [message]")
+	log_hivemind("[key_name(src)] : [message] (AREA: [get_area_name(loc)])")
 
 	var/track = ""
 	var/overwatch_target = XENO_OVERWATCH_TARGET_HREF
@@ -130,30 +122,31 @@
 			var/mob/living/carbon/xenomorph/X = src
 			if(istype(S,/mob/dead/observer))
 				if(S.client.prefs && S.client.prefs.toggles_chat & CHAT_GHOSTHIVEMIND)
-					track = "(<a href='byond://?src=\ref[S];track=\ref[src]'>F</a>)"
+					track = "(<a href='byond://?src=\ref[S];track=\ref[src]'>СЛ.</a>)"
 					if(isqueen(src))
-						var/mob/hologram/queen/queen_eye = client?.eye
+						var/mob/hologram/queen/queen_eye = client?.get_eye()
 						if(istype(queen_eye))
-							track += " (<a href='byond://?src=\ref[S];track=\ref[queen_eye]'>E</a>)"
-						ghostrend = SPAN_XENOQUEEN("Разум улья, [declent_ru(NOMINATIVE)][track] [ru_say_verb("hisses")], <span class='normal'>'[message]'</span>")
+							track += " (<a href='byond://?src=\ref[S];track=\ref[queen_eye]'>ГЛ.</a>)"
+						ghostrend = SPAN_XENOQUEEN("Разум улья, [declent_ru(NOMINATIVE)][track] [ru_say_verb("hisses")], <span class='normal'>'[sanitize_tts_symbols(message)]'</span>")
 					else if(hive.leading_cult_sl == src)
-						ghostrend = SPAN_XENOQUEEN("Разум улья, [declent_ru(NOMINATIVE)][track] [ru_say_verb("hisses")], <span class='normal'>'[message]'</span>")
+						ghostrend = SPAN_XENOQUEEN("Разум улья, [declent_ru(NOMINATIVE)][track] [ru_say_verb("hisses")], <span class='normal'>'[sanitize_tts_symbols(message)]'</span>")
 					else if(istype(X) && IS_XENO_LEADER(X))
-						ghostrend = SPAN_XENOLEADER("Разум улья, Leader [declent_ru(NOMINATIVE)][track] [ru_say_verb("hisses")], <span class='normal'>'[message]'</span>")
+						ghostrend = SPAN_XENOLEADER("Разум улья, лидер [declent_ru(NOMINATIVE)][track] [ru_say_verb("hisses")], <span class='normal'>'[sanitize_tts_symbols(message)]'</span>")
 					else
-						ghostrend = SPAN_XENO("Разум улья, [declent_ru(NOMINATIVE)][track] [ru_say_verb("hisses")], <span class='normal'>'[message]'</span>")
+						ghostrend = SPAN_XENO("Разум улья, [declent_ru(NOMINATIVE)][track] [ru_say_verb("hisses")], <span class='normal'>'[sanitize_tts_symbols(message)]'</span>")
 					S.show_message(ghostrend, SHOW_MESSAGE_AUDIBLE)
+					cast_tts(S, message, S, is_local = FALSE, additional_effects = list(/datum/singleton/sound_effect/telepathy), tts_channel_override = CHANNEL_TTS_HIVEMIND) // BANDAMARINES EDIT ADD - TTS
 
 			else if(hive.hivenumber == xeno_hivenumber(S) || hive.hivenumber == hear_hivemind)
 				if(isxeno(src) && isxeno(S))
-					overwatch_insert = " (<a href='byond://?src=\ref[S];[overwatch_target]=\ref[src];[overwatch_src]=\ref[S]'>смотреть</a>)"
+					overwatch_insert = " (<a href='byond://?src=\ref[S];[overwatch_target]=\ref[src];[overwatch_src]=\ref[S]'>следить</a>)"
 
 				if(isqueen(src) || hive.leading_cult_sl == src)
-					rendered = SPAN_XENOQUEEN("Разум улья, [declent_ru(NOMINATIVE)][overwatch_insert] [ru_say_verb("hisses")], <span class='normal'>'[message]'</span>")
+					rendered = SPAN_XENOQUEEN("Разум улья, [declent_ru(NOMINATIVE)][overwatch_insert] [ru_say_verb("hisses")], <span class='normal'>'[sanitize_tts_symbols(message)]'</span>")
 				else if(istype(X) && IS_XENO_LEADER(X))
-					rendered = SPAN_XENOLEADER("Разум улья, Лидер [declent_ru(NOMINATIVE)][overwatch_insert] [ru_say_verb("hisses")], <span class='normal'>'[message]'</span>")
+					rendered = SPAN_XENOLEADER("Разум улья, лидер [declent_ru(NOMINATIVE)][overwatch_insert] [ru_say_verb("hisses")], <span class='normal'>'[sanitize_tts_symbols(message)]'</span>")
 				else
-					rendered = SPAN_XENO("Разум улья, [declent_ru(NOMINATIVE)][overwatch_insert] [ru_say_verb("hisses")], <span class='normal'>'[message]'</span>")
+					rendered = SPAN_XENO("Разум улья, [declent_ru(NOMINATIVE)][overwatch_insert] [ru_say_verb("hisses")], <span class='normal'>'[sanitize_tts_symbols(message)]'</span>")
 
 				S.show_message(rendered, SHOW_MESSAGE_AUDIBLE)
-
+				cast_tts(S, message, S, is_local = FALSE, additional_effects = list(/datum/singleton/sound_effect/telepathy), tts_channel_override = CHANNEL_TTS_HIVEMIND) // BANDAMARINES EDIT ADD - TTS

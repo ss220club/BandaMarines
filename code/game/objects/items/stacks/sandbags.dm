@@ -92,9 +92,10 @@
 	if(istype(user.loc, /turf/open/shuttle))
 		to_chat(user, SPAN_WARNING("No. This area is needed for the dropships and personnel."))
 		return
-	if(!istype(user.loc, /turf/open))
+	if(istype(user.loc, /turf/open))
 		var/turf/open/OT = user.loc
-		if(!OT.allow_construction)
+		var/area/area = get_area(user)
+		if(!OT.allow_construction || !area.allow_construction)
 			to_chat(user, SPAN_WARNING("The sandbag barricade must be constructed on a proper surface!"))
 			return
 
@@ -116,7 +117,7 @@
 	if(user.action_busy)
 		return
 
-	user.visible_message(SPAN_NOTICE("[user] starts assembling a sandbag barricade."),
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts assembling a sandbag barricade."),
 	SPAN_NOTICE("You start assembling a sandbag barricade."))
 
 	if(!do_after(user, 10, INTERRUPT_NO_NEEDHAND|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
@@ -132,7 +133,7 @@
 		build_stack = 5
 
 	var/obj/structure/barricade/sandbags/SB = new(user.loc, user, user.dir, build_stack)
-	user.visible_message(SPAN_NOTICE("[user] assembles a sandbag barricade."),
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] assembles a sandbag barricade."),
 	SPAN_NOTICE("You assemble a sandbag barricade."))
 	SB.setDir(user.dir)
 	SB.add_fingerprint(user)

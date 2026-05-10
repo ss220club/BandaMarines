@@ -17,8 +17,10 @@
 	icon = 'icons/obj/structures/machinery/science_machines.dmi'
 	icon_state = "autodispenser"
 	active_power_usage = 40
+	health = STRUCTURE_HEALTH_REINFORCED
 	layer = BELOW_OBJ_LAYER
 	density = TRUE
+	unacidable = TRUE
 	///Contains vials for our program
 	var/obj/item/storage/fancy/vials/input_container
 	///Our output beaker

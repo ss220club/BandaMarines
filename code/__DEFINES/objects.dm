@@ -83,10 +83,21 @@ GLOBAL_LIST_INIT(RESTRICTED_CAMERA_NETWORKS, list( //Those networks can only be 
 	"thunder",
 	"ERT",
 	"NUKE",
+	CAMERA_NET_CONTAINMENT_HIDDEN,
 	CAMERA_NET_LADDER,
+	CAMERA_NET_MORANA,
+	CAMERA_NET_DEVANA,
 	CAMERA_NET_COLONY,
 	CAMERA_NET_OVERWATCH,
 	CAMERA_NET_ARES,
+	CAMERA_NET_POWER_ALARMS,
+	CAMERA_NET_ATMOSPHERE_ALARMS,
+	CAMERA_NET_FIRE_ALARMS,
+	CAMERA_NET_SIMULATION,
+	CAMERA_NET_YAUTJA,
+	CAMERA_NET_LANDING_ZONES,
+	CAMERA_NET_LASER_TARGETS,
+	CAMERA_NET_WY,
 	))
 
 #define STASIS_IN_BAG 1
@@ -105,6 +116,38 @@ GLOBAL_LIST_INIT(RESTRICTED_CAMERA_NETWORKS, list( //Those networks can only be 
 #define IS_SHARP_ITEM_ACCURATE 2 //knife, scalpel
 #define IS_SHARP_ITEM_BIG 3 //fireaxe, hatchet, energy sword
 
+///can opener defines
+///can open a can without issues
+#define CAN_OPENER_EFFECTIVE list(\
+	/obj/item/tool/kitchen/can_opener,\
+	/obj/item/tool/kitchen/can_opener/compact,\
+	/obj/item/weapon/bracer_attachment/wristblades\
+	)
+
+///slow can opening with a chance of jamming
+#define CAN_OPENER_CRUDE list(\
+	/obj/item/attachable/bayonet,\
+	/obj/item/attachable/bayonet/upp,\
+	/obj/item/attachable/bayonet/rmc,\
+	/obj/item/attachable/bayonet/antique,\
+	/obj/item/attachable/bayonet/custom,\
+	/obj/item/attachable/bayonet/custom/red,\
+	/obj/item/attachable/bayonet/custom/blue,\
+	/obj/item/attachable/bayonet/custom/black,\
+	/obj/item/tool/kitchen/knife,\
+	/obj/item/tool/kitchen/knife/butcher,\
+	/obj/item/bracer_attachments/scimitars,\
+	/obj/item/bracer_attachments/scimitars_alt,\
+	/obj/item/weapon/yautja/sword,\
+	/obj/item/weapon/yautja/sword/alt_1,\
+	/obj/item/weapon/yautja/sword/alt_2,\
+	/obj/item/weapon/yautja/sword/alt_3,\
+	/obj/item/weapon/sword,\
+	/obj/item/weapon/sword/claymore,\
+	/obj/item/weapon/sword/ceremonial,\
+	/obj/item/weapon/sword/machete,\
+	/obj/item/weapon/sword/machete/arnold\
+	)
 
 //pry capable item defines
 #define IS_PRY_CAPABLE_SIMPLE 1
@@ -136,6 +179,7 @@ GLOBAL_LIST_INIT(RESTRICTED_CAMERA_NETWORKS, list( //Those networks can only be 
 #define CLEANABLE_BLOOD_GIBS "blood gibs"
 #define CLEANABLE_TRACKS "tracks"
 #define CLEANABLE_JUNK "junk" //Gibs, Robot debris, etcetera
+#define CLEANABLE_IGNITABLE "ignitable" //liquid fuel
 #define CLEANABLE_MISC "misc" //Anything else
 
 //For nuke announcements
@@ -167,8 +211,12 @@ GLOBAL_LIST_INIT(RESTRICTED_CAMERA_NETWORKS, list( //Those networks can only be 
 #define OBJ_NO_HELMET_BAND (1<<1)
 /// Marks the object as helmet garb
 #define OBJ_IS_HELMET_GARB (1<<2)
+/// Marks the object as stylish for the style system
+#define OBJ_IS_STYLISH (1<<3)
+/// If the object can be converted into an accessory
+#define OBJ_CAN_ACCESSORIZE (1<<4)
 /// can you customize the description/name of the thing?
-#define OBJ_UNIQUE_RENAME (1<<3)
+#define OBJ_UNIQUE_RENAME (1<<5)
 
 // For reinforced table status
 #define RTABLE_WEAKENED 1
@@ -183,3 +231,6 @@ GLOBAL_LIST_INIT(RESTRICTED_CAMERA_NETWORKS, list( //Those networks can only be 
 #define REMOVE_CROWBAR  (1<<0)
 #define BREAK_CROWBAR   (1<<1)
 #define REMOVE_SCREWDRIVER (1<<2)
+
+/// How many fields maximum are allowed on papers
+#define PAPER_MAX_FIELDS 51

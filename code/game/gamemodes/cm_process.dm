@@ -1,5 +1,3 @@
-
-
 /*
 Like with cm_initialize.dm, these procs exist to quickly populate classic CM game modes.
 Specifically for processing, announcing completion, and so on. Simply plug in these procs
@@ -58,11 +56,24 @@ of predators), but can be added to include variant game modes (like humans vs. h
 /datum/game_mode/proc/declare_completion_announce_predators()
 	set waitfor = 0
 	sleep(2 SECONDS)
-	if(length(predators))
-		var/dat = "<br>"
-		dat += SPAN_ROUNDBODY("<br>The Predators were:")
-		for(var/entry in predators)
-			dat += "<br>[entry] was [predators[entry]["Name"]] [SPAN_BOLDNOTICE("([predators[entry]["Status"]])")]"
+	var/dat = ""
+	if(length(yautja_hunters))
+		dat += SPAN_ROUNDBODY("<br><br>The Yautja Hunting Party was:")
+		for(var/entry in yautja_hunters)
+			dat += "<br>[entry] was [yautja_hunters[entry]["Name"]] [SPAN_BOLDNOTICE("([yautja_hunters[entry]["Status"]])")]"
+	if(length(yautja_youngbloods))
+		dat += SPAN_ROUNDBODY("<br><br>The Yautja Young-Bloods were:")
+		for(var/entry in yautja_youngbloods)
+			dat += "<br>[entry] was [yautja_youngbloods[entry]["Name"]] [SPAN_BOLDNOTICE("([yautja_youngbloods[entry]["Status"]])")]"
+	if(length(yautja_stranded))
+		dat += SPAN_ROUNDBODY("<br><br>The Stranded Yautja were:")
+		for(var/entry in yautja_stranded)
+			dat += "<br>[entry] was [yautja_stranded[entry]["Name"]] [SPAN_BOLDNOTICE("([yautja_stranded[entry]["Status"]])")]"
+	if(length(yautja_badbloods))
+		dat += SPAN_ROUNDBODY("<br><br>The Yautja Bad-Bloods were:")
+		for(var/entry in yautja_badbloods)
+			dat += "<br>[entry] was [yautja_badbloods[entry]["Name"]] [SPAN_BOLDNOTICE("([yautja_badbloods[entry]["Status"]])")]"
+	if(dat)
 		to_world("[dat]")
 
 
@@ -71,7 +82,7 @@ of predators), but can be added to include variant game modes (like humans vs. h
 	sleep(2 SECONDS)
 	if(length(GLOB.medal_awards))
 		var/dat = "<br>"
-		dat +=  SPAN_ROUNDBODY("<br>Medal Awards:")
+		dat +=  SPAN_ROUNDBODY("<br>Medal and Ribbon Awards:")
 		for(var/recipient in GLOB.medal_awards)
 			var/datum/recipient_awards/recipient_award = GLOB.medal_awards[recipient]
 			for(var/i in 1 to length(recipient_award.medal_names))
@@ -91,13 +102,21 @@ of predators), but can be added to include variant game modes (like humans vs. h
 	sleep(2 SECONDS)
 	to_chat_spaced(world, margin_bottom = 0, html = SPAN_ROLE_BODY("|______________________|"))
 	to_world(SPAN_ROLE_HEADER("FUN FACTS"))
-	var/list/fact_types = subtypesof(/datum/random_fact)
+	var/list/fact_types = shuffle(subtypesof(/datum/random_fact))
+	var/facts_so_far = 0
 	for(var/fact_type as anything in fact_types)
-		var/datum/random_fact/fact_human = new fact_type(set_check_human = TRUE, set_check_xeno = FALSE)
-		fact_human.announce()
+		var/datum/random_fact/fact_human = new fact_type(check_human=TRUE, check_xeno=FALSE)
+		if(fact_human.announce())
+			facts_so_far++
+		if(facts_so_far >= MAX_FACTION_FACTS_TO_ANNOUNCE)
+			break
+	facts_so_far = 0
 	for(var/fact_type as anything in fact_types)
-		var/datum/random_fact/fact_xeno = new fact_type(set_check_human = FALSE, set_check_xeno = TRUE)
-		fact_xeno.announce()
+		var/datum/random_fact/fact_xeno = new fact_type(check_human=FALSE, check_xeno=TRUE)
+		if(fact_xeno.announce())
+			facts_so_far++
+		if(facts_so_far >= MAX_FACTION_FACTS_TO_ANNOUNCE)
+			break
 	to_chat_spaced(world, margin_top = 0, html = SPAN_ROLE_BODY("|______________________|"))
 
 //===================================================\\
@@ -109,8 +128,8 @@ of predators), but can be added to include variant game modes (like humans vs. h
 //Spawns a larva in an appropriate location
 /datum/game_mode/proc/spawn_latejoin_larva()
 	var/mob/living/carbon/xenomorph/larva/new_xeno = new /mob/living/carbon/xenomorph/larva(get_turf(pick(GLOB.xeno_spawns)))
-	new_xeno.visible_message(SPAN_XENODANGER("A larva suddenly burrows out of the ground!"),
-	SPAN_XENODANGER("You burrow out of the ground and awaken from your slumber. For the Hive!"))
+	new_xeno.visible_message(SPAN_XENODANGER("Из земли внезапно появляется грудолом!"),
+	SPAN_XENODANGER("Вы вырываетесь из-под земли, просыпаясь от сна. Во имя Улья!"))
 	new_xeno << sound('sound/effects/xeno_newlarva.ogg')
 
 // Open podlocks with the given ID if they aren't already opened.
@@ -133,13 +152,39 @@ GLOBAL_VAR_INIT(next_predator_bioscan, 5 MINUTES)
 // 30 minutes in
 GLOBAL_VAR_INIT(next_admin_bioscan, 30 MINUTES)
 
-/datum/game_mode/proc/select_lz(obj/structure/machinery/computer/shuttle/dropship/flight/lz1/console)
+/// Asks the user (optional) to pick the primary LZ if both LZ1 and LZ2 exist and it hasn't been set yet
+/// If only one, or no user, it will pick the first available
+/datum/game_mode/proc/pick_a_lz(mob/user)
+	if(active_lz)
+		return
+
+	var/atom/lz1 = locate(/obj/structure/machinery/computer/shuttle/dropship/flight/lz1) // BANDAMARINES EDIT - type
+	var/atom/lz2 = locate(/obj/structure/machinery/computer/shuttle/dropship/flight/lz2) // BANDAMARINES EDIT - type
+
+	if(lz1 && lz2 && user)
+		var/lz_choices = list("LZ 1" = lz1.loc.loc.declent_ru(NOMINATIVE) || "LZ 1", "LZ 2" = lz2.loc.loc.declent_ru(NOMINATIVE) || "LZ 2") // BANDAMARINES EDIT - Show full name
+		var/new_lz = tgui_input_list(user, "Выберите основную зону посадки", "Выбор ЗП", lz_choices, associative_list = TRUE) // BANDAMARINES EDIT - Show full name
+		if(!new_lz)
+			return
+		if(new_lz == "LZ 1")
+			select_lz(lz1)
+		else
+			select_lz(lz2)
+		return
+
+	if(lz1 || lz2)
+		select_lz(lz1 || lz2)
+		return
+
+	CRASH("No /obj/structure/machinery/computer/shuttle/dropship/flight/lz1 or lz2 found!")
+
+/datum/game_mode/proc/select_lz(obj/structure/machinery/computer/shuttle/dropship/flight/console)
 	if(active_lz)
 		return
 	active_lz = console
 	// The announcement to all Humans.
-	var/name = "[MAIN_AI_SYSTEM]: Приказ о постановке операции"
-	var/input = "Приказ командования отдан.\n\n[active_lz.loc.loc] назначен основной зоной высадки."
+	var/name = "[MAIN_AI_SYSTEM]: Постановлен приказ операции"
+	var/input = "Приказ командования отдан.\n\nНазначена основная зона посадки - [active_lz.loc.loc.declent_ru(NOMINATIVE)]."
 	marine_announcement(input, name)
 
 /datum/game_mode/proc/announce_bioscans()

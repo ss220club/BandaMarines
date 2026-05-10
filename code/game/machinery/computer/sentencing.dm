@@ -8,6 +8,12 @@
 	var/datum/crime_incident/incident
 	var/current_menu = "main"
 	var/static/paper_counter = 0
+	unacidable = TRUE
+	breakable = FALSE
+	unslashable = TRUE
+
+/obj/structure/machinery/computer/sentencing/ex_act(severity)
+	return
 
 /obj/structure/machinery/computer/sentencing/attack_hand(mob/user as mob)
 	if(..() || !allowed(usr) || inoperable())
@@ -33,9 +39,9 @@
 
 		// Sentence.
 		if(incident.brig_sentence < PERMABRIG_SENTENCE)
-			data["sentence"] = "[incident.brig_sentence] minutes"
+			data["sentence"] = "[incident.brig_sentence] минут" //BANDAMARINES - Translate
 		else
-			data["sentence"] = "PERMA BRIGGED"
+			data["sentence"] = "ПЕРМА БРИГ" //BANDAMARINES - Translate
 
 		// Current charges.
 		var/list/current_charges = list()
@@ -44,6 +50,7 @@
 			current_charge["name"] = L.name
 			current_charge["desc"] = L.desc
 			current_charge["special_punishment"] = L.special_punishment
+			current_charge["conditions"] = L.conditions
 			current_charge["ref"] = "\ref[L]"
 			current_charges += list(current_charge)
 		data["current_charges"] = current_charges
@@ -74,12 +81,14 @@
 	var/list/data = list()
 
 	data["laws"] = list()
-	data["laws"] += list(create_law_data("Minor Laws", SSlaw_init.minor_law))
-	data["laws"] += list(create_law_data("Major Laws", SSlaw_init.major_law))
-	data["laws"] += list(create_law_data("Capital Laws", SSlaw_init.capital_law))
-	data["laws"] += list(create_law_data("Optional Laws", SSlaw_init.optional_law))
-	data["laws"] += list(create_law_data("Precautionary Laws", SSlaw_init.precautionary_law))
-
+	//BANDAMARINES - Translate - Begin
+	data["laws"] += list(create_law_data("Малозначительные", SSlaw_init.minor_law))
+	data["laws"] += list(create_law_data("Тяжкие", SSlaw_init.major_law))
+	data["laws"] += list(create_law_data("Особо тяжкие", SSlaw_init.capital_law))
+	data["laws"] += list(create_law_data("Опциональные", SSlaw_init.optional_law))
+	data["laws"] += list(create_law_data("Особые", SSlaw_init.precautionary_law))
+	data["laws"] += list(create_law_data("Гражданские", SSlaw_init.civilian_law))
+	//BANDAMARINES - Translate - End
 	return data
 
 /obj/structure/machinery/computer/sentencing/proc/create_law_data(label, list/laws)
@@ -92,6 +101,7 @@
 		law["desc"] = L.desc
 		law["brig_time"] = L.brig_time
 		law["special_punishment"] = L.special_punishment
+		law["conditions"] = L.conditions
 		law["ref"] = "\ref[L]"
 		formatted_laws += list(law)
 

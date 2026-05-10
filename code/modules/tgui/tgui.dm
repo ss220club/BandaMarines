@@ -43,6 +43,9 @@
 	/// If the window should be closed with other windows when requested
 	var/closeable = TRUE
 
+	/// Any partial packets that we have received from TGUI, waiting to be sent
+	var/partial_packets
+
 /**
  * public
  *
@@ -117,6 +120,17 @@
 			))
 	else
 		window.send_message("ping")
+	send_assets()
+	window.send_message("update", get_payload(
+		with_data = TRUE,
+		with_static_data = TRUE))
+	if(mouse_hooked)
+		window.set_mouse_macro()
+	SStgui.on_open(src)
+
+	return TRUE
+
+/datum/tgui/proc/send_assets()
 	var/flush_queue = window.send_asset(get_asset_datum(
 		/datum/asset/simple/namespaced/fontawesome))
 	flush_queue |= window.send_asset(get_asset_datum(
@@ -127,14 +141,6 @@
 		flush_queue |= window.send_asset(asset)
 	if (flush_queue)
 		user.client.browse_queue_flush()
-	window.send_message("update", get_payload(
-		with_data = TRUE,
-		with_static_data = TRUE))
-	if(mouse_hooked)
-		window.set_mouse_macro()
-	SStgui.on_open(src)
-
-	return TRUE
 
 /**
  * public
@@ -268,6 +274,7 @@
 			"size" = window_size,
 			"fancy" = user.client?.prefs.tgui_fancy,
 			"locked" = user.client?.prefs.tgui_lock,
+			"scale" = user.client?.prefs.window_scale,
 		),
 		"client" = list(
 			"ckey" = user.client.ckey,
@@ -345,6 +352,31 @@
 	// Pass act type messages to ui_act
 	if(type && copytext(type, 1, 5) == "act/")
 		var/act_type = copytext(type, 5)
+
+		var/id = href_list["packetId"]
+		if(!isnull(id))
+			id = text2num(id)
+
+			var/total = text2num(href_list["totalPackets"])
+
+			if(total > MAX_MESSAGE_CHUNKS)
+				return
+
+			if(id == 1)
+				partial_packets = new /list(total)
+
+			partial_packets[id] = href_list["packet"]
+
+			if(id != total)
+				return
+
+			var/assembled_payload = ""
+			for(var/packet in partial_packets)
+				assembled_payload += packet
+
+			payload = json_decode(assembled_payload)
+			partial_packets = null
+
 		log_tgui(user, "Action: [act_type] [href_list["payload"]]",
 			window = window,
 			src_object = src_object)

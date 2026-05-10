@@ -1,9 +1,8 @@
 import { classes } from 'common/react';
-
-import { useBackend } from '../../backend';
-import { Box, Button, Flex, Icon, NoticeBox, Stack } from '../../components';
-import { BoxProps } from '../../components/Box';
-import { Table, TableRow } from '../../components/Table';
+import type { ComponentProps } from 'react';
+import { useBackend } from 'tgui/backend';
+import { Box, Button, Flex, Icon, NoticeBox, Stack } from 'tgui/components';
+import { Table, TableRow } from 'tgui/components/Table';
 
 interface ElectricalData {
   electrical: MachineElectrical;
@@ -21,7 +20,7 @@ interface WireSpec {
   cut: number;
 }
 
-const ElectricalPanelClosed = (props: BoxProps) => {
+const ElectricalPanelClosed = (props: ComponentProps<typeof Box>) => {
   return (
     <NoticeBox
       className={classes([
@@ -63,8 +62,8 @@ const ElectricalPanelClosed = (props: BoxProps) => {
             </Flex.Item>
             <Flex.Item>
               <span>
-                Electrical Hazard <br />
-                Authorised Personnel Only
+                НЕ ВЛЕЗАЙ, УБЬЁТ! <br />
+                Только для персонала
               </span>
             </Flex.Item>
           </Flex>
@@ -139,7 +138,7 @@ const WireControl = (props: {
   );
 };
 
-const ElectricalPanelOpen = (props: BoxProps) => {
+const ElectricalPanelOpen = (props: ComponentProps<typeof Box>) => {
   const { data } = useBackend<ElectricalData>();
   return (
     <Box className={classes(['PanelOpen', props.className])}>
@@ -166,7 +165,7 @@ const ElectricalPanelOpen = (props: BoxProps) => {
   );
 };
 
-export const ElectricalPanel = (props: BoxProps) => {
+export const ElectricalPanel = (props: ComponentProps<typeof Box>) => {
   const { data } = useBackend<ElectricalData>();
   const isOpen = data.electrical.panel_open === 1;
   return (

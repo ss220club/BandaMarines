@@ -38,6 +38,11 @@
 // Standard procs
 //-------------------------------------------
 
+/obj/vehicle/Destroy(force)
+	. = ..()
+	if(!QDELETED(cell))
+		QDEL_NULL(cell)
+
 /obj/vehicle/initialize_pass_flags(datum/pass_flags_container/PF)
 	..()
 	if (PF)
@@ -75,12 +80,12 @@
 		var/obj/item/tool/weldingtool/WT = W
 		if(WT.remove_fuel(1, user))
 			if(health < maxhealth)
-				user.visible_message(SPAN_NOTICE("[user] starts to repair [src]."),SPAN_NOTICE("You start to repair [src]"))
+				user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts to repair [src]."),SPAN_NOTICE("You start to repair [src]"))
 				if(do_after(user, 20, INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
 					if(!src || !WT.isOn())
 						return
 					health = min(maxhealth, health+10)
-					user.visible_message(SPAN_NOTICE("[user] repairs [src]."),SPAN_NOTICE("You repair [src]."))
+					user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] repairs [src]."),SPAN_NOTICE("You repair [src]."))
 			else
 				to_chat(user, SPAN_NOTICE("[src] does not need repairs."))
 
@@ -91,7 +96,7 @@
 			if("brute")
 				health -= W.force * W.demolition_mod * brute_dam_coeff
 		playsound(loc, "smash.ogg", 25, 1)
-		user.visible_message(SPAN_DANGER("[user] hits [src] with [W]."),SPAN_DANGER("You hit [src] with [W]."))
+		user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] hits [src] with [W]."),SPAN_DANGER("You hit [src] with [W]."))
 		healthcheck()
 	else
 		..()
@@ -144,7 +149,7 @@
 
 	attacking_xeno.animation_attack_on(src)
 
-	attacking_xeno.visible_message(SPAN_DANGER("[attacking_xeno] slashes [src]!"), SPAN_DANGER("You slash [src]!"))
+	attacking_xeno.visible_message(SPAN_DANGER("[capitalize(attacking_xeno.declent_ru(NOMINATIVE))] slashes [src]!"), SPAN_DANGER("You slash [src]!"))
 	playsound(attacking_xeno, pick('sound/effects/metalhit.ogg', 'sound/weapons/alien_claw_metal1.ogg', 'sound/weapons/alien_claw_metal2.ogg', 'sound/weapons/alien_claw_metal3.ogg'), 25, 1)
 
 	var/damage = (attacking_xeno.melee_vehicle_damage + rand(-5,5)) * brute_dam_coeff
@@ -153,7 +158,7 @@
 
 	healthcheck()
 
-	return XENO_NONCOMBAT_ACTION
+	return XENO_ATTACK_ACTION // SS220 EDIT - Убрал XENO_NONCOMBAT_ACTION, ибо ксеносы слишком быстро по технике вдаряли
 
 //-------------------------------------------
 // Vehicle procs

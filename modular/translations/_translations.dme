@@ -4,14 +4,20 @@
 
 #include "code/button_tooltips.dm"
 #include "code/pronouns.dm"
-#include "code/ru_ammunition_desc.dm"
-#include "code/ru_weapon_desc.dm"
+// #include "code/ru_ammunition_desc.dm" // MOVE TO ORIGINAL CODE
+// #include "code/ru_weapon_desc.dm" // MOVE TO ORIGINAL CODE
 #include "code/ru_names/ru_name_base.dm"
+#include "code/ru_names/ru_vendors.dm"
+#include "code/ru_names/ru_date.dm"
+#include "code/ru_names/ru_access.dm"
+#include "code/ru_names/ru_reagents.dm"
+#include "code/telephone/phone.dm"
 #include "code/translate_dirs.dm"
 #include "code/translate_emotes.dm"
+#include "code/translate_preferences.dm"
 #include "code/translate_verbs.dm"
 
-// faction_rank translate
+// MARK: faction_rank translate
 #include "code/faction_rank/other/civilian.dm"
 #include "code/faction_rank/other/cmb.dm"
 #include "code/faction_rank/other/contractors.dm"
@@ -24,10 +30,11 @@
 #include "code/faction_rank/uscm/marine.dm"
 #include "code/faction_rank/uscm/navy.dm"
 #include "code/faction_rank/uscm/provost.dm"
+#include "code/faction_rank/wy/commando.dm"
 #include "code/faction_rank/wy/pmc.dm"
 #include "code/faction_rank/wy/wy.dm"
 
-// jobs
+// MARK: Jobs
 #include "code/job/job.dm"
 #include "code/job/antag/other/pred.dm"
 #include "code/job/antag/xeno/queen.dm"
@@ -39,6 +46,7 @@
 #include "code/job/civilians/other/survivors.dm"
 #include "code/job/civilians/support/cmo.dm"
 #include "code/job/civilians/support/doctor.dm"
+#include "code/job/civilians/support/field_doctor.dm"
 #include "code/job/civilians/support/nurse.dm"
 #include "code/job/civilians/support/researcher.dm"
 #include "code/job/civilians/support/synthetic.dm"
@@ -80,7 +88,7 @@
 #include "code/job/special/uscm.dm"
 #include "code/job/special/weyland_yutani.dm"
 
-// Gear Presets
+// MARK: Gear Presets
 #include "code/gear_presets/agents.dm"
 #include "code/gear_presets/cbrn.dm"
 #include "code/gear_presets/cia.dm"
@@ -109,30 +117,16 @@
 #include "code/gear_presets/wo.dm"
 #include "code/gear_presets/wy_goons.dm"
 #include "code/gear_presets/wy.dm"
-#include "code/gear_presets/yautja.dm"
 
-// Xeno Abilities
+// MARK: Xeno Abilities
 #include "code/xeno/castes_age.dm"
 #include "code/xeno/hive_status.dm"
-#include "code/xeno/xeno_abilities/general_abilities.dm"
-#include "code/xeno/xeno_abilities/xeno_action.dm"
-#include "code/xeno/xeno_abilities/xeno_projectiles.dm"
-#include "code/xeno/xeno_abilities/castes/boiler.dm"
-#include "code/xeno/xeno_abilities/castes/burrower.dm"
-#include "code/xeno/xeno_abilities/castes/carrier.dm"
-#include "code/xeno/xeno_abilities/castes/crusher.dm"
-#include "code/xeno/xeno_abilities/castes/defender.dm"
-#include "code/xeno/xeno_abilities/castes/facehugger.dm"
-#include "code/xeno/xeno_abilities/castes/hivelord.dm"
-#include "code/xeno/xeno_abilities/castes/king.dm"
-#include "code/xeno/xeno_abilities/castes/lurker.dm"
-#include "code/xeno/xeno_abilities/castes/praetorian.dm"
-#include "code/xeno/xeno_abilities/castes/predalien.dm"
-#include "code/xeno/xeno_abilities/castes/queen.dm"
-#include "code/xeno/xeno_abilities/castes/ravager.dm"
-#include "code/xeno/xeno_abilities/castes/runner.dm"
-#include "code/xeno/xeno_abilities/castes/sentinel.dm"
-#include "code/xeno/xeno_abilities/castes/spitter.dm"
-#include "code/xeno/xeno_abilities/castes/warrior.dm"
+#include "code/xeno/strains.dm"
+
+// MARK: Research
+#include "code/research/code/prop_negative.dm"
+#include "code/research/code/prop_neutral.dm"
+#include "code/research/code/prop_positive.dm"
+#include "code/research/code/prop_special.dm"
 
 #include "code/~undefs.dm"

@@ -8,19 +8,23 @@
     "survivor_types": [
         "/datum/equipment_preset/survivor/scientist/nv",
         "/datum/equipment_preset/survivor/doctor/nv",
+        "/datum/equipment_preset/survivor/hybrisa/paramedic",
         "/datum/equipment_preset/survivor/chaplain/nv",
         "/datum/equipment_preset/survivor/engineer/nv",
         "/datum/equipment_preset/survivor/trucker/nv",
         "/datum/equipment_preset/survivor/interstellar_commerce_commission_liaison/nv",
         "/datum/equipment_preset/survivor/security/nv",
         "/datum/equipment_preset/survivor/beachbum",
-        "/datum/equipment_preset/survivor/miner",
-        "/datum/equipment_preset/survivor/clf"
+        "/datum/equipment_preset/survivor/civilian",
+        "/datum/equipment_preset/survivor/civilian_unique",
+        "/datum/equipment_preset/survivor/hybrisa/kelland_miner"
     ],
 	"CO_survivor_types": [
         "/datum/equipment_preset/survivor/new_varadero/commander"
     ],
-
+    "CO_insert_survivor_types": [
+        "/datum/equipment_preset/survivor/clf/coordinator"
+    ],
     "defcon_triggers": [
         3300,
         2100,
@@ -29,13 +33,34 @@
         0.0
     ],
     "survivor_message": "Вы - сотрудник Объединенных Америк на острове-аванпосте \"Нью-Варадеро\". Новое открытие привело к неописуемым ужасам. Сделайте все возможное, чтобы выжить.",
+    "co_briefing": {
+        "Hawks": "maps/map_briefings/commanding_officer/new_varadero/NEWVARADEROcpo.html",
+        "Doves": "maps/map_briefings/commanding_officer/new_varadero/NEWVARADEROhmm.html",
+        "Magpies": "maps/map_briefings/commanding_officer/new_varadero/NEWVARADEROmodi.html",
+        "Unaligned": "maps/map_briefings/commanding_officer/new_varadero/NEWVARADEROunaligned.html"
+    },
     "map_item_type": "/obj/item/map/new_varadero",
     "announce_text": "Получен автоматический сигнал бедствия с аванпоста ОА \"Нью-Варадеро\". Для расследования сложившейся ситуации, с ###SHIPNAME### в ближайшее время будет отправлена оперативная группа реагирования.\nНазначение: Островная исследовательская и горнодобывающая станция.\n\nНаселение: 47 человек.\nТекущая температура: 20°C внутри, 36°C снаружи.\nКомандир аванпоста: Представитель ОА Стив Хайфиш.\nТелекоммуникационный массив: Требуется ремонт.\n\nДополнительная информация на данный момент отсутствует.",
     "monkey_types": [
         "monkey"
     ],
     "environment_traits": { "Fog": true },
-    "traits": [{ "Ground": true }],
+    "traits": [
+        {
+            "Ground": true,
+            "Up": 1
+        },
+        {
+            "Ground": true,
+            "Up": 1,
+            "Down": -1
+        },
+        {
+            "Ground": true,
+            "Down": -1
+        }
+    ],
+    "nightmare_path": "maps/Nightmare/maps/New_Varadero/",
     "xvx_hives": {
         "xeno_hive_alpha": 0,
         "xeno_hive_bravo": 0,

@@ -8,13 +8,17 @@
 
 /obj/item/inflatable/attack_self(mob/user)
 	..()
+	var/area/area = get_area(user)
+	if(!area.allow_construction)
+		to_chat(user, SPAN_WARNING("[src] must be inflated on a proper surface!"))
+		return
 	var/turf/open/T = user.loc
 	if(!(istype(T) && T.allow_construction))
 		to_chat(user, SPAN_WARNING("[src] must be inflated on a proper surface!"))
 		return
 	if(do_after(user, 0.5 SECONDS, INTERRUPT_ALL, BUSY_ICON_BUILD, src))
 		playsound(loc, 'sound/items/zip.ogg', 25, TRUE)
-		to_chat(user, SPAN_NOTICE(" You inflate [src]."))
+		to_chat(user, SPAN_NOTICE("You inflate [src]."))
 		var/obj/structure/inflatable/R = new inflatable_type(usr.loc)
 		src.transfer_fingerprints_to(R)
 		R.add_fingerprint(user)
@@ -71,10 +75,10 @@
 	health -= damage
 	user.animation_attack_on(src)
 	if(health <= 0)
-		user.visible_message(SPAN_DANGER("[user] tears open [src]!"))
+		user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] tears open [src]!"))
 		deflate(1)
 	else //for nicer text~
-		user.visible_message(SPAN_DANGER("[user] tears at [src]!"))
+		user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] tears at [src]!"))
 
 /obj/structure/inflatable/attack_animal(mob/user as mob)
 	if(!isanimal(user))
@@ -255,7 +259,7 @@
 		//src.transfer_fingerprints_to(R)
 		qdel(src)
 	else
-		//to_chat(user, SPAN_NOTICE(" You slowly deflate the inflatable wall."))
+		//to_chat(user, SPAN_NOTICE("You slowly deflate the inflatable wall."))
 		visible_message("[src] slowly deflates.")
 		flick("door_deflating", src)
 		spawn(50)

@@ -46,9 +46,7 @@
 
 /obj/structure/closet/secure_closet/personal/cabinet/Initialize()
 	. = ..()
-	contents = list()
 	new /obj/item/storage/backpack/satchel( src )
-	new /obj/item/device/radio/headset( src )
 
 /obj/structure/closet/secure_closet/personal/attackby(obj/item/W as obj, mob/user as mob)
 	if (src.opened)
@@ -72,9 +70,9 @@
 				src.registered_name = I.registered_name
 				src.desc = "Owned by [I.registered_name]."
 		else
-			to_chat(user, SPAN_DANGER("Access Denied"))
+			to_chat(user, SPAN_DANGER("Доступ запрещён."))
 	else
-		to_chat(user, SPAN_DANGER("Access Denied"))
+		to_chat(user, SPAN_DANGER("Доступ запрещён."))
 	return
 
 /obj/structure/closet/secure_closet/personal/verb/reset()

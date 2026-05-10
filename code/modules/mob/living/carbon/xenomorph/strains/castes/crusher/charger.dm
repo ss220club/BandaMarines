@@ -140,8 +140,8 @@
 			charger_ability.stop_momentum()
 			return
 		xeno.visible_message(
-			SPAN_DANGER("[xeno] smashes straight into \the [src]!"),
-			SPAN_XENODANGER("You smash straight into \the [src]!")
+			SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] врезается прямо в [declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
+			SPAN_XENODANGER("Вы врезаетесь прямо в [declent_ru(ACCUSATIVE)]!") // SS220 EDIT ADDICTION
 		)
 		playsound(loc, "punch", 25, TRUE)
 		tip_over()
@@ -158,8 +158,8 @@
 /obj/structure/machinery/cm_vending/handle_charge_collision(mob/living/carbon/xenomorph/xeno, datum/action/xeno_action/onclick/charger_charge/charger_ability)
 	if(charger_ability.momentum >= CCA_MOMENTUM_LOSS_THIRD)
 		xeno.visible_message(
-			SPAN_DANGER("[xeno] smashes straight into \the [src]!"),
-			SPAN_XENODANGER("You smash straight into \the [src]!")
+			SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] врезается прямо в [declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
+			SPAN_XENODANGER("Вы врезаетесь прямо в [declent_ru(ACCUSATIVE)]!") // SS220 EDIT ADDICTION
 		)
 		playsound(loc, "punch", 25, TRUE)
 		tip_over()
@@ -191,8 +191,8 @@
 /obj/structure/barricade/handle_charge_collision(mob/living/carbon/xenomorph/xeno, datum/action/xeno_action/onclick/charger_charge/charger_ability)
 	if(charger_ability.momentum)
 		visible_message(
-			SPAN_DANGER("[xeno] rams into \the [src] and skids to a halt!"),
-			SPAN_XENOWARNING("You ram into \the [src] and skid to a halt!")
+			SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] врезается в [declent_ru(ACCUSATIVE)] и тормозит!"), // SS220 EDIT ADDICTION
+			SPAN_XENOWARNING("Мы врезаемся в [declent_ru(ACCUSATIVE)] и тормозим!") // SS220 EDIT ADDICTION
 		)
 		take_damage(charger_ability.momentum * 22)
 		playsound(src, barricade_hitsound, 25, TRUE)
@@ -345,8 +345,8 @@
 	take_overall_armored_damage(charger_ability.momentum * momentum_mult, ARMOR_MELEE, BRUTE, 60, 13) // Giving AP because this spreads damage out and then applies armor to them
 	apply_armoured_damage(charger_ability.momentum * momentum_mult/4, ARMOR_MELEE, BRUTE,"chest")
 	xeno.visible_message(
-		SPAN_DANGER("[xeno] rams [src]!"),
-		SPAN_XENODANGER("You ram [src]!")
+		SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] таранит [declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
+		SPAN_XENODANGER("Вы тараните [declent_ru(ACCUSATIVE)]!") // SS220 EDIT ADDICTION
 	)
 	var/knockdown = 1
 	if(charger_ability.momentum == charger_ability.max_momentum)
@@ -404,8 +404,8 @@
 		var/target_turf = get_step(src, ram_dir)
 		if(LinkBlocked(src, cur_turf, target_turf))
 			xeno.emote("roar")
-			xeno.visible_message(SPAN_DANGER("[xeno] flings [src] over to the side!"),SPAN_DANGER( "You fling [src] out of the way!"))
-			to_chat(src, SPAN_XENOHIGHDANGER("[xeno] flings you out of its way! Move it!"))
+			xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] отбрасывает [declent_ru(ACCUSATIVE)] в сторону!"),SPAN_DANGER("Вы отбрасываете [declent_ru(ACCUSATIVE)] в сторону!")) // SS220 EDIT ADDICTION
+			to_chat(src, SPAN_XENOHIGHDANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] отбрасывает вас в сторону! С дороги!")) // SS220 EDIT ADDICTION
 			apply_effect(1, WEAKEN) // brief flicker stun
 			throw_atom(get_turf(src), 1, 3, xeno, TRUE)
 		step(src, ram_dir, charger_ability.momentum * 0.5)
@@ -425,8 +425,8 @@
 		momentum_mult = 8
 	take_overall_damage(charger_ability.momentum * momentum_mult)
 	xeno.visible_message(
-		SPAN_DANGER("[xeno] rams [src]!"),
-		SPAN_XENODANGER("You ram [src]!")
+		SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] таранит [declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
+		SPAN_XENODANGER("Вы тараните [declent_ru(ACCUSATIVE)]!") // SS220 EDIT ADDICTION
 	)
 	var/knockdown = 1
 	if(charger_ability.momentum == charger_ability.max_momentum)
@@ -478,8 +478,8 @@
 	var/datum/effect_system/spark_spread/sparks = new
 	sparks.set_up(5, 1, loc)
 	xeno.visible_message(
-		SPAN_DANGER("[xeno] rams [src]!"),
-		SPAN_XENODANGER("You ram [src]!")
+		SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] таранит [declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
+		SPAN_XENODANGER("Вы тараните [declent_ru(ACCUSATIVE)]!") // SS220 EDIT ADDICTION
 	)
 	if(health <= CHARGER_DAMAGE_SENTRY)
 		new /obj/effect/spawner/gibspawner/robot(src.loc) // if we goin down ,we going down with a show.
@@ -506,8 +506,8 @@
 	sparks.set_up(1, 1, loc)
 	sparks.start()
 	xeno.visible_message(
-		SPAN_DANGER("[xeno] rams [src]!"),
-		SPAN_XENODANGER("You ram [src]!")
+		SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] таранит [declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
+		SPAN_XENODANGER("Вы тараните [declent_ru(ACCUSATIVE)]!") // SS220 EDIT ADDICTION
 	)
 	playsound(src, "sound/effects/metal_crash.ogg", 25, TRUE)
 
@@ -543,8 +543,8 @@
 	sparks.set_up(1, 1, loc)
 	sparks.start()
 	xeno.visible_message(
-		SPAN_DANGER("[xeno] rams [src]!"),
-		SPAN_XENODANGER("You ram [src]!")
+		SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] таранит [declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
+		SPAN_XENODANGER("Вы тараните [declent_ru(ACCUSATIVE)]!") // SS220 EDIT ADDICTION
 	)
 	playsound(src, "sound/effects/metal_crash.ogg", 25, TRUE)
 
@@ -598,8 +598,8 @@
 		charger_ability.stop_momentum()
 		return
 	xeno.visible_message(
-		SPAN_DANGER("[xeno] rams [src]!"),
-		SPAN_XENODANGER("You ram [src]!")
+		SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] таранит [declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
+		SPAN_XENODANGER("Вы тараните [declent_ru(ACCUSATIVE)]!") // SS220 EDIT ADDICTION
 	)
 	playsound(src, "sound/effects/metalhit.ogg", 25, TRUE)
 	qdel(src)
@@ -610,7 +610,7 @@
 	charger_ability.stop_momentum()
 
 // Legacy Tank dispenser
-// Todo: Give this and other shitty fucking indestructible legacy items proper destruction mechanics. This includes being vunerable to bullets,explosions, etc and not just the charger.
+// Todo: Give this and other shitty fucking indestructible legacy items proper destruction mechanics. This includes being vulnerable to bullets,explosions, etc and not just the charger.
 // For now this is fine since priority is charger, and I'm not willing to spend all day looking for bumfuck legacy item #382321 thats used a total of three times in the entireity of CM and adding health and everything to it.
 
 /obj/structure/dispenser/handle_charge_collision(mob/living/carbon/xenomorph/xeno, datum/action/xeno_action/onclick/charger_charge/charger_ability)
@@ -618,8 +618,8 @@
 		charger_ability.stop_momentum()
 		return
 	xeno.visible_message(
-		SPAN_DANGER("[xeno] rams [src]!"),
-		SPAN_XENODANGER("You ram [src]!")
+		SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] таранит [declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
+		SPAN_XENODANGER("Вы тараните [declent_ru(ACCUSATIVE)]!") // SS220 EDIT ADDICTION
 	)
 	playsound(src, "sound/effects/metalhit.ogg", 25, TRUE)
 	qdel(src)
@@ -631,7 +631,7 @@
 
 // ye olde weldertanke
 
-/obj/structure/reagent_dispensers/fueltank/handle_charge_collision(mob/living/carbon/xenomorph/xeno, datum/action/xeno_action/onclick/charger_charge/charger_ability)
+/obj/structure/reagent_dispensers/tank/fuel/handle_charge_collision(mob/living/carbon/xenomorph/xeno, datum/action/xeno_action/onclick/charger_charge/charger_ability)
 	if(!charger_ability.momentum)
 		charger_ability.stop_momentum()
 		return
@@ -651,6 +651,74 @@
 		return XENO_CHARGE_TRY_MOVE
 
 	charger_ability.stop_momentum()
+
+/datum/action/xeno_action/onclick/charger_charge/use_ability(atom/Target)
+	var/mob/living/carbon/xenomorph/Xeno = owner
+
+	activated = !activated
+	var/will_charge = "[activated ? "" : "больше не"]" // SS220 EDIT ADDICTION
+	to_chat(Xeno, SPAN_XENONOTICE("Мы [will_charge] будем атаковать во время передвижения.")) // SS220 EDIT ADDICTION
+	if(activated)
+		RegisterSignal(Xeno, COMSIG_MOVABLE_MOVED, PROC_REF(handle_movement))
+		RegisterSignal(Xeno, COMSIG_LIVING_SET_BODY_POSITION, PROC_REF(handle_position_change))
+		RegisterSignal(Xeno, COMSIG_ATOM_DIR_CHANGE, PROC_REF(handle_dir_change))
+		RegisterSignal(Xeno, COMSIG_XENO_RECALCULATE_SPEED, PROC_REF(update_speed))
+		RegisterSignal(Xeno, COMSIG_XENO_STOP_MOMENTUM, PROC_REF(stop_momentum))
+		RegisterSignal(Xeno, COMSIG_MOVABLE_ENTERED_RIVER, PROC_REF(handle_river))
+		RegisterSignal(Xeno, COMSIG_LIVING_PRE_COLLIDE, PROC_REF(handle_collision))
+		RegisterSignal(Xeno, COMSIG_XENO_START_CHARGING, PROC_REF(start_charging))
+		button.icon_state = "template_active"
+	else
+		stop_momentum()
+		UnregisterSignal(Xeno, list(
+			COMSIG_MOVABLE_MOVED,
+			COMSIG_LIVING_SET_BODY_POSITION,
+			COMSIG_ATOM_DIR_CHANGE,
+			COMSIG_XENO_RECALCULATE_SPEED,
+			COMSIG_MOVABLE_ENTERED_RIVER,
+			COMSIG_LIVING_PRE_COLLIDE,
+			COMSIG_XENO_STOP_MOMENTUM,
+			COMSIG_XENO_START_CHARGING,
+		))
+		button.icon_state = "template_xeno"
+	return ..()
+
+/datum/action/xeno_action/activable/tumble/use_ability(atom/Target)
+	if(!action_cooldown_check())
+		return
+	var/mob/living/carbon/xenomorph/Xeno = owner
+	if (!Xeno.check_state())
+		return
+	if(Xeno.plasma_stored <= plasma_cost)
+		return
+	var/target_dist = get_dist(Xeno, Target)
+	var/dir_between = get_dir(Xeno, Target)
+	var/target_dir
+	for(var/perpen_dir in get_perpen_dir(Xeno.dir))
+		if(dir_between & perpen_dir)
+			target_dir = perpen_dir
+			break
+
+	if(!target_dir)
+		return
+
+	Xeno.visible_message(SPAN_XENOWARNING("[capitalize(Xeno.declent_ru(NOMINATIVE))] отпрыгивает в сторону!"), SPAN_XENOHIGHDANGER("Мы отпрыгиваем в сторону!")) // SS220 EDIT ADDICTION
+	Xeno.spin(5,1) // note: This spins the sprite and DOES NOT affect directional armor
+	var/start_charging = HAS_TRAIT(Xeno, TRAIT_CHARGING)
+	SEND_SIGNAL(Xeno, COMSIG_XENO_STOP_MOMENTUM)
+	Xeno.flags_atom |= DIRLOCK
+	playsound(Xeno,"alien_tail_swipe", 50, 1)
+
+	Xeno.use_plasma(plasma_cost)
+
+	var/target = get_step(get_step(Xeno, target_dir), target_dir)
+	var/list/collision_callbacks = list(/mob/living/carbon/human = CALLBACK(src, PROC_REF(handle_mob_collision)))
+	var/list/end_throw_callbacks = list(CALLBACK(src, PROC_REF(on_end_throw), start_charging))
+	Xeno.throw_atom(target, target_dist, SPEED_FAST, launch_type = LOW_LAUNCH, pass_flags = PASS_CRUSHER_CHARGE, end_throw_callbacks = end_throw_callbacks, collision_callbacks = collision_callbacks)
+
+	apply_cooldown()
+	return ..()
+
 
 
 #undef CHARGER_DESTROY

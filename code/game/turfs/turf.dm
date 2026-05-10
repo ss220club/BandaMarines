@@ -26,6 +26,8 @@
 
 /turf
 	icon = 'icons/turf/floors/floors.dmi'
+	plane = TURF_PLANE
+
 	///Used by floors to indicate the floor is a tile (otherwise its plating)
 	var/intact_tile = TRUE
 	///Can blood spawn on this turf?
@@ -50,9 +52,6 @@
 
 	var/turf_flags = NO_FLAGS
 
-	// Fishing
-	var/supports_fishing = FALSE // set to false when MRing, this is just for testing
-
 	///Lumcount added by sources other than lighting datum objects, such as the overlay lighting component.
 	var/dynamic_lumcount = 0
 
@@ -69,6 +68,9 @@
 
 	/// Is fishing allowed on this turf
 	var/fishing_allowed = FALSE
+
+	/// Can xenomorph weeds grow on the tile
+	var/is_weedable = FULLY_WEEDABLE
 
 /turf/Initialize(mapload)
 	SHOULD_CALL_PARENT(FALSE) // this doesn't parent call for optimisation reasons
@@ -91,7 +93,7 @@
 
 	if(above)
 		above.multiz_new(dir=DOWN)
-	
+
 	if(below)
 		below.multiz_new(dir=UP)
 
@@ -109,15 +111,58 @@
 	if(light_power && light_range)
 		update_light()
 
-	//Get area light
-	var/area/current_area = loc
-	if(current_area?.lighting_effect)
-		overlays += current_area.lighting_effect
-
 	if(opacity)
 		directional_opacity = ALL_CARDINALS
 
-	return INITIALIZE_HINT_NORMAL
+	//dense turfs stop weeds
+	if(density)
+		is_weedable = NOT_WEEDABLE
+
+	if(istransparentturf(src))
+		return INITIALIZE_HINT_LATELOAD
+	else
+		return INITIALIZE_HINT_NORMAL
+
+/turf/LateInitialize(mapload)
+	update_vis_contents()
+
+/obj/vis_contents_holder
+	plane = OPEN_SPACE_PLANE_START
+	vis_flags = VIS_HIDE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	anchored = TRUE
+
+/obj/vis_contents_holder/Initialize(mapload, vis, offset, backdrop = TRUE)
+	. = ..()
+	plane -= offset
+	vis_contents += GLOB.openspace_backdrop_one_for_all
+	vis_contents += vis
+	name = null // Makes it invisible on right click
+
+/turf/proc/update_vis_contents()
+	if(!istransparentturf(src))
+		return
+
+	vis_contents.Cut()
+	for(var/obj/vis_contents_holder/holder in src)
+		qdel(holder)
+
+	var/turf/below = SSmapping.get_turf_below(src)
+	var/depth = 0
+	while(below)
+		new /obj/vis_contents_holder(src, below, depth)
+		if(!istransparentturf(below))
+			break
+		below = SSmapping.get_turf_below(below)
+		depth++
+
+/turf/proc/multiz_new(dir)
+	if(dir == DOWN)
+		update_vis_contents()
+
+/turf/proc/multiz_del(dir)
+	if(dir == DOWN)
+		update_vis_contents()
 
 /turf/Destroy(force)
 	if(hybrid_lights_affecting)
@@ -137,7 +182,7 @@
 	var/turf/below = SSmapping.get_turf_below(src)
 	if(above)
 		above.multiz_del(dir=DOWN)
-	
+
 	if(below)
 		below.multiz_del(dir=UP)
 
@@ -152,12 +197,6 @@
 		return
 	flags_atom &= ~INITIALIZED
 	..()
-
-/turf/proc/multiz_new(dir)
-	return
-
-/turf/proc/multiz_del(dir)
-	return
 
 /turf/vv_get_dropdown()
 	. = ..()
@@ -249,7 +288,7 @@
 			return FALSE
 
 	// if we are thrown, moved, dragged, or in any other way abused by code - check our diagonals
-	if(!mover.move_intentionally || (fdir == NORTHEAST || fdir == NORTHWEST || fdir == SOUTHEAST || fdir == SOUTHWEST)) // SS220 EDIT
+	if(!mover.move_intentionally)
 		// Check objects in adjacent turf EAST/WEST
 		if(fd1 && fd1 != fdir)
 			T = get_step(mover, fd1)
@@ -306,6 +345,15 @@
 		if ((!fd1 || blocking_dir & fd1) && (!fd2 || blocking_dir & fd2))
 			if(!mover.Collide(A))
 				return FALSE
+
+	if(mover.move_intentionally && istype(src, /turf/open_space) && istype(mover,/mob/living))
+		var/turf/open_space/space = src
+		var/mob/living/climber = mover
+		if(climber.a_intent == INTENT_HARM)
+			return TRUE
+		space.climb_down(climber)
+		return FALSE
+
 
 	return TRUE //Nothing found to block so return success!
 
@@ -410,14 +458,23 @@
 	created_baseturf_lists[new_baseturfs[length(new_baseturfs)]] = new_baseturfs.Copy()
 	return new_baseturfs
 
+/// WARNING WARNING
+/// Turfs DO NOT lose their signals when they get replaced, REMEMBER THIS
+/// It's possible because turfs are fucked, and if you have one in a list and it's replaced with another one, the list ref points to the new turf
+/// We do it because moving signals over was needlessly expensive, and bloated a very commonly used bit of code
+/turf/clear_signal_refs()
+	return
+
 // Creates a new turf
-// new_baseturfs can be either a single type or list of types, formated the same as baseturfs. see turf.dm
+// new_baseturfs can be either a single type or list of types, formatted the same as baseturfs. see turf.dm
 /turf/proc/ChangeTurf(path, list/new_baseturfs, flags)
 	switch(path)
 		if(null)
 			return
 		if(/turf/baseturf_bottom)
 			path = /turf/open/floor/plating
+		if(/turf/open/space/basic) // these don't initialize, if you want to create one post-init just use the normal space turf
+			path = /turf/open/space
 
 	//if(src.type == new_turf_path) // Put this back if shit starts breaking
 	// return src
@@ -425,7 +482,7 @@
 	var/pylons = linked_pylons
 
 	var/list/old_baseturfs = baseturfs
-
+	var/old_ref = weak_reference
 	//static lighting
 	var/old_lighting_object = static_lighting_object
 	var/old_lighting_corner_NE = lighting_corner_NE
@@ -436,13 +493,28 @@
 	var/list/old_hybrid_lights_affecting = hybrid_lights_affecting?.Copy()
 	var/old_directional_opacity = directional_opacity
 
+	var/list/post_change_callbacks = list()
+	SEND_SIGNAL(src, COMSIG_PRE_TURF_CHANGE, path, new_baseturfs, flags, post_change_callbacks)
+
 	changing_turf = TRUE
 	qdel(src) //Just get the side effects and call Destroy
+	// Get signal registrations post-Destroy so stuff that's unregistered on Destroy won't be readded
+	var/list/old_comp_lookup = comp_lookup?.Copy()
+	var/list/old_signal_procs = signal_procs?.Copy()
 	var/turf/W = new path(src)
 
-	for(var/i in W.contents)
-		var/datum/A = i
-		SEND_SIGNAL(A, COMSIG_ATOM_TURF_CHANGE, src)
+	// WARNING WARNING
+	// Turfs DO NOT lose their signals when they get replaced, REMEMBER THIS
+	// It's possible because turfs are fucked, and if you have one in a list and it's replaced with another one, the list ref points to the new turf
+	if(old_comp_lookup)
+		LAZYOR(W.comp_lookup, old_comp_lookup)
+	if(old_signal_procs)
+		LAZYOR(W.signal_procs, old_signal_procs)
+
+	W.weak_reference = old_ref
+
+	for(var/datum/callback/callback as anything in post_change_callbacks)
+		callback.InvokeAsync(W)
 
 	if(new_baseturfs)
 		W.baseturfs = new_baseturfs
@@ -476,10 +548,6 @@
 	if(W.directional_opacity != old_directional_opacity)
 		W.reconsider_lights()
 
-	var/area/thisarea = get_area(W)
-	if(thisarea.lighting_effect)
-		W.overlays += thisarea.lighting_effect
-
 	W.levelupdate()
 	return W
 
@@ -497,7 +565,7 @@
 		while(ispath(turf_type, /turf/baseturf_skipover))
 			amount++
 			if(amount > length(new_baseturfs))
-				CRASH("The bottomost baseturf of a turf is a skipover [src]([type])")
+				CRASH("The bottom-most baseturf of a turf is a skipover [src]([type])")
 			turf_type = new_baseturfs[max(1, length(new_baseturfs) - amount + 1)]
 		new_baseturfs.len -= min(amount, length(new_baseturfs) - 1) // No removing the very bottom
 		if(length(new_baseturfs) == 1)
@@ -598,34 +666,38 @@
 	if(LAZYLEN(linked_pylons))
 		switch(get_pylon_protection_level())
 			if(TURF_PROTECTION_MORTAR)
-				return "The ceiling above is made of light resin. Doesn't look like it's going to stop much."
+				return "Потолок сделан из тонкой смолы. Не кажется, что оно особо крепкое."
 			if(TURF_PROTECTION_CAS)
-				return "The ceiling above is made of resin. Seems about as strong as a cavern roof."
+				return "Потолок сделан из смолы. На первый взгляд, по толщине как пещеры."
 			if(TURF_PROTECTION_OB)
-				return "The ceiling above is made of thick resin. Nothing is getting through that."
+				return "Потолок сделан из плотной смолы. Ничего не пройдет сквозь неё."
 
 	var/area/A = get_area(src)
 	switch(A.ceiling)
 		if(CEILING_GLASS)
-			return "The ceiling above is glass. That's not going to stop anything."
+			return "Потолок сделан из стекла. Он ничего не остановит."
 		if(CEILING_METAL)
-			return "The ceiling above is metal. You can't see through it with a camera from above. It will likely stop medevac pickups but not CAS."
+			return "Потолок сделан из металла. Камера с воздуха не увидит сквозь неё. Скорее всего, остановит сбор медэваков, но не НАП."
 		if(CEILING_UNDERGROUND_ALLOW_CAS)
-			return "It is underground. A thin cavern roof lies above. It will likely stop medevac pickups but not CAS."
+			return "Под землёй. Тонкий пещерный потолок сверху. Скорее всего, остановит сбор медэваков, но не НАП."
 		if(CEILING_UNDERGROUND_BLOCK_CAS)
-			return "It is underground. The cavern roof lies above. Can probably stop most ordnance."
+			return "Под землёй. Пещерный потолок сверху. Скорее всего, остановит большинство снарядов."
 		if(CEILING_UNDERGROUND_METAL_ALLOW_CAS)
-			return "It is underground. The ceiling above is made of thin metal. It will likely stop medevac pickups but not CAS."
+			return "Под землёй. Потолок сделан из тонкого металла. Скорее всего, остановит сбор медэваков, но не НАП."
 		if(CEILING_UNDERGROUND_METAL_BLOCK_CAS)
-			return "It is underground. The ceiling above is made of metal.  Can probably stop most ordnance."
+			return "Под землёй. Потолок сделан из металла. Скорее всего, остановит большинство снарядов."
 		if(CEILING_DEEP_UNDERGROUND)
-			return "It is deep underground. The cavern roof lies above. Nothing is getting through that."
+			return "Глубоко под землёй. Пещерный потолок сверху. Ничего не пройдет сквозь это."
 		if(CEILING_DEEP_UNDERGROUND_METAL)
-			return "It is deep underground. The ceiling above is made of thick metal. Nothing is getting through that."
+			return "Глубоко под землёй. Потолок сделан из плотного металла. Ничего не пройдет сквозь это."
 		if(CEILING_REINFORCED_METAL)
-			return "The ceiling above is heavy reinforced metal. Nothing is getting through that."
+			return "Потолок сделан из тяжелого усиленного металла. Ничего не пройдет сквозь это."
+		if(CEILING_SANDSTONE_ALLOW_CAS)
+			return "Потолок сделан из песчаника. Он ничего не остановит."
+		if(CEILING_UNDERGROUND_SANDSTONE_BLOCK_CAS)
+			return "Под землёй. Потолок сделан из песчаника. Скорее всего, остановит большинство снарядов."
 		else
-			return "It is in the open."
+			return "На открытой местности."
 
 /turf/proc/wet_floor()
 	return
@@ -638,44 +710,6 @@
 
 //////////////////////////////////////////////////////////
 
-//Check if you can plant weeds on that turf.
-//Does NOT return a message, just a 0 or 1.
-/turf/proc/is_weedable()
-	return density ? NOT_WEEDABLE : FULLY_WEEDABLE
-
-/turf/open/space/is_weedable()
-	return NOT_WEEDABLE
-
-/turf/open/gm/grass/is_weedable()
-	return SEMI_WEEDABLE
-
-/turf/open/gm/dirtgrassborder/is_weedable()
-	return SEMI_WEEDABLE
-
-/turf/open/gm/river/is_weedable()
-	return NOT_WEEDABLE
-
-/turf/open/gm/coast/is_weedable()
-	return NOT_WEEDABLE
-
-/turf/open/snow/is_weedable()
-	return bleed_layer ? NOT_WEEDABLE : FULLY_WEEDABLE
-
-/turf/open/mars/is_weedable()
-	return SEMI_WEEDABLE
-
-/turf/open/jungle/is_weedable()
-	return NOT_WEEDABLE
-
-/turf/open/auto_turf/shale/layer1/is_weedable()
-	return SEMI_WEEDABLE
-
-/turf/open/auto_turf/shale/layer2/is_weedable()
-	return SEMI_WEEDABLE
-
-/turf/closed/wall/is_weedable()
-	return FULLY_WEEDABLE //so we can spawn weeds on the walls
-
 
 /turf/proc/can_dig_xeno_tunnel()
 	return FALSE
@@ -685,9 +719,6 @@
 
 /turf/open/gm/river/can_dig_xeno_tunnel()
 	return FALSE
-
-/turf/open/snow/can_dig_xeno_tunnel()
-	return TRUE
 
 /turf/open/mars/can_dig_xeno_tunnel()
 	return TRUE
@@ -735,12 +766,6 @@
 /turf/open/mars/get_dirt_type()
 	return DIRT_TYPE_MARS
 
-/turf/open/snow/get_dirt_type()
-	if(bleed_layer)
-		return DIRT_TYPE_SNOW
-	else
-		return DIRT_TYPE_GROUND
-
 /turf/open/desert/dirt/get_dirt_type()
 	return DIRT_TYPE_MARS
 
@@ -774,52 +799,15 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	/turf/baseturf_bottom,
 	)))
 
-// Make a new turf and put it on top
-// The args behave identical to PlaceOnBottom except they go on top
-// Things placed on top of closed turfs will ignore the topmost closed turf
-// Returns the new turf
-/turf/proc/PlaceOnTop(list/new_baseturfs, turf/fake_turf_type, flags)
-	var/area/turf_area = loc
-	if(new_baseturfs && !length(new_baseturfs))
-		new_baseturfs = list(new_baseturfs)
-	flags = turf_area.PlaceOnTopReact(new_baseturfs, fake_turf_type, flags) // A hook so areas can modify the incoming args
+/// Places a turf at the top of the stack
+/turf/proc/place_on_top(turf/added_layer, flags)
+	var/list/turf/new_baseturfs = list()
 
-	var/turf/newT
-	if(flags & CHANGETURF_SKIP) // We haven't been initialized
-		if(flags_atom & INITIALIZED)
-			stack_trace("CHANGETURF_SKIP was used in a PlaceOnTop call for a turf that's initialized. This is a mistake. [src]([type])")
-		assemble_baseturfs()
-	if(fake_turf_type)
-		if(!new_baseturfs) // If no baseturfs list then we want to create one from the turf type
-			if(!length(baseturfs))
-				baseturfs = list(baseturfs)
-			var/list/old_baseturfs = baseturfs.Copy()
-			if(!istype(src, /turf/closed))
-				old_baseturfs += type
-			newT = ChangeTurf(fake_turf_type, null, flags)
-			newT.assemble_baseturfs(initial(fake_turf_type.baseturfs)) // The baseturfs list is created like roundstart
-			if(!length(newT.baseturfs))
-				newT.baseturfs = list(baseturfs)
-			newT.baseturfs -= GLOB.blacklisted_automated_baseturfs
-			newT.baseturfs.Insert(1, old_baseturfs) // The old baseturfs are put underneath
-			return newT
-		if(!length(baseturfs))
-			baseturfs = list(baseturfs)
-		insert_self_into_baseturfs()
-		baseturfs += new_baseturfs
-		return ChangeTurf(fake_turf_type, null, flags)
-	if(!length(baseturfs))
-		baseturfs = list(baseturfs)
-	insert_self_into_baseturfs()
-	var/turf/change_type
-	if(length(new_baseturfs))
-		change_type = new_baseturfs[length(new_baseturfs)]
-		new_baseturfs.len--
-		if(length(new_baseturfs))
-			baseturfs += new_baseturfs
-	else
-		change_type = new_baseturfs
-	return ChangeTurf(change_type, null, flags)
+	new_baseturfs.Add(baseturfs)
+	if(istype(src, /turf/open))
+		new_baseturfs.Add(type)
+
+	return ChangeTurf(added_layer, new_baseturfs, flags)
 
 /// Places a turf on top - for map loading
 /turf/proc/load_on_top(turf/added_layer, flags)
@@ -828,7 +816,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 
 	if(flags & CHANGETURF_SKIP) // We haven't been initialized
 		if(flags_atom & INITIALIZED)
-			stack_trace("CHANGETURF_SKIP was used in a PlaceOnTop call for a turf that's initialized. This is a mistake. [src]([type])")
+			stack_trace("CHANGETURF_SKIP was used in a place_on_top call for a turf that's initialized. This is a mistake. [src]([type])")
 		assemble_baseturfs()
 
 	var/turf/new_turf
@@ -905,3 +893,43 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 
 /turf/proc/on_throw_end(atom/movable/thrown_atom)
 	return TRUE
+
+/turf/proc/z_impact(mob/living/victim, height, stun_modifier = 1, damage_modifier = 1, fracture_modifier = 0)
+	if(ishuman_strict(victim))
+		var/mob/living/carbon/human/human_victim = victim
+		if(HAS_TRAIT(human_victim, TRAIT_HAULED))
+			return
+
+		if (stun_modifier > 0)
+			human_victim.KnockDown(3 * height * stun_modifier)
+			human_victim.Stun(3 * height * stun_modifier)
+			human_victim.Slow(5 * height * stun_modifier)
+
+		if (damage_modifier > 0)
+			var/total_damage = ((20 * height) ** 1.3) * damage_modifier
+			human_victim.apply_damage(total_damage / 2, BRUTE, "r_leg", enviro=TRUE)
+			human_victim.apply_damage(total_damage / 2, BRUTE, "l_leg", enviro=TRUE)
+
+		if (fracture_modifier > 0)
+			var/obj/limb/leg/found_rleg = locate(/obj/limb/leg/l_leg) in human_victim.limbs
+			var/obj/limb/leg/found_lleg = locate(/obj/limb/leg/r_leg) in human_victim.limbs
+
+			found_rleg?.fracture(100 * fracture_modifier)
+			found_lleg?.fracture(100 * fracture_modifier)
+
+	if(isxeno(victim))
+		var/mob/living/carbon/xenomorph/xeno_victim = victim
+		if(stun_modifier > 0)
+			if(xeno_victim.mob_size >= MOB_SIZE_BIG)
+				xeno_victim.KnockDown(height * 3.5 * stun_modifier)
+				xeno_victim.Stun( height * 3.5 * stun_modifier)
+				xeno_victim.Slow(height * 6 * stun_modifier)
+			else
+				xeno_victim.KnockDown(height * 0.5 * stun_modifier)
+				xeno_victim.Stun( height * 0.5 * stun_modifier)
+				xeno_victim.Slow(height * 2.5 * stun_modifier)
+
+
+
+	if(damage_modifier > 0.5)
+		playsound(loc, "slam", 50, 1)

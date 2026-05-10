@@ -22,12 +22,9 @@ GLOBAL_LIST_INIT(bgstate_options, list(
 ))
 
 GLOBAL_LIST_INIT(be_special_flags, list(
-	"Xenomorph after unrevivable death" = BE_ALIEN_AFTER_DEATH,
-	"Agent" = BE_AGENT,
+	"Xenomorph" = BE_ALIEN,
 	"King" = BE_KING,
 ))
-
-#define MAX_SAVE_SLOTS 10
 
 /datum/preferences
 	var/client/owner
@@ -40,8 +37,13 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	var/static/datum/body_picker/body_picker = new
 	var/static/datum/traits_picker/traits_picker = new
 	var/static/datum/loadout_picker/loadout_picker = new
+	var/static/datum/flavor_text_editor/flavor_text_editor = new
 
 	var/static/datum/pred_picker/pred_picker = new
+
+	/// The previous version of this savefile
+	var/updated_from
+
 
 	//doohickeys for savefiles
 	var/path
@@ -63,8 +65,8 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	//game-preferences
 	var/lastchangelog = "" // Saved changlog filesize to detect if there was a change
 	var/ooccolor
-	var/be_special = BE_KING // Special role selection
-	var/toggle_prefs = TOGGLE_DIRECTIONAL_ATTACK|TOGGLE_MEMBER_PUBLIC|TOGGLE_AMBIENT_OCCLUSION|TOGGLE_VEND_ITEM_TO_HAND // flags in #define/mode.dm
+	var/be_special = BE_ALIEN|BE_KING // Special role selection
+	var/toggle_prefs = TOGGLE_DIRECTIONAL_ATTACK|TOGGLE_COMBAT_CLICKDRAG_OVERRIDE|TOGGLE_MEMBER_PUBLIC|TOGGLE_AMBIENT_OCCLUSION|TOGGLE_VEND_ITEM_TO_HAND|TOGGLE_LEADERSHIP_SPOKEN_ORDERS|TOGGLE_COCKING_TO_HAND|TOGGLE_WIELD_ASSIST // flags in #define/mode.dm
 	var/xeno_ability_click_mode = XENO_ABILITY_CLICK_MIDDLE
 	var/auto_fit_viewport = FALSE
 	var/adaptive_zoom = 0
@@ -76,14 +78,16 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	var/toggles_sound = TOGGLES_SOUND_DEFAULT
 	var/toggles_flashing = TOGGLES_FLASHING_DEFAULT
 	var/toggles_ert = TOGGLES_ERT_DEFAULT
+	var/toggles_survivor = TOGGLES_SURVIVOR_DEFAULT
 	var/toggles_ert_pred = TOGGLES_ERT_GROUNDS
 	var/list/volume_preferences = list(1, 0.5, 1, 0.6, //Game, music, admin midis, lobby music
-	1, 0.5) // SS220 TTS EDIT
+	1, 0.5, 0.5, 0.5) //Local, Radio, Announces, Hivemind - SS220 TTS EDIT
 	var/chat_display_preferences = CHAT_TYPE_ALL
 	var/item_animation_pref_level = SHOW_ITEM_ANIMATIONS_ALL
 	var/pain_overlay_pref_level = PAIN_OVERLAY_BLURRY
 	var/flash_overlay_pref = FLASH_OVERLAY_WHITE
 	var/crit_overlay_pref = CRIT_OVERLAY_WHITE
+	var/allow_flashing_lights_pref = FALSE
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
 	var/View_MC = FALSE
@@ -93,15 +97,20 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 							"Security HUD" = FALSE,
 							"Squad HUD" = FALSE,
 							"Xeno Status HUD" = FALSE,
+							"Hunter HUD"= FALSE,
 							HUD_MENTOR_SIGHT = FALSE
 							)
 	var/ghost_vision_pref = GHOST_VISION_LEVEL_MID_NVG
 	var/ghost_orbit = GHOST_ORBIT_CIRCLE
 	var/dual_wield_pref = DUAL_WIELD_FIRE
+	var/playtime_perks = TRUE
+	var/skip_playtime_ranks = FALSE
+	var/show_minimap_ceiling_protection = FALSE
 
 	//Synthetic specific preferences
 	var/synthetic_name = "Undefined"
 	var/synthetic_type = SYNTH_GEN_THREE
+	var/synth_specialisation = "Generalised"
 	//Predator specific preferences.
 	var/predator_name = "Undefined"
 	var/predator_gender = MALE
@@ -109,7 +118,9 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	var/predator_h_style = "Standard"
 	var/predator_skin_color = "tan"
 	var/predator_use_legacy = "None"
-	var/predator_translator_type = "Modern"
+	var/predator_use_unique = "None"
+	var/predator_translator_type = PRED_TECH_MODERN
+	var/predator_invisibility_sound = PRED_TECH_MODERN
 	var/predator_mask_type = 1
 	var/predator_accessory_type = 0
 	var/predator_armor_type = 1
@@ -118,10 +129,11 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	var/predator_mask_material = "ebony"
 	var/predator_greave_material = "ebony"
 	var/predator_caster_material = "ebony"
+	var/predator_bracer_material = "ebony"
 	var/predator_cape_color = "#654321"
 	var/predator_flavor_text = ""
 	//CO-specific preferences
-	var/commander_sidearm = "Mateba"
+	var/commander_sidearm = "Unica (camo comforting)"
 	var/co_career_path = "Infantry"
 	var/affiliation = "Unaligned"
 	//SEA specific preferences
@@ -159,7 +171,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	var/age = 19 //age of character
 	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
 	var/underwear = "Boxers (Camo Conforming)" //underwear type
-	var/undershirt = "Undershirt (Tan)" //undershirt type
+	var/undershirt = "Undershirt (Tan) (Camo Conforming)" //undershirt type
 	var/backbag = 2 //backpack type
 	var/preferred_armor = "Random" //preferred armor type (from their primary prep vendor)
 
@@ -190,8 +202,8 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	var/body_size = "Average" // Body Size
 	var/body_type = "Lean" // Body Type
 	var/language = "None" //Secondary language
-	var/list/gear //Custom/fluff item loadout.
 	var/preferred_squad = "None"
+	var/preferred_spec = list()
 	var/night_vision_preference = "Green"
 	var/list/nv_color_list = list(
 						"Green" = NV_COLOR_GREEN,
@@ -241,7 +253,6 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	var/xeno_postfix = ""
 	var/xeno_name_ban = FALSE
 	var/xeno_vision_level_pref = XENO_VISION_LEVEL_MID_NVG
-	var/playtime_perks = TRUE
 	var/show_queen_name = FALSE
 
 	var/stylesheet = "Modern"
@@ -260,6 +271,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 
 	var/tgui_fancy = TRUE
 	var/tgui_lock = FALSE
+	var/window_scale = TRUE
 
 	var/hear_vox = TRUE
 
@@ -279,6 +291,8 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 
 	/// if this client has custom cursors enabled
 	var/custom_cursors = TRUE
+	var/main_cursor = TRUE
+	var/chosen_pointer
 
 	/// if this client has tooltips enabled
 	var/tooltips = TRUE
@@ -287,6 +301,36 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	var/list/completed_tutorials = list()
 	/// If this client has auto observe enabled, used by /datum/orbit_menu
 	var/auto_observe = TRUE
+
+	// Whether or not they've toggled opting out of CMTV
+	var/CMTV_toggle_optout = FALSE
+
+	/// Fluff items that the user is equipped with on spawn.
+	var/list/gear
+
+	/// Loadout items that the user is equipped with on spawn.
+	VAR_PRIVATE/list/loadout = list()
+
+	/// Mapping of jobs to slot numbers to names, to allow users to customise slots
+	var/list/loadout_slot_names = list()
+
+	/// Which slot is currently in use
+	var/selected_loadout_slot = 1
+
+	/// This contains any potential issues with the users' preferences, and presents them on the lobby screen
+	var/errors = list()
+
+	/// Sends messages in chat when the Xeno Action's cooldown is complete and adds cooldown timers in stat panel
+	var/show_cooldown_messages = FALSE
+
+	/// A list of saved presets for the ChemMaster, storing pill bottle color, label, and pill color preferences
+	var/list/chem_presets = list()
+
+	/// The custom keybinds, in an array to associated array of {"keybinding": [], "type": "picksay"|"say"|"me", "contents": "CHARGE!"}
+	var/list/custom_keybinds = list()
+
+	/// The same keybinds, but in an array of {"keybinding": /datum/keybinding/custom}
+	var/list/key_to_custom_keybind = list()
 
 /datum/preferences/New(client/C)
 	key_bindings = deep_copy_list(GLOB.hotkey_keybinding_list_by_key) // give them default keybinds and update their movement keys
@@ -299,11 +343,18 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 			if(load_preferences())
 				if(load_character())
 					return
+
+		C.tgui_say?.load()
+
 	if(!ooccolor)
 		ooccolor = CONFIG_GET(string/ooc_color_default)
 	gender = pick(MALE, FEMALE)
 	real_name = random_name(gender)
 	gear = list()
+
+	#ifdef QUICK_START
+	job_preference_list[JOB_CO] = HIGH_PRIORITY
+	#endif
 
 /datum/preferences/proc/client_reconnected(client/C)
 	owner = C
@@ -369,16 +420,19 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	switch(current_menu)
 		if(MENU_MARINE)
 			dat += "<div id='column1'>"
-			dat += "<h1><u><b>Name:</b></u> "
+			dat += "<h1><u><b>Имя:</b></u> "
 			dat += "<a href='byond://?_src_=prefs;preference=name;task=input'><b>[real_name]</b></a>"
 			dat += "<a href='byond://?_src_=prefs;preference=name;task=random'>&reg</A></h1>"
+			// SS220 ADDITION START
+			dat += "<a href='byond://?_src_=prefs;preference=declined_name;task=open'>Склонение имени</a><br>"
+			// SS220 ADDITION END
 			dat += "<b>Always Pick Random Name:</b> <a href='byond://?_src_=prefs;preference=rand_name'><b>[be_random_name ? "Yes" : "No"]</b></a><br>"
 			dat += "<b>Always Pick Random Appearance:</b> <a href='byond://?_src_=prefs;preference=rand_body'><b>[be_random_body ? "Yes" : "No"]</b></a><br><br>"
 
 			dat += "<h2><b><u>Physical Information:</u></b>"
 			dat += "<a href='byond://?_src_=prefs;preference=all;task=random'>&reg;</A></h2>"
 			dat += "<b>Age:</b> <a href='byond://?_src_=prefs;preference=age;task=input'><b>[age]</b></a><br>"
-			dat += "<b>Gender:</b> <a href='byond://?_src_=prefs;preference=gender'><b>[gender == MALE ? "Male" : "Female"]</b></a><br><br>"
+			dat += "<b>Gender:</b> <a href='byond://?_src_=prefs;preference=gender'><b>[gender == PLURAL ? "Non-Binary" : gender == MALE ? "Male" : "Female"]</b></a><br>"
 
 			dat += "<b>Skin Color:</b> [skin_color]<br>"
 			dat += "<b>Body Size:</b> [body_size]<br>"
@@ -442,10 +496,12 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 			if(length(gear))
 				dat += "<br>"
 				for(var/i = 1; i <= length(gear); i++)
-					var/datum/gear/G = GLOB.gear_datums_by_name[gear[i]]
+					var/datum/gear/G = GLOB.gear_datums_by_type[gear[i]]
 					if(G)
-						total_cost += G.cost
-						dat += "[gear[i]] ([G.cost] points)<br>"
+						total_cost += G.fluff_cost
+						var/fluff_cost = G.fluff_cost ? " ([G.fluff_cost] fluff point\s)" : ""
+						var/loadout_cost = G.loadout_cost ? " ([G.loadout_cost]) loadout point\s" : ""
+						dat += "[G.display_name][fluff_cost][loadout_cost]<br>"
 
 				dat += "<b>Used:</b> [total_cost] points"
 			else
@@ -462,6 +518,15 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 
 			dat += "<b>Corporate Relation:</b> <a href='byond://?_src_=prefs;preference=wy_relation;task=input'><b>[weyland_yutani_relation]</b></a><br>"
 			dat += "<b>Preferred Squad:</b> <a href='byond://?_src_=prefs;preference=prefsquad;task=input'><b>[preferred_squad]</b></a><br>"
+			var/spec_detail
+			switch(length(preferred_spec))
+				if(0)
+					spec_detail = "No Preference"
+				if(1)
+					spec_detail = preferred_spec[1]
+				else
+					spec_detail = preferred_spec[1] + ", ..."
+			dat += "<b>Specialist Priority:</b> <a href='byond://?_src_=prefs;preference=prefspec;task=input'><b>[spec_detail]</b></a><br>"
 
 			dat += "<h2><b><u>Fluff Information:</u></b></h2>"
 			if(jobban_isbanned(user, "Records"))
@@ -488,9 +553,15 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 			dat += "<b>Xeno prefix:</b> <a href='byond://?_src_=prefs;preference=xeno_prefix;task=input'><b>[display_prefix]</b></a><br>"
 			dat += "<b>Xeno postfix:</b> <a href='byond://?_src_=prefs;preference=xeno_postfix;task=input'><b>[display_postfix]</b></a><br>"
 
-			dat += "<b>Enable Playtime Perks:</b> <a href='byond://?_src_=prefs;preference=playtime_perks'><b>[playtime_perks? "Yes" : "No"]</b></a><br>"
 			dat += "<b>Show Queen Name:</b> <a href='byond://?_src_=prefs;preference=show_queen_name'><b>[show_queen_name? "Yes" : "No"]</b></a><br>"
 			dat += "<b>Default Xeno Night Vision Level:</b> <a href='byond://?_src_=prefs;preference=xeno_vision_level_pref;task=input'><b>[xeno_vision_level_pref]</b></a><br>"
+
+			// BANDAMARINES EDIT START
+			dat += "<b>Показывать горячие клавиши:</b> <a href='byond://?_src_=prefs;preference=xeno_show_hotkeys;task=input'><b>[xeno_show_hotkeys ? "Да" : "Нет"]</b></a><br>"
+			dat += "<a href='byond://?_src_=prefs;preference=xeno_customization_picker;task=open'><b>Кастомизация ксеноморфа</b></a><br>"
+			dat += "<b>Background:</b> <a href='byond://?_src_=prefs;preference=cycle_bg'><b>Cycle Background</b></a><br>"
+			dat += "<b>Xeno Customization Visibility:</b> <a href='byond://?_src_=prefs;preference=xeno_customization_visibility;task=input'><b>[xeno_customization_visibility]</b></a><br>"
+			// BANDAMARINES EDIT END
 
 			var/tempnumber = rand(1, 999)
 			var/postfix_text = xeno_postfix ? ("-"+xeno_postfix) : ""
@@ -519,6 +590,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 				dat += "<b>Synthetic Name:</b> <a href='byond://?_src_=prefs;preference=synth_name;task=input'><b>[synthetic_name]</b></a><br>"
 				dat += "<b>Synthetic Type:</b> <a href='byond://?_src_=prefs;preference=synth_type;task=input'><b>[synthetic_type]</b></a><br>"
 				dat += "<b>Synthetic Whitelist Status:</b> <a href='byond://?_src_=prefs;preference=synth_status;task=input'><b>[synth_status]</b></a><br>"
+				dat += "<b>Synthetic Specialisation:</b> <a href='byond://?_src_=prefs;preference=synth_specialisation;task=input'><b>[synth_specialisation]</b></a><br>"
 				dat += "</div>"
 			else
 				dat += "<b>You do not have the whitelist for this role.</b>"
@@ -558,6 +630,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 			dat += "<b>Ghost Sight:</b> <a href='byond://?_src_=prefs;preference=ghost_sight'><b>[(toggles_chat & CHAT_GHOSTSIGHT) ? "All Emotes" : "Nearest Creatures"]</b></a><br>"
 			dat += "<b>Ghost Radio:</b> <a href='byond://?_src_=prefs;preference=ghost_radio'><b>[(toggles_chat & CHAT_GHOSTRADIO) ? "All Chatter" : "Nearest Speakers"]</b></a><br>"
 			dat += "<b>Ghost Spy Radio:</b> <a href='byond://?_src_=prefs;preference=ghost_spyradio'><b>[(toggles_chat & CHAT_LISTENINGBUG) ? "Hear" : "Silence"] listening devices</b></a><br>"
+			dat += "<b>Ghost Announcement Clarity:</b> <a href='byond://?_src_=prefs;preference=ghost_announceclarity'><b>[(toggles_chat & CHAT_GHOSTANNOUNCECLARITY) ? "Full Clarity" : "Potentially Garbled"] announcements</b></a><br>"
 			dat += "<b>Ghost Hivemind:</b> <a href='byond://?_src_=prefs;preference=ghost_hivemind'><b>[(toggles_chat & CHAT_GHOSTHIVEMIND) ? "Show Hivemind" : "Hide Hivemind"]</b></a><br>"
 			dat += "<b>Abovehead Chat:</b> <a href='byond://?_src_=prefs;preference=lang_chat_disabled'><b>[lang_chat_disabled ? "Hide" : "Show"]</b></a><br>"
 			dat += "<b>Abovehead Emotes:</b> <a href='byond://?_src_=prefs;preference=langchat_emotes'><b>[(toggles_langchat & LANGCHAT_SEE_EMOTES) ? "Show" : "Hide"]</b></a><br>"
@@ -571,6 +644,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 			dat += "<b>Tooltips:</b> <a href='byond://?_src_=prefs;preference=tooltips'><b>[tooltips ? "Enabled" : "Disabled"]</b></a><br>"
 			dat += "<b>tgui Window Mode:</b> <a href='byond://?_src_=prefs;preference=tgui_fancy'><b>[(tgui_fancy) ? "Fancy (default)" : "Compatible (slower)"]</b></a><br>"
 			dat += "<b>tgui Window Placement:</b> <a href='byond://?_src_=prefs;preference=tgui_lock'><b>[(tgui_lock) ? "Primary monitor" : "Free (default)"]</b></a><br>"
+			dat += "<b>Window Scaling:</b> <a href='byond://?_src_=prefs;preference=window_scale'><b>[window_scale ? "Larger windows (default)" : "Smaller zoom"]</b></a><br>"
 			dat += "<b>Play Admin Sounds:</b> <a href='byond://?_src_=prefs;preference=hear_admin_sounds'><b>[(toggles_sound & SOUND_MIDI) ? "Yes" : "No"]</b></a><br>"
 			dat += "<b>Play Announcement Sounds As Ghost:</b> <a href='byond://?_src_=prefs;preference=hear_observer_announcements'><b>[(toggles_sound & SOUND_OBSERVER_ANNOUNCEMENTS) ? "Yes" : "No"]</b></a><br>"
 			dat += "<b>Play Fax Sounds As Ghost:</b> <a href='byond://?_src_=prefs;preference=hear_faxes'><b>[(toggles_sound & SOUND_FAX_MACHINE) ? "Yes" : "No"]</b></a><br>"
@@ -578,10 +652,18 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 			dat += "<b>Set Eye Blur Type:</b> <a href='byond://?src=\ref[src];action=proccall;procpath=/client/proc/set_eye_blur_type'>Set</a><br>"
 			dat += "<b>Set Flash Type:</b> <a href='byond://?src=\ref[src];action=proccall;procpath=/client/proc/set_flash_type'>Set</a><br>"
 			dat += "<b>Set Crit Type:</b> <a href='byond://?src=\ref[src];action=proccall;procpath=/client/proc/set_crit_type'>Set</a><br>"
+			dat += "<b>Allow Flashing Lights:</b> <a href='byond://?src=\ref[src];action=proccall;procpath=/client/proc/set_flashing_lights_pref'>Set</a><br>"
 			dat += "<b>Play Lobby Music:</b> <a href='byond://?_src_=prefs;preference=lobby_music'><b>[(toggles_sound & SOUND_LOBBY) ? "Yes" : "No"]</b></a><br>"
 			dat += "<b>Play VOX Announcements:</b> <a href='byond://?_src_=prefs;preference=sound_vox'><b>[(hear_vox) ? "Yes" : "No"]</b></a><br>"
 			dat += "<b>Default Ghost Night Vision Level:</b> <a href='byond://?_src_=prefs;preference=ghost_vision_pref;task=input'><b>[ghost_vision_pref]</b></a><br>"
 			dat += "<b>Button To Activate Xenomorph Abilities:</b> <a href='byond://?_src_=prefs;preference=mouse_button_activation;task=input'><b>[xeno_ability_mouse_pref_to_string(xeno_ability_click_mode)]</b></a><br>"
+			dat += "<b>Xeno Cooldown Messages:</b> <a href='byond://?_src_=prefs;preference=show_cooldown_messages'><b>[(show_cooldown_messages) ? "Show" : "Hide"]</b></a><br>"
+			dat += "<b>Toggle CMTV Opt-Out:</b> <a href='byond://?_src_=prefs;preference=CMTV_toggle_optout'><b>[CMTV_toggle_optout? "Enabled" : "Disabled"]</b></a><br>"
+			// BANDAMARINES EDIT START
+			dat += "<b>Xeno Customization Visibility:</b> <a href='byond://?_src_=prefs;preference=xeno_customization_visibility;task=input'><b>[xeno_customization_visibility]</b></a><br>"
+			dat += "<b>Instant Ability Cast:</b> <a href='byond://?_src_=prefs;preference=quick_cast'><b>[(quick_cast) ? "Yes" : "No"]</b></a><br>"
+			dat += "<b>Show Screentips:</b> <a href='byond://?_src_=prefs;preference=screentips'><b>[(screentips) ? "Yes" : "No"]</b></a><br>"
+			// BANDAMARINES EDIT END
 			dat += "<a href='byond://?src=\ref[src];action=proccall;procpath=/client/proc/receive_random_tip'>Read Random Tip of the Round</a><br>"
 			if(CONFIG_GET(flag/allow_Metadata))
 				dat += "<b>OOC Notes:</b> <a href='byond://?_src_=prefs;preference=metadata;task=input'> Edit </a>"
@@ -589,6 +671,9 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 
 			dat += "<div id='column3'>"
 			dat += "<h2><b><u>Gameplay Toggles:</u></b></h2>"
+			dat += "<b>Enable Playtime Perks:</b> <a href='byond://?_src_=prefs;preference=playtime_perks'><b>[playtime_perks? "Yes" : "No"]</b></a><br>"
+			if(user.client.can_skip_role_lock())
+				dat += "<b>Skip Playtime Ranks:</b> <a href='byond://?_src_=prefs;preference=skip_playtime_ranks'><b>[skip_playtime_ranks? "Yes" : "No"]</b></a><br>"
 			dat += "<b>Toggle Being Able to Hurt Yourself: \
 					</b> <a href='byond://?_src_=prefs;preference=toggle_prefs;flag=[TOGGLE_IGNORE_SELF]'><b>[toggle_prefs & TOGGLE_IGNORE_SELF ? "Off" : "On"]</b></a><br>"
 			dat += "<b>Toggle Help Intent Safety: \
@@ -607,6 +692,12 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 					</b> <a href='byond://?_src_=prefs;preference=toggle_prefs;flag=[TOGGLE_EJECT_MAGAZINE_TO_HAND]'><b>[toggle_prefs & TOGGLE_EJECT_MAGAZINE_TO_HAND ? "On" : "Off"]</b></a><br>"
 			dat += "<b>Toggle Automatic Punctuation: \
 					</b> <a href='byond://?_src_=prefs;preference=toggle_prefs;flag=[TOGGLE_AUTOMATIC_PUNCTUATION]'><b>[toggle_prefs & TOGGLE_AUTOMATIC_PUNCTUATION ? "On" : "Off"]</b></a><br>"
+			dat += "<b>Toggle Bullet Cocking to hand: \
+					</b> <a href='byond://?_src_=prefs;preference=toggle_prefs;flag=[TOGGLE_COCKING_TO_HAND]'><b>[toggle_prefs & TOGGLE_COCKING_TO_HAND ? "On" : "Off"]</b></a><br>"
+			dat += "<b>Toggle Leadership Spoken Orders: \
+					</b> <a href='byond://?_src_=prefs;preference=toggle_prefs;flag=[TOGGLE_LEADERSHIP_SPOKEN_ORDERS]'><b>[toggle_prefs & TOGGLE_LEADERSHIP_SPOKEN_ORDERS ? "On" : "Off"]</b></a><br>"
+			dat += "<b>Toggle Gun Wielding Assist: \
+					</b> <a href='byond://?_src_=prefs;preference=toggle_prefs;flag=[TOGGLE_WIELD_ASSIST]'><b>[toggle_prefs & TOGGLE_WIELD_ASSIST ? "On" : "Off"]</b></a><br>"
 			dat += "<b>Toggle Combat Click-Drag Override: \
 					</b> <a href='byond://?_src_=prefs;preference=toggle_prefs;flag=[TOGGLE_COMBAT_CLICKDRAG_OVERRIDE]'><b>[toggle_prefs & TOGGLE_COMBAT_CLICKDRAG_OVERRIDE ? "On" : "Off"]</b></a><br>"
 			dat += "<b>Toggle Middle-Click Swap Hands: \
@@ -635,14 +726,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 
 			for(var/role_name in GLOB.be_special_flags)
 				var/flag = GLOB.be_special_flags[role_name]
-
-				var/ban_check_name
-				switch(role_name)
-					if("Xenomorph after unrevivable death")
-						ban_check_name = JOB_XENOMORPH
-
-					if("Agent")
-						ban_check_name = "Agent"
+				var/ban_check_name = JOB_XENOMORPH // Ever a be_special_flags uses a different ban check, check and switch here
 
 				if(ban_check_name && jobban_isbanned(user, ban_check_name))
 					dat += "<b>Be [role_name]:</b> <font color=red><b>\[BANNED]</b></font><br>"
@@ -660,6 +744,8 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 			dat += "<b>Spawn as Royal Marine:</b> <a href='byond://?_src_=prefs;preference=toggles_ert_pred;flag=[PLAY_TWE]'><b>[toggles_ert_pred & PLAY_TWE ? "Yes" : "No"]</b></a><br>"
 			dat += "<b>Spawn as UPP:</b> <a href='byond://?_src_=prefs;preference=toggles_ert_pred;flag=[PLAY_UPP]'><b>[toggles_ert_pred & PLAY_UPP ? "Yes" : "No"]</b></a><br>"
 			dat += "<b>Spawn as CLF:</b> <a href='byond://?_src_=prefs;preference=toggles_ert_pred;flag=[PLAY_CLF]'><b>[toggles_ert_pred & PLAY_CLF ? "Yes" : "No"]</b></a><br>"
+			dat += "<b>Spawn as PMC:</b> <a href='byond://?_src_=prefs;preference=toggles_ert_pred;flag=[PLAY_PMC]'><b>[toggles_ert_pred & PLAY_PMC ? "Yes" : "No"]</b></a><br>"
+			dat += "<b>Spawn as Miscellaneous:</b> <a href='byond://?_src_=prefs;preference=toggles_ert_pred;flag=[PLAY_HUNT_MISC]'><b>[toggles_ert_pred & PLAY_HUNT_MISC ? "Yes" : "No"]</b></a><br>"
 			dat += "<b>Spawn as Xeno T2:</b> <a href='byond://?_src_=prefs;preference=toggles_ert_pred;flag=[PLAY_XENO_T2]'><b>[toggles_ert_pred & PLAY_XENO_T2 ? "Yes" : "No"]</b></a><br>"
 			dat += "<b>Spawn as Xeno T3:</b> <a href='byond://?_src_=prefs;preference=toggles_ert_pred;flag=[PLAY_XENO_T3]'><b>[toggles_ert_pred & PLAY_XENO_T3 ? "Yes" : "No"]</b></a><br>"
 			dat += "</div>"
@@ -678,10 +764,16 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 				dat += "</div>"
 
 
+			dat += "<div id='column2'>"
+			dat += "<h2><b><u>Survivor Settings:</u></b></h2>"
+			dat += "<b>Spawn as Hostile:</b> <a href='byond://?_src_=prefs;preference=toggles_survivor;flag=[PLAY_SURVIVOR_HOSTILE]'><b>[toggles_survivor & PLAY_SURVIVOR_HOSTILE ? "Yes" : "No"]</b></a><br>"
+			dat += "<b>Spawn as Non-Hostile:</b> <a href='byond://?_src_=prefs;preference=toggles_survivor;flag=[PLAY_SURVIVOR_NON_HOSTILE]'><b>[toggles_survivor & PLAY_SURVIVOR_NON_HOSTILE ? "Yes" : "No"]</b></a><br>"
+			dat += "</div>"
+
 	dat += "</div></body>"
 
 	winshow(user, "preferencewindow", TRUE)
-	show_browser(user, dat, "Preferences", "preferencewindow")
+	show_browser(user, dat, "Preferences", "preferencebrowser", width = 1000, height = 800, existing_container = "preferencewindow")
 	onclose(user, "preferencewindow", src)
 
 /**
@@ -693,7 +785,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
  * * width - Screen' width.
  * * height - Screen's height.
  */
-/datum/preferences/proc/SetChoices(mob/user, limit = 21, list/splitJobs = list(JOB_CHIEF_REQUISITION, JOB_WO_CMO), width = 950, height = 750)
+/datum/preferences/proc/SetChoices(mob/user, limit = 22, list/splitJobs = list(JOB_CHIEF_REQUISITION, JOB_WO_CMO), width = 950, height = 750)
 	if(!GLOB.RoleAuthority)
 		return
 
@@ -736,7 +828,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 			HTML += "<b><del>[job.disp_title]</del></b></td><td width='10%' align='center'></td><td>TIMELOCKED</td></tr>"
 			for(var/r in missing_requirements)
 				var/datum/timelock/T = r
-				HTML += "<tr class='[job.selection_class]'><td width='40%' align='middle'>[T.name]</td><td width='10%' align='center'></td><td>[duration2text(missing_requirements[r])] Hours</td></tr>"
+				HTML += "<tr class='[job.selection_class]'><td width='40%' align='middle'>[T.name]</td><td width='10%' align='center'></td><td>[deciseconds_to_time_stamp(missing_requirements[r], FALSE)] Hours</td></tr>" // SS220 EDIT - TimeLock FIX by Biologded
 			continue
 
 		HTML += "<b>[job.disp_title]</b></td><td width='10%' align='center'>"
@@ -800,7 +892,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	HTML += "</tt></body>"
 
 	close_browser(user, "preferences")
-	show_browser(user, HTML, "Job Preferences", "mob_occupation", "size=[width]x[height]")
+	show_browser(user, HTML, "Job Preferences", "mob_occupation", width = width, height = height)
 	onclose(user, "mob_occupation", user.client, list("_src_" = "prefs", "preference" = "job", "task" = "close"))
 	return
 
@@ -813,7 +905,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
  * * width - Screen' width.
  * * height - Screen's height.
  */
-/datum/preferences/proc/set_job_slots(mob/user, limit = 21, list/splitJobs = list(JOB_CHIEF_REQUISITION, JOB_WO_CMO), width = 950, height = 750)
+/datum/preferences/proc/set_job_slots(mob/user, limit = 22, list/splitJobs = list(JOB_CHIEF_REQUISITION, JOB_WO_CMO), width = 950, height = 750)
 	if(!GLOB.RoleAuthority)
 		return
 
@@ -882,7 +974,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	HTML += "</tt></body>"
 
 	close_browser(user, "preferences")
-	show_browser(user, HTML, "Job Assignment", "job_slots_assignment", "size=[width]x[height]")
+	show_browser(user, HTML, "Job Assignment", "job_slots_assignment", width = width, height = height)
 	onclose(user, "job_slots_assignment", user.client, list("_src_" = "prefs", "preference" = "job_slot", "task" = "close"))
 	return
 
@@ -908,20 +1000,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	HTML += "</center></tt>"
 
 	close_browser(user, "preferences")
-	show_browser(user, HTML, "Set Records", "records", "size=350x300")
-	return
-
-/datum/preferences/proc/SetFlavorText(mob/user)
-	var/HTML = "<body>"
-	HTML += "<tt>"
-	HTML += "<a href='byond://?src=\ref[user];preference=flavor_text;task=general'>General:</a> "
-	HTML += TextPreview(flavor_texts["general"])
-	HTML += "<br>"
-	HTML += "<hr />"
-	HTML +="<a href='byond://?src=\ref[user];preference=flavor_text;task=done'>Done</a>"
-	HTML += "<tt>"
-	close_browser(user, "preferences")
-	show_browser(user, HTML, "Set Flavor Text", "flavor_text;size=430x300")
+	show_browser(user, HTML, "Set Records", "records", width = 350, height = 300)
 	return
 
 /datum/preferences/proc/SetJob(mob/user, role, priority)
@@ -934,6 +1013,8 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	SetJobDepartment(job, priority)
 
 	SetChoices(user)
+
+	check_slot_prefs()
 	return 1
 
 /datum/preferences/proc/ResetJobs()
@@ -949,6 +1030,8 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	for(var/role in GLOB.RoleAuthority.roles_by_path)
 		var/datum/job/J = GLOB.RoleAuthority.roles_by_path[role]
 		job_preference_list[J.title] = NEVER_PRIORITY
+
+	check_slot_prefs()
 
 /datum/preferences/proc/get_job_priority(J)
 	if(!J)
@@ -1033,6 +1116,8 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 				if("input")
 					var/priority = text2num(href_list["target_priority"])
 					SetJob(user, href_list["text"], priority)
+					ShowChoices(user)
+					update_all_pickers(user)
 				else
 					SetChoices(user)
 			return TRUE
@@ -1060,27 +1145,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 			return
 
 		if("flavor_text")
-			switch(href_list["task"])
-				if("open")
-					SetFlavorText(user)
-					return
-				if("done")
-					close_browser(user, "flavor_text")
-					ShowChoices(user)
-					return
-				if("general")
-					var/msg = input(usr,"Give a physical description of your character. This will be shown regardless of clothing.","Flavor Text",html_decode(flavor_texts[href_list["task"]])) as message
-					if(msg != null)
-						msg = copytext(msg, 1, MAX_MESSAGE_LEN)
-						msg = html_encode(msg)
-					flavor_texts[href_list["task"]] = msg
-				else
-					var/msg = input(usr,"Set the flavor text for your [href_list["task"]].","Flavor Text",html_decode(flavor_texts[href_list["task"]])) as message
-					if(msg != null)
-						msg = copytext(msg, 1, MAX_MESSAGE_LEN)
-						msg = html_encode(msg)
-					flavor_texts[href_list["task"]] = msg
-			SetFlavorText(user)
+			flavor_text_editor.tgui_interact(user)
 			return
 
 		if("records")
@@ -1137,6 +1202,8 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 		if("cycle_bg")
 			bg_state = next_in_list(bg_state, GLOB.bgstate_options)
 
+		if("show_cooldown_messages")
+			show_cooldown_messages = !show_cooldown_messages
 
 		// SS220 ADDITION START - TTS220
 		if("tts_seed")
@@ -1144,6 +1211,11 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 				if("open")
 					var/datum/tts_seeds_explorer/explorer = new
 					explorer.tgui_interact(user)
+		if("declined_name")
+			switch(href_list["task"])
+				if("open")
+					var/datum/decline_name_editor/editor = new
+					editor.tgui_interact(user)
 		// SS220 ADDITION END
 
 	switch (href_list["task"])
@@ -1246,6 +1318,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 							var/datum/action/human_action/activable/ability = human.selected_ability
 							human.set_selected_ability(null)
 							human.set_selected_ability(ability)
+
 				if("synth_name")
 					var/raw_name = input(user, "Choose your Synthetic's name:", "Character Preference")  as text|null
 					if(raw_name) // Check to ensure that the user entered text (rather than cancel.)
@@ -1258,6 +1331,16 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 					var/new_synth_type = tgui_input_list(user, "Choose your model of synthetic:", "Make and Model", PLAYER_SYNTHS)
 					if(new_synth_type)
 						synthetic_type = new_synth_type
+				if("synth_specialisation")
+					var/list/options = list("Generalised", "Engineering", "Medical", "Intel", "Military Police", "Command")
+
+					var/new_specialisation = tgui_input_list(user, "Choose your new Specialisation.", "Specialisation", options)
+
+					if(!new_specialisation)
+						return
+
+					synth_specialisation = new_specialisation
+
 				if("pred_name")
 					var/raw_name = input(user, "Choose your Predator's name:", "Character Preference")  as text|null
 					if(raw_name) // Check to ensure that the user entered text (rather than cancel.)
@@ -1277,11 +1360,21 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 					if(!legacy_choice)
 						return
 					predator_use_legacy = legacy_choice
+				if("pred_use_unique")
+					var/unique_choice = tgui_input_list(user, "What unique set do you wish to use?", "Unique Set", PRED_UNIQUES)
+					if(!unique_choice)
+						return
+					predator_use_unique = unique_choice
 				if("pred_trans_type")
 					var/new_translator_type = tgui_input_list(user, "Choose your translator type.", "Translator Type", PRED_TRANSLATORS)
 					if(!new_translator_type)
 						return
 					predator_translator_type = new_translator_type
+				if("pred_invis_sound")
+					var/new_invis_sound = tgui_input_list(user, "Choose your invisibility sound.", "Invisibility Sound", PRED_INVIS_SOUNDS)
+					if(!new_invis_sound)
+						return
+					predator_translator_type = new_invis_sound
 				if("pred_mask_type")
 					var/new_predator_mask_type = tgui_input_number(user, "Choose your mask type:\n(1-19)", "Mask Selection", 1, PRED_MASK_TYPE_MAX, 1)
 					if(new_predator_mask_type)
@@ -1314,10 +1407,15 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 						return
 					predator_greave_material = new_pred_greave_mat
 				if("pred_caster_mat")
-					var/new_pred_caster_mat = tgui_input_list(user, "Choose your caster material:", "Caster Material", PRED_MATERIALS + "retro")
+					var/new_pred_caster_mat = tgui_input_list(user, "Choose your caster material:", "Caster Material", PRED_RETRO_MATERIALS)
 					if(!new_pred_caster_mat)
 						return
 					predator_caster_material = new_pred_caster_mat
+				if("pred_bracer_mat")
+					var/new_pred_bracer_mat = tgui_input_list(user, "Choose your bracer material:", "Bracer Material", PRED_RETRO_MATERIALS)
+					if(!new_pred_bracer_mat)
+						return
+					predator_bracer_material = new_pred_bracer_mat
 				if("pred_cape_color")
 					var/new_cape_color = input(user, "Choose your cape color:", "Cape Color", predator_cape_color) as color|null
 					if(!new_cape_color)
@@ -1444,7 +1542,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 
 				if("xeno_prefix")
 					if(xeno_name_ban)
-						to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("You are banned from xeno name picking.")))
+						to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("Вам запрещено выбирать имя для роли Ксено")))
 						xeno_prefix = ""
 						return
 
@@ -1454,16 +1552,16 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 					var/prefix_length = length_char(new_xeno_prefix) //SS220 EDIT CHANGE - Cyrillic Fixes
 
 					if(prefix_length>3)
-						to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("Invalid Xeno Prefix. Your Prefix can only be up to 3 letters long.")))
+						to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("Недопустимый префикс. Ваш префикс может состоять только из 3 букв.")))
 						return
 
 					if(prefix_length==3)
 						var/playtime = user.client.get_total_xeno_playtime()
 						if(playtime < 124 HOURS)
-							to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("You need to play [time_left_until(124 HOURS, playtime, 1 HOURS)] more hours to unlock xeno three letter prefix.")))
+							to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("Вам нужно сыграть ещё [time_left_until(124 HOURS, playtime, 1 HOURS)] часов, чтобы разблокировать смену префикса."))) // SS220 EDIT ADDICTION
 							return
 						if(xeno_postfix)
-							to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("You can't use three letter prefix with any postfix.")))
+							to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("Нельзя использовать трёхбуквенный префикс с настраиваемым постфиксом.")))
 							return
 
 					if(length_char(new_xeno_prefix)==0) //SS220 EDIT CHANGE - Cyrillic Fixes
@@ -1483,22 +1581,22 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 
 				if("xeno_postfix")
 					if(xeno_name_ban)
-						to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("You are banned from xeno name picking.")))
+						to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("Вам запрещено выбирать имя для роли Ксено")))
 						xeno_postfix = ""
 						return
 					var/playtime = user.client.get_total_xeno_playtime()
 					if(playtime < 24 HOURS)
-						to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("You need to play [time_left_until(24 HOURS, playtime, 1 HOURS)] more hours to unlock xeno postfix.")))
+						to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("Вам нужно сыграть ещё [time_left_until(24 HOURS, playtime, 1 HOURS)] часов, чтобы разблокировать смену постфикса."))) // SS220 EDIT ADDICTION
 						return
 
 					if(length_char(xeno_prefix)==3) //SS220 EDIT CHANGE - Cyrillic Fixes
-						to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("You can't use three letter prefix with any postfix.")))
+						to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("Нельзя использовать трёхбуквенный префикс с настраиваемым постфиксом.")))
 						return
 
 					var/new_xeno_postfix = input(user, "Choose your xenomorph postfix. One capital letter with or without a digit at the end. Put empty text if you want to remove postfix", "Xenomorph Postfix") as text|null
 					new_xeno_postfix = uppertext(new_xeno_postfix)
 					if(length_char(new_xeno_postfix)>2) //SS220 EDIT CHANGE - Cyrillic Fixes
-						to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("Invalid Xeno Postfix. Your Postfix can only be up to 2 letters long.")))
+						to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("Недопустимый постфикс. Ваш постфикс может состоять только из 2 букв.")))
 						return
 					else if(length_char(new_xeno_postfix)==0) //SS220 EDIT CHANGE - Cyrillic Fixes
 						xeno_postfix = ""
@@ -1513,11 +1611,11 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 								if(65 to 90, 1040 to 1071, 1025) //Uppercase Letters will work on first char  //SS220 EDIT CHANGE - Cyrillic Fixes
 
 									if(length_char(xeno_prefix)!=2) //SS220 EDIT CHANGE - Cyrillic Fixes
-										to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("You can't use three letter prefix with any postfix.")))
+										to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("Нельзя использовать трёхбуквенный префикс с настраиваемым постфиксом.")))
 										return
 
 									if(!first_char && playtime < 300 HOURS)
-										to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("You need to play [time_left_until(300 HOURS, playtime, 1 HOURS)] more hours to unlock double letter xeno postfix.")))
+										to_chat(user, SPAN_WARNING(FONT_SIZE_BIG("Вам нужно сыграть ещё [time_left_until(300 HOURS, playtime, 1 HOURS)] часов, чтобы разблокировать двухбуквенный постфикс.")))
 										all_ok = FALSE
 								// 0  .. 9
 								if(48 to 57) //Numbers will work if not the first char
@@ -1598,6 +1696,12 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 					var/new_pref_squad = input(user, "Choose your preferred squad.", "Character Preference")  as null|anything in list("Alpha", "Bravo", "Charlie", "Delta", "None")
 					if(new_pref_squad)
 						preferred_squad = new_pref_squad
+
+				if("prefspec")
+					var/new_pref_spec = tgui_input_checkboxes(user, "Choose your preferred spec in order of priority or none for 'No Preference'.", "Specialist Preference", GLOB.specialist_set_name_dict, min_checked=0)
+					if(isnull(new_pref_spec))
+						return // Canceled
+					preferred_spec = new_pref_spec
 
 				if("prefnvg")
 					var/new_nvg_color = tgui_input_list(user, "Choose the color of your night-vision", "Character Preferences", GLOB.nvg_color_list)
@@ -1742,6 +1846,8 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 				if("gender")
 					if(gender == MALE)
 						gender = FEMALE
+					else if(gender == FEMALE)
+						gender = PLURAL
 					else
 						gender = MALE
 					underwear = sanitize_inlist(underwear, gender == MALE ? GLOB.underwear_m : GLOB.underwear_f, initial(underwear))
@@ -1797,6 +1903,12 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 				if("playtime_perks")
 					playtime_perks = !playtime_perks
 
+				if("CMTV_toggle_optout")
+					CMTV_toggle_optout = !CMTV_toggle_optout
+
+				if("skip_playtime_ranks")
+					skip_playtime_ranks = !skip_playtime_ranks
+
 				if("show_queen_name")
 					show_queen_name = !show_queen_name
 
@@ -1843,6 +1955,9 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 				if("ghost_spyradio")
 					toggles_chat ^= CHAT_LISTENINGBUG
 
+				if("ghost_announceclarity")
+					toggles_chat ^= CHAT_GHOSTANNOUNCECLARITY
+
 				if("ghost_hivemind")
 					toggles_chat ^= CHAT_GHOSTHIVEMIND
 
@@ -1879,6 +1994,16 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 				if("toggles_ert_pred")
 					var/flag = text2num(href_list["flag"])
 					toggles_ert_pred ^= flag
+
+				if("toggles_survivor")
+					var/flag = text2num(href_list["flag"])
+					toggles_survivor ^= flag
+					if(!HAS_FLAG(toggles_survivor, PLAY_SURVIVOR_HOSTILE|PLAY_SURVIVOR_NON_HOSTILE))
+						// Neither hostile nor non-hostile: Invert the other
+						if(flag == PLAY_SURVIVOR_NON_HOSTILE)
+							toggles_survivor ^= PLAY_SURVIVOR_HOSTILE
+						else
+							toggles_survivor ^= PLAY_SURVIVOR_NON_HOSTILE
 
 				if("ambientocclusion")
 					toggle_prefs ^= TOGGLE_AMBIENT_OCCLUSION
@@ -1953,6 +2078,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 					save_preferences()
 					save_character()
 					save_cooldown = world.time + 50
+					to_chat(user, SPAN_WARNING(SPAN_BOLD("Successfully saved preferences.")))
 
 				if("reload")
 					if(reload_cooldown > world.time)
@@ -1983,6 +2109,9 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 					tgui_fancy = !tgui_fancy
 				if("tgui_lock")
 					tgui_lock = !tgui_lock
+				if("window_scale")
+					window_scale = !window_scale
+					owner.tgui_say?.load()
 
 				if("change_menu")
 					current_menu = href_list["menu"]
@@ -2049,6 +2178,8 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 		character.flavor_texts["hands"] = flavor_texts["hands"]
 		character.flavor_texts["legs"] = flavor_texts["legs"]
 		character.flavor_texts["feet"] = flavor_texts["feet"]
+		character.flavor_texts["helmet"] = flavor_texts["helmet"]
+		character.flavor_texts["armor"] = flavor_texts["armor"]
 
 	if(!be_random_name)
 		character.med_record = strip_html(med_record)
@@ -2123,8 +2254,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	character.underwear = underwear
 	character.undershirt = undershirt
 
-	if(backbag > 2 || backbag < 1)
-		backbag = 2 //Same as above
+	backbag = sanitize_integer(backbag, 1, length(GLOB.backbaglist), initial(backbag))
 	character.backbag = backbag
 
 	//Debugging report to track down a bug, which randomly assigned the plural gender to people.
@@ -2197,8 +2327,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	character.underwear = underwear
 	character.undershirt = undershirt
 
-	if(backbag > 2 || backbag < 1)
-		backbag = 2 //Same as above
+	backbag = sanitize_integer(backbag, 1, length(GLOB.backbaglist), initial(backbag))
 	character.backbag = backbag
 
 	//Debugging report to track down a bug, which randomly assigned the plural gender to people.
@@ -2306,11 +2435,26 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	picker_ui = SStgui.get_open_ui(user, body_picker)
 	picker_ui?.send_update()
 
+	/// the loadout picker does a lot of work in static data, so
 	picker_ui = SStgui.get_open_ui(user, loadout_picker)
-	picker_ui?.send_update()
+	picker_ui?.send_full_update()
 
 	picker_ui = SStgui.get_open_ui(user, traits_picker)
 	picker_ui?.send_update()
+
+/// Closes all the TGUI interfaces inside the character prefs menu
+/datum/preferences/proc/close_all_pickers(mob/user)
+	var/datum/tgui/picker_ui = SStgui.get_open_ui(user, hair_picker)
+	picker_ui?.close()
+
+	picker_ui = SStgui.get_open_ui(user, body_picker)
+	picker_ui?.close()
+
+	picker_ui = SStgui.get_open_ui(user, loadout_picker)
+	picker_ui?.close()
+
+	picker_ui = SStgui.get_open_ui(user, traits_picker)
+	picker_ui?.close()
 
 /datum/preferences/proc/get_body_presentation()
 	return body_presentation || gender
@@ -2357,3 +2501,85 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 			else
 				name = "[pick(GLOB.first_names_male_clf)] [pick(GLOB.last_names_clf)]"
 	return name
+
+/// If the role being equipped into has role-specific loadout, offer the player the option to change their slot
+/datum/preferences/proc/update_slot(picked_job, timeout = FALSE)
+	if(!(picked_job in GLOB.roles_with_gear))
+		return TRUE
+
+	var/loadout_for_role = has_loadout_for_role(picked_job)
+	if(!loadout_for_role)
+		if(!timeout)
+			if(tgui_alert(owner, "You have not selected any loadout for this role. Do you want to select this now?", "Loadout", list("Yes", "No")) == "Yes")
+				loadout_picker.tgui_interact(owner)
+				return FALSE
+		return TRUE
+
+	var/options = list()
+
+	for(var/slot in loadout_for_role)
+		var/string_to_use = "Slot [slot]"
+		if(loadout_slot_names[picked_job] && loadout_slot_names[picked_job][slot])
+			string_to_use = loadout_slot_names[picked_job][slot]
+		options[string_to_use] = slot
+
+	owner.mob.sight = BLIND
+	/// This is causing Synthetics to not be on manifest at round start if they have a loadout due to delay in spawning. No idea how to fix it.
+	var/selected = tgui_input_list(owner, "You have loadout available - which slot would you like to use?", "Slot Selection", options, theme = "crtgreen", timeout = timeout)
+	owner.mob.sight = owner.mob::sight
+
+	if(!selected)
+		return FALSE
+
+
+	selected_loadout_slot = options[selected]
+	return TRUE
+
+
+/// Gets the currently selected loadout of the provided job, or the job selected on "High"
+/datum/preferences/proc/get_active_loadout(job)
+	if(!job)
+		job = get_high_priority_job()
+
+	if(!job)
+		return
+
+	if(!islist(loadout[job]))
+		loadout[job] = list()
+
+	if(!islist(loadout[job]["[selected_loadout_slot]"]))
+		loadout[job]["[selected_loadout_slot]"] = list()
+
+	return loadout[job]["[selected_loadout_slot]"]
+
+/// If the user has any loadout pre-selected for the given role
+/datum/preferences/proc/has_loadout_for_role(job)
+	if(!job)
+		return
+
+	if(!loadout[job])
+		return
+
+	var/slots_with_stuff = list()
+	for(var/slot in loadout[job])
+		if(length(loadout[job][slot]))
+			slots_with_stuff += slot
+
+	if(!length(slots_with_stuff))
+		return
+
+	return slots_with_stuff
+
+/datum/preferences/proc/get_all_chem_presets()
+	return chem_presets
+
+/datum/preferences/proc/get_chem_preset(preset_name)
+	return chem_presets[preset_name]
+
+/datum/preferences/proc/save_chem_preset(preset_name, list/preset_data)
+	chem_presets[preset_name] = preset_data
+	save_preferences()
+
+/datum/preferences/proc/delete_chem_preset(preset_name)
+	chem_presets -= preset_name
+	save_preferences()

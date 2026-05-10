@@ -23,10 +23,11 @@
 	GLOB.living_mob_list += src
 
 /mob/living/Destroy()
+	GLOB.living_player_list -= src
 	GLOB.living_mob_list -= src
 	cleanup_status_effects()
 	pipes_shown = null
-	observed_atom = null
+	QDEL_NULL(observed_atom)
 
 	. = ..()
 
@@ -72,8 +73,7 @@
 		for(var/obj/limb/affecting in H.limbs)
 			if(!affecting)
 				continue
-			if(affecting.take_damage(0, divided_damage+extradam)) //TODO: fix the extradam stuff. Or, ebtter yet...rewrite this entire proc ~Carn
-				H.UpdateDamageIcon()
+			affecting.take_damage(0, divided_damage+extradam) //TODO: fix the extradam stuff. Or, better yet...rewrite this entire proc ~Carn
 		H.updatehealth()
 		return 1
 
@@ -107,7 +107,7 @@
 
 	if(passed_object)
 		if(recursion > 8)
-			debug_log("Recursion went long for get_contents() for [src] ending at the object [passed_object]. Likely object_one is holding object_two which is holding object_one ad naseum.")
+			debug_log("Recursion went long for get_contents() for [src] ending at the object [passed_object]. Likely object_one is holding object_two which is holding object_one ad nauseum.")
 			return total_contents
 
 		total_contents += passed_object.contents
@@ -150,7 +150,7 @@
 		if(client)
 			to_chat(usr, "[src]'s Metainfo:<br>[client.prefs.metadata]")
 		else
-			to_chat(usr, "[src] does not have any stored infomation!")
+			to_chat(usr, "[src] does not have any stored information!")
 	else
 		to_chat(usr, "OOC Metadata is not supported by this server!")
 
@@ -196,7 +196,7 @@
 		else if(get_dist(src, pulling) > 1 || ((pull_dir - 1) & pull_dir)) //puller and pullee more than one tile away or in diagonal position
 			var/pulling_dir = get_dir(pulling, T)
 			pulling.Move(T, pulling_dir) //the pullee tries to reach our previous position
-			if(pulling && get_dist(src, pulling) > 1 && !moving_diagonally) //the pullee couldn't keep up // SS220 EDIT
+			if(pulling && get_dist(src, pulling) > 1) //the pullee couldn't keep up
 				stop_pulling()
 			else
 				var/mob/living/pmob = pulling
@@ -205,7 +205,7 @@
 				if(!(flags_atom & DIRLOCK))
 					setDir(turn(direct, 180)) //face the pullee
 
-	if(pulledby && get_dist(src, pulledby) > 1 && !moving_diagonally)//separated from our puller and not in the middle of a diagonal move.
+	if(pulledby && get_dist(src, pulledby) > 1)//separated from our puller and not in the middle of a diagonal move.
 		pulledby.stop_pulling()
 
 	if (s_active && !( s_active in contents ) && get_turf(s_active) != get_turf(src)) //check !( s_active in contents ) first so we hopefully don't have to call get_turf() so much.
@@ -226,7 +226,7 @@
 /mob/living/resist_grab(moving_resist)
 	if(!pulledby)
 		return
-	// vars for checks of strengh
+	// vars for checks of strength
 	var/pulledby_is_strong = HAS_TRAIT(pulledby, TRAIT_SUPER_STRONG)
 	var/src_is_strong = HAS_TRAIT(src, TRAIT_SUPER_STRONG)
 
@@ -262,11 +262,11 @@
 		. += 10
 		do_bump_delay = 0
 
-	if (drowsyness > 0)
+	if (drowsiness > 0)
 		. += 6
 
-	if(pulling && pulling.drag_delay && get_pull_miltiplier()) //Dragging stuff can slow you down a bit.
-		var/pull_delay = pulling.get_pull_drag_delay() * get_pull_miltiplier()
+	if(pulling && pulling.drag_delay && get_pull_multiplier()) //Dragging stuff can slow you down a bit.
+		var/pull_delay = pulling.get_pull_drag_delay() * get_pull_multiplier()
 
 		var/grab_level_delay = 0
 		switch(grab_level)
@@ -274,6 +274,10 @@
 				grab_level_delay = 6
 			if(GRAB_CHOKE)
 				grab_level_delay = 9
+		if(ismob(pulling))
+			var/mob/pulled_mob = pulling
+			if(pulled_mob.pulling)
+				grab_level_delay = 9 // its a chain pull...
 
 		. += max(pull_speed + (pull_delay + reagent_move_delay_modifier) + grab_level_delay, 0) //harder grab makes you slower
 	move_delay = .
@@ -296,7 +300,7 @@
 		. = drag_delay
 
 //whether we are slowed when dragging things
-/mob/living/proc/get_pull_miltiplier()
+/mob/living/proc/get_pull_multiplier()
 	if(!HAS_TRAIT(src, TRAIT_DEXTROUS))
 		if(grab_level == GRAB_CARRY)
 			return 0.1
@@ -321,9 +325,6 @@
 
 	if(.)
 		reset_view(destination)
-
-#define SWAPPING 1 // SS220 ADD
-#define PHASING 2 // SS220 ADD
 
 /mob/living/Collide(atom/movable/moving_atom)
 	if(buckled || now_pushing)
@@ -374,6 +375,14 @@
 					to_chat(src, SPAN_WARNING("[living_mob] is restraining [pulled_mob], you cannot push past."))
 				now_pushing = FALSE
 				return
+		if(!pulling)
+			// treat it as if we're also pulling just for move delay
+			pulling = living_mob.pulling
+			if(client)
+				client.recalculate_move_delay()
+			else
+				movement_delay()
+			pulling = null
 
 	if(ishuman(living_mob))
 		if(!(living_mob.status_flags & CANPUSH))
@@ -381,15 +390,13 @@
 			return
 
 	if(!living_mob.buckled && !living_mob.anchored)
-		var/mob_swap = NONE // SS220 EDIT
+		var/mob_swap
 		//the puller can always swap with its victim if on grab intent
 		if(living_mob.pulledby == src && a_intent == INTENT_GRAB)
-			mob_swap = SWAPPING // SS220 EDIT
+			mob_swap = 1
 		//restrained people act if they were on 'help' intent to prevent a person being pulled from being separated from their puller
 		else if((living_mob.is_mob_restrained() || living_mob.a_intent == INTENT_HELP) && (is_mob_restrained() || a_intent == INTENT_HELP))
-			mob_swap = SWAPPING // SS220 EDIT
-		if(moving_diagonally && (get_dir(src, living_mob) in GLOB.cardinals) && get_step(src, dir).Enter(src, loc)) // SS220 ADD
-			mob_swap = PHASING // SS220 EDIT
+			mob_swap = 1
 		if(mob_swap)
 			//switch our position with L
 			if(loc && !loc.Adjacent(living_mob.loc))
@@ -404,14 +411,8 @@
 				living_mob.add_temp_pass_flags(PASS_MOB_THRU)
 				add_temp_pass_flags(PASS_MOB_THRU)
 
-				living_mob.Move(oldloc) //MERGE
+				living_mob.Move(oldloc)
 				Move(oldLloc)
-				// SS220 ADD Start
-				if(moving_diagonally)
-					moving_diagonally = FALSE
-				if(mob_swap == SWAPPING)
-					living_mob.Move(oldloc)
-				// SS220 ADD End
 
 				remove_temp_pass_flags(PASS_MOB_THRU)
 				living_mob.remove_temp_pass_flags(PASS_MOB_THRU)
@@ -421,15 +422,12 @@
 
 	now_pushing = FALSE
 
-	if(!(living_mob.status_flags & CANPUSH) || moving_diagonally) // SS220 EDIT
+	if(!(living_mob.status_flags & CANPUSH))
 		return
 
 	..()
 
-#undef SWAPPING // SS220 ADD
-#undef PHASING // SS220 ADD
-
-/mob/living/launch_towards(datum/launch_metadata/LM)
+/mob/living/launch_towards(datum/launch_metadata/LM, tracking = FALSE)
 	if(src)
 		SEND_SIGNAL(src, COMSIG_MOB_MOVE_OR_LOOK, TRUE, dir, dir)
 	if(!istype(LM) || !LM.target || !src)
@@ -479,12 +477,12 @@
 /mob/proc/flash_eyes()
 	return
 
-/mob/living/flash_eyes(intensity = EYE_PROTECTION_FLASH, bypass_checks, flash_timer = 40, type = /atom/movable/screen/fullscreen/flash, dark_type = /atom/movable/screen/fullscreen/flash/dark)
+/mob/living/flash_eyes(intensity = EYE_PROTECTION_FLASH, bypass_checks, flash_timer = 40, light_type = /atom/movable/screen/fullscreen/flash, dark_type = /atom/movable/screen/fullscreen/flash/dark)
 	if(bypass_checks || (get_eye_protection() < intensity && !(sdisabilities & DISABILITY_BLIND)))
 		if(client?.prefs?.flash_overlay_pref == FLASH_OVERLAY_DARK)
 			overlay_fullscreen("flash", dark_type)
 		else
-			overlay_fullscreen("flash", type)
+			overlay_fullscreen("flash", light_type)
 		spawn(flash_timer)
 			clear_fullscreen("flash", 20)
 		return TRUE
@@ -505,7 +503,7 @@
 // If this proc causes issues you can probably disable it until then.
 /mob/living/carbon/update_stat()
 	if(stat != DEAD)
-		if(health <= HEALTH_THRESHOLD_DEAD)
+		if(health <= health_threshold_dead)
 			death()
 			return
 		else if(HAS_TRAIT(src, TRAIT_KNOCKEDOUT))
@@ -559,6 +557,7 @@
 		return
 	. = lying_angle
 	lying_angle = new_lying
+	SEND_SIGNAL(src, COMSIG_LIVING_SET_LYING_ANGLE)
 	if(lying_angle != lying_prev)
 		update_transform(instant_update = on_movement) // Don't use transition for eg. crawling movement, because we already have the movement glide
 		lying_prev = lying_angle
@@ -706,12 +705,18 @@
 
 
 // legacy procs
-/mob/living/put_in_l_hand(obj/item/W)
+/mob/living/put_in_l_hand(obj/item/moved_item)
 	if(body_position == LYING_DOWN)
-		return
-	return ..()
-/mob/living/put_in_r_hand(obj/item/W)
-	if(body_position == LYING_DOWN)
-		return
+		if(!HAS_TRAIT(src, TRAIT_HAULED))
+			return
 	return ..()
 
+/mob/living/put_in_r_hand(obj/item/moved_item)
+	if(body_position == LYING_DOWN)
+		if(!HAS_TRAIT(src, TRAIT_HAULED))
+			return
+	return ..()
+
+/mob/living/onZImpact(turf/impact_turf, height)
+	. = ..()
+	impact_turf.z_impact(src, height)

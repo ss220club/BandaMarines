@@ -18,6 +18,8 @@
 	var/sound_shield_hit
 	/// Snipers use this to simulate poor accuracy at close ranges
 	var/accurate_range_min = 0
+	/// Completely prevents shots hitting in this range
+	var/accurate_range_min_strict = 0
 	/// How much the ammo scatters when burst fired, added to gun scatter, along with other mods
 	var/scatter = 0
 	var/stamina_damage = 0
@@ -25,6 +27,8 @@
 	var/damage = 0
 	/// BRUTE, BURN, TOX, OXY, CLONE are the only things that should be in here
 	var/damage_type = BRUTE
+	/// Whether the damage should be deemed environmental (e.g. from a turret)
+	var/damage_enviro = FALSE
 	/// How much armor it ignores before calculations take place
 	var/penetration = 0
 	/// The % chance it will imbed in a human
@@ -136,7 +140,7 @@
 /datum/ammo/proc/on_pointblank(mob/living/L, obj/projectile/P, mob/living/user, obj/item/weapon/gun/fired_from)
 	return
 
-/datum/ammo/proc/on_hit_obj(obj/O, obj/projectile/P) //Special effects when hitting objects.
+/datum/ammo/proc/on_hit_obj(obj/target_object, obj/projectile/proj_hit) //Special effects when hitting objects.
 	SHOULD_NOT_SLEEP(TRUE)
 	return
 
@@ -167,9 +171,9 @@
 	if(!step(living_mob, direction))
 		living_mob.animation_attack_on(get_step(living_mob, direction))
 		playsound(living_mob.loc, "punch", 25, 1)
-		living_mob.visible_message(SPAN_DANGER("[living_mob] slams into an obstacle!"),
-			isxeno(living_mob) ? SPAN_XENODANGER("You slam into an obstacle!") : SPAN_HIGHDANGER("You slam into an obstacle!"), null, 4, CHAT_TYPE_TAKING_HIT)
-		living_mob.apply_damage(MELEE_FORCE_TIER_2)
+		living_mob.visible_message(SPAN_DANGER("[living_mob] врезается в препятствие!"),
+			isxeno(living_mob) ? SPAN_XENODANGER("Вы врезаетесь в препятствие!") : SPAN_HIGHDANGER("Вы врезаетесь в препятствие!"), null, 4, CHAT_TYPE_TAKING_HIT)
+		living_mob.apply_damage(MELEE_FORCE_TIER_2, enviro=damage_enviro)
 
 ///The applied effects for knockback(), overwrite to change slow/stun amounts for different ammo datums
 /datum/ammo/proc/knockback_effects(mob/living/living_mob, obj/projectile/fired_projectile)
@@ -179,7 +183,7 @@
 		target.KnockDown(0.7)
 		target.apply_effect(1, SUPERSLOW)
 		target.apply_effect(2, SLOW)
-		to_chat(target, SPAN_XENODANGER("You are shaken by the sudden impact!"))
+		to_chat(target, SPAN_XENODANGER("Вы были потрясены внезапным ударом!"))
 	else
 		living_mob.apply_stamina_damage(fired_projectile.ammo.damage, fired_projectile.def_zone, ARMOR_BULLET)
 
@@ -192,7 +196,7 @@
 		var/mob/living/carbon/xenomorph/target = living_mob
 		target.apply_effect(1, SUPERSLOW)
 		target.apply_effect(2, SLOW)
-		to_chat(target, SPAN_XENODANGER("You are slowed by the sudden impact!"))
+		to_chat(target, SPAN_XENODANGER("Вы были замедлены внезапным ударом!"))
 	else
 		living_mob.apply_stamina_damage(fired_projectile.ammo.damage, fired_projectile.def_zone, ARMOR_BULLET)
 
@@ -203,7 +207,7 @@
 	if(target_mob.mob_size >= MOB_SIZE_BIG)
 		return //too big to push
 
-	to_chat(target_mob, isxeno(target_mob) ? SPAN_XENODANGER("You are pushed back by the sudden impact!") : SPAN_HIGHDANGER("You are pushed back by the sudden impact!"))
+	to_chat(target_mob, isxeno(target_mob) ? SPAN_XENODANGER("Мы были отброшены назад внезапным ударом!") : SPAN_HIGHDANGER("Вы были отброшены назад внезапным ударом!"))
 	slam_back(target_mob, fired_projectile, max_range)
 
 /datum/ammo/proc/burst(atom/target, obj/projectile/P, damage_type = BRUTE, range = 1, damage_div = 2, show_message = SHOW_MESSAGE_VISIBLE) //damage_div says how much we divide damage
@@ -213,8 +217,8 @@
 		if(P.firer == M)
 			continue
 		if(show_message)
-			var/msg = "You are hit by backlash from \a </b>[P.name]</b>!"
-			M.visible_message(SPAN_DANGER("[M] is hit by backlash from \a [P.name]!"),isxeno(M) ? SPAN_XENODANGER("[msg]"):SPAN_HIGHDANGER("[msg]"))
+			var/msg = "были поражены отдачей от <b>[P.declent_ru(GENITIVE)]</b>!" // SS220 EDIT ADDICTION
+			M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] поражается от отдачи [P.declent_ru(GENITIVE)]!"),isxeno(M) ? SPAN_XENODANGER("Мы [msg]"):SPAN_HIGHDANGER("Вы [msg]")) // SS220 EDIT ADDICTION
 		var/damage = P.damage/damage_div
 
 		var/mob/living/carbon/xenomorph/XNO = null
@@ -226,7 +230,7 @@
 			var/armor_punch = armor_break_calculation(GLOB.xeno_explosive, damage, total_explosive_resistance, 60, 0, 0.5, XNO.armor_integrity)
 			XNO.apply_armorbreak(armor_punch)
 
-		M.apply_damage(damage,damage_type)
+		M.apply_damage(damage, damage_type, enviro=damage_enviro)
 
 		if(XNO && length(XNO.xeno_shields))
 			P.play_shielded_hit_effect(M)
@@ -237,7 +241,8 @@
 	set waitfor = 0
 
 	var/turf/curloc = get_turf(original_P.shot_from)
-	var/initial_angle = Get_Angle(curloc, original_P.target_turf)
+	var/turf/cur_target = get_turf(original_P.target_turf)
+	var/initial_angle = Get_Angle(curloc, cur_target)
 
 	for(var/i in 1 to bonus_projectiles_amount) //Want to run this for the number of bonus projectiles.
 		var/final_angle = initial_angle
@@ -252,6 +257,16 @@
 		var/total_scatter_angle = P.scatter + bonus_proj_scatter
 		final_angle += rand(-total_scatter_angle, total_scatter_angle)
 		var/turf/new_target = get_angle_target_turf(curloc, final_angle, 30)
+
+		if(cur_target.z < new_target.z)
+			var/turf/below = SSmapping.get_turf_below(new_target)
+			if(below)
+				new_target = below
+
+		else if(cur_target.z > new_target.z)
+			var/turf/above = SSmapping.get_turf_above(new_target)
+			if(above)
+				new_target = above
 
 		P.fire_at(new_target, original_P.firer, original_P.shot_from, P.ammo.max_range + projectile_max_range_add, P.ammo.shell_speed, original_P.original, FALSE) //Fire!
 

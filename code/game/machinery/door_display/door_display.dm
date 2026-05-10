@@ -81,7 +81,7 @@
 
 	if(!uses_tgui)
 		user.set_interaction(src)
-		show_browser(user, display_contents(user), name, "computer", "size=400x500")
+		show_browser(user, display_contents(user), name, "computer", width = 400, height = 500)
 	return
 
 /obj/structure/machinery/door_display/proc/display_contents(mob/user as mob)
@@ -218,12 +218,23 @@
 	open_shutter(TRUE)
 	open_door(TRUE)
 
+/obj/structure/machinery/door_display/research_cell/update_icon()
+	if(stat & BROKEN)
+		icon_state = "researchb"
+	else
+		if(stat & NOPOWER)
+			icon_state = "research0"
+			stat |= NOPOWER
+		else
+			icon_state = initial(icon_state)
+			stat &= ~NOPOWER
+
 // TGUI \\
 
 /obj/structure/machinery/door_display/research_cell/tgui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "ResearchDoorDisplay", "[src.name]")
+		ui = new(user, src, "ResearchDoorDisplay", "[capitalize(name)]")
 		ui.open()
 
 /obj/structure/machinery/door_display/research_cell/ui_state(mob/user)
@@ -305,7 +316,7 @@
 /obj/structure/machinery/door_display/research_cell/attack_hand(mob/user)
 	. = ..()
 	if(!allowed(user))
-		to_chat(user, SPAN_WARNING("Access denied!"))
+		to_chat(user, SPAN_WARNING("Доступ запрещён"))
 
 	tgui_interact(user)
 

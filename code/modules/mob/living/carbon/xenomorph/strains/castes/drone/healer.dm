@@ -1,6 +1,6 @@
 /datum/xeno_strain/healer
 	name = DRONE_HEALER
-	description = "You lose your choice of resin secretions, a chunk of your slash damage, and you will experience a slighty-increased difficulty in tackling hosts in exchange for strong pheromones, the ability to use a bit of your health to plant a maximum of three lesser resin fruits, and the ability to heal your sisters' wounds by secreting a regenerative resin salve by using your vital fluids and a fifth of your plasma. Be wary, this is a dangerous process; overexert yourself and you may exhaust yourself to unconsciousness, or die..."
+	description = "You lose your choice of resin secretions, a chunk of your slash damage, and you will experience a slightly-increased difficulty in tackling hosts in exchange for strong pheromones, the ability to use a bit of your health to plant a maximum of three lesser resin fruits, and the ability to heal your sisters' wounds by secreting a regenerative resin salve by using your vital fluids and a fifth of your plasma. Be wary, this is a dangerous process; overexert yourself and you may exhaust yourself to unconsciousness, or die..."
 	flavor_description = "Divided we fall, united we win. We live for the hive, we die for the hive."
 	icon_state_prefix = "Healer"
 
@@ -29,8 +29,8 @@
 	drone.tackle_chance_modifier -= 5
 
 	drone.max_placeable = 3
-	drone.available_fruits = list(/obj/effect/alien/resin/fruit)
-	drone.selected_fruit = /obj/effect/alien/resin/fruit
+	drone.available_fruits = list(/obj/effect/alien/resin/fruit/lesser)
+	drone.selected_fruit = /obj/effect/alien/resin/fruit/lesser
 
 	drone.recalculate_everything()
 
@@ -83,34 +83,34 @@
 		return
 
 	if(target_xeno == src)
-		to_chat(src, SPAN_XENOWARNING("We can't heal ourself with our own resin salve!"))
+		to_chat(src, SPAN_XENOWARNING("Мы не можем исцелить самих себя своей смолой!"))
 		return
 
 	if(!check_state())
 		return
 
 	if(SEND_SIGNAL(target_xeno, COMSIG_XENO_PRE_HEAL) & COMPONENT_CANCEL_XENO_HEAL)
-		to_chat(src, SPAN_XENOWARNING("Extinguish [target_xeno] first or the flames will burn our resin salve away!"))
+		to_chat(src, SPAN_XENOWARNING("Сначала потушите [target_xeno], иначе пламя сожжёт вашу смолу!")) // SS220 EDIT ADDICTION
 		return
 
 	if(!can_not_harm(target_xeno)) //We don't wanna heal hostile hives, but we do want to heal our allies!
-		to_chat(src, SPAN_XENOWARNING("[target_xeno] is hostile to our hive!"))
+		to_chat(src, SPAN_XENOWARNING("[target_xeno] враждебен к нашему улью!")) // SS220 EDIT ADDICTION
 		return
 
 	if(!isturf(loc))
-		to_chat(src, SPAN_XENOWARNING("We can't apply our resin salve from here!"))
+		to_chat(src, SPAN_XENOWARNING("Мы не можем использовать смолу отсюда!"))
 		return
 
 	if(get_dist(src, target_xeno) > max_range)
-		to_chat(src, SPAN_XENOWARNING("We need to be closer to [target_xeno] to apply our resin salve!"))
+		to_chat(src, SPAN_XENOWARNING("Нам нужно быть ближе к [target_xeno], чтобы использовать смолу!")) // SS220 EDIT ADDICTION
 		return
 
 	if(target_xeno.stat == DEAD)
-		to_chat(src, SPAN_XENOWARNING("[target_xeno] is dead!"))
+		to_chat(src, SPAN_XENOWARNING("[target_xeno] мёртв!")) // SS220 EDIT ADDICTION
 		return
 
 	if(target_xeno.health >= target_xeno.maxHealth)
-		to_chat(src, SPAN_XENOWARNING("[target_xeno] is already at max health!"))
+		to_chat(src, SPAN_XENOWARNING("[target_xeno] уже имеет максимальное здоровье!")) // SS220 EDIT ADDICTION
 		return
 
 	//Tiny xenos (Larva and Facehuggers), don't need as much health so don't cost as much.
@@ -132,8 +132,8 @@
 	new /datum/effects/heal_over_time(target_xeno, heal_amount = amount)
 	target_xeno.xeno_jitter(1 SECONDS)
 	target_xeno.flick_heal_overlay(5 SECONDS, "#00be6f")
-	to_chat(target_xeno, SPAN_XENOWARNING("[src] covers our wounds with a regenerative resin salve. We feel reinvigorated!"))
-	to_chat(src, SPAN_XENOWARNING("We regurgitate our vital fluids and some plasma to create a regenerative resin salve and apply it to [target_xeno]'s wounds. We feel weakened..."))
+	to_chat(target_xeno, SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] покрывает наши раны исцеляющей смолой. Мы чувствуем себя обновлёнными!")) // SS220 EDIT ADDICTION
+	to_chat(src, SPAN_XENOWARNING("Мы извергаем нашу специальную жидкость и немного плазмы, чтобы создать исцеляющую смолу, используя её на ранах [target_xeno.declent_ru(GENITIVE)]. Мы чувствуем себя ослабленными...")) // SS220 EDIT ADDICTION
 	playsound(src, "alien_drool", 25)
 	var/datum/behavior_delegate/drone_healer/healer_delegate = behavior_delegate
 	healer_delegate.salve_applied_recently = TRUE
@@ -186,6 +186,7 @@
 
 /datum/behavior_delegate/drone_healer/append_to_stat()
 	. = list()
+	. += "Fruits sustained: [length(bound_xeno.current_fruits)] / [bound_xeno.max_placeable]"
 	. += "Transferred health amount: [transferred_amount]/[required_transferred_amount]"
 	if(transferred_amount >= required_transferred_amount)
 		. += "Sacrifice will grant you new life."
@@ -195,14 +196,14 @@
 		return
 	if(bound_xeno.stat == DEAD)
 		return
-	var/image/holder = bound_xeno.hud_list[PLASMA_HUD]
+	var/image/holder = bound_xeno.hud_list[SPECIAL_HUD]
 	holder.overlays.Cut()
 	var/percentage_transferred = min(round((transferred_amount / required_transferred_amount) * 100, 10), 100)
 	if(percentage_transferred)
 		holder.overlays += image('icons/mob/hud/hud.dmi', "xenoenergy[percentage_transferred]")
 
 /datum/behavior_delegate/drone_healer/handle_death(mob/M)
-	var/image/holder = bound_xeno.hud_list[PLASMA_HUD]
+	var/image/holder = bound_xeno.hud_list[SPECIAL_HUD]
 	holder.overlays.Cut()
 
 /datum/action/xeno_action/activable/healer_sacrifice
@@ -229,49 +230,53 @@
 		return
 
 	if(target == xeno)
-		to_chat(xeno, "We can't heal ourself!")
+		to_chat(xeno, "Мы не можем исцелить самих себя!")
 		return
 
 	if(isfacehugger(target) || islesserdrone(target))
-		to_chat(xeno, "It would be a waste...")
+		to_chat(xeno, "Это было бы пустой тратой плазмы...")
 		return
 
 	if(!xeno.check_state())
 		return
 
 	if(!xeno.can_not_harm(target)) //so we can heal only allies
-		to_chat(xeno, SPAN_WARNING("[target] is an enemy of our hive!"))
+		to_chat(xeno, SPAN_WARNING("[target] - враг нашего улья!"))
 		return
 
 	if(target.stat == DEAD)
-		to_chat(xeno, SPAN_WARNING("[target] is already dead!"))
+		to_chat(xeno, SPAN_WARNING("[target] мёртв!")) // SS220 EDIT ADDICTION
 		return
 
 	if(target.health >= target.maxHealth)
-		to_chat(xeno, SPAN_WARNING("[target] is already at max health!"))
+		to_chat(xeno, SPAN_WARNING("[target] уже имеет максимальное здоровье!")) // SS220 EDIT ADDICTION
 		return
 
 	if(!isturf(xeno.loc))
-		to_chat(xeno, SPAN_WARNING("We cannot transfer health from here!"))
+		to_chat(xeno, SPAN_WARNING("Мы не можем передать здоровье отсюда!"))
 		return
 
 	if(get_dist(xeno, target) > max_range)
-		to_chat(xeno, SPAN_WARNING("We need to be closer to [target]."))
+		to_chat(xeno, SPAN_WARNING("Нам нужно быть ближе к [target].")) // SS220 EDIT ADDICTION
 		return
 
-	xeno.say(";MY LIFE FOR THE QUEEN!!!")
+	xeno.say(";ЖИЗНЬ ЗА КОРОЛЕВУ!!!") // SS220 EDIT ADDICTION
+
+	target.ExtinguishMob() //first, extinguish them from fire so they can be healed.
 
 	if(target.health < 0)
-		target.gain_health(abs(target.health)) // gets them out of crit first
+		target.gain_health(abs(target.health)) //second, get them out of crit.
 
 	target.gain_health(xeno.health * transfer_mod)
 	target.updatehealth()
 
+	target.clear_debuffs() //third, remove debuffs so they can stand up.
+
 	target.xeno_jitter(1 SECONDS)
 	target.flick_heal_overlay(3 SECONDS, "#44253d")
 
-	target.visible_message(SPAN_XENONOTICE("[xeno] explodes in a deluge of regenerative resin salve, covering [target] in it!"))
-	xeno_message(SPAN_XENOANNOUNCE("[xeno] sacrifices itself to heal [target]!"), 2, target.hive.hivenumber)
+	target.visible_message(SPAN_XENONOTICE("[capitalize(xeno.declent_ru(NOMINATIVE))] взрывается, покрывая [target.declent_ru(ACCUSATIVE)] потоком исцеляющей смолы!")) // SS220 EDIT ADDICTION
+	xeno_message(SPAN_XENOANNOUNCE("[capitalize(xeno.declent_ru(NOMINATIVE))] жертвует собой, чтобы исцелить [target.declent_ru(ACCUSATIVE)]!"), 2, target.hive.hivenumber) // SS220 EDIT ADDICTION
 
 	var/datum/behavior_delegate/drone_healer/behavior_delegate = xeno.behavior_delegate
 	if(istype(behavior_delegate) && behavior_delegate.transferred_amount >= behavior_delegate.required_transferred_amount && xeno.client && xeno.hive)

@@ -38,18 +38,18 @@
 	plasma_types = list(PLASMA_NEUROTOXIN)
 	pixel_x = -12
 	old_x = -12
+	xenonid_pixel_x = -9
 	tier = 1
 	organ_value = 800
 	base_actions = list(
 		/datum/action/xeno_action/onclick/xeno_resting,
-		/datum/action/xeno_action/onclick/regurgitate,
+		/datum/action/xeno_action/onclick/release_haul,
 		/datum/action/xeno_action/watch_xeno,
 		/datum/action/xeno_action/activable/tail_stab,
 		/datum/action/xeno_action/activable/corrosive_acid/weak,
 		/datum/action/xeno_action/activable/slowing_spit, //first macro
 		/datum/action/xeno_action/activable/scattered_spit, //second macro
 		/datum/action/xeno_action/onclick/paralyzing_slash, //third macro
-		/datum/action/xeno_action/onclick/tacmap,
 	)
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
@@ -58,9 +58,14 @@
 	icon_xeno = 'icons/mob/xenos/castes/tier_1/sentinel.dmi'
 	icon_xenonid = 'icons/mob/xenonids/castes/tier_1/sentinel.dmi'
 
+	acid_overlay = icon('icons/mob/xenos/castes/tier_1/sentinel.dmi', "Sentinel-Spit")
+
 	weed_food_icon = 'icons/mob/xenos/weeds_48x48.dmi'
 	weed_food_states = list("Drone_1","Drone_2","Drone_3")
 	weed_food_states_flipped = list("Drone_1","Drone_2","Drone_3")
+
+	skull = /obj/item/skull/sentinel
+	pelt = /obj/item/pelt/sentinel
 
 /datum/behavior_delegate/sentinel_base
 	name = "Base Sentinel Behavior Delegate"
@@ -68,7 +73,7 @@
 	// State
 	var/next_slash_buffed = FALSE
 
-#define NEURO_TOUCH_DELAY 3 SECONDS
+#define NEURO_TOUCH_DELAY 4 SECONDS
 
 /datum/behavior_delegate/sentinel_base/melee_attack_modify_damage(original_damage, mob/living/carbon/carbon_target)
 	if (!next_slash_buffed)
@@ -88,8 +93,8 @@
 			next_slash_buffed = FALSE
 			return //species like zombies or synths are immune to neurotoxin
 	if (next_slash_buffed)
-		to_chat(bound_xeno, SPAN_XENOHIGHDANGER("We add neurotoxin into our attack, [carbon_target] is about to fall over paralyzed!"))
-		to_chat(carbon_target, SPAN_XENOHIGHDANGER("You feel like you're about to fall over, as [bound_xeno] slashes you with its neurotoxin coated claws!"))
+		to_chat(bound_xeno, SPAN_XENOHIGHDANGER("Мы наполняем свои когти нейротоксином, [carbon_target] вот-вот будет парализован!")) // SS220 EDIT ADDICTION
+		to_chat(carbon_target, SPAN_XENOHIGHDANGER("Вы чувствуете что тело перестаёт слушать вас, когда [bound_xeno] атакует вас своими когтями!")) // SS220 EDIT ADDICTION
 		carbon_target.sway_jitter(times = 3, steps = floor(NEURO_TOUCH_DELAY/3))
 		carbon_target.apply_effect(4, DAZE)
 		addtimer(CALLBACK(src, PROC_REF(paralyzing_slash), carbon_target), NEURO_TOUCH_DELAY)
@@ -112,9 +117,9 @@
 		return INTENT_HARM
 
 /datum/behavior_delegate/sentinel_base/proc/paralyzing_slash(mob/living/carbon/human/human_target)
-	human_target.KnockDown(2.5)
-	human_target.Stun(2.5)
-	to_chat(human_target, SPAN_XENOHIGHDANGER("You fall over, paralyzed by the toxin!"))
+	human_target.KnockDown(2)
+	human_target.Stun(2)
+	to_chat(human_target, SPAN_XENOHIGHDANGER("Вы парализованы и ноги перестают слушать вас!"))
 
 
 
@@ -135,8 +140,8 @@
 	if (!check_and_use_plasma_owner())
 		return
 
-	slowspit_user.visible_message(SPAN_XENOWARNING("[slowspit_user] spits at [target]!"),
-	SPAN_XENOWARNING("You spit at [target]!") )
+	slowspit_user.visible_message(SPAN_XENOWARNING("[capitalize(slowspit_user.declent_ru(NOMINATIVE))] плюёт в сторону [target.declent_ru(GENITIVE)]!"),
+	SPAN_XENOWARNING("Вы плюёте в сторону [target.declent_ru(GENITIVE)]!"))
 	var/sound_to_play = pick(1, 2) == 1 ? 'sound/voice/alien_spitacid.ogg' : 'sound/voice/alien_spitacid2.ogg'
 	playsound(slowspit_user.loc, sound_to_play, 25, 1)
 
@@ -167,8 +172,8 @@
 	if (!check_and_use_plasma_owner())
 		return
 
-	scatterspit_user.visible_message(SPAN_XENOWARNING("[scatterspit_user] spits at [target]!"),
-	SPAN_XENOWARNING("You spit at [target]!") )
+	scatterspit_user.visible_message(SPAN_XENOWARNING("[capitalize(scatterspit_user.declent_ru(NOMINATIVE))] плюёт в сторону [target.declent_ru(GENITIVE)]!"), // SS220 EDIT ADDICTION
+	SPAN_XENOWARNING("Вы плюёте в сторону [target.declent_ru(GENITIVE)]!")) // SS220 EDIT ADDICTION
 	var/sound_to_play = pick(1, 2) == 1 ? 'sound/voice/alien_spitacid.ogg' : 'sound/voice/alien_spitacid2.ogg'
 	playsound(scatterspit_user.loc, sound_to_play, 25, 1)
 
@@ -198,7 +203,7 @@
 	if (istype(behavior))
 		behavior.next_slash_buffed = TRUE
 
-	to_chat(paraslash_user, SPAN_XENOHIGHDANGER("Our next slash will apply neurotoxin!"))
+	to_chat(paraslash_user, SPAN_XENOHIGHDANGER("Наша следующая атака применит нейротоксин!"))
 	button.icon_state = "template_active"
 
 	addtimer(CALLBACK(src, PROC_REF(unbuff_slash)), buff_duration)
@@ -217,5 +222,5 @@
 			return
 		behavior.next_slash_buffed = FALSE
 
-	to_chat(unbuffslash_user, SPAN_XENODANGER("We have waited too long, our slash will no longer apply neurotoxin!"))
-	button.icon_state = "template"
+	to_chat(unbuffslash_user, SPAN_XENODANGER("Мы чувствуем, что действие нейротоксина в наших когтях ослабевает!"))
+	button.icon_state = "template_xeno"

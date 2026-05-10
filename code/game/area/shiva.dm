@@ -48,7 +48,7 @@
 	ceiling = CEILING_MAX
 	icon_state = "oob"
 	is_resin_allowed = FALSE
-	flags_area = AREA_NOTUNNEL|AREA_UNWEEDABLE
+	flags_area = AREA_NOBURROW|AREA_UNWEEDABLE
 
 /area/shiva/interior/oob/dev_room
 	name = "Shiva's Snowball - Secret Room"
@@ -212,6 +212,10 @@
 	name = "Shiva's Snowball - MegaStruct(TM) Botanical Dorms"
 	icon_state = "res1"
 	minimap_color = MINIMAP_AREA_RESEARCH
+
+/area/shiva/interior/colony/clf_shuttle
+	name = "Shiva's Snowball - Disabled Cargo Shuttle"
+	icon_state = "res0"
 
 /area/shiva/interior/colony/s_admin
 	name = "Shiva's Snowball - MegaStruct(TM) Crisis Center"

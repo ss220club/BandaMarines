@@ -15,7 +15,6 @@
 		remove_all_indicators()
 
 /mob/living/carbon/Destroy()
-	stomach_contents?.Cut()
 	view_change_sources = null
 	active_transfusions = null
 	. = ..()
@@ -40,54 +39,34 @@
 /mob/living/carbon/relaymove(mob/user, direction)
 	if(user.is_mob_incapacitated(TRUE))
 		return
-	if(user in src.stomach_contents)
-		if(user.client)
-			user.client.next_movement = world.time + 20
-		if(prob(30))
-			for(var/mob/mobs_can_hear in hearers(4, src))
-				if(mobs_can_hear.client)
-					mobs_can_hear.show_message(SPAN_DANGER("You hear something rumbling inside [src]'s stomach..."), SHOW_MESSAGE_AUDIBLE)
-		var/obj/item/item_in_hand = user.get_active_hand()
-		if(item_in_hand && item_in_hand.force)
-			var/damage_of_item = rand(floor(item_in_hand.force / 4), item_in_hand.force)
-			if(istype(src, /mob/living/carbon/human))
-				var/mob/living/carbon/human/human_mob = src
-				var/organ = human_mob.get_limb("chest")
-				if(istype(organ, /obj/limb))
-					var/obj/limb/organs_in_human = organ
-					if(organs_in_human.take_damage(damage_of_item, 0))
-						human_mob.UpdateDamageIcon()
-				human_mob.updatehealth()
-			else
-				src.take_limb_damage(damage_of_item)
-			for(var/mob/mobs_in_view as anything in viewers(user, null))
-				if(mobs_in_view.client)
-					mobs_in_view.show_message(text(SPAN_DANGER("<B>[user] attacks [src]'s stomach wall with the [item_in_hand.name]!")), SHOW_MESSAGE_AUDIBLE)
-			user.track_hit(initial(item_in_hand.name))
-			playsound(user.loc, 'sound/effects/attackblob.ogg', 25, 1)
-
-			if(prob(max(4*(100*getBruteLoss()/maxHealth - 75),0))) //4% at 24% health, 80% at 5% health
-				last_damage_data = create_cause_data("chestbursting", user)
-				gib(last_damage_data)
-	else if(!chestburst && (status_flags & XENO_HOST) && islarva(user))
+	if(!chestburst && (status_flags & XENO_HOST) && islarva(user))
 		var/mob/living/carbon/xenomorph/larva/larva_burst = user
 		larva_burst.chest_burst(src)
 
-/mob/living/carbon/ex_act(severity, direction, datum/cause_data/cause_data)
+/mob/living/carbon/ex_act(severity, direction, datum/cause_data/cause_data, pierce=0, enviro=FALSE)
+	last_damage_data = istype(cause_data) ? cause_data : create_cause_data(cause_data)
+	var/gibbing = FALSE
+
+	if(severity >= health && severity >= EXPLOSION_THRESHOLD_GIB)
+		gibbing = TRUE
 
 	if(body_position == LYING_DOWN && direction)
 		severity *= EXPLOSION_PRONE_MULTIPLIER
+
+	if(HAS_TRAIT(src, TRAIT_HAULED) && !gibbing) // We still probably wanna gib them as well if they were supposed to be gibbed by the explosion in the first place
+		visible_message(SPAN_WARNING("[src] is shielded from the blast!"), SPAN_WARNING("You are shielded from the blast!"))
+		return
 
 	if(severity >= 30)
 		flash_eyes()
 
 	last_damage_data = istype(cause_data) ? cause_data : create_cause_data(cause_data)
 
-	if(severity >= health && severity >= EXPLOSION_THRESHOLD_GIB)
+	if(gibbing)
 		gib(last_damage_data)
 		return
 
-	apply_damage(severity, BRUTE)
+	apply_damage(severity, BRUTE, enviro=enviro)
 	updatehealth()
 
 	var/knock_value = min( round( severity*0.1 ,1) ,10)
@@ -98,23 +77,6 @@
 /mob/living/carbon/gib(datum/cause_data/cause = create_cause_data("gibbing", src))
 	if(legcuffed)
 		drop_inv_item_on_ground(legcuffed)
-
-	var/turf/my_turf = get_turf(src)
-
-	for(var/atom/movable/A in stomach_contents)
-		stomach_contents.Remove(A)
-		A.forceMove(my_turf)
-		A.acid_damage = 0 //Reset the acid damage
-		if(ismob(A))
-			visible_message(SPAN_DANGER("[A] bursts out of [src]!"))
-
-	for(var/atom/movable/A in contents_recursive())
-		if(isobj(A))
-			var/obj/O = A
-			if(O.unacidable)
-				O.forceMove(my_turf)
-				O.throw_atom(pick(RANGE_TURFS(1, src)), 1, SPEED_FAST)
-
 	. = ..(cause)
 
 /mob/living/carbon/revive()
@@ -128,36 +90,74 @@
 	recalculate_move_delay = TRUE
 	..()
 
-/mob/living/carbon/human/attackby(obj/item/W, mob/living/user)
+/mob/living/carbon/human/attackby(obj/item/weapon, mob/living/user)
 	if(user.mob_flags & SURGERY_MODE_ON)
 		switch(user.a_intent)
 			if(INTENT_HELP)
 				//Attempt to dig shrapnel first, if any. dig_out_shrapnel_check() will fail if user is not human, which may be possible in future.
-				if(W.flags_item & CAN_DIG_SHRAPNEL && (locate(/obj/item/shard) in src.embedded_items) && W.dig_out_shrapnel_check(src, user))
+				if(weapon.flags_item & CAN_DIG_SHRAPNEL && (locate(/obj/item/shard) in src.embedded_items) && weapon.dig_out_shrapnel_check(src, user))
 					return TRUE
 				var/datum/surgery/current_surgery = active_surgeries[user.zone_selected]
 				if(current_surgery)
-					if(current_surgery.attempt_next_step(user, W))
+					if(current_surgery.attempt_next_step(user, weapon))
 						return TRUE //Cancel attack.
 				else
 					var/obj/limb/affecting = get_limb(check_zone(user.zone_selected))
-					if(initiate_surgery_moment(W, src, affecting, user))
+					if(initiate_surgery_moment(weapon, src, affecting, user))
 						return TRUE
 
 			if(INTENT_DISARM) //Same as help but without the shrapnel dig attempt.
 				var/datum/surgery/current_surgery = active_surgeries[user.zone_selected]
 				if(current_surgery)
-					if(current_surgery.attempt_next_step(user, W))
+					if(current_surgery.attempt_next_step(user, weapon))
 						return TRUE
 				else
 					var/obj/limb/affecting = get_limb(check_zone(user.zone_selected))
-					if(initiate_surgery_moment(W, src, affecting, user))
+					if(initiate_surgery_moment(weapon, src, affecting, user))
 						return TRUE
 
-	else if(W.flags_item & CAN_DIG_SHRAPNEL && W.dig_out_shrapnel_check(src, user))
+	else if(weapon.flags_item & CAN_DIG_SHRAPNEL && weapon.dig_out_shrapnel_check(src, user))
 		return TRUE
 
 	. = ..()
+
+/mob/living/carbon/human/proc/handle_haul_resist()
+	if(world.time <= next_haul_resist)
+		return
+
+	if(is_mob_incapacitated())
+		return
+
+	var/mob/living/carbon/xenomorph/xeno = hauling_xeno
+	next_haul_resist = world.time + 1.4 SECONDS
+	if(istype(get_active_hand(), /obj/item))
+		var/obj/item/item = get_active_hand()
+		if(item.force > 0)
+			var/limited_force = min(item.force, 35)
+			var/damage_of_item = rand(floor(limited_force / 4), limited_force)
+
+			xeno.last_damage_data = create_cause_data("scuffling", src)
+			attack_log += "\[[time_stamp()]\]<font color='red'> Attacked [key_name(xeno)] with [item.name] (INTENT: [uppertext(intent_text(a_intent))]) (DAMTYPE: [uppertext(BRUTE)])</font>"
+			xeno.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [key_name(src)] with [item.name] (INTENT: [uppertext(intent_text(a_intent))]) (DAMTYPE: [uppertext(BRUTE)])</font>"
+			msg_admin_attack("[key_name(src)] attacked [key_name(xeno)] with [item.name] (INTENT: [uppertext(intent_text(a_intent))]) (DAMTYPE: [uppertext(BRUTE)]) in [get_area(xeno)] ([xeno.loc.x],[xeno.loc.y],[xeno.loc.z]).", xeno.loc.x, xeno.loc.y, xeno.loc.z)
+
+			xeno.take_limb_damage(damage_of_item)
+			for(var/mob/mobs_in_view as anything in viewers(src, null))
+				if(mobs_in_view.client)
+					mobs_in_view.show_message(text(SPAN_DANGER("<B>[src] attacks [xeno]'s carapace with the [item.name]!")), SHOW_MESSAGE_AUDIBLE)
+			track_hit(initial(item.name))
+			if(item.sharp)
+				playsound(loc, 'sound/weapons/slash.ogg', 25, 1)
+			else
+				var/hit_sound = pick('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg')
+				playsound(loc, hit_sound, 25, 1)
+			if(prob(max(4*(100*xeno.getBruteLoss()/xeno.maxHealth - 75),0))) //4% at 24% health, 80% at 5% health
+				xeno.release_haul(stuns=FALSE)
+		else
+			for(var/mob/mobs_can_hear in hearers(4, xeno))
+				if(mobs_can_hear.client)
+					mobs_can_hear.show_message(SPAN_DANGER("You hear [src] struggling against [xeno]'s grip..."), SHOW_MESSAGE_AUDIBLE)
+	return
 
 /mob/living/carbon/attack_hand(mob/target_mob as mob)
 	if(!istype(target_mob, /mob/living/carbon))
@@ -223,7 +223,7 @@
 	if(shock_damage<1)
 		return FALSE
 
-	src.apply_damage(shock_damage, BURN, def_zone, used_weapon="Electrocution")
+	apply_damage(shock_damage, BURN, def_zone, used_weapon="Electrocution", enviro=TRUE)
 
 	playsound(loc, "sparks", 25, 1)
 	if(shock_damage > 10)
@@ -260,9 +260,6 @@
 	if(wielded_item && (wielded_item.flags_item & WIELDED)) //this segment checks if the item in your hand is twohanded.
 		var/obj/item/weapon/twohanded/offhand/offhand = get_inactive_hand()
 		if(offhand && (offhand.flags_item & WIELDED))
-			to_chat(src, SPAN_WARNING("Your other hand is too busy holding \the [offhand.name]")) //So it's an offhand.
-			return
-		else
 			wielded_item.unwield(src) //Get rid of it.
 	if(wielded_item && wielded_item.zoom) //Adding this here while we're at it
 		wielded_item.zoom(src)
@@ -296,7 +293,7 @@
 /mob/living/carbon/proc/help_shake_act(mob/living/carbon/M)
 	if(src == M)
 		return
-	var/t_him = p_them()
+	var/t_him = ru_p_thereto()
 
 	var/shake_action
 	if(stat == DEAD || HAS_TRAIT(src, TRAIT_INCAPACITATED) || sleeping) // incap implies also unconscious or knockedout
@@ -307,11 +304,11 @@
 	if(shake_action) // We are incapacitated in some fashion
 		if(client)
 			sleeping = max(0,sleeping-5)
-		M.visible_message(SPAN_NOTICE("[M] shakes [src] trying to [shake_action]"),
+		M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] shakes [src] trying to [shake_action]"),
 			SPAN_NOTICE("You shake [src] trying to [shake_action]"), null, 4)
 
 	else if(body_position == LYING_DOWN) // We're just chilling on the ground, let us be
-		M.visible_message(SPAN_NOTICE("[M] stares and waves impatiently at [src] lying on the ground."),
+		M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] stares and waves impatiently at [src] lying on the ground."),
 			SPAN_NOTICE("You stare and wave at [src] just lying on the ground."), null, 4)
 
 	else
@@ -319,8 +316,8 @@
 		if(istype(H))
 			H.species.hug(H, src, H.zone_selected)
 		else
-			M.visible_message(SPAN_NOTICE("[M] pats [src] on the back to make [t_him] feel better!"),
-				SPAN_NOTICE("You pat [src] on the back to make [t_him] feel better!"), null, 4)
+			M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] похлопывает [declent_ru(ACCUSATIVE)] по спине, чтобы [t_him] стало лучше!"), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("Вы похлопываете [src] по спине, чтобы [t_him] стало лучше!"), null, 4)
 			playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 5)
 		return
 
@@ -368,8 +365,8 @@
 		return
 	if(stat || !target)
 		return
-	if(!istype(loc, /turf)) // In some mob/object (i.e. devoured or tank)
-		to_chat(src, SPAN_WARNING("You cannot throw anything while inside of \the [loc.name]."))
+	if(!istype(loc, /turf) || HAS_TRAIT(src, TRAIT_HAULED)) // In some mob/object (i.e. hauled or tank)
+		to_chat(src, SPAN_WARNING("You cannot throw anything right now."))
 		return
 	if(target.type == /atom/movable/screen)
 		return
@@ -411,7 +408,7 @@
 
 		if(!(thrown_thing.try_to_throw(src)))
 			return
-		visible_message(SPAN_WARNING("[src] has thrown [thrown_thing]."), null, null, 5)
+		visible_message(SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] бросает [thrown_thing.declent_ru(ACCUSATIVE)]."), null, null, 5) // SS220 EDIT ADDICTION
 
 		if(!lastarea)
 			lastarea = get_area(src.loc)
@@ -471,7 +468,7 @@
 	set category = "IC"
 
 	if(sleeping)
-		to_chat(usr, SPAN_DANGER("You are already sleeping"))
+		to_chat(usr, SPAN_DANGER("You are already sleeping."))
 		return
 	if(alert(src,"You sure you want to sleep for a while?","Sleep","Yes","No") == "Yes")
 		sleeping = 20 //Short nap
@@ -502,15 +499,60 @@
 			if(!HAS_TRAIT(src, TRAIT_FLOORED)) // just watch this break in the most horrible way possible
 				break
 
+// Adding traits, etc after xeno restrains and hauls us
+/mob/living/carbon/human/proc/handle_haul(mob/living/carbon/xenomorph/xeno)
+	SetStun(0, ignore_canstun=TRUE)
+	SetKnockDown(0, ignore_canstun=TRUE)
 
+	ADD_TRAIT(src, TRAIT_FLOORED, TRAIT_SOURCE_XENO_HAUL)
+	ADD_TRAIT(src, TRAIT_HAULED, TRAIT_SOURCE_XENO_HAUL)
+	ADD_TRAIT(src, TRAIT_NO_STRAY, TRAIT_SOURCE_XENO_HAUL)
 
-/mob/living/carbon/on_stored_atom_del(atom/movable/AM)
-	..()
-	if(length(stomach_contents) && ismob(AM))
-		for(var/X in stomach_contents)
-			if(AM == X)
-				stomach_contents -= AM
-				break
+	hauling_xeno = xeno
+	RegisterSignal(xeno, COMSIG_MOB_DEATH, PROC_REF(release_haul_death))
+	RegisterSignal(src, COMSIG_ATTEMPT_MOB_PULL, PROC_REF(haul_grab_attempt))
+	RegisterSignal(src, COMSIG_LIVING_PREIGNITION, PROC_REF(haul_fire_shield))
+	RegisterSignal(src, list(COMSIG_LIVING_FLAMER_CROSSED, COMSIG_LIVING_FLAMER_FLAMED), PROC_REF(haul_fire_shield_callback))
+	layer = LYING_BETWEEN_MOB_LAYER
+	add_filter("hauled_shadow", 1, color_matrix_filter(rgb(95, 95, 95)))
+	pixel_y = -7
+	next_haul_resist = 0
+
+/mob/living/carbon/human/proc/release_haul_death()
+	SIGNAL_HANDLER
+	handle_unhaul()
+
+/mob/living/carbon/human/proc/haul_grab_attempt()
+	SIGNAL_HANDLER
+	return COMPONENT_CANCEL_MOB_PULL
+
+/mob/living/carbon/human/proc/haul_fire_shield(mob/living/burning_mob) //Stealing it from the pyro spec armor, xenos shield us from fire
+	SIGNAL_HANDLER
+	return COMPONENT_CANCEL_IGNITION
+
+/mob/living/carbon/human/proc/haul_fire_shield_callback(mob/living/burning_mob)
+	SIGNAL_HANDLER
+	return COMPONENT_NO_IGNITE|COMPONENT_NO_BURN
+
+// Removing traits and other stuff after xeno releases us from haul
+/mob/living/carbon/human/proc/handle_unhaul()
+	var/location = get_turf(loc)
+	remove_traits(list(TRAIT_HAULED, TRAIT_NO_STRAY, TRAIT_FLOORED, TRAIT_IMMOBILIZED), TRAIT_SOURCE_XENO_HAUL)
+	pixel_y = 0
+	UnregisterSignal(src, list(COMSIG_ATTEMPT_MOB_PULL, COMSIG_LIVING_PREIGNITION, COMSIG_LIVING_FLAMER_CROSSED, COMSIG_LIVING_FLAMER_FLAMED))
+	UnregisterSignal(hauling_xeno, COMSIG_MOB_DEATH)
+	hauling_xeno = null
+	layer = MOB_LAYER
+	remove_filter("hauled_shadow")
+	forceMove(location)
+	for(var/obj/object in location)
+		if(istype(object, /obj/effect/alien/resin/trap) || istype(object, /obj/effect/alien/egg) || istype(object, /obj/effect/alien/resin/special/eggmorph))
+			object.HasProximity(src)
+		if(istype(object, /obj/effect/egg_trigger))
+			object.Crossed(src)
+	next_haul_resist = 0
+	SEND_SIGNAL(src, COMSIG_MOB_UNHAULED)
+
 
 /mob/living/carbon/proc/extinguish_mob(mob/living/carbon/C)
 	adjust_fire_stacks(-5, min_stacks = 0)
@@ -553,6 +595,9 @@
 			. += SPAN_GREEN("[src] was thralled by [src.hunter_data.thralled_set.real_name] for '[src.hunter_data.thralled_reason]'.")
 		else if(src.hunter_data.gear)
 			. += SPAN_RED("[src] was marked as carrying gear by [src.hunter_data.gear_set].")
+
+		if(src.hunter_data.youngblood)
+			. += SPAN_GREEN("[src] is being taught by [src.hunter_data.hunter.real_name].")
 
 
 /mob/living/carbon/on_lying_down(new_lying_angle)
