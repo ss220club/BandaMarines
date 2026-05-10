@@ -94,11 +94,15 @@ GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 
 /datum/xeno_customization_option/proc/check_states()
 	. = TRUE
+	var/list/icon_states = icon_states(icon_path)
+	var/list/subtract_icon_states = icon_states(subtract_icon_path)
 	for(var/movement_state in REQUIRED_ICON_STATES)
-		if(movement_state in icon_states(icon_path))
-			continue
-		. = FALSE
-		stack_trace("Xeno Customization [type] doesn't contain '[movement_state]' icon state! Review naming convention!")
+		if(!(movement_state in icon_states))
+			. = FALSE
+			stack_trace("Xeno Customization [type] doesn't contain '[movement_state]' icon state! Review naming convention!")
+		if(subtract_icon_path && !(movement_state in subtract_icon_states))
+			. = FALSE
+			stack_trace("Xeno Customization [type] doesn't contain '[movement_state]' subtract icon state! Review naming convention!")
 	return .
 
 /datum/xeno_customization_option/proc/check_full_body_states()
