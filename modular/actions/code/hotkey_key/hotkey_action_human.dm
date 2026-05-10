@@ -13,10 +13,6 @@
 		. = get_hotkey_on_slot()
 	return .
 
-/datum/action/item_action/update_button_icon()
-	. = ..()
-	update_hotkey_visual()
-
 /datum/action/item_action/proc/get_hotkey_on_slot()
 	var/static/list/slot_keybinds_to_name = list(
 		"[ATTACHMENT_SLOT_UNDER]" = /datum/keybinding/human/combat/underbarrel::name,
@@ -37,6 +33,8 @@
 #undef ATTACHMENT_SLOT_RAIL
 #undef ATTACHMENT_SLOT_STOCK
 #undef ATTACHMENT_SLOT_MUZZLE
+
+// MARK: Smartgunner
 
 /datum/action/item_action/smartgun/toggle_motion_detector/update_button_icon()
 	. = ..()
@@ -66,3 +64,88 @@
 	. = ..()
 	update_hotkey_visual()
 
+// MARK: Attachments
+
+/datum/action/item_action/update_button_icon()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/toggle/stock/update_button_icon()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/toggle/scope/update_button_icon()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/toggle/vulture_scope/update_button_icon()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/toggle/motion_detector/update_button_icon()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/toggle/lamp/update_button_icon()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/toggle/m56goggles/update_button_icon()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/toggle/hudgoggles/update_button_icon()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/toggle/flashlight/update_button_icon()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/toggle/flashlight_grip/update_button_icon()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/toggle/rail_flashlight/update_button_icon()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/toggle/bipod/update_button_icon()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/toggle/nozzle/update_button_icon()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/toggle/ubs/update_button_icon()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/toggle/ext/update_button_icon()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/toggle/flamer/update_button_icon()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/toggle/flare_launcher/update_button_icon()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/toggle/ugl/update_button_icon()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/toggle/adjust_mask/update_button_icon()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/toggle/neckerchief/update_button_icon()
+	. = ..()
+	update_hotkey_visual()
+
+/datum/action/item_action/toggle/helmet_nvg/update_button_icon()
+	. = ..()
+	update_hotkey_visual()
