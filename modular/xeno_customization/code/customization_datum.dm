@@ -78,6 +78,9 @@ GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 	if(!caste)
 		. = FALSE
 		stack_trace("Xeno Customization [type] doesn't have a caste!")
+	if(!(caste in ALL_XENO_CASTES))
+		. = FALSE
+		stack_trace("Xeno Customization [type] caste is not a real caste!")
 	if(!icon_path)
 		. = FALSE
 		stack_trace("Xeno Customization [type] doesn't have an icon path!")
