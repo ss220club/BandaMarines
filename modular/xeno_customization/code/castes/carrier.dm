@@ -1,4 +1,8 @@
-/datum/xeno_customization_option/carrier_socks
+/datum/xeno_customization_option/carrier
+	abstract_type = /datum/xeno_customization_option/carrier
+	caste = XENO_CASTE_CARRIER
+
+/datum/xeno_customization_option/carrier/socks
 	name = "Носки"
 	key = "carrier_socks"
 	customization_type = XENO_CUSTOMIZATION_NON_LORE_FRIENDLY
