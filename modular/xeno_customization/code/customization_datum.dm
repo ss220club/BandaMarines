@@ -4,8 +4,11 @@ GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 
 /proc/setup_all_xeno_customizations()
 	var/list/data = list()
-	for(var/customization in subtypesof(/datum/xeno_customization_option))
-		var/datum/xeno_customization_option/select = new customization()
+	for(var/customization_path in subtypesof(/datum/xeno_customization_option))
+		var/datum/xeno_customization_option/select = new customization_path()
+		if(select.abstract_type == customization_path)
+			qdel(select)
+			continue
 		if(!select.is_correctly_configured())
 			continue
 		data["[select.caste]"] += list("[select.key]" = select)
@@ -33,6 +36,8 @@ GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 */
 
 /datum/xeno_customization_option
+	/// The abstract parent of this customization option, to determine which options to not instantiate
+	var/abstract_type = /datum/xeno_customization_option
 	/// UI name
 	var/name = "Call a coder!"
 	/// Stored in database
@@ -80,19 +85,21 @@ GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 		. = FALSE
 		stack_trace("Xeno Customization [type] doesn't have a key!")
 
-	var/list/icon_states = icon_states(icon_path)
-	var/static/list/movement_states = list(
-		"Walking", "Running", "Knocked Down", "Sleeping", "Dead",
-	)
+	if(full_body_customization)
+		return check_full_body_states()
+	return check_states()
 
-	if(!full_body_customization)
-		for(var/movement_state in movement_states)
-			if(movement_state in icon_states)
-				continue
-			. = FALSE
-			stack_trace("Xeno Customization [type] doesn't contain '[movement_state]' icon state! Review naming convention!")
-		return .
+/datum/xeno_customization_option/proc/check_states()
+	. = TRUE
+	for(var/movement_state in REQUIRED_ICON_STATES)
+		if(movement_state in icon_states(icon_path))
+			continue
+		. = FALSE
+		stack_trace("Xeno Customization [type] doesn't contain '[movement_state]' icon state! Review naming convention!")
+	return .
 
+/datum/xeno_customization_option/proc/check_full_body_states()
+	. = TRUE
 	var/datum/caste_datum/caste_datum = GLOB.xeno_datum_list[caste]
 	var/list/strains = list("Normal")
 	if(caste_datum.available_strains)
@@ -100,12 +107,14 @@ GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 			strains += xeno_strain_type::name
 
 	for(var/strain_type in strains)
-		for(var/movement_state in movement_states)
+		var/list/icon_states = icon_states(icon_path)
+		var/list/subtract_icon_states = icon_states(subtract_icon_path)
+		for(var/movement_state in REQUIRED_ICON_STATES)
 			var/required_icon_state = "[strain_type] [caste] [movement_state]"
-			if(caste == XENO_CASTE_LARVA)
-				required_icon_state = "[caste] [movement_state]"
-			if((required_icon_state in icon_states))
-				continue
-			stack_trace("Xeno Customization [type] doesn't contain '[required_icon_state]' icon state! Review naming convention!")
-			. = FALSE
+			if(!(required_icon_state in icon_states))
+				. = FALSE
+				stack_trace("Xeno Customization [type] doesn't contain '[required_icon_state]' icon state! Review naming convention!")
+			if(subtract_icon_path && !(required_icon_state in subtract_icon_states))
+				. = FALSE
+				stack_trace("Xeno Customization [type] doesn't contain '[required_icon_state]' subtract icon state! Review naming convention!")
 	return .
