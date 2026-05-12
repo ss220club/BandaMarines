@@ -2,7 +2,7 @@
 #define FTL_HELMET_ONMOB_ICON 'modular/clothing/onmob/head/ftl_helmet.dmi'
 
 /obj/item/clothing/head/helmet/marine/rto/ftl
-	name = "m12 closed pattern dust helmet"
+	name = "закрытый шлем морпеха M12"
 	icon = FTL_HELMET_ICON
 	icon_state = "ftl_jungle"
 	specialty = "M12 pattern fireteam leader"
