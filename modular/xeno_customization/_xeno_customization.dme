@@ -14,6 +14,7 @@
 #include "code/castes/carrier.dm"
 #include "code/castes/crusher.dm"
 #include "code/castes/defender.dm"
+#include "code/castes/despoiler.dm"
 #include "code/castes/facehugger.dm"
 #include "code/castes/drone.dm"
 #include "code/castes/hivelord.dm"

@@ -302,7 +302,7 @@ GLOBAL_LIST_EMPTY(shuttle_controls)
 					xeno_message(SPAN_XENOANNOUNCE("Улей наполняется силой! Теперь мы будем периодически получать новых грудоломов."),2,Q.hivenumber)
 
 					// Notify the yautja too so they stop the hunt
-					message_all_yautja("The serpent Queen has commanded the landing shuttle to depart.")
+					elder_overseer_message("The serpent Queen has commanded the landing shuttle to depart.")
 					playsound(src, 'sound/misc/queen_alarm.ogg')
 
 					Q.count_niche_stat(STATISTICS_NICHE_FLIGHT)
