@@ -138,7 +138,7 @@
 	group = "Explosives"
 
 /datum/supply_packs/explosives_M40_CCDP_crate
-	name = "M40 CCDP chemical compund grenade box crate (x25)" // BANDAMARINES FIX NAME
+	name = "M40 CCDP chemical compound grenade box crate (x25)" // BANDAMARINES FIX NAME
 	contains = list(
 		/obj/item/storage/box/nade_box/phophorus,
 	)
