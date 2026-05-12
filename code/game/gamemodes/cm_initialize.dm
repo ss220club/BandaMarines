@@ -164,7 +164,7 @@ Additional game mode variables.
 	if(!new_predator)
 		return
 
-	INVOKE_ASYNC(new_predator, TYPE_PROC_REF(/mob/living/carbon, change_tts_seed_ask)) // BANDAMARINES ADD
+	INVOKE_NEXT_TICK(new_predator, TYPE_PROC_REF(/mob/living/carbon, change_tts_seed_ask)) // BANDAMARINES ADD
 	msg_admin_niche("([new_predator.key]) joined as a Yautja, [new_predator.real_name].")
 
 	if(!QDELETED(pred_candidate))
@@ -175,7 +175,7 @@ Additional game mode variables.
 	if(!new_predator)
 		return
 
-	INVOKE_ASYNC(new_predator, TYPE_PROC_REF(/mob/living/carbon, change_tts_seed_ask)) // BANDAMARINES ADD
+	INVOKE_NEXT_TICK(new_predator, TYPE_PROC_REF(/mob/living/carbon, change_tts_seed_ask)) // BANDAMARINES ADD
 	msg_admin_niche("([new_predator.key]) joined as a Yautja Bad-Blood, [new_predator.real_name].")
 
 	if(!QDELETED(badblood_candidate))
@@ -186,7 +186,7 @@ Additional game mode variables.
 	if(!new_predator)
 		return
 
-	INVOKE_ASYNC(new_predator, TYPE_PROC_REF(/mob/living/carbon, change_tts_seed_ask)) // BANDAMARINES ADD
+	INVOKE_NEXT_TICK(new_predator, TYPE_PROC_REF(/mob/living/carbon, change_tts_seed_ask)) // BANDAMARINES ADD
 	msg_admin_niche("([new_predator.key]) joined as a Stranded Yautja, [new_predator.real_name].")
 
 	if(!QDELETED(stranded_candidate))
