@@ -72,6 +72,7 @@ GLOBAL_LIST_INIT(xeno_customizations_by_caste, setup_all_xeno_customizations())
 		if(get_job_playtime(user, caste) < timelock)
 			var/hours = timelock / (1 HOURS)
 			. += "Необходимое время на этой касте: [hours] час[declension_ru(hours, "", "а", "ов")]. "
+	. = "Кастомизация ксеноморфов временно отключена!"
 	return .
 
 /datum/xeno_customization_option/proc/is_correctly_configured()
