@@ -2,10 +2,13 @@
 	var/name = "Эксплорер TTS голосов"
 	var/phrases = TTS_PHRASES
 	var/species = null
+	var/theme = "uscm"
 
-/datum/tts_seeds_explorer/New(species)
+/datum/tts_seeds_explorer/New(species, theme)
 	. = ..()
 	src.species = species
+	if(theme)
+		src.theme = theme
 
 /datum/tts_seeds_explorer/ui_state(mob/user)
 	return GLOB.always_state
@@ -59,6 +62,7 @@
 		))
 	data["seeds"] = seeds
 	data["phrases"] = phrases
+	data["theme"] = theme
 
 	return data
 

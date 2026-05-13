@@ -1219,10 +1219,10 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 					var/datum/tts_seeds_explorer/explorer = new
 					explorer.tgui_interact(user)
 				if(SPECIES_YAUTJA)
-					var/datum/tts_seeds_explorer/explorer = new(SPECIES_YAUTJA)
+					var/datum/tts_seeds_explorer/explorer = new(SPECIES_YAUTJA, "ntos_spooky")
 					explorer.tgui_interact(user)
 				if(SPECIES_SYNTHETIC)
-					var/datum/tts_seeds_explorer/explorer = new(SPECIES_SYNTHETIC)
+					var/datum/tts_seeds_explorer/explorer = new(SPECIES_SYNTHETIC, "ntos")
 					explorer.tgui_interact(user)
 		if("declined_name")
 			switch(href_list["task"])

@@ -312,7 +312,7 @@
 
 		// BANDAMARINES EDIT ADD - TTS220
 		if("tts_seed")
-			var/datum/tts_seeds_explorer/explorer = new(SPECIES_YAUTJA)
+			var/datum/tts_seeds_explorer/explorer = new(SPECIES_YAUTJA, "ntos_spooky")
 			explorer.tgui_interact(usr)
 		// BANDAMARINES EDIT END
 
