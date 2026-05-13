@@ -16,10 +16,9 @@
 	if(randomise)
 		return ..()
 	// Non-WL will have to choose tts, slot TTS will be a backup
-	if(!new_human.client.prefs.tts_seed_predator)
-		new_human.client.prefs.give_tts_seed(new_human)
-		return ..()
 	new_human.client.prefs.give_tts_seed(new_human)
+	if(!new_human.client.prefs.tts_seed_predator)
+		return ..()
 
 /datum/equipment_preset/synth/handle_tts(mob/living/carbon/human/new_human, randomise)
 	if(randomise)
