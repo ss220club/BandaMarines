@@ -442,6 +442,8 @@
 	S["quick_cast"] >> quick_cast
 	S["screentips"] >> screentips
 	S["xeno_show_hotkeys"] >> xeno_show_hotkeys
+	S["tts_seed_predator"] >> tts_seed_predator
+	S["tts_seed_synth"] >> tts_seed_synth
 	// BANDAMARINES EDIT END
 
 	//Sanitize
@@ -736,6 +738,8 @@
 	S["screentips"] << screentips
 	S["xeno_customizations"] << xeno_customizations_string
 	S["xeno_show_hotkeys"] << xeno_show_hotkeys
+	S["tts_seed_predator"] << tts_seed_predator
+	S["tts_seed_synth"] << tts_seed_synth
 	// BANDAMARINES EDIT END
 
 	return TRUE
@@ -919,8 +923,6 @@
 	// SS220 EDIT - TTS
 	if(SStts220.is_enabled)
 		S["tts_seed"] >> tts_seed
-		S["tts_seed_predator"] >> tts_seed_predator
-		S["tts_seed_synth"] >> tts_seed_synth
 	S["declined_name"] >> declined_name
 	declined_name = sanitize_declined_name()
 	// =================================
@@ -1015,8 +1017,6 @@
 	// SS220 EDIT
 	if(SStts220.is_enabled)
 		S["tts_seed"] << tts_seed
-		S["tts_seed_predator"] << tts_seed_predator
-		S["tts_seed_synth"] << tts_seed_synth
 	S["declined_name"] << declined_name
 	// =================================
 
