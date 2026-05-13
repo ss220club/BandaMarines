@@ -1,0 +1,4 @@
+author: "larentoun"
+delete-after: True
+changes:
+  - qol: "Добавлено отображение горячих клавиш способностей для людей. Включение находится в Settings."

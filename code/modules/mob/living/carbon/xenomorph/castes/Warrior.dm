@@ -119,8 +119,8 @@
 			living_mob.Stun(duration)
 			if(living_mob.pulledby != src)
 				return // Grab was broken, probably as Stun side effect (eg. target getting knocked away from a manned M56D)
-			visible_message(SPAN_XENOWARNING("[src] grabs [living_mob] by the throat!"),
-			SPAN_XENOWARNING("We grab [living_mob] by the throat!"))
+			visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] хватает [living_mob.declent_ru(ACCUSATIVE)] за горло!"), // SS220 EDIT ADDICTION
+			SPAN_XENOWARNING("Мы хватаем [living_mob.declent_ru(ACCUSATIVE)] за горло!")) // SS220 EDIT ADDICTION
 			warrior_delegate.lunging = TRUE
 			addtimer(CALLBACK(src, PROC_REF(stop_lunging)), get_xeno_stun_duration(living_mob, 2) SECONDS + 1 SECONDS)
 
@@ -158,7 +158,7 @@
 // This part is then outside the for loop
 		if(final_lifesteal >= max_lifesteal)
 			bound_xeno.add_filter("empower_rage", 1, list("type" = "outline", "color" = color, "size" = 1, "alpha" = 90))
-			bound_xeno.visible_message(SPAN_DANGER("[bound_xeno.name] glows as it heals even more from its injuries!"), SPAN_XENODANGER("We glow as we heal even more from our injuries!"))
+			bound_xeno.visible_message(SPAN_DANGER("[capitalize(bound_xeno.declent_ru(NOMINATIVE))] светится, исцеляясь ещё быстрее от своих ран!"), SPAN_XENODANGER("Мы светимся, исцеляясь ещё быстрее от своих ран!"))
 			bound_xeno.flick_heal_overlay(2 SECONDS, "#00B800")
 		if(istype(bound_xeno) && world.time > emote_cooldown && bound_xeno)
 			bound_xeno.emote("roar")
@@ -187,7 +187,7 @@
 
 	if(!action_cooldown_check())
 		if(twitch_message_cooldown < world.time )
-			lunge_user.visible_message(SPAN_XENOWARNING("[lunge_user]'s claws twitch."), SPAN_XENOWARNING("Our claws twitch as we try to lunge but lack the strength. Wait a moment to try again."))
+			lunge_user.visible_message(SPAN_XENOWARNING("[capitalize(lunge_user.declent_ru(NOMINATIVE))] пытается безуспешно схватить цель."), SPAN_XENOWARNING("Мы безуспешно пытаемся схватить цель, из-за нехватки сил. Подождите немного, прежде чем попробовать снова.")) // SS220 EDIT ADDICTION
 			twitch_message_cooldown = world.time + 5 SECONDS
 		return //this gives a little feedback on why your lunge didn't hit other than the lunge button going grey. Plus, it might spook marines that almost got lunged if they know why the message appeared, and extra spookiness is always good.
 
@@ -195,7 +195,7 @@
 		return
 
 	if(!isturf(lunge_user.loc))
-		to_chat(lunge_user, SPAN_XENOWARNING("We can't lunge from here!"))
+		to_chat(lunge_user, SPAN_XENOWARNING("Мы не можем нанести удар отсюда!"))
 		return
 
 	if(!lunge_user.check_state() || lunge_user.agility)
@@ -215,7 +215,7 @@
 	apply_cooldown()
 	..()
 
-	lunge_user.visible_message(SPAN_XENOWARNING("[lunge_user] lunges towards [carbon]!"), SPAN_XENOWARNING("We lunge at [carbon]!"))
+	lunge_user.visible_message(SPAN_XENOWARNING("[capitalize(lunge_user.declent_ru(NOMINATIVE))] наносит удар по [carbon.declent_ru(DATIVE)]!"), SPAN_XENOWARNING("Мы наносим удар по [carbon.declent_ru(DATIVE)]!")) // SS220 EDIT ADDICTION
 
 	lunge_user.throw_atom(get_step_towards(affected_atom, lunge_user), grab_range, SPEED_FAST, lunge_user, tracking=TRUE)
 
@@ -224,7 +224,7 @@
 		if(ishuman(carbon))
 			INVOKE_ASYNC(carbon, TYPE_PROC_REF(/mob, emote), "scream")
 	else
-		lunge_user.visible_message(SPAN_XENOWARNING("[lunge_user]'s claws twitch."), SPAN_XENOWARNING("Our claws twitch as we lunge but are unable to grab onto our target. Wait a moment to try again."))
+		lunge_user.visible_message(SPAN_XENOWARNING("[capitalize(lunge_user.declent_ru(NOMINATIVE))] пытается безуспешно схватить цель."), SPAN_XENOWARNING("Мы безуспешно пытаемся схватить цель, из-за нехватки сил. Подождите немного, прежде чем попробовать снова.")) // SS220 EDIT ADDICTION
 
 	return TRUE
 
@@ -254,13 +254,13 @@
 		fling_user.stop_pulling()
 
 	if(carbon.mob_size >= MOB_SIZE_BIG)
-		to_chat(fling_user, SPAN_XENOWARNING("[carbon] is too big for us to fling!"))
+		to_chat(fling_user, SPAN_XENOWARNING("[carbon] слишком большой, чтобы мы могли его откинуть!")) // SS220 EDIT ADDICTION
 		return
 
 	if(!check_and_use_plasma_owner())
 		return
 
-	fling_user.visible_message(SPAN_XENOWARNING("[fling_user] effortlessly flings [carbon] to the side!"), SPAN_XENOWARNING("We effortlessly fling [carbon] to the side!"))
+	fling_user.visible_message(SPAN_XENOWARNING("[fling_user] без усилий отбрасывает [carbon] в сторону!"), SPAN_XENOWARNING("Мы без усилий отбрасываем [carbon] в сторону!")) // SS220 EDIT ADDICTION
 	playsound(carbon,'sound/weapons/alien_claw_block.ogg', 75, 1)
 	if(stun_power)
 		carbon.Stun(get_xeno_stun_duration(carbon, stun_power))
@@ -319,8 +319,8 @@
 
 	carbon.last_damage_data = create_cause_data(initial(punch_user.caste_type), punch_user)
 
-	punch_user.visible_message(SPAN_XENOWARNING("[punch_user] hits [carbon] in the [target_limb ? target_limb.display_name : "chest"] with a devastatingly powerful punch!"),
-	SPAN_XENOWARNING("We hit [carbon] in the [target_limb ? target_limb.display_name : "chest"] with a devastatingly powerful punch!"))
+	punch_user.visible_message(SPAN_XENOWARNING("[punch_user] бьёт по [target_limb ? declent_ru_initial(target_limb.display_name, DATIVE, target_limb.display_name) : "груди"] [carbon] разрушительно мощным ударом!"), // SS220 EDIT ADDICTION
+	SPAN_XENOWARNING("Мы бьём по [target_limb ? declent_ru_initial(target_limb.display_name, DATIVE, target_limb.display_name) : "груди"] [carbon] разрушительно мощным ударом!")) // SS220 EDIT ADDICTION
 	var/sound = pick('sound/weapons/punch1.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/punch4.ogg',)
 	playsound(carbon, sound, 50, 1)
 	do_base_warrior_punch(carbon, target_limb)

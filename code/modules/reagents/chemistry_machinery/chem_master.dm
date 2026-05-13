@@ -108,7 +108,7 @@
 			to_chat(user, SPAN_WARNING("\The [box] is empty and cannot be unloaded into [src]."))
 			return
 
-		user.visible_message(SPAN_NOTICE("[user] starts to empty \the [box] into [src]..."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts to empty \the [box] into [src]..."),
 		SPAN_NOTICE("You start to empty \the [box] into [src]..."))
 		var/waiting_time = min(length(box.contents), max_bottles_count - length(loaded_pill_bottles)) * box.time_to_empty
 
