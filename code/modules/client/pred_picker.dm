@@ -310,6 +310,10 @@
 
 			prefs.predator_cape_color = sanitize_hexcolor(color)
 
+		if("tts_seed")
+			var/datum/tts_seeds_explorer/explorer = new(SPECIES_YAUTJA)
+			explorer.tgui_interact(usr)
+
 	prefs.update_preview_icon()
 	return TRUE
 

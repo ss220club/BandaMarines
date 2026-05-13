@@ -919,6 +919,8 @@
 	// SS220 EDIT - TTS
 	if(SStts220.is_enabled)
 		S["tts_seed"] >> tts_seed
+		S["tts_seed_predator"] >> tts_seed_predator
+		S["tts_seed_synth"] >> tts_seed_synth
 	S["declined_name"] >> declined_name
 	declined_name = sanitize_declined_name()
 	// =================================
@@ -1013,6 +1015,8 @@
 	// SS220 EDIT
 	if(SStts220.is_enabled)
 		S["tts_seed"] << tts_seed
+		S["tts_seed_predator"] << tts_seed_predator
+		S["tts_seed_synth"] << tts_seed_synth
 	S["declined_name"] << declined_name
 	// =================================
 

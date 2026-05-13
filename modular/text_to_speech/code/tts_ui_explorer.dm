@@ -1,6 +1,11 @@
 /datum/tts_seeds_explorer
 	var/name = "Эксплорер TTS голосов"
 	var/phrases = TTS_PHRASES
+	var/species = null
+
+/datum/tts_seeds_explorer/New(species)
+	. = ..()
+	src.species = species
 
 /datum/tts_seeds_explorer/ui_state(mob/user)
 	return GLOB.always_state
@@ -14,7 +19,16 @@
 
 /datum/tts_seeds_explorer/ui_data(mob/user)
 	var/list/data = list()
-	data["selected_seed"] = user.client.prefs.tts_seed
+	var/datum/tts_seed/selected_seed
+	switch(species)
+		if(SPECIES_YAUTJA)
+			selected_seed = user.client.prefs.tts_seed_predator
+		if(SPECIES_SYNTHETIC)
+			selected_seed = user.client.prefs.tts_seed_synth
+		else
+			selected_seed = user.client.prefs.tts_seed
+	data["selected_seed"] = selected_seed
+	data["species"] = species
 	// data["donator_level"] = user.client.donator_level
 	data["character_gender"] = user.client.prefs.gender
 
@@ -72,7 +86,12 @@
 			// var/datum/tts_seed/seed = SStts220.tts_seeds[seed_name]
 			// if(usr.client.donator_level < seed.required_donator_level)
 			// 	return
-
-			usr.client.prefs.tts_seed = seed_name
+			switch(species)
+				if(SPECIES_YAUTJA)
+					usr.client.prefs.tts_seed_predator = seed_name
+				if(SPECIES_SYNTHETIC)
+					usr.client.prefs.tts_seed_synth = seed_name
+				else
+					usr.client.prefs.tts_seed = seed_name
 		else
 			return FALSE
