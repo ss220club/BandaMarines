@@ -441,7 +441,7 @@
 	S["xeno_customizations"] >> xeno_customizations_string
 	S["quick_cast"] >> quick_cast
 	S["screentips"] >> screentips
-	S["xeno_show_hotkeys"] >> xeno_show_hotkeys
+	S["show_hotkeys"] >> show_hotkeys
 	S["tts_seed_predator"] >> tts_seed_predator
 	S["tts_seed_synth"] >> tts_seed_synth
 	// BANDAMARINES EDIT END
@@ -589,7 +589,7 @@
 	// Xeno Customizations are sanitized in /datum/xeno_customization_picker/setup(), we need DB and player entity ready for this
 	quick_cast = sanitize_integer(quick_cast, FALSE, TRUE, FALSE)
 	screentips = sanitize_integer(screentips, FALSE, TRUE, TRUE)
-	xeno_show_hotkeys = sanitize_integer(xeno_show_hotkeys, FALSE, TRUE, TRUE)
+	show_hotkeys = sanitize_integer(show_hotkeys, FALSE, TRUE, TRUE)
 	// BANDAMARINES EDIT END
 
 	if(!islist(custom_keybinds))
@@ -737,7 +737,7 @@
 	S["quick_cast"] << quick_cast
 	S["screentips"] << screentips
 	S["xeno_customizations"] << xeno_customizations_string
-	S["xeno_show_hotkeys"] << xeno_show_hotkeys
+	S["show_hotkeys"] << show_hotkeys
 	S["tts_seed_predator"] << tts_seed_predator
 	S["tts_seed_synth"] << tts_seed_synth
 	// BANDAMARINES EDIT END
