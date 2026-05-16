@@ -44,8 +44,9 @@
 		update_drag_delay()
 		update_mob_gun_signal()
 		update_bike_permutated(TRUE)
-		RegisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN, SIGNAL_ADDTRAIT(TRAIT_FLOORED), COMSIG_MOVABLE_PRE_THROW, COMSIG_LIVING_PRE_LAUNCH_TOWARDS), PROC_REF(trigger_unbuckle))
+		RegisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN, COMSIG_MOVABLE_PRE_THROW, COMSIG_LIVING_PRE_LAUNCH_TOWARDS), PROC_REF(trigger_unbuckle))
 		RegisterSignal(buckled_mob, list(COMSIG_HUMAN_ATTACK_ALIEN_PRE_GRAB, COMSIG_MOVABLE_XENO_START_PULLING), PROC_REF(can_xeno_pull_off))
+		RegisterSignal(buckled_mob, SIGNAL_ADDTRAIT(TRAIT_FLOORED), PROC_REF(on_floored))
 	else
 		if(connected)
 			push_to_left_side(buckled_mob)
@@ -72,6 +73,11 @@
 		unbuckle()
 		passenger.KnockDown(0.5)
 		passenger.Stun(0.5)
+
+/obj/structure/bed/chair/sidecar/passenger/proc/on_floored(mob/living/passenger)
+	SIGNAL_HANDLER
+
+	unbuckle()
 
 // ==========================================
 // =============== Обновление ===============
