@@ -57,8 +57,8 @@
 
 /datum/behavior_delegate/warrior_shielder/append_to_stat()
 	. = list()
-	. += "Front Armor: +[frontal_armor + bound_xeno.front_armor]"
-	. += "Side Armor: +[sided_armor + bound_xeno.side_armor]"
+	. += "Передняя броня: +[frontal_armor + bound_xeno.front_armor]"
+	. += "Боковая броня: +[sided_armor + bound_xeno.side_armor]"
 
 /datum/behavior_delegate/warrior_shielder/add_to_xeno()
 	RegisterSignal(bound_xeno, COMSIG_XENO_PRE_CALCULATE_ARMOURED_DAMAGE_PROJECTILE, PROC_REF(apply_directional_armor))
