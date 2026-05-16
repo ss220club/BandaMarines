@@ -44,7 +44,7 @@
 		update_drag_delay()
 		update_mob_gun_signal()
 		update_bike_permutated(TRUE)
-		RegisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN), PROC_REF(trigger_unbuckle))
+		RegisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN, SIGNAL_ADDTRAIT(TRAIT_FLOORED), COMSIG_MOVABLE_PRE_THROW), PROC_REF(trigger_unbuckle))
 	else
 		if(connected)
 			push_to_left_side(buckled_mob)
@@ -61,7 +61,7 @@
 	// т.к. нам ВСЕГДА нужен моб чтобы убрать у него сигнал
 	update_mob_gun_signal(TRUE)
 	reload_buckle_mob()
-	UnregisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN))
+	UnregisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN, SIGNAL_ADDTRAIT(TRAIT_FLOORED), COMSIG_MOVABLE_PRE_THROW))
 	. = ..()
 
 // ==========================================
