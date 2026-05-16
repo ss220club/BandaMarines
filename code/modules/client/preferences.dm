@@ -590,6 +590,13 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 				dat += "<b>Synthetic Type:</b> <a href='byond://?_src_=prefs;preference=synth_type;task=input'><b>[synthetic_type]</b></a><br>"
 				dat += "<b>Synthetic Whitelist Status:</b> <a href='byond://?_src_=prefs;preference=synth_status;task=input'><b>[synth_status]</b></a><br>"
 				dat += "<b>Synthetic Specialisation:</b> <a href='byond://?_src_=prefs;preference=synth_specialisation;task=input'><b>[synth_specialisation]</b></a><br>"
+				// SS220 ADDITION START - TTS220
+				if((SStts220.is_enabled))
+					dat += {"
+					<h2>Text-to-Speech</h2>
+					<b>Выбор голоса:</b> <a href='byond://?_src_=prefs;preference=tts_seed;task=[SPECIES_SYNTHETIC]'>Эксплорер TTS голосов</a><br>
+					"}
+				// SS220 ADDITION END
 				dat += "</div>"
 			else
 				dat += "<b>You do not have the whitelist for this role.</b>"
@@ -1210,6 +1217,12 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 			switch(href_list["task"])
 				if("open")
 					var/datum/tts_seeds_explorer/explorer = new
+					explorer.tgui_interact(user)
+				if(SPECIES_YAUTJA)
+					var/datum/tts_seeds_explorer/explorer = new(SPECIES_YAUTJA, "ntos_spooky")
+					explorer.tgui_interact(user)
+				if(SPECIES_SYNTHETIC)
+					var/datum/tts_seeds_explorer/explorer = new(SPECIES_SYNTHETIC, "ntos")
 					explorer.tgui_interact(user)
 		if("declined_name")
 			switch(href_list["task"])

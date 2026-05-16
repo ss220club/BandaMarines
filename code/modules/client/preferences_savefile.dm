@@ -442,6 +442,8 @@
 	S["quick_cast"] >> quick_cast
 	S["screentips"] >> screentips
 	S["show_hotkeys"] >> show_hotkeys
+	S["tts_seed_predator"] >> tts_seed_predator
+	S["tts_seed_synth"] >> tts_seed_synth
 	// BANDAMARINES EDIT END
 
 	//Sanitize
@@ -736,6 +738,8 @@
 	S["screentips"] << screentips
 	S["xeno_customizations"] << xeno_customizations_string
 	S["show_hotkeys"] << show_hotkeys
+	S["tts_seed_predator"] << tts_seed_predator
+	S["tts_seed_synth"] << tts_seed_synth
 	// BANDAMARINES EDIT END
 
 	return TRUE
