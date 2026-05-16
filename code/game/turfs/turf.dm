@@ -111,11 +111,6 @@
 	if(light_power && light_range)
 		update_light()
 
-	//Get area light
-	var/area/current_area = loc
-	if(current_area?.lighting_effect)
-		overlays += current_area.lighting_effect
-
 	if(opacity)
 		directional_opacity = ALL_CARDINALS
 
@@ -725,9 +720,6 @@
 /turf/open/gm/river/can_dig_xeno_tunnel()
 	return FALSE
 
-/turf/open/snow/can_dig_xeno_tunnel()
-	return TRUE
-
 /turf/open/mars/can_dig_xeno_tunnel()
 	return TRUE
 
@@ -773,12 +765,6 @@
 
 /turf/open/mars/get_dirt_type()
 	return DIRT_TYPE_MARS
-
-/turf/open/snow/get_dirt_type()
-	if(bleed_layer)
-		return DIRT_TYPE_SNOW
-	else
-		return DIRT_TYPE_GROUND
 
 /turf/open/desert/dirt/get_dirt_type()
 	return DIRT_TYPE_MARS
@@ -915,8 +901,8 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 			return
 
 		if (stun_modifier > 0)
-			human_victim.KnockDown(3 * height * stun_modifier)
-			human_victim.Stun(3 * height * stun_modifier)
+			human_victim.KnockDown(0.7 *height * stun_modifier)
+			human_victim.Superslow(3 * height * stun_modifier)
 			human_victim.Slow(5 * height * stun_modifier)
 
 		if (damage_modifier > 0)
@@ -935,15 +921,31 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		var/mob/living/carbon/xenomorph/xeno_victim = victim
 		if(stun_modifier > 0)
 			if(xeno_victim.mob_size >= MOB_SIZE_BIG)
-				xeno_victim.KnockDown(height * 3.5 * stun_modifier)
-				xeno_victim.Stun( height * 3.5 * stun_modifier)
-				xeno_victim.Slow(height * 6 * stun_modifier)
+				xeno_victim.KnockDown(height * 1.5 * stun_modifier)
+				xeno_victim.Stun(height * 1.5 * stun_modifier)
+				xeno_victim.Slow(height * 3.5 * stun_modifier)
+				xeno_victim.Daze(height * 2.5 * stun_modifier)
 			else
 				xeno_victim.KnockDown(height * 0.5 * stun_modifier)
-				xeno_victim.Stun( height * 0.5 * stun_modifier)
-				xeno_victim.Slow(height * 2.5 * stun_modifier)
-
-
+				xeno_victim.Stun(height * 0.5 * stun_modifier)
+				xeno_victim.Superslow(height * 1 * stun_modifier)
+				xeno_victim.Slow(height * 2 * stun_modifier)
+				xeno_victim.Daze(height * 1.5 * stun_modifier)
 
 	if(damage_modifier > 0.5)
 		playsound(loc, "slam", 50, 1)
+
+/turf/proc/on_climb_down(victim)
+	if(!isxeno(victim))
+		return
+	var/mob/living/carbon/xenomorph/xeno_victim = victim
+	if(xeno_victim.mob_size >= MOB_SIZE_BIG)
+		xeno_victim.Superslow(1.5)
+		xeno_victim.Slow(2)
+		xeno_victim.Daze(1.5)
+		return
+
+	xeno_victim.Superslow(1)
+	xeno_victim.Slow(1.5)
+	xeno_victim.Daze(1)
+

@@ -362,9 +362,6 @@
 			options += "Remove Personal Ally"
 			options += "Clear Personal Allies"
 
-	if(queen_manager.hive.hivenumber == XENO_HIVE_NORMAL)
-		options += "Edit Tacmap"
-
 	var/choice = tgui_input_list(queen_manager, "Manage The Hive", "Hive Management", options, theme="hive_status")
 	switch(choice)
 		if("Banish (500)")
@@ -387,19 +384,7 @@
 			permissions()
 		if("Purchase Buffs")
 			purchase_buffs()
-		if("Edit Tacmap")
-			edit_tacmap()
 	return ..()
-
-/datum/action/xeno_action/onclick/manage_hive/proc/edit_tacmap()
-	var/mob/living/carbon/xenomorph/queen/xeno = owner
-	var/datum/component/tacmap/tacmap_component = xeno.GetComponent(/datum/component/tacmap)
-
-	if(xeno in tacmap_component.interactees)
-		tacmap_component.on_unset_interaction(xeno)
-		tacmap_component.close_popout_tacmaps(xeno)
-	else
-		tacmap_component.show_tacmap(xeno)
 
 /datum/action/xeno_action/onclick/manage_hive/proc/permissions()
 	var/mob/living/carbon/xenomorph/queen/xeno = owner
@@ -889,6 +874,14 @@
 			to_chat(target_mob, SPAN_XENOQUEEN("Вы слышите странный, чужой голос в своей голове... '[SPAN_PSYTALK(whisper)]'")) // SS220 EDIT ADDICTION
 		else
 			to_chat(target_mob, SPAN_XENOQUEEN("Вы слышите голос [xeno_player] отражающийся в вашей голове... '[SPAN_PSYTALK(whisper)]'")) // SS220 EDIT ADDICTION
+		//BANDAMARINES ADDITION START
+		xeno_player.cast_tts(
+			listener = target_mob,
+			message = whisper,
+			location = target_mob,
+			additional_effects = list(/datum/singleton/sound_effect/telepathy),
+		)
+		//BANDAMARINES ADDITION END
 		to_chat(xeno_player, SPAN_XENONOTICE("Вы сказали: '[whisper]' обращаясь к [target_mob.real_name]")) // SS220 EDIT ADDICTION
 
 		for(var/mob/dead/observer/ghost as anything in GLOB.observer_list)
@@ -926,6 +919,14 @@
 			to_chat(possible_target, SPAN_XENOQUEEN("Вы слышите странный, чужой голос в своей голове... '[SPAN_PSYTALK(whisper)]'"))
 		else
 			to_chat(possible_target, SPAN_XENOQUEEN("Вы слышите голос [xeno_player] отражающийся в вашей голове... '[SPAN_PSYTALK(whisper)]'")) // SS220 EDIT ADDICTION
+		//BANDAMARINES ADDITION START
+		xeno_player.cast_tts(
+			listener = possible_target,
+			message = whisper,
+			location = possible_target,
+			additional_effects = list(/datum/singleton/sound_effect/telepathy),
+		)
+		//BANDAMARINES ADDITION END
 	FOR_DVIEW_END
 	if(!length(target_list))
 		return
@@ -1002,6 +1003,14 @@
 				if(target.client)
 					xenomorph.use_plasma(plasma_cost)
 					to_chat(target, "[queen_order]")
+					//BANDAMARINES ADDITION START
+					xenomorph.cast_tts(
+						listener = target,
+						message = input,
+						location = target,
+						additional_effects = list(/datum/singleton/sound_effect/telepathy),
+					)
+					//BANDAMARINES ADDITION END
 					log_admin("[queen_order]")
 					message_admins("[key_name_admin(xenomorph)] has given the following Queen order to [target]: \"[input]\"", 1)
 					xenomorph.use_plasma(give_order_plasma_cost)

@@ -81,7 +81,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 	var/toggles_survivor = TOGGLES_SURVIVOR_DEFAULT
 	var/toggles_ert_pred = TOGGLES_ERT_GROUNDS
 	var/list/volume_preferences = list(1, 0.5, 1, 0.6, //Game, music, admin midis, lobby music
-	1, 0.5, 0.5) //Local, Radio,  Announces - SS220 TTS EDIT
+	1, 0.5, 0.5, 0.5) //Local, Radio, Announces, Hivemind - SS220 TTS EDIT
 	var/chat_display_preferences = CHAT_TYPE_ALL
 	var/item_animation_pref_level = SHOW_ITEM_ANIMATIONS_ALL
 	var/pain_overlay_pref_level = PAIN_OVERLAY_BLURRY
@@ -590,6 +590,13 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 				dat += "<b>Synthetic Type:</b> <a href='byond://?_src_=prefs;preference=synth_type;task=input'><b>[synthetic_type]</b></a><br>"
 				dat += "<b>Synthetic Whitelist Status:</b> <a href='byond://?_src_=prefs;preference=synth_status;task=input'><b>[synth_status]</b></a><br>"
 				dat += "<b>Synthetic Specialisation:</b> <a href='byond://?_src_=prefs;preference=synth_specialisation;task=input'><b>[synth_specialisation]</b></a><br>"
+				// SS220 ADDITION START - TTS220
+				if((SStts220.is_enabled))
+					dat += {"
+					<h2>Text-to-Speech</h2>
+					<b>Выбор голоса:</b> <a href='byond://?_src_=prefs;preference=tts_seed;task=[SPECIES_SYNTHETIC]'>Эксплорер TTS голосов</a><br>
+					"}
+				// SS220 ADDITION END
 				dat += "</div>"
 			else
 				dat += "<b>You do not have the whitelist for this role.</b>"
@@ -662,6 +669,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 			dat += "<b>Xeno Customization Visibility:</b> <a href='byond://?_src_=prefs;preference=xeno_customization_visibility;task=input'><b>[xeno_customization_visibility]</b></a><br>"
 			dat += "<b>Instant Ability Cast:</b> <a href='byond://?_src_=prefs;preference=quick_cast'><b>[(quick_cast) ? "Yes" : "No"]</b></a><br>"
 			dat += "<b>Show Screentips:</b> <a href='byond://?_src_=prefs;preference=screentips'><b>[(screentips) ? "Yes" : "No"]</b></a><br>"
+			dat += "<b>Показывать горячие клавиши:</b> <a href='byond://?_src_=prefs;preference=show_hotkeys;task=input'><b>[show_hotkeys ? "Да" : "Нет"]</b></a><br>"
 			// BANDAMARINES EDIT END
 			dat += "<a href='byond://?src=\ref[src];action=proccall;procpath=/client/proc/receive_random_tip'>Read Random Tip of the Round</a><br>"
 			if(CONFIG_GET(flag/allow_Metadata))
@@ -784,7 +792,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
  * * width - Screen' width.
  * * height - Screen's height.
  */
-/datum/preferences/proc/SetChoices(mob/user, limit = 21, list/splitJobs = list(JOB_MAINT_TECH, JOB_WO_CMO), width = 950, height = 750)
+/datum/preferences/proc/SetChoices(mob/user, limit = 22, list/splitJobs = list(JOB_CHIEF_REQUISITION, JOB_WO_CMO), width = 950, height = 750)
 	if(!GLOB.RoleAuthority)
 		return
 
@@ -904,7 +912,7 @@ GLOBAL_LIST_INIT(be_special_flags, list(
  * * width - Screen' width.
  * * height - Screen's height.
  */
-/datum/preferences/proc/set_job_slots(mob/user, limit = 21, list/splitJobs = list(JOB_MAINT_TECH, JOB_WO_CMO), width = 950, height = 750)
+/datum/preferences/proc/set_job_slots(mob/user, limit = 22, list/splitJobs = list(JOB_CHIEF_REQUISITION, JOB_WO_CMO), width = 950, height = 750)
 	if(!GLOB.RoleAuthority)
 		return
 
@@ -1209,6 +1217,12 @@ GLOBAL_LIST_INIT(be_special_flags, list(
 			switch(href_list["task"])
 				if("open")
 					var/datum/tts_seeds_explorer/explorer = new
+					explorer.tgui_interact(user)
+				if(SPECIES_YAUTJA)
+					var/datum/tts_seeds_explorer/explorer = new(SPECIES_YAUTJA, "ntos_spooky")
+					explorer.tgui_interact(user)
+				if(SPECIES_SYNTHETIC)
+					var/datum/tts_seeds_explorer/explorer = new(SPECIES_SYNTHETIC, "ntos")
 					explorer.tgui_interact(user)
 		if("declined_name")
 			switch(href_list["task"])

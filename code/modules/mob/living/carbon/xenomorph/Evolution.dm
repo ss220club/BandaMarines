@@ -10,7 +10,7 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 /mob/living/carbon/xenomorph/verb/Evolve()
 	set name = "Evolve"
 	set desc = "Evolve into a higher form."
-	set category = "Alien"
+	set category = "Alien.Essentials"
 
 	do_evolve()
 
@@ -248,6 +248,10 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 	if(!check_state(TRUE))
 		return FALSE
 
+	if(hivenumber == XENO_HIVE_YAUTJA_BADBLOOD)
+		to_chat(src, SPAN_WARNING("Our connection to the hive was broken! We cannot evolve!"))
+		return FALSE
+
 	if(is_ventcrawling)
 		to_chat(src, SPAN_WARNING("Мы не можем эволюционировать в этом месте."))
 		return FALSE
@@ -356,7 +360,7 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 /mob/living/carbon/xenomorph/verb/Deevolve()
 	set name = "De-Evolve"
 	set desc = "De-evolve into a lesser form."
-	set category = "Alien"
+	set category = "Alien.Essentials"
 
 	if(!check_state())
 		return
