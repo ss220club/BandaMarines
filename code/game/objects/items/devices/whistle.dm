@@ -55,7 +55,7 @@
 		user.visible_message(SPAN_WARNING("[user] rouses everyone around as they blow [src]!"), SPAN_WARNING("You rouse everyone around you as you blow into [src], slowing yourself down as you do!"))
 		user.set_effect(3, SLOW) // 3 ticks, yes
 	else
-		user.visible_message(SPAN_WARNING("[user] blows into [src]!"))
+		user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] blows into [src]!"))
 	playsound(get_turf(src), custom_sound ? custom_sound : whistle_sound, volume, 1, vary = 0)
 
 	COOLDOWN_START(src, spam_cooldown, spam_cooldown_time)
