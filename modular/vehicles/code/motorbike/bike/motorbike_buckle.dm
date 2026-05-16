@@ -34,7 +34,7 @@
 		add_vehicle_verbs(M)
 		if(sidecar)
 			sidecar.update_bike_permutated(TRUE)
-		RegisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN, COMSIG_MOVABLE_PRE_THROW, SIGNAL_ADDTRAIT(TRAIT_FLOORED)), PROC_REF(trigger_unbuckle))
+		RegisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN, COMSIG_MOVABLE_PRE_THROW, COMSIG_LIVING_PRE_LAUNCH_TOWARDS), PROC_REF(trigger_unbuckle))
 		RegisterSignal(buckled_mob, list(COMSIG_HUMAN_ATTACK_ALIEN_PRE_GRAB, COMSIG_MOVABLE_XENO_START_PULLING), PROC_REF(can_xeno_pull_off))
 	else
 		remove_vehicle_verbs(M)
@@ -51,7 +51,7 @@
 		sidecar.reset_bike_permutated(TRUE)
 	if(buckled_mob)
 		buckled_mob.set_glide_size(initial(buckled_mob.glide_size))
-		UnregisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN, SIGNAL_ADDTRAIT(TRAIT_FLOORED), COMSIG_MOVABLE_PRE_THROW, COMSIG_HUMAN_ATTACK_ALIEN_PRE_GRAB, COMSIG_MOVABLE_XENO_START_PULLING))
+		UnregisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN, SIGNAL_ADDTRAIT(TRAIT_FLOORED), COMSIG_MOVABLE_PRE_THROW, COMSIG_LIVING_PRE_LAUNCH_TOWARDS, COMSIG_HUMAN_ATTACK_ALIEN_PRE_GRAB, COMSIG_MOVABLE_XENO_START_PULLING))
 	. = ..()
 
 /obj/vehicle/motorbike/proc/can_xeno_pull_off(mob/living/passenger, mob/living/carbon/xenomorph/xeno)

@@ -3,3 +3,6 @@
 
 ///from base of /mob/living/carbon/human/attack_alien(): (attacking_xeno)
 #define COMSIG_HUMAN_ATTACK_ALIEN_PRE_GRAB "human_attack_alien_pre_grab"
+
+///from base of /mob/living/launch_towards(): (launch_metadata)
+#define COMSIG_LIVING_PRE_LAUNCH_TOWARDS "living_pre_launch_towards"
