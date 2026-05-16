@@ -171,7 +171,7 @@
 	//		if(time_required > 0)
 	//			return_requirements[T] = time_required
 	//	return return_requirements
-	return list()'
+	return list()
 
 /datum/job/proc/get_access()
 	if(!gear_preset)
