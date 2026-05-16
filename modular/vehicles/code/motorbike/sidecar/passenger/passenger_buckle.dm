@@ -1,7 +1,7 @@
 // ==========================================
 // =============== Усаживание ===============
 
-/obj/structure/bed/chair/sidecar/passenger/buckle_mob(mob/living/carbon/human/mob, mob/user)
+/obj/structure/bed/chair/sidecar/passenger/buckle_mob(mob/living/carbon/human/mob, mob/living/user)
 	if(!try_buckle_mob(mob, user))
 		return TRUE
 	. = ..()
@@ -20,8 +20,8 @@
 		(M.mob_size <= MOB_SIZE_XENO_VERY_SMALL)
 		)
 
-/obj/structure/bed/chair/sidecar/passenger/proc/try_buckle_mob(mob/M, mob/user)
-	if(!ismob(M) || (get_dist(src, user) > 1) || user.stat || buckled_mob || M.buckled)
+/obj/structure/bed/chair/sidecar/passenger/proc/try_buckle_mob(mob/M, mob/living/user)
+	if(!isliving(M) || (get_dist(src, user) > 1) || user.stat || buckled_mob || M.buckled || user.body_position == LYING_DOWN)
 		return FALSE
 	if(!ishumansynth_strict(user))
 		return FALSE	// Садить могут только хуманы и синты
@@ -29,7 +29,7 @@
 		return FALSE
 	if(!do_after(user, buckle_time * user.get_skill_duration_multiplier(SKILL_VEHICLE), INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
 		return FALSE
-	if(!ismob(M) || (get_dist(src, user) > 1) || user.stat || buckled_mob || M.buckled)
+	if(!isliving(M) || (get_dist(src, user) > 1) || user.stat || buckled_mob || M.buckled || user.body_position == LYING_DOWN)
 		to_chat(user, SPAN_WARNING("Кто-то был быстрее!"))
 		return FALSE
 	do_buckle(M, user)
@@ -45,13 +45,14 @@
 		update_mob_gun_signal()
 		update_bike_permutated(TRUE)
 		RegisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN, SIGNAL_ADDTRAIT(TRAIT_FLOORED), COMSIG_MOVABLE_PRE_THROW), PROC_REF(trigger_unbuckle))
+		RegisterSignal(buckled_mob, list(COMSIG_HUMAN_ATTACK_ALIEN_PRE_GRAB, COMSIG_MOVABLE_XENO_START_PULLING), PROC_REF(can_xeno_pull_off))
 	else
 		if(connected)
 			push_to_left_side(buckled_mob)
 		update_drag_delay()
 		reset_bike_permutated(TRUE)
 
-/obj/structure/bed/chair/sidecar/passenger/proc/trigger_unbuckle()
+/obj/structure/bed/chair/sidecar/passenger/proc/trigger_unbuckle(mob/living/passenger)
 	SIGNAL_HANDLER
 
 	unbuckle()
@@ -61,8 +62,16 @@
 	// т.к. нам ВСЕГДА нужен моб чтобы убрать у него сигнал
 	update_mob_gun_signal(TRUE)
 	reload_buckle_mob()
-	UnregisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN, SIGNAL_ADDTRAIT(TRAIT_FLOORED), COMSIG_MOVABLE_PRE_THROW))
+	UnregisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN, SIGNAL_ADDTRAIT(TRAIT_FLOORED), COMSIG_MOVABLE_PRE_THROW, COMSIG_HUMAN_ATTACK_ALIEN_PRE_GRAB, COMSIG_MOVABLE_XENO_START_PULLING))
 	. = ..()
+
+/obj/structure/bed/chair/sidecar/passenger/proc/can_xeno_pull_off(mob/living/passenger, mob/living/carbon/xenomorph/xeno)
+	SIGNAL_HANDLER
+
+	if(xeno.claw_type > CLAW_TYPE_NORMAL)
+		unbuckle()
+		passenger.KnockDown(0.5)
+		passenger.Stun(0.5)
 
 // ==========================================
 // =============== Обновление ===============

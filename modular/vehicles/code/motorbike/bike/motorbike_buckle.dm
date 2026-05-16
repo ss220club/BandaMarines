@@ -1,4 +1,4 @@
-/obj/vehicle/motorbike/buckle_mob(mob/M, mob/user)
+/obj/vehicle/motorbike/buckle_mob(mob/M, mob/living/user)
 	if(!try_buckle_mob(M, user))
 		return FALSE
 	. = ..()
@@ -6,8 +6,8 @@
 		update_sidecar(TRUE)
 		play_start_sound()
 
-/obj/vehicle/motorbike/proc/try_buckle_mob(mob/M, mob/user)
-	if(!ismob(M) || (get_dist(src, user) > 1) || user.stat || buckled_mob || M.buckled)
+/obj/vehicle/motorbike/proc/try_buckle_mob(mob/M, mob/living/user)
+	if(!isliving(M) || (get_dist(src, user) > 1) || user.stat || buckled_mob || M.buckled || user.body_position == LYING_DOWN)
 		return FALSE
 	if(!ishumansynth_strict(user))
 		return FALSE	// Садиться могут только хуманы и синты
@@ -20,7 +20,7 @@
 		return FALSE
 	if(!do_after(user, buckle_time * user.get_skill_duration_multiplier(SKILL_VEHICLE), INTERRUPT_ALL, BUSY_ICON_FRIENDLY))
 		return FALSE
-	if(!ismob(M) || (get_dist(src, user) > 1) || user.stat || buckled_mob || M.buckled)
+	if(!isliving(M) || (get_dist(src, user) > 1) || user.stat || buckled_mob || M.buckled || user.body_position == LYING_DOWN)
 		to_chat(user, SPAN_WARNING("Кто-то был быстрее!"))
 		return FALSE
 	do_buckle(M, user)
@@ -34,12 +34,13 @@
 		add_vehicle_verbs(M)
 		if(sidecar)
 			sidecar.update_bike_permutated(TRUE)
-		RegisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN, SIGNAL_ADDTRAIT(TRAIT_FLOORED), COMSIG_MOVABLE_PRE_THROW), PROC_REF(trigger_unbuckle))
+		RegisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN, COMSIG_MOVABLE_PRE_THROW, SIGNAL_ADDTRAIT(TRAIT_FLOORED)), PROC_REF(trigger_unbuckle))
+		RegisterSignal(buckled_mob, list(COMSIG_HUMAN_ATTACK_ALIEN_PRE_GRAB, COMSIG_MOVABLE_XENO_START_PULLING), PROC_REF(can_xeno_pull_off))
 	else
 		remove_vehicle_verbs(M)
 	update_drive_skill_parameters()
 
-/obj/vehicle/motorbike/proc/trigger_unbuckle()
+/obj/vehicle/motorbike/proc/trigger_unbuckle(mob/living/passenger)
 	SIGNAL_HANDLER
 
 	unbuckle()
@@ -50,5 +51,13 @@
 		sidecar.reset_bike_permutated(TRUE)
 	if(buckled_mob)
 		buckled_mob.set_glide_size(initial(buckled_mob.glide_size))
-		UnregisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN, SIGNAL_ADDTRAIT(TRAIT_FLOORED), COMSIG_MOVABLE_PRE_THROW))
+		UnregisterSignal(buckled_mob, list(COMSIG_MOB_RESISTED, COMSIG_MOB_DEATH, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_TACKLED_DOWN, SIGNAL_ADDTRAIT(TRAIT_FLOORED), COMSIG_MOVABLE_PRE_THROW, COMSIG_HUMAN_ATTACK_ALIEN_PRE_GRAB, COMSIG_MOVABLE_XENO_START_PULLING))
 	. = ..()
+
+/obj/vehicle/motorbike/proc/can_xeno_pull_off(mob/living/passenger, mob/living/carbon/xenomorph/xeno)
+	SIGNAL_HANDLER
+
+	if(xeno.claw_type > CLAW_TYPE_NORMAL)
+		unbuckle()
+		passenger.KnockDown(0.5)
+		passenger.Stun(0.5)
