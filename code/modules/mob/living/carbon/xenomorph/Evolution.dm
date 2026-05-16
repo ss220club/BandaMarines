@@ -287,7 +287,7 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 		to_chat(src, SPAN_WARNING("Мы слишком слабы, чтобы эволюционировать... Мы должны восстановить здоровье."))
 		return FALSE
 
-	if(agility || fortify || crest_defense || stealth)
+	if(agility || fortify || crest_defense || stealth || HAS_TRAIT(src, TRAIT_ABILITY_ENCLOSED_PLATES) || HAS_TRAIT(src, TRAIT_ABILITY_PLATE_SLAM))
 		to_chat(src, SPAN_WARNING("Мы не можем эволюционировать."))
 		return FALSE
 

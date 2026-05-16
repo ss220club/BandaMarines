@@ -114,7 +114,7 @@ export const PredPicker = () => {
   const [modal, setModal] = useState<ModalOptions | false>(false);
 
   return (
-    <Window height={600} width={700} theme="ntos_spooky">
+    <Window height={650} width={700} theme="ntos_spooky">
       <Window.Content className="PredPicker">
         <Section title="Yautja Information">
           <Stack>
@@ -165,6 +165,11 @@ export const PredPicker = () => {
                       act('yautja_status', { selected: selected })
                     }
                   />
+                </LabeledList.Item>
+                <LabeledList.Item label="Выбор голоса">
+                  <Button onClick={() => act(`tts_seed`)}>
+                    Эксплорер TTS голосов
+                  </Button>
                 </LabeledList.Item>
               </LabeledList>
             </Stack.Item>
