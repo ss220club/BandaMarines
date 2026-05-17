@@ -61,11 +61,3 @@
 	replace_in_desc("%REFLECT_CHANCE_BACK%", BULWARK_REFLECTION_BASE_CHANCE * BULWARK_BACK_REFLECTION_PROCENTAGE)
 	replace_in_desc("%REFLECTED_DAMAGE%", BULWARK_REFLECTED_BULLET_DAMAGE * 100)
 	replace_in_desc("%DURATION%", BULWARK_REFLECTION_DURATION / (1 SECONDS), DESCRIPTION_REPLACEMENT_TIME)
-
-/datum/action/xeno_action/activable/plate_slam
-	desc = "Зажмите своими плитами находящуюся вплотную цель через %WINDUP% При успехе, стоячая цель будет оглушена на %DURATION%, а лежачая на %DURATION_FLOORED%"
-
-/datum/action/xeno_action/activable/plate_slam/apply_replaces_in_desc()
-	replace_in_desc("%WINDUP%", 2, DESCRIPTION_REPLACEMENT_TIME)
-	replace_in_desc("%DURATION%", 7, DESCRIPTION_REPLACEMENT_TIME)
-	replace_in_desc("%DURATION_FLOORED%", 10, DESCRIPTION_REPLACEMENT_TIME)
