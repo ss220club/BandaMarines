@@ -3,13 +3,16 @@
 /datum/action/xeno_action/activable/pounce/crusher_charge/apply_replaces_in_desc()
 	. = ..()
 	desc += "<br><br>Увеличивается броня спереди (%ARMOR_CRUSH%) во время зарядки рывка. При прямом попадании наносит %DAMAGE_CRUSH% урона, опрокидывает цель (%KNOCKDOWN_CRUSH%) и отталкивает её (%THROW_CRUSH%). \
-		Замедляет всех в точке остановки рывка (%SLOWDOWN_CRUSH%). \
-		<br>ВНИМАНИЕ: рывок прерывается движением."
+		<br>Замедляет всех в точке остановки рывка (%SLOWDOWN_CRUSH%). \
+		<br>ВНИМАНИЕ: рывок прерывается движением. \
+		<br><br>Попадания в ближнем бою ускоряют перезарядку на %COOLDOWN_REDUCTION% и %COOLDOWN_REDUCTION_AOE% дополнительно за каждое попадание по области."
 	replace_in_desc("%ARMOR_CRUSH%", 15) // Hardcoded
 	replace_in_desc("%DAMAGE_CRUSH%", direct_hit_damage)
 	replace_in_desc("%SLOWDOWN_CRUSH%", 3.5, DESCRIPTION_REPLACEMENT_TIME) // Hardcoded
 	replace_in_desc("%KNOCKDOWN_CRUSH%", convert_effect_time(2, WEAKEN), DESCRIPTION_REPLACEMENT_TIME) // Hardcoded
 	replace_in_desc("%THROW_CRUSH%", 3, DESCRIPTION_REPLACEMENT_DISTANCE) // Hardcoded
+	replace_in_desc("%COOLDOWN_REDUCTION%", 1.5, DESCRIPTION_REPLACEMENT_TIME)
+	replace_in_desc("%COOLDOWN_REDUCTION_AOE%", 0.5, DESCRIPTION_REPLACEMENT_TIME)
 
 /datum/action/xeno_action/onclick/crusher_stomp
 	desc = "Сильно топтать по земле вокруг. Носители, оказавшиеся под нами, получают огромный урон (%DAMAGE%). Опрокидывает цели (%KNOCKDOWN%) на расстоянии (%KNOCKDOWN_DISTANCE%) и замедляет (%SLOWTIME%)."
@@ -24,13 +27,15 @@
 	desc = "Сильно топтать по земле вокруг. Носители, оказавшиеся под нами, получают огромный урон (%DAMAGE%) и замедляются (%SLOWTIME%)."
 
 /datum/action/xeno_action/onclick/crusher_shield
-	desc = "Создаёт поглощающий урон щит (%SHIELD%, %TIME%). Щит снижает получаемый урон на %DEFENSE%. Даёт иммунитет к взрывам (%EXPL_IMM%)."
+	desc = "Создаёт поглощающий урон щит (%SHIELD%, %TIME%). Щит снижает получаемый урон на %DEFENSE%. Даёт иммунитет к взрывам (%EXPL_IMM%). \
+	<br><br>Попадания в ближнем бою ускоряют перезарядку на %COOLDOWN_REDUCTION%"
 
 /datum/action/xeno_action/onclick/crusher_shield/apply_replaces_in_desc()
 	replace_in_desc("%SHIELD%", shield_amount)
 	replace_in_desc("%TIME%", shield_dur / 10, DESCRIPTION_REPLACEMENT_TIME)
 	replace_in_desc("%DEFENSE%", 10) // Hardcoded
 	replace_in_desc("%EXPL_IMM%", explosion_immunity_dur / 10, DESCRIPTION_REPLACEMENT_TIME)
+	replace_in_desc("%COOLDOWN_REDUCTION%", 1.5, DESCRIPTION_REPLACEMENT_TIME)
 
 /datum/action/xeno_action/activable/fling/charger
 	desc = "Кинуть цель вперёд от вас (%FLING_DISTANCE%). Замедляет цель (%FLING_SLOWDOWN%)."
