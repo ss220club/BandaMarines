@@ -22,7 +22,10 @@
 	replace_in_desc("%PUNCH_SLOWDOWN%", convert_effect_time(3, SLOW), DESCRIPTION_REPLACEMENT_TIME) // Hardcoded
 
 /datum/action/xeno_action/onclick/toggle_plates
-	desc = "Опускает плиты. Если плиты опущены, скорость передвижения уменьшается, а бонус направленной брони удваивается. Не позволяет откинуть вас."
+	desc = "Опускает плиты. Если плиты опущены, скорость передвижения уменьшается, урон когтей уменьшается на %DAMAGE_REDUCED%, а бонус направленной брони удваивается. Не позволяет откинуть вас."
+
+/datum/action/xeno_action/onclick/toggle_plates/apply_replaces_in_desc()
+	replace_in_desc("%DAMAGE_REDUCED%", XENO_DAMAGE_MOD_BULWARK)
 
 /datum/action/xeno_action/activable/plate_bash
 	desc = "Ударить плитами. Дистанция равна %RANGE% (%RANGE_CREST%, если плиты опущене). \
@@ -47,21 +50,22 @@
 	replace_in_desc("%DAMAGE%", 15)
 
 /datum/action/xeno_action/onclick/reflective_shield
-	desc = "Опущенные плиты позволят с шансом %REFLECT_CHANCE%% (%REFLECT_CHANCE_SIDE%% сбоку и %REFLECT_CHANCE_BACK%% с тыла) отражать обычные снаряды в течении %DURATION% \
+	desc = "Опущенные плиты позволят с шансом %REFLECT_CHANCE%% (%REFLECT_CHANCE_SIDE%% сбоку и %REFLECT_CHANCE_BACK%% с тыла) отражать обычные снаряды до %DURATION% \
+	<br>Ранняя деактивация уменьшает перезарядку. \
 	<br>Отраженные снаряды наносят %REFLECTED_DAMAGE%% урона. \
 	<br>Не отражает ракеты и стенопробивные снаряды."
 
 /datum/action/xeno_action/onclick/reflective_shield/apply_replaces_in_desc()
-	replace_in_desc("%REFLECT_CHANCE%", SHIELDER_REFLECTION_BASE_CHANCE)
-	replace_in_desc("%REFLECT_CHANCE_SIDE%", SHIELDER_REFLECTION_BASE_CHANCE * SHIELDER_SIDE_REFLECTION_PROCENTAGE)
-	replace_in_desc("%REFLECT_CHANCE_BACK%", SHIELDER_REFLECTION_BASE_CHANCE * SHIELDER_BACK_REFLECTION_PROCENTAGE)
-	replace_in_desc("%REFLECTED_DAMAGE%", SHIELDER_REFLECTED_BULLET_DAMAGE * 100)
-	replace_in_desc("%DURATION%", SHIELDER_REFLECTION_DURATION / (1 SECONDS), DESCRIPTION_REPLACEMENT_TIME)
+	replace_in_desc("%REFLECT_CHANCE%", BULWARK_REFLECTION_BASE_CHANCE)
+	replace_in_desc("%REFLECT_CHANCE_SIDE%", BULWARK_REFLECTION_BASE_CHANCE * BULWARK_SIDE_REFLECTION_PROCENTAGE)
+	replace_in_desc("%REFLECT_CHANCE_BACK%", BULWARK_REFLECTION_BASE_CHANCE * BULWARK_BACK_REFLECTION_PROCENTAGE)
+	replace_in_desc("%REFLECTED_DAMAGE%", BULWARK_REFLECTED_BULLET_DAMAGE * 100)
+	replace_in_desc("%DURATION%", BULWARK_REFLECTION_DURATION / (1 SECONDS), DESCRIPTION_REPLACEMENT_TIME)
 
 /datum/action/xeno_action/activable/plate_slam
 	desc = "Зажмите своими плитами находящуюся вплотную цель через %WINDUP% При успехе, стоячая цель будет оглушена на %DURATION%, а лежачая на %DURATION_FLOORED%"
 
 /datum/action/xeno_action/activable/plate_slam/apply_replaces_in_desc()
-	replace_in_desc("%WINDUP%", 3, DESCRIPTION_REPLACEMENT_TIME)
+	replace_in_desc("%WINDUP%", 2, DESCRIPTION_REPLACEMENT_TIME)
 	replace_in_desc("%DURATION%", 7, DESCRIPTION_REPLACEMENT_TIME)
 	replace_in_desc("%DURATION_FLOORED%", 10, DESCRIPTION_REPLACEMENT_TIME)
