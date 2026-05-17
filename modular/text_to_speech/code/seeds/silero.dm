@@ -1412,7 +1412,7 @@
 	value = "emperor"
 	category = TTS_CATEGORY_SKYRIM
 	gender = TTS_GENDER_MALE
-	required_donator_level = 3
+	required_donator_level = 5
 
 /datum/tts_seed/silero/hagraven
 	name = "Hagraven"
@@ -2686,7 +2686,7 @@
 	value = "ulfric"
 	category = TTS_CATEGORY_SKYRIM
 	gender = TTS_GENDER_MALE
-	required_donator_level = 3
+	required_donator_level = 5
 
 /datum/tts_seed/silero/farengar
 	name = "Farengar"
@@ -5311,7 +5311,6 @@
 	value = "marine2_balthazar"
 	category = TTS_CATEGORY_WH40k
 	gender = TTS_GENDER_MALE
-
 
 /datum/tts_seed/silero/amazon
 	name = "Amazon"

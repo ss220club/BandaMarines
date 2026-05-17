@@ -6,3 +6,5 @@
 	subtract_icon_path = 'modular/xeno_customization/icons/crusher/rhino_subtract.dmi'
 	caste = XENO_CASTE_CRUSHER
 	slot = CUSTOMIZATION_SLOT_ALL
+  timelock = JOB_PLAYTIME_TIER_2
+  

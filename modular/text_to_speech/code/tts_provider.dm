@@ -13,7 +13,7 @@
 /datum/tts_provider/proc/request(text, datum/tts_seed/seed, datum/callback/proc_callback)
 	return TRUE
 
-/datum/tts_provider/proc/process_response(datum/http_response/response)
+/datum/tts_provider/proc/process_response(list/response)
 	return null
 
 /datum/tts_provider/proc/throttle_check()

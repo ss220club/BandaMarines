@@ -53,7 +53,6 @@
 	for(var/mob/V in viewers(src, null))
 		V.show_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] washes their hands using \the [src]."), SHOW_MESSAGE_VISIBLE)
 
-
 /obj/structure/sink/attackby(obj/item/attacking_item, mob/living/user, list/mods)
 	if(istype(attacking_item, /obj/item/tool/extinguisher) || istype(attacking_item, /obj/item/attachable/attached_gun/extinguisher))
 		return
@@ -78,7 +77,7 @@
 				user.apply_effect(10, WEAKEN)
 				B.deductcharge(B.hitcost)
 				user.visible_message(
-					SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] was stunned by \his wet [attacking_item]!"),
+					SPAN_DANGER("[user] was stunned by \his wet [attacking_item]!"),
 					SPAN_DANGER("You were stunned by your wet [attacking_item]!"))
 				return
 

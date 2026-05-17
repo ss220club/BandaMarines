@@ -61,7 +61,7 @@ GLOBAL_LIST_INIT(medal_references, generate_medal_references())
 /proc/generate_medal_options()
 	var/list/options_list = list()
 	options_list["marine_medals_xo"] = list(MARINE_RIBBON_COMMENDATION, MARINE_RIBBON_PROFICIENCY, MARINE_RIBBON_LEADERSHIP)
-	options_list["marine_medals_co"] = list(MARINE_RIBBON_PROFICIENCY, MARINE_RIBBON_LEADERSHIP, MARINE_MEDAL_PURPLE_HEART, MARINE_MEDAL_VALOR, MARINE_MEDAL_SILVER_STAR, MARINE_MEDAL_GALACTIC_CROSS)
+	options_list["marine_medals_co"] = list(MARINE_RIBBON_COMMENDATION, MARINE_RIBBON_PROFICIENCY, MARINE_RIBBON_LEADERSHIP, MARINE_MEDAL_PURPLE_HEART, MARINE_MEDAL_VALOR, MARINE_MEDAL_SILVER_STAR, MARINE_MEDAL_GALACTIC_CROSS) //SS220 EDIT
 	options_list["marine_medals_admin"] = list(MARINE_RIBBON_COMMENDATION, MARINE_RIBBON_PROFICIENCY, MARINE_RIBBON_LEADERSHIP, MARINE_MEDAL_PURPLE_HEART, MARINE_MEDAL_VALOR, MARINE_MEDAL_SILVER_STAR, MARINE_MEDAL_GALACTIC_CROSS, MARINE_MEDAL_HONOR)
 	options_list["wy_medals_admin"] = list(WY_MEDAL_AWARD_1, WY_MEDAL_AWARD_2)
 
@@ -693,6 +693,12 @@ GLOBAL_DATUM_INIT(ic_medals_panel, /datum/ic_medal_panel, new)
 				return
 			if(recommendation.recipient_name == user.real_name)
 				to_chat(user, SPAN_WARNING("You cannot give medals to yourself!"))
+				return
+			if(recommendation.recipient_rank == JOB_CO)
+				to_chat(user, SPAN_WARNING("You cannot give a ribbon or medal to the Commanding Officer!"))
+				return
+			if(recommendation.recipient_rank == JOB_SYNTH)
+				to_chat(user, SPAN_WARNING("What is a Synthetic going to do with a ribbon or medal?"))
 				return
 
 			var/choice = tgui_alert(user, "Would you like to change the medal text?", "Medal Citation", list("Yes", "No"))
