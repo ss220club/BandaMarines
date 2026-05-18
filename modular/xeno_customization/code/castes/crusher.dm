@@ -1,3 +1,7 @@
+/datum/xeno_customization_option/crusher
+	abstract_type = /datum/xeno_customization_option/crusher
+	caste = XENO_CASTE_RAVAGER
+
 /datum/xeno_customization_option/crusher_rhino
 	name = "Носорог"
 	key = "crusher_rhino"
@@ -7,3 +11,4 @@
 	caste = XENO_CASTE_CRUSHER
 	slot = CUSTOMIZATION_SLOT_ALL
 	timelock = JOB_PLAYTIME_TIER_2
+	
