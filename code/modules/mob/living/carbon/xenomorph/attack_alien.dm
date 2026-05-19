@@ -32,6 +32,7 @@
 				SPAN_NOTICE("We caress [src] with our claws."), null, 5, CHAT_TYPE_XENO_FLUFF)
 
 		if(INTENT_GRAB)
+			SEND_SIGNAL(src, COMSIG_HUMAN_ATTACK_ALIEN_PRE_GRAB, attacking_xeno) // BANDAMARINES EDIT ADD
 			if(attacking_xeno == src || anchored || buckled)
 				return XENO_NO_DELAY_ACTION
 
