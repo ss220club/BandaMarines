@@ -18,7 +18,7 @@
 	if(!buckled_mob)
 		return ..()
 
-	if(current_speed_level <= 1)
+	if(current_speed_level == BIKE_SPEED_MIN)
 		return ..()
 
 	last_crash_time = world.time
@@ -49,7 +49,7 @@
 // ========= Коллизия с объектами ===========
 
 /obj/vehicle/motorbike/proc/handle_wall_collision(turf/wall)
-	if(current_speed_level <= 1)
+	if(current_speed_level == BIKE_SPEED_MIN)
 		return
 
 	var/damage = 10 * current_speed_level * 0.5 * crash_damage_multiplier
@@ -76,7 +76,7 @@
 	visible_message(SPAN_DANGER("[src] врезается в [wall] на полной скорости!"))
 
 /obj/vehicle/motorbike/proc/handle_object_collision(obj/O)
-	if(current_speed_level <= 1)
+	if(current_speed_level == BIKE_SPEED_MIN)
 		return
 
 	var/damage = 5 * current_speed_level * 0.3 * crash_damage_multiplier
