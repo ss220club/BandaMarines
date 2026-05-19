@@ -114,3 +114,4 @@
 
 /obj/item/clothing/suit/armor/riot/marine
 	allowed = list(/obj/item/weapon/gun, /obj/item/storage/backpack/general_belt, /obj/item/storage/belt/gun)
+	
