@@ -22,7 +22,7 @@
 	return armor
 
 /obj/item/weapon/shield/riot/riot_mp
-	name = "баллистический щит"
+	name = "\improper бронещит 'ОГРАДА'"
 	desc = "Тяжёлый щит производимый Armat Battlefield Systems для проведения штурмовых операций."
 	var/skilllock = SKILL_POLICE_SKILLED
 	icon_state = "ballisticshield"
