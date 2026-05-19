@@ -22,7 +22,8 @@
 	replace_in_desc("%PUNCH_SLOWDOWN%", convert_effect_time(3, SLOW), DESCRIPTION_REPLACEMENT_TIME) // Hardcoded
 
 /datum/action/xeno_action/onclick/toggle_plates
-	desc = "Опускает плиты. Если плиты опущены, скорость передвижения уменьшается, урон когтей уменьшается на %DAMAGE_REDUCED%, а бонус направленной брони удваивается. Не позволяет откинуть вас."
+	desc = "Опускает плиты. Если плиты опущены, скорость передвижения уменьшается, урон когтей уменьшается на %DAMAGE_REDUCED%, а бонус направленной брони удваивается. Не позволяет откинуть вас. \
+	<br>В режиме плит гораздо сложнее оглушить обезоруживанием носителя."
 
 /datum/action/xeno_action/onclick/toggle_plates/apply_replaces_in_desc()
 	replace_in_desc("%DAMAGE_REDUCED%", XENO_DAMAGE_MOD_BULWARK)
@@ -56,8 +57,8 @@
 	<br>Не отражает ракеты и стенопробивные снаряды."
 
 /datum/action/xeno_action/onclick/reflective_shield/apply_replaces_in_desc()
-	replace_in_desc("%REFLECT_CHANCE%", BULWARK_REFLECTION_BASE_CHANCE)
-	replace_in_desc("%REFLECT_CHANCE_SIDE%", BULWARK_REFLECTION_BASE_CHANCE * BULWARK_SIDE_REFLECTION_PROCENTAGE)
-	replace_in_desc("%REFLECT_CHANCE_BACK%", BULWARK_REFLECTION_BASE_CHANCE * BULWARK_BACK_REFLECTION_PROCENTAGE)
+	replace_in_desc("%REFLECT_CHANCE%", BULWARK_REFLECTION_CHANCE_BASE)
+	replace_in_desc("%REFLECT_CHANCE_SIDE%", BULWARK_REFLECTION_CHANCE_SIDES)
+	replace_in_desc("%REFLECT_CHANCE_BACK%", BULWARK_REFLECTION_CHANCE_BACK)
 	replace_in_desc("%REFLECTED_DAMAGE%", BULWARK_REFLECTED_BULLET_DAMAGE * 100)
 	replace_in_desc("%DURATION%", BULWARK_REFLECTION_DURATION / (1 SECONDS), DESCRIPTION_REPLACEMENT_TIME)
