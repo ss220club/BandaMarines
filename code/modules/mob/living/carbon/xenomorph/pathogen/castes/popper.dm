@@ -43,7 +43,8 @@
 		/datum/action/xeno_action/onclick/emit_pheromones,
 		/datum/action/xeno_action/onclick/plant_weeds/pathogen/popper,
 		/datum/action/xeno_action/onclick/place_spore_sac/fatal, // Macro 2 // Needs rethinking on ease of access
-//		/datum/action/xeno_action/onclick/release_spores,
+		/datum/action/xeno_action/onclick/release_spores,
+		/datum/action/xeno_action/activable/create_core,
 	)
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
@@ -56,7 +57,7 @@
 
 	icon_xeno = 'icons/mob/pathogen/popper.dmi'
 	icon_xenonid = 'icons/mob/pathogen/popper.dmi'
-	need_weeds = FALSE
+	need_weeds = TRUE
 
 	weed_food_icon = 'icons/mob/xenos/weeds_48x48.dmi'
 	mycelium_food_icon = 'icons/mob/pathogen/pathogen_weeds_48x48.dmi'
@@ -71,6 +72,7 @@
 	mob_size = MOB_SIZE_XENO_SMALL
 	acid_blood_damage = 0
 	bubble_icon = "pathogen"
+	fire_immunity = FIRE_VULNERABILITY
 	aura_strength = 2
 	counts_for_slots = FALSE
 

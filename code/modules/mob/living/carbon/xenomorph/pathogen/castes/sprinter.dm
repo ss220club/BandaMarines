@@ -78,6 +78,7 @@
 	speaking_noise = "pathogen_talk"
 	acid_blood_damage = 0
 	bubble_icon = "pathogen"
+	fire_immunity = FIRE_VULNERABILITY
 
 /mob/living/carbon/xenomorph/sprinter/initialize_pass_flags(datum/pass_flags_container/pass_flags_container)
 	..()

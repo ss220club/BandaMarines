@@ -69,6 +69,7 @@
 	speaking_noise = "pathogen_talk"
 	acid_blood_damage = 0
 	bubble_icon = "pathogen"
+	fire_immunity = FIRE_VULNERABILITY
 
 /datum/behavior_delegate/pathogen_base/neomorph
 	name = "Base Neomorph Behavior Delegate"

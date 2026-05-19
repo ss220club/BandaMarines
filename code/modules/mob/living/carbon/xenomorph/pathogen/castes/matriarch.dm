@@ -74,6 +74,7 @@
 	mob_size = MOB_SIZE_BIG
 	acid_blood_damage = 0
 	bubble_icon = "pathogenroyal"
+	fire_immunity = FIRE_VULNERABILITY
 	counts_for_slots = FALSE
 	aura_strength = 5
 	langchat_height = 64

@@ -73,6 +73,7 @@
 	speaking_noise = "pathogen_talk"
 	acid_blood_damage = 0
 	bubble_icon = "pathogen"
+	fire_immunity = FIRE_VULNERABILITY
 
 	var/bloody_state = LARVA_STATE_BLOODY
 

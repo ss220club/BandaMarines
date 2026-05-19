@@ -810,11 +810,6 @@
 #define LARVA_STATE_BLOODY 0
 #define LARVA_STATE_NORMAL 1
 #define LARVA_STATE_MATURE 2
-
-// Pathogen spore states
-#define SPORES_WAITING 0
-#define SPORES_DEPLOYING 1
-#define SPORES_DEPLOYED 2
 // facehugger / carrier nonsense
 
 #define MIN_IMPREGNATION_TIME 10 SECONDS //Time it takes to impregnate someone
@@ -826,3 +821,8 @@
 #define FACEHUGGER_JUMP_RANGE 1 // dont really want them to hug you immediately as you break down a corner or a door when a carrier stacks them on a tile
 #define EGG_JUMP_RANGE 2 // This is for egg huggers, they are supposed to be scary and leap at people yes.
 #define CARRIER_HUGGER_THROW_RANGE 6
+
+// Pathogen spore states
+#define SPORES_WAITING 0
+#define SPORES_DEPLOYING 1
+#define SPORES_DEPLOYED 2

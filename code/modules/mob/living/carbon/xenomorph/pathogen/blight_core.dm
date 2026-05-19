@@ -143,12 +143,6 @@
 			return FALSE
 	return TRUE
 
-
-
-
-
-
-
 /datum/construction_template/xenomorph/pathogen_core
 	name = PATHOGEN_STRUCTURE_CORE
 	description = "Heart of the hive, grows hive weeds (which are necessary for other structures) and protects the hive from skyfire."
@@ -239,7 +233,7 @@
 
 /obj/effect/alien/resin/special/pylon/pathogen_core/proc/update_minimap_icon()
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, z, get_minimap_flag_for_faction(linked_hive?.hivenumber), "core")
+	SSminimaps.add_marker(src, get_minimap_flag_for_faction(linked_hive?.hivenumber), image('icons/ui_icons/map_blips.dmi', null, "core"))
 
 /obj/effect/alien/resin/special/pylon/pathogen_core/process()
 	. = ..()

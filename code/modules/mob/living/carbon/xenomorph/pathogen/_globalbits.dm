@@ -80,6 +80,11 @@
 	hivenumber = XENO_HIVE_PATHOGEN
 	spread_on_semiweedable = TRUE
 
+/obj/effect/alien/weeds/node/pathogen/Initialize(mapload, obj/effect/alien/weeds/node/node, mob/living/carbon/xenomorph/xeno, datum/hive_status/hive)
+	. = ..()
+	create_reagents(30)
+	reagents.add_reagent(BLOOD_BLIGHT, 30)
+
 /obj/effect/alien/weeds/pathogen
 	name = "mycelium blight"
 	desc = "A mycelium growth of strange origins..."
@@ -136,6 +141,7 @@
 	minimum_evolve_time = 0
 	pathogen_creature = TRUE
 	language = LANGUAGE_PATHOGEN
+	fire_vulnerability_mult = FIRE_MULTIPLIER_MEDIUM
 
 //####################################################################
 //####################################################################
@@ -215,7 +221,7 @@
 	action_icon_state = "lurker_inject_neuro"
 	macro_path = /datum/action/xeno_action/verb/verb_blight_slash
 	action_type = XENO_ACTION_CLICK
-	ability_primacy = XENO_NOT_PRIMARY_ACTION
+	ability_primacy = XENO_PRIMARY_ACTION_5
 	xeno_cooldown = 12 SECONDS
 	plasma_cost = 50
 

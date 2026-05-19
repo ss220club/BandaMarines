@@ -143,6 +143,10 @@
 					S.show_message(ghostrend, SHOW_MESSAGE_AUDIBLE)
 					cast_tts(S, message, S, is_local = FALSE, additional_effects = list(/datum/singleton/sound_effect/telepathy), tts_channel_override = CHANNEL_TTS_HIVEMIND) // BANDAMARINES EDIT ADD - TTS
 
+//			else if(hive.hivenumber == xeno_hivenumber(S) || hive.hivenumber == hear_hivemind)
+//				if(isxeno(src) && isxeno(S))
+//					overwatch_insert = " (<a href='byond://?src=\ref[S];[overwatch_target]=\ref[src];[overwatch_src]=\ref[S]'>watch</a>)"
+
 				var/broadcast_tier = "normal"
 				if(isqueen(src) || (hive.leading_cult_sl == src))
 					broadcast_tier = "royal"
@@ -153,6 +157,7 @@
 						broadcast_tier = "royal"
 					if(ismatriarch(xeno))
 						broadcast_tier = "royal"
+
 				rendered = get_hivemind_render(hive.hivenumber, broadcast_tier, message, "[src.name][overwatch_insert]")
 
 				S.show_message(rendered, SHOW_MESSAGE_AUDIBLE)

@@ -21,7 +21,7 @@
 
 		if(status_flags & XENO_HOST)
 			msg += SPAN_XENOWARNING("Это существо оплодотворено.<br>") // SS220 EDIT ADDICTION
-		else if(chestburst == 2)
+		else if(chestburst >= 2)
 			msg += SPAN_XENOWARNING("Из этого существа вырвался грудолом.<br>") // SS220 EDIT ADDICTION
 		if(istype(wear_mask, /obj/item/clothing/mask/facehugger))
 			msg += SPAN_XENOWARNING("К нему на лицо прицепился лицехват.<br>") // SS220 EDIT ADDICTION
@@ -481,7 +481,7 @@
 
 	if(chestburst == 2)
 		msg += SPAN_WARNING(SPAN_BOLD("У [t_theirs] огромное отверстие в груди!\n"))
-	if(chestburst == 3)
+	else if(chestburst == 3)
 		msg += SPAN_WARNING(SPAN_BOLD("У [t_theirs] огромное отверстие в груди!\n"))
 
 	for(var/implant in get_visible_implants())

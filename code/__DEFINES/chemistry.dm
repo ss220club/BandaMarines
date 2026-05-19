@@ -158,6 +158,7 @@
 #define PROPERTY_HYPERMETABOLIC "hypermetabolic"
 #define PROPERTY_IGNITING "igniting"
 #define PROPERTY_MYCOTAINTED "mycotainted"
+#define PROPERTY_MYCOTOXIC "mycotoxic"
 //Neutral
 #define PROPERTY_NUTRITIOUS "nutritious"
 #define PROPERTY_KETOGENIC "ketogenic"

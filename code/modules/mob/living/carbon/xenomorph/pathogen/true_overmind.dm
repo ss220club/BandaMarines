@@ -74,6 +74,7 @@
 	mob_size = MOB_SIZE_BIG
 	acid_blood_damage = 0
 	bubble_icon = "pathogenroyal"
+	fire_immunity = FIRE_VULNERABILITY
 	tackle_chance = 0
 
 /mob/living/carbon/xenomorph/overmind/Initialize(mapload)

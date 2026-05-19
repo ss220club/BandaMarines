@@ -69,6 +69,7 @@
 	mob_size = MOB_SIZE_BIG
 	acid_blood_damage = 0
 	bubble_icon = "pathogenroyal"
+	fire_immunity = FIRE_VULNERABILITY
 	aura_strength = 3
 
 /mob/living/carbon/xenomorph/brute/Initialize()

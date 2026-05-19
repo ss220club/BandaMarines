@@ -641,32 +641,35 @@
 		age_xeno()
 	full_designation = "[name_client_prefix][nicknumber][name_client_postfix]"
 
-	var/age_display = show_age_prefix ? age_prefix : ""
-	var/name_display = ""
-	// Rare easter egg
-	if(nicknumber == 666)
-		number_decorator = "Адский "
-	if(nicknumber == 220)					// BANDAMARINES	EDIT
-		number_decorator = "Проклятый "
-	if(show_name_numbers)
-		name_display = show_only_numbers ? " ([nicknumber])" : " ([name_client_prefix][nicknumber][name_client_postfix])"
-	name = "[name_prefix][number_decorator][age_display][declent_ru_initial(caste.display_name || caste.caste_type, NOMINATIVE, caste.display_name || caste.caste_type)][name_display]"
-	ru_names_rename(ru_names_list(
-		base = name,
-		nominative = "[name_prefix][declent_ru_initial(number_decorator, NOMINATIVE, number_decorator)][declent_ru_initial(age_display, NOMINATIVE, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, NOMINATIVE, caste.display_name || caste.caste_type)][name_display]",
-		genitive = "[name_prefix][declent_ru_initial(number_decorator, GENITIVE, number_decorator)][declent_ru_initial(age_display, GENITIVE, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, GENITIVE, caste.display_name || caste.caste_type)][name_display]",
-		dative = "[name_prefix][declent_ru_initial(number_decorator, DATIVE, number_decorator)][declent_ru_initial(age_display, DATIVE, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, DATIVE, caste.display_name || caste.caste_type)][name_display]",
-		accusative = "[name_prefix][declent_ru_initial(number_decorator, ACCUSATIVE, number_decorator)][declent_ru_initial(age_display, ACCUSATIVE, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, ACCUSATIVE, caste.display_name || caste.caste_type)][name_display]",
-		instrumental = "[name_prefix][declent_ru_initial(number_decorator, INSTRUMENTAL, number_decorator)][declent_ru_initial(age_display, INSTRUMENTAL, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, INSTRUMENTAL, caste.display_name || caste.caste_type)][name_display]",
-		prepositional = "[name_prefix][declent_ru_initial(number_decorator, PREPOSITIONAL, number_decorator)][declent_ru_initial(age_display, PREPOSITIONAL, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, PREPOSITIONAL, caste.display_name || caste.caste_type)][name_display]",
-		gender = "[declent_ru_initial(caste.display_name || caste.caste_type, "gender", caste.display_name || caste.caste_type)]",
-	))
+	if(!static_name) //I hate this but it will do as a temporary measure
+		if(HAS_TRAIT(src, TRAIT_PATHOGEN_OVERMIND))
+			name = "Overmind ([full_designation])"
+		else
+			var/age_display = show_age_prefix ? age_prefix : ""
+			var/name_display = ""
+			// Rare easter egg
+			if(nicknumber == 666)
+				number_decorator = "Адский "
+			if(nicknumber == 220)					// BANDAMARINES	EDIT
+				number_decorator = "Проклятый "
+			if(show_name_numbers)
+				name_display = show_only_numbers ? " ([nicknumber])" : " ([name_client_prefix][nicknumber][name_client_postfix])"
+			name = "[name_prefix][number_decorator][age_display][declent_ru_initial(caste.display_name || caste.caste_type, NOMINATIVE, caste.display_name || caste.caste_type)][name_display]"
+			ru_names_rename(ru_names_list(
+				base = name,
+				nominative = "[name_prefix][declent_ru_initial(number_decorator, NOMINATIVE, number_decorator)][declent_ru_initial(age_display, NOMINATIVE, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, NOMINATIVE, caste.display_name || caste.caste_type)][name_display]",
+				genitive = "[name_prefix][declent_ru_initial(number_decorator, GENITIVE, number_decorator)][declent_ru_initial(age_display, GENITIVE, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, GENITIVE, caste.display_name || caste.caste_type)][name_display]",
+				dative = "[name_prefix][declent_ru_initial(number_decorator, DATIVE, number_decorator)][declent_ru_initial(age_display, DATIVE, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, DATIVE, caste.display_name || caste.caste_type)][name_display]",
+				accusative = "[name_prefix][declent_ru_initial(number_decorator, ACCUSATIVE, number_decorator)][declent_ru_initial(age_display, ACCUSATIVE, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, ACCUSATIVE, caste.display_name || caste.caste_type)][name_display]",
+				instrumental = "[name_prefix][declent_ru_initial(number_decorator, INSTRUMENTAL, number_decorator)][declent_ru_initial(age_display, INSTRUMENTAL, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, INSTRUMENTAL, caste.display_name || caste.caste_type)][name_display]",
+				prepositional = "[name_prefix][declent_ru_initial(number_decorator, PREPOSITIONAL, number_decorator)][declent_ru_initial(age_display, PREPOSITIONAL, age_display)][declent_ru_initial(caste.display_name || caste.caste_type, PREPOSITIONAL, caste.display_name || caste.caste_type)][name_display]",
+				gender = "[declent_ru_initial(caste.display_name || caste.caste_type, "gender", caste.display_name || caste.caste_type)]",
+			))
+			//Update linked data so they show up properly
+			change_real_name(src, name)
 
-	//Update linked data so they show up properly
-	change_real_name(src, name)
-
-	// Since we updated our name we should update the info in the UI
-	in_hive.hive_ui.update_xeno_info()
+			// Since we updated our name we should update the info in the UI
+			in_hive.hive_ui.update_xeno_info()
 
 /mob/living/carbon/xenomorph/proc/set_lighting_alpha_from_prefs(client/xeno_client)
 	var/vision_level = xeno_client?.prefs?.xeno_vision_level_pref

@@ -306,7 +306,7 @@
 		to_chat(X, SPAN_XENOWARNING("Наш разум не может достать так далеко."))
 		return
 
-	if(!X.hive.living_xeno_queen || !SSmapping.same_z_map(X.hive.living_xeno_queen.z, X.z))
+	if(!X.hive.allow_no_queen_actions && (!X.hive.living_xeno_queen || !SSmapping.same_z_map(X.hive.living_xeno_queen.z, X.z)))
 		to_chat(X, SPAN_XENOWARNING("Наша психическая связь с ульем была прервана, либо наша Королева мертва, либо слишком далеко."))
 		return
 

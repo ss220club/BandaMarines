@@ -1,5 +1,4 @@
 /datum/hive_status
-
 	var/name = FACTION_XENOMORPH
 
 	// Used for the faction of the xenomorph. Not recommended to modify.
