@@ -49,6 +49,9 @@
 		verb = speaking.speech_verb
 		message = capitalize(trim_left(strip_language(message)))
 
+	if(language_flags[speaking.name] & LANGUAGE_HEAR_ONLY)
+		speaking = get_default_language()
+
 	// Xenomorphs can lisp too. :) Only if they're not speaking in hivemind.
 	if((!(speaking.flags & HIVEMIND) || !can_hivemind_speak) && HAS_TRAIT(src, TRAIT_LISPING))
 		var/old_message = message
@@ -138,7 +141,7 @@
 					ghostrend = get_hivemind_render(hive.hivenumber, broadcast_tier, message, "[src.name][track]")
 
 					S.show_message(ghostrend, SHOW_MESSAGE_AUDIBLE)
-					cast_tts(S, message, S, TTS_LOCALYZE_RADIO, SOUND_EFFECT_HIVEMIND) // BANDAMARINES EDIT ADD - TTS
+					cast_tts(S, message, S, is_local = FALSE, additional_effects = list(/datum/singleton/sound_effect/telepathy), tts_channel_override = CHANNEL_TTS_HIVEMIND) // BANDAMARINES EDIT ADD - TTS
 
 				var/broadcast_tier = "normal"
 				if(isqueen(src) || (hive.leading_cult_sl == src))
@@ -153,7 +156,7 @@
 				rendered = get_hivemind_render(hive.hivenumber, broadcast_tier, message, "[src.name][overwatch_insert]")
 
 				S.show_message(rendered, SHOW_MESSAGE_AUDIBLE)
-				cast_tts(S, message, S, TTS_LOCALYZE_RADIO, SOUND_EFFECT_HIVEMIND) // BANDAMARINES EDIT ADD - TTS
+				cast_tts(S, message, S, is_local = FALSE, additional_effects = list(/datum/singleton/sound_effect/telepathy), tts_channel_override = CHANNEL_TTS_HIVEMIND) // BANDAMARINES EDIT ADD - TTS
 
 /mob/living/carbon/proc/get_hivemind_render(hivenumber, tier, message, tracker)
 	if(hivenumber != XENO_HIVE_PATHOGEN)

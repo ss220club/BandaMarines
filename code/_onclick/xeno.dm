@@ -31,6 +31,12 @@
 				continue
 			var/isxeno = isxeno(L)
 			if(!isxeno)
+				// BANDAMARINES EDIT ADD - Vehicles
+				// This needs some heavy refactoring to not be that bad
+				// Sharp claws can try to grab buckled targets from motorcycle
+				if(a_intent == INTENT_GRAB && L.buckled && claw_type < CLAW_TYPE_SHARP)
+					continue
+				// BANDAMARINES EDIT END
 				non_xeno_target = L
 			if (L.body_position == LYING_DOWN)
 				alt = L

@@ -22,7 +22,7 @@
 	var/forward_dir_saved = SOUTH
 
 	// Система ускорения
-	var/current_speed_level = 1 // 1 - начальная, 2 - промежуточная, 3 - максимальная
+	var/current_speed_level = BIKE_SPEED_MIN
 	var/straight_move_timer = 0
 	var/last_move_time = 0
 	var/move_delay_initial = 3
@@ -66,7 +66,7 @@
 		return
 
 	if(!direction) // Остановка
-		if(current_speed_level != 1)
+		if(current_speed_level != BIKE_SPEED_MIN)
 			reset_speed()
 		return ..()
 
@@ -93,8 +93,6 @@
 				lost_drive_control_time_temp = 0
 				to_chat(user, SPAN_NOTICE("Вы восстановили управление!"))
 
-		forward_dir_saved = direction
-
 	// Движение вперед
 	set_glide_size(DELAY_TO_GLIDE_SIZE(move_delay + 1))
 	. = ..()
@@ -118,36 +116,37 @@
 
 /obj/vehicle/motorbike/proc/reset_speed()
 	straight_move_timer = 0
-	current_speed_level = 1
+	current_speed_level = BIKE_SPEED_MIN
 	update_speed()
 
 /obj/vehicle/motorbike/proc/handle_acceleration()
 	var/current_time = world.time
 
-	// Сброс скорости при простое более 1 секунды
-	if(current_time - last_move_time > 1 SECONDS && current_speed_level != 1)
+	// Сброс скорости при отпускании педали газа
+	if(current_speed_level != BIKE_SPEED_MIN && current_time - last_move_time > (move_delay + 1))
 		reset_speed()
 		return
 
 	// Движение по прямой
-	if(forward_dir == dir)
+	if(forward_dir_saved == forward_dir)
 		if(current_time - last_move_time > reset_time)
 			straight_move_timer = 0 // Сброс таймера при долгой паузе
 		else
 			straight_move_timer += current_time - last_move_time
 
-		// Повышение скорости каждые 3 секунды
-		if(straight_move_timer >= change_speed_time && current_speed_level < 3)
+		if(current_speed_level < BIKE_SPEED_MAX && straight_move_timer >= change_speed_time)
 			current_speed_level++
 			straight_move_timer = 0
 			update_speed()
 	else // Поворот
-		if(current_speed_level > 2)
-			current_speed_level = 2
+		if(current_speed_level > BIKE_SPEED_MEDIUM)
+			current_speed_level = BIKE_SPEED_MEDIUM
 			update_speed()
 		straight_move_timer = 0
 
 	last_move_time = current_time
+
+	forward_dir_saved = forward_dir
 
 // ==========================================
 // ========== Движение с коляской ===========
