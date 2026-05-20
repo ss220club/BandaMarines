@@ -465,6 +465,8 @@
 		return FALSE
 
 	enter_cooldown(cooldown_duration)
+	cooldown_timer_end = world.time + cooldown_duration //SS220 ADD
+	START_PROCESSING(SSfasteffects, src) //SS220 ADD
 	var/sound_file = pick('sound/effects/pred_leap1.ogg', 'sound/effects/pred_leap2.ogg')
 	playsound(user, sound_file, 25, TRUE)
 
