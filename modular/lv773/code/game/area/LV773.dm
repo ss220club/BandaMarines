@@ -1,26 +1,25 @@
 //lv773 AREAS--------------------------------------//
 
 /area/lv773
-	name = "LV-773 Aegis Ridge"
+	name = "LV-773 Marlowe Ridge"
 	icon = 'icons/turf/area_hybrisa.dmi'
 	icon_state = "hybrisa"
 	can_build_special = TRUE
 	soundscape_playlist = SCAPE_PL_THUNDER
-	soundscape_interval = 50
 	powernet_name = "ground"
 	minimap_color = MINIMAP_AREA_COLONY_RESANDCOM
 
 //parent types
 
 /area/lv773/indoors
-	name = "Aegis Ridge - Indoors"
+	name = "Marlowe Point - Indoors"
 	icon_state = "cliff_blocked"//because this is a PARENT TYPE and you should not be using it and should also be changing the icon!!!
 	ceiling = CEILING_METAL
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 	ambience_exterior = AMBIENCE_HYBRISA_INTERIOR
 
 /area/lv773/outdoors
-	name = "Aegis Ridge - Outdoors"
+	name = "Marlowe Point - Outdoors"
 	icon_state = "cliff_blocked"//because this is a PARENT TYPE and you should not be using it and should also be changing the icon!!!
 	ceiling = CEILING_NONE
 	soundscape_playlist = SCAPE_PL_LV759_OUTDOORS
@@ -47,7 +46,7 @@
 // Landing Zone 1
 
 /area/lv773/outdoors/landing_zone_1
-	name = "Aegis Ridge ROAF - Primary Landing Zone - Landing Zone One"
+	name = "Marlowe Point ROAF - Primary Landing Zone - Landing Zone One"
 	icon_state = "medical_lz1"
 	is_resin_allowed =  FALSE
 	is_landing_zone = TRUE
@@ -56,68 +55,67 @@
 	linked_lz = DROPSHIP_LZ1
 
 /area/lv773/indoors/landing_zone_1/main_checkpoint
-	name = "Aegis Ridge ROAF - Primary Landing Zone - Landing Zone One - Checkpoint"
+	name = "Marlowe Point ROAF - Primary Landing Zone - Landing Zone One - Checkpoint"
 	icon_state = "hybrisa"
 	ceiling = CEILING_METAL
 	is_landing_zone = TRUE
 	linked_lz = DROPSHIP_LZ1
 
 /area/lv773/indoors/landing_zone_1/technical_corridor
-	name = "Aegis Ridge ROAF - Primary Landing Zone - Landing Zone One - Technical Corridor"
+	name = "Marlowe Point ROAF - Primary Landing Zone - Landing Zone One - Technical Corridor"
 	icon_state = "hybrisa"
 	ceiling = CEILING_METAL
 	is_landing_zone = TRUE
 	linked_lz = DROPSHIP_LZ1
 
 /area/lv773/indoors/landing_zone_1/main_hangar_bay
-	name = "Aegis Ridge ROAF - Hangars - Landing Zone One - Main Hangar Bay"
+	name = "Marlowe Point ROAF - Hangars - Landing Zone One - Main Hangar Bay"
 	icon_state = "hybrisa"
 	ceiling = CEILING_METAL
 	is_landing_zone = TRUE
 	linked_lz = DROPSHIP_LZ1
 
 /area/lv773/indoors/landing_zone_1/loader_hangar_room
-	name = "Aegis Ridge ROAF - Hangars - Landing Zone One - Loader Operations Room"
+	name = "Marlowe Point ROAF - Hangars - Landing Zone One - Loader Operations Room"
 	icon_state = "hybrisa"
 	ceiling = CEILING_METAL
 	is_landing_zone = TRUE
 	linked_lz = DROPSHIP_LZ1
 
 /area/lv773/indoors/landing_zone_1/roaf_flight_control_room
-	name = "Aegis Ridge ROAF - ROAF Office - Landing Zone One - Flight Briefings Room"
+	name = "Marlowe Point ROAF - ROAF Office - Landing Zone One - Flight Briefings Room"
 	icon_state = "hybrisa"
 	ceiling = CEILING_METAL
 	is_landing_zone = TRUE
 	linked_lz = DROPSHIP_LZ1
 
 /area/lv773/indoors/landing_zone_1/roaf_pilots_dorm
-	name = "Aegis Ridge ROAF - ROAF Office - Landing Zone One - Pilots Lounge"
+	name = "Marlowe Point ROAF - ROAF Office - Landing Zone One - Pilots Lounge"
 	icon_state = "hybrisa"
 	ceiling = CEILING_METAL
 	is_landing_zone = TRUE
 
 /area/lv773/indoors/landing_zone_1/roaf_corridor
-	name = "Aegis Ridge ROAF - ROAF Office - Landing Zone One - ROAF Office Corridor"
+	name = "Marlowe Ridge ROAF - ROAF Office - Landing Zone One - ROAF Office Corridor"
 	icon_state = "hybrisa"
 	ceiling = CEILING_METAL
 	is_landing_zone = TRUE
 	linked_lz = DROPSHIP_LZ1
 
 /area/lv773/indoors/landing_zone_1/roaf_technical_corridor
-	name = "Aegis Ridge ROAF - ROAF Office - Landing Zone One - ROAF Technical Access Corridor"
+	name = "Marlowe Point ROAF - ROAF Office - Landing Zone One - ROAF Technical Access Corridor"
 	icon_state = "hybrisa"
 	ceiling = CEILING_METAL
 	linked_lz = DROPSHIP_LZ1
 
 /area/lv773/indoors/landing_zone_1/roaf_comms_hub_1
-	name = "Aegis Ridge ROAF - ROAF Office - Landing Zone One - ROAF Communications Hub"
+	name = "Marlowe Point ROAF - ROAF Office - Landing Zone One - ROAF Communications Hub"
 	icon_state = "comms_1"
 	ceiling = CEILING_METAL
-	minimap_color = MINIMAP_AREA_COMMS
 	linked_lz = DROPSHIP_LZ1
 
 /area/lv773/indoors/landing_zone_1/lz1_console
-	name = "Aegis Ridge ROAF - Hangars - Landing Zone One - Dropship Alamo Console"
+	name = "Marlowe Point ROAF - Hangars - Landing Zone One - Dropship Alamo Console"
 	icon_state = "hybrisa"
 	requires_power = FALSE
 	ceiling = CEILING_METAL
@@ -127,7 +125,7 @@
 // Landing Zone 2
 
 /area/lv773/outdoors/landing_zone_2
-	name = "Aegis Civilian Spaceport - Landing Zone Two"
+	name = "Marlowe Civilian Spaceport - Landing Zone Two"
 	icon_state = "mining_lz2"
 	is_resin_allowed =  FALSE
 	is_landing_zone = TRUE
@@ -135,32 +133,32 @@
 	ceiling = CEILING_NONE
 	linked_lz = DROPSHIP_LZ2
 
-/area/lv773/indoors/landing_zone_2/aegis_civ_spaceport_checkpoint_room
-	name = "Aegis Civilian Spaceport - Checkpoint"
+/area/lv773/indoors/landing_zone_2/marlowe_civ_spaceport_checkpoint_room
+	name = "Marlowe Civilian Spaceport - Checkpoint"
 	icon_state = "hybrisa"
 	ceiling = CEILING_METAL
 	linked_lz = DROPSHIP_LZ2
 
-/area/lv773/indoors/landing_zone_2/aegis_civ_spaceport_storage
-	name = "Aegis Civilian Spaceport - Storage Depot"
+/area/lv773/indoors/landing_zone_2/marlowe_civ_spaceport_storage
+	name = "Marlowe Civilian Spaceport - Storage Depot"
 	icon_state = "security_checkpoint"
 	ceiling = CEILING_METAL
 	linked_lz = DROPSHIP_LZ2
 
-/area/lv773/indoors/landing_zone_2/aegis_civ_spaceport_store
-	name = "Aegis Civilian Spaceport - Loading Zone"
+/area/lv773/indoors/landing_zone_2/marlowe_civ_spaceport_store
+	name = "Marlowe Civilian Spaceport - Loading Zone"
 	icon_state = "hybrisa"
 	ceiling = CEILING_METAL
 	linked_lz = DROPSHIP_LZ2
 
-/area/lv773/indoors/landing_zone_2/aegis_civ_spaceport_ship
-	name = "Aegis Civilian Spaceport - Spaceship"
+/area/lv773/indoors/landing_zone_2/marlowe_civ_spaceport_ship
+	name = "Marlowe Civilian Spaceport - Spaceship"
 	icon_state = "hybrisa"
 	ceiling = CEILING_METAL
 	linked_lz = DROPSHIP_LZ2
 
-/area/lv773/indoors/landing_zone_2/aegis_civ_spaceport/lz2_console
-	name = "Aegis Civilian Spaceport - Dropship Normandy Console"
+/area/lv773/indoors/landing_zone_2/marlowe_civ_spaceport/lz2_console
+	name = "Marlowe Civilian Spaceport - Dropship Normandy Console"
 	icon_state = "hybrisa"
 	requires_power = FALSE
 	ceiling = CEILING_METAL
@@ -199,28 +197,28 @@
 	ceiling = CEILING_METAL
 
 /area/lv773/indoors/hospital/reception
-	name = "Aegis Ridge Hospital Complex - Reception"
+	name = "Marlowe Ridge Hospital Complex - Reception"
 
 /area/lv773/indoors/hospital/waiting_lounge
-	name = "Aegis Ridge Hospital Complex - Waiting Lounge"
+	name = "Marlowe Ridge Hospital Complex - Waiting Lounge"
 
 /area/lv773/indoors/hospital/cmo_office
-	name = "Aegis Ridge Hospital Complex - Chief Medical Officer's Office"
+	name = "Marlowe Ridge Hospital Complex - Chief Medical Officer's Office"
 
 /area/lv773/indoors/hospital/restroom
-	name = "Aegis Ridge Hospital Complex - Restroom"
+	name = "Marlowe Ridge Hospital Complex - Restroom"
 
 /area/lv773/indoors/hospital/patient_ward
-	name = "Aegis Ridge Hospital Complex - Patient Ward"
+	name = "Marlowe Ridge Hospital Complex - Patient Ward"
 
 /area/lv773/indoors/hospital/operation
-	name = "Aegis Ridge Hospital Complex - Operation Theatres & Observation"
+	name = "Marlowe Ridge Hospital Complex - Operation Theatres & Observation"
 
 /area/lv773/indoors/hospital/medical_storage
-	name = "Aegis Ridge Hospital Complex - Medical Storage"
+	name = "Marlowe Ridge Hospital Complex - Medical Storage"
 
 /area/lv773/indoors/hospital/maintenance_south
-	name = "Aegis Ridge Hospital Complex - Unisex-Restroom"
+	name = "Marlowe Ridge Hospital Complex - Unisex-Restroom"
 
 // Residential District
 
@@ -412,7 +410,6 @@
 /area/lv773/indoors/main_eng/relay
 	name = "Engineering Hub - Communications Relay Buffer"
 	icon_state = "comms_2"
-	minimap_color = MINIMAP_AREA_COMMS
 	linked_lz = DROPSHIP_LZ2
 
 // Weyland-Yutani – Main Complex
@@ -491,7 +488,174 @@
 /area/lv773/outdoors/colony_streets
 	name = "Street - Complex Access Roads"
 
-// Caves
+// Mining Complex
+
+/area/lv773/indoors/mining_complex
+	name = "Mining Complex"
+	icon_state = "mining"
+	ceiling = CEILING_METAL
+
+/area/lv773/indoors/mining_complex/main_operations
+	name = "Mining Complex – Main Operations Zone"
+
+/area/lv773/indoors/mining_complex/locker_room
+	name = "Mining Complex – Locker Room"
+
+/area/lv773/indoors/mining_complex/rest_area
+	name = "Mining Complex – Crew Rest Area"
+
+/area/lv773/indoors/mining_complex/storage
+	name = "Mining Complex – Storage Depot"
+
+/area/lv773/indoors/mining_complex/office
+	name = "Mining Complex – Supervisor Office"
+
+
+// Residential Building
+
+/area/lv773/indoors/residential_building
+	name = "Residential Building"
+	icon_state = "wy_apartments"
+	ceiling = CEILING_METAL
+
+/area/lv773/indoors/residential_building/corridor
+	name = "Residential Building – Residential Corridor"
+
+/area/lv773/indoors/residential_building/common_area
+	name = "Residential Building – Common Area"
+
+/area/lv773/indoors/residential_building/living_quarters
+	name = "Residential Building – Living Quarters"
+
+
+// Weyland-Yutani Research Complex
+
+/area/lv773/indoors/wy_research_complex
+	icon_state = "wy_research"
+	ceiling = CEILING_METAL
+	name = "Weyland-Yutani – Research Complex"
+
+/area/lv773/indoors/wy_research_complex/west_entrance
+	name = "Weyland-Yutani – Research Complex – West Entrance"
+
+/area/lv773/indoors/wy_research_complex/offices
+	name = "Weyland-Yutani – Research Complex – Office Wing"
+
+/area/lv773/indoors/wy_research_complex/botany_department
+	name = "Weyland-Yutani – Research Complex – General Botany Department"
+
+/area/lv773/indoors/wy_research_complex/storage
+	name = "Weyland-Yutani – Research Complex – Storage Facility"
+
+/area/lv773/indoors/wy_research_complex/supply_department
+	name = "Weyland-Yutani – Research Complex – Supply Department"
+
+/area/lv773/indoors/wy_research_complex/main_entrance
+	name = "Weyland-Yutani – Research Complex – Main Entrance"
+
+/area/lv773/indoors/wy_research_complex/central_corridor
+	name = "Weyland-Yutani – Research Complex – Central Corridor"
+
+/area/lv773/indoors/wy_research_complex/research_office
+	name = "Weyland-Yutani – Research Complex – Research Staff Office"
+
+/area/lv773/indoors/wy_research_complex/reception
+	name = "Weyland-Yutani – Research Complex – Reception"
+
+/area/lv773/indoors/wy_research_complex/cafeteria
+	name = "Weyland-Yutani – Research Complex – Cafeteria"
+
+/area/lv773/indoors/wy_research_complex/restroom
+	name = "Weyland-Yutani – Research Complex – Restroom"
+
+/area/lv773/indoors/wy_research_complex/processing_chamber
+	name = "Weyland-Yutani – Research Complex – Processing Chamber"
+
+/area/lv773/indoors/wy_research_complex/security_office
+	name = "Weyland-Yutani – Research Complex – Security Office"
+	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
+
+/area/lv773/indoors/wy_research_complex/surveillance_room
+	name = "Weyland-Yutani – Research Complex – Surveillance Room"
+	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
+
+/area/lv773/indoors/wy_research_complex/north_corridor
+	name = "Weyland-Yutani – Research Complex – North Corridor"
+	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
+
+/area/lv773/indoors/wy_research_complex/south_corridor
+	name = "Weyland-Yutani – Research Complex – South Corridor"
+	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
+
+/area/lv773/indoors/wy_research_complex/east_corridor
+	name = "Weyland-Yutani – Research Complex – East Corridor"
+	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
+
+/area/lv773/indoors/wy_research_complex/west_corridor
+	name = "Weyland-Yutani – Research Complex – West Corridor"
+	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
+
+/area/lv773/indoors/wy_research_complex/cargo_bay
+	name = "Weyland-Yutani – Research Complex – Cargo Bay"
+	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
+
+/area/lv773/indoors/wy_research_complex/spraying_chamber
+	name = "Weyland-Yutani – Research Complex – Spraying Chamber"
+	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
+
+/area/lv773/indoors/wy_research_complex/plant_cell_lab
+	name = "Weyland-Yutani – Research Complex – Plant Cell Research Lab"
+	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
+
+/area/lv773/indoors/wy_research_complex/cultivation_chamber
+	name = "Weyland-Yutani – Research Complex – Cultivation Chamber"
+	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
+
+/area/lv773/indoors/wy_research_complex/special_containment
+	name = "Weyland-Yutani – Research Complex – Special Containment Room"
+	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
+
+// Cave System
+
+/area/lv773/outdoors/caves
+	name = "Cave System"
+	icon_state = "cave"
+	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
+
+/area/lv773/outdoors/caves/eastern_caves
+	name = "Cave System – Eastern Caves"
+
+/area/lv773/outdoors/caves/central_caves
+	name = "Cave System – Central Caves"
+
+/area/lv773/outdoors/caves/western_caves
+	name = "Cave System – Western Caves"
+
+
+// Terraforming Generator Facility
+
+/area/lv773/indoors/terraforming_generator
+	name = "Terraforming Generator Facility"
+	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
+	icon_state = "terra"
+
+/area/lv773/indoors/terraforming_generator/north_generator
+	name = "Terraforming Generator Facility – Northern Generator"
+
+/area/lv773/indoors/terraforming_generator/distribution_room
+	name = "Terraforming Generator Facility – Distribution Room"
+
+
+// Technical Sensor Facility
+
+/area/lv773/indoors/sensor_facility
+	name = "Technical Sensor Facility"
+	ceiling = CEILING_METAL
+	icon_state = "cave"
+
+/area/lv773/indoors/sensor_facility/sensor_room
+	name = "Technical Sensor Facility – Sensor Room"
+
 
 
 

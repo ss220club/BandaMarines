@@ -1,5 +1,5 @@
-/datum/weather_ss_map_holder/lv773_aegis_ridge
-	name = "LV-773 Aegis Ridge Map Holder"
+/datum/weather_ss_map_holder/lv733_marlowe_point
+	name = "LV-733 Marlowe Point Map Holder"
 
 	warn_time = 1 MINUTES
 	min_time_between_events = 12 MINUTES
@@ -13,8 +13,8 @@
 		/datum/weather_event/aegis_very_light_rain,
 	)
 
-/datum/weather_ss_map_holder/lv773_aegis_ridge/should_affect_area(area/target_area)
+/datum/weather_ss_map_holder/lv733_marlowe_point/should_affect_area(area/target_area)
 	return !CEILING_IS_PROTECTED(target_area.ceiling, CEILING_GLASS)
 
-/datum/weather_ss_map_holder/lv773_aegis_ridge/should_start_event()
+/datum/weather_ss_map_holder/lv733_marlowe_point/should_start_event()
 	return prob(PROB_WEATHER_LV759)

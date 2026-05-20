@@ -149,9 +149,9 @@ GLOBAL_LIST_INIT(mapless_maps, list(MAP_RUNTIME, MAP_CHINOOK, MAIN_SHIP_DEFAULT_
 	desc = "A labeled blueprint of the UA city Tyrargo Rift."
 	html_link = "images/7/79/Tyrargo_Rift.png"
 
-/obj/item/map/lv773_map
-	name = "\improper LV-773 Map"
-	desc = "An overview of LV-773 schematics."
+/obj/item/map/lv733_map
+	name = "\improper LV-733 Map"
+	desc = "An overview of LV-733 schematics."
 	html_link = "images/7/79/Tyrargo_Rift.png"
 	color = "#005eab"
 
@@ -180,7 +180,7 @@ GLOBAL_LIST_INIT_TYPED(map_type_list, /obj/item/map, setup_all_maps())
 		MAP_LV759_HYBRISA_PROSPERA = new /obj/item/map/lv759_map(),
 		MAP_NEW_VARADERO = new /obj/item/map/new_varadero(),
 		MAP_TYRARGO_RIFT = new /obj/item/map/tyrargo_rift(),
-		MAP_LV773_AEGIS_RIDGE = new /obj/item/map/lv773_map()
+		MAP_LV733_MARLOWE_POINT = new /obj/item/map/lv733_map()
 	)
 
 //used by marine equipment machines to spawn the correct map.

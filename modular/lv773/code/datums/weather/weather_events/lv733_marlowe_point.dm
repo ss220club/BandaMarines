@@ -1,7 +1,7 @@
 /datum/weather_event/aegis_light_rain
-	name = "Aegis Ridge Light Snow"
+	name = "Marlowe Point Light Rain"
 
-	display_name = "Light Snow"
+	display_name = "Light Rain"
 
 	length = 15 MINUTES
 
@@ -9,16 +9,16 @@
 
 	fire_smothering_strength = 1
 
-	turf_overlay_icon_state = "aegis_snow"
+	turf_overlay_icon_state = "hybrisa_rain"
 	turf_overlay_alpha = 25
 
 	effect_message = null
 	damage_per_tick = 0
 
-	ambience = 'sound/ambience/strata/strata_snow.ogg'
+	ambience = 'sound/ambience/rainandthunderlong.ogg'
 
 /datum/weather_event/aegis_very_light_rain
-	name = "Aegis Very Light Rain"
+	name = "Marlowe Point Very Light Rain"
 
 	display_name = "Very Light Rain"
 
@@ -34,4 +34,4 @@
 	effect_message = null
 	damage_per_tick = 0
 
-	ambience = 'sound/ambience/strata/strata_snow.ogg'
+	ambience = 'sound/ambience/rainandthunderlong.ogg'

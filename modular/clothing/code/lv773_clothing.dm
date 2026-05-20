@@ -6,7 +6,7 @@
 	desc = "A pair of grey slacks and a white button-down shirt with a dark-grey tie and golden epaulettes signifying rank; a standard uniform for a commercial grade Weyland-Yutani affiliated Pilot."
 	icon = 'modular/clothing/icon/roaf/suit.dmi'
 	item_icons = list(
-		WEAR_BODY = 'modular/clothing/onmob/roaf/suit.dmi',
+		WEAR_BODY = 'modular/clothing/onmob/roaf/unfiroms.dmi',
 	)
 	icon_state = "uniform_pilot"
 	worn_state = "uniform_pilot"
@@ -24,7 +24,7 @@
 	desc = "A pair of grey slacks and a white button-down shirt with a dark-grey tie and golden epaulettes signifying rank; a standard uniform for a commercial grade Weyland-Yutani affiliated Pilot."
 	icon = 'modular/clothing/icon/roaf/suit.dmi'
 	item_icons = list(
-		WEAR_BODY = 'modular/clothing/onmob/roaf/suit.dmi',
+		WEAR_BODY = 'modular/clothing/onmob/roaf/unfiroms.dmi',
 	)
 	icon_state = "uniform_sniper"
 	worn_state = "uniform_sniper"
@@ -144,7 +144,7 @@
 
 // Рюкзак
 
-/obj/item/storage/backpack/marine/smock/lv773/hands_roaf
+/obj/item/storage/backpack/marine/smock/lv773/poncho_roaf
 	name = "\improper пончо снайпера ROAF"
 	desc = "A specially-designed smock with pockets for all your sniper needs."
 	icon = 'modular/clothing/icon/roaf/backpack.dmi'

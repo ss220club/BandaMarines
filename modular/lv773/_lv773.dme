@@ -1,10 +1,8 @@
-#include "_lv773.dm"
-
 #include "code/defines.dm"
 #include "code/datums/factions/roaf.dm"
 #include "code/datums/skills/roaf.dm"
-#include "code/datums/weather/weather_events/lv773_aegis_ridge.dm"
-#include "code/datums/weather/weather_map_holders/lv773_aegis_ridge.dm"
+#include "code/datums/weather/weather_events/lv733_marlowe_point.dm"
+#include "code/datums/weather/weather_map_holders/lv733_marlowe_point.dm"
 #include "code/game/area/LV773.dm"
 #include "code/game/objects/effects/landmarks/survivor_spawner.dm"
 #include "code/modules/gear_presets/survivors/lv_773/roaf_survivors.dm"
