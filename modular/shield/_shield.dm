@@ -1,4 +1,4 @@
 /datum/modpack/shield
 	name = "Баллистический щит"
 	desc = "Добавляет новый баллистический щит для штурма и подавления бунтов"
-	author = "dan132sss"
+	author = "dan132sss
