@@ -1,4 +1,0 @@
-author: "larentoun"
-delete-after: True
-changes:
-  - rscadd: "Теперь просмотр своей статистики доступен только в конце раунда (или в режиме Extended)"
