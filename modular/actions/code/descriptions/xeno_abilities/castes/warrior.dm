@@ -22,7 +22,7 @@
 	replace_in_desc("%PUNCH_SLOWDOWN%", convert_effect_time(3, SLOW), DESCRIPTION_REPLACEMENT_TIME) // Hardcoded
 
 /datum/action/xeno_action/onclick/toggle_plates
-	desc = "Опускает плиты. Если плиты опущены, скорость передвижения уменьшается, урон когтей уменьшается на %DAMAGE_REDUCED%, а бонус направленной брони удваивается. Не позволяет откинуть вас. \
+	desc = "Опускает плиты. Если плиты опущены, скорость передвижения уменьшается, урон когтей уменьшается на %DAMAGE_REDUCED%, а бонус передней брони удваивается, а боковой - теряется. Не позволяет откинуть вас. \
 	<br>В режиме плит гораздо сложнее оглушить обезоруживанием носителя."
 
 /datum/action/xeno_action/onclick/toggle_plates/apply_replaces_in_desc()
