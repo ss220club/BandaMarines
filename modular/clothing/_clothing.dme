@@ -1,5 +1,6 @@
 #include "_clothing.dm"
 
+#include "code/ftl_helmet.dm"
 #include "code/ponchos.dm"
 #include "code/lv773_clothing.dm"
 // BEGIN_INTERNALS
