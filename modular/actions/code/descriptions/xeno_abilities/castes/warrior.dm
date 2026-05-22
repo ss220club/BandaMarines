@@ -62,12 +62,3 @@
 	replace_in_desc("%REFLECT_CHANCE_BACK%", BULWARK_REFLECTION_CHANCE_BACK)
 	replace_in_desc("%REFLECTED_DAMAGE%", BULWARK_REFLECTED_BULLET_DAMAGE * 100)
 	replace_in_desc("%DURATION%", BULWARK_REFLECTION_DURATION / (1 SECONDS), DESCRIPTION_REPLACEMENT_TIME)
-
-/datum/action/xeno_action/onclick/siegeborn
-	desc = "Если в течении %DURATION% вы получите %THRESHOLD% урона, вы восстановите %REGEN% здоровья. \
-	<br>Если же вы в стойке отражения, то взамен значительно точнее отражаете обратно снаряды пока активно отражение."
-
-/datum/action/xeno_action/onclick/siegeborn/apply_replaces_in_desc()
-	replace_in_desc("%DURATION%", 5, DESCRIPTION_REPLACEMENT_TIME)
-	replace_in_desc("%THRESHOLD%", damage_threshold)
-	replace_in_desc("%REGEN%", 100)
