@@ -120,7 +120,7 @@
 	var/image/r_icon
 	var/use_mob_style = TRUE
 	var/text_left = null
-	var/text_to_display = message
+	var/text_to_display = sanitize_tts_symbols(message) // BANDAMARINES EDIT - Show normal text
 	var/is_emote = additional_styles && additional_styles.Find("emote")
 
 	if(split_long_messages)
