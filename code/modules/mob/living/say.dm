@@ -46,10 +46,13 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	return GLOB.department_radio_keys[lowertext(prefix)]
 
 /proc/filter_message(client/user, message)
+
+	return config.filter_speech(user, message) // SS220 ADD - Cyrillic speech Filter
+	/* SS220 REMOVE - Cyrillic speech filter
 	if(!config.word_filter_regex)
 		return TRUE
 
-	if(config.word_filter_regex.Find(message))
+	if(config.word_filter_regex.Find_char(message))	// SS220 EDIT - Cyrillic
 		to_chat(user,
 			html = "\n<font color='red' size='4'><b>-- Word Filter Message --</b></font>",
 			)
@@ -62,6 +65,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 		return FALSE
 
 	return TRUE
+	SS220 REMOVE - Cyrillic speech filter */
 
 ///Shows custom speech bubbles for screaming, *warcry etc.
 /mob/living/proc/show_speech_bubble(list/viewers, bubble_image, looping_bubble = FALSE, bubble_prefix = FALSE, animated = TRUE, image/speech_bubble)
@@ -91,7 +95,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 /mob/living/proc/remove_speech_bubble(mutable_appearance/speech_bubble, list_of_mobs)
 	overlays -= speech_bubble
 
-/mob/living/say(message, datum/language/speaking = null, verb="says", alt_name="", italics=0, message_range = GLOB.world_view_size, sound/speech_sound, sound_vol, nolog = 0, message_mode = null, bubble_type = bubble_icon)
+/mob/living/say(message, datum/language/speaking = null, verb="says", alt_name="", italics = FALSE, message_range = GLOB.world_view_size, sound/speech_sound, sound_vol, nolog = 0, message_mode = null, bubble_type = bubble_icon, langchat_override = null)
 	var/turf/T
 
 	if(!filter_message(src, message))
@@ -171,7 +175,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 
 		var/not_dead_speaker = (stat != DEAD)
 		if(not_dead_speaker)
-			langchat_speech(message, listening, speaking)
+			langchat_speech(message, listening, speaking, additional_styles = langchat_override ? list(langchat_override) : list("langchat"))
 		for(var/mob/M as anything in listening)
 			M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol, message_mode)
 

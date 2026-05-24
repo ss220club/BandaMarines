@@ -177,7 +177,7 @@
 				else
 					keys += match.ckey
 
-			show_browser(owner, "Impacted: [english_list(keys)]<br><br>Whitelisted: [english_list(whitelisted)]", "Stickyban Keys", "stickykeys")
+			show_browser(owner, "Затронутые: [english_list(keys)]<br><br>В белом списке: [english_list(whitelisted)]", "Stickyban CKEY", "stickykeys")
 			return
 
 		if(href_list["view_all_cids"])
@@ -189,7 +189,7 @@
 			for(var/datum/view_record/stickyban_matched_cid/match as anything in all_cids)
 				cids += match.cid
 
-			show_browser(owner, english_list(cids), "Stickyban CIDs", "stickycids")
+			show_browser(owner, english_list(cids), "Stickyban CID", "stickycids")
 			return
 
 		if(href_list["view_all_ips"])
@@ -201,17 +201,17 @@
 			for(var/datum/view_record/stickyban_matched_ip/match as anything in all_ips)
 				ips += match.ip
 
-			show_browser(owner, english_list(ips), "Stickyban IPs", "stickycips")
+			show_browser(owner, english_list(ips), "Stickyban IP", "stickycips")
 			return
 
 		if(href_list["find_sticky"])
-			var/ckey = ckey(tgui_input_text(owner, "Which CKEY should we attempt to find stickybans for?", "FindABan"))
+			var/ckey = ckey(tgui_input_text(owner, "Для какого CKEY нужно найти stickyban?", "Поиск Stickyban"))
 			if(!ckey)
 				return
 
 			var/list/datum/view_record/stickyban/stickies = SSstickyban.check_for_sticky_ban(ckey)
 			if(!stickies)
-				to_chat(owner, SPAN_ADMIN("Could not locate any stickbans impacting [ckey]."))
+				to_chat(owner, SPAN_ADMIN("Не удалось найти stickyban, затрагивающие [ckey].")) //SS220 EDIT
 				return
 
 			var/list/impacting_stickies = list()
@@ -219,7 +219,7 @@
 			for(var/datum/view_record/stickyban/sticky as anything in stickies)
 				impacting_stickies += sticky.identifier
 
-			to_chat(owner, SPAN_ADMIN("Found the following stickybans for [ckey]: [english_list(impacting_stickies)]"))
+			to_chat(owner, SPAN_ADMIN("Для [ckey] найдены stickyban: [english_list(impacting_stickies)]")) //SS220 EDIT
 
 		if(!check_rights_for(owner, R_BAN))
 			return
@@ -228,6 +228,11 @@
 			owner.cmd_admin_do_stickyban()
 			return
 
+		//SS220 EDIT: делегируем модульные sticky-действия в modular/admin.
+		if(hascall(src, "modular_handle_sticky_topic_action"))
+			if(call(src, "modular_handle_sticky_topic_action")(href_list))
+				return
+
 		var/datum/entity/stickyban/sticky = DB_ENTITY(/datum/entity/stickyban, href_list["sticky"])
 		if(!sticky)
 			return
@@ -235,7 +240,7 @@
 		sticky.sync()
 
 		if(href_list["whitelist_ckey"])
-			var/ckey_to_whitelist = ckey(tgui_input_text(owner, "What CKEY should be whitelisted? Editing stickyban: [sticky.identifier]"))
+			var/ckey_to_whitelist = ckey(tgui_input_text(owner, "Какой CKEY добавить в белый список? Stickyban: [sticky.identifier]", "Белый список Stickyban")) //SS220 EDIT
 			if(!ckey_to_whitelist)
 				return
 
@@ -244,11 +249,11 @@
 			important_message_external("[owner] has whitelisted [ckey_to_whitelist] against stickyban '[sticky.identifier]'.", "CKEY Whitelisted")
 
 		if(href_list["add"])
-			var/option = tgui_input_list(owner, "What do you want to add?", "AddABan", list("CID", "CKEY", "IP"))
+			var/option = tgui_input_list(owner, "Что нужно добавить?", "Добавление в Stickyban", list("CID", "CKEY", "IP")) //SS220 EDIT
 			if(!option)
 				return
 
-			var/to_add = tgui_input_text(owner, "Provide the [option] to add to the stickyban.", "AddABan")
+			var/to_add = tgui_input_text(owner, "Укажите [option], который нужно добавить в stickyban.", "Добавление в Stickyban") //SS220 EDIT
 			if(!to_add)
 				return
 
@@ -264,12 +269,34 @@
 			important_message_external("[owner] has added a [option] ([to_add]) to stickyban '[sticky.identifier]'.", "[option] Added to Stickyban")
 
 		if(href_list["remove"])
-			var/option = tgui_input_list(owner, "What do you want to remove?", "DelABan", list("Entire Stickyban", "CID", "CKEY", "IP"))
+			var/option = tgui_input_list(owner, "Что нужно удалить?", "Удаление из Stickyban", list("Весь Stickyban", "CID", "CKEY", "IP")) //SS220 EDIT
 			switch(option)
-				if("Entire Stickyban")
-					if(!(tgui_alert(owner, "Are you sure you want to remove this stickyban? Identifier: [sticky.identifier] Reason: [sticky.reason]", "Confirm", list("Yes", "No")) == "Yes"))
+				if("Весь Stickyban")
+					if(!(tgui_alert(owner, "Точно удалить этот stickyban? Идентификатор: [sticky.identifier]. Причина: [sticky.reason]", "Подтверждение", list("Да", "Нет")) == "Да")) //SS220 EDIT
 						return
 
+					//SS220 EDIT START: модульное удаление strict-key кластера (включая дубли и inactive).
+					if(hascall(SSstickyban, "modular_delete_stickyban_cluster"))
+						var/list/cluster_summary = call(SSstickyban, "modular_delete_stickyban_cluster")(sticky.id, TRUE)
+						if(islist(cluster_summary))
+							var/status = cluster_summary["status"] || "partial"
+							var/cluster_size = cluster_summary["cluster_size"] || 0
+							var/roots_deleted = cluster_summary["roots_deleted"] || 0
+							var/matches_deleted = cluster_summary["matches_deleted"] || 0
+							var/cluster_errors = cluster_summary["errors"] || 0
+							if(status == "ok")
+								message_admins("[key_name_admin(owner)] has deleted stickyban cluster '[sticky.identifier]' (cluster=[cluster_size], roots_deleted=[roots_deleted], matches_deleted=[matches_deleted]).")
+								important_message_external("[owner] has deleted stickyban cluster '[sticky.identifier]'.", "Stickyban Cluster Deleted")
+							else
+								to_chat(owner, SPAN_WARNING("Удаление кластера Stickyban: статус=[status], размер=[cluster_size], root удалено=[roots_deleted], связей удалено=[matches_deleted], ошибок=[cluster_errors].")) //SS220 EDIT
+								message_admins("[key_name_admin(owner)] attempted stickyban cluster delete '[sticky.identifier]' (status=[status], cluster=[cluster_size], roots_deleted=[roots_deleted], matches_deleted=[matches_deleted], errors=[cluster_errors]).")
+							return
+						else
+							to_chat(owner, SPAN_WARNING("Удаление кластера Stickyban вернуло некорректный отчёт.")) //SS220 EDIT
+							message_admins("[key_name_admin(owner)] attempted stickyban cluster delete '[sticky.identifier]' but got invalid summary.")
+							return
+
+					//SS220 EDIT END: fallback деактивации только при отсутствии модульного hook.
 					sticky.active = FALSE
 					sticky.save()
 
@@ -285,7 +312,7 @@
 					for(var/datum/view_record/stickyban_matched_cid/match in all_cids)
 						cid_to_record_id["[match.cid]"] = match.id
 
-					var/picked = tgui_input_list(owner, "Which CID to remove?", "DelABan", cid_to_record_id)
+					var/picked = tgui_input_list(owner, "Какой CID удалить?", "Удаление из Stickyban", cid_to_record_id) //SS220 EDIT
 					if(!picked)
 						return
 
@@ -306,7 +333,7 @@
 					for(var/datum/view_record/stickyban_matched_ckey/match in all_ckeys)
 						ckey_to_record_id["[match.ckey]"] = match.id
 
-					var/picked = tgui_input_list(owner, "Which CKEY to remove?", "DelABan", ckey_to_record_id)
+					var/picked = tgui_input_list(owner, "Какой CKEY удалить?", "Удаление из Stickyban", ckey_to_record_id) //SS220 EDIT
 					if(!picked)
 						return
 
@@ -327,7 +354,7 @@
 					for(var/datum/view_record/stickyban_matched_ip/match in all_ips)
 						ip_to_record_id["[match.ip]"] = match.id
 
-					var/picked = tgui_input_list(owner, "Which IP to remove?", "DelABan", ip_to_record_id)
+					var/picked = tgui_input_list(owner, "Какой IP удалить?", "Удаление из Stickyban", ip_to_record_id) //SS220 EDIT
 					if(!picked)
 						return
 
@@ -337,7 +364,7 @@
 					sticky_ip.delete()
 
 					message_admins("[key_name_admin(owner)] has removed an IP ([picked]) from stickyban [sticky.identifier].")
-					important_message_external("[owner] has removed an IP ([picked]) from stickyban '[sticky.identifier].", "IP Removed from Stickyban")
+					important_message_external("[owner] has removed an IP ([picked]) from stickyban '[sticky.identifier]'.", "IP Removed from Stickyban") //SS220 EDIT
 
 	else if(href_list["warn"])
 		usr.client.warn(href_list["warn"])
@@ -858,7 +885,7 @@
 			return
 
 		if(!M.client)
-			to_chat(usr, SPAN_WARNING("[M] doesn't seem to have an active client."))
+			to_chat(usr, SPAN_WARNING("[capitalize(M.declent_ru(NOMINATIVE))] doesn't seem to have an active client."))
 			return
 
 		if(alert(usr, "Send [key_name(M)] back to Lobby?", "Message", "Yes", "No") != "Yes")
@@ -1856,7 +1883,7 @@
 
 	if(href_list["ccdeny"]) // CentComm-deny. The distress call is denied, without any further conditions
 		var/mob/ref_person = locate(href_list["ccdeny"])
-		marine_announcement("The distress signal has not received a response, the launch tubes are now recalibrating.", "Distress Beacon", logging = ARES_LOG_SECURITY)
+		marine_announcement("Сигнал бедствия не получил ответа. Запущена рекалибровка пусковой установки.", "Сигнал бедствия", logging = ARES_LOG_SECURITY)
 		log_game("[key_name_admin(usr)] has denied a distress beacon, requested by [key_name_admin(ref_person)]")
 		message_admins("[key_name_admin(usr)] has denied a distress beacon, requested by [key_name_admin(ref_person)]", 1)
 
@@ -1925,7 +1952,7 @@
 		//Can no longer request a nuke
 		GLOB.ares_datacore.nuke_available = FALSE
 
-		marine_announcement("A nuclear device has been authorized by High Command and will be delivered to requisitions via ASRS.", "NUCLEAR ORDNANCE AUTHORIZED", 'sound/misc/notice2.ogg', logging = ARES_LOG_MAIN)
+		marine_announcement("Ядерное устройство было авторизовано Верховным командованием КМП и будет доставлено в Requisitions через систему ASRS.", "ЯДЕРНЫЙ АРСЕНАЛ ОДОБРЕН", 'sound/misc/notice2.ogg', logging = ARES_LOG_MAIN)
 		log_game("[key_name_admin(usr)] has authorized \a [nuketype], requested by [key_name_admin(ref_person)]")
 		message_admins("[key_name_admin(usr)] has authorized \a [nuketype], requested by [key_name_admin(ref_person)]")
 
@@ -1933,13 +1960,13 @@
 		var/mob/ref_person = locate(href_list["nukedeny"])
 		if(!istype(ref_person))
 			return FALSE
-		marine_announcement("Your request for nuclear ordnance deployment has been reviewed and denied by USCM High Command for operational security and colonial preservation reasons. Have a good day.", "NUCLEAR ORDNANCE DENIED", 'sound/misc/notice2.ogg', logging = ARES_LOG_MAIN)
+		marine_announcement("Ваш запрос на размещение ядерного устройства был рассмотрен и отклонен Верховным командованием КМП по соображениям эксплуатационной безопасности и сохранения колониального наследия. Хорошего дня.", "ЯДЕРНЫЙ АРСЕНАЛ ОТКЛОНЕН", 'sound/misc/notice2.ogg', logging = ARES_LOG_MAIN)
 		log_game("[key_name_admin(usr)] has denied nuclear ordnance, requested by [key_name_admin(ref_person)]")
 		message_admins("[key_name_admin(usr)] has dnied nuclear ordnance, requested by [key_name_admin(ref_person)]")
 
 	if(href_list["sddeny"]) // CentComm-deny. The self-destruct is denied, without any further conditions
 		var/mob/ref_person = locate(href_list["sddeny"])
-		marine_announcement("The self-destruct request has not received a response, ARES is now recalculating statistics.", "Self-Destruct System", logging = ARES_LOG_SECURITY)
+		marine_announcement("Запрос на самоуничтожение не получил ответа, ARES сейчас проводит перерасчёт показателей.", "Система Самоуничтожения", logging = ARES_LOG_SECURITY)
 		log_game("[key_name_admin(usr)] has denied self-destruct, requested by [key_name_admin(ref_person)]")
 		message_admins("[key_name_admin(usr)] has denied self-destruct, requested by [key_name_admin(ref_person)]", 1)
 
@@ -2224,7 +2251,7 @@
 					target_fax.langchat_speech("beeps with a priority message", get_mobs_in_view(GLOB.world_view_size, target_fax), GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
 					target_fax.visible_message("[SPAN_BOLD(target_fax)] beeps with a priority message.")
 					if(target_fax.radio_alert_tag != null)
-						ai_silent_announcement("COMMUNICATIONS REPORT: Fax Machine [target_fax.machine_id_tag], [target_fax.sub_name ? "[target_fax.sub_name]" : ""], now receiving priority fax.", "[target_fax.radio_alert_tag]")
+						ai_silent_announcement("ОТЧЁТНАЯ СИСТЕМА КОММУНИКАЦИЙ: Факс-машина [target_fax.machine_id_tag], [target_fax.sub_name ? "[target_fax.sub_name]" : ""], теперь получает приоритетные факсы.", "[target_fax.radio_alert_tag]")
 
 			to_chat(src.owner, "Message reply to transmitted successfully.")
 			message_admins(SPAN_STAFF_IC("[key_name_admin(src.owner)] replied to a fax message from [key_name_admin(target_human)]"), 1)
