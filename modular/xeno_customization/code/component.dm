@@ -5,9 +5,9 @@
 	/// The thing to show
 	var/datum/xeno_customization_option/option
 	/// What the selected option is showing, be it an overlay or full body replacement
-	var/atom/movable/xeno_customization_part/to_show
+	var/atom/movable/to_show
 	/// Is how we subtract parts of an icon, by showing it and applying subtract_filter to an image
-	var/atom/movable/xeno_customization_part/subtract/to_remove
+	var/atom/movable/to_remove
 	/// Our filter that allows to subtract parts of (or an entire) icon
 	var/dm_filter/subtract_filter
 	/// List of players who are ready/already see customization
@@ -323,7 +323,7 @@
 	copy.vis_contents = source.vis_contents.Copy()
 	copy.filters = source.filters
 	copy.layer = source.layer
-	for(var/atom/movable/xeno_customization_part/visible in copy.vis_contents)
+	for(var/atom/movable/visible in copy.vis_contents)
 		visible.plane = SEETHROUGH_PLANE
 	return copy
 
@@ -345,10 +345,6 @@
 
 	parent_xeno.client.images += trickery_image
 	animate(trickery_image, alpha = 100, time = TRICKERY_ANIMATION_TIME)
-	for(var/atom/movable/xeno_customization_part/visible in trickery_image.vis_contents)
-		if(visible.is_subtract)
-			continue
-		animate(visible, alpha = 100, time = TRICKERY_ANIMATION_TIME)
 	RegisterSignal(parent_xeno, list(COMSIG_MOB_LOGOUT, COMSIG_MOB_GHOSTIZE), PROC_REF(untrick_mob))
 
 /atom/movable/xeno_customization_vis_obj/proc/untrick_mob()
@@ -356,10 +352,6 @@
 	. = COMPONENT_SEETHROUGH_UNTRICKED
 
 	animate(trickery_image, alpha = 255, time = TRICKERY_ANIMATION_TIME)
-	for(var/atom/movable/xeno_customization_part/visible in trickery_image.vis_contents)
-		if(visible.is_subtract)
-			continue
-		animate(visible, alpha = 255, time = TRICKERY_ANIMATION_TIME)
 	addtimer(CALLBACK(src, PROC_REF(clear_tricky)), TRICKERY_ANIMATION_TIME)
 
 /atom/movable/xeno_customization_vis_obj/proc/clear_tricky()
@@ -368,11 +360,5 @@
 	parent_xeno.client?.images -= trickery_image
 	QDEL_NULL(trickery_image)
 	UnregisterSignal(parent_xeno, list(COMSIG_MOB_LOGOUT, COMSIG_MOB_GHOSTIZE))
-
-/atom/movable/xeno_customization_part
-	var/is_subtract = FALSE
-
-/atom/movable/xeno_customization_part/subtract
-	is_subtract = TRUE
 
 #undef TRICKERY_ANIMATION_TIME
