@@ -5,9 +5,9 @@
 	/// The thing to show
 	var/datum/xeno_customization_option/option
 	/// What the selected option is showing, be it an overlay or full body replacement
-	var/atom/movable/to_show
+	var/atom/movable/xeno_customization_part/to_show
 	/// Is how we subtract parts of an icon, by showing it and applying subtract_filter to an image
-	var/atom/movable/to_remove
+	var/atom/movable/xeno_customization_part/subtract/to_remove
 	/// Our filter that allows to subtract parts of (or an entire) icon
 	var/dm_filter/subtract_filter
 	/// List of players who are ready/already see customization
@@ -195,6 +195,7 @@
 		to_remove.icon = subtract_icon_path
 		to_remove.vis_flags |= VIS_INHERIT_DIR | VIS_INHERIT_ID | VIS_INHERIT_LAYER | VIS_INHERIT_PLANE
 		to_remove.render_target = "*subtract_filter_[REF(src)]"
+		to_remove.appearance_flags |= RESET_ALPHA
 		subtract_filter = filter(type="alpha", render_source = to_remove.render_target, flags = MASK_INVERSE)
 	if(!to_remove)
 		return
@@ -322,8 +323,15 @@
 	copy.vis_contents = source.vis_contents.Copy()
 	copy.filters = source.filters
 	copy.layer = source.layer
-	for(var/atom/movable/visible in copy.vis_contents)
+	for(var/atom/movable/xeno_customization_part/visible in copy.vis_contents)
 		visible.plane = SEETHROUGH_PLANE
+		if(!visible.is_subtract)
+			continue
+		// visible.alpha = 999
+		// visible.appearance_flags
+		// visible.render_target = "*subtract_filter_[REF(src)]"
+		// var/subtract_filter = filter(type="alpha", render_source = visible.render_target, flags = MASK_INVERSE)
+		// copy.filters += subtract_filter
 	return copy
 
 /atom/movable/xeno_customization_vis_obj/proc/trick_mob()
@@ -336,7 +344,7 @@
 		if(XENO_CUSTOMIZATION_SHOW_LORE_FRIENDLY)
 			trickery_image = copy_image_for_trickery(lore_image)
 		else
-			trickery_image = image(src, parent_xeno)
+			trickery_image = image(src, src)
 	trickery_image.override = TRUE
 	trickery_image.plane = SEETHROUGH_PLANE
 	trickery_image.pixel_x = 0
@@ -344,7 +352,9 @@
 
 	parent_xeno.client.images += trickery_image
 	animate(trickery_image, alpha = 100, time = TRICKERY_ANIMATION_TIME)
-	for(var/atom/movable/visible in trickery_image.vis_contents)
+	for(var/atom/movable/xeno_customization_part/visible in trickery_image.vis_contents)
+		if(visible.is_subtract)
+			continue
 		animate(visible, alpha = 100, time = TRICKERY_ANIMATION_TIME)
 	RegisterSignal(parent_xeno, list(COMSIG_MOB_LOGOUT, COMSIG_MOB_GHOSTIZE), PROC_REF(untrick_mob))
 
@@ -353,7 +363,9 @@
 	. = COMPONENT_SEETHROUGH_UNTRICKED
 
 	animate(trickery_image, alpha = 255, time = TRICKERY_ANIMATION_TIME)
-	for(var/atom/movable/visible in trickery_image.vis_contents)
+	for(var/atom/movable/xeno_customization_part/visible in trickery_image.vis_contents)
+		if(visible.is_subtract)
+			continue
 		animate(visible, alpha = 255, time = TRICKERY_ANIMATION_TIME)
 	addtimer(CALLBACK(src, PROC_REF(clear_tricky)), TRICKERY_ANIMATION_TIME)
 
@@ -363,5 +375,11 @@
 	parent_xeno.client?.images -= trickery_image
 	QDEL_NULL(trickery_image)
 	UnregisterSignal(parent_xeno, list(COMSIG_MOB_LOGOUT, COMSIG_MOB_GHOSTIZE))
+
+/atom/movable/xeno_customization_part
+	var/is_subtract = FALSE
+
+/atom/movable/xeno_customization_part/subtract
+	is_subtract = TRUE
 
 #undef TRICKERY_ANIMATION_TIME
