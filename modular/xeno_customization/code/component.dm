@@ -22,8 +22,7 @@
 	/// Is customization currently allowed to update? Used for strain check.
 	var/updating = TRUE
 
-	/// Seethrough is using the same render_target/source logic as we do, so we must copy the same effect
-	var/seethrough_active = FALSE
+	var/image/trickery_image
 
 /datum/component/xeno_customization/Initialize(datum/xeno_customization_option/option, list/mob/override_viewers)
 	if(!isxeno(parent))
@@ -169,8 +168,6 @@
 /// Adding images to player's screen
 /datum/component/xeno_customization/proc/check_visibility_pref(mob/user)
 	remove_from_player_view(user)
-	if(user == parent && seethrough_active)
-		return
 	switch(user.client.prefs.xeno_customization_visibility)
 		if(XENO_CUSTOMIZATION_SHOW_ALL)
 			// Only Xenos and Observers can see Non-Lore-Friendly customizations
@@ -312,52 +309,67 @@
 	non_lore_image.pixel_y = 0
 	lore_image.pixel_y = 0
 
+	RegisterSignal(parent_xeno, COMSIG_SEETHROUGH_TRICK, PROC_REF(trick_mob))
+	RegisterSignal(parent_xeno, COMSIG_SEETHROUGH_UNTRICK, PROC_REF(untrick_mob))
+
 /atom/movable/xeno_customization_vis_obj/Destroy(force)
 	parent_xeno.render_target = initial_render_target_value
 	parent_xeno.vis_contents -= src
 	QDEL_NULL(non_lore_image)
 	QDEL_NULL(lore_image)
 	QDEL_NULL(trickery_image)
+	UnregisterSignal(parent_xeno, COMSIG_SEETHROUGH_TRICK)
+	UnregisterSignal(parent_xeno, COMSIG_SEETHROUGH_UNTRICK)
 	. = ..()
+
+/atom/movable/xeno_customization_vis_obj/proc/trick_mob()
+	SIGNAL_HANDLER
+	. = COMPONENT_SEETHROUGH_TRICKED
+
+	var/atom/movable/what_trickery
+	switch(parent_xeno.client.prefs.xeno_customization_visibility)
+		if(XENO_CUSTOMIZATION_SHOW_ALL)
+			what_trickery = non_lore_image
+		if(XENO_CUSTOMIZATION_SHOW_LORE_FRIENDLY)
+			what_trickery = lore_image
+		else
+			what_trickery = src
+	trickery_image = image(what_trickery, src)
+	trickery_image.override = TRUE
+	trickery_image.plane = SEETHROUGH_PLANE
+	trickery_image.pixel_x = 0
+	trickery_image.pixel_y = 0
+
+	parent_xeno.client.images += trickery_image
+	animate(trickery_image, alpha = 100, time = TRICKERY_ANIMATION_TIME)
+
+/atom/movable/xeno_customization_vis_obj/proc/untrick_mob()
+	SIGNAL_HANDLER
+	. = COMPONENT_SEETHROUGH_UNTRICKED
+
+	animate(trickery_image, alpha = 255, time = TRICKERY_ANIMATION_TIME)
+	addtimer(CALLBACK(src, PROC_REF(clear_tricky)), TRICKERY_ANIMATION_TIME)
+
+/atom/movable/xeno_customization_vis_obj/proc/clear_tricky()
+	parent_xeno.client?.images -= trickery_image
+	QDEL_NULL(trickery_image)
 
 /datum/component/xeno_customization/proc/trick_mob()
 	SIGNAL_HANDLER
 
-	. = COMPONENT_SEETHROUGH_TRICKED
-	var/mob/user = parent
-	seethrough_active = TRUE
-	var/pref = user.client.prefs.xeno_customization_visibility
-	var/atom/movable/what_trickery
-	switch(pref)
-		if(XENO_CUSTOMIZATION_SHOW_ALL)
-			what_trickery = render_source_atom.non_lore_image
-		if(XENO_CUSTOMIZATION_SHOW_LORE_FRIENDLY)
-			what_trickery = render_source_atom.lore_image
-		else
-			what_trickery = render_source_atom
-	render_source_atom.trickery_image = new(what_trickery)
-	render_source_atom.trickery_image.loc = render_source_atom
-	render_source_atom.trickery_image.override = TRUE
-	render_source_atom.trickery_image.plane = SEETHROUGH_PLANE
-
-	user.client.images += render_source_atom.trickery_image
-
-	animate(render_source_atom.trickery_image, alpha = 100, time = TRICKERY_ANIMATION_TIME)
-	return .
+	// remove_from_player_view(parent)
+	// animate(trickery_image, alpha = 100, time = TRICKERY_ANIMATION_TIME)
 
 /datum/component/xeno_customization/proc/untrick_mob()
 	SIGNAL_HANDLER
 
-	. = COMPONENT_SEETHROUGH_UNTRICKED
-	seethrough_active = FALSE
-	if(!render_source_atom.trickery_image)
-		return .
-	animate(render_source_atom.trickery_image, alpha = 255, time = TRICKERY_ANIMATION_TIME)
-	addtimer(CALLBACK(src, PROC_REF(clear_tricky)), TRICKERY_ANIMATION_TIME)
-	return .
+	// animate(trickery_image, alpha = 255, time = TRICKERY_ANIMATION_TIME)
+	// addtimer(CALLBACK(src, PROC_REF(clear_tricky)), TRICKERY_ANIMATION_TIME)
 
 /datum/component/xeno_customization/proc/clear_tricky()
-	var/mob/user = parent
-	user.client?.images -= render_source_atom.trickery_image
+	// var/mob/user = parent
+	// user.client?.images -= trickery_image
+	// QDEL_NULL(trickery_image)
+	// add_to_player_view(parent)
 
 #undef TRICKERY_ANIMATION_TIME
