@@ -285,6 +285,8 @@
 	/// Seethrough image that the owner sees when Seethrough is active
 	var/image/trickery_image
 
+	var/datum/component/seethrough_mob/seethrough_component
+
 /atom/movable/xeno_customization_vis_obj/Initialize(mapload, ...)
 	. = ..()
 	parent_xeno = loc
@@ -323,13 +325,16 @@
 	copy.vis_contents = source.vis_contents.Copy()
 	copy.filters = source.filters
 	copy.layer = source.layer
-	for(var/atom/movable/visible in copy.vis_contents)
-		visible.plane = SEETHROUGH_PLANE
 	return copy
 
 /atom/movable/xeno_customization_vis_obj/proc/trick_mob()
 	SIGNAL_HANDLER
 	. = COMPONENT_SEETHROUGH_TRICKED
+
+	if(!parent_xeno.client)
+		return
+	if(!seethrough_component)
+		seethrough_component = parent_xeno.GetComponent(/datum/component/seethrough_mob)
 
 	switch(parent_xeno.client.prefs.xeno_customization_visibility)
 		if(XENO_CUSTOMIZATION_SHOW_ALL)
@@ -345,14 +350,24 @@
 
 	parent_xeno.client.images += trickery_image
 	animate(trickery_image, alpha = 100, time = TRICKERY_ANIMATION_TIME)
-	RegisterSignal(parent_xeno, list(COMSIG_MOB_LOGOUT, COMSIG_MOB_GHOSTIZE), PROC_REF(untrick_mob))
+	RegisterSignal(parent_xeno, list(COMSIG_MOB_LOGOUT, COMSIG_MOB_GHOSTIZE), PROC_REF(on_mob_logout))
+	seethrough_component.is_active = TRUE
 
-/atom/movable/xeno_customization_vis_obj/proc/untrick_mob()
+/atom/movable/xeno_customization_vis_obj/proc/untrick_mob(mob/owner, skip_animation)
 	SIGNAL_HANDLER
 	. = COMPONENT_SEETHROUGH_UNTRICKED
 
+	if(skip_animation)
+		clear_tricky()
+		return
+
 	animate(trickery_image, alpha = 255, time = TRICKERY_ANIMATION_TIME)
 	addtimer(CALLBACK(src, PROC_REF(clear_tricky)), TRICKERY_ANIMATION_TIME)
+
+/atom/movable/xeno_customization_vis_obj/proc/on_mob_logout()
+	SIGNAL_HANDLER
+
+	untrick_mob(skip_animation = TRUE)
 
 /atom/movable/xeno_customization_vis_obj/proc/clear_tricky()
 	SIGNAL_HANDLER
@@ -360,5 +375,6 @@
 	parent_xeno.client?.images -= trickery_image
 	QDEL_NULL(trickery_image)
 	UnregisterSignal(parent_xeno, list(COMSIG_MOB_LOGOUT, COMSIG_MOB_GHOSTIZE))
+	seethrough_component.is_active = FALSE
 
 #undef TRICKERY_ANIMATION_TIME
