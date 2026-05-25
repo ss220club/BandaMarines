@@ -6,3 +6,8 @@
 
 ///from base of /mob/living/launch_towards(): (launch_metadata)
 #define COMSIG_LIVING_PRE_LAUNCH_TOWARDS "living_pre_launch_towards"
+
+#define COMSIG_SEETHROUGH_TRICK "seethrough_trick"
+	#define COMPONENT_SEETHROUGH_TRICKED (1<<0)
+#define COMSIG_SEETHROUGH_UNTRICK "seethrough_untrick"
+	#define COMPONENT_SEETHROUGH_UNTRICKED (1<<0)
