@@ -22,8 +22,6 @@
 	/// Is customization currently allowed to update? Used for strain check.
 	var/updating = TRUE
 
-	var/image/trickery_image
-
 /datum/component/xeno_customization/Initialize(datum/xeno_customization_option/option, list/mob/override_viewers)
 	if(!isxeno(parent))
 		return COMPONENT_INCOMPATIBLE
@@ -51,16 +49,12 @@
 	RegisterSignal(parent, COMSIG_ALTER_GHOST, PROC_REF(on_ghost))
 	RegisterSignal(parent, COMSIG_ATOM_UPDATE_FILTERS, PROC_REF(on_update_filters))
 	RegisterSignal(parent, COMSIG_XENO_STRAIN_ADD, PROC_REF(on_strain_change))
-	RegisterSignal(parent, COMSIG_SEETHROUGH_TRICK, PROC_REF(trick_mob))
-	RegisterSignal(parent, COMSIG_SEETHROUGH_UNTRICK, PROC_REF(untrick_mob))
 
 /datum/component/xeno_customization/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_XENO_UPDATE_ICONS)
 	UnregisterSignal(parent, COMSIG_ALTER_GHOST)
 	UnregisterSignal(parent, COMSIG_ATOM_UPDATE_FILTERS)
 	UnregisterSignal(parent, COMSIG_XENO_STRAIN_ADD)
-	UnregisterSignal(parent, COMSIG_SEETHROUGH_TRICK)
-	UnregisterSignal(parent, COMSIG_SEETHROUGH_UNTRICK)
 
 /datum/component/xeno_customization/Destroy(force, silent)
 	remove_from_everyone_view()
@@ -326,15 +320,13 @@
 	SIGNAL_HANDLER
 	. = COMPONENT_SEETHROUGH_TRICKED
 
-	var/atom/movable/what_trickery
 	switch(parent_xeno.client.prefs.xeno_customization_visibility)
 		if(XENO_CUSTOMIZATION_SHOW_ALL)
-			what_trickery = non_lore_image
+			trickery_image = image(non_lore_image, src)
 		if(XENO_CUSTOMIZATION_SHOW_LORE_FRIENDLY)
-			what_trickery = lore_image
+			trickery_image = image(lore_image, src)
 		else
-			what_trickery = src
-	trickery_image = image(what_trickery, src)
+			trickery_image = image(src, src)
 	trickery_image.override = TRUE
 	trickery_image.plane = SEETHROUGH_PLANE
 	trickery_image.pixel_x = 0
@@ -353,23 +345,5 @@
 /atom/movable/xeno_customization_vis_obj/proc/clear_tricky()
 	parent_xeno.client?.images -= trickery_image
 	QDEL_NULL(trickery_image)
-
-/datum/component/xeno_customization/proc/trick_mob()
-	SIGNAL_HANDLER
-
-	// remove_from_player_view(parent)
-	// animate(trickery_image, alpha = 100, time = TRICKERY_ANIMATION_TIME)
-
-/datum/component/xeno_customization/proc/untrick_mob()
-	SIGNAL_HANDLER
-
-	// animate(trickery_image, alpha = 255, time = TRICKERY_ANIMATION_TIME)
-	// addtimer(CALLBACK(src, PROC_REF(clear_tricky)), TRICKERY_ANIMATION_TIME)
-
-/datum/component/xeno_customization/proc/clear_tricky()
-	// var/mob/user = parent
-	// user.client?.images -= trickery_image
-	// QDEL_NULL(trickery_image)
-	// add_to_player_view(parent)
 
 #undef TRICKERY_ANIMATION_TIME
