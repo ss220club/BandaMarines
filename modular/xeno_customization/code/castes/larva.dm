@@ -39,6 +39,7 @@
 	full_body_customization = TRUE
 	total_timelock = JOB_PLAYTIME_TIER_3
 
+// @tiran2917
 /datum/xeno_customization_option/larva/disco
 	name = "Диско-лярва"
 	key = "larva_disco"

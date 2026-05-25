@@ -27,6 +27,7 @@
 		. += "Необходимо следующее количество обнимашек: [huglock]. "
 	return .
 
+// @tiran2917
 /datum/xeno_customization_option/facehugger/golden
 	name = "Золотой сын"
 	key = "facehugger_golden"
