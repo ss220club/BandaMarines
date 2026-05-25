@@ -118,7 +118,7 @@ prepositional = "зоне посадки 2 на «Землю Шанса»"
 gender = "female"
 tags = [ "cm13",]
 
-["Chance's Claim - Dropship Alamo Landing Zone"]
+["chance's claim - dropship alamo landing zone"]
 nominative = "зона посадки 1 «Служебный терминал»"
 genitive = "зоны посадки 1 «Служебный терминал»"
 dative = "зоне посадки 1 «Служебный терминал»"
@@ -128,7 +128,7 @@ prepositional = "зоне посадки 1 «Служебный терминал
 gender = "female"
 tags = [ "cm13",]
 
-["Chance's Claim - Dropship Normandy Landing Zone"]
+["chance's claim - dropship normandy landing zone"]
 nominative = "зона посадки 2 «Грузовой терминал»"
 genitive = "зоны посадки 2 «Грузовой терминал»"
 dative = "зоне посадки 2 «Грузовой терминал»"
@@ -178,7 +178,7 @@ prepositional = "зоне посадки 2 на «Снежный шар Шивы
 gender = "female"
 tags = [ "cm13",]
 
-["Shiva's Snowball - Landing Valley"]
+["shiva's snowball - landing valley"]
 nominative = "зона посадки 1 «Дополнительная ВПП»"
 genitive = "зоны посадки 1 «Дополнительная ВПП»"
 dative = "зоне посадки 1 «Дополнительная ВПП»"
@@ -188,7 +188,7 @@ prepositional = "зоне посадки 1 «Дополнительная ВПП
 gender = "female"
 tags = [ "cm13",]
 
-["Shiva's Snowball - Dropship Normandy Console"]
+["shiva's snowball - dropship normandy console"]
 nominative = "зона посадки 2 «Аэродром»"
 genitive = "зоны посадки 2 «Аэродром»"
 dative = "зоне посадки 2 «Аэродром»"
