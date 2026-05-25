@@ -118,26 +118,6 @@ prepositional = "зоне посадки 2 на «Землю Шанса»"
 gender = "female"
 tags = [ "cm13",]
 
-["Chance's Claim - Dropship Alamo Landing Zone"]
-nominative = "зона посадки 1 «Служебный терминал»"
-genitive = "зоны посадки 1 «Служебный терминал»"
-dative = "зоне посадки 1 «Служебный терминал»"
-accusative = "зону посадки 1 «Служебный терминал»"
-instrumental = "зоной посадки 1 «Служебный терминал»"
-prepositional = "зоне посадки 1 «Служебный терминал»"
-gender = "female"
-tags = [ "cm13",]
-
-["Chance's Claim - Dropship Normandy Landing Zone"]
-nominative = "зона посадки 2 «Грузовой терминал»"
-genitive = "зоны посадки 2 «Грузовой терминал»"
-dative = "зоне посадки 2 «Грузовой терминал»"
-accusative = "зону посадки 2 «Грузовой терминал»"
-instrumental = "зоной посадки 2 «Грузовой терминал»"
-prepositional = "зоне посадки 2 «Грузовой терминал»"
-gender = "female"
-tags = [ "cm13",]
-
 ["nova medica hospital complex - emergency response - landing zone one"]
 nominative = "зона посадки 1 «Экстренное реагирование больничного комплекса Нова Медика»"
 genitive = "зоны посадки 1 «Экстренное реагирование больничного комплекса Нова Медика»"
@@ -169,22 +149,12 @@ gender = "female"
 tags = [ "cm13",]
 
 ["shiva's snowball - dropship normandy landing zone"]
-nominative = "зона посадки 2 «Аэродром»"
-genitive = "зоны посадки 2 «Аэродром»"
-dative = "зоне посадки 2 «Аэродром»"
-accusative = "зону посадки 2 «Аэродром»"
-instrumental = "зоной посадки 2 «Аэродром»"
-prepositional = "зоне посадки 2 «Аэродром»"
-gender = "female"
-tags = [ "cm13",]
-
-["Shiva's Snowball - Landing Valley"]
-nominative = "зона посадки 1 «Дополнительная ВПП»"
-genitive = "зоны посадки 1 «Дополнительная ВПП»"
-dative = "зоне посадки 1 «Дополнительная ВПП»"
-accusative = "зону посадки 1 «Дополнительная ВПП»"
-instrumental = "зоной посадки 1 «Дополнительная ВПП»"
-prepositional = "зоне посадки 1 «Дополнительная ВПП»"
+nominative = "зона посадки 2 на «Снежный шар Шивы» для Нормандии"
+genitive = "зоны посадки 2 на «Снежный шар Шивы» для Нормандии"
+dative = "зоне посадки 2 на «Снежный шар Шивы» для Нормандии"
+accusative = "зону посадки 2 на «Снежный шар Шивы» для Нормандии"
+instrumental = "зоной посадки 2 на «Снежный шар Шивы» для Нормандии"
+prepositional = "зоне посадки 2 на «Снежный шар Шивы» для Нормандии"
 gender = "female"
 tags = [ "cm13",]
 

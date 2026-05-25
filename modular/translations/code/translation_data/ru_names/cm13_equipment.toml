@@ -788,7 +788,7 @@ nominative = "ящик для снабжения (противогаз x 3, во
 tags = [ "nominative_only", "cm13",]
 
 ["emergency equipment (x2 toolbox, x2 hazard vest, x5 oxygen tank, x5 masks)"]
-nominative = "ящик для снабжения (ящик для инструментов x 2, сигнальный жилет x 2, кислородный баллон x 5, противогаз x 5)"
+nominative = "ящик для снабжения (язик для инструментов x 2, сигнальный жилет x 2, кислородный баллон x 5, противогаз x 5)"
 tags = [ "nominative_only", "cm13",]
 
 ["empty boxes (x10)"]
