@@ -7,7 +7,10 @@
 ///from base of /mob/living/launch_towards(): (launch_metadata)
 #define COMSIG_LIVING_PRE_LAUNCH_TOWARDS "living_pre_launch_towards"
 
+///from base of /datum/component//datum/component/seethrough_mob/trick_mob()
 #define COMSIG_SEETHROUGH_TRICK "seethrough_trick"
 	#define COMPONENT_SEETHROUGH_TRICKED (1<<0)
+
+///from base of /datum/component//datum/component/seethrough_mob/untrick_mob()
 #define COMSIG_SEETHROUGH_UNTRICK "seethrough_untrick"
 	#define COMPONENT_SEETHROUGH_UNTRICKED (1<<0)
