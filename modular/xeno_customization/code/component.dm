@@ -316,17 +316,27 @@
 	UnregisterSignal(parent_xeno, COMSIG_SEETHROUGH_UNTRICK)
 	. = ..()
 
+/atom/movable/xeno_customization_vis_obj/proc/copy_image_for_trickery(image/source)
+	var/image/copy = image(source, src)
+	copy.appearance = source.appearance
+	copy.vis_contents = source.vis_contents.Copy()
+	copy.filters = source.filters
+	copy.layer = source.layer
+	for(var/atom/movable/visible in copy.vis_contents)
+		visible.plane = SEETHROUGH_PLANE
+	return copy
+
 /atom/movable/xeno_customization_vis_obj/proc/trick_mob()
 	SIGNAL_HANDLER
 	. = COMPONENT_SEETHROUGH_TRICKED
 
 	switch(parent_xeno.client.prefs.xeno_customization_visibility)
 		if(XENO_CUSTOMIZATION_SHOW_ALL)
-			trickery_image = image(non_lore_image, src)
+			trickery_image = copy_image_for_trickery(non_lore_image)
 		if(XENO_CUSTOMIZATION_SHOW_LORE_FRIENDLY)
-			trickery_image = image(lore_image, src)
+			trickery_image = copy_image_for_trickery(lore_image)
 		else
-			trickery_image = image(src, src)
+			trickery_image = image(src, parent_xeno)
 	trickery_image.override = TRUE
 	trickery_image.plane = SEETHROUGH_PLANE
 	trickery_image.pixel_x = 0
@@ -334,16 +344,24 @@
 
 	parent_xeno.client.images += trickery_image
 	animate(trickery_image, alpha = 100, time = TRICKERY_ANIMATION_TIME)
+	for(var/atom/movable/visible in trickery_image.vis_contents)
+		animate(visible, alpha = 100, time = TRICKERY_ANIMATION_TIME)
+	RegisterSignal(parent_xeno, list(COMSIG_MOB_LOGOUT, COMSIG_MOB_GHOSTIZE), PROC_REF(untrick_mob))
 
 /atom/movable/xeno_customization_vis_obj/proc/untrick_mob()
 	SIGNAL_HANDLER
 	. = COMPONENT_SEETHROUGH_UNTRICKED
 
 	animate(trickery_image, alpha = 255, time = TRICKERY_ANIMATION_TIME)
+	for(var/atom/movable/visible in trickery_image.vis_contents)
+		animate(visible, alpha = 255, time = TRICKERY_ANIMATION_TIME)
 	addtimer(CALLBACK(src, PROC_REF(clear_tricky)), TRICKERY_ANIMATION_TIME)
 
 /atom/movable/xeno_customization_vis_obj/proc/clear_tricky()
+	SIGNAL_HANDLER
+
 	parent_xeno.client?.images -= trickery_image
 	QDEL_NULL(trickery_image)
+	UnregisterSignal(parent_xeno, list(COMSIG_MOB_LOGOUT, COMSIG_MOB_GHOSTIZE))
 
 #undef TRICKERY_ANIMATION_TIME
