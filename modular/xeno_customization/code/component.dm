@@ -325,13 +325,6 @@
 	copy.layer = source.layer
 	for(var/atom/movable/xeno_customization_part/visible in copy.vis_contents)
 		visible.plane = SEETHROUGH_PLANE
-		if(!visible.is_subtract)
-			continue
-		// visible.alpha = 999
-		// visible.appearance_flags
-		// visible.render_target = "*subtract_filter_[REF(src)]"
-		// var/subtract_filter = filter(type="alpha", render_source = visible.render_target, flags = MASK_INVERSE)
-		// copy.filters += subtract_filter
 	return copy
 
 /atom/movable/xeno_customization_vis_obj/proc/trick_mob()
