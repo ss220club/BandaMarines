@@ -6,10 +6,10 @@
 /mob/living/proc/get_shield_armor_bonus()
 	var/obj/item/weapon/shield/S = get_readied_shield()
 	if(S)
-		return 80
+		return 78
 
 	if(istype(l_hand, /obj/item/weapon/shield) || istype(r_hand, /obj/item/weapon/shield))
-		return 65
+		return 45
 
 	return 0
 
@@ -28,12 +28,12 @@
 	icon_state = "ballisticshield"
 	item_state = "ballisticshield"
 	base_icon_state = "ballisticshield"
-	passive_block = 80
+	passive_block = 65
 	passive_projectile_mult = PROJECTILE_BLOCK_PERC_80
 	readied_block = SHIELD_CHANCE_MAX
 	readied_projectile_mult = PROJECTILE_BLOCK_PERC_100
 	COOLDOWN_DECLARE(attack_cooldown)
-	readied_slowdown = 2
+	readied_slowdown = 3
 	var/cooldown_time = 25 SECONDS
 	
 /obj/item/weapon/shield/riot/riot_mp/Initialize()
