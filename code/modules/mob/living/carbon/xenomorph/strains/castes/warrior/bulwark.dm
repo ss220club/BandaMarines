@@ -1,6 +1,6 @@
 /datum/xeno_strain/bulwark
 	name = WARRIOR_BULWARK
-	description = "You give up all of your normal abilities, some damage, speed, and tackle reliability in exchange for plasma, slightly stronger explosive resistance, and directional defenses. You take 50% less damage from wired cades, have a 75% chance to strike enemies behind wired cades, and gain bonus directional armor. Encasing Plates lets you enter a defensive stance that slows your movement but increases directional armor, makes you immune to knockbacks, and allows you to tear openings in walls and allow to attack enemies. Plate Bash dashes up to 3 tiles and strikes a target; while encased, it instead launches the target 3 tiles away and knocks them down. Tail Swing trips down enemies around you, and if used on a grenade, reflects it up to 3 tiles away with a reduced cooldown. Reflective Shield allows you to can stop this ability at any time to gain 1s used as 2s cooldown, reflecting bullets back towards enemy up to 10 seconds, high from the front, medium from the sides, and low from behind."
+	description = "You give up all of your normal abilities, some damage, speed, and tackle reliability in exchange for plasma, slightly stronger explosive resistance, and directional defenses. You take 50% less damage from wired cades, have a 75% chance to strike enemies behind wired cades, and gain bonus directional armor and no directional lock slowdown. Encasing Plates lets you enter a defensive stance that slows your movement but increases directional armor, makes you immune to knockbacks, and allows you to tear openings in walls and allow to attack enemies. Plate Bash dashes up to 3 tiles and strikes a target; while encased, it instead launches the target 3 tiles away and knocks them down. Tail Swing trips down enemies around you, and if used on a grenade, reflects it up to 3 tiles away with a reduced cooldown. Reflective Shield allows you to can stop this ability at any time to gain 1s used as 2s cooldown, reflecting bullets back towards enemy up to 6 seconds with 100% chance from front only."
 	flavor_description = "Where there's a sword, there's a shield."
 	icon_state_prefix = "Bulwark"
 
@@ -33,11 +33,8 @@
 //
 
 #define BULWARK_DIR_ARMOR 10
-#define BULWARK_GRENADE_SWEEP_THROW 2
-#define BULWARK_REFLECTION_DURATION 10 SECONDS
-#define BULWARK_REFLECTION_CHANCE_BASE 80
-#define BULWARK_REFLECTION_CHANCE_SIDES 65
-#define BULWARK_REFLECTION_CHANCE_BACK 30
+#define BULWARK_GRENADE_SWEEP_THROW 3
+#define BULWARK_REFLECTION_CHANCE_FRONT 100
 #define BULWARK_REFLECTED_BULLET_DAMAGE 0.5
 #define BULWARK_REFLECTED_BULLET_ACCURACY 80
 
@@ -66,6 +63,7 @@
 
 /datum/behavior_delegate/warrior_bulwark/add_to_xeno()
 	RegisterSignal(bound_xeno, COMSIG_XENO_PRE_CALCULATE_ARMOURED_DAMAGE_PROJECTILE, PROC_REF(apply_directional_armor))
+	ADD_TRAIT(bound_xeno, TRAIT_NO_DIR_LOCK_SLOWDOWN, TRAIT_SOURCE_ABILITY("no_dir_lock_slowdown"))
 
 /datum/behavior_delegate/warrior_bulwark/proc/apply_directional_armor(mob/living/carbon/xenomorph/xeno_player, list/damagedata)
 	SIGNAL_HANDLER
@@ -99,10 +97,6 @@
 	if(!istype(xeno_player))
 		return
 
-	var/datum/behavior_delegate/warrior_bulwark/behavior = xeno_player.behavior_delegate
-	if(!istype(behavior))
-		return
-
 	XENO_ACTION_CHECK(xeno_player)
 
 	var/datum/action/xeno_action/onclick/reflective_shield/ability_used = get_action(xeno_player, /datum/action/xeno_action/onclick/reflective_shield)
@@ -111,31 +105,57 @@
 			to_chat(xeno_player, SPAN_WARNING("We break our reflective stance!"))
 			ability_used.reflective_safe_click_cooldown = -1
 			ability_used.remove_reflective_shield()
-		REMOVE_TRAIT(xeno_player, TRAIT_ABILITY_ENCLOSED_PLATES, TRAIT_SOURCE_ABILITY("enclosed_plates"))
-		to_chat(xeno_player, SPAN_XENOWARNING("We lower our plates."))
-		xeno_player.ability_speed_modifier -= speed_debuff
-		xeno_player.mob_size = MOB_SIZE_XENO //no longer knockback immune
-		button.icon_state = "template_xeno"
-		behavior.frontal_armor -= BULWARK_DIR_ARMOR
-		behavior.sided_armor += BULWARK_DIR_ARMOR
-		xeno_player.damage_modifier += XENO_DAMAGE_MOD_BULWARK
-		xeno_player.tackle_min_modifier -= 2
+		disengage_plates()
 	else
-		ADD_TRAIT(xeno_player, TRAIT_ABILITY_ENCLOSED_PLATES, TRAIT_SOURCE_ABILITY("enclosed_plates"))
-		to_chat(xeno_player, SPAN_XENOWARNING("We raise our plates and form a shield."))
-		xeno_player.ability_speed_modifier += speed_debuff
-		xeno_player.mob_size = MOB_SIZE_BIG //knockback immune
-		button.icon_state = "template_active"
-		behavior.frontal_armor += BULWARK_DIR_ARMOR
-		behavior.sided_armor -= BULWARK_DIR_ARMOR
-		xeno_player.damage_modifier -= XENO_DAMAGE_MOD_BULWARK
-		xeno_player.tackle_min_modifier += 2
+		engage_plates()
+
+	return ..()
+
+/datum/action/xeno_action/onclick/toggle_plates/proc/engage_plates()
+	var/mob/living/carbon/xenomorph/xeno_player = owner
+	if(!istype(xeno_player))
+		return
+
+	var/datum/behavior_delegate/warrior_bulwark/behavior = xeno_player.behavior_delegate
+	if(!istype(behavior))
+		return
+
+	ADD_TRAIT(xeno_player, TRAIT_ABILITY_ENCLOSED_PLATES, TRAIT_SOURCE_ABILITY("enclosed_plates"))
+	to_chat(xeno_player, SPAN_XENOWARNING("We raise our plates and form a shield."))
+	xeno_player.ability_speed_modifier += speed_debuff
+	xeno_player.mob_size = MOB_SIZE_BIG //knockback immune
+	button.icon_state = "template_active"
+	behavior.frontal_armor += BULWARK_DIR_ARMOR
+	behavior.sided_armor -= BULWARK_DIR_ARMOR
+	xeno_player.damage_modifier -= XENO_DAMAGE_MOD_BULWARK
+	xeno_player.tackle_min_modifier += 2
 
 	xeno_player.recalculate_tackle()
 	xeno_player.update_icons()
-
 	apply_cooldown()
-	return ..()
+
+/datum/action/xeno_action/onclick/toggle_plates/proc/disengage_plates()
+	var/mob/living/carbon/xenomorph/xeno_player = owner
+	if(!istype(xeno_player))
+		return
+
+	var/datum/behavior_delegate/warrior_bulwark/behavior = xeno_player.behavior_delegate
+	if(!istype(behavior))
+		return
+
+	REMOVE_TRAIT(xeno_player, TRAIT_ABILITY_ENCLOSED_PLATES, TRAIT_SOURCE_ABILITY("enclosed_plates"))
+	to_chat(xeno_player, SPAN_XENOWARNING("We lower our plates."))
+	xeno_player.ability_speed_modifier -= speed_debuff
+	xeno_player.mob_size = MOB_SIZE_XENO //no longer knockback immune
+	button.icon_state = "template_xeno"
+	behavior.frontal_armor -= BULWARK_DIR_ARMOR
+	behavior.sided_armor += BULWARK_DIR_ARMOR
+	xeno_player.damage_modifier += XENO_DAMAGE_MOD_BULWARK
+	xeno_player.tackle_min_modifier -= 2
+
+	xeno_player.recalculate_tackle()
+	xeno_player.update_icons()
+	apply_cooldown()
 
 //
 // 2nd ability
@@ -198,9 +218,16 @@
 /datum/action/xeno_action/onclick/tail_swing/use_ability()
 	var/mob/living/carbon/xenomorph/xeno_player = owner
 
+	var/datum/action/xeno_action/onclick/reflective_shield/ability_used = get_action(xeno_player, /datum/action/xeno_action/onclick/reflective_shield)
+	var/datum/action/xeno_action/onclick/toggle_plates/plates_used = get_action(xeno_player, /datum/action/xeno_action/onclick/toggle_plates)
+
 	if(HAS_TRAIT(xeno_player, TRAIT_ABILITY_ENCLOSED_PLATES))
-		xeno_player.balloon_alert(xeno_player, "we need to loosen our plates!", text_color = "#7d32bb", delay = 1 SECONDS)
-		return
+		if(HAS_TRAIT(xeno_player, TRAIT_ABILITY_REFLECTIVE_PLATES))
+			to_chat(xeno_player, SPAN_WARNING("We break our reflective stance!"))
+			ability_used.reflective_safe_click_cooldown = -1
+			ability_used.remove_reflective_shield()
+		to_chat(xeno_player, SPAN_WARNING("We break our defensive stance!"))
+		plates_used.disengage_plates()
 
 	xeno_player.visible_message(SPAN_XENOWARNING("[xeno_player] swings its tail in a wide circle!"),
 	SPAN_XENOWARNING("We swing our tail in a wide circle!"))
@@ -270,6 +297,7 @@
 	if(!check_and_use_plasma_owner(80))
 		return
 
+	xeno_player.create_shield(BULWARK_REFLECTIVE_TIME, "shield2")
 	ADD_TRAIT(xeno_player, TRAIT_ABILITY_REFLECTIVE_PLATES, TRAIT_SOURCE_ABILITY("reflective_plates"))
 	button.icon_state = "template_active"
 	reflective_start_time = world.time
@@ -282,7 +310,7 @@
 	if(reflective_shield_timer_id != TIMER_ID_NULL)
 		deltimer(reflective_shield_timer_id)
 
-	reflective_shield_timer_id = addtimer(CALLBACK(src, PROC_REF(remove_reflective_shield)), BULWARK_REFLECTION_DURATION, TIMER_STOPPABLE)
+	reflective_shield_timer_id = addtimer(CALLBACK(src, PROC_REF(remove_reflective_shield)), BULWARK_REFLECTIVE_TIME, TIMER_STOPPABLE)
 
 	apply_cooldown()
 	return ..()
@@ -301,6 +329,7 @@
 		to_chat(xeno_player, SPAN_XENOWARNING("We need a moment before breaking our reflective stance!"))
 		return
 
+	xeno_player.remove_suit_layer()
 	REMOVE_TRAIT(xeno_player, TRAIT_ABILITY_REFLECTIVE_PLATES, TRAIT_SOURCE_ABILITY("reflective_plates"))
 	button.icon_state = "template_xeno"
 	xeno_player.remove_filter("reflective_shield")
@@ -312,13 +341,10 @@
 
 	if(ability_used.reflective_start_time > 0)
 		var/used_ratio = round((world.time - ability_used.reflective_start_time) / ability_used.duration, 0.1)
-		ability_used.reflective_recharge_time = max(BULWARK_REFLECTION_DURATION * used_ratio * ability_used.reflective_refund_multiplier, 5 SECONDS)
+		ability_used.reflective_recharge_time = max(BULWARK_REFLECTIVE_TIME * used_ratio * ability_used.reflective_refund_multiplier, 5 SECONDS)
 
 	ability_used.reflective_start_time = -1
 	apply_cooldown_override(ability_used.reflective_recharge_time)
-
-/datum/action/xeno_action/onclick/reflective_shield/proc/stop_yellow_visual()
-	owner.remove_filter("bulwark_yellow_outline")
 
 /mob/living/carbon/xenomorph/warrior/get_reflection_chance(obj/projectile/bullet)
 	var/datum/behavior_delegate/warrior_bulwark/behavior = src.behavior_delegate
@@ -328,8 +354,11 @@
 	if(!HAS_TRAIT(src, TRAIT_ABILITY_REFLECTIVE_PLATES))
 		return
 
-	if((bullet.ammo.flags_ammo_behavior & AMMO_SNIPER) || (bullet.ammo.flags_ammo_behavior & AMMO_ROCKET) || (bullet.ammo.flags_ammo_behavior & AMMO_XENO))
-		return //we don't want to reflect sniper bullets or rockets.
+	if(body_position == LYING_DOWN || stat == UNCONSCIOUS)
+		return //we don't want to reflect bullets when we are laying down/unconscious.
+
+	if((bullet.ammo.flags_ammo_behavior & AMMO_SNIPER) || (bullet.ammo.flags_ammo_behavior & AMMO_ROCKET) || (bullet.ammo.flags_ammo_behavior & AMMO_XENO) || (bullet.ammo.flags_ammo_behavior & AMMO_NO_DEFLECT))
+		return //we don't want to reflect sniper bullets, rockets and anti-reflection bullets.
 
 	var/projectile_dir = 0
 
@@ -339,29 +368,13 @@
 	projectile_dir = bullet.dir
 
 	if(src.dir & REVERSE_DIR(projectile_dir))
-		return BULWARK_REFLECTION_CHANCE_BASE
+		return BULWARK_REFLECTION_CHANCE_FRONT
 
 	for(var/side_dir in get_perpen_dir(src.dir))
 		if(projectile_dir == side_dir)
-			return BULWARK_REFLECTION_CHANCE_SIDES
+			return
 
-	return BULWARK_REFLECTION_CHANCE_BACK
-
-/obj/projectile/proc/reflect_projectile_at_firer(mob/living/carbon/xenomorph/xeno_player, obj/projectile/bullet)
-	if(!bullet.firer || !isturf(loc))
-		return
-
-	var/obj/projectile/new_proj = new(get_turf(xeno_player), create_cause_data("reflective shield"))
-	new_proj.generate_bullet(bullet.ammo)
-	new_proj.damage = bullet.damage * BULWARK_REFLECTED_BULLET_DAMAGE
-	new_proj.accuracy = BULWARK_REFLECTED_BULLET_ACCURACY
-	new_proj.projectile_flags |= PROJECTILE_SHRAPNEL
-
-	var/angle = Get_Angle(xeno_player, bullet.firer) + rand(-25, 25)
-	var/atom/target = get_angle_target_turf(xeno_player, angle, get_dist_sqrd(xeno_player, bullet.firer))
-	new_proj.fire_at(target, xeno_player, xeno_player, 7, speed = bullet.ammo.shell_speed)
-
-	to_chat(xeno_player, SPAN_XENOWARNING("We reflect [bullet] back at [bullet.firer]!"))
+	return
 
 //
 // Custom Proc(s)
