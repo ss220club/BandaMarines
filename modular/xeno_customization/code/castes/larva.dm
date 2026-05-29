@@ -3,6 +3,7 @@
 /datum/xeno_customization_option/larva
 	abstract_type = /datum/xeno_customization_option/larva
 	caste = XENO_CASTE_LARVA
+	var/total_timelock = JOB_PLAYTIME_TIER_0
 
 /datum/xeno_customization_option/larva/check_full_body_states()
 	. = TRUE
@@ -22,6 +23,13 @@
 
 #undef LARVA_REQUIRED_STATES
 
+/datum/xeno_customization_option/larva/is_locked_with_reasons(client/user)
+	. = ..()
+	if(user.get_total_xeno_playtime() < total_timelock)
+		var/hours = total_timelock / (1 HOURS)
+		. += "Необходимое время на ксеноморфах: [hours] час[declension_ru(hours, "", "а", "ов")]. "
+	return .
+
 /datum/xeno_customization_option/larva/mister
 	name = "Мистер-лярва"
 	key = "larva_mister"
@@ -29,11 +37,14 @@
 	icon_path = 'modular/xeno_customization/icons/larva/mister.dmi'
 	slot = CUSTOMIZATION_SLOT_ALL
 	full_body_customization = TRUE
-	var/total_timelock = JOB_PLAYTIME_TIER_3
+	total_timelock = JOB_PLAYTIME_TIER_3
 
-/datum/xeno_customization_option/larva/mister/is_locked_with_reasons(client/user)
-	. = ..()
-	if(user.get_total_xeno_playtime() < total_timelock)
-		var/hours = total_timelock / (1 HOURS)
-		. += "Необходимое время на ксеноморфах: [hours] час[declension_ru(hours, "", "а", "ов")]. "
-	return .
+// @tiran2917
+/datum/xeno_customization_option/larva/disco
+	name = "Диско-лярва"
+	key = "larva_disco"
+	customization_type = XENO_CUSTOMIZATION_NON_LORE_FRIENDLY
+	icon_path = 'modular/xeno_customization/icons/larva/disco.dmi'
+	slot = CUSTOMIZATION_SLOT_ALL
+	full_body_customization = TRUE
+	total_timelock = JOB_PLAYTIME_TIER_4
