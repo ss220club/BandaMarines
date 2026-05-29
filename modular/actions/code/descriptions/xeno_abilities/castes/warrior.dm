@@ -43,7 +43,7 @@
 
 /datum/action/xeno_action/onclick/tail_swing
 	desc = "Ударить хвостом вокруг себя, опрокидывая (%KNOCKDOWN%) носителей и отталкивая гранаты вокруг себя. Наносит %DAMAGE% урона. \
-		<br>Нельзя использовать с опущенными плитами. \
+		<br>Использование с опущенными плитами поднимет их. \
 		<br>Если попадание было только по гранате или был промах, перезарядка будет в три раза быстрее."
 
 /datum/action/xeno_action/onclick/tail_swing/apply_replaces_in_desc()
@@ -51,14 +51,11 @@
 	replace_in_desc("%DAMAGE%", 15)
 
 /datum/action/xeno_action/onclick/reflective_shield
-	desc = "Опущенные плиты позволят с шансом %REFLECT_CHANCE%% (%REFLECT_CHANCE_SIDE%% сбоку и %REFLECT_CHANCE_BACK%% с тыла) отражать обычные снаряды до %DURATION% \
+	desc = "Опущенные плиты позволят отражать обычные снаряды до %DURATION% \
 	<br>Ранняя деактивация уменьшает перезарядку. \
 	<br>Отраженные снаряды наносят %REFLECTED_DAMAGE%% урона. \
 	<br>Не отражает ракеты и снайперские снаряды."
 
 /datum/action/xeno_action/onclick/reflective_shield/apply_replaces_in_desc()
-	replace_in_desc("%REFLECT_CHANCE%", BULWARK_REFLECTION_CHANCE_BASE)
-	replace_in_desc("%REFLECT_CHANCE_SIDE%", BULWARK_REFLECTION_CHANCE_SIDES)
-	replace_in_desc("%REFLECT_CHANCE_BACK%", BULWARK_REFLECTION_CHANCE_BACK)
 	replace_in_desc("%REFLECTED_DAMAGE%", BULWARK_REFLECTED_BULLET_DAMAGE * 100)
-	replace_in_desc("%DURATION%", BULWARK_REFLECTION_DURATION / (1 SECONDS), DESCRIPTION_REPLACEMENT_TIME)
+	replace_in_desc("%DURATION%", duration / (1 SECONDS), DESCRIPTION_REPLACEMENT_TIME)
