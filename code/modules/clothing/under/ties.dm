@@ -836,6 +836,8 @@
 		WEAR_JACKET = 'icons/mob/humans/onmob/clothing/accessory/ponchos.dmi'
 	)
 
+// worn_accessory_slot = ACCESSORY_SLOT_PONCHO - SS220 EDIT
+
 //Ties that can store stuff
 
 /obj/item/storage/internal/accessory
