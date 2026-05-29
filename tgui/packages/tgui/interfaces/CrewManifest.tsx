@@ -60,14 +60,14 @@ export const CrewManifest = (props, context) => {
     });
 
   return (
-    <Window width={550} height={800}>
+    <Window width={650} height={800}>
       <Window.Content className="CrewManifest" scrollable>
         <Section>
           <Input
             value={searchTerm}
             onInput={(_, value) => setSearchTerm(value.toLowerCase())}
             width="100%"
-            placeholder="Поиск по имени или званию..."
+            placeholder="Поиск..."
           />
         </Section>
 
@@ -85,7 +85,8 @@ export const CrewManifest = (props, context) => {
             .filter(
               (crew) =>
                 crew.name.toLowerCase().includes(searchTerm) ||
-                crew.rank.toLowerCase().includes(searchTerm),
+                crew.rank.toLowerCase().includes(searchTerm) ||
+                crew.paygrade_prefix.toLowerCase().includes(searchTerm),
             )
             .sort((a, b) => {
               const rankA = roleOrder.indexOf(a.rank);
@@ -119,7 +120,7 @@ export const CrewManifest = (props, context) => {
                     className={index % 2 === 0 ? 'row-even' : 'row-odd'}
                   >
                     <TableCell
-                      width="15%"
+                      width="12%"
                       textAlign="right"
                       pr="5px"
                       pt="5px"
@@ -129,7 +130,7 @@ export const CrewManifest = (props, context) => {
                       {crew.paygrade_prefix}
                     </TableCell>
                     <TableCell
-                      width="40%"
+                      width="50%"
                       textAlign="left"
                       pt="5px"
                       pb="5px"
@@ -139,7 +140,7 @@ export const CrewManifest = (props, context) => {
                       {crew.name}
                     </TableCell>
                     <TableCell
-                      width="40%"
+                      width="33%"
                       textAlign="right"
                       pr="2%"
                       pt="5px"

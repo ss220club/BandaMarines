@@ -120,8 +120,8 @@
 			if(egg_generation_progress >= 15)
 				egg_generation_progress = 0
 				xeno.eggs_cur++
-				to_chat(xeno, SPAN_XENONOTICE("Мы создаём яйцо. Сейчас в нём: [xeno.eggs_cur] / [xeno.eggs_max].")) // SS220 EDIT ADDICTION
-				xeno.update_icons()
+				to_chat(xeno, SPAN_XENONOTICE("Мы создаём яйцо. Сейчас в нём: [xeno.eggs_cur] / [xeno.eggs_max]."))
+				xeno.behavior_delegate?.on_update_icons()
 
 #undef EGGSAC_OFF_WEED_EGGCAP
 #undef EGGSAC_EGG_SUSTAIN_DISTANCE
