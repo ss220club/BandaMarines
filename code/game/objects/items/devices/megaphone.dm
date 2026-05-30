@@ -113,7 +113,7 @@
 
 		for(var/mob/listener in listeners)
 			if(!ishumansynth_strict(listener) && !isobserver(listener))
-				listener.show_message("[user] says something into the [name], but you can't understand it.")
+				listener.show_message("[capitalize(user.declent_ru(NOMINATIVE))] says something into the [name], but you can't understand it.")
 				continue
 			var/broadcast = message
 
@@ -122,6 +122,7 @@
 					broadcast = speaking.scramble(message)
 				broadcast = "<span class='[speaking.color]'>\"[broadcast]\"</span>"
 
+			user.cast_tts(listener, broadcast, user, additional_effects = list(/datum/singleton/sound_effect/megaphone))	// SS220 ADD - TTS
 			listener.show_message("<B>[paygrade][user]</B> broadcasts, [FONT_SIZE_LARGE(broadcast)]", SHOW_MESSAGE_AUDIBLE, chat_type = MESSAGE_TYPE_LOCALCHAT)
 
 			if(isliving(listener))
