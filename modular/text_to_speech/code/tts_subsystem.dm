@@ -548,7 +548,7 @@ SUBSYSTEM_DEF(tts220)
 	var/static/regex/forbidden_symbols = new(@"[^a-zA-Z0-9а-яА-ЯёЁ,!?+./ \r\n\t:—()-]", "g")
 	. = forbidden_symbols.Replace(., "")
 	var/static/regex/acronyms = new(@"(?<![a-zA-Zа-яёА-ЯЁ])[a-zA-Zа-яёА-ЯЁ]+?(?![a-zA-Zа-яёА-ЯЁ])", "gm")
-	. = replacetext_char(., acronyms, PROC_REF(tts_acronym_replacer))
+	. = replacetext_char(., acronyms, GLOBAL_PROC_REF(tts_acronym_replacer))
 
 	if(LAZYLEN(tts_job_replacements))
 		for(var/job in tts_job_replacements)
@@ -585,11 +585,11 @@ SUBSYSTEM_DEF(tts220)
 	return pick(tts_by_gender)
 
 /// Proc intended to use with `replacetext`. Is global because `replacetext` cant use non globabl procs.
-/datum/controller/subsystem/tts220/proc/tts_acronym_replacer(word)
-	if(!word || !LAZYLEN(tts_acronym_replacements))
+/proc/tts_acronym_replacer(word)
+	if(!word || !LAZYLEN(SStts220.tts_acronym_replacements))
 		return word
 
-	var/match = tts_acronym_replacements[lowertext(word)]
+	var/match = SStts220.tts_acronym_replacements[lowertext(word)]
 	return match || word
 
 /// Removes excessive symbols from visible chat messages. Call after TTS message is sent and before visible message is sent
