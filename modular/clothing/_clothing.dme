@@ -3,3 +3,16 @@
 #include "code/ftl_helmet.dm"
 #include "code/ponchos.dm"
 #include "code/lv773_clothing.dm"
+// BEGIN_INTERNALS
+// END_INTERNALS
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+// END_FILE_DIR
+// BEGIN_PREFERENCES
+// END_PREFERENCES
+// BEGIN_INCLUDE
+#include "_clothing.dm"
+#include "code\ftl_helmet.dm"
+#include "code\lv773_clothing.dm"
+#include "code\ponchos.dm"
+// END_INCLUDE

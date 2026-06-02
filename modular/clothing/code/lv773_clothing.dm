@@ -33,7 +33,7 @@
 	item_icons = list(
 		WEAR_BODY = 'modular/clothing/onmob/roaf/uniform.dmi',
 	)
-	icon_state = "roaf_uniform"
+	icon_state = "roaf_sniper"
 	worn_state = "roaf_sniper"
 	armor_melee = CLOTHING_ARMOR_LOW
 	armor_bullet = CLOTHING_ARMOR_LOW
@@ -125,7 +125,7 @@
 	item_icons = list(
 		WEAR_HEAD = 'modular/clothing/onmob/roaf/head.dmi',
 	)
-	icon_state = "head_roaf_pilot"
+	icon_state = "roaf_pilot_hat"
 	item_state = "roaf_pilot_hat"
 	flags_armor_protection = BODY_FLAG_HEAD
 	armor_melee = CLOTHING_ARMOR_MEDIUMLOW
