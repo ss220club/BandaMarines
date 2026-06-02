@@ -54,7 +54,8 @@
 	desc = "Опущенные плиты позволят отражать обычные снаряды до %DURATION% \
 	<br>Ранняя деактивация уменьшает перезарядку. \
 	<br>Отраженные снаряды наносят %REFLECTED_DAMAGE%% урона. \
-	<br>Не отражает ракеты и снайперские снаряды."
+	<br>Не отражает ракеты и снайперские снаряды. \
+	<br><br>Внимание! Во время действия ваши лапы будут заняты - вы не сможете атаковать или помогать."
 
 /datum/action/xeno_action/onclick/reflective_shield/apply_replaces_in_desc()
 	replace_in_desc("%REFLECTED_DAMAGE%", BULWARK_REFLECTED_BULLET_DAMAGE * 100)
