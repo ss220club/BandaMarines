@@ -6,7 +6,7 @@ ROAF - Royal Orbital Air Forces
 
 
 /datum/skills/survivor/roaf_rifleman
-	name = "IASF - Paratrooper - Rifleman"
+	name = "ROAF - Rifle Operator"
 	skills = list(
 		SKILL_ENGINEER = SKILL_ENGINEER_TRAINED,
 		SKILL_CONSTRUCTION = SKILL_CONSTRUCTION_DEFAULT,
@@ -21,7 +21,7 @@ ROAF - Royal Orbital Air Forces
 	)
 
 /datum/skills/survivor/roaf_sniper
-	name = "IASF - Paratrooper - Marksman"
+	name = "ROAF - Marksman Operator"
 	skills = list(
 		SKILL_ENGINEER = SKILL_ENGINEER_TRAINED,
 		SKILL_CONSTRUCTION = SKILL_CONSTRUCTION_DEFAULT,
@@ -55,7 +55,7 @@ ROAF - Royal Orbital Air Forces
 	)
 
 /datum/skills/survivor/roaf_engi
-	name = "ROAF - Engineer"
+	name = "ROAF - Technician"
 	skills = list(
 		SKILL_CQC = SKILL_CQC_SKILLED,
 		SKILL_FIREARMS = SKILL_FIREARMS_SKILLED,
@@ -71,7 +71,7 @@ ROAF - Royal Orbital Air Forces
 	)
 
 /datum/skills/survivor/roaf_medic
-	name = "ROAF - Medic"
+	name = "ROAF - Combat Medic"
 	skills = list(
 		SKILL_MEDICAL = SKILL_MEDICAL_DOCTOR,
 		SKILL_SURGERY = SKILL_SURGERY_TRAINED,

@@ -1,0 +1,64 @@
+{
+	"map_name": "LV-733 Whitchler Point",
+	"short_name": "Whitchler Point",
+	"map_path": "map_files/LV733_Whitchler_Point",
+	"map_file": "lv-733.dmm",
+	"webmap_url": "LV733",
+	"weather_holder": "/datum/weather_ss_map_holder/lv733_whitchler_point",
+	"survivor_types": [
+		"/datum/equipment_preset/survivor/roaf/paratrooper",
+		"/datum/equipment_preset/survivor/roaf/engi",
+		"/datum/equipment_preset/survivor/roaf/medic",
+		"/datum/equipment_preset/survivor/roaf/pilot",
+		"/datum/equipment_preset/survivor/roaf/sniper",
+		"/datum/equipment_preset/survivor/roaf/squad_leader"
+	],
+	"synth_survivor_types": [
+		"/datum/equipment_preset/synth/survivor/roaf_synth"
+	],
+	"CO_survivor_types": [
+		"/datum/equipment_preset/survivor/whitchler/roaf_commander"
+	],
+	"defcon_triggers": [
+		3300,
+		2100,
+		1450,
+		580,
+		0.0
+	],
+	"survivor_message": "Вы — оставшаяся часть 38-ой Королеской Авиа-Орбитальной группы, заблокированные на LV-733 Whitchler Point. Колония мертва или умирает, связь с внешним командованием превратилась в рваные обрывки сигналов. Припасы сокращаются, вы на грани срыва и понимаете: твари будут пытаться схватить вас и нужно что-делать, пока не стало совсем поздно ...",
+	"announce_text": "Получен автоматический сигнал бедствия с колонии LV-733 \"Уитшлер Поинт\". Научно-технологический космодром сил ИТМ и Вейланд-Ютани перестал выходить на связь 22 часа назад. Последняя передача сенсорной вышки зафиксировала 43 признака жизни, после чего сигнал оборвался. Температура на поверхности 6°C, к колонии приближается циклон, осложняющий сканирование. Некоторые внутренние каналы всё ещё активны, но передают фрагментированные искажённые сигналы. Для оценки ситуации с ###SHIPNAME### будет направлена группа быстрого реагирования.",
+	"co_briefing": {
+		"Hawks": "modular/lv773/maps/map_briefings/commanding_officer/lv733/LV733cpo.html",
+		"Doves": "modular/lv773/maps/map_briefings/commanding_officer/lv733/LV733hmm.html",
+		"Magpies": "modular/lv773/maps/map_briefings/commanding_officer/lv733/LV733modi.html",
+		"Unaligned": "modular/lv773/maps/map_briefings/commanding_officer/lv733/LV733unaligned.html"
+	},
+	"map_item_type": "/obj/item/map/lv733_map",
+	"monkey_types": [
+		"monkey"
+	],
+	"environment_traits": {
+		"Fog": true
+	},
+	"traits": [
+		{
+			"Ground": true
+		}
+	],
+	"nightmare_path": "modular/lv773/maps/Nightmare/LV733_Whitchler_Point/",
+	"xvx_hives": {
+		"xeno_hive_alpha": 0,
+		"xeno_hive_bravo": 0,
+		"xeno_hive_charlie": 0,
+		"xeno_hive_delta": 0
+	},
+	"camouflage": "urban",
+	"gamemodes": [
+		"Distress Signal",
+		"Hunter Games",
+		"Hive Wars",
+		"Faction Clash",
+		"Infection"
+	]
+}

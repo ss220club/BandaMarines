@@ -63,6 +63,9 @@ endmap
 map lv733_marlowe_point
 endmap
 
+map lv733_whitchler_point
+endmap
+
 map new_varadero
 endmap
 

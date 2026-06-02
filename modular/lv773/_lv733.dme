@@ -1,0 +1,34 @@
+#include "code/defines.dm"
+#include "code/datums/factions/roaf.dm"
+#include "code/datums/skills/roaf.dm"
+#include "code/datums/weather/weather_events/lv733_whitchler_point.dm"
+#include "code/datums/weather/weather_map_holders/lv733_whitchler_point.dm"
+#include "code/game/area/LV733.dm"
+#include "code/game/jobs/job/squads.dm"
+#include "code/game/objects/effects/landmarks/survivor_spawner.dm"
+#include "code/modules/gear_presets/survivors/lv_733/roaf_survivors.dm"
+#include "code/modules/projectiles/gun_attachables.dm"
+
+/datum/modpack/lv733
+	name = "lv733"
+	desc = "Добавляет новую одежду и карту"
+	author = "_kioz & mally"
+// BEGIN_INTERNALS
+// END_INTERNALS
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+// END_FILE_DIR
+// BEGIN_PREFERENCES
+// END_PREFERENCES
+// BEGIN_INCLUDE
+#include "code\defines.dm"
+#include "code\datums\factions\roaf.dm"
+#include "code\datums\skills\roaf.dm"
+#include "code\datums\weather\weather_events\lv733_whitchler_point.dm"
+#include "code\datums\weather\weather_map_holders\lv733_whitchler_point.dm"
+#include "code\game\area\LV733.dm"
+#include "code\game\jobs\job\squads.dm"
+#include "code\game\objects\effects\landmarks\survivor_spawner.dm"
+#include "code\modules\gear_presets\survivors\lv_733\roaf_survivors.dm"
+#include "code\modules\projectiles\gun_attachables.dm"
+// END_INCLUDE

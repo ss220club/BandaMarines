@@ -2,7 +2,7 @@
 	"<span class='notice' style='color:#A6A6A6;'>You ARE aware of the xenomorph threat.</span>",\
 	"<span class='danger' style='color:#7F2F2B;'>Your primary objective is to survive.</span>")
 
-#define ROAF_SURVIVOR_STORY "<p style='font-size:95%; color:#A6A6A6;'>Outpost Marlowe - RAF training ground of TWE on LV-733 \"Marlowe Point\". Only your squad remains. Supplies are gone. Evac is impossible. This was not an accident. Weyland-Yutani is involved. Distress signal sent. Hold position.</p>"
+#define ROAF_SURVIVOR_STORY "<p style='font-size:95%; color:#A6A6A6;'>Outpost Whitchler - ROAF training ground of TWE on LV-733 \"Whitchler Point\". Only your squad remains. Supplies are gone. Evac is impossible. This was not an accident. Weyland-Yutani is involved. Distress signal sent. Hold position.</p>"
 
 /// ROAF ///
 
@@ -10,10 +10,14 @@
 	icon_state = "surv_twe"
 	equipment = /datum/equipment_preset/survivor/roaf/paratrooper
 	synth_equipment = /datum/equipment_preset/synth/survivor/roaf_synth
-	CO_equipment = /datum/equipment_preset/survivor/aegis/roaf_commander
+	CO_equipment = /datum/equipment_preset/survivor/whitchler/roaf_commander
 	intro_text = ROAF_SURVIVOR_INTRO
 	story_text = ROAF_SURVIVOR_STORY
 	spawn_priority = SPAWN_PRIORITY_LOW
+
+/obj/effect/landmark/survivor_spawner/twe/roaf/sniper
+	equipment = /datum/equipment_preset/survivor/roaf/sniper
+	spawn_priority = SPAWN_PRIORITY_MEDIUM
 
 /obj/effect/landmark/survivor_spawner/twe/roaf/paratrooper
 	equipment = /datum/equipment_preset/survivor/roaf/paratrooper
@@ -29,11 +33,11 @@
 
 /obj/effect/landmark/survivor_spawner/twe/roaf/pilot
 	equipment = /datum/equipment_preset/survivor/roaf/pilot
-	spawn_priority = SPAWN_PRIORITY_HIGH
+	spawn_priority = SPAWN_PRIORITY_MEDIUM
 
 /obj/effect/landmark/survivor_spawner/twe/roaf/squad_leader
 	equipment = /datum/equipment_preset/survivor/roaf/squad_leader
-	spawn_priority = SPAWN_PRIORITY_VERY_HIGH
+	spawn_priority = SPAWN_PRIORITY_HIGH
 
 #undef ROAF_SURVIVOR_INTRO
 #undef ROAF_SURVIVOR_STORY
