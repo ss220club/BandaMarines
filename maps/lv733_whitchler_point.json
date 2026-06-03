@@ -39,7 +39,8 @@
 		"monkey"
 	],
 	"environment_traits": {
-		"Fog": true
+		"Fog": true,
+		"COLD": true
 	},
 	"traits": [
 		{
