@@ -280,8 +280,9 @@
 			ADD_TRAIT(new_xeno, TRAIT_LISPING, affected_mob)
 
 		to_chat(new_xeno, SPAN_XENOANNOUNCE("Вы - грудолом внутри хоста! Двигайтесь, чтобы вырваться из него!"))
-		to_chat(new_xeno, SPAN_XENO("<B>Ваша задача - защищать Королеву и улей, однако если Королевы нет, вы можете стать ею! Просто эволюционировав в Королеву.</B>")) // SS220 EDIT ADDICTION
+		to_chat(new_xeno, SPAN_XENO("<B>Ваша задача - защищать Королеву и улей, однако если Королевы нет, вы можете стать ею, просто эволюционировав в Королеву!</B>"))
 		to_chat(new_xeno, SPAN_XENO("Для общения в Разуме улья, используйте символ <strong>;</strong> (например, ';Жизнь за Королеву!')"))
+		to_chat(new_xeno, SPAN_XENOANNOUNCE("Помните, что вам не следует покидать безопасность улья при отсутствии угроз, и что вам следует беречь себя до эволюции!"))
 		playsound_client(new_xeno.client, 'sound/effects/xeno_newlarva.ogg', 25, 1)
 
 	// Inform observers to grab some popcorn if it isn't nested
