@@ -1,0 +1,4 @@
+#include "_clothing.dm"
+
+#include "code/ftl_helmet.dm"
+#include "code/ponchos.dm"
