@@ -128,6 +128,7 @@
 	skills = /datum/skills/survivor/roaf_sniper
 
 /datum/equipment_preset/survivor/roaf/sniper/load_gear(mob/living/carbon/human/new_human)
+	equip_common_gear(new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/marine/veteran/royal_marine/lv733/roaf_sniper(new_human), WEAR_BODY)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/jacket/marine/rmc/service/lv733/suit_roaf(new_human), WEAR_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/smock/lv733/poncho_roaf(new_human), WEAR_BACK)

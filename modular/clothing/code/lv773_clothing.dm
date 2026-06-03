@@ -127,6 +127,9 @@
 	)
 	icon_state = "icon_pilot"
 	item_state = "head_pilot"
+	item_state_slots = list(
+		WEAR_HEAD = "head_pilot"
+	)
 	flags_armor_protection = BODY_FLAG_HEAD
 	armor_melee = CLOTHING_ARMOR_MEDIUMLOW
 	armor_bullet = CLOTHING_ARMOR_MEDIUMLOW
@@ -146,6 +149,9 @@
 	)
 	icon_state = "icon_hat"
 	item_state = "head_hat"
+	item_state_slots = list(
+		WEAR_HEAD = "head_hat"
+	)
 	flags_armor_protection = BODY_FLAG_HEAD
 	armor_melee = CLOTHING_ARMOR_MEDIUMLOW
 	armor_bullet = CLOTHING_ARMOR_MEDIUMLOW
@@ -165,6 +171,9 @@
 	)
 	icon_state = "icon_beret"
 	item_state = "head_beret"
+	item_state_slots = list(
+		WEAR_HEAD = "head_beret"
+	)
 	flags_armor_protection = BODY_FLAG_HEAD
 	armor_melee = CLOTHING_ARMOR_MEDIUMLOW
 	armor_bullet = CLOTHING_ARMOR_MEDIUMLOW
@@ -184,6 +193,9 @@
 	)
 	icon_state = "icon_shooter"
 	item_state = "head_shooter"
+	item_state_slots = list(
+		WEAR_HEAD = "head_shooter"
+	)
 
 // Верхняя одежда
 
@@ -196,6 +208,9 @@
 	)
 	icon_state = "icon_jacket"
 	item_state = "suit_jacket"
+	item_state_slots = list(
+		WEAR_JACKET = "suit_jacket"
+	)
 	uniform_restricted = null
 	flags_armor_protection = BODY_FLAG_CHEST|BODY_FLAG_GROIN
 	armor_melee = CLOTHING_ARMOR_MEDIUMLOW
@@ -215,6 +230,9 @@
 	)
 	icon_state = "icon_officer"
 	item_state = "suit_officer"
+	item_state_slots = list(
+		WEAR_JACKET = "suit_officer"
+	)
 	uniform_restricted = null
 	flags_armor_protection = BODY_FLAG_CHEST|BODY_FLAG_GROIN
 	armor_melee = CLOTHING_ARMOR_MEDIUMLOW
@@ -234,6 +252,9 @@
 	)
 	icon_state = "icon_pilot"
 	item_state = "suit_pilot"
+	item_state_slots = list(
+		WEAR_JACKET = "suit_pilot"
+	)
 	uniform_restricted = null
 	flags_armor_protection = BODY_FLAG_CHEST|BODY_FLAG_GROIN
 	armor_melee = CLOTHING_ARMOR_MEDIUMLOW
@@ -252,6 +273,9 @@
 	)
 	icon_state = "icon_shooter"
 	item_state = "suit_shooter"
+	item_state_slots = list(
+		WEAR_JACKET = "suit_shooter"
+	)
 	uniform_restricted = null
 	flags_armor_protection = BODY_FLAG_CHEST|BODY_FLAG_GROIN
 	armor_melee = CLOTHING_ARMOR_MEDIUMLOW
@@ -271,6 +295,9 @@
 		WEAR_HANDS = 'modular/clothing/onmob/roaf/hands.dmi'
 	)
 	item_state = "hands_roaf"
+	item_state_slots = list(
+		WEAR_HANDS = "hands_roaf"
+	)
 	siemens_coefficient = 0
 
 // Рюкзак
@@ -284,6 +311,10 @@
 	)
 	icon_state = "backpack_roaf_sniper"
 	item_state = "backpack_roaf_sniper"
+	item_state_slots = list(
+		WEAR_BACK = "backpack_roaf_sniper"
+	)
+	flags_atom = FPRINT|NO_GAMEMODE_SKIN
 	worn_accessible = TRUE
 	xeno_types = null
 
@@ -296,6 +327,9 @@
 		WEAR_FEET = 'modular/clothing/onmob/roaf/shoes.dmi'
 	)
 	item_state = "shoes_roaf"
+	item_state_slots = list(
+		WEAR_FEET = "shoes_roaf"
+	)
 
 /obj/item/clothing/shoes/marine/royal_marine/knife/lv733/shoes_roaf_pilot
 	name = "\improper сапоги пилота ROAF"
@@ -304,6 +338,9 @@
 		WEAR_FEET = 'modular/clothing/onmob/roaf/shoes.dmi'
 	)
 	item_state = "shoes_pilot"
+	item_state_slots = list(
+		WEAR_FEET = "shoes_pilot"
+	)
 
 // Гарнитура
 
