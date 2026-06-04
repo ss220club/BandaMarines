@@ -6,6 +6,7 @@
 /datum/squad/marine/roaf
 	name = SQUAD_ROAF
 	equivalent_name = SQUAD_ROAF
+	faction = FACTION_ROAF
 
 	chat_color = "#324e6b"
 

@@ -314,10 +314,17 @@
 	item_state_slots = list(
 		WEAR_BACK = "item_backpack"
 	)
+	flags_atom = FPRINT|NO_GAMEMODE_SKIN
+	flags_item = ITEM_OVERRIDE_NORTHFACE
 	actions_types = list(
 		/datum/action/item_action/rto_pack/use_phone,
 		/datum/action/item_action/specialist/toggle_cloak
 	)
+	var/obj/structure/transmitter/internal/internal_transmitter
+	var/phone_category = RADIO_CHANNEL_ROAF
+	var/list/networks_receive = list(FACTION_ROAF, FACTION_MARINE)
+	var/list/networks_transmit = list(FACTION_ROAF, FACTION_MARINE)
+	var/base_icon = "icon_backpack"
 	uniform_restricted = list(/obj/item/clothing/suit/storage/jacket/marine/rmc/service/lv733/suit_roaf) //Need to wear Scout armor and helmet to equip this.
 	allow_gun_usage = TRUE
 	allowed_stealth_shooting = FALSE
@@ -325,6 +332,94 @@
 	unacidable = TRUE
 	explo_proof = TRUE
 	worn_accessible = TRUE
+
+/obj/item/storage/backpack/marine/satchel/scout_cloak/poncho_roaf/post_skin_selection()
+	base_icon = icon_state
+
+/obj/item/storage/backpack/marine/satchel/scout_cloak/poncho_roaf/Initialize()
+	. = ..()
+	internal_transmitter = new(src)
+	internal_transmitter.relay_obj = src
+	internal_transmitter.phone_category = phone_category
+	internal_transmitter.enabled = FALSE
+	internal_transmitter.networks_receive = networks_receive
+	internal_transmitter.networks_transmit = networks_transmit
+	RegisterSignal(internal_transmitter, COMSIG_TRANSMITTER_UPDATE_ICON, PROC_REF(check_for_ringing))
+	GLOB.radio_packs += src
+	update_icon()
+
+/obj/item/storage/backpack/marine/satchel/scout_cloak/poncho_roaf/Destroy()
+	GLOB.radio_packs -= src
+	QDEL_NULL(internal_transmitter)
+	return ..()
+
+/obj/item/storage/backpack/marine/satchel/scout_cloak/poncho_roaf/update_icon()
+	. = ..()
+	icon_state = base_icon
+	item_state = "item_backpack"
+
+/obj/item/storage/backpack/marine/satchel/scout_cloak/poncho_roaf/proc/check_for_ringing()
+	SIGNAL_HANDLER
+	update_icon()
+
+/obj/item/storage/backpack/marine/satchel/scout_cloak/poncho_roaf/forceMove(atom/dest)
+	. = ..()
+	if(!internal_transmitter)
+		return
+	if(isturf(dest))
+		internal_transmitter.set_tether_holder(src)
+	else
+		internal_transmitter.set_tether_holder(loc)
+
+/obj/item/storage/backpack/marine/satchel/scout_cloak/poncho_roaf/pickup(mob/user)
+	. = ..()
+	autoset_phone_id(user)
+
+/obj/item/storage/backpack/marine/satchel/scout_cloak/poncho_roaf/equipped(mob/user, slot)
+	. = ..()
+	autoset_phone_id(user)
+
+/obj/item/storage/backpack/marine/satchel/scout_cloak/poncho_roaf/dropped(mob/user)
+	. = ..()
+	autoset_phone_id(null)
+
+/obj/item/storage/backpack/marine/satchel/scout_cloak/poncho_roaf/proc/autoset_phone_id(mob/user)
+	if(!internal_transmitter)
+		return
+	if(!user)
+		internal_transmitter.phone_id = "[src]"
+		internal_transmitter.enabled = FALSE
+		return
+	if(ishuman(user))
+		var/mob/living/carbon/human/human_user = user
+		if(human_user.comm_title)
+			internal_transmitter.phone_id = "[human_user.comm_title] [human_user]"
+		else if(human_user.job)
+			internal_transmitter.phone_id = "[human_user.job] [human_user]"
+		else
+			internal_transmitter.phone_id = "[human_user]"
+
+		if(human_user.assigned_squad)
+			internal_transmitter.phone_id += " ([human_user.assigned_squad.name])"
+	else
+		internal_transmitter.phone_id = "[user]"
+	internal_transmitter.enabled = TRUE
+
+/obj/item/storage/backpack/marine/satchel/scout_cloak/poncho_roaf/proc/use_phone(mob/user)
+	if(internal_transmitter)
+		internal_transmitter.attack_hand(user)
+
+/obj/item/storage/backpack/marine/satchel/scout_cloak/poncho_roaf/attackby(obj/item/W, mob/user)
+	if(internal_transmitter && internal_transmitter.attached_to == W)
+		internal_transmitter.attackby(W, user)
+	else
+		. = ..()
+
+/datum/action/item_action/rto_pack/use_phone/action_activate()
+	. = ..()
+	for(var/obj/item/storage/backpack/marine/satchel/scout_cloak/poncho_roaf/radio_backpack in owner)
+		radio_backpack.use_phone(owner)
+		return
 
 // Обувь
 

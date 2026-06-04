@@ -6,6 +6,7 @@
 #include "code/game/area/LV733.dm"
 #include "code/game/jobs/job/squads.dm"
 #include "code/game/objects/effects/landmarks/survivor_spawner.dm"
+#include "code/modules/defenses/planted_flag.dm"
 #include "code/modules/gear_presets/survivors/lv_733/roaf_survivors.dm"
 #include "code/modules/projectiles/gun_attachables.dm"
 
@@ -13,6 +14,10 @@
 	name = "lv733"
 	desc = "Добавляет новую одежду и карту"
 	author = "_kioz & mally"
+/datum/modpack/lv733/initialize()
+	. = ..()
+	GLOB.allowed_helmet_items[/obj/item/attachable/flashlight/glowstick/roaf] = NO_GARB_OVERRIDE
+
 // BEGIN_INTERNALS
 // END_INTERNALS
 // BEGIN_FILE_DIR
@@ -29,6 +34,7 @@
 #include "code\game\area\LV733.dm"
 #include "code\game\jobs\job\squads.dm"
 #include "code\game\objects\effects\landmarks\survivor_spawner.dm"
+#include "code\modules\defenses\planted_flag.dm"
 #include "code\modules\gear_presets\survivors\lv_733\roaf_survivors.dm"
 #include "code\modules\projectiles\gun_attachables.dm"
 // END_INCLUDE
