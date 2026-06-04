@@ -531,10 +531,10 @@
 
 /obj/item/weapon/gun/revolver/upp
 	name = "\improper ZHNK-72 revolver"
-	desc = "The ZHNK-72 is a UPP designed revolver. The ZHNK-72 is used by the UPP armed forces in a policing role as well as limited numbers in the hands of SNCOs."
+	desc = "The ZHNK-72 is a SPN designed revolver. The ZHNK-72 is used by the SPN armed forces in a policing role as well as limited numbers in the hands of SNCOs."
 	icon = 'icons/obj/items/weapons/guns/guns_by_faction/UPP/revolvers.dmi'
-	icon_state = "zhnk72"
-	item_state = "zhnk72"
+	icon_state = "zhnk72_o"
+	item_state = "zhnk72_o"
 
 	fire_sound = "gun_pkd" //sounds stolen from bladerunner revolvers bc they aren't used and sound awesome
 	fire_rattle = 'sound/weapons/gun_pkd_fire01_rattle.ogg'
@@ -549,11 +549,8 @@
 		/obj/item/attachable/reddot, // Rail
 		/obj/item/attachable/reddot/small,
 		/obj/item/attachable/reflex,
-		/obj/item/attachable/flashlight,
 		/obj/item/attachable/scope,
-		/obj/item/attachable/scope/mini,
 		/obj/item/attachable/bayonet, // Muzzle
-		/obj/item/attachable/bayonet/upp,
 		/obj/item/attachable/heavy_barrel,
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/extended_barrel/vented,
