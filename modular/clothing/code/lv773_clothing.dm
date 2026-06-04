@@ -359,3 +359,10 @@
 	hud_type = MOB_HUD_FACTION_ROAF
 	additional_hud_types = list(MOB_HUD_FACTION_TWE, MOB_HUD_FACTION_MARINE)
 	volume = RADIO_VOLUME_IMPORTANT
+
+// ХИС
+
+/obj/item/attachable/flashlight/glowstick
+	name = "химсвет"
+	desc = "A simple glowstick for use in dark environments."
+	icon_state = ""
