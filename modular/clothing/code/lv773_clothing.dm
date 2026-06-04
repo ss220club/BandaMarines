@@ -302,21 +302,29 @@
 
 // Рюкзак
 
-/obj/item/storage/backpack/marine/smock/lv733/poncho_roaf
+/obj/item/storage/backpack/marine/satchel/scout_cloak/poncho_roaf
 	name = "\improper пончо снайпера ROAF"
 	desc = "A specially-designed smock with pockets for all your sniper needs."
 	icon = 'modular/clothing/icon/roaf/backpack.dmi'
 	item_icons = list(
 		WEAR_BACK = 'modular/clothing/onmob/roaf/backpack.dmi'
 	)
-	icon_state = "backpack_roaf_sniper"
-	item_state = "backpack_roaf_sniper"
+	icon_state = "icon_backpack"
+	item_state = "item_backpack"
 	item_state_slots = list(
-		WEAR_BACK = "backpack_roaf_sniper"
+		WEAR_BACK = "item_backpack"
 	)
-	flags_atom = FPRINT|NO_GAMEMODE_SKIN
+	actions_types = list(
+		/datum/action/item_action/rto_pack/use_phone,
+		/datum/action/item_action/specialist/toggle_cloak
+	)
+	uniform_restricted = list(/obj/item/clothing/suit/storage/jacket/marine/rmc/service/lv733/suit_roaf) //Need to wear Scout armor and helmet to equip this.
+	allow_gun_usage = TRUE
+	allowed_stealth_shooting = FALSE
+	camo_alpha = 50
+	unacidable = TRUE
+	explo_proof = TRUE
 	worn_accessible = TRUE
-	xeno_types = null
 
 // Обувь
 
@@ -362,7 +370,7 @@
 
 // ХИС
 
-/obj/item/attachable/flashlight/glowstick
-	name = "химсвет"
-	desc = "A simple glowstick for use in dark environments."
-	icon_state = ""
+//	/obj/item/attachable/flashlight/glowstick
+//		name = "химсвет"
+//		desc = "A simple glowstick for use in dark environments."
+//		icon_state = ""
