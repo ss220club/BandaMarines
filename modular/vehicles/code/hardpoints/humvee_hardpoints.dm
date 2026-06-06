@@ -7,7 +7,7 @@
 	disp_icon = "humvee"
 	disp_icon_state = "snowplow"
 
-	health = 250
+	health = 400
 
 /obj/item/hardpoint/armor/humvee_snowplow/livingmob_interact(mob/living/M)
 	var/turf/targ = get_step(M, owner.dir)
@@ -43,22 +43,15 @@
 
 // turret
 /obj/item/hardpoint/holder/humvee_turret
-	name = "\improper Дистанционно управляемая турель M24-JTMV"
-	desc = "Центральный элемент M2420 JTMV-HWC. Разработан для быстрой установки и демонтажа различных модулей вооружения JTMV. Имеет встроенную систему развертывания дымовой завесы."
+	name = "\improper Дистанционно управляемая башня M24-JTMV"
+	desc = "Центральный элемент M2420 JTMV-HWC. Разработан для быстрой установки и демонтажа различных модулей вооружения JTMV."
 
 	icon = 'modular/vehicles/icons/humvee/humvee_hardpoints.dmi'
-	icon_state = "humveeturret" // _0
-	disp_icon = "humvee" 
+	icon_state = "humveeturret"
+	disp_icon = "humvee"
 	disp_icon_state = "humveeturret"
-	activation_sounds = list('sound/weapons/vehicles/smokelauncher_fire.ogg')
 
-	density = TRUE //come on, it's huge
-
-	activatable = TRUE
-
-	ammo = new /obj/item/ammo_magazine/hardpoint/turret_smoke
-	max_clips = 2
-	use_muzzle_flash = FALSE
+	density = TRUE
 
 	w_class = SIZE_MASSIVE
 	density = TRUE
@@ -68,8 +61,7 @@
 
 	slot = HDPT_TURRET
 
-	// big beefy chonk of metal
-	health = 250
+	health = 200
 	damage_multiplier = 0.05
 
 	accepted_hardpoints = list(
@@ -87,10 +79,7 @@
 	)
 
 	var/gyro = FALSE
-
-	// How long the windup is before the turret rotates
 	var/rotation_windup = 0.3 SECONDS
-	// Used during the windup
 	var/rotating = FALSE
 
 	scatter = 3
@@ -105,15 +94,7 @@
 /obj/item/hardpoint/holder/humvee_turret/update_icon()
 	var/broken = (health <= 0)
 	icon_state = "humveeturret_[broken]"
-
-	/*
-	if(health <= initial(health))
-		var/image/damage_overlay = image(icon, icon_state = "damaged_turret")
-		damage_overlay.alpha = 255 * (1 - (health / initial(health)))
-		overlays += damage_overlay
-	*/
 	..()
-
 
 /obj/item/hardpoint/holder/humvee_turret/get_icon_image(x_offset, y_offset, new_dir)
 	var/icon_state_suffix = "0"
@@ -121,15 +102,8 @@
 		icon_state_suffix = "1"
 
 	var/image/I = image(icon = disp_icon, icon_state = "[disp_icon_state]_[icon_state_suffix]", pixel_x = x_offset, pixel_y = y_offset, dir = new_dir)
-	/*
-	if(health <= initial(health))
-		var/image/damage_overlay = image(icon, icon_state = "damaged_turret")
-		damage_overlay.alpha = 255 * (1 - (health / initial(health)))
-		I.overlays += damage_overlay
-	*/
 	return I
 
-// no picking this big beast up
 /obj/item/hardpoint/holder/humvee_turret/attack_hand(mob/user)
 	return
 
@@ -150,26 +124,19 @@
 		return TRUE
 	..()
 
-
 /obj/item/hardpoint/holder/humvee_turret/get_tgui_info()
 	var/list/data = list()
-
-	data += list(list( // turret smokescreen data
-		"name" = "Turret Smoke Screen",
+	
+	data += list(list(
+		"name" = name,
 		"health" = health <= 0 ? null : floor(get_integrity_percent()),
-		"uses_ammo" = TRUE,
-		"current_rounds" = ammo.current_rounds / 2,
-		"max_rounds"= ammo.max_rounds / 2,
-		"mags" = LAZYLEN(backup_clips),
-		"max_mags" = max_clips,
 	))
-
+	
 	for(var/obj/item/hardpoint/H in hardpoints)
 		data += list(H.get_tgui_info())
 
 	return data
 
-//gyro ON locks the turret in one direction, OFF will make turret turning when tank turns
 /obj/item/hardpoint/holder/humvee_turret/proc/toggle_gyro_modul(mob/user)
 	if(health <= 0)
 		to_chat(user, SPAN_WARNING("Системы стабилизации модуля [src] вышли из строя!"))
@@ -179,7 +146,6 @@
 	to_chat(user, SPAN_NOTICE("Вы выключаете гироскопический стабилизатор модуля [src] [gyro ? "ВКЛ" :"ВЫКЛ"]."))
 
 /obj/item/hardpoint/holder/humvee_turret/proc/user_rotation(mob/user, deg)
-	// no rotating a broken turret
 	if(health <= 0)
 		return
 
@@ -202,29 +168,11 @@
 
 	..(deg)
 
-/obj/item/hardpoint/holder/humvee_turret/try_fire(atom/target, mob/living/user, params)
-	var/turf/L
-	var/turf/R
-	switch(owner.dir)
-		if(NORTH)
-			L = locate(owner.x - 2, owner.y + 4, owner.z)
-			R = locate(owner.x + 2, owner.y + 4, owner.z)
-		if(SOUTH)
-			L = locate(owner.x + 2, owner.y - 4, owner.z)
-			R = locate(owner.x - 2, owner.y - 4, owner.z)
-		if(EAST)
-			L = locate(owner.x + 4, owner.y + 2, owner.z)
-			R = locate(owner.x + 4, owner.y - 2, owner.z)
-		else
-			L = locate(owner.x - 4, owner.y + 2, owner.z)
-			R = locate(owner.x - 4, owner.y - 2, owner.z)
-
-	if(shots_fired)
-		target = R
-	else
-		target = L
-
-	return ..()
+/obj/item/hardpoint/holder/humvee_turret/handle_repair(obj/item/tool/weldingtool/WT, mob/user)
+	if(health <= 0)
+		to_chat(user, SPAN_WARNING("Башня полностью разрушена и не подлежит ремонту."))
+		return
+	..()
 
 // APC cannon
 /obj/item/hardpoint/primary/humvee_cannon
@@ -406,8 +354,6 @@
 	desc = "Неотъемлемая часть движения M24-JTMV."
 	icon = 'modular/vehicles/icons/humvee/humvee_hardpoints.dmi'
 
-	damage_multiplier = 0.15
-
 	icon_state = "tires"
 	disp_icon = "humvee"
 	disp_icon_state = "humvee_wheels"
@@ -415,6 +361,6 @@
 	health = 250
 
 	move_delay = VEHICLE_SPEED_SUPERFAST
-	move_max_momentum = 2
+	move_max_momentum = 3
 	move_momentum_build_factor = 1.5
 	move_turn_momentum_loss_factor = 0.5

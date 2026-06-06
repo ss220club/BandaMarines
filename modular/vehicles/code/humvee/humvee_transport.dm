@@ -32,7 +32,7 @@
 	xenos_slots = 4
 
 	misc_multipliers = list(
-		"move" = 0.7,
+		"move" = 0.9,
 		"accuracy" = 1,
 		"cooldown" = 1
 	)

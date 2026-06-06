@@ -28,7 +28,7 @@
 	allow_squeeze_under = FALSE
 
 	misc_multipliers = list(
-		"move" = 0.8, 
+		"move" = 1, 
 		"accuracy" = 1,
 		"cooldown" = 1
 	)

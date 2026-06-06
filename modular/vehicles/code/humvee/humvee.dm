@@ -22,7 +22,7 @@
 	xenos_slots = 3
 
 	misc_multipliers = list(
-		"move" = 0.8, 
+		"move" = 1, 
 		"accuracy" = 1,
 		"cooldown" = 1
 	)
@@ -92,9 +92,6 @@
 		"abstract" = 1,
 	)
 
-	move_max_momentum = 2
-	move_momentum_build_factor = 1.5
-	move_turn_momentum_loss_factor = 0.8
 
 	vehicle_ram_multiplier = VEHICLE_TRAMPLE_DAMAGE_APC_REDUCTION
 
