@@ -325,7 +325,7 @@
 	var/list/networks_receive = list(FACTION_ROAF, FACTION_MARINE)
 	var/list/networks_transmit = list(FACTION_ROAF, FACTION_MARINE)
 	var/base_icon = "icon_backpack"
-	uniform_restricted = list(/obj/item/clothing/suit/storage/jacket/marine/rmc/service/lv733/suit_roaf) //Need to wear Scout armor and helmet to equip this.
+	uniform_restricted = list(/obj/item/clothing/suit/storage/marine/veteran/royal_marine/light/iasf) //Need to wear Scout armor and helmet to equip this.
 	allow_gun_usage = TRUE
 	allowed_stealth_shooting = FALSE
 	camo_alpha = 50
@@ -462,10 +462,3 @@
 	hud_type = MOB_HUD_FACTION_ROAF
 	additional_hud_types = list(MOB_HUD_FACTION_TWE, MOB_HUD_FACTION_MARINE)
 	volume = RADIO_VOLUME_IMPORTANT
-
-// ХИС
-
-//	/obj/item/attachable/flashlight/glowstick
-//		name = "химсвет"
-//		desc = "A simple glowstick for use in dark environments."
-//		icon_state = ""
