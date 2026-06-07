@@ -8,5 +8,4 @@
 - Socks: RuCM
 - Королева в платье: LunyTuny
 - Rouny: TGMC
-- Деспойлер в куртке: Ne1ro
 */
