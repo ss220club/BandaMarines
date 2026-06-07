@@ -128,8 +128,8 @@
 			living_mob.Stun(duration)
 			if(living_mob.pulledby != src)
 				return // Grab was broken, probably as Stun side effect (eg. target getting knocked away from a manned M56D)
-			visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] хватает [living_mob.declent_ru(ACCUSATIVE)] за горло!"), // SS220 EDIT ADDICTION
-			SPAN_XENOWARNING("Мы хватаем [living_mob.declent_ru(ACCUSATIVE)] за горло!")) // SS220 EDIT ADDICTION
+			visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] хватает [living_mob.declent_ru(ACCUSATIVE)] за горло!"),
+			SPAN_XENOWARNING("Мы хватаем [living_mob.declent_ru(ACCUSATIVE)] за горло!"))
 			warrior_delegate.lunging = TRUE
 			addtimer(CALLBACK(src, PROC_REF(stop_lunging)), get_xeno_stun_duration(living_mob, 2) SECONDS + 1 SECONDS)
 
