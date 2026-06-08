@@ -825,7 +825,7 @@
 	icon_state = "s_poncho"
 	item_state = "s_poncho"
 
-/obj/item/clothing/accessory/clf_cape
+/obj/item/clothing/accessory/cape/clf_cape //SS220 EDIT
 	name = "torn CLF flag"
 	desc = "A torn up CLF flag with a pin that allows it to be worn as a cape."
 	icon_state = "clf_cape"
@@ -835,8 +835,8 @@
 		WEAR_BODY = 'icons/mob/humans/onmob/clothing/accessory/ponchos.dmi',
 		WEAR_JACKET = 'icons/mob/humans/onmob/clothing/accessory/ponchos.dmi'
 	)
-	worn_accessory_slot = ACCESSORY_SLOT_PONCHO
 
+// worn_accessory_slot = ACCESSORY_SLOT_PONCHO - SS220 EDIT
 
 //Ties that can store stuff
 
@@ -1530,7 +1530,7 @@ Wrist Accessories
 	item_icons = list(
 		WEAR_AS_GARB = 'icons/mob/humans/onmob/clothing/helmet_garb/misc.dmi',
 	)
-	flags_obj = OBJ_IS_STYLISH
+	flags_obj = OBJ_IS_STYLISH|OBJ_IS_HELMET_GARB
 	worn_accessory_slot = ACCESSORY_SLOT_DECOR
 	worn_accessory_limit = 2
 	style_postfix = list("neck", "left_wrist", "right_wrist")
