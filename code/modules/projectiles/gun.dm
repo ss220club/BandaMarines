@@ -118,8 +118,10 @@
 	var/guaranteed_delay_time = 0
 	///Storing value for how long pulling a gun takes before you can use it
 	var/pull_time = 0
+	///How long between equiping and the end of the delay_stype penalty in tenths of seconds
+	var/pull_delay = WIELD_DELAY_NORMAL
 
-	///Determines what happens when you fire a gun before its wield or pull time has finished. This one is extra scatter and an acc. malus.
+	///Determines what happens when you fire a gun before its wield or pull time has finished. By defualt it is extra scatter and an acc. malus.
 	var/delay_style = WEAPON_DELAY_SCATTER_AND_ACCURACY
 
 	//Burst fire.
@@ -540,7 +542,7 @@ As sniper rifles have both and weapon mods can change them as well. ..() deals w
 		return
 
 	unwield(user)
-	pull_time = world.time + wield_delay
+	pull_time = world.time + pull_delay
 	if(HAS_TRAIT(user, TRAIT_DAZED))
 		pull_time += 3
 	guaranteed_delay_time = world.time + WEAPON_GUARANTEED_DELAY
@@ -1761,7 +1763,8 @@ not all weapons use normal magazines etc. load_into_chamber() itself is designed
 		return
 	if(world.time < guaranteed_delay_time)
 		return
-	if((world.time < wield_time || world.time < pull_time) && (delay_style & WEAPON_DELAY_NO_FIRE > 0))
+	if((world.time < wield_time || world.time < pull_time) && (delay_style & WEAPON_DELAY_NO_FIRE))
+		to_chat(user, SPAN_WARNING("You can't fire the [name] yet!"))
 		return //We just put the gun up. Can't do it that fast
 
 	if(ismob(user)) //Could be an object firing the gun.
