@@ -10,7 +10,7 @@
 		"/datum/equipment_preset/survivor/roaf/engi",
 		"/datum/equipment_preset/survivor/roaf/medic",
 		"/datum/equipment_preset/survivor/roaf/pilot",
-		"/datum/equipment_preset/survivor/roaf/sniper",
+		"/datum/equipment_preset/survivor/roaf/signaller",
 		"/datum/equipment_preset/survivor/roaf/squad_leader"
 	],
 	"synth_survivor_types": [
@@ -29,10 +29,10 @@
 	"survivor_message": "You are a Royal Orbital Air Force survivor on LV-733 Marlowe Point. Hold out until rescue arrives.",
 	"announce_text": "An automated distress signal has been received from LV-733 Marlowe Point. ###SHIPNAME### has been dispatched to investigate.",
 	"co_briefing": {
-		"Hawks": "modular/lv773/maps/map_briefings/commanding_officer/lv733/LV733cpo.html",
-		"Doves": "modular/lv773/maps/map_briefings/commanding_officer/lv733/LV733hmm.html",
-		"Magpies": "modular/lv773/maps/map_briefings/commanding_officer/lv733/LV733modi.html",
-		"Unaligned": "modular/lv773/maps/map_briefings/commanding_officer/lv733/LV733unaligned.html"
+		"Hawks": "modular/lv733/maps/map_briefings/commanding_officer/lv733/LV733cpo.html",
+		"Doves": "modular/lv733/maps/map_briefings/commanding_officer/lv733/LV733hmm.html",
+		"Magpies": "modular/lv733/maps/map_briefings/commanding_officer/lv733/LV733modi.html",
+		"Unaligned": "modular/lv733/maps/map_briefings/commanding_officer/lv733/LV733unaligned.html"
 	},
 	"map_item_type": "/obj/item/map/lv733_map",
 	"monkey_types": [
@@ -47,7 +47,7 @@
 			"Ground": true
 		}
 	],
-	"nightmare_path": "modular/lv773/maps/Nightmare/LV733_Marlowe_Point/",
+	"nightmare_path": "modular/lv733/maps/Nightmare/LV733_Marlowe_Point/",
 	"xvx_hives": {
 		"xeno_hive_alpha": 0,
 		"xeno_hive_bravo": 0,

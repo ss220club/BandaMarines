@@ -10,7 +10,7 @@
 		"/datum/equipment_preset/survivor/roaf/engi",
 		"/datum/equipment_preset/survivor/roaf/medic",
 		"/datum/equipment_preset/survivor/roaf/pilot",
-		"/datum/equipment_preset/survivor/roaf/signaller",
+		"/datum/equipment_preset/survivor/roaf/sniper",
 		"/datum/equipment_preset/survivor/roaf/squad_leader"
 	],
 	"synth_survivor_types": [
@@ -39,8 +39,7 @@
 		"monkey"
 	],
 	"environment_traits": {
-		"Fog": true,
-		"COLD": true
+		"Fog": true
 	},
 	"traits": [
 		{

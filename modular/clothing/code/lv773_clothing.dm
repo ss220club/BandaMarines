@@ -26,7 +26,7 @@
 	armor_rad = CLOTHING_ARMOR_NONE
 	armor_internaldamage = CLOTHING_ARMOR_LOW
 
-/obj/item/clothing/under/marine/veteran/royal_marine/lv733/roaf_sniper
+/obj/item/clothing/under/marine/veteran/royal_marine/lv733/roaf_signaller
 	name = "\improper комбинезон оператора ROAF"
 	desc = "A multifunctional jumpsuit with numerous pockets and attachment points. It has a gray-beige tone and is often used for raids and combat operations."
 	icon = 'modular/clothing/icon/roaf/uniform.dmi'

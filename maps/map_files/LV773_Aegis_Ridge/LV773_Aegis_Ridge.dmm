@@ -1943,7 +1943,7 @@
 	color = "#848484"
 	},
 /obj/item/clothing/accessory/patch/twe,
-/obj/item/clothing/under/lv773/roaf_sniper,
+/obj/item/clothing/under/marine/veteran/royal_marine/lv733/roaf_signaller,
 /obj/item/device/flashlight/lamp/on{
 	pixel_x = 8;
 	pixel_y = 12

@@ -33,7 +33,7 @@
 #include "roundstart_spawns/_roundstart_spawns.dme"
 #include "attachments/_attachments.dme"
 #include "clothing/_clothing.dme"
-#include "lv773/_lv733.dme"
+#include "lv733/_lv733.dme"
 #include "loadout_preferences_gear/_loadout.dme"
 #include "tank_rebalance/_tank_rebalance.dme"
 #include "queen_minor/_queen_minor.dme"
