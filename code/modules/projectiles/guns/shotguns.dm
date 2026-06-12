@@ -23,7 +23,6 @@ can cause issues with ammo types getting mixed up during the burst.
 	has_empty_icon = FALSE
 	has_open_icon = FALSE
 	fire_delay_group = list(FIRE_DELAY_GROUP_SHOTGUN)
-	delay_style = WEAPON_DELAY_NO_FIRE
 
 	fire_sound = 'sound/weapons/gun_shotgun.ogg'
 	reload_sound = "shell_load"
@@ -1051,6 +1050,7 @@ can cause issues with ammo types getting mixed up during the burst.
 	seal_sound = 'sound/weapons/handling/gun_mou_close.ogg'//replace w/ uniques
 	cocked_sound = null //We don't want this.
 	attachable_allowed = list()
+	delay_style = WEAPON_DELAY_NO_FIRE //This is a heavy, bulky weapon, and tricky to snapshot with.
 	flags_equip_slot = SLOT_BACK
 	actions_types = list(/datum/action/item_action/specialist/twobore_brace)
 	hud_offset = 10 //A sprite long enough to touch the Moon.
