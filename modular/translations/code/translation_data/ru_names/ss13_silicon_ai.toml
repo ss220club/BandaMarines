@@ -1,5 +1,3 @@
-# MARK: Human AI
-
 ["ai's uniform"]
 nominative = "униформа ИИ"
 genitive = "униформы ИИ"
@@ -18,7 +16,7 @@ instrumental = "модульным интерфейсом"
 prepositional = "модульном интерфейсе"
 gender = "male"
 
-["Disconnected Subspace Transceiver"]
+["disconnected subspace transceiver"]
 nominative = "отключенный трансивер подпространства"
 genitive = "отключенного трансивера подпространства"
 dative = "отключенному трансиверу подпространства"
@@ -36,7 +34,7 @@ instrumental = "бесконечным лазерным указателем"
 prepositional = "бесконечном лазерном указателе"
 gender = "male"
 
-["Lawset Note"]
+["lawset note"]
 nominative = "заметка свода законов"
 genitive = "заметки свода законов"
 dative = "заметке свода законов"

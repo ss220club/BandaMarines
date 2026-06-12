@@ -7,6 +7,13 @@
 #define VENDING_WIRE_SHOCK 3
 #define VENDING_WIRE_SHOOT_INV 4
 
+GLOBAL_LIST_INIT(vending_wire_descriptions, flatten_numeric_alist(alist(
+		VENDING_WIRE_EXTEND = "Inventory control computer",
+		VENDING_WIRE_IDSCAN = "ID scanner",
+		VENDING_WIRE_SHOCK = "Ground safety",
+		VENDING_WIRE_SHOOT_INV = "Dispenser motor control",
+	)))
+
 #define VEND_HAND 1
 
 /datum/data/vending_product
@@ -122,14 +129,15 @@ GLOBAL_LIST_EMPTY_TYPED(total_vending_machines, /obj/structure/machinery/vending
 
 /obj/structure/machinery/vending/update_icon()
 	overlays.Cut()
-	if(panel_open)
+	if(panel_open || stat & REPAIR_STEP_ONE)
 		overlays += image(icon, "[initial(icon_state)]-panel")
 	if(stat & BROKEN)
 		icon_state = "[initial(icon_state)]-broken"
-	else if(stat & NOPOWER)
+		return
+	if(stat & NOPOWER)
 		icon_state = "[initial(icon_state)]-off"
-	else
-		icon_state = initial(icon_state)
+		return
+	icon_state = initial(icon_state)
 
 /obj/structure/machinery/vending/ex_act(severity)
 	switch(severity)
@@ -183,17 +191,18 @@ GLOBAL_LIST_EMPTY_TYPED(total_vending_machines, /obj/structure/machinery/vending
 
 	var/possessive = include_name ? "[src]'s" : "Its"
 	var/nominative = include_name ? "[src]" : "It"
-
-	if(stat & BROKEN)
-		return "[possessive] broken panel still needs to be <b>unscrewed</b> and removed."
+	if(is_tipped_over)
+		return "[nominative] needs to be uprighted."
+	else if(stat & BROKEN)
+		return "[possessive] broken panel still needs to be [SPAN_BOLD("unscrewed")] and removed."
 	else if(stat & REPAIR_STEP_ONE)
-		return "[possessive] broken wires still need to be <b>cut</b> and removed from the vendor."
+		return "[possessive] broken wires still need to be [SPAN_BOLD("cut")] and removed from the vendor."
 	else if(stat & REPAIR_STEP_TWO)
-		return "[nominative] needs to have <b>new wiring</b> installed."
+		return "[nominative] needs to have [SPAN_BOLD("new wiring")] installed."
 	else if(stat & REPAIR_STEP_THREE)
-		return "[nominative] needs to have a <b>metal</b> panel installed."
+		return "[nominative] needs to have a [SPAN_BOLD("metal")] panel installed."
 	else if(stat & REPAIR_STEP_FOUR)
-		return "[possessive] new panel needs to be <b>fastened</b> to it."
+		return "[possessive] new panel needs to be [SPAN_BOLD("fastened")] to it."
 	else
 		return "[nominative] is being affected by some power-related issue."
 
@@ -217,8 +226,8 @@ GLOBAL_LIST_EMPTY_TYPED(total_vending_machines, /obj/structure/machinery/vending
 				to_chat(user, SPAN_WARNING("You stop unscrewing [src]'s broken panel."))
 				return FALSE
 			to_chat(user, SPAN_NOTICE("You unscrew [src]'s broken panel and remove it, exposing many broken wires."))
-			stat &= ~BROKEN
 			stat |= REPAIR_STEP_ONE
+			update_icon()
 			return TRUE
 		else if(stat & REPAIR_STEP_FOUR)
 			to_chat(user, SPAN_NOTICE("You start to fasten [src]'s new panel."))
@@ -226,7 +235,7 @@ GLOBAL_LIST_EMPTY_TYPED(total_vending_machines, /obj/structure/machinery/vending
 				to_chat(user, SPAN_WARNING("You stop fastening [src]'s new panel."))
 				return FALSE
 			to_chat(user, SPAN_NOTICE("You fasten [src]'s new panel, fully repairing the vendor."))
-			stat &= ~REPAIR_STEP_FOUR
+			stat &= ~(REPAIR_STEP_FOUR|BROKEN)
 			stat |= FULLY_REPAIRED
 			update_icon()
 			return TRUE
@@ -246,7 +255,7 @@ GLOBAL_LIST_EMPTY_TYPED(total_vending_machines, /obj/structure/machinery/vending
 			if(!do_after(user, 3 SECONDS, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD, numticks = 3))
 				to_chat(user, SPAN_WARNING("You stop removing [src]'s broken wires."))
 				return FALSE
-			to_chat(user, SPAN_NOTICE("You remove [src]'s broken broken wires."))
+			to_chat(user, SPAN_NOTICE("You remove [src]'s broken wires."))
 			stat &= ~REPAIR_STEP_ONE
 			stat |= REPAIR_STEP_TWO
 			return TRUE
@@ -269,7 +278,7 @@ GLOBAL_LIST_EMPTY_TYPED(total_vending_machines, /obj/structure/machinery/vending
 			if(!CC || !CC.use(5))
 				to_chat(user, SPAN_WARNING("You need more cable coil to replace the removed wires."))
 				return FALSE
-			to_chat(user, SPAN_NOTICE("You remove [src]'s broken broken wires."))
+			to_chat(user, SPAN_NOTICE("You remove [src]'s broken wires."))
 			stat &= ~REPAIR_STEP_TWO
 			stat |= REPAIR_STEP_THREE
 			return TRUE
@@ -288,7 +297,7 @@ GLOBAL_LIST_EMPTY_TYPED(total_vending_machines, /obj/structure/machinery/vending
 				to_chat(user, SPAN_WARNING("You stop constructing a new panel for [src]."))
 				return FALSE
 			if(!M || !M.use(1))
-				to_chat(user, SPAN_WARNING("You a sheet of metal to construct a new panel."))
+				to_chat(user, SPAN_WARNING("You need a sheet of metal to construct a new panel."))
 				return FALSE
 			to_chat(user, SPAN_NOTICE("You construct a new panel for [src]."))
 			stat &= ~REPAIR_STEP_THREE
@@ -309,9 +318,9 @@ GLOBAL_LIST_EMPTY_TYPED(total_vending_machines, /obj/structure/machinery/vending
 			switch (anchored)
 				if (0)
 					anchored = TRUE
-					user.visible_message("[user] tightens the bolts securing [src] to the floor.", "You tighten the bolts securing [src] to the floor.")
+					user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] tightens the bolts securing [src] to the floor.", "You tighten the bolts securing [src] to the floor.")
 				if (1)
-					user.visible_message("[user] unfastens the bolts securing [src] to the floor.", "You unfasten the bolts securing [src] to the floor.")
+					user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] unfastens the bolts securing [src] to the floor.", "You unfasten the bolts securing [src] to the floor.")
 					anchored = FALSE
 		return
 	else if(HAS_TRAIT(item, TRAIT_TOOL_MULTITOOL) || HAS_TRAIT(item, TRAIT_TOOL_WIRECUTTERS))
@@ -426,9 +435,9 @@ GLOBAL_LIST_EMPTY_TYPED(total_vending_machines, /obj/structure/machinery/vending
 	if(is_tipped_over)
 		if(user.action_busy)
 			return
-		user.visible_message(SPAN_NOTICE("[user] begins to heave [src] back into place!"), SPAN_NOTICE("You start heaving [src] back into place..."))
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins to heave [src] back into place!"), SPAN_NOTICE("You start heaving [src] back into place..."))
 		if(do_after(user, 80, INTERRUPT_NO_NEEDHAND, BUSY_ICON_FRIENDLY))
-			user.visible_message(SPAN_NOTICE("[user] rights [src]!"), SPAN_NOTICE("You right [src]!"))
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] rights [src]!"), SPAN_NOTICE("You right [src]!"))
 			flip_back()
 		return
 
@@ -445,7 +454,7 @@ GLOBAL_LIST_EMPTY_TYPED(total_vending_machines, /obj/structure/machinery/vending
 /obj/structure/machinery/vending/tgui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "Vending", capitalize(declent_ru())) // BANDAMARINES EDIT - Translation
+		ui = new(user, src, "Vending", capitalize(declent_ru(NOMINATIVE))) // BANDAMARINES EDIT - Translation
 		ui.open()
 
 /obj/structure/machinery/vending/ui_act(action, params)
@@ -563,7 +572,7 @@ GLOBAL_LIST_EMPTY_TYPED(total_vending_machines, /obj/structure/machinery/vending
 			user_id = human_user.get_idcard()
 
 		if(!allowed(user))
-			speak("Access denied.")
+			speak("Доступ запрещён.")
 			flick(icon_deny, src)
 			vend_ready = TRUE
 			return
@@ -606,9 +615,9 @@ GLOBAL_LIST_EMPTY_TYPED(total_vending_machines, /obj/structure/machinery/vending
 	record.amount--
 	playsound(src, "sound/machines/vending.ogg", 40, TRUE)
 	if(user.Adjacent(src) && user.put_in_hands(vended_item))
-		to_chat(user, SPAN_NOTICE("You take \the [record.product_name] out of the slot."))
+		to_chat(user, SPAN_NOTICE("Вы достаёте из автомата [vended_item.declent_ru(ACCUSATIVE)].")) // SS220 EDIT ADDICTION
 	else
-		to_chat(user, SPAN_WARNING("\The [record.product_name] falls onto the floor!"))
+		to_chat(user, SPAN_WARNING("[record.product_name] падает на пол!")) // SS220 EDIT ADDICTION
 	if(ripped_off)
 		flick(icon_deny, src)
 		addtimer(VARSET_CALLBACK(src, vend_ready, TRUE), 1 SECONDS)
@@ -720,7 +729,7 @@ GLOBAL_LIST_EMPTY_TYPED(total_vending_machines, /obj/structure/machinery/vending
 		.["user"] = null
 
 	.["stock"] = list()
-	for (var/datum/data/vending_product/product_record in product_records + coin_records + hidden_records)
+	for(var/datum/data/vending_product/product_record in product_records + coin_records + hidden_records)
 		var/list/product_data = list(
 			name = product_record.product_name,
 			amount = product_record.amount,
@@ -730,10 +739,9 @@ GLOBAL_LIST_EMPTY_TYPED(total_vending_machines, /obj/structure/machinery/vending
 
 	.["extended_inventory"] = extended_inventory
 
-	var/list/wire_descriptions = get_wire_descriptions()
 	var/list/panel_wires = list()
-	for(var/wire = 1 to length(wire_descriptions))
-		panel_wires += list(list("desc" = wire_descriptions[wire], "cut" = isWireCut(wire)))
+	for(var/wire in 1 to length(GLOB.vending_wire_descriptions))
+		panel_wires += list(list("desc" = GLOB.vending_wire_descriptions[wire], "cut" = isWireCut(wire)))
 
 	.["electrical"] = list(
 		"electrified" = seconds_electrified > 0,
@@ -886,7 +894,7 @@ GLOBAL_LIST_EMPTY_TYPED(total_vending_machines, /obj/structure/machinery/vending
 				S.remove_from_storage(item_to_stock, user.loc)
 
 			qdel(item_to_stock)
-			user.visible_message(SPAN_NOTICE("[user] stocks [src] with \a [product.product_name]."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] stocks [src] with \a [product.product_name]."),
 			SPAN_NOTICE("You stock [src] with \a [product.product_name]."))
 			product.amount++
 			return //We found our item, no reason to go on.
@@ -943,6 +951,19 @@ GLOBAL_LIST_EMPTY_TYPED(total_vending_machines, /obj/structure/machinery/vending
 	stat |= BROKEN
 	update_icon()
 
+/obj/structure/machinery/vending/proc/tip_over()
+	var/matrix/A = matrix()
+	is_tipped_over = TRUE
+	density = FALSE
+	A.Turn(90)
+	apply_transform(A)
+	malfunction()
+
+/obj/structure/machinery/vending/proc/flip_back()
+	is_tipped_over = FALSE
+	density = TRUE
+	var/matrix/A = matrix()
+	apply_transform(A)
 
 //Somebody cut an important wire and now we're following a new definition of "pitch."
 /obj/structure/machinery/vending/proc/throw_item()
@@ -967,14 +988,6 @@ GLOBAL_LIST_EMPTY_TYPED(total_vending_machines, /obj/structure/machinery/vending
 	visible_message(SPAN_WARNING("[src] launches [throw_item] at [target]!"))
 	playsound(src, "sound/machines/vending.ogg", 40, TRUE)
 	return 1
-
-/obj/structure/machinery/vending/proc/get_wire_descriptions()
-	return list(
-		VENDING_WIRE_EXTEND = "Inventory control computer",
-		VENDING_WIRE_IDSCAN = "ID scanner",
-		VENDING_WIRE_SHOCK  = "Ground safety",
-		VENDING_WIRE_SHOOT_INV = "Dispenser motor control"
-	)
 
 /obj/structure/machinery/vending/proc/isWireCut(wire)
 	return !(wires & getWireFlag(wire))

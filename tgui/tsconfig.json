@@ -15,7 +15,13 @@
     "skipLibCheck": true,
     "strict": false,
     "strictNullChecks": true,
-    "target": "ESNext"
+    "target": "ESNext",
+    "baseUrl": ".",
+    "paths": {
+      "tgui/*": ["packages/tgui/*"],
+      "tgui-say/*": ["packages/tgui-say/*"],
+      "common/*": ["packages/common/*"]
+    }
   },
-  "include": ["./*.d.ts", "./packages", "vitest.config.mts"]
+  "include": ["./*.d.ts", "./packages"]
 }

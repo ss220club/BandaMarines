@@ -3,23 +3,27 @@
 	LAZYINSERT(listed_products, list(list("M707 Anti Material Rifle", (1), /obj/item/storage/box/guncase/vulture, VENDOR_ITEM_REGULAR)), 13)
 
 /datum/supply_packs/ammo_vulture_mag
-	name = "M707 Anti-Materiel Rifle ammo crate"
+	name = "M707 Anti-Materiel Rifle Magazines crate (M707, 3x mags)"
 	contains = list(
 		/obj/item/ammo_magazine/rifle/boltaction/vulture,
+		/obj/item/ammo_magazine/rifle/boltaction/vulture,
+		/obj/item/ammo_magazine/rifle/boltaction/vulture,
 	)
-	cost = 40
+	cost = 30
 	containertype = /obj/structure/closet/crate/ammo
-	containername = "\improper M707 ammo crate"
+	containername = "\improper M707 magazines crate"
 	group = "Ammo"
 
 /datum/supply_packs/ammo_vulture_mag_holo
-	name = "M707 Anti-Materiel Rifle holo target ammo crate"
+	name = "M707 Anti-Materiel Rifle Holo-Target Magazines crate (M707 HT, 3x mags)"
 	contains = list(
 		/obj/item/ammo_magazine/rifle/boltaction/vulture/holo_target,
+		/obj/item/ammo_magazine/rifle/boltaction/vulture/holo_target,
+		/obj/item/ammo_magazine/rifle/boltaction/vulture/holo_target,
 	)
-	cost = 40
+	cost = 30
 	containertype = /obj/structure/closet/crate/ammo
-	containername = "\improper M707 holo target ammo crate"
+	containername = "\improper M707 holo-target magazines crate"
 	group = "Ammo"
 
 /obj/item/storage/box/guncase/vulture/fill_preset_inventory()

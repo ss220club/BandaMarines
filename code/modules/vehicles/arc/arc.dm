@@ -65,6 +65,7 @@
 	move_turn_momentum_loss_factor = 0.8
 
 	vehicle_ram_multiplier = VEHICLE_TRAMPLE_DAMAGE_APC_REDUCTION
+	minimap_icon_state = "arc"
 
 	/// If the ARC has its antenna up, making it unable to move but enabling the turret and sensor wallhack
 	var/antenna_deployed = FALSE
@@ -77,11 +78,6 @@
 
 /obj/vehicle/multitile/arc/Initialize()
 	. = ..()
-
-	var/turf/gotten_turf = get_turf(src)
-	if(gotten_turf?.z)
-		SSminimaps.add_marker(src, gotten_turf.z, MINIMAP_FLAG_USCM, "arc", 'icons/ui_icons/map_blips_large.dmi')
-
 	RegisterSignal(src, COMSIG_ARC_ANTENNA_TOGGLED, PROC_REF(on_antenna_toggle))
 
 /obj/vehicle/multitile/arc/crew_mousedown(datum/source, atom/object, turf/location, control, params)
@@ -100,9 +96,9 @@
 		return
 
 	if(health > 0)
-		. += SPAN_XENO("[src] can be crawled under once destroyed.")
+		. += SPAN_XENO("Можно проползти под [declent_ru(INSTRUMENTAL)], когда он разрушен.") // SS220 EDIT ADDICTION
 	else
-		. += SPAN_XENO("[src] can be crawled under by <b>dragging our sprite</b> to it.")
+		. += SPAN_XENO("Можно проползти под [declent_ru(INSTRUMENTAL)], <b>перетащив себя</b> на него.") // SS220 EDIT ADDICTION
 
 /obj/vehicle/multitile/arc/proc/on_antenna_toggle(datum/source)
 	SIGNAL_HANDLER
@@ -113,6 +109,11 @@
 	else
 		STOP_PROCESSING(SSslowobj, src)
 
+/obj/vehicle/multitile/arc/proc/clear_tacmap()
+	for(var/datum/weakref/xeno as anything in minimap_added)
+		SSminimaps.remove_marker(xeno.resolve())
+		minimap_added.Remove(xeno)
+
 /obj/vehicle/multitile/arc/process()
 	var/turf/arc_turf = get_turf(src)
 	if((health <= 0) || !visible_in_tacmap || !is_ground_level(arc_turf.z))
@@ -120,9 +121,7 @@
 
 	var/obj/item/hardpoint/support/arc_antenna/antenna = locate() in hardpoints
 	if(!antenna || (antenna.health <= 0))
-		for(var/datum/weakref/xeno as anything in minimap_added)
-			SSminimaps.remove_marker(xeno.resolve())
-			minimap_added.Remove(xeno)
+		clear_tacmap()
 		return
 
 	for(var/mob/living/carbon/xenomorph/current_xeno as anything in GLOB.living_xeno_list)
@@ -212,8 +211,10 @@
 	if((M != user) || !isxeno(user))
 		return
 
+	var/ru_name = declent_ru(INSTRUMENTAL) // SS220 EDIT ADDICTION
+
 	if(health > 0)
-		to_chat(user, SPAN_XENO("We can't go under [src] until it is destroyed!"))
+		to_chat(user, SPAN_XENO("Мы не можем проползти под [ru_name], пока он не разрушен!")) // SS220 EDIT ADDICTION
 		return
 
 	var/turf/current_turf = get_turf(user)
@@ -224,22 +225,22 @@
 			break
 
 		if(current_turf.density)
-			to_chat(user, SPAN_XENO("The path under [src] is obstructed!"))
+			to_chat(user, SPAN_XENO("Путь под [ru_name] заблокирован!")) // SS220 EDIT ADDICTION
 			return
 
 	// Now we check to make sure the turf on the other side of the ARC isn't dense too
 	current_turf = get_step(current_turf, dir_to_go)
 	if(current_turf.density)
-		to_chat(user, SPAN_XENO("The path under [src] is obstructed!"))
+		to_chat(user, SPAN_XENO("Путь под [ru_name] заблокирован!")) // SS220 EDIT ADDICTION
 		return
 
-	to_chat(user, SPAN_XENO("We begin to crawl under [src]..."))
+	to_chat(user, SPAN_XENO("Мы начинаем ползти под [ru_name]...")) // SS220 EDIT ADDICTION
 	if(!do_after(user, 3 SECONDS, INTERRUPT_ALL, BUSY_ICON_HOSTILE))
-		to_chat(user, SPAN_XENO("We stop crawling under [src]."))
+		to_chat(user, SPAN_XENO("Мы перестаем ползти под [ru_name].")) // SS220 EDIT ADDICTION
 		return
 
 	user.forceMove(current_turf)
-	to_chat(user, SPAN_XENO("We crawl to the other side of [src]."))
+	to_chat(user, SPAN_XENO("Мы проползаем на другую сторону [declent_ru(GENITIVE)].")) // SS220 EDIT ADDICTION
 
 /*
 ** PRESETS SPAWNERS

@@ -2,9 +2,11 @@
 
 #include "code/_defines.dm"
 
+#include "code/abilities.dm"
 #include "code/component.dm"
 #include "code/customization_datum.dm"
 #include "code/preference.dm"
+#include "code/xeno_customization_picker.dm"
 #include "code/xenomorph.dm"
 
 #include "code/castes/boiler.dm"
@@ -12,6 +14,7 @@
 #include "code/castes/carrier.dm"
 #include "code/castes/crusher.dm"
 #include "code/castes/defender.dm"
+#include "code/castes/despoiler.dm"
 #include "code/castes/facehugger.dm"
 #include "code/castes/drone.dm"
 #include "code/castes/hivelord.dm"

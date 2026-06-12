@@ -1,18 +1,25 @@
 /obj/motorbike_destroyed
 	name = "Уничтоженный мотоцикл"
 	desc = "Рухлядь, которая когда-то ездила и которую можно починить."
+
+	//======= Для отображения в игре ==============
 	icon = 'modular/vehicles/icons/moto48x48.dmi'
 	icon_state = "moto_ural_classic-destroyed"	// Для отображения на картах
 	var/icon_base = "moto_ural"
 	var/icon_skin = "classic"
 	var/icon_tag_destroyed = "destroyed"
+	var/type_sidecar = "stroller" // Тип коляски, для скинов
+
 	var/obj/obj_to_create_when_finish = /obj/vehicle/motorbike
 
+	//============= Защита и здоровье ==============
 	health = 250	// Чтобы был шанс что оно переживет еще немного урона
 	var/maxhealth = 1250 // Раздолбанное чинить сложнее
 	drag_delay = 10	// Тяжело тащить груду хлама
 	projectile_coverage = PROJECTILE_COVERAGE_LOW
 
+
+	//============= Параметры починки  ==============
 	var/welder_health = 35	// Восстановление прочности за 1 топливо из сварки * умноженное на размер сварки (2 или 3)
 	var/welder_time = 3 SECONDS	// Время требуемое для сварки
 	var/wires_need = 80 // В стаке 30 Штук -	/obj/item/stack/cable_coil
@@ -20,23 +27,14 @@
 	var/wires_add_time = 3 DECISECONDS	// Время требуемое для прикладывания 1 штучки (в 1 секунде 10 дец)
 	var/metal_need = 25	// В стаке 50 Штук -	var/obj/item/stack/sheet/metal
 	var/metal_stored = 0
-	var/metal_add_time = 2 DECISECONDS		// Время требуемое для прикладывания 1 штучки (в 1 секунде 10 дец)
+	var/metal_add_time = 2 DECISECONDS // Время требуемое для прикладывания 1 штучки (в 1 секунде 10 дец)
+	var/welding_step = FALSE
+	var/coil_step  = FALSE
 	var/screw_need = TRUE
 	var/screw_step = FALSE
 	var/screw_time = 20 SECONDS
 
-/obj/motorbike_destroyed/stroller
-	name = "Раздолбанная коляска"
-	desc = "Рухлядь, больше не способная покатать малышей."
-	icon_state = "moto_ural_stroller_classic-destroyed"	// Для отображения на картах
-	icon_base = "moto_ural_stroller"
-	obj_to_create_when_finish = /obj/structure/bed/chair/stroller
-
-	wires_need = 40
-	metal_need = 40
-	maxhealth = 2000
-
-/obj/motorbike_destroyed/New(loc, skin)
+/obj/motorbike_destroyed/New(loc, skin) // Переписать под параметр type_sidecar
 	icon_skin = skin
 	icon_state = "[icon_base]_[icon_skin]-[icon_tag_destroyed]"
 	. = ..()
@@ -80,6 +78,8 @@
 			playsound(src.loc, 'sound/items/Welder.ogg', 25, 1)
 		else
 			to_chat(user, SPAN_WARNING("В [O] не хватает топлива!"))
+		if(health >= maxhealth)
+			welding_step = TRUE
 		return TRUE
 
 	else if(istype(O, /obj/item/stack/sheet/metal))
@@ -116,15 +116,23 @@
 			[wires_stored < wires_need ? "Осталось еще [wires_need - wires_stored]": ""]"))
 		L.animation_attack_on(src)
 		playsound(src.loc, 'sound/items/air_release.ogg', 25, 1)
+		if(wires_stored >= wires_need)
+			coil_step = TRUE
 		return TRUE
 
 	else if(screw_need && !screw_step && HAS_TRAIT(O, TRAIT_TOOL_SCREWDRIVER))
-		to_chat(user, SPAN_WARNING("Вы вкручиваете болты у [src]. Ожидайте."))
+		if(!welding_step)
+			to_chat(user, SPAN_NOTICE("Сначала приварите металл к корпусу"))
+			return
+		if(!coil_step)
+			to_chat(user, SPAN_NOTICE("Сначала присоедините новые провода"))
+			return
+		to_chat(user, SPAN_WARNING("Вы вкручиваете винты у [src]. Ожидайте."))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, 1)
 		L.animation_attack_on(src)
 		if(!do_after(user, screw_time * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
 			return FALSE
-		to_chat(user, SPAN_NOTICE("Вы вкрутили болты у [src]."))
+		to_chat(user, SPAN_NOTICE("Вы вкрутили винты у [src]."))
 		playsound(src.loc, 'sound/items/Screwdriver2.ogg', 25, 1)
 		screw_step = TRUE
 		L.animation_attack_on(src)
@@ -149,7 +157,7 @@
 	if(health < maxhealth)
 		required += "Необходимо сварить приложенные листы металла."
 	if(screw_need && !screw_step)
-		required += "Болты корпуса необходимо заключительно закрутить."
+		required += "Винты корпуса необходимо заключительно закрутить."
 	if(length(required))
 		return "Корпус [src.name] требует: [english_list(required, and_text = "\n\t", comma_text = "\n\t", nothing_text = FALSE)]"
 	return FALSE
@@ -216,3 +224,38 @@
 	new /obj/effect/decal/cleanable/blood/oil(src.loc)
 
 	qdel(src)
+
+/obj/motorbike_destroyed/sidecar
+	name = "Раздолбанная родительская коляска"
+	desc = "Рухлядь, больше не способная работать. Почему она вообще существует?"
+	icon_state = "moto_ural_sidecar_-destroyed"	// Для отображения на картах
+	icon_base = "moto_ural_sidecar"
+	obj_to_create_when_finish = null
+
+	wires_need = 1
+	metal_need = 1
+	maxhealth = 40
+
+/obj/motorbike_destroyed/sidecar/cargo
+	name = "Раздолбанная грузовая коляска"
+	desc = "Рухлядь, больше не способная перевозить ящики."
+	icon_state = "moto_ural_sidecar_cargo_classic-destroyed"	// Для отображения на картах
+	icon_base = "moto_ural_sidecar_cargo"
+	icon_skin = "classic"
+	obj_to_create_when_finish = /obj/structure/bed/chair/sidecar/cargo
+
+	wires_need = 40
+	metal_need = 40
+	maxhealth = 2000
+
+/obj/motorbike_destroyed/sidecar/passenger
+	name = "Раздолбанная пассажирская коляска"
+	desc = "Рухлядь, больше не способная покатать малышей."
+	icon_state = "moto_ural_sidecar_passenger_classic-destroyed"	// Для отображения на картах
+	icon_base = "moto_ural_sidecar_passenger"
+	icon_skin = "classic"
+	obj_to_create_when_finish = /obj/structure/bed/chair/sidecar/passenger
+
+	wires_need = 40
+	metal_need = 40
+	maxhealth = 2000

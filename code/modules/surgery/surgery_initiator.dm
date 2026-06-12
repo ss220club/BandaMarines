@@ -13,7 +13,8 @@
 
 	var/turf/open/T = get_turf(target)
 	if(!istype(user.loc, /turf/open))
-		to_chat(user, SPAN_WARNING("You can't perform surgery here!"))
+		if(is_surgery_init_tool(tool))
+			to_chat(user, SPAN_WARNING("You can't perform surgery here!"))
 		return FALSE
 	else
 		if(!istype(T) || !T.supports_surgery)
@@ -22,7 +23,7 @@
 				return TRUE //Otherwise you get 'poked' by the knife.
 			if(HAS_TRAIT(tool, TRAIT_TOOL_BLOWTORCH) && affecting)
 				return FALSE
-			if(!(tool.type in SURGERY_TOOLS_NO_INIT_MSG))
+			if(is_surgery_init_tool(tool))
 				to_chat(user, SPAN_WARNING("You can't perform surgery under these bad conditions!"))
 			return FALSE
 
@@ -30,7 +31,8 @@
 	if(surgery_limb)
 		var/obj/item/blocker = target.get_sharp_obj_blocker(surgery_limb)
 		if(blocker)
-			to_chat(user, SPAN_WARNING("[blocker] [target] is wearing restricts your access to the surgical site, take it off!"))
+			if(is_surgery_init_tool(tool))
+				to_chat(user, SPAN_WARNING("[blocker] [target] is wearing restricts your access to the surgical site, take it off!"))
 			return
 
 	if(user.action_busy) //already doing an action
@@ -111,13 +113,13 @@
 			for(var/datum/surgery_step/current_step as anything in valid_steps)
 				if(hint_msg)
 					if(current_step == valid_steps[length(valid_steps)])
-						hint_msg += ", or [current_step.desc]"
+						hint_msg += " или [current_step.desc]" // SS220 EDIT ADDICTION
 					else
-						hint_msg += ", [current_step.desc]"
+						hint_msg += ", [current_step.desc]" // SS220 EDIT ADDICTION
 				else
-					hint_msg = "You can't [current_step.desc] with \the [tool]"
+					hint_msg = "Вы не можете [current_step.desc] with [tool.declent_ru(ACCUSATIVE)]" // SS220 EDIT ADDICTION
 			if(!isnull(hint_msg))
-				to_chat(user, SPAN_WARNING("[hint_msg]."))
+				to_chat(user, SPAN_WARNING("[hint_msg].")) // SS220 EDIT ADDICTION
 		return FALSE
 
 	var/datum/surgery/surgeryinstance

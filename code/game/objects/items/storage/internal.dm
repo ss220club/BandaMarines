@@ -56,7 +56,7 @@
 			switch(over_object.name)
 				if("r_hand")
 					if(master_item.time_to_unequip)
-						user.visible_message(SPAN_NOTICE("[user] starts taking off \the [master_item]."))
+						user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts taking off \the [master_item]."))
 						if(!do_after(user, master_item.time_to_unequip, INTERRUPT_ALL, BUSY_ICON_GENERIC))
 							to_chat(user, SPAN_WARNING("You stop taking off \the [master_item]!"))
 						else
@@ -71,7 +71,7 @@
 					return
 				if("l_hand")
 					if(master_item.time_to_unequip)
-						user.visible_message(SPAN_NOTICE("[user] starts taking off \the [master_item]."))
+						user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts taking off \the [master_item]."))
 						if(!do_after(user, master_item.time_to_unequip, INTERRUPT_ALL, BUSY_ICON_GENERIC))
 							to_chat(user, SPAN_WARNING("You stop taking off \the [master_item]!"))
 						else
@@ -92,7 +92,7 @@
 //Returns 1 if the master item's parent's attack_hand() should be called, 0 otherwise.
 //It's strange, but no other way of doing it without the ability to call another proc's parent, really.
 /obj/item/storage/internal/proc/handle_attack_hand(mob/living/user as mob, mods)
-	if(user.body_position == LYING_DOWN) // what about stuns? huh?
+	if(user.body_position == LYING_DOWN && !HAS_TRAIT(user, TRAIT_HAULED)) // what about stuns? huh?
 		return FALSE
 
 	if(ishuman(user))

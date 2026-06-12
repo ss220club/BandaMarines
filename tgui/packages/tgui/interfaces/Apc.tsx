@@ -6,6 +6,7 @@ import {
   LabeledList,
   ProgressBar,
   Section,
+  Tooltip,
 } from 'tgui/components';
 import { Window } from 'tgui/layouts';
 
@@ -30,6 +31,10 @@ type Data = {
   chargeMode: BooleanLike;
   chargingStatus: number;
   totalLoad: string;
+  totalLoadDemanded: string;
+  totalGenerated: string;
+  totalGeneratedSurplus: string;
+  generatorCount: number;
   coverLocked: BooleanLike;
   siliconUser: BooleanLike;
   powerChannels: PowerChannel[];
@@ -48,20 +53,40 @@ export const Apc = (props) => {
 };
 
 const powerStatusMap = {
-  2: {
-    color: 'good',
-    externalPowerText: 'External Power',
-    chargingText: 'Fully Charged',
+  4: {
+    color: 'average',
+    externalPowerText: 'Local Power',
   },
-  1: {
+  3: {
+    color: 'good',
+    externalPowerText: 'Внешнее питание',
+  },
+  2: {
     color: 'average',
     externalPowerText: 'Low External Power',
-    chargingText: 'Charging',
+  },
+  1: {
+    color: 'bad',
+    externalPowerText: 'No External Power',
   },
   0: {
     color: 'bad',
-    externalPowerText: 'No External Power',
-    chargingText: 'Not Charging',
+    externalPowerText: 'Electrical Fault',
+  },
+};
+
+const chargeStatusMap = {
+  2: {
+    color: 'good',
+    chargingText: 'Полная зарядка',
+  },
+  1: {
+    color: 'average',
+    chargingText: 'Зарядка',
+  },
+  0: {
+    color: 'bad',
+    chargingText: 'Не заряжать',
   },
 };
 
@@ -71,7 +96,7 @@ const ApcContent = (props) => {
   const externalPowerStatus =
     powerStatusMap[data.externalPower] || powerStatusMap[0];
   const chargingStatus =
-    powerStatusMap[data.chargingStatus] || powerStatusMap[0];
+    chargeStatusMap[data.chargingStatus] || chargeStatusMap[0];
   const channelArray = data.powerChannels || [];
   const adjustedCellChange = data.powerCellStatus
     ? data.powerCellStatus / 100
@@ -79,7 +104,7 @@ const ApcContent = (props) => {
   return (
     <>
       <InterfaceLockNoticeBox />
-      <Section title="Power Status">
+      <Section title="Статус">
         <LabeledList>
           <LabeledList.Item
             label="Main Breaker"
@@ -91,17 +116,17 @@ const ApcContent = (props) => {
                 disabled={locked}
                 onClick={() => act('breaker')}
               >
-                {data.isOperating ? 'On' : 'Off'}
+                {data.isOperating ? 'вкл.' : 'откл.'}
               </Button>
             }
           >
             [ {externalPowerStatus.externalPowerText} ]
           </LabeledList.Item>
-          <LabeledList.Item label="Power Cell">
+          <LabeledList.Item label="Заряд">
             <ProgressBar color="good" value={adjustedCellChange} />
           </LabeledList.Item>
           <LabeledList.Item
-            label="Charge Mode"
+            label="Снабжение"
             color={chargingStatus.color}
             buttons={
               <Button
@@ -109,7 +134,7 @@ const ApcContent = (props) => {
                 disabled={locked}
                 onClick={() => act('charge')}
               >
-                {data.chargeMode ? 'Auto' : 'Off'}
+                {data.chargeMode ? 'авт.' : 'откл.'}
               </Button>
             }
           >
@@ -117,7 +142,7 @@ const ApcContent = (props) => {
           </LabeledList.Item>
         </LabeledList>
       </Section>
-      <Section title="Power Channels">
+      <Section title="Питание">
         <LabeledList>
           {channelArray.map((channel) => {
             const { topicParams } = channel;
@@ -168,13 +193,24 @@ const ApcContent = (props) => {
               </LabeledList.Item>
             );
           })}
-          <LabeledList.Item label="Total Load">
-            <b>{data.totalLoad}</b>
-          </LabeledList.Item>
+          <Tooltip content="How much power is used (Demand includes idle usage that a breaker may be preventing)">
+            <LabeledList.Item label="Total Load (Demand)">
+              <b>
+                {data.totalLoad} ({data.totalLoadDemanded})
+              </b>
+            </LabeledList.Item>
+          </Tooltip>
+          {data.generatorCount > 0 && (
+            <Tooltip content="How much generators are producing (Surplus is how much is supplied to the grid)">
+              <LabeledList.Item label="Generated (Surplus)">
+                {data.totalGenerated} ({data.totalGeneratedSurplus})
+              </LabeledList.Item>
+            </Tooltip>
+          )}
         </LabeledList>
       </Section>
       <Section
-        title="Misc"
+        title="Дополнительно"
         buttons={
           !!data.siliconUser /* }&& (
             <>
@@ -200,7 +236,7 @@ const ApcContent = (props) => {
             label="Cover Lock"
             buttons={
               <Button
-                tooltip="APC cover can be pried open with a crowbar."
+                tooltip="Крышку ЛКП можно вскрыть с помощью лома."
                 icon={data.coverLocked ? 'lock' : 'unlock'}
                 disabled={locked}
                 onClick={() => act('cover')}

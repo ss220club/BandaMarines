@@ -2,6 +2,8 @@
 	name = "Weyland-Yutani Corporate Security (Squad)"
 	mob_max = 6
 	probability = 0
+	shuttle_id = MOBILE_SHUTTLE_ID_ERT2
+	name_of_spawn = /obj/effect/landmark/ert_spawns/distress_pmc
 	home_base = /datum/lazy_template/ert/weyland_station
 
 /datum/emergency_call/goon/New()
@@ -48,7 +50,7 @@
 /datum/emergency_call/goon/chem_retrieval/New()
 	..()
 	dispatch_message = "[MAIN_SHIP_NAME], это ККС \"Ройс\". Наш отряд направляется к вам, чтобы забрать все образцы химического вещества, недавно отсканированного в вашем исследовательском отделе. Вы уже получили значительную сумму денег за открытие, сделанное вашим отделом. Взамен мы просим вас сотрудничать и предоставить нашей команде всё, что связано с химикатом."
-	objectives = "Заберите из исследовательского отдела [MAIN_SHIP_NAME] все документы, образцы и химикаты, содержащие свойство \"DNA_Disintegrating\", и верните их на станцию группы реагирования."
+	objectives = "Заберите из исследовательского отдела [MAIN_SHIP_NAME] все документы и образцы химического вещества 'Ксеногенетический катализатор'. Убедитесь, что флакон не поврежден и содержит 30 единиц, доставьте его на станцию группы реагирования."
 
 /datum/emergency_call/goon/chem_retrieval/proc/check_objective_info()
 	if(objective_info)

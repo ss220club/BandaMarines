@@ -88,7 +88,7 @@ instrumental = "шлемом для подавления беспорядков"
 prepositional = "шлеме для подавления беспорядков"
 gender = "male"
 
-["MK.I SWAT Suit"]
+["mk.i swat suit"]
 nominative = "броня MK.I SWAT"
 genitive = "брони MK.I SWAT"
 dative = "броне MK.I SWAT"
@@ -97,7 +97,7 @@ instrumental = "броней MK.I SWAT"
 prepositional = "броне MK.I SWAT"
 gender = "female"
 
-["SWAT Helmet"]
+["swat helmet"]
 nominative = "шлем SWAT"
 genitive = "шлема SWAT"
 dative = "шлему SWAT"
@@ -106,7 +106,7 @@ instrumental = "шлемом SWAT"
 prepositional = "шлеме SWAT"
 gender = "male"
 
-["SWAT mask"]
+["swat mask"]
 nominative = "маска SWAT"
 genitive = "маски SWAT"
 dative = "маске SWAT"

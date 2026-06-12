@@ -1,9 +1,11 @@
 [
     {
-        "type": "pick", "name": "event",
+        "type": "pick", "name": "Soro Global Event",
         "choices": [
-            { "weight": 7, "type": "def", "values": { "lvevent": "none" } },
-            { "weight": 3, "type": "def", "values": { "lvevent": "clfcrash" } }
+            { "weight": 2, "type": "def", "values": { "lvevent": "none" } },
+            { "weight": 3, "type": "def", "values": { "lvevent": "clfcrash", "hostile_survivors": true } },
+            { "weight": 5, "type": "def", "values": { "lvevent": "sof_insert" } }
         ]
     }
+
 ]

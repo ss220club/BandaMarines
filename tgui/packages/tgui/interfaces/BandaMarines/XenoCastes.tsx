@@ -5,6 +5,26 @@
  * @license MIT
  */
 
+const STRAIN_RU = {
+  Observer: 'Наблюдатель',
+  Gardener: 'Садовник',
+  Healer: 'Лекарь',
+  'Steel Crest': 'Стальной гребень',
+  Acider: 'Кислотник',
+  Eggsac: 'Яйценос',
+  'Resin Whisperer': 'Заклинатель смолы',
+  Vampire: 'Вампир',
+  Charger: 'Таран',
+  Dancer: 'Танцор',
+  Oppressor: 'Угнетатель',
+  Vanguard: 'Авангард',
+  Valkyrie: 'Валькирия',
+  Trapper: 'Ловчий',
+  Berserker: 'Берсерк',
+  Hedgehog: 'Дикобраз',
+  Normal: 'Обычный',
+};
+
 const CASTES_RU = {
   // MARK: Hives
   Prime: 'Прайм',
@@ -37,10 +57,15 @@ const CASTES_RU = {
   Predalien: 'Чужехищник',
   Hellhound: 'Адская гончая',
   Abomination: 'Абоминация',
+  Despoiler: 'Разлагатель',
 };
 
 export function CastesRu(value: string) {
   return CASTES_RU[value] || value;
+}
+
+export function ReverseCastesRu(value: string) {
+  return REVERSED_CASTES_RU[value] || value;
 }
 
 const REVERSED_CASTES_RU = Object.entries(CASTES_RU).reduce(
@@ -51,6 +76,18 @@ const REVERSED_CASTES_RU = Object.entries(CASTES_RU).reduce(
   {},
 );
 
-export function ReverseCastesRu(value: string) {
-  return REVERSED_CASTES_RU[value] || value;
+export function StrainRu(value: string) {
+  return STRAIN_RU[value] || value;
 }
+
+export function ReverseStrainRu(value: string) {
+  return REVERSED_STRAIN_RU[value] || value;
+}
+
+const REVERSED_STRAIN_RU = Object.entries(STRAIN_RU).reduce(
+  (reversed_strains, [key, value]) => {
+    reversed_strains[value] = key;
+    return reversed_strains;
+  },
+  {},
+);

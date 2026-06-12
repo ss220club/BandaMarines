@@ -36,7 +36,7 @@
 	set name = "View Playtimes"
 	set desc = "View your playtimes."
 	if(!SSentity_manager.ready)
-		to_chat(src, "DB is still starting up, please wait")
+		to_chat(src, "DB is still starting up, please wait.")
 		return
 	if(client && client.player_entity)
 		client.player_data.tgui_interact(src)
@@ -153,6 +153,7 @@
 		log_game("[usr.key] AM failed due to disconnect.")
 		return
 	client.screen.Cut()
+	client.render_plates_shown = alist()
 	if(!client)
 		log_game("[usr.key] AM failed due to disconnect.")
 		return
@@ -261,12 +262,28 @@
 	set category = "IC"
 
 	if(observed_atom)
-		var/atom/to_delete = observed_atom
-		observed_atom = null
-		qdel(to_delete)
+		QDEL_NULL(observed_atom)
 		return
 
-	var/turf/above = locate(x, y, z+1)
+	if(!client)
+		return
+
+	if(client.view != world.view)
+		to_chat(src, SPAN_WARNING("You cannot look up while zoomed!"))
+		return
+
+	if(HAS_TRAIT(src, TRAIT_ABILITY_BURROWED))
+		to_chat(src, SPAN_WARNING("We cannot look up here, we are burrowed!"))
+		return
+
+	if(!isturf(loc))
+		to_chat(src, SPAN_WARNING("You cannot look up here."))
+		return
+
+	var/turf/above = SSmapping.get_turf_above(loc)
+	if(!isturf(above))
+		to_chat(src, SPAN_WARNING("You cannot look up here."))
+		return
 
 	if(!istransparentturf(above))
 		to_chat(src, SPAN_WARNING("You cannot look up here."))

@@ -51,18 +51,21 @@
 		INVOKE_ASYNC(src, PROC_REF(pry_open), X)
 		return XENO_ATTACK_ACTION
 
+/obj/structure/machinery/door/poddoor/handle_tail_stab(mob/living/carbon/xenomorph/xeno, blunt_stab)
+	return TAILSTAB_COOLDOWN_NONE
+
 /obj/structure/machinery/door/poddoor/proc/pry_open(mob/living/carbon/xenomorph/X, time = 4 SECONDS)
-	X.visible_message(SPAN_DANGER("[X] begins prying [src] open."),
-	SPAN_XENONOTICE("You start prying [src] open."), max_distance = 3)
+	X.visible_message(SPAN_DANGER("[capitalize(X.declent_ru(NOMINATIVE))] начинает взламывать [declent_ru(ACCUSATIVE)]."),
+	SPAN_XENONOTICE("Вы начинаете взламывать [declent_ru(ACCUSATIVE)]."), max_distance = 3) // SS220 EDIT ADDICTION
 
 	playsound(loc, 'sound/effects/metal_creaking.ogg', 25, TRUE)
 
 	if(!do_after(X, time, INTERRUPT_ALL, BUSY_ICON_HOSTILE, src, INTERRUPT_ALL))
-		to_chat(X, "You stop prying [src] open.")
+		to_chat(X, "Вы прекращаете взламывать [declent_ru(ACCUSATIVE)].")
 		return
 
-	X.visible_message(SPAN_DANGER("[X] pries open [src]."),
-	SPAN_XENONOTICE("You pry open [src]."), max_distance = 3)
+	X.visible_message(SPAN_DANGER("[capitalize(X.declent_ru(NOMINATIVE))] взламывает [declent_ru(ACCUSATIVE)]."),
+	SPAN_XENONOTICE("Вы взламываете [declent_ru(ACCUSATIVE)]."), max_distance = 3) // SS220 EDIT ADDICTION
 
 	open()
 	return TRUE
@@ -152,14 +155,14 @@
 
 /obj/structure/machinery/door/poddoor/hybrisa/open_shutters
 	name = "\improper shutters"
-	desc = null
+	desc = "Thin metal shutters, more for show than security. They redirect light and add a bit of structure to the space."
 	icon_state = "almayer_pdoor1"
 	base_icon_state = "almayer_pdoor"
 	opacity = FALSE
 	vehicle_resistant = FALSE
 	unslashable = FALSE
 	gender = PLURAL
-	health = 200
+	health = 10
 
 /obj/structure/machinery/door/poddoor/hybrisa/open_shutters/bullet_act(obj/projectile/P)
 	health -= P.damage
@@ -193,6 +196,19 @@
 	update_health(rand(current_xenomorph.melee_damage_lower, current_xenomorph.melee_damage_upper))
 	return XENO_ATTACK_ACTION
 
+/obj/structure/machinery/door/poddoor/hybrisa/open_shutters/handle_tail_stab(mob/living/carbon/xenomorph/xeno, blunt_stab)
+	if(unslashable || health <= 0)
+		return TAILSTAB_COOLDOWN_NONE
+	playsound(src, 'sound/effects/metalhit.ogg', 25, 1)
+	update_health(xeno.melee_damage_upper)
+	if(health <= 0)
+		xeno.visible_message(SPAN_DANGER("[xeno] destroys [src] with its tail!"),
+		SPAN_DANGER("We destroy [src] with our tail!"), null, 5, CHAT_TYPE_XENO_COMBAT)
+	else
+		xeno.visible_message(SPAN_DANGER("[xeno] strikes [src] with its tail!"),
+		SPAN_DANGER("We strike [src] with our tail!"), null, 5, CHAT_TYPE_XENO_COMBAT)
+	xeno.tail_stab_animation(src, blunt_stab)
+	return TAILSTAB_COOLDOWN_NORMAL
 
 /obj/structure/machinery/door/poddoor/hybrisa/shutters
 	name = "\improper shutters"

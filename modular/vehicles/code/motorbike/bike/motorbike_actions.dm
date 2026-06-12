@@ -55,7 +55,7 @@
 		return FALSE
 	playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
 	L.animation_attack_on(src)
-	if(stroller)
+	if(sidecar)
 		disconnect()
 	else
 		if(!try_connect(user))

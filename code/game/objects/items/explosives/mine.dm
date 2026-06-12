@@ -40,13 +40,20 @@
 	if(map_deployed)
 		deploy_mine(null)
 	else
-		cause_data = create_cause_data(initial(name))
+		cause_data = create_cause_data(initial(name), null, src)
+
+	AddElement(/datum/element/corp_label/armat)
 
 /obj/item/explosive/mine/Destroy()
 	QDEL_NULL(tripwire)
 	. = ..()
 
-/obj/item/explosive/mine/ex_act()
+/obj/item/explosive/mine/ex_act(severity, direction, datum/cause_data/cause_data, pierce=0, enviro=FALSE)
+	var/mob/blame = cause_data?.resolve_mob()
+	if(!cause_data)
+		cause_data = create_cause_data(initial(name), blame, src)
+	else if(blame)
+		cause_data.weak_mob = WEAKREF(blame)
 	prime() //We don't care about how strong the explosion was.
 
 /obj/item/explosive/mine/emp_act()
@@ -88,10 +95,10 @@
 		msg_admin_niche("[key_name(user)] attempted to plant \a [name] in [get_area(src)] [ADMIN_JMP(src.loc)]")
 		return
 
-	user.visible_message(SPAN_NOTICE("[user] starts deploying [src]."),
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts deploying [src]."),
 		SPAN_NOTICE("You start deploying [src]."))
 	if(!do_after(user, 40, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE))
-		user.visible_message(SPAN_NOTICE("[user] stops deploying [src]."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] stops deploying [src]."),
 			SPAN_NOTICE("You stop deploying \the [src]."))
 		return
 
@@ -101,7 +108,7 @@
 	if(check_for_obstacles(user))
 		return
 
-	user.visible_message(SPAN_NOTICE("[user] finishes deploying [src]."),
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] finishes deploying [src]."),
 		SPAN_NOTICE("You finish deploying [src]."))
 
 	deploy_mine(user)
@@ -110,7 +117,8 @@
 	if(!hard_iff_lock && user)
 		iff_signal = user.faction
 
-	cause_data = create_cause_data(initial(name), user)
+	msg_admin_attack("[key_name(user)] has deployed \a [name] in [get_area(src)] ([src.loc.x],[src.loc.y],[src.loc.z])", src.loc.x, src.loc.y, src.loc.z)
+	cause_data = create_cause_data(initial(name), user, src)
 	anchored = TRUE
 	playsound(loc, 'sound/weapons/mine_armed.ogg', 25, 1)
 	if(user)
@@ -126,13 +134,13 @@
 			if(user.action_busy)
 				return
 			if(user.faction == iff_signal)
-				user.visible_message(SPAN_NOTICE("[user] starts disarming [src]."),
+				user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts disarming [src]."),
 				SPAN_NOTICE("You start disarming [src]."))
 			else
-				user.visible_message(SPAN_NOTICE("[user] starts fiddling with [src], trying to disarm it."),
+				user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts fiddling with [src], trying to disarm it."),
 				SPAN_NOTICE("You start disarming [src], but you don't know its IFF data. This might end badly..."))
 			if(!do_after(user, 30, INTERRUPT_NO_NEEDHAND, BUSY_ICON_FRIENDLY))
-				user.visible_message(SPAN_WARNING("[user] stops disarming [src]."),
+				user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] stops disarming [src]."),
 					SPAN_WARNING("You stop disarming [src]."))
 				return
 			if(user.faction != iff_signal) //ow!
@@ -145,7 +153,7 @@
 					prime()
 			if(!active)//someone beat us to it
 				return
-			user.visible_message(SPAN_NOTICE("[user] finishes disarming [src]."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] finishes disarming [src]."),
 			SPAN_NOTICE("You finish disarming [src]."))
 			disarm()
 	else if(HAS_TRAIT(tool, TRAIT_TOOL_WIRECUTTERS))
@@ -243,8 +251,11 @@
 	set waitfor = 0
 
 	if(!customizable)
-		create_shrapnel(loc, 12, dir, shrapnel_spread, , cause_data)
-		cell_explosion(loc, 60, 20, EXPLOSION_FALLOFF_SHAPE_LINEAR, dir, cause_data)
+		var/shrap_type = /datum/ammo/bullet/shrapnel
+		if(map_deployed)
+			shrap_type = /datum/ammo/bullet/shrapnel/enviro
+		create_shrapnel(loc, 12, dir, shrapnel_spread, shrap_type, cause_data)
+		cell_explosion(loc, 60, 20, EXPLOSION_FALLOFF_SHAPE_LINEAR, dir, cause_data, enviro=map_deployed)
 		qdel(src)
 	else
 		. = ..()
@@ -256,7 +267,7 @@
 		return XENO_NO_DELAY_ACTION
 
 	if(xeno.a_intent == INTENT_HELP)
-		to_chat(xeno, SPAN_XENONOTICE("If you hit this hard enough, it would probably explode."))
+		to_chat(xeno, SPAN_XENONOTICE("Если ударить достаточно сильно, оно, вероятно, взорвётся."))
 		return XENO_NO_DELAY_ACTION
 
 	if(tripwire)
@@ -265,7 +276,7 @@
 			return XENO_NO_DELAY_ACTION
 
 	xeno.animation_attack_on(src)
-	xeno.visible_message(SPAN_DANGER("[xeno] has slashed [src]!"),
+	xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] has slashed [src]!"),
 		SPAN_DANGER("You slash [src]!"))
 	playsound(loc, 'sound/weapons/slice.ogg', 25, 1)
 
@@ -292,6 +303,11 @@
 		if(spit_hit_count >= 2) // Check if hit two times
 			visible_message(SPAN_DANGER("[src] is hit by [xeno_projectile] and violently detonates!")) // Acid is hot for claymore
 			triggered = TRUE
+			var/mob/blame = xeno_projectile.weapon_cause_data?.resolve_mob()
+			if(!cause_data)
+				cause_data = create_cause_data(initial(name), blame, src)
+			else if(blame)
+				cause_data.weak_mob = WEAKREF(blame)
 			prime()
 			if(!QDELETED(src))
 				disarm()
@@ -402,15 +418,15 @@
 	if(user.action_busy)
 		return
 	else if(HAS_TRAIT(W, TRAIT_TOOL_MULTITOOL))
-		user.visible_message(SPAN_NOTICE("[user] starts disarming [src]."), \
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts disarming [src]."), \
 		SPAN_NOTICE("You start disarming [src]."))
 		if(!do_after(user, 30, INTERRUPT_NO_NEEDHAND, BUSY_ICON_FRIENDLY))
-			user.visible_message(SPAN_WARNING("[user] stops disarming [src]."), \
+			user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] stops disarming [src]."), \
 			SPAN_WARNING("You stop disarming [src]."))
 			return
 		if(!active)//someone beat us to it
 			return
-	user.visible_message(SPAN_NOTICE("[user] finishes disarming [src]."), \
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] finishes disarming [src]."), \
 	SPAN_NOTICE("You finish disarming [src]."))
 	disarm()
 	return
@@ -426,7 +442,9 @@
 /obj/item/explosive/mine/sharp/prime(mob/user)
 	set waitfor = FALSE
 	if(!cause_data)
-		cause_data = create_cause_data(initial(name), user)
+		cause_data = create_cause_data(initial(name), user, src)
+	else if(user)
+		cause_data.weak_mob = WEAKREF(user)
 	if(mine_level == 1)
 		explosion_size = 100
 	else if(mine_level == 2)
@@ -438,7 +456,7 @@
 	else
 		explosion_size = 125
 		explosion_falloff = 25
-	cell_explosion(loc, explosion_size, explosion_falloff, EXPLOSION_FALLOFF_SHAPE_LINEAR, CARDINAL_ALL_DIRS, cause_data)
+	cell_explosion(loc, explosion_size, explosion_falloff, EXPLOSION_FALLOFF_SHAPE_LINEAR, CARDINAL_ALL_DIRS, cause_data, enviro=map_deployed)
 	playsound(loc, 'sound/weapons/gun_sharp_explode.ogg', 100)
 	qdel(src)
 
@@ -465,7 +483,7 @@
 	if(!hard_iff_lock && user)
 		iff_signal = user.faction
 
-	cause_data = create_cause_data(initial(name), user)
+	cause_data = create_cause_data(initial(name), user, src)
 	if(user)
 		user.drop_inv_item_on_ground(src)
 	setDir(user ? user.dir : dir) //The direction it is planted in is the direction the user faces at that time
@@ -488,6 +506,11 @@
 	var/damage = bullet.damage
 	health -= damage
 	..()
+	var/mob/blame = bullet.weapon_cause_data?.resolve_mob()
+	if(!cause_data)
+		cause_data = create_cause_data(initial(name), blame, src)
+	else if(blame)
+		cause_data.weak_mob = WEAKREF(blame)
 	healthcheck()
 	return TRUE
 
@@ -503,7 +526,9 @@
 /obj/item/explosive/mine/sharp/incendiary/prime(mob/user)
 	set waitfor = FALSE
 	if(!cause_data)
-		cause_data = create_cause_data(initial(name), user)
+		cause_data = create_cause_data(initial(name), user, src)
+	else if(user)
+		cause_data.weak_mob = WEAKREF(user)
 	if(mine_level == 1)
 		var/datum/effect_system/smoke_spread/phosphorus/smoke = new /datum/effect_system/smoke_spread/phosphorus/sharp
 		var/smoke_radius = 2

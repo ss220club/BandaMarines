@@ -3,7 +3,7 @@
 
 /obj/structure/machinery/deployable
 	name = "deployable"
-	desc = "deployable"
+	desc = "Deployable."
 	req_access = list(ACCESS_MARINE_PREP)//I'm changing this until these are properly tested./N
 
 /obj/structure/machinery/deployable/barrier
@@ -44,7 +44,7 @@
 		if (src.health < src.maxhealth)
 			src.health = src.maxhealth
 			src.req_access = list(ACCESS_MARINE_PREP)
-			visible_message(SPAN_DANGER("[user] repairs \the [src]!"))
+			visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] ремонтирует [declent_ru(ACCUSATIVE)]!"))
 			return
 		return
 	else

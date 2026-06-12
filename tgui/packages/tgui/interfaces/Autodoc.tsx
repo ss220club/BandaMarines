@@ -12,16 +12,16 @@ import {
 import { Window } from 'tgui/layouts';
 
 const stats = [
-  ['good', 'Alive'],
-  ['average', 'Critical'],
-  ['bad', 'DEAD'],
+  ['good', 'Здоров'],
+  ['average', 'В критическом состоянии'],
+  ['bad', 'Скончался'],
 ];
 
 const damages = [
-  ['Brute', 'bruteLoss'],
-  ['Burn', 'fireLoss'],
-  ['Toxin', 'toxLoss'],
-  ['Oxygen', 'oxyLoss'],
+  ['Физический', 'bruteLoss'],
+  ['Термальный', 'fireLoss'],
+  ['Токсический', 'toxLoss'],
+  ['Гипоксия', 'oxyLoss'],
 ];
 
 const damageRange: Record<string, [number, number]> = {
@@ -31,9 +31,11 @@ const damageRange: Record<string, [number, number]> = {
 
 type HumanData = {
   pulse: number;
+  bloodType: number;
   bloodLevel: number;
   bloodMax: number;
   bloodPercent: number;
+  hasImport: BooleanLike;
 };
 
 type OccupantData = {
@@ -70,7 +72,7 @@ export const Autodoc = (props) => {
   const body = hasOccupant ? <AutodocMain /> : <AutodocEmpty />;
   const windowHeight = hasOccupant ? 700 : 150;
   return (
-    <Window width={500} height={windowHeight}>
+    <Window width={550} height={windowHeight}>
       <Window.Content className="Layout__content--flexColumn">
         {body}
       </Window.Content>
@@ -101,10 +103,10 @@ const AutodocOccupant = (props) => {
   const { data } = useBackend<Data>();
   const { occupant } = data;
   return (
-    <Section title="Occupant">
+    <Section title="Общее">
       <LabeledList>
-        <LabeledList.Item label="Name">{occupant.name}</LabeledList.Item>
-        <LabeledList.Item label="Health">
+        <LabeledList.Item label="Пациент">{occupant.name}</LabeledList.Item>
+        <LabeledList.Item label="Здоровье">
           <ProgressBar
             value={occupant.health / occupant.maxHealth}
             ranges={{
@@ -113,15 +115,17 @@ const AutodocOccupant = (props) => {
               bad: [-Infinity, 0],
             }}
           >
-            {round(occupant.health, 0)}
+            {round(occupant.health, 0)}%
           </ProgressBar>
         </LabeledList.Item>
-        <LabeledList.Item label="Status" color={stats[occupant.stat][0]}>
+        <LabeledList.Item label="Статус" color={stats[occupant.stat][0]}>
           {stats[occupant.stat][1]}
         </LabeledList.Item>
         {!!occupant.hasBlood && (
           <>
-            <LabeledList.Item label="Blood Level">
+            <LabeledList.Item
+              label={'Группа крови (' + occupant.bloodType + ')'}
+            >
               <ProgressBar
                 value={occupant.bloodLevel! / occupant.bloodMax!}
                 ranges={{
@@ -130,15 +134,15 @@ const AutodocOccupant = (props) => {
                   good: [0.6, Infinity],
                 }}
               >
-                {occupant.bloodPercent}%, {occupant.bloodLevel}cl
+                {occupant.bloodPercent}%, {round(occupant.bloodLevel, 2)} мл
               </ProgressBar>
             </LabeledList.Item>
-            <LabeledList.Item label="Pulse" verticalAlign="middle">
-              {occupant.pulse} BPM
+            <LabeledList.Item label="Пульс" verticalAlign="middle">
+              {occupant.pulse} уд./мин
             </LabeledList.Item>
           </>
         )}
-        <LabeledList.Item label="Reagents">
+        <LabeledList.Item label="Вещества">
           <ProgressBar
             value={occupant.totalReagents / 60}
             ranges={{
@@ -158,7 +162,7 @@ const AutodocDamage = (props) => {
   const { data } = useBackend<Data>();
   const { occupant } = data;
   return (
-    <Section title="Occupant Damage">
+    <Section title="Повреждения">
       <LabeledList>
         {damages.map((d, i) => (
           <LabeledList.Item key={i} label={d[0]}>
@@ -178,7 +182,7 @@ const AutodocDamage = (props) => {
 
 const AutodocControls = (props) => {
   const { act, data } = useBackend<Data>();
-  const { surgery } = data;
+  const { surgery, occupant } = data;
   return (
     <Section>
       <Flex justify="space-between">
@@ -190,28 +194,42 @@ const AutodocControls = (props) => {
             py="12px"
             backgroundColor="#10b310"
           >
-            Begin Surgery
+            Начать операцию
           </Button>
         </Flex.Item>
         <Flex.Item>
-          <Button
-            onClick={() => act('clear')}
-            disabled={surgery}
-            icon="trash-can"
-            iconPosition="right"
-          >
-            Clear selected
-          </Button>
-        </Flex.Item>
-        <Flex.Item>
-          <Button
-            onClick={() => act('ejectify')}
-            icon={surgery ? 'triangle-exclamation' : 'user-slash'}
-            iconPosition="right"
-            backgroundColor={!!surgery && 'red'}
-          >
-            Eject patient
-          </Button>
+          <Flex justify="space-evenly" wrap="wrap">
+            <Flex.Item>
+              <Button
+                onClick={() => act('clear')}
+                disabled={surgery}
+                icon="trash-can"
+                iconPosition="right"
+              >
+                Очистить выбранное
+              </Button>
+            </Flex.Item>
+            <Flex.Item>
+              <Button
+                onClick={() => act('ejectify')}
+                icon={surgery ? 'triangle-exclamation' : 'user-slash'}
+                iconPosition="right"
+                backgroundColor={!!surgery && 'red'}
+              >
+                Извлечь пациента
+              </Button>
+            </Flex.Item>
+            <Flex.Item>
+              <Button
+                onClick={() => act('import')}
+                icon="file-import"
+                iconPosition="right"
+                disabled={surgery || !occupant.hasImport}
+              >
+                Импорт из последнего сканирования тела
+              </Button>
+            </Flex.Item>
+          </Flex>
         </Flex.Item>
       </Flex>
     </Section>
@@ -236,7 +254,7 @@ const AutodocSurgeries = (props) => {
   const dialysis_active = !!surgeries['dialysis'] || !!filtering;
   return (
     <>
-      <Section title="Trauma Surgeries">
+      <Section title="Хирургические операции">
         <Flex>
           <Flex.Item grow="1">
             <Button
@@ -246,7 +264,7 @@ const AutodocSurgeries = (props) => {
               disabled={surgery}
               onClick={() => !brute_active && act('brute')}
             >
-              Brute Damage Treatment
+              Лечение физических повреждений
               {brute_active && (
                 <Icon
                   name={surgery ? 'arrows-rotate' : 'plus'}
@@ -265,7 +283,7 @@ const AutodocSurgeries = (props) => {
               disabled={surgery}
               onClick={() => !burn_active && act('burn')}
             >
-              Burn Damage Treatment
+              Лечение ожогов
               {burn_active && (
                 <Icon
                   name={surgery ? 'arrows-rotate' : 'plus'}
@@ -286,7 +304,7 @@ const AutodocSurgeries = (props) => {
               disabled={surgery}
               onClick={() => !surgeries['open'] && act('open')}
             >
-              Close Open Incisions
+              Наложение швов
               {!!surgeries['open'] && (
                 <Icon
                   name={surgery ? 'hourglass' : 'plus'}
@@ -305,7 +323,7 @@ const AutodocSurgeries = (props) => {
               disabled={surgery}
               onClick={() => !surgeries['shrapnel'] && act('shrapnel')}
             >
-              Shrapnel Removal Surgery
+              Удаление осколков
               {!!surgeries['shrapnel'] && (
                 <Icon
                   name={surgery ? 'hourglass' : 'plus'}
@@ -318,7 +336,7 @@ const AutodocSurgeries = (props) => {
           </Flex.Item>
         </Flex>
       </Section>
-      <Section title="Hematology Treatments">
+      <Section title="Гематологические операции">
         <Flex>
           <Flex.Item grow="2">
             <Button
@@ -328,7 +346,7 @@ const AutodocSurgeries = (props) => {
               disabled={surgery}
               onClick={() => !blood_active && act('blood')}
             >
-              Blood Transfusion
+              Переливание крови
               {blood_active && (
                 <Icon
                   name={surgery ? 'arrows-rotate' : 'plus'}
@@ -347,7 +365,7 @@ const AutodocSurgeries = (props) => {
               disabled={surgery}
               onClick={() => !dialysis_active && act('dialysis')}
             >
-              Dialysis
+              Гемодиализ
               {dialysis_active && (
                 <Icon
                   name={surgery ? 'arrows-rotate' : 'plus'}
@@ -366,7 +384,7 @@ const AutodocSurgeries = (props) => {
               disabled={surgery}
               onClick={() => !toxin_active && act('toxin')}
             >
-              Bloodstream Toxin Removal
+              Выведение токсинов
               {toxin_active && (
                 <Icon
                   name={surgery ? 'arrows-rotate' : 'plus'}
@@ -387,7 +405,7 @@ const AutodocSurgeriesEx = (props) => {
   const { act, data } = useBackend<Data>();
   const { surgery, surgeries } = data;
   return (
-    <Section title="Orthopedic Surgeries">
+    <Section title="Ортопедические операции">
       <Flex>
         {surgeries['internal'] !== undefined && (
           <Flex.Item basis="50%">
@@ -398,7 +416,7 @@ const AutodocSurgeriesEx = (props) => {
               disabled={surgery}
               onClick={() => !surgeries['internal'] && act('internal')}
             >
-              Internal Bleeding Surgery
+              Лечение внутренних кровотечений
               {!!surgeries['internal'] && (
                 <Icon
                   name={surgery ? 'hourglass' : 'plus'}
@@ -419,7 +437,7 @@ const AutodocSurgeriesEx = (props) => {
               disabled={surgery}
               onClick={() => !surgeries['broken'] && act('broken')}
             >
-              Broken Bone Surgery
+              Лечение переломов
               {!!surgeries['broken'] && (
                 <Icon
                   name={surgery ? 'hourglass' : 'plus'}
@@ -442,7 +460,7 @@ const AutodocSurgeriesEx = (props) => {
               disabled={surgery}
               onClick={() => !surgeries['organdamage'] && act('organdamage')}
             >
-              Organ Damage Treatment
+              Лечение повреждений органов
               {!!surgeries['organdamage'] && (
                 <Icon
                   name={surgery ? 'hourglass' : 'plus'}
@@ -463,7 +481,7 @@ const AutodocSurgeriesEx = (props) => {
               disabled={surgery}
               onClick={() => !surgeries['larva'] && act('larva')}
             >
-              Parasite Extraction
+              Извлечение паразитов
               {!!surgeries['larva'] && (
                 <Icon
                   name={surgery ? 'hourglass' : 'plus'}
@@ -487,7 +505,7 @@ const AutodocEmpty = (props) => {
         <Flex.Item grow="1" align="center" color="label">
           <Icon name="user-slash" mb="0.5rem" size={5} />
           <br />
-          No occupant detected.
+          Поместите пациента в аппарат.
         </Flex.Item>
       </Flex>
     </Section>

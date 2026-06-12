@@ -296,11 +296,11 @@
 		return
 
 	if(HAS_TRAIT(W, TRAIT_TOOL_WRENCH) && !(user.a_intent == INTENT_HELP))
-		user.visible_message(SPAN_NOTICE("[user] starts disassembling [src]."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts disassembling [src]."),
 		SPAN_NOTICE("You start disassembling [src]."))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 25, 1)
-		if(do_after(user, 50 * user.get_skill_duration_multiplier(SKILL_CONSTRUCTION), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
-			user.visible_message(SPAN_NOTICE("[user] disassembles [src]."),
+		if(do_after(user, 50 * user.get_skill_duration_multiplier(SKILL_CONSTRUCTION), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD, src))
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] disassembles [src]."),
 			SPAN_NOTICE("You disassemble [src]."))
 			deconstruct(TRUE)
 		return
@@ -311,7 +311,7 @@
 	if(istype(W, /obj/item/weapon/bracer_attachment))
 		if(rand(0, 2) == 0)
 			playsound(src.loc, 'sound/weapons/wristblades_hit.ogg', 25, 1)
-			user.visible_message(SPAN_DANGER("[user] slices [src] apart!"),
+			user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] slices [src] apart!"),
 				SPAN_DANGER("You slice [src] apart!"))
 			deconstruct(FALSE)
 		else
@@ -353,7 +353,7 @@
 
 /obj/structure/surface/table/verb/do_flip()
 	set name = "Flip table"
-	set desc = "Flips a non-reinforced table"
+	set desc = "Flips a non-reinforced table."
 	set category = "Object"
 	set src in oview(1)
 
@@ -415,7 +415,7 @@
 
 /obj/structure/surface/table/proc/do_put()
 	set name = "Put table back"
-	set desc = "Puts flipped table back"
+	set desc = "Puts flipped table back."
 	set category = "Object"
 	set src in oview(1)
 
@@ -522,6 +522,13 @@
 	parts = /obj/item/frame/table/wood/fancy
 	table_prefix = "fwood"
 
+/obj/structure/surface/table/woodentable/fancy/black
+	name = "fancy wooden table"
+	desc = "A nicely crafted dark stained mahogany wood surface resting on four legs. Useful to put stuff on. It's too heavy to flip over."
+	icon_state = "fbwoodtable"
+	parts = /obj/item/frame/table/wood/fancy
+	table_prefix = "fbwood"
+
 /obj/structure/surface/table/woodentable/fancy/flip(direction)
 	return 0 //That is mahogany!
 /*
@@ -559,23 +566,23 @@
 		var/obj/item/tool/weldingtool/WT = W
 		if(WT.remove_fuel(0, user))
 			if(status == RTABLE_NORMAL)
-				user.visible_message(SPAN_NOTICE("[user] starts weakening [src]."),
+				user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts weakening [src]."),
 				SPAN_NOTICE("You start weakening [src]"))
 				playsound(src.loc, 'sound/items/Welder.ogg', 25, 1)
 				if (do_after(user, 50 * user.get_skill_duration_multiplier(SKILL_CONSTRUCTION), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
 					if(!src || !WT.isOn())
 						return
-					user.visible_message(SPAN_NOTICE("[user] weakens [src]."),
+					user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] weakens [src]."),
 					SPAN_NOTICE("You weaken [src]"))
 					src.status = RTABLE_WEAKENED
 			else
-				user.visible_message(SPAN_NOTICE("[user] starts welding [src] back together."),
+				user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts welding [src] back together."),
 				SPAN_NOTICE("You start welding [src] back together."))
 				playsound(src.loc, 'sound/items/Welder.ogg', 25, 1)
 				if(do_after(user, 50 * user.get_skill_duration_multiplier(SKILL_CONSTRUCTION), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
 					if(!src || !WT.isOn())
 						return
-					user.visible_message(SPAN_NOTICE("[user] welds [src] back together."),
+					user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] welds [src] back together."),
 					SPAN_NOTICE("You weld [src] back together."))
 					status = RTABLE_NORMAL
 			return
@@ -590,6 +597,39 @@
 	desc = "A square metal surface resting on four legs. This one has side panels, making it useful as a desk, but impossible to flip."
 	icon_state = "prisontable"
 	table_prefix = "prison"
+
+/obj/structure/surface/table/reinforced/rostock_blend
+	desc = "A square metal surface resting on its fat metal bottom. You can't flip something that doesn't have legs."
+	icon_state = "rostockStable" //instance, this is a static table for req.
+	table_prefix = "rostockS"
+	tiles_with = list(
+		/obj/structure/window/framed/almayer,
+		/obj/structure/machinery/door/airlock,
+		/turf/closed/wall,
+	)
+
+/obj/structure/surface/table/reinforced/rostock_blend/north
+	icon_state = "rostockNtable"
+	table_prefix = "rostockN"
+
+/obj/structure/surface/table/reinforced/rostock_blend/east
+	icon_state = "rostockEtable"
+	table_prefix = "rostockE"
+
+/obj/structure/surface/table/reinforced/rostock_blend/west
+	icon_state = "rostockWtable"
+	table_prefix = "rostockW"
+
+/obj/structure/surface/table/reinforced/rostock_blend/flip(direction)
+	return FALSE
+
+/obj/structure/surface/table/reinforced/rostock_table
+	desc = "A square metal surface resting on its fat metal bottom. You can't flip something that doesn't have legs."
+	icon_state = "rostock_table" //this one actually auto-tiles, but has no flipped state!
+	table_prefix = "rostock_"
+
+/obj/structure/surface/table/reinforced/rostock_table/flip(direction)
+	return FALSE
 
 /obj/structure/surface/table/reinforced/almayer_blend
 	desc = "A square metal surface resting on its fat metal bottom. You can't flip something that doesn't have legs."
@@ -703,3 +743,21 @@
 	. = ..()
 	if(.)
 		deconstruct(FALSE)
+
+/obj/structure/surface/hunter_shuttle_table
+	name = "console base"
+	desc = "A smooth metal alloy base table."
+	icon = 'icons/obj/structures/tables.dmi'
+	icon_state = "hs_table"
+	density = TRUE
+	layer = TABLE_LAYER
+	anchored = TRUE
+	throwpass = TRUE //You can throw objects over this, despite it's density.
+	breakable = FALSE
+	climbable = FALSE
+	wrenchable = FALSE
+	explo_proof = TRUE
+	health = 100
+
+/obj/structure/surface/hunter_shuttle_table/deconstruct(disassembled = TRUE)
+	return FALSE

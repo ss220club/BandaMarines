@@ -32,7 +32,8 @@
 	var/current_bulletholes = null
 	var/image/bullet_overlay = null
 	var/list/wall_connections = list("0", "0", "0", "0")
-	var/neighbors_list = 0
+	/// A bitfield of all the directions with a blendable neighbor
+	var/neighbors_bitfield = NONE
 	var/repair_materials = list("wood"= 0.075, "metal" = 0.15, "plasteel" = 0.3) //Max health % recovered on a nailgun repair
 
 	var/d_state = 0 //Normal walls are now as difficult to remove as reinforced walls
@@ -42,17 +43,23 @@
 	var/acided_hole_dir = SOUTH
 
 	var/special_icon = 0
+	/// Kinds of /turf/closed/wall that can be blended with
 	var/list/blend_turfs = list(/turf/closed/wall)
+	/// Kinds of /turf/closed/wall that cannot be blended with
 	var/list/noblend_turfs = list(/turf/closed/wall/mineral, /turf/closed/wall/almayer/research/containment) //Turfs to avoid blending with
+	/// Kinds of /obj that can be blended with
 	var/list/blend_objects = list(/obj/structure/machinery/door, /obj/structure/window_frame, /obj/structure/window/framed) // Objects which to blend with
+	/// Kinds of /obj  that cannot be blended with
 	var/list/noblend_objects = list(/obj/structure/machinery/door/window) //Objects to avoid blending with (such as children of listed blend objects.
 
 	var/list/hiding_humans = list()
 
+	///Whether this turf is currently being manipulated to prevent doubling up
+	var/busy = FALSE
+
 /turf/closed/wall/Initialize(mapload, ...)
 	. = ..()
 	is_weedable = initial(is_weedable) //so we can spawn weeds on the wall
-
 	// Defer updating based on neighbors while we're still loading map
 	if(mapload && . != INITIALIZE_HINT_QDEL)
 		return INITIALIZE_HINT_LATELOAD
@@ -61,7 +68,6 @@
 	if(. != INITIALIZE_HINT_LATELOAD)
 		update_icon()
 
-
 /turf/closed/wall/LateInitialize()
 	. = ..()
 	// By default this assumes being used for map late init
@@ -69,6 +75,12 @@
 	update_connections(FALSE)
 	update_icon()
 
+/turf/closed/wall/afterShuttleMove(turf/oldT, rotation)
+	. = ..()
+	// Check if setDir already would handle it
+	if(!rotation)
+		update_connections(FALSE)
+		update_icon()
 
 /turf/closed/wall/setDir(newDir)
 	..()
@@ -192,7 +204,7 @@
 	to_unhide.apply_effect(2, SLOW)
 	hiding_humans -= to_unhide
 	UnregisterSignal(to_unhide, list(COMSIG_MOVABLE_MOVED, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_MOB_RESISTED, COMSIG_MOB_ANIMATING))
-	to_chat(to_unhide, SPAN_WARNING("You couldn't sit still so you stop leaning on the wall!"))
+	to_chat(to_unhide, SPAN_WARNING("Вы перестали прислоняться к стене."))
 	to_unhide.remove_filter("cutout")
 
 /turf/closed/wall/Destroy()
@@ -242,7 +254,7 @@
 	. = ..()
 
 	if(turf_flags & TURF_HULL)
-		.+= SPAN_WARNING("You don't think you have any tools able to even scratch this.")
+		.+= SPAN_WARNING("This cannot be damaged by anything available.")
 		return //If it's indestructable, we don't want to give the wrong impression by saying "you can decon it with a welder"
 
 	if(!damage)
@@ -339,6 +351,8 @@
 		dismantle_wall(FALSE, TRUE)
 		if(!istype(src, /turf/closed/wall/resin))
 			create_shrapnel(location, rand(2,5), explosion_direction, , /datum/ammo/bullet/shrapnel/light, cause_data)
+		else
+			create_shrapnel(location, rand(2,5), explosion_direction, , /datum/ammo/bullet/shrapnel/light/resin, cause_data)
 	else
 		if(istype(src, /turf/closed/wall/resin))
 			exp_damage *= RESIN_EXPLOSIVE_MULTIPLIER
@@ -410,12 +424,12 @@
 			return
 		else
 			if((prob(40)))
-				M.visible_message(SPAN_DANGER("[M] smashes through [src]."),
+				M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] smashes through [src]."),
 				SPAN_DANGER("You smash through the wall."))
 				dismantle_wall(1)
 				return
 			else
-				M.visible_message(SPAN_WARNING("[M] smashes against [src]."),
+				M.visible_message(SPAN_WARNING("[capitalize(M.declent_ru(NOMINATIVE))] smashes against [src]."),
 				SPAN_WARNING("You smash against the wall."))
 				take_damage(rand(25, 75), M)
 				return
@@ -426,9 +440,14 @@
 		var/obj/item/grab/attacker_grab = attacking_item
 		var/mob/living/carbon/xenomorph/user_as_xenomorph = user
 		user_as_xenomorph.do_nesting_host(attacker_grab.grabbed_thing, src)
+		return
 
 	if(!ishuman(user))
 		to_chat(user, SPAN_WARNING("You don't have the dexterity to do this!"))
+		return
+
+	if(busy)
+		to_chat(user, SPAN_WARNING("Someone else is already working on [src]."))
 		return
 
 	//THERMITE related stuff. Calls src.thermitemelt() which handles melting simulated walls and the relevant effects
@@ -448,17 +467,20 @@
 		if(user.action_busy)
 			return
 		if(!(HAS_TRAIT(user, TRAIT_SUPER_STRONG) || !current_hammer.really_heavy))
-			to_chat(user, SPAN_WARNING("You can't use \the [current_hammer] properly!"))
+			to_chat(user, SPAN_WARNING("You can't use [current_hammer] properly!"))
 			return
 		if(turf_flags & TURF_HULL)
-			to_chat(user, SPAN_WARNING("Even with your immense strength, you can't bring down \the [src]."))
+			to_chat(user, SPAN_WARNING("Even with your immense strength, you can't bring down [src]."))
 			return
 
-		to_chat(user, SPAN_NOTICE("You start taking down \the [src]."))
+		to_chat(user, SPAN_NOTICE("You start taking down [src]."))
+		busy = TRUE
 		if(!do_after(user, 5 SECONDS, INTERRUPT_ALL_OUT_OF_RANGE, BUSY_ICON_BUILD))
-			to_chat(user, SPAN_NOTICE("You stop taking down \the [src]."))
+			busy = FALSE
+			to_chat(user, SPAN_NOTICE("You stop taking down [src]."))
 			return
-		to_chat(user, SPAN_NOTICE("You tear down \the [src]."))
+		busy = FALSE
+		to_chat(user, SPAN_NOTICE("You tear down [src]."))
 
 		playsound(src, 'sound/effects/meteorimpact.ogg', 40, 1)
 		playsound(src, 'sound/effects/ceramic_shatter.ogg', 40, 1)
@@ -500,6 +522,7 @@
 		to_chat(user, SPAN_NOTICE("You place the torch down on the wall."))
 		new /obj/structure/prop/brazier/frame/full/torch(src)
 		qdel(attacking_item)
+		return
 
 	if(turf_flags & TURF_HULL)
 		to_chat(user, SPAN_WARNING("[src] is much too tough for you to do anything to it with [attacking_item]."))
@@ -523,45 +546,59 @@
 
 		if(WALL_STATE_SCREW)
 			if(HAS_TRAIT(attacking_item, TRAIT_TOOL_SCREWDRIVER))
-				user.visible_message(SPAN_NOTICE("[user] begins removing the support lines."),
+				user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins removing the support lines."),
 				SPAN_NOTICE("You begin removing the support lines."))
 				playsound(src, 'sound/items/Screwdriver.ogg', 25, 1)
+				busy = TRUE
 				if(!do_after(user, 60 * user.get_skill_duration_multiplier(SKILL_CONSTRUCTION), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
+					busy = FALSE
 					return
+				busy = FALSE
 				d_state = WALL_STATE_WIRECUTTER
-				user.visible_message(SPAN_NOTICE("[user] removes the support lines."), SPAN_NOTICE("You remove the support lines."))
+				user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] removes the support lines."), SPAN_NOTICE("You remove the support lines."))
 				return
 
 		if(WALL_STATE_WIRECUTTER)
 			if(HAS_TRAIT(attacking_item, TRAIT_TOOL_WIRECUTTERS))
-				user.visible_message(SPAN_NOTICE("[user] begins uncrimping the hydraulic lines."),
+				user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins uncrimping the hydraulic lines."),
 				SPAN_NOTICE("You begin uncrimping the hydraulic lines."))
 				playsound(src, 'sound/items/Wirecutter.ogg', 25, 1)
+				busy = TRUE
 				if(!do_after(user, 60 * user.get_skill_duration_multiplier(SKILL_CONSTRUCTION), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
+					busy = FALSE
 					return
+				busy = FALSE
 				d_state = WALL_STATE_WRENCH
-				user.visible_message(SPAN_NOTICE("[user] finishes uncrimping the hydraulic lines."), SPAN_NOTICE("You finish uncrimping the hydraulic lines."))
+				user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] finishes uncrimping the hydraulic lines."), SPAN_NOTICE("You finish uncrimping the hydraulic lines."))
 				return
 
 		if(WALL_STATE_WRENCH)
 			if(HAS_TRAIT(attacking_item, TRAIT_TOOL_WRENCH))
-				user.visible_message(SPAN_NOTICE("[user] starts loosening the anchoring bolts securing the support rods."),
+				user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts loosening the anchoring bolts securing the support rods."),
 				SPAN_NOTICE("You start loosening the anchoring bolts securing the support rods."))
 				playsound(src, 'sound/items/Ratchet.ogg', 25, 1)
+				busy = TRUE
 				if(!do_after(user, 60 * user.get_skill_duration_multiplier(SKILL_CONSTRUCTION), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
+					busy = FALSE
 					return
+				busy = FALSE
 				d_state = WALL_STATE_CROWBAR
-				user.visible_message(SPAN_NOTICE("[user] removes the bolts anchoring the support rods."), SPAN_NOTICE("You remove the bolts anchoring the support rods."))
+				user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] removes the bolts anchoring the support rods."), SPAN_NOTICE("You remove the bolts anchoring the support rods."))
 				return
 
 		if(WALL_STATE_CROWBAR)
 			if(HAS_TRAIT(attacking_item, TRAIT_TOOL_CROWBAR))
-				user.visible_message(SPAN_NOTICE("[user] struggles to pry apart the connecting rods."),
+				user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] struggles to pry apart the connecting rods."),
 				SPAN_NOTICE("You struggle to pry apart the connecting rods."))
 				playsound(src, 'sound/items/Crowbar.ogg', 25, 1)
+				busy = TRUE
 				if(!do_after(user, 60 * user.get_skill_duration_multiplier(SKILL_CONSTRUCTION), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
+					busy = FALSE
 					return
-				user.visible_message(SPAN_NOTICE("[user] pries apart the connecting rods."), SPAN_NOTICE("You pry apart the connecting rods."))
+				busy = FALSE
+				if(!istype(src, /turf/closed/wall))
+					return
+				user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] pries apart the connecting rods."), SPAN_NOTICE("You pry apart the connecting rods."))
 				new /obj/item/stack/rods(src)
 				dismantle_wall()
 				return
@@ -573,16 +610,21 @@
 		return FALSE
 	if(user.a_intent != INTENT_HELP)
 		return FALSE
+	if(busy)
+		return FALSE
 
 	var/obj/item/tool/weldingtool/WT = W
 	if(WT.remove_fuel(0, user))
-		user.visible_message(SPAN_NOTICE("[user] starts repairing the damage to [src]."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts repairing the damage to [src]."),
 		SPAN_NOTICE("You start repairing the damage to [src]."))
 		playsound(src, 'sound/items/Welder.ogg', 25, 1)
+		busy = TRUE
 		if(do_after(user, max(5, floor(damage / 5) * user.get_skill_duration_multiplier(SKILL_CONSTRUCTION)), INTERRUPT_ALL, BUSY_ICON_FRIENDLY) && istype(src, /turf/closed/wall) && WT && WT.isOn())
-			user.visible_message(SPAN_NOTICE("[user] finishes repairing the damage to [src]."),
+			busy = FALSE
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] finishes repairing the damage to [src]."),
 			SPAN_NOTICE("You finish repairing the damage to [src]."))
 			take_damage(-damage)
+		busy = FALSE
 	else
 		to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 
@@ -597,16 +639,21 @@
 		return
 	if(user.a_intent == INTENT_HELP)
 		return
+	if(busy)
+		return
 
 	playsound(src, 'sound/items/Welder.ogg', 25, 1)
-	user.visible_message(SPAN_NOTICE("[user] begins slicing through the outer plating."),
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins slicing through the outer plating."),
 	SPAN_NOTICE("You begin slicing through the outer plating."))
 	if(!WT || !WT.isOn())
 		return
+	busy = TRUE
 	if(!do_after(user, 60 * user.get_skill_duration_multiplier(SKILL_CONSTRUCTION), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
+		busy = FALSE
 		return
+	busy = FALSE
 	d_state = WALL_STATE_SCREW
-	user.visible_message(SPAN_NOTICE("[user] slices through the outer plating."), SPAN_NOTICE("You slice through the outer plating."))
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] slices through the outer plating."), SPAN_NOTICE("You slice through the outer plating."))
 	return
 
 /turf/closed/wall/proc/try_nailgun_usage(obj/item/W, mob/user)

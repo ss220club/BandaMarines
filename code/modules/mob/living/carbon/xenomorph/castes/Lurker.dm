@@ -37,9 +37,11 @@
 	plasma_types = list(PLASMA_CATECHOLAMINE)
 	pixel_x = -12
 	old_x = -12
+	xenonid_pixel_x = -9
 	tier = 2
 	organ_value = 2000
 	base_actions = list(
+		/datum/action/xeno_action/onclick/toggle_seethrough,
 		/datum/action/xeno_action/onclick/xeno_resting,
 		/datum/action/xeno_action/onclick/release_haul,
 		/datum/action/xeno_action/watch_xeno,
@@ -47,7 +49,6 @@
 		/datum/action/xeno_action/activable/pounce/lurker,
 		/datum/action/xeno_action/onclick/lurker_invisibility,
 		/datum/action/xeno_action/onclick/lurker_assassinate,
-		/datum/action/xeno_action/onclick/tacmap,
 	)
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
@@ -85,14 +86,14 @@
 		return original_damage
 
 	if (next_slash_buffed)
-		to_chat(bound_xeno, SPAN_XENOHIGHDANGER("We significantly strengthen our attack, slowing [target_carbon]!"))
-		to_chat(target_carbon, SPAN_XENOHIGHDANGER("You feel a sharp pain as [bound_xeno] slashes you, slowing you down!"))
+		to_chat(bound_xeno, SPAN_XENOHIGHDANGER("Мы значительно усиливаем нашу атаку, замедляя [target_carbon]!")) // SS220 EDIT ADDICTION
+		to_chat(target_carbon, SPAN_XENOHIGHDANGER("Вы чувствуете резкую боль, когда [bound_xeno] атакует и замедляет вас!")) // SS220 EDIT ADDICTION
 		original_damage *= buffed_slash_damage_ratio
 		target_carbon.set_effect(get_xeno_stun_duration(target_carbon, 3), SUPERSLOW)
 		next_slash_buffed = FALSE
 		var/datum/action/xeno_action/onclick/lurker_assassinate/ability = get_action(bound_xeno, /datum/action/xeno_action/onclick/lurker_assassinate)
 		if (ability)
-			ability.button.icon_state = "template"
+			ability.button.icon_state = "template_xeno"
 
 	return original_damage
 
@@ -191,7 +192,7 @@
 	if(HAS_TRAIT(bumped_into, TRAIT_CLOAKED)) //ignore invisible scouts and preds
 		return
 
-	to_chat(bound_xeno, SPAN_XENOHIGHDANGER("We bumped into someone and lost our invisibility!"))
+	to_chat(bound_xeno, SPAN_XENOHIGHDANGER("Мы столкнулись с кем-то и потеряли свою невидимость!"))
 	lurker_invisibility_action.invisibility_off(0.5) // partial refund of remaining time
 
 
@@ -245,7 +246,6 @@
 		return ..()
 
 	button.icon_state = "template_active"
-	xeno.update_icons() // callback to make the icon_state indicate invisibility is in lurker/update_icon
 
 	animate(xeno, alpha = alpha_amount, time = 0.1 SECONDS, easing = QUAD_EASING)
 
@@ -276,10 +276,9 @@
 		invis_timer_id = TIMER_ID_NULL
 
 	animate(xeno, alpha = initial(xeno.alpha), time = 0.1 SECONDS, easing = QUAD_EASING)
-	to_chat(xeno, SPAN_XENOHIGHDANGER("We feel our invisibility end!"))
+	to_chat(xeno, SPAN_XENOHIGHDANGER("Мы чувствуем, что перестали быть невидимым!"))
 
-	button.icon_state = "template"
-	xeno.update_icons()
+	button.icon_state = "template_xeno"
 
 	xeno.speed_modifier += speed_buff
 	xeno.recalculate_speed()
@@ -299,7 +298,7 @@
 
 /datum/action/xeno_action/onclick/lurker_invisibility/ability_cooldown_over()
 	if(owner.client?.prefs.show_cooldown_messages)
-		to_chat(owner, SPAN_XENOHIGHDANGER("We are ready to use our invisibility again!"))
+		to_chat(owner, SPAN_XENOHIGHDANGER("Мы снова полны сил, чтобы стать невидимым!"))
 	..()
 
 /datum/action/xeno_action/onclick/lurker_assassinate/use_ability(atom/targeted_atom)
@@ -318,7 +317,7 @@
 	if (istype(behavior))
 		behavior.next_slash_buffed = TRUE
 
-	to_chat(xeno, SPAN_XENOHIGHDANGER("Our next slash will deal increased damage!"))
+	to_chat(xeno, SPAN_XENOHIGHDANGER("Наша следующая атака нанесёт повышенный урон!"))
 
 	addtimer(CALLBACK(src, PROC_REF(unbuff_slash)), buff_duration)
 	xeno.next_move = world.time + 1 // Autoattack reset
@@ -337,4 +336,4 @@
 			return
 		behavior.next_slash_buffed = FALSE
 
-	to_chat(xeno, SPAN_XENODANGER("We have waited too long, our slash will no longer deal increased damage!"))
+	to_chat(xeno, SPAN_XENODANGER("Мы слишком долго ждали, наша атака больше не наносит повышенный урон!"))

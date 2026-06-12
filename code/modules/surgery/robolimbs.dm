@@ -36,16 +36,16 @@
 /datum/surgery_step/connect_prosthesis/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/robot_parts/tool, tool_type, datum/surgery/surgery)
 	user.affected_message(target,
 		SPAN_NOTICE("You begin connecting \the [tool] to the prepared stump of [target]'s [parse_zone(target_zone)]."),
-		SPAN_NOTICE("[user] begins connect \the [tool] to the prepared stump of your [parse_zone(target_zone)]."),
-		SPAN_NOTICE("[user] begins to connect \the [tool] to the prepared stump of [target]'s [parse_zone(target_zone)]."))
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins connect \the [tool] to the prepared stump of your [parse_zone(target_zone)]."),
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins to connect \the [tool] to the prepared stump of [target]'s [parse_zone(target_zone)]."))
 
 	log_interact(user, target, "[key_name(user)] attempted to begin attaching a prosthesis to [key_name(target)]'s [surgery.affected_limb.display_name].")
 
 /datum/surgery_step/connect_prosthesis/success(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
 	user.affected_message(target,
 		SPAN_NOTICE("You replace [target]'s severed [parse_zone(target_zone)] with \the [tool]."),
-		SPAN_NOTICE("[user] replaces your severed [parse_zone(target_zone)] with \the [tool]."),
-		SPAN_NOTICE("[user] replaces [target]'s severed [parse_zone(target_zone)] with \the [tool]."))
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] replaces your severed [parse_zone(target_zone)] with \the [tool]."),
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] replaces [target]'s severed [parse_zone(target_zone)] with \the [tool]."))
 
 	surgery.affected_limb.robotize(surgery_in_progress = TRUE, uncalibrated = TRUE, synth_skin = issynth(target))
 	target.update_body()
@@ -58,8 +58,8 @@
 /datum/surgery_step/connect_prosthesis/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
 	user.affected_message(target,
 		SPAN_WARNING("Your hand slips, damaging [target]'s stump!"),
-		SPAN_WARNING("[user] slips, damaging your stump!"),
-		SPAN_WARNING("[user] slips, damaging [target]'s stump!"))
+		SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] slips, damaging your stump!"),
+		SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] slips, damaging [target]'s stump!"))
 
 	target.apply_damage(10, BRUTE, surgery.affected_limb.parent)
 	log_interact(user, target, "[key_name(user)] failed to begin attaching a prosthesis to [key_name(target)]'s [surgery.affected_limb.display_name], aborting [surgery].")
@@ -80,24 +80,28 @@
 /datum/surgery_step/strenghten_prosthesis_connection/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
 	user.affected_message(target,
 		SPAN_NOTICE("You start tightening [target]'s new prosthetic [parse_zone(target_zone)]'s connection to \his body."),
-		SPAN_NOTICE("[user] starts to tighten your new prosthetic [parse_zone(target_zone)]'s connection to your body."),
-		SPAN_NOTICE("[user] starts to tighten [target]'s new prosthetic [parse_zone(target_zone)]'s connection to \his body."))
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts to tighten your new prosthetic [parse_zone(target_zone)]'s connection to your body."),
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts to tighten [target]'s new prosthetic [parse_zone(target_zone)]'s connection to \his body."))
 
 	log_interact(user, target, "[key_name(user)] began tightening a prosthesis to [key_name(target)]'s [surgery.affected_limb.display_name].")
 
 /datum/surgery_step/strenghten_prosthesis_connection/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
 	user.affected_message(target,
 		SPAN_NOTICE("You firmly attach the prosthesis to [target]'s body."),
-		SPAN_NOTICE("[user] firmly attaches the prosthesis to your body."),
-		SPAN_NOTICE("[user] firmly attaches the prosthesis to [target]'s body."))
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] firmly attaches the prosthesis to your body."),
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] firmly attaches the prosthesis to [target]'s body."))
 
 	log_interact(user, target, "[key_name(user)] finished tightening a prosthesis to [key_name(target)]'s [surgery.affected_limb.display_name].")
 
-/datum/surgery_step/strenghten_prosthesis_connection/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
+/datum/surgery_step/strenghten_prosthesis_connection/failure(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
+	var/nerves_type = target.get_nerves_type()
+	if(nerves_type == "nervous system") //pinching someone's entire nervous system wouldn't make sense
+		nerves_type = "stump"
+	var/pain = (target.species && (target.species.flags & IS_SYNTHETIC)) ? "" : " painfully"
 	user.affected_message(target,
-		SPAN_WARNING("You slip while trying to tighten [target]'s prosthesis, pinching \his stump painfully!"),
-		SPAN_WARNING("[user] slips while trying to tighten the prosthesis, pinching your stump painfully!"),
-		SPAN_WARNING("[user] slips while trying to tighten [target]'s prosthesis, pinching \his stump painfully!"))
+		SPAN_WARNING("You slip while trying to tighten [target]'s prosthesis, pinching \his [nerves_type][pain]!"),
+		SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] slips while trying to tighten the prosthesis, pinching your [nerves_type][pain]!"),
+		SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] slips while trying to tighten [target]'s prosthesis, pinching \his [nerves_type][pain]!"))
 
 	log_interact(user, target, "[key_name(user)] failed to tighten a prosthesis to [key_name(target)]'s [surgery.affected_limb.display_name].")
 	return FALSE
@@ -115,19 +119,19 @@
 	failure_sound = 'sound/items/Screwdriver2.ogg'
 
 /datum/surgery_step/calibrate_prosthesis/preop(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
-	var/nerves = (target.species && (target.species.flags & IS_SYNTHETIC)) ? "control wiring" : "nervous system"
+	var/nerves_type = target.get_nerves_type()
 	user.affected_message(target,
-		SPAN_NOTICE("You start calibrating [target]'s prosthesis to \his [nerves]."),
-		SPAN_NOTICE("[user] starts calibrating your prosthesis to your [nerves]."),
-		SPAN_NOTICE("[user] starts calibrating [target]'s prosthesis to \his [nerves]."))
+		SPAN_NOTICE("You start calibrating [target]'s prosthesis to \his [nerves_type]."),
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts calibrating your prosthesis to your [nerves_type]."),
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts calibrating [target]'s prosthesis to \his [nerves_type]."))
 
 	log_interact(user, target, "[key_name(user)] began calibrating a prosthesis on [key_name(target)]'s [surgery.affected_limb.display_name].")
 
 /datum/surgery_step/calibrate_prosthesis/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
 	user.affected_message(target,
 		SPAN_NOTICE("You finish calibrating [target]'s prosthesis, and it now moves as \he commands."),
-		SPAN_NOTICE("[user] finishes calibrating your prosthesis, and it now moves as you command."),
-		SPAN_NOTICE("[user] finishes calibrating [target]'s prosthesis, and it now moves as \he commands."))
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] finishes calibrating your prosthesis, and it now moves as you command."),
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] finishes calibrating [target]'s prosthesis, and it now moves as \he commands."))
 
 	log_interact(user, target, "[key_name(user)] calibrated a prosthesis on [key_name(target)]'s [surgery.affected_limb.display_name], ending [surgery].")
 	surgery.affected_limb.calibrate_prosthesis()
@@ -141,8 +145,8 @@
 
 	user.affected_message(target,
 		SPAN_WARNING("You make a mistake calibrating the prosthetic [parse_zone(target_zone)], and it [failure_mode]!"),
-		SPAN_WARNING("[user] makes a mistake calibrating the prosthetic [parse_zone(target_zone)], and it [failure_mode]!"),
-		SPAN_WARNING("[user] makes a mistake calibrating the prosthetic [parse_zone(target_zone)], and it [failure_mode]!"))
+		SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] makes a mistake calibrating the prosthetic [parse_zone(target_zone)], and it [failure_mode]!"),
+		SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] makes a mistake calibrating the prosthetic [parse_zone(target_zone)], and it [failure_mode]!"))
 
 	log_interact(user, target, "[key_name(user)] failed to calibrate a prosthesis on [key_name(target)]'s [surgery.affected_limb.display_name].")
 	return FALSE

@@ -18,12 +18,10 @@
 
 	evolution_allowed = FALSE
 	deevolves_to = list(XENO_CASTE_SPITTER)
-	spit_delay = 30 SECONDS
 	caste_desc = "Gross!"
 	acid_level = 3
 	caste_luminosity = 2
 	spit_types = list(/datum/ammo/xeno/boiler_gas/acid, /datum/ammo/xeno/boiler_gas)
-	fire_immunity = FIRE_VULNERABILITY
 	// 3x fire damage
 	fire_vulnerability_mult = FIRE_MULTIPLIER_DEADLY
 
@@ -51,12 +49,14 @@
 	tier = 3
 	gib_chance = 100
 	drag_delay = 6 //pulling a big dead xeno is hard
-	spit_delay  = 30 SECONDS
 	tileoffset = 3
 	viewsize = 7
+	fire_immunity = FIRE_VULNERABILITY
 
 	icon_xeno = 'icons/mob/xenos/castes/tier_3/boiler.dmi'
 	icon_xenonid = 'icons/mob/xenonids/castes/tier_3/boiler.dmi'
+
+	acid_overlay = icon('icons/mob/xenos/castes/tier_3/boiler.dmi', "Boiler-Spit")
 
 	weed_food_icon = 'icons/mob/xenos/weeds_64x64.dmi'
 	weed_food_states = list("Boiler_1","Boiler_2","Boiler_3")
@@ -65,6 +65,7 @@
 	var/datum/effect_system/smoke_spread/xeno_acid/smoke
 
 	base_actions = list(
+		/datum/action/xeno_action/onclick/toggle_seethrough,
 		/datum/action/xeno_action/onclick/xeno_resting,
 		/datum/action/xeno_action/onclick/release_haul,
 		/datum/action/xeno_action/watch_xeno,
@@ -75,7 +76,6 @@
 		/datum/action/xeno_action/activable/spray_acid/boiler, //3rd macro
 		/datum/action/xeno_action/onclick/toggle_long_range/boiler, //4th macro
 		/datum/action/xeno_action/onclick/acid_shroud, //5th macro
-		/datum/action/xeno_action/onclick/tacmap,
 	)
 	skull = /obj/item/skull/boiler
 	pelt = /obj/item/pelt/boiler
@@ -86,8 +86,6 @@
 	smoke.attach(src)
 	smoke.cause_data = create_cause_data(initial(caste_type), src)
 	see_in_dark = 20
-
-	update_icon_source()
 
 /mob/living/carbon/xenomorph/boiler/Destroy()
 	if(smoke)
@@ -119,7 +117,7 @@
 			return
 
 		xeno.create_empower()
-		xeno.visible_message(SPAN_XENODANGER("[xeno] starts to gather its acid for a massive blast!"), SPAN_XENODANGER("We start to gather our acid for a massive blast!"))
+		xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] начинает накапливать кислоту для мощного взрыва!"), SPAN_XENODANGER("Мы начинаем накапливать кислоту для мощного взрыва!")) // SS220 EDIT ADDICTION
 		activated_once = TRUE
 		stack()
 		addtimer(CALLBACK(src, PROC_REF(timeout)), max_stacks*stack_time + time_after_max_before_end)
@@ -154,10 +152,10 @@
 
 			turfs_visited++
 
-			new /obj/effect/xenomorph/acid_damage_delay(turf, damage, 7, FALSE, "You are blasted with a stream of high-velocity acid!", xeno)
+			new /obj/effect/xenomorph/acid_damage_delay(turf, damage, 7, FALSE, "В вас выпустили струю кислоты!", xeno)
 
-		xeno.visible_message(SPAN_XENODANGER("[xeno] fires a massive blast of acid at [affected_atom]!"), SPAN_XENODANGER("We fire a massive blast of acid at [affected_atom]!"))
-		remove_stack_effects("We feel our speed return to normal!")
+		xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] выпускает мощный кислотный взрыв в сторону [affected_atom.declent_ru(GENITIVE)]!"), SPAN_XENODANGER("Мы выпускаем мощный кислотный взрыв в сторону [affected_atom.declent_ru(GENITIVE)]!")) // SS220 EDIT ADDICTION
+		remove_stack_effects("Мы чувствуем, что наша скорость передвижения снижается!")
 		return TRUE
 
 /datum/action/xeno_action/activable/acid_lance/proc/stack()
@@ -176,7 +174,7 @@
 		addtimer(CALLBACK(src, PROC_REF(stack)), stack_time)
 		return
 	else
-		to_chat(xeno, SPAN_XENOHIGHDANGER("We have charged our acid lance to maximum!"))
+		to_chat(xeno, SPAN_XENOHIGHDANGER("Мы накопили достаточного количество кислоты для копья!"))
 		return
 
 /datum/action/xeno_action/activable/acid_lance/proc/remove_stack_effects(message = null)
@@ -199,7 +197,7 @@
 /datum/action/xeno_action/activable/acid_lance/proc/timeout()
 	if (activated_once)
 		activated_once = FALSE
-		remove_stack_effects("We have waited too long and can no longer use our acid lance!")
+		remove_stack_effects("Мы слишком долго ждали и больше не можем использовать кислотное копьё!")
 
 
 /datum/action/xeno_action/activable/acid_lance/action_cooldown_check()
@@ -215,6 +213,7 @@
 				continue
 
 			xeno_action.apply_cooldown_override(cooldown_duration)
+
 
 /datum/action/xeno_action/onclick/acid_shroud/use_ability(atom/affected_atom)
 	var/datum/effect_system/smoke_spread/xeno_acid/spicy_gas
@@ -234,7 +233,7 @@
 		addtimer(VARSET_CALLBACK(src, sound_play, TRUE), 2 SECONDS)
 
 	if (!do_after(xeno, xeno.ammo.spit_windup/6.5, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_HOSTILE, numticks = 2)) /// 0.7 seconds
-		to_chat(xeno, SPAN_XENODANGER("We decide to cancel our gas shroud."))
+		to_chat(xeno, SPAN_XENODANGER("Мы отменяем выпуск кислотного облака."))
 		return
 
 	playsound(xeno,"acid_sizzle", 50, 1)
@@ -248,7 +247,7 @@
 	var/datum/cause_data/cause_data = create_cause_data("acid shroud gas", owner)
 	spicy_gas.set_up(1, 0, get_turf(xeno), null, 6, new_cause_data = cause_data)
 	spicy_gas.start()
-	to_chat(xeno, SPAN_XENOHIGHDANGER("We dump our acid through our pores, creating a shroud of gas!"))
+	to_chat(xeno, SPAN_XENOHIGHDANGER("Мы выпускаем кислоту через поры, образуя большое облако кислотного газа!"))
 
 	for (var/action_type in action_types_to_cd)
 		var/datum/action/xeno_action/xeno_action = get_action(xeno, action_type)
@@ -281,3 +280,56 @@
 		else
 			CRASH("Globber has unknown ammo [stabbing_xeno.ammo]! Oh no!")
 		return TRUE
+
+#define ACID_COST_BOILER 200 // ACID_COST_LEVEL_3
+
+/mob/living/carbon/xenomorph/boiler/try_fill_trap(obj/effect/alien/resin/trap/target)
+	if(!istype(target))
+		return FALSE
+
+	if(!acid_level)
+		to_chat(src, SPAN_XENONOTICE("Вы не можете наполнить [target] кислотой.")) // SS220 EDIT ADDICTION
+		return FALSE
+
+	var/trap_acid_level = 0
+	if(target.trap_type >= RESIN_TRAP_ACID1)
+		trap_acid_level = 1 + target.trap_type - RESIN_TRAP_ACID1
+
+	if(trap_acid_level >= acid_level)
+		to_chat(src, SPAN_XENONOTICE("В ловушке уже достаточно кислоты."))
+		return FALSE
+
+	if(!check_plasma(ACID_COST_BOILER))
+		to_chat(src, SPAN_XENOWARNING("Вам нужно больше плазмы, чтобы сделать это."))
+		return FALSE
+
+	to_chat(src, SPAN_XENONOTICE("Вы начинаете наполнять смоляную ловушку газом."))
+	xeno_attack_delay(src)
+	if(!do_after(src, 3 SECONDS, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE, src))
+		return FALSE
+
+	if(target.trap_type >= RESIN_TRAP_ACID1)
+		trap_acid_level = 1 + target.trap_type - RESIN_TRAP_ACID1
+
+	if(trap_acid_level >= acid_level)
+		return FALSE
+
+	if(!check_plasma(ACID_COST_BOILER))
+		return FALSE
+
+	use_plasma(ACID_COST_BOILER)
+
+	if(ammo.type == /datum/ammo/xeno/boiler_gas)
+		target.smoke_system = new /datum/effect_system/smoke_spread/xeno_weaken()
+	else
+		target.smoke_system = new /datum/effect_system/smoke_spread/xeno_acid()
+	target.cause_data = create_cause_data("resin gas trap", src)
+	target.setup_tripwires()
+	target.set_state(RESIN_TRAP_GAS)
+
+	playsound(target, 'sound/effects/refill.ogg', 25, 1)
+	visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] наполняет смоляную ловушку газом!"), // SS220 EDIT ADDICTION
+	SPAN_XENOWARNING("Вы наполняете смоляную ловушку газом!"), null, 5)
+	return TRUE
+
+#undef ACID_COST_BOILER

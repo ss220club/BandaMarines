@@ -18,8 +18,8 @@
 		new /obj/motorbike_destroyed(src.loc, icon_skin)
 
 /obj/vehicle/motorbike/bullet_act(obj/projectile/P)
-	if(stroller && prob(hit_chance_connected) && stroller.get_projectile_hit_boolean(P))
-		return stroller.bullet_act(P)	// Приконекченная тележка задевается если задевать и мотоцикл
+	if(sidecar && prob(hit_chance_connected) && sidecar.get_projectile_hit_boolean(P))
+		return sidecar.bullet_act(P)	// Приконекченная тележка задевается если задевать и мотоцикл
 	if(buckled_mob && prob(hit_chance_buckled) && buckled_mob.get_projectile_hit_chance(P))
 		return buckled_mob.bullet_act(P)	// Сидящие тоже могут получить пулю в задницу
 	. = ..()
@@ -32,14 +32,14 @@
 	. = ..()
 
 /obj/vehicle/motorbike/attack_alien(mob/living/carbon/xenomorph/M)
-	if(stroller && prob(hit_chance_connected))
-		return stroller.attack_alien(M)
+	if(sidecar && prob(hit_chance_connected))
+		return sidecar.attack_alien(M)
 	if(buckled_mob && prob(hit_chance_buckled))
 		var/mob/affected_mob = buckled_mob
 		if(prob(hit_chance_to_unbuckle))
 			unbuckle()
 			affected_mob.apply_effect(1, WEAKEN)
 			affected_mob.throw_atom(src, 1, VEHICLE_SPEED_FASTER, M, TRUE)
-			M.visible_message(SPAN_DANGER("[M] сшибает [src]!"), SPAN_DANGER("Мы сшибаем [src]!"))
+			M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] сшибает [declent_ru(ACCUSATIVE)]!"), SPAN_DANGER("Мы сшибаем [declent_ru(ACCUSATIVE)]!"))
 		affected_mob.attack_alien(M)	// Шанс попасть и по сидящему
 	. = ..()

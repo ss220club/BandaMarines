@@ -49,7 +49,7 @@
 		user.attack_log += text("\[[time_stamp()]\] <font color='red'>Attempted to handcuff [key_name(human_mob)]</font>")
 		msg_admin_attack("[key_name(user)] attempted to handcuff [key_name(human_mob)] in [get_area(src)] ([loc.x],[loc.y],[loc.z]).", loc.x, loc.y, loc.z)
 
-		user.visible_message(SPAN_NOTICE("[user] tries to put [src] on [human_mob]."))
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] tries to put [src] on [human_mob]."))
 		if(do_after(user, cuff_delay, INTERRUPT_MOVED, BUSY_ICON_HOSTILE, human_mob, INTERRUPT_MOVED, BUSY_ICON_GENERIC))
 			if(src == user.get_active_hand() && !human_mob.handcuffed && Adjacent(user))
 				if(iscarbon(human_mob))
@@ -62,7 +62,7 @@
 					user.count_niche_stat(STATISTICS_NICHE_HANDCUFF)
 
 	else if(ismonkey(target))
-		user.visible_message(SPAN_NOTICE("[user] tries to put [src] on [target]."))
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] tries to put [src] on [target]."))
 		if(do_after(user, 30, INTERRUPT_MOVED, BUSY_ICON_HOSTILE, target, INTERRUPT_MOVED, BUSY_ICON_GENERIC))
 			if(src == user.get_active_hand() && !target.handcuffed && Adjacent(user))
 				user.drop_inv_item_on_ground(src)
@@ -194,43 +194,3 @@
 			if(p_loc == user.loc && p_loc_m == carbon_mob.loc)
 				carbon_mob.handcuffed = new /obj/item/restraint/handcuffs(carbon_mob)
 				carbon_mob.handcuff_update()
-
-
-
-
-
-/obj/item/xeno_restraints
-	name = "xeno restraints"
-	desc = "Use this to hold xenomorphic creatures safely."
-	gender = PLURAL
-	icon = 'icons/obj/items/security.dmi'
-	icon_state = "handcuff"
-	flags_atom = FPRINT|CONDUCT
-	flags_equip_slot = SLOT_WAIST
-	throwforce = 5
-	w_class = SIZE_SMALL
-	throw_speed = SPEED_SLOW
-	throw_range = 5
-	matter = list("metal" = 500)
-
-	var/breakouttime = 2 MINUTES
-
-/obj/item/xeno_restraints/attack(mob/living/carbon/C as mob, mob/user as mob)
-	if(!istype(C, /mob/living/carbon/xenomorph))
-		to_chat(user, SPAN_DANGER("The cuffs do not fit!"))
-		return
-	if(!C.handcuffed)
-		var/turf/p_loc = user.loc
-		var/turf/p_loc_m = C.loc
-		playsound(src.loc, 'sound/weapons/handcuffs.ogg', 25, 1, 6)
-		for(var/mob/O in viewers(user, null))
-			O.show_message(SPAN_DANGER("<B>[user] is trying to put restraints on [C]!</B>"), SHOW_MESSAGE_VISIBLE)
-		spawn(30)
-			if(!C)
-				return
-			if(p_loc == user.loc && p_loc_m == C.loc)
-				C.handcuffed = new /obj/item/xeno_restraints(C)
-				C.handcuff_update()
-				C.visible_message(SPAN_DANGER("[C] has been successfully restrained by [user]!"))
-				qdel(src)
-	return

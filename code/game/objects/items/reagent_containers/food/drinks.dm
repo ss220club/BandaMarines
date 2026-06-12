@@ -3,7 +3,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 /obj/item/reagent_container/food/drinks
 	name = "drink"
-	desc = "yummy"
+	desc = "Yummy."
 	icon = 'icons/obj/items/food/drinks.dmi'
 	item_icons = list(
 		WEAR_L_HAND = 'icons/mob/humans/onmob/inhands/items/bottles_lefthand.dmi',
@@ -23,9 +23,10 @@
 
 /obj/item/reagent_container/food/drinks/attack(mob/M, mob/user)
 	var/datum/reagents/R = src.reagents
+	var/ru_name = declent_ru(GENITIVE) // SS220 EDIT ADDICTION
 
 	if(!R.total_volume || !R)
-		to_chat(user, SPAN_DANGER("The [src.name] is empty!"))
+		to_chat(user, SPAN_DANGER("Содержимое [ru_name] закончилось!")) // SS220 EDIT ADDICTION
 		return FALSE
 
 	if(HAS_TRAIT(M, TRAIT_CANNOT_EAT))
@@ -33,26 +34,26 @@
 		return FALSE
 
 	if(M == user)
-		to_chat(M, SPAN_NOTICE(" You swallow a gulp from \the [src]."))
+		to_chat(M, SPAN_NOTICE("Вы делаете глоток из [ru_name].")) // SS220 EDIT ADDICTION
 		if(reagents.total_volume)
 			reagents.set_source_mob(user)
 			reagents.trans_to_ingest(M, gulp_size)
 
 		playsound(M.loc,'sound/items/drink.ogg', 15, 1)
 		return TRUE
-	else if(istype(M, /mob/living/carbon/human))
+	else if(istype(M, /mob/living/carbon))
 
 		user.affected_message(M,
 			SPAN_HELPFUL("You <b>start feeding</b> [user == M ? "yourself" : "[M]"] <b>[src]</b>."),
-			SPAN_HELPFUL("[user] <b>starts feeding</b> you <b>[src]</b>."),
-			SPAN_NOTICE("[user] starts feeding [user == M ? "themselves" : "[M]"] [src]."))
+			SPAN_HELPFUL("[capitalize(user.declent_ru(NOMINATIVE))] <b>starts feeding</b> you <b>[src]</b>."),
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts feeding [user == M ? "themselves" : "[M]"] [src]."))
 
 		if(!do_after(user, 30, INTERRUPT_ALL, BUSY_ICON_FRIENDLY, M))
 			return FALSE
 		user.affected_message(M,
 			SPAN_HELPFUL("You <b>fed</b> [user == M ? "yourself" : "[M]"] <b>[src]</b>."),
-			SPAN_HELPFUL("[user] <b>fed</b> you <b>[src]</b>."),
-			SPAN_NOTICE("[user] fed [user == M ? "themselves" : "[M]"] [src]."))
+			SPAN_HELPFUL("[capitalize(user.declent_ru(NOMINATIVE))] <b>fed</b> you <b>[src]</b>."),
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] fed [user == M ? "themselves" : "[M]"] [src]."))
 
 		var/rgt_list_text = get_reagent_list_text()
 
@@ -90,7 +91,7 @@
 			to_chat(user, SPAN_DANGER("You fail to fill [src] with reagents from [target]."))
 			return
 
-		to_chat(user, SPAN_NOTICE(" You fill [src] with [trans] units of the contents of [target]."))
+		to_chat(user, SPAN_NOTICE("You fill [src] with [trans] units of the contents of [target]."))
 
 	else if(target.is_open_container()) //Something like a glass. Player probably wants to transfer TO it.
 		if(!reagents.total_volume)
@@ -102,7 +103,7 @@
 			return
 
 		var/trans = src.reagents.trans_to(target, amount_per_transfer_from_this)
-		to_chat(user, SPAN_NOTICE(" You transfer [trans] units of the solution to [target]."))
+		to_chat(user, SPAN_NOTICE("You transfer [trans] units of the solution to [target]."))
 
 	return ..()
 
@@ -127,7 +128,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 /obj/item/reagent_container/food/drinks/golden_cup
-	desc = "A golden cup"
+	desc = "A golden cup."
 	name = "golden cup"
 	icon_state = "golden_cup"
 	item_state = "golden_cup" //nope :(? nope my ass
@@ -275,7 +276,7 @@
 /obj/item/reagent_container/food/drinks/cup/attack_self(mob/user)
 	. = ..()
 	if(user.a_intent == INTENT_HARM)
-		user.visible_message(SPAN_WARNING("[user] crushes \the [src]!"), SPAN_WARNING("You crush \the [src]!"))
+		user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] раздавливает [declent_ru(ACCUSATIVE)]!"), SPAN_WARNING("Вы раздавливаете [declent_ru(ACCUSATIVE)]!"))
 		if(reagents.total_volume > 0)
 			reagents.clear_reagents()
 			playsound(src.loc, 'sound/effects/slosh.ogg', 25, 1, 3)
@@ -334,6 +335,12 @@
 	reagents.add_reagent("water", 59)
 	reagents.add_reagent("hooch", 1)
 
+/obj/item/reagent_container/food/drinks/flask/marine/army
+	name = "\improper US Army flask"
+	icon_state = "flask_army"
+	item_state = "flask_army"
+	desc = "A metal flask embossed with the US Army logo and probably filled with a slurry of water, motor oil, and medicinal alcohol. Albeit, higher quality motor oil compared to Marine rations."
+
 /obj/item/reagent_container/food/drinks/flask/weylandyutani
 	name = "\improper Weyland-Yutani flask"
 	desc = "Металлическая фляжка c гравировкой логотипа Вейланд-Ютани. В раздатчиках военных кораблей США данные фляжки вероятно появились из-за какого-то корпората-подхалима."
@@ -345,6 +352,7 @@
 /obj/item/reagent_container/food/drinks/flask/weylandyutani/Initialize()
 	. = ..()
 	reagents.add_reagent("fruit_beer", 60)
+	AddElement(/datum/element/corp_label/wy)
 
 /obj/item/reagent_container/food/drinks/flask/canteen
 	name = "canteen"
@@ -405,6 +413,10 @@
 	desc = "A matte gray coffee mug bearing the Weyland-Yutani logo on its front. Either issued as corporate standard, or bought as a souvenir for people who love the Company oh so dearly. Probably the former."
 	icon_state = "wycup"
 	item_state = "wycup"
+
+/obj/item/reagent_container/food/drinks/coffeecup/wy/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/wy)
 
 // Hybrisa
 

@@ -45,7 +45,7 @@
 /obj/item/toy/balloon/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
 	if(!proximity)
 		return
-	if (istype(A, /obj/structure/reagent_dispensers/watertank) && get_dist(src,A) <= 1)
+	if (istype(A, /obj/structure/reagent_dispensers/tank/water) && get_dist(src,A) <= 1)
 		A.reagents.trans_to(src, 10)
 		to_chat(user, SPAN_NOTICE("You fill the balloon with the contents of [A]."))
 		src.desc = "A translucent balloon with some form of liquid sloshing around in it."
@@ -106,7 +106,7 @@
  */
 /obj/item/toy/blink
 	name = "electronic blink toy game"
-	desc = "Blink.  Blink.  Blink. Ages 8 and up."
+	desc = "Blink... Blink... Blink... For ages 8 and up."
 	icon = 'icons/obj/items/radio.dmi'
 	icon_state = "beacon"
 	item_state = "signaller"
@@ -203,14 +203,14 @@
 	else if (locate (/obj/structure/surface/table, src.loc))
 		return
 
-	else if (istype(A, /obj/structure/reagent_dispensers/watertank) && get_dist(src,A) <= 1)
+	else if (istype(A, /obj/structure/reagent_dispensers/tank/water) && get_dist(src,A) <= 1)
 		A.reagents.trans_to(src, 10)
-		to_chat(user, SPAN_NOTICE(" You refill your flower!"))
+		to_chat(user, SPAN_NOTICE("You refill your flower!"))
 		return
 
 	else if (src.reagents.total_volume < 1)
 		src.empty = 1
-		to_chat(user, SPAN_NOTICE(" Your flower has run dry!"))
+		to_chat(user, SPAN_NOTICE("Your flower has run dry!"))
 		return
 
 	else
@@ -232,7 +232,7 @@
 				for(var/atom/T in get_turf(D))
 					D.reagents.reaction(T)
 					if(ismob(T) && T:client)
-						to_chat(T:client, SPAN_WARNING("[user] has sprayed you with water!"))
+						to_chat(T:client, SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] has sprayed you with water!"))
 				sleep(4)
 			qdel(D)
 
@@ -381,7 +381,7 @@
 	else if(sides == 20 && result == 1)
 		comment = "Ouch, bad luck."
 	icon_state = "[name][result]"
-	user.visible_message(SPAN_NOTICE("[user] has thrown [src]. It lands on [result]. [comment]"),
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] has thrown [src]. It lands on [result]. [comment]"),
 						SPAN_NOTICE("You throw [src]. It lands on a [result]. [comment]"),
 						SPAN_NOTICE("You hear [src] landing on a [result]. [comment]"))
 
@@ -418,7 +418,7 @@
 
 /obj/item/computer3_part
 	name = "computer part"
-	desc = "Holy jesus you donnit now"
+	desc = "Holy jesus you donnit now."
 	gender = PLURAL
 	icon = 'icons/obj/structures/machinery/stock_parts.dmi'
 	icon_state = "hdd1"
@@ -490,18 +490,19 @@
 
 /obj/item/toy/plush
 	name = "generic plushie"
-	desc = "perfectly generic"
+	desc = "Perfectly generic."
 	icon = 'icons/obj/items/toy.dmi'
 	icon_state = "debug"
 	w_class = SIZE_SMALL
 	COOLDOWN_DECLARE(last_hug_time)
 	black_market_value = 10
+	var/register_attempted
 
 /obj/item/toy/plush/attack_self(mob/user)
 	..()
 	if(!COOLDOWN_FINISHED(src, last_hug_time))
 		return
-	user.visible_message(SPAN_NOTICE("[user] hugs [src] tightly!"), SPAN_NOTICE("You hug [src]."))
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] hugs [src] tightly!"), SPAN_NOTICE("You hug [src]."))
 	playsound(user, "plush", 25, TRUE)
 	COOLDOWN_START(src, last_hug_time, 2.5 SECONDS)
 
@@ -535,12 +536,12 @@
 
 /obj/item/toy/plush/gnarp
 	name = "gnarp plush"
-	desc = "gnarp gnarp."
+	desc = "Gnarp gnarp."
 	icon_state = "gnarp"
 
 /obj/item/toy/plush/gnarp/alt
 	name = "gnarp plush"
-	desc = "gnarp gnarp."
+	desc = "Gnarp gnarp."
 	icon_state = "gnarp_alt"
 
 /obj/item/toy/plush/therapy
@@ -615,13 +616,35 @@
 
 /obj/item/toy/plush/random_plushie/pickup(mob/user, silent)
 	. = ..()
-	RegisterSignal(user, COMSIG_POST_SPAWN_UPDATE, PROC_REF(create_plushie), override = TRUE)
+	if(!register_attempted)
+		register_attempted = TRUE
+		RegisterSignal(user, COMSIG_POST_VANITY_UPDATE, PROC_REF(create_plushie), override = TRUE)
+
+/obj/item/toy/plush/random_plushie/on_enter_storage(obj/item/storage/inventory)
+	. = ..()
+	if(!register_attempted)
+		register_attempted = TRUE
+		var/mob/living/carbon/human/human_user
+		var/atom/container_on_human = inventory.loc
+		var/depth_limit
+		while(!ishuman(container_on_human) && depth_limit < 2)
+			container_on_human = container_on_human.loc
+			depth_limit++
+		human_user = container_on_human
+		if(human_user)
+			RegisterSignal(human_user, COMSIG_POST_VANITY_UPDATE, PROC_REF(create_plushie), override = TRUE)
+
+/obj/item/toy/plush/random_plushie/dropped(mob/user)
+	. = ..()
+	if(!register_attempted)
+		register_attempted = TRUE
+		RegisterSignal(user, COMSIG_POST_VANITY_UPDATE, PROC_REF(create_plushie), override = TRUE)
 
 ///The randomizer picking and spawning a plushie on either the ground or in the humans backpack. Needs var/source due to signals
 /obj/item/toy/plush/random_plushie/proc/create_plushie(datum/source)
 	SIGNAL_HANDLER
 	if(source)
-		UnregisterSignal(source, COMSIG_POST_SPAWN_UPDATE)
+		UnregisterSignal(source, COMSIG_POST_VANITY_UPDATE)
 	var/turf/spawn_location = get_turf(src)
 	var/plush_list_variety = pick(60; plush_list, 40; therapy_plush_list)
 	var/random_plushie = pick(plush_list_variety)
@@ -662,7 +685,7 @@
 	. = ..()
 	if(beret)
 		return
-	if(!istypestrict(attacking_object, /obj/item/clothing/head/beret/marine/mp))
+	if(!(istypestrict(attacking_object, /obj/item/clothing/head/beret/marine/mp)))
 		return
 	var/beret_attack = attacking_object
 	to_chat(user, SPAN_NOTICE("You put [beret_attack] on [src]."))

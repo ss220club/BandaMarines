@@ -14,6 +14,7 @@
 //Jungle
 /area/lv624/ground/jungle
 	minimap_color = MINIMAP_AREA_JUNGLE
+	flags_area = AREA_YAUTJA_HANGABLE
 
 /area/lv624/ground/jungle/south_east_jungle
 	name ="\improper Southeast Jungle"
@@ -407,7 +408,7 @@
 /area/lv624/lazarus/secure_storage
 	name = "\improper Secure Storage"
 	icon_state = "storage"
-	flags_area = AREA_NOTUNNEL
+	flags_area = AREA_NOBURROW
 	linked_lz = DROPSHIP_LZ2
 
 /area/lv624/lazarus/robotics

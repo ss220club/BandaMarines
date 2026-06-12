@@ -98,6 +98,11 @@
 	paint_type = "clown_camo"
 	icon_state = "clown_camo"
 
+/obj/item/facepaint/clown/alt
+
+	paint_type = "clown_camo_alt"
+	icon_state = "clown_camo_alt"
+
 /obj/item/facepaint/sunscreen_stick
 	name= "\improper USCM issue sunscreen"
 	desc = "A stick of SPF 50 sunscreen, issued to you by the good brass of the Corps. Whereas the previously issued sunscreen was toxic upon ingestion, this batch improves upon that by only containing excessive amounts of cadmium."
@@ -135,7 +140,7 @@
 
 		else
 			to_chat(user, SPAN_NOTICE("You attempt to apply [src] on [human_target]..."))
-			to_chat(human_target, SPAN_NOTICE("[user] is trying to apply [src] on your face..."))
+			to_chat(human_target, SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] is trying to apply [src] on your face..."))
 			if(alert(human_target,"Will you allow [user] to apply makeup to your face?",,"Sure","No") == "Sure")
 				if( user && loc == user && (user in range(1,human_target)) ) //Have to be close and hold the thing.
 					paint_face(human_target, user)
@@ -147,7 +152,7 @@
 /obj/item/facepaint/proc/paint_face(mob/living/carbon/human/H, mob/user)
 	if(!H || !user)
 		return //In case they're passed as null.
-	user.visible_message(SPAN_NOTICE("[user] carefully applies [src] on [H]'s face."),
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] carefully applies [src] on [H]'s face."),
 						SPAN_NOTICE("You apply [src]."))
 	H.lip_style = paint_type
 	H.update_body()

@@ -55,6 +55,7 @@
 	small_explosives_stun = FALSE
 
 	base_actions = list(
+		/datum/action/xeno_action/onclick/toggle_seethrough,
 		/datum/action/xeno_action/onclick/xeno_resting,
 		/datum/action/xeno_action/onclick/release_haul,
 		/datum/action/xeno_action/watch_xeno,
@@ -64,7 +65,6 @@
 		/datum/action/xeno_action/activable/feral_smash,
 		/datum/action/xeno_action/activable/feralfrenzy,
 		/datum/action/xeno_action/onclick/toggle_gut_targeting,
-		/datum/action/xeno_action/onclick/tacmap,
 	)
 
 	weed_food_icon = 'icons/mob/xenos/weeds_64x64.dmi'
@@ -95,7 +95,15 @@
 	if(!loc)
 		return FALSE
 
-	elder_overseer_message("Обнаружена абоминация на террории [get_area_name(loc)]. \nУничтожьте это немедленно. \n\nТяжелая оружейная разблокирована.")
+	var/datum/game_mode/predator_round = SSticker.mode
+	if(!(predator_round.flags_round_type & MODE_PREDATOR) && (hivenumber != XENO_HIVE_NORMAL))
+		var/datum/job/pred_job = GLOB.RoleAuthority.roles_for_mode[JOB_PREDATOR]
+		if(istype(pred_job) && !pred_job.spawn_positions)
+			pred_job.set_spawn_positions(GLOB.players_preassigned)
+		predator_round.flags_round_type |= MODE_PREDATOR
+		REDIS_PUBLISH("byond.round", "type" = "predator-round", "map" = SSmapping.configs[GROUND_MAP].map_name)
+
+	elder_overseer_message("Обнаружена абоминация в области «[get_area_name(loc)]». \nУничтожьте это немедленно. \n\nТяжелая оружейная разблокирована.")
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_YAUTJA_ARMORY_OPENED)
 
 	to_chat(src, {"

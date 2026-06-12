@@ -425,6 +425,11 @@ em {
 
 .boldwarning {
   color: hsl(0, 74%, 45%);
+  font-weight: bold;
+}
+
+.bolditalicwarning {
+  color: hsl(0, 74%, 45%);
   font-style: italic;
   font-weight: bold;
 }
@@ -455,6 +460,11 @@ em {
 
 .info {
   color: hsl(227, 100%, 80%);
+}
+
+.infobold {
+  color: hsl(227, 100%, 80%);
+  font-weight: bold;
 }
 
 .notice {
@@ -700,6 +710,48 @@ em {
 .tape_recorder {
   color: hsl(0, 100%, 50%);
   font-family: 'Courier New', cursive, sans-serif;
+}
+
+.corp_label_red {
+  color: hsl(12, 67%, 46%);
+  text-shadow: 0 0 8px #c5371e;
+  font-weight: bold;
+}
+
+.corp_label_white {
+  color: hsl(0, 0%, 83%);
+  text-shadow: 0 0 8px #cfcfcf;
+  font-weight: bold;
+}
+
+.corp_label_blue {
+  color: hsl(209, 100%, 60%);
+  text-shadow: 0 0 8px #40a3ff;
+  font-weight: bold;
+}
+
+.corp_label_yellow {
+  color: hsl(66, 100%, 48%);
+  text-shadow: 0 0 8px #e4fd00;
+  font-weight: bold;
+}
+
+.corp_label_gold {
+  color: hsl(54, 100%, 48%);
+  text-shadow: 0 0 8px #fdec00;
+  font-weight: bold;
+}
+
+.corp_label_green {
+  color: hsl(92, 29%, 60%);
+  text-shadow: 0 0 8px #93af8d;
+  font-weight: bold;
+}
+
+.corp_label_bluegreen {
+  color: hsl(157, 37%, 50%);
+  text-shadow: 0 0 8px #52b38a;
+  font-weight: bold;
 }
 
 .command_headset {
@@ -962,6 +1014,9 @@ em {
 .ciaradio {
   color: hsl(16, 75%, 60%);
 }
+.armyradio {
+  color: hsl(170, 47%, 36%);
+}
 .cryoradio {
   color: hsl(22, 41%, 48%);
 }
@@ -1000,6 +1055,18 @@ em {
 
 .wyradio {
   color: hsl(33, 99%, 57%);
+}
+
+.wypubradio {
+  color: hsl(33, 90%, 62%);
+}
+
+.wysecradio {
+  color: hsl(33, 85%, 44%);
+}
+
+.hdcradio {
+  color: hsl(23, 100%, 55%);
 }
 
 .pmcradio {
@@ -1423,7 +1490,7 @@ em {
 
 .commando {
   color: hsl(33, 99%, 57%);
-  font-style: bold;
+  font-weight: bold;
 }
 
 .say_quote {
@@ -1583,6 +1650,11 @@ em {
   height: 1.5em;
   margin: 0;
   padding: 0;
+
+  &.corplogo {
+    width: 165px !important;
+    height: 60px !important;
+  }
 }
 
 // BANDAMARINES ADDITION START

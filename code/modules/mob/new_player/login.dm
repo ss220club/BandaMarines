@@ -9,13 +9,13 @@
 		forceMove(get_turf(pick(GLOB.newplayer_start)))
 	else
 		forceMove(locate(1,1,1))
-	lastarea = get_area(src.loc)
-
-	initialize_lobby_screen()
+	lastarea = get_area(loc)
 
 	GLOB.new_player_list += src
 
-	. = ..()
+	..()
+
+	initialize_lobby_screen() // This has winsets that can sleep, so all variables must be set prior in the event Logout occurs during sleep
 
 	addtimer(CALLBACK(src, PROC_REF(lobby)), 4 SECONDS)
 
@@ -54,6 +54,7 @@
 /mob/new_player/ui_data(mob/user)
 	. = ..()
 
+	// If you have a runtime here it likely means your new_player didn't get qdeleted after transfering client off it
 	.["character_name"] = client.prefs ? client.prefs.real_name : client.key
 
 	var/postfix_text = (client.xeno_postfix) ? ("-"+client.xeno_postfix) : ""
@@ -100,11 +101,11 @@
 			// Otherwise the preview dummy will runtime
 			// because atoms aren't initialized yet
 			if(SSticker.current_state < GAME_STATE_PREGAME)
-				to_chat(src, SPAN_WARNING("Game is still starting up, please wait"))
+				to_chat(src, SPAN_WARNING("Game is still starting up, please wait."))
 				return FALSE
 
 			if(!SSentity_manager.ready)
-				to_chat(src, SPAN_WARNING("DB is still starting up, please wait"))
+				to_chat(src, SPAN_WARNING("DB is still starting up, please wait."))
 				return FALSE
 
 			client.prefs.ShowChoices(src)
@@ -112,7 +113,7 @@
 
 		if("playtimes")
 			if(!SSentity_manager.ready)
-				to_chat(src, SPAN_WARNING("DB is still starting up, please wait"))
+				to_chat(src, SPAN_WARNING("DB is still starting up, please wait."))
 				return FALSE
 
 			if(client.player_data)
@@ -141,6 +142,11 @@
 					tutorial_menu()
 					return FALSE
 
+			// SS220 ADD START
+			if(!has_discord_link(client))
+				return FALSE
+			// SS220 ADD END
+
 			late_choices()
 			return TRUE
 
@@ -158,6 +164,11 @@
 					tutorial_menu()
 					return FALSE
 
+			// SS220 ADD START
+			if(!has_discord_link(client))
+				return FALSE
+			// SS220 ADD END
+
 			late_choices_upp()
 			return TRUE
 
@@ -169,18 +180,19 @@
 			if(!client)
 				return FALSE
 
+			// SS220 ADD START
+			if(!has_discord_link(client))
+				return FALSE
+			// SS220 ADD END
+
 			if(SSticker.mode.check_xeno_late_join(src))
-				var/mob/new_xeno = SSticker.mode.attempt_to_join_as_xeno(src, FALSE)
+				var/new_xeno = SSticker.mode.attempt_to_join_as_xeno(src, FALSE)
 				if(!new_xeno)
 					lobby_confirmation_message = list(
 						"Are you sure you wish to observe to be a xeno candidate?",
 						"When you observe, you will not be able to join as marine.",
 						"It might also take some time to become a xeno or responder!")
 					execute_on_confirm = CALLBACK(src, PROC_REF(observe_for_xeno))
-
-				else if(!istype(new_xeno, /mob/living/carbon/xenomorph/larva))
-					SSticker.mode.transfer_xeno(src, new_xeno)
-
 				return TRUE
 
 		if("late_join_pred")
@@ -191,6 +203,11 @@
 			if(SSticker.mode.check_predator_late_join(src, FALSE))
 				SSticker.mode.attempt_to_join_as_predator(src)
 				return TRUE
+
+			// SS220 ADD START
+			if(!has_discord_link(client))
+				return FALSE
+			// SS220 ADD END
 
 			to_chat(src, SPAN_WARNING("You are no longer able to join as predator."))
 			return FALSE
@@ -204,6 +221,11 @@
 				SSticker.mode.attempt_to_join_as_fax_responder(src, TRUE)
 				return TRUE
 
+			// SS220 ADD START
+			if(!has_discord_link(client))
+				return FALSE
+			// SS220 ADD END
+
 			to_chat(src, SPAN_WARNING("You are no longer able to join as a Fax Responder."))
 			return FALSE
 
@@ -212,10 +234,20 @@
 				to_chat(src, SPAN_WARNING("The game is still setting up, please try again later."))
 				return
 
+			// SS220 ADD START
+			if(!has_discord_link(client))
+				return FALSE
+			// SS220 ADD END
+
 			attempt_observe()
 			return TRUE
 
 		if("ready")
+			// SS220 ADD START
+			if(!has_discord_link(client))
+				return FALSE
+			// SS220 ADD END
+
 			if((SSticker.current_state <= GAME_STATE_PREGAME) && !ready) // Make sure we don't ready up after the round has started
 				ready = TRUE
 				GLOB.readied_players++
@@ -247,12 +279,23 @@
 		if("keyboard")
 			playsound_client(client, get_sfx("keyboard"), vol = 20)
 
-/// Join as a 'xeno' - set us up in the larva queue
+/// Join as a 'xeno' - set us up in the larva pool
 /mob/new_player/proc/observe_for_xeno()
-	if(client.prefs && !(client.prefs.be_special & BE_ALIEN_AFTER_DEATH))
-		client.prefs.be_special |= BE_ALIEN_AFTER_DEATH
-		to_chat(src, SPAN_BOLDNOTICE("You will now be considered for Xenomorph after unrevivable death events (where possible)."))
+	if(!client)
+		return
+
+	if(client.prefs && !(client.prefs.be_special & BE_ALIEN))
+		client.prefs.be_special |= BE_ALIEN
+		to_chat(src, SPAN_BOLDNOTICE("SpecialRole Candidacy was forced so you can be considered for Xenomorph."))
+
+	var/client/current_client = client
+
 	attempt_observe()
+
+	// If a mod wants to join as a xeno, disable their larva protection so that they can enter the larva pool.
+	if(check_client_rights(current_client, R_MOD, FALSE) && current_client.mob)
+		var/mob/dead/observer/mod_observer = current_client.mob
+		mod_observer.admin_larva_protection = FALSE
 
 /mob/new_player/proc/lobby()
 	if(!client)

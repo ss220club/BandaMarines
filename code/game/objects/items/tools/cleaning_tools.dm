@@ -64,7 +64,7 @@
 		var/cleaning_duration = 1.5 SECONDS * user.get_skill_duration_multiplier(SKILL_DOMESTIC)
 
 		var/turf/cleaning_turf = get_turf(A)
-		user.visible_message(SPAN_WARNING("[user] begins to clean \the [cleaning_turf]."))
+		user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] begins to clean \the [cleaning_turf]."))
 		user.animation_attack_on(cleaning_turf)
 		user.flick_attack_overlay(cleaning_turf, "cleaning_sparkles", cleaning_duration)
 
@@ -164,7 +164,7 @@
 
 /obj/item/tool/soap/attack(mob/target, mob/user)
 	if(target && user && ishuman(target) && ishuman(user) && !target.stat && !user.stat && user.zone_selected == "mouth" )
-		user.visible_message(SPAN_DANGER("\the [user] washes \the [target]'s mouth out with soap!"))
+		user.visible_message(SPAN_DANGER("\The [user] washes \the [target]'s mouth out with soap!"))
 		return
 	..()
 

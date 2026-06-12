@@ -3,14 +3,19 @@
 		.=1
 	else
 		return 0
-	if(LAZYLEN(accessories) && restricted_accessory_slots && (A.worn_accessory_slot in restricted_accessory_slots))
+	if(LAZYLEN(accessories))
+		var/accessory_count
 		for(var/obj/item/clothing/accessory/AC in accessories)
 			if (AC.worn_accessory_slot == A.worn_accessory_slot)
-				return 0
+				accessory_count++
+		if(accessory_count >= A.worn_accessory_limit)
+			return 0
+
 
 /obj/item/clothing/accessory/proc/get_inv_overlay()
 	if(!inv_overlay)
-		var/tmp_icon_state = overlay_state? overlay_state : icon_state
+		// priority goes from overlay_state, then item_state (worn/dynamic state), then fall back to icon_state
+		var/tmp_icon_state = overlay_state || item_state || icon_state
 		if(icon_override && ("[tmp_icon_state]_tie" in icon_states(icon_override)))
 			inv_overlay = image(icon = icon_override, icon_state = "[tmp_icon_state]_tie", dir = SOUTH)
 		else if("[tmp_icon_state]_tie" in icon_states(GLOB.default_onmob_icons[WEAR_ACCESSORY]))
@@ -30,7 +35,7 @@
 		if(LAZYISIN(sprite_sheets, user_bodytype))
 			bodytype = user_bodytype
 
-		var/tmp_icon_state = overlay_state? overlay_state : icon_state
+		var/tmp_icon_state = overlay_state || item_state || icon_state
 
 		if(istype(loc,/obj/item/clothing/under))
 			var/obj/item/clothing/under/C = loc
@@ -74,11 +79,6 @@
 		return
 
 	..()
-
-/obj/item/clothing/get_examine_text(mob/user)
-	. = ..()
-	for(var/obj/item/clothing/accessory/A in accessories)
-		. += "[icon2html(A, user)] \A [A] is [A.additional_examine_text()]" //The spacing of the examine text proc is deliberate. By default it returns ".".
 
 /**
  *  Attach accessory A to src

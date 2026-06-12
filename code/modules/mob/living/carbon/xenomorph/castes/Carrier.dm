@@ -35,8 +35,8 @@
 	tacklestrength_max = 5
 
 	aura_strength = 2
-	hugger_delay = 20
-	egg_cooldown = 250
+	hugger_throw_delay = 5 DECISECONDS
+	egg_cooldown = 25 SECONDS
 
 	minimum_evolve_time = 5 MINUTES
 
@@ -61,6 +61,7 @@
 	organ_value = 1000
 
 	base_actions = list(
+		/datum/action/xeno_action/onclick/toggle_seethrough,
 		/datum/action/xeno_action/onclick/xeno_resting,
 		/datum/action/xeno_action/onclick/release_haul,
 		/datum/action/xeno_action/watch_xeno,
@@ -72,7 +73,6 @@
 		/datum/action/xeno_action/activable/throw_hugger, //3rd macro
 		/datum/action/xeno_action/activable/retrieve_egg, //4th macro
 		/datum/action/xeno_action/onclick/set_hugger_reserve,
-		/datum/action/xeno_action/onclick/tacmap,
 		)
 
 	inherent_verbs = list(
@@ -94,12 +94,12 @@
 	var/mutable_appearance/eggsac_overlays_icon
 
 	//Carrier specific vars
-	var/threw_a_hugger = 0
 	var/huggers_cur = 0
 	var/eggs_cur = 0
 	var/huggers_max = 0
 	var/eggs_max = 0
 	var/laid_egg = 0
+	var/hugger_retrieve_timer = 5 DECISECONDS
 
 /mob/living/carbon/xenomorph/carrier/proc/update_hugger_overlays()
 	if(!hugger_overlays_icon)
@@ -183,7 +183,7 @@
 		if(huggers_cur)
 			//Hugger explosion, like an egg morpher
 			var/obj/item/clothing/mask/facehugger/hugger
-			visible_message(SPAN_XENOWARNING("The chittering mass of tiny aliens is trying to escape [src]!"))
+			visible_message(SPAN_XENOWARNING("Шумная масса крошечных чужих пытается вырваться из [declent_ru(GENITIVE)]!")) // SS220 EDIT ADDICTION
 			for(var/i in 1 to huggers_cur)
 				if(prob(chance))
 					hugger = new(loc, hivenumber)
@@ -197,7 +197,7 @@
 		eggs_cur = 0
 
 		if(eggs_dropped) //Checks whether or not to announce egg drop.
-			xeno_message(SPAN_XENOANNOUNCE("[src] has dropped some precious eggs!"), 2, hive.hivenumber)
+			xeno_message(SPAN_XENOANNOUNCE("[capitalize(declent_ru(NOMINATIVE))] роняет несколько драгоценных яиц!"), 2, hive.hivenumber) // SS220 EDIT ADDICTION
 
 /mob/living/carbon/xenomorph/carrier/recalculate_actions()
 	. = ..()
@@ -210,19 +210,19 @@
 		. += "Имеется лицехватов: [huggers_cur] / [huggers_max]"
 	. += "Имеется яиц: [eggs_cur] / [eggs_max]"
 
-/mob/living/carbon/xenomorph/carrier/proc/store_hugger(obj/item/clothing/mask/facehugger/F)
-	if(F.hivenumber != hivenumber)
+/mob/living/carbon/xenomorph/carrier/proc/store_hugger(obj/item/clothing/mask/facehugger/child)
+	if(child.hivenumber != hivenumber)
 		to_chat(src, SPAN_WARNING("This hugger is tainted!"))
 		return
 
 	if(huggers_max > 0 && huggers_cur < huggers_max)
-		if(F.stat != DEAD && !F.sterile)
+		if(child.stat != DEAD && !child.sterile)
 			huggers_cur++
 			to_chat(src, SPAN_NOTICE("We take a facehugger and carry it for safekeeping. Now sheltering: [huggers_cur] / [huggers_max]."))
-			update_icons()
-			qdel(F)
+			behavior_delegate?.on_update_icons()
+			qdel(child)
 		else
-			to_chat(src, SPAN_WARNING("This [F.name] looks too unhealthy."))
+			to_chat(src, SPAN_WARNING("This [child.name] looks too unhealthy."))
 	else
 		to_chat(src, SPAN_WARNING("We can't carry more facehuggers on us."))
 
@@ -243,81 +243,80 @@
 			to_chat(src, SPAN_NOTICE("We take one facehugger and carry it for safekeeping. Now sheltering: [huggers_cur] / [huggers_max]."))
 		else
 			to_chat(src, SPAN_NOTICE("We take [huggers_to_transfer] facehuggers and carry them for safekeeping. Now sheltering: [huggers_cur] / [huggers_max]."))
-		update_icons()
+		behavior_delegate?.on_update_icons()
 	else
 		to_chat(src, SPAN_WARNING("We can't carry more facehuggers on you."))
 
 
-/mob/living/carbon/xenomorph/carrier/proc/throw_hugger(atom/T)
-	if(!T)
+/mob/living/carbon/xenomorph/carrier/proc/throw_hugger(atom/object)
+	if(!object)
 		return
 
 	if(!check_state())
 		return
 
 	//target a hugger on the ground to store it directly
-	if(istype(T, /obj/item/clothing/mask/facehugger))
-		var/obj/item/clothing/mask/facehugger/F = T
-		if(isturf(F.loc) && Adjacent(F))
-			if(F.hivenumber != hivenumber)
-				to_chat(src, SPAN_WARNING("That facehugger is tainted!"))
-				drop_inv_item_on_ground(F)
+	if(istype(object, /obj/item/clothing/mask/facehugger))
+		var/obj/item/clothing/mask/facehugger/child = object
+		if(isturf(child.loc) && Adjacent(child))
+			if(child.hivenumber != hivenumber)
+				to_chat(src, SPAN_WARNING("Этот [child.declent_ru(NOMINATIVE)] не наш!"))
+				drop_inv_item_on_ground(child)
 				return
 			if(on_fire)
-				to_chat(src, SPAN_WARNING("Touching \the [F] while you're on fire would burn it!"))
+				to_chat(src, SPAN_WARNING("Прикосновение к [child.declent_ru(DATIVE)], когда вы горите, сожжёт его!"))
 				return
-			store_hugger(F)
+			store_hugger(child)
 			return
 
 	//target an egg morpher to top up on huggers
-	if(istype(T, /obj/effect/alien/resin/special/eggmorph))
-		var/obj/effect/alien/resin/special/eggmorph/morpher = T
+	if(istype(object, /obj/effect/alien/resin/special/eggmorph))
+		var/obj/effect/alien/resin/special/eggmorph/morpher = object
 		if(Adjacent(morpher))
 			if(morpher.linked_hive && (morpher.linked_hive.hivenumber != hivenumber))
-				to_chat(src, SPAN_WARNING("That egg morpher is tainted!"))
+				to_chat(src, SPAN_WARNING("Этот [morpher.declent_ru(NOMINATIVE)] не наш!"))
 				return
 			if(on_fire)
-				to_chat(src, SPAN_WARNING("Touching \the [morpher] while you're on fire would burn the facehuggers in it!"))
+				to_chat(src, SPAN_WARNING("Прикосновение к [morpher.declent_ru(DATIVE)], когда вы горите, сожжёт лицехватов внутри!"))
 				return
 			store_huggers_from_egg_morpher(morpher)
 			return
 
-	var/obj/item/clothing/mask/facehugger/F = get_active_hand()
-	if(!F) //empty active hand
+	var/obj/item/clothing/mask/facehugger/child = get_active_hand()
+	if(!child) //empty active hand
 		//if no hugger in active hand, we take one from our storage
 		if(huggers_cur <= 0)
-			to_chat(src, SPAN_WARNING("We don't have any facehuggers to use!"))
+			to_chat(src, SPAN_WARNING("У нас нет лицехватов, чтобы использовать их!"))
+			return
+
+		if(world.time < hugger_retrieve_timer)
+			to_chat(src, SPAN_WARNING("We must wait before retrieving another facehugger."))
 			return
 
 		if(on_fire)
-			to_chat(src, SPAN_WARNING("Retrieving a stored facehugger while we're on fire would burn it!"))
+			to_chat(src, SPAN_WARNING("Попытка достать лицехватов из хранилища, когда мы горим, сожжёт его!"))
 			return
 
-		F = new(src, hivenumber)
+		child = new(src, hivenumber)
 		huggers_cur--
-		put_in_active_hand(F)
-		to_chat(src, SPAN_XENONOTICE("We grab one of the facehugger in our storage. Now sheltering: [huggers_cur] / [huggers_max]."))
-		update_icons()
+		put_in_active_hand(child)
+		to_chat(src, SPAN_XENONOTICE("Мы забираем одного из лицехватов в наше хранилище. Сейчас в нём: [huggers_cur] / [huggers_max].")) // SS220 EDIT ADDICTION
+		behavior_delegate?.on_update_icons()
+		hugger_retrieve_timer = world.time + 1 SECONDS
 		return
 
-	if(!istype(F)) //something else in our hand
-		to_chat(src, SPAN_WARNING("We need a facehugger in our hand to throw one!"))
+	if(!istype(child)) //something else in our hand
+		to_chat(src, SPAN_WARNING("Нам нужен лицехват в когте, чтобы бросить его!"))
 		return
 
-	if(!threw_a_hugger)
-		threw_a_hugger = TRUE
-		for(var/X in actions)
-			var/datum/action/A = X
-			A.update_button_icon()
-		drop_inv_item_on_ground(F)
-		F.throw_atom(T, 4, caste.throwspeed)
-		visible_message(SPAN_XENOWARNING("\The [src] throws something towards \the [T]!"),
-			SPAN_XENOWARNING("We throw a facehugger towards \the [T]!"))
-		spawn(caste.hugger_delay)
-			threw_a_hugger = 0
-			for(var/X in actions)
-				var/datum/action/A = X
-				A.update_button_icon()
+	if(world.time >= hugger_throw_cooldown)
+		hugger_throw_cooldown = world.time + caste.hugger_throw_delay
+		update_action_buttons()
+		drop_inv_item_on_ground(child, force = TRUE)
+		child.throw_atom(object, CARRIER_HUGGER_THROW_RANGE, caste.throwspeed)
+		visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] бросает что-то в сторону [object.declent_ru(GENITIVE)]!"),
+			SPAN_XENOWARNING("Мы бросаем лицехвата в сторону [object.declent_ru(GENITIVE)]!"))
+		addtimer(CALLBACK(src, PROC_REF(update_action_buttons)), caste.hugger_throw_delay) // no idea why hugger_throw_delay is a parent since its only really used by this file but whatever
 
 /mob/living/carbon/xenomorph/carrier/proc/store_egg(obj/item/xeno_egg/E)
 	if(E.hivenumber != hivenumber)
@@ -326,7 +325,7 @@
 	if(eggs_cur < eggs_max)
 		if(stat == CONSCIOUS)
 			eggs_cur++
-			update_icons()
+			behavior_delegate?.on_update_icons()
 			to_chat(src, SPAN_NOTICE("We store the egg and carry it for safekeeping. Now sheltering: [eggs_cur] / [eggs_max]."))
 			qdel(E)
 		else
@@ -334,16 +333,16 @@
 	else
 		to_chat(src, SPAN_WARNING("We can't carry more eggs on ourselves."))
 
-/mob/living/carbon/xenomorph/carrier/proc/retrieve_egg(atom/T)
-	if(!T)
+/mob/living/carbon/xenomorph/carrier/proc/retrieve_egg(atom/object)
+	if(!object)
 		return
 
 	if(!check_state())
 		return
 
 	//target a hugger on the ground to store it directly
-	if(istype(T, /obj/item/xeno_egg))
-		var/obj/item/xeno_egg/E = T
+	if(istype(object, /obj/item/xeno_egg))
+		var/obj/item/xeno_egg/E = object
 		if(isturf(E.loc) && Adjacent(E))
 			var/turf/egg_turf = E.loc
 			store_egg(E)
@@ -354,8 +353,8 @@
 						store_egg(E)
 			return
 
-	if(istype(T, /obj/effect/alien/resin/special/eggmorph))
-		store_eggs_into_egg_morpher(T)
+	if(istype(object, /obj/effect/alien/resin/special/eggmorph))
+		store_eggs_into_egg_morpher(object)
 		return
 
 	var/obj/item/xeno_egg/E = get_active_hand()
@@ -366,13 +365,13 @@
 			return
 		E = new(src, hivenumber)
 		eggs_cur--
-		update_icons()
+		behavior_delegate?.on_update_icons()
 		put_in_active_hand(E)
-		to_chat(src, SPAN_XENONOTICE("We grab one of the eggs in our storage. Now sheltering: [eggs_cur] / [eggs_max]."))
+		to_chat(src, SPAN_XENONOTICE("Мы забираем одно из яиц в наше хранилище. Сейчас в нём: [eggs_cur] / [eggs_max].")) // SS220 EDIT ADDICTION
 		return
 
 	if(!istype(E)) //something else in our hand
-		to_chat(src, SPAN_WARNING("We need an empty hand to grab one of our stored eggs!"))
+		to_chat(src, SPAN_WARNING("Нам нужен свободный коготь, чтобы взять одно из яиц!"))
 		return
 
 /mob/living/carbon/xenomorph/carrier/proc/store_eggs_into_egg_morpher(obj/effect/alien/resin/special/eggmorph/morpher)
@@ -380,7 +379,7 @@
 	var/dist = get_dist(src, morpher)
 
 	if(dist > 1)
-		to_chat(src, SPAN_XENOWARNING("We need to be closer to do that."))
+		to_chat(src, SPAN_XENOWARNING("Нам нужно быть ближе, чтобы сделать это."))
 		return
 
 	if(action_busy)
@@ -389,31 +388,31 @@
 	if(!morpher_safety_checks(morpher))
 		return
 
-	visible_message(SPAN_XENOWARNING("[src] starts placing facehuggers into [morpher] from their eggs..."), SPAN_XENONOTICE("We start placing children into [morpher] from our eggs..."))
+	visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] начинает помещать лицехватов в [morpher.declent_ru(ACCUSATIVE)] из своих яиц..."), SPAN_XENONOTICE("Мы начинаем помещать детей в [morpher] из наших яиц...")) // SS220 EDIT ADDICTION
 	while(eggs_cur > 0)
 		if(!morpher_safety_checks(morpher))
 			return
 
 		if(!do_after(src, 0.75 SECONDS, INTERRUPT_ALL, BUSY_ICON_GENERIC))
-			to_chat(src, SPAN_WARNING("We stop filling [morpher] with our children."))
+			to_chat(src, SPAN_WARNING("Мы перестаём наполнять [morpher.declent_ru(ACCUSATIVE)] нашими детьми.")) // SS220 EDIT ADDICTION
 			return
 
 		playsound(src.loc, "sound/effects/alien_egg_move.ogg", 20, TRUE)
 		morpher.stored_huggers = min(morpher.huggers_max_amount, morpher.stored_huggers + 1)
 		eggs_cur--
-		to_chat(src, SPAN_XENONOTICE("We slide one of the children out of an egg and place them into [morpher]. Now sheltering: [eggs_cur] / [eggs_max]."))
+		to_chat(src, SPAN_XENONOTICE("Мы вынимаем одного из детей из яйца и помещаем его в [morpher.declent_ru(ACCUSATIVE)]. Сейчас в нём: [eggs_cur] / [eggs_max].")) // SS220 EDIT ADDICTION
 
 /mob/living/carbon/xenomorph/carrier/proc/morpher_safety_checks(obj/effect/alien/resin/special/eggmorph/morpher)
 	if(morpher.linked_hive && (morpher.linked_hive.hivenumber != hivenumber))
-		to_chat(src, SPAN_WARNING("That egg morpher is tainted!"))
+		to_chat(src, SPAN_WARNING("Эта форма для яиц заражена!"))
 		return FALSE
 
 	if(morpher.stored_huggers == morpher.huggers_max_amount)
-		to_chat(src, SPAN_WARNING("[morpher] is full of children!"))
+		to_chat(src, SPAN_WARNING("[capitalize(morpher.declent_ru(NOMINATIVE))] уже полностью занят детьми."))
 		return FALSE
 
 	if(eggs_cur < 1)
-		to_chat(src, SPAN_WARNING("We don't have any eggs left!"))
+		to_chat(src, SPAN_WARNING("У нас больше нет яиц!"))
 		return FALSE
 
 	return TRUE
@@ -467,5 +466,5 @@
 		"How many to reserve?",
 		carrier.huggers_reserved, carrier.huggers_max, 0
 	)
-	to_chat(carrier, SPAN_XENONOTICE("We reserve [carrier.huggers_reserved] facehuggers for ourself."))
+	to_chat(carrier, SPAN_XENONOTICE("Мы резервируем [carrier.huggers_reserved] лицехватов.")) // SS220 EDIT ADDICTION
 	return ..()

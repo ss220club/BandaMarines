@@ -14,8 +14,9 @@
 	unacidable = TRUE
 	anchored = TRUE
 	block_range = 1
-
+	var/boosted_structure = FALSE
 	var/datum/hive_status/linked_hive
+	var/protection_level = TURF_PROTECTION_NONE
 
 	plane = FLOOR_PLANE
 
@@ -58,3 +59,18 @@
 		return TRUE
 
 	return FALSE
+
+/obj/effect/alien/resin/special/proc/enable_boost(source, hive_purchaser)
+	SIGNAL_HANDLER
+	if(hive_purchaser != src.linked_hive.hivenumber)
+		return
+	else
+		boosted_structure = TRUE
+/obj/effect/alien/resin/special/proc/disable_boost(source, hive_purchaser)
+	SIGNAL_HANDLER
+	if(hive_purchaser != src.linked_hive.hivenumber)
+		return
+	else
+		boosted_structure = FALSE
+
+

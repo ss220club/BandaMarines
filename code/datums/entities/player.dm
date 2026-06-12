@@ -8,8 +8,6 @@
 	var/whitelist_status
 	var/whitelist_flags
 
-	var/discord_link_id
-
 	var/last_login
 
 	var/is_permabanned = FALSE
@@ -45,7 +43,6 @@
 	var/migrating_bans = FALSE
 	var/migrating_jobbans = FALSE
 
-	var/datum/entity/discord_link/discord_link
 	var/datum/entity/player/permaban_admin
 	var/datum/entity/player/time_ban_admin
 	var/list/datum/entity/player_note/notes
@@ -70,7 +67,6 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 		"permaban_reason" = DB_FIELDTYPE_STRING_MAX,
 		"permaban_date" = DB_FIELDTYPE_STRING_LARGE,
 		"whitelist_status" = DB_FIELDTYPE_STRING_MAX,
-		"discord_link_id" = DB_FIELDTYPE_BIGINT,
 		"permaban_admin_id" = DB_FIELDTYPE_BIGINT,
 		"is_time_banned" = DB_FIELDTYPE_INT,
 		"time_ban_reason" = DB_FIELDTYPE_STRING_MAX,
@@ -105,10 +101,10 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 		// notes_add already sends a message
 		message_admins("[key_name_admin(admin.mob)] has edited [ckey]'s [GLOB.note_categories[note_category]] notes: [sanitize(note_text)]")
 	if(!is_confidential && note_category == NOTE_ADMIN && owning_client)
-		to_chat_immediate(owning_client, SPAN_WARNING(FONT_SIZE_LARGE("You have been noted by [key_name_admin(admin.mob, FALSE)].")))
-		to_chat_immediate(owning_client, SPAN_WARNING(FONT_SIZE_BIG("The note is : [sanitize(note_text)]")))
-		to_chat_immediate(owning_client, SPAN_WARNING(FONT_SIZE_BIG("If you believe this was filed in error or misplaced, make a staff report at <a href='[CONFIG_GET(string/staffreport)]'><b>The CM Forums</b></a>")))
-		to_chat_immediate(owning_client, SPAN_WARNING(FONT_SIZE_BIG("You can also click the name of the staff member noting you to PM them.")))
+		to_chat_immediate(owning_client, SPAN_WARNING(FONT_SIZE_LARGE("Вас отметил [key_name_admin(admin.mob, FALSE)]."))) // SS220 EDIT ADDICTION
+		to_chat_immediate(owning_client, SPAN_WARNING(FONT_SIZE_BIG("Заметка: [sanitize(note_text)]"))) // SS220 EDIT ADDICTION
+		to_chat_immediate(owning_client, SPAN_WARNING(FONT_SIZE_BIG("Если вы считаете, что это было сделано по ошибке или неуместно, создайте отчёт для администрации на нашем <a href=[CONFIG_GET(string/discordurl)]><b>Discord-сервере SS220</b></a>"))) // SS220 EDIT ADDICTION
+		to_chat_immediate(owning_client, SPAN_WARNING(FONT_SIZE_BIG("Вы также можете нажать на имя сотрудника, чтобы отправить ему личное сообщение.")))
 	// create new instance of player_note entity
 	var/datum/entity/player_note/note = DB_ENTITY(/datum/entity/player_note)
 	// set its related data
@@ -418,8 +414,6 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 		permaban_admin = DB_ENTITY(/datum/entity/player, permaban_admin_id)
 	if(time_ban_admin_id)
 		time_ban_admin = DB_ENTITY(/datum/entity/player, time_ban_admin_id)
-	if(discord_link_id)
-		discord_link = DB_ENTITY(/datum/entity/discord_link, discord_link_id)
 
 	if(whitelist_status)
 		var/list/whitelists = splittext(whitelist_status, "|")
@@ -783,7 +777,6 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 	var/admin
 	var/last_known_cid
 	var/last_known_ip
-	var/discord_link_id
 	var/whitelist_status
 
 /datum/entity_view_meta/players
@@ -801,6 +794,5 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 		"admin" = DB_CASE(DB_COMP("is_permabanned", DB_EQUALS, 1), "permabanning_admin.ckey", "banning_admin.ckey"),
 		"last_known_ip",
 		"last_known_cid",
-		"discord_link_id",
 		"whitelist_status"
 		)

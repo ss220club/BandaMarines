@@ -69,6 +69,14 @@ GLOBAL_DATUM_INIT(data_core, /datum/datacore, new)
 	else
 		assignment = "Неназначен"	// SS220 EDIT TRANSLATE
 
+	var/manifest_title
+	if(target.role_title_override)
+		manifest_title = target.role_title_override
+	else if(target?.assigned_equipment_preset.manifest_title)
+		manifest_title = target.assigned_equipment_preset.manifest_title
+	else
+		manifest_title = target.job
+
 	var/id = add_zero(num2hex(target.gid), 6) //this was the best they could come up with? A large random number? *sigh*
 	var/icon/front = new(get_id_photo(target), dir = SOUTH)
 	var/icon/side = new(get_id_photo(target), dir = WEST)
@@ -79,8 +87,9 @@ GLOBAL_DATUM_INIT(data_core, /datum/datacore, new)
 	record_general.fields["id"] = id
 	record_general.fields["name"] = target.real_name
 	record_general.name = target.real_name
-	record_general.fields["real_rank"] = target.job
-	record_general.fields["rank"] = assignment
+	record_general.fields["real_rank"] = assignment
+	record_general.fields["rank"] = manifest_title
+	record_general.fields["paygrade_prefix"] = target.get_paygrade(1)
 	record_general.fields["squad"] = target.assigned_squad ? target.assigned_squad.name : null
 	record_general.fields["age"] = target.age
 	record_general.fields["p_stat"] = "Active"
@@ -106,24 +115,24 @@ GLOBAL_DATUM_INIT(data_core, /datum/datacore, new)
 	record_medical.fields["id"] = id
 	record_medical.fields["name"] = target.real_name
 	record_medical.name = target.name
-	record_medical.fields["b_type"] = target.blood_type
-	record_medical.fields["mi_dis"] = "None"
-	record_medical.fields["mi_dis_d"] = "No minor disabilities have been declared."
-	record_medical.fields["ma_dis"] = "None"
-	record_medical.fields["ma_dis_d"] = "No major disabilities have been diagnosed."
-	record_medical.fields["alg"] = "None"
-	record_medical.fields["alg_d"] = "No allergies have been detected in this patient."
-	record_medical.fields["cdi"] = "None"
-	record_medical.fields["cdi_d"] = "No diseases have been diagnosed at the moment."
+	record_medical.fields["blood_type"] = target.blood_type
+	record_medical.fields["minor_disability"] = "None"
+	record_medical.fields["minor_disability_details"] = "No minor disabilities have been declared."
+	record_medical.fields["major_disability"] = "None"
+	record_medical.fields["major_disability_details"] = "No major disabilities have been diagnosed."
+	record_medical.fields["allergies"] = "None"
+	record_medical.fields["allergies_details"] = "No allergies have been detected in this patient."
+	record_medical.fields["diseases"] = "None"
+	record_medical.fields["diseases_details"] = "No diseases have been diagnosed at the moment."
 	record_medical.fields["last_scan_time"] = null
 	record_medical.fields["last_scan_result"] = "No scan data on record" // body scanner results
 	record_medical.fields["autodoc_data"] = list()
 	record_medical.fields["ref"] = WEAKREF(target)
 
 	if(target.med_record && !jobban_isbanned(target, "Records"))
+		var/new_comment = list("entry" = target.med_record, "created_by" = list("name" = "\[REDACTED\]", "rank" = "Chief Medical Officer"), "deleted_by" = null, "deleted_at" = null, "created_at" = "Pre-Deployment")
+		record_medical.fields["comments"] = list("1" = new_comment)
 		record_medical.fields["notes"] = target.med_record
-	else
-		record_medical.fields["notes"] = "No notes found."
 	medical += record_medical
 
 	//Security Record
@@ -150,7 +159,7 @@ GLOBAL_DATUM_INIT(data_core, /datum/datacore, new)
 	record_locked.fields["rank"] = target.job
 	record_locked.fields["age"] = target.age
 	record_locked.fields["sex"] = target.gender
-	record_locked.fields["b_type"] = target.b_type
+	record_locked.fields["blood_type"] = target.blood_type
 	record_locked.fields["species"] = target.get_species()
 	record_locked.fields["origin"] = target.origin
 	record_locked.fields["faction"] = target.personal_faction

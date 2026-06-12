@@ -1,7 +1,12 @@
 /obj/vehicle/motorbike
-	var/crash_damage_multiplier = 1.0 // Множитель урона при столкновении
-	var/last_crash_time = 0 // Время последнего столкновения
-	var/crash_cooldown = 2 SECONDS // Задержка между столкновениями
+	/// Множитель урона при столкновении
+	var/crash_damage_multiplier = 1.0
+	/// Время последнего столкновения
+	var/last_crash_time = 0
+	/// Задержка между столкновениями
+	var/crash_cooldown = 2 SECONDS
+	/// Шанс для столкновения при низком уровне вождения
+	var/crash_chance = 80 // Если шанс 80, то по уровням: 80 - 60 - 40 - 20 - 8
 
 // ==========================================
 // =============== Коллизия =================
@@ -13,10 +18,17 @@
 	if(!buckled_mob)
 		return ..()
 
-	if(current_speed_level <= 1)
+	if(current_speed_level == BIKE_SPEED_MIN)
 		return ..()
 
 	last_crash_time = world.time
+
+	// Шанс от скилла что мы не врежимся и остановимся
+	var/crash_chance_prob = 100 - crash_chance * buckled_mob.get_skill_duration_multiplier(SKILL_VEHICLE)
+	if(prob(crash_chance_prob))
+		to_chat(buckled_mob, SPAN_NOTICE("Вы избежали аварии, благодаря вашему умелому вождению!"))
+		reset_speed()
+		return TRUE
 
 	// Обработка столкновений в зависимости от типа объекта
 	if(ismob(A))
@@ -37,7 +49,7 @@
 // ========= Коллизия с объектами ===========
 
 /obj/vehicle/motorbike/proc/handle_wall_collision(turf/wall)
-	if(current_speed_level <= 1)
+	if(current_speed_level == BIKE_SPEED_MIN)
 		return
 
 	var/damage = 10 * current_speed_level * 0.5 * crash_damage_multiplier
@@ -55,8 +67,8 @@
 		unbuckle()
 
 	// Эффекты для пассажира
-	if(stroller?.buckled_mob)
-		var/mob/living/L = stroller.buckled_mob
+	if(sidecar?.buckled_mob)
+		var/mob/living/L = sidecar.buckled_mob
 		L.apply_damage(damage * 0.5, BRUTE)
 		L.apply_effect(current_speed_level, STUN)
 
@@ -64,7 +76,7 @@
 	visible_message(SPAN_DANGER("[src] врезается в [wall] на полной скорости!"))
 
 /obj/vehicle/motorbike/proc/handle_object_collision(obj/O)
-	if(current_speed_level <= 1)
+	if(current_speed_level == BIKE_SPEED_MIN)
 		return
 
 	var/damage = 5 * current_speed_level * 0.3 * crash_damage_multiplier
@@ -149,8 +161,8 @@
 
 	if(mod)
 		apply_collision_effects(occupant, 1/mod)
-		if(stroller?.buckled_mob)
-			var/mob/living/carbon/second_occupant = stroller.buckled_mob
+		if(sidecar?.buckled_mob)
+			var/mob/living/carbon/second_occupant = sidecar.buckled_mob
 			apply_collision_effects(second_occupant, 1.5/mod)
 
 	occupant.visible_message(SPAN_DANGER("[occupant] на [name] врезался в [M]!"))
