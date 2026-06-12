@@ -1,8 +1,8 @@
-#define ROAF_SURVIVOR_INTRO list("<h2 style='color:#2F3E66; font-size:125%;'>You are a member of the ROAF and IASF Parachute Regiment!</h2>",\
-	"<span class='notice' style='color:#A6A6A6;'>You ARE aware of the xenomorph threat.</span>",\
-	"<span class='danger' style='color:#7F2F2B;'>Your primary objective is to survive.</span>")
+#define ROAF_SURVIVOR_INTRO list("<h2 style='color:#2F3E66; font-size:125%;'>Вы — оставшаяся часть 38-ой Королеской Авиа-Орбитальной группы, заблокированные на LV-733 Whitchler Point. Колония мертва или умирает, связь с внешним командованием превратилась в рваные обрывки сигналов. Припасы сокращаются, вы на грани срыва и понимаете: твари будут пытаться схватить вас и нужно что-делать, пока не стало совсем поздно ...</h2>",\
+	"<span class='notice' style='color:#A6A6A6;'>Вы осведомлены о ксеноморфной угрозе.</span>",\
+	"<span class='danger' style='color:#7F2F2B;'>Ваша основная задача — выжить.</span>")
 
-#define ROAF_SURVIVOR_STORY "<p style='font-size:95%; color:#A6A6A6;'>Outpost Whitchler - ROAF training ground of TWE on LV-733 \"Whitchler Point\". Only your squad remains. Supplies are gone. Evac is impossible. This was not an accident. Weyland-Yutani is involved. Distress signal sent. Hold position.</p>"
+#define ROAF_SURVIVOR_STORY "<p style='font-size:95%; color:#A6A6A6;'>Аванпост «Уитшлер» — тренировочный полигон ROAF, принадлежащий TWE, на LV-733 «Уитшлер-Пойнт». Остался только ваш отряд. Припасы закончились. Эвакуация невозможна. Это не было случайностью. Weyland-Yutani замешана. Сигнал бедствия отправлен. Удерживайте позицию.</p>"
 
 /// ROAF ///
 

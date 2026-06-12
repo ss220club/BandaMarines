@@ -124,7 +124,7 @@
 	linked_lz = DROPSHIP_LZ1
 
 /area/lv733/indoors/landing_zone_1/lz1_console
-	name = "Whitchler Point ROAF - Hangars - Landing Zone One - Dropship Alamo Console"
+	name = "LZ1 - Whitchler Point ROAF"
 	icon_state = "hybrisa"
 	requires_power = FALSE
 	ceiling = CEILING_METAL
@@ -170,11 +170,24 @@
 	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport/lz2_console
-	name = "Whitchler Civilian Spaceport - Dropship Normandy Console"
+	name = "LZ2 - Whitchler Civilian Spaceport"
 	icon_state = "hybrisa"
 	requires_power = FALSE
 	ceiling = CEILING_METAL
 	linked_lz = DROPSHIP_LZ2
+
+// Unloading common area”
+
+/area/lv733/indoors/unloading_common
+	name = "Unloading common area"
+	ceiling = CEILING_METAL
+	linked_lz = DROPSHIP_LZ2
+	soundscape_playlist = SCAPE_PL_LV759_INDOORS
+
+/area/lv733/indoors/unloading_common/tech
+	name = "Unloading common area - Tech"
+	icon_state = "comms_1"
+	ceiling = CEILING_METAL
 
 // Shop
 
@@ -202,6 +215,11 @@
 
 /area/lv733/indoors/landing_cargo/cryo_room
 	name = "ROAF Forward Cargo Area - Crew Rest Zone"
+
+/area/lv733/indoors/landing_cargo/tech_hub
+	name = "ROAF Forward Cargo Area Tech Hub"
+	icon_state = "comms_1"
+	ceiling = CEILING_METAL
 
 // Hosptial
 
@@ -254,6 +272,36 @@
 /area/lv733/indoors/bar/maintenance
 	name = "Bar - Maintenance"
 
+//WY Administration
+
+/area/lv733/indoors/wy_administration
+	name = "WY Administration"
+	icon_state = "wylab"
+	soundscape_playlist = SCAPE_PL_LV759_INDOORS
+	ceiling = CEILING_METAL
+
+/area/lv733/indoors/wy_administration/office1
+	name = "WY Administration - Office #1"
+
+/area/lv733/indoors/wy_administration/office2
+	name = "WY Administration - Office #2"
+
+/area/lv733/indoors/wy_administration/corridor
+	name = "WY Administration - Corridor"
+
+/area/lv733/indoors/wy_administration/meeting_room
+	name = "WY Administration - Meeting room"
+
+/area/lv733/indoors/wy_administration/directors_office
+	name = "WY Administration - Directors office"
+
+// Crashed spacecraft
+
+/area/lv733/indoors/crashed_spacecraft
+	name = "Crashed spacecraft"
+	ceiling = CEILING_METAL
+
+
 // Cafeteria
 
 /area/lv733/indoors/cafeteriakitchen
@@ -300,14 +348,17 @@
 /area/lv733/indoors/motel/reception
 	name = "Motel Complex - Apartments - Reception"
 
-/area/lv733/indoors/motel/reception/room
+/area/lv733/indoors/motel/reception/room1
 	name = "Motel Complex - Apartments - room1"
 
-/area/lv733/indoors/motel/reception/room
+/area/lv733/indoors/motel/reception/room2
 	name = "Motel Complex - Apartments - room2"
 
-/area/lv733/indoors/motel/reception/room
+/area/lv733/indoors/motel/reception/room3
 	name = "Motel Complex - Apartments - room3"
+
+/area/lv733/indoors/motel/reception/room4
+	name = "Motel Complex - Apartments - room4"
 
 /area/lv733/indoors/motel/reception/lounge_area
 	name = "Motel Complex - Apartments - Lounge Area"
@@ -531,14 +582,14 @@
 /area/lv733/indoors/residential_block/south_corridor
 	name = "Weyland-Yutani – Residential – South Corridor"
 
-/area/lv733/indoors/residential_block/living_quarters
-	name = "Weyland-Yutani – Residential – Living Quarters#1"
+/area/lv733/indoors/residential_block/living_quarters1
+	name = "Weyland-Yutani – Residential – Living Quarters #1"
 
-/area/lv733/indoors/residential_block/living_quarters
-	name = "Weyland-Yutani – Residential – Living Quarters#2"
+/area/lv733/indoors/residential_block/living_quarters2
+	name = "Weyland-Yutani – Residential – Living Quarters #2"
 
-/area/lv733/indoors/residential_block/living_quarters
-	name = "Weyland-Yutani – Residential – Living Quarters#3"
+/area/lv733/indoors/residential_block/living_quarters3
+	name = "Weyland-Yutani – Residential – Living Quarters #3"
 
 /area/lv733/indoors/residential_block/restroom
 	name = "Weyland-Yutani – Residential – Restroom"
@@ -578,6 +629,18 @@
 /area/lv733/outdoors/colony_streets/complex_streets
 	name = "Street - Complex Streets"
 	icon_state = "colonystreets_southeast"
+
+
+// Street
+
+/area/lv733/indoors/colony_streets
+	name = "Colony Streets Underground"
+	icon_state = "colonystreets_under"
+	ceiling = CEILING_METAL
+	minimap_color = MINIMAP_AREA_COLONY_STREETS
+	ambience_exterior = AMBIENCE_TYRARGO_CITY
+	soundscape_playlist = SCAPE_PL_DESERT_STORM
+	soundscape_interval = 35
 
 // Mining Complex
 

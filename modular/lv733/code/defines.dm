@@ -24,20 +24,10 @@
 #define PAY_SHORT_ROAFE1 "ROAFE1"
 #define PAY_SHORT_ROAFE2 "ROAFE2"
 #define PAY_SHORT_ROAFE3 "ROAFE3"
-#define PAY_SHORT_ROAFE4 "ROAFE4"
-#define PAY_SHORT_ROAFE5 "ROAFE5"
-#define PAY_SHORT_ROAFE6 "ROAFE6"
-#define PAY_SHORT_ROAFE7 "ROAFE7"
 #define PAY_SHORT_ROAFS1 "ROAFS1"
 #define PAY_SHORT_ROAFO1 "ROAFO1"
 #define PAY_SHORT_ROAFO2 "ROAFO2"
 #define PAY_SHORT_ROAFO3 "ROAFO3"
-#define PAY_SHORT_ROAFO4 "ROAFO4"
-#define PAY_SHORT_ROAFO5 "ROAFO5"
-#define PAY_SHORT_ROAFO6 "ROAFO6"
-#define PAY_SHORT_ROAFO7 "ROAFO7"
-#define PAY_SHORT_ROAFO8 "ROAFO8"
-#define PAY_SHORT_ROAFO9 "ROAFO9"
 
 /// ROAF Enlisted
 
@@ -71,9 +61,9 @@
 /datum/paygrade/twe/roaf/o2
 	paygrade = PAY_SHORT_ROAFO2
 	name = "Лейтенант звена"
-	prefix = "Л-т звена"
+	prefix = "Л-т Звена"
 
 /datum/paygrade/twe/roaf/o3
 	paygrade = PAY_SHORT_ROAFO3
 	name = "Командор крыла"
-	prefix = "К-р крыла"
+	prefix = "К-р Крыла"

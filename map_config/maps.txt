@@ -60,9 +60,6 @@ map lv759_hybrisa_prospera
 	minplayers 110
 endmap
 
-map lv733_marlowe_point
-endmap
-
 map lv733_whitchler_point
 endmap
 
