@@ -438,12 +438,12 @@
 	desc = "A plastic cassette tape with a blue sticker."
 	icon_state = "cassette_blue"
 	side1_icon = "cassette_blue"
-	songs = list("side1" = list('config/music/walkman/pop1/1-1-1.ogg',\
-								'config/music/walkman/pop1/1-1-2.ogg',\
-								'config/music/walkman/pop1/1-1-3.ogg'),\
-				"side2" = list('config/music/walkman/pop1/1-2-1.ogg',\
-								'config/music/walkman/pop1/1-2-2.ogg',\
-								'config/music/walkman/pop1/1-2-3.ogg'))
+	songs = list("side1" = list("config/music/walkman/pop1/1-1-1.ogg",\
+								"config/music/walkman/pop1/1-1-2.ogg",\
+								"config/music/walkman/pop1/1-1-3.ogg"),\
+				"side2" = list("config/music/walkman/pop1/1-2-1.ogg",\
+								"config/music/walkman/pop1/1-2-2.ogg",\
+								"config/music/walkman/pop1/1-2-3.ogg"))
 
 /obj/item/device/cassette_tape/pop2
 	name = "rainbow cassette"
@@ -451,12 +451,12 @@
 	desc = "A plastic cassette tape with a rainbow-colored sticker."
 	icon_state = "cassette_rainbow"
 	side1_icon = "cassette_rainbow"
-	songs = list("side1" = list('config/music/walkman/pop2/2-1-1.ogg',\
-								'config/music/walkman/pop2/2-1-2.ogg',\
-								'config/music/walkman/pop2/2-1-3.ogg'),\
-				"side2" = list('config/music/walkman/pop2/2-2-1.ogg',\
-								'config/music/walkman/pop2/2-2-2.ogg',\
-								'config/music/walkman/pop2/2-2-3.ogg'))
+	// songs = list("side1" = list('config/music/walkman/pop2/2-1-1.ogg',\
+	// 							'config/music/walkman/pop2/2-1-2.ogg',\
+	// 							'config/music/walkman/pop2/2-1-3.ogg'),\
+	// 			"side2" = list('config/music/walkman/pop2/2-2-1.ogg',\
+	// 							'config/music/walkman/pop2/2-2-2.ogg',\
+	// 							'config/music/walkman/pop2/2-2-3.ogg'))
 
 /obj/item/device/cassette_tape/pop3
 	name = "orange cassette"
