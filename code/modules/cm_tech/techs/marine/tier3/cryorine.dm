@@ -6,8 +6,8 @@
 
 	announce_message = "Из крио был выведен дополнительный отряд."
 
-	required_points = 6
-	increase_per_purchase = 6
+	required_points = 5
+	increase_per_purchase = 3
 
 	flags = TREE_FLAG_MARINE
 	tier = /datum/tier/three
