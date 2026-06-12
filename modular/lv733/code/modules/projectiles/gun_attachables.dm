@@ -17,7 +17,7 @@
 	)
 	item_state = "item_default"
 	item_state_slots = list(
-		WEAR_AS_GARB = "item_default"
+		WEAR_AS_GARB = "item_default",
 	)
 	attach_icon = "item_default"
 	original_state = "icon_glowstick"
@@ -169,7 +169,7 @@
 
 	item_state = new_item_state
 	item_state_slots = list(
-		WEAR_AS_GARB = new_item_state
+		WEAR_AS_GARB = new_item_state,
 	)
 
 	if(attached_item)

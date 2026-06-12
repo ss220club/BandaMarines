@@ -318,7 +318,7 @@
 	flags_item = ITEM_OVERRIDE_NORTHFACE
 	actions_types = list(
 		/datum/action/item_action/rto_pack/use_phone,
-		/datum/action/item_action/specialist/toggle_cloak
+		/datum/action/item_action/specialist/toggle_cloak,
 	)
 	var/obj/structure/transmitter/internal/internal_transmitter
 	var/phone_category = RADIO_CHANNEL_ROAF
