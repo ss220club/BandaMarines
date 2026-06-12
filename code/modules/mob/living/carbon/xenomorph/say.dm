@@ -127,13 +127,13 @@
 						var/mob/hologram/queen/queen_eye = client?.get_eye()
 						if(istype(queen_eye))
 							track += " (<a href='byond://?src=\ref[S];track=\ref[queen_eye]'>ГЛ.</a>)"
-						ghostrend = SPAN_XENOQUEEN("Разум улья, [declent_ru(NOMINATIVE)][track] [ru_say_verb("hisses")], <span class='normal'>'[sanitize_tts_symbols(message)]'</span>")
+						ghostrend = SPAN_XENOQUEEN("Разум улья, [declent_ru(NOMINATIVE)][track] [ru_say_verb("hisses")], <span class='normal'>'[SStts220.sanitize_tts_symbols(message)]'</span>")
 					else if(hive.leading_cult_sl == src)
-						ghostrend = SPAN_XENOQUEEN("Разум улья, [declent_ru(NOMINATIVE)][track] [ru_say_verb("hisses")], <span class='normal'>'[sanitize_tts_symbols(message)]'</span>")
+						ghostrend = SPAN_XENOQUEEN("Разум улья, [declent_ru(NOMINATIVE)][track] [ru_say_verb("hisses")], <span class='normal'>'[SStts220.sanitize_tts_symbols(message)]'</span>")
 					else if(istype(X) && IS_XENO_LEADER(X))
-						ghostrend = SPAN_XENOLEADER("Разум улья, лидер [declent_ru(NOMINATIVE)][track] [ru_say_verb("hisses")], <span class='normal'>'[sanitize_tts_symbols(message)]'</span>")
+						ghostrend = SPAN_XENOLEADER("Разум улья, лидер [declent_ru(NOMINATIVE)][track] [ru_say_verb("hisses")], <span class='normal'>'[SStts220.sanitize_tts_symbols(message)]'</span>")
 					else
-						ghostrend = SPAN_XENO("Разум улья, [declent_ru(NOMINATIVE)][track] [ru_say_verb("hisses")], <span class='normal'>'[sanitize_tts_symbols(message)]'</span>")
+						ghostrend = SPAN_XENO("Разум улья, [declent_ru(NOMINATIVE)][track] [ru_say_verb("hisses")], <span class='normal'>'[SStts220.sanitize_tts_symbols(message)]'</span>")
 					S.show_message(ghostrend, SHOW_MESSAGE_AUDIBLE)
 					cast_tts(S, message, S, is_local = FALSE, additional_effects = list(/datum/singleton/sound_effect/telepathy), tts_channel_override = CHANNEL_TTS_HIVEMIND) // BANDAMARINES EDIT ADD - TTS
 
@@ -142,11 +142,11 @@
 					overwatch_insert = " (<a href='byond://?src=\ref[S];[overwatch_target]=\ref[src];[overwatch_src]=\ref[S]'>следить</a>)"
 
 				if(isqueen(src) || hive.leading_cult_sl == src)
-					rendered = SPAN_XENOQUEEN("Разум улья, [declent_ru(NOMINATIVE)][overwatch_insert] [ru_say_verb("hisses")], <span class='normal'>'[sanitize_tts_symbols(message)]'</span>")
+					rendered = SPAN_XENOQUEEN("Разум улья, [declent_ru(NOMINATIVE)][overwatch_insert] [ru_say_verb("hisses")], <span class='normal'>'[SStts220.sanitize_tts_symbols(message)]'</span>")
 				else if(istype(X) && IS_XENO_LEADER(X))
-					rendered = SPAN_XENOLEADER("Разум улья, лидер [declent_ru(NOMINATIVE)][overwatch_insert] [ru_say_verb("hisses")], <span class='normal'>'[sanitize_tts_symbols(message)]'</span>")
+					rendered = SPAN_XENOLEADER("Разум улья, лидер [declent_ru(NOMINATIVE)][overwatch_insert] [ru_say_verb("hisses")], <span class='normal'>'[SStts220.sanitize_tts_symbols(message)]'</span>")
 				else
-					rendered = SPAN_XENO("Разум улья, [declent_ru(NOMINATIVE)][overwatch_insert] [ru_say_verb("hisses")], <span class='normal'>'[sanitize_tts_symbols(message)]'</span>")
+					rendered = SPAN_XENO("Разум улья, [declent_ru(NOMINATIVE)][overwatch_insert] [ru_say_verb("hisses")], <span class='normal'>'[SStts220.sanitize_tts_symbols(message)]'</span>")
 
 				S.show_message(rendered, SHOW_MESSAGE_AUDIBLE)
 				cast_tts(S, message, S, is_local = FALSE, additional_effects = list(/datum/singleton/sound_effect/telepathy), tts_channel_override = CHANNEL_TTS_HIVEMIND) // BANDAMARINES EDIT ADD - TTS

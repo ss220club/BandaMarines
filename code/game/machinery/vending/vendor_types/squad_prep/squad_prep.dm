@@ -378,7 +378,7 @@
 
 /obj/structure/machinery/cm_vending/sorted/attachments/squad/populate_product_list(scale)
 	listed_products = list(
-		list("BARREL", -1, null, null),
+		list("ДУЛЬНЫЕ УСТРОЙСТВА", -1, null, null),	//SS220 EDIT TRANSLATION
 		// list("Barrel Charger", 0.75, /obj/item/attachable/heavy_barrel, VENDOR_ITEM_REGULAR), // SS220 EDIT - Balance attachments
 		list("Extended Recoil Compensator", 2.5, /obj/item/attachable/extended_barrel/vented, VENDOR_ITEM_REGULAR),
 		list("Extended Barrel", 2.5, /obj/item/attachable/extended_barrel, VENDOR_ITEM_REGULAR),
