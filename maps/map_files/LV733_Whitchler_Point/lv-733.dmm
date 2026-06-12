@@ -15900,9 +15900,7 @@
 /obj/effect/decal/strata_decals/tyrargo_mud_corner{
 	dir = 8
 	},
-/obj/structure/flora/tree/tyrargo/tree_2{
-	pixel_z = -1
-	},
+/obj/structure/flora/tree/tyrargo/tree_2,
 /obj/effect/decal/strata_decals/grasses,
 /turf/open/auto_turf/snow/brown_base/layer0,
 /area/lv733/outdoors/colony_streets/roaf_streets)
@@ -53654,8 +53652,7 @@
 	},
 /obj/item/clothing/shoes/marine/royal_marine{
 	pixel_x = 12;
-	pixel_y = 4;
-	pixel_z = 1
+	pixel_y = 4
 	},
 /obj/structure/machinery/light/small{
 	pixel_x = 11
@@ -66698,7 +66695,6 @@
 	},
 /obj/item/coin/platinum{
 	pixel_x = 12;
-	pixel_w = null;
 	pixel_y = 12
 	},
 /turf/open/floor/prison,
