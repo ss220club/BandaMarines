@@ -4,3 +4,4 @@
 #include "code/roaf_glowstick_vendors.dm"
 #include "code/ponchos.dm"
 #include "code/lv733_clothing.dm"
+#include "code/cape.dm"
