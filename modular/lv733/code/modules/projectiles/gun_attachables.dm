@@ -1,12 +1,3 @@
-/obj/item/attachable/helmet_beacon
-	name = "IFF helmet beacon"
-	desc = "An IFF beacon is a small light device mounted on a helmet."
-	icon = 'icons/obj/items/weapons/guns/attachments/rail.dmi'
-	icon_state = "helmet_beacon"
-
-/obj/item/attachable/helmet_beacon/helmet
-	name = "helmet IFF beacon"
-
 /obj/item/attachable/flashlight/glowstick/roaf
 	name = "маркер с хим-светом"
 	desc = "Компактная палочка с химическим светом, предназначенная для крепления на шлем."
@@ -19,9 +10,9 @@
 	item_state_slots = list(
 		WEAR_AS_GARB = "item_default",
 	)
-	attach_icon = "item_default"
+	attach_icon = "icon_glowstick"
 	original_state = "icon_glowstick"
-	original_attach = "item_default"
+	original_attach = "icon_glowstick"
 	flags_obj = OBJ_IS_HELMET_GARB|OBJ_NO_HELMET_BAND
 	helm_mounted_light_power = 1
 	helm_mounted_light_range = 1.7

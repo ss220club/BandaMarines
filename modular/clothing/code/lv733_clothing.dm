@@ -15,7 +15,7 @@
 	item_icons = list(
 		WEAR_BODY = 'modular/clothing/onmob/roaf/uniform.dmi',
 	)
-	icon_state = "icon_pilot"
+	icon_state = "uniform_pilot"
 	worn_state = "uniform_pilot"
 	armor_melee = CLOTHING_ARMOR_LOW
 	armor_bullet = CLOTHING_ARMOR_LOW
@@ -33,7 +33,7 @@
 	item_icons = list(
 		WEAR_BODY = 'modular/clothing/onmob/roaf/uniform.dmi',
 	)
-	icon_state = "icon_sniper"
+	icon_state = "uniform_sniper"
 	worn_state = "uniform_sniper"
 	armor_melee = CLOTHING_ARMOR_LOW
 	armor_bullet = CLOTHING_ARMOR_LOW
@@ -51,7 +51,7 @@
 	item_icons = list(
 		WEAR_BODY = 'modular/clothing/onmob/roaf/uniform.dmi',
 	)
-	icon_state = "icon_service"
+	icon_state = "uniform_service"
 	worn_state = "uniform_service"
 	armor_melee = CLOTHING_ARMOR_LOW
 	armor_bullet = CLOTHING_ARMOR_LOW
@@ -69,7 +69,7 @@
 	item_icons = list(
 		WEAR_BODY = 'modular/clothing/onmob/roaf/uniform.dmi',
 	)
-	icon_state = "icon_shooter"
+	icon_state = "uniform_shooter"
 	worn_state = "uniform_shooter"
 	armor_melee = CLOTHING_ARMOR_LOW
 	armor_bullet = CLOTHING_ARMOR_LOW
@@ -87,7 +87,7 @@
 	item_icons = list(
 		WEAR_BODY = 'modular/clothing/onmob/roaf/uniform.dmi',
 	)
-	icon_state = "icon_support"
+	icon_state = "uniform_support"
 	worn_state = "uniform_support"
 	armor_melee = CLOTHING_ARMOR_LOW
 	armor_bullet = CLOTHING_ARMOR_LOW
@@ -105,7 +105,7 @@
 	item_icons = list(
 		WEAR_BODY = 'modular/clothing/onmob/roaf/uniform.dmi',
 	)
-	icon_state = "icon_classic"
+	icon_state = "uniform_classic"
 	worn_state = "uniform_classic"
 	armor_melee = CLOTHING_ARMOR_LOW
 	armor_bullet = CLOTHING_ARMOR_LOW

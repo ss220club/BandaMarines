@@ -4,6 +4,7 @@
 #include "code/datums/weather/weather_events/lv733_whitchler_point.dm"
 #include "code/datums/weather/weather_map_holders/lv733_whitchler_point.dm"
 #include "code/game/area/LV733.dm"
+#include "code/game/turfs.dm"
 #include "code/game/jobs/job/squads.dm"
 #include "code/game/objects/effects/landmarks/survivor_spawner.dm"
 #include "code/game/objects/items/devices/flash.dm"

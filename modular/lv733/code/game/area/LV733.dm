@@ -25,6 +25,7 @@
 	name = "Whitchler Point - Outdoors"
 	icon_state = "cliff_blocked"//because this is a PARENT TYPE and you should not be using it and should also be changing the icon!!!
 	ceiling = CEILING_NONE
+	requires_power = FALSE
 	soundscape_playlist = SCAPE_PL_DESERT_STORM
 	ambience_exterior = AMBIENCE_BIGRED
 	soundscape_interval = 25
@@ -71,6 +72,7 @@
 	name = "Whitchler Point ROAF - Primary Landing Zone - Landing Zone One - Technical Corridor"
 	icon_state = "hybrisa"
 	ceiling = CEILING_METAL
+	requires_power = FALSE
 	is_landing_zone = TRUE
 	linked_lz = DROPSHIP_LZ1
 
@@ -115,6 +117,7 @@
 	name = "Whitchler Point ROAF - ROAF Office - Landing Zone One - ROAF Technical Access Corridor"
 	icon_state = "hybrisa"
 	ceiling = CEILING_METAL
+	requires_power = FALSE
 	linked_lz = DROPSHIP_LZ1
 
 /area/lv733/indoors/landing_zone_1/roaf_comms_hub_1
@@ -155,6 +158,7 @@
 	name = "Whitchler Civilian Spaceport - Storage Depot"
 	icon_state = "security_checkpoint"
 	ceiling = CEILING_METAL
+	requires_power = FALSE
 	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_store
@@ -167,6 +171,7 @@
 	name = "Whitchler Civilian Spaceport - Spaceship"
 	icon_state = "hybrisa"
 	ceiling = CEILING_METAL
+	requires_power = FALSE
 	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport/lz2_console
@@ -300,6 +305,7 @@
 /area/lv733/indoors/crashed_spacecraft
 	name = "Crashed spacecraft"
 	ceiling = CEILING_METAL
+	requires_power = FALSE
 
 
 // Cafeteria
@@ -548,6 +554,9 @@
 	ambience_exterior = AMBIENCE_HYBRISA_INTERIOR
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
+/area/lv733/indoors/outpost/unpowered
+	requires_power = FALSE
+
 /area/lv733/indoors/outpost/city_military_police_post
 	name = "Outpost – City Military Police Post"
 
@@ -637,6 +646,7 @@
 	name = "Colony Streets Underground"
 	icon_state = "colonystreets_under"
 	ceiling = CEILING_METAL
+	requires_power = FALSE
 	minimap_color = MINIMAP_AREA_COLONY_STREETS
 	ambience_exterior = AMBIENCE_TYRARGO_CITY
 	soundscape_playlist = SCAPE_PL_DESERT_STORM
@@ -690,6 +700,7 @@
 
 /area/lv733/indoors/residential_building/common_area
 	name = "Residential Building – Common Area"
+	requires_power = FALSE
 
 /area/lv733/indoors/residential_building/living_quarters
 	name = "Residential Building – Living Quarters"
@@ -789,6 +800,7 @@
 /area/lv733/indoors/wy_research_complex/special_containment
 	name = "Weyland-Yutani – Research Complex – Special Containment Room"
 	ceiling = CEILING_UNDERGROUND_METAL_BLOCK_CAS
+	requires_power = FALSE
 
 // Cave System
 
@@ -823,6 +835,9 @@
 	ambience_exterior = AMBIENCE_SHIP_ALT
 	soundscape_playlist = SCAPE_PL_ENG
 	soundscape_interval = 25
+
+/area/lv733/indoors/terraforming_generator/unpowered
+	requires_power = FALSE
 
 /area/lv733/indoors/terraforming_generator/north_generator
 	name = "Terraforming Generator Facility – Northern Generator"
