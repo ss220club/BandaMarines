@@ -345,10 +345,10 @@
 	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/l23, WEAR_IN_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/l23, WEAR_IN_JACKET)
 
-	var/obj/item/clothing/accessory/cape/twe_cape/new_cape = new() //SS220 EDIT
-	var/obj/item/clothing/suit/storage/marine/veteran/royal_marine/light/team_leader/new_armor = new()
-	new_armor.attach_accessory(new_human, new_cape)
-	new_human.equip_to_slot_or_del(new_armor, WEAR_JACKET)
+	var/obj/item/clothing/suit/storage/marine/veteran/royal_marine/light/team_leader/armor = new_human.wear_suit
+	if(istype(armor))
+	var/obj/item/clothing/accessory/cape/twe_cape/new_cape = new()
+	armor.attach_accessory(new_human, new_cape)
 
 	new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/l23/leader, WEAR_J_STORE)
 
