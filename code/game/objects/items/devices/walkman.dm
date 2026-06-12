@@ -372,26 +372,26 @@
 */
 
 //ss220 edit
-/datum/config_entry/str_list/blue_side1
-/datum/config_entry/str_list/blue_side2
-/datum/config_entry/str_list/rainbow_side1
-/datum/config_entry/str_list/rainbow_side2
-/datum/config_entry/str_list/orange_side1
-/datum/config_entry/str_list/orange_side2
-/datum/config_entry/str_list/pink_side1
-/datum/config_entry/str_list/pink_side2
-/datum/config_entry/str_list/redblack_side1
-/datum/config_entry/str_list/redblack_side2
-/datum/config_entry/str_list/redstripe_side1
-/datum/config_entry/str_list/redstripe_side2
-/datum/config_entry/str_list/risingsun_side1
-/datum/config_entry/str_list/risingsun_side2
-/datum/config_entry/str_list/bluestripe_side1
-/datum/config_entry/str_list/bluestripe_side2
-/datum/config_entry/str_list/green_side1
-/datum/config_entry/str_list/green_side2
-/datum/config_entry/str_list/ocean_side1
-/datum/config_entry/str_list/ocean_side2
+// /datum/config_entry/str_list/blue_side1
+// /datum/config_entry/str_list/blue_side2
+// /datum/config_entry/str_list/rainbow_side1
+// /datum/config_entry/str_list/rainbow_side2
+// /datum/config_entry/str_list/orange_side1
+// /datum/config_entry/str_list/orange_side2
+// /datum/config_entry/str_list/pink_side1
+// /datum/config_entry/str_list/pink_side2
+// /datum/config_entry/str_list/redblack_side1
+// /datum/config_entry/str_list/redblack_side2
+// /datum/config_entry/str_list/redstripe_side1
+// /datum/config_entry/str_list/redstripe_side2
+// /datum/config_entry/str_list/risingsun_side1
+// /datum/config_entry/str_list/risingsun_side2
+// /datum/config_entry/str_list/bluestripe_side1
+// /datum/config_entry/str_list/bluestripe_side2
+// /datum/config_entry/str_list/green_side1
+// /datum/config_entry/str_list/green_side2
+// /datum/config_entry/str_list/ocean_side1
+// /datum/config_entry/str_list/ocean_side2
 //ss220	edit
 
 /obj/item/device/cassette_tape
@@ -438,10 +438,12 @@
 	desc = "A plastic cassette tape with a blue sticker."
 	icon_state = "cassette_blue"
 	side1_icon = "cassette_blue"
-
-/obj/item/device/cassette_tape/pop1/Initialize(mapload, ...)
-	. = ..()
-	songs = list("side1" = CONFIG_GET(str_list/blue_side1), "side2" = CONFIG_GET(str_list/blue_side2))
+	songs = list("side1" = list('config/music/walkman/pop1/1-1-1.ogg',\
+								'config/music/walkman/pop1/1-1-2.ogg',\
+								'config/music/walkman/pop1/1-1-3.ogg'),\
+				"side2" = list('config/music/walkman/pop1/1-2-1.ogg',\
+								'config/music/walkman/pop1/1-2-2.ogg',\
+								'config/music/walkman/pop1/1-2-3.ogg'))
 
 /obj/item/device/cassette_tape/pop2
 	name = "rainbow cassette"
@@ -449,12 +451,12 @@
 	desc = "A plastic cassette tape with a rainbow-colored sticker."
 	icon_state = "cassette_rainbow"
 	side1_icon = "cassette_rainbow"
-	// songs = list("side1" = list('config/music/walkman/pop2/2-1-1.ogg',\
-	// 							'config/music/walkman/pop2/2-1-2.ogg',\
-	// 							'config/music/walkman/pop2/2-1-3.ogg'),\
-	// 			"side2" = list('config/music/walkman/pop2/2-2-1.ogg',\
-	// 							'config/music/walkman/pop2/2-2-2.ogg',\
-	// 							'config/music/walkman/pop2/2-2-3.ogg'))
+	songs = list("side1" = list('config/music/walkman/pop2/2-1-1.ogg',\
+								'config/music/walkman/pop2/2-1-2.ogg',\
+								'config/music/walkman/pop2/2-1-3.ogg'),\
+				"side2" = list('config/music/walkman/pop2/2-2-1.ogg',\
+								'config/music/walkman/pop2/2-2-2.ogg',\
+								'config/music/walkman/pop2/2-2-3.ogg'))
 
 /obj/item/device/cassette_tape/pop3
 	name = "orange cassette"
