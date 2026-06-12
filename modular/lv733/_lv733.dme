@@ -30,12 +30,3 @@
 #include "code\modules\defenses\planted_flag.dm"
 #include "code\modules\gear_presets\survivors\lv_733\roaf_survivors.dm"
 #include "code\modules\projectiles\gun_attachables.dm"
-// BEGIN_INTERNALS
-// END_INTERNALS
-// BEGIN_FILE_DIR
-#define FILE_DIR .
-// END_FILE_DIR
-// BEGIN_PREFERENCES
-// END_PREFERENCES
-// BEGIN_INCLUDE
-// END_INCLUDE
