@@ -160,6 +160,12 @@ GLOBAL_LIST_INIT(mapless_maps, list(MAP_RUNTIME, MAP_CHINOOK, MAIN_SHIP_DEFAULT_
 	desc = "An overview of LV-733 schematics."
 	html_link = "images/7/79/Tyrargo_Rift.png"
 	color = "#005eab"
+  
+/obj/item/map/white_antre_map
+	name = "\improper White Antre Research Facility map"
+	desc = "An overview of the White Antre facility schematics."
+	html_link = "images/d/da/White_Antre_Research_Facility.png"
+	color = "cyan"
 
 /obj/item/map/galaxy
 	name = "\improper Galaxy map"
