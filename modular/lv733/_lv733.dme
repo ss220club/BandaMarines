@@ -6,27 +6,7 @@
 #include "code/game/area/LV733.dm"
 #include "code/game/jobs/job/squads.dm"
 #include "code/game/objects/effects/landmarks/survivor_spawner.dm"
+#include "code/game/objects/items/devices/flash.dm"
 #include "code/modules/defenses/planted_flag.dm"
 #include "code/modules/gear_presets/survivors/lv_733/roaf_survivors.dm"
 #include "code/modules/projectiles/gun_attachables.dm"
-
-/datum/modpack/lv733
-	name = "lv733"
-	desc = "Добавляет новую одежду и карту"
-	author = "_kioz & mally"
-/datum/modpack/lv733/initialize()
-	. = ..()
-	GLOB.allowed_helmet_items[/obj/item/attachable/flashlight/glowstick/roaf] = NO_GARB_OVERRIDE
-
-#define FILE_DIR
-#include "code\defines.dm"
-#include "code\datums\factions\roaf.dm"
-#include "code\datums\skills\roaf.dm"
-#include "code\datums\weather\weather_events\lv733_whitchler_point.dm"
-#include "code\datums\weather\weather_map_holders\lv733_whitchler_point.dm"
-#include "code\game\area\LV733.dm"
-#include "code\game\jobs\job\squads.dm"
-#include "code\game\objects\effects\landmarks\survivor_spawner.dm"
-#include "code\modules\defenses\planted_flag.dm"
-#include "code\modules\gear_presets\survivors\lv_733\roaf_survivors.dm"
-#include "code\modules\projectiles\gun_attachables.dm"

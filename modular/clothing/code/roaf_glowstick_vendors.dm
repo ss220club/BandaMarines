@@ -2,7 +2,7 @@
 
 GLOBAL_LIST_INIT(cm_vending_roaf_glowstick, list(
 	list("HELMET ACCESSORY (TAKE 1)", 0, null, null, null),
-	list("ROAF Glowstick", 0, /obj/item/attachable/flashlight/glowstick/roaf, MARINE_CAN_BUY_ROAF_GLOWSTICK, VENDOR_ITEM_REGULAR),
+	list("Маркер с хим-светом", 0, /obj/item/attachable/flashlight/glowstick/roaf, MARINE_CAN_BUY_ROAF_GLOWSTICK, VENDOR_ITEM_REGULAR),
 ))
 
 /obj/structure/machinery/cm_vending/proc/get_products_with_roaf_glowstick(mob/user, list/products)

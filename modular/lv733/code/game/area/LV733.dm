@@ -461,15 +461,15 @@
 /area/lv733/indoors/base_operations/unloading_zone
 	name = "ROAF Base Operations - Unloading Zone"
 
-/area/lv733/indoors/base_operations/armory
+/area/lv733/indoors/base_operations/armory/one
 	name = "ROAF Base Operations - Armory#1"
 
 
-/area/lv733/indoors/base_operations/armory
+/area/lv733/indoors/base_operations/armory/two
 	name = "ROAF Base Operations - Armory#2"
 
 
-/area/lv733/indoors/base_operations/armory
+/area/lv733/indoors/base_operations/armory/three
 	name = "ROAF Base Operations - Armory#3"
 
 // Engineering Sector
@@ -846,5 +846,3 @@
 
 /area/lv733/indoors/sensor_facility/tech_room
 	name = "Technical Sensor Facility – Technical Room"
-
-

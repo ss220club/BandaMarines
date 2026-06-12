@@ -1,4 +1,4 @@
-// ROAF - survior
+// ROAF - survivor
 // Униформа
 
 #define ROAF_FREQ 1217
