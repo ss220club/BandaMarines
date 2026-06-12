@@ -8,8 +8,8 @@
 	name = "helmet IFF beacon"
 
 /obj/item/attachable/flashlight/glowstick/roaf
-	name = "ROAF glowstick"
-	desc = "A compact ROAF chemical light intended for mounting on a helmet."
+	name = "маркер с хим-светом"
+	desc = "Компактная палочка с химическим светом, предназначенная для крепления на шлем."
 	icon = 'modular/clothing/icon/roaf/misc.dmi'
 	icon_state = "icon_glowstick"
 	item_icons = list(
@@ -31,6 +31,7 @@
 	var/glowstick_light_color = COLOR_WHITE
 	var/obj/item/centered_light_item
 	var/centered_light_item_original_system = MOVABLE_LIGHT
+	var/centered_light_item_original_color
 
 /obj/item/attachable/flashlight/glowstick/roaf/Initialize()
 	. = ..()
@@ -58,6 +59,9 @@
 	var/obj/item/old_attached_item = attached_item
 	. = ..()
 	restore_centered_light(old_attached_item)
+	if(!QDELETED(old_attached_item))
+		old_attached_item.set_light_on(FALSE)
+		old_attached_item.set_light_color(centered_light_item_original_color)
 
 /obj/item/attachable/flashlight/glowstick/roaf/pickup(mob/user)
 	. = ..()
@@ -112,13 +116,15 @@
 	restore_centered_light(centered_light_item)
 	centered_light_item = light_item
 	centered_light_item_original_system = light_item.light_system
+	centered_light_item_original_color = light_item.light_color
 	var/datum/component/overlay_lighting/light_component = light_item.GetComponent(/datum/component/overlay_lighting)
 	qdel(light_component)
 	light_item.light_system = MOVABLE_LIGHT
 	light_item.AddComponent(/datum/component/overlay_lighting)
 
 /obj/item/attachable/flashlight/glowstick/roaf/proc/restore_centered_light(obj/item/light_item)
-	if(!light_item || centered_light_item != light_item)
+	if(QDELETED(light_item) || centered_light_item != light_item)
+		centered_light_item = null
 		return
 
 	var/datum/component/overlay_lighting/light_component = light_item.GetComponent(/datum/component/overlay_lighting)
