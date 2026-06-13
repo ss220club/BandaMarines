@@ -1,5 +1,4 @@
 #define SQUAD_ROAF "ROAF"
-#define ROAF_FREQ 1503
 #define ACCESS_MARINE_ROAF 1200
 #define MINIMAP_SQUAD_ROAF "#324e6b"
 

@@ -34,17 +34,17 @@
 /datum/paygrade/twe/roaf/e1
 	paygrade = PAY_SHORT_ROAFE1
 	name = "Авиатор"
-	prefix = "Авиатор."
+	prefix = "Авиатор"
 
 /datum/paygrade/twe/roaf/e2
 	paygrade = PAY_SHORT_ROAFE2
 	name = "Капрал"
-	prefix = "Капрал."
+	prefix = "Капрал"
 
 /datum/paygrade/twe/roaf/e3
 	paygrade = PAY_SHORT_ROAFE3
 	name = "Сержант"
-	prefix = "Сержант."
+	prefix = "Сержант"
 
 /datum/paygrade/twe/roaf/s1
 	paygrade = PAY_SHORT_ROAFS1
