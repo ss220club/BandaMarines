@@ -15,23 +15,23 @@
 	switch(_role)
 		if(JOB_TWE_ROAF_LIEUTENANT)
 			hud_icon_state = "lt"
-		else if(JOB_TWE_ROAF_COMMANDER)
+		if(JOB_TWE_ROAF_COMMANDER)
 			hud_icon_state = "co"
-		else if(JOB_TWE_ROAF_SQUAD_LEADER)
+		if(JOB_TWE_ROAF_SQUAD_LEADER)
 			hud_icon_state = "sl"
-		else if(JOB_TWE_ROAF_OPERATOR)
+		if(JOB_TWE_ROAF_OPERATOR)
 			hud_icon_state = "smart"
-		else if(JOB_TWE_ROAF_MEDIC)
+		if(JOB_TWE_ROAF_MEDIC)
 			hud_icon_state = "medic"
-		else if(JOB_TWE_ROAF_RIFLEMAN)
+		if(JOB_TWE_ROAF_RIFLEMAN)
 			hud_icon_state = "rifleman"
-		else if(JOB_TWE_ROAF_PILOT)
+		if(JOB_TWE_ROAF_PILOT)
 			hud_icon_state = "pilot"
-		else if(JOB_TWE_ROAF_ENGI)
+		if(JOB_TWE_ROAF_ENGI)
 			hud_icon_state = "eng"
-		else if(JOB_TWE_ROAF_SIGNALLER)
+		if(JOB_TWE_ROAF_SIGNALLER)
 			hud_icon_state = "sniper"
-		else if(JOB_TWE_ROAF_SYNTH)
+		if(JOB_TWE_ROAF_SYNTH)
 			hud_icon_state = "synth"
 
 	if(hud_icon_state)
