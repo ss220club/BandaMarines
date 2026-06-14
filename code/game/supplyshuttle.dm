@@ -1092,6 +1092,7 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 	var/date
 	var/accesses
 	var/categories
+	var/total_cost
 	var/list/supplypacks
 
 /obj/item/paper/manifest/read_paper(mob/user, scramble = FALSE, datum/tgui/ui)
