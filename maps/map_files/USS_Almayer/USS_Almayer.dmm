@@ -220,6 +220,9 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/almayer/shipboard/brig/processing)
+"aaE" = (
+/turf/closed/wall/almayer/outer/internal,
+/area/almayer/middeck/engineer)
 "aaF" = (
 /obj/structure/largecrate/random/case/double,
 /turf/open/floor/almayer,
@@ -187783,7 +187786,7 @@ bxP
 aHH
 aSC
 aSC
-aHH
+aaE
 aSC
 aTC
 aSM
@@ -187791,7 +187794,7 @@ bfF
 bgq
 aIa
 aSC
-aHH
+aaE
 aSC
 aSC
 aHH
@@ -187886,7 +187889,7 @@ bbm
 aHH
 aSC
 aSC
-aHH
+aaE
 aSC
 aTC
 aSM
@@ -187894,7 +187897,7 @@ bfF
 bgq
 aIa
 aSC
-aHH
+aaE
 aSC
 aSC
 aHH
@@ -187989,7 +187992,7 @@ bbm
 aHH
 aSC
 aSC
-aHH
+aaE
 aSC
 aTC
 aSM
@@ -187997,7 +188000,7 @@ aSN
 bgq
 aIa
 aSC
-aHH
+aaE
 aSC
 aSC
 aHH
@@ -188090,19 +188093,19 @@ bxH
 bgI
 bbm
 aHH
-aHH
-aHH
-aHH
-aHH
+aaE
+aaE
+aaE
+aaE
 aTC
 aSM
 aSN
 bgq
 aIa
-aHH
-aHH
-aHH
-aHH
+aaE
+aaE
+aaE
+aaE
 aHH
 bxw
 bxz
