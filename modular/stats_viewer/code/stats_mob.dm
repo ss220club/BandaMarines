@@ -4,6 +4,9 @@
 
 	if(!client)
 		return
+	if(SSticker.current_state != GAME_STATE_FINISHED && !istype(SSticker.mode, /datum/game_mode/extended))
+		to_chat(src, SPAN_WARNING("Раунд всё ещё в процессе!"))
+		return
 	var/datum/round_stats/round_stats = new()
 	round_stats.tgui_interact(src)
 

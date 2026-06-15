@@ -432,6 +432,7 @@
 		SEND_SIGNAL(src, COMSIG_MOB_MOVE_OR_LOOK, TRUE, dir, dir)
 	if(!istype(LM) || !LM.target || !src)
 		return
+	SEND_SIGNAL(src, COMSIG_LIVING_PRE_LAUNCH_TOWARDS, LM) // BANDAMARINES EDIT ADD
 	if(buckled)
 		LM.invoke_end_throw_callbacks(src)
 		return

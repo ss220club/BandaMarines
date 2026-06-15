@@ -249,7 +249,7 @@
 	new_uniform.attach_accessory(new_human, new_webbing)
 	new_human.equip_to_slot_or_del(new_uniform, WEAR_BODY)
 
-	var/obj/item/clothing/accessory/clf_cape/new_cape = new()
+	var/obj/item/clothing/accessory/cape/clf_cape/new_cape = new() //SS220 EDIT
 	var/obj/item/clothing/suit/storage/militia/full/new_gambeson = new()
 	new_gambeson.attach_accessory(new_human, new_cape)
 	new_human.equip_to_slot_or_del(new_gambeson, WEAR_JACKET)
