@@ -435,13 +435,13 @@ GLOBAL_LIST_EMPTY(roles_with_gear)
 	display_name = "USCM cap"
 	path = /obj/item/clothing/head/cmcap
 
+/datum/gear/headwear/uscm/headband_green
+	display_name = "USCM headband, area of operations specific"
+	path = /obj/item/clothing/head/headband
+
 /datum/gear/headwear/uscm/headband_brown
 	display_name = "USCM headband, brown"
 	path = /obj/item/clothing/head/headband/brown
-
-/datum/gear/headwear/uscm/headband_green
-	display_name = "USCM headband, green"
-	path = /obj/item/clothing/head/headband
 
 /datum/gear/headwear/uscm/headband_grey
 	display_name = "USCM headband, grey"
@@ -1391,13 +1391,6 @@ GLOBAL_LIST_EMPTY(roles_with_gear)
 /datum/gear/eyewear/sunglasses/hippie_shades/bloodred
 	display_name = "Suntex-Sightware rounded shades, bloodred"
 	path = /obj/item/clothing/glasses/sunglasses/hippie/bloodred
-
-// Headband
-
-/datum/gear/civilian/headwear/headband_rebel
-	display_name = "CLF headband"
-	path = /obj/item/clothing/head/headband/rebel
-	fluff_cost = 2
 
 // Civilian shoes
 

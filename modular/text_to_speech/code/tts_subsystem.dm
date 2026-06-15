@@ -548,7 +548,7 @@ SUBSYSTEM_DEF(tts220)
 	var/static/regex/forbidden_symbols = new(@"[^a-zA-Z0-9а-яА-ЯёЁ,!?+./ \r\n\t:—()-]", "g")
 	. = forbidden_symbols.Replace(., "")
 	var/static/regex/acronyms = new(@"(?<![a-zA-Zа-яёА-ЯЁ])[a-zA-Zа-яёА-ЯЁ]+?(?![a-zA-Zа-яёА-ЯЁ])", "gm")
-	. = replacetext_char(., acronyms, /proc/tts_acronym_replacer)
+	. = replacetext_char(., acronyms, GLOBAL_PROC_REF(tts_acronym_replacer))
 
 	if(LAZYLEN(tts_job_replacements))
 		for(var/job in tts_job_replacements)
@@ -591,6 +591,18 @@ SUBSYSTEM_DEF(tts220)
 
 	var/match = SStts220.tts_acronym_replacements[lowertext(word)]
 	return match || word
+
+/// Removes excessive symbols from visible chat messages. Call after TTS message is sent and before visible message is sent
+/datum/controller/subsystem/tts220/proc/sanitize_tts_symbols(message)
+	var/regex/finding_stress = regex(@{"\+(?=[а-яА-ЯёЁ])"}, "g")
+	message = finding_stress.Replace_char(message, "")
+
+	var/regex/finding_many_dots = regex(@{"\.{4,}"}, "g")
+	message = finding_many_dots.Replace_char(message, "...")
+
+	var/regex/finding_many_scream = regex(@{"\!{4,}"}, "g")
+	message = finding_many_scream.Replace_char(message, "!!!")
+	return message
 
 /datum/sound_effects_request
 	var/original_filename

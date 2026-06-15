@@ -1113,7 +1113,7 @@ GLOBAL_LIST_INIT(ooc_rank_iconstates, setup_ooc_rank_icons())
 GLOBAL_LIST_INIT(community_awards, get_community_awards())
 
 /proc/setup_ooc_rank_icons()
-	var/ooc_dmi_path = "config/ooc.dmi"
+	var/ooc_dmi_path = "icons/ooc.dmi" //BANDAMARINES EDIT
 	if(!fexists(ooc_dmi_path))
 		return list()
 	GLOB.ooc_rank_dmi = icon(file(ooc_dmi_path))

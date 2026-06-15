@@ -269,7 +269,7 @@
 
 		playsound_client(current_mob.client, get_sfx("evo_screech"), current_mob.loc, 70, "minor")
 
-		if(ishuman(current_mob))
+		if(ishuman_strict(current_mob))
 			to_chat(current_mob, SPAN_HIGHDANGER("Вы слышите отдалённый визг и чувствуете, как у вас внутри всё замерзает... что-то новое появилось в этой колонии."))
 
 		if(issynth(current_mob))
@@ -908,6 +908,7 @@
 	new_xeno.visible_message(SPAN_XENODANGER("Из кокона внезапно появляется грудолом!"),
 	SPAN_XENOANNOUNCE("У улья нет ядра! Вы сумели вырваться из своего старого кокона в виде грудолома!"))
 	msg_admin_niche("[key_name(new_xeno)] respawned at \a [spawning_turf]. [ADMIN_JMP(spawning_turf)]")
+	to_chat(new_xeno, SPAN_XENOANNOUNCE("Remember you should not be leaving the safety of the hive unless under threat, and should be keeping yourself safe until you evolve!"))
 	playsound(new_xeno, 'sound/effects/xeno_newlarva.ogg', 50, 1)
 	if(new_xeno.client?.prefs?.toggles_flashing & FLASH_POOLSPAWN)
 		window_flash(new_xeno.client)
@@ -943,11 +944,12 @@
 	if(!SSticker.mode.transfer_xeno(xeno_candidate, new_xeno))
 		qdel(new_xeno)
 		return FALSE
-	new_xeno.visible_message(SPAN_XENODANGER("Из [spawning_turf] внезапно появляется грудолом!"), // SS220 EDIT ADDICTION
-	SPAN_XENODANGER("Вы вырываетесь из [spawning_turf], пробуждаясь от спячки. Во имя улья!")) // SS220 EDIT ADDICTION
+	new_xeno.visible_message(SPAN_XENODANGER("Из [spawning_turf.declent_ru(GENITIVE)] внезапно появляется грудолом!"),
+	SPAN_XENODANGER("Вы вырываетесь из [spawning_turf.declent_ru(GENITIVE)], пробуждаясь от спячки. Во имя улья!"))
 	msg_admin_niche("[key_name(new_xeno)] burrowed out from \a [spawning_turf]. [ADMIN_JMP(spawning_turf)]")
 	playsound(new_xeno, 'sound/effects/xeno_newlarva.ogg', 50, 1)
 	to_chat(new_xeno, SPAN_XENOANNOUNCE("Вы - грудолом, пробудившийся от сна!"))
+	to_chat(new_xeno, SPAN_XENOANNOUNCE("Помните, что вам не следует покидать безопасность улья при отсутствии угроз, и что вам следует беречь себя до эволюции!"))
 	if(new_xeno.client)
 		if(new_xeno.client?.prefs?.toggles_flashing & FLASH_POOLSPAWN)
 			window_flash(new_xeno.client)
@@ -1241,6 +1243,17 @@
 	prefix = "Delta "
 	color = "#8080ff"
 	ui_color = "#4d4d99"
+	latejoin_burrowed = FALSE
+
+	dynamic_evolution = FALSE
+
+/datum/hive_status/kseries
+	name = "K-Series Hive"
+	reporting_id = "k-series"
+	hivenumber = XENO_HIVE_K_SERIES
+	prefix = "K-Series "
+	color = "#ffff80"
+	ui_color = "#99994d"
 	latejoin_burrowed = FALSE
 
 	dynamic_evolution = FALSE

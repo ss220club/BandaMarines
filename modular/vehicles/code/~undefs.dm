@@ -1,0 +1,3 @@
+#undef BIKE_SPEED_MIN
+#undef BIKE_SPEED_MEDIUM
+#undef BIKE_SPEED_MAX
