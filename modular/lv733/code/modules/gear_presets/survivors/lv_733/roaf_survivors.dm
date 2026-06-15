@@ -1,18 +1,18 @@
 /// LV-733 - ROAF survivors.
 
 /datum/equipment_preset/survivor/roaf
-	name = "Survivor - ROAF"
-	assignment = "ROAF - Rifleman"
+	name = "Survivor - ROAF Paratrooper"
+	assignment = "ROAF - Paratrooper"
 	job_title = JOB_TWE_RAF_RIFLEMAN
-	paygrades = list(PAY_SHORT_ROAFE3 = JOB_PLAYTIME_TIER_0)
+	paygrades = list(PAY_SHORT_ROAFE1 = JOB_PLAYTIME_TIER_0)
 	skills = /datum/skills/survivor/roaf_rifleman
 	languages = list(LANGUAGE_ENGLISH, LANGUAGE_JAPANESE)
 	faction = FACTION_ROAF
 	faction_group = FACTION_LIST_SURVIVOR_ROAF
 	origin_override = ORIGIN_TWE
-	minimap_icon = "rifleman"
+	minimap_icon = "roaf_rifleman"
 	minimap_background = "background_roaf"
-	role_comm_title = "24/ROAF"
+	role_comm_title = "Авт."
 	idtype = /obj/item/card/id/dogtag
 	flags = EQUIPMENT_PRESET_EXTRA
 	access = list(
@@ -59,20 +59,14 @@
 	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/rmc_f90(new_human), WEAR_IN_BACK)
 	equip_standard_backpack_contents(new_human)
 
-/datum/equipment_preset/survivor/roaf/paratrooper
-	name = "Survivor - ROAF Paratrooper"
-	assignment = "ROAF - Paratrooper"
-	job_title = JOB_TWE_RAF_RIFLEMAN
-	paygrades = list(PAY_SHORT_ROAFE1 = JOB_PLAYTIME_TIER_0)
-	skills = /datum/skills/survivor/roaf_rifleman
-
 /datum/equipment_preset/survivor/roaf/engi
 	name = "Survivor - ROAF Combat Engineer"
 	assignment = "ROAF - Combat Engineer"
 	job_title = JOB_TWE_RAF_ENGI
 	paygrades = list(PAY_SHORT_ROAFE2 = JOB_PLAYTIME_TIER_0)
 	skills = /datum/skills/survivor/roaf_engi
-	minimap_icon = "engi"
+	minimap_icon = "roaf_engi"
+	role_comm_title = "Инж."
 
 /datum/equipment_preset/survivor/roaf/engi/load_gear(mob/living/carbon/human/new_human)
 	equip_common_gear(
@@ -97,7 +91,8 @@
 	job_title = JOB_TWE_ROAF_MEDIC
 	paygrades = list(PAY_SHORT_ROAFE2 = JOB_PLAYTIME_TIER_0)
 	skills = /datum/skills/survivor/roaf_medic
-	minimap_icon = "medic"
+	minimap_icon = "roaf_medic"
+	role_comm_title = "Мед."
 
 /datum/equipment_preset/survivor/roaf/medic/load_gear(mob/living/carbon/human/new_human)
 	equip_common_gear(
@@ -106,7 +101,7 @@
 		/obj/item/clothing/head/helmet/marine/veteran/lv733/roaf_beret,
 		/obj/item/clothing/suit/storage/jacket/marine/rmc/service/lv733/suit_roaf,
 		/obj/item/storage/backpack/rmc/medium/medic,
-		/obj/item/storage/belt/medical/rmc/survivor,
+		/obj/item/storage/belt/medical/full/with_defib_and_analyzer,
 		/obj/item/storage/pouch/medkit/full_rmc,
 		/obj/item/storage/pouch/survival/full,
 		/obj/item/clothing/glasses/hud/health,
@@ -115,8 +110,6 @@
 	new_human.equip_to_slot_or_del(new /obj/item/tool/crowbar/tactical(new_human), WEAR_IN_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/p90/ap(new_human), WEAR_IN_BACK)
 	equip_standard_backpack_contents(new_human)
-	new_human.equip_to_slot_or_del(new /obj/item/device/defibrillator(new_human.back), WEAR_IN_BACK)
-	new_human.equip_to_slot_or_del(new /obj/item/device/healthanalyzer(new_human.back), WEAR_IN_BACK)
 
 /datum/equipment_preset/survivor/roaf/pilot
 	name = "Survivor - ROAF Pilot"
@@ -124,7 +117,8 @@
 	job_title = JOB_TWE_ROAF_PILOT
 	paygrades = list(PAY_SHORT_ROAFO1 = JOB_PLAYTIME_TIER_0)
 	skills = /datum/skills/survivor/roaf_pilot
-	minimap_icon = "pilot"
+	minimap_icon = "roaf_pilot"
+	role_comm_title = "Пилот"
 
 /datum/equipment_preset/survivor/roaf/pilot/load_gear(mob/living/carbon/human/new_human)
 	equip_common_gear(
@@ -149,7 +143,8 @@
 	job_title = JOB_TWE_ROAF_SIGNALLER
 	paygrades = list(PAY_SHORT_ROAFE3 = JOB_PLAYTIME_TIER_0)
 	skills = /datum/skills/survivor/roaf_signaller
-	minimap_icon = "sniper"
+	minimap_icon = "roaf_signaller"
+	role_comm_title = "Связист"
 
 /datum/equipment_preset/survivor/roaf/signaller/load_gear(mob/living/carbon/human/new_human)
 	equip_common_gear(
@@ -175,8 +170,8 @@
 	job_title = JOB_TWE_RAF_SQUAD_LEADER
 	paygrades = list(PAY_SHORT_ROAFO2 = JOB_PLAYTIME_TIER_0)
 	skills = /datum/skills/survivor/roaf_leader
-	minimap_icon = "sl"
-	role_comm_title = "24/ROAF SL"
+	minimap_icon = "roaf_sl"
+	role_comm_title = "Л-т."
 
 /datum/equipment_preset/survivor/roaf/squad_leader/load_gear(mob/living/carbon/human/new_human)
 	equip_common_gear(
@@ -207,7 +202,7 @@
 	origin_override = ORIGIN_TWE
 	minimap_icon = "synth"
 	minimap_background = "background_roaf"
-	role_comm_title = "24/ROAF Syn"
+	role_comm_title = "Синт."
 	idtype = /obj/item/card/id/dogtag
 	flags = EQUIPMENT_PRESET_EXTRA
 
@@ -232,7 +227,7 @@
 	new_human.equip_to_slot_or_del(new /obj/item/stack/cable_coil(new_human.back), WEAR_IN_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/small_stack(new_human.back), WEAR_IN_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/device/healthanalyzer(new_human.back), WEAR_IN_BACK)
-	new_human.equip_to_slot_or_del(new /obj/item/device/defibrillator/synthetic(new_human.back), WEAR_IN_BACK)
+	new_human.equip_to_slot_or_del(new /obj/item/device/defibrillator/synthetic(new_human.back), WEAR_IN_JACKET)
 
 /datum/equipment_preset/survivor/whitchler/roaf_commander
 	name = "Survivor - ROAF Commander"
@@ -242,9 +237,9 @@
 	skills = /datum/skills/survivor/roaf_lieutenant
 	faction = FACTION_ROAF
 	faction_group = FACTION_LIST_SURVIVOR_ROAF
-	minimap_icon = "co"
+	minimap_icon = "roaf_co"
 	minimap_background = "background_roaf"
-	role_comm_title = "ROAF CDR"
+	role_comm_title = "Коммандер"
 	idtype = /obj/item/card/id/gold
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	access = list(

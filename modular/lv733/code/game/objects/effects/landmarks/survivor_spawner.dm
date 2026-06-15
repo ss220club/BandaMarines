@@ -8,7 +8,7 @@
 
 /obj/effect/landmark/survivor_spawner/twe/roaf
 	icon_state = "surv_twe"
-	equipment = /datum/equipment_preset/survivor/roaf/paratrooper
+	equipment = /datum/equipment_preset/survivor/roaf
 	synth_equipment = /datum/equipment_preset/synth/survivor/roaf_synth
 	CO_equipment = /datum/equipment_preset/survivor/whitchler/roaf_commander
 	intro_text = ROAF_SURVIVOR_INTRO
@@ -18,10 +18,6 @@
 /obj/effect/landmark/survivor_spawner/twe/roaf/signaller
 	equipment = /datum/equipment_preset/survivor/roaf/signaller
 	spawn_priority = SPAWN_PRIORITY_MEDIUM
-
-/obj/effect/landmark/survivor_spawner/twe/roaf/paratrooper
-	equipment = /datum/equipment_preset/survivor/roaf/paratrooper
-	spawn_priority = SPAWN_PRIORITY_LOW
 
 /obj/effect/landmark/survivor_spawner/twe/roaf/engi
 	equipment = /datum/equipment_preset/survivor/roaf/engi

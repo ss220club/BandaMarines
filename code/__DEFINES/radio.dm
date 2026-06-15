@@ -90,6 +90,7 @@
 #define RADIO_CHANNEL_YAUTJA_STRANDED "Stranded"
 #define RADIO_CHANNEL_YAUTJA_BADBLOOD "Bad Blood"
 
+#define RADIO_CHANNEL_ROAF "Rolay OAF"
 
 // Listening bug broadcast setting. Whether or not it plays only to ghosts with preferences, or doesn't show to ghosts at all.
 #define NOT_LISTENING_BUG 0
