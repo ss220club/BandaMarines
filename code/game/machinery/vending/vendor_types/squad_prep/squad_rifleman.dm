@@ -104,7 +104,7 @@ GLOBAL_LIST_INIT(cm_vending_clothing_marine, list(
 		list("USCM Radio Telephone Pack", 15, /obj/item/storage/backpack/marine/satchel/rto, null, VENDOR_ITEM_REGULAR),
 		list("Fuel Tank Strap Pouch", 5, /obj/item/storage/pouch/flamertank, null, VENDOR_ITEM_REGULAR),
 		list("Welding Goggles", 5, /obj/item/clothing/glasses/welding, null, VENDOR_ITEM_REGULAR),
-		list("Medical Glasses", 20, /obj/item/clothing/glasses/hud/health/basic, null, VENDOR_ITEM_REGULAR),
+		list("Medical Glasses", 20, /obj/item/clothing/glasses/hud/health/basic, null, VENDOR_ITEM_REGULAR), // SS220 EDIT
 		list("Sling Pouch", 15, /obj/item/storage/pouch/sling, null, VENDOR_ITEM_REGULAR),
 		list("Large General Pouch", 15, /obj/item/storage/pouch/general/large, null, VENDOR_ITEM_REGULAR),
 
