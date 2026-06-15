@@ -151,7 +151,7 @@ GLOBAL_LIST_INIT(cm_vending_clothing_commanding_officer, list(
 		list("Falling Falcons Challenge Coin", 0, /obj/item/coin/silver/falcon, null, VENDOR_ITEM_REGULAR), // SS220 EDIT
 	
 		list("CAPE (CHOOSE 1)", 0, null, null, null), // SS220 EDIT
-		list("Torn USCM flag", 0, /obj/item/clothing/accessory/cape/uscm_cape, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_MANDATORY) // SS220 EDIT
+		list("Torn USCM flag", 0, /obj/item/clothing/accessory/cape/uscm_cape, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY) // SS220 EDIT
 ))
 
 /obj/structure/machinery/cm_vending/clothing/commanding_officer
