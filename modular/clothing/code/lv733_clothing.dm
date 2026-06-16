@@ -318,9 +318,12 @@
 	var/list/networks_receive = list(FACTION_ROAF, FACTION_MARINE)
 	var/list/networks_transmit = list(FACTION_ROAF, FACTION_MARINE)
 	var/base_icon = "icon_backpack"
+	var/shooting_camo_penalty = 35
+	var/camouflage_break = 5 SECONDS
+	var/current_camo = 50
 	uniform_restricted = list(/obj/item/clothing/suit/storage/marine/veteran/royal_marine/light/iasf) //Need to wear Scout armor and helmet to equip this.
 	allow_gun_usage = TRUE
-	max_storage_space = 15
+	max_storage_space = 10
 	allowed_stealth_shooting = FALSE
 	camo_alpha = 50
 	unacidable = TRUE
@@ -329,6 +332,23 @@
 
 /obj/item/storage/backpack/marine/satchel/scout_cloak/poncho_roaf/post_skin_selection()
 	base_icon = icon_state
+
+/obj/item/storage/backpack/marine/satchel/scout_cloak/poncho_roaf/proc/fade_in(mob/user)
+	SIGNAL_HANDLER
+	var/mob/living/carbon/human/H = user
+	if(!istype(H) || !camo_active || H.back != src)
+		return
+
+	current_camo = clamp(current_camo + shooting_camo_penalty, camo_alpha, 255)
+	animate(H, alpha = current_camo, flags = ANIMATION_END_NOW)
+	animate(H, alpha = camo_alpha, time = camouflage_break, easing = LINEAR_EASING)
+
+	addtimer(CALLBACK(src, PROC_REF(fade_out_finish), H), camouflage_break, TIMER_OVERRIDE|TIMER_UNIQUE)
+
+/obj/item/storage/backpack/marine/satchel/scout_cloak/poncho_roaf/proc/fade_out_finish(mob/living/carbon/human/H)
+	if(camo_active && H?.back == src)
+		animate(H, alpha = camo_alpha, flags = ANIMATION_END_NOW)
+	current_camo = camo_alpha
 
 /obj/item/storage/backpack/marine/satchel/scout_cloak/poncho_roaf/Initialize()
 	. = ..()
@@ -372,9 +392,19 @@
 /obj/item/storage/backpack/marine/satchel/scout_cloak/poncho_roaf/equipped(mob/user, slot)
 	. = ..()
 	autoset_phone_id(user)
+	if(slot == WEAR_BACK)
+		RegisterSignal(user, list(
+			COMSIG_MOB_FIRED_GUN,
+			COMSIG_MOB_FIRED_GUN_ATTACHMENT
+		), PROC_REF(fade_in))
 
 /obj/item/storage/backpack/marine/satchel/scout_cloak/poncho_roaf/dropped(mob/user)
 	. = ..()
+	UnregisterSignal(user, list(
+		COMSIG_MOB_FIRED_GUN,
+		COMSIG_MOB_FIRED_GUN_ATTACHMENT
+	))
+	current_camo = camo_alpha
 	autoset_phone_id(null)
 
 /obj/item/storage/backpack/marine/satchel/scout_cloak/poncho_roaf/proc/autoset_phone_id(mob/user)

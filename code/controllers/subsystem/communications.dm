@@ -81,7 +81,7 @@ Radiochat range: 1441 to 1489 (most devices refuse to be tune to other frequency
 #define RMC_FREQ 1216
 #define CMB_FREQ 1220
 #define CIA_FREQ 1225
-#define ROAF_FREQ 1226
+#define ROAF_FREQ 1226 // BANDAMARINES ADDITION
 
 //WY Channels (1230-1249)
 #define WY_FREQ 1231
@@ -176,7 +176,7 @@ GLOBAL_LIST_INIT(radiochannels, list(
 	RADIO_CHANNEL_CMB = CMB_FREQ,
 	RADIO_CHANNEL_DUTCH_DOZEN = DUT_FREQ,
 	RADIO_CHANNEL_ROYAL_MARINE = RMC_FREQ,
-	RADIO_CHANNEL_ROAF = ROAF_FREQ,
+	RADIO_CHANNEL_ROAF = ROAF_FREQ, // BANDAMARINES ADDITION
 	RADIO_CHANNEL_CIA = CIA_FREQ,
 
 	RADIO_CHANNEL_HIGHCOM = HC_FREQ,
@@ -266,7 +266,7 @@ GLOBAL_LIST_INIT(radiochannels, list(
 #define DEPT_FREQS list(COMM_FREQ, MED_FREQ, ENG_FREQ, SEC_FREQ, SENTRY_FREQ, ALPHA_FREQ, BRAVO_FREQ, CHARLIE_FREQ, DELTA_FREQ, ECHO_FREQ, CRYO_FREQ, REQ_FREQ, JTAC_FREQ, INTEL_FREQ, WY_FREQ)
 
 //Bonus frequencies for special survivor factions
-#define SURVIVOR_FREQS list(SOF_FREQ, ARMY_FREQ, ROAF_FREQ)
+#define SURVIVOR_FREQS list(SOF_FREQ, ARMY_FREQ, ROAF_FREQ) // BANDAMARINES ADDITION
 
 #define TRANSMISSION_WIRE 0
 #define TRANSMISSION_RADIO 1
@@ -326,7 +326,7 @@ SUBSYSTEM_DEF(radio)
 		"[WY_SEC_FREQ]" = "wysecradio",
 		"[VAI_FREQ]" = "vairadio",
 		"[RMC_FREQ]" = "rmcradio",
-		"[ROAF_FREQ]" = "roafradio",
+		"[ROAF_FREQ]" = "roafradio", // BANDAMARINES ADDITION
 		"[ARMY_FREQ]" = "armyradio",
 		"[CIA_FREQ]" = "ciaradio",
 		"[CMB_FREQ]" = "cmbradio",
