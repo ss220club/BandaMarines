@@ -152,6 +152,11 @@
 #define SCAPE_PL_LV759_CAVES list('sound/soundscape/lv759/outdoors/windy_caverns_1.ogg','sound/soundscape/lv759/outdoors/windy_caverns_2.ogg','sound/soundscape/lv759/outdoors/windy_caverns_3.ogg',)
 #define SCAPE_PL_LV759_PLATEAU_OUTDOORS list('sound/soundscape/lv759/outdoors/derelict_plateau_1.ogg','sound/soundscape/lv759/outdoors/derelict_plateau_2.ogg',)
 
+// Lazarus Landing Soundscapes
+
+#define AMBIENCE_ANCIENT_TEMPLE_DEEP 'sound/ambience/ancient_temple_ruins_deep.ogg'
+#define AMBIENCE_ANCIENT_TEMPLE_SURFACE 'sound/ambience/ancient_temple_ruins_surface.ogg'
+
 // Tyrargo Soundscapes
 
 #define AMBIENCE_TYRARGO_CITY 'sound/ambience/tyrargo_city_ambience.ogg'
