@@ -485,7 +485,7 @@
 			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_announcement), "Ещё один враждебный улей пытается вырваться из этой металлической клетки, приготовьтесь, ведь скоро и у вас может появиться шанс на побег.", "everything", QUEEN_MOTHER_ANNOUNCE), 1.5 MINUTES) //SS220 EDIT
 			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_announcement), "Дети мои. Я чувствую, что враждебный гнилостный улей уже покинул это место, однако некоторые из тех, кто вас заточил, остались в живых в этой металлической коробке, и я чувствую, что ещё больше из них приближается. Победите носителей, чтобы продемонстрировать наше превосходство!", "everything", QUEEN_MOTHER_ANNOUNCE), 165 SECONDS) //SS220 EDIT
 		if(MAP_LV_624)
-			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "Внимание: Первоначальное сканирование зоны боевых действий выявило локальную атмосферную аномалию: над руслом реки и вокруг образуется густой туман.\nАлгоритм первичной оценки прогнозирует его рассеивание через 20 минут.", "ARES V3.2", 'sound/AI/commandreport.ogg'), 5 MINUTES) // 5 minute lobby + 5 minutes into the game means the fog drops 20 minutes from now. SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "Внимание: первоначальное сканирование зоны боевых действий выявило локальную атмосферную аномалию - над руслом реки и вокруг образуется густой туман.\nАлгоритм первичной оценки прогнозирует его рассеивание через 20 минут.", "ARES V3.2", 'sound/AI/commandreport.ogg'), 5 MINUTES) // 5 minute lobby + 5 minutes into the game means the fog drops 20 minutes from now. SS220 EDIT
 
 //This is processed each tick, but check_win is only checked 5 ticks, so we don't go crazy with scanning for mobs.
 /datum/game_mode/colonialmarines/process()
