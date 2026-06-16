@@ -113,11 +113,6 @@ export const RADIO_CHANNELS = [
     color: '#e3580e',
   },
   {
-    name: 'Rolay OAF',
-    freq: 1226,
-    color: '#324e6b',
-  },
-  {
     name: 'КСМ',
     freq: 1220,
     color: '#1b748c',

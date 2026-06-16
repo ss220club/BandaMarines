@@ -60,7 +60,7 @@ map lv759_hybrisa_prospera
 	minplayers 110
 endmap
 
-map lv733_whitchler_point
+map lv733_whitchler_point // SS220 EDIT
 	voteweight 0
 endmap
 
