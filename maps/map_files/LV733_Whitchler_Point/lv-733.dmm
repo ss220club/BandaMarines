@@ -8,10 +8,6 @@
 	},
 /turf/open/floor/almayer/silverfull2,
 /area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_storage)
-"aab" = (
-/obj/structure/machinery/power/apc/power/north,
-/turf/open/floor/plating,
-/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_ship)
 "aai" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/structure/pipes/standard/simple/hidden/dark{
@@ -24,7 +20,6 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/lv733/indoors/sensor_facility/sensor_room)
 "aau" = (
-/obj/effect/landmark/railgun_camera_pos,
 /obj/effect/decal/hybrisa/road/lines3{
 	pixel_y = -1;
 	color = "#f27e1f"
@@ -845,6 +840,7 @@
 /area/lv733/indoors/main_eng/relay)
 "amw" = (
 /obj/structure/surface/table/woodentable/fancy,
+/obj/structure/surface/table/woodentable/fancy,
 /obj/item/ashtray/glass{
 	icon_state = "ashtray_half_gl";
 	pixel_x = -2;
@@ -1343,7 +1339,7 @@
 /obj/item/ammo_magazine/pistol/action,
 /obj/structure/closet/cabinet/hybrisa/metal{
 	pixel_y = 12;
-	
+	layer = s
 	},
 /turf/open/floor/hybrisa/tile/blacktileshiny,
 /area/lv733/indoors/bar/entertainment)
@@ -1721,6 +1717,7 @@
 /area/lv733/outdoors/colony_streets/city_streets)
 "azg" = (
 /obj/structure/largecrate/empty{
+	pixel_x = s;
 	pixel_y = 16
 	},
 /obj/structure/largecrate/empty{
@@ -1906,7 +1903,7 @@
 "aCv" = (
 /obj/structure/barricade/metal/wired,
 /obj/structure/machinery/power/apc/no_power/west,
-/turf/open/floor/plating,
+/turf/open/hybrisa/street/sidewalk/east,
 /area/lv733/outdoors/colony_streets/medical_street)
 "aCC" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -2714,7 +2711,7 @@
 	pixel_y = -4
 	},
 /obj/structure/prop/hybrisa/misc/machinery/screens/bluemultimonitorsmall_on{
-	
+	pixel_z = 28
 	},
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/strata/multi_tiles,
@@ -3846,7 +3843,7 @@
 	pixel_y = 3
 	},
 /turf/open/floor/plating/panelscorched,
-/area/lv733/outdoors)
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
 "bjK" = (
 /turf/open/floor/strata/multi_tiles/southeast,
 /area/lv733/indoors/training_school/reception)
@@ -4971,6 +4968,9 @@
 /turf/open/hybrisa/street/cement3,
 /area/lv733/outdoors/colony_streets/military_complex_streets)
 "bDr" = (
+/obj/structure/surface/table/almayer{
+	layer = 1
+	},
 /obj/structure/surface/table/almayer{
 	layer = 1
 	},
@@ -9201,7 +9201,7 @@
 	pixel_x = 7
 	},
 /turf/open/floor/plating/panelscorched,
-/area/lv733/outdoors)
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
 "cZJ" = (
 /obj/structure/window/reinforced{
 	dir = 8;
@@ -12664,6 +12664,7 @@
 "egA" = (
 /obj/structure/bed/hybrisa/hospital/hospitaldivider{
 	dir = 1;
+	layer = s;
 	pixel_y = 20
 	},
 /obj/effect/decal/cleanable/blood{
@@ -12729,7 +12730,7 @@
 /area/lv733/indoors/base_operations/communications_office)
 "ehV" = (
 /turf/open/floor/hybrisa/metal/yellow_warning_floor,
-/area/lv733/outdoors)
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
 "ehY" = (
 /obj/structure/barricade/wooden{
 	dir = 4
@@ -14510,7 +14511,7 @@
 /area/lv733/indoors/base_operations/barracks_one)
 "eLh" = (
 /turf/open/floor/corsat/officetiles,
-/area/lv733/outdoors)
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
 "eLA" = (
 /obj/structure/pipes/standard/manifold/hidden/dark{
 	dir = 4
@@ -21090,7 +21091,7 @@
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/gibs/body,
 /turf/open/hybrisa/dropship/dropship4,
-/area/lv733/outdoors)
+/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_ship)
 "haI" = (
 /obj/effect/decal/hybrisa/trash{
 	dir = 8;
@@ -21139,6 +21140,7 @@
 /turf/open/floor/prison/floor_plate/southwest,
 /area/lv733/indoors/landing_cargo/cryo_room)
 "hbn" = (
+/obj/structure/machinery/power/apc/no_power/east,
 /turf/open/floor/almayer/silvercornersmooth/west,
 /area/lv733/indoors/main_complex/central_corridor)
 "hbF" = (
@@ -21923,7 +21925,7 @@
 	pixel_y = 18
 	},
 /obj/effect/spawner/random/tool,
-/turf/open/floor/plating,
+/turf/open/hybrisa/street/sidewalkfull,
 /area/lv733/indoors/landing_cargo/tech_hub)
 "hnZ" = (
 /obj/structure/pipes/standard/simple/hidden/dark,
@@ -22637,7 +22639,7 @@
 /obj/structure/prop/hybrisa/misc/machinery/screens/frame{
 	pixel_y = 32
 	},
-/obj/effect/landmark/corpsespawner/wy/manager,
+/obj/effect/landmark/corpsespawner/wy,
 /obj/effect/decal/cleanable/blood{
 	pixel_x = 4;
 	pixel_y = -1
@@ -23076,6 +23078,7 @@
 /turf/open/floor/almayer/silver2smooth/west,
 /area/lv733/indoors/hospital/cmo_office)
 "hHw" = (
+/obj/structure/surface/table/almayer,
 /obj/structure/surface/table/almayer,
 /obj/item/clothing/glasses/regular/hipster{
 	pixel_x = -2;
@@ -23665,7 +23668,7 @@
 /obj/structure/surface/table/almayer,
 /obj/structure/machinery/power/apc/no_power/north,
 /obj/item/storage/box/teabags,
-/turf/open/floor/plating,
+/turf/open/shuttle/escapepod/floor0/north,
 /area/lv733/indoors/landing_zone_1/roaf_technical_corridor)
 "hTe" = (
 /obj/structure/blocker/forcefield/vehicles,
@@ -24520,7 +24523,8 @@
 "ihB" = (
 /obj/item/clothing/shoes/marine/royal_marine{
 	pixel_x = 12;
-	pixel_y = 4
+	pixel_y = 4;
+	pixel_z = 1
 	},
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
@@ -30360,7 +30364,7 @@
 /area/lv733/indoors/base_operations/central_corridor)
 "ker" = (
 /obj/structure/bed/chair/comfy/teal{
-	dir = 1
+	dir = ы
 	},
 /turf/open/floor/almayer/silver2smooth3/west,
 /area/lv733/indoors/hospital/waiting_lounge)
@@ -31109,7 +31113,7 @@
 /area/lv733/outdoors/colony_streets/city_streets)
 "krs" = (
 /obj/structure/machinery/power/apc/power/north,
-/turf/open/floor/plating,
+/turf/open/hybrisa/street/sidewalkfull,
 /area/lv733/outdoors/landing_zone_2)
 "krH" = (
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
@@ -32875,7 +32879,7 @@
 /obj/structure/girder/displaced,
 /obj/effect/decal/large_stain,
 /turf/open/floor/plating/panelscorched,
-/area/lv733/outdoors)
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
 "kYM" = (
 /obj/item/clothing/gloves/latex,
 /obj/effect/decal/hybrisa/dirt_2,
@@ -36773,7 +36777,8 @@
 /obj/structure/prop/hybrisa/misc/graffiti/graffiti4,
 /obj/structure/closet/crate/trashcart{
 	opened = 1;
-	pixel_y = 15
+	pixel_y = 15;
+	pixel_x = s
 	},
 /obj/item/hybrisa/misc/trash_bag_full_prop{
 	pixel_x = -4;
@@ -44789,7 +44794,7 @@
 	pixel_x = 7
 	},
 /turf/open/floor/plating/panelscorched,
-/area/lv733/outdoors)
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
 "pim" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/structure/bed/chair/comfy{
@@ -45300,7 +45305,7 @@
 "pqD" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
 /turf/open/floor/corsat/officetiles,
-/area/lv733/outdoors)
+/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_ship)
 "pqH" = (
 /obj/structure/machinery/door/poddoor/hybrisa/ultra_reinforced_door{
 	explo_proof = 1;
@@ -46374,7 +46379,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/panelscorched,
-/area/lv733/outdoors)
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
 "pIo" = (
 /obj/structure/barricade/metal{
 	dir = 4
@@ -47183,7 +47188,7 @@
 "pWQ" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/panelscorched,
-/area/lv733/outdoors)
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
 "pXh" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/landmark/survivor_spawner/twe/roaf/squad_leader,
@@ -48526,7 +48531,7 @@
 	pixel_x = 7
 	},
 /turf/open/floor/hybrisa/metal/yellow_warning_floor,
-/area/lv733/outdoors)
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
 "qtq" = (
 /obj/structure/machinery/door/airlock/multi_tile/hybrisa/medical/autoname{
 	dir = 1
@@ -48803,7 +48808,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/panelscorched,
-/area/lv733/outdoors)
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
 "qyz" = (
 /obj/item/ammo_magazine/rifle/rmc_f90{
 	pixel_x = -5
@@ -51330,6 +51335,7 @@
 	},
 /obj/structure/largecrate/empty,
 /obj/structure/largecrate/empty{
+	pixel_x = s;
 	pixel_y = 16
 	},
 /turf/open/floor/hybrisa/metal/grated/north,
@@ -52208,7 +52214,7 @@
 /area/lv733/indoors/base_operations/mess_hall)
 "rEv" = (
 /obj/structure/machinery/power/apc/power/west,
-/turf/open/floor/plating,
+/turf/open/hybrisa/street/roadlines4,
 /area/lv733/outdoors/landing_zone_1)
 "rEx" = (
 /obj/effect/decal/hybrisa/trash{
@@ -52488,7 +52494,7 @@
 /obj/structure/girder/displaced,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/panelscorched,
-/area/lv733/outdoors)
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
 "rJR" = (
 /turf/open/hybrisa/street/cement1,
 /area/lv733/outdoors/colony_streets/military_complex_streets)
@@ -52984,7 +52990,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/gibs/core,
 /turf/open/floor/plating/panelscorched,
-/area/lv733/outdoors)
+/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_ship)
 "rRz" = (
 /obj/structure/window/framed/hybrisa/marshalls,
 /obj/structure/blocker/forcefield/vehicles,
@@ -54683,6 +54689,13 @@
 "spA" = (
 /turf/open/floor/almayer/plating/northeast,
 /area/lv733/indoors/wy_administration/office2)
+"spF" = (
+/obj/effect/decal/hybrisa/road/lines2{
+	pixel_y = 1;
+	color = ssssssssss
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/central_corridor)
 "spH" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
@@ -56131,7 +56144,8 @@
 	},
 /obj/item/clothing/shoes/marine/royal_marine{
 	pixel_x = 12;
-	pixel_y = 4
+	pixel_y = 4;
+	pixel_z = 1
 	},
 /obj/structure/machinery/light/small{
 	pixel_x = 11
@@ -57007,7 +57021,8 @@
 	},
 /obj/structure/surface/rack{
 	color = "#848484";
-	pixel_y = 25
+	pixel_y = 25;
+	pixel_x = s
 	},
 /obj/item/clothing/under/marine/veteran/royal_marine/lt{
 	pixel_y = 25;
@@ -61764,7 +61779,7 @@
 	pixel_x = 7
 	},
 /turf/open/floor/plating/panelscorched,
-/area/lv733/outdoors)
+/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_ship)
 "uLf" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "door_warning";
@@ -65022,7 +65037,7 @@
 /obj/structure/platform/metal/strata/west,
 /obj/structure/machinery/power/monitor{
 	name = "Main Power Grid Monitoring";
-	dir = 4
+	dir = e
 	},
 /obj/effect/decal/hybrisa/dirt,
 /obj/structure/machinery/light/small{
@@ -65375,7 +65390,7 @@
 	pixel_x = -5;
 	pixel_y = -1
 	},
-/obj/item/clothing/head/helmet/marine/veteran/royal_marine/lv733/roaf_shooter_helmet,
+/obj/item/clothing/head/helmet/marine/veteran/royal_marine/pilot/lv733/roaf_shooter_helmet,
 /turf/open/floor/prison/darkred2/east,
 /area/lv733/indoors/landing_zone_1/roaf_corridor)
 "vXx" = (
@@ -67709,6 +67724,7 @@
 	dir = 4;
 	pixel_y = -5
 	},
+/obj/structure/machinery/power/apc/power/north,
 /turf/open/shuttle/dropship/can_surgery/light_grey_single_wide_up_to_down,
 /area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_ship)
 "wOc" = (
@@ -70951,6 +70967,7 @@
 	dir = 6
 	},
 /obj/structure/largecrate/empty{
+	pixel_x = s;
 	pixel_y = 16
 	},
 /turf/open/floor/prison/floor_plate/southwest,
@@ -71110,6 +71127,7 @@
 	},
 /obj/item/coin/platinum{
 	pixel_x = 12;
+	pixel_w = null;
 	pixel_y = 12
 	},
 /turf/open/floor/prison,
@@ -92801,7 +92819,7 @@ qGA
 vlF
 vlF
 qlC
-jeb
+spF
 wmS
 wmS
 wmS
@@ -103650,7 +103668,7 @@ ngx
 bMY
 yiH
 jzC
-aab
+dVH
 ghe
 uXj
 eIM
