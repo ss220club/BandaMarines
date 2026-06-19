@@ -8,6 +8,10 @@
 	},
 /turf/open/floor/almayer/silverfull2,
 /area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_storage)
+"aab" = (
+/obj/structure/machinery/power/apc/power/north,
+/turf/open/floor/plating,
+/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_ship)
 "aai" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/structure/pipes/standard/simple/hidden/dark{
@@ -1339,6 +1343,7 @@
 /obj/item/ammo_magazine/pistol/action,
 /obj/structure/closet/cabinet/hybrisa/metal{
 	pixel_y = 12;
+	
 	},
 /turf/open/floor/hybrisa/tile/blacktileshiny,
 /area/lv733/indoors/bar/entertainment)
@@ -2709,6 +2714,7 @@
 	pixel_y = -4
 	},
 /obj/structure/prop/hybrisa/misc/machinery/screens/bluemultimonitorsmall_on{
+	
 	},
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/strata/multi_tiles,
@@ -11987,10 +11993,6 @@
 /turf/open/floor/almayer/blackfull2,
 /area/lv733/indoors/wy_research_complex/west_corridor)
 "dVH" = (
-/turf/open/floor/plating,
-/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_ship)
-"yZZ" = (
-/obj/structure/machinery/power/apc/power/north,
 /turf/open/floor/plating,
 /area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_ship)
 "dVZ" = (
@@ -54681,13 +54683,6 @@
 "spA" = (
 /turf/open/floor/almayer/plating/northeast,
 /area/lv733/indoors/wy_administration/office2)
-"spF" = (
-/obj/effect/decal/hybrisa/road/lines2{
-	pixel_y = 1;
-	color = "#f27e1f"
-	},
-/turf/open/floor/almayer/silverfull2,
-/area/lv733/indoors/main_complex/central_corridor)
 "spH" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
@@ -92806,7 +92801,7 @@ qGA
 vlF
 vlF
 qlC
-spF
+jeb
 wmS
 wmS
 wmS
@@ -103655,7 +103650,7 @@ ngx
 bMY
 yiH
 jzC
-yZZ
+aab
 ghe
 uXj
 eIM
