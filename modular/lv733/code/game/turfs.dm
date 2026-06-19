@@ -12,3 +12,12 @@
 
 /turf/open/gm/river/red_pool/lv733_light
 	color = "#bf8a8a"
+
+/turf/open/hybrisa/street/sidewalkcorner/north
+	dir = NORTH
+
+/turf/open/hybrisa/street/sidewalkcorner/east
+	dir = EAST
+
+/turf/open/hybrisa/street/sidewalkcorner/west
+	dir = WEST
