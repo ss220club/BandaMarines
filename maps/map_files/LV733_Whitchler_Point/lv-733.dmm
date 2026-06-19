@@ -1716,7 +1716,6 @@
 /area/lv733/outdoors/colony_streets/city_streets)
 "azg" = (
 /obj/structure/largecrate/empty{
-	pixel_x = s;
 	pixel_y = 16
 	},
 /obj/structure/largecrate/empty{
