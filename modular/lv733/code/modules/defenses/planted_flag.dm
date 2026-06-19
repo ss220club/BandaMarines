@@ -1,5 +1,5 @@
 /obj/structure/machinery/defenses/planted_flag/roaf
-	name = "\improper ROAF planted flag"
+	name = "\improper Полевой флагшток ROAF"
 	desc = "A planted flag bearing ROAF colors, providing a rallying point for nearby ROAF personnel."
 	icon = 'modular/lv733/icons/planted_flag.dmi'
 	handheld_type = /obj/item/defenses/handheld/planted_flag/roaf
@@ -10,7 +10,7 @@
 	)
 
 /obj/item/defenses/handheld/planted_flag/roaf
-	name = "handheld ROAF planted flag"
+	name = "сложенный полевой флагшток ROAF"
 	desc = "A compact ROAF defensive rally flag, designed for deployment in the field."
 	icon = 'modular/lv733/icons/planted_flag.dmi'
 	icon_state = "Normal planted_flag_handheld"

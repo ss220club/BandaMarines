@@ -20,6 +20,7 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/lv733/indoors/sensor_facility/sensor_room)
 "aau" = (
+/obj/effect/landmark/railgun_camera_pos,
 /obj/effect/decal/hybrisa/road/lines3{
 	pixel_y = -1;
 	color = "#f27e1f"
@@ -839,7 +840,6 @@
 /turf/open/floor/hybrisa/tile/tilebeige,
 /area/lv733/indoors/main_eng/relay)
 "amw" = (
-/obj/structure/surface/table/woodentable/fancy,
 /obj/structure/surface/table/woodentable/fancy,
 /obj/item/ashtray/glass{
 	icon_state = "ashtray_half_gl";
@@ -1901,7 +1901,7 @@
 "aCv" = (
 /obj/structure/barricade/metal/wired,
 /obj/structure/machinery/power/apc/no_power/west,
-/turf/open/hybrisa/street/sidewalk/east,
+/turf/open/floor/plating,
 /area/lv733/outdoors/colony_streets/medical_street)
 "aCC" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -2709,7 +2709,6 @@
 	pixel_y = -4
 	},
 /obj/structure/prop/hybrisa/misc/machinery/screens/bluemultimonitorsmall_on{
-	pixel_z = 28
 	},
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/strata/multi_tiles,
@@ -4966,9 +4965,6 @@
 /turf/open/hybrisa/street/cement3,
 /area/lv733/outdoors/colony_streets/military_complex_streets)
 "bDr" = (
-/obj/structure/surface/table/almayer{
-	layer = 1
-	},
 /obj/structure/surface/table/almayer{
 	layer = 1
 	},
@@ -11993,6 +11989,10 @@
 "dVH" = (
 /turf/open/floor/plating,
 /area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_ship)
+"yZZ" = (
+/obj/structure/machinery/power/apc/power/north,
+/turf/open/floor/plating,
+/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_ship)
 "dVZ" = (
 /obj/item/prop/alien/hugger,
 /turf/open/auto_turf/hybrisa_auto_turf/layer2,
@@ -12662,7 +12662,6 @@
 "egA" = (
 /obj/structure/bed/hybrisa/hospital/hospitaldivider{
 	dir = 1;
-	layer = s;
 	pixel_y = 20
 	},
 /obj/effect/decal/cleanable/blood{
@@ -21138,7 +21137,6 @@
 /turf/open/floor/prison/floor_plate/southwest,
 /area/lv733/indoors/landing_cargo/cryo_room)
 "hbn" = (
-/obj/structure/machinery/power/apc/no_power/east,
 /turf/open/floor/almayer/silvercornersmooth/west,
 /area/lv733/indoors/main_complex/central_corridor)
 "hbF" = (
@@ -21923,7 +21921,7 @@
 	pixel_y = 18
 	},
 /obj/effect/spawner/random/tool,
-/turf/open/hybrisa/street/sidewalkfull,
+/turf/open/floor/plating,
 /area/lv733/indoors/landing_cargo/tech_hub)
 "hnZ" = (
 /obj/structure/pipes/standard/simple/hidden/dark,
@@ -22637,7 +22635,7 @@
 /obj/structure/prop/hybrisa/misc/machinery/screens/frame{
 	pixel_y = 32
 	},
-/obj/effect/landmark/corpsespawner/wy,
+/obj/effect/landmark/corpsespawner/wy/manager,
 /obj/effect/decal/cleanable/blood{
 	pixel_x = 4;
 	pixel_y = -1
@@ -23076,7 +23074,6 @@
 /turf/open/floor/almayer/silver2smooth/west,
 /area/lv733/indoors/hospital/cmo_office)
 "hHw" = (
-/obj/structure/surface/table/almayer,
 /obj/structure/surface/table/almayer,
 /obj/item/clothing/glasses/regular/hipster{
 	pixel_x = -2;
@@ -23666,7 +23663,7 @@
 /obj/structure/surface/table/almayer,
 /obj/structure/machinery/power/apc/no_power/north,
 /obj/item/storage/box/teabags,
-/turf/open/shuttle/escapepod/floor0/north,
+/turf/open/floor/plating,
 /area/lv733/indoors/landing_zone_1/roaf_technical_corridor)
 "hTe" = (
 /obj/structure/blocker/forcefield/vehicles,
@@ -24521,8 +24518,7 @@
 "ihB" = (
 /obj/item/clothing/shoes/marine/royal_marine{
 	pixel_x = 12;
-	pixel_y = 4;
-	pixel_z = 1
+	pixel_y = 4
 	},
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
@@ -30362,7 +30358,7 @@
 /area/lv733/indoors/base_operations/central_corridor)
 "ker" = (
 /obj/structure/bed/chair/comfy/teal{
-	dir = ы
+	dir = 1
 	},
 /turf/open/floor/almayer/silver2smooth3/west,
 /area/lv733/indoors/hospital/waiting_lounge)
@@ -31111,7 +31107,7 @@
 /area/lv733/outdoors/colony_streets/city_streets)
 "krs" = (
 /obj/structure/machinery/power/apc/power/north,
-/turf/open/hybrisa/street/sidewalkfull,
+/turf/open/floor/plating,
 /area/lv733/outdoors/landing_zone_2)
 "krH" = (
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
@@ -36775,8 +36771,7 @@
 /obj/structure/prop/hybrisa/misc/graffiti/graffiti4,
 /obj/structure/closet/crate/trashcart{
 	opened = 1;
-	pixel_y = 15;
-	pixel_x = s
+	pixel_y = 15
 	},
 /obj/item/hybrisa/misc/trash_bag_full_prop{
 	pixel_x = -4;
@@ -51333,7 +51328,6 @@
 	},
 /obj/structure/largecrate/empty,
 /obj/structure/largecrate/empty{
-	pixel_x = s;
 	pixel_y = 16
 	},
 /turf/open/floor/hybrisa/metal/grated/north,
@@ -52212,7 +52206,7 @@
 /area/lv733/indoors/base_operations/mess_hall)
 "rEv" = (
 /obj/structure/machinery/power/apc/power/west,
-/turf/open/hybrisa/street/roadlines4,
+/turf/open/floor/plating,
 /area/lv733/outdoors/landing_zone_1)
 "rEx" = (
 /obj/effect/decal/hybrisa/trash{
@@ -54690,7 +54684,7 @@
 "spF" = (
 /obj/effect/decal/hybrisa/road/lines2{
 	pixel_y = 1;
-	color = ssssssssss
+	color = "#f27e1f"
 	},
 /turf/open/floor/almayer/silverfull2,
 /area/lv733/indoors/main_complex/central_corridor)
@@ -56142,8 +56136,7 @@
 	},
 /obj/item/clothing/shoes/marine/royal_marine{
 	pixel_x = 12;
-	pixel_y = 4;
-	pixel_z = 1
+	pixel_y = 4
 	},
 /obj/structure/machinery/light/small{
 	pixel_x = 11
@@ -57019,8 +57012,7 @@
 	},
 /obj/structure/surface/rack{
 	color = "#848484";
-	pixel_y = 25;
-	pixel_x = s
+	pixel_y = 25
 	},
 /obj/item/clothing/under/marine/veteran/royal_marine/lt{
 	pixel_y = 25;
@@ -65035,7 +65027,7 @@
 /obj/structure/platform/metal/strata/west,
 /obj/structure/machinery/power/monitor{
 	name = "Main Power Grid Monitoring";
-	dir = e
+	dir = 4
 	},
 /obj/effect/decal/hybrisa/dirt,
 /obj/structure/machinery/light/small{
@@ -65388,7 +65380,7 @@
 	pixel_x = -5;
 	pixel_y = -1
 	},
-/obj/item/clothing/head/helmet/marine/veteran/royal_marine/pilot/lv733/roaf_shooter_helmet,
+/obj/item/clothing/head/helmet/marine/veteran/royal_marine/lv733/roaf_shooter_helmet,
 /turf/open/floor/prison/darkred2/east,
 /area/lv733/indoors/landing_zone_1/roaf_corridor)
 "vXx" = (
@@ -70964,7 +70956,6 @@
 	dir = 6
 	},
 /obj/structure/largecrate/empty{
-	pixel_x = s;
 	pixel_y = 16
 	},
 /turf/open/floor/prison/floor_plate/southwest,
@@ -71124,7 +71115,6 @@
 	},
 /obj/item/coin/platinum{
 	pixel_x = 12;
-	pixel_w = null;
 	pixel_y = 12
 	},
 /turf/open/floor/prison,
@@ -103665,7 +103655,7 @@ ngx
 bMY
 yiH
 jzC
-dVH
+yZZ
 ghe
 uXj
 eIM
