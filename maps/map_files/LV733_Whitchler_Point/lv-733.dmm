@@ -1339,7 +1339,7 @@
 /obj/item/ammo_magazine/pistol/action,
 /obj/structure/closet/cabinet/hybrisa/metal{
 	pixel_y = 12;
-	
+
 	},
 /turf/open/floor/hybrisa/tile/blacktileshiny,
 /area/lv733/indoors/bar/entertainment)
@@ -12662,7 +12662,6 @@
 "egA" = (
 /obj/structure/bed/hybrisa/hospital/hospitaldivider{
 	dir = 1;
-	layer = s;
 	pixel_y = 20
 	},
 /obj/effect/decal/cleanable/blood{
