@@ -80,7 +80,7 @@
 
 	var/turf/gotten_turf = get_turf(src)
 	if(gotten_turf && gotten_turf.z)
-		SSminimaps.add_marker(src, MINIMAP_FLAG_USCM, image('icons/ui_icons/map_blips_large.dmi', null, "apc", HIGH_FLOAT_LAYER))
+		SSminimaps.add_marker(src, gotten_turf.z, MINIMAP_FLAG_USCM, "apc", 'icons/ui_icons/map_blips_large.dmi')
 
 /obj/vehicle/multitile/apc_pmc/load_role_reserved_slots()
 	var/datum/role_reserved_slots/RRS = new
