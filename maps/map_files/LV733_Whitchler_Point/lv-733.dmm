@@ -1339,8 +1339,7 @@
 /obj/item/ammo_magazine/pistol/action,
 /obj/item/ammo_magazine/pistol/action,
 /obj/structure/closet/cabinet/hybrisa/metal{
-	pixel_y = 12;
-	layer = s
+	pixel_y = 12
 	},
 /turf/open/floor/hybrisa/tile/blacktileshiny,
 /area/lv733/indoors/bar/entertainment)
@@ -1718,7 +1717,6 @@
 /area/lv733/outdoors/colony_streets/city_streets)
 "azg" = (
 /obj/structure/largecrate/empty{
-	pixel_x = s;
 	pixel_y = 16
 	},
 /obj/structure/largecrate/empty{
@@ -12655,7 +12653,6 @@
 "egA" = (
 /obj/structure/bed/hybrisa/hospital/hospitaldivider{
 	dir = 1;
-	layer = s;
 	pixel_y = 20
 	},
 /obj/effect/decal/cleanable/blood{
@@ -36724,8 +36721,7 @@
 /obj/structure/prop/hybrisa/misc/graffiti/graffiti4,
 /obj/structure/closet/crate/trashcart{
 	opened = 1;
-	pixel_y = 15;
-	pixel_x = s
+	pixel_y = 15
 	},
 /obj/item/hybrisa/misc/trash_bag_full_prop{
 	pixel_x = -4;
@@ -51250,7 +51246,6 @@
 	},
 /obj/structure/largecrate/empty,
 /obj/structure/largecrate/empty{
-	pixel_x = s;
 	pixel_y = 16
 	},
 /turf/open/floor/hybrisa/metal/grated/north,
@@ -56924,8 +56919,7 @@
 	},
 /obj/structure/surface/rack{
 	color = "#848484";
-	pixel_y = 25;
-	pixel_x = s
+	pixel_y = 25
 	},
 /obj/item/clothing/under/marine/veteran/royal_marine/lt{
 	pixel_y = 25;
@@ -70855,7 +70849,6 @@
 	dir = 6
 	},
 /obj/structure/largecrate/empty{
-	pixel_x = s;
 	pixel_y = 16
 	},
 /turf/open/hybrisa/street/sidewalkfull,
