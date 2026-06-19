@@ -2710,7 +2710,7 @@
 	pixel_y = -4
 	},
 /obj/structure/prop/hybrisa/misc/machinery/screens/bluemultimonitorsmall_on{
-	pixel_z = 28
+	
 	},
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/strata/multi_tiles,
@@ -24520,8 +24520,7 @@
 "ihB" = (
 /obj/item/clothing/shoes/marine/royal_marine{
 	pixel_x = 12;
-	pixel_y = 4;
-	pixel_z = 1
+	pixel_y = 4
 	},
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
@@ -56126,8 +56125,7 @@
 	},
 /obj/item/clothing/shoes/marine/royal_marine{
 	pixel_x = 12;
-	pixel_y = 4;
-	pixel_z = 1
+	pixel_y = 4
 	},
 /obj/structure/machinery/light/small{
 	pixel_x = 11
