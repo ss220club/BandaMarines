@@ -1339,7 +1339,6 @@
 /obj/item/ammo_magazine/pistol/action,
 /obj/structure/closet/cabinet/hybrisa/metal{
 	pixel_y = 12;
-	layer = s
 	},
 /turf/open/floor/hybrisa/tile/blacktileshiny,
 /area/lv733/indoors/bar/entertainment)
