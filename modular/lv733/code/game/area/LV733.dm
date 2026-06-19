@@ -25,7 +25,6 @@
 	name = "Whitchler Point - Outdoors"
 	icon_state = "cliff_blocked"//because this is a PARENT TYPE and you should not be using it and should also be changing the icon!!!
 	ceiling = CEILING_NONE
-	requires_power = FALSE
 	soundscape_playlist = SCAPE_PL_DESERT_STORM
 	ambience_exterior = AMBIENCE_BIGRED
 	soundscape_interval = 25
@@ -72,7 +71,6 @@
 	name = "Whitchler Point ROAF - Primary Landing Zone - Landing Zone One - Technical Corridor"
 	icon_state = "hybrisa"
 	ceiling = CEILING_METAL
-	requires_power = FALSE
 	is_landing_zone = TRUE
 	linked_lz = DROPSHIP_LZ1
 
@@ -105,6 +103,7 @@
 	icon_state = "hybrisa"
 	ceiling = CEILING_METAL
 	is_landing_zone = TRUE
+	linked_lz = DROPSHIP_LZ1
 
 /area/lv733/indoors/landing_zone_1/roaf_corridor
 	name = "Whitchler Point ROAF - ROAF Office - Landing Zone One - ROAF Office Corridor"
@@ -117,7 +116,6 @@
 	name = "Whitchler Point ROAF - ROAF Office - Landing Zone One - ROAF Technical Access Corridor"
 	icon_state = "hybrisa"
 	ceiling = CEILING_METAL
-	requires_power = FALSE
 	linked_lz = DROPSHIP_LZ1
 
 /area/lv733/indoors/landing_zone_1/roaf_comms_hub_1
@@ -127,7 +125,7 @@
 	linked_lz = DROPSHIP_LZ1
 
 /area/lv733/indoors/landing_zone_1/lz1_console
-	name = "LZ1 - Whitchler Point ROAF"
+	name = "Whitchler Point ROAF - Hangars - Landing Zone One - Dropship Alamo Console"
 	icon_state = "hybrisa"
 	requires_power = FALSE
 	ceiling = CEILING_METAL
@@ -158,7 +156,6 @@
 	name = "Whitchler Civilian Spaceport - Storage Depot"
 	icon_state = "security_checkpoint"
 	ceiling = CEILING_METAL
-	requires_power = FALSE
 	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_store
@@ -171,11 +168,10 @@
 	name = "Whitchler Civilian Spaceport - Spaceship"
 	icon_state = "hybrisa"
 	ceiling = CEILING_METAL
-	requires_power = FALSE
 	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport/lz2_console
-	name = "LZ2 - Whitchler Civilian Spaceport"
+	name = "Whitchler Civilian Spaceport - Dropship Normandy Console"
 	icon_state = "hybrisa"
 	requires_power = FALSE
 	ceiling = CEILING_METAL
@@ -193,6 +189,7 @@
 	name = "Unloading common area - Tech"
 	icon_state = "comms_1"
 	ceiling = CEILING_METAL
+	linked_lz = DROPSHIP_LZ2
 
 // Shop
 
@@ -205,26 +202,32 @@
 
 /area/lv733/indoors/wy_shop/main_hall
 	name = "WY Shop - Main Hall"
+	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/wy_shop/storage_room
 	name = "WY Shop - Storage Room"
+	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/wy_shop/technical_room
 	name = "WY Shop - Technical Room"
+	linked_lz = DROPSHIP_LZ2
 
 // Landing Cargo Area
 
 /area/lv733/indoors/landing_cargo
 	name = "ROAF Forward Cargo Area - Logistics Storage"
 	icon_state = "mining"
+	linked_lz = DROPSHIP_LZ1
 
 /area/lv733/indoors/landing_cargo/cryo_room
 	name = "ROAF Forward Cargo Area - Crew Rest Zone"
+	linked_lz = DROPSHIP_LZ1
 
 /area/lv733/indoors/landing_cargo/tech_hub
 	name = "ROAF Forward Cargo Area Tech Hub"
 	icon_state = "comms_1"
 	ceiling = CEILING_METAL
+	linked_lz = DROPSHIP_LZ1
 
 // Hosptial
 
@@ -234,30 +237,39 @@
 	ceiling = CEILING_METAL
 	ambience_exterior = AMBIENCE_LAB_HALLWAY
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
+	linked_lz = DROPSHIP_LZ1
 
 /area/lv733/indoors/hospital/reception
 	name = "Whitchler Hospital Complex - Reception"
+	linked_lz = DROPSHIP_LZ1
 
 /area/lv733/indoors/hospital/waiting_lounge
 	name = "Whitchler Hospital Complex - Waiting Lounge"
+	linked_lz = DROPSHIP_LZ1
 
 /area/lv733/indoors/hospital/cmo_office
 	name = "Whitchler Hospital Complex - Chief Medical Officer's Office"
+	linked_lz = DROPSHIP_LZ1
 
 /area/lv733/indoors/hospital/restroom
 	name = "Whitchler Hospital Complex - Restroom"
+	linked_lz = DROPSHIP_LZ1
 
 /area/lv733/indoors/hospital/patient_ward
 	name = "Whitchler Hospital Complex - Patient Ward"
+	linked_lz = DROPSHIP_LZ1
 
 /area/lv733/indoors/hospital/operation
 	name = "Whitchler Hospital Complex - Operation Theatres & Observation"
+	linked_lz = DROPSHIP_LZ1
 
 /area/lv733/indoors/hospital/medical_storage
 	name = "Whitchler Hospital Complex - Medical Storage"
+	linked_lz = DROPSHIP_LZ1
 
 /area/lv733/indoors/hospital/maintenance_south
 	name = "Whitchler Hospital Complex - Unisex-Restroom"
+	linked_lz = DROPSHIP_LZ1
 
 // Residential District
 
@@ -267,15 +279,19 @@
 	name = "Bar"
 	icon_state = "bar"
 	ceiling = CEILING_METAL
+	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/bar/entertainment
 	name = "Bar - Entertainment Subsection"
+	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/bar/bathroom
 	name = "Bar - Restrooms"
+	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/bar/maintenance
 	name = "Bar - Maintenance"
+	linked_lz = DROPSHIP_LZ2
 
 //WY Administration
 
@@ -284,28 +300,33 @@
 	icon_state = "wylab"
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 	ceiling = CEILING_METAL
+	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/wy_administration/office1
 	name = "WY Administration - Office #1"
+	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/wy_administration/office2
 	name = "WY Administration - Office #2"
+	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/wy_administration/corridor
 	name = "WY Administration - Corridor"
+	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/wy_administration/meeting_room
 	name = "WY Administration - Meeting room"
+	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/wy_administration/directors_office
 	name = "WY Administration - Directors office"
+	linked_lz = DROPSHIP_LZ2
 
 // Crashed spacecraft
 
 /area/lv733/indoors/crashed_spacecraft
 	name = "Crashed spacecraft"
 	ceiling = CEILING_METAL
-	requires_power = FALSE
 
 
 // Cafeteria
@@ -315,11 +336,13 @@
 	icon_state = "wylab"
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 	ceiling = CEILING_METAL
+	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/cafeteriakitchen/Kitchen
 	name = "Weyland-Yutani Residential - Cafeteria - Kitchen"
 	icon_state = "wylab"
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
+	linked_lz = DROPSHIP_LZ2
 
 // Multi-Purpose Complex
 
@@ -347,30 +370,39 @@
 	name = "Motel Complex - Apartments"
 	icon_state = "apartments"
 	ceiling = CEILING_METAL
+	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/motel/corridor
 	name = "Motel Complex - Apartments - Corridor"
+	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/motel/reception
 	name = "Motel Complex - Apartments - Reception"
+	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/motel/reception/room1
 	name = "Motel Complex - Apartments - room1"
+	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/motel/reception/room2
 	name = "Motel Complex - Apartments - room2"
+	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/motel/reception/room3
 	name = "Motel Complex - Apartments - room3"
+	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/motel/reception/room4
 	name = "Motel Complex - Apartments - room4"
+	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/motel/reception/lounge_area
 	name = "Motel Complex - Apartments - Lounge Area"
+	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/motel/reception/restrooms_showers
 	name = "Motel Complex - Apartments - Restrooms and Showers"
+	linked_lz = DROPSHIP_LZ2
 
 // ROAF Training School
 
@@ -381,9 +413,11 @@
 
 /area/lv733/indoors/training_school/reception
 	name = "Training School - Reception"
+	linked_lz = DROPSHIP_LZ1
 
 /area/lv733/indoors/training_school/classroom
 	name = "Training School - Classroom"
+	linked_lz = DROPSHIP_LZ1
 
 /area/lv733/indoors/training_school/training_hall
 	name = "Training School - Training Hall"
@@ -422,6 +456,25 @@
 /area/lv733/indoors/base_operations/barracks_three
 	name = "ROAF Base Operations - ROAF Dorm #3"
 
+/area/lv733/indoors/base_operations/barracks_4
+	name = "ROAF Base Operations - ROAF Dorm #4"
+
+/area/lv733/indoors/base_operations/barracks_5
+	name = "ROAF Base Operations - ROAF Dorm #5"
+
+/area/lv733/indoors/base_operations/barracks_6
+	name = "ROAF Base Operations - ROAF Dorm #6"
+
+/area/lv733/indoors/base_operations/barracks_7
+	name = "ROAF Base Operations - ROAF Dorm #3"
+
+/area/lv733/indoors/base_operations/barracks_three
+	name = "ROAF Base Operations - ROAF Dorm #7"
+
+/area/lv733/indoors/base_operations/ai
+	name = "ROAF Base Operations - AI Comm"
+
+
 /area/lv733/indoors/base_operations/laundry_room
 	name = "ROAF Base Operations - Laundry Room"
 
@@ -439,6 +492,7 @@
 
 /area/lv733/indoors/base_operations/communications_office
 	name = "ROAF Base Operations - Communications Office"
+	linked_lz = DROPSHIP_LZ1
 
 /area/lv733/indoors/base_operations/co_office
 	name = "ROAF Base Operations - Chief of ROAF Staff Office"
@@ -467,15 +521,15 @@
 /area/lv733/indoors/base_operations/unloading_zone
 	name = "ROAF Base Operations - Unloading Zone"
 
-/area/lv733/indoors/base_operations/armory/one
+/area/lv733/indoors/base_operations/armory
 	name = "ROAF Base Operations - Armory#1"
 
 
-/area/lv733/indoors/base_operations/armory/two
+/area/lv733/indoors/base_operations/armory
 	name = "ROAF Base Operations - Armory#2"
 
 
-/area/lv733/indoors/base_operations/armory/three
+/area/lv733/indoors/base_operations/armory
 	name = "ROAF Base Operations - Armory#3"
 
 // Engineering Sector
@@ -502,6 +556,12 @@
 	icon_state = "comms_1"
 	linked_lz = DROPSHIP_LZ2
 
+/area/lv733/indoors/main_eng/technical_storage
+	name = "Engineering Hub - Technical Storage"
+
+/area/lv733/indoors/main_eng/rail_transit_dock
+	name = "Engineering Hub - Rail Transit Dock"
+
 // Weyland-Yutani – Main Complex
 
 /area/lv733/indoors/main_complex
@@ -510,6 +570,11 @@
 	ceiling = CEILING_METAL
 	ambience_exterior = AMBIENCE_LAB_HALLWAY
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
+
+/area/lv733/indoors/main_complex/civ_checkpoint
+	name = "Weyland-Yutani – Main Complex – CIV Checkpoint"
+	icon_state = "security_checkpoint_central"
+	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/main_complex/checkpoint
 	name = "Weyland-Yutani – Main Complex – Checkpoint"
@@ -545,6 +610,13 @@
 /area/lv733/indoors/administration/offices
 	name = "Administration – Offices"
 
+/area/lv733/indoors/administration/communications_offices
+	name = "Administration – Communications Offices"
+
+/area/lv733/indoors/administration/communications_relay_buffer
+	name = "Administration – Communications Relay Buffer"
+	icon_state = "comms_1"
+
 // Outpost
 
 /area/lv733/indoors/outpost
@@ -554,11 +626,9 @@
 	ambience_exterior = AMBIENCE_HYBRISA_INTERIOR
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 
-/area/lv733/indoors/outpost/unpowered
-	requires_power = FALSE
-
 /area/lv733/indoors/outpost/city_military_police_post
 	name = "Outpost – City Military Police Post"
+	linked_lz = DROPSHIP_LZ1
 
 /area/lv733/indoors/outpost/main_checkpoint
 	name = "Outpost – Main Checkpoint"
@@ -614,29 +684,52 @@
 	soundscape_playlist = SCAPE_PL_DESERT_STORM
 	soundscape_interval = 35
 
-/area/lv733/outdoors/colony_streets/technical_street
-	name = "Street - Technical Street"
-	icon_state = "colonystreets_west"
+/area/lv733/outdoors/colony_streets/roaf_technical_street
+	name = "Street - ROAF Technical Street"
+	icon_state = "colonystreets_southeast"
+	linked_lz = DROPSHIP_LZ1
+
+
+/area/lv733/outdoors/colony_streets/roaf_spaceport_south
+	name = "Street - ROAF Spaceport South"
+	icon_state = "colonystreets_southeast"
+	linked_lz = DROPSHIP_LZ1
+
+
+/area/lv733/outdoors/colony_streets/engineering_street
+	name = "Street - Engineering Street"
+	icon_state = "colonystreets_southeast"
+
+
+/area/lv733/outdoors/colony_streets/medical_street
+	name = "Street - Medical Street"
+	icon_state = "colonystreets_southeast"
+
 
 /area/lv733/outdoors/colony_streets/city_streets
 	name = "Street - City Streets"
-	icon_state = "colonystreets_east"
+	icon_state = "colonystreets_southeast"
 	linked_lz = DROPSHIP_LZ2
 
-/area/lv733/outdoors/colony_streets/main_avenue
-	name = "Street - Main Avenue"
-	icon_state = "colonystreets_north"
 
-/area/lv733/outdoors/colony_streets/roaf_streets
-	name = "Street - ROAF Base Streets"
-	icon_state = "colonystreets_southwest"
+/area/lv733/outdoors/colony_streets/civil_spaceport_south
+	name = "Street - Civil Spaceport South"
+	icon_state = "colonystreets_southeast"
+	linked_lz = DROPSHIP_LZ2
 
-/area/lv733/outdoors/colony_streets/southern_technical_road
-	name = "Street - Southern Technical Road"
-	icon_state = "colonystreets_south"
 
-/area/lv733/outdoors/colony_streets/complex_streets
-	name = "Street - Complex Streets"
+/area/lv733/outdoors/colony_streets/military_complex_streets
+	name = "Street - Military Complex Streets"
+	icon_state = "colonystreets_southeast"
+
+
+/area/lv733/outdoors/colony_streets/wy_complex_streets
+	name = "Street - WY Complex Streets"
+	icon_state = "colonystreets_southeast"
+
+
+/area/lv733/outdoors/colony_streets/avenue
+	name = "Street - Avenue"
 	icon_state = "colonystreets_southeast"
 
 
@@ -646,11 +739,11 @@
 	name = "Colony Streets Underground"
 	icon_state = "colonystreets_under"
 	ceiling = CEILING_METAL
-	requires_power = FALSE
 	minimap_color = MINIMAP_AREA_COLONY_STREETS
 	ambience_exterior = AMBIENCE_TYRARGO_CITY
 	soundscape_playlist = SCAPE_PL_DESERT_STORM
 	soundscape_interval = 35
+	linked_lz = DROPSHIP_LZ2
 
 // Mining Complex
 
@@ -664,6 +757,7 @@
 
 /area/lv733/indoors/mining_complex/main_operations
 	name = "Mining Complex – Main Operations Zone"
+	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/mining_complex/garage_forecourt
 	name = "Mining Complex – Garage Forecourt"
@@ -671,12 +765,14 @@
 /area/lv733/indoors/mining_complex/small_generator
 	name = "Mining Complex – Small Generator Room"
 	icon_state = "power0"
+	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/mining_complex/corridors
 	name = "Mining Complex – Corridors"
 
 /area/lv733/indoors/mining_complex/locker_room
 	name = "Mining Complex – Locker Room"
+	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/mining_complex/rest_area
 	name = "Mining Complex – Crew Rest Area"
@@ -686,6 +782,16 @@
 
 /area/lv733/indoors/mining_complex/office
 	name = "Mining Complex – Supervisor Office"
+	linked_lz = DROPSHIP_LZ2
+
+/area/lv733/indoors/mining_complex/areight_access_corridor
+	name = "Mining Complex – Freight Access Corridor"
+
+/area/lv733/indoors/mining_complex/supply_administration
+	name = "Mining Complex – Supply Administration"
+
+/area/lv733/indoors/mining_complex/primary_corridor
+	name = "Mining Complex – Primary Corridor"
 
 
 // Residential Building
@@ -700,7 +806,6 @@
 
 /area/lv733/indoors/residential_building/common_area
 	name = "Residential Building – Common Area"
-	requires_power = FALSE
 
 /area/lv733/indoors/residential_building/living_quarters
 	name = "Residential Building – Living Quarters"
@@ -719,6 +824,15 @@
 
 /area/lv733/indoors/wy_research_complex/west_entrance
 	name = "Weyland-Yutani – Research Complex – West Entrance"
+
+/area/lv733/indoors/wy_research_complex/main_vestibule
+	name = "Weyland-Yutani – Research Complex – Main Vestibule"
+
+/area/lv733/indoors/wy_research_complex/departure_reception
+	name = "Weyland-Yutani – Research Complex – Departure Reception"
+
+/area/lv733/indoors/wy_research_complex/technical_operations
+	name = "Weyland-Yutani – Research Complex – Technical Operations"
 
 /area/lv733/indoors/wy_research_complex/checkpoint
 	name = "Weyland-Yutani – Research Complex – Checkpoint"
@@ -785,10 +899,6 @@
 	name = "Weyland-Yutani – Research Complex – Cargo Bay"
 	ceiling = CEILING_UNDERGROUND_METAL_BLOCK_CAS
 
-/area/lv733/indoors/wy_research_complex/spraying_chamber
-	name = "Weyland-Yutani – Research Complex – Spraying Chamber"
-	ceiling = CEILING_UNDERGROUND_METAL_BLOCK_CAS
-
 /area/lv733/indoors/wy_research_complex/plant_cell_lab
 	name = "Weyland-Yutani – Research Complex – Plant Cell Research Lab"
 	ceiling = CEILING_UNDERGROUND_METAL_BLOCK_CAS
@@ -800,7 +910,38 @@
 /area/lv733/indoors/wy_research_complex/special_containment
 	name = "Weyland-Yutani – Research Complex – Special Containment Room"
 	ceiling = CEILING_UNDERGROUND_METAL_BLOCK_CAS
-	requires_power = FALSE
+
+/area/lv733/indoors/wy_research_complex/mess_hall
+	name = "Weyland-Yutani – Research Complex – Mess Hall"
+	ceiling = CEILING_UNDERGROUND_METAL_BLOCK_CAS
+
+/area/lv733/indoors/wy_research_complex/personnel_changing_bay
+	name = "Weyland-Yutani – Research Complex – Personnel Changing Bay"
+	ceiling = CEILING_UNDERGROUND_METAL_BLOCK_CAS
+
+/area/lv733/indoors/wy_research_complex/hygiene_facility
+	name = "Weyland-Yutani – Research Complex – Hygiene Facility"
+	ceiling = CEILING_UNDERGROUND_METAL_BLOCK_CAS
+
+/area/lv733/indoors/wy_research_complex/rd_office
+	name = "Weyland-Yutani – Research Complex – Research Director's Office"
+	ceiling = CEILING_UNDERGROUND_METAL_BLOCK_CAS
+
+/area/lv733/indoors/wy_research_complex/rd_office
+	name = "Weyland-Yutani – Research Complex – Research Director's Office"
+	ceiling = CEILING_UNDERGROUND_METAL_BLOCK_CAS
+
+/area/lv733/indoors/wy_research_complex/emergency_power
+	name = "Weyland-Yutani – Research Complex – Emergency Power Module"
+	ceiling = CEILING_UNDERGROUND_METAL_BLOCK_CAS
+
+/area/lv733/indoors/wy_research_complex/biological_assessment
+	name = "Weyland-Yutani – Research Complex – Biological Assessment Unit"
+	ceiling = CEILING_UNDERGROUND_METAL_BLOCK_CAS
+
+/area/lv733/indoors/wy_research_complex/materials_testing
+	name = "Weyland-Yutani – Research Complex – Materials Testing Lab"
+	ceiling = CEILING_UNDERGROUND_METAL_BLOCK_CAS
 
 // Cave System
 
@@ -836,9 +977,6 @@
 	soundscape_playlist = SCAPE_PL_ENG
 	soundscape_interval = 25
 
-/area/lv733/indoors/terraforming_generator/unpowered
-	requires_power = FALSE
-
 /area/lv733/indoors/terraforming_generator/north_generator
 	name = "Terraforming Generator Facility – Northern Generator"
 
@@ -861,3 +999,5 @@
 
 /area/lv733/indoors/sensor_facility/tech_room
 	name = "Technical Sensor Facility – Technical Room"
+
+

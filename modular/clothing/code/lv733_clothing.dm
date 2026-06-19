@@ -177,7 +177,7 @@
 	flags_cold_protection = BODY_FLAG_HEAD
 	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROT
 
-/obj/item/clothing/head/helmet/marine/veteran/royal_marine/pilot/lv733/roaf_shooter_helmet
+/obj/item/clothing/head/helmet/marine/veteran/royal_marine/lv733/roaf_shooter_helmet
 	name = "\improper Шлем аэродромной службы ROAF"
 	desc = "Это сигнальный шлем стрелка ROAF. Он имеет характерный жёлтый цвет и сигнальные элементы. Это не боевой шлем, однако он используется для снижения силы ударов."
 	icon = 'modular/clothing/icon/roaf/head.dmi'
@@ -296,7 +296,7 @@
 // Рюкзак
 
 /obj/item/storage/backpack/marine/satchel/scout_cloak/poncho_roaf
-	name = "\improper Пончо связиста ROAF"
+	name = "\improper Пончо радиоразведчика ROAF"
 	desc = "Специально разработанная куртка-смок с карманами для всего необходимого снаряжения и телефона."
 	icon = 'modular/clothing/icon/roaf/backpack.dmi'
 	item_icons = list(

@@ -38,8 +38,6 @@
 	new_human.equip_to_slot_or_del(new right_pouch_type(new_human), WEAR_R_STORE)
 
 /datum/equipment_preset/survivor/roaf/proc/equip_standard_backpack_contents(mob/living/carbon/human/new_human)
-	new_human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/med_small_stack(new_human.back), WEAR_IN_BACK)
-	new_human.equip_to_slot_or_del(new /obj/item/device/radio(new_human.back), WEAR_IN_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/mask/neckerchief/brown(new_human.back), WEAR_IN_BACK)
 
 /datum/equipment_preset/survivor/roaf/load_gear(mob/living/carbon/human/new_human)
@@ -49,7 +47,7 @@
 		/obj/item/clothing/head/helmet/marine/veteran/lv733/roaf_beret,
 		/obj/item/clothing/suit/storage/jacket/marine/rmc/service/lv733/suit_roaf,
 		/obj/item/storage/backpack/lightpack/five_slot,
-		/obj/item/storage/belt/gun/iasf_para_belt/webley_near_empty,
+		/obj/item/storage/backpack/general_belt,
 		/obj/item/storage/pouch/firstaid/full/alternate,
 		/obj/item/storage/pouch/survival/full,
 		/obj/item/clothing/glasses/sunglasses/aviator,
@@ -80,9 +78,9 @@
 		/obj/item/storage/pouch/survival/full,
 		/obj/item/clothing/glasses/welding,
 	)
+	new_human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack(new_human.back), WEAR_IN_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/rmc_f90(new_human), WEAR_J_STORE)
 	new_human.equip_to_slot_or_del(new /obj/item/tool/crowbar/tactical(new_human), WEAR_IN_JACKET)
-	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/rmc_f90(new_human), WEAR_IN_BACK)
 	equip_standard_backpack_contents(new_human)
 
 /datum/equipment_preset/survivor/roaf/medic
@@ -106,9 +104,7 @@
 		/obj/item/storage/pouch/survival/full,
 		/obj/item/clothing/glasses/hud/health,
 	)
-	new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/p90/twe(new_human), WEAR_J_STORE)
 	new_human.equip_to_slot_or_del(new /obj/item/tool/crowbar/tactical(new_human), WEAR_IN_JACKET)
-	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/p90/ap(new_human), WEAR_IN_BACK)
 	equip_standard_backpack_contents(new_human)
 
 /datum/equipment_preset/survivor/roaf/pilot
@@ -133,8 +129,6 @@
 		/obj/item/clothing/glasses/sunglasses/aviator,
 		/obj/item/clothing/shoes/marine/royal_marine/knife/lv733/shoes_roaf_pilot,
 	)
-	new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/p90/twe(new_human), WEAR_J_STORE)
-	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/p90/ap(new_human), WEAR_IN_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/device/binoculars(new_human.back), WEAR_IN_BACK)
 
 /datum/equipment_preset/survivor/roaf/signaller
@@ -144,7 +138,7 @@
 	paygrades = list(PAY_SHORT_ROAFE3 = JOB_PLAYTIME_TIER_0)
 	skills = /datum/skills/survivor/roaf_signaller
 	minimap_icon = "roaf_signaller"
-	role_comm_title = "Связист"
+	role_comm_title = "Радиоразведчик"
 
 /datum/equipment_preset/survivor/roaf/signaller/load_gear(mob/living/carbon/human/new_human)
 	equip_common_gear(
@@ -153,7 +147,7 @@
 		/obj/item/clothing/head/beret/lv733/roaf_boonie,
 		/obj/item/clothing/suit/storage/marine/veteran/royal_marine/light/iasf,
 		/obj/item/storage/backpack/marine/satchel/scout_cloak/poncho_roaf,
-		/obj/item/storage/belt/gun/iasf_para_belt/webley_near_empty,
+		/obj/item/storage/belt/utility/full,
 		/obj/item/storage/pouch/firstaid/full/alternate,
 		/obj/item/storage/pouch/survival/full,
 	)
@@ -162,7 +156,6 @@
 	new_human.equip_to_slot_or_del(new /obj/item/tool/crowbar/tactical(new_human), WEAR_IN_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/rmc_f90(new_human), WEAR_IN_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/med_small_stack(new_human.back), WEAR_IN_BACK)
-	new_human.equip_to_slot_or_del(new /obj/item/device/radio(new_human.back), WEAR_IN_BACK)
 
 /datum/equipment_preset/survivor/roaf/squad_leader
 	name = "Survivor - ROAF Squad Leader"
@@ -180,7 +173,7 @@
 		/obj/item/clothing/head/helmet/marine/veteran/lv733/roaf_beret,
 		/obj/item/clothing/suit/storage/marine/veteran/royal_marine/light/iasf,
 		/obj/item/storage/backpack/lightpack/five_slot,
-		/obj/item/storage/belt/gun/iasf_para_belt/webley_near_empty,
+		/obj/item/storage/backpack/general_belt,
 		/obj/item/storage/pouch/firstaid/full/alternate,
 		/obj/item/storage/pouch/survival/full,
 	)
@@ -210,7 +203,7 @@
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/marine/veteran/royal_marine/lv733/roaf_shooter(new_human), WEAR_BODY)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/marine/royal_marine/knife/lv733/shoes_roaf(new_human), WEAR_FEET)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/gloves/marine/veteran/royal_marine/lv733/hands_roaf(new_human), WEAR_HANDS)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine/veteran/royal_marine/pilot/lv733/roaf_shooter_helmet(new_human), WEAR_HEAD)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine/veteran/royal_marine/lv733/roaf_shooter_helmet(new_human), WEAR_HEAD)
 	new_human.equip_to_slot_or_del(new /obj/item/device/radio/headset/distress/roaf(new_human), WEAR_L_EAR)
 	new_human.equip_to_slot_or_del(new /obj/item/tool/screwdriver(new_human), WEAR_R_EAR)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/jacket/marine/rmc/service/lv733/suit_roaf_shooter(new_human), WEAR_JACKET)
@@ -223,8 +216,6 @@
 	new_human.equip_to_slot_or_del(new /obj/item/device/flashlight(new_human), WEAR_J_STORE)
 	new_human.equip_to_slot_or_del(new /obj/item/roller(new_human.back), WEAR_IN_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/device/multitool(new_human.back), WEAR_IN_BACK)
-	new_human.equip_to_slot_or_del(new /obj/item/device/radio(new_human.back), WEAR_IN_BACK)
-	new_human.equip_to_slot_or_del(new /obj/item/stack/cable_coil(new_human.back), WEAR_IN_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/small_stack(new_human.back), WEAR_IN_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/device/healthanalyzer(new_human.back), WEAR_IN_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/device/defibrillator/synthetic(new_human.back), WEAR_IN_JACKET)
