@@ -10,7 +10,7 @@
 	)
 
 /obj/item/defenses/handheld/planted_flag/roaf
-	name = "сложенный полевой флагшток ROAF"
+	name = "\improper Сложенный полевой флагшток ROAF"
 	desc = "A compact ROAF defensive rally flag, designed for deployment in the field."
 	icon = 'modular/lv733/icons/planted_flag.dmi'
 	icon_state = "Normal planted_flag_handheld"
