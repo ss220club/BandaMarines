@@ -1339,7 +1339,7 @@
 /obj/item/ammo_magazine/pistol/action,
 /obj/structure/closet/cabinet/hybrisa/metal{
 	pixel_y = 12;
-	layer = s
+	
 	},
 /turf/open/floor/hybrisa/tile/blacktileshiny,
 /area/lv733/indoors/bar/entertainment)
@@ -12005,7 +12005,6 @@
 	pixel_y = 13
 	},
 /turf/open/hybrisa/street/cement3,
-/turf/closed/wall/hybrisa/marhsalls/reinforced,
 /area/lv733/indoors/base_operations/kitchen)
 "dWh" = (
 /turf/open/floor/almayer/silverfull2,
@@ -26902,7 +26901,6 @@
 /area/lv733/indoors/base_operations/armory)
 "jcd" = (
 /turf/open/hybrisa/street/sidewalk/north,
-/turf/closed/wall/hybrisa/marhsalls/reinforced,
 /area/lv733/indoors/base_operations/mess_hall)
 "jci" = (
 /obj/item/trash/cigbutt{
@@ -39742,11 +39740,6 @@
 /obj/structure/pipes/standard/simple/hidden/dark,
 /turf/open/floor/prison/ramptop/north,
 /area/lv733/indoors/landing_zone_1/main_hangar_bay)
-"nwG" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/cement3,
-/turf/open/hybrisa/street/cement1,
-/area/lv733/outdoors/colony_streets/avenue)
 "nwH" = (
 /obj/structure/girder/displaced,
 /turf/open/auto_turf/hybrisa_auto_turf/layer2,
@@ -47468,14 +47461,6 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/plating/prison,
 /area/lv733/outdoors/caves/eastern_caves)
-"qbG" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 1
-	},
-/turf/open/hybrisa/street/cement1,
-/turf/open/hybrisa/street/cement1,
-/turf/open/hybrisa/street/cement1,
-/area/lv733/outdoors/colony_streets/avenue)
 "qbI" = (
 /obj/effect/decal/hybrisa/road/lines3,
 /obj/effect/decal/hybrisa/dirt,
@@ -62767,10 +62752,6 @@
 	},
 /turf/open/floor/corsat/officetiles,
 /area/lv733/indoors/multicomplex/foyer)
-"vdU" = (
-/turf/closed/wall/hybrisa/marhsalls/reinforced,
-/turf/closed/wall/hybrisa/marhsalls/reinforced,
-/area/lv733/indoors/base_operations/mess_hall)
 "vet" = (
 /obj/effect/spawner/random/toolbox{
 	pixel_y = 12
@@ -65074,7 +65055,6 @@
 	pixel_x = 6;
 	pixel_y = 19
 	},
-/turf/open/hybrisa/street/cement1,
 /turf/open/hybrisa/street/cement1,
 /area/lv733/outdoors/colony_streets/military_complex_streets)
 "vSU" = (
@@ -84328,7 +84308,7 @@ fBt
 jcT
 jcT
 jcT
-qbG
+gPs
 xzP
 bGN
 bPu
@@ -85138,7 +85118,7 @@ vaK
 jfa
 fKn
 wCx
-vdU
+qXX
 aii
 dhI
 aii
@@ -85741,7 +85721,7 @@ mZn
 mJm
 huA
 mJm
-nwG
+huA
 xzP
 rCx
 kds
