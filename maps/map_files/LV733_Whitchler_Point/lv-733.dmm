@@ -36774,7 +36774,6 @@
 /obj/structure/closet/crate/trashcart{
 	opened = 1;
 	pixel_y = 15;
-	pixel_x = s
 	},
 /obj/item/hybrisa/misc/trash_bag_full_prop{
 	pixel_x = -4;
@@ -51318,7 +51317,6 @@
 	},
 /obj/structure/largecrate/empty,
 /obj/structure/largecrate/empty{
-	pixel_x = s;
 	pixel_y = 16
 	},
 /turf/open/floor/hybrisa/metal/grated/north,
@@ -57005,7 +57003,6 @@
 /obj/structure/surface/rack{
 	color = "#848484";
 	pixel_y = 25;
-	pixel_x = s
 	},
 /obj/item/clothing/under/marine/veteran/royal_marine/lt{
 	pixel_y = 25;
@@ -70945,7 +70942,6 @@
 	dir = 6
 	},
 /obj/structure/largecrate/empty{
-	pixel_x = s;
 	pixel_y = 16
 	},
 /turf/open/floor/prison/floor_plate/southwest,
