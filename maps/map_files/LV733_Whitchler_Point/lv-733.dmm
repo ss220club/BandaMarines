@@ -4854,7 +4854,7 @@
 /area/lv733/outdoors/colony_streets/civil_spaceport_south)
 "bBQ" = (
 /obj/structure/window/framed/corsat/research,
-/turf/open/space/basic,
+/turf/open/hybrisa/street/cement3,
 /area/lv733/indoors/wy_research_complex/materials_testing)
 "bCo" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -12004,7 +12004,7 @@
 	icon_state = "lattice4";
 	pixel_y = 13
 	},
-/turf/open/space/basic,
+/turf/open/hybrisa/street/cement3,
 /turf/closed/wall/hybrisa/marhsalls/reinforced,
 /area/lv733/indoors/base_operations/kitchen)
 "dWh" = (
@@ -17613,7 +17613,7 @@
 /area/lv733/indoors/wy_research_complex/supply_department)
 "fRB" = (
 /obj/structure/window/framed/corsat/research,
-/turf/open/space/basic,
+/turf/open/hybrisa/street/cement3,
 /area/lv733/indoors/wy_research_complex/rd_office)
 "fRL" = (
 /obj/structure/pipes/standard/simple/hidden/dark,
@@ -22639,7 +22639,7 @@
 /obj/structure/prop/hybrisa/misc/machinery/screens/frame{
 	pixel_y = 32
 	},
-/obj/effect/landmark/corpsespawner/wy,
+/obj/effect/landmark/corpsespawner/wy/manager,
 /obj/effect/decal/cleanable/blood{
 	pixel_x = 4;
 	pixel_y = -1
@@ -30364,7 +30364,7 @@
 /area/lv733/indoors/base_operations/central_corridor)
 "ker" = (
 /obj/structure/bed/chair/comfy/teal{
-	dir = ы
+	dir = 1
 	},
 /turf/open/floor/almayer/silver2smooth3/west,
 /area/lv733/indoors/hospital/waiting_lounge)
@@ -39744,7 +39744,7 @@
 /area/lv733/indoors/landing_zone_1/main_hangar_bay)
 "nwG" = (
 /obj/effect/decal/hybrisa/dirt,
-/turf/open/space/basic,
+/turf/open/hybrisa/street/cement3,
 /turf/open/hybrisa/street/cement1,
 /area/lv733/outdoors/colony_streets/avenue)
 "nwH" = (
@@ -65037,7 +65037,7 @@
 /obj/structure/platform/metal/strata/west,
 /obj/structure/machinery/power/monitor{
 	name = "Main Power Grid Monitoring";
-	dir = e
+	dir = 1
 	},
 /obj/effect/decal/hybrisa/dirt,
 /obj/structure/machinery/light/small{
@@ -65390,7 +65390,7 @@
 	pixel_x = -5;
 	pixel_y = -1
 	},
-/obj/item/clothing/head/helmet/marine/veteran/royal_marine/pilot/lv733/roaf_shooter_helmet,
+/obj/item/clothing/head/helmet/marine/veteran/royal_marine/lv733/roaf_shooter_helmet,
 /turf/open/floor/prison/darkred2/east,
 /area/lv733/indoors/landing_zone_1/roaf_corridor)
 "vXx" = (
