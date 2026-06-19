@@ -1339,7 +1339,7 @@
 /obj/item/ammo_magazine/pistol/action,
 /obj/structure/closet/cabinet/hybrisa/metal{
 	pixel_y = 12;
-
+	
 	},
 /turf/open/floor/hybrisa/tile/blacktileshiny,
 /area/lv733/indoors/bar/entertainment)
@@ -36774,6 +36774,7 @@
 /obj/structure/closet/crate/trashcart{
 	opened = 1;
 	pixel_y = 15;
+	
 	},
 /obj/item/hybrisa/misc/trash_bag_full_prop{
 	pixel_x = -4;
@@ -57003,6 +57004,7 @@
 /obj/structure/surface/rack{
 	color = "#848484";
 	pixel_y = 25;
+	
 	},
 /obj/item/clothing/under/marine/veteran/royal_marine/lt{
 	pixel_y = 25;
