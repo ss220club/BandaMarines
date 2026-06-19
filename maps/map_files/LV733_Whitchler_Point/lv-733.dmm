@@ -71103,7 +71103,6 @@
 	},
 /obj/item/coin/platinum{
 	pixel_x = 12;
-	pixel_w = null;
 	pixel_y = 12
 	},
 /turf/open/floor/prison,
