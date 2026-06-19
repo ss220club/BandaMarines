@@ -54673,7 +54673,7 @@
 "spF" = (
 /obj/effect/decal/hybrisa/road/lines2{
 	pixel_y = 1;
-	color = ssssssssss
+	color = "#b54b3d"
 	},
 /turf/open/floor/almayer/silverfull2,
 /area/lv733/indoors/main_complex/central_corridor)
