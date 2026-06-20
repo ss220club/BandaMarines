@@ -6,7 +6,7 @@
     "webmap_url": "LV733",
     "weather_holder": "/datum/weather_ss_map_holder/lv733_whitchler_point",
     "survivor_types": [
-        "/datum/equipment_preset/survivor/roaf/paratrooper",
+        "/datum/equipment_preset/survivor/roaf",
         "/datum/equipment_preset/survivor/roaf/engi",
         "/datum/equipment_preset/survivor/roaf/medic",
         "/datum/equipment_preset/survivor/roaf/pilot",

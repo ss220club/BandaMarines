@@ -10436,9 +10436,6 @@
 /turf/open/floor/almayer/silverfull2,
 /area/lv733/indoors/wy_research_complex/biological_assessment)
 "duR" = (
-/obj/effect/vehicle_spawner/apc_pmc/fixed{
-	dir = 8
-	},
 /obj/structure/blocker/invisible_wall,
 /obj/structure/prop/hybrisa/misc/fire/fire2{
 	color = "#FF7700";
