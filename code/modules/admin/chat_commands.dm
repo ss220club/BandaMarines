@@ -2,7 +2,7 @@
 
 /datum/tgs_chat_command/sdql
 	name = "sdql"
-	help_text = "Runs an SDQL query"
+	help_text = "Runs an SDQL query. Disabled. Use in-game SDQL instead."
 	admin_only = TRUE
 
 /datum/tgs_chat_command/sdql/Run(datum/tgs_chat_user/sender, params)
@@ -14,4 +14,4 @@
 	var/list/refs = length(results) > 3 ? results.Copy(4) : null
 	return new /datum/tgs_message_content("[text_res.Join("\n")][refs ? "\nRefs: [refs.Join(" ")]" : ""]")
 	*/
-	return new /datum/tgs_message_content("The 'sdql' command is deprecated and no longer functional.") //SS220 - EDIT
+	return new /datum/tgs_message_content("SDQL command is disabled and no longer functional. Use in-game SDQL instead.") //SS220 - EDIT
