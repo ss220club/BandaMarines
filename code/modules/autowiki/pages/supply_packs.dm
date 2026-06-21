@@ -30,7 +30,7 @@
 			"icon" = container_filename,
 			"name" = my_pack.name,
 			"cost" = my_pack.cost,
-			"dollar_cost" = my_pack.dollar_cost,
+			"dollar_cost" = my_pack.dollar_cost, //SS220 - EDIT
 			"contents" = contents.Join(", ")
 			)
 		))
