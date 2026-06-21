@@ -1,0 +1,4 @@
+author: "Ingakem"
+delete-after: True
+changes:
+  - bugfix: "Исправляет ошибку в выводе информации о ящика для автовики."
