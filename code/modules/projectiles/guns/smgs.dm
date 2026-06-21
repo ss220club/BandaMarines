@@ -370,6 +370,8 @@
 //MP27, based on the MP27, based on the M7.
 
 /obj/item/weapon/gun/smg/mp27
+	AUTOWIKI_SKIP(TRUE) //SS220 - EDIT
+
 	name = "\improper MP27 submachinegun"
 	desc = "An archaic design going back almost a century, the MP27 was common in its day. Today it sees limited use as cheap computer-printed replicas or family heirlooms. An extremely ergonomic and lightweight design allows easy mass production and surpisingly good handling, but the cheap materials used hurt the weapon's scatter noticeably."
 	icon = 'icons/obj/items/weapons/guns/guns_by_faction/colony/smgs.dmi'
