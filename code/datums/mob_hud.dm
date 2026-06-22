@@ -33,6 +33,7 @@ GLOBAL_LIST_INIT_TYPED(huds, /datum/mob_hud, flatten_numeric_alist(alist(
 	MOB_HUD_FACTION_HC = new /datum/mob_hud/faction/hyperdyne(),
 	MOB_HUD_FACTION_TWE = new /datum/mob_hud/faction/twe(),
 	MOB_HUD_FACTION_IASF = new /datum/mob_hud/faction/iasf(),
+	MOB_HUD_FACTION_ROAF = new /datum/mob_hud/faction/roaf(), // SS220 EDIT
 	MOB_HUD_FACTION_CLF = new /datum/mob_hud/faction/clf(),
 	MOB_HUD_FACTION_PMC = new /datum/mob_hud/faction/pmc(),
 	MOB_HUD_FACTION_CMB = new /datum/mob_hud/faction/cmb(),
@@ -251,6 +252,9 @@ GLOBAL_LIST_INIT_TYPED(huds, /datum/mob_hud, flatten_numeric_alist(alist(
 
 /datum/mob_hud/faction/iasf
 	faction_to_check = FACTION_IASF
+
+/datum/mob_hud/faction/roaf // SS220 EDIT
+	faction_to_check = FACTION_ROAF
 
 /datum/mob_hud/faction/clf
 	faction_to_check = FACTION_CLF
