@@ -870,7 +870,6 @@
 	name = "hull"
 	icon = 'icons/turf/hunter_shuttle.dmi'
 	icon_state = "hunter4"
-	plane = TURF_PLANE
 
 /obj/structure/shuttle/part/hunter/engine_left_back
 	icon_state = "leftengine_1"

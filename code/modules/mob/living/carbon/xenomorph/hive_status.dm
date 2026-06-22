@@ -269,7 +269,7 @@
 
 		playsound_client(current_mob.client, get_sfx("evo_screech"), current_mob.loc, 70, "minor")
 
-		if(ishuman(current_mob))
+		if(ishuman_strict(current_mob))
 			to_chat(current_mob, SPAN_HIGHDANGER("Вы слышите отдалённый визг и чувствуете, как у вас внутри всё замерзает... что-то новое появилось в этой колонии."))
 
 		if(issynth(current_mob))
