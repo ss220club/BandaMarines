@@ -246,7 +246,7 @@
 /turf/open/auto_turf/lv_grass/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "eE" = (
-/turf/closed/wall/mineral/sandstone{
+/turf/closed/wall/ancient_temple{
 	name = "ancient temple wall";
 	desc = "A heavy wall of sandstone with sandstone plating."
 	},
@@ -791,7 +791,7 @@
 /area/strata/interior/out_of_bounds)
 "nb" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
-/turf/closed/wall/mineral/sandstone{
+/turf/closed/wall/ancient_temple{
 	name = "ancient temple wall";
 	desc = "A heavy wall of sandstone with sandstone plating."
 	},
@@ -893,7 +893,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
 "oF" = (
 /obj/structure/flora/jungle/vines/blue/light_3,
-/turf/closed/wall/mineral/sandstone{
+/turf/closed/wall/ancient_temple{
 	name = "ancient temple wall";
 	desc = "A heavy wall of sandstone with sandstone plating."
 	},
@@ -1285,7 +1285,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "ws" = (
 /obj/structure/flora/jungle/vines/dead/light_1,
-/turf/closed/wall/mineral/sandstone{
+/turf/closed/wall/ancient_temple{
 	name = "ancient temple wall";
 	desc = "A heavy wall of sandstone with sandstone plating."
 	},
@@ -2303,7 +2303,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Ne" = (
 /obj/structure/flora/jungle/vines/dead/light_3,
-/turf/closed/wall/mineral/sandstone{
+/turf/closed/wall/ancient_temple{
 	name = "ancient temple wall";
 	desc = "A heavy wall of sandstone with sandstone plating."
 	},
@@ -2734,7 +2734,7 @@
 /area/template_noop)
 "TL" = (
 /obj/structure/flora/jungle/vines/dead/heavy,
-/turf/closed/wall/mineral/sandstone{
+/turf/closed/wall/ancient_temple{
 	name = "ancient temple wall";
 	desc = "A heavy wall of sandstone with sandstone plating."
 	},

@@ -686,7 +686,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
 "hu" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
-/turf/closed/wall/mineral/sandstone{
+/turf/closed/wall/ancient_temple{
 	name = "ancient temple wall";
 	desc = "A heavy wall of sandstone with sandstone plating."
 	},
@@ -1202,7 +1202,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "mK" = (
 /obj/structure/flora/jungle/vines/dead/light_1,
-/turf/closed/wall/mineral/sandstone{
+/turf/closed/wall/ancient_temple{
 	name = "ancient temple wall";
 	desc = "A heavy wall of sandstone with sandstone plating."
 	},
@@ -1276,7 +1276,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
 "nL" = (
 /obj/structure/flora/jungle/vines/blue/light_3,
-/turf/closed/wall/mineral/sandstone{
+/turf/closed/wall/ancient_temple{
 	name = "ancient temple wall";
 	desc = "A heavy wall of sandstone with sandstone plating."
 	},
@@ -1630,7 +1630,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "qK" = (
 /obj/structure/flora/jungle/vines/dead/heavy,
-/turf/closed/wall/mineral/sandstone{
+/turf/closed/wall/ancient_temple{
 	name = "ancient temple wall";
 	desc = "A heavy wall of sandstone with sandstone plating."
 	},
@@ -1689,7 +1689,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
 "rv" = (
 /obj/structure/flora/jungle/vines/dead/light_3,
-/turf/closed/wall/mineral/sandstone{
+/turf/closed/wall/ancient_temple{
 	name = "ancient temple wall";
 	desc = "A heavy wall of sandstone with sandstone plating."
 	},
@@ -3576,7 +3576,7 @@
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
 "OA" = (
-/turf/closed/wall/mineral/sandstone{
+/turf/closed/wall/ancient_temple{
 	name = "ancient temple wall";
 	desc = "A heavy wall of sandstone with sandstone plating."
 	},

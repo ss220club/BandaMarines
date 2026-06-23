@@ -100,7 +100,7 @@
 /turf/open/gm/coast/dirt/south,
 /area/lazarus/yggdrasil)
 "abl" = (
-/obj/structure/machinery/landinglight/ds1/delaytwo{
+/obj/structure/machinery/landinglight/delaytwo{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -395,7 +395,7 @@
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/barrens/central_barrens)
 "ahV" = (
-/obj/structure/machinery/landinglight/ds1{
+/obj/structure/machinery/landinglight{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -853,7 +853,7 @@
 /turf/open/floor/prison/cell_stripe/north,
 /area/lazarus/quart)
 "asA" = (
-/obj/structure/machinery/landinglight/ds1/delayone{
+/obj/structure/machinery/landinglight/delayone{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -1052,7 +1052,7 @@
 /turf/open/floor/interior/plastic/alt,
 /area/lazarus/ground/ancient_temple/south_east/surface)
 "avU" = (
-/obj/structure/machinery/landinglight/ds1/delaythree{
+/obj/structure/machinery/landinglight/delaythree{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -1613,7 +1613,7 @@
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/corporate_dome)
 "aIn" = (
-/obj/structure/machinery/landinglight/ds1/delaythree{
+/obj/structure/machinery/landinglight/delaythree{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -2427,7 +2427,7 @@
 /obj/item/prop/torch_frame/ancient{
 	anchored = 1
 	},
-/turf/closed/wall/ancient_temple/sandstone/runed/decor,
+/turf/closed/wall/ancient_temple/runed,
 /area/strata/interior/out_of_bounds)
 "aYO" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble,
@@ -6944,7 +6944,7 @@
 	anchored = 1
 	},
 /obj/structure/flora/jungle/vines/dead/light_1,
-/turf/closed/wall/ancient_temple/sandstone,
+/turf/closed/wall/ancient_temple,
 /area/strata/interior/out_of_bounds)
 "cVf" = (
 /turf/open/gm/dirt/brown/variant_5/west,
@@ -7023,7 +7023,7 @@
 /area/lazarus/ground/river/north_east_temple_river)
 "cYf" = (
 /obj/structure/flora/jungle/vines/dead/light_1,
-/turf/closed/wall/ancient_temple/sandstone,
+/turf/closed/wall/ancient_temple,
 /area/strata/interior/out_of_bounds)
 "cYi" = (
 /obj/structure/machinery/gibber,
@@ -7134,7 +7134,7 @@
 /turf/open/floor/ancient_temple/damaged/damage_2,
 /area/lazarus/ground/ancient_temple/south)
 "cZP" = (
-/obj/structure/machinery/landinglight/ds2/delaytwo{
+/obj/structure/machinery/landinglight/delaytwo{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -7933,7 +7933,7 @@
 /turf/open/floor/ancient_temple/ruined/east,
 /area/lazarus/ground/ancient_temple/north_east/surface)
 "drM" = (
-/obj/structure/machinery/power/terminal{
+/obj/structure/terminal{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/oil,
@@ -9262,7 +9262,7 @@
 /turf/open/gm/coast/dirt/beachcorner/south_east,
 /area/lazarus/ground/river/east_river)
 "dWN" = (
-/obj/structure/machinery/landinglight/ds2/delaythree{
+/obj/structure/machinery/landinglight/delaythree{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -10157,7 +10157,7 @@
 /turf/open/auto_turf/lv_grass/layer1,
 /area/lazarus/landing_zones/lz2)
 "eog" = (
-/obj/structure/machinery/landinglight/ds2,
+/obj/structure/machinery/landinglight,
 /turf/open/floor/plating,
 /area/lazarus/landing_zones/lz2)
 "eom" = (
@@ -10170,7 +10170,7 @@
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/ancient_temple/south/surface)
 "eos" = (
-/obj/structure/machinery/landinglight/ds1{
+/obj/structure/machinery/landinglight{
 	dir = 8
 	},
 /obj/effect/decal/hybrisa/dirt,
@@ -10928,7 +10928,7 @@
 /area/lazarus/ground/caves/north_west_caves)
 "eES" = (
 /obj/structure/flora/jungle/vines/dead/light_3,
-/turf/closed/wall/ancient_temple/sandstone,
+/turf/closed/wall/ancient_temple,
 /area/strata/interior/out_of_bounds)
 "eFs" = (
 /obj/structure/prop/colorable_rock/colorable{
@@ -11594,7 +11594,7 @@
 /turf/open/floor/hybrisa/tile/tilewhite,
 /area/lazarus/toilet)
 "eUN" = (
-/obj/structure/machinery/landinglight/ds1/delaytwo{
+/obj/structure/machinery/landinglight/delaytwo{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -11976,7 +11976,7 @@
 /turf/open/floor/prison/brown/corner/east,
 /area/lazarus/main_hall)
 "fdr" = (
-/obj/structure/machinery/landinglight/ds1{
+/obj/structure/machinery/landinglight{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -12123,7 +12123,7 @@
 /turf/open/gm/river/soro,
 /area/lazarus/ground/river/north_east_temple_river)
 "fgy" = (
-/turf/closed/wall/ancient_temple/sandstone{
+/turf/closed/wall/ancient_temple{
 	opacity = 0
 	},
 /area/strata/interior/out_of_bounds)
@@ -12294,7 +12294,7 @@
 /turf/open/floor/strata/multi_tiles/west,
 /area/lazarus/research/storage)
 "fko" = (
-/turf/closed/wall/mineral/sandstone{
+/turf/closed/wall/ancient_temple{
 	name = "ancient temple wall";
 	desc = "A heavy wall of sandstone with sandstone plating."
 	},
@@ -12452,7 +12452,7 @@
 	},
 /area/lazarus/ground/cove)
 "fnq" = (
-/obj/structure/machinery/power/terminal{
+/obj/structure/terminal{
 	dir = 1
 	},
 /obj/item/clothing/gloves/yellow,
@@ -12847,7 +12847,7 @@
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/caves/north_west_caves)
 "fvb" = (
-/obj/structure/machinery/landinglight/ds1/delayone,
+/obj/structure/machinery/landinglight/delayone,
 /turf/open/floor/plating,
 /area/lazarus/landing_zones/lz1)
 "fvk" = (
@@ -13317,7 +13317,7 @@
 /turf/open/floor/ancient_temple/ruined/east,
 /area/lazarus/ground/ancient_temple/east)
 "fFU" = (
-/obj/structure/machinery/landinglight/ds2{
+/obj/structure/machinery/landinglight{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -17092,7 +17092,7 @@
 /area/lazarus/security)
 "hmK" = (
 /obj/structure/flora/jungle/vines/dead/light_2,
-/turf/closed/wall/ancient_temple/sandstone,
+/turf/closed/wall/ancient_temple,
 /area/strata/interior/out_of_bounds)
 "hmQ" = (
 /obj/structure/machinery/door/airlock/light_grey_lv/glass{
@@ -18682,7 +18682,7 @@
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/caves/south_west_caves)
 "hRB" = (
-/obj/structure/machinery/landinglight/ds2/delaythree,
+/obj/structure/machinery/landinglight/delaythree,
 /turf/open/floor/plating,
 /area/lazarus/landing_zones/lz2)
 "hRE" = (
@@ -19006,7 +19006,7 @@
 /obj/item/prop/torch_frame/ancient{
 	anchored = 1
 	},
-/turf/closed/wall/ancient_temple/sandstone,
+/turf/closed/wall/ancient_temple,
 /area/strata/interior/out_of_bounds)
 "hYa" = (
 /obj/effect/hunter/ancient_temple/deco_border/deco_border3{
@@ -19720,7 +19720,7 @@
 /area/lazarus/ground/ancient_temple/south)
 "isb" = (
 /obj/structure/flora/jungle/vines/dead/light_1,
-/turf/closed/wall/ancient_temple/sandstone/runed/decor,
+/turf/closed/wall/ancient_temple/runed,
 /area/strata/interior/out_of_bounds)
 "isX" = (
 /obj/effect/decal/lv_decals/red_mud_corner{
@@ -20060,7 +20060,7 @@
 /turf/open/floor/ancient_temple/floor_grille/water,
 /area/lazarus/ground/ancient_temple/north_east)
 "izS" = (
-/obj/structure/machinery/landinglight/ds1/delaytwo,
+/obj/structure/machinery/landinglight/delaytwo,
 /turf/open/floor/plating,
 /area/lazarus/landing_zones/lz1)
 "izX" = (
@@ -23982,7 +23982,7 @@
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/ancient_temple/east)
 "kld" = (
-/obj/structure/machinery/landinglight/ds1/delaytwo{
+/obj/structure/machinery/landinglight/delaytwo{
 	dir = 4
 	},
 /obj/effect/decal/hybrisa/dirt,
@@ -24992,7 +24992,7 @@
 /turf/open/auto_turf/lv_grass/layer1,
 /area/lazarus/ground/jungle/north_jungle)
 "kHA" = (
-/obj/structure/machinery/landinglight/ds2/delayone,
+/obj/structure/machinery/landinglight/delayone,
 /turf/open/floor/plating,
 /area/lazarus/landing_zones/lz2)
 "kHN" = (
@@ -25447,7 +25447,7 @@
 /area/strata/interior/out_of_bounds)
 "kTk" = (
 /obj/structure/flora/jungle/vines/dead/heavy,
-/turf/closed/wall/ancient_temple/sandstone/runed/decor,
+/turf/closed/wall/ancient_temple/runed,
 /area/strata/interior/out_of_bounds)
 "kTm" = (
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_8,
@@ -27884,7 +27884,7 @@
 /turf/open/floor/prison/darkbrown3/north,
 /area/lazarus/comms)
 "lQy" = (
-/obj/structure/machinery/landinglight/ds2/delaythree{
+/obj/structure/machinery/landinglight/delaythree{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -27920,7 +27920,7 @@
 /turf/open/floor/strata/light_purple_tile,
 /area/lazarus/research/storage)
 "lRD" = (
-/turf/closed/wall/mineral/sandstone{
+/turf/closed/wall/ancient_temple{
 	name = "ancient temple wall";
 	desc = "A heavy wall of sandstone with sandstone plating."
 	},
@@ -29505,7 +29505,7 @@
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/south/surface)
 "mzT" = (
-/obj/structure/machinery/landinglight/ds2/delaytwo{
+/obj/structure/machinery/landinglight/delaytwo{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -33133,7 +33133,7 @@
 /turf/open/floor/prison/green/west,
 /area/lazarus/hydroponics)
 "nUr" = (
-/obj/structure/machinery/landinglight/ds2/delayone{
+/obj/structure/machinery/landinglight/delayone{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -34959,7 +34959,7 @@
 	anchored = 1
 	},
 /obj/structure/flora/jungle/vines/dead/light_2,
-/turf/closed/wall/ancient_temple/sandstone,
+/turf/closed/wall/ancient_temple,
 /area/strata/interior/out_of_bounds)
 "oFE" = (
 /obj/structure/bed/chair{
@@ -36153,7 +36153,7 @@
 /turf/open/floor/bot/north,
 /area/lazarus/ground/cove)
 "peB" = (
-/obj/structure/machinery/landinglight/ds2/delayone{
+/obj/structure/machinery/landinglight/delayone{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -36904,7 +36904,7 @@
 /turf/open/floor/interior/plastic/alt,
 /area/lazarus/ground/barrens/central_barrens)
 "puU" = (
-/obj/structure/machinery/landinglight/ds1/delaytwo{
+/obj/structure/machinery/landinglight/delaytwo{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -37079,7 +37079,7 @@
 /turf/open/floor/prison/cell_stripe/east,
 /area/lazarus/quartstorage)
 "pzo" = (
-/obj/structure/machinery/landinglight/ds2/delaythree{
+/obj/structure/machinery/landinglight/delaythree{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -37621,7 +37621,7 @@
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/caves/north_west_caves)
 "pPj" = (
-/obj/structure/machinery/landinglight/ds2/delaytwo{
+/obj/structure/machinery/landinglight/delaytwo{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -37675,7 +37675,7 @@
 /area/lazarus/ground/jungle/north_west_jungle)
 "pQl" = (
 /obj/structure/flora/jungle/vines/dead,
-/turf/closed/wall/ancient_temple/sandstone,
+/turf/closed/wall/ancient_temple,
 /area/strata/interior/out_of_bounds)
 "pQn" = (
 /obj/structure/fence/dark/overgrown,
@@ -38843,7 +38843,7 @@
 /turf/open/auto_turf/lv_grass/layer0,
 /area/lazarus/ground/barrens/north_barrens)
 "qnQ" = (
-/obj/structure/machinery/landinglight/ds2/delayone{
+/obj/structure/machinery/landinglight/delayone{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -38899,7 +38899,7 @@
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/cove)
 "qpx" = (
-/obj/structure/machinery/landinglight/ds1/delaythree{
+/obj/structure/machinery/landinglight/delaythree{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -39189,7 +39189,7 @@
 /turf/open/floor/interior/wood/alt,
 /area/lazarus/ground/barrens/central_barrens)
 "qvb" = (
-/obj/structure/machinery/landinglight/ds2/delaytwo,
+/obj/structure/machinery/landinglight/delaytwo,
 /turf/open/floor/plating,
 /area/lazarus/landing_zones/lz2)
 "qvf" = (
@@ -39280,7 +39280,7 @@
 /turf/open/floor/ancient_temple/floor_20/north,
 /area/lazarus/ground/ancient_temple/north_east)
 "qxC" = (
-/obj/structure/machinery/landinglight/ds1,
+/obj/structure/machinery/landinglight,
 /turf/open/floor/plating,
 /area/lazarus/landing_zones/lz1)
 "qxF" = (
@@ -41501,7 +41501,7 @@
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/landing_zones/lz1)
 "rwl" = (
-/obj/structure/machinery/landinglight/ds1/delayone{
+/obj/structure/machinery/landinglight/delayone{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -42706,7 +42706,7 @@
 /turf/open/floor/interior/wood/alt,
 /area/lazarus/ground/barrens/central_barrens)
 "rWt" = (
-/obj/structure/machinery/landinglight/ds1/delaythree,
+/obj/structure/machinery/landinglight/delaythree,
 /turf/open/floor/plating,
 /area/lazarus/landing_zones/lz1)
 "rWD" = (
@@ -43054,7 +43054,7 @@
 /turf/open/floor/prison/sterile_white,
 /area/lazarus/captain)
 "sdR" = (
-/turf/closed/wall/mineral/sandstone{
+/turf/closed/wall/ancient_temple{
 	name = "ancient temple wall";
 	desc = "A heavy wall of sandstone with sandstone plating."
 	},
@@ -43526,7 +43526,7 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/lazarus/armory)
 "soR" = (
-/obj/item/device/whistle{
+/obj/item/clothing/accessory/device/whistle{
 	pixel_x = 7;
 	pixel_y = 9
 	},
@@ -44922,7 +44922,7 @@
 /area/lazarus/ground/river/central_river/lake)
 "sRy" = (
 /obj/structure/flora/jungle/vines/dead/heavy,
-/turf/closed/wall/ancient_temple/sandstone,
+/turf/closed/wall/ancient_temple,
 /area/strata/interior/out_of_bounds)
 "sRz" = (
 /obj/effect/decal/lv_decals/cave_mud_corner{
@@ -45703,7 +45703,7 @@
 /turf/open/floor/strata/multi_tiles/southeast,
 /area/lazarus/robotics)
 "tgq" = (
-/obj/structure/machinery/landinglight/ds1/delayone{
+/obj/structure/machinery/landinglight/delayone{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -46297,7 +46297,7 @@
 /turf/open/floor/ancient_temple/ruined/north,
 /area/lazarus/ground/caves/west_caves)
 "tua" = (
-/turf/closed/wall/ancient_temple/sandstone,
+/turf/closed/wall/ancient_temple,
 /area/strata/interior/out_of_bounds)
 "tun" = (
 /obj/structure/machinery/light/small/blue{
@@ -49142,7 +49142,7 @@
 /turf/open/floor/hybrisa/carpet/carpetdarkerblue,
 /area/lazarus/sleep_male)
 "uzz" = (
-/obj/structure/machinery/landinglight/ds2{
+/obj/structure/machinery/landinglight{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -50336,7 +50336,7 @@
 /turf/open/floor/brown_dirt/random_rocks,
 /area/lazarus/ground/barrens/north_barrens)
 "uYm" = (
-/obj/structure/machinery/landinglight/ds2{
+/obj/structure/machinery/landinglight{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -54683,7 +54683,7 @@
 /turf/open/auto_turf/lv_grass/layer0,
 /area/lazarus/ground/barrens/north_barrens)
 "wUT" = (
-/obj/structure/machinery/landinglight/ds1{
+/obj/structure/machinery/landinglight{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -55951,7 +55951,7 @@
 /turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/ancient_temple/south_east/surface)
 "xvL" = (
-/turf/closed/wall/ancient_temple/sandstone/runed/decor,
+/turf/closed/wall/ancient_temple/runed,
 /area/strata/interior/out_of_bounds)
 "xvV" = (
 /obj/effect/decal/strata_decals/grime/grime4,
@@ -57627,7 +57627,7 @@
 /area/lazarus/ground/river/central_river/lake)
 "yii" = (
 /obj/effect/decal/strata_decals/grime/grime3,
-/turf/closed/wall/ancient_temple/sandstone,
+/turf/closed/wall/ancient_temple,
 /area/strata/interior/out_of_bounds)
 "yiS" = (
 /obj/structure/platform/wood,
