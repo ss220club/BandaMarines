@@ -1,3 +1,5 @@
+SET_PROTECTED_DATUM(/datum/controller/configuration)
+
 /datum/controller/configuration
 	name = "Configuration"
 
@@ -162,6 +164,9 @@
 			continue
 		_entries[esname] = E
 		_entries_by_type[I] = E
+
+		if(E.protection & (CONFIG_ENTRY_SENSITIVE|CONFIG_ENTRY_SENSITIVE_KEY))
+			GLOB.protected_config_entries += E
 
 
 /datum/controller/configuration/proc/RemoveEntry(datum/config_entry/CE)

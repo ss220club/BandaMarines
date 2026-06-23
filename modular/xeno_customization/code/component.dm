@@ -1,3 +1,5 @@
+#define TRICKERY_ANIMATION_TIME 0.5 SECONDS
+
 /datum/component/xeno_customization
 	dupe_mode = COMPONENT_DUPE_ALLOWED
 	/// The thing to show
@@ -165,14 +167,11 @@
 			// Only Xenos and Observers can see Non-Lore-Friendly customizations
 			if(!(isxeno(user) || isobserver(user) || isnewplayer(user)))
 				user.client.images |= render_source_atom.lore_image
-				return
-			user.client.images |= render_source_atom.non_lore_image
+			else
+				user.client.images |= render_source_atom.non_lore_image
 
 		if(XENO_CUSTOMIZATION_SHOW_LORE_FRIENDLY)
 			user.client.images |= render_source_atom.lore_image
-
-		if(XENO_CUSTOMIZATION_SHOW_NONE)
-			return
 
 /datum/component/xeno_customization/proc/on_update_filters(mob/owner)
 	SIGNAL_HANDLER
@@ -196,6 +195,7 @@
 		to_remove.icon = subtract_icon_path
 		to_remove.vis_flags |= VIS_INHERIT_DIR | VIS_INHERIT_ID | VIS_INHERIT_LAYER | VIS_INHERIT_PLANE
 		to_remove.render_target = "*subtract_filter_[REF(src)]"
+		to_remove.appearance_flags |= RESET_ALPHA
 		subtract_filter = filter(type="alpha", render_source = to_remove.render_target, flags = MASK_INVERSE)
 	if(!to_remove)
 		return
@@ -282,6 +282,10 @@
 	var/image/lore_image
 	/// The mob's original render_target value, when all components are deleted
 	var/initial_render_target_value
+	/// Seethrough image that the owner sees when Seethrough is active
+	var/image/trickery_image
+
+	var/datum/component/seethrough_mob/seethrough_component
 
 /atom/movable/xeno_customization_vis_obj/Initialize(mapload, ...)
 	. = ..()
@@ -302,9 +306,75 @@
 	non_lore_image.pixel_y = 0
 	lore_image.pixel_y = 0
 
+	RegisterSignal(parent_xeno, COMSIG_SEETHROUGH_TRICK, PROC_REF(trick_mob))
+	RegisterSignal(parent_xeno, COMSIG_SEETHROUGH_UNTRICK, PROC_REF(untrick_mob))
+
 /atom/movable/xeno_customization_vis_obj/Destroy(force)
 	parent_xeno.render_target = initial_render_target_value
 	parent_xeno.vis_contents -= src
 	QDEL_NULL(non_lore_image)
 	QDEL_NULL(lore_image)
+	QDEL_NULL(trickery_image)
+	UnregisterSignal(parent_xeno, COMSIG_SEETHROUGH_TRICK)
+	UnregisterSignal(parent_xeno, COMSIG_SEETHROUGH_UNTRICK)
 	. = ..()
+
+/atom/movable/xeno_customization_vis_obj/proc/copy_image_for_trickery(image/source)
+	var/image/copy = image(source, src)
+	copy.appearance = source.appearance
+	copy.vis_contents = source.vis_contents.Copy()
+	copy.filters = source.filters
+	copy.layer = source.layer
+	return copy
+
+/atom/movable/xeno_customization_vis_obj/proc/trick_mob()
+	SIGNAL_HANDLER
+	. = COMPONENT_SEETHROUGH_TRICKED
+
+	if(!parent_xeno.client)
+		return
+	if(!seethrough_component)
+		seethrough_component = parent_xeno.GetComponent(/datum/component/seethrough_mob)
+
+	switch(parent_xeno.client.prefs.xeno_customization_visibility)
+		if(XENO_CUSTOMIZATION_SHOW_ALL)
+			trickery_image = copy_image_for_trickery(non_lore_image)
+		if(XENO_CUSTOMIZATION_SHOW_LORE_FRIENDLY)
+			trickery_image = copy_image_for_trickery(lore_image)
+		else
+			trickery_image = image(src, src)
+	trickery_image.override = TRUE
+	trickery_image.plane = SEETHROUGH_PLANE
+	trickery_image.pixel_x = 0
+	trickery_image.pixel_y = 0
+
+	parent_xeno.client.images += trickery_image
+	animate(trickery_image, alpha = 100, time = TRICKERY_ANIMATION_TIME)
+	RegisterSignal(parent_xeno, list(COMSIG_MOB_LOGOUT, COMSIG_MOB_GHOSTIZE), PROC_REF(on_mob_logout))
+	seethrough_component.is_active = TRUE
+
+/atom/movable/xeno_customization_vis_obj/proc/untrick_mob(mob/owner, skip_animation)
+	SIGNAL_HANDLER
+	. = COMPONENT_SEETHROUGH_UNTRICKED
+
+	if(skip_animation)
+		clear_tricky()
+		return
+
+	animate(trickery_image, alpha = 255, time = TRICKERY_ANIMATION_TIME)
+	addtimer(CALLBACK(src, PROC_REF(clear_tricky)), TRICKERY_ANIMATION_TIME)
+
+/atom/movable/xeno_customization_vis_obj/proc/on_mob_logout()
+	SIGNAL_HANDLER
+
+	untrick_mob(skip_animation = TRUE)
+
+/atom/movable/xeno_customization_vis_obj/proc/clear_tricky()
+	SIGNAL_HANDLER
+
+	parent_xeno.client?.images -= trickery_image
+	QDEL_NULL(trickery_image)
+	UnregisterSignal(parent_xeno, list(COMSIG_MOB_LOGOUT, COMSIG_MOB_GHOSTIZE))
+	seethrough_component.is_active = FALSE
+
+#undef TRICKERY_ANIMATION_TIME

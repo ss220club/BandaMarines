@@ -147,3 +147,13 @@ instrumental = "Дикобразом"
 prepositional = "Дикобразе"
 gender = "male"
 tags = [ "cm13",]
+
+[bulwark]
+nominative = "Бастион"
+genitive = "Бастиона"
+dative = "Бастиону"
+accusative = "Бастион"
+instrumental = "Бастионом"
+prepositional = "Бастионе"
+gender = "male"
+tags = [ "cm13",]
