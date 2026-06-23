@@ -268,7 +268,7 @@
 				to_chat(xeno, SPAN_WARNING("Металлическая птица не может приземлиться здесь. Возможно, это место сейчас занято!"))
 				return
 			to_chat(xeno, SPAN_NOTICE("You command the metal bird to come down. Clever girl."))
-			xeno_announcement(SPAN_XENOANNOUNCE("Наша Королева направила металлическую птицу к улью около «[linked_lz]»."), xeno.hivenumber, XENO_GENERAL_ANNOUNCE) // SS220 EDIT ADDICTION
+			xeno_announcement(SPAN_XENOANNOUNCE("Наша Королева направила металлическую птицу к улью около «[landing_zone.name]»."),xeno.hivenumber,XENO_GENERAL_ANNOUNCE) // SS220 EDIT ADDICTION
 			log_ares_flight("Unknown", "Remote launch signal for [shuttle.name] received. Authentication garbled.")
 			log_ares_security("Security Alert", "Remote launch signal for [shuttle.name] received. Authentication garbled.")
 			return
@@ -414,7 +414,7 @@
 	addtimer(CALLBACK(hive, TYPE_PROC_REF(/datum/hive_status, override_evilution), original_evilution, FALSE), XENO_HIJACK_EVILUTION_TIME)
 
 	// Notify the yautja too so they stop the hunt
-	message_all_yautja("The serpent Queen has commanded the landing shuttle to depart.")
+	elder_overseer_message("The serpent Queen has commanded the landing shuttle to depart.")
 	playsound(src, 'sound/misc/queen_alarm.ogg')
 
 	if(istype(SSticker.mode, /datum/game_mode/colonialmarines))

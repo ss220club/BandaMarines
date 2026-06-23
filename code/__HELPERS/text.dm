@@ -32,7 +32,7 @@
 
 ///Helper for only alphanumeric characters plus common punctuation, spaces, underscore, hyphen, plus, vertical bar _ -+|.
 /proc/replace_non_alphanumeric_plus(text)
-	var/regex/alphanumeric = regex(@{"[^a-z0-9а-яА-ЯёЁ ,.?!|\-+_&]"}, "gi")
+	var/regex/alphanumeric = regex(@{"[^a-z0-9а-яА-ЯёЁ ,.'?!|\-+_&]"}, "gi")
 	return alphanumeric.Replace(text, "")
 
 /proc/readd_quotes(text)

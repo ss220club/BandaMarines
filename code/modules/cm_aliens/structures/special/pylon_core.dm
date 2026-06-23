@@ -19,7 +19,7 @@
 	var/plasma_stored = 0
 	var/plasma_required_to_repair = 1000
 
-	var/protection_level = TURF_PROTECTION_CAS
+	protection_level = TURF_PROTECTION_CAS
 
 	/// How many lesser drone spawns this pylon is able to spawn currently
 	var/lesser_drone_spawns = 0
@@ -35,6 +35,7 @@
 		return
 
 	icon_state = "pylon"
+
 
 /obj/effect/alien/resin/special/pylon/Initialize(mapload, hive_ref)
 	. = ..()
@@ -324,6 +325,7 @@
 			qdel(new_xeno)
 			return FALSE
 		to_chat(new_xeno, SPAN_XENOANNOUNCE("Вы - грудолом, пробудившийся от сна!"))
+		to_chat(new_xeno, SPAN_XENOANNOUNCE("Помните, что вам не следует покидать безопасность улья при отсутствии угроз, и что вам следует беречь себя до эволюции!"))
 		playsound(new_xeno, 'sound/effects/xeno_newlarva.ogg', 50, 1)
 		if(new_xeno.client)
 			if(new_xeno.client.prefs.toggles_flashing & FLASH_POOLSPAWN)
