@@ -628,7 +628,7 @@
 	if(word_ability)
 		word_ability.apply_cooldown()
 
-	xeno_announcement(input, hivenumber, "The words of the [name] reverberate in our head...")
+	xeno_announcement(input, hivenumber, "Слова [declent_ru(GENITIVE)] раздаются эхом в нашей голове...")
 
 	message_admins("[key_name_admin(src)] has created a Word of the Queen report:")
 	log_admin("[key_name_admin(src)] Word of the Queen: [input]")
@@ -640,19 +640,19 @@
 	set category = "Alien.Hivemind-Control"
 
 	if(stat)
-		to_chat(src, SPAN_WARNING("You can't do that now."))
+		to_chat(src, SPAN_WARNING("Вы не можете сделать это сейчас."))
 		return
 
 	if(!hive)
-		to_chat(src, SPAN_WARNING("You can't do that now."))
+		to_chat(src, SPAN_WARNING("Вы не можете сделать это сейчас."))
 		CRASH("[src] attempted to toggle slashing without a linked hive")
 
 	if(hive.hive_flags_locked)
-		to_chat(src, SPAN_WARNING("You can't do that now."))
+		to_chat(src, SPAN_WARNING("Вы не можете сделать это сейчас."))
 		return
 
 	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_TOGGLE_SLASH))
-		to_chat(src, SPAN_WARNING("You must wait a bit before you can toggle this again."))
+		to_chat(src, SPAN_WARNING("Вы должны немного подождать, прежде чем снова переключить это."))
 		return
 
 	var/current_setting = null
@@ -663,31 +663,38 @@
 	else if(!(hive.hive_flags & XENO_SLASH_ALLOW_ALL))
 		current_setting = "Forbidden"
 
-	var/choice = tgui_input_list(src, "Choose which level of harming hosts to permit to your hive.", "Harming", list("Forbidden", "Restricted - Infected Hosts", "Allowed"), theme="hive_status", default=current_setting)
+	// BANDAMARINES EDIT START
+	var/choice_translations = list(
+		"Allowed" = "Разрешено",
+		"Restricted - Infected Hosts" = "Запрещено заражённых хостов",
+		"Forbidden" = "Запрещено",
+	)
+	var/choice = tgui_input_list(usr, "Выберите правило о причинении вреда хостам для своего улья.", "Причинение вреда", choice_translations, theme="hive_status", default=current_setting, associative_list = TRUE)
+	// BANDAMARINES EDIT END
 	if(!choice)
 		return
 
 	if(choice == "Allowed")
 		if(current_setting == choice)
-			to_chat(src, SPAN_XENOWARNING("You already allow harming."))
+			to_chat(src, SPAN_XENOWARNING("Вы уже разрешили причинение вреда хостам."))
 			return
-		to_chat(src, SPAN_XENONOTICE("You allow harming."))
-		xeno_message(SPAN_XENOANNOUNCE("The Queen has <b>permitted</b> the harming of hosts! Go hog wild!"), hivenumber=hivenumber)
+		to_chat(src, SPAN_XENONOTICE("Вы разрешили причинение вреда хостам."))
+		xeno_message(SPAN_XENOANNOUNCE("Королева <b>разрешила</b> причинение вреда хостам! Действуйте без ограничений!"), hivenumber=hivenumber)
 		hive.hive_flags |= XENO_SLASH_ALLOW_ALL
 	else if(choice == "Restricted - Infected Hosts")
 		if(current_setting == choice)
-			to_chat(src, SPAN_XENOWARNING("You already forbid harming of infected hosts."))
+			to_chat(src, SPAN_XENOWARNING("Вы уже запретили причинение вреда заражённым хостам."))
 			return
-		to_chat(src, SPAN_XENONOTICE("You forbid harming of infected hosts."))
-		xeno_message(SPAN_XENOANNOUNCE("The Queen has <b>restricted</b> the harming of hosts. You can no longer slash infected hosts."), hivenumber=hivenumber)
+		to_chat(src, SPAN_XENONOTICE("Вы запретили причинение вреда заражённым хостам."))
+		xeno_message(SPAN_XENOANNOUNCE("Королева <b>ограничила</b> причинение вреда хостам. Вы больше не можете атаковать заражённых хостов."), hivenumber=hivenumber)
 		hive.hive_flags &= ~XENO_SLASH_INFECTED
 		hive.hive_flags |= XENO_SLASH_NORMAL
 	else if(choice == "Forbidden")
 		if(current_setting == choice)
-			to_chat(src, SPAN_XENOWARNING("You already forbid harming entirely."))
+			to_chat(src, SPAN_XENOWARNING("Вы уже запретили причинение вреда хостам."))
 			return
-		to_chat(src, SPAN_XENONOTICE("You forbid harming entirely."))
-		xeno_message(SPAN_XENOANNOUNCE("The Queen has <b>forbidden</b> the harming of hosts. You can no longer slash your enemies."), hivenumber=hivenumber)
+		to_chat(src, SPAN_XENONOTICE("Вы запретили причинение вреда хостам."))
+		xeno_message(SPAN_XENOANNOUNCE("Королева <b>запретила</b> причинение вреда хостам. Вы больше не можете атаковать своих врагов."), hivenumber=hivenumber)
 		hive.hive_flags &= ~XENO_SLASH_ALLOW_ALL
 
 	TIMER_COOLDOWN_START(src, COOLDOWN_TOGGLE_SLASH, 30 SECONDS)
@@ -698,19 +705,19 @@
 	set category = "Alien.Hivemind-Control"
 
 	if(stat)
-		to_chat(src, SPAN_WARNING("You can't do that now."))
+		to_chat(src, SPAN_WARNING("Вы не можете сделать это сейчас."))
 		return
 
 	if(!hive)
-		to_chat(src, SPAN_WARNING("You can't do that now."))
+		to_chat(src, SPAN_WARNING("Вы не можете сделать это сейчас."))
 		CRASH("[src] attempted to toggle construction without a linked hive")
 
 	if(hive.hive_flags_locked)
-		to_chat(src, SPAN_WARNING("You can't do that now."))
+		to_chat(src, SPAN_WARNING("Вы не можете сделать это сейчас."))
 		return
 
 	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_TOGGLE_CONSTRUCTION))
-		to_chat(src, SPAN_WARNING("You must wait a bit before you can toggle this again."))
+		to_chat(src, SPAN_WARNING("Вы должны немного подождать, прежде чем снова переключить это."))
 		return
 
 	var/current_setting = null
@@ -721,31 +728,38 @@
 	else if(!(hive.hive_flags & (XENO_CONSTRUCTION_LEADERS|XENO_CONSTRUCTION_NORMAL)) && (hive.hive_flags & XENO_CONSTRUCTION_QUEEN))
 		current_setting = "Queen"
 
-	var/choice = tgui_input_list(src, "Choose which level of construction placement freedom to permit to your hive.", "Construction", list("Queen", "Leaders", "Anyone"), theme="hive_status", default=current_setting)
+	// BANDAMARINES EDIT START
+	var/choice_translations = list(
+		"Queen" = "Королеве",
+		"Leaders" = "Лидерам",
+		"Anyone" = "Всем",
+	)
+	var/choice = tgui_input_list(src, "Выберите кому из улья разрешено строительство.", "Разрешение на строительство", choice_translations, theme="hive_status", default=current_setting, associative_list = TRUE)
+	// BANDAMARINES EDIT END
 	if(!choice)
 		return
 
 	if(choice == "Anyone")
 		if(current_setting == choice)
-			to_chat(src, SPAN_XENOWARNING("You already allow construction placement to all builder castes."))
+			to_chat(src, SPAN_XENOWARNING("Вы уже разрешили размещение построек всем кастам строителей."))
 			return
-		to_chat(src, SPAN_XENONOTICE("You allow construction placement to all builder castes."))
-		xeno_message("The Queen has <b>permitted</b> the placement of construction nodes to all builder castes!", hivenumber=hivenumber)
+		to_chat(src, SPAN_XENONOTICE("Вы разрешаете размещение построек всем кастам строителей."))
+		xeno_message(SPAN_XENOANNOUNCE("Королева <b>разрешила</b> размещение построек всем кастам строителей!"), hivenumber=hivenumber) // SS220 EDIT ADDICTION
 		hive.hive_flags |= XENO_CONSTRUCTION_ALLOW_ALL
 	else if(choice == "Leaders")
 		if(current_setting == choice)
-			to_chat(src, SPAN_XENOWARNING("You already restrict construction placement to leaders only."))
+			to_chat(src, SPAN_XENOWARNING("Вы уже разрешили размещение построек только лидерам."))
 			return
-		to_chat(src, SPAN_XENONOTICE("You restrict construction placement to leaders only."))
-		xeno_message("The Queen has <b>restricted</b> the placement of construction nodes to leading builder castes only.", hivenumber=hivenumber)
+		to_chat(src, SPAN_XENONOTICE("Вы разрешаете размещение построек только лидерам."))
+		xeno_message(SPAN_XENOANNOUNCE("Королева <b>разрешила</b> размещение построек только лидерам!"), hivenumber=hivenumber) // SS220 EDIT ADDICTION
 		hive.hive_flags &= ~XENO_CONSTRUCTION_NORMAL
 		hive.hive_flags |= XENO_CONSTRUCTION_QUEEN|XENO_CONSTRUCTION_LEADERS
 	else if(choice == "Queen")
 		if(current_setting == choice)
-			to_chat(src, SPAN_XENOWARNING("You already forbid construction placement entirely."))
+			to_chat(src, SPAN_XENOWARNING("Вы уже запретили размещение построек."))
 			return
-		to_chat(src, SPAN_XENONOTICE("You forbid construction placement entirely."))
-		xeno_message("The Queen has <b>forbidden</b> the placement of construction nodes to all but herself.", hivenumber=hivenumber)
+		to_chat(src, SPAN_XENONOTICE("Вы запрещаете размещение построек."))
+		xeno_message(SPAN_XENOANNOUNCE("Королева <b>запретила</b> размещение построек всем, кроме себя."), hivenumber=hivenumber) // SS220 EDIT ADDICTION
 		hive.hive_flags &= ~(XENO_CONSTRUCTION_LEADERS|XENO_CONSTRUCTION_NORMAL)
 		hive.hive_flags |= XENO_CONSTRUCTION_QUEEN
 
@@ -757,19 +771,19 @@
 	set category = "Alien.Hivemind-Control"
 
 	if(stat)
-		to_chat(src, SPAN_WARNING("You can't do that now."))
+		to_chat(src, SPAN_WARNING("Вы не можете сделать это сейчас."))
 		return
 
 	if(!hive)
-		to_chat(src, SPAN_WARNING("You can't do that now."))
+		to_chat(src, SPAN_WARNING("Вы не можете сделать это сейчас."))
 		CRASH("[src] attempted to toggle deconstruction without a linked hive")
 
 	if(hive.hive_flags_locked)
-		to_chat(src, SPAN_WARNING("You can't do that now."))
+		to_chat(src, SPAN_WARNING("Вы не можете сделать это сейчас."))
 		return
 
 	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_TOGGLE_DECONSTRUCTION))
-		to_chat(src, SPAN_WARNING("You must wait a bit before you can toggle this again."))
+		to_chat(src, SPAN_WARNING("Вы должны немного подождать, прежде чем снова переключить это."))
 		return
 
 	var/current_setting = null
@@ -780,31 +794,38 @@
 	else if(!(hive.hive_flags & (XENO_DECONSTRUCTION_LEADERS|XENO_DECONSTRUCTION_NORMAL)) && (hive.hive_flags & XENO_DECONSTRUCTION_QUEEN))
 		current_setting = "Queen"
 
-	var/choice = tgui_input_list(src, "Choose which level of destruction freedom to permit to your hive.", "Deconstruction", list("Queen", "Leaders", "Anyone"), theme="hive_status", default=current_setting)
+	// BANDAMARINES EDIT START
+	var/choice_translations = list(
+		"Queen" = "Королеве",
+		"Leaders" = "Лидерам",
+		"Anyone" = "Всем",
+	)
+	var/choice = tgui_input_list(src, "Выберите кому из улья разрешён снос построек.", "Снос построек", choice_translations, theme="hive_status", default=current_setting, associative_list = TRUE)
+	// BANDAMARINES EDIT END
 	if(!choice)
 		return
 
 	if(choice == "Anyone")
 		if(current_setting == choice)
-			to_chat(src, SPAN_XENOWARNING("You already allow special structure destruction to all builder castes and leaders."))
+			to_chat(src, SPAN_XENOWARNING("Вы уже разрешили снос построек всем кастам строителей и лидерам."))
 			return
-		to_chat(src, SPAN_XENONOTICE("You allow special structure destruction to all builder castes and leaders."))
-		xeno_message("The Queen has <b>permitted</b> the destruction of special structures to all builder castes and leaders!", hivenumber=hivenumber)
+		to_chat(src, SPAN_XENONOTICE("Вы разрешаете снос построек всем кастам строителей и лидерам."))
+		xeno_message(SPAN_XENOANNOUNCE("Королева <b>разрешила</b> снос построек всем кастам строителей и лидерам!"), hivenumber=hivenumber) // SS220 EDIT ADDICTION
 		hive.hive_flags |= XENO_DECONSTRUCTION_ALLOW_ALL
 	else if(choice == "Leaders")
 		if(current_setting == choice)
-			to_chat(src, SPAN_XENOWARNING("You already restrict special structure destruction to leaders only."))
+			to_chat(src, SPAN_XENOWARNING("Вы уже разрешили снос построек только лидерам."))
 			return
-		to_chat(src, SPAN_XENONOTICE("You restrict special structure destruction to leaders only."))
-		xeno_message("The Queen has <b>restricted</b> the destruction of special structures to leaders only.", hivenumber=hivenumber)
+		to_chat(src, SPAN_XENONOTICE("Вы разрешаете снос построек только лидерам."))
+		xeno_message(SPAN_XENOANNOUNCE("Королева <b>разрешила</b> снос построек только лидерам!"), hivenumber=hivenumber) // SS220 EDIT ADDICTION
 		hive.hive_flags &= ~XENO_DECONSTRUCTION_NORMAL
 		hive.hive_flags |= XENO_DECONSTRUCTION_QUEEN|XENO_DECONSTRUCTION_LEADERS
 	else if(choice == "Queen")
 		if(current_setting == choice)
-			to_chat(src, SPAN_XENOWARNING("You already forbid special structure destruction entirely."))
+			to_chat(src, SPAN_XENOWARNING("Вы уже запретили снос построек."))
 			return
-		to_chat(src, SPAN_XENONOTICE("You forbid special structure destruction entirely."))
-		xeno_message("The Queen has <b>forbidden</b> the destruction of special structures to all but herself.", hivenumber=hivenumber)
+		to_chat(src, SPAN_XENONOTICE("Вы запрещаете снос построек."))
+		xeno_message(SPAN_XENOANNOUNCE("Королева <b>запретила</b> снос построек всем, кроме себя."), hivenumber=hivenumber) // SS220 EDIT ADDICTION
 		hive.hive_flags &= ~(XENO_DECONSTRUCTION_LEADERS|XENO_DECONSTRUCTION_NORMAL)
 		hive.hive_flags |= XENO_DECONSTRUCTION_QUEEN
 
@@ -816,18 +837,18 @@
 	set category = "Alien.Hivemind-Control"
 
 	if(stat)
-		to_chat(src, SPAN_WARNING("You can't do that now."))
+		to_chat(src, SPAN_WARNING("Вы не можете сделать это сейчас."))
 
 	if(!hive)
-		to_chat(src, SPAN_WARNING("You can't do that now."))
+		to_chat(src, SPAN_WARNING("Вы не можете сделать это сейчас."))
 		CRASH("[src] attempted to toggle unnesting without a linked hive")
 
 	if(hive.hive_flags_locked)
-		to_chat(src, SPAN_WARNING("You can't do that now."))
+		to_chat(src, SPAN_WARNING("Вы не можете сделать это сейчас."))
 		return
 
 	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_TOGGLE_UNNESTING))
-		to_chat(src, SPAN_WARNING("You must wait a bit before you can toggle this again."))
+		to_chat(src, SPAN_WARNING("Вы должны немного подождать, прежде чем снова переключить это."))
 		return
 
 	var/current_setting = null
@@ -836,23 +857,29 @@
 	else if(hive.hive_flags & XENO_UNNESTING_RESTRICTED)
 		current_setting = "Drone castes"
 
-	var/choice = tgui_input_list(src, "Choose which level of unnesting freedom to permit to your hive.", "Unnesting", list("Drone castes", "Anyone"), theme="hive_status", default=current_setting)
+	// BANDAMARINES EDIT START
+	var/choice_translations = list(
+		"Drone castes" = "Только касте дронов",
+		"Anyone" = "Всем",
+	)
+	var/choice = tgui_input_list(src, "Выберите кому из улья разрешено извлекать хостов из гнезда.", "Извлечение хостов из гнезда", choice_translations, theme="hive_status", default=current_setting, associative_list = TRUE)
+	// BANDAMARINES EDIT END
 	if(!choice)
 		return
 
 	if(choice == "Anyone")
 		if(!(hive.hive_flags & XENO_UNNESTING_RESTRICTED))
-			to_chat(src, SPAN_XENOWARNING("You have already allowed everyone to unnest hosts."))
+			to_chat(src, SPAN_XENOWARNING("Вы уже разрешили всем извлекать хостов из гнезда."))
 			return
-		to_chat(src, SPAN_XENONOTICE("You have allowed everyone to unnest hosts."))
-		xeno_message("The Queen has <b>allowed</b> everyone to unnest hosts.", hivenumber=hivenumber)
+		to_chat(src, SPAN_XENONOTICE("Вы разрешили всем извлекать хостов из гнезда."))
+		xeno_message(SPAN_XENOANNOUNCE("Королева <b>разрешила</b> всем извлекать хостов из гнезда."), hivenumber=hivenumber) // SS220 EDIT ADDICTION
 		hive.hive_flags &= ~XENO_UNNESTING_RESTRICTED
 	else
 		if(hive.hive_flags & XENO_UNNESTING_RESTRICTED)
-			to_chat(src, SPAN_XENOWARNING("You have already forbidden anyone to unnest hosts, except for the drone caste."))
+			to_chat(src, SPAN_XENOWARNING("Вы уже запретили кому-либо извлекать хостов из гнезда, кроме касты дронов."))
 			return
-		to_chat(src, SPAN_XENONOTICE("You have forbidden anyone to unnest hosts, except for the drone caste."))
-		xeno_message("The Queen has <b>forbidden</b> anyone to unnest hosts, except for the drone caste.", hivenumber=hivenumber)
+		to_chat(src, SPAN_XENONOTICE("Вы запретили кому-либо извлекать хостов из гнезда, кроме касты дронов."))
+		xeno_message(SPAN_XENOANNOUNCE("Королева <b>запретила</b> кому-либо извлекать хостов из гнезда, кроме касты дронов."), hivenumber=hivenumber) // SS220 EDIT ADDICTION
 		hive.hive_flags |= XENO_UNNESTING_RESTRICTED
 
 	TIMER_COOLDOWN_START(src, COOLDOWN_TOGGLE_UNNESTING, 30 SECONDS)
