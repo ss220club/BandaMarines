@@ -553,6 +553,15 @@ GLOBAL_LIST_INIT(whitelisted_client_procs, list(
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_CLIENT_LOGGED_IN, src)
 	SEND_SIGNAL(src, COMSIG_CLIENT_LOGGED_IN)
 
+	GLOB.all_player_keys |= key
+	GLOB.all_player_keys_regex = regex(jointext(GLOB.all_player_keys, "|"), "g")
+
+	GLOB.all_player_ckeys |= ckey
+	GLOB.all_player_ckeys_regex = regex(jointext(GLOB.all_player_ckeys, "|"), "g")
+
+	GLOB.all_player_cids |= computer_id
+	GLOB.all_player_cids_regex = regex(jointext(GLOB.all_player_cids, "|"), "g")
+
 	if(CONFIG_GET(flag/ooc_country_flags))
 		spawn if(src)
 			ip2country(address, src)
@@ -1113,7 +1122,7 @@ GLOBAL_LIST_INIT(ooc_rank_iconstates, setup_ooc_rank_icons())
 GLOBAL_LIST_INIT(community_awards, get_community_awards())
 
 /proc/setup_ooc_rank_icons()
-	var/ooc_dmi_path = "config/ooc.dmi"
+	var/ooc_dmi_path = "icons/ooc.dmi" //BANDAMARINES EDIT
 	if(!fexists(ooc_dmi_path))
 		return list()
 	GLOB.ooc_rank_dmi = icon(file(ooc_dmi_path))

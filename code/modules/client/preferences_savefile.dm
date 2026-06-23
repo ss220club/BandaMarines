@@ -441,6 +441,9 @@
 	S["xeno_customizations"] >> xeno_customizations_string
 	S["quick_cast"] >> quick_cast
 	S["screentips"] >> screentips
+	S["show_hotkeys"] >> show_hotkeys
+	S["tts_seed_predator"] >> tts_seed_predator
+	S["tts_seed_synth"] >> tts_seed_synth
 	// BANDAMARINES EDIT END
 
 	//Sanitize
@@ -521,7 +524,7 @@
 
 	synthetic_name = synthetic_name ? sanitize_text(synthetic_name, initial(synthetic_name)) : initial(synthetic_name)
 	synthetic_type = sanitize_inlist(synthetic_type, PLAYER_SYNTHS, initial(synthetic_type))
-	synth_specialisation = sanitize_inlist(synth_specialisation, list("Generalised", "Engineering", "Medical", "Intel", "Military Police", "Command"), initial(synth_specialisation))
+	synth_specialisation = sanitize_inlist(synth_specialisation, list("Generalised", "Engineering", "Medical", "Intel", "Military Police", "Command", "Research"), initial(synth_specialisation))
 	predator_name = predator_name ? sanitize_text(predator_name, initial(predator_name)) : initial(predator_name)
 	predator_gender = sanitize_text(predator_gender, initial(predator_gender))
 	predator_age = sanitize_integer(predator_age, 100, 10000, initial(predator_age))
@@ -586,6 +589,7 @@
 	// Xeno Customizations are sanitized in /datum/xeno_customization_picker/setup(), we need DB and player entity ready for this
 	quick_cast = sanitize_integer(quick_cast, FALSE, TRUE, FALSE)
 	screentips = sanitize_integer(screentips, FALSE, TRUE, TRUE)
+	show_hotkeys = sanitize_integer(show_hotkeys, FALSE, TRUE, TRUE)
 	// BANDAMARINES EDIT END
 
 	if(!islist(custom_keybinds))
@@ -733,6 +737,9 @@
 	S["quick_cast"] << quick_cast
 	S["screentips"] << screentips
 	S["xeno_customizations"] << xeno_customizations_string
+	S["show_hotkeys"] << show_hotkeys
+	S["tts_seed_predator"] << tts_seed_predator
+	S["tts_seed_synth"] << tts_seed_synth
 	// BANDAMARINES EDIT END
 
 	return TRUE
@@ -1085,6 +1092,8 @@
 		custom_key.contents = keybind["contents"]
 		custom_key.when_human = keybind["when_human"]
 		custom_key.when_xeno = keybind["when_xeno"]
+		custom_key.when_yautja = keybind["when_yautja"]
+		custom_key.when_synth = keybind["when_synth"]
 
 		key_to_custom_keybind[keybind["keybinding"]] = custom_key
 

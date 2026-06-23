@@ -18,6 +18,7 @@
 #include "code/base_seeds/mobs/other.dm"
 #include "code/base_seeds/mobs/pets.dm"
 #include "code/base_seeds/objs/objs.dm"
+#include "code/tts_equipment_presets.dm"
 #include "code/tts_preferences.dm"
 #include "code/tts_ui_explorer.dm"
 #include "code/providers/silero.dm"

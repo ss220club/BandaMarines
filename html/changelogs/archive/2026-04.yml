@@ -137,3 +137,6 @@
   - rscadd: Resin doors and walls construct wall above them when made in open, damage
       taken by that wall is transfered to the lower wall and they get destroyed in
       unison. Bullet pings on upper wall are mirrored on lower one to alert the xenos
+2026-04-29:
+  Rocky0558:
+  - bugfix: Sensor tower now damaging by explosions rather than repairing

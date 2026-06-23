@@ -832,6 +832,15 @@ instrumental = "шлемом морпеха M12"
 prepositional = "шлеме морпеха M12"
 gender = "male"
 
+["m12 closed pattern dust helmet"]
+nominative = "закрытый шлем морпеха M12"
+genitive = "закрытого шлема морпеха M12"
+dative = "закрытому шлему морпеха M12"
+accusative = "закрытый шлем морпеха M12"
+instrumental = "закрытым шлемом морпеха M12"
+prepositional = "закрытом шлеме морпеха M12"
+gender = "male"
+
 ["m10 pattern officer helmet"]
 nominative = "шлем офицера М10"
 genitive = "шлема офицера М10"
