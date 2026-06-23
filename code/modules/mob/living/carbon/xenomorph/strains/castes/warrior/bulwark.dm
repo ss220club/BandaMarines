@@ -51,8 +51,8 @@
 
 /datum/behavior_delegate/warrior_bulwark/append_to_stat()
 	. = list()
-	. += "Передняя броня: +[frontal_armor]"
-	. += "Боковая броня: +[sided_armor]"
+	. += "Front Armor: +[frontal_armor]"
+	. += "Side Armor: +[sided_armor]"
 	if(HAS_TRAIT(bound_xeno, TRAIT_ABILITY_ENCLOSED_PLATES))
 		. += "Encased Plates: -[XENO_DAMAGE_MOD_BULWARK] Claws Damage."
 	var/datum/action/xeno_action/onclick/reflective_shield/ability_used = get_action(bound_xeno, /datum/action/xeno_action/onclick/reflective_shield)
