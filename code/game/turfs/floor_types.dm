@@ -4539,13 +4539,13 @@
 /turf/open/floor/white2/north
 	dir = NORTH
 
-/turf/open/floor/whitecorners2
-	icon_state = "whitecorners2"
+/turf/open/floor/whitecorners
+	icon_state = "whitecorners"
 
-/turf/open/floor/whitecorners2/north
+/turf/open/floor/whitecorners/north
 	dir = NORTH
 
-/turf/open/floor/darkyellow2/north
+/turf/open/floor/darkyellow/north
 	dir = NORTH
 
 /turf/open/floor/darkyellowcorners2
@@ -4698,7 +4698,7 @@
 /turf/open/floor/white2/east
 	dir = EAST
 
-/turf/open/floor/whitecorners2/east
+/turf/open/floor/whitecorners/east
 	dir = EAST
 
 /turf/open/floor/darkyellow2/east
@@ -5076,7 +5076,7 @@
 /turf/open/floor/white2/west
 	dir = WEST
 
-/turf/open/floor/whitecorners2/west
+/turf/open/floor/whitecorners/west
 	dir = WEST
 
 /turf/open/floor/darkyellow2/west

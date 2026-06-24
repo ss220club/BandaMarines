@@ -731,6 +731,12 @@
 	is_weedable = NOT_WEEDABLE
 	baseturfs = /turf/open/floor/waterfall
 
+/turf/open/floor/waterfall/break_tile()
+	return
+
+/turf/open/floor/waterfall/burn_tile()
+	return
+
 /turf/open/floor/waterfall/top
 
 	icon_state = "waterfall_top"
