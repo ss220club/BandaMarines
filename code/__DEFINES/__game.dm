@@ -42,13 +42,13 @@
 #define MAP_NEW_VARADERO "New Varadero"//ice colony underground but as its own map
 #define MAP_TYRARGO_RIFT "Tyrargo Rift"
 #define MAP_WHITE_ANTRE_RESEARCH_FACILITY "White Antre Research Facility"
-#define MAP_LV1021_FALCONS_FURY "LV-1021: Operation Falcon's Fury"
 #define MAP_CHINOOK "Chinook 91 GSO" //admin level
 #define MAP_ROSTOCK "SSV Rostock" //UPP Warship
 #define MAP_HUNTERSHIP "Hunter Ship"
 #define GAMEMODE_WHISKEY_OUTPOST "Whiskey Outpost"
 #define GAMEMODE_HIVE_WARS "Hive Wars"
 #define GAMEMODE_FACTION_CLASH_UPP_CM "Faction Clash UPP CM"
+#define MAP_LV1021_FALCONS_FURY "LV-1021: Operation Falcon's Fury"
 
 /// Number of players before we switch to lowpop maps only (LV, BR, Prison).
 #define PLAYERCOUNT_LOWPOP_MAP_LIMIT 130

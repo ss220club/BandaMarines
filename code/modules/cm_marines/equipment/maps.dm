@@ -144,6 +144,11 @@ GLOBAL_LIST_INIT(mapless_maps, list(MAP_RUNTIME, MAP_CHINOOK, MAIN_SHIP_DEFAULT_
 	html_link = "images/9/94/New_Varadero.png"
 	color = "red"
 
+/obj/item/map/lv1021_map
+	name = "\improper LV-1021 map"
+	desc = "A general overview of the aproximate area of the CLF camp."
+	html_link = "images/d/da/White_Antre_Research_Facility.png"
+
 /obj/item/map/tyrargo_rift
 	name = "\improper Tyrargo Rift map"
 	desc = "A labeled blueprint of the UA city Tyrargo Rift."
@@ -154,11 +159,6 @@ GLOBAL_LIST_INIT(mapless_maps, list(MAP_RUNTIME, MAP_CHINOOK, MAIN_SHIP_DEFAULT_
 	desc = "An overview of the White Antre facility schematics."
 	html_link = "images/d/da/White_Antre_Research_Facility.png"
 	color = "cyan"
-
-/obj/item/map/lv1021_map
-	name = "\improper LV-1021 map"
-	desc = "A general overview of the aproximate area of the CLF camp."
-	html_link = "images/d/da/White_Antre_Research_Facility.png"
 
 /obj/item/map/galaxy
 	name = "\improper Galaxy map"
