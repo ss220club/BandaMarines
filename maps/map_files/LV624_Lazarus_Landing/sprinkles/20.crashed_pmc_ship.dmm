@@ -985,7 +985,7 @@
 /turf/open/floor/brown_dirt/random_rocks,
 /area/lazarus/ground/barrens/north_barrens)
 "oq" = (
-/turf/closed/shuttle/dropship4/WY/HorizonRunner{
+/turf/closed/shuttle/dropship_wy/HorizonRunner{
 	icon_state = "leftengine_1"
 	},
 /area/strata/interior/out_of_bounds)
@@ -2619,7 +2619,7 @@
 /area/lazarus/ground/barrens/central_barrens)
 "Mb" = (
 /obj/effect/decal/large_stain,
-/turf/closed/shuttle/dropship4/WY/HorizonRunner{
+/turf/closed/shuttle/dropship_wy/HorizonRunner{
 	icon_state = "rightengine_1"
 	},
 /area/strata/interior/out_of_bounds)

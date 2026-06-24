@@ -107,7 +107,7 @@
 /obj/structure/closet/crate/science,
 /obj/effect/landmark/objective_landmark/science,
 /obj/item/paper/research_notes/grant/high,
-/obj/item/pamphlet/skill/science,
+/obj/item/pamphlet/upgradeable/science,
 /obj/effect/landmark/objective_landmark/science,
 /obj/effect/landmark/objective_landmark/science,
 /obj/effect/landmark/objective_landmark/science,

@@ -3917,7 +3917,7 @@
 	dir = 4
 	},
 /obj/effect/decal/lv_decals/red_mud_corner,
-/obj/item/clothing/accessory/clf_cape{
+/obj/item/clothing/accessory/cape/clf_cape{
 	pixel_x = 5;
 	pixel_y = 3
 	},

@@ -81,11 +81,11 @@
 /area/lazarus/ground/jungle/south_west_jungle)
 "kV" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
-/turf/closed/wall/ancient_temple/sandstone/runed/decor,
+/turf/closed/wall/ancient_temple/runed,
 /area/strata/interior/out_of_bounds)
 "lf" = (
 /obj/structure/flora/jungle/vines/blue/light_3,
-/turf/closed/wall/ancient_temple/sandstone/runed/decor,
+/turf/closed/wall/ancient_temple/runed,
 /area/lazarus/ground/jungle/south_west_jungle)
 "lX" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_4,
@@ -132,11 +132,11 @@
 /area/lazarus/ground/jungle/south_west_jungle)
 "ra" = (
 /obj/structure/flora/jungle/vines/dead/light_3,
-/turf/closed/wall/ancient_temple/sandstone/runed/decor,
+/turf/closed/wall/ancient_temple/runed,
 /area/lazarus/ground/jungle/south_west_jungle)
 "rG" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
-/turf/closed/wall/ancient_temple/sandstone/runed/decor,
+/turf/closed/wall/ancient_temple/runed,
 /area/lazarus/ground/jungle/south_west_jungle)
 "rQ" = (
 /obj/structure/platform_decoration/stone/ancient_temple/alt,
@@ -227,13 +227,13 @@
 /area/strata/interior/out_of_bounds)
 "CU" = (
 /obj/structure/flora/jungle/vines/dead/light_1,
-/turf/closed/wall/ancient_temple/sandstone/runed/decor,
+/turf/closed/wall/ancient_temple/runed,
 /area/lazarus/ground/jungle/south_west_jungle)
 "Dj" = (
 /obj/structure/tunnel{
 	desc = "A tunnel entrance. Where the hell does it go?"
 	},
-/turf/closed/wall/ancient_temple/sandstone/runed/decor,
+/turf/closed/wall/ancient_temple/runed,
 /area/lazarus/ground/jungle/south_west_jungle)
 "Fq" = (
 /obj/structure/flora/jungle/vines/dead/light_2,
@@ -342,11 +342,11 @@
 /area/lazarus/ground/jungle/south_west_jungle)
 "Qi" = (
 /obj/structure/flora/jungle/vines/dead/heavy,
-/turf/closed/wall/ancient_temple/sandstone/runed/decor,
+/turf/closed/wall/ancient_temple/runed,
 /area/lazarus/ground/jungle/south_west_jungle)
 "RE" = (
 /obj/structure/flora/jungle/vines/dead/light_2,
-/turf/closed/wall/ancient_temple/sandstone/runed/decor,
+/turf/closed/wall/ancient_temple/runed,
 /area/lazarus/ground/jungle/south_west_jungle)
 "RK" = (
 /obj/structure/flora/bush/ausbushes/ywflowers,
@@ -361,7 +361,7 @@
 /turf/open/auto_turf/lv_grass/layer1,
 /area/lazarus/ground/jungle/south_west_jungle)
 "SQ" = (
-/turf/closed/wall/ancient_temple/sandstone/runed/decor,
+/turf/closed/wall/ancient_temple/runed,
 /area/lazarus/ground/jungle/south_west_jungle)
 "Tl" = (
 /turf/open/gm/grass/grass1,

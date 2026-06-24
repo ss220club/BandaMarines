@@ -7,7 +7,7 @@
 /area/lazarus/ground/jungle/south_east_jungle)
 "bL" = (
 /obj/structure/flora/jungle/vines/dead/light_1,
-/turf/closed/wall/ancient_temple/sandstone/runed/decor,
+/turf/closed/wall/ancient_temple/runed,
 /area/strata/interior/out_of_bounds)
 "bS" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
@@ -39,7 +39,7 @@
 /area/lazarus/ground/jungle/south_east_jungle)
 "gm" = (
 /obj/structure/flora/jungle/vines/dead/heavy,
-/turf/closed/wall/ancient_temple/sandstone/runed/decor,
+/turf/closed/wall/ancient_temple/runed,
 /area/strata/interior/out_of_bounds)
 "gB" = (
 /obj/effect/landmark/yautja_teleport,
@@ -230,7 +230,7 @@
 /area/lazarus/ground/jungle/south_east_jungle)
 "LF" = (
 /obj/structure/flora/jungle/vines/dead/light_3,
-/turf/closed/wall/ancient_temple/sandstone/runed/decor,
+/turf/closed/wall/ancient_temple/runed,
 /area/strata/interior/out_of_bounds)
 "LG" = (
 /obj/structure/flora/jungle/vines/dead/light_3,
@@ -312,7 +312,7 @@
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/jungle/south_east_jungle)
 "QN" = (
-/turf/closed/wall/ancient_temple/sandstone/runed/decor,
+/turf/closed/wall/ancient_temple/runed,
 /area/strata/interior/out_of_bounds)
 "SK" = (
 /obj/structure/flora/jungle/vines/dead/light_3,
