@@ -20,7 +20,7 @@
         "/datum/equipment_preset/survivor/clf/coordinator"
     ],
     "map_item_type": "/obj/item/map/fort_mcneil",
-    "announce_text": "An automated distress signal has been received from the colony site of Fort McNeil, on the border world of White Antre. A response team from the ###SHIPNAME### has been dispatched to investigate.",
+    "announce_text": "С колониального объекта \"Форт Макнейл\", расположенного на пограничной планете \"Уайт Антр\", получен автоматический сигнал бедствия. Группа реагирования с корабля ###SHIPNAME### отправлена для проведения расследования.",
     "monkey_types": [
         "farwa",
         "monkey",
