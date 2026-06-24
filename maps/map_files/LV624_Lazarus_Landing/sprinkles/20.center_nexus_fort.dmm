@@ -74,9 +74,7 @@
 	dir = 4;
 	color = "#390000"
 	},
-/turf/open/floor/interior/sun_emblem{
-	desc = "The emblem of the sun etched in gold, a radiant seal that crowns the dome's foundation. At its center lies a block engraved with Weyland-Yutani's insignia and the purpose of this place."
-	},
+/turf/open/floor/interior/sun_emblem,
 /area/template_noop)
 "eV" = (
 /obj/structure/disposalpipe/junction{
@@ -438,10 +436,7 @@
 /obj/effect/decal/hybrisa/dirt,
 /obj/item/ammo_casing,
 /obj/item/ammo_casing,
-/turf/open/floor/interior/sun_emblem{
-	dir = 4;
-	desc = "The emblem of the sun etched in gold, a radiant seal that crowns the dome's foundation. At its center lies a block engraved with Weyland-Yutani's insignia and the purpose of this place."
-	},
+/turf/open/floor/interior/sun_emblem,
 /area/template_noop)
 "qq" = (
 /obj/effect/decal/hybrisa/deco_edging/corner{
@@ -563,9 +558,7 @@
 /obj/item/ammo_casing,
 /obj/item/ammo_casing,
 /obj/item/ammo_casing,
-/turf/open/floor/interior/sun_emblem{
-	dir = 10
-	},
+/turf/open/floor/interior/sun_emblem,
 /area/template_noop)
 "tK" = (
 /obj/structure/pipes/standard/simple/hidden/cyan,
@@ -761,9 +754,7 @@
 /obj/item/ammo_casing,
 /obj/item/ammo_casing,
 /obj/item/ammo_casing,
-/turf/open/floor/interior/sun_emblem{
-	dir = 5
-	},
+/turf/open/floor/interior/sun_emblem,
 /area/template_noop)
 "Ck" = (
 /obj/effect/decal/hybrisa/deco_edging{
@@ -1005,9 +996,7 @@
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/landmark/corpsespawner/colonist/random,
-/turf/open/floor/interior/sun_emblem{
-	dir = 1
-	},
+/turf/open/floor/interior/sun_emblem,
 /area/template_noop)
 "LP" = (
 /obj/effect/decal/large_stain,
@@ -1126,9 +1115,7 @@
 /obj/item/ammo_casing,
 /obj/item/ammo_casing,
 /obj/item/ammo_casing,
-/turf/open/floor/interior/sun_emblem{
-	dir = 8
-	},
+/turf/open/floor/interior/sun_emblem,
 /area/template_noop)
 "Ps" = (
 /obj/structure/barricade/wooden{
@@ -1181,9 +1168,7 @@
 	dir = 4;
 	color = "#390000"
 	},
-/turf/open/floor/interior/sun_emblem{
-	dir = 9
-	},
+/turf/open/floor/interior/sun_emblem,
 /area/template_noop)
 "Qj" = (
 /obj/effect/decal/cleanable/blood,
@@ -1202,9 +1187,7 @@
 /obj/item/limb/foot/l_foot,
 /obj/item/ammo_casing,
 /obj/item/ammo_casing,
-/turf/open/floor/interior/sun_emblem{
-	dir = 6
-	},
+/turf/open/floor/interior/sun_emblem,
 /area/template_noop)
 "QW" = (
 /obj/effect/decal/cleanable/blood/drip{

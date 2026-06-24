@@ -276,9 +276,7 @@
 /obj/structure/prop/ice_colony/ground_wire{
 	dir = 1
 	},
-/turf/open/floor/brown_dirt/random_rocks_alt{
-	dir = 6
-	},
+/turf/open/floor/brown_dirt/random_rocks_alt,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "eL" = (
 /obj/structure/prop/rock/brown{
@@ -760,9 +758,7 @@
 /turf/open/auto_turf/lv_grass/layer0,
 /area/template_noop)
 "mg" = (
-/turf/open/floor/brown_dirt/random_rocks_alt{
-	dir = 6
-	},
+/turf/open/floor/brown_dirt/random_rocks_alt,
 /area/template_noop)
 "mv" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner,
@@ -989,9 +985,7 @@
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "qX" = (
-/obj/structure/flora/grass/tallgrass/jungle_alt_2/corner{
-	dir = 3
-	},
+/obj/structure/flora/grass/tallgrass/jungle_alt_2/corner,
 /turf/open/auto_turf/lv_grass/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "rd" = (
@@ -1026,9 +1020,7 @@
 /obj/structure/prop/ice_colony/surveying_device/measuring_device{
 	dir = 4
 	},
-/turf/open/floor/brown_dirt/random_rocks_alt{
-	dir = 6
-	},
+/turf/open/floor/brown_dirt/random_rocks_alt,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "rA" = (
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_11,
@@ -1255,17 +1247,13 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "vY" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/turf/open/floor/brown_dirt/random_rocks_alt{
-	dir = 6
-	},
+/turf/open/floor/brown_dirt/random_rocks_alt,
 /area/template_noop)
 "wa" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_y = 17
 	},
-/turf/open/floor/brown_dirt/random_rocks_alt{
-	dir = 6
-	},
+/turf/open/floor/brown_dirt/random_rocks_alt,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "wd" = (
 /obj/structure/prop/ice_colony/ground_wire{
@@ -1547,9 +1535,7 @@
 /obj/structure/closet/coffin/woodencrate/old,
 /obj/item/stack/sheet/wood,
 /obj/effect/landmark/objective_landmark/science,
-/turf/open/floor/brown_dirt/random_rocks_alt{
-	dir = 6
-	},
+/turf/open/floor/brown_dirt/random_rocks_alt,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Bj" = (
 /obj/structure/stairs/perspective{
@@ -1891,9 +1877,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Hm" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
-/turf/open/floor/brown_dirt/random_rocks_alt{
-	dir = 6
-	},
+/turf/open/floor/brown_dirt/random_rocks_alt,
 /area/template_noop)
 "Ho" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
@@ -2286,9 +2270,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "ML" = (
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/brown_dirt/random_rocks_alt{
-	dir = 6
-	},
+/turf/open/floor/brown_dirt/random_rocks_alt,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "MS" = (
 /obj/effect/hunter/ancient_temple/deco_border{
@@ -2740,9 +2722,7 @@
 	},
 /area/strata/interior/out_of_bounds)
 "TQ" = (
-/turf/open/floor/brown_dirt/random_rocks_alt{
-	dir = 6
-	},
+/turf/open/floor/brown_dirt/random_rocks_alt,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "TR" = (
 /obj/structure/prop/ice_colony/ground_wire,
@@ -2964,9 +2944,7 @@
 /area/lazarus/ground/caves/south_west_caves)
 "Xb" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/turf/open/floor/brown_dirt/random_rocks_alt{
-	dir = 6
-	},
+/turf/open/floor/brown_dirt/random_rocks_alt,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Xc" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble,
@@ -3016,9 +2994,7 @@
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/turf/open/floor/brown_dirt/random_rocks_alt{
-	dir = 6
-	},
+/turf/open/floor/brown_dirt/random_rocks_alt,
 /area/template_noop)
 "Ye" = (
 /turf/open/auto_turf/lv_sand/layer0,

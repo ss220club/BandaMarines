@@ -716,6 +716,7 @@
 // Misc
 
 /turf/open/floor/ancient_temple/fake_wall_dark
+	name = "sandstone temple wall"
 	icon_state = "fake_wall_dark"
 
 // Waterfall

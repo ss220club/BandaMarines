@@ -2689,9 +2689,7 @@
 /area/lazarus/ground/barrens/north_barrens)
 "Of" = (
 /obj/effect/landmark/big_fog_marker,
-/turf/open/floor/brown_dirt/random_rocks_alt{
-	dir = 6
-	},
+/turf/open/floor/brown_dirt/random_rocks_alt,
 /area/lazarus/ground/barrens/central_barrens)
 "Og" = (
 /obj/effect/decal/large_stain{

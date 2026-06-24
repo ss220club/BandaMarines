@@ -4,9 +4,7 @@
 /turf/open/auto_turf/lv_grass/layer0,
 /area/template_noop)
 "aE" = (
-/turf/open/floor/brown_dirt/random_rocks_alt{
-	dir = 6
-	},
+/turf/open/floor/brown_dirt/random_rocks_alt,
 /area/template_noop)
 "aL" = (
 /turf/open/auto_turf/lv_grass/layer1,
@@ -34,9 +32,7 @@
 /area/template_noop)
 "fw" = (
 /obj/structure/fence/dark/overgrown,
-/turf/open/floor/brown_dirt/random_rocks_alt{
-	dir = 6
-	},
+/turf/open/floor/brown_dirt/random_rocks_alt,
 /area/template_noop)
 "he" = (
 /obj/structure/flora/jungle/vines/blue/heavy,

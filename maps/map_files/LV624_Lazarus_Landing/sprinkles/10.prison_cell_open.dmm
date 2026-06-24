@@ -86,9 +86,7 @@
 "T" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/brown_dirt/random_rocks_alt{
-	dir = 6
-	},
+/turf/open/floor/brown_dirt/random_rocks_alt,
 /area/template_noop)
 "U" = (
 /obj/structure/machinery/door/airlock/light_grey_lv/utility{

@@ -68,9 +68,7 @@
 /turf/open/floor/prison/cell_stripe,
 /area/lazarus/landing_zones/lz2)
 "x" = (
-/turf/open/floor/brown_dirt/random_rocks_alt{
-	dir = 6
-	},
+/turf/open/floor/brown_dirt/random_rocks_alt,
 /area/lazarus/landing_zones/lz2)
 "A" = (
 /obj/effect/decal/lv_decals/red_mud_corner{

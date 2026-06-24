@@ -19,9 +19,7 @@
 /turf/open/floor/interior/wood/alt,
 /area/lazarus/ground/jungle/west_jungle)
 "cm" = (
-/obj/structure/flora/grass/tallgrass/jungle_alt_2/corner{
-	dir = 3
-	},
+/obj/structure/flora/grass/tallgrass/jungle_alt_2/corner,
 /turf/open/auto_turf/lv_grass/layer0,
 /area/lazarus/ground/jungle/west_jungle)
 "co" = (
@@ -805,9 +803,7 @@
 /turf/open/floor/interior/wood_sat,
 /area/lazarus/shack_alt)
 "Ka" = (
-/turf/open/floor/brown_dirt/random_rocks_alt{
-	dir = 6
-	},
+/turf/open/floor/brown_dirt/random_rocks_alt,
 /area/lazarus/ground/jungle/west_jungle)
 "Kg" = (
 /obj/structure/bed/chair/wood/normal,
