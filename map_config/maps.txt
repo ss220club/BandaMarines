@@ -80,3 +80,6 @@ endmap
 map tyrargo_rift
     minplayers 110
 endmap
+
+map lv1021_falcons_fury
+endmap
