@@ -31538,9 +31538,7 @@
 /obj/structure/platform/stone/ancient_temple/alt/east,
 /obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/vehicles,
-/turf/open/floor/ancient_temple/fake_wall_dark{
-	name = "sandstone temple wall"
-	},
+/turf/open/floor/ancient_temple/fake_wall_dark,
 /area/strata/interior/out_of_bounds)
 "nqr" = (
 /obj/effect/decal/lv_decals/cave_mud_corner{
@@ -44190,9 +44188,7 @@
 	icon_state = "rope_flipped"
 	},
 /obj/structure/blocker/forcefield/vehicles,
-/turf/open/floor/ancient_temple/fake_wall_dark{
-	name = "sandstone temple wall"
-	},
+/turf/open/floor/ancient_temple/fake_wall_dark,
 /area/strata/interior/out_of_bounds)
 "sHt" = (
 /obj/structure/platform/stone/ancient_temple/west,

@@ -70,9 +70,6 @@
 	},
 /turf/open/floor/ancient_temple/base,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
-"aA" = (
-/turf/open/floor/brown_dirt/random_rocks_alt,
-/area/lazarus/ground/jungle/north_west_jungle/dense)
 "aF" = (
 /obj/effect/decal/lv_decals/red_mud_corner{
 	dir = 1
@@ -2756,9 +2753,6 @@
 /obj/structure/flora/jungle/vines/dead/light_2,
 /turf/closed/wall/wood/plain,
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
-"ET" = (
-/turf/open/floor/brown_dirt/random_rocks_alt,
-/area/template_noop)
 "EU" = (
 /obj/effect/decal/lv_decals/red_mud_corner{
 	dir = 1
@@ -4181,9 +4175,6 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "VO" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
-/obj/structure/barricade/wooden{
-	dir = 8
-	},
 /obj/structure/barricade/wooden,
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
@@ -5039,7 +5030,7 @@ yr
 ZM
 ZM
 Fr
-ET
+Fr
 Zc
 Po
 Po
@@ -5801,7 +5792,7 @@ EO
 TC
 Tc
 CZ
-aA
+nT
 od
 iQ
 fV
@@ -5866,7 +5857,7 @@ fF
 Zd
 GL
 fV
-aA
+nT
 sm
 iQ
 ys
@@ -5922,7 +5913,7 @@ HE
 XB
 kS
 AR
-aA
+nT
 ys
 Mq
 Mq
@@ -6135,7 +6126,7 @@ mR
 fV
 od
 iQ
-aA
+nT
 ys
 Mq
 vA
@@ -6272,7 +6263,7 @@ yr
 jo
 LO
 lb
-aA
+nT
 BQ
 OI
 Mq
@@ -6388,7 +6379,7 @@ PG
 Mq
 kD
 yd
-aA
+nT
 wY
 ue
 Ah
@@ -6438,7 +6429,7 @@ Eb
 tw
 uy
 Mq
-aA
+nT
 od
 ZK
 uh
@@ -6722,7 +6713,7 @@ vs
 vs
 vs
 Iu
-ET
+Fr
 Ho
 Po
 Zc
@@ -7079,7 +7070,7 @@ kD
 Mq
 BQ
 iR
-aA
+nT
 fO
 Mq
 jJ
@@ -7087,7 +7078,7 @@ Nq
 Nq
 Nq
 Nq
-ET
+Fr
 GY
 ZM
 Po
@@ -7192,7 +7183,7 @@ ys
 Mq
 Nq
 Po
-ET
+Fr
 ZM
 ZM
 Zc
@@ -7250,7 +7241,7 @@ GY
 iV
 iV
 Zc
-ET
+Fr
 Zc
 fm
 fm

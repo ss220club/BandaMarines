@@ -4539,8 +4539,11 @@
 /turf/open/floor/white2/north
 	dir = NORTH
 
+/turf/open/floor/darkyellow2/north
+	dir = NORTH
+
 /turf/open/floor/whitecorners
-	icon_state = "whitecorners"
+	icon_state = "whitecorner"
 
 /turf/open/floor/whitecorners/north
 	dir = NORTH
