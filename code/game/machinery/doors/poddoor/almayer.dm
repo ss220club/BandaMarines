@@ -63,6 +63,9 @@
 	explo_proof = TRUE
 	id = ""
 
+/obj/structure/machinery/door/poddoor/almayer/locked/elevator
+	explo_proof = TRUE
+
 /obj/structure/machinery/door/poddoor/almayer/locked/attackby(obj/item/C as obj, mob/user as mob)
 	if(HAS_TRAIT(C, TRAIT_TOOL_CROWBAR))
 		return
@@ -73,6 +76,11 @@
 	opacity = TRUE
 
 /obj/structure/machinery/door/poddoor/almayer/planet_side_blastdoor
+	name = "Lockdown"
 	density = TRUE
 	opacity = TRUE
 	vehicle_resistant = TRUE
+	needs_power = FALSE
+	unacidable = TRUE
+	emp_proof = TRUE
+	explo_proof = TRUE

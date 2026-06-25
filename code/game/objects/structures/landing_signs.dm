@@ -118,3 +118,12 @@
 	name = "Fort McNeil - Colony Sign"
 	desc = "A small sign denoting this as the colony of Fort McNeil. The sign proclaims a population of 536, but a more recent lather of red paint has partially removed the 5."
 	icon_state = "antre_sign_2"
+
+/obj/structure/lz_sign/sekhmet_sign
+	name = "Sekhmet Swamp landing sign"
+	desc = "A large sign that reads 'Boloto - Sekhmet' - POP. 112' The UPP 'Star' logo is proudly emblazoned & a scientific symbol on the right side of the sign."
+	icon_state = "sekhmet_sign_1"
+
+/obj/structure/lz_sign/sekhmet_sign/interior
+	desc = "A large sign that reads 'Boloto - Sekhmet' - POP. 112' The UPP 'Star' logo is proudly emblazoned & a scientific symbol on the right side of the sign."
+	icon_state = "sekhmet_sign_2"
