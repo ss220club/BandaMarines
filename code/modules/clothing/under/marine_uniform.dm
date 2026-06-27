@@ -162,8 +162,8 @@
 /obj/item/clothing/under/marine/field_doctor
 	name = "\improper USCM field doctor uniform"
 	desc = "Standard-issue field doctor fatigues. They have shards of light Kevlar to help protect against stabbing weapons and bullets."
-	icon_state = "marine_medic_field"
-	worn_state = "marine_medic_field"
+	icon_state = "marine_jumpsuit"
+	worn_state = "marine_jumpsuit"
 	specialty = "USCM Field Doctor"
 
 /obj/item/clothing/under/marine/field_doctor/jungle
@@ -208,8 +208,8 @@
 /obj/item/clothing/under/marine/field_doctor/scrubs
 	name = "\improper USCM field doctor camo scrubs"
 	desc = "Standard-issue field doctor scrubs. While they do not have shards of light kevlar for protection, they are made of a special fiber that provides minor protection against biohazards and radiation, with the added bonus of coming in camo."
-	icon_state = "marine_medic_field_scrubs"
-	worn_state = "marine_medic_field_scrubs"
+	icon_state = "marine_jumpsuit"
+	worn_state = "marine_jumpsuit"
 	specialty = "USCM Field Doctor"
 
 	//No robustness for you if you want sterile clothes.
