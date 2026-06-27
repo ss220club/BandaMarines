@@ -17182,7 +17182,7 @@
 	pixel_x = -5;
 	layer = 4.1
 	},
-/obj/item/clothing/accessory/clf_cape{
+/obj/item/clothing/accessory/cape/clf_cape{
 	pixel_y = -5;
 	pixel_x = 2
 	},
