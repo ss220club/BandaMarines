@@ -1943,10 +1943,6 @@
 /obj/structure/surface/table/almayer{
 	color = "#EBD9B7"
 	},
-/obj/item/storage/box/clf{
-	pixel_x = 8;
-	pixel_y = 1
-	},
 /turf/open/desert/rock,
 /area/caperiver/outdoors/scrublands/central)
 "Gh" = (
