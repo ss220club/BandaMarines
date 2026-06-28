@@ -1,0 +1,4 @@
+author: "Ingakem"
+delete-after: True
+changes:
+  - rscdel: "Реверт штуки-дрюки, потому что оффы решили сами добавить."
