@@ -255,7 +255,7 @@
 	set category = "Admin"
 	set hidden = TRUE
 
-	cmd_admin_say(msg)
+	cmd_mentor_say(msg) // SS220 EDIT - Original: cmd_admin_say
 
 SET_PROTECTED_PROC(/client/proc/cmd_admin_say)
 /client/proc/cmd_admin_say(msg as text)
@@ -291,7 +291,7 @@ SET_PROTECTED_PROC(/client/proc/cmd_admin_say)
 	var/color = "mod"
 	if(check_rights(R_PERMISSIONS, show_msg = FALSE))
 		color = "adminmod"
-
+	msg = emoji_parse(msg) // SS220 EDIT asay emojis
 	var/channel = "ADMIN:"
 	channel = "[admin_holder.rank]:"
 	var/ooc_prefix = handle_ooc_prefix()
@@ -401,7 +401,7 @@ SET_PROTECTED_PROC(/client/proc/cmd_mentor_say)
 		return
 
 	log_adminpm("MENTOR: [key_name(src)] : [msg]")
-
+	msg = emoji_parse(msg) // SS220 EDIT msay emojis
 	var/color = "mentorsay"
 	var/channel = "Mentor:"
 	channel = "[admin_holder.rank]:"
