@@ -54,8 +54,7 @@
 	playsound(turf, 'sound/weapons/gun_flamethrower3.ogg', 75, 1, 7)
 	if(!istype(turf))
 		return
-	smoke.set_up(1, turf)
-	smoke.start()
+	do_smoke(loca = turf)
 	var/datum/reagent/napalm/blue/reagent = new()
 	new /obj/flamer_fire(turf, cause_data, reagent, 2)
 
