@@ -706,6 +706,7 @@
 	languages = list(LANGUAGE_ENGLISH, LANGUAGE_APOLLO, LANGUAGE_JAPANESE, LANGUAGE_SPANISH)
 	/// Used to set species when loading race
 	var/joe_type = SYNTH_WORKING_JOE
+	var/corp_label = /datum/element/corp_label/seegson
 
 	remove_tts = TRUE // BANDAMARINES ADD
 
@@ -714,8 +715,9 @@
 	access = get_access(ACCESS_LIST_MARINE_ALL)
 
 /datum/equipment_preset/synth/working_joe/load_race(mob/living/carbon/human/new_human)
-	. = ..()
 	new_human.set_species(joe_type)
+	if(corp_label)
+		new_human.AddElement(corp_label)
 	new_human.bubble_icon = "robot"
 	new_human.gender = MALE
 	new_human.flavor_text = ""
@@ -879,6 +881,7 @@
 	faction_group = list(FACTION_UPP)
 	faction = FACTION_UPP
 	languages = list(LANGUAGE_RUSSIAN, LANGUAGE_GERMAN, LANGUAGE_SPANISH, LANGUAGE_CHINESE, LANGUAGE_ENGLISH)
+	corp_label = /datum/element/corp_label/norcomm
 
 /datum/equipment_preset/synth/working_joe/upp/New()
 	. = ..()
@@ -961,6 +964,7 @@
 	languages = list(LANGUAGE_ENGLISH, LANGUAGE_ARTEMIS)
 	minimap_icon = "daniel"
 	joe_type = SYNTH_DANIEL
+	corp_label = /datum/element/corp_label/wy
 
 /datum/equipment_preset/synth/working_joe/daniel/New()
 	. = ..()

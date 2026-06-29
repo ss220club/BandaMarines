@@ -242,7 +242,7 @@
 		return FALSE
 
 	//Do this now, order doesn't matter
-	sparks.start(do_NOT_delete = TRUE)
+	sparks?.start(do_NOT_delete = TRUE)
 	dcell.use(charge_cost)
 	update_icon()
 	var/ru_name_fluff_tool = declent_ru_initial(fluff_tool, ACCUSATIVE, fluff_tool) // SS220 EDIT ADDICTION

@@ -28,6 +28,7 @@ GLOBAL_LIST_INIT(cm_vending_gear_leader, list(
 		list("Fire Extinguisher (Portable)", 3, /obj/item/tool/extinguisher/mini, null, VENDOR_ITEM_REGULAR),
 		list("Motion Detector", 5, /obj/item/device/motiondetector, null, VENDOR_ITEM_REGULAR),
 		list("Fulton Device Stack", 5, /obj/item/stack/fulton, null, VENDOR_ITEM_REGULAR),
+		list("SensorMate Medical HUD", 4, /obj/item/clothing/glasses/hud/sensor, null, VENDOR_ITEM_REGULAR),
 
 		list("BINOCULARS", 0, null, null, null),
 		list("Range Finder", 3, /obj/item/device/binoculars/range, null, VENDOR_ITEM_REGULAR),
@@ -81,7 +82,6 @@ GLOBAL_LIST_INIT(cm_vending_gear_leader, list(
 
 		list("Health Analyzer", 4, /obj/item/device/healthanalyzer, null, VENDOR_ITEM_REGULAR),
 		list("Roller Bed", 2, /obj/item/roller, null, VENDOR_ITEM_REGULAR),
-		list("Medical Glasses", 12, /obj/item/clothing/glasses/hud/health/basic, null, VENDOR_ITEM_REGULAR), // SS220 EDIT
 
 		list("PRIMARY AMMUNITION", 0, null, null, null),
 		list("M4RA AP Magazine (10x24mm)", 6, /obj/item/ammo_magazine/rifle/m4ra/ap, null, VENDOR_ITEM_REGULAR),
