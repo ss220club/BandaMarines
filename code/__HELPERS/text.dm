@@ -341,7 +341,7 @@
 	if(!locating_atom.loc)
 		message = "Invalid location"
 	else
-		var/area_text = sanitize_control_chars(strip_improper("[get_area(A)]")) //BANDAMARINES LOGIS EDIT
+		var/area_text = sanitize_control_chars(strip_improper("[get_area(locating_atom)]")) //BANDAMARINES LOGIS EDIT
 		if(include_jmp_link)
 			message = "[ADMIN_JUMP_COORDS(locating_atom.x, locating_atom.y, locating_atom.z)] ([locating_atom.x], [locating_atom.y], [locating_atom.z])"
 		else
