@@ -95,7 +95,7 @@
 				playsound(loc, attack.attack_sound, 25, 1)
 				var/picked_verb = pick(attack.attack_verb)
 				visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] [picked_verb]ed [src]!"), null, null, 5, CHAT_TYPE_MELEE_HIT)
-				log_attack("[key_name(M)] [picked_verb]ed [key_name(src)] at [get_area_name(M)]")
+				log_attack("[key_name(M)] [picked_verb]ed [key_name(src)] at [log_location(M)]") //BANDAMARINES LOGIS EDIT
 				attack_log += text("\[[time_stamp()]\] <font color='orange'>was [picked_verb]ed by [key_name(M)]</font>")
 				M.attack_log += text("\[[time_stamp()]\] <font color='red'>[picked_verb]ed [key_name(src)]</font>")
 				apply_damage(damage, BRUTE)
@@ -188,7 +188,7 @@
 			last_damage_data = create_cause_data(initial(xeno.name), xeno)
 			src.attack_log += text("\[[time_stamp()]\] <font color='orange'>was [slash_verb]ed by [key_name(xeno)]</font>")
 			xeno.attack_log += text("\[[time_stamp()]\] <font color='red'>[slash_verb]ed [key_name(src)]</font>")
-			log_attack("[key_name(xeno)] [slash_verb]ed [key_name(src)]")
+			log_attack("[key_name(xeno)] [slash_verb]ed [key_name(src)] at [log_location(xeno)]") //BANDAMARINES LOGIS EDIT
 
 			xeno.flick_attack_overlay(src, "slash")
 			if(custom_slashed_sound)

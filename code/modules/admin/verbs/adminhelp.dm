@@ -309,6 +309,9 @@ SET_PROTECTED_DATUM(/datum/admin_help)
 	var/admin_number_present = length(activemins)
 
 	log_admin_private("Ticket #[id]: [key_name(initiator)]: [name] - heard by [admin_number_present] non-AFK admins who have +BAN.")
+	var/logis_adminhelp_line = logis_adminhelp_ticket_line(initiator, name, admin_number_present) //BANDAMARINES LOGIS EDIT
+	if(logis_adminhelp_line) //BANDAMARINES LOGIS EDIT
+		log_to_logis("ADMIN", logis_adminhelp_line) //BANDAMARINES LOGIS EDIT
 	if(admin_number_present <= 0)
 		to_chat(initiator, SPAN_NOTICE("No active admins are online, your adminhelp was sent to admins who are available through IRC or Discord."), confidential = TRUE)
 		heard_by_no_admins = TRUE
@@ -417,6 +420,11 @@ SET_PROTECTED_DATUM(/datum/admin_help)
 
 	AddInteraction("<font color='red'>[LinkedReplyName(ref_src)]: [msg]</font>", player_message = "<font color='red'>[LinkedReplyName(ref_src)]: [msg]</font>")
 	log_admin_private("Ticket #[id]: [key_name(initiator)]: [msg]")
+	var/list/adm = get_admin_counts(R_BAN)
+	var/admin_number_present = length(adm["present"])
+	var/logis_help_line = logis_help_ticket_line(initiator, msg, admin_number_present)
+	if(logis_help_line)
+		log_to_logis("ADMIN", logis_help_line)
 
 	//send this msg to all admins
 	for(var/client/X in GLOB.admins)
