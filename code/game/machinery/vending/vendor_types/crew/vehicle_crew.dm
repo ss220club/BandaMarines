@@ -18,7 +18,6 @@
 	var/selected_vehicle
 	var/budget_points = 0
 	var/available_categories = VEHICLE_ALL_AVAILABLE
-	var/list/last_display_list //BANDAMARINES EDIT
 
 	available_points_to_display = 0
 
@@ -66,23 +65,11 @@
 	SIGNAL_HANDLER
 	UnregisterSignal(SSdcs, COMSIG_GLOB_VEHICLE_ORDERED)
 
-	// BANDAMARINES EDIT Start
-	selected_vehicle = spawner.category
-	if(selected_vehicle == "APC")
-		marine_announcement("В поддержку наземных сил операции вам будет предоставлен БТР.")
-	selected_vehicle = spawner.category
-	if(selected_vehicle == "ARC")
-		marine_announcement("В поддержку наземных сил операции вам будет предоставлен БРМ.")
-	selected_vehicle = spawner.category
-	if(selected_vehicle == "VAN")
-		marine_announcement("В поддержку наземных сил операции вам будет предоставлен Грузовик.")
-	// BANDAMARINES EDIT End
-
 	if(!selected_vehicle)
 		selected_vehicle = "TANK" // The whole thing seems to be based upon the assumption you unlock tank as an override, defaulting to APC
 	if(selected_vehicle == "TANK")
 		available_categories &= ~(VEHICLE_INTEGRAL_AVAILABLE) //APC lacks these, so we need to remove these flags to be able to access spare parts section
-		marine_announcement("В поддержку наземных сил операции вам будет предоставлен танк.")
+		marine_announcement("A tank is being sent up to reinforce this operation.")
 
 /obj/structure/machinery/cm_vending/gear/vehicle_crew/get_listed_products(mob/user)
 	var/list/display_list = list()
@@ -95,16 +82,8 @@
 	switch(selected_vehicle)
 		if("TANK")
 			if(available_categories)
-// BANDAMARINES EDIT START
-				last_display_list = GLOB.cm_vending_vehicle_crew_tank
+				display_list = GLOB.cm_vending_vehicle_crew_tank
 
-		if("APC")
-			if(available_categories)
-				last_display_list = GLOB.cm_vending_vehicle_crew_apc
-
-	if(last_display_list)
-		return last_display_list
-/*
 		if("ARC")
 			display_list = GLOB.cm_vending_vehicle_crew_arc
 
@@ -113,8 +92,6 @@
 				display_list = GLOB.cm_vending_vehicle_crew_apc
 		else //APC stuff costs more to prevent 4000 points spent on shitton of ammunition
 			display_list = GLOB.cm_vending_vehicle_crew_apc_spare
-*/
-// BANDAMARINES EDIT END
 	return display_list
 
 /obj/structure/machinery/cm_vending/gear/vehicle_crew/ui_data(mob/user)
@@ -161,8 +138,7 @@ GLOBAL_LIST_INIT(cm_vending_vehicle_crew_tank, list(
 	list("M34A2-A Multipurpose Turret", 0, /obj/effect/essentials_set/tank/turret, VEHICLE_INTEGRAL_AVAILABLE, VENDOR_ITEM_MANDATORY),
 
 	list("PRIMARY WEAPON", 0, null, null, null),
-	list("LTB Canon 86mm", 0, /obj/effect/essentials_set/tank/ltb, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_RECOMMENDED), //BANDAMARINES EDIT - TANK SUPREMACY
-	list("AC3-E Autocannon", 0, /obj/effect/essentials_set/tank/autocannon, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_REGULAR),
+	list("AC3-E Autocannon", 0, /obj/effect/essentials_set/tank/autocannon, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_RECOMMENDED),
 	list("DRG-N Offensive Flamer Unit", 0, /obj/effect/essentials_set/tank/dragonflamer, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_REGULAR),
 	list("LTAA-AP Minigun", 0, /obj/effect/essentials_set/tank/gatling, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_REGULAR),
 
@@ -178,10 +154,6 @@ GLOBAL_LIST_INIT(cm_vending_vehicle_crew_tank, list(
 
 	list("ARMOR", 0, null, null, null),
 	list("Snowplow", 0, /obj/item/hardpoint/armor/snowplow, VEHICLE_ARMOR_AVAILABLE, VENDOR_ITEM_REGULAR),
-	list("Paladin", 0, /obj/item/hardpoint/armor/paladin, VEHICLE_ARMOR_AVAILABLE, VENDOR_ITEM_REGULAR), //BANDAMARINES EDIT - TANK SUPREMACY
-	list("Caustic", 0, /obj/item/hardpoint/armor/caustic, VEHICLE_ARMOR_AVAILABLE, VENDOR_ITEM_REGULAR), //BANDAMARINES EDIT - TANK SUPREMACY
-	list("Concussive", 0, /obj/item/hardpoint/armor/concussive, VEHICLE_ARMOR_AVAILABLE, VENDOR_ITEM_REGULAR), //BANDAMARINES EDIT - TANK SUPREMACY
-	list("Ballistic", 0, /obj/item/hardpoint/armor/ballistic, VEHICLE_ARMOR_AVAILABLE, VENDOR_ITEM_REGULAR), //BANDAMARINES EDIT - TANK SUPREMACY
 
 	list("TREADS", 0, null, null, null),
 	list("Reinforced Treads", 0, /obj/item/hardpoint/locomotion/treads/robust, VEHICLE_TREADS_AVAILABLE, VENDOR_ITEM_REGULAR),
@@ -231,6 +203,7 @@ GLOBAL_LIST_INIT(cm_vending_vehicle_crew_arc, list(
 
 	list("WHEELS", 0, null, null, null),
 	list("Replacement ARC Wheels", 0, /obj/item/hardpoint/locomotion/arc_wheels, VEHICLE_TREADS_AVAILABLE, VENDOR_ITEM_MANDATORY)))
+
 
 //------------WEAPONS RACK---------------
 

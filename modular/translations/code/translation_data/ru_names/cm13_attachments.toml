@@ -2450,3 +2450,11 @@ accusative = "топливный резервуар для танкового о
 instrumental = "топливным резервуаром для танкового огнемёта DRG-N"
 prepositional = "топливном резервуаре для танкового огнемёта DRG-N"
 gender = "male"
+
+["m24-rc1 remote cannon magazine (x3)"]
+nominative = "ящик для патронных коробов к автопушке (M24-RC1 x 3)"
+tags = [ "nominative_only", "cm13",]
+
+["m24-rc1 thermobaric magazine (x1)"]
+nominative = "ящик для гранатных блоков к реактивному огнемёту (M24-RC1 x 1)"
+tags = [ "nominative_only", "cm13",]
