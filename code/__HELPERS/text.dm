@@ -336,16 +336,16 @@
 // Returns the location of the atom as a string in the following format:
 // "Area Name (X, Y, Z)"
 // Mainly used for logging
-/proc/get_location_in_text(atom/A, include_jmp_link = TRUE)
+/proc/get_location_in_text(atom/locating_atom, include_jmp_link = TRUE)
 	var/message
-	if(!A.loc)
+	if(!locating_atom.loc)
 		message = "Invalid location"
 	else
 		var/area_text = sanitize_control_chars(strip_improper("[get_area(A)]")) //BANDAMARINES LOGIS EDIT
 		if(include_jmp_link)
-			message = "<a href='byond://?_src_=admin_holder;[HrefToken(forceGlobal = TRUE)];adminplayerobservecoodjump=1;X=[A.x];Y=[A.y];Z=[A.z]'>[area_text]</a> ([A.x], [A.y], [A.z])" //BANDAMARINES LOGIS EDIT
+			message = "[ADMIN_JUMP_COORDS(locating_atom.x, locating_atom.y, locating_atom.z)] ([locating_atom.x], [locating_atom.y], [locating_atom.z])"
 		else
-			message = "[area_text] ([A.x], [A.y], [A.z])" //BANDAMARINES LOGIS EDIT
+			message = "[get_area(locating_atom)] ([locating_atom.x], [locating_atom.y], [locating_atom.z])"
 	return message
 
 //Adds 'char' ahead of 'text' until there are 'count' characters total
