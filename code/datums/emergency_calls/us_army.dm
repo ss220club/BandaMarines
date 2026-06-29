@@ -1,6 +1,6 @@
 
 /datum/emergency_call/us_army
-	name = "US Army (32nd Armor)"
+	name = "Армия США (32-я бронетанковая)"
 	home_base = /datum/lazy_template/ert/uscm_station
 	mob_min = 1
 	mob_max = 14
@@ -15,8 +15,8 @@
 
 /datum/emergency_call/us_army/New()
 	..()
-	arrival_message = "Break, break. This is USS Victory, local Army elements confirm your sector is free of hostile tangos. Be advised, the 32nd Armour is en-route, forward elements should be entering your AO shortly to assist in mop-up. You may have just saved a lot of lives today Falling Falcons. Over and out."
-	objectives = "Assist the Marines in securing the area of operations."
+	arrival_message = "Всё, всё. Говорит USS ​«Victory», местные армейские подразделения подтверждают, что ваш сектор свободен от враждебных целей. Примите к сведенью, что 32-я бронетанковая дивизия в пути, их передовые подразделения скоро прибудут в вашу зону операции для оказания помощи в зачистке. Возможно, вы сегодня спасли очень много жизней, «Пикирующие соколы». Конец связи."
+	objectives = "Помогите морпехам закрепиться в зоне операции."
 
 /datum/emergency_call/us_army/create_member(datum/mind/new_mind, turf/override_spawn_loc)
 	var/turf/spawn_loc = override_spawn_loc ? override_spawn_loc : get_spawn_point()
@@ -30,26 +30,26 @@
 	if(!leader && HAS_FLAG(mob.client.prefs.toggles_ert, PLAY_LEADER) && check_timelock(mob.client, JOB_SQUAD_LEADER, time_required_for_job))
 		leader = mob
 		arm_equipment(mob, /datum/equipment_preset/us_army/sl, TRUE, TRUE)
-		to_chat(mob, SPAN_ROLE_HEADER("You are the US Army Squad Leader!"))
+		to_chat(mob, SPAN_ROLE_HEADER("Вы командир отряда армии США!"))
 
 	else if(heavies < max_heavies && HAS_FLAG(mob.client.prefs.toggles_ert, PLAY_HEAVY) && check_timelock(mob.client, JOB_SQUAD_SPECIALIST))
 		heavies++
-		to_chat(mob, SPAN_ROLE_HEADER("You are a US Army Tank Crewman!"))
+		to_chat(mob, SPAN_ROLE_HEADER("Вы экипаж бронетехники армии США!"))
 		arm_equipment(mob, /datum/equipment_preset/us_army/tank, TRUE, TRUE)
 
 	else if(medics < max_medics && HAS_FLAG(mob.client.prefs.toggles_ert, PLAY_MEDIC) && check_timelock(mob.client, JOB_SQUAD_MEDIC, time_required_for_job))
 		medics++
 		arm_equipment(mob, /datum/equipment_preset/us_army/medic, TRUE, TRUE)
-		to_chat(mob, SPAN_ROLE_HEADER("You are the US Army Medic!"))
+		to_chat(mob, SPAN_ROLE_HEADER("Вы санитар армии США!"))
 
 	else if(smartgunners < max_smartgunners && HAS_FLAG(mob.client.prefs.toggles_ert, PLAY_SMARTGUNNER) && check_timelock(mob.client, JOB_SQUAD_SMARTGUN))
 		smartgunners++
-		to_chat(mob, SPAN_ROLE_HEADER("You are a US Army Gunner!"))
+		to_chat(mob, SPAN_ROLE_HEADER("Вы смартганнер армии США!"))
 		arm_equipment(mob, /datum/equipment_preset/us_army/gunner, TRUE, TRUE)
 
 	else
 		arm_equipment(mob, /datum/equipment_preset/us_army/standard, TRUE, TRUE)
-		to_chat(mob, SPAN_ROLE_HEADER("You are a US Army Trooper!"))
+		to_chat(mob, SPAN_ROLE_HEADER("Вы стрелок армии США!"))
 
-	to_chat(mob, SPAN_ROLE_BODY("You are a member of the US Army 32nd Armored Division. You and your division have been held in reserve until the Falling Falcons could secure a beachhead. Now that this is true, you are being sent in to help secure the breach!"))
+	to_chat(mob, SPAN_ROLE_BODY("Вы — военнослужащий 32-й бронетанковой дивизии армии США. Вы и ваша дивизия находились в резерве до тех пор, пока «Пикирующие соколы» не смогут закрепиться на плацдарме. Теперь, когда это произошло, вас отправляют на помощь для обеспечения безопасности территории!"))
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), mob, SPAN_BOLD("Objectives:</b> [objectives]")), 1 SECONDS)
