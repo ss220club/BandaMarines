@@ -424,11 +424,6 @@
 	icon_state = "medbay"
 	minimap_color = MINIMAP_AREA_MEDBAY
 
-/area/lazarus/armory
-	name = "\improper Nexus Dome - Colonial Marshals Office - Armory"
-	icon_state = "armory"
-	minimap_color = MINIMAP_AREA_SEC
-
 /area/lazarus/security
 	name = "\improper Nexus Dome - Colonial Marshals Office"
 	icon_state = "security"
@@ -437,11 +432,6 @@
 /area/lazarus/captain
 	name = "\improper Nexus Dome -  Command Center"
 	icon_state = "captain"
-	minimap_color = MINIMAP_AREA_COMMAND
-
-/area/lazarus/hop
-	name = "\improper Head of Personnel's Office"
-	icon_state = "head_quarters"
 	minimap_color = MINIMAP_AREA_COMMAND
 
 /area/lazarus/kitchen
@@ -458,15 +448,6 @@
 	name = "\improper Nexus Dome - Main Hallway"
 	icon_state = "hallC1"
 	linked_lz = DROPSHIP_LZ1
-
-/area/lazarus/toilet
-	name = "\improper Dormitory Toilet"
-	icon_state = "toilet"
-
-/area/lazarus/chapel
-	name = "\improper Chapel"
-	icon_state = "chapel"
-	//ambience = list('sound/ambience/ambicha1.ogg','sound/ambience/ambicha2.ogg','sound/ambience/ambicha3.ogg','sound/ambience/ambicha4.ogg')
 
 /area/lazarus/toilet
 	name = "\improper Nexus Dome - Dormitory Toilet"
@@ -491,15 +472,8 @@
 	icon_state = "quartstorage"
 	linked_lz = DROPSHIP_LZ1
 
-/area/lazarus/quartstorage/outdoors
-	name = "\improper Cargo Bay Area"
-	icon_state = "purple"
-	ceiling = CEILING_NONE
-	linked_lz = DROPSHIP_LZ1
-	always_unpowered = TRUE
-
 /area/lazarus/engineering
-	name = "\improper Water Treatment"
+	name = "\improper Engineering"
 	icon_state = "engine_smes"
 	minimap_color = MINIMAP_AREA_ENGI
 
@@ -508,8 +482,13 @@
 	icon_state = "tcomsatcham"
 	minimap_color = MINIMAP_AREA_ENGI
 
+/area/lazarus/comms/lz1_north
+	name = "\improper North-West LZ1 Communications Relay"
+	icon_state = "tcomsatcham"
+	minimap_color = MINIMAP_AREA_ENGI
+
 /area/lazarus/comms/lz2_north
-	name = "\improper North-West LZ2 Communications Relay"
+	name = "\improper North LZ2 Communications Relay"
 	icon_state = "tcomsatcham"
 	minimap_color = MINIMAP_AREA_ENGI
 
@@ -568,11 +547,3 @@
 	name = "\improper LZ2 - Weyland-Yutani - Corporate Administration - Landing Zone"
 	icon_state = "tcomsatcham"
 	requires_power = FALSE
-
-/area/lazarus/crashed_ship
-	name = "\improper Crashed Ship"
-	icon_state = "syndie-ship"
-
-/area/lazarus/crashed_ship_containers
-	name = "\improper Crashed Ship Containers"
-	icon_state = "syndie-ship"
