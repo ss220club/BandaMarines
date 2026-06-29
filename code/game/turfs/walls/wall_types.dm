@@ -625,6 +625,42 @@
 		if(r1 >= 9)
 			overlays += image(icon, icon_state = "wood_variant")
 
+/turf/closed/wall/wood/plain
+	name = "plain wood wall"
+	icon = 'icons/turf/walls/wood_plain.dmi'
+	icon_state = "wood"
+	walltype = WALL_WOOD
+	baseturfs = /turf/open/floor/wood
+
+/turf/closed/wall/wood/blue
+	name = "blue wood wall"
+	icon = 'icons/turf/walls/wood_blue.dmi'
+	icon_state = "wood"
+	walltype = WALL_WOOD
+	baseturfs = /turf/open/floor/wood
+
+/turf/closed/wall/wood/green
+	name = "green wood wall"
+	icon = 'icons/turf/walls/wood_green.dmi'
+	icon_state = "wood"
+	walltype = WALL_WOOD
+	baseturfs = /turf/open/floor/wood
+
+/turf/closed/wall/wood/purple
+	name = "purple wood wall"
+	icon = 'icons/turf/walls/wood_purple.dmi'
+	icon_state = "wood"
+	walltype = WALL_WOOD
+	baseturfs = /turf/open/floor/wood
+
+/turf/closed/wall/wood/teal
+	name = "teal wood wall"
+	icon = 'icons/turf/walls/wood_teal.dmi'
+	icon_state = "wood"
+	walltype = WALL_WOOD
+	baseturfs = /turf/open/floor/wood
+
+
 //Colorable rocks. Looks like moonsand.
 
 /turf/closed/wall/rock
@@ -725,6 +761,14 @@
 	walltype = WALL_FOREST_ROCK_DIRTY //Dirty rock but near a forest not jungle.
 	turf_flags = TURF_HULL
 
+/turf/closed/wall/strata_ice/swamp
+	name = "swamp vegetation"
+	icon = 'icons/turf/walls/swamp_veg.dmi'
+	icon_state = "swamp_veg"
+	desc = "Exceptionally dense vegetation that you can't see through."
+	walltype = WALL_SWAMP
+	turf_flags = TURF_HULL
+	minimap_color = MINIMAP_BLACK
 
 /turf/closed/wall/strata_outpost_ribbed //this guy is our reinforced replacement
 	name = "ribbed outpost walls"

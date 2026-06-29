@@ -53,6 +53,9 @@ map sorokyne_strata
 	minplayers 90
 endmap
 
+map sekhmet_swamp
+endmap
+
 map lv522_chances_claim
 endmap
 
@@ -70,9 +73,18 @@ endmap
 map white_antre_research_facility
 endmap
 
+map fort_mcneil
+	maxplayers 100
+
+map cape_river
+endmap
+
 map whiskey_outpost_v2
 endmap
 
 map tyrargo_rift
     minplayers 110
+endmap
+
+map lv1021_falcons_fury
 endmap

@@ -3485,6 +3485,64 @@
 /turf/open/floor/interior/wood/alt
 	icon_state = "oldwood2"
 
+/turf/open/floor/interior/wood/alt2
+	icon_state = "oldwood3"
+
+/turf/open/floor/interior/wood/damage
+	icon_state = "oldwood-broken"
+
+/turf/open/floor/interior/wood/damage_1
+	icon_state = "oldwood-broken2"
+
+/turf/open/floor/interior/wood/damage_2
+	icon_state = "oldwood-broken3"
+
+/turf/open/floor/interior/wood/damage_3
+	icon_state = "oldwood-broken4"
+
+/turf/open/floor/interior/wood/damage_4
+	icon_state = "oldwood-broken5"
+
+/turf/open/floor/interior/wood/damage_5
+	icon_state = "oldwood-broken6"
+
+/turf/open/floor/interior/wood/damage_6
+	icon_state = "oldwood-broken7"
+
+/turf/open/floor/interior/wood_sat
+	name = "wooden floor"
+	icon_state = "wood"
+	tile_type = /obj/item/stack/tile/wood
+	turf_flags = NO_FLAGS // platingdmg && panelscorched icon_state does not exist in this icon
+
+/turf/open/floor/interior/wood_sat/is_wood_floor()
+	return TRUE
+
+/turf/open/floor/interior/wood_sat/alt
+	icon_state = "wood1"
+
+/turf/open/floor/interior/wood_sat/damage
+	icon_state = "wood-broken"
+
+/turf/open/floor/interior/wood_sat/damage_1
+	icon_state = "wood-broken2"
+
+/turf/open/floor/interior/wood_sat/damage_2
+	icon_state = "wood-broken3"
+
+/turf/open/floor/interior/wood_sat/damage_3
+	icon_state = "wood-broken4"
+
+/turf/open/floor/interior/wood_sat/damage_4
+	icon_state = "wood-broken5"
+
+/turf/open/floor/interior/wood_sat/damage_5
+	icon_state = "wood-broken6"
+
+/turf/open/floor/interior/wood_sat/damage_6
+	icon_state = "wood-broken7"
+
+
 /turf/open/floor/interior/tatami
 	name = "tatami flooring"
 	desc = "A type of flooring often used in traditional Japanese-style housing."
@@ -4266,6 +4324,27 @@
 /turf/open/floor/green/north
 	dir = NORTH
 
+/turf/open/floor/green/east
+	dir = EAST
+
+/turf/open/floor/green/south
+	dir = SOUTH
+
+/turf/open/floor/green/west
+	dir = WEST
+
+/turf/open/floor/greencorner
+	icon_state = "greencorner"
+
+/turf/open/floor/greencorner/north
+	dir = NORTH
+
+/turf/open/floor/greencorner/east
+	dir = EAST
+
+/turf/open/floor/greencorner/west
+	dir = WEST
+
 /turf/open/floor/loadingarea
 	icon_state = "loadingarea"
 
@@ -4845,6 +4924,15 @@
 /turf/open/floor/darkgreen2/northwest
 	dir = NORTHWEST
 
+/turf/open/floor/darkgreen2/northeast
+	dir = NORTHEAST
+
+/turf/open/floor/darkgreen2/southwest
+	dir = SOUTHWEST
+
+/turf/open/floor/darkgreen2/southeast
+	dir = SOUTHEAST
+
 /turf/open/floor/darkpurple2/northwest
 	dir = NORTHWEST
 
@@ -4853,6 +4941,18 @@
 
 /turf/open/floor/darkyellow2/northwest
 	dir = NORTHWEST
+
+/turf/open/floor/green/northwest
+	dir = NORTHWEST
+
+/turf/open/floor/green/northeast
+	dir = NORTHEAST
+
+/turf/open/floor/green/southeast
+	dir = SOUTHEAST
+
+/turf/open/floor/green/southwest
+	dir = SOUTHWEST
 
 /turf/open/floor/green/northwest
 	dir = NORTHWEST
@@ -4955,6 +5055,18 @@
 
 /turf/open/floor/darkbluecorners2
 	icon_state = "darkbluecorners2"
+
+/turf/open/floor/darkbluecorners2/north
+	dir = NORTH
+
+/turf/open/floor/darkbluecorners2/east
+	dir = EAST
+
+/turf/open/floor/darkbluecorners2/south
+	dir = SOUTH
+
+/turf/open/floor/darkbluecorners2/west
+	dir = WEST
 
 /turf/open/floor/darkish
 	icon_state = "darkish"

@@ -321,6 +321,33 @@
 	"<span class='danger'>Your primary objective is to heal up and survive. If you want to assault the hive - adminhelp.</span>")
 	story_text = "You are a doctor fighting for the Colonial Liberation Front. Taking advantage of the chaos after most security forces present in the city were diverted to the lab, your cell launched an assault on the offices nearby, knowing that a company big shot would be present. The raid was a success with minimal losses, but the expected security response never arrived. In fact, the whole city seems to have gone quiet..."
 
+//Cape River CLF survivors//
+
+/obj/effect/landmark/survivor_spawner/clf/caperiver
+	intro_text = list("<h2>You are a survivor of a crash landing!</h2>",\
+	"<span class='notice'>You ARE aware of the xenomorph threat.</span>",\
+	"<span class='danger'>Your primary objective is to heal up and survive. If you want to assault the hive - adminhelp.</span>")
+	story_text = "You are a soldier fighting for the Colonial Liberation Front. Your cell is part of a larger operation intended to conduct a large scale raid of this Corporate held colony. You were to land at a nearby hidden base in preperation for the assault, however some form of electromagnetic pulse knocked your ships engines offline mid flight. Most of your cell survived the hard landing, however your radios indicate the hidden base has gone dark. In fact, the colony seems to be too quiet..."
+
+/obj/effect/landmark/survivor_spawner/clf_lead/caperiver
+	intro_text = list("<h2>You are a survivor of a crash landing!</h2>",\
+	"<span class='notice'>You ARE aware of the xenomorph threat.</span>",\
+	"<span class='danger'>Your primary objective is to heal up and survive. If you want to assault the hive - adminhelp.</span>")
+	story_text = "You are the leader of a squad fighting for the Colonial Liberation Front. . Your cell is part of a larger operation intended to conduct a large scale raid of this Corporate held colony. You were to land at a nearby hidden base in preperation for the assault, however some form of electromagnetic pulse knocked your ships engines offline mid flight. Most of your cell survived the hard landing, however your radios indicate the hidden base has gone dark. In fact, the colony seems to be too quiet..."
+
+/obj/effect/landmark/survivor_spawner/clf_engi/caperiver
+	intro_text = list("<h2>You are a survivor of a crash landing!</h2>",\
+	"<span class='notice'>You ARE aware of the xenomorph threat.</span>",\
+	"<span class='danger'>Your primary objective is to heal up and survive. If you want to assault the hive - adminhelp.</span>")
+	story_text = "You are an engineer fighting for the Colonial Liberation Front. . Your cell is part of a larger operation intended to conduct a large scale raid of this Corporate held colony. You were to land at a nearby hidden base in preperation for the assault, however some form of electromagnetic pulse knocked your ships engines offline mid flight. Most of your cell survived the hard landing, however your radios indicate the hidden base has gone dark. In fact, the colony seems to be too quiet..."
+
+/obj/effect/landmark/survivor_spawner/clf_medic/caperiver
+	intro_text = list("<h2>You are a survivor of a crash landing!</h2>",\
+	"<span class='notice'>You ARE aware of the xenomorph threat.</span>",\
+	"<span class='danger'>Your primary objective is to heal up and survive. If you want to assault the hive - adminhelp.</span>")
+	story_text = "You are a doctor fighting for the Colonial Liberation Front. . Your cell is part of a larger operation intended to conduct a large scale raid of this Corporate held colony. You were to land at a nearby hidden base in preperation for the assault, however some form of electromagnetic pulse knocked your ships engines offline mid flight. Most of your cell survived the hard landing, however your radios indicate the hidden base has gone dark. In fact, the colony seems to be too quiet..."
+
+
 //Weyland-Yutani Survivors//
 
 /obj/effect/landmark/survivor_spawner/lv624_corporate_dome_cl
@@ -787,4 +814,50 @@
 	story_text = "<span style='color:#607c4c; font-size:95%;'>You are part of an SOF QRF team—of the Union of Progressive Peoples, deployed alongside the CEC to build garrisons on distant worlds. On the return trip from the frontier, you receive a distress signal from the Union colony of 'Sorokyne Strata' on the planet 'Thermae I' (LV-976). Your team is sent to investigate.</span><br><br>\
 <span style='color:#607c4c; font-size:95%;'>Intel suggests CANC separatists or a UA/3WE incursion, but as you touch down in the hangar, something feels wrong. No welcome party. No usual hustle of a working colony. Nothing to suggest an incursion of any kind.</span><br><br>\
 <span style='color:#607c4c; font-size:95%;'>Your mission is clear—find out what happened to your supply ship and comrades, retrieve your equipment, and uncover the truth of what really happened to the colony.</span>"
+	spawn_priority = SPAWN_PRIORITY_VERY_HIGH
+
+////************CLF LV1021 Survivors************////
+
+/obj/effect/landmark/survivor_spawner/lv1021
+	icon_state = "surv_clf"
+	hostile = TRUE
+	equipment = /datum/equipment_preset/survivor/clf_lv1021/standard
+	synth_equipment = /datum/equipment_preset/synth/survivor/clf
+	CO_equipment = /datum/equipment_preset/survivor/clf_lv1021/coordinator
+	intro_text = list("<h2>You are a member of the CLF!</h2>",\
+	"<span class='notice'>You ARE aware of the xenomorph threat.</span>",\
+	"<span class='danger'>Follow your Commanders orders.</span>")
+	story_text = "You are a very recent induction of the Colonial Liberation Front. As a fresh recruit to the cause, you were sent here to participate in training drills. A few days ago, several loud explosions were heard to your east. The veteran members went to investigate, and they never returned. Now, Xenomorphs have appeared out of the Jungle to the east, and rumours swirl of unknown figures hiding in the western jungles. You joined expecting a fight, you just were not expecting it to happen so soon. Have the events caused you to change your mind?"
+	spawn_priority = SPAWN_PRIORITY_LOW
+
+/obj/effect/landmark/survivor_spawner/lv1021/clf_medic
+	intro_text = list("<h2>You are a member of the CLF!</h2>",\
+	"<span class='notice'>You ARE aware of the xenomorph threat.</span>",\
+	"<span class='danger'>Follow your Commanders orders.</span>")
+	story_text = "You are a long-serving member of the Colonial Liberation Front. You work as part of a training camp that specializes in training up the next generation of freedom fighters while scything the weak and the traitors from the new crop. Several days ago, several loud explosions were heard to the east. Most of the veteran fighters went to investigate, and they never returned. Xenomorphs now encroach from your east, and rumours swirl of human figures to the west. You were already ready to fight for the cause, you just didn’t expect the fight to come to you here. As the colonial song goes, a rebel’s work is never done."
+	equipment = /datum/equipment_preset/survivor/clf_lv1021/medic
+	spawn_priority = SPAWN_PRIORITY_HIGH
+
+/obj/effect/landmark/survivor_spawner/lv1021/clf_engi
+	intro_text = list("<h2>You are a member of the CLF!</h2>",\
+	"<span class='notice'>You ARE aware of the xenomorph threat.</span>",\
+	"<span class='danger'>Follow your Commanders orders.</span>")
+	story_text = "You are a long-serving member of the Colonial Liberation Front. You work as part of a training camp that specializes in training up the next generation of freedom fighters while scything the weak and the traitors from the new crop. Several days ago, several loud explosions were heard to the east. Most of the veteran fighters went to investigate, and they never returned. Xenomorphs now encroach from your east, and rumours swirl of human figures to the west. You were already ready to fight for the cause, you just didn’t expect the fight to come to you here. As the colonial song goes, a rebel’s work is never done."
+	equipment = /datum/equipment_preset/survivor/clf_lv1021/engineer
+	spawn_priority = SPAWN_PRIORITY_MEDIUM
+
+/obj/effect/landmark/survivor_spawner/lv1021/upp_liaison
+	intro_text = list("<h2>You are a member of the CLF!</h2>",\
+	"<span class='notice'>You ARE aware of the xenomorph threat.</span>",\
+	"<span class='danger'>Follow your Commanders orders.</span>")
+	story_text = "You are a member of the Union of Progressive People Armed Forces; you have been assigned as a liaison with the Colonial Liberation Front. You were sent to this camp to debrief its personnel following the rebel’s recent operations against the USCMC. Several days ago, a loud explosion occurred to the east. The rebel’s sent their best fighters to investigate, they never returned. Xenomorphs now invade from the east, and there are humans to the west. You must do everything in your power to prevent useful intelligence falling into the hands of anyone outside of the UPP or CLF. You doubt rescue will ever be sent just for you, and if you are captured or found you will likely be declared a ‘rogue element’, you knew the risk when you took the job, but can you live with the consequences? "
+	equipment = /datum/equipment_preset/survivor/clf_lv1021/upp_liaison
+	spawn_priority = SPAWN_PRIORITY_MEDIUM
+
+/obj/effect/landmark/survivor_spawner/lv1021/clf_leader
+	intro_text = list("<h2>You are a member of the CLF!</h2>",\
+	"<span class='notice'>You ARE aware of the xenomorph threat.</span>",\
+	"<span class='danger'>Follow your Commanders orders.</span>")
+	story_text = "You are a long-serving member of the Colonial Liberation Front. You work as part of a training camp that specializes in training up the next generation of freedom fighters while scything the weak and the traitors from the new crop. Several days ago, several loud explosions were heard to the east. Most of the veteran fighters went to investigate, and they never returned. Xenomorphs now encroach from your east, and rumours swirl of human figures to the west. You were already ready to fight for the cause, you just didn’t expect the fight to come to you here. As the colonial song goes, a rebel’s work is never done."
+	equipment = /datum/equipment_preset/survivor/clf_lv1021/leader
 	spawn_priority = SPAWN_PRIORITY_VERY_HIGH
