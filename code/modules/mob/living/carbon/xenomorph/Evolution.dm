@@ -270,7 +270,7 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 		to_chat(src, SPAN_WARNING("Наша связь с ульем подавляется... Мы должны немного подождать."))
 		return FALSE
 
-	if(lock_evolve)
+	if(lock_evolve || (hive.evolution_locked && !islarva(src)))
 		if(banished)
 			to_chat(src, SPAN_WARNING("Мы изгнаны и не можем поддерживать связь с ульем."))
 		else
@@ -389,7 +389,7 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 	if(length(caste.deevolves_to) < 1)
 		to_chat(src, SPAN_XENOWARNING("Мы не можем регрессировать дальше."))
 		return
-	if(lock_evolve)
+	if(lock_evolve || hive.evolution_locked)
 		if(banished)
 			to_chat(src, SPAN_WARNING("Мы изгнаны и не можем поддерживать связь с ульем."))
 		else
@@ -467,6 +467,7 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 
 	new_xeno.built_structures = built_structures.Copy()
 	built_structures = null
+	new_xeno.lock_evolve = lock_evolve
 
 	if(mind)
 		mind.transfer_to(new_xeno)
