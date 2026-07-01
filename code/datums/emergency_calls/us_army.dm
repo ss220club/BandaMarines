@@ -1,6 +1,6 @@
 
 /datum/emergency_call/us_army
-	name = "Армия США (32-я бронетанковая)"
+	name = "US Army (32nd Armor)"
 	home_base = /datum/lazy_template/ert/uscm_station
 	mob_min = 1
 	mob_max = 14
