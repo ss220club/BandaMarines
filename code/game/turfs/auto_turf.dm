@@ -554,7 +554,7 @@
 	icon_state = "varadero_1"
 	icon_prefix = "varadero"
 
-/turf/open/auto_turf/sand_alt/get_dirt_type()
+/turf/open/auto_turf/lv_sand_alt/get_dirt_type()
 	return DIRT_TYPE_SAND
 
 /turf/open/auto_turf/lv_sand_alt/layer0

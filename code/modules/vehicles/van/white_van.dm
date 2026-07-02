@@ -160,7 +160,8 @@
 
 /obj/vehicle/multitile/white_van/proc/add_default_image(subsystem, mob/M)
 	SIGNAL_HANDLER
-	M.client.images += normal_image
+	if(M.client)
+		M.client.images += normal_image
 
 /obj/vehicle/multitile/white_van/Destroy()
 	for(var/I in mobs_under)
@@ -168,7 +169,8 @@
 
 	for(var/I in GLOB.player_list)
 		var/mob/M = I
-		M.client.images -= normal_image
+		if(M.client)
+			M.client.images -= normal_image
 
 	QDEL_NULL(lighting_holder)
 

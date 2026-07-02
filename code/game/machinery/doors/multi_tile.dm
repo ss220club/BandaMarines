@@ -259,7 +259,7 @@
 
 /obj/structure/machinery/door/airlock/multi_tile/almayer/maint/reinforced/colony/autoname
 	autoname = TRUE
- 
+
 //------Containment 3-tile Doors -----//
 
 /obj/structure/machinery/door/airlock/multi_tile/almayer/containment
@@ -990,14 +990,12 @@
 // ------ LV Generic Grey Double Door ------ //
 
 /obj/structure/machinery/door/airlock/multi_tile/lv_double
-	openspeed = 4
-
-/obj/structure/machinery/door/airlock/multi_tile/lv_double
 	name = "\improper Airlock"
 	icon = 'icons/obj/structures/doors/light_grey_double_glass_door.dmi'
 	opacity = FALSE
 	glass = TRUE
 	req_access = null
+	openspeed = 4
 
 /obj/structure/machinery/door/airlock/multi_tile/lv_double/autoname
 	autoname = TRUE

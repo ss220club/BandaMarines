@@ -99,7 +99,7 @@
 	unslashable = TRUE
 	unacidable = TRUE
 
-/obj/structure/machinery/door/poddoor/almayer/grey/locked/attackby(obj/item/C as obj, mob/user as mob)
+/obj/structure/machinery/door/poddoor/almayer/grey/locked/attackby(obj/item/C, mob/user)
 	if(HAS_TRAIT(C, TRAIT_TOOL_CROWBAR))
 		return
 	. = ..()
