@@ -295,9 +295,6 @@
 "Lv" = (
 /turf/open/auto_turf/lv_grass/layer0,
 /area/lazarus/ground/jungle/west_jungle)
-"MZ" = (
-/turf/open/floor/brown_dirt/random_rocks_alt,
-/area/lazarus/ground/jungle/west_jungle)
 "NY" = (
 /obj/effect/landmark/big_fog_marker,
 /turf/open/floor/brown_dirt/random_rocks,
@@ -319,10 +316,6 @@
 "PU" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
 /turf/open/auto_turf/lv_grass/layer1,
-/area/lazarus/ground/jungle/west_jungle)
-"Qo" = (
-/obj/structure/flora/grass/tallgrass/jungle_alt_2/corner,
-/turf/open/auto_turf/lv_grass/layer0,
 /area/lazarus/ground/jungle/west_jungle)
 "Ru" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
@@ -667,7 +660,7 @@ sV
 "}
 (9,1,1) = {"
 Wu
-Qo
+hE
 wd
 Lv
 he
@@ -745,7 +738,7 @@ SV
 Ru
 Jv
 Fw
-MZ
+cJ
 Fw
 sW
 Fw
@@ -775,7 +768,7 @@ DZ
 SV
 Fw
 Jv
-MZ
+cJ
 Jv
 Fw
 tn
@@ -783,7 +776,7 @@ sl
 Fw
 sV
 Fw
-MZ
+cJ
 Au
 sl
 Fw
@@ -893,7 +886,7 @@ Lv
 Dr
 nT
 jZ
-MZ
+cJ
 Fw
 Fw
 Lv
@@ -925,11 +918,11 @@ Fw
 Dr
 Dr
 jZ
-MZ
+cJ
 Fw
 sV
 Fw
-MZ
+cJ
 Fw
 Jv
 Lv
@@ -1019,7 +1012,7 @@ Fw
 "}
 (20,1,1) = {"
 bu
-MZ
+cJ
 sV
 Fw
 Fw
@@ -1085,7 +1078,7 @@ Fw
 Pn
 DP
 sl
-MZ
+cJ
 sV
 Fw
 Fw

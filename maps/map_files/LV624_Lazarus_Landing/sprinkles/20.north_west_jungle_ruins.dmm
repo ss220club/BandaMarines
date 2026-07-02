@@ -2204,9 +2204,6 @@
 /obj/structure/flora/jungle/vines/dead/light_1,
 /turf/open/floor/brown_dirt/random_rocks,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
-"LM" = (
-/turf/open/floor/brown_dirt/random_rocks_alt,
-/area/template_noop)
 "LP" = (
 /obj/effect/hunter/ancient_temple/deco_border/deco_border3{
 	dir = 4
@@ -2721,9 +2718,6 @@
 	desc = "A heavy wall of sandstone with sandstone plating."
 	},
 /area/strata/interior/out_of_bounds)
-"TQ" = (
-/turf/open/floor/brown_dirt/random_rocks_alt,
-/area/lazarus/ground/jungle/north_west_jungle/dense)
 "TR" = (
 /obj/structure/prop/ice_colony/ground_wire,
 /turf/open/floor/brown_dirt/random_rocks,
@@ -2942,10 +2936,6 @@
 	},
 /turf/open/auto_turf/lv_grass/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
-"Xb" = (
-/obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/turf/open/floor/brown_dirt/random_rocks_alt,
-/area/lazarus/ground/jungle/north_west_jungle/dense)
 "Xc" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble,
 /turf/open/floor/plating/ancient_temple,
@@ -3239,7 +3229,7 @@ Pa
 yU
 lJ
 yU
-LM
+mg
 yU
 yU
 "}
@@ -3291,7 +3281,7 @@ zm
 zm
 lJ
 Bt
-LM
+mg
 yU
 iQ
 wh
@@ -3342,8 +3332,8 @@ VL
 pj
 Ji
 zm
-LM
-LM
+mg
+mg
 lu
 wh
 wh
@@ -3395,9 +3385,9 @@ VL
 Ji
 zm
 vY
-LM
+mg
 gV
-LM
+mg
 wh
 wh
 wh
@@ -3417,7 +3407,7 @@ VL
 Kn
 sm
 SE
-TQ
+lm
 sG
 sn
 sG
@@ -3467,11 +3457,11 @@ pj
 ep
 sG
 sG
-Xb
+Ho
 sG
 SE
 sG
-TQ
+lm
 TX
 SE
 vI
@@ -3502,7 +3492,7 @@ VL
 xB
 yU
 yU
-LM
+mg
 mg
 wh
 gV
@@ -3520,11 +3510,11 @@ St
 RU
 Ye
 Ye
-TQ
+lm
 sG
 Ye
 qT
-TQ
+lm
 Gi
 Ku
 Yc
@@ -3576,7 +3566,7 @@ iL
 Kj
 Ye
 Qk
-TQ
+lm
 Zg
 Du
 ks
@@ -3681,7 +3671,7 @@ QJ
 sG
 sm
 sG
-Xb
+Ho
 KH
 uG
 VG
