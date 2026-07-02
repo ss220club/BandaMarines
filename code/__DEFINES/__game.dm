@@ -27,6 +27,7 @@
 
 #define MAP_ICE_COLONY "Ice Colony" // Highpop only
 #define MAP_LV_624 "LV-624"
+#define MAP_LV_624_LAZARUS_LANDING "LV-624 Lazarus Landing" // LV revamp still lowpop.
 #define MAP_BIG_RED "Solaris Ridge"
 #define MAP_PRISON_STATION "Fiorina Cellblocks"
 #define MAP_PRISON_STATION_V3 "Fiorina Science Annex"
@@ -430,6 +431,7 @@
 #define WALL_AICORE "aiwall"
 #define WALL_UPP_SHIP "uppwall_interior"
 #define WALL_UPP_BASE "uppwall"
+#define WALL_LV_BASE "lvwall"
 #define WALL_ANCIENT_BASE "ancient_stone"
 #define WALL_RUNEDSTONE "runedstone"
 

@@ -374,9 +374,6 @@
 	desc = "A large cabinet with drawers. This one is meant for storing floral data disks."
 	allowed_types = list(/obj/item/disk)
 
-/obj/structure/filingcabinet/wood
-	icon_state = "filingcabinetwood"
-
 // Dark Metal
 
 /obj/structure/filingcabinet/dark
@@ -397,7 +394,6 @@
 /obj/structure/filingcabinet/wood
 	name = "filing cabinet"
 	desc = "A large cabinet with drawers."
-	icon = 'icons/obj/structures/props/furniture/misc.dmi'
 	icon_state = "woodfilingcabinet"
 
 /obj/structure/filingcabinet/wood/chestdrawer

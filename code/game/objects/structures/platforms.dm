@@ -231,6 +231,12 @@
 /obj/structure/platform/metal/stair_cut/strata_right
 	icon_state = "strata_metalplatform_stair_alt"
 
+/obj/structure/platform/metal/stair_cut/strata_left/alt
+	icon_state = "alt_strata_metalplatform_stair"
+
+/obj/structure/platform/metal/stair_cut/strata_right/alt
+	icon_state = "alt_strata_metalplatform_stair_alt"
+
 /obj/structure/platform/metal/stair_cut/shiva_left
 	icon_state = "shiva_stair"
 
@@ -402,6 +408,18 @@
 /obj/structure/platform/metal/strata/east
 	dir = EAST
 /obj/structure/platform/metal/strata/west
+	dir = WEST
+
+// Alt Strata Platform (Light-Grey)
+
+/obj/structure/platform/metal/strata/alt
+	icon_state = "alt_strata_metalplatform"
+
+/obj/structure/platform/metal/strata/alt/north
+	dir = NORTH
+/obj/structure/platform/metal/strata/alt/east
+	dir = EAST
+/obj/structure/platform/metal/strata/alt/west
 	dir = WEST
 
 // Hunter Platforms
@@ -647,6 +665,19 @@
 /obj/structure/platform_decoration/metal/shiva/west
 	dir = WEST
 
+// Alt Strata Platform Deco (Light-Grey)
+
+/obj/structure/platform_decoration/metal/strata/alt
+	name = "raised metal corner"
+	desc = "A raised level of metal, often used to elevate areas above others. This is the corner."
+	icon_state = "alt_strata_metalplatform_deco"
+
+/obj/structure/platform_decoration/metal/strata/alt/north
+	dir = NORTH
+/obj/structure/platform_decoration/metal/strata/alt/east
+	dir = EAST
+/obj/structure/platform_decoration/metal/strata/alt/west
+	dir = WEST
 
 /obj/structure/platform_decoration/metal/strata
 	name = "raised metal corner"

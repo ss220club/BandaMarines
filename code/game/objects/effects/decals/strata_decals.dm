@@ -3,8 +3,6 @@
 	layer = TURF_LAYER
 	anchored = TRUE
 
-
-
 /obj/effect/decal/strata_decals/catwalk/prison //For finding and replacing prison catwalk objects since they nasty
 	icon = 'icons/turf/floors/strata_floor.dmi'
 	icon_state = "catwalk"
@@ -48,7 +46,6 @@
 
 /obj/effect/decal/lv_decals
 	icon = 'icons/turf/floors/auto_lv_turf.dmi'
-	icon_state = "grass_0_mud_alt_innercorner"
 	icon_state = "grass_0_mud_alt_innercorner"
 	name = "mud"
 	desc = null

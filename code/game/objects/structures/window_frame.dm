@@ -306,6 +306,32 @@
 	unacidable = TRUE
 	window_type = /obj/structure/window/framed/strata/hull
 
+//LV frames
+
+/obj/structure/window_frame/lv_colony
+	icon = 'icons/turf/walls/lv_colony_windows.dmi'
+	icon_state = "uppwall_window0_frame"
+	basestate = "uppwall_window"
+
+/obj/structure/window_frame/lv_colony/reinforced
+	reinforced = TRUE
+
+/obj/structure/window_frame/lv_colony/hull
+	unslashable = TRUE
+	unacidable = TRUE
+
+/obj/structure/window_frame/lv_colony/white
+	icon = 'icons/turf/walls/white_lv_colony_windows.dmi'
+	icon_state = "uppwall_window0_frame"
+	basestate = "uppwall_window"
+
+/obj/structure/window_frame/lv_colony/white/reinforced
+	reinforced = TRUE
+
+/obj/structure/window_frame/lv_colony/white/hull
+	unslashable = TRUE
+	unacidable = TRUE
+
 //Kutjevo Refinery frames
 
 /obj/structure/window_frame/kutjevo
