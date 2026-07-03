@@ -115,7 +115,7 @@
 
 /obj/item/weapon/javelin
 	name = "Javelin"
-	desc = "A large spear used by Roman infantry units. Extremely deadly in the right hands but hard to carry around. To throw the spear effectively, you have to raise it."
+	desc = "Длинное копье, используемое отрядами римской пехоты. Невероятно смертельное оружие в умелых руках, однако его трудно носить с собой. Чтобы верно метнуть копье, нужно сначала его поднять." //SS220 EDIT
 	icon = 'icons/obj/items/weapons/melee/spears.dmi'
 	icon_state = "javelin"
 	item_state = "javelin"

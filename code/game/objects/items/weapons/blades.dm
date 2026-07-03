@@ -398,7 +398,7 @@
 
 /obj/item/weapon/sword/gladius
 	name = "Gladius sword"
-	desc = "A standard sword used by Roman infantry units. Its remarkable how its still in pristine condition. You are able to raise and lower this sword."
+	desc = "Обычный меч, используемый отрядами римской пехоты. Примечательно, в насколько хорошем он состоянии. Вы можете поднять и опустить клинок." //SS220 EDIT
 	icon = 'icons/obj/items/weapons/melee/swords.dmi'
 	icon_state = "gladius"
 	item_state = "gladius"

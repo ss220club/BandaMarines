@@ -141,7 +141,7 @@
 
 /obj/item/clothing/head/helmet/roman
 	name = "\improper imperial galea helmet"
-	desc = "An extremely old helmet that was used by Roman heavy infantry units called the Legionares."
+	desc = "Древний шлем, использовавшийся отрядами римской тяжелой пехоты, называемыми легионерами." //SS220 EDIT
 	icon_state = "legionary_helm"
 	item_state = "legionary_helm"
 	icon = 'icons/obj/items/clothing/hats/misc_ert_colony.dmi'
@@ -161,7 +161,7 @@
 	armor_internaldamage = CLOTHING_ARMOR_MEDIUMHIGH
 
 /obj/item/clothing/head/helmet/roman/centurion
-	desc = "An extremely old helmet that was used by Roman heavy infantry units called the Legionares. This one has a crest indicating it was used by Centurions."
+	desc = "Древний шлем, использовавшийся отрядами римской тяжелой пехоты, называемыми легионерами. У этого есть гребень, указывающий на принадлежность центуриону." //SS220 EDIT
 	icon_state = "centurion_helm"
 	item_state = "centurion_helm"
 	worn_x_dimension = 64
@@ -173,7 +173,7 @@
 
 /obj/item/clothing/head/helmet/roman/eaglebearer
 	name = "\improper Aquilifer's bear pelt mask"
-	desc = "a bear pelt and mask that was worn by a Roman Aquilifer, a prestigious role meant to inspire troops in battles."
+	desc = "Медвежья шкура и маска, что носили римские аквилиферы, почетные знаменосцы, что вдохновляли солдат в битвах." //SS220 EDIT
 	icon_state = "eaglebearer_hat"
 	item_state = "eaglebearer_hat"
 	worn_x_dimension = 64

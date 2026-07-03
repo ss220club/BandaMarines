@@ -1373,3 +1373,12 @@ accusative = "бумажный стаканчик"
 instrumental = "бумажным стаканчиком"
 prepositional = "бумажном стаканчике"
 gender = "male"
+
+["generic tunic]
+nominative = "туника"
+genitive = "туники"
+dative = "тунике"
+accusative = "тунику"
+instrumental = "туникой"
+prepositional = "тунике"
+gender = "female"

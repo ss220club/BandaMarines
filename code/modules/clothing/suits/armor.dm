@@ -301,7 +301,7 @@
 
 /obj/item/clothing/suit/armor/roman
 	name = "imperial legionary armor"
-	desc = "A metal body armor also known as a Lorica segmentata that is used by the Roman heavy infantry called the Legionares."
+	desc = "Пластинчатые доспехи, также известные как лорика сегментата, использовавшиеся отрядами римской тяжелой пехоты, называемыми легионерами." //SS220 EDIT
 	icon = 'icons/obj/items/clothing/suits/misc_ert.dmi'
 	icon_state = "legionary_armor"
 	item_state = "legionary_armor"
@@ -328,7 +328,7 @@
 
 /obj/item/clothing/suit/armor/roman/centurion
 	name = "imperial centurion armor"
-	desc = "A metal body armor also known as a Lorica segmentata that is used by the Roman heavy infantry, this one has been outfitted with additional protection to the legs and arms with a stylish cloak."
+	desc = "Пластинчатые доспехи, также известные как лорика сегментата, использовавшиеся отрядами римской тяжелой пехоты. У этих есть дополнительная защита ног и рук, а также стильный плащ" //SS220 EDIT
 	icon_state = "centurion_armor"
 	item_state = "centurion_armor"
 	flags_armor_protection = BODY_FLAG_CHEST|BODY_FLAG_GROIN|BODY_FLAG_LEGS|BODY_FLAG_ARMS

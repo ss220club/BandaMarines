@@ -451,3 +451,39 @@ accusative = "гранатомёт P9 «Шарп»"
 instrumental = "гранатомётом P9 «Шарп»"
 prepositional = "гранатомёте P9 «Шарп»"
 gender = "male"
+
+["imperial scutum shield"]
+nominative = "имперский скутум"
+genitive = "имперского скутума"
+dative = "имперскому скутуму"
+accusative = "имперский скутум"
+instrumental = "имперским скутумом"
+prepositional = "имперском скутуме"
+gender = "male"
+
+["Javelin"]
+nominative = "пилум"
+genitive = "пилума"
+dative = "пилуму"
+accusative = "пилум"
+instrumental = "пилумом"
+prepositional = "пилуме"
+gender = "male"
+
+["Gladius sword"]
+nominative = "гладиус"
+genitive = "гладиуса"
+dative = "гладиусу"
+accusative = "гладиус"
+instrumental = "гладиусом"
+prepositional = "гладиусе"
+gender = "male"
+
+["Aquila Staff"]
+nominative = "аквила"
+genitive = "аквилы"
+dative = "аквиле"
+accusative = "аквилу"
+instrumental = "аквилой"
+prepositional = "аквиле"
+gender = "female"
