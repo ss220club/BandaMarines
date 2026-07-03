@@ -90,7 +90,7 @@
 
 /obj/item/weapon/aquilastaff
 	name = "Aquila Staff"
-	desc = "A large prestigious staff used by Aquilifers to rally the Roman troops. Can act as a blunt weapon in a pinch but is hard to carry around."
+	desc = "Большое величественное знамя, которое аквилиферы использовали для воодушевления римских войск. В крайнем случае может послужить дробящим оружием, но его тяжело носить с собой."
 	icon = 'icons/obj/items/weapons/melee/misc_64.dmi'
 	icon_state = "aquilastaff"
 	item_state = "aquilastaff"
