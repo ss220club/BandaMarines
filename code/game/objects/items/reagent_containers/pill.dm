@@ -196,7 +196,7 @@
 
 /obj/item/reagent_container/pill/oxycodone/natural
 	name = "numbing herb"
-	pill_desc = "Это сильнодействующее обезболивающее растение. Его употребление в пищу поможет притупить боль."
+	pill_desc = "Это сильнодействующее обезболивающее растение. Его употребление в пищу поможет притупить боль." //SS220 EDIT
 	icon = 'icons/obj/items/harvest.dmi'
 	icon_state = "mtear"
 
@@ -272,7 +272,7 @@
 
 /obj/item/reagent_container/pill/bicaridine/natural
 	name = "healing herb"
-	pill_desc = "Это необычное целебное растение. Его употребление в пищу способно залечить глубокие раны."
+	pill_desc = "Это необычное целебное растение. Его употребление в пищу способно залечить глубокие раны." //SS220 EDIT
 	icon = 'icons/obj/items/harvest.dmi'
 	icon_state = "shand"
 

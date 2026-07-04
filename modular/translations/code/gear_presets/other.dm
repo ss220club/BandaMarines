@@ -82,6 +82,7 @@
 	//name = "Tutorial Rifleman"
 	assignment = JOB_SQUAD_MARINE_RU
 
+//ROMAN
 /datum/equipment_preset/other/hunted/roman
 	//name = name = "Roman Legionary (Hunted)"
 	assignment = "Римский Легионер"
