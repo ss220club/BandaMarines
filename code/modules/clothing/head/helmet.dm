@@ -161,7 +161,7 @@
 	armor_internaldamage = CLOTHING_ARMOR_MEDIUMHIGH
 
 /obj/item/clothing/head/helmet/roman/centurion
-	desc = "Древний шлем, использовавшийся отрядами римской тяжелой пехоты, называемыми легионерами. У этого есть гребень, указывающий на принадлежность центуриону." //SS220 EDIT
+	desc = "Древний шлем, использовавшийся отрядами римской тяжелой пехоты, называемыми легионерами. Данный шлем имеет гребень, указывающий на принадлежность центуриону." //SS220 EDIT
 	icon_state = "centurion_helm"
 	item_state = "centurion_helm"
 	worn_x_dimension = 64
@@ -173,7 +173,7 @@
 
 /obj/item/clothing/head/helmet/roman/eaglebearer
 	name = "\improper Aquilifer's bear pelt mask"
-	desc = "Медвежья шкура и маска, что носили римские аквилиферы, почетные знаменосцы, что вдохновляли солдат в битвах." //SS220 EDIT
+	desc = "Медвежья шкура и маска, которые носили римские аквилиферы, почетные знаменосцы, вдохновлявшие солдат в битвах." //SS220 EDIT
 	icon_state = "eaglebearer_hat"
 	item_state = "eaglebearer_hat"
 	worn_x_dimension = 64

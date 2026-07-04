@@ -328,7 +328,7 @@
 
 /obj/item/clothing/suit/armor/roman/centurion
 	name = "imperial centurion armor"
-	desc = "Пластинчатые доспехи, также известные как лорика сегментата, использовавшиеся отрядами римской тяжелой пехоты. У этих есть дополнительная защита ног и рук, а также стильный плащ." //SS220 EDIT
+	desc = "Пластинчатые доспехи, также известные как лорика сегментата, использовавшиеся отрядами римской тяжелой пехоты. Данный доспех оснащен дополнительной защитой ног и рук, а также стильным плащом." //SS220 EDIT
 	icon_state = "centurion_armor"
 	item_state = "centurion_armor"
 	flags_armor_protection = BODY_FLAG_CHEST|BODY_FLAG_GROIN|BODY_FLAG_LEGS|BODY_FLAG_ARMS

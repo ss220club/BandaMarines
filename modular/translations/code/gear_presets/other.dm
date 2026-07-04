@@ -84,7 +84,7 @@
 
 //ROMAN
 /datum/equipment_preset/other/hunted/roman
-	//name = name = "Roman Legionary (Hunted)"
+	//name = "Roman Legionary (Hunted)"
 	assignment = "Римский Легионер"
 
 /datum/equipment_preset/other/hunted/roman/centurion
