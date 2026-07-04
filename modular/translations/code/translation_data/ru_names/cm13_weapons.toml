@@ -461,7 +461,7 @@ instrumental = "имперским скутумом"
 prepositional = "имперском скутуме"
 gender = "male"
 
-["Javelin"]
+["javelin"]
 nominative = "пилум"
 genitive = "пилума"
 dative = "пилуму"
@@ -470,7 +470,7 @@ instrumental = "пилумом"
 prepositional = "пилуме"
 gender = "male"
 
-["Gladius sword"]
+["gladius sword"]
 nominative = "гладиус"
 genitive = "гладиуса"
 dative = "гладиусу"
@@ -479,7 +479,7 @@ instrumental = "гладиусом"
 prepositional = "гладиусе"
 gender = "male"
 
-["Aquila Staff"]
+["aquila staff"]
 nominative = "аквила"
 genitive = "аквилы"
 dative = "аквиле"
