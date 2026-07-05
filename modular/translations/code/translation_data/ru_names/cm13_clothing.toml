@@ -1047,3 +1047,39 @@ accusative = "противогаз"
 instrumental = "противогазом"
 prepositional = "противогазе"
 gender = "male"
+
+["m1 pattern army helmet"]
+nominative = "армейский шлем М1"
+genitive = "армейского шлема М1"
+dative = "армейскому шлему М1"
+accusative = "армейский шлем М1"
+instrumental = "армейским шлемом М1"
+prepositional = "армейском шлеме М1"
+gender = "male"
+
+["us army uniform"]
+nominative = "униформа армии США"
+genitive = "униформы армии США"
+dative = "униформе армии США"
+accusative = "униформу армии США"
+instrumental = "униформой армии США"
+prepositional = "униформе армии США"
+gender = "female"
+
+[lightweight combat pack]
+nominative = "военный лёгкий ранец"
+genitive = "военного лёгкого ранца"
+dative = "военному лёгкому ранцу"
+accusative = "военный лёгкий ранец"
+instrumental = "военным лёгким ранцом"
+prepositional = "военном лёгком ранце"
+gender = "male"
+
+[armored gloves]
+nominative = "бронированные перчатки"
+genitive = "бронированных перчаток"
+dative = "бронированным перчаткам"
+accusative = "бронированные перчатки"
+instrumental = "бронированными перчатками"
+prepositional = "бронированных перчатках"
+gender = "plural"

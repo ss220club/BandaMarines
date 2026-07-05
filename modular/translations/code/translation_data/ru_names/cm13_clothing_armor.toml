@@ -177,3 +177,12 @@ accusative = "бронежилет M3-VL"
 instrumental = "бронежилетом M3-VL"
 prepositional = "бронежилете M3-VL"
 gender = "male"
+
+["d2 armored vest"]
+nominative = "бронежилет D2"
+genitive = "бронежилета D2"
+dative = "бронежилету D2"
+accusative = "бронежилет D2"
+instrumental = "бронежилетом D2"
+prepositional = "бронежилете D2"
+gender = "male"

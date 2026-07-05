@@ -2450,3 +2450,39 @@ accusative = "топливный резервуар для танкового о
 instrumental = "топливным резервуаром для танкового огнемёта DRG-N"
 prepositional = "топливном резервуаре для танкового огнемёта DRG-N"
 gender = "male"
+
+[m1911 magazine (.45)]
+nominative = "магазин для M1911 (.45)"
+genitive = "магазина для M1911 (.45)"
+dative = "магазину для M1911 (.45)"
+accusative = "магазин для M1911 (.45)"
+instrumental = "магазином для M1911 (.45)"
+prepositional = "магазине для M1911 (.45)"
+gender = "male"
+
+[m16 ap magazine (5.56x45mm)]
+nominative = "магазин для M16 (5.56x45 мм AP)"
+genitive = "магазина для M16 (5.56x45 мм AP)"
+dative = "магазину для M16 (5.56x45 мм AP)"
+accusative = "магазин для M16 (5.56x45 мм AP)"
+instrumental = "магазином для M16 (5.56x45 мм AP)"
+prepositional = "магазине для M16 (5.56x45 мм AP)"
+gender = "male"
+
+[m16 magazine (5.56x45mm)]
+nominative = "магазин для M16 (5.56x45 мм)"
+genitive = "магазина для M16 (5.56x45 мм)"
+dative = "магазину для M16 (5.56x45 мм)"
+accusative = "магазин для M16 (5.56x45 мм)"
+instrumental = "магазином для M16 (5.56x45 мм AP)"
+prepositional = "магазине для M16 (5.56x45 мм AP)"
+gender = "male"
+
+[m16 extended magazine (5.56x45mm)]
+nominative = "увеличенный магазин для M16 (5.56x45 мм)"
+genitive = "увеличенного магазина для M16 (5.56x45 мм)"
+dative = "увеличенному магазину для M16 (5.56x45 мм)"
+accusative = "увеличенный магазин для M16 (5.56x45 мм)"
+instrumental = "увеличенным магазином для M16 (5.56x45 мм)"
+prepositional = "увеличенном магазине для M16 (5.56x45 мм)"
+gender = "male"
