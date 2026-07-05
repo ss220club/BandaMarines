@@ -82,3 +82,6 @@
 	//name = "Tutorial Rifleman"
 	assignment = JOB_SQUAD_MARINE_RU
 
+/datum/equipment_preset/other/hunted/vietnam
+	//name = "Vietnam US Army Rifleman (Hunted)"
+	assignment = JOB_SQUAD_MARINE_RU
