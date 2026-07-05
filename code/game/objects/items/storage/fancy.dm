@@ -230,8 +230,8 @@
 
 /obj/item/storage/fancy/cigarettes/lucky_strikes
 	name = "\improper Lucky Strikes packet"
-	desc = "Lucky Strikes Means Fine Tobacco! 9/10 doctors agree on Lucky Strikes... as the leading cause of marine lung cancer."
-	desc_lore = "Lucky Strikes have been included in every USCM field ration since 2145, a decision made by a procurement committee that, by all accounts, has never spent a night in a foxhole. Unfiltered, cheap, and aggressively average, they are nonetheless the most purchased cigarette at every USCM vending machine in the frontier. At least they're cheap."
+	desc = "Лаки Страйкс означает отличный табак! 9/10 докторов согласны, что Лаки Страйкс... главная причина рака легких у морпехов." //SS220 EDIT
+	desc_lore = "С 2145 года сигареты Лаки Страйкс входят в каждый полевой паек колониальной морской пехоты США. Это решение было принято закупочным комитетом, которому, судя по всему, никогда не приходилось ночевать в окопе. Они без фильтра, дешевые и абсолютно посредственные, они, тем не менее, остаются самым раскупаемым товаром в любом торговом автомате КМП на дальних рубежах космоса. Ну, по крайней мере, они дешевые." //SS220 EDIT
 	icon_state = "lspacket"
 	icon = 'icons/obj/items/smoking/packets/lucky_strike.dmi'
 	item_state = "lspacket"

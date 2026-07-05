@@ -248,7 +248,7 @@
 
 /obj/item/ammo_magazine/rifle/m16/ap
 	name = "\improper M16 AP magazine (5.56x45mm)"
-	desc = "An armor-piercing 5.56x45mm magazine for the M16 assault rifle."
+	desc = "Магазин с бронебойными пулями калибра 5,56x45 мм для штурмовой винтовки M16." //SS220 EDIT
 	caliber = "5.56x45mm"
 	default_ammo = /datum/ammo/bullet/rifle/ap
 	max_rounds = 20

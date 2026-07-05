@@ -299,7 +299,7 @@
 	new /obj/item/reagent_container/pill/bicaridine/natural(src)
 
 /obj/item/storage/pouch/firstaid/ert
-	desc = "It can contain autoinjectors, ointments, and bandages. This one has some extra stuff."
+	desc = "В нём могут быть автоинъекторы, мази и бинты. В этом есть кое-что дополнительное." //SS220 EDIT
 	icon_state = "firstaid"
 	storage_slots = 5
 
@@ -497,7 +497,7 @@
 
 /obj/item/storage/pouch/magazine/large
 	name = "large magazine pouch"
-	desc = "It can carry many magazines."
+	desc = "В него можно поместить много магазинов." //SS220 EDIT
 	icon_state = "large_ammo_mag"
 	storage_slots = 4
 
