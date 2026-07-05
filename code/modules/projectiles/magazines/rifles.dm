@@ -235,7 +235,7 @@
 
 /obj/item/ammo_magazine/rifle/m16
 	name = "\improper M16 magazine (5.56x45mm)"
-	desc = "Магазин с пулями калибра 5,56x45 мм для штурмовой винтовки M16." //SS220 EDIT
+	desc = "Магазин с патронами калибра 5,56x45 мм для штурмовой винтовки M16." //SS220 EDIT
 	caliber = "5.56x45mm"
 	icon = 'icons/obj/items/weapons/guns/ammo_by_faction/colony/assault_rifles.dmi'
 	icon_state = "m16"
@@ -248,7 +248,7 @@
 
 /obj/item/ammo_magazine/rifle/m16/ap
 	name = "\improper M16 AP magazine (5.56x45mm)"
-	desc = "Магазин с бронебойными пулями калибра 5,56x45 мм для штурмовой винтовки M16." //SS220 EDIT
+	desc = "Магазин с бронебойными патронами калибра 5,56x45 мм для штурмовой винтовки M16." //SS220 EDIT
 	caliber = "5.56x45mm"
 	default_ammo = /datum/ammo/bullet/rifle/ap
 	max_rounds = 20
@@ -258,7 +258,7 @@
 
 /obj/item/ammo_magazine/rifle/m16/ext
 	name = "\improper M16 extended magazine (5.56x45mm)"
-	desc = "Увеличенный магазин с пулями калибра 5,56x45 мм для штурмовой винтовки M16. В нем содержится 30 пуль." //SS220 EDIT
+	desc = "Увеличенный магазин с патронами калибра 5,56x45 мм для штурмовой винтовки M16. В нем содержится 30 пуль." //SS220 EDIT
 	icon_state = "m16_ext"
 	item_state = "m16_ext"
 	bonus_overlay = "m16_ext_overlay"

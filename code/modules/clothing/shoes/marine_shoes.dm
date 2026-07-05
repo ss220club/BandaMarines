@@ -48,7 +48,7 @@
 
 /obj/item/clothing/shoes/marine/jungle
 	icon_state = "marine_jungle"
-	desc = "Не мешкай, дьявол на свободе" //SS220 EDIT
+	desc = "Не мешкай, дьявол на свободе." //SS220 EDIT
 
 /obj/item/clothing/shoes/marine/jungle/knife
 	spawn_item_type = /obj/item/attachable/bayonet
