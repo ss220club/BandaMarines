@@ -1066,7 +1066,7 @@ instrumental = "униформой армии США"
 prepositional = "униформе армии США"
 gender = "female"
 
-[lightweight combat pack]
+["lightweight combat pack"]
 nominative = "военный лёгкий ранец"
 genitive = "военного лёгкого ранца"
 dative = "военному лёгкому ранцу"
@@ -1075,7 +1075,7 @@ instrumental = "военным лёгким ранцом"
 prepositional = "военном лёгком ранце"
 gender = "male"
 
-[armored gloves]
+["armored gloves"]
 nominative = "бронированные перчатки"
 genitive = "бронированных перчаток"
 dative = "бронированным перчаткам"

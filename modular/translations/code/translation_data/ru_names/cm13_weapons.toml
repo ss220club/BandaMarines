@@ -452,7 +452,7 @@ instrumental = "гранатомётом P9 «Шарп»"
 prepositional = "гранатомёте P9 «Шарп»"
 gender = "male"
 
-[m1911 service pistol]
+["m1911 service pistol"]
 nominative = "служебный пистолет M1911"
 genitive = "служебного пистолета M1911"
 dative = "служебному пистолету M1911"
@@ -461,7 +461,7 @@ instrumental = "служебным пистолетом M1911"
 prepositional = "служебном пистолете M1911"
 gender = "male"
 
-[m16 rifle]
+["m16 rifle"]
 nominative = "винтовка M16"
 genitive = "винтовки M16"
 dative = "винтовке M16"
