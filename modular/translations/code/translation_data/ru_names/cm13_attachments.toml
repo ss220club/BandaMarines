@@ -2474,8 +2474,8 @@ nominative = "магазин для M16 (5.56x45 мм)"
 genitive = "магазина для M16 (5.56x45 мм)"
 dative = "магазину для M16 (5.56x45 мм)"
 accusative = "магазин для M16 (5.56x45 мм)"
-instrumental = "магазином для M16 (5.56x45 мм AP)"
-prepositional = "магазине для M16 (5.56x45 мм AP)"
+instrumental = "магазином для M16 (5.56x45 мм)"
+prepositional = "магазине для M16 (5.56x45 мм)"
 gender = "male"
 
 ["m16 extended magazine (5.56x45mm)"]
