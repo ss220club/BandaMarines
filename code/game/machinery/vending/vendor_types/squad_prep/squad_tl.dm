@@ -77,6 +77,13 @@ GLOBAL_LIST_INIT(cm_vending_gear_tl, list(
 		list("JTAC Radio Encryption Key", 5, /obj/item/device/encryptionkey/jtac, null, VENDOR_ITEM_REGULAR),
 		list("Supply Radio Encryption Key", 5, /obj/item/device/encryptionkey/req, null, VENDOR_ITEM_REGULAR),
 		list("Medical Radio Encryption Key", 5, /obj/item/device/encryptionkey/med, null, VENDOR_ITEM_REGULAR),
+
+		// SS220 EDIT - START
+		list("ОБОРУДОВАНИЕ", 0, null, null, null),
+		list("Мотоцикл (Камуфляж)", 10, /obj/vehicle/motorbike/camo, CIVILIAN_CAN_BUY_SHOES, VENDOR_ITEM_REGULAR),
+		list("Пассажирская коляска (Камуфляж)", 5, /obj/structure/bed/chair/sidecar/passenger/camo, CIVILIAN_CAN_BUY_SHOES, VENDOR_ITEM_REGULAR),
+		list("Грузовая коляска (Камуфляж)", 5, /obj/structure/bed/chair/sidecar/cargo/camo, CIVILIAN_CAN_BUY_SHOES, VENDOR_ITEM_REGULAR),
+		// SS220 EDIT - END
 	))
 
 /obj/structure/machinery/cm_vending/gear/tl
@@ -94,13 +101,17 @@ GLOBAL_LIST_INIT(cm_vending_gear_tl, list(
 
 GLOBAL_LIST_INIT(cm_vending_clothing_tl, list(
 		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
-		list("Standard Marine Apparel", 0, list(/obj/item/clothing/under/marine, /obj/item/clothing/shoes/marine/knife, /obj/item/device/radio/headset/almayer/marine, /obj/item/clothing/head/helmet/marine/rto), MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
+		list("Standard Marine Apparel", 0, list(/obj/item/clothing/under/marine, /obj/item/clothing/shoes/marine/knife, /obj/item/device/radio/headset/almayer/marine), MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY), // SS220 EDIT
 		list("Insulated Gloves (Yellow/Tan)", 0, /obj/item/clothing/gloves/marine/insulated, MARINE_CAN_BUY_GLOVES, VENDOR_ITEM_MANDATORY),
 		list("Insulated Gloves (Black)", 0, /obj/item/clothing/gloves/marine/insulated/black, MARINE_CAN_BUY_GLOVES, VENDOR_ITEM_MANDATORY),
 		list("M4 Pattern Armor", 0, /obj/item/clothing/suit/storage/marine/medium/rto, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
 		list("MRE", 0, /obj/item/storage/box/mre, MARINE_CAN_BUY_MRE, VENDOR_ITEM_MANDATORY),
 		list("Map", 0, /obj/item/map/current_map, MARINE_CAN_BUY_MAP, VENDOR_ITEM_MANDATORY),
 		list("Essential Fireteam Leader Utilities", 0, /obj/effect/essentials_set/tl, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_MANDATORY),
+
+		list("HELMET (CHOOSE 1)", 0, null, null, null),
+		list("M12 Pattern Fireteam Leader Helmet (Closed)", 0, /obj/item/clothing/head/helmet/marine/rto/ftl, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_MANDATORY), // SS220 EDIT
+		list("M12 Pattern Fireteam Leader Helmet (Classic)", 0, /obj/item/clothing/head/helmet/marine/rto, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_MANDATORY), // SS220 EDIT
 
 		list("TEAM LEADER SPECIALIZATION (CHOOSE 1)", 0, null, null, null),
 		list("USCM Radio Telephone Pack", 0, /obj/item/storage/backpack/marine/satchel/rto, MARINE_CAN_BUY_SPECIALIZATION, VENDOR_ITEM_MANDATORY),
