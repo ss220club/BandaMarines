@@ -68,7 +68,7 @@
 #define JOB_SYNTH_MED_RU "Медицинский синтетик"
 #define JOB_SYNTH_INTEL_RU "Синтетик разведки"
 #define JOB_SYNTH_MP_RU "Синтетик военной полиции"
-#define JOB_SYNTH_CMD_RU "Синтетик поддержки коммандования"
+#define JOB_SYNTH_CMD_RU "Синтетик поддержки командования"
 #define JOB_SYNTH_SCI_RU "Исследовательский синтетик"
 
 #define JOB_CO_RU "Командующий офицер"
