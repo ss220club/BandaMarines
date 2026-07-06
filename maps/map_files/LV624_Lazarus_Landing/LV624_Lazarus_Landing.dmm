@@ -81,6 +81,15 @@
 /obj/structure/machinery/power/apc/no_power/west,
 /turf/open/floor/interior/wood_sat/alt,
 /area/lazarus/lodge)
+"aaq" = (
+/obj/effect/landmark/big_fog_marker,
+/obj/effect/hybrisa/misc/fake/pipes/pipe1{
+	icon_state = "pipe-t";
+	icon = 'icons/obj/pipes/disposal.dmi';
+	dir = 4
+	},
+/turf/open/gm/river/soro,
+/area/lazarus/ground/river/west_river)
 "aar" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
 /obj/structure/largecrate/random/mini/ammo{
@@ -89,10 +98,48 @@
 	},
 /turf/open/floor/interior/wood_sat/alt,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
+"aas" = (
+/obj/effect/hybrisa/misc/fake/pipes/pipe1{
+	dir = 4;
+	layer = 2.1
+	},
+/turf/open/gm/river/soro,
+/area/lazarus/ground/river/west_river)
+"aat" = (
+/obj/structure/platform/metal/strata/alt/west,
+/obj/effect/hybrisa/misc/fake/pipes/pipe1{
+	icon_state = "pipe-t";
+	icon = 'icons/obj/pipes/disposal.dmi';
+	dir = 8
+	},
+/turf/open/gm/river/soro,
+/area/lazarus/ground/river/central_river)
 "aau" = (
 /obj/structure/machinery/power/apc/no_power/north,
 /turf/open/floor/prison/darkbrown3/north,
 /area/lazarus/comms)
+"aav" = (
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/turf/open/gm/river/soro,
+/area/lazarus/ground/river/east_river)
+"aaw" = (
+/obj/effect/hybrisa/misc/fake/pipes/pipe5{
+	dir = 1
+	},
+/turf/open/gm/river/soro,
+/area/lazarus/ground/river/east_river)
+"aax" = (
+/obj/structure/platform/metal/strata/alt/north,
+/obj/effect/hybrisa/misc/fake/pipes/pipe1{
+	icon_state = "pipe-t";
+	icon = 'icons/obj/pipes/disposal.dmi';
+	dir = 1
+	},
+/turf/open/gm/river/soro,
+/area/lazarus/ground/river/central_river)
 "aaA" = (
 /obj/structure/machinery/colony_floodlight{
 	light_color = "#dae2ff"
@@ -419,7 +466,7 @@
 /area/lazarus/captain)
 "ahz" = (
 /obj/item/toy/inflatable_duck,
-/turf/open/gm/river/pool,
+/turf/open/gm/river/pool/no_overlay,
 /area/lazarus/fitness)
 "ahA" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_4,
@@ -3236,13 +3283,6 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/prison/darkbrown2/northwest,
 /area/lazarus/quartstorage)
-"boj" = (
-/obj/effect/hybrisa/misc/fake/pipes/pipe5{
-	dir = 1
-	},
-/obj/effect/landmark/big_fog_marker,
-/turf/open/gm/river/soro,
-/area/lazarus/ground/river/east_river)
 "bom" = (
 /obj/structure/platform_decoration/metal/strata/alt,
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
@@ -3386,8 +3426,6 @@
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/kitchen)
 "bsG" = (
-/obj/item/clothing/suit/armor/yautja/thrall,
-/obj/item/clothing/mask/gas/yautja/thrall,
 /obj/structure/surface/rack{
 	color = "#6b675e";
 	layer = 2.79
@@ -3402,6 +3440,12 @@
 	},
 /obj/structure/window/reinforced/colorable{
 	color = "#8eaeb0"
+	},
+/obj/item/clothing/suit/armor/yautja_flavor,
+/obj/item/clothing/mask/yautja_flavor{
+	anchored = 1;
+	unacidable = 0;
+	pixel_y = 9
 	},
 /turf/open/floor/prison/floor_plate_alt,
 /area/lazarus/main_hall)
@@ -7705,7 +7749,7 @@
 /obj/effect/decal/hybrisa/deco_edging{
 	color = "#b9aa9f"
 	},
-/turf/open/gm/river/pool,
+/turf/open/gm/river/pool/no_overlay,
 /area/lazarus/fitness)
 "dlA" = (
 /obj/structure/flora/jungle/vines/dead/light_1,
@@ -10601,7 +10645,7 @@
 /turf/open/floor/ancient_temple/damaged/damage_2,
 /area/lazarus/ground/ancient_temple/south/surface)
 "exb" = (
-/turf/open/gm/river/pool,
+/turf/open/gm/river/pool/no_overlay,
 /area/lazarus/fitness)
 "exv" = (
 /obj/structure/fence/dark,
@@ -12824,14 +12868,6 @@
 "fuH" = (
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/lazarus/comms)
-"fuJ" = (
-/obj/effect/hybrisa/misc/fake/pipes/pipe1{
-	icon_state = "pipe-t";
-	icon = 'icons/obj/pipes/disposal.dmi';
-	dir = 4
-	},
-/turf/open/gm/coast/dirt/south,
-/area/lazarus/ground/river/east_river)
 "fuN" = (
 /obj/structure/prop/colorable_rock/colorable{
 	color = "#ae8686";
@@ -16874,10 +16910,9 @@
 /turf/open/floor/ancient_temple/deco/dark/deco_alt,
 /area/lazarus/ground/ancient_temple/north_east)
 "hii" = (
-/obj/effect/hybrisa/misc/fake/pipes/pipe1{
-	icon_state = "pipe-t";
-	icon = 'icons/obj/pipes/disposal.dmi';
-	dir = 1
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/open/gm/river/soro,
 /area/lazarus/ground/river/east_river)
@@ -19928,10 +19963,9 @@
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/north_west_caves)
 "iym" = (
-/obj/effect/hybrisa/misc/fake/pipes/pipe1{
-	icon_state = "pipe-t";
-	icon = 'icons/obj/pipes/disposal.dmi';
-	dir = 4
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
 	},
 /turf/open/gm/river/soro,
 /area/lazarus/ground/river/west_river)
@@ -20115,7 +20149,7 @@
 	dir = 8;
 	color = "#b9aa9f"
 	},
-/turf/open/gm/river/pool,
+/turf/open/gm/river/pool/no_overlay,
 /area/lazarus/fitness)
 "iCt" = (
 /obj/structure/inflatable/door,
@@ -22274,7 +22308,7 @@
 	dir = 8;
 	color = "#b9aa9f"
 	},
-/turf/open/gm/river/pool,
+/turf/open/gm/river/pool/no_overlay,
 /area/lazarus/fitness)
 "jAf" = (
 /turf/open/floor/ancient_temple/floor_19,
@@ -27204,7 +27238,7 @@
 /obj/effect/decal/hybrisa/deco_edging{
 	color = "#b9aa9f"
 	},
-/turf/open/gm/river/pool,
+/turf/open/gm/river/pool/no_overlay,
 /area/lazarus/fitness)
 "lFa" = (
 /obj/structure/disposalpipe/segment,
@@ -28220,7 +28254,6 @@
 	color = "#6b675e";
 	layer = 2.79
 	},
-/obj/item/clothing/mask/gas/yautja/damaged,
 /obj/item/clothing/suit/armor/yautja,
 /obj/structure/window/reinforced/colorable{
 	color = "#8eaeb0";
@@ -28229,6 +28262,7 @@
 /obj/structure/window/reinforced/colorable{
 	color = "#8eaeb0"
 	},
+/obj/item/clothing/mask/gas/yautja/unfunctional,
 /turf/open/floor/prison/floor_plate_alt,
 /area/lazarus/main_hall)
 "mbf" = (
@@ -28345,7 +28379,7 @@
 	dir = 4;
 	color = "#b9aa9f"
 	},
-/turf/open/gm/river/pool,
+/turf/open/gm/river/pool/no_overlay,
 /area/lazarus/fitness)
 "mdn" = (
 /obj/structure/flora/bush/ausbushes/lavendergrass,
@@ -32400,14 +32434,6 @@
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
 /turf/open/floor/ancient_temple/damaged/damage_2,
 /area/lazarus/ground/ancient_temple/east)
-"nIQ" = (
-/obj/effect/hybrisa/misc/fake/pipes/pipe1{
-	icon_state = "pipe-t";
-	icon = 'icons/obj/pipes/disposal.dmi';
-	dir = 8
-	},
-/turf/open/auto_turf/lv_sand/layer0,
-/area/lazarus/ground/jungle/north_jungle)
 "nIS" = (
 /obj/structure/barricade/handrail/wire{
 	layer = 3.5
@@ -32473,9 +32499,6 @@
 "nKd" = (
 /obj/structure/machinery/shower{
 	dir = 8
-	},
-/obj/structure/barricade/metal{
-	layer = 3
 	},
 /obj/structure/curtain/open/shower,
 /obj/effect/decal/hybrisa/dirt_2,
@@ -33115,10 +33138,6 @@
 /area/lazarus/ground/ancient_temple/south)
 "nVK" = (
 /obj/structure/platform/metal/strata/alt/west,
-/obj/effect/hybrisa/misc/fake/pipes/pipe1{
-	dir = 4;
-	layer = 2.1
-	},
 /turf/open/gm/coast/dirt/east,
 /area/lazarus/ground/river/central_river)
 "nVR" = (
@@ -34500,7 +34519,7 @@
 	dir = 1;
 	color = "#b9aa9f"
 	},
-/turf/open/gm/river/pool,
+/turf/open/gm/river/pool/no_overlay,
 /area/lazarus/fitness)
 "oAo" = (
 /obj/item/stack/sheet/cardboard,
@@ -35720,7 +35739,7 @@
 	dir = 4;
 	color = "#b9aa9f"
 	},
-/turf/open/gm/river/pool,
+/turf/open/gm/river/pool/no_overlay,
 /area/lazarus/fitness)
 "oYW" = (
 /obj/structure/prop/ice_colony/ground_wire{
@@ -37413,7 +37432,7 @@
 /obj/effect/decal/hybrisa/deco_edging{
 	color = "#b9aa9f"
 	},
-/turf/open/gm/river/pool,
+/turf/open/gm/river/pool/no_overlay,
 /area/lazarus/fitness)
 "pNY" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble_4{
@@ -38824,9 +38843,6 @@
 /obj/structure/machinery/shower{
 	dir = 8
 	},
-/obj/structure/barricade/metal{
-	layer = 3
-	},
 /obj/structure/curtain/open/shower,
 /obj/effect/decal/hybrisa/dirt_2,
 /obj/effect/decal/strata_decals/grime/grime2{
@@ -39212,9 +39228,6 @@
 /turf/open/gm/river/soro,
 /area/lazarus/ground/river/west_river)
 "qAr" = (
-/obj/item/clothing/mask/gas/yautja/damaged{
-	pixel_y = -10
-	},
 /obj/structure/surface/rack{
 	color = "#8B9490"
 	},
@@ -39234,6 +39247,7 @@
 /obj/structure/machinery/light/blue{
 	dir = 8
 	},
+/obj/item/clothing/mask/gas/yautja/unfunctional,
 /turf/open/floor/strata/light_purple_tile,
 /area/lazarus/research/storage)
 "qAv" = (
@@ -49163,10 +49177,6 @@
 /area/lazarus/ground/caves/north_west_caves)
 "uEh" = (
 /obj/structure/platform/metal/strata/alt/east,
-/obj/effect/hybrisa/misc/fake/pipes/pipe1{
-	dir = 4;
-	layer = 2.1
-	},
 /turf/open/gm/coast/dirt/beachcorner2/south_west,
 /area/lazarus/ground/river/east_river)
 "uEm" = (
@@ -52579,14 +52589,6 @@
 /obj/effect/landmark/lizard_spawn,
 /turf/open/auto_turf/lv_grass/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
-"whf" = (
-/obj/effect/hybrisa/misc/fake/pipes/pipe1{
-	dir = 4;
-	layer = 2.1
-	},
-/obj/effect/landmark/big_fog_marker,
-/turf/open/gm/river/soro,
-/area/lazarus/ground/river/west_river)
 "who" = (
 /obj/structure/platform_decoration/stone/ancient_temple/alt/north,
 /obj/effect/hunter/ancient_temple/rubble/rubble_5{
@@ -72202,9 +72204,9 @@ mgn
 iAE
 utz
 wzg
-iym
 wzg
-oWe
+wzg
+aaq
 wzg
 wzg
 wzg
@@ -72426,11 +72428,11 @@ mgn
 fVK
 dtM
 iym
-whf
-wzg
-wzg
-iym
 oWe
+wzg
+aas
+wzg
+aaq
 wzg
 kgJ
 pct
@@ -72650,11 +72652,11 @@ pLD
 gsi
 qAq
 cBm
-cBm
 qAq
 qAq
 cBm
 qAq
+cBm
 qAq
 ikO
 ule
@@ -73545,7 +73547,7 @@ pSW
 yar
 yan
 cDE
-cDE
+aat
 rmT
 cDE
 ykZ
@@ -73773,7 +73775,7 @@ tha
 ayv
 tha
 ukZ
-nIQ
+hJi
 xzI
 hJi
 hrC
@@ -80245,7 +80247,7 @@ laS
 tiA
 bGq
 fzW
-rwR
+aax
 tha
 tha
 apm
@@ -80693,7 +80695,7 @@ laS
 tIb
 bGq
 ngV
-rwR
+aax
 tha
 tha
 tha
@@ -83845,8 +83847,8 @@ eko
 bKK
 bEe
 qDT
-wpU
-boj
+aaw
+nie
 uuK
 uuK
 uuK
@@ -85861,8 +85863,8 @@ xGm
 wZQ
 bEe
 qDT
-hii
-uuK
+wpU
+aav
 uuK
 uuK
 uuK
@@ -86085,7 +86087,7 @@ jFK
 lgg
 bEe
 qDT
-hii
+aav
 uuK
 nie
 uuK
@@ -87210,7 +87212,7 @@ uuK
 gPu
 uuK
 uuK
-fuJ
+ugg
 aAV
 aAV
 aAV
