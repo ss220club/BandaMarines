@@ -1,0 +1,4 @@
+author: "Buzzing-Dissonance"
+delete-after: True
+changes:
+  - bugfix: "Пофиксил отображение плащиков и черепков на броне предов."
