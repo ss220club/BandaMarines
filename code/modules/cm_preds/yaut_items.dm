@@ -220,9 +220,12 @@ GLOBAL_VAR_INIT(youngblood_timer_yautja, 0)
 	desc = "A battle-worn cape passed down by elder Yautja."
 	icon = 'icons/obj/items/hunter/pred_gear.dmi'
 	icon_state = "fullcape"
+	// SS220 EDIT START
 	item_icons = list(
-		WEAR_BACK = 'icons/mob/humans/onmob/hunter/pred_gear.dmi'
+		WEAR_BACK = 'icons/mob/humans/onmob/hunter/pred_gear.dmi',
+		WEAR_JACKET = 'icons/mob/humans/onmob/hunter/pred_gear.dmi'
 	)
+	// SS220 EDIT END
 	flags_equip_slot = SLOT_BACK
 	flags_item = ITEM_PREDATOR
 	unacidable = TRUE
@@ -1527,7 +1530,12 @@ GLOBAL_VAR_INIT(youngblood_timer_yautja, 0)
 	desc = "A bone that appears to be of human origin."
 	icon = 'icons/obj/items/skeleton.dmi'
 	inv_overlay_icon = 'icons/obj/items/clothing/accessory/inventory_overlays/yautja.dmi'
-	accessory_icons = list(WEAR_BODY = 'icons/mob/humans/onmob/hunter/pred_gear.dmi')
+	// SS220 EDIT START
+	accessory_icons = list(
+		WEAR_BODY = 'icons/mob/humans/onmob/hunter/pred_gear.dmi',
+		WEAR_JACKET = 'icons/mob/humans/onmob/hunter/pred_gear.dmi'
+		)
+	// SS220 EDIT END
 	icon_state = null
 	worn_accessory_slot = ACCESSORY_SLOT_TROPHY
 	///Has it been cleaned by a polishing rag?
