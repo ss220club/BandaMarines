@@ -144,7 +144,7 @@
 
 /obj/item/clothing/gloves/marine/veteran
 	name = "armored gloves"
-	desc = "Нестандартные перчатки из кевлонового волокна. Они имеют теплоизоляцию и усиленную защиту." //SS220 EDIT
+	desc = "Нестандартные изоляционные перчатки из кевлонового волокна. Они предоставляют усиленную защиту." //SS220 EDIT
 	icon_state = "veteran"
 	item_state = "veteran"
 	siemens_coefficient = 0
