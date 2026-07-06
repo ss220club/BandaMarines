@@ -99,6 +99,7 @@
 
 /area/lazarus/ground/cove/south
 	name = "\improper Fisherman's Cove - South"
+	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
 
 //The Barrens
 /area/lazarus/ground/barrens

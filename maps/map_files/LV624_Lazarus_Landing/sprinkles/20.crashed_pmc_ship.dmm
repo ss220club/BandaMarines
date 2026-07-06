@@ -655,8 +655,8 @@
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/brown_dirt/random_rocks,
-/area/lazarus/ground/barrens/north_barrens)
+/turf/closed/wall/rock/brown,
+/area/strata/interior/out_of_bounds)
 "ie" = (
 /obj/effect/landmark/big_fog_marker,
 /obj/effect/decal/hybrisa/dirt,
@@ -855,8 +855,8 @@
 /area/lazarus/ground/barrens/north_barrens)
 "mo" = (
 /obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/brown_dirt/random_rocks_alt,
-/area/lazarus/ground/barrens/north_barrens)
+/turf/closed/wall/rock/brown,
+/area/strata/interior/out_of_bounds)
 "ms" = (
 /obj/structure/girder,
 /obj/effect/decal/hybrisa/dirt,
@@ -3118,10 +3118,6 @@
 "VG" = (
 /turf/open/gm/coast/dirt/beachcorner2/south_west,
 /area/lazarus/ground/river/central_river)
-"VJ" = (
-/obj/effect/landmark/big_fog_marker,
-/turf/open/auto_turf/lv_sand/layer0,
-/area/lazarus/ground/river/central_river/north)
 "VN" = (
 /obj/structure/prop/colorable_rock/colorable{
 	color = "#d4a88e";
@@ -3988,7 +3984,7 @@ lY
 lY
 dZ
 wX
-VJ
+cc
 hK
 aa
 YE
