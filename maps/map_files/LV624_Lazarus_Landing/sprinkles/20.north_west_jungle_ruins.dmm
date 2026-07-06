@@ -40,7 +40,7 @@
 /area/lazarus/ground/caves/south_west_caves)
 "bd" = (
 /obj/structure/flora/jungle/vines/blue/light_3,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "bs" = (
 /obj/effect/decal/lv_decals/red_mud_corner{
@@ -60,7 +60,7 @@
 "bt" = (
 /obj/effect/landmark/big_fog_marker,
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/barrens/west_barrens)
 "bu" = (
 /obj/structure/surface/table{
@@ -78,13 +78,13 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "bB" = (
 /obj/structure/flora/jungle/vines/blue/heavy,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "bC" = (
 /obj/structure/flora/grass/tallgrass/jungle_alt_2/corner{
 	dir = 9
 	},
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "bE" = (
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_12,
@@ -112,12 +112,12 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "bX" = (
 /obj/structure/flora/jungle/planttop1,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "ch" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
 /obj/structure/flora/jungle/vines/blue/light_3,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/barrens/west_barrens)
 "cp" = (
 /obj/structure/prop/rock/brown{
@@ -134,7 +134,7 @@
 /area/lazarus/ground/caves/south_west_caves)
 "cs" = (
 /obj/structure/flora/jungle/planttop1,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/barrens/west_barrens)
 "ct" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_3,
@@ -154,7 +154,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "cQ" = (
 /obj/structure/flora/bush/ausbushes/ywflowers,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "cR" = (
 /obj/structure/surface/table{
@@ -211,7 +211,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "dM" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "dS" = (
 /turf/open/auto_turf/lv_grass/layer0_mud_alt,
@@ -239,11 +239,11 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "er" = (
 /obj/structure/flora/jungle/vines/dead/light_1,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "es" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble_3,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "eE" = (
 /turf/closed/wall/ancient_temple{
@@ -256,7 +256,7 @@
 	dir = 1
 	},
 /obj/structure/flora/jungle/vines/dead/light_3,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "eG" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_4,
@@ -303,11 +303,11 @@
 "eS" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
 /obj/structure/flora/jungle/vines/blue/light_3,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "eT" = (
 /obj/structure/flora/jungle/vines/dead/light_3,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "eU" = (
 /obj/structure/platform/stone/ancient_temple/alt/east{
@@ -344,7 +344,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "fw" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/barrens/west_barrens)
 "fA" = (
 /obj/structure/prop/ice_colony/ground_wire{
@@ -357,7 +357,7 @@
 /obj/structure/platform/stone/ancient_temple/alt/west{
 	icon_state = "ancient_platform_broken"
 	},
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "fI" = (
 /obj/structure/surface/table{
@@ -379,7 +379,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "fT" = (
 /obj/structure/flora/jungle/plantbot1,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/template_noop)
 "fY" = (
 /obj/effect/hunter/ancient_temple/deco_border{
@@ -392,7 +392,7 @@
 /obj/structure/flora/grass/tallgrass/jungle_alt_2/corner{
 	dir = 10
 	},
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "gC" = (
 /obj/structure/prop/colorable_rock/colorable{
@@ -454,7 +454,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "hz" = (
 /obj/structure/flora/bush/ausbushes/grassybush,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "hF" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble,
@@ -553,7 +553,7 @@
 /turf/open/auto_turf/lv_grass/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
 "iV" = (
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/barrens/west_barrens)
 "iY" = (
 /obj/structure/prop/colorable_rock/colorable{
@@ -606,7 +606,7 @@
 /turf/closed/wall/rock/grey,
 /area/strata/interior/out_of_bounds)
 "jB" = (
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/caves/south_west_caves)
 "jH" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble_1{
@@ -649,7 +649,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "kw" = (
 /obj/structure/flora/bush/ausbushes/ywflowers,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/template_noop)
 "kC" = (
 /obj/effect/decal/lv_decals/red_mud_corner{
@@ -755,7 +755,7 @@
 /turf/open/floor/brown_dirt/random_rocks,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "lZ" = (
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/template_noop)
 "mg" = (
 /turf/open/floor/brown_dirt/random_rocks_alt,
@@ -776,7 +776,7 @@
 /area/strata/interior/out_of_bounds)
 "mH" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble_4,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "mQ" = (
 /turf/open/floor/ancient_temple/damaged/damage_3,
@@ -848,7 +848,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "od" = (
 /obj/structure/platform_decoration/stone/ancient_temple/alt/north,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "oo" = (
 /obj/effect/hunter/ancient_temple/deco_border/deco_border3{
@@ -986,7 +986,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "qX" = (
 /obj/structure/flora/grass/tallgrass/jungle_alt_2/corner,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "rd" = (
 /obj/structure/stairs/perspective{
@@ -1014,7 +1014,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
 "rt" = (
 /obj/structure/flora/jungle/vines/dead/light_3,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "rv" = (
 /obj/structure/prop/ice_colony/surveying_device/measuring_device{
@@ -1056,7 +1056,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
 "sl" = (
 /obj/structure/flora/jungle/plantbot1,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "sm" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
@@ -1068,10 +1068,10 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "sr" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/barrens/west_barrens)
 "sG" = (
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "sQ" = (
 /obj/effect/hunter/ancient_temple/deco_border/deco_border3{
@@ -1092,7 +1092,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
 "tc" = (
 /obj/structure/flora/bush/ausbushes/grassybush,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "tu" = (
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
@@ -1101,11 +1101,11 @@
 "tw" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
 /obj/structure/flora/jungle/vines/dead/light_3,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "tz" = (
 /obj/effect/landmark/big_fog_marker,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/template_noop)
 "tD" = (
 /obj/effect/decal/lv_decals/cave_mud_corner{
@@ -1136,7 +1136,7 @@
 /area/lazarus/ground/caves/south_west_caves)
 "tY" = (
 /obj/item/stack/sheet/wood,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "ub" = (
 /obj/structure/prop/ice_colony/ground_wire,
@@ -1167,7 +1167,7 @@
 /obj/structure/flora/grass/tallgrass/jungle_alt_2/corner{
 	dir = 5
 	},
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "un" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble,
@@ -1198,15 +1198,15 @@
 "uG" = (
 /obj/structure/platform/stone/ancient_temple/east,
 /obj/structure/flora/jungle/vines/dead/light_3,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "uI" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "uU" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/barrens/west_barrens)
 "uW" = (
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_12,
@@ -1302,10 +1302,10 @@
 /turf/open/auto_turf/lv_grass/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
 "wR" = (
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "wS" = (
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/barrens/west_barrens)
 "xl" = (
 /obj/item/stack/sheet/mineral/sandstone/runed,
@@ -1394,7 +1394,7 @@
 "yD" = (
 /obj/structure/flora/bush/ausbushes/var3/sunnybush,
 /obj/structure/flora/jungle/vines/dead/light_3,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "yK" = (
 /obj/structure/prop/colorable_rock/colorable{
@@ -1419,7 +1419,7 @@
 /turf/open/auto_turf/lv_grass/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
 "yU" = (
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/template_noop)
 "yV" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble_5{
@@ -1439,7 +1439,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "zi" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/barrens/west_barrens)
 "zk" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
@@ -1495,7 +1495,7 @@
 /area/template_noop)
 "Au" = (
 /obj/effect/landmark/big_fog_marker,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/barrens/west_barrens)
 "Av" = (
 /obj/structure/prop/brazier_ancient/tall/frame/full,
@@ -1509,7 +1509,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "AK" = (
 /obj/structure/flora/grass/tallgrass/jungle_alt_2,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "AQ" = (
 /obj/effect/hunter/ancient_temple/deco_border/deco_border3{
@@ -1560,7 +1560,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
 "Bt" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/template_noop)
 "BB" = (
 /obj/structure/prop/colorable_rock/colorable{
@@ -1589,7 +1589,7 @@
 "Ch" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
 /obj/structure/flora/jungle/vines/dead/light_3,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Ck" = (
 /obj/structure/closet/coffin/woodencrate/old,
@@ -1615,11 +1615,11 @@
 "Cy" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
 /obj/structure/flora/jungle/vines/blue/light_1,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Cz" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/template_noop)
 "CD" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_2,
@@ -1742,7 +1742,7 @@
 "Fu" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
 /obj/structure/flora/jungle/planttop1,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/template_noop)
 "Fv" = (
 /obj/effect/hunter/ancient_temple/deco_border{
@@ -1770,7 +1770,7 @@
 "FL" = (
 /obj/structure/flora/bush/ausbushes/lavendergrass,
 /obj/structure/flora/jungle/vines/blue/light_3,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Gf" = (
 /obj/effect/hunter/ancient_temple/deco_border/deco_border3{
@@ -1824,7 +1824,7 @@
 "Go" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
 /obj/effect/landmark/objective_landmark/medium,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Gp" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
@@ -1899,7 +1899,7 @@
 /obj/structure/flora/grass/tallgrass/jungle_alt_2/corner{
 	dir = 6
 	},
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Hx" = (
 /obj/structure/stairs/perspective{
@@ -1953,7 +1953,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
 "HR" = (
 /obj/structure/flora/bush/ausbushes/lavendergrass,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/barrens/west_barrens)
 "HS" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_4,
@@ -2013,7 +2013,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "IH" = (
 /obj/structure/flora/jungle/vines/blue/light_2,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "IW" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble,
@@ -2031,7 +2031,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Jb" = (
 /obj/structure/flora/jungle/vines/blue/light_3,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/template_noop)
 "Jh" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble_2{
@@ -2086,7 +2086,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "JP" = (
 /obj/structure/flora/grass/tallgrass/jungle_alt_2,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Kj" = (
 /obj/effect/decal/cleanable/blood/drip{
@@ -2098,11 +2098,11 @@
 "Kl" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
 /obj/structure/flora/jungle/planttop1,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Kn" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Ku" = (
 /obj/item/tool/warning_cone{
@@ -2131,7 +2131,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "KH" = (
 /obj/structure/platform_decoration/stone/ancient_temple/alt,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "KK" = (
 /obj/structure/prop/hunter/ancient_temple/collapsed_wall{
@@ -2146,7 +2146,7 @@
 /area/strata/interior/out_of_bounds)
 "Lc" = (
 /obj/effect/landmark/monkey_spawn,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Ld" = (
 /obj/structure/tent/big{
@@ -2252,18 +2252,18 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Mw" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "MA" = (
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
 "MF" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/template_noop)
 "MG" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "ML" = (
 /obj/effect/decal/cleanable/blood,
@@ -2336,7 +2336,7 @@
 /area/lazarus/ground/caves/south_west_caves)
 "Oi" = (
 /obj/structure/flora/jungle/plantbot1,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/barrens/west_barrens)
 "Oj" = (
 /obj/item/device/flashlight/lamp/tripod{
@@ -2368,7 +2368,7 @@
 "Ox" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
 /obj/structure/flora/jungle/vines/dead/light_3,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "OK" = (
 /obj/structure/platform_decoration/stone/ancient_temple/alt/west,
@@ -2408,7 +2408,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
 "OZ" = (
 /obj/structure/flora/bush/ausbushes/lavendergrass,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/template_noop)
 "Pa" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
@@ -2435,11 +2435,11 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Pr" = (
 /obj/structure/flora/jungle/planttop1,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "PF" = (
 /obj/structure/flora/jungle/vines/blue/light_3,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "PK" = (
 /obj/structure/prop/ice_colony/ground_wire,
@@ -2461,7 +2461,7 @@
 "PU" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
 /obj/structure/flora/jungle/vines/blue/light_3,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "PY" = (
 /obj/structure/prop/colorable_rock/colorable{
@@ -2485,11 +2485,11 @@
 "Qa" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble_2,
 /obj/structure/flora/jungle/vines/blue/light_1,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Qb" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/template_noop)
 "Qc" = (
 /obj/effect/decal/lv_decals/red_mud_corner{
@@ -2560,7 +2560,7 @@
 "QO" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
 /obj/structure/flora/jungle/vines/blue/light_1,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Re" = (
 /obj/structure/stairs/perspective{
@@ -2572,7 +2572,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Rx" = (
 /obj/structure/flora/bush/ausbushes/ywflowers,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "RK" = (
 /obj/structure/prop/ice_colony/surveying_device/measuring_device{
@@ -2616,7 +2616,7 @@
 "Sk" = (
 /obj/structure/flora/jungle/plantbot1,
 /obj/effect/hunter/ancient_temple/rubble/rubble_4,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Sm" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble_2,
@@ -2643,7 +2643,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Sz" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/barrens/west_barrens)
 "SB" = (
 /obj/effect/hunter/ancient_temple/deco_border{
@@ -2653,15 +2653,15 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
 "SE" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "SG" = (
 /obj/structure/flora/bush/ausbushes/var3/sunnybush,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "SI" = (
 /obj/structure/tunnel,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "SL" = (
 /obj/structure/prop/hunter/ancient_temple/collapsed_wall{
@@ -2671,7 +2671,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "SR" = (
 /obj/structure/flora/jungle/vines/blue/heavy,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "SW" = (
 /obj/structure/platform_decoration/stone/ancient_temple/alt/north,
@@ -2692,7 +2692,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Tl" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/template_noop)
 "Tm" = (
 /obj/effect/landmark/objective_landmark/medium,
@@ -2747,7 +2747,7 @@
 "Ub" = (
 /obj/structure/platform/stone/ancient_temple/alt,
 /obj/structure/flora/jungle/vines/dead/light_1,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Ue" = (
 /obj/structure/flora/jungle/vines/dead/light_2,
@@ -2774,7 +2774,7 @@
 /area/lazarus/ground/caves/south_west_caves)
 "Us" = (
 /obj/effect/landmark/objective_landmark/medium,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Uv" = (
 /obj/structure/platform/stone/ancient_temple/alt/west,
@@ -2803,7 +2803,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "UP" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble_2,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "UT" = (
 /obj/structure/platform_decoration/stone/ancient_temple/alt/east,
@@ -2881,7 +2881,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Wf" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Wg" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_4,
@@ -2991,7 +2991,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Yp" = (
 /obj/structure/flora/jungle/vines/blue/light_3,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/barrens/west_barrens)
 "YH" = (
 /obj/effect/hunter/ancient_temple/deco_border{
@@ -3024,7 +3024,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
 "Zk" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble_1,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Zm" = (
 /obj/effect/hunter/ancient_temple/deco_border{
@@ -3034,7 +3034,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Zv" = (
 /obj/structure/flora/bush/ausbushes/lavendergrass,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "ZG" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble_2{
