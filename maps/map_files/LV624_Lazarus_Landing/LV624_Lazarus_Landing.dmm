@@ -14,9 +14,7 @@
 /turf/open/floor/prison/cell_stripe/north,
 /area/lazarus/landing_zones/lz1)
 "aad" = (
-/obj/structure/machinery/power/apc/power/north{
-	start_charge = 200
-	},
+/obj/structure/machinery/power/apc/no_power/north,
 /turf/open/floor/prison/cell_stripe/north,
 /area/lazarus/landing_zones/lz1)
 "aae" = (
@@ -56,9 +54,7 @@
 /turf/open/floor/prison/cell_stripe/north,
 /area/lazarus/landing_zones/lz2)
 "aal" = (
-/obj/structure/machinery/power/apc/power/north{
-	start_charge = 200
-	},
+/obj/structure/machinery/power/apc/no_power/north,
 /turf/open/floor/prison/cell_stripe/north,
 /area/lazarus/landing_zones/lz2)
 "aam" = (
@@ -690,10 +686,54 @@
 /obj/structure/platform_decoration/wood/west,
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/cove/south)
+"acL" = (
+/obj/effect/landmark/big_fog_marker,
+/turf/open/gm/coast/dirt/beachcorner/north_east,
+/area/lazarus/ground/river/west_river)
+"acM" = (
+/obj/structure/flora/jungle/planttop1,
+/obj/effect/landmark/big_fog_marker,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
+/area/lazarus/ground/barrens/west_barrens)
+"acN" = (
+/obj/structure/flora/bush/ausbushes/var3/sparsegrass,
+/obj/effect/landmark/big_fog_marker,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
+/area/lazarus/ground/barrens/west_barrens)
+"acO" = (
+/obj/structure/flora/bush/ausbushes/var3/sparsegrass,
+/obj/effect/landmark/big_fog_marker,
+/turf/open/auto_turf/lv_sand/layer0,
+/area/lazarus/ground/barrens/east_barrens)
+"acP" = (
+/obj/effect/landmark/big_fog_marker,
+/turf/open/gm/dirt/brown/variant_5/east,
+/area/lazarus/ground/barrens/east_barrens)
+"acQ" = (
+/obj/effect/landmark/big_fog_marker,
+/turf/open/floor/brown_dirt/random_rocks,
+/area/lazarus/ground/barrens/west_barrens)
+"acR" = (
+/obj/effect/landmark/big_fog_marker,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/lazarus/ground/barrens/central_barrens)
+"acS" = (
+/obj/effect/landmark/big_fog_marker,
+/turf/open/auto_turf/lv_grass/layer1,
+/area/lazarus/ground/barrens/central_barrens)
+"acT" = (
+/obj/structure/flora/bush/ausbushes/var3/sparsegrass,
+/obj/effect/landmark/big_fog_marker,
+/turf/open/floor/brown_dirt/random_rocks,
+/area/lazarus/ground/barrens/north_barrens)
 "acU" = (
 /obj/structure/flora/bush/ausbushes/reedbush,
 /turf/open/gm/coast/dirt/beachcorner2/south_west,
 /area/lazarus/ground/river/central_river/north)
+"acV" = (
+/obj/effect/landmark/big_fog_marker,
+/turf/open/floor/ancient_temple/damaged/damage_1,
+/area/lazarus/ground/barrens/north_barrens)
 "adj" = (
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_12,
 /obj/effect/hunter/ancient_temple/rubble/rubble_5,
@@ -5383,11 +5423,6 @@
 /obj/structure/platform/metal/strata/alt/east,
 /turf/open/auto_turf/lv_grass/layer1,
 /area/lazarus/ground/jungle/east_central_jungle)
-"cff" = (
-/obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/obj/effect/landmark/big_fog_marker,
-/turf/open/auto_turf/lv_sand/layer0,
-/area/lazarus/ground/jungle/west_jungle)
 "cfx" = (
 /obj/structure/platform/stone/ancient_temple/east,
 /obj/structure/blocker/forcefield/all,
@@ -13636,6 +13671,7 @@
 /obj/structure/machinery/colony_floodlight{
 	light_color = "#dae2ff"
 	},
+/obj/effect/landmark/big_fog_marker,
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/jungle/west_jungle)
 "fEr" = (
@@ -17291,7 +17327,7 @@
 	icon = 'icons/obj/pipes/disposal.dmi';
 	dir = 1
 	},
-/turf/open/gm/river/pool/no_overlay,
+/turf/open/gm/river/soro,
 /area/lazarus/ground/river/east_river)
 "hij" = (
 /obj/structure/closet/fireaxecabinet{
@@ -17849,6 +17885,7 @@
 /area/lazarus/quart)
 "hvf" = (
 /obj/effect/hunter/ancient_temple/deco_border,
+/obj/effect/landmark/big_fog_marker,
 /turf/open/floor/ancient_temple/damaged/damage_2,
 /area/lazarus/ground/barrens/north_barrens)
 "hvj" = (
@@ -20333,7 +20370,7 @@
 	icon = 'icons/obj/pipes/disposal.dmi';
 	dir = 4
 	},
-/turf/open/gm/river/pool/no_overlay,
+/turf/open/gm/river/soro,
 /area/lazarus/ground/river/west_river)
 "iyL" = (
 /obj/structure/prop/hunter/ancient_temple/coffin_base{
@@ -23362,10 +23399,6 @@
 "jOV" = (
 /turf/open/gm/coast/dirt/east,
 /area/lazarus/ground/river/central_river/lake)
-"jPq" = (
-/obj/effect/landmark/big_fog_marker,
-/turf/open/gm/coast/dirt/east,
-/area/lazarus/ground/river/west_river)
 "jPy" = (
 /obj/effect/decal/hybrisa/trash{
 	icon_state = "trash_4";
@@ -62241,12 +62274,12 @@ wxA
 wDU
 dtM
 wzg
-wzg
+oWe
 wzg
 oWe
 wzg
 wzg
-wzg
+oWe
 wzg
 oWe
 dtM
@@ -62263,7 +62296,7 @@ wxA
 dSt
 hgz
 tyA
-tyA
+fPU
 tyA
 tyA
 nhv
@@ -62462,7 +62495,7 @@ nBv
 mvz
 hgz
 hgz
-djv
+acL
 wxA
 wxA
 waC
@@ -62486,7 +62519,7 @@ rXZ
 hgz
 rML
 tQK
-umq
+hgz
 xuA
 bCc
 tyA
@@ -62687,14 +62720,14 @@ tQK
 oFE
 vdv
 hgz
-cff
+tQK
 hgz
 djv
-jPq
 wxA
 wxA
 wxA
-jPq
+wxA
+wxA
 dSt
 tQK
 hgz
@@ -63580,7 +63613,7 @@ nBv
 umq
 baA
 hgz
-umq
+hgz
 hGK
 auL
 hgz
@@ -70041,7 +70074,7 @@ qgV
 lgR
 abe
 bKm
-fdY
+acM
 fbW
 aaF
 eKD
@@ -70486,7 +70519,7 @@ abf
 qgV
 qgV
 abf
-bKm
+acN
 qgV
 qgV
 abe
@@ -71378,7 +71411,7 @@ qgV
 bKm
 bKm
 kVQ
-qgV
+jON
 abe
 abe
 abe
@@ -72266,7 +72299,7 @@ qgV
 qgV
 abe
 mgn
-pLD
+acQ
 mgn
 mgn
 pLD
@@ -73601,7 +73634,7 @@ abD
 abG
 abC
 abq
-yar
+abq
 yar
 yar
 yar
@@ -74471,7 +74504,7 @@ bWW
 sqE
 acy
 act
-acF
+acy
 act
 act
 act
@@ -74492,9 +74525,9 @@ aco
 acm
 yar
 yar
-cPG
+acR
 yar
-yar
+abq
 yar
 yar
 yar
@@ -80755,7 +80788,7 @@ cYA
 hnE
 hnE
 cYA
-fFn
+acT
 cYA
 hnE
 hnE
@@ -81424,7 +81457,7 @@ hnE
 hnE
 abL
 abL
-tWH
+acV
 abV
 abT
 abQ
@@ -81881,7 +81914,7 @@ abL
 sQI
 abL
 abL
-qFM
+acS
 nYT
 qFM
 yar
@@ -84137,11 +84170,11 @@ awR
 wxX
 cSy
 kKq
-qKp
+qNZ
 xEz
 ueb
 lEr
-yar
+cPG
 abq
 sKt
 aao
@@ -84366,7 +84399,7 @@ yar
 tHE
 awR
 yar
-uLR
+fvk
 abq
 dMG
 vOk
@@ -84587,7 +84620,7 @@ yar
 qch
 lyn
 hzF
-tHE
+gjZ
 awR
 yar
 abq
@@ -85034,7 +85067,7 @@ yar
 nYT
 yar
 yar
-xnI
+kCv
 qKp
 xnI
 lEr
@@ -85484,9 +85517,9 @@ yar
 yar
 nYT
 xnI
+cPG
 yar
-yar
-yar
+cPG
 aao
 may
 dUT
@@ -86157,7 +86190,7 @@ qKp
 nYT
 yar
 yar
-yar
+cPG
 yar
 aao
 bhQ
@@ -86604,7 +86637,7 @@ aRU
 jLp
 sQH
 mjL
-nBA
+acP
 mjL
 jLp
 aao
@@ -86829,7 +86862,7 @@ jLp
 jLp
 mjL
 mjL
-mjL
+voq
 jLp
 dMG
 bUd
@@ -87503,7 +87536,7 @@ iyd
 mjL
 mjL
 mjL
-sQH
+acO
 mjL
 mjL
 fpE
