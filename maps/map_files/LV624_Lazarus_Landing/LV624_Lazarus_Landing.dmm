@@ -734,6 +734,22 @@
 /obj/effect/landmark/big_fog_marker,
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/barrens/north_barrens)
+"acW" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/grille,
+/obj/effect/landmark/big_fog_marker,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lazarus/ground/river/west_river)
+"acX" = (
+/obj/structure/flora/bush/ausbushes/var3/sparsegrass,
+/obj/effect/landmark/big_fog_marker,
+/turf/open/auto_turf/lv_sand/layer0,
+/area/lazarus/ground/barrens/west_barrens)
+"acY" = (
+/obj/structure/flora/bush/ausbushes/var3/sparsegrass,
+/obj/effect/landmark/big_fog_marker,
+/turf/open/auto_turf/lv_sand/layer0,
+/area/lazarus/ground/caves/south_west_caves)
 "adj" = (
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_12,
 /obj/effect/hunter/ancient_temple/rubble/rubble_5,
@@ -7638,6 +7654,7 @@
 "dau" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
 /obj/structure/platform_decoration/metal/strata/alt/north,
+/obj/effect/landmark/big_fog_marker,
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/barrens/east_barrens)
 "daE" = (
@@ -27883,6 +27900,7 @@
 /area/lazarus/ground/jungle/north_east_jungle)
 "lJH" = (
 /obj/effect/decal/lv_decals/red_mud_corner,
+/obj/effect/landmark/big_fog_marker,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/lazarus/ground/river/west_river)
 "lJJ" = (
@@ -53381,7 +53399,7 @@
 /obj/effect/hybrisa/misc/fake/pipes/pipe1{
 	icon = 'icons/obj/pipes/disposal.dmi'
 	},
-/turf/open/gm/river/soro,
+/turf/open/gm/river/soro/no_overlay,
 /area/lazarus/ground/river/east_river)
 "wqa" = (
 /obj/effect/decal/lv_decals/cave_mud_corner{
@@ -69181,7 +69199,7 @@ abe
 abe
 aay
 aay
-aay
+kDj
 dvn
 nWz
 qrD
@@ -69857,7 +69875,7 @@ dvn
 aaF
 eKD
 aay
-nWz
+xYY
 nWz
 xYY
 fVK
@@ -70517,7 +70535,7 @@ bKm
 qgV
 abf
 qgV
-qgV
+jON
 abf
 acN
 qgV
@@ -70527,7 +70545,7 @@ aay
 aay
 aay
 nBI
-nWz
+xYY
 nWz
 nWz
 nWz
@@ -70743,7 +70761,7 @@ abe
 abf
 bKm
 bKm
-jON
+qgV
 abf
 abe
 abe
@@ -70967,10 +70985,10 @@ lgR
 qgV
 bKm
 qgV
+dQc
 abe
 abe
-abe
-jna
+acX
 nWz
 nWz
 ptc
@@ -71185,7 +71203,7 @@ abe
 abe
 abf
 qgV
-abe
+dQc
 bKm
 qgV
 fdY
@@ -71633,7 +71651,7 @@ abe
 abe
 abf
 qgV
-qgV
+jON
 abe
 abe
 abe
@@ -72083,7 +72101,7 @@ abe
 abe
 abe
 abe
-abe
+dQc
 abe
 jna
 mgn
@@ -73213,7 +73231,7 @@ rcv
 hIY
 nGU
 xmH
-xmH
+acW
 nGU
 xmH
 wPh
@@ -74741,7 +74759,7 @@ aNR
 aNR
 acr
 aav
-acr
+acY
 aco
 eRP
 aco
@@ -88885,7 +88903,7 @@ gQi
 iyd
 gsk
 cje
-mjL
+voq
 eIv
 nie
 uuK

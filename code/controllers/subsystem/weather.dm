@@ -176,7 +176,6 @@ SUBSYSTEM_DEF(weather)
 	else
 		message_admins(SPAN_BLUE("В ближайшее время ожидается неизвестная погода типа «[weather_event_type]» продолжительностью [DisplayTimeText(weather_event_instance.length)].")) // SS220 EDIT ADDICTION
 
-	weather_event_instance.start_weather_event()
 	curr_master_turf_overlay.icon_state = weather_event_instance.turf_overlay_icon_state
 	curr_master_turf_overlay.alpha = weather_event_instance.turf_overlay_alpha
 	for(var/area/area as anything in weather_areas)
@@ -200,6 +199,8 @@ SUBSYSTEM_DEF(weather)
 		message_admins(SPAN_BLUE("Погода типа «[weather_event_instance.display_name]» закончится через [DisplayTimeText(world.time - current_event_start_time)].")) // SS220 EDIT ADDICTION
 	else
 		message_admins(SPAN_BLUE("Неизвестная погода типа «[weather_event_type]» закончится через [DisplayTimeText(world.time - current_event_start_time)].")) // SS220 EDIT ADDICTION
+
+	weather_event_instance.end_weather_event()
 
 	for(var/area/area as anything in weather_areas)
 		area.overlays -= curr_master_turf_overlay

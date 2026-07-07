@@ -50,38 +50,35 @@ GLOBAL_LIST_INIT(big_fog_tiles, list())
 	addtimer(CALLBACK(src, PROC_REF(despawn_fog)),x * 4)
 
 /obj/effect/landmark/big_fog_marker/proc/spawn_fog()
-	linked_fog = new/obj/effect/big_fog(loc)
-	linked_fog.linked_marker = src
+	if(!linked_fog)
+		linked_fog = new/obj/effect/big_fog(loc)
+		linked_fog.linked_marker = src
 
 /obj/effect/landmark/big_fog_marker/proc/despawn_fog()
 	if(linked_fog)
-		QDEL_NULL(linked_fog)
-
+		animate(linked_fog, time = 2 SECONDS , alpha = 0)
+		QDEL_IN(linked_fog, 2 SECONDS)
+		linked_fog = null
 
 /obj/effect/landmark/big_fog_marker/Destroy()
-	. = ..()
 	GLOB.big_fog_tiles -= src
 	if(linked_fog)
 		QDEL_NULL(linked_fog)
+	return ..()
 
 /datum/weather_event/heavy_rain/fog
 	name = "Heavy Rain with fog"
 	display_name = "Heavy Rain with fog"
 
-/datum/weather_event/heavy_rain/fog/handle_weather_process()
-	. = ..()
-	//for(var/i = 1 to 60)
-	//	var/obj/effect/landmark/fog_marker/marker = pick(GLOB.fog_tiles)
-
-
-
 /datum/weather_event/heavy_rain/fog/start_weather_event()
-	for(var/obj/effect/landmark/big_fog_marker/marker as anything in GLOB.big_fog_tiles)
+	. = ..()
+	for(var/obj/effect/landmark/big_fog_marker/marker in GLOB.big_fog_tiles)
 		marker.activate()
 
 /datum/weather_event/heavy_rain/fog/end_weather_event()
-	for(var/obj/effect/landmark/big_fog_marker/marker as anything in GLOB.big_fog_tiles)
+	for(var/obj/effect/landmark/big_fog_marker/marker in GLOB.big_fog_tiles)
 		marker.deactivate()
+	return ..()
 
 /obj/effect/big_fog
 	icon = 'icons/effects/192x192.dmi'
@@ -93,9 +90,9 @@ GLOBAL_LIST_INIT(big_fog_tiles, list())
 
 /obj/effect/big_fog/New(loc, ...)
 	. = ..()
-	animate(src, time = 2 SECONDS ,loop = 0, alpha = 256)
+	animate(src, time = 2 SECONDS , alpha = 256)
 
 /obj/effect/big_fog/Destroy(force)
-	. = ..()
-	if(linked_marker)
-		QDEL_NULL(linked_marker)
+	linked_marker = null
+	return ..()
+
