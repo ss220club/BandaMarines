@@ -183,7 +183,7 @@
 	. = ..()
 
 	load_admins()
-
+/*
 /datum/world_topic/cmtv
 	key = "cmtv"
 	required_params = list("command")
@@ -209,7 +209,7 @@
 	statuscode = selected_command.successful ? 200 : 303
 
 	selected_command.post_execute(input)
-
+*/ // BANDAMARINES 220 CMTV - мы это не используем, нам это не нужно, у нас нет бота-твич стримера.
 /datum/world_topic/active_mobs
 	key = "active_mobs"
 
