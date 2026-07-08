@@ -24,7 +24,7 @@ export const JOBS_RU = {
   Delta: 'Дельта',
   Echo: 'Эхо',
   Foxtrot: 'Фокстрот',
-  Intel: 'Разведка',
+  Intel: 'Информационный отдел',
   Command: 'Командование',
   Auxiliary: 'Вспомогательный персонал',
   Security: 'Охрана',
