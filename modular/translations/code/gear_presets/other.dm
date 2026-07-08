@@ -82,3 +82,15 @@
 	//name = "Tutorial Rifleman"
 	assignment = JOB_SQUAD_MARINE_RU
 
+//ROMAN
+/datum/equipment_preset/other/hunted/roman
+	//name = "Roman Legionary (Hunted)"
+	assignment = "Римский Легионер"
+
+/datum/equipment_preset/other/hunted/roman/centurion
+	//name = "Roman Centurion (Hunted)"
+	assignment = "Римский Центурион"
+
+/datum/equipment_preset/other/hunted/roman/eaglebearer
+	//name = "Roman Aquilifer (Hunted)"
+	assignment = "Римский Аквилифер"
