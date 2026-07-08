@@ -231,7 +231,7 @@
 /obj/item/stack/medical/advanced/bruise_pack/predator
 	name = "mending herbs"
 	singular_name = "mending herb"
-	desc = "A poultice made of soft leaves that is rubbed on bruises."
+	desc = "Припарка из мягких листьев, которую втирают в ушибы." //SS220 EDIT
 	icon = 'icons/obj/items/hunter/pred_gear.dmi'
 	icon_state = "brute_herbs"
 	item_state = "brute_herbs"
@@ -309,7 +309,7 @@
 /obj/item/stack/medical/advanced/ointment/predator
 	name = "soothing herbs"
 	singular_name = "soothing herb"
-	desc = "A poultice made of cold, blue petals that is rubbed on burns."
+	desc = "Припарка из холодных синих лепестков, которую втирают в ожоги." //SS220 EDIT
 	icon = 'icons/obj/items/hunter/pred_gear.dmi'
 	icon_state = "burn_herbs"
 	item_state = "burn_herbs"
