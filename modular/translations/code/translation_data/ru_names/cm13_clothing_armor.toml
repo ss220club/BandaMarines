@@ -186,3 +186,21 @@ accusative = "бронежилет D2"
 instrumental = "бронежилетом D2"
 prepositional = "бронежилете D2"
 gender = "male"
+
+["imperial legionary armor"]
+nominative = "имперская броня легионера"
+genitive = "имперской брони легионера"
+dative = "имперской броне легионера"
+accusative = "имперскую броню легионера"
+instrumental = "имперской бронёй легионера"
+prepositional = "имперской броне легионера"
+gender = "female"
+
+["imperial centurion armor"]
+nominative = "имперская броня центуриона"
+genitive = "имперской брони центуриона"
+dative = "имперской броне центуриона"
+accusative = "имперскую броню центуриона"
+instrumental = "имперской бронёй центуриона"
+prepositional = "имперской броне центуриона"
+gender = "female"

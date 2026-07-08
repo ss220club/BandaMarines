@@ -281,7 +281,7 @@
 
 /obj/item/storage/pouch/firstaid/hunted
 	name = "old pouch"
-	desc = "A general-purpose pouch used to carry necessary survival items."
+	desc = "Подсумок общего назначения для переноски предметов, необходимых для выживания." //SS220 EDIT
 	icon_state = "survival"
 	storage_slots = 5
 	can_hold = list(

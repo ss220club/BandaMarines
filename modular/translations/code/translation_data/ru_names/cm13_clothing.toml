@@ -1083,3 +1083,30 @@ accusative = "бронированные перчатки"
 instrumental = "бронированными перчатками"
 prepositional = "бронированных перчатках"
 gender = "plural"
+
+["imperial galea helmet"]
+nominative = "имперская галея"
+genitive = "имперской галеи"
+dative = "имперской галее"
+accusative = "имперскую галею"
+instrumental = "имперской галеей"
+prepositional = "имперской галее"
+gender = "female"
+
+["aquilifer's bear pelt mask"]
+nominative = "маска из медвежьей шкуры аквилифера"
+genitive = "маски из медвежьей шкуры аквилифера"
+dative = "маске из медвежьей шкуры аквилифера"
+accusative = "маску из медвежьей шкуры аквилифера"
+instrumental = "маской из медвежьей шкуры аквилифера"
+prepositional = "маске из медвежьей шкуры аквилифера"
+gender = "female"
+
+["foot wrapped sandals"]
+nominative = "сандалии с обмотками"
+genitive = "сандалий с обмотками"
+dative = "сандалиям с обмотками"
+accusative = "сандалии с обмотками"
+instrumental = "сандалиями с обмотками"
+prepositional = "сандалиях с обмотками"
+gender = "plural"
