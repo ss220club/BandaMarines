@@ -1295,7 +1295,7 @@
 
 /obj/item/clothing/accessory/storage/holster
 	name = "shoulder holster"
-	desc = "A handgun holster with an attached pouch, allowing two magazines or speedloaders to be stored along with it."
+	desc = "Кобура для пистолета с прикрепленным подсумком, позволяющим хранить вместе два магазина или сменных барабана." //SS220 EDIT
 	icon_state = "holster"
 	worn_accessory_slot = ACCESSORY_SLOT_STORAGE
 	high_visibility = TRUE

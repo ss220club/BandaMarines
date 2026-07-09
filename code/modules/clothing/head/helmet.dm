@@ -1626,7 +1626,7 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 
 /obj/item/clothing/head/helmet/marine/veteran/dutch/vietnam
 	name = "\improper M1 pattern army helmet"
-	desc = "A protective helmet worn by US Army Riflemen during the peak of the Vietnam War."
+	desc = "Общевойсковой шлем солдат армии США в разгар войны во Вьетнаме." //SS220 EDIT
 
 /obj/item/clothing/head/helmet/marine/veteran/dutch/cap
 	name = "\improper Dutch's Dozen cap"
