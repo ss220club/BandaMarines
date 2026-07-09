@@ -450,7 +450,7 @@
 
 /obj/item/card/id/dogtag
 	name = "dog tags"
-	desc = "A marine dog tags."
+	desc = "Солдатский жетон морпеха." //SS220 EDIT
 	icon_state = "dogtag"
 	item_state = "dogtag"
 	id_type = "Dogtags"
