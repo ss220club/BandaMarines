@@ -779,7 +779,7 @@
 
 /obj/item/storage/belt/marine/dutch
 	name = "ammo load rig"
-	desc = "Good for carrying around extra ammo in the heat of the jungle. Made of special rot-resistant fabric."
+	desc = "Удобен для переноски дополнительных боеприпасов в условиях жаркого климата джунглей. Изготовлен из специальной ткани, устойчивой к гниению." //SS220 EDIT
 
 /obj/item/storage/belt/marine/dutch/m16/fill_preset_inventory()
 	for(var/i = 1 to storage_slots)

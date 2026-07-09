@@ -1356,7 +1356,7 @@ GLOBAL_LIST_EMPTY_TYPED(radio_packs, /obj/item/storage/backpack/marine/satchel/r
 
 /obj/item/storage/backpack/lightpack
 	name = "\improper lightweight combat pack"
-	desc = "A small, lightweight pack for expeditions and short-range operations."
+	desc = "Небольшой, легкий рюкзак для экспедиций и коротких операций." //SS220 EDIT
 	icon_state = "ERT_satchel"
 	worn_accessible = TRUE
 
