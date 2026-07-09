@@ -229,12 +229,6 @@
 /obj/structure/flora/jungle/vines/dead/light_1,
 /turf/closed/wall/ancient_temple/runed,
 /area/lazarus/ground/jungle/south_west_jungle)
-"Dj" = (
-/obj/structure/tunnel{
-	desc = "A tunnel entrance. Where the hell does it go?"
-	},
-/turf/closed/wall/ancient_temple/runed,
-/area/lazarus/ground/jungle/south_west_jungle)
 "Fq" = (
 /obj/structure/flora/jungle/vines/dead/light_2,
 /obj/structure/tunnel{
@@ -486,7 +480,7 @@ lf
 SQ
 zb
 SQ
-Dj
+SQ
 Fq
 Tl
 uD
