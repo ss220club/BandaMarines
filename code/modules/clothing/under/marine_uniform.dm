@@ -1394,7 +1394,7 @@
 
 /obj/item/clothing/under/marine/veteran/dutch/vietnam
 	name = "\improper US Army uniform"
-	desc = "Standard-issue Army uniform. Used during the Vietnam War."
+	desc = "Стандартная армейская форма. Использовалась во время войны во Вьетнаме." //SS220 EDIT
 
 /obj/item/clothing/under/marine/veteran/van_bandolier
 	name = "hunting clothes"
