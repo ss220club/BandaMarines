@@ -295,7 +295,7 @@
 	for(var/obj/O in T)
 		if(istype(O, /obj/structure/platform))
 			var/obj/structure/platform/P = O //SS220 EDIT TILL UPSTREAM
-			if(!(P.stat & BROKEN) && O.dir == GLOB.reverse_dir[direction]) //SS220 EDIT TILL UPSTREAM
+			if(!(P.stat & BROKEN) && P.dir == GLOB.reverse_dir[direction]) //SS220 EDIT TILL UPSTREAM
 				return FALSE
 
 		if(istype(O, /obj/structure/barricade)) //cades on tile we're trying to expand to
