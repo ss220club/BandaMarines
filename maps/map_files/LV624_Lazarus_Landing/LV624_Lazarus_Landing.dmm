@@ -479,10 +479,6 @@
 /obj/structure/flora/bush/ausbushes/lavendergrass,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/barrens/north_barrens)
-"abP" = (
-/obj/effect/landmark/big_fog_marker,
-/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
-/area/lazarus/ground/caves/south_west_caves)
 "abQ" = (
 /obj/effect/landmark/big_fog_marker,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
@@ -13076,10 +13072,6 @@
 	},
 /turf/open/floor/prison/bright_clean2,
 /area/lazarus/security)
-"fpo" = (
-/obj/effect/landmark/big_fog_marker,
-/turf/open/auto_turf/lv_grass/layer1,
-/area/lazarus/ground/jungle/north_jungle)
 "fpy" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_4,
 /obj/effect/hunter/ancient_temple/rubble/rubble_5{
@@ -61522,7 +61514,7 @@ dXZ
 kec
 kec
 kec
-abP
+kec
 kec
 kec
 kec
@@ -72328,7 +72320,7 @@ pct
 wxA
 dSt
 dqf
-pTA
+snz
 gdk
 pTA
 pTA
@@ -72999,7 +72991,7 @@ hJi
 hJi
 hJi
 hJi
-fpo
+fkT
 fkT
 pTA
 gdk
