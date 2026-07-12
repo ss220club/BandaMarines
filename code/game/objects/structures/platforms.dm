@@ -560,6 +560,12 @@
 /obj/structure/platform/stone/ancient_temple/west
 	dir = WEST
 
+/obj/structure/platform/stone/ancient_temple/already_broken
+
+/obj/structure/platform/stone/ancient_temple/already_broken/Initialize()
+	. = ..()
+	broken()
+
 /obj/structure/platform/stone/ancient_temple/alt
 	icon_state = "ancient_platform_alt"
 
@@ -570,6 +576,11 @@
 /obj/structure/platform/stone/ancient_temple/alt/west
 	dir = WEST
 
+/obj/structure/platform/stone/ancient_temple/alt/already_broken
+
+/obj/structure/platform/stone/ancient_temple/alt/already_broken/Initialize()
+	. = ..()
+	broken()
 //------------------------------------//
 // Metal based Platforms "decoration" //
 //------------------------------------//

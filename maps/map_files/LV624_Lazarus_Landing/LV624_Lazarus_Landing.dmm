@@ -202,7 +202,6 @@
 	pixel_y = -2;
 	pixel_x = -2
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/east/surface)
 "aaM" = (
@@ -479,6 +478,11 @@
 /obj/structure/flora/bush/ausbushes/lavendergrass,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/barrens/north_barrens)
+"abP" = (
+/obj/structure/platform/metal/strata/alt/north,
+/obj/effect/landmark/big_fog_marker,
+/turf/open/auto_turf/lv_sand/layer0,
+/area/lazarus/ground/barrens/central_barrens)
 "abQ" = (
 /obj/effect/landmark/big_fog_marker,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
@@ -606,10 +610,6 @@
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/caves/west_caves)
-"acv" = (
-/obj/effect/landmark/big_fog_marker,
-/turf/open/auto_turf/lv_sand/layer0,
-/area/lazarus/ground/caves/south_west_caves)
 "acw" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble_1{
 	pixel_x = -2;
@@ -624,10 +624,6 @@
 /area/lazarus/ground/caves/west_caves)
 "acy" = (
 /turf/open/floor/brown_dirt/random_rocks,
-/area/lazarus/ground/caves/west_caves)
-"acz" = (
-/obj/effect/landmark/big_fog_marker,
-/turf/open/floor/brown_dirt/random_rocks_alt,
 /area/lazarus/ground/caves/west_caves)
 "acA" = (
 /obj/structure/flora/bush/ausbushes/lavendergrass,
@@ -650,10 +646,6 @@
 "acE" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
 /turf/open/floor/brown_dirt/random_rocks_alt,
-/area/lazarus/ground/caves/west_caves)
-"acF" = (
-/obj/effect/landmark/big_fog_marker,
-/turf/open/floor/brown_dirt/random_rocks,
 /area/lazarus/ground/caves/west_caves)
 "acG" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
@@ -713,6 +705,11 @@
 /obj/effect/landmark/big_fog_marker,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/barrens/central_barrens)
+"acS" = (
+/obj/structure/prop/ice_colony/soil_net,
+/obj/effect/landmark/big_fog_marker,
+/turf/open/gm/dirt/brown/variant_6,
+/area/lazarus/ground/barrens/central_barrens)
 "acT" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
 /obj/effect/landmark/big_fog_marker,
@@ -737,11 +734,6 @@
 /obj/effect/landmark/big_fog_marker,
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/barrens/west_barrens)
-"acY" = (
-/obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/obj/effect/landmark/big_fog_marker,
-/turf/open/auto_turf/lv_sand/layer0,
-/area/lazarus/ground/caves/south_west_caves)
 "acZ" = (
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_east_jungle)
@@ -771,10 +763,138 @@
 	},
 /turf/open/floor/ancient_temple/deco/dark/deco_alt/east,
 /area/lazarus/ground/ancient_temple/north_east)
+"adg" = (
+/obj/structure/prop/ice_colony/ground_wire{
+	dir = 8
+	},
+/obj/structure/prop/ice_colony/ground_wire{
+	dir = 1
+	},
+/obj/effect/landmark/big_fog_marker,
+/turf/open/auto_turf/lv_sand/layer0,
+/area/lazarus/ground/barrens/central_barrens)
+"adh" = (
+/obj/item/tool/warning_cone,
+/obj/effect/landmark/big_fog_marker,
+/turf/open/auto_turf/lv_sand/layer0,
+/area/lazarus/ground/barrens/central_barrens)
+"adi" = (
+/obj/structure/platform/stone/ancient_temple/east,
+/obj/effect/hunter/ancient_temple/rubble/rubble{
+	pixel_x = 4;
+	pixel_y = -2
+	},
+/turf/open/gm/river/soro,
+/area/lazarus/ground/river/north_east_temple_river)
 "adj" = (
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_12,
 /obj/effect/hunter/ancient_temple/rubble/rubble_5,
 /turf/open/floor/ancient_temple/damaged/damage_7,
+/area/lazarus/ground/ancient_temple/east)
+"adk" = (
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 4
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble_2{
+	pixel_x = 2;
+	pixel_y = 7
+	},
+/turf/open/floor/ancient_temple/floor_19/west,
+/area/lazarus/ground/ancient_temple/south/surface)
+"adl" = (
+/obj/effect/landmark/big_fog_marker,
+/turf/open/gm/coast/dirt/beachcorner/south_west,
+/area/lazarus/ground/river/central_river/north)
+"adm" = (
+/obj/effect/decal/lv_decals/cave_mud_corner{
+	dir = 6
+	},
+/turf/open/auto_turf/lv_sand_alt/layer0,
+/area/lazarus/ground/ancient_temple/south)
+"adn" = (
+/turf/open/auto_turf/lv_sand_alt/layer0,
+/area/lazarus/ground/ancient_temple/south)
+"ado" = (
+/obj/structure/prop/hunter/ancient_temple/collapsed_wall,
+/turf/open/floor/ancient_temple/base,
+/area/lazarus/ground/ancient_temple/south)
+"adp" = (
+/obj/effect/landmark/xeno_spawn,
+/turf/open/floor/ancient_temple/deco/deco_alt,
+/area/lazarus/ground/ancient_temple/south)
+"adq" = (
+/obj/effect/landmark/queen_spawn,
+/turf/open/floor/ancient_temple/deco/deco_alt,
+/area/lazarus/ground/ancient_temple/south)
+"adr" = (
+/obj/effect/hunter/ancient_temple/rubble/rubble_4{
+	pixel_x = 3;
+	pixel_y = 1
+	},
+/turf/open/floor/ancient_temple/base,
+/area/lazarus/ground/ancient_temple/south)
+"ads" = (
+/obj/effect/hunter/ancient_temple/deco_border/deco_border2{
+	dir = 4
+	},
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 8
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble_2{
+	pixel_x = -3;
+	pixel_y = -3
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble_2{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/turf/open/floor/ancient_temple/damaged/damage_1,
+/area/lazarus/ground/ancient_temple/east)
+"adt" = (
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 4
+	},
+/turf/open/floor/ancient_temple/floor_19/north,
+/area/lazarus/ground/ancient_temple/east)
+"adu" = (
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 4
+	},
+/turf/open/floor/ancient_temple/floor_19/west,
+/area/lazarus/ground/ancient_temple/east)
+"adv" = (
+/obj/effect/hunter/ancient_temple/rubble/rubble{
+	pixel_x = -1;
+	pixel_y = 5
+	},
+/turf/open/floor/ancient_temple/floor_19/north,
+/area/lazarus/ground/ancient_temple/east)
+"adw" = (
+/obj/effect/hunter/ancient_temple/rubble/rubble_7{
+	pixel_x = 10;
+	pixel_y = -10
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble_3{
+	pixel_x = -1;
+	pixel_y = -1
+	},
+/turf/open/floor/ancient_temple/base,
+/area/lazarus/ground/ancient_temple/east)
+"adx" = (
+/obj/effect/hunter/ancient_temple/rubble/rubble_3,
+/turf/closed/wall/rock/grey,
+/area/strata/interior/out_of_bounds)
+"ady" = (
+/obj/effect/hunter/ancient_temple/deco_border,
+/turf/closed/wall/rock/grey,
+/area/strata/interior/out_of_bounds)
+"adz" = (
+/obj/effect/hunter/ancient_temple/deco_border,
+/obj/effect/hunter/ancient_temple/rubble/rubble_1{
+	pixel_x = 4;
+	pixel_y = 11
+	},
+/turf/open/floor/ancient_temple/damaged/damage_3,
 /area/lazarus/ground/ancient_temple/east)
 "adA" = (
 /obj/structure/prop/colorable_rock/colorable{
@@ -785,20 +905,225 @@
 	},
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
+"adB" = (
+/obj/item/prop/torch_frame/ancient{
+	pixel_y = 31;
+	anchored = 1
+	},
+/obj/effect/hunter/ancient_temple/deco_border{
+	dir = 1
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble{
+	pixel_x = -1;
+	pixel_y = 5
+	},
+/turf/open/floor/ancient_temple/damaged/damage_1,
+/area/lazarus/ground/ancient_temple/east)
 "adC" = (
 /obj/structure/machinery/body_scanconsole,
 /turf/open/floor/kutjevo/tan/multi_tiles/west,
 /area/lazarus/medbay)
+"adD" = (
+/obj/structure/prop/hunter/ancient_temple/collapsed_wall,
+/turf/open/floor/ancient_temple/base,
+/area/lazarus/ground/ancient_temple/east)
+"adE" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/obj/effect/landmark/xeno_spawn,
+/obj/effect/hunter/ancient_temple/rubble/rubble_4{
+	pixel_x = -11;
+	pixel_y = -3
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble_4{
+	pixel_x = -14;
+	pixel_y = 8
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble_4{
+	pixel_x = -18;
+	pixel_y = 14
+	},
+/turf/open/floor/ancient_temple/base,
+/area/lazarus/ground/ancient_temple/east)
+"adF" = (
+/obj/effect/hunter/ancient_temple/rubble/rubble_4{
+	pixel_x = -23;
+	pixel_y = 4
+	},
+/turf/open/floor/ancient_temple/deco/deco_alt,
+/area/lazarus/ground/ancient_temple/east)
+"adG" = (
+/turf/closed/wall/ancient_temple/runed/alt2,
+/area/strata/interior/out_of_bounds)
+"adH" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/obj/effect/landmark/xeno_spawn,
+/obj/effect/hunter/ancient_temple/rubble/rubble_4{
+	pixel_x = 6;
+	pixel_y = -3
+	},
+/turf/open/floor/ancient_temple/base,
+/area/lazarus/ground/ancient_temple/east)
+"adI" = (
+/obj/effect/landmark/xeno_spawn,
+/obj/effect/hunter/ancient_temple/rubble/rubble_4{
+	pixel_y = -11
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble_4{
+	pixel_x = -4;
+	pixel_y = 9
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble_4{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/turf/open/floor/ancient_temple/base,
+/area/lazarus/ground/ancient_temple/east)
+"adJ" = (
+/obj/structure/platform/stone/ancient_temple/already_broken{
+	dir = 8
+	},
+/obj/structure/platform/stone/ancient_temple,
+/turf/open/gm/river/soro,
+/area/lazarus/ground/ancient_temple/north_east)
+"adK" = (
+/obj/effect/timed_event/scrapeaway{
+	time = 40
+	},
+/obj/structure/stairs/perspective{
+	color = "#b6a38f";
+	dir = 1;
+	icon_state = "p_stair_full";
+	pixel_y = -16;
+	layer = 2
+	},
+/obj/effect/hunter/ancient_temple/deco_border{
+	dir = 4
+	},
+/turf/closed/wall/rock/brown,
+/area/lazarus/ground/ancient_temple/north_east)
+"adL" = (
+/obj/effect/timed_event/scrapeaway{
+	time = 40
+	},
+/obj/structure/stairs/perspective{
+	color = "#b6a38f";
+	dir = 1;
+	icon_state = "p_stair_full";
+	pixel_y = -16;
+	layer = 2
+	},
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_8,
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_12,
+/turf/closed/wall/rock/brown,
+/area/lazarus/ground/ancient_temple/north_east)
+"adM" = (
+/obj/effect/timed_event/scrapeaway{
+	time = 40
+	},
+/obj/structure/stairs/perspective{
+	color = "#b6a38f";
+	dir = 1;
+	icon_state = "p_stair_full";
+	pixel_y = -16;
+	layer = 2
+	},
+/obj/effect/hunter/ancient_temple/deco_border/deco_border3{
+	dir = 8
+	},
+/turf/closed/wall/rock/brown,
+/area/lazarus/ground/ancient_temple/north_east)
 "adN" = (
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 8
 	},
 /turf/open/floor/ancient_temple/floor_13/west,
 /area/lazarus/ground/ancient_temple/south/surface)
+"adO" = (
+/turf/open/floor/ancient_temple/floor_19/west,
+/area/lazarus/ground/ancient_temple/north_east)
+"adP" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_12,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/ancient_temple/north_east)
+"adQ" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_5,
+/turf/open/floor/ancient_temple/floor_20/north,
+/area/lazarus/ground/ancient_temple/north_east)
+"adR" = (
+/turf/open/floor/ancient_temple/floor_19,
+/area/lazarus/ground/ancient_temple/north_east)
+"adS" = (
+/obj/effect/hunter/ancient_temple/deco_border{
+	dir = 1
+	},
+/turf/open/floor/ancient_temple/damaged/damage_4,
+/area/lazarus/ground/ancient_temple/north_east)
+"adT" = (
+/obj/effect/hunter/ancient_temple/deco_border/deco_border7,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/ancient_temple/north_east)
 "adU" = (
 /obj/structure/platform_decoration/stone/ancient_temple/alt/north,
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/north_west_caves)
+"adV" = (
+/obj/effect/hunter/ancient_temple/deco_border/deco_border6,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/ancient_temple/north_east)
+"adW" = (
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 6;
+	pixel_y = -4;
+	pixel_x = 6
+	},
+/turf/open/floor/ancient_temple/floor_15,
+/area/lazarus/ground/ancient_temple/north_east)
+"adX" = (
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 9;
+	pixel_x = -20;
+	pixel_y = 6
+	},
+/obj/structure/prop/rock/brown{
+	dir = 6;
+	pixel_x = -1;
+	pixel_y = 16
+	},
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 9;
+	pixel_x = -6;
+	pixel_y = -2
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble_1{
+	layer = 2.2;
+	pixel_x = -5;
+	pixel_y = 1
+	},
+/turf/open/floor/ancient_temple/damaged/damage_7,
+/area/lazarus/ground/ancient_temple/north_east)
+"adY" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_7,
+/turf/open/floor/ancient_temple/damaged/damage_4,
+/area/lazarus/ground/ancient_temple/north_east)
+"adZ" = (
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 8;
+	pixel_x = 3;
+	pixel_y = 1
+	},
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 8;
+	pixel_x = -1;
+	pixel_y = 18
+	},
+/turf/open/floor/ancient_temple/floor_13/east,
+/area/lazarus/ground/ancient_temple/north_east)
 "aea" = (
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_12,
 /obj/effect/hunter/ancient_temple/deco_border{
@@ -812,6 +1137,199 @@
 	},
 /turf/open/floor/ancient_temple/ruined/west,
 /area/lazarus/ground/ancient_temple/north_east/surface)
+"aec" = (
+/obj/structure/prop/rock/brown{
+	dir = 5;
+	pixel_x = -2;
+	pixel_y = 14
+	},
+/obj/structure/prop/rock/brown{
+	dir = 6;
+	pixel_x = -5;
+	pixel_y = -1
+	},
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 9;
+	pixel_x = -20;
+	pixel_y = 6
+	},
+/turf/open/floor/ancient_temple/damaged/damage_7,
+/area/lazarus/ground/ancient_temple/north_east)
+"aed" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_4,
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_11,
+/turf/open/floor/ancient_temple/damaged/damage_4,
+/area/lazarus/ground/ancient_temple/north_east)
+"aee" = (
+/obj/structure/prop/rock/brown{
+	dir = 5;
+	pixel_y = -13;
+	pixel_x = -1
+	},
+/obj/structure/prop/rock/brown{
+	dir = 6;
+	pixel_x = -1;
+	pixel_y = 16
+	},
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 8;
+	pixel_x = 2;
+	pixel_y = 7
+	},
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 4;
+	pixel_x = 14;
+	pixel_y = -14
+	},
+/obj/structure/prop/rock/brown{
+	pixel_x = 1;
+	pixel_y = 10
+	},
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 8;
+	pixel_x = -8;
+	pixel_y = 9
+	},
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 6;
+	pixel_y = -4;
+	pixel_x = 6
+	},
+/turf/open/floor/ancient_temple/damaged/damage_6,
+/area/lazarus/ground/ancient_temple/north_east)
+"aef" = (
+/obj/structure/prop/rock/brown{
+	dir = 5;
+	pixel_x = -3;
+	pixel_y = 13
+	},
+/obj/structure/prop/rock/brown{
+	dir = 9;
+	pixel_x = -3;
+	pixel_y = -4
+	},
+/turf/closed/wall/rock/brown,
+/area/strata/interior/out_of_bounds)
+"aeg" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_10,
+/turf/open/floor/ancient_temple/damaged/damage_7,
+/area/lazarus/ground/ancient_temple/north_east)
+"aeh" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_2,
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_8,
+/turf/open/floor/ancient_temple/damaged/damage_4,
+/area/lazarus/ground/ancient_temple/north_east)
+"aei" = (
+/obj/effect/hunter/ancient_temple/rubble/rubble_1{
+	layer = 2.2;
+	pixel_x = -5;
+	pixel_y = 1
+	},
+/obj/structure/prop/rock/brown{
+	dir = 5;
+	pixel_y = -2;
+	pixel_x = -2
+	},
+/obj/structure/prop/rock/brown{
+	dir = 6;
+	pixel_x = 5;
+	pixel_y = 2
+	},
+/turf/closed/wall/rock/brown,
+/area/strata/interior/out_of_bounds)
+"aej" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_2,
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_12,
+/turf/open/floor/ancient_temple/damaged/damage_6,
+/area/lazarus/ground/ancient_temple/north_east)
+"aek" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_7,
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_4,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/ancient_temple/north_east)
+"ael" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_8,
+/obj/effect/hunter/ancient_temple/deco_border{
+	dir = 8;
+	pixel_y = -16
+	},
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_3,
+/turf/open/floor/ancient_temple/ruined/west,
+/area/lazarus/ground/ancient_temple/north_east)
+"aem" = (
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 5;
+	pixel_x = -19;
+	pixel_y = 13
+	},
+/turf/open/floor/ancient_temple/floor_13/west,
+/area/lazarus/ground/ancient_temple/north_east)
+"aen" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_8,
+/obj/effect/hunter/ancient_temple/rubble/rubble,
+/turf/open/floor/ancient_temple/damaged/damage_4,
+/area/lazarus/ground/ancient_temple/north_east)
+"aeo" = (
+/turf/open/floor/ancient_temple/damaged/damage_7,
+/area/lazarus/ground/ancient_temple/north_east)
+"aep" = (
+/obj/effect/hunter/ancient_temple/deco_border{
+	dir = 4;
+	pixel_y = -15
+	},
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_12,
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 9;
+	pixel_x = -19;
+	pixel_y = 15
+	},
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 9;
+	pixel_x = -6;
+	pixel_y = 19
+	},
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 9;
+	pixel_x = -4;
+	pixel_y = -2
+	},
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 5;
+	pixel_x = -18;
+	pixel_y = -1
+	},
+/turf/open/floor/ancient_temple/floor_20/east,
+/area/lazarus/ground/ancient_temple/north_east)
+"aeq" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_3,
+/obj/effect/hunter/ancient_temple/rubble/rubble_5,
+/turf/closed/wall/rock/brown,
+/area/strata/interior/out_of_bounds)
+"aer" = (
+/obj/structure/prop/rock/brown{
+	dir = 4;
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/obj/structure/prop/colorable_rock/colorable/alt{
+	dir = 4;
+	color = "#ae8686"
+	},
+/turf/open/floor/ancient_temple/damaged/damage_6,
+/area/lazarus/ground/ancient_temple/north_east)
+"aes" = (
+/turf/open/floor/ancient_temple/damaged/damage_6,
+/area/lazarus/ground/ancient_temple/north_east)
 "aet" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/structure/pipes/standard/simple/hidden/cyan{
@@ -819,16 +1337,170 @@
 	},
 /turf/open/floor/prison/cell_stripe/west,
 /area/lazarus/quartstorage)
+"aeu" = (
+/obj/structure/prop/rock/brown{
+	dir = 9
+	},
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 5;
+	pixel_x = -18;
+	pixel_y = -1
+	},
+/turf/open/floor/ancient_temple/damaged/damage_3,
+/area/lazarus/ground/ancient_temple/north_east)
+"aev" = (
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 5;
+	pixel_x = -18;
+	pixel_y = -1
+	},
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 6;
+	pixel_y = -9;
+	pixel_x = -5
+	},
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_8,
+/turf/open/floor/ancient_temple/damaged/damage_4,
+/area/lazarus/ground/ancient_temple/north_east)
+"aew" = (
+/obj/structure/prop/rock/brown{
+	pixel_x = 1;
+	pixel_y = 10
+	},
+/obj/structure/prop/rock/brown{
+	pixel_x = 1;
+	pixel_y = 10
+	},
+/obj/structure/prop/rock/brown{
+	dir = 6;
+	pixel_x = -6;
+	pixel_y = 16
+	},
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 8;
+	pixel_x = 23;
+	pixel_y = -4
+	},
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_12,
+/turf/open/floor/ancient_temple/damaged/damage_4,
+/area/lazarus/ground/ancient_temple/north_east)
+"aex" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_9,
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_3,
+/obj/effect/hunter/ancient_temple/rubble/rubble{
+	pixel_y = -3
+	},
+/turf/open/floor/ancient_temple/damaged/damage_6,
+/area/lazarus/ground/ancient_temple/north_east)
 "aey" = (
 /obj/structure/prop/ice_colony/ground_wire{
 	dir = 1
 	},
 /turf/open/floor/ancient_temple/floor_13/east,
 /area/lazarus/ground/river/north_east_temple_river)
+"aez" = (
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 8;
+	pixel_x = -4;
+	pixel_y = -4
+	},
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_3,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/ancient_temple/north_east)
+"aeA" = (
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 8;
+	pixel_x = 1;
+	pixel_y = 10
+	},
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_5,
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_7,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/ancient_temple/north_east)
+"aeB" = (
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 6;
+	pixel_y = 16;
+	pixel_x = 1
+	},
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 8;
+	pixel_x = 16;
+	pixel_y = -3
+	},
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_5,
+/obj/effect/hunter/ancient_temple/rubble/rubble{
+	pixel_x = -2;
+	pixel_y = -1
+	},
+/turf/open/floor/ancient_temple/damaged/damage_7,
+/area/lazarus/ground/ancient_temple/north_east)
 "aeC" = (
 /obj/structure/window/framed/lv_colony,
 /turf/open/floor/plating/prison,
 /area/lazarus/hydroponics)
+"aeD" = (
+/obj/structure/prop/rock/brown{
+	dir = 8;
+	pixel_x = 2;
+	pixel_y = -9
+	},
+/obj/structure/prop/rock/brown{
+	dir = 5;
+	pixel_y = -2;
+	pixel_x = -2
+	},
+/obj/structure/prop/rock/brown{
+	pixel_x = 3;
+	pixel_y = 10
+	},
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 6;
+	pixel_y = -2;
+	pixel_x = -22
+	},
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_7,
+/turf/open/floor/ancient_temple/damaged/damage_7,
+/area/lazarus/ground/ancient_temple/north_east)
+"aeE" = (
+/obj/structure/prop/rock/brown{
+	dir = 5;
+	pixel_x = -2;
+	pixel_y = 8
+	},
+/obj/structure/prop/rock/brown{
+	dir = 8;
+	pixel_y = 23;
+	pixel_x = -3
+	},
+/obj/structure/prop/rock/brown{
+	dir = 1;
+	pixel_x = 1;
+	pixel_y = 15
+	},
+/obj/structure/prop/rock/brown{
+	dir = 9;
+	pixel_x = -3;
+	pixel_y = -4
+	},
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 8;
+	pixel_x = 16;
+	pixel_y = -3
+	},
+/turf/open/floor/ancient_temple/damaged/damage_7,
+/area/lazarus/ground/ancient_temple/north_east)
 "aeJ" = (
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_11,
 /obj/effect/hunter/ancient_temple/rubble/rubble_5{
@@ -1003,7 +1675,13 @@
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/ground/jungle/east_jungle)
 "ajh" = (
-/obj/structure/platform/stone/ancient_temple/alt/north,
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 1
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble_2{
+	pixel_x = 3;
+	pixel_y = 4
+	},
 /turf/open/floor/ancient_temple/floor_19,
 /area/lazarus/ground/ancient_temple/east)
 "ajv" = (
@@ -1323,6 +2001,9 @@
 	pixel_y = 3
 	},
 /obj/effect/decal/lv_decals/cave_mud_corner,
+/obj/effect/decal/lv_decals/cave_mud_corner{
+	dir = 10
+	},
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/south)
 "aqa" = (
@@ -1337,8 +2018,8 @@
 /turf/open/floor/ancient_temple/floor_13/west,
 /area/lazarus/ground/caves/west_caves)
 "aqq" = (
-/obj/structure/platform/stone/ancient_temple/alt,
 /obj/effect/decal/lv_decals/cave_mud_corner,
+/obj/structure/platform/stone/ancient_temple/alt/already_broken,
 /turf/open/floor/ancient_temple/floor_13,
 /area/lazarus/ground/ancient_temple/east)
 "aqJ" = (
@@ -2385,6 +3066,7 @@
 	pixel_x = -1;
 	pixel_y = 1
 	},
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_12,
 /turf/open/floor/ancient_temple/ruined/west,
 /area/lazarus/ground/ancient_temple/north_east)
 "aNR" = (
@@ -2929,6 +3611,7 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 10
 	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
 /turf/open/floor/plating/ancient_temple,
 /area/lazarus/ground/ancient_temple/north_east)
 "aXJ" = (
@@ -3245,14 +3928,14 @@
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 4
 	},
-/obj/structure/platform/stone/ancient_temple/alt/north{
-	icon_state = "ancient_platform_alt_broken"
-	},
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 5
 	},
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 10
+	},
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 1
 	},
 /turf/open/floor/ancient_temple/base,
 /area/lazarus/ground/caves/north_west_caves)
@@ -3693,11 +4376,11 @@
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/north_east/surface)
 "bmN" = (
-/obj/structure/platform/stone/ancient_temple/alt,
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 6
 	},
 /obj/effect/hunter/ancient_temple/rubble/rubble_3,
+/obj/structure/platform/stone/ancient_temple/alt/already_broken,
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/east)
 "bny" = (
@@ -4969,9 +5652,6 @@
 /turf/open/floor/kutjevo/tan/plate,
 /area/lazarus/medbay)
 "bTt" = (
-/obj/structure/platform/stone/ancient_temple/west{
-	icon_state = "ancient_platform_alt_broken"
-	},
 /obj/effect/hunter/ancient_temple/rubble/rubble,
 /obj/structure/prop/colorable_rock/colorable{
 	color = "#ae8686";
@@ -4981,6 +5661,9 @@
 	},
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 9
+	},
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 8
 	},
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/south/surface)
@@ -5036,7 +5719,10 @@
 /area/lazarus/ground/river/west_river)
 "bVs" = (
 /obj/structure/platform_decoration/stone/ancient_temple/west,
-/obj/structure/platform_decoration/stone/ancient_temple,
+/obj/effect/hunter/ancient_temple/rubble/rubble{
+	pixel_x = -3;
+	pixel_y = 5
+	},
 /turf/open/gm/river/soro,
 /area/lazarus/ground/river/north_east_temple_river)
 "bVu" = (
@@ -5817,15 +6503,11 @@
 	pixel_x = 2;
 	pixel_y = -7
 	},
-/obj/effect/landmark/big_fog_marker,
 /turf/open/floor/interior/wood/alt,
 /area/lazarus/ground/barrens/central_barrens)
 "cnj" = (
 /turf/open/auto_turf/lv_grass/layer0,
 /area/lazarus/ground/jungle/east_central_jungle)
-"cnr" = (
-/turf/open/floor/ancient_temple/floor_grille,
-/area/lazarus/ground/ancient_temple/east)
 "cnw" = (
 /obj/item/prop/torch_frame/ancient{
 	pixel_y = 31;
@@ -5946,8 +6628,6 @@
 /turf/open/auto_turf/lv_grass/layer1,
 /area/lazarus/ground/jungle/west_jungle)
 "cpr" = (
-/obj/structure/platform/stone/ancient_temple/east,
-/obj/structure/platform_decoration/stone/ancient_temple/north,
 /obj/effect/hunter/ancient_temple/rubble/rubble_2{
 	pixel_x = -1;
 	pixel_y = -9
@@ -6185,9 +6865,6 @@
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
 /turf/open/floor/ancient_temple/floor_13/north,
 /area/lazarus/ground/ancient_temple/east)
-"cus" = (
-/turf/open/floor/ancient_temple/deco/deco_alt/east,
-/area/lazarus/ground/ancient_temple/south)
 "cut" = (
 /obj/structure/machinery/colony_floodlight{
 	light_color = "#dae2ff"
@@ -6418,7 +7095,13 @@
 /turf/open/floor/prison/floor_plate_alt/west,
 /area/lazarus/main_hall)
 "czF" = (
-/obj/structure/platform/stone/ancient_temple/east,
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 4
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble_2{
+	pixel_x = 3;
+	pixel_y = 14
+	},
 /turf/open/floor/ancient_temple/floor_19/north,
 /area/lazarus/ground/ancient_temple/south/surface)
 "czO" = (
@@ -6731,13 +7414,6 @@
 /obj/structure/platform_decoration/stone/ancient_temple/alt/east,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/barrens/north_barrens)
-"cGk" = (
-/obj/structure/platform/stone/ancient_temple/north,
-/obj/structure/platform/stone/ancient_temple/west{
-	pixel_y = -7
-	},
-/turf/open/gm/river/soro,
-/area/lazarus/ground/ancient_temple/north_east)
 "cGr" = (
 /obj/structure/transmitter/colony_net{
 	phone_category = "Lazarus Landing";
@@ -7615,7 +8291,13 @@
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/caves/north_west_caves)
 "cZp" = (
-/obj/structure/platform/stone/ancient_temple/alt/west,
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 8
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble_2{
+	pixel_x = -1;
+	pixel_y = 4
+	},
 /turf/open/floor/ancient_temple/floor_19,
 /area/lazarus/ground/ancient_temple/east)
 "cZv" = (
@@ -7972,6 +8654,7 @@
 /area/lazarus/ground/ancient_temple/south_east/surface)
 "dia" = (
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/obj/effect/landmark/xeno_spawn,
 /turf/open/floor/ancient_temple/deco/deco_alt,
 /area/lazarus/ground/ancient_temple/south)
 "dip" = (
@@ -8137,12 +8820,12 @@
 /turf/open/floor/prison/floor_marked,
 /area/lazarus/quartstorage)
 "dkr" = (
-/obj/structure/platform/stone/ancient_temple/east{
-	icon_state = "ancient_platform_alt_broken"
-	},
 /obj/effect/hunter/ancient_temple/rubble/rubble_4{
 	pixel_x = -7;
 	pixel_y = 12
+	},
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 4
 	},
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/north_west_caves)
@@ -8642,14 +9325,16 @@
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/ancient_temple/south/surface)
 "dxP" = (
-/obj/structure/platform/stone/ancient_temple{
-	icon_state = "ancient_platform_alt_broken"
-	},
-/obj/structure/platform/stone/ancient_temple/east,
-/obj/structure/platform/stone/ancient_temple/west,
 /obj/effect/hunter/ancient_temple/rubble/rubble_2{
 	pixel_x = 3;
 	pixel_y = 14
+	},
+/obj/structure/platform/stone/ancient_temple/already_broken,
+/obj/structure/platform/stone/ancient_temple/already_broken{
+	dir = 8
+	},
+/obj/structure/platform/stone/ancient_temple/already_broken{
+	dir = 4
 	},
 /turf/open/gm/river/soro,
 /area/lazarus/ground/river/north_east_temple_river)
@@ -9515,8 +10200,8 @@
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 4
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_membrane,
-/turf/open/floor/ancient_temple/damaged/damage_2,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/closed/wall/ancient_temple/runed,
 /area/lazarus/ground/ancient_temple/east)
 "dRU" = (
 /turf/open/gm/dirt/brown/variant_5/south,
@@ -9548,14 +10233,14 @@
 /turf/open/floor/interior/wood/alt,
 /area/lazarus/ground/cove)
 "dSG" = (
-/obj/structure/platform/stone/ancient_temple/east{
-	icon_state = "ancient_platform_alt_broken"
-	},
 /obj/structure/prop/colorable_rock/colorable{
 	color = "#ae8686";
 	dir = 6;
 	pixel_y = 17;
 	pixel_x = -17
+	},
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 4
 	},
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/north_west_caves)
@@ -9594,6 +10279,7 @@
 /obj/effect/decal/lv_decals/red_mud_corner,
 /obj/item/stack/sheet/wood,
 /obj/effect/landmark/objective_landmark/science,
+/obj/effect/landmark/big_fog_marker,
 /turf/open/floor/interior/wood/alt,
 /area/lazarus/ground/barrens/central_barrens)
 "dTT" = (
@@ -9764,7 +10450,6 @@
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = -8
 	},
-/obj/effect/landmark/big_fog_marker,
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/barrens/central_barrens)
 "dXb" = (
@@ -9847,6 +10532,7 @@
 /area/lazarus/sleep_male)
 "dYf" = (
 /obj/structure/largecrate/random/barrel/black,
+/obj/effect/landmark/big_fog_marker,
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/barrens/central_barrens)
 "dYk" = (
@@ -9889,7 +10575,6 @@
 /turf/open/floor/prison/west,
 /area/lazarus/comms)
 "dZD" = (
-/obj/structure/platform/stone/ancient_temple/alt,
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 4
 	},
@@ -9905,6 +10590,7 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 6
 	},
+/obj/structure/platform/stone/ancient_temple/alt/already_broken,
 /turf/open/floor/ancient_temple/base,
 /area/lazarus/ground/caves/north_west_caves)
 "dZF" = (
@@ -9946,9 +10632,12 @@
 /turf/open/floor/prison/sterile_white,
 /area/lazarus/canteen)
 "eaC" = (
-/obj/structure/platform_decoration/stone/ancient_temple,
-/obj/structure/platform/stone/ancient_temple/north{
-	icon_state = "ancient_platform_broken"
+/obj/structure/platform/stone/ancient_temple/already_broken{
+	dir = 1
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble{
+	pixel_x = -4;
+	pixel_y = 1
 	},
 /turf/open/gm/river/soro,
 /area/lazarus/ground/river/north_east_temple_river)
@@ -10555,17 +11244,10 @@
 /turf/open/floor/prison/bright_clean2,
 /area/lazarus/engineering)
 "emi" = (
-/obj/structure/prop/rock/brown{
-	pixel_x = 1;
-	pixel_y = 10
+/obj/effect/decal/lv_decals/cave_mud_corner{
+	dir = 4
 	},
-/obj/structure/prop/colorable_rock/colorable{
-	color = "#ae8686";
-	dir = 9;
-	pixel_x = -3;
-	pixel_y = -13
-	},
-/turf/open/auto_turf/lv_sand_alt/layer0,
+/turf/open/floor/ancient_temple/damaged/damage_3,
 /area/lazarus/ground/ancient_temple/north_east)
 "emC" = (
 /obj/structure/bed/chair{
@@ -10818,9 +11500,8 @@
 	pixel_y = -16;
 	layer = 2
 	},
-/obj/structure/blocker/invisible_wall,
 /turf/open/auto_turf/lv_sand_alt/layer0,
-/area/strata/interior/out_of_bounds)
+/area/lazarus/ground/ancient_temple/north_east)
 "erO" = (
 /obj/structure/window/framed/lv_colony/reinforced,
 /obj/structure/machinery/door/poddoor/almayer/grey/open{
@@ -11448,7 +12129,6 @@
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 1
 	},
-/obj/effect/landmark/xeno_spawn,
 /turf/open/floor/ancient_temple/damaged/damage_3,
 /area/lazarus/ground/ancient_temple/east)
 "eGk" = (
@@ -12597,12 +13277,11 @@
 /turf/open/floor/ancient_temple/damaged/damage_3,
 /area/lazarus/ground/ancient_temple/north_east/surface)
 "fgt" = (
-/obj/structure/platform/stone/ancient_temple{
-	icon_state = "ancient_platform_alt_broken"
-	},
-/obj/structure/platform/stone/ancient_temple/west,
-/obj/structure/platform/stone/ancient_temple/east,
 /obj/effect/hunter/ancient_temple/rubble/rubble_1,
+/obj/structure/platform/stone/ancient_temple/already_broken{
+	dir = 4
+	},
+/obj/structure/platform/stone/ancient_temple/already_broken,
 /turf/open/gm/river/soro,
 /area/lazarus/ground/river/north_east_temple_river)
 "fgy" = (
@@ -13436,11 +14115,6 @@
 	},
 /turf/open/floor/prison/bright_clean2,
 /area/lazarus/comms)
-"fyy" = (
-/obj/effect/hunter/ancient_temple/rubble/rubble,
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
-/turf/open/floor/ancient_temple/ruined/north,
-/area/lazarus/ground/ancient_temple/east/surface)
 "fyE" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_2,
 /obj/effect/decal/lv_decals/cave_mud_corner{
@@ -14575,6 +15249,14 @@
 	pixel_x = -3;
 	pixel_y = 9
 	},
+/obj/effect/hunter/ancient_temple/rubble/rubble_4{
+	pixel_x = -12;
+	pixel_y = 8
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble_4{
+	pixel_x = 1;
+	pixel_y = -12
+	},
 /turf/open/floor/ancient_temple/base,
 /area/lazarus/ground/ancient_temple/south)
 "fZJ" = (
@@ -14807,6 +15489,7 @@
 	dir = 10
 	},
 /obj/effect/decal/cleanable/blood,
+/obj/effect/landmark/big_fog_marker,
 /turf/open/floor/interior/wood/alt,
 /area/lazarus/ground/jungle/west_jungle)
 "gha" = (
@@ -14993,18 +15676,24 @@
 	icon_state = "ancient_platform_alt_broken"
 	},
 /obj/structure/prop/rock/brown{
-	dir = 5;
-	pixel_x = -3;
-	pixel_y = 13
-	},
-/obj/structure/prop/rock/brown{
 	dir = 9;
 	pixel_x = -3;
 	pixel_y = -4
 	},
-/obj/structure/blocker/invisible_wall,
-/turf/open/auto_turf/lv_sand_alt/layer0,
-/area/strata/interior/out_of_bounds)
+/obj/effect/timed_event/scrapeaway{
+	time = 40
+	},
+/obj/structure/stairs/perspective{
+	color = "#b6a38f";
+	dir = 1;
+	icon_state = "p_stair_full"
+	},
+/obj/effect/hunter/ancient_temple/deco_border{
+	dir = 8;
+	layer = 2.2
+	},
+/turf/closed/wall/rock/brown,
+/area/lazarus/ground/ancient_temple/north_east)
 "gku" = (
 /obj/structure/stairs/perspective{
 	color = "#b6a38f";
@@ -15030,9 +15719,8 @@
 	pixel_x = -17;
 	pixel_y = -17
 	},
-/obj/structure/blocker/invisible_wall,
 /turf/open/auto_turf/lv_sand_alt/layer0,
-/area/strata/interior/out_of_bounds)
+/area/lazarus/ground/ancient_temple/north_east)
 "gkv" = (
 /obj/structure/pipes/standard/simple/hidden/cyan{
 	dir = 5
@@ -15046,10 +15734,12 @@
 /area/lazarus/ground/caves/west_caves)
 "gla" = (
 /obj/effect/hunter/ancient_temple/deco_border/deco_border2,
-/obj/structure/platform/stone/ancient_temple/alt/west,
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 4;
 	pixel_y = -15
+	},
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 8
 	},
 /obj/structure/surface/table/reinforced/prison{
 	color = "#6b675e"
@@ -15185,12 +15875,12 @@
 	dir = 8;
 	pixel_y = -16
 	},
-/obj/structure/surface/table/reinforced/prison{
-	color = "#6b675e"
-	},
 /obj/item/reagent_container/hypospray/autoinjector/yautja{
 	pixel_x = -3;
 	pixel_y = 9
+	},
+/obj/structure/surface/table/reinforced/prison{
+	color = "#6b675e"
 	},
 /turf/open/floor/ancient_temple/deco/deco_alt,
 /area/lazarus/ground/ancient_temple/north_east/surface)
@@ -15389,7 +16079,7 @@
 	pixel_x = -8;
 	pixel_y = -4
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
 /turf/open/floor/ancient_temple/base,
 /area/lazarus/ground/ancient_temple/east)
 "gsO" = (
@@ -15622,9 +16312,6 @@
 	pixel_y = 13
 	},
 /turf/open/floor/ancient_temple/base,
-/area/lazarus/ground/ancient_temple/east)
-"gxO" = (
-/turf/open/floor/ancient_temple/floor_grille/full_dark,
 /area/lazarus/ground/ancient_temple/east)
 "gxR" = (
 /obj/structure/platform_decoration/stone/ancient_temple/alt/east,
@@ -16441,7 +17128,9 @@
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/south)
 "gOt" = (
-/obj/structure/platform/stone/ancient_temple/alt/west,
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 8
+	},
 /turf/open/floor/ancient_temple/floor_19/east,
 /area/lazarus/ground/ancient_temple/north_east/surface)
 "gOD" = (
@@ -16475,7 +17164,7 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 6
 	},
-/turf/open/auto_turf/lv_sand_alt/layer0,
+/turf/open/floor/ancient_temple/damaged/damage_4,
 /area/lazarus/ground/ancient_temple/north_east)
 "gPi" = (
 /obj/effect/landmark/xeno_spawn,
@@ -16929,7 +17618,6 @@
 /turf/open/gm/river/soro,
 /area/lazarus/ground/ancient_temple/north_east)
 "gWJ" = (
-/obj/structure/platform/stone/ancient_temple/west,
 /obj/structure/platform_decoration/stone/ancient_temple/west,
 /obj/effect/hunter/ancient_temple/rubble/rubble{
 	pixel_y = 7
@@ -17737,8 +18425,12 @@
 /turf/open/auto_turf/lv_grass/layer0,
 /area/lazarus/ground/jungle/central_jungle)
 "hrT" = (
-/turf/open/floor/ancient_temple/floor_grille,
-/area/lazarus/ground/ancient_temple/south)
+/obj/effect/hunter/ancient_temple/rubble/rubble_4{
+	pixel_x = -23;
+	pixel_y = 4
+	},
+/turf/closed/wall/ancient_temple,
+/area/strata/interior/out_of_bounds)
 "hrZ" = (
 /obj/structure/surface/rack{
 	color = "#a98361"
@@ -17834,6 +18526,7 @@
 	pixel_x = -7;
 	pixel_y = -1
 	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
 /turf/open/floor/ancient_temple/damaged/damage_2,
 /area/lazarus/ground/ancient_temple/north_east)
 "huf" = (
@@ -17934,7 +18627,7 @@
 	pixel_x = 4;
 	pixel_y = 9
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
 /turf/open/floor/ancient_temple/base,
 /area/lazarus/ground/ancient_temple/east)
 "hvx" = (
@@ -18496,9 +19189,18 @@
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/ancient_temple/south_east/surface)
 "hFW" = (
-/obj/structure/platform/stone/ancient_temple/alt/west,
 /obj/effect/hunter/ancient_temple/deco_border/deco_border2{
 	dir = 4
+	},
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 8
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble_2{
+	pixel_x = -1;
+	pixel_y = -9
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble_2{
+	pixel_y = 14
 	},
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/ancient_temple/south)
@@ -18576,8 +19278,8 @@
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/caves/south_west_caves)
 "hHo" = (
-/obj/structure/platform/stone/ancient_temple/east{
-	icon_state = "ancient_platform_alt_broken"
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 4
 	},
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/north_west_caves)
@@ -18871,8 +19573,12 @@
 /turf/open/auto_turf/lv_grass/layer1,
 /area/lazarus/landing_zones/lz2)
 "hMJ" = (
-/obj/structure/platform/stone/ancient_temple/west,
 /obj/effect/landmark/big_fog_marker,
+/obj/structure/platform/stone/ancient_temple/west,
+/obj/effect/hunter/ancient_temple/rubble/rubble{
+	pixel_x = -11;
+	pixel_y = -3
+	},
 /turf/open/gm/river/soro,
 /area/lazarus/ground/river/north_east_temple_river)
 "hNj" = (
@@ -19121,7 +19827,13 @@
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/caves/west_caves)
 "hRF" = (
-/obj/structure/platform/stone/ancient_temple/alt/west,
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 8
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble_2{
+	pixel_x = -6;
+	pixel_y = 3
+	},
 /turf/open/floor/ancient_temple/floor_13/west,
 /area/lazarus/ground/ancient_temple/south)
 "hRI" = (
@@ -19813,9 +20525,21 @@
 /turf/open/gm/coast/dirt/beachcorner/south_west,
 /area/lazarus/ground/river/central_river)
 "ikZ" = (
-/obj/structure/blocker/invisible_wall,
+/obj/effect/timed_event/scrapeaway{
+	time = 40
+	},
+/obj/structure/stairs/perspective{
+	color = "#b6a38f";
+	dir = 1;
+	icon_state = "p_stair_full";
+	pixel_y = -16;
+	layer = 2
+	},
+/obj/structure/platform/stone/ancient_temple/west{
+	icon_state = "ancient_platform_alt_broken"
+	},
 /turf/closed/wall/rock/brown,
-/area/strata/interior/out_of_bounds)
+/area/lazarus/ground/ancient_temple/north_east)
 "ilD" = (
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/asteroidplating,
@@ -19898,9 +20622,11 @@
 /turf/open/floor/ancient_temple/deco/deco_alt,
 /area/lazarus/ground/ancient_temple/east/surface)
 "iny" = (
-/obj/structure/platform/stone/ancient_temple/alt/west,
 /obj/structure/platform/stone/ancient_temple/alt/west{
 	pixel_y = -17
+	},
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 8
 	},
 /turf/open/floor/ancient_temple/floor_19,
 /area/lazarus/ground/ancient_temple/north_east/surface)
@@ -20675,8 +21401,12 @@
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/comms)
 "iGn" = (
-/obj/structure/platform/stone/ancient_temple/west,
 /obj/structure/flora/jungle/alienplant1,
+/obj/structure/platform/stone/ancient_temple/west,
+/obj/effect/hunter/ancient_temple/rubble/rubble{
+	pixel_x = -11;
+	pixel_y = -3
+	},
 /turf/open/gm/coast/dirt/beachcorner2/north_west,
 /area/lazarus/ground/river/north_east_temple_river)
 "iGw" = (
@@ -20693,19 +21423,23 @@
 /turf/open/floor/plating/plating_catwalk/strata,
 /area/lazarus/research/storage)
 "iGF" = (
-/obj/structure/prop/rock/brown{
-	dir = 5;
-	pixel_x = -2;
-	pixel_y = 14
+/obj/effect/timed_event/scrapeaway{
+	time = 40
 	},
-/obj/structure/prop/rock/brown{
-	dir = 6;
-	pixel_x = -5;
-	pixel_y = -1
+/obj/structure/stairs/perspective{
+	color = "#b6a38f";
+	dir = 1;
+	icon_state = "p_stair_full"
 	},
-/obj/structure/blocker/invisible_wall,
-/turf/open/auto_turf/lv_sand_alt/layer0,
-/area/strata/interior/out_of_bounds)
+/obj/structure/stairs/perspective{
+	color = "#b6a38f";
+	dir = 1;
+	icon_state = "p_stair_full";
+	pixel_y = -16;
+	layer = 2
+	},
+/turf/closed/wall/rock/brown,
+/area/lazarus/ground/ancient_temple/north_east)
 "iGI" = (
 /obj/effect/landmark/big_fog_marker,
 /turf/open/gm/river/soro,
@@ -20988,7 +21722,10 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 6
 	},
-/turf/open/auto_turf/lv_sand_alt/layer0,
+/obj/effect/decal/lv_decals/cave_mud_corner{
+	dir = 10
+	},
+/turf/open/floor/ancient_temple/floor_13/north,
 /area/lazarus/ground/ancient_temple/north_east)
 "iNy" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble_1,
@@ -21035,9 +21772,11 @@
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/north_west_caves)
 "iPk" = (
-/obj/structure/platform/stone/ancient_temple/alt/north,
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 9
+	},
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 1
 	},
 /turf/open/floor/ancient_temple/floor_19/north,
 /area/lazarus/ground/ancient_temple/east)
@@ -21519,10 +22258,6 @@
 	},
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/caves/north_west_caves)
-"jaP" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
-/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
-/area/lazarus/ground/ancient_temple/east)
 "jbz" = (
 /obj/structure/closet,
 /obj/item/clothing/suit/storage/hazardvest,
@@ -22356,13 +23091,6 @@
 "jsy" = (
 /turf/open/gm/dirt/brown/variant_5,
 /area/lazarus/ground/colony/south_nexus_road)
-"jsD" = (
-/obj/structure/platform/stone/ancient_temple,
-/obj/structure/platform/stone/ancient_temple/east{
-	pixel_y = 7
-	},
-/turf/open/gm/river/soro,
-/area/lazarus/ground/ancient_temple/north_east)
 "jsI" = (
 /obj/structure/machinery/light/small/blue{
 	light_color = "#dae2ff"
@@ -22714,7 +23442,6 @@
 /area/lazarus/lodge)
 "jzx" = (
 /obj/structure/platform/metal/strata/alt/north,
-/obj/effect/landmark/big_fog_marker,
 /turf/open/gm/coast/dirt/west,
 /area/lazarus/ground/river/central_river)
 "jzJ" = (
@@ -23349,6 +24076,9 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 6
 	},
+/obj/effect/decal/lv_decals/cave_mud_corner{
+	dir = 1
+	},
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/south)
 "jOe" = (
@@ -23389,9 +24119,6 @@
 /area/lazarus/kitchen)
 "jOt" = (
 /obj/structure/platform_decoration/stone/ancient_temple/east,
-/obj/structure/platform_decoration/stone/ancient_temple/west,
-/obj/structure/platform_decoration/stone/ancient_temple,
-/obj/structure/platform_decoration/stone/ancient_temple/north,
 /obj/effect/hunter/ancient_temple/rubble/rubble_2{
 	pixel_x = -1;
 	pixel_y = 10
@@ -24103,29 +24830,6 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 10
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
-/turf/open/auto_turf/lv_sand_alt/layer0,
-/area/lazarus/ground/ancient_temple/east)
-"kfQ" = (
-/obj/structure/prop/colorable_rock/colorable{
-	color = "#ae8686";
-	dir = 4;
-	pixel_x = 12;
-	pixel_y = -1
-	},
-/obj/structure/prop/colorable_rock/colorable{
-	color = "#ae8686";
-	dir = 9;
-	pixel_x = -8;
-	pixel_y = -4
-	},
-/obj/effect/decal/lv_decals/cave_mud_corner{
-	dir = 6
-	},
-/obj/effect/decal/lv_decals/cave_mud_corner{
-	dir = 8
-	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/east)
 "kfU" = (
@@ -24541,7 +25245,8 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 5
 	},
-/turf/open/auto_turf/lv_sand_alt/layer0,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/turf/open/floor/ancient_temple/damaged/damage_6,
 /area/lazarus/ground/ancient_temple/north_east)
 "kpT" = (
 /obj/structure/fence/dark,
@@ -24657,10 +25362,7 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/lazarus/ground/barrens/central_barrens)
 "ksM" = (
-/obj/structure/platform_decoration/stone/ancient_temple/east,
-/obj/structure/platform/stone/ancient_temple{
-	icon_state = "ancient_platform_alt_broken"
-	},
+/obj/structure/platform/stone/ancient_temple/already_broken,
 /turf/open/gm/river/soro,
 /area/lazarus/ground/river/north_east_temple_river)
 "ksQ" = (
@@ -24678,8 +25380,14 @@
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/ancient_temple/east)
 "ksX" = (
-/obj/structure/platform/stone/ancient_temple/alt/west,
 /mob/living/simple_animal/moth,
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 8
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble_2{
+	pixel_x = -1;
+	pixel_y = -9
+	},
 /turf/open/floor/ancient_temple/floor_19,
 /area/lazarus/ground/ancient_temple/south)
 "ksY" = (
@@ -24705,7 +25413,6 @@
 	pixel_x = -1;
 	pixel_y = 13
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/east/surface)
 "ktF" = (
@@ -25498,21 +26205,8 @@
 	pixel_y = -1
 	},
 /obj/effect/decal/lv_decals/cave_mud_corner,
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/east)
-"kKF" = (
-/obj/structure/prop/rock/brown{
-	dir = 9
-	},
-/obj/structure/prop/colorable_rock/colorable{
-	color = "#ae8686";
-	dir = 5;
-	pixel_x = -18;
-	pixel_y = -1
-	},
-/turf/open/auto_turf/lv_sand_alt/layer0,
-/area/lazarus/ground/ancient_temple/north_east)
 "kKK" = (
 /obj/item/stack/sheet/wood,
 /turf/open/auto_turf/lv_sand/layer0,
@@ -25798,6 +26492,9 @@
 /area/strata/interior/out_of_bounds)
 "kTm" = (
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_8,
+/obj/effect/hunter/ancient_temple/deco_border{
+	dir = 8
+	},
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/east)
 "kTp" = (
@@ -25921,7 +26618,6 @@
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 1
 	},
-/obj/effect/landmark/xeno_spawn,
 /turf/open/floor/ancient_temple/damaged/damage_2,
 /area/lazarus/ground/ancient_temple/east)
 "kVQ" = (
@@ -26141,14 +26837,6 @@
 	dir = 1;
 	icon_state = "p_stair_full"
 	},
-/obj/structure/prop/rock/brown{
-	dir = 6;
-	pixel_x = -1;
-	pixel_y = 16
-	},
-/obj/structure/platform/stone/ancient_temple/west{
-	icon_state = "ancient_platform_alt_broken"
-	},
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 4;
 	layer = 2.2
@@ -26161,9 +26849,9 @@
 	layer = 2
 	},
 /obj/effect/hunter/ancient_temple/rubble/rubble,
-/obj/structure/blocker/invisible_wall,
+/obj/structure/platform/stone/ancient_temple/west,
 /turf/open/auto_turf/lv_sand_alt/layer0,
-/area/strata/interior/out_of_bounds)
+/area/lazarus/ground/ancient_temple/north_east)
 "laO" = (
 /obj/structure/flora/bush/ausbushes/var3/fernybush,
 /turf/open/gm/coast/dirt/west,
@@ -26395,7 +27083,6 @@
 	pixel_x = -3;
 	pixel_y = -14
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/ancient_temple/east)
 "lfL" = (
@@ -26459,14 +27146,14 @@
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 8
 	},
-/obj/structure/platform/stone/ancient_temple/alt/north{
-	icon_state = "ancient_platform_alt_broken"
-	},
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 10
 	},
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 4
+	},
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 1
 	},
 /turf/open/floor/ancient_temple/base,
 /area/lazarus/ground/caves/north_west_caves)
@@ -27487,11 +28174,6 @@
 	},
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/ancient_temple/south_east/surface)
-"lAJ" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
-/obj/effect/landmark/queen_spawn,
-/turf/open/floor/ancient_temple/floor_grille/full_dark,
-/area/lazarus/ground/ancient_temple/south)
 "lAS" = (
 /obj/structure/flora/grass/tallgrass/jungle_alt_2/corner{
 	dir = 4
@@ -27614,8 +28296,8 @@
 /turf/open/floor/strata/multi_tiles/west,
 /area/lazarus/research)
 "lEz" = (
-/obj/structure/platform/stone/ancient_temple/alt,
 /obj/effect/hunter/ancient_temple/deco_border,
+/obj/structure/platform/stone/ancient_temple/alt/already_broken,
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/ancient_temple/south)
 "lEF" = (
@@ -28353,7 +29035,6 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 10
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/east/surface)
 "lUm" = (
@@ -29222,10 +29903,12 @@
 /turf/open/floor/ancient_temple/damaged/damage_5,
 /area/lazarus/ground/caves/north_west_caves)
 "mnk" = (
-/obj/structure/platform/stone/ancient_temple/alt/north,
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 1;
 	pixel_y = -15
+	},
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 1
 	},
 /turf/open/floor/ancient_temple/deco/deco_1/east,
 /area/lazarus/ground/ancient_temple/north_east/surface)
@@ -29937,10 +30620,6 @@
 /obj/structure/flora/jungle/vines/blue/light_3,
 /turf/open/floor/interior/wood_sat/damage_6,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
-"mBD" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
-/turf/open/floor/ancient_temple/floor_2,
-/area/lazarus/ground/ancient_temple/east)
 "mBE" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/item/tool/warning_cone{
@@ -30125,8 +30804,12 @@
 /turf/open/auto_turf/lv_grass/layer0,
 /area/lazarus/ground/jungle/east_central_jungle)
 "mEQ" = (
-/obj/structure/platform/stone/ancient_temple/east,
 /obj/effect/landmark/big_fog_marker,
+/obj/structure/platform/stone/ancient_temple/east,
+/obj/effect/hunter/ancient_temple/rubble/rubble{
+	pixel_x = -3;
+	pixel_y = 1
+	},
 /turf/open/gm/river/soro,
 /area/lazarus/ground/river/north_east_temple_river)
 "mER" = (
@@ -30143,7 +30826,6 @@
 /area/lazarus/ground/colony/north_tcomms_road)
 "mFa" = (
 /obj/structure/platform_decoration/stone/ancient_temple/west,
-/obj/structure/platform_decoration/stone/ancient_temple/north,
 /obj/structure/flora/bush/ausbushes/reedbush,
 /turf/open/gm/river/soro,
 /area/lazarus/ground/river/north_east_temple_river)
@@ -30594,6 +31276,7 @@
 	pixel_y = 1
 	},
 /obj/effect/hunter/ancient_temple/rubble/rubble_1,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/ancient_temple/north_east)
 "mMU" = (
@@ -30607,6 +31290,7 @@
 /obj/effect/hunter/ancient_temple/rubble/rubble_2,
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_8,
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/north_east)
 "mMY" = (
@@ -30894,13 +31578,6 @@
 /obj/structure/prop/ice_colony/surveying_device,
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/barrens/east_barrens)
-"mSV" = (
-/obj/structure/platform/stone/ancient_temple,
-/obj/structure/platform/stone/ancient_temple/alt/west{
-	pixel_y = 7
-	},
-/turf/open/gm/river/soro,
-/area/lazarus/ground/ancient_temple/north_east)
 "mTa" = (
 /obj/structure/flora/bush/ausbushes/lavendergrass,
 /turf/open/auto_turf/lv_grass/layer1,
@@ -31326,9 +32003,8 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 4
 	},
-/obj/effect/landmark/xeno_spawn,
-/turf/open/floor/ancient_temple/damaged/damage_3,
-/area/lazarus/ground/ancient_temple/east)
+/turf/closed/wall/rock/brown,
+/area/strata/interior/out_of_bounds)
 "nbs" = (
 /turf/open/floor/strata/multi_tiles/southeast,
 /area/lazarus/research/storage)
@@ -34235,16 +34911,8 @@
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/east)
 "olt" = (
-/obj/structure/prop/rock/brown{
-	dir = 4;
-	pixel_x = -2;
-	pixel_y = 4
-	},
-/obj/structure/prop/colorable_rock/colorable/alt{
-	dir = 4;
-	color = "#ae8686"
-	},
-/turf/open/auto_turf/lv_sand_alt/layer0,
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_6,
+/turf/open/floor/ancient_temple/damaged/damage_4,
 /area/lazarus/ground/ancient_temple/north_east)
 "olw" = (
 /obj/structure/machinery/door/poddoor/almayer/grey/open{
@@ -34310,6 +34978,7 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 9
 	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
 /turf/open/floor/ancient_temple/damaged/damage_2,
 /area/lazarus/ground/ancient_temple/north_east)
 "ooh" = (
@@ -35148,7 +35817,6 @@
 	pixel_x = -4;
 	pixel_y = 6
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/east/surface)
 "oDZ" = (
@@ -35363,8 +36031,9 @@
 	pixel_x = 4;
 	pixel_y = -2
 	},
+/obj/effect/alien/weeds/weedwall,
 /turf/open/floor/ancient_temple/ruined/west,
-/area/lazarus/ground/ancient_temple/north_east)
+/area/strata/interior/out_of_bounds)
 "oJu" = (
 /obj/structure/platform/stone/ancient_temple/east{
 	layer = 4.12
@@ -35453,7 +36122,6 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 6
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/floor/ancient_temple/floor_13/north,
 /area/lazarus/ground/ancient_temple/east/surface)
 "oLl" = (
@@ -36479,9 +37147,6 @@
 /turf/open/floor/prison/brown_bright/east,
 /area/lazarus/sleep_male)
 "pfy" = (
-/obj/structure/platform/stone/ancient_temple/alt{
-	icon_state = "ancient_platform_broken"
-	},
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 6
 	},
@@ -36491,6 +37156,7 @@
 	pixel_x = 7;
 	pixel_y = 7
 	},
+/obj/structure/platform/stone/ancient_temple/alt/already_broken,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/caves/north_west_caves)
 "pfE" = (
@@ -36545,7 +37211,13 @@
 /turf/open/auto_turf/lv_grass/layer1,
 /area/lazarus/ground/jungle/south_east_jungle)
 "pgu" = (
-/obj/structure/platform/stone/ancient_temple/alt/north,
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 1
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble_2{
+	pixel_x = -6;
+	pixel_y = 3
+	},
 /turf/open/floor/ancient_temple/floor_13/north,
 /area/lazarus/ground/ancient_temple/east)
 "pgA" = (
@@ -36705,9 +37377,7 @@
 	pixel_x = 7;
 	pixel_y = 2
 	},
-/obj/structure/platform/stone/ancient_temple/east{
-	icon_state = "ancient_platform_alt_broken"
-	},
+/obj/structure/platform/stone/ancient_temple/east,
 /turf/open/gm/coast/dirt/north,
 /area/lazarus/ground/river/north_east_temple_river)
 "pku" = (
@@ -36775,6 +37445,7 @@
 /obj/effect/decal/lv_decals/red_mud_corner{
 	dir = 6
 	},
+/obj/effect/landmark/big_fog_marker,
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/barrens/central_barrens)
 "plO" = (
@@ -37016,15 +37687,13 @@
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 8
 	},
-/obj/structure/platform/stone/ancient_temple/alt{
-	icon_state = "ancient_platform_broken"
-	},
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 10
 	},
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 6
 	},
+/obj/structure/platform/stone/ancient_temple/alt/already_broken,
 /turf/open/floor/ancient_temple/base,
 /area/lazarus/ground/caves/north_west_caves)
 "prU" = (
@@ -37255,14 +37924,6 @@
 	},
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/south_east/surface)
-"pxJ" = (
-/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_5,
-/obj/effect/decal/lv_decals/cave_mud_corner{
-	dir = 9
-	},
-/obj/effect/landmark/xeno_spawn,
-/turf/open/floor/ancient_temple/damaged/damage_7,
-/area/lazarus/ground/ancient_temple/east)
 "pxN" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble_3,
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_3,
@@ -38018,11 +38679,6 @@
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/caves/west_caves)
-"pSM" = (
-/obj/structure/flora/bush/ausbushes/reedbush,
-/obj/effect/landmark/big_fog_marker,
-/turf/open/gm/coast/dirt/beachcorner2/south_west,
-/area/lazarus/ground/river/central_river)
 "pSW" = (
 /obj/effect/landmark/big_fog_marker,
 /turf/open/gm/coast/dirt/beachcorner/south_west,
@@ -38721,12 +39377,10 @@
 /turf/open/floor/plating/ancient_temple,
 /area/lazarus/ground/ancient_temple/south_east/surface)
 "qgU" = (
-/obj/structure/prop/rock/brown{
-	dir = 10;
-	pixel_x = 12;
-	pixel_y = 17
+/obj/effect/decal/lv_decals/cave_mud_corner{
+	dir = 4
 	},
-/turf/open/auto_turf/lv_sand_alt/layer0,
+/turf/open/floor/ancient_temple/damaged/damage_2,
 /area/lazarus/ground/ancient_temple/north_east)
 "qgV" = (
 /turf/open/auto_turf/lv_grass_weedable/layer0,
@@ -42089,7 +42743,7 @@
 /turf/open/floor/brown_dirt/random_rocks,
 /area/lazarus/ground/cove)
 "rHu" = (
-/obj/structure/platform/stone/ancient_temple/alt,
+/obj/structure/platform/stone/ancient_temple/alt/already_broken,
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/east)
 "rHA" = (
@@ -42249,12 +42903,12 @@
 /turf/open/floor/prison/west,
 /area/lazarus/main_hall)
 "rKe" = (
-/obj/structure/platform/stone/ancient_temple/east{
-	icon_state = "ancient_platform_alt_broken"
-	},
 /obj/effect/hunter/ancient_temple/rubble/rubble_2,
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 9
+	},
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 4
 	},
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/south/surface)
@@ -42419,11 +43073,6 @@
 /obj/structure/flora/jungle/vines/dead/light_2,
 /turf/open/floor/ancient_temple/floor_13,
 /area/lazarus/ground/ancient_temple/south_east/surface)
-"rMk" = (
-/obj/structure/flora/bush/ausbushes/var3/fullgrass,
-/obj/effect/landmark/big_fog_marker,
-/turf/open/auto_turf/lv_sand/layer0,
-/area/lazarus/ground/caves/south_west_caves)
 "rMq" = (
 /obj/item/reagent_container/food/snacks/fishable/fish/white_perch{
 	anchored = 1
@@ -42558,7 +43207,6 @@
 	pixel_x = -6;
 	pixel_y = 13
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/ancient_temple/east)
 "rPr" = (
@@ -43007,9 +43655,18 @@
 /turf/open/floor/prison/darkred2/southwest,
 /area/lazarus/corporate_dome)
 "rZh" = (
-/obj/structure/platform/stone/ancient_temple/alt/west,
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 4
+	},
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 8
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble_2{
+	pixel_x = -1;
+	pixel_y = -9
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble_2{
+	pixel_y = 14
 	},
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/ancient_temple/south/surface)
@@ -43332,11 +43989,15 @@
 /turf/open/floor/strata/floor3,
 /area/lazarus/corporate_dome)
 "sgD" = (
-/obj/structure/platform/stone/ancient_temple/north{
-	icon_state = "ancient_platform_broken"
+/obj/structure/platform/stone/ancient_temple/already_broken{
+	dir = 1
 	},
-/obj/structure/platform/stone/ancient_temple/west,
-/obj/structure/platform/stone/ancient_temple/east,
+/obj/structure/platform/stone/ancient_temple/already_broken{
+	dir = 8
+	},
+/obj/structure/platform/stone/ancient_temple/already_broken{
+	dir = 4
+	},
 /turf/open/gm/coast/dirt/north,
 /area/lazarus/ground/river/north_east_temple_river)
 "sgI" = (
@@ -43385,7 +44046,6 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 10
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/east)
 "shz" = (
@@ -43431,13 +44091,6 @@
 	},
 /turf/open/floor/interior/wood/alt,
 /area/lazarus/ground/barrens/central_barrens)
-"siE" = (
-/obj/structure/platform/stone/ancient_temple/north,
-/obj/structure/platform/stone/ancient_temple/east{
-	pixel_y = -7
-	},
-/turf/open/gm/river/soro,
-/area/lazarus/ground/ancient_temple/north_east)
 "siK" = (
 /obj/structure/barricade/handrail/wire{
 	layer = 3.1;
@@ -43917,10 +44570,16 @@
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/ground/colony/west_tcomms_road)
 "ssN" = (
-/obj/structure/platform/stone/ancient_temple/north{
-	icon_state = "ancient_platform_broken"
+/obj/structure/platform/stone/ancient_temple/already_broken{
+	dir = 1
 	},
-/obj/structure/platform/stone/ancient_temple/east,
+/obj/structure/platform/stone/ancient_temple/already_broken{
+	dir = 4
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble_2{
+	pixel_x = -1;
+	pixel_y = 4
+	},
 /turf/open/gm/river/soro,
 /area/lazarus/ground/river/north_east_temple_river)
 "ssV" = (
@@ -44306,7 +44965,6 @@
 /area/lazarus/main_hall)
 "sBZ" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble_3,
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/floor/ancient_temple/ruined/north,
 /area/lazarus/ground/ancient_temple/east/surface)
 "sCh" = (
@@ -44354,11 +45012,11 @@
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 8
 	},
-/obj/structure/platform/stone/ancient_temple/alt/north{
-	icon_state = "ancient_platform_alt_broken"
-	},
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 9
+	},
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 1
 	},
 /turf/open/floor/ancient_temple/base,
 /area/lazarus/ground/caves/north_west_caves)
@@ -44472,7 +45130,6 @@
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 1
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/floor/ancient_temple/damaged/damage_5,
 /area/lazarus/ground/ancient_temple/east/surface)
 "sFn" = (
@@ -44510,10 +45167,7 @@
 	pixel_y = 21;
 	pixel_x = 6
 	},
-/obj/effect/decal/lv_decals/cave_mud_corner{
-	dir = 6
-	},
-/turf/open/auto_turf/lv_sand_alt/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/ancient_temple/south)
 "sGj" = (
 /obj/structure/prop/colorable_rock/colorable{
@@ -44561,7 +45215,6 @@
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/ancient_temple/south/surface)
 "sGz" = (
-/obj/structure/platform/stone/ancient_temple/alt/north,
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 4
 	},
@@ -44574,6 +45227,9 @@
 /obj/effect/hunter/ancient_temple/rubble/rubble_5{
 	pixel_x = -13;
 	pixel_y = -7
+	},
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 1
 	},
 /turf/open/floor/ancient_temple/base,
 /area/lazarus/ground/caves/north_west_caves)
@@ -44604,6 +45260,7 @@
 "sHt" = (
 /obj/structure/platform/stone/ancient_temple/west,
 /obj/structure/platform_decoration/stone/ancient_temple/north,
+/obj/effect/landmark/big_fog_marker,
 /turf/open/floor/brown_dirt/random_rocks,
 /area/lazarus/ground/barrens/south_eastern_barrens)
 "sHx" = (
@@ -44868,7 +45525,9 @@
 /obj/effect/hunter/ancient_temple/deco_border/deco_border2{
 	dir = 8
 	},
-/obj/structure/platform/stone/ancient_temple/alt/east,
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 4
+	},
 /obj/structure/surface/table/reinforced/prison{
 	color = "#6b675e"
 	},
@@ -46066,21 +46725,9 @@
 /turf/open/floor/ancient_temple/damaged/damage_2,
 /area/lazarus/ground/ancient_temple/south)
 "tlK" = (
-/obj/structure/prop/rock/brown{
-	dir = 4;
-	pixel_x = -2;
-	pixel_y = 4
-	},
-/obj/structure/prop/colorable_rock/colorable{
-	color = "#ae8686";
-	dir = 8;
-	pixel_x = 1;
-	pixel_y = 16
-	},
 /obj/effect/decal/lv_decals/cave_mud_corner,
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
-/turf/open/auto_turf/lv_sand_alt/layer0,
-/area/lazarus/ground/ancient_temple/east)
+/turf/closed/wall/rock/brown,
+/area/strata/interior/out_of_bounds)
 "tlX" = (
 /obj/structure/sign/safety/high_voltage{
 	pixel_x = 11
@@ -46139,7 +46786,6 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 6
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/east)
 "toj" = (
@@ -46416,8 +47062,8 @@
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/caves/north_west_caves)
 "ttm" = (
-/obj/structure/platform/stone/ancient_temple/west{
-	icon_state = "ancient_platform_alt_broken"
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 8
 	},
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/north_west_caves)
@@ -46491,7 +47137,8 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 10
 	},
-/turf/open/floor/ancient_temple/damaged/damage_7,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/ancient_temple/floor_13/north,
 /area/lazarus/ground/ancient_temple/north_east)
 "tuO" = (
 /obj/effect/decal/lv_decals/cave_mud_corner{
@@ -46551,7 +47198,6 @@
 	pixel_y = -4
 	},
 /obj/effect/decal/lv_decals/cave_mud_corner,
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/east/surface)
 "tvI" = (
@@ -47007,15 +47653,15 @@
 /turf/open/floor/brown_dirt/random_rocks_alt,
 /area/lazarus/ground/barrens/east_barrens)
 "tEH" = (
-/obj/structure/platform/stone/ancient_temple{
-	icon_state = "ancient_platform_alt_broken"
-	},
-/obj/structure/platform/stone/ancient_temple/west,
 /obj/effect/hunter/ancient_temple/rubble/rubble{
 	pixel_x = 1;
 	pixel_y = -1
 	},
 /obj/effect/landmark/big_fog_marker,
+/obj/structure/platform/stone/ancient_temple/already_broken,
+/obj/structure/platform/stone/ancient_temple/already_broken{
+	dir = 8
+	},
 /turf/open/gm/river/soro,
 /area/lazarus/ground/river/north_east_temple_river)
 "tEM" = (
@@ -48066,11 +48712,15 @@
 /turf/open/floor/plating/plating_catwalk/strata,
 /area/lazarus/research/storage)
 "uaK" = (
-/obj/structure/platform/stone/ancient_temple/north{
-	icon_state = "ancient_platform_broken"
+/obj/structure/platform/stone/ancient_temple/already_broken{
+	dir = 1
 	},
-/obj/structure/platform/stone/ancient_temple/east,
-/obj/structure/platform/stone/ancient_temple/west,
+/obj/structure/platform/stone/ancient_temple/already_broken{
+	dir = 8
+	},
+/obj/structure/platform/stone/ancient_temple/already_broken{
+	dir = 4
+	},
 /turf/open/gm/river/soro,
 /area/lazarus/ground/river/north_east_temple_river)
 "uaM" = (
@@ -48346,10 +48996,13 @@
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/barrens/central_barrens)
 "ukf" = (
-/obj/structure/platform/stone/ancient_temple/alt/west,
 /obj/effect/hunter/ancient_temple/deco_border/deco_border2{
 	dir = 4
 	},
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 8
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble_2,
 /turf/open/floor/ancient_temple/damaged/damage_2,
 /area/lazarus/ground/ancient_temple/south/surface)
 "ukj" = (
@@ -48517,7 +49170,7 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 6
 	},
-/turf/open/auto_turf/lv_sand_alt/layer0,
+/turf/open/floor/ancient_temple/damaged/damage_4,
 /area/lazarus/ground/ancient_temple/north_east)
 "unb" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
@@ -48847,7 +49500,7 @@
 	pixel_x = 10;
 	pixel_y = 14
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
 /turf/open/floor/ancient_temple/base,
 /area/lazarus/ground/ancient_temple/east)
 "usA" = (
@@ -49011,6 +49664,7 @@
 /area/lazarus/ground/caves/south_west_caves)
 "uvp" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble,
+/obj/effect/landmark/xeno_spawn,
 /turf/open/floor/plating/ancient_temple,
 /area/lazarus/ground/ancient_temple/south)
 "uvs" = (
@@ -49082,9 +49736,8 @@
 	pixel_x = -20;
 	pixel_y = 6
 	},
-/obj/structure/blocker/invisible_wall,
 /turf/open/auto_turf/lv_sand_alt/layer0,
-/area/strata/interior/out_of_bounds)
+/area/lazarus/ground/ancient_temple/north_east)
 "uww" = (
 /obj/structure/barricade/handrail/wire{
 	layer = 3.1;
@@ -49287,10 +49940,6 @@
 	},
 /turf/open/floor/plating,
 /area/lazarus/landing_zones/lz2)
-"uzC" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
-/turf/open/floor/ancient_temple/floor_20,
-/area/lazarus/ground/ancient_temple/east)
 "uzE" = (
 /obj/effect/hunter/ancient_temple/tile_edge,
 /turf/open/floor/ancient_temple/damaged/damage_7,
@@ -49697,10 +50346,6 @@
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/east)
 "uHO" = (
-/obj/effect/hunter/ancient_temple/rubble/rubble_4{
-	pixel_x = 6;
-	pixel_y = 2
-	},
 /obj/effect/hunter/ancient_temple/rubble/rubble_5{
 	pixel_x = -2;
 	pixel_y = -12
@@ -49787,11 +50432,13 @@
 /obj/effect/hunter/ancient_temple/deco_border/deco_border2{
 	dir = 4
 	},
-/obj/structure/platform/stone/ancient_temple/alt/west,
+/obj/item/hunting_trap,
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 8
+	},
 /obj/structure/surface/table/reinforced/prison{
 	color = "#6b675e"
 	},
-/obj/item/hunting_trap,
 /turf/open/floor/ancient_temple/deco/deco_alt,
 /area/lazarus/ground/ancient_temple/north_east/surface)
 "uJS" = (
@@ -50376,11 +51023,6 @@
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
 /turf/open/floor/ancient_temple/floor_13/east,
 /area/lazarus/ground/ancient_temple/north_east)
-"uWq" = (
-/obj/effect/decal/remains/xeno,
-/obj/effect/landmark/big_fog_marker,
-/turf/open/gm/dirt/brown/variant_6,
-/area/lazarus/ground/barrens/central_barrens)
 "uWX" = (
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 9
@@ -51140,7 +51782,6 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 6
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/floor/ancient_temple/floor_13,
 /area/lazarus/ground/ancient_temple/east)
 "vqY" = (
@@ -51497,14 +52138,6 @@
 /obj/effect/hunter/ancient_temple/rubble/rubble_3,
 /turf/open/floor/ancient_temple/ruined/north,
 /area/lazarus/ground/ancient_temple/east)
-"vAG" = (
-/obj/effect/hunter/ancient_temple/deco_border,
-/obj/effect/decal/lv_decals/cave_mud_corner{
-	dir = 5
-	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
-/turf/open/floor/ancient_temple/damaged/damage_2,
-/area/lazarus/ground/ancient_temple/east)
 "vAK" = (
 /obj/effect/decal/strata_decals/grime/grime4{
 	dir = 8
@@ -51714,7 +52347,6 @@
 	pixel_x = -3;
 	pixel_y = -4
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/east/surface)
 "vDL" = (
@@ -52069,12 +52701,13 @@
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/barrens/central_barrens)
 "vLV" = (
-/obj/structure/platform_decoration/stone/ancient_temple/north,
-/obj/structure/platform/stone/ancient_temple/north{
-	icon_state = "ancient_platform_broken"
-	},
-/obj/structure/platform/stone/ancient_temple/east,
 /obj/effect/landmark/big_fog_marker,
+/obj/structure/platform/stone/ancient_temple/already_broken{
+	dir = 1
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble{
+	pixel_y = -3
+	},
 /turf/open/gm/coast/dirt/beachcorner2/north_west,
 /area/lazarus/ground/river/north_east_temple_river)
 "vMi" = (
@@ -52167,7 +52800,6 @@
 /turf/closed/wall/rock/brown,
 /area/strata/interior/out_of_bounds)
 "vOX" = (
-/obj/effect/landmark/big_fog_marker,
 /turf/open/gm/coast/dirt/beachcorner2,
 /area/lazarus/ground/river/east_river)
 "vOY" = (
@@ -52510,9 +53142,23 @@
 	icon_state = "p_stair_full";
 	pixel_y = -16
 	},
-/obj/structure/blocker/invisible_wall,
+/obj/effect/timed_event/scrapeaway{
+	time = 40
+	},
+/obj/structure/stairs/perspective{
+	color = "#b6a38f";
+	dir = 1;
+	icon_state = "p_stair_full"
+	},
+/obj/structure/platform/stone/ancient_temple/west{
+	icon_state = "ancient_platform_alt_broken"
+	},
+/obj/effect/hunter/ancient_temple/deco_border{
+	dir = 4;
+	layer = 2.2
+	},
 /turf/closed/wall/rock/brown,
-/area/strata/interior/out_of_bounds)
+/area/lazarus/ground/ancient_temple/north_east)
 "vXr" = (
 /obj/structure/pipes/standard/manifold/hidden/cyan{
 	dir = 8
@@ -52527,11 +53173,6 @@
 	},
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/barrens/east_barrens)
-"vYo" = (
-/obj/effect/hunter/ancient_temple/deco_border,
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
-/turf/open/floor/ancient_temple/damaged/damage_1,
-/area/lazarus/ground/ancient_temple/east)
 "vYq" = (
 /obj/effect/hunter/ancient_temple/deco_border/deco_border2{
 	dir = 8
@@ -53614,6 +54255,10 @@
 "wvN" = (
 /obj/effect/hunter/ancient_temple/deco_border,
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/obj/effect/hunter/ancient_temple/rubble/rubble_3{
+	pixel_x = 2;
+	pixel_y = -7
+	},
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/ancient_temple/east/surface)
 "wvX" = (
@@ -54312,7 +54957,6 @@
 	pixel_x = 1;
 	pixel_y = 13
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/east)
 "wKc" = (
@@ -55206,12 +55850,12 @@
 /turf/open/floor/ancient_temple/floor_2,
 /area/lazarus/ground/ancient_temple/north_east)
 "xeg" = (
-/obj/structure/platform/stone/ancient_temple/west,
-/obj/structure/platform_decoration/stone/ancient_temple/west,
-/obj/structure/platform_decoration/stone/ancient_temple,
 /obj/effect/hunter/ancient_temple/rubble/rubble_3{
 	pixel_x = 2;
 	pixel_y = -4
+	},
+/obj/structure/platform/stone/ancient_temple/already_broken{
+	dir = 8
 	},
 /turf/open/gm/river/soro,
 /area/lazarus/ground/river/north_east_temple_river)
@@ -55410,7 +56054,7 @@
 /area/lazarus/landing_zones/lz2)
 "xiW" = (
 /obj/effect/hunter/ancient_temple/deco_border,
-/obj/structure/platform/stone/ancient_temple/alt,
+/obj/structure/platform/stone/ancient_temple/alt/already_broken,
 /turf/open/floor/ancient_temple/deco/deco_alt,
 /area/lazarus/ground/ancient_temple/north_east/surface)
 "xjb" = (
@@ -55495,14 +56139,16 @@
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/main_hall)
 "xls" = (
-/obj/structure/platform/stone/ancient_temple{
-	icon_state = "ancient_platform_alt_broken"
-	},
-/obj/structure/platform/stone/ancient_temple/west,
-/obj/structure/platform/stone/ancient_temple/east,
 /obj/effect/hunter/ancient_temple/rubble/rubble{
 	pixel_x = -1;
 	pixel_y = -1
+	},
+/obj/structure/platform/stone/ancient_temple/already_broken,
+/obj/structure/platform/stone/ancient_temple/already_broken{
+	dir = 8
+	},
+/obj/structure/platform/stone/ancient_temple/already_broken{
+	dir = 4
 	},
 /turf/open/gm/river/soro,
 /area/lazarus/ground/river/north_east_temple_river)
@@ -55574,9 +56220,6 @@
 /obj/effect/landmark/objective_landmark/close,
 /turf/open/floor/prison/darkbrown2/north,
 /area/lazarus/quartstorage)
-"xmX" = (
-/turf/open/floor/ancient_temple/floor_grille/full_dark,
-/area/lazarus/ground/ancient_temple/south)
 "xna" = (
 /obj/structure/platform/stone/ancient_temple,
 /obj/structure/platform/stone/ancient_temple/west{
@@ -55652,7 +56295,6 @@
 	dir = 1
 	},
 /obj/effect/hunter/ancient_temple/rubble/rubble_1,
-/obj/effect/landmark/xeno_spawn,
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/east)
 "xos" = (
@@ -56008,7 +56650,6 @@
 	dir = 5;
 	pixel_y = 21
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/east)
 "xvJ" = (
@@ -56032,9 +56673,6 @@
 "xwq" = (
 /turf/open/auto_turf/lv_grass/layer1,
 /area/lazarus/ground/jungle/west_central_jungle)
-"xwD" = (
-/turf/open/floor/ancient_temple/deco/deco_alt/east,
-/area/lazarus/ground/ancient_temple/east)
 "xwK" = (
 /turf/open/floor/ancient_temple/damaged/damage_3,
 /area/lazarus/ground/barrens/north_barrens)
@@ -56708,9 +57346,7 @@
 	pixel_x = -3;
 	pixel_y = -3
 	},
-/obj/structure/platform/stone/ancient_temple/east{
-	icon_state = "ancient_platform_alt_broken"
-	},
+/obj/structure/platform/stone/ancient_temple/east,
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/river/north_east_temple_river)
 "xMh" = (
@@ -57622,13 +58258,6 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/prison/floor_plate_alt/south,
 /area/lazarus/robotics)
-"ygR" = (
-/obj/structure/prop/hunter/ancient_temple/collapsed_wall{
-	dir = 1
-	},
-/obj/effect/hunter/ancient_temple/rubble/rubble,
-/turf/open/floor/ancient_temple/ruined/east,
-/area/lazarus/ground/ancient_temple/north_east)
 "ygU" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/structure/pipes/standard/simple/hidden/cyan,
@@ -63600,7 +64229,7 @@ pct
 qAv
 hgz
 nBv
-umq
+hgz
 baA
 hgz
 hgz
@@ -66939,10 +67568,10 @@ aNR
 aNR
 cGI
 qrD
-xYY
-ptc
 nWz
 ptc
+nWz
+hpi
 iAE
 fxg
 utz
@@ -67612,7 +68241,7 @@ nBI
 nWz
 nWz
 nWz
-iAE
+fSw
 fxg
 hEZ
 wzg
@@ -67832,11 +68461,11 @@ dpB
 hNK
 aay
 nBI
+nWz
+nWz
+nWz
 xYY
-nWz
-nWz
-nWz
-sRf
+fVK
 wzg
 oWe
 wzg
@@ -68058,7 +68687,7 @@ ptc
 qrD
 qrD
 nWz
-jkG
+vCN
 iAE
 lJV
 wzg
@@ -70628,7 +71257,7 @@ xxR
 xxR
 aWu
 xxR
-xxR
+aWu
 xxR
 qkS
 qkS
@@ -74294,7 +74923,7 @@ abq
 abs
 abq
 abq
-abq
+acR
 nYT
 yar
 yar
@@ -74503,7 +75132,7 @@ acE
 aco
 aco
 aco
-acv
+aco
 aco
 aav
 aco
@@ -74515,7 +75144,7 @@ aco
 acm
 yar
 yar
-acR
+abq
 yar
 abq
 yar
@@ -74731,7 +75360,7 @@ aNR
 aNR
 acr
 aav
-acY
+acr
 aco
 eRP
 aco
@@ -74742,7 +75371,7 @@ yar
 yar
 yar
 yar
-gvR
+nYT
 yar
 xnI
 yar
@@ -74946,7 +75575,7 @@ act
 neb
 aNR
 aNR
-acF
+acy
 acy
 act
 act
@@ -74958,7 +75587,7 @@ acr
 acn
 aco
 aco
-rMk
+aav
 aNR
 aNR
 yar
@@ -75185,7 +75814,7 @@ acr
 aco
 aNR
 aNR
-cPG
+yar
 yar
 qKp
 yar
@@ -75413,7 +76042,7 @@ yar
 yar
 yar
 nYT
-yar
+cPG
 qKp
 kCv
 xZT
@@ -75616,7 +76245,7 @@ sWz
 act
 act
 acy
-acH
+act
 act
 acs
 acs
@@ -75845,7 +76474,7 @@ act
 acu
 act
 act
-acz
+acs
 abW
 act
 act
@@ -76062,7 +76691,7 @@ sXk
 lpx
 uoJ
 yba
-uuy
+aNR
 neb
 act
 act
@@ -76089,11 +76718,11 @@ tha
 tha
 qGM
 tha
-tha
+qGM
 tha
 tha
 saA
-nXD
+fNA
 qMo
 yar
 yar
@@ -76286,7 +76915,7 @@ lwO
 sXk
 lwO
 uoJ
-sqE
+adl
 aNR
 acy
 acy
@@ -76313,9 +76942,9 @@ tha
 tha
 tha
 tha
-qGM
+tha
 saA
-fNA
+nXD
 qMo
 yar
 yar
@@ -76515,7 +77144,7 @@ act
 act
 acs
 act
-uuy
+aNR
 aNR
 aNR
 acy
@@ -76769,7 +77398,7 @@ awR
 kKq
 uAu
 yar
-xEz
+acS
 yar
 tHE
 xmC
@@ -76960,9 +77589,9 @@ lwO
 sXk
 lwO
 vbq
-lef
+aAC
 cYA
-hnE
+cdA
 oVG
 cYA
 oVG
@@ -76985,13 +77614,13 @@ tha
 tha
 tha
 saA
-uXA
+qMo
 yar
 nYT
-cPG
+yar
 awR
 kKq
-cPG
+yar
 yar
 yar
 mkS
@@ -77441,7 +78070,7 @@ xLL
 kKq
 xEz
 yar
-yar
+cPG
 yar
 tHE
 yar
@@ -77666,9 +78295,9 @@ kKq
 yar
 wur
 yar
-uWq
+uAu
 tHE
-yar
+cPG
 wur
 pfE
 jol
@@ -78104,16 +78733,16 @@ tha
 tha
 ukZ
 qKp
-yar
+cPG
 tBO
 qfh
 ajK
 tqd
-cPG
+yar
 awR
 amb
 fwh
-mGy
+adg
 jhh
 osV
 yar
@@ -78327,7 +78956,7 @@ qGM
 tha
 tha
 apm
-pSW
+yba
 yar
 nUf
 itC
@@ -79009,7 +79638,7 @@ awR
 yar
 yar
 yar
-ulh
+adh
 qKp
 awR
 lEr
@@ -79234,7 +79863,7 @@ kdL
 pYg
 yar
 yar
-aru
+pYg
 pYg
 yar
 pYg
@@ -80129,7 +80758,7 @@ sjt
 yba
 nYT
 yar
-yar
+cPG
 mJc
 itC
 ary
@@ -80362,7 +80991,7 @@ acD
 awR
 yar
 awR
-qKp
+qNZ
 cPG
 lHE
 qGM
@@ -81927,10 +82556,10 @@ qGM
 tha
 apm
 ijw
-yba
+pSW
 vku
 gUx
-mim
+abP
 fvk
 vIR
 jpX
@@ -82151,7 +82780,7 @@ dCq
 tha
 tha
 tha
-pSM
+ykp
 sym
 xGm
 jzx
@@ -82287,7 +82916,7 @@ xxR
 opU
 xxR
 xxR
-xxR
+aWu
 wUz
 xxR
 fKV
@@ -82356,7 +82985,7 @@ sKt
 sKt
 abs
 abq
-abq
+acR
 yar
 abq
 nYT
@@ -82584,7 +83213,7 @@ abC
 abq
 sKt
 abq
-qKp
+qNZ
 awR
 yar
 yar
@@ -82601,7 +83230,7 @@ saA
 fNA
 nXD
 rrL
-uLN
+xGm
 vUX
 nXD
 nXD
@@ -83030,7 +83659,7 @@ abq
 sKt
 abs
 abs
-lWn
+sKt
 abq
 aby
 yar
@@ -83053,7 +83682,7 @@ cqQ
 fnh
 aCD
 uLR
-cPG
+yar
 lHE
 tha
 saA
@@ -83286,7 +83915,7 @@ wfs
 aAV
 kKW
 lFA
-aqc
+hKl
 cxc
 kkt
 aqc
@@ -83494,7 +84123,7 @@ qKp
 awR
 yar
 ulh
-abq
+acR
 dMG
 lFT
 xMX
@@ -83950,7 +84579,7 @@ bEe
 qDT
 wpU
 hii
-nie
+uuK
 uuK
 vNh
 mrK
@@ -84164,7 +84793,7 @@ qNZ
 xEz
 ueb
 lEr
-cPG
+yar
 abq
 sKt
 aao
@@ -84173,7 +84802,7 @@ bKK
 bEe
 qDT
 aaw
-nie
+uuK
 uuK
 uuK
 uuK
@@ -84622,7 +85251,7 @@ dMG
 ksr
 uuK
 uuK
-nie
+uuK
 tgz
 qYI
 dWK
@@ -84767,7 +85396,7 @@ tua
 tua
 aNR
 tua
-wYS
+lGG
 kym
 opE
 cnz
@@ -85069,7 +85698,7 @@ aBZ
 aao
 ksr
 xjY
-nie
+uuK
 uuK
 ugg
 unf
@@ -85294,7 +85923,7 @@ aao
 ksr
 uuK
 uuK
-nie
+uuK
 mrK
 bih
 lFA
@@ -85668,7 +86297,7 @@ ayq
 ato
 lGG
 kxa
-fyy
+wqi
 aNR
 lSG
 lSG
@@ -85742,7 +86371,7 @@ dMG
 ksr
 uuK
 uuK
-nie
+uuK
 uuK
 uuK
 ugg
@@ -85965,7 +86594,7 @@ aBZ
 dMG
 egE
 uuK
-nie
+uuK
 uuK
 uuK
 xyQ
@@ -86414,7 +87043,7 @@ bEe
 qDT
 hii
 uuK
-nie
+uuK
 uuK
 nie
 ugg
@@ -86637,7 +87266,7 @@ ksy
 aao
 ksr
 uuK
-nie
+uuK
 uuK
 uuK
 uuK
@@ -86799,7 +87428,7 @@ tua
 tua
 cZp
 hAj
-lKL
+ads
 tua
 tua
 tua
@@ -86863,7 +87492,7 @@ ksr
 uuK
 tvN
 uuK
-nie
+uuK
 uuK
 hZH
 aAV
@@ -87008,8 +87637,8 @@ xnn
 tua
 tua
 euy
-pQp
-sZW
+ady
+adw
 qcs
 pvV
 tEw
@@ -87230,11 +87859,11 @@ nuQ
 ogr
 tua
 tua
-xvL
-wmO
-fBB
+lSG
+lSG
+ady
 sZW
-okb
+adv
 mBs
 jja
 pUk
@@ -87320,7 +87949,7 @@ aqc
 aqc
 tmN
 aqc
-aqc
+hKl
 hNK
 kil
 aqc
@@ -87454,9 +88083,9 @@ xvL
 xvL
 tua
 lSG
-xvL
-nUN
-fFF
+lSG
+lSG
+lSG
 sZW
 uHO
 qnu
@@ -87679,9 +88308,9 @@ xvL
 xvL
 lSG
 xvL
-aAw
-sHI
-vAE
+adB
+adz
+adx
 gha
 mLo
 raT
@@ -88163,7 +88792,7 @@ xvL
 tua
 czF
 jaf
-bxV
+adk
 tua
 tua
 hmK
@@ -88891,7 +89520,7 @@ aAV
 vSq
 aqc
 aqc
-aqc
+hKl
 aqc
 tmN
 gdk
@@ -89962,7 +90591,7 @@ pko
 bVs
 uub
 mEQ
-uub
+adi
 uub
 sGc
 cYf
@@ -90810,10 +91439,10 @@ uos
 jik
 pco
 dKc
-vLu
-vLu
-vLu
 bXj
+new
+new
+new
 xvL
 wmO
 aNp
@@ -91034,10 +91663,10 @@ uos
 uos
 fVD
 kyI
-vlh
-vlh
-vlh
 lVT
+new
+new
+new
 tua
 nUN
 fBB
@@ -91070,7 +91699,7 @@ cjc
 pUm
 cRD
 sGg
-aNR
+adm
 aNR
 aNR
 aNR
@@ -91273,11 +91902,11 @@ tua
 tua
 iNm
 iiJ
-hEn
+adu
 tua
 tua
 tua
-iNm
+adt
 mcc
 hEn
 tua
@@ -91293,8 +91922,8 @@ tua
 tua
 eYd
 jNz
-aNR
-aNR
+adm
+adn
 lSG
 tua
 rKe
@@ -92366,28 +92995,28 @@ mZv
 xaj
 vPO
 jWd
-vLu
-vLu
-vLu
-bXj
+hGQ
+new
+new
+new
 new
 wvv
 iSj
 vLu
-vLu
-mSV
-new
-cGk
-vLu
-vLu
-vLu
 bXj
+new
+new
+new
+adG
+adG
+new
+new
 xvL
-xwD
+aYN
 cbm
 cbm
 cbm
-xwD
+xvL
 eHs
 uBD
 ikk
@@ -92403,11 +93032,11 @@ aoM
 aoM
 uGZ
 xna
-cus
+aYN
 wRZ
 wRZ
 wRZ
-cus
+xvL
 eHs
 uBD
 qTT
@@ -92590,28 +93219,28 @@ uGS
 xaj
 vPO
 sYM
-vlh
-vlh
-vlh
-lVT
+hpV
+new
+new
+new
 new
 oBF
 ruH
 vlh
-vlh
-jsD
-new
-siE
-vlh
-vlh
-vlh
 lVT
+new
+new
+new
+adG
+adG
+new
+new
 xvL
-xwD
+aYN
 cbm
 cbm
 cbm
-xwD
+xvL
 wHF
 hvj
 qBC
@@ -92627,11 +93256,11 @@ cfx
 cfx
 nde
 xdt
-cus
+aYN
 wRZ
 wRZ
 wRZ
-cus
+xvL
 wHF
 hvj
 xqS
@@ -93946,10 +94575,10 @@ uos
 lUU
 pco
 dKc
-vLu
-vLu
-vLu
-bXj
+adJ
+new
+new
+new
 tua
 wvL
 qGL
@@ -94170,10 +94799,10 @@ uos
 uos
 fVD
 kyI
-vlh
-vlh
-vlh
 lVT
+new
+new
+new
 xvL
 fji
 sHI
@@ -94197,7 +94826,7 @@ hsy
 nmo
 ibi
 uIV
-uIV
+adp
 uIV
 ftW
 huI
@@ -94393,10 +95022,10 @@ tua
 tua
 tua
 xvL
-oJK
+xvL
 qZJ
 qZJ
-ygR
+qZJ
 tua
 tua
 svh
@@ -94421,8 +95050,8 @@ oPD
 bYq
 uIV
 fZG
-hrT
-beM
+tua
+ado
 uIV
 ftW
 xcR
@@ -94645,8 +95274,8 @@ gRG
 lwn
 uvp
 hrT
-lAJ
-xmX
+tua
+tua
 dia
 eDe
 beM
@@ -94851,7 +95480,7 @@ rKO
 mri
 ebv
 eFZ
-kfQ
+aNR
 aNR
 aNR
 aNR
@@ -94868,9 +95497,9 @@ tLE
 noa
 bYq
 uIV
-beM
-hrT
-beM
+adr
+tua
+ado
 uIV
 keW
 keu
@@ -95074,8 +95703,8 @@ okb
 lop
 klb
 uda
-pxJ
-jaP
+aNR
+aNR
 tlK
 aNR
 aNR
@@ -95093,7 +95722,7 @@ cRD
 cLY
 ovF
 uIV
-uIV
+adq
 uIV
 jAf
 xXv
@@ -95279,27 +95908,27 @@ gwz
 gwz
 lVJ
 lVJ
-aNR
-aNR
-ikZ
+adR
+vlj
+adK
 vXk
 ikZ
 laC
 hvo
-uzC
+cvr
 qJP
 lwD
 nUA
 jxw
-vdi
-cnr
-sZW
+adH
+tua
+adD
 jxw
 okb
 aaj
 tsa
 nbm
-vAG
+aNR
 tua
 tua
 aNR
@@ -95499,31 +96128,31 @@ uIg
 bgH
 gOY
 aNB
-gwz
-lVJ
-aNR
-lVJ
-aNR
-aNR
-ikZ
-ikZ
+aej
+aeg
+aed
+adY
+adS
+adP
+adL
+iGF
 iGF
 uwv
 usx
-mBD
+bHK
 esr
 tzk
 sSv
 jxw
-cnr
-gxO
-gxO
+tua
+tua
+hXT
 jxw
 fVU
 sZW
 sZW
 kVO
-vYo
+aNR
 xvL
 aNR
 tua
@@ -95718,36 +96347,36 @@ lVJ
 tua
 emi
 qgU
-aNR
+qHy
 kpS
 umX
-aNR
-fqq
-aNR
-aNR
-aNR
-aNR
-lVJ
-aNR
-ikZ
+aeo
+ael
+uWn
+orn
+orn
+orn
+adT
+adQ
+adM
 gkr
 gku
 erI
 gsL
-wDT
+oaS
 pvV
 gGL
 fNn
 jxw
-sZW
-cnr
-vdi
+adI
+tua
+adE
 jxw
 hyA
 gGL
 gGL
 gZD
-qjI
+fFF
 xvL
 aNR
 tua
@@ -95937,23 +96566,23 @@ lVJ
 lVJ
 aNR
 aNR
-lVJ
-lVJ
-tua
-aNR
-kKF
+aeD
+aeA
+aex
+aev
+xnu
 aNR
 aNR
 olt
-aNR
-tua
-aNR
-lSG
-lSG
-aNR
-aNR
-aNR
-tua
+aep
+aem
+vlj
+vlj
+vlj
+vlj
+adV
+dkB
+aCh
 tua
 tua
 tua
@@ -95965,7 +96594,7 @@ pvV
 fNn
 jxw
 jxw
-jxw
+adF
 hyA
 cvr
 ksW
@@ -96161,24 +96790,24 @@ aNR
 lVJ
 aNR
 lSG
-lVJ
-lSG
+aeE
+aeB
+aez
+aew
+aeu
+aes
+aNR
+aer
+aeq
+aen
+aek
+aeh
+aee
+adZ
+adW
+orn
+adO
 tua
-aNR
-aNR
-aNR
-aNR
-aNR
-aNR
-aNR
-aNR
-aNR
-lSG
-lSG
-aNR
-aNR
-aNR
-lSG
 lSG
 lSG
 tua
@@ -96396,13 +97025,13 @@ aNR
 aNR
 tua
 aNR
+aei
+aef
+aec
+adX
 aNR
 aNR
-lSG
-lSG
-aNR
-aNR
-aNR
+tua
 lSG
 lSG
 lSG
@@ -96618,15 +97247,15 @@ aNR
 aNR
 aNR
 aNR
+tua
 aNR
 aNR
 aNR
 aNR
-lSG
-lSG
-lSG
 aNR
 aNR
+aNR
+tua
 aNR
 lSG
 lSG
