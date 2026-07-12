@@ -60,7 +60,7 @@
 /obj/effect/alien/resin/special/initialize_pass_flags(datum/pass_flags_container/PF) //SS220 EDIT this WHOLE func is a fix till upstream
 	..()
 	if (PF)
-		PF.flags_can_pass_all = PASS_HIGH_OVER
+		PF.flags_can_pass_all |= PASS_HIGH_OVER
 
 /obj/effect/alien/resin/special/Destroy()
 	if(linked_hive)
