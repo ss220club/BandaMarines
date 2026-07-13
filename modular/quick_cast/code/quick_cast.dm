@@ -29,8 +29,4 @@
 }
 
 QUICK_CAST_OVERRIDE(/xeno_action/activable)
-QUICK_CAST_OVERRIDE(/human_action/activable)
-QUICK_CAST_OVERRIDE(/item_action/hover)
-QUICK_CAST_OVERRIDE(/item_action/specialist/aimed_shot)
-QUICK_CAST_OVERRIDE(/item_action/specialist/spotter_target)
 QUICK_CAST_OVERRIDE(/predator_action/leap)
