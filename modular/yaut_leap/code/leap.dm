@@ -11,6 +11,8 @@
 
 /datum/action/predator_action/proc/action_deselect()
     var/mob/living/carbon/human/user = owner
+	if(!user)
+		return
     if(user.selected_ability == src)
-        user.set_selected_ability(null)
+		user.set_selected_ability(null)
     update_button_icon()
