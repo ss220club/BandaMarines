@@ -539,7 +539,7 @@ GLOBAL_DATUM_INIT(mentorhelp_manager, /datum/mentorhelp_manager, new)
 
 	// Thread was closed because the author is gone
 	if(!author)
-		notify("[SPAN_RED(author_key)] тикет в «MentorHelp» был закрыт, в связи с потерей соединения с пользователем.")
+		notify("Тикет [SPAN_RED(author_key)] в «MentorHelp» был закрыт, в связи с потерей соединения с пользователем.")
 		log_mhelp("[author_key]'s mentorhelp thread was closed because of a disconnection")
 		open = FALSE
 		if(GLOB.mentorhelp_manager.active_tickets["[id]"] == src)
@@ -577,8 +577,8 @@ GLOBAL_DATUM_INIT(mentorhelp_manager, /datum/mentorhelp_manager, new)
 				unformatted_text = "[closer.username()] закрывает тикет [author_key] в «MentorHelp».")
 			return
 	to_chat(author, SPAN_NOTICE("Ваш тикет в «MentorHelp» был закрыт."))
-	notify("[SPAN_RED(author_key)] тикет в «MentorHelp» был закрыт.",
-			unformatted_text = "[author_key] тикет в «MentorHelp» был закрыт.")
+	notify("Тикет [SPAN_RED(author_key)] в «MentorHelp» был закрыт.",
+			unformatted_text = "Тикет [author_key] в «MentorHelp» был закрыт.")
 	closed_at = world.time
 	time_activity["closed_at"] = "[worldtime2text(closed_at)]"
 
