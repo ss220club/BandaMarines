@@ -4,6 +4,8 @@
 #define PODLOCKS_OPEN_WAIT (45 MINUTES) // CORSAT pod doors drop at 12:45
 /// How many pipes explode at a time during hijack?
 #define HIJACK_EXPLOSION_COUNT 5
+/// How many pipes explode at a time after a ship ground crash?
+#define HIJACK_CRASHED_EXPLOSION_COUNT 10
 /// What percent do we consider a 'majority?' to win
 #define MAJORITY 0.5
 /// How long to delay the round completion (command is immediately notified)
@@ -59,6 +61,9 @@
 /obj/effect/landmark/lv624/fog_blocker/long
 	time_to_dispel = 24 HOURS
 
+/obj/effect/landmark/lv624/fog_blocker/very_short
+	time_to_dispel = 10 SECONDS
+
 /obj/effect/landmark/lv624/fog_blocker/Initialize(mapload, ...)
 	. = ..()
 
@@ -70,6 +75,27 @@
 
 	new /obj/structure/blocker/fog(loc, time_to_dispel)
 	qdel(src)
+
+/obj/effect/landmark/lv624/door_blocker
+	name = "door blocker"
+	icon_state = "o_red"
+
+	var/time_to_dispel = 85 SECONDS
+
+/obj/effect/landmark/lv624/door_blocker/Initialize(mapload, ...)
+	. = ..()
+
+	return INITIALIZE_HINT_ROUNDSTART
+
+/obj/effect/landmark/lv624/door_blocker/LateInitialize()
+	if(!(SSticker.mode.flags_round_type & MODE_FOG_ACTIVATED) || !SSmapping.configs[GROUND_MAP].environment_traits[ZTRAIT_FOG])
+		return
+
+	new /obj/structure/blocker/door(loc, time_to_dispel)
+	qdel(src)
+
+/obj/effect/landmark/lv624/door_blocker/xeno
+	time_to_dispel = 180 SECONDS
 
 /obj/effect/landmark/lv624/xeno_tunnel
 	name = "xeno tunnel"
@@ -134,6 +160,7 @@
 	addtimer(CALLBACK(src, PROC_REF(map_announcement)), 20 SECONDS)
 	addtimer(CALLBACK(src, PROC_REF(start_lz_hazards)), DISTRESS_LZ_HAZARD_START)
 	addtimer(CALLBACK(src, PROC_REF(ares_command_check)), 2 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(ares_autodoc_check)), 15 MINUTES) // 5 MINUTE LOBBY + 15 MINUTE DROPSHIP REFUEL
 	addtimer(CALLBACK(SSentity_manager, TYPE_PROC_REF(/datum/controller/subsystem/entity_manager, select), /datum/entity/survivor_survival), 7 MINUTES)
 	GLOB.chemical_data.reroll_chemicals()
 
@@ -424,6 +451,26 @@
 	message_admins("[key_name(person_in_charge, TRUE)] [ADMIN_JMP_USER(person_in_charge)] has been designated the operation commander.")
 	return
 
+/datum/game_mode/proc/ares_autodoc_check()
+	var/list/surgery_roles = JOB_SURGERY_ROLES_LIST
+	var/surgeon_found = FALSE
+	for(var/mob/living/carbon/human/surgeon in GLOB.alive_human_list)
+		if(surgeon.job in surgery_roles)
+			surgeon_found = TRUE
+			break
+	if(!surgeon_found)
+		var/datum/supply_order/new_order = new()
+		new_order.ordernum = GLOB.supply_controller.ordernum++
+		var/actual_type = GLOB.supply_packs_types["ARES Emergency Autodoc Supplies"]
+		new_order.objects = list(GLOB.supply_packs_datums[actual_type])
+		new_order.orderedby = MAIN_AI_SYSTEM
+		new_order.approvedby = MAIN_AI_SYSTEM
+		GLOB.supply_controller.shoppinglist += new_order
+		for(var/obj/structure/machinery/medical_pod/autodoc/target in GLOB.machines)
+			if(is_mainship_level(target.z))
+				target.skilllock = SKILL_SURGERY_DEFAULT // lowers skill-lock to 0
+		ai_silent_announcement("WARNING: Cryopod release cycle DELAYED for MEDICAL PERSONNEL. Releasing Emergency Override Disks for AUTODOC Systems.", ".G", TRUE)
+		return log_admin("No Shipside Doctor found = Autodoc Upgrade Supplies ordered and AutoDoc skill locks released.")
 
 /datum/game_mode/colonialmarines/proc/ares_conclude()
 	ai_silent_announcement("Биосканирование завершено. Признаков неизвестных форм жизни не обнаружено.", ".V")
@@ -441,18 +488,27 @@
 	//A proc that will queue up announcements for the lore of the map.
 	switch(SSmapping.configs[GROUND_MAP].map_name)
 		if(MAP_TYRARGO_RIFT)
-			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_announcement), "My children. A great battle rages across this world, a world slathered in hosts for our taking! However, these hosts fight back with great ferocity. I have directed your sub-hive to this area, you will create a mighty cordon here to cover our western flank whilst another sub-hive overtakes a stronghold to your east that is filled with thousands of hosts!\n\nIn order to aid you, I have dispatched a legion of disposable drones ahead of you, they are far less intelligent than you, but will suffice in waylaying any remaining hostile hosts to your west until you have secured yourselves.", "everything", QUEEN_MOTHER_ANNOUNCE), 20 SECONDS)
-			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "Almayer, this is the Tyrango Museum civilian evacuation site. We are under assault by a XX-121 cluster, but we are holding our own.\n\nWe have heavy XX-121 waves inbound from the north-east and are under heavy suppression, our evacuation craft are pinned by long range boiler strikes and the western city exits are too dangerous to move towards with ground based evacuation vehicles, we’re requesting you secure the western approach so you can suppress the enemy forces to allow civilian evacuation, over.", "Tyrargo Civilian Evac, 1st Air Cav Headquarters", 'sound/AI/commandreport.ogg'), 15 MINUTES)
-			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_announcement), "Be on guard my children. I have sensed that the petrid sewers of this so called city could be flooded by the hosts at a moments notice if the hosts restore power to the area. The button to release this putrid water is found in the metal structure the hosts call the sewer treatement plant.", "everything", QUEEN_MOTHER_ANNOUNCE), 15 MINUTES)
-			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "Attention: Analysis of city layout plans have identified a possible tactical advantage. A release valve can be triggered within the City Sewer Treatment Plant, this valve will flood the lower sewer tunnels with water, expunging a significant amount of xenobiological growth.\n\nHowever, this valve must be powered by repairing a special APC located within the underground power-substation, located east of the underground sewer treatment plant.", "ARES 3.2 Strategic Notice", 'sound/AI/commandreport.ogg'), 20 MINUTES)
-			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "Almayer. We’re seeing increased XX-121 activity at the Tyrango evac site. Additional strains are inbound from the north.\n\nEnemy Boiler’s have moved close enough to suppress our air support, we’re re-orienting the Longstreet tanks to cover our flanks. Requesting immediate suppression of enemy forces near our location via the western city entrance, over. ", "Tyrargo Civilian Evac, 1st Air Cav Headquarters", 'sound/AI/commandreport.ogg'), 35 MINUTES)
-			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "All elements, more XX-121 clusters are encroaching from our east. We’re under heavy attack from all quarters and have lost half of our Longstreet tank support to Crushers.\n\nWe’ve exhausted our HEAP munitions and have had to switch to soft-point munitions. We can’t take this for much longer, requesting urgent support from Almayer forces, over.", "Tyrargo Civilian Evac, 1st Air Cav Headquarters", 'sound/AI/commandreport.ogg'), 60 MINUTES)
-			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "This is Tyrango. The xenos have begun to encroach from our southern flank. We only have a single tank left. We’re withdrawing to the middle corridor and have relocated the civilians to the inner perimeter.\n\nSituation is dire, we’re getting wasted. We need that support, over.", "Tyrargo Civilian Evac, 1st Air Cav Headquarters", 'sound/AI/commandreport.ogg'), 80 MINUTES)
-			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "All elements! This is the Tyrango evac site, our situation is critical. The bugs have us surrounded on all fronts, our armoured support is destroyed and we’re now being pinned by enemy Ravagers.\n\nWe need urgent fire support, we can’t take it much longer.", "Tyrargo Civilian Evac, 1st Air Cav Headquarters", 'sound/AI/commandreport.ogg'), 100 MINUTES)
-			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "Almayer! Bugs are pouring into the inner perimeter! Civilians are taking up arms to defend the site, but they’re untrained.\n\nWe’re being overrun, we need fire support now! Now god dammit!", "Tyrargo Civilian Evac, 1st Air Cav Headquarters", 'sound/AI/commandreport.ogg'), 120 MINUTES)
-			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "##&@* all dead! Tyrango is overrun! T&^@%###--- the command post any second, %$#* we ne#@##s--------------------", "Tyrargo Civilian Evac, 1st Air Cav Headquarters", 'sound/AI/commandreport.ogg'), 140 MINUTES)
-
-
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_announcement), "Дети мои. В этом мире, кишащем носителями и уже готовом к тому, чтобы мы его захватили, бушует великая битва! Однако эти носители оказывают, хоть и бессмысленное, но яростное сопротивление. Я направила ваш под-улей в этот район: вы создадите здесь мощный форпост и прикроете наш западный фланг, пока другой под-улей захватит крепость к востоку от вас, заполненную тысячами носителей!\n\nЧтобы помочь вам, я отправила перед вами легион низших дронов, они гораздо менее разумны, чем вы, но их будет достаточно, чтобы задержать любых оставшихся враждебных носителей к западу от вас, пока вы не обеспечите себе безопасность.", "everything", QUEEN_MOTHER_ANNOUNCE), 20 SECONDS) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "«Алмаер», это пункт эвакуации гражданского населения из музея Тирарго. Мы подвергаемся атаке скопления XX-121, но держимся. На нас надвигаются большие скопления XX-121 с северо-востока, и мы находимся под сильным огнём противника. Наши эвакуационные суда заблокированы дальнобойными ударами бойлеров, западные выходы из города слишком опасны для передвижения наземной техники.\nМы запрашиваем вас взять под контроль западные подходы - нам нужно подавить силы противника и эвакуировать гражданское население. Приём.", "Эвакуационное подразделение Тирарго, штаб первого воздушно-кавалерийского", 'sound/AI/commandreport.ogg'), 15 MINUTES) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_announcement), "Будьте начеку, дети мои. Я почувствовала, что зловонные канализационные трубы этого так называемого города могут быть затоплены в любой момент, если носители восстановят электроснабжение в этом районе. Кнопка для сброса этой гнилой воды находится в металлической конструкции, которую носители называют очистными сооружениями.", "everything", QUEEN_MOTHER_ANNOUNCE), 15 MINUTES) // SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "Внимание: анализ планов городской застройки выявил потенциальное тактическое преимущество. В городской очистной станции можно активировать выпускной клапан, который затопит нижние канализационные туннели водой, уничтожив значительное количество ксенобиологических организмов.\n\nОднако для работы этого клапана необходимо отремонтировать специальный ЛКП, расположенный в подземной электроподстанции, к востоку от подземных очистных сооружений", "ARES 3.2: стратегическое замечание", 'sound/AI/commandreport.ogg'), 20 MINUTES) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "«Алмаер», мы наблюдаем усиление активности XX-121 на эвакуационном пункте Тирарго. Дополнительные особи приближаются с севера.\n\nВражеские бойлеры достаточно близко, чтобы подавить нашу авиационную поддержку, мы перенаправляем танки Лонгстрит для прикрытия наших флангов. Запрашиваем немедленное подавление вражеских сил, сосредоточенных у западного входа в город, вблизи нашего местоположения. Приём.", "Эвакуационное подразделение Тирарго, штаб первого воздушно-кавалерийского", 'sound/AI/commandreport.ogg'), 35 MINUTES) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "Всем подразделениям, всё больше скоплений XX-121 приближается с востока. Мы подвергаемся массированному обстрелу со всех сторон и потеряли половину танков Лонгстрит из-за крушителей.\n\nУ нас закончились бронебойно-осколочно-фугасные боеприпасы, и нам пришлось перейти на боеприпасы с мягким наконечником. Мы больше не можем их сдерживать, запрашиваем срочную поддержку у «Алмаера». Приём.", "Эвакуационное подразделение Тирарго, штаб первого воздушно-кавалерийского", 'sound/AI/commandreport.ogg'), 60 MINUTES) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "Это Тирарго. Ксеносы начали наступление с южного фланга. У нас остался всего один танк. Мы отступаем в центральный коридор и уже перебросили мирных жителей во внутренний периметр.\n\nСитуация критическая, нас уничтожают. Нам нужна поддержка. Приём.", "Эвакуационное подразделение Тирарго, штаб первого воздушно-кавалерийского", 'sound/AI/commandreport.ogg'), 80 MINUTES) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "Всем подразделениям! Это эвакуационный пункт Тирарго, наше положение критическое. Жуки окружили нас со всех сторон, наша бронетехника уничтожена, и теперь нас прижали вражеские опустошители.\n\nНам срочно нужна огневая поддержка, мы больше не можем удерживать позиции.", "Эвакуационное подразделение Тирарго, штаб первого воздушно-кавалерийского", 'sound/AI/commandreport.ogg'), 100 MINUTES) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "«Алмаер»! Жуки прорвались во внутренний периметр! Гражданские берут в руки оружие для защиты, но они не обучены.\n\nНас уничтожают, нам нужна огневая поддержка прямо сейчас! Сейчас же, чёрт возьми!", "Эвакуационное подразделение Тирарго, штаб первого воздушно-кавалерийского", 'sound/AI/commandreport.ogg'), 120 MINUTES) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "##&@* все мертвы! Тирарго пал! Т&^@%###--- штаб командования вот-вот, %$#* нам нужн--------------------", "Эвакуационное подразделение Тирарго, штаб первого воздушно-кавалерийского", 'sound/AI/commandreport.ogg'), 140 MINUTES) //SS220 EDIT
+		if(MAP_WHITE_ANTRE_RESEARCH_FACILITY)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(venir_announcement), "Внимание всему персоналу «Белого грота»! В северном квадранте уже идут испытания улья серии K. Сейчас мы начинаем вторичные испытания прайм-улья в восточном секторе.\n\nПерсонал восточного сектора, будьте готовы принять грудоломов прайм-улья в свою зону содержания.\n\nКроме того, напоминаем всему персоналу, что подразделение «Лазурь-15» из ЧВК «Белая гвардия» и отряд морской пехоты США находятся в пути для оказания помощи в испытаниях и доставки важного груза. Конец связи.", "Объявление управляющего центра «Белый грот»", 'sound/AI/commandreport.ogg'), 5 SECONDS) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(venir_announcement), "Внимание! На объекте произошел масштабный инцидент с нарушением условий содержания! Инициализирована полная изоляция объекта.", "Объявление управляющего центра «Белый грот»", 'sound/ambience/containment_breach1.ogg'), 30 SECONDS) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(venir_announcement), "Внимание! Мы полагаем, что «Лазурь-15» выманила основную часть K-серии за пределы объекта, но у нас происходят масштабные перебои в электроснабжении - зона содержания прайм-улья находится под угрозой. Весь выживший персонал, пригото#^@!&*------", "Объявление управляющего центра «Белый грот»", 'sound/AI/commandreport.ogg'), 65 SECONDS) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(venir_announcement), "Нарушение в работе разделяющего заслона сектора прайм-улья неминуема.", "Автоматическая система объявлений комплекса", 'sound/AI/commandreport.ogg'), 165 SECONDS) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "«Алмаер», это командир взвода «Лазурь-15». Мы только что получили сигнал бедствия из «Белого грота». Похоже, происходит масштабное нарушение условий содержания, оттуда массово вырываются какие-то желтоватые ксеноморфы. Персонал объекта несёт огромные потери, и мы находимся в невыгодной оборонительной позиции. Мы попытаемся выманить эти цели с объекта на открытую местность к северу.\n\nКак только мы переместимся к северу от объекта, связь прервётся. Моя рекомендация — отправиться в «Белый грот» и попытаться спасти оставшихся учёных и захватить то, за чем нас послали. Может быть, заодно спасёте и Кадинского, если его ещё не прибили к стене.\n\nСвои позиции мы удержим. «Лазурь-15». Конец связи.", "Командир взвода «Лазурь-15»", 'sound/AI/commandreport.ogg'), 4 MINUTES) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_lore_announcement), "Что-то происходит... Будьте начеку.", "everything", QUEEN_MOTHER_ANNOUNCE, 'sound/ambience/containment_breach1.ogg'), 30 SECONDS) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_announcement), "Ещё один враждебный улей пытается вырваться из этой металлической клетки, приготовьтесь, ведь скоро и у вас может появиться шанс на побег.", "everything", QUEEN_MOTHER_ANNOUNCE), 1.5 MINUTES) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_announcement), "Дети мои. Я чувствую, что враждебный гнилостный улей уже покинул это место. Однако некоторые из тех, кто вас заточил, остались в живых в этой металлической коробке, и я чувствую, что ещё больше из них приближается. Победите носителей, чтобы продемонстрировать наше превосходство!", "everything", QUEEN_MOTHER_ANNOUNCE), 165 SECONDS) //SS220 EDIT
+		if(MAP_LV_624)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "Внимание: первоначальное сканирование зоны боевых действий выявило локальную атмосферную аномалию - над руслом реки и вокруг образуется густой туман.\nАлгоритм первичной оценки прогнозирует его рассеивание через 20 минут.", "ARES V3.2", 'sound/AI/commandreport.ogg'), 5 MINUTES) // 5 minute lobby + 5 minutes into the game means the fog drops 20 minutes from now. SS220 EDIT
 
 //This is processed each tick, but check_win is only checked 5 ticks, so we don't go crazy with scanning for mobs.
 /datum/game_mode/colonialmarines/process()
@@ -535,7 +591,8 @@
 		return
 
 	var/list/shortly_exploding_pipes = list()
-	for(var/i = 1 to HIJACK_EXPLOSION_COUNT)
+	var/explode_count = SShijack?.hijack_status == HIJACK_OBJECTIVES_GROUND_CRASH ? HIJACK_CRASHED_EXPLOSION_COUNT : HIJACK_EXPLOSION_COUNT
+	for(var/i = 1 to explode_count)
 		shortly_exploding_pipes += pick(GLOB.mainship_pipes)
 
 	for(var/obj/structure/pipes/exploding_pipe as anything in shortly_exploding_pipes)
@@ -773,6 +830,7 @@
 	declare_completion_announce_fallen_soldiers()
 	declare_completion_announce_xenomorphs()
 	declare_completion_announce_predators()
+	addtimer(CALLBACK(src, PROC_REF(declare_completion_announce_colony_joes)), 2 SECONDS)
 	declare_completion_announce_medal_awards()
 	declare_fun_facts()
 

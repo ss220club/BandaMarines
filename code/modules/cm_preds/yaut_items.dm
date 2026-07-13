@@ -220,9 +220,12 @@ GLOBAL_VAR_INIT(youngblood_timer_yautja, 0)
 	desc = "A battle-worn cape passed down by elder Yautja."
 	icon = 'icons/obj/items/hunter/pred_gear.dmi'
 	icon_state = "fullcape"
+	// SS220 EDIT START
 	item_icons = list(
-		WEAR_BACK = 'icons/mob/humans/onmob/hunter/pred_gear.dmi'
+		WEAR_BACK = 'icons/mob/humans/onmob/hunter/pred_gear.dmi',
+		WEAR_JACKET = 'icons/mob/humans/onmob/hunter/pred_gear.dmi'
 	)
+	// SS220 EDIT END
 	flags_equip_slot = SLOT_BACK
 	flags_item = ITEM_PREDATOR
 	unacidable = TRUE
@@ -1527,7 +1530,12 @@ GLOBAL_VAR_INIT(youngblood_timer_yautja, 0)
 	desc = "A bone that appears to be of human origin."
 	icon = 'icons/obj/items/skeleton.dmi'
 	inv_overlay_icon = 'icons/obj/items/clothing/accessory/inventory_overlays/yautja.dmi'
-	accessory_icons = list(WEAR_BODY = 'icons/mob/humans/onmob/hunter/pred_gear.dmi')
+	// SS220 EDIT START
+	accessory_icons = list(
+		WEAR_BODY = 'icons/mob/humans/onmob/hunter/pred_gear.dmi',
+		WEAR_JACKET = 'icons/mob/humans/onmob/hunter/pred_gear.dmi'
+		)
+	// SS220 EDIT END
 	icon_state = null
 	worn_accessory_slot = ACCESSORY_SLOT_TROPHY
 	///Has it been cleaned by a polishing rag?
@@ -1597,6 +1605,11 @@ GLOBAL_VAR_INIT(youngblood_timer_yautja, 0)
 	name = "skull"
 	icon = 'icons/obj/items/hunter/prey_items.dmi'
 	unacidable = TRUE
+
+/obj/item/skull/Initialize(mapload, ...)
+	. = ..()
+	if(!icon_state)
+		return INITIALIZE_HINT_QDEL
 
 /obj/item/skull/queen
 	name = "Queen skull"
@@ -1699,12 +1712,27 @@ GLOBAL_VAR_INIT(youngblood_timer_yautja, 0)
 	desc = "Skull of a highly acidic xenomorph, a venomous ranged attacker."
 	icon_state = "spitter_skull"
 
+/obj/item/skull/abomination
+	name = "Abomination skull"
+	desc = "Skull of a mysterious hybrid xenomorph, a horror on the field."
+	icon_state = "predalien_skull"
+
+/obj/item/skull/abomination/get_examine_text(mob/user)
+	. = ..()
+	if(isyautja(user))
+		. += SPAN_RED("Not even this relic can be tolerated. Destroy it.")
+
 // PELTS
 
 /obj/item/pelt
 	name = "pelt"
 	icon = 'icons/obj/items/hunter/prey_items.dmi'
 	unacidable = TRUE
+
+/obj/item/pelt/Initialize(mapload, ...)
+	. = ..()
+	if(!icon_state)
+		return INITIALIZE_HINT_QDEL
 
 /obj/item/pelt/queen
 	name = "Queen pelt"
@@ -1810,6 +1838,16 @@ GLOBAL_VAR_INIT(youngblood_timer_yautja, 0)
 	name = "Larva pelt"
 	desc = "The hide of a juvenile Xenomorph, a grim trophy from a fledgling that never reached its full potential."
 	icon_state = "larva_pelt"
+
+/obj/item/pelt/abomination
+	name = "Abomination pelt"
+	desc = "The pelt of a mysterious hybrid xenomorph, a horror on the field."
+	icon_state = "predalien_pelt"
+
+/obj/item/pelt/abomination/get_examine_text(mob/user)
+	. = ..()
+	if(isyautja(user))
+		. += SPAN_RED("Not even this relic can be tolerated. Destroy it.")
 
 /// TOOLS
 

@@ -243,6 +243,7 @@
 		XENO_CASTE_WARRIOR,
 		XENO_CASTE_RAVAGER,
 		XENO_CASTE_BOILER,
+		XENO_CASTE_DESPOILER,
 	)
 	sound_effect = list('sound/voice/alien_queen_command.ogg')
 	command_announcement = list("Потери нашего гарнизона достигают семидесяти процентов, мы теряем контроль над LV-624. Похоже, что авангард вражеских сил по-прежнему наступает, а большинство остальных взводов \"Пыльных рейдеров\" разбиты... Мы рассчитываем на то, что вы продолжите сопротивляться.", "Капитан Найш, командование третьего батальона, гарнизон LV-624")
@@ -310,6 +311,7 @@
 		XENO_CASTE_HIVELORD,
 		XENO_CASTE_WARRIOR,
 		XENO_CASTE_WARRIOR,
+		XENO_CASTE_DESPOILER,
 		XENO_CASTE_RAVAGER,
 		XENO_CASTE_RAVAGER,
 		XENO_CASTE_PRAETORIAN,
@@ -344,6 +346,8 @@
 		XENO_CASTE_PRAETORIAN,
 		XENO_CASTE_CRUSHER,
 		XENO_CASTE_CRUSHER,
+		XENO_CASTE_DESPOILER,
+		XENO_CASTE_DESPOILER,
 		XENO_CASTE_HIVELORD,
 	)
 
@@ -377,6 +381,8 @@
 		XENO_CASTE_PRAETORIAN,
 		XENO_CASTE_BOILER,
 		XENO_CASTE_BOILER,
+		XENO_CASTE_DESPOILER,
+		XENO_CASTE_DESPOILER,
 		XENO_CASTE_CRUSHER,
 		XENO_CASTE_CRUSHER,
 		XENO_CASTE_HIVELORD,

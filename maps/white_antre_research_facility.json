@@ -1,0 +1,54 @@
+{
+	"map_name": "White Antre Research Facility",
+	"map_path": "map_files/White_Antre_Research_Facility",
+	"map_file": "White_Antre_Research_Facility.dmm",
+    "webmap_url": "LV552",
+    "survivor_types": [
+        "/datum/equipment_preset/survivor_antre/civilian",
+        "/datum/equipment_preset/survivor_antre/corporate",
+        "/datum/equipment_preset/survivor_antre/site_security",
+        "/datum/equipment_preset/survivor_antre/scientist_xenobiologist",
+        "/datum/equipment_preset/survivor_antre/doctor",
+        "/datum/equipment_preset/survivor_antre/maint_engineer"
+    ],
+	"CO_survivor_types": [
+        "/datum/equipment_preset/survivor_antre/director_kadinsky"
+    ],
+	"colony_joe_types": [
+        "/datum/job/civilian/working_joe/daniel"
+    ],
+    "survivor_message": "Сейчас вы находитесь в исследовательском комплексе ​«Белый грот» в качестве сотрудника. Сегодня важный день - новый ряд научных экспериментов и визит агентов корпорации и правительства. Очередной обычный день в офисе.",
+    "announce_text": "USS ​«Алмаер», говорит директор Кадински из иследовательского комплекса ​«Белый грот», приветствуем вас. Руководство уведомило меня, что вы были направлены сюда для получения секретного груза и его транспортировки на станцию ​​«Чинук», а также для наблюдения за проводимыми здесь испытаниями ксеноморфов с применением боевого оружия.\n\nК вам присоединится отряд ​​«Лазурь-15» из частной военной компании ​​«Белая гвардия». Дополнительная информация будет выслана после вашего прибытия. Пожалуйста, передайте вашему корпоративному представителю, что я с нетерпением жду нашей новой встречи. Кадинский. Конец связи.",
+    "map_item_type": "/obj/item/map/white_antre_map",
+	"monkey_types": [
+        "monkey"
+    ],
+    "environment_traits": { "Fog": true },
+    "traits": [
+        {
+            "Ground": true,
+            "Up": 1
+        },
+        {
+            "Ground": true,
+            "Up": 1,
+            "Down": -1
+        },
+        {
+            "Ground": true,
+            "Down": -1
+        }
+    ],
+    "nightmare_path": "maps/Nightmare/maps/White_Antre_Research_Facility/",
+    "xvx_hives": {
+        "xeno_hive_k_series": 100
+    },
+    "camouflage": "classic",
+	"gamemodes": [
+        "Distress Signal",
+        "Hunter Games",
+        "Hive Wars",
+        "Faction Clash",
+        "Infection"
+    ]
+}

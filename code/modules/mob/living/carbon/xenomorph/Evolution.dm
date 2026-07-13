@@ -51,7 +51,7 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 
 	var/castepick
 	if((client.prefs && client.prefs.no_radials_preference) || !hive.evolution_menu_images)
-		castepick = tgui_input_list(src, "You are growing into a beautiful alien! It is time to choose a caste.", "Evolve", castes_available_ru, theme="hive_status") // BANDAMARINES EDIT - Translation
+		castepick = tgui_input_list(src, "You are growing into a beautiful alien! It is time to choose a caste.", "Evolve", castes_available_ru, 1 MINUTES, theme="hive_status") // BANDAMARINES EDIT - Translation
 	else
 		var/list/fancy_caste_list = list()
 		for(var/caste in castes_available_ru) // BANDAMARINES EDIT - Translation
@@ -73,6 +73,12 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 	if(caste_datum && caste_datum.minimum_evolve_time > ROUND_TIME)
 		to_chat(src, SPAN_WARNING("The Hive cannot support this caste yet! ([floor((caste_datum.minimum_evolve_time - ROUND_TIME) / 10)] seconds remaining)"))
 		return
+
+	if(hive.restricted_castes && (castepick in hive.restricted_castes))
+		var/max_num = hive.restricted_castes[castepick]
+		if(hive.get_caste_count(castepick) >= max_num)
+			to_chat(src, SPAN_WARNING("The Hive has reached capacity for this caste!"))
+			return
 
 	if(!evolve_checks())
 		return
@@ -264,7 +270,7 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 		to_chat(src, SPAN_WARNING("Наша связь с ульем подавляется... Мы должны немного подождать."))
 		return FALSE
 
-	if(lock_evolve)
+	if(lock_evolve || (hive.evolution_locked && !islarva(src)))
 		if(banished)
 			to_chat(src, SPAN_WARNING("Мы изгнаны и не можем поддерживать связь с ульем."))
 		else
@@ -287,12 +293,16 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 		to_chat(src, SPAN_WARNING("Мы слишком слабы, чтобы эволюционировать... Мы должны восстановить здоровье."))
 		return FALSE
 
-	if(agility || fortify || crest_defense || stealth)
+	if(agility || fortify || crest_defense || stealth || HAS_TRAIT(src, TRAIT_ABILITY_ENCLOSED_PLATES) || HAS_TRAIT(src, TRAIT_ABILITY_REFLECTIVE_PLATES))
 		to_chat(src, SPAN_WARNING("Мы не можем эволюционировать."))
 		return FALSE
 
 	if(ROUND_TIME < XENO_ROUNDSTART_BOOSTED_EVO_TIME)
 		if(caste_type == XENO_CASTE_LARVA || caste_type == XENO_CASTE_PREDALIEN_LARVA)
+			var/area/area = get_area(src)
+			if(area.unoviable_timer)
+				to_chat(src, SPAN_WARNING("The hive hasn't developed enough yet for you to evolve this far from safe areas!"))
+				return FALSE
 			var/turf/evoturf = get_turf(src)
 			if(!locate(/obj/effect/alien/weeds) in evoturf)
 				to_chat(src, SPAN_WARNING("The hive hasn't developed enough yet for you to evolve off weeds!"))
@@ -379,7 +389,7 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 	if(length(caste.deevolves_to) < 1)
 		to_chat(src, SPAN_XENOWARNING("Мы не можем регрессировать дальше."))
 		return
-	if(lock_evolve)
+	if(lock_evolve || hive.evolution_locked)
 		if(banished)
 			to_chat(src, SPAN_WARNING("Мы изгнаны и не можем поддерживать связь с ульем."))
 		else
@@ -399,7 +409,7 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 	if(length(caste.deevolves_to) == 1)
 		newcaste = caste.deevolves_to[1]
 	else if(length(caste.deevolves_to) > 1)
-		newcaste = tgui_input_list(src, "Choose a caste you want to de-evolve to.", "De-evolve", caste.deevolves_to, theme="hive_status")
+		newcaste = tgui_input_list(src, "Choose a caste you want to de-evolve to.", "De-evolve", caste.deevolves_to, 1 MINUTES, theme="hive_status")
 
 	if(!newcaste)
 		return
@@ -425,7 +435,7 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 
 	var/mob/living/carbon/xenomorph/new_xeno = transmute(newcaste)
 	if(new_xeno)
-		log_game("EVOLVE: [key_name(src)] de-evolved into [new_xeno]. (Location: [AREACOORD(loc)])")
+		log_game("EVOLVE: [key_name(new_xeno)] de-evolved into [new_xeno]. (Location: [AREACOORD(new_xeno.loc)])")
 
 	if(new_xeno.ckey)
 		GLOB.deevolved_ckeys += new_xeno.ckey
@@ -457,6 +467,7 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 
 	new_xeno.built_structures = built_structures.Copy()
 	built_structures = null
+	new_xeno.lock_evolve = lock_evolve
 
 	if(mind)
 		mind.transfer_to(new_xeno)
@@ -522,10 +533,10 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 		if(xeno.counts_for_slots)
 			totalXenos++
 
-	if(tier == 1 && (((used_tier_2_slots + used_tier_3_slots) / totalXenos) * hive.tier_slot_multiplier) >= 0.5 && castepick != XENO_CASTE_QUEEN)
+	if(tier == 1 && (((used_tier_2_slots + used_tier_3_slots) / totalXenos) * hive.tier_slot_divisor) >= 0.5 && castepick != XENO_CASTE_QUEEN)
 		to_chat(src, SPAN_WARNING("The hive cannot support another Tier 2, wait for either more aliens to be born or someone to die."))
 		return FALSE
-	else if(tier == 2 && ((used_tier_3_slots / totalXenos) * hive.tier_slot_multiplier) >= 0.20 && castepick != XENO_CASTE_QUEEN)
+	else if(tier == 2 && ((used_tier_3_slots / totalXenos) * hive.tier_slot_divisor) >= 0.20 && castepick != XENO_CASTE_QUEEN)
 		to_chat(src, SPAN_WARNING("The hive cannot support another Tier 3, wait for either more aliens to be born or someone to die."))
 		return FALSE
 

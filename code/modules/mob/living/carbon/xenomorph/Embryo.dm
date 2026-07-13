@@ -201,7 +201,7 @@
 
 	if(!picked)
 		// Get a candidate from observers
-		var/list/candidates = get_alien_candidates(hive, abomination = (isyautja(affected_mob) || (flags_embryo & FLAG_EMBRYO_PREDATOR)))
+		var/list/candidates = get_alien_candidates(GLOB.hive_datum[hivenumber], abomination = (isyautja(affected_mob) || (flags_embryo & FLAG_EMBRYO_PREDATOR)))
 		if(candidates && length(candidates))
 			// If they were facehugged by a player thats still in queue, they get second dibs on the new larva.
 			if(hugger_ckey)
@@ -262,26 +262,35 @@
 			hive.increase_larva_after_burst(is_nested)
 			hive.hive_ui.update_burrowed_larva()
 
+	start_bursting(new_xeno, picked)
+/obj/item/alien_embryo/proc/start_bursting(mob/living/carbon/xenomorph/larva/new_xeno, mob/picked)
 	new_xeno.update_icons()
-
 	new_xeno.cause_unbearable_pain(affected_mob) //the embryo is now a larva!! its so painful, ow!
+	stage = 7 // Begin the autoburst countdown
+
+// Inform observers to grab some popcorn if it isnt nested
+	if(!HAS_TRAIT(affected_mob, TRAIT_NESTED))
+		var/area/burst_area = get_area(src)
+		var/area_text = burst_area ? " at <b>[burst_area]</b>" : ""
+		notify_ghosts(header = "Burst Imminent", message = "A <b>[new_xeno.hive.prefix]Larva</b> is about to chestburst out of <b>[affected_mob]</b>[area_text]!", source = affected_mob)
 
 	// If we have a candidate, transfer it over
-	if(picked)
-		new_xeno.key = picked.key
+	if(!picked)
+		return
+	new_xeno.key = picked.key
+	if(new_xeno.client)
+		new_xeno.client.change_view(GLOB.world_view_size)
+		if(new_xeno.client.prefs?.toggles_flashing & FLASH_POOLSPAWN)
+			window_flash(new_xeno.client)
 
-		if(new_xeno.client)
-			new_xeno.client.change_view(GLOB.world_view_size)
-			if(new_xeno.client.prefs?.toggles_flashing & FLASH_POOLSPAWN)
-				window_flash(new_xeno.client)
-
-		SSround_recording.recorder.track_player(new_xeno)
-		if(HAS_TRAIT(affected_mob, TRAIT_LISPING))
-			ADD_TRAIT(new_xeno, TRAIT_LISPING, affected_mob)
+	SSround_recording.recorder.track_player(new_xeno)
+	if(HAS_TRAIT(affected_mob, TRAIT_LISPING))
+		ADD_TRAIT(new_xeno, TRAIT_LISPING, affected_mob)
 
 		to_chat(new_xeno, SPAN_XENOANNOUNCE("Вы - грудолом внутри хоста! Двигайтесь, чтобы вырваться из него!"))
-		to_chat(new_xeno, SPAN_XENO("<B>Ваша задача - защищать Королеву и улей, однако если Королевы нет, вы можете стать ею! Просто эволюционировав в Королеву.</B>")) // SS220 EDIT ADDICTION
+		to_chat(new_xeno, SPAN_XENO("<B>Ваша задача - защищать Королеву и улей, однако если Королевы нет, вы можете стать ею, просто эволюционировав в Королеву!</B>"))
 		to_chat(new_xeno, SPAN_XENO("Для общения в Разуме улья, используйте символ <strong>;</strong> (например, ';Жизнь за Королеву!')"))
+		to_chat(new_xeno, SPAN_XENOANNOUNCE("Помните, что вам не следует покидать безопасность улья при отсутствии угроз, и что вам следует беречь себя до эволюции!"))
 		playsound_client(new_xeno.client, 'sound/effects/xeno_newlarva.ogg', 25, 1)
 
 	// Inform observers to grab some popcorn if it isn't nested
@@ -291,8 +300,10 @@
 		notify_ghosts(header = "Burst Imminent", message = "A <b>[new_xeno.hive.prefix]Larva</b> is about to chestburst out of <b>[affected_mob]</b>[area_text]!", source = affected_mob)
 
 	stage = 7 // Begin the autoburst countdown
+/mob/living/carbon/xenomorph/proc/cause_unbearable_pain(mob/living/carbon/victim)
+	return
 
-/mob/living/carbon/xenomorph/larva/proc/cause_unbearable_pain(mob/living/carbon/victim)
+/mob/living/carbon/xenomorph/larva/cause_unbearable_pain(mob/living/carbon/victim)
 	if(loc != victim)
 		return
 	victim.emote("scream")
@@ -302,7 +313,10 @@
 	to_chat(victim, message)
 	addtimer(CALLBACK(src, PROC_REF(cause_unbearable_pain), victim), rand(1, 3) SECONDS, TIMER_UNIQUE|TIMER_NO_HASH_WAIT)
 
-/mob/living/carbon/xenomorph/larva/proc/chest_burst(mob/living/carbon/victim)
+/mob/living/carbon/xenomorph/proc/chest_burst(mob/living/carbon/victim)
+	return
+
+/mob/living/carbon/xenomorph/larva/chest_burst(mob/living/carbon/victim)
 	set waitfor = 0
 	if(victim.chestburst || loc != victim)
 		return

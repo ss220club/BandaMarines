@@ -21,11 +21,3 @@
 	if(!say_understands(speaker, language))
 		return
 	speaker.cast_tts(src, message, src, is_local = FALSE, is_radio = TRUE, postSFX = 'modular/text_to_speech/code/sound/radio_chatter.ogg')
-
-/proc/sanitize_tts_symbols(message)
-	var/regex/finding_stress = regex(@{"\+(?=[а-яА-ЯёЁ])"}, "g")
-	message = finding_stress.Replace_char(message, "")
-
-	var/regex/finding_many_dots = regex(@{"\.{4,}"}, "g")
-	message = finding_many_dots.Replace_char(message, "...")
-	return message
