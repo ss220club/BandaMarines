@@ -1,11 +1,8 @@
-/datum/action/predator_action
-	var/cooldown_timer_end = 0
-
-/datum/action/predator_action/process(delta_time)
+/datum/action/predator_action/leap/process(delta_time)
 	return update_cooldown_visual()
 
-/datum/action/predator_action/proc/update_cooldown_visual()
-	var/time_left = max(cooldown_timer_end - world.time, 0)
+/datum/action/predator_action/leap/proc/update_cooldown_visual()
+	var/time_left = max(ability_used_time - world.time, 0)
 	if(!owner || time_left <= 0)
 		button.set_maptext()
 		return PROCESS_KILL
