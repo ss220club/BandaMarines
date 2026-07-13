@@ -463,7 +463,7 @@
 	if(!do_after(user, delay, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE))
 		qdel(warning)
 		return FALSE
-	action_deselect()
+	action_deselect() // SS220 ADD
 	enter_cooldown(cooldown_duration)
 	START_PROCESSING(SSfasteffects, src) //SS220 ADD
 	var/sound_file = pick('sound/effects/pred_leap1.ogg', 'sound/effects/pred_leap2.ogg')
