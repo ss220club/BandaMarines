@@ -268,6 +268,7 @@
 	armor_internaldamage = CLOTHING_ARMOR_VERYLOW
 	eye_protection = 0
 	anti_hug = 2
+	filtered_gases = list()
 	mask_huds = list()
 	mask_actions = list()
 

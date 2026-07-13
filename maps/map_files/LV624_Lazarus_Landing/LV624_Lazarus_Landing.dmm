@@ -89,6 +89,17 @@
 	},
 /turf/open/floor/interior/wood_sat/alt,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
+"aas" = (
+/obj/structure/window/framed/wood/reinforced/teal,
+/obj/structure/curtain/colorable_transparent{
+	color = "#8bafa4";
+	layer = 3.2
+	},
+/turf/closed/wall/wood/teal,
+/area/lazarus/medbay)
+"aat" = (
+/turf/closed/wall/strata_ice/jungle,
+/area/lazarus/ground/ancient_temple/south_east/surface)
 "aau" = (
 /obj/structure/machinery/power/apc/no_power/north,
 /turf/open/floor/prison/darkbrown3/north,
@@ -125,6 +136,10 @@
 	},
 /turf/open/floor/brown_dirt/random_rocks,
 /area/lazarus/ground/barrens/central_barrens)
+"aaB" = (
+/obj/structure/flora/bush/ausbushes/var3/fullgrass,
+/turf/closed/wall/strata_ice/jungle,
+/area/lazarus/ground/ancient_temple/south_east/surface)
 "aaC" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
 /turf/open/auto_turf/lv_grass_weedable/layer0,
@@ -132,9 +147,18 @@
 "aaD" = (
 /turf/open/floor/prison/cell_stripe,
 /area/lazarus/landing_zones/lz1)
+"aaE" = (
+/turf/closed/wall/rock/brown,
+/area/lazarus/ground/ancient_temple/south)
 "aaF" = (
 /turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/barrens/south_west_barrens)
+"aaG" = (
+/obj/effect/hunter/ancient_temple/deco_border{
+	dir = 4
+	},
+/turf/closed/wall/rock/brown,
+/area/lazarus/ground/ancient_temple/south)
 "aaH" = (
 /obj/structure/blocker/forcefield/vehicles,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
@@ -527,7 +551,6 @@
 "acB" = (
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_11,
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_8,
-/obj/effect/landmark/xeno_spawn,
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/south)
 "acC" = (
@@ -7575,7 +7598,7 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 5
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/obj/effect/landmark/xeno_spawn,
 /turf/open/floor/plating/ancient_temple,
 /area/lazarus/ground/ancient_temple/south)
 "aFJ" = (
@@ -8294,10 +8317,6 @@
 "aWE" = (
 /turf/open/floor/brown_dirt/random_rocks,
 /area/lazarus/ground/colony/west_nexus_road)
-"aWW" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
-/turf/open/floor/ancient_temple/damaged/damage_2,
-/area/lazarus/ground/ancient_temple/south)
 "aWZ" = (
 /obj/item/prop/torch_frame/ancient{
 	pixel_y = 31;
@@ -10600,7 +10619,6 @@
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/ancient_temple/east)
 "ccn" = (
-/obj/structure/platform_decoration/stone/ancient_temple/alt/east,
 /obj/effect/hunter/ancient_temple/deco_border/deco_border3{
 	pixel_y = -15
 	},
@@ -14668,7 +14686,7 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 1
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/obj/effect/landmark/xeno_spawn,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/south)
 "dYs" = (
@@ -17034,6 +17052,10 @@
 /obj/structure/bed/roller/hospital_empty/bigrollerempty{
 	dir = 8;
 	icon_state = "bigrollerempty_up"
+	},
+/obj/structure/prop/hybrisa/misc/machinery/screens/wood_clock{
+	pixel_x = 1;
+	pixel_y = 41
 	},
 /turf/open/floor/kutjevo/tan/multi_tiles,
 /area/lazarus/medbay)
@@ -19585,7 +19607,6 @@
 /obj/effect/hunter/ancient_temple/deco_border/deco_border2{
 	dir = 1
 	},
-/obj/structure/platform/stone/ancient_temple/alt/east,
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 8;
 	pixel_y = -16
@@ -19596,6 +19617,9 @@
 	},
 /obj/structure/surface/table/reinforced/prison{
 	color = "#6b675e"
+	},
+/obj/structure/platform/stone/ancient_temple/alt/already_broken{
+	dir = 4
 	},
 /turf/open/floor/ancient_temple/deco/deco_alt,
 /area/lazarus/ground/ancient_temple/north_east/surface)
@@ -20284,7 +20308,6 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 10
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/south)
 "gDo" = (
@@ -20756,7 +20779,6 @@
 /obj/effect/hunter/ancient_temple/deco_border/deco_border3{
 	dir = 4
 	},
-/obj/structure/platform_decoration/stone/ancient_temple/alt/north,
 /turf/open/floor/ancient_temple/deco/deco_alt,
 /area/lazarus/ground/ancient_temple/north_east/surface)
 "gNv" = (
@@ -20780,7 +20802,7 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 9
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/obj/effect/landmark/xeno_spawn,
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/south)
 "gOt" = (
@@ -20942,7 +20964,6 @@
 	dir = 10
 	},
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
-/obj/effect/landmark/xeno_spawn,
 /turf/open/floor/ancient_temple/damaged/damage_6,
 /area/lazarus/ground/ancient_temple/south)
 "gRO" = (
@@ -21201,7 +21222,7 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 9
 	},
-/turf/open/auto_turf/lv_sand_alt/layer0,
+/turf/closed/wall/rock/brown,
 /area/lazarus/ground/ancient_temple/east)
 "gWd" = (
 /obj/structure/machinery/door/airlock/light_grey_lv/solid{
@@ -22031,7 +22052,6 @@
 	pixel_x = -3;
 	pixel_y = 16
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/ancient_temple/south)
 "hsI" = (
@@ -22249,7 +22269,7 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 9
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/obj/effect/landmark/xeno_spawn,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/south)
 "hwB" = (
@@ -22466,7 +22486,6 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 10
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/south)
 "hBa" = (
@@ -26456,6 +26475,7 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 6
 	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/south/surface)
 "jxc" = (
@@ -28093,7 +28113,6 @@
 	pixel_y = -6;
 	pixel_x = 6
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/south)
 "kmD" = (
@@ -28831,7 +28850,6 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 5
 	},
-/obj/effect/landmark/xeno_spawn,
 /turf/open/floor/ancient_temple/floor_13/east,
 /area/lazarus/ground/ancient_temple/south)
 "kCe" = (
@@ -29991,7 +30009,6 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 6
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/south)
 "lfH" = (
@@ -30652,7 +30669,6 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 6
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/south)
 "lul" = (
@@ -32929,7 +32945,6 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 9
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/south)
 "muP" = (
@@ -33924,7 +33939,7 @@
 /area/lazarus/ground/ancient_temple/south_east/surface)
 "mNe" = (
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_11,
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/obj/effect/landmark/xeno_spawn,
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/south)
 "mNo" = (
@@ -34762,7 +34777,6 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 4
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/south)
 "ngb" = (
@@ -34847,6 +34861,7 @@
 	pixel_x = -9
 	},
 /obj/item/tool/shovel,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
 "nie" = (
@@ -35125,7 +35140,6 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 10
 	},
-/obj/effect/landmark/xeno_spawn,
 /turf/open/floor/ancient_temple/damaged/damage_6,
 /area/lazarus/ground/ancient_temple/south)
 "noo" = (
@@ -36058,7 +36072,7 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 6
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/obj/effect/landmark/xeno_spawn,
 /turf/open/floor/ancient_temple/damaged/damage_6,
 /area/lazarus/ground/ancient_temple/south)
 "nLP" = (
@@ -37342,7 +37356,7 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 10
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/obj/effect/landmark/xeno_spawn,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/south)
 "ool" = (
@@ -38437,7 +38451,7 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 8
 	},
-/obj/effect/landmark/xeno_spawn,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/south)
 "oOd" = (
@@ -40443,7 +40457,6 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 9
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/floor/ancient_temple/floor_19,
 /area/lazarus/ground/ancient_temple/south)
 "pLA" = (
@@ -41335,7 +41348,7 @@
 /area/lazarus/research/storage)
 "qgo" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_4,
-/obj/effect/landmark/xeno_spawn,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
 /turf/open/floor/ancient_temple/damaged/damage_5,
 /area/lazarus/ground/ancient_temple/south)
 "qgw" = (
@@ -41907,10 +41920,6 @@
 	name = "pen"
 	},
 /obj/item/device/taperecorder,
-/obj/structure/prop/hybrisa/misc/machinery/screens/wood_clock{
-	pixel_x = 1;
-	pixel_y = 41
-	},
 /turf/open/floor/almayer/silverfull,
 /area/lazarus/medbay)
 "qsA" = (
@@ -43459,7 +43468,7 @@
 /area/lazarus/corporate_dome)
 "rdS" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_2,
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/obj/effect/landmark/xeno_spawn,
 /turf/open/floor/ancient_temple/damaged/damage_5,
 /area/lazarus/ground/ancient_temple/south)
 "reH" = (
@@ -44615,7 +44624,6 @@
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/south/surface)
 "rKl" = (
-/obj/structure/platform_decoration/stone/ancient_temple/alt/west,
 /obj/effect/hunter/ancient_temple/deco_border/deco_border3{
 	dir = 1;
 	pixel_y = -15
@@ -45515,7 +45523,6 @@
 /obj/effect/hunter/ancient_temple/deco_border/deco_border3{
 	dir = 8
 	},
-/obj/structure/platform_decoration/stone/ancient_temple/alt,
 /turf/open/floor/ancient_temple/deco/deco_alt,
 /area/lazarus/ground/ancient_temple/north_east/surface)
 "sdZ" = (
@@ -47162,7 +47169,6 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 8
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/south)
 "sPs" = (
@@ -49356,7 +49362,7 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 5
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/obj/effect/landmark/xeno_spawn,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/south)
 "tMc" = (
@@ -52580,6 +52586,7 @@
 /area/lazarus/main_hall)
 "vgF" = (
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_12,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/south/surface)
 "vgY" = (
@@ -55766,7 +55773,6 @@
 	pixel_x = 8;
 	pixel_y = 16
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/south)
 "wIC" = (
@@ -56439,7 +56445,6 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 10
 	},
-/obj/effect/landmark/xeno_spawn,
 /turf/open/floor/ancient_temple/floor_20/west,
 /area/lazarus/ground/ancient_temple/south)
 "xbn" = (
@@ -57348,7 +57353,7 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 5
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/obj/effect/landmark/xeno_spawn,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/south)
 "xxR" = (
@@ -76069,7 +76074,7 @@ ukZ
 hJi
 fkT
 sxN
-gry
+aas
 qsw
 bmL
 sRN
@@ -86696,7 +86701,7 @@ wUp
 sIX
 djb
 bAr
-djb
+hfl
 wPf
 gdk
 lSG
@@ -91009,9 +91014,9 @@ aTR
 ols
 tua
 xvL
-xvL
-xvL
-xvL
+aNR
+aNR
+aNR
 xvL
 tua
 kVm
@@ -91234,8 +91239,8 @@ qjl
 gGL
 jZD
 kIw
-qmd
-kIw
+aaG
+aaE
 kIw
 qmd
 mCM
@@ -94850,9 +94855,9 @@ ghp
 vVK
 bHS
 wkh
-ixp
+aat
 wkh
-stC
+wkh
 eQO
 kEW
 oac
@@ -95047,7 +95052,7 @@ paV
 ftW
 huI
 acB
-aWW
+kkZ
 gNT
 tua
 aNR
@@ -95073,9 +95078,9 @@ hkg
 fkM
 sXc
 wkh
-kpL
-kpL
-ixp
+aaB
+aaB
+aat
 wkh
 lDE
 stC
@@ -95272,7 +95277,7 @@ uIV
 ftW
 huI
 ydy
-nWH
+cRD
 ooj
 wIB
 aNR
@@ -95486,7 +95491,7 @@ lSG
 aNR
 nVJ
 tPb
-nWH
+gPi
 oPD
 bYq
 uIV
@@ -96836,8 +96841,8 @@ oIQ
 nWH
 xnd
 cgQ
-gPi
-nWH
+cRD
+cRD
 luk
 tua
 tua
