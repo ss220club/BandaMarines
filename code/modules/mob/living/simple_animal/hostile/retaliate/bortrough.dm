@@ -70,5 +70,19 @@
 	speed = LIZARD_SPEED_NORMAL
 	update_transform()
 
+/mob/living/simple_animal/hostile/retaliate/giant_lizard/bortrough/pull_response(mob/puller)
+	if(stat == DEAD)
+		return TRUE
+	if(legcuffed)
+		return TRUE
+	puller.apply_effect(1, DAZE)
+	shake_camera(puller, 2, 1)
+	playsound(puller.loc, 'sound/weapons/alien_claw_block.ogg', 25, 1)
+	var/facing = get_dir(src, puller)
+	throw_carbon(puller, facing, 1, SPEED_SLOW, shake_camera = FALSE, immobilize = FALSE)
+	puller.apply_effect(get_xeno_stun_duration(puller, 1), WEAKEN)
+	puller.visible_message(SPAN_WARNING("[puller] tried to pull [src] but instead gets whacked in the chest! Seems like it doesn't want to leave it's home."))
+	return FALSE
+
 #undef ALIGATOR_SPEED_DRAGING
 #undef LIZARD_SPEED_NORMAL
