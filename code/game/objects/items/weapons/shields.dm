@@ -102,7 +102,7 @@
 	if(isweapon(attacking_item) && COOLDOWN_FINISHED(src, bash_cooldown))
 		var/obj/item/weapon/attacking_weapon = attacking_item
 		if(attacking_weapon.shield_flags & CAN_SHIELD_BASH)
-			user.visible_message(SPAN_WARNING("[user] bashes [src] with [attacking_weapon]!"))
+			user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] [ru_attack_verb("bashes")] [declent_ru(ACCUSATIVE)] [attacking_weapon.declent_ru(INSTRUMENTAL)]!"))
 			playsound(user.loc, 'sound/effects/shieldbash.ogg', 25, 1)
 			COOLDOWN_START(src, bash_cooldown, SHIELD_BASH_COOLDOWN)
 	else
@@ -158,7 +158,7 @@
 
 /obj/item/weapon/shield/riot/roman
 	name = "imperial scutum shield"
-	desc = "A large metal shield often used by Roman heavy infantry units. Capable of stopping multiple projectiles and melee blows. its size makes it extraordinary difficult to carry around."
+	desc = "Крупный металлический щит, часто используемый отрядами римской тяжелой пехоты. Способен остановить множество снарядов и ударов в ближнем бою. Из-за его огромного размера перемещаться с ним становится затруднительно." //SS220 EDIT
 
 	icon_state = "roman_shield"
 	item_state = "roman_shield"

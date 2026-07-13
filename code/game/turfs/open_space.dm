@@ -81,7 +81,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 		else
 			climb_down_time = 1 SECONDS
 
-	user.visible_message(SPAN_WARNING("[user] starts climbing down."), SPAN_WARNING("You start climbing down."))
+	user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] starts climbing down."), SPAN_WARNING("You start climbing down."))
 
 	var/list/grabbed_things = list()
 	var/hands_full = FALSE
@@ -100,7 +100,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 		to_chat(user, SPAN_WARNING("You were interrupted!"))
 		return
 
-	user.visible_message(SPAN_WARNING("[user] climbs down."), SPAN_WARNING("You climb down."))
+	user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] climbs down."), SPAN_WARNING("You climb down."))
 
 	var/turf/below = get_turf_below()
 	while(istype(below, /turf/open_space))

@@ -1,0 +1,31 @@
+#define QUICK_CAST_OVERRIDE(subtype)\
+/datum/action##subtype/action_activate(){\
+	if(hidden){\
+		return ..();\
+	}\
+	var/client/client = owner.client;\
+	if(!client.prefs.quick_cast){\
+		return ..();\
+	}\
+	var/atom/target = client.hovered_over;\
+	if(!target){\
+		return;\
+	}\
+	if(istype(target, /atom/movable/screen/action_button)){\
+		return ..();\
+	}\
+	if(istype(target, /atom/movable/screen/click_catcher)){\
+		return ..();\
+	}\
+	if(istype(target, /atom/movable/screen)){\
+		return;\
+	}\
+	if(owner.get_selected_ability() == src){\
+		call(src, /datum/action::action_activate())();\
+	}\else{\
+		. = ..();\
+	}\
+	use_ability(target, params2list(client.last_hover_over_params));\
+}
+
+QUICK_CAST_OVERRIDE(/xeno_action/activable)

@@ -220,9 +220,12 @@ GLOBAL_VAR_INIT(youngblood_timer_yautja, 0)
 	desc = "A battle-worn cape passed down by elder Yautja."
 	icon = 'icons/obj/items/hunter/pred_gear.dmi'
 	icon_state = "fullcape"
+	// SS220 EDIT START
 	item_icons = list(
-		WEAR_BACK = 'icons/mob/humans/onmob/hunter/pred_gear.dmi'
+		WEAR_BACK = 'icons/mob/humans/onmob/hunter/pred_gear.dmi',
+		WEAR_JACKET = 'icons/mob/humans/onmob/hunter/pred_gear.dmi'
 	)
+	// SS220 EDIT END
 	flags_equip_slot = SLOT_BACK
 	flags_item = ITEM_PREDATOR
 	unacidable = TRUE
@@ -649,7 +652,7 @@ GLOBAL_VAR_INIT(youngblood_timer_yautja, 0)
 	// Let's go
 	playsound(src,'sound/ambience/signal.ogg', 25, 1, sound_range = 6)
 	timer = 1
-	user.visible_message(SPAN_INFO("[user] starts becoming shimmery and indistinct..."))
+	user.visible_message(SPAN_INFO("[capitalize(user.declent_ru(NOMINATIVE))] starts becoming shimmery and indistinct..."))
 
 	if(do_after(user, 10 SECONDS, INTERRUPT_ALL, BUSY_ICON_GENERIC))
 		// Display fancy animation for you and the person you might be pulling (Legacy)
@@ -1400,15 +1403,15 @@ GLOBAL_VAR_INIT(youngblood_timer_yautja, 0)
 
 ///Actual action of using the vial on an item.
 /obj/item/tool/yautja_cleaner/proc/handle_dissolve(obj/item/target, mob/user)
-	user.visible_message(SPAN_DANGER("[user] uncaps a vial and begins to pour out a vibrant blue liquid over [target]!"),
+	user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] uncaps a vial and begins to pour out a vibrant blue liquid over [target]!"),
 					SPAN_NOTICE("You begin to spread dissolving gel onto [target]!"))
 	if(!do_after(user, 3 SECONDS, INTERRUPT_ALL, BUSY_ICON_HOSTILE))
-		user.visible_message(SPAN_WARNING("[user] stops pouring liquid on to [target]!"),
+		user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] stops pouring liquid on to [target]!"),
 					SPAN_NOTICE("You decide not to cover [target] with dissolving gel."))
 		return
 	if(get_dist(target, user) > 1) //Late check to ensure the item hasn't moved out of range.
 		return
-	user.visible_message(SPAN_DANGER("[user] pours blue liquid all over [target]!"),
+	user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] pours blue liquid all over [target]!"),
 				SPAN_NOTICE("You cover [target] with dissolving gel!"))
 	dissolving_image = image(icon, icon_state = "dissolving_gel")
 	target.overlays += dissolving_image
@@ -1527,7 +1530,12 @@ GLOBAL_VAR_INIT(youngblood_timer_yautja, 0)
 	desc = "A bone that appears to be of human origin."
 	icon = 'icons/obj/items/skeleton.dmi'
 	inv_overlay_icon = 'icons/obj/items/clothing/accessory/inventory_overlays/yautja.dmi'
-	accessory_icons = list(WEAR_BODY = 'icons/mob/humans/onmob/hunter/pred_gear.dmi')
+	// SS220 EDIT START
+	accessory_icons = list(
+		WEAR_BODY = 'icons/mob/humans/onmob/hunter/pred_gear.dmi',
+		WEAR_JACKET = 'icons/mob/humans/onmob/hunter/pred_gear.dmi'
+		)
+	// SS220 EDIT END
 	icon_state = null
 	worn_accessory_slot = ACCESSORY_SLOT_TROPHY
 	///Has it been cleaned by a polishing rag?
