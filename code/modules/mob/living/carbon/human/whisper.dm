@@ -102,7 +102,6 @@
 	var/speech_bubble_test = say_test(message)
 	show_speech_bubble(listening, "[bubble_icon][speech_bubble_test]")
 
-	var/not_dead_speaker = (stat != DEAD)
 	for(var/mob/possible_listening_mob in listening)
 		possible_listening_mob.hear_say(message, verb, speaking, alt_name, italics, src)
 		langchat_speech(message, listening, speaking, langchat_color, FALSE, LANGCHAT_DEFAULT_POP, list("langchat_italic"))
