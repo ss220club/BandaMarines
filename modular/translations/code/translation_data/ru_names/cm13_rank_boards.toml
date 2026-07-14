@@ -64,6 +64,14 @@ tags = [ "nominative_only", "cm13",]
 nominative = "С-м КМ"
 tags = [ "nominative_only", "cm13",]
 
+[mwo]
+nominative = "У/оф-р"
+tags = [ "nominative_only", "cm13",]
+
+[mcwo]
+nominative = "Ст.У/оф-р"
+tags = [ "nominative_only", "cm13",]
+
 [mo1]
 nominative = "В/Л-т"
 tags = [ "nominative_only", "cm13",]
