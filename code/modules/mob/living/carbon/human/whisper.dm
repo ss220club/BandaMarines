@@ -112,9 +112,7 @@
 			possible_listening_mob.hear_say(new_message, verb, speaking, alt_name, italics, src)
 			langchat_speech(message, listening, speaking, langchat_color, FALSE, LANGCHAT_DEFAULT_POP, list("langchat_italic"))
 
-	spawn(30)
-		if(not_dead_speaker)
-			log_say(logis_speech_line(src, message, "Whisper"), src) //BANDAMARINES LOGIS EDIT
+	log_say(logis_speech_line(src, message, "Whisper"), src) //BANDAMARINES LOGIS EDIT
 
 	if (length(watching))
 		var/rendered = "<span class='game say'><span class='name'>[src.name]</span> whispers something.</span>"
