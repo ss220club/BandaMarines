@@ -158,7 +158,7 @@
 
 /obj/item/weapon/shield/riot/roman
 	name = "imperial scutum shield"
-	desc = "A large metal shield often used by Roman heavy infantry units. Capable of stopping multiple projectiles and melee blows. its size makes it extraordinary difficult to carry around."
+	desc = "Крупный металлический щит, часто используемый отрядами римской тяжелой пехоты. Способен остановить множество снарядов и ударов в ближнем бою. Из-за его огромного размера перемещаться с ним становится затруднительно." //SS220 EDIT
 
 	icon_state = "roman_shield"
 	item_state = "roman_shield"

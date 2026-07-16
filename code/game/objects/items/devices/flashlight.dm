@@ -585,7 +585,7 @@
 	name = "lantern"
 	icon_state = "lantern"
 	item_state = ""
-	desc = "A mining lantern."
+	desc = "Шахтерский фонарь." //SS220 EDIT
 	light_range = 6 // luminosity when on
 	light_color = "#d69c46"
 

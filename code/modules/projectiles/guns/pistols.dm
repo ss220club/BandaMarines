@@ -134,7 +134,7 @@
 
 /obj/item/weapon/gun/pistol/m1911
 	name = "\improper M1911 service pistol"
-	desc = "A timeless classic since the first World War, produced in limited amount by Armat Battlefield Systems after their aquisison of Colt's Manufacturing Company. Once standard issue for the USCM, now back order only. Chambered in .45 ACP."
+	desc = "Нестареющая классика времен Первой мировой войны, выпускавшаяся ограниченным тиражом компанией Armat Battlefield Systems после приобретения ею компании Colt's Manufacturing Company. Когда-то являлась стандартным оружием корпуса морской пехоты США, теперь доступна только по предварительному заказу. Калибр патрона .45 ACP." //SS220 EDIT
 	icon = 'icons/obj/items/weapons/guns/guns_by_faction/USCM/pistols.dmi'
 	icon_state = "m4a345"
 	item_state = "m4a3"
