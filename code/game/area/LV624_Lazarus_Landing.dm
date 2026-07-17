@@ -113,29 +113,16 @@
 	icon_state = "west"
 	//ambience = list('sound/ambience/ambimine.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambisin4.ogg')
 
-/area/lazarus/ground/barrens/west_barrens/ceiling
-	ceiling = CEILING_GLASS
-
 /area/lazarus/ground/barrens/east_barrens
 	name = "\improper Eastern Barrens"
 	icon_state = "east"
 	//ambience = list('sound/ambience/ambimine.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambisin4.ogg')
 
-/area/lazarus/ground/barrens/east_barrens/ceiling
-	ceiling = CEILING_GLASS
-
-/area/lazarus/ground/barrens/containers
-	name = "\improper Containers"
+/area/lazarus/ground/power_plant
+	name = "\improper Hydropower Plant"
 	icon_state = "blue-red"
+	ceiling = CEILING_UNDERGROUND_METAL_BLOCK_CAS
 	//ambience = list('sound/ambience/ambimine.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambisin4.ogg')
-
-/area/lazarus/ground/barrens/north_east_barrens
-	name = "\improper North Eastern Barrens"
-	icon_state = "northeast"
-	//ambience = list('sound/ambience/ambimine.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambisin4.ogg')
-
-/area/lazarus/ground/barrens/north_east_barrens/ceiling
-	ceiling = CEILING_GLASS
 
 /area/lazarus/ground/barrens/south_west_barrens
 	name = "\improper South Western Barrens"
@@ -147,11 +134,6 @@
 	icon_state = "west"
 	//ambience = list('sound/ambience/ambimine.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambisin4.ogg')
 
-/area/lazarus/ground/barrens/south_eastern_barrens
-	name = "\improper South Eastern Barrens"
-	icon_state = "southeast"
-// ambience = list('sound/ambience/ambimine.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambisin4.ogg')
-
 /area/lazarus/ground/barrens/south_eastern_jungle_barrens
 	name = "\improper South East Jungle Barrens"
 	icon_state = "southeast"
@@ -162,10 +144,8 @@
 	icon_state = "north"
 // ambience = list('sound/ambience/ambimine.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambisin4.ogg')
 
-/area/lazarus/ground/barrens/north_eastern_jungle_barrens
-	name = "\improper North East Barrens Jungle"
-	icon_state = "northeast"
-// ambience = list('sound/ambience/ambimine.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambisin4.ogg')
+/area/lazarus/ground/barrens/north_barrens/ceiling
+	ceiling = CEILING_METAL
 
 /area/lazarus/ground/river
 	name = "\improper River"
