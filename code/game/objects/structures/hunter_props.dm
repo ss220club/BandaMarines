@@ -535,6 +535,9 @@
 	density = TRUE
 	bound_height = 64
 	bound_width = 64
+	explo_proof = TRUE
+	unacidable = TRUE
+	density = TRUE
 
 /obj/structure/prop/hunter/ancient_temple/giant_statue/base
 	icon = 'icons/obj/structures/props/hunter/ancientsatuebase.dmi'
@@ -551,11 +554,9 @@
 	icon_state = "statue_base_big_colorable"
 
 /obj/structure/prop/hunter/ancient_temple/giant_statue/base/small
-
 	icon_state = "statue_base_small"
 
 /obj/structure/prop/hunter/ancient_temple/giant_statue/base/small/colorable
-
 	icon_state = "statue_base_small_colorable"
 
 /obj/structure/prop/hunter/ancient_temple/small_statue

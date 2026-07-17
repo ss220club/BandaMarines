@@ -1876,9 +1876,8 @@
 /turf/open/auto_turf/lv_sand/layer1,
 /area/lazarus/ground/barrens/north_barrens)
 "afE" = (
-/obj/structure/blocker/invisible_wall,
 /turf/open/space/basic,
-/area/strata/interior/out_of_bounds)
+/area/lazarus/ground/barrens/north_barrens)
 "afF" = (
 /obj/effect/hybrisa/misc/fake/pipes/pipe1{
 	icon_state = "pipe-t";
@@ -2512,7 +2511,7 @@
 /area/lazarus/ground/caves/south_west_caves)
 "ahu" = (
 /turf/closed/wall/lv_outpost/reinforced{
-	turf_flags = 16
+	desc = s"A thick and chunky metal wall covered in jagged ribs."
 	},
 /area/lazarus/ground/power_plant)
 "ahv" = (
@@ -3226,6 +3225,9 @@
 	},
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/caves/south_west_caves)
+"aje" = (
+/turf/closed/wall/lv_outpost/reinforced/hull,
+/area/lazarus/ground/power_plant)
 "ajf" = (
 /obj/effect/hybrisa/misc/fake/pipes/pipe1{
 	icon_state = "pipe-t";
@@ -3292,10 +3294,6 @@
 /area/lazarus/ground/cove/south)
 "ajn" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/turf/closed/wall/rock/brown,
-/area/strata/interior/out_of_bounds)
-"ajo" = (
-/obj/structure/flora/bush/ausbushes/var3/fullgrass,
 /turf/closed/wall/rock/brown,
 /area/strata/interior/out_of_bounds)
 "ajp" = (
@@ -18549,9 +18547,8 @@
 	pixel_x = -16;
 	pixel_y = 19
 	},
-/obj/structure/blocker/invisible_wall,
 /turf/open/space/basic,
-/area/strata/interior/out_of_bounds)
+/area/lazarus/ground/barrens/north_barrens)
 "fbC" = (
 /obj/structure/machinery/colony_floodlight{
 	light_color = "#dae2ff"
@@ -27345,7 +27342,6 @@
 	dir = 4;
 	pixel_y = 22
 	},
-/obj/structure/blocker/invisible_wall,
 /turf/open/floor/ancient_temple/base/alt,
 /area/lazarus/ground/ancient_temple/north_east)
 "jin" = (
@@ -33271,7 +33267,6 @@
 	pixel_x = -16;
 	pixel_y = 22
 	},
-/obj/structure/blocker/invisible_wall,
 /turf/open/floor/ancient_temple/base/alt,
 /area/lazarus/ground/ancient_temple/north_east)
 "lUV" = (
@@ -51779,7 +51774,6 @@
 /turf/open/floor/ancient_temple/deco/dark/deco_alt,
 /area/lazarus/ground/ancient_temple/south_east/surface)
 "uos" = (
-/obj/structure/blocker/invisible_wall,
 /turf/open/floor/ancient_temple/base/alt,
 /area/lazarus/ground/ancient_temple/north_east)
 "uow" = (
@@ -53211,9 +53205,8 @@
 	pixel_y = 19
 	},
 /obj/structure/prop/hunter/ancient_temple/giant_statue/base,
-/obj/structure/blocker/invisible_wall,
 /turf/open/space/basic,
-/area/strata/interior/out_of_bounds)
+/area/lazarus/ground/barrens/north_barrens)
 "uSJ" = (
 /obj/structure/prop/rock/brown{
 	dir = 5;
@@ -77394,14 +77387,14 @@ aha
 agU
 aca
 aca
-ahu
-ahu
+aje
+aje
 acy
 acy
-ahu
-ahu
-ahu
-ahu
+aje
+aje
+aje
+aje
 aca
 aca
 aca
@@ -77411,11 +77404,11 @@ aca
 aca
 awW
 aca
-ahu
-ahu
-ahu
-ahu
-ahu
+avO
+avO
+avO
+avO
+avO
 yar
 awR
 yar
@@ -77616,30 +77609,30 @@ sXk
 sXk
 ahc
 aha
-ahu
-ahu
-ahu
-ahu
+aje
+aje
+aje
+aje
 axT
 avQ
-ahu
-ahu
-ahu
-ahu
+aje
+aje
+aje
+aje
 acy
 acy
 ahu
-ahu
-ahu
-ahu
-ahu
+avO
+avO
+avO
+avO
 acy
 acy
-ahu
-ahu
-ahu
-ahu
-ahu
+avO
+avO
+avO
+avO
+avO
 acy
 aaP
 yar
@@ -77840,30 +77833,30 @@ sXk
 lwO
 ahd
 avb
-ahu
-ahu
-ahu
-ahu
+aje
+aje
+aje
+aje
 avR
 avR
 axP
 axH
-ahu
-ahu
+aje
+aje
 avR
 avQ
-ahu
-ahu
-ahu
-ahu
-ahu
+avO
+avO
+avO
+avO
+avO
 avR
 avQ
-ahu
-ahu
-ahu
-ahu
-ahu
+avO
+avO
+avO
+avO
+avO
 avR
 avQ
 avO
@@ -78064,7 +78057,7 @@ lwO
 sXk
 ahe
 agV
-avO
+aje
 atR
 avR
 atR
@@ -78744,8 +78737,8 @@ axU
 avR
 avR
 axJ
-ahu
-ahu
+aje
+aje
 auN
 avR
 avR
@@ -78968,13 +78961,13 @@ axU
 avR
 avR
 axK
-ahu
-ahu
+aje
+aje
 axq
 avR
 avR
-ahu
-ahu
+avO
+avO
 aur
 axc
 ajr
@@ -79192,13 +79185,13 @@ axU
 atR
 avR
 axL
-ahu
-ahu
+aje
+aje
 axr
 avR
 ajH
-ahu
-ahu
+avO
+avO
 avR
 axd
 awv
@@ -79421,16 +79414,16 @@ axx
 avR
 avR
 avR
-ahu
-ahu
+avO
+avO
 aiO
 axe
 auh
 awQ
 avR
 avR
-ahu
-ahu
+avO
+avO
 asZ
 asZ
 avO
@@ -79653,8 +79646,8 @@ avO
 avO
 avR
 avR
-ahu
-ahu
+avO
+avO
 yar
 yar
 yar
@@ -79877,7 +79870,7 @@ awY
 awS
 atR
 avR
-ahu
+avO
 awe
 yar
 yar
@@ -80101,7 +80094,7 @@ ajs
 ajs
 awH
 awA
-ahu
+avO
 awf
 yar
 asE
@@ -80318,8 +80311,8 @@ avR
 aiP
 avR
 avR
-ahu
-ahu
+avO
+avO
 axh
 avP
 avP
@@ -80536,14 +80529,14 @@ axU
 atR
 avR
 auP
-ahu
-ahu
+aje
+aje
 awt
 avO
 avR
 avQ
-ahu
-ahu
+avO
+avO
 aum
 aui
 aud
@@ -80760,14 +80753,14 @@ axU
 avR
 avR
 aux
-ahu
-ahu
+aje
+aje
 avR
 avR
 avR
 avR
-ahu
-ahu
+avO
+avO
 aun
 avP
 awk
@@ -80984,14 +80977,14 @@ axU
 avR
 avR
 awz
-ahu
-ahu
+aje
+aje
 avR
 avR
 axp
 avR
-ahu
-ahu
+avO
+avO
 aun
 avP
 awk
@@ -81214,14 +81207,14 @@ avR
 avR
 avR
 avR
-ahu
-ahu
+avO
+avO
 axi
 awt
 awt
-ahu
-ahu
-ahu
+avO
+avO
+avO
 awk
 yar
 nYT
@@ -81391,7 +81384,7 @@ mnW
 mnW
 mnW
 mnW
-ajn
+agy
 aNR
 aNR
 ajn
@@ -81443,9 +81436,9 @@ avR
 axj
 avR
 avR
-ahu
-ahu
-ahu
+avO
+avO
+avO
 yar
 yar
 nYT
@@ -81616,8 +81609,8 @@ mnW
 mnW
 acc
 acc
-aNR
-ajo
+gdk
+ajJ
 aNR
 acc
 acc
@@ -81648,7 +81641,7 @@ aca
 vLo
 ahk
 agV
-avO
+aje
 atR
 avR
 agN
@@ -81656,8 +81649,8 @@ avR
 avR
 avR
 axH
-ahu
-ahu
+aje
+aje
 axu
 awT
 awT
@@ -81669,8 +81662,8 @@ afV
 afV
 awN
 awz
-ahu
-ahu
+avO
+avO
 asZ
 asZ
 avO
@@ -81872,22 +81865,22 @@ agz
 aca
 ahl
 agZ
-ahu
+aje
 asZ
 asZ
-ahu
-ahu
+aje
+aje
 avR
 avQ
-ahu
-ahu
-ahu
+aje
+aje
+aje
 auc
 avR
 avR
 avR
-ahu
-ahu
+avO
+avO
 auo
 avR
 avR
@@ -82099,19 +82092,19 @@ agU
 aca
 aca
 aca
-ahu
-ahu
+aje
+aje
 acD
 acD
-ahu
-ahu
-ahu
-ahu
+aje
+aje
+aje
+aje
 avR
 avQ
-ahu
-ahu
-ahu
+avO
+avO
+avO
 axl
 avR
 avR
@@ -82329,14 +82322,14 @@ aca
 awW
 aca
 aca
-ahu
-ahu
+aje
+aje
 acD
 acD
-ahu
-ahu
-ahu
-ahu
+avO
+avO
+avO
+avO
 asZ
 asZ
 avR
@@ -82557,10 +82550,10 @@ aca
 aca
 aca
 aca
-ahu
-ahu
-ahu
-ahu
+avO
+avO
+avO
+avO
 aca
 yar
 aeX
@@ -83237,9 +83230,9 @@ abL
 nYT
 yar
 awR
-ahu
-ahu
-ahu
+avO
+avO
+avO
 avR
 avQ
 avO
@@ -83461,9 +83454,9 @@ abM
 abq
 qKp
 xmC
-ahu
-ahu
-ahu
+avO
+avO
+avO
 acD
 act
 pYg
