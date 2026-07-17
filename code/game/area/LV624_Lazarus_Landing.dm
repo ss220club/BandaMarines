@@ -95,11 +95,10 @@
 	name = "\improper Fisherman's Cove"
 	icon_state = "green"
 	//ambience = list('sound/ambience/ambimine.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambisin4.ogg')
-	ceiling = CEILING_NONE
+	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
 
 /area/lazarus/ground/cove/south
 	name = "\improper Fisherman's Cove - South"
-	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
 
 //The Barrens
 /area/lazarus/ground/barrens
@@ -158,6 +157,7 @@
 	name = "\improper Western River"
 	icon_state = "blueold"
 // ambience = list('sound/ambience/jungle_amb1.ogg')
+
 /area/lazarus/ground/river/central_river
 	name = "\improper Central River"
 	icon_state = "purple"
