@@ -117,7 +117,7 @@
 					else
 						hint_msg += ", [current_step.desc]" // SS220 EDIT ADDICTION
 				else
-					hint_msg = "Вы не можете [current_step.desc] with [tool.declent_ru(ACCUSATIVE)]" // SS220 EDIT ADDICTION
+					hint_msg = "Вы не можете [current_step.desc] с помощью [tool.declent_ru(GENITIVE)]"
 			if(!isnull(hint_msg))
 				to_chat(user, SPAN_WARNING("[hint_msg].")) // SS220 EDIT ADDICTION
 		return FALSE
