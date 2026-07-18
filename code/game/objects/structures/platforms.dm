@@ -923,7 +923,6 @@
 /obj/structure/platform/metal/hybrisa/metalplatform6/west
 	dir = WEST
 
-
 /obj/structure/platform/stone/hybrisa
 	icon_state = "hybrisa"
 
@@ -938,8 +937,6 @@
 	dir = EAST
 /obj/structure/platform/stone/hybrisa/rockdark/west
 	dir = WEST
-
-
 
 /obj/structure/platform_decoration/metal/hybrisa
 	icon_state = "hybrisa"
@@ -956,7 +953,6 @@
 	dir = EAST
 /obj/structure/platform_decoration/metal/hybrisa/engineer_corner/west
 	dir = WEST
-
 
 /obj/structure/platform_decoration/metal/hybrisa/engineer_cornerbits
 	name = "raised metal corner"
@@ -1043,7 +1039,6 @@
 /obj/structure/platform_decoration/metal/hybrisa/metalplatformdeco6/west
 	dir = WEST
 
-
 /obj/structure/platform_decoration/stone/hybrisa
 	icon_state = "hybrisa"
 
@@ -1058,8 +1053,6 @@
 	dir = EAST
 /obj/structure/platform_decoration/stone/hybrisa/rockdark/west
 	dir = WEST
-
-
 
 /obj/structure/platform/metal/stair_cut/hybrisa_metal_left
 	icon_state = "hybrisaplatform_stair"
@@ -1169,7 +1162,6 @@
 	name = "rock edge"
 	desc = "A solid chunk of desolate rocks. Looks like you could climb it."
 	icon_state = "colorable_strata_rock_platform"
-	explo_proof = TRUE
 
 /obj/structure/platform/stone/soro_colorable_immune/north
 	dir = NORTH
@@ -1182,7 +1174,6 @@
 	name = "rock corner"
 	desc = "Solid chunks of desolate rocks."
 	icon_state = "colorable_strata_rock_platform_deco"
-	explo_proof = TRUE
 
 /obj/structure/platform_decoration/stone/soro_colorable_immune/north
 	dir = NORTH
@@ -1193,11 +1184,9 @@
 
 /obj/structure/platform/stone/stair_cut/soro_left
 	icon_state = "colorable_strata_rock_platform_stair"
-	explo_proof = TRUE
 
 /obj/structure/platform/stone/stair_cut/soro_right
 	icon_state = "colorable_strata_rock_platform_stair_alt"
-	explo_proof = TRUE
 
 //kutjevo rocks
 
