@@ -117,12 +117,6 @@
 	icon_state = "east"
 	//ambience = list('sound/ambience/ambimine.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambisin4.ogg')
 
-/area/lazarus/ground/power_plant
-	name = "\improper Hydropower Plant"
-	icon_state = "blue-red"
-	ceiling = CEILING_UNDERGROUND_METAL_BLOCK_CAS
-	//ambience = list('sound/ambience/ambimine.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambisin4.ogg')
-
 /area/lazarus/ground/barrens/south_west_barrens
 	name = "\improper South Western Barrens"
 	icon_state = "southwest"
@@ -133,6 +127,9 @@
 	icon_state = "west"
 	//ambience = list('sound/ambience/ambimine.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambisin4.ogg')
 
+/area/lazarus/ground/barrens/central_barrens/ceiling
+	ceiling = CEILING_METAL
+
 /area/lazarus/ground/barrens/south_eastern_jungle_barrens
 	name = "\improper South East Jungle Barrens"
 	icon_state = "southeast"
@@ -142,9 +139,6 @@
 	name = "\improper Northern Barrens"
 	icon_state = "north"
 // ambience = list('sound/ambience/ambimine.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambisin4.ogg')
-
-/area/lazarus/ground/barrens/north_barrens/ceiling
-	ceiling = CEILING_METAL
 
 /area/lazarus/ground/river
 	name = "\improper River"
@@ -385,11 +379,6 @@
 	name = "\improper Weyland-Yutani - Corporate Administration - Landing Zone"
 	linked_lz = DROPSHIP_LZ2
 
-/area/lazarus
-	name = "\improper Lazarus"
-	icon_state = "green"
-	ceiling = CEILING_METAL
-
 /area/lazarus/corporate_dome
 	name = "\improper Weyland-Yutani - Corporate Administration Complex"
 	icon_state = "green"
@@ -530,3 +519,10 @@
 	name = "\improper LZ2 - Weyland-Yutani - Corporate Administration - Landing Zone"
 	icon_state = "tcomsatcham"
 	requires_power = FALSE
+
+/area/lazarus/power_plant
+	name = "\improper Hydropower Plant"
+	icon_state = "blue-red"
+
+/area/lazarus/power_plant/core
+	ceiling = CEILING_UNDERGROUND_METAL_ALLOW_CAS

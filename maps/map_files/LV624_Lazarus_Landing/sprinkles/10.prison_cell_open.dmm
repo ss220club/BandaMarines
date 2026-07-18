@@ -23,7 +23,6 @@
 "g" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
-/obj/item/tool/kitchen/utensil/pfork,
 /obj/structure/sink/kitchen{
 	pixel_y = 25;
 	pixel_x = 1
@@ -107,6 +106,9 @@
 /obj/item/trash/USCMtray{
 	name = "\improper Meal Tray";
 	pixel_y = 8
+	},
+/obj/item/tool/kitchen/utensil/fork/plastic{
+	pixel_x = -7
 	},
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/template_noop)
