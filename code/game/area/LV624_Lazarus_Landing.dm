@@ -161,14 +161,6 @@
 	name = "\improper Fisherman's Cove - Lake"
 	icon_state = "bluenew"
 
-/area/lazarus/ground/river/central_river/north
-	name = "\improper Central River - North"
-	icon_state = "purple"
-
-/area/lazarus/ground/river/central_river/north/cove
-	name = "\improper Fisherman's Cove - Central River"
-	icon_state = "bluenew"
-
 /area/lazarus/ground/river/east_river
 	name = "\improper Eastern River"
 	icon_state = "bluenew"
