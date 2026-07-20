@@ -1745,9 +1745,6 @@
 /mob/living/carbon/human/yiren/Initialize(mapload)
 	. = ..(mapload, new_species = "Yiren")
 
-/mob/living/carbon/human/necoarc/Initialize(mapload) //SS220 ADD
-	. = ..(mapload, new_species = "Necoarc") //SS220 ADD
-
 /mob/living/carbon/human/synthetic/Initialize(mapload)
 	. = ..(mapload, SYNTH_GEN_THREE)
 
