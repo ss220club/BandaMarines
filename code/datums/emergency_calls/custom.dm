@@ -11,7 +11,7 @@
 	shuttle_id = null
 	ignore_ftl_or_crash = TRUE
 
-	ert_message = "Several characters have been offered up to be played by the admins"
+	ert_message = "Администрацией были предложены персонажи для игры" //SS220 EDIT
 
 /datum/emergency_call/custom/create_member(datum/mind/M, turf/override_spawn_loc)
 	set waitfor = 0

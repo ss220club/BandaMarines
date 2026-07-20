@@ -5,7 +5,7 @@
 	shuttle_id = MOBILE_SHUTTLE_ID_ERT2
 	home_base = /datum/lazy_template/ert/weyland_station
 	name_of_spawn = /obj/effect/landmark/ert_spawns/distress_pmc
-	ert_message = "A corporate security beacon has been activated!"
+	ert_message = "Активирован маяк службы корпоративной охраны" //SS220 EDIT
 	var/equipment_preset = /datum/equipment_preset/wy/security
 	var/equipment_preset_leader = /datum/equipment_preset/wy/security
 	var/spawn_header = "You are a Weyland-Yutani Security Guard!"

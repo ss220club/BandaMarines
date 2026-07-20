@@ -4,7 +4,7 @@
 	mob_max = 2
 	mob_min = 1
 	probability = 0
-	ert_message = "A Provost investigation has been requested!"
+	ert_message = "Запрошена военная прокуратура для расследования" //SS220 EDIT
 
 /datum/emergency_call/inspection_provost/New()
 	..()
@@ -58,7 +58,7 @@
 	mob_max = 2
 	mob_min = 1
 	probability = 0
-	ert_message = "A USCM High Command investigation has been requested!"
+	ert_message = "Запрошено высшее командование ККМП для расследования" //SS220 EDIT
 
 /datum/emergency_call/inspection_hc/New()
 	..()
