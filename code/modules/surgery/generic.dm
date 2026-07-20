@@ -73,7 +73,7 @@
 				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] завершает делать программный разрез на вашей [ru_name_affected_limb]."), // SS220 EDIT ADDICTION
 				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] завершает делать программный разрез на [ru_name_affected_limb] [target.declent_ru(GENITIVE)].")) // SS220 EDIT ADDICTION
 
-			surgery.status += 2 //IMS completes all steps.
+			surgery.status += 6 //IMS completes all steps.
 
 			switch(target_zone) //forces application of overlays
 				if("chest")
@@ -87,7 +87,7 @@
 				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] завершает делать лазерный разрез на вашей [ru_name_affected_limb]."),
 				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] завершает делать лазерный разрез на [ru_name_affected_limb] [target.declent_ru(GENITIVE)]."))
 
-			surgery.status++ //A laser scalpel may cauterise as it cuts.
+			surgery.status += 3 //A laser scalpel may cauterise as it cuts.
 		else
 			user.affected_message(target,
 				SPAN_NOTICE("Вы завершаете делать разрез на [ru_name_affected_limb] [target.declent_ru(GENITIVE)]."), //SS220 EDIT ADDICTION
@@ -99,7 +99,7 @@
 				incision_bleed.duration = 10 MINUTES //A weak bleed, but it doesn't stop on its own.
 				surgery.affected_limb.bleeding_effects_list += incision_bleed
 			else
-				surgery.status++ // synth skin doesn't cause bleeders
+				surgery.status += 3 // synth skin doesn't cause bleeders
 
 	target.incision_depths[target_zone] = SURGERY_DEPTH_SHALLOW //Descriptionwise this is done by the retractor, but putting it here means people can examine to see if an unfinished surgery has been done.
 	user.add_blood(target.get_blood_color(), BLOOD_HANDS)

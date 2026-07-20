@@ -29,3 +29,4 @@
 }
 
 QUICK_CAST_OVERRIDE(/xeno_action/activable)
+QUICK_CAST_OVERRIDE(/predator_action/leap)

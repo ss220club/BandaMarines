@@ -132,3 +132,38 @@
   fira:
   - admin: Most logging (and fingerprints) should now properly use ckey, instead of
       key
+2026-07-14:
+  JHINgle4ce:
+  - rscadd: Adds MP synth to security
+  NHC:
+  - code_imp: added a var to set if clothing removes undergarments overlays or not.
+  - bugfix: Fixes Yautja Meshsuits removing undergarments
+2026-07-15:
+  DangerRevolution:
+  - bugfix: Fixes the Field Cameras' label reading "this label label reads"...
+  - bugfix: Moves the Field Cameras' labels to the examine box rather than outputting
+      it to the chatbox.
+  NHC:
+  - qol: SOCOM and grenade packs can now be collapsed
+  - qol: Grenade belt and satchel can now be filed by being slapped by themself, each
+      other, and via grenade packs n boxes
+  - qol: M56D and M2C mags can be used to refil other mags of their own kind
+  - qol: M56D mags can be manually loaded/unloaded
+  ori-disillusion-mirnov:
+  - code_imp: all living mobs now have procs for riding
+  - code_imp: adding the riding element is easier
+2026-07-18:
+  TheDonkified:
+  - refactor: Updates spark_spread effect system to use subsystem processing and timers
+      instead of sleeps
+  - refactor: Sparks move a bit faster/smoother
+2026-07-20:
+  Red-byte3D:
+  - balance: HEDP no longer pushes bodies around when they're dead for humans.
+  fira:
+  - bugfix: Fixed 'Set Operations Commander' admin verb breaking under certain circumstances.
+  - bugfix: The IMS and Laser Scalpel will now once again skip their associated steps.
+  - bugfix: Fixed Cryopod internal intercoms being sent to the void upon ejecting.
+  - bugfix: Fixed some exploitable race conditions with Cryopods.
+  matttheficus:
+  - rscadd: Added WotQ Keybind option.
