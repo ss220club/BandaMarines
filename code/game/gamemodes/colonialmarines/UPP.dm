@@ -157,7 +157,7 @@ GLOBAL_LIST_EMPTY(upp_officers)
 				musical_track = pick('sound/theme/neutral_melancholy1.ogg')
 		//	if(GLOB.round_statistics && GLOB.round_statistics.current_map)
 		//		GLOB.round_statistics.current_map.total_xeno_victories++
-		if(MODE_FACTION_CLASH_UPP_MAJOR)
+		if(MODE_FACTION_CLASH_UPP_MINOR)
 			musical_track = pick('sound/theme/neutral_hopeful1.ogg','sound/theme/neutral_hopeful2.ogg')
 			end_icon = "upp_minor"
 			if(GLOB.round_statistics && GLOB.round_statistics.current_map)

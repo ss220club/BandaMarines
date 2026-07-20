@@ -266,7 +266,7 @@
 	auto_open = TRUE
 
 /obj/docking_port/stationary/marine_dropship/predator
-	name = "Yautja Hanger"
+	name = "Yautja Hangar"
 	id = DROPSHIP_LZ1
 	auto_open = TRUE
 	faction = FACTION_YAUTJA

@@ -152,10 +152,10 @@ SUBSYSTEM_DEF(hijack)
 	return ..()
 
 /datum/controller/subsystem/hijack/proc/get_engine_area()
-	if(GLOB.master_mode == /datum/game_mode/colonialmarines::name)
-		return /area/almayer/engineering/lower/engine_core
-	else
+	if(GLOB.master_mode == GAMEMODE_UPP_DISTRESS_SIGNAL || GLOB.master_mode == GAMEMODE_FACTION_CLASH_UPP_CM)
 		return /area/rostock/engineering/reactor
+	else
+		return /area/almayer/engineering/lower/engine_core
 
 /datum/controller/subsystem/hijack/fire(resumed = FALSE)
 	if(!SSticker?.mode?.is_in_endgame)
