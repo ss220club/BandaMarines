@@ -1,4 +1,7 @@
 #include "_arc.dm"
 
+#include "code/_defines.dm"
 #include "code/arc.dm"
 // #include "code/arc_emote.dm"
+
+#include "code/~undefs/~undefs.dm"
