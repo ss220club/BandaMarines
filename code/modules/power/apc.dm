@@ -1423,25 +1423,6 @@ GLOBAL_LIST_INIT(apc_wire_descriptions, flatten_numeric_alist(alist(
 	pixel_x = -30
 	dir = 8
 
-/obj/structure/machinery/power/apc/upp/hardened
-	crash_break_probability = 0
-
-/obj/structure/machinery/power/apc/upp/hardened/north
-	pixel_y = 32
-	dir = 1
-
-/obj/structure/machinery/power/apc/upp/hardened/south
-	pixel_y = -26
-	dir = 2
-
-/obj/structure/machinery/power/apc/upp/hardened/east
-	pixel_x = 30
-	dir = 4
-
-/obj/structure/machinery/power/apc/upp/hardened/west
-	pixel_x = -30
-	dir = 8
-
 /obj/structure/machinery/power/apc/almayer/hardened
 	name = "hardened area power controller"
 	desc = "A control terminal for the area electrical systems. This one is hardened against sudden power fluctuations caused by electrical grid damage."

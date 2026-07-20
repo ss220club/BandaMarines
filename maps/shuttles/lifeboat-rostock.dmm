@@ -255,7 +255,7 @@
 /area/shuttle/lifeboat)
 "DB" = (
 /obj/structure/surface/table/reinforced/almayer_B,
-/obj/structure/machinery/computer/shuttle/lifeboat/upp{
+/obj/structure/machinery/computer/shuttle/lifeboat{
 	dir = 8
 	},
 /turf/open/shuttle/lifeboat,

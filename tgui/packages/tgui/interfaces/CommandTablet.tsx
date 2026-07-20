@@ -3,7 +3,7 @@ import { Button, Flex, NoticeBox, Section } from 'tgui/components';
 import { Window } from 'tgui/layouts';
 
 type Data = {
-  is_main_faction: boolean;
+  faction: string;
   cooldown_message: number;
   distresstimelock: number;
   alert_level: number;
@@ -75,7 +75,7 @@ export const CommandTablet = () => {
                 Тактическая карта
               </Button>
             </Flex.Item>
-            {!!data.is_main_faction && (
+            {data.faction === 'USCM' && (
               <Section title="Эвакуация">
                 {AlertLevel < 2 && (
                   <NoticeBox color="bad" warning textAlign="center">

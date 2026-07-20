@@ -39,7 +39,6 @@ type LobbyData = {
   confirmation_message?: string | string[];
 
   upp_enabled: BooleanLike;
-  uscm_enabled: BooleanLike;
   xenomorph_enabled: BooleanLike;
   predator_enabled: BooleanLike;
   fax_responder_enabled: BooleanLike;
@@ -302,7 +301,6 @@ const LobbyButtons = (props: {
     readied,
     predator_enabled,
     fax_responder_enabled,
-	uscm_enabled,
     upp_enabled,
     tutorials_ready,
     xenomorph_enabled,
@@ -465,7 +463,6 @@ const LobbyButtons = (props: {
           <>
             <Stack.Item>
               <Stack>
-			  {!!uscm_enabled && (
                 <Stack.Item grow>
                   <LobbyButton
                     index={6}
@@ -476,8 +473,6 @@ const LobbyButtons = (props: {
                   </LobbyButton>
                 </Stack.Item>
                 <Stack.Item>
-				)}
-				<Stack.Item>
                   <LobbyButton
                     icon="list"
                     tooltip="Просмотр списка экипажа"
