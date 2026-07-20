@@ -7,5 +7,5 @@
 
 	tail = null
 
-/mob/living/carbon/human/necoarc/Initialize(mapload) //SS220 ADD
-	. = ..(mapload, new_species = "Necoarc") //SS220 ADD
+/mob/living/carbon/human/necoarc/Initialize(mapload)
+	. = ..(mapload, new_species = "Necoarc")
