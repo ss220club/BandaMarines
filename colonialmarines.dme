@@ -877,6 +877,7 @@
 #include "code\game\area\White_Antre.dm"
 #include "code\game\area\Yautja.dm"
 #include "code\game\camera_manager\camera_manager.dm"
+#include "code\game\gamemodes\colonialmarines\UPP.dm"
 #include "code\game\cas_manager\datums\cas_fire_envelope.dm"
 #include "code\game\cas_manager\datums\cas_fire_mission.dm"
 #include "code\game\cas_manager\datums\cas_iff_group.dm"
@@ -2730,5 +2731,4 @@
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
 #include "maps\_basemap.dm"
-#include "modular\modular.dme" // BANDASTATION EDIT
 // END_INCLUDE
