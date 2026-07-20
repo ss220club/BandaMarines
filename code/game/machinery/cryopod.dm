@@ -384,7 +384,7 @@ GLOBAL_LIST_INIT(frozen_items, list(SQUAD_MARINE_1 = list(), SQUAD_MARINE_2 = li
 	GLOB.frozen_crew += "[occupant.real_name] ([occupant.job])"
 
 	if(!gearless_role(occupant))
-		ai_silent_announcement("[occupant.real_name], [occupant.job], has entered long-term hypersleep storage. Belongings moved to hypersleep inventory.")
+		ai_silent_announcement("[occupant.real_name], [occupant.job], погружен[genderize_ru(occupant.gender, "", "а", "о", "ы")] в долгосрочное криохранилище. Вещи перемещены на склад криохранилища.")
 	visible_message(SPAN_NOTICE("[src] hums and hisses as it moves [occupant.real_name] into hypersleep storage."))
 
 	//Delete the mob.
@@ -425,7 +425,7 @@ GLOBAL_LIST_INIT(frozen_items, list(SQUAD_MARINE_1 = list(), SQUAD_MARINE_2 = li
 
 		if(willing)
 
-			visible_message(SPAN_NOTICE("[user] starts putting [M] into [src]."),
+			visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts putting [M] into [src]."),
 			SPAN_NOTICE("You start putting [M] into [src]."))
 
 			if(!do_after(user, 20, INTERRUPT_ALL, BUSY_ICON_GENERIC))
@@ -473,7 +473,7 @@ GLOBAL_LIST_INIT(frozen_items, list(SQUAD_MARINE_1 = list(), SQUAD_MARINE_2 = li
 	go_out() //Not adding a delay for this because for some reason it refuses to work. Not a big deal imo
 	add_fingerprint(user) // Now we use user not occupant as the occupant has been ejected
 
-	to_chat(occupant, SPAN_NOTICE("You get out of \the [src]."))
+	to_chat(occupant, SPAN_NOTICE("Вы выходите из [declent_ru(GENITIVE)]."))
 	if(!silent_exit)
 		visible_message(SPAN_WARNING("\The [src]'s casket starts moving!"))
 		var/area/location = get_area(user) //Logs the exit
