@@ -495,7 +495,7 @@
 				var/obj/item/card/id/card = human_user.get_idcard()
 
 				if(!card || (!(COMMAND_ACCESS in card.access) && !(PILOT_ACCESS in card.access))) // if no card or not enough access, check for held id
-
+					card = locate(/obj/item/card/id) in human_user
 				if(!card || (!(COMMAND_ACCESS in card.access) && !(PILOT_ACCESS in card.access))) // still no valid card found?
 					to_chat(user, SPAN_NOTICE("[src]'s screen says \"Unauthorized access. Please inform your supervisor\"."))
 					return

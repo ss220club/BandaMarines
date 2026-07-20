@@ -475,7 +475,6 @@ const LobbyButtons = (props: {
                     Присоединиться за ККМП
                   </LobbyButton>
                 </Stack.Item>
-                <Stack.Item>
 				)}
 				<Stack.Item>
                   <LobbyButton

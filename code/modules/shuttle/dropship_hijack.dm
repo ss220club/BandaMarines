@@ -185,7 +185,6 @@
 				turfs += get_area_turfs(/area/almayer/shipboard/brig/perma)
 				turfs += get_area_turfs(/area/almayer/shipboard/brig/processing)
 				turfs += get_area_turfs(/area/almayer/shipboard/brig/medical)
-				turfs += get_area_turfs(/area/almayer/shipboard/brig/mp_bunks)
 				turfs += get_area_turfs(/area/almayer/shipboard/brig/chief_mp_office)
 				turfs += get_area_turfs(/area/almayer/command/cichallway)
 				turfs += get_area_turfs(/area/almayer/command/cic)
