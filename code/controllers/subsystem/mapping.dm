@@ -431,7 +431,7 @@ SUBSYSTEM_DEF(mapping)
 /// Gets a name for the marine ship as per the enabled ship map configuration
 /datum/controller/subsystem/mapping/proc/get_main_ship_name()
 	if(SSticker.mode == GAMEMODE_UPP_DISTRESS_SIGNAL || GLOB.master_mode == GAMEMODE_UPP_DISTRESS_SIGNAL)
-		return "RSS Rostov"
+		return "SSV Rostock"
 	if(!configs)
 		return MAIN_SHIP_DEFAULT_NAME
 	var/datum/map_config/MC = configs[SHIP_MAP]
