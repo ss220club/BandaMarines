@@ -33,7 +33,6 @@
 			continue
 		new /obj/item/stack/snow(S, S.bleed_layer)
 		S.changing_layer(0)
-	var/list/turfs_to_clear = turfs_ahead      // BANDAMARINES EDIT START
-	for(var/turf/T in turfs_to_clear)
+	for(var/turf/T in turfs_ahead)             // BANDAMARINES EDIT START
 		for(var/obj/effect/alien/weeds/W in T)
 			qdel(W)                            // BANDAMARINES EDIT END
