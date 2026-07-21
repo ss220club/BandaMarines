@@ -49025,7 +49025,7 @@
 	pixel_y = 25;
 	pixel_x = 1
 	},
-/obj/item/tool/kitchen/utensil/pfork,
+/obj/item/tool/kitchen/utensil/fork/plastic,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/lazarus/security)
 "ukS" = (

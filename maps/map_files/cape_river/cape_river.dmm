@@ -38094,7 +38094,7 @@
 /area/caperiver/indoors/caves/sw)
 "hEa" = (
 /obj/item/trash/tray,
-/obj/item/tool/kitchen/utensil/pfork,
+/obj/item/tool/kitchen/utensil/fork/plastic,
 /obj/structure/surface/table/almayer,
 /turf/open/floor/kutjevo/tan/alt_edge/north,
 /area/caperiver/indoors/miningbase/rec)
@@ -45073,7 +45073,7 @@
 /turf/open/desert/rock,
 /area/caperiver/oob)
 "mGq" = (
-/obj/item/tool/kitchen/utensil/pknife,
+/obj/item/tool/kitchen/utensil/knife/plastic,
 /turf/open/floor/darkblue2/east,
 /area/caperiver/indoors/conambase/unknown)
 "mGJ" = (
@@ -56087,7 +56087,7 @@
 	name = "\improper UA Prepared Meal (cornbread)";
 	pixel_y = 9
 	},
-/obj/item/tool/kitchen/utensil/pknife,
+/obj/item/tool/kitchen/utensil/knife/plastic,
 /obj/structure/surface/table/almayer,
 /turf/open/floor/kutjevo/tan/alt_edge,
 /area/caperiver/indoors/miningbase/rec)
