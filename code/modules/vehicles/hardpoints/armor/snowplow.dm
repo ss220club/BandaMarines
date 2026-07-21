@@ -6,8 +6,10 @@
 	disp_icon = "tank"
 	disp_icon_state = "snowplow"
 
-	health = 500 //BANDAMARINES EDIT - Original: 150
-	activatable = 1
+	health = 500                     // BANDAMARINES EDIT START - Original: 150
+	activatable = 0 
+	var/wall_ram_damage_bonus = 500
+	var/wall_ram_self_damage = 10    // BANDAMARINES EDIT END
 
 /obj/item/hardpoint/armor/snowplow/livingmob_interact(mob/living/M)
 	var/turf/targ = get_step(M, owner.dir)
@@ -31,3 +33,7 @@
 			continue
 		new /obj/item/stack/snow(S, S.bleed_layer)
 		S.changing_layer(0)
+	var/list/turfs_to_clear = turfs_ahead      // BANDAMARINES EDIT START
+	for(var/turf/T in turfs_to_clear)
+		for(var/obj/effect/alien/weeds/W in T)
+			qdel(W)                            // BANDAMARINES EDIT END
