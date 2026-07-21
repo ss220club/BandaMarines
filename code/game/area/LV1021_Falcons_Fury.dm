@@ -28,6 +28,9 @@
 /area/lv1021/oob
 	name = "Out Of Bounds"
 	icon_state = "unknown"
+	soundscape_playlist = SCAPE_PL_LV759_INDOORS
+	ambience_exterior = AMBIENCE_JUNGLE_ALT
+	ceiling_muffle = FALSE
 	ceiling = CEILING_MAX
 	is_resin_allowed = FALSE
 	flags_area = AREA_NOTUNNEL|AREA_NOBURROW
@@ -208,11 +211,11 @@
 	ceiling = CEILING_UNDERGROUND_BLOCK_CAS
 	soundscape_playlist = SCAPE_PL_LV759_DEEPCAVES
 	ceiling_muffle = FALSE
-	minimap_color = MINIMAP_AREA_HYBRISACAVES
+	minimap_color = MINIMAP_AREA_MINING
 	unoviable_timer = FALSE
 
 /area/lv1021/indoors/caves/landing_zone
-	name = "LV-1021 - Cave - Landing Zone 2"
+	name = "LV-1021 - Jungle Cavern - Landing Zone 2"
 	unoviable_timer = TRUE
 	ceiling = CEILING_UNDERGROUND_ALLOW_CAS
 
