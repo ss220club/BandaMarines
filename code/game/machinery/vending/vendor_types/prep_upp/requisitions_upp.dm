@@ -24,7 +24,7 @@
 		list("M82F Flare Gun", floor(scale * 20), /obj/item/weapon/gun/flare, VENDOR_ITEM_REGULAR),
 
 		list("RESTRICTED FIREARMS", -1, null, null),
-		list("Type-19 Submachinegun", floor(scale * 3), /obj/item/storage/box/guncase/type19, VENDOR_ITEM_REGULAR),
+		list("Type-19 Submachinegun", floor(scale * 1), /obj/item/storage/box/guncase/type19, VENDOR_ITEM_REGULAR),
 		list("AK-4047 Pulse Rifle", floor(scale * 3), /obj/item/storage/box/guncase/ak4047, VENDOR_ITEM_REGULAR),
 		list("M240 Incinerator Unit", floor(scale * 2), /obj/item/storage/box/guncase/flamer, VENDOR_ITEM_REGULAR),
 
@@ -168,7 +168,7 @@
 		list("Type 64 Helical AP Magazine (7.62x19mm)", floor(scale * 10), /obj/item/ammo_magazine/smg/bizon/ap, VENDOR_ITEM_REGULAR),
 
 		list("RESTRICTED FIREARM AMMUNITION", -1, null, null),
-		list("Type-19 stick magazine (7.62x25mm)", floor(scale * 12), /obj/item/ammo_magazine/smg/pps43, VENDOR_ITEM_REGULAR),
+		list("Type-19 stick magazine (7.62x25mm)", floor(scale * 1), /obj/item/ammo_magazine/smg/pps43, VENDOR_ITEM_REGULAR),
 		list("Type-19 drum magazine (7.62x25mm)", floor(scale * 1), /obj/item/ammo_magazine/smg/pps43/extended, VENDOR_ITEM_REGULAR),
 		list("AK-4047 magazine (10x24mm)", floor(scale * 12), /obj/item/ammo_magazine/rifle/ak4047, VENDOR_ITEM_REGULAR),
 		list("AK-4047 AP magazine (10x24mm)", floor(scale * 1), /obj/item/ammo_magazine/rifle/ak4047/ap, VENDOR_ITEM_REGULAR),
