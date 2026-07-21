@@ -13,8 +13,8 @@
 
 /datum/emergency_call/wy_bodyguard/New()
 	..()
-	dispatch_message = "[MAIN_SHIP_NAME], this is a Weyland-Yutani Corporate Security Protection Detail shuttle inbound to the Liaison's Beacon."
-	objectives = "Protect the Corporate Liaison and follow his commands, unless it goes against Company policy. Do not damage Wey-Yu property."
+	dispatch_message = "[MAIN_SHIP_NAME], это челнок группы корпоративной охраны Вейланд-Ютани. На подходе к маяку связного." //SS220 EDIT
+	objectives = "Обеспечьте безопасность связного Корпорации. Выполняйте его приказы, если они не противоречат политике Компании. Не причиняйте ущерба имуществу «Вейланд-Ютани»." //SS220 EDIT
 
 /datum/emergency_call/wy_bodyguard/create_member(datum/mind/responder_mind, turf/override_spawn_loc)
 	var/turf/spawn_loc = override_spawn_loc ? override_spawn_loc : get_spawn_point()
