@@ -122,6 +122,7 @@
 #define CORRUPTED_ALLY (1<<21)
 #define FAKESOUL (1<<22) // Lets things without souls pretend like they do
 // NOTE: Don't add flags past 1<<23, it'll break things due to BYOND limitations. You can usually use a Component instead.
+#define CRUSHER_CHARGING (1<<23) // Crusher is charging through mobs
 
 // =============================
 // hive types
