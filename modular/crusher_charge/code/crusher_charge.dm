@@ -19,11 +19,11 @@
 	should_destroy_objects = TRUE
 	throw_speed = SPEED_FAST
 	tracks_target = FALSE
-	var/direct_hit_damage = 60
-	var/frontal_armor = 15
+	direct_hit_damage = 60
+	frontal_armor = 15
 	var/charge_slowdown = 3
 	// Object types that don't reduce cooldown when hit
-	var/list/not_reducing_objects = list()
+	not_reducing_objects = list()
 	// Two-stage activation
 	var/charge_window = 5 SECONDS
 	var/activated_once = FALSE
@@ -275,8 +275,7 @@
 	xeno.attack_log += text("\[[time_stamp()]\] <font color='red'>crusher charged [human] ([human.ckey])</font>")
 	log_attack("[xeno] ([xeno.ckey]) crusher charged [human] ([human.ckey])")
 
-	human.apply_armoured_damage(direct_hit_damage, ARMOR_MELEE, BRUTE, "chest", 5)
-
+	human.apply_armoured_damage(direct_hit_damage, ARMOR_MELEE, BRUTE, rand_zone("chest", 70), 5)
 	xeno.visible_message(
 		SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] таранит [human.declent_ru(ACCUSATIVE)]!"),
 		SPAN_XENODANGER("Вы тараните [human.declent_ru(ACCUSATIVE)]!")
