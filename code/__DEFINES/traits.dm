@@ -219,6 +219,8 @@
 #define TRAIT_DEXTROUS "t_dextrous"
 /// If the mob is currently charging (xeno only)
 #define TRAIT_CHARGING "t_charging"
+/// If the mob is currently performing a crusher charge (xeno only)
+#define TRAIT_CRUSHER_CHARGING "t_crusher_charging"
 /// If the mob has leadership abilities (giving orders).
 #define TRAIT_LEADERSHIP "t_leadership"
 /// If the mob is a acting squad leader (incapable of the leadership abilities).
@@ -387,6 +389,7 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 		"TRAIT_NEARSIGHTED_EQUIPMENT" = TRAIT_NEARSIGHTED_EQUIPMENT,
 		"TRAIT_DEXTROUS" = TRAIT_DEXTROUS,
 		"TRAIT_CHARGING" = TRAIT_CHARGING,
+		"TRAIT_CRUSHER_CHARGING" = TRAIT_CRUSHER_CHARGING,
 		"TRAIT_LEADERSHIP" = TRAIT_LEADERSHIP,
 		"TRAIT_REAGENT_SCANNER" = TRAIT_REAGENT_SCANNER,
 		"TRAIT_SPOTTER_LAZED" = TRAIT_SPOTTER_LAZED,
