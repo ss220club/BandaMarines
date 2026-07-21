@@ -35,7 +35,6 @@
 /datum/action/xeno_action/activable/pounce/crusher_charge/New()
 	. = ..()
 	not_reducing_objects = typesof(/obj/structure/barricade) + typesof(/obj/structure/machinery/defenses)
-	// We'll use signals instead of collision_callbacks for better control
 	pounce_callbacks = list()
 	pounce_callbacks[/obj] = DYNAMIC(/mob/living/carbon/xenomorph/proc/pounced_obj_wrapper)
 	pounce_callbacks[/turf] = DYNAMIC(/mob/living/carbon/xenomorph/proc/pounced_turf_wrapper)
@@ -63,7 +62,6 @@
 
 		pre_windup_effects()
 
-		// Jitter runs through windup and the charged wait window, stopped by execute_charge.
 		xeno.xeno_jitter(windup_duration + charge_window)
 
 		if(!do_after(xeno, windup_duration, INTERRUPT_INCAPACITATED|INTERRUPT_CHANGED_LYING, BUSY_ICON_HOSTILE))
@@ -73,13 +71,11 @@
 			xeno.stop_xeno_jitter()
 			return
 
-		// Don't call post_windup_effects here - crest stays lowered until after the charge
-
 		activated_once = TRUE
 		stored_target = target
 		apply_cooldown()
 
-		to_chat(xeno, SPAN_XENOWARNING("Рывок заряжен! Выберите направление в течение 5 секунд!"))
+		to_chat(xeno, SPAN_XENOWARNING("Рывок заряжен!"))
 
 		charge_timeout_timer_id = addtimer(CALLBACK(src, PROC_REF(charge_timeout)), charge_window, TIMER_STOPPABLE)
 		return ..()
@@ -182,7 +178,6 @@
 		if(!do_after(xeno, 2 SECONDS, INTERRUPT_ALL, BUSY_ICON_HOSTILE))
 			return FALSE
 
-	// No windup here - charge was already done during first click
 	xeno.set_face_dir(get_cardinal_dir(xeno, target))
 
 	xeno.visible_message(SPAN_XENOWARNING("[xeno] [action_text][findtext(action_text, "e", -1) || findtext(action_text, "p", -1) ? "s" : "es"] в [target]!"), SPAN_XENOWARNING("Мы [action_text] в [target]!"))
@@ -215,7 +210,6 @@
 
 	additional_effects_always()
 
-	// Raise the crest after charge is complete
 	post_windup_effects(interrupted = FALSE)
 
 	xeno.update_icons()
@@ -282,7 +276,15 @@
 	xeno.attack_log += text("\[[time_stamp()]\] <font color='red'>crusher charged [human] ([human.ckey])</font>")
 	log_attack("[xeno] ([xeno.ckey]) crusher charged [human] ([human.ckey])")
 
-	human.take_overall_armored_damage(direct_hit_damage, ARMOR_MELEE, BRUTE, null, 10)
+	// Damage to a random limb, with priority of choice like alien_attack
+	var/obj/limb/affecting = human.get_limb(rand_zone("chest", 70))
+	if(!affecting)
+		affecting = human.get_limb(rand_zone(null, 0))
+	if(!affecting)
+		affecting = human.get_limb("chest")
+	var/armor_block = human.getarmor(affecting, ARMOR_MELEE)
+	var/f_damage = armor_damage_reduction(GLOB.marine_melee, direct_hit_damage, armor_block, 10)
+	human.apply_damage(f_damage, BRUTE, affecting)
 
 	xeno.visible_message(
 		SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] таранит [human.declent_ru(ACCUSATIVE)]!"),
