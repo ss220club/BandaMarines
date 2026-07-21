@@ -150,7 +150,7 @@
 	name_of_spawn = /obj/effect/landmark/ert_spawns/distress_pmc
 	item_spawn = /obj/effect/landmark/ert_spawns/distress_pmc/item
 	probability = 0
-	ert_message = "Была запрошена команда корпоративных правовых представителей Вейланд-Ютани." //SS220 EDIT
+	ert_message = "Была запрошена команда правовых представителей Вейланд-Ютани." //SS220 EDIT
 	time_required_for_job = 15 HOURS
 
 /datum/emergency_call/inspection_wy/lawyer/New()
