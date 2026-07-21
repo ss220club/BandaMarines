@@ -32,11 +32,8 @@
 /datum/action/xeno_action/activable/pounce/crusher_charge/New()
 	. = ..()
 	not_reducing_objects = typesof(/obj/structure/barricade) + typesof(/obj/structure/machinery/defenses)
-	// Override collision callbacks to pass through mobs
+	// We'll use signals instead of collision_callbacks for better control
 	pounce_callbacks = list()
-	pounce_callbacks[/mob/living/carbon/human] = CALLBACK(src, PROC_REF(handle_human_collision))
-	pounce_callbacks[/mob/living/carbon/xenomorph] = CALLBACK(src, PROC_REF(handle_xeno_collision))
-	pounce_callbacks[/mob/living/carbon] = CALLBACK(src, PROC_REF(handle_mob_collision))
 	pounce_callbacks[/obj] = DYNAMIC(/mob/living/carbon/xenomorph/proc/pounced_obj_wrapper)
 	pounce_callbacks[/turf] = DYNAMIC(/mob/living/carbon/xenomorph/proc/pounced_turf_wrapper)
 
@@ -64,18 +61,24 @@
 		ADD_TRAIT(xeno, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Crusher Charge"))
 		xeno.anchored = TRUE
 
-		// Camera shake during charging
-		shake_camera(xeno, windup_duration * 0.1, windup_duration * 0.1)
+		// Apply visual effects (lowered crest)
+		pre_windup_effects()
+
+		// Make crusher jitter during charging
+		var/jitter_duration = round(windup_duration / 0.1) // Convert to ticks (1 tick = 0.1 seconds)
+		xeno.xeno_jitter(jitter_duration)
 
 		// Perform the windup with visual indicator
 		if(!do_after(xeno, windup_duration, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE))
 			to_chat(xeno, SPAN_XENODANGER("Мы отменяем зарядку рывка!"))
 			REMOVE_TRAIT(xeno, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Crusher Charge"))
 			xeno.anchored = FALSE
+			post_windup_effects(interrupted = TRUE)
 			return
 
 		REMOVE_TRAIT(xeno, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Crusher Charge"))
 		xeno.anchored = FALSE
+		// Don't call post_windup_effects here - crest stays lowered until after the charge
 
 		activated_once = TRUE
 		stored_target = target
@@ -172,15 +175,92 @@
 
 	pre_pounce_effects()
 
+	// Set flag that we're in crusher charge mode
+	xeno.status_flags |= CRUSHER_CHARGING
+
 	xeno.pounce_distance = get_dist(xeno, target)
 	if(xeno.z != target.z)
 		xeno.pounce_distance += 2
-	xeno.throw_atom(target, distance, throw_speed, xeno, launch_type = LOW_LAUNCH, pass_flags = pounce_pass_flags, collision_callbacks = pounce_callbacks, tracking=TRUE)
+
+	// Allow charge to pass through mobs without stopping, but still process collisions with them
+	RegisterSignal(xeno, COMSIG_MOVABLE_TURF_ENTER, PROC_REF(charge_turf_enter))
+	RegisterSignal(xeno, COMSIG_MOVABLE_MOVED, PROC_REF(charge_moved))
+
+	xeno.throw_atom(target, distance, throw_speed, xeno, launch_type = LOW_LAUNCH, pass_flags = pounce_pass_flags, collision_callbacks = pounce_callbacks, end_throw_callbacks = list(CALLBACK(src, PROC_REF(charge_end))), tracking=TRUE)
 	xeno.update_icons()
+
+	return TRUE
+
+/datum/action/xeno_action/activable/pounce/crusher_charge/proc/charge_end(atom/movable/thrown_atom)
+	var/mob/living/carbon/xenomorph/xeno = owner
+	if(!istype(xeno))
+		return
+
+	UnregisterSignal(xeno, list(COMSIG_MOVABLE_TURF_ENTER, COMSIG_MOVABLE_MOVED))
+
+	// Clear flag after charge actually ends
+	xeno.status_flags &= ~CRUSHER_CHARGING
 
 	additional_effects_always()
 
-	return TRUE
+	// Raise the crest after charge is complete
+	post_windup_effects(interrupted = FALSE)
+
+	xeno.update_icons()
+
+/datum/action/xeno_action/activable/pounce/crusher_charge/proc/charge_turf_enter(mob/living/carbon/xenomorph/xeno, turf/entering_turf)
+	SIGNAL_HANDLER
+	if(!istype(xeno) || !istype(entering_turf))
+		return NONE
+
+	// Don't override if the turf itself is impassable
+	if(entering_turf.density && entering_turf.turf_flags & TURF_HULL)
+		return NONE
+
+	var/move_dir = get_dir(xeno, entering_turf)
+
+	// Only allow movement if the only blockers are living mobs
+	for(var/atom/A in entering_turf)
+		if(A == xeno || !A.can_block_movement)
+			continue
+		if(isliving(A))
+			continue
+		if(A.BlockedPassDirs(xeno, move_dir))
+			return NONE
+
+	return COMPONENT_TURF_ALLOW_MOVEMENT
+
+/datum/action/xeno_action/activable/pounce/crusher_charge/proc/charge_moved(mob/living/carbon/xenomorph/xeno, atom/oldloc, direction, forced)
+	SIGNAL_HANDLER
+	if(!istype(xeno) || !(xeno.status_flags & CRUSHER_CHARGING))
+		return
+
+	// Apply charge collision effects to every mob we moved onto
+	for(var/mob/living/M in xeno.loc)
+		if(M == xeno)
+			continue
+		if(ishuman(M))
+			INVOKE_ASYNC(src, PROC_REF(handle_human_collision), M)
+		else if(isxeno(M))
+			INVOKE_ASYNC(src, PROC_REF(handle_xeno_collision), M)
+		else
+			INVOKE_ASYNC(src, PROC_REF(handle_mob_collision), M)
+
+/datum/action/xeno_action/activable/pounce/crusher_charge/proc/handle_charge_collision(mob/living/carbon/xenomorph/xeno, atom/target_atom)
+	// Only handle mob collisions, let objects/turfs stop the charge
+	if(!isliving(target_atom))
+		return
+
+	// Call appropriate handler based on mob type
+	if(ishuman(target_atom))
+		handle_human_collision(target_atom)
+	else if(isxeno(target_atom))
+		handle_xeno_collision(target_atom)
+	else if(isliving(target_atom))
+		handle_mob_collision(target_atom)
+
+	// Return signal to continue movement through the mob
+	return COMPONENT_LIVING_COLLIDE_HANDLED
 
 /datum/action/xeno_action/activable/pounce/crusher_charge/proc/handle_human_collision(mob/living/carbon/human/human)
 	var/mob/living/carbon/xenomorph/xeno = owner
@@ -221,10 +301,7 @@
 		log_attack("[xeno] ([xeno.ckey]) crusher charged [target_xeno] ([target_xeno.ckey])")
 		target_xeno.apply_damage(direct_hit_damage * 0.5, BRUTE)
 
-	if(target_xeno.anchored)
-		return
-
-	if(isqueen(target_xeno) || IS_XENO_LEADER(target_xeno) || isboiler(target_xeno))
+	if(target_xeno.anchored || isqueen(target_xeno) || IS_XENO_LEADER(target_xeno) || isboiler(target_xeno))
 		return
 
 	var/list/ram_dirs = get_perpen_dir(xeno.dir)
@@ -274,6 +351,25 @@
 
 /datum/action/xeno_action/activable/pounce/crusher_charge/initialize_pounce_pass_flags()
 	pounce_pass_flags = PASS_CRUSHER_CHARGE
+
+// Override launch_impact for xenomorphs to handle crusher charge
+/mob/living/carbon/xenomorph/launch_impact(atom/hit_atom)
+	// If crusher is charging through mobs, handle collisions differently
+	if(status_flags & CRUSHER_CHARGING && isliving(hit_atom))
+		var/datum/action/xeno_action/activable/pounce/crusher_charge/charge_ability = get_action(src, /datum/action/xeno_action/activable/pounce/crusher_charge)
+		if(charge_ability)
+			// Handle the collision but don't stop throwing
+			if(ishuman(hit_atom))
+				charge_ability.handle_human_collision(hit_atom)
+			else if(isxeno(hit_atom))
+				charge_ability.handle_xeno_collision(hit_atom)
+			else if(isliving(hit_atom))
+				charge_ability.handle_mob_collision(hit_atom)
+			// Don't set throwing = FALSE, just return to continue the charge
+			return
+
+	// Default behavior for non-crusher-charge impacts
+	return ..()
 
 /datum/action/xeno_action/onclick/crusher_stomp
 	name = "Stomp"

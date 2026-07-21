@@ -120,6 +120,7 @@
 #define NO_PERMANENT_DAMAGE (1<<20)
 #define CORRUPTED_ALLY (1<<21)
 #define FAKESOUL (1<<22) // Lets things without souls pretend like they do
+#define CRUSHER_CHARGING (1<<23) // Crusher is charging through mobs
 
 // =============================
 // hive types
