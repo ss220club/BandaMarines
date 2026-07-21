@@ -125,7 +125,7 @@ GLOBAL_LIST_EMPTY(upp_officers)
 		//		GLOB.round_statistics.current_map.total_xeno_victories++
 		//		GLOB.round_statistics.current_map.total_xeno_majors++
 		if(MODE_FACTION_CLASH_UPP_MAJOR)
-			musical_track = pick('sound/theme/winning_triumph1.ogg','sound/theme/winning_triumph2.ogg','sound/theme/winning_triumph3.ogg')
+			musical_track = pick('sound/theme/lastmanstanding_upp.ogg'')
 			end_icon = "upp_major"
 		//	if(GLOB.round_statistics && GLOB.round_statistics.current_map)
 		//		GLOB.round_statistics.current_map.total_marine_victories++
@@ -158,7 +158,7 @@ GLOBAL_LIST_EMPTY(upp_officers)
 		//	if(GLOB.round_statistics && GLOB.round_statistics.current_map)
 		//		GLOB.round_statistics.current_map.total_xeno_victories++
 		if(MODE_FACTION_CLASH_UPP_MINOR)
-			musical_track = pick('sound/theme/neutral_hopeful1.ogg','sound/theme/neutral_hopeful2.ogg')
+			musical_track = pick('sound/theme/lastmanstanding_upp.ogg')
 			end_icon = "upp_minor"
 			if(GLOB.round_statistics && GLOB.round_statistics.current_map)
 				GLOB.round_statistics.current_map.total_marine_victories++
