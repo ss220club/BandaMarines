@@ -28,7 +28,6 @@
 	var/charge_window = 5 SECONDS
 	var/activated_once = FALSE
 	var/slowdown_active = FALSE
-	var/atom/stored_target = null
 	var/charge_timeout_timer_id = TIMER_ID_NULL
 
 /datum/action/xeno_action/activable/pounce/crusher_charge/New()
@@ -69,7 +68,6 @@
 			xeno.stop_xeno_jitter()
 			return
 		activated_once = TRUE
-		stored_target = target
 		apply_cooldown()
 		to_chat(xeno, SPAN_XENOWARNING("Рывок заряжен!"))
 		playsound(xeno, 'sound/effects/alien_footstep_charge2.ogg', 50)
@@ -154,13 +152,16 @@
 			while(istype(turf_in_path, /turf/open_space))
 				turf_in_path = SSmapping.get_turf_below(turf_in_path)
 
+			if(!turf_in_path)
+				continue
+
 			if(turf_in_path.density && turf_in_path.turf_flags & TURF_HULL)
-				to_chat(xeno, SPAN_WARNING("You can't jump over an object in your path."))
+				to_chat(xeno, SPAN_WARNING("Мы не можем перепрыгнуть через препятствие на нашем пути!"))
 				return FALSE
 
 			for(var/obj/structure/cur_obj in turf_in_path.contents)
 				if(cur_obj.density && cur_obj.unslashable && cur_obj.unacidable)
-					to_chat(xeno, SPAN_WARNING("You can't jump over an object in your path."))
+					to_chat(xeno, SPAN_WARNING("Мы не можем перепрыгнуть через препятствие на нашем пути!"))
 					return FALSE
 
 		if(!do_after(xeno, 0.5 SECONDS, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE))
@@ -172,7 +173,7 @@
 
 	xeno.set_face_dir(get_cardinal_dir(xeno, target))
 
-	xeno.visible_message(SPAN_XENOWARNING("[xeno] [action_text][findtext(action_text, "e", -1) || findtext(action_text, "p", -1) ? "s" : "es"] в [target]!"), SPAN_XENOWARNING("Мы [action_text] в [target]!"))
+	xeno.visible_message(SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] несётся в [target.declent_ru(ACCUSATIVE)]!"), SPAN_XENOWARNING("Мы несёмся в [target.declent_ru(ACCUSATIVE)]!"))
 
 	pre_pounce_effects()
 
@@ -240,7 +241,7 @@
 			INVOKE_ASYNC(src, PROC_REF(handle_human_collision), M)
 		else if(isxeno(M))
 			INVOKE_ASYNC(src, PROC_REF(handle_xeno_collision), M)
-		else
+		else if(iscarbon(M))
 			INVOKE_ASYNC(src, PROC_REF(handle_mob_collision), M)
 
 /datum/action/xeno_action/activable/pounce/crusher_charge/proc/handle_charge_collision(mob/living/carbon/xenomorph/xeno, atom/target_atom)
@@ -261,7 +262,8 @@
 
 /datum/action/xeno_action/activable/pounce/crusher_charge/proc/handle_human_collision(mob/living/carbon/human/human)
 	var/mob/living/carbon/xenomorph/xeno = owner
-
+	if(!istype(xeno) || !istype(human))
+		return
 	playsound(human.loc, "punch", 25, TRUE)
 	human.attack_log += text("\[[time_stamp()]\] <font color='orange'>was crusher charged by [xeno] ([xeno.ckey])</font>")
 	xeno.attack_log += text("\[[time_stamp()]\] <font color='red'>crusher charged [human] ([human.ckey])</font>")
@@ -298,7 +300,8 @@
 
 /datum/action/xeno_action/activable/pounce/crusher_charge/proc/handle_xeno_collision(mob/living/carbon/xenomorph/target_xeno)
 	var/mob/living/carbon/xenomorph/xeno = owner
-
+	if(!istype(xeno) || !istype(target_xeno))
+		return
 	playsound(target_xeno.loc, "punch", 25, TRUE)
 
 	if(!xeno.ally_of_hivenumber(target_xeno.hivenumber))
@@ -328,7 +331,8 @@
 
 /datum/action/xeno_action/activable/pounce/crusher_charge/proc/handle_mob_collision(mob/living/carbon/mob)
 	var/mob/living/carbon/xenomorph/xeno = owner
-
+	if(!istype(xeno) || !istype(mob))
+		return
 	playsound(mob.loc, "punch", 25, TRUE)
 	mob.attack_log += text("\[[time_stamp()]\] <font color='orange'>was crusher charged by [xeno] ([xeno.ckey])</font>")
 	xeno.attack_log += text("\[[time_stamp()]\] <font color='red'>crusher charged [mob] ([mob.ckey])</font>")
