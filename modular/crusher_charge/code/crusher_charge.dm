@@ -8,7 +8,7 @@
 	xeno_cooldown = 14 SECONDS
 	plasma_cost = 20
 	// Config options
-	distance = 9
+	distance = 7
 	knockdown = TRUE
 	knockdown_duration = 2
 	slash = FALSE
@@ -53,7 +53,7 @@
 	if(!activated_once)
 		if(!check_and_use_plasma_owner())
 			return
-
+		playsound(xeno, 'sound/effects/alien_footstep_charge1.ogg', 50)
 		xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] начинает заряжать рывок!"), SPAN_XENODANGER("Мы начинаем заряжать рывок!"))
 
 		xeno.set_face_dir(get_cardinal_dir(xeno, target))
@@ -62,20 +62,17 @@
 		pre_windup_effects()
 
 		xeno.xeno_jitter(windup_duration + charge_window)
-
 		if(!do_after(xeno, windup_duration, INTERRUPT_INCAPACITATED|INTERRUPT_CHANGED_LYING, BUSY_ICON_HOSTILE))
 			to_chat(xeno, SPAN_XENODANGER("Мы отменяем зарядку рывка!"))
 			remove_charge_slowdown()
 			post_windup_effects(interrupted = TRUE)
 			xeno.stop_xeno_jitter()
 			return
-
 		activated_once = TRUE
 		stored_target = target
 		apply_cooldown()
-
 		to_chat(xeno, SPAN_XENOWARNING("Рывок заряжен!"))
-
+		playsound(xeno, 'sound/effects/alien_footstep_charge2.ogg', 50)
 		charge_timeout_timer_id = addtimer(CALLBACK(src, PROC_REF(charge_timeout)), charge_window, TIMER_STOPPABLE)
 		return ..()
 	else
@@ -109,19 +106,15 @@
 
 	activated_once = FALSE
 	charge_timeout_timer_id = TIMER_ID_NULL
-
-	if(!stored_target)
-		to_chat(xeno, SPAN_XENOWARNING("Наш рывок потерял цель!"))
-		xeno.stop_xeno_jitter()
-		remove_charge_slowdown()
-		return
-
-	to_chat(xeno, SPAN_XENOWARNING("Время вышло, мы совершаем рывок в изначальную цель!"))
-	execute_charge(stored_target)
+	to_chat(xeno, SPAN_XENOWARNING("Мы больше не можем удерживать стойку!"))
+	xeno.stop_xeno_jitter()
+	remove_charge_slowdown()
+		//return
+	post_windup_effects(interrupted = FALSE)
+	xeno.update_icons()
 
 /datum/action/xeno_action/activable/pounce/crusher_charge/proc/execute_charge(atom/target)
 	var/mob/living/carbon/xenomorph/xeno = owner
-
 	// Before checks so failed charges also stop the charge-up jitter and slowdown.
 	xeno.stop_xeno_jitter()
 	remove_charge_slowdown()
@@ -192,7 +185,6 @@
 	// Allow charge to pass through mobs without stopping, but still process collisions with them
 	RegisterSignal(xeno, COMSIG_MOVABLE_TURF_ENTER, PROC_REF(charge_turf_enter))
 	RegisterSignal(xeno, COMSIG_MOVABLE_MOVED, PROC_REF(charge_moved))
-
 	xeno.throw_atom(target, distance, throw_speed, xeno, launch_type = LOW_LAUNCH, pass_flags = pounce_pass_flags, collision_callbacks = pounce_callbacks, end_throw_callbacks = list(CALLBACK(src, PROC_REF(charge_end))), tracking=TRUE)
 	xeno.update_icons()
 
@@ -204,7 +196,7 @@
 		return
 
 	UnregisterSignal(xeno, list(COMSIG_MOVABLE_TURF_ENTER, COMSIG_MOVABLE_MOVED))
-
+	xeno.emote("roar")
 	REMOVE_TRAIT(xeno, TRAIT_CHARGING, TRAIT_SOURCE_ABILITY("Crusher Charge"))
 
 	additional_effects_always()
@@ -275,7 +267,17 @@
 	xeno.attack_log += text("\[[time_stamp()]\] <font color='red'>crusher charged [human] ([human.ckey])</font>")
 	log_attack("[xeno] ([xeno.ckey]) crusher charged [human] ([human.ckey])")
 
-	human.apply_armoured_damage(direct_hit_damage, ARMOR_MELEE, BRUTE, rand_zone("chest", 70), 5)
+	var/randomized_hit_zone
+	randomized_hit_zone = pick (
+			GLOB.organ_rel_size["groin"]; "groin",
+			GLOB.organ_rel_size["l_arm"]; "l_arm",
+			GLOB.organ_rel_size["r_arm"]; "r_arm",
+			GLOB.organ_rel_size["l_leg"]; "l_leg",
+			GLOB.organ_rel_size["r_leg"]; "r_leg",
+		)
+	if (prob(70))
+		randomized_hit_zone = "chest"
+	human.apply_armoured_damage(direct_hit_damage, ARMOR_MELEE, BRUTE, randomized_hit_zone, 5)
 	xeno.visible_message(
 		SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] таранит [human.declent_ru(ACCUSATIVE)]!"),
 		SPAN_XENODANGER("Вы тараните [human.declent_ru(ACCUSATIVE)]!")
@@ -313,7 +315,6 @@
 	var/cur_turf = get_turf(target_xeno)
 	var/target_turf = get_step(target_xeno, ram_dir)
 	if(LinkBlocked(target_xeno, cur_turf, target_turf))
-		xeno.emote("roar")
 		xeno.visible_message(
 			SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] отбрасывает [target_xeno.declent_ru(ACCUSATIVE)] в сторону!"),
 			SPAN_DANGER("Вы отбрасываете [target_xeno.declent_ru(ACCUSATIVE)] в сторону!")
