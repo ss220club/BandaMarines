@@ -24,7 +24,10 @@
 	// Object types that don't reduce cooldown when hit
 	var/list/not_reducing_objects = list()
 	// Two-stage activation
+	var/charge_window = 5 SECONDS
+	var/charge_slowdown = XENO_CRUSHER_CHARGE_SLOWDOWN
 	var/activated_once = FALSE
+	var/slowdown_active = FALSE
 	var/atom/stored_target = null
 	var/charge_timeout_timer_id = TIMER_ID_NULL
 
@@ -50,34 +53,26 @@
 		return
 
 	if(!activated_once)
-		// First click - start charging with windup
 		if(!check_and_use_plasma_owner())
 			return
 
 		xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] начинает заряжать рывок!"), SPAN_XENODANGER("Мы начинаем заряжать рывок!"))
 
-		// Lock direction and immobilize during charge
 		xeno.set_face_dir(get_cardinal_dir(xeno, target))
-		ADD_TRAIT(xeno, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Crusher Charge"))
-		xeno.anchored = TRUE
+		apply_charge_slowdown()
 
-		// Apply visual effects (lowered crest)
 		pre_windup_effects()
 
-		// Make crusher jitter during charging
-		var/jitter_duration = round(windup_duration / 0.1) // Convert to ticks (1 tick = 0.1 seconds)
-		xeno.xeno_jitter(jitter_duration)
+		// Jitter runs through windup and the charged wait window, stopped by execute_charge.
+		xeno.xeno_jitter(windup_duration + charge_window)
 
-		// Perform the windup with visual indicator
-		if(!do_after(xeno, windup_duration, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE))
+		if(!do_after(xeno, windup_duration, INTERRUPT_INCAPACITATED|INTERRUPT_CHANGED_LYING, BUSY_ICON_HOSTILE))
 			to_chat(xeno, SPAN_XENODANGER("Мы отменяем зарядку рывка!"))
-			REMOVE_TRAIT(xeno, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Crusher Charge"))
-			xeno.anchored = FALSE
+			remove_charge_slowdown()
 			post_windup_effects(interrupted = TRUE)
+			xeno.stop_xeno_jitter()
 			return
 
-		REMOVE_TRAIT(xeno, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Crusher Charge"))
-		xeno.anchored = FALSE
 		// Don't call post_windup_effects here - crest stays lowered until after the charge
 
 		activated_once = TRUE
@@ -86,18 +81,31 @@
 
 		to_chat(xeno, SPAN_XENOWARNING("Рывок заряжен! Выберите направление в течение 5 секунд!"))
 
-		// Set timeout - if no second click in 5 seconds, charge at the first target
-		charge_timeout_timer_id = addtimer(CALLBACK(src, PROC_REF(charge_timeout)), 5 SECONDS, TIMER_STOPPABLE)
+		charge_timeout_timer_id = addtimer(CALLBACK(src, PROC_REF(charge_timeout)), charge_window, TIMER_STOPPABLE)
 		return ..()
 	else
-		// Second click - execute charge at new target immediately (no windup)
 		activated_once = FALSE
 		if(charge_timeout_timer_id != TIMER_ID_NULL)
 			deltimer(charge_timeout_timer_id)
 			charge_timeout_timer_id = TIMER_ID_NULL
 
-		// Call execute_charge to perform the actual charge
 		return execute_charge(target)
+
+/datum/action/xeno_action/activable/pounce/crusher_charge/proc/apply_charge_slowdown()
+	var/mob/living/carbon/xenomorph/xeno = owner
+	if(slowdown_active || !istype(xeno))
+		return
+	xeno.speed_modifier += charge_slowdown
+	xeno.recalculate_speed()
+	slowdown_active = TRUE
+
+/datum/action/xeno_action/activable/pounce/crusher_charge/proc/remove_charge_slowdown()
+	var/mob/living/carbon/xenomorph/xeno = owner
+	if(!slowdown_active || !istype(xeno))
+		return
+	xeno.speed_modifier -= charge_slowdown
+	xeno.recalculate_speed()
+	slowdown_active = FALSE
 
 /datum/action/xeno_action/activable/pounce/crusher_charge/proc/charge_timeout()
 	var/mob/living/carbon/xenomorph/xeno = owner
@@ -109,6 +117,8 @@
 
 	if(!stored_target)
 		to_chat(xeno, SPAN_XENOWARNING("Наш рывок потерял цель!"))
+		xeno.stop_xeno_jitter()
+		remove_charge_slowdown()
 		return
 
 	to_chat(xeno, SPAN_XENOWARNING("Время вышло, мы совершаем рывок в изначальную цель!"))
@@ -116,6 +126,10 @@
 
 /datum/action/xeno_action/activable/pounce/crusher_charge/proc/execute_charge(atom/target)
 	var/mob/living/carbon/xenomorph/xeno = owner
+
+	// Before checks so failed charges also stop the charge-up jitter and slowdown.
+	xeno.stop_xeno_jitter()
+	remove_charge_slowdown()
 
 	if(!target)
 		return FALSE
@@ -175,8 +189,7 @@
 
 	pre_pounce_effects()
 
-	// Set flag that we're in crusher charge mode
-	xeno.status_flags |= CRUSHER_CHARGING
+	ADD_TRAIT(xeno, TRAIT_CRUSHER_CHARGING, TRAIT_SOURCE_ABILITY("Crusher Charge"))
 
 	xeno.pounce_distance = get_dist(xeno, target)
 	if(xeno.z != target.z)
@@ -198,8 +211,7 @@
 
 	UnregisterSignal(xeno, list(COMSIG_MOVABLE_TURF_ENTER, COMSIG_MOVABLE_MOVED))
 
-	// Clear flag after charge actually ends
-	xeno.status_flags &= ~CRUSHER_CHARGING
+	REMOVE_TRAIT(xeno, TRAIT_CRUSHER_CHARGING, TRAIT_SOURCE_ABILITY("Crusher Charge"))
 
 	additional_effects_always()
 
@@ -232,7 +244,7 @@
 
 /datum/action/xeno_action/activable/pounce/crusher_charge/proc/charge_moved(mob/living/carbon/xenomorph/xeno, atom/oldloc, direction, forced)
 	SIGNAL_HANDLER
-	if(!istype(xeno) || !(xeno.status_flags & CRUSHER_CHARGING))
+	if(!istype(xeno) || !HAS_TRAIT(xeno, TRAIT_CRUSHER_CHARGING))
 		return
 
 	// Apply charge collision effects to every mob we moved onto
@@ -355,7 +367,7 @@
 // Override launch_impact for xenomorphs to handle crusher charge
 /mob/living/carbon/xenomorph/launch_impact(atom/hit_atom)
 	// If crusher is charging through mobs, handle collisions differently
-	if(status_flags & CRUSHER_CHARGING && isliving(hit_atom))
+	if(HAS_TRAIT(src, TRAIT_CRUSHER_CHARGING) && isliving(hit_atom))
 		var/datum/action/xeno_action/activable/pounce/crusher_charge/charge_ability = get_action(src, /datum/action/xeno_action/activable/pounce/crusher_charge)
 		if(charge_ability)
 			// Handle the collision but don't stop throwing
