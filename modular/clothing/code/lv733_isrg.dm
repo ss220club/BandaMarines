@@ -334,9 +334,12 @@
 /obj/item/storage/backpack/marine/k9_synth/medicalpack/isrg
 	name = "\improper M210-I portable K9 medical backpack"
 	desc = "Медицинская упряжь K9 поисковой группы ISRG, приспособленная для переноски медикаментов."
-	icon = 'modular/lv733/icons/isrg_k9/isrg_k9_pack.dmi'
+	icon = 'modular/clothing/icon/isrg/backpack.dmi'
 	icon_override = 'modular/lv733/icons/isrg_k9/isrg_k9_pack.dmi'
-	icon_state = "isrg_medicalpack"
+	icon_state = "isrg_backpack"
+	item_state_slots = list(
+		WEAR_BACK = "isrg_medicalpack"
+	)
 
 // Гарнитура
 

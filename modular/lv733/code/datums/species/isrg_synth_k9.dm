@@ -5,7 +5,6 @@
 	icobase = 'modular/lv733/icons/isrg_k9/isrg_k9.dmi'
 	deform = 'modular/lv733/icons/isrg_k9/isrg_k9.dmi'
 	blood_mask = 'modular/lv733/icons/isrg_k9/isrg_k9.dmi'
-	blood_color = BLOOD_COLOR_HUMAN
 	flags = IS_WHITELISTED|NO_BREATHE|NO_CLONE_LOSS|NO_POISON|IS_SYNTHETIC|NO_CHEM_METABOLIZATION|NO_NEURO|NO_OVERLAYS
 
 /datum/species/synthetic/synth_k9/isrg/handle_post_spawn(mob/living/carbon/human/spawned_k9)

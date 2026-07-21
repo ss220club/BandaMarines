@@ -111,6 +111,8 @@
 		/obj/item/clothing/glasses/hud/health,
 	)
 	new_human.equip_to_slot_or_del(new /obj/item/tool/crowbar/tactical(new_human), WEAR_IN_JACKET)
+	new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/rmc_f90(new_human), WEAR_J_STORE)
+	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/rmc_f90(new_human), WEAR_IN_BACK)
 	equip_standard_backpack_contents(new_human)
 
 /datum/equipment_preset/survivor/roaf/pilot
@@ -135,7 +137,10 @@
 		/obj/item/clothing/glasses/sunglasses/aviator,
 		/obj/item/clothing/shoes/marine/royal_marine/knife/lv733/shoes_roaf_pilot,
 	)
+	new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/rmc_f90(new_human), WEAR_J_STORE)
+	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/rmc_f90(new_human), WEAR_IN_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/device/binoculars(new_human.back), WEAR_IN_BACK)
+	new_human.equip_to_slot_or_del(new /obj/item/tool/crowbar/tactical(new_human), WEAR_IN_JACKET)
 
 /datum/equipment_preset/survivor/roaf/signaller
 	name = "Survivor - ROAF Signaller"
