@@ -67,3 +67,57 @@
 	paygrade = PAY_SHORT_ROAFO3
 	name = "Командор крыла"
 	prefix = "К-р Крыла"
+
+// RAC
+
+#define FACTION_RAC "Royal Armored Cavalry"
+#define FACTION_LIST_SURVIVOR_RAC list(FACTION_SURVIVOR, FACTION_RAC, FACTION_TWE)
+
+#define JOB_TWE_RAC_RIFLEMAN "RAC Rifleman"
+#define JOB_TWE_RAC_DRIVER "RAC Driver"
+#define JOB_TWE_RAC_ENGI "RAC Engineer"
+#define JOB_TWE_RAC_MEDIC "RAC Medic"
+#define JOB_TWE_RAC_SYNTH "RAC Synthetic"
+#define JOB_TWE_RAC_SQUAD_LEADER "RAC Squad Leader"
+#define JOB_TWE_RAC_COMMANDER "RAC Commander"
+
+#define PAY_SHORT_RACE1 "RACE1"
+#define PAY_SHORT_RACE2 "RACE2"
+#define PAY_SHORT_RACE3 "RACE3"
+#define PAY_SHORT_RACS1 "RACS1"
+#define PAY_SHORT_RACO1 "RACO1"
+#define PAY_SHORT_RACO2 "RACO2"
+
+/// RAC Enlisted
+
+/datum/paygrade/twe/rac/e1
+	paygrade = PAY_SHORT_RACE1
+	name = "Рядовой"
+	prefix = "Рядовой"
+
+/datum/paygrade/twe/rac/e2
+	paygrade = PAY_SHORT_RACE2
+	name = "Капрал"
+	prefix = "Капрал"
+
+/datum/paygrade/twe/rac/e3
+	paygrade = PAY_SHORT_RACE3
+	name = "Сержант"
+	prefix = "Сержант"
+
+/datum/paygrade/twe/rac/s1
+	paygrade = PAY_SHORT_RACS1
+	name = "Сержант технического обеспечения"
+	prefix = "С-т техн. обесп."
+
+/// RAC Officer
+
+/datum/paygrade/twe/rac/o1
+	paygrade = PAY_SHORT_RACO1
+	name = "Лейтенант"
+	prefix = "Л-т"
+
+/datum/paygrade/twe/rac/o2
+	paygrade = PAY_SHORT_RACO2
+	name = "Командир звена"
+	prefix = "К-р звена"

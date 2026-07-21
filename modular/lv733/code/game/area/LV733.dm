@@ -49,7 +49,7 @@
 // Landing Zone 1
 
 /area/lv733/outdoors/landing_zone_1
-	name = "Whitchler Point ROAF - Primary Landing Zone - Landing Zone One"
+	name = "Whitchler Point ROAF - Landing Zone One"
 	icon_state = "medical_lz1"
 	is_resin_allowed =  FALSE
 	is_landing_zone = TRUE
@@ -61,21 +61,14 @@
 	soundscape_interval = 50
 
 /area/lv733/indoors/landing_zone_1/main_checkpoint
-	name = "Whitchler Point ROAF - Primary Landing Zone - Landing Zone One - Checkpoint"
-	icon_state = "hybrisa"
-	ceiling = CEILING_METAL
-	is_landing_zone = TRUE
-	linked_lz = DROPSHIP_LZ1
-
-/area/lv733/indoors/landing_zone_1/technical_corridor
-	name = "Whitchler Point ROAF - Primary Landing Zone - Landing Zone One - Technical Corridor"
+	name = "Whitchler Point ROAF - Landing Zone One - Checkpoint"
 	icon_state = "hybrisa"
 	ceiling = CEILING_METAL
 	is_landing_zone = TRUE
 	linked_lz = DROPSHIP_LZ1
 
 /area/lv733/indoors/landing_zone_1/main_hangar_bay
-	name = "Whitchler Point ROAF - Hangars - Landing Zone One - Main Hangar Bay"
+	name = "Whitchler Point ROAF - Landing Zone One - Main Hangar Bay"
 	icon_state = "hybrisa"
 	ceiling = CEILING_METAL
 	is_landing_zone = TRUE
@@ -84,48 +77,27 @@
 	ambience_exterior = AMBIENCE_ALMAYER
 	soundscape_interval = 50
 
-/area/lv733/indoors/landing_zone_1/loader_hangar_room
-	name = "Whitchler Point ROAF - Hangars - Landing Zone One - Loader Operations Room"
-	icon_state = "hybrisa"
-	ceiling = CEILING_METAL
-	is_landing_zone = TRUE
-	linked_lz = DROPSHIP_LZ1
-
 /area/lv733/indoors/landing_zone_1/roaf_flight_control_room
-	name = "Whitchler Point ROAF - ROAF Office - Landing Zone One - Flight Briefings Room"
-	icon_state = "hybrisa"
-	ceiling = CEILING_METAL
-	is_landing_zone = TRUE
-	linked_lz = DROPSHIP_LZ1
-
-/area/lv733/indoors/landing_zone_1/roaf_pilots_dorm
-	name = "Whitchler Point ROAF - ROAF Office - Landing Zone One - Pilots Lounge"
-	icon_state = "hybrisa"
-	ceiling = CEILING_METAL
-	is_landing_zone = TRUE
-	linked_lz = DROPSHIP_LZ1
-
-/area/lv733/indoors/landing_zone_1/roaf_corridor
-	name = "Whitchler Point ROAF - ROAF Office - Landing Zone One - ROAF Office Corridor"
+	name = "Whitchler Point ROAF - Landing Zone One - ROAF Pilots Office "
 	icon_state = "hybrisa"
 	ceiling = CEILING_METAL
 	is_landing_zone = TRUE
 	linked_lz = DROPSHIP_LZ1
 
 /area/lv733/indoors/landing_zone_1/roaf_technical_corridor
-	name = "Whitchler Point ROAF - ROAF Office - Landing Zone One - ROAF Technical Access Corridor"
+	name = "Whitchler Point ROAF - Landing Zone One - ROAF Technical Access Corridor"
 	icon_state = "hybrisa"
 	ceiling = CEILING_METAL
 	linked_lz = DROPSHIP_LZ1
 
 /area/lv733/indoors/landing_zone_1/roaf_comms_hub_1
-	name = "Whitchler Point ROAF - ROAF Office - Landing Zone One - ROAF Communications Hub"
+	name = "Whitchler Point ROAF - Landing Zone One - ROAF Communications Hub"
 	icon_state = "comms_1"
 	ceiling = CEILING_METAL
 	linked_lz = DROPSHIP_LZ1
 
 /area/lv733/indoors/landing_zone_1/lz1_console
-	name = "Whitchler Point ROAF - Hangars - Landing Zone One - Dropship Alamo Console"
+	name = "Whitchler Point ROAF - Landing Zone One"
 	icon_state = "hybrisa"
 	requires_power = FALSE
 	ceiling = CEILING_METAL
@@ -146,20 +118,14 @@
 	ambience_exterior = AMBIENCE_ALMAYER
 	soundscape_interval = 50
 
-/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_checkpoint_room
-	name = "Whitchler Civilian Spaceport - Checkpoint"
+/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_checkpoint_room_main
+	name = "Whitchler Civilian Spaceport - Main Checkpoint"
 	icon_state = "hybrisa"
 	ceiling = CEILING_METAL
 	linked_lz = DROPSHIP_LZ2
 
-/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_storage
-	name = "Whitchler Civilian Spaceport - Storage Depot"
-	icon_state = "security_checkpoint"
-	ceiling = CEILING_METAL
-	linked_lz = DROPSHIP_LZ2
-
-/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_store
-	name = "Whitchler Civilian Spaceport - Loading Zone"
+/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_checkpoint_room_secondary
+	name = "Whitchler Civilian Spaceport - Secondary Checkpoint"
 	icon_state = "hybrisa"
 	ceiling = CEILING_METAL
 	linked_lz = DROPSHIP_LZ2
@@ -171,23 +137,9 @@
 	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport/lz2_console
-	name = "Whitchler Civilian Spaceport - Dropship Normandy Console"
+	name = "Whitchler Civilian Spaceport - Landing Zone Two"
 	icon_state = "hybrisa"
 	requires_power = FALSE
-	ceiling = CEILING_METAL
-	linked_lz = DROPSHIP_LZ2
-
-// Unloading common area”
-
-/area/lv733/indoors/unloading_common
-	name = "Unloading common area"
-	ceiling = CEILING_METAL
-	linked_lz = DROPSHIP_LZ2
-	soundscape_playlist = SCAPE_PL_LV759_INDOORS
-
-/area/lv733/indoors/unloading_common/tech
-	name = "Unloading common area - Tech"
-	icon_state = "comms_1"
 	ceiling = CEILING_METAL
 	linked_lz = DROPSHIP_LZ2
 
@@ -199,18 +151,6 @@
 	linked_lz = DROPSHIP_LZ2
 	ambience_exterior = AMBIENCE_WEYMART
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
-
-/area/lv733/indoors/wy_shop/main_hall
-	name = "WY Shop - Main Hall"
-	linked_lz = DROPSHIP_LZ2
-
-/area/lv733/indoors/wy_shop/storage_room
-	name = "WY Shop - Storage Room"
-	linked_lz = DROPSHIP_LZ2
-
-/area/lv733/indoors/wy_shop/technical_room
-	name = "WY Shop - Technical Room"
-	linked_lz = DROPSHIP_LZ2
 
 // Landing Cargo Area
 
@@ -285,14 +225,6 @@
 	name = "Bar - Entertainment Subsection"
 	linked_lz = DROPSHIP_LZ2
 
-/area/lv733/indoors/bar/bathroom
-	name = "Bar - Restrooms"
-	linked_lz = DROPSHIP_LZ2
-
-/area/lv733/indoors/bar/maintenance
-	name = "Bar - Maintenance"
-	linked_lz = DROPSHIP_LZ2
-
 //WY Administration
 
 /area/lv733/indoors/wy_administration
@@ -301,26 +233,17 @@
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 	ceiling = CEILING_METAL
 	linked_lz = DROPSHIP_LZ2
+	minimap_color = MINIMAP_AREA_COMMAND
 
-/area/lv733/indoors/wy_administration/office1
-	name = "WY Administration - Office #1"
-	linked_lz = DROPSHIP_LZ2
-
-/area/lv733/indoors/wy_administration/office2
-	name = "WY Administration - Office #2"
-	linked_lz = DROPSHIP_LZ2
-
-/area/lv733/indoors/wy_administration/corridor
-	name = "WY Administration - Corridor"
+/area/lv733/indoors/wy_administration/relay
+	name = "Engineering Hub - Communications Relay Buffer"
+	icon_state = "comms_1"
 	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/wy_administration/meeting_room
 	name = "WY Administration - Meeting room"
 	linked_lz = DROPSHIP_LZ2
 
-/area/lv733/indoors/wy_administration/directors_office
-	name = "WY Administration - Directors office"
-	linked_lz = DROPSHIP_LZ2
 
 // Crashed spacecraft
 
@@ -351,14 +274,8 @@
 	icon_state = "apartments"
 	ceiling = CEILING_METAL
 
-/area/lv733/indoors/multicomplex/foyer
-	name = "Multi-complex - Foyer"
-
 /area/lv733/indoors/multicomplex/detective_office
 	name = "Multi-complex - Detective Office"
-
-/area/lv733/indoors/multicomplex/laundry_room
-	name = "Multi-complex - Laundry Room"
 
 /area/lv733/indoors/multicomplex/pizzeria
 	name = "Multi-complex - Pizzeria"
@@ -370,30 +287,6 @@
 	name = "Motel Complex - Apartments"
 	icon_state = "apartments"
 	ceiling = CEILING_METAL
-	linked_lz = DROPSHIP_LZ2
-
-/area/lv733/indoors/motel/corridor
-	name = "Motel Complex - Apartments - Corridor"
-	linked_lz = DROPSHIP_LZ2
-
-/area/lv733/indoors/motel/reception
-	name = "Motel Complex - Apartments - Reception"
-	linked_lz = DROPSHIP_LZ2
-
-/area/lv733/indoors/motel/reception/room1
-	name = "Motel Complex - Apartments - room1"
-	linked_lz = DROPSHIP_LZ2
-
-/area/lv733/indoors/motel/reception/room2
-	name = "Motel Complex - Apartments - room2"
-	linked_lz = DROPSHIP_LZ2
-
-/area/lv733/indoors/motel/reception/room3
-	name = "Motel Complex - Apartments - room3"
-	linked_lz = DROPSHIP_LZ2
-
-/area/lv733/indoors/motel/reception/room4
-	name = "Motel Complex - Apartments - room4"
 	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/motel/reception/lounge_area
@@ -428,6 +321,7 @@
 	name = "ROAF Base Operations"
 	icon_state = "security_hub"
 	ceiling = CEILING_METAL
+	minimap_color = MINIMAP_AREA_COLONY_MARSHALLS
 
 /area/lv733/indoors/base_operations/west_corridor
 	name = "ROAF Base Operations - West Wing Corridor"
@@ -444,36 +338,8 @@
 /area/lv733/indoors/base_operations/north_corridor
 	name = "ROAF Base Operations - North Wing Corridor"
 
-/area/lv733/indoors/base_operations/emergency_exit
-	name = "ROAF Base Operations - Emergency Exit"
-
-/area/lv733/indoors/base_operations/barracks_one
-	name = "ROAF Base Operations - ROAF Dorm #1"
-
-/area/lv733/indoors/base_operations/barracks_two
-	name = "ROAF Base Operations - ROAF Dorm #2"
-
-/area/lv733/indoors/base_operations/barracks_three
-	name = "ROAF Base Operations - ROAF Dorm #3"
-
-/area/lv733/indoors/base_operations/barracks_4
-	name = "ROAF Base Operations - ROAF Dorm #4"
-
-/area/lv733/indoors/base_operations/barracks_5
-	name = "ROAF Base Operations - ROAF Dorm #5"
-
-/area/lv733/indoors/base_operations/barracks_6
-	name = "ROAF Base Operations - ROAF Dorm #6"
-
-/area/lv733/indoors/base_operations/barracks_7
-	name = "ROAF Base Operations - ROAF Dorm #3"
-
-/area/lv733/indoors/base_operations/barracks_three
-	name = "ROAF Base Operations - ROAF Dorm #7"
-
 /area/lv733/indoors/base_operations/ai
 	name = "ROAF Base Operations - AI Comm"
-
 
 /area/lv733/indoors/base_operations/laundry_room
 	name = "ROAF Base Operations - Laundry Room"
@@ -483,12 +349,6 @@
 
 /area/lv733/indoors/base_operations/bathrooms
 	name = "ROAF Base Operations - Bathrooms"
-
-/area/lv733/indoors/base_operations/toilets
-	name = "ROAF Base Operations - Toilets"
-
-/area/lv733/indoors/base_operations/officers_quarters
-	name = "ROAF Base Operations - ROAF Staff Dorm"
 
 /area/lv733/indoors/base_operations/communications_office
 	name = "ROAF Base Operations - Communications Office"
@@ -500,37 +360,24 @@
 /area/lv733/indoors/base_operations/mess_hall
 	name = "ROAF Base Operations - Mess Hall"
 
-/area/lv733/indoors/base_operations/kitchen
-	name = "ROAF Base Operations - Kitchen"
-
-/area/lv733/indoors/base_operations/freezer
-	name = "ROAF Base Operations - Freezer"
-
-/area/lv733/indoors/base_operations/south_w_checkpoint
-	name = "ROAF Base Operations - South-West Checkpoint"
-
-/area/lv733/indoors/base_operations/south_e_checkpoint
-	name = "ROAF Base Operations - South-East Checkpoint"
-
 /area/lv733/indoors/base_operations/training_yard
 	name = "ROAF Base Operations - Training Yard"
 
 /area/lv733/indoors/base_operations/storage_facility
 	name = "ROAF Base Operations - Storage Facility"
 
-/area/lv733/indoors/base_operations/unloading_zone
-	name = "ROAF Base Operations - Unloading Zone"
-
 /area/lv733/indoors/base_operations/armory
 	name = "ROAF Base Operations - Armory#1"
 
+/area/lv733/indoors/base_operations/main_trainstation
+	name = "ROAF Base Operations - Main Train Station"
 
-/area/lv733/indoors/base_operations/armory
-	name = "ROAF Base Operations - Armory#2"
+/area/lv733/indoors/base_operations/trainstation_west_corridor
+	name = "ROAF Base Operations - Train Station Corridor"
 
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage
+	name = "ROAF Base Operations - Train Station Maintenance Garage"
 
-/area/lv733/indoors/base_operations/armory
-	name = "ROAF Base Operations - Armory#3"
 
 // Engineering Sector
 
@@ -541,6 +388,7 @@
 	ambience_exterior = AMBIENCE_SHIP_ALT
 	soundscape_playlist = SCAPE_PL_ENG
 	soundscape_interval = 25
+	minimap_color = MINIMAP_AREA_ENGI
 
 /area/lv733/indoors/main_eng/reception
 	name = "Engineering Hub - Reception"
@@ -551,9 +399,10 @@
 /area/lv733/indoors/main_eng/storage
 	name = "Engineering Hub - Storage"
 
-/area/lv733/indoors/main_eng/relay
-	name = "Engineering Hub - Communications Relay Buffer"
+/area/lv733/indoors/main_eng/tech
+	name = "Engineering Hub - Unloading common area"
 	icon_state = "comms_1"
+	ceiling = CEILING_METAL
 	linked_lz = DROPSHIP_LZ2
 
 /area/lv733/indoors/main_eng/technical_storage
@@ -570,11 +419,16 @@
 	ceiling = CEILING_METAL
 	ambience_exterior = AMBIENCE_LAB_HALLWAY
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
+	minimap_color = MINIMAP_AREA_RESEARCH
 
-/area/lv733/indoors/main_complex/civ_checkpoint
-	name = "Weyland-Yutani – Main Complex – CIV Checkpoint"
-	icon_state = "security_checkpoint_central"
-	linked_lz = DROPSHIP_LZ2
+/area/lv733/indoors/main_complex/technical_operations
+	name = "Weyland-Yutani – Research Complex – Technical Operations"
+
+/area/lv733/indoors/main_complex/departure_reception
+	name = "Weyland-Yutani – Research Complex – Departure Reception"
+
+/area/lv733/indoors/main_complex/main_vestibule
+	name = "Weyland-Yutani – Research Complex – Main Vestibule"
 
 /area/lv733/indoors/main_complex/checkpoint
 	name = "Weyland-Yutani – Main Complex – Checkpoint"
@@ -600,22 +454,26 @@
 /area/lv733/indoors/administration
 	name = "Administration"
 	icon_state = "wyoffice"
-	ceiling = CEILING_METAL
 	ambience_exterior = AMBIENCE_LAB_HALLWAY
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
+	minimap_color = MINIMAP_AREA_COMMAND
 
 /area/lv733/indoors/administration/main_hall
 	name = "Administration – Main Hall"
+	ceiling = CEILING_METAL
 
 /area/lv733/indoors/administration/offices
 	name = "Administration – Offices"
+	ceiling = CEILING_METAL
 
 /area/lv733/indoors/administration/communications_offices
 	name = "Administration – Communications Offices"
+	ceiling = CEILING_METAL
 
 /area/lv733/indoors/administration/communications_relay_buffer
 	name = "Administration – Communications Relay Buffer"
 	icon_state = "comms_1"
+	ceiling = CEILING_NONE
 
 // Outpost
 
@@ -633,14 +491,6 @@
 /area/lv733/indoors/outpost/main_checkpoint
 	name = "Outpost – Main Checkpoint"
 	icon_state = "security_checkpoint_central"
-
-/area/lv733/indoors/outpost/west_checkpoint_one
-	name = "Outpost – West Checkpoint #1"
-	icon_state = "security_checkpoint_west"
-
-/area/lv733/indoors/outpost/west_checkpoint_two
-	name = "Outpost – West Checkpoint #2"
-	icon_state = "security_checkpoint_west"
 
 /area/lv733/indoors/outpost/sensor_checkpoint
 	name = "Outpost – Sensor Checkpoint"
@@ -821,18 +671,10 @@
 	soundscape_playlist = SCAPE_PL_LV759_INDOORS
 	ceiling_muffle = FALSE
 	unoviable_timer = FALSE
+	minimap_color = MINIMAP_AREA_RESEARCH
 
 /area/lv733/indoors/wy_research_complex/west_entrance
 	name = "Weyland-Yutani – Research Complex – West Entrance"
-
-/area/lv733/indoors/wy_research_complex/main_vestibule
-	name = "Weyland-Yutani – Research Complex – Main Vestibule"
-
-/area/lv733/indoors/wy_research_complex/departure_reception
-	name = "Weyland-Yutani – Research Complex – Departure Reception"
-
-/area/lv733/indoors/wy_research_complex/technical_operations
-	name = "Weyland-Yutani – Research Complex – Technical Operations"
 
 /area/lv733/indoors/wy_research_complex/checkpoint
 	name = "Weyland-Yutani – Research Complex – Checkpoint"

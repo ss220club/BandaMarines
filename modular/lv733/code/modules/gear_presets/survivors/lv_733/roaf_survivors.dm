@@ -17,6 +17,12 @@
 	flags = EQUIPMENT_PRESET_EXTRA
 	access = list(
 		ACCESS_CIVILIAN_PUBLIC,
+		ACCESS_CIVILIAN_RESEARCH,
+		ACCESS_CIVILIAN_ENGINEERING,
+		ACCESS_CIVILIAN_LOGISTICS,
+		ACCESS_CIVILIAN_BRIG,
+		ACCESS_CIVILIAN_MEDBAY,
+		ACCESS_CIVILIAN_COMMAND,
 	)
 
 /datum/equipment_preset/survivor/roaf/proc/equip_common_gear(mob/living/carbon/human/new_human, uniform_type, head_type, suit_type, back_type, belt_type, left_pouch_type, right_pouch_type, eyes_type = null, shoes_type = /obj/item/clothing/shoes/marine/royal_marine/knife/lv733/shoes_roaf, add_patch = TRUE)
@@ -198,6 +204,15 @@
 	role_comm_title = "Синт."
 	idtype = /obj/item/card/id/dogtag
 	flags = EQUIPMENT_PRESET_EXTRA
+	access = list(
+		ACCESS_CIVILIAN_PUBLIC,
+		ACCESS_CIVILIAN_RESEARCH,
+		ACCESS_CIVILIAN_ENGINEERING,
+		ACCESS_CIVILIAN_LOGISTICS,
+		ACCESS_CIVILIAN_BRIG,
+		ACCESS_CIVILIAN_MEDBAY,
+		ACCESS_CIVILIAN_COMMAND,
+	)
 
 /datum/equipment_preset/synth/survivor/roaf_synth/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/marine/veteran/royal_marine/lv733/roaf_shooter(new_human), WEAR_BODY)

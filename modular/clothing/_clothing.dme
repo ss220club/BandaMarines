@@ -3,5 +3,20 @@
 #include "code/ftl_helmet.dm"
 #include "code/roaf_glowstick_vendors.dm"
 #include "code/ponchos.dm"
+#include "code/defines_clf_wy.dm"
+#include "code/defines_isrg.dm"
 #include "code/lv733_clothing.dm"
+#include "code/lv733_clf_wy.dm"
+#include "code/lv733_isrg.dm"
+#include "code/isrg_nvg.dm"
+#include "code/rac_clothing.dm"
 #include "code/cape.dm"
+// BEGIN_INTERNALS
+// END_INTERNALS
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+// END_FILE_DIR
+// BEGIN_PREFERENCES
+// END_PREFERENCES
+// BEGIN_INCLUDE
+// END_INCLUDE

@@ -1,0 +1,2807 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ae" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/blocker/forcefield/vehicles,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/sensor_facility/tech_room)
+"au" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "E";
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/light/small{
+	dir = 4;
+	pixel_y = 6
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"av" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/hybrisa/metal/grated/north,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"aB" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	layer = 3.33
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_membrane,
+/turf/open/floor/prison/darkbrown2,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"aF" = (
+/obj/structure/blocker/forcefield/vehicles,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/plating,
+/area/lv733/indoors/sensor_facility/tech_room)
+"aQ" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_casing/bullet{
+	icon_state = "cartridge_3_1"
+	},
+/turf/open/hybrisa/street/sidewalk/west,
+/area/lv733/outdoors/colony_streets/avenue)
+"be" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/obj/structure/blocker/forcefield/vehicles,
+/obj/structure/blocker/forcefield/vehicles,
+/turf/closed/wall/hybrisa/colony/reinforced/hull,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"bo" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"bB" = (
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/tech_room)
+"bK" = (
+/obj/item/trash/kepler,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/tech_room)
+"bS" = (
+/turf/open/floor/almayer/blackfull/west,
+/area/lv733/indoors/sensor_facility/tech_room)
+"cf" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/pipes/standard/simple/hidden/dark,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"ch" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/almayer/blackfull/west,
+/area/lv733/indoors/sensor_facility/tech_room)
+"cj" = (
+/obj/structure/surface/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/structure/window/reinforced{
+	color = "#a6aeab"
+	},
+/obj/structure/transmitter/colony_net/rotary{
+	phone_category = "LV522 Chances Claim";
+	phone_id = "Colony Operations Centre";
+	pixel_y = 6
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"cm" = (
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_x = 6;
+	pixel_y = 10
+	},
+/turf/open/floor/hybrisa/metal/grated/north,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"co" = (
+/obj/structure/machinery/big_computers/computerbrown/computer3{
+	pixel_y = 12
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "NE-out";
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/hybrisa/metal/grated/west,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"cp" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/pipes/standard/simple/hidden/dark,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"cD" = (
+/obj/item/trash/cigbutt{
+	pixel_x = -3;
+	pixel_y = 9
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/tech_room)
+"cF" = (
+/obj/structure/surface/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/structure/window/reinforced{
+	dir = 4;
+	color = "#a6aeab"
+	},
+/obj/item/clothing/head/headset{
+	armor_bio = 20;
+	armor_bomb = 10;
+	armor_bullet = 20;
+	armor_internaldamage = 20;
+	armor_laser = 15;
+	armor_melee = 20;
+	armor_rad = 10;
+	desc = "A headset typically found in use by radio-operators and officers. This one bears a purple stripe down its side.";
+	name = "\improper personalized USCM headset"
+	},
+/obj/structure/machinery/door_control/brbutton/alt{
+	id = "scan_shutter_5";
+	name = "remote door-control";
+	pixel_x = 8;
+	pixel_y = 10;
+	idle_power_usage = 0
+	},
+/obj/structure/machinery/door_control/brbutton/alt{
+	id = "scan_shutter_6";
+	name = "remote door-control";
+	pixel_x = 8;
+	pixel_y = -2;
+	idle_power_usage = 0
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"cO" = (
+/turf/closed/wall/hybrisa/marhsalls/unmeltable,
+/area/lv733/indoors/base_operations/training_yard)
+"cW" = (
+/obj/item/stack/sheet/metal{
+	pixel_x = 1;
+	pixel_y = -2
+	},
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/avenue)
+"cZ" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_membrane,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"dd" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_membrane,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"df" = (
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal2";
+	pixel_x = 4
+	},
+/obj/item/stack/rods,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"di" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/darkbrown2/east,
+/area/lv733/indoors/sensor_facility/tech_room)
+"dp" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/avenue)
+"dB" = (
+/turf/template_noop,
+/area/template_noop)
+"dD" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 4
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalk/east,
+/area/lv733/outdoors/colony_streets/avenue)
+"dJ" = (
+/obj/structure/bed/bedroll{
+	dir = 4
+	},
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 9
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"dL" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "E";
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/darkbrown2/west,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"dT" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/tech_room)
+"ec" = (
+/obj/effect/landmark/yautja_teleport,
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/avenue)
+"em" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/almayer/blackfull/west,
+/area/lv733/indoors/sensor_facility/tech_room)
+"eA" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/plating,
+/area/lv733/indoors/sensor_facility/tech_room)
+"eB" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/prison/darkbrown2/west,
+/area/lv733/indoors/sensor_facility/tech_room)
+"eW" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/prison/darkbrown2/north,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"ff" = (
+/obj/item/stack/sheet/metal{
+	pixel_x = 1;
+	pixel_y = -2
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/plating,
+/area/lv733/outdoors/colony_streets/avenue)
+"fn" = (
+/turf/open/floor/prison/darkbrown2,
+/area/lv733/indoors/sensor_facility/tech_room)
+"fx" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"fF" = (
+/obj/structure/machinery/light/small{
+	dir = 4
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"fP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/trash/uscm_mre,
+/obj/structure/pipes/standard/simple/hidden/dark,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"fS" = (
+/obj/item/ammo_magazine/rifle/l23{
+	current_rounds = 0
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/tech_room)
+"gq" = (
+/obj/structure/prop/almayer/computers/sensor_computer2,
+/obj/structure/machinery/light/small{
+	dir = 1;
+	pixel_y = 20
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"gt" = (
+/obj/structure/blocker/forcefield/vehicles,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/sensor_facility/tech_room)
+"gD" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/tool/pen{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-10";
+	color = "#550d0d"
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"gR" = (
+/obj/structure/prop/invuln/lattice_prop{
+	dir = 1;
+	icon_state = "lattice-simple";
+	pixel_x = 6;
+	pixel_y = -13
+	},
+/obj/structure/prop/invuln/overhead_pipe{
+	color = "#a6aeab";
+	pixel_y = -12;
+	layer = 5
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"gS" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/girder/displaced,
+/turf/open/floor/plating,
+/area/lv733/indoors/base_operations/training_yard)
+"gV" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/tech_room)
+"hh" = (
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_x = 6;
+	pixel_y = 10
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/metal/grated/north,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"hk" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/prison/darkbrown2/east,
+/area/lv733/indoors/sensor_facility/tech_room)
+"hm" = (
+/obj/item/storage/firstaid/adv/empty,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"hw" = (
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"hE" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	layer = 3.33
+	},
+/obj/structure/surface/rack,
+/obj/effect/spawner/random/powercell,
+/obj/structure/machinery/light/small{
+	dir = 1;
+	pixel_y = 20
+	},
+/turf/open/floor/prison/darkbrown2/east,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"hF" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/hybrisa/street/sidewalk/east,
+/area/lv733/outdoors/colony_streets/avenue)
+"hP" = (
+/obj/structure/blocker/forcefield/vehicles,
+/obj/structure/blocker/forcefield/vehicles,
+/turf/closed/wall/hybrisa/colony/reinforced/hull,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"hU" = (
+/obj/effect/decal/strata_decals/grasses,
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/avenue)
+"hY" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/obj/effect/decal/cleanable/cobweb2,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/sensor_facility/tech_room)
+"id" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/surface/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/structure/barricade/handrail{
+	dir = 4
+	},
+/turf/open/floor/prison/darkbrown2/southeast,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"ii" = (
+/turf/open/floor/hybrisa/metal/grated/north,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"im" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	layer = 3.33
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"iq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/light/small,
+/turf/open/floor/prison/darkbrown2/west,
+/area/lv733/indoors/sensor_facility/tech_room)
+"iz" = (
+/obj/item/stack/rods,
+/obj/structure/prop/invuln/lattice_prop{
+	dir = 1;
+	icon_state = "lattice-simple";
+	pixel_x = 6;
+	pixel_y = -13
+	},
+/obj/structure/prop/invuln/overhead_pipe{
+	color = "#a6aeab";
+	pixel_y = -12;
+	layer = 5
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"iI" = (
+/obj/structure/machinery/big_computers/computerbrown/computer5{
+	pixel_y = 12
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/hybrisa/metal/grated/west,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"je" = (
+/obj/structure/pipes/standard/simple/hidden/dark,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/tech_room)
+"jB" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_casing/bullet{
+	icon_state = "cartridge_9_1"
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"jG" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	layer = 3.33
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"jL" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "E";
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"kj" = (
+/obj/structure/machinery/big_computers/messaging_server/brown,
+/obj/structure/window/reinforced{
+	dir = 4;
+	color = "#a6aeab"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"ku" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	layer = 3.33
+	},
+/obj/effect/decal/cleanable/blood/xeno,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_membrane,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"kC" = (
+/obj/structure/bed/bedroll{
+	dir = 4
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/tech_room)
+"kG" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	layer = 3.33
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/obj/structure/surface/rack,
+/obj/effect/landmark/objective_landmark/close,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"kJ" = (
+/obj/effect/landmark/objective_landmark/medium,
+/turf/open/floor/prison/darkbrown2,
+/area/lv733/indoors/sensor_facility/tech_room)
+"kV" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "cargo"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stack/sheet/metal/large_stack,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"li" = (
+/obj/structure/machinery/power/apc/power/west,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"lI" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/trash/uscm_mre,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"lN" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/sensor_facility/tech_room)
+"lX" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S";
+	layer = 3.3;
+	pixel_y = -1
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "NE-out";
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/prison/darkbrowncorners2/north,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"mf" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/cleanable/blood/xeno,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"mn" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/obj/structure/pipes/standard/simple/hidden/dark,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/sensor_facility/tech_room)
+"mr" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S";
+	layer = 3.3;
+	pixel_y = -1
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	layer = 3.33
+	},
+/obj/structure/flora/pottedplant{
+	icon_state = "pottedplant_25";
+	pixel_x = 24;
+	pixel_y = 18
+	},
+/obj/effect/alien/egg{
+	icon_state = "Egg Opened";
+	status = 1
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"mz" = (
+/turf/open/floor/prison/darkbrown2/north,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"mA" = (
+/turf/closed/wall/hybrisa/colony/reinforced/hull,
+/area/lv733/indoors/sensor_facility/tech_room)
+"mW" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/turf/open/floor/prison/darkbrown2/east,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"mZ" = (
+/obj/structure/surface/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/structure/window/reinforced{
+	dir = 8;
+	health = 80;
+	color = "#a6aeab";
+	layer = 4
+	},
+/obj/structure/machinery/computer/cameras{
+	dir = 4;
+	pixel_x = 1;
+	pixel_y = 3
+	},
+/obj/structure/cable{
+	icon_state = "5-8";
+	level = 2;
+	color = "#550d0d"
+	},
+/turf/open/floor/prison/darkbrown2/west,
+/area/lv733/indoors/sensor_facility/tech_room)
+"nc" = (
+/obj/structure/machinery/blackbox_recorder,
+/obj/effect/decal/cleanable/cobweb2,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"ne" = (
+/obj/structure/barricade/handrail{
+	dir = 8;
+	layer = 4
+	},
+/obj/structure/surface/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/item/clothing/head/hardhat/white,
+/obj/effect/landmark/objective_landmark/medium,
+/obj/structure/prop/invuln/lattice_prop{
+	dir = 1;
+	icon_state = "lattice-simple";
+	pixel_x = 6;
+	pixel_y = -13
+	},
+/obj/structure/prop/invuln/overhead_pipe{
+	color = "#a6aeab";
+	pixel_y = -12;
+	layer = 5
+	},
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice10";
+	pixel_y = 10;
+	pixel_x = 6
+	},
+/turf/open/floor/prison/darkbrown2/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"nj" = (
+/obj/structure/machinery/light/small,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/prison/darkbrown2/east,
+/area/lv733/indoors/sensor_facility/tech_room)
+"nl" = (
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/tech_room)
+"nq" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/pipes/standard/simple/hidden/dark,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/tech_room)
+"ns" = (
+/obj/effect/decal/hybrisa/road/lines1,
+/obj/effect/decal/hybrisa/road/road_edge{
+	pixel_x = -4
+	},
+/obj/item/ammo_casing/bullet,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"nw" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/turf/open/floor/corsat/squares,
+/area/lv733/indoors/sensor_facility/tech_room)
+"nB" = (
+/obj/item/clothing/suit/storage/hazardvest{
+	pixel_x = -8;
+	pixel_y = -3
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/turf/open/floor/prison/darkbrown2/east,
+/area/lv733/indoors/sensor_facility/tech_room)
+"nM" = (
+/obj/item/ammo_casing/bullet,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"om" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalk/west,
+/area/lv733/outdoors/colony_streets/avenue)
+"oP" = (
+/turf/open/auto_turf/snow/brown_base/layer2,
+/area/lv733/outdoors/colony_streets/avenue)
+"oS" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/tech_room)
+"oW" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "E";
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/obj/structure/machinery/light/small{
+	dir = 8;
+	pixel_y = 6
+	},
+/turf/open/floor/prison/darkbrown2/west,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"pf" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/darkbrown2/north,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"pq" = (
+/obj/item/trash/burger,
+/turf/open/floor/almayer/blackfull/west,
+/area/lv733/indoors/sensor_facility/tech_room)
+"pv" = (
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/prison/darkbrown2/west,
+/area/lv733/indoors/sensor_facility/tech_room)
+"pz" = (
+/obj/structure/prop/invuln/lattice_prop{
+	dir = 1;
+	icon_state = "lattice-simple";
+	pixel_x = 6;
+	pixel_y = -13
+	},
+/obj/structure/prop/invuln/overhead_pipe{
+	color = "#a6aeab";
+	pixel_y = -12;
+	layer = 5
+	},
+/turf/closed/wall/hybrisa/colony/reinforced/hull,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"pA" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S";
+	layer = 3.3;
+	pixel_y = -1
+	},
+/obj/structure/pipes/standard/simple/hidden/dark,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"pG" = (
+/turf/open/hybrisa/street/sidewalk/east,
+/area/lv733/outdoors/colony_streets/avenue)
+"pI" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S";
+	layer = 3.3;
+	pixel_y = -1
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "E";
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"pS" = (
+/obj/effect/landmark/hunter_secondary,
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/outdoors/colony_streets/avenue)
+"pW" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"pY" = (
+/turf/open/floor/corsat/squares,
+/area/lv733/indoors/sensor_facility/tech_room)
+"qc" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S";
+	layer = 3.3;
+	pixel_y = -1
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/prison/darkbrown2/northeast,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"qk" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S";
+	layer = 3.3;
+	pixel_y = -1
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice1";
+	pixel_x = -26;
+	pixel_y = -13
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/prison/darkbrown2/north,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"qE" = (
+/obj/item/stack/rods,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"qT" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "NW-out"
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "SW-out";
+	pixel_y = -1
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"qW" = (
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/tech_room)
+"ra" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S";
+	layer = 3.3;
+	pixel_y = -1
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "E";
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_membrane,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"rb" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_x = 6;
+	pixel_y = 10
+	},
+/turf/open/floor/prison/darkbrown2/east,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"rr" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "E";
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/structure/machinery/light/small{
+	dir = 4
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"rL" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 9
+	},
+/obj/effect/decal/strata_decals/tyrargo_mud_corner,
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/avenue)
+"rR" = (
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal2";
+	pixel_x = 4
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"rS" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable{
+	icon_state = "1-4";
+	color = "#550d0d"
+	},
+/turf/open/floor/hybrisa/metal/grated/west,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"sb" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stack/rods,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/tech_room)
+"sg" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/corsat/squares,
+/area/lv733/indoors/sensor_facility/tech_room)
+"sk" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/pipes/standard/simple/hidden/dark,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/tech_room)
+"sv" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/metal/grated/north,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"sy" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S";
+	layer = 3.3;
+	pixel_y = -1
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"sz" = (
+/obj/structure/bed/chair/office/dark,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"sV" = (
+/obj/structure/filingcabinet{
+	density = 0;
+	pixel_x = -7;
+	pixel_y = 19
+	},
+/obj/structure/filingcabinet/chestdrawer{
+	density = 0;
+	pixel_x = 8;
+	pixel_y = 19
+	},
+/obj/structure/window/reinforced{
+	dir = 8;
+	health = 80;
+	color = "#a6aeab";
+	layer = 4
+	},
+/obj/effect/landmark/objective_landmark/close,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"tj" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "E";
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/obj/structure/reagent_dispensers/tank/fuel,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/darkbrown2/west,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"tq" = (
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"tr" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/auto_turf/snow/brown_base/layer2,
+/area/lv733/outdoors/colony_streets/avenue)
+"tE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/cobweb2,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"tP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/large_stain,
+/turf/open/floor/plating,
+/area/lv733/indoors/base_operations/training_yard)
+"uf" = (
+/obj/item/ammo_casing/bullet{
+	icon_state = "cartridge_9_1"
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"uq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"uv" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"uG" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "cargo"
+	},
+/obj/item/prop/alien/hugger,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "xsplatter1"
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"uL" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "NE-out";
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"uM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/almayer/blackfull/west,
+/area/lv733/indoors/sensor_facility/tech_room)
+"vg" = (
+/obj/structure/machinery/big_computers/computerbrown/computer1{
+	pixel_y = 12
+	},
+/obj/structure/window/reinforced{
+	dir = 8;
+	health = 80;
+	color = "#a6aeab";
+	layer = 4
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "NE-out";
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/door_control/brbutton/alt{
+	id = "scan_shutter_4";
+	name = "remote door-control";
+	pixel_x = -7;
+	pixel_y = 10;
+	idle_power_usage = 0
+	},
+/obj/structure/machinery/door_control/brbutton/alt{
+	id = "scan_shutter_5";
+	name = "remote door-control";
+	pixel_x = 10;
+	pixel_y = 20;
+	idle_power_usage = 0
+	},
+/obj/structure/machinery/door_control/brbutton/alt{
+	id = "scan_shutter_6";
+	name = "remote door-control";
+	pixel_x = 10;
+	pixel_y = 10;
+	idle_power_usage = 0
+	},
+/turf/open/floor/hybrisa/metal/grated/west,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"vx" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalk/east,
+/area/lv733/outdoors/colony_streets/avenue)
+"vV" = (
+/obj/item/trash/cigbutt{
+	pixel_x = -3;
+	pixel_y = 9
+	},
+/turf/open/floor/almayer/blackfull/west,
+/area/lv733/indoors/sensor_facility/tech_room)
+"wj" = (
+/obj/item/ammo_casing/bullet,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"wr" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/darkbrown2,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"ws" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/prison/darkbrown2,
+/area/lv733/indoors/sensor_facility/tech_room)
+"wz" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/large_stain,
+/obj/item/stack/sheet/metal{
+	pixel_x = 1;
+	pixel_y = -2
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/tech_room)
+"wG" = (
+/obj/item/tool/wrench,
+/turf/open/floor/corsat/squares,
+/area/lv733/indoors/sensor_facility/tech_room)
+"wN" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/tech_room)
+"wV" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/obj/structure/blocker/forcefield/vehicles,
+/obj/structure/blocker/forcefield/vehicles,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"xe" = (
+/obj/item/stack/rods,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"xH" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/turf/open/floor/prison/darkbrown2,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"ya" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"ye" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/corsat/squares,
+/area/lv733/indoors/sensor_facility/tech_room)
+"yh" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S";
+	layer = 3.3;
+	pixel_y = -1
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	layer = 3.33
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"yn" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/alien/egg{
+	icon_state = "Egg Opened";
+	status = 1
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"yw" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/floor/plating,
+/area/lv733/indoors/sensor_facility/tech_room)
+"yR" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/prison/darkbrown2/west,
+/area/lv733/indoors/sensor_facility/tech_room)
+"yV" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/obj/structure/blocker/forcefield/vehicles,
+/obj/structure/blocker/forcefield/vehicles,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"zl" = (
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice4";
+	pixel_x = 6;
+	pixel_y = 10
+	},
+/turf/closed/wall/hybrisa/colony/reinforced/hull,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"zr" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "cargo"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"zB" = (
+/obj/structure/surface/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/structure/barricade/handrail{
+	dir = 4
+	},
+/obj/structure/machinery/prop/almayer/computer/PC{
+	dir = 8;
+	pixel_y = 4
+	},
+/turf/open/floor/prison/darkbrown2/northeast,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"zD" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S";
+	layer = 3.3;
+	pixel_y = -1
+	},
+/obj/structure/prop/invuln/overhead_pipe{
+	color = "#a6aeab";
+	pixel_y = -12;
+	layer = 5
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/prison/darkbrown2/northwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"zM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/pipes/standard/simple/hidden/dark,
+/obj/structure/blocker/forcefield/vehicles,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/sensor_facility/tech_room)
+"zQ" = (
+/obj/item/stack/sheet/metal,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"zU" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/lv733/indoors/base_operations/training_yard)
+"zV" = (
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/corsat/squares,
+/area/lv733/indoors/sensor_facility/tech_room)
+"Ai" = (
+/obj/structure/machinery/light/small,
+/turf/open/hybrisa/street/sidewalk/west,
+/area/lv733/outdoors/colony_streets/avenue)
+"Bh" = (
+/obj/structure/surface/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/structure/window/reinforced{
+	dir = 8;
+	health = 80;
+	color = "#a6aeab";
+	layer = 4
+	},
+/obj/structure/machinery/computer/cameras{
+	dir = 4;
+	layer = 4;
+	pixel_y = 22;
+	pixel_x = 1
+	},
+/obj/item/paper{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/item/storage/box/teabags,
+/turf/open/floor/prison/darkbrown2/west,
+/area/lv733/indoors/sensor_facility/tech_room)
+"Br" = (
+/obj/effect/decal/hybrisa/road/lines1,
+/obj/effect/decal/hybrisa/road/road_edge{
+	pixel_x = -4
+	},
+/obj/structure/barricade/sandbags{
+	dir = 8
+	},
+/obj/item/ammo_casing/bullet{
+	icon_state = "cartridge_3_1"
+	},
+/obj/item/ammo_casing/bullet,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"BJ" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_casing/bullet,
+/turf/open/hybrisa/street/sidewalk/west,
+/area/lv733/outdoors/colony_streets/avenue)
+"BL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/metal/grated/north,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"BR" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	layer = 3.33
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/prison/darkbrowncorners2/west,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Cz" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "E";
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/turf/open/floor/prison/darkbrown2/west,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"CQ" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	layer = 3.33
+	},
+/obj/structure/barricade/handrail{
+	dir = 8;
+	layer = 4
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/prop/almayer/computers/sensor_computer3,
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice2";
+	pixel_x = 6;
+	pixel_y = 32
+	},
+/obj/structure/prop/invuln/lattice_prop{
+	dir = 1;
+	icon_state = "lattice-simple";
+	pixel_x = 6;
+	pixel_y = -13
+	},
+/obj/structure/prop/invuln/overhead_pipe{
+	color = "#a6aeab";
+	pixel_y = -12;
+	layer = 5
+	},
+/turf/open/floor/prison/darkbrown2/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"CV" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/corsat/squares,
+/area/lv733/indoors/sensor_facility/tech_room)
+"Db" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/outdoors/colony_streets/avenue)
+"Dl" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "S";
+	layer = 3.3;
+	pixel_y = -1
+	},
+/obj/structure/girder,
+/turf/open/floor/prison/darkbrown2/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"DC" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 8;
+	pixel_x = -13;
+	pixel_y = 11
+	},
+/turf/open/floor/hybrisa/metal/grated/west,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Ek" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/tech_room)
+"Eo" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"EI" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	layer = 3.33
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light/small{
+	dir = 1;
+	pixel_y = 20
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/prison/darkbrown2/northeast,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Fb" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/turf/open/floor/plating,
+/area/lv733/indoors/sensor_facility/tech_room)
+"Fg" = (
+/obj/structure/machinery/big_computers/computerbrown/computer4{
+	pixel_y = 12
+	},
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "2-8";
+	level = 2;
+	color = "#550d0d"
+	},
+/turf/open/floor/hybrisa/metal/grated/west,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Fp" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S";
+	layer = 3.3;
+	pixel_y = -1
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/prison/darkbrown2/southeast,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"FO" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/prison/darkbrown2/east,
+/area/lv733/indoors/sensor_facility/tech_room)
+"FX" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "NE-out";
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Gc" = (
+/obj/structure/surface/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/structure/window/reinforced{
+	dir = 4;
+	color = "#a6aeab"
+	},
+/obj/structure/machinery/faxmachine,
+/obj/effect/landmark/objective_landmark/close,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"Gr" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"GD" = (
+/obj/effect/decal/large_stain,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/plating,
+/area/lv733/indoors/sensor_facility/tech_room)
+"GN" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/barricade/sandbags,
+/turf/open/hybrisa/street/sidewalk/west,
+/area/lv733/outdoors/colony_streets/avenue)
+"GO" = (
+/obj/structure/bed/bedroll{
+	dir = 5
+	},
+/obj/item/prop/colony/usedbandage{
+	dir = 5
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"GP" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"GW" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"Hg" = (
+/obj/effect/decal/strata_decals/grasses,
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/outdoors/colony_streets/avenue)
+"Hj" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Hk" = (
+/obj/structure/barricade/handrail{
+	dir = 8;
+	layer = 4
+	},
+/obj/structure/surface/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/structure/machinery/door_control/brbutton/alt{
+	id = "scan_shutter_2";
+	name = "remote door-control";
+	pixel_x = -4;
+	pixel_y = -2;
+	idle_power_usage = 0
+	},
+/obj/structure/prop/invuln/lattice_prop{
+	dir = 1;
+	icon_state = "lattice-simple";
+	pixel_x = 6;
+	pixel_y = -13
+	},
+/obj/structure/prop/invuln/overhead_pipe{
+	color = "#a6aeab";
+	pixel_y = -12;
+	layer = 5
+	},
+/turf/open/floor/prison/darkbrown2/northwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Hl" = (
+/obj/item/trash/uscm_mre,
+/turf/open/floor/corsat/squares,
+/area/lv733/indoors/sensor_facility/tech_room)
+"Hm" = (
+/obj/item/ammo_casing/bullet{
+	icon_state = "cartridge_3_1"
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"Hn" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	layer = 3.33
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/turf/open/floor/prison/darkbrowncorners2/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Hp" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Hv" = (
+/obj/structure/flora/pottedplant{
+	icon_state = "pottedplant_25";
+	pixel_x = 24;
+	pixel_y = 18
+	},
+/obj/structure/extinguisher_cabinet/alt{
+	pixel_y = 30;
+	pixel_x = 4
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/tech_room)
+"Hz" = (
+/obj/item/prop/alien/hugger,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "xsplatter1"
+	},
+/turf/open/floor/prison/darkbrown2/north,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"HA" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalk/east,
+/area/lv733/outdoors/colony_streets/avenue)
+"HH" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S";
+	layer = 3.3;
+	pixel_y = -1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/turf/open/floor/prison/darkbrowncorners2/east,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"HM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/trash/cigbutt{
+	pixel_x = -3;
+	pixel_y = 9
+	},
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	level = 2;
+	color = "#550d0d"
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"HT" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalk/west,
+/area/lv733/outdoors/colony_streets/avenue)
+"HZ" = (
+/obj/item/stack/rods,
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/avenue)
+"Id" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 5
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"Ig" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/surface/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/item/paper{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"Is" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	layer = 3.33
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/prison/darkbrowncorners2/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Iu" = (
+/obj/item/ammo_casing/bullet,
+/obj/item/prop/colony/used_flare,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"IC" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Jk" = (
+/obj/structure/blocker/forcefield/vehicles,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/sensor_facility/tech_room)
+"Jz" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/prop/colony/used_flare,
+/obj/structure/pipes/standard/simple/hidden/dark,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"JD" = (
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal2";
+	pixel_x = 4
+	},
+/obj/structure/barricade/sandbags,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"Kx" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "NW-out"
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"KH" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/closed/wall/hybrisa/colony/reinforced,
+/area/lv733/indoors/sensor_facility/tech_room)
+"La" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/sensor_facility/tech_room)
+"Ll" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stack/sheet/metal{
+	pixel_x = 1;
+	pixel_y = -2
+	},
+/turf/open/floor/plating,
+/area/lv733/outdoors/colony_streets/avenue)
+"Lt" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/colony_floodlight/street{
+	pixel_y = 12
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalk/east,
+/area/lv733/outdoors/colony_streets/avenue)
+"Ly" = (
+/turf/closed/wall/hybrisa/colony/reinforced/hull,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"LF" = (
+/obj/item/ammo_magazine/rifle/l23{
+	current_rounds = 0
+	},
+/turf/open/floor/corsat/squares,
+/area/lv733/indoors/sensor_facility/tech_room)
+"LO" = (
+/obj/effect/decal/hybrisa/road/lines1,
+/obj/effect/decal/hybrisa/road/road_edge{
+	pixel_x = -4
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"LT" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "NE-out";
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "SE-out";
+	pixel_y = -1;
+	pixel_x = 1
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Mu" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S";
+	layer = 3.3;
+	pixel_y = -1
+	},
+/obj/structure/machinery/light/small,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Mw" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"ME" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "E";
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_x = 6;
+	pixel_y = 10
+	},
+/turf/open/floor/prison/darkbrown2/west,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"ML" = (
+/obj/item/trash/cigbutt{
+	pixel_x = -3;
+	pixel_y = 9
+	},
+/obj/structure/bed/roller,
+/turf/open/floor/almayer/blackfull/west,
+/area/lv733/indoors/sensor_facility/tech_room)
+"MU" = (
+/obj/item/ammo_casing/bullet,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"MZ" = (
+/obj/item/stack/sheet/metal,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/tech_room)
+"Ng" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S";
+	layer = 3.3;
+	pixel_y = -1
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "NW-out"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/prison/darkbrowncorners2/east,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Nq" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/tech_room)
+"Ny" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_casing/bullet,
+/obj/effect/alien/egg{
+	icon_state = "Egg Opened";
+	status = 1
+	},
+/turf/open/floor/prison/darkbrown2/southeast,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"NF" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	layer = 3.33
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_casing/bullet,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_membrane,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"NW" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Oa" = (
+/obj/effect/landmark/nightmare{
+	insert_tag = "eta_carp"
+	},
+/turf/closed/wall/hybrisa/marhsalls/unmeltable,
+/area/lv733/indoors/base_operations/training_yard)
+"Og" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	layer = 3.33
+	},
+/obj/structure/machinery/light/small{
+	dir = 1;
+	pixel_y = 20
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/prison/darkbrown2/northwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Oy" = (
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/avenue)
+"OL" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/hybrisa/street/sidewalk/east,
+/area/lv733/outdoors/colony_streets/avenue)
+"Pu" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"Pw" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"PT" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stack/rods,
+/turf/open/floor/plating,
+/area/lv733/outdoors/colony_streets/avenue)
+"Qd" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	layer = 3.33
+	},
+/turf/open/floor/prison/darkbrowncorners2/west,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"RP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Sc" = (
+/turf/closed/wall/hybrisa/rock,
+/area/lv733/oob)
+"Si" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N";
+	layer = 3.33
+	},
+/obj/structure/surface/rack,
+/obj/item/storage/belt/utility,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Sq" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S";
+	layer = 3.3;
+	pixel_y = -1
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/turf/open/floor/prison/darkbrowncorners2/north,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Sr" = (
+/turf/open/floor/prison/darkbrown2,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Sx" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/darkbrown2/east,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"SR" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "E";
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"SY" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/floor/plating,
+/area/lv733/indoors/sensor_facility/tech_room)
+"SZ" = (
+/obj/effect/decal/hybrisa/road/lines1,
+/obj/effect/decal/hybrisa/road/road_edge{
+	pixel_x = -4
+	},
+/obj/structure/barricade/sandbags{
+	dir = 8
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"Ti" = (
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"Tu" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/closed/wall/hybrisa/marhsalls/unmeltable,
+/area/lv733/indoors/base_operations/north_corridor)
+"Uu" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "cargo"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/stack/sheet/metal/large_stack,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"UD" = (
+/obj/structure/pipes/standard/manifold/hidden/dark{
+	dir = 1
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/tech_room)
+"UL" = (
+/turf/closed/wall/hybrisa/colony,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Vn" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "5-8";
+	level = 2;
+	color = "#550d0d"
+	},
+/turf/open/floor/hybrisa/metal/grated/west,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Vp" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "NW-out"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/prison/darkbrown2,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"VH" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/trash/burger,
+/turf/open/floor/hybrisa/metal/grated/west,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"VM" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/tech_room)
+"VN" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/stack/sheet/metal{
+	pixel_x = 1;
+	pixel_y = -2
+	},
+/turf/open/hybrisa/street/sidewalk/west,
+/area/lv733/outdoors/colony_streets/avenue)
+"VR" = (
+/obj/structure/pipes/vents/pump,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_membrane,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"VS" = (
+/turf/closed/wall/hybrisa/marhsalls/unmeltable,
+/area/lv733/indoors/base_operations/north_corridor)
+"VX" = (
+/obj/structure/blocker/forcefield/vehicles,
+/turf/closed/wall/hybrisa/colony/reinforced/hull,
+/area/lv733/indoors/sensor_facility/tech_room)
+"VZ" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S";
+	layer = 3.3;
+	pixel_y = -1
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_membrane,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Ws" = (
+/obj/effect/alien/egg{
+	icon_state = "Egg Opened";
+	status = 1
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Wz" = (
+/obj/structure/pipes/standard/simple/hidden/dark,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"WC" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/large_stain,
+/obj/item/stack/rods,
+/turf/open/floor/plating,
+/area/lv733/indoors/base_operations/training_yard)
+"WZ" = (
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_x = 6;
+	pixel_y = 10
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Xc" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/tech_room)
+"Xf" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "E";
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/power/apc/power/east,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"XG" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/surface/table/reinforced/prison{
+	color = "#6b675e"
+	},
+/obj/structure/machinery/microwave{
+	pixel_y = 6
+	},
+/obj/item/ashtray/bronze{
+	icon_state = "ashtray_full_bl";
+	pixel_x = 3;
+	pixel_y = 11
+	},
+/obj/item/ashtray/bronze{
+	icon_state = "ashtray_small_bl_full";
+	pixel_x = -6;
+	pixel_y = 13
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/sensor_facility/tech_room)
+"XO" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/pipes/standard/simple/hidden/dark,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Zm" = (
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/sensor_facility/sensor_room)
+"Zp" = (
+/obj/item/stack/rods,
+/obj/item/ammo_casing/bullet,
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/avenue)
+
+(1,1,1) = {"
+VS
+Tu
+VS
+WC
+zU
+tP
+gS
+cO
+cO
+cO
+cO
+cO
+cO
+cO
+cO
+cO
+cO
+cO
+cO
+cO
+cO
+Oa
+"}
+(2,1,1) = {"
+Sc
+Sc
+Sc
+Oy
+Oy
+PT
+cW
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+"}
+(3,1,1) = {"
+oP
+Sc
+Sc
+Ll
+Oy
+Oy
+Oy
+Oy
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+"}
+(4,1,1) = {"
+ec
+pS
+Oy
+hU
+HZ
+Oy
+Oy
+hU
+Oy
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+"}
+(5,1,1) = {"
+rL
+Hg
+Oy
+Oy
+tr
+tr
+Db
+Oy
+hU
+Oy
+Sc
+Sc
+Ly
+Ly
+Ly
+Ly
+Ly
+zl
+Ly
+Ly
+Ly
+Ly
+"}
+(6,1,1) = {"
+dD
+dD
+Lt
+hF
+OL
+vx
+vx
+HA
+pG
+pG
+Sc
+Sc
+hP
+Og
+tj
+dL
+Cz
+ME
+oW
+Cz
+Dl
+Ly
+"}
+(7,1,1) = {"
+LO
+LO
+SZ
+Br
+LO
+LO
+ns
+LO
+LO
+LO
+LO
+LO
+yV
+Ng
+NW
+Zm
+Zm
+WZ
+Zm
+NW
+BR
+ya
+"}
+(8,1,1) = {"
+tq
+tq
+wj
+tq
+tq
+tq
+tq
+tq
+tq
+tq
+tq
+tq
+wV
+Sq
+NW
+ii
+av
+hh
+sv
+Zm
+Hn
+Pw
+"}
+(9,1,1) = {"
+tq
+Hm
+tq
+wj
+tq
+tq
+tq
+tq
+tq
+tq
+tq
+tq
+wV
+HH
+RP
+av
+ii
+cm
+BL
+uv
+Qd
+Hj
+"}
+(10,1,1) = {"
+rR
+rR
+rR
+rR
+rR
+JD
+df
+rR
+rR
+rR
+rR
+rR
+yV
+lX
+Zm
+Zm
+NW
+WZ
+Zm
+uv
+Is
+ya
+"}
+(11,1,1) = {"
+om
+VN
+BJ
+om
+aQ
+GN
+om
+om
+HT
+om
+HT
+Ai
+be
+EI
+Sx
+Sx
+mW
+rb
+mW
+mW
+Fp
+UL
+"}
+(12,1,1) = {"
+dp
+dp
+Zp
+Oy
+ff
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+Sc
+pz
+CQ
+gR
+iz
+Hk
+ne
+gR
+gR
+zD
+UL
+"}
+(13,1,1) = {"
+KH
+eA
+Fb
+Fb
+GD
+eA
+mA
+mA
+mA
+Sc
+Sc
+Ly
+Ly
+aB
+cZ
+Zm
+eW
+Sr
+Zm
+uv
+qk
+UL
+"}
+(14,1,1) = {"
+KH
+uq
+Pu
+Ti
+GW
+Ti
+Pu
+li
+mA
+Sc
+Sc
+Ly
+kG
+Vp
+xe
+Zm
+Hz
+xH
+Zm
+Zm
+pf
+Hj
+"}
+(15,1,1) = {"
+KH
+pW
+Pu
+qE
+Ti
+dd
+Pu
+Ti
+mA
+Sc
+Sc
+Ly
+Si
+Sr
+Zm
+Zm
+eW
+wr
+Zm
+Zm
+mz
+bo
+"}
+(16,1,1) = {"
+lN
+Nq
+wz
+bB
+bB
+bB
+sb
+Pu
+mA
+mA
+Ly
+Ly
+hE
+Ny
+Zm
+Zm
+zB
+id
+Zm
+Mw
+qc
+UL
+"}
+(17,1,1) = {"
+mn
+sk
+cf
+cp
+cp
+Id
+wN
+qE
+Eo
+VX
+jG
+IC
+hw
+Hp
+Mw
+NW
+Xf
+au
+Zm
+Zm
+pI
+UL
+"}
+(18,1,1) = {"
+La
+oS
+Pu
+di
+hk
+FO
+VM
+nB
+nj
+VX
+im
+yn
+nM
+mf
+Zm
+sy
+dB
+dB
+dB
+dB
+dB
+dB
+"}
+(19,1,1) = {"
+hY
+gV
+ws
+pY
+ch
+zV
+wN
+pY
+bS
+Jk
+Kx
+Zm
+NW
+Ws
+Zm
+Mu
+dB
+dB
+dB
+dB
+dB
+dB
+"}
+(20,1,1) = {"
+KH
+Hv
+bK
+bB
+bB
+UD
+nq
+je
+je
+zM
+Wz
+fP
+Wz
+Jz
+XO
+pA
+dB
+dB
+dB
+dB
+dB
+dB
+"}
+(21,1,1) = {"
+KH
+Ig
+fn
+nw
+bS
+qW
+pq
+pY
+em
+gt
+LT
+SR
+jL
+uL
+jB
+Zm
+dB
+dB
+dB
+dB
+dB
+dB
+"}
+(22,1,1) = {"
+KH
+XG
+ws
+bS
+ye
+nl
+Hl
+em
+pY
+aF
+mr
+uG
+Uu
+NF
+uv
+Zm
+dB
+dB
+dB
+dB
+dB
+dB
+"}
+(23,1,1) = {"
+KH
+pW
+kJ
+pY
+uM
+nl
+vV
+wG
+pY
+aF
+yh
+kV
+zr
+ku
+uv
+Ws
+dB
+dB
+dB
+dB
+dB
+dB
+"}
+(24,1,1) = {"
+SY
+uq
+fn
+ML
+pY
+qW
+LF
+bS
+pY
+gt
+qT
+fx
+GP
+Kx
+Iu
+MU
+dB
+dB
+dB
+dB
+dB
+dB
+"}
+(25,1,1) = {"
+yw
+Gr
+bB
+Xc
+fS
+dT
+bB
+cD
+bB
+ae
+lI
+Zm
+Ws
+uf
+xe
+VZ
+dB
+dB
+dB
+dB
+dB
+dB
+"}
+(26,1,1) = {"
+yw
+Gr
+MZ
+bS
+CV
+Ek
+sg
+bS
+pY
+Jk
+FX
+xe
+SR
+SR
+rr
+ra
+dB
+dB
+dB
+dB
+dB
+dB
+"}
+(27,1,1) = {"
+SY
+tE
+kC
+yR
+eB
+pv
+mZ
+Bh
+iq
+VX
+vg
+VH
+Ly
+Ly
+Ly
+Ly
+dB
+dB
+dB
+dB
+dB
+dB
+"}
+(28,1,1) = {"
+mA
+sV
+bB
+zQ
+dd
+gD
+sz
+cj
+GW
+VX
+co
+DC
+Ly
+dB
+dB
+dB
+dB
+dB
+dB
+dB
+dB
+dB
+"}
+(29,1,1) = {"
+mA
+gq
+bB
+Pu
+kj
+HM
+cF
+Gc
+Ti
+VX
+Fg
+rS
+Ly
+dB
+dB
+dB
+dB
+dB
+dB
+dB
+dB
+dB
+"}
+(30,1,1) = {"
+mA
+nc
+GO
+hm
+VR
+dJ
+fF
+GW
+Ti
+VX
+iI
+Vn
+Ly
+dB
+dB
+dB
+dB
+dB
+dB
+dB
+dB
+dB
+"}
+(31,1,1) = {"
+mA
+mA
+mA
+mA
+mA
+mA
+mA
+mA
+mA
+mA
+Ly
+Ly
+Ly
+dB
+dB
+dB
+dB
+dB
+dB
+dB
+dB
+dB
+"}

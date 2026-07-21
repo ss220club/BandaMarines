@@ -1,0 +1,8492 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ab" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/roadlines3,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"ac" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/closet/firecloset,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"ad" = (
+/obj/effect/decal/hybrisa/road/lines1,
+/obj/effect/decal/hybrisa/road/lines4,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"ag" = (
+/obj/structure/stairs{
+	color = "#a6aeab";
+	dir = 4
+	},
+/obj/item/ammo_casing/bullet{
+	layer = 3.1;
+	pixel_x = 12
+	},
+/turf/open/floor/prison/darkred2/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"am" = (
+/obj/item/stool{
+	pixel_x = 4;
+	pixel_y = 9
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/almayer/aicore/no_build/ai_cargo,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"an" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 1
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"as" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/ramptop/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"at" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/trash/cigbutt{
+	pixel_x = -10;
+	pixel_y = 7
+	},
+/turf/open/hybrisa/street/sidewalkcorner/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"au" = (
+/obj/item/ammo_magazine/rifle/rmc_f90{
+	current_rounds = 0
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"av" = (
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 4
+	},
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 8
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"aH" = (
+/obj/effect/decal/hybrisa/TWE_logo_large/directional_1{
+	pixel_x = 16;
+	pixel_y = 9
+	},
+/obj/structure/window/reinforced{
+	color = "#a6aeab";
+	pixel_y = -4
+	},
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"aJ" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/metal/zbrownfloor1/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"aV" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/cleanable/blood/xeno{
+	icon_state = "xgib3"
+	},
+/obj/effect/decal/cleanable/blood/xeno{
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/turf/open/floor/prison/ramptop/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"aW" = (
+/obj/item/ammo_casing/bullet{
+	icon_state = "cartridge_6_1"
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"bb" = (
+/obj/structure/cable{
+	icon_state = "4-8";
+	color = "#550d0d"
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"bc" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/darkredfull2,
+/area/lv733/indoors/base_operations/main_trainstation)
+"bd" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_casing/bullet{
+	layer = 3.1;
+	pixel_x = 12;
+	pixel_y = -8
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"be" = (
+/obj/item/ammo_casing/bullet{
+	layer = 3.1
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"bp" = (
+/obj/structure/barricade/handrail/strata,
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"bt" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/wood/blackwood,
+/area/lv733/indoors/base_operations/main_trainstation)
+"by" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/largecrate/random/case/double{
+	pixel_y = 5
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"bR" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"bX" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = 11
+	},
+/obj/structure/barricade/metal/wired{
+	dir = 1
+	},
+/obj/structure/barricade/metal/wired{
+	dir = 4
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"bY" = (
+/obj/structure/barricade/handrail/hybrisa/road/wood/orange{
+	dir = 1;
+	pixel_x = 2;
+	pixel_y = 3
+	},
+/turf/open/floor/hybrisa/metal/grated,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"cj" = (
+/obj/item/stack/sheet/metal,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"cp" = (
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/outdoors/caves/western_caves)
+"cs" = (
+/obj/effect/decal/hybrisa/road/lines1,
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 1;
+	icon_state = "stop_decal5"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"cv" = (
+/obj/effect/decal/hybrisa/road/corner,
+/obj/structure/machinery/line_nexter/med{
+	dir = 2;
+	layer = 4.5
+	},
+/obj/effect/decal/hybrisa/road/road_stop{
+	icon_state = "stop_decal4"
+	},
+/obj/effect/decal/hybrisa/road/lines1,
+/turf/open/floor/corsat/squares,
+/area/lv733/indoors/base_operations/main_trainstation)
+"cz" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 1
+	},
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"cA" = (
+/obj/structure/bed/sofa/vert/white/bot,
+/obj/item/clothing/accessory/patch/twe,
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"cB" = (
+/obj/item/trash/cigbutt{
+	pixel_x = -10;
+	pixel_y = 7
+	},
+/turf/open/hybrisa/street/sidewalk/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"cD" = (
+/obj/item/ammo_magazine/smg/p90,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"cE" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/cleanable/blood/oil/streak,
+/obj/effect/decal/medical_decals{
+	icon_state = "white_broken_docstripingdir";
+	color = "#d3d3d3";
+	dir = 4
+	},
+/turf/open/floor/hybrisa/metal/grated/north,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"cG" = (
+/obj/structure/machinery/recharge_station,
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"cK" = (
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"cL" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/darkred2/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"cN" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/paper,
+/obj/item/tool/pen,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"cO" = (
+/obj/structure/window/reinforced{
+	color = "#a6aeab";
+	pixel_y = -4
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"cT" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/almayer_hull/outerhull_dir_alt/north,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"cV" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"dd" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/trash/hybrisa/cuppa_joes/empty_cup,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"dj" = (
+/obj/effect/alien/egg{
+	icon_state = "Egg Opened";
+	status = 1
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/oob)
+"dm" = (
+/obj/structure/surface/rack{
+	color = "#848484";
+	pixel_y = 10
+	},
+/obj/structure/surface/rack{
+	color = "#848484";
+	pixel_y = 25
+	},
+/obj/item/storage/belt/utility/full,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"dr" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/obj/item/prop/alien/hugger,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"ds" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"dz" = (
+/obj/structure/machinery/door/window/southleft{
+	color = "#a6aeab"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"dE" = (
+/turf/closed/wall/hybrisa/rock,
+/area/lv733/oob)
+"dL" = (
+/turf/closed/wall/hybrisa/marhsalls/unmeltable,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"dS" = (
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"dU" = (
+/obj/item/toy/deck{
+	pixel_y = 12
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"dW" = (
+/turf/closed/wall/wood,
+/area/lv733/outdoors/caves/western_caves)
+"eg" = (
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 8
+	},
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 4
+	},
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_13";
+	pixel_x = -8;
+	pixel_y = 12
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"eh" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/barricade/sandbags/weak_wired{
+	dir = 1;
+	icon_state = "sandbag_0";
+	pixel_y = 4;
+	layer = 4
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"em" = (
+/obj/effect/decal/hybrisa/road/lines1,
+/obj/effect/decal/hybrisa/road/road_edge{
+	pixel_x = -4
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"en" = (
+/turf/closed/wall/hybrisa/marhsalls/unmeltable,
+/area/lv733/oob)
+"es" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"ev" = (
+/obj/structure/machinery/door/airlock/hybrisa/generic_solid{
+	dir = 2
+	},
+/turf/open/floor/plating,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"eA" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/base_operations/main_trainstation)
+"eE" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 1
+	},
+/obj/item/ammo_casing/bullet,
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"eL" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"eM" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl3"
+	},
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_y = 13
+	},
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"eN" = (
+/obj/structure/monorail{
+	dir = 4;
+	name = "launch track"
+	},
+/obj/structure/terminal{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"eO" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 9
+	},
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"eR" = (
+/turf/template_noop,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"eS" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/structure/barricade/handrail/strata,
+/obj/effect/decal/hybrisa/road/lines2,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"eT" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"eZ" = (
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/oob)
+"fb" = (
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"fg" = (
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal2";
+	pixel_x = 4
+	},
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = 11
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"fl" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/main_trainstation)
+"fm" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/item/ammo_magazine/rifle/rmc_f90,
+/obj/effect/decal/cleanable/blood/xeno{
+	pixel_x = -1;
+	pixel_y = 7
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"fr" = (
+/obj/structure/bed/sofa/vert/white/top,
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"fs" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_4";
+	pixel_y = 12
+	},
+/turf/open/floor/prison/darkred2,
+/area/lv733/indoors/base_operations/main_trainstation)
+"ft" = (
+/obj/effect/decal/cleanable/blood/xeno{
+	pixel_x = 2;
+	pixel_y = 8
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"fu" = (
+/turf/open/hybrisa/street/sidewalkfull,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"fy" = (
+/obj/structure/barricade/handrail/strata,
+/turf/open/hybrisa/street/sidewalkcenter/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"fz" = (
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/structure/machinery/line_nexter/med{
+	dir = 1;
+	pixel_y = 1
+	},
+/obj/effect/decal/hybrisa/road/road_stop{
+	icon_state = "stop_decal2"
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"fL" = (
+/obj/structure/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"fO" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"fQ" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_casing/bullet{
+	icon_state = "cartridge_3_1"
+	},
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/base_operations/main_trainstation)
+"fR" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/reagent_dispensers/tank/water,
+/turf/open/floor/prison/darkred2/east,
+/area/lv733/indoors/base_operations/main_trainstation)
+"fW" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = 11
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"fY" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/medical_decals{
+	icon_state = "white_broken_docstripingdir";
+	color = "#d3d3d3";
+	dir = 4
+	},
+/turf/open/floor/hybrisa/metal/grated/north,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"fZ" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"gb" = (
+/obj/effect/decal/strata_decals/grasses,
+/obj/structure/blocker/forcefield/vehicles,
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"gf" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 8
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/cement3,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"gh" = (
+/obj/structure/stairs{
+	color = "#a6aeab";
+	dir = 4
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/darkred2/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"gk" = (
+/obj/effect/decal/strata_decals/grasses,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"gs" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/structure/barricade/handrail/strata,
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"gz" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/cleanable/blood/xeno{
+	icon_state = "xgib6"
+	},
+/obj/effect/decal/cleanable/blood/xeno{
+	pixel_x = -1;
+	pixel_y = 7
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"gA" = (
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/almayer_hull/outerhull_dir_alt/north,
+/area/lv733/oob)
+"gD" = (
+/turf/open/floor/hybrisa/metal/zbrownfloor1/southeast,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"gE" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 8
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"gI" = (
+/obj/structure/largecrate/random/case/small,
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice3";
+	pixel_x = 6;
+	pixel_y = 19
+	},
+/obj/structure/largecrate/random/mini/small_case{
+	pixel_x = -4;
+	pixel_y = 5
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"gJ" = (
+/obj/structure/barricade/handrail/strata,
+/obj/structure/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"gM" = (
+/turf/open/floor/hybrisa/metal/zbrownfloor1/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"gO" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"gY" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/item/shard{
+	icon_state = "medium"
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"ha" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 1
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"hc" = (
+/obj/structure/monorail{
+	dir = 4;
+	name = "launch track"
+	},
+/obj/structure/machinery/door/poddoor{
+	explo_proof = 1;
+	needs_power = 0;
+	unacidable = 1;
+	name = "\improper Lockdown";
+	emp_proof = 1;
+	dir = 8
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/plating,
+/area/lv733/oob)
+"he" = (
+/turf/closed/wall/hybrisa/marhsalls,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"hf" = (
+/obj/structure/machinery/light,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"hg" = (
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 1
+	},
+/obj/effect/decal/hybrisa/road/road_stop{
+	icon_state = "stop_decal5"
+	},
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/corsat/squares,
+/area/lv733/indoors/base_operations/main_trainstation)
+"hh" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/metal/zbrownfloor2/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"hj" = (
+/obj/structure/largecrate/random/barrel/brown,
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"hs" = (
+/obj/structure/machinery/vending/snack{
+	density = 0;
+	pixel_y = 17;
+	pixel_x = 15
+	},
+/obj/structure/machinery/vending/cola{
+	pixel_x = -7;
+	pixel_y = 16
+	},
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_9";
+	pixel_y = 3;
+	pixel_x = -5
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"hv" = (
+/obj/item/weapon/gun/smg/p90{
+	current_mag = null
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib6";
+	pixel_y = 12
+	},
+/obj/effect/decal/cleanable/blood{
+	pixel_x = 4
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl4";
+	pixel_y = 2
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"hx" = (
+/obj/structure/fence/slim/dark,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 9
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalkfull,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"hz" = (
+/obj/item/ammo_casing/bullet{
+	icon_state = "cartridge_6_1"
+	},
+/turf/open/floor/hybrisa/metal/grated,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"hC" = (
+/obj/structure/monorail{
+	dir = 4;
+	name = "launch track"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice3";
+	pixel_x = 6;
+	pixel_y = 19
+	},
+/turf/open/floor/plating,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"hG" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/base_operations/main_trainstation)
+"hI" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_casing/bullet{
+	layer = 3.1;
+	pixel_x = 12;
+	pixel_y = -8
+	},
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 1
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"hO" = (
+/obj/effect/hybrisa/misc/fake/wire/blue{
+	dir = 4;
+	pixel_y = 12
+	},
+/obj/effect/hybrisa/misc/fake/wire/blue{
+	dir = 4
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"hR" = (
+/turf/closed/wall/hybrisa/marhsalls,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"hU" = (
+/obj/effect/decal/large_stain,
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/oob)
+"hY" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/cargo_container/hybrisa/containersextended/greenwywingsleft,
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"ig" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/darkred2/northwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"ik" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_4";
+	layer = 3.2
+	},
+/turf/open/floor/prison/darkred2/southeast,
+/area/lv733/indoors/base_operations/main_trainstation)
+"im" = (
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_5";
+	pixel_y = 12
+	},
+/turf/open/floor/prison/darkred2,
+/area/lv733/indoors/base_operations/main_trainstation)
+"iq" = (
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"is" = (
+/obj/structure/barricade/handrail/strata{
+	dir = 4;
+	layer = 4
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/medical_decals{
+	icon_state = "white_broken_docstripingdir";
+	color = "#d3d3d3";
+	dir = 4
+	},
+/turf/open/floor/hybrisa/metal/grated/north,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"iy" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 1
+	},
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"iA" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal2";
+	pixel_x = 4
+	},
+/obj/item/ammo_casing/bullet,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"iB" = (
+/obj/structure/surface/table/reinforced/black,
+/obj/item/clipboard,
+/turf/open/floor/prison/darkred2/northeast,
+/area/lv733/indoors/base_operations/main_trainstation)
+"iK" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/darkred2/north,
+/area/lv733/indoors/base_operations/main_trainstation)
+"iM" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = 11
+	},
+/obj/structure/barricade/metal/wired{
+	dir = 1
+	},
+/obj/effect/landmark/objective_landmark/far,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"iO" = (
+/obj/structure/bed/sofa/vert/white/bot,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"iR" = (
+/turf/open/hybrisa/street/sidewalk/northwest,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"iU" = (
+/obj/structure/surface/table/reinforced/black,
+/obj/item/device/flashlight/lamp{
+	pixel_x = 5;
+	pixel_y = 10;
+	layer = 5
+	},
+/turf/open/hybrisa/street/roadlines3,
+/area/lv733/indoors/base_operations/main_trainstation)
+"iV" = (
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"iW" = (
+/obj/structure/machinery/light/blue{
+	dir = 8
+	},
+/obj/structure/largecrate/random/mini,
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"iZ" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 1
+	},
+/turf/open/floor/prison,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"jd" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/structure/barricade/handrail/strata,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"jj" = (
+/obj/structure/sign/poster/io{
+	pixel_y = 32
+	},
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_17";
+	pixel_x = -8;
+	pixel_y = 12
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"jk" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"jn" = (
+/obj/vehicle/powerloader,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/open/floor/mech_bay_recharge_floor,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"jp" = (
+/turf/open/hybrisa/street/roadlines3,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"jr" = (
+/obj/effect/decal/cleanable/blood/drip{
+	icon_state = "2";
+	pixel_x = -15;
+	pixel_y = 15
+	},
+/obj/structure/barricade/sandbags/weak_wired{
+	dir = 1;
+	icon_state = "sandbag_0";
+	pixel_y = 4;
+	layer = 4
+	},
+/obj/structure/machinery/light/small,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/storage_facility)
+"js" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/cargo_container/hybrisa/containersextended/greenwywingsright,
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"jw" = (
+/obj/structure/window/reinforced{
+	dir = 8;
+	health = 80;
+	color = "#a6aeab";
+	layer = 4
+	},
+/obj/structure/window/reinforced{
+	color = "#a6aeab";
+	pixel_y = -4
+	},
+/obj/structure/closet/secure_closet/injection,
+/obj/item/clothing/suit/storage/jacket/marine/rmc/service/lv733/suit_roaf_shooter,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"jy" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"jE" = (
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 4
+	},
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal7";
+	pixel_y = 6;
+	pixel_x = -4
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"jH" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 1
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"jL" = (
+/turf/open/hybrisa/street/sidewalkcenter/south,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"jM" = (
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 4
+	},
+/obj/effect/decal/hybrisa/road/corner,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_4";
+	layer = 3.2
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"jP" = (
+/obj/effect/decal/strata_decals/grasses,
+/obj/structure/blocker/forcefield/vehicles,
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"jR" = (
+/obj/item/ammo_casing/bullet{
+	icon_state = "cartridge_9_1"
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/street/roadlines3,
+/area/lv733/oob)
+"jU" = (
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/lv733/outdoors/caves/western_caves)
+"jW" = (
+/obj/effect/decal/hybrisa/TWE_logo_large/directional_1{
+	dir = 10;
+	pixel_x = 16;
+	pixel_y = 9
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"jX" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"kb" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/power/apc/power/west,
+/turf/open/floor/hybrisa/metal/zbrownfloor1/northeast,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"kf" = (
+/obj/structure/monorail{
+	dir = 4;
+	name = "launch track"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/plating,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"kl" = (
+/obj/structure/bed/sofa/vert/white/bot,
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"kn" = (
+/obj/structure/barricade/handrail/strata{
+	dir = 8
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/medical_decals{
+	icon_state = "white_broken_docstripingdir";
+	color = "#d3d3d3";
+	dir = 8
+	},
+/turf/open/floor/hybrisa/metal/grated/north,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"ko" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/effect/decal/hybrisa/road/lines1,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"kp" = (
+/turf/open/hybrisa/street/sidewalkcorner/north{
+	dir = 8
+	},
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"ku" = (
+/obj/effect/decal/cleanable/blood,
+/turf/open/hybrisa/street/sidewalkcenter/south,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"kB" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/obj/structure/machinery/colony_floodlight,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"kF" = (
+/turf/open/floor/prison/darkred2,
+/area/lv733/indoors/base_operations/main_trainstation)
+"kH" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalkcorner/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"kI" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalk/northeast,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"kJ" = (
+/obj/structure/machinery/space_heater/radiator/red{
+	dir = 4
+	},
+/obj/structure/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/strata/floor3,
+/area/lv733/indoors/base_operations/main_trainstation)
+"kK" = (
+/obj/item/prop/alien/hugger,
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"kX" = (
+/obj/structure/window/framed/hybrisa/marshalls,
+/turf/open/floor/plating,
+/area/lv733/indoors/base_operations/main_trainstation)
+"kY" = (
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 1
+	},
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 8
+	},
+/turf/open/floor/strata/floor3,
+/area/lv733/indoors/base_operations/main_trainstation)
+"ld" = (
+/obj/item/ammo_casing/bullet,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"lf" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/obj/structure/largecrate/random/barrel/brown,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"lg" = (
+/obj/effect/decal/strata_decals/grasses,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 5
+	},
+/obj/structure/fence/slim/dark,
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"lh" = (
+/obj/item/reagent_container/pill/teabag{
+	pixel_y = 11;
+	pixel_x = 9
+	},
+/turf/open/floor/hybrisa/metal/zbrownfloor2/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"li" = (
+/obj/structure/blocker/forcefield/vehicles,
+/turf/open/floor/plating,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"lz" = (
+/obj/structure/machinery/space_heater/radiator/red{
+	dir = 8;
+	pixel_x = 1;
+	layer = 2.9
+	},
+/obj/structure/closet/cabinet/hybrisa/metal{
+	pixel_y = 12
+	},
+/obj/item/clothing/suit/storage/jacket/marine/rmc/service/co/black,
+/turf/open/floor/hybrisa/wood/blackwood,
+/area/lv733/indoors/base_operations/main_trainstation)
+"lB" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/closed/wall/hybrisa/marhsalls,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"lD" = (
+/obj/structure/fence/slim/dark,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 8
+	},
+/turf/open/hybrisa/street/sidewalkfull,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"lI" = (
+/obj/effect/decal/hybrisa/road/roadmiddle{
+	dir = 1;
+	pixel_y = 14
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"lR" = (
+/turf/open/auto_turf/hybrisa_auto_turf/layer3,
+/area/lv733/outdoors/caves/western_caves)
+"lU" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 1
+	},
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"lW" = (
+/obj/item/stack/sheet/cardboard{
+	pixel_x = 6;
+	pixel_y = 9
+	},
+/obj/effect/hybrisa/misc/fake/wire/blue,
+/obj/effect/hybrisa/misc/fake/wire/blue{
+	dir = 4;
+	pixel_y = 12
+	},
+/obj/effect/hybrisa/misc/fake/wire/blue{
+	dir = 4;
+	pixel_y = -4
+	},
+/obj/effect/hybrisa/misc/fake/wire/red{
+	pixel_x = 10
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"lX" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner,
+/turf/open/floor/prison,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"lZ" = (
+/obj/effect/decal/hybrisa/TWE_logo_large/directional_1{
+	dir = 1;
+	pixel_x = 16;
+	pixel_y = 9
+	},
+/obj/structure/machinery/door/window/southleft{
+	color = "#a6aeab"
+	},
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/base_operations/main_trainstation)
+"mh" = (
+/turf/open/hybrisa/street/sidewalk/southeast,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"mj" = (
+/turf/open/floor/hybrisa/metal/zbrownfloor1/west,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"mk" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"mr" = (
+/obj/effect/decal/hybrisa/road/corner,
+/obj/structure/window/reinforced{
+	color = "#a6aeab";
+	pixel_y = -4
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"ms" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"mL" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"mM" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"mN" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/crap_item,
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"mO" = (
+/obj/structure/window/reinforced{
+	dir = 4;
+	color = "#a6aeab";
+	pixel_x = 1;
+	layer = 4
+	},
+/turf/open/floor/prison/darkred2/southeast,
+/area/lv733/indoors/base_operations/main_trainstation)
+"mQ" = (
+/obj/structure/machinery/colony_floodlight,
+/turf/open/hybrisa/street/sidewalkfull,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"mR" = (
+/obj/structure/blocker/forcefield/vehicles,
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"mZ" = (
+/obj/structure/fence/slim/dark,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalk/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"nb" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_y = 13
+	},
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"nf" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/vending/cola{
+	pixel_x = -7;
+	pixel_y = 16
+	},
+/obj/item/trash/cigbutt{
+	pixel_x = -10;
+	pixel_y = 7
+	},
+/turf/open/floor/prison/darkred2,
+/area/lv733/indoors/base_operations/main_trainstation)
+"nn" = (
+/obj/structure/largecrate/random/barrel/white,
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"np" = (
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"nq" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/bed/chair/office/light{
+	dir = 4
+	},
+/turf/open/floor/prison/darkred2/southeast,
+/area/lv733/indoors/base_operations/main_trainstation)
+"nr" = (
+/obj/structure/fence/slim/dark/door,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 8
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"nx" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/item/ammo_casing/bullet{
+	layer = 3.1;
+	pixel_x = 12
+	},
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_7"
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"nD" = (
+/obj/item/trash/uscm_mre,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/darkred2/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"nF" = (
+/obj/structure/window/reinforced{
+	color = "#a6aeab";
+	pixel_y = -4
+	},
+/obj/structure/machinery/big_computers/messaging_server/brown,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"nN" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"nO" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 8
+	},
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"nQ" = (
+/obj/structure/sign/banners/twe_flag{
+	pixel_y = 28
+	},
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"nR" = (
+/obj/structure/surface/table/reinforced/black,
+/obj/structure/window/reinforced{
+	color = "#a6aeab";
+	pixel_y = -4
+	},
+/obj/effect/landmark/objective_landmark/close,
+/obj/item/reagent_container/food/drinks/cans/waterbottle{
+	pixel_x = 7;
+	pixel_y = 16
+	},
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"nS" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"nX" = (
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 8;
+	icon_state = "stop_decal5"
+	},
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 1
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"oe" = (
+/obj/structure/window/framed/hybrisa/marshalls,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"of" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"oi" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/bed/chair/comfy/hybrisa/brown{
+	dir = 8
+	},
+/turf/open/floor/prison/darkred2/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"om" = (
+/obj/structure/window/framed/hybrisa/marshalls,
+/obj/structure/machinery/door/poddoor/hybrisa/open_shutters{
+	dir = 4
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"on" = (
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice2";
+	pixel_x = 6;
+	pixel_y = 19
+	},
+/obj/structure/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"oo" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"oC" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 1
+	},
+/obj/structure/largecrate/random/barrel/black{
+	layer = 3.2;
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"oE" = (
+/obj/effect/decal/cleanable/blood{
+	layer = 3
+	},
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_y = 13
+	},
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"oG" = (
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 1
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"oJ" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_casing/bullet{
+	layer = 3.1;
+	pixel_x = 12;
+	pixel_y = -8
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"oK" = (
+/obj/effect/decal/large_stain,
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"oN" = (
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_y = 13
+	},
+/turf/closed/wall/hybrisa/marhsalls,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"oR" = (
+/obj/effect/decal/cleanable/blood/xeno{
+	icon_state = "xgib3"
+	},
+/obj/effect/decal/cleanable/blood/xeno{
+	pixel_x = -1;
+	pixel_y = 7
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"oS" = (
+/obj/structure/machinery/door/airlock/multi_tile/hybrisa/generic_solid{
+	dir = 2
+	},
+/turf/open/hybrisa/street/roadlines3,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"oX" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice1";
+	pixel_x = -26;
+	pixel_y = -13
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"pa" = (
+/obj/structure/machinery/door/airlock/multi_tile/hybrisa/generic/autoname,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/main_trainstation)
+"pp" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice3";
+	pixel_x = 6;
+	pixel_y = 19
+	},
+/turf/open/floor/almayer_hull/outerhull_dir_alt/north,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"pr" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"pv" = (
+/obj/structure/barricade/handrail/strata,
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"pz" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"pE" = (
+/obj/structure/window/framed/hybrisa/marshalls,
+/turf/open/floor/plating,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"pG" = (
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 4
+	},
+/obj/effect/decal/hybrisa/road/corner,
+/obj/structure/surface/table/reinforced/black,
+/obj/structure/machinery/computer/communications/simple{
+	dir = 8
+	},
+/obj/structure/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"pJ" = (
+/obj/item/trash/cigbutt{
+	pixel_x = -10;
+	pixel_y = 7
+	},
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/base_operations/main_trainstation)
+"pP" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "cargo_arrow4";
+	dir = 1;
+	pixel_y = -19
+	},
+/obj/effect/decal/hybrisa/road/lines1,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"pR" = (
+/obj/structure/machinery/photocopier{
+	pixel_x = -1;
+	pixel_y = 3
+	},
+/obj/structure/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/prison/darkred2/southeast,
+/area/lv733/indoors/base_operations/main_trainstation)
+"pS" = (
+/obj/effect/decal/hybrisa/TWE_logo_large/directional_1{
+	dir = 9;
+	pixel_x = 16;
+	pixel_y = 9
+	},
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/base_operations/main_trainstation)
+"qb" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner,
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"qc" = (
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"qr" = (
+/obj/item/prop/alien/hugger,
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/oob)
+"qs" = (
+/obj/effect/decal/hybrisa/road/lines1,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"qt" = (
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"qD" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/largecrate/random/barrel/black,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"qE" = (
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = 11
+	},
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/structure/roof/hybrisa/billboardsandsigns/billboardsmedium/billboard3{
+	dir = 6;
+	pixel_y = 34;
+	lazy_nodes = 0;
+	layer = 3
+	},
+/obj/structure/prop/hybrisa/misc/blood/blood2,
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/oob)
+"qI" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 8
+	},
+/turf/open/floor/prison,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"qJ" = (
+/obj/structure/machinery/colony_floodlight,
+/turf/open/floor/prison,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"qL" = (
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/road/lines1,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"qR" = (
+/obj/item/stool{
+	pixel_x = -15;
+	pixel_y = 6
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"qW" = (
+/obj/structure/largecrate/supply{
+	pixel_x = -1;
+	pixel_y = 1
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice3";
+	pixel_x = 6;
+	pixel_y = 19
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"qZ" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/almayer_hull/outerhull_dir_alt/north,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"rd" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 1
+	},
+/obj/structure/largecrate/random/barrel/black{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"rg" = (
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 8
+	},
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 4
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_casing/bullet{
+	layer = 3.1;
+	pixel_x = 12
+	},
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood{
+	dir = 8;
+	icon_state = "gib6";
+	layer = 4;
+	pixel_x = -4;
+	pixel_y = 2
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"rh" = (
+/obj/effect/decal/hybrisa/road/corner,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal6";
+	pixel_y = -4;
+	pixel_x = -4
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"rk" = (
+/obj/structure/machinery/door/poddoor/almayer/closed{
+	id = null;
+	name = "\improper Lockdown";
+	vehicle_resistant = 1;
+	explo_proof = 1;
+	emp_proof = 1;
+	dir = 8
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/oob)
+"ro" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = -4
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"rw" = (
+/turf/open/floor/hybrisa/metal/grated,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"rD" = (
+/obj/structure/window/reinforced{
+	dir = 4;
+	color = "#a6aeab";
+	pixel_x = 1;
+	layer = 4
+	},
+/obj/structure/window/reinforced{
+	color = "#a6aeab";
+	pixel_y = -4
+	},
+/obj/structure/closet/secure_closet/injection,
+/obj/item/clothing/suit/storage/jacket/marine/rmc/service/lv733/suit_roaf_shooter,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"rG" = (
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"rK" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/tool/screwdriver,
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"rQ" = (
+/obj/structure/window/reinforced{
+	color = "#a6aeab";
+	pixel_y = -4
+	},
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"rV" = (
+/obj/structure/fence/slim/dark,
+/turf/open/hybrisa/street/sidewalkfull,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"rY" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = -4
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"rZ" = (
+/turf/open/floor/prison/ramptop/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"sa" = (
+/obj/item/ammo_casing/bullet,
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/base_operations/main_trainstation)
+"si" = (
+/turf/open/floor/plating,
+/area/lv733/indoors/base_operations/storage_facility)
+"sj" = (
+/obj/structure/barricade/sandbags/weak_wired{
+	dir = 8;
+	icon_state = "sandbag_0";
+	layer = 4
+	},
+/turf/open/floor/prison,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"st" = (
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/storage_facility)
+"sx" = (
+/obj/structure/closet/hydrant{
+	pixel_y = 32
+	},
+/turf/open/floor/hybrisa/metal/zbrownfloor1/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"sD" = (
+/obj/effect/decal/cleanable/blood/xeno{
+	pixel_x = -1;
+	pixel_y = 7
+	},
+/turf/open/hybrisa/street/cement3,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"ta" = (
+/obj/structure/machinery/big_computers/computerbrown/computer5{
+	pixel_y = 12
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"tb" = (
+/obj/structure/cable{
+	icon_state = "4-8";
+	color = "#550d0d"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 1
+	},
+/obj/effect/hybrisa/misc/fake/wire/red{
+	pixel_x = 10
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"td" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"to" = (
+/obj/structure/barricade/handrail/strata,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"tG" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"tJ" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/effect/decal/hybrisa/road/lines1,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = -4
+	},
+/obj/effect/decal/hybrisa/road/road_edge{
+	pixel_x = -4
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"tK" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light/small{
+	dir = 1;
+	pixel_y = 20
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"tM" = (
+/obj/structure/machinery/light/small,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"tN" = (
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"tP" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/barricade/handrail/strata,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 1
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"tS" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_casing/bullet,
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/base_operations/main_trainstation)
+"ub" = (
+/obj/item/tool/hand_labeler,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"uh" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/cargo_container/hybrisa/containersextended/greenright,
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"ul" = (
+/obj/structure/fence/slim/dark/door{
+	dir = 4
+	},
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"uo" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/prison/darkred2/southeast,
+/area/lv733/indoors/base_operations/main_trainstation)
+"up" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 8
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"us" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/computer/objective{
+	dir = 8
+	},
+/obj/structure/surface/table/reinforced/prison{
+	color = "#a57451"
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"ut" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/disposalpipe/segment{
+	dir = 1
+	},
+/obj/effect/hybrisa/misc/fake/wire/red{
+	pixel_x = 10
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"uu" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = 11
+	},
+/obj/item/ammo_casing/bullet{
+	layer = 3.1;
+	pixel_x = 12
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"uz" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"uE" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/prop/alien/hugger,
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"uG" = (
+/obj/structure/barricade/handrail/strata{
+	dir = 4;
+	layer = 4
+	},
+/obj/item/trash/buritto,
+/obj/effect/decal/medical_decals{
+	icon_state = "white_broken_docstripingdir";
+	color = "#d3d3d3";
+	dir = 4
+	},
+/turf/open/floor/hybrisa/metal/grated/north,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"uH" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_magazine/flamer_tank/empty,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib6";
+	pixel_y = -8
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"uO" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"uR" = (
+/obj/item/clothing/ears/earmuffs,
+/obj/item/stool{
+	pixel_x = -4;
+	pixel_y = 23;
+	layer = 4.2
+	},
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/open/floor/hybrisa/metal/zbrownfloor1/west,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"uS" = (
+/turf/open/hybrisa/street/sidewalkcorner/north{
+	dir = 2
+	},
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"uT" = (
+/obj/structure/barricade/handrail/strata,
+/turf/open/floor/strata/floor3,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"uU" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/trash/cigbutt{
+	pixel_x = -10;
+	pixel_y = 7
+	},
+/turf/open/hybrisa/street/sidewalk/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"vc" = (
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = 11
+	},
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/structure/roof/hybrisa/billboardsandsigns/billboardsmedium/billboard3{
+	dir = 5;
+	pixel_y = 34;
+	lazy_nodes = 0;
+	layer = 3;
+	pixel_x = 4
+	},
+/obj/structure/prop/hybrisa/misc/blood/blood1,
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/oob)
+"vd" = (
+/obj/effect/alien/resin/sticky,
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/lv733/outdoors/caves/western_caves)
+"vg" = (
+/turf/open/floor/plating,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"vi" = (
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"vl" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/obj/structure/machinery/light,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"vp" = (
+/obj/structure/stairs{
+	color = "#a6aeab"
+	},
+/obj/structure/barricade/handrail/strata{
+	dir = 4;
+	layer = 4
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/plating,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"vs" = (
+/obj/item/shard{
+	icon_state = "medium"
+	},
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"vu" = (
+/obj/structure/stairs{
+	color = "#a6aeab";
+	dir = 8
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"vy" = (
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"vz" = (
+/obj/structure/fence/slim/dark,
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"vG" = (
+/obj/structure/machinery/colony_floodlight,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 5
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"vK" = (
+/obj/structure/surface/table/reinforced/black,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/clothing/head/helmet/marine/veteran/lv733/roaf_beret{
+	pixel_x = 6
+	},
+/turf/open/floor/prison/darkred2/north,
+/area/lv733/indoors/base_operations/main_trainstation)
+"vQ" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/barricade/handrail/strata,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"vU" = (
+/obj/item/stool{
+	pixel_x = -15;
+	pixel_y = 6
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/almayer/aicore/no_build/ai_cargo,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"wb" = (
+/obj/structure/monorail{
+	dir = 4;
+	name = "launch track"
+	},
+/turf/open/floor/plating,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"wc" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/darkred2/southeast,
+/area/lv733/indoors/base_operations/main_trainstation)
+"wh" = (
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_y = 13
+	},
+/turf/open/floor/hybrisa/metal/grated,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"wk" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_magazine/flamer_tank/empty,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"wm" = (
+/obj/structure/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/prison/darkred2/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"wp" = (
+/obj/item/trash/cigbutt{
+	pixel_x = -10;
+	pixel_y = 7
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"wq" = (
+/obj/structure/fence/slim/dark,
+/turf/open/floor/prison,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"ws" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"wx" = (
+/obj/structure/blocker/forcefield/vehicles,
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"wy" = (
+/obj/structure/surface/rack{
+	color = "#848484";
+	pixel_y = 10
+	},
+/obj/structure/surface/rack{
+	color = "#848484";
+	pixel_y = 25
+	},
+/obj/item/stack/sheet/metal/large_stack,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"wA" = (
+/obj/structure/surface/table/reinforced/black,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"wE" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/power/apc/power/west,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"wG" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = -4
+	},
+/obj/effect/decal/cleanable/blood/xeno{
+	pixel_x = 2;
+	pixel_y = 8
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"wH" = (
+/obj/effect/decal/strata_decals/grasses,
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"wM" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/metal/zbrownfloor1/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"wN" = (
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = 11
+	},
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/cleanable/blood{
+	layer = 3
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/oob)
+"wZ" = (
+/obj/item/stool{
+	layer = 4;
+	pixel_x = -4;
+	pixel_y = 23
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"xa" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/medical_decals{
+	icon_state = "white_broken_docstripingdir";
+	color = "#d3d3d3";
+	dir = 8
+	},
+/turf/open/floor/hybrisa/metal/grated/north,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"xc" = (
+/obj/structure/monorail{
+	dir = 4;
+	name = "launch track"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/plating,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"xg" = (
+/obj/structure/reagent_dispensers/tank/water,
+/obj/structure/machinery/light,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"xk" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = -4
+	},
+/obj/effect/decal/cleanable/blood/xeno{
+	dir = 4;
+	icon_state = "xsplatter3"
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"xm" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/metal/grated,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"xo" = (
+/obj/structure/surface/table/reinforced/black,
+/obj/item/reagent_container/food/drinks/sillycup{
+	pixel_x = -5;
+	pixel_y = 10
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"xv" = (
+/obj/item/ammo_casing/bullet{
+	layer = 3.1;
+	pixel_x = 12;
+	pixel_y = -8
+	},
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"xA" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"xB" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/largecrate/supply{
+	pixel_x = -1;
+	pixel_y = 1
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"xD" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/obj/item/weapon/gun/rifle/rmc_f90,
+/obj/effect/decal/cleanable/blood/xeno{
+	pixel_x = -1;
+	pixel_y = 7
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"xF" = (
+/obj/structure/stairs{
+	color = "#a6aeab";
+	dir = 1
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"xH" = (
+/obj/effect/decal/medical_decals{
+	icon_state = "white_broken_docstripingdir";
+	color = "#d3d3d3";
+	dir = 8
+	},
+/turf/open/floor/hybrisa/metal/grated/north,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"xI" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/structure/machinery/colony_floodlight/traffic{
+	dir = 4;
+	pixel_y = 5
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"xJ" = (
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice8";
+	pixel_y = 13
+	},
+/turf/closed/wall/hybrisa/marhsalls,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"xK" = (
+/obj/structure/surface/table/reinforced/prison{
+	color = "#a57451"
+	},
+/obj/effect/landmark/objective_landmark/medium,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"xN" = (
+/obj/structure/blocker/forcefield/vehicles,
+/obj/structure/blocker/forcefield/vehicles,
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"xO" = (
+/obj/structure/cable{
+	icon_state = "4-8";
+	color = "#550d0d"
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	level = 2;
+	color = "#550d0d"
+	},
+/turf/open/floor/plating,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"xS" = (
+/obj/structure/closet/emcloset,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"xU" = (
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"xY" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 8
+	},
+/turf/open/floor/prison/ramptop/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"ya" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 6
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"yb" = (
+/obj/effect/decal/hybrisa/TWE_logo_large/directional_1{
+	dir = 4;
+	pixel_x = 16;
+	pixel_y = 9
+	},
+/obj/structure/surface/table/reinforced/black,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/objective_landmark/close,
+/turf/open/floor/prison/darkredfull2,
+/area/lv733/indoors/base_operations/main_trainstation)
+"yh" = (
+/obj/effect/decal/cleanable/blood/oil/streak,
+/turf/open/floor/hybrisa/metal/grated,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"yj" = (
+/obj/structure/machinery/recharge_station,
+/obj/structure/cable{
+	icon_state = "4-8";
+	color = "#550d0d"
+	},
+/obj/structure/cable{
+	icon_state = "2-4";
+	level = 2;
+	color = "#550d0d"
+	},
+/turf/open/floor/plating,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"ys" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/ramptop/north,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"yF" = (
+/obj/structure/barricade/handrail/strata{
+	dir = 4;
+	layer = 4
+	},
+/turf/open/floor/strata/floor3,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"yN" = (
+/obj/item/paper,
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_4";
+	layer = 3.2
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"yU" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"yV" = (
+/obj/structure/surface/table/reinforced/black,
+/obj/item/storage/backpack/rmc/medium{
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/turf/open/floor/prison/darkred2/northwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"yW" = (
+/turf/open/hybrisa/street/roadlines3,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"yX" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = -4
+	},
+/obj/structure/barricade/metal/wired{
+	dir = 4
+	},
+/obj/structure/barricade/metal/wired,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"za" = (
+/obj/structure/largecrate/random/barrel/black,
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"zd" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_casing/bullet,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"ze" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/effect/decal/hybrisa/road/lines2,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"zi" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 1
+	},
+/turf/open/floor/prison,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"zj" = (
+/obj/structure/disposalpipe/segment{
+	dir = 1
+	},
+/obj/effect/hybrisa/misc/fake/wire/red{
+	pixel_x = 10
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"zl" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/surface/table/reinforced/prison{
+	color = "#a57451"
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"zp" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = -4
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/oob)
+"zr" = (
+/obj/effect/decal/hybrisa/road/lines1,
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 1
+	},
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_5"
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"zs" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = 11
+	},
+/obj/structure/largecrate/random/case,
+/obj/item/stack/sheet/plasteel/med_small_stack,
+/obj/structure/largecrate/random/mini/ammo{
+	pixel_y = 15;
+	pixel_x = -19
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"zt" = (
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 8;
+	icon_state = "stop_decal5"
+	},
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 8
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"zw" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"zB" = (
+/obj/structure/stairs{
+	color = "#a6aeab"
+	},
+/obj/structure/barricade/handrail/strata{
+	dir = 8
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/plating,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"zC" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "cargo_arrow4"
+	},
+/obj/effect/decal/hybrisa/road/lines1,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"zK" = (
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 8
+	},
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal8";
+	pixel_y = 6;
+	pixel_x = 4
+	},
+/obj/item/ammo_casing/bullet{
+	layer = 3.1
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"zL" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/barricade/handrail/strata,
+/turf/open/floor/strata/floor3,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"zM" = (
+/obj/effect/decal/hybrisa/TWE_logo_large{
+	dir = 1;
+	pixel_x = 16;
+	pixel_y = 9
+	},
+/obj/structure/machinery/door/window/southleft{
+	color = "#a6aeab"
+	},
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/base_operations/main_trainstation)
+"zR" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalk/northwest,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"zZ" = (
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Ac" = (
+/obj/item/ammo_magazine/rifle/rmc_f90{
+	current_rounds = 0
+	},
+/turf/open/hybrisa/street/roadlines3,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Ag" = (
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal2";
+	pixel_x = 4
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Ar" = (
+/obj/structure/surface/table/reinforced/black,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_4";
+	layer = 3.2
+	},
+/obj/structure/machinery/computer/communications/simple,
+/turf/open/hybrisa/street/roadlines3,
+/area/lv733/indoors/base_operations/main_trainstation)
+"At" = (
+/obj/structure/barricade/handrail/strata{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	color = "#a6aeab";
+	pixel_y = -4
+	},
+/turf/open/floor/strata/floor3,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Av" = (
+/obj/effect/decal/hybrisa/road/lines1,
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Ay" = (
+/obj/effect/decal/hybrisa/road/lines1,
+/obj/structure/surface/table/reinforced/black,
+/obj/item/storage/box/teabags,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"AF" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = -4
+	},
+/obj/structure/barricade/metal/wired,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"AJ" = (
+/obj/structure/barricade/handrail/strata,
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/largecrate/random/mini/ammo{
+	pixel_y = 12;
+	pixel_x = 5
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"AM" = (
+/obj/item/trash/cigbutt{
+	pixel_x = -10;
+	pixel_y = 7
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalkcorner/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"AP" = (
+/turf/open/floor/hybrisa/metal/zbrownfloor1/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"AQ" = (
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"AS" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"AT" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/shard{
+	icon_state = "medium"
+	},
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"AW" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"AY" = (
+/obj/structure/fence/slim/dark,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 10
+	},
+/turf/open/floor/prison,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"AZ" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/cable{
+	icon_state = "4-8";
+	color = "#550d0d"
+	},
+/obj/effect/hybrisa/misc/fake/wire/blue,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Ba" = (
+/turf/open/hybrisa/street/roadlines3,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Bg" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/floodlight,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Bh" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/darkred2,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Bj" = (
+/obj/structure/barricade/handrail/strata{
+	dir = 8
+	},
+/turf/open/floor/strata/floor3,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Bu" = (
+/turf/open/floor/plating,
+/area/lv733/outdoors/caves/western_caves)
+"BB" = (
+/obj/structure/platform/metal/almayer/east,
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"BF" = (
+/obj/structure/machinery/light/small{
+	dir = 4;
+	pixel_y = 6
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"BH" = (
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/road/corner,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"BK" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light/small,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"BN" = (
+/obj/structure/stairs{
+	color = "#a6aeab";
+	dir = 8
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"BW" = (
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/structure/surface/table/reinforced/black,
+/obj/item/book/codebook/twe{
+	pixel_x = -1;
+	pixel_y = 5
+	},
+/turf/open/floor/strata/floor3,
+/area/lv733/indoors/base_operations/main_trainstation)
+"BX" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/barricade/handrail/hybrisa/road/wood/orange{
+	dir = 1;
+	pixel_x = 2;
+	pixel_y = 3
+	},
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"BZ" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 10
+	},
+/obj/effect/decal/strata_decals/grasses,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Cc" = (
+/turf/open/hybrisa/street/roadlines3,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Cg" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/darkredcorners2/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Cl" = (
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal2";
+	pixel_x = 4
+	},
+/obj/effect/decal/cleanable/blood/xeno{
+	dir = 4;
+	icon_state = "xsplatter3"
+	},
+/obj/effect/decal/cleanable/blood/xeno{
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Cm" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice3";
+	pixel_x = 6;
+	pixel_y = 19
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Cn" = (
+/obj/structure/fence/slim/dark,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Co" = (
+/obj/structure/bed/chair/comfy/hybrisa/brown{
+	dir = 4
+	},
+/turf/open/floor/hybrisa/wood/blackwood,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Ct" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 6
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Cy" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = 11
+	},
+/obj/effect/decal/cleanable/blood,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Cz" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/large_stain,
+/obj/structure/blocker/forcefield/vehicles,
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"CH" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/darkred2/east,
+/area/lv733/indoors/base_operations/main_trainstation)
+"CJ" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"CL" = (
+/turf/open/floor/prison/darkred2/southeast,
+/area/lv733/indoors/base_operations/main_trainstation)
+"CN" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/largecrate/empty/secure,
+/obj/structure/largecrate/empty/secure{
+	pixel_y = 14;
+	layer = 4;
+	pixel_x = 6
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"CQ" = (
+/obj/structure/barricade/handrail/strata,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"CU" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice3";
+	pixel_x = 6;
+	pixel_y = 19
+	},
+/obj/structure/machinery/light,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"CW" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"CY" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/closed/wall/hybrisa/marhsalls,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Dg" = (
+/turf/open/floor/prison,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Dh" = (
+/obj/structure/bed/sofa/vert/white/top,
+/obj/item/storage/bible{
+	pixel_x = -2;
+	pixel_y = 3
+	},
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Di" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/hybrisa/misc/fake/wire/blue{
+	dir = 4;
+	pixel_y = 12
+	},
+/obj/effect/hybrisa/misc/fake/wire/blue{
+	dir = 4
+	},
+/obj/effect/hybrisa/misc/fake/wire/blue,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Dm" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 4
+	},
+/turf/open/floor/prison/ramptop/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Dq" = (
+/obj/structure/fence/slim/dark,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 1
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalkfull,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Dr" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Ds" = (
+/obj/structure/machinery/floodlight,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Dw" = (
+/obj/structure/surface/rack{
+	color = "#848484";
+	pixel_y = 10
+	},
+/obj/structure/surface/rack{
+	color = "#848484";
+	pixel_y = 25
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Dy" = (
+/obj/structure/sign/banners/twe_flag{
+	pixel_y = 28
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"DA" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/effect/decal/hybrisa/road/lines4,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"DE" = (
+/obj/structure/window/reinforced{
+	color = "#a6aeab";
+	pixel_y = -4
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"DU" = (
+/obj/structure/bed/chair/office/light{
+	dir = 1;
+	pixel_y = 6
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"DW" = (
+/turf/open/hybrisa/street/roadlines4,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"DX" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/barricade/handrail/strata{
+	dir = 8
+	},
+/obj/effect/decal/medical_decals{
+	icon_state = "white_broken_docstripingdir";
+	color = "#d3d3d3";
+	dir = 8
+	},
+/turf/open/floor/hybrisa/metal/grated/north,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Eb" = (
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 8
+	},
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 4
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Ef" = (
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 8
+	},
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal8";
+	pixel_y = 6;
+	pixel_x = 4
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Ej" = (
+/obj/structure/window/reinforced{
+	dir = 8;
+	health = 80;
+	color = "#a6aeab";
+	layer = 4
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"Ey" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 5
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Ez" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/cleanable/blood/xeno{
+	pixel_x = 2;
+	pixel_y = 8
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"EE" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = 11
+	},
+/obj/structure/prop/hybrisa/vehicles/Armored_Truck/White,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"EK" = (
+/obj/structure/disposalpipe/segment{
+	dir = 1
+	},
+/obj/effect/hybrisa/misc/fake/wire/blue{
+	dir = 4;
+	pixel_y = 12
+	},
+/obj/effect/hybrisa/misc/fake/wire/blue{
+	dir = 4
+	},
+/obj/effect/hybrisa/misc/fake/wire/red{
+	pixel_x = 10
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"EN" = (
+/obj/structure/largecrate/empty{
+	pixel_y = 16
+	},
+/obj/structure/largecrate/empty{
+	pixel_x = 1;
+	pixel_y = 3
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"EQ" = (
+/obj/item/stool{
+	pixel_x = 3;
+	pixel_y = 12
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/device/radio{
+	pixel_x = -12;
+	pixel_y = 8
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"EV" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 1
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Fb" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Fc" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 1
+	},
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Fg" = (
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 4;
+	icon_state = "stop_decal5"
+	},
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 4
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Fl" = (
+/obj/structure/surface/table/reinforced/black,
+/obj/item/folder/black{
+	pixel_x = -4;
+	pixel_y = 5
+	},
+/obj/structure/machinery/light/small{
+	dir = 1;
+	pixel_y = 20
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Fu" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = -4
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Fx" = (
+/obj/structure/machinery/door/poddoor{
+	explo_proof = 1;
+	needs_power = 0;
+	unacidable = 1;
+	name = "\improper Lockdown";
+	emp_proof = 1;
+	dir = 8
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/almayer_hull/outerhull_dir_alt/north,
+/area/lv733/oob)
+"Fy" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/closed/wall/hybrisa/rock,
+/area/lv733/oob)
+"Fz" = (
+/obj/structure/monorail{
+	dir = 4;
+	name = "launch track"
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/plating,
+/area/lv733/oob)
+"FG" = (
+/obj/structure/surface/rack{
+	color = "#848484";
+	pixel_y = 10
+	},
+/obj/structure/surface/rack{
+	color = "#848484";
+	pixel_y = 25
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"FN" = (
+/turf/open/hybrisa/street/sidewalk/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"FR" = (
+/turf/closed/wall/hybrisa/marhsalls/reinforced,
+/area/lv733/indoors/base_operations/main_trainstation)
+"FS" = (
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"FU" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/barricade/handrail/strata{
+	dir = 4;
+	layer = 4
+	},
+/obj/effect/decal/medical_decals{
+	icon_state = "white_broken_docstripingdir";
+	color = "#d3d3d3";
+	dir = 4
+	},
+/turf/open/floor/hybrisa/metal/grated/north,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"FV" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_casing/bullet{
+	layer = 3.1;
+	pixel_x = 12
+	},
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/base_operations/main_trainstation)
+"FZ" = (
+/obj/effect/alien/resin/sticky,
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/outdoors/caves/western_caves)
+"Ga" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Gd" = (
+/obj/structure/largecrate/random/barrel/brown,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Gh" = (
+/obj/item/stool{
+	pixel_x = -15;
+	pixel_y = 6
+	},
+/obj/effect/landmark/item_pool_spawner/survivor_ammo/buckshot,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Gi" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light{
+	dir = 8;
+	pixel_y = -14
+	},
+/obj/structure/bed/chair/comfy/hybrisa/brown{
+	dir = 4
+	},
+/turf/open/floor/prison/darkred2/east,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Gk" = (
+/obj/effect/decal/strata_decals/grasses,
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Gm" = (
+/obj/structure/fence/slim/dark/door{
+	dir = 4
+	},
+/turf/open/floor/prison,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Gw" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/prop/helmetgarb/gunoil{
+	pixel_x = -7;
+	pixel_y = 12
+	},
+/obj/item/trash/hybrisa/cuppa_joes/empty_cup,
+/turf/open/floor/hybrisa/metal/zbrownfloor1/west,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Gz" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalkcorner/north{
+	dir = 4
+	},
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"GB" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 1
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"GP" = (
+/obj/effect/decal/strata_decals/grasses,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 1
+	},
+/obj/structure/fence/slim/dark,
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"GQ" = (
+/obj/structure/largecrate/random/mini,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Hd" = (
+/turf/closed/wall/hybrisa/marhsalls,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"He" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/roadlines3,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Hg" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_5";
+	pixel_y = 12
+	},
+/turf/open/floor/hybrisa/wood/blackwood,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Hh" = (
+/obj/effect/alien/egg{
+	icon_state = "Egg Opened";
+	status = 1
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/oob)
+"Hk" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/road/lines1,
+/obj/effect/decal/hybrisa/road/road_edge{
+	pixel_x = -4
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Hl" = (
+/obj/structure/machinery/big_computers/computerbrown/computer3{
+	pixel_y = 12
+	},
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"Hq" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_8";
+	pixel_y = -15;
+	pixel_x = -1
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"Hw" = (
+/obj/effect/decal/cleanable/blood{
+	layer = 3
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/oob)
+"Hz" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/prison/darkred2/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"HH" = (
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal2";
+	pixel_x = 4
+	},
+/obj/item/ammo_casing/bullet{
+	layer = 3.1;
+	pixel_x = 12
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"HK" = (
+/obj/effect/decal/cleanable/blood/xeno{
+	icon_state = "xgib1"
+	},
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"HN" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"HP" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/barricade/handrail/strata,
+/turf/open/hybrisa/street/sidewalkcenter/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"HR" = (
+/obj/structure/window/framed/hybrisa/marshalls,
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"HT" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/ramptop/north,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"HX" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"HZ" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/window/reinforced{
+	dir = 8;
+	health = 80;
+	color = "#a6aeab";
+	layer = 4
+	},
+/obj/structure/closet/secure_closet/injection,
+/obj/item/clothing/suit/storage/jacket/marine/rmc/service/lv733/suit_roaf_shooter,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Ie" = (
+/obj/structure/window/reinforced{
+	dir = 8;
+	health = 80;
+	color = "#a6aeab";
+	layer = 4
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"Ik" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Im" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light{
+	dir = 4;
+	pixel_y = -16
+	},
+/obj/structure/bed/chair/comfy/hybrisa/brown{
+	dir = 8
+	},
+/turf/open/floor/prison/darkred2/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Ip" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/ramptop/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Iw" = (
+/obj/structure/barricade/handrail/strata,
+/obj/effect/decal/hybrisa/road/lines1,
+/obj/structure/surface/table/reinforced/black,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Ix" = (
+/obj/structure/largecrate/empty{
+	pixel_x = -3;
+	pixel_y = 16
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/objective_landmark/close,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Iy" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/barricade/handrail/strata{
+	dir = 8
+	},
+/obj/structure/barricade/handrail/strata,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 4
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"IA" = (
+/obj/structure/barricade/handrail/strata{
+	dir = 8
+	},
+/obj/structure/surface/table/reinforced/black,
+/turf/open/floor/strata/floor3,
+/area/lv733/indoors/base_operations/main_trainstation)
+"IC" = (
+/obj/item/ammo_casing/bullet{
+	layer = 3.1;
+	pixel_x = 12;
+	pixel_y = -8
+	},
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"ID" = (
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"IK" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalkfull,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"IL" = (
+/obj/structure/blocker/forcefield/vehicles,
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"IW" = (
+/obj/effect/decal/large_stain,
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Jb" = (
+/obj/structure/surface/rack{
+	color = "#848484";
+	pixel_y = 10
+	},
+/obj/structure/surface/rack{
+	color = "#848484";
+	pixel_y = 25
+	},
+/obj/structure/machinery/light/small{
+	dir = 4;
+	pixel_y = 6
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Jg" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = -4
+	},
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal2";
+	pixel_x = 4
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Jl" = (
+/obj/structure/machinery/space_heater/radiator/red{
+	dir = 4;
+	pixel_y = 7
+	},
+/turf/open/floor/prison/darkred2/northeast,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Jn" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/obj/structure/largecrate/random/barrel/brown,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Jp" = (
+/obj/structure/surface/table/reinforced/black,
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/trash/hybrisa/cuppa_joes/empty_cup,
+/obj/item/paper_bin{
+	pixel_x = 6;
+	pixel_y = 9
+	},
+/turf/open/floor/prison/darkred2/northeast,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Js" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/oob)
+"Jt" = (
+/obj/structure/surface/table/reinforced/black,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_5";
+	pixel_y = 12
+	},
+/obj/structure/machinery/computer/card,
+/turf/open/floor/prison/darkredfull2,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Jw" = (
+/obj/item/ammo_casing/bullet,
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Jy" = (
+/obj/effect/decal/hybrisa/road/lines1,
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_4";
+	layer = 3.2
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Jz" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/structure/machinery/door/window/southleft{
+	color = "#a6aeab"
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"JE" = (
+/obj/item/shard{
+	icon_state = "medium"
+	},
+/turf/open/floor/prison/darkred2/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"JF" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 1
+	},
+/obj/effect/decal/hybrisa/road/corner,
+/obj/structure/machinery/status_display{
+	pixel_y = 30
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"JN" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = 11
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"JV" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner,
+/obj/structure/largecrate/empty/case/double{
+	pixel_y = 19;
+	layer = 4.21
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"JW" = (
+/obj/item/clipboard,
+/turf/open/floor/hybrisa/metal/zbrownfloor1/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Kb" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice3";
+	pixel_x = 6;
+	pixel_y = 19
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Ki" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/closed/wall/hybrisa/marhsalls/unmeltable,
+/area/lv733/oob)
+"Kj" = (
+/obj/item/stool{
+	layer = 5;
+	pixel_x = 2;
+	pixel_y = 27
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Kq" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Kr" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/bed/chair/comfy/hybrisa/brown{
+	dir = 4
+	},
+/turf/open/floor/prison/darkred2/east,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Kt" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Ku" = (
+/obj/effect/hybrisa/misc/fake/wire/blue,
+/obj/effect/hybrisa/misc/fake/wire/red{
+	pixel_x = 10
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Kz" = (
+/turf/open/floor/hybrisa/wood/blackwood,
+/area/lv733/indoors/base_operations/main_trainstation)
+"KB" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/window/reinforced{
+	dir = 4;
+	color = "#a6aeab";
+	pixel_x = 1;
+	layer = 4
+	},
+/obj/structure/closet/secure_closet/injection,
+/obj/item/clothing/suit/storage/jacket/marine/rmc/service/lv733/suit_roaf_shooter,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"KF" = (
+/obj/structure/machinery/light/blue{
+	dir = 8
+	},
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"KG" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/barricade/handrail/strata{
+	dir = 8
+	},
+/obj/effect/decal/medical_decals{
+	icon_state = "white_broken_docstripingdir";
+	color = "#d3d3d3";
+	dir = 8
+	},
+/turf/open/floor/hybrisa/metal/grated/north,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"KI" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/oob)
+"KO" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"KP" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalk/west,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"KS" = (
+/obj/item/stack/rods,
+/turf/open/floor/hybrisa/metal/zbrownfloor1/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"KT" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/item/prop/alien/hugger,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"KY" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_casing/bullet{
+	icon_state = "cartridge_3_1"
+	},
+/turf/open/floor/prison/ramptop/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"KZ" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"Lb" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"Le" = (
+/turf/open/hybrisa/street/sidewalkcorner/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Lf" = (
+/turf/open/hybrisa/street/sidewalk/west,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Lk" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/extinguisher_cabinet/alt{
+	pixel_y = 30;
+	pixel_x = 4
+	},
+/turf/open/floor/prison/darkred2,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Lp" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Lr" = (
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = 11
+	},
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/item/ammo_casing/bullet{
+	icon_state = "cartridge_9_1"
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/oob)
+"LD" = (
+/obj/structure/monorail{
+	dir = 4;
+	name = "launch track"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/barricade/handrail/strata,
+/turf/open/floor/plating,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"LI" = (
+/obj/structure/terminal{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"LK" = (
+/obj/effect/decal/hybrisa/TWE_logo_large/directional_1{
+	dir = 8;
+	pixel_x = 16;
+	pixel_y = 9
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/base_operations/main_trainstation)
+"LM" = (
+/obj/structure/machinery/door/window/southleft{
+	color = "#a6aeab"
+	},
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"LR" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/structure/machinery/door/window/southleft{
+	color = "#a6aeab"
+	},
+/obj/effect/decal/hybrisa/trash{
+	pixel_y = 22;
+	pixel_x = 12
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"LS" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_casing/bullet{
+	layer = 3.1
+	},
+/obj/effect/decal/hybrisa/road/roadmiddle{
+	dir = 1;
+	pixel_y = 14
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"LY" = (
+/obj/structure/closet/emcloset,
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"LZ" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"Ma" = (
+/obj/structure/stairs{
+	color = "#a6aeab";
+	dir = 4
+	},
+/obj/structure/platform/metal/stair_cut/platform_right,
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Mb" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/obj/structure/largecrate/supply/supplies/flares,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Mc" = (
+/turf/open/hybrisa/street/cement3,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Mf" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 8
+	},
+/turf/open/floor/prison/ramptop/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Mg" = (
+/obj/structure/bed/sofa/hybrisa/misc/bench{
+	pixel_x = 7;
+	dir = 1;
+	layer = 3
+	},
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Mj" = (
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 1
+	},
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 8
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Mm" = (
+/turf/open/hybrisa/street/sidewalk/southwest,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Mo" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/structure/barricade/handrail/strata,
+/turf/open/hybrisa/street/roadlines3,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Ms" = (
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/caves/western_caves)
+"Mt" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 1
+	},
+/obj/effect/decal/hybrisa/road/corner,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"My" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/darkred2/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Mz" = (
+/obj/effect/alien/egg{
+	icon_state = "Egg Opened";
+	status = 1
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/almayer_hull/outerhull_dir_alt/north,
+/area/lv733/oob)
+"MD" = (
+/obj/structure/surface/table/reinforced/black,
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/device/flashlight/lamp{
+	pixel_x = 5;
+	pixel_y = 10;
+	layer = 5
+	},
+/turf/open/floor/prison/darkred2/northwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"MF" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/bed/chair/comfy/hybrisa/brown{
+	dir = 8
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"MM" = (
+/obj/structure/fence/slim/dark/door,
+/turf/open/floor/prison,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"MN" = (
+/obj/structure/fence/slim/dark,
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"MQ" = (
+/obj/structure/terminal{
+	dir = 8
+	},
+/obj/structure/machinery/light{
+	dir = 4;
+	pixel_y = -16
+	},
+/turf/open/floor/plating,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"MS" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/item/mre_food_packet/twe/dessert,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"MX" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 8
+	},
+/obj/structure/largecrate/empty/case{
+	pixel_x = 3
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"MY" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice1";
+	pixel_x = -26;
+	pixel_y = -13
+	},
+/obj/structure/machinery/light,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Ne" = (
+/obj/structure/stairs{
+	color = "#a6aeab";
+	dir = 4
+	},
+/obj/structure/platform/metal/almayer,
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Ng" = (
+/turf/template_noop,
+/area/template_noop)
+"Nh" = (
+/obj/effect/decal/hybrisa/road/corner,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Nl" = (
+/obj/structure/barricade/handrail/strata,
+/turf/open/floor/strata/floor3,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Nm" = (
+/turf/open/auto_turf/hybrisa_auto_turf/layer3,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Np" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/oob)
+"NA" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/disposalpipe/segment{
+	dir = 1
+	},
+/obj/effect/hybrisa/misc/fake/wire/blue{
+	dir = 4;
+	pixel_y = 12
+	},
+/obj/effect/hybrisa/misc/fake/wire/blue{
+	dir = 4;
+	pixel_y = -4
+	},
+/obj/effect/hybrisa/misc/fake/wire/red{
+	pixel_x = 10
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"NB" = (
+/obj/structure/closet/firecloset/full,
+/obj/structure/machinery/light/small{
+	dir = 1;
+	pixel_y = 20
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"ND" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 4
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"NF" = (
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 1
+	},
+/obj/item/newspaper,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"NG" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"NH" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"NL" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/structure/window/reinforced{
+	color = "#a6aeab";
+	pixel_y = -4
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"NT" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/item/storage/box/mre/twe{
+	pixel_x = -5;
+	pixel_y = 15
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"NV" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/hybrisa/misc/fake/wire/blue{
+	dir = 4;
+	pixel_y = 12
+	},
+/obj/effect/hybrisa/misc/fake/wire/blue{
+	dir = 4;
+	pixel_y = -4
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Oa" = (
+/turf/open/auto_turf/snow/layer2,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Oc" = (
+/obj/structure/flora/pottedplant{
+	icon_state = "pottedplant_29"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/darkred2,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Oe" = (
+/turf/open/floor/prison/darkred2/north,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Oh" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/cement3,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Or" = (
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_8";
+	pixel_y = -15;
+	pixel_x = -1
+	},
+/obj/structure/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Ou" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/darkred2,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Ov" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalk/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Ow" = (
+/obj/structure/platform_decoration/metal/almayer/west,
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"OA" = (
+/turf/closed/wall/hybrisa/marhsalls/reinforced,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"OB" = (
+/obj/effect/decal/large_stain,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"OF" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 1
+	},
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 10
+	},
+/turf/open/floor/prison,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"OI" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/metal/zbrownfloor1/northwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"OM" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = -4
+	},
+/obj/effect/decal/cleanable/blood/xeno{
+	icon_state = "xgib3"
+	},
+/obj/effect/decal/cleanable/blood/xeno{
+	pixel_x = 2;
+	pixel_y = 8
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/oob)
+"ON" = (
+/obj/structure/largecrate/empty/secure,
+/turf/open/hybrisa/street/roadlines3,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"OU" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice2";
+	pixel_x = 6;
+	pixel_y = 19
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Pd" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/structure/machinery/space_heater/radiator/red{
+	dir = 1;
+	pixel_y = 26
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Pi" = (
+/obj/structure/blocker/invisible_wall,
+/turf/closed/wall/hybrisa/marhsalls/unmeltable,
+/area/lv733/oob)
+"Pn" = (
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice4";
+	pixel_y = 13
+	},
+/turf/closed/wall/hybrisa/marhsalls,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"PE" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/cargo_container/hybrisa/containersextended/greenleft,
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"PF" = (
+/obj/structure/machinery/light/small{
+	dir = 1;
+	pixel_y = 20
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"PJ" = (
+/turf/open/hybrisa/street/sidewalk/northeast,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"PU" = (
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/base_operations/main_trainstation)
+"PW" = (
+/obj/effect/decal/hybrisa/road/corner,
+/obj/effect/decal/hybrisa/road/road_stop{
+	icon_state = "stop_decal5"
+	},
+/obj/effect/decal/hybrisa/road/lines1,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_3";
+	pixel_x = -8;
+	pixel_y = 12
+	},
+/turf/open/floor/corsat/squares,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Qa" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/weapon/gun/flamer/m240{
+	current_mag = null;
+	layer = 3.1
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Qk" = (
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 8
+	},
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 4
+	},
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_17";
+	pixel_x = -8;
+	pixel_y = 12
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"QJ" = (
+/obj/effect/decal/hybrisa/road/corner,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"QL" = (
+/obj/structure/platform_decoration/metal/almayer,
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"QP" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/cement3,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"QQ" = (
+/turf/open/floor/almayer_hull/outerhull_dir_alt/north,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"QR" = (
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"QV" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"QW" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/almayer/aicore/no_build/ai_cargo,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"Rb" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Rd" = (
+/obj/effect/decal/cleanable/blood/xeno{
+	icon_state = "xgibarm"
+	},
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Rj" = (
+/obj/item/ammo_magazine/rifle/rmc_f90,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Rm" = (
+/obj/item/stool{
+	layer = 5;
+	pixel_x = 2;
+	pixel_y = 27
+	},
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_4";
+	layer = 3.2
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/almayer/aicore/no_build/ai_cargo,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"Rq" = (
+/obj/structure/stairs{
+	color = "#a6aeab"
+	},
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Rs" = (
+/obj/structure/barricade/handrail/strata,
+/turf/open/hybrisa/street/roadlines3,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Rt" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"RD" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/paper,
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_13";
+	pixel_x = -8;
+	pixel_y = 12
+	},
+/turf/open/floor/prison/darkred2/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"RI" = (
+/obj/structure/closet/crate/secure/ammo,
+/obj/item/ammo_magazine/smg/p90,
+/obj/item/ammo_magazine/smg/p90,
+/obj/item/ammo_magazine/smg/p90,
+/obj/item/ammo_magazine/smg/p90,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"RP" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_casing/bullet{
+	icon_state = "cartridge_9_1"
+	},
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"RR" = (
+/obj/effect/decal/hybrisa/road/roadmiddle{
+	dir = 1;
+	pixel_y = 14
+	},
+/obj/item/ammo_casing/bullet,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"RU" = (
+/obj/effect/decal/hybrisa/road/lines1,
+/obj/structure/machinery/line_nexter/med{
+	dir = 1;
+	pixel_y = 1
+	},
+/obj/effect/decal/hybrisa/road/road_stop{
+	icon_state = "stop_decal2"
+	},
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_13";
+	pixel_x = -8;
+	pixel_y = 12
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Sb" = (
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Sd" = (
+/obj/structure/machinery/light/blue{
+	dir = 4
+	},
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Sk" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_13";
+	pixel_x = -8;
+	pixel_y = 12
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Sp" = (
+/obj/structure/machinery/door/airlock/multi_tile/hybrisa/generic_solid{
+	locked = 1;
+	explo_proof = 1;
+	emp_proof = 1;
+	dir = 1
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/closed/wall/hybrisa/marhsalls/unmeltable,
+/area/lv733/oob)
+"Sx" = (
+/obj/structure/monorail{
+	dir = 4;
+	name = "launch track"
+	},
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice3";
+	pixel_x = 6;
+	pixel_y = 19
+	},
+/turf/open/floor/plating,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"SD" = (
+/obj/effect/decal/strata_decals/grasses,
+/obj/structure/barricade/sandbags/weak_wired{
+	dir = 1;
+	icon_state = "sandbag_0";
+	pixel_y = 4;
+	layer = 4
+	},
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"SE" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/metal/grated,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"SG" = (
+/obj/structure/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"SO" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalk/west,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"SQ" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"SY" = (
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = 11
+	},
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal2";
+	pixel_x = 4
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Td" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib6";
+	pixel_y = 12
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl4";
+	pixel_x = -7;
+	pixel_y = 4
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Tf" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_casing/bullet{
+	layer = 3.1;
+	pixel_x = 12;
+	pixel_y = -8
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Th" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner,
+/turf/open/hybrisa/street/cement3,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"To" = (
+/obj/item/ammo_casing/bullet{
+	layer = 3.1;
+	pixel_x = 12
+	},
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Tq" = (
+/obj/structure/machinery/light,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Ty" = (
+/obj/item/ammo_casing/bullet{
+	layer = 3.1;
+	pixel_x = 12;
+	pixel_y = -8
+	},
+/turf/open/floor/hybrisa/metal/grated,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"TE" = (
+/obj/item/ammo_casing/bullet{
+	icon_state = "cartridge_3_1"
+	},
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"TF" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 5
+	},
+/obj/effect/decal/strata_decals/grasses,
+/turf/open/floor/prison,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"TH" = (
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/street/roadlines3,
+/area/lv733/oob)
+"TM" = (
+/obj/structure/fence/slim/dark,
+/turf/open/hybrisa/street/sidewalk/west,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"TN" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/largecrate/empty{
+	layer = 2.9;
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/turf/open/floor/prison/darkred2/east,
+/area/lv733/indoors/base_operations/main_trainstation)
+"TQ" = (
+/turf/closed/wall/hybrisa/marhsalls/unmeltable,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"TR" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/effect/decal/large_stain,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"TU" = (
+/obj/structure/bed/sofa/vert/white/top,
+/obj/item/clothing/accessory/patch/twe,
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"TV" = (
+/obj/structure/machinery/power/power_generator/port_gen/pacman{
+	layer = 2.9
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"TZ" = (
+/obj/structure/window/framed/hybrisa/marshalls,
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Ue" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/flora/pottedplant{
+	icon_state = "pottedplant_29"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_12";
+	pixel_y = 12
+	},
+/turf/open/floor/prison/darkred2,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Uj" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_casing/bullet{
+	layer = 3.1;
+	pixel_x = 12
+	},
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Ul" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 9
+	},
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Un" = (
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/road/lines1,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Ut" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 9
+	},
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Uv" = (
+/obj/structure/bed/sofa/vert/white/top,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Uw" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 1
+	},
+/obj/effect/decal/hybrisa/road/corner,
+/obj/item/paper,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"UB" = (
+/obj/structure/platform_decoration/metal/almayer/west,
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"UH" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/closet/crate/green,
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/obj/item/defenses/handheld/planted_flag/roaf,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"UJ" = (
+/obj/structure/barricade/handrail/strata,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"UL" = (
+/turf/open/floor/hybrisa/metal/grated,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"UM" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = -4
+	},
+/obj/effect/decal/cleanable/blood,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"UQ" = (
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice12";
+	pixel_y = 13
+	},
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"UR" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/trash/cigbutt{
+	pixel_x = -10;
+	pixel_y = 7
+	},
+/turf/open/hybrisa/street/sidewalkfull,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"US" = (
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 4;
+	icon_state = "stop_decal5"
+	},
+/obj/effect/decal/hybrisa/road/corner,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"UX" = (
+/obj/structure/filingcabinet{
+	density = 0;
+	pixel_x = -8;
+	pixel_y = 20
+	},
+/obj/structure/filingcabinet{
+	density = 0;
+	pixel_x = 8;
+	pixel_y = 20
+	},
+/obj/structure/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/hybrisa/wood/blackwood,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Va" = (
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 1;
+	icon_state = "stop_decal5"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Vb" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/shard{
+	icon_state = "medium"
+	},
+/obj/item/trash/hybrisa/cuppa_joes/lid,
+/turf/open/hybrisa/street/sidewalk/northeast,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Vh" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/structure/extinguisher_cabinet/alt{
+	pixel_y = 30;
+	pixel_x = 4
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Vn" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/closed/wall/hybrisa/marhsalls/unmeltable,
+/area/lv733/oob)
+"Vs" = (
+/obj/item/ammo_casing/bullet{
+	icon_state = "cartridge_9_1"
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Vy" = (
+/obj/structure/barricade/handrail/strata{
+	dir = 8
+	},
+/obj/structure/flora/pottedplant{
+	icon_state = "pottedplant_25";
+	pixel_x = -3;
+	pixel_y = 19
+	},
+/turf/open/floor/strata/floor3,
+/area/lv733/indoors/base_operations/main_trainstation)
+"VI" = (
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"VO" = (
+/obj/structure/machinery/vending/coffee{
+	density = 0;
+	pixel_y = 16
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/darkredcorners2/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"VU" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 1
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"VV" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner,
+/obj/effect/decal/cleanable/blood/xeno{
+	icon_state = "xgib4"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 10;
+	pixel_y = 40
+	},
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"VZ" = (
+/obj/item/ammo_magazine/rifle/rmc_f90{
+	current_rounds = 0
+	},
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Wf" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/largecrate/random/barrel/black,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Wl" = (
+/obj/structure/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"Wn" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/darkredcorners2/west,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Wo" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/largecrate/random/mini/small_case{
+	pixel_x = -4;
+	pixel_y = 5
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Wq" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/door/airlock/hybrisa/generic_solid,
+/turf/open/floor/plating,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Wr" = (
+/obj/structure/prop/invuln/lattice_prop{
+	icon_state = "lattice1";
+	pixel_x = -26;
+	pixel_y = -13
+	},
+/obj/item/stack/sheet/metal,
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Wu" = (
+/obj/structure/barricade/handrail/strata{
+	dir = 8
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/large_stain,
+/obj/effect/decal/medical_decals{
+	icon_state = "white_broken_docstripingdir";
+	color = "#d3d3d3";
+	dir = 8
+	},
+/turf/open/floor/hybrisa/metal/grated/north,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Ww" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl3"
+	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/oob)
+"WC" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/barricade/handrail/hybrisa/road/wood/orange{
+	dir = 1;
+	pixel_x = 2;
+	pixel_y = 3
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"WD" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "cargo_arrow4";
+	dir = 1;
+	pixel_y = -19
+	},
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"WE" = (
+/turf/closed/wall/hybrisa/marhsalls/reinforced,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"WH" = (
+/obj/structure/surface/table/reinforced/black,
+/obj/effect/landmark/objective_landmark/close,
+/turf/open/floor/prison/darkred2/north,
+/area/lv733/indoors/base_operations/main_trainstation)
+"WI" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"WJ" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"WL" = (
+/obj/structure/machinery/colony_floodlight,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalk/west,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"WU" = (
+/obj/structure/bed/chair/office/light{
+	dir = 1
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"WX" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"WY" = (
+/obj/structure/reagent_dispensers/tank/fuel,
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Xa" = (
+/obj/structure/window/reinforced{
+	dir = 4;
+	color = "#a6aeab";
+	pixel_x = 1;
+	layer = 4
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"Xb" = (
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 8;
+	icon_state = "stop_decal5"
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Xi" = (
+/obj/item/ammo_casing/bullet{
+	layer = 3.1
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Xm" = (
+/obj/structure/surface/table/reinforced/black,
+/obj/item/smallDelivery{
+	pixel_y = 12;
+	pixel_x = 6
+	},
+/obj/item/storage/box/donkpockets{
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Xr" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/obj/structure/machinery/colony_floodlight/traffic{
+	dir = 4;
+	pixel_y = 5
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Xv" = (
+/obj/structure/monorail{
+	dir = 4;
+	name = "launch track"
+	},
+/obj/structure/barricade/handrail/strata,
+/turf/open/floor/plating,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Xy" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalkcorner/north{
+	dir = 2
+	},
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Xz" = (
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/road/lines1,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib6";
+	pixel_y = -8
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"XL" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/caves/western_caves)
+"XN" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/oob)
+"XO" = (
+/obj/structure/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/hybrisa/wood/blackwood,
+/area/lv733/indoors/base_operations/main_trainstation)
+"XP" = (
+/obj/effect/decal/cleanable/blood,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"XR" = (
+/turf/closed/wall/hybrisa/marhsalls,
+/area/lv733/indoors/base_operations/main_trainstation)
+"XS" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "cargo_arrow4"
+	},
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
+/area/lv733/indoors/base_operations/main_trainstation)
+"XU" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/cleanable/blood,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Yb" = (
+/obj/structure/window_frame/hybrisa/marshalls/reinforced,
+/obj/item/shard{
+	icon_state = "medium"
+	},
+/turf/open/floor/plating,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Yf" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/obj/structure/barricade/handrail/strata,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Yh" = (
+/obj/item/trash/burger,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Yj" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/roadlines4,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Yn" = (
+/obj/structure/platform/metal/almayer/north,
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Yp" = (
+/obj/structure/blocker/invisible_wall,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/oob)
+"Yu" = (
+/turf/open/floor/hybrisa/metal/zbrownfloor2/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Yw" = (
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 1
+	},
+/obj/structure/machinery/line_nexter/med{
+	dir = 2;
+	layer = 4.5
+	},
+/obj/effect/decal/hybrisa/road/road_stop{
+	icon_state = "stop_decal4"
+	},
+/obj/effect/decal/hybrisa/road/lines4,
+/turf/open/floor/corsat/squares,
+/area/lv733/indoors/base_operations/main_trainstation)
+"YC" = (
+/obj/structure/fence/slim/dark/door{
+	dir = 4
+	},
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 1
+	},
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"YD" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/attachable/flashlight/glowstick/roaf,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"YO" = (
+/obj/item/ammo_casing/bullet,
+/turf/open/hybrisa/street/sidewalk/west,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"YP" = (
+/obj/structure/window_frame/hybrisa/marshalls/reinforced,
+/turf/open/floor/plating,
+/area/lv733/indoors/base_operations/main_trainstation)
+"YS" = (
+/obj/structure/platform/metal/almayer/north,
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"YW" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/barricade/handrail/hybrisa/road/wood/orange{
+	dir = 1;
+	pixel_x = 2;
+	pixel_y = 3
+	},
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"Za" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/bed/chair/office/light{
+	dir = 1;
+	pixel_x = 2;
+	pixel_y = 12
+	},
+/turf/open/floor/prison/darkredfull2,
+/area/lv733/indoors/base_operations/main_trainstation)
+"Ze" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Zk" = (
+/obj/item/prop/alien/hugger,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 1
+	},
+/turf/open/floor/prison,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Zt" = (
+/obj/effect/decal/cleanable/blood/xeno{
+	pixel_x = -2;
+	pixel_y = -4
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 10;
+	pixel_y = 40
+	},
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"Zv" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/largecrate/empty/secure{
+	pixel_x = -7
+	},
+/obj/effect/decal/warning_stripes{
+	icon_state = "N"
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"ZA" = (
+/turf/open/floor/prison/ramptop/north,
+/area/lv733/indoors/base_operations/trainstation_west_corridor)
+"ZB" = (
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal8";
+	pixel_y = 6;
+	pixel_x = 4
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"ZD" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "S"
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/base_operations/trainstation_maintenance_garage)
+"ZE" = (
+/obj/structure/machinery/power/apc/power/north,
+/turf/open/floor/prison/darkredcorners2/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"ZK" = (
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/base_operations/main_trainstation)
+"ZM" = (
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 4;
+	icon_state = "stop_decal5"
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"ZV" = (
+/obj/structure/barricade/sandbags/weak_wired{
+	dir = 1;
+	icon_state = "sandbag_0";
+	pixel_y = 4;
+	layer = 4
+	},
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+"ZZ" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/barricade/handrail/strata{
+	dir = 8
+	},
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 4
+	},
+/turf/open/floor/prison/ramptop/north,
+/area/lv733/outdoors/colony_streets/military_complex_streets)
+
+(1,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+en
+dE
+dE
+dE
+dE
+en
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+"}
+(2,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+dE
+dE
+en
+Ki
+Fx
+hc
+hc
+Pi
+Sp
+hc
+hc
+Fx
+Vn
+en
+dE
+dE
+dE
+Pi
+rk
+rk
+rk
+rk
+Pi
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+"}
+(3,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+dE
+dE
+en
+Hh
+gA
+Fz
+Fz
+dj
+KI
+Fz
+Fz
+gA
+eZ
+en
+dE
+dE
+dE
+Pi
+TH
+TH
+TH
+TH
+Pi
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+"}
+(4,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+dE
+dE
+en
+eZ
+gA
+Fz
+Fz
+hU
+Np
+Fz
+Fz
+Mz
+eZ
+en
+dE
+dE
+dE
+Pi
+qE
+Yp
+XN
+zp
+Pi
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+"}
+(5,1,1) = {"
+Ng
+Ng
+Ng
+st
+st
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+dE
+dE
+en
+Js
+gA
+Fz
+Fz
+Np
+qr
+Fz
+Fz
+gA
+Hh
+en
+dE
+dE
+dE
+Pi
+wN
+Ww
+Yp
+OM
+Pi
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+"}
+(6,1,1) = {"
+Ng
+Ng
+Ng
+si
+jr
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+dE
+dE
+en
+Ki
+Fx
+hc
+hc
+Pi
+Sp
+hc
+hc
+Fx
+Vn
+en
+dE
+dE
+dE
+Pi
+Lr
+XN
+Yp
+zp
+Pi
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+"}
+(7,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+dE
+dE
+TQ
+Bg
+QQ
+wb
+wb
+jy
+qt
+wb
+wb
+cT
+Ds
+en
+dE
+dE
+dE
+Pi
+vc
+Hw
+XN
+zp
+Pi
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+"}
+(8,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+dE
+dE
+TQ
+Vh
+QQ
+wb
+Xv
+pz
+bp
+wb
+wb
+QQ
+pz
+en
+dE
+dE
+dE
+Pi
+TH
+TH
+jR
+TH
+Pi
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+"}
+(9,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+en
+en
+TQ
+Dr
+QQ
+wb
+wb
+fZ
+Dr
+wb
+wb
+QQ
+pz
+en
+en
+en
+en
+Pi
+rk
+rk
+rk
+rk
+Pi
+dE
+dE
+fb
+fb
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+dE
+"}
+(10,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Mc
+lU
+Sb
+OA
+dS
+dS
+dS
+vz
+Dr
+QQ
+xc
+wb
+fZ
+Dr
+wb
+wb
+QQ
+pz
+Pn
+dS
+Oa
+dE
+en
+ON
+Ac
+jp
+jp
+en
+dE
+fb
+fb
+fb
+fb
+fb
+dE
+dE
+dE
+dE
+dE
+dE
+"}
+(11,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+iV
+lU
+HX
+OA
+rV
+rV
+rV
+Hd
+xI
+QQ
+xc
+xc
+fZ
+Dr
+wb
+wb
+QQ
+Xr
+oN
+vy
+dS
+Oa
+zZ
+iM
+aW
+Vs
+AF
+Xi
+mR
+vy
+vy
+vy
+fb
+fb
+dE
+dE
+dE
+dE
+dE
+dE
+"}
+(12,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+qb
+iV
+kI
+mZ
+FN
+cB
+Xy
+BX
+Dr
+cT
+wb
+xc
+fZ
+Dr
+wb
+wb
+QQ
+pz
+wh
+hz
+SE
+Ty
+zZ
+bX
+be
+au
+yX
+Rb
+wx
+IC
+dS
+dS
+Gk
+vy
+fb
+dE
+dE
+dE
+dE
+dE
+"}
+(13,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+qb
+iV
+eL
+nr
+up
+gf
+Fb
+tG
+Dr
+cT
+wb
+wb
+ds
+Dr
+wb
+wb
+QQ
+pz
+nb
+WC
+WJ
+QR
+oR
+JN
+Rj
+NH
+wG
+Rb
+wx
+vy
+dS
+vy
+vy
+vy
+fb
+fb
+fb
+dE
+dE
+dE
+"}
+(14,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+iV
+Mc
+iR
+TM
+KP
+KP
+AM
+YW
+Dr
+QQ
+wb
+wb
+AS
+Dr
+wb
+wb
+QQ
+fZ
+oE
+Tf
+iq
+QR
+Rb
+fW
+oJ
+LS
+xk
+hI
+IL
+Gk
+vy
+vy
+dS
+vy
+fb
+fb
+fb
+dE
+dE
+dE
+"}
+(15,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+ul
+YC
+Cn
+hR
+lD
+lD
+rV
+Hd
+Ga
+cT
+wb
+wb
+AS
+CW
+wb
+wb
+QQ
+pz
+eM
+WJ
+WJ
+QR
+zZ
+fW
+NH
+lI
+ro
+cV
+wx
+dE
+fb
+vy
+dS
+dS
+fb
+fb
+fb
+dE
+dE
+dE
+"}
+(16,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+iV
+lU
+HX
+Dq
+KO
+gk
+dE
+Hd
+Dr
+cT
+xc
+wb
+AS
+Dr
+wb
+xc
+QQ
+pz
+UQ
+iq
+WJ
+xv
+bd
+fW
+gz
+NH
+Fu
+Rb
+dE
+dE
+dE
+fb
+vy
+dS
+fb
+fb
+fb
+fb
+dE
+dE
+"}
+(17,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+qb
+iV
+HX
+hx
+dE
+dE
+dE
+Hd
+qD
+cT
+xc
+Xv
+AS
+pv
+xc
+xc
+QQ
+Lp
+nb
+Ez
+WJ
+WI
+Rb
+fW
+NH
+rG
+Fu
+Ik
+dE
+dE
+dE
+fb
+Oa
+vy
+dS
+dS
+fb
+fb
+fb
+dE
+"}
+(18,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Th
+iV
+HX
+dE
+dE
+dE
+dE
+Hd
+Wf
+cT
+wb
+LD
+kB
+bp
+wb
+kf
+QQ
+pz
+wh
+UL
+bY
+UL
+Rb
+fW
+rG
+RR
+Fu
+Ik
+dE
+mR
+mR
+wx
+wx
+IL
+wx
+wx
+wx
+fb
+fb
+dE
+"}
+(19,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+VV
+oK
+Sb
+dE
+dE
+dE
+dE
+Hd
+CW
+cT
+wb
+xc
+fZ
+ZD
+xc
+xc
+QQ
+mL
+xJ
+dE
+dS
+vy
+Rb
+fW
+NH
+lI
+rY
+Rb
+yU
+vy
+vy
+vy
+dS
+dS
+dS
+vy
+wx
+fb
+fb
+dE
+"}
+(20,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+iV
+sD
+iy
+dE
+dE
+dE
+dE
+Hd
+Dr
+cT
+wb
+wb
+AS
+ZD
+xc
+xc
+QQ
+pz
+Hd
+dE
+vy
+Gk
+Rb
+JN
+rG
+rG
+UM
+zd
+Ip
+rZ
+Ip
+rZ
+Dm
+ZZ
+Iy
+vy
+gb
+vy
+Nm
+dE
+"}
+(21,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Zt
+Rd
+iV
+lU
+Fc
+dS
+dE
+dE
+dE
+Hd
+Dr
+cT
+wb
+xc
+fZ
+ZD
+xc
+xc
+QQ
+fZ
+Hd
+dE
+jH
+dS
+of
+JN
+rG
+rG
+rh
+Hk
+em
+Hk
+Hk
+Hk
+em
+tJ
+to
+vy
+wx
+dS
+fb
+dE
+"}
+(22,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+VZ
+nO
+nO
+Ul
+Fc
+wH
+dE
+dE
+dE
+Hd
+OU
+pp
+Sx
+Sx
+Kb
+qW
+hC
+Sx
+pp
+Cm
+Hd
+dE
+fb
+vy
+Rb
+JN
+XP
+hv
+Td
+XU
+rG
+rG
+NH
+NH
+rG
+ro
+Rb
+vy
+wx
+dS
+vg
+vg
+"}
+(23,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+YO
+WL
+Lf
+KP
+at
+vy
+dE
+dE
+dE
+Hd
+Dr
+cT
+wb
+wb
+nN
+hY
+wb
+wb
+cT
+oX
+Hd
+dE
+dE
+fb
+Rb
+JN
+rG
+rG
+cD
+rG
+ld
+rG
+rG
+NH
+NH
+ro
+Rb
+vy
+IL
+dS
+Gk
+vy
+"}
+(24,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+IK
+fu
+IK
+UR
+IK
+Oa
+dS
+dE
+dE
+Hd
+Dr
+cT
+wb
+wb
+AS
+js
+wb
+wb
+cT
+pz
+Hd
+dE
+dE
+fb
+Rb
+SY
+Ag
+Ag
+Ag
+iA
+Ag
+Ag
+zK
+rG
+NH
+ro
+ha
+dS
+wx
+dS
+dS
+dS
+"}
+(25,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+FR
+XR
+XR
+kX
+kX
+XR
+XR
+XR
+dE
+dE
+Hd
+on
+pp
+Sx
+Sx
+Kb
+gI
+Sx
+Sx
+pp
+CU
+Hd
+dE
+dE
+fb
+Rb
+rZ
+Ip
+Ip
+Ip
+xY
+xY
+rZ
+fW
+aW
+rG
+Fu
+ha
+dS
+wx
+dS
+vy
+vy
+"}
+(26,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+iW
+XR
+UX
+Hg
+Co
+XO
+Kz
+XR
+XR
+XR
+XR
+gJ
+QQ
+wb
+Xv
+nN
+bp
+wb
+wb
+cT
+MY
+Hd
+dE
+dE
+dE
+MN
+MN
+Gm
+Gm
+GP
+dE
+Fy
+Kt
+fW
+rG
+be
+Fu
+ha
+dS
+wx
+dS
+Gk
+fb
+"}
+(27,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+vs
+kX
+Kz
+xK
+us
+zl
+Kz
+TZ
+fR
+TN
+CL
+Yf
+QQ
+wb
+Xv
+AS
+bp
+wb
+wb
+cT
+pz
+Hd
+dE
+dE
+dE
+fb
+Oa
+Dg
+Dg
+Ut
+dE
+dE
+JV
+Cy
+rG
+be
+Fu
+Rb
+vy
+xN
+wx
+mR
+dE
+"}
+(28,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+HX
+Yb
+Kz
+yN
+MF
+Sk
+Kz
+TZ
+xU
+eA
+PU
+Dr
+QQ
+wb
+wb
+fZ
+ZD
+wb
+wb
+cT
+fZ
+Hd
+dE
+dE
+dE
+fb
+fb
+Dg
+iq
+Ey
+ya
+dE
+uO
+EE
+OB
+lI
+ro
+Rb
+vy
+vy
+fb
+dE
+dE
+"}
+(29,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Sd
+XR
+lz
+bt
+bt
+bt
+bt
+TZ
+xU
+hG
+eA
+ZD
+QQ
+wb
+wb
+dr
+ZD
+wb
+wb
+cT
+pz
+Hd
+dE
+dE
+dE
+dE
+rd
+zi
+lX
+qJ
+fb
+lg
+RI
+JN
+HP
+ku
+ro
+vQ
+Oa
+vy
+fb
+dE
+dE
+"}
+(30,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+FR
+XR
+XR
+HR
+Wq
+HR
+XR
+XR
+eT
+ig
+My
+jd
+QQ
+wb
+Xv
+AS
+UJ
+wb
+wb
+cT
+fZ
+Hd
+dE
+dE
+dE
+dE
+oC
+iZ
+OF
+BZ
+Dg
+wq
+zZ
+fW
+fy
+jL
+ro
+vQ
+vy
+vy
+Nm
+dE
+dE
+"}
+(31,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+HX
+XR
+ZE
+CL
+xU
+Nl
+Jl
+uo
+HN
+iK
+kF
+jd
+cT
+wb
+Xv
+fZ
+CQ
+wb
+wb
+cT
+pz
+Hd
+dE
+dE
+dE
+dE
+vy
+lX
+TF
+Ct
+Dg
+MM
+zZ
+zs
+rG
+lI
+ro
+zZ
+vy
+vy
+fb
+dE
+dE
+"}
+(32,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Mg
+kX
+Ou
+hG
+hG
+hG
+xF
+zw
+HN
+cL
+XR
+nQ
+cT
+wb
+wb
+AS
+ms
+wb
+xc
+cT
+WY
+Hd
+dE
+dE
+dE
+fb
+Gk
+lX
+zi
+lX
+Zk
+MM
+zZ
+fW
+rG
+rG
+wG
+zZ
+vy
+vy
+vy
+mR
+dE
+"}
+(33,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+mN
+kX
+Ou
+pJ
+hG
+hG
+xF
+xU
+xU
+mO
+XR
+qt
+cT
+wb
+wb
+lf
+ms
+xc
+xc
+cT
+xg
+Hd
+dE
+dE
+fb
+vy
+eO
+MX
+qI
+Dg
+zi
+AY
+Rb
+fW
+rG
+rG
+ro
+Rb
+vy
+Gk
+vy
+IL
+fb
+"}
+(34,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Sb
+XR
+VO
+oi
+Im
+Nl
+cL
+xU
+rQ
+yV
+wm
+jd
+cT
+wb
+Xv
+Jn
+bp
+wb
+xc
+cT
+pz
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+wq
+Gm
+hR
+eh
+fW
+rG
+ft
+ro
+Rb
+vy
+vy
+vy
+li
+dS
+"}
+(35,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+FR
+XR
+kX
+kX
+XR
+XR
+Lk
+xU
+rQ
+WH
+im
+jd
+cT
+wb
+Xv
+UH
+AJ
+xc
+xc
+QQ
+fZ
+Hd
+jn
+rK
+kb
+xB
+uz
+SQ
+Hd
+Ze
+Ze
+sj
+Rb
+fW
+rG
+lI
+ro
+Rb
+vy
+dS
+vy
+wx
+dS
+"}
+(36,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+KF
+Gz
+Ov
+uU
+Xy
+XR
+Oc
+HN
+dz
+Oe
+Ou
+ZD
+cT
+wb
+wb
+CN
+ZD
+wb
+wb
+cT
+pz
+qt
+Gw
+uR
+mj
+Yu
+Yu
+gD
+uT
+rZ
+rZ
+Ip
+as
+fW
+rG
+lI
+ro
+Rb
+vy
+vy
+vy
+wx
+HK
+"}
+(37,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Vb
+mh
+eL
+eL
+wp
+kX
+ik
+jW
+aH
+Jp
+nq
+ZD
+QQ
+wb
+wb
+Zv
+ms
+xc
+xc
+QQ
+pz
+qt
+Rt
+NV
+yh
+kn
+Wu
+xa
+ab
+em
+em
+em
+DW
+jE
+rG
+rG
+ro
+ha
+dS
+vy
+kK
+IL
+vy
+"}
+(38,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+iV
+iV
+QP
+eL
+zB
+pa
+eA
+LK
+zM
+yb
+bc
+Yf
+cT
+wb
+wb
+AS
+ZD
+wb
+wb
+cT
+pz
+qt
+zj
+NA
+xm
+ut
+ut
+ut
+Cc
+rG
+rG
+rG
+DW
+rG
+rG
+rG
+ro
+Rb
+vy
+vy
+TE
+IL
+wH
+"}
+(39,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+iV
+iV
+eL
+eL
+vp
+fl
+FV
+pS
+lZ
+Jt
+Za
+Yf
+QQ
+wb
+wb
+PE
+TR
+xc
+xc
+QQ
+pz
+qt
+Ku
+lW
+rw
+is
+is
+fY
+ab
+Ag
+Ag
+HH
+DW
+ZB
+rG
+rG
+ro
+tP
+dS
+vy
+vy
+wx
+dS
+"}
+(40,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+zR
+Mm
+eL
+Oh
+mk
+kX
+My
+To
+rQ
+MD
+RD
+Dr
+QQ
+wb
+wb
+uh
+ms
+wb
+wb
+QQ
+pz
+Hd
+sx
+gM
+JW
+Yu
+Yu
+AP
+uT
+Ip
+Ip
+Ip
+KY
+uu
+rG
+rG
+ro
+to
+yU
+vy
+Oa
+wx
+vy
+"}
+(41,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Sd
+kp
+SO
+SO
+kH
+XR
+Ue
+cK
+LM
+iK
+fs
+Dr
+QQ
+wb
+wb
+Mb
+NT
+xc
+wb
+cT
+pz
+qt
+SQ
+YD
+OI
+ub
+vi
+Gd
+Hd
+dE
+Gk
+vy
+Rb
+fW
+rG
+rG
+ro
+Rb
+yU
+vy
+vy
+wx
+vy
+"}
+(42,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+FR
+XR
+kX
+kX
+XR
+CY
+nf
+HN
+rQ
+vK
+Bh
+jd
+QQ
+wb
+Xv
+AS
+UJ
+wb
+xc
+QQ
+pz
+jy
+SQ
+dd
+fO
+SQ
+by
+Gd
+Hd
+dE
+dE
+Oa
+Rb
+Fg
+ZM
+ZM
+US
+Rb
+vy
+dS
+vy
+wx
+Oa
+"}
+(43,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Sb
+XR
+Cg
+Kr
+Gi
+CH
+wc
+To
+AT
+iB
+pR
+jd
+QQ
+wb
+Xv
+AS
+UJ
+xc
+wb
+QQ
+pz
+Hd
+FG
+Wo
+dm
+SQ
+Dw
+Ix
+Hd
+dE
+dE
+fb
+eh
+DW
+DW
+DW
+DW
+Rb
+vy
+dS
+vy
+wx
+vy
+"}
+(44,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Mg
+kX
+Ou
+PU
+sa
+eA
+hG
+RP
+uE
+JE
+XR
+nQ
+cT
+wb
+xc
+fZ
+ZD
+xc
+xc
+cT
+Tq
+Hd
+wy
+BF
+Dw
+vi
+Jb
+EN
+Hd
+dE
+fb
+vy
+eh
+DW
+DW
+DW
+DW
+an
+dS
+vy
+Oa
+wx
+HK
+"}
+(45,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Sb
+kX
+Wn
+nD
+Hz
+fQ
+tS
+Uj
+xU
+CL
+XR
+qt
+cT
+wb
+xc
+AS
+ms
+xc
+wb
+cT
+hf
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+dE
+fb
+Gk
+Rb
+zt
+Xb
+Xb
+nX
+Ik
+vy
+vy
+Oa
+jP
+wH
+"}
+(46,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+hj
+XR
+Vy
+Bj
+XR
+ag
+gh
+XR
+At
+IA
+kJ
+jd
+cT
+wb
+LD
+fZ
+bp
+wb
+xc
+qZ
+pz
+Hd
+yj
+cG
+vi
+ac
+LY
+GQ
+Hd
+Hd
+vy
+vy
+Rb
+fW
+rG
+rG
+ro
+Rb
+vy
+vy
+vy
+IL
+vy
+"}
+(47,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Sb
+XR
+hs
+Yh
+xA
+oo
+pr
+SG
+DE
+BW
+kY
+gs
+cT
+xc
+Xv
+fZ
+bp
+xc
+wb
+qZ
+pz
+Hd
+xO
+mj
+mj
+Yu
+hh
+gD
+zL
+Ip
+Ip
+Ip
+as
+JN
+rG
+rG
+ro
+vQ
+vy
+vy
+dS
+Cz
+fb
+"}
+(48,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Sb
+XR
+zr
+Av
+Av
+av
+nx
+AQ
+NL
+Ba
+He
+Mo
+cT
+xc
+xc
+nN
+ZD
+wb
+kf
+cT
+pz
+qt
+bb
+hO
+rw
+DX
+KG
+xH
+ab
+em
+em
+em
+Yj
+jE
+rG
+rG
+ro
+vQ
+vy
+Gk
+dS
+wx
+dE
+"}
+(49,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Sb
+kX
+ze
+Dh
+iO
+cN
+QJ
+zC
+cv
+cs
+jM
+ko
+cT
+xc
+xc
+nN
+fm
+wb
+wb
+qZ
+pz
+jy
+tb
+EK
+xm
+zj
+ut
+zj
+ab
+rG
+rG
+rG
+DW
+rG
+rG
+rG
+ro
+Rb
+xN
+wx
+wx
+dE
+dE
+"}
+(50,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Sb
+Yb
+Mt
+ad
+Jy
+eg
+oG
+XS
+Yw
+Va
+ZK
+gE
+cT
+xc
+xc
+xD
+ms
+wb
+xc
+QQ
+pz
+qt
+AZ
+Di
+xm
+uG
+FU
+cE
+ab
+Ag
+Ag
+Ag
+DW
+Ef
+rG
+rG
+ro
+Rb
+wx
+vy
+IW
+fb
+dW
+"}
+(51,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+Sb
+YP
+gY
+TU
+kl
+WX
+jk
+bR
+LR
+Ar
+DU
+eS
+cT
+xc
+wb
+fZ
+ms
+wb
+xc
+QQ
+fZ
+Hd
+KS
+aJ
+gM
+Yu
+lh
+wM
+uT
+rZ
+Ip
+Ip
+Ip
+fg
+Cl
+Ag
+Jg
+an
+IL
+vy
+dS
+vy
+jU
+"}
+(52,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+eR
+Sb
+XR
+JF
+qL
+Xz
+rg
+jk
+bR
+Jz
+iU
+WU
+eS
+cT
+xc
+xc
+AS
+ms
+wb
+wb
+QQ
+vl
+Hd
+Fl
+SQ
+qc
+Kj
+vi
+SQ
+Hd
+Hd
+vy
+vy
+zZ
+Ip
+Mf
+xY
+aV
+VU
+IL
+dS
+dS
+dS
+Bu
+"}
+(53,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+eR
+Sb
+XR
+Pd
+fr
+kl
+CJ
+Nh
+pP
+PW
+RU
+qs
+ND
+qZ
+xc
+xc
+AS
+ms
+wb
+wb
+QQ
+pz
+Hd
+wA
+cO
+KB
+rD
+vi
+BK
+Hd
+dE
+vy
+vy
+vy
+vy
+dS
+dS
+vy
+vy
+IL
+vy
+fb
+Bu
+cp
+"}
+(54,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+eR
+Sb
+XR
+Uw
+qL
+Un
+Qk
+NF
+WD
+hg
+fz
+Mj
+DA
+cT
+wb
+xc
+AS
+ms
+wb
+wb
+QQ
+pz
+Rt
+SQ
+cO
+HZ
+jw
+SQ
+vi
+Hd
+dE
+dE
+Gk
+vy
+dS
+dS
+vy
+vy
+vy
+wx
+vy
+dW
+lR
+Ms
+"}
+(55,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+eR
+Sb
+kX
+ze
+Uv
+cA
+MS
+KT
+bR
+NL
+Ba
+Ba
+Rs
+QQ
+eN
+eN
+AS
+ms
+eN
+eN
+QQ
+jy
+qc
+SQ
+fO
+Gh
+qc
+SQ
+vi
+Hd
+dE
+dE
+fb
+vy
+dS
+vy
+ZV
+vy
+Oa
+wx
+fb
+dE
+dE
+vd
+"}
+(56,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+eR
+nn
+kX
+BH
+qL
+qL
+Eb
+pr
+AQ
+mr
+Ay
+pG
+Iw
+QQ
+MQ
+LI
+AS
+ZD
+MQ
+LI
+QQ
+qt
+Hd
+vi
+fO
+SQ
+SQ
+SQ
+vi
+Hd
+dE
+dE
+fb
+dS
+dS
+vy
+SD
+vy
+vy
+wx
+fb
+dE
+dE
+XL
+"}
+(57,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+eR
+za
+XR
+Xm
+xo
+Or
+oo
+pr
+mM
+bR
+he
+he
+he
+om
+dL
+dL
+yW
+oS
+dL
+dL
+om
+he
+Hd
+Hd
+PF
+fO
+lB
+Dy
+tM
+Hd
+dE
+fb
+vy
+dS
+dS
+vy
+vy
+vy
+vy
+mR
+dE
+dE
+dE
+jU
+"}
+(58,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Ng
+Ng
+WE
+he
+he
+yF
+he
+BN
+vu
+he
+yF
+he
+xS
+Wl
+Lb
+Xa
+fL
+ID
+ID
+QV
+Xa
+LZ
+nS
+LZ
+he
+qt
+tG
+Hd
+qt
+qt
+Hd
+BB
+BB
+UB
+QL
+BB
+Ow
+vy
+Oa
+fb
+dE
+dE
+dE
+dE
+jU
+"}
+(59,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+qb
+Wr
+PJ
+uS
+pE
+VI
+VI
+NG
+tN
+wE
+VI
+oe
+VI
+LZ
+td
+ta
+Rm
+ID
+AW
+QW
+nF
+jX
+VI
+LZ
+oe
+LZ
+KZ
+es
+VI
+VI
+he
+he
+Ct
+Ma
+Ne
+vG
+Yn
+vy
+Gk
+fb
+dE
+dE
+dE
+dE
+jU
+"}
+(60,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+iV
+eE
+iV
+Rq
+ev
+FS
+FS
+ws
+FS
+ws
+ws
+ys
+ZA
+ys
+np
+Hl
+am
+AW
+AW
+vU
+nR
+jX
+ys
+ZA
+ys
+LZ
+Lb
+Lb
+LZ
+VI
+oe
+Ct
+iq
+iq
+WJ
+GB
+Yn
+vy
+vy
+fb
+dE
+dE
+dE
+dE
+jU
+"}
+(61,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+iV
+iR
+Lf
+Le
+pE
+LZ
+Hq
+FS
+ws
+FS
+FS
+ZA
+HT
+ys
+LZ
+Ie
+jX
+gO
+ID
+np
+Ej
+LZ
+HT
+ys
+ZA
+VI
+VI
+KZ
+Lb
+LZ
+ZA
+iq
+uH
+Kq
+Qa
+iq
+YS
+vy
+fb
+dE
+dE
+dE
+dE
+lR
+cp
+"}
+(62,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+Jw
+Sb
+fu
+he
+he
+jj
+LZ
+LZ
+Lb
+Lb
+VI
+oe
+AW
+AW
+ys
+ZA
+ys
+ZA
+ys
+ys
+ys
+ZA
+ID
+ID
+oe
+VI
+dU
+EQ
+VI
+VI
+ys
+WJ
+WJ
+WJ
+wk
+EV
+YS
+fb
+dE
+dE
+dE
+dE
+jU
+cp
+cp
+"}
+(63,1,1) = {"
+Ng
+Ng
+Ng
+Ng
+cz
+Sb
+mQ
+he
+TV
+VI
+VI
+LZ
+LZ
+cj
+VI
+he
+NB
+VI
+LZ
+LZ
+LZ
+LZ
+LZ
+LZ
+LZ
+LZ
+LZ
+VI
+he
+tK
+qR
+wZ
+VI
+VI
+oe
+iq
+WJ
+WJ
+WJ
+iq
+YS
+dE
+dE
+dE
+dE
+dE
+jU
+FZ
+Ms
+"}
