@@ -73,6 +73,7 @@
 /area/shuttle/drop_upp/morana)
 "bS" = (
 /obj/structure/blocker/invisible_wall,
+/obj/structure/machinery/computer/dropship_weapons/dropship5,
 /turf/closed/shuttle/dropship_upp/transparent{
 	icon_state = "93b"
 	},
@@ -483,6 +484,7 @@
 /area/shuttle/drop_upp/morana)
 "KQ" = (
 /obj/structure/blocker/invisible_wall,
+/obj/structure/machinery/computer/cameras/dropship/five,
 /turf/closed/shuttle/dropship_upp/transparent{
 	icon_state = "93a"
 	},

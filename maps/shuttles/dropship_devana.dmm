@@ -16,6 +16,7 @@
 /area/shuttle/drop_upp2/devana)
 "ar" = (
 /obj/structure/blocker/invisible_wall,
+/obj/structure/machinery/computer/cameras/dropship/four,
 /turf/closed/shuttle/dropship_upp2{
 	icon_state = "93a"
 	},
@@ -442,6 +443,7 @@
 /area/shuttle/drop_upp2/devana)
 "Lu" = (
 /obj/structure/blocker/invisible_wall,
+/obj/structure/machinery/computer/dropship_weapons/dropship4,
 /turf/closed/shuttle/dropship_upp2{
 	icon_state = "93b"
 	},
