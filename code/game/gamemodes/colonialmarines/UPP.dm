@@ -125,7 +125,7 @@ GLOBAL_LIST_EMPTY(upp_officers)
 		//		GLOB.round_statistics.current_map.total_xeno_victories++
 		//		GLOB.round_statistics.current_map.total_xeno_majors++
 		if(MODE_FACTION_CLASH_UPP_MAJOR)
-			musical_track = pick('sound/theme/lastmanstanding_upp.ogg'')
+			musical_track = pick('sound/theme/lastmanstanding_upp.ogg')
 			end_icon = "upp_major"
 		//	if(GLOB.round_statistics && GLOB.round_statistics.current_map)
 		//		GLOB.round_statistics.current_map.total_marine_victories++
