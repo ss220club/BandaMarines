@@ -567,9 +567,6 @@
 /area/sekhmet/int_reg/engineering)
 "abW" = (
 /obj/structure/bed/chair/comfy/blue,
-/obj/structure/window/reinforced/tinted{
-	dir = 1
-	},
 /turf/open/floor/prison/bright_clean2,
 /area/sekhmet/int_glass/complex_generic)
 "abX" = (
@@ -2566,14 +2563,14 @@
 /turf/open/auto_turf/swamp_dirt/layer1,
 /area/sekhmet/outside/swamp)
 "ahL" = (
-/obj/structure/machinery/door/airlock/upp/generic/solid/autoname{
-	needs_power = 0;
-	name = "\improper Bolted Airlock";
+/obj/structure/machinery/door/airlock/upp/generic/solid{
+	dir = 1;
 	emp_proof = 1;
 	explo_proof = 1;
+	name = "\improper Bolted Airlock";
+	needs_power = 0;
 	unacidable = 1;
-	unslashable = 1;
-	dir = 2
+	unslashable = 1
 	},
 /turf/open/floor/plating/plating_catwalk/strata,
 /area/sekhmet/int_reg/small_power)
@@ -3423,6 +3420,10 @@
 	},
 /turf/open/auto_turf/swamp_grass/layer1,
 /area/sekhmet/outside/swamp)
+"apY" = (
+/mob/living/simple_animal/small/frog/random,
+/turf/open/gm/dirt/swamp_dirt/variant_2,
+/area/sekhmet/outside/swamp)
 "aqa" = (
 /obj/structure/machinery/light/small{
 	dir = 4
@@ -3508,20 +3509,12 @@
 /turf/open/floor/kutjevo/grey,
 /area/sekhmet/int_heavy/research)
 "asV" = (
-/obj/structure/bed,
-/obj/structure/bed{
-	pixel_y = 13
-	},
-/obj/item/bedsheet/brown,
-/obj/item/bedsheet/brown{
-	pixel_y = 13
-	},
-/obj/structure/window/reinforced/tinted{
-	layer = 4.01
-	},
 /obj/structure/sign/poster/pinup{
 	pixel_x = 1;
 	pixel_y = 34
+	},
+/obj/structure/bed/hybrisa/prisonbed{
+	dir = 8
 	},
 /turf/open/floor/strata/fake_wood,
 /area/sekhmet/int_glass/complex_generic)
@@ -3569,10 +3562,6 @@
 /obj/structure/stairs/perspective{
 	color = "#838a88";
 	dir = 4
-	},
-/obj/structure/barricade/handrail/wire{
-	dir = 1;
-	pixel_y = 12
 	},
 /obj/structure/barricade/handrail/wire,
 /obj/structure/machinery/light{
@@ -4163,9 +4152,7 @@
 /turf/closed/wall/shiva/prefabricated,
 /area/sekhmet/caves/south_cave)
 "aGG" = (
-/obj/structure/machinery/power/monitor{
-	name = "Main Power Grid Monitoring"
-	},
+/obj/structure/machinery/cryopod/joe/seegson/alt,
 /turf/open/floor/corsat/squares,
 /area/sekhmet/int_reg/engineering)
 "aHj" = (
@@ -4257,6 +4244,7 @@
 	pixel_x = 9;
 	pixel_y = -7
 	},
+/mob/living/simple_animal/small/frog/random,
 /turf/open/gm/coast/dirt/swampbeachcorner/north_west,
 /area/sekhmet/outside/swamp)
 "aJP" = (
@@ -5070,6 +5058,10 @@
 	},
 /turf/open/gm/river/swamp,
 /area/sekhmet/outside/swamp)
+"biQ" = (
+/obj/effect/landmark/monkey_spawn,
+/turf/open/auto_turf/swampalt_dirt/layer1,
+/area/sekhmet/caves/south_cave)
 "bjc" = (
 /obj/structure/prop/colorable_rock/colorable/alt{
 	color = "#a39e99";
@@ -5113,6 +5105,7 @@
 	pixel_x = 16;
 	pixel_y = -1
 	},
+/mob/living/simple_animal/small/frog/random,
 /turf/open/gm/coast/dirt/swampbeachcorner/north_west,
 /area/sekhmet/outside/swamp)
 "bjL" = (
@@ -5136,14 +5129,14 @@
 /turf/open/gm/coast/dirt/swampbeachcorner2/north_east,
 /area/sekhmet/outside/swamp)
 "bkb" = (
-/obj/structure/machinery/door/airlock/upp/generic/solid/autoname{
-	needs_power = 0;
-	name = "\improper Bolted Airlock";
+/obj/structure/machinery/door/airlock/upp/generic/solid{
+	dir = 1;
 	emp_proof = 1;
 	explo_proof = 1;
+	name = "\improper Bolted Airlock";
+	needs_power = 0;
 	unacidable = 1;
-	unslashable = 1;
-	dir = 2
+	unslashable = 1
 	},
 /turf/open/floor/plating/plating_catwalk/strata,
 /area/sekhmet/outside/swamp)
@@ -5288,18 +5281,9 @@
 /turf/open/auto_turf/swamp_grass/layer1,
 /area/sekhmet/outside/swamp)
 "bnS" = (
-/obj/structure/flora/bush/ausbushes/var3/sunnybush{
-	color = "#fceab2"
-	},
-/obj/structure/flora/jungle/vines/light_1{
-	color = "#fceab2"
-	},
-/obj/item/lifesaver{
-	icon_state = "lifesaver_2";
-	item_state = "lifesaver"
-	},
-/turf/open/auto_turf/swamp_grass/layer1,
-/area/sekhmet/outside/swamp)
+/obj/effect/landmark/monkey_spawn,
+/turf/open/auto_turf/swampalt_dirt/layer1,
+/area/sekhmet/caves/west_cave)
 "bnX" = (
 /obj/structure/prop/colorable_rock/colorable{
 	color = "#a39e99";
@@ -5804,6 +5788,20 @@
 	},
 /turf/open/floor/corsat/squares,
 /area/sekhmet/int_heavy/research)
+"bCz" = (
+/obj/structure/prop/swamp_plants/algae/corner2/south_east{
+	pixel_x = 5
+	},
+/mob/living/simple_animal/small/frog/random,
+/turf/open/gm/coast/dirt/swampdir/west,
+/area/sekhmet/outside/swamp)
+"bCO" = (
+/obj/structure/prop/swamp_plants/algae/corner2/south_east{
+	pixel_y = 3
+	},
+/mob/living/simple_animal/small/frog/random,
+/turf/open/gm/coast/dirt/swampdir/south,
+/area/sekhmet/outside/swamp)
 "bDx" = (
 /turf/closed/wall/strata_outpost/reinforced/hull,
 /area/sekhmet/outside/central_road)
@@ -7010,6 +7008,7 @@
 	pixel_x = 8;
 	pixel_y = -11
 	},
+/mob/living/simple_animal/small/frog/random,
 /turf/open/gm/coast/dirt/swampdir,
 /area/sekhmet/outside/swamp)
 "cpR" = (
@@ -7214,6 +7213,7 @@
 	pixel_y = 14;
 	dir = 1
 	},
+/mob/living/simple_animal/small/frog/random,
 /turf/open/gm/coast/dirt/swampbeachcorner/north_west,
 /area/sekhmet/outside/swamp)
 "cuY" = (
@@ -7686,10 +7686,10 @@
 /turf/open/auto_turf/swamp_grass/layer0_mud,
 /area/sekhmet/outside/swamp)
 "cIL" = (
-/obj/structure/window/reinforced/tinted{
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/strata/fake_wood,
 /area/sekhmet/int_glass/complex_generic)
 "cIM" = (
@@ -7706,7 +7706,10 @@
 /turf/open/auto_turf/sand_white/layer0,
 /area/sekhmet/caves/west_cave)
 "cJb" = (
-/obj/structure/bed/roller/hospital_empty/bigrollerempty,
+/obj/structure/bed/roller/hospital_empty/bigrollerempty{
+	dir = 8;
+	icon_state = "bigrollerempty_up"
+	},
 /turf/open/floor/prison/sterile_white,
 /area/sekhmet/int_glass/hosptial)
 "cJf" = (
@@ -7823,6 +7826,8 @@
 	light_power = 0.5;
 	dir = 8
 	},
+/obj/effect/landmark/start/working_joe/colony,
+/obj/effect/landmark/late_join/working_joe/colony,
 /turf/open/floor/corsat/squares,
 /area/sekhmet/int_reg/engineering)
 "cLk" = (
@@ -7866,6 +7871,12 @@
 	},
 /turf/open/floor/strata/multi_tiles/southwest,
 /area/sekhmet/int_reg/complex_operation)
+"cLV" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/start/working_joe/colony,
+/obj/effect/landmark/late_join/working_joe/colony,
+/turf/open/floor/corsat/squares,
+/area/sekhmet/int_reg/engineering)
 "cMb" = (
 /turf/open/floor/plating/kutjevo,
 /area/sekhmet/int_reg/warehouse)
@@ -8084,6 +8095,7 @@
 	pixel_x = 10;
 	pixel_y = 18
 	},
+/mob/living/simple_animal/small/frog/random,
 /turf/open/gm/coast/dirt/swampbeachcorner/south_west,
 /area/sekhmet/outside/swamp)
 "cTk" = (
@@ -9624,6 +9636,10 @@
 	},
 /turf/open/floor/plating/kutjevo,
 /area/sekhmet/int_reg/southwest_complex)
+"dRA" = (
+/mob/living/simple_animal/small/frog/random,
+/turf/open/gm/coast/dirt/swampbeachcorner/north_east,
+/area/sekhmet/outside/swamp)
 "dRI" = (
 /obj/structure/prop/swamp_plants/algae/small/algae_3{
 	pixel_x = 11
@@ -10384,9 +10400,6 @@
 	dir = 1;
 	layer = 2.4
 	},
-/obj/structure/window/reinforced/tinted{
-	layer = 3.4
-	},
 /turf/open/floor/prison/bright_clean2,
 /area/sekhmet/int_glass/complex_generic)
 "ehb" = (
@@ -10410,6 +10423,7 @@
 	pixel_x = 16;
 	pixel_y = -13
 	},
+/mob/living/simple_animal/small/frog/random,
 /turf/open/gm/dirt/swamp_dirt,
 /area/sekhmet/outside/swamp)
 "eib" = (
@@ -10426,6 +10440,7 @@
 	pixel_y = 12
 	},
 /obj/effect/abstract/ripple/shadow,
+/mob/living/simple_animal/small/frog/random,
 /turf/open/gm/coast/dirt/swampdir/south,
 /area/sekhmet/outside/swamp)
 "eil" = (
@@ -10630,6 +10645,7 @@
 /area/sekhmet/int_reg/water_filters)
 "eoP" = (
 /obj/structure/prop/swamp_plants/algae/corner2/south_east,
+/mob/living/simple_animal/small/frog/random,
 /turf/open/gm/coast/dirt/swampdir/south,
 /area/sekhmet/outside/swamp)
 "eoY" = (
@@ -12017,20 +12033,6 @@
 /turf/open/floor/strata/floor2,
 /area/sekhmet/int_reg/complex_operation)
 "fgq" = (
-/obj/structure/bed,
-/obj/structure/bed{
-	pixel_y = 13
-	},
-/obj/item/bedsheet/brown,
-/obj/item/bedsheet/brown{
-	pixel_y = 13
-	},
-/obj/structure/window/reinforced/tinted{
-	layer = 4.01
-	},
-/obj/structure/window/reinforced/tinted{
-	dir = 4
-	},
 /obj/structure/sign/poster/music{
 	pixel_x = -4;
 	pixel_y = 30
@@ -12038,6 +12040,12 @@
 /obj/structure/sign/poster/music{
 	pixel_x = -12;
 	pixel_y = 34
+	},
+/obj/item/bedsheet/brown{
+	pixel_y = 11
+	},
+/obj/structure/bed/hybrisa/prisonbed{
+	dir = 4
 	},
 /turf/open/floor/strata/fake_wood,
 /area/sekhmet/int_glass/complex_generic)
@@ -13943,6 +13951,7 @@
 	pixel_y = -5;
 	dir = 6
 	},
+/mob/living/simple_animal/small/frog/random,
 /turf/open/gm/dirt/swamp_dirt/variant_2,
 /area/sekhmet/outside/swamp)
 "gcv" = (
@@ -14401,7 +14410,8 @@
 /obj/item/book/manual/medical_diagnostics_manual,
 /obj/item/book/manual/medical_diagnostics_manual,
 /obj/structure/bookcase/wood{
-	icon_state = "woodbook-5"
+	icon_state = "wood-5";
+	opacity = 0
 	},
 /turf/open/floor/strata/fake_wood,
 /area/sekhmet/int_glass/hosptial)
@@ -14692,7 +14702,9 @@
 /area/sekhmet/outside/swamp)
 "gvb" = (
 /obj/structure/bookcase/wood{
-	icon_state = "woodbook-5"
+	icon_state = "wood-5";
+	density = 0;
+	opacity = 0
 	},
 /obj/item/book/manual/paperwork,
 /obj/item/book/manual/paperwork,
@@ -15498,9 +15510,6 @@
 /obj/structure/bed/chair/comfy/blue{
 	dir = 1;
 	layer = 2.4
-	},
-/obj/structure/window/reinforced/tinted{
-	layer = 3.4
 	},
 /turf/open/floor/prison/bright_clean2,
 /area/sekhmet/int_glass/complex_generic)
@@ -16394,16 +16403,8 @@
 /turf/open/floor/strata/fake_wood,
 /area/sekhmet/int_glass/offices)
 "hqU" = (
-/obj/structure/bed,
-/obj/structure/bed{
-	pixel_y = 13
-	},
-/obj/item/bedsheet/brown,
-/obj/item/bedsheet/brown{
-	pixel_y = 13
-	},
-/obj/structure/window/reinforced/tinted{
-	layer = 4.01
+/obj/structure/bed/hybrisa/prisonbed{
+	dir = 5
 	},
 /turf/open/floor/strata/fake_wood,
 /area/sekhmet/int_glass/complex_generic)
@@ -17767,11 +17768,11 @@
 /turf/open/gm/coast/dirt/swampbeachcorner2/south_west,
 /area/sekhmet/outside/swamp)
 "ifc" = (
-/obj/structure/machinery/door/airlock/upp/generic/solid/autoname{
-	needs_power = 0;
-	name = "\improper Bolted Airlock";
+/obj/structure/machinery/door/airlock/upp/generic/solid{
 	emp_proof = 1;
 	explo_proof = 1;
+	name = "\improper Bolted Airlock";
+	needs_power = 0;
 	unacidable = 1;
 	unslashable = 1
 	},
@@ -18517,9 +18518,6 @@
 /obj/structure/surface/table/almayer{
 	color = "#8B9490"
 	},
-/obj/structure/window/reinforced/tinted{
-	dir = 8
-	},
 /obj/effect/landmark/objective_landmark/close,
 /turf/open/floor/prison/bright_clean2,
 /area/sekhmet/int_glass/complex_generic)
@@ -18597,10 +18595,11 @@
 	pixel_y = 9
 	},
 /obj/structure/bookcase/wood{
-	icon_state = "woodbook-5";
+	icon_state = "wood-5";
 	pixel_y = 44;
 	layer = 3.01;
-	density = 0
+	density = 0;
+	opacity = 0
 	},
 /obj/item/book/manual/upphistory,
 /obj/item/book/manual/upphistory,
@@ -18776,6 +18775,13 @@
 /obj/structure/bed/chair,
 /turf/open/floor/strata/multi_tiles/southwest,
 /area/sekhmet/int_reg/garage)
+"iGP" = (
+/obj/structure/surface/rack{
+	color = "#6b675e";
+	layer = 2.79
+	},
+/turf/open/floor/corsat/squares,
+/area/sekhmet/int_reg/engineering)
 "iGR" = (
 /obj/structure/prop/swamp_plants/algae/corner/north_east,
 /obj/structure/prop/swamp_plants/lily_pads/lily_pads_4,
@@ -19396,17 +19402,10 @@
 /turf/open/gm/coast/dirt/swampdir/south,
 /area/sekhmet/outside/east_jungle)
 "iZP" = (
-/obj/structure/bed,
-/obj/structure/bed{
+/obj/structure/bed/hybrisa/prisonbed,
+/obj/item/roller/bedroll/comfy/yellow{
+	pixel_x = -2;
 	pixel_y = 13
-	},
-/obj/item/bedsheet/brown,
-/obj/item/bedsheet/brown{
-	pixel_y = 13
-	},
-/obj/structure/window/reinforced/tinted{
-	dir = 1;
-	layer = 2.9
 	},
 /turf/open/floor/strata/fake_wood,
 /area/sekhmet/int_glass/complex_generic)
@@ -21105,7 +21104,8 @@
 /area/sekhmet/int_reg/yard)
 "jYe" = (
 /obj/structure/bookcase/wood{
-	icon_state = "woodbook-5"
+	icon_state = "wood-5";
+	opacity = 0
 	},
 /obj/structure/machinery/light{
 	light_power = 0.5;
@@ -22669,9 +22669,6 @@
 /obj/structure/surface/table/almayer{
 	color = "#8B9490"
 	},
-/obj/structure/window/reinforced/tinted{
-	dir = 4
-	},
 /obj/item/reagent_container/food/snacks/cubancarp{
 	pixel_x = -8;
 	pixel_y = 11
@@ -23827,25 +23824,9 @@
 /turf/open/floor/plating/kutjevo,
 /area/sekhmet/outside/southroad)
 "lFM" = (
-/obj/structure/bed,
-/obj/structure/bed{
-	pixel_y = 13
+/obj/structure/bed/hybrisa/prisonbed{
+	dir = 9
 	},
-/obj/item/bedsheet/brown,
-/obj/item/bedsheet/brown{
-	pixel_y = 13
-	},
-/obj/structure/window/reinforced/tinted{
-	dir = 1;
-	layer = 2.9
-	},
-/obj/structure/window/reinforced/tinted{
-	dir = 4
-	},
-/obj/structure/window/reinforced/tinted{
-	layer = 4.01
-	},
-/obj/item/attachable/bayonet/upp,
 /turf/open/floor/strata/fake_wood,
 /area/sekhmet/int_glass/complex_generic)
 "lGf" = (
@@ -23897,9 +23878,6 @@
 /area/sekhmet/int_reg/military_hangar)
 "lHR" = (
 /obj/structure/bed/chair/comfy/blue,
-/obj/structure/window/reinforced/tinted{
-	dir = 1
-	},
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/prison/bright_clean2,
 /area/sekhmet/int_glass/complex_generic)
@@ -24227,6 +24205,10 @@
 	},
 /turf/open/floor/strata/fake_wood,
 /area/sekhmet/int_glass/offices)
+"lQm" = (
+/mob/living/simple_animal/small/frog/random,
+/turf/open/gm/coast/dirt/swampdir,
+/area/sekhmet/outside/swamp)
 "lQy" = (
 /obj/effect/decal/strata_decals/grime/grime3,
 /turf/open/floor/prison/sterile_white,
@@ -24909,6 +24891,7 @@
 	pixel_x = -3;
 	pixel_y = 11
 	},
+/mob/living/simple_animal/small/frog/random,
 /turf/open/gm/coast/dirt/swampbeachcorner/south_east,
 /area/sekhmet/outside/swamp)
 "mkN" = (
@@ -25841,7 +25824,7 @@
 /obj/structure/bookcase/wood{
 	pixel_y = 13;
 	can_block_movement = 0;
-	icon_state = "woodbook-5"
+	icon_state = "wood-5"
 	},
 /obj/item/book/manual/paperwork,
 /obj/item/book/manual/upphistory,
@@ -26045,6 +26028,7 @@
 	pixel_x = 5;
 	pixel_y = -17
 	},
+/mob/living/simple_animal/small/frog/random,
 /turf/open/gm/coast/dirt/swampdir,
 /area/sekhmet/outside/swamp)
 "mRU" = (
@@ -26549,6 +26533,7 @@
 	pixel_x = -12;
 	pixel_y = 18
 	},
+/mob/living/simple_animal/small/frog/random,
 /turf/open/gm/coast/dirt/swampdir/east,
 /area/sekhmet/outside/swamp)
 "nci" = (
@@ -27071,6 +27056,10 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/strata/multi_tiles/southeast,
 /area/sekhmet/int_reg/garage)
+"npm" = (
+/obj/item/bedsheet/brown,
+/turf/open/floor/carpet,
+/area/sekhmet/int_glass/complex_generic)
 "npB" = (
 /obj/structure/machinery/camera{
 	c_tag = "South Complex - General Hall";
@@ -27641,6 +27630,10 @@
 /obj/structure/blocker/invisible_wall,
 /turf/open/floor/strata/floor3,
 /area/sekhmet/int_reg/catwalk)
+"nFn" = (
+/mob/living/simple_animal/small/frog/random,
+/turf/open/gm/coast/dirt/swampdir/east,
+/area/sekhmet/outside/swamp)
 "nFO" = (
 /obj/structure/prop/colorable_rock/colorable{
 	color = "#a39e99";
@@ -27815,6 +27808,7 @@
 	pixel_x = -17;
 	pixel_y = 19
 	},
+/mob/living/simple_animal/small/frog/random,
 /turf/open/gm/coast/dirt/swampdir/east,
 /area/sekhmet/outside/swamp)
 "nLt" = (
@@ -27848,6 +27842,7 @@
 	pixel_x = 1;
 	pixel_y = 6
 	},
+/mob/living/simple_animal/small/frog/random,
 /turf/open/gm/coast/dirt/swampdir/south,
 /area/sekhmet/outside/swamp)
 "nMq" = (
@@ -27895,6 +27890,10 @@
 	},
 /turf/open/floor/strata/floor3,
 /area/sekhmet/int_heavy/research)
+"nOa" = (
+/mob/living/simple_animal/small/frog/random,
+/turf/open/gm/coast/dirt/swampbeachcorner/north_west,
+/area/sekhmet/outside/swamp)
 "nOg" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "E";
@@ -28222,6 +28221,13 @@
 	},
 /turf/open/gm/river/swamp,
 /area/sekhmet/outside/swamp)
+"nWG" = (
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#a39e99"
+	},
+/mob/living/simple_animal/small/frog/random,
+/turf/open/gm/dirt/swamp_dirt,
+/area/sekhmet/outside/swamp)
 "nWX" = (
 /obj/structure/prop/structure_lattice{
 	dir = 4
@@ -28513,10 +28519,6 @@
 	},
 /turf/open/floor/corsat/marked,
 /area/sekhmet/int_reg/southwest_complex)
-"odx" = (
-/obj/structure/closet/firecloset,
-/turf/open/floor/strata/floor3,
-/area/sekhmet/int_reg/military_hangar)
 "odC" = (
 /obj/structure/prop/swamp_plants/algae/corner2/south_east{
 	pixel_y = -5
@@ -28628,7 +28630,8 @@
 /area/sekhmet/int_reg/military_hangar)
 "ofY" = (
 /obj/structure/bookcase/wood{
-	icon_state = "woodbook-5"
+	icon_state = "wood-5";
+	opacity = 0
 	},
 /obj/item/book/manual/upphistory,
 /obj/item/book/manual/upphistory,
@@ -30134,6 +30137,7 @@
 /obj/structure/flora/wood/stick4{
 	dir = 1
 	},
+/mob/living/simple_animal/small/frog/random,
 /turf/open/gm/dirt/swamp_dirt/variant_2,
 /area/sekhmet/outside/swamp)
 "oTM" = (
@@ -30305,6 +30309,11 @@
 	},
 /obj/effect/abstract/ripple/shadow,
 /turf/open/gm/coast/dirt/swampbeachcorner2/south_west,
+/area/sekhmet/outside/swamp)
+"oYF" = (
+/obj/effect/abstract/ripple/shadow,
+/mob/living/simple_animal/small/frog/random,
+/turf/open/gm/dirt/swamp_dirt/variant_1,
 /area/sekhmet/outside/swamp)
 "oYJ" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
@@ -31252,10 +31261,11 @@
 /area/sekhmet/outside/temple_outer)
 "pBx" = (
 /obj/structure/bookcase/wood{
-	icon_state = "woodbook-5";
+	icon_state = "wood-5";
 	pixel_y = 44;
 	layer = 3.01;
-	density = 0
+	density = 0;
+	opacity = 0
 	},
 /obj/item/book/manual/paperwork,
 /obj/item/book/manual/paperwork,
@@ -31692,6 +31702,7 @@
 /obj/structure/prop/swamp_plants/algae/corner2/south_west{
 	pixel_y = 8
 	},
+/mob/living/simple_animal/small/frog/random,
 /turf/open/gm/coast/dirt/swampdir/south,
 /area/sekhmet/outside/swamp)
 "pOP" = (
@@ -33975,6 +33986,7 @@
 	pixel_x = 4;
 	dir = 1
 	},
+/mob/living/simple_animal/small/frog/random,
 /turf/open/gm/coast/dirt/swampbeachcorner/south_west,
 /area/sekhmet/outside/east_jungle)
 "rfD" = (
@@ -34015,6 +34027,10 @@
 "rgS" = (
 /obj/structure/blocker/invisible_wall,
 /turf/open/gm/river/swamp,
+/area/sekhmet/outside/swamp)
+"rgU" = (
+/mob/living/simple_animal/small/frog/random,
+/turf/open/gm/coast/dirt/swampbeachcorner/south_east,
 /area/sekhmet/outside/swamp)
 "rhg" = (
 /obj/structure/largecrate/random/barrel/true_random,
@@ -36485,6 +36501,12 @@
 	},
 /turf/open/gm/river/swamp,
 /area/sekhmet/outside/swamp)
+"szw" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/attachable/bayonet/upp,
+/obj/item/bedsheet/brown,
+/turf/open/floor/strata/fake_wood,
+/area/sekhmet/int_glass/complex_generic)
 "szK" = (
 /obj/structure/platform_decoration/metal/strata/east,
 /obj/structure/prop/swamp_plants/algae/corner2/south_west,
@@ -36620,10 +36642,11 @@
 "sFN" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/structure/bookcase/wood{
-	icon_state = "woodbook-5";
+	icon_state = "wood-5";
 	pixel_y = 44;
 	layer = 3.01;
-	density = 0
+	density = 0;
+	opacity = 0
 	},
 /obj/item/book/manual/paperwork,
 /obj/item/book/manual/paperwork,
@@ -36783,6 +36806,7 @@
 	pixel_x = -11;
 	pixel_y = -6
 	},
+/mob/living/simple_animal/small/frog/random,
 /turf/open/gm/dirt/swamp_dirt,
 /area/sekhmet/outside/swamp)
 "sIP" = (
@@ -37113,6 +37137,7 @@
 	dir = 8;
 	pixel_x = -10
 	},
+/mob/living/simple_animal/small/frog/random,
 /turf/open/gm/dirt/swamp_dirt,
 /area/sekhmet/outside/swamp)
 "sQP" = (
@@ -37683,6 +37708,7 @@
 /area/sekhmet/int_reg/complex_intel)
 "thT" = (
 /obj/structure/platform/metal/shiva,
+/mob/living/simple_animal/small/frog/random,
 /turf/open/gm/dirt/swamp_dirt,
 /area/sekhmet/outside/swamp)
 "thZ" = (
@@ -38170,6 +38196,10 @@
 	},
 /turf/open/floor/strata/multi_tiles/west,
 /area/sekhmet/int_heavy/research)
+"tvd" = (
+/mob/living/simple_animal/small/frog/random,
+/turf/open/gm/coast/dirt/swampbeachcorner/south_west,
+/area/sekhmet/outside/swamp)
 "tve" = (
 /turf/closed/wall/upp_ship,
 /area/sekhmet/int_reg/water_filters)
@@ -38258,10 +38288,11 @@
 "tyX" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/structure/bookcase/wood{
-	icon_state = "woodbook-5";
+	icon_state = "wood-5";
 	pixel_y = 43;
 	layer = 3.01;
-	density = 0
+	density = 0;
+	opacity = 0
 	},
 /obj/item/book/manual/chemistry,
 /obj/item/book/manual/chemistry,
@@ -38720,7 +38751,7 @@
 /turf/open/floor/strata/multi_tiles/west,
 /area/sekhmet/int_reg/water_filters)
 "tJp" = (
-/obj/structure/window/reinforced/tinted{
+/obj/structure/window/reinforced{
 	dir = 4
 	},
 /turf/open/floor/strata/fake_wood,
@@ -39021,6 +39052,10 @@
 	},
 /turf/open/floor/plating/kutjevo,
 /area/sekhmet/outside/airfield)
+"tPA" = (
+/mob/living/simple_animal/small/frog/random,
+/turf/open/gm/dirt/swamp_dirt,
+/area/sekhmet/outside/swamp)
 "tPJ" = (
 /turf/closed/shuttle/ert{
 	icon_state = "leftengine_2";
@@ -40072,10 +40107,11 @@
 	pixel_y = 6
 	},
 /obj/structure/bookcase/wood{
-	icon_state = "woodbook-5";
+	icon_state = "wood-5";
 	pixel_y = 44;
 	layer = 3.01;
-	density = 0
+	density = 0;
+	opacity = 0
 	},
 /obj/item/book/manual/upphistory,
 /obj/item/book/manual/upphistory,
@@ -40338,6 +40374,14 @@
 /obj/structure/inflatable/door,
 /turf/open/floor/interior/plastic/alt,
 /area/sekhmet/caves/temple)
+"uzg" = (
+/obj/effect/landmark/nightmare{
+	insert_tag = "clfswamp"
+	},
+/turf/closed/wall/rock{
+	color = "#797571"
+	},
+/area/sekhmet/caves/south_cave)
 "uzk" = (
 /obj/structure/flora/jungle/vines/light_1{
 	color = "#fceab2"
@@ -41196,6 +41240,10 @@
 /obj/structure/blocker/invisible_wall,
 /turf/open/floor/corsat,
 /area/sekhmet/int_reg/comms_lower)
+"uXr" = (
+/mob/living/simple_animal/small/frog/random,
+/turf/open/auto_turf/swamp_dirt/layer1,
+/area/sekhmet/outside/swamp)
 "uXF" = (
 /turf/open/floor/strata/orange_edge/west,
 /area/sekhmet/int_reg/comms_lower)
@@ -41634,6 +41682,10 @@
 	color = "#a39e99"
 	},
 /turf/open/gm/dirt/swamp_dirt/variant_2,
+/area/sekhmet/outside/swamp)
+"vnn" = (
+/mob/living/simple_animal/small/frog/random,
+/turf/open/gm/dirt/swamp_dirt/variant_1,
 /area/sekhmet/outside/swamp)
 "vnt" = (
 /obj/structure/prop/swamp_plants/algae/corner/north_east,
@@ -42373,6 +42425,12 @@
 	},
 /turf/open/floor/kutjevo/multi_tiles/west,
 /area/sekhmet/outside/swamp)
+"vJL" = (
+/obj/structure/bed/hybrisa/prisonbed{
+	dir = 6
+	},
+/turf/open/floor/strata/fake_wood,
+/area/sekhmet/int_glass/complex_generic)
 "vJY" = (
 /obj/structure/prop/structure_lattice{
 	dir = 4
@@ -42390,20 +42448,8 @@
 /turf/open/floor/strata/floor3,
 /area/sekhmet/int_heavy/research)
 "vKa" = (
-/obj/structure/bed,
-/obj/structure/bed{
-	pixel_y = 13
-	},
-/obj/item/bedsheet/brown,
-/obj/item/bedsheet/brown{
-	pixel_y = 13
-	},
-/obj/structure/window/reinforced/tinted{
-	dir = 1;
-	layer = 2.9
-	},
-/obj/structure/window/reinforced/tinted{
-	layer = 4.01
+/obj/structure/bed/hybrisa/prisonbed{
+	dir = 10
 	},
 /turf/open/floor/strata/fake_wood,
 /area/sekhmet/int_glass/complex_generic)
@@ -43086,6 +43132,10 @@
 	},
 /turf/open/floor/strata/multi_tiles/southwest,
 /area/sekhmet/int_reg/military_hangar)
+"wbI" = (
+/mob/living/simple_animal/small/frog/random,
+/turf/open/auto_turf/swamp_grass/layer1,
+/area/sekhmet/outside/swamp)
 "wbP" = (
 /obj/structure/flora/grass/tallgrass/swamp/corner{
 	dir = 5
@@ -43291,9 +43341,6 @@
 "whm" = (
 /obj/structure/surface/table/almayer{
 	color = "#8B9490"
-	},
-/obj/structure/window/reinforced/tinted{
-	dir = 4
 	},
 /obj/item/clothing/glasses/sunglasses/aviator{
 	pixel_y = 4;
@@ -43829,6 +43876,10 @@
 "wwR" = (
 /turf/closed/wall/strata_outpost/reinforced/hull,
 /area/sekhmet/outside/southeast_road)
+"wwY" = (
+/mob/living/simple_animal/small/frog/random,
+/turf/open/gm/coast/dirt/swampdir/south,
+/area/sekhmet/outside/swamp)
 "wxg" = (
 /obj/structure/prop/colorable_rock/colorable{
 	color = "#a39e99";
@@ -44206,9 +44257,6 @@
 "wGy" = (
 /obj/structure/surface/table/almayer{
 	color = "#8B9490"
-	},
-/obj/structure/window/reinforced/tinted{
-	dir = 4
 	},
 /obj/item/clothing/suit/armor/vest/UPP/alt,
 /turf/open/floor/prison/bright_clean2,
@@ -46360,6 +46408,7 @@
 /obj/structure/prop/swamp_plants/algae/corner2/south_west{
 	pixel_x = -5
 	},
+/mob/living/simple_animal/small/frog/random,
 /turf/open/gm/coast/dirt/swampdir/east,
 /area/sekhmet/outside/east_jungle)
 "xOG" = (
@@ -84686,7 +84735,7 @@ ugW
 eQy
 xKU
 ryr
-dVw
+wwY
 kRb
 cHW
 kRb
@@ -84800,7 +84849,7 @@ vas
 mgR
 sDO
 sDO
-sDO
+bnS
 adA
 sDO
 xYu
@@ -85506,7 +85555,7 @@ ahk
 fCk
 rtw
 mRU
-dVw
+wwY
 ahk
 kCV
 kCV
@@ -85639,7 +85688,7 @@ fCQ
 kdz
 cxQ
 wEE
-rIb
+tvd
 xYu
 xYu
 rdS
@@ -86134,7 +86183,7 @@ ufa
 oES
 iVA
 tco
-dVw
+wwY
 xYu
 xYu
 vRr
@@ -86153,7 +86202,7 @@ cnx
 sDO
 sDO
 sDO
-sDO
+bnS
 sDO
 sDO
 cnx
@@ -87983,7 +88032,7 @@ xYu
 xYu
 cnx
 sDO
-sDO
+bnS
 sDO
 sDO
 sDO
@@ -88630,7 +88679,7 @@ tHT
 nJZ
 qln
 pDo
-gGv
+bCO
 kRb
 kRb
 eah
@@ -88951,7 +89000,7 @@ xFf
 tTF
 pBz
 pBz
-mkN
+dRA
 kWZ
 kWZ
 amw
@@ -89256,7 +89305,7 @@ vas
 nUz
 nUz
 efi
-odx
+ouG
 iwf
 jVv
 wlD
@@ -89777,7 +89826,7 @@ mUA
 exp
 sUs
 pBz
-pBz
+wbI
 pBz
 pBz
 gDr
@@ -90135,7 +90184,7 @@ pBz
 pBz
 pBz
 ybn
-pBz
+wbI
 pBz
 sUs
 pBz
@@ -90269,8 +90318,8 @@ pBz
 pBz
 xFf
 xFf
-pBz
-qTH
+wbI
+nOa
 iwt
 umD
 eib
@@ -90454,7 +90503,7 @@ pBz
 fHD
 pNp
 vUF
-gCh
+bCz
 rIb
 pBz
 pBz
@@ -90611,7 +90660,7 @@ sUs
 kCV
 kCV
 pBz
-cHW
+tPA
 uFJ
 bAd
 xFf
@@ -90769,7 +90818,7 @@ mqv
 kWZ
 bjW
 ukm
-ksB
+rgU
 ybn
 pBz
 kCV
@@ -90855,7 +90904,7 @@ uzk
 efR
 oNJ
 kjP
-kjP
+biQ
 efH
 eto
 kjP
@@ -90933,12 +90982,12 @@ pnZ
 pBz
 pBz
 mkN
-ksB
+rgU
 kCV
 kCV
 ybn
 sUs
-pBz
+wbI
 kdz
 vhr
 vHH
@@ -90956,7 +91005,7 @@ lzJ
 kRb
 uFJ
 pBz
-pBz
+wbI
 exs
 biL
 lLx
@@ -91275,7 +91324,7 @@ uxt
 xIp
 oXN
 kNR
-pBz
+wbI
 bRh
 bid
 gcG
@@ -91292,7 +91341,7 @@ cFn
 fgt
 oSo
 dVw
-cHW
+tPA
 pBz
 ybn
 ybn
@@ -91599,7 +91648,7 @@ hHl
 uhn
 pBz
 pBz
-pBz
+wbI
 dze
 kWZ
 rcy
@@ -91773,7 +91822,7 @@ ons
 wKY
 rAq
 kWZ
-ksB
+rgU
 lzJ
 pBz
 cHW
@@ -91886,7 +91935,7 @@ pBz
 cHW
 gFi
 sPa
-rIb
+tvd
 aOp
 lzJ
 pBz
@@ -91948,7 +91997,7 @@ eAt
 cSS
 xdN
 jAP
-ksB
+rgU
 lzJ
 pBz
 ahk
@@ -92271,7 +92320,7 @@ pBz
 pBz
 lzJ
 uFJ
-pZW
+lQm
 dXA
 okn
 mRq
@@ -92544,7 +92593,7 @@ eVw
 vRr
 atp
 pBz
-cHW
+tPA
 mkN
 pln
 kQc
@@ -93236,7 +93285,7 @@ kCV
 kCV
 cHW
 ahB
-cHW
+tPA
 iKV
 oBu
 ahB
@@ -93559,7 +93608,7 @@ lIf
 cCu
 nPs
 vVI
-cHW
+tPA
 vQw
 pBz
 pBz
@@ -93870,7 +93919,7 @@ xAf
 fOT
 yec
 rIb
-aOp
+apY
 ahX
 kRb
 cHW
@@ -93902,7 +93951,7 @@ cYv
 cCu
 szu
 hnw
-uFJ
+vnn
 kRb
 ahk
 pBz
@@ -93939,7 +93988,7 @@ vUN
 ybn
 lzJ
 cHW
-aOp
+apY
 cHW
 cHW
 cHW
@@ -93995,7 +94044,7 @@ jfF
 kjP
 kjP
 kjP
-kjP
+biQ
 kjP
 kjP
 efR
@@ -94082,7 +94131,7 @@ uhn
 uhn
 uhn
 pBz
-cHW
+tPA
 lzJ
 hGT
 wxE
@@ -94210,14 +94259,14 @@ exp
 exp
 sQh
 vOM
-kRb
+uXr
 thc
 eTK
 edr
 mHi
 ibt
 jxI
-dVw
+wwY
 aOp
 pBz
 pBz
@@ -94526,7 +94575,7 @@ vHZ
 mkN
 kWZ
 aig
-kWZ
+nFn
 vwh
 fvN
 uVf
@@ -94566,7 +94615,7 @@ fWu
 iXr
 rIb
 aAu
-cHW
+tPA
 iEv
 tWF
 pae
@@ -94593,7 +94642,7 @@ pBz
 uhn
 pBz
 pBz
-bnS
+qkY
 cyh
 cyh
 aOp
@@ -94884,7 +94933,7 @@ kCV
 cyh
 cyh
 pBz
-cHW
+tPA
 psz
 wRQ
 dYb
@@ -95097,7 +95146,7 @@ dSB
 epq
 dmB
 kXF
-ksB
+rgU
 cHW
 wlK
 gnQ
@@ -95222,7 +95271,7 @@ mFc
 qnR
 vWv
 ycb
-aOp
+apY
 cpp
 wwn
 bcl
@@ -95256,7 +95305,7 @@ kCV
 kCV
 pBz
 lzJ
-cHW
+tPA
 mkN
 gdS
 esT
@@ -95521,7 +95570,7 @@ pBz
 pBz
 cHW
 cHW
-aOp
+apY
 uFJ
 rTB
 sQh
@@ -95548,7 +95597,7 @@ pBz
 vQw
 dXi
 ggk
-oBu
+oYF
 rUO
 pBz
 pBz
@@ -95559,7 +95608,7 @@ hTl
 nre
 ngR
 tuf
-ksB
+rgU
 pBz
 sUs
 pBz
@@ -95698,7 +95747,7 @@ cHW
 lzJ
 pAP
 aOp
-cHW
+tPA
 hEf
 uqM
 uVT
@@ -96034,7 +96083,7 @@ pZW
 iAf
 mlo
 aWK
-uFJ
+vnn
 pBz
 pBz
 pAP
@@ -96583,7 +96632,7 @@ ewF
 nNu
 pFZ
 tJH
-rIb
+tvd
 cHW
 kRb
 acH
@@ -96823,7 +96872,7 @@ tpr
 pBz
 ahc
 cHW
-cHW
+tPA
 pZW
 ksw
 mPE
@@ -96831,7 +96880,7 @@ ptP
 cCu
 hEm
 aho
-aAu
+nWG
 kRb
 kRb
 atp
@@ -97129,7 +97178,7 @@ oRx
 efR
 efR
 kjP
-kjP
+biQ
 kjP
 kjP
 efR
@@ -97412,7 +97461,7 @@ prs
 tKj
 eca
 nIe
-rIb
+tvd
 pqL
 lUr
 fqb
@@ -97571,7 +97620,7 @@ lzJ
 cHW
 acH
 kRb
-cHW
+tPA
 ewn
 qUv
 tra
@@ -97581,7 +97630,7 @@ pSi
 rIb
 cHW
 cHW
-cHW
+tPA
 rUO
 qYY
 tve
@@ -97684,7 +97733,7 @@ nLM
 okx
 aOp
 cHW
-cHW
+tPA
 cHW
 aOp
 cHW
@@ -97810,7 +97859,7 @@ kCV
 rUO
 aOp
 cHW
-cHW
+tPA
 qTH
 nai
 wCJ
@@ -97922,7 +97971,7 @@ wCG
 lzW
 mMd
 tsU
-cHW
+tPA
 kRb
 lzJ
 wXj
@@ -97985,7 +98034,7 @@ mfR
 xFB
 fLj
 tCN
-dVw
+wwY
 elQ
 kCV
 kCV
@@ -98402,7 +98451,7 @@ cHW
 cHW
 kRb
 lzJ
-cHW
+tPA
 cpp
 kWZ
 lqt
@@ -98923,7 +98972,7 @@ xGW
 mZj
 lke
 iGi
-ksB
+rgU
 cHW
 mxU
 mxU
@@ -99509,7 +99558,7 @@ bJt
 uCw
 vKa
 nlq
-iZP
+vKa
 xsl
 gYc
 fvZ
@@ -99746,7 +99795,7 @@ gwA
 lIg
 pdy
 hdz
-rIb
+tvd
 uFJ
 vQw
 mxU
@@ -99839,7 +99888,7 @@ uCw
 qyt
 jdV
 uCw
-iZP
+vJL
 xsl
 bvk
 gph
@@ -99905,7 +99954,7 @@ pBz
 pBz
 lzJ
 cHW
-cHW
+tPA
 mkN
 lqt
 bTi
@@ -100000,7 +100049,7 @@ wsv
 xsl
 xsl
 wDM
-uCw
+npm
 hVA
 vEF
 lzP
@@ -100105,7 +100154,7 @@ oRx
 oRx
 oRx
 oRx
-oRx
+uzg
 hCs
 "}
 (100,1,2) = {"
@@ -100169,7 +100218,7 @@ uCw
 bJt
 lSs
 uCw
-iZP
+vKa
 xsl
 rzz
 vvv
@@ -100498,7 +100547,7 @@ uGQ
 ljy
 uCw
 lFM
-eCp
+szw
 iZP
 xsl
 gYc
@@ -100567,7 +100616,7 @@ pBz
 pBz
 pBz
 pBz
-cHW
+tPA
 pZW
 gXh
 tra
@@ -101069,7 +101118,7 @@ own
 nYF
 tsA
 sjH
-dVw
+wwY
 cHW
 uFJ
 mxU
@@ -101113,7 +101162,7 @@ sjx
 iSq
 vRr
 pBz
-cHW
+tPA
 qTH
 wsL
 qip
@@ -101448,7 +101497,7 @@ ajN
 uwJ
 tkI
 qOI
-rIb
+tvd
 lzJ
 kRb
 dkY
@@ -101732,7 +101781,7 @@ tKj
 qKE
 pGl
 iuH
-rIb
+tvd
 ahk
 rUO
 mxU
@@ -102054,7 +102103,7 @@ tkF
 ykj
 lsz
 tve
-pZW
+lQm
 dwm
 gAB
 gDW
@@ -102724,7 +102773,7 @@ xUZ
 wqU
 qSa
 teJ
-dVw
+wwY
 cHW
 cHW
 agk
@@ -102927,7 +102976,7 @@ pBz
 pBz
 ybn
 ajS
-kRb
+uXr
 aib
 kWZ
 aHj
@@ -103709,12 +103758,12 @@ tve
 fzA
 rUO
 uFJ
-cHW
+tPA
 vQw
 cHW
 cHW
 fxj
-chE
+mxU
 bKG
 tWS
 tWS
@@ -112243,7 +112292,7 @@ acT
 acT
 acT
 acT
-acT
+opw
 iyl
 eeE
 grS
@@ -112408,7 +112457,7 @@ jYC
 sMl
 dTW
 acT
-acT
+rSu
 iyl
 eeE
 grS
@@ -112731,10 +112780,10 @@ dHu
 dHu
 dHu
 uAR
-rSu
+aGG
 cLj
 jYC
-opw
+iGP
 uAR
 abA
 grS
@@ -112897,7 +112946,7 @@ dHu
 dHu
 uAR
 aGG
-jYC
+cLV
 yex
 ljn
 iyl

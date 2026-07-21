@@ -26,6 +26,9 @@
     "CO_insert_survivor_types": [
         "/datum/equipment_preset/survivor/clf/coordinator"
     ],
+    "colony_joe_types": [
+        "/datum/job/antag/upp/dzho_automaton/colony"
+    ],
     "map_item_type": "/obj/item/map/sekhmet_swamp_map",
     "announce_text": "Автоматический сигнал бедствия был получен от экспериментальной медицинской исследовательской колонии Союза Прогрессивных Людей на пограничной планете SI-391, \"Болото Сехмет\". Для расследования сложившейся ситуации, с ###SHIPNAME### в ближайшее время будет отправлена оперативная группа реагирования.",
     "monkey_types": [
