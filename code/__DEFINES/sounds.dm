@@ -104,6 +104,7 @@
 #define AMBIENCE_SHIP 'sound/ambience/shipambience.ogg'
 #define AMBIENCE_SHIP_ALT 'sound/ambience/shipambience1.ogg'
 #define AMBIENCE_JUNGLE 'sound/ambience/ambienceLV624.ogg'
+#define AMBIENCE_LASTBUNKER 'sound/ambience/strata/strata_snowstorm.ogg'
 #define AMBIENCE_JUNGLEMOON 'sound/ambience/junglemoon.ogg'
 #define AMBIENCE_JUNGLE_ALT 'sound/ambience/ambience_strata.ogg'
 #define AMBIENCE_RIVER  'sound/ambience/ambienceriver.ogg'
