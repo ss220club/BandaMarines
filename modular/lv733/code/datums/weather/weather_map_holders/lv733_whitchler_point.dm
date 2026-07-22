@@ -11,7 +11,6 @@
 	potential_weather_events = list(
 		/datum/weather_event/lv733/light_rain,
 		/datum/weather_event/lv733/snow,
-		/datum/weather_event/lv733/snowstorm,
 	)
 
 /datum/weather_ss_map_holder/lv733_whitchler_point/should_affect_area(area/target_area)

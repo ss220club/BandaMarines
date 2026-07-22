@@ -25,16 +25,3 @@
 	ambience = 'sound/ambience/strata/strata_snow.ogg'
 
 	fire_smothering_strength = 3
-
-/datum/weather_event/lv733/snowstorm
-	name = "Snowstorm"
-	display_name = "Snowstorm"
-	length = 6 MINUTES
-	turf_overlay_icon_state = "strata_storm"
-	damage_per_tick = 0
-
-	effect_message = "You feel the icy winds of the snowstorm chill you to the bone!"
-
-	ambience = 'sound/ambience/strata/strata_snowstorm.ogg'
-
-	fire_smothering_strength = 4

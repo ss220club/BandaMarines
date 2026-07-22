@@ -23,13 +23,6 @@
 	},
 	{
 		"type": "map_insert",
-		"landmark": "racpost",
-		"chance": 0.1,
-		"path": "standalone/racpost.dmm",
-		"when": { "lvevent": "rac_zone" }
-	},
-	{
-		"type": "map_insert",
 		"landmark": "clfbar",
 		"chance": 1.0,
 		"path": "standalone/clfbar.dmm",
