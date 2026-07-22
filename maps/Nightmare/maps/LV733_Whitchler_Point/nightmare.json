@@ -24,7 +24,7 @@
 	{
 		"type": "map_insert",
 		"landmark": "racpost",
-		"chance": 1.0,
+		"chance": 0.1,
 		"path": "standalone/racpost.dmm",
 		"when": { "lvevent": "rac_zone" }
 	},
