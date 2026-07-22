@@ -49,7 +49,7 @@
 	"chat.agent.maxRequests": 0,
 	"chat.commandCenter.enabled": false,
 	"chat.detectParticipant.enabled": false,
-	"chat.disableAIFeatures": false,
+	"chat.disableAIFeatures": true,
 	"chat.extensionTools.enabled": false,
 	"chat.focusWindowOnConfirmation": false,
 	"chat.implicitContext.enabled": {
@@ -71,6 +71,7 @@
 		".github/prompts": false
 	},
 	"chat.sendElementsToChat.attachCSS": false,
+	"chat.sendElementsToChat.attachImages": false,
 	"chat.sendElementsToChat.enabled": false,
 	"chat.setupFromDialog": false,
 	"chat.showAgentSessionsViewDescription": false,
@@ -122,5 +123,4 @@
 	"mermaid-chat.enabled": false,
 	"githubPullRequests.experimental.useQuickChat": false,
 	"chat.useAgentSkills": false,
-	"workbench.browser.sendElementsToChat.attachImages": false
 }
