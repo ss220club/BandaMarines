@@ -1,9 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/obj/structure/prop/tank{
-	icon = 'icons/obj/vehicles/interiors/upptank.dmi'
-	},
-/turf/open/shuttle/vehicle/floor_2,
+/turf/open/space/basic,
 /area/interior/vehicle/upptank)
 "b" = (
 /turf/open/void/vehicle,
@@ -19,12 +16,6 @@
 	dir = 1;
 	pixel_y = -11
 	},
-/obj/structure/bed/chair/dropship{
-	name = "handrail seat";
-	icon = 'icons/obj/structures/handrail.dmi';
-	icon_state = "handrail_strata";
-	indestructible = 1
-	},
 /turf/open/shuttle/vehicle/floor_1_14,
 /area/interior/vehicle/upptank)
 "v" = (
@@ -33,6 +24,14 @@
 	},
 /turf/open/void/vehicle,
 /area/space)
+"z" = (
+/obj/effect/landmark/interior/spawn/weapons_loader{
+	icon = 'icons/obj/vehicles/interiors/upptank.dmi';
+	pixel_x = -6;
+	pixel_y = -9
+	},
+/turf/open/void/vehicle,
+/area/interior/vehicle/upptank)
 "H" = (
 /obj/structure/machinery/cm_vending/sorted/medical/wall_med/vehicle{
 	pixel_y = 27;
@@ -55,14 +54,8 @@
 /turf/open/shuttle/vehicle/floor_1_13,
 /area/interior/vehicle/upptank)
 "M" = (
-/turf/open/void/vehicle/unopacity,
 /area/interior/vehicle/upptank)
 "Q" = (
-/obj/effect/landmark/interior/spawn/weapons_loader{
-	icon = 'icons/obj/vehicles/interiors/upptank.dmi';
-	pixel_x = -6;
-	pixel_y = 23
-	},
 /obj/structure/vehicle_locker/tank/upp1{
 	pixel_x = -25;
 	pixel_y = 16
@@ -78,15 +71,6 @@
 	pixel_x = -3;
 	pixel_y = 18;
 	layer = 3.1
-	},
-/obj/structure/phone_base{
-	icon = 'icons/obj/vehicles/interiors/movie.dmi';
-	pixel_x = 18;
-	pixel_y = 31;
-	layer = 3.1;
-	name = "Tank Telephone";
-	phone_id = "Cheetah 2A Light Tank";
-	phone_category = "Vehicles"
 	},
 /obj/effect/landmark/interior/spawn/vehicle_driver_seat/armor{
 	dir = 4
@@ -113,7 +97,7 @@ b
 "}
 (3,1,1) = {"
 b
-S
+z
 Q
 f
 b
