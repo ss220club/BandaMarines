@@ -92,6 +92,13 @@
 	icon_state = "shutter_3"
 
 
+/obj/structure/blocker/preserve_edge
+	name = "dense fog"
+	desc = "You think you can see a way through."
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "smoke"
+	opacity = TRUE
+
 /obj/structure/blocker/preserve_edge/attack_hand(mob/user)
 	if(isyautja(user))
 		to_chat(user, SPAN_WARNING("Why would you do this?"))///no leaving for preds

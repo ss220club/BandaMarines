@@ -235,7 +235,7 @@
 /area/last_bunker/indoors/cavern/south_entrance/low_light
 	base_lighting_alpha = 20
 
-/area/last_bunker/indoors/cavern/north_entrance/zero_light
+/area/last_bunker/indoors/cavern/south_entrance/zero_light
 	base_lighting_alpha = 0
 
 /area/last_bunker/indoors/cavern/north_entrance
