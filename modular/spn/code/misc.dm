@@ -110,7 +110,7 @@
 	)
 
 	scatter = 0
-	fire_delay = 10.0 SECONDS
+	fire_delay = 100
 
 /obj/item/hardpoint/secondary/t60p3m
 	name = "\improper T6OP-3M 'Buzzard' RWS"
@@ -143,7 +143,7 @@
 	gun_firemode_list = list(
 		GUN_FIREMODE_AUTOMATIC,
 	)
-	fire_delay = 0.1 SECONDS
+	fire_delay = 1
 
 /obj/item/hardpoint/secondary/t60p3m/set_bullet_traits()
 	..()
@@ -185,7 +185,7 @@
 	)
 
 	scatter = 2
-	fire_delay = 7.0 SECONDS
+	fire_delay = 70
 
 /obj/item/hardpoint/secondary/hj35launcher/set_bullet_traits()
 	..()

@@ -3,6 +3,10 @@
 	prefix = "modular/spn/interior_map/"
 	interior_id = "upptank"
 
+/area/interior/vehicle/upptank
+	name = "\improper UPP tank interior"
+	icon_state = "tank"
+
 /obj/structure/vehicle_locker/tank/upp
 	icon = 'modular/spn/icons/intupptank.dmi'
 	icon_state = "locker"
