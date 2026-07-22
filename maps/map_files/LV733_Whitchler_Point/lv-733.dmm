@@ -9437,6 +9437,12 @@
 	},
 /turf/open/hybrisa/street/underground_unweedable,
 /area/lv733/indoors/wy_research_complex/storage)
+"diR" = (
+/obj/effect/landmark/nightmare{
+	insert_tag = "rac_post"
+	},
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/roaf_spaceport_south)
 "diT" = (
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
@@ -85685,7 +85691,7 @@ ahp
 plY
 qdp
 oke
-eeb
+diR
 fPX
 fPX
 fPX
