@@ -139,16 +139,19 @@
 	armor_bio = CLOTHING_ARMOR_MEDIUMLOW
 	armor_rad = CLOTHING_ARMOR_LOW
 
-/obj/item/clothing/suit/poncho/rac
+/obj/item/clothing/accessory/poncho/rac
 	name = "\improper Пончо мотопехоты RAC"
-	desc = "Плащ-пончо мотопехотинцев Royal Armored Cavalry."
-	icon_state = "classicponcho"
+	desc = "Плащ-пончо мотопехотинцев."
+	accessory_icons = list(
+		WEAR_BODY = 'modular/clothing/onmob/rac/ponchos.dmi',
+		WEAR_JACKET = 'modular/clothing/onmob/rac/ponchos.dmi',
+	)
 
 // Чехол на шлем
 
 /obj/item/clothing/accessory/helmet/cover/rac
 	name = "\improper Чехол на шлем RAC"
-	desc = "Матерчатый чехол на танковый шлем Royal Armored Cavalry, скрывающий блики на броне."
+	desc = "Сетчатый чехол на шлем ТШЕ, скрывающий блики."
 	icon = 'modular/clothing/icon/rac/helmet_cover.dmi'
 	icon_state = "rac_helmet_cover"
 	accessory_icons = list(

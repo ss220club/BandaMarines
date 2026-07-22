@@ -4,8 +4,8 @@
 
 	icon = 'modular/lv733/icons/roaf_apc/type16_hull.dmi'
 	icon_state = "apc_base"
-	pixel_x = -48
-	pixel_y = -48
+	pixel_x = -64
+	pixel_y = -64
 
 	bound_width = 96
 	bound_height = 96
@@ -418,8 +418,8 @@
 	name = "Type 16-7/E MCV Spawner"
 	icon = 'modular/lv733/icons/roaf_apc/type16_hull.dmi'
 	icon_state = "apc_base"
-	pixel_x = -48
-	pixel_y = -48
+	pixel_x = -64
+	pixel_y = -64
 
 /obj/effect/vehicle_spawner/apc_rac/Initialize()
 	. = ..()

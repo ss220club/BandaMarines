@@ -25,7 +25,7 @@
 		ACCESS_CIVILIAN_COMMAND,
 	)
 
-/datum/equipment_preset/survivor/rac/proc/equip_common_gear(mob/living/carbon/human/new_human, uniform_type, head_type, suit_type, back_type, belt_type, left_pouch_type, right_pouch_type, eyes_type = null, shoes_type = /obj/item/clothing/shoes/marine/royal_marine/knife/lv733/shoes_roaf, add_patch = TRUE, add_helmet_cover = FALSE)
+/datum/equipment_preset/survivor/rac/proc/equip_common_gear(mob/living/carbon/human/new_human, uniform_type, head_type, suit_type, back_type, belt_type, left_pouch_type, right_pouch_type, eyes_type = null, shoes_type = /obj/item/clothing/shoes/marine/royal_marine/knife/lv733/shoes_roaf, add_patch = TRUE, add_helmet_cover = FALSE, poncho_type = null)
 	new_human.equip_to_slot_or_del(new uniform_type(new_human), WEAR_BODY)
 	new_human.equip_to_slot_or_del(new shoes_type(new_human), WEAR_FEET)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/gloves/marine/veteran/royal_marine/lv733/hands_roaf(new_human), WEAR_HANDS)
@@ -36,7 +36,9 @@
 	if(eyes_type)
 		new_human.equip_to_slot_or_del(new eyes_type(new_human), WEAR_EYES)
 	new_human.equip_to_slot_or_del(new /obj/item/device/radio/headset/distress/roaf(new_human), WEAR_L_EAR)
-	new_human.equip_to_slot_or_del(new suit_type(new_human), WEAR_JACKET)
+	var/obj/item/clothing/new_suit = new suit_type(new_human)
+	if(new_human.equip_to_slot_or_del(new_suit, WEAR_JACKET) && poncho_type)
+		new_suit.attach_accessory(null, new poncho_type, TRUE)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/storage/webbing/iasf(new_human), WEAR_ACCESSORY)
 	if(add_patch)
 		new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/patch/twe(new_human), WEAR_ACCESSORY)
@@ -53,12 +55,13 @@
 		new_human,
 		/obj/item/clothing/under/marine/veteran/royal_marine/lv733/rac_rifleman,
 		/obj/item/clothing/head/helmet/marine/veteran/lv733/rac_beret,
-		/obj/item/clothing/suit/poncho/rac,
+		/obj/item/clothing/suit/storage/jacket/marine/rmc/service/lv733/rac_vest,
 		/obj/item/storage/backpack/lightpack/five_slot,
 		/obj/item/storage/backpack/general_belt,
 		/obj/item/storage/pouch/firstaid/full/alternate,
 		/obj/item/storage/pouch/survival/full,
 		/obj/item/clothing/glasses/sunglasses/aviator,
+		poncho_type = /obj/item/clothing/accessory/poncho/rac,
 	)
 	new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/rmc_f90(new_human), WEAR_J_STORE)
 	new_human.equip_to_slot_or_del(new /obj/item/tool/crowbar/tactical(new_human), WEAR_IN_JACKET)
@@ -131,12 +134,13 @@
 		new_human,
 		/obj/item/clothing/under/marine/veteran/royal_marine/lv733/rac_rifleman,
 		/obj/item/clothing/head/helmet/marine/veteran/lv733/rac_beret,
-		/obj/item/clothing/suit/poncho/rac,
+		/obj/item/clothing/suit/storage/jacket/marine/rmc/service/lv733/rac_vest,
 		/obj/item/storage/backpack/rmc/medium/medic,
 		/obj/item/storage/belt/medical/full/with_defib_and_analyzer,
 		/obj/item/storage/pouch/medkit/full_rmc,
 		/obj/item/storage/pouch/survival/full,
 		/obj/item/clothing/glasses/hud/health,
+		poncho_type = /obj/item/clothing/accessory/poncho/rac,
 	)
 	new_human.equip_to_slot_or_del(new /obj/item/tool/crowbar/tactical(new_human), WEAR_IN_JACKET)
 	equip_standard_backpack_contents(new_human)
