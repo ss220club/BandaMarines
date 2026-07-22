@@ -1,7 +1,7 @@
 // ISRG - Imperial Search and Recovery Group
 
 /obj/item/clothing/under/marine/veteran/isrg/dress
-	name = "\improper Парадная форма ISRG"
+	name = "\improper парадная форма ISRG"
 	desc = "Усиленная форма командного состава ISRG, используется для координации поисковой группы."
 	icon = 'modular/clothing/icon/isrg/uniform.dmi'
 	item_icons = list(
