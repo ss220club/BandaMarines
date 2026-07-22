@@ -1,10 +1,8 @@
-/obj/vehicle/multitile/cm_vehicle/tank
-	var/base_icon_state // e.g. "tank" — the part before the camo suffix
 
-/obj/vehicle/tank
+/obj/vehicle/multitile/tank
 	name = "main battle tank"
 	desc = "A heavily armored vehicle."
-	icon = 'icons/obj/vehicles/tank.dmi' // Основной .dmi файл со всеми состояниями
+	icon = '/modular/vehicle/icons/tank_camouflage.dmi' // Основной .dmi файл со всеми состояниями
 	icon_state = "tank_default" // Состояние по умолчанию
 	var/current_camouflage = "tank_base"
 
@@ -12,7 +10,7 @@
 	var/base_type_path = /obj/vehicle/tank
 
 
-	/proc/select_gamemode_skin(expected_type, list/override_icon_state)
+	proc/select_gamemode_skin(expected_type, list/override_icon_state)
 		// Вызываем родительский метод, если он есть (в данном случае безопасно)
 		. = ..()
 
@@ -28,7 +26,7 @@
 			current_camouflage = "custom"
 			return
 
-		switch(mode)
+		SSmapping.current_map
 			if("jungle")
 				current_camouflage = "jungle"
 				icon_state = "tank_base_j"
@@ -50,22 +48,22 @@
 		. = ..()
 		select_gamemode_skin(type)
 
-		/obj/vehicle/tank/jungle
-	name = "Jungle MBT"
-	icon_state = "tank_base_j // Начальное состояние до вызова Initialize
-	base_type_path = /modular/vehicles/icons
+	/obj/vehicle/tank/classic
+	name = "Classic MBT"
+	icon_state = "tank_base"
+
+
 
 /obj/vehicle/tank/desert
 	name = "Desert MBT"
 	icon_state = "tank_base_d"
-	base_type_path = /modular/vehicles/icons
+
 
 /obj/vehicle/tank/urban
 	name = "Urban MBT"
 	icon_state = "tank_base_n"
-	base_type_path = /modular/vehicles/icons
 
-/obj/vehicle/tank/classic
-	name = "Classic MBT"
-	icon_state = "tank_base"
-	base_type_path = /modular/vehicles/icons
+
+/obj/vehicle/tank/jungle
+	name = "Jungle MBT"
+	icon_state = "tank_base_j
