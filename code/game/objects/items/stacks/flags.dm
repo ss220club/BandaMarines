@@ -202,10 +202,10 @@
 	var/play_warcry = FALSE
 	/// The warcry's sound path.
 	var/warcry_sound
-	/// When there are more than 14 allies nearby, play this stronger warcry.
+	/// When there are more than 7 allies nearby, play this stronger warcry.
 	var/warcry_extra_sound
 	/// How many nearby allies do we need for the stronger warcry to be played?
-	var/allies_required = 14
+	var/allies_required = 7
 	/// Used to limit the spam of the warcry_extra_sound
 	COOLDOWN_DECLARE(warcry_cooldown_item)
 

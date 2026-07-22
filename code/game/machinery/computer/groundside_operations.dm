@@ -419,8 +419,8 @@
 	announcement_title = UPP_COMMAND_ANNOUNCE
 	announcement_faction = FACTION_UPP
 	add_pmcs = FALSE
-	lz_selection = FALSE
 	has_squad_overwatch = FALSE
+	lz_selection = TRUE
 	minimap_type = MINIMAP_FLAG_UPP
 	freq = UPP_FREQ
 

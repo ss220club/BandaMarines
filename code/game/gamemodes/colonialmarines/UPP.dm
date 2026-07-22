@@ -9,6 +9,7 @@ GLOBAL_LIST_EMPTY(upp_officers)
 /datum/game_mode/colonialmarines/upp
 	name = "UPP Distress Signal"
 	config_tag = "UPP Distress Signal"
+	votable = FALSE
 	human_major = MODE_FACTION_CLASH_UPP_MAJOR
 	human_minor = MODE_FACTION_CLASH_UPP_MINOR
 	//vote_cycle = 3 // Uncomment after testing is done.

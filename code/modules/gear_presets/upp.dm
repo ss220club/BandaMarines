@@ -89,6 +89,8 @@
 
 /datum/job/antag/upp/rifleman
 	title = JOB_UPP
+	total_positions = 25
+	spawn_positions = 25
 	flags_startup_parameters = ROLE_ADD_TO_SQUAD
 	gear_preset = /datum/equipment_preset/upp/soldier
 
@@ -321,6 +323,8 @@
 /datum/job/antag/upp/medic
 	title = JOB_UPP_MEDIC
 	gear_preset = /datum/equipment_preset/upp/medic
+	total_positions = 6
+	spawn_positions = 6
 	flags_startup_parameters = ROLE_ADD_TO_SQUAD
 
 
@@ -532,6 +536,8 @@
 /datum/job/antag/upp/sapper
 	title = JOB_UPP_ENGI
 	gear_preset = /datum/equipment_preset/upp/sapper
+	total_positions = 6
+	spawn_positions = 6
 	flags_startup_parameters = ROLE_ADD_TO_SQUAD
 
 /datum/equipment_preset/upp/sapper
@@ -808,6 +814,7 @@
 	return list(
 		list("HEAVY SET (MANDATORY)", 0, null, null, null),
 		list("Essential Heavy Set", 0, /obj/effect/essentials_set/upp_heavy, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_MANDATORY),
+		list("Essential Heavy Set QYJ-72", 0, /obj/effect/essentials_set/upp_heavy_pkp, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_MANDATORY),
 
 		list("SPECIAL AMMUNITION", 0, null, null, null),
 		list("Rotating ammo drum (7.62x51mm)", 15, /obj/item/ammo_magazine/minigun, null, VENDOR_ITEM_RECOMMENDED),
@@ -840,6 +847,8 @@
 //*****************************************************************************************************/
 /datum/job/antag/upp/machinegunner
 	title = JOB_UPP_SPECIALIST
+	total_positions = 4
+	spawn_positions = 4
 	gear_preset = /datum/equipment_preset/upp/machinegunner
 	flags_startup_parameters = ROLE_ADD_TO_SQUAD
 
@@ -948,6 +957,7 @@
 	return list(
 		list("HEAVY SET (MANDATORY)", 0, null, null, null),
 		list("Essential Heavy Set QYJ-72", 0, /obj/effect/essentials_set/upp_heavy_pkp, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_MANDATORY),
+		list("Essential Heavy Set", 0, /obj/effect/essentials_set/upp_heavy, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_MANDATORY),
 
 		list("SPECIAL AMMUNITION", 0, null, null, null),
 		list("Type 71 AP Magazine (5.45x39mm)", 10, /obj/item/ammo_magazine/rifle/type71/ap , null, VENDOR_ITEM_REGULAR),
@@ -993,6 +1003,8 @@
 /datum/job/antag/upp/leader
 	title = JOB_UPP_LEADER
 	gear_preset = /datum/equipment_preset/upp/leader
+	total_positions = 4
+	spawn_positions = 4
 	flags_startup_parameters = ROLE_ADD_TO_SQUAD
 
 /datum/equipment_preset/upp/leader
@@ -1223,6 +1235,8 @@
 /datum/job/antag/upp/military_police
 	title = JOB_UPP_POLICE
 	gear_preset = /datum/equipment_preset/upp/military_police
+	total_positions = 5
+	spawn_positions = 5
 	selection_class = "job_mp"
 
 /datum/equipment_preset/upp/military_police/load_gear(mob/living/carbon/human/new_human)
@@ -1581,6 +1595,8 @@
 /datum/job/antag/upp/supply
 	title = JOB_UPP_SUPPLY
 	selection_class = "job_ct"
+	total_positions = 3
+	spawn_positions = 3
 	gear_preset = /datum/equipment_preset/upp/supply
 
 
@@ -1717,6 +1733,8 @@
 
 /datum/job/antag/upp/officer //this is placeholder for stuff that is supposed to be the same for all officers
 	selection_class = "job_command"
+	total_positions = 4
+	spawn_positions = 4
 
 /datum/equipment_preset/upp/officer/load_gear(mob/living/carbon/human/new_human)
 	. = ..()
@@ -1895,6 +1913,8 @@
 //*****************************************************************************************************/
 /datum/job/antag/upp/officer/senior
 	title = JOB_UPP_SRLT_OFFICER
+	total_positions = 1
+	spawn_positions = 1
 	gear_preset = /datum/equipment_preset/upp/officer/senior
 
 /datum/job/antag/upp/officer/senior/generate_entry_conditions(mob/living/M, whitelist_status)
@@ -2079,6 +2099,8 @@
 //*****************************************************************************************************/
 /datum/job/antag/upp/officer/kapitan
 	title = JOB_UPP_KPT_OFFICER
+	total_positions = 1
+	spawn_positions = 1
 	gear_preset = /datum/equipment_preset/upp/officer/kapitan
 
 /datum/job/antag/upp/officer/kapitan/generate_entry_conditions(mob/living/M, whitelist_status)
@@ -3820,6 +3842,8 @@
 
 /datum/job/antag/upp/pilot
 	title = JOB_UPP_PILOT
+	total_positions = 2
+	spawn_positions = 2
 	gear_preset = /datum/equipment_preset/upp/pilot
 
 /datum/job/antag/upp/pilot/generate_entry_conditions(mob/living/M, whitelist_status)

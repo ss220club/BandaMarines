@@ -13,7 +13,7 @@
 	bound_x = -32
 	bound_y = -32
 
-	interior_map = /datum/map_template/interior/tank
+	interior_map = /datum/map_template/interior/modul/upptank
 
 	//tank always has 2 crewmen slot reserved and 1 general slot for other roles.
 	passengers_slots = 1
