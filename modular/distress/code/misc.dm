@@ -2,7 +2,7 @@
 /obj/item/hardpoint/holder/tank_turret/uppturret
 	name = "\improper VT/CZ 'Condor' Turret"
 	desc = "VT/CZ 'Condor' Turret complex, developed in the Czech Republic with assistance from Austria and Slovakia. Produced as part of the 'A' upgrade package for the Cheetah 2, the VT/CZ follows the familiar philosophy of most UPP equipment: Modularity. Its' ability to mount a wide array of weapon systems both quickly and easily has allowed the vehicle to see wide application from its' intended air-assault role, to indirect fire, anti-air missions and tank hunting."
-	icon = 'modular/spn/icons/upptank.dmi'
+	icon = 'modular/distress/icons/upptank.dmi'
 	icon_state = "tank_turret_0"
 	disp_icon = "tank"
 	disp_icon_state = "tank_turret"
@@ -60,7 +60,7 @@
 	name = "\improper Reactive Armor"
 	desc = "A set of explosive reactive armor panels for the tank hull that increases its resistance to shaped charges and kinetic penetrators."
 
-	icon = 'modular/spn/icons/hsupptank.dmi'
+	icon = 'modular/distress/icons/hsupptank.dmi'
 	icon_state = "reactive_armor"
 	disp_icon = "upptank"
 	disp_icon_state = "reactive_armor"
@@ -79,7 +79,7 @@
 /obj/item/hardpoint/primary/cannon/p17702
 	name = "\improper P-177-02 93mm Cannon"
 	desc = " Developed in Vietnam as part of a multinational project including China, Cambodia and Laos. This 93mm smoothbore cannon is seen in use with several light UPP vehicles and defensive fortifications. Though it's most notable as the standard gun for the Cheetah 2A. A rugged gun capable of operating in the most inhospitable environments, be it deep-sea trenches, airless moons, alien bogs or impossible jungles."
-	icon = 'modular/spn/icons/hsupptank.dmi'
+	icon = 'modular/distress/icons/hsupptank.dmi'
 	icon_state = "p17702"
 	disp_icon = "upptank"
 	disp_icon_state = "p17702"
@@ -115,7 +115,7 @@
 /obj/item/hardpoint/secondary/t60p3m
 	name = "\improper T6OP-3M 'Buzzard' RWS"
 	desc = "An older, albeit modernized remote machinegun seen in use by the Cheetah 2A. This Russo-Polish developed machinegun features robust autonomous fire capability, and was commonly used to intercept low-threat projectiles, though thanks to the superior active and passive systems in most vehicles, tankists now prefer to simply fire it at infantry and soft targets instead. Known for an annoying tendency for drifting off target in certain high temperature environments."
-	icon = 'modular/spn/icons/hsupptank.dmi'
+	icon = 'modular/distress/icons/hsupptank.dmi'
 	icon_state = "t60p3m"
 	disp_icon = "upptank"
 	disp_icon_state = "t60p3m"
@@ -154,7 +154,7 @@
 /obj/item/hardpoint/secondary/hj35launcher
 	name = "\improper HJ-35 Launcher"
 	desc = "A secondary weapon for upp apc that shoots rockets"
-	icon = 'modular/spn/icons/hsupptank.dmi'
+	icon = 'modular/distress/icons/hsupptank.dmi'
 
 	icon_state = "hj35launcher"
 	disp_icon = "uppapc"
@@ -197,7 +197,7 @@
 /obj/item/hardpoint/secondary/hj35launcher/upptank
 	name = "\improper HJ-35-T Launcher"
 	desc = "A secondary weapon for upp tank that shoots rockets"
-	icon = 'modular/spn/icons/hsupptank.dmi'
+	icon = 'modular/distress/icons/hsupptank.dmi'
 
 	icon_state = "hj35tlauncher"
 	disp_icon = "upptank"
@@ -224,7 +224,7 @@
 /obj/item/hardpoint/support/flare_launcher/upptank
 	name = "\improper VT/CZ-Flare Launcher"
 	desc = "A support module for Tanks that shoots flares."
-	icon = 'modular/spn/icons/hsupptank.dmi'
+	icon = 'modular/distress/icons/hsupptank.dmi'
 
 	icon_state = "turret_slauncher"
 	disp_icon = "upptank"

@@ -23,7 +23,7 @@
 /obj/item/ammo_magazine/hardpoint/p17702
 	name = "P-177-02 93mm Cannon Magazine"
 	desc = "A magazine of high-explosive, anti-tank cannon rounds."
-	icon = 'modular/spn/icons/ammoupp.dmi'
+	icon = 'modular/distress/icons/ammoupp.dmi'
 	caliber = "93mm"
 	icon_state = "p17702_8"
 	w_class = SIZE_LARGE //Heavy
@@ -36,7 +36,7 @@
 
 /obj/item/ammo_magazine/hardpoint/Gshk_minigun
 	name = "Gshk Minigun Magazine"
-	icon = 'modular/spn/icons/ammoupp.dmi'
+	icon = 'modular/distress/icons/ammoupp.dmi'
 	desc = "A primary armament minigun magazine."
 	caliber = "7.62x51mm" //Correlates to miniguns
 	icon_state = "gshk"
@@ -49,7 +49,7 @@
 	name = "T6OP-3M Magazine (10x27mm)"
 	desc = "A box of 500, 10x27mm caseless rounds for use in the T6OP-3M heavy machine gun system."
 	caliber = "10x27mm"
-	icon = 'modular/spn/icons/ammoupp.dmi'
+	icon = 'modular/distress/icons/ammoupp.dmi'
 	icon_state = "t60p3m"
 	w_class = SIZE_LARGE
 	default_ammo = /datum/ammo/bullet/rifle/heavy/tracer
@@ -58,7 +58,7 @@
 
 /obj/item/ammo_magazine/hardpoint/hj35launcher
 	name = "HJ-35 Launcher Magazine"
-	icon = 'modular/spn/icons/ammoupp.dmi'
+	icon = 'modular/distress/icons/ammoupp.dmi'
 	desc = "A magazine of laser-guided missiles used in the UPP HJ-35 launcher weapon-system."
 	caliber = "rocket" //correlates to any rocket mags
 	icon_state = "hj35"

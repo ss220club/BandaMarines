@@ -1,4 +1,4 @@
-#include "_psn.dm"
+#include "_distress.dm"
 
 #include "code/tank.dm"
 #include "code/misc.dm"
