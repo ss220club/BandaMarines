@@ -1705,8 +1705,6 @@
 /obj/item/mortar_shell/flare,
 /obj/item/mortar_shell/flare,
 /obj/item/mortar_shell/flare,
-/obj/item/mortar_shell/flare,
-/obj/item/mortar_shell/flare,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
 "awX" = (
@@ -9333,7 +9331,6 @@
 "gOw" = (
 /obj/structure/surface/table/reinforced/rostock_table,
 /obj/item/stack/sheet/plasteel/large_stack,
-/obj/item/stack/sheet/plasteel/large_stack,
 /turf/closed/wall/upp_ship/reinforced/outer,
 /area/rostock/command/armory)
 "gOx" = (
@@ -10881,6 +10878,22 @@
 	},
 /turf/open/floor/strata/purp3/west,
 /area/rostock/security/brig_holding_area)
+"hTp" = (
+/obj/structure/surface/table/reinforced/rostock_table,
+/obj/structure/machinery/computer/cameras/almayer_network{
+	dir = 8;
+	network = list("Rostock");
+	pixel_y = 3
+	},
+/obj/structure/transmitter/upp_net/rotary{
+	phone_id = "Bizon Overwatch Telephone";
+	name = "Bizon Overwatch Telephone";
+	phone_category = "Rostock";
+	pixel_x = -10;
+	pixel_y = 17
+	},
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/rostock/command/cic)
 "hTy" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "SE-out";
@@ -12134,11 +12147,21 @@
 /turf/open/floor/plating,
 /area/rostock/hangar/repairbay)
 "iOS" = (
-/obj/structure/surface/rack,
-/obj/item/stack/sheet/metal/large_stack,
-/obj/item/stack/sheet/metal/large_stack,
-/turf/open/floor/prison/floor_marked/west,
-/area/rostock/req)
+/obj/structure/surface/table/reinforced/rostock_table,
+/obj/structure/machinery/computer/overwatch/upp{
+	dir = 4;
+	pixel_y = 3;
+	req_access = list(240)
+	},
+/obj/structure/transmitter/upp_net/rotary{
+	phone_id = "Delfin Overwatch Telephone";
+	name = "Delfin Overwatch Telephone";
+	phone_category = "Rostock";
+	pixel_x = -10;
+	pixel_y = 17
+	},
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/rostock/command/cic)
 "iPL" = (
 /obj/structure/pipes/standard/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/upp/sec/solid/autoname{
@@ -13611,16 +13634,18 @@
 	pixel_y = 3
 	},
 /obj/structure/surface/table/reinforced/rostock_table,
-/obj/item/tool/shovel/etool/folded,
-/obj/item/tool/shovel/etool/folded,
-/obj/item/tool/shovel/etool/folded,
-/obj/item/tool/shovel/etool/folded,
-/obj/item/tool/shovel/etool/folded,
-/obj/item/tool/shovel/etool/folded,
-/obj/item/tool/shovel/etool/folded,
-/obj/item/tool/shovel/etool/folded,
-/obj/item/tool/shovel/etool/folded,
-/obj/item/tool/shovel/etool/folded,
+/obj/item/storage/box/guncase/ak4047{
+	pixel_y = -6
+	},
+/obj/item/storage/box/guncase/ak4047{
+	pixel_y = 1
+	},
+/obj/item/storage/box/guncase/ak4047{
+	pixel_y = 8
+	},
+/obj/item/storage/box/guncase/ak4047{
+	pixel_y = 16
+	},
 /turf/open/floor/strata/green3/north,
 /area/rostock/lower_deck/prep)
 "jVL" = (
@@ -16205,8 +16230,6 @@
 /obj/item/mortar_shell/frag,
 /obj/item/mortar_shell/frag,
 /obj/item/mortar_shell/frag,
-/obj/item/mortar_shell/frag,
-/obj/item/mortar_shell/frag,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
 "mat" = (
@@ -17263,8 +17286,6 @@
 /obj/item/mortar_shell/he,
 /obj/item/mortar_shell/he,
 /obj/item/mortar_shell/he,
-/obj/item/mortar_shell/he,
-/obj/item/mortar_shell/he,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
 "mYl" = (
@@ -17457,8 +17478,6 @@
 /area/rostock/lower_deck/p_a_hallway)
 "nld" = (
 /obj/structure/surface/rack,
-/obj/item/mortar_shell/incendiary,
-/obj/item/mortar_shell/incendiary,
 /obj/item/mortar_shell/incendiary,
 /obj/item/mortar_shell/incendiary,
 /obj/item/mortar_shell/incendiary,
@@ -21977,10 +21996,6 @@
 /obj/item/storage/backpack/marine/satchel/rto/small/upp_net,
 /obj/item/storage/backpack/marine/satchel/rto/small/upp_net,
 /obj/item/storage/backpack/marine/satchel/rto/small/upp_net,
-/obj/item/storage/backpack/marine/satchel/rto/small/upp_net,
-/obj/item/storage/backpack/marine/satchel/rto/small/upp_net,
-/obj/item/pamphlet/upgradeable/jtac,
-/obj/item/pamphlet/upgradeable/jtac,
 /obj/item/pamphlet/upgradeable/jtac,
 /obj/item/pamphlet/upgradeable/jtac,
 /obj/item/pamphlet/upgradeable/jtac,
@@ -22373,6 +22388,13 @@
 	dir = 8;
 	network = list("Rostock");
 	pixel_y = 3
+	},
+/obj/structure/transmitter/upp_net/rotary{
+	phone_id = "Akula Overwatch Telephone";
+	name = "Akula Overwatch Telephone";
+	phone_category = "Rostock";
+	pixel_y = 17;
+	pixel_x = -10
 	},
 /turf/open/floor/corsat/squares,
 /area/rostock/command/cic)
@@ -23291,10 +23313,6 @@
 	name = "Type 50 Throwing-Knife Belt";
 	desc = "The Type 50 is the standard load-bearing equipment of the UPP. It consists of a modular belt with various clips. This version is specially designed to store knives. Not commonly issued, but kept in service."
 	},
-/obj/effect/landmark/wo_supplies/storage/belts/knifebelt{
-	name = "Type 50 Throwing-Knife Belt";
-	desc = "The Type 50 is the standard load-bearing equipment of the UPP. It consists of a modular belt with various clips. This version is specially designed to store knives. Not commonly issued, but kept in service."
-	},
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
 "scM" = (
@@ -23320,7 +23338,6 @@
 /area/rostock/security/brig_accessway)
 "sep" = (
 /obj/structure/surface/table/reinforced/rostock_table,
-/obj/item/storage/toolkit/empty,
 /obj/item/storage/toolkit/empty,
 /obj/item/storage/toolkit/empty,
 /obj/item/storage/toolkit/empty,
@@ -26498,7 +26515,6 @@
 /obj/structure/surface/table/reinforced/rostock_table,
 /obj/item/stack/sheet/metal/large_stack,
 /obj/item/stack/sheet/metal/large_stack,
-/obj/item/stack/sheet/metal/large_stack,
 /obj/structure/machinery/power/apc/upp/south,
 /turf/open/floor/strata/red1,
 /area/rostock/command/armory)
@@ -28352,6 +28368,22 @@
 	},
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/rostock/upper_deck/hallway)
+"wiJ" = (
+/obj/structure/surface/table/reinforced/rostock_table,
+/obj/structure/machinery/computer/overwatch/upp{
+	dir = 4;
+	pixel_y = 3;
+	req_access = list(240)
+	},
+/obj/structure/transmitter/upp_net/rotary{
+	phone_id = "Chayka Overwatch Telephone";
+	name = "Chayka Overwatch Telephone";
+	phone_category = "Rostock";
+	pixel_x = -10;
+	pixel_y = 17
+	},
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/rostock/command/cic)
 "wiR" = (
 /obj/structure/surface/table/almayer,
 /obj/item/paper_bin{
@@ -44764,7 +44796,7 @@ oJq
 qAA
 pCX
 pCX
-iOS
+pCX
 lgp
 tTu
 dmV
@@ -54394,12 +54426,12 @@ hjw
 hZn
 rkm
 ecQ
-udu
+hTp
 bxB
 hZn
-bxB
+wiJ
 dBx
-bxB
+iOS
 udu
 hZn
 hjw
