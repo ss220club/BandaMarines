@@ -4,3 +4,5 @@
 #include "code/misc.dm"
 #include "code/ammo.dm"
 #include "code/vehicles.dm"
+#define FILE_DIR .
+
