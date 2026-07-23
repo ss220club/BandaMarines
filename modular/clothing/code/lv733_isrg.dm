@@ -259,10 +259,10 @@
 	item_icons = list(
 		WEAR_WAIST = 'modular/clothing/onmob/isrg/belts.dmi'
 	)
-	icon_state = "isrg_belt"
-	item_state = "isrg_belt"
+	icon_state = "isrg_belt_med"
+	item_state = "isrg_belt_med"
 	item_state_slots = list(
-		WEAR_WAIST = "isrg_belt"
+		WEAR_WAIST = "isrg_belt_med"
 	)
 	storage_slots = 6
 	max_storage_space = 16
@@ -302,13 +302,36 @@
 	desc = "Тактический пояс поисковой группы ISRG для переноски пистолета и барабанных магазинов Т3 «Райко»."
 	icon = 'modular/clothing/icon/isrg/belts.dmi'
 	item_icons = list(
-		WEAR_WAIST = 'modular/clothing/onmob/isrg/belts.dmi'
+		WEAR_WAIST = 'modular/clothing/onmob/isrg/belts.dmi',
+		WEAR_L_HAND = 'icons/mob/humans/onmob/inhands/items_by_map/urban_lefthand.dmi',
+		WEAR_R_HAND = 'icons/mob/humans/onmob/inhands/items_by_map/urban_righthand.dmi'
 	)
-	icon_state = "isrg_belt"
-	item_state = "isrg_belt"
+	icon_state = "isrg_belt_sg"
+	item_state = "marinebelt"
 	item_state_slots = list(
-		WEAR_WAIST = "isrg_belt"
+		WEAR_WAIST = "isrg_belt_sg"
 	)
+	flags_atom = FPRINT|NO_GAMEMODE_SKIN
+
+/obj/item/storage/belt/gun/smartgunner/isrg/update_gun_icon(slot)
+	if(!holster_slots[slot]["gun"])
+		icon_state = "[base_icon]_g"
+		item_state = icon_state
+
+	. = ..()
+
+	icon_state = base_icon
+	item_state = base_icon
+
+	var/mob/living/carbon/human/user = loc
+	if(!istype(user))
+		return
+	if(src == user.belt)
+		user.update_inv_belt()
+	else if(src == user.s_store)
+		user.update_inv_s_store()
+	else if(src == user.back)
+		user.update_inv_back()
 
 /obj/item/storage/belt/gun/smartgunner/isrg/full/fill_preset_inventory()
 	handle_item_insertion(new /obj/item/weapon/gun/pistol/m4a3())

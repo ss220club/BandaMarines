@@ -10,10 +10,13 @@
 	)
 
 /obj/item/prop/helmetgarb/helmet_nvg/cosmetic/isrg/Initialize(mapload, ...)
+	var/is_functional = prob(ISRG_OLD_NVG_WORK_CHANCE)
+	if(is_functional)
+		shape = 3 // NVG_SHAPE_PATCHED
+
 	. = ..()
 	GLOB.allowed_helmet_items[type] = PREFIX_HELMET_GARB_OVERRIDE
-	if(prob(ISRG_OLD_NVG_WORK_CHANCE))
-		shape = 3 // NVG_SHAPE_PATCHED
+	if(is_functional)
 		desc += " Впрочем, судя по индикатору, этот экземпляр всё ещё в рабочем состоянии."
 
 #undef ISRG_OLD_NVG_WORK_CHANCE
