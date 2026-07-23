@@ -108,7 +108,8 @@
 	return INITIALIZE_HINT_ROUNDSTART
 
 /obj/effect/landmark/lv624/train_door/LateInitialize()
-	if(!(SSticker.mode.flags_round_type & MODE_FOG_ACTIVATED) || !SSmapping.configs[GROUND_MAP].environment_traits[ZTRAIT_FOG])
+	var/datum/map_config/ground_config = SSmapping.configs[GROUND_MAP]
+	if(!SSticker?.mode || !(SSticker.mode.flags_round_type & MODE_FOG_ACTIVATED) || !ground_config?.environment_traits[ZTRAIT_FOG])
 		return
 
 	new /obj/structure/blocker/door/alt(loc, time_to_dispel)
