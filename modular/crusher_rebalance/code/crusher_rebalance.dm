@@ -1,34 +1,13 @@
 /datum/action/xeno_action/activable/pounce/crusher_charge
-	name = "Charge"
-	action_icon_state = "ready_charge"
-	action_text = "charge"
-	macro_path = /datum/action/xeno_action/verb/verb_crusher_charge
-	action_type = XENO_ACTION_CLICK
-	ability_primacy = XENO_PRIMARY_ACTION_1
-	xeno_cooldown = 14 SECONDS
-	plasma_cost = 20
-	// Config options
 	distance = 7
-	knockdown = TRUE
-	knockdown_duration = 2
-	slash = FALSE
-	freeze_self = FALSE
-	windup = TRUE
-	windup_duration = 1.2 SECONDS
-	windup_interruptable = FALSE
-	should_destroy_objects = TRUE
-	throw_speed = SPEED_FAST
-	tracks_target = FALSE
-	direct_hit_damage = 60
-	frontal_armor = 15
-	var/charge_slowdown = 3
-	// Object types that don't reduce cooldown when hit
-	not_reducing_objects = list()
 	// Two-stage activation
+	var/charge_slowdown = 3
 	var/charge_window = 5 SECONDS
 	var/activated_once = FALSE
 	var/slowdown_active = FALSE
 	var/charge_timeout_timer_id = TIMER_ID_NULL
+	var/winding_up = FALSE
+	var/atom/stored_target = null
 
 /datum/action/xeno_action/activable/pounce/crusher_charge/New()
 	. = ..()
@@ -37,10 +16,24 @@
 	pounce_callbacks[/obj] = DYNAMIC(/mob/living/carbon/xenomorph/proc/pounced_obj_wrapper)
 	pounce_callbacks[/turf] = DYNAMIC(/mob/living/carbon/xenomorph/proc/pounced_turf_wrapper)
 
+/datum/action/xeno_action/activable/pounce/crusher_charge/Destroy()
+	if(charge_timeout_timer_id != TIMER_ID_NULL)
+		deltimer(charge_timeout_timer_id)
+		charge_timeout_timer_id = TIMER_ID_NULL
+	remove_charge_slowdown()
+	charge_end()
+	var/mob/living/carbon/xenomorph/xeno = owner
+	if(istype(xeno))
+		xeno.stop_xeno_jitter()
+	return ..()
+
 /datum/action/xeno_action/activable/pounce/crusher_charge/use_ability(atom/target)
 	var/mob/living/carbon/xenomorph/xeno = owner
 
 	if(!istype(xeno) || !xeno.check_state())
+		return
+
+	if(winding_up)
 		return
 
 	if(!activated_once && !action_cooldown_check())
@@ -52,6 +45,7 @@
 	if(!activated_once)
 		if(!check_and_use_plasma_owner())
 			return
+		winding_up = TRUE
 		playsound(xeno, 'sound/effects/alien_footstep_charge1.ogg', 50)
 		xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] начинает заряжать рывок!"), SPAN_XENODANGER("Мы начинаем заряжать рывок!"))
 
@@ -67,19 +61,21 @@
 			post_windup_effects(interrupted = TRUE)
 			xeno.stop_xeno_jitter()
 			return
+		winding_up = FALSE
 		activated_once = TRUE
+		stored_target = target
 		apply_cooldown()
 		to_chat(xeno, SPAN_XENOWARNING("Рывок заряжен!"))
 		playsound(xeno, 'sound/effects/alien_footstep_charge2.ogg', 50)
-		charge_timeout_timer_id = addtimer(CALLBACK(src, PROC_REF(charge_timeout)), charge_window, TIMER_STOPPABLE)
-		return ..()
+		charge_timeout_timer_id = addtimer(CALLBACK(src, PROC_REF(charge_reset)), charge_window, TIMER_STOPPABLE)
+
 	else
-		activated_once = FALSE
 		if(charge_timeout_timer_id != TIMER_ID_NULL)
 			deltimer(charge_timeout_timer_id)
-			charge_timeout_timer_id = TIMER_ID_NULL
+		execute_charge(target)
+		charge_reset()
+	return ..()
 
-		return execute_charge(target)
 
 /datum/action/xeno_action/activable/pounce/crusher_charge/proc/apply_charge_slowdown()
 	var/mob/living/carbon/xenomorph/xeno = owner
@@ -97,26 +93,31 @@
 	xeno.recalculate_speed()
 	slowdown_active = FALSE
 
-/datum/action/xeno_action/activable/pounce/crusher_charge/proc/charge_timeout()
+/datum/action/xeno_action/activable/pounce/crusher_charge/proc/charge_reset()
 	var/mob/living/carbon/xenomorph/xeno = owner
 	if(!istype(xeno) || !activated_once)
 		return
-
-	activated_once = FALSE
-	charge_timeout_timer_id = TIMER_ID_NULL
 	to_chat(xeno, SPAN_XENOWARNING("Мы больше не можем удерживать стойку!"))
 	xeno.stop_xeno_jitter()
 	remove_charge_slowdown()
-		//return
 	post_windup_effects(interrupted = FALSE)
-	xeno.update_icons()
+	charge_timeout_timer_id = TIMER_ID_NULL
+	activated_once = FALSE
+	stored_target = null
+
 
 /datum/action/xeno_action/activable/pounce/crusher_charge/proc/execute_charge(atom/target)
 	var/mob/living/carbon/xenomorph/xeno = owner
+	if(!istype(xeno))
+		return FALSE
+
 	// Before checks so failed charges also stop the charge-up jitter and slowdown.
 	xeno.stop_xeno_jitter()
 	remove_charge_slowdown()
 
+	if(!target)
+		target = stored_target
+	stored_target = null
 	if(!target)
 		return FALSE
 
@@ -127,14 +128,14 @@
 		return FALSE
 
 	if(!isturf(xeno.loc))
-		to_chat(xeno, SPAN_XENOWARNING("Мы не можем осуществить [action_text] отсюда!"))
+		to_chat(xeno, SPAN_XENOWARNING("Мы не можем осуществить натиск отсюда!"))
 		return FALSE
 
 	if(!xeno.check_state())
 		return FALSE
 
 	if(xeno.legcuffed)
-		to_chat(xeno, SPAN_XENODANGER("Мы не можем [action_text] с этой штукой на ноге!"))
+		to_chat(xeno, SPAN_XENODANGER("Мы не можем осуществить натиск с этой штукой на ноге!"))
 		return FALSE
 
 	if(xeno.layer == XENO_HIDING_LAYER)
@@ -146,30 +147,8 @@
 		target = get_turf(target)
 
 	if(target.z != xeno.z)
-		var/maximum_z = max(target.z, xeno.z)
-		var/list/turf/path = get_line(locate(xeno.x, xeno.y, maximum_z), locate(target.x, target.y, maximum_z))
-		for(var/turf/turf_in_path in path)
-			while(istype(turf_in_path, /turf/open_space))
-				turf_in_path = SSmapping.get_turf_below(turf_in_path)
-
-			if(!turf_in_path)
-				continue
-
-			if(turf_in_path.density && turf_in_path.turf_flags & TURF_HULL)
-				to_chat(xeno, SPAN_WARNING("Мы не можем перепрыгнуть через препятствие на нашем пути!"))
-				return FALSE
-
-			for(var/obj/structure/cur_obj in turf_in_path.contents)
-				if(cur_obj.density && cur_obj.unslashable && cur_obj.unacidable)
-					to_chat(xeno, SPAN_WARNING("Мы не можем перепрыгнуть через препятствие на нашем пути!"))
-					return FALSE
-
-		if(!do_after(xeno, 0.5 SECONDS, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE))
-			return FALSE
-
-	if(target.z != xeno.z && xeno.mob_size >= MOB_SIZE_BIG)
-		if(!do_after(xeno, 2 SECONDS, INTERRUPT_ALL, BUSY_ICON_HOSTILE))
-			return FALSE
+		to_chat(xeno, SPAN_XENODANGER("Мы не можем осуществить туда натиск!"))
+		return FALSE
 
 	xeno.set_face_dir(get_cardinal_dir(xeno, target))
 
@@ -180,8 +159,6 @@
 	ADD_TRAIT(xeno, TRAIT_CHARGING, TRAIT_SOURCE_ABILITY("Crusher Charge"))
 
 	xeno.pounce_distance = get_dist(xeno, target)
-	if(xeno.z != target.z)
-		xeno.pounce_distance += 2
 
 	// Allow charge to pass through mobs without stopping, but still process collisions with them
 	RegisterSignal(xeno, COMSIG_MOVABLE_TURF_ENTER, PROC_REF(charge_turf_enter))
@@ -195,15 +172,14 @@
 	var/mob/living/carbon/xenomorph/xeno = owner
 	if(!istype(xeno))
 		return
-
+	if(istype(thrown_atom, /mob/living/carbon/xenomorph))
+		xeno = thrown_atom
 	UnregisterSignal(xeno, list(COMSIG_MOVABLE_TURF_ENTER, COMSIG_MOVABLE_MOVED))
 	xeno.emote("roar")
 	REMOVE_TRAIT(xeno, TRAIT_CHARGING, TRAIT_SOURCE_ABILITY("Crusher Charge"))
 
 	additional_effects_always()
-
 	post_windup_effects(interrupted = FALSE)
-
 	xeno.update_icons()
 
 /datum/action/xeno_action/activable/pounce/crusher_charge/proc/charge_turf_enter(mob/living/carbon/xenomorph/xeno, turf/entering_turf)
@@ -212,17 +188,19 @@
 		return NONE
 
 	// Don't override if the turf itself is impassable
-	if(entering_turf.density && entering_turf.turf_flags & TURF_HULL)
+	if(entering_turf.density)
+		INVOKE_ASYNC(xeno, TYPE_PROC_REF(/mob/living/carbon/xenomorph, handle_collision), entering_turf)
 		return NONE
 
 	var/move_dir = get_dir(xeno, entering_turf)
 
 	// Only allow movement if the only blockers are living mobs
 	for(var/atom/A in entering_turf)
-		if(A == xeno || !A.can_block_movement)
-			continue
 		if(isliving(A))
 			continue
+		INVOKE_ASYNC(xeno, TYPE_PROC_REF(/mob/living/carbon/xenomorph, handle_collision), A)
+		if(!A.can_block_movement)
+			return NONE
 		if(A.BlockedPassDirs(xeno, move_dir))
 			return NONE
 
@@ -234,34 +212,37 @@
 		return
 
 	// Apply charge collision effects to every mob we moved onto
-	for(var/mob/living/M in xeno.loc)
-		if(M == xeno)
+	for(var/atom/A in xeno.loc)
+		if(A == xeno)
 			continue
-		if(ishuman(M))
-			INVOKE_ASYNC(src, PROC_REF(handle_human_collision), M)
-		else if(isxeno(M))
-			INVOKE_ASYNC(src, PROC_REF(handle_xeno_collision), M)
-		else if(iscarbon(M))
-			INVOKE_ASYNC(src, PROC_REF(handle_mob_collision), M)
+		if(ishuman(A))
+			INVOKE_ASYNC(src, PROC_REF(handle_human_collision), A, xeno)
+		else if(isxeno(A))
+			INVOKE_ASYNC(src, PROC_REF(handle_xeno_collision), A, xeno)
+		else if(iscarbon(A))
+			INVOKE_ASYNC(src, PROC_REF(handle_carbon_collision), A, xeno)
+		else
+			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/carbon/xenomorph, handle_collision), A, xeno)
 
-/datum/action/xeno_action/activable/pounce/crusher_charge/proc/handle_charge_collision(mob/living/carbon/xenomorph/xeno, atom/target_atom)
-	// Only handle mob collisions, let objects/turfs stop the charge
-	if(!isliving(target_atom))
-		return
+// /datum/action/xeno_action/activable/pounce/crusher_charge/proc/handle_charge_collision(mob/living/carbon/xenomorph/xeno, atom/target_atom)
+// 	// Only handle mob collisions, let objects/turfs stop the charge
+// 	if(!isliving(target_atom))
+// 		return
 
-	// Call appropriate handler based on mob type
-	if(ishuman(target_atom))
-		handle_human_collision(target_atom)
-	else if(isxeno(target_atom))
-		handle_xeno_collision(target_atom)
-	else if(isliving(target_atom))
-		handle_mob_collision(target_atom)
+// 	// Call appropriate handler based on mob type
+// 	if(ishuman(target_atom))
+// 		handle_human_collision(target_atom, xeno)
+// 	else if(isxeno(target_atom))
+// 		handle_xeno_collision(target_atom, xeno)
+// 	else if(isliving(target_atom))
+// 		handle_carbon_collision(target_atom, xeno)
 
-	// Return signal to continue movement through the mob
-	return COMPONENT_LIVING_COLLIDE_HANDLED
+// 	// Return signal to continue movement through the mob
+// 	return COMPONENT_LIVING_COLLIDE_HANDLED
 
-/datum/action/xeno_action/activable/pounce/crusher_charge/proc/handle_human_collision(mob/living/carbon/human/human)
-	var/mob/living/carbon/xenomorph/xeno = owner
+/datum/action/xeno_action/activable/pounce/crusher_charge/proc/handle_human_collision(mob/living/carbon/human/human, mob/living/carbon/xenomorph/xeno)
+	if(!istype(xeno))
+		xeno = owner
 	if(!istype(xeno) || !istype(human))
 		return
 	playsound(human.loc, "punch", 25, TRUE)
@@ -275,7 +256,7 @@
 			GLOB.organ_rel_size["l_arm"]; "l_arm",
 			GLOB.organ_rel_size["r_arm"]; "r_arm",
 			GLOB.organ_rel_size["l_leg"]; "l_leg",
-			GLOB.organ_rel_size["r_leg"]; "r_leg",
+			GLOB.organ_rel_size["r_leg"]; "r_leg"
 		)
 	if (prob(70))
 		randomized_hit_zone = "chest"
@@ -296,10 +277,12 @@
 	var/target_turf = get_step(human, ram_dir)
 	if(LinkBlocked(human, cur_turf, target_turf))
 		ram_dir = REVERSE_DIR(ram_dir)
-	step(human, ram_dir, 2)
+	step(human, ram_dir)
+	step(human, ram_dir)
 
-/datum/action/xeno_action/activable/pounce/crusher_charge/proc/handle_xeno_collision(mob/living/carbon/xenomorph/target_xeno)
-	var/mob/living/carbon/xenomorph/xeno = owner
+/datum/action/xeno_action/activable/pounce/crusher_charge/proc/handle_xeno_collision(mob/living/carbon/xenomorph/target_xeno, mob/living/carbon/xenomorph/xeno)
+	if(!istype(xeno))
+		xeno = owner
 	if(!istype(xeno) || !istype(target_xeno))
 		return
 	playsound(target_xeno.loc, "punch", 25, TRUE)
@@ -318,19 +301,22 @@
 	var/cur_turf = get_turf(target_xeno)
 	var/target_turf = get_step(target_xeno, ram_dir)
 	if(LinkBlocked(target_xeno, cur_turf, target_turf))
+		ram_dir = REVERSE_DIR(ram_dir)
+		target_turf = get_step(target_xeno, ram_dir)
 		xeno.visible_message(
 			SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] отбрасывает [target_xeno.declent_ru(ACCUSATIVE)] в сторону!"),
 			SPAN_DANGER("Вы отбрасываете [target_xeno.declent_ru(ACCUSATIVE)] в сторону!")
 		)
 		to_chat(target_xeno, SPAN_XENOHIGHDANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] отбрасывает вас в сторону! С дороги!"))
 		target_xeno.apply_effect(0.5, WEAKEN)
-		target_xeno.throw_atom(get_turf(target_xeno), 1, 3, xeno, TRUE)
+		target_xeno.throw_atom(target_turf, 1, 3, xeno, TRUE)
 	else
-		step(target_xeno, ram_dir, 2)
+		step(target_xeno, ram_dir)
 		target_xeno.apply_effect(0.5, WEAKEN)
 
-/datum/action/xeno_action/activable/pounce/crusher_charge/proc/handle_mob_collision(mob/living/carbon/mob)
-	var/mob/living/carbon/xenomorph/xeno = owner
+/datum/action/xeno_action/activable/pounce/crusher_charge/proc/handle_carbon_collision(mob/living/carbon/mob, mob/living/carbon/xenomorph/xeno)
+	if(!istype(xeno))
+		xeno = owner
 	if(!istype(xeno) || !istype(mob))
 		return
 	playsound(mob.loc, "punch", 25, TRUE)
@@ -356,23 +342,16 @@
 	var/target_turf = get_step(mob, ram_dir)
 	if(LinkBlocked(mob, cur_turf, target_turf))
 		ram_dir = REVERSE_DIR(ram_dir)
-	step(mob, ram_dir, 2)
+	step(mob, ram_dir)
+	step(mob, ram_dir)
 
-// Override launch_impact for xenomorphs to handle crusher charge
 /mob/living/carbon/xenomorph/launch_impact(atom/hit_atom)
-	// If crusher is charging through mobs, handle collisions differently
-	if(HAS_TRAIT(src, TRAIT_CHARGING) && isliving(hit_atom))
-		var/datum/action/xeno_action/activable/pounce/crusher_charge/charge_ability = get_action(src, /datum/action/xeno_action/activable/pounce/crusher_charge)
-		if(charge_ability)
-			// Handle the collision but don't stop throwing
-			if(ishuman(hit_atom))
-				charge_ability.handle_human_collision(hit_atom)
-			else if(isxeno(hit_atom))
-				charge_ability.handle_xeno_collision(hit_atom)
-			else if(isliving(hit_atom))
-				charge_ability.handle_mob_collision(hit_atom)
-			// Don't set throwing = FALSE, just return to continue the charge
-			return
-
-	// Default behavior for non-crusher-charge impacts
+	if(HAS_TRAIT(src, TRAIT_CHARGING))
+		return
 	return ..()
+
+/datum/behavior_delegate/crusher_base/melee_attack_additional_effects_target(mob/living/carbon/target)
+	..()
+	var/datum/action/xeno_action/onclick/crusher_stomp/sAction = get_action(bound_xeno, /datum/action/xeno_action/onclick/crusher_stomp)
+	if (!sAction.action_cooldown_check())
+		sAction.reduce_cooldown(1.5 SECONDS)

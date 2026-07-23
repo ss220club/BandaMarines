@@ -12,8 +12,8 @@
 /mob/living/carbon/xenomorph/proc/_xeno_jitter_tick(jitter_time)
 	set waitfor = 0
 
-	pixel_x = old_x + rand(-3, 3)
-	pixel_y = old_y + rand(-1, 1)
+	pixel_x = (old_x || 0) + rand(-3, 3)
+	pixel_y = (old_y || 0) + rand(-1, 1)
 	jitter_time--
 
 	if(jitter_time > 0)
@@ -21,8 +21,8 @@
 	else
 		xeno_jitter_timer_id = TIMER_ID_NULL
 		//endwhile - reset the pixel offsets to zero
-		pixel_x = old_x
-		pixel_y = old_y
+		pixel_x = old_x || 0
+		pixel_y = old_y || 0
 
 /// Cancels any active xeno_jitter chain and resets pixel offsets to their base values.
 /// Safe to call when no jitter is active (no-op in that case).
@@ -30,5 +30,9 @@
 	if(xeno_jitter_timer_id != TIMER_ID_NULL)
 		deltimer(xeno_jitter_timer_id)
 		xeno_jitter_timer_id = TIMER_ID_NULL
-		pixel_x = old_x
-		pixel_y = old_y
+		pixel_x = old_x || 0
+		pixel_y = old_y || 0
+
+/mob/living/carbon/xenomorph/Destroy()
+	stop_xeno_jitter()
+	return ..()
