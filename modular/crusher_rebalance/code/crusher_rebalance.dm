@@ -7,14 +7,10 @@
 	var/slowdown_active = FALSE
 	var/charge_timeout_timer_id = TIMER_ID_NULL
 	var/winding_up = FALSE
-	var/atom/stored_target = null
 
 /datum/action/xeno_action/activable/pounce/crusher_charge/New()
 	. = ..()
-	not_reducing_objects = typesof(/obj/structure/barricade) + typesof(/obj/structure/machinery/defenses)
-	pounce_callbacks = list()
-	pounce_callbacks[/obj] = DYNAMIC(/mob/living/carbon/xenomorph/proc/pounced_obj_wrapper)
-	pounce_callbacks[/turf] = DYNAMIC(/mob/living/carbon/xenomorph/proc/pounced_turf_wrapper)
+	pounce_callbacks.Remove(/mob)
 
 /datum/action/xeno_action/activable/pounce/crusher_charge/Destroy()
 	if(charge_timeout_timer_id != TIMER_ID_NULL)
@@ -56,25 +52,24 @@
 
 		xeno.xeno_jitter(windup_duration + charge_window)
 		if(!do_after(xeno, windup_duration, INTERRUPT_INCAPACITATED|INTERRUPT_CHANGED_LYING, BUSY_ICON_HOSTILE))
-			to_chat(xeno, SPAN_XENODANGER("Мы отменяем зарядку рывка!"))
+			to_chat(xeno, SPAN_XENODANGER("Мы отменяем подготовку рывка!"))
 			remove_charge_slowdown()
 			post_windup_effects(interrupted = TRUE)
 			xeno.stop_xeno_jitter()
 			return
 		winding_up = FALSE
 		activated_once = TRUE
-		stored_target = target
 		apply_cooldown()
-		to_chat(xeno, SPAN_XENOWARNING("Рывок заряжен!"))
+		to_chat(xeno, SPAN_XENOWARNING("Мы готовы к рывку!"))
 		playsound(xeno, 'sound/effects/alien_footstep_charge2.ogg', 50)
 		charge_timeout_timer_id = addtimer(CALLBACK(src, PROC_REF(charge_reset)), charge_window, TIMER_STOPPABLE)
-
+		return ..()
 	else
 		if(charge_timeout_timer_id != TIMER_ID_NULL)
 			deltimer(charge_timeout_timer_id)
-		execute_charge(target)
-		charge_reset()
-	return ..()
+		charge_timeout_timer_id = TIMER_ID_NULL
+		activated_once = FALSE
+		return execute_charge(target)
 
 
 /datum/action/xeno_action/activable/pounce/crusher_charge/proc/apply_charge_slowdown()
@@ -103,7 +98,6 @@
 	post_windup_effects(interrupted = FALSE)
 	charge_timeout_timer_id = TIMER_ID_NULL
 	activated_once = FALSE
-	stored_target = null
 
 
 /datum/action/xeno_action/activable/pounce/crusher_charge/proc/execute_charge(atom/target)
@@ -115,9 +109,6 @@
 	xeno.stop_xeno_jitter()
 	remove_charge_slowdown()
 
-	if(!target)
-		target = stored_target
-	stored_target = null
 	if(!target)
 		return FALSE
 
@@ -180,7 +171,6 @@
 
 	additional_effects_always()
 	post_windup_effects(interrupted = FALSE)
-	xeno.update_icons()
 
 /datum/action/xeno_action/activable/pounce/crusher_charge/proc/charge_turf_enter(mob/living/carbon/xenomorph/xeno, turf/entering_turf)
 	SIGNAL_HANDLER
@@ -196,11 +186,10 @@
 
 	// Only allow movement if the only blockers are living mobs
 	for(var/atom/A in entering_turf)
-		if(isliving(A))
+		if(isliving(A) || !A.can_block_movement)
 			continue
-		INVOKE_ASYNC(xeno, TYPE_PROC_REF(/mob/living/carbon/xenomorph, handle_collision), A)
-		if(!A.can_block_movement)
-			return NONE
+		if(isobj(A))
+			INVOKE_ASYNC(xeno, TYPE_PROC_REF(/mob/living/carbon/xenomorph, handle_collision), A)
 		if(A.BlockedPassDirs(xeno, move_dir))
 			return NONE
 
@@ -223,22 +212,6 @@
 			INVOKE_ASYNC(src, PROC_REF(handle_carbon_collision), A, xeno)
 		else
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/carbon/xenomorph, handle_collision), A, xeno)
-
-// /datum/action/xeno_action/activable/pounce/crusher_charge/proc/handle_charge_collision(mob/living/carbon/xenomorph/xeno, atom/target_atom)
-// 	// Only handle mob collisions, let objects/turfs stop the charge
-// 	if(!isliving(target_atom))
-// 		return
-
-// 	// Call appropriate handler based on mob type
-// 	if(ishuman(target_atom))
-// 		handle_human_collision(target_atom, xeno)
-// 	else if(isxeno(target_atom))
-// 		handle_xeno_collision(target_atom, xeno)
-// 	else if(isliving(target_atom))
-// 		handle_carbon_collision(target_atom, xeno)
-
-// 	// Return signal to continue movement through the mob
-// 	return COMPONENT_LIVING_COLLIDE_HANDLED
 
 /datum/action/xeno_action/activable/pounce/crusher_charge/proc/handle_human_collision(mob/living/carbon/human/human, mob/living/carbon/xenomorph/xeno)
 	if(!istype(xeno))
@@ -293,7 +266,7 @@
 		log_attack("[xeno] ([xeno.ckey]) crusher charged [target_xeno] ([target_xeno.ckey])")
 		target_xeno.apply_damage(direct_hit_damage * 0.5, BRUTE)
 
-	if(target_xeno.anchored || isqueen(target_xeno) || IS_XENO_LEADER(target_xeno) || isboiler(target_xeno))
+	if(target_xeno.anchored || target_xeno.mob_size == MOB_SIZE_IMMOBILE)
 		return
 
 	var/list/ram_dirs = get_perpen_dir(xeno.dir)
