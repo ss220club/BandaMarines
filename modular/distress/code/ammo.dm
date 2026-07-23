@@ -3,11 +3,6 @@
 	nade_type = /obj/item/explosive/grenade/smokebomb
 	icon_state = "smoke_shell"
 
-// UPP ROCKETS/MISSILES
-/datum/ammo/rocket/ap/hj35_launcher
-	icon_state = "hj35_missile"
-	max_range = 8
-
 // TANK CANNON
 /datum/ammo/rocket/ltb/p17702
 	name = "93mmm round"
@@ -34,17 +29,6 @@
 /obj/item/ammo_magazine/hardpoint/p17702/update_icon()
 	icon_state = "p17702_[current_rounds]"
 
-/obj/item/ammo_magazine/hardpoint/Gshk_minigun
-	name = "Gshk Minigun Magazine"
-	icon = 'modular/distress/icons/ammoupp.dmi'
-	desc = "A primary armament minigun magazine."
-	caliber = "7.62x51mm" //Correlates to miniguns
-	icon_state = "gshk"
-	w_class = SIZE_LARGE //Primary weapon ammo should probably all be the same w_class
-	default_ammo = /datum/ammo/bullet/tank/minigun
-	max_rounds = 500
-	gun_type = /obj/item/hardpoint/primary/minigun
-
 /obj/item/ammo_magazine/hardpoint/t60p3m
 	name = "T6OP-3M Magazine (10x27mm)"
 	desc = "A box of 500, 10x27mm caseless rounds for use in the T6OP-3M heavy machine gun system."
@@ -56,20 +40,6 @@
 	max_rounds = 500
 	gun_type = /obj/item/hardpoint/secondary/t60p3m
 
-/obj/item/ammo_magazine/hardpoint/hj35launcher
-	name = "HJ-35 Launcher Magazine"
-	icon = 'modular/distress/icons/ammoupp.dmi'
-	desc = "A magazine of laser-guided missiles used in the UPP HJ-35 launcher weapon-system."
-	caliber = "rocket" //correlates to any rocket mags
-	icon_state = "hj35"
-	w_class = SIZE_LARGE
-	default_ammo = /datum/ammo/rocket/ap/tank_towlauncher/hj35_launcher
-	max_rounds = 3
-	gun_type = /obj/item/hardpoint/secondary/hj35launcher
-
 /datum/ammo/bullet/rifle/heavy/tracer
 	icon_state = "bullet_red"
 
-/datum/ammo/rocket/ap/tank_towlauncher/hj35_launcher
-	icon_state = "hj35_missile"
-	max_range = 16

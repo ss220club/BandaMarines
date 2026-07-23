@@ -15,7 +15,7 @@
 	use_muzzle_flash = FALSE
 
 	// big beefy chonk of metal
-	health = 1500
+	health = 500
 	damage_multiplier = 0.05
 
 	accepted_hardpoints = list(
@@ -23,7 +23,6 @@
 		/obj/item/hardpoint/primary/cannon/p17702,
 		// secondaries
 		/obj/item/hardpoint/secondary/t60p3m,
-		/obj/item/hardpoint/secondary/hj35launcher/upptank,
 		// support
 		/obj/item/hardpoint/support/flare_launcher/upptank,
 	)
@@ -65,7 +64,7 @@
 	disp_icon = "upptank"
 	disp_icon_state = "reactive_armor"
 
-	health = 2000
+	health = 1500
 
 	type_multipliers = list(
 		"explosive" = 0.70,
@@ -85,7 +84,7 @@
 	disp_icon_state = "p17702"
 	activation_sounds = list('sound/weapons/vehicles/cannon_fire1.ogg', 'sound/weapons/vehicles/cannon_fire2.ogg')
 
-	health = 2000
+	health = 500
 	firing_arc = 60
 
 	ammo = new /obj/item/ammo_magazine/hardpoint/p17702
@@ -121,7 +120,7 @@
 	disp_icon_state = "t60p3m"
 	activation_sounds = list('sound/weapons/gun_smartgun1.ogg', 'sound/weapons/gun_smartgun2.ogg', 'sound/weapons/gun_smartgun3.ogg', 'sound/weapons/gun_smartgun4.ogg')
 
-	health = 2000
+	health = 500
 	firing_arc = 120
 
 	ammo = new /obj/item/ammo_magazine/hardpoint/t60p3m
@@ -166,7 +165,7 @@
 
 	activatable = TRUE
 
-	health = 1500
+	health = 500
 	firing_arc = 120
 
 	allowed_seat = VEHICLE_GUNNER
