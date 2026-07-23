@@ -1,4 +1,5 @@
 #define LV733_ISRG_ERT_CHANCE 70
+#define LV733_RAC_ERT_CHANCE 50
 
 /datum/emergency_call/lv733_isrg_response
 	name = "Спасательной группа ISRG"
@@ -44,8 +45,13 @@
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), mob, SPAN_BOLD("Задача: [objectives]")), 1 SECONDS)
 
 /datum/game_mode/colonialmarines/activate_distress()
-	if(SSmapping.configs[GROUND_MAP].map_name == MAP_LV733_WHITCHLER_POINT && prob(LV733_ISRG_ERT_CHANCE))
-		ert_dispatched = TRUE
-		get_specific_call(/datum/emergency_call/lv733_isrg_response)
-		return
+	if(SSmapping.configs[GROUND_MAP].map_name == MAP_LV733_WHITCHLER_POINT)
+		if(prob(LV733_ISRG_ERT_CHANCE))
+			ert_dispatched = TRUE
+			get_specific_call(/datum/emergency_call/lv733_isrg_response)
+			return
+		if(prob(LV733_RAC_ERT_CHANCE))
+			ert_dispatched = TRUE
+			get_specific_call(/datum/emergency_call/lv733_rac_response)
+			return
 	return ..()
