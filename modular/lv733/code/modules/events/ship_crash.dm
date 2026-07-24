@@ -116,6 +116,7 @@
 /datum/round_event/lv733_ship_crash
 	var/turf/crash_turf = null
 	var/list/warning_overlays = list()
+	var/crashed = FALSE
 
 /datum/round_event/lv733_ship_crash/setup()
 	startWhen = SHIP_CRASH_WARN_DELAY / SSevents.wait
@@ -131,7 +132,6 @@
 	if(!length(candidate_turfs))
 		return
 
-	// Точки, от которых корабль обязан упасть не ближе SHIP_CRASH_SAFE_RADIUS: хайв ксеноморфов и домашняя ЛЗ ROAF.
 	var/list/turf/exclusion_points = list()
 	for(var/obj/effect/landmark/queen_spawn/Q in GLOB.queen_spawns)
 		exclusion_points += get_turf(Q)
@@ -174,7 +174,19 @@
 	// чтобы группа реагирования появилась у места крушения, а не на генерик-лендмарке/шаттле.
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(spawn_lv733_crash_response), crash_turf), SHIP_CRASH_WARN_DELAY - 15 SECONDS)
 
+	// SSevents (и, соответственно, start()) работает только пока раунд в RUNLEVEL_GAME - если победа/поражение
+	// наступит в течение этих 2 минут буфера, раунд уйдёт в постгейм и start() от SSevents может вообще не вызваться.
+	// Поэтому само крушение планируем отдельным addtimer'ом (SStimer не завязан на рант-левел), как и вызов ЕРТ выше.
+	addtimer(CALLBACK(src, PROC_REF(do_crash_impact)), SHIP_CRASH_WARN_DELAY)
+
 /datum/round_event/lv733_ship_crash/start()
+	do_crash_impact()
+
+/datum/round_event/lv733_ship_crash/proc/do_crash_impact()
+	if(crashed)
+		return
+	crashed = TRUE
+
 	for(var/obj/effect/lv733/crash_warning_overlay/O in warning_overlays)
 		qdel(O)
 	warning_overlays.Cut()
@@ -192,8 +204,6 @@
 		message_admins("[SPAN_DANGER("LV733 ship_crash: file exists but failed to parse '[ship_path]' (width=[template.width], height=[template.height]). Likely a DMM format/regex issue in the file content.")]")
 		return
 
-	// Раздавить всё живое в зоне посадки корабля ДО загрузки шаблона - иначе тела молча
-	// удалятся вместе с остальным мусором ниже (delete = TRUE), без сообщения о смерти.
 	var/turf/footprint_corner = locate(crash_turf.x - floor(template.width/2), crash_turf.y - floor(template.height/2), crash_turf.z)
 	if(footprint_corner)
 		for(var/tx = footprint_corner.x to footprint_corner.x + template.width - 1)
@@ -204,8 +214,6 @@
 				for(var/mob/living/L in T)
 					L.gib(create_cause_data("падение корабля"))
 
-	// delete = TRUE вычищает всё, что осталось на тайлах посадки (предметы, мусор, трупы),
-	// чтобы после загрузки шаблона под кораблём ничего не "просвечивало".
 	if(!template.load(crash_turf, centered = TRUE, allow_cropping = TRUE, delete = TRUE))
 		message_admins("[SPAN_DANGER("LV733 ship_crash: template.load() failed at [ADMIN_VERBOSEJMP(crash_turf)] (template [template.width]x[template.height]). Likely too close to the map edge or a cordon issue.")]")
 		return
