@@ -8,12 +8,14 @@
 	entry_message_body = "<a href='[generate_wiki_link()]'>Вы второй по должности на борту [MAIN_SHIP_NAME]</a> и находитесь следующие в цепочке командования после Командующего Офицера. Где это применимо, вы должны соблюдать <a href='[CONFIG_GET(string/wikiarticleurl)][URL_WIKI_CO_RULES]'>Кодекс поведения Командующего Офицера</a>. Вам может потребоваться замещать других сотрудников, если в некоторых областях не хватает персонала, у вас имеются для этого доступы. Пусть ККМП гордится вами!" // SS220 EDIT TRANSLATE
 	return ..()
 
-/datum/job/command/executive/generate_entry_conditions(mob/living/M, whitelist_status)
+/datum/job/command/executive/generate_entry_conditions(mob/living/player, whitelist_status)
 	. = ..()
-	GLOB.marine_leaders[JOB_XO] = M
-	RegisterSignal(M, COMSIG_PARENT_QDELETING, PROC_REF(cleanup_leader_candidate))
+	GLOB.marine_leaders[JOB_XO] = player
+	if(!GLOB.marine_leaders[JOB_CO])
+		SSticker.mode.acting_commander = player
+	RegisterSignal(player, COMSIG_PARENT_QDELETING, PROC_REF(cleanup_leader_candidate))
 
-/datum/job/command/executive/proc/cleanup_leader_candidate(mob/M)
+/datum/job/command/executive/proc/cleanup_leader_candidate(mob/player)
 	SIGNAL_HANDLER
 	GLOB.marine_leaders -= JOB_XO
 
