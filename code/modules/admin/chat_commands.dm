@@ -15,3 +15,42 @@
 	return new /datum/tgs_message_content("[text_res.Join("\n")][refs ? "\nRefs: [refs.Join(" ")]" : ""]")
 	*/
 	return new /datum/tgs_message_content("SDQL command is disabled and no longer functional. Use in-game SDQL instead.") //SS220 - EDIT
+
+/datum/tgs_chat_command/tgscheck
+	name = "check"
+	help_text = "Gets the playercount, gamemode, and address of the server"
+
+/datum/tgs_chat_command/tgscheck/Run(datum/tgs_chat_user/sender, params)
+	var/server = CONFIG_GET(string/server)
+	return new /datum/tgs_message_content("[GLOB.round_id ? "Round #[GLOB.round_id]: " : ""][GLOB.clients.len] players. \nGamemode: [GLOB.master_mode]. \nShip map: [SSmapping.configs[SHIP_MAP].map_name]. \nGround map: [SSmapping.configs[GROUND_MAP].map_name]. \ Round [SSticker.HasRoundStarted() ? (SSticker.IsRoundInProgress() ? "Active" : "Finishing") : "Starting"] -- [server ? server : "[world.internet_address]:[world.port]"]")
+
+/datum/tgs_chat_command/tgsadminwho
+	name = "adminwho"
+	help_text = "Lists administrators currently on the server"
+	admin_only = TRUE
+
+/datum/tgs_chat_command/tgsadminwho/Run(datum/tgs_chat_user/sender, params)
+	var/list/adm = get_admin_counts()
+	var/list/allmins = adm["total"]
+	var/status = "Admins: [allmins.len] (Active: [english_list(adm["present"])] \n AFK: [english_list(adm["afk"])] \n Stealth: [english_list(adm["stealth"])] \n Skipped: [english_list(adm["noflags"])]). "
+	return new /datum/tgs_message_content(status)
+
+/datum/tgs_chat_command/tgsplayerwho
+	name = "playerwho"
+	help_text = "Gets the playercount and lists players currently on the server"
+	admin_only = TRUE
+
+/datum/tgs_chat_command/tgsplayerwho/Run(datum/tgs_chat_user/sender, params)
+	var/status = "Players: [GLOB.clients.len], [english_list(GLOB.clients)] (Active: [get_active_player_count(FALSE, TRUE, FALSE)])."
+	return new /datum/tgs_message_content(status)
+
+/datum/tgs_chat_command/tgsinfo
+	name = "info"
+	help_text = "Gets the playercount, gamemode, and address of the server"
+
+/datum/tgs_chat_command/tgsinfo/Run(datum/tgs_chat_user/sender, params)
+	var/server = CONFIG_GET(string/server)
+	var/list/adm = get_admin_counts()
+	var/list/allmins = adm["total"]
+	var/status = "[GLOB.round_id ? "Round #[GLOB.round_id]" : ""]. \nPlayers: [GLOB.clients.len], [english_list(GLOB.clients)] (Active: [get_active_player_count(FALSE, TRUE, FALSE)]). \nAdmins: [allmins.len] (Active: [english_list(adm["present"])] \n AFK: [english_list(adm["afk"])] \n Stealth: [english_list(adm["stealth"])] \n Skipped: [english_list(adm["noflags"])]).\nGamemode: [GLOB.master_mode]. \nShip map: [SSmapping.configs[SHIP_MAP].map_name]. \nGround map: [SSmapping.configs[GROUND_MAP].map_name]. \nRound [SSticker.HasRoundStarted() ? (SSticker.IsRoundInProgress() ? "Active" : "Finishing") : "Starting"] -- [server ? server : "[world.internet_address]:[world.port]"]"
+	return new /datum/tgs_message_content(status)
