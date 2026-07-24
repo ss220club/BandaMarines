@@ -474,7 +474,7 @@
 		for(var/obj/structure/machinery/medical_pod/autodoc/target in GLOB.machines)
 			if(is_mainship_level(target.z))
 				target.skilllock = SKILL_SURGERY_DEFAULT // lowers skill-lock to 0
-		ai_silent_announcement("ВНИМАНИЕ: Цикл выхода из криокапсул для МЕДИЦИНСКОГО ПЕРСОНАЛА ЗАДЕРЖИВАЕТСЯ. Выпускаются диски аварийного перехвата управления для систем «АВТОДОК».", ".G", TRUE)
+		ai_silent_announcement("ВНИМАНИЕ: Цикл выхода из криокапсул для МЕДИЦИНСКОГО ПЕРСОНАЛА ЗАДЕРЖИВАЕТСЯ. Выпускаются диски аварийной перезаписи систем «АВТОДОК».", ".G", TRUE)
 		return log_admin("No Shipside Doctor found = Autodoc Upgrade Supplies ordered and AutoDoc skill locks released.")
 
 /datum/game_mode/colonialmarines/proc/ares_conclude()
