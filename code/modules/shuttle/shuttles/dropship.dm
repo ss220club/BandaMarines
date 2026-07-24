@@ -254,11 +254,30 @@
 	name = "LZ1 Landing Zone"
 	id = DROPSHIP_LZ1
 	auto_open = TRUE
+	faction = null
+
+// /obj/docking_port/stationary/marine_dropship/lz1/Initialize(mapload)
+//	. = ..()
+//	if(GLOB.master_mode == /datum/game_mode/colonialmarines/upp::name)
+//		faction = FACTION_UPP
 
 /obj/docking_port/stationary/marine_dropship/lz2
 	name = "LZ2 Landing Zone"
 	id = DROPSHIP_LZ2
 	auto_open = TRUE
+	faction = null
+
+/obj/docking_port/stationary/marine_dropship/predator
+	name = "Yautja Hangar"
+	id = DROPSHIP_LZ1
+	auto_open = TRUE
+	faction = FACTION_YAUTJA
+
+/obj/docking_port/stationary/marine_dropship/lz2/Initialize(mapload)
+	. = ..()
+	if(GLOB.master_mode == /datum/game_mode/colonialmarines/upp::name)
+		faction = FACTION_UPP
+
 
 /obj/docking_port/stationary/marine_dropship/almayer_hangar_1
 	name = "Almayer Hangar bay 1"
@@ -282,6 +301,7 @@
 /obj/docking_port/stationary/marine_dropship/upp/hangar_2
 	name = "Rostock Hangar bay 2"
 	id = UPP_DROPSHIP_LZ2
+	faction = "UPP"
 	auto_open = TRUE
 	roundstart_template = /datum/map_template/shuttle/devana
 

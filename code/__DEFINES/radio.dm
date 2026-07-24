@@ -52,6 +52,10 @@
 #define RADIO_CHANNEL_UPP_ENGI "UPP Engi"
 #define RADIO_CHANNEL_UPP_CCT "UPP CCT"
 #define RADIO_CHANNEL_UPP_KDO "UPP Kdo"
+#define RADIO_CHANNEL_AKULA "Akula"
+#define RADIO_CHANNEL_BIZON "Bizon"
+#define RADIO_CHANNEL_CHAYKA "Chayka"
+#define RADIO_CHANNEL_DELFIN "Delfin"
 
 //WY Comms
 #define RADIO_CHANNEL_WY "WY Corporate"

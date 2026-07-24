@@ -298,7 +298,7 @@
 /obj/item/device/encryptionkey/upp
 	name = "\improper UPP Radio Encryption Key"
 	icon_state = "upp_key"
-	channels = list(RADIO_CHANNEL_UPP_GEN = TRUE)
+	channels = list(RADIO_CHANNEL_UPP_GEN = TRUE, RADIO_CHANNEL_AKULA = TRUE, RADIO_CHANNEL_BIZON = TRUE, RADIO_CHANNEL_CHAYKA = TRUE, RADIO_CHANNEL_DELFIN = TRUE)
 
 /obj/item/device/encryptionkey/upp/engi
 	name = "\improper UPP Engineering Radio Encryption Key"
@@ -314,7 +314,7 @@
 
 /obj/item/device/encryptionkey/upp/command
 	name = "\improper UPP Command Radio Encryption Key"
-	channels = list(RADIO_CHANNEL_UPP_CMD = TRUE, RADIO_CHANNEL_UPP_GEN = TRUE, RADIO_CHANNEL_UPP_ENGI = TRUE, RADIO_CHANNEL_UPP_MED = TRUE, RADIO_CHANNEL_UPP_CCT = TRUE)
+	channels = list(RADIO_CHANNEL_UPP_CMD = TRUE, RADIO_CHANNEL_UPP_GEN = TRUE, RADIO_CHANNEL_UPP_ENGI = TRUE, RADIO_CHANNEL_UPP_MED = TRUE, RADIO_CHANNEL_UPP_CCT = TRUE, RADIO_CHANNEL_AKULA = TRUE, RADIO_CHANNEL_BIZON = TRUE, RADIO_CHANNEL_CHAYKA = TRUE, RADIO_CHANNEL_DELFIN = TRUE)
 
 /obj/item/device/encryptionkey/upp/command/acting
 	abstract = TRUE

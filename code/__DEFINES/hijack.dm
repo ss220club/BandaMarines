@@ -2,7 +2,7 @@
 #define EVACUATION_TYPE_ADDITIVE 1
 #define EVACUATION_TYPE_MULTIPLICATIVE 2
 
-#define HIJACK_ANNOUNCE "ARES: Процедуры эвакуации"
+#define HIJACK_ANNOUNCE "[SSmapping.get_main_ai_name()]: Процедуры эвакуации"
 #define XENO_HIJACK_ANNOUNCE "Вы чувствуете что-то необычное..."
 
 #define EVACUATION_STATUS_NOT_INITIATED 0
