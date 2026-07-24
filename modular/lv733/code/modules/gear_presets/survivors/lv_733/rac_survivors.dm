@@ -51,8 +51,11 @@
 /proc/rac_equip_poncho(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/poncho/rac(new_human.back), WEAR_IN_BACK)
 
+/obj/item/clothing/accessory/storage/holster/rac
+	worn_accessory_limit = 2
+
 /proc/rac_equip_sidearm(mob/living/carbon/human/new_human)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/storage/holster(new_human), WEAR_ACCESSORY)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/storage/holster/rac(new_human), WEAR_ACCESSORY)
 	new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/m1911(new_human), WEAR_IN_ACCESSORY)
 	for(var/i in 1 to 3)
 		new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/m1911(new_human), WEAR_IN_ACCESSORY)

@@ -231,6 +231,7 @@
 	desc = "Плащ-пончо мотопехотинцев."
 	icon = 'modular/clothing/icon/rac/ponchos.dmi'
 	icon_state = "w_poncho"
+	item_state = "w_poncho"
 	inv_overlay_icon = 'modular/clothing/icon/rac/ponchos.dmi'
 	accessory_icons = list(
 		WEAR_BODY = 'modular/clothing/onmob/rac/ponchos.dmi',
