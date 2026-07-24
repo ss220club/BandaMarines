@@ -259,17 +259,6 @@
 	},
 /turf/open/floor/almayer/silver2/north,
 /area/lv733/indoors/main_complex/main_vestibule)
-"fd" = (
-/obj/effect/decal/hybrisa/road/lines2,
-/obj/structure/platform/metal/almayer,
-/obj/effect/decal/hybrisa/road/lines3,
-/obj/structure/window/reinforced{
-	color = "#a6aeab"
-	},
-/turf/closed/shuttle/elevator{
-	dir = 4
-	},
-/area/lv733/indoors/main_complex/main_vestibule)
 "fg" = (
 /obj/structure/window/framed/hybrisa/research/reinforced,
 /turf/open/floor/strata/multi_tiles/southeast,
@@ -1837,9 +1826,6 @@
 /obj/effect/decal/hybrisa/road/lines2,
 /obj/structure/platform/metal/almayer,
 /obj/effect/decal/hybrisa/road/lines3,
-/obj/structure/window/reinforced{
-	color = "#a6aeab"
-	},
 /turf/closed/shuttle/elevator{
 	dir = 6;
 	explo_proof = 1;
@@ -3222,9 +3208,6 @@
 /obj/effect/decal/hybrisa/road/lines2,
 /obj/structure/platform/metal/almayer,
 /obj/effect/decal/hybrisa/road/lines3,
-/obj/structure/window/reinforced{
-	color = "#a6aeab"
-	},
 /turf/closed/shuttle/elevator/button/research,
 /area/lv733/indoors/main_complex/main_vestibule)
 "WK" = (
@@ -3959,7 +3942,7 @@ Bv
 Rh
 Uh
 BD
-fd
+aP
 Zz
 DJ
 Yb
@@ -4037,7 +4020,7 @@ QX
 VR
 vA
 vA
-fd
+aP
 QS
 Nl
 eM
@@ -4063,7 +4046,7 @@ Xk
 VR
 vA
 vA
-fd
+aP
 jh
 LJ
 qz
@@ -4089,7 +4072,7 @@ ia
 VR
 vA
 eY
-fd
+aP
 AM
 qE
 yF
@@ -4245,7 +4228,7 @@ zR
 VR
 Id
 pX
-fd
+aP
 Ps
 Ny
 Ag

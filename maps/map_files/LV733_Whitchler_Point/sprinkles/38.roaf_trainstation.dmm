@@ -1105,9 +1105,7 @@
 /turf/open/floor/prison/ramptop/east,
 /area/lv733/indoors/base_operations/trainstation_maintenance_garage)
 "kp" = (
-/turf/open/hybrisa/street/sidewalkcorner/north{
-	dir = 8
-	},
+/turf/open/hybrisa/street/sidewalkcorner/north/west,
 /area/lv733/outdoors/colony_streets/military_complex_streets)
 "ku" = (
 /obj/effect/decal/cleanable/blood,
@@ -2068,9 +2066,7 @@
 /turf/open/floor/hybrisa/metal/zbrownfloor1/west,
 /area/lv733/indoors/base_operations/trainstation_maintenance_garage)
 "uS" = (
-/turf/open/hybrisa/street/sidewalkcorner/north{
-	dir = 2
-	},
+/turf/open/hybrisa/street/sidewalkcorner/north/south,
 /area/lv733/outdoors/colony_streets/military_complex_streets)
 "uT" = (
 /obj/structure/barricade/handrail/strata,
@@ -3360,9 +3356,7 @@
 /area/lv733/indoors/base_operations/trainstation_maintenance_garage)
 "Gz" = (
 /obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/sidewalkcorner/north{
-	dir = 4
-	},
+/turf/open/hybrisa/street/sidewalkcorner/north/east,
 /area/lv733/outdoors/colony_streets/military_complex_streets)
 "GB" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -5050,9 +5044,7 @@
 /area/lv733/indoors/base_operations/trainstation_maintenance_garage)
 "Xy" = (
 /obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/sidewalkcorner/north{
-	dir = 2
-	},
+/turf/open/hybrisa/street/sidewalkcorner/north/south,
 /area/lv733/outdoors/colony_streets/military_complex_streets)
 "Xz" = (
 /obj/effect/decal/hybrisa/road/lines4,

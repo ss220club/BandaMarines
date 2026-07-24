@@ -1359,9 +1359,7 @@
 /turf/open/floor/hybrisa/tile/tilegrey,
 /area/lv733/indoors/mining_complex/rest_area)
 "avz" = (
-/turf/open/hybrisa/street/sidewalkcorner/north{
-	dir = 2
-	},
+/turf/open/hybrisa/street/sidewalkcorner/north/south,
 /area/lv733/outdoors/colony_streets/roaf_spaceport_south)
 "avA" = (
 /obj/structure/platform/metal/strata/east,
@@ -2435,8 +2433,6 @@
 	},
 /turf/open/floor/prison/floor_plate/southwest,
 /area/lv733/indoors/base_operations/training_yard)
-"aNQ" = (
-/turf/closed/wall/hybrisa/colony/reinforced/hull)
 "aNR" = (
 /obj/structure/machinery/door/airlock/multi_tile/hybrisa/generic_solid,
 /turf/open/floor/hybrisa/metal/yellow_warning_floor,
@@ -10991,9 +10987,7 @@
 /turf/open/floor/hybrisa/tile/tilewhite,
 /area/lv733/indoors/administration/main_hall)
 "dKy" = (
-/turf/open/hybrisa/street/sidewalkcorner/north{
-	dir = 8
-	},
+/turf/open/hybrisa/street/sidewalkcorner/north/west,
 /area/lv733/outdoors/colony_streets/engineering_street)
 "dKB" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -16325,9 +16319,7 @@
 	pixel_y = -9
 	},
 /obj/item/trash/hotdog,
-/turf/open/hybrisa/street/sidewalkcorner/west{
-	dir = 4
-	},
+/turf/open/hybrisa/street/sidewalkcorner/west/east,
 /area/lv733/outdoors/colony_streets/city_streets)
 "fvZ" = (
 /obj/effect/decal/strata_decals/tyrargo_mud_corner{
@@ -40470,10 +40462,6 @@
 /obj/structure/cargo_container/hybrisa/containersextended/bluewywingsleft,
 /turf/open/hybrisa/street/roadlines4,
 /area/lv733/outdoors/landing_zone_1)
-"nKV" = (
-/obj/structure/pipes/standard/simple/hidden/dark,
-/turf/closed/wall/hybrisa/colony,
-/area/lv733/indoors/multicomplex/detective_office)
 "nKY" = (
 /obj/effect/decal/hybrisa/road/lines2,
 /obj/effect/decal/hybrisa/road/road_edge{
@@ -43463,9 +43451,7 @@
 /turf/open/floor/almayer/silver/west,
 /area/lv733/outdoors/landing_zone_2)
 "oLt" = (
-/turf/open/hybrisa/street/sidewalkcorner/west{
-	dir = 4
-	},
+/turf/open/hybrisa/street/sidewalkcorner/west/east,
 /area/lv733/outdoors/colony_streets/city_streets)
 "oLz" = (
 /obj/structure/largecrate/random/barrel/white,
@@ -52240,11 +52226,6 @@
 	},
 /turf/open/floor/hybrisa/metal/yellow_warning_floor,
 /area/lv733/indoors/base_operations/central_corridor)
-"rIy" = (
-/turf/open/auto_turf/hybrisa_auto_turf/layer2{
-	cooldowns = ы
-	},
-/area/lv733/outdoors/caves/eastern_caves)
 "rIQ" = (
 /obj/structure/prop/hybrisa/misc/floorprops/floorglass2,
 /turf/open/floor/almayer/silverfull2,
@@ -55821,9 +55802,7 @@
 /area/lv733/outdoors/colony_streets/avenue)
 "sMJ" = (
 /obj/structure/closet/crate/medical,
-/turf/open/hybrisa/street/sidewalkcorner/north{
-	dir = 4
-	},
+/turf/open/hybrisa/street/sidewalkcorner/north/east,
 /area/lv733/outdoors/colony_streets/medical_street)
 "sMP" = (
 /obj/item/tool/warning_cone{
@@ -61988,9 +61967,7 @@
 	pixel_x = -10;
 	pixel_y = 7
 	},
-/turf/open/hybrisa/street/sidewalkcorner/north{
-	dir = 4
-	},
+/turf/open/hybrisa/street/sidewalkcorner/north/east,
 /area/lv733/outdoors/colony_streets/roaf_spaceport_south)
 "uPc" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -91379,7 +91356,7 @@ wNR
 haj
 xWb
 hIf
-nKV
+cfC
 grC
 sVd
 jmH
@@ -91908,7 +91885,7 @@ dSO
 dSO
 dSO
 dSO
-rIy
+dSO
 dSO
 mUg
 mUg
@@ -100729,7 +100706,7 @@ fyv
 gtD
 gtD
 gtD
-aNQ
+fyv
 fyv
 rXN
 oXC
