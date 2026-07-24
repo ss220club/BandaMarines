@@ -1,3104 +1,3728 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"ao" = (
-/obj/structure/platform/metal/strata/east,
+"ai" = (
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal7";
+	pixel_y = 6;
+	pixel_x = -4
+	},
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 4
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"an" = (
+/obj/structure/machinery/space_heater/radiator/red{
+	dir = 8;
+	pixel_x = 1
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"ap" = (
+/obj/effect/decal/hybrisa/trash{
+	dir = 8;
+	icon_state = "trash_11"
+	},
+/turf/open/hybrisa/street/sidewalk/southwest,
+/area/lv733/outdoors/colony_streets/avenue)
+"as" = (
+/obj/structure/window/framed/hybrisa/research/reinforced,
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/main_complex/main_vestibule)
+"az" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner,
+/turf/open/hybrisa/street/cement3,
+/area/lv733/outdoors/colony_streets/avenue)
+"aH" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/surface/table/almayer,
+/obj/item/storage/briefcase{
+	pixel_y = 12
+	},
+/obj/structure/machinery/light/double,
+/obj/effect/landmark/objective_landmark/close,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"aJ" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/pipes/standard/simple/hidden/dark,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"aP" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/structure/platform/metal/almayer,
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/item/shard,
+/turf/open/floor/almayer_hull/outerhull_dir_alt/north,
+/area/lv733/indoors/main_complex/main_vestibule)
+"aQ" = (
+/obj/structure/pipes/vents/pump_hybrisa,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"bg" = (
+/turf/open/hybrisa/street/sidewalk/west,
+/area/lv733/outdoors/colony_streets/avenue)
+"bo" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/closed/wall/hybrisa/colony,
+/area/lv733/indoors/main_complex/main_vestibule)
+"bp" = (
+/obj/structure/flora/bush/ausbushes/var3/fullgrass,
+/obj/structure/window/reinforced{
+	color = "#a6aeab";
+	pixel_y = -4
+	},
+/obj/structure/prop/ice_colony/dense/planter_box,
+/turf/open/auto_turf/tyrargo_grass/layer0,
+/area/lv733/indoors/main_complex/main_vestibule)
+"bF" = (
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
+"bR" = (
+/obj/structure/machinery/light/double{
+	dir = 4
+	},
+/turf/open/hybrisa/street/sidewalk/west,
+/area/lv733/outdoors/colony_streets/avenue)
+"bT" = (
+/obj/structure/flora/pottedplant{
+	icon_state = "pottedplant_29";
+	pixel_y = 6;
+	layer = 3.4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"bX" = (
+/turf/open/floor/almayer_hull,
+/area/lv733/indoors/main_complex/main_vestibule)
+"cc" = (
+/obj/effect/decal/hybrisa/road/lines2{
+	pixel_y = 1;
+	color = "#f27e1f"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"cq" = (
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/main_complex/central_corridor)
+"cy" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"cM" = (
+/obj/structure/prop/hybrisa/fakeplatforms/platform4/deco{
+	dir = 4
+	},
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 4
+	},
+/turf/open/hybrisa/street/sidewalkfull,
+/area/lv733/outdoors/colony_streets/avenue)
+"cX" = (
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/road/lines2,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/outdoors/colony_streets/wy_complex_streets)
+"dj" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 10
+	},
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
+"dk" = (
+/obj/effect/decal/hybrisa/trash{
+	dir = 4;
+	icon_state = "trash_11"
+	},
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/avenue)
+"dr" = (
+/obj/effect/decal/hybrisa/road/lines2{
+	pixel_y = 1;
+	color = "#f27e1f"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"dy" = (
+/obj/item/newspaper,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"dS" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = -4
+	},
+/turf/open/floor/almayer_hull,
+/area/lv733/indoors/main_complex/main_vestibule)
+"ej" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_8";
+	pixel_y = 12
+	},
+/obj/item/ammo_casing/bullet,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"ep" = (
+/obj/structure/surface/table/almayer,
+/obj/item/reagent_container/food/drinks/coffee/cuppa_joes{
+	pixel_x = -10;
+	pixel_y = 8
+	},
+/obj/item/reagent_container/food/drinks/coffeecup/wy,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"eM" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_casing/bullet,
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"eP" = (
+/obj/structure/machinery/vending/coffee{
+	pixel_y = 12
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"eZ" = (
+/obj/effect/decal/hybrisa/road/lines3{
+	pixel_y = -1;
+	color = "#f27e1f"
+	},
+/obj/structure/window/reinforced{
+	color = "#a6aeab"
+	},
+/turf/open/floor/almayer/silver2/north,
+/area/lv733/indoors/main_complex/main_vestibule)
+"fg" = (
+/obj/structure/window/framed/hybrisa/research/reinforced,
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/main_complex/central_corridor)
+"fA" = (
+/obj/effect/decal/hybrisa/dirt_2,
+/turf/open/hybrisa/street/sidewalkfull,
+/area/lv733/outdoors/colony_streets/avenue)
+"fJ" = (
+/obj/structure/surface/table/reinforced/black,
+/obj/structure/machinery/hybrisa/coffee_machine{
+	pixel_x = -4;
+	layer = 3.3;
+	pixel_y = 12
+	},
+/obj/effect/landmark/objective_landmark/science,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/departure_reception)
+"fT" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 11
+	},
+/obj/effect/decal/strata_decals/grime/grime4,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/tile/tilewhite,
+/area/lv733/indoors/main_complex/main_vestibule)
+"fV" = (
+/obj/structure/bed/sofa/hybrisa/misc/bench{
+	pixel_y = 10
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"gd" = (
+/obj/structure/prop/hybrisa/fakeplatforms/platform4{
+	dir = 1
+	},
+/turf/open/hybrisa/street/sidewalk/south,
+/area/lv733/outdoors/colony_streets/avenue)
+"gr" = (
+/obj/structure/surface/table/reinforced/black,
+/obj/structure/pipes/standard/simple/hidden/dark,
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/main_complex/departure_reception)
+"gz" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = -4
+	},
+/turf/open/floor/almayer_hull,
+/area/lv733/indoors/main_complex/main_vestibule)
+"gC" = (
+/obj/structure/surface/table/almayer,
+/obj/structure/largecrate/random/case/small,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"gG" = (
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 8;
+	icon_state = "stop_decal5"
+	},
+/obj/structure/machinery/light/double,
+/turf/open/floor/almayer_hull,
+/area/lv733/indoors/main_complex/main_vestibule)
+"gO" = (
+/obj/item/ammo_casing/bullet,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"gS" = (
+/obj/structure/surface/table/reinforced/black,
+/obj/structure/machinery/computer/communications/simple{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8;
+	health = 80;
+	color = "#a6aeab";
+	layer = 4
+	},
+/obj/item/reagent_container/food/drinks/coffee/cuppa_joes{
+	pixel_y = 20;
+	pixel_x = 2
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/blue_grey,
+/area/lv733/indoors/main_complex/departure_reception)
+"ha" = (
+/obj/item/tool/wet_sign{
+	pixel_y = 18
+	},
+/obj/item/tool/mop{
+	pixel_y = 20
+	},
+/obj/item/reagent_container/glass/bucket{
+	pixel_x = -9;
+	pixel_y = 9
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"hh" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
-/obj/structure/machinery/light/small{
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/avenue)
+"hl" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
+"ho" = (
+/obj/structure/toilet{
 	dir = 4;
 	pixel_y = 6
 	},
-/turf/open/hybrisa/street/sidewalk/west,
-/area/space)
-"aE" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/structure/machinery/light/small{
-	light_color = "#ff3b3b";
-	color = "#ff3b3b";
-	needs_power = 0;
-	name = "emergency lighting";
-	desc = "A small emergency light. Has an internal battery which should last for five hours."
-	},
-/turf/open/floor/prison/darkred2/north,
-/area/space)
-"aG" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/plating/plating_catwalk/prison,
-/area/space)
-"aN" = (
-/turf/open/floor/hybrisa/metal/yellow_warning_floor,
-/area/space)
-"bp" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner,
-/obj/item/ammo_magazine/rifle/rmc_f90,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"bH" = (
-/obj/item/ammo_box/magazine/l23/empty,
-/turf/open/hybrisa/street/sidewalk/west,
-/area/space)
-"bP" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 8
-	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 10
-	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+/obj/effect/decal/strata_decals/grime/grime4{
 	dir = 1
 	},
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/monkey_spawn,
+/turf/open/floor/hybrisa/tile/tilewhite,
+/area/lv733/indoors/main_complex/main_vestibule)
+"hq" = (
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 8;
+	icon_state = "stop_decal5"
+	},
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 4;
+	icon_state = "stop_decal5"
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/wy_complex_streets)
+"hI" = (
+/obj/structure/prop/hybrisa/fakeplatforms/platform4/deco{
+	dir = 8
+	},
+/turf/open/hybrisa/street/sidewalk/south,
+/area/lv733/outdoors/colony_streets/avenue)
+"hM" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/almayer/silver2/northwest,
+/area/lv733/indoors/main_complex/main_vestibule)
+"hP" = (
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 8;
+	icon_state = "stop_decal5";
+	pixel_y = -14
+	},
+/obj/structure/cargo_container/hybrisa/containersextended/medicalleft,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/outdoors/colony_streets/avenue)
+"hR" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_4";
+	layer = 3.2
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"hS" = (
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/wy_complex_streets)
+"hU" = (
+/obj/effect/decal/hybrisa/road/lines2{
+	pixel_y = 1;
+	color = "#f27e1f"
+	},
+/obj/item/shard,
+/obj/item/stack/rods{
+	amount = 15
+	},
+/turf/open/floor/almayer/silver2/south,
+/area/lv733/indoors/main_complex/main_vestibule)
+"hY" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/almayer_hull,
+/area/lv733/indoors/main_complex/main_vestibule)
+"hZ" = (
+/obj/structure/machinery/colony_floodlight/traffic{
+	dir = 8;
+	pixel_x = 8;
+	pixel_y = 12
+	},
+/obj/effect/decal/hybrisa/dirt_2,
+/turf/open/hybrisa/street/sidewalk/northwest,
+/area/lv733/outdoors/colony_streets/avenue)
+"ia" = (
+/obj/effect/decal/hybrisa/road/lines3{
+	pixel_y = -1;
+	color = "#f27e1f"
+	},
+/obj/structure/window/reinforced{
+	color = "#a6aeab"
+	},
+/turf/open/floor/almayer/silver2/northeast,
+/area/lv733/indoors/main_complex/main_vestibule)
+"id" = (
+/obj/structure/sign/poster/wylogo{
+	pixel_y = 32;
+	layer = 2.9;
+	pixel_x = 1
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"ii" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/obj/item/ammo_casing/bullet{
+	icon_state = "cartridge_6_1"
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"in" = (
+/obj/effect/decal/hybrisa/road/lines2{
+	pixel_y = 1;
+	color = "#f27e1f"
+	},
+/obj/item/trash/cigbutt{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/departure_reception)
+"iq" = (
+/obj/structure/roof/hybrisa/lattice_prop/lattice_3,
+/obj/effect/decal/hybrisa/road/road_stop{
+	icon_state = "stop_decal3";
+	pixel_y = -6
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"iH" = (
+/obj/item/ammo_casing/bullet,
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 6
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"iK" = (
+/obj/structure/roof/hybrisa/lattice_prop/lattice_1,
+/turf/closed/wall/hybrisa/colony,
+/area/lv733/indoors/main_complex/main_vestibule)
+"iT" = (
+/obj/item/card/id/visa,
+/obj/structure/machinery/light/double{
+	dir = 4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"iZ" = (
+/obj/effect/decal/hybrisa/dirt_2,
 /obj/effect/decal/hybrisa/trash{
 	icon_state = "trash_9"
 	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"bR" = (
-/obj/effect/decal/hybrisa/road/road_stop{
-	dir = 8;
-	icon_state = "stop_decal5"
-	},
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/hybrisa/metal/grated/north,
-/area/space)
-"bS" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/structure/machinery/power/power_generator/port_gen/pacman/super,
 /turf/open/hybrisa/street/sidewalkfull,
-/area/space)
-"cg" = (
-/turf/open/auto_turf/snow/brown_base/layer2,
-/area/space)
-"ci" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner,
-/obj/item/ammo_magazine/rifle/l23,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"cx" = (
-/obj/structure/flora/tree/tyrargo/tree_3{
-	pixel_y = 9
-	},
-/turf/open/auto_turf/snow/brown_base/layer0,
-/area/space)
-"cz" = (
+/area/lv733/outdoors/colony_streets/avenue)
+"je" = (
 /obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 6
+/turf/open/hybrisa/street/roadlines4,
+/area/lv733/indoors/main_complex/main_vestibule)
+"jh" = (
+/obj/effect/decal/hybrisa/road/lines2{
+	pixel_y = 1;
+	color = "#f27e1f"
 	},
-/obj/effect/decal/cleanable/generic,
-/turf/open/hybrisa/street/cement3,
-/area/space)
-"cD" = (
+/turf/closed/wall/hybrisa/colony,
+/area/lv733/indoors/main_complex/main_vestibule)
+"jq" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/outdoors/colony_streets/wy_complex_streets)
+"jv" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/structure/platform/metal/almayer,
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/structure/machinery/door/window/brigdoor/northleft{
+	dir = 2;
+	color = "#a6aeab"
+	},
+/turf/open/floor/almayer_hull/outerhull_dir_alt/north,
+/area/lv733/indoors/main_complex/main_vestibule)
+"jw" = (
 /obj/effect/decal/hybrisa/dirt,
-/obj/structure/barricade/plasteel/metal,
-/obj/effect/decal/large_stain,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"cO" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 1
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
 	},
-/turf/open/hybrisa/street/cement3,
-/area/space)
-"dd" = (
-/obj/structure/machinery/space_heater/radiator/red{
-	dir = 8;
-	pixel_y = 6;
-	pixel_x = 1
-	},
-/turf/open/floor/prison/floor_plate/southwest,
-/area/space)
-"dl" = (
-/obj/structure/fence/slim/dark,
-/turf/open/hybrisa/street/sidewalk/south,
-/area/space)
-"ds" = (
-/obj/structure/bed/chair/wood/normal{
-	dir = 8;
-	pixel_x = 7
-	},
-/obj/effect/decal/hybrisa/dirt_2,
-/turf/open/floor/hybrisa/tile/tileblackcheckered,
-/area/space)
-"dH" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 8
-	},
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"dO" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner,
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 1
-	},
-/obj/structure/largecrate/empty,
-/obj/structure/largecrate/random/mini{
-	layer = 4;
-	pixel_x = 1;
-	pixel_y = 14
-	},
-/turf/open/hybrisa/street/cement3,
-/area/space)
-"dR" = (
-/obj/structure/barricade/sandbags,
-/turf/open/auto_turf/snow/brown_base/layer0,
-/area/space)
-"dS" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/sidewalkcorner/north,
-/area/space)
-"eq" = (
-/obj/item/ammo_casing/bullet{
-	icon_state = "cartridge_9_1"
-	},
-/turf/open/hybrisa/street/sidewalk/northeast,
-/area/space)
-"eC" = (
-/turf/open/hybrisa/street/sidewalk/northeast,
-/area/space)
-"eJ" = (
-/obj/item/prop/alien/hugger,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"eV" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/structure/barricade/metal{
-	dir = 8
-	},
-/obj/structure/barricade/metal,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"fG" = (
-/turf/open/floor/prison/darkred2/northeast,
-/area/space)
-"ge" = (
 /obj/item/ammo_casing/bullet{
 	layer = 3.1;
 	pixel_x = 12
 	},
-/turf/open/floor/strata/multi_tiles/west,
-/area/space)
-"gg" = (
-/obj/structure/barricade/plasteel/metal,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"gu" = (
-/obj/structure/barricade/wooden{
-	dir = 4
-	},
-/obj/item/paper/crumpled{
-	pixel_x = 15;
-	pixel_y = -9
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"gE" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
-/turf/open/hybrisa/street/sidewalk/southwest,
-/area/space)
-"gG" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/roadlines4,
-/area/space)
-"gL" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/landmark/objective_landmark/close,
-/obj/structure/filingcabinet{
-	pixel_x = -8;
-	pixel_y = 18
-	},
-/obj/structure/filingcabinet{
-	pixel_x = 8;
-	pixel_y = 18
-	},
-/turf/open/floor/almayer/no_build/plating,
-/area/space)
-"gY" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 8
-	},
-/obj/item/ammo_magazine/rifle/l23{
-	current_rounds = 0
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"gZ" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/tiretrack{
-	pixel_x = -6
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"hf" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/sidewalk/southeast,
-/area/space)
-"hl" = (
-/obj/item/dartboard{
-	pixel_y = 29
-	},
-/obj/structure/machinery/space_heater/radiator/red{
-	dir = 4;
-	pixel_x = -1
-	},
-/turf/open/floor/hybrisa/tile/tileblackcheckered,
-/area/space)
-"hn" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 8
-	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/cleanable/blood/xeno{
-	pixel_x = 2;
-	pixel_y = 8
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"hr" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/structure/barricade/metal,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"hw" = (
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"hx" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 1
-	},
-/obj/effect/decal/hybrisa/dirt_2,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"hU" = (
-/obj/item/ammo_magazine/rifle/l23{
-	current_rounds = 0
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mgibbl4";
-	pixel_x = -7;
-	pixel_y = 4
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"ik" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 6
-	},
-/turf/open/hybrisa/street/roadlines4,
-/area/space)
-"ir" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/item/ammo_magazine/rifle/rmc_f90,
-/turf/open/floor/strata/multi_tiles/west,
-/area/space)
-"iO" = (
-/obj/structure/machinery/colony_floodlight,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"iT" = (
-/obj/effect/decal/hybrisa/dirt_2,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"iY" = (
-/turf/open/floor/prison/cell_stripe,
-/area/space)
-"iZ" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 4
-	},
-/turf/open/hybrisa/street/sidewalk/east,
-/area/space)
-"jd" = (
-/obj/structure/machinery/light/small{
-	dir = 8
-	},
-/turf/open/hybrisa/street/sidewalk/east,
-/area/space)
-"jk" = (
-/obj/item/stack/rods,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"jq" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 4
-	},
-/obj/effect/decal/hybrisa/dirt,
-/obj/item/ammo_magazine/rifle/l23{
-	current_rounds = 0
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"jr" = (
-/obj/item/paper/crumpled{
-	pixel_x = 15;
-	pixel_y = -9
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"jt" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/roadlines3,
-/area/space)
-"ju" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner,
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 4
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"jA" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/structure/machinery/light{
-	dir = 8
-	},
-/turf/open/hybrisa/street/sidewalk/south,
-/area/space)
-"jB" = (
-/obj/structure/window/framed/hybrisa/colony,
-/turf/open/floor/plating,
-/area/space)
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
 "jD" = (
-/turf/open/auto_turf/snow/brown_base/layer0,
-/area/space)
+/obj/structure/prop/hybrisa/fakeplatforms/platform4/deco{
+	dir = 4
+	},
+/obj/structure/roof/hybrisa/lattice_prop/lattice_6{
+	pixel_y = 16;
+	layer = 6
+	},
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 4
+	},
+/turf/open/hybrisa/street/sidewalk/east,
+/area/lv733/outdoors/colony_streets/avenue)
+"jG" = (
+/obj/structure/pipes/standard/manifold/hidden/dark,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
 "jK" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/prison/darkred2,
-/area/space)
-"jN" = (
-/obj/structure/fence/slim/dark/door{
-	dir = 4
+/obj/effect/decal/hybrisa/road/lines3{
+	pixel_y = -1;
+	color = "#f27e1f"
 	},
-/turf/open/hybrisa/street/cement3,
-/area/space)
-"ke" = (
-/turf/open/hybrisa/street/sidewalk/southeast,
-/area/space)
-"kl" = (
-/turf/open/hybrisa/street/sidewalk/north,
-/area/space)
-"ku" = (
-/obj/effect/decal/hybrisa/road/road_stop{
-	dir = 4;
-	icon_state = "stop_decal5"
-	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 4
+/obj/structure/machinery/door/window/brigdoor/northleft{
+	dir = 2;
+	color = "#a6aeab"
 	},
 /obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/hybrisa/metal/grated/north,
-/area/space)
-"kv" = (
 /obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/sidewalk/southwest,
-/area/space)
-"kw" = (
-/obj/structure/platform/metal/strata,
-/turf/open/hybrisa/street/sidewalkcorner/north,
-/area/space)
-"kH" = (
-/turf/open/hybrisa/street/sidewalk/southwest,
-/area/space)
-"kI" = (
-/obj/structure/surface/table/almayer,
-/obj/item/device/camera{
-	pixel_x = 4;
-	pixel_y = 8
-	},
-/obj/item/device/camera_film,
-/obj/item/storage/belt/shotgun/black/es7_mixed,
-/turf/open/floor/almayer/no_build/plating,
-/area/space)
-"kP" = (
-/obj/structure/machinery/light/small,
-/turf/open/hybrisa/street/sidewalk/northeast,
-/area/space)
-"kX" = (
-/obj/effect/decal/hybrisa/trash{
-	icon_state = "trash_5"
-	},
-/obj/structure/bed/chair/office/light,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/prison/floor_plate/southwest,
-/area/space)
-"lg" = (
-/obj/effect/decal/cleanable/blood{
-	icon_state = "xgib2"
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"lj" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 5
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"lo" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/item/ammo_magazine/rifle/l23{
-	current_rounds = 0
-	},
-/turf/open/hybrisa/street/cement3,
-/area/space)
-"lq" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 1
-	},
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/plating/plating_catwalk/prison,
-/area/space)
-"lt" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 9
-	},
-/obj/effect/decal/strata_decals/grasses,
-/turf/open/auto_turf/snow/brown_base/layer0,
-/area/space)
-"lW" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/item/stack/sheet/cardboard{
-	layer = 1
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"mb" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 6
-	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 8
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"me" = (
-/obj/structure/bed/chair/wood/normal,
-/obj/structure/machinery/light/small{
-	dir = 8
-	},
-/turf/open/floor/hybrisa/tile/tileblackcheckered,
-/area/space)
-"mf" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/item/ammo_magazine/rifle/rmc_f90,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"mo" = (
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"jR" = (
 /obj/effect/decal/hybrisa/road/road_stop{
 	dir = 8;
 	icon_state = "stop_decal5"
 	},
-/turf/open/floor/hybrisa/metal/grated/north,
-/area/space)
-"ms" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 6
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 4;
+	icon_state = "stop_decal5"
 	},
-/obj/effect/decal/hybrisa/dirt_2,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"mA" = (
-/obj/structure/machinery/big_computers/computerblack/computer1,
-/turf/open/shuttle/escapepod/floor1/west,
-/area/space)
-"mD" = (
-/obj/item/stack/sheet/cardboard{
-	layer = 1
-	},
-/turf/open/hybrisa/street/cement3,
-/area/space)
-"mK" = (
-/obj/item/ammo_magazine/rifle/l23{
-	current_rounds = 0
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"mS" = (
-/obj/structure/machinery/light/small{
-	dir = 4
-	},
-/obj/structure/barricade/metal,
-/turf/open/hybrisa/street/sidewalk/west,
-/area/space)
-"mT" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/sidewalk/west,
-/area/space)
-"nb" = (
-/obj/structure/machinery/door/airlock/multi_tile/hybrisa/generic_solid,
-/obj/structure/pipes/standard/simple/hidden/dark,
-/turf/open/floor/strata/multi_tiles/southeast,
-/area/space)
-"nc" = (
-/obj/structure/barricade/plasteel/metal,
-/obj/effect/decal/cleanable/blood,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"ng" = (
-/obj/structure/prop/hybrisa/misc/buildinggreebliessmall/smallvent3{
-	pixel_y = 28;
-	pixel_x = 20
-	},
-/turf/closed/wall/hybrisa/colony,
-/area/space)
-"no" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 4
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"nv" = (
-/obj/item/ammo_casing/bullet{
-	icon_state = "cartridge_9_1"
-	},
-/turf/open/auto_turf/snow/brown_base/layer0,
-/area/space)
-"nA" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/structure/largecrate/random/barrel/brown,
-/turf/open/hybrisa/street/sidewalkcorner/west,
-/area/space)
-"nW" = (
-/obj/structure/barricade/metal,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/sidewalk/west,
-/area/space)
-"oe" = (
-/obj/structure/showcase{
-	breakable = 1;
-	density = 0;
-	desc = null;
-	icon_state = "igniter0";
-	name = "floor panel"
-	},
-/turf/open/floor/corsat,
-/area/space)
-"oq" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/cleanable/blood/xeno{
-	icon_state = "xsplatter4"
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"os" = (
-/obj/structure/flora/tree/tyrargo/tree_3{
-	pixel_y = 9
-	},
-/obj/structure/barricade/sandbags,
-/turf/open/auto_turf/snow/brown_base/layer0,
-/area/space)
-"ov" = (
-/obj/item/prop/colony/used_flare,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"ow" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 10
-	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 5
-	},
-/obj/effect/decal/strata_decals/grasses,
-/turf/open/hybrisa/street/underground_unweedable,
-/area/space)
-"oD" = (
-/obj/effect/decal{
-	icon = 'icons/mob/xenos/effects.dmi';
-	icon_state = "acid_weak";
-	name = "weak acid"
-	},
-/obj/item/stack/rods,
-/turf/open/floor/strata/multi_tiles/west,
-/area/space)
-"oE" = (
-/obj/structure/bed/chair/wood/normal{
-	dir = 4
-	},
-/obj/effect/decal/hybrisa/dirt_2,
-/turf/open/floor/hybrisa/tile/tileblackcheckered,
-/area/space)
-"oZ" = (
-/obj/structure/fence/slim/dark,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"jT" = (
 /turf/open/hybrisa/street/sidewalk/north,
-/area/space)
-"pe" = (
-/obj/effect/decal/cleanable/blood{
-	icon_state = "xgib1"
+/area/lv733/outdoors/colony_streets/avenue)
+"jU" = (
+/obj/effect/decal/hybrisa/road/lines3{
+	pixel_y = -1;
+	color = "#f27e1f"
 	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"pf" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "xgib2"
+/obj/structure/machinery/door/window/brigdoor/northleft{
+	dir = 2;
+	color = "#a6aeab"
 	},
-/obj/effect/decal/cleanable/blood/xeno{
-	icon_state = "xgib6"
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"pq" = (
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"jZ" = (
 /obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 10
+/obj/structure/machinery/light/double,
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
 	},
-/turf/open/hybrisa/street/cement3,
-/area/space)
-"pK" = (
-/turf/open/floor/plating/plating_catwalk/prison,
-/area/space)
-"pL" = (
-/obj/structure/machinery/big_computers/messaging_server/black,
-/obj/structure/machinery/light/small{
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"kg" = (
+/obj/effect/decal/hybrisa/WY/WY1{
 	dir = 1
 	},
-/turf/open/shuttle/escapepod/floor1/west,
-/area/space)
-"pS" = (
 /obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/tiretrack{
-	pixel_x = -6
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"kt" = (
+/obj/structure/machinery/space_heater/radiator/red{
+	dir = 4;
+	pixel_y = 7
 	},
-/turf/open/hybrisa/street/cement3,
-/area/space)
-"pV" = (
-/obj/structure/machinery/door/airlock/multi_tile/hybrisa/generic_solid{
-	dir = 2
-	},
-/turf/open/floor/strata/multi_tiles/west,
-/area/space)
-"pX" = (
-/obj/effect/decal/large_stain,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"qd" = (
-/obj/structure/prop/hybrisa/misc/buildinggreebliessmall/smallvent3{
-	pixel_y = 28
-	},
-/obj/structure/machinery/disposal,
-/obj/item/tool/mop{
-	pixel_x = -16;
-	pixel_y = 26
-	},
-/turf/open/floor/hybrisa/tile/tilewhitecheckered,
-/area/space)
-"qg" = (
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"ku" = (
 /obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/departure_reception)
+"kC" = (
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 8;
+	icon_state = "stop_decal5"
+	},
+/turf/open/floor/almayer_hull,
+/area/lv733/indoors/main_complex/main_vestibule)
+"kI" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/structure/platform/metal/almayer/north,
+/obj/item/stack/rods{
+	amount = 15
+	},
+/turf/open/floor/almayer_hull/outerhull_dir_alt/north,
+/area/lv733/indoors/main_complex/main_vestibule)
+"kN" = (
+/obj/structure/bed/chair/office/light{
+	dir = 1;
+	pixel_y = 6;
+	layer = 2.7
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/blue_grey,
+/area/lv733/indoors/main_complex/departure_reception)
+"kS" = (
+/obj/structure/prop/hybrisa/fakeplatforms/platform4/deco{
+	dir = 1
+	},
 /obj/effect/decal/strata_decals/tyrargo_mud_corner{
 	dir = 4
 	},
+/turf/open/hybrisa/street/sidewalkfull,
+/area/lv733/outdoors/colony_streets/avenue)
+"kT" = (
+/obj/structure/flora/bush/ausbushes/var3/fullgrass,
+/obj/structure/flora/bush/ausbushes/lavendergrass,
+/obj/structure/window/reinforced{
+	color = "#a6aeab";
+	pixel_y = -4
+	},
+/obj/structure/prop/ice_colony/dense/planter_box,
+/turf/open/auto_turf/tyrargo_grass/layer0,
+/area/lv733/indoors/main_complex/main_vestibule)
+"kX" = (
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/obj/item/ammo_casing/bullet{
+	layer = 3.1;
+	pixel_x = 12
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"lk" = (
+/obj/structure/machinery/colony_floodlight/street{
+	pixel_y = 12
+	},
+/obj/effect/decal/hybrisa/dirt_2,
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/avenue)
+"lr" = (
+/obj/structure/roof/hybrisa/lattice_prop/lattice_3,
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = 11
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"lR" = (
+/obj/structure/machinery/light/double,
+/obj/item/ammo_casing/bullet,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"lX" = (
+/obj/effect/decal/hybrisa/road/lines4{
+	pixel_x = 1;
+	color = "#f27e1f"
+	},
+/obj/structure/noticeboard{
+	pixel_y = 34;
+	pixel_x = -1
+	},
+/obj/structure/noticeboard{
+	pixel_y = 33;
+	icon_state = "notices_8";
+	desc = null;
+	name = "sticky notes"
+	},
+/obj/structure/pipes/vents/pump_hybrisa,
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/flora/pottedplant{
+	icon_state = "pottedplant_17";
+	pixel_y = 13
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/departure_reception)
+"lZ" = (
+/obj/item/weapon/gun/smg/mp5/mp5a5,
+/obj/item/ammo_magazine/smg/mp5{
+	pixel_y = 6;
+	pixel_x = 4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"md" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 8
+	},
+/obj/effect/landmark/nightmare{
+	insert_tag = "rac_post"
+	},
 /turf/open/hybrisa/street/cement1,
-/area/space)
-"qt" = (
+/area/lv733/outdoors/colony_streets/avenue)
+"ms" = (
+/obj/effect/decal/hybrisa/road/lines2{
+	pixel_y = 1;
+	color = "#f27e1f"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_magazine/rifle/heap{
+	current_rounds = 0
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"mt" = (
+/turf/open/hybrisa/street/sidewalkfull,
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
+"mG" = (
+/obj/structure/prop/hybrisa/misc/machinery/screens/telescreenbrokespark{
+	pixel_y = 32
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"mW" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner,
+/turf/open/hybrisa/street/sidewalk/south,
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
+"mX" = (
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/main_complex/main_vestibule)
+"nn" = (
+/obj/structure/prop/hybrisa/fakeplatforms/platform4{
+	dir = 1
+	},
+/obj/structure/roof/hybrisa/lattice_prop/lattice_3,
+/turf/open/hybrisa/street/sidewalk/south,
+/area/lv733/outdoors/colony_streets/avenue)
+"np" = (
+/turf/open/hybrisa/street/roadlines4,
+/area/lv733/indoors/main_complex/main_vestibule)
+"nq" = (
+/obj/item/trash/c_tube{
+	pixel_x = -5;
+	pixel_y = 9
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"nr" = (
+/obj/effect/decal/hybrisa/road/lines2{
+	pixel_y = 1;
+	color = "#f27e1f"
+	},
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 10
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/departure_reception)
+"nM" = (
+/obj/effect/decal/hybrisa/dirt,
 /obj/structure/pipes/standard/simple/hidden/dark{
 	dir = 9
 	},
-/obj/item/ammo_casing/bullet{
-	layer = 3.1;
-	pixel_x = 12
+/turf/open/floor/plating,
+/area/lv733/indoors/main_complex/technical_operations)
+"ob" = (
+/obj/structure/surface/table/reinforced/prison{
+	color = "#b7b8b2"
 	},
-/turf/open/floor/strata/multi_tiles/west,
-/area/space)
-"qE" = (
-/obj/structure/machinery/light/small{
-	light_color = "#ff3b3b";
-	color = "#ff3b3b";
-	needs_power = 0;
-	dir = 1;
-	name = "emergency lighting";
-	desc = "A small emergency light. Has an internal battery which should last for five hours."
-	},
-/turf/open/floor/prison/darkred2/southeast,
-/area/space)
-"qZ" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 4
-	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 8
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"rl" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 1
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"rn" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/tiretrack{
-	pixel_x = -6
-	},
-/turf/open/floor/prison/cell_stripe/north,
-/area/space)
-"rr" = (
-/obj/structure/surface/table/reinforced/cloth{
-	color = "#343538"
-	},
-/obj/item/trash/candle{
-	pixel_x = 3;
+/obj/item/weapon/gun/smg/nailgun/compact{
 	pixel_y = 3
 	},
-/obj/item/reagent_container/food/drinks/bottle/whiskey{
-	pixel_y = 15
-	},
-/turf/open/floor/hybrisa/tile/tileblackcheckered,
-/area/space)
-"rx" = (
+/turf/open/floor/plating,
+/area/lv733/indoors/main_complex/technical_operations)
+"oi" = (
 /obj/effect/decal/hybrisa/dirt,
-/obj/item/stack/sheet/cardboard{
-	layer = 1
+/turf/open/hybrisa/street/sidewalkfull,
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
+"oo" = (
+/obj/effect/decal/hybrisa/road/lines4{
+	pixel_x = 1;
+	color = "#f27e1f"
 	},
+/obj/item/trash/cigbutt{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/obj/structure/pipes/standard/simple/hidden/dark,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/departure_reception)
+"ou" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 11
+	},
+/obj/effect/decal/strata_decals/grime/grime4{
+	icon_state = "grime3";
+	pixel_x = -10;
+	pixel_y = -2
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/tile/tilewhite,
+/area/lv733/indoors/main_complex/main_vestibule)
+"oM" = (
+/obj/structure/machinery/light/double{
+	dir = 8;
+	pixel_y = -5
+	},
+/turf/open/hybrisa/street/sidewalk/northeast,
+/area/lv733/outdoors/colony_streets/avenue)
+"oN" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = -4
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"oR" = (
+/obj/structure/machinery/door/airlock/multi_tile/hybrisa/generic/autoname{
+	dir = 1
+	},
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/main_complex/main_vestibule)
+"oV" = (
+/obj/structure/barricade/handrail{
+	dir = 4
+	},
+/obj/structure/roof/hybrisa/billboardsandsigns/billboardsmedium/billboard2{
+	pixel_y = 32;
+	pixel_x = -16
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/blue_grey,
+/area/lv733/indoors/main_complex/main_vestibule)
+"oX" = (
+/obj/effect/decal/hybrisa/road/lines3{
+	pixel_y = -1;
+	color = "#f27e1f"
+	},
+/obj/structure/machinery/door/window/brigdoor/northleft{
+	dir = 2;
+	color = "#a6aeab"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"pg" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/flora/pottedplant{
+	icon_state = "pottedplant_29";
+	pixel_y = 6;
+	layer = 3.4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"po" = (
 /obj/effect/decal/hybrisa/trash{
-	icon_state = "trash_4";
-	pixel_x = -8;
+	icon_state = "trash_4"
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/blue_grey,
+/area/lv733/indoors/main_complex/departure_reception)
+"pt" = (
+/obj/effect/decal/hybrisa/road/lines2{
+	pixel_y = 1;
+	color = "#f27e1f"
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"pH" = (
+/obj/structure/pipes/standard/manifold/hidden/dark{
+	dir = 8
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"pP" = (
+/turf/closed/wall/hybrisa/colony,
+/area/lv733/indoors/main_complex/technical_operations)
+"pS" = (
+/obj/item/storage/briefcase{
 	pixel_y = 12
 	},
-/turf/open/hybrisa/street/sidewalkfull,
-/area/space)
-"rP" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/sidewalkfull,
-/area/space)
-"rS" = (
-/obj/structure/barricade/plasteel/metal,
-/obj/item/ammo_casing/bullet{
-	icon_state = "cartridge_9_1"
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_2";
+	pixel_y = 12
 	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"rT" = (
-/obj/effect/decal/cleanable/blood{
-	icon_state = "xgib1"
+/obj/effect/landmark/objective_landmark/close,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"pT" = (
+/obj/effect/decal/hybrisa/road/road_stop,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/wy_complex_streets)
+"qc" = (
+/obj/structure/flora/bush/ausbushes/var3/fullgrass,
+/obj/structure/window/reinforced{
+	dir = 4;
+	pixel_y = 4;
+	color = "#a6aeab"
 	},
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/prison/floor_plate/southwest,
-/area/space)
-"rV" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/prison/cell_stripe/west,
-/area/space)
-"sd" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 6
-	},
-/obj/item/weapon/gun/rifle/rmc_f90,
-/obj/effect/decal/cleanable/blood,
-/obj/effect/spawner/gibspawner/human,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"se" = (
-/obj/structure/machinery/vending/cigarette/koorlander{
-	pixel_x = 3;
-	pixel_y = 21
-	},
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/strata/multi_tiles/west,
-/area/space)
-"si" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/prison/cell_stripe/east,
-/area/space)
-"st" = (
-/obj/structure/machinery/light/small,
-/turf/open/hybrisa/street/sidewalk/northwest,
-/area/space)
-"sN" = (
-/obj/structure/surface/table/reinforced/prison{
-	color = "#848484"
+/obj/structure/prop/ice_colony/dense/planter_box,
+/turf/open/auto_turf/tyrargo_grass/layer0,
+/area/lv733/indoors/main_complex/main_vestibule)
+"qn" = (
+/obj/structure/surface/table/reinforced/black,
+/obj/item/tool/pen/blue{
+	pixel_x = -6;
+	pixel_y = 6
 	},
 /obj/structure/window/reinforced{
 	dir = 4;
 	layer = 3.3;
 	color = "#a6aeab"
 	},
-/obj/item/paper_bin{
-	pixel_x = 6;
+/obj/item/reagent_container/food/snacks/donkpocket{
+	pixel_y = 2
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/blue_grey,
+/area/lv733/indoors/main_complex/departure_reception)
+"qp" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/pipes/vents/pump_hybrisa,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"qv" = (
+/turf/open/hybrisa/street/sidewalk/east,
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
+"qw" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 4
+	},
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 1
+	},
+/obj/structure/flora/tree/tyrargo/tree_3{
 	pixel_y = 9
 	},
-/obj/item/tool/pen/blue{
-	pixel_x = -9;
-	pixel_y = -2
-	},
-/turf/open/floor/prison/darkred2/north,
-/area/space)
-"sP" = (
-/turf/open/auto_turf/tyrargo_grass/layer0_mud,
-/area/space)
-"sQ" = (
-/obj/effect/decal/hybrisa/dirt_2,
-/obj/item/ammo_casing/bullet{
-	icon_state = "cartridge_9_1"
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"sS" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 8
-	},
-/turf/open/floor/plating/plating_catwalk/prison,
-/area/space)
-"sT" = (
-/obj/structure/barricade/sandbags,
-/obj/structure/prop/tyrargo/boards/boards_1{
-	dir = 4;
-	pixel_y = 20
-	},
-/turf/open/auto_turf/snow/brown_base/layer0,
-/area/space)
-"tb" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/roadlines4,
-/area/space)
-"tn" = (
-/obj/item/tool/warning_cone{
-	pixel_x = -19;
-	pixel_y = 23
-	},
-/obj/item/stack/sheet/metal,
-/turf/open/hybrisa/street/cement3,
-/area/space)
-"tB" = (
-/obj/effect/decal/hybrisa/dirt_2,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"tD" = (
-/obj/item/ammo_casing/bullet{
-	icon_state = "cartridge_9_1"
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"tI" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/strata_decals/tyrargo_mud_corner,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"tJ" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 6
-	},
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/plating/plating_catwalk/prison,
-/area/space)
-"tM" = (
-/obj/structure/barricade/sandbags,
-/obj/item/ammo_casing/bullet{
-	icon_state = "cartridge_9_1"
-	},
-/turf/open/auto_turf/tyrargo_grass/layer0_mud,
-/area/space)
-"tO" = (
-/obj/item/ammo_box/magazine/l23/empty,
-/turf/open/hybrisa/street/sidewalk/north,
-/area/space)
-"tZ" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "xgib1"
-	},
-/obj/effect/spawner/gibspawner/xeno,
-/turf/open/hybrisa/street/cement3,
-/area/space)
-"ur" = (
-/obj/structure/prop/hybrisa/misc/buildinggreebliessmall/smallvent3{
-	pixel_y = 28
-	},
-/obj/structure/surface/table/almayer,
-/obj/structure/closet/crate/freezer{
-	pixel_y = 8
-	},
-/obj/item/reagent_container/food/snacks/meat/monkey{
-	pixel_x = 2;
-	pixel_y = -6
-	},
-/obj/structure/prop/hybrisa/misc/metergreen{
-	pixel_y = 32
-	},
-/obj/structure/machinery/light{
-	dir = 8
-	},
-/turf/open/floor/hybrisa/tile/tilewhitecheckered/blue,
-/area/space)
-"uy" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/structure/pipes/standard/simple/hidden/dark{
-	dir = 4
-	},
-/obj/structure/machinery/light/small,
-/turf/open/shuttle/escapepod/floor0/east,
-/area/space)
-"uP" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/closed/wall/hybrisa/spaceport/reinforced,
-/area/space)
-"uS" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/strata_decals/tyrargo_mud_corner,
-/obj/item/stack/rods,
-/turf/open/hybrisa/street/cement3,
-/area/space)
-"vD" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 5
-	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 10
-	},
 /obj/effect/decal/strata_decals/grasses,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/underground_unweedable,
-/area/space)
-"vV" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/structure/largecrate/random/barrel/black,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"vX" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 1
-	},
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/roadlines4,
-/area/space)
-"wc" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/sidewalk/south,
-/area/space)
-"wj" = (
-/obj/item/storage/box/tapes{
-	pixel_x = -6;
-	pixel_y = 6
-	},
-/obj/structure/surface/table/almayer,
-/obj/item/storage/box/teabags,
-/turf/open/shuttle/escapepod/floor0/north,
-/area/space)
-"wq" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 8
-	},
-/obj/structure/barricade/metal,
-/turf/open/hybrisa/street/sidewalk/west,
-/area/space)
-"ws" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/trash{
-	icon_state = "trash_6";
-	pixel_y = 12
-	},
-/turf/open/hybrisa/street/sidewalk/southeast,
-/area/space)
-"wU" = (
-/turf/open/floor/prison/cell_stripe/west,
-/area/space)
-"xa" = (
-/obj/effect/decal/hybrisa/trash{
-	icon_state = "trash_7"
-	},
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/sidewalk/south,
-/area/space)
-"xb" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"xd" = (
-/obj/effect/decal/hybrisa/dirt_2,
-/turf/open/hybrisa/street/sidewalkfull,
-/area/space)
-"xo" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/sidewalk/north,
-/area/space)
-"xA" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/item/tool/shovel,
-/obj/effect/spawner/random/toolbox{
-	pixel_y = 12
-	},
-/obj/item/device/flashlight/lantern,
-/obj/effect/decal/cleanable/dirt/alt_dirt/goo,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/sidewalkfull,
-/area/space)
-"xJ" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 4
-	},
-/obj/effect/decal/hybrisa/trash{
-	icon_state = "trash_6";
-	pixel_y = 12
-	},
-/obj/item/prop/colony/used_flare,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"xN" = (
-/obj/structure/prop/tyrargo/boards/boards_1{
-	pixel_x = -2;
-	dir = 1;
-	pixel_y = 12
-	},
 /turf/open/auto_turf/snow/brown_base/layer0,
-/area/space)
-"xO" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/cement3,
-/area/space)
-"xP" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 1
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"yl" = (
-/obj/structure/surface/table/almayer,
-/obj/item/folder/black,
-/obj/effect/decal/hybrisa/trash{
-	pixel_y = 22;
-	pixel_x = 12
-	},
-/obj/item/clothing/under/marine/veteran/royal_marine/lv733/roaf_shooter,
-/turf/open/floor/almayer/no_build/plating,
-/area/space)
-"yE" = (
-/obj/effect/decal/hybrisa/trash{
-	icon_state = "trash_10";
-	pixel_y = 12
-	},
-/turf/open/floor/almayer/no_build/plating,
-/area/space)
-"yN" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/item/ammo_magazine/rifle/l23{
-	current_rounds = 0
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"yP" = (
-/obj/effect/decal/hybrisa/tiretrack{
-	dir = 4;
-	pixel_y = 7
-	},
-/obj/item/prop/colony/used_flare,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"zj" = (
-/obj/structure/barricade/wooden{
-	dir = 4
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"zk" = (
-/obj/item/shard{
-	icon_state = "medium"
-	},
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/strata/multi_tiles/west,
-/area/space)
-"zm" = (
-/obj/structure/showcase{
-	breakable = 1;
-	density = 0;
-	desc = null;
-	icon_state = "igniter0";
-	name = "floor panel"
-	},
-/obj/structure/reagent_dispensers/tank/fuel/spacecraft,
-/turf/open/floor/corsat,
-/area/space)
-"zu" = (
-/obj/item/ammo_casing/bullet{
-	icon_state = "cartridge_3_1"
-	},
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/sidewalk/west,
-/area/space)
-"zy" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/structure/barricade/metal{
-	dir = 8
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"zG" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner,
-/obj/effect/decal/strata_decals/tyrargo_mud_corner,
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 10
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"zZ" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/structure/machinery/light/small{
-	dir = 8
-	},
-/turf/open/hybrisa/street/sidewalk/east,
-/area/space)
-"Ah" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 4
-	},
-/obj/item/shard{
-	icon_state = "medium"
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Ao" = (
-/obj/item/stack/rods,
-/obj/structure/flora/pottedplant{
-	icon_state = "pottedplant_29";
-	pixel_y = 9;
-	pixel_x = 5
-	},
-/obj/effect/decal/hybrisa/dirt,
-/obj/structure/machinery/light{
-	dir = 4
-	},
-/turf/open/floor/prison/floor_plate/southwest,
-/area/space)
-"AN" = (
-/obj/structure/machinery/camera/autoname,
-/turf/open/hybrisa/street/sidewalk/south,
-/area/space)
-"AO" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/landmark/objective_landmark/close,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"AP" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 8
-	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 5
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"AU" = (
-/obj/structure/roof/hybrisa/billboardsandsigns/billboardsmedium/billboard4{
-	pixel_y = 3
-	},
-/turf/closed/wall/hybrisa/colony,
-/area/space)
-"AX" = (
-/turf/open/floor/prison/darkred2,
-/area/space)
-"Bd" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/auto_turf/snow/brown_base/layer2,
-/area/space)
-"BL" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/sidewalk/northwest,
-/area/space)
-"Cq" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 8
-	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"CE" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 6
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"CM" = (
-/turf/open/hybrisa/street/roadlines4,
-/area/space)
-"CZ" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 9
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Db" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 8
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Dc" = (
-/obj/structure/machinery/light/small,
-/turf/open/shuttle/escapepod/floor1/east,
-/area/space)
-"Di" = (
-/obj/effect/decal/hybrisa/road/road_stop{
-	dir = 8;
-	icon_state = "stop_decal5"
-	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 8
-	},
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/hybrisa/metal/grated/north,
-/area/space)
-"Dj" = (
-/obj/structure/filingcabinet{
-	density = 0;
-	pixel_x = -8;
-	pixel_y = 18
-	},
-/turf/open/shuttle/escapepod/floor1/west,
-/area/space)
-"Dn" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/structure/pipes/standard/simple/hidden/dark,
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
+"qx" = (
+/obj/structure/roof/hybrisa/lattice_prop/lattice_3,
+/obj/effect/decal/hybrisa/dirt_2,
 /turf/open/floor/hybrisa/metal/yellow_warning_floor,
-/area/space)
-"Dp" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 8
-	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner,
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 10
-	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 1
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Dr" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/strata/multi_tiles/southeast,
-/area/space)
-"DD" = (
-/turf/open/hybrisa/street/sidewalk/northwest,
-/area/space)
-"DR" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"DT" = (
-/turf/open/floor/strata/multi_tiles/southeast,
-/area/space)
-"Ef" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/structure/showcase{
-	breakable = 1;
-	density = 0;
-	desc = null;
-	icon_state = "igniter0";
-	name = "floor panel"
-	},
-/turf/open/floor/corsat,
-/area/space)
-"Eh" = (
-/obj/structure/platform_decoration/metal/strata,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/sidewalk/northwest,
-/area/space)
-"En" = (
-/obj/effect/decal/hybrisa/dirt_2,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "xgib1"
-	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 8
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"EE" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 8
-	},
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/plating/plating_catwalk/prison,
-/area/space)
-"Fa" = (
-/turf/open/hybrisa/street/cement3,
-/area/space)
-"Fd" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/structure/prop/hybrisa/misc/fake/lattice/full,
-/obj/structure/grille,
-/turf/open/floor/plating/platingdmg3,
-/area/space)
-"Fm" = (
-/turf/open/hybrisa/street/roadlines3,
-/area/space)
-"Fn" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/landmark/nightmare{
-	insert_tag = "clfbar"
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Fw" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/sidewalk/northeast,
-/area/space)
-"FF" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/landmark/yautja_teleport,
-/turf/open/hybrisa/street/sidewalkfull,
-/area/space)
-"FK" = (
-/obj/item/ammo_casing/bullet{
-	icon_state = "casing_1_1"
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"FZ" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/almayer/no_build/plating,
-/area/space)
-"Ga" = (
-/turf/closed/wall/hybrisa/spaceport,
-/area/space)
-"Go" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 1
-	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 9
-	},
-/obj/effect/decal/strata_decals/grasses,
-/turf/open/auto_turf/snow/brown_base/layer0,
-/area/space)
-"GG" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner,
-/obj/effect/spawner/gibspawner/xeno,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"GO" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/hybrisa/tile/tilewhitecheckered,
-/area/space)
-"GY" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/structure/machinery/colony_floodlight,
-/turf/open/hybrisa/street/sidewalk/north,
-/area/space)
-"Ha" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/blood,
-/turf/open/hybrisa/street/cement3,
-/area/space)
-"Hc" = (
-/turf/open/floor/prison/darkred2/southwest,
-/area/space)
-"Hf" = (
-/obj/structure/device/broken_piano,
-/turf/open/floor/hybrisa/tile/tileblackcheckered,
-/area/space)
-"Hj" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Hk" = (
-/obj/item/ammo_casing/bullet,
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 4
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Hp" = (
-/turf/open/floor/almayer/no_build/plating,
-/area/space)
-"HB" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/tiretrack{
-	pixel_x = -6
-	},
-/turf/open/floor/prison/cell_stripe/north,
-/area/space)
-"HC" = (
-/obj/item/shard{
-	icon_state = "medium"
-	},
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"HE" = (
-/obj/item/ammo_casing/bullet{
-	icon_state = "casing_1_1"
-	},
-/obj/item/device/flashlight/flare/on{
-	fuel_rate = 2.5
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"HF" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Ia" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/sidewalk/east,
-/area/space)
-"Ie" = (
-/obj/structure/window_frame/hybrisa/spaceport,
-/obj/item/shard{
-	icon_state = "medium"
-	},
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/strata/multi_tiles/west,
-/area/space)
-"Ip" = (
-/turf/open/shuttle/escapepod/floor1/east,
-/area/space)
-"IC" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/item/ammo_casing/bullet,
-/obj/effect/landmark/corpsespawner/hybrisa/civilian_office,
-/obj/effect/decal/cleanable/blood,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"II" = (
-/obj/structure/window/framed/hybrisa/spaceport,
-/obj/structure/machinery/door/poddoor/hybrisa/open_shutters{
-	dir = 4
-	},
-/turf/open/floor/strata/multi_tiles/west,
-/area/space)
-"IT" = (
-/obj/structure/prop/hybrisa/misc/buildinggreebliessmall/smallvent3{
-	pixel_y = 28;
-	pixel_x = 20
-	},
-/obj/structure/closet/secure_closet/freezer/meat,
-/obj/structure/machinery/meter{
-	pixel_y = 32
-	},
-/turf/open/floor/hybrisa/tile/tilewhitecheckered,
-/area/space)
-"IW" = (
-/obj/effect/decal/hybrisa/road/road_stop{
-	dir = 8;
-	icon_state = "stop_decal5"
-	},
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/hybrisa/metal/grated/north,
-/area/space)
-"IX" = (
-/turf/open/hybrisa/street/sidewalk/south,
-/area/space)
-"IZ" = (
-/obj/structure/bed/chair/office/light{
-	dir = 1;
-	pixel_y = 6
-	},
-/turf/open/floor/prison/floor_plate/southwest,
-/area/space)
-"Ja" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 8
-	},
-/turf/open/hybrisa/street/cement3,
-/area/space)
-"Jf" = (
-/obj/item/ammo_casing/bullet,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Jl" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 10
-	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 1
-	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 4
-	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 9
-	},
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/trash{
-	icon_state = "trash_6";
-	pixel_y = 12
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Jw" = (
-/obj/structure/machinery/colony_floodlight,
-/turf/open/hybrisa/street/sidewalk/southwest,
-/area/space)
-"JB" = (
-/obj/structure/surface/table/reinforced/cloth{
-	color = "#343538"
-	},
-/obj/item/trash/candle{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/reagent_container/food/condiment/saltshaker{
-	pixel_x = -5;
-	pixel_y = 11
-	},
-/obj/item/reagent_container/food/condiment/peppermill{
-	pixel_x = -7;
-	pixel_y = 7
-	},
-/turf/open/floor/hybrisa/tile/tileblackcheckered,
-/area/space)
-"JE" = (
-/turf/open/floor/hybrisa/metal/grated/north,
-/area/space)
-"JF" = (
-/obj/structure/machinery/light{
-	dir = 8
-	},
-/turf/open/hybrisa/street/sidewalk/northeast,
-/area/space)
-"JG" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 8
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"JH" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/roadlines3,
-/area/space)
-"JQ" = (
-/obj/effect/decal/hybrisa/dirt_2,
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 1
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"JT" = (
-/obj/effect/decal/hybrisa/colorable_rug{
-	color = "#3d3d3d";
-	pixel_x = 2;
-	name = "rubber mat";
-	pixel_y = -1
-	},
-/obj/structure/machinery/vending/coffee{
-	pixel_y = 16;
-	pixel_x = 3
-	},
-/turf/open/floor/strata/multi_tiles/west,
-/area/space)
-"Kb" = (
-/obj/item/ammo_casing/bullet{
-	icon_state = "cartridge_3_1"
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Kd" = (
-/obj/structure/barricade/sandbags,
-/turf/open/auto_turf/snow/brown_base/layer2,
-/area/space)
-"Kv" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/item/ammo_casing/bullet,
-/obj/structure/largecrate/random/barrel/black,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"KA" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 8
-	},
-/turf/open/hybrisa/street/sidewalk/west,
-/area/space)
-"Lg" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 1
-	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 8
-	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 6
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Lh" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/strata_decals/tyrargo_mud_corner,
-/obj/item/ammo_casing/bullet,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"LG" = (
-/turf/open/floor/hybrisa/tile/tileblackcheckered,
-/area/space)
-"LH" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/hybrisa/metal/grated/north,
-/area/space)
-"LT" = (
+/area/lv733/outdoors/colony_streets/avenue)
+"qz" = (
 /obj/structure/pipes/standard/simple/hidden/dark{
 	dir = 10
 	},
-/turf/open/shuttle/escapepod/floor1/east,
-/area/space)
-"LU" = (
-/turf/open/floor/prison/darkred2/north,
-/area/space)
-"LZ" = (
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"qE" = (
 /obj/effect/decal/hybrisa/dirt,
-/obj/structure/prop/ice_colony/surveying_device/measuring_device{
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"qH" = (
+/obj/structure/toilet{
 	dir = 4;
-	layer = 5
+	pixel_y = 6
 	},
-/obj/structure/barricade/handrail/hybrisa/road/plastic/red{
-	dir = 8
-	},
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/sidewalkfull,
-/area/space)
-"Mg" = (
-/obj/structure/bed/chair/wood/normal{
-	dir = 4
-	},
-/turf/open/floor/hybrisa/tile/tileblackcheckered,
-/area/space)
-"Mi" = (
-/turf/open/hybrisa/street/sidewalkcorner/west,
-/area/space)
-"Mn" = (
-/turf/open/floor/strata/multi_tiles/west,
-/area/space)
-"Ms" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 1
-	},
-/obj/structure/barricade/metal{
-	dir = 4
-	},
-/obj/structure/barricade/metal,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Mu" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 1
-	},
-/obj/item/ammo_magazine/rifle/l23{
-	current_rounds = 0
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"MN" = (
-/obj/structure/flora/tree/tyrargo_small/tree_3,
-/obj/structure/barricade/sandbags,
-/turf/open/auto_turf/snow/brown_base/layer2,
-/area/space)
-"MS" = (
-/turf/open/floor/prison/cell_stripe/east,
-/area/space)
-"No" = (
-/obj/effect/decal/hybrisa/road/road_stop{
-	dir = 4;
-	icon_state = "stop_decal5"
-	},
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/hybrisa/metal/grated/north,
-/area/space)
-"Np" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/structure/prop/hybrisa/misc/fake/lattice/full,
-/obj/structure/prop/ice_colony/soil_net,
-/obj/structure/prop/ice_colony/ground_wire,
-/turf/open/floor/plating/platingdmg3,
-/area/space)
-"Nq" = (
-/obj/effect/decal/hybrisa/trash{
-	icon_state = "trash_8";
-	pixel_y = -15;
-	pixel_x = -1
-	},
-/turf/open/floor/almayer/no_build/plating,
-/area/space)
-"Nr" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner,
-/obj/effect/decal/hybrisa/dirt,
-/obj/structure/barricade/metal,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"NF" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 4
-	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"NH" = (
-/obj/structure/machinery/colony_floodlight,
-/turf/open/hybrisa/street/sidewalk/north,
-/area/space)
-"NM" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 4
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Oe" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/structure/machinery/colony_floodlight,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Og" = (
-/obj/effect/acid_hole,
-/turf/closed/wall/hybrisa/spaceport,
-/area/space)
-"Om" = (
-/obj/structure/barricade/wooden{
-	desc = "This barricade is heavily reinforced. Nothing short of blasting it open seems like it'll do the trick, that or melting the breams supporting it...";
-	health = 25000;
-	pixel_y = 17;
-	dir = 2
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"On" = (
-/obj/structure/largecrate/random/barrel/black,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Op" = (
-/obj/structure/filingcabinet{
-	pixel_x = -8;
-	pixel_y = 18
-	},
-/obj/structure/filingcabinet{
-	pixel_x = 8;
-	pixel_y = 18
-	},
-/obj/effect/landmark/objective_landmark/close,
-/turf/open/floor/almayer/no_build/plating,
-/area/space)
-"Oq" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner,
-/obj/effect/decal/cleanable/blood,
-/turf/open/hybrisa/street/sidewalk/south,
-/area/space)
-"Oy" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 1
-	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
-/obj/effect/decal/hybrisa/trash{
-	icon_state = "trash_6";
-	pixel_y = 12
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"ON" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/item/prop/colony/canister{
-	pixel_x = 4;
-	pixel_y = 16
-	},
-/turf/open/hybrisa/street/sidewalkfull,
-/area/space)
-"OU" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 9
-	},
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/cement3,
-/area/space)
-"Pp" = (
-/obj/structure/barricade/metal{
-	dir = 8
-	},
-/obj/structure/barricade/metal,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Pq" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 1
-	},
-/obj/effect/decal/hybrisa/dirt,
-/obj/item/ammo_casing/bullet{
-	icon_state = "cartridge_3_1"
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Ps" = (
-/obj/structure/machinery/colony_floodlight/street{
-	pixel_y = 12
-	},
-/turf/open/hybrisa/street/sidewalk/southeast,
-/area/space)
-"PA" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 1
-	},
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"PE" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/sidewalk/south,
-/area/space)
-"PG" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 5
-	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 10
-	},
-/obj/effect/decal/strata_decals/grasses,
-/turf/open/hybrisa/street/underground_unweedable,
-/area/space)
-"PN" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/cleanable/blood/xeno,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "xgib1"
-	},
-/obj/item/ammo_casing/bullet{
-	icon_state = "cartridge_9_1"
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"PP" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/item/ammo_box/magazine/l23/empty,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"PS" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Qb" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/structure/machinery/light{
-	dir = 4
-	},
-/turf/open/floor/prison/floor_plate/southwest,
-/area/space)
-"Qn" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/item/ammo_casing/bullet{
-	icon_state = "cartridge_9_1"
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Qo" = (
-/obj/structure/machinery/door/airlock/multi_tile/almayer/engidoor/glass/colony,
-/turf/open/floor/strata/multi_tiles/southeast,
-/area/space)
-"Qv" = (
-/mob/living/simple_animal/small/mouse/rat/gray,
-/obj/item/ammo_magazine/rifle/l23,
-/turf/open/hybrisa/street/sidewalk/west,
-/area/space)
-"Qz" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/item/stack/sheet/metal,
-/turf/open/hybrisa/street/sidewalk/northeast,
-/area/space)
-"QH" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 1
-	},
-/obj/effect/decal/hybrisa/trash{
-	dir = 8;
-	icon_state = "trash_11"
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"QI" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/plating/plating_catwalk/prison,
-/area/space)
-"QK" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/structure/showcase{
-	breakable = 1;
-	density = 0;
-	desc = null;
-	icon_state = "igniter0";
-	name = "floor panel"
-	},
-/turf/open/floor/corsat,
-/area/space)
-"Ra" = (
-/turf/open/hybrisa/street/sidewalk/west,
-/area/space)
-"Re" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Ri" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/plating/platingdmg1,
-/area/space)
-"Rs" = (
-/obj/structure/prop/tyrargo/boards/boards_1{
-	dir = 4;
-	pixel_y = -12;
-	pixel_x = -16
-	},
-/turf/open/auto_turf/snow/brown_base/layer0,
-/area/space)
-"Rt" = (
-/turf/closed/wall/hybrisa/spaceport/reinforced,
-/area/space)
-"Ru" = (
-/obj/structure/bed/chair/wood/normal{
-	dir = 1
-	},
-/turf/open/floor/hybrisa/tile/tileblackcheckered,
-/area/space)
-"Rx" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 4
-	},
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"RN" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 5
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"RX" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 4
-	},
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"RY" = (
 /obj/effect/decal/strata_decals/grime/grime4{
 	dir = 1
 	},
-/obj/structure/closet/crate/freezer/cooler{
-	pixel_x = -7
-	},
-/obj/structure/pipes/vents/pump_hybrisa,
-/turf/open/floor/hybrisa/tile/tilewhitecheckered,
-/area/space)
-"Sa" = (
-/obj/structure/filingcabinet{
-	density = 0;
-	pixel_x = 8;
-	pixel_y = 18
-	},
-/obj/structure/filingcabinet{
-	density = 0;
-	pixel_x = -8;
-	pixel_y = 18
-	},
-/obj/effect/decal/hybrisa/trash{
-	icon_state = "trash_2"
-	},
-/obj/effect/landmark/objective_landmark/medium,
-/turf/open/shuttle/escapepod/floor1/west,
-/area/space)
-"Sk" = (
-/obj/structure/machinery/photocopier{
-	pixel_x = -1;
-	pixel_y = 5
-	},
 /obj/structure/machinery/light/small{
-	dir = 1
-	},
-/turf/open/floor/prison/floor_plate/southwest,
-/area/space)
-"SG" = (
-/turf/closed/wall/hybrisa/colony/engineering,
-/area/space)
-"SI" = (
-/obj/item/ammo_casing/bullet{
-	icon_state = "cartridge_9_1"
-	},
-/obj/item/stack/sheet/metal{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"SS" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/item/paper/crumpled{
-	pixel_x = 15;
-	pixel_y = -9
-	},
-/turf/open/floor/hybrisa/metal/grated/north,
-/area/space)
-"SX" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/large_stain,
-/turf/open/hybrisa/street/roadlines4,
-/area/space)
-"SZ" = (
-/obj/structure/barricade/metal,
-/turf/open/hybrisa/street/sidewalk/east,
-/area/space)
-"Tg" = (
-/obj/structure/barricade/metal{
 	dir = 8
 	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Ua" = (
-/obj/structure/fence/slim/dark,
-/obj/structure/fence/slim/dark,
-/turf/open/hybrisa/street/sidewalkfull,
-/area/space)
-"Ux" = (
 /obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/objective_landmark/close,
+/turf/open/floor/hybrisa/tile/tilewhite,
+/area/lv733/indoors/main_complex/main_vestibule)
+"qI" = (
+/turf/open/hybrisa/street/sidewalkfull,
+/area/lv733/outdoors/colony_streets/avenue)
+"qQ" = (
+/obj/structure/prop/hybrisa/fakeplatforms/platform4/deco{
+	dir = 4
+	},
+/turf/open/hybrisa/street/sidewalk/south,
+/area/lv733/outdoors/colony_streets/avenue)
+"qZ" = (
+/obj/structure/roof/hybrisa/lattice_prop/lattice_3,
+/obj/effect/decal/hybrisa/road/lines3,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"ri" = (
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal8";
+	pixel_y = 6;
+	pixel_x = 4
+	},
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 8
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"rl" = (
+/turf/open/hybrisa/street/cement3,
+/area/lv733/outdoors/colony_streets/avenue)
+"rr" = (
+/obj/effect/decal/hybrisa/road/lines2{
+	pixel_y = 1;
+	color = "#f27e1f"
+	},
+/obj/effect/decal/hybrisa/road/lines2{
+	pixel_y = 1;
+	color = "#f27e1f"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"rt" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/prop/hybrisa/fakeplatforms/platform4/deco,
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/avenue)
+"rF" = (
+/obj/structure/surface/table/reinforced/prison{
+	color = "#b7b8b2"
+	},
+/obj/item/ammo_magazine/smg/nailgun,
+/obj/item/ammo_magazine/smg/nailgun{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/obj/effect/landmark/objective_landmark/medium,
+/turf/open/floor/plating,
+/area/lv733/indoors/main_complex/technical_operations)
+"rK" = (
+/obj/structure/largecrate/random/mini/med{
+	layer = 3.01;
+	pixel_y = 7;
+	pixel_x = -11
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalk/west,
+/area/lv733/outdoors/colony_streets/avenue)
+"rU" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/atm{
+	name = "Automatic Teller Machine";
+	pixel_y = 30
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"rY" = (
+/obj/structure/bed/chair/office/light,
+/obj/effect/decal/hybrisa/road/lines2{
+	pixel_y = 1;
+	color = "#f27e1f"
+	},
+/obj/item/paper/crumpled{
+	pixel_x = 6;
+	pixel_y = 24
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/departure_reception)
+"sK" = (
+/obj/item/prop/alien/hugger,
+/obj/structure/pipes/standard/simple/hidden/dark,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"sO" = (
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_5"
+	},
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"sS" = (
+/obj/effect/decal/cleanable/blood{
+	pixel_x = -6
+	},
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"te" = (
+/obj/structure/roof/hybrisa/lattice_prop/lattice_2,
 /obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 9
+	dir = 4
 	},
-/obj/effect/decal/hybrisa/trash{
-	icon_state = "trash_12";
-	pixel_y = 1
+/turf/closed/wall/hybrisa/colony,
+/area/lv733/indoors/main_complex/main_vestibule)
+"tj" = (
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 5
 	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"UA" = (
-/obj/effect/decal/hybrisa/trash{
-	icon_state = "trash_3"
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/departure_reception)
+"tm" = (
+/obj/structure/prop/hybrisa/fakeplatforms/platform4,
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/avenue)
+"tn" = (
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 8;
+	icon_state = "stop_decal5"
 	},
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 4;
+	icon_state = "stop_decal5"
+	},
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 1
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/wy_complex_streets)
+"tt" = (
+/obj/structure/barricade/handrail,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/blue_grey,
+/area/lv733/indoors/main_complex/main_vestibule)
+"tz" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/structure/platform/metal/almayer,
+/obj/effect/decal/hybrisa/road/lines3,
+/turf/open/floor/almayer_hull/outerhull_dir_alt/north,
+/area/lv733/indoors/main_complex/main_vestibule)
+"tF" = (
+/obj/structure/bed/sofa/vert/white/bot,
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"tH" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/bed/sofa/hybrisa/misc/bench{
+	pixel_x = 15;
+	pixel_y = 10
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"tR" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/prop/hybrisa/misc/trash/green{
+	pixel_y = 2
+	},
+/turf/open/hybrisa/street/sidewalkfull,
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
+"tS" = (
+/obj/item/ammo_casing/bullet{
+	layer = 3.1;
+	pixel_x = 12
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"uh" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = -4
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/wy_complex_streets)
+"uB" = (
+/obj/structure/surface/table/reinforced/black,
+/obj/item/reagent_container/food/drinks/coffeecup/wy{
+	pixel_x = -7;
+	pixel_y = 2
+	},
+/obj/item/reagent_container/food/drinks/coffeecup{
+	pixel_x = -7;
+	pixel_y = 11
+	},
+/obj/structure/curtain/colorable_transparent{
+	color = "#5d7362";
+	alpha = 225;
+	layer = 3.2;
+	pixel_x = 32
+	},
+/obj/item/reagent_container/food/drinks/coffeecup{
+	pixel_x = 7;
+	pixel_y = 17
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/departure_reception)
+"uG" = (
+/obj/structure/machinery/door/airlock/hybrisa/generic_solid,
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/turf/open/floor/strata/multi_tiles/west,
+/area/lv733/indoors/main_complex/technical_operations)
+"uT" = (
+/obj/effect/decal/hybrisa/road/lines2{
+	pixel_y = 1;
+	color = "#f27e1f"
+	},
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"vl" = (
+/turf/open/hybrisa/street/sidewalk/southeast,
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
+"vr" = (
+/obj/structure/machinery/door/airlock/multi_tile/hybrisa/generic/autoname,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/ramptop/north,
+/area/lv733/indoors/main_complex/main_vestibule)
+"vA" = (
+/obj/structure/monorail{
+	dir = 4;
+	name = "launch track"
+	},
+/obj/item/prop/alien/hugger,
+/turf/open/floor/plating,
+/area/lv733/indoors/main_complex/main_vestibule)
+"vD" = (
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/main_complex/main_vestibule)
+"vK" = (
+/turf/open/floor/almayer/silver2/northwest,
+/area/lv733/indoors/main_complex/main_vestibule)
+"vO" = (
+/obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/trash{
 	icon_state = "trash_4";
 	layer = 3.2
 	},
+/obj/item/card/id/visa{
+	desc = "A United Americas entry visa. A rare commodity out here on the rim.";
+	pixel_x = 9;
+	pixel_y = -2
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"wb" = (
 /obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/almayer/no_build/plating,
-/area/space)
-"US" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/roadlines4,
-/area/space)
-"Va" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+/obj/structure/sign/poster/safety{
+	pixel_x = 5;
+	pixel_y = 32
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"wn" = (
+/obj/structure/bed/chair/office/light{
+	dir = 4;
+	pixel_x = 12;
+	layer = 2.7;
+	buckling_x = 12
+	},
+/obj/structure/filingcabinet{
+	density = 0;
+	pixel_x = -8;
+	pixel_y = 20
+	},
+/obj/structure/filingcabinet{
+	density = 0;
+	pixel_x = 8;
+	pixel_y = 20;
+	layer = 2.6
+	},
+/obj/effect/landmark/objective_landmark/close,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/blue_grey,
+/area/lv733/indoors/main_complex/departure_reception)
+"wr" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = 11
+	},
+/turf/open/floor/almayer_hull,
+/area/lv733/indoors/main_complex/main_vestibule)
+"ws" = (
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 8;
+	icon_state = "stop_decal5"
+	},
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 4;
+	icon_state = "stop_decal5"
+	},
+/obj/effect/decal/hybrisa/road/corner{
 	dir = 4
 	},
-/obj/item/stack/sheet/metal{
-	pixel_y = 5;
-	pixel_x = 7
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"wZ" = (
+/obj/structure/machinery/door/airlock/multi_tile/hybrisa/generic/autoname,
+/obj/structure/pipes/standard/simple/hidden/dark,
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/main_complex/central_corridor)
+"xc" = (
+/obj/structure/roof/hybrisa/lattice_prop/lattice_5{
+	pixel_y = 16;
+	layer = 6
+	},
+/turf/closed/wall/hybrisa/colony,
+/area/lv733/indoors/main_complex/main_vestibule)
+"xd" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/cleanable/blood/xeno{
+	icon_state = "xgib6"
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"xs" = (
+/turf/open/floor/almayer/silver2/northeast,
+/area/lv733/indoors/main_complex/main_vestibule)
+"xS" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light/double{
+	dir = 8
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"xX" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/prop/hybrisa/fakeplatforms/platform4,
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/avenue)
+"yd" = (
+/obj/effect/decal/hybrisa/road/lines3{
+	pixel_y = -1;
+	color = "#f27e1f"
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"ye" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/almayer/silver2/northeast,
+/area/lv733/indoors/main_complex/main_vestibule)
+"yk" = (
+/obj/structure/flora/pottedplant{
+	icon_state = "pottedplant_29";
+	pixel_y = 6;
+	layer = 3.4
+	},
+/obj/structure/machinery/light/double,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"ym" = (
+/obj/item/trash/cigbutt{
+	pixel_x = 4
 	},
 /turf/open/hybrisa/street/cement1,
-/area/space)
-"Vg" = (
-/obj/structure/machinery/space_heater/radiator/red{
-	dir = 4;
-	pixel_x = -1
+/area/lv733/outdoors/colony_streets/avenue)
+"yp" = (
+/turf/open/hybrisa/street/sidewalk/northwest,
+/area/lv733/outdoors/colony_streets/medical_street)
+"yF" = (
+/obj/effect/landmark/corpsespawner/pmc,
+/obj/effect/decal/cleanable/blood{
+	pixel_x = -6
 	},
-/turf/open/floor/hybrisa/tile/tileblackcheckered,
-/area/space)
-"Vl" = (
+/obj/item/ammo_casing/bullet,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"yM" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/item/ammo_casing/bullet{
 	layer = 3.1;
 	pixel_x = 12
 	},
-/turf/open/floor/prison/darkred2/north,
-/area/space)
-"Vn" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/tiretrack{
-	dir = 4;
-	pixel_y = 7
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"yP" = (
+/obj/structure/flora/bush/ausbushes/lavendergrass,
+/obj/structure/flora/bush/ausbushes/grassybush,
+/obj/structure/window/reinforced{
+	dir = 8;
+	health = 80;
+	color = "#a6aeab";
+	layer = 4
 	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Vr" = (
-/turf/closed/wall/hybrisa/colony,
-/area/space)
-"VF" = (
-/turf/open/floor/prison/floor_plate/southwest,
-/area/space)
-"VJ" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 6
+/obj/structure/prop/ice_colony/dense/planter_box,
+/turf/open/auto_turf/tyrargo_grass/layer0,
+/area/lv733/indoors/main_complex/main_vestibule)
+"yT" = (
+/obj/effect/decal/strata_decals/tyrargo_mud_corner,
+/turf/open/hybrisa/street/sidewalkcorner/west,
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
+"zc" = (
+/obj/effect/decal/hybrisa/road/lines3{
+	pixel_y = -1;
+	color = "#f27e1f"
 	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"zi" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = 11
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/wy_complex_streets)
+"zt" = (
+/obj/structure/window/framed/hybrisa/research/reinforced,
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/main_complex/main_vestibule)
+"zv" = (
+/obj/structure/prop/hybrisa/fakeplatforms/platform4/deco{
 	dir = 1
 	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 8
-	},
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Wn" = (
-/obj/effect/decal/hybrisa/road/road_stop{
-	dir = 8;
-	icon_state = "stop_decal5"
-	},
-/obj/item/device/flashlight/flare/on{
-	fuel_rate = 2.5
-	},
-/turf/open/floor/hybrisa/metal/grated/north,
-/area/space)
-"Wv" = (
-/turf/open/hybrisa/street/sidewalk/east,
-/area/space)
-"WB" = (
-/obj/structure/filingcabinet{
-	pixel_x = -8;
-	pixel_y = 4
-	},
-/obj/structure/filingcabinet{
+/obj/structure/machinery/colony_floodlight/traffic{
+	dir = 1;
 	pixel_x = 8;
-	pixel_y = 4
+	pixel_y = 12
 	},
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/prison/floor_plate/southwest,
-/area/space)
-"WD" = (
-/obj/structure/prop/tyrargo/boards/boards_1{
-	dir = 8;
-	pixel_y = 2;
-	pixel_x = 6
-	},
-/turf/open/auto_turf/snow/brown_base/layer0,
-/area/space)
-"WJ" = (
-/obj/structure/window/framed/hybrisa/spaceport,
-/turf/open/floor/strata/multi_tiles/west,
-/area/space)
-"WO" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 8
-	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 1
-	},
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"WR" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 8
-	},
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/plating/plating_catwalk/prison,
-/area/space)
-"WX" = (
 /obj/effect/decal/strata_decals/tyrargo_mud_corner{
 	dir = 4
 	},
-/obj/structure/prop/tyrargo/boards/boards_1{
-	dir = 4;
-	pixel_y = -12;
-	pixel_x = -16
+/turf/open/hybrisa/street/sidewalk/east,
+/area/lv733/outdoors/colony_streets/avenue)
+"zz" = (
+/obj/effect/decal/hybrisa/road/lines2{
+	pixel_y = 1;
+	color = "#f27e1f"
 	},
-/obj/structure/prop/tyrargo/boards/boards_1{
-	dir = 8;
-	pixel_y = 2;
-	pixel_x = 6
-	},
-/turf/open/auto_turf/snow/brown_base/layer0,
-/area/space)
-"Xo" = (
-/obj/structure/fence/slim/dark,
-/turf/open/hybrisa/street/sidewalkfull,
-/area/space)
-"Xr" = (
-/obj/structure/machinery/space_heater/radiator/red{
-	dir = 4;
+/obj/structure/largecrate/empty/case/double{
+	pixel_x = 6;
 	pixel_y = 4
 	},
-/obj/structure/machinery/light/small{
-	pixel_x = 11
+/obj/structure/machinery/light/double{
+	dir = 8
 	},
-/turf/open/floor/prison/floor_plate/southwest,
-/area/space)
-"XA" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner,
-/obj/effect/decal/hybrisa/dirt,
-/obj/item/stack/sheet/metal,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"XI" = (
-/obj/structure/tunnel/maint_tunnel/hybrisa/grate/no_xeno_desc,
-/turf/open/hybrisa/street/sidewalkfull,
-/area/space)
-"XN" = (
-/obj/structure/largecrate/random/barrel/black,
-/turf/open/hybrisa/street/sidewalk/east,
-/area/space)
-"XO" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 6
+/turf/open/floor/almayer/silver2/south,
+/area/lv733/indoors/main_complex/main_vestibule)
+"zC" = (
+/obj/structure/closet/crate/foodcart,
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 10
 	},
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"XT" = (
-/obj/effect/decal/hybrisa/road/road_stop{
-	dir = 4;
-	icon_state = "stop_decal5"
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"zF" = (
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
 	},
-/turf/open/floor/hybrisa/metal/grated/north,
-/area/space)
-"XZ" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 1
+/obj/item/ammo_magazine/smg/mp5,
+/turf/open/floor/almayer/silver2/southeast,
+/area/lv733/indoors/main_complex/main_vestibule)
+"zL" = (
+/obj/structure/window/framed/hybrisa/research/reinforced,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/main_complex/main_vestibule)
+"zQ" = (
+/obj/effect/decal/hybrisa/WY/WY1{
+	dir = 4
 	},
 /obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/cement3,
-/area/space)
-"Ya" = (
-/obj/effect/decal/hybrisa/road/road_stop{
-	dir = 4;
-	icon_state = "stop_decal5"
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"zR" = (
+/obj/effect/decal/hybrisa/road/lines3{
+	pixel_y = -1;
+	color = "#f27e1f"
 	},
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/hybrisa/metal/grated/north,
-/area/space)
-"Ym" = (
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 5
-	},
-/obj/effect/decal/strata_decals/tyrargo_mud_corner{
-	dir = 1
-	},
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Yo" = (
-/obj/structure/barricade/metal,
-/obj/effect/decal/large_stain,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"Yw" = (
-/obj/item/stack/sheet/metal/medium_stack,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/hybrisa/street/sidewalkfull,
-/area/space)
-"Yz" = (
-/obj/structure/prop/tyrargo/boards/boards_1{
-	pixel_x = 1;
-	pixel_y = -4;
-	layer = 2.9
-	},
-/turf/open/auto_turf/tyrargo_grass/layer0_mud,
-/area/space)
-"YX" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/turf/closed/wall/hybrisa/colony,
-/area/space)
-"Ze" = (
-/turf/open/hybrisa/street/sidewalkfull,
-/area/space)
-"Zt" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/prison/cell_stripe/east,
-/area/space)
-"Zw" = (
+/obj/item/shard,
+/turf/open/floor/almayer/silver2/north,
+/area/lv733/indoors/main_complex/main_vestibule)
+"zV" = (
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/effect/landmark/corpsespawner/colonist,
 /obj/effect/decal/cleanable/blood,
 /turf/open/hybrisa/street/cement1,
-/area/space)
-"ZB" = (
+/area/lv733/outdoors/colony_streets/avenue)
+"Ad" = (
+/obj/structure/bed/chair/office/light{
+	layer = 4
+	},
+/obj/structure/curtain/colorable_transparent{
+	color = "#5d7362";
+	alpha = 225;
+	layer = 3.2;
+	pixel_y = 32
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/blue_grey,
+/area/lv733/indoors/main_complex/departure_reception)
+"Ag" = (
+/obj/structure/bed/sofa/vert/white/bot,
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Ai" = (
+/obj/item/ammo_casing/bullet,
+/obj/item/ammo_casing/bullet{
+	icon_state = "cartridge_6_1"
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Ar" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = 11
+	},
+/obj/structure/prop/hybrisa/vehicles/Long_Truck/Brown{
+	pixel_y = 6
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/wy_complex_streets)
+"Az" = (
+/obj/structure/prop/hybrisa/fakeplatforms/platform4/deco{
+	dir = 8
+	},
+/obj/structure/roof/hybrisa/lattice_prop/lattice_6{
+	pixel_y = 16;
+	layer = 6
+	},
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 8
+	},
+/turf/open/hybrisa/street/sidewalkfull,
+/area/lv733/outdoors/colony_streets/avenue)
+"AC" = (
+/obj/structure/sign/poster/io{
+	pixel_y = 32
+	},
+/obj/structure/pipes/vents/pump_hybrisa,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"AE" = (
+/obj/structure/fence/slim/dark,
+/turf/open/hybrisa/street/sidewalkfull,
+/area/lv733/outdoors/colony_streets/avenue)
+"AM" = (
+/obj/effect/decal/hybrisa/road/lines2{
+	pixel_y = 1;
+	color = "#f27e1f"
+	},
+/obj/structure/largecrate/random/mini/small_case{
+	pixel_x = -4;
+	pixel_y = 10
+	},
+/obj/item/storage/briefcase/stowaway,
+/turf/open/floor/almayer/silver2/southeast,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Bf" = (
+/obj/effect/decal/hybrisa/bloodtrail,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl1";
+	pixel_x = -14;
+	pixel_y = -15
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Bv" = (
+/obj/effect/decal/hybrisa/road/lines3{
+	pixel_y = -1;
+	color = "#f27e1f"
+	},
+/obj/structure/window/reinforced{
+	color = "#a6aeab"
+	},
 /obj/effect/decal/hybrisa/dirt,
-/obj/structure/largecrate/random/barrel/brown,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"ZG" = (
-/obj/structure/barricade/metal,
-/turf/open/hybrisa/street/cement1,
-/area/space)
-"ZN" = (
+/turf/open/floor/almayer/silver2/northeast,
+/area/lv733/indoors/main_complex/main_vestibule)
+"BG" = (
+/obj/structure/surface/table/reinforced/black,
+/obj/structure/window/reinforced{
+	color = "#a6aeab"
+	},
+/obj/structure/machinery/computer/card{
+	dir = 1
+	},
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/main_complex/departure_reception)
+"BI" = (
+/obj/structure/surface/table/almayer,
+/obj/item/reagent_container/food/drinks/coffee/cuppa_joes{
+	pixel_x = -10;
+	pixel_y = 8
+	},
+/obj/item/reagent_container/food/drinks/cans/classcola,
+/obj/item/reagent_container/food/drinks/coffee/cuppa_joes{
+	pixel_y = 12;
+	pixel_x = 8
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"BM" = (
+/obj/effect/decal/hybrisa/road/lines2{
+	pixel_y = 1;
+	color = "#f27e1f"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/almayer/silver2/southeast,
+/area/lv733/indoors/main_complex/main_vestibule)
+"BT" = (
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 4;
+	icon_state = "stop_decal5"
+	},
+/obj/structure/machinery/light/double,
+/turf/open/floor/almayer_hull,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Cd" = (
+/obj/effect/decal/hybrisa/road/lines1,
+/obj/effect/decal/hybrisa/road/road_edge{
+	pixel_x = -4
+	},
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 1;
+	icon_state = "stop_decal5"
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/medical_street)
+"Cj" = (
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 1;
+	icon_state = "stop_decal5"
+	},
+/obj/effect/decal/hybrisa/road/road_stop{
+	icon_state = "stop_decal2";
+	pixel_y = -10
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/medical_street)
+"Ck" = (
+/obj/structure/monorail{
+	dir = 4;
+	name = "launch track"
+	},
+/obj/item/shard,
+/obj/item/prop/alien/hugger,
+/turf/open/floor/plating,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Cr" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light/double,
+/turf/open/hybrisa/street/sidewalk/northwest,
+/area/lv733/outdoors/colony_streets/avenue)
+"Cv" = (
+/obj/structure/machinery/mech_bay_recharge_port,
+/obj/structure/terminal,
+/obj/structure/terminal{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/lv733/indoors/main_complex/technical_operations)
+"Cx" = (
+/turf/closed/wall/hybrisa/colony,
+/area/lv733/indoors/main_complex/main_vestibule)
+"CB" = (
+/obj/structure/largecrate/random/case/small,
+/obj/structure/largecrate/random/mini/small_case{
+	pixel_x = 4;
+	pixel_y = 10
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"CG" = (
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 32
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"CI" = (
+/obj/structure/window/framed/hybrisa/research/reinforced,
+/obj/structure/machinery/door/poddoor/hybrisa/open_shutters,
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/main_complex/main_vestibule)
+"CJ" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/main_complex/main_vestibule)
+"CM" = (
+/obj/structure/window/framed/hybrisa/research/reinforced,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Da" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/structure/platform_decoration/metal/almayer/north,
+/turf/open/floor/almayer_hull/outerhull_dir_alt/north,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Dj" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = 11
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
+"Dt" = (
+/obj/structure/surface/table/almayer,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"DC" = (
+/obj/structure/window/framed/hybrisa/research/reinforced,
+/turf/open/floor/prison/ramptop/north,
+/area/lv733/indoors/main_complex/main_vestibule)
+"DJ" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_casing/bullet,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"DR" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/avenue)
+"Eo" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/cleanable/blood/xeno{
+	icon_state = "xgib3"
+	},
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Eq" = (
+/obj/effect/decal/hybrisa/trash{
+	pixel_y = 22;
+	pixel_x = 12
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/departure_reception)
+"EM" = (
+/obj/structure/bed/sofa/vert/white/top,
+/obj/structure/pipes/standard/simple/hidden/dark,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"EO" = (
+/obj/structure/roof/hybrisa/lattice_prop/lattice_6{
+	pixel_y = 16;
+	layer = 6
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"ER" = (
+/obj/structure/prop/hybrisa/fakeplatforms/platform4/deco,
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 8
+	},
+/turf/open/hybrisa/street/sidewalkfull,
+/area/lv733/outdoors/colony_streets/avenue)
+"Fh" = (
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/turf/open/floor/almayer/silver2/southwest,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Fl" = (
+/turf/open/floor/almayer/sterile,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Fn" = (
+/obj/structure/machinery/light/double{
+	dir = 8
+	},
+/turf/open/floor/almayer/silver2/southeast,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Fx" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/plating,
+/area/lv733/indoors/main_complex/technical_operations)
+"Fz" = (
+/obj/structure/barricade/handrail{
+	dir = 8;
+	layer = 4
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light/double{
+	dir = 1
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/blue_grey,
+/area/lv733/indoors/main_complex/main_vestibule)
+"GE" = (
+/obj/structure/surface/table/almayer,
+/obj/item/reagent_container/food/drinks/coffee/cuppa_joes{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/reagent_container/food/drinks/coffee/cuppa_joes{
+	pixel_x = 4
+	},
+/obj/structure/machinery/light/double,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"GG" = (
+/obj/effect/decal/hybrisa/dirt_2,
+/turf/open/hybrisa/street/sidewalkfull,
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
+"GK" = (
+/obj/structure/machinery/door/airlock/multi_tile/hybrisa/generic/autoname,
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/main_complex/central_corridor)
+"GM" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/corpsespawner/hybrisa/civilian_office,
+/obj/effect/decal/cleanable/blood{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/effect/decal/hybrisa/bloodtrail,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"GT" = (
+/obj/structure/roof/hybrisa/lattice_prop/lattice_3,
+/obj/effect/decal/hybrisa/dirt_2,
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/avenue)
+"GW" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/prop/hybrisa/fakeplatforms/platform4/deco{
+	dir = 1
+	},
+/turf/open/hybrisa/street/sidewalk/northeast,
+/area/lv733/outdoors/colony_streets/medical_street)
+"Ho" = (
+/obj/structure/barricade/handrail/hybrisa/handrail{
+	layer = 3.03
+	},
+/obj/effect/decal/hybrisa/road/lines3{
+	pixel_y = -1;
+	color = "#f27e1f"
+	},
+/obj/effect/decal/hybrisa/road/lines3{
+	pixel_y = -1;
+	color = "#f27e1f"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light/double{
+	dir = 4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"HC" = (
+/obj/structure/bed/chair/office/light,
+/obj/effect/decal/hybrisa/road/lines2{
+	pixel_y = 1;
+	color = "#f27e1f"
+	},
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/departure_reception)
+"HG" = (
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 8;
+	icon_state = "stop_decal5"
+	},
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 4;
+	icon_state = "stop_decal5"
+	},
+/obj/effect/decal/hybrisa/road/corner,
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"HI" = (
+/obj/structure/flora/pottedplant{
+	icon_state = "pottedplant_29";
+	pixel_y = 6;
+	layer = 3.4
+	},
+/obj/structure/machinery/space_heater/radiator/red{
+	dir = 4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"HM" = (
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 8;
+	icon_state = "stop_decal5"
+	},
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 4;
+	icon_state = "stop_decal5"
+	},
+/obj/effect/decal/hybrisa/road/corner{
+	dir = 8
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/wy_complex_streets)
+"HU" = (
+/obj/structure/surface/table/almayer,
+/obj/structure/largecrate/random/mini/small_case/c{
+	pixel_x = 3
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"HX" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = 11
+	},
+/turf/open/floor/almayer_hull,
+/area/lv733/indoors/main_complex/main_vestibule)
+"IA" = (
+/obj/structure/bed/sofa/vert/white/bot,
+/obj/structure/pipes/standard/simple/hidden/dark,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"IC" = (
+/obj/effect/decal/hybrisa/road/lines3{
+	pixel_y = -1;
+	color = "#f27e1f"
+	},
+/obj/structure/window/reinforced{
+	color = "#a6aeab"
+	},
+/obj/structure/machinery/light/double{
+	dir = 4
+	},
+/turf/open/floor/almayer/silver2/northwest,
+/area/lv733/indoors/main_complex/main_vestibule)
+"IE" = (
+/turf/open/auto_turf/snow/brown_base/layer2,
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
+"IH" = (
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/effect/decal/hybrisa/dirt_2,
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/avenue)
+"II" = (
+/obj/effect/decal/hybrisa/road/lines1{
+	pixel_x = -1;
+	color = "#f27e1f"
+	},
+/obj/item/trash/cigbutt{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/departure_reception)
+"IK" = (
+/obj/structure/machinery/cm_vending/sorted/tech/tool_storage{
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/turf/open/floor/plating,
+/area/lv733/indoors/main_complex/technical_operations)
+"IN" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/structure/pipes/standard/simple/hidden/dark{
 	dir = 4
 	},
-/turf/open/floor/strata/multi_tiles/west,
-/area/space)
-"ZW" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/turf/open/floor/prison/ramptop/east,
+/area/lv733/indoors/main_complex/main_vestibule)
+"IW" = (
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 4;
+	icon_state = "stop_decal5"
+	},
+/turf/open/floor/almayer_hull,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Jb" = (
+/obj/item/stack/sheet/cardboard,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Jm" = (
+/obj/structure/flora/pottedplant{
+	desc = "It is made of Fiberbush(tm). It contains asbestos. Studies say that greenery calms the mind due to some sort evolved mechanism in the brain. This plant is not calming.";
+	icon_state = "pottedplant_21";
+	layer = 3.1;
+	name = "synthethic potted plant";
+	pixel_x = 1;
+	pixel_y = 4
+	},
+/obj/structure/machinery/power/apc/power/east,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/departure_reception)
+"Jq" = (
+/obj/structure/surface/table/reinforced/black,
+/obj/item/clipboard{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/item/paper{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/item/tool/pen{
+	pixel_y = 2
+	},
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/main_complex/departure_reception)
+"JH" = (
+/obj/effect/decal/hybrisa/road/lines2{
+	pixel_y = 1;
+	color = "#f27e1f"
+	},
+/obj/item/shard,
+/turf/open/floor/almayer/silver2/south,
+/area/lv733/indoors/main_complex/main_vestibule)
+"JI" = (
+/obj/effect/landmark/corpsespawner/hybrisa/civilian_office,
+/obj/effect/decal/cleanable/blood/gibs/body,
+/obj/effect/decal/cleanable/blood{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/effect/decal/cleanable/blood{
+	pixel_x = -10;
+	pixel_y = -8
+	},
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Km" = (
+/obj/structure/pipes/standard/simple/hidden/dark,
+/turf/open/floor/prison/ramptop/north,
+/area/lv733/indoors/main_complex/main_vestibule)
+"KB" = (
+/obj/structure/machinery/light/double,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"KI" = (
+/obj/structure/machinery/colony_floodlight/street{
+	pixel_y = 12
+	},
 /turf/open/hybrisa/street/sidewalkfull,
-/area/space)
-"ZY" = (
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
+"KL" = (
+/obj/item/ammo_magazine/rifle/heap{
+	current_rounds = 0
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"KN" = (
+/obj/structure/reagent_dispensers/tank/fuel,
+/obj/structure/prop/hybrisa/misc/redmeter{
+	pixel_y = 32
+	},
+/turf/open/floor/plating,
+/area/lv733/indoors/main_complex/technical_operations)
+"KQ" = (
+/obj/structure/largecrate/random/mini/small_case/c{
+	pixel_y = 22;
+	layer = 3.2
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"La" = (
+/obj/structure/surface/table/reinforced/black,
+/obj/structure/machinery/computer/communications/simple{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8;
+	health = 80;
+	color = "#a6aeab";
+	layer = 4
+	},
+/obj/structure/curtain/colorable_transparent{
+	color = "#5d7362";
+	alpha = 225;
+	layer = 3.2;
+	pixel_y = 32
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/blue_grey,
+/area/lv733/indoors/main_complex/departure_reception)
+"Lg" = (
 /obj/effect/decal/hybrisa/dirt,
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Lj" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 5
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Ls" = (
+/obj/structure/prop/hybrisa/fakeplatforms/platform4/deco{
+	dir = 4
+	},
+/turf/open/hybrisa/street/sidewalk/southeast,
+/area/lv733/outdoors/colony_streets/avenue)
+"LC" = (
+/obj/structure/machinery/colony_floodlight/traffic{
+	dir = 4;
+	pixel_y = 12
+	},
+/turf/open/hybrisa/street/sidewalk/southeast,
+/area/lv733/outdoors/colony_streets/wy_complex_streets)
+"LF" = (
+/turf/open/hybrisa/street/sidewalk/south,
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
+"LJ" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/closet/crate/foodcart,
+/obj/structure/machinery/light/double{
+	dir = 1
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"LY" = (
+/obj/structure/barricade/handrail,
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/pipes/standard/simple/hidden/dark,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/blue_grey,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Mb" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"MD" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/largecrate/empty/secure,
+/obj/structure/machinery/light/double{
+	dir = 4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"MJ" = (
+/obj/effect/decal/hybrisa/road/lines1{
+	pixel_x = -1;
+	color = "#f27e1f"
+	},
+/obj/structure/filingcabinet/chestdrawer{
+	density = 0;
+	pixel_x = 10;
+	pixel_y = 18;
+	layer = 3.21
+	},
+/obj/structure/filingcabinet/chestdrawer{
+	density = 0;
+	pixel_x = -6;
+	pixel_y = 18;
+	layer = 3.21
+	},
+/obj/effect/landmark/objective_landmark/medium,
+/obj/structure/curtain/colorable_transparent{
+	color = "#5d7362";
+	alpha = 225;
+	layer = 3.2;
+	pixel_y = 32
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/departure_reception)
+"Nb" = (
+/obj/structure/machinery/door/airlock/hybrisa/generic_solid{
+	dir = 1
+	},
+/turf/open/floor/hybrisa/tile/tilewhite,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Nf" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/largecrate/random/barrel/medical,
+/turf/open/hybrisa/street/sidewalk/west,
+/area/lv733/outdoors/colony_streets/avenue)
+"Ng" = (
+/obj/structure/prop/hybrisa/fakeplatforms/platform4/deco{
+	dir = 1
+	},
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/avenue)
+"Nl" = (
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"No" = (
+/obj/effect/decal/hybrisa/dirt_2,
+/turf/open/hybrisa/street/sidewalk/north,
+/area/lv733/outdoors/colony_streets/avenue)
+"Nq" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/corpsespawner/hybrisa/civilian_office,
+/obj/effect/decal/cleanable/blood{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/effect/decal/hybrisa/bloodtrail,
+/obj/effect/decal/cleanable/blood{
+	pixel_x = -10;
+	pixel_y = -8
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Nt" = (
+/obj/structure/bed/chair/comfy/hybrisa/brown{
+	dir = 4
+	},
+/obj/structure/machinery/power/apc/power/west,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Nv" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/almayer/sterile,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Ny" = (
+/obj/structure/bed/sofa/vert/white/top,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"NO" = (
+/obj/effect/decal/strata_decals/grasses,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 5
+	},
+/turf/open/auto_turf/snow/brown_base/layer0,
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
+"Oi" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/bloodtrail{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl4"
+	},
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Or" = (
+/obj/structure/terminal{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/lv733/indoors/main_complex/technical_operations)
+"Ow" = (
+/obj/structure/barricade/handrail/hybrisa/handrail{
+	layer = 3.03
+	},
+/obj/effect/decal/hybrisa/road/lines3{
+	pixel_y = -1;
+	color = "#f27e1f"
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"OA" = (
 /turf/closed/wall/hybrisa/colony,
-/area/space)
+/area/lv733/indoors/main_complex/central_corridor)
+"OC" = (
+/obj/structure/machinery/mech_bay_recharge_port,
+/obj/structure/terminal{
+	dir = 1
+	},
+/obj/structure/terminal{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/lv733/indoors/main_complex/technical_operations)
+"OE" = (
+/obj/structure/bed/sofa/vert/white/top,
+/obj/effect/decal/cleanable/blood{
+	pixel_x = -6
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Pk" = (
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal2";
+	pixel_x = 4
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"Pq" = (
+/obj/structure/barricade/handrail,
+/turf/open/floor/hybrisa/carpet/carpet_colorable/blue_grey,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Ps" = (
+/obj/effect/decal/hybrisa/road/lines2{
+	pixel_y = 1;
+	color = "#f27e1f"
+	},
+/turf/open/floor/almayer/silver2/south,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Px" = (
+/obj/structure/pipes/standard/manifold/hidden/dark{
+	dir = 1
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"PD" = (
+/turf/open/hybrisa/street/sidewalkcorner/east,
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
+"PI" = (
+/obj/structure/machinery/cm_vending/sorted/tech/comp_storage{
+	pixel_x = -2;
+	pixel_y = 3
+	},
+/turf/open/floor/plating,
+/area/lv733/indoors/main_complex/technical_operations)
+"PV" = (
+/obj/structure/barricade/handrail/hybrisa/handrail{
+	layer = 3.03
+	},
+/obj/effect/decal/hybrisa/road/lines3{
+	pixel_y = -1;
+	color = "#f27e1f"
+	},
+/obj/structure/machinery/light/double{
+	dir = 8
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Qj" = (
+/obj/structure/closet/crate/foodcart,
+/obj/structure/closet/crate/foodcart{
+	pixel_x = 3;
+	pixel_y = -9
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Qv" = (
+/obj/structure/roof/hybrisa/lattice_prop/lattice_6{
+	pixel_y = 16;
+	layer = 6
+	},
+/turf/open/hybrisa/street/sidewalk/west,
+/area/lv733/outdoors/colony_streets/avenue)
+"Qw" = (
+/obj/structure/monorail{
+	dir = 4;
+	name = "launch track"
+	},
+/turf/open/floor/plating,
+/area/lv733/indoors/main_complex/main_vestibule)
+"QP" = (
+/obj/structure/roof/hybrisa/lattice_prop/lattice_6{
+	pixel_y = 16;
+	layer = 6
+	},
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal2";
+	pixel_x = 4
+	},
+/obj/structure/roof/hybrisa/billboardsandsigns/bigbillboards{
+	dir = 4;
+	layer = 8;
+	pixel_y = 18
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"QS" = (
+/obj/effect/decal/hybrisa/road/lines2{
+	pixel_y = 1;
+	color = "#f27e1f"
+	},
+/turf/open/floor/almayer/silver2/southwest,
+/area/lv733/indoors/main_complex/main_vestibule)
+"QW" = (
+/obj/structure/flora/pottedplant{
+	icon_state = "pottedplant_29";
+	pixel_y = 6;
+	layer = 3.4
+	},
+/obj/effect/decal/hybrisa/road/lines4{
+	pixel_x = 1;
+	color = "#f27e1f"
+	},
+/obj/structure/prop/hybrisa/misc/machinery/screens/frame{
+	pixel_y = 32
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"QX" = (
+/obj/effect/decal/hybrisa/road/lines3{
+	pixel_y = -1;
+	color = "#f27e1f"
+	},
+/obj/structure/window/reinforced{
+	color = "#a6aeab"
+	},
+/turf/open/floor/almayer/silver2/northwest,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Rh" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/structure/platform/metal/almayer/north,
+/turf/open/floor/almayer_hull/outerhull_dir_alt/north,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Ri" = (
+/obj/structure/pipes/standard/simple/hidden/dark,
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/main_complex/central_corridor)
+"Rj" = (
+/obj/effect/decal/cleanable/blood/xeno{
+	icon_state = "xgib1"
+	},
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Rm" = (
+/obj/structure/pipes/standard/simple/hidden/dark,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"RY" = (
+/obj/effect/decal/hybrisa/trash{
+	pixel_x = -9;
+	pixel_y = 4
+	},
+/obj/structure/machinery/light/double,
+/obj/item/paper,
+/obj/item/paper{
+	pixel_x = -7;
+	pixel_y = 7
+	},
+/obj/effect/decal/cleanable/blood{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl4";
+	pixel_y = 2
+	},
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Sc" = (
+/obj/structure/machinery/photocopier{
+	pixel_y = 8
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/departure_reception)
+"Sg" = (
+/obj/structure/largecrate/empty/case/double,
+/obj/structure/machinery/light/double{
+	dir = 1
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Sj" = (
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"Sz" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/newspaper,
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"SL" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/strata_decals/tyrargo_mud_corner{
+	dir = 8
+	},
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/avenue)
+"SN" = (
+/turf/open/hybrisa/street/sidewalk/southwest,
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
+"Tj" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/avenue)
+"TC" = (
+/obj/structure/surface/table/reinforced/black,
+/obj/structure/machinery/computer/communications/simple{
+	dir = 8;
+	pixel_y = -1
+	},
+/obj/structure/extinguisher_cabinet/alt{
+	pixel_y = 30;
+	pixel_x = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 4;
+	layer = 3.3;
+	color = "#a6aeab"
+	},
+/obj/item/phone{
+	pixel_x = 6;
+	pixel_y = -5
+	},
+/turf/open/floor/hybrisa/carpet/carpet_colorable/blue_grey,
+/area/lv733/indoors/main_complex/departure_reception)
+"TH" = (
+/obj/effect/decal/hybrisa/road/lines1,
+/obj/effect/decal/hybrisa/road/road_edge{
+	pixel_x = -4
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"TL" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/hybrisa/street/sidewalk/south,
+/area/lv733/outdoors/colony_streets/avenue)
+"TV" = (
+/obj/structure/machinery/light/double{
+	dir = 4
+	},
+/turf/open/floor/almayer/silver2/southwest,
+/area/lv733/indoors/main_complex/main_vestibule)
+"TW" = (
+/obj/structure/pipes/standard/simple/hidden/dark,
+/obj/item/ammo_casing/bullet{
+	layer = 3.1;
+	pixel_x = 12
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Ua" = (
+/turf/open/hybrisa/street/cement1,
+/area/lv733/outdoors/colony_streets/avenue)
+"Uc" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light/double{
+	dir = 1
+	},
+/turf/open/hybrisa/street/sidewalk/south,
+/area/lv733/outdoors/colony_streets/avenue)
+"Uq" = (
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/indoors/main_complex/main_vestibule)
+"UC" = (
+/obj/structure/flora/bush/ausbushes/lavendergrass,
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
+"UD" = (
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 8;
+	icon_state = "stop_decal5"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/almayer_hull,
+/area/lv733/indoors/main_complex/main_vestibule)
+"UL" = (
+/obj/effect/decal/hybrisa/trash{
+	pixel_x = -9;
+	pixel_y = 4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Vh" = (
+/obj/structure/bed/chair/comfy/hybrisa/brown,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"VA" = (
+/obj/structure/bed/chair/comfy/hybrisa/brown{
+	dir = 8
+	},
+/obj/structure/machinery/space_heater/radiator/red{
+	dir = 8;
+	pixel_x = 1
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"VB" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/trash/hotdog{
+	pixel_y = -11
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"VE" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/door_control/brbutton/alt{
+	health = null;
+	id = "kutjevo_hydlock_east";
+	idle_power_usage = 0;
+	name = "Hydroponics East Lock Override";
+	pixel_x = -8;
+	pixel_y = 4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"VR" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/structure/platform/metal/almayer/north,
+/obj/item/shard,
+/turf/open/floor/almayer_hull/outerhull_dir_alt/north,
+/area/lv733/indoors/main_complex/main_vestibule)
+"VV" = (
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 8;
+	icon_state = "stop_decal5";
+	pixel_y = -14
+	},
+/obj/structure/largecrate/empty/secure,
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/outdoors/colony_streets/avenue)
+"VZ" = (
+/obj/structure/roof/hybrisa/lattice_prop/lattice_6{
+	pixel_y = 16;
+	layer = 6
+	},
+/obj/effect/decal/hybrisa/road/lines1,
+/obj/effect/decal/hybrisa/road/road_edge{
+	pixel_x = -4
+	},
+/obj/structure/roof/hybrisa/billboardsandsigns/billboardsmedium/billboard1{
+	icon_state = "billboard2";
+	layer = 8;
+	pixel_y = 18;
+	dir = 9
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"Wc" = (
+/obj/structure/machinery/light/double{
+	dir = 1
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"We" = (
+/obj/effect/decal/hybrisa/road/lines1{
+	pixel_x = -1;
+	color = "#f27e1f"
+	},
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/trash{
+	icon_state = "trash_5";
+	pixel_x = -8;
+	pixel_y = 12
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Wn" = (
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/outdoors/colony_streets/avenue)
+"Wo" = (
+/obj/structure/cargo_container/hybrisa/containersextended/medicalright,
+/turf/open/hybrisa/street/sidewalk/west,
+/area/lv733/outdoors/colony_streets/avenue)
+"WH" = (
+/obj/structure/bed/sofa/vert/white/bot,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"WK" = (
+/obj/effect/decal/hybrisa/road/lines3{
+	pixel_y = -1;
+	color = "#f27e1f"
+	},
+/obj/structure/window/reinforced{
+	color = "#a6aeab"
+	},
+/obj/structure/machinery/light/double{
+	dir = 8
+	},
+/turf/open/floor/almayer/silver2/north,
+/area/lv733/indoors/main_complex/main_vestibule)
+"WM" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/largecrate/random/barrel/black{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 32
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"WQ" = (
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 8;
+	icon_state = "stop_decal5";
+	pixel_y = -14
+	},
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/outdoors/colony_streets/avenue)
+"Xc" = (
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
+"Xk" = (
+/obj/effect/decal/hybrisa/road/lines3{
+	pixel_y = -1;
+	color = "#f27e1f"
+	},
+/turf/closed/wall/hybrisa/colony,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Xq" = (
+/obj/structure/machinery/light,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/departure_reception)
+"Xx" = (
+/obj/item/trash/cigbutt{
+	pixel_x = -1;
+	pixel_y = 17
+	},
+/obj/effect/landmark/hunter_primary,
+/turf/open/floor/plating,
+/area/lv733/indoors/main_complex/technical_operations)
+"Xz" = (
+/obj/structure/machinery/door/airlock/multi_tile/hybrisa/generic/autoname,
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/main_complex/main_vestibule)
+"XB" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/structure/platform/metal/almayer,
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/structure/window/reinforced{
+	color = "#a6aeab"
+	},
+/turf/open/floor/almayer_hull/outerhull_dir_alt/north,
+/area/lv733/indoors/main_complex/main_vestibule)
+"XG" = (
+/turf/open/hybrisa/street/sidewalk/northeast,
+/area/lv733/outdoors/colony_streets/avenue)
+"XM" = (
+/obj/structure/largecrate/empty{
+	pixel_x = -1;
+	pixel_y = 5
+	},
+/obj/item/tool/crowbar/red{
+	pixel_x = 3;
+	pixel_y = 6
+	},
+/turf/open/floor/plating,
+/area/lv733/indoors/main_complex/technical_operations)
+"XO" = (
+/obj/structure/pipes/vents/pump_hybrisa,
+/obj/structure/machinery/power/apc/power/west,
+/turf/open/floor/plating,
+/area/lv733/indoors/main_complex/technical_operations)
+"XY" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/largecrate/guns/merc{
+	icon_state = "case_double";
+	name = "supply crate"
+	},
+/turf/open/hybrisa/street/sidewalk/south,
+/area/lv733/outdoors/colony_streets/avenue)
+"Yb" = (
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 4
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"Yz" = (
+/obj/structure/machinery/door/airlock/hybrisa/generic_solid{
+	dir = 1
+	},
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/main_complex/departure_reception)
+"YC" = (
+/obj/effect/decal/hybrisa/road/lines2{
+	pixel_y = 1;
+	color = "#f27e1f"
+	},
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 9
+	},
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/main_complex/main_vestibule)
+"YP" = (
+/turf/closed/wall/hybrisa/colony,
+/area/lv733/indoors/main_complex/departure_reception)
+"YT" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal3";
+	pixel_y = 11
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/avenue)
+"Zl" = (
+/obj/item/trash/cigbutt{
+	pixel_x = 4
+	},
+/turf/open/hybrisa/street/sidewalkfull,
+/area/lv733/outdoors/colony_streets/civil_spaceport_south)
+"Zz" = (
+/obj/effect/decal/hybrisa/road/lines2{
+	pixel_y = 1;
+	color = "#f27e1f"
+	},
+/turf/open/floor/almayer/silver2/southeast,
+/area/lv733/indoors/main_complex/main_vestibule)
+"ZI" = (
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/effect/decal/hybrisa/dirt_2,
+/turf/open/hybrisa/street/sidewalk/west,
+/area/lv733/outdoors/colony_streets/avenue)
+"ZK" = (
+/obj/effect/decal/hybrisa/road/lines4,
+/obj/effect/decal/hybrisa/road/road_edge{
+	icon_state = "road_edge_decal2";
+	pixel_x = 4
+	},
+/obj/effect/decal/hybrisa/road/road_stop{
+	dir = 1;
+	icon_state = "stop_decal5"
+	},
+/turf/open/hybrisa/street/asphalt,
+/area/lv733/outdoors/colony_streets/medical_street)
+"ZL" = (
+/obj/structure/window/framed/hybrisa/research/reinforced,
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/indoors/main_complex/departure_reception)
+"ZM" = (
+/obj/effect/decal/hybrisa/road/lines3,
+/obj/structure/platform_decoration/metal/almayer/east,
+/turf/open/floor/almayer_hull/outerhull_dir_alt/north,
+/area/lv733/indoors/main_complex/main_vestibule)
+"ZO" = (
+/obj/effect/decal/hybrisa/road/lines2,
+/obj/structure/prop/hybrisa/vehicles/Meridian/Taxi{
+	dir = 4;
+	pixel_y = -5;
+	pixel_x = -8
+	},
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/outdoors/colony_streets/wy_complex_streets)
+"ZX" = (
+/obj/effect/decal/hybrisa/road/lines2{
+	pixel_y = 1;
+	color = "#f27e1f"
+	},
+/obj/structure/machinery/light/double{
+	dir = 4
+	},
+/turf/open/floor/almayer/silver2/southwest,
+/area/lv733/indoors/main_complex/main_vestibule)
 
 (1,1,1) = {"
-wj
-Nq
-yl
-uy
-Ga
-qE
-ZN
-aE
-Ga
-Sk
-kX
-VF
-Qb
-AX
-se
-JT
-LU
-Ao
-rT
-Og
-xa
-XA
-hw
-kl
+GW
+jD
+zv
+Ls
+YT
+Sj
+oN
+No
+AE
+XY
+hP
+VV
+WQ
+WQ
+WQ
+Wn
+DR
+AE
+TL
+Ua
+ym
+hh
+SL
+md
 "}
 (2,1,1) = {"
-pL
-FZ
-gL
-LT
-nb
-Dn
-qt
-Vl
-Ga
-WB
-dd
-Ga
-Ga
-II
-Mn
-pV
-II
-Ga
-Ga
-Ga
-AN
-zG
-QH
-kl
+Cd
+VZ
+TH
+TH
+ai
+Sj
+oN
+lk
+Cx
+Cx
+Wo
+rK
+Nf
+bg
+bg
+bg
+Cx
+Cx
+Uc
+az
+rl
+Cr
+Cx
+Cx
 "}
 (3,1,1) = {"
-mA
-FZ
-Hp
-Ip
-DT
-aN
-ir
-fG
-Ga
-Ga
-Ga
-Ga
-jA
-cz
-Ah
-qg
-NM
-JF
-Wv
-Wv
-Ps
-ju
-xP
-kl
+Cj
+EO
+Sj
+Sj
+Sj
+Sj
+oN
+IH
+Cx
+Cx
+Cx
+Cx
+Cx
+as
+as
+Cx
+Cx
+Cx
+zL
+mX
+oR
+zL
+Cx
+Cx
 "}
 (4,1,1) = {"
-Dj
-UA
-kI
-Dc
-Ga
-Hc
-Dr
-ge
-DT
-LU
-Xr
-Ga
-wc
-tI
-rl
-uS
-Re
-NM
-NM
-qZ
-qg
-Re
-hw
-kl
+ZK
+QP
+Pk
+Pk
+ri
+Sj
+oN
+XG
+iZ
+Cx
+ho
+Cx
+ha
+qp
+yk
+Cx
+BI
+ep
+Qj
+qE
+qE
+Nl
+HI
+Cx
 "}
 (5,1,1) = {"
-Sa
-yE
-Op
-Ip
-uP
-jK
-Dr
-zk
-DT
-sN
-IZ
-Ga
-IX
-tI
-Db
-hw
-iT
-hw
-xP
+yp
+Qv
+ZI
+ap
+YT
+Sj
+cy
+Wn
+No
+Cx
+fT
+Nb
+Nl
 Lg
-pq
-hw
-hx
-kl
+Nl
+DC
+Nl
+Nl
+Nl
+Nl
+Nl
+Nl
+KB
+Cx
 "}
 (6,1,1) = {"
-Rt
-II
-II
-Rt
-Rt
-Rt
-WJ
-oD
-Ie
-Ga
-Ga
-Ga
-IX
-dO
-VJ
-Cq
-Jf
-hw
-JG
-RN
-NF
-PS
-xP
-kl
+rt
+Az
+ER
+hI
+YT
+Sj
+cy
+Wn
+jT
+Cx
+Cx
+Cx
+qE
+Yb
+Nl
+vr
+Nl
+Nl
+Nl
+qE
+Nl
+qE
+HU
+Cx
 "}
 (7,1,1) = {"
-Wv
-Ia
-Ia
-SZ
-Wv
-zZ
-hf
-Ri
-Qz
-jd
-Wv
-XN
-ke
-bP
-Jl
-ms
-pe
-hw
-qg
-hw
-Re
-Re
-xP
-xo
+tm
+xc
+Cx
+gd
+YT
+Sj
+cy
+Wn
+jT
+Cx
+qH
+Cx
+qE
+Px
+Rm
+Km
+aJ
+aJ
+pH
+Rm
+Rm
+Lj
+Nl
+Cx
 "}
 (8,1,1) = {"
-sd
-mf
-Ha
-gg
-hw
-Re
-tn
-tB
-jk
-Zw
-hw
-Om
-Fa
-Ym
-XO
-zy
-Vn
-Tg
-eV
-gY
-En
-PS
-Ux
-Fw
+xX
+Cx
+te
+nn
+lr
+iq
+qZ
+qx
+GT
+iK
+ou
+Nb
+Nl
+Yb
+Nl
+DC
+Nl
+qE
+Lg
+Nl
+Nl
+Yb
+Nl
+Cx
 "}
 (9,1,1) = {"
-bp
-eJ
-hw
-nc
-pX
-Re
-Re
-oq
-yN
-Re
-Re
-hw
-Re
-Qn
-hw
-hw
-yP
-hw
-ZG
-lj
-CE
-xP
-mb
-AP
+Ng
+cM
+kS
+qQ
+ws
+jR
+HG
+hZ
+fA
+Cx
+Cx
+Cx
+qE
+Yb
+yk
+Cx
+gC
+Dt
+Yb
+MD
+qE
+Yb
+Nl
+Cx
 "}
 (10,1,1) = {"
-hw
-hw
-HE
-rS
-Db
-Db
-lW
-yN
-hw
-On
-Db
-dH
-pf
-Re
-hw
-Db
-Db
-hw
-hw
-hw
-Hj
-Mu
-BL
-mT
+No
+Cx
+Cx
+Cx
+Uq
+Uq
+Uq
+Cx
+Cx
+Cx
+eP
+kt
+Nl
+Yb
+pP
+pP
+pP
+pP
+uG
+pP
+Sg
+Lg
+Nl
+Cx
 "}
 (11,1,1) = {"
-Zw
-sQ
-DD
-wq
-Ra
-KA
-gE
-Re
-ZB
-QK
-Zt
-MS
-XT
-XT
-No
-si
-si
-zm
-hw
-hw
-Hj
-hw
-NH
-pK
+Cx
+Cx
+Nl
+PV
+HX
+hY
+gz
+Cx
+pg
+xS
+Nl
+Nl
+qE
+Yb
+pP
+KN
+XM
+XO
+nM
+pP
+zL
+IN
+oR
+Cx
 "}
 (12,1,1) = {"
-hw
-tZ
-tO
-Ga
-sP
-Ga
-Oq
-iO
-PA
-Fm
-jt
-JH
-jt
-Fm
-Fm
-jt
-gG
-tb
-hw
-On
-Lh
-cO
-kl
-pK
+DR
+CI
+Nl
+Ow
+wr
+bX
+dS
+zt
+qE
+Ny
+WH
+Nl
+Nl
+jZ
+pP
+IK
+Xx
+Fx
+rF
+pP
+wb
+Yb
+Nl
+Cx
 "}
 (13,1,1) = {"
-hw
-Re
-kl
-dR
-WX
-tM
-IX
-Hj
-Fa
-mo
-mo
-mo
-bR
-tb
-Di
-mo
-bR
-IW
-Hj
-hw
-hw
-hw
-xo
-JE
+dk
+CI
+tH
+yd
+wr
+hY
+dS
+zt
+Nl
+Nl
+kg
+Nl
+Nl
+jZ
+pP
+PI
+Or
+Or
+ob
+pP
+qE
+Lg
+VE
+Cx
 "}
 (14,1,1) = {"
-hw
-hw
-kl
-MN
-nv
-dR
-IX
 DR
-FK
-LH
-pK
-sS
-sS
-vX
-tJ
-pK
-lq
-SS
-hw
-hw
-Re
-Re
-kP
-SG
+CI
+Nl
+zc
+HX
+hY
+dS
+zt
+qE
+Nl
+vO
+Nl
+qE
+kX
+pP
+pP
+OC
+Cv
+pP
+pP
+mG
+Lg
+Nl
+Nt
 "}
 (15,1,1) = {"
-Hj
-JQ
-kl
-jD
-jD
-cx
-IX
-Nr
-xP
-iY
-lq
-ik
-CM
-SX
-tb
-CM
-lq
-rn
-pS
-hw
-Jf
-Om
-hw
-Qo
+bo
+Cx
+CG
+Nl
+kC
+kC
+gG
+Cx
+id
+Ny
+WH
+UL
+tS
+Yb
+Xk
+Rh
+Qw
+Qw
+tz
+jh
+CG
+Yb
+Vh
+aH
 "}
 (16,1,1) = {"
-GG
-xP
-kl
-Yz
-xN
-cg
-IX
-hr
-xP
-iY
-QI
-CM
-tb
-CM
-CM
-US
-pK
-HB
-gZ
-hw
-Fa
-hw
-hw
-DT
+oM
+Cx
+Wc
+Nl
+np
+np
+je
+Xz
+qE
+qE
+qE
+qE
+Nl
+Lg
+WK
+Rh
+Qw
+Qw
+XB
+zz
+KQ
+Px
+Rm
+qp
 "}
 (17,1,1) = {"
-hw
-HC
-kl
-os
-jD
-dR
-IX
-vV
-xP
-JE
-aG
-WR
-sS
-tb
-QI
-EE
-aG
-JE
-Hj
-Re
-Jf
-Jf
-st
-SG
+Tj
+zt
+qE
+Nl
+np
+np
+np
+vD
+hM
+Fl
+Fl
+TV
+vK
+Fh
+eZ
+Rh
+Qw
+Qw
+XB
+Ps
+Nl
+Rj
+Vh
+GE
 "}
 (18,1,1) = {"
-hw
-Oy
-kl
-Kd
-Rs
-sT
-IX
-AO
-PA
-No
-XT
-ku
-No
+Ua
+Xz
+Nl
+Nl
+IW
+IW
+IW
 CM
-No
-ku
-Ya
-XT
-hw
-Re
-Om
-hw
-xo
-JE
+Fl
+Fl
+yP
+Cx
+bp
+jw
+eZ
+Rh
+Qw
+Qw
+XB
+Ps
+gO
+Yb
+Nl
+VA
 "}
 (19,1,1) = {"
-Kb
-hw
-kl
-Ga
-WD
-Ga
-PE
-Oe
-hr
-tb
-tb
-gG
+zV
+vD
+Nl
+qE
+kC
+UD
+kC
 CM
-tb
-CM
-CM
-gG
-tb
-hw
-hw
-Om
-hx
-kl
-pK
+Nv
+Fl
+qc
+Cx
+kT
+ii
+Bv
+Rh
+Qw
+Qw
+XB
+Zz
+DJ
+Yb
+Nl
+OA
 "}
 (20,1,1) = {"
-hw
-xO
-eq
-SZ
-Wv
-iZ
-ws
-Zw
-ZG
-oe
-wU
-wU
-mo
-mo
-Wn
-wU
-rV
-Ef
-tD
-ov
-hw
-xP
-xo
-pK
+Ua
+zt
+qE
+Nl
+je
+np
+np
+Xz
+ye
+Nv
+Fl
+Fn
+xs
+zF
+jK
+Rh
+Qw
+Qw
+jv
+cc
+gO
+JI
+Nl
+OA
 "}
 (21,1,1) = {"
-Hj
-Bd
-RX
-NM
-Va
-Re
-Re
-hw
-mD
-hw
-jq
-Rx
-Zw
-Db
-hw
-xJ
-NM
-zj
-gu
-hw
-hw
-hw
-GY
-LH
+bR
+Cx
+Wc
+Nl
+np
+je
+np
+vD
+qE
+qE
+dy
+qE
+lZ
+Lg
+oX
+Rh
+Qw
+Qw
+jv
+cc
+hR
+sS
+KB
+OA
 "}
 (22,1,1) = {"
-ci
-IC
-hw
-SI
-Re
-Re
-Qn
-Re
-Re
-PS
-xb
-hw
-Pq
-vD
-hn
-hw
-Yo
-hw
-hw
-hU
-hw
-XZ
-eC
-Wv
+Cx
+Cx
+CG
+qE
+IW
+IW
+BT
+Cx
+AC
+EM
+IA
+Rm
+TW
+jG
+QX
+Rh
+Qw
+Qw
+XB
+QS
+Nl
+eM
+Nl
+GK
 "}
 (23,1,1) = {"
-hw
-PP
-PN
-cD
-Ja
-Ja
-Re
-yN
-Zw
-Pp
-Db
-hw
-hw
-lj
-PG
-Fn
-Ms
-ow
-hw
-hw
-xP
-Dp
-CE
-no
+qI
+CI
+fV
+yd
+wr
+bX
+gz
+zt
+Nl
+Nl
+zQ
+yM
+Nl
+RY
+Xk
+Rh
+Qw
+Qw
+XB
+jh
+LJ
+qz
+sK
+Ri
 "}
 (24,1,1) = {"
-mT
-Qv
-bH
-mS
-Ra
-mT
-mT
-mT
-zu
-nW
-mT
-Ra
-kv
-jr
-Hk
-xO
-HF
-hw
-Re
-Re
-OU
-Go
-Eh
-ao
+qI
+CI
+Nl
+yd
+HX
+bX
+dS
+zt
+Nl
+nq
+VB
+Bf
+GM
+Oi
+ia
+Rh
+vA
+Qw
+XB
+AM
+qE
+yF
+KL
+fg
 "}
 (25,1,1) = {"
-LZ
-rP
-Vr
-Vr
-Vr
-jB
-jB
-jB
-Vr
-Vr
-ZW
-xd
-nA
-kH
-Fa
-Kv
-mK
-Re
-lo
-WO
-lt
-DD
-kw
-Vr
+qI
+CI
+qE
+Ow
+wr
+bX
+gz
+zt
+Nl
+Ny
+WH
+pS
+Nl
+Yb
+oX
+Rh
+Qw
+Qw
+jv
+cc
+Jb
+Ai
+gO
+fg
 "}
 (26,1,1) = {"
-xA
-Yw
-Vr
-hl
-me
-rr
-Ru
-LG
-Vg
-Vr
-Vr
-ON
-XI
-Mi
-Ra
-Jw
-Re
-lg
-CZ
-DD
-mT
+Cx
+Cx
+Nl
+Ho
+wr
+bX
 dS
-ZY
-Vr
+Cx
+rU
+iT
+qE
+bT
+Nl
+Yb
+oX
+Rh
+Qw
+Qw
+jv
+ms
+qE
+iH
+Rm
+wZ
 "}
 (27,1,1) = {"
-Np
-FF
-Vr
-Mg
-LG
-ds
-LG
-LG
-Hf
-Vr
-bS
-rx
-xd
-Ze
-rP
-Mi
-kH
-xP
-BL
-YX
-ng
-Vr
-IT
-RY
+Zl
+Cx
+Cx
+Cx
+CJ
+Uq
+Uq
+YP
+YP
+YP
+YP
+YP
+QW
+Sz
+QX
+Rh
+Qw
+Qw
+XB
+QS
+Nq
+Mb
+Nl
+cq
 "}
 (28,1,1) = {"
-Fd
-Ze
-AU
-JB
-Ru
-LG
-oE
-LG
-LG
-Vr
-Xo
-Xo
-Xo
-Xo
-Xo
-Ua
-dl
-jN
-oZ
-Vr
-ur
-Vr
-qd
-GO
+mt
+mt
+PD
+LC
+HM
+hq
+tn
+YP
+lX
+oo
+tj
+YP
+Fz
+dr
+eZ
+Rh
+Qw
+Qw
+tz
+JH
+OE
+tF
+lR
+OA
+"}
+(29,1,1) = {"
+UC
+IE
+LF
+jq
+zi
+pT
+uh
+YP
+wn
+kN
+HC
+BG
+tt
+uT
+eZ
+kI
+Qw
+Qw
+aP
+hU
+ej
+Eo
+Nl
+OA
+"}
+(30,1,1) = {"
+qw
+dj
+LF
+ZO
+zi
+hS
+uh
+YP
+TC
+qn
+nr
+gr
+LY
+YC
+zR
+VR
+Qw
+Qw
+XB
+Ps
+Ny
+Ag
+Nl
+OA
+"}
+(31,1,1) = {"
+hl
+Xc
+mW
+cX
+zi
+hS
+uh
+ZL
+La
+gS
+in
+Jq
+Pq
+cc
+ia
+Rh
+Qw
+Ck
+XB
+BM
+Nl
+Lg
+Nl
+Cx
+"}
+(32,1,1) = {"
+IE
+NO
+yT
+SN
+Ar
+hS
+uh
+ZL
+Ad
+po
+rY
+BG
+Pq
+rr
+jU
+Rh
+Qw
+Qw
+jv
+cc
+Nl
+Lg
+xd
+Cx
+"}
+(33,1,1) = {"
+GG
+GG
+tR
+LF
+zi
+hS
+uh
+ZL
+MJ
+II
+Xq
+YP
+oV
+pt
+oX
+Rh
+Qw
+Qw
+jv
+pt
+qE
+Yb
+qE
+Xz
+"}
+(34,1,1) = {"
+mt
+oi
+KI
+LF
+Dj
+hS
+uh
+YP
+Sc
+Eq
+ku
+Yz
+We
+Nl
+IC
+Rh
+Qw
+Qw
+XB
+ZX
+CB
+sO
+qE
+vD
+"}
+(35,1,1) = {"
+qv
+qv
+qv
+vl
+Dj
+bF
+uh
+YP
+fJ
+uB
+Jm
+YP
+an
+qE
+Xk
+ZM
+Qw
+Qw
+Da
+jh
+WM
+zC
+aQ
+Cx
 "}
