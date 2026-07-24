@@ -25,15 +25,21 @@
 		if(G.id == "vehicle_elevator_gears")
 			gears += G
 	for(var/obj/structure/machinery/door/poddoor/railing/R in GLOB.machines)
-		if(R.id == "vehicle_elevator_railing")
+		if(R.id == "vehicle_elevator_railing" || R.id == "vehicle_elevator_railing_aux") // BANDAMARINES EDIT
 			railings += R
 
+// BANDAMARINES EDIT START
 /obj/docking_port/mobile/vehicle_elevator/on_ignition()
 	. = ..()
+	var/obj/docking_port/stationary/current_dock = get_docked()
 	// If the elevator isn't in the vehicle bay, start the gears immediately.
-	if(!is_mainship_level(z))
+	close_railings()
+	if(current_dock?.id == "adminlevel vehicle")
 		start_gears()
-
+		playsound(destination, 'sound/machines/asrs_raising.ogg', 60)
+	else
+		addtimer(CALLBACK(src, PROC_REF(start_gears)), ignitionTime)
+/*
 		// Play the 'raising' sound effect at the destination docking port manually.
 		// `landing_sound` can't be used since that only plays on the elevator itself,
 		// and this sound file is too long for that either way.
@@ -43,15 +49,17 @@
 	// If the elevator *is* in the vehicle bay, close the railings and start the gears when it leaves.
 	close_railings()
 	addtimer(CALLBACK(src, PROC_REF(start_gears)), ignitionTime)
+*/ // BANDAMARINES EDIT END
 
 /obj/docking_port/mobile/vehicle_elevator/afterShuttleMove()
 	. = ..()
+	var/obj/docking_port/stationary/docked_at = get_docked() // BANDAMARINES EDIT
 	// Check `get_docked()` in order to skip this if it just moved to the 'transit' port.
 	if(get_docked() == destination)
 		stop_gears()
 
 	// If the elevator moved to the vehicle bay, open the railings.
-	if(is_mainship_level(z))
+	if(docked_at?.id == "almayer vehicle") // BANDAMARINES EDIT
 		open_railings()
 
 /obj/docking_port/mobile/vehicle_elevator/proc/start_gears()

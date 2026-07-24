@@ -76,6 +76,7 @@ export function getRoutedComponent() {
     (name: string) => `./${name}.jsx`,
     (name: string) => `./${name}/index.tsx`,
     (name: string) => `./${name}/index.jsx`,
+    (name: string) => `./BandaMarines/${name}.tsx`,
   ];
 
   let esModule;
