@@ -535,6 +535,8 @@ GLOBAL_DATUM_INIT(fax_network, /datum/fax_network, new)
 	else if(target_department == FAX_DEPARTMENT_SPECIFIC_CODE)
 		the_target_department = "Fax Machine [target_machine_id]"
 
+	log_game("FAX: [key_name(user)] sent '[original_fax.name]' from [identity_name] ([department]) to [the_target_department] via [network] at [log_location(src)]. Sender location: [log_location(user)].") //BANDAMARINES ADDITION
+
 	var/msg_admin = SPAN_STAFF_IC("<b><font color='#006100'>[the_target_department]: </font>[key_name(user, 1)] ")
 	msg_admin += "[CC_MARK(user)] [ADMIN_PP(user)] [ADMIN_VV(user)] [ADMIN_SM(user)] [ADMIN_JMP_USER(user)] "
 

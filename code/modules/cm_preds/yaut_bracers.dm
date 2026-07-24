@@ -1460,7 +1460,7 @@
 	if(is_local)
 		user.show_speech_bubble(heard, "pred_translator1")
 
-	log_say("[user.name != "Unknown" ? user.name : "([user.real_name])"] \[Yautja Translator\]: [message] (CKEY: [user.ckey]) (JOB: [user.job]) (AREA: [get_area_name(user)])")
+	log_say(logis_speech_line(user, message, "Yautja Translator"), user) //BANDAMARINES LOGIS EDIT
 
 	var/overhead_color = "#ff0505"
 	var/span_class = "yautja_translator"
