@@ -40,3 +40,4 @@
 #include "balance/_balance.dme"
 #include "emojis220/_emojis.dme"
 #include "yaut_leap/_leap.dme"
+#include "crusher_rebalance/_crusher_rebalance.dme"
