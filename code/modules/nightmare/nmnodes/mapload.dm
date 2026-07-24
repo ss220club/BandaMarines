@@ -90,22 +90,3 @@
 /datum/nmnode/mapload/sprinkles
 	id = "map_sprinkle"
 	name = "Map Sprinkles"
-/datum/nmnode/mapload/sprinkles/resolve(datum/nmcontext/context, list/statsmap)
-	. = ..()
-	if(!.)
-		return
-	var/dir_path = context.get_file_path(filepath, "map")
-	var/regex/matcher = new(@"^([0-9]+)([\.\+])(([^_]+)(.*))?\.dmm$", "i")
-	var/list/dircontents = flist(dir_path)
-	for(var/filename in dircontents)
-		if(!matcher.Find(filename))
-			continue
-#if !defined(UNIT_TESTS)
-		var/fprob = clamp(text2num(matcher.group[1]) / 100, 0, 1)
-		if(fprob < rand())
-			continue
-#endif // Remove the possibility of chance for testing
-		var/landmark = matcher.group[3]
-		var/keep = (matcher.group[2] == "+")
-		var/datum/nmtask/mapload/task = new("[name] @ [landmark]", "[dir_path][matcher.match]", landmark, keep)
-		context.add_task(task)
