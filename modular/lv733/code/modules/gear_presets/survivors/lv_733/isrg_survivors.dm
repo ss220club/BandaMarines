@@ -9,8 +9,8 @@
 	faction = FACTION_ISRG
 	faction_group = FACTION_LIST_SURVIVOR_ISRG
 	origin_override = ORIGIN_CIVILIAN
-	minimap_icon = "medic"
-	minimap_background = "leader"
+	minimap_icon = "isrg_k9"
+	minimap_background = "background_isrg"
 	role_comm_title = "Кин."
 	idtype = /obj/item/card/id/dogtag
 	flags = EQUIPMENT_PRESET_EXTRA
@@ -23,6 +23,10 @@
 		ACCESS_CIVILIAN_MEDBAY,
 		ACCESS_CIVILIAN_COMMAND,
 	)
+
+/datum/equipment_preset/survivor/isrg/load_id(mob/living/carbon/human/new_human, client/mob_client)
+	. = ..()
+	new_human.hud_set_squad()
 
 /datum/equipment_preset/survivor/isrg/proc/equip_common_gear(mob/living/carbon/human/new_human, uniform_type, head_type, suit_type, back_type, belt_type, left_pouch_type, right_pouch_type, eyes_type = null, face_type = null, spare_face_type = null)
 	new_human.equip_to_slot_or_del(new uniform_type(new_human), WEAR_BODY)
@@ -69,7 +73,7 @@
 	job_title = JOB_ISRG_RESCUER
 	paygrades = list(PAY_SHORT_ISRGE2 = JOB_PLAYTIME_TIER_0)
 	skills = /datum/skills/survivor/isrg_rescuer
-	minimap_icon = "rifleman"
+	minimap_icon = "isrg_rescuer"
 	role_comm_title = "Спас."
 
 /datum/equipment_preset/survivor/isrg/rescuer/load_gear(mob/living/carbon/human/new_human)
@@ -94,7 +98,7 @@
 	job_title = JOB_ISRG_LEADER
 	paygrades = list(PAY_SHORT_ISRGO1 = JOB_PLAYTIME_TIER_0)
 	skills = /datum/skills/survivor/isrg_leader
-	minimap_icon = "leader"
+	minimap_icon = "isrg_leader"
 	role_comm_title = "Л-р."
 
 /datum/equipment_preset/survivor/isrg/leader/load_gear(mob/living/carbon/human/new_human)
@@ -123,8 +127,8 @@
 	job_title = JOB_ISRG_SMARTGUNNER
 	paygrades = list(PAY_SHORT_ISRGE3 = JOB_PLAYTIME_TIER_0)
 	skills = /datum/skills/survivor/isrg_smartgunner
-	minimap_icon = "rifleman"
-	minimap_background = "leader"
+	minimap_icon = "isrg_smart"
+	minimap_background = "background_isrg"
 	role_comm_title = "Опер."
 	idtype = /obj/item/card/id/dogtag
 	flags = EQUIPMENT_PRESET_EXTRA
@@ -163,12 +167,16 @@
 	faction = FACTION_ISRG
 	faction_group = FACTION_LIST_SURVIVOR_ISRG
 	origin_override = ORIGIN_CIVILIAN
-	minimap_icon = "synth"
-	minimap_background = "leader"
+	minimap_icon = "isrg_synth"
+	minimap_background = "background_isrg"
 	role_comm_title = "K9"
 	idtype = /obj/item/card/id/dogtag
 	flags = EQUIPMENT_PRESET_EXTRA
 	var/survivor_variant = CIVILIAN_SURVIVOR
+
+/datum/equipment_preset/synth_k9/isrg/load_id(mob/living/carbon/human/new_human, client/mob_client)
+	. = ..()
+	new_human.hud_set_squad()
 
 /datum/equipment_preset/synth_k9/isrg/New()
 	. = ..()
@@ -217,8 +225,8 @@
 	faction = FACTION_ISRG
 	faction_group = FACTION_LIST_SURVIVOR_ISRG
 	origin_override = ORIGIN_CIVILIAN
-	minimap_icon = "co"
-	minimap_background = "leader"
+	minimap_icon = "isrg_co"
+	minimap_background = "background_isrg"
 	role_comm_title = "Ком-р"
 	idtype = /obj/item/card/id/gold
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
@@ -231,6 +239,10 @@
 		ACCESS_CIVILIAN_MEDBAY,
 		ACCESS_CIVILIAN_COMMAND,
 	)
+
+/datum/equipment_preset/survivor/whitchler/isrg_commander/load_id(mob/living/carbon/human/new_human, client/mob_client)
+	. = ..()
+	new_human.hud_set_squad()
 
 /datum/equipment_preset/survivor/whitchler/isrg_commander/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/marine/veteran/isrg/dress(new_human), WEAR_BODY)

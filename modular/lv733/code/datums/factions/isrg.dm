@@ -3,6 +3,12 @@
 	faction_tag = FACTION_ISRG
 	base_icon_file = 'modular/lv733/icons/isrg_hud.dmi'
 
+/datum/mob_hud/faction/isrg
+	faction_to_check = FACTION_ISRG
+
+/datum/modpack/lv733/initialize()
+	GLOB.huds[MOB_HUD_FACTION_ISRG] = new /datum/mob_hud/faction/isrg()
+
 /datum/faction/isrg/modify_hud_holder(image/holder, mob/living/carbon/human/human)
 	var/icon/override_icon_file
 	var/hud_icon_state
