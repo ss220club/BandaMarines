@@ -6647,3 +6647,5 @@ SendMaps,prof.c,2971,34016906,0.057116,601,56600,451,6068594,265255.695509
 /turf/open/gm/dirtgrassborder/Initialize,code/game/turfs/open.dm,662,38995276,0.065474,1193,32686,27852,64060,3914.244879
 /proc/send2chat,code/__HELPERS/chat.dm,9,5180,0.000009,1,5180,5180,5180,0.000000
 /obj/item/storage/box/mousetraps/fill_preset_inventory,code/game/objects/items/storage/boxes.dm,552,4577332,0.007685,8,572166,531071,662276,40959.078875
+datum/reagent/../../Nightmare/maps/The_Last_Bunker/sprinkles/proc/(init)
+/datum/reagent/sprinkles/proc/(init)
