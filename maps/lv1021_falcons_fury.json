@@ -1,0 +1,56 @@
+{
+    "map_name": "LV-1021: Operation Falcon's Fury",
+    "map_path": "map_files/LV1021_Falcons_Fury",
+    "map_file": "LV1021_Falcons_Fury.dmm",
+
+    "survivor_types": [
+        "/datum/equipment_preset/survivor/clf_lv1021/standard"
+    ],
+	"synth_survivor_types": [
+        "/datum/equipment_preset/synth/survivor/clf/lv1021"
+    ],
+    "CO_insert_survivor_types": [
+        "/datum/equipment_preset/survivor/clf_lv1021/coordinator"
+    ],
+	"CO_survivor_types": [
+        "/datum/equipment_preset/survivor/clf_lv1021/coordinator"
+    ],
+    "map_item_type": "/obj/item/map/lv1021_map",
+    "announce_text": "###SHIPNAME###, это командование Третьего флота. В начале этого месяца ваш корабль участвовал в операции «Тихон Тэкл», контртеррористической миссии против CLF. Несмотря на успех, миссия оказалась сложной. Ваша следующая миссия — продолжение. Вы находитесь на орбите \"LV-1021\", неизведанной планеты с джунглями. На этой планете расположен тренировочный лагерь CLF, связанный с врагом, с которым вы столкнулись на \"Тихоне\". Ваша цель — поиск и уничтожение. Перед вами развернут отряд разведчиков «Пожиратели змей», ожидайте от них сообщения в ближайшее время. У нас есть только одно короткое окно, чтобы вступить в бой и уничтожить врага, прежде чем он рассеется, лучшего шанса застать повстанцев врасплох у нас не будет. Операция «Ярость Сокола» санкционирована.",
+    "monkey_types": [
+        "farwa",
+        "monkey",
+        "neaera",
+        "stok"
+    ],
+    "environment_traits": { "Fog": true },
+    "traits": [
+        {
+            "Ground": true,
+            "Up": 1
+        },
+        {
+            "Ground": true,
+            "Up": 1,
+            "Down": -1
+        },
+        {
+            "Ground": true,
+            "Down": -1
+        }
+    ],
+    "nightmare_path": "maps/Nightmare/maps/LV1021_Falcons_Fury/",
+    "xvx_hives": {
+        "xeno_hive_alpha": 0,
+        "xeno_hive_bravo": 0,
+        "xeno_hive_charlie": 70
+    },
+    "camouflage": "jungle",
+    "gamemodes": [
+        "Distress Signal",
+        "Hunter Games",
+        "Hive Wars",
+        "Faction Clash",
+        "Infection"
+    ]
+}

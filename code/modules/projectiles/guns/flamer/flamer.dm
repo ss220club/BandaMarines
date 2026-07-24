@@ -1061,7 +1061,7 @@ GLOBAL_LIST_EMPTY(flamer_particles)
 	name = "\improper Flammenwerfer 3 Heavy DE-cineration Unit"
 	desc = "A civilian modification of the heavy incineration unit produced by Weyland Corporation and later by Weyland-Yutani Corporation. Normally, these would be found on frontier colonies, for burning down forests and foliage. In this case, this seems to be a reclaimed model used by the local firefighters. \nIt even has a note attached, which hopefully explains *why* anyone would use an incinerator to fight fire...\n"
 	desc_lore = "This century-old flamethrower is seeing a comeback on Frontier colonies. Heavy Incinerator Units are often used for clearing out dead foliage, demolishing buildings, and removing evidence of colonial disease. Current market price of this device is 2000$- or, it would be, if this particular one hasn't had its warranty voided. Apparently a diligent professional has swapped out the propellant gas for... stabilized metallic foam."
-	icon_state = "fl3_survivor"
+	icon_state = "fl3"
 	item_state = "fl3"
 	icon = 'icons/obj/items/weapons/guns/guns_by_faction/WY/flamers.dmi'
 
