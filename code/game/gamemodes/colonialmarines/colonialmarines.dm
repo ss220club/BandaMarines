@@ -446,6 +446,8 @@
 	if(person_in_charge.skills)
 		if(person_in_charge.skills.get_skill_level(SKILL_ENGINEER) < SKILL_ENGINEER_TRAINED)
 			person_in_charge.skills.set_skill(SKILL_ENGINEER, SKILL_ENGINEER_TRAINED)
+		if(person_in_charge.skills.get_skill_level(SKILL_OVERWATCH) < SKILL_OVERWATCH_TRAINED)
+			person_in_charge.skills.set_skill(SKILL_OVERWATCH, SKILL_OVERWATCH_TRAINED)
 
 	announce_addendum += "\nГарнитура и планшет командования доступны в командно-информационном центре." //SS220 EDIT END
 
