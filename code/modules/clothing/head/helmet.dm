@@ -141,7 +141,7 @@
 
 /obj/item/clothing/head/helmet/roman
 	name = "\improper imperial galea helmet"
-	desc = "An extremely old helmet that was used by Roman heavy infantry units called the Legionares."
+	desc = "Древний шлем, использовавшийся отрядами римской тяжелой пехоты, называемыми легионерами." //SS220 EDIT
 	icon_state = "legionary_helm"
 	item_state = "legionary_helm"
 	icon = 'icons/obj/items/clothing/hats/misc_ert_colony.dmi'
@@ -161,7 +161,7 @@
 	armor_internaldamage = CLOTHING_ARMOR_MEDIUMHIGH
 
 /obj/item/clothing/head/helmet/roman/centurion
-	desc = "An extremely old helmet that was used by Roman heavy infantry units called the Legionares. This one has a crest indicating it was used by Centurions."
+	desc = "Древний шлем, использовавшийся отрядами римской тяжелой пехоты, называемыми легионерами. Данный шлем имеет гребень, указывающий на принадлежность центуриону." //SS220 EDIT
 	icon_state = "centurion_helm"
 	item_state = "centurion_helm"
 	worn_x_dimension = 64
@@ -173,7 +173,7 @@
 
 /obj/item/clothing/head/helmet/roman/eaglebearer
 	name = "\improper Aquilifer's bear pelt mask"
-	desc = "a bear pelt and mask that was worn by a Roman Aquilifer, a prestigious role meant to inspire troops in battles."
+	desc = "Медвежья шкура и маска, которые носили римские аквилиферы, почетные знаменосцы, вдохновлявшие солдат в битвах." //SS220 EDIT
 	icon_state = "eaglebearer_hat"
 	item_state = "eaglebearer_hat"
 	worn_x_dimension = 64
@@ -480,10 +480,13 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 	AddElement(/datum/element/corp_label/armat)
 	if(!(flags_atom & NO_NAME_OVERRIDE))
 		name = "[specialty]"
+		var/suffix = "" // SS220 EDIT ADDICTION
 		if(SSmapping.configs[GROUND_MAP].environment_traits[MAP_COLD])
 			name += " snow helmet"
+			suffix = " (Зимний камуфляж)" // SS220 EDIT ADDICTION
 		else
 			name += " helmet"
+		ru_names_rename(ru_names_toml(replacetext(name," snow",""), suffix = suffix, override_base = name)) // SS220 EDIT ADDICTION
 
 	if(!(flags_atom & NO_GAMEMODE_SKIN))
 		select_gamemode_skin(type, null, new_protection)
@@ -577,17 +580,17 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 
 	if(istype(attacking_item, /obj/item/ammo_magazine) && world.time > helmet_bash_cooldown && user)
 		var/obj/item/ammo_magazine/M = attacking_item
-		var/ammo_level = "more than half full."
+		var/ammo_level = "больше половины."
 		playsound(user, 'sound/items/trayhit1.ogg', 15, FALSE)
 		if(M.current_rounds == (M.max_rounds/2))
-			ammo_level = "half full."
+			ammo_level = "половина."
 		if(M.current_rounds < (M.max_rounds/2))
-			ammo_level = "less than half full."
+			ammo_level = "меньше половины."
 		if(M.current_rounds < (M.max_rounds/6))
-			ammo_level = "almost empty."
+			ammo_level = "почти пусто."
 		if(M.current_rounds == 0)
-			ammo_level = "empty. Uh oh."
-		user.visible_message("[user] bashes [M] against their helmet", "You bash [M] against your helmet. It is [ammo_level]")
+			ammo_level = "пусто. Ой-ой."
+		user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] [ru_attack_verb("bashes")] [M.declent_ru(ACCUSATIVE)] об свой шлем.", "Вы [ru_attack_verb("bash")] [M.declent_ru(ACCUSATIVE)] об свой шлем. Внутри [ammo_level].")
 		helmet_bash_cooldown = world.time + 20 SECONDS
 		return
 
@@ -1623,7 +1626,7 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 
 /obj/item/clothing/head/helmet/marine/veteran/dutch/vietnam
 	name = "\improper M1 pattern army helmet"
-	desc = "A protective helmet worn by US Army Riflemen during the peak of the Vietnam War."
+	desc = "Общевойсковой шлем солдат армии США в разгар войны во Вьетнаме." //SS220 EDIT
 
 /obj/item/clothing/head/helmet/marine/veteran/dutch/cap
 	name = "\improper Dutch's Dozen cap"

@@ -61,7 +61,7 @@
 			for(var/mob/living/carbon/xenomorph/queen/Q in GLOB.living_xeno_list)
 				if(Q.hivenumber == hive.hivenumber && !should_block_game_interaction(Q))
 					hive.living_xeno_queen = Q
-					xeno_message(SPAN_XENOANNOUNCE("A new Queen has risen to lead the Hive! Rejoice!"),3,hive.hivenumber)
+					xeno_message(SPAN_XENOANNOUNCE("Новая Королева восстала, чтобы возглавить улей! Возрадуемся!"),3,hive.hivenumber)
 					continue outer_loop
 			hive.living_xeno_queen = null
 
@@ -209,7 +209,7 @@
 
 		next_point = world.time + point_delay
 
-		var/message = SPAN_XENONOTICE("[Q] points at [A].")
+		var/message = SPAN_XENONOTICE("<b>[capitalize(Q.declent_ru(NOMINATIVE))]</b> указывает на [A.declent_ru(ACCUSATIVE)].") // SS220 EDIT ADDICTION
 
 		to_chat(Q, message)
 		for(var/mob/living/carbon/xenomorph/X in viewers(7, src))
@@ -447,7 +447,7 @@
 	. = ..()
 	SStracking.set_leader("hive_[hivenumber]", src)
 	if(!should_block_game_interaction(src))//so admins can safely spawn Queens in Thunderdome for tests.
-		xeno_message(SPAN_XENOANNOUNCE("A new Queen has risen to lead the Hive! Rejoice!"),3,hivenumber)
+		xeno_message(SPAN_XENOANNOUNCE("Новая Королева восстала, чтобы возглавить улей! Возрадуемся!"),3,hivenumber)
 		notify_ghosts(header = "New Queen", message = "A new Queen has risen.", source = src, action = NOTIFY_ORBIT)
 	playsound(loc, 'sound/voice/alien_queen_command.ogg', 75, 0)
 	set_resin_build_order(GLOB.resin_build_order_drone)
@@ -484,37 +484,58 @@
 /mob/living/carbon/xenomorph/queen/generate_name()
 	if(!nicknumber)
 		generate_and_set_nicknumber()
-	var/name_prefix = hive.prefix
+	// BANDAMARINES EDIT START
+	var/name_prefix = hive.prefix_fem || hive.prefix
+	var/queen_status = "Queen"
 	if(queen_aged)
 		age_xeno()
 		switch(age)
 			if(XENO_YOUNG)
-				name = "[name_prefix]Young Queen" //Young
+				age_prefix = "Молодая " //Young
 			if(XENO_NORMAL)
-				name = "[name_prefix]Queen"  //Regular
+				age_prefix = "" //Regular
 			if(XENO_MATURE)
-				name = "[name_prefix]Empress"  //Mature
+				age_prefix = "" //Mature
+				queen_status = "Empress"
 			if(XENO_ELDER)
-				name = "[name_prefix]Elder Empress"  //Elite
+				age_prefix = "Старшая " //Elite
+				queen_status = "Empress"
 			if(XENO_ANCIENT)
-				name = "[name_prefix]Ancient Empress" //Ancient
+				age_prefix = "Древняя " //Ancient
+				queen_status = "Empress"
 			if(XENO_PRIME)
-				name = "[name_prefix]Prime Empress" //Prime
+				age_prefix = "Прайм " //Prime
+				queen_status = "Empress"
 	else
 		age = XENO_NORMAL
 		if(client)
 			hud_update()
 
-		name = "[name_prefix]Immature Queen"
+		age_prefix = "Неокрепшая "
+
+	name = "[name_prefix][age_prefix][declent_ru_initial(queen_status, NOMINATIVE, queen_status)]"
 
 	var/name_client_prefix = ""
 	var/name_client_postfix = ""
+	var/name_postfix = ""
 	if(client)
 		name_client_prefix = "[(client.xeno_prefix||client.xeno_postfix) ? client.xeno_prefix : "XX"]-"
 		name_client_postfix = client.xeno_postfix ? ("-"+client.xeno_postfix) : ""
 		if(client?.prefs?.show_queen_name)
-			name += " (" + replacetext((name_client_prefix + name_client_postfix), "-","") + ")"
+			name_postfix = " (" + replacetext((name_client_prefix + name_client_postfix), "-","") + ")"
+			name += name_postfix
 
+	ru_names_rename(ru_names_list(
+		base = name,
+		nominative = "[name_prefix][declent_ru_initial(age_prefix, NOMINATIVE, age_prefix)][declent_ru_initial(queen_status, NOMINATIVE, queen_status)][name_postfix]",
+		genitive = "[name_prefix][declent_ru_initial(age_prefix, GENITIVE, age_prefix)][declent_ru_initial(queen_status, GENITIVE, queen_status)][name_postfix]",
+		dative = "[name_prefix][declent_ru_initial(age_prefix, DATIVE, age_prefix)][declent_ru_initial(queen_status, DATIVE, queen_status)][name_postfix]",
+		accusative = "[name_prefix][declent_ru_initial(age_prefix, ACCUSATIVE, age_prefix)][declent_ru_initial(queen_status, ACCUSATIVE, queen_status)][name_postfix]",
+		instrumental = "[name_prefix][declent_ru_initial(age_prefix, INSTRUMENTAL, age_prefix)][declent_ru_initial(queen_status, INSTRUMENTAL, queen_status)][name_postfix]",
+		prepositional = "[name_prefix][declent_ru_initial(age_prefix, PREPOSITIONAL, age_prefix)][declent_ru_initial(queen_status, PREPOSITIONAL, queen_status)][name_postfix]",
+		gender = "[declent_ru_initial(queen_status, "gender", queen_status)]",
+	))
+	// BANDAMARINES EDIT END
 
 	full_designation = "[name_client_prefix][nicknumber][name_client_postfix]"
 
@@ -665,20 +686,20 @@
 	var/stored_larvae = GLOB.hive_datum[hivenumber].stored_larva
 	var/xeno_leader_num = hive?.queen_leader_limit - length(hive?.open_xeno_leader_positions)
 
-	. += "Pooled Larvae: [stored_larvae]"
-	. += "Leaders: [xeno_leader_num] / [hive?.queen_leader_limit]"
-	. += "Royal Resin: [hive?.buff_points]"
+	. += "Зарытых грудоломов: [stored_larvae]"
+	. += "Лидеры: [xeno_leader_num] / [hive?.queen_leader_limit]"
+	. += "Королевская смола: [hive?.buff_points]"
 	if(!queen_aged)
 		if(queen_age_timer_id != TIMER_ID_NULL)
-			. += "Maturity: [time2text(timeleft(queen_age_timer_id), "mm:ss")] remaining"
+			. += "Взросление: [time2text(timeleft(queen_age_timer_id), "mm:ss")] осталось"
 		if(queen_age_temp_timer_id != TIMER_ID_NULL)
-			. += "Temporary Maturity: [time2text(timeleft(queen_age_temp_timer_id), "mm:ss")] remaining"
+			. += "Временная зрелость: [time2text(timeleft(queen_age_temp_timer_id), "mm:ss")] осталось"
 
 /mob/living/carbon/xenomorph/queen/handle_screech_act(mob/self, mob/living/carbon/xenomorph/queen/queen)
 	return COMPONENT_SCREECH_ACT_CANCEL
 
 /mob/living/carbon/xenomorph/queen/proc/screech_ready()
-	to_chat(src, SPAN_WARNING("You feel your throat muscles vibrate. You are ready to screech again."))
+	to_chat(src, SPAN_WARNING("Вы чувствуете, что готовы снова издать пронзительный крик."))
 	for(var/Z in actions)
 		var/datum/action/A = Z
 		A.update_button_icon()
@@ -687,7 +708,7 @@
 	if(!iscarbon(target))
 		return FALSE
 	if(HAS_TRAIT(target, TRAIT_HAULED))
-		to_chat(src, SPAN_XENOWARNING("[target] needs to be released first."))
+		to_chat(src, SPAN_XENOWARNING("Нужно сначала освободить [target].")) // SS220 EDIT ADDICTION
 		return FALSE
 	var/mob/living/carbon/victim = target
 
@@ -718,8 +739,8 @@
 	if(!check_plasma(200))
 		return FALSE
 
-	visible_message(SPAN_XENOWARNING("[src] begins slowly lifting [victim] into the air."),
-	SPAN_XENOWARNING("You begin focusing your anger as you slowly lift [victim] into the air."))
+	visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] начинает медленно поднимать [victim.declent_ru(ACCUSATIVE)] в воздух."), // SS220 EDIT ADDICTION
+	SPAN_XENOWARNING("Вы начинаете сосредотачивать свою ярость, медленно поднимая [victim.declent_ru(ACCUSATIVE)] в воздух.")) // SS220 EDIT ADDICTION
 	if(do_after(src, 80, INTERRUPT_ALL, BUSY_ICON_HOSTILE, victim))
 		if(!victim)
 			return FALSE
@@ -730,8 +751,8 @@
 
 		use_plasma(200)
 
-		visible_message(SPAN_XENODANGER("[src] viciously smashes and wrenches [victim] apart!"),
-		SPAN_XENODANGER("You suddenly unleash pure anger on [victim], instantly wrenching \him apart!"))
+		visible_message(SPAN_XENODANGER("[capitalize(declent_ru(NOMINATIVE))] яростно разбивает и разрывает [victim.declent_ru(ACCUSATIVE)] на части!"), // SS220 EDIT ADDICTION
+		SPAN_XENODANGER("Вы внезапно выпускаете чистую ярость на [victim.declent_ru(ACCUSATIVE)], мгновенно разрывая его на части!")) // SS220 EDIT ADDICTION
 		emote("roar")
 
 		attack_log += text("\[[time_stamp()]\] <font color='red'>gibbed [key_name(victim)]</font>")
@@ -817,7 +838,7 @@
 	for(var/mob/living/carbon/xenomorph/leader in hive.xeno_leader_list)
 		leader.handle_xeno_leader_pheromones()
 
-	xeno_message(SPAN_XENOANNOUNCE("The Queen has grown an ovipositor, evolution progress resumed."), 3, hivenumber)
+	xeno_message(SPAN_XENOANNOUNCE("Королева создала яйцеклад, прогресс эволюции возобновлён."), 3, hivenumber)
 
 	// If minimap was open before going on ovi, switch to drawing tools version
 	var/datum/action/minimap/minimap_action = locate() in actions
@@ -877,7 +898,7 @@
 		L.handle_xeno_leader_pheromones()
 
 	if(!instant_dismount)
-		xeno_message(SPAN_XENOANNOUNCE("The Queen has shed her ovipositor, evolution progress paused."), 3, hivenumber)
+		xeno_message(SPAN_XENOANNOUNCE("Королева сбросила яйцеклад, прогресс эволюции приостановлен."), 3, hivenumber)
 
 	// Close tacmap drawing tools if open, and reopen the regular minimap
 	var/datum/component/tacmap/tacmap_component = GetComponent(/datum/component/tacmap)
@@ -933,7 +954,7 @@
 	var/obj/effect/overlay/temp/point/big/greyscale/point = new(target_turf, src, target_atom)
 	point.color = "#a800a8"
 
-	visible_message("<b>[src]</b> points to [target_atom]", null, null, 5)
+	visible_message(SPAN_XENOQUEEN("<b>[capitalize(declent_ru(NOMINATIVE))]</b> указывает на [target_atom.declent_ru(ACCUSATIVE)]."), null, null, 5) // SS220 EDIT ADDICTION
 
 #undef XENO_QUEEN_AGE_TIME
 #undef XENO_QUEEN_TEMP_AGE_DURATION

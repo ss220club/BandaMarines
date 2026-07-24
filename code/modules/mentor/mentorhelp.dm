@@ -130,7 +130,7 @@ GLOBAL_DATUM_INIT(mentorhelp_manager, /datum/mentorhelp_manager, new)
 // Helper to check that the thread is still open
 /datum/mentorhelp/proc/check_open(client/C)
 	if(!open)
-		to_chat(C, SPAN_NOTICE("This mentorhelp thread is closed!"))
+		to_chat(C, SPAN_NOTICE("Этот тикет в «MentorHelp» закрыт!"))
 		return FALSE
 	return TRUE
 
@@ -279,7 +279,7 @@ GLOBAL_DATUM_INIT(mentorhelp_manager, /datum/mentorhelp_manager, new)
 		return TRUE // No need
 
 	var/message = strip_html(html_decode(
-			tgui_input_text(opener, "Please enter your message:", "MentorHelp", null, 500, TRUE)
+			tgui_input_text(opener, "Сообщение:", "MentorHelp", null, 500, TRUE)
 		))
 	if(!message)
 		return FALSE
@@ -309,7 +309,7 @@ GLOBAL_DATUM_INIT(mentorhelp_manager, /datum/mentorhelp_manager, new)
 	if(recipient)
 		log_message(msg, sender.key, recipient.key, msg_type)
 	else
-		log_message(msg, sender.key, "All mentors", msg_type)
+		log_message(msg, sender.key, "Всем менторам", msg_type)
 
 	// Sender feedback
 	var/feedback_recipient_text
@@ -318,7 +318,7 @@ GLOBAL_DATUM_INIT(mentorhelp_manager, /datum/mentorhelp_manager, new)
 		feedback_recipient_text = "<a href='byond://?src=\ref[src];action=message'>[display_text]</a>"
 	else
 		feedback_recipient_text = "mentors"
-	to_chat(sender, "[SPAN_MENTORHELP("<span class='prefix'>MentorHelp:</span> Message to [feedback_recipient_text]:")] [SPAN_MENTORBODY(msg)]")
+	to_chat(sender, "[SPAN_MENTORHELP("<span class='prefix'>MentorHelp:</span> сообщение [feedback_recipient_text]:")] [SPAN_MENTORBODY(msg)]")
 
 	// Recipient direct message
 	if(recipient)
@@ -368,7 +368,7 @@ GLOBAL_DATUM_INIT(mentorhelp_manager, /datum/mentorhelp_manager, new)
 
 		// Some other mentor is already taking care of this thread
 		else if(mentor != sender)
-			to_chat(sender, SPAN_MENTORHELP("<b>NOTICE:</b> A mentor is already handling this thread!"))
+			to_chat(sender, SPAN_MENTORHELP("<b>УВЕДОМЛЕНИЕ:</b> Ментор начал отвечать на этот тикет!"))
 			return
 
 	var/target = mentor
@@ -400,7 +400,7 @@ GLOBAL_DATUM_INIT(mentorhelp_manager, /datum/mentorhelp_manager, new)
 		var/display_text = get_display_name(recipient, sender)
 		message_sender_key = "<a href='byond://?src=\ref[src];action=message'>[display_text]</a>"
 
-	var/message_header = SPAN_MENTORHELP("<span class='prefix'>[message_title] from [message_sender_key]:</span> <span class='message'>[message_sender_options]</span><br>")
+	var/message_header = SPAN_MENTORHELP("<span class='prefix'>[message_title] от [message_sender_key]:</span> <span class='message'>[message_sender_options]</span><br>") // SS220 EDIT ADDICTION
 	var/message_body = "&emsp;[SPAN_MENTORBODY("<span class='message'>[message]</span>")]<br>"
 	// Et voila! Beautiful wrapped mentorhelp messages
 	return (message_header + message_body)
@@ -457,9 +457,9 @@ GLOBAL_DATUM_INIT(mentorhelp_manager, /datum/mentorhelp_manager, new)
 		mentor_ic_name = thread_mentor.mob.real_name || thread_mentor.mob.name || "Unknown"
 
 	log_mhelp("[mentor.key] has marked [author_key]'s mentorhelp")
-	notify("[SPAN_GREEN(mentor.username())] has marked [SPAN_RED(author_key)]'s mentorhelp.",
-		unformatted_text = "[mentor.username()] has marked [author_key]'s mentorhelp.")
-	to_chat(author, SPAN_MENTORHELP("NOTICE: [get_display_name(author, mentor)] has marked your thread and is preparing to respond."))
+	notify("[SPAN_GREEN(mentor.username())] начинает отвечать на тикет [SPAN_RED(author_key)] в «MentorHelp».",
+		unformatted_text = "[mentor.username()] начинает отвечать на тикет [author_key] в «MentorHelp».")
+	to_chat(author, SPAN_MENTORHELP("УВЕДОМЛЕНИЕ: [get_display_name(author, mentor)] начинает отвечать на ваш тикет."))
 
 // Unmarks the mentorhelp thread and notifies the author that the thread is no longer being handled by a mentor
 /datum/mentorhelp/proc/unmark(client/thread_mentor)
@@ -478,9 +478,9 @@ GLOBAL_DATUM_INIT(mentorhelp_manager, /datum/mentorhelp_manager, new)
 		return
 
 	log_mhelp("[mentor.key] has unmarked [author_key]'s mentorhelp")
-	notify("[SPAN_GREEN(mentor.username())] has unmarked [SPAN_RED(author_key)]'s mentorhelp.",
-		unformatted_text = "[mentor.username()] has unmarked [author_key]'s mentorhelp.")
-	to_chat(author, SPAN_MENTORHELP("NOTICE: [get_display_name(author, mentor)] has unmarked your thread and is no longer responding to it."))
+	notify("[SPAN_GREEN(mentor.username())] перестает отвечать на тикет [SPAN_RED(author_key)] в «MentorHelp».",
+		unformatted_text = "[mentor.username()] перестает отвечать на тикет [author_key] в «MentorHelp».")
+	to_chat(author, SPAN_MENTORHELP("УВЕДОМЛЕНИЕ: [get_display_name(author, mentor)] перестает отвечать на ваш тикет."))
 	mentor = null
 	mentor_key = ""
 	mentor_ic_name = ""
@@ -539,7 +539,7 @@ GLOBAL_DATUM_INIT(mentorhelp_manager, /datum/mentorhelp_manager, new)
 
 	// Thread was closed because the author is gone
 	if(!author)
-		notify("[SPAN_RED(author_key)]'s mentorhelp thread has been closed due to the author disconnecting.")
+		notify("Тикет [SPAN_RED(author_key)] в «MentorHelp» был закрыт, в связи с потерей соединения с пользователем.")
 		log_mhelp("[author_key]'s mentorhelp thread was closed because of a disconnection")
 		open = FALSE
 		if(GLOB.mentorhelp_manager.active_tickets["[id]"] == src)
@@ -551,7 +551,7 @@ GLOBAL_DATUM_INIT(mentorhelp_manager, /datum/mentorhelp_manager, new)
 
 	// Make sure it's being closed by staff or the mentor handling the thread
 	if(mentor && closer && (closer != mentor) && (closer != author) && !CLIENT_IS_STAFF(closer))
-		to_chat(closer, SPAN_MENTORHELP("<b>NOTICE:</b> Another mentor is handling this thread!"))
+		to_chat(closer, SPAN_MENTORHELP("<b>УВЕДОМЛЕНИЕ:</b> другой ментор уже ответил на этот тикет!"))
 		return
 
 	if(!open)
@@ -567,18 +567,18 @@ GLOBAL_DATUM_INIT(mentorhelp_manager, /datum/mentorhelp_manager, new)
 	if(closer)
 		log_mhelp("[closer.key] closed [author_key]'s mentorhelp")
 		if(closer == author)
-			to_chat(author, SPAN_NOTICE("You have closed your mentorhelp thread."))
-			notify("[SPAN_RED(author_key)] closed their mentorhelp thread.",
-				unformatted_text = "[author_key] closed their mentorhelp thread.")
+			to_chat(author, SPAN_NOTICE("Вы закрыли свой тикет в «MentorHelp»."))
+			notify("[SPAN_RED(author_key)] закрывает свой тикет в «MentorHelp».",
+				unformatted_text = "[author_key] закрывает свой тикет в «MentorHelp».")
 			return
 		else
-			to_chat(author, SPAN_NOTICE("Your mentorhelp thread has been closed by [get_display_name(author, closer)]."))
-			notify("[SPAN_GREEN(closer.username())] closed [SPAN_RED(author_key)]'s mentorhelp thread.",
-				unformatted_text = "[closer.username()] closed [author_key]'s mentorhelp thread.")
+			to_chat(author, SPAN_NOTICE("Ваш тикет в «MentorHelp» был закрыт: [get_display_name(author, closer)]."))
+			notify("[SPAN_GREEN(closer.username())] закрывает тикет [SPAN_RED(author_key)] в «MentorHelp».",
+				unformatted_text = "[closer.username()] закрывает тикет [author_key] в «MentorHelp».")
 			return
-	to_chat(author, SPAN_NOTICE("Your mentorhelp thread has been closed."))
-	notify("[SPAN_RED(author_key)]'s mentorhelp thread has been closed.",
-			unformatted_text = "[author_key]'s mentorhelp thread has been closed.")
+	to_chat(author, SPAN_NOTICE("Ваш тикет в «MentorHelp» был закрыт."))
+	notify("Тикет [SPAN_RED(author_key)] в «MentorHelp» был закрыт.",
+			unformatted_text = "Тикет [author_key] в «MentorHelp» был закрыт.")
 	closed_at = world.time
 	time_activity["closed_at"] = "[worldtime2text(closed_at)]"
 
@@ -648,10 +648,10 @@ GLOBAL_DATUM_INIT(mentorhelp_manager, /datum/mentorhelp_manager, new)
 	if(!mentor)
 		mark(responder)
 	else if(mentor != responder)
-		to_chat(responder, SPAN_NOTICE("<b>NOTICE:</b> A mentor is already handling this thread!"))
+		to_chat(responder, SPAN_NOTICE("<b>УВЕДОМЛЕНИЕ:</b> Ментор уже отвечает на этот тикет!"))
 		return
 
-	var/choice = tgui_input_list(usr, "Which autoresponse option do you want to send to the player?", "Autoresponse", GLOB.mentorreplies)
+	var/choice = tgui_input_list(usr, "Выберите шаблон для ответа игроку.", "АвтоОтвет", GLOB.mentorreplies) // SS220 EDIT ADDICTION
 	var/datum/autoreply/mentor/response = GLOB.mentorreplies[choice]
 
 	if(!response || !istype(response))
@@ -670,10 +670,10 @@ GLOBAL_DATUM_INIT(mentorhelp_manager, /datum/mentorhelp_manager, new)
 	if(!mentor)
 		mark(responder)
 	else if(mentor != responder)
-		to_chat(responder, SPAN_NOTICE("<b>NOTICE:</b> A mentor is already handling this thread!"))
+		to_chat(responder, SPAN_NOTICE("<b>УВЕДОМЛЕНИЕ:</b> Ментор начал отвечать на этот тикет!"))
 		return
 
-	var/msg = "- MentorHelp marked as [response.title]! -"
+	var/msg = "- Ментор отметил вопрос как: «[response.title]»! -"
 	msg += "[response.message]"
 
 	message_handlers(msg, responder, author)

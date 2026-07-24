@@ -56,7 +56,7 @@
 
 /obj/item/ammo_magazine/pistol/m1911
 	name = "\improper M1911 magazine (.45)"
-	desc = "A magazine for the legendary M1911 pistol. Holds eight standard rounds."
+	desc = "Магазин для легендарного пистолета M1911. Вмещает восемь стандартных патронов." //SS220 EDIT
 	default_ammo = /datum/ammo/bullet/pistol/heavy
 	caliber = ".45"
 	icon_state = "m4a345"//rename later
