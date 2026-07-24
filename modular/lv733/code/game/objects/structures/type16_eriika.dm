@@ -8,3 +8,4 @@
 	layer = ABOVE_FLY_LAYER
 	bound_width = 160
 	bound_height = 160
+	density = FALSE
