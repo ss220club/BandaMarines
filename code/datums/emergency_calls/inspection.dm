@@ -4,11 +4,11 @@
 	mob_max = 2
 	mob_min = 1
 	probability = 0
-	ert_message = "A Provost investigation has been requested!"
+	ert_message = "Запрошен инспектор военной прокуратуры для расследования нарушений Военного Закона" //SS220 EDIT
 
 /datum/emergency_call/inspection_provost/New()
 	..()
-	objectives = "Расследуйте любые проблемы с соблюдением ВП на корабле [MAIN_SHIP_NAME]."
+	objectives = "Расследуйте любые проблемы с соблюдением Военного Закона на корабле [MAIN_SHIP_NAME]." //SS220 EDIT
 
 /datum/emergency_call/inspection_provost/remove_nonqualifiers(list/datum/mind/candidates_list)
 	var/list/datum/mind/candidates_clean = list()
@@ -17,7 +17,7 @@
 			candidates_clean.Add(single_candidate)
 			continue
 		if(single_candidate.current)
-			to_chat(single_candidate.current, SPAN_WARNING("You didn't qualify for the ERT beacon because you don't have enough playtime (5 Hours) as military police!"))
+			to_chat(single_candidate.current, SPAN_WARNING("Вы не соответствуете требованиям для участия в ERT, так как у вас недостаточно наигранного времени (5 часов) на ролях военной полиции!")) //SS220 EDIT
 	return candidates_clean
 
 /datum/emergency_call/inspection_provost/create_member(datum/mind/M, turf/override_spawn_loc)
@@ -31,17 +31,17 @@
 
 	if(!leader && HAS_FLAG(H.client.prefs.toggles_ert, PLAY_LEADER) && check_timelock(H.client, list(JOB_WARDEN, JOB_CHIEF_POLICE), time_required_for_job))
 		leader = H
-		arm_equipment(H, /datum/equipment_preset/uscm_event/provost/inspector, TRUE, TRUE)
-		to_chat(H, SPAN_ROLE_HEADER("You are an Inspector of the USCM Provost Office!"))
-		to_chat(H, SPAN_ROLE_BODY("You are being dispatched to the [MAIN_SHIP_NAME] to investigate an undisclosed issue with ML enforcement. The Provost Office may provide more details, but you should head for the Brig to assess the situation."))
-		to_chat(H, SPAN_ROLE_BODY("You have the final say on ML enforcement in your AO, but are still obligated to follow it. Use this authority to set things right and make sure that justice is served!"))
-		to_chat(H, SPAN_WARNING("This role requires familiarity with Marine Law and Standard Operating Procedure. Ahelp if you have any questions or wish to surrender the character to someone else."))
+		arm_equipment(H, /datum/equipment_preset/uscm_event/provost/inspector, TRUE, TRUE) 
+		to_chat(H, SPAN_ROLE_HEADER("Вы - Инспектор военной прокуратуры ККМП!")) //SS220 START
+		to_chat(H, SPAN_ROLE_BODY("Вы направляетесь на борт [MAIN_SHIP_NAME] для расследования нераскрытого инцидента, связанного с соблюдением военного закона. Военная прокуратура может предоставить дополнительные сведения, однако вам следует немедленно проследовать в бриг и оценить обстановку."))
+		to_chat(H, SPAN_ROLE_BODY("Последнее слово по вопросам военного закона остаётся за вами, однако вы по-прежнему обязаны соблюдать его. Используйте свои полномочия, чтобы восстановить порядок и обеспечить справедливость!"))
+		to_chat(H, SPAN_WARNING("Эта роль требует знания военного закона и стандартных операционных процеруд. Обратитевь в Adminhelp, если у вас возникли вопросы или вы хотите уступить эту роль другому игроку."))
 	else
 		arm_equipment(H, /datum/equipment_preset/uscm_event/provost/enforcer, TRUE, TRUE)
-		to_chat(H, SPAN_ROLE_HEADER("You are an Enforcer of the USCM Provost Office!"))
-		to_chat(H, SPAN_ROLE_BODY("You are being assigned as part escort, part assistant and part law enforcer to the Inspector that is being dispatched to the [MAIN_SHIP_NAME]"))
-		to_chat(H, SPAN_ROLE_BODY("You are not expected to enforce ML on the ship, however the Inspector may ask you to perform MP duties as part of their investigation in which case you are obligated to act like any other MP."))
-		to_chat(H, SPAN_WARNING("This role requires familiarity with Marine Law and Standard Operating Procedure. Ahelp if you have any questions or wish to surrender the character to someone else."))
+		to_chat(H, SPAN_ROLE_HEADER("Вы - Силовик военной прокуратуры ККМП!"))
+		to_chat(H, SPAN_ROLE_BODY("Вы назначены сопровождающим, помощником и сотрудником правопорядка для Инспектора, направленного на [MAIN_SHIP_NAME]"))
+		to_chat(H, SPAN_ROLE_BODY("От вас не требуется исполнять функции штатного сотрудника ведомства военного объекта, однако Инспектор может привлечь вас к выполнению обязанностей военной полиции в ходе расследования. В этом случае вы обязаны выполнять свои обязанности так же, как и любой другой сотрудник военной полиции.")) //SS220 END
+		to_chat(H, SPAN_WARNING("Эта роль требует знания военного закона и стандартных операционных процеруд. Обратитевь в Adminhelp, если у вас возникли вопросы или вы хотите уступить эту роль другому игроку."))
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), H, SPAN_BOLD("Objectives: [objectives]")), 1 SECONDS)
 
 
@@ -58,7 +58,7 @@
 	mob_max = 2
 	mob_min = 1
 	probability = 0
-	ert_message = "A USCM High Command investigation has been requested!"
+	ert_message = "Запрошен инспектор высшего командования ККМП для проверки действий личного состава" //SS220 EDIT
 
 /datum/emergency_call/inspection_hc/New()
 	..()
@@ -76,16 +76,16 @@
 	if(!leader && HAS_FLAG(H.client.prefs.toggles_ert, PLAY_LEADER) && check_timelock(H.client, list(JOB_SO), time_required_for_job))
 		leader = H
 		arm_equipment(H, /datum/equipment_preset/uscm_ship/so, TRUE, TRUE)
-		to_chat(H, SPAN_ROLE_HEADER("You are an Inspector sent by the USCM High Command!"))
-		to_chat(H, SPAN_ROLE_BODY("An inspection is scheduled for the [MAIN_SHIP_NAME] during their current assignment. High Command may have other directives for you that they will relay via radio."))
-		to_chat(H, SPAN_ROLE_BODY("Tour the ship, monitor the organization, effectiveness and SOP compliance of its respective departments, interview its crew and find any issues. Relay the results of your inspection to both the Officer in Command of the ship and USCM High Command."))
-		to_chat(H, SPAN_WARNING("Remember, your inspection may not interrupt regular operation of the ship and you do not have privileges to make Marine Law enforcement related calls. Ahelp if you have any questions of you wish to offer the role to someone else."))
+		to_chat(H, SPAN_ROLE_HEADER("Вы - Инспектор, направленный высшим командованием ККМП!")) //SS220 START
+		to_chat(H, SPAN_ROLE_BODY("На время текущего задания запланирована инспекция для [MAIN_SHIP_NAME]. Высшее командование может направить вам дополнительные указания, которые будут переданы по радиосвязи."))
+		to_chat(H, SPAN_ROLE_BODY("Осмотрите корабль, оцените организованность, эффективность и соблюдение СОП соответствующими отделами, опросите экипаж и выявите возможные проблемы. Передайте результаты своей инспекции как командиру корабля, так и Высшему командованию ККМП."))
+		to_chat(H, SPAN_WARNING("Помните, ваша инспекция не должна нарушать штатную работу корабля, и у вас нет полномочий принимать решения, связанные с применением военного закона. Обратитесь в Adminhelp, если у вас есть вопросы или вы хотите передать эту роль другому игроку."))
 	else
 		arm_equipment(H, /datum/equipment_preset/uscm/engineer_equipped, TRUE, TRUE)
-		to_chat(H, SPAN_ROLE_HEADER("You are part of an inspection team sent by the USCM High Command!"))
-		to_chat(H, SPAN_ROLE_BODY("An inspection is scheduled for the [MAIN_SHIP_NAME] during their current assignment. You serve both as security detail to the officer performing the inspection and their assistant should they need your expertise."))
-		to_chat(H, SPAN_ROLE_BODY("Follow the inspector as they perform their duties on the ship. Feel free to offer your insight if you feel like you have any and help then as they request it. Remember, while you do not answer directly to the officers on the ship, you still need to respect their position."))
-		to_chat(H, SPAN_WARNING("Remember, you may not interrupt regular operation and are expected to follow orders of the Inspector at all times. Ahelp if you have any questions of you wish to offer the role to someone else."))
+		to_chat(H, SPAN_ROLE_HEADER("Вы являетесь членом инспекционной группы, направленной высшим командованием ККМП!"))
+		to_chat(H, SPAN_ROLE_BODY("На время текущего задания запланирована инспекция для [MAIN_SHIP_NAME]. Вы выполняете роль сотрудника охраны для офицера, проводящего инспекцию, а также его ассистента в случае, если ему потребуется ваша экспертиза."))
+		to_chat(H, SPAN_ROLE_BODY("Следуйте за инспектором во время выполнения им своих обязанностей на корабле. Не стесняйтесь высказывать своё мнение и делиться своими знаниями, если считаете это уместным, а также оказывайте помощь по его запросу. Помните, хотя вы не подчиняетесь напрямую офицерам корабля, вы всё же обязаны уважать их полномочия и положение."))
+		to_chat(H, SPAN_WARNING("Помните, вы не должны вмешиваться в штатную работу корабля и обязаны всегда выполнять приказы инспектора. Обратитесь в Adminhelp, если у вас есть вопросы или вы хотите передать эту роль другому игроку.")) //SS220 END
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), H, SPAN_BOLD("Objectives: [objectives]")), 1 SECONDS)
 
 //Weyland-Yutani
@@ -99,7 +99,7 @@
 	item_spawn = /obj/effect/landmark/ert_spawns/distress_pmc/item
 	max_heavies = 1
 	probability = 0
-	ert_message = "A Weyland-Yutani investigation has been requested!"
+	ert_message = "Запрошен следователь ЧВК Вейланд-Ютани для расследования действий связного" //SS220 EDIT
 
 /datum/emergency_call/inspection_wy/New()
 	..()
@@ -117,23 +117,23 @@
 	if(!leader && HAS_FLAG(H.client.prefs.toggles_ert, PLAY_LEADER) && check_timelock(H.client, list(JOB_SQUAD_LEADER), time_required_for_job))
 		leader = H
 		arm_equipment(H, /datum/equipment_preset/pmc/pmc_lead_investigator, TRUE, TRUE)
-		to_chat(H, SPAN_ROLE_HEADER("You are a Weyland Yutani PMC Inspector!"))
-		to_chat(H, SPAN_ROLE_BODY("While officially your outfit does mundane security work for Weyland-Yutani, in practice you serve as both official and unofficial investigators into conduct of Company personnel. You are being dispatched to the [MAIN_SHIP_NAME] to make sure that the local Liaison has not forgotten their priorities or worse, thought to bite the hand that feeds them."))
-		to_chat(H, SPAN_ROLE_BODY("Remember the USCM personnel on the ship may not appreciate your presence there. Should the Liaison be in jail, you are not to act as legal counsel in any way unless instructed to do so by Dispatch. Your basic duty is to make a detailed report of anything involving the Liaison and any other WY personnel on board the ship."))
-		to_chat(H, SPAN_WARNING("Unless ordered otherwise by Dispatch, you are to avoid open conflict with the Marines. Retreat and make a report if they are outright hostile. Ahelp if you have any more questions or wish to release this character for other players."))
+		to_chat(H, SPAN_ROLE_HEADER("Вы - Ведущий следователь ЧВК Вейланд-Ютани!")) //SS220 EDIT START
+		to_chat(H, SPAN_ROLE_BODY("Хотя официально ваше подразделение выполняет обычные задачи по обеспечению безопасности Вейланд-Ютани, на практике вы выступаете как официальными, так и неофициальными расследователями действий сотрудников Компании. Вы направляетесь на борт [MAIN_SHIP_NAME], чтобы убедиться, что местный связной не забыл о своих приоритетах и, что ещё хуже, не решил укусить руку, которая его кормит."))
+		to_chat(H, SPAN_ROLE_BODY("Помните, сотрудники ККМП на борту могут быть недовольны вашим присутствием. Если связной окажется под арестом, вы не должны выступать в качестве его юридического представителя ни при каких обстоятельствах, если только не получите соответствующее распоряжение от диспетчерской службы Вейланд-Ютани. Ваша основная обязанность - составить подробный отчёт обо всём, что касается связного и любых других сотрудников Вейланд-Ютани на борту корабля."))
+		to_chat(H, SPAN_WARNING("Если диспетчерская служба не отдаст иных распоряжений, избегайте открытых конфликтов с морпехами. Если они проявляют откровенную враждебность, отступите. Вашим приоритетом является безопасность вашей команды. Если на корабле возникнет опасность, вашим лучшим решением будет эвакуация. Обратитесь в Adminhelp, если у вас есть дополнительные вопросы или вы хотите освободить этого персонажа для других игроков."))
 	else if(heavies < max_heavies && HAS_FLAG(H.client.prefs.toggles_ert, PLAY_HEAVY) && check_timelock(H.client, JOB_SQUAD_SPECIALIST))
 		heavies++
 		arm_equipment(H, /datum/equipment_preset/pmc/pmc_riot_control, TRUE, TRUE)
-		to_chat(H, SPAN_ROLE_HEADER("You are a Weyland-Yutani PMC Crowd Control Specialist!"))
-		to_chat(H, SPAN_ROLE_BODY("While officially your outfit does mundane security work for Weyland-Yutani, in practice you serve as both official and unofficial investigators into conduct of Company personnel. The Lead Investigator is in charge, your duty is to provide backup, counsel and any other form of assistance you can render to make sure their mission is a success."))
-		to_chat(H, SPAN_ROLE_BODY("Remember that the USCM, or at least some parts of it, may be hostile towards your presence on the ship. Unless ordered otherwise by Dispatch, you and your Team Leader are to avoid open conflict with the Marines. Your main priority is making sure that your Lead survives to write the report they are due."))
-		to_chat(H, SPAN_WARNING("Unless ordered otherwise by Dispatch, you are to avoid open conflict with the Marines. Your priority is the safety of your team, if the ship gets to hot, your best bet is evacuation. Ahelp if you have any more questions or wish to release this character for other players."))
+		to_chat(H, SPAN_ROLE_HEADER("Вы - Специалист по сдерживанию толпы ЧВК Вейланд-Ютани!"))
+		to_chat(H, SPAN_ROLE_BODY("Хотя официально ваше подразделение выполняет обычные задачи по обеспечению безопасности Вейланд-Ютани, на практике вы выступаете как официальными, так и неофициальными расследователями действий сотрудников Компании. Старший следователь является руководителем операции; ваша задача - оказывать поддержку, предоставлять консультации и любую другую помощь, необходимую для успешного выполнения задачи."))
+		to_chat(H, SPAN_ROLE_BODY("Помните, сотрудники ККМП на борту могут быть недовольны вашим присутствием. Ваш главный приоритет - обеспечить выживание старшего следователя, чтобы он мог составить требуемый отчёт."))
+		to_chat(H, SPAN_WARNING("Если диспетчерская служба не отдаст иных распоряжений, избегайте открытых конфликтов с морпехами. Если они проявляют откровенную враждебность, отступите. Вашим приоритетом является безопасность вашей команды. Если на корабле возникнет опасность, вашим лучшим решением будет эвакуация. Обратитесь в Adminhelp, если у вас есть дополнительные вопросы или вы хотите освободить этого персонажа для других игроков."))
 	else
 		arm_equipment(H, /datum/equipment_preset/pmc/pmc_security, TRUE, TRUE)
-		to_chat(H, SPAN_ROLE_HEADER("You are part of a Weyland-Yutani PMC Investigation Team!"))
-		to_chat(H, SPAN_ROLE_BODY("While officially your outfit does mundane security work for Weyland-Yutani, in practice you serve as both official and unofficial investigators into conduct of Company personnel. The Lead Investigator is in charge, your duty is to provide backup, counsel and any other form of assistance you can render to make sure their mission is a success."))
-		to_chat(H, SPAN_ROLE_BODY("Remember that the USCM, or at least some parts of it, may be hostile towards your presence on the ship. Unless ordered otherwise by Dispatch, you and your Team Leader are to avoid open conflict with the Marines. Your main priority is making sure that your Lead survives to write the report they are due."))
-		to_chat(H, SPAN_WARNING("Unless ordered otherwise by Dispatch, you are to avoid open conflict with the Marines. Your priority is the safety of your team, if the ship gets to hot, your best bet is evacuation. Ahelp if you have any more questions or wish to release this character for other players."))
+		to_chat(H, SPAN_ROLE_HEADER("Вы входите в состав следственной группы ЧВК Вейланд-Ютани"))
+		to_chat(H, SPAN_ROLE_BODY("Хотя официально ваше подразделение выполняет обычные задачи по обеспечению безопасности Вейланд-Ютани, на практике вы выступаете как официальными, так и неофициальными расследователями действий сотрудников Компании. Старший следователь является руководителем операции; ваша задача - оказывать поддержку, предоставлять консультации и любую другую помощь, необходимую для успешного выполнения задачи."))
+		to_chat(H, SPAN_ROLE_BODY("Помните, сотрудники ККМП на борту могут быть недовольны вашим присутствием. Ваш главный приоритет - обеспечить выживание старшего следователя, чтобы он мог составить требуемый отчёт."))
+		to_chat(H, SPAN_WARNING("Если диспетчерская служба не отдаст иных распоряжений, избегайте открытых конфликтов с морпехами. Если они проявляют откровенную враждебность, отступите. Вашим приоритетом является безопасность вашей команды. Если на корабле возникнет опасность, вашим лучшим решением будет эвакуация. Обратитесь в Adminhelp, если у вас есть дополнительные вопросы или вы хотите освободить этого персонажа для других игроков.")) //SS220 EDIT END
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), H, SPAN_BOLD("Objectives: [objectives]")), 1 SECONDS)
 
 /datum/emergency_call/inspection_wy/spawn_items()
@@ -150,7 +150,7 @@
 	name_of_spawn = /obj/effect/landmark/ert_spawns/distress_pmc
 	item_spawn = /obj/effect/landmark/ert_spawns/distress_pmc/item
 	probability = 0
-	ert_message = "A corporate lawyer beacon has been activated!"
+	ert_message = "Была запрошена команда правовых представителей Вейланд-Ютани." //SS220 EDIT
 	time_required_for_job = 15 HOURS
 
 /datum/emergency_call/inspection_wy/lawyer/New()
@@ -164,7 +164,7 @@
 			candidates_clean.Add(single_candidate)
 			continue
 		if(single_candidate.current)
-			to_chat(single_candidate.current, SPAN_WARNING("You didn't qualify for the ERT beacon because you don't have enough playtime (15 Hours) as military police/corporate liaison!"))
+			to_chat(single_candidate.current, SPAN_WARNING("Вы не соответствуете требованиям для участия в ERT, так как у вас недостаточно наигранного времени (15 часов) за роли военной полиции и/или связного корпорации!"))
 	return candidates_clean
 
 /datum/emergency_call/inspection_wy/lawyer/create_member(datum/mind/M, turf/override_spawn_loc)
@@ -179,16 +179,16 @@
 	if(!leader && HAS_FLAG(H.client.prefs.toggles_ert, PLAY_LEADER) && check_timelock(H.client, list(JOB_SQUAD_LEADER), time_required_for_job))
 		leader = H
 		arm_equipment(H, /datum/equipment_preset/wy/exec_supervisor/lawyer, TRUE, TRUE)
-		to_chat(H, SPAN_ROLE_HEADER("You are a Weyland-Yutani Lead Corporate Attorney!"))
-		to_chat(H, SPAN_ROLE_BODY("While officially the Corporate Affairs Division does mundane paperwork for Weyland-Yutani, in practice you serve as both official and unofficial investigators into conduct of Company and non-Company personnel. You are being dispatched to the [MAIN_SHIP_NAME] to make sure that the USCM abides by its signed contracts provided by the local Liaison and that they have not forgotten the real hand that feeds them."))
-		to_chat(H, SPAN_ROLE_BODY("Remember the USCM personnel on the ship may not appreciate your presence there. Should the Liaison be in jail, you are to act as legal counsel in any way. Your basic duty is to make a detailed report of anything involving the Liaison, any other WY personnel and of course any contract violations on board the ship."))
-		to_chat(H, SPAN_WARNING("You are to avoid open conflict with the Marines. Retreat and make a report if they are outright hostile. Ahelp if you have any more questions or wish to release this character for other players."))
+		to_chat(H, SPAN_ROLE_HEADER("Вы - Старший правовой представитель Корпорации Вейланд-Ютани")) //SS220 EDIT START
+		to_chat(H, SPAN_ROLE_BODY("Хотя формально Отдел корпоративных дел занимается стандартной документацией Вейланд-Ютани, фактически вы выполняете функции официальных и неофициальных следователей, проверяющих действия сотрудников Компании и иных лиц. Вы направляетесь на [MAIN_SHIP_NAME], чтобы удостовериться, что ККМП выполняет условия подписанных контрактов, представленных местным связным, и помнит, кто на самом деле является кромящей рукой."))
+		to_chat(H, SPAN_ROLE_BODY("Помните, персонал ККМП на борту может негативно воспринять ваше присутствие. В случае заключения связного под стражу вы обязаны действовать как его юридический представитель. Ваша главная задача - подготовить детальный отчёт обо всех обстоятельствах, связанных со связным, сотрудниками Вейланд-Ютани, а также о любых нарушениях условий контрактов на борту корабля."))
+		to_chat(H, SPAN_WARNING("Избегайте открытого конфликта с морпехами. Если они проявляют явную враждебность, отступите и составьте отчёт. Обратитесь в Adminhelp, если у вас есть дополнительные вопросы или вы хотите освободить этого персонажа для других игроков."))
 	else
 		arm_equipment(H, /datum/equipment_preset/wy/exec_spec/lawyer, TRUE, TRUE)
-		to_chat(H, SPAN_ROLE_HEADER("You are a Weyland-Yutani Corporate Attorney!"))
-		to_chat(H, SPAN_ROLE_BODY("While officially the Corporate Affairs Division does mundane paperwork for Weyland-Yutani, in practice you serve as both official and unofficial investigators into conduct of Company and non-Company personnel. The Lead Attorney is in charge, your duty is to provide counsel and any other form of assistance you can render to make sure your mission is a success."))
-		to_chat(H, SPAN_ROLE_BODY("Remember that the USCM, or at least some parts of it, may be hostile towards your presence on the ship. You and the Lead Attorney are to avoid open conflict with the Marines. Your main priority is making sure that you both survive to write the report the Company is due."))
-		to_chat(H, SPAN_WARNING("You are to avoid open conflict with the Marines. Retreat and make a report if they are outright hostile. Ahelp if you have any more questions or wish to release this character for other players."))
+		to_chat(H, SPAN_ROLE_HEADER("Вы - Правовой представитель Корпорации Вейланд-Ютани"))
+		to_chat(H, SPAN_ROLE_BODY("Хотя формально Отдел корпоративных дел занимается стандартной документацией Вейланд-Ютани, фактически вы выполняете функции официальных и неофициальных следователей, проверяющих действия сотрудников Компании и иных лиц. Старший правовой представитель является руководителем, ваша задача - оказывать ему правовую поддержку, предоставлять консультацию и любую другую помощь для успешного выполнения задачи."))
+		to_chat(H, SPAN_ROLE_BODY("Помните, персонал ККМП на борту может негативно воспринять ваше присутствие. Вы и старший правовойй представитель обязаны избегать открытого противостояния с морской пехотой. Ваша главная задача — обеспечить ваше выживание и подготовку отчёта, который требуется Компании."))
+		to_chat(H, SPAN_WARNING("Избегайте открытого конфликта с морпехами. Если они проявляют явную враждебность, отступите и составьте отчёт. Обратитесь в Adminhelp, если у вас есть дополнительные вопросы или вы хотите освободить этого персонажа для других игроков.")) //SS220 EDIT END
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), H, SPAN_BOLD("Objectives: [objectives]")), 1 SECONDS)
 
 
@@ -199,7 +199,7 @@
 	mob_min = 1
 	probability = 0
 	home_base = /datum/lazy_template/ert/weyland_station
-	ert_message = "A Colonial Marshal investigation has been requested!"
+	ert_message = "Запрошено Колониальное бюро маршалов для расследования" //SS220 EDIT
 
 	var/max_synths = 1
 	var/synths = 0
@@ -229,22 +229,22 @@
 
 	if(!leader && HAS_FLAG(mob?.client.prefs.toggles_ert, PLAY_LEADER) && check_timelock(mob.client, JOB_SQUAD_LEADER, time_required_for_job))
 		leader = mob
-		to_chat(mob, SPAN_ROLE_HEADER("You are the Colonial Marshal!"))
+		to_chat(mob, SPAN_ROLE_HEADER("Вы - Колониальный маршал!")) //SS220 EDIT
 		arm_equipment(mob, /datum/equipment_preset/cmb/leader, TRUE, TRUE)
 	else if(synths < max_synths && HAS_FLAG(mob?.client.prefs.toggles_ert, PLAY_SYNTH) && mob.client.check_whitelist_status(WHITELIST_SYNTHETIC))
 		synths++
-		to_chat(mob, SPAN_ROLE_HEADER("You are a CMB Investigative Synthetic!"))
+		to_chat(mob, SPAN_ROLE_HEADER("Вы - Синтетик следственного комитета КМБ!")) //SS220 EDIT
 		arm_equipment(mob, /datum/equipment_preset/synth/cmb, TRUE, TRUE)
 	else if(!icc_liaison && will_spawn_icc_liaison && check_timelock(mob.client, JOB_CORPORATE_LIAISON, time_required_for_job))
 		icc_liaison = mob
-		to_chat(mob, SPAN_ROLE_HEADER("You are a CMB-attached Interstellar Commerce Commission Liaison!"))
+		to_chat(mob, SPAN_ROLE_HEADER("Вы - представитель Комиссии по Межзвёздной Торговле, прикреплённый к отряду КМБ")) //SS220 EDIT
 		arm_equipment(mob, /datum/equipment_preset/cmb/liaison, TRUE, TRUE)
 	else if(!cmb_observer && will_spawn_cmb_observer)
 		cmb_observer = mob
-		to_chat(mob, SPAN_ROLE_HEADER("You are an Interstellar Human Rights Observer!"))
+		to_chat(mob, SPAN_ROLE_HEADER("Вы - Межзвёздный наблюдатель по правам человека!")) //SS220 EDIT
 		arm_equipment(mob, /datum/equipment_preset/cmb/observer, TRUE, TRUE)
 	else
-		to_chat(mob, SPAN_ROLE_HEADER("You are a CMB Deputy!"))
+		to_chat(mob, SPAN_ROLE_HEADER("Вы - Заместитель маршала КМБ!")) //SS220 EDIT
 		arm_equipment(mob, /datum/equipment_preset/cmb/standard, TRUE, TRUE)
 
 	print_backstory(mob)
@@ -254,7 +254,7 @@
 
 /datum/emergency_call/inspection_cmb/print_backstory(mob/living/carbon/human/M)
 	if(M == leader)
-		to_chat(M, SPAN_BOLD("You are the Colonial Marshal, originally from [pick(70;"The United Americas", 20;"Sol", 10;"a colony on the frontier")]."))
+		to_chat(M, SPAN_BOLD("You are the Colonial Marshal, originally from [pick(70;"The United Americas", 20;"Sol", 10;"a colony on the frontier")].")) // С ЭТИМ КАКНИБУДЬ ПОТОМ...
 		to_chat(M, SPAN_BOLD("You started in the Marshals through [pick(50; "pursuing a career during college", 40;"working for law enforcement", 10;"being recruited for your skills")]."))
 		to_chat(M, SPAN_BOLD("Rising through positions across the galaxy, you have become renown for your steadfast commitment to justice, fighting against crime and corruption alike."))
 		to_chat(M, SPAN_BOLD("You have interstellar jurisdiction as a CMB Official to enforce Colonial and Earth law, but you cannot and should not override Marine Law on a Marine Ship."))
@@ -302,13 +302,13 @@
 	max_synths = 0
 	will_spawn_icc_liaison = TRUE
 	will_spawn_cmb_observer = FALSE
-	ert_message = "A blackmarket investigation has been requested!"
+	ert_message = "Запрошен отряд КМБ для расследования деятельности чёрного рынка." //SS220 EDIT
 
 /datum/emergency_call/inspection_cmb/black_market/New()
 	..()
 	dispatch_message = "Высшее командование Третьего флота, сообщаем [MAIN_SHIP_NAME], что мы получили противоречивые данные о снабжении и нарушениях в системе ASRS на борту вашего корабля и запросили следственную группу КМБ, для высадки на ваш борт, дабы исключить любые нарушения."
 	arrival_message = "Входящая радиопередача: [MAIN_SHIP_NAME], это станция \"Анкорпойнт\". Колониальное бюро маршалов. Сообщаем, что по запросу ГСО-91 мы направляем к вам на борт группу маршалов. Передаем разрешение на стыковку, конец связи."
-	objectives = "Расследуйте несоответствия в ASRS корабля [MAIN_SHIP_NAME]. В случае незаконной деятельности соберите доказательства и подайте рапорт командованию КМБ на станции Анкорпойнт. При необходимости ICC Liaison's Tradeband может исправить поломку ASRS. Сотрудничайте с военной полицией [MAIN_SHIP_NAME]."
+	objectives = "Расследуйте несоответствия в ASRS корабля [MAIN_SHIP_NAME]. В случае незаконной деятельности соберите доказательства и подайте рапорт командованию КМБ на станции Анкорпойнт. При необходимости Представитель Комиссии по Межзвездной Торговле  может исправить поломку ASRS с помощью Tradeband Compliance Device. Сотрудничайте с военной полицией [MAIN_SHIP_NAME]." //SS220 EDIT
 
 /datum/emergency_call/inspection_cmb/black_market/create_member(datum/mind/current_mind, turf/override_spawn_loc)
 	var/turf/spawn_loc = override_spawn_loc ? override_spawn_loc : get_spawn_point()
@@ -321,14 +321,14 @@
 
 	if(!leader && HAS_FLAG(mob?.client.prefs.toggles_ert, PLAY_LEADER) && check_timelock(mob.client, JOB_SQUAD_LEADER, time_required_for_job))
 		leader = mob
-		to_chat(mob, SPAN_ROLE_HEADER("You are the Colonial Marshal!"))
+		to_chat(mob, SPAN_ROLE_HEADER("Вы - Колониальный маршал!")) //SS220 EDIT
 		arm_equipment(mob, /datum/equipment_preset/cmb/leader, TRUE, TRUE)
 	else if(!icc_liaison && will_spawn_icc_liaison && check_timelock(mob.client, JOB_CORPORATE_LIAISON, time_required_for_job))
 		icc_liaison = mob
-		to_chat(mob, SPAN_ROLE_HEADER("You are a CMB-attached Interstellar Commerce Commission Liaison!"))
+		to_chat(mob, SPAN_ROLE_HEADER("Вы - представитель Комиссии по Межзвёздной Торговле, прикреплённый к КМБ!")) //SS220 EDIT
 		arm_equipment(mob, /datum/equipment_preset/cmb/liaison/black_market, TRUE, TRUE) //ICC CL gets a custom item
 	else
-		to_chat(mob, SPAN_ROLE_HEADER("You are a CMB Deputy!"))
+		to_chat(mob, SPAN_ROLE_HEADER("Вы - заместитель маршала КМБ!")) //SS220 EDIT
 		arm_equipment(mob, /datum/equipment_preset/cmb/standard, TRUE, TRUE)
 
 	print_backstory(mob)
