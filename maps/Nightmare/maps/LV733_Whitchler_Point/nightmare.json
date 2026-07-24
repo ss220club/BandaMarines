@@ -21,6 +21,13 @@
 		"path": "standalone/roafpost.dmm",
 		"when": { "lvevent": "roaf_zone" }
 	},
+    {
+		"type": "map_insert",
+		"landmark": "rac_post",
+		"chance": 1.0,
+		"path": "standalone/rac_post.dmm",
+		"when": { "lvevent": "rac_post" }
+	},
 	{
 		"type": "map_insert",
 		"landmark": "clfbar",

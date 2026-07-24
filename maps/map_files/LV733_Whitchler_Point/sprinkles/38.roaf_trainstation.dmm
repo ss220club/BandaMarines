@@ -334,6 +334,7 @@
 	pixel_y = 12
 	},
 /obj/effect/decal/hybrisa/dirt,
+/obj/effect/spawner/random/gun/rifle/lowchance,
 /turf/open/floor/prison/floor_plate/southwest,
 /area/lv733/indoors/base_operations/trainstation_west_corridor)
 "dW" = (

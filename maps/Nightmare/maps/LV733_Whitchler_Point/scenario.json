@@ -4,6 +4,7 @@
 		"choices": [
 			{ "type": "def", "values": { "lvevent": "roaf_zone" } },
 			{ "type": "def", "values": { "lvevent": "clfbar" } },
+            { "type": "def", "values": { "lvevent": "rac_post" } },
 			{ "type": "def", "values": { "lvevent": "isrg_spawn" } }
 		]
 	}

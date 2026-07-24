@@ -1822,6 +1822,11 @@
 	},
 /turf/open/floor/prison/floor_plate/southwest,
 /area/lv733/indoors/landing_cargo)
+"aDe" = (
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/effect/spawner/random/gun/pmc_primary/lowchance,
+/turf/open/floor/almayer/silverfull2,
+/area/lv733/indoors/wy_research_complex/south_corridor)
 "aDg" = (
 /obj/effect/decal/hybrisa/dirt_2,
 /obj/structure/barricade/handrail/strata,
@@ -51890,7 +51895,6 @@
 	pixel_x = 4;
 	pixel_y = 9
 	},
-/obj/effect/spawner/random/gun/pmc_primary/lowchance,
 /turf/open/floor/hybrisa/metal/metalwhitefull,
 /area/lv733/indoors/wy_research_complex/mess_hall)
 "rCu" = (
@@ -99149,7 +99153,7 @@ rcf
 nGS
 tqR
 aEc
-aEc
+aDe
 mDL
 lSz
 ixY
