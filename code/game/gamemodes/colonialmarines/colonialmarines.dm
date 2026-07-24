@@ -442,12 +442,15 @@
 		var/new_access = card.access | to_add
 		if(card.access ~! new_access)
 			card.access = new_access
-			announce_addendum += "\nSenior Command access added to ID."
+			announce_addendum += "\nДоступ командного уровня добавлен к вашему идентификатору." //SS220 EDIT START
+	if(person_in_charge.skills)
+		if(person_in_charge.skills.get_skill_level(SKILL_ENGINEER) < SKILL_ENGINEER_TRAINED)
+			person_in_charge.skills.set_skill(SKILL_ENGINEER, SKILL_ENGINEER_TRAINED)
 
-	announce_addendum += "\nA Command headset is available in the Command Tablet cabinet."
+	announce_addendum += "\nГарнитура и планшет командования доступны в командно-информационном центре." //SS220 EDIT END
 
 	//does an announcement to the crew about the commander & alerts admins to that change for logs.
-	shipwide_ai_announcement("Acting Commander authority has been transferred to: [role_in_charge] [person_in_charge], who will assume command until further notice. Please direct all inquiries and follow instructions accordingly. [announce_addendum]", MAIN_AI_SYSTEM, 'sound/misc/interference.ogg')
+	shipwide_ai_announcement("Полномочия исполняющего обязанности командира переданы: [role_in_charge] [person_in_charge]. Данное лицо принимает на себя командование до дальнейших распоряжений. Пожалуйста, направляйте все запросы и выполняйте инструкции соответствующим образом. [announce_addendum]", MAIN_AI_SYSTEM, 'sound/misc/interference.ogg') //SS220 EDIT
 	message_admins("[key_name(person_in_charge, TRUE)] [ADMIN_JMP_USER(person_in_charge)] has been designated the operation commander.")
 	return
 
@@ -469,7 +472,7 @@
 		for(var/obj/structure/machinery/medical_pod/autodoc/target in GLOB.machines)
 			if(is_mainship_level(target.z))
 				target.skilllock = SKILL_SURGERY_DEFAULT // lowers skill-lock to 0
-		ai_silent_announcement("WARNING: Cryopod release cycle DELAYED for MEDICAL PERSONNEL. Releasing Emergency Override Disks for AUTODOC Systems.", ".G", TRUE)
+		ai_silent_announcement("ВНИМАНИЕ: Цикл выхода из криокапсул для МЕДИЦИНСКОГО ПЕРСОНАЛА ЗАДЕРЖИВАЕТСЯ. Выпускаются диски аварийного перехвата управления для систем «АВТОДОК».", ".G", TRUE)
 		return log_admin("No Shipside Doctor found = Autodoc Upgrade Supplies ordered and AutoDoc skill locks released.")
 
 /datum/game_mode/colonialmarines/proc/ares_conclude()
