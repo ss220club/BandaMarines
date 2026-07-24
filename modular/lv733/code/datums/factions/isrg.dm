@@ -9,6 +9,11 @@
 GLOBAL_VAR_INIT(isrg_hud_registered, register_isrg_mob_hud())
 
 /proc/register_isrg_mob_hud()
+	// MOB_HUD_FACTION_ISRG (44) лежит за пределами базового GLOB.huds (длина 42) -
+	// запись по индексу вне границ списка в DM не расширяет его, а падает рантаймом,
+	// поэтому список сначала нужно вручную дорастить.
+	if(length(GLOB.huds) < MOB_HUD_FACTION_ISRG)
+		GLOB.huds.len = MOB_HUD_FACTION_ISRG
 	GLOB.huds[MOB_HUD_FACTION_ISRG] = new /datum/mob_hud/faction/isrg()
 	return TRUE
 
