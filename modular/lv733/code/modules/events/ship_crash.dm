@@ -24,8 +24,7 @@
 	mob_max = SHIP_CRASH_ERT_MAX
 	mob_min = 1
 	probability = 0
-	shuttle_id = MOBILE_SHUTTLE_ID_ERT2
-	home_base = /datum/lazy_template/ert/weyland_station
+	ignore_ftl_or_crash = TRUE
 	name_of_spawn = /obj/effect/landmark/ert_spawns/distress_pmc
 	item_spawn = /obj/effect/landmark/ert_spawns/distress_pmc/item
 	max_medics = 1
@@ -109,6 +108,10 @@
 		return
 	E.run_event()
 
+/proc/spawn_lv733_crash_response(turf/spawn_loc)
+	var/datum/emergency_call/em_call = new /datum/emergency_call/lv733_crash_response
+	em_call.activate(FALSE, TRUE, spawn_loc)
+
 
 /datum/round_event/lv733_ship_crash
 	var/turf/crash_turf = null
@@ -167,7 +170,9 @@
 	)
 
 	// ТЕСТ (Ожидается, что ерт будет вызвано в 51:45 и заспавнено где-то в 52:15 (Падение шипа в 52:00))
-	addtimer(CALLBACK(SSticker.mode, TYPE_PROC_REF(/datum/game_mode, get_specific_call), /datum/emergency_call/lv733_crash_response, FALSE, TRUE), SHIP_CRASH_WARN_DELAY - 15 SECONDS)
+	// Вызываем напрямую (а не через get_specific_call), т.к. только так можно передать override_spawn_loc,
+	// чтобы группа реагирования появилась у места крушения, а не на генерик-лендмарке/шаттле.
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(spawn_lv733_crash_response), crash_turf), SHIP_CRASH_WARN_DELAY - 15 SECONDS)
 
 /datum/round_event/lv733_ship_crash/start()
 	for(var/obj/effect/lv733/crash_warning_overlay/O in warning_overlays)
