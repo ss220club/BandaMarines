@@ -24,10 +24,6 @@
 		ACCESS_CIVILIAN_COMMAND,
 	)
 
-/datum/equipment_preset/survivor/isrg/load_id(mob/living/carbon/human/new_human, client/mob_client)
-	. = ..()
-	new_human.hud_set_squad()
-
 /datum/equipment_preset/survivor/isrg/proc/equip_common_gear(mob/living/carbon/human/new_human, uniform_type, head_type, suit_type, back_type, belt_type, left_pouch_type, right_pouch_type, eyes_type = null, face_type = null, spare_face_type = null)
 	new_human.equip_to_slot_or_del(new uniform_type(new_human), WEAR_BODY)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/marine/corporate/knife(new_human), WEAR_FEET)
@@ -174,10 +170,6 @@
 	flags = EQUIPMENT_PRESET_EXTRA
 	var/survivor_variant = CIVILIAN_SURVIVOR
 
-/datum/equipment_preset/synth_k9/isrg/load_id(mob/living/carbon/human/new_human, client/mob_client)
-	. = ..()
-	new_human.hud_set_squad()
-
 /datum/equipment_preset/synth_k9/isrg/New()
 	. = ..()
 	access = list(
@@ -239,10 +231,6 @@
 		ACCESS_CIVILIAN_MEDBAY,
 		ACCESS_CIVILIAN_COMMAND,
 	)
-
-/datum/equipment_preset/survivor/whitchler/isrg_commander/load_id(mob/living/carbon/human/new_human, client/mob_client)
-	. = ..()
-	new_human.hud_set_squad()
 
 /datum/equipment_preset/survivor/whitchler/isrg_commander/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/marine/veteran/isrg/dress(new_human), WEAR_BODY)

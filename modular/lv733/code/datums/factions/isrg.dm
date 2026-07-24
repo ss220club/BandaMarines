@@ -6,11 +6,9 @@
 /datum/mob_hud/faction/isrg
 	faction_to_check = FACTION_ISRG
 
-GLOBAL_VAR_INIT(isrg_hud_registered, register_isrg_mob_hud())
-
-/proc/register_isrg_mob_hud()
+/datum/modpack/lv733/initialize()
+	GLOB.huds.len = max(GLOB.huds.len, MOB_HUD_FACTION_ISRG)
 	GLOB.huds[MOB_HUD_FACTION_ISRG] = new /datum/mob_hud/faction/isrg()
-	return TRUE
 
 /datum/faction/isrg/modify_hud_holder(image/holder, mob/living/carbon/human/human)
 	var/icon/override_icon_file

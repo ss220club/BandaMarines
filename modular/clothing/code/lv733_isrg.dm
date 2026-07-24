@@ -374,5 +374,5 @@
 	initial_keys = list(/obj/item/device/encryptionkey/colony)
 	has_hud = TRUE
 	hud_type = MOB_HUD_FACTION_ISRG
-	additional_hud_types = list(MOB_HUD_FACTION_MARINE)
+	additional_hud_types = list(MOB_HUD_FACTION_TWE, MOB_HUD_FACTION_IASF, MOB_HUD_FACTION_MARINE, MOB_HUD_FACTION_ROAF)
 	volume = RADIO_VOLUME_IMPORTANT
