@@ -297,8 +297,8 @@
 	if(LinkBlocked(target_xeno, cur_turf, target_turf))
 		ram_dir = REVERSE_DIR(ram_dir)
 		target_turf = get_step(target_xeno, ram_dir)
-	target_xeno.throw_atom(target_turf, 1, 3, xeno, TRUE)
 	target_xeno.set_effect(0.5, WEAKEN)
+	target_xeno.throw_atom(target_turf, 1, 3, xeno, TRUE)
 
 /datum/action/xeno_action/activable/pounce/crusher_charge/proc/handle_carbon_collision(mob/living/carbon/mob, mob/living/carbon/xenomorph/xeno)
 	if(!istype(xeno))
