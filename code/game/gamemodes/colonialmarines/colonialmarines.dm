@@ -486,8 +486,6 @@
 			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_announcement), "My children. I sense the hostile, putrid, hive has fled this area, but some of the hosts that entrapped you remain alive within this metal complex, and I sense even more are on their way. Defeat these hosts to showcase your supremacy!", "everything", QUEEN_MOTHER_ANNOUNCE), 165 SECONDS)
 		if(MAP_LV_624)
 			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "Attention: Initial scan over the Area of Operations indicates a localized atmospheric anomaly: a dense fog forming over in and around the river bed.\nInitial assessment algorithm predicts dissipation in T-20 minutes.", "ARES V3.2", 'sound/AI/commandreport.ogg'), 5 MINUTES) // 5 minute lobby + 5 minutes into the game means the fog drops 20 minutes from now.
-		if(MAP_LV733_WHITCHLER_POINT)
-			lore_announcement_lv733()
 
 //This is processed each tick, but check_win is only checked 5 ticks, so we don't go crazy with scanning for mobs.
 /datum/game_mode/colonialmarines/process()

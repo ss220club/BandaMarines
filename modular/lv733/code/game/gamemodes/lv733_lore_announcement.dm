@@ -15,6 +15,15 @@ GLOBAL_DATUM_INIT(lv733_announcer_arakawa, /datum/announcer/lv733_arakawa, new)
 /proc/lv733_announce_arakawa(message, title, sound_to_play)
 	marine_announcement(message, title, sound_to_play, announcer = GLOB.lv733_announcer_arakawa)
 
+/datum/modpack/lv733/initialize()
+	RegisterSignal(SSdcs, COMSIG_GLOB_POST_SETUP, PROC_REF(on_post_setup))
+
+/datum/modpack/lv733/proc/on_post_setup(datum/source)
+	SIGNAL_HANDLER
+	if(SSmapping.configs[GROUND_MAP].map_name != MAP_LV733_WHITCHLER_POINT)
+		return
+	SSticker.mode.lore_announcement_lv733()
+
 /datum/game_mode/colonialmarines/proc/lore_announcement_lv733()
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(lv733_announce_rees), "&^!!#---, говорит старший инженер Реес, гарнизон ИТМ «Блэкбуш». Мы #@##s---- периметр у &^@%###---. Состав: @#!!&#&--- заблокированы. Запрашиваем поддержку и эвакуацию !!&#---. Приём.", "Гарнизон ИТМ «Блэкбуш», ст. инженер Реес", 'sound/AI/commandreport.ogg'), 23 MINUTES)
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_announcement), "Дети мои. Другая часть этой колонии пропитана запахом отчаяния. Солдаты хозяев забаррикадировались за камнем и сталью, словно испуганные насекомые. Стены их не спасут — туннели под их ногами принадлежат нам. Поглотите их. Пусть эта колония станет нашим гнездом.", "everything", QUEEN_MOTHER_ANNOUNCE), 23 MINUTES)
