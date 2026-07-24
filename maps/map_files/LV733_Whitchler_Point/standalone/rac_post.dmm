@@ -465,9 +465,7 @@
 "hY" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/large_stain,
-/obj/structure/blocker/forcefield/vehicles,
 /obj/effect/decal/hybrisa/dirt,
-/obj/structure/blocker/invisible_wall,
 /turf/open/floor/almayer_hull,
 /area/lv733/indoors/main_complex/main_vestibule)
 "hZ" = (
@@ -794,9 +792,7 @@
 /turf/open/floor/almayer_hull,
 /area/lv733/indoors/main_complex/main_vestibule)
 "lz" = (
-/obj/structure/blocker/forcefield/vehicles,
 /obj/effect/decal/hybrisa/dirt,
-/obj/structure/blocker/invisible_wall,
 /turf/open/floor/almayer_hull,
 /area/lv733/indoors/main_complex/main_vestibule)
 "lG" = (
@@ -809,13 +805,8 @@
 	icon_state = "road_edge_decal3";
 	pixel_y = -4
 	},
-/obj/item/shard{
-	icon_state = "medium"
-	},
 /obj/effect/decal/large_stain,
-/obj/structure/blocker/forcefield/vehicles,
 /obj/effect/decal/hybrisa/dirt,
-/obj/structure/blocker/invisible_wall,
 /turf/open/floor/almayer_hull,
 /area/lv733/indoors/main_complex/main_vestibule)
 "lR" = (
@@ -876,9 +867,7 @@
 	icon_state = "road_edge_decal3";
 	pixel_y = -4
 	},
-/obj/structure/blocker/forcefield/vehicles,
 /obj/effect/decal/hybrisa/dirt,
-/obj/structure/blocker/invisible_wall,
 /turf/open/floor/almayer_hull,
 /area/lv733/indoors/main_complex/main_vestibule)
 "mG" = (
@@ -1264,18 +1253,14 @@
 /turf/open/floor/almayer/silverfull2,
 /area/lv733/indoors/main_complex/departure_reception)
 "sa" = (
-/obj/structure/blocker/forcefield/vehicles,
 /obj/item/ammo_casing/bullet{
 	icon_state = "cartridge_3_1"
 	},
-/obj/structure/blocker/invisible_wall,
 /turf/open/floor/almayer_hull,
 /area/lv733/indoors/main_complex/main_vestibule)
 "sH" = (
 /obj/effect/decal/hybrisa/dirt,
-/obj/structure/blocker/forcefield/vehicles,
 /obj/effect/decal/hybrisa/dirt,
-/obj/structure/blocker/invisible_wall,
 /turf/open/floor/almayer_hull,
 /area/lv733/indoors/main_complex/main_vestibule)
 "sK" = (
@@ -1494,13 +1479,6 @@
 /turf/closed/shuttle/elevator{
 	dir = 5
 	},
-/area/lv733/indoors/main_complex/main_vestibule)
-"wl" = (
-/obj/structure/prop/invuln/dense/type16_erika{
-	dir = 4;
-	desc = "Колесный танк Type-16 бронезвена "Erika 2-2"."
-	},
-/turf/open/hybrisa/street/roadlines4,
 /area/lv733/indoors/main_complex/main_vestibule)
 "wn" = (
 /obj/structure/bed/chair/office/light{
@@ -1796,17 +1774,6 @@
 	},
 /turf/open/hybrisa/street/asphalt,
 /area/lv733/outdoors/colony_streets/wy_complex_streets)
-"As" = (
-/obj/effect/decal/hybrisa/road/lines2,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/road/road_edge{
-	icon_state = "road_edge_decal3";
-	pixel_y = 11
-	},
-/obj/structure/blocker/forcefield/vehicles,
-/obj/structure/blocker/invisible_wall,
-/turf/open/floor/almayer_hull,
-/area/lv733/indoors/main_complex/main_vestibule)
 "Az" = (
 /obj/structure/prop/hybrisa/fakeplatforms/platform4/deco{
 	dir = 8
@@ -2375,18 +2342,6 @@
 	},
 /turf/open/floor/almayer/silverfull2,
 /area/lv733/indoors/main_complex/departure_reception)
-"IK" = (
-/obj/effect/decal/hybrisa/road/lines3,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/road/road_edge{
-	icon_state = "road_edge_decal3";
-	pixel_y = -4
-	},
-/obj/effect/decal/large_stain,
-/obj/structure/blocker/forcefield/vehicles,
-/obj/structure/blocker/invisible_wall,
-/turf/open/floor/almayer_hull,
-/area/lv733/indoors/main_complex/main_vestibule)
 "IN" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/structure/pipes/standard/simple/hidden/dark{
@@ -2444,9 +2399,7 @@
 /area/lv733/indoors/main_complex/main_vestibule)
 "JF" = (
 /obj/effect/decal/hybrisa/dirt,
-/obj/structure/blocker/forcefield/vehicles,
 /obj/effect/decal/large_stain,
-/obj/structure/blocker/invisible_wall,
 /turf/open/hybrisa/street/roadlines4,
 /area/lv733/indoors/main_complex/main_vestibule)
 "JH" = (
@@ -2514,11 +2467,6 @@
 	layer = 3.2
 	},
 /turf/open/floor/almayer/silverfull2,
-/area/lv733/indoors/main_complex/main_vestibule)
-"KS" = (
-/obj/structure/blocker/forcefield/vehicles,
-/obj/structure/blocker/invisible_wall,
-/turf/open/floor/almayer_hull,
 /area/lv733/indoors/main_complex/main_vestibule)
 "La" = (
 /obj/structure/surface/table/reinforced/black,
@@ -2791,13 +2739,6 @@
 	},
 /turf/open/floor/strata/multi_tiles/southeast,
 /area/lv733/indoors/main_complex/main_vestibule)
-"OO" = (
-/obj/structure/prop/invuln/dense/type16_erika{
-	dir = 6;
-	desc = "Колесный танк Type-16 бронезвена "Erika 2-3"."
-	},
-/turf/closed/wall/hybrisa/colony,
-/area/lv733/indoors/main_complex/main_vestibule)
 "Pg" = (
 /obj/item/ammo_magazine/rifle/l86_m1{
 	current_rounds = 0
@@ -2879,16 +2820,6 @@
 	},
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/almayer/silverfull2,
-/area/lv733/indoors/main_complex/main_vestibule)
-"Qn" = (
-/obj/effect/decal/hybrisa/road/lines2,
-/obj/effect/decal/hybrisa/road/road_edge{
-	icon_state = "road_edge_decal3";
-	pixel_y = 11
-	},
-/obj/structure/blocker/forcefield/vehicles,
-/obj/structure/blocker/invisible_wall,
-/turf/open/floor/almayer_hull,
 /area/lv733/indoors/main_complex/main_vestibule)
 "Qr" = (
 /obj/structure/pipes/standard/simple/hidden/dark{
@@ -3070,15 +3001,6 @@
 "SN" = (
 /turf/open/hybrisa/street/sidewalk/southwest,
 /area/lv733/outdoors/colony_streets/civil_spaceport_south)
-"SY" = (
-/obj/effect/decal/hybrisa/road/road_stop{
-	dir = 4;
-	icon_state = "stop_decal5"
-	},
-/obj/structure/blocker/forcefield/vehicles,
-/obj/structure/blocker/invisible_wall,
-/turf/open/floor/almayer_hull,
-/area/lv733/indoors/main_complex/main_vestibule)
 "Tj" = (
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/hybrisa/street/cement1,
@@ -3343,11 +3265,6 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/hybrisa/street/asphalt,
 /area/lv733/outdoors/colony_streets/avenue)
-"WX" = (
-/obj/structure/blocker/forcefield/vehicles,
-/obj/structure/blocker/invisible_wall,
-/turf/open/hybrisa/street/roadlines4,
-/area/lv733/indoors/main_complex/main_vestibule)
 "Xc" = (
 /turf/open/auto_turf/tyrargo_grass/layer0_mud,
 /area/lv733/outdoors/colony_streets/civil_spaceport_south)
@@ -3403,12 +3320,10 @@
 	pixel_y = -4
 	},
 /obj/effect/decal/large_stain,
-/obj/structure/blocker/forcefield/vehicles,
 /obj/effect/decal/hybrisa/dirt,
 /obj/item/ammo_casing/bullet{
 	icon_state = "cartridge_3_1"
 	},
-/obj/structure/blocker/invisible_wall,
 /turf/open/floor/almayer_hull,
 /area/lv733/indoors/main_complex/main_vestibule)
 "XO" = (
@@ -3799,7 +3714,7 @@ Cx
 Uq
 FC
 Sl
-OO
+Cx
 Cx
 Cx
 eP
@@ -3824,7 +3739,7 @@ Nl
 PV
 HX
 sH
-IK
+GS
 Cx
 pg
 xS
@@ -4057,7 +3972,7 @@ zt
 tH
 Nl
 je
-wl
+np
 np
 Xz
 ye
@@ -4082,7 +3997,7 @@ bR
 Cx
 Wc
 Nl
-WX
+np
 JF
 np
 vD
@@ -4108,8 +4023,8 @@ Cx
 Cx
 CG
 qE
-SY
-SY
+IW
+IW
 BT
 Cx
 AC
@@ -4134,7 +4049,7 @@ qI
 CI
 fV
 yd
-Qn
+wr
 sa
 GS
 Qz
@@ -4160,8 +4075,8 @@ qI
 CI
 fV
 yd
-As
-KS
+HX
+bX
 EA
 ur
 Kj
