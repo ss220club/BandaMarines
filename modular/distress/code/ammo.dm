@@ -6,6 +6,7 @@
 // TANK CANNON
 /datum/ammo/rocket/ltb/p17702
 	name = "93mmm round"
+	icon = 'modular/distress/icons/projectiles.dmi'
 	icon_state = "p17702"
 	flags_ammo_behavior = AMMO_EXPLOSIVE|AMMO_ROCKET|AMMO_STRIKES_SURFACE
 
@@ -41,5 +42,6 @@
 	gun_type = /obj/item/hardpoint/secondary/t60p3m
 
 /datum/ammo/bullet/rifle/heavy/tracer
+	icon = 'modular/distress/icons/projectiles.dmi'
 	icon_state = "bullet_red"
 

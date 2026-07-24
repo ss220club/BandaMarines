@@ -6,3 +6,17 @@
 #include "code/vehicles.dm"
 #define FILE_DIR .
 
+// BEGIN_INTERNALS
+// END_INTERNALS
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+// END_FILE_DIR
+// BEGIN_PREFERENCES
+// END_PREFERENCES
+// BEGIN_INCLUDE
+#include "_distress.dm"
+#include "code\ammo.dm"
+#include "code\misc.dm"
+#include "code\tank.dm"
+#include "code\vehicles.dm"
+// END_INCLUDE

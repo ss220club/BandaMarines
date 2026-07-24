@@ -64,7 +64,7 @@
 	disp_icon = "upptank"
 	disp_icon_state = "reactive_armor"
 
-	health = 1500
+	health = 1000
 
 	type_multipliers = list(
 		"explosive" = 0.70,
@@ -172,3 +172,59 @@
 
 	use_muzzle_flash = FALSE
 
+/obj/item/device/radio/headset/distress/UPP
+	name = "UPP headset"
+	desc = "A special headset used by UPP military. To access the colony channel, use :o."
+	frequency = UPP_FREQ
+	icon = 'modular/distress/icons/radio.dmi'
+	icon_state = "cam_gear_on"
+	initial_keys = list(/obj/item/device/encryptionkey/colony, /obj/item/device/encryptionkey/upp)
+	has_hud = TRUE
+	hud_type = MOB_HUD_FACTION_UPP
+	minimap_flag = MINIMAP_FLAG_UPP
+	minimap_type = /datum/action/minimap/marine/upp
+	item_icons = list(
+		WEAR_L_EAR = 'modular/distress/icons/ears.dmi',
+		WEAR_R_EAR = 'modular/distress/icons/ears.dmi',
+	)
+
+/obj/item/device/motiondetector/upp
+	name = "UDO-58 motion detector"
+	desc = "Ustroystvo Dalnego Obnaruzhenia/Long Range Detection Device. A military grade, hand-held motion detection device designed not long after its analogue in the USCM was developed. The device can penetrate most anything and has an approximate range of 28 meters. Can also be utilized to scan vehicle interiors. This one is programmed to operate with UPPAC Naval Infantry IFF."
+	icon = 'modular/distress/icons/upp-items.dmi'
+	icon_state = "detector"
+	item_state = "upp_motion_detector"
+	iff_signal = FACTION_UPP
+
+/obj/item/storage/backpack/marine/satchel/rto/upp_net
+	name = "\improper R-559 'Bagulnik' Radio Telephone Pack"
+	icon = 'modular/distress/icons/backpacks.dmi'
+	item_icons = list(
+		WEAR_L_HAND = 'modular/distress/icons/lefthand.dmi',
+		WEAR_R_HAND = 'modular/distress/icons/righthand.dmi',
+		WEAR_BACK = 'modular/distress/icons/back.dmi',
+	)
+	icon_state = "upp_rto_backpack"
+	item_state = "upp_rto_backpack"
+	actions_types = list(/datum/action/item_action/rto_pack/use_phone/upp)
+
+/datum/action/item_action/rto_pack/use_phone/upp/New(mob/living/user, obj/item/holder)
+    ..()
+    button.overlays.Cut()
+    var/image/I = image('modular/distress/icons/misc.dmi', button, "upp_rpb_phone")
+    button.overlays += I
+
+/datum/ammo/bullet/pkp
+	name = "machinegun bullet"
+	headshot_state = HEADSHOT_OVERLAY_MEDIUM
+	icon = 'modular/distress/icons/projectiles.dmi'
+	icon_state = "redtrac"
+	
+
+	accuracy = HIT_ACCURACY_TIER_1
+	accuracy_var_low = PROJECTILE_VARIANCE_TIER_8
+	accuracy_var_high = PROJECTILE_VARIANCE_TIER_6
+	accurate_range = 14
+	damage = 40
+	penetration = ARMOR_PENETRATION_TIER_5
+	shrapnel_chance = SHRAPNEL_CHANCE_TIER_5

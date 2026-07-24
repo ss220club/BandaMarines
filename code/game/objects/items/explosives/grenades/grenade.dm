@@ -92,7 +92,10 @@
 	if(initial(dangerous))
 		var/nade_sound
 		if(has_species(user, "Human"))
-			nade_sound = user.gender == FEMALE ? get_sfx("female_fragout") : get_sfx("male_fragout")
+			if(user.faction == FACTION_UPP)
+				nade_sound = user.gender == FEMALE ? get_sfx("female_fragout") : get_sfx("male_upp_fragout")
+			else
+				nade_sound = user.gender == FEMALE ? get_sfx("female_fragout") : get_sfx("male_fragout")
 		else if(ismonkey(user))
 			nade_sound = sound('sound/voice/monkey_scream.ogg')
 		if(nade_sound)
