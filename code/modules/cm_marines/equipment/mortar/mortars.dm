@@ -588,6 +588,7 @@
 
 //The portable mortar item
 /obj/item/mortar_kit
+	var/mortar_type = /obj/structure/mortar
 	name = "\improper M402 mortar portable kit"
 	desc = "A manual, crew-operated mortar system intended to rain down 80mm goodness on anything it's aimed at. Needs to be set down first."
 	icon = 'icons/obj/structures/mortar.dmi'
@@ -628,7 +629,7 @@
 		SPAN_NOTICE("You start deploying [src]."))
 	playsound(deploy_turf, 'sound/items/Deconstruct.ogg', 25, 1)
 	if(do_after(user, 4 SECONDS, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
-		var/obj/structure/mortar/mortar = new /obj/structure/mortar(deploy_turf)
+		var/obj/structure/mortar/mortar = new mortar_type(deploy_turf)
 		if(linked_designator)
 			mortar.linked_designator = linked_designator
 		if(!is_ground_level(deploy_turf.z))

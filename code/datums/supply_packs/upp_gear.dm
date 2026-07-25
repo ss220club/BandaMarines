@@ -5,12 +5,12 @@
 	containername = "Mixed Binoculars Crate"
 	group = "UPP Gear"
 	contains = list(
-		/obj/item/device/binoculars/range/designator,
-		/obj/item/device/binoculars/range/designator,
+		/obj/item/device/binoculars/range/designator/upp,
+		/obj/item/device/binoculars/range/designator/upp,
 		/obj/item/device/binoculars/range,
 		/obj/item/device/binoculars/range,
-		/obj/item/device/binoculars,
-		/obj/item/device/binoculars,
+		/obj/item/device/binoculars/upp,
+		/obj/item/device/binoculars/upp,
 	)
 
 /datum/supply_packs/upp/flares
@@ -28,8 +28,8 @@
 /datum/supply_packs/upp/motiondetector
 	name = "UPP Motion Detector (x2)"
 	contains = list(
-		/obj/item/device/motiondetector/hacked,
-		/obj/item/device/motiondetector/hacked,
+		/obj/item/device/motiondetector/upp,
+		/obj/item/device/motiondetector/upp,
 	)
 	cost = 40
 	containertype = /obj/structure/closet/crate/supply

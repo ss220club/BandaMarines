@@ -234,6 +234,7 @@
 
 //LASER DESIGNATOR with ability to acquire coordinates and CAS lasing support
 /obj/item/device/binoculars/range/designator
+	var/ignore_ceiling_check = FALSE
 	name = "laser designator"
 	desc = "Имеет два режима: наводка для НАП с помощью ИК-лазера и определение дальности. Ctrl+ЛКМ на пол для начала наводки. Ctrl+ЛКМ на целеуказателе, чтобы остановить лазерную наводку. Alt+ЛКМ на целеуказателе, чтобы переключить режим."
 	var/obj/effect/overlay/temp/laser_target/laser
@@ -346,7 +347,7 @@
 	if (protected_by_pylon(TURF_PROTECTION_CAS, TU))
 		is_outside = FALSE
 
-	if(!is_outside && !range_mode) //rangefinding works regardless of ceiling
+	if(!ignore_ceiling_check && !is_outside && !range_mode)
 		to_chat(user, SPAN_WARNING("НЕДОПУСТИМАЯ ЦЕЛЬ: цель должна быть видна с воздуха."))
 		return
 	if(user.action_busy)

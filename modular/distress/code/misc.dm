@@ -188,6 +188,17 @@
 		WEAR_R_EAR = 'modular/distress/icons/ears.dmi',
 	)
 
+/obj/item/clothing/head/helmet/marine/veteran/UPP/heavy
+	name = "\improper UH7 helmet"
+	desc = "Like the UM4, this helmet is very resistant to ballistic damage, but both its flaws and benefits have been doubled. The few UPP Zhergeants that have lived past age 30 have all needed to retire from terminal neck problems caused from the stress of wearing this helmet."
+	icon_state = "upp_helmet_heavy"
+	armor_melee = CLOTHING_ARMOR_VERYHIGH
+	armor_bullet = CLOTHING_ARMOR_VERYHIGH
+	armor_energy = CLOTHING_ARMOR_MEDIUMHIGH
+	armor_bomb = CLOTHING_ARMOR_HIGH
+	armor_bio = CLOTHING_ARMOR_HIGHPLUS
+	armor_internaldamage = CLOTHING_ARMOR_HIGHPLUS
+
 /obj/item/device/motiondetector/upp
 	name = "UDO-58 motion detector"
 	desc = "Ustroystvo Dalnego Obnaruzhenia/Long Range Detection Device. A military grade, hand-held motion detection device designed not long after its analogue in the USCM was developed. The device can penetrate most anything and has an approximate range of 28 meters. Can also be utilized to scan vehicle interiors. This one is programmed to operate with UPPAC Naval Infantry IFF."
@@ -195,6 +206,14 @@
 	icon_state = "detector"
 	item_state = "upp_motion_detector"
 	iff_signal = FACTION_UPP
+	
+/obj/item/phone/upp
+	icon = 'modular/distress/icons/misc.dmi'
+	item_icons = list(
+		WEAR_L_HAND = 'modular/distress/icons/lefthand.dmi',
+		WEAR_R_HAND = 'modular/distress/icons/righthand.dmi'
+	)
+	icon_state = "upp_rpb_phone"
 
 /obj/item/storage/backpack/marine/satchel/rto/upp_net
 	name = "\improper R-559 'Bagulnik' Radio Telephone Pack"
@@ -208,6 +227,10 @@
 	item_state = "upp_rto_backpack"
 	actions_types = list(/datum/action/item_action/rto_pack/use_phone/upp)
 
+/obj/item/storage/backpack/marine/satchel/rto/upp_net/Initialize()
+	. = ..()
+
+	internal_transmitter.phone_type = /obj/item/phone/upp
 /datum/action/item_action/rto_pack/use_phone/upp/New(mob/living/user, obj/item/holder)
     ..()
     button.overlays.Cut()
@@ -220,11 +243,268 @@
 	icon = 'modular/distress/icons/projectiles.dmi'
 	icon_state = "redtrac"
 	
-
 	accuracy = HIT_ACCURACY_TIER_1
 	accuracy_var_low = PROJECTILE_VARIANCE_TIER_8
 	accuracy_var_high = PROJECTILE_VARIANCE_TIER_6
 	accurate_range = 14
-	damage = 40
-	penetration = ARMOR_PENETRATION_TIER_5
+	damage = 45
+	penetration = ARMOR_PENETRATION_TIER_4
 	shrapnel_chance = SHRAPNEL_CHANCE_TIER_5
+
+/obj/structure/mortar/himat
+	name = "M112 HIMAT"
+	icon = 'modular/distress/icons/mortar.dmi'
+	desc = "A man-portable two-stage missile launcher. While capable of being fired manually, what truly sets this apart from standard boom-tubes is it's onboard fire-control systems. While deployed on a baseplate and supporting bipod stand it will attempt to link with any local USCM sensor matrix, allowing it to automatically track, identify and request to fire upon hostile targets in range."
+	icon_state = "himat"
+	max_range = 999
+	var/kit_type = /obj/item/mortar_kit/himat
+	travel_time = 2.5 SECONDS
+	var/obj/item/mortar_shell/loaded_shell = null
+	var/id
+
+/obj/structure/mortar/himat/attackby(obj/item/item, mob/user)
+	if(istype(item, /obj/item/mortar_shell))
+		var/obj/item/mortar_shell/mortar_shell = item
+		if(!skillcheck(user, SKILL_ENGINEER, SKILL_ENGINEER_NOVICE))
+			to_chat(user, SPAN_WARNING("You don't have the training to fire [src]."))
+			return
+		if(busy)
+			to_chat(user, SPAN_WARNING("Someone else is currently using [src]."))
+			return
+
+		var/area/our_area = get_area(src)
+		if(ship_side && (CEILING_IS_PROTECTED(our_area.ceiling, CEILING_PROTECTION_TIER_2)))
+			var/crash_occurred = (SSticker?.mode?.is_in_endgame)
+			if(crash_occurred)
+				travel_time = 0.5 SECONDS
+			else
+				to_chat(user, SPAN_RED("You realize how bad of an idea this is and quickly stop."))
+				return
+		if(!loaded_shell)
+			user.visible_message(SPAN_NOTICE("[user] starts loading \a [mortar_shell.name] into [src]."),
+			SPAN_NOTICE("You start loading \a [mortar_shell.name] into [src]."))
+			playsound(loc, 'sound/weapons/gun_mortar_reload.ogg', 50, 1)
+			busy = TRUE
+			var/success = do_after(user, 1.5 SECONDS, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE)
+			busy = FALSE
+			if(success)
+				user.visible_message(SPAN_NOTICE("[user] loads \a [mortar_shell.name] into [src]."),
+				SPAN_NOTICE("You load \a [mortar_shell.name] into [src]."))
+				user.drop_inv_item_to_loc(mortar_shell, src)
+				busy = FALSE
+				mortar_shell.cause_data = create_cause_data(initial(mortar_shell.name), user, src)
+				mortar_shell.forceMove(src)
+				loaded_shell = mortar_shell
+
+	if(HAS_TRAIT(item, TRAIT_TOOL_WRENCH))
+		if(!skillcheck(user, SKILL_ENGINEER, SKILL_ENGINEER_NOVICE))
+			to_chat(user, SPAN_WARNING("You don't have the training to undeploy [src]."))
+			return
+		if(fixed)
+			to_chat(user, SPAN_WARNING("[src]'s supports are bolted and welded into the floor. It looks like it's going to be staying there."))
+			return
+		if(busy)
+			to_chat(user, SPAN_WARNING("Someone else is currently using [src]."))
+			return
+		if(firing)
+			to_chat(user, SPAN_WARNING("[src]'s barrel is still steaming hot. Wait a few seconds and stop firing it."))
+			return
+		if(loaded_shell)
+			to_chat(user, SPAN_WARNING("[src] is loaded with a missile, unload it first."))
+			return
+		playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
+		user.visible_message(SPAN_NOTICE("[user] starts undeploying [src]."), \
+				SPAN_NOTICE("You start undeploying [src]."))
+		if(do_after(user, 4 SECONDS, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
+			user.visible_message(SPAN_NOTICE("[user] undeploys [src]."), \
+				SPAN_NOTICE("You undeploy [src]."))
+			playsound(loc, 'sound/items/Deconstruct.ogg', 25, 1)
+			var/obj/item/mortar_kit/mortar = new kit_type(loc)
+			mortar.name = src.name
+			qdel(src)
+
+	if(HAS_TRAIT(item, TRAIT_TOOL_SCREWDRIVER))
+		if(do_after(user, 1 SECONDS, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
+			user.visible_message(SPAN_NOTICE("[user] toggles the targeting computer on [src]."), \
+				SPAN_NOTICE("You toggle the targeting computer on [src]."))
+			computer_enabled = !computer_enabled
+			playsound(loc, 'sound/machines/switch.ogg', 25, 1)
+
+	if(HAS_TRAIT(item, TRAIT_TOOL_MULTITOOL))
+		var/new_id = tgui_input_text(user, "Select ID (4 characters)", "HIMAT ID", id)
+		if(!new_id || !istext(new_id))
+			return
+	
+		if(length(new_id) != 4)
+			to_chat(src, SPAN_NOTICE("ID must be 4 characters long."))
+			return
+		id = new_id
+
+	if(istype(item, /obj/item/device/binoculars/range/designator/upp))
+		if(!id)
+			to_chat(user, SPAN_WARNING("[src] must have an ID before connecting. Use multitool to set ID."))
+			return
+
+		var/obj/item/device/binoculars/range/designator/upp/desig = item
+		if(src in desig.connected_himats)
+			to_chat(user, SPAN_WARNING("[src] is already connected to this designator."))
+			return
+		desig.connected_himats += src
+		to_chat(user, SPAN_WARNING("[src] successfully connected. ID: [id]."))
+
+
+/obj/structure/mortar/himat/handle_shell(turf/target, obj/item/mortar_shell/shell)
+	if(!loaded_shell)
+		return FALSE
+
+	var/turf/mortar_turf = get_turf(src)
+	mortar_turf.ceiling_debris_check(2)
+	playsound(loc, 'sound/weapons/gun_rocketlauncher.ogg', 50, 1)
+	visible_message("[icon2html(src, viewers(src))] [SPAN_DANGER("The [name] fires!")]")
+
+	for(var/mob/mob in range(6, src))
+		shake_camera(mob, 3, 1)
+		if(ishuman(mob) && !HAS_TRAIT(mob, TRAIT_EAR_PROTECTION))
+			var/mob/living/carbon/human/human = mob
+			human.SetEarDeafness(max(human.ear_deaf, 15))
+			to_chat(human, SPAN_WARNING("Augh!! \The [src]'s launch blast resonates extremely loudly in your ears! You probably should have worn some sort of ear protection..."))
+	firing = TRUE
+	flick(icon_state + "_fire", src)
+	spawn(travel_time+rand(1, 10))
+	..()
+	loaded_shell = null
+	return TRUE
+
+/obj/structure/mortar/himat/attack_hand(mob/user)
+	if(loaded_shell)
+		visible_message(SPAN_NOTICE("[user] begins removing [loaded_shell] from [src]."))
+		if(do_after(user, 5 SECONDS, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
+			loaded_shell.forceMove(get_turf(src))
+			loaded_shell = null
+			visible_message(SPAN_NOTICE("[user] removes [loaded_shell] from [src]."))
+
+/obj/item/mortar_kit/himat
+	name = "\improper M112 HIMAT"
+	icon = 'modular/distress/icons/mortar.dmi'
+	desc = "Folded up and ready to be carried HIMAT missile launcher. Can be worn on your back."
+	icon_state = "himat_carry"
+	flags_equip_slot = SLOT_BACK
+	mortar_type = /obj/structure/mortar/himat
+	item_icons = list(
+		WEAR_BACK = 'modular/distress/icons/back.dmi',
+	)
+
+/obj/item/device/binoculars/upp
+	icon = 'modular/distress/icons/binoculars.dmi'
+	icon_state = "binoculars_upp"
+	item_icons = list(
+		WEAR_L_HAND = 'modular/distress/icons/lefthand.dmi',
+		WEAR_R_HAND = 'modular/distress/icons/righthand.dmi',
+	)
+
+/obj/item/device/binoculars/range/designator/upp
+	ignore_ceiling_check = TRUE
+	icon = 'modular/distress/icons/binoculars.dmi'
+	icon_state = "binoculars_upp_alt"
+	cas_laser_overlay = "binoculars_laser_civ"
+	range_laser_overlay = "binoculars_range_civ"
+	item_icons = list(
+		WEAR_L_HAND = 'modular/distress/icons/lefthand.dmi',
+		WEAR_R_HAND = 'modular/distress/icons/righthand.dmi',
+	)
+	var/list/connected_himats = list()
+	var/himat_id = 1
+	var/barrage_mode = FALSE
+	actions_types = list(/datum/action/item_action/fire_himat, /datum/action/item_action/switch_himat, /datum/action/item_action/himat_barrage)
+	var/list/actions_list = list(/datum/action/item_action/fire_himat, /datum/action/item_action/switch_himat, /datum/action/item_action/himat_barrage)
+
+/obj/item/device/binoculars/range/designator/upp/attackby(obj/item/item, mob/user)
+	if(HAS_TRAIT(item, TRAIT_TOOL_MULTITOOL))
+		to_chat(user, SPAN_WARNING("You begin flushing connection data..."))
+		if(do_after(user, 2 SECONDS, INTERRUPT_ALL, BUSY_ICON_HOSTILE))
+			connected_himats.Cut()
+		to_chat(user, SPAN_WARNING("You successfully flush connection data."))
+
+/datum/action/item_action/fire_himat/New(Target, obj/item/holder)
+	. = ..()
+	name = "Fire HIMATs"
+	action_icon_state = "designator_mortar"
+	button.name = name
+	button.overlays.Cut()
+	button.overlays += image('icons/mob/hud/actions.dmi', button, action_icon_state)
+
+/datum/action/item_action/fire_himat/action_activate()
+	. = ..()
+	var/obj/item/device/binoculars/range/designator/upp/desig = holder_item
+	var/howmanyhimats = 0
+	if(!desig.range_mode && desig.laser && desig.connected_himats.len)
+		if(desig.barrage_mode)
+			for(var/obj/structure/mortar/himat/himat in desig.connected_himats)
+				if(himat.handle_shell(get_turf(desig.laser), himat.loaded_shell))
+					howmanyhimats++
+			to_chat(usr, SPAN_NOTICE("Command sent. Fired: [howmanyhimats] shells."))
+		else
+			var/obj/structure/mortar/himat/himat = desig.connected_himats[desig.himat_id]
+			if(himat.handle_shell(get_turf(desig.laser), himat.loaded_shell))
+				to_chat(usr, SPAN_NOTICE("Command sent. Fired: HIMAT [himat.id]."))
+
+/datum/action/item_action/switch_himat/New(Target, obj/item/holder)
+	. = ..()
+	name = "Switch HIMAT"
+	action_icon_state = "designator_swap_mortar"
+	button.name = name
+	button.overlays.Cut()
+	button.overlays += image('icons/mob/hud/actions.dmi', button, action_icon_state)
+
+/datum/action/item_action/switch_himat/action_activate()
+	. = ..()
+	var/obj/item/device/binoculars/range/designator/upp/desig = holder_item
+	if(!length(desig.connected_himats))
+		to_chat(usr, SPAN_NOTICE("No HIMAT IDs found! Please connect to a HIMAT."))
+		return
+	desig.himat_id++
+	if(desig.himat_id > desig.connected_himats.len)
+		desig.himat_id = 1
+	var/obj/structure/mortar/himat/selected_himat = desig.connected_himats[desig.himat_id]
+	to_chat(usr, SPAN_NOTICE("Selected HIMAT ID: [selected_himat.id]"))
+
+/datum/action/item_action/himat_barrage/New(Target, obj/item/holder)
+	. = ..()
+	name = "Switch Barrage Mode"
+	action_icon_state = "designator_one_weapon"
+	button.name = name
+	button.overlays.Cut()
+	button.overlays += image('icons/mob/hud/actions.dmi', button, action_icon_state)
+
+/datum/action/item_action/himat_barrage/action_activate()
+	. = ..()
+	var/obj/item/device/binoculars/range/designator/upp/desig = holder_item
+	desig.barrage_mode = !desig.barrage_mode
+	button.overlays.Cut()
+	if(desig.barrage_mode)
+		action_icon_state = "designator_all_weapons"
+	else
+		action_icon_state = "designator_one_weapon"
+	button.overlays += image('icons/mob/hud/actions.dmi', button, action_icon_state)
+
+/obj/item/prop/helmetgarb/frogmen_veil
+	name = "Frogmen tactical veil"
+	icon = 'modular/distress/icons/misc.dmi'
+	desc = "A net veil, most of the times used by special forces to break up the silhouette of the soldier at long ranges. And also it's very creepy to see one when fighting on the other side."
+	icon_state = "veil_frogmen"
+	flags_obj = OBJ_NO_HELMET_BAND
+
+/obj/item/clothing/head/helmet/upp/frogmen
+	name = "\improper 6B84 light helmet"
+	desc = " UPPA reconnaissance new helmet for multiple environments, and used mostly for NVG/IR system placement. Made using fabric-polymer technology, making it much lighter in comparison to the standard issue 6B82, sacrificing overall protection. A tactical datalink and A/V feeds are provided, alongside facilities for an infrared imager complex. Surprisingly comfortable. The fabric utilized for this model is rubbery and colored after the standard paint coating of UPP armor."
+	icon = 'modular/distress/icons/misc.dmi'
+	icon_state = "upp_helmet_frogmen"
+	armor_melee = CLOTHING_ARMOR_MEDIUMHIGH
+	armor_bullet = CLOTHING_ARMOR_MEDIUMHIGH
+	armor_bomb = CLOTHING_ARMOR_MEDIUMLOW
+	armor_bio = CLOTHING_ARMOR_MEDIUMLOW
+	armor_rad = CLOTHING_ARMOR_LOW
+	armor_internaldamage = CLOTHING_ARMOR_MEDIUMHIGH
+	item_icons = list(
+		WEAR_HEAD = 'modular/distress/icons/helmet.dmi'
+	)

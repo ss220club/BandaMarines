@@ -21992,10 +21992,10 @@
 /area/rostock/command/hallway)
 "qTM" = (
 /obj/structure/surface/rack,
-/obj/item/storage/backpack/marine/satchel/rto/small/upp_net,
-/obj/item/storage/backpack/marine/satchel/rto/small/upp_net,
-/obj/item/storage/backpack/marine/satchel/rto/small/upp_net,
-/obj/item/storage/backpack/marine/satchel/rto/small/upp_net,
+/obj/item/storage/backpack/marine/satchel/rto/upp_net,
+/obj/item/storage/backpack/marine/satchel/rto/upp_net,
+/obj/item/storage/backpack/marine/satchel/rto/upp_net,
+/obj/item/storage/backpack/marine/satchel/rto/upp_net,
 /obj/item/pamphlet/upgradeable/jtac,
 /obj/item/pamphlet/upgradeable/jtac,
 /obj/item/pamphlet/upgradeable/jtac,

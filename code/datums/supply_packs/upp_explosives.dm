@@ -87,7 +87,7 @@
 		/obj/item/explosive/plastic,
 		/obj/item/explosive/plastic,
 	)
-	cost = 30
+	cost = 25
 	containertype = /obj/structure/closet/crate/explosives
 	containername = "\improper plastic explosives crate (WARNING)"
 	group = "UPP Explosives"
@@ -100,7 +100,7 @@
 		/obj/item/explosive/plastic/breaching_charge,
 		/obj/item/explosive/plastic/breaching_charge,
 	)
-	cost = 40
+	cost = 35
 	containertype = /obj/structure/closet/crate/explosives
 	containername = "\improper plastic explosives crate (WARNING)"
 	group = "UPP Explosives"

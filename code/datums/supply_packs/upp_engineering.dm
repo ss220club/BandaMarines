@@ -13,7 +13,7 @@
 		/obj/item/tool/shovel/etool,
 		/obj/item/tool/shovel/etool,
 	)
-	cost = 30
+	cost = 40
 	containertype = /obj/structure/closet/crate/supply
 	containername = "sandbags construction kit"
 	group = "UPP Engineering"
@@ -21,7 +21,7 @@
 /datum/supply_packs/upp/metal
 	name = "UPP metal sheets (x50)"
 	contains = list(/obj/item/stack/sheet/metal/large_stack)
-	cost = 20
+	cost = 40
 	containertype = /obj/structure/closet/crate/supply
 	containername = "metal sheets crate"
 	group = "UPP Engineering"
@@ -29,7 +29,7 @@
 /datum/supply_packs/upp/plas
 	name = "UPP plasteel sheets (x40)"
 	contains = list(/obj/item/stack/sheet/plasteel/med_large_stack)
-	cost = 30
+	cost = 50
 	containertype = /obj/structure/closet/crate/supply
 	containername = "plasteel sheets crate"
 	group = "UPP Engineering"
@@ -37,7 +37,7 @@
 /datum/supply_packs/upp/glass
 	name = "UPP glass sheets (x50)"
 	contains = list(/obj/item/stack/sheet/glass/large_stack)
-	cost = 20
+	cost = 40
 	containertype = /obj/structure/closet/crate/supply
 	containername = "glass sheets crate"
 	group = "UPP Engineering"
@@ -45,7 +45,7 @@
 /datum/supply_packs/upp/wood50
 	name = "UPP wooden planks (x50)"
 	contains = list(/obj/item/stack/sheet/wood/large_stack)
-	cost = 20
+	cost = 40
 	containertype = /obj/structure/closet/crate/supply
 	containername = "wooden planks crate"
 	group = "UPP Engineering"
