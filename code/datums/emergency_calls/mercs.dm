@@ -9,10 +9,11 @@
 	. = ..()
 	if(isnull(hostility))
 		hostility = pick(75;FALSE,25;TRUE)
-	arrival_message = "[MAIN_SHIP_NAME], это шаттл \"Фрилансер\" [pick(GLOB.alphabet_lowercase)][pick(GLOB.alphabet_lowercase)]-[rand(1, 99)], реагируем на ваш сигнал бедствия. Приготовьтесь к высадке на ваш борт."
 	if(hostility)
+		arrival_message = "Lovely ship you've got there. Arikara class, huh? Don't mind if we do. \n\nThis is Freelancer shuttle [pick(GLOB.alphabet_lowercase)][pick(GLOB.alphabet_lowercase)]-[rand(1, 99)] responding to your distress. Prepare your valuables for boarding."
 		objectives = "Разграбьте корабль [MAIN_SHIP_NAME] и убейте всех, кто встанет на вашем пути. Делайте то, что говорит ваш военачальник. Обеспечьте своё выживание любой ценой."
 	else
+		arrival_message = "[MAIN_SHIP_NAME], это шаттл \"Фрилансер\" [pick(GLOB.alphabet_lowercase)][pick(GLOB.alphabet_lowercase)]-[rand(1, 99)], реагируем на ваш сигнал бедствия. Приготовьтесь к высадке на ваш борт."
 		objectives = "Помогите экипажу корабля [MAIN_SHIP_NAME] в обмен на плату, тщательно подбирая размер вознаграждения. Делайте то, что говорит ваш военачальник. Обеспечьте своё выживание любой ценой."
 
 /datum/emergency_call/mercs/friendly //if admins want to specifically call in friendly ones
@@ -85,10 +86,11 @@
 /datum/emergency_call/heavy_mercs/New()
 	. = ..()
 	hostility = pick(75;FALSE,25;TRUE)
-	arrival_message = "[MAIN_SHIP_NAME], это элитный шаттл \"Фрилансер\" [pick(GLOB.alphabet_lowercase)][pick(GLOB.alphabet_lowercase)]-[rand(1, 99)], реагируем на ваш сигнал бедствия. Приготовьтесь к высадке на ваш борт."
 	if(hostility)
+		arrival_message = "[MAIN_SHIP_NAME], this is Elite Freelancer shuttle [pick(GLOB.alphabet_lowercase)][pick(GLOB.alphabet_lowercase)]-[rand(1, 99)] responding. We've heard your distress and are currently preparing to ransack you for your very lives. Prepare for boarding."
 		objectives = "Разграбьте корабль [MAIN_SHIP_NAME] и убейте всех, кто встанет на вашем пути. Делайте то, что говорит ваш военачальник. Обеспечьте своё выживание любой ценой."
 	else
+		arrival_message = "[MAIN_SHIP_NAME], это элитный шаттл \"Фрилансер\" [pick(GLOB.alphabet_lowercase)][pick(GLOB.alphabet_lowercase)]-[rand(1, 99)], реагируем на ваш сигнал бедствия. Приготовьтесь к высадке на ваш борт."
 		objectives = "Помогите экипажу корабля [MAIN_SHIP_NAME] в обмен на плату, тщательно подбирая размер вознаграждения. Делайте то, что говорит ваш военачальник. Обеспечьте своё выживание любой ценой."
 
 /datum/emergency_call/heavy_mercs/hostile
@@ -97,7 +99,7 @@
 /datum/emergency_call/heavy_mercs/hostile/New()
 	. = ..()
 	hostility = TRUE
-	arrival_message = "[MAIN_SHIP_NAME], это элитный шаттл \"Фрилансер\" [pick(GLOB.alphabet_lowercase)][pick(GLOB.alphabet_lowercase)]-[rand(1, 99)], реагируем на ваш сигнал бедствия. Приготовьтесь к высадке на ваш борт."
+	arrival_message = "[MAIN_SHIP_NAME], this is Elite Freelancer shuttle [pick(GLOB.alphabet_lowercase)][pick(GLOB.alphabet_lowercase)]-[rand(1, 99)] responding. We've heard your distress and are currently preparing to ransack you for your very lives. Prepare for boarding."
 	objectives = "Разграбьте корабль [MAIN_SHIP_NAME] и убейте всех, кто встанет на вашем пути. Делайте то, что говорит ваш военачальник. Обеспечьте своё выживание любой ценой."
 
 /datum/emergency_call/heavy_mercs/friendly

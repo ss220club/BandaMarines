@@ -993,3 +993,39 @@ accusative = "контакты"
 instrumental = "контактами"
 prepositional = "контактах"
 gender = "plural"
+
+["soothing herbs"]
+nominative = "успокаивающие травы"
+genitive = "успокаивающих трав"
+dative = "успокаивающим травам"
+accusative = "успокаивающие травы"
+instrumental = "успокаивающими травами"
+prepositional = "успокаивающих травах"
+gender = "plural"
+
+["mending herbs"]
+nominative = "заживляющие травы"
+genitive = "заживляющих трав"
+dative = "заживляющим травам"
+accusative = "заживляющие травы"
+instrumental = "заживляющими травами"
+prepositional = "заживляющих травах"
+gender = "plural"
+
+["numbing herb"]
+nominative = "обезболивающая трава"
+genitive = "обезболивающей травы"
+dative = "обезболивающей траве"
+accusative = "обезболивающую траву"
+instrumental = "обезболивающей травой"
+prepositional = "обезболивающей траве"
+gender = "female"
+
+["healing herb"]
+nominative = "целебная трава"
+genitive = "целебной травы"
+dative = "целебной траве"
+accusative = "целебную траву"
+instrumental = "целебной травой"
+prepositional = "целебной траве"
+gender = "female"

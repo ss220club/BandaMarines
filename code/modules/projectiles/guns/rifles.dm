@@ -975,7 +975,7 @@
 
 /obj/item/weapon/gun/rifle/m16
 	name = "\improper M16 rifle"
-	desc = "An old, reliable design first adopted by the U.S. military in the 1960s. Something like this belongs in a museum of war history. It is chambered in 5.56x45mm."
+	desc = "Проверенная временем конструкция, впервые принятая на вооружение американскими военными в 1960-х годах. Подобное оружие должно находиться в музее военной истории. Используется патрон калибра 5,56x45 мм." //SS220 EDIT
 	icon = 'icons/obj/items/weapons/guns/guns_by_faction/colony/assault_rifles.dmi'
 	icon_state = "m16"
 	item_state = "m16"
