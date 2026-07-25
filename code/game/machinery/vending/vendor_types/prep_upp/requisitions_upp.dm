@@ -25,7 +25,6 @@
 
 		list("RESTRICTED FIREARMS", -1, null, null),
 		list("Type-19 Submachinegun", floor(scale * 1), /obj/item/storage/box/guncase/type19, VENDOR_ITEM_REGULAR),
-		list("AK-4047 Pulse Rifle", floor(scale * 5), /obj/item/storage/box/guncase/ak4047, VENDOR_ITEM_REGULAR),
 		list("M240 Incinerator Unit", floor(scale * 2), /obj/item/storage/box/guncase/flamer, VENDOR_ITEM_REGULAR),
 
 		list("EXPLOSIVES", -1, null, null),

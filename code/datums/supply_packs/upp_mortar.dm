@@ -90,12 +90,16 @@
 	name = "UPP M112 HIMAT missiles (x10 Incend)"
 	cost = 25
 	contains = list(
-		/obj/item/mortar_shell/incendiary,
-		/obj/item/mortar_shell/incendiary,
-		/obj/item/mortar_shell/incendiary,
-		/obj/item/mortar_shell/incendiary,
-		/obj/item/mortar_shell/incendiary,
-		/obj/item/mortar_shell/incendiary,
+		/obj/item/mortar_shell/incendiary/himat,
+		/obj/item/mortar_shell/incendiary/himat,
+		/obj/item/mortar_shell/incendiary/himat,
+		/obj/item/mortar_shell/incendiary/himat,
+		/obj/item/mortar_shell/incendiary/himat,
+		/obj/item/mortar_shell/incendiary/himat,
+		/obj/item/mortar_shell/incendiary/himat,
+		/obj/item/mortar_shell/incendiary/himat,
+		/obj/item/mortar_shell/incendiary/himat,
+		/obj/item/mortar_shell/incendiary/himat,
 	)
 	containertype = /obj/structure/closet/crate/explosives
 	containername = "\improper M112 HIMAT incendiary missiles crate"

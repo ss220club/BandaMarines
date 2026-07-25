@@ -1701,10 +1701,9 @@
 /area/rostock/engineering/main_area)
 "awv" = (
 /obj/structure/surface/rack,
-/obj/item/mortar_shell/flare,
-/obj/item/mortar_shell/flare,
-/obj/item/mortar_shell/flare,
-/obj/item/mortar_shell/flare,
+/obj/item/mortar_shell/himat/training,
+/obj/item/mortar_shell/himat/training,
+/obj/item/mortar_shell/himat/training,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
 "awX" = (
@@ -16226,10 +16225,12 @@
 /area/rostock/lower_deck/briefing)
 "maj" = (
 /obj/structure/surface/rack,
-/obj/item/mortar_shell/frag,
-/obj/item/mortar_shell/frag,
-/obj/item/mortar_shell/frag,
-/obj/item/mortar_shell/frag,
+/obj/item/mortar_shell/himat/antipersonnel,
+/obj/item/mortar_shell/himat/antipersonnel,
+/obj/item/mortar_shell/himat/antipersonnel,
+/obj/item/mortar_shell/himat/antipersonnel,
+/obj/item/mortar_shell/himat/antipersonnel,
+/obj/item/mortar_shell/himat/antipersonnel,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
 "mat" = (
@@ -17282,10 +17283,15 @@
 /area/rostock/command/cic)
 "mYe" = (
 /obj/structure/surface/rack,
-/obj/item/mortar_shell/he,
-/obj/item/mortar_shell/he,
-/obj/item/mortar_shell/he,
-/obj/item/mortar_shell/he,
+/obj/item/mortar_shell/himat/explosive,
+/obj/item/mortar_shell/himat/explosive,
+/obj/item/mortar_shell/himat/explosive,
+/obj/item/mortar_shell/himat/explosive,
+/obj/item/mortar_shell/himat/explosive,
+/obj/item/mortar_shell/himat/explosive,
+/obj/item/mortar_shell/himat/explosive,
+/obj/item/mortar_shell/himat/explosive,
+/obj/item/mortar_shell/himat/explosive,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
 "mYl" = (
@@ -17478,10 +17484,14 @@
 /area/rostock/lower_deck/p_a_hallway)
 "nld" = (
 /obj/structure/surface/rack,
-/obj/item/mortar_shell/incendiary,
-/obj/item/mortar_shell/incendiary,
-/obj/item/mortar_shell/incendiary,
-/obj/item/mortar_shell/incendiary,
+/obj/item/mortar_shell/incendiary/himat,
+/obj/item/mortar_shell/incendiary/himat,
+/obj/item/mortar_shell/incendiary/himat,
+/obj/item/mortar_shell/incendiary/himat,
+/obj/item/mortar_shell/incendiary/himat,
+/obj/item/mortar_shell/incendiary/himat,
+/obj/item/mortar_shell/incendiary/himat,
+/obj/item/mortar_shell/incendiary/himat,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
 "nlg" = (
@@ -24039,8 +24049,8 @@
 /area/rostock/upper_deck/hallway)
 "sJS" = (
 /obj/structure/surface/rack,
-/obj/item/mortar_kit,
-/obj/item/mortar_kit,
+/obj/item/mortar_kit/himat,
+/obj/item/mortar_kit/himat,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
 "sKB" = (
