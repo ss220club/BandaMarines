@@ -674,7 +674,7 @@
 /turf/open/floor/strata/floor3/east,
 /area/rostock/upper_deck/hallway)
 "aci" = (
-/obj/structure/machinery/cm_vending/sorted/marine_food{
+/obj/structure/machinery/cm_vending/sorted/marine_food/upp{
 	name = "\improper UnionBest Food Vendor"
 	},
 /turf/open/floor/corsat/spiralplate,
@@ -6221,7 +6221,7 @@
 	network = list("Rostock");
 	dir = 4
 	},
-/obj/structure/machinery/cm_vending/sorted/marine_food{
+/obj/structure/machinery/cm_vending/sorted/marine_food/upp{
 	name = "\improper UnionBest Food Vendor"
 	},
 /turf/open/floor/strata/red3/east,
@@ -17471,8 +17471,8 @@
 "nku" = (
 /obj/structure/surface/table/almayer,
 /obj/item/storage/toolbox/mechanical,
-/obj/item/device/multitool,
-/obj/item/device/multitool,
+/obj/item/device/multitool/upp,
+/obj/item/device/multitool/upp,
 /turf/open/floor/prison/floor_plate,
 /area/rostock/engineering/reactor)
 "nkU" = (
@@ -19693,7 +19693,7 @@
 	dir = 4;
 	invisibility = 101
 	},
-/obj/structure/machinery/cm_vending/sorted/marine_food{
+/obj/structure/machinery/cm_vending/sorted/marine_food/upp{
 	name = "\improper UnionBest Food Vendor"
 	},
 /turf/open/floor/corsat/spiralplate,
@@ -26891,7 +26891,7 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/rostock/upperdeck_maint/p_a)
 "vdA" = (
-/obj/structure/machinery/cm_vending/sorted/marine_food{
+/obj/structure/machinery/cm_vending/sorted/marine_food/upp{
 	name = "\improper UnionBest Food Vendor"
 	},
 /turf/open/floor/strata/red3/north,

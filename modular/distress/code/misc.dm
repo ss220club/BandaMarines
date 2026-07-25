@@ -207,6 +207,15 @@
 	item_state = "upp_motion_detector"
 	iff_signal = FACTION_UPP
 	
+/obj/item/device/multitool/upp
+	icon = 'modular/distress/icons/misc.dmi'
+	icon_state = "multitool_upp"
+	item_state = "multitool_upp"
+	item_icons = list(
+		WEAR_L_HAND = 'modular/distress/icons/lefthand.dmi',
+		WEAR_R_HAND = 'modular/distress/icons/righthand.dmi'
+	)
+	
 /obj/item/phone/upp
 	icon = 'modular/distress/icons/misc.dmi'
 	item_icons = list(
@@ -487,14 +496,23 @@
 		action_icon_state = "designator_one_weapon"
 	button.overlays += image('icons/mob/hud/actions.dmi', button, action_icon_state)
 
-/obj/item/prop/helmetgarb/frogmen_veil
+/obj/item/clothing/accessory/helmet/cover/frogmen_veil
 	name = "Frogmen tactical veil"
 	icon = 'modular/distress/icons/misc.dmi'
 	desc = "A net veil, most of the times used by special forces to break up the silhouette of the soldier at long ranges. And also it's very creepy to see one when fighting on the other side."
 	icon_state = "veil_frogmen"
-	flags_obj = OBJ_NO_HELMET_BAND
+	item_state_slots = "veil_frogmen"
+	flags_obj = OBJ_IS_HELMET_GARB
+	worn_accessory_slot = ACCESSORY_SLOT_HELM_C
+	worn_accessory_limit = 2
+	accessory_icons = list(
+		WEAR_HEAD = 'modular/distress/icons/helmet_garb.dmi',
+	)
+	item_icons = list(
+		WEAR_AS_GARB = 'modular/distress/icons/helmet_garb.dmi',
+	)
 
-/obj/item/clothing/head/helmet/upp/frogmen
+/obj/item/clothing/head/helmet/marine/veteran/UPP/frogmen
 	name = "\improper 6B84 light helmet"
 	desc = " UPPA reconnaissance new helmet for multiple environments, and used mostly for NVG/IR system placement. Made using fabric-polymer technology, making it much lighter in comparison to the standard issue 6B82, sacrificing overall protection. A tactical datalink and A/V feeds are provided, alongside facilities for an infrared imager complex. Surprisingly comfortable. The fabric utilized for this model is rubbery and colored after the standard paint coating of UPP armor."
 	icon = 'modular/distress/icons/misc.dmi'
@@ -505,6 +523,114 @@
 	armor_bio = CLOTHING_ARMOR_MEDIUMLOW
 	armor_rad = CLOTHING_ARMOR_LOW
 	armor_internaldamage = CLOTHING_ARMOR_MEDIUMHIGH
+	flags_marine_helmet = HELMET_GARB_OVERLAY
+	storage_slots = 2
+	flags_inv_hide = HIDEEARS|HIDEEYES|HIDETOPHAIR
 	item_icons = list(
 		WEAR_HEAD = 'modular/distress/icons/helmet.dmi'
 	)
+
+/obj/structure/machinery/cm_vending/sorted/marine_food/upp
+	name = "\improper food dispenser"
+	desc = "An food dispenser, capable of distributing food containing all the essential vitamins and nutrients anyone could ever need."
+
+/obj/item/reagent_container/food/drinks/tea/upp
+	name = "\improper insulated container"
+	desc = "A small, reusable, insulated container for holding liquids with a sip lid."
+	icon_state = "tea_upp"
+	item_state = "coffee"
+	center_of_mass = "x=16;y=14"
+
+/obj/item/reagent_container/food/drinks/tea/upp/Initialize()
+	. = ..()
+	reagents.add_reagent("tea", 30)
+
+/obj/item/reagent_container/food/drinks/water
+	name = "\improper insulated container"
+	desc = "A small, reusable, insulated container for holding liquids with a sip lid."
+	icon_state = "tea_upp"
+	item_state = "coffee"
+	center_of_mass = "x=16;y=14"
+
+/obj/item/reagent_container/food/drinks/water/Initialize()
+	. = ..()
+	reagents.add_reagent("water", 30)
+
+/obj/item/reagent_container/food/snacks/mre_pack/upp/meal6
+	name = "\improper UPP Prepared Meal (Luncheon)"
+	desc = "A prepackaged meal for UPP troops with two scoops of slightly dried out rice, a square of some kind of luncheon meat, two carrot sticks, and a 'fruit' bar."
+	icon_state = "upp_luncheon"
+
+/obj/item/reagent_container/food/snacks/mre_pack/upp/meal6/Initialize()
+	. = ..()
+	reagents.add_reagent("nutriment", 10)
+	bitesize = 3
+
+/obj/item/reagent_container/food/snacks/mre_pack/upp/meal7
+	name = "\improper UPP Prepared Meal (Shrimp)"
+	desc = "A prepackaged meal for UPP troops that sports a greasy rice patty with bits of fake imitation shrimp and egg flavoring. Smells quite off. On the side there's a slightly soggy spring roll."
+	icon_state = "upp_shrimp"
+
+/obj/item/reagent_container/food/snacks/mre_pack/upp/meal7/Initialize()
+	. = ..()
+	reagents.add_reagent("nutriment", 10)
+	bitesize = 3
+
+/obj/item/reagent_container/food/snacks/mre_pack/upp/meal8
+	name = "\improper UPP Prepared Meal (Cuban)"
+	desc = "A prepackaged meal for UPP troops containing Cuban rice with bland-ish eggs pieces, tomato sauce, potato salad, and a dry biscuit."
+	icon_state = "upp_cuban"
+
+/obj/item/reagent_container/food/snacks/mre_pack/upp/meal8/Initialize()
+	. = ..()
+	reagents.add_reagent("nutriment", 10)
+	bitesize = 3
+
+/obj/item/reagent_container/food/snacks/mre_pack/upp/meal9
+	name = "\improper UPP Prepared Meal (Meatballs)"
+	desc = "A prepackaged meal for UPP troops containing marinated Königsberger Klopse meatballs, a creamy sauce, some spinach, and a scoop of rice. One of the better options out of the pre-packaged meals and is rarely ever in stock."
+	icon_state = "upp_meatballs"
+
+/obj/item/reagent_container/food/snacks/mre_pack/upp/meal9/Initialize()
+	. = ..()
+	reagents.add_reagent("nutriment", 10)
+	bitesize = 3
+
+/obj/structure/machinery/cm_vending/sorted/marine_food/upp/populate_product_list(scale)
+	listed_products = list(
+		list("PREPARED MEALS", -1, null, null),
+		list("UPP Prepared Meal (Luncheon)", 15, /obj/item/reagent_container/food/snacks/mre_pack/upp/meal6, VENDOR_ITEM_REGULAR),
+		list("UPP Prepared Meal (Shrimp)", 15, /obj/item/reagent_container/food/snacks/mre_pack/upp/meal7, VENDOR_ITEM_REGULAR),
+		list("UPP Prepared Meal (Cuban Rice)", 15, /obj/item/reagent_container/food/snacks/mre_pack/upp/meal8, VENDOR_ITEM_REGULAR),
+		list("UPP Prepared Meal (Meatballs)", 15, /obj/item/reagent_container/food/snacks/mre_pack/upp/meal9, VENDOR_ITEM_REGULAR),
+		list("UPP Survival Ration", 50, /obj/item/storage/box/mre/upp, VENDOR_ITEM_REGULAR),
+		list("DRINKS", -1, null, null),
+		list("Water", 10, /obj/item/reagent_container/food/drinks/water, VENDOR_ITEM_REGULAR),
+		list("Tea", 10, /obj/item/reagent_container/food/drinks/tea/upp, VENDOR_ITEM_REGULAR),
+	)
+
+/obj/structure/machinery/cm_vending/sorted/tech/electronics_storage/antag
+	req_one_access = list(ACCESS_ILLEGAL_PIRATE, ACCESS_UPP_GENERAL, ACCESS_CLF_GENERAL)
+	req_access = null
+	listed_products = list(
+		list("TOOLS", -1, null, null),
+		list("Cable Coil", floor(scale * 3), /obj/item/stack/cable_coil/random, VENDOR_ITEM_REGULAR),
+		list("Multitool", floor(scale * 4), /obj/item/device/multitool/upp, VENDOR_ITEM_REGULAR),
+
+		list("CIRCUITBOARDS", -1, null, null),
+		list("Airlock Circuit Board", floor(scale * 4), /obj/item/circuitboard/airlock, VENDOR_ITEM_REGULAR),
+		list("APC Circuit Board", floor(scale * 4), /obj/item/circuitboard/apc, VENDOR_ITEM_REGULAR),
+
+		list("BATTERIES", -1, null, null),
+		list("High-Capacity Power Cell", floor(scale * 3), /obj/item/cell/high, VENDOR_ITEM_REGULAR),
+		list("Low-Capacity Power Cell", floor(scale * 7), /obj/item/cell, VENDOR_ITEM_REGULAR),
+	)
+
+/obj/item/storage/belt/utility/full/upp/fill_preset_inventory()
+	new /obj/item/tool/screwdriver(src)
+	new /obj/item/tool/wrench(src)
+	new /obj/item/tool/weldingtool(src)
+	new /obj/item/tool/crowbar(src)
+	new /obj/item/tool/wirecutters(src)
+	new /obj/item/stack/cable_coil(src,30,pick("red","yellow","orange"))
+	new /obj/item/device/multitool/upp(src)

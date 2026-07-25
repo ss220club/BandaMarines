@@ -12,9 +12,10 @@
 /obj/structure/machinery/cm_vending/sorted/cargo_guns/upp_cargo_guns/populate_product_list(scale)
 	listed_products = list(
 		list("PRIMARY FIREARMS", -1, null, null),
-		list("Type 71 Pulse Rifle", floor(scale * 25), /obj/item/weapon/gun/rifle/type71, VENDOR_ITEM_REGULAR),
-		list("Type 71 Pulse Rifle Carbine", floor(scale * 15), /obj/item/weapon/gun/rifle/type71/carbine, VENDOR_ITEM_REGULAR),
-		list("Type 64 Submachinegun", floor(scale * 10), /obj/item/weapon/gun/smg/bizon/upp, VENDOR_ITEM_REGULAR),
+		list("AK-4047 pulse assault rifle", floor(scale * 20), /obj/item/weapon/gun/rifle/ak4047, VENDOR_ITEM_REGULAR),
+		list("Type 71 Pulse Rifle", floor(scale * 2), /obj/item/weapon/gun/rifle/type71, VENDOR_ITEM_REGULAR),
+		list("Type 71 Pulse Rifle Carbine", floor(scale * 2), /obj/item/weapon/gun/rifle/type71/carbine, VENDOR_ITEM_REGULAR),
+		list("Type 64 Submachinegun", floor(scale * 5), /obj/item/weapon/gun/smg/bizon/upp, VENDOR_ITEM_REGULAR),
 		list("Type 23 Riot Shotgun", floor(scale * 2), /obj/item/weapon/gun/shotgun/type23, VENDOR_ITEM_REGULAR),
 
 		list("SIDEARMS", -1, null, null),
@@ -28,8 +29,8 @@
 		list("M240 Incinerator Unit", floor(scale * 2), /obj/item/storage/box/guncase/flamer, VENDOR_ITEM_REGULAR),
 
 		list("EXPLOSIVES", -1, null, null),
-		list("Type 6 Shrapnel Grenade", floor(scale * 15), /obj/item/explosive/grenade/high_explosive/upp, VENDOR_ITEM_REGULAR),
-		list("Type 8 WP Grenade", floor(scale * 2), /obj/item/explosive/grenade/phosphorus/upp, VENDOR_ITEM_REGULAR),
+		list("Type 6 Shrapnel Grenade", floor(scale * 25), /obj/item/explosive/grenade/high_explosive/upp, VENDOR_ITEM_REGULAR),
+		list("Type 8 WP Grenade", floor(scale * 15), /obj/item/explosive/grenade/phosphorus/upp, VENDOR_ITEM_REGULAR),
 		list("Smoke Grenade", floor(scale * 6), /obj/item/explosive/grenade/smokebomb, VENDOR_ITEM_REGULAR),
 		list("Plastic Explosives", floor(scale * 6), /obj/item/explosive/plastic, VENDOR_ITEM_REGULAR),
 		list("Breaching Charge", floor(scale * 12), /obj/item/explosive/plastic/breaching_charge, VENDOR_ITEM_REGULAR),
@@ -109,7 +110,7 @@
 
 		list("EXPLOSIVES BOXES", -1, null, null),
 		list("M15 Fragmentation Grenade Packet", 0, /obj/item/storage/box/packet/m15, VENDOR_ITEM_REGULAR),
-		list("Type 8 WP grenade packet", 0, /obj/item/storage/box/packet/phosphorus/upp, VENDOR_ITEM_REGULAR),
+		list("Type 8 WP grenade packet", 1, /obj/item/storage/box/packet/phosphorus/upp, VENDOR_ITEM_REGULAR),
 		list("HSDP grenade packet", 0, /obj/item/storage/box/packet/smoke, VENDOR_ITEM_REGULAR),
 		list("M40 HEDP Grenade Packet", 0, /obj/item/storage/box/packet/high_explosive, VENDOR_ITEM_REGULAR),
 		list("M40 HEDP Grenade Box", 0, /obj/item/storage/box/nade_box, VENDOR_ITEM_REGULAR),
@@ -152,24 +153,24 @@
 /obj/structure/machinery/cm_vending/sorted/cargo_ammo/upp_cargo_ammo/populate_product_list(scale)
 	listed_products = list(
 		list("REGULAR AMMUNITION", -1, null, null),
-		list("Type 71 Magazine (5.45x39mm)", floor(scale * 40), /obj/item/ammo_magazine/rifle/type71, VENDOR_ITEM_REGULAR),
-		list("Type 64 Helical Magazine (7.62x19mm)", floor(scale * 50), /obj/item/ammo_magazine/smg/bizon, VENDOR_ITEM_REGULAR),
-		list("Box of Heavy Buckshot Shells (8g)", floor(scale * 26), /obj/item/ammo_magazine/shotgun/heavy/buckshot, VENDOR_ITEM_REGULAR),
-		list("Box of Heavy Slugs (8g)", floor(scale * 56), /obj/item/ammo_magazine/shotgun/heavy/slug, VENDOR_ITEM_REGULAR),
-		list("Box of Heavy Flechette Shells (8g)", floor(scale * 26), /obj/item/ammo_magazine/shotgun/heavy/flechette, VENDOR_ITEM_REGULAR),
+		list("AK-4047 magazine (10x24mm)", floor(scale * 25), /obj/item/ammo_magazine/rifle/ak4047, VENDOR_ITEM_REGULAR),
+		list("Type 71 Magazine (5.45x39mm)", floor(scale * 15), /obj/item/ammo_magazine/rifle/type71, VENDOR_ITEM_REGULAR),
+		list("Type 64 Helical Magazine (7.62x19mm)", floor(scale * 30), /obj/item/ammo_magazine/smg/bizon, VENDOR_ITEM_REGULAR),
+		list("Box of Heavy Buckshot Shells (8g)", floor(scale * 16), /obj/item/ammo_magazine/shotgun/heavy/buckshot, VENDOR_ITEM_REGULAR),
+		list("Box of Heavy Slugs (8g)", floor(scale * 16), /obj/item/ammo_magazine/shotgun/heavy/slug, VENDOR_ITEM_REGULAR),
+		list("Box of Heavy Flechette Shells (8g)", floor(scale * 16), /obj/item/ammo_magazine/shotgun/heavy/flechette, VENDOR_ITEM_REGULAR),
 		list("Type 73 Magazine (7.62x25mm Tokarev)", floor(scale * 20), /obj/item/ammo_magazine/pistol/t73, VENDOR_ITEM_REGULAR),
 		list("ZHNK-72 Speed Loader (7.62x38mmR)", floor(scale * 20), /obj/item/ammo_magazine/revolver/upp, VENDOR_ITEM_REGULAR),
 		list("NP92 Magazine (9x18mm Makarov)", floor(scale * 20), /obj/item/ammo_magazine/pistol/np92, VENDOR_ITEM_REGULAR),
 
 		list("ARMOR-PIERCING AMMUNITION", -1, null, null),
-		list("Type 71 AP Magazine (5.45x39mm)", floor(scale * 10), /obj/item/ammo_magazine/rifle/type71/ap, VENDOR_ITEM_REGULAR),
-		list("Type 64 Helical AP Magazine (7.62x19mm)", floor(scale * 10), /obj/item/ammo_magazine/smg/bizon/ap, VENDOR_ITEM_REGULAR),
+		list("AK-4047 AP magazine (10x24mm)", floor(scale * 10), /obj/item/ammo_magazine/rifle/ak4047/ap, VENDOR_ITEM_REGULAR),
+		list("Type 71 AP Magazine (5.45x39mm)", floor(scale * 6), /obj/item/ammo_magazine/rifle/type71/ap, VENDOR_ITEM_REGULAR),
+		list("Type 64 Helical AP Magazine (7.62x19mm)", floor(scale * 6), /obj/item/ammo_magazine/smg/bizon/ap, VENDOR_ITEM_REGULAR),
 
 		list("RESTRICTED FIREARM AMMUNITION", -1, null, null),
 		list("Type-19 stick magazine (7.62x25mm)", floor(scale * 0), /obj/item/ammo_magazine/smg/pps43, VENDOR_ITEM_REGULAR),
 		list("Type-19 drum magazine (7.62x25mm)", floor(scale * 2), /obj/item/ammo_magazine/smg/pps43/extended, VENDOR_ITEM_REGULAR),
-		list("AK-4047 magazine (10x24mm)", floor(scale * 24), /obj/item/ammo_magazine/rifle/ak4047, VENDOR_ITEM_REGULAR),
-		list("AK-4047 AP magazine (10x24mm)", floor(scale * 3), /obj/item/ammo_magazine/rifle/ak4047/ap, VENDOR_ITEM_REGULAR),
 		list("M240 Incinerator Tank", floor(scale * 3), /obj/item/ammo_magazine/flamer_tank, VENDOR_ITEM_REGULAR),
 
 		list("MAGAZINE BOXES", -1, null, null),
@@ -227,7 +228,6 @@
 
 		list("UNDERBARREL", -1, null, null),
 		list("Bipod", 6.5, /obj/item/attachable/bipod, VENDOR_ITEM_REGULAR),
-		list("Burst Fire Assembly", 4.5, /obj/item/attachable/burstfire_assembly, VENDOR_ITEM_REGULAR),
 		list("Gyroscopic Stabilizer", 4.5, /obj/item/attachable/gyro, VENDOR_ITEM_REGULAR),
 		list("Laser Sight", 9.5, /obj/item/attachable/lasersight, VENDOR_ITEM_REGULAR),
 		list("Mini Flamethrower", 4.5, /obj/item/attachable/attached_gun/flamer, VENDOR_ITEM_REGULAR),
@@ -281,7 +281,7 @@
 		list("ARMOR", -1, null, null),
 		list("UM5 Medium Personal Armor", 15, /obj/item/clothing/suit/storage/marine/faction/UPP, VENDOR_ITEM_REGULAR),
 		list("UL6 Light Personal Armor", 15, /obj/item/clothing/suit/storage/marine/faction/UPP/support, VENDOR_ITEM_REGULAR),
-		list("UH7 heavy plated armor", 15, /obj/item/clothing/suit/storage/marine/faction/UPP/heavy, VENDOR_ITEM_REGULAR),
+		list("UH7 heavy plated armor", 1, /obj/item/clothing/suit/storage/marine/faction/UPP/heavy, VENDOR_ITEM_REGULAR),
 		
 
 		list("GLOVES", -1, null, null),
