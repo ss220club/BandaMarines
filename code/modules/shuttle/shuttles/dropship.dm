@@ -267,12 +267,6 @@
 	auto_open = TRUE
 	faction = null
 
-/obj/docking_port/stationary/marine_dropship/predator
-	name = "Yautja Hangar"
-	id = DROPSHIP_LZ1
-	auto_open = TRUE
-	faction = FACTION_YAUTJA
-
 /obj/docking_port/stationary/marine_dropship/lz2/Initialize(mapload)
 	. = ..()
 	if(GLOB.master_mode == /datum/game_mode/colonialmarines/upp::name)
