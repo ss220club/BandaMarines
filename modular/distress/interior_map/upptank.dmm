@@ -1,6 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/open/space/basic,
+/obj/structure/blocker/invisible_wall,
+/turf/open/shuttle/vehicle/floor_3_4,
 /area/interior/vehicle/upptank)
 "b" = (
 /turf/open/void/vehicle,
@@ -25,8 +26,7 @@
 /turf/open/void/vehicle,
 /area/space)
 "z" = (
-/obj/effect/landmark/interior/spawn/weapons_loader{
-	icon = 'icons/obj/vehicles/interiors/upptank.dmi';
+/obj/effect/landmark/interior/spawn/weapons_loader/upp{
 	pixel_x = -6;
 	pixel_y = -9
 	},

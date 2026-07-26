@@ -38,3 +38,6 @@
 	icon_state = "upptank_chassis"
 	layer = ABOVE_TURF_LAYER
 	mouse_opacity = FALSE
+	
+/obj/effect/landmark/interior/spawn/weapons_loader/upp
+	icon = 'modular/distress/icons/intupptank.dmi'
