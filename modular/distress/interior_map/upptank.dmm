@@ -54,8 +54,8 @@
 /turf/open/shuttle/vehicle/floor_1_13,
 /area/interior/vehicle/upptank)
 "M" = (
- /area/interior/vehicle/upptank,
-/turf/open/void/vehicle)
+/turf/open/shuttle/vehicle/floor_3_4,
+/area/interior/vehicle/upptank)
 "Q" = (
 /obj/structure/vehicle_locker/tank/upp1{
 	pixel_x = -25;
