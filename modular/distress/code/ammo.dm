@@ -174,6 +174,7 @@
 	ammo = new /obj/item/ammo_magazine/sentry/dropped
 	icon = 'icons/obj/structures/machinery/defenses/upp_defenses.dmi'
 	faction_group = FACTION_UPP
+	sentry_type = "upp_sentry"
 	omni_directional = TRUE
 	additional_rounds_stored = TRUE
 	immobile = TRUE
