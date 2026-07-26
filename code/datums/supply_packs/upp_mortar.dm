@@ -1,6 +1,6 @@
 /datum/supply_packs/upp/himat
 	name = "UPP M112 HIMAT missile launcher."
-	cost = 30
+	cost = 40
 	contains = list(
 		/obj/item/mortar_kit/himat,
 	)
@@ -64,26 +64,6 @@
 	)
 	containertype = /obj/structure/closet/crate/explosives
 	containername = "\improper M112 HIMAT AP missiles crate"
-	group = "UPP Mortar"
-
-
-/datum/supply_packs/upp/ammo_mortar_shrapnel
-	name = "UPP M112 HIMAT missiles (x10 SHR)"
-	cost = 25
-	contains = list(
-		/datum/ammo/bullet/shrapnel/himat,
-		/datum/ammo/bullet/shrapnel/himat,
-		/datum/ammo/bullet/shrapnel/himat,
-		/datum/ammo/bullet/shrapnel/himat,
-		/datum/ammo/bullet/shrapnel/himat,
-		/datum/ammo/bullet/shrapnel/himat,
-		/datum/ammo/bullet/shrapnel/himat,
-		/datum/ammo/bullet/shrapnel/himat,
-		/datum/ammo/bullet/shrapnel/himat,
-		/datum/ammo/bullet/shrapnel/himat,
-	)
-	containertype = /obj/structure/closet/crate/explosives
-	containername = "\improper M112 HIMAT shrapnel missiles crate"
 	group = "UPP Mortar"
 
 /datum/supply_packs/upp/ammo_mortar_incend

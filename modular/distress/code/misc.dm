@@ -205,10 +205,6 @@
 	storage_slots = 1
 	uniform_restricted = list(/obj/item/clothing/under/marine/veteran/UPP, /obj/item/clothing/under/marine/veteran/UPP/medic, /obj/item/clothing/under/marine/veteran/UPP/engi, /obj/item/clothing/under/marine/veteran/UPP/SOF_uniform)
 
-/obj/item/clothing/suit/storage/marine/faction/UPP/Initialize()
-	. = ..()
-	AddElement(/datum/element/corp_label/norcomm)
-
 /obj/item/clothing/suit/storage/marine/faction/UPP/support
 	name = "\improper UL6 personal armor"
 	desc = "Standard body armor of the UPP military, the UL6 (Union Light MK6) is a light body armor, slightly weaker than the M3 pattern body armor in service with the USCM, specialized towards ballistics protection. This set of personal armor lacks the iconic neck piece and some of the armor in favor of user mobility."
