@@ -302,6 +302,7 @@
 	icon = 'modular/distress/icons/mortar.dmi'
 	desc = "A man-portable two-stage missile launcher. While capable of being fired manually, what truly sets this apart from standard boom-tubes is it's onboard fire-control systems. While deployed on a baseplate and supporting bipod stand it will attempt to link with any local USCM sensor matrix, allowing it to automatically track, identify and request to fire upon hostile targets in range."
 	icon_state = "himat"
+	uses_camo = FALSE
 	max_range = 999
 	var/kit_type = /obj/item/mortar_kit/himat
 	travel_time = 2.5 SECONDS
@@ -443,6 +444,7 @@
 /obj/item/device/binoculars/upp
 	icon = 'modular/distress/icons/binoculars.dmi'
 	icon_state = "binoculars_upp"
+	uses_camo = FALSE
 	item_icons = list(
 		WEAR_L_HAND = 'modular/distress/icons/lefthand.dmi',
 		WEAR_R_HAND = 'modular/distress/icons/righthand.dmi',
@@ -452,6 +454,7 @@
 	ignore_ceiling_check = TRUE
 	icon = 'modular/distress/icons/binoculars.dmi'
 	icon_state = "binoculars_upp_alt"
+	uses_camo = FALSE
 	cas_laser_overlay = "binoculars_laser_civ"
 	range_laser_overlay = "binoculars_range_civ"
 	item_icons = list(

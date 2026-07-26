@@ -302,7 +302,7 @@ const LobbyButtons = (props: {
     readied,
     predator_enabled,
     fax_responder_enabled,
-	uscm_enabled,
+    uscm_enabled,
     upp_enabled,
     tutorials_ready,
     xenomorph_enabled,

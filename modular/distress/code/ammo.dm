@@ -226,6 +226,7 @@
     faction_exclusive = FACTION_UPP
 
 /obj/structure/dropship_equipment/sentry_holder/upp/Initialize()
+	. = ..()
 	if(!deployed_turret)
 		deployed_turret = new /obj/structure/machinery/defenses/sentry/premade/dropship/upp(src)
 		deployed_turret.deployment_system = src
