@@ -512,8 +512,11 @@
 			if(!check_rights(R_BAN))  return
 			var/reason = input(usr,"Reason?","Please State Reason","") as text|null
 			if(reason)
+				var/mins = tgui_input_number(usr, "How long (in minutes)? \n 0 = Permanent \n 1440 = 1 day \n 4320 = 3 days \n 10080 = 7 days \n 43800 = 1 Month", "Jobban duration", 0, 262800, 0)
+				if(isnull(mins))
+					return
 				var/datum/entity/player/P = get_player_from_key(M.ckey)
-				P.add_job_ban(reason, notbannedlist)
+				P.add_job_ban(reason, notbannedlist, mins)
 
 				href_list["jobban2"] = 1 // lets it fall through and refresh
 				return 1
