@@ -449,7 +449,7 @@
 		if(person_in_charge.skills.get_skill_level(SKILL_OVERWATCH) < SKILL_OVERWATCH_TRAINED)
 			person_in_charge.skills.set_skill(SKILL_OVERWATCH, SKILL_OVERWATCH_TRAINED)
 
-	announce_addendum += "\nГарнитура и планшет командования доступны в командно-информационном центре." //SS220 EDIT END
+	announce_addendum += "\nГарнитура и планшет командования доступны в боевом информационном центре." //SS220 EDIT END
 
 	//does an announcement to the crew about the commander & alerts admins to that change for logs.
 	shipwide_ai_announcement("Полномочия исполняющего обязанности командира переданы: [role_in_charge] [person_in_charge.declent_ru(DATIVE)]. Данное лицо принимает на себя командование до дальнейших распоряжений. Пожалуйста, направляйте все запросы и выполняйте инструкции соответствующим образом. [announce_addendum]", MAIN_AI_SYSTEM, 'sound/misc/interference.ogg') //SS220 EDIT
