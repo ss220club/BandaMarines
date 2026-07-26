@@ -379,6 +379,26 @@
 	name = "\improper Lower Deck Starboard Umbilical Hallway"
 	icon_state = "portumbilical"
 
+/area/rostock/lower_deck/prep_akula
+	name = "\improper Akula squad preparations"
+	icon_state = "alpha"
+
+/area/rostock/lower_deck/prep_bizon
+	name = "\improper Bizon squad preparations"
+	icon_state = "bravo"
+
+/area/rostock/lower_deck/prep_chayka
+	name = "\improper Chayka squad preparations"
+	icon_state = "charlie"
+
+/area/rostock/lower_deck/prep_delphin
+	name = "\improper Delphin squad preparations"
+	icon_state = "delta"
+
+/area/rostock/lower_deck/dining_hall
+	name = "\improper Squads dining hall"
+	icon_state = "gruntrnr"
+
 // Lower Deck Maintenance
 
 /area/rostock/lowerdeck_maint

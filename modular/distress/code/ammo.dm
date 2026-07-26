@@ -81,7 +81,7 @@
 	desc = "This is a small, two-stage missile used by HIMAT launcher. This one has an incendiary package, covering area of impact with burning flames."
 	icon = 'modular/distress/icons/mortar.dmi'
 	icon_state = "missile_inc"
-	radius = 8
+	radius = 6
 	flame_level = BURN_TIME_TIER_5 + 5
 	burn_level = BURN_LEVEL_TIER_7
 	flameshape = FLAMESHAPE_DEFAULT
@@ -97,8 +97,136 @@
 
 /datum/ammo/bullet/shrapnel/himat
 	accurate_range = 8
-	max_range = 8
-	damage = 95
-	shrapnel_chance = SHRAPNEL_CHANCE_TIER_2
+	max_range = 6
+	damage = 80
+	shrapnel_chance = SHRAPNEL_CHANCE_TIER_5
 	accuracy = HIT_ACCURACY_TIER_MAX
 
+/datum/ammo/bullet/pkp
+	name = "machinegun bullet"
+	headshot_state = HEADSHOT_OVERLAY_MEDIUM
+	icon = 'modular/distress/icons/projectiles.dmi'
+	icon_state = "redtrac"
+	
+	accuracy = HIT_ACCURACY_TIER_1
+	accuracy_var_low = PROJECTILE_VARIANCE_TIER_8
+	accuracy_var_high = PROJECTILE_VARIANCE_TIER_6
+	accurate_range = 14
+	damage = 55
+	penetration = ARMOR_PENETRATION_TIER_4
+	shrapnel_chance = SHRAPNEL_CHANCE_TIER_5
+
+/datum/ammo/bullet/rifle/type71/ak
+	name = "heavy rifle bullet"
+	damage = 45
+	penetration = ARMOR_PENETRATION_TIER_3
+
+/datum/ammo/bullet/rifle/type71/ak/ap
+	name = "heavy armor-piercing rifle bullet"
+	damage = 35
+	penetration = ARMOR_PENETRATION_TIER_10
+
+/datum/ammo/bullet/rifle/type71/ak/heap
+	name = "heavy high-explosive armor-piercing rifle bullet"
+	headshot_state = HEADSHOT_OVERLAY_HEAVY
+	damage = 60
+	penetration = ARMOR_PENETRATION_TIER_10
+
+/obj/item/ammo_magazine/rifle/ak4047
+	name = "\improper AK-4047 magazine (7.62x39mm)"
+	desc = "A rugged and reliable 40-round magazine designed for the AK-4047 series assault rifle. Built for durability, it can withstand harsh conditions and keep firing even in the worst environments."
+	caliber = "7.62x39mm"
+	icon = 'icons/obj/items/weapons/guns/ammo_by_faction/UPP/assault_rifles.dmi'
+	icon_state = "ak4047"
+	item_state = "generic_mag"
+	item_icons = list(
+		WEAR_L_HAND = 'icons/mob/humans/onmob/inhands/weapons/ammo_lefthand.dmi',
+		WEAR_R_HAND = 'icons/mob/humans/onmob/inhands/weapons/ammo_righthand.dmi'
+		)
+	w_class = SIZE_MEDIUM
+	default_ammo = /datum/ammo/bullet/rifle/type71/ak
+	max_rounds = 45
+	gun_type = /obj/item/weapon/gun/rifle/ak4047
+	ammo_band_icon = "+ak4047_band"
+	ammo_band_icon_empty = "+ak4047_band_e"
+
+/obj/item/ammo_magazine/rifle/ak4047/ap
+	name = "\improper AK-4047 AP magazine (7.62x39mm)"
+	desc = "A 7.62x39mm magazine containing armor piercing rounds for the AK-4047 rifle."
+	default_ammo = /datum/ammo/bullet/rifle/type71/ak/ap
+	ammo_band_color = AMMO_BAND_COLOR_AP
+
+/obj/item/ammo_magazine/rifle/ak4047/heap
+	name = "\improper AK-4047 HEAP magazine (7.62x39mm)"
+	desc = "A 7.62x39mm magazine containing the standard high explosive armor piercing rounds for the AK-4047 rifle."
+	default_ammo = /datum/ammo/bullet/rifle/type71/ak/heap
+	ammo_band_color = AMMO_BAND_COLOR_HEAP
+
+/obj/item/ammo_magazine/rifle/ak4047/incendiary
+	name = "\improper AK-4047 incendiary magazine (7.62x39mm)"
+	desc = "A 7.62x39mm assault rifle magazine containing the incendiary rounds for the AK-4047 rifle."
+	default_ammo = /datum/ammo/bullet/rifle/incendiary
+	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
+
+/obj/structure/machinery/defenses/sentry/launchable/upp
+	name = "\improper UPP SDS-R8 Sentry post "
+	desc = "A deployable, omni-directional automated turret with AI targeting capabilities. Armed with an M30 Autocannon and a 100-round drum magazine with 500 rounds stored internally. Due to the deployment method it is incapable of being moved."
+	ammo = new /obj/item/ammo_magazine/sentry/dropped
+	icon = 'icons/obj/structures/machinery/defenses/upp_defenses.dmi'
+	faction_group = FACTION_UPP
+	omni_directional = TRUE
+	additional_rounds_stored = TRUE
+	immobile = TRUE
+	static = TRUE
+	luminosity_strength = 9
+
+/obj/structure/ship_ammo/sentry/upp
+	name = "\improper UPP A/C-49-P Air Deployable Sentry"
+	desc = "An omni-directional sentry, capable of defending an area from lightly armored hostile incursion. Can be loaded into the LAG-14 Internal Sentry Launcher."
+	icon_state = "launchable_sentry"
+	equipment_type = /obj/structure/dropship_equipment/weapon/launch_bay
+	ammo_count = 1
+	max_ammo_count = 1
+	ammo_name = "area denial sentry"
+	travelling_time = 0 // handled by droppod
+	point_cost = 800 //handled by printer
+	accuracy_range = 0 // pinpoint
+	max_inaccuracy = 0
+
+/obj/structure/ship_ammo/sentry/upp/detonate_on(turf/impact, obj/structure/dropship_equipment/weapon/fired_from)
+	var/obj/structure/droppod/equipment/sentry/droppod = new(impact, /obj/structure/machinery/defenses/sentry/launchable/upp, source_mob)
+	droppod.special_structures_to_damage = breakable_structures
+	droppod.special_structure_damage = 500
+	droppod.drop_time = 5 SECONDS
+	droppod.launch(impact)
+	qdel(src)
+
+/obj/structure/machinery/defenses/sentry/premade/dropship/upp
+	faction_group = FACTION_LIST_UPP
+	minimap_icon_state = "sentry_omni"
+
+/obj/structure/machinery/defenses/sentry/premade/dropship/upp/update_health(damage, pass_forward = FALSE)
+	. = ..()
+	pass_forward = !pass_forward
+	if(pass_forward)
+		if(deployment_system)
+			deployment_system.update_health(damage, pass_forward)
+
+/obj/structure/machinery/defenses/sentry/premade/dropship/upp/Destroy()
+	if(deployment_system)
+		deployment_system.deployed_turret = null
+		deployment_system = null
+	QDEL_NULL(linked_cam)
+	. = ..()
+
+/obj/structure/dropship_equipment/sentry_holder/upp
+    name = "\improper UPP SDS-R3 Sentry Defense System"
+    desc = "A box that deploys a UPP SDS-R3 sentry turret. Fits on both the external weapon and crew compartment attach points of dropships. You need a powerloader to lift it."
+    faction_exclusive = FACTION_UPP
+
+/obj/structure/dropship_equipment/sentry_holder/upp/Initialize()
+	if(!deployed_turret)
+		deployed_turret = new /obj/structure/machinery/defenses/sentry/premade/dropship/upp(src)
+		deployed_turret.deployment_system = src
+
+	health = deployed_turret.health

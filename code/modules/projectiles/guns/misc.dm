@@ -192,9 +192,8 @@
 
 	pixel_x = -10
 	hud_offset = -10
-
 	w_class = SIZE_LARGE
-	force = 65 //the image of a upp machinegunner beating someone to death with a gpmg makes me laugh
+	force = 70 //the image of a upp machinegunner beating someone to death with a gpmg makes me laugh
 	start_semiauto = FALSE
 	start_automatic = TRUE
 	flags_gun_features = GUN_WIELDED_FIRING_ONLY|GUN_CAN_POINTBLANK|GUN_AUTO_EJECTOR|GUN_SPECIALIST|GUN_AMMO_COUNTER
@@ -204,6 +203,20 @@
 	)
 	var/cover_open = FALSE //if the gun's feed-cover is open or not.
 
+	actions_types = list(/datum/action/item_action/toggle_iff_pkp)
+
+	var/iff_enabled = FALSE
+	COOLDOWN_DECLARE(attack_cooldown)
+	var/cooldown_time = 10 SECONDS
+
+/obj/item/weapon/gun/pkp/attack(mob/living/target, mob/living/user)
+	. = ..()
+	if(. && (COOLDOWN_FINISHED(src, attack_cooldown)))
+		COOLDOWN_START(src, attack_cooldown, cooldown_time)
+		target.throw_atom(get_step(target, user.dir), 1, SPEED_AVERAGE, user, FALSE)
+		target.apply_effect(5, DAZE)
+		target.apply_effect(10, SLOW)
+		
 /obj/item/weapon/gun/pkp/handle_starting_attachment()
 	..()
 
@@ -226,9 +239,14 @@
 	if(current_mag && current_mag.current_rounds > 0)
 		load_into_chamber()
 
+// /obj/item/weapon/gun/pkp/set_bullet_traits()
+//	LAZYADD(traits_to_give, list(
+//		BULLET_TRAIT_ENTRY_ID("iff", /datum/element/bullet_trait_iff)
+//	))
+//	AddComponent(/datum/component/iff_fire_prevention)
+
 /obj/item/weapon/gun/pkp/set_gun_attachment_offsets()
 	attachable_offset = list("muzzle_x" = 45, "muzzle_y" = 18, "rail_x" = 16, "rail_y" = 5, "under_x" = 37, "under_y" = 15, "stock_x" = 10, "stock_y" = 13)
-
 
 /obj/item/weapon/gun/pkp/set_gun_config_values()
 	..()
@@ -296,6 +314,35 @@
 	if(!skillcheck(user, SKILL_SPEC_WEAPONS, SKILL_SPEC_ALL) && user.skills.get_skill_level(SKILL_SPEC_WEAPONS) != SKILL_SPEC_UPP)
 		to_chat(user, SPAN_WARNING("You don't seem to know how to use [src]..."))
 		return 0
+
+/datum/action/item_action/toggle_iff_pkp/New(Target, obj/item/holder)
+	. = ..()
+	name = "Toggle IFF"
+	action_icon_state = "iff_toggle_off"
+	button.name = name
+	button.overlays.Cut()
+	button.overlays += image('icons/mob/hud/actions.dmi', button, action_icon_state)
+
+/datum/action/item_action/toggle_iff_pkp/action_activate()
+	. = ..()
+
+	var/obj/item/weapon/gun/pkp/G = holder_item
+	if(!ishuman(owner))
+		return
+
+	var/mob/living/carbon/human/H = owner
+	if(H.is_mob_incapacitated() || G.get_active_firearm(H, FALSE) != holder_item)
+		return
+
+	G.iff_enabled = !G.iff_enabled
+
+	if(G.iff_enabled)
+		action_icon_state = "iff_toggle_on"
+	else
+		action_icon_state = "iff_toggle_off"
+
+	button.overlays.Cut()
+	button.overlays += image('icons/mob/hud/actions.dmi', button, action_icon_state)
 
 //PILLGUN
 /obj/item/weapon/gun/pill

@@ -67,7 +67,7 @@
 		list("POUCHES", -1, null, null),
 		list("Autoinjector Pouch", floor(scale * 2), /obj/item/storage/pouch/autoinjector, VENDOR_ITEM_REGULAR),
 		list("Medical Kit Pouch", floor(scale * 2), /obj/item/storage/pouch/medkit, VENDOR_ITEM_REGULAR),
-		list("First-Aid Pouch (Full)", floor(scale * 5), /obj/item/storage/pouch/firstaid/full, VENDOR_ITEM_REGULAR),
+		list("First-Aid Pouch (Full)", floor(scale * 5), /obj/item/storage/pouch/firstaid/ert/upp, VENDOR_ITEM_REGULAR),
 		list("First Responder Pouch", floor(scale * 2), /obj/item/storage/pouch/first_responder, VENDOR_ITEM_REGULAR),
 		list("Syringe Pouch", floor(scale * 2), /obj/item/storage/pouch/syringe, VENDOR_ITEM_REGULAR),
 		list("Tools Pouch (Full)", floor(scale * 2), /obj/item/storage/pouch/tools/full, VENDOR_ITEM_REGULAR),
@@ -96,9 +96,8 @@
 		list("M89-S Signal Flare Pack", floor(scale * 2), /obj/item/storage/box/m94/signal, VENDOR_ITEM_REGULAR),
 		list("M94 Marking Flare Pack", floor(scale * 10), /obj/item/storage/box/m94, VENDOR_ITEM_REGULAR),
 		list("Machete Scabbard (Full)", floor(scale * 6), /obj/item/storage/large_holster/machete/full, VENDOR_ITEM_REGULAR),
-		list("Binoculars", floor(scale * 3), /obj/item/device/binoculars, VENDOR_ITEM_REGULAR),
-		list("Rangefinder", floor(scale * 2), /obj/item/device/binoculars/range, VENDOR_ITEM_REGULAR),
-		list("Laser Designator", floor(scale * 1), /obj/item/device/binoculars/range/designator, VENDOR_ITEM_REGULAR),
+		list("Binoculars", floor(scale * 3), /obj/item/device/binoculars/upp, VENDOR_ITEM_REGULAR),
+		list("Laser Designator", floor(scale * 1), /obj/item/device/binoculars/range/designator/upp, VENDOR_ITEM_REGULAR),
 		list("Welding Goggles", floor(scale * 3), /obj/item/clothing/glasses/welding, VENDOR_ITEM_REGULAR),
 		list("Fire Extinguisher (Portable)", floor(scale * 3), /obj/item/tool/extinguisher/mini, VENDOR_ITEM_REGULAR),
 		list("High-Capacity Power Cell", floor(scale * 1), /obj/item/cell/high, VENDOR_ITEM_REGULAR),
@@ -153,7 +152,7 @@
 /obj/structure/machinery/cm_vending/sorted/cargo_ammo/upp_cargo_ammo/populate_product_list(scale)
 	listed_products = list(
 		list("REGULAR AMMUNITION", -1, null, null),
-		list("AK-4047 magazine (10x24mm)", floor(scale * 25), /obj/item/ammo_magazine/rifle/ak4047, VENDOR_ITEM_REGULAR),
+		list("AK-4047 magazine (7.62x39mm)", floor(scale * 25), /obj/item/ammo_magazine/rifle/ak4047, VENDOR_ITEM_REGULAR),
 		list("Type 71 Magazine (5.45x39mm)", floor(scale * 15), /obj/item/ammo_magazine/rifle/type71, VENDOR_ITEM_REGULAR),
 		list("Type 64 Helical Magazine (7.62x19mm)", floor(scale * 30), /obj/item/ammo_magazine/smg/bizon, VENDOR_ITEM_REGULAR),
 		list("Box of Heavy Buckshot Shells (8g)", floor(scale * 16), /obj/item/ammo_magazine/shotgun/heavy/buckshot, VENDOR_ITEM_REGULAR),
@@ -164,7 +163,7 @@
 		list("NP92 Magazine (9x18mm Makarov)", floor(scale * 20), /obj/item/ammo_magazine/pistol/np92, VENDOR_ITEM_REGULAR),
 
 		list("ARMOR-PIERCING AMMUNITION", -1, null, null),
-		list("AK-4047 AP magazine (10x24mm)", floor(scale * 10), /obj/item/ammo_magazine/rifle/ak4047/ap, VENDOR_ITEM_REGULAR),
+		list("AK-4047 AP magazine (7.62x39mm)", floor(scale * 10), /obj/item/ammo_magazine/rifle/ak4047/ap, VENDOR_ITEM_REGULAR),
 		list("Type 71 AP Magazine (5.45x39mm)", floor(scale * 6), /obj/item/ammo_magazine/rifle/type71/ap, VENDOR_ITEM_REGULAR),
 		list("Type 64 Helical AP Magazine (7.62x19mm)", floor(scale * 6), /obj/item/ammo_magazine/smg/bizon/ap, VENDOR_ITEM_REGULAR),
 

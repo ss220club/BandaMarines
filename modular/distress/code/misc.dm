@@ -188,6 +188,57 @@
 		WEAR_R_EAR = 'modular/distress/icons/ears.dmi',
 	)
 
+/obj/item/clothing/suit/storage/marine/faction/UPP
+	name = "\improper UM5 personal armor"
+	desc = "Standard body armor of the UPP military, the UM5 (Union Medium MK5) is a medium body armor, roughly on par with the M3 pattern body armor in service with the USCM, specialized towards ballistics protection. Unlike the M3, however, the plate has a heavier neckplate. This has earned many UA members to refer to UPP soldiers as 'tin men'."
+	icon_state = "upp_armor"
+	icon = 'icons/obj/items/clothing/suits/suits_by_faction/UPP.dmi'
+	item_icons = list(
+		WEAR_JACKET = 'icons/mob/humans/onmob/clothing/suits/suits_by_faction/UPP.dmi'
+	)
+	armor_melee = CLOTHING_ARMOR_MEDIUM
+	armor_bullet = CLOTHING_ARMOR_HIGH
+	armor_energy = CLOTHING_ARMOR_MEDIUM
+	armor_bio = CLOTHING_ARMOR_MEDIUM
+	armor_rad = CLOTHING_ARMOR_MEDIUMLOW
+	armor_internaldamage = CLOTHING_ARMOR_HIGH
+	storage_slots = 1
+	uniform_restricted = list(/obj/item/clothing/under/marine/veteran/UPP, /obj/item/clothing/under/marine/veteran/UPP/medic, /obj/item/clothing/under/marine/veteran/UPP/engi, /obj/item/clothing/under/marine/veteran/UPP/SOF_uniform)
+
+/obj/item/clothing/suit/storage/marine/faction/UPP/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/norcomm)
+
+/obj/item/clothing/suit/storage/marine/faction/UPP/support
+	name = "\improper UL6 personal armor"
+	desc = "Standard body armor of the UPP military, the UL6 (Union Light MK6) is a light body armor, slightly weaker than the M3 pattern body armor in service with the USCM, specialized towards ballistics protection. This set of personal armor lacks the iconic neck piece and some of the armor in favor of user mobility."
+	storage_slots = 4
+	icon_state = "upp_armor_support"
+	slowdown = SLOWDOWN_ARMOR_LIGHT
+	armor_bullet = CLOTHING_ARMOR_HIGH
+	armor_melee = CLOTHING_ARMOR_MEDIUM
+	armor_energy = CLOTHING_ARMOR_MEDIUM
+	armor_bio = CLOTHING_ARMOR_VERYHIGH
+	armor_rad = CLOTHING_ARMOR_MEDIUMLOW
+	armor_internaldamage = CLOTHING_ARMOR_HIGH
+
+/obj/item/clothing/suit/storage/marine/faction/UPP/heavy
+	name = "\improper UH7 heavy plated armor"
+	desc = "An extremely heavy-duty set of body armor in service with the UPP military, the UH7 (Union Heavy MK7) is known for having powerful ballistic protection, alongside a noticeable neck guard, fortified in order to allow the wearer to endure the stresses of the bulky helmet."
+	icon_state = "upp_armor_heavy"
+	storage_slots = 2
+	slowdown = SLOWDOWN_ARMOR_HEAVY
+	flags_inventory = BLOCKSHARPOBJ|BLOCK_KNOCKDOWN
+	flags_armor_protection = BODY_FLAG_ALL_BUT_HEAD
+	armor_melee = CLOTHING_ARMOR_VERYHIGH
+	armor_bullet = CLOTHING_ARMOR_HIGHPLUS
+	armor_laser = CLOTHING_ARMOR_MEDIUMLOW
+	armor_energy = CLOTHING_ARMOR_MEDIUM
+	armor_bomb = CLOTHING_ARMOR_HIGH
+	armor_bio = CLOTHING_ARMOR_HIGH
+	armor_rad = CLOTHING_ARMOR_MEDIUMLOW
+	armor_internaldamage = CLOTHING_ARMOR_HIGHPLUS
+
 /obj/item/clothing/head/helmet/marine/veteran/UPP/heavy
 	name = "\improper UH7 helmet"
 	desc = "Like the UM4, this helmet is very resistant to ballistic damage, but both its flaws and benefits have been doubled. The few UPP Zhergeants that have lived past age 30 have all needed to retire from terminal neck problems caused from the stress of wearing this helmet."
@@ -245,20 +296,6 @@
     button.overlays.Cut()
     var/image/I = image('modular/distress/icons/misc.dmi', button, "upp_rpb_phone")
     button.overlays += I
-
-/datum/ammo/bullet/pkp
-	name = "machinegun bullet"
-	headshot_state = HEADSHOT_OVERLAY_MEDIUM
-	icon = 'modular/distress/icons/projectiles.dmi'
-	icon_state = "redtrac"
-	
-	accuracy = HIT_ACCURACY_TIER_1
-	accuracy_var_low = PROJECTILE_VARIANCE_TIER_8
-	accuracy_var_high = PROJECTILE_VARIANCE_TIER_6
-	accurate_range = 14
-	damage = 45
-	penetration = ARMOR_PENETRATION_TIER_4
-	shrapnel_chance = SHRAPNEL_CHANCE_TIER_5
 
 /obj/structure/mortar/himat
 	name = "M112 HIMAT"
@@ -609,21 +646,21 @@
 		list("Tea", 10, /obj/item/reagent_container/food/drinks/tea/upp, VENDOR_ITEM_REGULAR),
 	)
 
-/obj/structure/machinery/cm_vending/sorted/tech/electronics_storage/antag
+/obj/structure/machinery/cm_vending/sorted/tech/electronics_storage/antag/upp
 	req_one_access = list(ACCESS_ILLEGAL_PIRATE, ACCESS_UPP_GENERAL, ACCESS_CLF_GENERAL)
 	req_access = null
 	listed_products = list(
 		list("TOOLS", -1, null, null),
-		list("Cable Coil", floor(scale * 3), /obj/item/stack/cable_coil/random, VENDOR_ITEM_REGULAR),
-		list("Multitool", floor(scale * 4), /obj/item/device/multitool/upp, VENDOR_ITEM_REGULAR),
+		list("Cable Coil", 5, /obj/item/stack/cable_coil/random, VENDOR_ITEM_REGULAR),
+		list("Multitool", 5, /obj/item/device/multitool/upp, VENDOR_ITEM_REGULAR),
 
 		list("CIRCUITBOARDS", -1, null, null),
-		list("Airlock Circuit Board", floor(scale * 4), /obj/item/circuitboard/airlock, VENDOR_ITEM_REGULAR),
-		list("APC Circuit Board", floor(scale * 4), /obj/item/circuitboard/apc, VENDOR_ITEM_REGULAR),
+		list("Airlock Circuit Board", 4, /obj/item/circuitboard/airlock, VENDOR_ITEM_REGULAR),
+		list("APC Circuit Board", 4, /obj/item/circuitboard/apc, VENDOR_ITEM_REGULAR),
 
 		list("BATTERIES", -1, null, null),
-		list("High-Capacity Power Cell", floor(scale * 3), /obj/item/cell/high, VENDOR_ITEM_REGULAR),
-		list("Low-Capacity Power Cell", floor(scale * 7), /obj/item/cell, VENDOR_ITEM_REGULAR),
+		list("High-Capacity Power Cell", 1, /obj/item/cell/high, VENDOR_ITEM_REGULAR),
+		list("Low-Capacity Power Cell", 3, /obj/item/cell, VENDOR_ITEM_REGULAR),
 	)
 
 /obj/item/storage/belt/utility/full/upp/fill_preset_inventory()
@@ -634,3 +671,17 @@
 	new /obj/item/tool/wirecutters(src)
 	new /obj/item/stack/cable_coil(src,30,pick("red","yellow","orange"))
 	new /obj/item/device/multitool/upp(src)
+
+/obj/item/storage/pouch/firstaid/ert/upp
+	icon = 'modular/distress/icons/misc.dmi'
+	icon_state = "softpack_upp"
+	storage_slots = 7
+
+/obj/item/storage/pouch/firstaid/ert/upp/fill_preset_inventory()
+	new /obj/item/reagent_container/hypospray/autoinjector/bicaridine/skillless(src)
+	new /obj/item/reagent_container/hypospray/autoinjector/kelotane/skillless(src)
+	new /obj/item/reagent_container/hypospray/autoinjector/tramadol/skillless(src)
+	new /obj/item/reagent_container/hypospray/autoinjector/emergency(src)
+	new	/obj/item/stack/medical/ointment(src)
+	new /obj/item/stack/medical/bruise_pack(src)
+	new /obj/item/stack/medical/splint(src)

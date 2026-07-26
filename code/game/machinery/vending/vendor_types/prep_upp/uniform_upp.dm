@@ -48,8 +48,7 @@
 
 		list("POUCHES", -1, null, null),
 		list("Bayonet Sheath (Full)",floor(scale * 15), /obj/item/storage/pouch/bayonet, VENDOR_ITEM_REGULAR),
-		list("First-Aid Pouch (Splints, Gauze, Ointment)", floor(scale * 15), /obj/item/storage/pouch/firstaid/full/alternate, VENDOR_ITEM_REGULAR),
-		list("First-Aid Pouch (Pill Packets)", floor(scale * 15), /obj/item/storage/pouch/firstaid/full/pills, VENDOR_ITEM_REGULAR),
+		list("First-Aid Pouch", 0, /obj/item/storage/pouch/firstaid/ert/upp, MARINE_CAN_BUY_POUCH, VENDOR_ITEM_REGULAR),
 		list("Flare Pouch (Full)", floor(scale * 15), /obj/item/storage/pouch/flare/full, VENDOR_ITEM_REGULAR),
 		list("Small Document Pouch", floor(scale * 15), /obj/item/storage/pouch/document/small, VENDOR_ITEM_REGULAR),
 		list("Magazine Pouch", floor(scale * 15), /obj/item/storage/pouch/magazine, VENDOR_ITEM_REGULAR),

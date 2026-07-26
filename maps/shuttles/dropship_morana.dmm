@@ -226,7 +226,9 @@
 /area/shuttle/drop_upp/morana)
 "oJ" = (
 /obj/structure/shuttle/part/dropship_upp/transparent/inner_right_weapons,
-/obj/effect/attach_point/electronics/dropship_upp,
+/obj/effect/attach_point/electronics/dropship_upp{
+	attach_id = 6
+	},
 /turf/template_noop,
 /area/shuttle/drop_upp/morana)
 "oX" = (
@@ -397,7 +399,8 @@
 /area/shuttle/drop_upp/morana)
 "FO" = (
 /obj/effect/attach_point/fuel/dropship_upp{
-	dir = 1
+	dir = 1;
+	attach_id = 10
 	},
 /turf/closed/shuttle/dropship_upp/transparent{
 	icon_state = "28"
@@ -409,7 +412,9 @@
 	},
 /area/shuttle/drop_upp/morana)
 "Gx" = (
-/obj/effect/attach_point/crew_weapon/dropship_upp,
+/obj/effect/attach_point/crew_weapon/dropship_upp{
+	attach_id = 7
+	},
 /obj/item/device/radio/intercom/morana{
 	pixel_y = 26
 	},
@@ -473,7 +478,9 @@
 /turf/template_noop,
 /area/shuttle/drop_upp/morana)
 "Kl" = (
-/obj/effect/attach_point/crew_weapon/dropship_upp,
+/obj/effect/attach_point/crew_weapon/dropship_upp{
+	attach_id = 9
+	},
 /turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
 /area/shuttle/drop_upp/morana)
 "Ky" = (
@@ -510,6 +517,12 @@
 	icon_state = "19"
 	},
 /area/shuttle/drop_upp/morana)
+"Oi" = (
+/obj/effect/attach_point/crew_weapon/dropship_upp{
+	attach_id = 8
+	},
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/shuttle/drop_upp/morana)
 "Op" = (
 /obj/item/device/radio/intercom/morana{
 	pixel_y = 26
@@ -519,7 +532,8 @@
 "Or" = (
 /obj/effect/attach_point/fuel/dropship_upp{
 	dir = 1;
-	pixel_x = -32
+	pixel_x = -32;
+	attach_id = 11
 	},
 /turf/closed/shuttle/dropship_upp/transparent{
 	icon_state = "33"
@@ -738,7 +752,7 @@ xd
 xd
 zq
 wV
-Kl
+Oi
 qj
 Kl
 qj
