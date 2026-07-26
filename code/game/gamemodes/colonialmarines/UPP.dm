@@ -56,7 +56,7 @@ GLOBAL_LIST_EMPTY(upp_officers)
 			person_in_charge = pick(GLOB.upp_officers[JOB_UPP_LT_DOKTOR])
 			break
 		if(job_by_chain == JOB_UPP_PILOT && GLOB.upp_officers[JOB_UPP_PILOT])
-			person_in_charge = pick(GLOB.upp_officers[JOB_UPP_COMMISSAR])
+			person_in_charge = pick(GLOB.upp_officers[JOB_UPP_PILOT ])
 			break
 		if(job_by_chain == JOB_UPP_COMMISSAR && GLOB.upp_officers[JOB_UPP_COMMISSAR])
 			person_in_charge = pick(GLOB.upp_officers[JOB_UPP_COMMISSAR])
