@@ -111,7 +111,7 @@
 /datum/supply_packs/upp/ammo_m2c_upp
 	name = "UPP M2C ammunition crate (x1)"
 	contains = list(
-		/obj/item/ammo_magazine/m2c,,
+		/obj/item/ammo_magazine/m2c,
 	)
 	cost = 25
 	containertype = /obj/structure/closet/crate/ammo
