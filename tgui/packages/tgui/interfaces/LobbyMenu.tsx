@@ -465,16 +465,16 @@ const LobbyButtons = (props: {
           <>
             <Stack.Item>
               <Stack>
-               {!!uscm_enabled && (
-                <Stack.Item grow>
-                  <LobbyButton
-                    index={6}
-                    onClick={() => act('late_join')}
-                    icon="users"
-                  >
-                    Присоединиться за ККМП
-                  </LobbyButton>
-                </Stack.Item>
+                {!!uscm_enabled && (
+                  <Stack.Item grow>
+                    <LobbyButton
+                      index={6}
+                      onClick={() => act('late_join')}
+                      icon="users"
+                    >
+                      Присоединиться за ККМП
+                    </LobbyButton>
+                  </Stack.Item>
                 )}
                 <Stack.Item>
                   <LobbyButton

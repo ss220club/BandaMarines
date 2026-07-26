@@ -302,12 +302,15 @@
 	icon = 'modular/distress/icons/mortar.dmi'
 	desc = "A man-portable two-stage missile launcher. While capable of being fired manually, what truly sets this apart from standard boom-tubes is it's onboard fire-control systems. While deployed on a baseplate and supporting bipod stand it will attempt to link with any local USCM sensor matrix, allowing it to automatically track, identify and request to fire upon hostile targets in range."
 	icon_state = "himat"
-	uses_camo = FALSE
 	max_range = 999
 	var/kit_type = /obj/item/mortar_kit/himat
 	travel_time = 2.5 SECONDS
 	var/obj/item/mortar_shell/loaded_shell = null
 	var/id
+
+/obj/structure/mortar/himat/Initialize()
+	. = ..()
+	icon_state = "himat"
 
 /obj/structure/mortar/himat/attackby(obj/item/item, mob/user)
 	if(istype(item, /obj/item/mortar_shell))
