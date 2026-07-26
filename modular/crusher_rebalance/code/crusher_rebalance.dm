@@ -1,5 +1,38 @@
-/datum/action/xeno_action/activable/pounce/crusher_charge
+/mob/living/carbon/xenomorph/crusher
+	base_actions = list(
+		/datum/action/xeno_action/onclick/toggle_seethrough,
+		/datum/action/xeno_action/onclick/xeno_resting,
+		/datum/action/xeno_action/onclick/release_haul,
+		/datum/action/xeno_action/watch_xeno,
+		/datum/action/xeno_action/activable/tail_stab,
+		/datum/action/xeno_action/activable/pounce/crushing_onslaught,
+		/datum/action/xeno_action/onclick/crusher_stomp,
+		/datum/action/xeno_action/onclick/crusher_shield,
+	)
+
+/datum/action/xeno_action/activable/pounce/crushing_onslaught
+	name = "Crushing Onslaught"
+	action_icon_state = "ready_charge"
+	action_text = "charge"
+	macro_path = /datum/action/xeno_action/verb/verb_crushing_onslaught
+	action_type = XENO_ACTION_CLICK
+	ability_primacy = XENO_PRIMARY_ACTION_1
+	xeno_cooldown = 14 SECONDS
+	plasma_cost = 20
+	// Config options
 	distance = 7
+	knockdown = TRUE
+	knockdown_duration = 2
+	slash = FALSE
+	freeze_self = FALSE
+	windup = TRUE
+	windup_duration = 1.2 SECONDS
+	windup_interruptable = FALSE
+	should_destroy_objects = TRUE
+	throw_speed = SPEED_FAST
+	tracks_target = FALSE
+	var/direct_hit_damage = 60
+	var/frontal_armor = 15
 	// Two-stage activation
 	var/charge_slowdown = 3
 	var/charge_window = 5 SECONDS
@@ -8,11 +41,18 @@
 	var/charge_timeout_timer_id = TIMER_ID_NULL
 	var/winding_up = FALSE
 
-/datum/action/xeno_action/activable/pounce/crusher_charge/New()
+/datum/action/xeno_action/verb/verb_crushing_onslaught()
+	set category = "Alien"
+	set name = "Сrushing Onslaught"
+	set hidden = TRUE
+	var/action_name = "Сrushing Onslaught"
+	handle_xeno_macro(src, action_name)
+
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/New()
 	. = ..()
 	pounce_callbacks.Remove(/mob)
 
-/datum/action/xeno_action/activable/pounce/crusher_charge/Destroy()
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/Destroy()
 	if(charge_timeout_timer_id != TIMER_ID_NULL)
 		deltimer(charge_timeout_timer_id)
 		charge_timeout_timer_id = TIMER_ID_NULL
@@ -23,7 +63,7 @@
 		xeno.stop_xeno_jitter()
 	return ..()
 
-/datum/action/xeno_action/activable/pounce/crusher_charge/use_ability(atom/target)
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/use_ability(atom/target)
 	var/mob/living/carbon/xenomorph/xeno = owner
 
 	if(!istype(xeno) || !xeno.check_state())
@@ -49,18 +89,15 @@
 		apply_charge_slowdown()
 
 		pre_windup_effects()
-
+		activated_once = TRUE
 		xeno.xeno_jitter(windup_duration + charge_window)
+		apply_cooldown()
 		if(!do_after(xeno, windup_duration, INTERRUPT_INCAPACITATED|INTERRUPT_CHANGED_LYING, BUSY_ICON_HOSTILE))
 			to_chat(xeno, SPAN_XENODANGER("Мы отменяем подготовку рывка!"))
-			remove_charge_slowdown()
-			post_windup_effects(interrupted = TRUE)
-			xeno.stop_xeno_jitter()
+			charge_reset()
 			return
 
 		winding_up = FALSE
-		activated_once = TRUE
-		apply_cooldown()
 		to_chat(xeno, SPAN_XENOWARNING("Мы готовы к рывку!"))
 		playsound(xeno, 'sound/effects/alien_footstep_charge2.ogg', 50)
 		charge_timeout_timer_id = addtimer(CALLBACK(src, PROC_REF(charge_reset)), charge_window, TIMER_STOPPABLE)
@@ -68,12 +105,59 @@
 	else
 		if(charge_timeout_timer_id != TIMER_ID_NULL)
 			deltimer(charge_timeout_timer_id)
-		charge_timeout_timer_id = TIMER_ID_NULL
-		activated_once = FALSE
-		return execute_charge(target)
+		if(!execute_charge(target))
+			charge_reset()
+		return TRUE
 
+//copy of old crusher code START
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/pre_windup_effects()
+	RegisterSignal(owner, COMSIG_XENO_PRE_CALCULATE_ARMOURED_DAMAGE_PROJECTILE, PROC_REF(check_directional_armor))
 
-/datum/action/xeno_action/activable/pounce/crusher_charge/proc/apply_charge_slowdown()
+	var/mob/living/carbon/xenomorph/xeno_owner = owner
+	if(!istype(xeno_owner))
+		return
+
+	var/datum/behavior_delegate/crusher_base/crusher_delegate = xeno_owner.behavior_delegate
+	if(!istype(crusher_delegate))
+		return
+
+	crusher_delegate.is_charging = TRUE
+	xeno_owner.update_icons()
+
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/check_directional_armor(mob/living/carbon/xenomorph/X, list/damagedata)
+	SIGNAL_HANDLER
+	var/projectile_direction = damagedata["direction"]
+	if(X.dir & REVERSE_DIR(projectile_direction))
+		// During the charge windup, crusher gets an extra 15 directional armor in the direction its charging
+		damagedata["armor"] += frontal_armor
+
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/post_windup_effects(interrupted)
+	..()
+	UnregisterSignal(owner, COMSIG_XENO_PRE_CALCULATE_ARMOURED_DAMAGE_PROJECTILE)
+	var/mob/living/carbon/xenomorph/xeno_owner = owner
+	if(!istype(xeno_owner))
+		return
+
+	var/datum/behavior_delegate/crusher_base/crusher_delegate = xeno_owner.behavior_delegate
+	if(!istype(crusher_delegate))
+		return
+
+	addtimer(CALLBACK(src, PROC_REF(undo_charging_icon)), 0.5 SECONDS) // let the icon be here for a bit, it looks cool
+
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/undo_charging_icon()
+	var/mob/living/carbon/xenomorph/xeno_owner = owner
+	if(!istype(xeno_owner))
+		return
+
+	var/datum/behavior_delegate/crusher_base/crusher_delegate = xeno_owner.behavior_delegate
+	if(!istype(crusher_delegate))
+		return
+
+	crusher_delegate.is_charging = FALSE
+	xeno_owner.update_icons()
+//copy of old crusher code END
+
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/apply_charge_slowdown()
 	var/mob/living/carbon/xenomorph/xeno = owner
 	if(slowdown_active || !istype(xeno))
 		return
@@ -81,7 +165,7 @@
 	xeno.recalculate_speed()
 	slowdown_active = TRUE
 
-/datum/action/xeno_action/activable/pounce/crusher_charge/proc/remove_charge_slowdown()
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/remove_charge_slowdown()
 	var/mob/living/carbon/xenomorph/xeno = owner
 	if(!slowdown_active || !istype(xeno))
 		return
@@ -89,19 +173,18 @@
 	xeno.recalculate_speed()
 	slowdown_active = FALSE
 
-/datum/action/xeno_action/activable/pounce/crusher_charge/proc/charge_reset()
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/charge_reset()
 	var/mob/living/carbon/xenomorph/xeno = owner
 	if(!istype(xeno) || !activated_once)
 		return
-	to_chat(xeno, SPAN_XENOWARNING("Мы больше не можем удерживать стойку!"))
+	to_chat(xeno, SPAN_XENOWARNING("Мы больше не удерживаем стойку!"))
 	xeno.stop_xeno_jitter()
 	remove_charge_slowdown()
 	post_windup_effects(interrupted = FALSE)
 	charge_timeout_timer_id = TIMER_ID_NULL
 	activated_once = FALSE
 
-
-/datum/action/xeno_action/activable/pounce/crusher_charge/proc/execute_charge(atom/target)
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/execute_charge(atom/target)
 	var/mob/living/carbon/xenomorph/xeno = owner
 	if(!istype(xeno))
 		return FALSE
@@ -160,7 +243,7 @@
 
 	return TRUE
 
-/datum/action/xeno_action/activable/pounce/crusher_charge/proc/charge_end(atom/movable/thrown_atom)
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/charge_end(atom/movable/thrown_atom)
 	var/mob/living/carbon/xenomorph/xeno = owner
 	if(!istype(xeno))
 		return
@@ -169,11 +252,9 @@
 	UnregisterSignal(xeno, list(COMSIG_MOVABLE_TURF_ENTER, COMSIG_MOVABLE_MOVED))
 	xeno.emote("roar")
 	REMOVE_TRAIT(xeno, TRAIT_CHARGING, TRAIT_SOURCE_ABILITY("Crusher Charge"))
+	charge_reset()
 
-	additional_effects_always()
-	post_windup_effects(interrupted = FALSE)
-
-/datum/action/xeno_action/activable/pounce/crusher_charge/proc/charge_turf_enter(mob/living/carbon/xenomorph/xeno, turf/entering_turf)
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/charge_turf_enter(mob/living/carbon/xenomorph/xeno, turf/entering_turf)
 	SIGNAL_HANDLER
 	if(!istype(xeno) || !istype(entering_turf))
 		return NONE
@@ -200,7 +281,7 @@
 
 	return COMPONENT_TURF_ALLOW_MOVEMENT
 
-/datum/action/xeno_action/activable/pounce/crusher_charge/proc/charge_move(mob/living/carbon/xenomorph/xeno, atom/oldloc, direction, forced)
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/charge_move(mob/living/carbon/xenomorph/xeno, atom/oldloc, direction, forced)
 	SIGNAL_HANDLER
 	if(!istype(xeno) || !HAS_TRAIT(xeno, TRAIT_CHARGING))
 		return
@@ -219,7 +300,7 @@
 		else
 			INVOKE_ASYNC(src, PROC_REF(handle_collision), A, xeno)
 
-/datum/action/xeno_action/activable/pounce/crusher_charge/proc/handle_human_collision(mob/living/carbon/human/human, mob/living/carbon/xenomorph/xeno)
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_human_collision(mob/living/carbon/human/human, mob/living/carbon/xenomorph/xeno)
 	if(!istype(xeno))
 		xeno = owner
 	if(!istype(xeno) || !istype(human))
@@ -259,7 +340,7 @@
 	step(human, ram_dir)
 	step(human, ram_dir)
 
-/datum/action/xeno_action/activable/pounce/crusher_charge/proc/handle_xeno_collision(mob/living/carbon/xenomorph/target_xeno, mob/living/carbon/xenomorph/xeno)
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_xeno_collision(mob/living/carbon/xenomorph/target_xeno, mob/living/carbon/xenomorph/xeno)
 	if(!istype(xeno))
 		xeno = owner
 	if(!istype(xeno) || !istype(target_xeno))
@@ -300,7 +381,7 @@
 	target_xeno.set_effect(0.5, WEAKEN)
 	target_xeno.throw_atom(target_turf, 1, 3, xeno, TRUE)
 
-/datum/action/xeno_action/activable/pounce/crusher_charge/proc/handle_carbon_collision(mob/living/carbon/mob, mob/living/carbon/xenomorph/xeno)
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_carbon_collision(mob/living/carbon/mob, mob/living/carbon/xenomorph/xeno)
 	if(!istype(xeno))
 		xeno = owner
 	if(!istype(xeno) || !istype(mob))
@@ -331,7 +412,7 @@
 	step(mob, ram_dir)
 	step(mob, ram_dir)
 
-/datum/action/xeno_action/activable/pounce/crusher_charge/proc/handle_collision(atom/target, mob/living/carbon/xenomorph/xeno)
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_collision(atom/target, mob/living/carbon/xenomorph/xeno)
 	if(!istype(xeno))
 		xeno = owner
 	if(!istype(xeno) || !istype(target))
@@ -476,7 +557,7 @@
 	if (!.)
 		xeno.update_icons()
 
-/datum/action/xeno_action/activable/pounce/crusher_charge/proc/destroy_obj_in_path(obj/objects_in_path, mob/living/carbon/xenomorph/xeno)
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/destroy_obj_in_path(obj/objects_in_path, mob/living/carbon/xenomorph/xeno)
 	if(!istype(xeno))
 		xeno = owner
 	if(!istype(xeno) || !istype(objects_in_path))
