@@ -11,4 +11,3 @@
 #include "code/isrg_nvg.dm"
 #include "code/rac_clothing.dm"
 #include "code/cape.dm"
-#include "_clothing.dm"

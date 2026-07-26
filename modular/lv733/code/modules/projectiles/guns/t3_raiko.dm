@@ -16,6 +16,7 @@
 	ammo_secondary_def = /datum/ammo/bullet/smartgun/isrg/armor_piercing
 	ammo_primary_alt = /datum/ammo/bullet/smartgun/isrg/alt
 	ammo_secondary_alt = /datum/ammo/bullet/smartgun/isrg/armor_piercing/alt
+	has_cover = FALSE
 
 /obj/item/weapon/gun/smartgun/isrg/muzzle_flash(angle, mob/user)
 	if(flags_gun_features & GUN_SILENCED || isnull(angle))
@@ -45,6 +46,7 @@
 	desc = "Барабанный магазин на 450 патронов для смартгана T3 «Райко»."
 	icon = 'modular/lv733/icons/t3_raiko_smartgun/t3_raiko_mag.dmi'
 	icon_state = "t3_raiko_mag"
+	bonus_overlay = null
 	max_rounds = 420
 	gun_type = /obj/item/weapon/gun/smartgun/isrg
 

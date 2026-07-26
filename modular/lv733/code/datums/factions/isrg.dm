@@ -8,6 +8,7 @@
 
 /datum/modpack/lv733/initialize()
 	GLOB.huds.len = max(GLOB.huds.len, MOB_HUD_FACTION_ISRG)
+	GLOB.huds[MOB_HUD_FACTION_CLF_WY] = new /datum/mob_hud/faction/clf_wy()
 	GLOB.huds[MOB_HUD_FACTION_ISRG] = new /datum/mob_hud/faction/isrg()
 
 /datum/faction/isrg/modify_hud_holder(image/holder, mob/living/carbon/human/human)

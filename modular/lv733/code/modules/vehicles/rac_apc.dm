@@ -401,6 +401,7 @@
 	name = "\improper Колёса Type 16-7/E"
 	desc = "Комплект колёс Type 16-7/E. Обеспечивают высокую скорость хода, но плохо бронированы."
 	icon = 'modular/lv733/icons/roaf_apc/type16_wheels_held.dmi'
+	icon_state = "tires_wy"
 	disp_icon = 'modular/lv733/icons/roaf_apc/type16_wheels_mounted.dmi'
 	health = 150
 	damage_multiplier = 2

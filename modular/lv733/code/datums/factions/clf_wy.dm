@@ -3,6 +3,9 @@
 	faction_tag = FACTION_CLF_WY
 	base_icon_file = 'icons/mob/hud/factions/clf.dmi'
 
+/datum/mob_hud/faction/clf_wy
+	faction_to_check = FACTION_CLF_WY
+
 /datum/faction/clf_wy/modify_hud_holder(image/holder, mob/living/carbon/human/human)
 	var/icon/override_icon_file
 	var/hud_icon_state
