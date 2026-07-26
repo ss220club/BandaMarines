@@ -52,5 +52,17 @@
 	var/server = CONFIG_GET(string/server)
 	var/list/adm = get_admin_counts()
 	var/list/allmins = adm["total"]
-	var/status = "[GLOB.round_id ? "Round #[GLOB.round_id]" : ""]. \nPlayers: [GLOB.clients.len], [english_list(GLOB.clients)] (Active: [get_active_player_count(FALSE, TRUE, FALSE)]). \nAdmins: [allmins.len] (Active: [english_list(adm["present"])] \n AFK: [english_list(adm["afk"])] \n Stealth: [english_list(adm["stealth"])] \n Skipped: [english_list(adm["noflags"])]).\nGamemode: [GLOB.master_mode]. \nShip map: [SSmapping.configs[SHIP_MAP].map_name]. \nGround map: [SSmapping.configs[GROUND_MAP].map_name]. \nRound [SSticker.HasRoundStarted() ? (SSticker.IsRoundInProgress() ? "Active" : "Finishing") : "Starting"] -- [server ? server : "[world.internet_address]:[world.port]"]"
+	var/status = "**[GLOB.round_id ? "Round #[GLOB.round_id]" : "Round"]**\n" \
+	"**Players ([GLOB.clients.len]):** [english_list(GLOB.clients)]\n" \
+	"**Active Players:** [get_active_player_count(FALSE, TRUE, FALSE)]\n\n" \
+	"**Admins ([allmins.len]):**\n" \
+	"• Active: [english_list(adm["present"])]\n" \
+	"• AFK: [english_list(adm["afk"])]\n" \
+	"• Stealth: [english_list(adm["stealth"])]\n" \
+	"• Skipped: [english_list(adm["noflags"])]\n\n" \
+	"**Gamemode:** [GLOB.master_mode]\n" \
+	"**Ship map:** [SSmapping.configs[SHIP_MAP].map_name]\n" \
+	"**Ground map:** [SSmapping.configs[GROUND_MAP].map_name]\n\n" \
+	"**Status:** [SSticker.HasRoundStarted() ? (SSticker.IsRoundInProgress() ? "Active" : "Finishing") : "Starting"]\n" \
+	"**Address:** [server ? server : "[world.internet_address]:[world.port]"]"
 	return new /datum/tgs_message_content(status)
