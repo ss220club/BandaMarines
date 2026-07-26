@@ -61,7 +61,7 @@
 	/// Whether this ERT can occur even during FTL or on a ground crash
 	var/ignore_ftl_or_crash = FALSE
 
-	var/ert_message = "Был активирован аварийный маяк" //SS220 EDIT
+	var/ert_message = "Был активирован аварийный маяк бедствия." //SS220 EDIT
 
 	var/time_required_for_job = 5 HOURS
 
