@@ -30,7 +30,7 @@
 
 /obj/docking_port/mobile/vehicle_elevator/on_ignition()
 	. = ..()
-	var/obj/docking_port/stationary/current_dock = get_docked()
+	var/obj/docking_port/stationary/current_dock = get_docked() // BANDAMARINES EDIT
 	// If the elevator isn't in the vehicle bay, start the gears immediately.
 	close_railings()
 	if(current_dock?.id == "adminlevel vehicle") // BANDAMARINES EDIT
