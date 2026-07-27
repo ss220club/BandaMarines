@@ -213,4 +213,4 @@
 	cost = 35
 	containertype = /obj/structure/closet/crate/weapon
 	containername = "Type 88 marksman rifle mags"
-	group = "UPP Special Weapon"
+	group = "UPP Special Ammo"

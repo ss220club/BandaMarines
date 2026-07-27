@@ -222,14 +222,20 @@
 	var/obj/structure/machinery/defenses/sentry/premade/dropship/deployed_turret
 	combat_equipment = FALSE
 	var/auto_deploy = FALSE // allows dropship turrets to be auto deployed, a toggle
+	faction_exclusive = FACTION_MARINE
+
+/obj/structure/dropship_equipment/sentry_holder/proc/create_turret()
+	if(!deployed_turret)
+		deployed_turret = new(src)
+		deployed_turret.deployment_system = src
+
+	health = deployed_turret.health
+
 
 /obj/structure/dropship_equipment/sentry_holder/Initialize()
 	. = ..()
 
-	if(!deployed_turret)
-		deployed_turret = new(src)
-		deployed_turret.deployment_system = src
-	health = deployed_turret.health
+	create_turret()
 
 /obj/structure/dropship_equipment/sentry_holder/update_health(damage, pass_forward = FALSE)
 	pass_forward = !pass_forward

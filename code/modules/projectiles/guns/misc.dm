@@ -19,7 +19,7 @@
 	cocked_sound = 'sound/weapons/gun_minigun_cocked.ogg'
 	current_mag = /obj/item/ammo_magazine/minigun
 	w_class = SIZE_HUGE
-	force = 20
+	force = 40
 	flags_gun_features = GUN_AUTO_EJECTOR|GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_RECOIL_BUILDUP|GUN_CAN_POINTBLANK
 	gun_category = GUN_CATEGORY_HEAVY
 	start_semiauto = FALSE
@@ -203,8 +203,6 @@
 	)
 	var/cover_open = FALSE //if the gun's feed-cover is open or not.
 
-	actions_types = list(/datum/action/item_action/toggle_iff_pkp)
-
 	COOLDOWN_DECLARE(attack_cooldown)
 	var/cooldown_time = 10 SECONDS
 
@@ -212,9 +210,11 @@
 	. = ..()
 	if(. && (COOLDOWN_FINISHED(src, attack_cooldown)))
 		COOLDOWN_START(src, attack_cooldown, cooldown_time)
-		target.throw_atom(get_step(target, user.dir), 1, SPEED_AVERAGE, user, FALSE)
-		target.apply_effect(5, DAZE)
-		target.apply_effect(10, SLOW)
+		target.throw_atom(get_step(target, user.dir), 2, SPEED_AVERAGE, user, FALSE)
+		target.emote("pain")
+		target.apply_effect(15, SLOW)
+		target.apply_effect(8, DAZE)
+		target.apply_effect(1, WEAKEN)
 		
 /obj/item/weapon/gun/pkp/handle_starting_attachment()
 	..()
@@ -234,15 +234,10 @@
 
 /obj/item/weapon/gun/pkp/Initialize(mapload, spawn_empty)
 	. = ..()
+
 	AddElement(/datum/element/corp_label/norcomm)
 	if(current_mag && current_mag.current_rounds > 0)
 		load_into_chamber()
-
-// /obj/item/weapon/gun/pkp/set_bullet_traits()
-//	LAZYADD(traits_to_give, list(
-//		BULLET_TRAIT_ENTRY_ID("iff", /datum/element/bullet_trait_iff)
-//	))
-//	AddComponent(/datum/component/iff_fire_prevention)
 
 /obj/item/weapon/gun/pkp/set_gun_attachment_offsets()
 	attachable_offset = list("muzzle_x" = 45, "muzzle_y" = 18, "rail_x" = 16, "rail_y" = 5, "under_x" = 37, "under_y" = 15, "stock_x" = 10, "stock_y" = 13)
@@ -313,39 +308,6 @@
 	if(!skillcheck(user, SKILL_SPEC_WEAPONS, SKILL_SPEC_ALL) && user.skills.get_skill_level(SKILL_SPEC_WEAPONS) != SKILL_SPEC_UPP)
 		to_chat(user, SPAN_WARNING("You don't seem to know how to use [src]..."))
 		return 0
-
-/obj/item/weapon/gun/pkp/afterattack(atom/attacked_target, mob/user, proximity)
-	if(!proximity || !user || user.action_busy)
-		return FALSE
-
-	if(istype(attacked_target, /obj/structure/machinery/door/airlock))
-		var/obj/structure/machinery/door/airlock/door = attacked_target
-
-		if(door.operating || !door.density || door.locked)
-			return FALSE
-
-		if(door.heavy)
-			to_chat(user, SPAN_DANGER("[door] is too heavy to be forced open."))
-			return FALSE
-
-		user.visible_message(
-			SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] grips [door] with [src] and strains to smash it open..."),
-			SPAN_DANGER("You grip [door] with [src] and strain to force it open...")
-		)
-
-		if(do_after(user, 3 SECONDS, INTERRUPT_ALL, BUSY_ICON_HOSTILE) && door.density)
-			user.visible_message(
-				SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] forces [door] open with [src]!"),
-				SPAN_DANGER("You force [door] open with [src].")
-			)
-
-			door.open(TRUE)
-			door.ex_act(100)
-			playsound(user, 'sound/effects/metal_crash.ogg', 75)
-
-			return TRUE
-
-	return FALSE
 
 //PILLGUN
 /obj/item/weapon/gun/pill

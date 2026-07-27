@@ -302,7 +302,7 @@
 	icon_state = "himat"
 	max_range = 70
 	var/kit_type = /obj/item/mortar_kit/himat
-	travel_time = 80
+	travel_time = 60
 	var/obj/item/mortar_shell/loaded_shell = null
 	var/id
 

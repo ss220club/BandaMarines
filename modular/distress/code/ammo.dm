@@ -113,19 +113,24 @@
 	accuracy_var_high = PROJECTILE_VARIANCE_TIER_6
 	accurate_range = 14
 	damage = 45
-	penetration = ARMOR_PENETRATION_TIER_3
+	penetration = ARMOR_PENETRATION_TIER_4
 	shrapnel_chance = SHRAPNEL_CHANCE_TIER_9
+
+/datum/ammo/bullet/sniper/upp
+	name = "armor-piercing sniper bullet"
+	damage = 100
+	penetration = ARMOR_PENETRATION_TIER_10
 
 /datum/ammo/bullet/rifle/type71
 	name = "heavy rifle bullet"
 
-	damage = 30
-	penetration = ARMOR_PENETRATION_TIER_3
+	damage = 40
+	penetration = ARMOR_PENETRATION_TIER_5
 
 /datum/ammo/bullet/rifle/type71/ap
 	name = "heavy armor-piercing rifle bullet"
 
-	damage = 40
+	damage = 45
 	penetration = ARMOR_PENETRATION_TIER_10
 
 /datum/ammo/bullet/minigun
@@ -137,28 +142,28 @@
 	accuracy = HIT_ACCURACY_TIER_3
 	accuracy_var_low = PROJECTILE_VARIANCE_TIER_6
 	accuracy_var_high = PROJECTILE_VARIANCE_TIER_6
-	accurate_range = 12
-	damage = 35
-	penetration = ARMOR_PENETRATION_TIER_4
+	accurate_range = 7
+	damage = 30
+	penetration = ARMOR_PENETRATION_TIER_3
 	shrapnel_chance = SHRAPNEL_CHANCE_TIER_6
 
 /datum/ammo/bullet/rifle/type71/ak
 	name = "heavy rifle bullet"
 	icon = 'modular/distress/icons/projectiles.dmi'
 	icon_state = "redtrac"
-	damage = 50
+	damage = 55
 	penetration = ARMOR_PENETRATION_TIER_4
 
 /datum/ammo/bullet/rifle/type71/ak/ap
 	name = "heavy armor-piercing rifle bullet"
-	icon_state = "bullet_large_green"
+	icon_state = "bullet_green"
 	damage = 35
 	penetration = ARMOR_PENETRATION_TIER_10
 
 /datum/ammo/bullet/rifle/type71/ak/heap
 	name = "heavy high-explosive armor-piercing rifle bullet"
 	headshot_state = HEADSHOT_OVERLAY_HEAVY
-	icon_state = "bullet_large_green"
+	icon_state = "bullet_green"
 	damage = 60
 	penetration = ARMOR_PENETRATION_TIER_10
 
@@ -233,6 +238,8 @@
 	qdel(src)
 
 /obj/structure/machinery/defenses/sentry/premade/dropship/upp
+	icon = 'icons/obj/structures/machinery/defenses/upp_defenses.dmi'
+	sentry_type = "upp_sentry"
 	faction_group = FACTION_LIST_UPP
 	minimap_icon_state = "sentry_omni"
 
@@ -255,8 +262,7 @@
     desc = "A box that deploys a UPP SDS-R3 sentry turret. Fits on both the external weapon and crew compartment attach points of dropships. You need a powerloader to lift it."
     faction_exclusive = FACTION_UPP
 
-/obj/structure/dropship_equipment/sentry_holder/upp/Initialize()
-	. = ..()
+/obj/structure/dropship_equipment/sentry_holder/upp/create_turret()
 	if(!deployed_turret)
 		deployed_turret = new /obj/structure/machinery/defenses/sentry/premade/dropship/upp(src)
 		deployed_turret.deployment_system = src

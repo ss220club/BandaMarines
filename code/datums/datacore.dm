@@ -14,9 +14,13 @@ GLOBAL_DATUM_INIT(data_core, /datum/datacore, new)
 		if(!nosleep)
 			sleep(40)
 
-		var/list/jobs_to_check = GLOB.ROLES_USCM + GLOB.ROLES_WO
+		var/list/jobs_to_check = GLOB.ROLES_USCM + GLOB.ROLES_WO + UPP_JOB_LIST
 
 		for(var/mob/living/carbon/human/current_human as anything in GLOB.human_mob_list)
+
+			if(!current_human.client)
+				continue
+
 			if(should_block_game_interaction(current_human))
 				continue
 
