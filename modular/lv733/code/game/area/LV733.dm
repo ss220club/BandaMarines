@@ -352,7 +352,6 @@
 
 /area/lv733/indoors/base_operations/communications_office
 	name = "ROAF Base Operations - Communications Office"
-	linked_lz = DROPSHIP_LZ1
 
 /area/lv733/indoors/base_operations/co_office
 	name = "ROAF Base Operations - Chief of ROAF Staff Office"
