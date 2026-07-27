@@ -2,6 +2,6 @@
 
 #include "code/_defines.dm"
 #include "code/arc.dm"
-// #include "code/arc_emote.dm"
+#include "code/panel.dm"
 
 #include "code/~undefs/~undefs.dm"
