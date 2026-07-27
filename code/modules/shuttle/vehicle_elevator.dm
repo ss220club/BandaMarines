@@ -28,18 +28,13 @@
 		if(R.id == "vehicle_elevator_railing" || R.id == "vehicle_elevator_railing_aux") // BANDAMARINES EDIT
 			railings += R
 
-// BANDAMARINES EDIT START
 /obj/docking_port/mobile/vehicle_elevator/on_ignition()
 	. = ..()
 	var/obj/docking_port/stationary/current_dock = get_docked()
 	// If the elevator isn't in the vehicle bay, start the gears immediately.
 	close_railings()
-	if(current_dock?.id == "adminlevel vehicle")
-		start_gears()
-		playsound(destination, 'sound/machines/asrs_raising.ogg', 60)
-	else
-		addtimer(CALLBACK(src, PROC_REF(start_gears)), ignitionTime)
-/*
+	if(current_dock?.id == "adminlevel vehicle") // BANDAMARINES EDIT
+		start_gears() // BANDAMARINES EDIT
 		// Play the 'raising' sound effect at the destination docking port manually.
 		// `landing_sound` can't be used since that only plays on the elevator itself,
 		// and this sound file is too long for that either way.
@@ -47,9 +42,7 @@
 		return
 
 	// If the elevator *is* in the vehicle bay, close the railings and start the gears when it leaves.
-	close_railings()
 	addtimer(CALLBACK(src, PROC_REF(start_gears)), ignitionTime)
-*/ // BANDAMARINES EDIT END
 
 /obj/docking_port/mobile/vehicle_elevator/afterShuttleMove()
 	. = ..()
