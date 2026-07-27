@@ -205,7 +205,6 @@
 
 	actions_types = list(/datum/action/item_action/toggle_iff_pkp)
 
-	var/iff_enabled = FALSE
 	COOLDOWN_DECLARE(attack_cooldown)
 	var/cooldown_time = 10 SECONDS
 
@@ -314,35 +313,6 @@
 	if(!skillcheck(user, SKILL_SPEC_WEAPONS, SKILL_SPEC_ALL) && user.skills.get_skill_level(SKILL_SPEC_WEAPONS) != SKILL_SPEC_UPP)
 		to_chat(user, SPAN_WARNING("You don't seem to know how to use [src]..."))
 		return 0
-
-/datum/action/item_action/toggle_iff_pkp/New(Target, obj/item/holder)
-	. = ..()
-	name = "Toggle IFF"
-	action_icon_state = "iff_toggle_off"
-	button.name = name
-	button.overlays.Cut()
-	button.overlays += image('icons/mob/hud/actions.dmi', button, action_icon_state)
-
-/datum/action/item_action/toggle_iff_pkp/action_activate()
-	. = ..()
-
-	var/obj/item/weapon/gun/pkp/G = holder_item
-	if(!ishuman(owner))
-		return
-
-	var/mob/living/carbon/human/H = owner
-	if(H.is_mob_incapacitated() || G.get_active_firearm(H, FALSE) != holder_item)
-		return
-
-	G.iff_enabled = !G.iff_enabled
-
-	if(G.iff_enabled)
-		action_icon_state = "iff_toggle_on"
-	else
-		action_icon_state = "iff_toggle_off"
-
-	button.overlays.Cut()
-	button.overlays += image('icons/mob/hud/actions.dmi', button, action_icon_state)
 
 /obj/item/weapon/gun/pkp/afterattack(atom/attacked_target, mob/user, proximity)
 	if(!proximity || !user || user.action_busy)
