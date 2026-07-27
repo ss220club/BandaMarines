@@ -1,6 +1,6 @@
 //Shaking
 /mob/living/carbon/xenomorph
-	/var/xeno_jitter_timer_id = TIMER_ID_NULL
+	var/xeno_jitter_timer_id = TIMER_ID_NULL
 
 /mob/living/carbon/xenomorph/xeno_jitter(jitter_time = 25)
 	set waitfor = 0
