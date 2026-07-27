@@ -479,7 +479,7 @@
 	action_icon_state = "designator_mortar"
 	button.name = name
 	button.overlays.Cut()
-	button.overlays += image('icons/mob/hud/actions.dmi', button, action_icon_state)
+	button.overlays += image('modular/distress/icons/misc.dmi', button, action_icon_state)
 
 /datum/action/item_action/fire_himat/action_activate()
 	. = ..()
@@ -492,8 +492,12 @@
 					howmanyhimats++
 			to_chat(usr, SPAN_NOTICE("Command sent. Fired: [howmanyhimats] shells."))
 		else
+			if(desig.himat_id > length(desig.connected_himats))
+				desig.himat_id = 1
+			if(!length(desig.connected_himats))
+				return
 			var/obj/structure/mortar/himat/himat = desig.connected_himats[desig.himat_id]
-			if(himat.handle_shell(get_turf(desig.laser), himat.loaded_shell))
+			if(himat && himat.handle_shell(get_turf(desig.laser), himat.loaded_shell))
 				to_chat(usr, SPAN_NOTICE("Command sent. Fired: HIMAT [himat.id]."))
 
 /datum/action/item_action/switch_himat/New(Target, obj/item/holder)
@@ -502,7 +506,7 @@
 	action_icon_state = "designator_swap_mortar"
 	button.name = name
 	button.overlays.Cut()
-	button.overlays += image('icons/mob/hud/actions.dmi', button, action_icon_state)
+	button.overlays += image('modular/distress/icons/misc.dmi', button, action_icon_state)
 
 /datum/action/item_action/switch_himat/action_activate()
 	. = ..()
@@ -522,7 +526,7 @@
 	action_icon_state = "designator_one_weapon"
 	button.name = name
 	button.overlays.Cut()
-	button.overlays += image('icons/mob/hud/actions.dmi', button, action_icon_state)
+	button.overlays += image('modular/distress/icons/misc.dmi', button, action_icon_state)
 
 /datum/action/item_action/himat_barrage/action_activate()
 	. = ..()
@@ -531,9 +535,11 @@
 	button.overlays.Cut()
 	if(desig.barrage_mode)
 		action_icon_state = "designator_all_weapons"
+		to_chat(usr, SPAN_NOTICE("Barrage mode: ON"))
 	else
 		action_icon_state = "designator_one_weapon"
-	button.overlays += image('icons/mob/hud/actions.dmi', button, action_icon_state)
+		to_chat(usr, SPAN_NOTICE("Barrage mode: OFF"))
+	button.overlays += image('modular/distress/icons/misc.dmi', button, action_icon_state)
 
 /obj/item/clothing/accessory/helmet/cover/frogmen_veil
 	name = "Frogmen tactical veil"

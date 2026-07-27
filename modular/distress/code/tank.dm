@@ -58,7 +58,7 @@
 /obj/effect/vehicle_spawner/upptank/Initialize()
 	. = ..()
 	spawn_vehicle()
-	qdel(src)
+	return INITIALIZE_HINT_QDEL
 
 
 /obj/effect/vehicle_spawner/upptank/spawn_vehicle()
