@@ -196,6 +196,7 @@
 	item_icons = list(
 		WEAR_JACKET = 'icons/mob/humans/onmob/clothing/suits/suits_by_faction/UPP.dmi'
 	)
+	slowdown = SLOWDOWN_ARMOR_LIGHT
 	armor_melee = CLOTHING_ARMOR_MEDIUM
 	armor_bullet = CLOTHING_ARMOR_HIGH
 	armor_energy = CLOTHING_ARMOR_MEDIUM
@@ -208,12 +209,13 @@
 /obj/item/clothing/suit/storage/marine/faction/UPP/support
 	name = "\improper UL6 personal armor"
 	desc = "Standard body armor of the UPP military, the UL6 (Union Light MK6) is a light body armor, slightly weaker than the M3 pattern body armor in service with the USCM, specialized towards ballistics protection. This set of personal armor lacks the iconic neck piece and some of the armor in favor of user mobility."
-	storage_slots = 4
+	storage_slots = 2
 	icon_state = "upp_armor_support"
-	slowdown = SLOWDOWN_ARMOR_LIGHT
-	armor_bullet = CLOTHING_ARMOR_HIGH
-	armor_melee = CLOTHING_ARMOR_MEDIUM
+	slowdown = SLOWDOWN_ARMOR_MEDIUM
+	armor_bullet = CLOTHING_ARMOR_VERYHIGH
+	armor_melee = CLOTHING_ARMOR_MEDIUMLOW
 	armor_energy = CLOTHING_ARMOR_MEDIUM
+	armor_bomb = CLOTHING_ARMOR_HIGH
 	armor_bio = CLOTHING_ARMOR_VERYHIGH
 	armor_rad = CLOTHING_ARMOR_MEDIUMLOW
 	armor_internaldamage = CLOTHING_ARMOR_HIGH
@@ -222,17 +224,17 @@
 	name = "\improper UH7 heavy plated armor"
 	desc = "An extremely heavy-duty set of body armor in service with the UPP military, the UH7 (Union Heavy MK7) is known for having powerful ballistic protection, alongside a noticeable neck guard, fortified in order to allow the wearer to endure the stresses of the bulky helmet."
 	icon_state = "upp_armor_heavy"
-	storage_slots = 2
+	storage_slots = 1
 	slowdown = SLOWDOWN_ARMOR_HEAVY
 	flags_inventory = BLOCKSHARPOBJ|BLOCK_KNOCKDOWN
 	flags_armor_protection = BODY_FLAG_ALL_BUT_HEAD
 	armor_melee = CLOTHING_ARMOR_VERYHIGH
 	armor_bullet = CLOTHING_ARMOR_HIGHPLUS
 	armor_laser = CLOTHING_ARMOR_MEDIUMLOW
-	armor_energy = CLOTHING_ARMOR_MEDIUM
+	armor_energy = CLOTHING_ARMOR_MEDIUMLOW
 	armor_bomb = CLOTHING_ARMOR_HIGH
-	armor_bio = CLOTHING_ARMOR_HIGH
-	armor_rad = CLOTHING_ARMOR_MEDIUMLOW
+	armor_bio = CLOTHING_ARMOR_LOW
+	armor_rad = CLOTHING_ARMOR_LOW
 	armor_internaldamage = CLOTHING_ARMOR_HIGHPLUS
 
 /obj/item/clothing/head/helmet/marine/veteran/UPP/heavy
@@ -243,7 +245,7 @@
 	armor_bullet = CLOTHING_ARMOR_VERYHIGH
 	armor_energy = CLOTHING_ARMOR_MEDIUMHIGH
 	armor_bomb = CLOTHING_ARMOR_HIGH
-	armor_bio = CLOTHING_ARMOR_HIGHPLUS
+	armor_bio = CLOTHING_ARMOR_LOW
 	armor_internaldamage = CLOTHING_ARMOR_HIGHPLUS
 
 /obj/item/device/motiondetector/upp
@@ -298,9 +300,9 @@
 	icon = 'modular/distress/icons/mortar.dmi'
 	desc = "A man-portable two-stage missile launcher. While capable of being fired manually, what truly sets this apart from standard boom-tubes is it's onboard fire-control systems. While deployed on a baseplate and supporting bipod stand it will attempt to link with any local USCM sensor matrix, allowing it to automatically track, identify and request to fire upon hostile targets in range."
 	icon_state = "himat"
-	max_range = 999
+	max_range = 70
 	var/kit_type = /obj/item/mortar_kit/himat
-	travel_time = 25
+	travel_time = 80
 	var/obj/item/mortar_shell/loaded_shell = null
 	var/id
 
@@ -693,3 +695,8 @@
 	new	/obj/item/stack/medical/ointment(src)
 	new /obj/item/stack/medical/bruise_pack(src)
 	new /obj/item/stack/medical/splint(src)
+
+/obj/structure/machinery/computer/supply_drop_console/upp
+	req_access = list(ACCESS_UPP_ARMORY)
+	drop_cooldown = 500
+	faction = FACTION_UPP

@@ -93,7 +93,7 @@
 	cost = 60
 	containertype = /obj/structure/closet/crate/weapon
 	containername = "QYJ-72 General Purpose Machine Gun Crate"
-	group = "UPP Weapons"
+	group = "UPP Special Weapon"
 
 /datum/supply_packs/upp/minigun
 	name = "UPP GSh-7.62 Rotary Machine Gun (x1)"
@@ -113,13 +113,13 @@
 		/obj/item/ammo_magazine/sniper/svd,
 		/obj/item/ammo_magazine/sniper/svd,
 	)
-	cost = 40
+	cost = 25
 	containertype = /obj/structure/closet/crate/weapon
 	containername = "Type 88 designated marksman rifle Crate"
 	group = "UPP Special Weapon"
 
 /datum/supply_packs/upp/Type71_carbine_commando_x10
-	name = "UPP Type 71 'Commando' pulse carbine (x2)"
+	name = "UPP Type 71 'Commando' pulse carbine (x1)"
 	contains = list(
 		/obj/item/weapon/gun/rifle/type71/carbine/commando,
 	)

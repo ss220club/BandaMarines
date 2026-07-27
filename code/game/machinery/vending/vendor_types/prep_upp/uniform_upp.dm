@@ -18,8 +18,8 @@
 		list("UM4 Helmet", floor(scale * 15), /obj/item/clothing/head/helmet/marine/veteran/UPP, VENDOR_ITEM_REGULAR),
 
 		list("HEADWEAR", -1, null, null),
-		list("UL3 armored beret", 3, /obj/item/clothing/head/uppcap/beret, VENDOR_ITEM_REGULAR),
-		list("UL8 armored ushanka", 4, /obj/item/clothing/head/uppcap/ushanka, VENDOR_ITEM_REGULAR),
+		list("UL3 armored beret", 2, /obj/item/clothing/head/uppcap/beret, VENDOR_ITEM_REGULAR),
+		list("UL8 armored ushanka", 3, /obj/item/clothing/head/uppcap/ushanka, VENDOR_ITEM_REGULAR),
 
 		list("WEBBINGS", -1, null, null),
 		list("Brown Webbing Vest", 1, /obj/item/clothing/accessory/storage/black_vest/brown_vest, VENDOR_ITEM_REGULAR),

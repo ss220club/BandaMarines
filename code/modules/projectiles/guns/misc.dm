@@ -344,6 +344,39 @@
 	button.overlays.Cut()
 	button.overlays += image('icons/mob/hud/actions.dmi', button, action_icon_state)
 
+/obj/item/weapon/gun/pkp/afterattack(atom/attacked_target, mob/user, proximity)
+	if(!proximity || !user || user.action_busy)
+		return FALSE
+
+	if(istype(attacked_target, /obj/structure/machinery/door/airlock))
+		var/obj/structure/machinery/door/airlock/door = attacked_target
+
+		if(door.operating || !door.density || door.locked)
+			return FALSE
+
+		if(door.heavy)
+			to_chat(user, SPAN_DANGER("[door] is too heavy to be forced open."))
+			return FALSE
+
+		user.visible_message(
+			SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] grips [door] with [src] and strains to smash it open..."),
+			SPAN_DANGER("You grip [door] with [src] and strain to force it open...")
+		)
+
+		if(do_after(user, 3 SECONDS, INTERRUPT_ALL, BUSY_ICON_HOSTILE) && door.density)
+			user.visible_message(
+				SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] forces [door] open with [src]!"),
+				SPAN_DANGER("You force [door] open with [src].")
+			)
+
+			door.open(TRUE)
+			door.ex_act(100)
+			playsound(user, 'sound/effects/metal_crash.ogg', 75)
+
+			return TRUE
+
+	return FALSE
+
 //PILLGUN
 /obj/item/weapon/gun/pill
 	name = "pill gun"
@@ -439,3 +472,4 @@
 /obj/item/weapon/gun/pill/super
 	name = "large pill gun"
 	current_mag = /obj/item/ammo_magazine/internal/pillgun/super
+	

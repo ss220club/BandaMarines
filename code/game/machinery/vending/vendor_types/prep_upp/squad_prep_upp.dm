@@ -17,7 +17,7 @@
 /obj/structure/machinery/cm_vending/sorted/cargo_ammo/upp_squad/populate_product_list(scale)
 	listed_products = list(
 		list("ARMOR-PIERCING AMMUNITION", -1, null, null),
-		list("AK-4047 AP magazine (7.62x39mm)", floor(scale * 6), /obj/item/ammo_magazine/rifle/ak4047/ap, VENDOR_ITEM_REGULAR),
+		list("AK-4047 AP magazine (7.62x39mm)", floor(scale * 16), /obj/item/ammo_magazine/rifle/ak4047/ap, VENDOR_ITEM_REGULAR),
 		list("Type 64 Helical AP Magazine (7.62x19mm)", floor(scale * 6), /obj/item/ammo_magazine/smg/bizon/ap, VENDOR_ITEM_REGULAR),
 
 		list("RESTRICTED FIREARM AMMUNITION", -1, null, null),
@@ -60,7 +60,7 @@
 		list("Box of Flashlight", floor(scale * 1), /obj/item/ammo_box/magazine/misc/flashlight, VENDOR_ITEM_REGULAR),
 		list("Box of Flares", floor(scale * 1), /obj/item/ammo_box/magazine/misc/flares, VENDOR_ITEM_REGULAR),
 		list("M94 Marking Flare Pack", floor(scale * 10), /obj/item/storage/box/m94, VENDOR_ITEM_REGULAR),
-//		list("M89-S Signal Flare Pack", floor(scale * 1), /obj/item/storage/box/m94/signal, VENDOR_ITEM_REGULAR), (removed until signal flares work per faction)
+//		list("M89-S Signal Flare Pack", floor(scale * 5), /obj/item/storage/box/m94/signal, VENDOR_ITEM_REGULAR), (removed until signal flares work per faction)
 
 		list("MISCELLANEOUS", -1, null, null),
 		list("Map", floor(scale * 5), /obj/item/map/current_map, VENDOR_ITEM_REGULAR),
@@ -69,7 +69,6 @@
 		list("Roller Bed", floor(scale * 1), /obj/item/roller, VENDOR_ITEM_REGULAR),
 		list("Machete Scabbard (Full)", floor(scale * 5), /obj/item/storage/large_holster/machete/full, VENDOR_ITEM_REGULAR),
 		list("Binoculars", floor(scale * 1), /obj/item/device/binoculars/upp, VENDOR_ITEM_REGULAR),
-		list("Spare PDT/L Battle Buddy Kit", floor(scale * 3), /obj/item/storage/box/pdt_kit, VENDOR_ITEM_REGULAR),
 		list("W-Y brand rechargeable mini-battery", floor(scale * 2.5), /obj/item/cell/crap, VENDOR_ITEM_REGULAR),
 		list("Nailgun Magazine (7x45mm)", floor(scale * 4), /obj/item/ammo_magazine/smg/nailgun, VENDOR_ITEM_REGULAR)
 		)
@@ -134,29 +133,29 @@
 	listed_products = list(
 		list("PRIMARY FIREARMS", -1, null, null),
 		list("AK-4047 pulse assault rifle", floor(scale * 10), /obj/item/weapon/gun/rifle/ak4047, VENDOR_ITEM_REGULAR),
-		list("Type 71 Pulse Rifle", floor(scale * 2), /obj/item/weapon/gun/rifle/type71, VENDOR_ITEM_REGULAR),
-		list("Type 71 Pulse Rifle Carbine", floor(scale * 2), /obj/item/weapon/gun/rifle/type71/carbine, VENDOR_ITEM_REGULAR),
+		list("Type 71 Pulse Rifle", floor(scale * 1), /obj/item/weapon/gun/rifle/type71, VENDOR_ITEM_REGULAR),
+		list("Type 71 Pulse Rifle Carbine", floor(scale * 1), /obj/item/weapon/gun/rifle/type71/carbine, VENDOR_ITEM_REGULAR),
 		list("Type 64 Submachinegun", floor(scale * 5), /obj/item/weapon/gun/smg/bizon/upp, VENDOR_ITEM_REGULAR),
 		list("Type 23 Riot Shotgun", floor(scale * 2), /obj/item/weapon/gun/shotgun/type23, VENDOR_ITEM_REGULAR),
 
 		list("REGULAR AMMUNITION", -1, null, null),
-		list("AK-4047 magazine (7.62x39mm)", floor(scale * 15), /obj/item/ammo_magazine/rifle/ak4047, VENDOR_ITEM_REGULAR),
+		list("AK-4047 magazine (7.62x39mm)", floor(scale * 25), /obj/item/ammo_magazine/rifle/ak4047, VENDOR_ITEM_REGULAR),
 		list("Type 71 Magazine (5.45x39mm)", floor(scale * 8), /obj/item/ammo_magazine/rifle/type71, VENDOR_ITEM_REGULAR),
 		list("Type 64 Helical Magazine (7.62x19mm)", floor(scale * 15), /obj/item/ammo_magazine/smg/bizon, VENDOR_ITEM_REGULAR),
 		list("Box of Heavy Buckshot Shells (8g)", floor(scale * 5), /obj/item/ammo_magazine/shotgun/heavy/buckshot, VENDOR_ITEM_REGULAR),
 		list("Box of Heavy Slugs (8g)", floor(scale * 5), /obj/item/ammo_magazine/shotgun/heavy/slug, VENDOR_ITEM_REGULAR),
-		list("Box of Heavy Flechette Shells (8g)", floor(scale * 2), /obj/item/ammo_magazine/shotgun/heavy/flechette, VENDOR_ITEM_REGULAR),
+		list("Box of Heavy Flechette Shells (8g)", floor(scale * 3), /obj/item/ammo_magazine/shotgun/heavy/flechette, VENDOR_ITEM_REGULAR),
 
 		list("SIDEARMS", -1, null, null),
-		list("Type 73 Pistol", floor(scale * 10), /obj/item/weapon/gun/pistol/t73, VENDOR_ITEM_REGULAR),
+		list("Type 73 Pistol", floor(scale * 15), /obj/item/weapon/gun/pistol/t73, VENDOR_ITEM_REGULAR),
 		list("NP92 Pistol", floor(scale * 10), /obj/item/weapon/gun/pistol/np92, VENDOR_ITEM_REGULAR),
-		list("ZHNK-72 Revolver", floor(scale * 10), /obj/item/weapon/gun/revolver/upp, VENDOR_ITEM_REGULAR),
+		list("ZHNK-72 Revolver", floor(scale * 15), /obj/item/weapon/gun/revolver/upp, VENDOR_ITEM_REGULAR),
 		list("M82F Flare Gun", floor(scale * 2), /obj/item/weapon/gun/flare, VENDOR_ITEM_REGULAR),
 
 		list("SIDEARM AMMUNITION", -1, null, null),
-		list("Type 73 Magazine (7.62x25mm Tokarev)", floor(scale * 15), /obj/item/ammo_magazine/pistol/t73, VENDOR_ITEM_REGULAR),
-		list("ZHNK-72 Speed Loader (7.62x38mmR)", floor(scale * 15), /obj/item/ammo_magazine/revolver/upp, VENDOR_ITEM_REGULAR),
-		list("NP92 Magazine (9x18mm Makarov)", floor(scale * 15), /obj/item/ammo_magazine/pistol/np92, VENDOR_ITEM_REGULAR),
+		list("Type 73 Magazine (7.62x25mm Tokarev)", floor(scale * 25), /obj/item/ammo_magazine/pistol/t73, VENDOR_ITEM_REGULAR),
+		list("ZHNK-72 Speed Loader (7.62x38mmR)", floor(scale * 25), /obj/item/ammo_magazine/revolver/upp, VENDOR_ITEM_REGULAR),
+		list("NP92 Magazine (9x18mm Makarov)", floor(scale * 25), /obj/item/ammo_magazine/pistol/np92, VENDOR_ITEM_REGULAR),
 
 		list("ATTACHMENTS", -1, null, null),
 		list("Rail Flashlight", floor(scale * 20), /obj/item/attachable/flashlight, VENDOR_ITEM_RECOMMENDED),

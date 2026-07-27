@@ -50,6 +50,16 @@
 	},
 /turf/open/floor/strata/blue1,
 /area/rostock/lower_deck/dining_hall)
+"aah" = (
+/obj/structure/surface/rack,
+/obj/item/ammo_box/magazine/ak4047{
+	pixel_y = -3
+	},
+/obj/item/ammo_box/magazine/ak4047{
+	pixel_y = -3
+	},
+/turf/open/floor/prison/floor_marked/west,
+/area/rostock/req)
 "aai" = (
 /obj/structure/pipes/standard/simple/hidden/supply{
 	dir = 4
@@ -104,6 +114,19 @@
 	},
 /turf/open/floor/strata,
 /area/rostock/command/hallway)
+"aar" = (
+/obj/structure/surface/rack,
+/obj/item/ammo_box/magazine/type71,
+/obj/item/ammo_box/magazine/type71,
+/turf/open/floor/prison/floor_marked/west,
+/area/rostock/req)
+"aas" = (
+/obj/structure/machinery/computer/supply/upp,
+/obj/structure/barricade/handrail{
+	pixel_x = 2
+	},
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/rostock/req)
 "aav" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "S";
@@ -4065,6 +4088,8 @@
 /obj/structure/surface/rack,
 /obj/item/defenses/handheld/planted_flag/upp,
 /obj/item/defenses/handheld/planted_flag/upp,
+/obj/item/defenses/handheld/planted_flag/upp,
+/obj/item/defenses/handheld/planted_flag/upp,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
 "amK" = (
@@ -5983,6 +6008,9 @@
 /area/rostock/engineering/main_area)
 "bQc" = (
 /obj/structure/surface/rack,
+/obj/item/defenses/handheld/sentry/upp,
+/obj/item/defenses/handheld/sentry/upp,
+/obj/item/defenses/handheld/sentry/upp,
 /obj/item/defenses/handheld/sentry/upp,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
@@ -8813,6 +8841,11 @@
 	phone_id = "Rostock Medbay";
 	phone_category = "Rostock"
 	},
+/obj/structure/bed/portable_surgery,
+/obj/structure/bed/portable_surgery,
+/obj/structure/bed/portable_surgery,
+/obj/structure/bed/portable_surgery,
+/obj/structure/bed/portable_surgery,
 /turf/open/floor/almayer/silverfull,
 /area/rostock/medical/lobby)
 "epI" = (
@@ -13371,6 +13404,8 @@
 /obj/structure/surface/rack,
 /obj/item/stack/sandbags_empty/full,
 /obj/item/stack/sandbags_empty/full,
+/obj/item/stack/sandbags_empty/full,
+/obj/item/stack/sandbags_empty/full,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
 "idE" = (
@@ -15640,6 +15675,7 @@
 "jOx" = (
 /obj/structure/surface/table/almayer,
 /obj/item/tool/hand_labeler,
+/obj/structure/machinery/computer/supply_drop_console/upp,
 /turf/open/floor/strata,
 /area/rostock/req)
 "jPa" = (
@@ -18264,7 +18300,6 @@
 /obj/item/mortar_shell/himat/antipersonnel,
 /obj/item/mortar_shell/himat/antipersonnel,
 /obj/item/mortar_shell/himat/antipersonnel,
-/obj/item/mortar_shell/himat/antipersonnel,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
 "mat" = (
@@ -19300,8 +19335,6 @@
 /obj/item/mortar_shell/himat/explosive,
 /obj/item/mortar_shell/himat/explosive,
 /obj/item/mortar_shell/himat/explosive,
-/obj/item/mortar_shell/himat/explosive,
-/obj/item/mortar_shell/himat/explosive,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
 "mYl" = (
@@ -19474,11 +19507,6 @@
 /area/rostock/lower_deck/p_a_hallway)
 "nld" = (
 /obj/structure/surface/rack,
-/obj/item/mortar_shell/incendiary/himat,
-/obj/item/mortar_shell/incendiary/himat,
-/obj/item/mortar_shell/incendiary/himat,
-/obj/item/mortar_shell/incendiary/himat,
-/obj/item/mortar_shell/incendiary/himat,
 /obj/item/mortar_shell/incendiary/himat,
 /obj/item/mortar_shell/incendiary/himat,
 /obj/item/mortar_shell/incendiary/himat,
@@ -19790,6 +19818,7 @@
 /area/rostock/lowerdeck_maint/s_f)
 "nCh" = (
 /obj/structure/surface/rack,
+/obj/item/stack/sheet/plasteel/large_stack,
 /obj/item/stack/sheet/plasteel/large_stack,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
@@ -22297,6 +22326,7 @@
 "pCX" = (
 /obj/structure/surface/rack,
 /obj/item/stack/sheet/metal/large_stack,
+/obj/item/stack/sheet/metal/large_stack,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
 "pDB" = (
@@ -23900,6 +23930,11 @@
 /obj/item/pamphlet/upgradeable/jtac,
 /obj/item/pamphlet/upgradeable/jtac,
 /obj/item/pamphlet/upgradeable/jtac,
+/obj/item/storage/backpack/marine/satchel/rto/upp_net,
+/obj/item/storage/backpack/marine/satchel/rto/upp_net,
+/obj/item/pamphlet/upgradeable/jtac,
+/obj/item/pamphlet/upgradeable/jtac,
+/obj/item/storage/backpack/marine/satchel/rto/upp_net,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
 "qUb" = (
@@ -26399,6 +26434,9 @@
 "tiP" = (
 /obj/structure/surface/rack,
 /obj/item/ammo_magazine/sentry/upp,
+/obj/item/ammo_magazine/sentry/upp,
+/obj/item/ammo_magazine/sentry/upp,
+/obj/item/ammo_magazine/sentry/upp,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
 "tja" = (
@@ -27326,6 +27364,7 @@
 /area/rostock/command/polcom)
 "tWj" = (
 /obj/structure/surface/rack,
+/obj/item/storage/belt/gun/mortarbelt,
 /obj/item/storage/belt/gun/mortarbelt,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
@@ -44891,7 +44930,7 @@ cnm
 wGS
 xnR
 oga
-oFZ
+aas
 wUJ
 jiF
 cjZ
@@ -45255,7 +45294,7 @@ cnm
 wnk
 hkh
 frt
-oFZ
+aas
 goA
 nGW
 hOz
@@ -46541,7 +46580,7 @@ oJq
 qAA
 pCX
 pCX
-pCX
+ugl
 lgp
 tTu
 dmV
@@ -46723,7 +46762,7 @@ ipV
 eiT
 nCh
 nCh
-nCh
+ugl
 lgp
 lae
 iTx
@@ -47453,8 +47492,8 @@ jSX
 tab
 qTM
 lgp
-vPX
-ugl
+aar
+aah
 pwc
 wqK
 ldc

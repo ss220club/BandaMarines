@@ -1,6 +1,6 @@
 /datum/supply_packs/upp/himat
 	name = "UPP M112 HIMAT missile launcher."
-	cost = 40
+	cost = 60
 	contains = list(
 		/obj/item/mortar_kit/himat,
 	)
@@ -10,7 +10,7 @@
 
 /datum/supply_packs/upp/ammo_mortar_he
 	name = "UPP M112 HIMAT missiles (x10 HE)"
-	cost = 25
+	cost = 40
 	contains = list(
 		/obj/item/mortar_shell/himat/explosive,
 		/obj/item/mortar_shell/himat/explosive,
@@ -27,28 +27,9 @@
 	containername = "\improper M112 HIMAT HE missiles crate"
 	group = "UPP Mortar"
 
-/datum/supply_packs/upp/ammo_mortar_heat
-	name = "UPP M112 HIMAT missiles (x10 HEAT)"
-	cost = 25
-	contains = list(
-		/obj/item/mortar_shell/himat,
-		/obj/item/mortar_shell/himat,
-		/obj/item/mortar_shell/himat,
-		/obj/item/mortar_shell/himat,
-		/obj/item/mortar_shell/himat,
-		/obj/item/mortar_shell/himat,
-		/obj/item/mortar_shell/himat,
-		/obj/item/mortar_shell/himat,
-		/obj/item/mortar_shell/himat,
-		/obj/item/mortar_shell/himat,
-	)
-	containertype = /obj/structure/closet/crate/explosives
-	containername = "\improper M112 HIMAT HEAT missiles crate"
-	group = "UPP Mortar"
-
 /datum/supply_packs/upp/ammo_mortar_ap
 	name = "UPP M112 HIMAT missiles (x10 AP)"
-	cost = 25
+	cost = 40
 	contains = list(
 		/obj/item/mortar_shell/himat/antipersonnel,
 		/obj/item/mortar_shell/himat/antipersonnel,
@@ -68,7 +49,7 @@
 
 /datum/supply_packs/upp/ammo_mortar_incend
 	name = "UPP M112 HIMAT missiles (x10 Incend)"
-	cost = 25
+	cost = 60
 	contains = list(
 		/obj/item/mortar_shell/incendiary/himat,
 		/obj/item/mortar_shell/incendiary/himat,
@@ -87,7 +68,7 @@
 
 /datum/supply_packs/upp/ammo_mortar_flare
 	name = "UPP M112 HIMAT missiles (x10 Flare)"
-	cost = 25
+	cost = 10
 	contains = list(
 		/obj/item/mortar_shell/himat/training,
 		/obj/item/mortar_shell/himat/training,

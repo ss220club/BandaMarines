@@ -13,7 +13,7 @@
 	accuracy = HIT_ACCURACY_TIER_3
 	accurate_range = 32
 	max_range = 32
-	damage = 200
+	damage = 150
 	shell_speed = AMMO_SPEED_TIER_3
 
 /obj/item/ammo_magazine/hardpoint/p17702
@@ -66,7 +66,7 @@
 	name = "\improper HIMAT AP missile"
 	desc = "This is a small, two-stage missile used by HIMAT launcher. This one has an anti-personnel package, air-bursting for maximum soft-target damage."
 	icon_state = "missile_ap"
-	var/number_of_airburst = 10
+	var/number_of_airburst = 12
 
 /obj/item/mortar_shell/himat/antipersonnel/detonate(turf/T)
 	var/list/turf_list = RANGE_TURFS(7, T)
@@ -81,7 +81,7 @@
 	desc = "This is a small, two-stage missile used by HIMAT launcher. This one has an incendiary package, covering area of impact with burning flames."
 	icon = 'modular/distress/icons/mortar.dmi'
 	icon_state = "missile_inc"
-	radius = 6
+	radius = 5
 	flame_level = BURN_TIME_TIER_5 + 5
 	burn_level = BURN_LEVEL_TIER_7
 	flameshape = FLAMESHAPE_DEFAULT
@@ -98,8 +98,8 @@
 /datum/ammo/bullet/shrapnel/himat
 	accurate_range = 8
 	max_range = 6
-	damage = 80
-	shrapnel_chance = SHRAPNEL_CHANCE_TIER_5
+	damage = 75
+	shrapnel_chance = SHRAPNEL_CHANCE_TIER_8
 	accuracy = HIT_ACCURACY_TIER_MAX
 
 /datum/ammo/bullet/pkp
@@ -112,23 +112,53 @@
 	accuracy_var_low = PROJECTILE_VARIANCE_TIER_8
 	accuracy_var_high = PROJECTILE_VARIANCE_TIER_6
 	accurate_range = 14
-	damage = 55
+	damage = 45
+	penetration = ARMOR_PENETRATION_TIER_3
+	shrapnel_chance = SHRAPNEL_CHANCE_TIER_9
+
+/datum/ammo/bullet/rifle/type71
+	name = "heavy rifle bullet"
+
+	damage = 30
+	penetration = ARMOR_PENETRATION_TIER_3
+
+/datum/ammo/bullet/rifle/type71/ap
+	name = "heavy armor-piercing rifle bullet"
+
+	damage = 40
+	penetration = ARMOR_PENETRATION_TIER_10
+
+/datum/ammo/bullet/minigun
+	name = "minigun bullet"
+	headshot_state = HEADSHOT_OVERLAY_MEDIUM
+	icon = 'modular/distress/icons/projectiles.dmi'
+	icon_state = "redtrac"
+
+	accuracy = HIT_ACCURACY_TIER_3
+	accuracy_var_low = PROJECTILE_VARIANCE_TIER_6
+	accuracy_var_high = PROJECTILE_VARIANCE_TIER_6
+	accurate_range = 12
+	damage = 35
 	penetration = ARMOR_PENETRATION_TIER_4
-	shrapnel_chance = SHRAPNEL_CHANCE_TIER_5
+	shrapnel_chance = SHRAPNEL_CHANCE_TIER_6
 
 /datum/ammo/bullet/rifle/type71/ak
 	name = "heavy rifle bullet"
-	damage = 45
-	penetration = ARMOR_PENETRATION_TIER_3
+	icon = 'modular/distress/icons/projectiles.dmi'
+	icon_state = "redtrac"
+	damage = 50
+	penetration = ARMOR_PENETRATION_TIER_4
 
 /datum/ammo/bullet/rifle/type71/ak/ap
 	name = "heavy armor-piercing rifle bullet"
+	icon_state = "bullet_large_green"
 	damage = 35
 	penetration = ARMOR_PENETRATION_TIER_10
 
 /datum/ammo/bullet/rifle/type71/ak/heap
 	name = "heavy high-explosive armor-piercing rifle bullet"
 	headshot_state = HEADSHOT_OVERLAY_HEAVY
+	icon_state = "bullet_large_green"
 	damage = 60
 	penetration = ARMOR_PENETRATION_TIER_10
 
@@ -169,7 +199,7 @@
 	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
 
 /obj/structure/machinery/defenses/sentry/launchable/upp
-	name = "\improper UPP SDS-R8 Sentry post "
+	name = "\improper UPP SDS-R8 Sentry post"
 	desc = "A deployable, omni-directional automated turret with AI targeting capabilities. Armed with an M30 Autocannon and a 100-round drum magazine with 500 rounds stored internally. Due to the deployment method it is incapable of being moved."
 	ammo = new /obj/item/ammo_magazine/sentry/dropped
 	icon = 'icons/obj/structures/machinery/defenses/upp_defenses.dmi'
