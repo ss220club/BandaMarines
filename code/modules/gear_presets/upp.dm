@@ -30,6 +30,9 @@
 	origin_override = ORIGIN_UPP
 	paygrades = list(PAY_SHORT_UE1 = JOB_PLAYTIME_TIER_0, PAY_SHORT_UE2 = JOB_PLAYTIME_TIER_1)
 
+/datum/equipment_preset/upp/load_status(mob/living/carbon/human/new_human)
+	new_human.nutrition = rand(NUTRITION_VERYLOW, NUTRITION_LOW)
+
 /datum/equipment_preset/upp
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 
