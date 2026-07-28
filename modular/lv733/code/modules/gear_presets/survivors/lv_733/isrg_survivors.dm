@@ -45,6 +45,7 @@
 	new_human.equip_to_slot_or_del(new back_type(new_human), WEAR_BACK)
 	new_human.equip_to_slot_or_del(new left_pouch_type(new_human), WEAR_L_STORE)
 	new_human.equip_to_slot_or_del(new right_pouch_type(new_human), WEAR_R_STORE)
+	new_human.equip_to_slot_or_del(new /obj/item/storage/firstaid/synth(new_human), WEAR_IN_BACK)
 
 /datum/equipment_preset/survivor/isrg/load_gear(mob/living/carbon/human/new_human)
 	equip_common_gear(
@@ -62,6 +63,7 @@
 	)
 	new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/mirai7(new_human), WEAR_J_STORE)
 	new_human.equip_to_slot_or_del(new /obj/item/tool/crowbar/tactical(new_human), WEAR_IN_JACKET)
+	new_human.equip_to_slot_or_del(new /obj/item/device/defibrillator/synthetic(new_human), WEAR_IN_JACKET)
 
 /datum/equipment_preset/survivor/isrg/rescuer
 	name = "Survivor - ISRG Rescuer"
@@ -200,9 +202,9 @@
 	new_human.client.prefs.give_tts_seed(new_human)
 
 /datum/equipment_preset/synth_k9/isrg/load_gear(mob/living/carbon/human/new_human)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/synthetic/synth_k9(new_human), WEAR_BODY)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/synthetic/synth_k9/isrg(new_human), WEAR_BODY)
 	new_human.equip_to_slot_or_del(new /obj/item/device/radio/headset/distress/isrg(new_human), WEAR_L_EAR)
-	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/k9_synth/medicalpack/isrg(new_human), WEAR_BACK)
+	new_human.equip_to_slot_or_del(new /obj/item/storage/satchel/marine/k9_synth/medicalpack/isrg(new_human), WEAR_BACK)
 	if(new_human.back)
 		new /obj/item/attachable/bayonet/rmc(new_human.back)
 	to_chat(new_human, ISRG_K9_SYNTH_NOTICE)

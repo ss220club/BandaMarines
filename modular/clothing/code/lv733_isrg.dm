@@ -357,7 +357,8 @@
 		WEAR_BACK = "isrg_backpack"
 	)
 
-/obj/item/storage/backpack/marine/k9_synth/medicalpack/isrg
+/obj/item/storage/satchel/marine/k9_synth/medicalpack/isrg
+	parent_type = /obj/item/storage/backpack/marine/k9_synth/medicalpack
 	name = "\improper M210-I portable K9 medical backpack"
 	desc = "Медицинская упряжь K9 поисковой группы ISRG, приспособленная для переноски медикаментов."
 	icon = 'modular/clothing/icon/isrg/backpack.dmi'
