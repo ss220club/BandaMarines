@@ -203,6 +203,8 @@
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/synthetic/synth_k9(new_human), WEAR_BODY)
 	new_human.equip_to_slot_or_del(new /obj/item/device/radio/headset/distress/isrg(new_human), WEAR_L_EAR)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/k9_synth/medicalpack/isrg(new_human), WEAR_BACK)
+	if(new_human.back)
+		new /obj/item/attachable/bayonet/rmc(new_human.back)
 	to_chat(new_human, ISRG_K9_SYNTH_NOTICE)
 
 #undef ISRG_K9_SYNTH_NOTICE

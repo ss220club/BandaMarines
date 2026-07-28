@@ -21,6 +21,7 @@
 #include "code/game/objects/effects/landmarks/survivor_spawner.dm"
 #include "code/game/objects/items/devices/flash.dm"
 #include "code/game/objects/items/devices/glowstick.dm"
+#include "code/game/objects/items/storage/isrg_k9_belt.dm"
 #include "code/game/objects/structures/barricade/isrg_deployable.dm"
 #include "code/game/objects/structures/lifeline_ship.dm"
 #include "code/game/objects/structures/type16_eriika.dm"
