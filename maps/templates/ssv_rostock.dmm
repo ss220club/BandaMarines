@@ -50,15 +50,6 @@
 	},
 /turf/open/floor/strata/blue1,
 /area/rostock/lower_deck/dining_hall)
-"aah" = (
-/obj/effect/landmark/start/upp/soldier{
-	job_list = list("UPP Leytenant Doktor")
-	},
-/obj/effect/landmark/late_join/upp/soldier{
-	job_list = list("UPP Leytenant Doktor")
-	},
-/turf/open/floor/plating/plating_catwalk/prison,
-/area/rostock/upper_deck/hallway)
 "aai" = (
 /obj/structure/pipes/standard/simple/hidden/supply{
 	dir = 4
@@ -113,15 +104,6 @@
 	},
 /turf/open/floor/strata,
 /area/rostock/command/hallway)
-"aar" = (
-/obj/effect/landmark/late_join/upp/soldier{
-	job_list = list("UPP Leytenant Doktor")
-	},
-/obj/effect/landmark/start/upp/soldier{
-	job_list = list("UPP Leytenant Doktor")
-	},
-/turf/open/floor/plating/plating_catwalk/prison,
-/area/rostock/upper_deck/hallway)
 "aav" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "S";
@@ -4095,6 +4077,15 @@
 	},
 /turf/open/floor/prison/darkyellowfull2/east,
 /area/rostock/engineering/main_area)
+"amc" = (
+/obj/effect/landmark/late_join/upp/soldier{
+	job_list = list("UPP Leytenant Doktor")
+	},
+/obj/effect/landmark/start/upp/soldier{
+	job_list = list("UPP Leytenant Doktor")
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/rostock/upper_deck/hallway)
 "amf" = (
 /turf/open/floor/strata/floor2,
 /area/rostock/hangar/hangarbay)
@@ -11663,6 +11654,15 @@
 /obj/structure/bed/chair/comfy,
 /turf/open/floor/strata/cyan4/east,
 /area/rostock/lower_deck/briefing)
+"gNT" = (
+/obj/effect/landmark/start/upp/soldier{
+	job_list = list("UPP Leytenant Doktor")
+	},
+/obj/effect/landmark/late_join/upp/soldier{
+	job_list = list("UPP Leytenant Doktor")
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/rostock/upper_deck/hallway)
 "gOw" = (
 /obj/structure/surface/table/reinforced/rostock_table,
 /obj/item/stack/sheet/plasteel/large_stack,
@@ -44848,10 +44848,10 @@ dWO
 ozt
 jFx
 djn
-aar
-aah
-aar
-aah
+amc
+gNT
+amc
+gNT
 pBd
 kHo
 dbQ
