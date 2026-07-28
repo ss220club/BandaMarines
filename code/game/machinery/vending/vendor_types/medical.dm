@@ -758,11 +758,10 @@
 		list("Fire Extinguisher (portable)", 5, /obj/item/tool/extinguisher/mini, VENDOR_ITEM_REGULAR),
 		list("Ointment", floor(scale * 8), /obj/item/stack/medical/ointment, VENDOR_ITEM_REGULAR),
 		list("Roll of Gauze", floor(scale * 8), /obj/item/stack/medical/bruise_pack, VENDOR_ITEM_REGULAR),
-		list("Splints", floor(scale * 8), /obj/item/stack/medical/splint, VENDOR_ITEM_REGULAR)
-		list("Splints", floor(scale * 8), /obj/item/stack/medical/splint, VENDOR_ITEM_REGULAR)
+		list("Splints", floor(scale * 8), /obj/item/stack/medical/splint, VENDOR_ITEM_REGULAR),
 		list("Tricordrazine", floor(scale * 8), /obj/item/storage/pill_bottle/packet/tricordrazine, VENDOR_ITEM_REGULAR),
-		list("Kelotane", floor(scale * 8), /obj/item/storage/pill_bottle/packet/bicaridine, VENDOR_ITEM_REGULAR),
-		list("Ointment", floor(scale * 8), /obj/item/storage/pill_bottle/packet/kelotane, VENDOR_ITEM_REGULAR),
+		list("Bicaridine", floor(scale * 8), /obj/item/storage/pill_bottle/packet/bicaridine, VENDOR_ITEM_REGULAR),
+		list("Kelotane", floor(scale * 8), /obj/item/storage/pill_bottle/packet/kelotane, VENDOR_ITEM_REGULAR),
 		list("Tramadol", floor(scale * 8), /obj/item/storage/pill_bottle/packet/tramadol, VENDOR_ITEM_REGULAR),
 		list("Oxycodone", floor(scale * 8), /obj/item/storage/pill_bottle/packet/oxycodone, VENDOR_ITEM_REGULAR)
 	)
@@ -892,7 +891,7 @@
 		list("Trauma Kit", 8, /obj/item/stack/medical/advanced/bruise_pack, VENDOR_ITEM_REGULAR),
 		list("Ointment", 8, /obj/item/stack/medical/ointment, VENDOR_ITEM_REGULAR),
 		list("Roll of Gauze", 8, /obj/item/stack/medical/bruise_pack, VENDOR_ITEM_REGULAR),
-		list("Splints", 8, /obj/item/stack/medical/splint, VENDOR_ITEM_REGULAR)
+		list("Splints", 8, /obj/item/stack/medical/splint, VENDOR_ITEM_REGULAR),
 		list("Tricordrazine", 8, /obj/item/storage/pill_bottle/packet/tricordrazine, VENDOR_ITEM_REGULAR),
 		list("Kelotane", 8, /obj/item/storage/pill_bottle/packet/bicaridine, VENDOR_ITEM_REGULAR),
 		list("Ointment", 8, /obj/item/storage/pill_bottle/packet/kelotane, VENDOR_ITEM_REGULAR),
