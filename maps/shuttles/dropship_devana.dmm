@@ -25,7 +25,7 @@
 /obj/structure/machinery/camera/autoname/almayer/dropship_one{
 	dir = 8;
 	pixel_x = 18;
-	network = list("Rostock")
+	network = list("Rostock","Devana")
 	},
 /turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
 /area/shuttle/drop_upp2/devana)
@@ -36,7 +36,7 @@
 /obj/structure/machinery/camera/autoname/almayer/dropship_one{
 	pixel_x = -6;
 	pixel_y = -16;
-	network = list("Rostock")
+	network = list("Rostock","Devana")
 	},
 /turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
 /area/shuttle/drop_upp2/devana)
@@ -47,7 +47,9 @@
 /area/shuttle/drop_upp2/devana)
 "ar" = (
 /obj/structure/blocker/invisible_wall,
-/obj/structure/machinery/computer/cameras/dropship/five,
+/obj/structure/machinery/computer/cameras/dropship/five{
+	network = list("Research","Laser Targets","Devana")
+	},
 /turf/closed/shuttle/dropship_upp2{
 	icon_state = "93a"
 	},
@@ -478,7 +480,9 @@
 	phone_id = "Devana";
 	phone_category = "Rostock"
 	},
-/obj/structure/machinery/computer/dropship_weapons/dropship5,
+/obj/structure/machinery/computer/dropship_weapons/dropship5{
+	faction = "UPP"
+	},
 /turf/closed/shuttle/dropship_upp2{
 	icon_state = "93b"
 	},
@@ -611,7 +615,7 @@
 /obj/structure/machinery/camera/autoname/almayer/dropship_one{
 	dir = 4;
 	pixel_x = -18;
-	network = list("Rostock")
+	network = list("Rostock","Devana")
 	},
 /turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
 /area/shuttle/drop_upp2/devana)
