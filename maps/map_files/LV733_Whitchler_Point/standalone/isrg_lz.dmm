@@ -1813,7 +1813,7 @@
 "tO" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
-/turf/open/space/basic,
+/turf/open/hybrisa/street/sidewalkfull,
 /area/lv733/outdoors/colony_streets/engineering_street)
 "tX" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -3139,6 +3139,10 @@
 /obj/effect/decal/large_stain,
 /turf/open/hybrisa/street/cement1,
 /area/lv733/outdoors/colony_streets/engineering_street)
+"IZ" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/hybrisa/street/sidewalkfull,
+/area/lv733/outdoors/colony_streets/roaf_spaceport_south)
 "Jc" = (
 /obj/effect/decal/hybrisa/dirt_2,
 /obj/effect/decal/hybrisa/dirt,
@@ -3664,7 +3668,7 @@
 "PB" = (
 /obj/structure/platform/metal/strata,
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
-/turf/open/space/basic,
+/turf/open/hybrisa/street/sidewalkfull,
 /area/lv733/outdoors/colony_streets/engineering_street)
 "PE" = (
 /obj/structure/machinery/fuelcell_recycler/full,
@@ -4086,8 +4090,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
-/turf/open/hybrisa/street/sidewalk/west,
+/turf/open/hybrisa/street/sidewalkfull,
 /area/lv733/outdoors/colony_streets/city_streets)
 "UE" = (
 /obj/structure/bed/chair/wood/normal{
@@ -4646,7 +4649,7 @@ Da
 cQ
 yA
 um
-BL
+IZ
 aw
 aw
 aw
