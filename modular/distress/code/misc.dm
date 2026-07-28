@@ -714,4 +714,7 @@
 	faction = FACTION_UPP
 	
 /obj/item/device/radio/headset/distress/UPP/cct
+	icon = 'icons/obj/items/radio.dmi'
+	item_icons = null
 	item_state = "headset"
+	icon_state = "generic_headset"
