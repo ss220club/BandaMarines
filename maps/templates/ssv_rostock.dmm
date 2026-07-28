@@ -50,19 +50,6 @@
 	},
 /turf/open/floor/strata/blue1,
 /area/rostock/lower_deck/dining_hall)
-"aah" = (
-/obj/effect/decal/warning_stripes{
-	icon_state = "W";
-	layer = 2.5
-	},
-/obj/structure/bed/portable_surgery,
-/obj/structure/bed/portable_surgery,
-/obj/structure/bed/portable_surgery,
-/obj/structure/bed/portable_surgery,
-/obj/structure/bed/portable_surgery,
-/obj/structure/bed/portable_surgery,
-/turf/open/floor/almayer/silverfull,
-/area/rostock/medical/lobby)
 "aai" = (
 /obj/structure/pipes/standard/simple/hidden/supply{
 	dir = 4
@@ -117,15 +104,6 @@
 	},
 /turf/open/floor/strata,
 /area/rostock/command/hallway)
-"aar" = (
-/obj/structure/bed/medevac_stretcher/upp,
-/obj/structure/bed/medevac_stretcher/upp,
-/obj/structure/bed/medevac_stretcher/upp,
-/obj/structure/bed/medevac_stretcher/upp,
-/obj/structure/bed/medevac_stretcher/upp,
-/obj/structure/bed/medevac_stretcher/upp,
-/turf/open/floor/almayer/sterile_green,
-/area/rostock/medical/lobby)
 "aav" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "S";
@@ -4100,6 +4078,28 @@
 /turf/open/floor/prison/darkyellowfull2/east,
 /area/rostock/engineering/main_area)
 "amc" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "W";
+	layer = 2.5
+	},
+/obj/structure/bed/portable_surgery,
+/obj/structure/bed/portable_surgery,
+/obj/structure/bed/portable_surgery,
+/obj/structure/bed/portable_surgery,
+/obj/structure/bed/portable_surgery,
+/obj/structure/bed/portable_surgery,
+/turf/open/floor/almayer/silverfull,
+/area/rostock/medical/lobby)
+"amd" = (
+/obj/structure/bed/medevac_stretcher/upp,
+/obj/structure/bed/medevac_stretcher/upp,
+/obj/structure/bed/medevac_stretcher/upp,
+/obj/structure/bed/medevac_stretcher/upp,
+/obj/structure/bed/medevac_stretcher/upp,
+/obj/structure/bed/medevac_stretcher/upp,
+/turf/open/floor/almayer/sterile_green,
+/area/rostock/medical/lobby)
+"ame" = (
 /obj/effect/landmark/late_join/upp/soldier{
 	job_list = list("UPP Leytenant Doktor")
 	},
@@ -44865,9 +44865,9 @@ dWO
 ozt
 jFx
 djn
-amc
+ame
 gNT
-amc
+ame
 gNT
 pBd
 kHo
@@ -46871,7 +46871,7 @@ ygq
 rwW
 pZY
 nec
-aah
+amc
 ncO
 wxS
 wTm
@@ -47053,7 +47053,7 @@ sJc
 dPb
 oNT
 oNT
-aar
+amd
 lWt
 fkV
 wTm
