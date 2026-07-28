@@ -98,7 +98,7 @@
 /datum/ammo/bullet/shrapnel/himat
 	accurate_range = 8
 	max_range = 6
-	damage = 75
+	damage = 55
 	shrapnel_chance = SHRAPNEL_CHANCE_TIER_8
 	accuracy = HIT_ACCURACY_TIER_MAX
 
@@ -118,14 +118,14 @@
 
 /datum/ammo/bullet/sniper/upp
 	name = "armor-piercing sniper bullet"
-	damage = 100
+	damage = 120
 	penetration = ARMOR_PENETRATION_TIER_10
 
 /datum/ammo/bullet/rifle/type71
 	name = "heavy rifle bullet"
 
-	damage = 40
-	penetration = ARMOR_PENETRATION_TIER_5
+	damage = 35
+	penetration = ARMOR_PENETRATION_TIER_6
 
 /datum/ammo/bullet/rifle/type71/ap
 	name = "heavy armor-piercing rifle bullet"
@@ -151,13 +151,13 @@
 	name = "heavy rifle bullet"
 	icon = 'modular/distress/icons/projectiles.dmi'
 	icon_state = "redtrac"
-	damage = 55
-	penetration = ARMOR_PENETRATION_TIER_4
+	damage = 50
+	penetration = ARMOR_PENETRATION_TIER_3
 
 /datum/ammo/bullet/rifle/type71/ak/ap
 	name = "heavy armor-piercing rifle bullet"
 	icon_state = "bullet_green"
-	damage = 35
+	damage = 30
 	penetration = ARMOR_PENETRATION_TIER_10
 
 /datum/ammo/bullet/rifle/type71/ak/heap
