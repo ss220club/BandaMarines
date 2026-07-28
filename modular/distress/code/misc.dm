@@ -712,3 +712,6 @@
 	foldabletype = /obj/item/roller/medevac/upp
 	name = "UPP medevac stretcher"
 	faction = FACTION_UPP
+	
+/obj/item/device/radio/headset/distress/UPP/cct
+	item_state = "headset"
