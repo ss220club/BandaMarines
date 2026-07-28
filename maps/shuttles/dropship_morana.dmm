@@ -529,7 +529,7 @@
 "KQ" = (
 /obj/structure/blocker/invisible_wall,
 /obj/structure/machinery/computer/cameras/dropship/four{
-	network = list("Research","Laser Targets","Morana"))
+	network = list("Research","Laser Targets","Morana")
 	},
 /turf/closed/shuttle/dropship_upp/transparent{
 	icon_state = "93a"
