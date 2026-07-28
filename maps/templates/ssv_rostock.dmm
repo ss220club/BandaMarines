@@ -50,6 +50,19 @@
 	},
 /turf/open/floor/strata/blue1,
 /area/rostock/lower_deck/dining_hall)
+"aah" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "W";
+	layer = 2.5
+	},
+/obj/structure/bed/portable_surgery,
+/obj/structure/bed/portable_surgery,
+/obj/structure/bed/portable_surgery,
+/obj/structure/bed/portable_surgery,
+/obj/structure/bed/portable_surgery,
+/obj/structure/bed/portable_surgery,
+/turf/open/floor/almayer/silverfull,
+/area/rostock/medical/lobby)
 "aai" = (
 /obj/structure/pipes/standard/simple/hidden/supply{
 	dir = 4
@@ -104,6 +117,15 @@
 	},
 /turf/open/floor/strata,
 /area/rostock/command/hallway)
+"aar" = (
+/obj/structure/bed/medevac_stretcher/upp,
+/obj/structure/bed/medevac_stretcher/upp,
+/obj/structure/bed/medevac_stretcher/upp,
+/obj/structure/bed/medevac_stretcher/upp,
+/obj/structure/bed/medevac_stretcher/upp,
+/obj/structure/bed/medevac_stretcher/upp,
+/turf/open/floor/almayer/sterile_green,
+/area/rostock/medical/lobby)
 "aav" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "S";
@@ -8846,11 +8868,6 @@
 	phone_id = "Rostock Medbay";
 	phone_category = "Rostock"
 	},
-/obj/structure/bed/portable_surgery,
-/obj/structure/bed/portable_surgery,
-/obj/structure/bed/portable_surgery,
-/obj/structure/bed/portable_surgery,
-/obj/structure/bed/portable_surgery,
 /turf/open/floor/almayer/silverfull,
 /area/rostock/medical/lobby)
 "epI" = (
@@ -46854,7 +46871,7 @@ ygq
 rwW
 pZY
 nec
-rwW
+aah
 ncO
 wxS
 wTm
@@ -47036,7 +47053,7 @@ sJc
 dPb
 oNT
 oNT
-oNT
+aar
 lWt
 fkV
 wTm

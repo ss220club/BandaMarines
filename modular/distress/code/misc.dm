@@ -198,24 +198,25 @@
 	)
 	slowdown = SLOWDOWN_ARMOR_LIGHT
 	armor_melee = CLOTHING_ARMOR_MEDIUM
-	armor_bullet = CLOTHING_ARMOR_HIGH
+	armor_bullet = CLOTHING_ARMOR_HIGHPLUS
+	armor_bomb = CLOTHING_ARMOR_HIGH
 	armor_energy = CLOTHING_ARMOR_MEDIUM
 	armor_bio = CLOTHING_ARMOR_MEDIUM
 	armor_rad = CLOTHING_ARMOR_MEDIUMLOW
-	armor_internaldamage = CLOTHING_ARMOR_HIGH
-	storage_slots = 1
+	armor_internaldamage = CLOTHING_ARMOR_HIGHPLUS
+	storage_slots = 2
 	uniform_restricted = list(/obj/item/clothing/under/marine/veteran/UPP, /obj/item/clothing/under/marine/veteran/UPP/medic, /obj/item/clothing/under/marine/veteran/UPP/engi, /obj/item/clothing/under/marine/veteran/UPP/SOF_uniform)
 
 /obj/item/clothing/suit/storage/marine/faction/UPP/support
 	name = "\improper UL6 personal armor"
 	desc = "Standard body armor of the UPP military, the UL6 (Union Light MK6) is a light body armor, slightly weaker than the M3 pattern body armor in service with the USCM, specialized towards ballistics protection. This set of personal armor lacks the iconic neck piece and some of the armor in favor of user mobility."
-	storage_slots = 2
+	storage_slots = 3
 	icon_state = "upp_armor_support"
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
-	armor_bullet = CLOTHING_ARMOR_VERYHIGH
+	armor_bullet = CLOTHING_ARMOR_HIGHPLUS
 	armor_melee = CLOTHING_ARMOR_MEDIUMLOW
 	armor_energy = CLOTHING_ARMOR_MEDIUM
-	armor_bomb = CLOTHING_ARMOR_HIGH
+	armor_bomb = CLOTHING_ARMOR_MEDIUMLOW
 	armor_bio = CLOTHING_ARMOR_VERYHIGH
 	armor_rad = CLOTHING_ARMOR_MEDIUMLOW
 	armor_internaldamage = CLOTHING_ARMOR_HIGH
@@ -224,7 +225,7 @@
 	name = "\improper UH7 heavy plated armor"
 	desc = "An extremely heavy-duty set of body armor in service with the UPP military, the UH7 (Union Heavy MK7) is known for having powerful ballistic protection, alongside a noticeable neck guard, fortified in order to allow the wearer to endure the stresses of the bulky helmet."
 	icon_state = "upp_armor_heavy"
-	storage_slots = 1
+	storage_slots = 2
 	slowdown = SLOWDOWN_ARMOR_HEAVY
 	flags_inventory = BLOCKSHARPOBJ|BLOCK_KNOCKDOWN
 	flags_armor_protection = BODY_FLAG_ALL_BUT_HEAD
@@ -247,6 +248,7 @@
 	armor_bomb = CLOTHING_ARMOR_HIGH
 	armor_bio = CLOTHING_ARMOR_LOW
 	armor_internaldamage = CLOTHING_ARMOR_HIGHPLUS
+	flags_inv_hide = HIDEEARS|HIDEEYES|HIDETOPHAIR
 
 /obj/item/device/motiondetector/upp
 	name = "UDO-58 motion detector"
@@ -551,7 +553,7 @@
 	item_state_slots = "veil_frogmen"
 	flags_obj = OBJ_IS_HELMET_GARB
 	worn_accessory_slot = ACCESSORY_SLOT_HELM_C
-	worn_accessory_limit = 2
+	worn_accessory_limit = 1
 	accessory_icons = list(
 		WEAR_HEAD = 'modular/distress/icons/helmet_garb.dmi',
 	)
@@ -564,7 +566,7 @@
 	desc = " UPPA reconnaissance new helmet for multiple environments, and used mostly for NVG/IR system placement. Made using fabric-polymer technology, making it much lighter in comparison to the standard issue 6B82, sacrificing overall protection. A tactical datalink and A/V feeds are provided, alongside facilities for an infrared imager complex. Surprisingly comfortable. The fabric utilized for this model is rubbery and colored after the standard paint coating of UPP armor."
 	icon = 'modular/distress/icons/misc.dmi'
 	icon_state = "upp_helmet_frogmen"
-	armor_melee = CLOTHING_ARMOR_MEDIUMHIGH
+	armor_melee = CLOTHING_ARMOR_MEDIUMLOW
 	armor_bullet = CLOTHING_ARMOR_MEDIUMHIGH
 	armor_bomb = CLOTHING_ARMOR_MEDIUMLOW
 	armor_bio = CLOTHING_ARMOR_MEDIUMLOW
@@ -699,4 +701,14 @@
 /obj/structure/machinery/computer/supply_drop_console/upp
 	req_access = list(ACCESS_UPP_ARMORY)
 	drop_cooldown = 500
+	faction = FACTION_UPP
+
+/obj/item/roller/medevac/upp
+	rollertype = /obj/structure/bed/medevac_stretcher/upp
+	name = "UPP medevac stretcher"
+	desc = "UPP version of collapsed medevac stretcher that can be carried around."
+
+/obj/structure/bed/medevac_stretcher/upp
+	foldabletype = /obj/item/roller/medevac/upp
+	name = "UPP medevac stretcher"
 	faction = FACTION_UPP
