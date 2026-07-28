@@ -19,7 +19,7 @@
 	// soundscape_playlist = list('sound/effects/xylophone1.ogg', 'sound/effects/xylophone2.ogg', 'sound/effects/xylophone3.ogg')
 	ambience_exterior = AMBIENCE_ALMAYER
 	ceiling_muffle = FALSE
-	
+
 	///Whether this area is used for hijack evacuation progress
 	var/hijack_evacuation_area = FALSE
 
@@ -211,6 +211,13 @@
 	icon_state = "upperengineering"
 	fake_zlevel = 1 //upperdeck
 
+/area/rostock/engineering/RnD
+	name = "SSV Rostock - Research And Development"
+	icon_state = "science"
+	fake_zlevel = 1 //upperdeck
+
+
+
 // Upperdeck Maintenance
 
 /area/rostock/upperdeck_maint
@@ -398,6 +405,10 @@
 /area/rostock/lower_deck/dining_hall
 	name = "\improper Squads dining hall"
 	icon_state = "gruntrnr"
+
+/area/rostock/lower_deck/Intel
+	name = "\improper Intel Office"
+	icon_state = "livingspace"
 
 // Lower Deck Maintenance
 
