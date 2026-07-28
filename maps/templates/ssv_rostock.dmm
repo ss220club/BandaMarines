@@ -50,6 +50,15 @@
 	},
 /turf/open/floor/strata/blue1,
 /area/rostock/lower_deck/dining_hall)
+"aah" = (
+/obj/effect/landmark/start/upp/soldier{
+	job_list = list("UPP Leytenant Doktor")
+	},
+/obj/effect/landmark/late_join/upp/soldier{
+	job_list = list("UPP Leytenant Doktor")
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/rostock/upper_deck/hallway)
 "aai" = (
 /obj/structure/pipes/standard/simple/hidden/supply{
 	dir = 4
@@ -104,6 +113,15 @@
 	},
 /turf/open/floor/strata,
 /area/rostock/command/hallway)
+"aar" = (
+/obj/effect/landmark/late_join/upp/soldier{
+	job_list = list("UPP Leytenant Doktor")
+	},
+/obj/effect/landmark/start/upp/soldier{
+	job_list = list("UPP Leytenant Doktor")
+	},
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/rostock/upper_deck/hallway)
 "aav" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "S";
@@ -44830,10 +44848,10 @@ dWO
 ozt
 jFx
 djn
-rJo
-rJo
-rJo
-rJo
+aar
+aah
+aar
+aah
 pBd
 kHo
 dbQ
