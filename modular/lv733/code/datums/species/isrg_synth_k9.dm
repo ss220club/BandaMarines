@@ -10,10 +10,18 @@
 	unarmed_type = /datum/unarmed_attack/bite/synthetic
 	/// Full-body K9 damage overlays. Both brute and burn damage use brute_1..3.
 	var/icon/damage_overlay_icon = 'modular/lv733/icons/isrg_k9/isrg_k9_damage.dmi'
+	/// Speech state to restore if the mob stops being an ISRG K9.
+	var/previous_able_to_speak = TRUE
+	var/added_mute_disability = FALSE
 
 /datum/species/synthetic/synth_k9/isrg/handle_post_spawn(mob/living/carbon/human/spawned_k9)
 	. = ..()
 	spawned_k9.pull_speed = ISRG_K9_PULL_SPEED
+	previous_able_to_speak = spawned_k9.able_to_speak
+	spawned_k9.able_to_speak = FALSE
+	if(!(spawned_k9.sdisabilities & DISABILITY_MUTE))
+		spawned_k9.sdisabilities |= DISABILITY_MUTE
+		added_mute_disability = TRUE
 	RegisterSignal(spawned_k9, COMSIG_HUMAN_EQUIPPED_ITEM, PROC_REF(on_equipped_item))
 	RegisterSignal(spawned_k9, COMSIG_HUMAN_UNARMED_ATTACK, PROC_REF(on_unarmed_attack))
 	RegisterSignal(spawned_k9, COMSIG_MOB_WEED_SLOWDOWN, PROC_REF(handle_weed_slowdown))
@@ -24,6 +32,9 @@
 /datum/species/synthetic/synth_k9/isrg/post_species_loss(mob/living/carbon/human/H)
 	. = ..()
 	H.pull_speed = initial(H.pull_speed)
+	H.able_to_speak = previous_able_to_speak
+	if(added_mute_disability)
+		H.sdisabilities &= ~DISABILITY_MUTE
 	remove_action(H, /datum/action/isrg_k9_voice_panel)
 	UnregisterSignal(H, list(
 		COMSIG_HUMAN_EQUIPPED_ITEM,
@@ -32,6 +43,7 @@
 		COMSIG_HUMAN_REVIVED,
 		COMSIG_HUMAN_OVERLAY_APPLIED,
 	))
+	added_mute_disability = FALSE
 
 // Чуть быстрее по смоле/паутине ксено, чем обычный человек
 /datum/species/synthetic/synth_k9/isrg/proc/handle_weed_slowdown(mob/user, list/slowdata)
@@ -48,7 +60,7 @@
 	if(!damage_overlay_icon || k9.stat == DEAD)
 		return
 
-	var/damage_stage = get_damage_overlay_stage(k9.getBruteLoss() + k9.getFireLoss(), k9.maxHealth)
+	var/damage_stage = get_damage_overlay_stage(k9.getBruteLoss() + k9.getFireLoss())
 	if(damage_stage)
 		overlay_images += image(
 			icon = damage_overlay_icon,
@@ -56,17 +68,20 @@
 			layer = -DAMAGE_LAYER,
 		)
 
-/datum/species/synthetic/synth_k9/isrg/proc/get_damage_overlay_stage(damage, maximum_health)
-	if(damage <= 0 || maximum_health <= 0)
+/datum/species/synthetic/synth_k9/isrg/proc/get_damage_overlay_stage(damage)
+	if(damage < 40)
 		return 0
-	if(damage < maximum_health * 0.15)
+	if(damage < 100)
 		return 1
-	if(damage < maximum_health * 0.4)
+	if(damage < 150)
 		return 2
 	return 3
 
 /datum/species/synthetic/synth_k9/isrg/proc/on_equipped_item(mob/living/carbon/human/wearer, obj/item/equipped_item, slot)
 	SIGNAL_HANDLER
+	if(slot == WEAR_L_STORE || slot == WEAR_R_STORE)
+		show_store_item_on_hud(wearer, equipped_item, slot)
+		return
 	if(slot == WEAR_BACK && istype(equipped_item, /obj/item/storage/satchel/marine/k9_synth/medicalpack/isrg))
 		set_medpack_state(wearer, wearer.stat == DEAD ? "dead_medpack" : "isrg_medicalpack")
 		return
@@ -74,6 +89,14 @@
 		return
 	to_chat(wearer, SPAN_WARNING("Лапам не подходит [equipped_item] - обувь тут же соскальзывает."))
 	wearer.drop_inv_item_on_ground(equipped_item)
+
+/datum/species/synthetic/synth_k9/isrg/proc/show_store_item_on_hud(mob/living/carbon/human/k9, obj/item/store_item, slot)
+	if(!k9.client || !k9.hud_used?.hud_shown || !k9.hud_used.ui_datum)
+		return
+
+	var/screen_location = slot == WEAR_L_STORE ? k9.hud_used.ui_datum.ui_storage1 : k9.hud_used.ui_datum.ui_storage2
+	store_item.screen_loc = k9.hud_used.ui_datum.hud_slot_offset(store_item, screen_location)
+	k9.client.add_to_screen(store_item)
 
 // Постройки ксено не обрабатывают обычную атаку без оружия. Для них отдельно
 // переиспользуем штатную логику attackby(), не меняя урон укуса по живым целям.
@@ -191,12 +214,12 @@
 	)
 
 	for(var/datum/emote/living/carbon/human/synthetic/isrg_k9/emote as anything in subtypesof(/datum/emote/living/carbon/human/synthetic/isrg_k9))
-		if(!initial(emote.key) || !initial(emote.category) || !initial(emote.say_message))
+		if(!initial(emote.key) || !initial(emote.category) || !initial(emote.message))
 			continue
 		data["categories"] |= initial(emote.category)
 		data["emotes"] += list(list(
 			"id" = initial(emote.key),
-			"text" = (initial(emote.override_say) || initial(emote.say_message)),
+			"text" = (initial(emote.override_say) || initial(emote.message)),
 			"category" = initial(emote.category),
 			"path" = "[emote]",
 		))
@@ -225,16 +248,44 @@
 	var/category = ""
 	var/override_say = ""
 
-/*
- * Voice line template. Copy this block once for every new phrase.
- *
- * /datum/emote/living/carbon/human/synthetic/isrg_k9/status/example
- *     key = "isrgk9example"
- *     category = "Status"
- *     say_message = "Displayed and spoken phrase."
- *     override_say = "Optional shorter panel label."
- *     sound = 'modular/lv733/sound/voice/isrg_k9/example.ogg'
- *     emote_type = EMOTE_AUDIBLE|EMOTE_VISIBLE
- */
+/datum/emote/living/carbon/human/synthetic/isrg_k9/status/bark
+	key = "isrgk9bark"
+	category = "Status"
+	message = "лает."
+	override_say = "Лай"
+	sound = 'modular/lv733/sound/voice/isrg_k9/bark.ogg'
+	emote_type = EMOTE_AUDIBLE|EMOTE_VISIBLE
+
+/datum/emote/living/carbon/human/synthetic/isrg_k9/status/bark2
+	key = "isrgk9bark2"
+	category = "Status"
+	message = "лает."
+	override_say = "Двойной Лай"
+	sound = 'modular/lv733/sound/voice/isrg_k9/wbark.ogg'
+	emote_type = EMOTE_AUDIBLE|EMOTE_VISIBLE
+
+/datum/emote/living/carbon/human/synthetic/isrg_k9/status/growl1
+	key = "isrgk9growl1"
+	category = "Status"
+	message = "рычит."
+	override_say = "Рычание 1"
+	sound = 'modular/lv733/sound/voice/isrg_k9/growl1.ogg'
+	emote_type = EMOTE_AUDIBLE|EMOTE_VISIBLE
+
+/datum/emote/living/carbon/human/synthetic/isrg_k9/status/growl2
+	key = "isrgk9growl2"
+	category = "Status"
+	message = "рычит."
+	override_say = "Рычание 2"
+	sound = 'modular/lv733/sound/voice/isrg_k9/growl2.ogg'
+	emote_type = EMOTE_AUDIBLE|EMOTE_VISIBLE
+
+/datum/emote/living/carbon/human/synthetic/isrg_k9/status/growl3
+	key = "isrgk9growl3"
+	category = "Status"
+	message = "рычит."
+	override_say = "Рычание 3"
+	sound = 'modular/lv733/sound/voice/isrg_k9/growl3.ogg'
+	emote_type = EMOTE_AUDIBLE|EMOTE_VISIBLE
 
 #undef ISRG_K9_PULL_SPEED
