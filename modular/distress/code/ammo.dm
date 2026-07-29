@@ -118,8 +118,11 @@
 
 /datum/ammo/bullet/sniper/upp
 	name = "armor-piercing sniper bullet"
-	damage = 120
-	penetration = ARMOR_PENETRATION_TIER_10
+	icon = 'modular/distress/icons/projectiles.dmi'
+	icon_state = "redtrac"
+	damage = 110
+	penetration = ARMOR_PENETRATION_TIER_6
+	
 
 /datum/ammo/bullet/rifle/type71
 	name = "heavy rifle bullet"
