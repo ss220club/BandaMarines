@@ -32,7 +32,7 @@
 	pixel_y = 30;
 	pixel_x = 16;
 	phone_category = "Command";
-	phone_id = "Ground Requisitions"
+    phone_id = "Ground Engineering"
 	},
 /turf/template_noop,
 /area/template_noop)
@@ -69,7 +69,7 @@
 /turf/template_noop,
 /area/template_noop)
 "Y" = (
-/obj/structure/tent/reqs,
+/obj/structure/tent/eng,
 /obj/structure/blocker/tent{
 	dir = 8
 	},
