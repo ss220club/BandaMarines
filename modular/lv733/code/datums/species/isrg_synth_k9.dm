@@ -101,6 +101,11 @@
 		/obj/structure/mineral_door,
 	)))
 		return
+	INVOKE_ASYNC(src, PROC_REF(do_structure_damage), user, target)
+
+// attackby() имеет оверрайды, которые могут sleep() (например, у дверей) - линтер запрещает
+// вызывать такое напрямую из SIGNAL_HANDLER-проки, поэтому выносим сюда через INVOKE_ASYNC.
+/datum/species/synthetic/synth_k9/isrg/proc/do_structure_damage(mob/living/carbon/human/user, atom/target)
 	var/obj/item/attachable/bayonet/rmc/phantom_knife = new(user)
 	target.attackby(phantom_knife, user)
 	qdel(phantom_knife)

@@ -80,6 +80,7 @@
 	)
 	icon_state = "utilitybelt"
 	item_state = "utility"
+	skip_fullness_overlays = TRUE
 	storage_slots = 8
 	max_storage_space = 16
 	max_w_class = SIZE_MEDIUM
