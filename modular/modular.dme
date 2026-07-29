@@ -40,3 +40,17 @@
 #include "balance/_balance.dme"
 #include "emojis220/_emojis.dme"
 #include "yaut_leap/_leap.dme"
+#include "tents/tent-code/deployed_tents.dm"
+#include "tents/tent-code/folded_tents.dm"
+#include "tents/tent-code/templates.dm"
+// BEGIN_INTERNALS
+// END_INTERNALS
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+// END_FILE_DIR
+// BEGIN_PREFERENCES
+// END_PREFERENCES
+// BEGIN_INCLUDE
+#include "_modpack.dm"
+#include "_modpacks.dm"
+// END_INCLUDE
