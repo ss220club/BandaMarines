@@ -19,15 +19,8 @@
 	if(flags_atom & NO_GAMEMODE_SKIN)
 		return
 	var/skin = SSmapping.configs[GROUND_MAP].camouflage_type
-	switch(skin)
-		if("snow")
-			icon_skin = skin
-		if("desert")
-			icon_skin = skin
-		if("classic")
-			icon_skin = skin
-		if("urban")
-			icon_skin = skin
+    if(skin in list("desert", "classic", "urban"))
+        icon_skin = skin
 
 // ==========================================
 // ============== Desert skin ===============
@@ -39,9 +32,6 @@
 // ==========================================
 // =============== Snow skin ================
 
-/obj/vehicle/multitile/tank/snow
-	icon_state = "moto_ural_snow"
-	icon_skin = "snow"
 
 // ==========================================
 // =============== Urban skin ===============
