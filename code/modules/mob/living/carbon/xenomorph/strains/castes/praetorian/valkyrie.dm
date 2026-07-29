@@ -467,12 +467,6 @@
 	if(!check_plasma_owner())
 		return
 
-	if(!behavior.use_internal_fury_ability(retrieve_cost))
-		return
-
-	if(!check_and_use_plasma_owner())
-		return
-
 	// Build our turflist
 	var/list/turf/turflist = list()
 	var/list/telegraph_atom_list = list()
@@ -515,6 +509,12 @@
 
 	valkyrie.visible_message(SPAN_XENODANGER("[valkyrie] готовится выпустить свой смоляной крюк в сторону [A]!"), SPAN_XENODANGER("Мы готовимся выпустить свой смоляной крюк в сторону [A]!")) // SS220 EDIT ADDICTION
 	valkyrie.emote("roar")
+
+	if(!behavior.use_internal_fury_ability(retrieve_cost))
+		return
+
+	if(!check_and_use_plasma_owner())
+		return
 
 	var/throw_target_turf = get_step(valkyrie, facing)
 	var/turf/behind_turf = get_step(valkyrie, reversefacing)
