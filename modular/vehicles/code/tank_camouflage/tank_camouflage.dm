@@ -1,69 +1,53 @@
 
 /obj/vehicle/multitile/tank
-	name = "main battle tank"
-	desc = "A heavily armored vehicle."
-	icon = '/modular/vehicle/icons/tank_camouflage.dmi' // Основной .dmi файл со всеми состояниями
-	icon_state = "tank_default" // Состояние по умолчанию
-	var/current_camouflage = "tank_base"
+	if(skin)
+		icon_skin = skin
+	else if(need_camo)
+		select_gamemode_skin()
+	. = ..(loc, icon_skin)
 
-	// Переопределение типа для корректной работы ..() при инициализации подтипов
-	var/base_type_path = /obj/vehicle/tank
+// ==========================================
+// ============== Camo skin ===============
 
+// Камуфлирование под текущую карту
 
-	proc/select_gamemode_skin(expected_type, list/override_icon_state)
-		// Вызываем родительский метод, если он есть (в данном случае безопасно)
-		. = ..()
+/obj/vehicle/multitile/tank/camo
+	need_camo = TRUE
 
-		// Защита от смены спрайта на карте, где используется цветовая индексация
-		if(flags_atom & MAP_COLOR_INDEX)
-			return
+// Функции выбора скина
+/obj/vehicle/multitile/tank/proc/select_gamemode_skin()
+	if(flags_atom & NO_GAMEMODE_SKIN)
+		return
+	var/skin = SSmapping.configs[GROUND_MAP].camouflage_type
+	switch(skin)
+		if("snow")
+			icon_skin = skin
+		if("desert")
+			icon_skin = skin
+		if("classic")
+			icon_skin = skin
+		if("urban")
+			icon_skin = skin
 
+// ==========================================
+// ============== Desert skin ===============
 
-
-		// Если передан ручной оверрайд (например, админ-команда), используем его
-		if(override_icon_state && length(override_icon_state))
-			icon_state = override_icon_state["[expected_type]"]
-			current_camouflage = "custom"
-			return
-
-		SSmapping.current_map
-			if("jungle")
-				current_camouflage = "jungle"
-				icon_state = "tank_base_j"
-			if("classic", "standard") // Добавлен стандартный fallback
-				current_camouflage = "classic"
-				icon_state = "tank_classic"
-			if("desert")
-				current_camouflage = "desert"
-				icon_state = "tank_base_d"
-			if("urban")
-				current_camouflage = "urban"
-				icon_state = "tank_base_n"
-			else
-				// Режим по умолчанию, если ни один кейс не подошел
-				current_camouflage = "default"
-				icon_state = "tank_base"
-
-	Initialize(mapload, ...)
-		. = ..()
-		select_gamemode_skin(type)
-
-	/obj/vehicle/tank/classic
-	name = "Classic MBT"
-	icon_state = "tank_base"
-
-
-
-/obj/vehicle/tank/desert
-	name = "Desert MBT"
+/obj/vehicle/multitile/tank/desert
 	icon_state = "tank_base_d"
+	icon_skin = "desert"
 
+// ==========================================
+// =============== Snow skin ================
 
-/obj/vehicle/tank/urban
-	name = "Urban MBT"
+/obj/vehicle/multitile/tank/snow
+	icon_state = "moto_ural_snow"
+	icon_skin = "snow"
+
+// ==========================================
+// =============== Urban skin ===============
+
+/obj/vehicle/multitile/tank/urban
 	icon_state = "tank_base_n"
+	icon_skin = "urban"
 
 
-/obj/vehicle/tank/jungle
-	name = "Jungle MBT"
-	icon_state = "tank_base_j
