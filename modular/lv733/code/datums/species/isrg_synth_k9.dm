@@ -86,9 +86,7 @@
 			var/obj/structure/machinery/door/airlock/airlock = door
 			is_unpowered = !airlock.arePowerSystemsOn()
 		if(is_unpowered)
-			var/obj/item/tool/crowbar/phantom_crowbar = new(user)
-			door.attackby(phantom_crowbar, user)
-			qdel(phantom_crowbar)
+			INVOKE_ASYNC(src, PROC_REF(do_door_crowbar), user, door)
 			return
 
 	if(!is_type_in_list(target, list(
@@ -109,6 +107,11 @@
 	var/obj/item/attachable/bayonet/rmc/phantom_knife = new(user)
 	target.attackby(phantom_knife, user)
 	qdel(phantom_knife)
+
+/datum/species/synthetic/synth_k9/isrg/proc/do_door_crowbar(mob/living/carbon/human/user, obj/structure/machinery/door/door)
+	var/obj/item/tool/crowbar/phantom_crowbar = new(user)
+	door.attackby(phantom_crowbar, user)
+	qdel(phantom_crowbar)
 
 /datum/species/synthetic/synth_k9/isrg/handle_death(mob/living/carbon/human/dead_k9, gibbed)
 	. = ..()
