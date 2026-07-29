@@ -204,17 +204,17 @@
 	var/cover_open = FALSE //if the gun's feed-cover is open or not.
 
 	COOLDOWN_DECLARE(attack_cooldown)
-	var/cooldown_time = 10 SECONDS
+	var/cooldown_time = 15 SECONDS
 
 /obj/item/weapon/gun/pkp/attack(mob/living/target, mob/living/user)
 	. = ..()
 	if(. && (COOLDOWN_FINISHED(src, attack_cooldown)))
 		COOLDOWN_START(src, attack_cooldown, cooldown_time)
-		target.throw_atom(get_step(target, user.dir), 2, SPEED_AVERAGE, user, FALSE)
+		target.throw_atom(get_step(target, user.dir), 3, SPEED_AVERAGE, user, FALSE)
 		target.emote("pain")
-		target.apply_effect(15, SLOW)
-		target.apply_effect(8, DAZE)
-		target.apply_effect(1, WEAKEN)
+		target.apply_effect(5, SLOW)
+		target.apply_effect(10, DAZE)
+		target.apply_effect(0.5, WEAKEN)
 		
 /obj/item/weapon/gun/pkp/handle_starting_attachment()
 	..()

@@ -120,14 +120,13 @@
 	name = "armor-piercing sniper bullet"
 	icon = 'modular/distress/icons/projectiles.dmi'
 	icon_state = "redtrac"
-	damage = 110
+	damage = 80
 	penetration = ARMOR_PENETRATION_TIER_6
 	
-
 /datum/ammo/bullet/rifle/type71
 	name = "heavy rifle bullet"
 
-	damage = 35
+	damage = 30
 	penetration = ARMOR_PENETRATION_TIER_6
 
 /datum/ammo/bullet/rifle/type71/ap
@@ -154,13 +153,13 @@
 	name = "heavy rifle bullet"
 	icon = 'modular/distress/icons/projectiles.dmi'
 	icon_state = "redtrac"
-	damage = 50
-	penetration = ARMOR_PENETRATION_TIER_3
+	damage = 35
+	penetration = ARMOR_PENETRATION_TIER_2
 
 /datum/ammo/bullet/rifle/type71/ak/ap
 	name = "heavy armor-piercing rifle bullet"
 	icon_state = "bullet_green"
-	damage = 30
+	damage = 35
 	penetration = ARMOR_PENETRATION_TIER_10
 
 /datum/ammo/bullet/rifle/type71/ak/heap
