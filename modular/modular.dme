@@ -51,6 +51,4 @@
 // BEGIN_PREFERENCES
 // END_PREFERENCES
 // BEGIN_INCLUDE
-#include "_modpack.dm"
-#include "_modpacks.dm"
 // END_INCLUDE
