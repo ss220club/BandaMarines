@@ -304,5 +304,4 @@
 	new_human.equip_to_slot_or_del(new /obj/item/storage/pouch/survival/full(new_human), WEAR_R_STORE)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather(new_human),  WEAR_HANDS)
 
-
 	..()
