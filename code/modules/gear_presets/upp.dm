@@ -27,7 +27,6 @@
 	faction = FACTION_UPP
 	idtype = /obj/item/card/id/dogtag/upp
 	minimap_background = "background_upp"
-	origin_override = ORIGIN_UPP
 	paygrades = list(PAY_SHORT_UE1 = JOB_PLAYTIME_TIER_0, PAY_SHORT_UE2 = JOB_PLAYTIME_TIER_1)
 
 /datum/equipment_preset/upp/load_status(mob/living/carbon/human/new_human)
@@ -313,6 +312,31 @@
 
 //*****************************************************************************************************/
 
+
+/datum/job/antag/upp/scientist
+// title = JOB_UPP_SCIENCE
+	gear_preset = /datum/equipment_preset/upp/scientist
+	total_positions = 2
+	spawn_positions = 2
+
+/datum/equipment_preset/upp/scientist
+	name = "UPP Cosmos Exploration Corps Researcher"
+	assignment = "Issledovatel' Korpusa Kosmicheskoy Eksploratsii"
+	minimap_icon = "upp_sci"
+	minimap_background = "background_upp_charlie"
+	languages = list(LANGUAGE_ENGLISH, LANGUAGE_RUSSIAN, LANGUAGE_GERMAN, LANGUAGE_CHINESE)
+	faction = FACTION_UPP
+	flags = EQUIPMENT_PRESET_START_OF_ROUND
+	skills = /datum/skills/researcher
+
+/datum/equipment_preset/survivor/scientist/soro/load_gear(mob/living/carbon/human/new_human)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/labcoat/brown, WEAR_JACKET)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/patch/cec_patch, WEAR_ACCESSORY)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/gloves/marine/veteran/upp, WEAR_HANDS)
+	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel/black, WEAR_BACK)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/glasses/regular/hipster, WEAR_FACE)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/marine/upp, WEAR_FEET)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/scientist/hybrisa, WEAR_BODY)
 
 /datum/job/antag/upp/medic
 	title = JOB_UPP_MEDIC
@@ -711,6 +735,7 @@
 	paygrades = list(PAY_SHORT_UE5 = JOB_PLAYTIME_TIER_0)
 	access = list(
 		ACCESS_UPP_GENERAL,
+		ACCESS_UPP_ARMORY,
 	)
 
 /datum/equipment_preset/upp/specialist/dressed
@@ -759,12 +784,6 @@
 		list("IRP", 0, /obj/item/storage/box/mre/upp, MARINE_CAN_BUY_MRE, VENDOR_ITEM_MANDATORY),
 		list("Combat Pack", 0, /obj/item/storage/backpack/lightpack, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
 
-		list("ARMOR", 0, null, null, null),
-		list("UH7 Heavy Plated Armor", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/heavy, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
-
-		list("HELMET (CHOOSE 1)", 0, null, null, null),
-		list("UM7 Helmet", 0, /obj/item/clothing/head/helmet/marine/veteran/UPP/heavy, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_MANDATORY),
-
 		list("BELT (CHOOSE 1)", 0, null, null, null),
 		list("Type 41 Ammo Load Rig", 0, /obj/item/storage/belt/marine/upp, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
 		list("Type 42 pattern shotgun shell loading rig", 0, /obj/item/storage/belt/shotgun/upp, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
@@ -797,14 +816,6 @@
 
 /datum/equipment_preset/upp/specialist/get_antag_gear_equipment()
 	return list(
-		list("HEAVY SET (MANDATORY)", 0, null, null, null),
-		list("Essential Heavy Set QYJ-72", 0, /obj/effect/essentials_set/upp_heavy_pkp, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_MANDATORY),
-		list("Essential Heavy Set", 0, /obj/effect/essentials_set/upp_heavy, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_MANDATORY),
-
-		list("SPECIAL AMMUNITION", 0, null, null, null),
-		list("Rotating ammo drum (7.62x51mm)", 15, /obj/item/ammo_magazine/minigun, null, VENDOR_ITEM_RECOMMENDED),
-		list("QYJ-72 ammo box (7.62x54mmR)", 10, /obj/item/ammo_magazine/pkp, null, VENDOR_ITEM_RECOMMENDED),
-
 		list("EXPLOSIVES", 0, null, null, null),
 		list("Plastic Explosive", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
 		list("Breaching Charge", 10, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_REGULAR),
@@ -830,7 +841,6 @@
 
 		list("BINOCULARS", 0, null, null, null),
 		list("Binoculars", 5, /obj/item/device/binoculars/upp, null, VENDOR_ITEM_REGULAR),
-		list("Range Finder", 10, /obj/item/device/binoculars/range, null, VENDOR_ITEM_REGULAR),
 		list("Laser Designator", 15, /obj/item/device/binoculars/range/designator/upp, null, VENDOR_ITEM_REGULAR),
 
 		list("PAMPHLETS", 0, null, null, null),
@@ -850,7 +860,7 @@
 /datum/equipment_preset/upp/machinegunner
 	name = "UPP Machinegunner (Cryo)"
 
-	skills = /datum/skills/upp/specialist
+	skills = /datum/skills/military/survivor/upp_spec/cryo
 	assignment = JOB_UPP_SPECIALIST
 	job_title = JOB_UPP_SPECIALIST
 	role_comm_title = "Spc"
@@ -858,11 +868,13 @@
 	paygrades = list(PAY_SHORT_UE5 = JOB_PLAYTIME_TIER_0)
 	access = list(
 		ACCESS_UPP_GENERAL,
+		ACCESS_UPP_ARMORY,
 	)
 
 /datum/equipment_preset/upp/machinegunner/dressed
 	name = "UPP Machinegunner"
 	flags = EQUIPMENT_PRESET_EXTRA
+	skills = /datum/skills/military/survivor/upp_spec
 
 /datum/equipment_preset/upp/machinegunner/dressed/load_gear(mob/living/carbon/human/new_human)
 	//back
@@ -906,12 +918,6 @@
 		list("IRP", 0, /obj/item/storage/box/mre/upp, MARINE_CAN_BUY_MRE, VENDOR_ITEM_MANDATORY),
 		list("Combat Pack", 0, /obj/item/storage/backpack/lightpack, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
 
-		list("ARMOR", 0, null, null, null),
-		list("UH7 Heavy Plated Armor", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/heavy, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
-
-		list("HELMET (CHOOSE 1)", 0, null, null, null),
-		list("UM7 Helmet", 0, /obj/item/clothing/head/helmet/marine/veteran/UPP/heavy, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_MANDATORY),
-
 		list("BELT (CHOOSE 1)", 0, null, null, null),
 		list("Type 41 Ammo Load Rig", 0, /obj/item/storage/belt/marine/upp, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
 		list("Type 42 pattern shotgun shell loading rig", 0, /obj/item/storage/belt/shotgun/upp, MARINE_CAN_BUY_BELT, VENDOR_ITEM_RECOMMENDED),
@@ -944,14 +950,6 @@
 
 /datum/equipment_preset/upp/machinegunner/get_antag_gear_equipment()
 	return list(
-		list("HEAVY SET (MANDATORY)", 0, null, null, null),
-		list("Essential Heavy Set QYJ-72", 0, /obj/effect/essentials_set/upp_heavy_pkp, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_MANDATORY),
-		list("Essential Heavy Set", 0, /obj/effect/essentials_set/upp_heavy, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_MANDATORY),
-
-		list("SPECIAL AMMUNITION", 0, null, null, null),
-		list("Rotating ammo drum (7.62x51mm)", 15, /obj/item/ammo_magazine/minigun, null, VENDOR_ITEM_RECOMMENDED),
-		list("QYJ-72 ammo box (7.62x54mmR)", 10, /obj/item/ammo_magazine/pkp, null, VENDOR_ITEM_RECOMMENDED),
-
 		list("EXPLOSIVES", 0, null, null, null),
 		list("Plastic Explosive", 5, /obj/item/explosive/plastic, null, VENDOR_ITEM_REGULAR),
 		list("Breaching Charge", 10, /obj/item/explosive/plastic/breaching_charge, null, VENDOR_ITEM_REGULAR),
@@ -977,7 +975,6 @@
 
 		list("BINOCULARS", 0, null, null, null),
 		list("Binoculars", 5, /obj/item/device/binoculars/upp, null, VENDOR_ITEM_REGULAR),
-		list("Range Finder", 10, /obj/item/device/binoculars/range, null, VENDOR_ITEM_REGULAR),
 		list("Laser Designator", 15, /obj/item/device/binoculars/range/designator/upp, null, VENDOR_ITEM_REGULAR),
 
 		list("PAMPHLETS", 0, null, null, null),
@@ -2815,7 +2812,6 @@
 	name = "UPP Synthetic (Cryo)"
 	flags = EQUIPMENT_PRESET_EXTRA
 	faction = FACTION_UPP
-	origin_override = ORIGIN_UPP
 	languages = ALL_SYNTH_LANGUAGES_UPP
 
 	assignment = JOB_UPP_SUPPORT_SYNTH
@@ -3143,7 +3139,7 @@
 	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71/heap, WEAR_IN_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71/heap, WEAR_IN_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine/veteran/UPP/frogmen, WEAR_HEAD)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/helmet/cover/frogmen_veil, WEAR_IN_HELMET)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/helmet/cover/frogmen_veil, WEAR_ACCESSORY)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/belt/gun/type47/np92/suppressed, WEAR_WAIST)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/scout_cloak/upp/strong, WEAR_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/marine/upp/knife, WEAR_FEET)
@@ -3262,7 +3258,7 @@
 	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71/heap, WEAR_IN_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71/heap, WEAR_IN_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine/veteran/UPP/frogmen, WEAR_HEAD)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/helmet/cover/frogmen_veil, WEAR_IN_HELMET)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/helmet/cover/frogmen_veil, WEAR_ACCESSORY)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/scout_cloak/upp/strong, WEAR_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/marine/upp/knife, WEAR_FEET)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/gloves/marine/veteran/upp, WEAR_HANDS)
@@ -3427,7 +3423,7 @@
 	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71/heap, WEAR_IN_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71/heap, WEAR_IN_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine/veteran/UPP/frogmen, WEAR_HEAD)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/helmet/cover/frogmen_veil, WEAR_IN_HELMET)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/helmet/cover/frogmen_veil, WEAR_ACCESSORY)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/scout_cloak/upp/strong, WEAR_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/marine/upp/knife, WEAR_FEET)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/gloves/marine/veteran/upp, WEAR_HANDS)
@@ -3566,7 +3562,7 @@
 	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71/ap, WEAR_IN_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71/ap, WEAR_IN_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine/veteran/UPP/frogmen, WEAR_HEAD)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/helmet/cover/frogmen_veil, WEAR_IN_HELMET)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/helmet/cover/frogmen_veil, WEAR_ACCESSORY)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/belt/gun/type47/np92/suppressed, WEAR_WAIST)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/scout_cloak/upp/weak, WEAR_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/marine/upp/knife, WEAR_FEET)
@@ -3599,7 +3595,7 @@
 	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71/ap, WEAR_IN_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71/ap, WEAR_IN_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine/veteran/UPP/frogmen, WEAR_HEAD)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/helmet/cover/frogmen_veil, WEAR_IN_HELMET)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/helmet/cover/frogmen_veil, WEAR_ACCESSORY)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/scout_cloak/upp/weak, WEAR_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/marine/upp/knife, WEAR_FEET)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/gloves/marine/veteran, WEAR_HANDS)
@@ -3640,7 +3636,7 @@
 	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71/ap, WEAR_IN_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71/ap, WEAR_IN_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine/veteran/UPP/frogmen, WEAR_HEAD)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/helmet/cover/frogmen_veil, WEAR_IN_HELMET)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/helmet/cover/frogmen_veil, WEAR_ACCESSORY)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/scout_cloak/upp/weak, WEAR_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/marine/upp/knife, WEAR_FEET)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/gloves/marine/veteran, WEAR_HANDS)

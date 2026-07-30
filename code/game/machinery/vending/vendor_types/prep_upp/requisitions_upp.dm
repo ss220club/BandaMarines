@@ -12,9 +12,9 @@
 /obj/structure/machinery/cm_vending/sorted/cargo_guns/upp_cargo_guns/populate_product_list(scale)
 	listed_products = list(
 		list("PRIMARY FIREARMS", -1, null, null),
-		list("AK-4047 pulse assault rifle", floor(scale * 20), /obj/item/weapon/gun/rifle/ak4047, VENDOR_ITEM_REGULAR),
-		list("Type 71 Pulse Rifle", floor(scale * 2), /obj/item/weapon/gun/rifle/type71, VENDOR_ITEM_REGULAR),
-		list("Type 71 Pulse Rifle Carbine", floor(scale * 2), /obj/item/weapon/gun/rifle/type71/carbine, VENDOR_ITEM_REGULAR),
+		list("AK-4047 pulse assault rifle", floor(scale * 10), /obj/item/weapon/gun/rifle/ak4047, VENDOR_ITEM_REGULAR),
+		list("Type 71 Pulse Rifle", floor(scale * 5), /obj/item/weapon/gun/rifle/type71, VENDOR_ITEM_REGULAR),
+		list("Type 71 Pulse Rifle Carbine", floor(scale * 5), /obj/item/weapon/gun/rifle/type71/carbine, VENDOR_ITEM_REGULAR),
 		list("Type 64 Submachinegun", floor(scale * 5), /obj/item/weapon/gun/smg/bizon/upp, VENDOR_ITEM_REGULAR),
 		list("Type 23 Riot Shotgun", floor(scale * 2), /obj/item/weapon/gun/shotgun/type23, VENDOR_ITEM_REGULAR),
 

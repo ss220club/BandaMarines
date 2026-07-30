@@ -82,8 +82,8 @@
 	icon = 'modular/distress/icons/mortar.dmi'
 	icon_state = "missile_inc"
 	radius = 5
-	flame_level = BURN_TIME_TIER_5 + 5
-	burn_level = BURN_LEVEL_TIER_7
+	flame_level = BURN_TIME_TIER_5
+	burn_level = BURN_LEVEL_TIER_5
 	flameshape = FLAMESHAPE_DEFAULT
 	fire_type = FIRE_VARIANT_DEFAULT
 
@@ -112,7 +112,7 @@
 	accuracy_var_low = PROJECTILE_VARIANCE_TIER_8
 	accuracy_var_high = PROJECTILE_VARIANCE_TIER_6
 	accurate_range = 14
-	damage = 45
+	damage = 55 // МОРКОВКА спасибо
 	penetration = ARMOR_PENETRATION_TIER_4
 	shrapnel_chance = SHRAPNEL_CHANCE_TIER_9
 
@@ -126,8 +126,9 @@
 /datum/ammo/bullet/rifle/type71
 	name = "heavy rifle bullet"
 
-	damage = 30
-	penetration = ARMOR_PENETRATION_TIER_6
+	damage = 55 // МОРКОВКА спасибо
+	penetration = ARMOR_PENETRATION_TIER_1 // МОРКОВКА спасибо
+	damage_falloff = DAMAGE_FALLOFF_TIER_7 // МОРКОВКА спасибо
 
 /datum/ammo/bullet/rifle/type71/ap
 	name = "heavy armor-piercing rifle bullet"
@@ -153,7 +154,7 @@
 	name = "heavy rifle bullet"
 	icon = 'modular/distress/icons/projectiles.dmi'
 	icon_state = "redtrac"
-	damage = 35
+	damage = 40 // МОРКОВКА спасибо
 	penetration = ARMOR_PENETRATION_TIER_2
 
 /datum/ammo/bullet/rifle/type71/ak/ap

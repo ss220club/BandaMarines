@@ -265,12 +265,13 @@
 // Внимание! Эти названия участвуют в:
 // 		tgui/packages/tgui/interfaces/Orbit/index.tsx
 
-#define JOB_UPP_RU	"СПН Рядовой"
+#define JOB_UPP_RU	"СПН Стрелок"
 #define JOB_UPP_CONSCRIPT_RU "СПН Призывник"
 #define JOB_UPP_ENGI_RU "СПН Инженер"
 #define JOB_UPP_MEDIC_RU "СПН Санитар"
 #define JOB_UPP_SPECIALIST_RU "СПН Сержант"
 #define JOB_UPP_LEADER_RU "СПН Старший Сержант"
+#define JOB_UPP_SCIENCE_RU "СПН Исследователь ККЕ"
 #define JOB_UPP_POLICE_RU "СПН Милиция"
 #define JOB_UPP_LT_OFFICER_RU "СПН Младший Лейтенант"
 #define JOB_UPP_SUPPLY_RU "СПН Техник Снабжения"

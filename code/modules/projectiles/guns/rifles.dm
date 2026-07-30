@@ -1575,15 +1575,15 @@
 
 /obj/item/weapon/gun/rifle/type71/set_gun_config_values()
 	..()
-	set_fire_delay(FIRE_DELAY_TIER_8)
+	set_fire_delay(FIRE_DELAY_TIER_10) // МОРКОВКА спасибо
 	set_burst_amount(BURST_AMOUNT_TIER_4)
 	set_burst_delay(FIRE_DELAY_TIER_9)
 	accuracy_mult = BASE_ACCURACY_MULT + HIT_ACCURACY_MULT_TIER_4
 	accuracy_mult_unwielded = BASE_ACCURACY_MULT - HIT_ACCURACY_MULT_TIER_7
-	scatter = SCATTER_AMOUNT_TIER_6
+	scatter = SCATTER_AMOUNT_TIER_9 // МОРКОВКА спасибо
 	burst_scatter_mult = SCATTER_AMOUNT_TIER_10
 	scatter_unwielded = SCATTER_AMOUNT_TIER_4
-	damage_mult = BASE_BULLET_DAMAGE_MULT //10~ more damage than m41, as well as higher ap from bullet, slightly higher DPS, 133>137.5
+	damage_mult = 1.21 // МОРКОВКА спасибо
 	recoil_unwielded = RECOIL_AMOUNT_TIER_3
 
 /obj/item/weapon/gun/rifle/type71/rifleman
@@ -1739,9 +1739,10 @@
 
 /obj/item/weapon/gun/rifle/type71/carbine/set_gun_config_values()
 	..()
-	set_fire_delay(FIRE_DELAY_TIER_11)//same fire rate as m41
-	damage_mult = BASE_BULLET_DAMAGE_MULT - BULLET_DAMAGE_MULT_TIER_4//same damage as m41 reg bullets probably
+	set_fire_delay(FIRE_DELAY_TIER_LMG)//МОРКОВКА спасибо
+	damage_mult = 0.74 //МОРКОВКА спасибо
 	scatter_unwielded = SCATTER_AMOUNT_TIER_5
+	scatter = SCATTER_AMOUNT_TIER_4 //МОРКОВКА спасибо
 	if(SSticker.mode && MODE_HAS_FLAG(MODE_FACTION_CLASH))
 		scatter = SCATTER_AMOUNT_TIER_5
 	recoil_unwielded = RECOIL_AMOUNT_TIER_4

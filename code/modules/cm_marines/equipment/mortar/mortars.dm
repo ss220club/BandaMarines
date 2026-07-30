@@ -512,17 +512,17 @@
 
 	playsound(target, 'sound/weapons/gun_mortar_travel.ogg', 50, 1)
 	var/relative_dir
-	for(var/mob/mob in range(15, target))
+	for(var/mob/mob in long_range(25, target))
 		if(get_turf(mob) == target)
 			relative_dir = 0
 		else
 			relative_dir = Get_Compass_Dir(mob, target)
 		mob.show_message( \
-			SPAN_DANGER("СНАРЯД ПАДАЕТ [SPAN_UNDERLINE(relative_dir ? uppertext(("НА " + dir2text_ru(relative_dir, PREPOSITIONAL) + " ОТ ВАС")) : uppertext("ПРЯМО НА ВАС"))]!"), SHOW_MESSAGE_VISIBLE, \
-			SPAN_DANGER("ВЫ СЛЫШИТЕ, КАК ЧТО-ТО ПАДАЕТ [SPAN_UNDERLINE(relative_dir ? uppertext(("НА " + dir2text_ru(relative_dir, PREPOSITIONAL))) : uppertext("ПРЯМО НА ВАС"))]!"), SHOW_MESSAGE_AUDIBLE \
+			SPAN_HIGHDANGER("СНАРЯД ПАДАЕТ [SPAN_UNDERLINE(relative_dir ? uppertext(("НА " + dir2text_ru(relative_dir, PREPOSITIONAL) + " ОТ ВАС")) : uppertext("ПРЯМО НА ВАС"))]!"), SHOW_MESSAGE_VISIBLE, \
+			SPAN_HIGHDANGER("ВЫ СЛЫШИТЕ, КАК ЧТО-ТО ПАДАЕТ [SPAN_UNDERLINE(relative_dir ? uppertext(("НА " + dir2text_ru(relative_dir, PREPOSITIONAL))) : uppertext("ПРЯМО НА ВАС"))]!"), SHOW_MESSAGE_AUDIBLE \
 		)
 	sleep(2.5 SECONDS) // Sleep a bit to give a message
-	for(var/mob/mob in range(10, target))
+	for(var/mob/mob in long_range(15, target))
 		if(get_turf(mob) == target)
 			relative_dir = 0
 		else

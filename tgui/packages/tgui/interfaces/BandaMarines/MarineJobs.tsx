@@ -281,7 +281,7 @@ export const JOBS_RU = {
   'Reconnaissance Smartgunner': 'Смартганнер Разведки',
 
   // UPP roles
-  'UPP Ryadovoy': 'СПН Рядовой',
+  'UPP Ryadovoy': 'СПН Стрелок',
   'UPP Conscript': 'СПН Призывник',
   'UPP MSzht Engineer': 'СПН Инженер',
   'UPP MSzht Medic': 'СПН Санитар',

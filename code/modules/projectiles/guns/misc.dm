@@ -19,11 +19,13 @@
 	cocked_sound = 'sound/weapons/gun_minigun_cocked.ogg'
 	current_mag = /obj/item/ammo_magazine/minigun
 	w_class = SIZE_HUGE
-	force = 40
+	force = 65
 	flags_gun_features = GUN_AUTO_EJECTOR|GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_RECOIL_BUILDUP|GUN_CAN_POINTBLANK
 	gun_category = GUN_CATEGORY_HEAVY
 	start_semiauto = FALSE
 	start_automatic = TRUE
+	COOLDOWN_DECLARE(attack_cooldown)
+	var/cooldown_time = 15 SECONDS
 
 /obj/item/weapon/gun/minigun/Initialize(mapload, spawn_empty)
 	. = ..()
@@ -68,6 +70,15 @@
 		to_chat(user, SPAN_WARNING("You don't seem to know how to use [src]..."))
 		return 0
 
+/obj/item/weapon/gun/minigun/upp/attack(mob/living/target, mob/living/user)
+	. = ..()
+	if(. && (COOLDOWN_FINISHED(src, attack_cooldown)))
+		COOLDOWN_START(src, attack_cooldown, cooldown_time)
+		target.throw_atom(get_step(target, user.dir), 3, SPEED_AVERAGE, user, FALSE)
+		target.emote("pain")
+		target.apply_effect(0.2, WEAKEN)
+		target.apply_effect(5, SLOW)
+		target.apply_effect(10, DAZE)
 
 //M60
 /obj/item/weapon/gun/m60
@@ -212,9 +223,9 @@
 		COOLDOWN_START(src, attack_cooldown, cooldown_time)
 		target.throw_atom(get_step(target, user.dir), 3, SPEED_AVERAGE, user, FALSE)
 		target.emote("pain")
+		target.apply_effect(0.2, WEAKEN)
 		target.apply_effect(5, SLOW)
 		target.apply_effect(10, DAZE)
-		target.apply_effect(0.5, WEAKEN)
 		
 /obj/item/weapon/gun/pkp/handle_starting_attachment()
 	..()

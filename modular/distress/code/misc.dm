@@ -196,14 +196,14 @@
 	item_icons = list(
 		WEAR_JACKET = 'icons/mob/humans/onmob/clothing/suits/suits_by_faction/UPP.dmi'
 	)
-	slowdown = SLOWDOWN_ARMOR_LIGHT
+	slowdown = SLOWDOWN_ARMOR_MEDIUM // МОРКОВКА спасибо
 	armor_melee = CLOTHING_ARMOR_MEDIUM
-	armor_bullet = CLOTHING_ARMOR_HIGHPLUS
-	armor_bomb = CLOTHING_ARMOR_HIGH
+	armor_bullet = CLOTHING_ARMOR_MEDIUMHIGH // МОРКОВКА спасибо
+	armor_bomb = CLOTHING_ARMOR_MEDIUM // МОРКОВКА спасибо
 	armor_energy = CLOTHING_ARMOR_MEDIUM
 	armor_bio = CLOTHING_ARMOR_MEDIUM
 	armor_rad = CLOTHING_ARMOR_MEDIUMLOW
-	armor_internaldamage = CLOTHING_ARMOR_HIGHPLUS
+	armor_internaldamage = CLOTHING_ARMOR_MEDIUMHIGH // МОРКОВКА спасибо
 	storage_slots = 2
 	uniform_restricted = list(/obj/item/clothing/under/marine/veteran/UPP, /obj/item/clothing/under/marine/veteran/UPP/medic, /obj/item/clothing/under/marine/veteran/UPP/engi, /obj/item/clothing/under/marine/veteran/UPP/SOF_uniform)
 
@@ -212,14 +212,14 @@
 	desc = "Standard body armor of the UPP military, the UL6 (Union Light MK6) is a light body armor, slightly weaker than the M3 pattern body armor in service with the USCM, specialized towards ballistics protection. This set of personal armor lacks the iconic neck piece and some of the armor in favor of user mobility."
 	storage_slots = 3
 	icon_state = "upp_armor_support"
-	slowdown = SLOWDOWN_ARMOR_MEDIUM
-	armor_bullet = CLOTHING_ARMOR_HIGHPLUS
+	slowdown = SLOWDOWN_ARMOR_LIGHT // МОРКОВКА спасибо
+	armor_bullet = CLOTHING_ARMOR_MEDIUMHIGH // МОРКОВКА спасибо
 	armor_melee = CLOTHING_ARMOR_MEDIUMLOW
 	armor_energy = CLOTHING_ARMOR_MEDIUM
 	armor_bomb = CLOTHING_ARMOR_MEDIUMLOW
 	armor_bio = CLOTHING_ARMOR_VERYHIGH
 	armor_rad = CLOTHING_ARMOR_MEDIUMLOW
-	armor_internaldamage = CLOTHING_ARMOR_HIGH
+	armor_internaldamage = CLOTHING_ARMOR_MEDIUMLOW // МОРКОВКА спасибо
 
 /obj/item/clothing/suit/storage/marine/faction/UPP/heavy
 	name = "\improper UH7 heavy plated armor"
@@ -229,6 +229,7 @@
 	slowdown = SLOWDOWN_ARMOR_HEAVY
 	flags_inventory = BLOCKSHARPOBJ|BLOCK_KNOCKDOWN
 	flags_armor_protection = BODY_FLAG_ALL_BUT_HEAD
+	flags_item = MOB_LOCK_ON_EQUIP
 	armor_melee = CLOTHING_ARMOR_VERYHIGH
 	armor_bullet = CLOTHING_ARMOR_HIGHPLUS
 	armor_laser = CLOTHING_ARMOR_MEDIUMLOW
@@ -248,7 +249,8 @@
 	armor_bomb = CLOTHING_ARMOR_HIGH
 	armor_bio = CLOTHING_ARMOR_LOW
 	armor_internaldamage = CLOTHING_ARMOR_HIGHPLUS
-	flags_inv_hide = HIDEEARS|HIDEEYES|HIDETOPHAIR
+	flags_inv_hide = HIDEEARS|HIDEEYES|HIDETOPHAIR|BLOCKGASEFFECT
+	flags_item = MOB_LOCK_ON_EQUIP
 
 /obj/item/device/motiondetector/upp
 	name = "UDO-58 motion detector"
@@ -302,9 +304,9 @@
 	icon = 'modular/distress/icons/mortar.dmi'
 	desc = "A man-portable two-stage missile launcher. While capable of being fired manually, what truly sets this apart from standard boom-tubes is it's onboard fire-control systems. While deployed on a baseplate and supporting bipod stand it will attempt to link with any local USCM sensor matrix, allowing it to automatically track, identify and request to fire upon hostile targets in range."
 	icon_state = "himat"
-	max_range = 70
+	max_range = 45
 	var/kit_type = /obj/item/mortar_kit/himat
-	travel_time = 60
+	travel_time = 70
 	var/obj/item/mortar_shell/loaded_shell = null
 	var/id
 
@@ -390,12 +392,12 @@
 			return
 		id = new_id
 
-	if(istype(item, /obj/item/device/binoculars/range/designator/upp))
+	if(istype(item, /obj/item/device/binoculars/range/designator/upp/spec))
 		if(!id)
 			to_chat(user, SPAN_WARNING("[src] must have an ID before connecting. Use multitool to set ID."))
 			return
 
-		var/obj/item/device/binoculars/range/designator/upp/desig = item
+		var/obj/item/device/binoculars/range/designator/upp/spec/desig = item
 		if(src in desig.connected_himats)
 			to_chat(user, SPAN_WARNING("[src] is already connected to this designator."))
 			return
@@ -453,8 +455,8 @@
 		WEAR_R_HAND = 'modular/distress/icons/righthand.dmi',
 	)
 
-/obj/item/device/binoculars/range/designator/upp
-	ignore_ceiling_check = TRUE
+/obj/item/device/binoculars/range/designator/upp/
+	ignore_ceiling_check = FALSE
 	icon = 'modular/distress/icons/binoculars.dmi'
 	icon_state = "binoculars_upp_alt"
 	uses_camo = FALSE
@@ -464,13 +466,16 @@
 		WEAR_L_HAND = 'modular/distress/icons/lefthand.dmi',
 		WEAR_R_HAND = 'modular/distress/icons/righthand.dmi',
 	)
+
+/obj/item/device/binoculars/range/designator/upp/spec
+	ignore_ceiling_check = TRUE
 	var/list/connected_himats = list()
 	var/himat_id = 1
 	var/barrage_mode = FALSE
 	actions_types = list(/datum/action/item_action/fire_himat, /datum/action/item_action/switch_himat, /datum/action/item_action/himat_barrage)
 	var/list/actions_list = list(/datum/action/item_action/fire_himat, /datum/action/item_action/switch_himat, /datum/action/item_action/himat_barrage)
 
-/obj/item/device/binoculars/range/designator/upp/attackby(obj/item/item, mob/user)
+/obj/item/device/binoculars/range/designator/upp/spec/attackby(obj/item/item, mob/user)
 	if(HAS_TRAIT(item, TRAIT_TOOL_MULTITOOL))
 		to_chat(user, SPAN_WARNING("You begin flushing connection data..."))
 		if(do_after(user, 2 SECONDS, INTERRUPT_ALL, BUSY_ICON_HOSTILE))
@@ -487,8 +492,13 @@
 
 /datum/action/item_action/fire_himat/action_activate()
 	. = ..()
-	var/obj/item/device/binoculars/range/designator/upp/desig = holder_item
+	var/obj/item/device/binoculars/range/designator/upp/spec/desig = holder_item
 	var/howmanyhimats = 0
+	var/mob/living/carbon/human/H = usr
+	if(!skillcheck(H, SKILL_SPEC_WEAPONS, SKILL_SPEC_ALL) && H.skills.get_skill_level(SKILL_SPEC_WEAPONS) != SKILL_SPEC_TRAINED)
+		to_chat(H, SPAN_WARNING("You don't seem to know how to use [src]..."))
+		return
+
 	if(!desig.range_mode && desig.laser && desig.connected_himats.len)
 		if(desig.barrage_mode)
 			for(var/obj/structure/mortar/himat/himat in desig.connected_himats)
@@ -514,7 +524,7 @@
 
 /datum/action/item_action/switch_himat/action_activate()
 	. = ..()
-	var/obj/item/device/binoculars/range/designator/upp/desig = holder_item
+	var/obj/item/device/binoculars/range/designator/upp/spec/desig = holder_item
 	if(!length(desig.connected_himats))
 		to_chat(usr, SPAN_NOTICE("No HIMAT IDs found! Please connect to a HIMAT."))
 		return
@@ -534,7 +544,7 @@
 
 /datum/action/item_action/himat_barrage/action_activate()
 	. = ..()
-	var/obj/item/device/binoculars/range/designator/upp/desig = holder_item
+	var/obj/item/device/binoculars/range/designator/upp/spec/desig = holder_item
 	desig.barrage_mode = !desig.barrage_mode
 	button.overlays.Cut()
 	if(desig.barrage_mode)
@@ -561,19 +571,36 @@
 		WEAR_AS_GARB = 'modular/distress/icons/helmet_garb.dmi',
 	)
 
+/obj/item/clothing/suit/storage/marine/faction/UPP/commando
+	name = "\improper UM5CU personal armor"
+	desc = "A modification of the UM5, designed for stealth operations."
+	icon_state = "upp_armor_commando"
+	storage_slots = 2
+	slowdown = SLOWDOWN_ARMOR_VERY_LIGHT
+	armor_melee = CLOTHING_ARMOR_LOW
+	armor_bullet = CLOTHING_ARMOR_HIGHPLUS
+	armor_bomb = CLOTHING_ARMOR_MEDIUMLOW
+	armor_energy = CLOTHING_ARMOR_MEDIUM
+	armor_bio = CLOTHING_ARMOR_LOW
+	armor_rad = CLOTHING_ARMOR_LOW
+	armor_internaldamage = CLOTHING_ARMOR_MEDIUM
+	flags_item = MOB_LOCK_ON_EQUIP
+	storage_slots = 2
+
 /obj/item/clothing/head/helmet/marine/veteran/UPP/frogmen
 	name = "\improper 6B84 light helmet"
 	desc = " UPPA reconnaissance new helmet for multiple environments, and used mostly for NVG/IR system placement. Made using fabric-polymer technology, making it much lighter in comparison to the standard issue 6B82, sacrificing overall protection. A tactical datalink and A/V feeds are provided, alongside facilities for an infrared imager complex. Surprisingly comfortable. The fabric utilized for this model is rubbery and colored after the standard paint coating of UPP armor."
 	icon = 'modular/distress/icons/misc.dmi'
 	icon_state = "upp_helmet_frogmen"
-	armor_melee = CLOTHING_ARMOR_MEDIUMLOW
-	armor_bullet = CLOTHING_ARMOR_MEDIUMHIGH
+	armor_melee = CLOTHING_ARMOR_LOW
+	armor_bullet = CLOTHING_ARMOR_HIGHPLUS
 	armor_bomb = CLOTHING_ARMOR_MEDIUMLOW
-	armor_bio = CLOTHING_ARMOR_MEDIUMLOW
+	armor_bio = CLOTHING_ARMOR_LOW
 	armor_rad = CLOTHING_ARMOR_LOW
-	armor_internaldamage = CLOTHING_ARMOR_MEDIUMHIGH
+	armor_internaldamage = CLOTHING_ARMOR_MEDIUM
 	flags_marine_helmet = HELMET_GARB_OVERLAY
 	storage_slots = 2
+	flags_item = MOB_LOCK_ON_EQUIP
 	flags_inv_hide = HIDEEARS|HIDEEYES|HIDETOPHAIR
 	item_icons = list(
 		WEAR_HEAD = 'modular/distress/icons/helmet.dmi'
@@ -718,3 +745,259 @@
 	item_icons = null
 	item_state = "headset"
 	icon_state = "generic_headset"
+
+/obj/item/pamphlet/skill/HIMAT
+	name = "HIMAT Operator instructional pamphlet"
+	desc = "A pamphlet used to quickly impart vital knowledge on the use of the HIMAT, among other engineering devices and JTAC practices."
+	icon_state = "pamphlet_mortar"
+	trait = /datum/character_trait/skills/mortar/HIMAT
+	bypass_pamphlet_limit = TRUE
+
+/datum/character_trait/skills/mortar/HIMAT
+	trait_name = "HIMAT Training"
+	skill = SKILL_ENGINEER
+	secondary_skill = SKILL_SPEC_WEAPONS
+	skill_cap = SKILL_ENGINEER_NOVICE
+	secondary_skill_cap = SKILL_SPEC_TRAINED
+	skill_increment = 2
+
+/obj/structure/machinery/cm_vending/gear/spec/upp
+	name = "\improper Squad Weapons Specialist Gear Rack"
+	desc = "An automated gear rack for Weapons Specialists."
+	icon_state = "upp_clothing"
+	vendor_role = list(JOB_UPP_SPECIALIST)
+	req_access = list(ACCESS_UPP_ARMORY)
+
+/obj/structure/machinery/cm_vending/gear/spec/upp/get_listed_products(mob/user)
+	return GLOB.upp_cm_vending_gear_spec
+
+GLOBAL_LIST_EMPTY(upp_specialist_sets_taken)
+
+/obj/structure/machinery/cm_vending/gear/spec/upp/proc/is_specialist_set_taken(typepath)
+
+	if(!ispath(typepath, /obj/item/storage/box/spec))
+		return FALSE
+
+	var/obj/item/storage/box/spec/spec_kit = typepath
+
+	var/set_name = initial(spec_kit.kit_name)
+
+	if(set_name in GLOB.upp_specialist_sets_taken)
+		return TRUE
+
+	return FALSE
+
+
+/obj/structure/machinery/cm_vending/gear/spec/upp/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+
+	if(action == "vend")
+
+		var/index = params["prod_index"]
+		var/list/item = get_listed_products(ui.user)[index]
+
+		if(is_specialist_set_taken(item[3]))
+			to_chat(ui.user, SPAN_WARNING("This specialist set has already been taken by another operator."))
+			vend_fail()
+			return TRUE
+
+	return ..()
+
+
+/obj/structure/machinery/cm_vending/gear/spec/upp/vendor_successful_vend_one(prod_type, mob/living/carbon/human/user, turf/target_turf, insignas_override, stack_amount)
+
+	. = ..()
+
+	if(!ispath(prod_type, /obj/item/storage/box/spec))
+		return
+
+	var/datum/upp_specialist_set/chosen_set
+
+	for(var/datum/upp_specialist_set/path as anything in subtypesof(/datum/upp_specialist_set))
+		if(initial(path.kit_typepath) == prod_type)
+			var/datum/upp_specialist_set/S = new path
+			S.redeem_set(user)
+			break
+
+	if(chosen_set)
+		chosen_set.redeem_set(user)
+
+	var/obj/item/storage/box/spec/spec_kit = prod_type
+	var/set_name = initial(spec_kit.kit_name)
+
+	if(set_name)
+		GLOB.upp_specialist_sets_taken[set_name] = TRUE
+
+GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
+		list("WEAPONS SPECIALIST SETS (CHOOSE 1)", 0, null, null, null),
+		list("Minigunner Set", 0, /obj/item/storage/box/spec/heavy_minigun, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_REGULAR),
+		list("Heavy Machinegun Set", 0, /obj/item/storage/box/spec/heavy_machinegun, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_REGULAR),
+		list("HIMAT Operator Set", 0, /obj/item/storage/box/spec/himat_operator, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_REGULAR),
+//		list("Pyro Set", 0, /obj/item/storage/box/spec/upp_pyro, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_REGULAR),
+		list("Sniper Set", 0, /obj/item/storage/box/spec/upp_sniper, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_RECOMMENDED),
+
+		list("EXTRA MINIGUN AMMUNITION", 0, null, null, null),
+		list("Rotating ammo drum (7.62x51mm)", 60, /obj/item/ammo_magazine/minigun, null, VENDOR_ITEM_REGULAR),
+		
+		list("EXTRA MACHINEGUN AMMUNITION", 0, null, null, null),
+		list("QYJ-72 ammo box (7.62x54mmR)", 60, /obj/item/ammo_magazine/pkp, null, VENDOR_ITEM_REGULAR),
+
+		list("EXTRA SNIPER AMMUNITION", 0, null, null, null),
+		list("Type-88 Magazine (7.62x54mmR)", 60, /obj/item/ammo_magazine/sniper/svd, null, VENDOR_ITEM_REGULAR),
+
+//		list("EXTRA FLAMETHROWER TANKS", 0, null, null, null),
+//		list("Large Incinerator Tank", 40, /obj/item/ammo_magazine/flamer_tank/large, null, VENDOR_ITEM_REGULAR),
+//		list("Large Incinerator Tank (B) (Green Flame)", 40, /obj/item/ammo_magazine/flamer_tank/large/B, null, VENDOR_ITEM_REGULAR),
+//		list("Large Incinerator Tank (X) (Blue Flame)", 40, /obj/item/ammo_magazine/flamer_tank/large/X, null, VENDOR_ITEM_REGULAR),
+	))
+
+
+/datum/upp_specialist_set
+	var/name = ""
+	var/role_name = ""
+	var/skill_to_give = SKILL_SPEC_DEFAULT
+	var/trait_to_give = null
+	var/kit_typepath = null
+	var/rank_icon = "spec"
+
+/datum/upp_specialist_set/proc/redeem_set(mob/living/carbon/human/user)
+	if(!user)
+		return FALSE
+
+	if(skill_to_give != SKILL_SPEC_DEFAULT)
+		user.skills?.set_skill(SKILL_SPEC_WEAPONS, skill_to_give)
+
+	if(trait_to_give)
+		ADD_TRAIT(user, TRAIT_SPEC(trait_to_give), TRAIT_SOURCE_INHERENT)
+
+	user.rank_override = rank_icon
+	user.hud_set_squad()
+
+	var/obj/item/card/id/idcard = user.get_idcard()
+	if(idcard)
+		idcard.set_assignment(role_name)
+		user.role_title_override = role_name
+		idcard.minimap_icon_override = rank_icon
+		user.update_minimap_icon()
+
+	return TRUE
+
+// /datum/specialist_set/upp_pyro
+//	name = "Pyro Set"
+//	role_name = JOB_UPP_SPECIALIST
+//	skill_to_give = SKILL_SPEC_PYRO
+//	rank_icon = "spec"
+//	kit_typepath = /obj/item/storage/box/spec/upp_pyro
+
+/datum/upp_specialist_set/upp_sniper
+	name = "Sniper Set"
+	role_name = JOB_UPP_SPECIALIST
+	skill_to_give = SKILL_SPEC_SNIPER
+	rank_icon = "spec"
+	kit_typepath = /obj/item/storage/box/spec/upp_sniper
+
+/datum/upp_specialist_set/heavy_machinegun
+	name = "Heavy Machinegun Set"
+	role_name = JOB_UPP_SPECIALIST
+	skill_to_give = SKILL_SPEC_UPP
+	rank_icon = "spec"
+	kit_typepath = /obj/item/storage/box/spec/heavy_machinegun
+	
+/obj/item/storage/box/spec/heavy_machinegun
+	name = "\improper PKP equipment case"
+	desc = "."
+	kit_overlay = "mortar"
+	kit_name = "heavy_machinegun"
+
+/obj/item/storage/box/spec/heavy_machinegun/fill_preset_inventory()
+	new /obj/item/clothing/suit/storage/marine/faction/UPP/heavy(src)
+	new /obj/item/clothing/head/helmet/marine/veteran/UPP/heavy(src)
+	new /obj/item/weapon/gun/pkp(src)
+	new /obj/item/ammo_magazine/pkp(src)
+	new /obj/item/ammo_magazine/pkp(src)
+	new /obj/item/ammo_magazine/pkp(src)
+
+/datum/upp_specialist_set/heavy_minigun
+	name = "Heavy Minigun Set"
+	role_name = JOB_UPP_SPECIALIST
+	skill_to_give = SKILL_SPEC_UPP
+	rank_icon = "spec"
+	kit_typepath = /obj/item/storage/box/spec/heavy_minigun
+
+/obj/item/storage/box/spec/heavy_minigun
+	name = "\improper Minigun  equipment case"
+	desc = "."
+	kit_overlay = "mortar"
+	kit_name = "heavy_minigun"
+
+/obj/item/storage/box/spec/heavy_minigun/fill_preset_inventory()
+	new /obj/item/clothing/suit/storage/marine/faction/UPP/heavy(src)
+	new /obj/item/clothing/head/helmet/marine/veteran/UPP/heavy(src)
+	new /obj/item/weapon/gun/minigun/upp(src)
+	new /obj/item/ammo_magazine/minigun(src)
+	new /obj/item/ammo_magazine/minigun(src)
+
+/datum/upp_specialist_set/himat_operator
+	name = "HIMAT Operator Set"
+	role_name = JOB_UPP_SPECIALIST
+	skill_to_give = SKILL_SPEC_TRAINED
+	rank_icon = "spec"
+	kit_typepath = /obj/item/storage/box/spec/himat_operator
+
+/obj/item/storage/box/spec/himat_operator
+	name = "\improper himat operator equipment case"
+	desc = "A large case containing a heavy-caliber anti-tank M5 RPG rocket launcher, M3-T light armor, five 84mm rockets and additional pieces of equipment.\nDrag this sprite onto yourself to open it up! NOTE: You cannot put items back inside this case."
+	kit_overlay = "mortar"
+	kit_name = "himat_operator"
+
+/obj/item/storage/box/spec/himat_operator/fill_preset_inventory()
+	new /obj/item/mortar_kit/himat(src)
+	new /obj/item/mortar_kit/himat(src)
+	new /obj/item/pamphlet/skill/HIMAT(src)
+	new /obj/item/storage/belt/gun/mortarbelt(src)
+	new /obj/item/storage/belt/gun/mortarbelt(src)
+	new /obj/item/device/binoculars/range/designator/upp/spec(src)
+	new /obj/item/device/binoculars/range/designator/upp/spec(src)
+	new /obj/item/storage/backpack/marine/mortarpack(src)
+	new /obj/item/mortar_shell/himat/explosive(src)
+	new /obj/item/mortar_shell/himat/explosive(src)
+	new /obj/item/mortar_shell/himat/antipersonnel(src)
+	new /obj/item/mortar_shell/himat/antipersonnel(src)
+	new	/obj/item/mortar_shell/incendiary/himat(src)
+	new	/obj/item/mortar_shell/incendiary/himat(src)
+	new	/obj/item/mortar_shell/himat/training(src)
+	new	/obj/item/mortar_shell/himat/training(src)
+	new	/obj/item/mortar_shell/himat/training(src)
+	new	/obj/item/mortar_shell/himat/training(src)
+	new /obj/item/device/multitool/upp(src)
+	new /obj/item/tool/wrench(src)
+
+/obj/item/storage/box/spec/upp_sniper
+	name = "\improper Sniper equipment case"
+	desc = "Type 88 marksman rifle case."
+	kit_overlay = "sniper"
+	kit_name = "upp_sniper"
+
+/obj/item/storage/box/spec/upp_sniper/fill_preset_inventory()
+	// sniper
+	new /obj/item/clothing/glasses/night/m42_night_goggles/upp(src)
+	new	/obj/item/clothing/head/helmet/marine/veteran/UPP/frogmen(src)
+	new	/obj/item/clothing/accessory/helmet/cover/frogmen_veil(src)
+	new /obj/item/weapon/gun/rifle/sniper/svd(src)
+	new /obj/item/ammo_magazine/sniper/svd(src)
+	new /obj/item/ammo_magazine/sniper/svd(src)
+
+/obj/item/storage/box/spec/upp_pyro
+	name = "\improper Pyrotechnician equipment case"
+	desc = "."
+	kit_overlay = "pyro"
+	kit_name = "upp_pyro"
+
+/obj/item/storage/box/spec/upp_pyro/fill_preset_inventory()
+	new /obj/item/clothing/suit/storage/marine/M35(src)
+	new /obj/item/clothing/head/helmet/marine/pyro(src)
+	new /obj/item/storage/large_holster/fuelpack(src)
+	new /obj/item/weapon/gun/flamer/m240/spec(src)
+	new /obj/item/ammo_magazine/flamer_tank/large(src)
+	new /obj/item/storage/pouch/flamertank(src)
+	new /obj/item/tool/extinguisher(src)
+	new /obj/item/tool/extinguisher/mini(src)
