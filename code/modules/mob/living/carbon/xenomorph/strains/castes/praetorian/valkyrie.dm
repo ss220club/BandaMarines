@@ -467,6 +467,10 @@
 	if(!check_plasma_owner())
 		return
 
+	if(behavior.base_fury < retrieve_cost)
+		to_chat(valkyrie, SPAN_XENODANGER("Мы не достаточно разозлены, чтобы сделать это!"))
+		return
+
 	// Build our turflist
 	var/list/turf/turflist = list()
 	var/list/telegraph_atom_list = list()
@@ -507,14 +511,14 @@
 		to_chat(valkyrie, SPAN_XENOWARNING("We don't have any room to do our retrieve!"))
 		return
 
-	valkyrie.visible_message(SPAN_XENODANGER("[valkyrie] готовится выпустить свой смоляной крюк в сторону [A]!"), SPAN_XENODANGER("Мы готовимся выпустить свой смоляной крюк в сторону [A]!")) // SS220 EDIT ADDICTION
-	valkyrie.emote("roar")
-
 	if(!behavior.use_internal_fury_ability(retrieve_cost))
 		return
 
 	if(!check_and_use_plasma_owner())
 		return
+
+	valkyrie.visible_message(SPAN_XENODANGER("[valkyrie] готовится выпустить свой смоляной крюк в сторону [A]!"), SPAN_XENODANGER("Мы готовимся выпустить свой смоляной крюк в сторону [A]!")) // SS220 EDIT ADDICTION
+	valkyrie.emote("roar")
 
 	var/throw_target_turf = get_step(valkyrie, facing)
 	var/turf/behind_turf = get_step(valkyrie, reversefacing)
