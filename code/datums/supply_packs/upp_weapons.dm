@@ -23,15 +23,8 @@
 		/obj/item/weapon/gun/shotgun/type23,
 		/obj/item/weapon/gun/shotgun/type23,
 		/obj/item/weapon/gun/shotgun/type23,
-		/obj/item/weapon/gun/shotgun/type23,
-		/obj/item/weapon/gun/shotgun/type23,
-		/obj/item/weapon/gun/shotgun/type23,
-		/obj/item/weapon/gun/shotgun/type23,
-		/obj/item/weapon/gun/shotgun/type23,
-		/obj/item/weapon/gun/shotgun/type23,
-		/obj/item/weapon/gun/shotgun/type23,
 	)
-	cost = 50
+	cost = 30
 	containertype = /obj/structure/closet/crate/weapon
 	containername = "Type 23 riot shotgun Crate"
 	group = "UPP Weapons"
@@ -69,7 +62,7 @@
 		/obj/item/weapon/gun/rifle/type71/carbine,
 		/obj/item/weapon/gun/rifle/type71/carbine,
 	)
-	cost = 50
+	cost = 30
 	containertype = /obj/structure/closet/crate/weapon
 	containername = "Type 71 Pulse Rifle Carbine Crate"
 	group = "UPP Weapons"
@@ -79,7 +72,7 @@
 	contains = list(
 		/obj/item/storage/box/guncase/m2c,
 	)
-	cost = 50
+	cost = 25
 	containertype = /obj/structure/closet/crate/weapon
 	containername = "M2C Machine Gun Crate"
 	group = "UPP Weapons"
@@ -113,7 +106,7 @@
 		/obj/item/ammo_magazine/sniper/svd,
 		/obj/item/ammo_magazine/sniper/svd,
 	)
-	cost = 25
+	cost = 60
 	containertype = /obj/structure/closet/crate/weapon
 	containername = "Type 88 designated marksman rifle Crate"
 	group = "UPP Special Weapon"

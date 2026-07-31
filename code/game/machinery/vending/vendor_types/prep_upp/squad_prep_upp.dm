@@ -17,12 +17,12 @@
 /obj/structure/machinery/cm_vending/sorted/cargo_ammo/upp_squad/populate_product_list(scale)
 	listed_products = list(
 		list("ARMOR-PIERCING AMMUNITION", -1, null, null),
-		list("AK-4047 AP magazine (7.62x39mm)", floor(scale * 16), /obj/item/ammo_magazine/rifle/ak4047/ap, VENDOR_ITEM_REGULAR),
-		list("Type 64 Helical AP Magazine (7.62x19mm)", floor(scale * 6), /obj/item/ammo_magazine/smg/bizon/ap, VENDOR_ITEM_REGULAR),
+		list("AK-4047 AP magazine (7.62x39mm)", floor(scale * 15), /obj/item/ammo_magazine/rifle/ak4047/ap, VENDOR_ITEM_REGULAR),
+		list("Type 64 Helical AP Magazine (7.62x19mm)", floor(scale * 15), /obj/item/ammo_magazine/smg/bizon/ap, VENDOR_ITEM_REGULAR),
 
 		list("RESTRICTED FIREARM AMMUNITION", -1, null, null),
 		list("Type-19 stick magazine (7.62x25mm)", floor(scale * 6), /obj/item/ammo_magazine/smg/pps43, VENDOR_ITEM_REGULAR),
-		list("Type 71 AP Magazine (5.45x39mm)", floor(scale * 6), /obj/item/ammo_magazine/rifle/type71/ap, VENDOR_ITEM_REGULAR),
+		list("Type 71 AP Magazine (5.45x39mm)", floor(scale * 15), /obj/item/ammo_magazine/rifle/type71/ap, VENDOR_ITEM_REGULAR),
 		list("M240 Incinerator Tank", floor(scale * 2), /obj/item/ammo_magazine/flamer_tank, VENDOR_ITEM_REGULAR),
 		)
 
@@ -132,15 +132,14 @@
 /obj/structure/machinery/cm_vending/sorted/cargo_guns/upp_squad_guns/populate_product_list(scale)
 	listed_products = list(
 		list("PRIMARY FIREARMS", -1, null, null),
-		list("AK-4047 pulse assault rifle", floor(scale * 10), /obj/item/weapon/gun/rifle/ak4047, VENDOR_ITEM_REGULAR),
-		list("Type 71 Pulse Rifle", floor(scale * 1), /obj/item/weapon/gun/rifle/type71, VENDOR_ITEM_REGULAR),
-		list("Type 71 Pulse Rifle Carbine", floor(scale * 1), /obj/item/weapon/gun/rifle/type71/carbine, VENDOR_ITEM_REGULAR),
+		list("AK-4047 Pulse Assault Rifle", floor(scale * 10), /obj/item/weapon/gun/rifle/ak4047, VENDOR_ITEM_REGULAR),
+		list("Type 71 Pulse Rifle Carbine", floor(scale * 5), /obj/item/weapon/gun/rifle/type71/carbine, VENDOR_ITEM_REGULAR),
 		list("Type 64 Submachinegun", floor(scale * 5), /obj/item/weapon/gun/smg/bizon/upp, VENDOR_ITEM_REGULAR),
-		list("Type 23 Riot Shotgun", floor(scale * 2), /obj/item/weapon/gun/shotgun/type23, VENDOR_ITEM_REGULAR),
+		list("TOZ 194 Pump Shotgun", floor(scale * 5), /obj/item/weapon/gun/shotgun/pump/m37a/toz194, VENDOR_ITEM_REGULAR),
 
 		list("REGULAR AMMUNITION", -1, null, null),
 		list("AK-4047 magazine (7.62x39mm)", floor(scale * 25), /obj/item/ammo_magazine/rifle/ak4047, VENDOR_ITEM_REGULAR),
-		list("Type 71 Magazine (5.45x39mm)", floor(scale * 8), /obj/item/ammo_magazine/rifle/type71, VENDOR_ITEM_REGULAR),
+		list("Type 71 Magazine (5.45x39mm)", floor(scale * 15), /obj/item/ammo_magazine/rifle/type71, VENDOR_ITEM_REGULAR),
 		list("Type 64 Helical Magazine (7.62x19mm)", floor(scale * 15), /obj/item/ammo_magazine/smg/bizon, VENDOR_ITEM_REGULAR),
 		list("Box of Heavy Buckshot Shells (8g)", floor(scale * 5), /obj/item/ammo_magazine/shotgun/heavy/buckshot, VENDOR_ITEM_REGULAR),
 		list("Box of Heavy Slugs (8g)", floor(scale * 5), /obj/item/ammo_magazine/shotgun/heavy/slug, VENDOR_ITEM_REGULAR),

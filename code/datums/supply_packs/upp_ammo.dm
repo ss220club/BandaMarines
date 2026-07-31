@@ -67,6 +67,26 @@
 	containername = "Type 23 flechette ammo crate"
 	group = "UPP Ammo"
 
+/datum/supply_packs/ammo_8g_dragonsbreath
+	name = "Magazine box (Type 23, 10x dragonsbreath)"
+	contains = list(
+		/obj/item/ammo_magazine/handful/shotgun/heavy/dragonsbreath,
+		/obj/item/ammo_magazine/handful/shotgun/heavy/dragonsbreath,
+		/obj/item/ammo_magazine/handful/shotgun/heavy/dragonsbreath,
+		/obj/item/ammo_magazine/handful/shotgun/heavy/dragonsbreath,
+		/obj/item/ammo_magazine/handful/shotgun/heavy/dragonsbreath,
+		/obj/item/ammo_magazine/handful/shotgun/heavy/dragonsbreath,
+		/obj/item/ammo_magazine/handful/shotgun/heavy/dragonsbreath,
+		/obj/item/ammo_magazine/handful/shotgun/heavy/dragonsbreath,
+		/obj/item/ammo_magazine/handful/shotgun/heavy/dragonsbreath,
+		/obj/item/ammo_magazine/handful/shotgun/heavy/dragonsbreath,
+
+	)
+	cost = 10
+	containertype = /obj/structure/closet/crate/ammo
+	containername = "Type 23 flechette ammo crate"
+	group = "UPP Ammo"
+
 /datum/supply_packs/upp/ammo_ak_4047
 	name = "UPP Magazine box (AK-4047, 10x regular mags)"
 	contains = list(

@@ -1583,7 +1583,7 @@
 	scatter = SCATTER_AMOUNT_TIER_9 // МОРКОВКА спасибо
 	burst_scatter_mult = SCATTER_AMOUNT_TIER_10
 	scatter_unwielded = SCATTER_AMOUNT_TIER_4
-	damage_mult = 1.21 // МОРКОВКА спасибо
+	damage_mult = 1.10 // МОРКОВКА спасибо
 	recoil_unwielded = RECOIL_AMOUNT_TIER_3
 
 /obj/item/weapon/gun/rifle/type71/rifleman

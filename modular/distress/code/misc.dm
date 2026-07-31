@@ -836,18 +836,24 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 		list("Sniper Set", 0, /obj/item/storage/box/spec/upp_sniper, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_RECOMMENDED),
 
 		list("EXTRA MINIGUN AMMUNITION", 0, null, null, null),
-		list("Rotating ammo drum (7.62x51mm)", 60, /obj/item/ammo_magazine/minigun, null, VENDOR_ITEM_REGULAR),
+		list("Rotating ammo drum (7.62x51mm)", 30, /obj/item/ammo_magazine/minigun, null, VENDOR_ITEM_REGULAR),
 		
 		list("EXTRA MACHINEGUN AMMUNITION", 0, null, null, null),
-		list("QYJ-72 ammo box (7.62x54mmR)", 60, /obj/item/ammo_magazine/pkp, null, VENDOR_ITEM_REGULAR),
+		list("QYJ-72 ammo box (7.62x54mmR)", 30, /obj/item/ammo_magazine/pkp, null, VENDOR_ITEM_REGULAR),
 
 		list("EXTRA SNIPER AMMUNITION", 0, null, null, null),
-		list("Type-88 Magazine (7.62x54mmR)", 60, /obj/item/ammo_magazine/sniper/svd, null, VENDOR_ITEM_REGULAR),
+		list("Type-88 Magazine (7.62x54mmR)", 30, /obj/item/ammo_magazine/sniper/svd, null, VENDOR_ITEM_REGULAR),
+
+		list("EXTRA HIMAT AMMUNITION", 0, null, null, null),
+		list("Type-88 Magazine (7.62x54mmR)", 30, /obj/item/mortar_shell/himat/explosive, null, VENDOR_ITEM_REGULAR),
+		list("Type-88 Magazine (7.62x54mmR)", 30, /obj/item/mortar_shell/himat/antipersonnel, null, VENDOR_ITEM_REGULAR),
+		list("Type-88 Magazine (7.62x54mmR)", 60, /obj/item/mortar_shell/incendiary/himat, null, VENDOR_ITEM_REGULAR),
+		list("Type-88 Magazine (7.62x54mmR)", 10, /obj/item/mortar_shell/himat/training, null, VENDOR_ITEM_REGULAR),
 
 //		list("EXTRA FLAMETHROWER TANKS", 0, null, null, null),
-//		list("Large Incinerator Tank", 40, /obj/item/ammo_magazine/flamer_tank/large, null, VENDOR_ITEM_REGULAR),
-//		list("Large Incinerator Tank (B) (Green Flame)", 40, /obj/item/ammo_magazine/flamer_tank/large/B, null, VENDOR_ITEM_REGULAR),
-//		list("Large Incinerator Tank (X) (Blue Flame)", 40, /obj/item/ammo_magazine/flamer_tank/large/X, null, VENDOR_ITEM_REGULAR),
+//		list("Large Incinerator Tank", 30, /obj/item/ammo_magazine/flamer_tank/large, null, VENDOR_ITEM_REGULAR),
+//		list("Large Incinerator Tank (B) (Green Flame)", 30, /obj/item/ammo_magazine/flamer_tank/large/B, null, VENDOR_ITEM_REGULAR),
+//		list("Large Incinerator Tank (X) (Blue Flame)", 30, /obj/item/ammo_magazine/flamer_tank/large/X, null, VENDOR_ITEM_REGULAR),
 	))
 
 
@@ -935,6 +941,7 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	new /obj/item/weapon/gun/minigun/upp(src)
 	new /obj/item/ammo_magazine/minigun(src)
 	new /obj/item/ammo_magazine/minigun(src)
+	new /obj/item/ammo_magazine/minigun(src)
 
 /datum/upp_specialist_set/himat_operator
 	name = "HIMAT Operator Set"
@@ -960,8 +967,11 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	new /obj/item/storage/backpack/marine/mortarpack(src)
 	new /obj/item/mortar_shell/himat/explosive(src)
 	new /obj/item/mortar_shell/himat/explosive(src)
+	new /obj/item/mortar_shell/himat/explosive(src)
 	new /obj/item/mortar_shell/himat/antipersonnel(src)
 	new /obj/item/mortar_shell/himat/antipersonnel(src)
+	new /obj/item/mortar_shell/himat/antipersonnel(src)
+	new	/obj/item/mortar_shell/incendiary/himat(src)
 	new	/obj/item/mortar_shell/incendiary/himat(src)
 	new	/obj/item/mortar_shell/incendiary/himat(src)
 	new	/obj/item/mortar_shell/himat/training(src)
@@ -985,6 +995,9 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	new /obj/item/weapon/gun/rifle/sniper/svd(src)
 	new /obj/item/ammo_magazine/sniper/svd(src)
 	new /obj/item/ammo_magazine/sniper/svd(src)
+	new /obj/item/ammo_magazine/sniper/svd(src)
+	new /obj/item/ammo_magazine/sniper/svd(src)
+	new /obj/item/ammo_magazine/sniper/svd(src)
 
 /obj/item/storage/box/spec/upp_pyro
 	name = "\improper Pyrotechnician equipment case"
@@ -1001,3 +1014,62 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	new /obj/item/storage/pouch/flamertank(src)
 	new /obj/item/tool/extinguisher(src)
 	new /obj/item/tool/extinguisher/mini(src)
+
+
+/obj/item/attachable/stock/type23/toz194
+	name = "\improper TOZ 194 standard stock"
+	desc = "A stamped metal stock with internal recoil springs designed to absorb the ridiculous kick the 8 Gauge shotgun causes when fired. Not recommended to remove."
+	icon_state = "toz194_stock"
+	pixel_shift_x = 16
+	pixel_shift_y = 18
+	hud_offset_mod = 2
+
+/obj/item/weapon/gun/shotgun/pump/m37a/toz194
+	name = "\improper TOZ 194 riot shotgun"
+	desc = "As UPP soldiers frequently reported being outmatched by enemy combatants, UPP High Command commissioned a new pump-action shotgun based on TOZ-87. In late 2094"
+	icon = 'icons/obj/items/weapons/guns/guns_by_faction/UPP/shotguns.dmi'
+	icon_state = "toz194"
+	item_state = "type23"
+	fire_sound = 'sound/weapons/gun_type23.ogg' //not perfect, too small
+	current_mag = /obj/item/ammo_magazine/internal/shotgun/type23
+	attachable_allowed = list(
+		/obj/item/attachable/reddot, // Rail
+		/obj/item/attachable/reflex,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/bayonet, // Muzzle
+		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/bayonet/upp,
+		/obj/item/attachable/verticalgrip, // Underbarrel
+		/obj/item/attachable/flashlight/under_barrel,
+		/obj/item/attachable/flashlight/grip,
+		/obj/item/attachable/attached_gun/extinguisher,
+		/obj/item/attachable/stock/type23/toz194, // Stock
+		)
+	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_INTERNAL_MAG
+	flags_equip_slot = SLOT_BACK
+	map_specific_decoration = FALSE
+	gauge = "8g"
+	starting_attachment_types = list(/obj/item/attachable/stock/type23/toz194)
+
+/obj/item/weapon/gun/shotgun/pump/m37a/toz194/Initialize()
+	. = ..()
+	pump_delay = FIRE_DELAY_TIER_5*2
+	additional_fire_group_delay += pump_delay
+	AddElement(/datum/element/corp_label/norcomm)
+
+/obj/item/weapon/gun/shotgun/pump/m37a/toz194/set_gun_attachment_offsets()
+	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 19,"rail_x" = 13, "rail_y" = 21, "under_x" = 24, "under_y" = 15, "stock_x" = -1, "stock_y" = 17)
+
+/obj/item/weapon/gun/shotgun/pump/m37a/toz194/set_gun_config_values()
+	..()
+	set_burst_amount(BURST_AMOUNT_TIER_1)
+	set_fire_delay(FIRE_DELAY_TIER_SHOTGUN_BASE)
+	accuracy_mult = BASE_ACCURACY_MULT + HIT_ACCURACY_MULT_TIER_3
+	accuracy_mult_unwielded = BASE_ACCURACY_MULT - HIT_ACCURACY_MULT_TIER_10
+	scatter = SCATTER_AMOUNT_TIER_6
+	burst_scatter_mult = SCATTER_AMOUNT_TIER_6
+	scatter_unwielded = SCATTER_AMOUNT_TIER_2
+	damage_mult = BASE_BULLET_DAMAGE_MULT
+	recoil = RECOIL_AMOUNT_TIER_5
+	recoil_unwielded = RECOIL_AMOUNT_TIER_3

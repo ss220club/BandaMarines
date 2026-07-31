@@ -1,6 +1,6 @@
 /datum/supply_packs/upp/himat
 	name = "UPP M112 HIMAT missile launcher."
-	cost = 60
+	cost = 45
 	contains = list(
 		/obj/item/mortar_kit/himat,
 	)
@@ -9,14 +9,9 @@
 	group = "UPP Mortar"
 
 /datum/supply_packs/upp/ammo_mortar_he
-	name = "UPP M112 HIMAT missiles (x10 HE)"
-	cost = 40
+	name = "UPP M112 HIMAT missiles (x5 HE)"
+	cost = 25
 	contains = list(
-		/obj/item/mortar_shell/himat/explosive,
-		/obj/item/mortar_shell/himat/explosive,
-		/obj/item/mortar_shell/himat/explosive,
-		/obj/item/mortar_shell/himat/explosive,
-		/obj/item/mortar_shell/himat/explosive,
 		/obj/item/mortar_shell/himat/explosive,
 		/obj/item/mortar_shell/himat/explosive,
 		/obj/item/mortar_shell/himat/explosive,
@@ -28,14 +23,9 @@
 	group = "UPP Mortar"
 
 /datum/supply_packs/upp/ammo_mortar_ap
-	name = "UPP M112 HIMAT missiles (x10 AP)"
-	cost = 40
+	name = "UPP M112 HIMAT missiles (x5 AP)"
+	cost = 25
 	contains = list(
-		/obj/item/mortar_shell/himat/antipersonnel,
-		/obj/item/mortar_shell/himat/antipersonnel,
-		/obj/item/mortar_shell/himat/antipersonnel,
-		/obj/item/mortar_shell/himat/antipersonnel,
-		/obj/item/mortar_shell/himat/antipersonnel,
 		/obj/item/mortar_shell/himat/antipersonnel,
 		/obj/item/mortar_shell/himat/antipersonnel,
 		/obj/item/mortar_shell/himat/antipersonnel,
@@ -48,14 +38,9 @@
 	group = "UPP Mortar"
 
 /datum/supply_packs/upp/ammo_mortar_incend
-	name = "UPP M112 HIMAT missiles (x10 Incend)"
-	cost = 60
+	name = "UPP M112 HIMAT missiles (x5 Incend)"
+	cost = 35
 	contains = list(
-		/obj/item/mortar_shell/incendiary/himat,
-		/obj/item/mortar_shell/incendiary/himat,
-		/obj/item/mortar_shell/incendiary/himat,
-		/obj/item/mortar_shell/incendiary/himat,
-		/obj/item/mortar_shell/incendiary/himat,
 		/obj/item/mortar_shell/incendiary/himat,
 		/obj/item/mortar_shell/incendiary/himat,
 		/obj/item/mortar_shell/incendiary/himat,
@@ -67,14 +52,9 @@
 	group = "UPP Mortar"
 
 /datum/supply_packs/upp/ammo_mortar_flare
-	name = "UPP M112 HIMAT missiles (x10 Flare)"
+	name = "UPP M112 HIMAT missiles (x5 Flare)"
 	cost = 10
 	contains = list(
-		/obj/item/mortar_shell/himat/training,
-		/obj/item/mortar_shell/himat/training,
-		/obj/item/mortar_shell/himat/training,
-		/obj/item/mortar_shell/himat/training,
-		/obj/item/mortar_shell/himat/training,
 		/obj/item/mortar_shell/himat/training,
 		/obj/item/mortar_shell/himat/training,
 		/obj/item/mortar_shell/himat/training,
