@@ -10,6 +10,13 @@
 		/datum/action/xeno_action/onclick/crusher_shield,
 	)
 
+/datum/xeno_strain/charger
+	actions_to_remove = list(
+		/datum/action/xeno_action/onclick/crusher_stomp,
+		/datum/action/xeno_action/onclick/crusher_shield,
+		/datum/action/xeno_action/activable/pounce/crushing_onslaught,
+	)
+
 /datum/action/xeno_action/activable/pounce/crushing_onslaught
 	name = "Crushing Onslaught"
 	action_icon_state = "ready_charge"
@@ -53,14 +60,8 @@
 	pounce_callbacks.Remove(/mob)
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/Destroy()
-	if(charge_timeout_timer_id != TIMER_ID_NULL)
-		deltimer(charge_timeout_timer_id)
-		charge_timeout_timer_id = TIMER_ID_NULL
-	remove_charge_slowdown()
-	charge_end()
-	var/mob/living/carbon/xenomorph/xeno = owner
-	if(istype(xeno))
-		xeno.stop_xeno_jitter()
+	activated_once = TRUE
+	charge_reset()
 	return ..()
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/use_ability(atom/target)
@@ -82,15 +83,17 @@
 		if(!check_and_use_plasma_owner())
 			return
 		winding_up = TRUE
+		activated_once = TRUE
+		xeno.crest_defense = TRUE
+
 		playsound(xeno, 'sound/effects/alien_footstep_charge1.ogg', 50)
 		xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] начинает заряжать рывок!"), SPAN_XENODANGER("Мы начинаем заряжать рывок!"))
 
 		xeno.set_face_dir(get_cardinal_dir(xeno, target))
 		apply_charge_slowdown()
-
 		pre_windup_effects()
-		activated_once = TRUE
 		xeno.xeno_jitter(windup_duration + charge_window)
+
 		apply_cooldown()
 		if(!do_after(xeno, windup_duration, INTERRUPT_INCAPACITATED|INTERRUPT_CHANGED_LYING, BUSY_ICON_HOSTILE))
 			to_chat(xeno, SPAN_XENODANGER("Мы отменяем подготовку рывка!"))
@@ -155,6 +158,7 @@
 
 	crusher_delegate.is_charging = FALSE
 	xeno_owner.update_icons()
+
 //copy of old crusher code END
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/apply_charge_slowdown()
@@ -181,14 +185,16 @@
 	xeno.stop_xeno_jitter()
 	remove_charge_slowdown()
 	post_windup_effects(interrupted = FALSE)
+	if(charge_timeout_timer_id != TIMER_ID_NULL)
+		deltimer(charge_timeout_timer_id)
 	charge_timeout_timer_id = TIMER_ID_NULL
 	activated_once = FALSE
+	xeno.crest_defense = FALSE
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/execute_charge(atom/target)
 	var/mob/living/carbon/xenomorph/xeno = owner
 	if(!istype(xeno))
 		return FALSE
-
 	// Before checks so failed charges also stop the charge-up jitter and slowdown.
 	xeno.stop_xeno_jitter()
 	remove_charge_slowdown()
@@ -573,8 +579,54 @@
 		return
 	return ..()
 
+//copy of old code with the edit of skills that get CD reduction
 /datum/behavior_delegate/crusher_base/melee_attack_additional_effects_target(mob/living/carbon/target) //Stomp get CD reduction as Charge and Shield
-	..()
-	var/datum/action/xeno_action/onclick/crusher_stomp/sAction = get_action(bound_xeno, /datum/action/xeno_action/onclick/crusher_stomp)
-	if (!sAction.action_cooldown_check())
-		sAction.reduce_cooldown(1.5 SECONDS)
+	if (!isxeno_human(target))
+		return
+
+	new /datum/effects/xeno_slow(target, bound_xeno, ttl = 2 SECONDS)
+
+	var/damage = bound_xeno.melee_damage_upper * aoe_slash_damage_reduction
+
+	var/base_cdr_amount = 1.5 SECONDS
+	var/cdr_amount = base_cdr_amount
+	for (var/mob/living/carbon/aoe_targets in orange(1, target))
+		if (aoe_targets.stat == DEAD)
+			continue
+
+		if(!isxeno_human(aoe_targets) || bound_xeno.can_not_harm(aoe_targets))
+			continue
+
+		if (HAS_TRAIT(aoe_targets, TRAIT_NESTED))
+			continue
+
+		cdr_amount += 0.5 SECONDS
+
+		to_chat(aoe_targets, SPAN_XENODANGER("[bound_xeno] атакует [aoe_targets]!")) // SS220 EDIT ADDICTION
+		to_chat(bound_xeno, SPAN_XENODANGER("Мы атакуем [aoe_targets]!")) // SS220 EDIT ADDICTION
+
+		bound_xeno.flick_attack_overlay(aoe_targets, "slash")
+
+		aoe_targets.last_damage_data = create_cause_data(initial(bound_xeno.name), bound_xeno)
+		//Logging, including anti-rulebreak logging
+		if(aoe_targets.status_flags & XENO_HOST && aoe_targets.stat != DEAD)
+			//Host might be rogue, needs further investigation
+			aoe_targets.attack_log += text("\[[time_stamp()]\] <font color='orange'>was slashed by [key_name(bound_xeno)] while they were infected</font>")
+			bound_xeno.attack_log += text("\[[time_stamp()]\] <font color='red'>slashed [key_name(aoe_targets)] while they were infected</font>")
+		else //Normal xenomorph friendship with benefits
+			aoe_targets.attack_log += text("\[[time_stamp()]\] <font color='orange'>was slashed by [key_name(bound_xeno)]</font>")
+			bound_xeno.attack_log += text("\[[time_stamp()]\] <font color='red'>slashed [key_name(aoe_targets)]</font>")
+		log_attack("[key_name(bound_xeno)] slashed [key_name(aoe_targets)]")
+		aoe_targets.apply_armoured_damage(get_xeno_damage_slash(aoe_targets, damage), ARMOR_MELEE, BRUTE, bound_xeno.zone_selected)
+
+	var/datum/action/xeno_action/onclick/crusher_shield/shAction = get_action(bound_xeno, /datum/action/xeno_action/onclick/crusher_shield)
+	if (!shAction.action_cooldown_check())
+		shAction.reduce_cooldown(base_cdr_amount)
+
+	var/datum/action/xeno_action/onclick/crusher_stomp/stAction = get_action(bound_xeno, /datum/action/xeno_action/onclick/crusher_stomp)
+	if (!stAction.action_cooldown_check())
+		stAction.reduce_cooldown(base_cdr_amount)
+
+	var/datum/action/xeno_action/activable/pounce/crushing_onslaught/cAction = get_action(bound_xeno, /datum/action/xeno_action/activable/pounce/crushing_onslaught)
+	if (!cAction.action_cooldown_check())
+		cAction.reduce_cooldown(cdr_amount)
