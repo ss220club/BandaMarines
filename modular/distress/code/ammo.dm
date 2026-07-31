@@ -66,10 +66,10 @@
 	name = "\improper HIMAT AP missile"
 	desc = "This is a small, two-stage missile used by HIMAT launcher. This one has an anti-personnel package, air-bursting for maximum soft-target damage."
 	icon_state = "missile_ap"
-	var/number_of_airburst = 12
+	var/number_of_airburst = 15
 
 /obj/item/mortar_shell/himat/antipersonnel/detonate(turf/T)
-	var/list/turf_list = RANGE_TURFS(7, T)
+	var/list/turf_list = RANGE_TURFS(8, T)
 	for(var/i = 1 to number_of_airburst)
 		sleep(0.5 SECONDS)
 		var/turf/impact_tile = pick(turf_list)
@@ -82,8 +82,8 @@
 	icon = 'modular/distress/icons/mortar.dmi'
 	icon_state = "missile_inc"
 	radius = 5
-	flame_level = BURN_TIME_TIER_5
-	burn_level = BURN_LEVEL_TIER_5
+	flame_level = BURN_TIME_TIER_3
+	burn_level = BURN_LEVEL_TIER_7
 	flameshape = FLAMESHAPE_DEFAULT
 	fire_type = FIRE_VARIANT_DEFAULT
 
@@ -271,3 +271,43 @@
 		deployed_turret.deployment_system = src
 
 	health = deployed_turret.health
+
+/datum/ammo/rocket/wp/upp
+	name = "extreme-intensity incendiary rocket"
+	flags_ammo_behavior = AMMO_ROCKET|AMMO_EXPLOSIVE|AMMO_STRIKES_SURFACE
+	damage_type = BURN
+
+	accuracy_var_low = PROJECTILE_VARIANCE_TIER_6
+	accurate_range = 8
+	damage = 80
+	max_range = 10
+
+/datum/ammo/rocket/wp/upp/set_bullet_traits()
+	. = ..()
+	LAZYADD(traits_to_give, list(
+		BULLET_TRAIT_ENTRY(/datum/element/bullet_trait_incendiary)
+	))
+
+/datum/ammo/rocket/wp/upp
+	name = "extreme-intensity incendiary rocket"
+	flags_ammo_behavior = AMMO_ROCKET|AMMO_EXPLOSIVE|AMMO_STRIKES_SURFACE
+	damage_type = BURN
+
+	accuracy_var_low = PROJECTILE_VARIANCE_TIER_6
+	accurate_range = 8
+	damage = 110
+	max_range = 7
+
+/datum/reagent/napalm/upp
+	name = "R189"
+	id = "R189"
+	description = "A UPP chemical, it burns at an extremely high temperature and is designed to melt directly through fortified positions or bunkers."
+	color = "#641dd6"
+	burncolor = "#641dd6"
+	burn_sprite = "dynamic"
+	properties = list(
+		PROPERTY_INTENSITY = BURN_LEVEL_TIER_3,
+		PROPERTY_DURATION = BURN_TIME_TIER_2,
+		PROPERTY_RADIUS = 6,
+		PROPERTY_FIRE_PENETRATING = 1,
+	)

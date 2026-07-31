@@ -829,11 +829,17 @@ GLOBAL_LIST_EMPTY(upp_specialist_sets_taken)
 
 GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 		list("WEAPONS SPECIALIST SETS (CHOOSE 1)", 0, null, null, null),
+		list("HJRA-12 Set", 0, /obj/item/storage/box/spec/upp_sadar, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_REGULAR),
 		list("Minigunner Set", 0, /obj/item/storage/box/spec/heavy_minigun, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_REGULAR),
 		list("Heavy Machinegun Set", 0, /obj/item/storage/box/spec/heavy_machinegun, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_REGULAR),
 		list("HIMAT Operator Set", 0, /obj/item/storage/box/spec/himat_operator, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_REGULAR),
 //		list("Pyro Set", 0, /obj/item/storage/box/spec/upp_pyro, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_REGULAR),
 		list("Sniper Set", 0, /obj/item/storage/box/spec/upp_sniper, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_RECOMMENDED),
+
+		list("EXTRA MINIGUN AMMUNITION", 0, null, null, null),
+		list("HJRA-12 High-Explosive Rocket", 20, /obj/item/ammo_magazine/rocket/upp, null, VENDOR_ITEM_REGULAR),
+		list("HJRA-12 Anti-Tank Rocket", 20, /obj/item/ammo_magazine/rocket/upp/at, null, VENDOR_ITEM_REGULAR),
+		list("HJRA-12 Extreme-Intensity Incendiary Rocket", 60, /obj/item/ammo_magazine/rocket/upp/incen, null, VENDOR_ITEM_REGULAR),
 
 		list("EXTRA MINIGUN AMMUNITION", 0, null, null, null),
 		list("Rotating ammo drum (7.62x51mm)", 30, /obj/item/ammo_magazine/minigun, null, VENDOR_ITEM_REGULAR),
@@ -845,10 +851,10 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 		list("Type-88 Magazine (7.62x54mmR)", 30, /obj/item/ammo_magazine/sniper/svd, null, VENDOR_ITEM_REGULAR),
 
 		list("EXTRA HIMAT AMMUNITION", 0, null, null, null),
-		list("Type-88 Magazine (7.62x54mmR)", 30, /obj/item/mortar_shell/himat/explosive, null, VENDOR_ITEM_REGULAR),
-		list("Type-88 Magazine (7.62x54mmR)", 30, /obj/item/mortar_shell/himat/antipersonnel, null, VENDOR_ITEM_REGULAR),
-		list("Type-88 Magazine (7.62x54mmR)", 60, /obj/item/mortar_shell/incendiary/himat, null, VENDOR_ITEM_REGULAR),
-		list("Type-88 Magazine (7.62x54mmR)", 10, /obj/item/mortar_shell/himat/training, null, VENDOR_ITEM_REGULAR),
+		list("HIMAT HE missile", 20, /obj/item/mortar_shell/himat/explosive, null, VENDOR_ITEM_REGULAR),
+		list("HIMAT AP missile", 20, /obj/item/mortar_shell/himat/antipersonnel, null, VENDOR_ITEM_REGULAR),
+		list("HIMAT IN missile", 30, /obj/item/mortar_shell/incendiary/himat, null, VENDOR_ITEM_REGULAR),
+		list("HIMAT flare missile", 10, /obj/item/mortar_shell/himat/training, null, VENDOR_ITEM_REGULAR),
 
 //		list("EXTRA FLAMETHROWER TANKS", 0, null, null, null),
 //		list("Large Incinerator Tank", 30, /obj/item/ammo_magazine/flamer_tank/large, null, VENDOR_ITEM_REGULAR),
@@ -900,6 +906,13 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	skill_to_give = SKILL_SPEC_SNIPER
 	rank_icon = "spec"
 	kit_typepath = /obj/item/storage/box/spec/upp_sniper
+
+/datum/upp_specialist_set/upp_sadar
+	name = "Sniper Set"
+	role_name = JOB_UPP_SPECIALIST
+	skill_to_give = SKILL_SPEC_KITTED
+	rank_icon = "spec"
+	kit_typepath = /obj/item/storage/box/spec/upp_sadar
 
 /datum/upp_specialist_set/heavy_machinegun
 	name = "Heavy Machinegun Set"
@@ -998,6 +1011,26 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	new /obj/item/ammo_magazine/sniper/svd(src)
 	new /obj/item/ammo_magazine/sniper/svd(src)
 	new /obj/item/ammo_magazine/sniper/svd(src)
+
+/obj/item/storage/box/spec/upp_sadar
+	name = "\improper HJRA-12 Rocket Launcher case"
+	desc = "HJRA-12 Rocket Launcher case."
+	kit_overlay = "demo"
+	kit_name = "upp_sadar"
+
+/obj/item/storage/box/spec/upp_sadar/fill_preset_inventory()
+	new /obj/item/storage/backpack/marine/rocketpack(src)
+	new	/obj/item/weapon/gun/launcher/rocket/upp(src)
+	new /obj/item/ammo_magazine/rocket/upp(src)
+	new /obj/item/ammo_magazine/rocket/upp(src)
+	new /obj/item/ammo_magazine/rocket/upp(src)
+	new /obj/item/ammo_magazine/rocket/upp/at(src)
+	new /obj/item/ammo_magazine/rocket/upp/at(src)
+	new /obj/item/ammo_magazine/rocket/upp/at(src)
+	new /obj/item/ammo_magazine/rocket/upp/incen(src)
+	new /obj/item/ammo_magazine/rocket/upp/incen(src)
+	new /obj/item/ammo_magazine/rocket/upp/incen(src)
+	new /obj/item/device/binoculars/upp(src)
 
 /obj/item/storage/box/spec/upp_pyro
 	name = "\improper Pyrotechnician equipment case"
