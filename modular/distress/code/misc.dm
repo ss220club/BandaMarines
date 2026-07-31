@@ -1020,6 +1020,8 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 
 /obj/item/storage/box/spec/upp_sadar/fill_preset_inventory()
 	new /obj/item/storage/backpack/marine/rocketpack(src)
+	new /obj/item/explosive/plastic(src)
+	new /obj/item/explosive/plastic(src)
 	new	/obj/item/weapon/gun/launcher/rocket/upp(src)
 	new /obj/item/ammo_magazine/rocket/upp(src)
 	new /obj/item/ammo_magazine/rocket/upp(src)
