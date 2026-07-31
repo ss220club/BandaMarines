@@ -31,6 +31,7 @@
 #include "code/modules/gear_presets/survivors/lv_733/rac_survivors.dm"
 #include "code/modules/gear_presets/survivors/lv_733/clf_wy_survivors.dm"
 #include "code/modules/gear_presets/survivors/lv_733/isrg_survivors.dm"
+#include "code/modules/gear_presets/lv733_corpse_random.dm"
 #include "code/modules/projectiles/gun_attachables.dm"
 #include "code/modules/projectiles/guns/l86.dm"
 #include "code/modules/projectiles/guns/l86_m1.dm"
