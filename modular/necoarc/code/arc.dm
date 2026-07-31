@@ -13,6 +13,7 @@
 	give_action(H, /datum/action/necoarc_emote_panel)
 	H.set_languages(ALL_SYNTH_LANGUAGES)
 	H.skills = new /datum/skills/necoarc(H)
+
 /datum/species/monkey/necoarc/open_emote_panel()
 	var/datum/necoarc_emote_panel/ui = new(usr)
 	ui.ui_interact(usr)
