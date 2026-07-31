@@ -70,15 +70,15 @@
 			reset_speed()
 		return ..()
 
+	// Проверка рук (всегда, независимо от навыка)
+	if(user.l_hand && user.r_hand)
+		return ..(user, forward_dir_saved)
+
 	if(!can_drive_one_hand && chance_lost_drive_control_when_one_hand >= 0)
 		// Проверка движения назад
 		var/back_dir = turn(dir, 180)
 		if(direction == back_dir)
 			reset_speed()
-
-		// Проверка рук
-		if(user.l_hand && user.r_hand)
-			return ..(user, forward_dir_saved)
 
 		// С одной рукой - имеешь шанс поменять направление во время дороги
 		if(user.l_hand || user.r_hand)
