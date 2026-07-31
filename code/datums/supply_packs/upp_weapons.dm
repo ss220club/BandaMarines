@@ -18,7 +18,7 @@
 	group = "UPP Weapons"
 
 /datum/supply_packs/upp/Type23_x10
-	name = "UPP Type 23 riot shotgun (x10)"
+	name = "UPP Type 23 riot shotgun (x3)"
 	contains = list(
 		/obj/item/weapon/gun/shotgun/type23,
 		/obj/item/weapon/gun/shotgun/type23,
@@ -30,16 +30,8 @@
 	group = "UPP Weapons"
 
 /datum/supply_packs/upp/Type71_x10
-	name = "UPP Type 71 Pulse Rifle (x10)"
+	name = "UPP Type 71 Pulse Rifle (x2)"
 	contains = list(
-		/obj/item/weapon/gun/rifle/type71,
-		/obj/item/weapon/gun/rifle/type71,
-		/obj/item/weapon/gun/rifle/type71,
-		/obj/item/weapon/gun/rifle/type71,
-		/obj/item/weapon/gun/rifle/type71,
-		/obj/item/weapon/gun/rifle/type71,
-		/obj/item/weapon/gun/rifle/type71,
-		/obj/item/weapon/gun/rifle/type71,
 		/obj/item/weapon/gun/rifle/type71,
 		/obj/item/weapon/gun/rifle/type71,
 	)
@@ -68,8 +60,10 @@
 	group = "UPP Weapons"
 
 /datum/supply_packs/upp/m2c_hmg_upp
-	name = "UPP M2C Heavy Machine Gun (x1)"
+	name = "UPP M2C Heavy Machine Gun (x3)"
 	contains = list(
+		/obj/item/storage/box/guncase/m2c,
+		/obj/item/storage/box/guncase/m2c,
 		/obj/item/storage/box/guncase/m2c,
 	)
 	cost = 25

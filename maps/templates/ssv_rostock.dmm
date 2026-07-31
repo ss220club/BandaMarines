@@ -42,6 +42,18 @@
 	},
 /turf/open/floor/corsat/spiralplate,
 /area/rostock/lowerdeck_maint/p_m)
+"aag" = (
+/obj/structure/surface/rack,
+/obj/item/ammo_box/magazine/misc/mre/upp,
+/obj/item/ammo_box/magazine/misc/mre/upp,
+/obj/item/ammo_box/magazine/misc/mre/upp,
+/obj/item/ammo_box/magazine/misc/mre/upp,
+/obj/item/ammo_box/magazine/misc/mre/upp,
+/obj/item/ammo_box/magazine/misc/mre/upp,
+/obj/item/ammo_box/magazine/misc/mre/upp,
+/obj/item/ammo_box/magazine/misc/mre/upp,
+/turf/open/floor/prison/floor_marked/west,
+/area/rostock/req)
 "aah" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "W"
@@ -61,6 +73,16 @@
 	},
 /turf/open/floor/strata/red1,
 /area/rostock/lower_deck/dining_hall)
+"aak" = (
+/obj/structure/surface/rack,
+/obj/item/ammo_box/magazine/misc/flares,
+/obj/item/ammo_box/magazine/misc/flares,
+/obj/item/ammo_box/magazine/misc/flares,
+/obj/item/ammo_box/magazine/misc/flares,
+/obj/item/ammo_box/magazine/misc/flares,
+/obj/item/ammo_box/magazine/misc/flares,
+/turf/open/floor/prison/floor_marked/west,
+/area/rostock/req)
 "aal" = (
 /obj/structure/window/framed/upp_ship/reinforced,
 /obj/structure/machinery/door/poddoor/almayer/open{
@@ -104,6 +126,13 @@
 	},
 /turf/open/floor/corsat/spiralplate,
 /area/rostock/lower_deck/dining_hall)
+"aas" = (
+/obj/structure/surface/rack,
+/obj/item/ammo_box/magazine/misc/power_cell,
+/obj/item/ammo_box/magazine/misc/power_cell,
+/obj/item/ammo_box/magazine/misc/power_cell,
+/turf/open/floor/prison/floor_marked/west,
+/area/rostock/req)
 "aau" = (
 /obj/effect/decal/hybrisa/dirt_2,
 /obj/effect/decal/hybrisa/dirt,
@@ -1032,8 +1061,6 @@
 /obj/item/tool/extinguisher,
 /obj/item/tool/extinguisher,
 /obj/item/tool/extinguisher,
-/obj/item/storage/box/guncase/ppsh,
-/obj/item/storage/box/guncase/ppsh,
 /turf/open/floor/prison/darkbrown3,
 /area/rostock/req)
 "aeu" = (
@@ -1435,22 +1462,14 @@
 /obj/effect/decal/cleanable/greenglow,
 /turf/open/floor/corsat/spiralplate,
 /area/rostock/upperdeck_maint/p_f)
-"aft" = (
-/obj/structure/surface/rack,
-/obj/item/ammo_box/magazine/misc/power_cell,
-/obj/item/ammo_box/magazine/misc/power_cell,
-/obj/item/ammo_box/magazine/misc/power_cell,
-/obj/item/ammo_box/magazine/misc/power_cell,
-/turf/open/floor/prison/floor_marked/west,
-/area/rostock/req)
-"afu" = (
-/obj/structure/surface/rack,
-/obj/item/ammo_box/magazine/misc/flares,
-/obj/item/ammo_box/magazine/misc/flares,
-/turf/open/floor/prison/floor_marked/west,
-/area/rostock/req)
 "afv" = (
 /obj/structure/surface/rack,
+/obj/item/ammo_box/magazine/ak4047{
+	pixel_y = -3
+	},
+/obj/item/ammo_box/magazine/ak4047{
+	pixel_y = -3
+	},
 /obj/item/ammo_box/magazine/ak4047{
 	pixel_y = -3
 	},
@@ -1577,6 +1596,7 @@
 /area/rostock/req)
 "afN" = (
 /obj/structure/surface/rack,
+/obj/item/ammo_box/magazine/type71,
 /obj/item/ammo_box/magazine/type71,
 /obj/item/ammo_box/magazine/type71,
 /turf/open/floor/prison/floor_marked/west,
@@ -8433,6 +8453,9 @@
 /obj/structure/surface/table/almayer,
 /obj/item/clipboard,
 /obj/item/tool/pen,
+/obj/item/storage/box/guncase/ppsh,
+/obj/item/storage/box/guncase/ppsh,
+/obj/item/storage/box/guncase/ppsh,
 /turf/open/floor/strata/floor3/east,
 /area/rostock/req)
 "bNX" = (
@@ -13629,6 +13652,7 @@
 /area/rostock/railgun)
 "gXr" = (
 /obj/structure/surface/rack,
+/obj/item/ammo_box/magazine/shotgun/upp/buckshot,
 /obj/item/ammo_box/magazine/shotgun/upp/buckshot,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
@@ -22899,6 +22923,7 @@
 "pwc" = (
 /obj/structure/surface/rack,
 /obj/item/ammo_box/magazine/shotgun/upp,
+/obj/item/ammo_box/magazine/shotgun/upp,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
 "pxe" = (
@@ -23198,6 +23223,7 @@
 /area/rostock/railgun/starboard)
 "pLQ" = (
 /obj/structure/surface/rack,
+/obj/item/ammo_box/magazine/shotgun/upp/flechette,
 /obj/item/ammo_box/magazine/shotgun/upp/flechette,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
@@ -26635,6 +26661,7 @@
 /obj/structure/surface/rack,
 /obj/item/stack/sheet/metal/large_stack,
 /obj/item/stack/sheet/metal/large_stack,
+/obj/item/stack/sheet/metal/large_stack,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
 "tja" = (
@@ -29479,7 +29506,8 @@
 /area/rostock/command/co)
 "vPX" = (
 /obj/structure/surface/rack,
-/obj/item/ammo_box/magazine/type71,
+/obj/item/ammo_box/magazine/shotgun/upp/incendiary,
+/obj/item/ammo_box/magazine/shotgun/upp/incendiary,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
 "vQg" = (
@@ -46586,8 +46614,8 @@ cUp
 uBd
 bxm
 eiy
-afM
-afM
+aak
+aag
 afM
 sGj
 hfN
@@ -46768,7 +46796,7 @@ aHj
 der
 rHN
 eiy
-afM
+aas
 afM
 afM
 xyL
@@ -47135,7 +47163,7 @@ tiP
 afM
 lgp
 tTu
-aft
+afM
 tvI
 wqK
 eNM
@@ -47317,7 +47345,7 @@ nCh
 afM
 lgp
 lae
-afu
+afM
 mPW
 wqK
 xqh

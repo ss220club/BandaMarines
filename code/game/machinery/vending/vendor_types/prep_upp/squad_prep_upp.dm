@@ -17,13 +17,13 @@
 /obj/structure/machinery/cm_vending/sorted/cargo_ammo/upp_squad/populate_product_list(scale)
 	listed_products = list(
 		list("ARMOR-PIERCING AMMUNITION", -1, null, null),
-		list("AK-4047 AP magazine (7.62x39mm)", floor(scale * 15), /obj/item/ammo_magazine/rifle/ak4047/ap, VENDOR_ITEM_REGULAR),
-		list("Type 64 Helical AP Magazine (7.62x19mm)", floor(scale * 15), /obj/item/ammo_magazine/smg/bizon/ap, VENDOR_ITEM_REGULAR),
+		list("AK-4047 AP magazine (7.62x39mm)", floor(scale * 8), /obj/item/ammo_magazine/rifle/ak4047/ap, VENDOR_ITEM_REGULAR),
+		list("Type 64 Helical AP Magazine (7.62x19mm)", floor(scale * 8), /obj/item/ammo_magazine/smg/bizon/ap, VENDOR_ITEM_REGULAR),
 
 		list("RESTRICTED FIREARM AMMUNITION", -1, null, null),
-		list("Type-19 stick magazine (7.62x25mm)", floor(scale * 6), /obj/item/ammo_magazine/smg/pps43, VENDOR_ITEM_REGULAR),
-		list("Type 71 AP Magazine (5.45x39mm)", floor(scale * 15), /obj/item/ammo_magazine/rifle/type71/ap, VENDOR_ITEM_REGULAR),
-		list("M240 Incinerator Tank", floor(scale * 2), /obj/item/ammo_magazine/flamer_tank, VENDOR_ITEM_REGULAR),
+		list("Type-19 stick magazine (7.62x25mm)", floor(scale * 3), /obj/item/ammo_magazine/smg/pps43, VENDOR_ITEM_REGULAR),
+		list("Type 71 AP Magazine (5.45x39mm)", floor(scale * 8), /obj/item/ammo_magazine/rifle/type71/ap, VENDOR_ITEM_REGULAR),
+		list("M240 Incinerator Tank", floor(scale * 1), /obj/item/ammo_magazine/flamer_tank, VENDOR_ITEM_REGULAR),
 		)
 
 //--------------UPP SQUAD ARMAMENTS VENDOR--------------
