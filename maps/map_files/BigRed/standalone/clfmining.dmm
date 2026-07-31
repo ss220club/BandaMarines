@@ -753,6 +753,8 @@
 /obj/structure/surface/rack,
 /obj/effect/landmark/good_item,
 /obj/item/stack/sheet/metal/small_stack,
+/obj/item/stack/sheet/metal/small_stack,
+/obj/item/stack/sheet/metal/small_stack,
 /turf/open/floor/plating/platingdmg3/west,
 /area/bigredv2/caves/mining)
 "lD" = (
@@ -3086,6 +3088,12 @@
 /obj/effect/landmark/objective_landmark/medium,
 /turf/open/floor/plating/platingdmg3/west,
 /area/bigredv2/caves/mining)
+"Wv" = (
+/obj/item/tool/shovel/snow{
+	pixel_y = 5
+	},
+/turf/open/mars_cave/mars_dirt_7,
+/area/bigredv2/caves/mining)
 "Wy" = (
 /obj/structure/surface/table,
 /obj/item/folder/black_random,
@@ -4007,7 +4015,7 @@ LB
 bi
 AV
 mz
-lK
+Wv
 Oc
 lK
 FO

@@ -234,6 +234,25 @@
 	},
 /turf/open/asphalt/cement_sunbleached,
 /area/kutjevo/interior/colony/landing_zone_checkpoint)
+"kb" = (
+/obj/item/stack/sandbags_empty/small_stack{
+	pixel_x = -8;
+	pixel_y = 10
+	},
+/obj/item/stack/sandbags_empty/small_stack,
+/obj/item/stack/sandbags_empty/small_stack{
+	pixel_y = 11;
+	pixel_x = -3
+	},
+/obj/item/tool/shovel/snow{
+	pixel_y = 5
+	},
+/obj/item/stack/sandbags/small_stack{
+	pixel_y = -6;
+	pixel_x = -15
+	},
+/turf/open/auto_turf/sand/layer1,
+/area/kutjevo/exterior/clf_lz)
 "kM" = (
 /obj/structure/shuttle/part/ert/transparent/right_engine,
 /turf/open/floor/plating/kutjevo,
@@ -675,6 +694,7 @@
 /area/kutjevo/exterior/clf_lz)
 "HK" = (
 /obj/structure/largecrate,
+/obj/item/ammo_box/magazine/mar30,
 /turf/open/floor/almayer/research/containment/floor2,
 /area/kutjevo/exterior/clf_lz)
 "Ix" = (
@@ -1642,7 +1662,7 @@ qx
 sz
 dT
 cf
-cf
+kb
 cf
 fK
 ZQ

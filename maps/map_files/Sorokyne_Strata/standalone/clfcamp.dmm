@@ -2451,6 +2451,11 @@
 	},
 /turf/open/gm/river/soro,
 /area/strata/exterior/far_north_outpost)
+"Yg" = (
+/obj/structure/largecrate/supply,
+/obj/item/ammo_box/magazine/mar30,
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/strata/interior/outpost/clf_dorms)
 "Yr" = (
 /obj/structure/surface/rack,
 /obj/item/weapon/gun/pistol/t73,
@@ -3248,7 +3253,7 @@ pb
 cH
 cH
 cH
-Ld
+Yg
 GJ
 Sl
 cW

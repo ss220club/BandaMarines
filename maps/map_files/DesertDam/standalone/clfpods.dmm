@@ -929,6 +929,13 @@
 	},
 /turf/open/asphalt/cement_sunbleached/cement_sunbleached16,
 /area/desert_dam/exterior/valley/valley_medical)
+"lt" = (
+/obj/structure/flora/grass/desert/heavygrass_3,
+/obj/structure/machinery/defenses/sentry/premade/lowammo/random/dumb{
+	dir = 8
+	},
+/turf/open/desert/dirt,
+/area/desert_dam/exterior/valley/valley_medical)
 "lA" = (
 /obj/structure/desertdam/decals/road_edge{
 	icon_state = "road_edge_decal4"
@@ -1136,6 +1143,10 @@
 /turf/open/asphalt,
 /area/desert_dam/exterior/valley/valley_medical)
 "tv" = (
+/obj/item/stack/sandbags_empty/full{
+	pixel_y = -6
+	},
+/obj/item/stack/sandbags_empty/full,
 /turf/open/desert/dirt/desert_transition_corner1/east,
 /area/desert_dam/exterior/valley/valley_medical)
 "tC" = (
@@ -1811,6 +1822,9 @@
 /obj/effect/decal/medical_decals{
 	icon_state = "docdecal3"
 	},
+/obj/structure/machinery/defenses/sentry/premade/lowammo/random/dumb{
+	dir = 8
+	},
 /turf/open/floor/white,
 /area/desert_dam/building/medical/garage)
 "Nx" = (
@@ -1974,6 +1988,16 @@
 /turf/open/asphalt,
 /area/desert_dam/exterior/valley/valley_medical)
 "RM" = (
+/obj/item/tool/shovel/snow{
+	pixel_y = 5
+	},
+/obj/item/stack/sheet/metal/large_stack{
+	pixel_x = 8
+	},
+/obj/item/stack/sheet/metal/large_stack{
+	pixel_y = 9;
+	pixel_x = 10
+	},
 /turf/open/desert/dirt/desert_transition_edge1/southwest,
 /area/desert_dam/exterior/valley/valley_medical)
 "RY" = (
@@ -2397,7 +2421,7 @@ zh
 vp
 vp
 vp
-io
+lt
 vp
 vp
 we

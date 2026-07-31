@@ -243,6 +243,7 @@
 "aP" = (
 /obj/item/stack/sheet/metal/large_stack,
 /obj/structure/closet/coffin/woodencrate,
+/obj/item/stack/sheet/plasteel/med_large_stack,
 /turf/open/gm/dirt,
 /area/lv624/ground/caves/south_west_caves)
 "aQ" = (
@@ -1021,6 +1022,25 @@
 	},
 /turf/open/floor/wood,
 /area/lv624/lazarus/crashed_ship)
+"yI" = (
+/obj/item/stack/sandbags_empty/small_stack{
+	pixel_x = -8;
+	pixel_y = 10
+	},
+/obj/item/stack/sandbags_empty/small_stack,
+/obj/item/stack/sandbags_empty/small_stack{
+	pixel_y = 11;
+	pixel_x = -3
+	},
+/obj/item/tool/shovel/snow{
+	pixel_y = 5
+	},
+/obj/item/stack/sandbags/small_stack{
+	pixel_y = -6;
+	pixel_x = -15
+	},
+/turf/open/gm/dirt,
+/area/lv624/ground/caves/south_west_caves)
 "yT" = (
 /obj/structure/barricade/metal/wired{
 	icon_state = "metal_2"
@@ -1093,6 +1113,14 @@
 /obj/item/ammo_magazine/pistol/heavy,
 /turf/open/floor/almayer/green/northeast,
 /area/lv624/lazarus/crashed_ship)
+"AM" = (
+/obj/structure/barricade/plasteel/wired{
+	icon_state = "plasteel_3";
+	density = 1;
+	closed = 0
+	},
+/turf/open/gm/dirt,
+/area/lv624/ground/caves/south_west_caves)
 "AP" = (
 /obj/structure/cargo_container/arious/right,
 /turf/open/floor/platingdmg1,
@@ -2673,7 +2701,7 @@ Qf
 CO
 Ab
 Ab
-Ab
+aV
 uq
 Hj
 Hj
@@ -2720,7 +2748,7 @@ bP
 vf
 Ab
 Ab
-Ab
+AM
 Ab
 Ab
 xu
@@ -2767,7 +2795,7 @@ bP
 CO
 Ab
 Ab
-Ab
+AM
 Ab
 Ab
 xu
@@ -2814,7 +2842,7 @@ ro
 xG
 Ab
 Ab
-Ab
+aV
 Ab
 uq
 xu
@@ -2861,7 +2889,7 @@ Bc
 pq
 Ab
 Ab
-Ab
+aV
 Ab
 Ab
 xu
@@ -2908,7 +2936,7 @@ mS
 pq
 Ab
 Ab
-Ab
+aV
 Ab
 Ab
 xu
@@ -2955,7 +2983,7 @@ Kt
 VF
 Ab
 Ab
-Ab
+aV
 uq
 xu
 Yj
@@ -3046,7 +3074,7 @@ VX
 iq
 BC
 ZS
-ac
+yI
 ad
 ab
 Hj
@@ -3643,9 +3671,9 @@ Hj
 aT
 aT
 aT
-Ab
-Ab
-Ab
+jz
+aL
+aL
 Ab
 aA
 Ab
@@ -3693,7 +3721,7 @@ Ab
 Ab
 Ab
 Ab
-Ab
+aD
 Hj
 Hj
 Hj
