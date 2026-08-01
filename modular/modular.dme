@@ -41,3 +41,4 @@
 #include "emojis220/_emojis.dme"
 #include "distress/_distress.dme"
 #include "yaut_leap/_leap.dme"
+#include "necoarc/_arc.dme"
