@@ -16,8 +16,20 @@
 /turf/open/hybrisa/street/sidewalkcorner/north
 	dir = NORTH
 
+/turf/open/hybrisa/street/sidewalkcorner/north/south
+	dir = SOUTH
+
+/turf/open/hybrisa/street/sidewalkcorner/north/east
+	dir = EAST
+
+/turf/open/hybrisa/street/sidewalkcorner/north/west
+	dir = WEST
+
 /turf/open/hybrisa/street/sidewalkcorner/east
 	dir = EAST
 
 /turf/open/hybrisa/street/sidewalkcorner/west
 	dir = WEST
+
+/turf/open/hybrisa/street/sidewalkcorner/west/east
+	dir = EAST

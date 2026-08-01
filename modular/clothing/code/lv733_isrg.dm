@@ -244,11 +244,12 @@
 	item_icons = list(
 		WEAR_WAIST = 'modular/clothing/onmob/isrg/belts.dmi'
 	)
-	icon_state = "isrg_belt"
-	item_state = "isrg_belt"
+	icon_state = "isrg_belt_med"
+	item_state = "isrg_belt_med"
 	item_state_slots = list(
-		WEAR_WAIST = "isrg_belt"
+		WEAR_WAIST = "isrg_belt_med"
 	)
+	skip_fullness_overlays = TRUE
 
 // Пояс рядового состава - 2 магазина Mirai-7 (максимум) + медикаменты (база - как у стандартного медицинского пояса)
 
@@ -264,6 +265,7 @@
 	item_state_slots = list(
 		WEAR_WAIST = "isrg_belt_med"
 	)
+	skip_fullness_overlays = TRUE
 	storage_slots = 6
 	max_storage_space = 16
 	var/max_mirai7_mags = 2
@@ -312,6 +314,7 @@
 		WEAR_WAIST = "isrg_belt_sg"
 	)
 	flags_atom = FPRINT|NO_GAMEMODE_SKIN
+	skip_fullness_overlays = TRUE
 
 /obj/item/storage/belt/gun/smartgunner/isrg/update_gun_icon(slot)
 	if(!holster_slots[slot]["gun"])
@@ -354,7 +357,8 @@
 		WEAR_BACK = "isrg_backpack"
 	)
 
-/obj/item/storage/backpack/marine/k9_synth/medicalpack/isrg
+/obj/item/storage/satchel/marine/k9_synth/medicalpack/isrg
+	parent_type = /obj/item/storage/backpack/marine/k9_synth/medicalpack
 	name = "\improper M210-I portable K9 medical backpack"
 	desc = "Медицинская упряжь K9 поисковой группы ISRG, приспособленная для переноски медикаментов."
 	icon = 'modular/clothing/icon/isrg/backpack.dmi'

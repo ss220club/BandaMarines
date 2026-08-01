@@ -21,6 +21,7 @@
 #include "code/game/objects/effects/landmarks/survivor_spawner.dm"
 #include "code/game/objects/items/devices/flash.dm"
 #include "code/game/objects/items/devices/glowstick.dm"
+#include "code/game/objects/items/storage/isrg_k9_belt.dm"
 #include "code/game/objects/structures/barricade/isrg_deployable.dm"
 #include "code/game/objects/structures/lifeline_ship.dm"
 #include "code/game/objects/structures/type16_eriika.dm"
@@ -36,12 +37,3 @@
 #include "code/modules/projectiles/guns/mirai7.dm"
 #include "code/modules/projectiles/guns/t3_raiko.dm"
 #include "code/modules/vehicles/rac_apc.dm"
-// BEGIN_INTERNALS
-// END_INTERNALS
-// BEGIN_FILE_DIR
-#define FILE_DIR .
-// END_FILE_DIR
-// BEGIN_PREFERENCES
-// END_PREFERENCES
-// BEGIN_INCLUDE
-// END_INCLUDE

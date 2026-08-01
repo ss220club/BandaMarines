@@ -1238,7 +1238,6 @@
 	max_storage_space = 5
 	can_hold = list(
 		/obj/item/tool/kitchen/utensil/knife,
-		/obj/item/tool/kitchen/utensil/pknife,
 		/obj/item/tool/kitchen/knife,
 		/obj/item/attachable/bayonet,
 		/obj/item/weapon/throwing_knife,
@@ -1295,7 +1294,7 @@
 
 /obj/item/clothing/accessory/storage/holster
 	name = "shoulder holster"
-	desc = "A handgun holster with an attached pouch, allowing two magazines or speedloaders to be stored along with it."
+	desc = "Кобура для пистолета с прикрепленным подсумком, позволяющим хранить вместе два магазина или сменных барабана." //SS220 EDIT
 	icon_state = "holster"
 	worn_accessory_slot = ACCESSORY_SLOT_STORAGE
 	high_visibility = TRUE

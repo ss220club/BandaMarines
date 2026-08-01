@@ -507,9 +507,7 @@
 /turf/open/hybrisa/street/cement3,
 /area/lv733/outdoors/colony_streets/city_streets)
 "nG" = (
-/turf/open/hybrisa/street/sidewalkcorner/west{
-	dir = 4
-	},
+/turf/open/hybrisa/street/sidewalkcorner/west/east,
 /area/lv733/outdoors/colony_streets/city_streets)
 "nI" = (
 /turf/closed/wall/hybrisa/colony/office,
@@ -2259,9 +2257,7 @@
 	pixel_y = -9
 	},
 /obj/item/trash/hotdog,
-/turf/open/hybrisa/street/sidewalkcorner/west{
-	dir = 4
-	},
+/turf/open/hybrisa/street/sidewalkcorner/west/east,
 /area/lv733/outdoors/colony_streets/city_streets)
 "Zn" = (
 /obj/effect/decal/strata_decals/tyrargo_mud_corner{

@@ -16,6 +16,7 @@
 	ammo_secondary_def = /datum/ammo/bullet/smartgun/isrg/armor_piercing
 	ammo_primary_alt = /datum/ammo/bullet/smartgun/isrg/alt
 	ammo_secondary_alt = /datum/ammo/bullet/smartgun/isrg/armor_piercing/alt
+	has_cover = FALSE
 
 /obj/item/weapon/gun/smartgun/isrg/muzzle_flash(angle, mob/user)
 	if(flags_gun_features & GUN_SILENCED || isnull(angle))
@@ -42,17 +43,18 @@
 
 /obj/item/ammo_magazine/smartgun/isrg
 	name = "\improper T3 drum"
-	desc = "Барабанный магазин на 450 патронов для смартгана T3 «Райко»."
+	desc = "Барабанный магазин на 380 патронов для смартгана T3 «Райко»."
 	icon = 'modular/lv733/icons/t3_raiko_smartgun/t3_raiko_mag.dmi'
 	icon_state = "t3_raiko_mag"
-	max_rounds = 420
+	bonus_overlay = null
+	max_rounds = 380
 	gun_type = /obj/item/weapon/gun/smartgun/isrg
 
 /datum/ammo/bullet/smartgun/isrg
 	name = "T3 smartgun tracer bullet"
 	icon = 'modular/lv733/icons/t3_raiko_smartgun/t3_raiko_bullet.dmi'
 	icon_state = "t3_raiko_bullet"
-	damage = 32
+	damage = 34
 	accuracy = HIT_ACCURACY_TIER_5
 
 /datum/ammo/bullet/smartgun/isrg/alt
@@ -60,13 +62,13 @@
 	icon = 'modular/lv733/icons/t3_raiko_smartgun/t3_raiko_bullet.dmi'
 	icon_state = "t3_raiko_bullet_alt"
 	damage_falloff = DAMAGE_FALLOFF_TIER_6
-	effective_range_max = 8
+	effective_range_max = 7
 
 /datum/ammo/bullet/smartgun/isrg/armor_piercing
 	name = "\improper AP T3 smartgun tracer bullet"
 	icon = 'modular/lv733/icons/t3_raiko_smartgun/t3_raiko_bullet.dmi'
 	icon_state = "t3_raiko_bullet_ap"
-	damage = 24
+	damage = 26
 	accuracy = HIT_ACCURACY_TIER_3
 	penetration = ARMOR_PENETRATION_TIER_8
 	damage_armor_punch = 1
@@ -76,7 +78,7 @@
 	icon = 'modular/lv733/icons/t3_raiko_smartgun/t3_raiko_bullet.dmi'
 	icon_state = "t3_raiko_bullet_ap_alt"
 	damage_falloff = DAMAGE_FALLOFF_TIER_7
-	effective_range_max = 7
+	effective_range_max = 6
 
 /obj/item/clothing/suit/storage/marine/smartgunner/isrg
 	name = "\improper T3 combat harness"

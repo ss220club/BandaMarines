@@ -212,6 +212,7 @@
 /obj/item/hardpoint/locomotion/apc_wheels/roaf
 	name = "\improper Колёса Type 16-7/E"
 	icon = 'modular/lv733/icons/roaf_apc/type16_wheels_held.dmi'
+	icon_state = "tires_wy"
 	disp_icon = 'modular/lv733/icons/roaf_apc/type16_wheels_mounted.dmi'
 
 // Двигатель - штатный "ускоритель" с танка (даёт +20% скорости, см. apply_buff/remove_buff в

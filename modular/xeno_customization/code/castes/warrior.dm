@@ -28,3 +28,4 @@
 	subtract_icon_path = 'modular/xeno_customization/icons/warrior/beast_subtract.dmi'
 	slot = CUSTOMIZATION_SLOT_ARMS|CUSTOMIZATION_SLOT_BODY|CUSTOMIZATION_SLOT_HEAD|CUSTOMIZATION_SLOT_TAIL
 	timelock = JOB_PLAYTIME_TIER_2
+	strain = "Normal"

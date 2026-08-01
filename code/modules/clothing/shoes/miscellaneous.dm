@@ -74,7 +74,19 @@
 	item_state = "clown_shoes"
 	slowdown = SHOES_SLOWDOWN+1
 	black_market_value = 25
-	var/footstep = 1 //used for squeeks whilst walking
+	var/enabled_waddle = TRUE
+
+/obj/item/clothing/shoes/clown_shoes/equipped(mob/user, slot)
+	. = ..()
+	if(slot == WEAR_FEET && enabled_waddle)
+		user.AddElement(/datum/element/waddling)
+		user.AddComponent(/datum/component/footstep, 2, 10, 4, 4, "clown_footstep", vary_ = 0)
+
+/obj/item/clothing/shoes/clown_shoes/unequipped(mob/user)
+	. = ..()
+	if(enabled_waddle)
+		user.RemoveElement(/datum/element/waddling)
+		user.GetExactComponent(/datum/component/footstep).RemoveComponent()
 
 /obj/item/clothing/shoes/jackboots
 	name = "jackboots"
@@ -160,7 +172,7 @@
 
 /obj/item/clothing/shoes/footwrap_sandals
 	name = "foot wrapped sandals"
-	desc = "typical soldier footwear worn during old ancient times."
+	desc = "Типичная солдатская обувь, которую носили в древние времена." //SS220 EDIT
 	icon_state = "footwrap_sandals"
 	item_state = "footwrap_sandals"
 	item_icons = list(

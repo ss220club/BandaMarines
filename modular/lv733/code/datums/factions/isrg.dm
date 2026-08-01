@@ -6,8 +6,9 @@
 /datum/mob_hud/faction/isrg
 	faction_to_check = FACTION_ISRG
 
-/datum/modpack/lv733/initialize()
+/datum/modpack/lv733/pre_initialize()
 	GLOB.huds.len = max(GLOB.huds.len, MOB_HUD_FACTION_ISRG)
+	GLOB.huds[MOB_HUD_FACTION_CLF_WY] = new /datum/mob_hud/faction/clf_wy()
 	GLOB.huds[MOB_HUD_FACTION_ISRG] = new /datum/mob_hud/faction/isrg()
 
 /datum/faction/isrg/modify_hud_holder(image/holder, mob/living/carbon/human/human)

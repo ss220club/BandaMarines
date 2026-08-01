@@ -38,25 +38,9 @@
 	arrival_message = "38-я КВАОГ, аварийная группа. Фиксируем крушение судна на LV-733. Держитесь!."
 	objectives = "Провести оценку угрозы. Обеспечить безопасность периметра. Соединиться с выжившими и другими."
 
-/datum/emergency_call/lv733_crash_response/proc/equip_crash_response_member(mob/living/carbon/human/new_human, eyes_type, right_pouch_type)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/marine/veteran/royal_marine/lv733/roaf_uniform(new_human), WEAR_BODY)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/marine/royal_marine/knife/lv733/shoes_roaf(new_human), WEAR_FEET)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/gloves/marine/veteran/royal_marine/lv733/hands_roaf(new_human), WEAR_HANDS)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine/veteran/lv733/roaf_beret(new_human), WEAR_HEAD)
-	if(eyes_type)
-		new_human.equip_to_slot_or_del(new eyes_type(new_human), WEAR_EYES)
-	new_human.equip_to_slot_or_del(new /obj/item/device/radio/headset/distress/roaf(new_human), WEAR_L_EAR)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/marine/veteran/royal_marine/light/iasf(new_human), WEAR_JACKET)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/storage/webbing/iasf(new_human), WEAR_ACCESSORY)
-	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/lightpack/five_slot(new_human), WEAR_BACK)
-	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/general_belt(new_human), WEAR_WAIST)
-	new_human.equip_to_slot_or_del(new /obj/item/storage/pouch/survival/full(new_human), WEAR_L_STORE)
-	new_human.equip_to_slot_or_del(new right_pouch_type(new_human), WEAR_R_STORE)
-	new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/rmc_f90(new_human), WEAR_J_STORE)
-	new_human.equip_to_slot_or_del(new /obj/item/tool/crowbar/tactical(new_human), WEAR_IN_JACKET)
-	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/rmc_f90(new_human), WEAR_IN_JACKET)
-	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/rmc_f90(new_human), WEAR_IN_JACKET)
-	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/rmc_f90(new_human.back), WEAR_IN_BACK)
+/datum/emergency_call/lv733_crash_response/proc/give_spare_mags(mob/living/carbon/human/new_human, amount = 2)
+	for(var/i in 1 to amount)
+		new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/rmc_f90(new_human.back), WEAR_IN_BACK)
 
 /datum/emergency_call/lv733_crash_response/create_member(datum/mind/M, turf/override_spawn_loc)
 	var/turf/spawn_loc = override_spawn_loc ? override_spawn_loc : get_spawn_point()
@@ -66,10 +50,14 @@
 	var/mob/living/carbon/human/mob = new(spawn_loc)
 	M.transfer_to(mob, TRUE)
 
+	// Экипируем через arm_equipment()/существующие пресеты ROAF (как уже было у синта) -
+	// только так реально проставляются язык, раса (зрение/слух) и имя (load_preset() внутри),
+	// а не только шмотки, как было в самодельном equip_crash_response_member().
 	if(!leader && HAS_FLAG(mob.client.prefs.toggles_ert, PLAY_LEADER) && check_timelock(mob.client, JOB_SQUAD_LEADER, time_required_for_job))
 		leader = mob
 		to_chat(mob, SPAN_ROLE_HEADER("Вы командир группы реагирования ROAF!"))
-		equip_crash_response_member(mob, /obj/item/clothing/glasses/sunglasses/aviator/silver, /obj/item/storage/pouch/firstaid/full/alternate)
+		arm_equipment(mob, /datum/equipment_preset/survivor/roaf/squad_leader, TRUE, TRUE)
+		give_spare_mags(mob)
 	else if(synths < max_synths && HAS_FLAG(mob.client.prefs.toggles_ert, PLAY_SYNTH) && mob.client.check_whitelist_status(WHITELIST_SYNTHETIC))
 		synths++
 		to_chat(mob, SPAN_ROLE_HEADER("Вы синтетик группы реагирования ROAF!"))
@@ -77,15 +65,17 @@
 	else if(engineers < max_engineers && HAS_FLAG(mob.client.prefs.toggles_ert, PLAY_ENGINEER) && check_timelock(mob.client, JOB_SQUAD_ENGI, time_required_for_job))
 		engineers++
 		to_chat(mob, SPAN_ROLE_HEADER("Вы инженер группы реагирования ROAF!"))
-		equip_crash_response_member(mob, /obj/item/clothing/glasses/welding, /obj/item/storage/pouch/firstaid/full/alternate)
-		mob.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/med_small_stack(mob.back), WEAR_IN_BACK)
+		arm_equipment(mob, /datum/equipment_preset/survivor/roaf/engi, TRUE, TRUE)
+		give_spare_mags(mob)
 	else if(medics < max_medics && HAS_FLAG(mob.client.prefs.toggles_ert, PLAY_MEDIC) && check_timelock(mob.client, JOB_SQUAD_MEDIC, time_required_for_job))
 		medics++
 		to_chat(mob, SPAN_ROLE_HEADER("Вы медик группы реагирования ROAF!"))
-		equip_crash_response_member(mob, /obj/item/clothing/glasses/hud/health, /obj/item/storage/pouch/medkit/full_rmc)
+		arm_equipment(mob, /datum/equipment_preset/survivor/roaf/medic, TRUE, TRUE)
+		give_spare_mags(mob)
 	else
 		to_chat(mob, SPAN_ROLE_HEADER("Вы боец группы реагирования ROAF!"))
-		equip_crash_response_member(mob, null, /obj/item/storage/pouch/firstaid/full/alternate)
+		arm_equipment(mob, /datum/equipment_preset/survivor/roaf, TRUE, TRUE)
+		give_spare_mags(mob)
 
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), mob, SPAN_BOLD("Задача: [objectives]")), 1 SECONDS)
 
@@ -116,6 +106,7 @@
 /datum/round_event/lv733_ship_crash
 	var/turf/crash_turf = null
 	var/list/warning_overlays = list()
+	var/crashed = FALSE
 
 /datum/round_event/lv733_ship_crash/setup()
 	startWhen = SHIP_CRASH_WARN_DELAY / SSevents.wait
@@ -131,7 +122,6 @@
 	if(!length(candidate_turfs))
 		return
 
-	// Точки, от которых корабль обязан упасть не ближе SHIP_CRASH_SAFE_RADIUS: хайв ксеноморфов и домашняя ЛЗ ROAF.
 	var/list/turf/exclusion_points = list()
 	for(var/obj/effect/landmark/queen_spawn/Q in GLOB.queen_spawns)
 		exclusion_points += get_turf(Q)
@@ -174,7 +164,19 @@
 	// чтобы группа реагирования появилась у места крушения, а не на генерик-лендмарке/шаттле.
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(spawn_lv733_crash_response), crash_turf), SHIP_CRASH_WARN_DELAY - 15 SECONDS)
 
+	// SSevents (и, соответственно, start()) работает только пока раунд в RUNLEVEL_GAME - если победа/поражение
+	// наступит в течение этих 2 минут буфера, раунд уйдёт в постгейм и start() от SSevents может вообще не вызваться.
+	// Поэтому само крушение планируем отдельным addtimer'ом (SStimer не завязан на рант-левел), как и вызов ЕРТ выше.
+	addtimer(CALLBACK(src, PROC_REF(do_crash_impact)), SHIP_CRASH_WARN_DELAY)
+
 /datum/round_event/lv733_ship_crash/start()
+	do_crash_impact()
+
+/datum/round_event/lv733_ship_crash/proc/do_crash_impact()
+	if(crashed)
+		return
+	crashed = TRUE
+
 	for(var/obj/effect/lv733/crash_warning_overlay/O in warning_overlays)
 		qdel(O)
 	warning_overlays.Cut()
@@ -192,8 +194,6 @@
 		message_admins("[SPAN_DANGER("LV733 ship_crash: file exists but failed to parse '[ship_path]' (width=[template.width], height=[template.height]). Likely a DMM format/regex issue in the file content.")]")
 		return
 
-	// Раздавить всё живое в зоне посадки корабля ДО загрузки шаблона - иначе тела молча
-	// удалятся вместе с остальным мусором ниже (delete = TRUE), без сообщения о смерти.
 	var/turf/footprint_corner = locate(crash_turf.x - floor(template.width/2), crash_turf.y - floor(template.height/2), crash_turf.z)
 	if(footprint_corner)
 		for(var/tx = footprint_corner.x to footprint_corner.x + template.width - 1)
@@ -204,8 +204,6 @@
 				for(var/mob/living/L in T)
 					L.gib(create_cause_data("падение корабля"))
 
-	// delete = TRUE вычищает всё, что осталось на тайлах посадки (предметы, мусор, трупы),
-	// чтобы после загрузки шаблона под кораблём ничего не "просвечивало".
 	if(!template.load(crash_turf, centered = TRUE, allow_cropping = TRUE, delete = TRUE))
 		message_admins("[SPAN_DANGER("LV733 ship_crash: template.load() failed at [ADMIN_VERBOSEJMP(crash_turf)] (template [template.width]x[template.height]). Likely too close to the map edge or a cordon issue.")]")
 		return

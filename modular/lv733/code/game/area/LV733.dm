@@ -25,6 +25,7 @@
 	name = "Whitchler Point - Outdoors"
 	icon_state = "cliff_blocked"//because this is a PARENT TYPE and you should not be using it and should also be changing the icon!!!
 	ceiling = CEILING_NONE
+	requires_power = FALSE
 	soundscape_playlist = SCAPE_PL_DESERT_STORM
 	ambience_exterior = AMBIENCE_BIGRED
 	soundscape_interval = 25
@@ -358,6 +359,7 @@
 
 /area/lv733/indoors/base_operations/mess_hall
 	name = "ROAF Base Operations - Mess Hall"
+	requires_power = FALSE
 
 /area/lv733/indoors/base_operations/training_yard
 	name = "ROAF Base Operations - Training Yard"
@@ -588,6 +590,7 @@
 	name = "Colony Streets Underground"
 	icon_state = "colonystreets_under"
 	ceiling = CEILING_METAL
+	requires_power = FALSE
 	minimap_color = MINIMAP_AREA_COLONY_STREETS
 	ambience_exterior = AMBIENCE_TYRARGO_CITY
 	soundscape_playlist = SCAPE_PL_DESERT_STORM
@@ -691,6 +694,9 @@
 /area/lv733/indoors/wy_research_complex/supply_department
 	name = "Weyland-Yutani – Research Complex – Supply Department"
 
+/area/lv733/indoors/wy_research_complex/supply_department/secondary
+	name = "Weyland-Yutani – Research Complex – Secondary Supply Department"
+
 /area/lv733/indoors/wy_research_complex/main_entrance
 	name = "Weyland-Yutani – Research Complex – Main Entrance"
 
@@ -780,6 +786,9 @@
 	name = "Weyland-Yutani – Research Complex – Biological Assessment Unit"
 	ceiling = CEILING_UNDERGROUND_METAL_BLOCK_CAS
 
+/area/lv733/indoors/wy_research_complex/biological_assessment/secondary
+	name = "Weyland-Yutani – Research Complex – Secondary Biological Assessment Unit"
+
 /area/lv733/indoors/wy_research_complex/materials_testing
 	name = "Weyland-Yutani – Research Complex – Materials Testing Lab"
 	ceiling = CEILING_UNDERGROUND_METAL_BLOCK_CAS
@@ -840,5 +849,3 @@
 
 /area/lv733/indoors/sensor_facility/tech_room
 	name = "Technical Sensor Facility – Technical Room"
-
-
