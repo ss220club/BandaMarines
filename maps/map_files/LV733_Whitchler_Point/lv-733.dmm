@@ -1642,12 +1642,8 @@
 "als" = (
 /obj/effect/decal/hybrisa/dirt_2,
 /obj/effect/decal/hybrisa/dirt_2,
-/obj/structure/prop/invuln/lattice_prop{
-	icon_state = "lattice12";
-	pixel_y = 16
-	},
-/turf/open/floor/strata/multi_tiles/southeast,
-/area/lv733/outdoors/caves/eastern_caves)
+/turf/closed/wall/mineral/bone_resin,
+/area/lv733/oob)
 "alE" = (
 /obj/structure/fence/slim/dark,
 /turf/open/hybrisa/street/sidewalkfull,
@@ -2292,8 +2288,9 @@
 /turf/open/floor/prison/floor_plate/southwest,
 /area/lv733/indoors/base_operations/storage_facility)
 "avS" = (
-/turf/open/floor/prison/darkyellow2/north,
-/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_checkpoint_room_main)
+/obj/effect/decal/hybrisa/dirt_2,
+/turf/closed/wall/mineral/bone_resin,
+/area/lv733/outdoors/caves/eastern_caves)
 "awa" = (
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/hybrisa/wood/blackwood,
@@ -3739,14 +3736,9 @@
 /turf/open/floor/strata/multi_tiles/west,
 /area/lv733/indoors/administration/main_hall)
 "aUU" = (
-/obj/effect/decal/hybrisa/road/lines4{
-	pixel_x = 1;
-	color = "#f27e1f"
-	},
-/obj/effect/decal/hybrisa/dirt,
-/obj/structure/window/framed/hybrisa/colony/office/reinforced,
-/turf/open/floor/corsat/officetiles,
-/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_checkpoint_room_main)
+/obj/item/tool/shovel,
+/turf/open/hybrisa/street/sidewalkfull,
+/area/lv733/outdoors/landing_zone_2)
 "aVc" = (
 /turf/open/hybrisa/street/roadlines3,
 /area/lv733/outdoors/colony_streets/engineering_street)
@@ -5363,7 +5355,8 @@
 	},
 /obj/effect/alien/egg{
 	icon_state = "Egg Opened";
-	status = 1
+	status = 1;
+	unacidable = 0
 	},
 /turf/open/floor/prison/ramptop/east,
 /area/lv733/indoors/main_eng/technical_storage)
@@ -5819,12 +5812,10 @@
 	},
 /area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_ship)
 "bHF" = (
-/obj/structure/prop/invuln/lattice_prop{
-	icon_state = "lattice8";
-	pixel_y = 16
-	},
-/turf/closed/wall/r_wall/biodome,
-/area/lv733/outdoors/caves/eastern_caves)
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/effect/decal/hybrisa/dirt_2,
+/turf/open/floor/plating,
+/area/lv733/outdoors/caves/central_caves)
 "bIu" = (
 /obj/structure/platform/metal/strata,
 /obj/structure/stairs{
@@ -12761,8 +12752,8 @@
 /obj/structure/machinery/light/double/blue{
 	dir = 4
 	},
-/obj/structure/pipes/standard/manifold/hidden/dark{
-	dir = 4
+/obj/structure/pipes/standard/simple/hidden/dark{
+	dir = 9
 	},
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/lv733/indoors/wy_research_complex/central_corridor)
@@ -13476,14 +13467,8 @@
 /turf/open/hybrisa/street/sidewalk/northeast,
 /area/lv733/outdoors/colony_streets/wy_complex_streets)
 "env" = (
-/obj/structure/surface/table/reinforced/black,
-/obj/structure/machinery/computer/communications/simple{
-	pixel_y = -2;
-	pixel_x = -1;
-	dir = 1
-	},
-/turf/open/floor/prison/darkyellow2,
-/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_checkpoint_room_main)
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/lv733/oob)
 "enM" = (
 /turf/closed/wall/hybrisa/marhsalls,
 /area/lv733/indoors/base_operations/north_corridor)
@@ -15384,9 +15369,11 @@
 /turf/open/floor/hybrisa/wood/blackwood,
 /area/lv733/indoors/administration/offices)
 "eVG" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/almayer/silverfull2,
-/area/lv733/indoors/wy_research_complex/west_corridor)
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/effect/decal/hybrisa/dirt_2,
+/turf/open/floor/plating,
+/area/lv733/outdoors/caves/central_caves)
 "eVS" = (
 /obj/item/reagent_container/glass/bucket{
 	pixel_x = -9;
@@ -16210,7 +16197,7 @@
 "fjy" = (
 /obj/effect/decal/hybrisa/dirt_2,
 /obj/effect/decal/hybrisa/dirt_2,
-/turf/open/floor/strata/multi_tiles/southeast,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/lv733/indoors/wy_research_complex/central_corridor)
 "fjE" = (
 /obj/effect/decal/hybrisa/road/lines2{
@@ -17445,11 +17432,9 @@
 /turf/open/floor/almayer/test_floor4,
 /area/lv733/indoors/wy_research_complex/east_corridor)
 "fEy" = (
-/obj/structure/bed/chair/office/light{
-	dir = 4
-	},
-/turf/open/floor/prison/floor_plate,
-/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_checkpoint_room_main)
+/obj/effect/decal/hybrisa/dirt_2,
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/lv733/outdoors/caves/central_caves)
 "fEz" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "N";
@@ -17666,9 +17651,8 @@
 /turf/open/floor/almayer/silvercorner/north,
 /area/lv733/indoors/hospital/reception)
 "fHR" = (
-/obj/structure/window/framed/corsat/research,
-/obj/structure/pipes/standard/simple/hidden/dark,
-/turf/open/floor/strata/multi_tiles/southeast,
+/obj/structure/girder/displaced,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/lv733/outdoors/caves/eastern_caves)
 "fHX" = (
 /obj/structure/bed/stool{
@@ -20007,13 +19991,12 @@
 /turf/open/shuttle/escapepod/floor0/west,
 /area/lv733/indoors/landing_zone_1/roaf_technical_corridor)
 "gAq" = (
-/obj/structure/prop/invuln/lattice_prop{
-	icon_state = "lattice12";
-	pixel_y = 16
+/obj/item/stack/sheet/metal{
+	pixel_x = 1;
+	pixel_y = -2
 	},
-/obj/structure/pipes/vents/pump_hybrisa,
-/turf/open/floor/almayer/silverfull2,
-/area/lv733/outdoors/caves/eastern_caves)
+/turf/open/floor/plating,
+/area/lv733/indoors/wy_research_complex/west_corridor)
 "gAt" = (
 /obj/effect/decal/hybrisa/road/lines2{
 	pixel_y = 1;
@@ -20030,11 +20013,8 @@
 /turf/open/floor/almayer/silverfull2,
 /area/lv733/outdoors/landing_zone_2)
 "gAy" = (
-/obj/structure/prop/invuln/lattice_prop{
-	icon_state = "lattice4";
-	pixel_y = 16
-	},
-/turf/closed/wall/r_wall/biodome,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
 /area/lv733/outdoors/caves/eastern_caves)
 "gAD" = (
 /obj/effect/decal/hybrisa/road/lines2,
@@ -22026,16 +22006,13 @@
 /turf/open/hybrisa/street/sidewalkcorner,
 /area/lv733/outdoors/colony_streets/wy_complex_streets)
 "hjW" = (
-/obj/effect/decal/hybrisa/road/lines4{
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/item/stack/sheet/metal{
 	pixel_x = 1;
-	color = "#f27e1f"
+	pixel_y = -2
 	},
-/obj/structure/roof/hybrisa/lattice_prop/lattice_4{
-	pixel_y = 16;
-	layer = 4.2
-	},
-/turf/closed/wall/hybrisa/colony,
-/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_checkpoint_room_main)
+/turf/open/floor/prison/floor_plate/southwest,
+/area/lv733/indoors/wy_research_complex/storage)
 "hjY" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/structure/machinery/light/blue{
@@ -23470,9 +23447,10 @@
 /turf/open/floor/hybrisa/tile/tilewhite,
 /area/lv733/indoors/administration/main_hall)
 "hHK" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/prison/darkyellow2/west,
-/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_checkpoint_room_main)
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/effect/decal/hybrisa/dirt_2,
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/lv733/outdoors/caves/central_caves)
 "hHX" = (
 /obj/structure/pipes/standard/simple/hidden/dark{
 	dir = 4
@@ -24046,7 +24024,7 @@
 /area/lv733/outdoors/colony_streets/wy_complex_streets)
 "hTq" = (
 /obj/effect/decal/hybrisa/dirt_2,
-/turf/open/floor/almayer/silver2,
+/turf/closed/wall/hybrisa/colony,
 /area/lv733/outdoors/landing_zone_2)
 "hTD" = (
 /obj/structure/machinery/space_heater/radiator/red{
@@ -25583,7 +25561,7 @@
 /area/lv733/indoors/main_eng/generator_core)
 "itr" = (
 /obj/effect/decal/cleanable/generic,
-/turf/open/floor/plating,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/lv733/outdoors/caves/eastern_caves)
 "ity" = (
 /obj/effect/decal/strata_decals/tyrargo_mud_corner{
@@ -26154,10 +26132,7 @@
 /obj/effect/decal/hybrisa/dirt_2,
 /obj/item/folder/yellow,
 /obj/effect/decal/hybrisa/dirt,
-/obj/structure/machinery/light/double/blue{
-	dir = 4
-	},
-/turf/open/floor/almayer/silverfull2,
+/turf/open/floor/plating,
 /area/lv733/indoors/wy_research_complex/west_corridor)
 "iFj" = (
 /obj/effect/decal/hybrisa/road/corner{
@@ -27373,6 +27348,11 @@
 	},
 /turf/open/floor/strata/multi_tiles/southeast,
 /area/lv733/indoors/wy_research_complex/west_corridor)
+"jek" = (
+/obj/effect/decal/large_stain,
+/obj/effect/decal/hybrisa/dirt_2,
+/turf/open/floor/plating,
+/area/lv733/outdoors/caves/central_caves)
 "jem" = (
 /obj/structure/machinery/light/small{
 	dir = 4
@@ -34151,14 +34131,11 @@
 	},
 /area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_ship)
 "lpt" = (
-/obj/effect/decal/hybrisa/dirt_2,
-/obj/structure/flora/pottedplant{
-	icon_state = "pottedplant_25";
-	pixel_x = -3;
-	pixel_y = 19
+/obj/item/device/flashlight/lamp/tripod/grey{
+	on = 0
 	},
-/turf/open/floor/prison/darkyellow2/northeast,
-/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_checkpoint_room_main)
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/lv733/outdoors/caves/central_caves)
 "lpu" = (
 /obj/structure/closet/firecloset,
 /obj/structure/prop/hybrisa/misc/buildinggreebliessmall/smallvent3{
@@ -34232,8 +34209,7 @@
 /turf/open/hybrisa/street/sidewalk/east,
 /area/lv733/outdoors/colony_streets/avenue)
 "lpY" = (
-/obj/effect/decal/hybrisa/dirt_2,
-/turf/closed/wall/hybrisa/colony,
+/turf/closed/wall/hybrisa/colony/office/ribbed,
 /area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_checkpoint_room_main)
 "lqa" = (
 /obj/effect/decal/warning_stripes{
@@ -35922,9 +35898,13 @@
 /turf/open/floor/plating/engineer_ship,
 /area/lv733/oob)
 "lVn" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/prison/darkyellow2/northwest,
-/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_checkpoint_room_main)
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/structure/prop/ice_colony/ground_wire{
+	dir = 8
+	},
+/obj/structure/prop/ice_colony/ground_wire,
+/turf/open/floor/plating,
+/area/lv733/outdoors/landing_zone_2)
 "lVq" = (
 /obj/structure/pipes/standard/manifold/hidden/dark{
 	dir = 4
@@ -36196,6 +36176,12 @@
 	},
 /turf/open/floor/almayer/plating,
 /area/lv733/indoors/landing_zone_1/main_hangar_bay)
+"mbB" = (
+/obj/effect/decal/large_stain,
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/effect/decal/hybrisa/dirt_2,
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/outdoors/caves/central_caves)
 "mbM" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/cleanable/blood/xeno{
@@ -37167,9 +37153,9 @@
 /obj/structure/closet/crate/supply{
 	pixel_y = 8
 	},
-/obj/item/stack/sheet/metal/medium_stack,
 /obj/effect/decal/hybrisa/dirt_2,
 /obj/effect/decal/hybrisa/dirt_2,
+/obj/item/stack/sheet/metal/small_stack,
 /turf/open/hybrisa/street/sidewalk/south,
 /area/lv733/outdoors/landing_zone_2)
 "muw" = (
@@ -37400,6 +37386,10 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/hybrisa/tile/tilewhitecheckered,
 /area/lv733/indoors/wy_research_complex/mess_hall)
+"mzT" = (
+/obj/effect/decal/large_stain,
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/lv733/outdoors/caves/eastern_caves)
 "mAc" = (
 /obj/item/clothing/shoes/marine/corporate,
 /obj/effect/decal/hybrisa/dirt,
@@ -40882,6 +40872,10 @@
 /obj/structure/cargo_container/hybrisa/containersextended/bluewywingsleft,
 /turf/open/hybrisa/street/roadlines4,
 /area/lv733/outdoors/landing_zone_1)
+"nKV" = (
+/obj/structure/girder/displaced,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/lv733/outdoors/caves/central_caves)
 "nKY" = (
 /obj/effect/decal/hybrisa/road/lines2,
 /obj/effect/decal/hybrisa/road/road_edge{
@@ -41846,7 +41840,8 @@
 /obj/effect/decal/hybrisa/road/lines3,
 /obj/effect/alien/egg{
 	icon_state = "Egg Opened";
-	status = 1
+	status = 1;
+	unacidable = 0
 	},
 /turf/open/floor/almayer_hull/outerhull_dir_alt/north,
 /area/lv733/indoors/main_eng/technical_storage)
@@ -41936,6 +41931,10 @@
 	},
 /turf/open/floor/almayer/blackfull,
 /area/lv733/indoors/wy_research_complex/surveillance_room)
+"oft" = (
+/obj/effect/decal/hybrisa/dirt_2,
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/outdoors/caves/central_caves)
 "ofv" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
@@ -42191,6 +42190,10 @@
 	},
 /turf/open/floor/prison/ramptop/east,
 /area/lv733/indoors/mining_complex/small_generator)
+"ojd" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/auto_turf/hybrisa_auto_turf/layer3,
+/area/lv733/outdoors/caves/eastern_caves)
 "ojf" = (
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/almayer/plating_striped/north,
@@ -42931,8 +42934,12 @@
 /turf/open/floor/almayer/silver2smooth/northwest,
 /area/lv733/indoors/wy_research_complex/research_office)
 "ovw" = (
-/turf/closed/wall/mineral/bone_resin,
-/area/lv733/indoors/wy_research_complex/storage)
+/obj/item/stack/sheet/metal{
+	pixel_x = 1;
+	pixel_y = -2
+	},
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/outdoors/caves/central_caves)
 "ovK" = (
 /obj/structure/bed/chair/comfy/teal{
 	dir = 4
@@ -43173,6 +43180,12 @@
 	},
 /turf/open/floor/corsat/officetiles,
 /area/lv733/indoors/multicomplex)
+"oAz" = (
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/effect/decal/hybrisa/dirt_2,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/lv733/outdoors/caves/eastern_caves)
 "oAI" = (
 /obj/structure/blocker/invisible_wall,
 /turf/open/auto_turf/hybrisa_auto_turf/layer2,
@@ -48583,9 +48596,10 @@
 /turf/open/hybrisa/street/sidewalk/east,
 /area/lv733/outdoors/colony_streets/wy_complex_streets)
 "qsG" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/structure/window/framed/hybrisa/colony/office/reinforced,
-/turf/open/floor/almayer/silver2smooth/southeast,
+/obj/structure/sign/banners/twe_flag{
+	pixel_y = 28
+	},
+/turf/open/floor/hybrisa/carpet/carpetblack,
 /area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_checkpoint_room_main)
 "qsI" = (
 /obj/effect/decal/hybrisa/trash{
@@ -50231,6 +50245,13 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/hybrisa/carpet/carpetbeige,
 /area/lv733/indoors/motel)
+"qXL" = (
+/obj/structure/prop/ice_colony/ground_wire,
+/obj/structure/prop/ice_colony/ground_wire{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/lv733/outdoors/landing_zone_2)
 "qXP" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "W"
@@ -51086,9 +51107,12 @@
 /turf/closed/wall/hybrisa/spaceport/reinforced,
 /area/lv733/indoors/landing_zone_1/roaf_flight_control_room)
 "rlh" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/prison/darkyellow2/east,
-/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_checkpoint_room_main)
+/obj/item/stack/sheet/metal{
+	pixel_x = 1;
+	pixel_y = -2
+	},
+/turf/open/floor/strata/multi_tiles/southeast,
+/area/lv733/outdoors/caves/eastern_caves)
 "rln" = (
 /obj/structure/machinery/landinglight/delaythree,
 /obj/effect/decal/cleanable/dirt,
@@ -51410,7 +51434,7 @@
 	pixel_x = -26;
 	layer = 6
 	},
-/turf/open/floor/almayer/silverfull2,
+/turf/closed/wall/hybrisa/colony,
 /area/lv733/outdoors/landing_zone_2)
 "rqQ" = (
 /turf/open/floor/hybrisa/metal/yellow_warning_floor,
@@ -51787,10 +51811,8 @@
 /turf/open/floor/prison/darkyellow2/northeast,
 /area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_checkpoint_room_secondary)
 "rwS" = (
-/obj/effect/decal/hybrisa/dirt_2,
-/obj/structure/pipes/standard/simple/hidden/dark,
-/turf/open/floor/almayer/silverfull2,
-/area/lv733/outdoors/caves/eastern_caves)
+/turf/closed/wall/hybrisa/rock,
+/area/lv733/outdoors/caves/central_caves)
 "rxc" = (
 /obj/effect/decal/hybrisa/dirt_2,
 /obj/effect/decal/large_stain,
@@ -51991,11 +52013,9 @@
 /turf/open/floor/prison/ramptop/north,
 /area/lv733/indoors/wy_research_complex/west_entrance)
 "rAw" = (
-/obj/structure/prop/invuln/lattice_prop{
-	icon_state = "lattice12";
-	pixel_y = 16
-	},
-/turf/open/floor/strata/multi_tiles/southeast,
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/effect/decal/hybrisa/dirt_2,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/lv733/outdoors/caves/eastern_caves)
 "rAA" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -52303,9 +52323,9 @@
 /turf/open/floor/almayer/plating_stripedcorner/west,
 /area/lv733/outdoors/landing_zone_1)
 "rEY" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/prison/darkyellow2/southwest,
-/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_checkpoint_room_main)
+/obj/effect/decal/hybrisa/dirt_2,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/lv733/outdoors/caves/central_caves)
 "rEZ" = (
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/almayer/silver/north,
@@ -55127,6 +55147,12 @@
 	},
 /turf/open/floor/strata/multi_tiles/southwest,
 /area/lv733/indoors/hospital/reception)
+"sww" = (
+/obj/item/device/flashlight/lamp/tripod/grey{
+	on = 0
+	},
+/turf/open/floor/plating,
+/area/lv733/indoors/wy_research_complex/west_corridor)
 "swD" = (
 /obj/item/ammo_casing/bullet,
 /turf/open/floor/almayer/silver/west,
@@ -56799,8 +56825,8 @@
 /turf/open/floor/prison/floor_plate/southwest,
 /area/lv733/indoors/landing_cargo)
 "tbg" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /obj/effect/decal/hybrisa/dirt_2,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/floor/almayer/silverfull2,
 /area/lv733/outdoors/caves/eastern_caves)
 "tbk" = (
@@ -57170,6 +57196,10 @@
 	},
 /turf/open/floor/strata/multi_tiles/southeast,
 /area/lv733/indoors/base_operations/laundry_room)
+"tfY" = (
+/obj/effect/decal/large_stain,
+/turf/open/floor/plating,
+/area/lv733/outdoors/caves/central_caves)
 "tgh" = (
 /obj/structure/prop/hybrisa/fakeplatforms/platform1,
 /turf/closed/wall/mineral/bone_resin,
@@ -57355,21 +57385,10 @@
 /turf/open/floor/hybrisa/carpet/carpetblackdeco,
 /area/lv733/indoors/wy_research_complex/research_office)
 "tiu" = (
-/obj/structure/surface/table/reinforced/black,
-/obj/structure/window/reinforced{
-	color = "#a6aeab";
-	pixel_y = -4
-	},
-/obj/item/paper_bin{
-	pixel_x = 6;
-	pixel_y = 9
-	},
-/obj/item/tool/pen,
-/obj/structure/machinery/light/double/blue{
-	dir = 4
-	},
-/turf/open/floor/prison/darkyellow2/southeast,
-/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_checkpoint_room_main)
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/area/lv733/outdoors/caves/central_caves)
 "tiG" = (
 /obj/structure/sign/poster/wylogo,
 /turf/closed/wall/hybrisa/colony/engineering,
@@ -58404,9 +58423,10 @@
 /turf/open/floor/plating,
 /area/lv733/indoors/wy_research_complex/storage)
 "tBb" = (
-/obj/structure/barricade/handrail/hybrisa/road/plastic/red,
-/turf/open/floor/almayer/silverfull2,
-/area/lv733/outdoors/caves/eastern_caves)
+/obj/effect/decal/large_stain,
+/obj/effect/decal/hybrisa/dirt_2,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/lv733/outdoors/caves/central_caves)
 "tBq" = (
 /obj/structure/window/framed/hybrisa/colony/hospital,
 /obj/structure/machinery/door/poddoor/hybrisa/open_shutters,
@@ -59032,7 +59052,7 @@
 	pixel_x = -26;
 	layer = 6
 	},
-/turf/open/floor/almayer/silver/west,
+/turf/closed/wall/hybrisa/colony,
 /area/lv733/outdoors/landing_zone_2)
 "tMv" = (
 /obj/structure/machinery/gibber,
@@ -59444,6 +59464,7 @@
 "tTc" = (
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
 /obj/effect/decal/large_stain,
+/obj/effect/decal/hybrisa/dirt_2,
 /turf/open/floor/plating,
 /area/lv733/indoors/wy_research_complex/west_corridor)
 "tTe" = (
@@ -60582,6 +60603,10 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/open/floor/prison/floor_plate/southwest,
 /area/lv733/indoors/landing_zone_1/main_hangar_bay)
+"unm" = (
+/obj/effect/decal/hybrisa/dirt_2,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/lv733/indoors/wy_research_complex/west_corridor)
 "unq" = (
 /obj/structure/machinery/door/airlock/hybrisa/personal_solid/autoname{
 	dir = 1
@@ -60654,6 +60679,14 @@
 /obj/structure/blocker/invisible_wall,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/lv733/oob)
+"uog" = (
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/item/stack/sheet/metal{
+	pixel_x = 1;
+	pixel_y = -2
+	},
+/turf/open/floor/plating,
+/area/lv733/outdoors/caves/central_caves)
 "uoj" = (
 /obj/effect/decal/strata_decals/tyrargo_mud_corner{
 	dir = 4
@@ -61593,6 +61626,9 @@
 /obj/structure/surface/table/reinforced/black,
 /obj/item/folder/white,
 /obj/item/prop/magazine/book/spacebeast,
+/obj/structure/machinery/light/double/blue{
+	dir = 4
+	},
 /turf/open/floor/prison/darkyellow2/north,
 /area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_checkpoint_room_main)
 "uFD" = (
@@ -61958,7 +61994,8 @@
 	},
 /obj/effect/alien/egg{
 	icon_state = "Egg Opened";
-	status = 1
+	status = 1;
+	unacidable = 0
 	},
 /turf/open/floor/prison/ramptop/east,
 /area/lv733/indoors/main_eng/technical_storage)
@@ -65359,22 +65396,9 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/lv733/indoors/wy_research_complex/storage)
 "vXQ" = (
-/obj/structure/filingcabinet{
-	density = 0;
-	pixel_x = -8;
-	pixel_y = 20
-	},
-/obj/structure/filingcabinet{
-	density = 0;
-	pixel_x = 8;
-	pixel_y = 20
-	},
-/obj/effect/decal/hybrisa/trash{
-	icon_state = "trash_5";
-	layer = 3.1
-	},
-/turf/open/floor/prison/darkyellow2/north,
-/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_checkpoint_room_main)
+/obj/effect/decal/hybrisa/dirt_2,
+/turf/open/floor/plating,
+/area/lv733/outdoors/caves/central_caves)
 "vYp" = (
 /obj/structure/bed/chair/office/dark,
 /obj/effect/decal/hybrisa/trash{
@@ -67850,16 +67874,10 @@
 /turf/open/floor/strata/multi_tiles/west,
 /area/lv733/indoors/wy_research_complex/biological_assessment)
 "wQU" = (
-/obj/effect/decal/hybrisa/dirt_2,
-/obj/structure/prop/invuln/lattice_prop{
-	icon_state = "lattice12";
-	pixel_y = 16
-	},
-/obj/structure/pipes/standard/simple/hidden/dark{
-	dir = 5
-	},
-/turf/open/floor/almayer/silverfull2,
-/area/lv733/outdoors/caves/eastern_caves)
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/prop/ice_colony/ground_wire,
+/turf/open/floor/plating,
+/area/lv733/outdoors/landing_zone_2)
 "wRF" = (
 /obj/effect/decal/hybrisa/dirt_2,
 /obj/structure/pipes/standard/simple/hidden/dark{
@@ -69537,7 +69555,7 @@
 	dir = 1
 	},
 /obj/effect/decal/hybrisa/dirt_2,
-/turf/open/floor/almayer/silverfull2,
+/turf/closed/wall/hybrisa/colony,
 /area/lv733/outdoors/landing_zone_2)
 "xwB" = (
 /obj/structure/bed/chair/comfy/black{
@@ -70221,8 +70239,7 @@
 /turf/open/hybrisa/street/cement1,
 /area/lv733/outdoors/colony_streets/engineering_street)
 "xIw" = (
-/obj/structure/bed/chair/office/light,
-/turf/open/floor/prison/floor_plate,
+/turf/closed/wall/hybrisa/rock,
 /area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_checkpoint_room_main)
 "xIx" = (
 /obj/structure/bed/sofa/vert/grey/bot{
@@ -70414,14 +70431,8 @@
 /turf/open/floor/hybrisa/wood/blackwood,
 /area/lv733/indoors/administration/offices)
 "xLP" = (
-/obj/structure/surface/table/reinforced/black,
-/obj/structure/window/reinforced{
-	color = "#a6aeab";
-	pixel_y = -4
-	},
-/obj/effect/landmark/objective_landmark/close,
-/turf/open/floor/prison/darkyellow2,
-/area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_checkpoint_room_main)
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/lv733/indoors/wy_research_complex/west_corridor)
 "xMa" = (
 /obj/item/stack/sheet/metal,
 /turf/open/floor/prison/darkred2/west,
@@ -71182,9 +71193,8 @@
 /turf/open/hybrisa/street/sidewalkfull,
 /area/lv733/outdoors/colony_streets/roaf_spaceport_south)
 "ycS" = (
-/obj/structure/machinery/door/airlock/multi_tile/hybrisa/personal_solid_white/autoname,
-/obj/effect/decal/hybrisa/dirt_2,
-/turf/open/floor/strata/multi_tiles/southeast,
+/obj/effect/decal/large_stain,
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
 /area/lv733/outdoors/caves/eastern_caves)
 "ycY" = (
 /obj/structure/surface/table/reinforced/black,
@@ -71466,12 +71476,12 @@
 /turf/open/floor/almayer/silverfull2,
 /area/lv733/indoors/wy_research_complex/west_corridor)
 "yhT" = (
-/obj/structure/prop/invuln/lattice_prop{
-	icon_state = "lattice12";
-	pixel_y = 16
+/obj/item/stack/sheet/metal{
+	pixel_x = 1;
+	pixel_y = -2
 	},
-/turf/open/floor/almayer/silverfull2,
-/area/lv733/outdoors/caves/eastern_caves)
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/lv733/indoors/wy_research_complex/west_corridor)
 "yii" = (
 /obj/item/trash/cigbutt{
 	pixel_x = 1;
@@ -90405,7 +90415,7 @@ sTF
 pMU
 mUg
 gtD
-mUg
+lpt
 mUg
 mUg
 mUg
@@ -90811,7 +90821,7 @@ gtD
 gtD
 pMU
 mUg
-mUg
+lpt
 oUY
 gtD
 gtD
@@ -90835,7 +90845,7 @@ mUg
 fJA
 fub
 mUg
-gtD
+env
 gtD
 gtD
 gtD
@@ -91014,7 +91024,7 @@ gtD
 gtD
 fcR
 oUY
-gtD
+mUg
 gtD
 gtD
 gtD
@@ -91037,8 +91047,8 @@ mUg
 fJA
 mUg
 fJA
-gtD
-gtD
+env
+env
 gtD
 gtD
 gtD
@@ -91213,12 +91223,12 @@ gtD
 gtD
 gtD
 gtD
-gtD
-gtD
-gtD
-gtD
 nnY
-gtD
+mUg
+oUY
+mUg
+fcR
+nnY
 gtD
 gtD
 nnY
@@ -91234,15 +91244,15 @@ mUg
 mUg
 cEa
 rCy
-fub
+rwS
 fJA
 mUg
 mUg
 fJA
-gtD
-gtD
-gtD
-gtD
+env
+env
+env
+env
 gtD
 gtD
 gtD
@@ -91414,15 +91424,15 @@ rYf
 oKT
 oKT
 gtD
-gtD
-gtD
-gtD
-gtD
-gtD
 nnY
 nnY
-gtD
-gtD
+eTr
+mUg
+fEy
+oUY
+mUg
+nnY
+nnY
 nnY
 gtD
 gtD
@@ -91436,16 +91446,16 @@ mUg
 mUg
 mUg
 fJA
+rwS
+rwS
+mUg
 fJA
 mUg
-mUg
-fJA
-mUg
-gtD
-gtD
-gtD
-gtD
-gtD
+env
+env
+env
+env
+env
 gtD
 pMU
 mUg
@@ -91616,14 +91626,14 @@ gHC
 rYf
 gHC
 oKT
-gtD
-gtD
-gtD
-gtD
-gtD
-gtD
-gtD
 nnY
+nnY
+nnY
+eTr
+tiu
+hHK
+tfY
+eTr
 nnY
 nnY
 gtD
@@ -91819,13 +91829,13 @@ rYf
 dZY
 oKT
 oKT
-gtD
-gtD
-gtD
-gtD
 nnY
-nnY
-nnY
+eTr
+hHK
+vXQ
+bHF
+bHF
+eTr
 nnY
 nnY
 nnY
@@ -92020,15 +92030,15 @@ jUc
 jUc
 jUc
 vrb
-oKT
-gtD
-gtD
-gtD
-nnY
-nnY
-gtD
-nnY
-nnY
+dKg
+tBb
+bHF
+vXQ
+rEY
+vXQ
+vXQ
+fEy
+eTr
 nnY
 nnY
 nnY
@@ -92222,15 +92232,15 @@ xij
 jUc
 iuZ
 gJO
-oKT
-gtD
-gtD
-gtD
-gtD
+saC
+fJA
+oUY
+eTr
 nnY
-nnY
-nnY
-nnY
+eTr
+vXQ
+eVG
+eTr
 nnY
 nnY
 nnY
@@ -92424,16 +92434,16 @@ xij
 lpH
 jsZ
 vrb
-oKT
-gtD
-gtD
-gtD
+dKg
+oft
+ovw
 nnY
 nnY
 nnY
-nnY
-nnY
-nnY
+eTr
+mbB
+fJA
+eTr
 nnY
 nnY
 nnY
@@ -92463,7 +92473,7 @@ dSO
 dSO
 dSO
 dSO
-dSO
+hac
 dSO
 dSO
 dSO
@@ -92627,15 +92637,15 @@ gUu
 hCT
 rYf
 oKT
-gtD
-gtD
+fJA
+jek
+xLP
 nnY
 nnY
-nnY
-nnY
-nnY
-nnY
-nnY
+nKV
+oft
+uog
+eTr
 nnY
 nnY
 gtD
@@ -92829,15 +92839,15 @@ gbY
 sFC
 hQz
 jwe
-jwe
-jwe
+sww
+saC
+yhT
+xLP
 nnY
-nnY
-nnY
-nnY
-nnY
-nnY
-jwe
+nKV
+vXQ
+vXQ
+xLP
 nnY
 nnY
 nnY
@@ -92867,9 +92877,9 @@ xEc
 dSO
 dSO
 dSO
-hac
 dSO
-dSO
+nnY
+nnY
 dSO
 dSO
 dSO
@@ -93033,13 +93043,13 @@ pAF
 jwe
 iEr
 rZO
-mCu
+xLP
+xLP
 nnY
-nnY
-dKg
+xLP
 tTc
 dKg
-jwe
+dKg
 jwe
 nnY
 nnY
@@ -93070,8 +93080,8 @@ dSO
 dSO
 dSO
 dSO
-dSO
-dSO
+nnY
+nnY
 dSO
 dSO
 dSO
@@ -93235,14 +93245,14 @@ thh
 oiS
 yhQ
 mzo
-mCu
+xLP
 nnY
 nnY
-dKg
+xLP
 yhQ
 dKg
 dKg
-jwe
+dKg
 nnY
 nnY
 nnY
@@ -93273,7 +93283,7 @@ dSO
 dSO
 dSO
 dSO
-dSO
+hac
 dSO
 dSO
 dSO
@@ -93437,10 +93447,10 @@ rUo
 dex
 noG
 noG
-noG
-dKg
-dKg
-dKg
+unm
+nnY
+xLP
+gAq
 kOu
 dKg
 dKg
@@ -93449,7 +93459,7 @@ jwe
 nnY
 nnY
 qAW
-acj
+hjW
 acj
 ibI
 sHg
@@ -94041,7 +94051,7 @@ odl
 hFB
 jVD
 jwe
-eVG
+kHI
 iFi
 geq
 yhQ
@@ -94243,8 +94253,8 @@ pHi
 jwe
 jwe
 jwe
-jwe
-jwe
+nnY
+nnY
 nnY
 nnY
 jwe
@@ -94284,13 +94294,13 @@ nnY
 nnY
 nnY
 nnY
-clF
+ojd
 dSO
 dSO
 dSO
-dSO
-dSO
-xEc
+crz
+crz
+kIp
 nnY
 gtD
 gtD
@@ -94461,10 +94471,10 @@ nwI
 nwI
 eRg
 nhm
-ovw
-ovw
-ovw
-ovw
+nnY
+nnY
+nnY
+nnY
 pKe
 pKe
 pKe
@@ -94665,8 +94675,8 @@ gEw
 nhm
 nnY
 nnY
-xEc
-xEc
+nnY
+kIp
 kIp
 gcx
 lEU
@@ -94693,7 +94703,7 @@ dSO
 dSO
 dSO
 dSO
-xEc
+kIp
 nnY
 nnY
 gtD
@@ -94866,11 +94876,11 @@ njT
 uar
 nhm
 nnY
-lEU
-xEc
+nnY
+nnY
 uuC
 uuC
-gcx
+uuC
 lEU
 uXX
 uXX
@@ -94888,14 +94898,14 @@ nnY
 nnY
 nnY
 nnY
-dSO
-dSO
 hac
+dSO
+dSO
 xEc
 dSO
 xEc
 dSO
-dSO
+crz
 nnY
 gtD
 nnY
@@ -95068,12 +95078,12 @@ azg
 lQE
 nhm
 nnY
-lEU
-uuC
+nnY
+nnY
 xEc
 uuC
 uXX
-nNk
+kOD
 uXX
 uXX
 cAY
@@ -95269,13 +95279,13 @@ rfA
 rbN
 dIb
 nhm
-gAy
-lEU
-uuC
+nnY
+nnY
+nnY
 gIR
 uXX
 uuC
-nNk
+kOD
 uXX
 crW
 cAY
@@ -95298,7 +95308,7 @@ dSO
 dSO
 dSO
 dSO
-xEc
+vLC
 nnY
 nnY
 nnY
@@ -95471,12 +95481,12 @@ nhm
 nhm
 nhm
 nhm
-yhT
+nnY
+nnY
+nnY
+bDR
+uXX
 uuC
-kOD
-uXX
-uXX
-gcx
 lEU
 uXX
 cAY
@@ -95672,13 +95682,13 @@ gZG
 okZ
 gUK
 lFh
-uXX
-yhT
-kOD
-uuC
+cbQ
+nnY
+nnY
+nnY
 cAY
 uuC
-tbg
+uXX
 woL
 tbg
 beN
@@ -95873,15 +95883,15 @@ mPe
 gsw
 jAE
 fjy
-ycS
-xRg
+bDR
+nnY
 als
-iyR
-aPF
+als
+rAw
 aPF
 cRO
 kOD
-beN
+uXX
 uXX
 aPF
 aPF
@@ -95900,8 +95910,8 @@ aBS
 dSO
 dSO
 dSO
-dSO
-dSO
+nnY
+nnY
 dSO
 dSO
 xEc
@@ -96075,15 +96085,15 @@ kmy
 gsw
 srv
 gsw
-xRg
-aPF
-rAw
-xRg
-iyR
+xEc
+cbQ
+nnY
+xEc
+oAz
 mcz
 kOD
 kOD
-tLt
+uuC
 kOD
 uXX
 uXX
@@ -96099,14 +96109,14 @@ uXX
 uXX
 uXX
 xgH
-dSO
-dSO
-dSO
-dSO
-dSO
-dSO
-dSO
-xEc
+hHo
+hHo
+crz
+nnY
+nnY
+hHo
+hHo
+kIp
 nnY
 nnY
 nnY
@@ -96276,16 +96286,16 @@ sIS
 pus
 gZG
 ebM
-uKa
+gUK
 fHR
-rwS
-wQU
-lqL
+cbQ
+cbQ
+bDR
 itr
 cAY
 uuC
-gcx
-nnY
+uuC
+kOD
 vLC
 lqL
 bDR
@@ -96349,10 +96359,10 @@ spA
 spA
 dAy
 twZ
-wHL
-vXQ
-bWy
-qsG
+lpY
+lpY
+lpY
+lpY
 oUo
 pzU
 nmz
@@ -96481,14 +96491,14 @@ rcf
 rcf
 rcf
 rcf
-gAq
-uXX
-cAY
-crW
-uuC
-xgH
 nnY
-kIp
+cbQ
+rAw
+rAw
+kOD
+kOD
+xEc
+kOD
 uXX
 ibR
 xKK
@@ -96551,10 +96561,10 @@ hUq
 spA
 dOW
 pUO
-wHL
-lVn
-hHK
-rEY
+lpY
+xIw
+xIw
+lpY
 veK
 wwk
 oqs
@@ -96683,14 +96693,14 @@ srn
 gpO
 ylV
 rcf
-bHF
-lEU
-uuC
-uuC
-uuC
 nnY
 nnY
-kIp
+xEc
+ycS
+fBr
+xEc
+nnY
+xEc
 bDR
 ibR
 xKK
@@ -96753,11 +96763,11 @@ rtU
 spA
 jUr
 spA
-hVG
-avS
-fEy
-xLP
-wwk
+lpY
+xIw
+xIw
+lpY
+qsG
 vVr
 eTU
 aex
@@ -96885,12 +96895,12 @@ xcK
 bDr
 uJz
 rcf
-gtD
-lEU
-nnY
-nnY
-nnY
-nnY
+xEc
+xEc
+fBr
+dSO
+fBr
+xEc
 nnY
 nnY
 bDR
@@ -96955,10 +96965,10 @@ dyf
 spA
 spA
 erh
-hVG
-avS
+lpY
 xIw
-env
+xIw
+lpY
 wwk
 wwk
 gDP
@@ -97087,12 +97097,12 @@ chc
 gEY
 kMl
 rcf
-gtD
-gtD
-gtD
-nnY
-nnY
-nnY
+clF
+fBr
+fBr
+dSO
+fBr
+xEc
 nnY
 nnY
 xEc
@@ -97158,9 +97168,9 @@ qNR
 fAo
 hXD
 lpY
-lpt
-rlh
-tiu
+xIw
+xIw
+lpY
 msp
 eFB
 uFC
@@ -97289,12 +97299,12 @@ hMt
 gBA
 rtj
 rcf
-gtD
-gtD
-nnY
-gtD
-gtD
-nnY
+fBr
+mzT
+gAy
+fBr
+xEc
+xEc
 nnY
 kIp
 beN
@@ -97359,10 +97369,10 @@ ljI
 ljI
 ljI
 nQb
-hjW
-aUU
-hVG
-wHL
+lpY
+lpY
+lpY
+lpY
 gcl
 qUZ
 wHL
@@ -97491,18 +97501,18 @@ pql
 bsT
 iZk
 rcf
-gtD
-nnY
-gtD
-gtD
-gtD
+dSO
+fBr
+fBr
+xEc
+lEU
 nnY
 nnY
 wtY
 uXX
 kOD
+kOD
 xEc
-nnY
 nnY
 kIp
 beN
@@ -97693,17 +97703,17 @@ aqz
 aqz
 dfL
 rcf
-gtD
-gtD
-nnY
+dSO
+xEc
+xEc
 nnY
 lEU
 lEU
+lqL
 lqL
 lqL
 lqL
 xEc
-nnY
 nnY
 nnY
 nnY
@@ -97904,8 +97914,8 @@ xgH
 uXX
 uXX
 uXX
+lqL
 xEc
-nnY
 nnY
 nnY
 xEc
@@ -97921,10 +97931,10 @@ nnY
 nnY
 nnY
 nnY
-xEc
-dSO
-xEc
-xEc
+kIp
+hHo
+aBS
+kIp
 nnY
 nnY
 nnY
@@ -97987,7 +97997,7 @@ vSb
 cgn
 lyj
 lyj
-pDY
+hTq
 lIH
 pDY
 pDY
@@ -98097,10 +98107,10 @@ rcf
 rcf
 rcf
 rcf
-lEU
 nnY
 nnY
-lEU
+nnY
+nnY
 lEU
 xgH
 tLt
@@ -98126,7 +98136,7 @@ xEc
 dSO
 dSO
 dSO
-xEc
+kIp
 nnY
 gtD
 nnY
@@ -98157,7 +98167,7 @@ eTC
 qbM
 cTv
 coM
-bAc
+qXL
 bxE
 whh
 tFQ
@@ -98299,10 +98309,10 @@ lZV
 uuC
 uuC
 bDR
-uXX
 cbQ
-bDR
-lqL
+cbQ
+cbQ
+cbQ
 uXX
 uXX
 uXX
@@ -98358,8 +98368,8 @@ eTC
 eTC
 bAc
 dux
-efS
-bAc
+lVn
+aUU
 bxE
 rTv
 mPS
@@ -98500,10 +98510,10 @@ jZF
 ixY
 uuC
 uuC
-uXX
-cOd
 bDR
-uXX
+cbQ
+cbQ
+cbQ
 uXX
 uuC
 uXX
@@ -98701,10 +98711,10 @@ vpm
 aEc
 sIw
 uuC
-xRg
-xRg
-uuC
 aPF
+rlh
+xEc
+cbQ
 aPF
 aPF
 mUI
@@ -98903,12 +98913,12 @@ xCi
 aEc
 sIw
 uuC
-xRg
-xRg
-uuC
-xEc
-uXX
 aPF
+aPF
+aPF
+xEc
+aPF
+iyR
 iyR
 iyR
 iyR
@@ -98962,7 +98972,7 @@ esN
 eTC
 eTC
 eTC
-uAq
+wQU
 dux
 efS
 uOI
@@ -98997,7 +99007,7 @@ gZN
 jYl
 sxW
 hoE
-vkR
+cgn
 cbz
 pDY
 lyj
@@ -99108,8 +99118,8 @@ uuC
 uuC
 uuC
 xEc
-nnY
-nnY
+uXX
+uXX
 bDR
 uXX
 lqL
@@ -99199,7 +99209,7 @@ gZN
 jYl
 sxW
 hoE
-vkR
+cgn
 lIH
 pDY
 lyj
@@ -99310,10 +99320,10 @@ qGY
 uuC
 uuC
 uuC
+uXX
+bDR
 nnY
 nnY
-nnY
-xEc
 uXX
 uXX
 crW
@@ -99511,8 +99521,8 @@ lZV
 uuC
 uuC
 uuC
-uuC
-xEc
+uXX
+bDR
 nnY
 nnY
 cbQ
@@ -99534,7 +99544,7 @@ fKZ
 dSO
 gnC
 dSO
-dSO
+nnY
 rFB
 dSO
 dSO
@@ -99715,16 +99725,16 @@ mCT
 mCT
 uuC
 uuC
-uuC
-tBb
-ibR
+nnY
+nnY
+cbQ
 uXX
 uXX
 wtY
 uXX
 uXX
 nnY
-uuC
+xEc
 uXX
 lqL
 uXX
@@ -99736,8 +99746,8 @@ xEc
 oQx
 dSO
 gnC
-dSO
-dSO
+nnY
+nnY
 xEc
 dSO
 xEc
@@ -99930,7 +99940,7 @@ xEc
 uuC
 uXX
 uXX
-uXX
+avS
 esS
 tTO
 kOD
@@ -100127,12 +100137,12 @@ xzB
 lEU
 lEU
 nnY
-nnY
-nnY
+xEc
+xEc
 xEc
 uXX
 lqL
-uXX
+avS
 esS
 uXX
 lEU
@@ -100327,10 +100337,10 @@ cAY
 uXX
 uXX
 lEU
-gtD
-gtD
-gtD
 nnY
+nnY
+xEc
+kOD
 xEc
 hWO
 uXX
@@ -100529,11 +100539,11 @@ uXX
 uXX
 uXX
 lEU
-gtD
-gtD
-gtD
+nnY
 nnY
 xEc
+xEc
+kOD
 lqL
 lqL
 uXX
@@ -100613,7 +100623,7 @@ jYl
 jYl
 sxW
 hoE
-vkR
+cgn
 lIH
 ehq
 lyj
@@ -100732,10 +100742,10 @@ lEU
 lEU
 lEU
 lEU
-lEU
-lEU
-lEU
-lEU
+nnY
+nnY
+xEc
+crW
 lqL
 lqL
 lEc
@@ -100934,8 +100944,8 @@ uXX
 uXX
 uXX
 tRo
-uXX
-kOD
+bDR
+xEc
 cTj
 kOD
 kOD
@@ -101335,8 +101345,8 @@ uuC
 uuC
 uuC
 gmM
-uuC
-uuC
+xEc
+xEc
 uXX
 uXX
 cAY
@@ -101536,10 +101546,10 @@ uuC
 kOD
 uXX
 uXX
-uXX
-uXX
-uXX
-uuC
+bDR
+cbQ
+cbQ
+xEc
 uuC
 uuC
 uuC
@@ -101739,8 +101749,8 @@ cTj
 cTj
 kOD
 nWV
-nWV
-nWV
+nnY
+nnY
 nWV
 cTj
 kOD
@@ -101941,8 +101951,8 @@ dSO
 dSO
 dSO
 dSO
-dSO
-dSO
+xEc
+fBr
 dSO
 dSO
 dSO
@@ -102144,7 +102154,7 @@ dSO
 dSO
 dSO
 dSO
-dSO
+xEc
 dSO
 dSO
 dSO
