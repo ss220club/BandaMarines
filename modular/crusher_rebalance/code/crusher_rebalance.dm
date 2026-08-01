@@ -27,7 +27,7 @@
 	xeno_cooldown = 14 SECONDS
 	plasma_cost = 20
 	// Config options
-	distance = 5
+	distance = 6
 	knockdown = TRUE
 	knockdown_duration = 2
 	slash = FALSE
