@@ -81,13 +81,18 @@
 	effective_range_max = 6
 
 /obj/item/clothing/suit/storage/marine/smartgunner/isrg
-	name = "\improper T3 combat harness"
+	name = "\improper T3 лёгкий жилет"
 	desc = "Лёгкий жилет ISRG для переноски смартгана T3 «Райко» и боеприпасов к нему."
-	icon = 'modular/lv733/icons/t3_raiko_smartgun/isrg_smart_armor.dmi'
-	icon_state = "8"
+	icon = 'modular/clothing/icon/isrg/isrg_smart_armor.dmi'
+	icon_state = "icon"
+	item_state = "onmob"
 	item_icons = list(
-		WEAR_JACKET = 'modular/lv733/icons/t3_raiko_smartgun/isrg_smart_worn.dmi',
+		WEAR_JACKET = 'modular/clothing/onmob/isrg/isrg_smart_worn.dmi',
 	)
+	item_state_slots = list(
+		WEAR_JACKET = "onmob",
+	)
+	flags_atom = FPRINT|CONDUCT|NO_GAMEMODE_SKIN
 	light_color = LIGHT_COLOR_HALOGEN
 	lamp_light_color = LIGHT_COLOR_HALOGEN
 

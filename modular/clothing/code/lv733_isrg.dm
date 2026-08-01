@@ -1,14 +1,14 @@
 // ISRG - Imperial Search and Recovery Group
 
 /obj/item/clothing/under/marine/veteran/isrg/dress
-	name = "\improper Парадная форма ISRG"
+	name = "\improper Полевая форма ISRG"
 	desc = "Усиленная форма командного состава ISRG, используется для координации поисковой группы."
 	icon = 'modular/clothing/icon/isrg/uniform.dmi'
 	item_icons = list(
 		WEAR_BODY = 'modular/clothing/onmob/isrg/uniform.dmi',
 	)
-	icon_state = "isrg_uniform"
-	worn_state = "isrg_uniform"
+	icon_state = "isrg_support"
+	worn_state = "isrg_support"
 	armor_melee = CLOTHING_ARMOR_LOW
 	armor_bullet = CLOTHING_ARMOR_LOW
 	armor_laser = CLOTHING_ARMOR_NONE
@@ -19,14 +19,14 @@
 	armor_internaldamage = CLOTHING_ARMOR_LOW
 
 /obj/item/clothing/under/marine/veteran/isrg/field
-	name = "\improper Полевая форма ISRG"
+	name = "\improper Тактическая форма ISRG"
 	desc = "Практичная полевая форма состава поисковой группы ISRG."
 	icon = 'modular/clothing/icon/isrg/uniform.dmi'
 	item_icons = list(
 		WEAR_BODY = 'modular/clothing/onmob/isrg/uniform.dmi',
 	)
-	icon_state = "isrg_support"
-	worn_state = "isrg_support"
+	icon_state = "isrg_uniform"
+	worn_state = "isrg_uniform"
 	armor_melee = CLOTHING_ARMOR_LOW
 	armor_bullet = CLOTHING_ARMOR_LOW
 	armor_laser = CLOTHING_ARMOR_NONE
