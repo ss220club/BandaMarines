@@ -14,13 +14,4 @@
 	for(var/turf/turf in locs)
 		RegisterSignal(turf, COMSIG_TURF_ENTERED, PROC_REF(movable_entering_tent), override = TRUE)
 
-	switch(SSmapping.configs[GROUND_MAP].camouflage_type)
-		if("jungle")
-			icon = 'modular/tents/tent-Icons/Tent-OBJ/tents_deployed_jungle.dmi'
-		if("desert")
-			icon = 'modular/tents/tent-Icons/Tent-OBJ/tents_deployed_desert.dmi'
-		if("snow")
-			icon = 'modular/tents/tent-Icons/Tent-OBJ/tents_deployed_snow.dmi'
-		if("urban")
-			icon = 'modular/tents/tent-Icons/Tent-OBJ/tents_deployed_urban.dmi'
 
