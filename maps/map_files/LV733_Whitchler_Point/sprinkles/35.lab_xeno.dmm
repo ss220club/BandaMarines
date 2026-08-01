@@ -452,7 +452,8 @@
 "fW" = (
 /obj/effect/alien/egg{
 	icon_state = "Egg Opened";
-	status = 1
+	status = 1;
+	unacidable = 0
 	},
 /turf/open/floor/plating,
 /area/lv733/indoors/main_complex/office)
@@ -1938,7 +1939,8 @@
 "Fb" = (
 /obj/effect/alien/egg{
 	icon_state = "Egg Opened";
-	status = 1
+	status = 1;
+	unacidable = 0
 	},
 /turf/open/floor/plating,
 /area/lv733/indoors/wy_research_complex/research_office)
@@ -2655,7 +2657,8 @@
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/alien/egg{
 	icon_state = "Egg Opened";
-	status = 1
+	status = 1;
+	unacidable = 0
 	},
 /turf/open/floor/hybrisa/tile/tilewhite,
 /area/lv733/indoors/main_complex/office)
@@ -2671,7 +2674,8 @@
 "Qq" = (
 /obj/effect/alien/egg{
 	icon_state = "Egg Opened";
-	status = 1
+	status = 1;
+	unacidable = 0
 	},
 /turf/open/floor/almayer/silverfull2,
 /area/lv733/indoors/main_complex/office)

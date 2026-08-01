@@ -1131,7 +1131,8 @@
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/alien/egg{
 	icon_state = "Egg Opened";
-	status = 1
+	status = 1;
+	unacidable = 0
 	},
 /turf/open/floor/prison/floor_plate/southwest,
 /area/lv733/indoors/sensor_facility/sensor_room)
@@ -1776,7 +1777,8 @@
 /obj/item/ammo_casing/bullet,
 /obj/effect/alien/egg{
 	icon_state = "Egg Opened";
-	status = 1
+	status = 1;
+	unacidable = 0
 	},
 /turf/open/floor/prison/darkbrown2/southeast,
 /area/lv733/indoors/sensor_facility/sensor_room)
@@ -1991,7 +1993,8 @@
 "Ws" = (
 /obj/effect/alien/egg{
 	icon_state = "Egg Opened";
-	status = 1
+	status = 1;
+	unacidable = 0
 	},
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/lv733/indoors/sensor_facility/sensor_room)
