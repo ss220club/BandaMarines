@@ -1,0 +1,4 @@
+author: "Ingakem"
+delete-after: True
+changes:
+  - rscadd: "Добавил пару новых команд для ТГСа."
