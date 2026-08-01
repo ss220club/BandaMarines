@@ -42,6 +42,10 @@
 	},
 /turf/open/floor/corsat/spiralplate,
 /area/rostock/lowerdeck_maint/p_m)
+"aag" = (
+/obj/structure/machinery/power/apc/upp/north,
+/turf/open/floor/strata/floor3/east,
+/area/rostock/lower_deck/Intel)
 "aah" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "W"
@@ -61,6 +65,10 @@
 	},
 /turf/open/floor/strata/red1,
 /area/rostock/lower_deck/dining_hall)
+"aak" = (
+/obj/structure/machinery/power/apc/upp/hardened/north,
+/turf/open/floor/plating/plating_catwalk/strata,
+/area/rostock/lifeboat)
 "aal" = (
 /obj/structure/window/framed/upp_ship/reinforced,
 /obj/structure/machinery/door/poddoor/almayer/open{
@@ -34851,7 +34859,7 @@ iFa
 iFa
 vTq
 vRQ
-nOW
+aak
 rXx
 dZH
 wwk
@@ -54051,7 +54059,7 @@ iFa
 ltN
 kwA
 tqn
-all
+aag
 ajS
 akc
 ajS

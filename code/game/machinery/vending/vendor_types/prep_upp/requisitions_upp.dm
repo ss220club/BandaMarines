@@ -164,9 +164,9 @@
 		list("NP92 Magazine (9x18mm Makarov)", floor(scale * 20), /obj/item/ammo_magazine/pistol/np92, VENDOR_ITEM_REGULAR),
 
 		list("ARMOR-PIERCING AMMUNITION", -1, null, null),
-		list("AK-4047 AP magazine (7.62x39mm)", floor(scale * 10), /obj/item/ammo_magazine/rifle/ak4047/ap, VENDOR_ITEM_REGULAR),
-		list("Type 71 AP Magazine (5.45x39mm)", floor(scale * 6), /obj/item/ammo_magazine/rifle/type71/ap, VENDOR_ITEM_REGULAR),
-		list("Type 64 Helical AP Magazine (7.62x19mm)", floor(scale * 6), /obj/item/ammo_magazine/smg/bizon/ap, VENDOR_ITEM_REGULAR),
+		list("AK-4047 AP magazine (7.62x39mm)", floor(scale * 15), /obj/item/ammo_magazine/rifle/ak4047/ap, VENDOR_ITEM_REGULAR),
+		list("Type 71 AP Magazine (5.45x39mm)", floor(scale * 15), /obj/item/ammo_magazine/rifle/type71/ap, VENDOR_ITEM_REGULAR),
+		list("Type 64 Helical AP Magazine (7.62x19mm)", floor(scale * 15), /obj/item/ammo_magazine/smg/bizon/ap, VENDOR_ITEM_REGULAR),
 
 		list("RESTRICTED FIREARM AMMUNITION", -1, null, null),
 		list("Type-19 stick magazine (7.62x25mm)", floor(scale * 0), /obj/item/ammo_magazine/smg/pps43, VENDOR_ITEM_REGULAR),
@@ -281,9 +281,7 @@
 		list("ARMOR", -1, null, null),
 		list("UM5 Medium Personal Armor", 15, /obj/item/clothing/suit/storage/marine/faction/UPP, VENDOR_ITEM_REGULAR),
 		list("UL6 Light Personal Armor", 15, /obj/item/clothing/suit/storage/marine/faction/UPP/support, VENDOR_ITEM_REGULAR),
-		list("UH7 heavy plated armor", 1, /obj/item/clothing/suit/storage/marine/faction/UPP/heavy, VENDOR_ITEM_REGULAR),
 		
-
 		list("GLOVES", -1, null, null),
 		list("Soldier Combat Gloves", 40, /obj/item/clothing/gloves/marine/veteran/upp, VENDOR_ITEM_REGULAR),
 
