@@ -156,6 +156,7 @@
 		list("AK-4047 magazine (7.62x39mm)", floor(scale * 30), /obj/item/ammo_magazine/rifle/ak4047, VENDOR_ITEM_REGULAR),
 		list("Type 71 Magazine (5.45x39mm)", floor(scale * 30), /obj/item/ammo_magazine/rifle/type71, VENDOR_ITEM_REGULAR),
 		list("Type 64 Helical Magazine (7.62x19mm)", floor(scale * 30), /obj/item/ammo_magazine/smg/bizon, VENDOR_ITEM_REGULAR),
+		list("Box Of Buckshot Shells", floor(scale * 5), /obj/item/ammo_magazine/shotgun/buckshot, null, VENDOR_ITEM_REGULAR),
 		list("Box of Heavy Buckshot Shells (8g)", floor(scale * 16), /obj/item/ammo_magazine/shotgun/heavy/buckshot, VENDOR_ITEM_REGULAR),
 		list("Box of Heavy Slugs (8g)", floor(scale * 16), /obj/item/ammo_magazine/shotgun/heavy/slug, VENDOR_ITEM_REGULAR),
 		list("Box of Heavy Flechette Shells (8g)", floor(scale * 16), /obj/item/ammo_magazine/shotgun/heavy/flechette, VENDOR_ITEM_REGULAR),
