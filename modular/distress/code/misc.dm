@@ -1003,8 +1003,9 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 /obj/item/storage/box/spec/upp_sniper/fill_preset_inventory()
 	// sniper
 	new /obj/item/clothing/glasses/night/m42_night_goggles/upp(src)
-	new	/obj/item/clothing/head/helmet/marine/veteran/UPP/frogmen(src)
-	new	/obj/item/clothing/accessory/helmet/cover/frogmen_veil(src)
+	new /obj/item/storage/backpack/marine/satchel/scout_cloak/upp/weak/sniper(src)
+	new /obj/item/clothing/head/helmet/marine/ghillie/upp(src)
+	new /obj/item/clothing/suit/storage/marine/ghillie/forecon/upp(src)
 	new /obj/item/weapon/gun/rifle/sniper/svd/vssk(src)
 	new /obj/item/ammo_magazine/sniper/svd/vssk(src)
 	new /obj/item/ammo_magazine/sniper/svd/vssk(src)
@@ -1189,3 +1190,155 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	recoil_unwielded = RECOIL_AMOUNT_TIER_1
 	recoil = RECOIL_AMOUNT_TIER_1
 	damage_falloff_mult = 0
+
+/obj/item/clothing/under/marine/veteran/UPP
+	name = "\improper UPP fatigues"
+	desc = "A set of UPP fatigues, mass-produced for the armed-forces of the Union of Progressive Peoples. A rare sight, especially in ICC zones. This particular set sports the dark drab pattern of the UPP 17th battalion, 'Smoldering Sons', operating in the sparse UPP frontier in the Anglo-Japanese arm."
+	icon_state = "upp_uniform"
+	worn_state = "upp_uniform"
+	icon = 'icons/obj/items/clothing/uniforms/uniforms_by_faction/UPP.dmi'
+	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROT
+	has_sensor = UNIFORM_HAS_SENSORS
+	suit_restricted = list(/obj/item/clothing/suit/storage/marine/faction/UPP, /obj/item/clothing/suit/gimmick/jason, /obj/item/clothing/suit/storage/snow_suit/soviet, /obj/item/clothing/suit/storage/snow_suit/survivor, /obj/item/clothing/suit/storage/webbing, /obj/item/clothing/suit/storage/webbing/brown, /obj/item/clothing/suit/storage/webbing/black, /obj/item/storage/backpack/marine/satchel/scout_cloak/upp/weak/sniper, /obj/item/clothing/suit/storage/marine/ghillie/forecon/upp)
+	flags_jumpsuit = UNIFORM_SLEEVE_ROLLABLE
+	undershirt = TRUE
+	item_icons = list(
+		WEAR_BODY = 'icons/mob/humans/onmob/clothing/uniforms/uniforms_by_faction/UPP.dmi'
+	)
+
+/obj/item/clothing/under/marine/veteran/UPP/gorka
+	name = "\improper UPP gorka"
+	icon = 'modular/distress/icons/gorkaicon.dmi'
+	icon_state = "gorka_upp"
+	worn_state = "gorka_upp"
+	item_icons = list(
+		WEAR_BODY = 'modular/distress/icons/gorka.dmi'
+	)
+	
+/obj/item/clothing/head/helmet/marine/ghillie/upp
+	name = "\improper V65 Sniper helmet"
+	desc = "A lightweight V65 helmet used by UPP snipers with V65 Thermal Cloak."
+	icon = 'modular/distress/icons/sniperw.dmi'
+	icon_state = "sniper_coif"
+	item_state = "sniper_coif"
+	armor_bomb = CLOTHING_ARMOR_MEDIUM
+	armor_bio = CLOTHING_ARMOR_LOW
+	armor_internaldamage = CLOTHING_ARMOR_MEDIUMLOW
+	flags_inventory = BLOCKSHARPOBJ
+	flags_inv_hide = HIDEEARS|HIDEEYES|HIDEFACE|HIDEALLHAIR
+	flags_marine_helmet = NO_FLAGS
+	flags_item = MOB_LOCK_ON_EQUIP
+	specialty = "V65 cloak"
+	item_icons = list(
+		WEAR_HEAD = 'modular/distress/icons/sniper.dmi',
+	)
+	flags_atom = NO_GAMEMODE_SKIN|NO_NAME_OVERRIDE
+
+/obj/item/clothing/suit/storage/marine/ghillie/forecon/upp
+	name = "UPP Thermal armor"
+	desc = "UPP Thermal armor worn to protect against the elements and chemical spills, used by sniper units with V65 Thermal Cloak."
+	icon_state = "sniper_armor"
+	item_state = "sniper_armor"
+	icon = 'modular/distress/icons/sniperw.dmi'
+	uniform_restricted = list(/obj/item/clothing/under/marine/veteran/UPP)
+	item_icons = list(
+		WEAR_JACKET = 'modular/distress/icons/sniper.dmi'
+	)
+	flags_atom = MOB_LOCK_ON_EQUIP|NO_GAMEMODE_SKIN|NO_NAME_OVERRIDE
+
+/obj/item/storage/backpack/marine/satchel/scout_cloak/upp/weak/sniper
+	name = "\improper V65 Thermal Cloak"
+	desc = "A thermo-optic camouflage cloak commonly used by UPP sniper units."
+	actions_types = list(/datum/action/item_action/specialist/toggle_cloak_upp)
+	icon = 'modular/distress/icons/sniperw.dmi'
+	icon_state = "sniper_cape"
+	item_state = "sniper_cape"
+	uniform_restricted = list(/obj/item/clothing/under/marine/veteran/UPP)
+	item_icons = list(
+		WEAR_BACK = 'modular/distress/icons/sniper.dmi'
+	)
+	max_storage_space = 14
+	camo_alpha = 15
+
+/obj/item/storage/backpack/marine/satchel/scout_cloak/upp/weak/sniper/verb/camouflageupp()
+	set name = "Activate Cloak UPP"
+	set desc = "Activate your cloak's camouflage."
+	set category = "Scout"
+	set src in usr
+	if(!usr || usr.is_mob_incapacitated(TRUE))
+		return
+
+	if(!ishuman(usr))
+		return
+	var/mob/living/carbon/human/H = usr
+	if(!skillcheck(H, SKILL_SPEC_WEAPONS, SKILL_SPEC_ALL) && H.skills.get_skill_level(SKILL_SPEC_WEAPONS) != SKILL_SPEC_SNIPER)
+		to_chat(H, SPAN_WARNING("You don't seem to know how to use [src]..."))
+		return
+
+	if(H.back != src)
+		to_chat(H, SPAN_WARNING("You must be wearing the [fluff_item] to activate it!"))
+		return
+
+	if(camo_active)
+		deactivate_camouflage(H)
+		return
+
+	if(cloak_cooldown > world.time)
+		to_chat(H, SPAN_WARNING("Your [fluff_item] is malfunctioning and can't be enabled right now!"))
+		return
+
+	RegisterSignal(H, COMSIG_GRENADE_PRE_PRIME, PROC_REF(cloak_grenade_callback))
+	RegisterSignal(H, list(COMSIG_HUMAN_EXTINGUISH,  COMSIG_MOB_HAULED, COMSIG_MOB_UNHAULED), PROC_REF(wrapper_fizzle_camouflage))
+	RegisterSignal(H, COMSIG_MOB_EFFECT_CLOAK_CANCEL, PROC_REF(deactivate_camouflage))
+
+	camo_active = TRUE
+	ADD_TRAIT(H, TRAIT_CLOAKED, TRAIT_SOURCE_EQUIPMENT(WEAR_BACK))
+	H.visible_message(SPAN_DANGER("[capitalize(H.declent_ru(NOMINATIVE))] vanishes into thin air!"), SPAN_NOTICE("You activate your [fluff_item]'s camouflage."), max_distance = 4)
+	playsound(H.loc, camo_on_sound, 15, TRUE)
+	H.unset_interaction()
+
+	H.alpha = camo_alpha
+	H.FF_hit_evade = 1000
+	if(!allowed_stealth_shooting)
+		H.allow_gun_usage = allow_gun_usage
+
+	var/datum/mob_hud/security/advanced/SA = GLOB.huds[MOB_HUD_SECURITY_ADVANCED]
+	SA.remove_from_hud(H)
+	var/datum/mob_hud/xeno_infection/XI = GLOB.huds[MOB_HUD_XENO_INFECTION]
+	XI.remove_from_hud(H)
+
+	anim(H.loc, H, 'icons/mob/mob.dmi', null, "cloak", null, H.dir)
+	cloak_cooldown = world.time + 0.8 SECONDS
+	return TRUE
+
+/datum/action/item_action/specialist/toggle_cloak_upp
+    ability_primacy = SPEC_PRIMARY_ACTION_2
+
+/datum/action/item_action/specialist/toggle_cloak_upp/New(mob/living/user, obj/item/holder)
+    ..()
+    name = "Toggle Cloak UPP"
+    button.name = name
+    update_button_icon()
+
+/datum/action/item_action/specialist/toggle_cloak_upp/update_button_icon()
+    var/obj/item/storage/backpack/marine/satchel/scout_cloak/upp/weak/sniper/SC = holder_item
+
+    if(SC.camo_active)
+        action_icon_state = "invisibility"
+    else
+        action_icon_state = "invisibility_off"
+
+    button.overlays.Cut()
+    button.overlays += image('icons/mob/hud/actions.dmi', button, action_icon_state)
+
+/datum/action/item_action/specialist/toggle_cloak_upp/can_use_action()
+    var/mob/living/carbon/human/H = owner
+    if(istype(H) && !H.is_mob_incapacitated() && holder_item == H.back)
+        return TRUE
+
+/datum/action/item_action/specialist/toggle_cloak_upp/action_activate()
+    . = ..()
+
+    var/obj/item/storage/backpack/marine/satchel/scout_cloak/upp/weak/sniper/SC = holder_item
+    SC.camouflageupp()
+    update_button_icon()
