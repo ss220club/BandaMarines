@@ -111,8 +111,8 @@
 	redeemer.hud_set_squad()
 	var/obj/item/card/id/idcard = redeemer.get_idcard()
 	if(idcard)
-		idcard.set_assignment("[redeemer.assigned_squad ? redeemer.assigned_squad : ""] [role_name]")
-		redeemer.role_title_override = role_name
+		idcard.set_assignment("[redeemer.assigned_squad ? redeemer.assigned_squad.get_name_ru() : ""] [role_name_ru]")
+		redeemer.role_title_override = role_name_ru
 		idcard.minimap_icon_override = rank_icon
 		redeemer.update_minimap_icon()
 		GLOB.data_core.manifest_modify(redeemer.real_name, WEAKREF(redeemer), role_name)

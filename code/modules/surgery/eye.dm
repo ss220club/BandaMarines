@@ -44,8 +44,8 @@
 /datum/surgery_step/separate_corneas/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
 	user.affected_message(target,
 		SPAN_NOTICE("You start to separate the corneas of [target]'s eyes with [tool]."),
-		SPAN_NOTICE("[user] starts to separate the corneas of your eyes with [tool]."),
-		SPAN_NOTICE("[user] starts to separate the corneas of [target]'s eyes with [tool]."))
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts to separate the corneas of your eyes with [tool]."),
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts to separate the corneas of [target]'s eyes with [tool]."))
 
 	target.custom_pain("You feel a searing, piercing pain in your eyeballs as your corneas are being sliced open!",1)
 	log_interact(user, target, "[key_name(user)] started to separate the corneas on [key_name(target)]'s eyes with [tool].")
@@ -53,8 +53,8 @@
 /datum/surgery_step/separate_corneas/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
 	user.affected_message(target,
 		SPAN_NOTICE("You have separated [target]'s corneas."),
-		SPAN_NOTICE("[user] has separated your corneas."),
-		SPAN_NOTICE("[user] has separated [target]'s corneas."))
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] has separated your corneas."),
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] has separated [target]'s corneas."))
 
 	log_interact(user, target, "[key_name(user)] separated the corneas on [key_name(target)]'s eyes with [tool], starting [surgery].")
 
@@ -89,8 +89,8 @@
 /datum/surgery_step/lift_corneas/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
 	user.affected_message(target,
 		SPAN_NOTICE("You begin lifting the corneas and moving the lenses out of the way from [target]'s eyes with [tool]."),
-		SPAN_NOTICE("[user] begins lifting the corneas and moving the lenses out of the way from your eyes with [tool]."),
-		SPAN_NOTICE("[user] begins lifting the corneas and moving the lenses out of the way from [target]'s eyes with [tool]."))
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins lifting the corneas and moving the lenses out of the way from your eyes with [tool]."),
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins lifting the corneas and moving the lenses out of the way from [target]'s eyes with [tool]."))
 
 	target.custom_pain("You feel pressure and pulling on the surface of your eyes!",1)
 	log_interact(user, target, "[key_name(user)] started lifting the corneas and moving the lenses out of the way from  [key_name(target)]'s eyes with [tool].")
@@ -98,8 +98,8 @@
 /datum/surgery_step/lift_corneas/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
 	user.affected_message(target,
 		SPAN_NOTICE("You finish lifting [target]'s corneas and moving the lenses."),
-		SPAN_NOTICE("[user] has lifted your corneas and moving the lenses."),
-		SPAN_NOTICE("[user] has lifted [target]'s corneas and moving the lenses."))
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] has lifted your corneas and moving the lenses."),
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] has lifted [target]'s corneas and moving the lenses."))
 
 	log_interact(user, target, "[key_name(user)] lifted the corneas and lenses away from [key_name(target)]'s eyes with [tool].")
 
@@ -171,8 +171,8 @@
 /datum/surgery_step/mend_eyes/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
 	user.affected_message(target,
 		SPAN_NOTICE("You begin to repair the damage done to [target]'s eyeballs with [tool]."),
-		SPAN_NOTICE("[user] begins to repair the damage done to your eyeballs with [tool]."),
-		SPAN_NOTICE("[user] begins to repair the damage done to [target]'s eyeballs with [tool]."))
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins to repair the damage done to your eyeballs with [tool]."),
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins to repair the damage done to [target]'s eyeballs with [tool]."))
 
 	target.custom_pain("[tool] moving around in your eyeballs feels bizarre and painful!",1)
 	log_interact(user, target, "[key_name(user)] begins to mend the damage to [key_name(target)]'s eyeballs with [tool].")
@@ -196,8 +196,8 @@
 			SPAN_NOTICE("[user] finishes mending the damaged blood vessels within and the surface damage outside of [target]'s eyes."))
 	user.affected_message(target,
 			SPAN_NOTICE("You finish mending the damage in [target]'s eyes."),
-			SPAN_NOTICE("[user] finishes mending the damage in your eyes."),
-			SPAN_NOTICE("[user] finishes mending the damage in [target]'s eyes."))
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] finishes mending the damage in your eyes."),
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] finishes mending the damage in [target]'s eyes."))
 
 	log_interact(user, target, "[key_name(user)] mended the damage inside [key_name(target)]'s eyes with [tool].")
 
@@ -223,8 +223,8 @@
 /datum/surgery_step/cauterize/eyes/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
 	user.affected_message(target,
 		SPAN_NOTICE("You begin to reattach [target]'s corneas and lenses and close \his eyeballs with [tool]."),
-		SPAN_NOTICE("[user] begins to reattach your corneas and lenses and close your eyeballs with [tool]."),
-		SPAN_NOTICE("[user] begins to reattach [target]'s corneas and lenses and close \his eyeballs with [tool]."))
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins to reattach your corneas and lenses and close your eyeballs with [tool]."),
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins to reattach [target]'s corneas and lenses and close \his eyeballs with [tool]."))
 
 	target.custom_pain("Your eyes burn!",1)
 	log_interact(user, target, "[key_name(user)] began to cauterize the incision around [key_name(target)]'s eyes with [tool].")
@@ -232,8 +232,8 @@
 /datum/surgery_step/cauterize/eyes/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/eye_repair/surgery)
 	user.affected_message(target,
 		SPAN_NOTICE("You reattach [target]'s corneas and lenses and close \his eyeballs."),
-		SPAN_NOTICE("[user] reattaches your corneas and lenses and closes your eyeballs."),
-		SPAN_NOTICE("[user] reattaches [target]'s corneas and lenses and closes \his eyeballs."))
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] reattaches your corneas and lenses and closes your eyeballs."),
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] reattaches [target]'s corneas and lenses and closes \his eyeballs."))
 
 	log_interact(user, target, "[key_name(user)] cauterized the incision around [key_name(target)]'s eyes with [tool], ending [surgery].")
 

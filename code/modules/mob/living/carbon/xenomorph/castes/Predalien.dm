@@ -106,7 +106,7 @@
 		predator_round.flags_round_type |= MODE_PREDATOR
 		REDIS_PUBLISH("byond.round", "type" = "predator-round", "map" = SSmapping.configs[GROUND_MAP].map_name)
 
-	elder_overseer_message("An abomination has been detected at [get_area_name(loc)]. Exterminate it immediately. Heavy Armory unlocked.")
+	elder_overseer_message("Обнаружена абоминация в области «[get_area_name(loc)]». \nУничтожьте это немедленно. \n\nТяжелая оружейная разблокирована.")
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_YAUTJA_ARMORY_OPENED)
 
 	to_chat(src, {"

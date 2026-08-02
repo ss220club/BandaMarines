@@ -108,7 +108,7 @@
 		if(user && istype(user))
 			user.count_niche_stat(STATISTICS_NICHE_DESTRUCTION_WINDOWS, 1)
 			SEND_SIGNAL(user, COMSIG_MOB_DESTROY_WINDOW, src)
-			visible_message(SPAN_WARNING("[user] smashes [src][causing_atom ? " with [causing_atom]!" : "!"]"),
+			visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] smashes [src][causing_atom ? " with [causing_atom]!" : "!"]"),
 			SPAN_WARNING("[src] breaks!"), 7)
 			if(is_mainship_level(z))
 				SSclues.create_print(get_turf(user), user, "A small glass piece is found on the fingerprint.")
@@ -195,7 +195,7 @@
 			return
 
 		playsound(loc, 'sound/effects/glassbash.ogg', 25, 1)
-		user.visible_message(SPAN_WARNING("[user] bangs against [src]!"),
+		user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] bangs against [src]!"),
 		SPAN_WARNING("You bang against [src]!"),
 		SPAN_WARNING("You hear a banging sound."))
 		windowknock_cooldown = world.time + 100
@@ -203,7 +203,7 @@
 		if(windowknock_cooldown > world.time)
 			return
 		playsound(loc, 'sound/effects/glassknock.ogg', 15, 1)
-		user.visible_message(SPAN_NOTICE("[user] knocks on [src]."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] knocks on [src]."),
 		SPAN_NOTICE("You knock on [src]."),
 		SPAN_NOTICE("You hear a knocking sound."))
 		windowknock_cooldown = world.time + 100
@@ -213,7 +213,7 @@
 	if(!not_damageable) //Impossible to destroy
 		health -= damage
 	user.animation_attack_on(src)
-	user.visible_message(SPAN_DANGER("[user] smashes into [src]!"))
+	user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] smashes into [src]!"))
 	healthcheck(1, 1, 1, user)
 
 /obj/structure/window/attack_animal(mob/user as mob)
@@ -235,19 +235,19 @@
 			user.drop_held_item()
 			switch(state)
 				if(GRAB_PASSIVE)
-					M.visible_message(SPAN_WARNING("[user] slams [M] against \the [src]!"))
+					M.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] slams [M] against \the [src]!"))
 					M.apply_damage(7)
 					if(!not_damageable) //Impossible to destroy
 						health -= 10
 				if(GRAB_AGGRESSIVE)
-					M.visible_message(SPAN_DANGER("[user] bashes [M] against \the [src]!"))
+					M.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] bashes [M] against \the [src]!"))
 					if(prob(50))
 						M.apply_effect(1, WEAKEN)
 					M.apply_damage(10)
 					if(!not_damageable) //Impossible to destroy
 						health -= 25
 				if(GRAB_CHOKE)
-					M.visible_message(SPAN_DANGER("[user] crushes [M] against \the [src]!"))
+					M.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] crushes [M] against \the [src]!"))
 					M.apply_effect(5, WEAKEN)
 					M.apply_damage(20)
 					if(!not_damageable) //Impossible to destroy
