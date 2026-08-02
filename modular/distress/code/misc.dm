@@ -217,7 +217,7 @@
 	armor_melee = CLOTHING_ARMOR_MEDIUMLOW
 	armor_energy = CLOTHING_ARMOR_MEDIUM
 	armor_bomb = CLOTHING_ARMOR_MEDIUMLOW
-	armor_bio = CLOTHING_ARMOR_VERYHIGH
+	armor_bio = CLOTHING_ARMOR_MEDIUMHIGH // МОРКОВКА спасибо
 	armor_rad = CLOTHING_ARMOR_MEDIUMLOW
 	armor_internaldamage = CLOTHING_ARMOR_MEDIUMLOW // МОРКОВКА спасибо
 
@@ -837,8 +837,8 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 		list("Sniper Set", 0, /obj/item/storage/box/spec/upp_sniper, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_RECOMMENDED),
 
 		list("EXTRA MINIGUN AMMUNITION", 0, null, null, null),
-		list("HJRA-12 High-Explosive Rocket", 20, /obj/item/ammo_magazine/rocket/upp, null, VENDOR_ITEM_REGULAR),
-		list("HJRA-12 Anti-Tank Rocket", 20, /obj/item/ammo_magazine/rocket/upp/at, null, VENDOR_ITEM_REGULAR),
+		list("HJRA-12 High-Explosive Rocket", 40, /obj/item/ammo_magazine/rocket/upp, null, VENDOR_ITEM_REGULAR),
+		list("HJRA-12 Anti-Tank Rocket", 40, /obj/item/ammo_magazine/rocket/upp/at, null, VENDOR_ITEM_REGULAR),
 		list("HJRA-12 Extreme-Intensity Incendiary Rocket", 60, /obj/item/ammo_magazine/rocket/upp/incen, null, VENDOR_ITEM_REGULAR),
 
 		list("EXTRA MINIGUN AMMUNITION", 0, null, null, null),
@@ -848,7 +848,7 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 		list("QYJ-72 ammo box (7.62x54mmR)", 30, /obj/item/ammo_magazine/pkp, null, VENDOR_ITEM_REGULAR),
 
 		list("EXTRA SNIPER AMMUNITION", 0, null, null, null),
-		list("Type-88 Magazine (7.62x54mmR)", 30, /obj/item/ammo_magazine/sniper/svd, null, VENDOR_ITEM_REGULAR),
+		list("VSSK Magazine (12.7x55mm)", 30, /obj/item/ammo_magazine/sniper/svd/vssk, null, VENDOR_ITEM_REGULAR),
 
 		list("EXTRA HIMAT AMMUNITION", 0, null, null, null),
 		list("HIMAT HE missile", 20, /obj/item/mortar_shell/himat/explosive, null, VENDOR_ITEM_REGULAR),
@@ -1005,12 +1005,12 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	new /obj/item/clothing/glasses/night/m42_night_goggles/upp(src)
 	new	/obj/item/clothing/head/helmet/marine/veteran/UPP/frogmen(src)
 	new	/obj/item/clothing/accessory/helmet/cover/frogmen_veil(src)
-	new /obj/item/weapon/gun/rifle/sniper/svd(src)
-	new /obj/item/ammo_magazine/sniper/svd(src)
-	new /obj/item/ammo_magazine/sniper/svd(src)
-	new /obj/item/ammo_magazine/sniper/svd(src)
-	new /obj/item/ammo_magazine/sniper/svd(src)
-	new /obj/item/ammo_magazine/sniper/svd(src)
+	new /obj/item/weapon/gun/rifle/sniper/svd/vssk(src)
+	new /obj/item/ammo_magazine/sniper/svd/vssk(src)
+	new /obj/item/ammo_magazine/sniper/svd/vssk(src)
+	new /obj/item/ammo_magazine/sniper/svd/vssk(src)
+	new /obj/item/ammo_magazine/sniper/svd/vssk(src)
+	new /obj/item/ammo_magazine/sniper/svd/vssk(src)
 
 /obj/item/storage/box/spec/upp_sadar
 	name = "\improper HJRA-12 Rocket Launcher case"
@@ -1066,21 +1066,38 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	icon_state = "toz194"
 	item_state = "type23"
 	fire_sound = 'sound/weapons/gun_type23.ogg' //not perfect, too small
-	current_mag = /obj/item/ammo_magazine/internal/shotgun/type23
+	current_mag = /obj/item/ammo_magazine/internal/shotgun/type23/toz194
 	attachable_allowed = list(
-		/obj/item/attachable/reddot, // Rail
-		/obj/item/attachable/reflex,
-		/obj/item/attachable/flashlight,
-		/obj/item/attachable/magnetic_harness,
-		/obj/item/attachable/bayonet, // Muzzle
-		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonet/upp,
-		/obj/item/attachable/verticalgrip, // Underbarrel
-		/obj/item/attachable/flashlight/under_barrel,
+		/obj/item/attachable/bayonet/co2,
+		/obj/item/attachable/bayonet/antique,
+		/obj/item/attachable/bayonet/wy,
+		/obj/item/attachable/bayonet/custom,
+		/obj/item/attachable/bayonet/custom/red,
+		/obj/item/attachable/bayonet/custom/blue,
+		/obj/item/attachable/bayonet/custom/black,
+		/obj/item/attachable/bayonet/tanto,
+		/obj/item/attachable/bayonet/tanto/blue,
+		/obj/item/attachable/bayonet/rmc_replica,
+		/obj/item/attachable/bayonet/rmc,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/reflex,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/angledgrip,
 		/obj/item/attachable/flashlight/grip,
+		/obj/item/attachable/gyro,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under_barrel,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/compensator,
+		/obj/item/attachable/shotgun_choke,
+		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/attached_gun/extinguisher,
 		/obj/item/attachable/stock/type23/toz194, // Stock
-		)
+	)
+
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_INTERNAL_MAG
 	flags_equip_slot = SLOT_BACK
 	map_specific_decoration = FALSE
@@ -1103,8 +1120,70 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	accuracy_mult = BASE_ACCURACY_MULT + HIT_ACCURACY_MULT_TIER_3
 	accuracy_mult_unwielded = BASE_ACCURACY_MULT - HIT_ACCURACY_MULT_TIER_10
 	scatter = SCATTER_AMOUNT_TIER_6
-	burst_scatter_mult = SCATTER_AMOUNT_TIER_6
+	burst_scatter_mult = SCATTER_AMOUNT_TIER_8
 	scatter_unwielded = SCATTER_AMOUNT_TIER_2
 	damage_mult = BASE_BULLET_DAMAGE_MULT
-	recoil = RECOIL_AMOUNT_TIER_5
-	recoil_unwielded = RECOIL_AMOUNT_TIER_3
+	recoil = RECOIL_AMOUNT_TIER_2
+	recoil_unwielded = RECOIL_AMOUNT_TIER_1
+
+/obj/item/weapon/gun/rifle/sniper/svd/vssk
+	name = "\improper VSSK designated sniper rifle"
+	desc = "VSSK is a bullpup, straight-pull bolt-action, magazine-fed sniper rifle chambered for the 12.7x55 mm subsonic round. It was developed in around 2102 for the special force units of PoP. Silenced sniper rifle is developed for special operations that require silent firing and penetration. Typical targets for VSSK rifle are cars, terrorists in heavy body armor or behind covers like car bodies or other thick covers"
+	icon = 'modular/distress/icons/marksman_rifles.dmi'
+	item_icons = list(
+		WEAR_L_HAND = 'modular/distress/icons/marksman_rifles_lefthand.dmi',
+		WEAR_R_HAND = 'modular/distress/icons/marksman_rifles_righthand.dmi'
+	)
+
+	pixel_x = -6
+	hud_offset = -6
+
+	fire_sound = 'sound/weapons/gun_silenced_shot2.ogg'
+	current_mag = /obj/item/ammo_magazine/sniper/svd/vssk
+	attachable_allowed = list(
+		//Muzzle,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonet/upp_replica,
+		/obj/item/attachable/bayonet/upp,
+		/obj/item/attachable/bayonet/antique,
+		/obj/item/attachable/bayonet/wy,
+		/obj/item/attachable/bayonet/custom,
+		/obj/item/attachable/bayonet/custom/red,
+		/obj/item/attachable/bayonet/custom/blue,
+		/obj/item/attachable/bayonet/custom/black,
+		/obj/item/attachable/bayonet/tanto,
+		/obj/item/attachable/bayonet/tanto/blue,
+		/obj/item/attachable/bayonet/rmc_replica,
+		/obj/item/attachable/bayonet/rmc,
+		//Under,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/bipod,
+	)
+	flags_gun_features = GUN_AUTO_EJECTOR|GUN_WIELDED_FIRING_ONLY|GUN_SPECIALIST|GUN_AMMO_COUNTER|GUN_CAN_POINTBLANK
+	starting_attachment_types = list()
+	sniper_beam_type = null
+	skill_locked = TRUE
+
+/obj/item/weapon/gun/rifle/sniper/svd/vssk/handle_starting_attachment()
+	..()
+	var/obj/item/attachable/scope/variable_zoom/integrated/type88sight = new(src)
+	type88sight.flags_attach_features &= ~ATTACH_REMOVABLE
+	type88sight.hidden = TRUE
+	type88sight.Attach(src)
+	update_attachable(type88sight.slot)
+
+/obj/item/weapon/gun/rifle/sniper/svd/vssk/set_gun_attachment_offsets()
+	attachable_offset = list("muzzle_x" = 32, "muzzle_y" = 17,"rail_x" = 13, "rail_y" = 19, "under_x" = 26, "under_y" = 14, "stock_x" = 24, "stock_y" = 13, "special_x" = 39, "special_y" = 18)
+
+/obj/item/weapon/gun/rifle/sniper/svd/vssk/set_gun_config_values()
+	..()
+	set_fire_delay(FIRE_DELAY_TIER_AMR)
+	set_burst_amount(BURST_AMOUNT_TIER_1)
+	accuracy_mult = BASE_ACCURACY_MULT + HIT_ACCURACY_MULT_TIER_10
+	accuracy_mult_unwielded = BASE_ACCURACY_MULT - HIT_ACCURACY_MULT_TIER_10
+	scatter = SCATTER_AMOUNT_NONE - SCATTER_AMOUNT_TIER_9
+	scatter_unwielded = SCATTER_AMOUNT_TIER_2
+	damage_mult = BASE_BULLET_DAMAGE_MULT
+	recoil_unwielded = RECOIL_AMOUNT_TIER_1
+	recoil = RECOIL_AMOUNT_TIER_1
+	damage_falloff_mult = 0

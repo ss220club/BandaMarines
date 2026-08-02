@@ -1456,9 +1456,6 @@
 /obj/item/ammo_box/magazine/ak4047{
 	pixel_y = -3
 	},
-/obj/item/ammo_box/magazine/ak4047{
-	pixel_y = -3
-	},
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
 "afw" = (
@@ -1583,13 +1580,11 @@
 /obj/structure/surface/rack,
 /obj/item/ammo_box/magazine/type71,
 /obj/item/ammo_box/magazine/type71,
-/obj/item/ammo_box/magazine/type71,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
 "afO" = (
 /obj/structure/surface/rack,
-/obj/item/ammo_box/magazine/shotgun/upp/incendiary,
-/obj/item/ammo_box/magazine/shotgun/upp/incendiary,
+/obj/item/ammo_box/magazine/type71,
 /turf/open/floor/prison/floor_marked/west,
 /area/rostock/req)
 "afP" = (

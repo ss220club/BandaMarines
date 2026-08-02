@@ -100,9 +100,21 @@
 		/obj/item/ammo_magazine/sniper/svd,
 		/obj/item/ammo_magazine/sniper/svd,
 	)
-	cost = 60
+	cost = 30
 	containertype = /obj/structure/closet/crate/weapon
 	containername = "Type 88 designated marksman rifle Crate"
+	group = "UPP Special Weapon"
+
+/datum/supply_packs/upp/VSSK_sniper_rifle_x10
+	name = "UPP VSSK sniper rifle (x1)"
+	contains = list(
+		/obj/item/weapon/gun/rifle/sniper/svd/vssk,
+		/obj/item/ammo_magazine/sniper/svd/vssk,
+		/obj/item/ammo_magazine/sniper/svd/vssk,
+	)
+	cost = 60
+	containertype = /obj/structure/closet/crate/weapon
+	containername = "VSSK sniper rifle Crate"
 	group = "UPP Special Weapon"
 
 /datum/supply_packs/upp/Type71_carbine_commando_x10

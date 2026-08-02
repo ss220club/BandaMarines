@@ -311,3 +311,33 @@
 		PROPERTY_RADIUS = 6,
 		PROPERTY_FIRE_PENETRATING = 1,
 	)
+
+/obj/item/ammo_magazine/sniper/svd/vssk
+	name = "\improper VSSK Magazine (12.7x55mm)"
+	desc = "A large-caliber 12.7x55mm magazine for the VSSK designated sniper rifle."
+	caliber = "12.7x55mm"
+	icon = 'icons/obj/items/weapons/guns/ammo_by_faction/UPP/marksman_rifles.dmi'
+	icon_state = "type88mag"
+	default_ammo = /datum/ammo/bullet/sniper/upp/vssk
+	max_rounds = 5
+	gun_type = /obj/item/weapon/gun/rifle/sniper/svd/vssk
+
+/datum/ammo/bullet/sniper/upp/vssk
+	name = "armor-piercing sniper bullet"
+	icon_state = "bullet_green"
+	damage = 90
+	accurate_range_min = 14
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SNIPER|AMMO_IGNORE_COVER|AMMO_ANTIVEHICLE
+	penetration = ARMOR_PENETRATION_TIER_10
+
+/datum/ammo/bullet/sniper/upp/vssk/on_hit_mob(mob/hit_mob, obj/projectile/bullet)
+	. = ..()
+	knockback(hit_mob, bullet, 30)
+	hit_mob.apply_effect(3, SLOW)
+	hit_mob.apply_effect(3, DAZE)
+
+/datum/ammo/bullet/sniper/upp/vssk/set_bullet_traits()
+	. = ..()
+	LAZYADD(traits_to_give, list(
+		BULLET_TRAIT_ENTRY(/datum/element/bullet_trait_penetrating/heavy)
+	))

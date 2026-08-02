@@ -234,3 +234,16 @@
 	containertype = /obj/structure/closet/crate/weapon
 	containername = "Type 88 marksman rifle mags"
 	group = "UPP Special Ammo"
+
+/datum/supply_packs/upp/ammo_sniper_rifle_mags
+	name = "UPP VSSK sniper rifle mags (x4)"
+	contains = list(
+		/obj/item/ammo_magazine/sniper/svd/vssk,
+		/obj/item/ammo_magazine/sniper/svd/vssk,
+		/obj/item/ammo_magazine/sniper/svd/vssk,
+		/obj/item/ammo_magazine/sniper/svd/vssk,
+	)
+	cost = 40
+	containertype = /obj/structure/closet/crate/weapon
+	containername = "VSSK sniper rifle mags"
+	group = "UPP Special Ammo"

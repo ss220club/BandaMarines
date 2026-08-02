@@ -13,4 +13,10 @@
 // BEGIN_PREFERENCES
 // END_PREFERENCES
 // BEGIN_INCLUDE
+#include "_distress.dm"
+#include "code\ammo.dm"
+#include "code\misc.dm"
+#include "code\tank.dm"
+#include "code\van.dm"
+#include "code\vehicles.dm"
 // END_INCLUDE
