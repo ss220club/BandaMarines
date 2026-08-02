@@ -319,7 +319,7 @@
 	icon = 'icons/obj/items/weapons/guns/ammo_by_faction/UPP/marksman_rifles.dmi'
 	icon_state = "type88mag"
 	default_ammo = /datum/ammo/bullet/sniper/upp/vssk
-	max_rounds = 5
+	max_rounds = 8
 	gun_type = /obj/item/weapon/gun/rifle/sniper/svd/vssk
 
 /datum/ammo/bullet/sniper/upp/vssk

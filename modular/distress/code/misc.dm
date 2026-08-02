@@ -1162,7 +1162,17 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	flags_gun_features = GUN_AUTO_EJECTOR|GUN_WIELDED_FIRING_ONLY|GUN_SPECIALIST|GUN_AMMO_COUNTER|GUN_CAN_POINTBLANK
 	starting_attachment_types = list()
 	sniper_beam_type = null
-	skill_locked = TRUE
+
+/obj/item/weapon/gun/rifle/sniper/svd/vssk/able_to_fire(mob/living/user)
+	. = ..()
+	if(!. || !istype(user)) //Let's check all that other stuff first.
+		return 0
+	if(!skillcheck(user, SKILL_FIREARMS, SKILL_FIREARMS_TRAINED))
+		to_chat(user, SPAN_WARNING("You don't seem to know how to use [src]..."))
+		return 0
+	if(!skillcheck(user, SKILL_SPEC_WEAPONS, SKILL_SPEC_ALL) && user.skills.get_skill_level(SKILL_SPEC_WEAPONS) != SKILL_SPEC_SNIPER)
+		to_chat(user, SPAN_WARNING("You don't seem to know how to use [src]..."))
+		return 0
 
 /obj/item/weapon/gun/rifle/sniper/svd/vssk/set_gun_attachment_offsets()
 	attachable_offset = list("muzzle_x" = 32, "muzzle_y" = 17,"rail_x" = 13, "rail_y" = 19, "under_x" = 26, "under_y" = 14, "stock_x" = 24, "stock_y" = 13, "special_x" = 39, "special_y" = 18)

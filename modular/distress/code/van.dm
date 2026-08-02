@@ -78,6 +78,7 @@
 	handle_direction(VAN)
 	VAN.update_icon()
 
+	return VAN
 
 /obj/effect/vehicle_spawner/van/upp/load_hardpoints(obj/vehicle/multitile/van/upp/V)
 	V.add_hardpoint(new /obj/item/hardpoint/locomotion/van_wheels/upp)
@@ -92,15 +93,18 @@
 
 	interior_map = /datum/map_template/interior/modul/uppvan/medical
 
-/obj/effect/vehicle_spawner/van/upp/medical/spawn_vehicle()
-	var/obj/vehicle/multitile/van/upp/medical/VAN = new(loc)
-
-	load_hardpoints(VAN)
-	handle_direction(VAN)
-	VAN.update_icon()
-
 /obj/effect/vehicle_spawner/van/upp/medical
 	name = "Medical Van Spawner"
 	icon = 'modular/distress/icons/uppvan.dmi'
 	icon_state = "uppvan_medical"
 
+/obj/effect/vehicle_spawner/van/upp/medical/spawn_vehicle()
+	var/obj/vehicle/multitile/van/upp/medical/VAN = new(loc)
+	load_hardpoints(VAN)
+	handle_direction(VAN)
+	VAN.update_icon()
+	
+	return VAN
+
+/obj/effect/vehicle_spawner/van/upp/medical/load_hardpoints(obj/vehicle/multitile/van/upp/medical/V)
+	V.add_hardpoint(new /obj/item/hardpoint/locomotion/van_wheels/upp)
