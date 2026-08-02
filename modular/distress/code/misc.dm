@@ -1248,7 +1248,9 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	icon_state = "sniper_armor"
 	item_state = "sniper_armor"
 	icon = 'modular/distress/icons/sniperw.dmi'
-	var/camo_alpha = 4
+	camouflage_break = 15
+	camouflage_enter_delay = 15
+	full_camo_alpha = 5
 	uniform_restricted = list(/obj/item/clothing/under/marine/veteran/UPP)
 	item_icons = list(
 		WEAR_JACKET = 'modular/distress/icons/sniper.dmi'
@@ -1329,7 +1331,7 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	return TRUE
 
 /datum/action/item_action/specialist/toggle_cloak_upp
-    ability_primacy = SPEC_PRIMARY_ACTION_1
+    ability_primacy = SPEC_PRIMARY_ACTION_2
 
 /datum/action/item_action/specialist/toggle_cloak_upp/New(mob/living/user, obj/item/holder)
     ..()
