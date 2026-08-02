@@ -1361,3 +1361,13 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
     var/obj/item/storage/backpack/marine/satchel/scout_cloak/upp/weak/sniper/SC = holder_item
     SC.camouflageupp()
     update_button_icon()
+
+/obj/item/clothing/gloves/marine/veteran/upp
+	armor_melee = CLOTHING_ARMOR_MEDIUM
+	armor_bullet = CLOTHING_ARMOR_MEDIUM
+	armor_laser = CLOTHING_ARMOR_LOW
+	armor_energy = CLOTHING_ARMOR_NONE
+	armor_bomb = CLOTHING_ARMOR_MEDIUMLOW
+	armor_bio = CLOTHING_ARMOR_MEDIUM
+	armor_rad = CLOTHING_ARMOR_NONE
+	armor_internaldamage = CLOTHING_ARMOR_LOW
