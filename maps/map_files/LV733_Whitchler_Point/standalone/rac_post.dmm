@@ -937,7 +937,7 @@
 	pixel_x = -5;
 	pixel_y = 9
 	},
-/obj/effect/landmark/survivor_spawner/twe/rac,
+/obj/effect/landmark/survivor_spawner/twe/rac/commander,
 /turf/open/floor/almayer/silverfull2,
 /area/lv733/indoors/main_complex/main_vestibule)
 "nr" = (

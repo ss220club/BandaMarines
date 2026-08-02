@@ -682,7 +682,7 @@
 /turf/open/floor/plating,
 /area/lv733/indoors/wy_administration)
 "rt" = (
-/obj/effect/landmark/survivor_spawner/clf_wy,
+/obj/effect/landmark/survivor_spawner/clf_wy/curator,
 /turf/open/floor/hybrisa/carpet/carpetblack,
 /area/lv733/indoors/wy_administration)
 "rG" = (

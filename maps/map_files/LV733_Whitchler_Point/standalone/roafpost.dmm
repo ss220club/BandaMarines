@@ -417,7 +417,7 @@
 /turf/open/hybrisa/street/sidewalk/east,
 /area/lv733/outdoors/colony_streets/avenue)
 "vk" = (
-/obj/effect/landmark/survivor_spawner/twe/roaf,
+/obj/effect/landmark/survivor_spawner/twe/roaf/commander,
 /turf/open/hybrisa/street/asphalt,
 /area/lv733/outdoors/colony_streets/avenue)
 "vO" = (

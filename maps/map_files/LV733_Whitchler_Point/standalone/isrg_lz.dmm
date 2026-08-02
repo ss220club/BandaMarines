@@ -2657,7 +2657,7 @@
 /turf/open/hybrisa/street/cement1,
 /area/lv733/outdoors/colony_streets/engineering_street)
 "Dz" = (
-/obj/effect/landmark/survivor_spawner/isrg,
+/obj/effect/landmark/survivor_spawner/isrg/commander,
 /turf/open/hybrisa/street/roadlines4,
 /area/lv733/outdoors/colony_streets/engineering_street)
 "DA" = (
