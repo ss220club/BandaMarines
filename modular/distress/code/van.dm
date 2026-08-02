@@ -68,19 +68,9 @@
 /obj/effect/vehicle_spawner/van/upp/Initialize()
 	. = ..() 
 	spawn_vehicle()
-	qdel(src)
 	return INITIALIZE_HINT_QDEL
 
-//PRESET: no hardpoints
 /obj/effect/vehicle_spawner/van/upp/spawn_vehicle()
-	var/obj/vehicle/multitile/van/upp/VAN = new (loc)
-
-	load_misc(VAN)
-	handle_direction(VAN)
-	VAN.update_icon()
-
-//PRESET: wheels installed
-/obj/effect/vehicle_spawner/van/upp/fixed/spawn_vehicle()
 	var/obj/vehicle/multitile/van/upp/VAN = new (loc)
 
 	load_misc(VAN)
@@ -88,16 +78,10 @@
 	handle_direction(VAN)
 	VAN.update_icon()
 
-/obj/effect/vehicle_spawner/van/upp/fixed/load_hardpoints(obj/vehicle/multitile/van/upp/V)
+
+/obj/effect/vehicle_spawner/van/upp/load_hardpoints(obj/vehicle/multitile/van/upp/V)
 	V.add_hardpoint(new /obj/item/hardpoint/locomotion/van_wheels/upp)
 
-
-/obj/effect/vehicle_spawner/van/upp/medical/spawn_vehicle()
-	var/obj/vehicle/multitile/van/upp/medical/VAN = new(loc)
-
-	load_misc(VAN)
-	handle_direction(VAN)
-	VAN.update_icon()
 
 /obj/vehicle/multitile/van/upp/medical
 	name = "Kheshig-1M-Medical"
@@ -108,29 +92,15 @@
 
 	interior_map = /datum/map_template/interior/modul/uppvan/medical
 
-
-/obj/effect/vehicle_spawner/van/upp/medical
-	name = "Medical Van Spawner"
-	icon = 'modular/distress/icons/uppvan.dmi'
-	icon_state = "uppvan_medical"
-
-
 /obj/effect/vehicle_spawner/van/upp/medical/spawn_vehicle()
-	var/obj/vehicle/multitile/van/upp/medical/VAN = new(loc)
-
-	load_misc(VAN)
-	handle_direction(VAN)
-	VAN.update_icon()
-
-
-/obj/effect/vehicle_spawner/van/upp/medical/fixed/spawn_vehicle()
-	var/obj/vehicle/multitile/van/upp/medical/VAN = new(loc)
 
 	load_misc(VAN)
 	load_hardpoints(VAN)
 	handle_direction(VAN)
 	VAN.update_icon()
 
+/obj/effect/vehicle_spawner/van/upp/medical
+	name = "Medical Van Spawner"
+	icon = 'modular/distress/icons/uppvan.dmi'
+	icon_state = "uppvan_medical"
 
-/obj/effect/vehicle_spawner/van/upp/medical/fixed/load_hardpoints(obj/vehicle/multitile/van/upp/medical/V)
-	V.add_hardpoint(new /obj/item/hardpoint/locomotion/van_wheels/upp)

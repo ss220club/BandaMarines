@@ -1164,14 +1164,6 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	sniper_beam_type = null
 	skill_locked = TRUE
 
-/obj/item/weapon/gun/rifle/sniper/svd/vssk/handle_starting_attachment()
-	..()
-	var/obj/item/attachable/scope/variable_zoom/integrated/type88sight = new(src)
-	type88sight.flags_attach_features &= ~ATTACH_REMOVABLE
-	type88sight.hidden = TRUE
-	type88sight.Attach(src)
-	update_attachable(type88sight.slot)
-
 /obj/item/weapon/gun/rifle/sniper/svd/vssk/set_gun_attachment_offsets()
 	attachable_offset = list("muzzle_x" = 32, "muzzle_y" = 17,"rail_x" = 13, "rail_y" = 19, "under_x" = 26, "under_y" = 14, "stock_x" = 24, "stock_y" = 13, "special_x" = 39, "special_y" = 18)
 
