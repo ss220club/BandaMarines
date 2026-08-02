@@ -1575,7 +1575,7 @@
 
 /obj/item/weapon/gun/rifle/type71/set_gun_config_values()
 	..()
-	set_fire_delay(FIRE_DELAY_TIER_10) // МОРКОВКА спасибо
+	fire_delay = 3.33 // МОРКОВКА спасибо
 	set_burst_amount(BURST_AMOUNT_TIER_4)
 	set_burst_delay(FIRE_DELAY_TIER_9)
 	accuracy_mult = BASE_ACCURACY_MULT + HIT_ACCURACY_MULT_TIER_4
@@ -1740,7 +1740,7 @@
 /obj/item/weapon/gun/rifle/type71/carbine/set_gun_config_values()
 	..()
 	set_fire_delay(FIRE_DELAY_TIER_LMG)//МОРКОВКА спасибо
-	damage_mult = 0.74 //МОРКОВКА спасибо
+	damage_mult = 0.67 //МОРКОВКА спасибо
 	scatter_unwielded = SCATTER_AMOUNT_TIER_5
 	scatter = SCATTER_AMOUNT_TIER_4 //МОРКОВКА спасибо
 	if(SSticker.mode && MODE_HAS_FLAG(MODE_FACTION_CLASH))

@@ -251,6 +251,7 @@
 	armor_internaldamage = CLOTHING_ARMOR_HIGHPLUS
 	flags_inv_hide = HIDEEARS|HIDEEYES|HIDETOPHAIR|BLOCKGASEFFECT
 	flags_item = MOB_LOCK_ON_EQUIP
+	anti_hug = 2
 
 /obj/item/device/motiondetector/upp
 	name = "UDO-58 motion detector"
@@ -1214,7 +1215,10 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	item_icons = list(
 		WEAR_BODY = 'modular/distress/icons/gorka.dmi'
 	)
-	
+
+/obj/item/clothing/glasses/night/m42_night_goggles/upp
+	hud_type = 4
+
 /obj/item/clothing/head/helmet/marine/ghillie/upp
 	name = "\improper V65 Sniper helmet"
 	desc = "A lightweight V65 helmet used by UPP snipers with V65 Thermal Cloak."
@@ -1225,10 +1229,14 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	armor_bio = CLOTHING_ARMOR_LOW
 	armor_internaldamage = CLOTHING_ARMOR_MEDIUMLOW
 	flags_inventory = BLOCKSHARPOBJ
-	flags_inv_hide = HIDEEARS|HIDEEYES|HIDEFACE|HIDEALLHAIR
+	flags_inv_hide = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEALLHAIR
 	flags_marine_helmet = NO_FLAGS
+	built_in_visors = null
+	start_down_visor_type = null
+	uniform_restricted = list(/obj/item/clothing/under/marine/veteran/UPP, /obj/item/clothing/suit/storage/marine/ghillie/forecon/upp)
 	flags_item = MOB_LOCK_ON_EQUIP
 	specialty = "V65 cloak"
+	actions_types = null
 	item_icons = list(
 		WEAR_HEAD = 'modular/distress/icons/sniper.dmi',
 	)
@@ -1240,6 +1248,7 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	icon_state = "sniper_armor"
 	item_state = "sniper_armor"
 	icon = 'modular/distress/icons/sniperw.dmi'
+	camo_alpha = 4
 	uniform_restricted = list(/obj/item/clothing/under/marine/veteran/UPP)
 	item_icons = list(
 		WEAR_JACKET = 'modular/distress/icons/sniper.dmi'
@@ -1253,12 +1262,12 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	icon = 'modular/distress/icons/sniperw.dmi'
 	icon_state = "sniper_cape"
 	item_state = "sniper_cape"
-	uniform_restricted = list(/obj/item/clothing/under/marine/veteran/UPP)
+	uniform_restricted = list(/obj/item/clothing/under/marine/veteran/UPP, /obj/item/clothing/head/helmet/marine/ghillie/upp, /obj/item/clothing/suit/storage/marine/ghillie/forecon/upp)
 	item_icons = list(
 		WEAR_BACK = 'modular/distress/icons/sniper.dmi'
 	)
 	max_storage_space = 14
-	camo_alpha = 15
+	camo_alpha = 8
 
 /obj/item/storage/backpack/marine/satchel/scout_cloak/upp/weak/sniper/verb/camouflageupp()
 	set name = "Activate Cloak UPP"
@@ -1277,6 +1286,14 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 
 	if(H.back != src)
 		to_chat(H, SPAN_WARNING("You must be wearing the [fluff_item] to activate it!"))
+		return
+
+	if(!istype(H.head, /obj/item/clothing/head/helmet/marine/ghillie/upp))
+		to_chat(H, SPAN_WARNING("You must be wearing the V65 Sniper helmet!"))
+		return
+
+	if(!istype(H.wear_suit, /obj/item/clothing/suit/storage/marine/ghillie/forecon/upp))
+		to_chat(H, SPAN_WARNING("You must be wearing the UPP Thermal armor!"))
 		return
 
 	if(camo_active)
@@ -1312,7 +1329,7 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	return TRUE
 
 /datum/action/item_action/specialist/toggle_cloak_upp
-    ability_primacy = SPEC_PRIMARY_ACTION_2
+    ability_primacy = SPEC_PRIMARY_ACTION_1
 
 /datum/action/item_action/specialist/toggle_cloak_upp/New(mob/living/user, obj/item/holder)
     ..()
