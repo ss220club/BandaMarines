@@ -93,8 +93,8 @@
 	interior_map = /datum/map_template/interior/modul/uppvan/medical
 
 /obj/effect/vehicle_spawner/van/upp/medical/spawn_vehicle()
+	var/obj/vehicle/multitile/van/upp/medical/VAN = new(loc)
 
-	load_misc(VAN)
 	load_hardpoints(VAN)
 	handle_direction(VAN)
 	VAN.update_icon()
