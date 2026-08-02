@@ -84,7 +84,7 @@
 			return
 		winding_up = TRUE
 		activated_once = TRUE
-		xeno.crest_defense = TRUE
+		xeno.fortify = TRUE
 
 		playsound(xeno, 'sound/effects/alien_footstep_charge1.ogg', 50)
 		xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] начинает заряжать рывок!"), SPAN_XENODANGER("Мы начинаем заряжать рывок!"))
@@ -94,9 +94,9 @@
 		pre_windup_effects()
 		xeno.xeno_jitter(windup_duration + charge_window)
 
-		apply_cooldown()
 		if(!do_after(xeno, windup_duration, INTERRUPT_INCAPACITATED|INTERRUPT_CHANGED_LYING, BUSY_ICON_HOSTILE))
 			to_chat(xeno, SPAN_XENODANGER("Мы отменяем подготовку рывка!"))
+			winding_up = FALSE
 			charge_reset()
 			return
 
@@ -189,7 +189,8 @@
 		deltimer(charge_timeout_timer_id)
 	charge_timeout_timer_id = TIMER_ID_NULL
 	activated_once = FALSE
-	xeno.crest_defense = FALSE
+	xeno.fortify = FALSE
+	apply_cooldown()
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/execute_charge(atom/target)
 	var/mob/living/carbon/xenomorph/xeno = owner
@@ -309,7 +310,7 @@
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_human_collision(mob/living/carbon/human/human, mob/living/carbon/xenomorph/xeno)
 	if(!istype(xeno))
 		xeno = owner
-	if(!istype(xeno) || !istype(human) || xeno.can_not_harm(human))
+	if(!istype(xeno) || !istype(human) || human.stat == DEAD)
 		return
 	playsound(human.loc, "punch", 25, TRUE)
 	human.attack_log += text("\[[time_stamp()]\] <font color='orange'>was crusher charged by [xeno] ([xeno.ckey])</font>")
@@ -358,16 +359,17 @@
 		log_attack("[xeno] ([xeno.ckey]) crusher charged [target_xeno] ([target_xeno.ckey])")
 		target_xeno.apply_damage(direct_hit_damage * 0.5, BRUTE)
 
-	if(isqueen(target_xeno) || IS_XENO_LEADER(target_xeno) ||  isboiler(target_xeno)) // boilers because they have long c/d and warmups, get griefed hard if stunned
+	if(!target_xeno.resting && (isqueen(target_xeno) || IS_XENO_LEADER(target_xeno) ||  isboiler(target_xeno))) // boilers because they have long c/d and warmups, get griefed hard if stunned
 		var/facing_dir = xeno.dir
 		xeno.throw_atom(get_step(xeno, reverse_direction(facing_dir)), 1, 3, target_xeno)
 		xeno.face_dir(facing_dir)
 		return //antigrief
 	if(target_xeno.anchored || target_xeno.mob_size >= MOB_SIZE_IMMOBILE)
+		if(!target_xeno.anchored)
+			target_xeno.apply_effect(1, WEAKEN)
+			target_xeno.throw_atom(get_step(target_xeno, pick(GLOB.cardinals)), 1, 3, target_xeno, TRUE)
 		xeno.apply_effect(1, WEAKEN)
-		target_xeno.apply_effect(1, WEAKEN)
 		xeno.throw_atom(get_step(xeno, pick(GLOB.cardinals)), 1, 3, target_xeno, TRUE)
-		target_xeno.throw_atom(get_step(target_xeno, pick(GLOB.cardinals)), 1, 3, target_xeno, TRUE)
 		playsound(get_turf(xeno), 'sound/effects/bang.ogg', 25, 0)
 		return
 
@@ -390,7 +392,7 @@
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_carbon_collision(mob/living/carbon/mob, mob/living/carbon/xenomorph/xeno)
 	if(!istype(xeno))
 		xeno = owner
-	if(!istype(xeno) || !istype(mob))
+	if(!istype(xeno) || !istype(mob) || mob.stat == DEAD)
 		return
 	playsound(mob.loc, "punch", 25, TRUE)
 	mob.attack_log += text("\[[time_stamp()]\] <font color='orange'>was crusher charged by [xeno] ([xeno.ckey])</font>")
@@ -458,6 +460,16 @@
 			window_in_path.deconstruct(FALSE)
 			. =  TRUE
 		playsound(xeno.loc, 'sound/effects/Glassbr1.ogg')
+
+	//Window frame collision
+	else if (istype(target, /obj/structure/window_frame))
+		var/obj/structure/window_frame/window_frame_in_path = target
+		if (window_frame_in_path.unacidable)
+			. = FALSE
+		else
+			window_frame_in_path.deconstruct(FALSE)
+			playsound(xeno.loc, 'sound/effects/metalhit.ogg', 25, 1)
+			. = TRUE
 
 	//Airlocks collision
 	else if (istype(target, /obj/structure/machinery/door/airlock))
