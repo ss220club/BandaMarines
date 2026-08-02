@@ -1248,7 +1248,7 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	icon_state = "sniper_armor"
 	item_state = "sniper_armor"
 	icon = 'modular/distress/icons/sniperw.dmi'
-	camo_alpha = 4
+	var/camo_alpha = 4
 	uniform_restricted = list(/obj/item/clothing/under/marine/veteran/UPP)
 	item_icons = list(
 		WEAR_JACKET = 'modular/distress/icons/sniper.dmi'
