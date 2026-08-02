@@ -309,7 +309,7 @@
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_human_collision(mob/living/carbon/human/human, mob/living/carbon/xenomorph/xeno)
 	if(!istype(xeno))
 		xeno = owner
-	if(!istype(xeno) || !istype(human))
+	if(!istype(xeno) || !istype(human) || xeno.can_not_harm(human))
 		return
 	playsound(human.loc, "punch", 25, TRUE)
 	human.attack_log += text("\[[time_stamp()]\] <font color='orange'>was crusher charged by [xeno] ([xeno.ckey])</font>")
