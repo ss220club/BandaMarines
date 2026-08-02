@@ -334,6 +334,7 @@
 	)
 
 	human.set_effect(knockdown_duration, WEAKEN)
+	human.set_effect(knockdown_duration, STUN)
 	animation_flash_color(human)
 	if(human.client)
 		shake_camera(human, 2, 3)
