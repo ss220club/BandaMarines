@@ -28,7 +28,7 @@
 		if(SOUTH)
 			layer = ABOVE_MOB_LAYER
 //			I.pixel_y = -16
-		if(NORTH)
+//		if(NORTH)
 //			I.pixel_y = 16
 		if(EAST)
 //			I.pixel_x = 16
