@@ -1008,6 +1008,7 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	new /obj/item/clothing/head/helmet/marine/ghillie/upp(src)
 	new /obj/item/clothing/suit/storage/marine/ghillie/forecon/upp(src)
 	new /obj/item/weapon/gun/rifle/sniper/svd/vssk(src)
+	new /obj/item/storage/belt/gun/type47/np92/suppressed(src)
 	new /obj/item/ammo_magazine/sniper/svd/vssk(src)
 	new /obj/item/ammo_magazine/sniper/svd/vssk(src)
 	new /obj/item/ammo_magazine/sniper/svd/vssk(src)
@@ -1142,6 +1143,8 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 
 	fire_sound = 'sound/weapons/gun_silenced_shot2.ogg'
 	current_mag = /obj/item/ammo_magazine/sniper/svd/vssk
+	muzzle_flash = null
+	muzzle_flash_lum = 0
 	attachable_allowed = list(
 		//Muzzle,
 		/obj/item/attachable/bayonet,

@@ -324,7 +324,7 @@
 
 /datum/ammo/bullet/sniper/upp/vssk
 	name = "armor-piercing sniper bullet"
-	icon_state = "bullet_green"
+	icon_state = "bullet_green_tac"
 	damage = 90
 	accurate_range_min = 14
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SNIPER|AMMO_IGNORE_COVER|AMMO_ANTIVEHICLE
@@ -333,8 +333,8 @@
 /datum/ammo/bullet/sniper/upp/vssk/on_hit_mob(mob/hit_mob, obj/projectile/bullet)
 	. = ..()
 	knockback(hit_mob, bullet, 30)
-	hit_mob.apply_effect(3, SLOW)
-	hit_mob.apply_effect(3, DAZE)
+	hit_mob.apply_effect(5, SLOW)
+	hit_mob.apply_effect(5, DAZE)
 
 /datum/ammo/bullet/sniper/upp/vssk/set_bullet_traits()
 	. = ..()
