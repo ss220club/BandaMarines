@@ -1140,28 +1140,13 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 
 	pixel_x = -6
 	hud_offset = -6
-
+	aiming_time = 40
+	unacidable = 1
 	fire_sound = 'sound/weapons/gun_silenced_shot2.ogg'
 	current_mag = /obj/item/ammo_magazine/sniper/svd/vssk
 	muzzle_flash = null
 	muzzle_flash_lum = 0
 	attachable_allowed = list(
-		//Muzzle,
-		/obj/item/attachable/bayonet,
-		/obj/item/attachable/bayonet/upp_replica,
-		/obj/item/attachable/bayonet/upp,
-		/obj/item/attachable/bayonet/antique,
-		/obj/item/attachable/bayonet/wy,
-		/obj/item/attachable/bayonet/custom,
-		/obj/item/attachable/bayonet/custom/red,
-		/obj/item/attachable/bayonet/custom/blue,
-		/obj/item/attachable/bayonet/custom/black,
-		/obj/item/attachable/bayonet/tanto,
-		/obj/item/attachable/bayonet/tanto/blue,
-		/obj/item/attachable/bayonet/rmc_replica,
-		/obj/item/attachable/bayonet/rmc,
-		//Under,
-		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/bipod,
 	)
 	flags_gun_features = GUN_AUTO_EJECTOR|GUN_WIELDED_FIRING_ONLY|GUN_SPECIALIST|GUN_AMMO_COUNTER|GUN_CAN_POINTBLANK
@@ -1180,7 +1165,7 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 		return 0
 
 /obj/item/weapon/gun/rifle/sniper/svd/vssk/set_gun_attachment_offsets()
-	attachable_offset = list("muzzle_x" = 32, "muzzle_y" = 17,"rail_x" = 13, "rail_y" = 19, "under_x" = 26, "under_y" = 14, "stock_x" = 24, "stock_y" = 13, "special_x" = 39, "special_y" = 18)
+	attachable_offset = list("muzzle_x" = 47, "muzzle_y" = 17,"rail_x" = 13, "rail_y" = 19, "under_x" = 26, "under_y" = 14, "stock_x" = 24, "stock_y" = 13, "special_x" = 39, "special_y" = 18)
 
 /obj/item/weapon/gun/rifle/sniper/svd/vssk/set_gun_config_values()
 	..()
@@ -1253,7 +1238,7 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	icon = 'modular/distress/icons/sniperw.dmi'
 	camouflage_break = 15
 	camouflage_enter_delay = 15
-	full_camo_alpha = 5
+	full_camo_alpha = 7
 	uniform_restricted = list(/obj/item/clothing/under/marine/veteran/UPP)
 	item_icons = list(
 		WEAR_JACKET = 'modular/distress/icons/sniper.dmi'
@@ -1272,7 +1257,7 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 		WEAR_BACK = 'modular/distress/icons/sniper.dmi'
 	)
 	max_storage_space = 14
-	camo_alpha = 8
+	camo_alpha = 10
 
 /obj/item/storage/backpack/marine/satchel/scout_cloak/upp/weak/sniper/verb/camouflageupp()
 	set name = "Activate Cloak UPP"

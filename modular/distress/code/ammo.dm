@@ -333,8 +333,8 @@
 /datum/ammo/bullet/sniper/upp/vssk/on_hit_mob(mob/hit_mob, obj/projectile/bullet)
 	. = ..()
 	knockback(hit_mob, bullet, 30)
-	hit_mob.apply_effect(5, SLOW)
-	hit_mob.apply_effect(5, DAZE)
+	hit_mob.apply_effect(3, SLOW)
+	hit_mob.apply_effect(3, DAZE)
 
 /datum/ammo/bullet/sniper/upp/vssk/set_bullet_traits()
 	. = ..()
