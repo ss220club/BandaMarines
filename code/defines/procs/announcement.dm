@@ -3,6 +3,7 @@
 #define CLF_COMMAND_ANNOUNCE "Оповещение командования CLF"
 #define PMC_COMMAND_ANNOUNCE "Оповещение командования PMC"
 #define VENIR_ANNOUNCE "White Antre Central Announcement"
+#define CLF_ANNOUNCE "Объявление координатора лагеря CLF"
 #define QUEEN_ANNOUNCE "Слова Королевы звучат у вас в голове..."
 #define QUEEN_LORE_ANNOUNCE "Слова Королевы звучат у вас в голове..."
 #define QUEEN_MOTHER_ANNOUNCE "Экстрасенсорная директива Королевы-Матери"
@@ -13,6 +14,39 @@
 /proc/venir_announcement(message, title = VENIR_ANNOUNCE, sound_to_play = sound('sound/misc/notice2.ogg'), faction_to_display = FACTION_SURVIVOR)
 	var/list/targets = GLOB.human_mob_list + GLOB.dead_mob_list
 	if(faction_to_display == FACTION_SURVIVOR)
+		for(var/mob/M in targets)
+			if(isobserver(M)) //observers see everything
+				continue
+			var/mob/living/carbon/human/H = M
+			if(!istype(H) || H.stat != CONSCIOUS || isyautja(H) || ismarinejob(H) || is_mainship_level(H.z)) //base human checks
+				targets.Remove(H)
+				continue
+
+	else if(faction_to_display == "Everyone (-Yautja)")
+		for(var/mob/M in targets)
+			if(isobserver(M)) //observers see everything
+				continue
+			var/mob/living/carbon/human/H = M
+			if(!istype(H) || H.stat != CONSCIOUS || isyautja(H))
+				targets.Remove(H)
+
+	else
+		for(var/mob/M in targets)
+			if(isobserver(M)) //observers see everything
+				continue
+			var/mob/living/carbon/human/H = M
+			if(!istype(H) || H.stat != CONSCIOUS || isyautja(H) || ismarinejob(H))
+				targets.Remove(H)
+				continue
+			if(H.faction != faction_to_display)
+				targets.Remove(H)
+
+	announcement_helper(message, title, targets, sound_to_play)
+
+//CLF announcement
+/proc/clf_announcement(message, title = CLF_ANNOUNCE, sound_to_play = sound('sound/misc/notice2.ogg'), faction_to_display = FACTION_CLF)
+	var/list/targets = GLOB.human_mob_list + GLOB.dead_mob_list
+	if(faction_to_display == FACTION_CLF)
 		for(var/mob/M in targets)
 			if(isobserver(M)) //observers see everything
 				continue

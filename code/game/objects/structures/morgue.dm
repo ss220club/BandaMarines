@@ -307,13 +307,8 @@
 	update_name = FALSE
 
 /obj/structure/morgue/sarcophagus/stone
-	name = "sarcophagus"
-	desc = "Used to store fallen warriors."
 	icon = 'icons/obj/structures/props/hunter/sarcophagus.dmi'
-	icon_state = "sarcophagus1"
-	morgue_type = "sarcophagus"
 	tray_path = /obj/structure/morgue_tray/sarcophagus/stone
-	update_name = FALSE
 
 /*
  * Sarcophagus tray
