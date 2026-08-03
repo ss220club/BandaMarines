@@ -24,7 +24,7 @@
 	macro_path = /datum/action/xeno_action/verb/verb_crushing_onslaught
 	action_type = XENO_ACTION_CLICK
 	ability_primacy = XENO_PRIMARY_ACTION_1
-	xeno_cooldown = 14 SECONDS
+	xeno_cooldown = 16 SECONDS
 	plasma_cost = 20
 	// Config options
 	distance = 6
@@ -66,7 +66,6 @@
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/use_ability(atom/target)
 	var/mob/living/carbon/xenomorph/xeno = owner
-
 	if(!istype(xeno) || !xeno.check_state())
 		return
 
@@ -93,7 +92,7 @@
 		apply_charge_slowdown()
 		pre_windup_effects()
 		xeno.xeno_jitter(windup_duration + charge_window)
-
+		apply_cooldown()
 		if(!do_after(xeno, windup_duration, INTERRUPT_INCAPACITATED|INTERRUPT_CHANGED_LYING, BUSY_ICON_HOSTILE))
 			to_chat(xeno, SPAN_XENODANGER("Мы отменяем подготовку рывка!"))
 			winding_up = FALSE
@@ -190,7 +189,7 @@
 	charge_timeout_timer_id = TIMER_ID_NULL
 	activated_once = FALSE
 	xeno.fortify = FALSE
-	apply_cooldown()
+
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/execute_charge(atom/target)
 	var/mob/living/carbon/xenomorph/xeno = owner
