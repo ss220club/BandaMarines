@@ -351,7 +351,7 @@
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_xeno_collision(mob/living/carbon/xenomorph/target_xeno, mob/living/carbon/xenomorph/xeno)
 	if(!istype(xeno))
 		xeno = owner
-	if(!istype(xeno) || !istype(target_xeno))
+	if(!istype(xeno) || !istype(target_xeno) || HAS_TRAIT_FROM(target_xeno, TRAIT_UNDENSE, LYING_DOWN_TRAIT))
 		return
 
 	if(!xeno.ally_of_hivenumber(target_xeno.hivenumber))
@@ -360,7 +360,7 @@
 		log_attack("[xeno] ([xeno.ckey]) crusher charged [target_xeno] ([target_xeno.ckey])")
 		target_xeno.apply_damage(direct_hit_damage * 0.5, BRUTE)
 
-	if(!target_xeno.resting && (isqueen(target_xeno) || IS_XENO_LEADER(target_xeno) ||  isboiler(target_xeno))) // boilers because they have long c/d and warmups, get griefed hard if stunned
+	if((isqueen(target_xeno) || IS_XENO_LEADER(target_xeno) ||  isboiler(target_xeno))) // boilers because they have long c/d and warmups, get griefed hard if stunned
 		var/facing_dir = xeno.dir
 		xeno.throw_atom(get_step(xeno, reverse_direction(facing_dir)), 1, 3, target_xeno)
 		xeno.face_dir(facing_dir)
