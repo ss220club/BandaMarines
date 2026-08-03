@@ -74,7 +74,7 @@ map white_antre_research_facility
 endmap
 
 map fort_mcneil
-	maxplayers 100
+	maxplayers 50
 endmap
 
 map cape_river
