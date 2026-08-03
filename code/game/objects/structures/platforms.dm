@@ -13,7 +13,7 @@
 	layer = OBJ_LAYER
 	breakable = TRUE
 	flags_atom = ON_BORDER|NO_ZFALL
-	unacidable = TRUE
+	unacidable = FALSE
 	climb_delay = CLIMB_DELAY_SHORT
 	projectile_coverage = PROJECTILE_COVERAGE_NONE
 	var/stat = 0
@@ -23,20 +23,20 @@
 
 /obj/structure/platform/Initialize()
 	. = ..()
-	var/image/I = image(icon, src, "platform_overlay", LADDER_LAYER, dir)//ladder layer puts us just above weeds.
+//	var/image/I = image(icon, src, "platform_overlay", LADDER_LAYER, dir)//ladder layer puts us just above weeds.
 	switch(dir)
 		if(SOUTH)
 			layer = ABOVE_MOB_LAYER
-			I.pixel_y = -16
-		if(NORTH)
-			I.pixel_y = 16
+//			I.pixel_y = -16
+//		if(NORTH)
+//			I.pixel_y = 16
 		if(EAST)
-			I.pixel_x = 16
+//			I.pixel_x = 16
 			layer = MOB_LAYER
 		if(WEST)
-			I.pixel_x = -16
+//			I.pixel_x = -16
 			layer = MOB_LAYER
-	overlays += I
+//	overlays += I
 
 /obj/structure/platform/initialize_pass_flags(datum/pass_flags_container/PF)
 	..()

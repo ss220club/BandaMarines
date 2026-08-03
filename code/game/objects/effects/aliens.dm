@@ -506,6 +506,15 @@
 		visible_message(SPAN_XENODANGER("[capitalize(acid_t.declent_ru(NOMINATIVE))] трещит и рассыпается, когда кислота полностью разъедает [genderize_ru(acid_t.gender, "его", "её", "его", "их")]!")) // SS220 EDIT ADDICTION
 		pass() // Don't delete it, just damaj
 
+	else if(istype(acid_t, /obj/structure/platform))
+		var/obj/structure/platform/P = acid_t
+		if(P.explo_proof)
+			visible_message(SPAN_XENODANGER("[capitalize(acid_t.declent_ru(NOMINATIVE))] шипит, но остается целым под воздействием кислоты!"))
+			qdel(src)
+			return
+		visible_message(SPAN_XENODANGER("[capitalize(acid_t.declent_ru(NOMINATIVE))] трещит и рассыпается, когда кислота полностью разъедает [genderize_ru(acid_t.gender, "его", "её", "его", "их")]!"))
+		P.broken()
+
 	else if(istype(acid_t, /obj/structure/dropship_equipment))
 		var/obj/structure/dropship_equipment/module = acid_t
 		visible_message(SPAN_XENODANGER("[acid_t] is ravaged by the acid that covered it!"))
