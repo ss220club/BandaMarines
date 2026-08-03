@@ -235,12 +235,10 @@
 /obj/structure/platform/metal/stair_cut/almayer_smooth_left
 	icon_state = "platform_sm_stair"
 	explo_proof = TRUE
-	unacidable = TRUE
 
 /obj/structure/platform/metal/stair_cut/almayer_smooth_right
 	icon_state = "platform_sm_stair_alt"
 	explo_proof = TRUE
-	unacidable = TRUE
 
 //------------------------------//
 //    Stone Stairs Platforms    //
@@ -323,7 +321,6 @@
 /obj/structure/platform/metal/almayer_smooth
 	icon_state = "platform_sm"
 	explo_proof = TRUE
-	unacidable = TRUE
 
 /obj/structure/platform/metal/almayer_smooth/north
 	dir = NORTH
@@ -364,7 +361,6 @@
 	name = "raised metal edge"
 	desc =  "A raised level of metal, often used to elevate areas above others, or construct bridges. You could probably climb it."
 	explo_proof = TRUE
-	unacidable = TRUE
 
 /obj/structure/platform/metal/kutjevo_smooth_immune/north
 	dir = NORTH
@@ -573,7 +569,6 @@
 /obj/structure/platform_decoration/metal/almayer_smooth
 	icon_state = "platform_sm_deco"
 	explo_proof = TRUE
-	unacidable = TRUE
 
 /obj/structure/platform_decoration/metal/almayer_smooth/north
 	dir = NORTH
@@ -626,7 +621,6 @@
 	desc = "The corner of what appears to be raised piece of metal, often used to imply the illusion of elevation in non-Euclidean 2d spaces. But you don't know that, you're just a spaceman with a rifle."
 	icon_state = "kutjevo_platform_sm_deco"
 	explo_proof = TRUE
-	unacidable = TRUE
 
 /obj/structure/platform_decoration/metal/kutjevo_smooth_immune/north
 	dir = NORTH
@@ -1079,7 +1073,6 @@
 	desc = "A solid chunk of desolate rocks. Looks like you could climb it."
 	icon_state = "colorable_strata_rock_platform"
 	explo_proof = TRUE
-	unacidable = TRUE
 
 /obj/structure/platform/stone/soro_colorable_immune/north
 	dir = NORTH
@@ -1093,7 +1086,6 @@
 	desc = "Solid chunks of desolate rocks."
 	icon_state = "colorable_strata_rock_platform_deco"
 	explo_proof = TRUE
-	unacidable = TRUE
 
 /obj/structure/platform_decoration/stone/soro_colorable_immune/north
 	dir = NORTH
@@ -1105,12 +1097,10 @@
 /obj/structure/platform/stone/stair_cut/soro_left
 	icon_state = "colorable_strata_rock_platform_stair"
 	explo_proof = TRUE
-	unacidable = TRUE
 
 /obj/structure/platform/stone/stair_cut/soro_right
 	icon_state = "colorable_strata_rock_platform_stair_alt"
 	explo_proof = TRUE
-	unacidable = TRUE
 
 //kutjevo rocks
 
@@ -1151,7 +1141,6 @@
 	desc = "A solid chunk of desolate rocks. Looks like you could climb it."
 	icon_state = "colorable_kutjevo_rock"
 	explo_proof = TRUE
-	unacidable = TRUE
 
 /obj/structure/platform/stone/kutjevo_colorable_immune/north
 	dir = NORTH
@@ -1165,7 +1154,6 @@
 	desc = "Solid chunks of desolate rocks."
 	icon_state = "colorable_kutjevo_rock_deco"
 	explo_proof = TRUE
-	unacidable = TRUE
 
 /obj/structure/platform_decoration/stone/kutjevo_colorable_immune/north
 	dir = NORTH
@@ -1177,9 +1165,7 @@
 /obj/structure/platform/stone/stair_cut/kutjevo_left
 	icon_state = "colorable_kutjevo_rock_stair"
 	explo_proof = TRUE
-	unacidable = TRUE
 
 /obj/structure/platform/stone/stair_cut/kutjevo_right
 	icon_state = "colorable_kutjevo_rock_stair_alt"
 	explo_proof = TRUE
-	unacidable = TRUE
