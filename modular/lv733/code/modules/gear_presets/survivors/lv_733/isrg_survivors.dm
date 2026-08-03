@@ -65,6 +65,8 @@
 	new_human.equip_to_slot_or_del(new /obj/item/tool/crowbar/tactical(new_human), WEAR_IN_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/device/defibrillator/synthetic(new_human), WEAR_IN_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/firstaid/synth(new_human), WEAR_IN_BACK)
+	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/mirai7(new_human), WEAR_IN_BACK)
+	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/mirai7(new_human), WEAR_IN_BACK)
 
 /datum/equipment_preset/survivor/isrg/rescuer
 	name = "Survivor - ISRG Rescuer"
@@ -90,6 +92,8 @@
 	)
 	new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/mirai7(new_human), WEAR_J_STORE)
 	new_human.equip_to_slot_or_del(new /obj/item/tool/crowbar/tactical(new_human), WEAR_IN_JACKET)
+	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/mirai7(new_human), WEAR_IN_BACK)
+	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/mirai7(new_human), WEAR_IN_BACK)
 
 /datum/equipment_preset/survivor/isrg/leader
 	name = "Survivor - ISRG Group Leader"
@@ -118,6 +122,8 @@
 	new_human.equip_to_slot_or_del(new /obj/item/tool/crowbar/tactical(new_human), WEAR_IN_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/l86kai/ap(new_human), WEAR_IN_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/l86kai(new_human), WEAR_IN_JACKET)
+	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/l86kai(new_human), WEAR_IN_BACK)
+	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/l86kai(new_human), WEAR_IN_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/l86kai(new_human), WEAR_IN_BACK)
 
 /datum/equipment_preset/survivor/isrg/smartgunner
@@ -170,7 +176,7 @@
 	minimap_icon = "isrg_synth"
 	minimap_background = "background_isrg"
 	role_comm_title = "K9"
-	idtype = /obj/item/card/id/dogtag
+	idtype = /obj/item/card/id/dogtag/isrg_k9
 	flags = EQUIPMENT_PRESET_EXTRA
 	var/survivor_variant = CIVILIAN_SURVIVOR
 
@@ -261,3 +267,6 @@
 	new_human.equip_to_slot_or_del(new /obj/item/notepad(new_human), WEAR_IN_R_STORE)
 	new_human.equip_to_slot_or_del(new /obj/item/tool/pen/multicolor/fountain(new_human), WEAR_IN_R_STORE)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/box/mre/twe(new_human), WEAR_IN_JACKET)
+	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/l86kai(new_human), WEAR_IN_BACK)
+	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/l86kai(new_human), WEAR_IN_BACK)
+	new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/l86kai(new_human), WEAR_J_STORE)

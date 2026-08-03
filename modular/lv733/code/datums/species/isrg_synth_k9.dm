@@ -22,12 +22,18 @@
 	if(!(spawned_k9.sdisabilities & DISABILITY_MUTE))
 		spawned_k9.sdisabilities |= DISABILITY_MUTE
 		added_mute_disability = TRUE
+	RegisterSignal(spawned_k9, COMSIG_HUMAN_ATTEMPTING_EQUIP, PROC_REF(on_attempting_equip))
 	RegisterSignal(spawned_k9, COMSIG_HUMAN_EQUIPPED_ITEM, PROC_REF(on_equipped_item))
 	RegisterSignal(spawned_k9, COMSIG_HUMAN_UNARMED_ATTACK, PROC_REF(on_unarmed_attack))
+	RegisterSignal(spawned_k9, COMSIG_MOB_INTENT_CHANGE, PROC_REF(on_intent_change))
+	RegisterSignal(spawned_k9, COMSIG_MOB_PICKUP_ITEM, PROC_REF(on_pickup_item))
+	RegisterSignal(spawned_k9, COMSIG_MOB_PRE_CLICK, PROC_REF(on_pre_click))
 	RegisterSignal(spawned_k9, COMSIG_MOB_WEED_SLOWDOWN, PROC_REF(handle_weed_slowdown))
 	RegisterSignal(spawned_k9, COMSIG_HUMAN_REVIVED, PROC_REF(on_revived))
 	RegisterSignal(spawned_k9, COMSIG_HUMAN_OVERLAY_APPLIED, PROC_REF(on_overlay_applied))
 	give_action(spawned_k9, /datum/action/isrg_k9_voice_panel)
+	give_action(spawned_k9, /datum/action/human_action/activable/isrg_k9/takedown)
+	give_action(spawned_k9, /datum/action/human_action/activable/isrg_k9/pounce)
 
 /datum/species/synthetic/synth_k9/isrg/post_species_loss(mob/living/carbon/human/H)
 	. = ..()
@@ -36,9 +42,15 @@
 	if(added_mute_disability)
 		H.sdisabilities &= ~DISABILITY_MUTE
 	remove_action(H, /datum/action/isrg_k9_voice_panel)
+	remove_action(H, /datum/action/human_action/activable/isrg_k9/takedown)
+	remove_action(H, /datum/action/human_action/activable/isrg_k9/pounce)
 	UnregisterSignal(H, list(
+		COMSIG_HUMAN_ATTEMPTING_EQUIP,
 		COMSIG_HUMAN_EQUIPPED_ITEM,
 		COMSIG_HUMAN_UNARMED_ATTACK,
+		COMSIG_MOB_INTENT_CHANGE,
+		COMSIG_MOB_PICKUP_ITEM,
+		COMSIG_MOB_PRE_CLICK,
 		COMSIG_MOB_WEED_SLOWDOWN,
 		COMSIG_HUMAN_REVIVED,
 		COMSIG_HUMAN_OVERLAY_APPLIED,
@@ -76,6 +88,53 @@
 	if(damage < 150)
 		return 2
 	return 3
+
+/// Harm intent keeps the K9's paws empty so its normal bite is never replaced by an item attack.
+/datum/species/synthetic/synth_k9/isrg/proc/on_attempting_equip(mob/living/carbon/human/k9, obj/item/equipping_item, slot)
+	SIGNAL_HANDLER
+	if(k9.a_intent != INTENT_HARM || (slot != WEAR_L_HAND && slot != WEAR_R_HAND))
+		return
+	to_chat(k9, SPAN_WARNING("В боевом режиме вы не можете брать предметы в лапы."))
+	return COMPONENT_HUMAN_CANCEL_ATTEMPT_EQUIP
+
+/// Cancel an ordinary click on an external item before attack_hand() can put it in a paw.
+/datum/species/synthetic/synth_k9/isrg/proc/on_pre_click(mob/living/carbon/human/k9, atom/clicked_atom, list/mods)
+	SIGNAL_HANDLER
+	if(k9.a_intent != INTENT_HARM || k9.selected_ability || !isitem(clicked_atom))
+		return
+	if(clicked_atom.loc == k9 || !mods[LEFT_CLICK] || mods[SHIFT_CLICK] || mods[CTRL_CLICK] || mods[ALT_CLICK] || mods[MIDDLE_CLICK])
+		return
+	to_chat(k9, SPAN_WARNING("В боевом режиме вы не можете брать предметы в лапы."))
+	return COMPONENT_INTERRUPT_CLICK
+
+/// Safety net for items inserted into a hand without going through a normal click or equip attempt.
+/datum/species/synthetic/synth_k9/isrg/proc/on_pickup_item(mob/living/carbon/human/k9, obj/item/picked_item)
+	SIGNAL_HANDLER
+	if(k9.a_intent != INTENT_HARM)
+		return
+	INVOKE_NEXT_TICK(src, PROC_REF(drop_harm_item), k9, picked_item)
+
+/datum/species/synthetic/synth_k9/isrg/proc/drop_harm_item(mob/living/carbon/human/k9, obj/item/picked_item)
+	if(QDELETED(k9) || QDELETED(picked_item))
+		return
+	if(k9.l_hand != picked_item && k9.r_hand != picked_item)
+		return
+	if(k9.drop_inv_item_on_ground(picked_item))
+		to_chat(k9, SPAN_WARNING("Вы выпускаете предмет, чтобы освободить лапы для боя."))
+
+/// Drop anything already held when harm intent is selected.
+/datum/species/synthetic/synth_k9/isrg/proc/on_intent_change(mob/living/carbon/human/k9, new_intent)
+	SIGNAL_HANDLER
+	if(new_intent != INTENT_HARM)
+		return
+
+	var/dropped_item = FALSE
+	if(k9.l_hand && k9.drop_inv_item_on_ground(k9.l_hand))
+		dropped_item = TRUE
+	if(k9.r_hand && k9.drop_inv_item_on_ground(k9.r_hand))
+		dropped_item = TRUE
+	if(dropped_item)
+		to_chat(k9, SPAN_WARNING("Вы освобождаете лапы для боя."))
 
 /datum/species/synthetic/synth_k9/isrg/proc/on_equipped_item(mob/living/carbon/human/wearer, obj/item/equipped_item, slot)
 	SIGNAL_HANDLER
