@@ -401,39 +401,36 @@
 	if(SSticker.mode.acting_commander && !force) // If there's already an aCO; don't set a new one, unless forced.
 		return
 
-	if((GLOB.marine_leaders[JOB_CO] || GLOB.marine_leaders[JOB_XO]) && !force)
+	if((GLOB.marine_leaders[JOB_CO] || GLOB.marine_leaders[JOB_XO]) && !commander)
 		return
 	//If we have a CO or XO, we're good no need to announce anything.
 
-	for(var/job_by_chain in CHAIN_OF_COMMAND_ROLES)
-		role_in_charge = job_by_chain
-
-		if(job_by_chain == JOB_SO && GLOB.marine_leaders[JOB_SO])
-			person_in_charge = pick(GLOB.marine_leaders[JOB_SO])
-			break
-		if(job_by_chain == JOB_INTEL && GLOB.marine_officers[JOB_INTEL])
-			person_in_charge = pick(GLOB.marine_officers[JOB_INTEL])
-			break
-		if(job_by_chain == JOB_DOCTOR && GLOB.marine_officers[JOB_DOCTOR])
-			person_in_charge = pick(GLOB.marine_officers[JOB_DOCTOR])
-			break
-
-		//If the job is a list we have to stop here
-		if(person_in_charge)
-			break
-
-		var/datum/job/job_datum = GLOB.RoleAuthority.roles_for_mode[job_by_chain]
-		person_in_charge = job_datum?.get_active_player_on_job()
-		if(!isnull(person_in_charge))
-			break
-
 	if(commander) // pre-provided commander overrides the automatic selection.
 		person_in_charge = commander
-		role_in_charge = person_in_charge.job
+	else
+		var/list/all_leaders = deep_copy_list(GLOB.marine_leaders + GLOB.marine_officers)
+		for(var/job_by_chain in CHAIN_OF_COMMAND_ROLES)
+			//Checks for non-unique roles
+			if(job_by_chain in list(JOB_SO, JOB_INTEL, JOB_DOCTOR))
+				var/list/mob/living/candidates = list()
+				for(var/mob/living/candidate as anything in all_leaders[job_by_chain])
+					if(!is_mob_cryoing(candidate))
+						candidates += candidate
+				if(length(candidates))
+					person_in_charge = pick(candidates)
+					break
+			else
+				//Checks for unique roles
+				var/datum/job/job_datum = GLOB.RoleAuthority.roles_for_mode[job_by_chain]
+				person_in_charge = job_datum?.get_active_player_on_job()
+				if(person_in_charge)
+					if(!is_mob_cryoing(person_in_charge))
+						break
 
 	if(!person_in_charge)
 		return log_admin("No valid commander found for automatic promotion.")
 
+	role_in_charge = person_in_charge.job
 	SSticker.mode.acting_commander = person_in_charge // Prevents double-dipping.
 
 	var/obj/item/card/id/card = person_in_charge.get_idcard()
@@ -442,12 +439,17 @@
 		var/new_access = card.access | to_add
 		if(card.access ~! new_access)
 			card.access = new_access
-			announce_addendum += "\nSenior Command access added to ID."
+			announce_addendum += "\nДоступ командного уровня добавлен к вашему идентификатору." //SS220 EDIT START
+	if(person_in_charge.skills)
+		if(person_in_charge.skills.get_skill_level(SKILL_ENGINEER) < SKILL_ENGINEER_TRAINED)
+			person_in_charge.skills.set_skill(SKILL_ENGINEER, SKILL_ENGINEER_TRAINED)
+		if(person_in_charge.skills.get_skill_level(SKILL_OVERWATCH) < SKILL_OVERWATCH_TRAINED)
+			person_in_charge.skills.set_skill(SKILL_OVERWATCH, SKILL_OVERWATCH_TRAINED)
 
-	announce_addendum += "\nA Command headset is available in the Command Tablet cabinet."
+	announce_addendum += "\nГарнитура и планшет командования доступны в боевом информационном центре." //SS220 EDIT END
 
 	//does an announcement to the crew about the commander & alerts admins to that change for logs.
-	shipwide_ai_announcement("Acting Commander authority has been transferred to: [role_in_charge] [person_in_charge], who will assume command until further notice. Please direct all inquiries and follow instructions accordingly. [announce_addendum]", MAIN_AI_SYSTEM, 'sound/misc/interference.ogg')
+	shipwide_ai_announcement("Полномочия исполняющего обязанности командира переданы: [role_in_charge] [person_in_charge.declent_ru(DATIVE)]. Данное лицо принимает на себя командование до дальнейших распоряжений. Пожалуйста, направляйте все запросы и выполняйте инструкции соответствующим образом. [announce_addendum]", MAIN_AI_SYSTEM, 'sound/misc/interference.ogg') //SS220 EDIT
 	message_admins("[key_name(person_in_charge, TRUE)] [ADMIN_JMP_USER(person_in_charge)] has been designated the operation commander.")
 	return
 
@@ -469,7 +471,7 @@
 		for(var/obj/structure/machinery/medical_pod/autodoc/target in GLOB.machines)
 			if(is_mainship_level(target.z))
 				target.skilllock = SKILL_SURGERY_DEFAULT // lowers skill-lock to 0
-		ai_silent_announcement("WARNING: Cryopod release cycle DELAYED for MEDICAL PERSONNEL. Releasing Emergency Override Disks for AUTODOC Systems.", ".G", TRUE)
+		ai_silent_announcement("ВНИМАНИЕ: Цикл выхода из криокапсул для МЕДИЦИНСКОГО ПЕРСОНАЛА ЗАДЕРЖИВАЕТСЯ. Выпускаются диски аварийной перезаписи систем «АВТОДОК».", ".G")
 		return log_admin("No Shipside Doctor found = Autodoc Upgrade Supplies ordered and AutoDoc skill locks released.")
 
 /datum/game_mode/colonialmarines/proc/ares_conclude()
@@ -668,6 +670,10 @@
 
 	if(SShijack?.sd_detonated)
 		round_finished = MODE_INFESTATION_DRAW_DEATH // Self destruction.
+		return
+	if(SShijack?.hijack_status == HIJACK_OBJECTIVES_GROUND_CRASH && !MODE_HAS_MODIFIER(/datum/gamemode_modifier/continue_on_ground_crash))
+		if(SShijack.crashed)
+			round_finished = MODE_INFESTATION_X_MAJOR // Ship crashed into ground and modifier doesn't disable this
 		return
 
 	var/list/living_player_list = count_humans_and_xenos(get_affected_zlevels())
