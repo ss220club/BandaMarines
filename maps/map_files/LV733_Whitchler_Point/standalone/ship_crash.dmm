@@ -32,7 +32,7 @@
 /obj/structure/surface/rack{
 	color = "#848484"
 	},
-/obj/item/weapon/gun/rifle/l42a,
+/obj/item/weapon/gun/rifle/l23/leader,
 /turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
 /area/template_noop)
 "cU" = (
@@ -79,6 +79,7 @@
 	color = "#848484"
 	},
 /obj/item/storage/pouch/survival/full/black,
+/obj/item/stack/sheet/metal/large_stack,
 /turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
 /area/template_noop)
 "eB" = (
@@ -353,6 +354,7 @@
 /obj/structure/surface/rack{
 	color = "#848484"
 	},
+/obj/item/defenses/handheld/planted_flag/roaf,
 /turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
 /area/template_noop)
 "tS" = (
@@ -563,6 +565,11 @@
 /obj/structure/prop/invuln/fire,
 /turf/open/floor/plating/platingdmg3,
 /area/template_noop)
+"Ew" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_magazine/rifle/l23/ap,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/template_noop)
 "EF" = (
 /turf/closed/shuttle/dropship3{
 	icon_state = "92"
@@ -767,6 +774,7 @@
 	pixel_x = 5;
 	pixel_y = 4
 	},
+/obj/item/ammo_magazine/rifle/l23/ap,
 /turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
 /area/template_noop)
 "Mr" = (
@@ -873,6 +881,10 @@
 	icon_state = "59"
 	},
 /area/template_noop)
+"UT" = (
+/obj/item/ammo_magazine/rifle/l23/ap,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/template_noop)
 "Vd" = (
 /obj/structure/platform/metal/almayer/north,
 /obj/structure/machinery/light/double{
@@ -887,7 +899,7 @@
 /area/template_noop)
 "VF" = (
 /obj/structure/surface/table/reinforced/black,
-/obj/item/ammo_box/magazine/l42a,
+/obj/item/ammo_magazine/rifle/l23/ap,
 /turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
 /area/template_noop)
 "Wb" = (
@@ -1334,10 +1346,10 @@ zq
 DS
 dj
 mJ
-Mr
+Ew
 Mr
 WZ
-mJ
+UT
 Yf
 dz
 AJ

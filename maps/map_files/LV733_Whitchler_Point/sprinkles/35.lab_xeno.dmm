@@ -249,13 +249,6 @@
 /obj/item/stack/sheet/metal,
 /turf/open/floor/almayer/silver2smooth3/east,
 /area/lv733/indoors/main_complex/central_corridor)
-"cT" = (
-/obj/effect/alien/egg{
-	icon_state = "Egg Opened";
-	status = 1
-	},
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/lv733/indoors/wy_research_complex/research_office)
 "cU" = (
 /obj/effect/decal/hybrisa/road/lines4{
 	pixel_x = 1;
@@ -1936,14 +1929,6 @@
 /obj/structure/pipes/standard/simple/hidden/dark,
 /turf/open/floor/strata/multi_tiles/southeast,
 /area/lv733/indoors/main_complex/office)
-"Fb" = (
-/obj/effect/alien/egg{
-	icon_state = "Egg Opened";
-	status = 1;
-	unacidable = 0
-	},
-/turf/open/floor/plating,
-/area/lv733/indoors/wy_research_complex/research_office)
 "Fe" = (
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/hybrisa/street/sidewalk/southeast,
@@ -3431,7 +3416,7 @@ QA
 nI
 Ax
 os
-Fb
+AP
 AP
 AP
 Ax
@@ -3464,7 +3449,7 @@ XR
 AP
 AP
 AP
-Fb
+AP
 AP
 AP
 AP
@@ -3586,7 +3571,7 @@ iF
 OX
 Ax
 Ax
-cT
+os
 os
 ap
 oW

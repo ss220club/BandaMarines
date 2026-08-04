@@ -5,7 +5,7 @@
 #define SHIP_CRASH_ZONE_HEIGHT  30
 #define SHIP_CRASH_ERT_MAX      5
 #define SHIP_CRASH_ERT_SYNTHS   1
-#define SHIP_CRASH_LARVA_PER_N  8            // НАДО ТЕСТИТЬ
+#define SHIP_CRASH_LARVA_PER_N  11            // НАДО ТЕСТИТЬ
 #define SHIP_CRASH_SAFE_RADIUS  20           // минимальная дистанция до хайва и домашней ЛЗ
 
 /obj/effect/lv733/crash_warning_overlay

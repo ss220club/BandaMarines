@@ -577,10 +577,6 @@
 	pixel_x = 24;
 	pixel_y = 18
 	},
-/obj/effect/alien/egg{
-	icon_state = "Egg Opened";
-	status = 1
-	},
 /turf/open/floor/prison/floor_plate/southwest,
 /area/lv733/indoors/sensor_facility/sensor_room)
 "mz" = (
@@ -1124,15 +1120,6 @@
 /obj/effect/decal/warning_stripes{
 	icon_state = "N";
 	layer = 3.33
-	},
-/turf/open/floor/prison/floor_plate/southwest,
-/area/lv733/indoors/sensor_facility/sensor_room)
-"yn" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/alien/egg{
-	icon_state = "Egg Opened";
-	status = 1;
-	unacidable = 0
 	},
 /turf/open/floor/prison/floor_plate/southwest,
 /area/lv733/indoors/sensor_facility/sensor_room)
@@ -1775,11 +1762,6 @@
 "Ny" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/item/ammo_casing/bullet,
-/obj/effect/alien/egg{
-	icon_state = "Egg Opened";
-	status = 1;
-	unacidable = 0
-	},
 /turf/open/floor/prison/darkbrown2/southeast,
 /area/lv733/indoors/sensor_facility/sensor_room)
 "NF" = (
@@ -1988,14 +1970,6 @@
 	pixel_y = -1
 	},
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_membrane,
-/turf/open/floor/plating/plating_catwalk/prison,
-/area/lv733/indoors/sensor_facility/sensor_room)
-"Ws" = (
-/obj/effect/alien/egg{
-	icon_state = "Egg Opened";
-	status = 1;
-	unacidable = 0
-	},
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/lv733/indoors/sensor_facility/sensor_room)
 "Wz" = (
@@ -2484,7 +2458,7 @@ nB
 nj
 VX
 im
-yn
+Hp
 nM
 mf
 Zm
@@ -2510,7 +2484,7 @@ Jk
 Kx
 Zm
 NW
-Ws
+Zm
 Zm
 Mu
 dB
@@ -2608,7 +2582,7 @@ kV
 zr
 ku
 uv
-Ws
+Zm
 dB
 dB
 dB
@@ -2653,7 +2627,7 @@ bB
 ae
 lI
 Zm
-Ws
+Zm
 uf
 xe
 VZ
