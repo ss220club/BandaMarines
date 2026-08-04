@@ -305,9 +305,9 @@
 	icon = 'modular/distress/icons/mortar.dmi'
 	desc = "A man-portable two-stage missile launcher. While capable of being fired manually, what truly sets this apart from standard boom-tubes is it's onboard fire-control systems. While deployed on a baseplate and supporting bipod stand it will attempt to link with any local USCM sensor matrix, allowing it to automatically track, identify and request to fire upon hostile targets in range."
 	icon_state = "himat"
-	max_range = 45
+	max_range = 55
 	var/kit_type = /obj/item/mortar_kit/himat
-	travel_time = 70
+	travel_time = 60
 	var/obj/item/mortar_shell/loaded_shell = null
 	var/id
 
@@ -1137,10 +1137,9 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 		WEAR_L_HAND = 'modular/distress/icons/marksman_rifles_lefthand.dmi',
 		WEAR_R_HAND = 'modular/distress/icons/marksman_rifles_righthand.dmi'
 	)
-
 	pixel_x = -6
 	hud_offset = -6
-	aiming_time = 40
+	aiming_time = 12.5
 	unacidable = 1
 	fire_sound = 'sound/weapons/gun_silenced_shot2.ogg'
 	current_mag = /obj/item/ammo_magazine/sniper/svd/vssk
@@ -1359,3 +1358,19 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	armor_bio = CLOTHING_ARMOR_MEDIUM
 	armor_rad = CLOTHING_ARMOR_NONE
 	armor_internaldamage = CLOTHING_ARMOR_LOW
+
+/obj/item/attachable/burstfire_assembly/upp
+	name = "upp burst fire assembly"
+	desc = "A small angled piece of fine machinery that increases the burst count on some weapons, and grants the ability to others. \nIncreases weapon scatter."
+	icon = 'icons/obj/items/weapons/guns/attachments/under.dmi'
+	icon_state = "rapidfire"
+	attach_icon = "rapidfire_a"
+	slot = "under"
+
+/obj/item/attachable/burstfire_assembly/upp/New()
+	..()
+	accuracy_mod = -HIT_ACCURACY_MULT_TIER_5
+	burst_mod = BURST_AMOUNT_TIER_1
+
+	accuracy_unwielded_mod = -HIT_ACCURACY_MULT_TIER_4
+

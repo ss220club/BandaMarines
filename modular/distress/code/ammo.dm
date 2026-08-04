@@ -60,13 +60,13 @@
 	icon_state = "missile_he"
 
 /obj/item/mortar_shell/himat/explosive/detonate(turf/T)
-	explosion(T, 1, 4, 6, 8, explosion_cause_data = cause_data)
+	explosion(T, 4, 6, 7, 9, explosion_cause_data = cause_data)
 
 /obj/item/mortar_shell/himat/antipersonnel
 	name = "\improper HIMAT AP missile"
 	desc = "This is a small, two-stage missile used by HIMAT launcher. This one has an anti-personnel package, air-bursting for maximum soft-target damage."
 	icon_state = "missile_ap"
-	var/number_of_airburst = 15
+	var/number_of_airburst = 16
 
 /obj/item/mortar_shell/himat/antipersonnel/detonate(turf/T)
 	var/list/turf_list = RANGE_TURFS(8, T)
@@ -97,7 +97,7 @@
 
 /datum/ammo/bullet/shrapnel/himat
 	accurate_range = 8
-	max_range = 6
+	max_range = 8
 	damage = 55
 	shrapnel_chance = SHRAPNEL_CHANCE_TIER_8
 	accuracy = HIT_ACCURACY_TIER_MAX
@@ -325,7 +325,7 @@
 /datum/ammo/bullet/sniper/upp/vssk
 	name = "armor-piercing sniper bullet"
 	icon_state = "bullet_green_tac"
-	damage = 90
+	damage = 80
 	accurate_range_min = 14
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SNIPER|AMMO_IGNORE_COVER|AMMO_ANTIVEHICLE
 	penetration = ARMOR_PENETRATION_TIER_10
