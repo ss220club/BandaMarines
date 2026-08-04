@@ -10,7 +10,7 @@
 		take_damage(damage_to_wall)
 		V.take_damage_type(10, "blunt", src)
 		playsound(V, 'sound/effects/metal_crash.ogg', 35)
-		visible_message(SPAN_DANGER("\The [V] rams \the [src]!"))
+		visible_message(SPAN_DANGER("[V] врезается в [src]!"))
 	return FALSE
 
 
