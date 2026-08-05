@@ -59,6 +59,9 @@
 	. = ..()
 	pounce_callbacks.Remove(/mob)
 
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/initialize_pounce_pass_flags()
+	pounce_pass_flags = PASS_CRUSHER_CHARGE
+
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/Destroy()
 	activated_once = TRUE
 	charge_reset()
@@ -260,32 +263,81 @@
 	REMOVE_TRAIT(xeno, TRAIT_CHARGING, TRAIT_SOURCE_ABILITY("Crusher Charge"))
 	charge_reset()
 
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/find_blocking_atoms(turf/starting_turf, move_dir)
+	var/turf/entering_turf = get_step(starting_turf, move_dir)
+	var/mob/living/carbon/xenomorph/xeno = owner
+	if(!istype(xeno) || !istype(starting_turf))
+		return NONE
+
+	for(var/atom/A in starting_turf)
+		if(!A.can_block_movement || isliving(A))
+			continue
+		if(A.BlockedExitDirs(xeno, move_dir))
+			return A
+
+	for(var/atom/A in entering_turf)
+		if(!A.can_block_movement || isliving(A))
+			continue
+		if(A.BlockedPassDirs(xeno, move_dir))
+			return A
+	return NONE
+
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/bonk_obstacle(list/collided_obstacle_list, mob/living/carbon/xenomorph/xeno)
+	var/bonked_obstacle = pick(collided_obstacle_list)
+
+	if(istype(bonked_obstacle, /obj))
+		INVOKE_ASYNC(src, PROC_REF(handle_collision), bonked_obstacle, xeno)
+	else if(istype(bonked_obstacle, /turf))
+		INVOKE_ASYNC(xeno, TYPE_PROC_REF(/mob/living/carbon/xenomorph/crusher, pounced_turf), bonked_obstacle)
+
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/charge_turf_enter(mob/living/carbon/xenomorph/xeno, turf/entering_turf)
 	SIGNAL_HANDLER
 	if(!istype(xeno) || !istype(entering_turf))
 		return NONE
 
+	var/move_dir = get_dir(xeno, entering_turf)
+	var/atom/collided_obstacle
+	if(move_dir & (NORTH|SOUTH) && move_dir & (EAST|WEST))
+		var/list/collided_obstacle_list = list()
+		var/list/possible_way_turf = list()
+		for(var/direction in list(NORTH, WEST, EAST, SOUTH))
+			if(move_dir & direction)
+				collided_obstacle = find_blocking_atoms(xeno.loc, direction)
+				if(istype(collided_obstacle))
+					collided_obstacle_list += collided_obstacle
+				else
+					var/turf/side_turf = get_step(xeno, direction)
+					if(!side_turf.density)
+						possible_way_turf += side_turf
+					else
+						collided_obstacle_list += side_turf
+		if(length(collided_obstacle_list) == 2)
+			bonk_obstacle(collided_obstacle_list, xeno)
+			return NONE
+		else
+			collided_obstacle_list.Cut()
+			var/possible_way_dir
+			for(var/way_turf in possible_way_turf)
+				possible_way_dir = get_dir(way_turf, entering_turf)
+				collided_obstacle = find_blocking_atoms(way_turf, possible_way_dir)
+				if(!istype(collided_obstacle))
+					break
+				else
+					collided_obstacle_list += collided_obstacle
+			if(istype(collided_obstacle))
+				bonk_obstacle(collided_obstacle_list, xeno)
+				return NONE
+
 	// Don't override if the turf itself is impassable
 	if(entering_turf.density)
-		INVOKE_ASYNC(xeno, TYPE_PROC_REF(/mob/living/carbon/xenomorph/crusher, pounced_turf), entering_turf)
+		bonk_obstacle(list(entering_turf), xeno)
 		return NONE
 
-	var/move_dir = get_dir(xeno, entering_turf)
-	for(var/atom/A in xeno.loc)
-		if(A.BlockedExitDirs(xeno, move_dir))
-			if(isobj(A))
-				INVOKE_ASYNC(src, PROC_REF(handle_collision), A, xeno)
-			return NONE
-
-	for(var/atom/A in entering_turf)
-		if(isliving(A) || !A.can_block_movement)
-			continue
-		if(A.BlockedPassDirs(xeno, move_dir))
-			if(isobj(A))
-				INVOKE_ASYNC(src, PROC_REF(handle_collision), A, xeno)
-			return NONE
-
-	return COMPONENT_TURF_ALLOW_MOVEMENT
+	collided_obstacle = find_blocking_atoms(xeno.loc, move_dir)
+	if(!istype(collided_obstacle))
+		return COMPONENT_TURF_ALLOW_MOVEMENT
+	bonk_obstacle(list(collided_obstacle), xeno)
+	return NONE
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/charge_move(mob/living/carbon/xenomorph/xeno, atom/oldloc, direction, forced)
 	SIGNAL_HANDLER
@@ -318,14 +370,13 @@
 
 	var/randomized_hit_zone
 	randomized_hit_zone = pick (
+			303; "chest", //70% for chest
 			GLOB.organ_rel_size["groin"]; "groin",
 			GLOB.organ_rel_size["l_arm"]; "l_arm",
 			GLOB.organ_rel_size["r_arm"]; "r_arm",
 			GLOB.organ_rel_size["l_leg"]; "l_leg",
 			GLOB.organ_rel_size["r_leg"]; "r_leg"
 		)
-	if (prob(70))
-		randomized_hit_zone = "chest"
 	human.apply_armoured_damage(direct_hit_damage, ARMOR_MELEE, BRUTE, randomized_hit_zone, 5)
 	xeno.visible_message(
 		SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] таранит [human.declent_ru(ACCUSATIVE)]!"),
@@ -423,7 +474,7 @@
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_collision(atom/target, mob/living/carbon/xenomorph/xeno)
 	if(!istype(xeno))
 		xeno = owner
-	if(!istype(xeno) || !istype(target))
+	if(!istype(xeno) || !istype(target, /obj))
 		return
 
 	//Barricade collision
@@ -457,9 +508,9 @@
 		if (window_in_path.unacidable)
 			. = FALSE
 		else
-			window_in_path.deconstruct(FALSE)
+			window_in_path.deconstruct()
+			playsound(xeno.loc, 'sound/effects/Glassbr1.ogg')
 			. =  TRUE
-		playsound(xeno.loc, 'sound/effects/Glassbr1.ogg')
 
 	//Window frame collision
 	else if (istype(target, /obj/structure/window_frame))
@@ -467,7 +518,7 @@
 		if (window_frame_in_path.unacidable)
 			. = FALSE
 		else
-			window_frame_in_path.deconstruct(FALSE)
+			window_frame_in_path.deconstruct()
 			playsound(xeno.loc, 'sound/effects/metalhit.ogg', 25, 1)
 			. = TRUE
 
@@ -504,11 +555,10 @@
 		var/obj/structure/machinery/defenses/defenses_in_path = target
 		xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] таранит [defenses_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы тараним [defenses_in_path.declent_ru(ACCUSATIVE)]!")) // SS220 EDIT ADDICTION
 
-		if (!defenses_in_path.unacidable)
-			playsound(xeno.loc, 'sound/effects/metalhit.ogg', 25, 1)
-			defenses_in_path.stat = 1
-			defenses_in_path.update_icon()
-			defenses_in_path.update_health(40)
+		playsound(xeno.loc, 'sound/effects/metalhit.ogg', 25, 1)
+		defenses_in_path.stat = 1
+		defenses_in_path.update_icon()
+		defenses_in_path.update_health(40)
 
 		. =  FALSE
 
@@ -590,6 +640,10 @@
 	if(HAS_TRAIT(src, TRAIT_CHARGING))
 		return
 	return ..()
+
+/mob/living/carbon/xenomorph/crusher/pounced_turf(turf/pounced_turf)
+	pounced_turf.ex_act(EXPLOSION_THRESHOLD_VLOW, , create_cause_data(caste_type, src))
+	..(pounced_turf)
 
 //copy of old code with the edit of skills that get CD reduction
 /datum/behavior_delegate/crusher_base/melee_attack_additional_effects_target(mob/living/carbon/target) //Stomp get CD reduction as Charge and Shield
