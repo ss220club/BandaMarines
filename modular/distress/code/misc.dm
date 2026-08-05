@@ -830,7 +830,7 @@ GLOBAL_LIST_EMPTY(upp_specialist_sets_taken)
 
 GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 		list("WEAPONS SPECIALIST SETS (CHOOSE 1)", 0, null, null, null),
-		list("HJRA-12 Set", 0, /obj/item/storage/box/spec/upp_sadar, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_REGULAR),
+		list("Rocket launcher Set", 0, /obj/item/storage/box/spec/upp_sadar, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_REGULAR),
 		list("Minigunner Set", 0, /obj/item/storage/box/spec/heavy_minigun, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_REGULAR),
 		list("Heavy Machinegun Set", 0, /obj/item/storage/box/spec/heavy_machinegun, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_REGULAR),
 		list("HIMAT Operator Set", 0, /obj/item/storage/box/spec/himat_operator, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_REGULAR),
@@ -1404,3 +1404,11 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	new /obj/item/attachable/burstfire_assembly/upp(src)
 	new /obj/item/ammo_magazine/shotgun/heavy/buckshot(src)
 	new /obj/item/ammo_magazine/shotgun/heavy/buckshot(src)
+
+/obj/item/storage/backpack/marine/rocketpack/upp
+
+
+/obj/item/storage/belt/gun/m39/upp
+
+/obj/item/storage/backpack/marine/upp
+

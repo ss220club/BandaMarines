@@ -368,3 +368,4 @@
 	max_range = 8
 	damage = 40
 	penetration = ARMOR_PENETRATION_TIER_7
+
