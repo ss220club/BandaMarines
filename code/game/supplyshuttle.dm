@@ -1401,12 +1401,12 @@ GLOBAL_DATUM_INIT(supply_controller, /datum/controller/supply, new())
 /obj/structure/machinery/computer/supply/asrs/vehicle
 	name = "vehicle ASRS console"
 	desc = "A console for an Automated Storage and Retrieval System. This one is tied to a deep storage unit for vehicles."
-	req_access = list(ACCESS_MARINE_CREWMAN)
+	req_access = null // BANDAMARINES EDIT
 	circuit = /obj/item/circuitboard/computer/supplycomp/vehicle
 	// Can only retrieve one vehicle per round
 	var/spent = FALSE
 	var/tank_unlocked = TRUE
-	var/list/allowed_roles = list(JOB_TANK_CREW)
+	var/list/allowed_roles = null // BANDAMARINES EDIT
 
 	var/list/vehicles
 

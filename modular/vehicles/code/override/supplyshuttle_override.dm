@@ -9,10 +9,17 @@
 	var/list/group_given
 	var/list/category_to_group 
 
+	req_one_access = list(ACCESS_MARINE_COMMAND, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_CREWMAN)
+
 // Блок старого интерфейса
 /obj/structure/machinery/computer/supply/asrs/vehicle/attack_hand(mob/user)
 	if(inoperable())
 		return
+
+	if(!allowed(user))
+		to_chat(user, SPAN_DANGER("Доступ запрещён."))
+		return
+
 	tgui_interact(user)
 
 /obj/structure/machinery/computer/supply/asrs/vehicle/attack_remote(mob/user)
@@ -34,8 +41,6 @@
 		ui.set_autoupdate(FALSE)
 		ui.open()
 
-/obj/structure/machinery/computer/supply/asrs/vehicle/allowed(mob/user)
-	return TRUE
 
 /obj/structure/machinery/computer/supply/asrs/vehicle/ui_status(mob/user)
 	. = ..()
