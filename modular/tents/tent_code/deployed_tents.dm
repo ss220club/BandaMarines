@@ -9,7 +9,7 @@
 
 
 /obj/structure/tent/eng
-	icon = 'modular/tents/tent_Icons/Tent_OBJ/tents_deployed_classic.dmi'
+	icon = 'modular/tents/tent-Icons/Tent-OBJ/tents_deployed_classic.dmi'
 	icon_state = "eng_interior"
 	roof_state = "eng_top"
 	x_dim = 4
@@ -25,10 +25,10 @@
 
 	switch(SSmapping.configs[GROUND_MAP].camouflage_type)
 		if("jungle")
-			icon = 'modular/tents/tent_Icons/Tent_OBJ/tents_deployed_jungle.dmi'
+			icon = 'modular/tents/tent-Icons/Tent-OBJ/tents_deployed_jungle.dmi'
 		if("desert")
-			icon = 'modular/tents/tent_Icons/Tent_OBJ/tents_deployed_desert.dmi'
+			icon = 'modular/tents/tent-Icons/Tent-OBJ/tents_deployed_desert.dmi'
 		if("snow")
-			icon = 'modular/tents/tent_Icons/Tent_OBJ/tents_deployed_snow.dmi'
+			icon = 'modular/tents/tent-Icons/Tent-OBJ/tents_deployed_snow.dmi'
 		if("urban")
-			icon = 'modular/tents/tent_Icons/Tent_OBJ/tents_deployed_urban.dmi'
+			icon = 'modular/tents/tent-Icons/Tent-OBJ/tents_deployed_urban.dmi'

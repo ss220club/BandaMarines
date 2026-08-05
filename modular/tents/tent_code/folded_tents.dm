@@ -1,7 +1,7 @@
 
 /obj/item/folded_tent/eng
 	name = "folded USCM Engineer Tent"
-	icon = 'modular/tents/tent_Icons/tent_OBJ/tents_folded.dmi'
+	icon = 'modular/tents/tent-Icons/tent-OBJ/tents_folded.dmi'
 	icon_state = "eng"
 	w_class = SIZE_LARGE
 	desc = "A standard USCM Tent for engineers."
