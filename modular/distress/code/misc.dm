@@ -1022,7 +1022,7 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	kit_name = "upp_sadar"
 
 /obj/item/storage/box/spec/upp_sadar/fill_preset_inventory()
-	new /obj/item/storage/backpack/marine/rocketpack(src)
+	new /obj/item/storage/backpack/marine/rocketpack/upp(src)
 	new /obj/item/explosive/plastic(src)
 	new /obj/item/explosive/plastic(src)
 	new	/obj/item/weapon/gun/launcher/rocket/upp(src)
@@ -1406,9 +1406,22 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	new /obj/item/ammo_magazine/shotgun/heavy/buckshot(src)
 
 /obj/item/storage/backpack/marine/rocketpack/upp
+	name = "\improper UPP rocket bags"
+	desc = "A specially-designed backpack that fits to the mounting frame on standard UPP armors"
+	icon = 'modular/distress/icons/rhbz_plus/icon/uppsadar.dmi'
+	icon_state = "rocketpack_upp"
+	item_state = "rocketpack_upp"
 
 
 /obj/item/storage/belt/gun/m39/upp
 
 /obj/item/storage/backpack/marine/upp
-
+	name = "\improper lightweight backpack"
+	desc = "The standard-issue pack of the UPP forces."
+	icon = 'modular/distress/icons/rhbz_plus/icon/heavysumka.dmi'
+	icon_state = "backpack_upp"
+	item_state = "backpack_upp"
+	flags_atom = null
+	item_icons = list(
+		WEAR_BACK = 'modular/distress/icons/rhbz_plus/onmob/heavysumka.dmi'
+	)
