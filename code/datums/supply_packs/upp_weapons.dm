@@ -100,7 +100,7 @@
 		/obj/item/ammo_magazine/sniper/svd,
 		/obj/item/ammo_magazine/sniper/svd,
 	)
-	cost = 30
+	cost = 35
 	containertype = /obj/structure/closet/crate/weapon
 	containername = "Type 88 designated marksman rifle Crate"
 	group = "UPP Special Weapon"
@@ -122,7 +122,7 @@
 	contains = list(
 		/obj/item/weapon/gun/rifle/type71/carbine/commando,
 	)
-	cost = 60
+	cost = 95
 	containertype = /obj/structure/closet/crate/weapon
 	containername = "Type 71 'Commando' pulse carbine Crate"
 	group = "UPP Special Weapon"

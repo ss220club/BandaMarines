@@ -523,7 +523,6 @@ can cause issues with ammo types getting mixed up during the burst.
 		/obj/item/attachable/attached_gun/extinguisher,
 		/obj/item/attachable/stock/type23,
 		/obj/item/attachable/burstfire_assembly/upp,
-		/obj/item/attachable/burstfire_assembly,
 		)
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_INTERNAL_MAG
 	flags_equip_slot = SLOT_BACK
@@ -540,12 +539,10 @@ can cause issues with ammo types getting mixed up during the burst.
 
 /obj/item/weapon/gun/shotgun/type23/set_gun_config_values()
 	..()
-	set_burst_delay(FIRE_DELAY_TIER_VULTURE)
-	set_fire_delay(FIRE_DELAY_TIER_SNIPER) 
-	set_burst_amount(BURST_AMOUNT_TIER_1)
+	set_fire_delay(FIRE_DELAY_TIER_AMR)
 	accuracy_mult = BASE_ACCURACY_MULT
 	accuracy_mult_unwielded = BASE_ACCURACY_MULT - HIT_ACCURACY_MULT_TIER_10
-	scatter = SCATTER_AMOUNT_TIER_3
+	scatter = SCATTER_AMOUNT_TIER_4
 	scatter_unwielded = SCATTER_AMOUNT_TIER_1
 	damage_mult = BASE_BULLET_DAMAGE_MULT
 	recoil = RECOIL_AMOUNT_TIER_1

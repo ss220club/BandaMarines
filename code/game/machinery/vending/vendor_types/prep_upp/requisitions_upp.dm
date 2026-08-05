@@ -26,7 +26,7 @@
 		list("RESTRICTED FIREARMS", -1, null, null),
 		list("Type-19 Submachinegun", floor(scale * 1), /obj/item/storage/box/guncase/type19, VENDOR_ITEM_REGULAR),
 		list("Type 71 Pulse Rifle", floor(scale * 3), /obj/item/weapon/gun/rifle/type71, VENDOR_ITEM_REGULAR),
-		list("Type 23 Riot Shotgun", floor(scale * 3), /obj/item/weapon/gun/shotgun/type23, VENDOR_ITEM_REGULAR),
+		list("Type 23 Riot Shotgun", floor(scale * 3), /obj/item/storage/box/guncase/type23, VENDOR_ITEM_REGULAR),
 		list("M240 Incinerator Unit", floor(scale * 2), /obj/item/storage/box/guncase/flamer, VENDOR_ITEM_REGULAR),
 
 		list("EXPLOSIVES", -1, null, null),
@@ -170,7 +170,7 @@
 		list("Type 64 Helical AP Magazine (7.62x19mm)", floor(scale * 15), /obj/item/ammo_magazine/smg/bizon/ap, VENDOR_ITEM_REGULAR),
 
 		list("RESTRICTED FIREARM AMMUNITION", -1, null, null),
-		list("Type-19 stick magazine (7.62x25mm)", floor(scale * 0), /obj/item/ammo_magazine/smg/pps43, VENDOR_ITEM_REGULAR),
+		list("Type-19 stick magazine (7.62x25mm)", floor(scale * 2), /obj/item/ammo_magazine/smg/pps43, VENDOR_ITEM_REGULAR),
 		list("Type-19 drum magazine (7.62x25mm)", floor(scale * 2), /obj/item/ammo_magazine/smg/pps43/extended, VENDOR_ITEM_REGULAR),
 		list("M240 Incinerator Tank", floor(scale * 3), /obj/item/ammo_magazine/flamer_tank, VENDOR_ITEM_REGULAR),
 

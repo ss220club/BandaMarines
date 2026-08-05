@@ -27,7 +27,7 @@
 	start_semiauto = FALSE
 	start_automatic = TRUE
 	COOLDOWN_DECLARE(attack_cooldown)
-	var/cooldown_time = 15 SECONDS
+	var/cooldown_time = 10 SECONDS
 
 /obj/item/weapon/gun/minigun/Initialize(mapload, spawn_empty)
 	. = ..()
@@ -78,9 +78,9 @@
 		COOLDOWN_START(src, attack_cooldown, cooldown_time)
 		target.throw_atom(get_step(target, user.dir), 3, SPEED_AVERAGE, user, FALSE)
 		target.emote("pain")
-		target.apply_effect(0.2, WEAKEN)
-		target.apply_effect(5, SLOW)
-		target.apply_effect(10, DAZE)
+		target.apply_effect(0.5, WEAKEN)
+		target.apply_effect(3, SLOW)
+		target.apply_effect(3, DAZE)
 
 //M60
 /obj/item/weapon/gun/m60
@@ -218,7 +218,7 @@
 	var/cover_open = FALSE //if the gun's feed-cover is open or not.
 
 	COOLDOWN_DECLARE(attack_cooldown)
-	var/cooldown_time = 15 SECONDS
+	var/cooldown_time = 10 SECONDS
 
 /obj/item/weapon/gun/pkp/attack(mob/living/target, mob/living/user)
 	. = ..()
@@ -226,9 +226,9 @@
 		COOLDOWN_START(src, attack_cooldown, cooldown_time)
 		target.throw_atom(get_step(target, user.dir), 3, SPEED_AVERAGE, user, FALSE)
 		target.emote("pain")
-		target.apply_effect(0.2, WEAKEN)
-		target.apply_effect(5, SLOW)
-		target.apply_effect(10, DAZE)
+		target.apply_effect(0.5, WEAKEN)
+		target.apply_effect(3, SLOW)
+		target.apply_effect(3, DAZE)
 		
 /obj/item/weapon/gun/pkp/handle_starting_attachment()
 	..()

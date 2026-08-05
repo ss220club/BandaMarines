@@ -1,4 +1,8 @@
-/datum/origin/upp
+/datum/origin/uppp
+	name = ORIGIN_UPPd
+	desc = "You were born in the Union of Progressive Peoples."
+
+/datum/origin/uppp
 	name = ORIGIN_UPP
 	desc = "You were born in the Union of Progressive Peoples."
 

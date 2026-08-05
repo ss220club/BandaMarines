@@ -29,9 +29,6 @@
 	minimap_background = "background_upp"
 	paygrades = list(PAY_SHORT_UE1 = JOB_PLAYTIME_TIER_0, PAY_SHORT_UE2 = JOB_PLAYTIME_TIER_1)
 
-/datum/equipment_preset/upp/load_status(mob/living/carbon/human/new_human)
-	new_human.nutrition = rand(NUTRITION_VERYLOW, NUTRITION_LOW)
-
 /datum/equipment_preset/upp
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 
@@ -105,6 +102,9 @@
 	access = list(
 		ACCESS_UPP_GENERAL,
 	)
+
+/datum/equipment_preset/upp/soldier/load_status(mob/living/carbon/human/new_human)
+	new_human.nutrition = rand(NUTRITION_VERYLOW, NUTRITION_LOW)
 
 /datum/equipment_preset/upp/soldier/dressed
 	name = "UPP Soldier"
@@ -222,6 +222,8 @@
 
 		list("MASK (CHOOSE 1)", 0, null, null, null),
 		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Black", 0, /obj/item/clothing/mask/rebreather/scarf/upp/black, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Olive", 0, /obj/item/clothing/mask/rebreather/scarf/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 		list("Gas Mask", 0, /obj/item/clothing/mask/gas/upp_pfb, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
 		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
@@ -360,6 +362,9 @@
 		ACCESS_UPP_MEDICAL,
 	)
 
+/datum/equipment_preset/upp/medic/load_status(mob/living/carbon/human/new_human)
+	new_human.nutrition = rand(NUTRITION_VERYLOW, NUTRITION_LOW)
+
 /datum/equipment_preset/upp/medic/dressed
 	name = "UPP Medic"
 
@@ -460,6 +465,8 @@
 
 		list("MASK (CHOOSE 1)", 0, null, null, null),
 		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Black", 0, /obj/item/clothing/mask/rebreather/scarf/upp/black, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Olive", 0, /obj/item/clothing/mask/rebreather/scarf/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 		list("Gas Mask", 0, /obj/item/clothing/mask/gas/upp_pfb, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
 		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
@@ -571,6 +578,9 @@
 		ACCESS_UPP_ENGINEERING,
 	)
 
+/datum/equipment_preset/upp/sapper/load_status(mob/living/carbon/human/new_human)
+	new_human.nutrition = rand(NUTRITION_VERYLOW, NUTRITION_LOW)
+
 /datum/equipment_preset/upp/sapper/dressed
 	name = "UPP Sapper"
 
@@ -656,6 +666,8 @@
 
 		list("MASK (CHOOSE 1)", 0, null, null, null),
 		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Black", 0, /obj/item/clothing/mask/rebreather/scarf/upp/black, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Olive", 0, /obj/item/clothing/mask/rebreather/scarf/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 		list("Gas Mask", 0, /obj/item/clothing/mask/gas/upp_pfb, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
 		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
@@ -738,6 +750,9 @@
 		ACCESS_UPP_ARMORY,
 	)
 
+/datum/equipment_preset/upp/specialist/load_status(mob/living/carbon/human/new_human)
+	new_human.nutrition = rand(NUTRITION_VERYLOW, NUTRITION_LOW)
+
 /datum/equipment_preset/upp/specialist/dressed
 	name = "UPP Specialist"
 	flags = EQUIPMENT_PRESET_EXTRA
@@ -804,6 +819,8 @@
 
 		list("MASK (CHOOSE 1)", 0, null, null, null),
 		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Black", 0, /obj/item/clothing/mask/rebreather/scarf/upp/black, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Olive", 0, /obj/item/clothing/mask/rebreather/scarf/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 		list("Rebreather", 0, /obj/item/clothing/mask/rebreather, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
 		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
@@ -870,6 +887,9 @@
 		ACCESS_UPP_GENERAL,
 		ACCESS_UPP_ARMORY,
 	)
+
+/datum/equipment_preset/upp/machinegunner/load_status(mob/living/carbon/human/new_human)
+	new_human.nutrition = rand(NUTRITION_VERYLOW, NUTRITION_LOW)
 
 /datum/equipment_preset/upp/machinegunner/dressed
 	name = "UPP Machinegunner"
@@ -938,6 +958,8 @@
 
 		list("MASK (CHOOSE 1)", 0, null, null, null),
 		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Black", 0, /obj/item/clothing/mask/rebreather/scarf/upp/black, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Olive", 0, /obj/item/clothing/mask/rebreather/scarf/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 		list("Rebreather", 0, /obj/item/clothing/mask/rebreather, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
 		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
@@ -1007,6 +1029,9 @@
 		ACCESS_UPP_FLIGHT,
 		ACCESS_UPP_LEADERSHIP,
 	)
+
+/datum/equipment_preset/upp/leader/load_status(mob/living/carbon/human/new_human)
+	new_human.nutrition = rand(NUTRITION_VERYLOW, NUTRITION_LOW)
 
 /datum/equipment_preset/upp/leader/dressed
 	name = "UPP Squad Leader"
@@ -1103,6 +1128,8 @@
 
 		list("MASK (CHOOSE 1)", 0, null, null, null),
 		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Black", 0, /obj/item/clothing/mask/rebreather/scarf/upp/black, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Olive", 0, /obj/item/clothing/mask/rebreather/scarf/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 		list("Rebreather", 0, /obj/item/clothing/mask/rebreather, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
 		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
@@ -1302,6 +1329,8 @@
 
 		list("MASK (CHOOSE 1)", 0, null, null, null),
 		list("Gas Mask", 0, /obj/item/clothing/mask/gas/pmc/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Black", 0, /obj/item/clothing/mask/rebreather/scarf/upp/black, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Olive", 0, /obj/item/clothing/mask/rebreather/scarf/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
 		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
@@ -1507,6 +1536,8 @@
 
 		list("MASK (CHOOSE 1)", 0, null, null, null),
 		list("Gas Mask", 0, /obj/item/clothing/mask/gas/upp_pfb, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Black", 0, /obj/item/clothing/mask/rebreather/scarf/upp/black, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Olive", 0, /obj/item/clothing/mask/rebreather/scarf/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR)
 	)
 
@@ -1671,6 +1702,8 @@
 
 		list("MASK (CHOOSE 1)", 0, null, null, null),
 		list("Gas Mask", 0, /obj/item/clothing/mask/gas/upp_pfb, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Black", 0, /obj/item/clothing/mask/rebreather/scarf/upp/black, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Olive", 0, /obj/item/clothing/mask/rebreather/scarf/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR)
 	)
 
@@ -1805,7 +1838,8 @@
 		list("MASK (CHOOSE 1)", 0, null, null, null),
 		list("Gas Mask", 0, /obj/item/clothing/mask/gas/upp_pfb, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
-		list("Rebreather", 0, /obj/item/clothing/mask/rebreather, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Black", 0, /obj/item/clothing/mask/rebreather/scarf/upp/black, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Olive", 0, /obj/item/clothing/mask/rebreather/scarf/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
 		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
 		list("Brown Webbing Vest", 0, /obj/item/clothing/accessory/storage/black_vest/brown_vest, MARINE_CAN_BUY_ACCESSORY, VENDOR_ITEM_RECOMMENDED),
@@ -1998,6 +2032,8 @@
 
 		list("MASK (CHOOSE 1)", 0, null, null, null),
 		list("Gas Mask", 0, /obj/item/clothing/mask/gas/pmc/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Black", 0, /obj/item/clothing/mask/rebreather/scarf/upp/black, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Olive", 0, /obj/item/clothing/mask/rebreather/scarf/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
 		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
@@ -2172,6 +2208,8 @@
 
 		list("MASK (CHOOSE 1)", 0, null, null, null),
 		list("Gas Mask", 0, /obj/item/clothing/mask/gas/pmc/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Black", 0, /obj/item/clothing/mask/rebreather/scarf/upp/black, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Olive", 0, /obj/item/clothing/mask/rebreather/scarf/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
 		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
@@ -2252,6 +2290,8 @@
 //*****************************************************************************************************/
 /datum/job/antag/upp/officer/co_whitelist
 	title = JOB_UPP_CO_OFFICER
+	total_positions = 1
+	spawn_positions = 1
 	gear_preset = /datum/equipment_preset/upp/officer/major/co
 	flags_startup_parameters = ROLE_ADMIN_NOTIFY|ROLE_WHITELISTED
 	flags_whitelist = WHITELIST_COMMANDER
@@ -2378,6 +2418,8 @@
 
 		list("MASK (CHOOSE 1)", 0, null, null, null),
 		list("Gas Mask", 0, /obj/item/clothing/mask/gas/pmc/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Black", 0, /obj/item/clothing/mask/rebreather/scarf/upp/black, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Olive", 0, /obj/item/clothing/mask/rebreather/scarf/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
 		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
@@ -2460,7 +2502,7 @@
 	title = JOB_UPP_LTKOL_OFFICER
 	gear_preset = /datum/equipment_preset/upp/officer/flag/podpolkovnik
 	flags_startup_parameters = ROLE_ADMIN_NOTIFY|ROLE_WHITELISTED
-	flags_whitelist =  WHITELIST_COMMANDER_COUNCIL
+	flags_whitelist = WHITELIST_COMMANDER_COUNCIL
 
 /datum/equipment_preset/upp/officer/flag/podpolkovnik
 	name = "UPP Podpolkovnik (Cryo)"
@@ -2571,6 +2613,8 @@
 
 		list("MASK (CHOOSE 1)", 0, null, null, null),
 		list("Gas Mask", 0, /obj/item/clothing/mask/gas/pmc/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Black", 0, /obj/item/clothing/mask/rebreather/scarf/upp/black, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Olive", 0, /obj/item/clothing/mask/rebreather/scarf/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
 		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
@@ -2813,7 +2857,7 @@
 	flags = EQUIPMENT_PRESET_EXTRA
 	faction = FACTION_UPP
 	languages = ALL_SYNTH_LANGUAGES_UPP
-
+	origin_override = ORIGIN_UPPd
 	assignment = JOB_UPP_SUPPORT_SYNTH
 	job_title = JOB_UPP_SUPPORT_SYNTH
 	minimap_icon = "upp_synth"
@@ -3745,6 +3789,8 @@
 
 		list("MASK (CHOOSE 1)", 0, null, null, null),
 		list("Gas Mask", 0, /obj/item/clothing/mask/gas/pmc/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Black", 0, /obj/item/clothing/mask/rebreather/scarf/upp/black, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Olive", 0, /obj/item/clothing/mask/rebreather/scarf/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 
 		list("ACCESSORIES (CHOOSE 1)", 0, null, null, null),
@@ -3862,6 +3908,8 @@
 
 		list("MASK (CHOOSE 1)", 0, null, null, null),
 		list("Gas Mask", 0, /obj/item/clothing/mask/gas/upp_pfb, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Black", 0, /obj/item/clothing/mask/rebreather/scarf/upp/black, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Olive", 0, /obj/item/clothing/mask/rebreather/scarf/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR)
 	)
 
@@ -3960,6 +4008,8 @@
 
 		list("MASK (CHOOSE 1)", 0, null, null, null),
 		list("Gas Mask", 0, /obj/item/clothing/mask/gas/upp_pfb, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Black", 0, /obj/item/clothing/mask/rebreather/scarf/upp/black, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Olive", 0, /obj/item/clothing/mask/rebreather/scarf/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 		list("Heat Absorbent Coif", 0, /obj/item/clothing/mask/rebreather/scarf, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR)
 	)
 
@@ -4107,6 +4157,8 @@
 		list("Laser Sight", 0, /obj/item/attachable/lasersight, MARINE_CAN_BUY_ATTACHMENT, VENDOR_ITEM_REGULAR),
 
 		list("MASK (CHOOSE 1)", 0, null, null, null),
+		list("Balaklava Black", 0, /obj/item/clothing/mask/rebreather/scarf/upp/black, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
+		list("Balaklava Olive", 0, /obj/item/clothing/mask/rebreather/scarf/upp, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR),
 		list("Tactical Bandana", 0, /obj/item/clothing/mask/rebreather/scarf/tacticalmask/green, MARINE_CAN_BUY_MASK, VENDOR_ITEM_REGULAR)
 	)
 

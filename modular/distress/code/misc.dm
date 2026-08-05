@@ -1359,6 +1359,26 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	armor_rad = CLOTHING_ARMOR_NONE
 	armor_internaldamage = CLOTHING_ARMOR_LOW
 
+/datum/action/minimap/marine/upp/live
+	live = TRUE
+
+/obj/item/device/radio/headset/distress/UPP/command
+	minimap_type = /datum/action/minimap/marine/upp/live
+
+
+/obj/item/clothing/mask/rebreather/scarf/upp/
+	icon = 'modular/distress/icons/rhbz_plus/icon/balaklava.dmi'
+	icon_state = "upp_balaklava_olive"
+	item_state = "upp_balaklava_olive"
+	item_icons = list(
+		WEAR_FACE = 'modular/distress/icons/rhbz_plus/onmob/balaklava.dmi'
+	)
+
+/obj/item/clothing/mask/rebreather/scarf/upp/black
+	icon_state = "upp_balaklava_black"
+	item_state = "upp_balaklava_black"
+	
+
 /obj/item/attachable/burstfire_assembly/upp
 	name = "upp burst fire assembly"
 	desc = "A small angled piece of fine machinery that increases the burst count on some weapons, and grants the ability to others. \nIncreases weapon scatter."
@@ -1366,11 +1386,21 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	icon_state = "rapidfire"
 	attach_icon = "rapidfire_a"
 	slot = "under"
-
+	
 /obj/item/attachable/burstfire_assembly/upp/New()
 	..()
 	accuracy_mod = -HIT_ACCURACY_MULT_TIER_5
 	burst_mod = BURST_AMOUNT_TIER_1
 
-	accuracy_unwielded_mod = -HIT_ACCURACY_MULT_TIER_4
+/obj/item/storage/box/guncase/type23
+	name = "\improper PPSh-17b submachinegun case"
+	desc = "A gun case containing the PPSh-17b submachine gun, copy of an ancient firearm, woefully inadequate for modern warfare, but highly sought after by collectors."
+	storage_slots = 4
+	can_hold = list(/obj/item/weapon/gun/shotgun/type23, /obj/item/ammo_magazine/shotgun/heavy/buckshot, /obj/item/attachable/burstfire_assembly/upp)
 
+
+/obj/item/storage/box/guncase/type23/fill_preset_inventory()
+	new /obj/item/weapon/gun/shotgun/type23(src)
+	new /obj/item/attachable/burstfire_assembly/upp(src)
+	new /obj/item/ammo_magazine/shotgun/heavy/buckshot(src)
+	new /obj/item/ammo_magazine/shotgun/heavy/buckshot(src)

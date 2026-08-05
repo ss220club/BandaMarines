@@ -312,6 +312,11 @@
 		PROPERTY_FIRE_PENETRATING = 1,
 	)
 
+/datum/ammo/bullet/sniper/upp
+	damage = 50
+	accurate_range_min = 14
+	penetration = ARMOR_PENETRATION_TIER_6
+
 /obj/item/ammo_magazine/sniper/svd/vssk
 	name = "\improper VSSK Magazine (12.7x55mm)"
 	desc = "A large-caliber 12.7x55mm magazine for the VSSK designated sniper rifle."
@@ -341,3 +346,25 @@
 	LAZYADD(traits_to_give, list(
 		BULLET_TRAIT_ENTRY(/datum/element/bullet_trait_penetrating/heavy)
 	))
+
+/datum/ammo/bullet/shotgun/heavy/buckshot
+	accurate_range = 2
+	max_range = 3
+	damage = 70
+
+/datum/ammo/bullet/shotgun/heavy/buckshot/dragonsbreath
+	accurate_range = 1
+	max_range = 4
+	damage = 55
+
+/datum/ammo/bullet/shotgun/heavy/slug
+	accurate_range = 3
+	max_range = 7
+	damage = 75
+	penetration = ARMOR_PENETRATION_TIER_5
+
+/datum/ammo/bullet/shotgun/heavy/flechette
+	accurate_range = 5
+	max_range = 8
+	damage = 40
+	penetration = ARMOR_PENETRATION_TIER_7

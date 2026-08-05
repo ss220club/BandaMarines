@@ -42,6 +42,11 @@
 	},
 /turf/open/floor/corsat/spiralplate,
 /area/rostock/lowerdeck_maint/p_m)
+"aag" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/dropship_equipment/sentry_holder/upp,
+/turf/open/floor/corsat/marked,
+/area/rostock/hangar/hangarbay)
 "aah" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "W"
@@ -61,6 +66,10 @@
 	},
 /turf/open/floor/strata/red1,
 /area/rostock/lower_deck/dining_hall)
+"aak" = (
+/obj/structure/dropship_equipment/fuel/fuel_enhancer,
+/turf/open/floor/corsat/marked,
+/area/rostock/hangar/hangarbay)
 "aal" = (
 /obj/structure/window/framed/upp_ship/reinforced,
 /obj/structure/machinery/door/poddoor/almayer/open{
@@ -104,6 +113,18 @@
 	},
 /turf/open/floor/corsat/spiralplate,
 /area/rostock/lower_deck/dining_hall)
+"aas" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "W";
+	pixel_x = -1
+	},
+/obj/structure/dropship_equipment/paradrop_system,
+/turf/open/floor/strata/multi_tiles/west,
+/area/rostock/hangar/hangarbay)
+"aat" = (
+/obj/structure/dropship_equipment/fulton_system/upp,
+/turf/open/floor/corsat/marked,
+/area/rostock/hangar/hangarbay)
 "aau" = (
 /obj/effect/decal/hybrisa/dirt_2,
 /obj/effect/decal/hybrisa/dirt,
@@ -126,6 +147,10 @@
 	},
 /turf/open/floor/strata/purp1,
 /area/rostock/lower_deck/dining_hall)
+"aax" = (
+/obj/structure/dropship_equipment/medevac_system/upp,
+/turf/open/floor/strata/red1,
+/area/rostock/hangar/hangarbay)
 "aay" = (
 /obj/structure/machinery/door/airlock/upp/generic/autoname,
 /obj/structure/pipes/standard/simple/hidden/supply{
@@ -133,6 +158,10 @@
 	},
 /turf/open/floor/corsat/marked,
 /area/rostock/lower_deck/prep_akula)
+"aaz" = (
+/obj/structure/dropship_equipment/fuel/cooling_system,
+/turf/open/floor/strata/floor2,
+/area/rostock/hangar/hangarbay)
 "aaB" = (
 /obj/structure/platform{
 	density = 0;
@@ -49600,7 +49629,7 @@ wIv
 amf
 iIr
 jPs
-oUL
+aax
 qmf
 oUL
 jPs
@@ -49795,7 +49824,7 @@ pCV
 qIp
 pCV
 vBm
-ixD
+aag
 amf
 wIv
 amf
@@ -50149,7 +50178,7 @@ pCV
 pCV
 pCV
 pCV
-pCV
+aat
 gRI
 uen
 cYa
@@ -50157,7 +50186,7 @@ bZO
 gRI
 pCV
 wZY
-pCV
+aak
 pCV
 pCV
 amf
@@ -50510,7 +50539,7 @@ amf
 wIv
 amf
 amf
-amf
+aaz
 amf
 amf
 amf
@@ -53797,7 +53826,7 @@ wkH
 kmj
 kmj
 kmj
-kmj
+aas
 coe
 kmj
 ykr
