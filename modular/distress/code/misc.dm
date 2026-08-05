@@ -1414,6 +1414,23 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 
 
 /obj/item/storage/belt/gun/m39/upp
+	name = "\improper UPP pattern Bizon holster rig"
+	desc = "Special issue variant of the M276 designed to holster a Bizon submachine gun and two spare magazines. Uncommonly issued to USCM support and specialist personnel."
+	icon_state = "bizon_armor"
+	item_state = "marinebelt"
+	icon = 'modular/distress/icons/rhbz_plus/icon/bizon.dmi'
+	storage_slots = 3
+	max_w_class = 5
+	gun_has_gamemode_skin = TRUE
+	can_hold = list(
+		/obj/item/weapon/gun/smg/bizon/upp,
+		/obj/item/ammo_box/magazine/type64,
+	)
+
+/obj/item/storage/belt/gun/m39/upp/full/fill_preset_inventory()
+	handle_item_insertion(new /obj/item/weapon/gun/smg/m39(src))
+	for(var/i = 1 to storage_slots - 1)
+		new /obj/item/ammo_box/magazine/type64(src)
 
 /obj/item/storage/backpack/marine/upp
 	name = "\improper lightweight backpack"
@@ -1425,3 +1442,4 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	item_icons = list(
 		WEAR_BACK = 'modular/distress/icons/rhbz_plus/onmob/heavysumka.dmi'
 	)
+
