@@ -43,8 +43,21 @@
 
 // ==========================================
 
-// Значки на миникарте для буханок
-/obj/vehicle/multitile/uscm_van/update_minimap_icon(modules_broken)
+// Давим окна на машинке
+/obj/structure/barricade/wooden/handle_vehicle_bump(obj/vehicle/multitile/V)
+	visible_message(SPAN_DANGER("\The [V] crushes [src]!"))
+	playsound(V, 'sound/effects/woodhit.ogg', 20)
+	take_damage(maxhealth)
+	return TRUE
+
+/obj/structure/window_frame/handle_vehicle_bump(obj/vehicle/multitile/V)
+	visible_message(SPAN_DANGER("\The [V] crushes [src]!"))
+	playsound(V, 'sound/effects/metal_crash.ogg', 20)
+	take_damage(max_health)
+	return TRUE
+
+// Значки на миникарте для модульной техники
+/obj/vehicle/multitile/modul/update_minimap_icon(modules_broken)
 	if(!minimap_icon_state)
 		return
 	SSminimaps.remove_marker(src)
