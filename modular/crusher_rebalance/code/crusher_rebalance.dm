@@ -634,6 +634,7 @@
 	return ..()
 
 /mob/living/carbon/xenomorph/crusher/pounced_turf(turf/pounced_turf)
+	visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [pounced_turf.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [pounced_turf.declent_ru(ACCUSATIVE)] и тормозим!")) // SS220 EDIT ADDICTION
 	pounced_turf.ex_act(EXPLOSION_THRESHOLD_VLOW, , create_cause_data(caste_type, src))
 	..(pounced_turf)
 
