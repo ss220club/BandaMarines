@@ -45,5 +45,14 @@
 #include "code/van/uscm_van_med.dm"
 #include "code/van/uscm_van_verbs.dm"
 #include "code/van/uscm_van_spawners.dm"
-
+#include "code/tank_camouflage/tank_camouflage.dm"
 #include "code/~undefs.dm"
+// BEGIN_INTERNALS
+// END_INTERNALS
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+// END_FILE_DIR
+// BEGIN_PREFERENCES
+// END_PREFERENCES
+// BEGIN_INCLUDE
+// END_INCLUDE
