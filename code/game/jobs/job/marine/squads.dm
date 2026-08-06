@@ -308,7 +308,7 @@
 	equipment_color = "#c864c8"
 	chat_color = "#ff96ff"
 	background_icon = "background_upp_charlie"
-	radio_freq = DELFIN_FREQ
+	radio_freq = CHAYKA_FREQ
 
 /datum/squad/upp/four
 	name = SQUAD_UPP_4
@@ -316,7 +316,7 @@
 	equipment_color = "#4148c8"
 	chat_color = "#828cff"
 	background_icon = "background_upp_delta"
-	radio_freq = CHAYKA_FREQ
+	radio_freq = DELFIN_FREQ
 
 /datum/squad/upp/kdo
 	name = SQUAD_UPP_5
