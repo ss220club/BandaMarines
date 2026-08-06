@@ -193,6 +193,26 @@ export const RADIO_CHANNELS = [
     color: '#b3222e',
   },
   {
+    name: 'Акула. СПН',
+    freq: 1262,
+    color: '#ea0000',
+  },
+  {
+    name: 'Бизон. СПН',
+    freq: 1263,
+    color: '#c68610',
+  },
+  {
+    name: 'Чайка. СПН',
+    freq: 1264,
+    color: '#aa55aa',
+  },
+  {
+    name: 'Дельфин. СПН',
+    freq: 1265,
+    color: '#007fcf',
+  },
+  {
     name: 'Спец. СПН',
     freq: 1259,
     color: '#789e18',
