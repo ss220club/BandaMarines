@@ -120,8 +120,9 @@
 	name = "armor-piercing sniper bullet"
 	icon = 'modular/distress/icons/projectiles.dmi'
 	icon_state = "redtrac"
-	damage = 80
-	penetration = ARMOR_PENETRATION_TIER_6
+	damage = 50
+	accurate_range_min = 14
+	penetration = ARMOR_PENETRATION_TIER_5
 	
 /datum/ammo/bullet/rifle/type71
 	name = "heavy rifle bullet"
@@ -133,8 +134,8 @@
 /datum/ammo/bullet/rifle/type71/ap
 	name = "heavy armor-piercing rifle bullet"
 
-	damage = 45
-	penetration = ARMOR_PENETRATION_TIER_10
+	damage = 40
+	penetration = ARMOR_PENETRATION_TIER_8
 
 /datum/ammo/bullet/minigun
 	name = "minigun bullet"
@@ -155,13 +156,20 @@
 	icon = 'modular/distress/icons/projectiles.dmi'
 	icon_state = "redtrac"
 	damage = 40 // МОРКОВКА спасибо
-	penetration = ARMOR_PENETRATION_TIER_2
+	penetration = ARMOR_PENETRATION_TIER_1
+	accurate_range = 16
+	accuracy = HIT_ACCURACY_TIER_4
+	scatter = SCATTER_AMOUNT_TIER_10
+	shell_speed = AMMO_SPEED_TIER_6
+	effective_range_max = 7
+	damage_falloff = DAMAGE_FALLOFF_TIER_7
 
 /datum/ammo/bullet/rifle/type71/ak/ap
 	name = "heavy armor-piercing rifle bullet"
 	icon_state = "bullet_green"
-	damage = 35
-	penetration = ARMOR_PENETRATION_TIER_10
+
+	damage = 30
+	penetration = ARMOR_PENETRATION_TIER_8
 
 /datum/ammo/bullet/rifle/type71/ak/heap
 	name = "heavy high-explosive armor-piercing rifle bullet"
@@ -169,6 +177,8 @@
 	icon_state = "bullet_green"
 	damage = 60
 	penetration = ARMOR_PENETRATION_TIER_10
+/obj/item/ammo_magazine/rifle/type71/ap
+	max_rounds = 45
 
 /obj/item/ammo_magazine/rifle/ak4047
 	name = "\improper AK-4047 magazine (7.62x39mm)"
@@ -192,6 +202,7 @@
 	name = "\improper AK-4047 AP magazine (7.62x39mm)"
 	desc = "A 7.62x39mm magazine containing armor piercing rounds for the AK-4047 rifle."
 	default_ammo = /datum/ammo/bullet/rifle/type71/ak/ap
+	max_rounds = 30
 	ammo_band_color = AMMO_BAND_COLOR_AP
 
 /obj/item/ammo_magazine/rifle/ak4047/heap
@@ -205,6 +216,7 @@
 	desc = "A 7.62x39mm assault rifle magazine containing the incendiary rounds for the AK-4047 rifle."
 	default_ammo = /datum/ammo/bullet/rifle/incendiary
 	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
+
 
 /obj/structure/machinery/defenses/sentry/launchable/upp
 	name = "\improper UPP SDS-R8 Sentry post"
@@ -272,16 +284,6 @@
 
 	health = deployed_turret.health
 
-/datum/ammo/rocket/wp/upp
-	name = "extreme-intensity incendiary rocket"
-	flags_ammo_behavior = AMMO_ROCKET|AMMO_EXPLOSIVE|AMMO_STRIKES_SURFACE
-	damage_type = BURN
-
-	accuracy_var_low = PROJECTILE_VARIANCE_TIER_6
-	accurate_range = 8
-	damage = 80
-	max_range = 10
-
 /datum/ammo/rocket/wp/upp/set_bullet_traits()
 	. = ..()
 	LAZYADD(traits_to_give, list(
@@ -294,7 +296,7 @@
 	damage_type = BURN
 
 	accuracy_var_low = PROJECTILE_VARIANCE_TIER_6
-	accurate_range = 8
+	accurate_range = 5
 	damage = 110
 	max_range = 7
 
@@ -311,11 +313,6 @@
 		PROPERTY_RADIUS = 6,
 		PROPERTY_FIRE_PENETRATING = 1,
 	)
-
-/datum/ammo/bullet/sniper/upp
-	damage = 50
-	accurate_range_min = 14
-	penetration = ARMOR_PENETRATION_TIER_6
 
 /obj/item/ammo_magazine/sniper/svd/vssk
 	name = "\improper VSSK Magazine (12.7x55mm)"

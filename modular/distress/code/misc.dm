@@ -1373,11 +1373,12 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	item_icons = list(
 		WEAR_FACE = 'modular/distress/icons/rhbz_plus/onmob/balaklava.dmi'
 	)
+	original_state = "upp_balaklava_olive"
 
 /obj/item/clothing/mask/rebreather/scarf/upp/black
 	icon_state = "upp_balaklava_black"
 	item_state = "upp_balaklava_black"
-	
+	original_state = "upp_balaklava_black"
 
 /obj/item/attachable/burstfire_assembly/upp
 	name = "upp burst fire assembly"
@@ -1406,39 +1407,40 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	new /obj/item/ammo_magazine/shotgun/heavy/buckshot(src)
 
 /obj/item/storage/backpack/marine/rocketpack/upp
-	name = "\improper UPP rocket bags"
+	name = "\improper UPP rocket bag"
 	desc = "A specially-designed backpack that fits to the mounting frame on standard UPP armors"
 	icon = 'modular/distress/icons/rhbz_plus/icon/uppsadar.dmi'
-	icon_state = "rocketpack_upp"
-	item_state = "rocketpack_upp"
-
+	icon_state = "rocketpack"
 
 /obj/item/storage/belt/gun/m39/upp
 	name = "\improper UPP pattern Bizon holster rig"
-	desc = "Special issue variant of the M276 designed to holster a Bizon submachine gun and two spare magazines. Uncommonly issued to USCM support and specialist personnel."
+	desc = "Special issue variant of the holster for Bizon submachine gun and two spare magazines."
 	icon_state = "bizon_armor"
-	item_state = "marinebelt"
+	item_state = "bizon_armor"
+	gun_slot_icon = 'modular/distress/icons/rhbz_plus/icon/bizon.dmi'
 	icon = 'modular/distress/icons/rhbz_plus/icon/bizon.dmi'
 	storage_slots = 3
 	max_w_class = 5
-	gun_has_gamemode_skin = TRUE
+	flags_atom = FPRINT|NO_GAMEMODE_SKIN
+	gun_has_gamemode_skin = FALSE
 	can_hold = list(
 		/obj/item/weapon/gun/smg/bizon/upp,
-		/obj/item/ammo_box/magazine/type64,
+		/obj/item/ammo_magazine/smg/bizon,
 	)
 
-/obj/item/storage/belt/gun/m39/upp/full/fill_preset_inventory()
-	handle_item_insertion(new /obj/item/weapon/gun/smg/m39(src))
-	for(var/i = 1 to storage_slots - 1)
-		new /obj/item/ammo_box/magazine/type64(src)
+	holster_slots = list(
+		"1" = list(
+			"icon_x" = -1,
+			"icon_y" = 0))
+
 
 /obj/item/storage/backpack/marine/upp
 	name = "\improper lightweight backpack"
 	desc = "The standard-issue pack of the UPP forces."
 	icon = 'modular/distress/icons/rhbz_plus/icon/heavysumka.dmi'
-	icon_state = "backpack_upp"
-	item_state = "backpack_upp"
-	flags_atom = null
+	icon_state = "backpack"
+	item_state = "backpack"
+	flags_atom = FPRINT|NO_GAMEMODE_SKIN
 	item_icons = list(
 		WEAR_BACK = 'modular/distress/icons/rhbz_plus/onmob/heavysumka.dmi'
 	)

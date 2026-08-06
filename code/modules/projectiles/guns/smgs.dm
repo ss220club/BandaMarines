@@ -510,7 +510,7 @@
 /obj/item/weapon/gun/smg/ppsh/unload(mob/user, reload_override, drop_override, loc_override)
 	. = ..()
 	aim_slowdown = SLOWDOWN_ADS_QUICK
-	wield_delay = WEAPON_DELAY_VERY_FAST
+	wield_delay = WEAPON_DELAY_NORMAL
 
 /obj/item/weapon/gun/smg/ppsh/reload(mob/user, obj/item/ammo_magazine/magazine)
 	var/obj/item/ammo_magazine/smg/ppsh/ppsh_mag = magazine
@@ -597,8 +597,8 @@
 	fire_sound = 'sound/weapons/smg_heavy.ogg'
 	current_mag = /obj/item/ammo_magazine/smg/bizon
 	flags_gun_features = GUN_AUTO_EJECTOR|GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER
-	wield_delay = WEAPON_DELAY_MIN
-	aim_slowdown = SLOWDOWN_ADS_QUICK_MINUS
+	wield_delay = WEAPON_DELAY_NORMAL
+	aim_slowdown = SLOWDOWN_ADS_QUICK
 
 /obj/item/weapon/gun/smg/bizon/Initialize()
 	. = ..()

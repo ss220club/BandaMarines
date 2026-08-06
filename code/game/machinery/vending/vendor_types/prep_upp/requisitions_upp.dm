@@ -50,6 +50,7 @@
 		list("BACKPACKS", -1, null, null),
 		list("Combat Pack", floor(scale * 15), /obj/item/storage/backpack/lightpack/upp, VENDOR_ITEM_REGULAR),
 		list("Pyrotechnician G4-1 Fueltank", floor(scale * 2), /obj/item/storage/backpack/marine/engineerpack/flamethrower/kit, VENDOR_ITEM_REGULAR),
+		list("Heavy Pack", floor(scale * 15),, /obj/item/storage/backpack/marine/upp, VENDOR_ITEM_REGULAR),
 		list("UPP Sapper Welderpack", floor(scale * 2), /obj/item/storage/backpack/marine/engineerpack/upp, VENDOR_ITEM_REGULAR),
 		list("Mortar Shell Backpack", floor(scale * 1), /obj/item/storage/backpack/marine/mortarpack, VENDOR_ITEM_REGULAR),
 		list("IMP Ammo Rack", floor(scale * 2), /obj/item/storage/backpack/marine/ammo_rack, VENDOR_ITEM_REGULAR),
@@ -58,6 +59,7 @@
 
 		list("BELTS", -1, null, null),
 		list("Type 41 Ammo Load Rig", floor(scale * 15), /obj/item/storage/belt/marine/upp, VENDOR_ITEM_REGULAR),
+		list("Type 64 Bizon Holster Rig", floor(scale * 15), /obj/item/storage/belt/gun/m39/upp, VENDOR_ITEM_REGULAR),
 		list("NPZ92 Pistol Holster Rig", floor(scale * 15), /obj/item/storage/belt/gun/type47, VENDOR_ITEM_REGULAR),
 		list("G8-A General Utility Pouch", floor(scale * 2), /obj/item/storage/backpack/general_belt, VENDOR_ITEM_REGULAR),
 		list("M276 Knife Rig", floor(scale * 5), /obj/item/storage/belt/knifepouch, VENDOR_ITEM_REGULAR),
@@ -282,9 +284,14 @@
 		list("ARMOR", -1, null, null),
 		list("UM5 Medium Personal Armor", 15, /obj/item/clothing/suit/storage/marine/faction/UPP, VENDOR_ITEM_REGULAR),
 		list("UL6 Light Personal Armor", 15, /obj/item/clothing/suit/storage/marine/faction/UPP/support, VENDOR_ITEM_REGULAR),
+
+		list("HEADWEAR", -1, null, null),
+		list("UL3 armored beret", 15, /obj/item/clothing/head/uppcap/beret, VENDOR_ITEM_REGULAR),
+		list("UL8 armored ushanka", 15, /obj/item/clothing/head/uppcap/ushanka, VENDOR_ITEM_REGULAR),
+		list("UM4 Helmet", 15, /obj/item/clothing/head/helmet/marine/veteran/UPP, VENDOR_ITEM_REGULAR),
 		
 		list("GLOVES", -1, null, null),
-		list("Soldier Combat Gloves", 40, /obj/item/clothing/gloves/marine/veteran/upp, VENDOR_ITEM_REGULAR),
+		list("Soldier Combat Gloves", 20, /obj/item/clothing/gloves/marine/veteran/upp, VENDOR_ITEM_REGULAR),
 
 		list("RADIO", -1, null, null),
 		list("Engineering/JTAC Encryption Key", 5, /obj/item/device/encryptionkey/upp/engi, VENDOR_ITEM_REGULAR),
@@ -292,7 +299,9 @@
 
 		list("MASKS", -1, null, null, null),
 		list("Gas Mask", 20, /obj/item/clothing/mask/gas/upp_pfb, VENDOR_ITEM_REGULAR),
-		list("Heat Absorbent Coif", 10, /obj/item/clothing/mask/rebreather/scarf, VENDOR_ITEM_REGULAR),
+		list("Heat Absorbent Coif", 20, /obj/item/clothing/mask/rebreather/scarf, VENDOR_ITEM_REGULAR),
+		list("Balaklava Black", 10, /obj/item/clothing/mask/rebreather/scarf/upp/black, VENDOR_ITEM_REGULAR),
+		list("Balaklava Olive", 10, /obj/item/clothing/mask/rebreather/scarf/upp, VENDOR_ITEM_REGULAR),
 
 		list("MISCELLANEOUS", -1, null, null),
 		list("Bedroll", 30, /obj/item/roller/bedroll, VENDOR_ITEM_REGULAR),

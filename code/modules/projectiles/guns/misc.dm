@@ -203,6 +203,7 @@
 	fire_sound = 'sound/weapons/gun_mg.ogg'
 	cocked_sound = 'sound/weapons/gun_m60_cocked.ogg'
 	current_mag = /obj/item/ammo_magazine/pkp
+	aim_slowdown = 3
 
 	pixel_x = -10
 	hud_offset = -10
