@@ -2407,10 +2407,10 @@
 	name = "Cargo Access"
 	},
 /obj/structure/machinery/door/window/northright{
-	req_access = 234
+	req_one_access = 234
 	},
 /obj/structure/machinery/door/window/southleft{
-	req_access = 234
+	req_one_access = 234
 	},
 /turf/open/floor/plating,
 /area/rostock/req)
@@ -2427,10 +2427,10 @@
 	name = "Cargo Access"
 	},
 /obj/structure/machinery/door/window/northleft{
-	req_access = 234
+	req_one_access = 234
 	},
 /obj/structure/machinery/door/window/southright{
-	req_access = 234
+	req_one_access = 234
 	},
 /turf/open/floor/plating,
 /area/rostock/req)
