@@ -508,8 +508,8 @@
 		if (window_in_path.unacidable)
 			. = FALSE
 		else
-			window_in_path.deconstruct()
-			playsound(xeno.loc, 'sound/effects/Glassbr1.ogg')
+			window_in_path.health = 0
+			window_in_path.healthcheck(user = xeno)
 			. =  TRUE
 
 	//Window frame collision
@@ -518,7 +518,7 @@
 		if (window_frame_in_path.unacidable)
 			. = FALSE
 		else
-			window_frame_in_path.deconstruct()
+			window_frame_in_path.deconstruct(FALSE)
 			playsound(xeno.loc, 'sound/effects/metalhit.ogg', 25, 1)
 			. = TRUE
 
@@ -526,12 +526,8 @@
 	else if (istype(target, /obj/structure/machinery/door/airlock))
 		var/obj/structure/machinery/door/airlock/airlock_in_path = target
 
-		if (airlock_in_path.unacidable)
-			. = FALSE
-		else
-			if(airlock_in_path.density)
-				airlock_in_path.deconstruct()
-				playsound(xeno.loc, 'sound/effects/metalhit.ogg', 25, 1)
+		if(airlock_in_path.density)
+			return airlock_in_path.take_damage(airlock_in_path.damage_cap)
 
 	//Grille collision
 	else if (istype(target, /obj/structure/grille))
@@ -556,10 +552,7 @@
 		xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] таранит [defenses_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы тараним [defenses_in_path.declent_ru(ACCUSATIVE)]!")) // SS220 EDIT ADDICTION
 
 		playsound(xeno.loc, 'sound/effects/metalhit.ogg', 25, 1)
-		defenses_in_path.stat = 1
-		defenses_in_path.update_icon()
-		defenses_in_path.update_health(40)
-
+		defenses_in_path.update_health(direct_hit_damage)
 		. =  FALSE
 
 	//Vending machines collision
@@ -633,7 +626,6 @@
 	if(length(objects_in_path.contents)) // So the contents of containers dont delete themselves as well
 		var/turf/turf_for_obj = get_turf(xeno)
 		for(var/atom/movable/stuff_to_move in objects_in_path.contents) stuff_to_move.forceMove(turf_for_obj)
-	playsound(xeno.loc, "punch", 25, 1)
 	qdel(objects_in_path)
 
 /mob/living/carbon/xenomorph/launch_impact(atom/hit_atom) // wall bonk
