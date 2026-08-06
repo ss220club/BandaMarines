@@ -50,7 +50,7 @@
 		list("BACKPACKS", -1, null, null),
 		list("Combat Pack", floor(scale * 15), /obj/item/storage/backpack/lightpack/upp, VENDOR_ITEM_REGULAR),
 		list("Pyrotechnician G4-1 Fueltank", floor(scale * 2), /obj/item/storage/backpack/marine/engineerpack/flamethrower/kit, VENDOR_ITEM_REGULAR),
-		list("Heavy Pack", floor(scale * 15),, /obj/item/storage/backpack/marine/upp, VENDOR_ITEM_REGULAR),
+		list("Heavy Pack", floor(scale * 15), /obj/item/storage/backpack/marine/upp, VENDOR_ITEM_REGULAR),
 		list("UPP Sapper Welderpack", floor(scale * 2), /obj/item/storage/backpack/marine/engineerpack/upp, VENDOR_ITEM_REGULAR),
 		list("Mortar Shell Backpack", floor(scale * 1), /obj/item/storage/backpack/marine/mortarpack, VENDOR_ITEM_REGULAR),
 		list("IMP Ammo Rack", floor(scale * 2), /obj/item/storage/backpack/marine/ammo_rack, VENDOR_ITEM_REGULAR),
@@ -280,6 +280,7 @@
 		list("BACKPACKS", -1, null, null),
 		list("Combat Pack", 20, /obj/item/storage/backpack/lightpack/upp, VENDOR_ITEM_REGULAR),
 		list("UPP Sapper Welderpack", 10, /obj/item/storage/backpack/marine/engineerpack/upp, VENDOR_ITEM_REGULAR),
+		list("Heavy Pack", 20, /obj/item/storage/backpack/marine/upp, VENDOR_ITEM_REGULAR),
 
 		list("ARMOR", -1, null, null),
 		list("UM5 Medium Personal Armor", 15, /obj/item/clothing/suit/storage/marine/faction/UPP, VENDOR_ITEM_REGULAR),

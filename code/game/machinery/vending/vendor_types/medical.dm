@@ -893,8 +893,8 @@
 		list("Roll of Gauze", 8, /obj/item/stack/medical/bruise_pack, VENDOR_ITEM_REGULAR),
 		list("Splints", 8, /obj/item/stack/medical/splint, VENDOR_ITEM_REGULAR),
 		list("Tricordrazine", 8, /obj/item/storage/pill_bottle/packet/tricordrazine, VENDOR_ITEM_REGULAR),
-		list("Kelotane", 8, /obj/item/storage/pill_bottle/packet/bicaridine, VENDOR_ITEM_REGULAR),
-		list("Ointment", 8, /obj/item/storage/pill_bottle/packet/kelotane, VENDOR_ITEM_REGULAR),
+		list("Bicaridine", 8, /obj/item/storage/pill_bottle/packet/bicaridine, VENDOR_ITEM_REGULAR),
+		list("Kelotane", 8, /obj/item/storage/pill_bottle/packet/kelotane, VENDOR_ITEM_REGULAR),
 		list("Tramadol", 8, /obj/item/storage/pill_bottle/packet/tramadol, VENDOR_ITEM_REGULAR),
 		list("Oxycodone", 8, /obj/item/storage/pill_bottle/packet/oxycodone, VENDOR_ITEM_REGULAR)
 	)
