@@ -296,6 +296,10 @@
 		list("RADIO", -1, null, null),
 		list("Engineering/JTAC Encryption Key", 5, /obj/item/device/encryptionkey/upp/engi, VENDOR_ITEM_REGULAR),
 		list("Medical Encryption Key", 5, /obj/item/device/encryptionkey/upp/medic, VENDOR_ITEM_REGULAR),
+		list("Akula Radio Key", 5, /obj/item/device/encryptionkey/upp/akula, VENDOR_ITEM_REGULAR),
+		list("Bizon Radio Key", 5, /obj/item/device/encryptionkey/upp/bizon, VENDOR_ITEM_REGULAR),
+		list("Chayka Radio Key", 5, /obj/item/device/encryptionkey/upp/chayka, VENDOR_ITEM_REGULAR),
+		list("Delfin Radio Key", 5, /obj/item/device/encryptionkey/upp/delfin, VENDOR_ITEM_REGULAR),
 
 		list("MASKS", -1, null, null, null),
 		list("Gas Mask", 20, /obj/item/clothing/mask/gas/upp_pfb, VENDOR_ITEM_REGULAR),

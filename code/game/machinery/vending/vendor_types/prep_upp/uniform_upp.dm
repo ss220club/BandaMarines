@@ -14,10 +14,16 @@
 		list("Soldier Combat Boots", floor(scale * 15), /obj/item/clothing/shoes/marine/upp/knife, VENDOR_ITEM_REGULAR),
 		list("UPP Uniform", floor(scale * 15), /obj/item/clothing/under/marine/veteran/UPP, VENDOR_ITEM_REGULAR),
 		list("Soldier Combat Gloves", floor(scale * 15), /obj/item/clothing/gloves/marine/veteran/upp, VENDOR_ITEM_REGULAR),
+		
+		list("Squads Encryptionkeys", -1, null, null),
 		list("Soldier Radio Headset", floor(scale * 15), /obj/item/device/radio/headset/distress/UPP, VENDOR_ITEM_REGULAR),
-		list("UM4 Helmet", floor(scale * 15), /obj/item/clothing/head/helmet/marine/veteran/UPP, VENDOR_ITEM_REGULAR),
+		list("Akula Radio Key", floor(scale * 15), /obj/item/device/encryptionkey/upp/akula, VENDOR_ITEM_REGULAR),
+		list("Bizon Radio Key", floor(scale * 15), /obj/item/device/encryptionkey/upp/bizon, VENDOR_ITEM_REGULAR),
+		list("Chayka Radio Key", floor(scale * 15), /obj/item/device/encryptionkey/upp/chayka, VENDOR_ITEM_REGULAR),
+		list("Delfin Radio Key", floor(scale * 15), /obj/item/device/encryptionkey/upp/delfin, VENDOR_ITEM_REGULAR),
 
 		list("HEADWEAR", -1, null, null),
+		list("UM4 Helmet", floor(scale * 15), /obj/item/clothing/head/helmet/marine/veteran/UPP, VENDOR_ITEM_REGULAR),
 		list("UL3 armored beret", 2, /obj/item/clothing/head/uppcap/beret, VENDOR_ITEM_REGULAR),
 		list("UL8 armored ushanka", 3, /obj/item/clothing/head/uppcap/ushanka, VENDOR_ITEM_REGULAR),
 
