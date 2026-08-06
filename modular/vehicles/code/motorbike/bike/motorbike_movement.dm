@@ -24,9 +24,11 @@
 	/// Активен ли кулдаун поворотов (когда обе руки заняты)
 	var/turn_cooldown = FALSE
 	/// Длительность кулдауна после совершённого поворота
-	var/turn_cooldown_time = 0.5 SECONDS
+	var/turn_cooldown_time = 0.4 SECONDS
 	/// Разрешённое направление движения при активном кулдауне
 	var/allowed_dir = SOUTH
+	/// Модификатор скорости при движении по траве
+	var/weed_speed_mod = 1.5
 
 	// Система ускорения
 	var/current_speed_level = BIKE_SPEED_MIN
@@ -76,6 +78,8 @@
 		if(current_speed_level != BIKE_SPEED_MIN)
 			reset_speed()
 		return ..()
+
+	update_speed() // скорость пересчитывается перед каждым движением
 
 	// Проверка двух рук – зависит от навыка
 	if(user.l_hand && user.r_hand)
@@ -138,6 +142,8 @@
 			move_delay = move_delay_maximum
 	if(!sidecar)
 		move_delay *= lightweight_speed_mod
+	if(locate(/obj/effect/alien/weeds) in loc)
+		move_delay *= weed_speed_mod
 
 /obj/vehicle/motorbike/proc/reset_speed()
 	straight_move_timer = 0
