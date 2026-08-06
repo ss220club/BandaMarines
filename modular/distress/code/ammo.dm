@@ -156,7 +156,7 @@
 	icon = 'modular/distress/icons/projectiles.dmi'
 	icon_state = "redtrac"
 	damage = 40 // МОРКОВКА спасибо
-	penetration = ARMOR_PENETRATION_TIER_1
+	penetration = ARMOR_PENETRATION_TIER_2
 	accurate_range = 16
 	accuracy = HIT_ACCURACY_TIER_4
 	scatter = SCATTER_AMOUNT_TIER_10
@@ -202,7 +202,7 @@
 	name = "\improper AK-4047 AP magazine (7.62x39mm)"
 	desc = "A 7.62x39mm magazine containing armor piercing rounds for the AK-4047 rifle."
 	default_ammo = /datum/ammo/bullet/rifle/type71/ak/ap
-	max_rounds = 30
+	max_rounds = 40
 	ammo_band_color = AMMO_BAND_COLOR_AP
 
 /obj/item/ammo_magazine/rifle/ak4047/heap

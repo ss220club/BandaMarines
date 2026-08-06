@@ -938,6 +938,7 @@
 	req_one_access = list(ACCESS_UPP_LEADERSHIP, ACCESS_UPP_FLIGHT, ACCESS_WY_FLIGHT)
 	firemission_envelope = new /datum/cas_fire_envelope/uscm_dropship()
 	shuttle_tag = DROPSHIP_MORANA
+	minimap_flag = MINIMAP_FLAG_UPP
 
 /obj/structure/machinery/computer/dropship_weapons/dropship5
 	name = "\improper 'Devana' weapons controls"
@@ -945,6 +946,7 @@
 	req_one_access = list(ACCESS_UPP_LEADERSHIP, ACCESS_UPP_FLIGHT, ACCESS_WY_FLIGHT)
 	firemission_envelope = new /datum/cas_fire_envelope/uscm_dropship()
 	shuttle_tag = DROPSHIP_DEVANA
+	minimap_flag = MINIMAP_FLAG_UPP
 
 /obj/structure/machinery/computer/dropship_weapons/proc/simulate_firemission(mob/living/user)
 	if(!configuration)

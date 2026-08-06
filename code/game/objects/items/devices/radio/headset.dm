@@ -1339,6 +1339,89 @@
 	desc = "A specialist headset used by UPP kommandos. Channels are as follows: :o - colony, #j - combat controller, #n - engineering, #m - medical, #v - command, #u - UPP general, #T - kommandos."
 	initial_keys = list(/obj/item/device/encryptionkey/upp/kdo, /obj/item/device/encryptionkey/colony, /obj/item/device/encryptionkey/upp, /obj/item/device/encryptionkey/upp/command) // SS220 TGUI CHAT ADDICTION
 
+//############################## AKULA ###############################
+/obj/item/device/radio/headset/distress/UPP/akula
+	name = "UPP Akula headset"
+	desc = "A headset used by UPP Akula squad. Channels are as follows: #u - UPP general, :3 - Akula squad."
+	initial_keys = list(/obj/item/device/encryptionkey/upp/akula)
+	frequency = AKULA_FREQ
+
+/obj/item/device/radio/headset/distress/UPP/akula/engi
+	name = "UPP Akula engineer headset"
+	desc = "A headset used by UPP Akula engineers. Channels are as follows:  #u - UPP general, :3 - Akula squad, #n - engineering."
+	initial_keys = list(/obj/item/device/encryptionkey/upp/akula, /obj/item/device/encryptionkey/upp/engi)
+
+/obj/item/device/radio/headset/distress/UPP/akula/medic
+	name = "UPP Akula medic headset"
+	desc = "A headset used by UPP Akula medics. Channels are as follows:  #u - UPP general, :3 - Akula squad, #m - medical."
+	initial_keys = list(/obj/item/device/encryptionkey/upp/akula, /obj/item/device/encryptionkey/upp/medic)
+
+/obj/item/device/radio/headset/distress/UPP/akula/lead
+	name = "UPP Akula leader headset"
+	desc = "A headset used by the UPP Akula squad leader. Channels are as follows: #u - UPP general, :3 - Akula squad, #v - command, #j - combat controller."
+	initial_keys = list(/obj/item/device/encryptionkey/upp/akula, /obj/item/device/encryptionkey/upp/command)
+	volume = RADIO_VOLUME_CRITICAL
+
+//############################## BIZON ###############################
+/obj/item/device/radio/headset/distress/UPP/bizon
+	name = "UPP Bizon headset"
+	desc = "A headset used by UPP Bizon squad. Channels are as follows:  #u - UPP general, :4 - Bizon squad."
+	initial_keys = list(/obj/item/device/encryptionkey/upp/bizon)
+	frequency = BIZON_FREQ
+
+/obj/item/device/radio/headset/distress/UPP/bizon/engi
+	name = "UPP Bizon engineer headset"
+	initial_keys = list(/obj/item/device/encryptionkey/upp/bizon, /obj/item/device/encryptionkey/upp/engi)
+
+/obj/item/device/radio/headset/distress/UPP/bizon/medic
+	name = "UPP Bizon medic headset"
+	initial_keys = list(/obj/item/device/encryptionkey/upp/bizon, /obj/item/device/encryptionkey/upp/medic)
+
+/obj/item/device/radio/headset/distress/UPP/bizon/lead
+	name = "UPP Bizon leader headset"
+	initial_keys = list(/obj/item/device/encryptionkey/upp/bizon, /obj/item/device/encryptionkey/upp/command)
+	volume = RADIO_VOLUME_CRITICAL
+
+//############################## CHAYKA ###############################
+/obj/item/device/radio/headset/distress/UPP/chayka
+	name = "UPP Chayka headset"
+	desc = "A headset used by UPP Chayka squad. Channels are as follows: #u - UPP general, :5 - Chayka squad."
+	initial_keys = list(/obj/item/device/encryptionkey/upp/chayka)
+	frequency = CHAYKA_FREQ
+
+/obj/item/device/radio/headset/distress/UPP/chayka/engi
+	name = "UPP Chayka engineer headset"
+	initial_keys = list(/obj/item/device/encryptionkey/upp/chayka, /obj/item/device/encryptionkey/upp/engi)
+
+/obj/item/device/radio/headset/distress/UPP/chayka/medic
+	name = "UPP Chayka medic headset"
+	initial_keys = list(/obj/item/device/encryptionkey/upp/chayka, /obj/item/device/encryptionkey/upp/medic)
+
+/obj/item/device/radio/headset/distress/UPP/chayka/lead
+	name = "UPP Chayka leader headset"
+	initial_keys = list(/obj/item/device/encryptionkey/upp/chayka, /obj/item/device/encryptionkey/upp/command)
+	volume = RADIO_VOLUME_CRITICAL
+
+//############################## DELFIN ###############################
+/obj/item/device/radio/headset/distress/UPP/delfin
+	name = "UPP Delfin headset"
+	desc = "A headset used by UPP Delfin squad. Channels are as follows: #u - UPP general, :6 - Delfin squad."
+	initial_keys = list(/obj/item/device/encryptionkey/upp/delfin)
+	frequency = DELFIN_FREQ
+
+/obj/item/device/radio/headset/distress/UPP/delfin/engi
+	name = "UPP Delfin engineer headset"
+	initial_keys = list(/obj/item/device/encryptionkey/upp/delfin, /obj/item/device/encryptionkey/upp/engi)
+
+/obj/item/device/radio/headset/distress/UPP/delfin/medic
+	name = "UPP Delfin medic headset"
+	initial_keys = list(/obj/item/device/encryptionkey/upp/delfin, /obj/item/device/encryptionkey/upp/medic)
+
+/obj/item/device/radio/headset/distress/UPP/delfin/lead
+	name = "UPP Delfin leader headset"
+	initial_keys = list(/obj/item/device/encryptionkey/upp/delfin, /obj/item/device/encryptionkey/upp/command)
+	volume = RADIO_VOLUME_CRITICAL
+
 //CLF Headsets
 /obj/item/device/radio/headset/distress/CLF
 	name = "CLF headset"

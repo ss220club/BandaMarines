@@ -185,9 +185,25 @@
 	new_human.equip_to_slot_or_del(new /obj/item/storage/pouch/firstaid/ert/upp, WEAR_L_STORE)
 
 /datum/equipment_preset/upp/soldier/get_antag_clothing_equipment()
+	var/headset_type = /obj/item/device/radio/headset/distress/UPP
+	var/mob/living/carbon/human/H = usr
+	if(H && H.assigned_squad)
+		switch(H.assigned_squad.name)
+			if("Akula")
+				headset_type = /obj/item/device/radio/headset/distress/UPP/akula
+			if("Bizon")
+				headset_type = /obj/item/device/radio/headset/distress/UPP/bizon
+			if("Chayka")
+				headset_type = /obj/item/device/radio/headset/distress/UPP/chayka
+			if("Delfin")
+				headset_type = /obj/item/device/radio/headset/distress/UPP/delfin
+			else
+				headset_type = /obj/item/device/radio/headset/distress/UPP
+
 	return list(
 		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
-		list("Standard Apparel", 0, list (/obj/item/clothing/under/marine/veteran/UPP, /obj/item/clothing/shoes/marine/upp/knife, /obj/item/clothing/gloves/marine/veteran/upp, /obj/item/device/radio/headset/distress/UPP), MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
+		list("Standard Apparel", 0, list (/obj/item/clothing/under/marine/veteran/UPP, /obj/item/clothing/shoes/marine/upp/knife, /obj/item/clothing/gloves/marine/veteran/upp), MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
+		list("Headset", 0, headset_type, MARINE_CAN_BUY_EAR, VENDOR_ITEM_MANDATORY),
 		list("IRP", 0, /obj/item/storage/box/mre/upp, MARINE_CAN_BUY_MRE, VENDOR_ITEM_MANDATORY),
 		list("Map", 0, /obj/item/map/current_map, MARINE_CAN_BUY_MAP, VENDOR_ITEM_MANDATORY),
 		list("Combat Pack", 0, /obj/item/storage/backpack/lightpack/upp, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
@@ -412,11 +428,26 @@
 		new_human.equip_to_slot_or_del(new /obj/item/clothing/mask/rebreather/scarf/tacticalmask/green, WEAR_FACE)
 
 /datum/equipment_preset/upp/medic/get_antag_clothing_equipment()
+	var/headset_type = /obj/item/device/radio/headset/distress/UPP
+	var/mob/living/carbon/human/H = usr
+	if(H && H.assigned_squad)
+		switch(H.assigned_squad.name)
+			if("Akula")
+				headset_type = /obj/item/device/radio/headset/distress/UPP/akula/medic
+			if("Bizon")
+				headset_type = /obj/item/device/radio/headset/distress/UPP/bizon/medic
+			if("Chayka")
+				headset_type = /obj/item/device/radio/headset/distress/UPP/chayka/medic
+			if("Delfin")
+				headset_type = /obj/item/device/radio/headset/distress/UPP/delfin/medic
+			else
+				headset_type = /obj/item/device/radio/headset/distress/UPP/medic
+
 	return list(
 		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
-		list("Standard Apparel", 0, list (/obj/item/clothing/under/marine/veteran/UPP/medic, /obj/item/clothing/shoes/marine/upp/knife, /obj/item/clothing/gloves/marine/veteran/upp, /obj/item/device/radio/headset/distress/UPP/medic), MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
+		list("Standard Apparel", 0, list (/obj/item/clothing/under/marine/veteran/UPP/medic, /obj/item/clothing/shoes/marine/upp/knife, /obj/item/clothing/gloves/marine/veteran/upp), MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
+		list("Headset", 0, headset_type, MARINE_CAN_BUY_EAR, VENDOR_ITEM_MANDATORY),
 		list("IRP", 0, /obj/item/storage/box/mre/upp, MARINE_CAN_BUY_MRE, VENDOR_ITEM_MANDATORY),
-		list("Map", 0, /obj/item/map/current_map, MARINE_CAN_BUY_MAP, VENDOR_ITEM_MANDATORY),
 		list("Combat Pack", 0, /obj/item/storage/backpack/lightpack/upp, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
 		list("Heavy Pack", 0, /obj/item/storage/backpack/marine/upp, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
 
@@ -622,10 +653,25 @@
 	new_human.equip_to_slot_or_del(new /obj/item/storage/pouch/construction/full(new_human), WEAR_R_STORE)
 
 /datum/equipment_preset/upp/sapper/get_antag_clothing_equipment()
+	var/headset_type = /obj/item/device/radio/headset/distress/UPP
+	var/mob/living/carbon/human/H = usr
+	if(H && H.assigned_squad)
+		switch(H.assigned_squad.name)
+			if("Akula")
+				headset_type = /obj/item/device/radio/headset/distress/UPP/akula/engi
+			if("Bizon")
+				headset_type = /obj/item/device/radio/headset/distress/UPP/bizon/engi
+			if("Chayka")
+				headset_type = /obj/item/device/radio/headset/distress/UPP/chayka/engi
+			if("Delfin")
+				headset_type = /obj/item/device/radio/headset/distress/UPP/delfin/engi
+			else
+				headset_type = /obj/item/device/radio/headset/distress/UPP/cct
+
 	return list(
 		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
-		list("Standard Apparel", 0, list(/obj/item/clothing/under/marine/veteran/UPP/engi, /obj/item/clothing/shoes/marine/upp/knife, /obj/item/clothing/gloves/yellow, /obj/item/device/radio/headset/distress/UPP/cct), MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
-		list("Map", 0, /obj/item/map/current_map, MARINE_CAN_BUY_MAP, VENDOR_ITEM_MANDATORY),
+		list("Standard Apparel", 0, list(/obj/item/clothing/under/marine/veteran/UPP/engi, /obj/item/clothing/shoes/marine/upp/knife, /obj/item/clothing/gloves/yellow), MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
+		list("Headset", 0, headset_type, MARINE_CAN_BUY_EAR, VENDOR_ITEM_MANDATORY),
 		list("IRP", 0, /obj/item/storage/box/mre/upp, MARINE_CAN_BUY_MRE, VENDOR_ITEM_MANDATORY),
 		list("Welderpack", 0, /obj/item/storage/backpack/marine/engineerpack/upp, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
 		list("Combat Pack", 0, /obj/item/storage/backpack/lightpack/upp, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
@@ -795,9 +841,25 @@
 	new_human.equip_to_slot_or_del(new uppvetsidearm, WEAR_WAIST) // 50/50 np92 or t73
 
 /datum/equipment_preset/upp/specialist/get_antag_clothing_equipment()
+	var/headset_type = /obj/item/device/radio/headset/distress/UPP
+	var/mob/living/carbon/human/H = usr
+	if(H && H.assigned_squad)
+		switch(H.assigned_squad.name)
+			if("Akula")
+				headset_type = /obj/item/device/radio/headset/distress/UPP/akula
+			if("Bizon")
+				headset_type = /obj/item/device/radio/headset/distress/UPP/bizon
+			if("Chayka")
+				headset_type = /obj/item/device/radio/headset/distress/UPP/chayka
+			if("Delfin")
+				headset_type = /obj/item/device/radio/headset/distress/UPP/delfin
+			else
+				headset_type = /obj/item/device/radio/headset/distress/UPP
+
 	return list(
 		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
-		list("Standard Apparel", 0, list (/obj/item/clothing/under/marine/veteran/UPP, /obj/item/clothing/shoes/marine/upp/knife, /obj/item/clothing/gloves/marine/veteran/upp, /obj/item/device/radio/headset/distress/UPP), MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
+		list("Standard Apparel", 0, list (/obj/item/clothing/under/marine/veteran/UPP, /obj/item/clothing/shoes/marine/upp/knife, /obj/item/clothing/gloves/marine/veteran/upp), MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
+		list("Headset", 0, headset_type, MARINE_CAN_BUY_EAR, VENDOR_ITEM_MANDATORY),
 		list("IRP", 0, /obj/item/storage/box/mre/upp, MARINE_CAN_BUY_MRE, VENDOR_ITEM_MANDATORY),
 		list("Combat Pack", 0, /obj/item/storage/backpack/lightpack, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
 
@@ -935,9 +997,25 @@
 	new_human.equip_to_slot_or_del(new uppvetsidearm, WEAR_WAIST) // 50/50 np92 or t73
 
 /datum/equipment_preset/upp/machinegunner/get_antag_clothing_equipment()
+	var/headset_type = /obj/item/device/radio/headset/distress/UPP
+	var/mob/living/carbon/human/H = usr
+	if(H && H.assigned_squad)
+		switch(H.assigned_squad.name)
+			if("Akula")
+				headset_type = /obj/item/device/radio/headset/distress/UPP/akula
+			if("Bizon")
+				headset_type = /obj/item/device/radio/headset/distress/UPP/bizon
+			if("Chayka")
+				headset_type = /obj/item/device/radio/headset/distress/UPP/chayka
+			if("Delfin")
+				headset_type = /obj/item/device/radio/headset/distress/UPP/delfin
+			else
+				headset_type = /obj/item/device/radio/headset/distress/UPP
+
 	return list(
 		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
-		list("Standard Apparel", 0, list (/obj/item/clothing/under/marine/veteran/UPP, /obj/item/clothing/shoes/marine/upp/knife, /obj/item/clothing/gloves/marine/veteran/upp, /obj/item/device/radio/headset/distress/UPP), MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
+		list("Standard Apparel", 0, list (/obj/item/clothing/under/marine/veteran/UPP, /obj/item/clothing/shoes/marine/upp/knife, /obj/item/clothing/gloves/marine/veteran/upp), MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
+		list("Headset", 0, headset_type, MARINE_CAN_BUY_EAR, VENDOR_ITEM_MANDATORY),
 		list("IRP", 0, /obj/item/storage/box/mre/upp, MARINE_CAN_BUY_MRE, VENDOR_ITEM_MANDATORY),
 		list("Combat Pack", 0, /obj/item/storage/backpack/lightpack, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
 
@@ -1092,9 +1170,25 @@
 		new_human.equip_to_slot_or_del(new /obj/item/clothing/mask/rebreather/scarf, WEAR_FACE)
 
 /datum/equipment_preset/upp/leader/get_antag_clothing_equipment()
+	var/headset_type = /obj/item/device/radio/headset/distress/UPP
+	var/mob/living/carbon/human/H = usr
+	if(H && H.assigned_squad)
+		switch(H.assigned_squad.name)
+			if("Akula")
+				headset_type = /obj/item/device/radio/headset/distress/UPP/akula/lead
+			if("Bizon")
+				headset_type = /obj/item/device/radio/headset/distress/UPP/bizon/lead
+			if("Chayka")
+				headset_type = /obj/item/device/radio/headset/distress/UPP/chayka/lead
+			if("Delfin")
+				headset_type = /obj/item/device/radio/headset/distress/UPP/delfin/lead
+			else
+				headset_type = /obj/item/device/radio/headset/distress/UPP/command
+
 	return list(
 		list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
-		list("Standard Apparel", 0, list (/obj/item/clothing/under/marine/veteran/UPP, /obj/item/clothing/shoes/marine/upp/knife, /obj/item/clothing/gloves/marine/veteran/upp, /obj/item/device/radio/headset/distress/UPP/command), MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
+		list("Standard Apparel", 0, list (/obj/item/clothing/under/marine/veteran/UPP, /obj/item/clothing/shoes/marine/upp/knife, /obj/item/clothing/gloves/marine/veteran/upp), MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
+		list("Headset", 0, headset_type, MARINE_CAN_BUY_EAR, VENDOR_ITEM_MANDATORY),
 		list("IRP", 0, /obj/item/storage/box/mre/upp, MARINE_CAN_BUY_MRE, VENDOR_ITEM_MANDATORY),
 		list("Combat Pack", 0, /obj/item/storage/backpack/lightpack/upp, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
 		list("Heavy Pack", 0, /obj/item/storage/backpack/marine/upp, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
@@ -3867,7 +3961,6 @@
 		list("Welderpack", 0, /obj/item/storage/backpack/marine/engineerpack/upp, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
 		list("Combat Pack", 0, /obj/item/storage/backpack/lightpack/upp, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
 		list("Heavy Pack", 0, /obj/item/storage/backpack/marine/upp, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
-		list("Binoculars", 0, /obj/item/device/binoculars/upp, null, VENDOR_ITEM_MANDATORY),
 
 		list("HELMET (CHOOSE 1)", 0, null, null, null),
 		list("Armored Cap", 0, /obj/item/clothing/head/uppcap, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_REGULAR),
