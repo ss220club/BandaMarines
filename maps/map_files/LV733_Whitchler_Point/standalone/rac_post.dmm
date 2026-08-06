@@ -327,7 +327,7 @@
 	icon_state = "road_edge_decal3";
 	pixel_y = 11
 	},
-/obj/effect/landmark/survivor_spawner/twe/rac,
+/obj/effect/landmark/survivor_spawner/twe/rac/synth,
 /turf/open/hybrisa/street/asphalt,
 /area/lv733/outdoors/colony_streets/avenue)
 "gr" = (

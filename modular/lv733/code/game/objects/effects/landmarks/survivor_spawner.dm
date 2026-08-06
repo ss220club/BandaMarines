@@ -65,6 +65,11 @@
 	spawn_priority = SPAWN_PRIORITY_LOW
 	archetype = INSERT_STANDARD
 
+/obj/effect/landmark/survivor_spawner/twe/rac/synth
+	equipment = /datum/equipment_preset/synth/survivor/rac_synth
+	spawn_priority = SPAWN_PRIORITY_HIGH
+	archetype = INSERT_SYNTH
+
 /obj/effect/landmark/survivor_spawner/twe/rac/driver
 	equipment = /datum/equipment_preset/survivor/rac/driver
 	spawn_priority = SPAWN_PRIORITY_MEDIUM

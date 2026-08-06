@@ -130,7 +130,7 @@
 	armor_rad = CLOTHING_ARMOR_MEDIUMLOW
 
 	light_power = 3
-	light_range = 3
+	light_range = 5
 	light_color = LIGHT_COLOR_HALOGEN
 	light_system = MOVABLE_LIGHT
 	actions_types = list(/datum/action/item_action/toggle/lamp)
@@ -148,6 +148,22 @@
 /obj/item/clothing/suit/storage/jacket/marine/rmc/service/isrg/vest/Destroy()
 	QDEL_NULL(light_holder)
 	return ..()
+
+/obj/item/clothing/suit/storage/jacket/marine/rmc/service/isrg/vest/equipped(mob/user, slot, silent)
+	. = ..()
+	if(slot == WEAR_JACKET)
+		RegisterSignal(user, COMSIG_MOB_DEATH, PROC_REF(on_wearer_death))
+
+/obj/item/clothing/suit/storage/jacket/marine/rmc/service/isrg/vest/dropped(mob/user)
+	. = ..()
+	UnregisterSignal(user, COMSIG_MOB_DEATH)
+
+/obj/item/clothing/suit/storage/jacket/marine/rmc/service/isrg/vest/proc/on_wearer_death(mob/user)
+	SIGNAL_HANDLER
+	if(!light_on)
+		return
+	TIMER_COOLDOWN_END(src, COOLDOWN_LIGHT)
+	turn_light(user, FALSE)
 
 /obj/item/clothing/suit/storage/jacket/marine/rmc/service/isrg/vest/update_icon(mob/user)
 	overlays -= armor_overlays["lamp"]
@@ -251,7 +267,7 @@
 	)
 	skip_fullness_overlays = TRUE
 
-// Пояс рядового состава - 2 магазина Mirai-7 (максимум) + медикаменты (база - как у стандартного медицинского пояса)
+// Пояс рядового состава
 
 /obj/item/storage/belt/medical/isrg
 	name = "\improper Пояс ISRG"
@@ -297,7 +313,7 @@
 	new /obj/item/stack/medical/advanced/bruise_pack(src)
 	new /obj/item/stack/medical/advanced/ointment(src)
 
-// Пояс смартганнера - пистолет + барабанные магазины Т3 «Райко»
+// Пояс смартганнера
 
 /obj/item/storage/belt/gun/smartgunner/isrg
 	name = "\improper Пояс ISRG"

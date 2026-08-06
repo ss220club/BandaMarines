@@ -78,3 +78,13 @@
 	icon_state = "glowstick_box_yellow"
 	box_icon_base = "glowstick_box_yellow"
 	glowstick_type = /obj/item/device/flashlight/flare/glowstick/yellow
+
+// Добавляем коробки ХИС всех цветов в вендор снаряжения отряда (морпехи).
+/obj/structure/machinery/cm_vending/sorted/cargo_guns/squad/populate_product_list(scale)
+	..()
+	listed_products += list(
+		list("Box of Blue Glowsticks", 3, /obj/item/storage/box/glowstick/blue, VENDOR_ITEM_REGULAR),
+		list("Box of Green Glowsticks", 3, /obj/item/storage/box/glowstick/green, VENDOR_ITEM_REGULAR),
+		list("Box of Red Glowsticks", 3, /obj/item/storage/box/glowstick/red, VENDOR_ITEM_REGULAR),
+		list("Box of Yellow Glowsticks", 3, /obj/item/storage/box/glowstick/yellow, VENDOR_ITEM_REGULAR),
+	)

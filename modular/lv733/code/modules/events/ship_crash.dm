@@ -5,17 +5,20 @@
 #define SHIP_CRASH_ZONE_HEIGHT  30
 #define SHIP_CRASH_ERT_MAX      5
 #define SHIP_CRASH_ERT_SYNTHS   1
-#define SHIP_CRASH_LARVA_PER_N  11            // НАДО ТЕСТИТЬ
 #define SHIP_CRASH_SAFE_RADIUS  20           // минимальная дистанция до хайва и домашней ЛЗ
 
 /obj/effect/lv733/crash_warning_overlay
 	name = "зона падения"
 	icon = 'icons/turf/overlays.dmi'
-	icon_state = "greenOverlay"
-	color = "#FF4400"
+	icon_state = "redOverlay"
 	alpha = 120
 	layer = ABOVE_TURF_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
+/obj/effect/lv733/crash_warning_overlay/Initialize(mapload)
+	. = ..()
+	animate(src, alpha = 40, time = 2 SECONDS, loop = -1, easing = SINE_EASING)
+	animate(alpha = 120, time = 2 SECONDS, loop = -1, easing = SINE_EASING)
 
 // ERT
 
@@ -50,9 +53,6 @@
 	var/mob/living/carbon/human/mob = new(spawn_loc)
 	M.transfer_to(mob, TRUE)
 
-	// Экипируем через arm_equipment()/существующие пресеты ROAF (как уже было у синта) -
-	// только так реально проставляются язык, раса (зрение/слух) и имя (load_preset() внутри),
-	// а не только шмотки, как было в самодельном equip_crash_response_member().
 	if(!leader && HAS_FLAG(mob.client.prefs.toggles_ert, PLAY_LEADER) && check_timelock(mob.client, JOB_SQUAD_LEADER, time_required_for_job))
 		leader = mob
 		to_chat(mob, SPAN_ROLE_HEADER("Вы командир группы реагирования ROAF!"))
@@ -231,8 +231,7 @@
 	if(!hive)
 		return
 
-	var/human_count = length(GLOB.alive_human_list)
-	var/larva_to_add = max(1, round(human_count / SHIP_CRASH_LARVA_PER_N))
+	var/larva_to_add = 1
 
 	hive.stored_larva += larva_to_add
 	hive.hive_ui.update_burrowed_larva()
@@ -246,5 +245,4 @@
 #undef SHIP_CRASH_ZONE_HEIGHT
 #undef SHIP_CRASH_ERT_MAX
 #undef SHIP_CRASH_ERT_SYNTHS
-#undef SHIP_CRASH_LARVA_PER_N
 #undef SHIP_CRASH_SAFE_RADIUS

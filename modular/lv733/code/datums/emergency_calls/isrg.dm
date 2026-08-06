@@ -1,5 +1,4 @@
-#define LV733_ISRG_ERT_CHANCE 70
-#define LV733_RAC_ERT_CHANCE 50
+#define LV733_ISRG_ERT_CHANCE 20
 
 /datum/emergency_call/lv733_isrg_response
 	name = "Спасательной группа ISRG"
@@ -49,9 +48,5 @@
 		if(prob(LV733_ISRG_ERT_CHANCE))
 			ert_dispatched = TRUE
 			get_specific_call(/datum/emergency_call/lv733_isrg_response)
-			return
-		if(prob(LV733_RAC_ERT_CHANCE))
-			ert_dispatched = TRUE
-			get_specific_call(/datum/emergency_call/lv733_rac_response)
 			return
 	return ..()
