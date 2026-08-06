@@ -27,8 +27,6 @@
 	var/turn_cooldown_time = 0.5 SECONDS
 	/// Разрешённое направление движения при активном кулдауне
 	var/allowed_dir = SOUTH
-	/// Флаг, что на этом шаге был совершён поворот (чтобы не обновлять forward_dir_saved)
-	var/turn_just_made = FALSE
 
 	// Система ускорения
 	var/current_speed_level = BIKE_SPEED_MIN
@@ -84,17 +82,13 @@
 		if(can_drive_one_hand) // Есть навык – таймер на повороты
 			if(turn_cooldown)
 				// Кулдаун активен – можно двигаться только в allowed_dir
-				if(direction == allowed_dir)
-					return ..(user, direction)  // это прямо, продолжаем
-				else
-					return ..(user, allowed_dir) // попытка поворота – игнорируем, едем прямо
+				return ..(user, allowed_dir) // попытка поворота – игнорируем, едем прямо
 			else
 				// Кулдауна нет – проверяем, является ли нажатие поворотом
 				if(direction != forward_dir_saved) // Поворот
 					. = ..(user, direction)
 					turn_cooldown = TRUE
 					allowed_dir = direction   // запоминаем новое разрешённое направление
-					turn_just_made = TRUE     // чтобы скорость сбросилась
 					addtimer(CALLBACK(src, PROC_REF(reset_turn_cooldown)), turn_cooldown_time, TIMER_UNIQUE | TIMER_OVERRIDE)
 					return .
 				else
@@ -177,9 +171,8 @@
 
 	last_move_time = current_time
 
-	if(!turn_just_made)
-		forward_dir_saved = forward_dir
-	turn_just_made = FALSE
+	forward_dir_saved = forward_dir
+
 
 // ==========================================
 // ========== Движение с коляской ===========
