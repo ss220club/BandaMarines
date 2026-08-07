@@ -26,6 +26,7 @@
 		list("UM4 Helmet", floor(scale * 15), /obj/item/clothing/head/helmet/marine/veteran/UPP, VENDOR_ITEM_REGULAR),
 		list("UL3 armored beret", 2, /obj/item/clothing/head/uppcap/beret, VENDOR_ITEM_REGULAR),
 		list("UL8 armored ushanka", 3, /obj/item/clothing/head/uppcap/ushanka, VENDOR_ITEM_REGULAR),
+		list("Shapka", 3, /obj/item/clothing/head/cmcap/upp, VENDOR_ITEM_REGULAR),
 
 		list("WEBBINGS", -1, null, null),
 		list("Brown Webbing Vest", 1, /obj/item/clothing/accessory/storage/black_vest/brown_vest, VENDOR_ITEM_REGULAR),
@@ -36,17 +37,19 @@
 		list("Shoulder Holster", 0.75, /obj/item/clothing/accessory/storage/holster, VENDOR_ITEM_REGULAR),
 
 		list("ARMOR", -1, null, null),
-		list("UM5 Medium Personal Armor", floor(scale * 15), /obj/item/clothing/suit/storage/marine/faction/UPP, VENDOR_ITEM_REGULAR),
-		list("UL6 Light Personal Armor", floor(scale * 15), /obj/item/clothing/suit/storage/marine/faction/UPP/support, VENDOR_ITEM_REGULAR),
+		list("UM5 Medium Personal Armor", floor(scale * 15), /obj/item/clothing/suit/storage/marine/faction/UPP/distress, VENDOR_ITEM_REGULAR),
+		list("UL6 Light Personal Armor", floor(scale * 15), /obj/item/clothing/suit/storage/marine/faction/UPP/support/distress, VENDOR_ITEM_REGULAR),
 
 		list("BACKPACK", -1, null, null),
 		list("Combat Pack", floor(scale * 15), /obj/item/storage/backpack/lightpack/upp, VENDOR_ITEM_REGULAR),
+		list("Heavy Pack", floor(scale * 15), /obj/item/storage/backpack/marine/upp, VENDOR_ITEM_REGULAR),
 
 		list("RESTRICTED BACKPACKS", -1, null, null),
 		list("UPP Sapper Welderpack", floor(scale * 2), /obj/item/storage/backpack/marine/engineerpack/upp, VENDOR_ITEM_REGULAR),
 
 		list("BELTS", -1, null, null),
 		list("Type 41 Ammo Load Rig", floor(scale * 15), /obj/item/storage/belt/marine/upp, VENDOR_ITEM_REGULAR),
+		list("Type 64 Bizon Holster Rig", floor(scale * 15), /obj/item/storage/belt/gun/m39/upp, VENDOR_ITEM_REGULAR),
 		list("NPZ92 Pistol Holster Rig", floor(scale * 15), /obj/item/storage/belt/gun/type47, VENDOR_ITEM_REGULAR),
 		list("Flaregun Holster Rig", floor(scale * 2), /obj/item/storage/belt/gun/flaregun, VENDOR_ITEM_REGULAR),
 		list("Shotgun Shell Loading Rig", floor(scale * 15), /obj/item/storage/belt/shotgun, VENDOR_ITEM_REGULAR),

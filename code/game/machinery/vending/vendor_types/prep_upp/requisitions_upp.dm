@@ -283,8 +283,8 @@
 		list("Heavy Pack", 20, /obj/item/storage/backpack/marine/upp, VENDOR_ITEM_REGULAR),
 
 		list("ARMOR", -1, null, null),
-		list("UM5 Medium Personal Armor", 15, /obj/item/clothing/suit/storage/marine/faction/UPP, VENDOR_ITEM_REGULAR),
-		list("UL6 Light Personal Armor", 15, /obj/item/clothing/suit/storage/marine/faction/UPP/support, VENDOR_ITEM_REGULAR),
+		list("UM5 Medium Personal Armor", 15, /obj/item/clothing/suit/storage/marine/faction/UPP/distress, VENDOR_ITEM_REGULAR),
+		list("UL6 Light Personal Armor", 15, /obj/item/clothing/suit/storage/marine/faction/UPP/support/distress, VENDOR_ITEM_REGULAR),
 
 		list("HEADWEAR", -1, null, null),
 		list("UL3 armored beret", 15, /obj/item/clothing/head/uppcap/beret, VENDOR_ITEM_REGULAR),

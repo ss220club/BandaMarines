@@ -188,7 +188,7 @@
 		WEAR_R_EAR = 'modular/distress/icons/ears.dmi',
 	)
 
-/obj/item/clothing/suit/storage/marine/faction/UPP
+/obj/item/clothing/suit/storage/marine/faction/UPP/distress
 	name = "\improper UM5 personal armor"
 	desc = "Standard body armor of the UPP military, the UM5 (Union Medium MK5) is a medium body armor, roughly on par with the M3 pattern body armor in service with the USCM, specialized towards ballistics protection. Unlike the M3, however, the plate has a heavier neckplate. This has earned many UA members to refer to UPP soldiers as 'tin men'."
 	icon_state = "upp_armor"
@@ -207,7 +207,7 @@
 	storage_slots = 2
 	uniform_restricted = list(/obj/item/clothing/under/marine/veteran/UPP, /obj/item/clothing/under/marine/veteran/UPP/medic, /obj/item/clothing/under/marine/veteran/UPP/engi, /obj/item/clothing/under/marine/veteran/UPP/SOF_uniform)
 
-/obj/item/clothing/suit/storage/marine/faction/UPP/support
+/obj/item/clothing/suit/storage/marine/faction/UPP/support/distress
 	name = "\improper UL6 personal armor"
 	desc = "Standard body armor of the UPP military, the UL6 (Union Light MK6) is a light body armor, slightly weaker than the M3 pattern body armor in service with the USCM, specialized towards ballistics protection. This set of personal armor lacks the iconic neck piece and some of the armor in favor of user mobility."
 	storage_slots = 3
@@ -221,7 +221,7 @@
 	armor_rad = CLOTHING_ARMOR_MEDIUMLOW
 	armor_internaldamage = CLOTHING_ARMOR_MEDIUMLOW // МОРКОВКА спасибо
 
-/obj/item/clothing/suit/storage/marine/faction/UPP/heavy
+/obj/item/clothing/suit/storage/marine/faction/UPP/heavy/distress
 	name = "\improper UH7 heavy plated armor"
 	desc = "An extremely heavy-duty set of body armor in service with the UPP military, the UH7 (Union Heavy MK7) is known for having powerful ballistic protection, alongside a noticeable neck guard, fortified in order to allow the wearer to endure the stresses of the bulky helmet."
 	icon_state = "upp_armor_heavy"
@@ -238,8 +238,9 @@
 	armor_bio = CLOTHING_ARMOR_LOW
 	armor_rad = CLOTHING_ARMOR_LOW
 	armor_internaldamage = CLOTHING_ARMOR_HIGHPLUS
+	uniform_restricted = list(/obj/item/clothing/under/marine/veteran/UPP/distress)
 
-/obj/item/clothing/head/helmet/marine/veteran/UPP/heavy
+/obj/item/clothing/head/helmet/marine/veteran/UPP/heavy/distress
 	name = "\improper UH7 helmet"
 	desc = "Like the UM4, this helmet is very resistant to ballistic damage, but both its flaws and benefits have been doubled. The few UPP Zhergeants that have lived past age 30 have all needed to retire from terminal neck problems caused from the stress of wearing this helmet."
 	icon_state = "upp_helmet_heavy"
@@ -933,8 +934,8 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	kit_name = "heavy_machinegun"
 
 /obj/item/storage/box/spec/heavy_machinegun/fill_preset_inventory()
-	new /obj/item/clothing/suit/storage/marine/faction/UPP/heavy(src)
-	new /obj/item/clothing/head/helmet/marine/veteran/UPP/heavy(src)
+	new /obj/item/clothing/suit/storage/marine/faction/UPP/heavy/distress(src)
+	new /obj/item/clothing/head/helmet/marine/veteran/UPP/heavy/distress(src)
 	new /obj/item/weapon/gun/pkp(src)
 	new /obj/item/ammo_magazine/pkp(src)
 	new /obj/item/ammo_magazine/pkp(src)
@@ -954,8 +955,8 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	kit_name = "heavy_minigun"
 
 /obj/item/storage/box/spec/heavy_minigun/fill_preset_inventory()
-	new /obj/item/clothing/suit/storage/marine/faction/UPP/heavy(src)
-	new /obj/item/clothing/head/helmet/marine/veteran/UPP/heavy(src)
+	new /obj/item/clothing/suit/storage/marine/faction/UPP/heavy/distress(src)
+	new /obj/item/clothing/head/helmet/marine/veteran/UPP/heavy/distress(src)
 	new /obj/item/weapon/gun/minigun/upp(src)
 	new /obj/item/ammo_magazine/minigun(src)
 	new /obj/item/ammo_magazine/minigun(src)
@@ -1071,7 +1072,7 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	new /obj/item/storage/backpack/marine/engineerpack/flamethrower/kit/upp(src)
 	new /obj/item/weapon/gun/flamer/m240/upp(src)
 	new /obj/item/ammo_magazine/flamer_tank/upp(src)
-	new /obj/item/ammo_magazine/flamer_tank/upp/gellied(src)
+	new /obj/item/ammo_magazine/flamer_tank/upp(src)
 	new /obj/item/tool/extinguisher(src)
 
 
@@ -1167,6 +1168,7 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 
 /obj/item/weapon/gun/flamer/m240/spec/upp/Initialize()
 	. = ..()
+	RemoveElement(/datum/element/corp_label/wy)
 	AddElement(/datum/element/corp_label/norcomm)
 
 /obj/item/weapon/gun/flamer/m240/upp
@@ -1185,6 +1187,7 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	)
 /obj/item/weapon/gun/flamer/m240/upp/Initialize()
 	. = ..()
+	RemoveElement(/datum/element/corp_label/wy)
 	AddElement(/datum/element/corp_label/norcomm)
 
 /obj/item/storage/large_holster/fuelpack/upp
@@ -1333,7 +1336,7 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	recoil = RECOIL_AMOUNT_TIER_1
 	damage_falloff_mult = 0
 
-/obj/item/clothing/under/marine/veteran/UPP
+/obj/item/clothing/under/marine/veteran/UPP/distress
 	name = "\improper UPP fatigues"
 	desc = "A set of UPP fatigues, mass-produced for the armed-forces of the Union of Progressive Peoples. A rare sight, especially in ICC zones. This particular set sports the dark drab pattern of the UPP 17th battalion, 'Smoldering Sons', operating in the sparse UPP frontier in the Anglo-Japanese arm."
 	icon_state = "upp_uniform"
@@ -1503,7 +1506,7 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
     SC.camouflageupp()
     update_button_icon()
 
-/obj/item/clothing/gloves/marine/veteran/upp
+/obj/item/clothing/gloves/marine/veteran/upp/distress
 	armor_melee = CLOTHING_ARMOR_MEDIUM
 	armor_bullet = CLOTHING_ARMOR_MEDIUM
 	armor_laser = CLOTHING_ARMOR_LOW
@@ -1608,10 +1611,10 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROT
 	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROT
 	armor_rad = CLOTHING_ARMOR_GIGAHIGHPLUS
-	armor_bio = CLOTHING_ARMOR_GIGAHIGHPLUS
+	armor_bio = CLOTHING_ARMOR_MEDIUMHIGH
 	gas_transfer_coefficient = 0.01
 	gas_filter_strength = 3
-	fire_intensity_resistance = 24
+	fire_intensity_resistance = 25
 	icon_state = "upp_cbrn_hood"
 	item_state = "upp_cbrn_hood"
 	item_icons = list(
@@ -1639,10 +1642,10 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	armor_bullet = CLOTHING_ARMOR_LOW
 	armor_bomb = CLOTHING_ARMOR_LOW
 	armor_internaldamage = CLOTHING_ARMOR_VERYLOW
-	armor_bio = CLOTHING_ARMOR_HARDCORE
+	armor_bio = CLOTHING_ARMOR_VERYLOW 
 	armor_rad = CLOTHING_ARMOR_ULTRAHIGHPLUS
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROT
-	slowdown = 0.15
+	slowdown = 0.25
 	flags_armor_protection = BODY_FLAG_CHEST|BODY_FLAG_GROIN|BODY_FLAG_ARMS|BODY_FLAG_LEGS
 	flags_cold_protection = BODY_FLAG_CHEST|BODY_FLAG_GROIN|BODY_FLAG_ARMS|BODY_FLAG_LEGS
 	flags_heat_protection = BODY_FLAG_CHEST|BODY_FLAG_GROIN|BODY_FLAG_ARMS|BODY_FLAG_LEGS
@@ -1727,9 +1730,9 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 
     linked_mask.forceMove(src)
 
-/datum/action/item_action/specialist/toggle_cbrn_mask
-
 /datum/action/item_action/specialist/toggle_cbrn_mask/action_activate()
+    ..()
+
     var/obj/item/clothing/under/marine/veteran/UPP/cbrn_upp/S = target
     S.mask_toggle()
 
@@ -1765,16 +1768,15 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	desc = "UPP standard issue OZK boots excel at keeping viscera or other biological contaminants away from your feet."
 	icon = 'modular/distress/icons/rhbz_plus/icon/shoes.dmi'
 	desc_lore = null
-	slowdown = 0.15
-	fire_intensity_resistance = 5
 	flags_item = MOB_LOCK_ON_EQUIP
+	uniform_restricted = list(/obj/item/clothing/under/marine/veteran/UPP/cbrn_upp)
 	icon_state = "cbrn_alt"
 	item_state = "cbrn_alt"
 	item_icons = list(
 		WEAR_FEET = 'modular/distress/icons/rhbz_plus/onmob/feet.dmi',
 	)
 	armor_rad = CLOTHING_ARMOR_GIGAHIGHPLUS
-	armor_bio = CLOTHING_ARMOR_GIGAHIGHPLUS
+	armor_bio = CLOTHING_ARMOR_MEDIUMHIGH
 	spawn_item_type = /obj/item/attachable/bayonet/upp
 
 /obj/item/clothing/gloves/marine/veteran/cbrn/upp
@@ -1782,8 +1784,9 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	desc = "UPP standard issue OZK gloves to protect your insides from nerve gas and deadly chemicals."
 	icon = 'modular/distress/icons/rhbz_plus/icon/gloves.dmi'
 	desc_lore = null
-	slowdown = 0.15
+	armor_bio = CLOTHING_ARMOR_MEDIUMHIGH
 	flags_item = MOB_LOCK_ON_EQUIP
+	uniform_restricted = list(/obj/item/clothing/under/marine/veteran/UPP/cbrn_upp)
 	icon_state = "cbrn_alt"
 	item_state = "cbrn_alt"
 	item_icons = list(
@@ -1801,3 +1804,33 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	new /obj/item/ammo_magazine/flamer_tank/upp(src)
 	new /obj/item/ammo_magazine/flamer_tank/upp(src)
 	new /obj/item/attachable/attached_gun/extinguisher(src)
+
+/obj/item/clothing/head/cmcap/upp
+	name = "\improper вязаная шапка СПН"
+	desc = "Вязаная шапка. Достаточно вместительная, чтобы спрятать в ней то же снаряжение, что и в боевой шлем."
+	icon = 'modular/distress/icons/hats/icons/upp_beanie.dmi'
+	icon_state = "upp_beanie"
+	item_icons = list(
+		WEAR_HEAD = 'modular/distress/icons/hats/onmob/upp_beanie_onmob.dmi'
+	)
+	flags_atom = NO_GAMEMODE_SKIN
+	flags_marine_hat = HAT_GARB_OVERLAY
+	storage_slots = 1
+	storage_slots_reserved_for_garb = 1
+	storage_max_w_class = SIZE_TINY
+	storage_max_storage_space = 4
+
+/obj/item/clothing/head/cmcap/upp/Initialize(mapload, ...)
+	. = ..()
+	pockets.bypass_w_limit = GLOB.allowed_helmet_items
+
+/obj/item/clothing/head/cmcap/upp/update_icon()
+	helmet_overlays = list()
+	if(length(pockets?.contents) && (flags_marine_hat & HAT_GARB_OVERLAY))
+		for(var/obj/item/garb_object in pockets.contents)
+			if(garb_object.type in GLOB.allowed_helmet_items)
+				helmet_overlays += garb_object.get_garb_overlay(GLOB.allowed_helmet_items[garb_object.type])
+
+	if(ismob(loc))
+		var/mob/moob = loc
+		moob.update_inv_head()

@@ -70,7 +70,7 @@ GLOBAL_LIST_INIT(cm_vending_clothing_upp_commanding_officer, list(
 		list("Secure Satchel", 0, /obj/item/storage/backpack/satchel/lockable, MARINE_CAN_BUY_BACKPACK, VENDOR_ITEM_MANDATORY),
 
 		list("COMBAT EQUIPMENT (TAKE ALL)", 0, null, null, null),
-		list("UL6 Personal Armor", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/support, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
+		list("UL6 Personal Armor", 0, /obj/item/clothing/suit/storage/marine/faction/UPP/support/distress, MARINE_CAN_BUY_ARMOR, VENDOR_ITEM_MANDATORY),
 		list("UM4 Helmet", 0, /obj/item/clothing/head/helmet/marine/veteran/UPP, MARINE_CAN_BUY_HELMET, VENDOR_ITEM_MANDATORY),
 		list("Combat Gloves", 0, /obj/item/clothing/gloves/marine/veteran/upp, MARINE_CAN_BUY_GLOVES, VENDOR_ITEM_MANDATORY),
 		list("Soldier Combat Boots", 0, /obj/item/clothing/shoes/marine/upp/knife, MARINE_CAN_BUY_SHOES, VENDOR_ITEM_MANDATORY),
