@@ -186,7 +186,7 @@ export const BugReportForm = (props) => {
               >
                 {awaiting_admin_approval
                   ? 'Я подтверждаю, что этот отчёт соответствует правилам GitHub'
-                  : 'Я не нашёл существующей проблемы на GitHub'}
+                  : 'Мне не удалось найти существующую проблему на GitHub'}
                 {!checkBox && (
                   <span className="input-title-required">{' *'}</span>
                 )}
