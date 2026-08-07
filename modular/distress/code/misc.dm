@@ -286,8 +286,8 @@
 		WEAR_R_HAND = 'modular/distress/icons/righthand.dmi',
 		WEAR_BACK = 'modular/distress/icons/back.dmi',
 	)
-	icon_state = "upp_rto_backpack"
-	item_state = "upp_rto_backpack"
+	icon_state = "rto_backpack"
+	item_state = "rto_backpack"
 	actions_types = list(/datum/action/item_action/rto_pack/use_phone/upp)
 
 /obj/item/storage/backpack/marine/satchel/rto/upp_net/Initialize()
@@ -834,7 +834,7 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 		list("Minigunner Set", 0, /obj/item/storage/box/spec/heavy_minigun, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_REGULAR),
 		list("Heavy Machinegun Set", 0, /obj/item/storage/box/spec/heavy_machinegun, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_REGULAR),
 		list("HIMAT Operator Set", 0, /obj/item/storage/box/spec/himat_operator, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_REGULAR),
-//		list("Pyro Set", 0, /obj/item/storage/box/spec/upp_pyro, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_REGULAR),
+		list("Pyro Set", 0, /obj/item/storage/box/spec/upp_pyro, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_REGULAR),
 		list("Sniper Set", 0, /obj/item/storage/box/spec/upp_sniper, MARINE_CAN_BUY_ESSENTIALS, VENDOR_ITEM_RECOMMENDED),
 
 		list("EXTRA MINIGUN AMMUNITION", 0, null, null, null),
@@ -857,10 +857,14 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 		list("HIMAT IN missile", 30, /obj/item/mortar_shell/incendiary/himat, null, VENDOR_ITEM_REGULAR),
 		list("HIMAT flare missile", 10, /obj/item/mortar_shell/himat/training, null, VENDOR_ITEM_REGULAR),
 
-//		list("EXTRA FLAMETHROWER TANKS", 0, null, null, null),
-//		list("Large Incinerator Tank", 30, /obj/item/ammo_magazine/flamer_tank/large, null, VENDOR_ITEM_REGULAR),
-//		list("Large Incinerator Tank (B) (Green Flame)", 30, /obj/item/ammo_magazine/flamer_tank/large/B, null, VENDOR_ITEM_REGULAR),
-//		list("Large Incinerator Tank (X) (Blue Flame)", 30, /obj/item/ammo_magazine/flamer_tank/large/X, null, VENDOR_ITEM_REGULAR),
+		list("EXTRA PYRO OZK SETS", 0, null, null, null),
+		list("OZK Support Set", 60, /obj/item/storage/box/kit/upp_ozk, null, VENDOR_ITEM_REGULAR),
+
+		list("EXTRA FLAMETHROWER TANKS", 0, null, null, null),
+		list("Large Incinerator Tank", 30, /obj/item/ammo_magazine/flamer_tank/large/upp, null, VENDOR_ITEM_REGULAR),
+		list("Large Incinerator Tank (B) (Green Flame)", 30, /obj/item/ammo_magazine/flamer_tank/large/B/upp, null, VENDOR_ITEM_REGULAR),
+		list("Large Incinerator Tank (X) (Blue Flame)", 30, /obj/item/ammo_magazine/flamer_tank/large/X/upp, null, VENDOR_ITEM_REGULAR),
+
 	))
 
 
@@ -894,12 +898,12 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 
 	return TRUE
 
-// /datum/specialist_set/upp_pyro
-//	name = "Pyro Set"
-//	role_name = JOB_UPP_SPECIALIST
-//	skill_to_give = SKILL_SPEC_PYRO
-//	rank_icon = "spec"
-//	kit_typepath = /obj/item/storage/box/spec/upp_pyro
+/datum/upp_specialist_set/upp_pyro
+	name = "Pyro Set"
+	role_name = JOB_UPP_SPECIALIST
+	skill_to_give = SKILL_SPEC_PYRO
+	rank_icon = "spec"
+	kit_typepath = /obj/item/storage/box/spec/upp_pyro
 
 /datum/upp_specialist_set/upp_sniper
 	name = "Sniper Set"
@@ -1038,20 +1042,37 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	new /obj/item/device/binoculars/upp(src)
 
 /obj/item/storage/box/spec/upp_pyro
-	name = "\improper Pyrotechnician equipment case"
+	name = "\improper OZK equipment case"
 	desc = "."
 	kit_overlay = "pyro"
 	kit_name = "upp_pyro"
 
 /obj/item/storage/box/spec/upp_pyro/fill_preset_inventory()
-	new /obj/item/clothing/suit/storage/marine/M35(src)
-	new /obj/item/clothing/head/helmet/marine/pyro(src)
-	new /obj/item/storage/large_holster/fuelpack(src)
-	new /obj/item/weapon/gun/flamer/m240/spec(src)
-	new /obj/item/ammo_magazine/flamer_tank/large(src)
+	new /obj/item/clothing/under/marine/veteran/UPP/cbrn_upp/alt(src)
+	new	/obj/item/clothing/shoes/marine/cbrn_non_armored/upp(src)
+	new	/obj/item/clothing/gloves/marine/veteran/cbrn/upp(src)
+	new /obj/item/storage/large_holster/fuelpack/upp(src)
+	new /obj/item/weapon/gun/flamer/m240/spec/upp(src)
+	new /obj/item/ammo_magazine/flamer_tank/large/upp(src)
 	new /obj/item/storage/pouch/flamertank(src)
 	new /obj/item/tool/extinguisher(src)
-	new /obj/item/tool/extinguisher/mini(src)
+	
+	new /obj/item/storage/box/kit/upp_ozk(src)
+	new /obj/item/storage/box/kit/upp_ozk(src)
+
+/obj/item/storage/box/kit/upp_ozk
+	name = "\improper OZK Support Kit"
+	pro_case_overlay = "flamer"
+
+/obj/item/storage/box/kit/upp_ozk/fill_preset_inventory()
+	new /obj/item/clothing/under/marine/veteran/UPP/cbrn_upp(src)
+	new	/obj/item/clothing/shoes/marine/cbrn_non_armored/upp(src)
+	new	/obj/item/clothing/gloves/marine/veteran/cbrn/upp(src)
+	new /obj/item/storage/backpack/marine/engineerpack/flamethrower/kit/upp(src)
+	new /obj/item/weapon/gun/flamer/m240/upp(src)
+	new /obj/item/ammo_magazine/flamer_tank/upp(src)
+	new /obj/item/ammo_magazine/flamer_tank/upp/gellied(src)
+	new /obj/item/tool/extinguisher(src)
 
 
 /obj/item/attachable/stock/type23/toz194
@@ -1128,6 +1149,139 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	damage_mult = BASE_BULLET_DAMAGE_MULT
 	recoil = RECOIL_AMOUNT_TIER_2
 	recoil_unwielded = RECOIL_AMOUNT_TIER_1
+
+/obj/item/weapon/gun/flamer/m240/spec/upp
+	name = "\improper LPO80 incinerator spec unit"
+	desc = "An aged but effective lightweight combat incinerator officially in service as a anti-fortification tool but, in practice, utilized in close quarters combat for flushing out enemy combatants."
+	icon = 'modular/distress/icons/upp.dmi'
+	aim_slowdown = 3
+	icon_state = "LPO80"
+	item_state = "LPO80"
+	current_mag = /obj/item/ammo_magazine/flamer_tank/large/upp
+	item_icons = list(
+		WEAR_L_HAND = 'modular/distress/icons/lefthand.dmi',
+		WEAR_R_HAND = 'modular/distress/icons/righthand.dmi',
+		WEAR_BACK = 'modular/distress/icons/back.dmi',
+		WEAR_J_STORE = 'modular/distress/icons/suit_slot.dmi',
+	)
+
+/obj/item/weapon/gun/flamer/m240/spec/upp/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/norcomm)
+
+/obj/item/weapon/gun/flamer/m240/upp
+	name = "\improper LPO80 incinerator unit"
+	desc = "An aged but effective lightweight combat incinerator officially in service as a anti-fortification tool but, in practice, utilized in close quarters combat for flushing out enemy combatants."
+	icon = 'modular/distress/icons/upp.dmi'
+	aim_slowdown = 2.5
+	icon_state = "LPO80"
+	item_state = "LPO80"
+	current_mag = /obj/item/ammo_magazine/flamer_tank/upp
+	item_icons = list(
+		WEAR_L_HAND = 'modular/distress/icons/lefthand.dmi',
+		WEAR_R_HAND = 'modular/distress/icons/righthand.dmi',
+		WEAR_BACK = 'modular/distress/icons/back.dmi',
+		WEAR_J_STORE = 'modular/distress/icons/suit_slot.dmi',
+	)
+/obj/item/weapon/gun/flamer/m240/upp/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/norcomm)
+
+/obj/item/storage/large_holster/fuelpack/upp
+	name = "\improper UPP ROB-8 fuelpack"
+	desc = "UPPAC standard issue specialist 'Rancevyj Ognemetnyj Bak', or 'Back-mounted Flamer Tank', old back rig that holds fuel in massive square shaped tank, with highly-pressured canister below it. A small regulator sits on the side of rig, compatible with refillment of all flamethrowers used by UPPAC. Tho due to the size, it cannot hold additional regular tanks, like it's American counterpart."
+	icon = 'modular/distress/icons/rhbz_plus/icon/backpacks.dmi'
+	icon_state = "upp_flamethrower_backpack"
+	item_state = "upp_flamethrower_backpack"
+	flags_atom = FPRINT|NO_GAMEMODE_SKIN
+	obj/item/ammo_magazine/flamer_tank/large/fuel/upp
+	obj/item/ammo_magazine/flamer_tank/large/B/upp/fuelB
+	obj/item/ammo_magazine/flamer_tank/large/X/upp/fuelX
+	obj/item/ammo_magazine/flamer_tank/large/upp/active_fuel
+	obj/item/weapon/gun/flamer/m240/spec/upp/linked_flamer
+	toggling = FALSE
+	actions_types = list(/datum/action/item_action/specialist/toggle_fuel)
+	can_hold = list(/obj/item/weapon/gun/flamer/m240/spec/upp)
+	item_icons = list(
+		WEAR_BACK = 'modular/distress/icons/rhbz_plus/onmob/heavysumka.dmi',
+		WEAR_L_HAND = 'modular/distress/icons/lefthand.dmi',
+		WEAR_R_HAND = 'modular/distress/icons/righthand.dmi',
+	)
+
+/obj/item/storage/backpack/marine/engineerpack/flamethrower/kit/upp
+	name = "\improper UPP Pyrotechnician ROB-6 fueltank"
+	desc = "UPPAC standard issue 'Rancevyj Ognemetnyj Bak', or 'Back-mounted Flamer Tank', old back rig that holds fuel in massive square shaped tank, with highly-pressured canister below it. A small regulator sits on the side of rig, compatible with refillment of all flamethrowers used by UPPAC. Tho due to the size, it cannot hold additional regular tanks, like it's American counterpart."
+	icon = 'modular/distress/icons/rhbz_plus/icon/backpacks.dmi'
+	flags_atom = FPRINT|NO_GAMEMODE_SKIN
+	icon_state = "upp_flamethrower_backpack_kit"
+	item_state = "upp_flamethrower_backpack_kit"
+	can_hold = list(/obj/item/ammo_magazine/flamer_tank/upp, /obj/item/tool/extinguisher)
+	item_icons = list(
+		WEAR_BACK = 'modular/distress/icons/rhbz_plus/onmob/heavysumka.dmi',
+		WEAR_L_HAND = 'modular/distress/icons/lefthand.dmi',
+		WEAR_R_HAND = 'modular/distress/icons/righthand.dmi',
+	)
+
+/obj/item/ammo_magazine/flamer_tank/upp
+	name = "LPO80 incinerator tank"
+	icon = 'modular/distress/icons/uppammo.dmi'
+	icon_state = "LPO80"
+	item_state = "LPO80"
+
+/obj/item/ammo_magazine/flamer_tank/large/upp
+	name = "LPO80 large incinerator tank"
+	icon = 'modular/distress/icons/uppammo.dmi'
+	icon_state = "LPO80"
+	item_state = "LPO80"
+
+/obj/item/ammo_magazine/flamer_tank/large/upp/empty
+	flamer_chem = null
+
+/obj/item/ammo_magazine/flamer_tank/large/B/upp
+	name = "LPO80 large incinerator tank (B)"
+	desc = "A large fuel tank of Ultra Thick Napthal Fuel type B, a special variant of napalm that is easily extinguished, but disperses over a wide area while burning slowly."
+	desc_lore = "Unlike its thinner contemporaries, this special ultra-thick variant of napalm is easily extinguished, but disperses over a wide area and lingers on the ground in a viscous mess. The composition reacts violently with inorganic materials to break them down, causing severe structural damage. Handle with extreme caution."
+	caliber = "Napalm B"
+	flamer_chem = "napalmb"
+	icon = 'modular/distress/icons/uppammo.dmi'
+	icon_state = "LPO80"
+	item_state = "LPO80"
+	max_range = 6
+
+// This is the blue flamer fuel for the pyro.
+/obj/item/ammo_magazine/flamer_tank/large/X/upp
+	name = "LPO80 large incinerator tank (X)"
+	desc = "A large fuel tank of Ultra Thick Napthal Fuel type X, a sticky combustible liquid chemical that burns extremely hot, for use in the M240-T incinerator unit. Handle with extreme caution."
+	caliber = "Napalm X"
+	flamer_chem = "napalmx"
+	icon = 'modular/distress/icons/uppammo.dmi'
+	icon_state = "LPO80"
+	item_state = "LPO80"
+
+	max_range = 6
+
+/obj/item/ammo_magazine/flamer_tank/large/EX/upp
+	name = "LPO80 large incinerator tank (EX)"
+	desc = "A large fuel tank of Ultra Thick Napthal Fuel type EX, a sticky combustible liquid chemical that burns so hot it melts straight through most flame-resistant materials, for use in the M240-T incinerator unit. Handle with extreme caution."
+	caliber = "Napalm EX"
+	flamer_chem = "napalmex"
+	icon = 'modular/distress/icons/uppammo.dmi'
+	icon_state = "LPO80"
+	item_state = "LPO80"
+
+	max_range = 7
+
+/obj/item/ammo_magazine/flamer_tank/upp/gellied
+	name = "LPO80 incinerator tank (B-Gel)"
+	desc = "A fuel tank full of specialized Ultra Thick Napthal Fuel type B-Gel. Unlike its liquid contemporaries, this gelled variant of napalm is easily extinguished, but shoots far and lingers on the ground in a viscous mess, while reacting with inorganic materials to break them down. Handle with exceptional care."
+	icon_state = "LPO80"
+	item_state = "LPO80"
+	caliber = "Napalm Gel"
+	flamer_chem = "napalmgel"
+	max_rounds = 200
+
+	max_range = 7
+	max_duration = 50
 
 /obj/item/weapon/gun/rifle/sniper/svd/vssk
 	name = "\improper VSSK designated sniper rifle"
@@ -1445,3 +1599,205 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 		WEAR_BACK = 'modular/distress/icons/rhbz_plus/onmob/heavysumka.dmi'
 	)
 
+/obj/item/clothing/mask/gas/upp
+	name = "\improper OP-4M ShMB/4 gasmask"
+	desc = "The UPP ShMB/4 gasmask mask includes a full covering cowl that securely attaches to the OP-4M suit. It is capable of protecting of a variety of radiological and biological threats."
+	icon = 'modular/distress/icons/rhbz_plus/icon/masks.dmi'
+	flags_inv_hide = HIDEEARS|HIDEEYES|HIDEALLHAIR
+	uniform_restricted = list(/obj/item/clothing/under/marine/veteran/UPP/cbrn_upp)
+	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROT
+	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROT
+	armor_rad = CLOTHING_ARMOR_GIGAHIGHPLUS
+	armor_bio = CLOTHING_ARMOR_GIGAHIGHPLUS
+	gas_transfer_coefficient = 0.01
+	gas_filter_strength = 3
+	fire_intensity_resistance = 24
+	icon_state = "upp_cbrn_hood"
+	item_state = "upp_cbrn_hood"
+	item_icons = list(
+		WEAR_FACE = 'modular/distress/icons/rhbz_plus/onmob/mask.dmi'
+	)
+
+/obj/item/clothing/mask/gas/upp/alt
+	name = "\improper OP-4M PMK/5 gasmask"
+	desc = "The UPP PMK/5 gasmask mask includes a full covering cowl that securely attaches to the OP-4M suit, and additional ventilation system strapped on the back of the hood. It is capable of protecting of a variety of radiological and biological threats."
+	uniform_restricted = list(/obj/item/clothing/under/marine/veteran/UPP/cbrn_upp/alt)
+	icon_state = "upp_cbrn_hood_alt"
+	item_state = "upp_cbrn_hood_alt"
+
+/obj/item/clothing/under/marine/veteran/UPP/cbrn_upp
+	name = "\improper OP-4M suit"
+	desc = "UPP standard issue OZK suits are purpose built to defend the wearer against biological and radioactive contaminants, from nerve gas to nuclear fallout."
+	desc_lore = null
+	icon = 'modular/distress/icons/rhbz_plus/icon/UPP.dmi'
+	item_icons = list(
+		WEAR_BODY = 'modular/distress/icons/rhbz_plus/onmob/UPP.dmi',
+	)
+	icon_state = "upp_cbrn"
+	worn_state = "upp_cbrn"
+	armor_melee = CLOTHING_ARMOR_LOW
+	armor_bullet = CLOTHING_ARMOR_LOW
+	armor_bomb = CLOTHING_ARMOR_LOW
+	armor_internaldamage = CLOTHING_ARMOR_VERYLOW
+	armor_bio = CLOTHING_ARMOR_HARDCORE
+	armor_rad = CLOTHING_ARMOR_ULTRAHIGHPLUS
+	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROT
+	slowdown = 0.15
+	flags_armor_protection = BODY_FLAG_CHEST|BODY_FLAG_GROIN|BODY_FLAG_ARMS|BODY_FLAG_LEGS
+	flags_cold_protection = BODY_FLAG_CHEST|BODY_FLAG_GROIN|BODY_FLAG_ARMS|BODY_FLAG_LEGS
+	flags_heat_protection = BODY_FLAG_CHEST|BODY_FLAG_GROIN|BODY_FLAG_ARMS|BODY_FLAG_LEGS
+	flags_jumpsuit = NO_FLAGS
+	actions_types = list(/datum/action/item_action/specialist/toggle_cbrn_mask)
+	flags_atom = NO_NAME_OVERRIDE|NO_GAMEMODE_SKIN
+	flags_item = MOB_LOCK_ON_EQUIP
+	var/mask_enabled = FALSE
+	var/supports_fire_protection = TRUE
+	var/mask_type = /obj/item/clothing/mask/gas/upp
+	var/obj/item/clothing/mask/linked_mask
+
+/obj/item/clothing/under/marine/veteran/UPP/cbrn_upp/Initialize()
+	linked_mask = new mask_type(src)
+	. = ..()
+
+/obj/item/clothing/under/marine/veteran/UPP/cbrn_upp/Destroy()
+	. = ..()
+	if(linked_mask)
+		qdel(linked_mask)
+
+/obj/item/clothing/under/marine/veteran/UPP/cbrn_upp/verb/mask_toggle()
+	set name = "Toggle Mask"
+	set desc = "Put on the attached gas mask."
+	set src in usr
+
+	if(!usr || usr.is_mob_incapacitated(TRUE))
+		return
+
+	if(!ishuman(usr))
+		return
+
+	var/mob/living/carbon/human/user = usr
+
+	if(user.w_uniform != src)
+		to_chat(user, SPAN_WARNING("You must be wearing [src]!"))
+		return
+
+	if(!linked_mask)
+		CRASH("[src] has no linked mask!")
+
+	playsound(user.loc, "armorequip", 25, 1)
+
+	if(mask_enabled)
+		disable_mask(user, FALSE)
+	else
+		enable_mask(user)
+
+/obj/item/clothing/under/marine/veteran/UPP/cbrn_upp/proc/enable_mask(mob/living/carbon/human/user)
+
+    if(!linked_mask.mob_can_equip(user, WEAR_FACE))
+        to_chat(user, SPAN_WARNING("You are unable to equip [linked_mask]."))
+        return
+
+    user.equip_to_slot(linked_mask, WEAR_FACE)
+
+    mask_enabled = TRUE
+
+    RegisterSignal(src, COMSIG_ITEM_UNEQUIPPED, PROC_REF(disable_mask))
+    RegisterSignal(linked_mask, COMSIG_ITEM_UNEQUIPPED, PROC_REF(disable_mask))
+
+    if(supports_fire_protection)
+        toggle_fire_protection(user, TRUE)
+
+/obj/item/clothing/under/marine/veteran/UPP/cbrn_upp/proc/disable_mask(mob/living/carbon/human/user, forced = TRUE)
+
+    UnregisterSignal(src, COMSIG_ITEM_UNEQUIPPED)
+    UnregisterSignal(linked_mask, COMSIG_ITEM_UNEQUIPPED)
+
+    addtimer(CALLBACK(user, TYPE_PROC_REF(/mob/living/carbon/human, drop_inv_item_to_loc), linked_mask, src), 1)
+    addtimer(CALLBACK(src, PROC_REF(check_remove_mask)), 2)
+
+    mask_enabled = FALSE
+
+    if(supports_fire_protection)
+        toggle_fire_protection(user, FALSE)
+
+/obj/item/clothing/under/marine/veteran/UPP/cbrn_upp/proc/check_remove_mask()
+    for(var/atom/A in contents)
+        if(A == linked_mask)
+            return
+
+    linked_mask.forceMove(src)
+
+/datum/action/item_action/specialist/toggle_cbrn_mask
+
+/datum/action/item_action/specialist/toggle_cbrn_mask/action_activate()
+    var/obj/item/clothing/under/marine/veteran/UPP/cbrn_upp/S = target
+    S.mask_toggle()
+
+/obj/item/clothing/under/marine/veteran/UPP/cbrn_upp/proc/toggle_fire_protection(mob/living/carbon/user, enable_fire_protection)
+	if(enable_fire_protection)
+		RegisterSignal(user, COMSIG_LIVING_PREIGNITION, PROC_REF(fire_shield_is_on))
+		RegisterSignal(user, list(COMSIG_LIVING_FLAMER_CROSSED, COMSIG_LIVING_FLAMER_FLAMED), PROC_REF(flamer_fire_callback))
+		return
+
+	UnregisterSignal(user, list(COMSIG_LIVING_PREIGNITION, COMSIG_LIVING_FLAMER_CROSSED, COMSIG_LIVING_FLAMER_FLAMED))
+
+/obj/item/clothing/under/marine/veteran/UPP/cbrn_upp/proc/fire_shield_is_on(mob/living/burning_mob)
+	SIGNAL_HANDLER
+
+	if(burning_mob.fire_reagent?.fire_penetrating)
+		return
+
+	return COMPONENT_CANCEL_IGNITION
+
+/obj/item/clothing/under/marine/veteran/UPP/cbrn_upp/proc/flamer_fire_callback(mob/living/burning_mob, datum/reagent/fire_reagent)
+	SIGNAL_HANDLER
+
+	if(fire_reagent?.fire_penetrating)
+		return
+
+	return COMPONENT_NO_IGNITE
+
+/obj/item/clothing/under/marine/veteran/UPP/cbrn_upp/alt
+	mask_type = /obj/item/clothing/mask/gas/upp/alt
+
+/obj/item/clothing/shoes/marine/cbrn_non_armored/upp
+	name = "\improper BcH-2M boots"
+	desc = "UPP standard issue OZK boots excel at keeping viscera or other biological contaminants away from your feet."
+	icon = 'modular/distress/icons/rhbz_plus/icon/shoes.dmi'
+	desc_lore = null
+	slowdown = 0.15
+	fire_intensity_resistance = 5
+	flags_item = MOB_LOCK_ON_EQUIP
+	icon_state = "cbrn_alt"
+	item_state = "cbrn_alt"
+	item_icons = list(
+		WEAR_FEET = 'modular/distress/icons/rhbz_plus/onmob/feet.dmi',
+	)
+	armor_rad = CLOTHING_ARMOR_GIGAHIGHPLUS
+	armor_bio = CLOTHING_ARMOR_GIGAHIGHPLUS
+	spawn_item_type = /obj/item/attachable/bayonet/upp
+
+/obj/item/clothing/gloves/marine/veteran/cbrn/upp
+	name = "\improper BL-3M gloves"
+	desc = "UPP standard issue OZK gloves to protect your insides from nerve gas and deadly chemicals."
+	icon = 'modular/distress/icons/rhbz_plus/icon/gloves.dmi'
+	desc_lore = null
+	slowdown = 0.15
+	flags_item = MOB_LOCK_ON_EQUIP
+	icon_state = "cbrn_alt"
+	item_state = "cbrn_alt"
+	item_icons = list(
+		WEAR_HANDS = 'modular/distress/icons/rhbz_plus/onmob/hands.dmi',
+	)
+
+/obj/item/storage/box/guncase/flamer/upp
+	name = "\improper LPO80 incinerator case"
+	desc = "A gun case containing the LPO80 incinerator unit. It does come loaded, but you'll still have to find extra tanks as you go."
+	storage_slots = 4
+	can_hold = list(/obj/item/weapon/gun/flamer/m240/upp, /obj/item/ammo_magazine/flamer_tank/upp, /obj/item/attachable/attached_gun/extinguisher)
+
+/obj/item/storage/box/guncase/flamer/upp/fill_preset_inventory()
+	new /obj/item/weapon/gun/flamer/m240/upp(src)
+	new /obj/item/ammo_magazine/flamer_tank/upp(src)
+	new /obj/item/ammo_magazine/flamer_tank/upp(src)
+	new /obj/item/attachable/attached_gun/extinguisher(src)

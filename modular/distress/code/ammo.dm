@@ -366,3 +366,23 @@
 	damage = 40
 	penetration = ARMOR_PENETRATION_TIER_7
 
+/obj/item/ammo_box/magazine/flamer/upp
+	name = "flamer tank box (UT-Napthal Fuel x 8)"
+	icon_state = "base_flamer"
+	overlay_ammo_type = "_flamer"
+	overlay_gun_type = "_blank"
+	overlay_content = "_flamer"
+	magazine_type = /obj/item/ammo_magazine/flamer_tank/upp
+	num_of_magazines = 8
+
+/obj/item/ammo_box/magazine/flamer/upp/empty
+	empty = TRUE
+
+/obj/item/ammo_box/magazine/flamer/bgel/upp
+	name = "flamer fuel box (Napalm B-Gel x 8)"
+	overlay_ammo_type = "_flamer_bgel"
+	overlay_content = "_flamer_bgel"
+	magazine_type = /obj/item/ammo_magazine/flamer_tank/upp/gellied
+
+/obj/item/ammo_box/magazine/flamer/bgel/upp/empty
+	empty = TRUE

@@ -23,7 +23,7 @@
 		list("RESTRICTED FIREARM AMMUNITION", -1, null, null),
 		list("Type-19 stick magazine (7.62x25mm)", floor(scale * 3), /obj/item/ammo_magazine/smg/pps43, VENDOR_ITEM_REGULAR),
 		list("Type 71 AP Magazine (5.45x39mm)", floor(scale * 4), /obj/item/ammo_magazine/rifle/type71/ap, VENDOR_ITEM_REGULAR),
-		list("M240 Incinerator Tank", floor(scale * 2), /obj/item/ammo_magazine/flamer_tank, VENDOR_ITEM_REGULAR),
+		list("LPO80 Incinerator Tank", floor(scale * 2), /obj/item/ammo_magazine/flamer_tank/upp, VENDOR_ITEM_REGULAR),
 		)
 
 //--------------UPP SQUAD ARMAMENTS VENDOR--------------
@@ -60,7 +60,7 @@
 		list("Box of Flashlight", floor(scale * 1), /obj/item/ammo_box/magazine/misc/flashlight, VENDOR_ITEM_REGULAR),
 		list("Box of Flares", floor(scale * 1), /obj/item/ammo_box/magazine/misc/flares, VENDOR_ITEM_REGULAR),
 		list("M94 Marking Flare Pack", floor(scale * 10), /obj/item/storage/box/m94, VENDOR_ITEM_REGULAR),
-//		list("M89-S Signal Flare Pack", floor(scale * 5), /obj/item/storage/box/m94/signal, VENDOR_ITEM_REGULAR), (removed until signal flares work per faction)
+		list("M89-S Signal Flare Pack", floor(scale * 5), /obj/item/storage/box/m94/signal, VENDOR_ITEM_REGULAR),
 
 		list("MISCELLANEOUS", -1, null, null),
 		list("Map", floor(scale * 5), /obj/item/map/current_map, VENDOR_ITEM_REGULAR),

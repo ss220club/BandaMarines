@@ -393,6 +393,9 @@
 	if(head && head.fire_intensity_resistance)
 		fire_intensity_resistance += head.fire_intensity_resistance
 
+	if(wear_mask?.fire_intensity_resistance)
+		fire_intensity_resistance += wear_mask.fire_intensity_resistance
+
 	if(wear_suit && wear_suit.fire_intensity_resistance)
 		fire_intensity_resistance += wear_suit.fire_intensity_resistance
 
