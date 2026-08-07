@@ -23,7 +23,7 @@
 	stafftype = "[admin_holder.rank]"
 
 	msg = strip_html(msg)
-	log_admin(logis_speech_line(src.mob, msg, "Dsay"), "DEADCHAT") //BANDAMARINES LOGIS EDIT
+	log_admin(logis_speech_line(mob, msg, "Dsay"), "DEADCHAT") //BANDAMARINES LOGIS EDIT
 
 	if (!msg)
 		return
