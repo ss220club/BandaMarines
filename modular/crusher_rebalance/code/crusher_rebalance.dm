@@ -508,8 +508,23 @@
 		if (window_in_path.unacidable)
 			. = FALSE
 		else
+			var/obj/structure/window/framed/window_framed_in_path
+			var/window_frame_type
+			var/turf/window_loc
+			if(istype(window_in_path, /obj/structure/window/framed))
+				window_framed_in_path = target
+				window_frame_type = window_framed_in_path.window_frame
+				window_loc = window_in_path.loc
 			window_in_path.health = 0
 			window_in_path.healthcheck(user = xeno)
+			if(istype(window_framed_in_path))
+				if(window_framed_in_path.reinf)
+					. = FALSE
+				else
+					var/obj/structure/window_frame/left_window_frame = locate(window_frame_type) in window_loc
+					if(left_window_frame)
+						handle_collision(left_window_frame)
+
 			. =  TRUE
 
 	//Window frame collision
@@ -588,45 +603,55 @@
 	// Anything else?
 	else
 		if (isobj(target))
-			var/obj/objects_in_path = target
-			if (objects_in_path.unacidable)
+			var/obj/object_in_path = target
+			if(!object_in_path.density) // collide with obj that interrupt dash
+				return TRUE
+			if (object_in_path.unacidable) // can't break unbreakable
 				. = FALSE
+
 			//Immovable obj
-			else if (objects_in_path.anchored)
-				if(!objects_in_path.density)
-					return TRUE
-				xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] раздавливает [objects_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы раздавливаем [objects_in_path.declent_ru(ACCUSATIVE)]!"))
-				destroy_obj_in_path(objects_in_path, xeno)
-				. = FALSE
+			else if (object_in_path.anchored)
+				xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] раздавливает [object_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы раздавливаем [object_in_path.declent_ru(ACCUSATIVE)]!"))
+				if(istype(object_in_path, /obj/structure/platform))
+					var/obj/structure/platform/platform_in_path = object_in_path
+					platform_in_path.broken()
+					. = TRUE
+				else
+					destroy_obj_in_path(object_in_path, xeno)
+					. = FALSE
 
 			//Movable obj
 			else  //Canisters, crates etc. go flying
-				if(objects_in_path.buckled_mob)
-					objects_in_path.unbuckle()
-				xeno.visible_message(SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] отбрасывает [objects_in_path.declent_ru(ACCUSATIVE)] в сторону!"), SPAN_XENOWARNING("Мы отбрасываем [objects_in_path.declent_ru(ACCUSATIVE)] в сторону."))
-				var/impact_range = pick(1,2)
-				var/turf/turfs_to_get = xeno.get_diagonal_step(objects_in_path, xeno.dir)
+				if(object_in_path.buckled_mob)
+					object_in_path.unbuckle()
+				xeno.visible_message(SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] отбрасывает [object_in_path.declent_ru(ACCUSATIVE)] в сторону!"), SPAN_XENOWARNING("Мы отбрасываем [object_in_path.declent_ru(ACCUSATIVE)] в сторону."))
+
+				var/turf/turfs_to_get = xeno.get_diagonal_step(object_in_path, xeno.dir)
 				turfs_to_get = get_step_away(turfs_to_get, xeno)
+
+				var/impact_range = pick(1,2)
 				var/launch_speed = 2
-				var/old_loc = objects_in_path.loc
-				objects_in_path.throw_atom(turfs_to_get, impact_range, launch_speed)
-				if(old_loc == objects_in_path.loc) //if obj didnt move from the way it is destroyed
-					xeno.visible_message(SPAN_WARNING("[objects_in_path.declent_ru(ACCUSATIVE)] разбит[genderize_ru(objects_in_path.gender, "", "а", "о", "ы")] вдребезги!"), SPAN_XENOWARNING("Мы разбиваем [objects_in_path.declent_ru(ACCUSATIVE)]!"))
-					destroy_obj_in_path(objects_in_path, xeno)
+				var/old_loc = object_in_path.loc
+				object_in_path.throw_atom(turfs_to_get, impact_range, launch_speed)
+
+				if(old_loc == object_in_path.loc) //if obj do not move from the way it will be destroyed
+					xeno.visible_message(SPAN_WARNING("[object_in_path.declent_ru(ACCUSATIVE)] разбит[genderize_ru(object_in_path.gender, "", "а", "о", "ы")] вдребезги!"), SPAN_XENOWARNING("Мы разбиваем [object_in_path.declent_ru(ACCUSATIVE)]!"))
+					destroy_obj_in_path(object_in_path, xeno)
 				. = TRUE
 
 	if (!.)
 		xeno.update_icons()
 
-/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/destroy_obj_in_path(obj/objects_in_path, mob/living/carbon/xenomorph/xeno)
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/destroy_obj_in_path(obj/object_in_path, mob/living/carbon/xenomorph/xeno)
 	if(!istype(xeno))
 		xeno = owner
-	if(!istype(xeno) || !istype(objects_in_path))
+	if(!istype(xeno) || !istype(object_in_path))
 		return
-	if(length(objects_in_path.contents)) // So the contents of containers dont delete themselves as well
+	if(length(object_in_path.contents)) // So the contents of containers dont delete themselves as well
 		var/turf/turf_for_obj = get_turf(xeno)
-		for(var/atom/movable/stuff_to_move in objects_in_path.contents) stuff_to_move.forceMove(turf_for_obj)
-	qdel(objects_in_path)
+		for(var/atom/movable/stuff_to_move in object_in_path.contents) stuff_to_move.forceMove(turf_for_obj)
+	playsound(xeno.loc, "punch", 25, 1)
+	qdel(object_in_path)
 
 /mob/living/carbon/xenomorph/launch_impact(atom/hit_atom) // wall bonk
 	if(HAS_TRAIT(src, TRAIT_CHARGING))
