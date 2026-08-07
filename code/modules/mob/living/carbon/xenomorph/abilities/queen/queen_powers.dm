@@ -956,7 +956,7 @@
 	var/targetstring = english_list(target_list)
 	to_chat(xeno_player, SPAN_XENONOTICE("Вы сказали: '[whisper]' обращаясь к [targetstring]")) // SS220 EDIT ADDICTION
 	xeno_player.use_plasma(radiance_plasma_cost)
-	log_say("PsychicRadiance: [key_name(xeno_player)]->[targetstring] : [whisper] (AREA: [log_location(xeno_player)])", xeno_player)
+	log_say("PsychicRadiance: [key_name(xeno_player)]->[targetstring] : [whisper] (AREA: [log_location(xeno_player)])", xeno_player) //BANDAMARINES EDIT LOGIS
 	for (var/mob/dead/observer/ghost as anything in GLOB.observer_list)
 		if(!ghost.client || isnewplayer(ghost))
 			continue

@@ -202,10 +202,10 @@
 /proc/ai_silent_announcement(message, channel_prefix)
 	if(!message)
 		return
-
-	var/channel_text = channel_prefix ? " [channel_prefix]" : ""//BANDAMARINES ADDITION
-	log_announcement("AI Silent Announcement[channel_text]: [message]")//BANDAMARINES ADDITION
-
+	//BANDAMARINES EDIT LOGIS START
+	var/channel_text = channel_prefix ? " [channel_prefix]" : ""
+	log_announcement("AI Silent Announcement[channel_text]: [message]")
+	//BANDAMARINES EDIT LOGIS END
 	for(var/mob/living/silicon/decoy/ship_ai/AI in GLOB.ai_mob_list)
 		if(channel_prefix)
 			message = "[channel_prefix][message]"

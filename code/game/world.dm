@@ -127,7 +127,7 @@ GLOBAL_LIST_INIT(reboot_sfx, file2list("config/reboot_sfx.txt"))
 	start_log(GLOB.tgui_log)
 	start_log(GLOB.world_href_log)
 	start_log(GLOB.world_game_log)
-	start_log(GLOB.world_logis_game_log)
+	start_log(GLOB.world_logis_game_log) //BANDAMARINES EDIT LOGIS
 	start_log(GLOB.world_attack_log)
 	start_log(GLOB.world_runtime_log)
 	start_log(GLOB.round_stats)

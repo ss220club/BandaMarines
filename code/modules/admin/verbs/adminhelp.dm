@@ -471,12 +471,13 @@ SET_PROTECTED_DATUM(/datum/admin_help)
 	AddInteraction(SPAN_RED("[LinkedReplyName(ref_src)]: [msg]"),
 		plain_message = "[msg]", message_type = "legacy")
 	log_admin_private("Ticket #[id]: [key_name(initiator)]: [msg]")
+	//BANDAMARINES EDIT LOGIS START
 	var/list/adm = get_admin_counts(R_BAN)
 	var/admin_number_present = length(adm["present"])
 	var/logis_help_line = logis_help_ticket_line(initiator, msg, admin_number_present)
 	if(logis_help_line)
 		log_to_logis("ADMIN", logis_help_line)
-
+	//BANDAMARINES EDIT LOGIS END
 	//send this msg to all admins
 	for(var/client/X in GLOB.admins)
 		if(!CLIENT_IS_STAFF(X))
