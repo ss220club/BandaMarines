@@ -184,8 +184,7 @@
 
 //AI announcement that uses talking into comms
 /proc/ai_announcement(message, sound_to_play = sound('sound/misc/interference.ogg'), logging = ARES_LOG_MAIN)
-	log_announcement("Comms Update: [message]")//BANDAMARINES ADDITION
-
+	log_announcement("Comms Update: [message]") //BANDAMARINES EDIT LOGIS
 	for(var/mob/M in (GLOB.human_mob_list + GLOB.dead_mob_list))
 		if((isobserver(M) && M.client?.prefs?.toggles_sound & SOUND_OBSERVER_ANNOUNCEMENTS) || ishuman(M) && is_mainship_level(M.z))
 			playsound_client(M.client, sound_to_play, M, vol = 45)
@@ -247,8 +246,7 @@
 /proc/announcement_helper(message, title, list/targets, sound_to_play, quiet, list/targets_to_garble, faction_to_garble, datum/announcer/announcer = GLOB.tts_announcers[TTS_DEFAULT_ANNOUNCER_KEY], datum/component/tts_component/tts_component, tts_message) // SS220 EDIT - TTS)
 	if(!message || !title || !targets) //Shouldn't happen
 		return
-	log_announcement("[title]: [message]")//BANDAMARINES ADDITION
-
+	log_announcement("[title]: [message]") //BANDAMARINES EDIT LOGIS
 	if(isnull(targets_to_garble))
 		targets_to_garble = list()
 	//BANDAMARINES ADDITION start
