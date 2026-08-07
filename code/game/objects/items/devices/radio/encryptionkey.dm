@@ -307,22 +307,22 @@
 //---------------------------------------------------
 //UPP Keys
 /obj/item/device/encryptionkey/upp/akula
-    name = "\improper UPP Akula Radio Encryption Key"
-    channels = list(
-        RADIO_CHANNEL_UPP_GEN = TRUE, RADIO_CHANNEL_AKULA = TRUE)
+	name = "\improper UPP Akula Radio Encryption Key"
+	channels = list(
+		RADIO_CHANNEL_UPP_GEN = TRUE, RADIO_CHANNEL_AKULA = TRUE)
 
 /obj/item/device/encryptionkey/upp/bizon
-    name = "\improper UPP Bizon Radio Encryption Key"
-    channels = list(
-        RADIO_CHANNEL_UPP_GEN = TRUE, RADIO_CHANNEL_BIZON = TRUE)
+	name = "\improper UPP Bizon Radio Encryption Key"
+	channels = list(
+		RADIO_CHANNEL_UPP_GEN = TRUE, RADIO_CHANNEL_BIZON = TRUE)
 
 /obj/item/device/encryptionkey/upp/chayka
-    name = "\improper UPP Chayka Radio Encryption Key"
-    channels = list(RADIO_CHANNEL_UPP_GEN = TRUE, RADIO_CHANNEL_CHAYKA = TRUE)
+	name = "\improper UPP Chayka Radio Encryption Key"
+	channels = list(RADIO_CHANNEL_UPP_GEN = TRUE, RADIO_CHANNEL_CHAYKA = TRUE)
 
 /obj/item/device/encryptionkey/upp/delfin
-    name = "\improper UPP Delfin Radio Encryption Key"
-    channels = list(RADIO_CHANNEL_UPP_GEN = TRUE, RADIO_CHANNEL_DELFIN = TRUE)
+	name = "\improper UPP Delfin Radio Encryption Key"
+	channels = list(RADIO_CHANNEL_UPP_GEN = TRUE, RADIO_CHANNEL_DELFIN = TRUE)
 
 /obj/item/device/encryptionkey/upp
 	name = "\improper UPP Radio Encryption Key"
