@@ -51,7 +51,7 @@
 /obj/structure/machinery/computer/shuttle/dropship/flight/proc/get_landing_zones()
 	. = list()
 	for(var/obj/docking_port/stationary/marine_dropship/dock in SSshuttle.stationary)
-		if(use_factions && dock.faction != faction)
+		if(use_factions && dock.faction && dock.faction != faction)
 			continue
 		if(istype(dock, /obj/docking_port/stationary/marine_dropship/crash_site))
 			continue

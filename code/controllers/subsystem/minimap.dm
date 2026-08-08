@@ -2042,10 +2042,10 @@ SUBSYSTEM_DEF(minimaps)
 	playsound_client(user.client, "sound/effects/data-transmission.ogg")
 
 	// Trigger a refresh of all non-live minimaps with new drawings
-	SSminimaps.refresh_static_minimaps(MINIMAP_FLAG_USCM)
+	SSminimaps.refresh_static_minimaps(minimap_flag)
 
 	// Apply drawings to all live minimaps now that update has been sent
-	SSminimaps.apply_drawings_to_live_minimaps(MINIMAP_FLAG_USCM)
+	SSminimaps.apply_drawings_to_live_minimaps(minimap_flag)
 
 	user.client.images += drawn_image
 	var/icon/flat_drawing = icon(user.client.RenderIcon(drawn_image))

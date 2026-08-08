@@ -1144,6 +1144,7 @@
 	icon = 'icons/obj/structures/doors/upp/upp_reqgreendoor.dmi'
 	opacity = TRUE
 	glass = FALSE
+	req_one_access = list(ACCESS_UPP_ENGINEERING, ACCESS_UPP_LEADERSHIP)
 
 /obj/structure/machinery/door/airlock/upp/req/solid/autoname
 	autoname = TRUE

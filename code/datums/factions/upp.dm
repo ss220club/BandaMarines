@@ -8,7 +8,9 @@
 	var/hud_icon_state
 	var/default_color = FALSE //so squad units get red icons as survs and ERT
 	var/datum/squad/squad = human.assigned_squad
-
+	
+	if(istype(squad))
+		human.langchat_color = squad.chat_color
 	var/_role = human.job
 	if(!_role)
 		var/obj/item/card/id/id_card = human.get_idcard()

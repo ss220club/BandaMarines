@@ -383,6 +383,7 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 	var/faction = FACTION_MARINE
 
 /obj/structure/bed/medevac_stretcher/upp
+	foldabletype = /obj/item/roller/medevac/upp
 	name = "UPP medevac stretcher"
 	faction = FACTION_UPP
 

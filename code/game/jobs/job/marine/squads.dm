@@ -292,6 +292,7 @@
 	equipment_color = "#e61919"
 	chat_color = "#e67d7d"
 	background_icon = "background_upp_alpha"
+	radio_freq = AKULA_FREQ
 
 /datum/squad/upp/two
 	name = SQUAD_UPP_2
@@ -299,6 +300,7 @@
 	equipment_color = "#ffc32d"
 	chat_color = "#ffe650"
 	background_icon = "background_upp_bravo"
+	radio_freq = BIZON_FREQ
 
 /datum/squad/upp/three
 	name = SQUAD_UPP_3
@@ -306,6 +308,7 @@
 	equipment_color = "#c864c8"
 	chat_color = "#ff96ff"
 	background_icon = "background_upp_charlie"
+	radio_freq = CHAYKA_FREQ
 
 /datum/squad/upp/four
 	name = SQUAD_UPP_4
@@ -313,6 +316,7 @@
 	equipment_color = "#4148c8"
 	chat_color = "#828cff"
 	background_icon = "background_upp_delta"
+	radio_freq = DELFIN_FREQ
 
 /datum/squad/upp/kdo
 	name = SQUAD_UPP_5
@@ -321,6 +325,7 @@
 	squad_type = "Team"
 	locked = TRUE
 	usable = FALSE
+	radio_freq = UPP_KDO_FREQ
 
 //###############################
 /datum/squad/pmc

@@ -546,6 +546,13 @@
 		list("Pill Bottle (Oxycodone)", floor(scale * 3), /obj/item/storage/pill_bottle/oxycodone, VENDOR_ITEM_REGULAR),
 		list("Pill Bottle (Peridaxon)", floor(scale * 3), /obj/item/storage/pill_bottle/peridaxon, VENDOR_ITEM_REGULAR),
 		list("Pill Bottle (Tramadol)", floor(scale * 4), /obj/item/storage/pill_bottle/tramadol, VENDOR_ITEM_REGULAR),
+		
+		list("PILL PACKETS", -1, null, null),
+		list("Pill packet (Tricordrazine)", floor(scale * 8), /obj/item/storage/pill_bottle/packet/tricordrazine, VENDOR_ITEM_REGULAR),
+		list("Pill packet (Bicaridine)", floor(scale * 8), /obj/item/storage/pill_bottle/packet/bicaridine, VENDOR_ITEM_REGULAR),
+		list("Pill packet (Kelotane)", floor(scale * 8), /obj/item/storage/pill_bottle/packet/kelotane, VENDOR_ITEM_REGULAR),
+		list("Pill packet (Tramadol)", floor(scale * 8), /obj/item/storage/pill_bottle/packet/tramadol, VENDOR_ITEM_REGULAR),
+		list("Pill packet (Oxycodone)", floor(scale * 8), /obj/item/storage/pill_bottle/packet/oxycodone, VENDOR_ITEM_REGULAR),
 
 		list("MEDICAL UTILITIES", -1, null, null),
 		list("Emergency Defibrillator", floor(scale * 3), /obj/item/device/defibrillator, VENDOR_ITEM_REGULAR),
@@ -751,7 +758,12 @@
 		list("Fire Extinguisher (portable)", 5, /obj/item/tool/extinguisher/mini, VENDOR_ITEM_REGULAR),
 		list("Ointment", floor(scale * 8), /obj/item/stack/medical/ointment, VENDOR_ITEM_REGULAR),
 		list("Roll of Gauze", floor(scale * 8), /obj/item/stack/medical/bruise_pack, VENDOR_ITEM_REGULAR),
-		list("Splints", floor(scale * 8), /obj/item/stack/medical/splint, VENDOR_ITEM_REGULAR)
+		list("Splints", floor(scale * 8), /obj/item/stack/medical/splint, VENDOR_ITEM_REGULAR),
+		list("Tricordrazine", floor(scale * 8), /obj/item/storage/pill_bottle/packet/tricordrazine, VENDOR_ITEM_REGULAR),
+		list("Bicaridine", floor(scale * 8), /obj/item/storage/pill_bottle/packet/bicaridine, VENDOR_ITEM_REGULAR),
+		list("Kelotane", floor(scale * 8), /obj/item/storage/pill_bottle/packet/kelotane, VENDOR_ITEM_REGULAR),
+		list("Tramadol", floor(scale * 8), /obj/item/storage/pill_bottle/packet/tramadol, VENDOR_ITEM_REGULAR),
+		list("Oxycodone", floor(scale * 8), /obj/item/storage/pill_bottle/packet/oxycodone, VENDOR_ITEM_REGULAR)
 	)
 
 /obj/structure/machinery/cm_vending/sorted/medical/marinemed/antag
@@ -879,7 +891,12 @@
 		list("Trauma Kit", 8, /obj/item/stack/medical/advanced/bruise_pack, VENDOR_ITEM_REGULAR),
 		list("Ointment", 8, /obj/item/stack/medical/ointment, VENDOR_ITEM_REGULAR),
 		list("Roll of Gauze", 8, /obj/item/stack/medical/bruise_pack, VENDOR_ITEM_REGULAR),
-		list("Splints", 8, /obj/item/stack/medical/splint, VENDOR_ITEM_REGULAR)
+		list("Splints", 8, /obj/item/stack/medical/splint, VENDOR_ITEM_REGULAR),
+		list("Tricordrazine", 8, /obj/item/storage/pill_bottle/packet/tricordrazine, VENDOR_ITEM_REGULAR),
+		list("Bicaridine", 8, /obj/item/storage/pill_bottle/packet/bicaridine, VENDOR_ITEM_REGULAR),
+		list("Kelotane", 8, /obj/item/storage/pill_bottle/packet/kelotane, VENDOR_ITEM_REGULAR),
+		list("Tramadol", 8, /obj/item/storage/pill_bottle/packet/tramadol, VENDOR_ITEM_REGULAR),
+		list("Oxycodone", 8, /obj/item/storage/pill_bottle/packet/oxycodone, VENDOR_ITEM_REGULAR)
 	)
 
 	chem_refill_volume = 500

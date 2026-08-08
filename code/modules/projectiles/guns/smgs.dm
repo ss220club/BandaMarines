@@ -510,7 +510,7 @@
 /obj/item/weapon/gun/smg/ppsh/unload(mob/user, reload_override, drop_override, loc_override)
 	. = ..()
 	aim_slowdown = SLOWDOWN_ADS_QUICK
-	wield_delay = WEAPON_DELAY_VERY_FAST
+	wield_delay = WEAPON_DELAY_NORMAL
 
 /obj/item/weapon/gun/smg/ppsh/reload(mob/user, obj/item/ammo_magazine/magazine)
 	var/obj/item/ammo_magazine/smg/ppsh/ppsh_mag = magazine
@@ -570,7 +570,7 @@
 
 /obj/item/weapon/gun/smg/pps43/set_gun_config_values()
 	..()
-	fire_delay = FIRE_DELAY_TIER_SMG
+	fire_delay = FIRE_DELAY_TIER_10
 	burst_delay = FIRE_DELAY_TIER_SMG
 	burst_amount = BURST_AMOUNT_TIER_3
 	accuracy_mult = BASE_ACCURACY_MULT + HIT_ACCURACY_MULT_TIER_3
@@ -579,7 +579,7 @@
 	burst_scatter_mult = SCATTER_AMOUNT_TIER_4
 	scatter_unwielded = SCATTER_AMOUNT_TIER_4
 	damage_mult = BASE_BULLET_DAMAGE_MULT + BULLET_DAMAGE_MULT_TIER_4
-	recoil_unwielded = RECOIL_AMOUNT_TIER_5
+	recoil_unwielded = RECOIL_AMOUNT_TIER_1
 
 /obj/item/weapon/gun/smg/pps43/extended_mag
 	current_mag = /obj/item/ammo_magazine/smg/pps43/extended
@@ -597,8 +597,8 @@
 	fire_sound = 'sound/weapons/smg_heavy.ogg'
 	current_mag = /obj/item/ammo_magazine/smg/bizon
 	flags_gun_features = GUN_AUTO_EJECTOR|GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER
-	wield_delay = WEAPON_DELAY_MIN
-	aim_slowdown = SLOWDOWN_ADS_QUICK_MINUS
+	wield_delay = WEAPON_DELAY_NORMAL
+	aim_slowdown = SLOWDOWN_ADS_QUICK
 
 /obj/item/weapon/gun/smg/bizon/Initialize()
 	. = ..()
@@ -617,7 +617,7 @@
 	scatter = SCATTER_AMOUNT_TIER_9
 	burst_scatter_mult = SCATTER_AMOUNT_TIER_8
 	scatter_unwielded = SCATTER_AMOUNT_TIER_4
-	damage_mult = BASE_BULLET_DAMAGE_MULT + BULLET_DAMAGE_MULT_TIER_3
+	damage_mult = BASE_BULLET_DAMAGE_MULT
 	recoil_unwielded = RECOIL_AMOUNT_TIER_5
 
 /obj/item/weapon/gun/smg/bizon/upp

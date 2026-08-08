@@ -521,8 +521,8 @@ can cause issues with ammo types getting mixed up during the burst.
 		/obj/item/attachable/flashlight/under_barrel,
 		/obj/item/attachable/flashlight/grip,
 		/obj/item/attachable/attached_gun/extinguisher,
-		/obj/item/attachable/burstfire_assembly,
-		/obj/item/attachable/stock/type23, // Stock
+		/obj/item/attachable/stock/type23,
+		/obj/item/attachable/burstfire_assembly/upp,
 		)
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_INTERNAL_MAG
 	flags_equip_slot = SLOT_BACK
@@ -539,7 +539,7 @@ can cause issues with ammo types getting mixed up during the burst.
 
 /obj/item/weapon/gun/shotgun/type23/set_gun_config_values()
 	..()
-	set_fire_delay(FIRE_DELAY_TIER_SHOTGUN_SLOW)
+	set_fire_delay(FIRE_DELAY_TIER_AMR)
 	accuracy_mult = BASE_ACCURACY_MULT
 	accuracy_mult_unwielded = BASE_ACCURACY_MULT - HIT_ACCURACY_MULT_TIER_10
 	scatter = SCATTER_AMOUNT_TIER_4

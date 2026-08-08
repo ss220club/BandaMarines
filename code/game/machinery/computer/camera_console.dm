@@ -442,6 +442,16 @@
 	name = "\improper 'Saipan' camera controls"
 	network = list(CAMERA_NET_RESEARCH, CAMERA_NET_LASER_TARGETS)
 
+/obj/structure/machinery/computer/cameras/dropship/four
+	name = "\improper 'Morana' camera controls"
+	icon_state = "console_upp_left"
+	network = list(CAMERA_NET_RESEARCH, CAMERA_NET_LASER_TARGETS)
+
+/obj/structure/machinery/computer/cameras/dropship/five
+	name = "\improper 'Devana' camera controls"
+	icon_state = "console_upp_left"
+	network = list(CAMERA_NET_RESEARCH, CAMERA_NET_LASER_TARGETS)
+
 /obj/structure/machinery/computer/cameras/internal
 	name = "Internal Camera Link"
 	desc = "If you can see this, someone messed up."

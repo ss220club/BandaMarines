@@ -118,3 +118,32 @@
 
 /obj/effect/decal/floor_symbol/uscm_3x3/westface/northwest
 	dir = NORTHWEST
+
+/obj/effect/decal/floor_symbol/cec
+	icon = 'icons/turf/cec_floor.dmi'
+	icon_state = "cec_c"
+	name = "\improper CEC Logo"
+
+/obj/effect/decal/floor_symbol/cec/westface
+	icon_state = "cec_directional"
+
+/obj/effect/decal/floor_symbol/cec/westface/southwest
+	dir = SOUTHWEST
+
+/obj/effect/decal/floor_symbol/cec/westface/north
+	dir = NORTH
+
+/obj/effect/decal/floor_symbol/cec/westface/east
+	dir = EAST
+
+/obj/effect/decal/floor_symbol/cec/westface/west
+	dir = WEST
+
+/obj/effect/decal/floor_symbol/cec/westface/northeast
+	dir = NORTHEAST
+
+/obj/effect/decal/floor_symbol/cec/westface/southeast
+	dir = SOUTHEAST
+
+/obj/effect/decal/floor_symbol/cec/westface/northwest
+	dir = NORTHWEST

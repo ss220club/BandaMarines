@@ -19,6 +19,7 @@
 
 // UPP
 #define ORIGIN_UPP "Union of Progressive Peoples"
+#define ORIGIN_UPPd "Union Of Progressive Peoples"
 
 // WY
 #define ORIGIN_WY "Weyland-Yutani Corporation"

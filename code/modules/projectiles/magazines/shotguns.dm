@@ -230,6 +230,11 @@ also doesn't really matter. You can only reload them with handfuls.
 	caliber = "8g"
 	max_rounds = 4
 
+/obj/item/ammo_magazine/internal/shotgun/type23/toz194
+	default_ammo = /datum/ammo/bullet/shotgun/heavy/buckshot
+	caliber = "8g"
+	max_rounds = 9
+
 /obj/item/ammo_magazine/internal/shotgun/type23/slug
 	default_ammo = /datum/ammo/bullet/shotgun/heavy/slug
 

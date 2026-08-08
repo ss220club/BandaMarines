@@ -1244,7 +1244,7 @@
 	set name = "View Crew Manifest"
 	set category = "IC"
 
-	if(faction != FACTION_MARINE && !((faction in FACTION_LIST_WY) || faction == FACTION_FAX))
+	if(faction != FACTION_MAIN && !((faction in FACTION_LIST_WY) || faction == FACTION_FAX))
 		to_chat(usr, SPAN_WARNING("You have no access to [MAIN_SHIP_NAME] crew manifest."))
 		return
 	GLOB.crew_manifest.open_ui(src)
@@ -1253,7 +1253,7 @@
 	set name = "View Tacmap"
 	set category = "IC"
 
-	if(faction != FACTION_MARINE && !(FACTION_MARINE in faction_group))
+	if(faction != FACTION_MAIN && !(FACTION_MAIN in faction_group))
 		to_chat(usr, SPAN_WARNING("You have no access to [MAIN_SHIP_NAME] tactical map."))
 		return
 

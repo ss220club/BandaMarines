@@ -104,6 +104,10 @@ const RU_RADIO_LABELS = {
   'UPP Kdo': 'СПН Кмдс',
   Req: 'Запросы',
   UPP: 'СПН',
+  Akula: 'Акула',
+  Bizon: 'Бизон',
+  Chayka: 'Чайка',
+  Delfin: 'Дельфин',
   'Cmd.': 'Кмд',
   Command: 'Кмд',
   'UPP Cmd.': 'СПН Кмд',
@@ -465,6 +469,41 @@ export const RADIO_PREFIXES = {
   '#2 ': {
     id: 'cia',
     label: 'CIA',
+  },
+  ':3 ': {
+    id: 'akula',
+    label: 'Akula',
+  },
+  '.3 ': {
+    id: 'akula',
+    label: 'Akula',
+  },
+
+  ':4 ': {
+    id: 'bizon',
+    label: 'Bizon',
+  },
+  '.4 ': {
+    id: 'bizon',
+    label: 'Bizon',
+  },
+
+  ':5 ': {
+    id: 'chayka',
+    label: 'Chayka',
+  },
+  '.5 ': {
+    id: 'chayka',
+    label: 'Chayka',
+  },
+
+  ':6 ': {
+    id: 'delfin',
+    label: 'Delfin',
+  },
+  '.6 ': {
+    id: 'delfin',
+    label: 'Delfin',
   },
   ':z ': {
     id: 'highcom',

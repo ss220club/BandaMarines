@@ -572,12 +572,10 @@
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/bipod,
 	)
-	has_aimed_shot = FALSE
-	flags_gun_features = GUN_AUTO_EJECTOR|GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_CAN_POINTBLANK
+	flags_gun_features = GUN_AUTO_EJECTOR|GUN_WIELDED_FIRING_ONLY|GUN_SPECIALIST|GUN_AMMO_COUNTER|GUN_CAN_POINTBLANK
 	starting_attachment_types = list()
 	sniper_beam_type = null
 	skill_locked = FALSE
-
 /obj/item/weapon/gun/rifle/sniper/svd/handle_starting_attachment()
 	..()
 	var/obj/item/attachable/scope/variable_zoom/integrated/type88sight = new(src)

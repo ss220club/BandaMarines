@@ -9,6 +9,37 @@
 	icon_state = "82"
 	},
 /area/shuttle/drop_upp/morana)
+"ac" = (
+/obj/effect/attach_point/crew_weapon/dropship_upp{
+	attach_id = 8
+	},
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/shuttle/drop_upp/morana)
+"ad" = (
+/obj/structure/bed/chair/vehicle{
+	pixel_x = -8
+	},
+/obj/structure/bed/chair/vehicle{
+	pixel_x = 8
+	},
+/obj/structure/machinery/camera/autoname/almayer/dropship_one{
+	dir = 8;
+	pixel_x = 18;
+	network = list("Rostock","Morana")
+	},
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/shuttle/drop_upp/morana)
+"ae" = (
+/obj/structure/bed/chair/dropship/pilot{
+	dir = 1
+	},
+/obj/structure/machinery/camera/autoname/almayer/dropship_one{
+	pixel_x = -6;
+	pixel_y = -16;
+	network = list("Rostock","Morana")
+	},
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/shuttle/drop_upp/morana)
 "ah" = (
 /obj/structure/shuttle/part/dropship_upp/transparent/nose_center,
 /turf/template_noop,
@@ -73,6 +104,15 @@
 /area/shuttle/drop_upp/morana)
 "bS" = (
 /obj/structure/blocker/invisible_wall,
+/obj/structure/transmitter/upp_net/rotary{
+	pixel_y = 18;
+	pixel_x = 9;
+	phone_id = "Morana";
+	phone_category = "Rostock"
+	},
+/obj/structure/machinery/computer/dropship_weapons/dropship4{
+	faction = "UPP"
+	},
 /turf/closed/shuttle/dropship_upp/transparent{
 	icon_state = "93b"
 	},
@@ -151,13 +191,6 @@
 /obj/effect/attach_point/electronics/dropship_upp,
 /turf/template_noop,
 /area/shuttle/drop_upp/morana)
-"hP" = (
-/obj/item/device/radio/intercom/morana{
-	pixel_y = 50;
-	pixel_x = 32
-	},
-/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
-/area/shuttle/drop_upp/morana)
 "is" = (
 /obj/structure/bed/chair/vehicle{
 	pixel_x = -8
@@ -226,7 +259,9 @@
 /area/shuttle/drop_upp/morana)
 "oJ" = (
 /obj/structure/shuttle/part/dropship_upp/transparent/inner_right_weapons,
-/obj/effect/attach_point/electronics/dropship_upp,
+/obj/effect/attach_point/electronics/dropship_upp{
+	attach_id = 6
+	},
 /turf/template_noop,
 /area/shuttle/drop_upp/morana)
 "oX" = (
@@ -280,6 +315,11 @@
 	},
 /obj/structure/machinery/cm_vending/sorted/medical/wall_med{
 	pixel_x = -30
+	},
+/obj/structure/machinery/camera/autoname/almayer/dropship_one{
+	dir = 4;
+	pixel_x = -18;
+	network = list("Rostock","Morana")
 	},
 /turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
 /area/shuttle/drop_upp/morana)
@@ -397,7 +437,8 @@
 /area/shuttle/drop_upp/morana)
 "FO" = (
 /obj/effect/attach_point/fuel/dropship_upp{
-	dir = 1
+	dir = 1;
+	attach_id = 10
 	},
 /turf/closed/shuttle/dropship_upp/transparent{
 	icon_state = "28"
@@ -409,7 +450,9 @@
 	},
 /area/shuttle/drop_upp/morana)
 "Gx" = (
-/obj/effect/attach_point/crew_weapon/dropship_upp,
+/obj/effect/attach_point/crew_weapon/dropship_upp{
+	attach_id = 7
+	},
 /obj/item/device/radio/intercom/morana{
 	pixel_y = 26
 	},
@@ -473,7 +516,9 @@
 /turf/template_noop,
 /area/shuttle/drop_upp/morana)
 "Kl" = (
-/obj/effect/attach_point/crew_weapon/dropship_upp,
+/obj/effect/attach_point/crew_weapon/dropship_upp{
+	attach_id = 9
+	},
 /turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
 /area/shuttle/drop_upp/morana)
 "Ky" = (
@@ -483,6 +528,9 @@
 /area/shuttle/drop_upp/morana)
 "KQ" = (
 /obj/structure/blocker/invisible_wall,
+/obj/structure/machinery/computer/cameras/dropship/four{
+	network = list("Research","Laser Targets","Morana")
+	},
 /turf/closed/shuttle/dropship_upp/transparent{
 	icon_state = "93a"
 	},
@@ -518,7 +566,8 @@
 "Or" = (
 /obj/effect/attach_point/fuel/dropship_upp{
 	dir = 1;
-	pixel_x = -32
+	pixel_x = -32;
+	attach_id = 11
 	},
 /turf/closed/shuttle/dropship_upp/transparent{
 	icon_state = "33"
@@ -725,7 +774,7 @@ VN
 ah
 va
 bd
-hP
+qj
 yQ
 bI
 JO
@@ -737,7 +786,7 @@ xd
 xd
 zq
 wV
-Kl
+ac
 qj
 Kl
 qj
@@ -748,7 +797,7 @@ VN
 ah
 JB
 bS
-Pc
+ae
 aa
 bZ
 po
@@ -797,7 +846,7 @@ VN
 oJ
 ab
 bR
-po
+ad
 po
 qj
 qj

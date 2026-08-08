@@ -512,17 +512,17 @@
 
 	playsound(target, 'sound/weapons/gun_mortar_travel.ogg', 50, 1)
 	var/relative_dir
-	for(var/mob/mob in range(15, target))
+	for(var/mob/mob in long_range(25, target))
 		if(get_turf(mob) == target)
 			relative_dir = 0
 		else
 			relative_dir = Get_Compass_Dir(mob, target)
 		mob.show_message( \
-			SPAN_DANGER("СНАРЯД ПАДАЕТ [SPAN_UNDERLINE(relative_dir ? uppertext(("НА " + dir2text_ru(relative_dir, PREPOSITIONAL) + " ОТ ВАС")) : uppertext("ПРЯМО НА ВАС"))]!"), SHOW_MESSAGE_VISIBLE, \
-			SPAN_DANGER("ВЫ СЛЫШИТЕ, КАК ЧТО-ТО ПАДАЕТ [SPAN_UNDERLINE(relative_dir ? uppertext(("НА " + dir2text_ru(relative_dir, PREPOSITIONAL))) : uppertext("ПРЯМО НА ВАС"))]!"), SHOW_MESSAGE_AUDIBLE \
+			SPAN_HIGHDANGER("СНАРЯД ПАДАЕТ [SPAN_UNDERLINE(relative_dir ? uppertext(("НА " + dir2text_ru(relative_dir, PREPOSITIONAL) + " ОТ ВАС")) : uppertext("ПРЯМО НА ВАС"))]!"), SHOW_MESSAGE_VISIBLE, \
+			SPAN_HIGHDANGER("ВЫ СЛЫШИТЕ, КАК ЧТО-ТО ПАДАЕТ [SPAN_UNDERLINE(relative_dir ? uppertext(("НА " + dir2text_ru(relative_dir, PREPOSITIONAL))) : uppertext("ПРЯМО НА ВАС"))]!"), SHOW_MESSAGE_AUDIBLE \
 		)
 	sleep(2.5 SECONDS) // Sleep a bit to give a message
-	for(var/mob/mob in range(10, target))
+	for(var/mob/mob in long_range(15, target))
 		if(get_turf(mob) == target)
 			relative_dir = 0
 		else
@@ -588,6 +588,7 @@
 
 //The portable mortar item
 /obj/item/mortar_kit
+	var/mortar_type = /obj/structure/mortar
 	name = "\improper M402 mortar portable kit"
 	desc = "A manual, crew-operated mortar system intended to rain down 80mm goodness on anything it's aimed at. Needs to be set down first."
 	icon = 'icons/obj/structures/mortar.dmi'
@@ -628,7 +629,7 @@
 		SPAN_NOTICE("You start deploying [src]."))
 	playsound(deploy_turf, 'sound/items/Deconstruct.ogg', 25, 1)
 	if(do_after(user, 4 SECONDS, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
-		var/obj/structure/mortar/mortar = new /obj/structure/mortar(deploy_turf)
+		var/obj/structure/mortar/mortar = new mortar_type(deploy_turf)
 		if(linked_designator)
 			mortar.linked_designator = linked_designator
 		if(!is_ground_level(deploy_turf.z))
