@@ -1,0 +1,31 @@
+[
+	{ "type": "map_sprinkle", "path": "sprinkles/" },
+	{
+		"type": "map_insert",
+		"landmark": "roafpost",
+		"chance": 1.0,
+		"path": "standalone/roafpost.dmm",
+		"when": { "lvevent": "roaf_zone" }
+	},
+    {
+		"type": "map_insert",
+		"landmark": "rac_post",
+		"chance": 1.0,
+		"path": "standalone/rac_post.dmm",
+		"when": { "lvevent": "rac_post" }
+	},
+	{
+		"type": "map_insert",
+		"landmark": "clfbar",
+		"chance": 1.0,
+		"path": "standalone/clfbar.dmm",
+		"when": { "lvevent": "clfbar" }
+	},
+	{
+		"type": "map_insert",
+		"landmark": "isrg_lz",
+		"chance": 1.0,
+		"path": "standalone/isrg_lz.dmm",
+		"when": { "lvevent": "isrg_spawn" }
+	}
+]
