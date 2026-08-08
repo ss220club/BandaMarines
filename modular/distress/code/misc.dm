@@ -859,7 +859,7 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 		list("HIMAT flare missile", 10, /obj/item/mortar_shell/himat/training, null, VENDOR_ITEM_REGULAR),
 
 		list("EXTRA PYRO OZK SETS", 0, null, null, null),
-		list("OZK Support Set", 60, /obj/item/storage/box/kit/upp_ozk, null, VENDOR_ITEM_REGULAR),
+		list("OZK Support Set", 90, /obj/item/storage/box/kit/upp_ozk, null, VENDOR_ITEM_REGULAR),
 
 		list("EXTRA FLAMETHROWER TANKS", 0, null, null, null),
 		list("Large Incinerator Tank", 30, /obj/item/ammo_magazine/flamer_tank/large/upp, null, VENDOR_ITEM_REGULAR),
@@ -1152,9 +1152,9 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	recoil_unwielded = RECOIL_AMOUNT_TIER_1
 
 /obj/item/weapon/gun/flamer/m240/spec/upp
-	name = "\improper LPO80 incinerator spec unit"
+	name = "\improper LPO90 incinerator spec unit"
 	desc = "An aged but effective lightweight combat incinerator officially in service as a anti-fortification tool but, in practice, utilized in close quarters combat for flushing out enemy combatants."
-	icon = 'modular/distress/icons/upp.dmi'
+	icon = 'modular/distress/icons/uppspec.dmi'
 	aim_slowdown = 3
 	icon_state = "LPO80"
 	item_state = "LPO80"
@@ -1232,45 +1232,45 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	item_state = "LPO80"
 
 /obj/item/ammo_magazine/flamer_tank/large/upp
-	name = "LPO80 large incinerator tank"
+	name = "LPO90 large incinerator tank"
 	icon = 'modular/distress/icons/uppammo.dmi'
-	icon_state = "LPO80"
-	item_state = "LPO80"
+	icon_state = "LPO90"
+	item_state = "LPO90"
 
 /obj/item/ammo_magazine/flamer_tank/large/upp/empty
 	flamer_chem = null
 
 /obj/item/ammo_magazine/flamer_tank/large/B/upp
-	name = "LPO80 large incinerator tank (B)"
+	name = "LPO90 large incinerator tank (B)"
 	desc = "A large fuel tank of Ultra Thick Napthal Fuel type B, a special variant of napalm that is easily extinguished, but disperses over a wide area while burning slowly."
 	desc_lore = "Unlike its thinner contemporaries, this special ultra-thick variant of napalm is easily extinguished, but disperses over a wide area and lingers on the ground in a viscous mess. The composition reacts violently with inorganic materials to break them down, causing severe structural damage. Handle with extreme caution."
 	caliber = "Napalm B"
 	flamer_chem = "napalmb"
 	icon = 'modular/distress/icons/uppammo.dmi'
-	icon_state = "LPO80"
-	item_state = "LPO80"
+	icon_state = "LPO90"
+	item_state = "LPO90"
 	max_range = 6
 
 // This is the blue flamer fuel for the pyro.
 /obj/item/ammo_magazine/flamer_tank/large/X/upp
-	name = "LPO80 large incinerator tank (X)"
+	name = "LPO90 large incinerator tank (X)"
 	desc = "A large fuel tank of Ultra Thick Napthal Fuel type X, a sticky combustible liquid chemical that burns extremely hot, for use in the M240-T incinerator unit. Handle with extreme caution."
 	caliber = "Napalm X"
 	flamer_chem = "napalmx"
 	icon = 'modular/distress/icons/uppammo.dmi'
-	icon_state = "LPO80"
-	item_state = "LPO80"
+	icon_state = "LPO90"
+	item_state = "LPO90"
 
 	max_range = 6
 
 /obj/item/ammo_magazine/flamer_tank/large/EX/upp
-	name = "LPO80 large incinerator tank (EX)"
+	name = "LPO90 large incinerator tank (EX)"
 	desc = "A large fuel tank of Ultra Thick Napthal Fuel type EX, a sticky combustible liquid chemical that burns so hot it melts straight through most flame-resistant materials, for use in the M240-T incinerator unit. Handle with extreme caution."
 	caliber = "Napalm EX"
 	flamer_chem = "napalmex"
 	icon = 'modular/distress/icons/uppammo.dmi'
-	icon_state = "LPO80"
-	item_state = "LPO80"
+	icon_state = "LPO90"
+	item_state = "LPO90"
 
 	max_range = 7
 
@@ -1786,6 +1786,9 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	desc_lore = null
 	armor_bio = CLOTHING_ARMOR_MEDIUMHIGH
 	flags_item = MOB_LOCK_ON_EQUIP
+	armor_melee = CLOTHING_ARMOR_MEDIUM
+	armor_bullet = CLOTHING_ARMOR_MEDIUM
+	armor_internaldamage = CLOTHING_ARMOR_LOW
 	uniform_restricted = list(/obj/item/clothing/under/marine/veteran/UPP/cbrn_upp)
 	icon_state = "cbrn_alt"
 	item_state = "cbrn_alt"
