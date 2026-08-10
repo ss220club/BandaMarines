@@ -41,6 +41,21 @@
 
 
 // ===== Башня =====
+/obj/item/hardpoint/holder/tank_turret
+	name = "\improper M34A2-A Multipurpose Turret"
+	desc = "The centerpiece of the tank. Designed to support quick installation and deinstallation of various tank weapon modules. Has inbuilt smoke screen deployment system."
+	icon = 'modular/vehicles/icons/tank_camouflage.dmi'
+	icon_state = "tank_turret_0"
+	disp_icon = "tank"
+	disp_icon_state = "tank_turret"
+	activation_sounds = list('sound/weapons/vehicles/smokelauncher_fire.ogg')
+	pixel_x = -48
+	pixel_y = -48
+
+/obj/item/hardpoint/holder/tank_turret/Initialize()
+	. = ..()
+	select_gamemode_skin()
+
 /obj/item/hardpoint/holder/tank_turret/select_gamemode_skin(expected_type, list/override_icon_state, list/override_protection)
 	if(flags_atom & NO_GAMEMODE_SKIN)
 		icon = 'modular/vehicles/icons/tank_camouflage.dmi'
@@ -61,10 +76,10 @@
 		if("urban")
 			icon = 'modular/vehicles/icons/tank_camouflage.dmi'
 			icon_state = "tank_turret_n_0"
-//		if("snow")
+		if("snow")
 //			icon = 'modular/vehicles/icons/tank_camouflage.dmi'
 //			icon_state = "tank_turret_s_0"
-		else
+//		else
 			icon = 'modular/vehicles/icons/tank_camouflage.dmi'
 			icon_state = "tank_turret_0"
 
