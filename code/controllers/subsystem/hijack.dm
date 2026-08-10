@@ -321,7 +321,7 @@ SUBSYSTEM_DEF(hijack)
 	if(!COOLDOWN_FINISHED(datacore, ares_quarters_cooldown))
 		return FALSE
 	COOLDOWN_START(datacore, ares_quarters_cooldown, 10 MINUTES)
-	shipwide_ai_announcement("ATTENTION! GENERAL QUARTERS. ALL HANDS, MAN YOUR BATTLESTATIONS.", MAIN_AI_SYSTEM, 'sound/effects/GQfullcall.ogg')
+	shipwide_ai_announcement("ВНИМАНИЕ! ОБЩАЯ ТРЕВОГА. ВСЕМУ ЛИЧНОМУ СОСТАВУ ОРГАНИЗОВАТЬ БОЕВЫЕ МЕСТА.", MAIN_AI_SYSTEM, 'sound/effects/GQfullcall.ogg')
 	return TRUE
 
 ///Called when the xeno dropship crashes into the Almayer and announces the current status of various objectives to marines

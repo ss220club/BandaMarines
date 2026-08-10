@@ -1103,7 +1103,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 				playsound(src, 'sound/machines/buzz-two.ogg', 15, 1)
 				return FALSE
 			COOLDOWN_START(datacore, ares_quarters_cooldown, 10 MINUTES)
-			shipwide_ai_announcement("ATTENTION! GENERAL QUARTERS. ALL HANDS, MAN YOUR BATTLESTATIONS.", MAIN_AI_SYSTEM, 'sound/effects/GQfullcall.ogg')
+			shipwide_ai_announcement("ВНИМАНИЕ! ОБЩАЯ ТРЕВОГА. ВСЕМУ ЛИЧНОМУ СОСТАВУ ОРГАНИЗОВАТЬ БОЕВЫЕ МЕСТА.", MAIN_AI_SYSTEM, 'sound/effects/GQfullcall.ogg')
 			log_game("[key_name(user)] has called for general quarters via the groundside operations console.")
 			message_admins("[key_name_admin(user)] has called for general quarters via the groundside operations console.")
 			log_ares_security("General Quarters", "Called for general quarters via the groundside operations console.", user)

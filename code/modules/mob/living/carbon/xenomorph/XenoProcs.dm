@@ -602,22 +602,22 @@
 	if(!istype(pulled))
 		return
 	if(isxeno(pulled) || issynth(pulled))
-		to_chat(src, SPAN_WARNING("That wouldn't serve a purpose."))
+		to_chat(src, SPAN_WARNING("Это не имеет смысла."))
 		return
 	if(pulled.buckled)
-		to_chat(src, SPAN_WARNING("[pulled] is buckled to something."))
+		to_chat(src, SPAN_WARNING("[capitalize(pulled.declent_ru(NOMINATIVE))] привязан[genderize_ru(pulled.gender, "", "а", "", "ы")] к чему-то."))
 		return
 	if(pulled.stat == DEAD && !pulled.chestburst)
-		to_chat(src, SPAN_WARNING("Ew, [pulled] is already starting to rot."))
+		to_chat(src, SPAN_WARNING("Фу, [pulled.declent_ru(NOMINATIVE)] начинает уже гнить."))
 		return
 	if(hauled_mob?.resolve()) // We can't carry more than one mob
-		to_chat(src, SPAN_WARNING("We already are carrying something, there's no way that will work."))
+		to_chat(src, SPAN_WARNING("Вы можете тащить только одну цель."))
 		return
 	if(HAS_TRAIT(pulled, TRAIT_HAULED))
-		to_chat(src, SPAN_WARNING("They are already being hauled by someone else."))
+		to_chat(src, SPAN_WARNING("Кто-то уже тащит эту цель."))
 		return
 	if(action_busy)
-		to_chat(src, SPAN_WARNING("We are already busy with something."))
+		to_chat(src, SPAN_WARNING("Мы уже заняты чем-то другим."))
 		return
 
 	var/threshold = client?.prefs?.xeno_defensive_grab_pref[caste_type]
@@ -627,13 +627,13 @@
 		return
 
 	SEND_SIGNAL(src, COMSIG_MOB_EFFECT_CLOAK_CANCEL)
-	visible_message(SPAN_DANGER("[src] starts to restrain [pulled]!"),
-	SPAN_DANGER("We start restraining [pulled]!"), null, 5)
+	visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] пытается связать [pulled.declent_ru(ACCUSATIVE)]!"),
+	SPAN_DANGER("Мы начинаем связывать [pulled.declent_ru(ACCUSATIVE)]!"), null, 5)
 	if(HAS_TRAIT(src, TRAIT_CLOAKED)) //cloaked don't show the visible message, so we gotta work around
-		to_chat(pulled, FONT_SIZE_HUGE(SPAN_DANGER("[src] is trying to restrain you!")))
+		to_chat(pulled, FONT_SIZE_HUGE(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] пытается вас связать!")))
 	if(do_after(src, 5 SECONDS, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE))
 		if((isxeno(pulled.loc) && !hauled_mob) || HAS_TRAIT(pulled, TRAIT_HAULED))
-			to_chat(src, SPAN_WARNING("Someone already took [pulled]."))
+			to_chat(src, SPAN_WARNING("Кто-то уже схватил [pulled.declent_ru(ACCUSATIVE)]."))
 			return
 		if(pulling == pulled && !pulled.buckled && (pulled.stat != DEAD || pulled.chestburst) && !hauled_mob?.resolve()) //make sure you've still got them in your claws, and alive
 			if(SEND_SIGNAL(pulled, COMSIG_MOB_HAULED, src) & COMPONENT_CANCEL_HAUL)

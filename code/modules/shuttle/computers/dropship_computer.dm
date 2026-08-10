@@ -392,8 +392,8 @@
 
 	hijack.fire()
 
-	var/ares_message = "Обнаружен незапланированный вылет дропшипа из оперативной зоны. Вероятен захват. Автопилот отключен.", "Оповещение дропшипа", 'sound/AI/hijack.ogg', logging = ARES_LOG_SECURITY, announcer = GLOB.tts_announcers[TTS_SILENT_ANNOUNCER_KEY]) // BANDAMARINES EDIT - ORIGINAL: marine_announcement("Unscheduled dropship departure detected from operational area. Hijack likely. Shutting down autopilot."
-	marine_announcement(ares_message, "Dropship Alert", 'sound/AI/hijack.ogg', logging = ARES_LOG_SECURITY)
+	var/ares_message = "Обнаружен незапланированный вылет дропшипа из оперативной зоны. Вероятен захват. Автопилот отключен."
+	marine_announcement(ares_message, "Оповещение дропшипа", 'sound/AI/hijack.ogg', logging = ARES_LOG_SECURITY, announcer = GLOB.tts_announcers[TTS_SILENT_ANNOUNCER_KEY])
 	log_ares_flight("Unknown", ares_message)
 	playsound(src, 'sound/misc/queen_alarm.ogg')
 	addtimer(CALLBACK(SShijack, TYPE_PROC_REF(/datum/controller/subsystem/hijack, hijack_general_quarters)), 10 SECONDS)
