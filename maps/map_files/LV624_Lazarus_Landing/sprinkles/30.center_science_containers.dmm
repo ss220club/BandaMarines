@@ -134,7 +134,7 @@
 /turf/open/auto_turf/lv_sand/layer0,
 /area/template_noop)
 "C" = (
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/template_noop)
 "E" = (
 /obj/item/prop/alien/hugger,
@@ -229,6 +229,7 @@
 	pixel_x = 5;
 	pixel_y = 16
 	},
+/obj/structure/fence/dark/overgrown,
 /turf/open/auto_turf/lv_sand/layer0,
 /area/template_noop)
 "U" = (
@@ -240,7 +241,7 @@
 /area/template_noop)
 "W" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/template_noop)
 "X" = (
 /obj/effect/decal/cleanable/blood,
@@ -270,7 +271,7 @@ e
 K
 G
 T
-K
+M
 "}
 (2,1,1) = {"
 s
@@ -279,7 +280,7 @@ F
 U
 t
 Y
-K
+M
 "}
 (3,1,1) = {"
 J
@@ -288,7 +289,7 @@ R
 X
 j
 K
-K
+M
 "}
 (4,1,1) = {"
 w

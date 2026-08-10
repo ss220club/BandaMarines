@@ -7,23 +7,7 @@
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/jungle/west_jungle)
 "c" = (
-/turf/open/auto_turf/lv_grass/layer1,
-/area/lazarus/ground/jungle/west_jungle)
-"d" = (
-/obj/structure/barricade/handrail/wire{
-	dir = 8;
-	layer = 4
-	},
-/obj/structure/barricade/handrail/wire{
-	layer = 3.5
-	},
-/obj/effect/decal/lv_decals/red_mud_corner{
-	dir = 4
-	},
-/obj/effect/decal/lv_decals/red_mud_corner{
-	dir = 1
-	},
-/turf/open/floor/prison/floor_plate,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/west_jungle)
 "e" = (
 /turf/template_noop,
@@ -43,7 +27,7 @@
 /area/lazarus/landing_zones/lz2)
 "l" = (
 /obj/structure/flora/jungle/vines/blue/heavy,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/landing_zones/lz2)
 "m" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
@@ -51,7 +35,7 @@
 /area/strata/interior/out_of_bounds)
 "n" = (
 /obj/structure/flora/bush/ausbushes/var3/sunnybush,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/landing_zones/lz2)
 "p" = (
 /turf/closed/wall/strata_ice/jungle,
@@ -65,15 +49,15 @@
 /area/lazarus/landing_zones/lz2)
 "s" = (
 /obj/structure/flora/jungle/vines/blue/light_3,
-/turf/closed/wall/lv_outpost/reinforced,
-/area/lazarus/comms/lz2_north)
+/turf/closed/wall/strata_ice/jungle,
+/area/strata/interior/out_of_bounds)
 "t" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/west_jungle)
 "u" = (
 /obj/structure/flora/jungle/vines/blue/light_3,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/landing_zones/lz2)
 "v" = (
 /obj/effect/decal/lv_decals/red_mud_corner,
@@ -85,14 +69,14 @@
 /area/lazarus/landing_zones/lz2)
 "A" = (
 /obj/structure/flora/jungle/vines/blue/light_2,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/landing_zones/lz2)
 "C" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/west_jungle)
 "E" = (
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/landing_zones/lz2)
 "F" = (
 /obj/structure/flora/jungle/vines/blue/light_3,
@@ -122,20 +106,17 @@
 	},
 /turf/open/floor/plating/prison,
 /area/lazarus/landing_zones/lz2)
-"O" = (
-/turf/closed/wall/lv_outpost/reinforced,
-/area/lazarus/comms/lz2_north)
 "Q" = (
 /obj/structure/flora/jungle/vines/blue/light_3,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/west_jungle)
 "V" = (
 /obj/structure/flora/jungle/vines/blue/light_2,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/west_jungle)
 "Z" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/landing_zones/lz2)
 
 (1,1,1) = {"
@@ -179,7 +160,7 @@ E
 n
 "}
 (5,1,1) = {"
-d
+c
 Q
 K
 q
@@ -200,7 +181,7 @@ k
 "}
 (7,1,1) = {"
 e
-O
+p
 m
 m
 E

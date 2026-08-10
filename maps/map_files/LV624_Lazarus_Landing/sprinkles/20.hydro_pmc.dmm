@@ -1,4 +1,22 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/structure/flora/jungle/planttop1,
+/turf/template_noop,
+/area/template_noop)
+"ab" = (
+/obj/structure/window_frame/lv_colony,
+/obj/item/shard,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/prison/platingdmg1,
+/area/template_noop)
+"ac" = (
+/obj/item/shard,
+/obj/structure/machinery/colony_floodlight{
+	light_color = "#dae2ff";
+	damaged = 1
+	},
+/turf/template_noop,
+/area/template_noop)
 "aV" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
@@ -49,7 +67,7 @@
 /area/template_noop)
 "cB" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/turf/open/auto_turf/lv_sand/layer0,
+/turf/template_noop,
 /area/template_noop)
 "cM" = (
 /obj/item/shard,
@@ -156,9 +174,6 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/plating/prison,
 /area/template_noop)
-"gK" = (
-/turf/open/auto_turf/lv_grass/layer0,
-/area/template_noop)
 "gW" = (
 /obj/item/tool/hatchet{
 	pixel_x = 6;
@@ -172,11 +187,7 @@
 /area/template_noop)
 "ii" = (
 /obj/effect/decal/hybrisa/dirt,
-/turf/open/auto_turf/lv_sand/layer0,
-/area/template_noop)
-"iv" = (
-/obj/structure/flora/jungle/planttop1,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/template_noop,
 /area/template_noop)
 "iA" = (
 /obj/item/shard,
@@ -258,13 +269,13 @@
 /area/template_noop)
 "nk" = (
 /obj/structure/flora/bush/ausbushes/genericbush,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/template_noop,
 /area/template_noop)
 "nq" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/pipes/standard/simple/hidden/cyan,
 /obj/effect/decal/hybrisa/dirt,
-/turf/open/gm/dirt/brown/variant_5/south,
+/turf/template_noop,
 /area/template_noop)
 "nO" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -278,10 +289,6 @@
 /obj/item/shard,
 /turf/open/floor/prison/platingdmg2,
 /area/template_noop)
-"ot" = (
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/auto_turf/lv_grass/layer0,
-/area/template_noop)
 "pb" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/item/stack/rods{
@@ -294,14 +301,6 @@
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/plating/prison,
-/area/template_noop)
-"pF" = (
-/obj/structure/window_frame/lv_colony,
-/turf/open/floor/plating/prison,
-/area/template_noop)
-"qQ" = (
-/obj/structure/fence/dark,
-/turf/open/auto_turf/lv_sand/layer0,
 /area/template_noop)
 "qY" = (
 /obj/item/stack/sheet/metal,
@@ -376,12 +375,6 @@
 	},
 /turf/open/floor/plating/prison,
 /area/template_noop)
-"tp" = (
-/obj/structure/flora/grass/tallgrass/jungle_alt_2/corner{
-	dir = 6
-	},
-/turf/open/auto_turf/lv_grass/layer1,
-/area/template_noop)
 "tB" = (
 /obj/item/stack/rods{
 	amount = 15
@@ -395,24 +388,15 @@
 	},
 /obj/item/stack/sheet/metal,
 /obj/item/shard,
-/turf/open/auto_turf/lv_grass/layer0,
-/area/template_noop)
-"vr" = (
-/obj/structure/machinery/colony_floodlight{
-	light_color = "#dae2ff"
-	},
-/turf/open/auto_turf/lv_grass/layer0,
-/area/template_noop)
-"vB" = (
-/obj/structure/flora/grass/tallgrass/jungle_alt_2,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/template_noop,
 /area/template_noop)
 "wa" = (
 /obj/item/stack/rods{
 	amount = 15
 	},
 /obj/item/shard,
-/turf/open/auto_turf/lv_grass/layer1,
+/obj/effect/decal/hybrisa/dirt,
+/turf/template_noop,
 /area/template_noop)
 "wj" = (
 /obj/structure/surface/rack{
@@ -436,10 +420,6 @@
 /obj/item/ammo_casing/bullet,
 /turf/open/floor/prison/platingdmg2,
 /area/template_noop)
-"wp" = (
-/obj/structure/flora/jungle/plantbot1,
-/turf/open/auto_turf/lv_grass/layer0,
-/area/template_noop)
 "ws" = (
 /obj/effect/decal/lv_decals/red_mud_corner{
 	dir = 1
@@ -450,7 +430,7 @@
 /obj/item/stack/rods{
 	amount = 15
 	},
-/turf/open/floor/prison/floor_plate,
+/turf/template_noop,
 /area/template_noop)
 "wE" = (
 /obj/item/device/analyzer/plant_analyzer,
@@ -480,7 +460,7 @@
 /area/template_noop)
 "xt" = (
 /obj/structure/flora/bush/ausbushes/pointybush,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/template_noop,
 /area/template_noop)
 "xv" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -501,7 +481,8 @@
 /turf/open/floor/prison/platingdmg1,
 /area/template_noop)
 "yf" = (
-/turf/open/auto_turf/lv_grass/layer1,
+/obj/structure/flora/jungle/plantbot1,
+/turf/template_noop,
 /area/template_noop)
 "yV" = (
 /obj/item/reagent_container/glass/watertank,
@@ -520,11 +501,6 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/plating/prison,
 /area/template_noop)
-"zL" = (
-/obj/item/shard,
-/obj/item/shard,
-/turf/open/floor/plating/prison,
-/area/template_noop)
 "As" = (
 /obj/effect/decal/cleanable/blood/xeno,
 /obj/item/ammo_casing/bullet,
@@ -541,7 +517,7 @@
 /obj/structure/pipes/standard/simple/hidden/cyan,
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/large_stain,
-/turf/open/floor/prison/cell_stripe/north,
+/turf/template_noop,
 /area/template_noop)
 "BY" = (
 /obj/structure/barricade/handrail/wire,
@@ -556,7 +532,7 @@
 /obj/effect/decal/large_stain{
 	dir = 1
 	},
-/turf/open/floor/prison/floor_plate,
+/turf/template_noop,
 /area/template_noop)
 "Cf" = (
 /obj/item/clothing/gloves/marine/veteran/pmc{
@@ -594,7 +570,7 @@
 	amount = 15
 	},
 /obj/effect/decal/hybrisa/dirt,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/template_noop,
 /area/template_noop)
 "CF" = (
 /obj/structure/closet/crate/hydroponics/prespawned,
@@ -619,7 +595,7 @@
 	layer = 3.1;
 	dir = 8
 	},
-/turf/open/floor/prison/floor_plate,
+/turf/template_noop,
 /area/template_noop)
 "Ea" = (
 /obj/effect/decal/cleanable/blood/tracks/footprints{
@@ -728,9 +704,6 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/prison/platingdmg2,
 /area/template_noop)
-"HR" = (
-/turf/open/auto_turf/lv_sand/layer0,
-/area/template_noop)
 "HT" = (
 /obj/item/stack/sheet/metal,
 /turf/open/floor/prison/platingdmg1,
@@ -802,7 +775,7 @@
 /area/template_noop)
 "Ko" = (
 /obj/item/shard,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/template_noop,
 /area/template_noop)
 "Lh" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -810,7 +783,7 @@
 	layer = 3.5;
 	dir = 1
 	},
-/turf/open/floor/prison/floor_plate,
+/turf/template_noop,
 /area/template_noop)
 "Li" = (
 /obj/structure/machinery/power/apc/no_power/north,
@@ -828,7 +801,7 @@
 "Ma" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/template_noop,
 /area/template_noop)
 "Mo" = (
 /obj/item/ammo_casing/bullet,
@@ -847,9 +820,6 @@
 /obj/effect/decal/hybrisa/dirt,
 /obj/item/shard,
 /turf/open/floor/plating/prison,
-/area/template_noop)
-"Mz" = (
-/turf/open/floor/brown_dirt/random_rocks,
 /area/template_noop)
 "MZ" = (
 /obj/item/shard,
@@ -874,7 +844,7 @@
 	dir = 1
 	},
 /obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/prison/cell_stripe/north,
+/turf/template_noop,
 /area/template_noop)
 "OM" = (
 /obj/item/stack/sheet/metal,
@@ -888,11 +858,11 @@
 	dir = 1
 	},
 /obj/effect/decal/hybrisa/dirt,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/template_noop,
 /area/template_noop)
 "Pd" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/template_noop,
 /area/template_noop)
 "Po" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -914,7 +884,7 @@
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/prison/cell_stripe,
+/turf/template_noop,
 /area/template_noop)
 "PM" = (
 /obj/effect/decal/cleanable/blood/tracks/footprints{
@@ -925,7 +895,7 @@
 "PO" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
 /obj/item/shard,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/template_noop,
 /area/template_noop)
 "PQ" = (
 /obj/effect/decal/cleanable/blood,
@@ -970,13 +940,13 @@
 "Rl" = (
 /obj/item/shard,
 /obj/item/stack/sheet/metal,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/template_noop,
 /area/template_noop)
 "Rt" = (
 /obj/item/stack/rods{
 	amount = 15
 	},
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/template_noop,
 /area/template_noop)
 "RA" = (
 /obj/item/stack/sheet/metal,
@@ -1023,8 +993,10 @@
 /turf/open/floor/plating/prison,
 /area/template_noop)
 "Sm" = (
+/obj/structure/window_frame/lv_colony,
 /obj/item/shard,
-/turf/open/auto_turf/lv_grass/layer0,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/floor/plating/prison,
 /area/template_noop)
 "Sx" = (
 /obj/effect/decal/cleanable/blood/tracks/footprints{
@@ -1076,7 +1048,8 @@
 /turf/open/floor/plating/prison,
 /area/template_noop)
 "Tv" = (
-/turf/closed/wall/strata_ice/jungle,
+/obj/structure/flora/bush/ausbushes/ywflowers,
+/turf/template_noop,
 /area/template_noop)
 "Ud" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -1163,12 +1136,6 @@
 /obj/item/ammo_casing/bullet,
 /turf/open/floor/prison/platingdmg1,
 /area/template_noop)
-"WQ" = (
-/obj/structure/flora/grass/tallgrass/jungle_alt_2/corner{
-	dir = 4
-	},
-/turf/open/auto_turf/lv_grass/layer0,
-/area/template_noop)
 "WR" = (
 /obj/item/stack/sheet/metal,
 /obj/effect/spawner/random/claymore/midchance{
@@ -1229,8 +1196,7 @@
 /turf/open/floor/prison/platingdmg2,
 /area/template_noop)
 "Zq" = (
-/obj/structure/fence/dark/overgrown,
-/turf/open/auto_turf/lv_sand/layer0,
+/turf/template_noop,
 /area/template_noop)
 "ZG" = (
 /obj/effect/decal/cleanable/blood/xeno,
@@ -1245,29 +1211,29 @@
 /area/template_noop)
 
 (1,1,1) = {"
-gK
-yf
-gK
+Zq
+Zq
+Zq
 PO
-yf
-gK
-gK
-gK
-gK
-gK
-gK
-yf
+Zq
+Zq
+Zq
+Zq
+Zq
+Zq
+Zq
+Zq
 Ko
-gK
+Zq
 nk
-yf
+Zq
 Zq
 "}
 (2,1,1) = {"
-yf
-yf
-gK
-Sm
+Zq
+Zq
+Zq
+Ko
 Rl
 yd
 be
@@ -1276,15 +1242,15 @@ Mo
 WR
 Wk
 Rl
-gK
+Zq
 Rt
 Ko
-yf
+Zq
 Zq
 "}
 (3,1,1) = {"
-yf
-gK
+Zq
+Zq
 Wk
 rA
 Nl
@@ -1297,13 +1263,13 @@ be
 iM
 Df
 jJ
-gK
-yf
+Zq
+Zq
 Zq
 "}
 (4,1,1) = {"
-yf
-ot
+Zq
+ii
 YE
 Vf
 sn
@@ -1316,13 +1282,13 @@ Tm
 CF
 wj
 be
-gK
-yf
+Zq
+Zq
 Zq
 "}
 (5,1,1) = {"
 Ma
-ot
+ii
 Ga
 pu
 zC
@@ -1337,10 +1303,10 @@ jU
 be
 CD
 tO
-qQ
+Zq
 "}
 (6,1,1) = {"
-ot
+ii
 pu
 ea
 Kn
@@ -1356,7 +1322,7 @@ wY
 Tq
 iA
 OT
-HR
+Zq
 "}
 (7,1,1) = {"
 DF
@@ -1375,7 +1341,7 @@ OM
 GU
 cY
 ws
-Mz
+Zq
 "}
 (8,1,1) = {"
 Py
@@ -1435,7 +1401,7 @@ BY
 cB
 "}
 (11,1,1) = {"
-gK
+Zq
 Mr
 cy
 yV
@@ -1450,12 +1416,12 @@ XA
 sZ
 Wk
 Wk
-yf
-yf
+Zq
+Zq
 "}
 (12,1,1) = {"
-yf
-gK
+Zq
+Zq
 sw
 fl
 FW
@@ -1468,13 +1434,13 @@ qY
 eF
 Gy
 HI
-yf
-tp
-WQ
+ii
+Zq
+Zq
 "}
 (13,1,1) = {"
-yf
-gK
+Zq
+Zq
 Mx
 ZK
 Cm
@@ -1488,12 +1454,12 @@ mQ
 SL
 Gl
 wa
-Tv
-vB
+Zq
+Zq
 "}
 (14,1,1) = {"
-yf
-Sm
+Zq
+ac
 Oz
 cM
 HT
@@ -1506,45 +1472,45 @@ Dn
 cM
 tB
 Wk
-yf
-Tv
+Zq
+Zq
 Tv
 "}
 (15,1,1) = {"
-yf
-yf
+Zq
+Zq
 Rl
 Rt
-Sm
-zL
-Dn
-ea
-cM
-pF
-Wk
 Ko
-yf
+pu
+xv
+xv
+ab
+ii
+ii
 Ko
+ii
+Ko
+aa
 yf
-yf
-yf
+Zq
 "}
 (16,1,1) = {"
-yf
-gK
+Zq
+Zq
 Pd
-yf
-yf
+Zq
+Zq
 Sm
-Rt
-gK
+xv
+nO
 Sm
-gK
-yf
-yf
+Zq
+Zq
+Zq
 Ko
-vr
-iv
-wp
+Zq
+Zq
+Zq
 xt
 "}

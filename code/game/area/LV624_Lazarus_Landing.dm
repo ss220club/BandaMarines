@@ -22,7 +22,7 @@
 	icon_state = "southeast"
 	//ambience = list('sound/ambience/jungle_amb1.ogg')
 
-/area/lazarus/ground/jungle/south_central_jungle
+/area/lazarus/ground/jungle/southern_jungle
 	name ="\improper Southern Central Jungle"
 	icon_state = "south"
 	//ambience = list('sound/ambience/jungle_amb1.ogg')
@@ -47,6 +47,7 @@
 /area/lazarus/ground/jungle/east_jungle
 	name ="\improper Eastern Jungle"
 	icon_state = "east"
+	linked_lz = DROPSHIP_LZ1
 	//ambience = list('sound/ambience/jungle_amb1.ogg')
 
 /area/lazarus/ground/jungle/north_west_jungle
@@ -182,10 +183,21 @@
 	icon_state = "north"
 	ceiling = CEILING_NONE
 
+/area/lazarus/ground/colony/central_beach
+	name = "\improper Central Beach"
+	icon_state = "central"
+	ceiling = CEILING_NONE
+
 /area/lazarus/ground/colony/south_medbay_road
 	name = "\improper South Medbay Road"
 	icon_state = "south"
 	ceiling = CEILING_NONE
+
+/area/lazarus/ground/colony/checkpoint_road
+	name = "\improper Checkpoint Road"
+	icon_state = "central"
+	ceiling = CEILING_NONE
+	linked_lz = DROPSHIP_LZ1
 
 /area/lazarus/ground/colony/south_nexus_road
 	name = "\improper South Nexus Road"
@@ -196,6 +208,7 @@
 	name = "\improper West Nexus Road"
 	icon_state = "west"
 	ceiling = CEILING_NONE
+	linked_lz = DROPSHIP_LZ1
 
 /area/lazarus/ground/colony/north_tcomms_road
 	name = "\improper North T-Comms Road"
@@ -209,41 +222,11 @@
 	linked_lz = DROPSHIP_LZ2
 	ceiling = CEILING_NONE
 
-/area/lazarus/ground/colony/north_east_nexus_road
+/area/lazarus/ground/colony/east_nexus_road
 	name = "\improper North East Nexus Road"
-	icon_state = "north"
-	ceiling = CEILING_NONE
-
-/area/lazarus/ground/colony/telecomm
-	name = "\improper LZ1 Communications Relay"
-	icon_state = "ass_line"
-	ceiling = CEILING_UNDERGROUND_METAL_ALLOW_CAS
-	linked_lz = DROPSHIP_LZ1
-	ceiling_muffle = FALSE
-	base_muffle = MUFFLE_LOW
-	always_unpowered = FALSE
-
-/area/lazarus/ground/colony/telecomm/cargo
-	name = "\improper Far North Storage Dome Communications Relay"
-	linked_lz = DROPSHIP_LZ1
-
-
-/area/lazarus/ground/colony/telecomm/sw_lz1
-	name = "\improper South-West LZ1 Communications Relay"
+	icon_state = "east"
 	ceiling = CEILING_NONE
 	linked_lz = DROPSHIP_LZ1
-
-/area/lazarus/ground/colony/telecomm/tcommdome
-	name = "\improper Telecomms Dome Communications Relay"
-
-/area/lazarus/ground/colony/telecomm/tcommdome/south
-	name = "\improper South Telecomms Dome Communications Relay"
-	ceiling = CEILING_NONE
-
-/area/lazarus/ground/colony/telecomm/sw_lz2
-	name = "\improper South-West LZ2 Communications Relay"
-	ceiling = CEILING_NONE
-	linked_lz = DROPSHIP_LZ2
 
 // ambience = list('sound/ambience/jungle_amb1.ogg')
 
@@ -380,6 +363,7 @@
 	name = "\improper Yggdrasil Tree"
 	icon_state = "atmos"
 	ceiling = CEILING_GLASS
+	linked_lz = DROPSHIP_LZ1
 
 /area/lazarus/medbay
 	name = "\improper Health and Wellness Facility - Medbay"
@@ -399,17 +383,14 @@
 /area/lazarus/kitchen
 	name = "\improper Nexus Dome - Kitchen"
 	icon_state = "kitchen"
-	linked_lz = DROPSHIP_LZ1
 
 /area/lazarus/canteen
 	name = "\improper Nexus Dome - Canteen"
 	icon_state = "cafeteria"
-	linked_lz = DROPSHIP_LZ1
 
 /area/lazarus/main_hall
 	name = "\improper Nexus Dome - Main Hallway"
 	icon_state = "hallC1"
-	linked_lz = DROPSHIP_LZ1
 
 /area/lazarus/toilet
 	name = "\improper Nexus Dome - Dormitory Toilet"
@@ -422,12 +403,10 @@
 /area/lazarus/sleep_female
 	name = "\improper Nexus Dome - Female Dorm"
 	icon_state = "Sleep"
-	linked_lz = DROPSHIP_LZ1
 
 /area/lazarus/quart
 	name = "\improper Nexus Dome - Quartermasters"
 	icon_state = "quart"
-	linked_lz = DROPSHIP_LZ1
 
 /area/lazarus/quartstorage
 	name = "\improper Cargo Bay"
@@ -448,11 +427,13 @@
 	name = "\improper North-West LZ1 Communications Relay"
 	icon_state = "tcomsatcham"
 	minimap_color = MINIMAP_AREA_ENGI
+	linked_lz = DROPSHIP_LZ1
 
 /area/lazarus/comms/lz2_north
 	name = "\improper North LZ2 Communications Relay"
 	icon_state = "tcomsatcham"
 	minimap_color = MINIMAP_AREA_ENGI
+	linked_lz = DROPSHIP_LZ2
 
 /area/lazarus/secure_storage
 	name = "\improper Weyland-Yutani - Corporate Personnel Complex"
@@ -475,6 +456,7 @@
 	name = "\improper Xenoarchaeology Research Dome - Lab"
 	icon_state = "toxlab"
 	minimap_color = MINIMAP_AREA_RESEARCH
+	linked_lz = DROPSHIP_LZ1
 
 /area/lazarus/research/storage
 	name = "\improper Xenoarchaeology Research Dome - Storage"
@@ -486,6 +468,11 @@
 	icon_state = "fitness"
 
 /area/lazarus/hydroponics
+	name = "\improper Hydroponics Dome"
+	icon_state = "hydro"
+	ceiling = CEILING_GLASS
+
+/area/lazarus/hydroponics/vegetation
 	name = "\improper Hydroponics Dome"
 	icon_state = "hydro"
 	ceiling = CEILING_GLASS

@@ -11,7 +11,7 @@
 /area/strata/interior/out_of_bounds)
 "bS" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/landing_zones/lz1)
 "dg" = (
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_8,
@@ -29,7 +29,7 @@
 /area/lazarus/ground/jungle/south_east_jungle)
 "fv" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/south_east_jungle)
 "fy" = (
 /obj/effect/decal/lv_decals/red_mud_corner{
@@ -44,7 +44,7 @@
 "gB" = (
 /obj/effect/landmark/yautja_teleport,
 /obj/structure/flora/jungle/vines/blue/light_1,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/south_east_jungle)
 "iL" = (
 /turf/open/floor/brown_dirt/random_rocks_alt,
@@ -63,10 +63,10 @@
 /area/lazarus/ground/jungle/south_east_jungle)
 "kP" = (
 /obj/structure/flora/jungle/vines/blue/light_2,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/south_east_jungle)
 "mj" = (
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/south_east_jungle)
 "mm" = (
 /obj/structure/flora/jungle/vines/dead/light_1,
@@ -74,7 +74,7 @@
 /area/strata/interior/out_of_bounds)
 "ok" = (
 /obj/structure/flora/jungle/vines/dead/light_2,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/south_east_jungle)
 "oH" = (
 /turf/open/gm/dirt/brown/variant_5/east,
@@ -82,7 +82,7 @@
 "pf" = (
 /obj/effect/landmark/monkey_spawn,
 /obj/structure/flora/jungle/vines/dead/light_2,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/south_east_jungle)
 "py" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_4,
@@ -104,7 +104,7 @@
 /area/lazarus/ground/jungle/south_east_jungle)
 "pX" = (
 /obj/structure/flora/bush/ausbushes/genericbush,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/south_east_jungle)
 "rZ" = (
 /obj/effect/landmark/lizard_spawn,
@@ -116,7 +116,7 @@
 /area/lazarus/ground/jungle/south_east_jungle)
 "tz" = (
 /obj/structure/flora/jungle/vines/dead/light_3,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/south_east_jungle)
 "uR" = (
 /turf/open/gm/dirt/brown/variant_5/south,
@@ -136,7 +136,7 @@
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/jungle/south_east_jungle)
 "vy" = (
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/south_east_jungle)
 "vO" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_2,
@@ -164,7 +164,7 @@
 /area/lazarus/ground/jungle/south_east_jungle)
 "yJ" = (
 /obj/structure/flora/jungle/vines/blue/light_2,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/south_east_jungle)
 "ze" = (
 /obj/effect/decal/lv_decals/red_mud_corner,
@@ -172,7 +172,7 @@
 /area/lazarus/ground/jungle/south_east_jungle)
 "Af" = (
 /obj/structure/flora/jungle/vines/dead/light_1,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/south_east_jungle)
 "Br" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_2,
@@ -186,7 +186,7 @@
 /area/strata/interior/out_of_bounds)
 "CH" = (
 /obj/structure/flora/jungle/vines/dead/light_1,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/south_east_jungle)
 "DG" = (
 /obj/structure/flora/jungle/vines/blue/light_3,
@@ -194,11 +194,11 @@
 /area/strata/interior/out_of_bounds)
 "Eu" = (
 /obj/structure/flora/bush/ausbushes/grassybush,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/south_east_jungle)
 "ET" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/south_east_jungle)
 "GB" = (
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_8,
@@ -234,7 +234,7 @@
 /area/strata/interior/out_of_bounds)
 "LG" = (
 /obj/structure/flora/jungle/vines/dead/light_3,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/south_east_jungle)
 "LN" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_2,
@@ -254,12 +254,12 @@
 /area/lazarus/ground/jungle/south_east_jungle)
 "MG" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/south_east_jungle)
 "MZ" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
 /obj/structure/flora/jungle/vines/blue/light_2,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/south_east_jungle)
 "Og" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner,
@@ -336,7 +336,7 @@
 /area/lazarus/ground/jungle/south_east_jungle)
 "TV" = (
 /obj/structure/flora/bush/ausbushes/ausbush,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/south_east_jungle)
 "Uy" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,

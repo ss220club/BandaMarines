@@ -48,7 +48,7 @@
 /area/lazarus/ground/jungle/south_west_jungle)
 "fv" = (
 /obj/structure/flora/bush/ausbushes/grassybush,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/south_west_jungle)
 "hn" = (
 /obj/structure/flora/jungle/vines/dead/light_2,
@@ -73,11 +73,11 @@
 /area/lazarus/ground/jungle/south_west_jungle)
 "jC" = (
 /obj/structure/flora/jungle/plantbot1,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/south_west_jungle)
 "kN" = (
 /obj/structure/flora/jungle/vines/blue/light_3,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/south_west_jungle)
 "kV" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
@@ -124,11 +124,11 @@
 /area/lazarus/ground/jungle/south_west_jungle)
 "pe" = (
 /obj/structure/flora/bush/ausbushes/lavendergrass,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/south_west_jungle)
 "qf" = (
 /obj/structure/flora/jungle/vines/blue/light_3,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/south_west_jungle)
 "ra" = (
 /obj/structure/flora/jungle/vines/dead/light_3,
@@ -149,14 +149,11 @@
 /area/lazarus/ground/jungle/south_west_jungle)
 "tp" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/south_west_jungle)
 "tP" = (
 /obj/effect/decal/remains/xeno,
 /turf/open/floor/ancient_temple/damaged/damage_2,
-/area/lazarus/ground/jungle/south_west_jungle)
-"uD" = (
-/turf/open/auto_turf/lv_grass/layer1,
 /area/lazarus/ground/jungle/south_west_jungle)
 "uV" = (
 /obj/structure/flora/jungle/vines/blue/light_3,
@@ -168,7 +165,7 @@
 "wp" = (
 /obj/effect/landmark/yautja_teleport,
 /obj/structure/flora/jungle/vines/blue/light_3,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/south_west_jungle)
 "xf" = (
 /turf/open/floor/ancient_temple/damaged/damage_2,
@@ -178,7 +175,7 @@
 /area/lazarus/ground/jungle/south_west_jungle)
 "yN" = (
 /obj/structure/flora/bush/ausbushes/pointybush,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/south_west_jungle)
 "zb" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
@@ -196,7 +193,7 @@
 /area/lazarus/ground/jungle/south_west_jungle)
 "AP" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/south_west_jungle)
 "Bj" = (
 /turf/open/floor/brown_dirt/random_rocks_alt,
@@ -234,12 +231,12 @@
 /obj/structure/tunnel{
 	desc = "A tunnel entrance. Where the hell does it go?"
 	},
-/turf/open/gm/grass/grass1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/south_west_jungle)
 "FA" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
 /obj/structure/flora/jungle/vines/blue/light_3,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/south_west_jungle)
 "GM" = (
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_11,
@@ -274,11 +271,11 @@
 /turf/open/floor/ancient_temple/damaged/damage_2,
 /area/lazarus/ground/jungle/south_west_jungle)
 "KF" = (
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/south_west_jungle)
 "Le" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/south_west_jungle)
 "LP" = (
 /obj/structure/flora/jungle/vines/dead/light_1,
@@ -294,7 +291,7 @@
 	pixel_y = 31;
 	anchored = 1
 	},
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/south_west_jungle)
 "MH" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_4,
@@ -316,13 +313,9 @@
 /obj/structure/platform_decoration/stone/ancient_temple/alt/west,
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/jungle/south_west_jungle)
-"Pv" = (
-/obj/structure/flora/bush/ausbushes/var3/leafybush,
-/turf/open/auto_turf/lv_grass/layer1,
-/area/lazarus/ground/jungle/south_west_jungle)
 "PR" = (
 /obj/structure/flora/bush/ausbushes/var3/leafybush,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/south_west_jungle)
 "PS" = (
 /obj/structure/flora/jungle/vines/dead/light_3,
@@ -342,27 +335,23 @@
 /obj/structure/flora/jungle/vines/dead/light_2,
 /turf/closed/wall/ancient_temple/runed,
 /area/lazarus/ground/jungle/south_west_jungle)
-"RK" = (
-/obj/structure/flora/bush/ausbushes/ywflowers,
-/turf/open/auto_turf/lv_grass/layer0,
-/area/lazarus/ground/jungle/south_west_jungle)
 "Sb" = (
 /obj/structure/flora/bush/ausbushes/ywflowers,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/south_west_jungle)
 "SH" = (
 /obj/structure/flora/bush/ausbushes/var3/sunnybush,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/south_west_jungle)
 "SQ" = (
 /turf/closed/wall/ancient_temple/runed,
 /area/lazarus/ground/jungle/south_west_jungle)
 "Tl" = (
-/turf/open/gm/grass/grass1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/south_west_jungle)
 "Up" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
-/turf/open/auto_turf/lv_grass/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/south_west_jungle)
 "Uu" = (
 /obj/structure/flora/jungle/vines/dead/light_2,
@@ -373,7 +362,7 @@
 "VY" = (
 /obj/structure/flora/jungle/planttop1,
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/turf/open/auto_turf/lv_grass/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/south_west_jungle)
 "We" = (
 /obj/structure/platform_decoration/stone/ancient_temple/alt/north,
@@ -418,7 +407,7 @@ LW
 LW
 "}
 (2,1,1) = {"
-uD
+Tl
 Yr
 CQ
 WL
@@ -427,54 +416,36 @@ qf
 PR
 wp
 uV
-WL
-WL
-WL
-WL
-LW
-LW
-LW
-"}
-(3,1,1) = {"
-tp
-tp
-KF
-tp
-uD
 kN
-uD
-qf
-uV
-kN
-uD
-uD
+Tl
+Tl
 Up
 WL
 LW
 LW
 "}
-(4,1,1) = {"
+(3,1,1) = {"
 Up
 KF
 Sb
 tp
 KF
-uD
+Tl
 iB
 dQ
-uD
-uD
+Tl
+Tl
 iB
 dQ
 qf
 WL
-uV
+LW
 LW
 "}
-(5,1,1) = {"
+(4,1,1) = {"
 yN
-uD
-uD
+Tl
+Tl
 WL
 lf
 SQ
@@ -483,13 +454,13 @@ SQ
 SQ
 Fq
 Tl
-uD
-uD
+Tl
+Tl
 Yr
 uV
 LW
 "}
-(6,1,1) = {"
+(5,1,1) = {"
 KF
 AP
 SH
@@ -504,10 +475,10 @@ lf
 WL
 tp
 WL
-LW
+uV
 LW
 "}
-(7,1,1) = {"
+(6,1,1) = {"
 VY
 jC
 AP
@@ -522,14 +493,14 @@ lf
 WL
 KF
 FA
-WL
+LW
 LW
 "}
-(8,1,1) = {"
-uD
-uD
-uD
-uD
+(7,1,1) = {"
+Tl
+Tl
+Tl
+Tl
 lf
 Hy
 MH
@@ -538,12 +509,12 @@ fr
 cJ
 CU
 kN
-uD
-uD
+Tl
+Tl
 WL
 LW
 "}
-(9,1,1) = {"
+(8,1,1) = {"
 Le
 zb
 Le
@@ -555,17 +526,17 @@ as
 GM
 We
 SQ
-uD
-uD
+Tl
+Tl
 kN
-Yr
+WL
 LW
 "}
-(10,1,1) = {"
+(9,1,1) = {"
 tp
-uD
+Tl
 zb
-uD
+Tl
 hn
 sA
 jt
@@ -574,12 +545,12 @@ Qe
 lX
 iB
 vi
-uD
+Tl
 kN
-WL
+Yr
 LW
 "}
-(11,1,1) = {"
+(10,1,1) = {"
 WL
 Up
 Up
@@ -593,11 +564,11 @@ IL
 SQ
 pe
 iB
-uD
+Tl
 WL
 LW
 "}
-(12,1,1) = {"
+(11,1,1) = {"
 LW
 dW
 WL
@@ -610,13 +581,13 @@ Nz
 BL
 SQ
 MB
-uD
+Tl
 fv
 WL
 LW
 "}
-(13,1,1) = {"
-uD
+(12,1,1) = {"
+Tl
 KF
 LW
 WL
@@ -627,16 +598,16 @@ rQ
 ou
 LP
 CU
-uD
+Tl
 vi
 qf
 WL
 LW
 "}
-(14,1,1) = {"
-uD
+(13,1,1) = {"
+Tl
 KF
-uD
+Tl
 LW
 kV
 RE
@@ -646,15 +617,15 @@ SQ
 Qi
 Qi
 iB
-uD
-uD
+Tl
+Tl
 WL
 LW
 "}
-(15,1,1) = {"
-uD
-uD
-uD
+(14,1,1) = {"
+Tl
+Tl
+Tl
 LW
 LW
 RE
@@ -663,99 +634,9 @@ SQ
 Qi
 WL
 WL
-uD
+Tl
 Bj
 tp
 WL
-LW
-"}
-(16,1,1) = {"
-LW
-LW
-uD
-pe
-uD
-uD
-LW
-WL
-Yr
-Up
-KF
-uD
-qf
-WL
-WL
-LW
-"}
-(17,1,1) = {"
-LW
-uD
-uD
-KF
-KF
-KF
-uD
-uD
-tp
-uD
-uD
-vi
-uD
-uV
-LW
-LW
-"}
-(18,1,1) = {"
-uD
-uD
-RK
-uD
-uD
-uD
-fv
-WL
-WL
-Up
-KF
-tp
-LW
-LW
-LW
-LW
-"}
-(19,1,1) = {"
-pe
-uD
-uD
-WL
-LW
-uD
-uD
-KF
-LW
-WL
-tp
-Up
-WL
-LW
-LW
-LW
-"}
-(20,1,1) = {"
-KF
-uD
-Pv
-uD
-WL
-tp
-LW
-LW
-WL
-WL
-Up
-uD
-WL
-LW
-LW
 LW
 "}

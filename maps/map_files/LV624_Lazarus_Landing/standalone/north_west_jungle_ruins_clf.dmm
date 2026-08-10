@@ -346,9 +346,9 @@
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "dK" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
-/turf/closed/wall/rock/brown,
-/area/strata/interior/out_of_bounds)
+/obj/structure/flora/bush/ausbushes/reedbush,
+/turf/template_noop,
+/area/template_noop)
 "ed" = (
 /obj/structure/prop/brazier_ancient/tall/frame/full,
 /obj/structure/flora/jungle/vines/dead/light_3,
@@ -364,25 +364,9 @@
 /turf/open/floor/interior/wood/alt,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "ef" = (
-/obj/structure/prop/colorable_rock/colorable{
-	color = "#ae8686";
-	dir = 4;
-	pixel_x = -12;
-	pixel_y = -5
-	},
-/obj/effect/decal/lv_decals/cave_mud_corner{
-	dir = 8
-	},
-/obj/effect/decal/lv_decals/cave_mud_corner{
-	dir = 10
-	},
-/obj/structure/prop/colorable_rock/boulder/wide_boulder/wide_boulder2{
-	color = "#8d6d6d";
-	pixel_x = 1;
-	pixel_y = 4
-	},
-/turf/open/auto_turf/lv_sand_alt/layer0,
-/area/lazarus/ground/caves/south_west_caves)
+/obj/structure/flora/bush/ausbushes/var3/fullgrass,
+/turf/template_noop,
+/area/template_noop)
 "ei" = (
 /obj/structure/machinery/floodlight{
 	name = "Floodlight";
@@ -482,6 +466,11 @@
 	},
 /turf/open/auto_turf/lv_grass/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
+"fk" = (
+/obj/structure/flora/bush/ausbushes/var3/sparsegrass,
+/obj/effect/landmark/big_fog_marker,
+/turf/template_noop,
+/area/template_noop)
 "fm" = (
 /turf/template_noop,
 /area/template_noop)
@@ -935,17 +924,8 @@
 /turf/open/floor/ancient_temple/base,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "jE" = (
-/obj/effect/decal/lv_decals/cave_mud_corner{
-	dir = 6
-	},
-/obj/effect/decal/lv_decals/cave_mud_corner{
-	dir = 8
-	},
-/obj/structure/prop/colorable_rock/colorable{
-	color = "#ae8686";
-	dir = 8
-	},
-/turf/open/auto_turf/lv_sand_alt/layer0,
+/obj/effect/landmark/xeno_spawn,
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
 "jJ" = (
 /turf/open/auto_turf/lv_grass_weedable/layer0,
@@ -1098,13 +1078,7 @@
 /turf/open/auto_turf/lv_grass/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
 "lu" = (
-/obj/structure/prop/colorable_rock/colorable{
-	color = "#ae8686";
-	dir = 8;
-	pixel_x = -10;
-	pixel_y = -18
-	},
-/turf/open/auto_turf/lv_grass/layer0_mud_alt,
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
 "lv" = (
 /obj/effect/decal/lv_decals/cave_mud_corner{
@@ -1490,10 +1464,15 @@
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
 "qb" = (
-/obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/obj/effect/landmark/big_fog_marker,
-/turf/open/floor/brown_dirt/random_rocks,
-/area/template_noop)
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 4;
+	pixel_x = -1;
+	pixel_y = -14
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
+/area/lazarus/ground/caves/south_west_caves)
 "qe" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
@@ -1573,16 +1552,18 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "qt" = (
 /obj/structure/prop/rock/brown{
-	dir = 5;
-	pixel_x = -1;
-	pixel_y = -1
+	dir = 10;
+	pixel_x = 6;
+	pixel_y = 11
 	},
-/obj/effect/decal/lv_decals/cave_mud_corner,
+/obj/effect/decal/lv_decals/cave_mud_corner{
+	dir = 4
+	},
 /obj/structure/prop/colorable_rock/colorable{
 	color = "#ae8686";
-	dir = 5
+	dir = 8
 	},
-/turf/open/auto_turf/lv_sand_alt/layer0,
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
 "qw" = (
 /turf/closed/wall/wood/plain,
@@ -1810,6 +1791,28 @@
 /obj/structure/flora/jungle/vines/dead/light_3,
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
+"sR" = (
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 1
+	},
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 4;
+	pixel_x = -17;
+	pixel_y = -17
+	},
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 6;
+	pixel_x = -26;
+	pixel_y = 6
+	},
+/obj/effect/decal/lv_decals/cave_mud_corner{
+	dir = 5
+	},
+/turf/closed/wall/rock/grey,
+/area/strata/interior/out_of_bounds)
 "tb" = (
 /obj/structure/flora/jungle/plantbot1,
 /turf/open/auto_turf/lv_grass_weedable/layer0,
@@ -1858,12 +1861,17 @@
 /turf/open/floor/interior/wood/alt,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "tC" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
-/turf/open/auto_turf/lv_grass/layer0_mud_alt,
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 8;
+	pixel_x = -10;
+	pixel_y = -18
+	},
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
 "tN" = (
-/obj/structure/flora/bush/ausbushes/reedbush,
-/turf/open/auto_turf/lv_sand/layer0,
+/obj/effect/landmark/big_fog_marker,
+/turf/template_noop,
 /area/template_noop)
 "tP" = (
 /obj/effect/decal/lv_decals/cave_mud_corner{
@@ -2344,17 +2352,9 @@
 /turf/open/floor/brown_dirt/random_rocks_alt,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "zg" = (
-/obj/structure/prop/colorable_rock/colorable{
-	color = "#ae8686";
-	dir = 4;
-	pixel_x = -17;
-	pixel_y = -17
-	},
-/obj/effect/decal/lv_decals/cave_mud_corner{
-	dir = 5
-	},
-/turf/open/auto_turf/lv_sand_alt/layer0,
-/area/lazarus/ground/caves/south_west_caves)
+/obj/structure/flora/bush/ausbushes/var3/sparsegrass,
+/turf/closed/wall/strata_ice/jungle,
+/area/strata/interior/out_of_bounds)
 "zj" = (
 /obj/structure/flora/jungle/planttop1,
 /turf/open/auto_turf/lv_grass_weedable/layer0,
@@ -2369,20 +2369,9 @@
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "zy" = (
-/obj/structure/prop/rock/brown{
-	dir = 10;
-	pixel_x = 6;
-	pixel_y = 11
-	},
-/obj/effect/decal/lv_decals/cave_mud_corner{
-	dir = 4
-	},
-/obj/structure/prop/colorable_rock/colorable{
-	color = "#ae8686";
-	dir = 8
-	},
-/turf/open/auto_turf/lv_sand_alt/layer0,
-/area/lazarus/ground/caves/south_west_caves)
+/obj/structure/flora/bush/ausbushes/var3/sparsegrass,
+/turf/template_noop,
+/area/template_noop)
 "zN" = (
 /obj/structure/platform_decoration/stone/ancient_temple/alt/east,
 /turf/open/auto_turf/lv_sand/layer0,
@@ -3132,12 +3121,17 @@
 /obj/structure/prop/colorable_rock/colorable{
 	color = "#ae8686";
 	dir = 4;
-	pixel_x = -1;
-	pixel_y = -14
+	pixel_x = -12;
+	pixel_y = -5
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
-/turf/open/auto_turf/lv_grass/layer0_mud_alt,
-/area/lazarus/ground/caves/south_west_caves)
+/obj/effect/decal/lv_decals/cave_mud_corner{
+	dir = 5
+	},
+/obj/effect/decal/lv_decals/cave_mud_corner{
+	dir = 8
+	},
+/turf/closed/wall/rock/grey,
+/area/strata/interior/out_of_bounds)
 "Je" = (
 /obj/structure/barricade/wooden{
 	dir = 1;
@@ -3379,6 +3373,19 @@
 "Mq" = (
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
+"Mu" = (
+/obj/effect/decal/lv_decals/cave_mud_corner{
+	dir = 6
+	},
+/obj/effect/decal/lv_decals/cave_mud_corner{
+	dir = 8
+	},
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 8
+	},
+/turf/closed/wall/rock/brown,
+/area/strata/interior/out_of_bounds)
 "Mw" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble_5,
 /obj/structure/barricade/wooden{
@@ -4459,10 +4466,8 @@
 /turf/open/floor/interior/wood/alt,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "YX" = (
-/obj/effect/decal/lv_decals/cave_mud_corner{
-	dir = 10
-	},
-/turf/open/auto_turf/lv_sand_alt/layer0,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
 "YY" = (
 /obj/effect/decal/lv_decals/cave_mud_corner{
@@ -4607,10 +4612,10 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 
 (1,1,1) = {"
-wN
-wN
-wN
-wN
+vs
+vs
+vs
+vs
 vs
 vs
 vs
@@ -4655,15 +4660,13 @@ Qw
 tw
 tw
 Nq
-tw
-tw
 tw
 "}
 (2,1,1) = {"
 vs
-wN
-wN
-wN
+vs
+vs
+vs
 wN
 vs
 vs
@@ -4709,14 +4712,12 @@ AS
 ZM
 ZM
 ZM
-ZM
-ZM
 "}
 (3,1,1) = {"
 vs
 vs
 vs
-wN
+vs
 wN
 wN
 vs
@@ -4760,8 +4761,6 @@ Qw
 aN
 ZM
 ab
-ZM
-ZM
 ZM
 ZM
 "}
@@ -4814,12 +4813,10 @@ Qw
 ab
 nc
 Fr
-ZM
-GY
-Zc
+fm
 "}
 (5,1,1) = {"
-wN
+vs
 vs
 vs
 vs
@@ -4867,15 +4864,13 @@ Qw
 ZM
 Fr
 TM
-Zc
-Zc
-GY
+fm
 "}
 (6,1,1) = {"
-Xq
-vs
-vs
-vs
+lu
+qb
+VT
+ud
 vs
 vs
 vs
@@ -4919,16 +4914,14 @@ Qw
 ab
 ZM
 Po
-Fr
-Zc
-Zc
-Zc
+fm
+fm
 "}
 (7,1,1) = {"
-Xq
-IJ
-VT
-ud
+lu
+YX
+tC
+Vh
 bk
 vs
 vs
@@ -4972,16 +4965,14 @@ Qw
 AS
 nc
 ZM
-Zc
-hr
-Zc
-Po
+fm
+ef
 "}
 (8,1,1) = {"
-Xq
-tC
 lu
 YX
+lu
+lu
 HX
 nb
 vs
@@ -5025,16 +5016,14 @@ yr
 ZM
 ZM
 Fr
-Fr
-Zc
-Po
-Po
+fm
+fm
 "}
 (9,1,1) = {"
-Xq
-tC
-Xq
-Xq
+lu
+YX
+lu
+lu
 Vh
 nb
 nb
@@ -5078,16 +5067,14 @@ Nq
 ZM
 GY
 Zc
-Zc
-Zc
 fm
 fm
 "}
 (10,1,1) = {"
-Xq
-tC
-Xq
-Xq
+lu
+vs
+lu
+lu
 Xq
 QI
 nb
@@ -5131,16 +5118,14 @@ nc
 ZM
 ZM
 GY
-Po
-Zc
 fm
 fm
 "}
 (11,1,1) = {"
-Xq
+lu
 vs
 Xq
-Xq
+lu
 Xq
 sr
 nb
@@ -5184,16 +5169,14 @@ nc
 ZM
 GY
 Po
-Zc
-Ho
 fm
-fm
+tN
 "}
 (12,1,1) = {"
-Xq
+Mu
 vs
 vs
-Xq
+lu
 YY
 BA
 zX
@@ -5236,17 +5219,15 @@ vs
 ZM
 Py
 Po
-Zc
-GY
-Zc
 fm
+zy
 fm
 "}
 (13,1,1) = {"
-jE
+qt
 vs
 vs
-vs
+lu
 wN
 kK
 vs
@@ -5289,17 +5270,15 @@ Qw
 ZM
 Po
 hr
-Zc
-Zc
-Zc
+fm
 fm
 fm
 "}
 (14,1,1) = {"
-zy
+lu
+jE
+OA
 vs
-OA
-OA
 wN
 vs
 vs
@@ -5342,17 +5321,15 @@ gO
 ZM
 ZM
 Zc
-qb
-Zc
-Po
+fk
 fm
 fm
 "}
 (15,1,1) = {"
-qt
+lu
+jE
+wN
 vs
-wN
-wN
 vs
 vs
 vs
@@ -5395,17 +5372,15 @@ ZM
 ab
 ZM
 Po
-Zc
-Zc
-tN
 fm
 fm
+dK
 "}
 (16,1,1) = {"
-vs
+lu
 vs
 wN
-wN
+vs
 wN
 vs
 wN
@@ -5449,14 +5424,12 @@ ZM
 Zc
 Zc
 Zc
-Zc
-fm
 fm
 fm
 "}
 (17,1,1) = {"
 vs
-wN
+vs
 wN
 vs
 wN
@@ -5501,14 +5474,12 @@ ZM
 Zc
 Zc
 Po
-Zc
-Zc
 fm
 fm
 fm
 "}
 (18,1,1) = {"
-vs
+wN
 wN
 OA
 vs
@@ -5555,8 +5526,6 @@ ab
 Ho
 Zc
 Zc
-Zc
-fm
 fm
 fm
 "}
@@ -5607,15 +5576,13 @@ Xm
 ZM
 Zc
 iV
-Zc
-GY
 fm
-fm
+zy
 fm
 "}
 (20,1,1) = {"
-vs
 wN
+vs
 vs
 vs
 wN
@@ -5660,8 +5627,6 @@ Po
 iV
 Zc
 Zc
-Po
-fm
 fm
 fm
 fm
@@ -5716,11 +5681,9 @@ Zc
 Ho
 fm
 fm
-fm
-fm
 "}
 (22,1,1) = {"
-vs
+qw
 vs
 vs
 wN
@@ -5769,11 +5732,9 @@ Zc
 fm
 fm
 fm
-fm
-fm
 "}
 (23,1,1) = {"
-wN
+qw
 wN
 vs
 wN
@@ -5822,11 +5783,9 @@ Zc
 fm
 fm
 fm
-fm
-fm
 "}
 (24,1,1) = {"
-wN
+qw
 wN
 vs
 vs
@@ -5875,12 +5834,10 @@ Ho
 fm
 fm
 fm
-fm
-fm
 "}
 (25,1,1) = {"
+qw
 wN
-vs
 vs
 vs
 wN
@@ -5928,11 +5885,9 @@ Zc
 fm
 fm
 fm
-fm
-fm
 "}
 (26,1,1) = {"
-vs
+qw
 vs
 vs
 wN
@@ -5978,8 +5933,6 @@ sv
 Zc
 Zc
 Po
-fm
-fm
 fm
 fm
 fm
@@ -6034,12 +5987,10 @@ Ho
 fm
 fm
 fm
-fm
-fm
 "}
 (28,1,1) = {"
 qw
-wN
+vs
 wN
 wN
 vs
@@ -6087,12 +6038,10 @@ Zc
 fm
 fm
 fm
-fm
-fm
 "}
 (29,1,1) = {"
 qw
-wN
+vs
 wN
 vs
 vs
@@ -6140,12 +6089,10 @@ Zc
 fm
 fm
 fm
-fm
-fm
 "}
 (30,1,1) = {"
-qw
-wN
+vs
+Nq
 vs
 vs
 vs
@@ -6193,12 +6140,10 @@ Zc
 fm
 fm
 fm
-fm
-fm
 "}
 (31,1,1) = {"
-qw
 vs
+Nq
 OA
 OA
 Nq
@@ -6246,12 +6191,10 @@ Zc
 fm
 fm
 fm
-fm
-fm
 "}
 (32,1,1) = {"
-qw
 vs
+wN
 Nq
 Nq
 yr
@@ -6299,12 +6242,10 @@ fm
 fm
 fm
 fm
-fm
-fm
 "}
 (33,1,1) = {"
-qw
-vs
+wN
+wN
 Nq
 tw
 HS
@@ -6352,14 +6293,12 @@ fm
 fm
 fm
 fm
-fm
-fm
 "}
 (34,1,1) = {"
-qw
+wN
+wN
 vs
-Qw
-tw
+yr
 HS
 WX
 ht
@@ -6405,11 +6344,9 @@ fm
 fm
 fm
 fm
-fm
-fm
 "}
 (35,1,1) = {"
-vs
+wN
 wN
 Tp
 tw
@@ -6458,12 +6395,10 @@ fm
 fm
 fm
 fm
-fm
-fm
 "}
 (36,1,1) = {"
-vs
-vs
+wN
+wN
 wN
 tP
 HS
@@ -6511,12 +6446,10 @@ fm
 fm
 fm
 fm
-fm
-fm
 "}
 (37,1,1) = {"
-vs
-vs
+wN
+wN
 lv
 Ew
 tP
@@ -6564,12 +6497,10 @@ fm
 fm
 fm
 fm
-fm
-fm
 "}
 (38,1,1) = {"
-wN
 vs
+IJ
 vs
 vs
 ps
@@ -6617,12 +6548,10 @@ fm
 fm
 fm
 fm
-fm
-fm
 "}
 (39,1,1) = {"
-wN
-wN
+vs
+sR
 vs
 vs
 vs
@@ -6670,14 +6599,12 @@ fm
 fm
 fm
 fm
-fm
-fm
 "}
 (40,1,1) = {"
-wN
-wN
 vs
-dK
+vs
+vs
+vs
 vs
 vs
 wN
@@ -6723,11 +6650,9 @@ fm
 fm
 fm
 fm
-fm
-fm
 "}
 (41,1,1) = {"
-wN
+vs
 vs
 vs
 vs
@@ -6776,11 +6701,9 @@ fm
 fm
 fm
 fm
-fm
-fm
 "}
 (42,1,1) = {"
-wN
+vs
 vs
 vs
 Xr
@@ -6829,12 +6752,10 @@ fm
 fm
 fm
 fm
-fm
-fm
 "}
 (43,1,1) = {"
-vs
-ef
+sI
+ZR
 jf
 iS
 GN
@@ -6882,12 +6803,10 @@ fm
 fm
 fm
 fm
-fm
-fm
 "}
 (44,1,1) = {"
-vs
-zg
+YX
+lu
 cc
 Xq
 Xq
@@ -6935,12 +6854,10 @@ fm
 fm
 fm
 fm
-fm
-fm
 "}
 (45,1,1) = {"
-vs
-vs
+YX
+lu
 eN
 Xq
 Xq
@@ -6972,8 +6889,6 @@ AS
 ZM
 ZM
 Zc
-Zc
-fm
 fm
 fm
 fm
@@ -6992,8 +6907,8 @@ fm
 fm
 "}
 (46,1,1) = {"
-vs
-vs
+YX
+lu
 Xb
 It
 Xq
@@ -7025,8 +6940,6 @@ ZM
 ZM
 GY
 Zc
-Zc
-fm
 fm
 fm
 fm
@@ -7078,8 +6991,6 @@ GY
 ZM
 Po
 Zc
-Zc
-fm
 fm
 fm
 fm
@@ -7098,8 +7009,8 @@ fm
 fm
 "}
 (48,1,1) = {"
-sI
-ZR
+wN
+Nq
 Xq
 fw
 Xq
@@ -7131,8 +7042,6 @@ Po
 Zc
 Zc
 Zc
-Zc
-fm
 fm
 fm
 fm
@@ -7151,8 +7060,8 @@ fm
 fm
 "}
 (49,1,1) = {"
-tC
-Xq
+wN
+Nq
 Xq
 Xq
 Xq
@@ -7183,8 +7092,6 @@ ZM
 ZM
 Zc
 YZ
-Po
-Zc
 fm
 fm
 fm
@@ -7204,8 +7111,8 @@ fm
 fm
 "}
 (50,1,1) = {"
-tC
-Xq
+Nq
+Nq
 Fm
 Xq
 Xq
@@ -7237,8 +7144,6 @@ iV
 iV
 Zc
 Fr
-Zc
-fm
 fm
 fm
 fm
@@ -7257,8 +7162,8 @@ fm
 fm
 "}
 (51,1,1) = {"
-tC
-Xq
+Nq
+Nq
 Xq
 Xq
 Xq
@@ -7290,8 +7195,6 @@ ZM
 ZM
 Zc
 hr
-Zc
-fm
 fm
 fm
 fm
@@ -7310,8 +7213,8 @@ fm
 fm
 "}
 (52,1,1) = {"
-vs
-vs
+wN
+Nq
 Wu
 Wu
 Wu
@@ -7343,8 +7246,6 @@ CY
 ab
 ZM
 Zc
-Po
-fm
 fm
 fm
 fm
@@ -7364,7 +7265,7 @@ fm
 "}
 (53,1,1) = {"
 wN
-Nq
+vs
 aW
 Xq
 Xq
@@ -7396,9 +7297,7 @@ vm
 ZM
 Zc
 Zc
-Ho
-fm
-fm
+tN
 fm
 fm
 fm
@@ -7449,8 +7348,6 @@ ZM
 ZM
 ZM
 Zc
-Zc
-fm
 fm
 fm
 fm
@@ -7469,8 +7366,8 @@ fm
 fm
 "}
 (55,1,1) = {"
-Nq
-Nq
+vs
+vs
 aW
 Xq
 OC
@@ -7501,8 +7398,6 @@ ZM
 ZM
 GY
 Zc
-Zc
-Zc
 fm
 fm
 fm
@@ -7522,7 +7417,7 @@ fm
 fm
 "}
 (56,1,1) = {"
-Nq
+vs
 Nq
 aW
 TJ
@@ -7534,8 +7429,8 @@ JZ
 mw
 GV
 VA
-PS
-VA
+zg
+Nq
 ft
 PS
 VA
@@ -7553,9 +7448,58 @@ ZM
 GY
 Zc
 Zc
+fm
+fm
+ef
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+"}
+(57,1,1) = {"
+vs
+Nq
+Nq
+aW
+JZ
+JZ
+kk
+GV
+JZ
+GV
+GV
+zg
+Nq
+hs
+GV
+GV
+GV
+GV
+gh
+PS
+PS
+Ql
+gh
+GV
+GV
+GY
+mD
 Zc
-Po
-hr
+Zc
+Zc
+fm
+fm
 fm
 fm
 fm
@@ -7574,41 +7518,39 @@ fm
 fm
 fm
 "}
-(57,1,1) = {"
-wN
-Nq
-Nq
-aW
-JZ
-JZ
-kk
-GV
-JZ
-GV
-GV
-gh
-VA
-hs
-GV
-GV
-GV
-GV
-gh
-PS
-PS
-Ql
-gh
-GV
-GV
-GY
-mD
-Zc
-Zc
-Zc
-Po
-Zc
-Zc
-Zc
+(58,1,1) = {"
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+ZM
+ZM
+ZM
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+fm
+fm
 fm
 fm
 fm
