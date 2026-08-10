@@ -586,7 +586,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 		data["ob_safety"] = ob_cannon_safety
 		if(current_orbital_cannon.tray.warhead)
 			data["ob_warhead"] = current_orbital_cannon.tray.warhead.warhead_kind
-	if(GLOB.almayer_aa_cannon.protecting_section)
+	if(GLOB.almayer_aa_cannon?.protecting_section)
 		data["aa_targeting"] = GLOB.almayer_aa_cannon.protecting_section
 
 	data["marines"] = list()
@@ -1103,7 +1103,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 				playsound(src, 'sound/machines/buzz-two.ogg', 15, 1)
 				return FALSE
 			COOLDOWN_START(datacore, ares_quarters_cooldown, 10 MINUTES)
-			shipwide_ai_announcement("ATTENTION! GENERAL QUARTERS. ALL HANDS, MAN YOUR BATTLESTATIONS.", MAIN_AI_SYSTEM, 'sound/effects/GQfullcall.ogg')
+			shipwide_ai_announcement("ВНИМАНИЕ! ОБЩАЯ ТРЕВОГА. ВСЕМУ ЛИЧНОМУ СОСТАВУ ОРГАНИЗОВАТЬ БОЕВЫЕ МЕСТА.", MAIN_AI_SYSTEM, 'sound/effects/GQfullcall.ogg')
 			log_game("[key_name(user)] has called for general quarters via the groundside operations console.")
 			message_admins("[key_name_admin(user)] has called for general quarters via the groundside operations console.")
 			log_ares_security("General Quarters", "Called for general quarters via the groundside operations console.", user)
@@ -1190,7 +1190,7 @@ GLOBAL_LIST_EMPTY_TYPED(active_overwatch_consoles, /obj/structure/machinery/comp
 		selected_sl.comm_title = "aSL"
 	ADD_TRAIT(selected_sl, TRAIT_ACTING_LEAD, TRAIT_SOURCE_SQUAD_LEADER)
 
-	var/obj/item/device/radio/headset/sl_headset = selected_sl.get_type_in_ears(/obj/item/device/radio/headset/almayer/marine)
+	var/obj/item/device/radio/headset/sl_headset = selected_sl.get_type_in_ears(/obj/item/device/radio/headset/almayer)
 	switch(faction)
 		if (FACTION_UPP)
 			sl_headset = selected_sl.get_type_in_ears(/obj/item/device/radio/headset/distress/UPP)
