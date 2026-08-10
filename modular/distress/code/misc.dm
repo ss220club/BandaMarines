@@ -1197,11 +1197,6 @@ GLOBAL_LIST_INIT(upp_cm_vending_gear_spec, list(
 	icon_state = "upp_flamethrower_backpack"
 	item_state = "upp_flamethrower_backpack"
 	flags_atom = FPRINT|NO_GAMEMODE_SKIN
-	obj/item/ammo_magazine/flamer_tank/large/fuel/upp
-	obj/item/ammo_magazine/flamer_tank/large/B/upp/fuelB
-	obj/item/ammo_magazine/flamer_tank/large/X/upp/fuelX
-	obj/item/ammo_magazine/flamer_tank/large/upp/active_fuel
-	obj/item/weapon/gun/flamer/m240/spec/upp/linked_flamer
 	toggling = FALSE
 	actions_types = list(/datum/action/item_action/specialist/toggle_fuel)
 	can_hold = list(/obj/item/weapon/gun/flamer/m240/spec/upp)

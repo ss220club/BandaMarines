@@ -102,7 +102,7 @@
 	shrapnel_chance = SHRAPNEL_CHANCE_TIER_8
 	accuracy = HIT_ACCURACY_TIER_MAX
 
-/datum/ammo/bullet/pkp
+/datum/ammo/bullet/pkp/distress
 	name = "machinegun bullet"
 	headshot_state = HEADSHOT_OVERLAY_MEDIUM
 	icon = 'modular/distress/icons/projectiles.dmi'
@@ -115,6 +115,10 @@
 	damage = 55 // МОРКОВКА спасибо
 	penetration = ARMOR_PENETRATION_TIER_4
 	shrapnel_chance = SHRAPNEL_CHANCE_TIER_9
+
+/obj/item/ammo_magazine/pkp/distress
+	gun_type = /obj/item/weapon/gun/pkp/distress
+	default_ammo = /datum/ammo/bullet/pkp/distress
 
 /datum/ammo/bullet/sniper/upp
 	name = "armor-piercing sniper bullet"

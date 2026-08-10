@@ -5,6 +5,7 @@
 #include "code/misc.dm"
 #include "code/ammo.dm"
 #include "code/vehicles.dm"
+#include "code/weapons.dm"
 // #include "code/upp_engineering.dm"
 // #include "code/upp_engineer_backpacks.dm"
 // #include "code/upp_cbrn.dm"

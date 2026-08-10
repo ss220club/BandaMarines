@@ -1519,7 +1519,6 @@
 	icon = 'icons/obj/items/weapons/guns/guns_by_faction/UPP/assault_rifles.dmi'
 	icon_state = "type71"
 	item_state = "type71"
-	aim_slowdown = 1
 
 	pixel_x = -6
 	hud_offset = -6
@@ -1528,15 +1527,21 @@
 	reload_sound = 'sound/weapons/handling/m41_reload.ogg'
 	unload_sound = 'sound/weapons/handling/m41_unload.ogg'
 	current_mag = /obj/item/ammo_magazine/rifle/type71
-	wield_delay = WEAPON_DELAY_NORMAL
+	wield_delay = WEAPON_DELAY_FAST
 	attachable_allowed = list(
-		/obj/item/attachable/suppressor,
+		/obj/item/attachable/flashlight, // Rail
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/reflex,
+		/obj/item/attachable/suppressor, // Muzzle
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonet/upp,
 		/obj/item/attachable/bayonet/co2,
 		/obj/item/attachable/bayonet/antique,
-		/obj/item/attachable/bayonet/custom,
 		/obj/item/attachable/bayonet/wy,
+		/obj/item/attachable/bayonet/custom,
 		/obj/item/attachable/bayonet/custom/red,
 		/obj/item/attachable/bayonet/custom/blue,
 		/obj/item/attachable/bayonet/custom/black,
@@ -1544,30 +1549,20 @@
 		/obj/item/attachable/bayonet/tanto/blue,
 		/obj/item/attachable/bayonet/rmc_replica,
 		/obj/item/attachable/bayonet/rmc,
-		/obj/item/attachable/reddot,
-		/obj/item/attachable/reflex,
-		/obj/item/attachable/verticalgrip,
-		/obj/item/attachable/angledgrip,
-		/obj/item/attachable/flashlight/grip,
-		/obj/item/attachable/lasersight,
-		/obj/item/attachable/gyro,
-		/obj/item/attachable/flashlight,
-		/obj/item/attachable/flashlight/under_barrel,
-		/obj/item/attachable/bipod,
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/extended_barrel/vented,
-		/obj/item/attachable/magnetic_harness,
-		/obj/item/attachable/attached_gun/grenade,
+		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/verticalgrip, // Underbarrel
+		/obj/item/attachable/flashlight/under_barrel,
+		/obj/item/attachable/flashlight/grip,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/burstfire_assembly,
 		/obj/item/attachable/attached_gun/flamer,
 		/obj/item/attachable/attached_gun/flamer/advanced,
-		/obj/item/attachable/attached_gun/shotgun,
 		/obj/item/attachable/attached_gun/extinguisher,
-		/obj/item/attachable/alt_iff_scope,
-		/obj/item/attachable/scope,
-		/obj/item/attachable/scope/mini,
 	)
 
-	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER
+	flags_gun_features = GUN_AUTO_EJECTOR|GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER
 	flags_equip_slot = SLOT_BACK
 	start_automatic = TRUE
 
@@ -1580,15 +1575,15 @@
 
 /obj/item/weapon/gun/rifle/type71/set_gun_config_values()
 	..()
-	fire_delay = 3.33 // МОРКОВКА спасибо
+	set_fire_delay(FIRE_DELAY_TIER_8)
 	set_burst_amount(BURST_AMOUNT_TIER_4)
 	set_burst_delay(FIRE_DELAY_TIER_9)
 	accuracy_mult = BASE_ACCURACY_MULT + HIT_ACCURACY_MULT_TIER_4
 	accuracy_mult_unwielded = BASE_ACCURACY_MULT - HIT_ACCURACY_MULT_TIER_7
-	scatter = SCATTER_AMOUNT_TIER_9 // МОРКОВКА спасибо
+	scatter = SCATTER_AMOUNT_TIER_6
 	burst_scatter_mult = SCATTER_AMOUNT_TIER_10
 	scatter_unwielded = SCATTER_AMOUNT_TIER_4
-	damage_mult = 1.10 // МОРКОВКА спасибо
+	damage_mult = BASE_BULLET_DAMAGE_MULT //10~ more damage than m41, as well as higher ap from bullet, slightly higher DPS, 133>137.5
 	recoil_unwielded = RECOIL_AMOUNT_TIER_3
 
 /obj/item/weapon/gun/rifle/type71/rifleman
@@ -1670,6 +1665,7 @@
 		/obj/item/attachable/bayonet/rmc,
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/extended_barrel/vented,
+		/obj/item/attachable/heavy_barrel,
 	)
 
 /obj/item/weapon/gun/rifle/type71/flamer/handle_starting_attachment()
@@ -1702,18 +1698,25 @@
 	pixel_x = 0
 	hud_offset = 0
 
+	aim_slowdown = SLOWDOWN_ADS_QUICK
 	wield_delay = WEAPON_DELAY_VERY_FAST
 	flags_gun_features = GUN_AUTO_EJECTOR|GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER
 	bonus_overlay_x = 2
 	force = 20 //integrated melee mod from stock, which doesn't fit on the gun but is still clearly there on the sprite
 	attachable_allowed = list(
-		/obj/item/attachable/suppressor,
+		/obj/item/attachable/flashlight, // Rail
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/reflex,
+		/obj/item/attachable/suppressor, // Muzzle
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonet/upp,
 		/obj/item/attachable/bayonet/co2,
 		/obj/item/attachable/bayonet/antique,
-		/obj/item/attachable/bayonet/custom,
 		/obj/item/attachable/bayonet/wy,
+		/obj/item/attachable/bayonet/custom,
 		/obj/item/attachable/bayonet/custom/red,
 		/obj/item/attachable/bayonet/custom/blue,
 		/obj/item/attachable/bayonet/custom/black,
@@ -1721,28 +1724,13 @@
 		/obj/item/attachable/bayonet/tanto/blue,
 		/obj/item/attachable/bayonet/rmc_replica,
 		/obj/item/attachable/bayonet/rmc,
-		/obj/item/attachable/reddot,
-		/obj/item/attachable/reflex,
-		/obj/item/attachable/verticalgrip,
-		/obj/item/attachable/angledgrip,
-		/obj/item/attachable/flashlight/grip,
-		/obj/item/attachable/lasersight,
-		/obj/item/attachable/gyro,
-		/obj/item/attachable/flashlight,
-		/obj/item/attachable/flashlight/under_barrel,
-		/obj/item/attachable/bipod,
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/extended_barrel/vented,
 		/obj/item/attachable/heavy_barrel,
-		/obj/item/attachable/magnetic_harness,
-		/obj/item/attachable/attached_gun/grenade,
-		/obj/item/attachable/attached_gun/flamer,
-		/obj/item/attachable/attached_gun/flamer/advanced,
-		/obj/item/attachable/attached_gun/shotgun,
+		/obj/item/attachable/verticalgrip, // Underbarrel
+		/obj/item/attachable/flashlight/under_barrel,
+		/obj/item/attachable/burstfire_assembly,
 		/obj/item/attachable/attached_gun/extinguisher,
-		/obj/item/attachable/alt_iff_scope,
-		/obj/item/attachable/scope,
-		/obj/item/attachable/scope/mini,
 	)
 
 	random_spawn_muzzle = list() //no default bayonet
@@ -1752,10 +1740,9 @@
 
 /obj/item/weapon/gun/rifle/type71/carbine/set_gun_config_values()
 	..()
-	set_fire_delay(FIRE_DELAY_TIER_LMG)//МОРКОВКА спасибо
-	damage_mult = 0.67 //МОРКОВКА спасибо
+	set_fire_delay(FIRE_DELAY_TIER_11)
+	damage_mult = BASE_BULLET_DAMAGE_MULT - BULLET_DAMAGE_MULT_TIER_4//same damage as m41 reg bullets probably
 	scatter_unwielded = SCATTER_AMOUNT_TIER_5
-	scatter = SCATTER_AMOUNT_TIER_4 //МОРКОВКА спасибо
 	if(SSticker.mode && MODE_HAS_FLAG(MODE_FACTION_CLASH))
 		scatter = SCATTER_AMOUNT_TIER_5
 	recoil_unwielded = RECOIL_AMOUNT_TIER_4
@@ -1823,11 +1810,11 @@
 
 /obj/item/weapon/gun/rifle/type71/carbine/commando/set_gun_config_values()
 	..()
-	accuracy_mult = BASE_ACCURACY_MULT + HIT_ACCURACY_MULT_TIER_2
-	accuracy_mult_unwielded = BASE_ACCURACY_MULT - HIT_ACCURACY_MULT_TIER_10
-	set_fire_delay(FIRE_DELAY_TIER_1)
-	set_burst_delay(FIRE_DELAY_TIER_3)
-	scatter = SCATTER_AMOUNT_TIER_3
+	accuracy_mult = BASE_ACCURACY_MULT + HIT_ACCURACY_MULT_TIER_7
+	accuracy_mult_unwielded = BASE_ACCURACY_MULT - HIT_ACCURACY_MULT_TIER_4
+	set_fire_delay(FIRE_DELAY_TIER_11)
+	set_burst_delay(FIRE_DELAY_TIER_12)
+	scatter = SCATTER_AMOUNT_TIER_8
 
 /datum/action/item_action/toggle_alt_iff/New(Target, obj/item/holder)
 	. = ..()

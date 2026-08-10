@@ -7,8 +7,6 @@
 	icon = 'icons/obj/items/weapons/guns/guns_by_faction/event.dmi'
 	icon_state = "painless"
 	item_state = "painless"
-	aim_slowdown = 3
-	unacidable = 1
 	item_icons = list(
 		WEAR_BACK = 'icons/mob/humans/onmob/clothing/back/guns_by_type/machineguns.dmi',
 		WEAR_J_STORE = 'icons/mob/humans/onmob/clothing/suit_storage/guns_by_type/machineguns.dmi',
@@ -21,13 +19,11 @@
 	cocked_sound = 'sound/weapons/gun_minigun_cocked.ogg'
 	current_mag = /obj/item/ammo_magazine/minigun
 	w_class = SIZE_HUGE
-	force = 65
+	force = 20
 	flags_gun_features = GUN_AUTO_EJECTOR|GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_RECOIL_BUILDUP|GUN_CAN_POINTBLANK
 	gun_category = GUN_CATEGORY_HEAVY
 	start_semiauto = FALSE
 	start_automatic = TRUE
-	COOLDOWN_DECLARE(attack_cooldown)
-	var/cooldown_time = 10 SECONDS
 
 /obj/item/weapon/gun/minigun/Initialize(mapload, spawn_empty)
 	. = ..()
@@ -71,16 +67,6 @@
 	if(!skillcheck(user, SKILL_SPEC_WEAPONS, SKILL_SPEC_ALL) && user.skills.get_skill_level(SKILL_SPEC_WEAPONS) != SKILL_SPEC_UPP)
 		to_chat(user, SPAN_WARNING("You don't seem to know how to use [src]..."))
 		return 0
-
-/obj/item/weapon/gun/minigun/upp/attack(mob/living/target, mob/living/user)
-	. = ..()
-	if(. && (COOLDOWN_FINISHED(src, attack_cooldown)))
-		COOLDOWN_START(src, attack_cooldown, cooldown_time)
-		target.throw_atom(get_step(target, user.dir), 3, SPEED_AVERAGE, user, FALSE)
-		target.emote("pain")
-		target.apply_effect(0.5, WEAKEN)
-		target.apply_effect(3, SLOW)
-		target.apply_effect(3, DAZE)
 
 //M60
 /obj/item/weapon/gun/m60
@@ -193,7 +179,6 @@
 	icon = 'icons/obj/items/weapons/guns/guns_by_faction/UPP/machineguns.dmi'
 	icon_state = "qjy72"
 	item_state = "qjy72"
-	unacidable = 1
 	item_icons = list(
 		WEAR_BACK = 'icons/mob/humans/onmob/clothing/back/guns_by_type/machineguns.dmi',
 		WEAR_J_STORE = 'icons/mob/humans/onmob/clothing/suit_storage/guns_by_type/machineguns.dmi',
@@ -203,12 +188,11 @@
 	fire_sound = 'sound/weapons/gun_mg.ogg'
 	cocked_sound = 'sound/weapons/gun_m60_cocked.ogg'
 	current_mag = /obj/item/ammo_magazine/pkp
-	aim_slowdown = 3
 
 	pixel_x = -10
 	hud_offset = -10
 	w_class = SIZE_LARGE
-	force = 70 //the image of a upp machinegunner beating someone to death with a gpmg makes me laugh
+	force = 40 //the image of a upp machinegunner beating someone to death with a gpmg makes me laugh
 	start_semiauto = FALSE
 	start_automatic = TRUE
 	flags_gun_features = GUN_WIELDED_FIRING_ONLY|GUN_CAN_POINTBLANK|GUN_AUTO_EJECTOR|GUN_SPECIALIST|GUN_AMMO_COUNTER
@@ -218,18 +202,6 @@
 	)
 	var/cover_open = FALSE //if the gun's feed-cover is open or not.
 
-	COOLDOWN_DECLARE(attack_cooldown)
-	var/cooldown_time = 10 SECONDS
-
-/obj/item/weapon/gun/pkp/attack(mob/living/target, mob/living/user)
-	. = ..()
-	if(. && (COOLDOWN_FINISHED(src, attack_cooldown)))
-		COOLDOWN_START(src, attack_cooldown, cooldown_time)
-		target.throw_atom(get_step(target, user.dir), 3, SPEED_AVERAGE, user, FALSE)
-		target.emote("pain")
-		target.apply_effect(0.5, WEAKEN)
-		target.apply_effect(3, SLOW)
-		target.apply_effect(3, DAZE)
 		
 /obj/item/weapon/gun/pkp/handle_starting_attachment()
 	..()
@@ -249,13 +221,13 @@
 
 /obj/item/weapon/gun/pkp/Initialize(mapload, spawn_empty)
 	. = ..()
-
 	AddElement(/datum/element/corp_label/norcomm)
 	if(current_mag && current_mag.current_rounds > 0)
 		load_into_chamber()
 
 /obj/item/weapon/gun/pkp/set_gun_attachment_offsets()
 	attachable_offset = list("muzzle_x" = 45, "muzzle_y" = 18, "rail_x" = 16, "rail_y" = 5, "under_x" = 37, "under_y" = 15, "stock_x" = 10, "stock_y" = 13)
+
 
 /obj/item/weapon/gun/pkp/set_gun_config_values()
 	..()
@@ -419,4 +391,3 @@
 /obj/item/weapon/gun/pill/super
 	name = "large pill gun"
 	current_mag = /obj/item/ammo_magazine/internal/pillgun/super
-	
