@@ -1355,7 +1355,7 @@
 		if(ishuman(firingMob) && ishuman(src) && faction == firingMob.faction && !A?.statistic_exempt) //One human shot another, be worried about it but do everything basically the same //special_role should be null or an empty string if done correctly
 			if(!istype(bullet.ammo, /datum/ammo/energy/taser))
 				GLOB.round_statistics.total_friendly_fire_instances++
-				var/ff_msg = "[key_name(firingMob)] shot [key_name(src)] with \a [bullet][shot_from][intended_for] in [log_location(firingMob). [SPAN_BOLD("Shooter:")] [ADMIN_VERBOSEJMP(firingMob)] [ADMIN_PM(firingMob)], [SPAN_BOLD("Victim:")] [ADMIN_VERBOSEJMP(src)]" //BANDAMARINES EDIT LOGIS
+				var/ff_msg = "[key_name(firingMob)] shot [key_name(src)] with \a [bullet][shot_from][intended_for] in [log_location(firingMob)]. [SPAN_BOLD("Shooter:")] [ADMIN_VERBOSEJMP(firingMob)] [ADMIN_PM(firingMob)], [SPAN_BOLD("Victim:")] [ADMIN_VERBOSEJMP(src)]" //BANDAMARINES EDIT LOGIS
 				var/ff_living = TRUE
 				if(src.stat == DEAD)
 					ff_living = FALSE
