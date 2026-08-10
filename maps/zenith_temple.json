@@ -1,10 +1,10 @@
 {
-    "map_name": "LV-624 Lazarus Landing",
-    "map_path": "map_files/LV624_Lazarus_Landing",
-    "map_file": "LV624_Lazarus_Landing.dmm",
-    "short_name": "LV-624",
-    "webmap_url": "LV624",
-    "weather_holder": "/datum/weather_ss_map_holder/lv624_lazarus_landing",
+    "map_name": "Zenith Temple",
+    "map_path": "map_files/Zenith_Temple",
+    "map_file": "Zenith_Temple.dmm",
+    "short_name": "Zenith_Temple",
+    "webmap_url": "Zenith_Temple",
+    "weather_holder": "/datum/weather_ss_map_holder/zenith_temple",
     "survivor_types": [
         "/datum/equipment_preset/survivor/scientist/lv",
         "/datum/equipment_preset/survivor/doctor/lv",
@@ -22,8 +22,8 @@
     "CO_insert_survivor_types": [
         "/datum/equipment_preset/survivor/clf/coordinator"
     ],
-    "map_item_type": "/obj/item/map/lv624_lazarus_landing_map",
-    "announce_text": "Получен автоматический сигнал бедствия с археологического объекта \"Лазарь Лэндинг\" на пограничной планете LV-624. Для расследования сложившейся ситуации, с ###SHIPNAME### в ближайшее время будет отправлена оперативная группа реагирования.",
+    "map_item_type": "/obj/item/map/zenith_temple_map",
+    "announce_text": "Получен автоматический сигнал бедствия с археологического объекта \"Храм Зенита\" на пограничной планете LV-624. Для расследования сложившейся ситуации, с ###SHIPNAME### в ближайшее время будет отправлена оперативная группа реагирования.",
     "monkey_types": [
         "farwa",
         "monkey",
@@ -32,7 +32,7 @@
     ],
     "environment_traits": { "Fog": true },
     "traits": [{ "Ground": true }],
-    "nightmare_path": "maps/Nightmare/maps/LV624_Lazarus_Landing/",
+    "nightmare_path": "maps/Nightmare/maps/Zenith_Temple/",
     "xvx_hives": {
         "xeno_hive_alpha": 0,
         "xeno_hive_bravo": 0,

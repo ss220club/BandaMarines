@@ -82,7 +82,7 @@ endmap
 map whiskey_outpost_v2
 endmap
 
-map lv624_lazarus_landing
+map zenith_temple
 endmap
 
 map tyrargo_rift
