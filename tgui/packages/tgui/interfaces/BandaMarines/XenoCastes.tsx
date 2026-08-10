@@ -23,6 +23,7 @@ const STRAIN_RU = {
   Berserker: 'Берсерк',
   Hedgehog: 'Дикобраз',
   Normal: 'Обычный',
+  Bulwark: 'Бастион',
 };
 
 const CASTES_RU = {

@@ -15,8 +15,8 @@ GLOBAL_LIST_INIT(cm_vending_gear_commanding_officer, list(
 		list("SIDEARM AMMUNITION", 0, null, null, null),
 		list("High Impact Unica Speedloader (.454)", 15, /obj/item/ammo_magazine/revolver/mateba/highimpact, null, VENDOR_ITEM_RECOMMENDED),
 		list("High Impact AP Unica Speedloader (.454)", 20, /obj/item/ammo_magazine/revolver/mateba/highimpact/ap, null, VENDOR_ITEM_REGULAR),
-		list("High Impact Desert Eagle Magazine (.50)", 15, /obj/item/ammo_magazine/pistol/heavy/super/highimpact, null, VENDOR_ITEM_RECOMMENDED),
-		list("High Impact AP Desert Eagle Magazine (.50)", 20, /obj/item/ammo_magazine/pistol/heavy/super/highimpact/ap, null, VENDOR_ITEM_REGULAR),
+		list("High Impact Desert Eagle Magazine (.50)", 15, /obj/item/ammo_magazine/pistol/deagle/super/highimpact, null, VENDOR_ITEM_RECOMMENDED),
+		list("High Impact AP Desert Eagle Magazine (.50)", 20, /obj/item/ammo_magazine/pistol/deagle/super/highimpact/ap, null, VENDOR_ITEM_REGULAR),
 		list("High Impact M1911C Magazine (.45)", 15, /obj/item/ammo_magazine/pistol/m1911/highimpact, null, VENDOR_ITEM_RECOMMENDED),
 		list("High Impact AP M1911C Magazine (.45)", 20, /obj/item/ammo_magazine/pistol/m1911/highimpact/ap, null, VENDOR_ITEM_REGULAR),
 
@@ -148,7 +148,10 @@ GLOBAL_LIST_INIT(cm_vending_clothing_commanding_officer, list(
 		list("USCM Shoulder Patch", 0, /obj/item/clothing/accessory/patch/uscmpatch, null, VENDOR_ITEM_REGULAR),
 		list("United Americas Shoulder patch", 0, /obj/item/clothing/accessory/patch/ua, null, VENDOR_ITEM_REGULAR),
 		list("United Americas Flag Shoulder patch", 0, /obj/item/clothing/accessory/patch/uasquare, null, VENDOR_ITEM_REGULAR),
-		list("Falling Falcons Challenge Coin", 0, /obj/item/coin/silver/falcon, null, VENDOR_ITEM_REGULAR)
+		list("Falling Falcons Challenge Coin", 0, /obj/item/coin/silver/falcon, null, VENDOR_ITEM_REGULAR), // SS220 EDIT
+	
+		list("CAPE (CHOOSE 1)", 0, null, null, null), // SS220 EDIT
+		list("Torn USCM flag", 0, /obj/item/clothing/accessory/cape/uscm_cape, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY) // SS220 EDIT
 ))
 
 /obj/structure/machinery/cm_vending/clothing/commanding_officer

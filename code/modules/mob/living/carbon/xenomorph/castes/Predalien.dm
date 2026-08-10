@@ -67,6 +67,9 @@
 		/datum/action/xeno_action/onclick/toggle_gut_targeting,
 	)
 
+	skull = /obj/item/skull/abomination
+	pelt = /obj/item/pelt/abomination
+
 	weed_food_icon = 'icons/mob/xenos/weeds_64x64.dmi'
 	weed_food_states = list("Predalien_1","Predalien_2","Predalien_3")
 	weed_food_states_flipped = list("Predalien_1","Predalien_2","Predalien_3")
@@ -163,3 +166,278 @@ You must still listen to the queen.
 			original_damage *= 1.5
 
 	return original_damage + kills * 2.5
+
+/datum/action/xeno_action/onclick/predalien_roar/use_ability(atom/target_atom)
+	var/mob/living/carbon/xenomorph/xeno = owner
+
+	XENO_ACTION_CHECK_USE_PLASMA(xeno)
+
+	playsound(xeno.loc, pick(predalien_roar), 75, 0, status = 0)
+	xeno.visible_message(SPAN_XENOHIGHDANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] издаёт гортанный рёв!"))
+	xeno.create_shriekwave(7) //Adds the visual effect. Wom wom wom, 7 shriekwaves
+	FOR_DVIEW(var/mob/living/carbon/target_carbon, 7, xeno, HIDE_INVISIBLE_OBSERVER)
+		if(ishuman(target_carbon))
+			var/mob/living/carbon/human/target_human = target_carbon
+			target_human.disable_special_items()
+
+			var/obj/item/clothing/gloves/yautja/hunter/yautja_glove = locate(/obj/item/clothing/gloves/yautja/hunter) in target_human
+			if(isyautja(target_human) && yautja_glove)
+				if(HAS_TRAIT(target_human, TRAIT_CLOAKED))
+					yautja_glove.decloak(target_human, TRUE, DECLOAK_PREDALIEN)
+
+				yautja_glove.cloak_timer = xeno_cooldown * 0.1
+		else if(isxeno(target_carbon) && xeno.can_not_harm(target_carbon))
+			var/datum/behavior_delegate/predalien_base/behavior = xeno.behavior_delegate
+			if(!istype(behavior))
+				continue
+			new /datum/effects/xeno_buff(target_carbon, xeno, ttl = (0.25 SECONDS * behavior.kills + 3 SECONDS), bonus_damage = bonus_damage_scale * behavior.kills, bonus_speed = (bonus_speed_scale * behavior.kills))
+	FOR_DVIEW_END
+
+	apply_cooldown()
+	return ..()
+
+/datum/action/xeno_action/onclick/predalien_roar/proc/disable_filter(mob/living/carbon/human/target_human)
+	target_human.remove_filter("uncloack")
+
+/datum/action/xeno_action/activable/feralfrenzy/use_ability(atom/target_atom)
+	var/mob/living/carbon/xenomorph/xeno = owner
+	if(xeno.action_busy)
+		return
+
+	XENO_ACTION_CHECK(xeno)
+
+	var/datum/behavior_delegate/predalien_base/predalienbehavior = xeno.behavior_delegate
+	if(!istype(predalienbehavior))
+		return
+	if(targeting == AOETARGETGUT)
+		xeno.visible_message(SPAN_XENOHIGHDANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] начинает вскапывать землю, готовясь к мощному удару!"), SPAN_XENOHIGHDANGER("Мы начинаем вскапывать землю, готовясь к мощному удару!"))
+		ADD_TRAIT(xeno, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Eviscerate"))
+		xeno.anchored = TRUE
+		if(do_after(xeno, (activation_delay_aoe), INTERRUPT_ALL | BEHAVIOR_IMMOBILE, BUSY_ICON_HOSTILE))
+			xeno.emote("roar")
+			xeno.spin_circle()
+
+			for(var/mob/living/carbon/target_carbon in orange(xeno, range))
+				if(!isliving(target_carbon) || xeno.can_not_harm(target_carbon))
+					continue
+
+				if(target_carbon.stat == DEAD)
+					continue
+
+				if(!check_clear_path_to_target(xeno, target_carbon))
+					continue
+
+				xeno.visible_message(SPAN_XENOHIGHDANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] разрывает внутренности [target_carbon.declent_ru(GENITIVE)]!"), SPAN_XENOHIGHDANGER("Мы разрываем внутренности [target_carbon.declent_ru(GENITIVE)]!"))
+				target_carbon.spawn_gibs()
+				xeno.animation_attack_on(target_carbon)
+				xeno.spin_circle()
+				xeno.flick_attack_overlay(target_carbon, "tail")
+				playsound(get_turf(target_carbon), 'sound/effects/gibbed.ogg', 30, 1)
+				target_carbon.apply_effect(get_xeno_stun_duration(target_carbon, 0.5), WEAKEN)
+				playsound(get_turf(target_carbon), "alien_claw_flesh", 30, 1)
+				target_carbon.apply_armoured_damage(get_xeno_damage_slash(target_carbon, base_damage_aoe + damage_scale_aoe * predalienbehavior.kills), ARMOR_MELEE, BRUTE, "chest", 20)
+			playsound(owner, 'sound/voice/predalien_death.ogg', 75, 0, status = 0)
+		REMOVE_TRAIT(xeno, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Eviscerate"))
+		xeno.anchored = FALSE
+		apply_cooldown()
+		return ..()
+
+	//single target checks
+	if(xeno.can_not_harm(target_atom))
+		to_chat(xeno, SPAN_XENOWARNING("Мы должны выбрать враждебную цель!"))
+		return
+
+	if(!isliving(target_atom))
+		return
+
+	if(get_dist_sqrd(target_atom, xeno) > 2)
+		to_chat(xeno, SPAN_XENOWARNING("[capitalize(target_atom.declent_ru(NOMINATIVE))] слишком далеко!"))
+		return
+
+	var/mob/living/carbon/target_carbon = target_atom
+
+	if(target_carbon.stat == DEAD)
+		to_chat(xeno, SPAN_XENOWARNING("[capitalize(target_carbon.declent_ru(NOMINATIVE))] мертво, зачем нам это трогать?"))
+		return
+	if(targeting == SINGLETARGETGUT) // single target
+		ADD_TRAIT(target_carbon, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Devastate"))
+		apply_cooldown()
+
+		ADD_TRAIT(xeno, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Devastate"))
+		xeno.anchored = TRUE
+
+		if(do_after(xeno, activation_delay, INTERRUPT_ALL | BEHAVIOR_IMMOBILE, BUSY_ICON_HOSTILE))
+			xeno.visible_message(SPAN_XENOHIGHDANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] разрывает внутренности [target_carbon.declent_ru(GENITIVE)]!"), SPAN_XENOHIGHDANGER("Мы разрываем внутренности [target_carbon.declent_ru(GENITIVE)]!"))
+			target_carbon.spawn_gibs()
+			playsound(get_turf(target_carbon), 'sound/effects/gibbed.ogg', 50, 1)
+			target_carbon.apply_effect(get_xeno_stun_duration(target_carbon, 0.5), WEAKEN)
+			target_carbon.apply_armoured_damage(get_xeno_damage_slash(target_carbon, base_damage + damage_scale * predalienbehavior.kills), ARMOR_MELEE, BRUTE, "chest", 20)
+
+			xeno.animation_attack_on(target_carbon)
+			xeno.spin_circle()
+			xeno.flick_attack_overlay(target_carbon, "tail")
+
+		playsound(owner, 'sound/voice/predalien_growl.ogg', 50, 0, status = 0)
+
+		REMOVE_TRAIT(xeno, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Devastate"))
+		xeno.anchored = FALSE
+		unroot_human(target_carbon, TRAIT_SOURCE_ABILITY("Devastate"))
+
+	return ..()
+
+
+/datum/action/xeno_action/onclick/feralrush/use_ability(atom/target_atom)
+	var/mob/living/carbon/xenomorph/xeno = owner
+	if(!istype(xeno))
+		return
+
+	if(armor_buff && speed_buff)
+		to_chat(xeno, SPAN_XENOHIGHDANGER("Мы не можем двигаться ещё быстрее!"))
+		return
+
+	XENO_ACTION_CHECK_USE_PLASMA(xeno)
+
+	addtimer(CALLBACK(src, PROC_REF(remove_rush_effects)), speed_duration)
+	addtimer(CALLBACK(src, PROC_REF(remove_armor_effects)), armor_duration) // calculate armor and speed differently, so it's a bit more armored while trying to get out
+	xeno.add_filter("predalien_toughen", 1, list("type" = "outline", "color" = "#421313", "size" = 1))
+	to_chat(xeno, SPAN_XENOWARNING("Мы чувствуем напряжение мыщц, когда наша скорость и броня увеличиваются!"))
+	speed_buff = TRUE
+	armor_buff = TRUE
+	xeno.speed_modifier -= speed_buff_amount
+	xeno.armor_modifier += armor_buff_amount
+	xeno.recalculate_speed()
+	xeno.recalculate_armor()
+	playsound(xeno, 'sound/voice/predalien_growl.ogg', 75, 0, status = 0)
+	apply_cooldown()
+	return ..()
+
+
+/datum/action/xeno_action/onclick/feralrush/proc/remove_rush_effects()
+	SIGNAL_HANDLER
+	var/mob/living/carbon/xenomorph/xeno = owner
+	if(speed_buff == TRUE)
+		to_chat(xeno, SPAN_XENOWARNING("Мы чувствуем расслабление мышц, когда наша скорость снижается."))
+		xeno.remove_filter("predalien_toughen")
+		xeno.speed_modifier += speed_buff_amount
+		xeno.recalculate_speed()
+		speed_buff = FALSE
+
+
+/datum/action/xeno_action/onclick/feralrush/proc/remove_armor_effects()
+	SIGNAL_HANDLER
+	var/mob/living/carbon/xenomorph/xeno = owner
+	if(armor_buff)
+		to_chat(xeno, SPAN_XENOWARNING("Мы чувствуем, что потеряли усиление брони."))
+		xeno.armor_modifier -= armor_buff_amount
+		xeno.recalculate_armor()
+		armor_buff = FALSE
+
+
+/datum/action/xeno_action/onclick/toggle_gut_targeting/use_ability(atom/target_atom)
+	var/mob/living/carbon/xenomorph/xeno = owner
+	var/action_icon_result
+
+	XENO_ACTION_CHECK(xeno)
+
+	var/datum/action/xeno_action/activable/feralfrenzy/guttype = get_action(xeno, /datum/action/xeno_action/activable/feralfrenzy)
+	if(!guttype)
+		return
+
+	if(guttype.targeting == SINGLETARGETGUT)
+		action_icon_result = "rav_scissor_cut"
+		guttype.targeting = AOETARGETGUT
+		to_chat(xeno, SPAN_XENOWARNING("Мы будем атаковать всех вокруг нас во время Feral Frenzy."))
+	else
+		action_icon_result = "rav_shard_shed"
+		guttype.targeting = SINGLETARGETGUT
+		to_chat(xeno, SPAN_XENOWARNING("Мы сосредотачиваем Feral Frenzy на одной цели."))
+
+	button.overlays.Cut()
+	button.overlays += image('icons/mob/hud/actions_xeno.dmi', button, action_icon_result)
+	return ..()
+
+/datum/action/xeno_action/activable/feral_smash/use_ability(atom/affected_atom)
+	var/mob/living/carbon/xenomorph/xeno = owner
+
+	if(!action_cooldown_check())
+		if(twitch_message_cooldown < world.time)
+			xeno.visible_message(SPAN_XENOWARNING("Мышцы [xeno.declent_ru(GENITIVE)] дёргаются."), SPAN_XENOWARNING("Мы безуспешно пытаемся схватить цель, из-за нехватки сил. Подождите немного, прежде чем попробовать снова."))
+			twitch_message_cooldown = world.time + 5 SECONDS
+		return //this gives a little feedback on why your lunge didn't hit other than the lunge button going grey. Plus, it might spook marines that almost got lunged if they know why the message appeared, and extra spookiness is always good.
+
+	if(!affected_atom)
+		return
+
+	if(!isturf(xeno.loc))
+		to_chat(xeno, SPAN_XENOWARNING("Мы не можем напрыгнуть отсюда!"))
+		return
+
+	if(xeno.can_not_harm(affected_atom) || !ismob(affected_atom))
+		return
+
+	var/mob/living/carbon/target_carbon = affected_atom
+	if(target_carbon.stat == DEAD)
+		return
+
+	if(!isliving(affected_atom))
+		return
+
+	XENO_ACTION_CHECK_USE_PLASMA(xeno)
+
+	apply_cooldown()
+
+	xeno.throw_atom(get_step_towards(affected_atom, xeno), grab_range, SPEED_FAST, xeno, tracking=TRUE)
+
+	if(xeno.Adjacent(target_carbon) && xeno.start_pulling(target_carbon, TRUE))
+		playsound(target_carbon.pulledby, 'sound/voice/predalien_growl.ogg', 75, 0, status = 0) // bang and roar for dramatic effect
+		playsound(target_carbon, 'sound/effects/bang.ogg', 25, 0)
+		animate(target_carbon, pixel_y = target_carbon.pixel_y + 32, time = 4, easing = SINE_EASING)
+		addtimer(CALLBACK(src, PROC_REF(second_smash_part), target_carbon, xeno), 4 DECISECONDS)
+	else
+		xeno.visible_message(SPAN_XENOWARNING("Когти [xeno.declent_ru(GENITIVE)] дёргаются."), SPAN_XENOWARNING("Нам не удалось схватить цель. Подождите немного, прежде чем попробовать снова."))
+
+	return ..()
+
+/datum/action/xeno_action/activable/feral_smash/proc/second_smash_part(mob/living/carbon/target_carbon, mob/living/carbon/xenomorph/xeno)
+	var/datum/behavior_delegate/predalien_base/predalienbehavior = xeno.behavior_delegate
+
+	playsound(target_carbon, 'sound/effects/bang.ogg', 25, 0)
+	playsound(target_carbon,"slam", 50, 1)
+	animate(target_carbon, pixel_y = 0, time = 4, easing = BOUNCE_EASING) //animates the smash
+	target_carbon.apply_armoured_damage(get_xeno_damage_slash(target_carbon, smash_damage + smash_scale * predalienbehavior.kills), ARMOR_MELEE, BRUTE, "chest", 20)
+
+/mob/living/carbon/xenomorph/predalien/stop_pulling()
+	if(isliving(pulling) && smashing)
+		smashing = FALSE // To avoid extreme cases of stopping a lunge then quickly pulling and stopping to pull someone else
+		var/mob/living/smashed = pulling
+		smashed.set_effect(0, STUN)
+		smashed.set_effect(0, WEAKEN)
+	return ..()
+
+/mob/living/carbon/xenomorph/predalien/start_pulling(atom/movable/movable_atom, feral_smash)
+	if(!check_state())
+		return FALSE
+
+	if(!isliving(movable_atom))
+		return FALSE
+	var/mob/living/living_mob = movable_atom
+	var/should_neckgrab = !(src.can_not_harm(living_mob)) && feral_smash
+
+
+	. = ..(living_mob, feral_smash, should_neckgrab)
+
+	if(.) //successful pull
+		if(isxeno(living_mob))
+			var/mob/living/carbon/xenomorph/xeno = living_mob
+			if(xeno.tier >= 2) // Tier 2 castes or higher immune to warrior grab stuns
+				return
+
+		if(should_neckgrab && living_mob.mob_size < MOB_SIZE_BIG)
+			visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] хватает [living_mob.declent_ru(ACCUSATIVE)] за ногу и швыряет на землю!"),
+			SPAN_XENOWARNING("Мы хватаем [living_mob.declent_ru(ACCUSATIVE)] за ногу и швыряем на землю!")) // more flair
+			smashing = TRUE
+			living_mob.drop_held_items()
+			var/duration = get_xeno_stun_duration(living_mob, 1)
+			living_mob.KnockDown(duration)
+			living_mob.Stun(duration)
+			addtimer(VARSET_CALLBACK(src, smashing, FALSE), duration)

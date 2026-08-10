@@ -61,7 +61,7 @@
 	/// Whether this ERT can occur even during FTL or on a ground crash
 	var/ignore_ftl_or_crash = FALSE
 
-	var/ert_message = "An emergency beacon has been activated"
+	var/ert_message = "Был активирован аварийный маяк бедствия." //SS220 EDIT
 
 	var/time_required_for_job = 5 HOURS
 
@@ -70,6 +70,9 @@
 
 	/// the [/datum/lazy_template] we should attempt to spawn in for the return journey
 	var/home_base = /datum/lazy_template/ert/freelancer_station
+
+	/// What sound plays to ghosts when this rolls? Silent if null
+	var/alert_sound
 
 /datum/game_mode/proc/initialize_emergency_calls()
 	if(length(all_calls)) //It's already been set up.
@@ -138,6 +141,9 @@
 			to_chat(M, SPAN_WARNING(FONT_SIZE_LARGE("Вы не можете присоединиться, если недавно были в режиме призрака. Нажмите на ссылку в чате или используйте команду во вкладке «Ghost», чтобы присоединиться.</span><br>"))) // SS220 EDIT ADDICTION
 
 			give_action(M, /datum/action/join_ert, src)
+
+			if(!isnull(alert_sound))
+				playsound_client(M.client, alert_sound, vol = 50)
 
 /datum/game_mode/proc/activate_distress()
 	ert_dispatched = TRUE

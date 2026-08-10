@@ -107,6 +107,12 @@ SUBSYSTEM_DEF(hijack)
 	/// The min ground z for open_space turfs when crashed
 	var/crashed_ground_z_min = 0
 
+	/// The bottom left origin point where the shipmap crashes to the ground map
+	var/turf/ground_origin
+
+	/// Whether or not lifeboats are still allowed to depart or not
+	var/escape_possible = TRUE
+
 	/// The x origin for the mainship map
 	var/ship_origin_x = 0
 
@@ -127,6 +133,9 @@ SUBSYSTEM_DEF(hijack)
 
 	/// A list of all APCs on the main ship
 	var/list/obj/structure/machinery/power/apc/almayer/apcs = list()
+
+	/// A list of all powernets on the main ship
+	var/list/datum/powernet/powernets = list()
 
 /datum/controller/subsystem/hijack/Initialize(timeofday)
 	RegisterSignal(SSdcs, COMSIG_GLOB_GENERATOR_SET_OVERLOADING, PROC_REF(on_generator_overload))
@@ -192,6 +201,16 @@ SUBSYSTEM_DEF(hijack)
 
 			if((sd_time_remaining <= 0) && !sd_detonated)
 				detonate_sd()
+
+		// Handle power shortage by ship being cracked in half
+		if(crashed && hijack_status == HIJACK_OBJECTIVES_GROUND_CRASH)
+			for(var/obj/structure/machinery/power/apc/almayer/apc as anything in apcs)
+				if(prob(5))
+					apc.shorted = TRUE
+					playsound(apc.loc, 'sound/effects/sparks2.ogg', 25, 1)
+					var/datum/effect_system/spark_spread/spark = new /datum/effect_system/spark_spread
+					spark.set_up(2, 1, apc)
+					spark.start()
 		return
 
 	if(!SSticker.mode.count_marines(SSmapping.levels_by_trait(ZTRAIT_MARINE_MAIN_SHIP)))
@@ -207,9 +226,9 @@ SUBSYSTEM_DEF(hijack)
 			current_run_mobs = GLOB.alive_human_list.Copy()
 
 	if(in_ftl)
-		// Scalar between 30s and 5min for ~0-25% chance of a hallucination when in FTL outside a pod
+		// Scalar between 30s and 15min for ~0-12.5% chance of a hallucination when in FTL outside a pod
 		var/duration_clamped = clamp(world.time - in_ftl_time, 30 SECONDS, 5 MINUTES)
-		var/chance_haullucinate = SCALE(duration_clamped, 30 SECONDS, 20 MINUTES) * 100 // max actually seems to be like ~23% because byond floats
+		var/chance_haullucinate = SCALE(duration_clamped, 30 SECONDS, 40 MINUTES) * 100 // max actually seems to be a little less because byond floats
 		for(var/mob/living/carbon/human/current_mob as anything in current_run_mobs)
 			current_run_mobs -= current_mob
 
@@ -285,9 +304,25 @@ SUBSYSTEM_DEF(hijack)
 		current_run_progress_multiplicative = 1
 
 ///Called when the dropship has been called by the xenos
-/datum/controller/subsystem/hijack/proc/call_shuttle()
+/datum/controller/subsystem/hijack/proc/on_call_shuttle()
 	hijack_status = HIJACK_OBJECTIVES_SHIP_INBOUND
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_HIJACK_INBOUND)
+
+	if(istype(SSticker.mode, /datum/game_mode/colonialmarines))
+		var/datum/game_mode/colonialmarines/colonial_marines = SSticker.mode
+		colonial_marines.add_current_round_status_to_end_results("Hijack")
+	GLOB.round_statistics?.track_hijack()
+
+/// Called usually after some delay after the dropship has been called by the xenos (or immediately on queen sneak)
+/datum/controller/subsystem/hijack/proc/hijack_general_quarters()
+	var/datum/ares_datacore/datacore = GLOB.ares_datacore
+	if(GLOB.security_level < SEC_LEVEL_RED)
+		set_security_level(SEC_LEVEL_RED, no_sound = TRUE, announce = FALSE)
+	if(!COOLDOWN_FINISHED(datacore, ares_quarters_cooldown))
+		return FALSE
+	COOLDOWN_START(datacore, ares_quarters_cooldown, 10 MINUTES)
+	shipwide_ai_announcement("ВНИМАНИЕ! ОБЩАЯ ТРЕВОГА. ВСЕМУ ЛИЧНОМУ СОСТАВУ ОРГАНИЗОВАТЬ БОЕВЫЕ МЕСТА.", MAIN_AI_SYSTEM, 'sound/effects/GQfullcall.ogg')
+	return TRUE
 
 ///Called when the xeno dropship crashes into the Almayer and announces the current status of various objectives to marines
 /datum/controller/subsystem/hijack/proc/announce_status_on_crash()
@@ -657,11 +692,6 @@ SUBSYSTEM_DEF(hijack)
 	hijack_status = HIJACK_OBJECTIVES_GROUND_CRASH
 	marine_announcement("Tachyon quantum jump drive deactivated due to insufficient fueling. Entry into atmosphere imminent.", HIJACK_ANNOUNCE, sound('sound/mecha/internaldmgalarm.ogg'))
 
-	// Break all shipside ships and disable all non-pod/elevator pads
-	unlock_all_dropship_doors() // Unlock doors because they'll be uninteractable
-	disallow_dropship_launching()
-	disallow_dropship_pad_landing()
-
 	// Figure out the main Z by assuming the LZs are on that Z
 	var/obj/lz = locate(/obj/structure/machinery/computer/shuttle/dropship/flight/lz1)
 	if(!lz)
@@ -670,7 +700,7 @@ SUBSYSTEM_DEF(hijack)
 
 	// Figure out the bottom left of playable space with 1 extra border
 	var/obj/effect/landmark/mainship_crashsite/origin_landmark = locate() in GLOB.landmarks_list
-	var/turf/ground_origin = get_turf(origin_landmark)
+	ground_origin = get_turf(origin_landmark)
 	var/border_type = /turf/closed/wall/strata_ice/jungle
 	var/cordon_type = FALSE
 	if(ground_origin)
@@ -723,13 +753,21 @@ SUBSYSTEM_DEF(hijack)
 	if(!ground_origin)
 		CRASH("Unable to determine origin location on groundmap for hijack ground crash! Origin can be manually specified with a /obj/effect/landmark/mainship_crashsite")
 
-	msg_admin_niche("Crashing mainship to[ADMIN_COORDJMP(ground_origin)]")
+	msg_admin_niche("Crashing mainship to [ADMIN_COORDJMP(ground_origin)]")
 
 	shakeship(
 		sstrength = 1,
 		stime = 3,
 		drop = FALSE,
 	)
+
+	// Break all shipside ships and disable all non-pod/elevator pads
+	unlock_all_dropship_doors() // Unlock doors because they'll be uninteractable
+	disallow_dropship_launching()
+	disallow_dropship_pad_landing()
+
+	escape_possible = FALSE
+	shipwide_ai_announcement("ALERT: Lifeboat telemetry equipment destroyed. Cause: Atmospheric reentry.\n\nEvacuation via port and starboard lifeboats is no longer possible.", HIJACK_ANNOUNCE, sound('sound/effects/creak1.ogg'))
 
 	// Place the crash template
 	var/datum/map_config/ship_map_config = SSmapping.configs[SHIP_MAP]
@@ -789,7 +827,7 @@ SUBSYSTEM_DEF(hijack)
 	log_debug("crack_open_ship took [(world.timeofday - time) / 10]s")
 	explode_apcs(50)
 
-	if(!admin_sd_blocked)
+	if(!admin_sd_blocked && MODE_HAS_MODIFIER(/datum/gamemode_modifier/continue_on_ground_crash))
 		addtimer(CALLBACK(src, PROC_REF(unlock_self_destruct), FALSE), 15 SECONDS)
 
 /// Called to explode the apcs with probability (so more shipwide damage)
@@ -797,7 +835,7 @@ SUBSYSTEM_DEF(hijack)
 	var/cause_data = create_cause_data("ship explosion")
 	for(var/obj/structure/machinery/power/apc/apc as anything in apcs)
 		var/turf/apc_turf = get_turf(apc)
-		if(apc_turf && prob(chance))
+		if(apc_turf && apc.crash_break_probability && prob(chance))
 			cell_explosion(apc_turf, 30, 5, explosion_cause_data=cause_data, enviro=TRUE)
 			CHECK_TICK
 
@@ -973,12 +1011,9 @@ SUBSYSTEM_DEF(hijack)
 		target = target.ChangeTurf(make_current_walkable_type)
 		return target
 
-	// Make target open_space and chuck stuff down
+	// Make target open_space (which will chuck stuff down)
 	var/turf/open_space/space = target.ChangeTurf(/turf/open_space)
-	for(var/atom/movable/thing in space)
-		if(istype(thing, /obj/vis_contents_holder))
-			continue
-		space.check_fall(thing)
+
 	return space
 
 //~~~~~~~~~~~~~~~~~~~~~~~~ FTL STUFF ~~~~~~~~~~~~~~~~~~~~~~~~//

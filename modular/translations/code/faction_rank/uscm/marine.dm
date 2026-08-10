@@ -38,6 +38,14 @@
 	name = "Мастер-сержант"
 	prefix = "М/с-т"
 
+/datum/paygrade/marine/wo	//Специализированные синтетики
+	name = "Уорент-офицер"
+	prefix = "УО"
+
+/datum/paygrade/marine/cwo	//Старшие специализированные синтетики
+	name = "Старший уорент-офицер"
+	prefix = "СУО"
+
 /datum/paygrade/marine/e8e	// Ивент, щитспавн-советники
 	name = "Первый сержант"
 	prefix = "П/с-т"

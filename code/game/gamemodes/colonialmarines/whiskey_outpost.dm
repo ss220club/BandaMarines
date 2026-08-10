@@ -11,7 +11,8 @@
 /datum/game_mode/whiskey_outpost
 	name = GAMEMODE_WHISKEY_OUTPOST
 	config_tag = GAMEMODE_WHISKEY_OUTPOST
-	required_players = 140
+	required_players = 120 // Ultimately controlled by /datum/config_entry/number/whiskey_required_players
+	required_ready_players = 60
 	xeno_bypass_timer = 1
 	static_comms_amount = 0
 	flags_round_type = MODE_NEW_SPAWN
@@ -21,7 +22,7 @@
 		/datum/job/civilian/synthetic/whiskey = JOB_SYNTH,
 		/datum/job/command/warrant/whiskey = JOB_CHIEF_POLICE,
 		/datum/job/command/bridge/whiskey = JOB_SO,
-		/datum/job/command/tank_crew/whiskey = JOB_TANK_CREW,
+		/datum/job/command/warden/whiskey = JOB_WARDEN,
 		/datum/job/command/police/whiskey = JOB_POLICE,
 		/datum/job/command/pilot/whiskey = JOB_CAS_PILOT,
 		/datum/job/logistics/requisition/whiskey = JOB_CHIEF_REQUISITION,
@@ -80,13 +81,15 @@
 	starting_round_modifiers = list(/datum/gamemode_modifier/permadeath, /datum/gamemode_modifier/more_crit, /datum/gamemode_modifier/disable_wj_spawns)
 
 	votable = TRUE
-	vote_cycle = 75 // approx. once every 5 days, if it wins the vote
+	vote_cycle = 65 // approx. once every 5 days, if it wins the vote
 
 	taskbar_icon = 'icons/taskbar/gml_wo.png'
 
 /datum/game_mode/whiskey_outpost/New()
 	. = ..()
 	required_players = CONFIG_GET(number/whiskey_required_players)
+	if(!isnull(required_ready_players))
+		required_ready_players = min(required_ready_players, required_players) // Don't ever require more ready than voting
 
 /datum/game_mode/whiskey_outpost/get_roles_list()
 	return GLOB.ROLES_WO
@@ -238,7 +241,6 @@
 			J.total_positions = J.current_positions
 		J.current_positions = J.get_total_positions(TRUE)
 	to_world("<B>New players may no longer join the game.</B>")
-	message_admins("Wave one has begun. Disabled new player game joining.")
 	message_admins("Wave one has begun. Disabled new player game joining except for replacement of cryoed marines.")
 	world.update_status()
 
