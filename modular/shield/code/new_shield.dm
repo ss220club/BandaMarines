@@ -25,16 +25,24 @@
 	name = "\improper бронещит 'ОГРАДА'"
 	desc = "Тяжёлый щит производимый Armat Battlefield Systems для проведения штурмовых операций."
 	var/skilllock = SKILL_POLICE_SKILLED
-	icon_state = "ballisticshield"
-	item_state = "ballisticshield"
-	base_icon_state = "ballisticshield"
+	icon = 'modular/shield/icons/shields.dmi'
+	force = 25
+	icon_state = "riot_shield"
+	item_state = "riot_shield"
+	base_icon_state = "riot_shield"
+	throw_range = 1
 	passive_block = 65
 	passive_projectile_mult = PROJECTILE_BLOCK_PERC_80
 	readied_block = SHIELD_CHANCE_MAX
 	readied_projectile_mult = PROJECTILE_BLOCK_PERC_100
 	COOLDOWN_DECLARE(attack_cooldown)
 	readied_slowdown = 3
-	var/cooldown_time = 25 SECONDS
+	var/cooldown_time = 15 SECONDS
+	item_icons = list(
+		WEAR_L_HAND = 'modular/shield/icons/shields_lefthand.dmi',
+		WEAR_R_HAND = 'modular/shield/icons/shields_righthand.dmi',
+		WEAR_BACK = 'modular/shield/icons/melee_weapons.dmi'
+	)
 	
 /obj/item/weapon/shield/riot/riot_mp/Initialize()
 	. = ..()
@@ -109,7 +117,7 @@
 	if(. && (COOLDOWN_FINISHED(src, attack_cooldown)))
 		COOLDOWN_START(src, attack_cooldown, cooldown_time)
 		target.throw_atom(get_step(target, user.dir), 1, SPEED_AVERAGE, user, FALSE)
-		target.apply_effect(3, DAZE)
+		target.apply_effect(6, DAZE)
 		target.apply_effect(6, SLOW)
 
 /obj/item/clothing/suit/armor/riot/marine
