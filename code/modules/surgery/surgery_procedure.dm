@@ -76,33 +76,33 @@
 		return TRUE //So that you don't poke them with a tool you're already using.
 
 	if(user.action_busy)
-		to_chat(user, SPAN_WARNING("You're too busy to perform surgery on [user == target ? "yourself" : "[target]"]!"))
+		to_chat(user, SPAN_WARNING("Вы уже заняты, поэтому не можете проводить эту операцию с [user == target ? "собой" : "[target]"]!")) // SS220 EDIT ADDICTION
 		return FALSE
 
 	if((target.mob_flags & EASY_SURGERY) ? !skillcheck(user, SKILL_SURGERY, SKILL_SURGERY_NOVICE) : !skillcheck(user, SKILL_SURGERY, required_surgery_skill))
-		to_chat(user, SPAN_WARNING("This operation is more complex than you're trained for!"))
+		to_chat(user, SPAN_WARNING("Ваши навыки не позволяют провести эту операцию!"))
 		return FALSE
 
 	if(target.pulledby?.grab_level == GRAB_CARRY)
 		if(target.pulledby == user)
-			to_chat(user, SPAN_WARNING("You need to set [target] down before you can operate on \him!"))
+			to_chat(user, SPAN_WARNING("Вам нужно уложить [target] на спину, прежде чем проводить операцию!")) // SS220 EDIT ADDICTION
 		else
-			to_chat(user, SPAN_WARNING("You can't operate on [target], \he is being carried by [target.pulledby]!"))
+			to_chat(user, SPAN_WARNING("Вы не можете проводить операцию над [target], пока его несёт [target.pulledby]!")) // SS220 EDIT ADDICTION
 		return FALSE
 
 	if(lying_required && target.body_position != LYING_DOWN)
-		to_chat(user, SPAN_WARNING("[user == target ? "You need" : "[target] needs"] to be lying down for this operation!"))
+		to_chat(user, SPAN_WARNING("[user == target ? "Вам нужно" : "[target] нужно"] лечь, прежде чем проводить операцию!"))
 		return FALSE
 
 	for(var/mob/living/potential_blocker in get_turf(target))
 		if(potential_blocker == user || potential_blocker == target)
 			continue
-		to_chat(user, SPAN_WARNING("You can't operate when you don't have enough space! Remove everybody else."))
+		to_chat(user, SPAN_WARNING("Вы не можете проводить операцию пока вам что-то мешает! Перенесите пациента в подходящее для этого место."))
 		return FALSE
 
 	if(user == target)
 		if(!self_operable)
-			to_chat(user, SPAN_WARNING("You can't perform this operation on yourself!"))
+			to_chat(user, SPAN_WARNING("Вы не можете проводить эту операцию на себе!"))
 			return FALSE
 		if((!user.hand && (user.zone_selected in list("r_arm", "r_hand"))) || (user.hand && (user.zone_selected in list("l_arm", "l_hand"))))
 			to_chat(user, SPAN_WARNING("You can't perform surgery on the same \
@@ -123,11 +123,11 @@
 				for(var/datum/surgery_step/step as anything in attempted_steps)
 					if(hint_msg)
 						if(step == current_step)
-							hint_msg += ", or [step.desc]"
+							hint_msg += ", или [step.desc]"
 						else
 							hint_msg += ", [step.desc]"
 					else
-						hint_msg = "You can't [step.desc] with [tool]"
+						hint_msg = "Вы не можете [step.desc] с помощью [tool.declent_ru(GENITIVE)]"
 				to_chat(user, SPAN_WARNING("[hint_msg]."))
 			return FALSE
 		// step was optional, try the next if it exists
