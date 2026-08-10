@@ -1,5 +1,4 @@
-//-----------------override-------------------
-
+// Vehicle bump override
 /turf/closed/wall/handle_vehicle_bump(obj/vehicle/multitile/V)
 	if(!(turf_flags & TURF_HULL) && !(V.vehicle_flags & VEHICLE_CLASS_WEAK))
 		var/damage_to_wall = V.wall_ram_damage
@@ -13,7 +12,7 @@
 		visible_message(SPAN_DANGER("[V] врезается в [src]!"))
 	return FALSE
 
-
+// Resin door bump (Remove it if official server will add it!)
 /obj/structure/mineral_door/resin/handle_vehicle_bump(obj/vehicle/multitile/V)
 	if((density) && !(V.vehicle_flags & VEHICLE_CLASS_WEAK))
 		take_damage(V.wall_ram_damage)
