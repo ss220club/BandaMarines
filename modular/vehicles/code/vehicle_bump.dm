@@ -12,7 +12,7 @@
 		visible_message(SPAN_DANGER("[V] врезается в [src]!"))
 	return FALSE
 
-// Resin door bump (Remove it if official server will add it!)
+// Resin door bump
 /obj/structure/mineral_door/resin/handle_vehicle_bump(obj/vehicle/multitile/V)
 	if((density) && !(V.vehicle_flags & VEHICLE_CLASS_WEAK))
 		take_damage(V.wall_ram_damage)
