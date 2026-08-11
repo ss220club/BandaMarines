@@ -7,10 +7,18 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/prison/cell_stripe,
 /area/lazarus/landing_zones/lz1)
+"aac" = (
+/obj/structure/platform/stone/ancient_temple/alt/north,
+/turf/open/floor/ancient_temple/deco/dark/deco_alt,
+/area/lazarus/ground/ancient_temple/south_east/surface)
 "aad" = (
 /obj/structure/machinery/power/apc/no_power/north,
 /turf/open/floor/prison/cell_stripe/north,
 /area/lazarus/landing_zones/lz1)
+"aae" = (
+/obj/structure/flora/jungle/vines/dead/heavy,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/lazarus/ground/ancient_temple/south_east/surface)
 "aaf" = (
 /turf/open/floor/prison/cell_stripe,
 /area/lazarus/landing_zones/lz2)
@@ -22,6 +30,10 @@
 /obj/structure/flora/jungle/planttop1,
 /turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/cove)
+"aai" = (
+/obj/structure/flora/jungle/vines/blue/light_1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/lazarus/ground/ancient_temple/south_east/surface)
 "aaj" = (
 /obj/effect/hunter/ancient_temple/deco_border/deco_border2{
 	dir = 8
@@ -98,6 +110,11 @@
 	},
 /turf/open/gm/river/soro,
 /area/lazarus/ground/river/east_river)
+"aax" = (
+/obj/structure/flora/jungle/vines/blue/light_1,
+/obj/structure/flora/jungle/vines/blue/light_1,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/lazarus/ground/ancient_temple/south_east/surface)
 "aay" = (
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/barrens/south_west_barrens)
@@ -18610,8 +18627,8 @@
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_y = 17
 	},
-/turf/open/auto_turf/lv_sand/layer1,
-/area/lazarus/ground/ancient_temple/south_east/surface)
+/turf/closed/wall/rock/brown,
+/area/strata/interior/out_of_bounds)
 "cWn" = (
 /obj/item/reagent_container/food/drinks/cans/ale{
 	open = 1;
@@ -36605,9 +36622,6 @@
 /obj/effect/hunter/ancient_temple/deco_border,
 /turf/open/floor/ancient_temple/floor_2,
 /area/lazarus/ground/ancient_temple/north_east)
-"lYP" = (
-/turf/open/gm/dirt/brown/variant_6,
-/area/lazarus/ground/ancient_temple/south_east/surface)
 "lZc" = (
 /obj/structure/prop/colorable_rock/colorable{
 	color = "#ae8686";
@@ -90191,9 +90205,9 @@ jTQ
 xTz
 ajX
 tua
-tua
-tua
-aNR
+hNK
+gdk
+bwE
 aNR
 tua
 ins
@@ -90415,10 +90429,10 @@ aeQ
 fjE
 fjE
 iWh
-gdk
-lSG
-lSG
-vOV
+aai
+aax
+aai
+aae
 bqX
 uor
 aNR
@@ -90639,10 +90653,10 @@ fjE
 afH
 vht
 iHL
-gdk
-aNR
-lSG
-iRX
+wkh
+aai
+aai
+afn
 gkh
 bmg
 kDK
@@ -90863,11 +90877,11 @@ fjE
 jTQ
 cas
 liJ
-gdk
-gdk
+wkh
+aai
+bwE
 aNR
-aNR
-aNR
+aac
 jzf
 jzf
 jzf
@@ -92221,7 +92235,7 @@ pQl
 gqN
 hBz
 lTJ
-lYP
+aNR
 jPD
 wTZ
 iYP
