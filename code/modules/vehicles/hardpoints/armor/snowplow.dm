@@ -6,7 +6,7 @@
 	disp_icon = "tank"
 	disp_icon_state = "snowplow"
 
-	health = 500                     // BANDAMARINES EDIT START - Original: 150
+	health = 750                     // BANDAMARINES EDIT START - Original: 150
 	activatable = 0 
 	var/wall_ram_damage_bonus = 500
 	var/wall_ram_self_damage = 10    // BANDAMARINES EDIT END
