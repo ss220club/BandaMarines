@@ -39,6 +39,8 @@
 	throw_speed = SPEED_FAST
 	tracks_target = FALSE
 	var/direct_hit_damage = 60
+	var/first_target_hit = FALSE
+	var/face_dir = NORTH
 	var/frontal_armor = 15
 	// Two-stage activation
 	var/charge_slowdown = 3
@@ -63,7 +65,7 @@
 	pounce_pass_flags = PASS_CRUSHER_CHARGE
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/Destroy()
-	activated_once = TRUE
+	activated_once = TRUE //only because charge_reset() won't work without this flag
 	charge_reset()
 	return ..()
 
@@ -91,7 +93,8 @@
 		playsound(xeno, 'sound/effects/alien_footstep_charge1.ogg', 50)
 		xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] начинает заряжать рывок!"), SPAN_XENODANGER("Мы начинаем заряжать рывок!"))
 
-		xeno.set_face_dir(get_cardinal_dir(xeno, target))
+		face_dir = get_cardinal_dir(xeno, target) //save facing direction
+		xeno.set_face_dir(face_dir)
 		apply_charge_slowdown()
 		pre_windup_effects()
 		xeno.xeno_jitter(windup_duration + charge_window)
@@ -105,7 +108,7 @@
 		winding_up = FALSE
 		to_chat(xeno, SPAN_XENOWARNING("Мы готовы к рывку!"))
 		playsound(xeno, 'sound/effects/alien_footstep_charge2.ogg', 50)
-		charge_timeout_timer_id = addtimer(CALLBACK(src, PROC_REF(charge_reset)), charge_window, TIMER_STOPPABLE)
+		charge_timeout_timer_id = addtimer(CALLBACK(src, PROC_REF(charge_reset)), charge_window, TIMER_STOPPABLE) //have a time window in order to dash somewhere
 		return ..()
 	else
 		if(charge_timeout_timer_id != TIMER_ID_NULL)
@@ -114,7 +117,7 @@
 			charge_reset()
 		return TRUE
 
-//copy of old crusher code START
+//copy of old crusher code START - had to copy to be independent from officials, it's SS220 change after all
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/pre_windup_effects()
 	RegisterSignal(owner, COMSIG_XENO_PRE_CALCULATE_ARMOURED_DAMAGE_PROJECTILE, PROC_REF(check_directional_armor))
 
@@ -192,13 +195,14 @@
 	charge_timeout_timer_id = TIMER_ID_NULL
 	activated_once = FALSE
 	xeno.fortify = FALSE
+	first_target_hit = FALSE
 
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/execute_charge(atom/target)
 	var/mob/living/carbon/xenomorph/xeno = owner
 	if(!istype(xeno))
 		return FALSE
-	// Before checks so failed charges also stop the charge-up jitter and slowdown.
+	// It's before checks so failed charges also stop the charge-up jitter and slowdown.
 	xeno.stop_xeno_jitter()
 	remove_charge_slowdown()
 
@@ -247,7 +251,12 @@
 	// Allow charge to pass through mobs without stopping, but still process collisions with them
 	RegisterSignal(xeno, COMSIG_MOVABLE_TURF_ENTER, PROC_REF(charge_turf_enter))
 	RegisterSignal(xeno, COMSIG_MOVABLE_MOVED, PROC_REF(charge_move))
-	xeno.throw_atom(target, distance, throw_speed, xeno, launch_type = LOW_LAUNCH, pass_flags = pounce_pass_flags, collision_callbacks = pounce_callbacks, end_throw_callbacks = list(CALLBACK(src, PROC_REF(charge_end))), tracking=TRUE)
+
+	var/face_target_angle = (360 + dir2angle(face_dir) - Get_Angle(xeno.loc, target)) % 360 //180 degree arc check
+	if(face_target_angle > 270 || face_target_angle < 90) //if you dash backwards or sideways dash range is halved
+		xeno.throw_atom(target, distance, throw_speed, xeno, launch_type = LOW_LAUNCH, pass_flags = pounce_pass_flags, collision_callbacks = pounce_callbacks, end_throw_callbacks = list(CALLBACK(src, PROC_REF(charge_end))), tracking=TRUE)
+	else
+		xeno.throw_atom(target, distance/2, throw_speed, xeno, launch_type = LOW_LAUNCH, pass_flags = pounce_pass_flags, collision_callbacks = pounce_callbacks, end_throw_callbacks = list(CALLBACK(src, PROC_REF(charge_end))), tracking=TRUE)
 	xeno.update_icons()
 
 	return TRUE
@@ -269,13 +278,13 @@
 	if(!istype(xeno) || !istype(starting_turf))
 		return NONE
 
-	for(var/atom/A in starting_turf)
+	for(var/atom/A in starting_turf) //anything preventing us from going out of our tile
 		if(!A.can_block_movement || isliving(A))
 			continue
 		if(A.BlockedExitDirs(xeno, move_dir))
 			return A
 
-	for(var/atom/A in entering_turf)
+	for(var/atom/A in entering_turf) //anything preventing us from going into a target turf
 		if(!A.can_block_movement || isliving(A))
 			continue
 		if(A.BlockedPassDirs(xeno, move_dir))
@@ -297,7 +306,7 @@
 
 	var/move_dir = get_dir(xeno, entering_turf)
 	var/atom/collided_obstacle
-	if(move_dir & (NORTH|SOUTH) && move_dir & (EAST|WEST))
+	if(IS_DIAGONAL_DIR(move_dir)) //we dont actually move diagonally therefore we start checking sides before going
 		var/list/collided_obstacle_list = list()
 		var/list/possible_way_turf = list()
 		for(var/direction in list(NORTH, WEST, EAST, SOUTH))
@@ -311,7 +320,7 @@
 						possible_way_turf += side_turf
 					else
 						collided_obstacle_list += side_turf
-		if(length(collided_obstacle_list) == 2)
+		if(length(collided_obstacle_list) == 2) //both sides are blocking
 			bonk_obstacle(collided_obstacle_list, xeno)
 			return NONE
 		else
@@ -328,7 +337,6 @@
 				bonk_obstacle(collided_obstacle_list, xeno)
 				return NONE
 
-	// Don't override if the turf itself is impassable
 	if(entering_turf.density)
 		bonk_obstacle(list(entering_turf), xeno)
 		return NONE
@@ -377,19 +385,25 @@
 			GLOB.organ_rel_size["l_leg"]; "l_leg",
 			GLOB.organ_rel_size["r_leg"]; "r_leg"
 		)
-	human.apply_armoured_damage(direct_hit_damage, ARMOR_MELEE, BRUTE, randomized_hit_zone, 5)
-	xeno.visible_message(
-		SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] таранит [human.declent_ru(ACCUSATIVE)]!"),
-		SPAN_XENODANGER("Вы тараните [human.declent_ru(ACCUSATIVE)]!")
-	)
+	if(first_target_hit) //less dmg and CC for all targets except the first one - less value on multi-hit
+		human.apply_armoured_damage(direct_hit_damage/2, ARMOR_MELEE, BRUTE, randomized_hit_zone, 5)
+		human.set_effect(knockdown_duration/2, WEAKEN)
+		human.set_effect(knockdown_duration/2, STUN)
+	else
+		human.apply_armoured_damage(direct_hit_damage, ARMOR_MELEE, BRUTE, randomized_hit_zone, 5)
+		human.set_effect(knockdown_duration, WEAKEN)
+		human.set_effect(knockdown_duration, STUN)
+		first_target_hit = TRUE
 
-	human.set_effect(knockdown_duration, WEAKEN)
-	human.set_effect(knockdown_duration, STUN)
 	animation_flash_color(human)
 	if(human.client)
 		shake_camera(human, 2, 3)
 
-	var/list/ram_dirs = get_perpen_dir(xeno.dir)
+	xeno.visible_message(
+		SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] таранит [human.declent_ru(ACCUSATIVE)]!"),
+		SPAN_XENODANGER("Вы тараните [human.declent_ru(ACCUSATIVE)]!")
+	)
+	var/list/ram_dirs = get_perpen_dir(xeno.dir) //throw human to the side
 	var/ram_dir = pick(ram_dirs)
 	var/cur_turf = get_turf(human)
 	var/target_turf = get_step(human, ram_dir)
@@ -404,18 +418,19 @@
 	if(!istype(xeno) || !istype(target_xeno) || HAS_TRAIT_FROM(target_xeno, TRAIT_UNDENSE, LYING_DOWN_TRAIT))
 		return
 
-	if(!xeno.ally_of_hivenumber(target_xeno.hivenumber))
+	if(!xeno.ally_of_hivenumber(target_xeno.hivenumber) && !(isqueen(target_xeno))) //for enemy hives
 		target_xeno.attack_log += text("\[[time_stamp()]\] <font color='orange'>was crusher charged by [xeno] ([xeno.ckey])</font>")
 		xeno.attack_log += text("\[[time_stamp()]\] <font color='red'>crusher charged [target_xeno] ([target_xeno.ckey])</font>")
 		log_attack("[xeno] ([xeno.ckey]) crusher charged [target_xeno] ([target_xeno.ckey])")
-		target_xeno.apply_damage(direct_hit_damage * 0.5, BRUTE)
-
+		target_xeno.apply_effect(knockdown_duration, WEAKEN)
+		target_xeno.apply_effect(knockdown_duration, STUN)
+		target_xeno.apply_damage(direct_hit_damage, BRUTE)
 	if((isqueen(target_xeno) || IS_XENO_LEADER(target_xeno) ||  isboiler(target_xeno))) // boilers because they have long c/d and warmups, get griefed hard if stunned
 		var/facing_dir = xeno.dir
 		xeno.throw_atom(get_step(xeno, reverse_direction(facing_dir)), 1, 3, target_xeno)
 		xeno.face_dir(facing_dir)
 		return //antigrief
-	if(target_xeno.anchored || target_xeno.mob_size >= MOB_SIZE_IMMOBILE)
+	if(target_xeno.anchored || target_xeno.mob_size >= MOB_SIZE_IMMOBILE) //big boom for King and other Crushers
 		if(!target_xeno.anchored)
 			target_xeno.apply_effect(1, WEAKEN)
 			target_xeno.throw_atom(get_step(target_xeno, pick(GLOB.cardinals)), 1, 3, target_xeno, TRUE)
@@ -481,7 +496,8 @@
 	else if (istype(target, /obj/structure/barricade))
 		var/obj/structure/barricade/blockade_in_path = target
 		if(blockade_in_path.BlockedExitDirs(xeno, xeno.last_move_dir) || blockade_in_path.BlockedPassDirs(xeno, xeno.last_move_dir))
-			xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [blockade_in_path.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [blockade_in_path.declent_ru(ACCUSATIVE)] и тормозим!")) // SS220 EDIT ADDICTION
+			xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [blockade_in_path.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [blockade_in_path.declent_ru(ACCUSATIVE)] и тормозим!"))
+			metal_sound_random(blockade_in_path)
 			blockade_in_path.Collided(xeno)
 			. =  FALSE
 		. = TRUE
@@ -489,16 +505,16 @@
 	//Vehicle collision
 	else if (istype(target, /obj/vehicle/multitile))
 		var/obj/vehicle/multitile/vehicle_in_path = target
-		xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозим!")) // SS220 EDIT ADDICTION
-
+		xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозим!"))
+		metal_sound_random(vehicle_in_path)
 		vehicle_in_path.Collided(xeno)
 		. = FALSE
 
 	//M56d machine gun collision
 	else if (istype(target, /obj/structure/machinery/m56d_hmg))
 		var/obj/structure/machinery/m56d_hmg/weapon_in_path = target
-		xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] таранит [weapon_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы тараним [weapon_in_path.declent_ru(ACCUSATIVE)]!")) // SS220 EDIT ADDICTION
-		playsound(xeno.loc, 'sound/effects/metalhit.ogg', 25, 1)
+		xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] таранит [weapon_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы тараним [weapon_in_path.declent_ru(ACCUSATIVE)]!"))
+		metal_sound_random(weapon_in_path)
 		weapon_in_path.CrusherImpact()
 		. =  FALSE
 
@@ -533,8 +549,8 @@
 		if (window_frame_in_path.unacidable)
 			. = FALSE
 		else
+			metal_sound_random(window_frame_in_path)
 			window_frame_in_path.deconstruct(FALSE)
-			playsound(xeno.loc, 'sound/effects/metalhit.ogg', 25, 1)
 			. = TRUE
 
 	//Airlocks collision
@@ -542,7 +558,9 @@
 		var/obj/structure/machinery/door/airlock/airlock_in_path = target
 
 		if(airlock_in_path.density)
-			return airlock_in_path.take_damage(airlock_in_path.damage_cap)
+			metal_sound_random(airlock_in_path)
+			airlock_in_path.take_damage(airlock_in_path.damage_cap)
+			. = TRUE
 
 	//Grille collision
 	else if (istype(target, /obj/structure/grille))
@@ -566,7 +584,7 @@
 		var/obj/structure/machinery/defenses/defenses_in_path = target
 		xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] таранит [defenses_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы тараним [defenses_in_path.declent_ru(ACCUSATIVE)]!")) // SS220 EDIT ADDICTION
 
-		playsound(xeno.loc, 'sound/effects/metalhit.ogg', 25, 1)
+		metal_sound_random(defenses_in_path)
 		defenses_in_path.update_health(direct_hit_damage)
 		. =  FALSE
 
@@ -657,6 +675,16 @@
 	if(HAS_TRAIT(src, TRAIT_CHARGING))
 		return
 	return ..()
+
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/metal_sound_random(atom/target)
+	if(!istype(target))
+		return
+	if(prob(2))
+		playsound(target.loc, 'sound/effects/slam_rare_1.ogg', 25, 1) //metalpipe meme sound
+	else
+		if(istype(target, list(/obj/structure/barricade, /obj/vehicle/multitile, /obj/structure/machinery/m56d_hmg))) //already have sound effect
+			return
+		playsound(target.loc, 'sound/effects/metalhit.ogg', 25, 1)
 
 /mob/living/carbon/xenomorph/crusher/pounced_turf(turf/pounced_turf)
 	visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [pounced_turf.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [pounced_turf.declent_ru(ACCUSATIVE)] и тормозим!")) // SS220 EDIT ADDICTION
