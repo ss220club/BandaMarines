@@ -156,6 +156,22 @@ GLOBAL_LIST_INIT(reboot_sfx, file2list("config/reboot_sfx.txt"))
 
 	var/logging = CONFIG_GET(flag/log_world_topic)
 	var/topic_decoded = rustg_url_decode(T)
+	// BANDAMARINES EDIT START: SS220Manager topic integration
+	if(copytext(topic_decoded, 1, 8) == "status&")
+		var/list/legacy_params = params2list(topic_decoded)
+		var/list/status_response = list(
+			"players" = length(GLOB.clients),
+			"stationtime" = worldtime2text(),
+			"roundtime" = duration2text(),
+			"map" = SSmapping?.configs[GROUND_MAP]?.map_name || "Loading...",
+			"admins" = length(GLOB.admins),
+			"round_id" = text2num(GLOB.round_id),
+		)
+
+		if(logging)
+			log_topic("(LEGACY STATUS), from:[addr], master:[master], key:[key]")
+		return legacy_params["format"] == "json" ? json_encode(status_response) : list2params(status_response)
+	// BANDAMARINES EDIT END: SS220Manager topic integration
 	if(!rustg_json_is_valid(topic_decoded))
 		if(logging)
 			log_topic("(NON-JSON) \"[topic_decoded]\", from:[addr], master:[master], key:[key]")
