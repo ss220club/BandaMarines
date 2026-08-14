@@ -40,7 +40,7 @@ jobs:
           MERGE_BRANCH: 'merge-upstream'
           CHANGELOG_AUTHOR: 'cmss13'
           TRANSLATE_CHANGES: 'true'
-          OPENAI_API_KEY: ${{ secrets.ORG_EMPTY_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.G4F_API_KEY }}
           LOG_LEVEL: ${{ runner.debug && 'DEBUG' || 'INFO' }}
         run: |
           git config --global user.email "action@github.com"
