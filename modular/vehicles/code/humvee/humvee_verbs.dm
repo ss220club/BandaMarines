@@ -1,4 +1,4 @@
-/obj/vehicle/multitile/modul/humvee/add_seated_verbs(mob/living/M, seat)
+/obj/vehicle/multitile/modular/humvee/add_seated_verbs(mob/living/M, seat)
 	if(!M.client)
 		return
 	add_verb(M.client, list(
@@ -18,8 +18,7 @@
 			/obj/vehicle/multitile/proc/toggle_gyrostabilizer_modul,
 		))
 
-
-/obj/vehicle/multitile/modul/humvee/remove_seated_verbs(mob/living/M, seat)
+/obj/vehicle/multitile/modular/humvee/remove_seated_verbs(mob/living/M, seat)
 	if(!M.client)
 		return
 	remove_verb(M.client, list(
@@ -39,7 +38,6 @@
 			/obj/vehicle/multitile/proc/cycle_hardpoint,
 			/obj/vehicle/multitile/proc/toggle_gyrostabilizer_modul,
 		))
-
 
 /obj/vehicle/multitile/proc/toggle_gyrostabilizer_modul()
 	set name = "Выключить гиростабилизатор башни"

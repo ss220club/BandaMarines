@@ -1,10 +1,7 @@
-/obj/vehicle/multitile/modul/humvee/apc
+/obj/vehicle/multitile/modular/humvee/apc
 	name = "\improper Бронеавтомобиль M2420 JTMV-HWC"
 	desc = "Многоцелевой бронеавтомобиль M2420 JTMV. Легкобронированная машина. Входы сзади и по бокам."
-
-// Прочность и модификаторы урона
 	health = 500
-
 	dmg_multipliers = list(
 		"all" = 1,
 		"acid" = 1.8,
@@ -15,20 +12,16 @@
 		"abstract" = 1,
 	)
 
-	interior_map = /datum/map_template/interior/modul/humvee/apc
+	interior_map = /datum/map_template/interior/modular/humvee/apc
 	minimap_icon_state = "humvee"
-
-	passengers_slots =  2 // танкисты всегда имеют 2 слота и не занимают passengers_slots
-	revivable_dead_slots = 2 // нужно на случай если танкисты умрут и нужно будет их достать
+	passengers_slots =  2
+	revivable_dead_slots = 2
 	xenos_slots = 3
-
 	required_skill = SKILL_VEHICLE_LARGE
-
 	has_overdrive = FALSE
 	allow_squeeze_under = FALSE
-
 	misc_multipliers = list(
-		"move" = 1, 
+		"move" = 1,
 		"accuracy" = 1,
 		"cooldown" = 1
 	)
@@ -40,14 +33,14 @@
 		"back right" = list(-2, 0),
 	)
 
-/obj/vehicle/multitile/modul/humvee/apc/load_role_reserved_slots()
+/obj/vehicle/multitile/modular/humvee/apc/load_role_reserved_slots()
 	var/datum/role_reserved_slots/RRS = new
 	RRS.category_name = "Crewmen"
 	RRS.roles = list(JOB_TANK_CREW, JOB_WO_WARDEN, JOB_UPP_CREWMAN, JOB_PMC_CREWMAN)
 	RRS.total = 2
 	role_reserved_slots += RRS
 
-/obj/vehicle/multitile/modul/humvee/apc/initialize_cameras(change_tag = FALSE)
+/obj/vehicle/multitile/modular/humvee/apc/initialize_cameras(change_tag = FALSE)
 	if(!camera)
 		camera = new /obj/structure/machinery/camera/vehicle(src)
 	if(change_tag)

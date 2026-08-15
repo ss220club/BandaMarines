@@ -126,12 +126,12 @@
 
 /obj/item/hardpoint/holder/humvee_turret/get_tgui_info()
 	var/list/data = list()
-	
+
 	data += list(list(
 		"name" = name,
 		"health" = health <= 0 ? null : floor(get_integrity_percent()),
 	))
-	
+
 	for(var/obj/item/hardpoint/H in hardpoints)
 		data += list(H.get_tgui_info())
 
@@ -272,7 +272,7 @@
 	..()
 	LAZYADD(traits_to_give, list(
 		BULLET_TRAIT_ENTRY(/datum/element/bullet_trait_iff)
-	)) 
+	))
 
 // Thermobaric launcher
 /obj/item/hardpoint/secondary/humvee_launcher
@@ -324,7 +324,7 @@
 	var/light_power_upgrade = 8
 
 /obj/item/hardpoint/support/humvee_overhead_lights/proc/turn_off_lights()
-	var/obj/vehicle/multitile/modul/humvee_owner = owner
+	var/obj/vehicle/multitile/modular/humvee_owner = owner
 	if(!istype(humvee_owner))
 		return
 
@@ -342,7 +342,7 @@
 
 /obj/item/hardpoint/support/humvee_overhead_lights/on_destroy()
 	. = ..()
-	var/obj/vehicle/multitile/modul/humvee_owner = owner
+	var/obj/vehicle/multitile/modular/humvee_owner = owner
 	if(!istype(humvee_owner))
 		return
 	turn_off_lights()

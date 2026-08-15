@@ -69,4 +69,13 @@
 #include "code/van/uscm_van_spawners.dm"
 #include "code/vehicle_bump.dm"
 
+//aev
+#include "code/aev/aev.dm"
+#include "code/aev/aev_spawners.dm"
+#include "code/hardpoints/aev_hardpoints.dm"
+
+//tank
+#include "code/tank_command/tank.dm"
+#include "code/tank_command/tank_spawners.dm"
+
 #include "code/~undefs.dm"

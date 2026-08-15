@@ -57,7 +57,7 @@
 	return TRUE
 
 // Значки на миникарте для модульной техники
-/obj/vehicle/multitile/modul/update_minimap_icon(modules_broken)
+/obj/vehicle/multitile/modular/update_minimap_icon(modules_broken)
 	if(!minimap_icon_state)
 		return
 	SSminimaps.remove_marker(src)

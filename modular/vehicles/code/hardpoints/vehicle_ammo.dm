@@ -132,3 +132,21 @@
 		/obj/item/hardpoint/secondary/humvee_launcher,
 		/obj/item/ammo_magazine/hardpoint/humvee_launcher,
 	)
+
+//aev
+/obj/item/ammo_magazine/hardpoint/turret_smoke/incen/aev
+	desc = "A magazine of modified M60 incendiary smoke grenades used by the AEVs discharger array."
+	max_rounds = 12
+
+/obj/item/ammo_magazine/hardpoint/m56_cupola/aev
+	name = "M56 RWS Drum"
+	desc = "An expanded drum of 700, 10x28mm caseless rounds for the M56 heavy machine gun system."
+	icon_state = "m56d_drum"
+	max_rounds = 700
+	gun_type = /obj/item/hardpoint/secondary/m56cupola/aev
+
+/obj/item/ammo_magazine/hardpoint/m56_cupola/aev/update_icon()
+	if(current_rounds > 0)
+		icon_state = "m56d_drum"
+	else
+		icon_state = "m56d_drum_empty"
