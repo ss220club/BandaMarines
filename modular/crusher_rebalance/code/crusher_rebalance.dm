@@ -497,7 +497,7 @@
 		var/obj/structure/barricade/blockade_in_path = target
 		if(blockade_in_path.BlockedExitDirs(xeno, xeno.last_move_dir) || blockade_in_path.BlockedPassDirs(xeno, xeno.last_move_dir))
 			xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [blockade_in_path.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [blockade_in_path.declent_ru(ACCUSATIVE)] и тормозим!"))
-			metal_sound_random(blockade_in_path)
+			metal_pipe_random(blockade_in_path)
 			blockade_in_path.Collided(xeno)
 			. =  FALSE
 		. = TRUE
@@ -506,7 +506,7 @@
 	else if (istype(target, /obj/vehicle/multitile))
 		var/obj/vehicle/multitile/vehicle_in_path = target
 		xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозим!"))
-		metal_sound_random(vehicle_in_path)
+		metal_pipe_random(vehicle_in_path)
 		vehicle_in_path.Collided(xeno)
 		. = FALSE
 
@@ -514,7 +514,7 @@
 	else if (istype(target, /obj/structure/machinery/m56d_hmg))
 		var/obj/structure/machinery/m56d_hmg/weapon_in_path = target
 		xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] таранит [weapon_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы тараним [weapon_in_path.declent_ru(ACCUSATIVE)]!"))
-		metal_sound_random(weapon_in_path)
+		metal_pipe_random(weapon_in_path)
 		weapon_in_path.CrusherImpact()
 		. =  FALSE
 
@@ -537,9 +537,9 @@
 				if(window_framed_in_path.reinf)
 					. = FALSE
 				else
-					var/obj/structure/window_frame/left_window_frame = locate(window_frame_type) in window_loc
-					if(left_window_frame)
-						handle_collision(left_window_frame)
+					var/obj/structure/window_frame/own_window_frame = locate(window_frame_type) in window_loc
+					if(own_window_frame)
+						handle_collision(own_window_frame)
 
 			. =  TRUE
 
@@ -549,7 +549,7 @@
 		if (window_frame_in_path.unacidable)
 			. = FALSE
 		else
-			metal_sound_random(window_frame_in_path)
+			metal_pipe_random(window_frame_in_path)
 			window_frame_in_path.deconstruct(FALSE)
 			. = TRUE
 
@@ -558,7 +558,7 @@
 		var/obj/structure/machinery/door/airlock/airlock_in_path = target
 
 		if(airlock_in_path.density)
-			metal_sound_random(airlock_in_path)
+			metal_pipe_random(airlock_in_path)
 			airlock_in_path.take_damage(airlock_in_path.damage_cap)
 			. = TRUE
 
@@ -582,9 +582,8 @@
 	//Turrets, Tesla Coil etc. collision
 	else if (istype(target, /obj/structure/machinery/defenses))
 		var/obj/structure/machinery/defenses/defenses_in_path = target
-		xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] таранит [defenses_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы тараним [defenses_in_path.declent_ru(ACCUSATIVE)]!")) // SS220 EDIT ADDICTION
-
-		metal_sound_random(defenses_in_path)
+		xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] таранит [defenses_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы тараним [defenses_in_path.declent_ru(ACCUSATIVE)]!"))
+		metal_pipe_random(defenses_in_path)
 		defenses_in_path.update_health(direct_hit_damage)
 		. =  FALSE
 
@@ -595,8 +594,8 @@
 		if (vending_in_path.unslashable)
 			. = FALSE
 		else
-			xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается прямо в [vending_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы врезаемся прямо в [vending_in_path.declent_ru(ACCUSATIVE)]!")) // SS220 EDIT ADDICTION
-			playsound(xeno.loc, "slam", 25, 1)
+			xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается прямо в [vending_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы врезаемся прямо в [vending_in_path.declent_ru(ACCUSATIVE)]!"))
+			playsound(vending_in_path.loc, "slam", 25, 1)
 			vending_in_path.tip_over()
 
 			var/impact_range = 1
@@ -614,7 +613,7 @@
 			. = FALSE
 		else
 			xeno.visible_message(SPAN_DANGER("[src] врезается прямо в [fence]!"))
-			playsound(xeno.loc, 'sound/effects/fencehit.ogg', 25, 1)
+			playsound(fence.loc, 'sound/effects/fencehit.ogg', 25, 1)
 			fence.cut_grille()
 			. = TRUE
 
@@ -676,15 +675,14 @@
 		return
 	return ..()
 
-/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/metal_sound_random(atom/target)
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/metal_pipe_random(atom/target)
 	if(!istype(target))
 		return
 	if(prob(2))
 		playsound(target.loc, 'sound/effects/slam_rare_1.ogg', 25, 1) //metalpipe meme sound
 	else
-		if(istype(target, list(/obj/structure/barricade, /obj/vehicle/multitile, /obj/structure/machinery/m56d_hmg))) //already have sound effect
-			return
-		playsound(target.loc, 'sound/effects/metalhit.ogg', 25, 1)
+		if(!istype(target, list(/obj/structure/barricade, /obj/vehicle/multitile, /obj/structure/machinery/m56d_hmg))) //already have sound effect
+			playsound(target.loc, 'sound/effects/metalhit.ogg', 25, 1)
 
 /mob/living/carbon/xenomorph/crusher/pounced_turf(turf/pounced_turf)
 	visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [pounced_turf.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [pounced_turf.declent_ru(ACCUSATIVE)] и тормозим!")) // SS220 EDIT ADDICTION
