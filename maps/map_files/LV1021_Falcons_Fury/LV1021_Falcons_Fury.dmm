@@ -27991,13 +27991,12 @@
 /obj/structure/closet{
 	color = "#93C572"
 	},
-/obj/item/weapon/gun/pistol/heavy,
-/obj/item/ammo_magazine/pistol/heavy,
-/obj/item/ammo_magazine/pistol/heavy,
+/obj/item/weapon/gun/pistol/deagle,
 /obj/item/ammo_magazine/smg/fp9000,
 /obj/item/ammo_magazine/smg/fp9000,
 /obj/item/ammo_magazine/smg/fp9000,
 /obj/item/ammo_magazine/smg/fp9000,
+/obj/item/ammo_box/magazine/deagle,
 /turf/open/floor/interior/wood/damage,
 /area/lv1021/indoors/clf_camp/coordinator)
 "buD" = (
