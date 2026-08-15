@@ -469,6 +469,8 @@
 	"<span class='danger'>Your primary objective is to heal up and survive. If you want to assault the hive - adminhelp.</span>")
 	story_text = "You are a doctor fighting for the Colonial Liberation Front. . Your cell is part of a larger operation intended to conduct a large scale raid of this Corporate held colony. You were to land at a nearby hidden base in preperation for the assault, however some form of electromagnetic pulse knocked your ships engines offline mid flight. Most of your cell survived the hard landing, however your radios indicate the hidden base has gone dark. In fact, the colony seems to be too quiet..."
 
+//Hybrisa CLF survivors//
+
 /obj/effect/landmark/survivor_spawner/clf_coordinator/hybrisa
 	intro_text = list("<h2>You are a survivor of a crash landing!</h2>",\
 	"<span class='notice'>You are NOT aware of the xenomorph threat.</span>",\
