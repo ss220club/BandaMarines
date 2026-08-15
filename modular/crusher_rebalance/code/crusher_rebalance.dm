@@ -16,6 +16,10 @@
 		/datum/action/xeno_action/onclick/crusher_shield,
 		/datum/action/xeno_action/activable/pounce/crushing_onslaught,
 	)
+/mob/living/carbon/xenomorph/crusher/canface()
+	if(fortify)
+		return FALSE
+	. = ..()
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught
 	name = "Crushing Onslaught"
@@ -86,15 +90,15 @@
 	if(!activated_once)
 		if(!check_and_use_plasma_owner())
 			return
+		playsound(xeno, 'sound/effects/alien_footstep_charge1.ogg', 50)
+		xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] начинает заряжать рывок!"), SPAN_XENODANGER("Мы начинаем заряжать рывок!"))
+		face_dir = get_cardinal_dir(xeno, target) //save facing direction
+		xeno.set_face_dir(face_dir)
+
 		winding_up = TRUE
 		activated_once = TRUE
 		xeno.fortify = TRUE
 
-		playsound(xeno, 'sound/effects/alien_footstep_charge1.ogg', 50)
-		xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] начинает заряжать рывок!"), SPAN_XENODANGER("Мы начинаем заряжать рывок!"))
-
-		face_dir = get_cardinal_dir(xeno, target) //save facing direction
-		xeno.set_face_dir(face_dir)
 		apply_charge_slowdown()
 		pre_windup_effects()
 		xeno.xeno_jitter(windup_duration + charge_window)
@@ -238,6 +242,7 @@
 		to_chat(xeno, SPAN_XENODANGER("Мы не можем осуществить туда натиск!"))
 		return FALSE
 
+	xeno.fortify = FALSE
 	xeno.set_face_dir(get_cardinal_dir(xeno, target))
 
 	xeno.visible_message(SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] несётся в [target.declent_ru(ACCUSATIVE)]!"), SPAN_XENOWARNING("Мы несёмся в [target.declent_ru(ACCUSATIVE)]!"))
