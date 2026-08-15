@@ -5061,6 +5061,7 @@
 	},
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_door_reinforced,
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/plating/platingdmg1,
 /area/caperiver/indoors/caves/s)
 "apP" = (
@@ -7733,6 +7734,7 @@
 	pixel_y = 4
 	},
 /obj/item/stack/rods,
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/prison/ramptop/north,
 /area/caperiver/indoors/caves/w)
 "aye" = (
@@ -12879,6 +12881,7 @@
 "aOh" = (
 /obj/effect/decal/hybrisa/lattice/full,
 /obj/effect/decal/hybrisa/dirt,
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/mars_cave/mars_dirt_4,
 /area/caperiver/indoors/caves/s)
 "aOi" = (
@@ -13009,6 +13012,7 @@
 /area/caperiver/indoors/conambase/research_e)
 "aOE" = (
 /obj/effect/decal/hybrisa/dirt,
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/caperiver/indoors/caves/s)
 "aOF" = (
@@ -14430,6 +14434,7 @@
 /area/caperiver/indoors/miningbase/dorm)
 "aTr" = (
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall_reinforced,
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/desert/dirt/desert_transition_edge1/northwest,
 /area/caperiver/outdoors/con_am_exterior/north)
 "aTs" = (
@@ -15053,6 +15058,7 @@
 /area/caperiver/outdoors/scrublands/west)
 "aVr" = (
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall_reinforced,
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/caperiver/indoors/caves/s)
 "aVs" = (
@@ -16381,6 +16387,7 @@
 	},
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_door_reinforced,
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/prison/ramptop/north,
 /area/caperiver/indoors/caves/w)
 "aZC" = (
@@ -18073,6 +18080,7 @@
 	},
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_door_reinforced,
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/plating,
 /area/caperiver/indoors/caves/w)
 "beD" = (
@@ -23716,6 +23724,7 @@
 	pixel_y = -26
 	},
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall_reinforced,
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/desert/rock/deep/rock3,
 /area/caperiver/outdoors/con_am_exterior/north)
 "bvM" = (
@@ -23807,6 +23816,7 @@
 "bwd" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_door_reinforced,
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/caperiver/indoors/caves/s)
 "bwe" = (
@@ -23934,6 +23944,7 @@
 /area/caperiver/indoors/caves/w)
 "bwA" = (
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall_reinforced,
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/caperiver/indoors/caves/w)
 "bwB" = (
@@ -31761,6 +31772,10 @@
 /obj/structure/flora/bush/canyon/bush,
 /turf/open/desert/dirt/desert_transition_edge1/north,
 /area/caperiver/outdoors/scrublands/north)
+"cMo" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/desert/dirt,
+/area/caperiver/outdoors/con_am_exterior/north)
 "cMs" = (
 /obj/structure/flora/grass/desert,
 /turf/open/desert/rock,
@@ -32880,6 +32895,7 @@
 "dIB" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_door_reinforced,
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/plating/platingdmg3/west,
 /area/caperiver/indoors/caves/s)
 "dJH" = (
@@ -34429,6 +34445,7 @@
 	},
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall_reinforced,
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/prison/ramptop/north,
 /area/caperiver/indoors/caves/w)
 "eHa" = (
@@ -36778,6 +36795,11 @@
 	},
 /turf/open/floor/kutjevo/tan/grey_edge/northeast,
 /area/caperiver/telecomms/telecomm_4)
+"gvm" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall_reinforced,
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/floor/plating/platingdmg1,
+/area/caperiver/indoors/caves/s)
 "gvE" = (
 /obj/structure/flora/grass/desert/lightgrass_9,
 /turf/open/desert/dirt/desert_transition_corner1/west,
@@ -39057,6 +39079,12 @@
 	},
 /turf/open/desert/dirt,
 /area/caperiver/outdoors/scrublands/north)
+"ilK" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall_reinforced,
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/floor/prison/ramptop/north,
+/area/caperiver/indoors/caves/s)
 "ilR" = (
 /obj/structure/prop/colorable_rock/colorable/alt{
 	color = "#9d796a";
@@ -41968,6 +41996,10 @@
 	},
 /turf/open/desert/rock,
 /area/caperiver/outdoors/bushlands)
+"knV" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/closed/wall/strata_outpost/reinforced,
+/area/caperiver/indoors/caves/s)
 "kof" = (
 /obj/effect/decal/hybrisa/dirt_2,
 /obj/structure/machinery/computer3{
@@ -44477,6 +44509,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall_reinforced,
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/desert/dirt,
 /area/caperiver/outdoors/con_am_exterior/north)
 "mah" = (
@@ -44883,6 +44916,10 @@
 /obj/structure/pipes/standard/simple/hidden/cyan,
 /turf/open/floor/kutjevo/tan/alt_edge/west,
 /area/caperiver/telecomms/telecomm_4)
+"mtr" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/sand/layer2,
+/area/caperiver/outdoors/con_am_exterior/north)
 "mtB" = (
 /obj/structure/sign/poster/conam{
 	pixel_y = 32;
@@ -50111,6 +50148,10 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/kutjevo/tan/grey_edge,
 /area/caperiver/telecomms/telecomm_4)
+"qsq" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/closed/wall/strata_outpost/reinforced,
+/area/caperiver/outdoors/con_am_exterior/north)
 "qss" = (
 /obj/item/stack/sheet/metal,
 /obj/effect/decal/hybrisa/dirt,
@@ -50713,6 +50754,10 @@
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
 /turf/open/mars_cave/mars_dirt_4,
 /area/caperiver/indoors/caves/s)
+"qOT" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/desert/rock/deep/rock3,
+/area/caperiver/outdoors/con_am_exterior/north)
 "qOZ" = (
 /obj/structure/platform/stone/soro,
 /obj/structure/platform/stone/soro/east,
@@ -52051,6 +52096,12 @@
 /obj/structure/flora/grass/desert/lightgrass_10,
 /turf/open/desert/rock,
 /area/caperiver/outdoors/scrublands/west/antiweed)
+"rKP" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall_reinforced,
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/floor/plating/plating_catwalk/prison,
+/area/caperiver/indoors/caves/s)
 "rLB" = (
 /obj/structure/pipes/standard/simple/hidden/cyan,
 /obj/effect/decal/hybrisa/dirt_2,
@@ -58257,6 +58308,10 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/kutjevo/multi_tiles/east,
 /area/caperiver/telecomms/telecomm_4)
+"wNS" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/desert/rock/deep/transition/east,
+/area/caperiver/outdoors/con_am_exterior/north)
 "wOI" = (
 /obj/structure/bed/hybrisa/hospital/hospitaldivider{
 	pixel_x = -5
@@ -78208,7 +78263,7 @@ gmy
 bwp
 bwm
 bwg
-ale
+knV
 ale
 aWm
 aEm
@@ -79225,7 +79280,7 @@ byY
 aFL
 aFL
 ale
-bvT
+gvm
 xni
 asu
 asu
@@ -79429,7 +79484,7 @@ aSq
 aFL
 aBU
 ale
-ale
+knV
 eIg
 aCk
 aCk
@@ -83511,7 +83566,7 @@ akQ
 aND
 aFL
 aNz
-ale
+knV
 ale
 aCk
 auD
@@ -83715,7 +83770,7 @@ akQ
 ceN
 aSq
 aIp
-bvT
+gvm
 bwc
 tNd
 aKf
@@ -83919,7 +83974,7 @@ aWQ
 hCS
 nmr
 vyp
-bwi
+ilK
 bvX
 ajp
 urK
@@ -84737,7 +84792,7 @@ aND
 aIp
 aUv
 dSM
-bvX
+rKP
 bvT
 atm
 akM
@@ -84942,7 +84997,7 @@ aNz
 qOS
 aIp
 ale
-ale
+knV
 aWQ
 kVJ
 dux
@@ -94929,7 +94984,7 @@ aFv
 ajL
 aVc
 aVc
-akH
+qsq
 akH
 xJe
 aDN
@@ -95337,7 +95392,7 @@ awc
 aGr
 aMm
 bmd
-gog
+cMo
 gog
 gog
 gog
@@ -95541,7 +95596,7 @@ aGr
 aMm
 qSh
 bme
-ghT
+mtr
 gog
 gog
 gog
@@ -96356,7 +96411,7 @@ bwe
 nmB
 tEY
 bmp
-lGK
+wNS
 bwy
 lGK
 qbr
@@ -96560,7 +96615,7 @@ bzL
 nmB
 tEY
 noo
-aIF
+qOT
 aIF
 aIF
 aIF

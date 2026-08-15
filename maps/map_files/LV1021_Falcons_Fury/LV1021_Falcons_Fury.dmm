@@ -6793,6 +6793,7 @@
 /area/lv1021/outdoors/jungle/jungleC_clf_n)
 "arg" = (
 /obj/effect/decal/lv_decals/cave_mud_corner,
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/kutjevo/fake_wood,
 /area/lv1021/indoors/caves/clf_tunnel)
 "arh" = (
@@ -7637,6 +7638,7 @@
 /obj/structure/barricade/metal/wired{
 	dir = 4
 	},
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/kutjevo/fake_wood,
 /area/lv1021/indoors/caves/clf_tunnel)
 "atk" = (
@@ -7683,6 +7685,7 @@
 	density = 1;
 	dir = 4
 	},
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lv1021/indoors/caves/clf_tunnel)
 "atp" = (
@@ -7806,6 +7809,7 @@
 /obj/structure/barricade/metal/wired{
 	dir = 4
 	},
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/kutjevo/fake_wood,
 /area/lv1021/indoors/caves/clf_tunnel)
 "atE" = (
@@ -9412,6 +9416,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/lv624/fog_blocker/short,
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/auto_turf/lv_grass/layer0,
 /area/lv1021/indoors/caves/landing_zone/weedkiller)
 "awP" = (
@@ -9697,6 +9702,7 @@
 /turf/open/auto_turf/tyrargo_grass/layer0,
 /area/lv1021/outdoors/jungle/jungleC_s_e)
 "axu" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/closed/wall/wood/teal,
 /area/lv1021/indoors/caves/landing_zone)
 "axv" = (
@@ -11915,6 +11921,7 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 8
 	},
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lv1021/indoors/caves/cave_south)
 "aDk" = (
@@ -11968,6 +11975,7 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 8
 	},
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lv1021/indoors/caves/cave_south)
 "aDq" = (
@@ -18739,6 +18747,7 @@
 	pixel_y = 9;
 	dir = 1
 	},
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lv1021/outdoors/jungle/jungleC_e)
 "aVk" = (
@@ -18783,6 +18792,7 @@
 	pixel_x = -13;
 	pixel_y = 15
 	},
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lv1021/indoors/caves/cave_south)
 "aVp" = (
@@ -18864,6 +18874,7 @@
 	pixel_y = -4;
 	dir = 4
 	},
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lv1021/indoors/caves/cave_north)
 "aVA" = (
@@ -18882,6 +18893,7 @@
 	dir = 8;
 	pixel_x = 3
 	},
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lv1021/indoors/caves/cave_north)
 "aVC" = (
@@ -21533,6 +21545,7 @@
 	pixel_y = 15;
 	layer = 2.8
 	},
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/kutjevo/fake_wood,
 /area/lv1021/indoors/caves/clf_tunnel)
 "bbZ" = (
@@ -24125,6 +24138,7 @@
 "bhb" = (
 /obj/structure/flora/jungle/vines/light_1,
 /obj/structure/flora/grass/tallgrass/jungle,
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/auto_turf/tyrargo_grass/layer1,
 /area/lv1021/outdoors/jungle/jungleC_n_e)
 "bhc" = (
@@ -27971,6 +27985,7 @@
 /obj/structure/flora/grass/tallgrass/jungle/corner{
 	dir = 8
 	},
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/auto_turf/tyrargo_grass/layer0,
 /area/lv1021/indoors/caves/landing_zone)
 "bsf" = (
@@ -29690,6 +29705,11 @@
 	},
 /turf/open/asphalt/brown,
 /area/lv1021/outdoors/comms/west_2)
+"dUa" = (
+/obj/effect/landmark/lv624/fog_blocker/short,
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/lv_grass/layer0,
+/area/lv1021/indoors/caves/landing_zone/weedkiller)
 "dUt" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass{
 	pixel_x = -11;
@@ -30039,6 +30059,11 @@
 	},
 /turf/open/gm/river/soro,
 /area/lv1021/outdoors/river/central_north)
+"eoP" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
+/area/lv1021/indoors/caves/cave_north)
 "epg" = (
 /obj/structure/prop/colorable_rock/colorable{
 	color = "#9d7766";
@@ -30072,6 +30097,12 @@
 	},
 /turf/open/auto_turf/tyrargo_grass/layer1,
 /area/lv1021/outdoors/jungle/jungleW_south)
+"eqJ" = (
+/obj/item/ammo_casing/bullet,
+/obj/item/ammo_casing/bullet,
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
+/area/lv1021/indoors/caves/landing_zone)
 "eqS" = (
 /obj/structure/flora/grass/temperate{
 	icon_state = "9";
@@ -30751,6 +30782,11 @@
 	},
 /turf/open/auto_turf/tyrargo_grass/layer1,
 /area/lv1021/outdoors/jungle/jungleC_clf_n)
+"foo" = (
+/obj/structure/fence/slim/upp,
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/floor/kutjevo/fake_wood,
+/area/lv1021/indoors/caves/clf_tunnel)
 "foP" = (
 /obj/structure/platform_decoration/wood/west,
 /turf/open/auto_turf/tyrargo_grass/layer1,
@@ -31254,6 +31290,11 @@
 /obj/structure/platform/stone/soro/west,
 /turf/open/gm/river/soro,
 /area/lv1021/outdoors/river/central_lagoon)
+"fQR" = (
+/obj/structure/flora/jungle/vines/light_1,
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/lv_sand_alt/layer0,
+/area/lv1021/indoors/caves/cave_south)
 "fRA" = (
 /obj/structure/prop/tyrargo/boards/boards_1{
 	dir = 4;
@@ -32948,6 +32989,10 @@
 	},
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud,
 /area/lv1021/outdoors/comms/west_2)
+"iBb" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/lv_grass/layer0,
+/area/lv1021/indoors/caves/landing_zone/weedkiller)
 "iBi" = (
 /obj/structure/flora/grass/temperate,
 /turf/open/auto_turf/tyrargo_grass/layer0,
@@ -33131,6 +33176,11 @@
 	},
 /turf/open/auto_turf/tyrargo_grass/layer0,
 /area/lv1021/outdoors/jungle/jungleC_mid)
+"iPF" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
+/area/lv1021/indoors/caves/landing_zone)
 "iRg" = (
 /obj/structure/blocker/invisible_wall/water,
 /obj/structure/prop/colorable_rock/colorable/alt{
@@ -35339,6 +35389,11 @@
 "mdX" = (
 /turf/open/gm/coast/dirt/beachcorner2/north_west,
 /area/lv1021/outdoors/river/central_north)
+"meA" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/lv_sand_alt/layer0,
+/area/lv1021/indoors/caves/cave_north)
 "mfb" = (
 /obj/structure/platform_decoration/metal/strata,
 /obj/structure/machinery/colony_floodlight{
@@ -36347,6 +36402,11 @@
 	},
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud,
 /area/lv1021/outdoors/jungle/jungleC_mid)
+"nEc" = (
+/obj/structure/flora/jungle/vines/light_1,
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/tyrargo_grass/layer0,
+/area/lv1021/indoors/caves/landing_zone)
 "nEy" = (
 /turf/closed/wall/solaris/reinforced/hull/lv522,
 /area/lv1021/oob)
@@ -37591,6 +37651,7 @@
 /area/lv1021/outdoors/jungle/jungleC_clf_n)
 "pvl" = (
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lv1021/outdoors/jungle/jungleC_e)
 "pvE" = (
@@ -38788,6 +38849,13 @@
 	},
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud,
 /area/lv1021/outdoors/jungle/jungleC_mid)
+"rtK" = (
+/obj/effect/decal/lv_decals/cave_mud_corner{
+	dir = 1
+	},
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/lv_grass/layer0,
+/area/lv1021/indoors/caves/landing_zone)
 "rtL" = (
 /obj/structure/flora/grass/temperate{
 	icon_state = "12"
@@ -39461,6 +39529,13 @@
 	},
 /turf/open/auto_turf/tyrargo_grass/layer0,
 /area/lv1021/landing_zone_1)
+"ssn" = (
+/obj/effect/decal/lv_decals/cave_mud_corner{
+	dir = 10
+	},
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/lv_sand_alt/layer0,
+/area/lv1021/indoors/caves/cave_north)
 "ssu" = (
 /obj/structure/barricade/sandbags/wired{
 	color = "#a98c7c";
@@ -39495,6 +39570,12 @@
 /obj/structure/flora/jungle/planttop1,
 /turf/open/auto_turf/tyrargo_grass/layer0,
 /area/lv1021/landing_zone_1)
+"suG" = (
+/obj/structure/flora/grass/tallgrass/jungle,
+/obj/structure/flora/jungle/vines/light_1,
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/tyrargo_grass/layer1,
+/area/lv1021/outdoors/jungle/jungleC_n_e)
 "suH" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass{
 	pixel_x = -1;
@@ -40024,6 +40105,10 @@
 /obj/structure/blocker/invisible_wall/water,
 /turf/open/gm/river/soro,
 /area/lv1021/outdoors/river/central_lagoon)
+"thL" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
+/area/lv1021/indoors/caves/landing_zone)
 "tii" = (
 /obj/structure/largecrate/random/barrel/yellow,
 /obj/structure/platform/metal/strata{
@@ -40988,6 +41073,10 @@
 	},
 /turf/open/floor/interior/wood/damage,
 /area/lv1021/outdoors/comms/west_2)
+"uEP" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/floor/kutjevo/fake_wood,
+/area/lv1021/indoors/caves/clf_tunnel)
 "uFb" = (
 /obj/structure/platform/stone/soro/east,
 /turf/open/gm/river/soro,
@@ -41390,6 +41479,7 @@
 /obj/structure/fence/slim/upp/door{
 	dir = 4
 	},
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/kutjevo/fake_wood,
 /area/lv1021/indoors/caves/clf_tunnel)
 "vjt" = (
@@ -41404,6 +41494,13 @@
 /obj/structure/flora/jungle/planttop1,
 /turf/open/auto_turf/tyrargo_grass/layer0,
 /area/lv1021/outdoors/jungle/jungleC_mid)
+"vjU" = (
+/obj/effect/decal/lv_decals/cave_mud_corner{
+	dir = 8
+	},
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/lv_grass/layer0,
+/area/lv1021/indoors/caves/landing_zone)
 "vle" = (
 /obj/structure/flora/grass/temperate{
 	icon_state = "17";
@@ -42213,6 +42310,10 @@
 /obj/structure/flora/wood/stick2,
 /turf/open/auto_turf/lv_sand,
 /area/lv1021/outdoors/jungle/jungleC_clf_n)
+"wou" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/closed/wall/wood,
+/area/lv1021/indoors/caves/clf_tunnel)
 "woz" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass{
 	pixel_x = -7;
@@ -42952,6 +43053,11 @@
 	},
 /turf/open/auto_turf/tyrargo_grass/layer1,
 /area/lv1021/outdoors/jungle/jungleW_south)
+"xsr" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/lv_sand_alt/layer0,
+/area/lv1021/indoors/caves/cave_south)
 "xsw" = (
 /turf/open/floor/interior/wood,
 /area/lv1021/outdoors/comms/south_2)
@@ -65602,11 +65708,11 @@ wzQ
 wzQ
 wzQ
 wzQ
-amW
-aQI
+iBb
+dUa
 awO
-aQI
-aQI
+dUa
+dUa
 wzQ
 wzQ
 wzQ
@@ -65786,11 +65892,11 @@ wzQ
 wzQ
 wzQ
 wzQ
-aQI
-aQI
-aQI
-aQI
-aQI
+dUa
+dUa
+dUa
+dUa
+dUa
 wzQ
 wzQ
 wzQ
@@ -68003,11 +68109,11 @@ wzQ
 wzQ
 wzQ
 wzQ
-rwz
-dAR
+wou
+foo
 viQ
-dAR
-rwz
+foo
+wou
 mxn
 apX
 mxN
@@ -70208,7 +70314,7 @@ arD
 mOa
 mOa
 rwz
-rwz
+wou
 rwz
 kbi
 aPm
@@ -70375,7 +70481,7 @@ mOa
 arw
 mOa
 arl
-vDE
+uEP
 dAR
 iOl
 wOK
@@ -70876,7 +70982,7 @@ ars
 ars
 aYe
 rwz
-rwz
+wou
 rwz
 wOK
 wOK
@@ -72692,11 +72798,11 @@ wzQ
 wzQ
 wzQ
 wzQ
-rwz
+wou
 atD
 ato
 atj
-rwz
+wou
 wzQ
 wzQ
 hXu
@@ -74448,7 +74554,7 @@ sdt
 ayc
 sdt
 awT
-avJ
+vjU
 aoy
 wzQ
 wzQ
@@ -74615,7 +74721,7 @@ sdt
 ayi
 bnF
 axJ
-bnw
+iPF
 axl
 aoy
 wzQ
@@ -74782,7 +74888,7 @@ sdt
 sdt
 bnG
 axK
-sDl
+thL
 sDl
 avy
 axe
@@ -74949,7 +75055,7 @@ sdt
 sdt
 bnG
 bmq
-bmo
+eqJ
 sDl
 sDl
 sDl
@@ -75020,7 +75126,7 @@ wzQ
 aob
 bgT
 aWW
-aHn
+suG
 aFX
 aFj
 aFp
@@ -75116,7 +75222,7 @@ sdt
 ayj
 axY
 sDl
-bnw
+iPF
 sDl
 sDl
 sDl
@@ -75283,7 +75389,7 @@ sdt
 axI
 axZ
 axL
-sDl
+thL
 sDl
 bnw
 bnp
@@ -75449,8 +75555,8 @@ ayl
 sdt
 acE
 wzQ
-avE
-sDl
+rtK
+thL
 bnA
 bnx
 sDl
@@ -75859,7 +75965,7 @@ wzQ
 wzQ
 wzQ
 aHH
-aHH
+meA
 aVA
 aPU
 gMo
@@ -76363,7 +76469,7 @@ spz
 mnd
 mnd
 spz
-aro
+ssn
 aHx
 aHk
 aVw
@@ -76531,7 +76637,7 @@ mnd
 mnd
 eSe
 eSe
-mnd
+eoP
 aHp
 aHl
 gMo
@@ -77577,7 +77683,7 @@ aXl
 wzQ
 wzQ
 wzQ
-aDG
+xsr
 aVo
 aDp
 aDp
@@ -77781,7 +77887,7 @@ axk
 azG
 azu
 azz
-bnE
+nEc
 bnE
 wzQ
 wzQ
@@ -77924,8 +78030,8 @@ wzQ
 wzQ
 wzQ
 acE
-aOx
-aOx
+fQR
+fQR
 acE
 aTN
 djB
@@ -77947,7 +78053,7 @@ sdt
 axk
 ayn
 azz
-bnE
+nEc
 bnE
 aoy
 aoy
@@ -78113,7 +78219,7 @@ axg
 wzQ
 ayn
 ayn
-bnE
+nEc
 bnE
 aoy
 aoy
@@ -78280,7 +78386,7 @@ wzQ
 wzQ
 acE
 acE
-bnE
+nEc
 aoy
 aoy
 bmZ

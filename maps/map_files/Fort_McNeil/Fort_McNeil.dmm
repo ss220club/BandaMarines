@@ -4033,6 +4033,10 @@
 /obj/structure/prop/hybrisa/cavedecor/stalagmite4,
 /turf/open/auto_turf/hybrisa_auto_turf/layer2,
 /area/fort_mcneil/indoors/caves/central)
+"aqD" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/sand_white/layer0,
+/area/fort_mcneil/indoors/caves/central)
 "aqT" = (
 /obj/structure/flora/wood/stick3,
 /obj/effect/landmark/lv624/fog_blocker/short,
@@ -6013,6 +6017,10 @@
 	},
 /turf/open/floor/plating,
 /area/fort_mcneil/indoors/command)
+"ePi" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/sand_white/layer0,
+/area/fort_mcneil/indoors/caves/south)
 "ePY" = (
 /obj/effect/decal/hybrisa/road/roadmiddle,
 /turf/open/asphalt/brown,
@@ -9684,6 +9692,10 @@
 /obj/structure/prop/hybrisa/vehicles/Small_Truck/Medical_Cargo,
 /turf/open/asphalt/brown,
 /area/fort_mcneil/outdoors/colony_exterior/east)
+"nmR" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/sand_white/layer0,
+/area/fort_mcneil/indoors/caves/north)
 "nnN" = (
 /obj/structure/machinery/light{
 	dir = 8
@@ -13950,6 +13962,10 @@
 "wPC" = (
 /turf/open/auto_turf/hybrisa_auto_turf/layer0,
 /area/fort_mcneil/indoors/caves/central)
+"wSF" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/sand_white/layer0,
+/area/fort_mcneil/outdoors/scrublands/north)
 "wVr" = (
 /obj/structure/prop/hybrisa/cavedecor/stalagmite3,
 /turf/open/auto_turf/hybrisa_auto_turf/layer2,
@@ -18477,18 +18493,18 @@ ofL
 ofL
 ofL
 qCK
-lwj
-lwj
-lwj
-lwj
+aqD
+aqD
+aqD
+aqD
 ofL
 ofL
 ofL
-lwj
-lwj
-lwj
-lwj
-lwj
+aqD
+aqD
+aqD
+aqD
+aqD
 ofL
 ofL
 ofL
@@ -20933,7 +20949,7 @@ cmc
 cmc
 cmc
 aeo
-kWC
+ePi
 kWC
 htT
 htT
@@ -20962,14 +20978,14 @@ ofL
 ofL
 ofL
 ofL
-cDp
-cDp
-cDp
-hHZ
-hHZ
-hHZ
-hHZ
-hHZ
+wSF
+wSF
+wSF
+nmR
+nmR
+nmR
+nmR
+nmR
 ofL
 ofL
 ofL
@@ -21035,7 +21051,7 @@ cmc
 aep
 ogi
 ogi
-kWC
+ePi
 kWC
 htT
 htT
@@ -21136,7 +21152,7 @@ ogi
 cmc
 cmc
 ogi
-kWC
+ePi
 kWC
 kWC
 htT
@@ -21238,7 +21254,7 @@ cmc
 cmc
 ogi
 ogi
-kWC
+ePi
 kWC
 htT
 aiO
@@ -21340,7 +21356,7 @@ cmc
 ogi
 ogi
 ogi
-kWC
+ePi
 kWC
 aiO
 htT
@@ -21441,7 +21457,7 @@ aep
 cmc
 ogi
 ogi
-kWC
+ePi
 kWC
 htT
 htT
@@ -21543,7 +21559,7 @@ cmc
 ogi
 ogi
 ogi
-kWC
+ePi
 kWC
 ghG
 ofL
@@ -21949,7 +21965,7 @@ aep
 cmc
 ofL
 ofL
-kWC
+ePi
 kWC
 kWC
 htT
@@ -22051,7 +22067,7 @@ cmc
 cmc
 aeo
 ogi
-kWC
+ePi
 kWC
 htT
 qhd
@@ -22152,7 +22168,7 @@ cmc
 aep
 ogi
 ogi
-kWC
+ePi
 kWC
 kWC
 htT
@@ -22254,7 +22270,7 @@ cmc
 cmc
 ogi
 ogi
-kWC
+ePi
 kWC
 htT
 htT
@@ -22355,7 +22371,7 @@ cmc
 aep
 cmc
 ogi
-kWC
+ePi
 kWC
 htT
 htT
@@ -22457,7 +22473,7 @@ cmc
 cmc
 ogi
 ogi
-kWC
+ePi
 kWC
 ghG
 lRb
