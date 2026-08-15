@@ -639,8 +639,7 @@
 /turf/open/floor/prison/darkyellowfull2,
 /area/fort_mcneil/indoors/engi)
 "abR" = (
-/obj/effect/landmark/lv624/fog_blocker/short,
-/turf/closed/wall/shiva/prefabricated/reinforced,
+/turf/closed/wall/shiva/prefabricated/reinforced/hull,
 /area/fort_mcneil/landing_zone_1/ceiling)
 "abS" = (
 /obj/effect/decal/warning_stripes{
@@ -3391,10 +3390,6 @@
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/shale/layer1/weedable,
 /area/fort_mcneil/outdoors/scrublands/south)
-"ajV" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
-/turf/open/auto_turf/shale/layer1/weedable,
-/area/fort_mcneil/outdoors/scrublands/south)
 "ajW" = (
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
 /turf/open/auto_turf/shale/layer1/weedable,
@@ -3438,28 +3433,12 @@
 /obj/effect/landmark/item_pool_spawner/survivor_ammo/buckshot,
 /turf/open/floor/prison,
 /area/fort_mcneil/indoors/storage)
-"akg" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
-/turf/open/auto_turf/shale/layer1/weedable,
-/area/fort_mcneil/outdoors/scrublands/central)
-"akh" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/fort_mcneil/outdoors/scrublands/central)
-"aki" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
-/turf/open/auto_turf/shale/layer1/weedable,
-/area/fort_mcneil/outdoors/scrublands/central)
 "akj" = (
 /obj/effect/decal/cleanable/blood{
 	pixel_y = 1
 	},
 /turf/open/auto_turf/shale/layer1/weedable,
 /area/fort_mcneil/outdoors/comms)
-"akk" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
-/turf/open/auto_turf/shale/layer1/weedable,
-/area/fort_mcneil/outdoors/scrublands/central)
 "akl" = (
 /obj/effect/landmark/corpsespawner/colonist,
 /obj/effect/decal/cleanable/blood/gibs/core,
@@ -3469,20 +3448,12 @@
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/fort_mcneil/outdoors/comms)
-"akn" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
-/turf/open/auto_turf/shale/layer2/weedable,
-/area/fort_mcneil/outdoors/scrublands/central)
 "ako" = (
 /obj/effect/decal/cleanable/blood{
 	pixel_y = 1
 	},
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/fort_mcneil/outdoors/comms)
-"akp" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
-/turf/open/auto_turf/strata_grass/layer0_mud,
-/area/fort_mcneil/outdoors/road/central)
 "akq" = (
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /turf/open/floor/prison/blue/north,
@@ -3498,22 +3469,6 @@
 /obj/item/prop/alien/hugger,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/fort_mcneil/indoors/command)
-"akt" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
-/turf/open/auto_turf/sand_white/layer0,
-/area/fort_mcneil/outdoors/scrublands/central)
-"aku" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
-/turf/open/auto_turf/sand_white/layer0,
-/area/fort_mcneil/outdoors/scrublands/central)
-"akv" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
-/turf/open/auto_turf/shale/layer1/weedable,
-/area/fort_mcneil/outdoors/scrublands/north)
-"akw" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
-/turf/open/auto_turf/shale/layer2/weedable,
-/area/fort_mcneil/outdoors/scrublands/central)
 "akx" = (
 /obj/effect/glowshroom,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
@@ -3928,7 +3883,7 @@
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/fort_mcneil/indoors/caves/north)
 "alK" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door_reinforced,
 /turf/open/auto_turf/hybrisa_auto_turf/layer0,
 /area/fort_mcneil/indoors/caves/north)
 "alL" = (
@@ -3964,6 +3919,71 @@
 "alT" = (
 /obj/effect/landmark/queen_spawn,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/fort_mcneil/indoors/caves/north)
+"alU" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door_reinforced,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/fort_mcneil/indoors/caves/south)
+"alV" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door_reinforced,
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/fort_mcneil/indoors/caves/south)
+"alW" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/turf/open/auto_turf/shale/layer2/weedable,
+/area/fort_mcneil/outdoors/scrublands/south)
+"alX" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall_reinforced,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/fort_mcneil/indoors/caves/south)
+"alY" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/turf/open/auto_turf/sand_white/layer0,
+/area/fort_mcneil/outdoors/scrublands/south)
+"alZ" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall_reinforced,
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/fort_mcneil/indoors/caves/south)
+"ama" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall_reinforced,
+/turf/open/auto_turf/hybrisa_auto_turf/layer0,
+/area/fort_mcneil/indoors/caves/south)
+"amb" = (
+/obj/structure/prop/hybrisa/cavedecor/stalagmite3,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/fort_mcneil/indoors/caves/central)
+"amc" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall_reinforced,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/fort_mcneil/indoors/caves/central)
+"amd" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall_reinforced,
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/fort_mcneil/indoors/caves/central)
+"ame" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door_reinforced,
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/fort_mcneil/indoors/caves/central)
+"amf" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall_reinforced,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/fort_mcneil/indoors/caves/north)
+"amg" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall_reinforced,
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/area/fort_mcneil/indoors/caves/north)
+"amh" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door_reinforced,
+/turf/open/auto_turf/hybrisa_auto_turf/layer1,
+/area/fort_mcneil/indoors/caves/north)
+"ami" = (
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#9d7766";
+	dir = 5
+	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
 /area/fort_mcneil/indoors/caves/north)
 "anv" = (
 /obj/structure/prop/invuln/ice_prefab{
@@ -4291,7 +4311,6 @@
 /area/fort_mcneil/indoors/command)
 "aTu" = (
 /obj/structure/flora/wood/stick2,
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/fort_mcneil/outdoors/scrublands/central)
 "aUM" = (
@@ -5195,7 +5214,6 @@
 	pixel_x = -29;
 	pixel_y = 7
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/auto_turf/strata_grass/layer0_mud,
 /area/fort_mcneil/outdoors/road/central)
 "cSn" = (
@@ -5667,10 +5685,6 @@
 /obj/effect/decal/warning_stripes{
 	icon_state = "E";
 	pixel_x = 1;
-	pixel_y = 1
-	},
-/obj/effect/decal/warning_stripes{
-	icon_state = "N";
 	pixel_y = 1
 	},
 /obj/structure/fence/slim/dark,
@@ -7086,7 +7100,7 @@
 	pixel_y = -4;
 	pixel_x = -1
 	},
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_wall_reinforced,
 /turf/open/auto_turf/hybrisa_auto_turf/layer2,
 /area/fort_mcneil/indoors/caves/north)
 "hGy" = (
@@ -7095,10 +7109,7 @@
 /turf/open/auto_turf/shale/layer1/weedable,
 /area/fort_mcneil/outdoors/scrublands/south)
 "hHZ" = (
-/obj/effect/timed_event/scrapeaway{
-	time = 15
-	},
-/turf/closed/wall/hybrisa/rock,
+/turf/open/auto_turf/sand_white/layer0,
 /area/fort_mcneil/indoors/caves/north)
 "hIq" = (
 /obj/effect/decal/warning_stripes{
@@ -8315,7 +8326,7 @@
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/fort_mcneil/indoors/caves/north)
 "kkb" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door_reinforced,
 /turf/open/auto_turf/hybrisa_auto_turf/layer0,
 /area/fort_mcneil/indoors/caves/central)
 "klv" = (
@@ -8764,10 +8775,7 @@
 /turf/open/floor/hybrisa/metal/bluemetal1,
 /area/fort_mcneil/indoors/command)
 "kWC" = (
-/obj/effect/timed_event/scrapeaway{
-	time = 15
-	},
-/turf/closed/wall/hybrisa/rock,
+/turf/open/auto_turf/sand_white/layer0,
 /area/fort_mcneil/indoors/caves/south)
 "kWR" = (
 /obj/structure/blocker/invisible_wall,
@@ -8922,10 +8930,7 @@
 /turf/open/auto_turf/sand_white/layer0,
 /area/fort_mcneil/outdoors/colony_exterior/north)
 "lwj" = (
-/obj/effect/timed_event/scrapeaway{
-	time = 15
-	},
-/turf/closed/wall/hybrisa/rock,
+/turf/open/auto_turf/sand_white/layer0,
 /area/fort_mcneil/indoors/caves/central)
 "lxG" = (
 /obj/structure/prop/hybrisa/cavedecor/stalagmite5,
@@ -9253,10 +9258,6 @@
 	},
 /turf/open/floor/prison/floor_plate,
 /area/fort_mcneil/outdoors/comms)
-"mom" = (
-/obj/structure/tunnel,
-/turf/open/auto_turf/hybrisa_auto_turf/layer1,
-/area/fort_mcneil/outdoors/scrublands/central)
 "mph" = (
 /turf/open/floor/prison/blue,
 /area/fort_mcneil/indoors/connection_paths)
@@ -10155,6 +10156,7 @@
 	color = "#9d7766";
 	dir = 5
 	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
 /turf/open/auto_turf/hybrisa_auto_turf/layer1,
 /area/fort_mcneil/indoors/caves/north)
 "oBR" = (
@@ -10553,7 +10555,7 @@
 /turf/open/auto_turf/snow/layer1,
 /area/fort_mcneil/outdoors/colony_exterior/north_east)
 "ptu" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door_reinforced,
 /turf/open/auto_turf/hybrisa_auto_turf/layer0,
 /area/fort_mcneil/indoors/caves/south)
 "pug" = (
@@ -11329,6 +11331,7 @@
 	pixel_x = 1;
 	pixel_y = 1
 	},
+/obj/effect/landmark/lv624/fog_blocker/short,
 /turf/open/auto_turf/sand_white/layer0,
 /area/fort_mcneil/outdoors/scrublands/south)
 "rkG" = (
@@ -17766,8 +17769,8 @@ vtN
 wPC
 vtN
 vtN
-dpY
-dpY
+amc
+amc
 ofL
 ofL
 ofL
@@ -17777,8 +17780,8 @@ ofL
 ofL
 ofL
 ofL
-dpY
-rLE
+amc
+amd
 wPC
 wAd
 apJ
@@ -17786,7 +17789,7 @@ apJ
 apJ
 apJ
 vtN
-vtN
+eVb
 vtN
 apJ
 apJ
@@ -17867,8 +17870,8 @@ vtN
 vtN
 vtN
 wVr
-rLE
-rLE
+amd
+amd
 dpY
 vtN
 ofL
@@ -17887,7 +17890,7 @@ apJ
 apJ
 apJ
 apJ
-apJ
+jRC
 kHH
 apJ
 apJ
@@ -17960,7 +17963,7 @@ apJ
 apJ
 apJ
 apJ
-vtN
+eVb
 akc
 vtN
 vtN
@@ -17968,7 +17971,7 @@ vtN
 vtN
 apJ
 twR
-jRC
+ame
 apJ
 kHH
 apJ
@@ -17980,7 +17983,7 @@ vtN
 jrd
 apJ
 wPC
-jRC
+ame
 apJ
 apJ
 apJ
@@ -17988,7 +17991,7 @@ apJ
 twR
 apJ
 apJ
-apJ
+jRC
 apJ
 vtN
 vtN
@@ -18061,7 +18064,7 @@ vtN
 vtN
 vtN
 apJ
-apJ
+jRC
 apJ
 apJ
 apJ
@@ -18069,7 +18072,7 @@ kHH
 apJ
 apJ
 apJ
-jRC
+ame
 apJ
 apJ
 apJ
@@ -18081,16 +18084,16 @@ apJ
 wPC
 wPC
 apJ
-rLE
+amd
+amc
+apJ
+apJ
+apJ
+apJ
+apJ
+apJ
+amb
 dpY
-apJ
-apJ
-apJ
-apJ
-apJ
-apJ
-wVr
-vtN
 ofL
 ofL
 ofL
@@ -18162,15 +18165,15 @@ ofL
 ofL
 vtN
 aab
+eVb
 vtN
-vtN
 apJ
 apJ
 apJ
 apJ
 apJ
-dpY
-rLE
+amc
+amd
 apJ
 apJ
 apJ
@@ -18182,7 +18185,7 @@ kHH
 wPC
 wPC
 apJ
-dpY
+amc
 ofL
 vtN
 apJ
@@ -18190,7 +18193,7 @@ vtN
 kHH
 apJ
 vtN
-vtN
+dpY
 ofL
 ofL
 ofL
@@ -18271,7 +18274,7 @@ kns
 apJ
 vtN
 ofL
-dpY
+amc
 vtN
 apJ
 apJ
@@ -18373,8 +18376,8 @@ vtN
 ofL
 ofL
 ofL
-lwj
-lwj
+vtN
+vtN
 lwj
 apJ
 kns
@@ -19324,10 +19327,10 @@ htT
 qhd
 qhd
 ofL
-ghG
-htT
-htT
-ghG
+tLa
+bcl
+bcl
+tLa
 ofL
 ofL
 ofL
@@ -19419,10 +19422,10 @@ ofL
 ofL
 ofL
 ghG
-ghG
-ghG
-htT
-ghG
+tLa
+tLa
+bcl
+plw
 ofL
 ofL
 ofL
@@ -19521,7 +19524,7 @@ ofL
 ofL
 ofL
 ofL
-ghG
+tLa
 htT
 htT
 qhd
@@ -19543,9 +19546,9 @@ ofL
 ofL
 ofL
 ofL
-mwP
-gwA
-nqM
+kjR
+ami
+pMK
 kjR
 ofL
 ofL
@@ -19553,7 +19556,7 @@ ofL
 ofL
 kjR
 san
-mwP
+ncm
 oBM
 ofL
 ofL
@@ -19644,7 +19647,7 @@ ofL
 ofL
 ofL
 ofL
-mwP
+kjR
 mwP
 nqM
 mwP
@@ -20053,7 +20056,7 @@ mwP
 mwP
 nqM
 nqM
-mwP
+rjy
 alL
 mwP
 nqM
@@ -20455,9 +20458,9 @@ ofL
 ofL
 ofL
 ofL
-ncm
-san
-san
+amh
+amg
+amg
 uQH
 uQH
 ujs
@@ -20557,12 +20560,12 @@ ofL
 ofL
 ofL
 mwP
-san
-san
+amg
+amg
 alK
 alK
-san
-kjR
+amg
+amf
 dOI
 iBq
 iuX
@@ -20663,7 +20666,7 @@ itD
 hAK
 uQH
 hFE
-kjR
+amf
 dOI
 aUM
 iuX
@@ -20994,7 +20997,7 @@ oIu
 nSD
 vAi
 vAi
-glq
+nII
 ajP
 pdZ
 hYd
@@ -21144,7 +21147,7 @@ aiu
 ghG
 ofL
 ofL
-tLa
+alX
 qhd
 qhd
 htT
@@ -21195,8 +21198,8 @@ mfZ
 acu
 ntO
 qno
-vAi
-nII
+xyc
+glq
 mzO
 qdY
 xNc
@@ -21244,8 +21247,8 @@ htT
 qhd
 qhd
 ghG
-tLa
-cfY
+alX
+ama
 qhd
 qhd
 htT
@@ -21397,7 +21400,7 @@ eqI
 acu
 jnb
 xLs
-vAi
+xyc
 glq
 mLc
 nBZ
@@ -21447,7 +21450,7 @@ htT
 htT
 lRb
 htT
-bcl
+alV
 htT
 htT
 htT
@@ -21548,8 +21551,8 @@ ghG
 htT
 htT
 htT
-tLa
-gDv
+alX
+alZ
 htT
 htT
 htT
@@ -21650,7 +21653,7 @@ htT
 htT
 ghG
 ofL
-tLa
+alX
 htT
 htT
 htT
@@ -21752,7 +21755,7 @@ lRb
 ghG
 ofL
 ofL
-ghG
+gDm
 htT
 lRb
 ghG
@@ -21854,9 +21857,9 @@ htT
 ghG
 ofL
 ofL
-tLa
-bcl
-plw
+alX
+alV
+alU
 ofL
 lYl
 "}
@@ -21955,7 +21958,7 @@ htT
 htT
 ghG
 ofL
-tLa
+alX
 htT
 ghG
 ofL
@@ -25444,12 +25447,12 @@ jet
 jet
 jet
 jet
-akp
+jet
 cRs
 vaS
 vaS
-akg
-akg
+vaS
+vaS
 tiW
 vaS
 ofL
@@ -25545,11 +25548,11 @@ vaS
 vaS
 vaS
 vaS
-akg
-akg
-aki
-aki
-akh
+vaS
+vaS
+vaS
+vaS
+vxQ
 aTu
 vaS
 ofL
@@ -25590,7 +25593,7 @@ hCh
 hCh
 hCh
 ajY
-hCh
+alY
 ofL
 ofL
 ofL
@@ -25647,9 +25650,9 @@ tWQ
 tWQ
 tWQ
 vaS
-akn
-akk
-mom
+tiW
+vaS
+vxQ
 liS
 ofL
 ofL
@@ -25748,7 +25751,7 @@ tWQ
 tWQ
 tWQ
 vaS
-aki
+vaS
 vaS
 ofL
 ofL
@@ -25848,8 +25851,8 @@ ixJ
 hkO
 hkO
 gZe
-akg
-akg
+vaS
+vaS
 ofL
 ofL
 ofL
@@ -25894,7 +25897,7 @@ ofL
 ofL
 ajU
 dah
-ajV
+dah
 chA
 gop
 ofL
@@ -25996,7 +25999,7 @@ ofL
 ofL
 ajU
 xCd
-xCd
+alW
 aKC
 ofL
 lYl
@@ -26328,11 +26331,11 @@ ofL
 ofL
 ofL
 ofL
-akv
-akv
+mLD
+mLD
 mLD
 vaS
-akg
+vaS
 ofL
 ofL
 ofL
@@ -26430,14 +26433,14 @@ ofL
 ofL
 ofL
 ofL
-akw
-aki
-akn
-akg
-akt
+tiW
+vaS
+tiW
+vaS
+tWQ
 ofL
 ofL
-akt
+tWQ
 vaS
 vaS
 vaS
@@ -26533,12 +26536,12 @@ ofL
 ofL
 ofL
 vaS
-akk
+vaS
 vaS
 tWQ
 tWQ
-akt
-akt
+tWQ
+tWQ
 vaS
 vaS
 vaS
@@ -26638,7 +26641,7 @@ vaS
 vaS
 vaS
 vaS
-aku
+tWQ
 vaS
 tiW
 vaS
@@ -26738,8 +26741,8 @@ vxQ
 vxQ
 vaS
 vaS
-akk
-aki
+vaS
+vaS
 vaS
 vaS
 gZe
@@ -26837,11 +26840,11 @@ ofL
 ofL
 ofL
 vxQ
-akk
 vaS
 vaS
-akg
-akg
+vaS
+vaS
+vaS
 ofL
 ofL
 ofL
@@ -26937,7 +26940,7 @@ ofL
 ofL
 ofL
 ofL
-mom
+vxQ
 vxQ
 vaS
 keQ
@@ -27595,9 +27598,9 @@ aak
 aak
 aaj
 aaj
-aaj
-isd
-isd
+ofL
+ofL
+ofL
 isd
 aah
 isd
@@ -27605,9 +27608,9 @@ isd
 isd
 isd
 isd
-isd
-isd
-isd
+ofL
+ofL
+ofL
 isd
 isd
 emH
@@ -27698,7 +27701,7 @@ aaj
 isd
 isd
 isd
-isd
+ofL
 isd
 isd
 isd
@@ -27707,8 +27710,8 @@ aam
 aam
 jVa
 aah
-isd
-isd
+ofL
+ofL
 aad
 aad
 emH
@@ -28786,8 +28789,8 @@ isd
 aah
 aah
 isd
-iKJ
-kQQ
+isd
+isd
 kwx
 aan
 aac
@@ -28887,8 +28890,8 @@ aah
 aah
 aah
 iKJ
-mNW
-abR
+kQQ
+kQQ
 dZV
 fYN
 gKW
