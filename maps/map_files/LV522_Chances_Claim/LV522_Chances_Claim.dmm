@@ -386,11 +386,13 @@
 /area/lv522/outdoors/nw_rockies)
 "abu" = (
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/corsat/marked,
 /area/lv522/atmos/cargo_intake)
 "abv" = (
 /obj/structure/pipes/standard/simple/hidden/green,
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/corsat/marked,
 /area/lv522/atmos/cargo_intake)
 "abw" = (
@@ -726,6 +728,7 @@
 /obj/structure/machinery/door_control/brbutton{
 	id = "Reactor_e_entry_4"
 	},
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/closed/wall/strata_outpost/reinforced,
 /area/lv522/atmos/filt)
 "acR" = (
@@ -4144,6 +4147,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison,
 /area/lv522/indoors/c_block/mining)
+"bVl" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/closed/wall/strata_outpost/reinforced,
+/area/lv522/atmos/east_reactor/south)
 "bVu" = (
 /obj/structure/prop/server_equipment/yutani_server{
 	density = 0;
@@ -9928,6 +9936,7 @@
 /area/lv522/outdoors/colony_streets/south_east_street)
 "eZq" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/closed/wall/strata_outpost/reinforced,
 /area/lv522/atmos/cargo_intake)
 "eZC" = (
@@ -10778,6 +10787,7 @@
 	dir = 4;
 	id = "Reactor_e_entry_4"
 	},
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/corsat/marked,
 /area/lv522/atmos/filt)
 "fzV" = (
@@ -12351,6 +12361,10 @@
 	},
 /turf/open/asphalt/cement/cement3,
 /area/lv522/outdoors/nw_rockies)
+"gvq" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/closed/wall/strata_outpost/reinforced,
+/area/lv522/atmos/east_reactor/south)
 "gvr" = (
 /obj/structure/closet/bodybag,
 /obj/structure/curtain/medical,
@@ -14852,6 +14866,7 @@
 	dir = 4;
 	id = "Reactor_entry_2"
 	},
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/corsat/marked,
 /area/lv522/atmos/way_in_command_centre)
 "hPI" = (
@@ -15782,6 +15797,10 @@
 	},
 /turf/open/floor/prison/floor_plate,
 /area/lv522/outdoors/colony_streets/north_west_street)
+"isk" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/closed/wall/strata_outpost/reinforced,
+/area/lv522/atmos/reactor_garage)
 "iso" = (
 /obj/structure/machinery/light,
 /turf/open/floor/corsat/plate,
@@ -16270,6 +16289,7 @@
 /obj/structure/pipes/standard/simple/hidden/green{
 	dir = 4
 	},
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/corsat/marked,
 /area/lv522/atmos/way_in_command_centre)
 "iGQ" = (
@@ -18653,6 +18673,13 @@
 	},
 /turf/open/floor/prison/greenfull/east,
 /area/lv522/indoors/b_block/bridge)
+"jTf" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_nest,
+/obj/effect/landmark/corpsespawner/colonist/burst,
+/obj/effect/landmark/xeno_spawn,
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/floor/corsat,
+/area/lv522/atmos/east_reactor/south)
 "jTl" = (
 /obj/structure/bed/chair/comfy{
 	dir = 8
@@ -29698,6 +29725,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/darkredfull2,
 /area/lv522/indoors/a_block/security)
+"pFW" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/closed/wall/strata_outpost/reinforced,
+/area/lv522/atmos/cargo_intake)
 "pFY" = (
 /obj/structure/platform_decoration/metal/almayer,
 /obj/item/reagent_container/food/drinks/flask/marine,
@@ -30600,6 +30631,10 @@
 	},
 /turf/open/floor/prison/darkpurplefull2,
 /area/lv522/indoors/a_block/dorms)
+"qeT" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/floor/corsat,
+/area/lv522/atmos/cargo_intake)
 "qfm" = (
 /obj/structure/prop/ice_colony/ground_wire{
 	dir = 8
@@ -31372,6 +31407,10 @@
 /obj/item/stack/sheet/metal,
 /turf/open/floor/plating,
 /area/lv522/landing_zone_1/tunnel/far)
+"qxS" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/closed/wall/strata_outpost/reinforced,
+/area/lv522/atmos/filt)
 "qxX" = (
 /obj/structure/pipes/standard/simple/hidden/green,
 /obj/effect/decal/cleanable/dirt,
@@ -31824,6 +31863,7 @@
 /obj/structure/machinery/door_control/brbutton{
 	id = "Reactor_entry_2"
 	},
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/closed/wall/r_wall/biodome/biodome_unmeltable,
 /area/lv522/oob)
 "qHI" = (
@@ -33440,6 +33480,10 @@
 	},
 /turf/open/floor/prison,
 /area/lv522/indoors/c_block/mining)
+"rrc" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/closed/wall/strata_outpost/reinforced,
+/area/lv522/atmos/way_in_command_centre)
 "rro" = (
 /obj/structure/machinery/disposal,
 /obj/effect/decal/cleanable/dirt,
@@ -34177,6 +34221,7 @@
 /turf/open/floor/corsat/brown/west,
 /area/lv522/atmos/cargo_intake)
 "rKS" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/corsat,
 /area/lv522/atmos/reactor_garage)
 "rKW" = (
@@ -42929,6 +42974,11 @@
 	},
 /turf/open/floor/prison/blue_plate/north,
 /area/lv522/indoors/a_block/hallway)
+"vWi" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_nest,
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/floor/corsat,
+/area/lv522/atmos/east_reactor/south)
 "vWl" = (
 /obj/item/prop/alien/hugger,
 /obj/structure/pipes/standard/simple/hidden/green{
@@ -56832,7 +56882,7 @@ ijv
 eyM
 iTX
 ePK
-ePK
+pFW
 ePK
 auG
 gat
@@ -58068,7 +58118,7 @@ dAG
 jmW
 iTX
 iTX
-ePK
+pFW
 fol
 fGh
 fYP
@@ -58274,7 +58324,7 @@ iEq
 eAz
 iTX
 ePK
-ePK
+pFW
 ePK
 fGH
 bcU
@@ -63217,7 +63267,7 @@ dXX
 saC
 saC
 saC
-xXV
+qeT
 iAv
 mEG
 alx
@@ -63424,7 +63474,7 @@ saC
 saC
 wBR
 xXV
-iAv
+isk
 fsV
 fLA
 oVO
@@ -64251,7 +64301,7 @@ xXV
 xXV
 rKS
 rKS
-iAv
+isk
 iAv
 iAv
 iAv
@@ -64458,7 +64508,7 @@ xXV
 xXV
 rvg
 xXV
-iAv
+isk
 iAv
 iAv
 rqE
@@ -66314,7 +66364,7 @@ abm
 aaW
 aaW
 aaU
-wGq
+vWi
 oUq
 tnN
 hKK
@@ -66520,7 +66570,7 @@ jDN
 qjG
 qjG
 qjG
-wGq
+vWi
 oUq
 dNe
 hMb
@@ -66726,7 +66776,7 @@ jDN
 qjG
 qjG
 oeU
-mkh
+jTf
 oUq
 tnN
 hNf
@@ -66932,7 +66982,7 @@ jDN
 iGl
 qjG
 qjG
-mkh
+jTf
 oUq
 oUq
 qpy
@@ -68374,18 +68424,18 @@ qjG
 saC
 saC
 saC
-oUq
-oUq
+rrc
+rrc
 qHD
 hPq
 hPq
 iGM
 hPq
-oUq
-oUq
-oUq
-oUq
-oUq
+rrc
+rrc
+rrc
+rrc
+rrc
 oUq
 yjp
 sOe
@@ -68591,7 +68641,7 @@ jwT
 jFG
 xZE
 xZE
-xZE
+gvq
 xZE
 men
 wrC
@@ -68797,7 +68847,7 @@ xLi
 nMC
 nNi
 kco
-xZE
+gvq
 xZE
 xZE
 wrC
@@ -69003,7 +69053,7 @@ nGU
 nMT
 nOg
 kdf
-xZE
+gvq
 xZE
 xZE
 xZE
@@ -69209,7 +69259,7 @@ qjG
 nNf
 yld
 kdL
-xZE
+gvq
 xZE
 dHF
 dHF
@@ -69415,7 +69465,7 @@ jwV
 nNf
 yld
 kel
-xZE
+gvq
 xZE
 vGp
 qSH
@@ -69621,7 +69671,7 @@ jBr
 jJa
 jWZ
 yaC
-xZE
+gvq
 xZE
 spy
 qnS
@@ -69827,7 +69877,7 @@ oiW
 faK
 fwo
 hQU
-xZE
+gvq
 xZE
 nQQ
 qSH
@@ -70033,7 +70083,7 @@ oiW
 faZ
 jXp
 jlh
-xZE
+gvq
 xZE
 jGa
 qSH
@@ -70239,7 +70289,7 @@ oiW
 faZ
 jYj
 tiQ
-xZE
+gvq
 xZE
 xZE
 qSH
@@ -70445,7 +70495,7 @@ qjG
 faZ
 yaC
 kgb
-xZE
+gvq
 xZE
 kKD
 qSH
@@ -70651,7 +70701,7 @@ qjG
 jJj
 jYu
 kdf
-xZE
+gvq
 xZE
 jOw
 qSH
@@ -70857,7 +70907,7 @@ xsE
 jJa
 kaQ
 sfc
-xZE
+gvq
 xZE
 xZE
 qSH
@@ -71063,7 +71113,7 @@ jCb
 nNf
 yld
 yaC
-xZE
+gvq
 xZE
 kdx
 vGp
@@ -71269,7 +71319,7 @@ jCb
 nNf
 qjG
 kgm
-xZE
+gvq
 xZE
 svK
 sRI
@@ -71475,7 +71525,7 @@ jCc
 jJI
 fwo
 khG
-xZE
+gvq
 xZE
 xZE
 isa
@@ -71681,7 +71731,7 @@ jCq
 hSO
 yaC
 kiT
-xZE
+gvq
 xZE
 iel
 svK
@@ -71880,14 +71930,14 @@ oiW
 oiW
 yld
 vDw
-xZE
-xZE
-xZE
-xZE
-xZE
-xZE
-xZE
-xZE
+bVl
+gvq
+gvq
+gvq
+gvq
+gvq
+gvq
+bVl
 xZE
 sRI
 vGp
@@ -72086,7 +72136,7 @@ oiW
 oiW
 yld
 vDw
-xZE
+gvq
 xZE
 xZE
 xZE
@@ -72292,7 +72342,7 @@ gUm
 oiW
 hCU
 hRG
-xZE
+gvq
 xZE
 xZE
 xZE
@@ -72498,7 +72548,7 @@ aaR
 aaR
 aaN
 hSi
-xZE
+gvq
 xZE
 xZE
 xZE
@@ -72704,7 +72754,7 @@ gZJ
 vpq
 hDa
 aaK
-xZE
+gvq
 xZE
 xZE
 xZE
@@ -72910,7 +72960,7 @@ oiW
 oiW
 yld
 yaC
-xZE
+gvq
 xZE
 xZE
 xZE
@@ -73116,7 +73166,7 @@ oiW
 aaS
 yld
 yaC
-xZE
+gvq
 xZE
 xZE
 xZE
@@ -73322,7 +73372,7 @@ oiW
 oiW
 yld
 yaC
-xZE
+gvq
 xZE
 xZE
 xZE
@@ -73528,7 +73578,7 @@ oiW
 fwj
 fwo
 hTd
-xZE
+gvq
 xZE
 alI
 alI
@@ -73734,7 +73784,7 @@ aaS
 yld
 saC
 saC
-xZE
+gvq
 alI
 alI
 gib
@@ -73940,7 +73990,7 @@ saC
 saC
 saC
 xZE
-xZE
+gvq
 alI
 caV
 pcV
@@ -74146,7 +74196,7 @@ saC
 saC
 xZE
 xZE
-xZE
+gvq
 alI
 alI
 tyb
@@ -74352,7 +74402,7 @@ oiW
 saC
 xZE
 xZE
-xZE
+gvq
 xZE
 alI
 alI
@@ -74558,7 +74608,7 @@ aaQ
 xZE
 xZE
 xZE
-xZE
+gvq
 xZE
 xZE
 xZE
@@ -76607,14 +76657,14 @@ cpy
 cpy
 cpy
 cpy
-shD
+qxS
 acQ
 fzK
 fzK
 fzK
 fzK
-shD
-shD
+qxS
+qxS
 cpy
 ien
 cpy
