@@ -71,6 +71,7 @@ map tyrargo_rift
 endmap
 
 map white_antre_research_facility
+	disabled
 endmap
 
 map fort_mcneil

@@ -272,7 +272,7 @@ def translate_changelog(changelog: typing.Dict[int, list[Change]]):
         context = "\n".join(f.readlines()).strip()
 
     client = OpenAI(
-        base_url="https://models.inference.ai.azure.com",
+        base_url="https://g4f.space/v1",
         api_key=OPENAI_API_KEY,
     )
     response: ChatCompletion = client.chat.completions.create(
@@ -282,7 +282,7 @@ def translate_changelog(changelog: typing.Dict[int, list[Change]]):
         ],
         temperature=1.0,
         top_p=1.0,
-        model="gpt-4o",
+        model="auto",
     )
     translated_text: str | None = response.choices[0].message.content
 
