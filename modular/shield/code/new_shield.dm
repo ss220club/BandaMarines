@@ -23,7 +23,7 @@
 
 /obj/item/weapon/shield/riot/riot_mp
 	name = "\improper бронещит 'ОГРАДА'"
-	desc = "Тяжёлый щит производимый Armat Battlefield Systems для проведения штурмовых операций."
+	desc = "Тяжёлый щит, производимый Armat Battlefield Systems для проведения штурмовых операций."
 	var/skilllock = SKILL_POLICE_SKILLED
 	icon = 'modular/shield/icons/shields.dmi'
 	force = 25
