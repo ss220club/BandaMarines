@@ -534,6 +534,36 @@
 	new /obj/item/dartboard/(loc)
 	qdel(src)
 
+/obj/structure/prop/enterprise/pmc
+	name = "Dead body"
+	icon = 'icons/obj/structures/props/Dead_PMC.dmi'
+	icon_state = "pmc_dead"
+	health = 3000
+	layer = ABOVE_FLY_LAYER
+	bound_height = 96
+	bound_width = 96
+	density = TRUE
+
+/obj/structure/prop/enterprise/tank
+	name = "Tank"
+	icon = 'icons/obj/structures/props/Gorvin_PMC_Prop.dmi'
+	icon_state = "wy_tank_destroyed"
+	health = 3000
+	layer = ABOVE_FLY_LAYER
+	bound_height = 96
+	bound_width = 96
+	density = TRUE
+
+/obj/structure/prop/enterprise/chelnock
+	name = "RS-3"
+	icon = 'icons/obj/structures/props/PMC_Droppod.dmi'
+	icon_state = "RS-3_lifeline"
+	health = 3000
+	layer = ABOVE_FLY_LAYER
+	bound_height = 96
+	bound_width = 96
+	density = TRUE
+
 /obj/structure/dartboard/attack_hand(mob/user)
 	if(length(contents))
 		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts recovering items from [src]..."), SPAN_NOTICE("You start recovering items from [src]..."))
