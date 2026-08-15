@@ -7,7 +7,7 @@
 	// Новые списки для группировки
 	var/list/group_limits
 	var/list/group_given
-	var/list/category_to_group 
+	var/list/category_to_group
 
 	req_one_access = list(ACCESS_MARINE_COMMAND, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_CREWMAN)
 
@@ -63,7 +63,7 @@
 
 	// Состав групп
 	var/list/combat_cats = list("Тяжелая бронетехника", "Бронетранспортеры", "Бронеавтомобили")
-	var/list/logistics_cats = list("Логистическая техника", "Санитаркая техника")
+	var/list/logistics_cats = list("Логистическая техника", "Санитарная техника")
 	var/list/special_cats = list("Разведка")
 
 	// Общий расход групп
@@ -108,7 +108,7 @@
 	for(var/d in vehicles)
 		var/datum/vehicle_order/order = d
 		var/category = get_vehicle_category(order)
-		
+
 		var/main_cat_name
 		var/used_value
 
@@ -198,7 +198,7 @@
 				to_chat(usr, SPAN_WARNING("Лифт должен находиться внизу в режиме ожидания!"))
 				return
 
-			category_given[category]++ 
+			category_given[category]++
 			var/obj/vehicle/multitile/ordered_vehicle = new order.ordered_vehicle(lower_turf)
 			to_chat(usr, SPAN_NOTICE("Запрос на [order.name] принят. Техника загружается на платформу."))
 
