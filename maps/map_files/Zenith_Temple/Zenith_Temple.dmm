@@ -1,4 +1,8 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aaa" = (
+/obj/structure/flora/bush/ausbushes/grassybush,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
+/area/lazarus/ground/colony/checkpoint_road)
 "aab" = (
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/prison/cell_stripe,
@@ -412,6 +416,12 @@
 /obj/structure/flora/bush/ausbushes/lavendergrass,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/barrens/central_barrens)
+"abD" = (
+/obj/structure/machinery/light/blue{
+	dir = 4
+	},
+/turf/open/floor/prison/green/east,
+/area/lazarus/hydroponics)
 "abE" = (
 /turf/open/floor/ancient_temple/damaged/damage_5,
 /area/lazarus/ground/ancient_temple/south_east/surface)
@@ -945,6 +955,7 @@
 	pixel_x = 3;
 	pixel_y = 1
 	},
+/obj/effect/landmark/objective_landmark/science,
 /turf/open/floor/ancient_temple/base,
 /area/lazarus/ground/ancient_temple/south)
 "ads" = (
@@ -1745,6 +1756,12 @@
 /obj/structure/flora/bush/ausbushes/ywflowers,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/barrens/south_west_barrens)
+"afl" = (
+/obj/structure/machinery/light/blue{
+	dir = 1
+	},
+/turf/open/floor/prison/green/north,
+/area/lazarus/hydroponics)
 "afm" = (
 /obj/structure/flora/jungle/vines/dead/light_2,
 /turf/open/auto_turf/lv_grass_weedable/layer0,
@@ -2072,6 +2089,13 @@
 /obj/structure/flora/bush/ausbushes/lavendergrass,
 /turf/closed/wall/strata_ice/jungle,
 /area/strata/interior/out_of_bounds)
+"agt" = (
+/obj/structure/surface/table/almayer{
+	color = "#d4cfcd"
+	},
+/obj/effect/landmark/objective_landmark/science,
+/turf/open/floor/prison/west,
+/area/lazarus/power_plant/core)
 "agu" = (
 /turf/open/floor/prison/cell_stripe/north,
 /area/lazarus/ground/jungle/southern_jungle)
@@ -2411,6 +2435,10 @@
 "ahr" = (
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/strata/interior/out_of_bounds)
+"ahs" = (
+/obj/effect/landmark/objective_landmark/science,
+/turf/open/floor/ancient_temple/deco/dark/deco_0,
+/area/lazarus/ground/ancient_temple/east)
 "aht" = (
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 9
@@ -9755,11 +9783,11 @@
 "azr" = (
 /obj/structure/flora/jungle/planttop1,
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
-/turf/open/auto_turf/lv_grass_weedable/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/colony/checkpoint_road)
 "azs" = (
 /obj/structure/flora/bush/ausbushes/ywflowers,
-/turf/open/auto_turf/lv_grass_weedable/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/colony/checkpoint_road)
 "azt" = (
 /obj/structure/window/framed/lv_colony/white/reinforced,
@@ -10637,7 +10665,6 @@
 "aBM" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/item/clothing/suit/storage/jacket/marine/vest/tan,
-/obj/effect/landmark/objective_landmark/science,
 /turf/open/floor/strata/light_purple_edge,
 /area/lazarus/research)
 "aBN" = (
@@ -10744,6 +10771,7 @@
 /obj/structure/surface/table/almayer{
 	color = "#8B9490"
 	},
+/obj/effect/landmark/objective_landmark/science,
 /turf/open/floor/strata/floor3,
 /area/lazarus/research)
 "aCd" = (
@@ -10837,7 +10865,7 @@
 /area/lazarus/ground/colony/south_nexus_road)
 "aCq" = (
 /obj/structure/flora/jungle/plantbot1,
-/turf/open/auto_turf/lv_grass_weedable/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/colony/east_nexus_road)
 "aCr" = (
 /obj/structure/flora/bush/ausbushes/var3/sunnybush,
@@ -10863,7 +10891,6 @@
 "aCu" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/item/clothing/suit/storage/jacket/marine/vest/tan,
-/obj/effect/landmark/objective_landmark/science,
 /obj/item/prop{
 	desc = "An issue of The Pioneer's Standard, the newspaper circulating in UA-controlled space.";
 	icon = 'icons/obj/items/paper.dmi';
@@ -10922,7 +10949,6 @@
 	color = "#8B9490"
 	},
 /obj/item/device/black_market_scanner,
-/obj/effect/landmark/objective_landmark/science,
 /turf/open/floor/strata/floor3,
 /area/lazarus/research)
 "aCB" = (
@@ -10985,7 +11011,7 @@
 /area/lazarus/ground/cove)
 "aCM" = (
 /obj/structure/flora/jungle/planttop1,
-/turf/open/auto_turf/lv_grass_weedable/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/colony/east_nexus_road)
 "aCN" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
@@ -11380,7 +11406,6 @@
 "aDW" = (
 /obj/effect/decal/cleanable/blood,
 /obj/structure/bed/roller,
-/obj/effect/landmark/objective_landmark/science,
 /turf/open/floor/prison/sterile_white,
 /area/lazarus/research)
 "aDX" = (
@@ -12672,13 +12697,6 @@
 /obj/structure/flora/bush/ausbushes/ywflowers,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_east_jungle)
-"aHL" = (
-/obj/structure/prop/fishing/line/long{
-	dir = 1
-	},
-/obj/effect/landmark/big_fog_marker,
-/turf/open/auto_turf/lv_sand/layer0,
-/area/lazarus/ground/colony/west_nexus_road)
 "aHM" = (
 /obj/item/reagent_container/glass/bucket/mopbucket{
 	pixel_y = 4
@@ -13531,6 +13549,7 @@
 	},
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/landmark/crap_item,
+/obj/effect/landmark/objective_landmark/science,
 /turf/open/floor/prison/green/southeast,
 /area/lazarus/hydroponics)
 "aKi" = (
@@ -13568,15 +13587,18 @@
 /obj/structure/surface/table/almayer{
 	color = "#d4cfcd"
 	},
-/obj/effect/landmark/objective_landmark/medium,
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/landmark/crap_item,
+/obj/structure/pipes/vents/scrubber_hybrisa,
+/obj/effect/landmark/objective_landmark/science,
 /turf/open/floor/prison/green/west,
 /area/lazarus/hydroponics/vegetation)
 "aKp" = (
 /obj/effect/decal/hybrisa/dirt,
-/obj/structure/pipes/standard/simple/hidden/cyan,
 /obj/effect/landmark/crap_item,
+/obj/structure/pipes/standard/simple/hidden/cyan{
+	dir = 10
+	},
 /turf/open/floor/prison,
 /area/lazarus/hydroponics/vegetation)
 "aKq" = (
@@ -13635,9 +13657,6 @@
 /obj/structure/pipes/standard/simple/hidden/cyan,
 /turf/open/gm/dirt/brown/variant_5/south,
 /area/lazarus/ground/colony/central_beach)
-"aKC" = (
-/turf/open/auto_turf/lv_grass_weedable/layer0,
-/area/lazarus/ground/colony/central_beach)
 "aKD" = (
 /obj/structure/flora/bush/ausbushes/var3/fernybush,
 /turf/open/gm/coast/dirt/south,
@@ -13646,19 +13665,6 @@
 /obj/structure/flora/bush/ausbushes/reedbush,
 /turf/open/gm/coast/dirt/beachcorner/south_east,
 /area/lazarus/ground/river/west_river)
-"aKF" = (
-/obj/structure/machinery/light/blue{
-	dir = 8
-	},
-/obj/structure/pipes/vents/scrubber_hybrisa,
-/turf/open/floor/prison/green/west,
-/area/lazarus/hydroponics/vegetation)
-"aKG" = (
-/obj/structure/pipes/standard/simple/hidden/cyan{
-	dir = 10
-	},
-/turf/open/floor/prison/greencorner/north,
-/area/lazarus/hydroponics/vegetation)
 "aKH" = (
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/prison/green/northeast,
@@ -13980,9 +13986,6 @@
 /turf/open/floor/prison/green/east,
 /area/lazarus/hydroponics/vegetation)
 "aLS" = (
-/obj/structure/machinery/light/blue{
-	dir = 1
-	},
 /obj/effect/decal/hybrisa/dirt_2,
 /obj/effect/decal/strata_decals/grime/grime4{
 	dir = 4
@@ -14004,7 +14007,7 @@
 /area/lazarus/hydroponics)
 "aLU" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/turf/open/auto_turf/lv_grass_weedable/layer1,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/colony/central_beach)
 "aLV" = (
 /obj/structure/machinery/colony_floodlight{
@@ -14152,6 +14155,9 @@
 	},
 /obj/effect/decal/hybrisa/dirt,
 /obj/structure/machinery/camera/autoname,
+/obj/structure/machinery/light/blue{
+	dir = 1
+	},
 /turf/open/floor/prison/green/north,
 /area/lazarus/hydroponics/vegetation)
 "aMt" = (
@@ -15113,6 +15119,7 @@
 	},
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/objective_landmark/science,
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/comms/captain)
 "aPd" = (
@@ -28353,6 +28360,9 @@
 /turf/open/floor/interior/plastic/alt,
 /area/lazarus/medbay)
 "hbc" = (
+/obj/structure/machinery/light/blue{
+	dir = 8
+	},
 /turf/open/floor/prison/green/west,
 /area/lazarus/hydroponics)
 "hbi" = (
@@ -30262,6 +30272,7 @@
 	color = "#8eaeb0"
 	},
 /obj/effect/landmark/crap_item,
+/obj/effect/landmark/objective_landmark/close,
 /turf/open/floor/prison/bright_clean2,
 /area/lazarus/quart)
 "hWk" = (
@@ -33583,18 +33594,12 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "jMX" = (
 /obj/structure/closet/crate,
-/obj/item/ammo_magazine/rifle/mar40,
-/obj/item/ammo_magazine/rifle/mar40,
-/obj/item/ammo_magazine/rifle/mar40,
-/obj/item/ammo_magazine/rifle/mar40,
-/obj/item/ammo_magazine/rifle/mar40,
-/obj/item/ammo_magazine/rifle/mar40/extended,
-/obj/item/ammo_magazine/rifle/mar40/extended,
 /obj/effect/landmark/objective_landmark/medium,
 /obj/effect/decal/lv_decals/red_mud_corner,
 /obj/effect/decal/lv_decals/red_mud_corner{
 	dir = 4
 	},
+/obj/item/ammo_magazine/rifle/lmg,
 /turf/open/floor/interior/wood/alt,
 /area/lazarus/ground/barrens/central_barrens)
 "jNk" = (
@@ -35341,6 +35346,7 @@
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/jungle/north_west_jungle)
 "kIl" = (
+/obj/structure/machinery/light/blue,
 /turf/open/floor/prison/green,
 /area/lazarus/hydroponics)
 "kIt" = (
@@ -46658,7 +46664,6 @@
 	dir = 1
 	},
 /obj/item/tool/crowbar/tactical,
-/obj/effect/landmark/objective_landmark/science,
 /obj/structure/surface/table/reinforced/prison{
 	color = "#98a3ab"
 	},
@@ -71322,7 +71327,7 @@ pct
 qAv
 aIk
 pBB
-aHL
+aQz
 pBB
 pBB
 pBB
@@ -78700,7 +78705,7 @@ aKJ
 aKJ
 aLd
 aKU
-aKF
+aKJ
 aKo
 aJR
 aJz
@@ -78924,7 +78929,7 @@ aKV
 aKt
 aLe
 aKV
-aKG
+aKq
 aKp
 aJS
 aJz
@@ -82004,7 +82009,7 @@ alw
 akh
 akh
 akh
-akD
+agt
 lEx
 axB
 axt
@@ -83400,7 +83405,7 @@ aKi
 aRH
 piK
 piK
-xwk
+afl
 oDZ
 aLl
 piK
@@ -83853,7 +83858,7 @@ mKW
 mKW
 oDZ
 oDZ
-mKW
+abD
 aKh
 aeC
 fkT
@@ -84080,7 +84085,7 @@ aKS
 piK
 aeC
 piK
-fkT
+sxN
 aiE
 fkT
 qet
@@ -84296,7 +84301,7 @@ aKi
 aKi
 aRD
 aLU
-aKC
+aKm
 aKA
 aKz
 aKT
@@ -84305,7 +84310,7 @@ aKz
 aKi
 fkT
 aRp
-aHB
+aHC
 fkT
 qet
 vgY
@@ -85591,7 +85596,7 @@ abL
 abL
 abL
 acV
-abV
+wIH
 abT
 abQ
 abL
@@ -85922,7 +85927,7 @@ aNH
 aCM
 aCq
 aBE
-aBC
+aBB
 mgm
 mgm
 mgm
@@ -86034,7 +86039,7 @@ abL
 abL
 abL
 abL
-abL
+wUO
 abL
 abQ
 abL
@@ -86092,8 +86097,8 @@ gry
 gry
 gry
 gry
-aKC
-aKC
+aKm
+aKm
 aKm
 aJN
 aIQ
@@ -86594,7 +86599,7 @@ aBz
 aCN
 aCs
 aBz
-aBC
+aBB
 mgm
 mgm
 mgm
@@ -88185,7 +88190,7 @@ viS
 oAi
 xDP
 klx
-xDP
+klx
 gdk
 osZ
 "}
@@ -88847,8 +88852,8 @@ tXl
 auw
 auw
 azs
-auw
-axC
+azX
+aaa
 auA
 mgm
 mgm
@@ -93178,7 +93183,7 @@ sJV
 tua
 aNR
 xvL
-sJV
+ahs
 pgu
 oka
 jja

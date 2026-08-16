@@ -2528,9 +2528,9 @@
 /turf/open/floor/almayer/test_floor5,
 /area/lazarus/ground/barrens/north_barrens)
 "Kd" = (
-/obj/effect/landmark/corpsespawner/wygoon,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/corpsespawner/pmc,
 /turf/open/shuttle/dropship/can_surgery/light_grey_single_wide_up_to_down,
 /area/lazarus/crashed_shuttle)
 "Kq" = (
