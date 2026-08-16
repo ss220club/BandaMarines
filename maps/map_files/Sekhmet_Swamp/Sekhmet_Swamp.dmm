@@ -4656,10 +4656,6 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/strata/floor2,
 /area/sekhmet/int_glass/hosptial)
-"aXq" = (
-/obj/structure/machinery/chem_storage/medbay,
-/turf/open/floor/kutjevo/tan/plate,
-/area/sekhmet/int_glass/hosptial)
 "aXx" = (
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/strata/multi_tiles/west,
@@ -95120,7 +95116,7 @@ abc
 wlK
 pUT
 xvx
-aXq
+rNY
 fkc
 xvx
 xvx
