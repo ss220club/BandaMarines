@@ -2,6 +2,9 @@
 "a" = (
 /turf/closed/wall/lv_outpost/reinforced,
 /area/lazarus/security)
+"b" = (
+/turf/template_noop,
+/area/lazarus/security)
 "d" = (
 /obj/effect/landmark/objective_landmark/medium,
 /turf/open/floor/plating/plating_catwalk/prison,
@@ -35,7 +38,7 @@
 /turf/open/floor/strata/multi_tiles,
 /area/lazarus/security)
 "B" = (
-/turf/template_noop,
+/turf/closed/wall/lv_outpost/reinforced,
 /area/template_noop)
 "C" = (
 /turf/open/floor/plating/plating_catwalk/prison,
@@ -145,41 +148,41 @@
 B
 a
 a
-a
+k
 a
 "}
 (2,1,1) = {"
-a
-a
-L
-x
-a
-"}
-(3,1,1) = {"
-a
-E
-C
-C
-a
-"}
-(4,1,1) = {"
-a
-O
-d
-C
-a
-"}
-(5,1,1) = {"
 a
 Y
 Z
 j
 U
 "}
+(3,1,1) = {"
+a
+O
+d
+C
+a
+"}
+(4,1,1) = {"
+a
+E
+C
+C
+a
+"}
+(5,1,1) = {"
+a
+a
+L
+x
+a
+"}
 (6,1,1) = {"
+b
 a
 a
 a
-k
 a
 "}

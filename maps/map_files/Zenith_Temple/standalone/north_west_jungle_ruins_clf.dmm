@@ -16,6 +16,10 @@
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/template_noop)
+"ac" = (
+/obj/structure/flora/bush/ausbushes/var3/fullgrass,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/lazarus/ground/barrens/west_barrens)
 "ag" = (
 /obj/effect/decal/lv_decals/red_mud_corner{
 	dir = 8
@@ -3670,10 +3674,6 @@
 	},
 /turf/open/floor/interior/wood/alt,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
-"Ql" = (
-/obj/effect/landmark/big_fog_marker,
-/turf/open/auto_turf/lv_grass_weedable/layer0,
-/area/lazarus/ground/barrens/west_barrens)
 "Qp" = (
 /obj/effect/hunter/ancient_temple/deco_border/deco_border3{
 	dir = 1
@@ -7236,7 +7236,7 @@ PS
 PS
 VA
 VA
-GV
+VA
 GV
 ZM
 ZM
@@ -7388,8 +7388,8 @@ GV
 cy
 GV
 GV
-VA
-AZ
+GV
+ac
 PS
 jy
 CY
@@ -7435,12 +7435,12 @@ ft
 PS
 VA
 gh
-VA
-VA
+GV
+GV
 gh
-PS
-VA
-VA
+gh
+GV
+GV
 GV
 ZM
 ZM
@@ -7487,9 +7487,9 @@ GV
 GV
 GV
 gh
-PS
-PS
-Ql
+gh
+gh
+ft
 gh
 GV
 GV

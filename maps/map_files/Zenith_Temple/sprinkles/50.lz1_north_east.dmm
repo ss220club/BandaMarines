@@ -16,7 +16,7 @@
 /turf/open/floor/prison/cell_stripe/west,
 /area/lazarus/landing_zones/lz1)
 "i" = (
-/turf/open/auto_turf/lv_sand/layer1,
+/turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/jungle/east_jungle)
 "j" = (
 /turf/open/floor/plating/prison,
@@ -56,7 +56,7 @@
 	pixel_x = -13;
 	pixel_y = 14
 	},
-/turf/open/auto_turf/lv_sand/layer1,
+/turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/landing_zones/lz1)
 "p" = (
 /turf/closed/wall/strata_ice/jungle,
@@ -98,7 +98,7 @@
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/landing_zones/lz1)
 "G" = (
-/turf/open/auto_turf/lv_sand/layer1,
+/turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/landing_zones/lz1)
 "K" = (
 /obj/effect/decal/lv_decals/red_mud_corner{
@@ -113,7 +113,7 @@
 /area/lazarus/landing_zones/lz1)
 "M" = (
 /obj/effect/sentry_landmark/lz_1/top_right,
-/turf/open/auto_turf/lv_sand/layer1,
+/turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/landing_zones/lz1)
 "O" = (
 /obj/structure/window/framed/lv_colony/reinforced,
@@ -127,7 +127,7 @@
 /area/lazarus/ground/jungle/east_jungle)
 "V" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/turf/open/auto_turf/lv_sand/layer1,
+/turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/landing_zones/lz1)
 "X" = (
 /obj/structure/machinery/door/airlock/multi_tile/lv_double{
@@ -138,7 +138,7 @@
 /area/lazarus/landing_zones/lz1)
 "Y" = (
 /obj/structure/flora/bush/ausbushes/ywflowers,
-/turf/open/auto_turf/lv_sand/layer1,
+/turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/landing_zones/lz1)
 "Z" = (
 /obj/effect/decal/lv_decals/red_mud_corner{

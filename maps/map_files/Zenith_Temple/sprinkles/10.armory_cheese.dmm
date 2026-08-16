@@ -5,6 +5,9 @@
 "b" = (
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/lazarus/security)
+"c" = (
+/turf/template_noop,
+/area/lazarus/security)
 "e" = (
 /obj/effect/landmark/objective_landmark/medium,
 /obj/item/reagent_container/food/snacks/cheesewedge/verymature{
@@ -53,7 +56,7 @@
 /turf/open/floor/strata/multi_tiles,
 /area/lazarus/security)
 "H" = (
-/turf/template_noop,
+/turf/closed/wall/lv_outpost/reinforced,
 /area/template_noop)
 "K" = (
 /obj/effect/decal/warning_stripes{
@@ -161,41 +164,41 @@
 H
 a
 a
-a
+B
 a
 "}
 (2,1,1) = {"
-a
-a
-k
-X
-a
-"}
-(3,1,1) = {"
-a
-M
-b
-b
-a
-"}
-(4,1,1) = {"
-a
-K
-e
-b
-a
-"}
-(5,1,1) = {"
 a
 L
 T
 F
 N
 "}
+(3,1,1) = {"
+a
+K
+e
+b
+a
+"}
+(4,1,1) = {"
+a
+M
+b
+b
+a
+"}
+(5,1,1) = {"
+a
+a
+k
+X
+a
+"}
 (6,1,1) = {"
+c
 a
 a
 a
-B
 a
 "}

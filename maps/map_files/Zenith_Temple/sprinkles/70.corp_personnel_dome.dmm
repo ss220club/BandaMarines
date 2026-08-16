@@ -22,7 +22,7 @@
 /obj/structure/pipes/standard/simple/hidden/cyan{
 	dir = 5
 	},
-/turf/open/auto_turf/lv_sand/layer1,
+/turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/colony/west_tcomms_road)
 "ae" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
@@ -32,7 +32,7 @@
 /obj/structure/pipes/standard/simple/hidden/cyan{
 	dir = 4
 	},
-/turf/open/auto_turf/lv_sand/layer1,
+/turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/colony/west_tcomms_road)
 "af" = (
 /obj/item/tool/warning_cone{
@@ -79,7 +79,7 @@
 "aj" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/pipes/standard/simple/hidden/cyan,
-/turf/open/auto_turf/lv_sand/layer1,
+/turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/colony/west_tcomms_road)
 "ak" = (
 /obj/structure/fence/dark,
@@ -1682,7 +1682,7 @@
 /obj/structure/pipes/standard/simple/hidden/cyan{
 	dir = 4
 	},
-/turf/open/auto_turf/lv_sand/layer1,
+/turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/colony/west_tcomms_road)
 "He" = (
 /obj/structure/bed/hybrisa/bunkbed4{
@@ -1902,9 +1902,6 @@
 	},
 /turf/open/floor/prison/brown/north,
 /area/lazarus/secure_storage)
-"KL" = (
-/turf/open/auto_turf/lv_sand/layer1,
-/area/lazarus/ground/colony/west_tcomms_road)
 "KR" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
 /turf/open/auto_turf/lv_grass_weedable/layer0,
@@ -3626,9 +3623,9 @@ Xc
 bu
 ur
 ur
-KL
-KL
-KL
+rb
+rb
+rb
 Hc
 rb
 uz
@@ -3650,11 +3647,11 @@ Xc
 Xc
 Xc
 Xc
-KL
+rb
 Xb
-KL
-KL
-KL
+rb
+rb
+rb
 ae
 Mi
 LR

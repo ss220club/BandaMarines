@@ -1070,7 +1070,7 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 1
 	},
-/turf/open/auto_turf/lv_sand/layer1,
+/turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/caves/south_west_caves)
 "tQ" = (
 /obj/structure/prop/ice_colony/surveying_device{
@@ -1689,7 +1689,7 @@
 /area/strata/interior/out_of_bounds)
 "Ed" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/turf/open/auto_turf/lv_sand/layer1,
+/turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/caves/south_west_caves)
 "Em" = (
 /obj/effect/hunter/ancient_temple/deco_border,
@@ -2206,7 +2206,7 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 4
 	},
-/turf/open/auto_turf/lv_sand/layer1,
+/turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/caves/south_west_caves)
 "Lr" = (
 /obj/item/stack/sheet/wood,
@@ -2361,7 +2361,7 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 5
 	},
-/turf/open/auto_turf/lv_sand/layer1,
+/turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/caves/south_west_caves)
 "Oj" = (
 /obj/item/device/flashlight/lamp/tripod{
@@ -2784,7 +2784,7 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 1
 	},
-/turf/open/auto_turf/lv_sand/layer1,
+/turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/caves/south_west_caves)
 "Us" = (
 /obj/effect/landmark/objective_landmark/medium,
@@ -2885,9 +2885,6 @@
 "VL" = (
 /turf/closed/wall/strata_ice/jungle,
 /area/strata/interior/out_of_bounds)
-"VV" = (
-/turf/open/auto_turf/lv_sand/layer1,
-/area/lazarus/ground/caves/south_west_caves)
 "VZ" = (
 /turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/strata/interior/out_of_bounds)
@@ -5850,7 +5847,7 @@ VL
 iY
 oL
 ag
-VV
+ag
 Lp
 mG
 mG
@@ -5902,7 +5899,7 @@ jp
 iY
 eL
 Ed
-VV
+ag
 mG
 mG
 VL
@@ -5953,7 +5950,7 @@ VL
 iY
 iY
 YQ
-VV
+ag
 pj
 mG
 mG

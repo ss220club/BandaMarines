@@ -5,7 +5,7 @@
 	pixel_x = -13;
 	pixel_y = 14
 	},
-/turf/open/auto_turf/lv_sand/layer1,
+/turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/landing_zones/lz1)
 "c" = (
 /obj/effect/decal/lv_decals/red_mud_corner{
@@ -44,7 +44,7 @@
 /area/lazarus/landing_zones/lz1)
 "A" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/turf/open/auto_turf/lv_sand/layer1,
+/turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/landing_zones/lz1)
 "C" = (
 /turf/open/floor/plating,
@@ -57,7 +57,7 @@
 /turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/landing_zones/lz1)
 "L" = (
-/turf/open/auto_turf/lv_sand/layer1,
+/turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/landing_zones/lz1)
 "V" = (
 /obj/structure/machinery/floodlight/landing{

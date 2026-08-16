@@ -2,9 +2,6 @@
 "a" = (
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/landing_zones/lz2)
-"b" = (
-/turf/open/auto_turf/lv_sand/layer1,
-/area/lazarus/ground/jungle/west_jungle)
 "c" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
 /turf/open/auto_turf/lv_sand/layer0,
@@ -195,7 +192,7 @@ a
 a
 "}
 (6,1,1) = {"
-b
+j
 O
 u
 E

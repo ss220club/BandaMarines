@@ -1,4 +1,14 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/open/floor/prison/brown_bright/angled/west,
+/area/lazarus/main_hall)
+"b" = (
+/obj/structure/machinery/light/blue,
+/turf/open/floor/prison/brown_bright/angled/west,
+/area/lazarus/main_hall)
 "c" = (
 /turf/closed/wall/lv_outpost/reinforced,
 /area/lazarus/security)
@@ -163,13 +173,6 @@
 	},
 /turf/open/floor/prison/brown/west,
 /area/lazarus/main_hall)
-"H" = (
-/obj/structure/machinery/camera/autoname{
-	dir = 4
-	},
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/prison/brown_bright/angled/east,
-/area/lazarus/main_hall)
 "I" = (
 /turf/open/floor/prison/bright_clean2,
 /area/lazarus/main_hall)
@@ -237,11 +240,6 @@
 /obj/structure/pipes/standard/simple/hidden/cyan,
 /turf/open/floor/prison/brown_bright/corner/north,
 /area/lazarus/main_hall)
-"V" = (
-/obj/structure/machinery/light/blue,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/prison/brown_bright/angled/east,
-/area/lazarus/main_hall)
 "W" = (
 /obj/structure/pipes/standard/simple/hidden/cyan{
 	dir = 4
@@ -270,8 +268,8 @@ A
 f
 I
 w
-V
-c
+B
+e
 "}
 (2,1,1) = {"
 t
@@ -280,7 +278,7 @@ j
 f
 v
 Y
-H
+B
 "}
 (3,1,1) = {"
 Z
@@ -334,7 +332,7 @@ B
 f
 O
 n
-j
+a
 "}
 (9,1,1) = {"
 p
@@ -342,6 +340,6 @@ h
 I
 I
 W
-j
-e
+b
+c
 "}

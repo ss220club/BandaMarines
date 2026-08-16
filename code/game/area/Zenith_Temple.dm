@@ -375,11 +375,6 @@
 	icon_state = "security"
 	minimap_color = MINIMAP_AREA_SEC
 
-/area/lazarus/captain
-	name = "\improper Nexus Dome -  Command Center"
-	icon_state = "captain"
-	minimap_color = MINIMAP_AREA_COMMAND
-
 /area/lazarus/kitchen
 	name = "\improper Nexus Dome - Kitchen"
 	icon_state = "kitchen"
@@ -419,9 +414,14 @@
 	minimap_color = MINIMAP_AREA_ENGI
 
 /area/lazarus/comms
-	name = "\improper Communications Relay"
+	name = "\improper Engeneering Communications Relay"
 	icon_state = "tcomsatcham"
 	minimap_color = MINIMAP_AREA_ENGI
+
+/area/lazarus/comms/captain
+	name = "\improper Nexus Dome -  Command Center Communications Relay"
+	icon_state = "tcomsatcham"
+	minimap_color = MINIMAP_AREA_COMMAND
 
 /area/lazarus/comms/lz1_north
 	name = "\improper North-West LZ1 Communications Relay"
