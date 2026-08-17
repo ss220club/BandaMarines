@@ -328,7 +328,7 @@ SUBSYSTEM_DEF(hijack)
 	if(!COOLDOWN_FINISHED(datacore, ares_quarters_cooldown))
 		return FALSE
 	COOLDOWN_START(datacore, ares_quarters_cooldown, 10 MINUTES)
-	shipwide_ai_announcement("ATTENTION! GENERAL QUARTERS. ALL HANDS, MAN YOUR BATTLESTATIONS.", MAIN_AI_SYSTEM, 'sound/effects/GQfullcall.ogg')
+	shipwide_ai_announcement("ВНИМАНИЕ! ОБЩАЯ ТРЕВОГА. ВСЕМУ ЛИЧНОМУ СОСТАВУ ОРГАНИЗОВАТЬ БОЕВЫЕ МЕСТА.", MAIN_AI_SYSTEM, 'sound/effects/GQfullcall.ogg')
 	return TRUE
 
 ///Called when the xeno dropship crashes into the Almayer and announces the current status of various objectives to marines
@@ -341,7 +341,7 @@ SUBSYSTEM_DEF(hijack)
 		if(machine)
 			// Pumps don't care about area power but health
 			new_area_state = machine.operable()
-		message += "[cycled_area] - [new_area_state ? "Online" : "Offline"]\n"
+		message += "[cycled_area.declent_ru(NOMINATIVE)] - [new_area_state ? "Онлайн" : "Оффлайн"]\n"
 		progress_areas[cycled_area] = new_area_state
 
 	message += "\nCritical damage sustained to ship systems. Altitude rapidly decreasing. Initiating sublight burn to exit AO.\nMaintain fueling functionality to initiate quantum jump to [spaceport.name]."
@@ -350,7 +350,7 @@ SUBSYSTEM_DEF(hijack)
 
 ///Called when an area's operable status is changed to announce that it has been changed
 /datum/controller/subsystem/hijack/proc/announce_area_state_change(area/changed_area, new_state)
-	var/message = "[changed_area] - [new_state ? "Online" : "Offline"]"
+	var/message = "[changed_area.declent_ru(NOMINATIVE)] - [new_state ? "Онлайн" : "Оффлайн"]"
 	shipwide_ai_announcement(message, HIJACK_ANNOUNCE, sound('sound/misc/notice2.ogg'))
 
 ///Called to announce to xenos the state of evacuation progression
@@ -373,11 +373,11 @@ SUBSYSTEM_DEF(hijack)
 		progress_areas[cycled_area] = new_area_state
 		if(new_area_state)
 			// Powered: xenos interested to know this
-			xeno_warning_areas += "[cycled_area], "
+			xeno_warning_areas += "[cycled_area.declent_ru(NOMINATIVE)], "
 			continue
 		if(repairable)
 			// Not powered, but can be powered: marines interested to know this
-			marine_warning_areas += "[cycled_area], "
+			marine_warning_areas += "[cycled_area.declent_ru(NOMINATIVE)], "
 		else
 			broken_unrepairable++
 
@@ -399,19 +399,19 @@ SUBSYSTEM_DEF(hijack)
 
 		switch(announce)
 			if(1)
-				xeno_announcement(SPAN_XENOANNOUNCE("The talls are a quarter of the way towards their goals. Disable the following areas: [xeno_warning_areas]"), hive.hivenumber, XENO_HIJACK_ANNOUNCE)
+				xeno_announcement(SPAN_XENOANNOUNCE("Носители достигли четверти пути к своим целям. Отключите следующие области: [xeno_warning_areas]"), hive.hivenumber, XENO_HIJACK_ANNOUNCE) // SS220 EDIT ADDICTION
 			if(2)
-				xeno_announcement(SPAN_XENOANNOUNCE("The talls are half way towards their goals. Disable the following areas: [xeno_warning_areas]"), hive.hivenumber, XENO_HIJACK_ANNOUNCE)
+				xeno_announcement(SPAN_XENOANNOUNCE("Носители достигли половины пути к своим целям. Отключите следующие области: [xeno_warning_areas]"), hive.hivenumber, XENO_HIJACK_ANNOUNCE) // SS220 EDIT ADDICTION
 			if(3)
-				xeno_announcement(SPAN_XENOANNOUNCE("The talls are three quarters of the way towards their goals. Disable the following areas: [xeno_warning_areas]"), hive.hivenumber, XENO_HIJACK_ANNOUNCE)
+				xeno_announcement(SPAN_XENOANNOUNCE("Носители достигли трёх четвертей пути к своим целям. Отключите следующие области: [xeno_warning_areas]"), hive.hivenumber, XENO_HIJACK_ANNOUNCE) // SS220 EDIT ADDICTION
 			if(4)
-				xeno_announcement(SPAN_XENOANNOUNCE("The talls have completed their goals!"), hive.hivenumber, XENO_HIJACK_ANNOUNCE)
+				xeno_announcement(SPAN_XENOANNOUNCE("Носители достигли своих целей!"), hive.hivenumber, XENO_HIJACK_ANNOUNCE)
 
 	switch(announce)
 		if(1)
-			marine_announcement("Emergency fuel replenishment is at 50%. Tachyon field accelerators currently charging.[marine_warning_areas ? "\nTo increase speed, restore power to the following areas: [marine_warning_areas]" : marine_no_repairable]", HIJACK_ANNOUNCE)
+			marine_announcement("Аварийная заправка выполнена на 50%. Tachyon field accelerators currently charging.[marine_warning_areas ? "\nTo increase speed, restore power to the following areas: [marine_warning_areas]" : marine_no_repairable]", HIJACK_ANNOUNCE)
 		if(2)
-			marine_announcement("Emergency fuel replenishment is at 100%. Tachyon field accelerators fully charged, quantum jump initiating. Ensure constant supply of fuel to the tachyon field accelerators.[marine_warning_areas ? "\nTo increase speed, restore power to the following areas: [marine_warning_areas]" : marine_no_repairable]", HIJACK_ANNOUNCE)
+			marine_announcement("Аварийная заправка выполнена на 100%. Tachyon field accelerators fully charged, quantum jump initiating. Ensure constant supply of fuel to the tachyon field accelerators. [marine_warning_areas ? "Чтобы увеличить скорость загрузки топлива, восстановите питание станций заправки в следующих областях: [marine_warning_areas]." : marine_no_repairable]", HIJACK_ANNOUNCE) // SS220 EDIT ADDICTION
 		if(3)
 			shipwide_ai_announcement("Tachyon quantum jump progress at 50 percent. Ensure constant supply of fuel to the tachyon field accelerators.[marine_warning_areas ? "\nTo increase speed, restore power to the following areas: [marine_warning_areas]" : marine_no_repairable]", HIJACK_ANNOUNCE, sound('sound/misc/notice2.ogg'))
 		if(4)
@@ -459,7 +459,7 @@ SUBSYSTEM_DEF(hijack)
 		return FALSE
 
 	evac_status = EVACUATION_STATUS_INITIATED
-	ai_announcement("Attention. Emergency. All personnel must evacuate immediately.", 'sound/AI/evacuate.ogg')
+	ai_announcement("Тревога. Чрезвычайная ситуация. Всему персоналу необходимо немедленно эвакуироваться.", 'sound/AI/evacuate.ogg')
 
 	for(var/obj/structure/machinery/status_display/cycled_status_display in GLOB.machines)
 		if(is_mainship_level(cycled_status_display.z))
@@ -477,7 +477,7 @@ SUBSYSTEM_DEF(hijack)
 	evac_status = EVACUATION_STATUS_NOT_INITIATED
 	deactivate_lifeboats()
 	if(!silent)
-		ai_announcement("Evacuation has been cancelled.", 'sound/AI/evacuate_cancelled.ogg')
+		ai_announcement("Эвакуация была отменена.", 'sound/AI/evacuate_cancelled.ogg')
 
 	for(var/obj/structure/machinery/status_display/cycled_status_display in GLOB.machines)
 		if(is_mainship_level(cycled_status_display.z))
@@ -598,7 +598,7 @@ SUBSYSTEM_DEF(hijack)
 			if(!length(hive.totalXenos))
 				continue
 
-			xeno_announcement(SPAN_XENOANNOUNCE("The talls may be attempting to take their ship down with them in Engineering, stop them!"), hive.hivenumber, XENO_HIJACK_ANNOUNCE)
+			xeno_announcement(SPAN_XENOANNOUNCE("Носители пытаются запустить систему самоуничтожения в инженерном отделе, остановите их!"), hive.hivenumber, XENO_HIJACK_ANNOUNCE)
 
 	adjust_generator_overload_count(new_overloading ? 1 : -1)
 
@@ -637,7 +637,7 @@ SUBSYSTEM_DEF(hijack)
 
 /datum/controller/subsystem/hijack/proc/announce_sd_halfway()
 	ares_sd_announced = TRUE
-	shipwide_ai_announcement("ALERT: Fusion reactor meltdown has reached fifty percent.", HIJACK_ANNOUNCE, sound('sound/misc/notice2.ogg'))
+	shipwide_ai_announcement("ТРЕВОГА: Расплавление термоядерного реактора достигло пятидесяти процентов.", HIJACK_ANNOUNCE, sound('sound/misc/notice2.ogg'))
 
 /datum/controller/subsystem/hijack/proc/detonate_sd()
 	set waitfor = FALSE
@@ -657,7 +657,7 @@ SUBSYSTEM_DEF(hijack)
 	sleep(7 SECONDS)
 	shakeship(2, 10, TRUE)
 
-	shipwide_ai_announcement("ALERT: Fusion reactors dangerously overloaded. Runaway meltdown in reactor core imminent.", HIJACK_ANNOUNCE, sound('sound/misc/notice2.ogg'))
+	shipwide_ai_announcement("ТРЕВОГА: Термоядерные реакторы находятся в состоянии критической перегрузки. Неизбежно расплавление активной зоны реактора.", HIJACK_ANNOUNCE, sound('sound/misc/notice2.ogg'))
 	sleep(5 SECONDS)
 
 	var/sound_picked = pick('sound/theme/nuclear_detonation1.ogg','sound/theme/nuclear_detonation2.ogg')

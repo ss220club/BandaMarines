@@ -92,8 +92,8 @@
 			human.visible_message(SPAN_DANGER("[human] shrugs off the neurotoxin!"))
 			return original_damage //species like zombies or synths are immune to neurotoxin
 		if (buffed_slashes)
-			to_chat(bound_xeno, SPAN_XENOHIGHDANGER("Our slash applied a large amount of neurotoxin!"))
-			to_chat(carbon_target, SPAN_XENOHIGHDANGER("You feel your muscles, as [bound_xeno] slashes you with its neurotoxin coated claws!"))
+			to_chat(bound_xeno, SPAN_XENOHIGHDANGER("Наш удар наносит большое количество нейротоксина!"))
+			to_chat(carbon_target, SPAN_XENOHIGHDANGER("Ваши мыщцы дёргаются, когда [bound_xeno.declent_ru(NOMINATIVE)] режет вас когтями, наполненные нейротоксином!"))
 			var/datum/effects/sentinel_neuro_stacks/sns = null
 			for (var/datum/effects/sentinel_neuro_stacks/sentinel_neuro_stacks in human.effects_list)
 				sns = sentinel_neuro_stacks
@@ -138,8 +138,8 @@
 	if (!check_and_use_plasma_owner())
 		return
 
-	slowspit_user.visible_message(SPAN_XENOWARNING("[slowspit_user] spits at [target]!"),
-	SPAN_XENOWARNING("You spit at [target]!") )
+	slowspit_user.visible_message(SPAN_XENOWARNING("[capitalize(slowspit_user.declent_ru(NOMINATIVE))] плюёт в сторону [target.declent_ru(GENITIVE)]!"),
+	SPAN_XENOWARNING("Вы плюёте в сторону [target.declent_ru(GENITIVE)]!"))
 	var/sound_to_play = pick(1, 2) == 1 ? 'sound/voice/alien_spitacid.ogg' : 'sound/voice/alien_spitacid2.ogg'
 	playsound(slowspit_user.loc, sound_to_play, 25, 1)
 
@@ -170,8 +170,8 @@
 	if (!check_and_use_plasma_owner())
 		return
 
-	scatterspit_user.visible_message(SPAN_XENOWARNING("[scatterspit_user] spits at [target]!"),
-	SPAN_XENOWARNING("You spit at [target]!") )
+	scatterspit_user.visible_message(SPAN_XENOWARNING("[capitalize(scatterspit_user.declent_ru(NOMINATIVE))] плюёт в сторону [target.declent_ru(GENITIVE)]!"), // SS220 EDIT ADDICTION
+	SPAN_XENOWARNING("Вы плюёте в сторону [target.declent_ru(GENITIVE)]!")) // SS220 EDIT ADDICTION
 	var/sound_to_play = pick(1, 2) == 1 ? 'sound/voice/alien_spitacid.ogg' : 'sound/voice/alien_spitacid2.ogg'
 	playsound(scatterspit_user.loc, sound_to_play, 25, 1)
 
@@ -201,7 +201,7 @@
 	if (istype(behavior))
 		behavior.buffed_slashes = behavior.max_buffed_slashes
 
-	to_chat(paraslash_user, SPAN_XENOHIGHDANGER("Our next three slashes will apply neurotoxin!"))
+	to_chat(paraslash_user, SPAN_XENOHIGHDANGER("Наши следующие 3 атаки применят нейротоксин!"))
 	button.icon_state = "template_active"
 
 	addtimer(CALLBACK(src, PROC_REF(unbuff_slash)), buff_duration)
@@ -220,7 +220,7 @@
 			return
 		behavior.buffed_slashes = 0
 
-	to_chat(unbuffslash_user, SPAN_XENODANGER("We have waited too long, our slash will no longer apply neurotoxin!"))
+	to_chat(unbuffslash_user, SPAN_XENODANGER("Мы чувствуем, что действие нейротоксина в наших когтях ослабевает!"))
 	button.icon_state = "template_xeno"
 
 /datum/action/xeno_action/activable/draining_bite/use_ability(atom/target)

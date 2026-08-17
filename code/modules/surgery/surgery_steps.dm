@@ -144,7 +144,7 @@ affected_limb, or location vars. Also, in that case there may be a wait between 
 		var/list/message = new() //Duration hint messages.
 
 		if(self_surgery)
-			message += "[pick("performing surgery", "working", "operating")] on [pick("yourself", "your own body")] is [pick("awkward", "tricky")]"
+			message += "[pick("проводить операцию", "делать это", "operating")] [pick("на себе", "на собственном теле")] [pick("неудобно", "непросто")]" // SS220 EDIT ADDICTION
 
 		switch(tool_modifier) //Implicitly means tool exists as accept_any_item item or accept_hand would = 1x. No message for 1x - that's the default.
 			if(SURGERY_TOOL_MULT_SUBOPTIMAL)
@@ -201,8 +201,8 @@ affected_limb, or location vars. Also, in that case there may be a wait between 
 	else if(target.stat == CONSCIOUS && prob(pain_failure_chance)) //Pain can cause a step to fail.
 		do_after(user, max(rand(step_duration * 0.1, step_duration * 0.5), 0.5), INTERRUPT_ALL|INTERRUPT_DIFF_INTENT,
 				BUSY_ICON_FRIENDLY, target, INTERRUPT_MOVED, BUSY_ICON_MEDICAL) //Brief do_after so that the pain interrupt doesn't happen instantly.
-		to_chat(user, SPAN_DANGER("[target] moved during the surgery! Use anesthetics or painkillers!"))
-		to_chat(target, SPAN_DANGER("The pain was too much, you couldn't hold still!"))
+		to_chat(user, SPAN_DANGER("[target] пошевелился во время операции! Используйте анестетики или обезболивающее!")) // SS220 EDIT ADDICTION
+		to_chat(target, SPAN_DANGER("Боль cтала невыносимой, вы не можете её терпеть!"))
 		if(failure(user, target, target_zone, tool, tool_type, surgery)) //Failure returns TRUE if the step should complete anyway.
 			advance = TRUE
 		target.emote("pain")
@@ -211,13 +211,13 @@ affected_limb, or location vars. Also, in that case there may be a wait between 
 	else if(prob(surgery_failure_chance))
 		do_after(user, max(rand(step_duration * 0.1, step_duration * 0.5), 0.5), INTERRUPT_ALL|INTERRUPT_DIFF_INTENT,
 				BUSY_ICON_FRIENDLY, target, INTERRUPT_MOVED, BUSY_ICON_MEDICAL) //Brief do_after so that the interrupt doesn't happen instantly.
-		user.visible_message(SPAN_DANGER("[user] is struggling to perform surgery."),
+		user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] is struggling to perform surgery."),
 		SPAN_DANGER("You are struggling to perform the surgery with these tools and conditions!"))
 		if(failure(user, target, target_zone, tool, tool_type, surgery)) //Failure returns TRUE if the step should complete anyway.
 			advance = TRUE
 		target.emote("pain")
 		play_failure_sound(user, target, target_zone, tool, surgery)
-		msg_admin_niche("[user] failed a [surgery] step on [target] because of [failure_penalties] failure possibility penalties ([surgery_failure_chance]%)")
+		msg_admin_niche("[capitalize(user.declent_ru(NOMINATIVE))] failed a [surgery] step on [target] because of [failure_penalties] failure possibility penalties ([surgery_failure_chance]%)")
 
 	else //Help intent.
 		if(do_after(user, step_duration, INTERRUPT_ALL|INTERRUPT_DIFF_INTENT, BUSY_ICON_FRIENDLY, target, INTERRUPT_MOVED, BUSY_ICON_MEDICAL))
@@ -250,7 +250,7 @@ affected_limb, or location vars. Also, in that case there may be a wait between 
 
 ///This is used for beginning-step narration. tool_type may be a typepath or simply '1'.
 /datum/surgery_step/proc/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
-	user.visible_message(SPAN_NOTICE("[user] begins to perform surgery on [target]."),
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins to perform surgery on [target]."),
 		SPAN_NOTICE("You begin to perform surgery on [target]..."))
 
 /// Plays Preop Sounds
@@ -261,7 +261,7 @@ affected_limb, or location vars. Also, in that case there may be a wait between 
 
 ///This is used for end-step narration and relevant success changes - whatever the step is meant to do, if it isn't just flavour. tool_type may be a typepath or simply '1'.
 /datum/surgery_step/proc/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
-	user.visible_message(SPAN_NOTICE("[user] succeeds!"),
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] succeeds!"),
 			SPAN_NOTICE("You succeed."))
 
 /// Plays the selected success sound
@@ -273,7 +273,7 @@ affected_limb, or location vars. Also, in that case there may be a wait between 
 /**This is used for failed-step narration and relevant failure changes, often damage etc. If it returns TRUE, the step succeeds anyway.
 tool_type may be a typepath or simply '1'. Note that a first step done on help-intent doesn't call failure(), it just ends harmlessly.**/
 /datum/surgery_step/proc/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
-	user.visible_message(SPAN_NOTICE("[user] fails to finish the surgery."),
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] fails to finish the surgery."),
 			SPAN_NOTICE("You fail to finish the surgery."))
 	return FALSE
 

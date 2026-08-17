@@ -237,7 +237,7 @@
 	new_human.equip_to_slot_or_del(new back_item(new_human), WEAR_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/pouch/shotgun/large/beanbag(new_human), WEAR_L_STORE)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/pouch/shotgun/large/slug(new_human), WEAR_R_STORE)
-	new_human.equip_to_slot_or_del(new /obj/item/weapon/shield/riot(new_human), WEAR_L_HAND)
+	new_human.equip_to_slot_or_del(new /obj/item/weapon/shield/riot/riot_mp(new_human), WEAR_L_HAND) //SS220 EDIT
 
 	new_human.equip_to_slot_or_del(new /obj/item/storage/firstaid/regular/response(new_human), WEAR_IN_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/box/flashbangs(new_human), WEAR_IN_BACK)
@@ -281,7 +281,7 @@
 	new_human.equip_to_slot_or_del(new back_item(new_human), WEAR_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/pouch/shotgun/large/beanbag(new_human), WEAR_L_STORE)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/pouch/shotgun/large/slug(new_human), WEAR_R_STORE)
-	new_human.equip_to_slot_or_del(new /obj/item/weapon/shield/riot(new_human), WEAR_L_HAND)
+	new_human.equip_to_slot_or_del(new /obj/item/weapon/shield/riot/riot_mp(new_human), WEAR_L_HAND) //SS220 EDIT
 	new_human.equip_to_slot_or_del(new /obj/item/storage/box/nade_box/tear_gas(new_human), WEAR_R_HAND)
 
 	new_human.equip_to_slot_or_del(new /obj/item/storage/firstaid/regular/response(new_human), WEAR_IN_BACK)
@@ -413,6 +413,7 @@
 	if (new_human.client && new_human.client.prefs && (new_human.client.prefs.backbag == 1))
 		back_item = /obj/item/storage/backpack/security
 
+	new_human.bubble_icon = "lawyer" //SS220 EDIT
 	new_human.equip_to_slot_or_del(new /obj/item/device/radio/headset/almayer/highcom(new_human), WEAR_L_EAR)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/marine/mp/provost/chief(new_human), WEAR_BODY)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/marine/knife(new_human), WEAR_FEET)
@@ -420,6 +421,7 @@
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/big, WEAR_EYES)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/belt/gun/mateba/general/impact(new_human), WEAR_WAIST)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/jacket/marine/provost(new_human), WEAR_JACKET)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/beret/marine/mp/provost/chief(new_human), WEAR_HEAD) //SS220 EDIT
 	new_human.equip_to_slot_or_del(new back_item(new_human), WEAR_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/device/taperecorder(new_human), WEAR_L_STORE)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/pouch/magazine/pistol/pmc_mateba(new_human), WEAR_R_STORE)
