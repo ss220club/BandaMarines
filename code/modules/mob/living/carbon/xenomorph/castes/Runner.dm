@@ -122,7 +122,7 @@
 
 	xeno.visible_message(SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] выпускает залп костяных осколков в сторону [affected_atom.declent_ru(GENITIVE)]!"), SPAN_XENOWARNING("Мы выпускаем залп костяных осколков в сторону [affected_atom.declent_ru(GENITIVE)]!"))
 
-	var/turf/target = locate(affected_atom.x, affected_atom.y, affected_atom.z)
+	var/turf/target = get_turf(affected_atom)
 	var/obj/projectile/projectile = new /obj/projectile(xeno.loc, create_cause_data(initial(xeno.caste_type), xeno))
 
 	var/datum/ammo/ammo_datum = GLOB.ammo_list[ammo_type]
