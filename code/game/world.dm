@@ -161,7 +161,7 @@ GLOBAL_LIST_INIT(reboot_sfx, file2list("config/reboot_sfx.txt"))
 		var/list/legacy_params = params2list(topic_decoded)
 		var/list/status_response = list(
 			"players" = length(GLOB.clients),
-			"stationtime" = worldtime2text(),
+			"stationtime" = duration2text(),
 			"roundtime" = duration2text(),
 			"map" = SSmapping?.configs[GROUND_MAP]?.map_name || "Loading...",
 			"admins" = length(GLOB.admins),
