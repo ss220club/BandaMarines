@@ -87,7 +87,7 @@
 		if(istype(target, /obj/structure/machinery/m56d_hmg))
 			handled = TRUE
 			var/obj/structure/machinery/m56d_hmg/weapon_in_path = target
-			visible_message(SPAN_DANGER("[src] rams [weapon_in_path]!"), SPAN_XENODANGER("We ram [weapon_in_path]!"))
+			visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] таранит [weapon_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы тараним [weapon_in_path.declent_ru(ACCUSATIVE)]!"))
 			playsound(loc, "punch", 25, 1)
 			weapon_in_path.CrusherImpact()
 			. = FALSE
@@ -103,7 +103,7 @@
 		else if(istype(target, /obj/structure/machinery/defenses))
 			handled = TRUE
 			var/obj/structure/machinery/defenses/defenses_in_path = target
-			visible_message(SPAN_DANGER("[src] rams [defenses_in_path]!"), SPAN_XENODANGER("We ram [defenses_in_path]!"))
+			visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] таранит [defenses_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы тараним [defenses_in_path.declent_ru(ACCUSATIVE)]!")) // SS220 EDIT ADDICTION
 			if(!defenses_in_path.unacidable)
 				playsound(loc, "punch", 25, 1)
 				defenses_in_path.stat |= DEFENSE_DAMAGED
@@ -116,7 +116,7 @@
 			if(vending_in_path.unslashable)
 				. = FALSE
 			else
-				visible_message(SPAN_DANGER("[src] smashes straight into [vending_in_path]!"), SPAN_XENODANGER("We smash straight into [vending_in_path]!"))
+				visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается прямо в [vending_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы врезаемся прямо в [vending_in_path.declent_ru(ACCUSATIVE)]!"))
 				playsound(loc, "punch", 25, 1)
 				vending_in_path.tip_over()
 				var/turf/turfs_charged_at = get_diagonal_step(vending_in_path, dir)
@@ -130,7 +130,7 @@
 			if(vending_in_path.unslashable)
 				. = FALSE
 			else
-				visible_message(SPAN_DANGER("[src] smashes straight into [vending_in_path]!"), SPAN_XENODANGER("We smash straight into [vending_in_path]!"))
+				visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается прямо в [vending_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы врезаемся прямо в [vending_in_path.declent_ru(ACCUSATIVE)]!"))
 				playsound(loc, "punch", 25, 1)
 				vending_in_path.tip_over()
 				var/turf/turfs_charged_at = get_diagonal_step(vending_in_path, dir)
@@ -141,7 +141,7 @@
 		else if(istype(target, /obj/structure/machinery/fuelpump))
 			handled = TRUE
 			var/obj/structure/machinery/fuelpump/pump_in_path = target
-			visible_message(SPAN_DANGER("[src] rams [pump_in_path]!"), SPAN_XENODANGER("We ram [pump_in_path]!"))
+			visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] таранит [pump_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы тараним [pump_in_path.declent_ru(ACCUSATIVE)]!"))
 			playsound(loc, "punch", 25, 1)
 			pump_in_path.update_health(melee_damage_upper)
 			. = FALSE
@@ -151,7 +151,7 @@
 		if(istype(target, /obj/structure/barricade))
 			handled = TRUE
 			var/obj/structure/barricade/blockade_in_path = target
-			visible_message(SPAN_DANGER("[src] rams into [blockade_in_path] and skids to a halt!"), SPAN_XENOWARNING("We ram into [blockade_in_path] and skid to a halt!"))
+			visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] таранит [blockade_in_path.declent_ru(ACCUSATIVE)] и останавливается!"), SPAN_XENOWARNING("Мы тараним [blockade_in_path.declent_ru(ACCUSATIVE)] и останавливаемся!"))
 			blockade_in_path.Collided(src)
 			. = FALSE
 
@@ -187,7 +187,7 @@
 			if(fence.cut)
 				. = FALSE
 			else
-				visible_message(SPAN_DANGER("[src] smashes into [fence]!"))
+				visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [fence.declent_ru(ACCUSATIVE)]!"))
 				fence.cut_grille()
 				. = TRUE
 
@@ -195,7 +195,7 @@
 	else if(istype(target, /obj/vehicle/multitile))
 		handled = TRUE
 		var/obj/vehicle/multitile/vehicle_in_path = target
-		visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозим!")) // SS220 EDIT ADDICTION
+		visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] таранит [vehicle_in_path.declent_ru(ACCUSATIVE)] и останавливается!"), SPAN_XENOWARNING("Мы тараним [vehicle_in_path.declent_ru(ACCUSATIVE)] и останавливаемся!"))
 		vehicle_in_path.Collided(src)
 		. = FALSE
 
@@ -205,7 +205,7 @@
 		if(object_in_path.unacidable)
 			. = FALSE
 		else if(object_in_path.anchored)
-			visible_message(SPAN_DANGER("[src] crushes [object_in_path]!"), SPAN_XENODANGER("We crush [object_in_path]!"))
+			visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] раздавливает [object_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы раздавливаем [object_in_path.declent_ru(ACCUSATIVE)]!"))
 			playsound(loc, "punch", 25, 1)
 			object_in_path.deconstruct(FALSE)
 			. = TRUE
@@ -213,7 +213,7 @@
 		else
 			if(object_in_path.buckled_mob)
 				object_in_path.unbuckle()
-			visible_message(SPAN_WARNING("[src] knocks [object_in_path] aside!"), SPAN_XENOWARNING("We knock [object_in_path] aside.")) //Canisters, crates etc. go flying.
+			visible_message(SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] отбрасывает [object_in_path.declent_ru(ACCUSATIVE)] в сторону!"), SPAN_XENOWARNING("Мы отбрасываем [object_in_path.declent_ru(ACCUSATIVE)] в сторону.")) //Canisters, crates etc. go flying. // SS220 EDIT ADDICTION
 			playsound(loc, "punch", 25, 1)
 			var/turf/turfs_to_get = get_diagonal_step(object_in_path, dir)
 			turfs_to_get = get_step_away(turfs_to_get, src)

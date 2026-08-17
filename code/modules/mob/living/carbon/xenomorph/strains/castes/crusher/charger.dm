@@ -276,8 +276,8 @@
 /obj/structure/barricade/handle_charge_collision(mob/living/carbon/xenomorph/xeno, datum/action/xeno_action/onclick/charger_charge/charger_ability)
 	if(charger_ability.momentum)
 		visible_message(
-			SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] врезается в [declent_ru(ACCUSATIVE)] и тормозит!"), // SS220 EDIT ADDICTION
-			SPAN_XENOWARNING("Мы врезаемся в [declent_ru(ACCUSATIVE)] и тормозим!") // SS220 EDIT ADDICTION
+			SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] врезается в [declent_ru(ACCUSATIVE)] и тормозит!"),
+			SPAN_XENOWARNING("Мы врезаемся в [declent_ru(ACCUSATIVE)] и тормозим!")
 		)
 		take_damage(CHARGER_DAMAGE_CADE)
 		playsound(src, barricade_hitsound, 25, TRUE)

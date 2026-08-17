@@ -492,7 +492,7 @@
 			qdel(acid_t)
 
 	else if(istype(acid_t, /turf))
-		visible_message(SPAN_XENODANGER("[capitalize(acid_t.declent_ru(NOMINATIVE))] сильно повреждается покрывающей [genderize_ru(acid_t.gender, "его", "её", "его", "их")] кислотой!")) // SS220 EDIT ADDICTION
+		visible_message(SPAN_XENODANGER("[capitalize(acid_t.declent_ru(NOMINATIVE))] сильно повреждается покрывающей [genderize_ru(acid_t.gender, "его", "её", "его", "их")] кислотой!"))
 		if(istype(acid_t, /turf/closed/wall))
 			var/turf/closed/wall/wall = acid_t
 			new /obj/effect/acid_hole(wall)
@@ -511,11 +511,11 @@
 		window.deconstruct(disassembled = FALSE)
 
 	else if(istype(acid_t, /obj/structure/barricade))
-		visible_message(SPAN_XENODANGER("[capitalize(acid_t.declent_ru(NOMINATIVE))] трещит и рассыпается, когда кислота полностью разъедает [genderize_ru(acid_t.gender, "его", "её", "его", "их")]!")) // SS220 EDIT ADDICTION
+		visible_message(SPAN_XENODANGER("[capitalize(acid_t.declent_ru(NOMINATIVE))] трещит и рассыпается, когда кислота полностью разъедает [genderize_ru(acid_t.gender, "его", "её", "его", "их")]!"))
 		// Don't delete it, just damaj
 
 	else if(istype(acid_t, /obj/structure/machinery/fuelpump))
-		visible_message(SPAN_XENODANGER("[capitalize(acid_t.declent_ru(NOMINATIVE))] трещит и рассыпается, когда кислота полностью разъедает [genderize_ru(acid_t.gender, "его", "её", "его", "их")]!")) // SS220 EDIT ADDICTION
+		visible_message(SPAN_XENODANGER("[capitalize(acid_t.declent_ru(NOMINATIVE))] трещит и рассыпается, когда кислота полностью разъедает [genderize_ru(acid_t.gender, "его", "её", "его", "их")]!"))
 
 	else if(istype(acid_t, /obj/structure/dropship_equipment))
 		var/obj/structure/dropship_equipment/module = acid_t

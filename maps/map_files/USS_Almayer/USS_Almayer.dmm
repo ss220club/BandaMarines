@@ -199,6 +199,10 @@
 /obj/structure/lattice,
 /turf/open/space/basic,
 /area/space)
+"aaD" = (
+/obj/structure/machinery/fuelpump,
+/turf/open/floor/almayer,
+/area/almayer/lifeboat_pumps/south2)
 "aaE" = (
 /turf/closed/wall/almayer/outer/internal,
 /area/almayer/middeck/engineer)
@@ -6686,8 +6690,8 @@
 /area/almayer/shipboard/panic)
 "aqB" = (
 /obj/structure/blocker/fuelpump,
-/turf/open/floor/almayer,
-/area/almayer/lifeboat_pumps/south1)
+/turf/open/floor/almayer/mono,
+/area/almayer/lifeboat_pumps/south2)
 "aqC" = (
 /obj/structure/machinery/cm_vending/sorted/tech/electronics_storage{
 	req_access = null;
@@ -11585,6 +11589,10 @@
 	},
 /turf/open/floor/almayer/silver/east,
 /area/almayer/command/cic)
+"aDL" = (
+/obj/structure/blocker/fuelpump,
+/turf/open/floor/almayer,
+/area/almayer/lifeboat_pumps/south2)
 "aDM" = (
 /obj/structure/surface/table/reinforced/almayer_B,
 /obj/structure/machinery/faxmachine/uscm/almayer/command{
@@ -20583,6 +20591,10 @@
 /obj/effect/decal/heavy_cable/node_s_w,
 /turf/open/floor/plating/plating_catwalk/no_build,
 /area/almayer/middeck/maintenance/sp)
+"baM" = (
+/obj/structure/blocker/fuelpump,
+/turf/open/floor/almayer,
+/area/almayer/lifeboat_pumps/south1)
 "baN" = (
 /obj/structure/pipes/standard/simple/hidden/supply,
 /turf/open/floor/almayer/plate,
@@ -20720,6 +20732,10 @@
 	},
 /turf/open/floor/almayer/no_build/plate,
 /area/almayer/middeck/medical)
+"bbi" = (
+/obj/structure/machinery/fuelpump,
+/turf/open/floor/almayer,
+/area/almayer/lifeboat_pumps/north1)
 "bbj" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "NW-out";
@@ -23050,6 +23066,10 @@
 /obj/structure/surface/rack,
 /turf/open/floor/almayer/no_build/plate,
 /area/almayer/middeck/maintenance/aft)
+"bgG" = (
+/obj/structure/blocker/fuelpump,
+/turf/open/floor/almayer/mono,
+/area/almayer/lifeboat_pumps/north1)
 "bgH" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "NW-out";
@@ -23213,6 +23233,10 @@
 	},
 /turf/open/floor/almayer/flooredge/east,
 /area/almayer/medical/containment)
+"bha" = (
+/obj/structure/blocker/fuelpump,
+/turf/open/floor/almayer,
+/area/almayer/lifeboat_pumps/north1)
 "bhb" = (
 /turf/open/floor/almayer/sterile_green_side,
 /area/almayer/medical/containment)
@@ -23287,6 +23311,10 @@
 	},
 /turf/open/floor/almayer/plating_striped/south,
 /area/almayer/shipboard/port_point_defense)
+"bhk" = (
+/obj/structure/machinery/fuelpump,
+/turf/open/floor/almayer,
+/area/almayer/lifeboat_pumps/north2)
 "bhl" = (
 /obj/structure/largecrate/random/barrel/true_random,
 /obj/effect/decal/heavy_cable/cable_vertical,
@@ -23397,6 +23425,10 @@
 /obj/effect/spawner/random/tool,
 /turf/open/floor/almayer/plate,
 /area/almayer/maint/hull/lower/l_m_p)
+"bhz" = (
+/obj/structure/blocker/fuelpump,
+/turf/open/floor/almayer/mono,
+/area/almayer/lifeboat_pumps/north2)
 "bhA" = (
 /turf/open/floor/almayer/test_floor4,
 /area/almayer/medical/containment)
@@ -23611,6 +23643,10 @@
 /obj/item/storage/firstaid/regular/empty,
 /turf/open/floor/almayer/no_build/plating,
 /area/almayer/middeck/medical)
+"bic" = (
+/obj/structure/blocker/fuelpump,
+/turf/open/floor/almayer,
+/area/almayer/lifeboat_pumps/north2)
 "bid" = (
 /turf/closed/wall/almayer/reinforced/temphull,
 /area/almayer/middeck/maintenance/sb)
@@ -44766,10 +44802,6 @@
 	},
 /turf/open/floor/almayer/test_floor4,
 /area/almayer/maint/upper/u_m_s)
-"cea" = (
-/obj/structure/machinery/fuelpump,
-/turf/open/floor/almayer,
-/area/almayer/lifeboat_pumps/south2)
 "ceb" = (
 /obj/structure/machinery/computer/working_joe{
 	pixel_x = 2;
@@ -50116,10 +50148,6 @@
 	},
 /turf/open/floor/plating,
 /area/almayer/shipboard/brig/general_equipment)
-"cpP" = (
-/obj/structure/blocker/fuelpump,
-/turf/open/floor/almayer/mono,
-/area/almayer/lifeboat_pumps/north1)
 "cpQ" = (
 /obj/structure/window/framed/almayer/hull,
 /obj/structure/machinery/door/firedoor/border_only/almayer{
@@ -51309,10 +51337,6 @@
 	},
 /turf/open/floor/almayer,
 /area/almayer/living/grunt_rnr)
-"cOd" = (
-/obj/structure/blocker/fuelpump,
-/turf/open/floor/almayer/mono,
-/area/almayer/lifeboat_pumps/south2)
 "cOe" = (
 /turf/open/floor/almayer/blue/northeast,
 /area/almayer/hallways/upper/midship_hallway)
@@ -57125,10 +57149,6 @@
 	},
 /turf/open/floor/almayer/green,
 /area/almayer/hallways/lower/port_midship_hallway)
-"fnk" = (
-/obj/structure/blocker/fuelpump,
-/turf/open/floor/almayer,
-/area/almayer/lifeboat_pumps/north1)
 "fnv" = (
 /obj/structure/machinery/light{
 	dir = 4
@@ -62775,13 +62795,13 @@
 	name = "storage shutters";
 	pixel_y = 26
 	},
-/obj/structure/machinery/recharge_station/alt{
-	desc = "Where the cargo department's Working Joe used to charge before it tragically fell into the ASRS elevator three years ago. The replacement still hasn't arrived.";
-	name = "Working Joe charging station"
-	},
 /obj/structure/sign/safety/synth_storage{
 	pixel_x = 8;
 	pixel_y = 36
+	},
+/obj/structure/machinery/recharge_station{
+	desc = "Where the cargo department's Working Joe used to charge before it tragically fell into the ASRS elevator three years ago. The replacement still hasn't arrived.";
+	name = "Working Joe charging station"
 	},
 /turf/open/floor/almayer/test_floor5,
 /area/almayer/squads/req)
@@ -64285,10 +64305,6 @@
 /obj/structure/largecrate/random/barrel/red,
 /turf/open/floor/almayer/plate,
 /area/almayer/maint/hull/upper/u_a_s)
-"iDK" = (
-/obj/structure/blocker/fuelpump,
-/turf/open/floor/almayer/mono,
-/area/almayer/lifeboat_pumps/north2)
 "iEa" = (
 /obj/structure/machinery/light/red{
 	light_color = "#BB3F3F"
@@ -71654,10 +71670,6 @@
 /obj/structure/closet/firecloset,
 /turf/open/floor/almayer/cargo,
 /area/almayer/engineering/upper_engineering/starboard)
-"lMy" = (
-/obj/structure/machinery/fuelpump,
-/turf/open/floor/almayer,
-/area/almayer/lifeboat_pumps/north2)
 "lMF" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -84502,10 +84514,6 @@
 	},
 /turf/open/floor/almayer/dark_sterile,
 /area/almayer/engineering/upper_engineering/port)
-"rmG" = (
-/obj/structure/blocker/fuelpump,
-/turf/open/floor/almayer,
-/area/almayer/lifeboat_pumps/north2)
 "rna" = (
 /obj/structure/machinery/status_display{
 	pixel_y = 30
@@ -88515,10 +88523,6 @@
 	},
 /turf/open/floor/almayer/blue/northeast,
 /area/almayer/living/port_emb)
-"sZY" = (
-/obj/structure/blocker/fuelpump,
-/turf/open/floor/almayer,
-/area/almayer/lifeboat_pumps/south2)
 "tab" = (
 /obj/structure/surface/table/reinforced/almayer_B,
 /obj/item/storage/box/flashbangs{
@@ -99363,10 +99367,6 @@
 	},
 /turf/open/floor/plating,
 /area/almayer/living/starboard_emb)
-"xxB" = (
-/obj/structure/machinery/fuelpump,
-/turf/open/floor/almayer,
-/area/almayer/lifeboat_pumps/north1)
 "xxG" = (
 /obj/structure/prop/holidays/string_lights{
 	pixel_y = 27
@@ -206023,7 +206023,7 @@ add
 fsU
 ieH
 aTm
-xxB
+bbi
 aTm
 oZX
 fsU
@@ -206126,7 +206126,7 @@ awW
 sAn
 okG
 aTm
-cpP
+bgG
 aTm
 gYW
 hzS
@@ -206172,7 +206172,7 @@ baw
 dsn
 hxX
 vbB
-aqB
+baM
 vbB
 rko
 rAT
@@ -206229,7 +206229,7 @@ awW
 tYQ
 eBj
 aTm
-cpP
+bgG
 cbM
 xKs
 lqM
@@ -206275,7 +206275,7 @@ baw
 wQh
 bVx
 vbB
-aqB
+baM
 vbB
 tyo
 vGz
@@ -206332,7 +206332,7 @@ add
 fsU
 ieH
 aTm
-fnk
+bha
 aTm
 oZX
 fsU
@@ -206378,7 +206378,7 @@ aJU
 gBW
 ixL
 vbB
-aqB
+baM
 tBq
 iwm
 gBW
@@ -214777,7 +214777,7 @@ aeC
 wXh
 hYo
 atr
-lMy
+bhk
 aex
 wkZ
 wXh
@@ -214825,7 +214825,7 @@ vcE
 kpo
 mDR
 tGi
-cea
+aaD
 bXe
 leU
 kpo
@@ -214880,7 +214880,7 @@ aeA
 lgf
 dbK
 atr
-iDK
+bhz
 atr
 tqG
 kEV
@@ -214928,7 +214928,7 @@ lJY
 iyf
 roB
 faO
-cOd
+aqB
 bXe
 joS
 leT
@@ -214983,7 +214983,7 @@ aeA
 dtE
 akX
 atr
-iDK
+bhz
 atr
 taI
 qMo
@@ -215031,7 +215031,7 @@ lJY
 tRh
 sij
 bXe
-cOd
+aqB
 tGi
 gkg
 qxn
@@ -215086,7 +215086,7 @@ aeC
 wXh
 hYo
 atr
-rmG
+bic
 bXz
 wkZ
 wXh
@@ -215134,7 +215134,7 @@ vcE
 kpo
 mDR
 bXe
-sZY
+aDL
 mzF
 leU
 kpo

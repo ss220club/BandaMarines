@@ -72,6 +72,7 @@ endmap
 
 map white_antre_research_facility
 	disabled
+	voteweight 0
 endmap
 
 map fort_mcneil

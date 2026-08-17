@@ -348,9 +348,9 @@ SUBSYSTEM_DEF(hijack)
 
 	marine_announcement(message, HIJACK_ANNOUNCE)
 
-///Called when an area power status is changed to announce that it has been changed
+///Called when an area's operable status is changed to announce that it has been changed
 /datum/controller/subsystem/hijack/proc/announce_area_state_change(area/changed_area, new_state)
-	var/message = "[changed_area.declent_ru(NOMINATIVE)] - [changed_area.power_equip ? "Онлайн" : "Оффлайн"]"
+	var/message = "[changed_area.declent_ru(NOMINATIVE)] - [new_state ? "Онлайн" : "Оффлайн"]"
 	shipwide_ai_announcement(message, HIJACK_ANNOUNCE, sound('sound/misc/notice2.ogg'))
 
 ///Called to announce to xenos the state of evacuation progression
@@ -409,9 +409,9 @@ SUBSYSTEM_DEF(hijack)
 
 	switch(announce)
 		if(1)
-			marine_announcement("Аварийная заправка выполнена на 50%. Tachyon field accelerators currently charging.[marine_warning_areas ? "\nTo increase speed, restore power to the following areas: [marine_warning_areas]" : " All fueling areas operational."]", HIJACK_ANNOUNCE)
+			marine_announcement("Аварийная заправка выполнена на 50%. Tachyon field accelerators currently charging.[marine_warning_areas ? "\nTo increase speed, restore power to the following areas: [marine_warning_areas]" : marine_no_repairable]", HIJACK_ANNOUNCE)
 		if(2)
-			marine_announcement("Аварийная заправка выполнена на 100%. Tachyon field accelerators fully charged, quantum jump initiating. Ensure constant supply of fuel to the tachyon field accelerators. [marine_warning_areas ? "Чтобы увеличить скорость загрузки топлива, восстановите питание станций заправки в следующих областях: [marine_warning_areas]." : "Все станции заправки работают в штатном режиме."]", HIJACK_ANNOUNCE) // SS220 EDIT ADDICTION
+			marine_announcement("Аварийная заправка выполнена на 100%. Tachyon field accelerators fully charged, quantum jump initiating. Ensure constant supply of fuel to the tachyon field accelerators. [marine_warning_areas ? "Чтобы увеличить скорость загрузки топлива, восстановите питание станций заправки в следующих областях: [marine_warning_areas]." : marine_no_repairable]", HIJACK_ANNOUNCE) // SS220 EDIT ADDICTION
 		if(3)
 			shipwide_ai_announcement("Tachyon quantum jump progress at 50 percent. Ensure constant supply of fuel to the tachyon field accelerators.[marine_warning_areas ? "\nTo increase speed, restore power to the following areas: [marine_warning_areas]" : marine_no_repairable]", HIJACK_ANNOUNCE, sound('sound/misc/notice2.ogg'))
 		if(4)
