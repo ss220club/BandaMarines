@@ -213,7 +213,6 @@
 
 
 /datum/surgery_step/clamp_bleeders_step/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
-	var/ru_name_affected_limb = declent_ru_initial(surgery.affected_limb.display_name, PREPOSITIONAL, surgery.affected_limb.display_name) // SS220 EDIT ADDICTION
 	user.affected_message(target,
 		SPAN_WARNING("Your hand slips and tears several blood vessels in [target]'s [surgery.affected_limb.display_name], causing internal bleeding! Blood gushes everywhere!"),
 		SPAN_WARNING("[user]'s hand slips and tears several blood vessels in your [surgery.affected_limb.display_name], causing internal bleeding! Blood gushes everywhere!"),
