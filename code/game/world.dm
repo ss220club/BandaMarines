@@ -171,6 +171,33 @@ GLOBAL_LIST_INIT(reboot_sfx, file2list("config/reboot_sfx.txt"))
 		if(logging)
 			log_topic("(LEGACY STATUS), from:[addr], master:[master], key:[key]")
 		return legacy_params["format"] == "json" ? json_encode(status_response) : list2params(status_response)
+	else if(copytext(topic_decoded, 1, 10) == "adminwho&")
+		var/list/legacy_params = params2list(topic_decoded)
+		var/list/adminwho_response = list()
+		var/topic_key = lowertext(legacy_params["key"])
+
+		if(!LAZYACCESS(GLOB.topic_tokens[topic_key], "adminwho"))
+			adminwho_response = list("error" = "Unauthorized")
+		else
+			for(var/client/admin as anything in GLOB.admins)
+				if(!admin.admin_holder)
+					continue
+				var/list/admin_info = list(
+					"ckey" = admin.ckey,
+					"key" = admin.key,
+					"rank" = admin.admin_holder.rank,
+					"afk" = admin.is_afk(),
+					"stealth" = "NONE",
+					"skey" = "NONE",
+				)
+				if(admin.admin_holder.fakekey)
+					admin_info["stealth"] = "STEALTH"
+					admin_info["skey"] = admin.admin_holder.fakekey
+				adminwho_response += list(admin_info)
+
+		if(logging)
+			log_topic("(LEGACY ADMINWHO), from:[addr], master:[master], key:[key]")
+		return legacy_params["format"] == "json" ? json_encode(adminwho_response) : list2params(adminwho_response)
 	// BANDAMARINES EDIT END: SS220Manager topic integration
 	if(!rustg_json_is_valid(topic_decoded))
 		if(logging)
