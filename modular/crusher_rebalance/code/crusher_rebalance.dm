@@ -156,7 +156,10 @@
 	if(!istype(crusher_delegate))
 		return
 
-	addtimer(CALLBACK(src, PROC_REF(undo_charging_icon)), 0.5 SECONDS) // let the icon be here for a bit, it looks cool
+	if(!xeno_owner.stat)
+		addtimer(CALLBACK(src, PROC_REF(undo_charging_icon)), 0.5 SECONDS) // let the icon be here for a bit, it looks cool
+	else
+		undo_charging_icon()
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/undo_charging_icon()
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
