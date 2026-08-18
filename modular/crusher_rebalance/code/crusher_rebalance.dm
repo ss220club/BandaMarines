@@ -157,7 +157,6 @@
 		return
 
 	if(!HAS_TRAIT(xeno_owner, TRAIT_KNOCKEDOUT) && !HAS_TRAIT(xeno_owner, TRAIT_INCAPACITATED) && !HAS_TRAIT(xeno_owner, TRAIT_FLOORED) && !HAS_TRAIT(xeno_owner, TRAIT_DAZED))
-		to_world("da")
 		addtimer(CALLBACK(src, PROC_REF(undo_charging_icon)), 0.5 SECONDS) // let the icon be here for a bit, it looks cool
 	else
 		undo_charging_icon()
