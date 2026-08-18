@@ -103,7 +103,7 @@
 		pre_windup_effects()
 		xeno.xeno_jitter(windup_duration + charge_window)
 		apply_cooldown()
-		RegisterSignal(xeno, COMSIG_MOB_STATCHANGE, PROC_REF(check_charge_interrupt))
+		RegisterSignal(xeno, list(SIGNAL_ADDTRAIT(TRAIT_KNOCKEDOUT), SIGNAL_ADDTRAIT(TRAIT_IMMOBILIZED), SIGNAL_ADDTRAIT(TRAIT_FLOORED), SIGNAL_ADDTRAIT(TRAIT_INCAPACITATED), SIGNAL_ADDTRAIT(TRAIT_DAZED)),  PROC_REF(check_charge_interrupt))
 		if(!do_after(xeno, windup_duration, INTERRUPT_INCAPACITATED|INTERRUPT_CHANGED_LYING, BUSY_ICON_HOSTILE))
 			return
 		winding_up = FALSE
@@ -156,7 +156,8 @@
 	if(!istype(crusher_delegate))
 		return
 
-	if(!xeno_owner.stat)
+	if(!HAS_TRAIT(xeno_owner, TRAIT_KNOCKEDOUT) && !HAS_TRAIT(xeno_owner, TRAIT_INCAPACITATED) && !HAS_TRAIT(xeno_owner, TRAIT_FLOORED) && !HAS_TRAIT(xeno_owner, TRAIT_DAZED))
+		to_world("da")
 		addtimer(CALLBACK(src, PROC_REF(undo_charging_icon)), 0.5 SECONDS) // let the icon be here for a bit, it looks cool
 	else
 		undo_charging_icon()
@@ -195,7 +196,7 @@
 	var/mob/living/carbon/xenomorph/xeno = owner
 	if(!istype(xeno) || !activated_once)
 		return
-	UnregisterSignal(xeno, COMSIG_MOB_STATCHANGE)
+	UnregisterSignal(xeno, list(SIGNAL_ADDTRAIT(TRAIT_KNOCKEDOUT), SIGNAL_ADDTRAIT(TRAIT_IMMOBILIZED), SIGNAL_ADDTRAIT(TRAIT_FLOORED), SIGNAL_ADDTRAIT(TRAIT_INCAPACITATED), SIGNAL_ADDTRAIT(TRAIT_DAZED)))
 	to_chat(xeno, SPAN_XENOWARNING("Мы больше не удерживаем стойку!"))
 	xeno.fortify = FALSE
 	xeno.stop_xeno_jitter()
