@@ -6688,10 +6688,6 @@
 	},
 /turf/open/floor/almayer/red/southeast,
 /area/almayer/shipboard/panic)
-"aqB" = (
-/obj/structure/blocker/fuelpump,
-/turf/open/floor/almayer/mono,
-/area/almayer/lifeboat_pumps/south2)
 "aqC" = (
 /obj/structure/machinery/cm_vending/sorted/tech/electronics_storage{
 	req_access = null;
@@ -11589,10 +11585,6 @@
 	},
 /turf/open/floor/almayer/silver/east,
 /area/almayer/command/cic)
-"aDL" = (
-/obj/structure/blocker/fuelpump,
-/turf/open/floor/almayer,
-/area/almayer/lifeboat_pumps/south2)
 "aDM" = (
 /obj/structure/surface/table/reinforced/almayer_B,
 /obj/structure/machinery/faxmachine/uscm/almayer/command{
@@ -20591,10 +20583,6 @@
 /obj/effect/decal/heavy_cable/node_s_w,
 /turf/open/floor/plating/plating_catwalk/no_build,
 /area/almayer/middeck/maintenance/sp)
-"baM" = (
-/obj/structure/blocker/fuelpump,
-/turf/open/floor/almayer,
-/area/almayer/lifeboat_pumps/south1)
 "baN" = (
 /obj/structure/pipes/standard/simple/hidden/supply,
 /turf/open/floor/almayer/plate,
@@ -23066,10 +23054,6 @@
 /obj/structure/surface/rack,
 /turf/open/floor/almayer/no_build/plate,
 /area/almayer/middeck/maintenance/aft)
-"bgG" = (
-/obj/structure/blocker/fuelpump,
-/turf/open/floor/almayer/mono,
-/area/almayer/lifeboat_pumps/north1)
 "bgH" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "NW-out";
@@ -23233,10 +23217,6 @@
 	},
 /turf/open/floor/almayer/flooredge/east,
 /area/almayer/medical/containment)
-"bha" = (
-/obj/structure/blocker/fuelpump,
-/turf/open/floor/almayer,
-/area/almayer/lifeboat_pumps/north1)
 "bhb" = (
 /turf/open/floor/almayer/sterile_green_side,
 /area/almayer/medical/containment)
@@ -23425,10 +23405,6 @@
 /obj/effect/spawner/random/tool,
 /turf/open/floor/almayer/plate,
 /area/almayer/maint/hull/lower/l_m_p)
-"bhz" = (
-/obj/structure/blocker/fuelpump,
-/turf/open/floor/almayer/mono,
-/area/almayer/lifeboat_pumps/north2)
 "bhA" = (
 /turf/open/floor/almayer/test_floor4,
 /area/almayer/medical/containment)
@@ -23643,10 +23619,6 @@
 /obj/item/storage/firstaid/regular/empty,
 /turf/open/floor/almayer/no_build/plating,
 /area/almayer/middeck/medical)
-"bic" = (
-/obj/structure/blocker/fuelpump,
-/turf/open/floor/almayer,
-/area/almayer/lifeboat_pumps/north2)
 "bid" = (
 /turf/closed/wall/almayer/reinforced/temphull,
 /area/almayer/middeck/maintenance/sb)
@@ -206126,7 +206098,7 @@ awW
 sAn
 okG
 aTm
-bgG
+add
 aTm
 gYW
 hzS
@@ -206172,7 +206144,7 @@ baw
 dsn
 hxX
 vbB
-baM
+baw
 vbB
 rko
 rAT
@@ -206229,7 +206201,7 @@ awW
 tYQ
 eBj
 aTm
-bgG
+add
 cbM
 xKs
 lqM
@@ -206275,7 +206247,7 @@ baw
 wQh
 bVx
 vbB
-baM
+baw
 vbB
 tyo
 vGz
@@ -206332,7 +206304,7 @@ add
 fsU
 ieH
 aTm
-bha
+awW
 aTm
 oZX
 fsU
@@ -206378,7 +206350,7 @@ aJU
 gBW
 ixL
 vbB
-baM
+baw
 tBq
 iwm
 gBW
@@ -214880,7 +214852,7 @@ aeA
 lgf
 dbK
 atr
-bhz
+aeC
 atr
 tqG
 kEV
@@ -214928,7 +214900,7 @@ lJY
 iyf
 roB
 faO
-aqB
+vcE
 bXe
 joS
 leT
@@ -214983,7 +214955,7 @@ aeA
 dtE
 akX
 atr
-bhz
+aeC
 atr
 taI
 qMo
@@ -215031,7 +215003,7 @@ lJY
 tRh
 sij
 bXe
-aqB
+vcE
 tGi
 gkg
 qxn
@@ -215086,7 +215058,7 @@ aeC
 wXh
 hYo
 atr
-bic
+aeA
 bXz
 wkZ
 wXh
@@ -215134,7 +215106,7 @@ vcE
 kpo
 mDR
 bXe
-aDL
+lJY
 mzF
 leU
 kpo
