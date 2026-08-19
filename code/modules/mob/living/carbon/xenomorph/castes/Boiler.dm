@@ -128,7 +128,7 @@
 		addtimer(VARSET_CALLBACK(src, sound_play, TRUE), 2 SECONDS)
 
 	if (!do_after(xeno, xeno.ammo.spit_windup/6.5, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_HOSTILE, numticks = 2)) /// 0.7 seconds
-		to_chat(xeno, SPAN_XENODANGER("We decide to cancel our gas shroud."))
+		to_chat(xeno, SPAN_XENODANGER("Мы отменяем выпуск кислотного облака."))
 		return
 
 	playsound(xeno,"acid_sizzle", 50, 1)
@@ -142,7 +142,7 @@
 	var/datum/cause_data/cause_data = create_cause_data("acid shroud gas", owner)
 	spicy_gas.set_up(1, 0, get_turf(xeno), null, 6, new_cause_data = cause_data)
 	spicy_gas.start()
-	to_chat(xeno, SPAN_XENOHIGHDANGER("We dump our acid through our pores, creating a shroud of gas!"))
+	to_chat(xeno, SPAN_XENOHIGHDANGER("Мы выпускаем кислоту через поры, образуя большое облако кислотного газа!"))
 
 	for (var/action_type in action_types_to_cd)
 		var/datum/action/xeno_action/xeno_action = get_action(xeno, action_type)
@@ -183,7 +183,7 @@
 		return FALSE
 
 	if(!acid_level)
-		to_chat(src, SPAN_XENONOTICE("You can't secrete any acid into [target]."))
+		to_chat(src, SPAN_XENONOTICE("Вы не можете наполнить [target] кислотой.")) // SS220 EDIT ADDICTION
 		return FALSE
 
 	var/trap_acid_level = 0
@@ -191,14 +191,14 @@
 		trap_acid_level = 1 + target.trap_type - RESIN_TRAP_ACID1
 
 	if(trap_acid_level >= acid_level)
-		to_chat(src, SPAN_XENONOTICE("It already has good acid in."))
+		to_chat(src, SPAN_XENONOTICE("В ловушке уже достаточно кислоты."))
 		return FALSE
 
 	if(!check_plasma(ACID_COST_BOILER))
-		to_chat(src, SPAN_XENOWARNING("You must produce more plasma before doing this."))
+		to_chat(src, SPAN_XENOWARNING("Вам нужно больше плазмы, чтобы сделать это."))
 		return FALSE
 
-	to_chat(src, SPAN_XENONOTICE("You begin charging the resin trap with acid gas."))
+	to_chat(src, SPAN_XENONOTICE("Вы начинаете наполнять смоляную ловушку газом."))
 	xeno_attack_delay(src)
 	if(!do_after(src, 3 SECONDS, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE, src))
 		return FALSE
@@ -223,8 +223,8 @@
 	target.set_state(RESIN_TRAP_GAS)
 
 	playsound(target, 'sound/effects/refill.ogg', 25, 1)
-	visible_message(SPAN_XENOWARNING("[src] pressurises the resin trap with acid gas!"),
-	SPAN_XENOWARNING("You pressurise the resin trap with acid gas!"), null, 5)
+	visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] наполняет смоляную ловушку газом!"), // SS220 EDIT ADDICTION
+	SPAN_XENOWARNING("Вы наполняете смоляную ловушку газом!"), null, 5)
 	return TRUE
 
 #undef ACID_COST_BOILER

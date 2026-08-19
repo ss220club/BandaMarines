@@ -261,14 +261,14 @@
 		return
 
 	if(!do_after(acid_ball_user, activation_delay, INTERRUPT_ALL | BEHAVIOR_IMMOBILE, BUSY_ICON_HOSTILE))
-		to_chat(acid_ball_user, SPAN_XENODANGER("We cancel our acid ball."))
+		to_chat(acid_ball_user, SPAN_XENODANGER("Мы прекращаем подготовку к выпуску кислотного шара."))
 		return
 
 	XENO_ACTION_CHECK_USE_PLASMA(acid_ball_user)
 
 	apply_cooldown()
 
-	to_chat(acid_ball_user, SPAN_XENOWARNING("We lob a compressed ball of acid into the air!"))
+	to_chat(acid_ball_user, SPAN_XENOWARNING("Мы выбрасываем сжатый шар кислоты в воздух!"))
 
 	var/obj/item/explosive/grenade/xeno_acid_grenade/grenade = new /obj/item/explosive/grenade/xeno_acid_grenade
 	grenade.cause_data = create_cause_data(initial(acid_ball_user.caste_type), acid_ball_user)
