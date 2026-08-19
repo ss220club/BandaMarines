@@ -1,5 +1,5 @@
 // Минимальное количество игроков для открытия категорий
-#define MIN_PLAYERS_HEAVY_SUPPORT     70 // Танк
+#define MIN_PLAYERS_HEAVY_SUPPORT     1 // Танк
 #define MIN_PLAYERS_MEDIUM_SUPPORT    60 // БТР
 #define MIN_PLAYERS_LIGHT_SUPPORT     40 // Машинка
 #define MIN_PLAYERS_LIGHT_RECON        1 // АРК
@@ -14,7 +14,7 @@
 
 // Категоризация техники
 /proc/get_vehicle_category(datum/vehicle_order/order)
-	if(istype(order, /datum/vehicle_order/tank))
+	if(istype(order, /datum/vehicle_order/tank) || istype(order, /datum/vehicle_order/aev) || istype(order, /datum/vehicle_order/tank/command))
 		return "Тяжелая бронетехника"
 	if(istype(order, /datum/vehicle_order/apc) || istype(order, /datum/vehicle_order/apc/med) || istype(order, /datum/vehicle_order/apc/cmd))
 		return "Бронетранспортеры"
@@ -125,11 +125,11 @@
 
 // Прок проверки танкистов
 /proc/category_has_access(mob/user, category, obj/structure/machinery/computer/supply/asrs/vehicle/console)
-	if(!console || !console.category_required_roles) // -
+	if(!console || !console.category_required_roles)
 		return TRUE
 
 	var/list/req_roles = console.category_required_roles[category]
-	if(req_roles && length(req_roles)) // -
+	if(req_roles && length(req_roles))
 		if(!(user.job in req_roles))
 			return FALSE
 

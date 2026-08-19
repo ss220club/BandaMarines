@@ -150,3 +150,21 @@
 		icon_state = "m56d_drum"
 	else
 		icon_state = "m56d_drum_empty"
+
+/obj/effect/essentials_set/aev/m56_cupola
+	desc = "Основное оружие поддержки пехоты для ИРМ М34E1, по факту является той же системой М56 но с увеличенным боезапасом."
+	spawned_gear_list = list(
+		/obj/item/hardpoint/secondary/m56cupola/aev,
+		/obj/item/ammo_magazine/hardpoint/m56_cupola/aev,
+		/obj/item/ammo_magazine/hardpoint/m56_cupola/aev,
+		/obj/item/ammo_magazine/hardpoint/m56_cupola/aev,
+	)
+
+/obj/effect/essentials_set/aev/smoke_launcher
+	desc = "Вспомогательный модуль поддержки пехоты для ИРМ М34E1, выстреливает несколькими зажигательно-дымовыми гранатами М60 для защиты от безбилетников."
+	spawned_gear_list = list(
+		/obj/item/hardpoint/support/smoke_launcher,
+		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
+		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
+		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
+	)

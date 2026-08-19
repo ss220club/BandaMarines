@@ -11,7 +11,6 @@
 
 /obj/effect/vehicle_spawner/tank/command/load_hardpoints(obj/vehicle/multitile/tank/vic)
 	vic.add_hardpoint(new /obj/item/hardpoint/holder/tank_turret)
-	vic.add_hardpoint(new /obj/item/hardpoint/locomotion/treads)
 
 //COMMAND TANK ARMED PRESET: LTB, cupola gun & artillery module
 /obj/effect/vehicle_spawner/tank/command/fixed/load_hardpoints(obj/vehicle/multitile/tank/vic)

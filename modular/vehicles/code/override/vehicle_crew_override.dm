@@ -3,7 +3,7 @@
 
 // Анонсы
 /obj/structure/machinery/cm_vending/gear/vehicle_crew/populate_products(datum/source, obj/effect/vehicle_spawner/spawner)
-	
+
 	selected_vehicle = spawner.category
 	switch(selected_vehicle)
 		if("APC")
@@ -17,7 +17,9 @@
 		if("TANK")
 			available_categories &= ~(VEHICLE_INTEGRAL_AVAILABLE)
 			marine_announcement("В поддержку наземных сил операции вам будет предоставлен Танк.")
-		
+		if("AEV")
+			available_categories &= ~(VEHICLE_INTEGRAL_AVAILABLE)
+			marine_announcement("В поддержку наземных сил операции вам будет предоставлен ИМР.")
 		else
 			if(!selected_vehicle)
 				selected_vehicle = "TANK"
@@ -44,6 +46,9 @@
 		if("HWC")
 			if(available_categories)
 				last_display_list = GLOB.cm_vending_vehicle_crew_humvee_modul
+		if("AEV")
+			if(available_categories)
+				last_display_list = GLOB.cm_vending_vehicle_crew_aev_modul
 
 	if(last_display_list)
 		return last_display_list
@@ -61,14 +66,14 @@ GLOBAL_LIST_INIT(cm_vending_vehicle_crew_tank_modul, list(
 //	list("Универсальная башня M34A2-A", 0, /obj/effect/essentials_set/tank/turret, VEHICLE_INTEGRAL_AVAILABLE, VENDOR_ITEM_MANDATORY),
 
 	list("ОСНОВНОЕ ОРУДИЕ", 0, null, null, null),
-	list("Пушка LTB 86мм", 0, /obj/effect/essentials_set/tank/ltb, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_RECOMMENDED), // TANK SUPREMACY
+	list("Пушка LTB 86мм", 0, /obj/effect/essentials_set/tank/ltb, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_RECOMMENDED),
 	list("Автопушка AC3-E", 0, /obj/effect/essentials_set/tank/autocannon, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_REGULAR),
 	list("Наступательный огнемет DRG-N", 0, /obj/effect/essentials_set/tank/dragonflamer, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_REGULAR),
 	list("Миниган LTAA-AP", 0, /obj/effect/essentials_set/tank/gatling, VEHICLE_PRIMARY_AVAILABLE, VENDOR_ITEM_REGULAR),
 
 	list("ВТОРИЧНОЕ ОРУДИЕ", 0, null, null, null),
 	list("Гранатомет M92T", 0, /obj/effect/essentials_set/tank/tankgl, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_REGULAR),
-	list("Зенитная установка M56 Cupola", 0, /obj/effect/essentials_set/tank/m56cupola, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_REGULAR),
+	list("Пулемет M56 Cupola", 0, /obj/effect/essentials_set/tank/m56cupola, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_REGULAR),
 	list("Огнемет LZR-N", 0, /obj/effect/essentials_set/tank/tankflamer, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_RECOMMENDED),
 
 	list("МОДУЛЬ ПОДДЕРЖКИ", 0, null, null, null),
@@ -78,15 +83,37 @@ GLOBAL_LIST_INIT(cm_vending_vehicle_crew_tank_modul, list(
 
 	list("БРОНЯ", 0, null, null, null),
 	list("Инженерный отвал", 0, /obj/item/hardpoint/armor/snowplow, VEHICLE_ARMOR_AVAILABLE, VENDOR_ITEM_REGULAR),
-	list("Противозрывная защита", 0, /obj/item/hardpoint/armor/paladin, VEHICLE_ARMOR_AVAILABLE, VENDOR_ITEM_REGULAR), // TANK SUPREMACY
-	list("Химическая защита", 0, /obj/item/hardpoint/armor/caustic, VEHICLE_ARMOR_AVAILABLE, VENDOR_ITEM_REGULAR), // TANK SUPREMACY
-	list("Защита с амортизацией ударов", 0, /obj/item/hardpoint/armor/concussive, VEHICLE_ARMOR_AVAILABLE, VENDOR_ITEM_REGULAR), // TANK SUPREMACY
-	list("Баллистическая защита", 0, /obj/item/hardpoint/armor/ballistic, VEHICLE_ARMOR_AVAILABLE, VENDOR_ITEM_REGULAR), // TANK SUPREMACY
+	list("Противозрывная защита", 0, /obj/item/hardpoint/armor/paladin, VEHICLE_ARMOR_AVAILABLE, VENDOR_ITEM_REGULAR),
+	list("Химическая защита", 0, /obj/item/hardpoint/armor/caustic, VEHICLE_ARMOR_AVAILABLE, VENDOR_ITEM_REGULAR),
+	list("Защита с амортизацией ударов", 0, /obj/item/hardpoint/armor/concussive, VEHICLE_ARMOR_AVAILABLE, VENDOR_ITEM_REGULAR),
+	list("Баллистическая защита", 0, /obj/item/hardpoint/armor/ballistic, VEHICLE_ARMOR_AVAILABLE, VENDOR_ITEM_REGULAR),
 
 	list("ГУСЕНИЦЫ", 0, null, null, null),
 	list("Усиленные гусеницы", 0, /obj/item/hardpoint/locomotion/treads/robust, VEHICLE_TREADS_AVAILABLE, VENDOR_ITEM_REGULAR),
 	list("Гусеницы", 0, /obj/item/hardpoint/locomotion/treads, VEHICLE_TREADS_AVAILABLE, VENDOR_ITEM_REGULAR)))
 
+//aev
+GLOBAL_LIST_INIT(cm_vending_vehicle_crew_aev_modul, list(
+	list("ВЫБОР СТАРТОВОГО НАБОРА:", 0, null, null, null),
+
+	list("ОСНОВНЫЕ ЧАСТИ", 0, null, null, null),
+	list("Инженерный отвал", 0, /obj/item/hardpoint/armor/snowplow, VEHICLE_ARMOR_AVAILABLE, VENDOR_ITEM_REGULAR),
+
+	list("ОСНОВНОЕ ОРУДИЕ", 0, null, null, null),
+	list("Гранатомет M92T", 0, /obj/effect/essentials_set/tank/tankgl, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_REGULAR),
+	list("Пулемет M56 Cupola PWC", 0, /obj/effect/essentials_set/aev/m56_cupola, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_REGULAR),
+	list("Огнемет LZR-N", 0, /obj/effect/essentials_set/tank/tankflamer, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_RECOMMENDED),
+
+	list("ВТОРИЧНОЕ ОРУДИЕ", 0, null, null, null),
+	list("Всмопогательный гранатометный модуль M-39P", 0, /obj/effect/essentials_set/aev/smoke_launcher, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_REGULAR),
+
+	list("МОДУЛЬ ПОДДЕРЖКИ", 0, null, null, null),
+	list("Интегрированный сенсорный массив оружия", 0, /obj/item/hardpoint/support/weapons_sensor, VEHICLE_SUPPORT_AVAILABLE, VENDOR_ITEM_REGULAR),
+	list("Усилитель форсажа", 0, /obj/item/hardpoint/support/overdrive_enhancer, VEHICLE_SUPPORT_AVAILABLE, VENDOR_ITEM_RECOMMENDED),
+
+	list("ГУСЕНИЦЫ", 0, null, null, null),
+	list("Усиленные гусеницы", 0, /obj/item/hardpoint/locomotion/treads/robust, VEHICLE_TREADS_AVAILABLE, VENDOR_ITEM_REGULAR),
+	list("Гусеницы", 0, /obj/item/hardpoint/locomotion/treads, VEHICLE_TREADS_AVAILABLE, VENDOR_ITEM_REGULAR)))
 
 // БТР
 GLOBAL_LIST_INIT(cm_vending_vehicle_crew_apc_modul, list(
@@ -103,7 +130,6 @@ GLOBAL_LIST_INIT(cm_vending_vehicle_crew_apc_modul, list(
 
 	list("КОЛЕСА", 0, null, null, null),
 	list("Колеса БТР", 0, /obj/item/hardpoint/locomotion/apc_wheels, VEHICLE_TREADS_AVAILABLE, VENDOR_ITEM_MANDATORY)))
-
 
 // Хамви с пушкой
 GLOBAL_LIST_INIT(cm_vending_vehicle_crew_humvee_modul, list(

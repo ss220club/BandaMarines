@@ -20,7 +20,7 @@
 
 //Запрет на операции в траспорте
 /area/interior/vehicle
-    var/allow_surgery = FALSE 
+	var/allow_surgery = FALSE
 
 /area/interior/vehicle/Initialize(mapload, ...)
     . = ..()

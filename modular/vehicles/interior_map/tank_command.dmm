@@ -43,6 +43,15 @@
 	name = "back entrance marker";
 	tag = "back"
 	},
+/obj/structure/transmitter{
+	dir = 8;
+	layer = 3.1;
+	name = "Tank Telephone";
+	phone_category = "Vehicles";
+	phone_id = "M34A3 Hampton Light Command Tank";
+	pixel_x = 22;
+	pixel_y = -14
+	},
 /turf/open/shuttle/vehicle/floor_1_12,
 /area/interior/vehicle/tank)
 "l" = (
@@ -57,15 +66,6 @@
 "q" = (
 /obj/effect/landmark/interior/spawn/vehicle_commander_seat/armor{
 	dir = 4
-	},
-/obj/structure/phone_base{
-	layer = 3.21;
-	name = "Tank Telephone";
-	phone_category = "Vehicles";
-	phone_id = "M34A2 Longstreet Light Tank";
-	dir = 4;
-	pixel_x = -14;
-	pixel_y = -9
 	},
 /turf/open/shuttle/vehicle/floor_1_13,
 /area/interior/vehicle/tank)

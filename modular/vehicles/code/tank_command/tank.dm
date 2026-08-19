@@ -42,6 +42,7 @@
 		/obj/vehicle/multitile/proc/switch_hardpoint,
 		/obj/vehicle/multitile/proc/get_status_info,
 		/obj/vehicle/multitile/proc/open_controls_guide,
+		/obj/vehicle/multitile/proc/name_vehicle,
 	))
 	if(seat == VEHICLE_DRIVER)
 		add_verb(user.client, list(
@@ -61,6 +62,7 @@
 		/obj/vehicle/multitile/proc/get_status_info,
 		/obj/vehicle/multitile/proc/open_controls_guide,
 		/obj/vehicle/multitile/proc/switch_hardpoint,
+		/obj/vehicle/multitile/proc/name_vehicle,
 	))
 	SStgui.close_user_uis(user, src)
 	if(seat == VEHICLE_DRIVER)

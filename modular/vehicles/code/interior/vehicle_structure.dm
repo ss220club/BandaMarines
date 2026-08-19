@@ -11,7 +11,6 @@
 	icon = 'modular/vehicles/icons/humvee/general_humvee.dmi'
 	icon_state = "car_seat"
 
-
 // Кресло стрелка с обновлением иконки
 /obj/structure/bed/chair/comfy/vehicle/gunner/humvee
 	icon = 'modular/vehicles/icons/humvee/general_humvee.dmi'
@@ -42,7 +41,6 @@
 	else
 		update_mouse_pointer(M, FALSE)
 
-
 // Структуры для хамви
 /obj/structure/vehicle_locker/med/humvee
 	icon = 'modular/vehicles/icons/humvee/general_humvee.dmi'
@@ -62,10 +60,16 @@
 	opacity = TRUE
 
 //tank command
+/obj/structure/machinery/computer/cameras/almayer/vehicle/tank
+	name = "Vehicle Cam-View Terminal"
+	icon = 'icons/obj/vehicles/interiors/general.dmi'
+	icon_state = "viewport"
+
 /obj/structure/interior_viewport/terminal
 	name = "External Cameras Terminal"
 	desc = "A terminal hooked up to the various sensors of the M579 ADS-C, featuring plenty of flashing buttons and whooping alarms alongside a more rudimentary external-view system."
 	icon_state = "viewport_terminal"
+	icon = 'modular/vehicles/icons/aev/general.dmi'
 
 /obj/structure/interior_viewport/terminal/tank
 	name = "Command & Control Terminal"

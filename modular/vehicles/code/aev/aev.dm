@@ -9,6 +9,10 @@
 		/obj/item/hardpoint/support/overdrive_enhancer,
 		/obj/item/hardpoint/support/smoke_launcher/aev,
 		/obj/item/hardpoint/secondary/m56cupola/aev,
+		/obj/item/hardpoint/secondary/small_flamer,
+		/obj/item/hardpoint/secondary/towlauncher,
+		/obj/item/hardpoint/secondary/m56cupola,
+		/obj/item/hardpoint/secondary/grenade_launcher,
 		/obj/item/hardpoint/armor/ballistic,
 		/obj/item/hardpoint/armor/caustic,
 		/obj/item/hardpoint/armor/concussive,
@@ -57,6 +61,9 @@
 		add_verb(user.client, list(
 			/obj/vehicle/multitile/proc/toggle_door_lock,
 			/obj/vehicle/multitile/proc/activate_horn,
+		))
+	else if(seat == VEHICLE_GUNNER)
+		add_verb(user.client, list(
 			/obj/vehicle/multitile/proc/cycle_hardpoint,
 		))
 
@@ -74,6 +81,9 @@
 		remove_verb(user.client, list(
 			/obj/vehicle/multitile/proc/toggle_door_lock,
 			/obj/vehicle/multitile/proc/activate_horn,
+		))
+	else if(seat == VEHICLE_GUNNER)
+		remove_verb(user.client, list(
 			/obj/vehicle/multitile/proc/cycle_hardpoint,
 		))
 

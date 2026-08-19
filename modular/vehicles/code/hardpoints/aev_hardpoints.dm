@@ -3,7 +3,7 @@
 	desc = "A remotely-controlled weapon system for armored engineering vehicles using a modified M56."
 	disp_icon_state = "m56pintle"
 
-	allowed_seat = VEHICLE_DRIVER
+	allowed_seat = VEHICLE_GUNNER
 
 	firing_arc = 150
 
@@ -34,7 +34,7 @@
 	health = 1500
 	firing_arc = 120
 
-	allowed_seat = VEHICLE_DRIVER
+	allowed_seat = VEHICLE_GUNNER
 
 	ammo = new /obj/item/ammo_magazine/hardpoint/turret_smoke/incen
 	max_clips = 3

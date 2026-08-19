@@ -56,10 +56,17 @@
 	},
 /turf/open/void/vehicle,
 /area/space)
+"m" = (
+/obj/effect/landmark/interior/spawn/vehicle_gunner_seat/armor{
+	dir = 4
+	},
+/turf/open/shuttle/vehicle/floor_3_5,
+/area/interior/vehicle/tank)
 "n" = (
 /obj/structure/prop/tank{
 	icon_state = "prop_aev2";
-	layer = 3
+	layer = 3;
+	icon = 'modular/vehicles/icons/aev/tank.dmi'
 	},
 /obj/effect/landmark/interior/spawn/weapons_loader{
 	pixel_x = -20;
@@ -91,15 +98,6 @@
 	layer = 3;
 	pixel_x = 0
 	},
-/obj/structure/phone_base{
-	dir = 8;
-	layer = 3.1;
-	name = "AEV Telephone";
-	phone_category = "Vehicles";
-	phone_id = "M34E1 Armored Engineering Vehicle";
-	pixel_x = 14;
-	pixel_y = -21
-	},
 /turf/open/shuttle/vehicle/floor_3_5,
 /area/interior/vehicle/tank)
 "v" = (
@@ -117,7 +115,8 @@
 "B" = (
 /obj/structure/prop/tank{
 	icon_state = "prop_aev1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon = 'modular/vehicles/icons/aev/tank.dmi'
 	},
 /obj/structure/prop/tank{
 	icon_state = "prop7";
@@ -128,10 +127,11 @@
 /area/interior/vehicle/tank)
 "C" = (
 /obj/structure/prop/tank{
-	icon_state = "prop_aev2";
-	layer = 3
+	icon_state = "prop_aev3";
+	pixel_x = 0;
+	icon = 'modular/vehicles/icons/aev/tank.dmi'
 	},
-/turf/open/shuttle/vehicle/floor_3_1_1,
+/turf/open/shuttle/vehicle/floor_3_5,
 /area/interior/vehicle/tank)
 "D" = (
 /obj/structure/interior_wall/tank{
@@ -173,6 +173,15 @@
 /obj/structure/vehicle_locker/tank{
 	pixel_x = 32;
 	pixel_y = -2
+	},
+/obj/structure/transmitter{
+	dir = 8;
+	layer = 3.1;
+	name = "Tank Telephone";
+	phone_category = "Vehicles";
+	phone_id = "M34E1 Buckner Armored Engineering Vehicle";
+	pixel_x = 22;
+	pixel_y = -14
 	},
 /turf/open/shuttle/vehicle,
 /area/interior/vehicle/tank)
@@ -259,7 +268,7 @@ l
 v
 u
 J
-e
+m
 Y
 "}
 (5,1,1) = {"

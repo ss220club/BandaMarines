@@ -20,18 +20,9 @@
 
 	return AEV
 
-/obj/effect/vehicle_spawner/aev/load_hardpoints(obj/vehicle/multitile/tank/V)
+/obj/effect/vehicle_spawner/aev/fixed/load_hardpoints(obj/vehicle/multitile/tank/V)
 	V.add_hardpoint(new /obj/item/hardpoint/locomotion/treads)
 	V.add_hardpoint(new /obj/item/hardpoint/armor/snowplow)
 	V.add_hardpoint(new /obj/item/hardpoint/support/overdrive_enhancer)
 	V.add_hardpoint(new /obj/item/hardpoint/secondary/m56cupola/aev)
 	V.add_hardpoint(new /obj/item/hardpoint/support/smoke_launcher/aev)
-
-/obj/effect/vehicle_spawner/aev/decrepit/spawn_vehicle()
-	var/obj/vehicle/multitile/tank/aev/AEV = new(loc)
-
-	load_misc(AEV)
-	handle_direction(AEV)
-	load_hardpoints(AEV)
-	load_damage(AEV)
-	AEV.update_icon()
