@@ -30,13 +30,9 @@
 		if("urban")
 			icon = 'modular/vehicles/icons/tank_camouflage.dmi'
 			icon_state = "tank_base_n"
-		if("snow")
+//		if("snow")
 //			icon = 'modular/vehicles/icons/tank_camouflage.dmi'
 //			icon_state = "tank_base_s"
-//		else
-			icon = 'modular/vehicles/icons/tank_camouflage.dmi'
-			icon_state = "tank_base"
-
 	update_icon()
 
 
@@ -79,8 +75,4 @@
 		if("snow")
 //			icon = 'modular/vehicles/icons/tank_camouflage.dmi'
 //			icon_state = "tank_turret_s_0"
-//		else
-			icon = 'modular/vehicles/icons/tank_camouflage.dmi'
-			icon_state = "tank_turret_0"
-
 	update_icon()
