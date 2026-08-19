@@ -40,7 +40,6 @@
 			new /obj/item/stack/snow(S, S.bleed_layer)
 			S.changing_layer(0)
 
-
 // turret
 /obj/item/hardpoint/holder/humvee_turret
 	name = "\improper Дистанционно управляемая башня M24-JTMV"

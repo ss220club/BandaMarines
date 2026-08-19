@@ -134,22 +134,21 @@
 	)
 
 //aev
-/obj/item/ammo_magazine/hardpoint/turret_smoke/incen/aev
+/datum/ammo/grenade_container/incen
+	name = "incendiary smoke grenade shell"
+	nade_type = /obj/item/explosive/grenade/phosphorus
+
+/obj/item/ammo_magazine/hardpoint/turret_smoke/incen
+	name = "Smoke Discharger Magazine"
 	desc = "A magazine of modified M60 incendiary smoke grenades used by the AEVs discharger array."
+	default_ammo = /datum/ammo/grenade_container/incen
 	max_rounds = 12
 
 /obj/item/ammo_magazine/hardpoint/m56_cupola/aev
-	name = "M56 RWS Drum"
-	desc = "An expanded drum of 700, 10x28mm caseless rounds for the M56 heavy machine gun system."
-	icon_state = "m56d_drum"
+	name = "M56 RWS box"
+	desc = "An expanded box of 700, 10x28mm caseless rounds for the M56 heavy machine gun system."
 	max_rounds = 700
 	gun_type = /obj/item/hardpoint/secondary/m56cupola/aev
-
-/obj/item/ammo_magazine/hardpoint/m56_cupola/aev/update_icon()
-	if(current_rounds > 0)
-		icon_state = "m56d_drum"
-	else
-		icon_state = "m56d_drum_empty"
 
 /obj/effect/essentials_set/aev/m56_cupola
 	desc = "Основное оружие поддержки пехоты для ИРМ М34E1, по факту является той же системой М56 но с увеличенным боезапасом."
@@ -163,8 +162,23 @@
 /obj/effect/essentials_set/aev/smoke_launcher
 	desc = "Вспомогательный модуль поддержки пехоты для ИРМ М34E1, выстреливает несколькими зажигательно-дымовыми гранатами М60 для защиты от безбилетников."
 	spawned_gear_list = list(
+		/obj/item/hardpoint/support/smoke_launcher/aev,
+		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
+		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
+		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
+	)
+
+/obj/effect/essentials_set/apc/smoke_launcher
+	desc = "Вспомогательный модуль поддержки пехоты для БТРов, выстреливает несколькими зажигательно-дымовыми гранатами М60 для защиты от безбилетников."
+	spawned_gear_list = list(
 		/obj/item/hardpoint/support/smoke_launcher,
 		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
 		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
 		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
+	)
+
+/obj/effect/essentials_set/tank/turret_smoke
+	spawned_gear_list = list(
+		/obj/item/ammo_magazine/hardpoint/turret_smoke,
+		/obj/item/ammo_magazine/hardpoint/turret_smoke,
 	)

@@ -22,7 +22,7 @@
 /obj/item/hardpoint/support/smoke_launcher
 	name = "\improper M-39P Smoke Discharger"
 	desc = "A support module for ATVs that shoots M60 incendiary smoke grenades to deter hitchhikers."
-	icon = 'icons/obj/vehicles/hardpoints/apc.dmi'
+	icon = 'modular/vehicles/icons/aev/apc_hardpoints.dmi'
 
 	icon_state = "slauncher"
 	disp_icon = "apc"
@@ -52,13 +52,13 @@
 /obj/item/hardpoint/support/smoke_launcher/aev
 	name = "\improper M-39Q Smoke Discharger"
 	desc = "A support module for AEVs that shoots M60 incendiary smoke grenades to deter hitchhikers."
-	icon = 'icons/obj/vehicles/hardpoints/tank.dmi'
+	icon = 'modular/vehicles/icons/aev/aev_hardpoints.dmi'
 
 	icon_state = "slauncher_0"
 	disp_icon = "tank"
 
 	firing_arc = 150
-	ammo = new /obj/item/ammo_magazine/hardpoint/turret_smoke/incen/aev
+	ammo = new /obj/item/ammo_magazine/hardpoint/turret_smoke/incen
 	max_clips = 5
 
 	scatter = 3
