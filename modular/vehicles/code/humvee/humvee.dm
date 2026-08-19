@@ -20,7 +20,7 @@
 	misc_multipliers = list(
 		"move" = 1,
 		"accuracy" = 1,
-		"cooldown" = 1
+		"cooldown" = 1,
 	)
 
 	entrances = list(
