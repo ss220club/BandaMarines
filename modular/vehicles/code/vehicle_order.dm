@@ -1,17 +1,3 @@
-// Минимальное количество игроков для открытия категорий
-#define MIN_PLAYERS_HEAVY_SUPPORT     1 // Танк
-#define MIN_PLAYERS_MEDIUM_SUPPORT    60 // БТР
-#define MIN_PLAYERS_LIGHT_SUPPORT     40 // Машинка
-#define MIN_PLAYERS_LIGHT_RECON        1 // АРК
-#define MIN_PLAYERS_LIGHT_VEHICLE     40 // Буханки
-
-// Лимиты на количество техники по категориям
-#define LIMIT_HEAVY_SUPPORT_VEHICLES   1
-#define LIMIT_MEDIUM_SUPPORT_VEHICLES  1
-#define LIMIT_LIGHT_SUPPORT_VEHICLES   1
-#define LIMIT_LIGHT_RECON_VEHICLES     1
-#define LIMIT_LIGHT_CARRIERS           1
-
 // Категоризация техники
 /proc/get_vehicle_category(datum/vehicle_order/order)
 	if(istype(order, /datum/vehicle_order/tank) || istype(order, /datum/vehicle_order/aev) || istype(order, /datum/vehicle_order/tank/command))
@@ -23,7 +9,7 @@
 	if(istype(order, /datum/vehicle_order/arc))
 		return "Разведка"
 	if(istype(order, /datum/vehicle_order/van/uscm_van/med) || istype(order, /datum/vehicle_order/humvee/medical))
-		return "Санитаркая техника"
+		return "Санитарная техника"
 	if(istype(order, /datum/vehicle_order/van/uscm_van) || istype(order, /datum/vehicle_order/humvee/transport))
 		return "Логистическая техника"
 	return "другое"
@@ -35,17 +21,17 @@
 
 	switch(category)
 		if("Тяжелая бронетехника")
-			player_count = (clients >= MIN_PLAYERS_HEAVY_SUPPORT)
+			player_count = (clients >= CONFIG_GET(number/min_players_heavy_support))
 		if("Бронетранспортеры")
-			player_count = (clients >= MIN_PLAYERS_MEDIUM_SUPPORT)
+			player_count = (clients >= CONFIG_GET(number/min_players_medium_support))
 		if("Бронеавтомобили")
-			player_count = (clients >= MIN_PLAYERS_LIGHT_SUPPORT)
+			player_count = (clients >= CONFIG_GET(number/min_players_light_support))
 		if("Разведка")
-			player_count = (clients >= MIN_PLAYERS_LIGHT_RECON)
-		if("Санитаркая техника")
-			player_count = (clients >= MIN_PLAYERS_LIGHT_VEHICLE)
+			player_count = (clients >= CONFIG_GET(number/min_players_light_recon))
+		if("Санитарная техника")
+			player_count = (clients >= CONFIG_GET(number/min_players_light_vehicle))
 		if("Логистическая техника")
-			player_count = (clients >= MIN_PLAYERS_LIGHT_VEHICLE)
+			player_count = (clients >= CONFIG_GET(number/min_players_light_vehicle))
 		else
 			player_count = TRUE
 
@@ -58,12 +44,12 @@
 	. = ..()
 
 	category_limits = list(
-		"Тяжелая бронетехника" = LIMIT_HEAVY_SUPPORT_VEHICLES,
-		"Бронетранспортеры" = LIMIT_MEDIUM_SUPPORT_VEHICLES,
-		"Бронеавтомобили" = LIMIT_LIGHT_SUPPORT_VEHICLES,
-		"Разведка" = LIMIT_LIGHT_RECON_VEHICLES,
-		"Санитаркая техника" = LIMIT_LIGHT_CARRIERS,
-		"Логистическая техника" = LIMIT_LIGHT_CARRIERS
+		"Тяжелая бронетехника" = CONFIG_GET(number/limit_heavy_support_vehicles),
+		"Бронетранспортеры" = CONFIG_GET(number/limit_medium_support_vehicles),
+		"Бронеавтомобили" = CONFIG_GET(number/limit_light_support_vehicles),
+		"Разведка" = CONFIG_GET(number/limit_light_recon_vehicles),
+		"Санитарная техника" = CONFIG_GET(number/limit_light_carriers),
+		"Логистическая техника" = CONFIG_GET(number/limit_light_carriers)
 	)
 
 	category_given = list(
@@ -71,7 +57,7 @@
 		"Бронетранспортеры" = 0,
 		"Бронеавтомобили" = 0,
 		"Разведка" = 0,
-		"Санитаркая техника" = 0,
+		"Санитарная техника" = 0,
 		"Логистическая техника" = 0
 	)
 
@@ -90,7 +76,7 @@
 		"Бронетранспортеры"    = "Огневая поддержка",
 		"Бронеавтомобили"      = "Огневая поддержка",
 		"Разведка"  = "Специальная техника",
-		"Санитаркая техника" = "Логистика",
+		"Санитарная техника" = "Логистика",
 		"Логистическая техника" = "Логистика"
 	)
 
