@@ -105,7 +105,7 @@ GLOBAL_LIST_INIT(cm_vending_vehicle_crew_aev_modul, list(
 	list("Огнемет LZR-N", 0, /obj/effect/essentials_set/tank/tankflamer, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_RECOMMENDED),
 
 	list("ВТОРИЧНОЕ ОРУДИЕ", 0, null, null, null),
-	list("Всмопогательный гранатометный модуль M-39P", 0, /obj/effect/essentials_set/aev/smoke_launcher, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_REGULAR),
+	list("Гранатометный модуль M-39P", 0, /obj/effect/essentials_set/aev/smoke_launcher, VEHICLE_SECONDARY_AVAILABLE, VENDOR_ITEM_REGULAR),
 
 	list("МОДУЛЬ ПОДДЕРЖКИ", 0, null, null, null),
 	list("Интегрированный сенсорный массив оружия", 0, /obj/item/hardpoint/support/weapons_sensor, VEHICLE_SUPPORT_AVAILABLE, VENDOR_ITEM_REGULAR),
