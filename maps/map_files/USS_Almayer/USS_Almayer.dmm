@@ -20579,10 +20579,6 @@
 /obj/effect/decal/heavy_cable/node_s_w,
 /turf/open/floor/plating/plating_catwalk/no_build,
 /area/almayer/middeck/maintenance/sp)
-"baM" = (
-/obj/structure/machinery/fuelpump,
-/turf/open/floor/almayer/mono,
-/area/almayer/lifeboat_pumps/south2)
 "baN" = (
 /obj/structure/pipes/standard/simple/hidden/supply,
 /turf/open/floor/almayer/plate,
@@ -20720,10 +20716,6 @@
 	},
 /turf/open/floor/almayer/no_build/plate,
 /area/almayer/middeck/medical)
-"bbi" = (
-/obj/structure/machinery/fuelpump,
-/turf/open/floor/almayer/mono,
-/area/almayer/lifeboat_pumps/north1)
 "bbj" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "NW-out";
@@ -23054,10 +23046,6 @@
 /obj/structure/surface/rack,
 /turf/open/floor/almayer/no_build/plate,
 /area/almayer/middeck/maintenance/aft)
-"bgG" = (
-/obj/structure/machinery/fuelpump,
-/turf/open/floor/almayer/mono,
-/area/almayer/lifeboat_pumps/north2)
 "bgH" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "NW-out";
@@ -50120,6 +50108,10 @@
 	},
 /turf/open/floor/plating,
 /area/almayer/shipboard/brig/general_equipment)
+"cpP" = (
+/obj/structure/machinery/fuelpump,
+/turf/open/floor/almayer/mono,
+/area/almayer/lifeboat_pumps/north1)
 "cpQ" = (
 /obj/structure/window/framed/almayer/hull,
 /obj/structure/machinery/door/firedoor/border_only/almayer{
@@ -51309,6 +51301,10 @@
 	},
 /turf/open/floor/almayer,
 /area/almayer/living/grunt_rnr)
+"cOd" = (
+/obj/structure/machinery/fuelpump,
+/turf/open/floor/almayer/mono,
+/area/almayer/lifeboat_pumps/south2)
 "cOe" = (
 /turf/open/floor/almayer/blue/northeast,
 /area/almayer/hallways/upper/midship_hallway)
@@ -64277,6 +64273,10 @@
 /obj/structure/largecrate/random/barrel/red,
 /turf/open/floor/almayer/plate,
 /area/almayer/maint/hull/upper/u_a_s)
+"iDK" = (
+/obj/structure/machinery/fuelpump,
+/turf/open/floor/almayer/mono,
+/area/almayer/lifeboat_pumps/north2)
 "iEa" = (
 /obj/structure/machinery/light/red{
 	light_color = "#BB3F3F"
@@ -206201,7 +206201,7 @@ awW
 tYQ
 eBj
 aTm
-bbi
+cpP
 cbM
 xKs
 lqM
@@ -214955,7 +214955,7 @@ aeA
 dtE
 akX
 atr
-bgG
+iDK
 atr
 taI
 qMo
@@ -215003,7 +215003,7 @@ lJY
 tRh
 sij
 bXe
-baM
+cOd
 tGi
 gkg
 qxn
