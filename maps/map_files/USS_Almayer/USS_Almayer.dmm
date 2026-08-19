@@ -199,10 +199,6 @@
 /obj/structure/lattice,
 /turf/open/space/basic,
 /area/space)
-"aaD" = (
-/obj/structure/machinery/fuelpump,
-/turf/open/floor/almayer,
-/area/almayer/lifeboat_pumps/south2)
 "aaE" = (
 /turf/closed/wall/almayer/outer/internal,
 /area/almayer/middeck/engineer)
@@ -6688,10 +6684,6 @@
 	},
 /turf/open/floor/almayer/red/southeast,
 /area/almayer/shipboard/panic)
-"aqB" = (
-/obj/structure/machinery/fuelpump,
-/turf/open/floor/almayer,
-/area/almayer/lifeboat_pumps/north1)
 "aqC" = (
 /obj/structure/machinery/cm_vending/sorted/tech/electronics_storage{
 	req_access = null;
@@ -11589,10 +11581,6 @@
 	},
 /turf/open/floor/almayer/silver/east,
 /area/almayer/command/cic)
-"aDL" = (
-/obj/structure/machinery/fuelpump,
-/turf/open/floor/almayer,
-/area/almayer/lifeboat_pumps/north2)
 "aDM" = (
 /obj/structure/surface/table/reinforced/almayer_B,
 /obj/structure/machinery/faxmachine/uscm/almayer/command{
@@ -20591,6 +20579,10 @@
 /obj/effect/decal/heavy_cable/node_s_w,
 /turf/open/floor/plating/plating_catwalk/no_build,
 /area/almayer/middeck/maintenance/sp)
+"baM" = (
+/obj/structure/machinery/fuelpump,
+/turf/open/floor/almayer/mono,
+/area/almayer/lifeboat_pumps/south2)
 "baN" = (
 /obj/structure/pipes/standard/simple/hidden/supply,
 /turf/open/floor/almayer/plate,
@@ -20728,6 +20720,10 @@
 	},
 /turf/open/floor/almayer/no_build/plate,
 /area/almayer/middeck/medical)
+"bbi" = (
+/obj/structure/machinery/fuelpump,
+/turf/open/floor/almayer/mono,
+/area/almayer/lifeboat_pumps/north1)
 "bbj" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "NW-out";
@@ -23058,6 +23054,10 @@
 /obj/structure/surface/rack,
 /turf/open/floor/almayer/no_build/plate,
 /area/almayer/middeck/maintenance/aft)
+"bgG" = (
+/obj/structure/machinery/fuelpump,
+/turf/open/floor/almayer/mono,
+/area/almayer/lifeboat_pumps/north2)
 "bgH" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "NW-out";
@@ -205995,7 +205995,7 @@ add
 fsU
 ieH
 aTm
-aqB
+awW
 aTm
 oZX
 fsU
@@ -206041,7 +206041,7 @@ aJU
 gBW
 ixL
 iun
-sfA
+baw
 vPm
 iwm
 gBW
@@ -206201,7 +206201,7 @@ awW
 tYQ
 eBj
 aTm
-add
+bbi
 cbM
 xKs
 lqM
@@ -206247,7 +206247,7 @@ baw
 wQh
 bVx
 vbB
-baw
+sfA
 vbB
 tyo
 vGz
@@ -214749,7 +214749,7 @@ aeC
 wXh
 hYo
 atr
-aDL
+aeA
 aex
 wkZ
 wXh
@@ -214797,7 +214797,7 @@ vcE
 kpo
 mDR
 tGi
-aaD
+lJY
 bXe
 leU
 kpo
@@ -214955,7 +214955,7 @@ aeA
 dtE
 akX
 atr
-aeC
+bgG
 atr
 taI
 qMo
@@ -215003,7 +215003,7 @@ lJY
 tRh
 sij
 bXe
-vcE
+baM
 tGi
 gkg
 qxn
