@@ -43,7 +43,7 @@
 
 	announcement_helper(message, title, targets, sound_to_play)
 
-//CLF announcement
+//CLF announcement 
 /proc/clf_announcement(message, title = CLF_ANNOUNCE, sound_to_play = sound('sound/misc/notice2.ogg'), faction_to_display = FACTION_CLF)
 	var/list/targets = GLOB.human_mob_list + GLOB.dead_mob_list
 	if(faction_to_display == FACTION_CLF)
