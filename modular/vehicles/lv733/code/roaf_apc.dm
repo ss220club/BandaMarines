@@ -4,7 +4,7 @@
 	name = "\improper Type 16-7/E MCV"
 	desc = "Тренировачный колесный десантный танк Type 16//D-2. Маневренная модификация с 105 мм пушкой и улучшнным двигателем."
 
-	icon = 'modular/lv733/icons/roaf_apc/type16_hull.dmi'
+	icon = 'modular/vehicles/lv733/icons/type16/type16_hull.dmi'
 	icon_state = "apc_base"
 	pixel_x = -48
 	pixel_y = -48
@@ -174,8 +174,8 @@
 // пушку было бы невозможно поставить обратно. Своя иконка - см. комментарий в начале файла.
 /obj/item/hardpoint/holder/tank_turret/roaf
 	name = "\improper Турель Type 16-7/E"
-	icon = 'modular/lv733/icons/roaf_apc/type16_turret.dmi'
-	disp_icon = 'modular/lv733/icons/roaf_apc/type16_turret.dmi'
+	icon = 'modular/vehicles/lv733/icons/type16/type16_turret.dmi'
+	disp_icon = 'modular/vehicles/lv733/icons/type16/type16_turret.dmi'
 	accepted_hardpoints = list(
 		/obj/item/hardpoint/primary/flamer,
 		/obj/item/hardpoint/primary/cannon,
@@ -194,15 +194,15 @@
 /obj/item/hardpoint/primary/cannon/roaf
 	name = "\improper 120-мм пушка Type 16-7/E"
 	desc = "Модификация танковой LTB-пушки с усиленным зарядом и облегчённым затвором для более частой стрельбы."
-	icon = 'modular/lv733/icons/roaf_apc/type16_cannon_held.dmi'
-	disp_icon = 'modular/lv733/icons/roaf_apc/type16_cannon_mounted.dmi'
+	icon = 'modular/vehicles/lv733/icons/type16/type16_cannon_held.dmi'
+	disp_icon = 'modular/vehicles/lv733/icons/type16/type16_cannon_mounted.dmi'
 	ammo = new /obj/item/ammo_magazine/hardpoint/ltb_cannon/roaf
 	fire_delay = 17 SECONDS
 
 /obj/item/ammo_magazine/hardpoint/ltb_cannon/roaf
 	default_ammo = /datum/ammo/rocket/ltb/roaf
 	gun_type = /obj/item/hardpoint/primary/cannon/roaf
-	icon = 'modular/lv733/icons/roaf_apc/type16_shell.dmi'
+	icon = 'modular/vehicles/lv733/icons/type16/type16_shell.dmi'
 
 /datum/ammo/rocket/ltb/roaf
 	name = "Type 16-7/E cannon round"
@@ -211,24 +211,24 @@
 // Свои колёса - чисто под свою иконку (см. комментарий в начале файла), характеристики те же, что у apc_wheels.
 /obj/item/hardpoint/locomotion/apc_wheels/roaf
 	name = "\improper Колёса Type 16-7/E"
-	icon = 'modular/lv733/icons/roaf_apc/type16_wheels_held.dmi'
+	icon = 'modular/vehicles/lv733/icons/type16/type16_wheels_held.dmi'
 	icon_state = "tires_wy"
-	disp_icon = 'modular/lv733/icons/roaf_apc/type16_wheels_mounted.dmi'
+	disp_icon = 'modular/vehicles/lv733/icons/type16/type16_wheels_mounted.dmi'
 
 // Двигатель - штатный "ускоритель" с танка (даёт +20% скорости, см. apply_buff/remove_buff в
 // code/modules/vehicles/hardpoints/support/overdrive.dm), просто переименован и со своей иконкой.
 // Ставится сразу при спавне (см. load_hardpoints ниже), как и остальные видимые узлы - можно снять ломом.
 /obj/item/hardpoint/support/overdrive_enhancer/roaf
 	name = "\improper Двигатель Type 16-7/E"
-	icon = 'modular/lv733/icons/roaf_apc/type16_engine_held.dmi'
-	disp_icon = 'modular/lv733/icons/roaf_apc/type16_engine_mounted.dmi'
+	icon = 'modular/vehicles/lv733/icons/type16/type16_engine_held.dmi'
+	disp_icon = 'modular/vehicles/lv733/icons/type16/type16_engine_mounted.dmi'
 
 /*
 ** ПРЕСЕТ СПАВНА
 */
 /obj/effect/vehicle_spawner/apc_roaf
 	name = "Type 16-7/E MCV Spawner"
-	icon = 'modular/lv733/icons/roaf_apc/type16_hull.dmi'
+	icon = 'modular/vehicles/lv733/icons/type16/type16_hull.dmi'
 	icon_state = "apc_base"
 	pixel_x = -48
 	pixel_y = -48

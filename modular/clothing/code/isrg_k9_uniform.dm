@@ -27,8 +27,15 @@
 /obj/item/clothing/under/rank/synthetic/synth_k9/isrg
 	name = "\improper служебный комбинезон K9 ISRG"
 	desc = "Идентификационный ошейник-комбинезон поискового синтетика K9 со встроенным детектором движения."
-	icon = 'modular/lv733/icons/isrg_k9/dogtag.dmi'
+	icon = 'modular/clothing/icon/isrg/isrg_k9_dogtag.dmi'
 	icon_state = "icon"
+	worn_state = "icon"
+	item_icons = list(
+		WEAR_BODY = 'icons/mob/humans/species/synth_k9/onmob/synth_k9_overlays.dmi',
+	)
+	item_state_slots = list(
+		WEAR_BODY = "k9_dogtags",
+	)
 	actions_types = list(/datum/action/item_action/toggle/motion_detector/k9_uniform)
 	var/obj/item/device/motiondetector/isrg_k9_uniform/internal_detector
 

@@ -9,5 +9,6 @@
 #include "code/lv733_clf_wy.dm"
 #include "code/lv733_isrg.dm"
 #include "code/isrg_nvg.dm"
+#include "code/isrg_k9_uniform.dm"
 #include "code/rac_clothing.dm"
 #include "code/cape.dm"

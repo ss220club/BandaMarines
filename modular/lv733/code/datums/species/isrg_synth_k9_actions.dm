@@ -60,7 +60,7 @@
 
 	deselect_ability()
 	enter_cooldown(ability_cooldown)
-	playsound(k9, 'modular/lv733/sound/voice/isrg_k9/growl2.ogg', 75, FALSE)
+	playsound(k9, 'modular/sounds/sound/voice/isrg_k9/growl2.ogg', 75, FALSE)
 	var/image/bite_overlay = image(
 		"icon" = 'modular/lv733/icons/isrg_k9/attacks.dmi',
 		"icon_state" = "bite",
@@ -125,7 +125,7 @@
 	deselect_ability()
 	enter_cooldown(ability_cooldown)
 	k9.face_dir(get_cardinal_dir(k9, jump_target))
-	playsound(k9, 'modular/lv733/sound/voice/isrg_k9/growl3.ogg', 75, FALSE)
+	playsound(k9, 'modular/sounds/sound/voice/isrg_k9/growl3.ogg', 75, FALSE)
 	RegisterSignal(k9, COMSIG_CLIENT_MOB_MOVE, PROC_REF(block_movement_during_jump))
 	k9.throw_atom(
 		jump_target,
@@ -154,7 +154,7 @@
 		if(isqueen(xeno_target) || xeno_target.tier >= 3)
 			k9.KnockDown(ISRG_K9_POUNCE_SELF_STUN)
 			k9.Stun(ISRG_K9_POUNCE_SELF_STUN)
-			playsound(k9, 'modular/lv733/sound/voice/isrg_k9/pounce_fail.ogg', 30, FALSE)
+			playsound(k9, 'modular/sounds/sound/voice/isrg_k9/pounce_fail.ogg', 30, FALSE)
 			k9.visible_message(
 				SPAN_DANGER("[capitalize(k9.declent_ru(NOMINATIVE))] врезается в [target.declent_ru(ACCUSATIVE)] и теряет равновесие!"),
 				SPAN_DANGER("Вы прыгнули в слишком огромную цель, из-за чего сильно ударились и потеряли равновесие"),

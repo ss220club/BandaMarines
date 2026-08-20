@@ -1,18 +1,18 @@
-/obj/item/weapon/gun/rifle/l86_m1
-	name = "\improper L86-M1"
-	desc = "Тестoвый прототип L86 для регулырной армии TWE."
-	icon = 'modular/lv733/icons/l86_m1/l86_m1.dmi'
+/obj/item/weapon/gun/rifle/l86kai
+	name = "\improper L86 «Кай»"
+	desc = "Магазинная винтовка L86 «Кай», переоборудованная под патрон 10x24mm и используемая группой ISRG для точной стрельбы на дальние дистанции. Собственный магазин — сторонние 10x24mm магазины не подходят. В винтовке зашит IFF на ISRG группу, а не привязка через карту."
+	icon = 'modular/weapons/icons/l86kai/l86kai.dmi'
 	icon_state = "l86kai"
 	item_state = "l86kai"
 	item_icons = list(
-		WEAR_BACK = 'modular/lv733/icons/l86_m1/l86_m1_back.dmi',
-		WEAR_J_STORE = 'modular/lv733/icons/l86_m1/l86_m1_suit_store.dmi',
-		WEAR_L_HAND = 'modular/lv733/icons/l86_m1/l86_m1_lefthand.dmi',
-		WEAR_R_HAND = 'modular/lv733/icons/l86_m1/l86_m1_righthand.dmi',
+		WEAR_BACK = 'modular/weapons/icons/l86kai/l86kai_back.dmi',
+		WEAR_J_STORE = 'modular/weapons/icons/l86kai/l86kai_suit_store.dmi',
+		WEAR_L_HAND = 'modular/weapons/icons/l86kai/l86kai_lefthand.dmi',
+		WEAR_R_HAND = 'modular/weapons/icons/l86kai/l86kai_righthand.dmi',
 	)
 	map_specific_decoration = FALSE
 	fire_sound = 'sound/weapons/gun_ar10.ogg'
-	current_mag = /obj/item/ammo_magazine/rifle/l86_m1
+	current_mag = /obj/item/ammo_magazine/rifle/l86kai
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/bayonet,
@@ -53,14 +53,14 @@
 	pixel_x = -5
 	hud_offset = -5
 
-/obj/item/weapon/gun/rifle/l86_m1/Initialize()
+/obj/item/weapon/gun/rifle/l86kai/Initialize()
 	. = ..()
 	AddElement(/datum/element/corp_label/armat)
 
-/obj/item/weapon/gun/rifle/l86_m1/set_gun_attachment_offsets()
+/obj/item/weapon/gun/rifle/l86kai/set_gun_attachment_offsets()
 	attachable_offset = list("muzzle_x" = 43, "muzzle_y" = 17,"rail_x" = 22, "rail_y" = 21, "under_x" = 30, "under_y" = 13, "stock_x" = 24, "stock_y" = 13, "special_x" = 37, "special_y" = 16)
 
-/obj/item/weapon/gun/rifle/l86_m1/set_gun_config_values()
+/obj/item/weapon/gun/rifle/l86kai/set_gun_config_values()
 	set_fire_delay(FIRE_DELAY_TIER_9)
 	set_burst_amount(BURST_AMOUNT_TIER_3)
 	set_burst_delay(FIRE_DELAY_TIER_SMG)
@@ -74,36 +74,36 @@
 	damage_falloff_mult = 0
 	scatter = SCATTER_AMOUNT_TIER_10
 
-/obj/item/weapon/gun/rifle/l86_m1/set_bullet_traits()
+/obj/item/weapon/gun/rifle/l86kai/set_bullet_traits()
 	LAZYADD(traits_to_give, list(
 		BULLET_TRAIT_ENTRY_ID("iff", /datum/element/bullet_trait_iff, FACTION_ISRG)
 	))
 
-/obj/item/ammo_magazine/rifle/l86_m1
-	name = "\improper Магазин L86-M1"
-	desc = "Магазин на 10x24mm для L86-M1."
-	icon = 'modular/lv733/icons/l86_m1/l86_m1_mag.dmi'
+/obj/item/ammo_magazine/rifle/l86kai
+	name = "\improper Магазин L86 «Кай»"
+	desc = "Магазин на 10x24mm для L86 «Кай». Магазины других 10x24mm винтовок к нему не подходят."
+	icon = 'modular/weapons/icons/l86kai/l86kai_mag.dmi'
 	icon_state = "l86kai_mag"
 	caliber = "10x24mm"
 	w_class = SIZE_MEDIUM
-	default_ammo = /datum/ammo/bullet/rifle/l86_m1
+	default_ammo = /datum/ammo/bullet/rifle/isrg
 	max_rounds = 22
-	gun_type = /obj/item/weapon/gun/rifle/l86_m1
+	gun_type = /obj/item/weapon/gun/rifle/l86kai
 
-/obj/item/ammo_magazine/rifle/l86_m1/ap
-	name = "\improper Бронебойный магазин L86-M1"
-	desc = "Бронебойный магазин на 10x24mm для L86-M1."
-	icon = 'modular/lv733/icons/l86_m1/l86_m1_mag_ap.dmi'
+/obj/item/ammo_magazine/rifle/l86kai/ap
+	name = "\improper Бронебойный магазин L86 «Кай»"
+	desc = "Бронебойный магазин на 10x24mm для L86 «Кай»."
+	icon = 'modular/weapons/icons/l86kai/l86kai_mag_ap.dmi'
 	icon_state = "l86kai_mag_ap"
-	default_ammo = /datum/ammo/bullet/rifle/l86_m1/ap
+	default_ammo = /datum/ammo/bullet/rifle/isrg/ap
 	max_rounds = 12
 
-/datum/ammo/bullet/rifle/l86_m1
-	name = "l86-m1 rifle bullet"
+/datum/ammo/bullet/rifle/isrg
+	name = "l86 rifle bullet"
 	damage = 38
 	accuracy = HIT_ACCURACY_TIER_5
 
-/datum/ammo/bullet/rifle/l86_m1/ap
-	name = "armor-piercing l86-m1 rifle bullet"
+/datum/ammo/bullet/rifle/isrg/ap
+	name = "armor-piercing l86 rifle bullet"
 	damage = 32
 	penetration = ARMOR_PENETRATION_TIER_8

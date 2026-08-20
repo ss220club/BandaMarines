@@ -312,7 +312,7 @@
 	category = "Status"
 	message = "лает."
 	override_say = "Лай"
-	sound = 'modular/lv733/sound/voice/isrg_k9/bark.ogg'
+	sound = 'modular/sounds/sound/voice/isrg_k9/bark.ogg'
 	emote_type = EMOTE_AUDIBLE|EMOTE_VISIBLE
 
 /datum/emote/living/carbon/human/synthetic/isrg_k9/status/bark2
@@ -320,7 +320,7 @@
 	category = "Status"
 	message = "лает."
 	override_say = "Двойной Лай"
-	sound = 'modular/lv733/sound/voice/isrg_k9/wbark.ogg'
+	sound = 'modular/sounds/sound/voice/isrg_k9/wbark.ogg'
 	emote_type = EMOTE_AUDIBLE|EMOTE_VISIBLE
 
 /datum/emote/living/carbon/human/synthetic/isrg_k9/status/growl1
@@ -328,7 +328,7 @@
 	category = "Status"
 	message = "рычит."
 	override_say = "Рычание 1"
-	sound = 'modular/lv733/sound/voice/isrg_k9/growl1.ogg'
+	sound = 'modular/sounds/sound/voice/isrg_k9/growl1.ogg'
 	emote_type = EMOTE_AUDIBLE|EMOTE_VISIBLE
 
 /datum/emote/living/carbon/human/synthetic/isrg_k9/status/growl2
@@ -336,7 +336,7 @@
 	category = "Status"
 	message = "рычит."
 	override_say = "Рычание 2"
-	sound = 'modular/lv733/sound/voice/isrg_k9/growl2.ogg'
+	sound = 'modular/sounds/sound/voice/isrg_k9/growl2.ogg'
 	emote_type = EMOTE_AUDIBLE|EMOTE_VISIBLE
 
 /datum/emote/living/carbon/human/synthetic/isrg_k9/status/growl3
@@ -344,7 +344,7 @@
 	category = "Status"
 	message = "рычит."
 	override_say = "Рычание 3"
-	sound = 'modular/lv733/sound/voice/isrg_k9/growl3.ogg'
+	sound = 'modular/sounds/sound/voice/isrg_k9/growl3.ogg'
 	emote_type = EMOTE_AUDIBLE|EMOTE_VISIBLE
 
 #undef ISRG_K9_PULL_SPEED

@@ -358,6 +358,28 @@
 	new /obj/item/ammo_magazine/smartgun/isrg(src)
 	new /obj/item/ammo_magazine/smartgun/isrg(src)
 
+// Броня смартганнера
+
+/obj/item/clothing/suit/storage/marine/smartgunner/isrg
+	name = "\improper T3 лёгкий жилет"
+	desc = "Лёгкий жилет ISRG для переноски смартгана T3 «Райко» и боеприпасов к нему."
+	icon = 'modular/clothing/icon/isrg/isrg_smart_armor.dmi'
+	icon_state = "icon"
+	item_state = "onmob"
+	item_icons = list(
+		WEAR_JACKET = 'modular/clothing/onmob/isrg/isrg_smart_worn.dmi',
+	)
+	item_state_slots = list(
+		WEAR_JACKET = "onmob",
+	)
+	flags_atom = FPRINT|CONDUCT|NO_GAMEMODE_SKIN
+	light_color = LIGHT_COLOR_HALOGEN
+	lamp_light_color = LIGHT_COLOR_HALOGEN
+
+/obj/item/clothing/suit/storage/marine/smartgunner/isrg/Initialize()
+	. = ..()
+	name = "\improper T3 combat harness"
+
 // Рюкзак
 
 /obj/item/storage/backpack/satchel/sec/isrg
@@ -378,7 +400,7 @@
 	name = "\improper M210-I portable K9 medical backpack"
 	desc = "Медицинская упряжь K9 поисковой группы ISRG, приспособленная для переноски медикаментов."
 	icon = 'modular/clothing/icon/isrg/backpack.dmi'
-	icon_override = 'modular/lv733/icons/isrg_k9/isrg_k9_pack.dmi'
+	icon_override = 'modular/clothing/icon/isrg/isrg_k9_pack.dmi'
 	icon_state = "isrg_backpack"
 	item_state_slots = list(
 		WEAR_BACK = "isrg_medicalpack"

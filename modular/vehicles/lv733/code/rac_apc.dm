@@ -2,7 +2,7 @@
 	name = "\improper Type 16-7/E MCV"
 	desc = "Тренировачный колесный десантный танк Type 16//D-2. Маневренная модификация с 105 мм пушкой и улучшнным двигателем."
 
-	icon = 'modular/lv733/icons/roaf_apc/type16_hull.dmi'
+	icon = 'modular/vehicles/lv733/icons/type16/type16_hull.dmi'
 	icon_state = "apc_base"
 	pixel_x = -64
 	pixel_y = -64
@@ -202,8 +202,8 @@
 
 /obj/item/hardpoint/holder/tank_turret/rac
 	name = "\improper Турель Type 16-7/E"
-	icon = 'modular/lv733/icons/roaf_apc/type16_turret.dmi'
-	disp_icon = 'modular/lv733/icons/roaf_apc/type16_turret.dmi'
+	icon = 'modular/vehicles/lv733/icons/type16/type16_turret.dmi'
+	disp_icon = 'modular/vehicles/lv733/icons/type16/type16_turret.dmi'
 	accepted_hardpoints = list(
 		/obj/item/hardpoint/primary/cannon/rac,
 		/obj/item/hardpoint/secondary/m56cupola/rac,
@@ -219,8 +219,8 @@
 /obj/item/hardpoint/primary/cannon/rac
 	name = "\improper 105-мм пушка Type 16-7/E"
 	desc = "Старая версия пушки с усиленным зарядом и облегчённым затвором для более частой стрельбы. Может стрелять как по настильной, так и по навесной траектории."
-	icon = 'modular/lv733/icons/roaf_apc/type16_cannon_held.dmi'
-	disp_icon = 'modular/lv733/icons/roaf_apc/type16_cannon_mounted.dmi'
+	icon = 'modular/vehicles/lv733/icons/type16/type16_cannon_held.dmi'
+	disp_icon = 'modular/vehicles/lv733/icons/type16/type16_cannon_mounted.dmi'
 	ammo = new /obj/item/ammo_magazine/hardpoint/ltb_cannon/rac/shrapnel
 	fire_delay = 17 SECONDS
 	max_clips = 1
@@ -239,7 +239,7 @@
 
 /obj/item/ammo_magazine/hardpoint/ltb_cannon/rac
 	gun_type = /obj/item/hardpoint/primary/cannon/rac
-	icon = 'modular/lv733/icons/roaf_apc/type16_shell.dmi'
+	icon = 'modular/vehicles/lv733/icons/type16/type16_shell.dmi'
 
 /obj/item/ammo_magazine/hardpoint/ltb_cannon/rac/shrapnel
 	name = "\improper Type 16-7/E shrapnel round"
@@ -400,24 +400,24 @@
 /obj/item/hardpoint/locomotion/apc_wheels/rac
 	name = "\improper Колёса Type 16-7/E"
 	desc = "Комплект колёс Type 16-7/E. Обеспечивают высокую скорость хода, но плохо бронированы."
-	icon = 'modular/lv733/icons/roaf_apc/type16_wheels_held.dmi'
+	icon = 'modular/vehicles/lv733/icons/type16/type16_wheels_held.dmi'
 	icon_state = "tires_wy"
-	disp_icon = 'modular/lv733/icons/roaf_apc/type16_wheels_mounted.dmi'
+	disp_icon = 'modular/vehicles/lv733/icons/type16/type16_wheels_mounted.dmi'
 	health = 150
 	damage_multiplier = 2
 
 /obj/item/hardpoint/support/overdrive_enhancer/rac
 	name = "\improper Двигатель Type 16-7/E"
 	desc = "Форсированный двигатель Type 16-7/E. Массивный и тяжело бронированный узел - снять его можно только клешнёй погрузчика. Выдерживает серьёзные повреждения прежде чем выйти из строя."
-	icon = 'modular/lv733/icons/roaf_apc/type16_engine_held.dmi'
-	disp_icon = 'modular/lv733/icons/roaf_apc/type16_engine_mounted.dmi'
+	icon = 'modular/vehicles/lv733/icons/type16/type16_engine_held.dmi'
+	disp_icon = 'modular/vehicles/lv733/icons/type16/type16_engine_mounted.dmi'
 	w_class = SIZE_MASSIVE
 	health = 800
 	damage_multiplier = 0.25
 
 /obj/effect/vehicle_spawner/apc_rac
 	name = "Type 16-7/E MCV Spawner"
-	icon = 'modular/lv733/icons/roaf_apc/type16_hull.dmi'
+	icon = 'modular/vehicles/lv733/icons/type16/type16_hull.dmi'
 	icon_state = "apc_base"
 	pixel_x = -64
 	pixel_y = -64
