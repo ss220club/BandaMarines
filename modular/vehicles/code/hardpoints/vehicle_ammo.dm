@@ -182,3 +182,26 @@
 		/obj/item/ammo_magazine/hardpoint/turret_smoke,
 		/obj/item/ammo_magazine/hardpoint/turret_smoke,
 	)
+
+/datum/supply_packs/ammo_m56_cupola/aev
+	name = "M56 Cupola RWC boxes (x2)"
+	contains = list(
+		/obj/item/ammo_magazine/hardpoint/m56_cupola/aev,
+		/obj/item/ammo_magazine/hardpoint/m56_cupola/aev,
+	)
+	cost = 20
+	containertype = /obj/structure/closet/crate/ammo
+	containername = "M56 Cupola RWC ammo crate"
+	group = "Vehicle Ammo"
+
+/datum/supply_packs/ammo_smoke/incendiary
+	name = "M-33P/Q Smoke Launcher magazines (x4)"
+	contains = list(
+		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
+		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
+		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
+	)
+	cost = 20
+	containertype = /obj/structure/closet/crate/ammo
+	containername = "M-33P/Q Smoke Launcher ammo crate"
+	group = "Vehicle Ammo"
