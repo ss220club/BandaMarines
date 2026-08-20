@@ -61,7 +61,6 @@ map lv759_hybrisa_prospera
 endmap
 
 map lv733_whitchler_point
-	voteweight 0
 endmap
 
 map new_varadero
