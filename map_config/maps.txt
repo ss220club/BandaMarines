@@ -72,6 +72,8 @@ map tyrargo_rift
 endmap
 
 map white_antre_research_facility
+	disabled
+	voteweight 0
 endmap
 
 map whiskey_outpost_v2

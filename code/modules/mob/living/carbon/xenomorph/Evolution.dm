@@ -293,7 +293,7 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 		to_chat(src, SPAN_WARNING("Мы слишком слабы, чтобы эволюционировать... Мы должны восстановить здоровье."))
 		return FALSE
 
-	if(agility || fortify || crest_defense || stealth || HAS_TRAIT(src, TRAIT_ABILITY_ENCLOSED_PLATES) || HAS_TRAIT(src, TRAIT_ABILITY_REFLECTIVE_PLATES))
+	if(fortify || crest_defense || stealth || HAS_TRAIT(src, TRAIT_ABILITY_ENCLOSED_PLATES) || HAS_TRAIT(src, TRAIT_ABILITY_REFLECTIVE_PLATES))
 		to_chat(src, SPAN_WARNING("Мы не можем эволюционировать."))
 		return FALSE
 
@@ -310,10 +310,12 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 
 	return TRUE
 
-/mob/living/carbon/xenomorph/proc/transmute_verb()
+// Intentionally a proc variant of a verb so its not just automatically given to xenos
+/mob/living/carbon/xenomorph/proc/verb_transmute()
 	set name = "Transmute"
 	set desc = "Transmute into a different caste of the same tier."
 	set category = "Alien"
+	set hidden = TRUE
 
 	if(!check_state())
 		return
@@ -332,7 +334,7 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 	if(tier == 0 || tier == 4)
 		to_chat(src, SPAN_XENOWARNING("Мы не можем изменить форму."))
 		return
-	if(agility || fortify || crest_defense || stealth)
+	if(fortify || crest_defense || stealth)
 		to_chat(src, SPAN_XENOWARNING("Мы не можем изменить форму."))
 		return
 	if(lock_evolve)
@@ -362,6 +364,9 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 		newcaste = tgui_input_list(src, "Выберите касту в которую хотите перейти.", "Изменение формы", options, theme="hive_status")
 
 	if(!newcaste)
+		return
+
+	if(!can_transmute(newcaste))
 		return
 
 	transmute(newcaste, "Мы изменяемся в новую форму.")
@@ -514,6 +519,24 @@ GLOBAL_LIST_EMPTY(deevolved_ckeys)
 		return FALSE
 	else if(tier == 2 && !slots[TIER_3][OPEN_SLOTS] && !slots[TIER_3][GUARANTEED_SLOTS][castepick] && castepick != XENO_CASTE_QUEEN)
 		to_chat(src, SPAN_WARNING("The hive cannot support another Tier 3, wait for either more aliens to be born or someone to die."))
+		return FALSE
+
+	return TRUE
+
+//checks if transmuting T2 is guaranteed slot holder and prevents them from going over general T2 slot cap
+/mob/living/carbon/xenomorph/proc/can_transmute(caste_pick)
+	if(caste_type == caste_pick)
+		to_chat(src, SPAN_WARNING("We are already [caste_pick]!"))
+		return FALSE
+
+	var/slots = hive.get_tier_slots()
+	/*
+		Find how many player's current caste xenos there are and compare with number of guaranteed slots per that caste.
+		If current caste number is less or equal the guaranteed slots number, it means they are taking the guaranteed free slot and we need to check if there are general/guaranteed slots open for the caste player picked
+		If current caste number is more than guaranteed slots number, it means that xeno takes up a regular slot and we don't need a check. It can transform into anything.
+		if it's not in the free_slots list(null), it means it takes regular slot and can transform into anything.*/
+	if(tier == 2 && (hive.get_caste_count(caste_type) <= hive.free_slots[caste.type]) && !slots[TIER_2][OPEN_SLOTS] && !slots[TIER_2][GUARANTEED_SLOTS][caste_pick])
+		to_chat(src, SPAN_WARNING("We cannot support another Tier 2 of this caste, wait for more sisters to be born or someone to die."))
 		return FALSE
 
 	return TRUE
