@@ -169,10 +169,6 @@
 	},
 /turf/open/floor/almayer/silverfull2,
 /area/lv733/indoors/main_complex/office)
-"bX" = (
-/obj/structure/blocker/forcefield/vehicles,
-/turf/closed/wall/hybrisa/colony,
-/area/lv733/indoors/wy_research_complex/mess_hall)
 "bZ" = (
 /obj/effect/decal/hybrisa/dirt,
 /turf/closed/wall/hybrisa/research/reinforced,
@@ -602,7 +598,6 @@
 /turf/open/floor/almayer/silver2smooth3/north,
 /area/lv733/indoors/main_complex/central_corridor)
 "jd" = (
-/obj/structure/blocker/forcefield/vehicles,
 /turf/closed/wall/hybrisa/research,
 /area/lv733/indoors/wy_research_complex/security_office)
 "jg" = (
@@ -1094,7 +1089,6 @@
 /obj/structure/machinery/hybrisa/coffee_machine{
 	pixel_x = -5
 	},
-/obj/structure/blocker/forcefield/vehicles,
 /turf/open/floor/corsat/officetiles,
 /area/lv733/indoors/wy_research_complex/mess_hall)
 "rO" = (
@@ -1547,7 +1541,6 @@
 	icon_state = "lattice8";
 	pixel_y = 16
 	},
-/obj/structure/blocker/forcefield/vehicles,
 /turf/closed/wall/hybrisa/colony,
 /area/lv733/indoors/wy_research_complex/mess_hall)
 "xw" = (
@@ -2331,10 +2324,6 @@
 	},
 /turf/open/floor/almayer/silverfull2,
 /area/lv733/indoors/main_complex/central_corridor)
-"KR" = (
-/obj/structure/blocker/forcefield/vehicles,
-/turf/closed/wall/hybrisa/colony,
-/area/lv733/indoors/wy_research_complex/security_office)
 "Lb" = (
 /obj/structure/window/reinforced{
 	color = "#a6aeab";
@@ -3278,7 +3267,7 @@ do
 aC
 AU
 iS
-KR
+uT
 "}
 (4,1,1) = {"
 eX
@@ -3309,7 +3298,7 @@ qH
 nY
 Zq
 Oc
-KR
+uT
 "}
 (5,1,1) = {"
 BK
@@ -4022,7 +4011,7 @@ aa
 Df
 mi
 bG
-bX
+jz
 "}
 (28,1,1) = {"
 ct

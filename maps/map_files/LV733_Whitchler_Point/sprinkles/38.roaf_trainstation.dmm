@@ -569,8 +569,7 @@
 /turf/open/floor/prison/ramptop/east,
 /area/lv733/indoors/base_operations/trainstation_maintenance_garage)
 "gb" = (
-/obj/effect/decal/strata_decals/grasses,
-/obj/structure/blocker/forcefield/vehicles,
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/auto_turf/snow/brown_base/layer0,
 /area/lv733/outdoors/colony_streets/military_complex_streets)
 "gf" = (
@@ -1039,9 +1038,8 @@
 /turf/open/floor/prison/floor_plate/southwest,
 /area/lv733/indoors/base_operations/main_trainstation)
 "jP" = (
-/obj/effect/decal/strata_decals/grasses,
-/obj/structure/blocker/forcefield/vehicles,
-/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/floor/plating,
 /area/lv733/outdoors/colony_streets/military_complex_streets)
 "jR" = (
 /obj/item/ammo_casing/bullet{
@@ -1184,8 +1182,9 @@
 /turf/open/floor/hybrisa/metal/zbrownfloor2/east,
 /area/lv733/indoors/base_operations/trainstation_maintenance_garage)
 "li" = (
-/obj/structure/blocker/forcefield/vehicles,
-/turf/open/floor/plating,
+/obj/effect/decal/strata_decals/grasses,
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
 /area/lv733/outdoors/colony_streets/military_complex_streets)
 "lz" = (
 /obj/structure/machinery/space_heater/radiator/red{
@@ -1321,8 +1320,8 @@
 /turf/open/hybrisa/street/sidewalkfull,
 /area/lv733/outdoors/colony_streets/military_complex_streets)
 "mR" = (
-/obj/structure/blocker/forcefield/vehicles,
-/turf/open/auto_turf/hybrisa_auto_turf/layer2,
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/tyrargo_grass/layer0_mud,
 /area/lv733/outdoors/colony_streets/military_complex_streets)
 "mZ" = (
 /obj/structure/fence/slim/dark,
@@ -2223,8 +2222,8 @@
 /turf/open/floor/strata/multi_tiles/southeast,
 /area/lv733/indoors/base_operations/trainstation_west_corridor)
 "wx" = (
-/obj/structure/blocker/forcefield/vehicles,
-/turf/open/auto_turf/snow/brown_base/layer0,
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/hybrisa_auto_turf/layer2,
 /area/lv733/outdoors/colony_streets/military_complex_streets)
 "wy" = (
 /obj/structure/surface/rack{
@@ -2416,10 +2415,9 @@
 /turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
 /area/lv733/indoors/base_operations/main_trainstation)
 "xN" = (
-/obj/structure/blocker/forcefield/vehicles,
-/obj/structure/blocker/forcefield/vehicles,
-/turf/open/auto_turf/snow/brown_base/layer0,
-/area/lv733/outdoors/colony_streets/military_complex_streets)
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/floor/plating,
+/area/lv733/outdoors/caves/western_caves)
 "xO" = (
 /obj/structure/cable{
 	icon_state = "4-8";
@@ -2499,6 +2497,10 @@
 	},
 /turf/open/floor/hybrisa/carpet/carpet_colorable/twe_blue,
 /area/lv733/indoors/base_operations/main_trainstation)
+"yR" = (
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/hybrisa_auto_turf/layer3,
+/area/lv733/outdoors/caves/western_caves)
 "yU" = (
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/auto_turf/snow/brown_base/layer0,
@@ -2926,7 +2928,6 @@
 "Cz" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/large_stain,
-/obj/structure/blocker/forcefield/vehicles,
 /turf/open/auto_turf/snow/brown_base/layer0,
 /area/lv733/outdoors/colony_streets/military_complex_streets)
 "CH" = (
@@ -3453,6 +3454,7 @@
 /obj/effect/decal/cleanable/blood/xeno{
 	icon_state = "xgib1"
 	},
+/obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/auto_turf/tyrargo_grass/layer0_mud,
 /area/lv733/outdoors/colony_streets/military_complex_streets)
 "HN" = (
@@ -3568,8 +3570,8 @@
 /turf/open/hybrisa/street/sidewalkfull,
 /area/lv733/outdoors/colony_streets/military_complex_streets)
 "IL" = (
-/obj/structure/blocker/forcefield/vehicles,
-/turf/open/auto_turf/tyrargo_grass/layer0_mud,
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/auto_turf/snow/layer2,
 /area/lv733/outdoors/colony_streets/military_complex_streets)
 "IW" = (
 /obj/effect/decal/large_stain,
@@ -5818,7 +5820,7 @@ aW
 Vs
 AF
 Xi
-mR
+fb
 vy
 vy
 vy
@@ -5869,7 +5871,7 @@ be
 au
 yX
 Rb
-wx
+vy
 IC
 dS
 dS
@@ -5920,7 +5922,7 @@ Rj
 NH
 wG
 Rb
-wx
+vy
 vy
 dS
 vy
@@ -5971,7 +5973,7 @@ oJ
 LS
 xk
 hI
-IL
+dS
 Gk
 vy
 vy
@@ -6022,7 +6024,7 @@ NH
 lI
 ro
 cV
-wx
+vy
 dE
 fb
 vy
@@ -6176,14 +6178,14 @@ RR
 Fu
 Ik
 dE
-mR
-mR
-wx
-wx
-IL
-wx
-wx
-wx
+fb
+fb
+vy
+vy
+dS
+vy
+vy
+vy
 fb
 fb
 dE
@@ -6234,7 +6236,7 @@ dS
 dS
 dS
 vy
-wx
+vy
 fb
 fb
 dE
@@ -6285,7 +6287,7 @@ Dm
 ZZ
 Iy
 vy
-gb
+Gk
 vy
 Nm
 dE
@@ -6336,7 +6338,7 @@ em
 tJ
 to
 vy
-wx
+vy
 dS
 fb
 dE
@@ -6387,10 +6389,10 @@ rG
 ro
 Rb
 vy
-wx
+vy
 dS
 vg
-vg
+jP
 "}
 (23,1,1) = {"
 Ng
@@ -6438,10 +6440,10 @@ NH
 ro
 Rb
 vy
-IL
+dS
 dS
 Gk
-vy
+gb
 "}
 (24,1,1) = {"
 Ng
@@ -6489,10 +6491,10 @@ NH
 ro
 ha
 dS
-wx
+vy
 dS
 dS
-dS
+mR
 "}
 (25,1,1) = {"
 Ng
@@ -6540,10 +6542,10 @@ rG
 Fu
 ha
 dS
-wx
+vy
 dS
 vy
-vy
+gb
 "}
 (26,1,1) = {"
 Ng
@@ -6591,10 +6593,10 @@ be
 Fu
 ha
 dS
-wx
+vy
 dS
 Gk
-fb
+wx
 "}
 (27,1,1) = {"
 Ng
@@ -6642,9 +6644,9 @@ be
 Fu
 Rb
 vy
-xN
-wx
-mR
+vy
+vy
+fb
 dE
 "}
 (28,1,1) = {"
@@ -6899,7 +6901,7 @@ zZ
 vy
 vy
 vy
-mR
+fb
 dE
 "}
 (33,1,1) = {"
@@ -6950,8 +6952,8 @@ Rb
 vy
 Gk
 vy
-IL
-fb
+dS
+wx
 "}
 (34,1,1) = {"
 Ng
@@ -7001,8 +7003,8 @@ Rb
 vy
 vy
 vy
-li
-dS
+vy
+mR
 "}
 (35,1,1) = {"
 Ng
@@ -7052,8 +7054,8 @@ Rb
 vy
 dS
 vy
-wx
-dS
+vy
+mR
 "}
 (36,1,1) = {"
 Ng
@@ -7103,7 +7105,7 @@ Rb
 vy
 vy
 vy
-wx
+vy
 HK
 "}
 (37,1,1) = {"
@@ -7154,8 +7156,8 @@ ha
 dS
 vy
 kK
-IL
-vy
+dS
+gb
 "}
 (38,1,1) = {"
 Ng
@@ -7205,8 +7207,8 @@ Rb
 vy
 vy
 TE
-IL
-wH
+dS
+li
 "}
 (39,1,1) = {"
 Ng
@@ -7256,8 +7258,8 @@ tP
 dS
 vy
 vy
-wx
-dS
+vy
+mR
 "}
 (40,1,1) = {"
 Ng
@@ -7307,8 +7309,8 @@ to
 yU
 vy
 Oa
-wx
 vy
+gb
 "}
 (41,1,1) = {"
 Ng
@@ -7358,8 +7360,8 @@ Rb
 yU
 vy
 vy
-wx
 vy
+gb
 "}
 (42,1,1) = {"
 Ng
@@ -7409,8 +7411,8 @@ Rb
 vy
 dS
 vy
-wx
-Oa
+vy
+IL
 "}
 (43,1,1) = {"
 Ng
@@ -7460,8 +7462,8 @@ Rb
 vy
 dS
 vy
-wx
 vy
+gb
 "}
 (44,1,1) = {"
 Ng
@@ -7511,7 +7513,7 @@ an
 dS
 vy
 Oa
-wx
+vy
 HK
 "}
 (45,1,1) = {"
@@ -7562,8 +7564,8 @@ Ik
 vy
 vy
 Oa
-jP
 wH
+li
 "}
 (46,1,1) = {"
 Ng
@@ -7613,8 +7615,8 @@ Rb
 vy
 vy
 vy
-IL
-vy
+dS
+gb
 "}
 (47,1,1) = {"
 Ng
@@ -7665,7 +7667,7 @@ vy
 vy
 dS
 Cz
-fb
+wx
 "}
 (48,1,1) = {"
 Ng
@@ -7715,7 +7717,7 @@ vQ
 vy
 Gk
 dS
-wx
+vy
 dE
 "}
 (49,1,1) = {"
@@ -7763,9 +7765,9 @@ rG
 rG
 ro
 Rb
-xN
-wx
-wx
+vy
+vy
+vy
 dE
 dE
 "}
@@ -7814,10 +7816,10 @@ rG
 rG
 ro
 Rb
-wx
+vy
 vy
 IW
-fb
+wx
 dW
 "}
 (51,1,1) = {"
@@ -7865,10 +7867,10 @@ Cl
 Ag
 Jg
 an
-IL
-vy
 dS
 vy
+dS
+gb
 jU
 "}
 (52,1,1) = {"
@@ -7916,10 +7918,10 @@ Mf
 xY
 aV
 VU
-IL
 dS
 dS
 dS
+mR
 Bu
 "}
 (53,1,1) = {"
@@ -7967,10 +7969,10 @@ dS
 dS
 vy
 vy
-IL
+dS
 vy
 fb
-Bu
+xN
 cp
 "}
 (54,1,1) = {"
@@ -8018,10 +8020,10 @@ dS
 vy
 vy
 vy
-wx
+vy
 vy
 dW
-lR
+yR
 Ms
 "}
 (55,1,1) = {"
@@ -8069,7 +8071,7 @@ vy
 ZV
 vy
 Oa
-wx
+vy
 fb
 dE
 dE
@@ -8120,7 +8122,7 @@ vy
 SD
 vy
 vy
-wx
+vy
 fb
 dE
 dE
@@ -8171,7 +8173,7 @@ vy
 vy
 vy
 vy
-mR
+fb
 dE
 dE
 dE

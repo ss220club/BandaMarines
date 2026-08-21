@@ -52,7 +52,6 @@
 /area/lv733/outdoors/landing_zone_1
 	name = "Whitchler Point ROAF - Landing Zone One"
 	icon_state = "medical_lz1"
-	is_resin_allowed =  FALSE
 	is_landing_zone = TRUE
 	minimap_color = MINIMAP_AREA_LZ
 	ceiling = CEILING_NONE
@@ -110,7 +109,6 @@
 /area/lv733/outdoors/landing_zone_2
 	name = "Whitchler Civilian Spaceport - Landing Zone Two"
 	icon_state = "mining_lz2"
-	is_resin_allowed =  FALSE
 	is_landing_zone = TRUE
 	minimap_color = MINIMAP_AREA_LZ
 	ceiling = CEILING_NONE

@@ -833,6 +833,7 @@
 	pixel_x = 1;
 	color = "#f27e1f"
 	},
+/obj/item/ammo_magazine/shotgun/buckshot,
 /turf/open/floor/almayer/silverfull2,
 /area/lv733/indoors/wy_administration)
 "uZ" = (
@@ -891,6 +892,7 @@
 /obj/structure/bed/chair/comfy/black{
 	dir = 1
 	},
+/obj/item/weapon/gun/smg/nailgun,
 /turf/open/floor/almayer/silverfull2,
 /area/lv733/indoors/wy_administration)
 "vM" = (
@@ -1155,6 +1157,7 @@
 	pixel_x = -12
 	},
 /obj/structure/bed/chair/comfy/black,
+/obj/item/ammo_magazine/shotgun/buckshot,
 /turf/open/floor/almayer/silverfull2,
 /area/lv733/indoors/wy_administration)
 "Ab" = (
@@ -1202,9 +1205,7 @@
 	pixel_y = -9
 	},
 /obj/effect/decal/hybrisa/dirt,
-/obj/structure/machinery/defenses/sentry/premade/lowammo/random/dumb{
-	dir = 8
-	},
+/obj/structure/machinery/defenses/sentry/premade/lowammo/random/dumb,
 /turf/open/hybrisa/street/cement1,
 /area/lv733/outdoors/colony_streets/city_streets)
 "By" = (
@@ -1386,6 +1387,10 @@
 	pixel_y = 7
 	},
 /turf/open/floor/hybrisa/carpet/carpetblack,
+/area/lv733/indoors/wy_administration)
+"Gh" = (
+/obj/item/weapon/gun/shotgun/pump,
+/turf/open/floor/plating,
 /area/lv733/indoors/wy_administration)
 "Gn" = (
 /obj/effect/decal/hybrisa/dirt_2,
@@ -1730,6 +1735,7 @@
 	color = "#f27e1f"
 	},
 /obj/structure/machinery/light,
+/obj/item/stack/sheet/metal/med_large_stack,
 /turf/open/floor/almayer/silverfull2,
 /area/lv733/indoors/wy_administration)
 "Oz" = (
@@ -1857,6 +1863,7 @@
 	pixel_x = -10;
 	pixel_y = 13
 	},
+/obj/item/ammo_magazine/shotgun/buckshot,
 /turf/open/hybrisa/street/sidewalk/south,
 /area/lv733/outdoors/colony_streets/city_streets)
 "Rw" = (
@@ -2866,7 +2873,7 @@ Kx
 JV
 KO
 Ql
-bM
+Gh
 PS
 rt
 bM
