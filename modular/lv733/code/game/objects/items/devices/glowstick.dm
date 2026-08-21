@@ -79,12 +79,6 @@
 	box_icon_base = "glowstick_box_yellow"
 	glowstick_type = /obj/item/device/flashlight/flare/glowstick/yellow
 
-// Добавляем коробки ХИС всех цветов в личный вендор экипировки (ACCESS_MARINE_PREP) - доступен любому
-// морпеху отряда (рядовой/медик/инженер/смартганер/спец/тимлид/сл), но не офицерам - у их пресетов
-// этого доступа нет вообще, поэтому вендор им просто не открыт.
-// Оверрайдим get_listed_products(), а не populate_product_list() (он уже определён на этом же типе
-// в корне и просто заменился бы целиком), и складываем списки через "+" (не "+="), чтобы не мутировать
-// listed_products и не задваивать пункты при повторном открытии меню.
 /obj/structure/machinery/cm_vending/sorted/uniform_supply/squad_prep/get_listed_products(mob/user)
 	return ..() + list(
 		list("БОКСЫ ХИС", -1, null, null),

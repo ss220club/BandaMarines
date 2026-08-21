@@ -2470,6 +2470,9 @@
 /area/lv733/outdoors/landing_zone_1)
 "ayQ" = (
 /obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/nightmare{
+	insert_tag = "monkey_spot_4"
+	},
 /turf/open/floor/plating/prison,
 /area/lv733/outdoors/caves/eastern_caves)
 "ayV" = (
@@ -3371,6 +3374,9 @@
 /turf/open/floor/prison/floor_plate/southwest,
 /area/lv733/indoors/colony_streets)
 "aOT" = (
+/obj/effect/landmark/nightmare{
+	insert_tag = "monkey_spot_2"
+	},
 /turf/open/hybrisa/street/sidewalk/east,
 /area/lv733/outdoors/colony_streets/city_streets)
 "aOY" = (
@@ -6568,6 +6574,9 @@
 /turf/open/floor/strata/floor3,
 /area/lv733/indoors/base_operations/mess_hall)
 "bUd" = (
+/obj/effect/landmark/nightmare{
+	insert_tag = "monkey_spot_1"
+	},
 /turf/open/hybrisa/street/sidewalkcorner,
 /area/lv733/outdoors/colony_streets/avenue)
 "bUl" = (
@@ -27004,6 +27013,9 @@
 /turf/open/floor/hybrisa/metal/yellow_warning_floor,
 /area/lv733/indoors/sensor_facility/tech_room)
 "iTA" = (
+/obj/effect/landmark/nightmare{
+	insert_tag = "monkey_spot_3"
+	},
 /turf/open/auto_turf/tyrargo_grass/layer0_mud_alt,
 /area/lv733/outdoors/caves/central_caves)
 "iTC" = (

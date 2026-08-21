@@ -27,5 +27,15 @@
 		"chance": 1.0,
 		"path": "standalone/isrg_lz.dmm",
 		"when": { "lvevent": "isrg_spawn" }
+	},
+    {
+		"type": "pick", "name": "LV-733 Monkey Spots",
+		"amount": 2,
+		"choices": [
+			{ "type": "map_insert", "landmark": "monkey_spot_1", "path": "standalone/monkey_spot_1.dmm", "keep": true },
+			{ "type": "map_insert", "landmark": "monkey_spot_2", "path": "standalone/monkey_spot_2.dmm", "keep": true },
+			{ "type": "map_insert", "landmark": "monkey_spot_3", "path": "standalone/monkey_spot_3.dmm", "keep": true },
+			{ "type": "map_insert", "landmark": "monkey_spot_4", "path": "standalone/monkey_spot_4.dmm", "keep": true }
+		]
 	}
 ]
