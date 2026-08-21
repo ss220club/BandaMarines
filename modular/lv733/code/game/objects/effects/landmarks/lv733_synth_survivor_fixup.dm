@@ -1,11 +1,3 @@
-// Nightmare-система на LV733 каждый раунд случайно выбирает ОДИН лагерь выживших (ROAF/RAC/CLF-WY/ISRG,
-// см. modular/lv733/maps/Nightmare/LV733_Whitchler_Point/scenario.json). В самих .dmm лагерей ROAF и CLF-WY
-// нет отдельного лендмарка под синта - без archetype = INSERT_SYNTH синт-выживший job-системой вообще
-// не подбирается (RAC был точно такой же баг, его починили переносом одного из лендмарков на карте;
-// для ROAF/CLF-WY свободного лендмарка на карте под перенос нет, поэтому лендмарк синта ставим кодом,
-// на той же тайле, где уже стоит любой лендмарк этого лагеря - если лагерь в этом раунде не выбран,
-// его лендмарков на карте не будет вообще, и proc ничего не делает).
-
 /datum/modpack/lv733/proc/fixup_missing_synth_landmarks()
 	place_synth_landmark_near(/obj/effect/landmark/survivor_spawner/twe/roaf, /obj/effect/landmark/survivor_spawner/twe/roaf/synth)
 	place_synth_landmark_near(/obj/effect/landmark/survivor_spawner/clf_wy, /obj/effect/landmark/survivor_spawner/clf_wy/synth)

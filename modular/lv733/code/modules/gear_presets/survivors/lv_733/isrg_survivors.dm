@@ -221,6 +221,64 @@
 
 #undef ISRG_K9_SYNTH_NOTICE
 
+/datum/equipment_preset/synth/isrg
+	name = "Survivor - ISRG Support Synthetic"
+	assignment = "ISRG - Support Synthetic"
+	job_title = JOB_ISRG_SYNTH
+	paygrades = list(PAY_SHORT_ISRGS1 = JOB_PLAYTIME_TIER_0)
+	skills = /datum/skills/survivor/isrg_synth_support
+	languages = list(LANGUAGE_TSL, LANGUAGE_ENGLISH, LANGUAGE_JAPANESE, LANGUAGE_CHINESE, LANGUAGE_RUSSIAN, LANGUAGE_GERMAN, LANGUAGE_SCANDINAVIAN, LANGUAGE_FRENCH, LANGUAGE_SPANISH, LANGUAGE_YAUTJA, LANGUAGE_XENOMORPH)
+	faction = FACTION_ISRG
+	faction_group = FACTION_LIST_SURVIVOR_ISRG
+	origin_override = ORIGIN_CIVILIAN
+	minimap_icon = "isrg_synth"
+	minimap_background = "background_isrg"
+	role_comm_title = "Синт.Подд."
+	idtype = /obj/item/card/id/dogtag
+	flags = EQUIPMENT_PRESET_EXTRA
+
+/datum/equipment_preset/synth/isrg/New()
+	. = ..()
+	access = list(
+		ACCESS_CIVILIAN_PUBLIC,
+		ACCESS_CIVILIAN_RESEARCH,
+		ACCESS_CIVILIAN_ENGINEERING,
+		ACCESS_CIVILIAN_LOGISTICS,
+		ACCESS_CIVILIAN_BRIG,
+		ACCESS_CIVILIAN_MEDBAY,
+		ACCESS_CIVILIAN_COMMAND,
+	)
+
+/datum/equipment_preset/synth/isrg/load_gear(mob/living/carbon/human/new_human)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/marine/veteran/isrg/field(new_human), WEAR_BODY)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/marine/corporate/knife(new_human), WEAR_FEET)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/gloves/marine/veteran(new_human), WEAR_HANDS)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine/veteran/isrg/field_helmet(new_human), WEAR_HEAD)
+	new_human.equip_to_slot_or_del(new /obj/item/device/radio/headset/distress/isrg(new_human), WEAR_L_EAR)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/jacket/marine/rmc/service/isrg/vest(new_human), WEAR_JACKET)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/storage/tool_webbing/equipped(new_human), WEAR_ACCESSORY)
+	new_human.equip_to_slot_or_del(new /obj/item/device/motiondetector(new_human), WEAR_WAIST)
+	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel/sec/isrg(new_human), WEAR_BACK)
+	new_human.equip_to_slot_or_del(new /obj/item/storage/pouch/electronics/full(new_human), WEAR_L_STORE)
+	new_human.equip_to_slot_or_del(new /obj/item/storage/pouch/firstaid/full(new_human), WEAR_R_STORE)
+	new_human.equip_to_slot_or_del(new /obj/item/device/defibrillator/synthetic(new_human.back), WEAR_IN_BACK)
+	new_human.equip_to_slot_or_del(new /obj/item/roller(new_human.back), WEAR_IN_BACK)
+	new_human.equip_to_slot_or_del(new /obj/item/storage/firstaid/synth(new_human.back), WEAR_IN_BACK)
+
+/datum/equipment_preset/synth/isrg/load_preset(mob/living/carbon/human/new_human, randomise = FALSE, count_participant = FALSE, client/mob_client, show_job_gear = TRUE)
+	var/choice = tgui_alert(
+		new_human,
+		"Вы - синтетик поисковой группы ISRG. В какой форме вы хотите играть?",
+		"ISRG - выбор формы синтетика",
+		list("Синтетик поддержки (человекоподобный)", "K9 (собака-ищейка)"),
+		20 SECONDS,
+	)
+	if(choice == "K9 (собака-ищейка)")
+		var/datum/equipment_preset/k9_preset = GLOB.equipment_presets.gear_path_presets_list[/datum/equipment_preset/synth_k9/isrg]
+		if(k9_preset)
+			return k9_preset.load_preset(new_human, randomise, count_participant, mob_client, show_job_gear)
+	return ..()
+
 /datum/equipment_preset/survivor/whitchler/isrg_commander
 	name = "Survivor - ISRG Search Group Commander"
 	assignment = "ISRG - Search Group Commander"

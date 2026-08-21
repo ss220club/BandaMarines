@@ -45,7 +45,7 @@ ISRG - Imperial Search and Recovery Group
 		SKILL_VEHICLE = SKILL_VEHICLE_DEFAULT,
 	)
 
-// ISRG Synthetic K9 - только медицина (без хирургии), стрельба и CQC на максимуме, остальное не тренировано.
+// ISRG Synthetic K9 -
 /datum/skills/survivor/isrg_synth_k9
 	name = "ISRG - Synthetic K9"
 	skills = list(
@@ -53,6 +53,17 @@ ISRG - Imperial Search and Recovery Group
 		SKILL_FIREARMS = SKILL_FIREARMS_MASTER,
 		SKILL_CQC = SKILL_CQC_MASTER,
 		SKILL_MELEE_WEAPONS = SKILL_MELEE_TRAINED,
+	)
+
+// ISRG Synthetic Support
+/datum/skills/survivor/isrg_synth_support
+	name = "ISRG - Synthetic Support"
+	skills = list(
+		SKILL_MEDICAL = SKILL_MEDICAL_DOCTOR,
+		SKILL_SURGERY = SKILL_SURGERY_NOVICE,
+		SKILL_CONSTRUCTION = SKILL_CONSTRUCTION_ENGI,
+		SKILL_ENGINEER = SKILL_ENGINEER_TRAINED,
+		SKILL_ENDURANCE = SKILL_ENDURANCE_MASTER,
 	)
 
 /datum/skills/survivor/isrg_leader

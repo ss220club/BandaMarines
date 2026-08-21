@@ -45,11 +45,8 @@
 	spawn_priority = SPAWN_PRIORITY_VERY_HIGH
 	archetype = INSERT_CO
 
-// На карте нет отдельного лендмарка под синта ROAF - без archetype = INSERT_SYNTH синт-выживший
-// job-системой вообще не подбирается (см. modular/lv733/code/game/objects/effects/landmarks/lv733_synth_survivor_fixup.dm,
-// он динамически ставит этот лендмарк рядом с уже существующим лендмарком ROAF в лагере).
 /obj/effect/landmark/survivor_spawner/twe/roaf/synth
-	equipment = /datum/equipment_preset/synth/survivor/roaf_synth
+	synth_equipment = /datum/equipment_preset/synth/survivor/roaf_synth
 	spawn_priority = SPAWN_PRIORITY_HIGH
 	archetype = INSERT_SYNTH
 
@@ -74,7 +71,7 @@
 	archetype = INSERT_STANDARD
 
 /obj/effect/landmark/survivor_spawner/twe/rac/synth
-	equipment = /datum/equipment_preset/synth/survivor/rac_synth
+	synth_equipment = /datum/equipment_preset/synth/survivor/rac_synth
 	spawn_priority = SPAWN_PRIORITY_HIGH
 	archetype = INSERT_SYNTH
 
@@ -147,9 +144,9 @@
 	spawn_priority = SPAWN_PRIORITY_VERY_HIGH
 	archetype = INSERT_CO
 
-// Та же нехватка archetype = INSERT_SYNTH лендмарка, что была у ROAF/RAC - см. lv733_synth_survivor_fixup.dm
+// v733_synth_survivor_fixup.dm
 /obj/effect/landmark/survivor_spawner/clf_wy/synth
-	equipment = /datum/equipment_preset/synth/survivor/clf_wy_synth
+	synth_equipment = /datum/equipment_preset/synth/survivor/clf_wy_synth
 	spawn_priority = SPAWN_PRIORITY_HIGH
 	archetype = INSERT_SYNTH
 
@@ -175,8 +172,10 @@
 	spawn_priority = SPAWN_PRIORITY_LOW
 	archetype = INSERT_STANDARD
 
+// Test
+
 /obj/effect/landmark/survivor_spawner/isrg/k9
-	equipment = /datum/equipment_preset/survivor/isrg
+	synth_equipment = /datum/equipment_preset/synth/isrg
 	spawn_priority = SPAWN_PRIORITY_HIGH
 	archetype = INSERT_SYNTH
 

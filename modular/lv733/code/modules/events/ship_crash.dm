@@ -160,13 +160,9 @@
 	)
 
 	// ТЕСТ (Ожидается, что ерт будет вызвано в 51:45 и заспавнено где-то в 52:15 (Падение шипа в 52:00))
-	// Вызываем напрямую (а не через get_specific_call), т.к. только так можно передать override_spawn_loc,
-	// чтобы группа реагирования появилась у места крушения, а не на генерик-лендмарке/шаттле.
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(spawn_lv733_crash_response), crash_turf), SHIP_CRASH_WARN_DELAY - 15 SECONDS)
 
-	// SSevents (и, соответственно, start()) работает только пока раунд в RUNLEVEL_GAME - если победа/поражение
 	// наступит в течение этих 2 минут буфера, раунд уйдёт в постгейм и start() от SSevents может вообще не вызваться.
-	// Поэтому само крушение планируем отдельным addtimer'ом (SStimer не завязан на рант-левел), как и вызов ЕРТ выше.
 	addtimer(CALLBACK(src, PROC_REF(do_crash_impact)), SHIP_CRASH_WARN_DELAY)
 
 /datum/round_event/lv733_ship_crash/start()
