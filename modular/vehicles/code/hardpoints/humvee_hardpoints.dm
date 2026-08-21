@@ -14,7 +14,7 @@
 	if(targ) targ = get_step(targ, owner.dir) // шаг уже от targ
 	if(targ) targ = get_step(targ, owner.dir) // и еще один шаг от targ
 	M.throw_atom(targ, 4, SPEED_FAST, src, 1)
-	M.apply_damage(50 + rand(25, 25), BRUTE)
+	M.apply_damage(25, BRUTE)
 
 /obj/item/hardpoint/armor/humvee_snowplow/on_move(turf/old, turf/new_turf, move_dir)
 	if(health <= 0)
