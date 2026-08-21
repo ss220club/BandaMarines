@@ -23,6 +23,8 @@ GLOBAL_DATUM_INIT(lv733_announcer_arakawa, /datum/announcer/lv733_arakawa, new)
 	if(SSmapping.configs[GROUND_MAP].map_name != MAP_LV733_WHITCHLER_POINT)
 		return
 	SSticker.mode.lore_announcement_lv733()
+	spawn_mainship_crashsite()
+	fixup_missing_synth_landmarks()
 
 /datum/game_mode/proc/lore_announcement_lv733()
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(lv733_announce_rees), "&^!!#---, говорит старший инженер Реес, гарнизон ИТМ «Блэкбуш». Мы #@##s---- периметр у &^@%###---. Состав: @#!!&#&--- заблокированы. Запрашиваем поддержку и эвакуацию !!&#---. Приём.", "Гарнизон ИТМ «Блэкбуш», ст. инженер Реес", 'sound/AI/commandreport.ogg'), 23 MINUTES)

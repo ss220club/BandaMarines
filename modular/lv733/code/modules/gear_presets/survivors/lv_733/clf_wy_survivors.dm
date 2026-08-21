@@ -8,8 +8,8 @@
 	faction = FACTION_CLF_WY
 	faction_group = FACTION_LIST_SURVIVOR_CLF_WY
 	origin_override = ORIGIN_CIVILIAN
-	minimap_icon = "rifleman"
-	minimap_background = "leader"
+	minimap_icon = "clf_wy_rifleman"
+	minimap_background = "background_clf_wy"
 	role_comm_title = "Повст."
 	idtype = /obj/item/card/id/dogtag
 	flags = EQUIPMENT_PRESET_EXTRA
@@ -62,7 +62,7 @@
 	job_title = JOB_CLF_WY_ENGI
 	paygrades = list(PAY_SHORT_CLFWYE2 = JOB_PLAYTIME_TIER_0)
 	skills = /datum/skills/survivor/clf_wy_engi
-	minimap_icon = "engi"
+	minimap_icon = "clf_wy_engi"
 	role_comm_title = "Инж."
 
 /datum/equipment_preset/survivor/clf_wy/engi/load_gear(mob/living/carbon/human/new_human)
@@ -87,7 +87,7 @@
 	job_title = JOB_CLF_WY_MEDIC
 	paygrades = list(PAY_SHORT_CLFWYE2 = JOB_PLAYTIME_TIER_0)
 	skills = /datum/skills/survivor/clf_wy_medic
-	minimap_icon = "medic"
+	minimap_icon = "clf_wy_medic"
 	role_comm_title = "Мед."
 
 /datum/equipment_preset/survivor/clf_wy/medic/load_gear(mob/living/carbon/human/new_human)
@@ -111,7 +111,7 @@
 	job_title = JOB_CLF_WY_LEADER
 	paygrades = list(PAY_SHORT_CLFWYO1 = JOB_PLAYTIME_TIER_0)
 	skills = /datum/skills/survivor/clf_wy_leader
-	minimap_icon = "leader"
+	minimap_icon = "clf_wy_leader"
 	role_comm_title = "Л-р."
 
 /datum/equipment_preset/survivor/clf_wy/leader/load_gear(mob/living/carbon/human/new_human)
@@ -142,8 +142,8 @@
 	faction = FACTION_CLF_WY
 	faction_group = FACTION_LIST_SURVIVOR_CLF_WY
 	origin_override = ORIGIN_CIVILIAN
-	minimap_icon = "synth"
-	minimap_background = "leader"
+	minimap_icon = "clf_wy_synth"
+	minimap_background = "background_clf_wy"
 	role_comm_title = "Синт."
 	idtype = /obj/item/card/id/dogtag
 	flags = EQUIPMENT_PRESET_EXTRA
@@ -188,8 +188,8 @@
 	faction = FACTION_CLF_WY
 	faction_group = FACTION_LIST_SURVIVOR_CLF_WY
 	origin_override = ORIGIN_CIVILIAN
-	minimap_icon = "co"
-	minimap_background = "leader"
+	minimap_icon = "clf_wy_co"
+	minimap_background = "background_clf_wy"
 	role_comm_title = "Куратор"
 	idtype = /obj/item/card/id/gold
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
