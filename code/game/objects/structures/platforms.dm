@@ -200,6 +200,11 @@
 	creaking_sound = 'sound/effects/rock_creaking.ogg'
 	breaking_sound = 'sound/effects/meteorimpact.ogg'
 
+/obj/structure/platform/wood
+	icon_state = "wood_platform"
+	creaking_sound = 'sound/effects/wood_creaking.ogg'
+	breaking_sound = 'sound/effects/woodhit.ogg'
+
 //------------------------------//
 //    Metal Stairs Platforms    //
 //------------------------------//
@@ -225,6 +230,12 @@
 
 /obj/structure/platform/metal/stair_cut/strata_right
 	icon_state = "strata_metalplatform_stair_alt"
+
+/obj/structure/platform/metal/stair_cut/strata_left/alt
+	icon_state = "alt_strata_metalplatform_stair"
+
+/obj/structure/platform/metal/stair_cut/strata_right/alt
+	icon_state = "alt_strata_metalplatform_stair_alt"
 
 /obj/structure/platform/metal/stair_cut/shiva_left
 	icon_state = "shiva_stair"
@@ -399,6 +410,18 @@
 /obj/structure/platform/metal/strata/west
 	dir = WEST
 
+// Alt Strata Platform (Light-Grey)
+
+/obj/structure/platform/metal/strata/alt
+	icon_state = "alt_strata_metalplatform"
+
+/obj/structure/platform/metal/strata/alt/north
+	dir = NORTH
+/obj/structure/platform/metal/strata/alt/east
+	dir = EAST
+/obj/structure/platform/metal/strata/alt/west
+	dir = WEST
+
 // Hunter Platforms
 
 /obj/structure/platform/metal/hunter
@@ -537,6 +560,12 @@
 /obj/structure/platform/stone/ancient_temple/west
 	dir = WEST
 
+/obj/structure/platform/stone/ancient_temple/already_broken
+
+/obj/structure/platform/stone/ancient_temple/already_broken/Initialize()
+	. = ..()
+	broken()
+
 /obj/structure/platform/stone/ancient_temple/alt
 	icon_state = "ancient_platform_alt"
 
@@ -547,6 +576,11 @@
 /obj/structure/platform/stone/ancient_temple/alt/west
 	dir = WEST
 
+/obj/structure/platform/stone/ancient_temple/alt/already_broken
+
+/obj/structure/platform/stone/ancient_temple/alt/already_broken/Initialize()
+	. = ..()
+	broken()
 //------------------------------------//
 // Metal based Platforms "decoration" //
 //------------------------------------//
@@ -642,6 +676,19 @@
 /obj/structure/platform_decoration/metal/shiva/west
 	dir = WEST
 
+// Alt Strata Platform Deco (Light-Grey)
+
+/obj/structure/platform_decoration/metal/strata/alt
+	name = "raised metal corner"
+	desc = "A raised level of metal, often used to elevate areas above others. This is the corner."
+	icon_state = "alt_strata_metalplatform_deco"
+
+/obj/structure/platform_decoration/metal/strata/alt/north
+	dir = NORTH
+/obj/structure/platform_decoration/metal/strata/alt/east
+	dir = EAST
+/obj/structure/platform_decoration/metal/strata/alt/west
+	dir = WEST
 
 /obj/structure/platform_decoration/metal/strata
 	name = "raised metal corner"
@@ -876,7 +923,6 @@
 /obj/structure/platform/metal/hybrisa/metalplatform6/west
 	dir = WEST
 
-
 /obj/structure/platform/stone/hybrisa
 	icon_state = "hybrisa"
 
@@ -891,8 +937,6 @@
 	dir = EAST
 /obj/structure/platform/stone/hybrisa/rockdark/west
 	dir = WEST
-
-
 
 /obj/structure/platform_decoration/metal/hybrisa
 	icon_state = "hybrisa"
@@ -909,7 +953,6 @@
 	dir = EAST
 /obj/structure/platform_decoration/metal/hybrisa/engineer_corner/west
 	dir = WEST
-
 
 /obj/structure/platform_decoration/metal/hybrisa/engineer_cornerbits
 	name = "raised metal corner"
@@ -996,7 +1039,6 @@
 /obj/structure/platform_decoration/metal/hybrisa/metalplatformdeco6/west
 	dir = WEST
 
-
 /obj/structure/platform_decoration/stone/hybrisa
 	icon_state = "hybrisa"
 
@@ -1011,8 +1053,6 @@
 	dir = EAST
 /obj/structure/platform_decoration/stone/hybrisa/rockdark/west
 	dir = WEST
-
-
 
 /obj/structure/platform/metal/stair_cut/hybrisa_metal_left
 	icon_state = "hybrisaplatform_stair"
@@ -1032,6 +1072,56 @@
 	dir = EAST
 /obj/structure/platform_decoration/stone/runed_sandstone/west
 	dir = WEST
+
+//------------------------------//
+//    Wooden Stairs Platforms    //
+//------------------------------//
+
+/obj/structure/platform/wood
+	icon_state = "wood_platform"
+	name = "wooden platform"
+	desc = "A raised level of wood, often used to elevate areas above others. You could probably climb it."
+
+/obj/structure/platform/wood/north
+	dir = NORTH
+/obj/structure/platform/wood/east
+	dir = EAST
+/obj/structure/platform/wood/west
+	dir = WEST
+
+/obj/structure/platform/wood/stair_cut
+	icon_state = "wood_platform_stair"
+	dir = NORTH
+
+/obj/structure/platform/wood/stair_cut/platform_left
+	icon_state = "wood_platform_stair"
+
+/obj/structure/platform/wood/stair_cut/platform_right
+	icon_state = "wood_platform_stair_alt"
+
+//------------------------------------//
+// Wood based Platforms "decoration" //
+//------------------------------------//
+
+/obj/structure/platform_decoration/wood
+	icon_state = "wood_platform_deco"
+
+/obj/structure/platform_decoration/wood/north
+	icon_state = "wood_platform_deco"
+	dir = NORTH
+
+/obj/structure/platform_decoration/wood/east
+	dir = EAST
+/obj/structure/platform_decoration/wood/west
+	dir = WEST
+/obj/structure/platform_decoration/wood/northeast
+	dir = NORTHEAST
+/obj/structure/platform_decoration/wood/northwest
+	dir = NORTHWEST
+/obj/structure/platform_decoration/wood/southeast
+	dir = SOUTHEAST
+/obj/structure/platform_decoration/wood/southwest
+	dir = SOUTHWEST
 
 // Colorable variants
 // strata rocks
@@ -1072,7 +1162,6 @@
 	name = "rock edge"
 	desc = "A solid chunk of desolate rocks. Looks like you could climb it."
 	icon_state = "colorable_strata_rock_platform"
-	explo_proof = TRUE
 
 /obj/structure/platform/stone/soro_colorable_immune/north
 	dir = NORTH
@@ -1085,7 +1174,6 @@
 	name = "rock corner"
 	desc = "Solid chunks of desolate rocks."
 	icon_state = "colorable_strata_rock_platform_deco"
-	explo_proof = TRUE
 
 /obj/structure/platform_decoration/stone/soro_colorable_immune/north
 	dir = NORTH
@@ -1096,11 +1184,9 @@
 
 /obj/structure/platform/stone/stair_cut/soro_left
 	icon_state = "colorable_strata_rock_platform_stair"
-	explo_proof = TRUE
 
 /obj/structure/platform/stone/stair_cut/soro_right
 	icon_state = "colorable_strata_rock_platform_stair_alt"
-	explo_proof = TRUE
 
 //kutjevo rocks
 
