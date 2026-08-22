@@ -40,26 +40,36 @@
 	replace_in_desc("%ROOT%", 0.5, DESCRIPTION_REPLACEMENT_TIME)
 
 /datum/action/xeno_action/activable/prae_abduct
-	desc = "Создаёт линию размером в %DISTANCE% После задержки в %WINDUP% притягивает всех, кто оказался на линии.\
-		<br>Если поймана 1 цель, то она будет замедлена (%SLOW%);\
-		<br>Если поймано 2 цели, то они не смогут двигаться (%ROOT%);\
-		<br>Если поймана 3 цели, то они будут оглушены (%STUN%)."
+	desc = "Создаёт линию размером в %DISTANCE% После задержки в %WINDUP%, вы сможете метнуть попавшиеся цели на расстояние до %THROW_RANGE% при повторном использовании.\
+		<br>Пойманные цели не могут двигаться до завершения способности (%GRACE_PERIOD%).\
+		<br>Бросок в кого-то оглушит обе цели на %STUN_DURATION%"
 
 /datum/action/xeno_action/activable/prae_abduct/apply_replaces_in_desc()
 	replace_in_desc("%DISTANCE%", max_distance, DESCRIPTION_REPLACEMENT_DISTANCE)
+	replace_in_desc("%THROW_RANGE%", throw_max_range, DESCRIPTION_REPLACEMENT_DISTANCE)
 	replace_in_desc("%WINDUP%", windup / 10, DESCRIPTION_REPLACEMENT_TIME)
-	replace_in_desc("%SLOW%", 1, DESCRIPTION_REPLACEMENT_TIME)
-	replace_in_desc("%ROOT%", 2.5, DESCRIPTION_REPLACEMENT_TIME)
-	replace_in_desc("%STUN%", 1.3, DESCRIPTION_REPLACEMENT_TIME)
+	replace_in_desc("%GRACE_PERIOD%", 2, DESCRIPTION_REPLACEMENT_TIME)
+	replace_in_desc("%STUN_DURATION%", 0.7, DESCRIPTION_REPLACEMENT_TIME)
 
 /datum/action/xeno_action/activable/oppressor_punch
-	desc = "Удар рукой, наносящий %DAMAGE% урона. Уменьшает перезарядку удара хвостом и крюка на 5 секунд.\
+	desc = "Удар рукой, наносящий %DAMAGE% урона. Уменьшает перезарядку других способностей на %COOLDOWN_REDUCTION%\
 		<br>Если цель обездвижена, лежит или замедлена, то она не сможет двигаться ещё %ROOT%"
 
 /datum/action/xeno_action/activable/oppressor_punch/apply_replaces_in_desc()
 	replace_in_desc("%DAMAGE%", damage)
 	replace_in_desc("%ROOT%", 1.2, DESCRIPTION_REPLACEMENT_TIME)
+	replace_in_desc("%COOLDOWN_REDUCTION%", 5, DESCRIPTION_REPLACEMENT_TIME)
 
+/datum/action/xeno_action/activable/send_back
+	desc = "Бросает цель за спину на %DISTANCE%, оглушая её на %STUN_DURATION% и нанося %DAMAGE% урона.\
+		<br>Пока цель оглушена, мы не сможем двигаться."
+
+/datum/action/xeno_action/activable/send_back/apply_replaces_in_desc()
+	replace_in_desc("%DISTANCE%", 3 - 1, DESCRIPTION_REPLACEMENT_DISTANCE) // hardcoded
+	replace_in_desc("%STUN_DURATION%", 1, DESCRIPTION_REPLACEMENT_TIME) // hardcoded
+	replace_in_desc("%DAMAGE%", fling_damage)
+// todo - strain description
+/*
 /datum/action/xeno_action/activable/tail_lash
 	desc = "Удар хвостом по области 2x3 с задержкой в %WINDUP% Все цели, оказавшиеся в области, будут откинуты на %FLING%, опрокинуты (%WEAKEN%) и замедлены (%SLOW%)."
 
@@ -68,6 +78,7 @@
 	replace_in_desc("%WINDUP%", windup / 10, DESCRIPTION_REPLACEMENT_TIME)
 	replace_in_desc("%WEAKEN%", 0.5, DESCRIPTION_REPLACEMENT_TIME)
 	replace_in_desc("%SLOW%", 2.5, DESCRIPTION_REPLACEMENT_TIME)
+*/
 
 /datum/action/xeno_action/activable/tail_stab/harpoon_tail
 
