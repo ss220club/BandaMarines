@@ -120,7 +120,7 @@
 
 	XENO_ACTION_CHECK_USE_PLASMA(xeno)
 
-	xeno.visible_message(SPAN_XENOWARNING("[xeno] fires a burst of bone chips at [affected_atom]!"), SPAN_XENOWARNING("We fire a burst of bone chips at [affected_atom]!"))
+	xeno.visible_message(SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] выпускает залп костяных осколков в сторону [affected_atom.declent_ru(GENITIVE)]!"), SPAN_XENOWARNING("Мы выпускаем залп костяных осколков в сторону [affected_atom.declent_ru(GENITIVE)]!"))
 
 	var/turf/target = get_turf(affected_atom)
 	var/obj/projectile/projectile = new /obj/projectile(xeno.loc, create_cause_data(initial(xeno.caste_type), xeno))

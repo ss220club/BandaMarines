@@ -730,10 +730,10 @@
 				if(CEILING_GLASS)
 					is_outside = TRUE
 		if(!is_outside && !cavebreaker) //cavebreaker doesn't care
-			to_chat(weapon_operator, SPAN_WARNING("INVALID TARGET: target must be visible from high altitude."))
+			to_chat(weapon_operator, SPAN_WARNING("НЕДОПУСТИМАЯ ЦЕЛЬ: цель должна быть видна с воздуха."))
 			return FALSE
 		if (protected_by_pylon(TURF_PROTECTION_CAS, TU))
-			to_chat(weapon_operator, SPAN_WARNING("INVALID TARGET: biological-pattern interference with signal."))
+			to_chat(weapon_operator, SPAN_WARNING("НЕДОПУСТИМАЯ ЦЕЛЬ: вмешательство помех биологического происхождения."))
 			return FALSE
 		if(!DEW.ammo_equipped.can_fire_at(TU, weapon_operator))
 			return FALSE

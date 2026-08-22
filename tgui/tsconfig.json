@@ -19,6 +19,7 @@
     "baseUrl": ".",
     "paths": {
       "tgui/*": ["packages/tgui/*"],
+      "tgui-say/*": ["packages/tgui-say/*"],
       "common/*": ["packages/common/*"]
     }
   },
