@@ -36,7 +36,10 @@ GLOBAL_LIST_INIT(cm_vending_gear_commanding_officer, list(
 		list("G2 Electroshock Grenade Packet (x3 grenades)",  15, /obj/item/storage/box/packet/sebb, null, VENDOR_ITEM_REGULAR),
 
 		list("HELMET VISORS", 0, null, null, null),
-		list("Night Vision Visor", 10, /obj/item/device/helmet_visor/night_vision, null, VENDOR_ITEM_RECOMMENDED),
+		// SS220 EDIT - START
+		list("Night Vision Optic", 20, /obj/item/device/helmet_visor/night_vision/normal, null, VENDOR_ITEM_RECOMMENDED),// учитывая что пнв теперь полезен увеличил ему цену, и так 120 очков.
+		list("Night Vision Optimizer", 5, /obj/item/device/helmet_visor_module/night_vision_power_efficiency, null, VENDOR_ITEM_RECOMMENDED),
+		// SS220 EDIT - END
 		list("Medical Visor", 5, /obj/item/device/helmet_visor/medical/advanced, null, VENDOR_ITEM_REGULAR),
 		list("Welding Visor", 5, /obj/item/device/helmet_visor/welding_visor, null, VENDOR_ITEM_REGULAR),
 
@@ -149,7 +152,7 @@ GLOBAL_LIST_INIT(cm_vending_clothing_commanding_officer, list(
 		list("United Americas Shoulder patch", 0, /obj/item/clothing/accessory/patch/ua, null, VENDOR_ITEM_REGULAR),
 		list("United Americas Flag Shoulder patch", 0, /obj/item/clothing/accessory/patch/uasquare, null, VENDOR_ITEM_REGULAR),
 		list("Falling Falcons Challenge Coin", 0, /obj/item/coin/silver/falcon, null, VENDOR_ITEM_REGULAR), // SS220 EDIT
-	
+
 		list("CAPE (CHOOSE 1)", 0, null, null, null), // SS220 EDIT
 		list("Torn USCM flag", 0, /obj/item/clothing/accessory/cape/uscm_cape, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY) // SS220 EDIT
 ))
