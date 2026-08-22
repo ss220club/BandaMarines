@@ -97,6 +97,48 @@
 /obj/effect/landmark/lv624/door_blocker/xeno
 	time_to_dispel = 180 SECONDS
 
+/obj/effect/landmark/lv624/train_door
+	name = "train blocker"
+	icon_state = "o_red"
+
+	var/time_to_dispel = 30 SECONDS
+
+/obj/effect/landmark/lv624/train_door/Initialize(mapload, ...)
+	. = ..()
+
+	return INITIALIZE_HINT_ROUNDSTART
+
+/obj/effect/landmark/lv624/train_door/LateInitialize()
+	if(!(SSticker.mode.flags_round_type & MODE_FOG_ACTIVATED) || !SSmapping.configs[GROUND_MAP].environment_traits[ZTRAIT_FOG])
+		return
+
+	new /obj/structure/blocker/door/alt(loc, time_to_dispel)
+	qdel(src)
+
+/obj/effect/landmark/lv624/train_door/xeno
+	time_to_dispel = 2.5 MINUTES
+
+/obj/effect/landmark/lv624/train_door/entrance
+	time_to_dispel = 5 MINUTES
+
+/obj/effect/landmark/lv624/train_door_alt
+	name = "train blocker"
+	icon_state = "o_red"
+
+	var/time_to_dispel = 5 MINUTES
+
+/obj/effect/landmark/lv624/train_door_alt/Initialize(mapload, ...)
+	. = ..()
+
+	return INITIALIZE_HINT_ROUNDSTART
+
+/obj/effect/landmark/lv624/train_door_alt/LateInitialize()
+	if(!(SSticker.mode.flags_round_type & MODE_FOG_ACTIVATED) || !SSmapping.configs[GROUND_MAP].environment_traits[ZTRAIT_FOG])
+		return
+
+	new /obj/structure/blocker/door/alt/east(loc, time_to_dispel)
+	qdel(src)
+
 /obj/effect/landmark/lv624/xeno_tunnel
 	name = "xeno tunnel"
 	icon_state = "xeno_tunnel"
@@ -511,7 +553,13 @@
 			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_announcement), "Дети мои. Я чувствую, что враждебный гнилостный улей уже покинул это место. Однако некоторые из тех, кто вас заточил, остались в живых в этой металлической коробке, и я чувствую, что ещё больше из них приближается. Победите носителей, чтобы продемонстрировать наше превосходство!", "everything", QUEEN_MOTHER_ANNOUNCE), 165 SECONDS) //SS220 EDIT
 		if(MAP_LV_624)
 			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "Внимание: первоначальное сканирование зоны боевых действий выявило локальную атмосферную аномалию - над руслом реки и вокруг образуется густой туман.\nАлгоритм первичной оценки прогнозирует его рассеивание через 20 минут.", "ARES V3.2", 'sound/AI/commandreport.ogg'), 5 MINUTES) // 5 minute lobby + 5 minutes into the game means the fog drops 20 minutes from now. SS220 EDIT
-
+		if(MAP_THE_LAST_BUNKER)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "Внимание: поступает разведывательный отчет:\\n-это четвертый батальон, мы завершили поиск и восстановление бункера С01. Здесь все чисто. В VIP-залах чисто. Отправимся в течение дня. Конец связи. \\n-Седьмой батальон, 'Сметающий седьмой', здесь. Бункер D61 пуст, никто не пытался сюда проникнуть. Мы отправляемся к месту встречи, расчетное время прибытия - 3 дня. Конец связи.\\n-Это 'Счастливый первый', первый батальон, мы занимаемся подавлением беспорядков, попытка мятежа в бункере F12 из-за нехватки продовольствия. Пострадавших пока нет, важные персоны в безопасности. Артефактов при них нет. Мы пробудем здесь несколько дней. Отрубай", "ARES V3.2", 'sound/AI/commandreport.ogg'), 5 MINUTES)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(venir_announcement), "Эй, ЭЙ! Ребята, что в поезде. Вы вляпались по-серьезному, вам нужно выбираться отсюда немедленно! Поезд уже закрыт, и у вас есть всего две минуты до того, как ксеноморфы ворвутся в командный бункер, вы слышали меня, ксеноморфы! Найдите припасы, найдите укрытие и ждите спасения.\\n\\n Арсенал в западном бункере не тронут, а в северном бункере много металла. Я пытаюсь снять внешнюю изоляцию, но это займет у меня еще минут десять. Больше я ничего не могу для вас сделать, удачи.", "Источник неизвестен", 'sound/AI/commandreport.ogg'), 10 SECONDS)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_announcement), "Победа! Обитатели этого металлического бункера были убиты, однако мы сильно пострадали от этой резни и должны оправиться. Я чувствую приближение новой группы носителей, они пополнят наши ряды.\\n\\n Похоже, что в бункере введен режим карантина, но это неважно, я отправила трутня пожертвовать собой, чтобы его снять, однако на это уйдет около двух минут. Используйте это время, чтобы подготовиться.", "everything", QUEEN_MOTHER_ANNOUNCE), 20 SECONDS)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_announcement), "Бункер снова открыт.", "everything", QUEEN_MOTHER_ANNOUNCE), 100 SECONDS)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(venir_announcement), "Предупреждение: обнаружен сбой блокировки командного бункера", "Автоматизированная передача сигнала", 'sound/AI/commandreport.ogg'), 100 SECONDS)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(venir_announcement), "Если кто-то еще жив, я снимаю внешнюю изоляцию. Я оборудовал укрепленную позицию прямо к западу от главного входа, найдите меня, я установил сторожевые орудия, убедитесь, что на вас есть опознавательные знаки... Подождите, а где же мои, ох бл...", "Источник неизвестен", 'sound/AI/commandreport.ogg'), 4.5 MINUTES)
 //This is processed each tick, but check_win is only checked 5 ticks, so we don't go crazy with scanning for mobs.
 /datum/game_mode/colonialmarines/process()
 	. = ..()
