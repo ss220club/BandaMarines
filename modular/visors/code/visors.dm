@@ -64,17 +64,24 @@
 	if(istype(module, /obj/item/device/helmet_visor_module/night_vision_power_efficiency))
 		var/obj/item/device/helmet_visor_module/night_vision_power_efficiency/efficiency_module = module
 		power_use = efficiency_module.power_use_setting
+		icon = 'modular/visors/icons/icons.dmi'
 		icon_state = "nvg_sight_upgraded"
 		update_icon()
 	to_chat(user, SPAN_NOTICE("You install [module] into [src]."))
 
 /obj/item/device/helmet_visor/night_vision/proc/uninstall_module(mob/user)
 	if(!installed_module)
-		to_chat(user, SPAN_WARNING("[src] has no module installed."))
+		if(user)
+			to_chat(user, SPAN_WARNING("[src] has no module installed."))
+		return
+	if(istype(loc, /obj/item/clothing/head/helmet/marine))
+		if(user)
+			to_chat(user, SPAN_WARNING("You must remove [src] from the helmet first."))
 		return
 	var/obj/item/device/helmet_visor_module/module = installed_module
 	installed_module = null
 	power_use = initial(power_use)
+	icon = initial(icon)
 	icon_state = initial(icon_state)
 	action_icon_string = initial(action_icon_string)
 	update_icon()
@@ -102,7 +109,10 @@
 		return
 	if(!ishuman(usr))
 		return
-	uninstall_module(usr)
+	var/mob/living/carbon/human/H = usr
+	if(H.stat || H.is_mob_restrained() || !in_range(src, H))
+		return
+	uninstall_module(H)
 
 /obj/item/device/helmet_visor_module
 	name = "visor module"
@@ -113,7 +123,7 @@
 	var/slot = ACCESSORY_SLOT_VISOR_MODULE
 
 /obj/item/device/helmet_visor_module/night_vision_power_efficiency
-	name = "Night Vision optimizer"
+	name = "Night Vision Optimizer"
 	desc = "A module that reduces power consumption of night vision optic, extending its battery life."
 	icon = 'modular/visors/icons/icons.dmi'
 	var/power_use_setting = 22   ///extra 5 minutes, 15 minutes total
