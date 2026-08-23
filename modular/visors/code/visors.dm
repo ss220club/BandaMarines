@@ -39,10 +39,11 @@
 /obj/item/device/helmet_visor/night_vision
 	var/obj/item/device/helmet_visor_module/installed_module = null
 
+/obj/item/device/helmet_visor/night_vision/marine_raider/can_install_module(obj/item/device/helmet_visor_module/module, mob/user)
+	to_chat(user, SPAN_WARNING("[src] cannot accept this module."))
+	return FALSE
+
 /obj/item/device/helmet_visor/night_vision/proc/can_install_module(obj/item/device/helmet_visor_module/module, mob/user)
-	if(istype(src, /obj/item/device/helmet_visor/night_vision/marine_raider) || istype(src, /obj/item/device/helmet_visor/night_vision/normal/marine_raider))
-		to_chat(user, SPAN_WARNING("[src] cannot accept this module."))
-		return FALSE
 	if(installed_module)
 		to_chat(user, SPAN_WARNING("[src] already has a module installed."))
 		return FALSE
