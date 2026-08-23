@@ -65,8 +65,8 @@
 	if(istype(module, /obj/item/device/helmet_visor_module/night_vision_power_efficiency))
 		var/obj/item/device/helmet_visor_module/night_vision_power_efficiency/efficiency_module = module
 		power_use = efficiency_module.power_use_setting
-		icon = 'modular/visors/icons/icons.dmi'
-		icon_state = "nvg_sight_upgraded"
+		icon_state = "nvg_sight_upgrade"
+		action_icon_string = "nvg_sight_upgrade_down"
 		update_icon()
 	to_chat(user, SPAN_NOTICE("You install [module] into [src]."))
 
@@ -82,7 +82,6 @@
 	var/obj/item/device/helmet_visor_module/module = installed_module
 	installed_module = null
 	power_use = initial(power_use)
-	icon = initial(icon)
 	icon_state = initial(icon_state)
 	action_icon_string = initial(action_icon_string)
 	update_icon()
