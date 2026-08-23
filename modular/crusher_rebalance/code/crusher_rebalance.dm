@@ -415,7 +415,6 @@
 		SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] таранит [human.declent_ru(ACCUSATIVE)]!"),
 		SPAN_XENODANGER("Вы тараните [human.declent_ru(ACCUSATIVE)]!")
 	)
-	human.body_position_changed
 	if(!(human.body_position_changed - world.time))
 		var/list/ram_dirs = get_perpen_dir(xeno.dir) //throw human to the side
 		var/ram_dir = pick(ram_dirs)
@@ -423,8 +422,8 @@
 		var/target_turf = get_step(human, ram_dir)
 		if(LinkBlocked(human, cur_turf, target_turf))
 			ram_dir = REVERSE_DIR(ram_dir)
-		step(human, ram_dir)
-		step(human, ram_dir)
+		for(var/times in 1 to pick(1,2))
+			step(human, ram_dir)
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_xeno_collision(mob/living/carbon/xenomorph/target_xeno, mob/living/carbon/xenomorph/xeno)
 	if(!istype(xeno))
