@@ -66,7 +66,6 @@
 		var/obj/item/device/helmet_visor_module/night_vision_power_efficiency/efficiency_module = module
 		power_use = efficiency_module.power_use_setting
 		icon_state = "nvg_sight_upgrade"
-		action_icon_string = "nvg_sight_upgrade_down"
 		update_icon()
 	to_chat(user, SPAN_NOTICE("You install [module] into [src]."))
 
