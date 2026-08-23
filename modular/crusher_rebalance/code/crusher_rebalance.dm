@@ -381,7 +381,7 @@
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_human_collision(mob/living/carbon/human/human, mob/living/carbon/xenomorph/xeno)
 	if(!istype(xeno))
 		xeno = owner
-	if(!istype(xeno) || !istype(human) || human.stat == DEAD)
+	if(!istype(xeno) || !istype(human) || human.stat == DEAD || HAS_TRAIT(human, TRAIT_HAULED))
 		return
 	playsound(human.loc, "punch", 25, TRUE)
 	human.attack_log += text("\[[time_stamp()]\] <font color='orange'>was crusher charged by [xeno] ([xeno.ckey])</font>")
@@ -415,14 +415,16 @@
 		SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] таранит [human.declent_ru(ACCUSATIVE)]!"),
 		SPAN_XENODANGER("Вы тараните [human.declent_ru(ACCUSATIVE)]!")
 	)
-	var/list/ram_dirs = get_perpen_dir(xeno.dir) //throw human to the side
-	var/ram_dir = pick(ram_dirs)
-	var/cur_turf = get_turf(human)
-	var/target_turf = get_step(human, ram_dir)
-	if(LinkBlocked(human, cur_turf, target_turf))
-		ram_dir = REVERSE_DIR(ram_dir)
-	step(human, ram_dir)
-	step(human, ram_dir)
+	human.body_position_changed
+	if(!(human.body_position_changed - world.time))
+		var/list/ram_dirs = get_perpen_dir(xeno.dir) //throw human to the side
+		var/ram_dir = pick(ram_dirs)
+		var/cur_turf = get_turf(human)
+		var/target_turf = get_step(human, ram_dir)
+		if(LinkBlocked(human, cur_turf, target_turf))
+			ram_dir = REVERSE_DIR(ram_dir)
+		step(human, ram_dir)
+		step(human, ram_dir)
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_xeno_collision(mob/living/carbon/xenomorph/target_xeno, mob/living/carbon/xenomorph/xeno)
 	if(!istype(xeno))
