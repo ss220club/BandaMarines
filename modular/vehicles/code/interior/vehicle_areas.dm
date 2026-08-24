@@ -32,3 +32,6 @@
 
 /area/interior/vehicle/van/uscm/med
     allow_surgery = TRUE
+
+/area/interior/vehicle/apc/med
+    allow_surgery = TRUE
