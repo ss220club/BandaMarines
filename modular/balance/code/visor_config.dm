@@ -15,6 +15,36 @@
 		return FALSE
 	return TRUE
 
+/obj/item/device/helmet_visor/night_vision/normal/proc/update_helmet_overlay(obj/item/clothing/head/helmet/marine/helmet, add)
+	if(!helmet)
+		return
+	var/image/overlay_image = image('modular/balance/icons/visor.dmi', "nvo_installed")
+	if(add)
+		helmet.overlays += overlay_image
+	else
+		helmet.overlays -= overlay_image
+	helmet.update_icon()
+
+/obj/item/device/helmet_visor/night_vision/normal/Initialize(mapload, ...)
+	. = ..()
+	if(istype(loc, /obj/item/clothing/head/helmet/marine))
+		update_helmet_overlay(loc, TRUE)
+
+/obj/item/device/helmet_visor/night_vision/normal/Destroy()
+	var/obj/item/clothing/head/helmet/marine/helmet = loc
+	if(istype(helmet))
+		update_helmet_overlay(helmet, FALSE)
+	. = ..()
+
+/obj/item/device/helmet_visor/night_vision/normal/forceMove(atom/destination)
+	var/obj/item/clothing/head/helmet/marine/old_helmet = loc
+	if(istype(old_helmet))
+		update_helmet_overlay(old_helmet, FALSE)
+	. = ..()
+	if(istype(destination, /obj/item/clothing/head/helmet/marine))
+		var/obj/item/clothing/head/helmet/marine/new_helmet = destination
+		update_helmet_overlay(new_helmet, TRUE)
+
 /obj/item/device/helmet_visor/night_vision/normal/marine_raider
 	helmet_overlay = "nvg_sight_right_raider"
 	hud_type = list(MOB_HUD_FACTION_MARINE, MOB_HUD_MEDICAL_ADVANCED)
