@@ -1,4 +1,5 @@
 #define ACCESSORY_SLOT_VISOR_MODULE "Visor Module"
+#define NVG_VISOR_USAGE(delta_time) (power_cell.use(power_use * (delta_time ? delta_time : 1)))
 
 /obj/item/device/helmet_visor/night_vision/normal
 	icon = 'modular/balance/icons/visor.dmi'
