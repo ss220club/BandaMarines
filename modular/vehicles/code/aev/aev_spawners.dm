@@ -25,4 +25,4 @@
 	V.add_hardpoint(new /obj/item/hardpoint/armor/snowplow)
 	V.add_hardpoint(new /obj/item/hardpoint/support/overdrive_enhancer)
 	V.add_hardpoint(new /obj/item/hardpoint/secondary/m56cupola/aev)
-	V.add_hardpoint(new /obj/item/hardpoint/support/smoke_launcher/aev)
+	V.add_hardpoint(new /obj/item/hardpoint/primary/aev_launcher)

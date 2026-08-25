@@ -7,7 +7,8 @@
 
 	hardpoints_allowed = list(
 		/obj/item/hardpoint/support/overdrive_enhancer,
-		/obj/item/hardpoint/support/smoke_launcher/aev,
+		/obj/item/hardpoint/support/smoke_launcher,
+		/obj/item/hardpoint/primary/aev_launcher,
 		/obj/item/hardpoint/support/weapons_sensor,
 		/obj/item/hardpoint/support/artillery_module,
 		/obj/item/hardpoint/secondary/m56cupola/aev,

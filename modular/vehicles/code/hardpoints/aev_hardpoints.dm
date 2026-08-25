@@ -49,14 +49,17 @@
 		BULLET_TRAIT_ENTRY(/datum/element/bullet_trait_iff)
 	))
 
-/obj/item/hardpoint/support/smoke_launcher/aev
+/obj/item/hardpoint/primary/aev_launcher
 	name = "\improper M-39Q Smoke Discharger"
 	desc = "A support module for AEVs that shoots M60 incendiary smoke grenades to deter hitchhikers."
 	icon = 'modular/vehicles/icons/aev/aev_hardpoints.dmi'
 
 	icon_state = "slauncher_0"
 	disp_icon = "tank"
+	disp_icon_state = "slauncher"
+	activation_sounds = list('sound/weapons/gun_m92_attachable.ogg')
 
+	health = 1500
 	firing_arc = 150
 	ammo = new /obj/item/ammo_magazine/hardpoint/turret_smoke/incen
 	max_clips = 5
@@ -68,8 +71,12 @@
 	)
 	burst_amount = 2
 	burst_delay = 1.0 SECONDS
+	fire_delay = 1.0 SECONDS
 
-/obj/item/hardpoint/support/smoke_launcher/aev/try_fire(atom/target, mob/living/user, params)
+	allowed_seat = VEHICLE_GUNNER
+	use_muzzle_flash = FALSE
+
+/obj/item/hardpoint/primary/aev_launcher/try_fire(atom/target, mob/living/user, params)
 	var/turf/L
 	var/turf/R
 	switch(owner.dir)
@@ -92,3 +99,9 @@
 		target = L
 
 	return ..()
+
+/obj/item/hardpoint/primary/aev_launcher/set_bullet_traits()
+	..()
+	LAZYADD(traits_to_give, list(
+		BULLET_TRAIT_ENTRY(/datum/element/bullet_trait_iff)
+	))
