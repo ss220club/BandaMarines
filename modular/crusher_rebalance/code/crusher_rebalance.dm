@@ -508,21 +508,21 @@
 	if(istype(target, /obj/structure))
 		if(istype(target, /obj/structure/machinery))
 			//M56d machine gun collision
-			if (istype(target, /obj/structure/machinery/m56d_hmg))
+			if(istype(target, /obj/structure/machinery/m56d_hmg))
 				var/obj/structure/machinery/m56d_hmg/weapon_in_path = target
 				xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] таранит [weapon_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы тараним [weapon_in_path.declent_ru(ACCUSATIVE)]!"))
 				metal_pipe_random(weapon_in_path)
 				weapon_in_path.CrusherImpact()
 				. =  FALSE
 			//Airlocks collision
-			else if (istype(target, /obj/structure/machinery/door/airlock))
+			else if(istype(target, /obj/structure/machinery/door/airlock))
 				var/obj/structure/machinery/door/airlock/airlock_in_path = target
 				if(airlock_in_path.density)
 					metal_pipe_random(airlock_in_path)
 					airlock_in_path.take_damage(airlock_in_path.damage_cap)
 					. = TRUE
 			//Turrets, Tesla Coil etc. collision
-			else if (istype(target, /obj/structure/machinery/defenses))
+			else if(istype(target, /obj/structure/machinery/defenses))
 				var/obj/structure/machinery/defenses/defenses_in_path = target
 				xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] таранит [defenses_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы тараним [defenses_in_path.declent_ru(ACCUSATIVE)]!"))
 				metal_pipe_random(defenses_in_path)
@@ -532,9 +532,9 @@
 					defenses_in_path.update_health(direct_hit_damage)
 					. =  FALSE
 			//Vending machines collision
-			else if (istype(target, /obj/structure/machinery/vending) || istype(target, /obj/structure/machinery/cm_vending))
+			else if(istype(target, /obj/structure/machinery/vending) || istype(target, /obj/structure/machinery/cm_vending))
 				var/obj/structure/machinery/vending/vending_in_path = target
-				if (vending_in_path.unslashable)
+				if(vending_in_path.unslashable)
 					. = FALSE
 				else
 					xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается прямо в [vending_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы врезаемся прямо в [vending_in_path.declent_ru(ACCUSATIVE)]!"))
@@ -548,7 +548,7 @@
 				pump_in_path.update_health(direct_hit_damage)
 				. = FALSE
 		//Barricade collision
-		else if (istype(target, /obj/structure/barricade))
+		else if(istype(target, /obj/structure/barricade))
 			var/obj/structure/barricade/blockade_in_path = target
 			if(blockade_in_path.BlockedExitDirs(xeno, xeno.last_move_dir) || blockade_in_path.BlockedPassDirs(xeno, xeno.last_move_dir))
 				xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [blockade_in_path.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [blockade_in_path.declent_ru(ACCUSATIVE)] и тормозим!"))
@@ -558,9 +558,9 @@
 			else
 				. = TRUE
 		//Window collision
-		else if (istype(target, /obj/structure/window))
+		else if(istype(target, /obj/structure/window))
 			var/obj/structure/window/window_in_path = target
-			if (window_in_path.unacidable)
+			if(window_in_path.unacidable)
 				. = FALSE
 			else
 				var/obj/structure/window/framed/window_framed_in_path
@@ -578,19 +578,19 @@
 					else
 						var/obj/structure/window_frame/own_window_frame = locate(window_frame_type) in window_loc
 						if(own_window_frame)
-							handle_collision(own_window_frame)
+							handle_collision(own_window_frame, xeno)
 				. =  TRUE
 		//Window frame collision
-		else if (istype(target, /obj/structure/window_frame))
+		else if(istype(target, /obj/structure/window_frame))
 			var/obj/structure/window_frame/window_frame_in_path = target
-			if (window_frame_in_path.unacidable)
+			if(window_frame_in_path.unacidable)
 				. = FALSE
 			else
 				metal_pipe_random(window_frame_in_path)
 				window_frame_in_path.deconstruct(FALSE)
 				. = TRUE
 		//Grille collision
-		else if (istype(target, /obj/structure/grille))
+		else if(istype(target, /obj/structure/grille))
 			var/obj/structure/grille/grille_in_path = target
 			if(grille_in_path.unacidable)
 				. =  FALSE
@@ -600,8 +600,8 @@
 				grille_in_path.healthcheck()
 				. = TRUE
 		//Fences collision
-		else if(istype(target, /obj/structure/fence/electrified))
-			var/obj/structure/fence/electrified/fence = target
+		else if(istype(target, /obj/structure/fence))
+			var/obj/structure/fence/fence = target
 			if (fence.cut)
 				. = FALSE
 			else
@@ -610,13 +610,13 @@
 				fence.cut_grille()
 				. = TRUE
 		//Table collision
-		else if (istype(target, /obj/structure/surface/table))
+		else if(istype(target, /obj/structure/surface/table))
 			var/obj/structure/surface/table/table_in_path = target
 			table_in_path.Crossed(xeno)
 			. = TRUE
 
 	//Vehicle collision
-	else if (istype(target, /obj/vehicle/multitile))
+	else if(istype(target, /obj/vehicle/multitile))
 		var/obj/vehicle/multitile/vehicle_in_path = target
 		xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозим!"))
 		metal_pipe_random(vehicle_in_path)
@@ -625,15 +625,15 @@
 
 	// Anything else?
 	else
-		if (isobj(target))
+		if(isobj(target))
 			var/obj/object_in_path = target
 			if(!object_in_path.density) // collide with obj that interrupt dash
 				return TRUE
-			if (object_in_path.unacidable) // can't break unbreakable
+			if(object_in_path.unacidable) // can't break unbreakable
 				. = FALSE
 
 			//Immovable obj
-			else if (object_in_path.anchored)
+			else if(object_in_path.anchored)
 				xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] раздавливает [object_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы раздавливаем [object_in_path.declent_ru(ACCUSATIVE)]!"))
 				if(istype(object_in_path, /obj/structure/platform))
 					var/obj/structure/platform/platform_in_path = object_in_path
