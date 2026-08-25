@@ -245,7 +245,7 @@
 	if(!tracks_target)
 		target = get_turf(target)
 
-	if(target.z != xeno.z)
+	if(target.z > xeno.z)
 		to_chat(xeno, SPAN_XENODANGER("Мы не можем осуществить туда натиск!"))
 		return FALSE
 
