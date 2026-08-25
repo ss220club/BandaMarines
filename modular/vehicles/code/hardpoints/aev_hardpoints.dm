@@ -31,7 +31,7 @@
 
 	activatable = TRUE
 
-	health = 1500
+	health = 400
 	firing_arc = 120
 
 	allowed_seat = VEHICLE_GUNNER
@@ -59,7 +59,7 @@
 	disp_icon_state = "slauncher"
 	activation_sounds = list('sound/weapons/gun_m92_attachable.ogg')
 
-	health = 1500
+	health = 400
 	firing_arc = 150
 	ammo = new /obj/item/ammo_magazine/hardpoint/turret_smoke/incen
 	max_clips = 5
