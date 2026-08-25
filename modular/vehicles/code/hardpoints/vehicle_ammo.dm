@@ -162,7 +162,7 @@
 /obj/effect/essentials_set/aev/smoke_launcher
 	desc = "Вспомогательный модуль поддержки пехоты для ИРМ М34E1, выстреливает несколькими зажигательно-дымовыми гранатами М60 для защиты от безбилетников."
 	spawned_gear_list = list(
-		/obj/item/hardpoint/support/smoke_launcher/aev,
+		/obj/item/hardpoint/primary/aev_launcher,
 		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
 		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
 		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
@@ -171,7 +171,7 @@
 /obj/effect/essentials_set/apc/smoke_launcher
 	desc = "Вспомогательный модуль поддержки пехоты для БТРов, выстреливает несколькими зажигательно-дымовыми гранатами М60 для защиты от безбилетников."
 	spawned_gear_list = list(
-		/obj/item/hardpoint/primary/aev_launcher,
+		/obj/item/hardpoint/support/smoke_launcher,
 		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
 		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
 		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
