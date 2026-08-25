@@ -212,8 +212,11 @@ SUBSYSTEM_DEF(tts220)
 		return
 
 	var/list/replacements = json_decode(tts_replacements_json)
-	tts_acronym_replacements = replacements[TTS_ACRONYM_REPLACEMENTS]
-	tts_job_replacements = replacements[TTS_JOB_REPLACEMENTS]
+	for(var/i in replacements)
+		if(i == TTS_JOB_REPLACEMENTS)
+			tts_job_replacements += replacements[i]
+			continue
+		tts_acronym_replacements += replacements[i]
 
 /datum/controller/subsystem/tts220/proc/queue_request(text, datum/tts_seed/seed, datum/callback/proc_callback)
 	if(LAZYLEN(tts_requests_queue) > tts_requests_queue_limit)
