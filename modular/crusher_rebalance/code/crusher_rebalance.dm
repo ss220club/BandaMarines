@@ -616,7 +616,7 @@
 			. = TRUE
 
 	//Vehicle collision
-	else if(istype(target, /obj/vehicle/multitile))
+	if(istype(target, /obj/vehicle/multitile))
 		var/obj/vehicle/multitile/vehicle_in_path = target
 		xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозим!"))
 		metal_pipe_random(vehicle_in_path)
