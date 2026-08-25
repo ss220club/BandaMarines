@@ -551,6 +551,14 @@
 
 	return ..()
 
+/**
+ * Sends the COMSIG_MOVABLE_PRE_PICKUP signal and returns the bitfield result.
+ *
+ * Returns NONE if the pickup should be allowed, otherwise the bitfield canceled reason(s) (e.g. COMPONENT_PICKUP_CANCELED_ACID)
+ */
+/atom/movable/proc/check_pickup_blocked(mob/user)
+	return SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_PICKUP, user)
+
 // SS220 ADD Start
 /atom/movable/proc/set_glide_size(target = 8)
 	SEND_SIGNAL(src, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE, target)
