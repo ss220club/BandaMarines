@@ -85,9 +85,9 @@ SUBSYSTEM_DEF(tts220)
 	/// List of all tts seeds mapped by TTS gender: `tts gender` => `list of seeds`
 	VAR_PRIVATE/list/tts_seeds_by_gender
 	/// Replacement map for acronyms for proper TTS spelling. Not private because `replacetext` can use only global procs
-	var/list/tts_acronym_replacements
+	var/list/tts_acronym_replacements = list()
 	/// Replacement map for jobs for proper TTS spelling
-	VAR_PRIVATE/list/tts_job_replacements
+	VAR_PRIVATE/list/tts_job_replacements = list()
 
 /datum/controller/subsystem/tts220/stat_entry(msg)
 	msg += "tRPS:[tts_trps] "
