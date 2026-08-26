@@ -82,11 +82,9 @@
 	icon_state = "vp78"
 	item_state = "vp78"
 	current_mag = /obj/item/ammo_magazine/pistol/vp78/rmc
-//	start_automatic = TRUE
 
 /obj/item/weapon/gun/pistol/vp78/rmc/unloaded
 	current_mag = null
-
 
 /obj/item/weapon/gun/pistol/mod88/vp70
 	name = "\improper VP70 M5 service pistol"
@@ -94,7 +92,6 @@
 	icon = 'modular/weapons/icons/uscm.dmi'
 	icon_state = "vp70"
 	item_state = "vp70"
-//	start_automatic = TRUE
 
 /obj/item/weapon/gun/pistol/mod88/vp70/set_gun_config_values()
 	..()
