@@ -32,8 +32,8 @@
 
 	entrance_speed = 0.5 SECONDS
 	required_skill = SKILL_VEHICLE_SMALL
-	movement_sound = 'modular/sounds/sound/vehicles/humvee/humvee_driving.ogg'
-	honk_sound = 'modular/sounds/sound/vehicles/humvee/humvee_horn.ogg'
+	movement_sound = 'modular/vehicles/sound/humvee/humvee_driving.ogg'
+	honk_sound = 'modular/vehicles/sound/humvee/humvee_horn.ogg'
 	luminosity = 7
 	hardpoints_allowed = list(
 		/obj/item/hardpoint/locomotion/humvee_wheels,

@@ -182,7 +182,7 @@
 	icon_state = "humveecannon"
 	disp_icon = "humvee"
 	disp_icon_state = "humveecannon"
-	activation_sounds = list('modular/sounds/sound/vehicles/humvee/humvee_cannon.ogg')
+	activation_sounds = list('modular/vehicles/sound/humvee/humvee_cannon.ogg')
 
 	damage_multiplier = 0.2
 
