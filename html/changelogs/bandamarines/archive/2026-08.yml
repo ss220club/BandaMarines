@@ -27,3 +27,8 @@
   - bugfix: Небольшие улучшения логики лифта
   Zvezdablya:
   - rscadd: Добавлен новый баллистический щит
+2026-08-26:
+  larentoun:
+  - admin: Object Narrate теперь имеет TTS при Object Narrate
+  - admin: Change TTS - Player Choice теперь находится под MOB
+  - admin: Change TTS теперь работает на все атомы
