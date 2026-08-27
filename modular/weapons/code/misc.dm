@@ -102,7 +102,6 @@
 /obj/item/weapon/gun/launcher/grenade/m81/m79/modified/handle_starting_attachment()
 	..()
 	var/obj/item/attachable/scope/m79/scope = new(src)
-	scope.hidden = FALSE
 	scope.flags_attach_features &= ~ATTACH_REMOVABLE
 	scope.Attach(src)
 	scope.hidden = TRUE

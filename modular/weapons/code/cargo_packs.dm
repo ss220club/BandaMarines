@@ -50,7 +50,7 @@
 
 /obj/item/storage/box/fluff_gun/l165
 	name = "L165A1 pistol storing case"
-	desc = "A small case containing a L165A1, a service issue pistol to the Royal Marine Commandos. It was most likely given as a reward for service in RMC, or stolen and sold on a black market. How knows.."
+	desc = "A small case containing a L165A1, a service issue pistol to the Royal Marine Commandos. It was most likely given as a reward for service in RMC, or stolen and sold on a black market. Who knows.."
 	can_hold = list(/obj/item/weapon/gun/pistol/vp78/rmc, /obj/item/ammo_magazine/pistol/vp78)
 
 /obj/item/storage/box/fluff_gun/l165/fill_preset_inventory()
