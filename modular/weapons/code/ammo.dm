@@ -1,7 +1,7 @@
 //HP Automag
 /obj/item/ammo_magazine/pistol/highpower/automag
 	name = "\improper HG-44 'Automag' magazine (.44)"
-	icon = 'modular/weapons/icons/colony_ammo.dmi'
+	icon = 'modular/weapons/icons/ammo.dmi'
 	icon_state = "highpower_b"
 	max_rounds = 13
 	default_ammo = /datum/ammo/bullet/revolver
@@ -18,7 +18,7 @@
 	name = "\improper PA76 magazine (7.65x20mm)"
 	desc = "A pistol magazine used by the PA76 pistol."
 	caliber = "7.65x20mm"
-	icon = 'modular/weapons/icons/colony_ammo.dmi'
+	icon = 'modular/weapons/icons/ammo.dmi'
 	icon_state = "pa76"
 	max_rounds = 7
 	default_ammo = /datum/ammo/bullet/pistol/pa76
@@ -53,7 +53,7 @@
 	desc = "A speedloader of 6 Magnum .357 bullets for the RMR-6 and similar brands of revolver."
 	default_ammo = /datum/ammo/bullet/revolver/rmr6
 	caliber = ".357"
-	icon = 'modular/weapons/icons/colony_ammo.dmi'
+	icon = 'modular/weapons/icons/ammo.dmi'
 	icon_state = "rmr6"
 	max_rounds = 6
 	gun_type = /obj/item/weapon/gun/revolver/rmr6
@@ -167,7 +167,7 @@
 //M20A
 /obj/item/ammo_magazine/rifle/m20a
 	name = "\improper M20A magazine (10x24mm)"
-	icon = 'modular/weapons/icons/uscm_ammo.dmi'
+	icon = 'modular/weapons/icons/ammo.dmi'
 	desc = "A 10mm assault rifle magazine."
 	caliber = "10x24mm"
 	icon_state = "m20a"
@@ -263,7 +263,7 @@
 	name = "\improper R81M1 magazine (9x32mm)"
 	desc = "A 9x32mm high-velocity battle rifle magazine."
 	caliber = "9x32mm"
-	icon = 'modular/weapons/icons/colony_ammo.dmi'
+	icon = 'modular/weapons/icons/ammo.dmi'
 	icon_state = "fal"
 	bonus_overlay = "fal_overlay"
 	default_ammo = /datum/ammo/bullet/rifle/r81m1
@@ -315,7 +315,7 @@
 	name = "\improper MP47A2 magazine (10x20mm)"
 	desc = "A 10x20mm magazine for the MP47A2."
 	caliber = "10x20mm"
-	icon = 'modular/weapons/icons/colony_ammo.dmi'
+	icon = 'modular/weapons/icons/ammo.dmi'
 	icon_state = "mp47a2"
 	max_rounds = 40
 	gun_type = /obj/item/weapon/gun/smg/mp47a2
@@ -337,7 +337,7 @@
 	name = "\improper ISR box magazine (9.2x34mm)"
 	desc = "A 9.2x34mm box magazine for the ISR LMG."
 	caliber = "9.2x34mm"
-	icon = 'modular/weapons/icons/colony_ammo.dmi'
+	icon = 'modular/weapons/icons/ammo.dmi'
 	icon_state = "isr"
 	item_state = "isr"
 	default_ammo = /datum/ammo/bullet/rifle/isr
@@ -353,7 +353,7 @@
 /obj/item/ammo_magazine/rifle/fn107
 	name = "\improper CAMAS61/78 magazine (7.5x28mm)"
 	desc = "An 7.5mm magazine for the CAMAS61/78 Carbine, commonly used by FIL."
-	icon = 'modular/weapons/icons/colony_ammo.dmi'
+	icon = 'modular/weapons/icons/ammo.dmi'
 	icon_state = "fn107"
 	item_state = "fn107"
 	w_class = SIZE_MEDIUM
@@ -373,7 +373,7 @@
 /obj/item/ammo_magazine/rifle/masm
 	name = "\improper MASM55 box magazine (12x30mm)"
 	desc = "A large 12mm box magazine for the MASM55, commonly used by the FIL."
-	icon = 'modular/weapons/icons/colony_ammo.dmi'
+	icon = 'modular/weapons/icons/ammo.dmi'
 	icon_state = "masm"
 	item_state = "masm"
 	w_class = SIZE_LARGE
@@ -385,7 +385,7 @@
 /obj/item/ammo_magazine/rifle/fpsa
 	name = "\improper FPSA/76 DMR magazine (7.5x50mm)"
 	desc = "A standard caseless magazine for the FPSA/76 Pulse DMR, often used by mercenary and french armed forces."
-	icon = 'modular/weapons/icons/colony_ammo.dmi'
+	icon = 'modular/weapons/icons/ammo.dmi'
 	icon_state = "fpsa"
 	item_state = "fpsa"
 	w_class = SIZE_MEDIUM
@@ -435,7 +435,7 @@
 	desc = "Heavy high-capacity belt box for M38 GPMG."
 	caliber = "12x30"
 	w_class = SIZE_MEDIUM
-	icon = 'modular/weapons/icons/colony_ammo.dmi'
+	icon = 'modular/weapons/icons/ammo.dmi'
 	icon_state = "m60"
 
 	matter = list("metal" = 10000)
@@ -475,7 +475,7 @@
 	name = "\improper L64A3 squash-head magazine (8.88x51mm Caseless)"
 	desc = "A magazine of L10A7 squash-head match-grade 8.88x51mm ammo. An aimed shot with it will deal significant damage."
 	caliber = "8.88x51mm"
-	icon = 'modular/weapons/icons/twe_ammo.dmi'
+	icon = 'modular/weapons/icons/ammo.dmi'
 	icon_state = "rmcdmr"
 	w_class = SIZE_MEDIUM
 	max_rounds = 25
