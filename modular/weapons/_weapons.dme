@@ -7,3 +7,4 @@
 #include "code/misc.dm"
 #include "code/ammo.dm"
 #include "code/cargo_packs.dm"
+#include "code/attachments.dm"

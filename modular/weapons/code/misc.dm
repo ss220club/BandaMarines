@@ -10,7 +10,7 @@
 	)
 	icon_state = "m38"
 	item_state = "m38"
-	base_gun_icon = "m60" // SS220 EDIT: Reuse M60 lineart for M38
+	base_gun_icon = "m60"
 	fire_sound = 'sound/weapons/gun_hpr.ogg'
 	current_mag = /obj/item/ammo_magazine/m38
 	aim_slowdown = SLOWDOWN_ADS_LMG
@@ -40,20 +40,7 @@
 /obj/item/weapon/gun/m60/m38/set_gun_attachment_offsets()
 	attachable_offset = list("muzzle_x" = 36, "muzzle_y" = 20, "rail_x" = 0, "rail_y" = 0, "under_x" = 30, "under_y" = 14, "stock_x" = 8, "stock_y" = 16, "side_rail_x" = 30, "side_rail_y" = 16)
 
-/obj/item/attachable/stock/m60/m38
-	name = "M38 stock"
-	icon_state = "m38_stock"
-	attach_icon = "m38_stock"
-
-/obj/item/attachable/flashlight/tactical
-	name = "tactical flashlight"
-	desc = "Robust and handy tactical flashlight, produced by WiseFire Inc."
-	icon_state = "flashlight_tactical"
-	attach_icon = "flashlight_tactical_a"
-	original_state = "flashlight_tactical"
-	original_attach = "flashlight_tactical_a"
-
-
+//RMC GL
 /obj/item/weapon/gun/launcher/grenade/m92/rmc
 	name = "\improper L164A3 multi-shot grenade launcher"
 	desc = "A lightweight support weapon fielded by the Royal Marines. Chambered in small 20mm grenades, it lacks the punch of larger bore grenade launchers, but makes up for that in rate of fire."
@@ -105,15 +92,7 @@
 	optic.Attach(src)
 	update_attachable(optic.slot)
 
-
-/obj/item/attachable/scope/mini/rmcgl
-	name = "L164A3 collimator sight assembly"
-	desc = "L164A3 sight system."
-	zoom_offset = 3
-	icon_state = "reflex"
-
-
-
+//m79
 /obj/item/weapon/gun/launcher/grenade/m81/m79/modified
 	name = "\improper modified M79 grenade launcher"
 	desc = "A heavy, low-angle grenade launcher. It's been in use since the Vietnam War, though this version has been modified to fire standard USCM 30mm grenades. The wooden furniture is, in fact, an attempt at modernization and is made of painted hardened polykevlon."
@@ -129,17 +108,7 @@
 	scope.hidden = TRUE
 	update_attachable(scope.slot)
 
-/obj/item/attachable/scope/m79
-	name = "M79 sight"
-	desc = "You shouldn't be seeing this!"
-	icon_state = "m79_sight"
-	zoom_offset = 3
-	zoom_viewsize = 7
-	allows_movement = TRUE
-	attach_icon = null
-	hidden = TRUE
-
-
+//m79 short
 /obj/item/weapon/gun/launcher/grenade/m81/m79/modified/sawnoff
 	name = "\improper sawn-off M79 grenade launcher"
 	desc = "A heavy, low-angle grenade launcher, though this one had its stock and half the barrel sawn-off. It's been in use since the Vietnam War, and this version has been modified to fire standard USCM 30mm grenades. The wooden furniture is, in fact, an attempt at modernization and is made of painted hardened polykevlon."

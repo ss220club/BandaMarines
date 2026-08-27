@@ -1,5 +1,4 @@
-//XM51, Breaching Scattergun, PVE Edition: civilian magfed shotgun
-
+//XM51
 /obj/item/weapon/gun/rifle/xm51/lethal
 	name = "\improper M1771 shotgun"
 	icon = 'modular/weapons/icons/rifles.dmi'
@@ -41,34 +40,6 @@
 /obj/item/weapon/gun/rifle/xm51/military/withstock
 	starting_attachment_types = list(/obj/item/attachable/stock/xm51/military)
 
-/obj/item/ammo_magazine/rifle/xm51/lethal
-	name = "\improper XM51 magazine (12g)"
-	desc = "A 12 gauge shotgun magazine."
-	caliber = "12g"
-	w_class = SIZE_MEDIUM
-	default_ammo = /datum/ammo/bullet/shotgun/buckshot
-	max_rounds = 12
-	gun_type = /obj/item/weapon/gun/rifle/xm51
-	transfer_handful_amount = 6
-
-/obj/item/ammo_magazine/rifle/xm51/lethal/slug
-	name = "\improper XM51 magazine (12g slug)"
-	desc = "A 12 gauge shotgun magazine."
-	caliber = "12g"
-	w_class = SIZE_MEDIUM
-	default_ammo = /datum/ammo/bullet/shotgun/slug
-	max_rounds = 12
-	gun_type = /obj/item/weapon/gun/rifle/xm51
-	transfer_handful_amount = 6
-
-/obj/item/attachable/stock/xm51/military
-	name = "\improper XM51 stock"
-	desc = "A specialized stock designed for XM51 shotguns. Helps the user absorb the recoil of the weapon while also reducing scatter."
-	icon_state = "xm51_military_stock"
-	attach_icon = "xm51_military_stock_a"
-
-
-
 /obj/item/weapon/gun/shotgun/p79s
 	name = "\improper P79S semi-automatic shotgun"
 	desc = "A somewhat older semi-automatic shotgun design, chambered in 10 gauge shells. Though not as common as more modern automatic ones, the P79S is still in use with various mercenary and police forces due to its reliability and stopping power. Its internal tube magazine can store 6 shells. Produced by Orion Defence Systems."
@@ -108,23 +79,6 @@
 	recoil = RECOIL_AMOUNT_TIER_3
 	recoil_unwielded = RECOIL_AMOUNT_TIER_1
 	starting_attachment_types = list(/obj/item/attachable/stock/p79s)
-
-/obj/item/attachable/stock/p79s
-	name = "\improper P79S stock"
-	desc = "A stock made for the P79S semi-automatic shotgun."
-	icon = 'modular/weapons/icons/stock.dmi'
-	icon_state = "p79s_stock"
-	hud_offset_mod = 6
-
-/obj/item/attachable/stock/p79s/New()
-	..()
-	accuracy_mod = HIT_ACCURACY_MULT_TIER_1
-	recoil_mod = -RECOIL_AMOUNT_TIER_5
-	scatter_mod = -SCATTER_AMOUNT_TIER_10
-	movement_onehanded_acc_penalty_mod = -MOVEMENT_ACCURACY_PENALTY_MULT_TIER_5
-	accuracy_unwielded_mod = HIT_ACCURACY_MULT_TIER_1
-	recoil_unwielded_mod = -RECOIL_AMOUNT_TIER_5
-	scatter_unwielded_mod = -SCATTER_AMOUNT_TIER_10
 
 /obj/item/weapon/gun/shotgun/p79s/get_examine_text(mob/user)
 	. = ..()

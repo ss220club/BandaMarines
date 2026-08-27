@@ -86,7 +86,7 @@
 /obj/item/weapon/gun/pistol/pa76/ap
 	current_mag = /obj/item/ammo_magazine/pistol/pa76/ap
 
-
+//RMC VP-78
 /obj/item/weapon/gun/pistol/vp78/rmc
 	name = "\improper L165A1 service pistol"
 	desc = "Service issue pistol to the Royal Marine Commandos. A sleek, modern, semi-automatic handgun specifically designed to chamber specialized 9x19mm explosive squash-head rounds. Based on a Beretta Arms patented design, this Weyland-Yutani modification has earned its place in the hands of the Three World Empire's best soldiers. Can load normal VP78 magazines with no issue too."
@@ -98,6 +98,7 @@
 /obj/item/weapon/gun/pistol/vp78/rmc/unloaded
 	current_mag = null
 
+//VP70
 /obj/item/weapon/gun/pistol/mod88/vp70
 	name = "\improper VP70 M5 service pistol"
 	desc = "Standard issue semi-automatic USCM service pistol. Recently replacing the M4A3, it retains its predecessor's 9mm chambering but offers both a higher magazine capacity and a 3-round burst selector."
@@ -129,7 +130,7 @@
 /obj/item/weapon/gun/pistol/mod88/vp70/training
 	current_mag = /obj/item/ammo_magazine/pistol/mod88/rubber
 
-
+//RMR6
 /obj/item/weapon/gun/revolver/rmr6
 	name = "\improper RMR-6 revolver"
 	desc = "Revolver Manuhrin model 6 a rather more interesting design by Manuhrin the only one who made revolvers. This one is used by both military and police forces for it's powerful force, versatibility, and tradition. Chambered in .357 magnum."

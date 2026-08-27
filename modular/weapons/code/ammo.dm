@@ -1,3 +1,4 @@
+//HP Automag
 /obj/item/ammo_magazine/pistol/highpower/automag
 	name = "\improper HG-44 'Automag' magazine (.44)"
 	icon = 'modular/weapons/icons/colony_ammo.dmi'
@@ -5,12 +6,14 @@
 	max_rounds = 13
 	default_ammo = /datum/ammo/bullet/revolver
 
+//RMC VP78
 /obj/item/ammo_magazine/pistol/vp78/rmc
 	name = "\improper L165A1 Squash-Head magazine (9x19mm)"
 	default_ammo = /datum/ammo/bullet/pistol/squash
 	gun_type = /obj/item/weapon/gun/pistol/vp78/rmc
 	ammo_band_color = AMMO_BAND_COLOR_IMPACT
 
+//Pa76
 /obj/item/ammo_magazine/pistol/pa76
 	name = "\improper PA76 magazine (7.65x20mm)"
 	desc = "A pistol magazine used by the PA76 pistol."
@@ -39,7 +42,7 @@
 	damage = 35 //Reduced damage
 	penetration = ARMOR_PENETRATION_TIER_4 //High AP
 
-
+//RMR6
 /obj/item/ammo_magazine/internal/revolver/rmr6
 	default_ammo = /datum/ammo/bullet/revolver/rmr6
 	caliber = ".357"
@@ -161,7 +164,7 @@
 	item_state = "grenade_training"
 	explosion_power = 160
 
-
+//M20A
 /obj/item/ammo_magazine/rifle/m20a
 	name = "\improper M20A magazine (10x24mm)"
 	icon = 'modular/weapons/icons/uscm_ammo.dmi'
@@ -187,7 +190,7 @@
 	default_ammo = /datum/ammo/bullet/rifle/ap
 	ammo_band_color = AMMO_BAND_COLOR_AP
 
-
+//M4RA PvE
 /obj/item/ammo_magazine/rifle/m4ra/custom/explosive
 	name = "\improper A19 HV explosive magazine (10x28mm)"
 	desc = "A magazine of A19 HV explosive rounds for use in the later-model M49A battle rifles. The M49A5 & M49A6 battle rifles are the only guns that can chamber these rounds."
@@ -256,7 +259,6 @@
 
 
 //R81M1 mags
-
 /obj/item/ammo_magazine/rifle/r81m1
 	name = "\improper R81M1 magazine (9x32mm)"
 	desc = "A 9x32mm high-velocity battle rifle magazine."
@@ -308,7 +310,7 @@
 	penetration = -ARMOR_PENETRATION_TIER_3
 	shrapnel_chance = SHRAPNEL_CHANCE_TIER_5
 
-
+//MP47a2
 /obj/item/ammo_magazine/smg/mp47a2
 	name = "\improper MP47A2 magazine (10x20mm)"
 	desc = "A 10x20mm magazine for the MP47A2."
@@ -330,6 +332,7 @@
 	scatter = SCATTER_AMOUNT_TIER_7
 	accuracy = HIT_ACCURACY_TIER_3
 
+//ISR
 /obj/item/ammo_magazine/rifle/isr
 	name = "\improper ISR box magazine (9.2x34mm)"
 	desc = "A 9.2x34mm box magazine for the ISR LMG."
@@ -346,7 +349,7 @@
 	damage = 35
 	penetration = ARMOR_PENETRATION_TIER_1
 
-
+//FN107
 /obj/item/ammo_magazine/rifle/fn107
 	name = "\improper CAMAS61/78 magazine (7.5x28mm)"
 	desc = "An 7.5mm magazine for the CAMAS61/78 Carbine, commonly used by FIL."
@@ -366,9 +369,7 @@
 	ammo_band_icon_empty = "+fn107_band_e"
 	ammo_band_color = AMMO_BAND_COLOR_AP
 
-//------------------------------------------------------
 //MASM55 Medium Machinegun
-
 /obj/item/ammo_magazine/rifle/masm
 	name = "\improper MASM55 box magazine (12x30mm)"
 	desc = "A large 12mm box magazine for the MASM55, commonly used by the FIL."
@@ -380,9 +381,7 @@
 	max_rounds = 120
 	gun_type = /obj/item/weapon/gun/rifle/masm55
 
-//------------------------------------------------------
 //FPSA DMR
-
 /obj/item/ammo_magazine/rifle/fpsa
 	name = "\improper FPSA/76 DMR magazine (7.5x50mm)"
 	desc = "A standard caseless magazine for the FPSA/76 Pulse DMR, often used by mercenary and french armed forces."
@@ -430,7 +429,7 @@
 	damage = 40
 	penetration = ARMOR_PENETRATION_TIER_5
 
-
+//M38
 /obj/item/ammo_magazine/m38
 	name = "M38 belt box (12x30mm caseless)"
 	desc = "Heavy high-capacity belt box for M38 GPMG."
@@ -471,9 +470,7 @@
 	damage = 80
 	penetration = ARMOR_PENETRATION_TIER_9
 
-
 //RMC DMR magazine
-
 /obj/item/ammo_magazine/sniper/rmc
 	name = "\improper L64A3 squash-head magazine (8.88x51mm Caseless)"
 	desc = "A magazine of L10A7 squash-head match-grade 8.88x51mm ammo. An aimed shot with it will deal significant damage."
@@ -507,3 +504,24 @@
 		M.adjust_effect(slow_duration, SUPERSLOW)
 		L.apply_armoured_damage(damage*1.5, ARMOR_BULLET, BRUTE, null, penetration)
 		to_chat(P.firer, SPAN_WARNING("Bullseye!"))
+
+//Xm51 lethal
+/obj/item/ammo_magazine/rifle/xm51/lethal
+	name = "\improper XM51 magazine (12g)"
+	desc = "A 12 gauge shotgun magazine."
+	caliber = "12g"
+	w_class = SIZE_MEDIUM
+	default_ammo = /datum/ammo/bullet/shotgun/buckshot
+	max_rounds = 12
+	gun_type = /obj/item/weapon/gun/rifle/xm51
+	transfer_handful_amount = 6
+
+/obj/item/ammo_magazine/rifle/xm51/lethal/slug
+	name = "\improper XM51 magazine (12g slug)"
+	desc = "A 12 gauge shotgun magazine."
+	caliber = "12g"
+	w_class = SIZE_MEDIUM
+	default_ammo = /datum/ammo/bullet/shotgun/slug
+	max_rounds = 12
+	gun_type = /obj/item/weapon/gun/rifle/xm51
+	transfer_handful_amount = 6

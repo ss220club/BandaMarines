@@ -1,5 +1,4 @@
 //MP47A2 Modernised/pulse MP27
-
 /obj/item/weapon/gun/smg/mp47a2
 	name = "\improper MP47A2 pulse submachinegun"
 	desc = "A much pricier, modernised version of the original MP27 design, though now having been modified into a caseless pulse weapon. High accuracy and stopping power, but at the cost of a reduced magazine capacity and lack of an automatic firemode."
@@ -46,6 +45,7 @@
 /obj/item/weapon/gun/smg/mp47a2/tactical
 	starting_attachment_types = list(/obj/item/attachable/suppressor, /obj/item/attachable/lasersight, /obj/item/attachable/reflex)
 
+//TAC FN
 /obj/item/weapon/gun/smg/fp9000/tactical
 	name = "\improper FN FP9000-X TAC Submachinegun"
 	desc = "A variation on the standard FP9000 design, with it's internal mechanisms improved and given a new color scheme to sell at extortionate prices by Highfire Manufacturing. Whilst not as good as the official FP9000/2, it's still able to hold it's own and has a much more managable spread."
