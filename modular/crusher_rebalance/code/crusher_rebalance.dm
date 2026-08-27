@@ -45,6 +45,8 @@
 	var/direct_hit_damage = 60
 	var/first_target_hit = FALSE
 	var/face_dir = NORTH
+	var/charge_dir_component = NONE
+	var/turf/old_charge_loc = NONE
 	var/frontal_armor = 15
 	// Two-stage activation
 	var/charge_slowdown = 3
@@ -355,6 +357,7 @@
 
 	collided_obstacle = find_blocking_atoms(xeno.loc, move_dir)
 	if(!istype(collided_obstacle))
+		old_charge_loc = xeno.loc
 		return COMPONENT_TURF_ALLOW_MOVEMENT
 	bonk_obstacle(list(collided_obstacle), xeno)
 	return NONE
@@ -363,9 +366,22 @@
 	SIGNAL_HANDLER
 	if(!istype(xeno) || !HAS_TRAIT(xeno, TRAIT_CHARGING))
 		return
-
 	// Apply charge collision effects to every obj and mob we moved onto
-	for(var/atom/A in xeno.loc)
+	collide_in_loc(xeno, xeno.loc)
+	// Collision for sides when charge diagonally.
+	var/charge_dir = get_dir(old_charge_loc, xeno.loc)
+	if(IS_DIAGONAL_DIR(charge_dir))
+		for(var/dir in list(NORTH, WEST, EAST, SOUTH))
+			if(charge_dir & dir)
+				var/turf/side_turf = get_step(old_charge_loc, dir)
+				if(!side_turf.density)
+					charge_dir_component = dir
+					collide_in_loc(xeno, side_turf)
+
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/collide_in_loc(mob/living/carbon/xenomorph/xeno, turf/loc)
+	if(!istype(xeno) || !istype(loc))
+		return
+	for(var/atom/A in loc)
 		if(A == xeno)
 			continue
 		if(A.can_block_movement)
@@ -375,8 +391,8 @@
 				INVOKE_ASYNC(src, PROC_REF(handle_xeno_collision), A, xeno)
 			else if(iscarbon(A))
 				INVOKE_ASYNC(src, PROC_REF(handle_carbon_collision), A, xeno)
-		else
-			INVOKE_ASYNC(src, PROC_REF(handle_collision), A, xeno)
+			else
+				INVOKE_ASYNC(src, PROC_REF(handle_collision), A, xeno)
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_human_collision(mob/living/carbon/human/human, mob/living/carbon/xenomorph/xeno)
 	if(!istype(xeno))
@@ -416,14 +432,7 @@
 		SPAN_XENODANGER("Вы тараните [human.declent_ru(ACCUSATIVE)]!")
 	)
 	if(!(human.body_position_changed - world.time))
-		var/list/ram_dirs = get_perpen_dir(xeno.dir) //throw human to the side
-		var/ram_dir = pick(ram_dirs)
-		var/cur_turf = get_turf(human)
-		var/target_turf = get_step(human, ram_dir)
-		if(LinkBlocked(human, cur_turf, target_turf))
-			ram_dir = REVERSE_DIR(ram_dir)
-		for(var/times in 1 to pick(1,2))
-			step(human, ram_dir)
+		throw_atom_to_side(xeno, human)
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_xeno_collision(mob/living/carbon/xenomorph/target_xeno, mob/living/carbon/xenomorph/xeno)
 	if(!istype(xeno))
@@ -439,9 +448,8 @@
 		target_xeno.apply_effect(knockdown_duration, STUN)
 		target_xeno.apply_damage(direct_hit_damage, BRUTE)
 	if((isqueen(target_xeno) || IS_XENO_LEADER(target_xeno) ||  isboiler(target_xeno))) // boilers because they have long c/d and warmups, get griefed hard if stunned
-		var/facing_dir = xeno.dir
-		xeno.throw_atom(get_step(xeno, reverse_direction(facing_dir)), 1, 3, target_xeno)
-		xeno.face_dir(facing_dir)
+		xeno.throw_atom(get_step(xeno, reverse_direction(xeno.dir)), 1, 3, target_xeno)
+		xeno.set_face_dir(get_dir(xeno, target_xeno))
 		return //antigrief
 	if(target_xeno.anchored || target_xeno.mob_size >= MOB_SIZE_IMMOBILE) //big boom for King and other Crushers
 		if(!target_xeno.anchored)
@@ -453,20 +461,13 @@
 		return
 
 	playsound(target_xeno.loc, "punch", 25, TRUE)
-	var/list/ram_dirs = get_perpen_dir(xeno.dir)
-	var/ram_dir = pick(ram_dirs)
-	var/cur_turf = get_turf(target_xeno)
-	var/target_turf = get_step(target_xeno, ram_dir)
 	xeno.visible_message(
 			SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] отбрасывает [target_xeno.declent_ru(ACCUSATIVE)] в сторону!"),
 			SPAN_DANGER("Вы отбрасываете [target_xeno.declent_ru(ACCUSATIVE)] в сторону!")
 		)
 	to_chat(target_xeno, SPAN_XENOHIGHDANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] отбрасывает вас в сторону! С дороги!"))
-	if(LinkBlocked(target_xeno, cur_turf, target_turf))
-		ram_dir = REVERSE_DIR(ram_dir)
-		target_turf = get_step(target_xeno, ram_dir)
 	target_xeno.set_effect(0.5, WEAKEN)
-	target_xeno.throw_atom(target_turf, 1, 3, xeno, TRUE)
+	throw_atom_to_side(xeno, target_xeno)
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_carbon_collision(mob/living/carbon/mob, mob/living/carbon/xenomorph/xeno)
 	if(!istype(xeno))
@@ -490,14 +491,7 @@
 	if(mob.client)
 		shake_camera(mob, 2, 3)
 
-	var/list/ram_dirs = get_perpen_dir(xeno.dir)
-	var/ram_dir = pick(ram_dirs)
-	var/cur_turf = get_turf(mob)
-	var/target_turf = get_step(mob, ram_dir)
-	if(LinkBlocked(mob, cur_turf, target_turf))
-		ram_dir = REVERSE_DIR(ram_dir)
-	step(mob, ram_dir)
-	step(mob, ram_dir)
+	throw_atom_to_side(xeno, mob)
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_collision(atom/target, mob/living/carbon/xenomorph/xeno)
 	if(!istype(xeno))
@@ -640,7 +634,7 @@
 					platform_in_path.broken()
 					. = TRUE
 				else
-					destroy_obj_in_path(object_in_path, xeno)
+					destroy_obj_in_path(xeno, object_in_path)
 					. = FALSE
 
 			//Movable obj
@@ -649,23 +643,40 @@
 					object_in_path.unbuckle()
 				xeno.visible_message(SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] отбрасывает [object_in_path.declent_ru(ACCUSATIVE)] в сторону!"), SPAN_XENOWARNING("Мы отбрасываем [object_in_path.declent_ru(ACCUSATIVE)] в сторону."))
 
-				var/turf/turfs_to_get = xeno.get_diagonal_step(object_in_path, xeno.dir)
-				turfs_to_get = get_step_away(turfs_to_get, xeno)
-
-				var/impact_range = pick(1,2)
-				var/launch_speed = 2
 				var/old_loc = object_in_path.loc
-				object_in_path.throw_atom(turfs_to_get, impact_range, launch_speed)
+				throw_atom_to_side(xeno, object_in_path)
 
 				if(old_loc == object_in_path.loc) //if obj do not move from the way it will be destroyed
 					xeno.visible_message(SPAN_WARNING("[object_in_path.declent_ru(ACCUSATIVE)] разбит[genderize_ru(object_in_path.gender, "", "а", "о", "ы")] вдребезги!"), SPAN_XENOWARNING("Мы разбиваем [object_in_path.declent_ru(ACCUSATIVE)]!"))
-					destroy_obj_in_path(object_in_path, xeno)
+					destroy_obj_in_path(xeno, object_in_path)
 				. = TRUE
 
 	if(!.)
 		xeno.update_icons()
 
-/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/destroy_obj_in_path(obj/object_in_path, mob/living/carbon/xenomorph/xeno)
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/throw_atom_to_side(mob/living/carbon/xenomorph/xeno, atom/movable/target)
+	if(!istype(xeno) || !istype(target))
+		return
+	var/throw_dir
+	var/charge_dir = get_dir(old_charge_loc, xeno.loc)
+	if(!charge_dir_component)
+		var/list/throw_dirs = get_perpen_dir(xeno.dir) //side dirs
+		throw_dir = pick(throw_dirs)
+	else
+		throw_dir = charge_dir_component //for diagonal interaction - obvious dirs for throwing
+		charge_dir_component = NONE
+
+	var/target_turf = get_step(target.loc, throw_dir)
+	var/throw_range
+	var/throw_speed = 3
+	if(istype(target, /mob/living/carbon/xenomorph))
+		throw_range = 1
+		target.throw_atom(target_turf, throw_range, throw_speed, xeno, TRUE)
+	else
+		throw_range = pick(1,2)
+		target.throw_atom(target_turf, throw_range, throw_speed, xeno)
+
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/destroy_obj_in_path(mob/living/carbon/xenomorph/xeno, obj/object_in_path)
 	if(!istype(xeno))
 		xeno = owner
 	if(!istype(xeno) || !istype(object_in_path))
@@ -673,7 +684,7 @@
 	if(length(object_in_path.contents)) // So the contents of containers dont delete themselves as well
 		var/turf/turf_for_obj = get_turf(xeno)
 		for(var/atom/movable/stuff_to_move in object_in_path.contents) stuff_to_move.forceMove(turf_for_obj)
-	playsound(xeno.loc, "punch", 25, 1)
+	playsound(object_in_path.loc, "punch", 25, 1)
 	qdel(object_in_path)
 
 /mob/living/carbon/xenomorph/launch_impact(atom/hit_atom) // wall bonk
@@ -700,7 +711,7 @@
 	if (!isxeno_human(target))
 		return
 
-	new /datum/effects/xeno_slow(target, bound_xeno, ttl = 2 SECONDS)
+	new /datum/effects/xeno_slow(target, bound_xeno, ttl = 3.5 SECONDS)
 
 	var/damage = bound_xeno.melee_damage_upper * aoe_slash_damage_reduction
 
