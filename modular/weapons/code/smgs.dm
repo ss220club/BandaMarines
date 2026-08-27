@@ -4,6 +4,12 @@
 	name = "\improper MP47A2 pulse submachinegun"
 	desc = "A much pricier, modernised version of the original MP27 design, though now having been modified into a caseless pulse weapon. High accuracy and stopping power, but at the cost of a reduced magazine capacity and lack of an automatic firemode."
 	icon = 'modular/weapons/icons/rifles.dmi'
+	item_icons = list(
+		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',
+		WEAR_R_HAND = 'modular/weapons/icons/guns_righthand.dmi',
+		WEAR_BACK = 'modular/weapons/icons/back.dmi',
+		WEAR_J_STORE = 'modular/weapons/icons/suit_slot.dmi'
+	)
 	icon_state = "mp47a2"
 	item_state = "mp47a2"
 	fire_sound = 'sound/weapons/smg_light.ogg'
@@ -44,6 +50,12 @@
 	name = "\improper FN FP9000-X TAC Submachinegun"
 	desc = "A variation on the standard FP9000 design, with it's internal mechanisms improved and given a new color scheme to sell at extortionate prices by Highfire Manufacturing. Whilst not as good as the official FP9000/2, it's still able to hold it's own and has a much more managable spread."
 	icon = 'modular/weapons/icons/rifles.dmi'
+	item_icons = list(
+		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',
+		WEAR_R_HAND = 'modular/weapons/icons/guns_righthand.dmi',
+		WEAR_BACK = 'modular/weapons/icons/back.dmi',
+		WEAR_J_STORE = 'modular/weapons/icons/suit_slot.dmi'
+	)
 	icon_state = "fp9000_tactical"
 	item_state = "fp9000_tactical"
 	random_spawn_rail = list(

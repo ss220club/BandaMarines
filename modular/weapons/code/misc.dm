@@ -1,7 +1,13 @@
 /obj/item/weapon/gun/m60/m38
 	name = "M38 general purpose machinegun"
 	desc = "Once-standard USCM GPMG. Chambered in 12x30mm caseless, hard-hitting and extremely reliable."
-	icon = 'icons/obj/items/weapons/guns/guns_by_faction/uscm.dmi'
+	icon = 'modular/weapons/icons/rifles.dmi'
+	item_icons = list(
+		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',
+		WEAR_R_HAND = 'modular/weapons/icons/guns_righthand.dmi',
+		WEAR_BACK = 'modular/weapons/icons/back.dmi',
+		WEAR_J_STORE = 'modular/weapons/icons/suit_slot.dmi'
+	)
 	icon_state = "m38"
 	item_state = "m38"
 	base_gun_icon = "m60" // SS220 EDIT: Reuse M60 lineart for M38
@@ -9,12 +15,11 @@
 	current_mag = /obj/item/ammo_magazine/m38
 	aim_slowdown = SLOWDOWN_ADS_LMG
 	attachable_allowed = list(
-		/obj/item/attachable/m60barrel/m38,
-		/obj/item/attachable/bipod/m60/m38,
+		/obj/item/attachable/bipod/m60,
 		/obj/item/attachable/stock/m60/m38,
 		/obj/item/attachable/flashlight/tactical,
 	)
-	starting_attachment_types = list(/obj/item/attachable/m60barrel/m38, /obj/item/attachable/bipod/m60/m38, /obj/item/attachable/stock/m60/m38, /obj/item/attachable/flashlight/tactical)
+	starting_attachment_types = list(/obj/item/attachable/bipod/m60, /obj/item/attachable/stock/m60/m38, /obj/item/attachable/flashlight/tactical)
 //	cover_offset = list("open_x" = -3, "open_y" = 4, "closed_x" = 0, "closed_y" = 0)
 
 /obj/item/weapon/gun/m60/m38/set_gun_config_values()
@@ -35,13 +40,30 @@
 /obj/item/weapon/gun/m60/m38/set_gun_attachment_offsets()
 	attachable_offset = list("muzzle_x" = 36, "muzzle_y" = 20, "rail_x" = 0, "rail_y" = 0, "under_x" = 30, "under_y" = 14, "stock_x" = 8, "stock_y" = 16, "side_rail_x" = 30, "side_rail_y" = 16)
 
+/obj/item/attachable/stock/m60/m38
+	name = "M38 stock"
+	icon_state = "m38_stock"
+	attach_icon = "m38_stock"
 
+/obj/item/attachable/flashlight/tactical
+	name = "tactical flashlight"
+	desc = "Robust and handy tactical flashlight, produced by WiseFire Inc."
+	icon_state = "flashlight_tactical"
+	attach_icon = "flashlight_tactical_a"
+	original_state = "flashlight_tactical"
+	original_attach = "flashlight_tactical_a"
 
 
 /obj/item/weapon/gun/launcher/grenade/m92/rmc
 	name = "\improper L164A3 multi-shot grenade launcher"
 	desc = "A lightweight support weapon fielded by the Royal Marines. Chambered in small 20mm grenades, it lacks the punch of larger bore grenade launchers, but makes up for that in rate of fire."
-	icon = 'icons/obj/items/weapons/guns/guns_by_faction/twe_guns.dmi'
+	icon = 'modular/weapons/icons/misc.dmi'
+	item_icons = list(
+		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',
+		WEAR_R_HAND = 'modular/weapons/icons/guns_righthand.dmi',
+		WEAR_BACK = 'modular/weapons/icons/back.dmi',
+		WEAR_J_STORE = 'modular/weapons/icons/suit_slot.dmi'
+	)
 	icon_state = "rmcgl"
 	item_state = "rmcgl"
 	fire_sound = 'sound/weapons/gun_ugl_fire.ogg'
@@ -95,7 +117,7 @@
 /obj/item/weapon/gun/launcher/grenade/m81/m79/modified
 	name = "\improper modified M79 grenade launcher"
 	desc = "A heavy, low-angle grenade launcher. It's been in use since the Vietnam War, though this version has been modified to fire standard USCM 30mm grenades. The wooden furniture is, in fact, an attempt at modernization and is made of painted hardened polykevlon."
-	valid_munitions = list(/obj/item/explosive/grenade/high_explosive, /obj/item/explosive/grenade/high_explosive/impact/tmfrag, /obj/item/explosive/grenade/high_explosive/impact/heap, /obj/item/explosive/grenade/high_explosive/impact/flare, /obj/item/explosive/grenade/incendiary, /obj/item/explosive/grenade/smokebomb, /obj/item/explosive/grenade/high_explosive/airburst/buckshot)
+	valid_munitions = list(/obj/item/explosive/grenade/high_explosive, /obj/item/explosive/grenade/high_explosive/impact/heap, /obj/item/explosive/grenade/incendiary, /obj/item/explosive/grenade/smokebomb, /obj/item/explosive/grenade/high_explosive/airburst/buckshot)
 	flags_item = TWOHANDED|SMARTGUNNER_BACKPACK_OVERRIDE
 
 /obj/item/weapon/gun/launcher/grenade/m81/m79/modified/handle_starting_attachment()
@@ -121,7 +143,13 @@
 /obj/item/weapon/gun/launcher/grenade/m81/m79/modified/sawnoff
 	name = "\improper sawn-off M79 grenade launcher"
 	desc = "A heavy, low-angle grenade launcher, though this one had its stock and half the barrel sawn-off. It's been in use since the Vietnam War, and this version has been modified to fire standard USCM 30mm grenades. The wooden furniture is, in fact, an attempt at modernization and is made of painted hardened polykevlon."
-	icon = 'modular/weapons/icons/uscm.dmi'
+	icon = 'modular/weapons/icons/rifles.dmi'
+	item_icons = list(
+		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',
+		WEAR_R_HAND = 'modular/weapons/icons/guns_righthand.dmi',
+		WEAR_BACK = 'modular/weapons/icons/back.dmi',
+		WEAR_J_STORE = 'modular/weapons/icons/suit_slot.dmi'
+	)
 	icon_state = "m79_short"
 	item_state = "m79_short"
 	w_class = SIZE_MEDIUM

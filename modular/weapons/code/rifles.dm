@@ -3,20 +3,32 @@
 	name = "\improper GUU-71/A pulse rifle"
 	desc = "A variant of the M41A pulse rifle adopted for use by USASF Security Forces personnel and Master-At-Arms. Features an integrated 30mm grenade launcher and ammo tube that can hold four grenades on backup."
 	icon = 'modular/weapons/icons/rifles.dmi'
+	item_icons = list(
+		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',
+		WEAR_R_HAND = 'modular/weapons/icons/guns_righthand.dmi',
+		WEAR_BACK = 'modular/weapons/icons/back.dmi',
+		WEAR_J_STORE = 'modular/weapons/icons/suit_slot.dmi'
+	)
 	icon_state = "m41amk1_navy"
 	item_state = "m41amk1_navy"
-	starting_attachment_types = list(/obj/item/attachable/attached_gun/grenade/mk1/preloaded, /obj/item/attachable/stock/rifle/collapsible)
+	starting_attachment_types = list(/obj/item/attachable/attached_gun/grenade/mk1, /obj/item/attachable/stock/rifle/collapsible)
 	current_mag = /obj/item/ammo_magazine/rifle/m41aMK1
 
 /obj/item/weapon/gun/rifle/m41aMK1/navy/tactical
 	name = "\improper GUU-71/B pulse rifle"
 	desc = "A variant of the M41A pulse rifle adopted for use by USASF personnel whose duties take them off ships frequently. Features an integrated 30mm grenade launcher, flash & sound suppressor, and a carry-handle mounted mag-clamp."
-	starting_attachment_types = list(/obj/item/attachable/attached_gun/grenade/mk1/preloaded, /obj/item/attachable/suppressor, /obj/item/attachable/magnetic_harness, /obj/item/attachable/stock/rifle/collapsible)
+	starting_attachment_types = list(/obj/item/attachable/attached_gun/grenade/mk1, /obj/item/attachable/suppressor, /obj/item/attachable/magnetic_harness, /obj/item/attachable/stock/rifle/collapsible)
 
 /obj/item/weapon/gun/rifle/m20a
 	name = "\improper M20A pulse rifle"
 	desc = "A predecessor to the M41A pulse rifle still utilized by the UA's Colonial Guard and various other organizations. Aside from its 10x24mm chambering, the 'Harrington' rifle is largely considered to be in every metric the polar opposite of the M41A; featuring an obsolete three-round burst mode, lower magazine size, and it uses an integrated shotgun attachment."
 	icon = 'modular/weapons/icons/rifles.dmi'
+	item_icons = list(
+		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',
+		WEAR_R_HAND = 'modular/weapons/icons/guns_righthand.dmi',
+		WEAR_BACK = 'modular/weapons/icons/back.dmi',
+		WEAR_J_STORE = 'modular/weapons/icons/suit_slot.dmi'
+	)
 	icon_state = "m20a"
 	item_state = "m20a"
 	reload_sound = 'sound/weapons/handling/l42_reload.ogg'
@@ -121,6 +133,20 @@
 	flashlight.Attach(src)
 	update_attachable(flashlight.slot)
 
+/obj/item/attachable/sling //Mostly cosmetic, some one-handed fire adjustments
+	name = "two-point sling"
+	desc = "A traditional strip of toughened nylon fabric with clips on either end for attaching to suitable mounting points on most longarms in the UA armed forces arsenals."
+	icon = 'icons/obj/items/weapons/guns/attachments/rail.dmi'
+	icon_state = "pve-sling"
+	attach_icon = "pve-sling_a"
+	slot = "rail"
+
+/obj/item/attachable/sling/New()
+	..()
+	accuracy_unwielded_mod = -HIT_ACCURACY_MULT_TIER_1
+	recoil_unwielded_mod = -RECOIL_AMOUNT_TIER_2
+	scatter_unwielded_mod = -SCATTER_AMOUNT_TIER_2
+
 
 /obj/item/attachable/attached_gun/grenade/m20a
 	name = "\improper M20 integrated grenade launcher"
@@ -135,6 +161,36 @@
 	pixel_shift_y = 13
 
 
+/obj/item/attachable/attached_gun/shotgun/m20a
+	name = "\improper U3 underbarrel shotgun"
+	desc = "An ARMAT U3 tactical shotgun. Integrated into the M20A Harrington rifle. Only capable of loading up to five buckshot shells."
+	icon_state = "masterkey"
+	attach_icon = "masterkey_a"
+	flags_attach_features = ATTACH_ACTIVATION|ATTACH_PROJECTILE|ATTACH_RELOADABLE|ATTACH_WEAPON
+	hidden = TRUE
+
+/obj/item/attachable/attached_gun/shotgun/m20a/set_bullet_traits()
+	return
+
+/obj/item/attachable/attached_gun/shotgun/m20a/unloaded
+	current_rounds = 0
+
+/obj/item/attachable/stock/m20a
+	name = "\improper M20A stock"
+	desc = "The M20A's standard polymer collapsible stock. When extended, it improves scatter, accuracy, and recoil, but slightly hinders agility."
+	slot = "stock"
+	melee_mod = 5
+	size_mod = 1
+	icon_state = "m20astock"
+	attach_icon = "m20astock_a"
+	pixel_shift_x = 40
+	pixel_shift_y = 14
+	hud_offset_mod = 3
+
+/obj/item/attachable/stock/m20a/New()
+	..()
+
+
 /obj/item/attachable/flashlight/m20a
 	name = "integrated flashlight"
 	desc = "shouldnt be seeing this. . ."
@@ -145,39 +201,36 @@
 	original_state = "m20a_flashlight"
 	original_attach = "m20a_flashlight_a"
 
-/obj/item/weapon/gun/rifle/m49a/pve
+/obj/item/weapon/gun/rifle/m4ra/pve
 	name = "\improper M49A6 battle rifle"
 	desc = "The M49A6 is a souped-up M49A, the result of an ARMAT upgrade program that didn't pan out in huge numbers. Its main attraction is the ability to chamber and fire devastating <b>A19 depleted uranium rounds,</b> infamous for their overpenetration abilities and toxic effects on anyone unfortunate enough to survive a hit. The thicker barrel, of course, also has no issue with standard & regular HV ammo."
 	desc_lore = "The USCMC was not terribly enthusiastic about unproven hand-held plasma weaponry. Before the XM99A was eventually adopted into use, the USCMC instead sought out a traditional squad-portable, precision, armor-piercing weapon, and contracted ARMAT to upgrade their M49A platform to be capable of firing advanced AP rounds. They succeeded- sort of. <BR> <BR>  The A6 was rejected for several reasons. It's a killer, but also a piece of junk. It kicks hard enough that precision sights simply don't stay zeroed, and its oversized muzzle-device extends an already long barrel-length. Additionally, A19 ammo, already expensive, was driven to absurd highs by the ammunition's specs. Depleted uranium is expensive...and cutting the service life of the M49A's barrel in half is even more expensive. <BR> <BR> Those that were made, however, are still service-ready and were issued where the XM99A was unavailable due to its production only just starting."
 	icon = 'icons/obj/items/weapons/guns/guns_by_map/urban/guns_obj.dmi'
 	icon_state = "m4ra_custom"
 	item_state = "m4ra_custom"
-	fire_sound = 'sound/weapons/gun_m49a.ogg'
-	reload_sound = 'sound/weapons/handling/l42_reload.ogg'
-	unload_sound = 'sound/weapons/handling/l42_unload.ogg'
 
 	accepted_ammo = list(
-		/obj/item/ammo_magazine/rifle/m49a,
-		/obj/item/ammo_magazine/rifle/m49a/ap,
-		/obj/item/ammo_magazine/rifle/m49a/ext,
-		/obj/item/ammo_magazine/rifle/m49a/rubber,
-		/obj/item/ammo_magazine/rifle/m49a/incendiary,
-		/obj/item/ammo_magazine/rifle/m49a/heap,
-		/obj/item/ammo_magazine/rifle/m49a/penetrating,
-		/obj/item/ammo_magazine/rifle/m49a/custom,
-		/obj/item/ammo_magazine/rifle/m49a/custom/incendiary,
-		/obj/item/ammo_magazine/rifle/m49a/custom/explosive,
-		/obj/item/ammo_magazine/rifle/m49a/custom/pve,
+		/obj/item/ammo_magazine/rifle/m4ra,
+		/obj/item/ammo_magazine/rifle/m4ra/ap,
+		/obj/item/ammo_magazine/rifle/m4ra/extended,
+		/obj/item/ammo_magazine/rifle/m4ra/rubber,
+		/obj/item/ammo_magazine/rifle/m4ra/incendiary,
+		/obj/item/ammo_magazine/rifle/m4ra/heap,
+		/obj/item/ammo_magazine/rifle/m4ra/penetrating,
+		/obj/item/ammo_magazine/rifle/m4ra/custom,
+		/obj/item/ammo_magazine/rifle/m4ra/custom/incendiary,
+		/obj/item/ammo_magazine/rifle/m4ra/custom/explosive,
+		/obj/item/ammo_magazine/rifle/m4ra/custom/pve,
 	)
 
-	current_mag = /obj/item/ammo_magazine/rifle/m49a/custom/pve
+	current_mag = /obj/item/ammo_magazine/rifle/m4ra/custom/pve
 
 	flags_gun_features = GUN_AUTO_EJECTOR|GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER
 	wield_delay = WEAPON_DELAY_VERY_FAST
 	aim_slowdown = SLOWDOWN_ADS_QUICK
 	map_specific_decoration = FALSE
 
-/obj/item/weapon/gun/rifle/m49a/pve/set_gun_config_values()
+/obj/item/weapon/gun/rifle/m4ra/pve/set_gun_config_values()
 	..()
 	set_fire_delay(FIRE_DELAY_TIER_4)
 	damage_mult = BASE_BULLET_DAMAGE_MULT + BULLET_DAMAGE_MULT_TIER_1 //Chunky barrel for better muzzle velocity, but not as good as the custom one
@@ -189,14 +242,14 @@
 		WEAR_BACK = 'icons/obj/items/weapons/guns/guns_by_map/urban/back.dmi'
 	)
 
-/obj/item/weapon/gun/rifle/m49a/pve/handle_starting_attachment()
+/obj/item/weapon/gun/rifle/m4ra/pve/handle_starting_attachment()
 	..()
 	var/obj/item/attachable/m49a_barrel/pve/integrated = new(src)
 	integrated.flags_attach_features &= ~ATTACH_REMOVABLE
 	integrated.Attach(src)
 	update_attachable(integrated.slot)
 
-/obj/item/weapon/gun/rifle/m49a/pve/unloaded
+/obj/item/weapon/gun/rifle/m4ra/pve/unloaded
 	current_mag = null
 	flags_gun_features = GUN_AUTO_EJECTOR|GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_TRIGGER_SAFETY
 
@@ -207,11 +260,16 @@
 	attach_icon = "pve_m49a_barrel"
 
 
-
 /obj/item/weapon/gun/rifle/r81m1a
 	name = "\improper R81M1A pulse rifle"
 	desc = "The R81M1A highpower pulse rifle is a very popular weapon within the civilian market, previously rejected by the Royal Marine Commandos due to it's slow rate of fire and mediocre accuracy compared to other rifles in its class. However, it remains a favorite among mercenaries and private military contractors for its high damage output and reliability in harsh conditions. Produced by Orion Defence Systems."
 	icon = 'modular/weapons/icons/rifles.dmi'
+	item_icons = list(
+		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',
+		WEAR_R_HAND = 'modular/weapons/icons/guns_righthand.dmi',
+		WEAR_BACK = 'modular/weapons/icons/back.dmi',
+		WEAR_J_STORE = 'modular/weapons/icons/suit_slot.dmi'
+	)
 	icon_state = "fal"
 	item_state = "fal"
 	fire_sound = 'modular/weapons/sounds/gun_fal.ogg'
@@ -357,23 +415,90 @@
 	damage_falloff_mult = 0
 	scatter = SCATTER_AMOUNT_TIER_6
 
+/obj/item/attachable/scope/variable_zoom/fal
+	name = "ODS R94 telescopic variable scope"
+	icon = 'modular/weapons/icons/scopes.dmi'
+	icon_state = "sniperscope_fal"
+	attach_icon = "sniperscope_fal"
+	desc = "A Orion Defence Systems telescopic scope used mainly for the R81M1D. Can switch between 2x and 4x magnification."
+	aim_speed_mod = 0
+
+/obj/item/attachable/scope/mini/r81
+	name = "ODS R92 2x advanced telescopic mini-scope"
+	desc = "An Orion Defence Systems R81M1D 2x advanced telescopic mini-scope, used mainly for the R81M1A and it's variants."
+	icon = 'modular/weapons/icons/scopes.dmi'
+	icon_state = "miniscope_fal"
+	attach_icon = "miniscope_fal"
+
+/obj/item/attachable/bipod/r81
+	name = "R81M1D bipod"
+	desc = "An integral bipod for the R81M1D Pulse Squad Automatic Weapon."
+	icon = 'modular/weapons/icons/under.dmi'
+	icon_state = "bipod_fal_saw_a"
+	attach_icon = "bipod_fal_saw_a"
+	slot = "under"
+	size_mod = 0
+	melee_mod = 0
+	flags_attach_features = ATTACH_ACTIVATION
+	attachment_action_type = /datum/action/item_action/toggle
+
+/obj/item/attachable/bipod/r81/New()
+	..()
+
+	delay_mod = 0
+	wield_delay_mod = WEAPON_DELAY_FAST
+	accuracy_mod = -HIT_ACCURACY_MULT_TIER_5
+	scatter_mod = SCATTER_AMOUNT_TIER_9
+	recoil_mod = -RECOIL_AMOUNT_TIER_2
+
+/obj/item/attachable/stock/r81_saw
+	name = "\improper R81M1D stock"
+	desc = "You kinda need this to even use the gun properly."
+	icon = 'modular/weapons/icons/stock.dmi'
+	icon_state = "fal_saw_stock"
+	attach_icon = "fal_saw_stock"
+	wield_delay_mod = WEAPON_DELAY_MIN
+	flags_attach_features = NO_FLAGS
+	hud_offset_mod = 3
+
+/obj/item/attachable/stock/r81_saw/New()//no stats, its cosmetic
+	..()
+
+/obj/item/attachable/stock/r81_sniper
+	name = "\improper R81M1B stock"
+	desc = "You kinda need this to even use the gun properly."
+	icon = 'modular/weapons/icons/stock.dmi'
+	icon_state = "fal_sniper_stock"
+	attach_icon = "fal_sniper_stock"
+	wield_delay_mod = WEAPON_DELAY_MIN
+	flags_attach_features = NO_FLAGS
+	hud_offset_mod = 3
+
+/obj/item/attachable/stock/r81_sniper/New()
+	..()
+
 
 /obj/item/weapon/gun/rifle/isr
 	name = "\improper MK.7 ISR LMG"
 	desc = "The Intermediate Support Rifle, or ISR, was developed after contractors operating the MAR platform of firearms complained about its deficiencies. Whilst it is technically just a step above the standard MAR... it's not by much."
-	icon = 'modular/weapons/icons/colony.dmi'
+	icon = 'modular/weapons/icons/rifles.dmi'
+	item_icons = list(
+		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',
+		WEAR_R_HAND = 'modular/weapons/icons/guns_righthand.dmi',
+		WEAR_BACK = 'modular/weapons/icons/back.dmi',
+		WEAR_J_STORE = 'modular/weapons/icons/suit_slot.dmi'
+	)
 	icon_state = "isr"
 	item_state = "isr"
 	reload_sound = 'sound/weapons/handling/l42_reload.ogg'
 	unload_sound = 'sound/weapons/handling/l42_unload.ogg'
 	fire_sound = "gun_oldpulse"
 	current_mag = /obj/item/ammo_magazine/rifle/isr
-	starting_attachment_types = list(/obj/item/attachable/stock/isr, /obj/item/attachable/isr_barrel)
+	starting_attachment_types = list(/obj/item/attachable/stock/isr)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/lasersight,
-		/obj/item/attachable/isr_barrel,
 		/obj/item/attachable/stock/isr,
 	)
 
@@ -381,7 +506,6 @@
 	wield_delay = WEAPON_DELAY_NORMAL
 	map_specific_decoration = FALSE
 	start_automatic = TRUE
-
 
 /obj/item/weapon/gun/rifle/isr/set_gun_attachment_offsets()
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 16,"rail_x" = 12, "rail_y" = 22, "under_x" = 24, "under_y" = 13, "stock_x" = 5, "stock_y" = 20, "side_rail_x" = 20, "side_rail_y" = 16)
@@ -401,12 +525,33 @@
 	recoil = RECOIL_AMOUNT_TIER_5
 
 /obj/item/weapon/gun/rifle/isr/modded
-	starting_attachment_types = list(/obj/item/attachable/stock/isr, /obj/item/attachable/isr_barrel, /obj/item/attachable/flashlight, /obj/item/attachable/reddot)
+	starting_attachment_types = list(/obj/item/attachable/stock/isr, /obj/item/attachable/flashlight, /obj/item/attachable/reddot)
+
+/obj/item/attachable/stock/isr
+	name = "ISR stock"
+	desc = "If you can read this, someone screwed up. Go Github this and bug a coder."
+	icon_state = "isr_stock"
+	slot = "stock"
+	wield_delay_mod = WEAPON_DELAY_NONE
+	melee_mod = 5
+	size_mod = 2
+	pixel_shift_x = 21
+	pixel_shift_y = 20
+	hud_offset_mod = 2
+
+
+
 
 /obj/item/weapon/gun/rifle/fn107
 	name = "\improper CAMAS61/78 pulse carbine"
 	desc = "To facilitate newer French military development, the CAMAS61/78 was created by Saint etienne in 2159. This was later modified in 2178 for privatized use. It is quite a well known pulse carbine within military circles, commonly being used by many different mercenary and security groups."
-	icon = 'modular/weapons/icons/colony.dmi'
+	icon = 'modular/weapons/icons/rifles.dmi'
+	item_icons = list(
+		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',
+		WEAR_R_HAND = 'modular/weapons/icons/guns_righthand.dmi',
+		WEAR_BACK = 'modular/weapons/icons/back.dmi',
+		WEAR_J_STORE = 'modular/weapons/icons/suit_slot.dmi'
+	)
 	icon_state = "fn107"
 	item_state = "fn107"
 	reload_sound = 'sound/weapons/handling/l42_reload.ogg'
@@ -454,11 +599,30 @@
 	starting_attachment_types = list(/obj/item/attachable/stock/fn107, /obj/item/attachable/scope/mini, /obj/item/attachable/lasersight)
 
 
+/obj/item/attachable/stock/fn107
+	name = "FN107 Carbine Stock"
+	desc = "This isn't supposed to be separated from the gun, how'd this happen?"
+	icon = 'icons/obj/items/weapons/guns/attachments/stock.dmi'
+	icon_state = "fn107_stock"
+	attach_icon = "fn107_stock"
+	slot = "stock"
+	wield_delay_mod = WEAPON_DELAY_NONE
+	flags_attach_features = NO_FLAGS
+	melee_mod = 15
+	size_mod = 0
+
+
 //MASM55 Medium Machinegun
 /obj/item/weapon/gun/rifle/masm55
 	name = "\improper MASM55 Medium Machinegun"
 	desc = "Though many groups and factions throughout modern day have switched to either Smartguns or LMGs, the MASM55 is still used for heavy suppression and are commonly found within the hands of Mercenaries. Created by Saint Etienne during 2155 due to the older French MGs were subpar, it has a radiator cooler for more stable fire."
 	icon = 'modular/weapons/icons/rifles.dmi'
+	item_icons = list(
+		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',
+		WEAR_R_HAND = 'modular/weapons/icons/guns_righthand.dmi',
+		WEAR_BACK = 'modular/weapons/icons/back.dmi',
+		WEAR_J_STORE = 'modular/weapons/icons/suit_slot.dmi'
+	)
 	icon_state = "masm"
 	item_state = "masm"
 	reload_sound = 'sound/weapons/handling/hpr_reload.ogg'
@@ -466,14 +630,13 @@
 	fire_sound = "gun_pulse"
 	current_mag = /obj/item/ammo_magazine/rifle/masm
 	attachable_allowed = list(
-		/obj/item/attachable/masm_barrel,
 		/obj/item/attachable/bipod/masm,
 	)
 
 	flags_gun_features = GUN_AUTO_EJECTOR|GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER
 	wield_delay = WEAPON_DELAY_SLOW
 	aim_slowdown = SLOWDOWN_ADS_LMG
-	starting_attachment_types = list(/obj/item/attachable/masm_barrel, /obj/item/attachable/bipod/masm)
+	starting_attachment_types = list(/obj/item/attachable/bipod/masm)
 	map_specific_decoration = FALSE
 	start_automatic = TRUE
 	w_class = SIZE_HUGE
@@ -500,14 +663,38 @@
 	flags_gun_features = GUN_AUTO_EJECTOR|GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_TRIGGER_SAFETY
 	current_mag = null
 
-//FPSA/76 DMR
-//=================================================
-//=================================================
+/obj/item/attachable/bipod/masm
+	name = "MASM55 bipod"
+	desc = "An integrated bipod for the MASM55 Medium Machinegun."
+	icon_state = "masm_bipod"
+	attach_icon = "masm_bipod"
+	slot = "under"
+	size_mod = 0
+	melee_mod = 0
+	flags_attach_features = ATTACH_ACTIVATION
+	attachment_action_type = /datum/action/item_action/toggle
 
+/obj/item/attachable/bipod/masm/New()
+	..()
+
+	delay_mod = 0
+	wield_delay_mod = WEAPON_DELAY_FAST
+	accuracy_mod = -HIT_ACCURACY_MULT_TIER_5
+	scatter_mod = SCATTER_AMOUNT_TIER_9
+
+
+
+//FPSA/76 DMR
 /obj/item/weapon/gun/rifle/fpsa
 	name = "\improper FPSA/76 Pulse DMR"
 	desc = "A domestically produced rifle developed and manufactured by Saint Etienne, 2176. Primarily meant for use by French Armed Forces, it has nonetheless made an impressive impact on the foreign market. The rifle boasts an effective engagement range of over a 1000m, and is chambered in 7.5x50mm high-velocity caseless."
 	icon = 'modular/weapons/icons/rifles.dmi'
+	item_icons = list(
+		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',
+		WEAR_R_HAND = 'modular/weapons/icons/guns_righthand.dmi',
+		WEAR_BACK = 'modular/weapons/icons/back.dmi',
+		WEAR_J_STORE = 'modular/weapons/icons/suit_slot.dmi'
+	)
 	icon_state = "fpsa"
 	item_state = "fpsa"
 	reload_sound = 'sound/weapons/handling/l42_reload.ogg'
@@ -548,6 +735,19 @@
 	flags_gun_features = GUN_AUTO_EJECTOR|GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_TRIGGER_SAFETY
 	current_mag = null
 
+/obj/item/attachable/stock/fpsa
+	name = "FPSA DMR Stock"
+	desc = "This isn't supposed to be separated from the gun, how'd this happen?"
+	icon = 'icons/obj/items/weapons/guns/attachments/stock.dmi'
+	icon_state = "fpsa_stock"
+	attach_icon = "fpsa_stock"
+	slot = "stock"
+	wield_delay_mod = WEAPON_DELAY_NONE
+	flags_attach_features = NO_FLAGS
+	melee_mod = 15
+	size_mod = 0
+
+
 
 
 /obj/item/weapon/gun/rifle/sniper/M42A/silenced
@@ -577,14 +777,20 @@
 	desc = "A lightweight designated marksman rifle developed by Howatomo Precision Machining for the Royal Marines. Comes with a toggleable trigger-interlock safety to minimize friendly fire accidents."
 	desc_lore = "Designed to provide commandos with responsive long range reach past what the old F903 could manage. A continuous-charge HESH payload removes the requirement for traditional armor piercing steel core ammunition, and improves damage retention at extended range. Faster cycle rate of the breech and a light trigger gives fast and precise followup shots even at thousand meter distances."
 	icon = 'modular/weapons/icons/rifles.dmi'
+	item_icons = list(
+		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',
+		WEAR_R_HAND = 'modular/weapons/icons/guns_righthand.dmi',
+		WEAR_BACK = 'modular/weapons/icons/back.dmi',
+		WEAR_J_STORE = 'modular/weapons/icons/suit_slot.dmi'
+	)
 	icon_state = "rmcdmr"
 	item_state = "rmcdmr"
 	unacidable = TRUE
 	aiming_time = 0.6 SECONDS
 	aimed_shot_cooldown_delay = 1.2 SECONDS
 	fire_sound = "gun_rmcdmr"
-	reload_sound = 'sound/weapons/handling/gun_rmcdmr_reload.ogg'
-	unload_sound = 'sound/weapons/handling/gun_rmcdmr_unload.ogg'
+	reload_sound = 'modular/weapons/sounds/gun_rmcdmr_reload.ogg'
+	unload_sound = 'modular/weapons/sounds/gun_rmcdmr_unload.ogg'
 	current_mag = /obj/item/ammo_magazine/sniper/rmc
 	wield_delay = WEAPON_DELAY_FAST
 	aim_slowdown = SLOWDOWN_ADS_RIFLE
@@ -615,6 +821,29 @@
 	dynamic_aim_slowdown = SLOWDOWN_ADS_QUICK
 	zoom_offset = 8
 	zoom_viewsize = 9
+
+/obj/item/attachable/stock/rmcdmr
+	name = "L64A3 stock"
+	desc = "The non-detachable stock of a L64A3 DMR."
+	icon_state = "rmcdmr_stock"
+	pixel_shift_x = 40
+	pixel_shift_y = 10
+	flags_attach_features = NO_FLAGS
+	hud_offset_mod = 6
+
+/obj/item/attachable/stock/rmcdmr/New()
+	..()
+
+	//stock is purely aesthetics, any changes should be done to the gun itself
+	accuracy_mod = 0
+	recoil_mod = 0
+	scatter_mod = 0
+	movement_onehanded_acc_penalty_mod = 0
+	accuracy_unwielded_mod = 0
+	recoil_unwielded_mod = 0
+	scatter_unwielded_mod = 0
+	aim_speed_mod = 0
+	wield_delay_mod = WEAPON_DELAY_NONE
 
 
 /obj/item/weapon/gun/rifle/sniper/rmc/set_gun_attachment_offsets()

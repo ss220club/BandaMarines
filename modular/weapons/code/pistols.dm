@@ -1,8 +1,14 @@
 /obj/item/weapon/gun/pistol/highpower/aguila
 	name = "\improper HG-45 'Aguila' pistol"
 	desc = "A semi-automatic Henjin-Garcia design chambered in .45 ACP that is slowly replacing the Office of the Colonial Marshals's Spearhead revolver."
-	icon = 'modular/weapons/icons/colony.dmi'
+	icon = 'modular/weapons/icons/pistols.dmi'
 	fire_sound = 'sound/weapons/gun_vp78_v2.ogg'
+	item_icons = list(
+		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',
+		WEAR_R_HAND = 'modular/weapons/icons/guns_righthand.dmi',
+		WEAR_BACK = 'modular/weapons/icons/back.dmi',
+		WEAR_J_STORE = 'modular/weapons/icons/suit_slot.dmi'
+	)
 
 /obj/item/weapon/gun/pistol/highpower/aguila/set_gun_config_values()
 	..()
@@ -45,7 +51,13 @@
 /obj/item/weapon/gun/pistol/pa76
 	name = "\improper PA76 pistol"
 	desc = "Pistolete automatique model 76, is a French pistol model made from SACM engineering company. A rather bit archaic but reliable pistol that is chambered in 7.65mm longue."
-	icon = 'modular/weapons/icons/colony.dmi'
+	icon = 'modular/weapons/icons/pistols.dmi'
+	item_icons = list(
+		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',
+		WEAR_R_HAND = 'modular/weapons/icons/guns_righthand.dmi',
+		WEAR_BACK = 'modular/weapons/icons/back.dmi',
+		WEAR_J_STORE = 'modular/weapons/icons/suit_slot.dmi'
+	)
 	icon_state = "pa76"
 	item_state = "pa76"
 	fire_sound = "vp70"
@@ -78,7 +90,7 @@
 /obj/item/weapon/gun/pistol/vp78/rmc
 	name = "\improper L165A1 service pistol"
 	desc = "Service issue pistol to the Royal Marine Commandos. A sleek, modern, semi-automatic handgun specifically designed to chamber specialized 9x19mm explosive squash-head rounds. Based on a Beretta Arms patented design, this Weyland-Yutani modification has earned its place in the hands of the Three World Empire's best soldiers. Can load normal VP78 magazines with no issue too."
-	icon = 'modular/weapons/icons/uscm.dmi'
+	icon = 'modular/weapons/icons/pistols.dmi'
 	icon_state = "vp78"
 	item_state = "vp78"
 	current_mag = /obj/item/ammo_magazine/pistol/vp78/rmc
@@ -89,7 +101,13 @@
 /obj/item/weapon/gun/pistol/mod88/vp70
 	name = "\improper VP70 M5 service pistol"
 	desc = "Standard issue semi-automatic USCM service pistol. Recently replacing the M4A3, it retains its predecessor's 9mm chambering but offers both a higher magazine capacity and a 3-round burst selector."
-	icon = 'modular/weapons/icons/uscm.dmi'
+	icon = 'modular/weapons/icons/pistols.dmi'
+	item_icons = list(
+		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',
+		WEAR_R_HAND = 'modular/weapons/icons/guns_righthand.dmi',
+		WEAR_BACK = 'modular/weapons/icons/back.dmi',
+		WEAR_J_STORE = 'modular/weapons/icons/suit_slot.dmi'
+	)
 	icon_state = "vp70"
 	item_state = "vp70"
 
@@ -115,7 +133,13 @@
 /obj/item/weapon/gun/revolver/rmr6
 	name = "\improper RMR-6 revolver"
 	desc = "Revolver Manuhrin model 6 a rather more interesting design by Manuhrin the only one who made revolvers. This one is used by both military and police forces for it's powerful force, versatibility, and tradition. Chambered in .357 magnum."
-	icon = 'modular/weapons/icons/colony.dmi'
+	icon = 'modular/weapons/icons/pistols.dmi'
+	item_icons = list(
+		WEAR_L_HAND = 'modular/weapons/icons/guns_lefthand.dmi',
+		WEAR_R_HAND = 'modular/weapons/icons/guns_righthand.dmi',
+		WEAR_BACK = 'modular/weapons/icons/back.dmi',
+		WEAR_J_STORE = 'modular/weapons/icons/suit_slot.dmi'
+	)
 	icon_state = "rmr6"
 	item_state = "rmr6"
 	fire_sound = null
