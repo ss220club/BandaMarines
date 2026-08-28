@@ -391,8 +391,6 @@
 				INVOKE_ASYNC(src, PROC_REF(handle_xeno_collision), A, xeno)
 			else if(iscarbon(A))
 				INVOKE_ASYNC(src, PROC_REF(handle_carbon_collision), A, xeno)
-			else
-				INVOKE_ASYNC(src, PROC_REF(handle_collision), A, xeno)
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_human_collision(mob/living/carbon/human/human, mob/living/carbon/xenomorph/xeno)
 	if(!istype(xeno))
@@ -610,7 +608,7 @@
 			. = TRUE
 
 	//Vehicle collision
-	if(istype(target, /obj/vehicle/multitile))
+	else if(istype(target, /obj/vehicle/multitile))
 		var/obj/vehicle/multitile/vehicle_in_path = target
 		xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозим!"))
 		metal_pipe_random(vehicle_in_path)
@@ -658,7 +656,6 @@
 	if(!istype(xeno) || !istype(target))
 		return
 	var/throw_dir
-	var/charge_dir = get_dir(old_charge_loc, xeno.loc)
 	if(!charge_dir_component)
 		var/list/throw_dirs = get_perpen_dir(xeno.dir) //side dirs
 		throw_dir = pick(throw_dirs)
