@@ -337,6 +337,10 @@
 	var/init_pixel_x
 	var/higher_layer
 
+	var/init_pixel_y
+	var/init_pixel_x
+	var/higher_layer
+
 /obj/structure/bed/chair/vehicle/Initialize()
 	. = ..()
 	chairbar = image(icon, "vehicle_bars")
