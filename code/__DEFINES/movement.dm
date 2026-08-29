@@ -62,7 +62,6 @@
 
 /// The pass flags that toggle when barricades are unwired (or inversely wired)
 #define PASS_FLAGS_UNWIRED (PASS_OVER_THROW_MOB|PASS_ACID_GRENADE)
-
 // SS220 ADD Start
 /// The minimum for glide_size to be clamped to.
 #define MIN_GLIDE_SIZE 1
