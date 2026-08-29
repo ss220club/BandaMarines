@@ -44,6 +44,7 @@
 	tracks_target = FALSE
 	var/direct_hit_damage = 60
 	var/first_target_hit = FALSE
+	var/first_obstacle_hit = FALSE
 	var/face_dir = NORTH
 	var/charge_dir_component = NONE
 	var/turf/old_charge_loc = NONE
@@ -208,6 +209,7 @@
 	charge_timeout_timer_id = TIMER_ID_NULL
 	activated_once = FALSE
 	first_target_hit = FALSE
+	first_obstacle_hit = FALSE
 	winding_up = FALSE
 
 
@@ -287,7 +289,6 @@
 	charge_reset()
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/find_blocking_atoms(turf/starting_turf, move_dir)
-	var/turf/entering_turf = get_step(starting_turf, move_dir)
 	var/mob/living/carbon/xenomorph/xeno = owner
 	if(!istype(xeno) || !istype(starting_turf))
 		return NONE
@@ -298,6 +299,7 @@
 		if(A.BlockedExitDirs(xeno, move_dir))
 			return A
 
+	var/turf/entering_turf = get_step(starting_turf, move_dir)
 	for(var/atom/A in entering_turf) //anything preventing us from going into a target turf
 		if(!A.can_block_movement || isliving(A))
 			continue
@@ -305,18 +307,19 @@
 			return A
 	return NONE
 
-/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/bonk_obstacle(list/collided_obstacle_list, mob/living/carbon/xenomorph/xeno)
-	var/bonked_obstacle = pick(collided_obstacle_list)
-
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/bonk_obstacle(atom/bonked_obstacle, mob/living/carbon/xenomorph/xeno)
+	if(!istype(bonked_obstacle) || !istype(xeno))
+		return
 	if(istype(bonked_obstacle, /obj))
-		INVOKE_ASYNC(src, PROC_REF(handle_collision), bonked_obstacle, xeno)
+		INVOKE_ASYNC(src, PROC_REF(handle_obj_collision), bonked_obstacle, xeno)
 	else if(istype(bonked_obstacle, /turf))
-		INVOKE_ASYNC(xeno, TYPE_PROC_REF(/mob/living/carbon/xenomorph/crusher, pounced_turf), bonked_obstacle)
+		first_obstacle_hit = TRUE
+		INVOKE_ASYNC(xeno, TYPE_PROC_REF(/mob/living/carbon/xenomorph/crusher, pounced_turf), bonked_obstacle) //Turf collision
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/charge_turf_enter(mob/living/carbon/xenomorph/xeno, turf/entering_turf)
 	SIGNAL_HANDLER
 	if(!istype(xeno) || !istype(entering_turf))
-		return NONE
+		return COMPONENT_TURF_DENY_MOVEMENT
 
 	var/move_dir = get_dir(xeno, entering_turf)
 	var/atom/collided_obstacle
@@ -326,7 +329,7 @@
 		for(var/direction in list(NORTH, WEST, EAST, SOUTH))
 			if(move_dir & direction)
 				collided_obstacle = find_blocking_atoms(xeno.loc, direction)
-				if(istype(collided_obstacle))
+				if(collided_obstacle)
 					collided_obstacle_list += collided_obstacle
 				else
 					var/turf/side_turf = get_step(xeno, direction)
@@ -334,33 +337,50 @@
 						possible_way_turf += side_turf
 					else
 						collided_obstacle_list += side_turf
-		if(length(collided_obstacle_list) == 2) //both sides are blocking
-			bonk_obstacle(collided_obstacle_list, xeno)
-			return NONE
-		else
-			collided_obstacle_list.Cut()
-			var/possible_way_dir
-			for(var/way_turf in possible_way_turf)
-				possible_way_dir = get_dir(way_turf, entering_turf)
-				collided_obstacle = find_blocking_atoms(way_turf, possible_way_dir)
-				if(!istype(collided_obstacle))
-					break
-				else
-					collided_obstacle_list += collided_obstacle
-			if(istype(collided_obstacle))
-				bonk_obstacle(collided_obstacle_list, xeno)
-				return NONE
+
+		if(LAZYLEN(collided_obstacle_list) == 2) //both sides are blocking
+			if(!first_obstacle_hit)
+				return try_charge_through(xeno, collided_obstacle_list, entering_turf)
+			return COMPONENT_TURF_DENY_MOVEMENT
+
+		collided_obstacle_list.Cut()
+		var/possible_way_dir
+		for(var/way_turf in possible_way_turf)
+			possible_way_dir = get_dir(way_turf, entering_turf)
+			collided_obstacle = find_blocking_atoms(way_turf, possible_way_dir)
+			if(!collided_obstacle)
+				break
+			else
+				collided_obstacle_list += collided_obstacle
+		if(collided_obstacle)
+			if(!first_obstacle_hit)
+				return try_charge_through(xeno, collided_obstacle_list, entering_turf)
+			return COMPONENT_TURF_DENY_MOVEMENT
 
 	if(entering_turf.density)
-		bonk_obstacle(list(entering_turf), xeno)
-		return NONE
+		if(!first_obstacle_hit)
+			return try_charge_through(xeno, list(entering_turf), entering_turf)
+		return COMPONENT_TURF_DENY_MOVEMENT
 
 	collided_obstacle = find_blocking_atoms(xeno.loc, move_dir)
-	if(!istype(collided_obstacle))
+	if(!collided_obstacle)
 		old_charge_loc = xeno.loc
+		first_obstacle_hit = FALSE
 		return COMPONENT_TURF_ALLOW_MOVEMENT
-	bonk_obstacle(list(collided_obstacle), xeno)
-	return NONE
+	if(!first_obstacle_hit)
+		return try_charge_through(xeno, list(collided_obstacle), entering_turf)
+	return COMPONENT_TURF_DENY_MOVEMENT
+
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/try_charge_through(mob/living/carbon/xenomorph/xeno, list/collided_obstacles, turf/entering_turf)
+	if(!istype(xeno) || !istype(collided_obstacles) || !istype(entering_turf))
+		return
+	var/atom/collided_obstacle = pick(collided_obstacles)
+	var/turf/old_obstacle_loc = collided_obstacle.loc
+	bonk_obstacle(collided_obstacle, xeno)
+	if(QDELETED(collided_obstacle) || !collided_obstacle.density || collided_obstacle.loc != old_obstacle_loc)
+		return charge_turf_enter(xeno, entering_turf)
+	else
+		return COMPONENT_TURF_DENY_MOVEMENT
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/charge_move(mob/living/carbon/xenomorph/xeno, atom/oldloc, direction, forced)
 	SIGNAL_HANDLER
@@ -491,23 +511,27 @@
 
 	throw_atom_to_side(xeno, mob)
 
-/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_collision(atom/target, mob/living/carbon/xenomorph/xeno)
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_obj_collision(obj/target, mob/living/carbon/xenomorph/xeno)
 	if(!istype(xeno))
 		xeno = owner
-	if(!istype(xeno) || !istype(target, /obj))
+	if(!istype(xeno) || !istype(target))
 		return
+
+	var/handled = FALSE
 
 	if(istype(target, /obj/structure))
 		if(istype(target, /obj/structure/machinery))
 			//M56d machine gun collision
 			if(istype(target, /obj/structure/machinery/m56d_hmg))
+				handled = TRUE
 				var/obj/structure/machinery/m56d_hmg/weapon_in_path = target
 				xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] таранит [weapon_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы тараним [weapon_in_path.declent_ru(ACCUSATIVE)]!"))
 				metal_pipe_random(weapon_in_path)
 				weapon_in_path.CrusherImpact()
-				. =  FALSE
+				. = FALSE
 			//Airlocks collision
 			else if(istype(target, /obj/structure/machinery/door/airlock))
+				handled = TRUE
 				var/obj/structure/machinery/door/airlock/airlock_in_path = target
 				if(airlock_in_path.density)
 					metal_pipe_random(airlock_in_path)
@@ -515,6 +539,7 @@
 					. = TRUE
 			//Turrets, Tesla Coil etc. collision
 			else if(istype(target, /obj/structure/machinery/defenses))
+				handled = TRUE
 				var/obj/structure/machinery/defenses/defenses_in_path = target
 				xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] таранит [defenses_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы тараним [defenses_in_path.declent_ru(ACCUSATIVE)]!"))
 				metal_pipe_random(defenses_in_path)
@@ -522,9 +547,10 @@
 					. = TRUE
 				else
 					defenses_in_path.update_health(direct_hit_damage)
-					. =  FALSE
+					. = FALSE
 			//Vending machines collision
 			else if(istype(target, /obj/structure/machinery/vending) || istype(target, /obj/structure/machinery/cm_vending))
+				handled = TRUE
 				var/obj/structure/machinery/vending/vending_in_path = target
 				if(vending_in_path.unslashable)
 					. = FALSE
@@ -534,6 +560,7 @@
 					vending_in_path.tip_over()
 					. = TRUE
 			else if(istype(target, /obj/structure/machinery/fuelpump))
+				handled = TRUE
 				var/obj/structure/machinery/fuelpump/pump_in_path = target
 				xeno.visible_message(SPAN_DANGER("[src] врезается прямо в [pump_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы врезаемся прямо в [pump_in_path.declent_ru(ACCUSATIVE)]!"))
 				metal_pipe_random(pump_in_path)
@@ -541,16 +568,18 @@
 				. = FALSE
 		//Barricade collision
 		else if(istype(target, /obj/structure/barricade))
+			handled = TRUE
 			var/obj/structure/barricade/blockade_in_path = target
 			if(blockade_in_path.BlockedExitDirs(xeno, xeno.last_move_dir) || blockade_in_path.BlockedPassDirs(xeno, xeno.last_move_dir))
 				xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [blockade_in_path.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [blockade_in_path.declent_ru(ACCUSATIVE)] и тормозим!"))
 				metal_pipe_random(blockade_in_path)
 				blockade_in_path.Collided(xeno)
-				. =  FALSE
+				. = FALSE
 			else
 				. = TRUE
 		//Window collision
 		else if(istype(target, /obj/structure/window))
+			handled = TRUE
 			var/obj/structure/window/window_in_path = target
 			if(window_in_path.unacidable)
 				. = FALSE
@@ -562,18 +591,20 @@
 					window_framed_in_path = target
 					window_frame_type = window_framed_in_path.window_frame
 					window_loc = window_in_path.loc
+				var/window_reinforce = window_framed_in_path.reinf
 				window_in_path.health = 0
 				window_in_path.healthcheck(user = xeno)
 				if(istype(window_framed_in_path))
-					if(window_framed_in_path.reinf)
-						return FALSE
+					if(window_reinforce)
+						. = FALSE
 					else
 						var/obj/structure/window_frame/own_window_frame = locate(window_frame_type) in window_loc
 						if(own_window_frame)
-							handle_collision(own_window_frame, xeno)
-				. =  TRUE
+							handle_obj_collision(own_window_frame, xeno)
+				. = TRUE
 		//Window frame collision
 		else if(istype(target, /obj/structure/window_frame))
+			handled = TRUE
 			var/obj/structure/window_frame/window_frame_in_path = target
 			if(window_frame_in_path.unacidable)
 				. = FALSE
@@ -583,9 +614,10 @@
 				. = TRUE
 		//Grille collision
 		else if(istype(target, /obj/structure/grille))
+			handled = TRUE
 			var/obj/structure/grille/grille_in_path = target
 			if(grille_in_path.unacidable)
-				. =  FALSE
+				. = FALSE
 			else
 				playsound(xeno.loc, 'sound/effects/grillehit.ogg', 25, 1)
 				grille_in_path.health -=  80 //Usually knocks it down.
@@ -593,8 +625,9 @@
 				. = TRUE
 		//Fences collision
 		else if(istype(target, /obj/structure/fence))
+			handled = TRUE
 			var/obj/structure/fence/fence = target
-			if (fence.cut)
+			if(fence.cut)
 				. = FALSE
 			else
 				xeno.visible_message(SPAN_DANGER("[src] врезается прямо в [fence]!"))
@@ -603,12 +636,14 @@
 				. = TRUE
 		//Table collision
 		else if(istype(target, /obj/structure/surface/table))
+			handled = TRUE
 			var/obj/structure/surface/table/table_in_path = target
 			table_in_path.Crossed(xeno)
 			. = TRUE
 
 	//Vehicle collision
 	else if(istype(target, /obj/vehicle/multitile))
+		handled = TRUE
 		var/obj/vehicle/multitile/vehicle_in_path = target
 		xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозим!"))
 		metal_pipe_random(vehicle_in_path)
@@ -616,41 +651,39 @@
 		. = FALSE
 
 	// Anything else?
-	else
-		if(isobj(target))
-			var/obj/object_in_path = target
-			if(!object_in_path.density) // collide with obj that interrupt dash
-				return TRUE
-			if(object_in_path.unacidable) // can't break unbreakable
+	if(!handled && isobj(target))
+		var/obj/object_in_path = target
+		if(object_in_path.unacidable)
+			. = FALSE
+
+		//Immovable obj
+		else if(object_in_path.anchored)
+			xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] раздавливает [object_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы раздавливаем [object_in_path.declent_ru(ACCUSATIVE)]!"))
+			if(istype(object_in_path, /obj/structure/platform))
+				var/obj/structure/platform/platform_in_path = object_in_path
+				platform_in_path.broken()
+				. = TRUE
+			else
+				destroy_obj_in_path(xeno, object_in_path)
 				. = FALSE
 
-			//Immovable obj
-			else if(object_in_path.anchored)
-				xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] раздавливает [object_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы раздавливаем [object_in_path.declent_ru(ACCUSATIVE)]!"))
-				if(istype(object_in_path, /obj/structure/platform))
-					var/obj/structure/platform/platform_in_path = object_in_path
-					platform_in_path.broken()
-					. = TRUE
-				else
-					destroy_obj_in_path(xeno, object_in_path)
-					. = FALSE
+		//Movable obj
+		else  //Canisters, crates etc. go flying
+			if(object_in_path.buckled_mob)
+				object_in_path.unbuckle()
+			xeno.visible_message(SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] отбрасывает [object_in_path.declent_ru(ACCUSATIVE)] в сторону!"), SPAN_XENOWARNING("Мы отбрасываем [object_in_path.declent_ru(ACCUSATIVE)] в сторону."))
 
-			//Movable obj
-			else  //Canisters, crates etc. go flying
-				if(object_in_path.buckled_mob)
-					object_in_path.unbuckle()
-				xeno.visible_message(SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] отбрасывает [object_in_path.declent_ru(ACCUSATIVE)] в сторону!"), SPAN_XENOWARNING("Мы отбрасываем [object_in_path.declent_ru(ACCUSATIVE)] в сторону."))
+			var/old_loc = object_in_path.loc
+			throw_atom_to_side(xeno, object_in_path)
 
-				var/old_loc = object_in_path.loc
-				throw_atom_to_side(xeno, object_in_path)
+			if(old_loc == object_in_path.loc) //if obj do not move from the way it will be destroyed
+				xeno.visible_message(SPAN_WARNING("[object_in_path.declent_ru(ACCUSATIVE)] разбит[genderize_ru(object_in_path.gender, "", "а", "о", "ы")] вдребезги!"), SPAN_XENOWARNING("Мы разбиваем [object_in_path.declent_ru(ACCUSATIVE)]!"))
+				destroy_obj_in_path(xeno, object_in_path)
+			. = TRUE
 
-				if(old_loc == object_in_path.loc) //if obj do not move from the way it will be destroyed
-					xeno.visible_message(SPAN_WARNING("[object_in_path.declent_ru(ACCUSATIVE)] разбит[genderize_ru(object_in_path.gender, "", "а", "о", "ы")] вдребезги!"), SPAN_XENOWARNING("Мы разбиваем [object_in_path.declent_ru(ACCUSATIVE)]!"))
-					destroy_obj_in_path(xeno, object_in_path)
-				. = TRUE
-
-	if(!.)
-		xeno.update_icons()
+		if(!.)
+			first_obstacle_hit = TRUE
+			xeno.update_icons()
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/throw_atom_to_side(mob/living/carbon/xenomorph/xeno, atom/movable/target)
 	if(!istype(xeno) || !istype(target))
@@ -668,17 +701,17 @@
 	var/throw_speed = 3
 	if(istype(target, /mob/living/carbon/xenomorph))
 		throw_range = 1
-		target.throw_atom(target_turf, throw_range, throw_speed, xeno, TRUE)
+		target.throw_atom(target_turf, throw_range, throw_speed, xeno, TRUE, LOW_LAUNCH)
 	else
 		throw_range = pick(1,2)
-		target.throw_atom(target_turf, throw_range, throw_speed, xeno)
+		target.throw_atom(target_turf, throw_range, throw_speed, xeno, launch_type = LOW_LAUNCH)
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/destroy_obj_in_path(mob/living/carbon/xenomorph/xeno, obj/object_in_path)
 	if(!istype(xeno))
 		xeno = owner
 	if(!istype(xeno) || !istype(object_in_path))
 		return
-	if(length(object_in_path.contents)) // So the contents of containers dont delete themselves as well
+	if(LAZYLEN(object_in_path.contents)) // So the contents of containers dont delete themselves as well
 		var/turf/turf_for_obj = get_turf(xeno)
 		for(var/atom/movable/stuff_to_move in object_in_path.contents) stuff_to_move.forceMove(turf_for_obj)
 	playsound(object_in_path.loc, "punch", 25, 1)
