@@ -60,7 +60,7 @@
 	)
 	icon_state = "pa76"
 	item_state = "pa76"
-	fire_sound = "vp70"
+	fire_sound = 'sound/weapons/gun_glock.ogg'
 	current_mag = /obj/item/ammo_magazine/pistol/pa76
 	flags_gun_features = GUN_AUTO_EJECTOR|GUN_CAN_POINTBLANK|GUN_ONE_HAND_WIELDED
 	attachable_allowed = list(
@@ -99,6 +99,9 @@
 	current_mag = null
 
 //VP70
+/obj/item/weapon/gun/pistol/mod88/set_gun_attachment_offsets()
+	attachable_offset = list("muzzle_x" = 27, "muzzle_y" = 21,"rail_x" = 8, "rail_y" = 22, "under_x" = 21, "under_y" = 18, "stock_x" = 10, "stock_y" = 15)
+
 /obj/item/weapon/gun/pistol/mod88/vp70
 	name = "\improper VP70 M5 service pistol"
 	desc = "Standard issue semi-automatic USCM service pistol. Recently replacing the M4A3, it retains its predecessor's 9mm chambering but offers both a higher magazine capacity and a 3-round burst selector."

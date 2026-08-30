@@ -123,10 +123,6 @@
 
 /obj/item/weapon/gun/rifle/m20a/old/handle_starting_attachment()
 	..()
-	var/obj/item/attachable/attached_gun/grenade/m20a/S = new(src)
-	S.flags_attach_features &= ~ATTACH_REMOVABLE
-	S.hidden = TRUE
-	S.Attach(src)
 	var/obj/item/attachable/flashlight/m20a/flashlight = new(src)
 	flashlight.flags_attach_features &= ~ATTACH_REMOVABLE
 	flashlight.Attach(src)

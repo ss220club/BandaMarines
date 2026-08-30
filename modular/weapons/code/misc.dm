@@ -10,7 +10,7 @@
 	)
 	icon_state = "m38"
 	item_state = "m38"
-	base_gun_icon = "m60"
+	base_gun_icon = "m38"
 	fire_sound = 'sound/weapons/gun_hpr.ogg'
 	current_mag = /obj/item/ammo_magazine/m38
 	aim_slowdown = SLOWDOWN_ADS_LMG
@@ -20,7 +20,13 @@
 		/obj/item/attachable/flashlight/tactical,
 	)
 	starting_attachment_types = list(/obj/item/attachable/bipod/m60, /obj/item/attachable/stock/m60/m38, /obj/item/attachable/flashlight/tactical)
-//	cover_offset = list("open_x" = -3, "open_y" = 4, "closed_x" = 0, "closed_y" = 0)
+
+/obj/item/weapon/gun/m60/m38/update_icon()
+	. = ..()
+	if(cover_open)
+		overlays += image(icon, src, "+[base_gun_icon]_cover_open", pixel_x = 0, pixel_y = 0)
+	else
+		overlays += image(icon, src, "+[base_gun_icon]_cover_closed", pixel_x = 0, pixel_y = 0)
 
 /obj/item/weapon/gun/m60/m38/set_gun_config_values()
 	..()

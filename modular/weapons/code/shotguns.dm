@@ -24,12 +24,13 @@
 		/obj/item/attachable/gyro,
 		/obj/item/attachable/flashlight/grip,
 		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/stock/xm50,
+		/obj/item/attachable/stock/xm50/military,
 		/obj/item/attachable/stock/xm51,
-		/obj/item/attachable/stock/xm51/military,
 	)
 
 /obj/item/weapon/gun/rifle/xm51/withstock
-	starting_attachment_types = list(/obj/item/attachable/stock/xm51)
+	starting_attachment_types = list(/obj/item/attachable/stock/xm50)
 
 /obj/item/weapon/gun/rifle/xm51/military
 	name = "\improper XM51 shotgun"

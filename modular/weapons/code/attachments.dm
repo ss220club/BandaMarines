@@ -1,7 +1,7 @@
 /obj/item/attachable/sling //Mostly cosmetic, some one-handed fire adjustments
 	name = "two-point sling"
 	desc = "A traditional strip of toughened nylon fabric with clips on either end for attaching to suitable mounting points on most longarms in the UA armed forces arsenals."
-	icon = 'modular/weapons/icons/under.dmi'
+	icon = 'modular/weapons/icons/rail.dmi'
 	icon_state = "pve-sling"
 	attach_icon = "pve-sling_a"
 	slot = "rail"
@@ -11,19 +11,6 @@
 	accuracy_unwielded_mod = -HIT_ACCURACY_MULT_TIER_1
 	recoil_unwielded_mod = -RECOIL_AMOUNT_TIER_2
 	scatter_unwielded_mod = -SCATTER_AMOUNT_TIER_2
-
-/obj/item/attachable/attached_gun/grenade/m20a
-	name = "\improper M20 integrated grenade launcher"
-	desc = "Unorthodox design, this single-round grenade launchers was made specifically for use with Type 71 pulse rifles. It can be quickly connected to electronic firing mechanism of the rifle, albeit wiring is prone to failures."
-//	icon = 'modular/weapons/icons/under.dmi'
-	icon_state = "m20a"
-	attach_icon = "m20a"
-	current_rounds = 0
-	max_rounds = 3
-	max_range = 14
-	attachment_firing_delay = 5
-	pixel_shift_x = 20
-	pixel_shift_y = 13
 
 /obj/item/attachable/attached_gun/shotgun/m20a
 	name = "\improper U3 underbarrel shotgun"
@@ -73,7 +60,7 @@
 
 /obj/item/attachable/scope/variable_zoom/fal
 	name = "ODS R94 telescopic variable scope"
-	icon = 'modular/weapons/icons/scopes.dmi'
+	icon = 'modular/weapons/icons/rail.dmi'
 	icon_state = "sniperscope_fal"
 	attach_icon = "sniperscope_fal"
 	desc = "A Orion Defence Systems telescopic scope used mainly for the R81M1D. Can switch between 2x and 4x magnification."
@@ -82,7 +69,7 @@
 /obj/item/attachable/scope/mini/r81
 	name = "ODS R92 2x advanced telescopic mini-scope"
 	desc = "An Orion Defence Systems R81M1D 2x advanced telescopic mini-scope, used mainly for the R81M1A and it's variants."
-	icon = 'modular/weapons/icons/scopes.dmi'
+	icon = 'modular/weapons/icons/rail.dmi'
 	icon_state = "miniscope_fal"
 	attach_icon = "miniscope_fal"
 
@@ -260,21 +247,47 @@
 	scatter_unwielded_mod = -SCATTER_AMOUNT_TIER_10
 
 //Xm51
-/obj/item/attachable/stock/xm51/military
-	name = "\improper XM51 stock"
+/obj/item/attachable/stock/xm50
+	name = "\improper XM50 stock"
 	icon = 'modular/weapons/icons/stock.dmi'
-	desc = "A specialized stock designed for XM51 shotguns. Helps the user absorb the recoil of the weapon while also reducing scatter."
-	icon_state = "xm51_military_stock"
-	attach_icon = "xm51_military_stock_a"
+	desc = "A specialized stock designed for XM50 shotguns. Helps the user absorb the recoil of the weapon while also reducing scatter."
+	icon_state = "xm51_stock"
+	attach_icon = "xm51_stock_a"
+	hud_offset_mod = 3
+	melee_mod = 10
+
+/obj/item/attachable/stock/xm50/Initialize(mapload, ...)
+	. = ..()
+	select_gamemode_skin(type)
+	//it makes stuff much better when two-handed
+	accuracy_mod = HIT_ACCURACY_MULT_TIER_3
+	recoil_mod = -RECOIL_AMOUNT_TIER_4
+	scatter_mod = -SCATTER_AMOUNT_TIER_8
+	movement_onehanded_acc_penalty_mod = -MOVEMENT_ACCURACY_PENALTY_MULT_TIER_4
+	//and allows for burst-fire
+	burst_mod = BURST_AMOUNT_TIER_2
+	//but it makes stuff much worse when one handed
+	accuracy_unwielded_mod = -HIT_ACCURACY_MULT_TIER_5
+	recoil_unwielded_mod = RECOIL_AMOUNT_TIER_5
+	scatter_unwielded_mod = SCATTER_AMOUNT_TIER_6
+	//and makes you slower
+	aim_speed_mod = CONFIG_GET(number/slowdown_med)
+
+/obj/item/attachable/stock/xm50/military
+	icon = 'modular/weapons/icons/stock.dmi'
+	icon_state = "xm50_military_stock"
+	attach_icon = "xm50_military_stock_a"
 
 //M38
 /obj/item/attachable/stock/m60/m38
 	name = "M38 stock"
+	icon = 'modular/weapons/icons/stock.dmi'
 	icon_state = "m38_stock"
 	attach_icon = "m38_stock"
 
 /obj/item/attachable/flashlight/tactical
 	name = "tactical flashlight"
+	icon = 'modular/weapons/icons/rail.dmi'
 	desc = "Robust and handy tactical flashlight, produced by WiseFire Inc."
 	icon_state = "flashlight_tactical"
 	attach_icon = "flashlight_tactical_a"
@@ -289,6 +302,7 @@
 
 /obj/item/attachable/scope/m79
 	name = "M79 sight"
+	icon = 'modular/weapons/icons/rail.dmi'
 	desc = "You shouldn't be seeing this!"
 	icon_state = "m79_sight"
 	zoom_offset = 3
