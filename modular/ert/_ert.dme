@@ -1,4 +1,4 @@
-#include "_fun_ert.dm"
+#include "_ert.dm"
 
 #include "code/lasgun.dm"
 #include "code/bolter.dm"
