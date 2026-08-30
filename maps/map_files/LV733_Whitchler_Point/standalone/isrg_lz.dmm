@@ -2817,7 +2817,7 @@
 /area/lv733/outdoors/colony_streets/engineering_street)
 "Fv" = (
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
-/turf/open/space/basic,
+/turf/open/hybrisa/street/sidewalkfull,
 /area/lv733/outdoors/colony_streets/city_streets)
 "FA" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -5348,7 +5348,7 @@ ea
 jN
 jN
 Dh
-jN
+xZ
 jN
 Ta
 yj
