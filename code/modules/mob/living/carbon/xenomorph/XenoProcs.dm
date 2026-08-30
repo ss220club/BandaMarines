@@ -19,7 +19,7 @@
 		for(var/datum/mind/L in SSticker.mode.xenomorphs)
 			var/mob/living/carbon/M = L.current
 			if(M && istype(M) && !M.stat && M.client && (!hivenumber || M.hivenumber == hivenumber)) //Only living and connected xenos
-				to_chat(M, SPAN_XENODANGER("<span class=\"[fontsize_style]\"> [message]</span>"))
+				to_chat(M, SPAN_XENODANGER("<span class=\"[fontsize_style]\">[message]</span>")) // SS220 EDIT ADDICTION
 
 //Sends a maptext alert to xenos.
 /proc/xeno_maptext(text = "", title_text = "", hivenumber = XENO_HIVE_NORMAL)
@@ -31,7 +31,7 @@
 			var/mob/living/carbon/xenomorph/xeno = living.current
 			if(istype(xeno) && !xeno.stat && xeno.client && xeno.hivenumber == hivenumber) //Only living and connected xenos
 				playsound_client(xeno.client, 'sound/voice/alien_distantroar_3.ogg', xeno.loc, 25, FALSE)
-				xeno.play_screen_text("<span class='langchat' style=font-size:16pt;text-align:center valign='top'><u>[title_text]</u></span><br>" + text, /atom/movable/screen/text/screen_text/command_order, "#b491c8")
+				xeno.play_screen_text("<span class='langchat_notification' style=text-align:center valign='top'><u>[title_text]</u></span><br>" + text, /atom/movable/screen/text/screen_text/command_order, "#b491c8") // SS220 EDIT: font
 
 /proc/xeno_message_all(message = null, size = 3)
 	xeno_message(message, size)
@@ -41,29 +41,29 @@
 /mob/living/carbon/xenomorph/get_status_tab_items()
 	. = ..()
 
-	. += "Name: [name]"
+	. += "Имя: [declent_ru(NOMINATIVE)]"
 
 	. += ""
 
-	. += "Health: [floor(health)]/[floor(maxHealth)]"
-	. += "Armor: [floor(0.01*armor_integrity*armor_deflection)+(armor_deflection_buff-armor_deflection_debuff)]/[floor(armor_deflection)]"
-	. += "Plasma: [floor(plasma_stored)]/[floor(plasma_max)]"
-	. += "Slash Damage: [floor((melee_damage_lower+melee_damage_upper)/2)]"
+	. += "Здоровье: [floor(health)]/[floor(maxHealth)]"
+	. += "Броня: [floor(0.01*armor_integrity*armor_deflection)+(armor_deflection_buff-armor_deflection_debuff)]/[floor(armor_deflection)]"
+	. += "Плазма: [floor(plasma_stored)]/[floor(plasma_max)]"
+	. += "Урон когтями: [floor((melee_damage_lower+melee_damage_upper)/2)]"
 
 	var/shieldtotal = 0
 	for (var/datum/xeno_shield/XS in xeno_shields)
 		shieldtotal += XS.amount
 
-	. += "Shield: [shieldtotal]"
+	. += "Щит: [shieldtotal]"
 
 	if(selected_ability)
 		. += ""
-		. += "Selected Ability: [selected_ability.name]"
+		. += "Выбранная способность: [selected_ability.name]"
 		if(selected_ability.charges != NO_ACTION_CHARGES)
-			. += "Charges Left: [selected_ability.charges]"
+			. += "Зарядов осталось: [selected_ability.charges]"
 
 		if(selected_ability.cooldown_timer_id != TIMER_ID_NULL && client?.prefs.show_cooldown_messages)
-			. += "On Cooldown: [DisplayTimeText(timeleft(selected_ability.cooldown_timer_id))]"
+			. += "Перезарядка: [DisplayTimeText(timeleft(selected_ability.cooldown_timer_id))]"
 
 	. += ""
 
@@ -74,14 +74,14 @@
 		evolve_progress = "[min(stored_evolution, evolution_threshold)]/[evolution_threshold]"
 		if(hive && !hive.allow_no_queen_evo && !caste?.evolve_without_queen)
 			if(!hive.living_xeno_queen)
-				evolve_progress += " (NO QUEEN)"
+				evolve_progress += " (НЕТ КОРОЛЕВЫ)"
 			else if(!(hive.living_xeno_queen.ovipositor || hive.evolution_without_ovipositor))
-				evolve_progress += " (NO OVIPOSITOR)"
+				evolve_progress += " (НЕТ ЯЙЦЕКЛАДА)"
 
 	if(evolve_progress)
-		. += "Evolve Progress: [evolve_progress]"
+		. += "Прогресс эволюции: [evolve_progress]"
 	if(stored_evolution > evolution_threshold)
-		. += "Bonus Evolution: [stored_evolution - evolution_threshold]"
+		. += "Бонусная эволюция: [stored_evolution - evolution_threshold]"
 
 	. += ""
 
@@ -100,63 +100,63 @@
 		var/msg_holder = "-"
 		if(frenzy_aura)
 			msg_holder = get_pheromone_aura_strength(frenzy_aura)
-		. += "Frenzy: [msg_holder]"
+		. += "Феромоны безумия: [msg_holder]"
 		msg_holder = "-"
 		if(warding_aura)
 			msg_holder = get_pheromone_aura_strength(warding_aura)
-		. += "Warding: [msg_holder]"
+		. += "Феромоны защиты: [msg_holder]"
 		msg_holder = "-"
 		if(recovery_aura)
 			msg_holder = get_pheromone_aura_strength(recovery_aura)
-		. += "Recovery: [msg_holder]"
+		. += "Феромоны восстановления: [msg_holder]"
 		. += ""
 
 	if(hive)
 		if(!hive.living_xeno_queen)
-			. += "Queen's Location: NO QUEEN"
+			. += "Местоположение королевы: НЕТ КОРОЛЕВЫ"
 		else if(!(caste_type == XENO_CASTE_QUEEN))
-			. += "Queen's Location: [hive.living_xeno_queen.loc.loc.name]"
+			. += "Местоположение королевы: [hive.living_xeno_queen.loc.loc.name]"
 
 		if (CHECK_MULTIPLE_BITFIELDS(hive.hive_flags, XENO_SLASH_ALLOW_ALL))
-			. += "Slashing: PERMITTED"
+			. += "Убийство носителей: РАЗРЕШЕНО"
 		else if (HAS_FLAG(hive.hive_flags, XENO_SLASH_NORMAL))
-			. += "Slashing: RESTRICTED AGAINST INFECTED"
+			. += "Убийство носителей: ЗАПРЕЩЕНО УБИВАТЬ ЗАРАЖЁННЫХ"
 		else
-			. += "Slashing: FORBIDDEN"
+			. += "Убийство носителей: ЗАПРЕЩЕНО"
 
-		var/str_builder = "NOBODY"
+		var/str_builder = "НИКТО"
 		if (CHECK_MULTIPLE_BITFIELDS(hive.hive_flags, XENO_CONSTRUCTION_ALLOW_ALL))
-			str_builder = "ANYONE"
+			str_builder = "ВСЕ"
 		else
 			if (HAS_FLAG(hive.hive_flags, XENO_CONSTRUCTION_QUEEN))
-				str_builder = "QUEEN"
+				str_builder = "КОРОЛЕВА"
 				if (HAS_FLAG(hive.hive_flags, XENO_CONSTRUCTION_LEADERS))
-					str_builder += " and "
+					str_builder += " и "
 			if (HAS_FLAG(hive.hive_flags, XENO_CONSTRUCTION_LEADERS))
-				str_builder += "LEADERS"
+				str_builder += "ЛИДЕРЫ"
 		. += "Special Structure Placement: [str_builder]"
 
-		str_builder = "NOBODY"
+		str_builder = "НИКТО"
 		if (CHECK_MULTIPLE_BITFIELDS(hive.hive_flags, XENO_DECONSTRUCTION_ALLOW_ALL))
-			str_builder = "ANYONE"
+			str_builder = "ВСЕ"
 		else
 			if (HAS_FLAG(hive.hive_flags, XENO_DECONSTRUCTION_QUEEN))
-				str_builder = "QUEEN"
+				str_builder = "КОРОЛЕВА"
 				if (HAS_FLAG(hive.hive_flags, XENO_DECONSTRUCTION_LEADERS))
-					str_builder += " and "
+					str_builder += " и "
 			if (HAS_FLAG(hive.hive_flags, XENO_DECONSTRUCTION_LEADERS))
-				str_builder += "LEADERS"
-		. += "Special Structure Destruction: [str_builder]"
+				str_builder += "ЛИДЕРЫ"
+		. += "Разрушение продвинутых структур: [str_builder]"
 
 		if (HAS_FLAG(hive.hive_flags, XENO_UNNESTING_RESTRICTED))
-			. += "Unnesting: BUILDERS"
+			. += "Снимать с гнезда: СТРОИТЕЛИ"
 		else
-			. += "Unnesting: ANYONE"
+			. += "Снимать с гнезда: ВСЕ"
 
 		if(hive.hive_orders)
-			. += "Hive Orders: [hive.hive_orders]"
+			. += "Приказы улья: [hive.hive_orders]"
 		else
-			. += "Hive Orders: -"
+			. += "Приказы улья: -"
 
 	. += ""
 
@@ -184,7 +184,7 @@
 
 	if(value)
 		if(plasma_stored < value)
-			to_chat(src, SPAN_WARNING("We do not have enough plasma to do this. We require [value] plasma but have only [plasma_stored] stored."))
+			to_chat(src, SPAN_WARNING("У нас недостаточно плазмы. Необходимо [value] плазмы, но у нас есть только [plasma_stored].")) // SS220 EDIT ADDICTION
 			return FALSE
 	return TRUE
 
@@ -314,8 +314,8 @@
 		if(ishuman(carbon_mob) && (carbon_mob.dir in reverse_nearby_direction(dir)))
 			var/mob/living/carbon/human/human_mob = carbon_mob
 			if(human_mob.check_shields("the pounce", get_dir(human_mob, src), attack_type = SHIELD_ATTACK_POUNCE, custom_response = TRUE)) //Human shield block.
-				visible_message(SPAN_DANGER("[src] slams into [human_mob]!"),
-					SPAN_XENODANGER("We slam into [human_mob]!"), null, 5)
+				visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [human_mob.declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
+					SPAN_XENODANGER("Мы врезаемся в [human_mob]!"), null, 5) // SS220 EDIT ADDICTION
 				KnockDown(1)
 				Stun(1)
 				throwing = FALSE //Reset throwing manually.
@@ -330,15 +330,15 @@
 				throwing = FALSE
 				return
 			if(HAS_TRAIT(human_mob, TRAIT_POUNCE_RESISTANT) && prob(60))
-				visible_message(SPAN_DANGER("[human_mob] withstands being pounced and slams down [src]!"),
-					SPAN_XENODANGER("[human_mob] throws us down after withstanding the pounce!"), null, 5)
+				visible_message(SPAN_DANGER("[capitalize(human_mob.declent_ru(NOMINATIVE))] выдерживает прыжок и сбивает [declent_ru(ACCUSATIVE)] с ног!"),
+					SPAN_XENODANGER("[capitalize(human_mob.declent_ru(NOMINATIVE))] сбивает нас с ног после того, как выдержал прыжок!"), null, 5)
 				KnockDown(1.5)
 				Stun(1.5)
 				throwing = FALSE
 				return
 
 
-	visible_message(SPAN_DANGER("[src] [pounceAction.action_text] onto [carbon_mob]!"), SPAN_XENODANGER("We [pounceAction.action_text] onto [carbon_mob]!"), null, 5)
+	visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] [pounceAction.action_text] на [carbon_mob.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы [pounceAction.action_text] на [carbon_mob.declent_ru(ACCUSATIVE)]!"), null, 5) // SS220 EDIT ADDICTION
 
 	if (pounceAction.knockdown)
 		carbon_mob.KnockDown(pounceAction.knockdown_duration)
@@ -430,7 +430,7 @@
 	if(!user)
 		deltimer(haul_timer)
 		return
-	to_chat(src, SPAN_XENOWARNING("We feel our grip loosen on [user], we will have to release them soon."))
+	to_chat(src, SPAN_XENOWARNING("Мы чувствуем, как наша хватка на хосте [user] ослабевает, нам скоро придётся отпустить его.")) // SS220 EDIT ADDICTION
 	playsound(src, 'sound/voice/alien_hiss2.ogg', 15)
 	haul_timer = addtimer(CALLBACK(src, PROC_REF(release_haul)), 10 SECONDS, TIMER_STOPPABLE)
 
@@ -439,7 +439,7 @@
 	SIGNAL_HANDLER
 	deltimer(haul_timer)
 	var/mob/living/carbon/human/user = hauled_mob?.resolve()
-	to_chat(src, SPAN_XENOWARNING("[user] is dead. No more use for them now."))
+	to_chat(src, SPAN_XENOWARNING("Хост [user] умер и больше не представляет интереса.")) // SS220 EDIT ADDICTION
 	user.handle_unhaul()
 	UnregisterSignal(user, COMSIG_MOB_DEATH)
 	UnregisterSignal(src, COMSIG_ATOM_DIR_CHANGE)
@@ -453,8 +453,8 @@
 		to_chat(src, SPAN_WARNING("We are not hauling anyone."))
 		return
 	user.handle_unhaul()
-	visible_message(SPAN_XENOWARNING("[src] releases [user] from their grip!"),
-	SPAN_XENOWARNING("We release [user] from our grip!"), null, 5)
+	visible_message(SPAN_XENOWARNING("[capitalize(declent_ru(NOMINATIVE))] выпускает [user.declent_ru(ACCUSATIVE)] из своей хватки!"), // SS220 EDIT ADDICTION
+	SPAN_XENOWARNING("Мы выпускаем [user.declent_ru(ACCUSATIVE)] из своей хватки!"), null, 5) // SS220 EDIT ADDICTION
 	playsound(src, 'sound/voice/alien_growl1.ogg', 15)
 	log_interact(src, user, "[key_name(src)] released [key_name(user)] at [get_area_name(loc)]")
 	if(stuns)
@@ -564,11 +564,11 @@
 	if(!Q || !Q.ovipositor || hive_pos == NORMAL_XENO || !Q.current_aura || !SSmapping.same_z_map(Q.loc.z, loc.z)) //We are no longer a leader, or the Queen attached to us has dropped from her ovi, disabled her pheromones or even died
 		leader_aura_strength = 0
 		leader_current_aura = ""
-		to_chat(src, SPAN_XENOWARNING("Our pheromones wane. The Queen is no longer granting us her pheromones."))
+		to_chat(src, SPAN_XENOWARNING("Действие феромонов ослабевают, похоже Королева больше не делится ими с нами."))
 	else
 		leader_aura_strength = Q.aura_strength
 		leader_current_aura = Q.current_aura
-		to_chat(src, SPAN_XENOWARNING("Our pheromones have changed. The Queen has new plans for the Hive."))
+		to_chat(src, SPAN_XENOWARNING("Действие феромонов изменились, похоже у Королевы созрел новый план для улья."))
 	hud_set_pheromone()
 
 /mob/living/carbon/xenomorph/proc/nocrit(wowave)
@@ -602,22 +602,22 @@
 	if(!istype(pulled))
 		return
 	if(isxeno(pulled) || issynth(pulled))
-		to_chat(src, SPAN_WARNING("That wouldn't serve a purpose."))
+		to_chat(src, SPAN_WARNING("Это не имеет смысла."))
 		return
 	if(pulled.buckled)
-		to_chat(src, SPAN_WARNING("[pulled] is buckled to something."))
+		to_chat(src, SPAN_WARNING("[capitalize(pulled.declent_ru(NOMINATIVE))] привязан[genderize_ru(pulled.gender, "", "а", "", "ы")] к чему-то."))
 		return
 	if(pulled.stat == DEAD && !pulled.chestburst)
-		to_chat(src, SPAN_WARNING("Ew, [pulled] is already starting to rot."))
+		to_chat(src, SPAN_WARNING("Фу, [pulled.declent_ru(NOMINATIVE)] начинает уже гнить."))
 		return
 	if(hauled_mob?.resolve()) // We can't carry more than one mob
-		to_chat(src, SPAN_WARNING("We already are carrying something, there's no way that will work."))
+		to_chat(src, SPAN_WARNING("Вы можете тащить только одну цель."))
 		return
 	if(HAS_TRAIT(pulled, TRAIT_HAULED))
-		to_chat(src, SPAN_WARNING("They are already being hauled by someone else."))
+		to_chat(src, SPAN_WARNING("Кто-то уже тащит эту цель."))
 		return
 	if(action_busy)
-		to_chat(src, SPAN_WARNING("We are already busy with something."))
+		to_chat(src, SPAN_WARNING("Мы уже заняты чем-то другим."))
 		return
 
 	var/threshold = client?.prefs?.xeno_defensive_grab_pref[caste_type]
@@ -627,13 +627,13 @@
 		return
 
 	SEND_SIGNAL(src, COMSIG_MOB_EFFECT_CLOAK_CANCEL)
-	visible_message(SPAN_DANGER("[src] starts to restrain [pulled]!"),
-	SPAN_DANGER("We start restraining [pulled]!"), null, 5)
+	visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] пытается связать [pulled.declent_ru(ACCUSATIVE)]!"),
+	SPAN_DANGER("Мы начинаем связывать [pulled.declent_ru(ACCUSATIVE)]!"), null, 5)
 	if(HAS_TRAIT(src, TRAIT_CLOAKED)) //cloaked don't show the visible message, so we gotta work around
-		to_chat(pulled, FONT_SIZE_HUGE(SPAN_DANGER("[src] is trying to restrain you!")))
+		to_chat(pulled, FONT_SIZE_HUGE(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] пытается вас связать!")))
 	if(do_after(src, 5 SECONDS, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE))
 		if((isxeno(pulled.loc) && !hauled_mob) || HAS_TRAIT(pulled, TRAIT_HAULED))
-			to_chat(src, SPAN_WARNING("Someone already took [pulled]."))
+			to_chat(src, SPAN_WARNING("Кто-то уже схватил [pulled.declent_ru(ACCUSATIVE)]."))
 			return
 		if(pulling == pulled && !pulled.buckled && (pulled.stat != DEAD || pulled.chestburst) && !hauled_mob?.resolve()) //make sure you've still got them in your claws, and alive
 			if(SEND_SIGNAL(pulled, COMSIG_MOB_HAULED, src) & COMPONENT_CANCEL_HAUL)
@@ -712,26 +712,26 @@
 /proc/get_pheromone_aura_strength(aura)
 	switch(aura)
 		if(-INFINITY to 0.9)
-			return "Very Weak"
+			return "Очень слабые"
 		if(1 to 1.9)
-			return "Weak"
+			return "Слабые"
 		if(2 to 2.9)
-			return "Moderate"
+			return "Умеренные"
 		if(3 to 3.9)
-			return "Strong"
+			return "Сильные"
 		if(4 to 4.9)
-			return "Very Strong"
+			return "Очень сильные"
 		if(4.9 to INFINITY)
-			return "Overwhelming"
+			return "Переполняющие"
 
 /mob/living/carbon/xenomorph/proc/start_tracking_resin_mark(obj/effect/alien/resin/marker/target)
 	if(!target)
-		to_chat(src, SPAN_XENONOTICE("This resin mark no longer exists!"))
+		to_chat(src, SPAN_XENONOTICE("Этой смоляной метки больше не существует!"))
 		return
 	target.xenos_tracking |= src
 	tracked_marker = target
-	to_chat(src, SPAN_XENONOTICE("We start tracking the [target.mark_meaning.name] resin mark."))
-	to_chat(src, SPAN_INFO("Shift click the compass to watch the mark, alt click to stop tracking."))
+	to_chat(src, SPAN_XENONOTICE("Мы начинаем наблюдать за смоляной меткой «[target.mark_meaning.name]».")) // SS220 EDIT ADDICTION
+	to_chat(src, SPAN_INFO("Нажмите «Shift» и кликните по компасу, чтобы наблюдать за меткой. Нажмите «Alt» и кликните по компасу, чтобы прекратить наблюдение."))
 
 /mob/living/carbon/xenomorph/proc/stop_tracking_resin_mark(destroyed, silent = FALSE) //tracked_marker shouldn't be nulled outside this PROC!! >:C
 	if(QDELETED(src))
@@ -746,9 +746,9 @@
 	if(tracked_marker)
 		if(!silent)
 			if(destroyed)
-				to_chat(src, SPAN_XENONOTICE("The [tracked_marker.mark_meaning.name] resin mark has ceased to exist."))
+				to_chat(src, SPAN_XENONOTICE("Смоляная метка «[tracked_marker.mark_meaning.name]» перестала существовать.")) // SS220 EDIT ADDICTION
 			else
-				to_chat(src, SPAN_XENONOTICE("We stop tracking the [tracked_marker.mark_meaning.name] resin mark."))
+				to_chat(src, SPAN_XENONOTICE("Мы прекращаем наблюдать за смоляной меткой «[tracked_marker.mark_meaning.name]».")) // SS220 EDIT ADDICTION
 		tracked_marker.xenos_tracking -= src
 
 	tracked_marker = null
@@ -761,11 +761,11 @@
 	var/list/xeno_hands = list(get_active_hand(), get_inactive_hand())
 
 	if(!ishuman(current_mob))
-		to_chat(src, SPAN_XENONOTICE("This is not a host."))
+		to_chat(src, SPAN_XENONOTICE("Это не хост."))
 		return
 
 	if(current_mob.stat == DEAD)
-		to_chat(src, SPAN_XENONOTICE("This host is dead."))
+		to_chat(src, SPAN_XENONOTICE("Этот хост мёртв."))
 		return
 
 	var/mob/living/carbon/human/host_to_nest = current_mob
@@ -777,13 +777,13 @@
 			break
 
 	if(!found_grab)
-		to_chat(src, SPAN_XENONOTICE("To nest the host here, a sure grip is needed to lift them up onto it!"))
+		to_chat(src, SPAN_XENONOTICE("У нас нехватает сил, чтобы поместить хоста в это место!"))
 		return
 
 	var/turf/supplier_turf = get_turf(nest_structural_base)
 	var/obj/effect/alien/weeds/supplier_weeds = locate(/obj/effect/alien/weeds) in supplier_turf
 	if(!supplier_weeds)
-		to_chat(src, SPAN_XENOBOLDNOTICE("There are no weeds here! Nesting hosts requires hive weeds."))
+		to_chat(src, SPAN_XENOBOLDNOTICE("Здесь нет травы! Для удержания хостов требуется трава вашего улья."))
 		return
 
 	if(supplier_weeds.hivenumber != hivenumber)
@@ -791,28 +791,28 @@
 		return
 
 	if(supplier_weeds.weed_strength < WEED_LEVEL_HIVE)
-		to_chat(src, SPAN_XENOBOLDNOTICE("The weeds here are not strong enough for nesting hosts."))
+		to_chat(src, SPAN_XENOBOLDNOTICE("Трава ешё слишком молода, чтобы удерживать хостов."))
 		return
 
 	if(!supplier_turf.density)
 		var/obj/structure/window/framed/framed_window = locate(/obj/structure/window/framed/) in supplier_turf
 		if(!framed_window)
-			to_chat(src, SPAN_XENOBOLDNOTICE("Hosts need a vertical surface to be nested upon!"))
+			to_chat(src, SPAN_XENOBOLDNOTICE("Для размещения хостов требуется вертикальная поверхность!"))
 			return
 
 	var/dir_to_nest = get_dir(host_to_nest, nest_structural_base)
 
 	if(!host_to_nest.Adjacent(supplier_turf))
-		to_chat(src, SPAN_XENONOTICE("The host must be directly next to the wall it's being nested on!"))
+		to_chat(src, SPAN_XENONOTICE("Размещаемый на стене хост, должен находиться непосредственно рядом с ней!"))
 		return
 
 	if(!locate(dir_to_nest) in GLOB.cardinals)
-		to_chat(src, SPAN_XENONOTICE("The host must be directly next to the wall it's being nested on!"))
+		to_chat(src, SPAN_XENONOTICE("Размещаемый на стене хост, должен находиться непосредственно рядом с ней!"))
 		return
 
 	for(var/obj/structure/bed/nest/preexisting_nest in get_turf(host_to_nest))
 		if(preexisting_nest.dir == dir_to_nest)
-			to_chat(src, SPAN_XENONOTICE("There is already a host nested here!"))
+			to_chat(src, SPAN_XENONOTICE("Это место уже занято другим хостом!"))
 			return
 
 	var/obj/structure/bed/nest/applicable_nest = new(get_turf(host_to_nest), hivenumber)

@@ -47,6 +47,11 @@
 /datum/component/seethrough_mob/proc/trick_mob()
 	SIGNAL_HANDLER
 
+	// BANDAMARINES EDIT START - XENO CUSTOMIZATIONS
+	if(SEND_SIGNAL(parent, COMSIG_SEETHROUGH_TRICK) & COMPONENT_SEETHROUGH_TRICKED)
+		return
+	// BANDAMARINES EDIT END
+
 	var/mob/fool = parent
 
 	render_source_atom.pixel_x = 0
@@ -76,9 +81,13 @@
 
 ///Remove the screen object and make us appear solid to ourselves again
 /datum/component/seethrough_mob/proc/untrick_mob()
+	// BANDAMARINES EDIT START - XENO CUSTOMIZATIONS
+	if(SEND_SIGNAL(parent, COMSIG_SEETHROUGH_UNTRICK) & COMPONENT_SEETHROUGH_UNTRICKED)
+		return
+	// BANDAMARINES EDIT END
 	var/mob/fool = parent
 	animate(trickery_image, alpha = 255, time = animation_time)
-	UnregisterSignal(fool, COMSIG_MOB_LOGOUT)
+	UnregisterSignal(fool, list(COMSIG_MOB_LOGOUT, COMSIG_MOB_GHOSTIZE)) // BANDAMARINES EDIT - XENO CUSTOMIZATIONS
 
 	//after playing the fade-in animation, remove the image and the trick atom
 	addtimer(CALLBACK(src, PROC_REF(clear_image), trickery_image, fool.client), animation_time)

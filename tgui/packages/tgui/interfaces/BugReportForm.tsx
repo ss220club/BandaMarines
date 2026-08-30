@@ -46,7 +46,7 @@ export const BugReportForm = (props) => {
 
   const submit = () => {
     if (!title || !description || !expected_behavior || !steps || !checkBox) {
-      alert('Please fill out all required fields!');
+      alert('Пожалуйста, заполните все обязательные поля!');
       return;
     }
     const updatedReportDetails = {
@@ -62,7 +62,7 @@ export const BugReportForm = (props) => {
 
   return (
     <Window
-      title={'Bug Report Form'}
+      title={'Форма отчёта об ошибке'}
       width={700}
       height={awaiting_admin_approval ? 1000 : 700}
     >
@@ -71,23 +71,23 @@ export const BugReportForm = (props) => {
           <Flex direction="column" height="100%">
             <Flex.Item className="text-center">
               <a
-                href="https://github.com/cmss13-devs/cmss13/issues"
+                href="https://github.com/ss220club/BandaMarines/issues"
                 target="_blank"
                 rel="noreferrer"
                 className="link"
               >
-                GitHub Repository
+                Репозиторий GitHub
               </a>
             </Flex.Item>
             <Flex.Item>
               <h2 className="tip">
                 {
-                  'TIP: please be as descriptive as possible, it really does help tremendously'
+                  'СОВЕТ: пожалуйста, опишите проблему как можно подробнее, это действительно очень помогает'
                 }
               </h2>
             </Flex.Item>
             <Flex.Item>
-              <InputTitle required>{'Title'}</InputTitle>
+              <InputTitle required>{'Заголовок'}</InputTitle>
               <input
                 width="100%"
                 className="textarea"
@@ -96,8 +96,8 @@ export const BugReportForm = (props) => {
               />
             </Flex.Item>
             <Flex.Item my={2}>
-              <InputTitle required>{'Description'}</InputTitle>
-              {'Give a description of the bug'}
+              <InputTitle required>{'Описание'}</InputTitle>
+              {'Опишите ошибку'}
               <textarea
                 rows={3}
                 className="textarea"
@@ -112,9 +112,9 @@ export const BugReportForm = (props) => {
             </Flex.Item>
             <Flex.Item my={2}>
               <InputTitle required>
-                {"What's the difference with what should have happened?"}
+                {'Чем отличается от ожидаемого поведения?'}
               </InputTitle>
-              {'Give a description of what you expected to happen'}
+              {'Опишите, что по вашему мнению должно было произойти'}
               <textarea
                 rows={3}
                 className="textarea"
@@ -129,11 +129,9 @@ export const BugReportForm = (props) => {
             </Flex.Item>
             <Flex.Item my={2}>
               <InputTitle required>
-                {'How do we reproduce this bug?'}
+                {'Как воспроизвести эту ошибку?'}
               </InputTitle>
-              {
-                'Give a list of steps to reproduce this issue, the more details the better'
-              }
+              {'Укажите шаги для воспроизведения, чем подробнее, тем лучше'}
               <textarea
                 rows={4}
                 className="textarea"
@@ -144,13 +142,13 @@ export const BugReportForm = (props) => {
                 }}
                 value={steps}
                 onChange={(e) => setSteps(e.target.value)}
-                placeholder={'1) Step 1\n2) Step 2\n3) Step 3\n'}
+                placeholder={'1) Шаг 1\n2) Шаг 2\n3) Шаг 3\n'}
               />
             </Flex.Item>
             {!!awaiting_admin_approval && (
               <Flex.Item my={2}>
-                <InputTitle>{'Admin note'}</InputTitle>
-                {"Any additional notes to submit with the author's bug report "}
+                <InputTitle>{'Заметка администратора'}</InputTitle>
+                {'Дополнительные примечания к отчёту об ошибке'}
                 <textarea
                   rows={4}
                   className="textarea"
@@ -165,8 +163,8 @@ export const BugReportForm = (props) => {
               </Flex.Item>
             )}
             <Flex.Item my={2}>
-              <InputTitle>{'Logs'}</InputTitle>
-              {'Please paste any relevant logs here'}
+              <InputTitle>{'Логи'}</InputTitle>
+              {'Вставьте сюда соответствующие логи'}
               <textarea
                 rows={4}
                 className="textarea"
@@ -187,8 +185,8 @@ export const BugReportForm = (props) => {
                 }}
               >
                 {awaiting_admin_approval
-                  ? 'I confirm that this bug report follows all GitHub TOS'
-                  : "I couldn't find an existing issue about this on GitHub"}
+                  ? 'Я подтверждаю, что этот отчёт соответствует правилам GitHub'
+                  : 'Мне не удалось найти существующую проблему на GitHub'}
                 {!checkBox && (
                   <span className="input-title-required">{' *'}</span>
                 )}
@@ -198,12 +196,12 @@ export const BugReportForm = (props) => {
               <Flex className="flex-center">
                 <Flex.Item mx={1}>
                   <div className="button-cancel" onClick={() => act('cancel')}>
-                    {awaiting_admin_approval ? 'Reject' : 'Cancel'}
+                    {awaiting_admin_approval ? 'Отклонить' : 'Отмена'}
                   </div>
                 </Flex.Item>
                 <Flex.Item mx={1}>
                   <div className="button-submit" onClick={submit}>
-                    {awaiting_admin_approval ? 'Approve' : 'Submit'}
+                    {awaiting_admin_approval ? 'Одобрить' : 'Отправить'}
                   </div>
                 </Flex.Item>
               </Flex>
