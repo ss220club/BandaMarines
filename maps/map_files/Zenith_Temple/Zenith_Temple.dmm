@@ -19811,19 +19811,22 @@
 	pixel_y = 14;
 	pixel_x = 9;
 	id = "admin_blast";
-	name = "Colonial Administration Lockdown"
+	name = "Colonial Administration Lockdown";
+	req_one_access_txt = "203; 207; 210"
 	},
 /obj/structure/machinery/door_control/brbutton/alt{
 	pixel_y = 14;
 	pixel_x = -21;
 	id = "corparmory";
-	name = "Corporate Dome Armory"
+	name = "Corporate Dome Armory";
+	req_one_access_txt = "203; 207; 210"
 	},
 /obj/structure/machinery/door_control/brbutton/alt{
 	id = "corp_person_outer";
 	pixel_x = -6;
 	pixel_y = 14;
-	name = "Corporate Personnel Dome Lockdown"
+	name = "Corporate Personnel Dome Lockdown";
+	req_one_access_txt = "203; 207; 210"
 	},
 /turf/open/floor/strata/fake_wood,
 /area/lazarus/corporate_dome)
