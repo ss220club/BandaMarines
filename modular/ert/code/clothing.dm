@@ -70,6 +70,7 @@
 /obj/item/clothing/suit/storage/marine/specialist/spacemarine
 	name = "Ultramarine power armor"
 	desc = "A heavy, rugged set of armor plates for when you really, really need to not die horribly. Slows you down though.\nComes with two injectors in each arm guard."
+	icon = 'modular/ert/icons/clothing/item/suits.dmi'
 	icon_state = "umpowerarmor"
 	item_icons = list(
 		WEAR_JACKET = 'modular/ert/icons/clothing/mob/suits_mob.dmi',

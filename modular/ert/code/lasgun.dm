@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/rifle/lasgun
 	name = "Imperial Lasgun"
-	desc = "For The Emperium of Mankind!"
+	desc = "For The Imperium of Mankind!"
 	icon = 'modular/ert/icons/lasgun/lasgun.dmi'
 	icon_state = "lasgun"
 	item_state = "lasgun"

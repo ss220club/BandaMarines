@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/rifle/bolter
 	name = "Bolter"
-	desc = "For The Emperium of Mankind!"
+	desc = "For The Imperium of Mankind!"
 	icon = 'modular/ert/icons/bolter/bolter.dmi'
 	icon_state = "bolter"
 	item_state = "bolter"
@@ -121,7 +121,7 @@
 	icon = 'icons/obj/items/weapons/guns/ammo_by_faction/USCM/machineguns.dmi'
 	icon_state = "m41ae2"
 	max_rounds = 300
-	gun_type = /obj/item/weapon/gun/rifle/bolter/hbolter
+	gun_type = /obj/item/weapon/gun/rifle/bolter/heavy
 	flags_magazine = AMMUNITION_CANNOT_REMOVE_BULLETS|AMMUNITION_REFILLABLE|AMMUNITION_SLAP_TRANSFER
 
 /datum/ammo/bullet/rifle/explosive/bolter
