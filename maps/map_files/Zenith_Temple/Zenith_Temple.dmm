@@ -3813,6 +3813,12 @@
 /obj/structure/surface/table/almayer{
 	color = "#d4cfcd"
 	},
+/obj/item/stack/sheet/metal{
+	amount = 50;
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/stack/sheet/plasteel/medium_stack,
 /turf/open/floor/prison/west,
 /area/lazarus/power_plant/core)
 "akE" = (
@@ -5430,7 +5436,6 @@
 /area/lazarus/ground/caves/west_caves)
 "aoM" = (
 /obj/structure/platform/stone/ancient_temple/west,
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/gm/river/soro,
 /area/strata/interior/out_of_bounds)
@@ -16955,7 +16960,6 @@
 /turf/open/floor/prison/west,
 /area/lazarus/robotics)
 "bgT" = (
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/waterfall/under_bottom/two,
 /area/strata/interior/out_of_bounds)
@@ -18490,7 +18494,6 @@
 "bZn" = (
 /obj/structure/platform/stone/ancient_temple/west,
 /obj/structure/prop/hunter/ancient_temple/large_bars/water,
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/gm/river/soro,
 /area/strata/interior/out_of_bounds)
@@ -18699,7 +18702,6 @@
 /area/lazarus/ground/ancient_temple/south/surface)
 "cfx" = (
 /obj/structure/platform/stone/ancient_temple/east,
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/gm/river/soro,
 /area/strata/interior/out_of_bounds)
@@ -20382,7 +20384,6 @@
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/ancient_temple/east/surface)
 "cYy" = (
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/waterfall/bottom/two,
 /area/strata/interior/out_of_bounds)
@@ -23784,7 +23785,6 @@
 	pixel_y = -13
 	},
 /obj/structure/platform/stone/ancient_temple/west,
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/ancient_temple/floor_grille/water,
 /area/strata/interior/out_of_bounds)
@@ -24437,7 +24437,6 @@
 "fbj" = (
 /obj/structure/platform/stone/ancient_temple/alt,
 /obj/structure/platform/stone/ancient_temple/alt/west,
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/void,
 /area/strata/interior/out_of_bounds)
@@ -25160,7 +25159,6 @@
 /obj/effect/hunter/catwalk/ancient_temple_grille{
 	layer = 4.12
 	},
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/gm/river/soro,
 /area/strata/interior/out_of_bounds)
@@ -26546,7 +26544,6 @@
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/river/north_east_temple_river)
 "ghQ" = (
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/waterfall/top/two,
 /area/strata/interior/out_of_bounds)
@@ -27166,7 +27163,6 @@
 /turf/open/floor/ancient_temple/ruined,
 /area/lazarus/ground/ancient_temple/south/surface)
 "gxz" = (
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/waterfall/bottom/one,
 /area/strata/interior/out_of_bounds)
@@ -29018,7 +29014,6 @@
 /area/lazarus/ground/barrens/north_barrens)
 "hvj" = (
 /obj/structure/platform/stone/ancient_temple/east,
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/ancient_temple/floor_grille/water,
 /area/strata/interior/out_of_bounds)
@@ -31423,7 +31418,6 @@
 /turf/open/gm/dirt/brown/variant_5/east,
 /area/lazarus/ground/colony/east_nexus_road)
 "iEV" = (
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/gm/coast/dirt/beachcorner2/north_east,
 /area/strata/interior/out_of_bounds)
@@ -31805,7 +31799,6 @@
 "iSj" = (
 /obj/structure/platform/stone/ancient_temple/alt/west,
 /obj/structure/prop/hunter/ancient_temple/large_bars/water,
-/obj/structure/blocker/forcefield/all,
 /turf/open/gm/river/soro,
 /area/strata/interior/out_of_bounds)
 "iSw" = (
@@ -31925,7 +31918,6 @@
 /turf/open/floor/prison/darkbrown3/west,
 /area/lazarus/comms)
 "iWV" = (
-/obj/structure/blocker/forcefield/all,
 /obj/structure/prop/colorable_rock/colorable{
 	color = "#ae8686";
 	dir = 1;
@@ -33276,7 +33268,6 @@
 /turf/open/floor/ancient_temple/ruined/east,
 /area/lazarus/ground/caves/west_caves)
 "jEV" = (
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/waterfall/under_bottom,
 /area/strata/interior/out_of_bounds)
@@ -34015,7 +34006,6 @@
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/ground/jungle/west_jungle)
 "jYv" = (
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/waterfall/top/one,
 /area/strata/interior/out_of_bounds)
@@ -35796,7 +35786,6 @@
 "kUW" = (
 /obj/structure/platform/stone/ancient_temple/alt,
 /obj/structure/platform/stone/ancient_temple/alt/east,
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/void,
 /area/strata/interior/out_of_bounds)
@@ -36617,7 +36606,6 @@
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/ancient_temple/east/surface)
 "lqA" = (
-/obj/structure/blocker/forcefield/all,
 /obj/structure/prop/colorable_rock/colorable{
 	color = "#ae8686";
 	dir = 6;
@@ -40226,7 +40214,6 @@
 "nde" = (
 /obj/structure/platform/stone/ancient_temple,
 /obj/structure/platform/stone/ancient_temple/east,
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/gm/river/soro,
 /area/strata/interior/out_of_bounds)
@@ -40707,7 +40694,6 @@
 "nqq" = (
 /obj/structure/platform/stone/ancient_temple/alt/north,
 /obj/structure/platform/stone/ancient_temple/alt/east,
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/ancient_temple/fake_wall_dark,
 /area/strata/interior/out_of_bounds)
@@ -40857,7 +40843,6 @@
 /turf/open/floor/prison/cell_stripe,
 /area/lazarus/ground/barrens/central_barrens)
 "ntX" = (
-/obj/structure/blocker/forcefield/all,
 /obj/structure/prop/colorable_rock/colorable{
 	color = "#ae8686";
 	dir = 8;
@@ -41571,7 +41556,6 @@
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/ground/barrens/central_barrens/ceiling)
 "nOa" = (
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/gm/river/soro,
 /area/strata/interior/out_of_bounds)
@@ -43249,7 +43233,6 @@
 /obj/structure/platform/stone/ancient_temple/east{
 	layer = 4.12
 	},
-/obj/structure/blocker/forcefield/all,
 /turf/open/gm/river/soro,
 /area/strata/interior/out_of_bounds)
 "oBH" = (
@@ -47673,7 +47656,6 @@
 /obj/structure/platform/stone/ancient_temple/west{
 	layer = 4.12
 	},
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/gm/river/soro,
 /area/strata/interior/out_of_bounds)
@@ -48059,7 +48041,6 @@
 /turf/open/floor/ancient_temple/damaged/damage_5,
 /area/lazarus/ground/ancient_temple/south)
 "reQ" = (
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/waterfall/center/two,
 /area/strata/interior/out_of_bounds)
@@ -48222,7 +48203,6 @@
 /turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/ancient_temple/south_east/surface)
 "riG" = (
-/obj/structure/blocker/forcefield/all,
 /obj/structure/prop/rock/brown{
 	dir = 5;
 	pixel_y = -13;
@@ -48632,7 +48612,6 @@
 /area/lazarus/ground/ancient_temple/east)
 "ruH" = (
 /obj/structure/platform/stone/ancient_temple/alt/east,
-/obj/structure/blocker/forcefield/all,
 /turf/open/gm/river/soro,
 /area/strata/interior/out_of_bounds)
 "ruT" = (
@@ -49018,7 +48997,6 @@
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/colony/north_tcomms_road)
 "rHB" = (
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/waterfall/center,
 /area/strata/interior/out_of_bounds)
@@ -49714,7 +49692,6 @@
 /obj/effect/hunter/catwalk/ancient_temple_grille{
 	layer = 4.12
 	},
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/gm/river/soro,
 /area/strata/interior/out_of_bounds)
@@ -50867,7 +50844,6 @@
 /turf/open/floor/ancient_temple/damaged/damage_2,
 /area/lazarus/ground/ancient_temple/south/surface)
 "sAL" = (
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/waterfall,
 /area/strata/interior/out_of_bounds)
@@ -51073,7 +51049,6 @@
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/north_east)
 "sGm" = (
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/waterfall/under_bottom/one,
 /area/strata/interior/out_of_bounds)
@@ -51115,7 +51090,6 @@
 "sHr" = (
 /obj/structure/platform/stone/ancient_temple/alt/north,
 /obj/structure/platform/stone/ancient_temple/alt/west,
-/obj/structure/blocker/forcefield/all,
 /obj/structure/prop/invuln/rope{
 	pixel_x = 16;
 	pixel_y = -6;
@@ -52429,7 +52403,6 @@
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/barrens/central_barrens)
 "tqi" = (
-/obj/structure/blocker/forcefield/all,
 /obj/structure/prop/colorable_rock/colorable{
 	color = "#ae8686";
 	dir = 9;
@@ -54992,7 +54965,6 @@
 /turf/open/floor/interior/wood_sat,
 /area/lazarus/lodge)
 "uxW" = (
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/waterfall/center/one,
 /area/strata/interior/out_of_bounds)
@@ -55176,7 +55148,6 @@
 /area/lazarus/landing_zones/lz1)
 "uBD" = (
 /obj/structure/platform/stone/ancient_temple/west,
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/ancient_temple/floor_grille/water,
 /area/strata/interior/out_of_bounds)
@@ -55354,7 +55325,6 @@
 "uGZ" = (
 /obj/structure/platform/stone/ancient_temple,
 /obj/structure/platform/stone/ancient_temple/west,
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/gm/river/soro,
 /area/strata/interior/out_of_bounds)
@@ -58656,7 +58626,6 @@
 /obj/structure/platform/stone/ancient_temple/west{
 	layer = 4.12
 	},
-/obj/structure/blocker/forcefield/all,
 /turf/open/gm/river/soro,
 /area/strata/interior/out_of_bounds)
 "wvL" = (
@@ -59174,7 +59143,6 @@
 	pixel_y = -13
 	},
 /obj/structure/platform/stone/ancient_temple/east,
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/ancient_temple/floor_grille/water,
 /area/strata/interior/out_of_bounds)
@@ -59396,7 +59364,6 @@
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/ancient_temple/north_east/surface)
 "wOr" = (
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/waterfall/bottom,
 /area/strata/interior/out_of_bounds)
@@ -59864,7 +59831,6 @@
 /obj/effect/hunter/catwalk/ancient_temple_grille{
 	layer = 4.12
 	},
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/gm/river/soro,
 /area/strata/interior/out_of_bounds)
@@ -60194,7 +60160,6 @@
 /obj/effect/hunter/catwalk/ancient_temple_grille{
 	layer = 4.12
 	},
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/gm/river/soro,
 /area/strata/interior/out_of_bounds)
@@ -60346,7 +60311,6 @@
 /obj/structure/platform/stone/ancient_temple/east{
 	layer = 4.12
 	},
-/obj/structure/blocker/forcefield/all,
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/gm/river/soro,
 /area/strata/interior/out_of_bounds)
