@@ -3247,6 +3247,10 @@
 	},
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/lazarus/ground/barrens/central_barrens/ceiling)
+"ajp" = (
+/obj/effect/landmark/queen_spawn,
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
+/area/lazarus/ground/caves/south_west_caves)
 "ajq" = (
 /obj/structure/flora/bush/ausbushes/var3/ppflowers,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
@@ -65385,7 +65389,7 @@ kec
 ajd
 kec
 kec
-kec
+ajp
 kec
 kec
 nwi
