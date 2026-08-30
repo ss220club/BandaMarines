@@ -29,17 +29,17 @@
 		/obj/item/attachable/stock/xm51,
 	)
 
-/obj/item/weapon/gun/rifle/xm51/withstock
+/obj/item/weapon/gun/rifle/xm51/lethal/withstock
 	starting_attachment_types = list(/obj/item/attachable/stock/xm50)
 
-/obj/item/weapon/gun/rifle/xm51/military
-	name = "\improper XM51 shotgun"
+/obj/item/weapon/gun/rifle/xm51/lethal/military
+	name = "\improper XM50 shotgun"
 	desc = "Magazine-fed, pump-action shotgun designed by ARMAT Battlefield Systems, also known as M1771 Cobra Max Tactical. This one is painted with a fresh coat of Humbrol 170."
 	icon_state = "xm50_military"
 	item_state = "xm50_military"
 
-/obj/item/weapon/gun/rifle/xm51/military/withstock
-	starting_attachment_types = list(/obj/item/attachable/stock/xm51/military)
+/obj/item/weapon/gun/rifle/xm51/lethal/military/withstock
+	starting_attachment_types = list(/obj/item/attachable/stock/xm50/military)
 
 /obj/item/weapon/gun/shotgun/p79s
 	name = "\improper P79S semi-automatic shotgun"

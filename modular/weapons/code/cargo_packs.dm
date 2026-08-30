@@ -2,7 +2,6 @@
 	. = ..()
 	LAZYINSERT(listed_products, list(list("R4T Scout Rifle", (1), /obj/item/storage/box/guncase/r4t_scout, VENDOR_ITEM_REGULAR)), 13)
 
-
 /datum/gear/weapon/rmr6
 	display_name = "RMR-6 revolver"
 	path = /obj/item/storage/box/fluff_gun/rmr6
