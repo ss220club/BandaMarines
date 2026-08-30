@@ -6118,6 +6118,10 @@
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/floor/ancient_temple/damaged/damage_4,
 /area/lazarus/ground/caves/west_caves)
+"aqt" = (
+/obj/effect/landmark/objective_landmark/far,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
 "aqu" = (
 /obj/structure/bed/hybrisa/prisonbed{
 	dir = 5
@@ -14292,6 +14296,7 @@
 "aMH" = (
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_2,
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_5,
+/obj/effect/landmark/objective_landmark/medium,
 /turf/open/floor/ancient_temple/damaged/damage_5,
 /area/lazarus/ground/caves/north_west_caves)
 "aMI" = (
@@ -16429,8 +16434,8 @@
 /turf/open/floor/ancient_temple/damaged/damage_5,
 /area/lazarus/ground/caves/north_west_caves)
 "aSE" = (
-/obj/effect/landmark/xeno_spawn,
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_7,
+/obj/structure/prop/hunter/ancient_temple/collapsed_wall,
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/caves/north_west_caves)
 "aSF" = (
@@ -16465,6 +16470,13 @@
 	dir = 4
 	},
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_7,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
+"aSM" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_11,
+/obj/structure/prop/hunter/ancient_temple/collapsed_wall{
+	dir = 8
+	},
 /turf/open/floor/ancient_temple/damaged/damage_5,
 /area/lazarus/ground/caves/north_west_caves)
 "aSU" = (
@@ -62869,8 +62881,8 @@ aNR
 aNR
 lSG
 lSG
-tua
-tua
+lSG
+lSG
 lSG
 lSG
 aNR
@@ -63093,8 +63105,8 @@ aNR
 lSG
 sMk
 sMk
-tua
-tua
+lSG
+lSG
 sMk
 sMk
 aNR
@@ -68016,7 +68028,7 @@ oEW
 egp
 gdk
 tua
-aSh
+aqt
 dIZ
 aSt
 aSh
@@ -69807,12 +69819,12 @@ sMk
 sMk
 oEW
 egp
-tua
-tua
-aSD
-aSh
+aSM
+aSj
 aSm
-tua
+aSx
+aSj
+aKG
 tua
 xvL
 aqE
@@ -70031,13 +70043,13 @@ sMk
 sMk
 sMk
 oEW
-egp
 tua
 tua
+aSD
+aSh
+aSm
 tua
 tua
-tua
-lSG
 xvL
 aqF
 aqx
@@ -70255,12 +70267,12 @@ sMk
 sMk
 sMk
 sMk
-oEW
-lSG
-aNR
-aNR
-aNR
-lSG
+egp
+tua
+tua
+tua
+tua
+tua
 lSG
 xvL
 aqG
