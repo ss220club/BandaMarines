@@ -3247,12 +3247,6 @@
 	},
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/lazarus/ground/barrens/central_barrens/ceiling)
-"ajp" = (
-/obj/structure/prop/hunter/ancient_temple/collapsed_wall{
-	dir = 4
-	},
-/turf/open/floor/ancient_temple/ruined/west,
-/area/strata/interior/out_of_bounds)
 "ajq" = (
 /obj/structure/flora/bush/ausbushes/var3/ppflowers,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
@@ -4130,7 +4124,9 @@
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/caves/south_west_caves)
 "all" = (
-/obj/structure/prop/hunter/ancient_temple/collapsed_wall,
+/obj/structure/prop/hunter/ancient_temple/collapsed_wall{
+	dir = 1
+	},
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/caves/south_west_caves)
 "alm" = (
@@ -5754,6 +5750,7 @@
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 5
 	},
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/caves/west_caves)
 "apw" = (
@@ -5852,7 +5849,7 @@
 	dir = 4
 	},
 /turf/open/auto_turf/lv_sand_alt/layer0,
-/area/lazarus/ground/caves/west_caves)
+/area/lazarus/ground/caves/north_west_caves)
 "apI" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble_3,
 /turf/open/auto_turf/strata_grass/layer1,
@@ -6117,10 +6114,6 @@
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/floor/ancient_temple/damaged/damage_4,
 /area/lazarus/ground/caves/west_caves)
-"aqt" = (
-/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
-/turf/open/auto_turf/strata_grass/layer1,
-/area/lazarus/ground/caves/north_west_caves)
 "aqu" = (
 /obj/structure/bed/hybrisa/prisonbed{
 	dir = 5
@@ -10386,6 +10379,10 @@
 	},
 /turf/open/floor/strata,
 /area/lazarus/research/storage)
+"aAV" = (
+/obj/effect/hunter/ancient_temple/tile_edge_corner,
+/turf/open/floor/ancient_temple/ruined/east,
+/area/lazarus/ground/caves/south_west_caves)
 "aAW" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/structure/barricade/handrail/wire,
@@ -11009,6 +11006,12 @@
 /obj/structure/platform/metal/strata/alt/north,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/colony/east_nexus_road)
+"aCK" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_7,
+/obj/effect/hunter/ancient_temple/tile_edge_corner,
+/obj/structure/prop/hunter/ancient_temple/collapsed_wall,
+/turf/open/floor/ancient_temple/damaged/damage_7,
+/area/lazarus/ground/caves/south_west_caves)
 "aCL" = (
 /obj/structure/platform/wood/north,
 /obj/structure/platform/wood/west,
@@ -11050,10 +11053,20 @@
 	},
 /turf/open/floor/strata/floor3,
 /area/lazarus/research)
+"aCU" = (
+/obj/item/prop/torch_frame/ancient{
+	pixel_y = -34;
+	anchored = 1
+	},
+/turf/open/floor/ancient_temple/floor_13,
+/area/lazarus/ground/caves/west_caves)
 "aCV" = (
 /obj/structure/pipes/standard/simple/hidden/cyan,
 /turf/open/floor/prison/brown_bright/northeast,
 /area/lazarus/main_hall)
+"aCW" = (
+/turf/open/floor/ancient_temple/damaged/damage_3,
+/area/lazarus/ground/caves/north_west_caves)
 "aCX" = (
 /obj/structure/fence/dark/overgrown,
 /turf/open/auto_turf/lv_sand/layer0,
@@ -11271,6 +11284,13 @@
 	},
 /turf/open/floor/strata/light_purple_tile,
 /area/lazarus/research)
+"aDz" = (
+/obj/structure/prop/hunter/ancient_temple/collapsed_wall{
+	dir = 1
+	},
+/obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_4,
+/turf/open/floor/ancient_temple/damaged/damage_6,
+/area/lazarus/ground/caves/north_west_caves)
 "aDA" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/structure/machinery/computer/arcade/red,
@@ -11467,6 +11487,10 @@
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
 /turf/open/floor/ancient_temple/base/dark/alt,
 /area/lazarus/ground/ancient_temple/north_east)
+"aEf" = (
+/obj/effect/hunter/ancient_temple/tile_edge_corner,
+/turf/open/floor/ancient_temple/damaged/damage_7,
+/area/lazarus/ground/caves/north_west_caves)
 "aEg" = (
 /obj/structure/surface/rack,
 /obj/item/tank/anesthetic,
@@ -11517,6 +11541,10 @@
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/north_east)
+"aEn" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_9,
+/turf/open/floor/ancient_temple/damaged/damage_4,
+/area/lazarus/ground/caves/north_west_caves)
 "aEo" = (
 /obj/structure/pipes/standard/simple/hidden/cyan{
 	dir = 5
@@ -12702,6 +12730,10 @@
 /obj/structure/flora/bush/ausbushes/ywflowers,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_east_jungle)
+"aHL" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_3,
+/turf/open/floor/ancient_temple/damaged/damage_6,
+/area/lazarus/ground/caves/north_west_caves)
 "aHM" = (
 /obj/item/reagent_container/glass/bucket/mopbucket{
 	pixel_y = 4
@@ -13662,6 +13694,11 @@
 /obj/structure/pipes/standard/simple/hidden/cyan,
 /turf/open/gm/dirt/brown/variant_5/south,
 /area/lazarus/ground/colony/central_beach)
+"aKC" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_7,
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_12,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
 "aKD" = (
 /obj/structure/flora/bush/ausbushes/var3/fernybush,
 /turf/open/gm/coast/dirt/south,
@@ -13670,6 +13707,16 @@
 /obj/structure/flora/bush/ausbushes/reedbush,
 /turf/open/gm/coast/dirt/beachcorner/south_east,
 /area/lazarus/ground/river/west_river)
+"aKF" = (
+/obj/effect/landmark/xeno_spawn,
+/obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_3,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
+"aKG" = (
+/obj/effect/landmark/xeno_spawn,
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_7,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
 "aKH" = (
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/prison/green/northeast,
@@ -14192,6 +14239,10 @@
 	},
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/ground/colony/central_beach)
+"aMx" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_2,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
 "aMy" = (
 /obj/structure/flora/bush/ausbushes/ywflowers,
 /obj/structure/flora/grass/tallgrass/jungle_alt_2/corner{
@@ -14234,6 +14285,11 @@
 	},
 /turf/open/floor/prison,
 /area/lazarus/hydroponics/vegetation)
+"aMH" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_2,
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_5,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
 "aMI" = (
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_11,
 /obj/effect/hunter/ancient_temple/deco_border{
@@ -15986,6 +16042,10 @@
 /obj/effect/landmark/crap_item,
 /turf/open/floor/almayer/silverfull,
 /area/lazarus/medbay)
+"aRg" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_5,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
 "aRh" = (
 /obj/effect/landmark/crap_item,
 /turf/open/floor/almayer/silverfull,
@@ -16242,12 +16302,58 @@
 /obj/effect/landmark/objective_landmark/medium,
 /turf/open/floor/asteroidplating,
 /area/lazarus/ground/cove)
+"aSe" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_7,
+/turf/open/floor/ancient_temple/damaged/damage_4,
+/area/lazarus/ground/caves/north_west_caves)
+"aSf" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_12,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
+"aSg" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_9,
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_2,
+/turf/open/floor/ancient_temple/damaged/damage_7,
+/area/lazarus/ground/caves/north_west_caves)
+"aSh" = (
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
+"aSi" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_10,
+/turf/open/floor/ancient_temple/damaged/damage_6,
+/area/lazarus/ground/caves/north_west_caves)
+"aSj" = (
+/obj/effect/hunter/ancient_temple/tile_edge_corner,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
+"aSk" = (
+/obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_3,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
+"aSl" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_3,
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_4,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
+"aSm" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_9,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
 "aSn" = (
 /obj/structure/barricade/handrail/wire{
 	layer = 3.5
 	},
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/jungle/east_jungle)
+"aSo" = (
+/obj/structure/prop/hunter/ancient_temple/collapsed_wall,
+/obj/effect/hunter/ancient_temple/tile_edge_corner,
+/turf/open/floor/ancient_temple/damaged/damage_4,
+/area/lazarus/ground/caves/north_west_caves)
+"aSp" = (
+/obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_4,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
 "aSq" = (
 /obj/structure/platform_decoration/wood/east,
 /obj/structure/flora/bush/ausbushes/var3/stalkybush,
@@ -16260,6 +16366,24 @@
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/ancient_temple/south)
+"aSs" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_11,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
+"aSt" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_2,
+/turf/open/floor/ancient_temple/damaged/damage_7,
+/area/lazarus/ground/caves/north_west_caves)
+"aSu" = (
+/obj/effect/hunter/ancient_temple/tile_edge_corner,
+/turf/open/floor/ancient_temple/damaged/damage_4,
+/area/lazarus/ground/caves/north_west_caves)
+"aSv" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_2,
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_5,
+/turf/open/floor/ancient_temple/damaged/damage_6,
+/area/lazarus/ground/caves/north_west_caves)
 "aSw" = (
 /obj/structure/stairs/perspective{
 	color = "#b6a38f";
@@ -16270,6 +16394,75 @@
 	},
 /turf/open/floor/ancient_temple/deco/dark/deco_alt/east,
 /area/lazarus/ground/ancient_temple/north_east)
+"aSx" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_8,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
+"aSy" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/turf/open/floor/ancient_temple/damaged/damage_3,
+/area/lazarus/ground/caves/north_west_caves)
+"aSz" = (
+/obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_4,
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_11,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
+"aSA" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_5,
+/turf/open/floor/ancient_temple/damaged/damage_6,
+/area/lazarus/ground/caves/north_west_caves)
+"aSB" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_12,
+/turf/open/floor/ancient_temple/damaged/damage_4,
+/area/lazarus/ground/caves/north_west_caves)
+"aSC" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_7,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
+"aSD" = (
+/obj/effect/landmark/xeno_spawn,
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_10,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
+"aSE" = (
+/obj/effect/landmark/xeno_spawn,
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_7,
+/turf/open/floor/ancient_temple/damaged/damage_7,
+/area/lazarus/ground/caves/north_west_caves)
+"aSF" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_2,
+/turf/open/floor/ancient_temple/damaged/damage_6,
+/area/lazarus/ground/caves/north_west_caves)
+"aSG" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_2,
+/turf/open/floor/ancient_temple/damaged/damage_4,
+/area/lazarus/ground/caves/north_west_caves)
+"aSH" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_10,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
+"aSI" = (
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_2,
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_6,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
+"aSJ" = (
+/obj/effect/landmark/xeno_spawn,
+/obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_2,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
+"aSK" = (
+/obj/effect/landmark/xeno_spawn,
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_11,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
+"aSL" = (
+/obj/structure/prop/hunter/ancient_temple/collapsed_wall{
+	dir = 4
+	},
+/obj/effect/hunter/ancient_temple/tile_edge/tile_edge_7,
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
 "aSU" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_3,
 /obj/effect/hunter/ancient_temple/deco_border/deco_border3{
@@ -41029,6 +41222,10 @@
 /area/lazarus/ground/ancient_temple/north_east)
 "nxT" = (
 /obj/effect/hunter/ancient_temple/deco_border,
+/obj/item/prop/torch_frame/ancient{
+	pixel_y = -34;
+	anchored = 1
+	},
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/caves/west_caves)
 "nxX" = (
@@ -62890,12 +63087,12 @@ aNR
 aNR
 aNR
 lSG
-lSG
-lSG
+sMk
+sMk
 tua
-lSG
-aNR
-aNR
+tua
+sMk
+sMk
 aNR
 lSG
 lSG
@@ -63112,15 +63309,15 @@ gdk
 gdk
 gdk
 gdk
-lSG
-lSG
-lSG
-lSG
-tua
-lSG
-gdk
-aNR
-aNR
+oEW
+oEW
+egp
+sMk
+sMk
+sMk
+sMk
+sMk
+sMk
 lSG
 lSG
 aNR
@@ -63335,18 +63532,18 @@ gdk
 gdk
 gdk
 gdk
-gdk
-gdk
-gdk
-gdk
-lSG
-gdk
-gdk
-gdk
-aNR
-aNR
-aNR
-lSG
+oEW
+oEW
+egp
+egp
+iQL
+sMk
+sMk
+sMk
+sMk
+sMk
+sMk
+sMk
 lSG
 aNR
 lSG
@@ -63559,18 +63756,18 @@ egp
 egp
 gdk
 gdk
-gdk
-gdk
-gdk
-gdk
-gdk
-gdk
-gdk
-lSG
-aNR
-aNR
-lSG
-lSG
+egp
+egp
+egp
+egp
+sMk
+sMk
+sMk
+sMk
+sMk
+ucQ
+sMk
+sMk
 lSG
 lSG
 lSG
@@ -63789,12 +63986,12 @@ egp
 egp
 egp
 gdk
-gdk
-lSG
-aNR
-lSG
-lSG
-lSG
+sMk
+sMk
+sMk
+sMk
+sMk
+sMk
 lSG
 lSG
 lSG
@@ -64014,10 +64211,10 @@ egp
 gdk
 gdk
 tua
-lSG
-lSG
-lSG
-aNR
+sMk
+sMk
+sMk
+sMk
 aNR
 aNR
 lSG
@@ -64239,9 +64436,9 @@ gdk
 gdk
 tua
 aNR
-lSG
-aNR
-aNR
+sMk
+sMk
+sMk
 aNR
 aNR
 aNR
@@ -64463,9 +64660,9 @@ egp
 gdk
 tua
 aNR
-aNR
-aNR
-aNR
+sMk
+sMk
+sMk
 aNR
 aNR
 aNR
@@ -64687,9 +64884,9 @@ sMk
 aqO
 tua
 aNR
-aNR
-aNR
-gdk
+sMk
+iQL
+egp
 gdk
 aNR
 aNR
@@ -64909,12 +65106,12 @@ sMk
 sMk
 sMk
 sMk
-ajp
+aym
 aNR
-aNR
-gdk
-gdk
-gdk
+sMk
+egp
+egp
+egp
 gdk
 aNR
 apl
@@ -65135,10 +65332,10 @@ sMk
 aqI
 sMk
 sMk
-hUw
+sMk
 oEW
 egp
-gdk
+oEW
 gdk
 gdk
 apn
@@ -65359,11 +65556,11 @@ tZJ
 aqK
 ucQ
 sMk
-hUw
+sMk
 egp
 oEW
-gjA
-gjA
+egp
+xuM
 gjA
 oQc
 apf
@@ -65583,11 +65780,11 @@ sMk
 sMk
 sMk
 sMk
-vFl
+oEW
 sMk
 egp
-rSw
-dZF
+wjP
+xOp
 oQc
 dZF
 amE
@@ -65807,7 +66004,7 @@ sMk
 sMk
 egp
 oEW
-aqt
+egp
 oEW
 apY
 apH
@@ -66920,11 +67117,11 @@ sMk
 sMk
 iyi
 iyi
-lSG
-aNR
-aNR
-aNR
-gdk
+tua
+aSo
+aCW
+aDz
+tua
 gdk
 aNR
 aNR
@@ -67143,13 +67340,13 @@ sMk
 sMk
 sMk
 iyi
-lSG
-lSG
-lSG
-aNR
-aNR
-aNR
-aNR
+tua
+tua
+aSp
+aSe
+aEf
+tua
+tua
 aNR
 aNR
 gdk
@@ -67366,14 +67563,14 @@ pNY
 arp
 egp
 egp
-aNR
-lSG
-aNR
-lSG
-lSG
-lSG
-lSG
-lSG
+tua
+aSE
+aSA
+aCW
+aSf
+aEn
+aCW
+tua
 aNR
 aNR
 gdk
@@ -67407,7 +67604,7 @@ aNR
 aNR
 aNR
 aNR
-aNR
+aAV
 tjC
 kec
 kec
@@ -67590,14 +67787,14 @@ sMk
 egp
 oEW
 gdk
-aNR
-aNR
-aNR
-aNR
-lSG
-lSG
-aNR
-aNR
+tua
+aSF
+aSB
+aSs
+aSg
+aHL
+alo
+tua
 aNR
 aNR
 gdk
@@ -67631,7 +67828,7 @@ aNR
 aNR
 tua
 tua
-tua
+aCK
 all
 tua
 kec
@@ -67814,14 +68011,14 @@ egp
 oEW
 egp
 gdk
-gdk
-aNR
-aNR
-aNR
-aNR
-lSG
-lSG
-aNR
+tua
+aSh
+dIZ
+aSt
+aSh
+aKC
+ayQ
+tua
 aNR
 lSG
 gdk
@@ -68037,15 +68234,15 @@ sMk
 oEW
 egp
 egp
-gdk
-lSG
-lSG
-lSG
-aNR
-aNR
-lSG
-lSG
-lSG
+tua
+hXT
+aSG
+ayS
+aSu
+aSi
+aKF
+tua
+tua
 lSG
 lSG
 gdk
@@ -68261,13 +68458,13 @@ sMk
 egp
 egp
 gdk
-gdk
-lSG
-lSG
-aNR
-aNR
-lSG
-lSG
+tua
+aSJ
+aSm
+aSC
+aSv
+aCW
+tua
 tua
 tua
 lSG
@@ -68485,13 +68682,13 @@ jJD
 oEW
 gdk
 gdk
-lSG
-lSG
-aNR
-aNR
-lSG
-lSG
-aNR
+tua
+aSh
+aSh
+ayS
+aSh
+aSh
+tua
 tua
 tua
 tua
@@ -68508,7 +68705,7 @@ dZF
 pDr
 aNR
 aNR
-tua
+hXT
 fQH
 rNS
 ant
@@ -68709,14 +68906,14 @@ egp
 oEW
 egp
 gdk
-lSG
-lSG
-aNR
-aNR
-lSG
-aNR
-aNR
-aNR
+tua
+aSK
+aSj
+aSm
+aSx
+aSj
+aKG
+tua
 xvL
 aoO
 ann
@@ -68933,14 +69130,14 @@ sMk
 egp
 egp
 gdk
-gdk
-gdk
-aNR
-aNR
-aNR
-aNR
-aNR
-lSG
+tua
+hXT
+aSH
+aSh
+aSf
+aSk
+aMx
+tua
 xvL
 aqB
 aoG
@@ -68961,7 +69158,7 @@ sjn
 tYe
 pjJ
 dzS
-eWW
+aCU
 tua
 tua
 lSG
@@ -69157,14 +69354,14 @@ sMk
 oEW
 oEW
 egp
-gdk
-gdk
-gdk
-aNR
-aNR
-aNR
-lSG
-lSG
+oEW
+aSL
+aSI
+aSf
+aSy
+aSl
+aMH
+tua
 xvL
 aqC
 ane
@@ -69382,13 +69579,13 @@ egp
 wjP
 egp
 egp
-gdk
-lSG
-aNR
-aNR
-lSG
-lSG
-aNR
+aCW
+aSH
+aSk
+aSz
+aSj
+aRg
+tua
 xvL
 aqD
 aqv
@@ -69606,13 +69803,13 @@ sMk
 sMk
 oEW
 egp
-gdk
-lSG
-lSG
-lSG
-lSG
-aNR
-aNR
+tua
+tua
+aSD
+aSh
+aSm
+tua
+tua
 xvL
 aqE
 aqw
@@ -69831,11 +70028,11 @@ sMk
 sMk
 oEW
 egp
-lSG
-lSG
-aNR
-aNR
-aNR
+tua
+tua
+tua
+tua
+tua
 lSG
 xvL
 aqF
@@ -74117,7 +74314,7 @@ gjA
 gjA
 gdk
 lSG
-lSG
+ahr
 dZF
 dZF
 dZF
@@ -74569,7 +74766,7 @@ aNR
 dZF
 dZF
 dZF
-ahr
+dZF
 lSG
 lSG
 aNR
@@ -77258,7 +77455,7 @@ aNR
 aNR
 aNR
 aNR
-ahr
+dZF
 dZF
 dZF
 dZF
