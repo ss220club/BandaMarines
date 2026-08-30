@@ -16377,6 +16377,10 @@
 /area/lazarus/ground/ancient_temple/south)
 "aSs" = (
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_11,
+/obj/effect/hunter/ancient_temple/rubble/rubble_6{
+	pixel_x = -6;
+	pixel_y = -1
+	},
 /turf/open/floor/ancient_temple/damaged/damage_5,
 /area/lazarus/ground/caves/north_west_caves)
 "aSt" = (
@@ -16476,6 +16480,44 @@
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_11,
 /obj/structure/prop/hunter/ancient_temple/collapsed_wall{
 	dir = 8
+	},
+/turf/open/floor/ancient_temple/damaged/damage_5,
+/area/lazarus/ground/caves/north_west_caves)
+"aSN" = (
+/obj/structure/prop/rock/brown{
+	pixel_x = -5;
+	pixel_y = 2
+	},
+/turf/open/auto_turf/lv_sand_alt/layer0,
+/area/lazarus/ground/caves/south_west_caves)
+"aSO" = (
+/turf/open/auto_turf/lv_sand_alt/layer0,
+/area/lazarus/ground/caves/south_west_caves)
+"aSP" = (
+/obj/structure/prop/colorable_rock/colorable{
+	color = "#ae8686";
+	dir = 6;
+	pixel_y = 17;
+	pixel_x = -17
+	},
+/turf/open/auto_turf/lv_sand_alt/layer0,
+/area/lazarus/ground/caves/south_west_caves)
+"aSQ" = (
+/obj/effect/landmark/xeno_spawn,
+/obj/effect/hunter/ancient_temple/rubble/rubble_6{
+	pixel_x = -6;
+	pixel_y = -1
+	},
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
+/area/lazarus/ground/caves/north_west_caves)
+"aSR" = (
+/obj/effect/hunter/ancient_temple/rubble/rubble_6{
+	pixel_x = -6;
+	pixel_y = -1
+	},
+/obj/effect/hunter/ancient_temple/rubble/rubble_6{
+	pixel_x = 21;
+	pixel_y = 3
 	},
 /turf/open/floor/ancient_temple/damaged/damage_5,
 /area/lazarus/ground/caves/north_west_caves)
@@ -66910,7 +66952,7 @@ sMk
 ucQ
 hUw
 sMk
-fGE
+aSQ
 egp
 cQy
 egp
@@ -68079,7 +68121,7 @@ kec
 kec
 kec
 ehM
-lSG
+aSP
 lSG
 lSG
 aNR
@@ -68527,8 +68569,8 @@ kec
 kec
 gPo
 kec
-aNR
-aNR
+aSO
+aSN
 aNR
 iAQ
 gQF
@@ -68752,7 +68794,7 @@ pdM
 kzz
 unU
 oKo
-aNR
+aSO
 aNR
 aNR
 upU
@@ -69149,7 +69191,7 @@ gdk
 tua
 hXT
 aSH
-aSh
+aSR
 aSf
 aSk
 aMx
@@ -71431,7 +71473,7 @@ tfD
 kec
 byN
 kec
-aNR
+kec
 kec
 aNR
 kec
@@ -73680,7 +73722,7 @@ gdk
 bgo
 vKb
 tfD
-aNR
+kec
 kec
 kec
 kec
