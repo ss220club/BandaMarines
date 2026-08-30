@@ -68,6 +68,11 @@
 		var/mob/hologram/hologram_mob = subject_mob
 		subject_mob = hologram_mob.linked_mob
 
+	//SS220 EDIT START
+	if(!subject_mob.hud_used)
+		return
+	//SS220 EDIT END
+
 	var/atom/movable/screen/plane_master/roof/roof_plane = subject_mob.hud_used?.plane_masters["[ROOF_PLANE]"]
 	roof_plane?.invisibility = INVISIBILITY_MAXIMUM
 	if(ishuman(subject))
@@ -92,6 +97,11 @@
 	if(istype(subject, /mob/hologram))
 		var/mob/hologram/hologram_mob = subject
 		subject = hologram_mob.linked_mob
+
+	//SS220 EDIT START
+	if(!subject.hud_used)
+		return
+	//SS220 EDIT END
 
 	var/atom/movable/screen/plane_master/roof/roof_plane = subject.hud_used?.plane_masters["[ROOF_PLANE]"]
 	roof_plane?.invisibility = 0
