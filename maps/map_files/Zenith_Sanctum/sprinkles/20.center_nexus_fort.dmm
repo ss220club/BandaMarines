@@ -982,9 +982,6 @@
 	pixel_y = 11
 	},
 /obj/effect/decal/hybrisa/dirt,
-/obj/structure/flora/pottedplant{
-	icon_state = "pottedplant_29"
-	},
 /turf/open/floor/prison/west,
 /area/template_noop)
 "Kt" = (
@@ -1037,6 +1034,9 @@
 /obj/item/ammo_casing,
 /obj/item/ammo_casing,
 /obj/item/ammo_casing,
+/obj/structure/flora/pottedplant{
+	icon_state = "pottedplant_29"
+	},
 /turf/open/floor/prison/west,
 /area/template_noop)
 "LU" = (
