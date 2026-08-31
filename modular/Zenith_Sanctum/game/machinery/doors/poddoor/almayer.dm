@@ -1,4 +1,5 @@
 /obj/structure/machinery/door/poddoor/almayer/grey
+	icon = 'modular/zenith_sanctum/icons/obj/structures/doors/blastdoors_shutters.dmi'
 	icon_state ="grey_pdoor1"
 	base_icon_state = "grey_pdoor"
 
@@ -27,6 +28,7 @@
 	opacity = TRUE
 
 /obj/structure/machinery/door/poddoor/almayer/white
+	icon = 'modular/zenith_sanctum/icons/obj/structures/doors/blastdoors_shutters.dmi'
 	icon_state ="white_pdoor1"
 	base_icon_state = "white_pdoor"
 

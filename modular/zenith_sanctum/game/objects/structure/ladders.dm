@@ -2,7 +2,7 @@
 
 /obj/structure/prop/ladder_props
 	name = "ladder"
-	icon = 'icons/obj/structures/ladders.dmi'
+	icon = 'modular/zenith_sanctum/icons/obj/structures/ladders.dmi'
 	desc = "A sturdy metal ladder."
 	icon_state = "alt_ladder2"
 	density = FALSE

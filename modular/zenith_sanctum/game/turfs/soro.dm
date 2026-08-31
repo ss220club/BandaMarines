@@ -27,3 +27,6 @@
 
 /turf/open/floor/brown_dirt/random_rocks_alt/burn_tile()
 	return
+
+/turf/open/gm/river/soro/no_overlay
+	no_overlay = TRUE

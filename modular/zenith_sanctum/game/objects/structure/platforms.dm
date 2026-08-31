@@ -84,3 +84,15 @@
 	dir = SOUTHEAST
 /obj/structure/platform_decoration/wood/southwest
 	dir = SOUTHWEST
+
+/obj/structure/platform/stone/ancient_temple/already_broken
+
+/obj/structure/platform/stone/ancient_temple/already_broken/Initialize()
+	. = ..()
+	broken()
+
+/obj/structure/platform/stone/ancient_temple/alt/already_broken
+
+/obj/structure/platform/stone/ancient_temple/alt/already_broken/Initialize()
+	. = ..()
+	broken()

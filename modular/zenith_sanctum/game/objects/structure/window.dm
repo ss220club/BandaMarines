@@ -1,73 +1,89 @@
 /obj/structure/window/colorable
+	icon = 'modular/zenith_sanctum/icons/turf/walls/windows.dmi'
 	icon_state = "colorable_window"
 	basestate = "colorable_window"
 
 /obj/structure/window/reinforced/colorable
+	icon = 'modular/zenith_sanctum/icons/turf/walls/windows.dmi'
 	icon_state = "colorable_rwindow"
 	basestate = "colorable_rwindow"
 
 /obj/structure/window/reinforced/toughened/colorable
+	icon = 'modular/zenith_sanctum/icons/turf/walls/windows.dmi'
 	icon_state = "colorable_rwindow"
 	basestate = "colorable_rwindow"
 
 /obj/structure/window/reinforced/tinted/colorable
+	icon = 'modular/zenith_sanctum/icons/turf/walls/windows.dmi'
 	icon_state = "colorable_twindow"
 	basestate = "colorable_twindow"
 
 /obj/structure/window/reinforced/tinted/frosted/colorable
+	icon = 'modular/zenith_sanctum/icons/turf/walls/windows.dmi'
 	icon_state = "colorable_fwindow"
 	basestate = "colorable_fwindow"
 
 /obj/structure/window/reinforced/ultra/colorable
+	icon = 'modular/zenith_sanctum/icons/turf/walls/windows.dmi'
 	icon_state = "colorable_fwindow"
 	basestate = "colorable_fwindow"
 
 /obj/structure/window/framed/wood/plain
+	icon = 'modular/zenith_sanctum/icons/turf/walls/windows.dmi'
 	icon_state = "wood_plain_window0"
 	basestate = "wood_plain_window"
 	window_frame = /obj/structure/window_frame/wood/plain
 
 /obj/structure/window/framed/wood/reinforced/plain
+	icon = 'modular/zenith_sanctum/icons/turf/walls/windows.dmi'
 	icon_state = "wood_plain_rwindow0"
 	basestate = "wood_plain_rwindow"
 	window_frame = /obj/structure/window_frame/wood/plain
 
 /obj/structure/window/framed/wood/blue
+	icon = 'modular/zenith_sanctum/icons/turf/walls/windows.dmi'
 	icon_state = "wood_blue_window0"
 	basestate = "wood_blue_window"
 	window_frame = /obj/structure/window_frame/wood/blue
 
 /obj/structure/window/framed/wood/reinforced/blue
+	icon = 'modular/zenith_sanctum/icons/turf/walls/windows.dmi'
 	icon_state = "wood_blue_rwindow0"
 	basestate = "wood_blue_rwindow"
 	window_frame = /obj/structure/window_frame/wood/blue
 
 /obj/structure/window/framed/wood/green
+	icon = 'modular/zenith_sanctum/icons/turf/walls/windows.dmi'
 	icon_state = "wood_green_window0"
 	basestate = "wood_green_window"
 	window_frame = /obj/structure/window_frame/wood/green
 
 /obj/structure/window/framed/wood/reinforced/green
+	icon = 'modular/zenith_sanctum/icons/turf/walls/windows.dmi'
 	icon_state = "wood_green_rwindow0"
 	basestate = "wood_green_rwindow"
 	window_frame = /obj/structure/window_frame/wood/green
 
 /obj/structure/window/framed/wood/purple
+	icon = 'modular/zenith_sanctum/icons/turf/walls/windows.dmi'
 	icon_state = "wood_purple_window0"
 	basestate = "wood_purple_window"
 	window_frame = /obj/structure/window_frame/wood/purple
 
 /obj/structure/window/framed/wood/reinforced/purple
+	icon = 'modular/zenith_sanctum/icons/turf/walls/windows.dmi'
 	icon_state = "wood_purple_rwindow0"
 	basestate = "wood_purple_rwindow"
 	window_frame = /obj/structure/window_frame/wood/purple
 
 /obj/structure/window/framed/wood/teal
+	icon = 'modular/zenith_sanctum/icons/turf/walls/windows.dmi'
 	icon_state = "wood_teal_window0"
 	basestate = "wood_teal_window"
 	window_frame = /obj/structure/window_frame/wood/teal
 
 /obj/structure/window/framed/wood/reinforced/teal
+	icon = 'modular/zenith_sanctum/icons/turf/walls/windows.dmi'
 	icon_state = "wood_teal_rwindow0"
 	basestate = "wood_teal_rwindow"
 	window_frame = /obj/structure/window_frame/wood/teal

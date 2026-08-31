@@ -1,4 +1,5 @@
 /obj/structure/closet/secure_closet/marshal/alt
+	icon = 'modular/zenith_sanctum/icons/obj/structures/closet.dmi'
 	icon_state = "secure_alt_locked_warrant"
 	icon_closed = "secure_alt_unlocked_warrant"
 	icon_locked = "secure_alt_locked_warrant"
@@ -7,6 +8,7 @@
 	icon_off = "secure_alt_closed_warrant"
 
 /obj/structure/closet/secure_closet/wy/goon
+	icon = 'modular/zenith_sanctum/icons/obj/structures/closet.dmi'
 	icon_state = "secure_alt2_locked_warrant"
 	icon_closed = "secure_alt2_unlocked_warrant"
 	icon_locked = "secure_alt2_locked_warrant"

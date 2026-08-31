@@ -1,150 +1,132 @@
 /turf/open/floor/prison/trim/white
+	icon = 'modular/zenith_sanctum/icons/turf/floors/prison.dmi'
 	icon_state = "white2"
 
 /turf/open/floor/prison/white2
+	icon = 'modular/zenith_sanctum/icons/turf/floors/prison.dmi'
 	icon_state = "white2"
 
 /turf/open/floor/prison/white2/southwest
 	dir = SOUTHWEST
 
 /turf/open/floor/prison/whitecorners2
+	icon = 'modular/zenith_sanctum/icons/turf/floors/prison.dmi'
 	icon_state = "whitecorners2"
 
 /turf/open/floor/prison/whitecorners2/southwest
 	dir = SOUTHWEST
 
 /turf/open/floor/prison/whitefull2
+	icon = 'modular/zenith_sanctum/icons/turf/floors/prison.dmi'
 	icon_state = "whitefull2"
 
 /turf/open/floor/prison/whitefull2/southwest
 	dir = SOUTHWEST
 
 /turf/open/floor/prison/kitchen/alt
+	icon = 'modular/zenith_sanctum/icons/turf/floors/prison.dmi'
 	icon_state = "kitchen_alt"
 
 /turf/open/floor/prison/brown
+	icon = 'modular/zenith_sanctum/icons/turf/floors/prison.dmi'
 	icon_state = "brown"
 
 /turf/open/floor/prison/brown/north
-	icon_state = "brown"
 	dir = NORTH
 
 /turf/open/floor/prison/brown/east
-	icon_state = "brown"
 	dir = EAST
 
 /turf/open/floor/prison/brown/west
-	icon_state = "brown"
 	dir = WEST
 
 /turf/open/floor/prison/brown/northeast
-	icon_state = "brown"
 	dir = NORTHEAST
 
 /turf/open/floor/prison/brown/northwest
-	icon_state = "brown"
 	dir = NORTHWEST
 
 /turf/open/floor/prison/brown/southeast
-	icon_state = "brown"
 	dir = SOUTHEAST
 
 /turf/open/floor/prison/brown/southwest
-	icon_state = "brown"
 	dir = SOUTHWEST
 
 /turf/open/floor/prison/brown/angled
 	icon_state = "brown_angled"
 
 /turf/open/floor/prison/brown/angled/north
-	icon_state = "brown_angled"
 	dir = NORTH
 
 /turf/open/floor/prison/brown/angled/east
-	icon_state = "brown_angled"
 	dir = EAST
 
 /turf/open/floor/prison/brown/angled/west
-	icon_state = "brown_angled"
 	dir = WEST
 
 /turf/open/floor/prison/brown/corner
 	icon_state = "brown_corner"
 
 /turf/open/floor/prison/brown/corner/north
-	icon_state = "brown_corner"
 	dir = NORTH
 
 /turf/open/floor/prison/brown/corner/east
-	icon_state = "brown_corner"
 	dir = EAST
 
 /turf/open/floor/prison/brown/corner/west
-	icon_state = "brown_corner"
 	dir = WEST
 
 /turf/open/floor/prison/brown_bright
+	icon = 'modular/zenith_sanctum/icons/turf/floors/prison.dmi'
 	icon_state = "brown_bright"
 
 /turf/open/floor/prison/brown_bright/north
-	icon_state = "brown_bright"
 	dir = NORTH
 
 /turf/open/floor/prison/brown_bright/east
-	icon_state = "brown_bright"
 	dir = EAST
 
 /turf/open/floor/prison/brown_bright/west
-	icon_state = "brown_bright"
 	dir = WEST
 
 /turf/open/floor/prison/brown_bright/northeast
-	icon_state = "brown_bright"
 	dir = NORTHEAST
 
 /turf/open/floor/prison/brown_bright/northwest
-	icon_state = "brown_bright"
 	dir = NORTHWEST
 
 /turf/open/floor/prison/brown_bright/southeast
-	icon_state = "brown_bright"
 	dir = SOUTHEAST
 
 /turf/open/floor/prison/brown_bright/southwest
-	icon_state = "brown_bright"
 	dir = SOUTHWEST
 
 /turf/open/floor/prison/brown_bright/angled
 	icon_state = "brown_bright_angled"
 
 /turf/open/floor/prison/brown_bright/angled/north
-	icon_state = "brown_bright_angled"
 	dir = NORTH
 
 /turf/open/floor/prison/brown_bright/angled/east
-	icon_state = "brown_bright_angled"
 	dir = EAST
 
 /turf/open/floor/prison/brown_bright/angled/west
-	icon_state = "brown_bright_angled"
 	dir = WEST
 
 /turf/open/floor/prison/brown_bright/corner
 	icon_state = "brown_bright_corner"
 
 /turf/open/floor/prison/brown_bright/corner/north
-	icon_state = "brown_bright_corner"
 	dir = NORTH
 
 /turf/open/floor/prison/brown_bright/corner/east
-	icon_state = "brown_bright_corner"
 	dir = EAST
 
 /turf/open/floor/prison/brown_bright/corner/west
-	icon_state = "brown_bright_corner"
 	dir = WEST
 
 /turf/open/floor/prison/floor_plate_alt
+	icon = 'modular/zenith_sanctum/icons/turf/floors/prison.dmi'
 	icon_state = "floor_plate_alt"
 
 /turf/open/floor/prison/floor_plate_alt/east
@@ -157,6 +139,7 @@
 	dir = WEST
 
 /turf/open/floor/prison/cell_stripe_alt
+	icon = 'modular/zenith_sanctum/icons/turf/floors/prison.dmi'
 	icon_state = "cell_stripe_alt"
 
 /turf/open/floor/prison/cell_stripe_alt/north
@@ -196,31 +179,40 @@
 	dir = NORTHWEST
 
 /turf/open/floor/interior/wood/alt2
+	icon = 'modular/zenith_sanctum/icons/turf/floors/interior.dmi'
 	icon_state = "oldwood3"
 
 /turf/open/floor/interior/wood/damage
+	icon = 'modular/zenith_sanctum/icons/turf/floors/interior.dmi'
 	icon_state = "oldwood-broken"
 
 /turf/open/floor/interior/wood/damage_1
+	icon = 'modular/zenith_sanctum/icons/turf/floors/interior.dmi'
 	icon_state = "oldwood-broken2"
 
 /turf/open/floor/interior/wood/damage_2
+	icon = 'modular/zenith_sanctum/icons/turf/floors/interior.dmi'
 	icon_state = "oldwood-broken3"
 
 /turf/open/floor/interior/wood/damage_3
+	icon = 'modular/zenith_sanctum/icons/turf/floors/interior.dmi'
 	icon_state = "oldwood-broken4"
 
 /turf/open/floor/interior/wood/damage_4
+	icon = 'modular/zenith_sanctum/icons/turf/floors/interior.dmi'
 	icon_state = "oldwood-broken5"
 
 /turf/open/floor/interior/wood/damage_5
+	icon = 'modular/zenith_sanctum/icons/turf/floors/interior.dmi'
 	icon_state = "oldwood-broken6"
 
 /turf/open/floor/interior/wood/damage_6
+	icon = 'modular/zenith_sanctum/icons/turf/floors/interior.dmi'
 	icon_state = "oldwood-broken7"
 
 /turf/open/floor/interior/wood_sat
 	name = "wooden floor"
+	icon = 'modular/zenith_sanctum/icons/turf/floors/interior.dmi'
 	icon_state = "wood"
 	tile_type = /obj/item/stack/tile/wood
 	turf_flags = NO_FLAGS // platingdmg && panelscorched icon_state does not exist in this icon
@@ -254,6 +246,7 @@
 
 /turf/open/floor/interior/plastic/blue
 	name = "plastic floor"
+	icon = 'modular/zenith_sanctum/icons/turf/floors/interior.dmi'
 	icon_state = "plasticfloor3"
 
 /turf/open/floor/interior/plastic/blue/alt
@@ -261,6 +254,7 @@
 
 /turf/open/floor/interior/plastic/grey
 	name = "plastic floor"
+	icon = 'modular/zenith_sanctum/icons/turf/floors/interior.dmi'
 	icon_state = "plasticfloor5"
 
 /turf/open/floor/interior/plastic/grey/alt
@@ -268,6 +262,7 @@
 
 /turf/open/floor/interior/plastic/purple
 	name = "plastic floor"
+	icon = 'modular/zenith_sanctum/icons/turf/floors/interior.dmi'
 	icon_state = "plasticfloor7"
 
 /turf/open/floor/interior/plastic/purple/alt
@@ -276,6 +271,7 @@
 /turf/open/floor/interior/sun_emblem
 	name = "Sun Emblem"
 	desc = "Here sits a golden emblem of the sun, meant to praise the sky in it's benevolence."
+	icon = 'modular/zenith_sanctum/icons/turf/floors/interior.dmi'
 	icon_state = "sun_emblem"
 
 /turf/open/floor/interior/sun_emblem/center

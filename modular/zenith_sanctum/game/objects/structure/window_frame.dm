@@ -1,20 +1,25 @@
 /obj/structure/window_frame/wood/plain
+	icon = 'modular/zenith_sanctum/icons/turf/walls/window_frames.dmi'
 	icon_state = "wood_plain_window0_frame"
 	basestate = "wood_plain_window"
 
 /obj/structure/window_frame/wood/blue
+	icon = 'modular/zenith_sanctum/icons/turf/walls/window_frames.dmi'
 	icon_state = "wood_blue_window0_frame"
 	basestate = "wood_blue_window"
 
 /obj/structure/window_frame/wood/green
+	icon = 'modular/zenith_sanctum/icons/turf/walls/window_frames.dmi'
 	icon_state = "wood_green_window0_frame"
 	basestate = "wood_green_window"
 
 /obj/structure/window_frame/wood/purple
+	icon = 'modular/zenith_sanctum/icons/turf/walls/window_frames.dmi'
 	icon_state = "wood_purple_window0_frame"
 	basestate = "wood_purple_window"
 
 /obj/structure/window_frame/wood/teal
+	icon = 'modular/zenith_sanctum/icons/turf/walls/window_frames.dmi'
 	icon_state = "wood_teal_window0_frame"
 	basestate = "wood_teal_window"
 

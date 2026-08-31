@@ -1,4 +1,5 @@
 /obj/structure/closet/secure_closet/guncabinet/alt
+	icon = 'modular/zenith_sanctum/icons/obj/structures/props/furniture/misc.dmi'
 	icon_state = "base_alt"
 	icon_off ="base_alt"
 	icon_broken ="base_alt"

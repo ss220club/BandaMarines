@@ -1,4 +1,5 @@
 /obj/structure/machinery/door/window/colorable
+	icon = 'modular/zenith_sanctum/icons/obj/structures/doors/windoor.dmi'
 	icon_state = "colorable_left"
 	base_state = "colorable_left"
 
