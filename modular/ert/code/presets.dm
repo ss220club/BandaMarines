@@ -10,7 +10,7 @@
 	languages = list(LANGUAGE_ENGLISH)
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 	idtype = /obj/item/card/id/dogtag
-	paygrades = list(PAY_SHORT_ME5 = JOB_PLAYTIME_TIER_0)
+	paygrades = list(PAY_SHORT_ME1 = JOB_PLAYTIME_TIER_0)
 
 	utility_under = list(/obj/item/clothing/under/marine)
 	utility_hat = list(/obj/item/clothing/head/cmcap)
@@ -96,7 +96,7 @@
 /datum/equipment_preset/imperial_guard/standard
 	name = "Imperial Guard - Trooper"
 	assignment = "Imperial Guard Soldier"
-	job_title = JOB_SQUAD_MARINE
+	job_title = "Гвардеец"
 	role_comm_title = "Grd"
 
 /datum/equipment_preset/imperial_guard/standard/load_gear(mob/living/carbon/human/new_human)
@@ -128,15 +128,17 @@
 
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine/imperial_guard(new_human), WEAR_HEAD)
 
-	spawn_weapon(/obj/item/weapon/gun/rifle/lasgun, /obj/item/ammo_magazine/rifle/lasgun/extended, new_human, 0, 3)
-	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lasgun/extended, WEAR_IN_BACK)
+	spawn_weapon(/obj/item/weapon/gun/rifle/lasgun, /obj/item/ammo_magazine/rifle/lasgun, new_human, 0, 3)
+	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lasgun/extended, WEAR_IN_BELT)
+	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lasgun/extended, WEAR_IN_BELT)
 
 	// spawn_random_headgear(new_human)
 	//add_imperial_weapon(new_human)
 
 /datum/equipment_preset/imperial_guard/techpriest
 	name = "Imperial Guard - Techpriest"
-	assignment = JOB_FORECON_RIFLEMAN
+	assignment = "Imperial Guard Techpriest"
+	paygrades = list("Техножрец")
 	job_title = JOB_SQUAD_ENGI
 	skills = /datum/skills/mercenary/elite/engineer //change
 	role_comm_title = "TechPriest"
@@ -157,6 +159,10 @@
 
 	new_human.equip_to_slot_or_del(new /obj/item/storage/pouch/firstaid/ert(new_human), WEAR_L_STORE)
 
+	new_human.equip_to_slot_or_del(new /obj/item/storage/pouch/magazine/large/black(new_human), WEAR_R_STORE)
+
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/glasses/night/medhud(new_human), WEAR_EYES)
+
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine/imperial_guard/techpriest(new_human), WEAR_HEAD)
 
 	new_human.equip_to_slot_or_del(new /obj/item/storage/belt/medical/lifesaver/full/dutch, WEAR_WAIST)
@@ -174,6 +180,7 @@
 /datum/equipment_preset/imperial_guard/commissar
 	name = "Imperial Guard - Commissar"
 	assignment = "Imperial Guard Commissar"
+	paygrades = list("Коммисар" = JOB_PLAYTIME_TIER_0)
 	job_title = JOB_SQUAD_LEADER
 	role_comm_title = "Commissar"
 	skills = /datum/skills/mercenary/elite/leader //change
@@ -213,10 +220,13 @@
 
 	spawn_weapon(/obj/item/weapon/gun/rifle/bolter/pistol, /obj/item/ammo_magazine/rifle/bolter, new_human, 0, 3)
 
+	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/bolter, WEAR_IN_BELT)
+
 //Spacemarines
 /datum/equipment_preset/imperial_guard/spacemarine
 	name = "Ultramarine - Standart Marine"
 	assignment = "Ultramarine Rifleman"
+	paygrades = list("Брат" = JOB_PLAYTIME_TIER_0)
 	job_title = JOB_SQUAD_MARINE
 	role_comm_title = "UltRfr"
 	minimap_icon = ""
@@ -250,6 +260,7 @@
 /datum/equipment_preset/imperial_guard/spacemarine/leader
 	name = "Ultramarine - Squad Sergeant"
 	assignment = "Ultramarine Squad Sergeant"
+	paygrades = list("Брат-Сержант" = JOB_PLAYTIME_TIER_0)
 	job_title = JOB_SQUAD_LEADER
 	role_comm_title = "UltSgt"
 	minimap_icon = ""
@@ -380,6 +391,7 @@
 	mob_max = 25
 	probability = 0
 	max_smartgunners = 0
+	max_engineers = 1
 
 /datum/emergency_call/imperial_guard/spacemarines
 	name = "Spacemarines (Deathsquad)"
@@ -472,11 +484,4 @@
 	idtype = /obj/item/card/id/dogtag
 
 /datum/equipment_preset/fun/necoarc/load_gear(mob/living/carbon/human/new_human)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/marine(new_human), WEAR_BODY)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/marine(new_human), WEAR_JACKET)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine(new_human), WEAR_HEAD)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/marine/monkey(new_human), WEAR_FEET)
-	new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/m41a(new_human), WEAR_BACK)
-	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/heap(new_human), WEAR_IN_JACKET)
-	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle(new_human), WEAR_IN_JACKET)
-	new_human.equip_to_slot_or_del(new /obj/item/explosive/grenade/high_explosive(new_human), WEAR_IN_JACKET)
+	new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/m41a/elite/xm40(new_human), WEAR_BACK)

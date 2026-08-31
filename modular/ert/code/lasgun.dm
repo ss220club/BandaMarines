@@ -60,16 +60,16 @@
 
 /obj/item/weapon/gun/rifle/lasgun/set_gun_config_values()
 	..()
-	set_fire_delay(FIRE_DELAY_TIER_10 + FIRE_DELAY_TIER_12/4)
+	set_fire_delay(FIRE_DELAY_TIER_10)
 	set_burst_amount(BURST_AMOUNT_TIER_3)
-	set_burst_delay(FIRE_DELAY_TIER_10 + FIRE_DELAY_TIER_12/4)
+	set_burst_delay(FIRE_DELAY_TIER_SMG + FIRE_DELAY_TIER_12/4)
 	accuracy_mult = BASE_ACCURACY_MULT + HIT_ACCURACY_MULT_TIER_10
 	accuracy_mult_unwielded = BASE_ACCURACY_MULT - HIT_ACCURACY_MULT_TIER_7
 	scatter = SCATTER_AMOUNT_TIER_9
 	burst_scatter_mult = SCATTER_AMOUNT_TIER_10
 	scatter_unwielded = SCATTER_AMOUNT_TIER_2
 	damage_mult = BASE_BULLET_DAMAGE_MULT + BULLET_DAMAGE_MULT_TIER_5
-	recoil = RECOIL_AMOUNT_TIER_5 + RECOIL_AMOUNT_TIER_5/10
+	recoil = RECOIL_AMOUNT_TIER_5 + RECOIL_AMOUNT_TIER_5/5
 	recoil_unwielded = RECOIL_AMOUNT_TIER_2
 	damage_falloff_mult = 0
 	fa_max_scatter = SCATTER_AMOUNT_TIER_5
@@ -105,7 +105,7 @@
 	icon = 'modular/ert/icons/projectiles2.dmi'
 	icon_state = "lasbolt"
 	flags_ammo_behavior = AMMO_ENERGY
-	damage = 40
+	damage = 25
 	accurate_range = 5
 	effective_range_max = 7
 	max_range = 10

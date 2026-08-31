@@ -281,6 +281,7 @@
 	armor_internaldamage = CLOTHING_ARMOR_HIGH
 	armor_energy = CLOTHING_ARMOR_HIGH
 	eye_protection = EYE_PROTECTION_WELDING
+	built_in_visors = list(new /obj/item/device/helmet_visor/leader, new /obj/item/device/helmet_visor/medical/advanced)
 
 /obj/item/clothing/head/helmet/marine/imperial_guard/spacemarine/cap
 	name = "Ultramarine Captain power armor helmet"
