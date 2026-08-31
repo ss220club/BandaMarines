@@ -159,7 +159,9 @@
 
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine/imperial_guard/techpriest(new_human), WEAR_HEAD)
 
-	new_human.equip_to_slot_or_del(new /obj/item/storage/belt/medical/lifesaver/dutch, WEAR_WAIST)
+	new_human.equip_to_slot_or_del(new /obj/item/storage/belt/medical/lifesaver/full/dutch, WEAR_WAIST)
+
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/techpriest, WEAR_FACE)
 
 	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/engineerpack/ert, WEAR_BACK)
 	new_human.equip_to_slot_or_del(new /obj/item/explosive/plastic/breaching_charge, WEAR_IN_BACK)
@@ -260,6 +262,8 @@
 
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/marine/specialist/spacemarine/cap(new_human), WEAR_JACKET)
 
+	new_human.equip_to_slot_or_del(new /obj/item/storage/belt/marine, WEAR_WAIST)
+
 	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/spacemarine(new_human), WEAR_BACK)
 
 	new_human.equip_to_slot_or_del(new /obj/item/storage/pouch/firstaid/ert(new_human), WEAR_R_STORE)
@@ -291,6 +295,8 @@
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/storage/webbing, WEAR_ACCESSORY)
 
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/marine/specialist/spacemarine(new_human), WEAR_JACKET)
+
+	new_human.equip_to_slot_or_del(new /obj/item/storage/belt/marine, WEAR_WAIST)
 
 	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/spacemarine(new_human), WEAR_BACK)
 
@@ -453,7 +459,7 @@
 	arm_equipment(H, /datum/equipment_preset/fun/necoarc, FALSE, TRUE)
 
 /datum/equipment_preset/fun/necoarc/load_race(mob/living/carbon/human/new_human, client/mob_client)
-	new_human.set_species(/datum/species/monkey/necoarc)
+	new_human.set_species("Necoarc")
 
 /datum/equipment_preset/fun/necoarc
 	name = "Fun - Necoarc Marine"

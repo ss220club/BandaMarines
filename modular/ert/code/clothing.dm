@@ -215,8 +215,8 @@
 /obj/item/clothing/gloves/marine/veteran/techpriest
 	name = "techpriest gloves"
 	desc = "Praise be Omnissiah."
-	icon_state = "techpriest"
-	item_state = "techpriest"
+	icon_state = "combat_gloves"
+	item_state = "combat_gloves"
 	icon = 'modular/ert/icons/clothing/item/gloves.dmi'
 	item_icons = list(
 		WEAR_HANDS = 'modular/ert/icons/clothing/mob/gloves_mob.dmi'
@@ -246,7 +246,7 @@
 	armor_rad = CLOTHING_ARMOR_HIGH
 	armor_internaldamage = CLOTHING_ARMOR_HIGH
 	armor_energy = CLOTHING_ARMOR_HIGH
-	storage_slots = 0
+	storage_slots = 3
 	flags_inventory = BLOCKSHARPOBJ|BLOCK_KNOCKDOWN
 	flags_armor_protection = BODY_FLAG_CHEST|BODY_FLAG_GROIN|BODY_FLAG_ARMS|BODY_FLAG_LEGS|BODY_FLAG_FEET
 	flags_cold_protection = BODY_FLAG_CHEST|BODY_FLAG_GROIN|BODY_FLAG_ARMS|BODY_FLAG_LEGS|BODY_FLAG_FEET
