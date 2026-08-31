@@ -180,7 +180,7 @@
 /datum/equipment_preset/imperial_guard/commissar
 	name = "Imperial Guard - Commissar"
 	assignment = "Imperial Guard Commissar"
-	paygrades = list("Коммисар" = JOB_PLAYTIME_TIER_0)
+	paygrades = list("Комиссар" = JOB_PLAYTIME_TIER_0)
 	job_title = JOB_SQUAD_LEADER
 	role_comm_title = "Commissar"
 	skills = /datum/skills/mercenary/elite/leader //change
