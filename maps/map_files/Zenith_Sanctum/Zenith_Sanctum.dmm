@@ -161,7 +161,8 @@
 	name = "\improper Health and Wellness Storage Room";
 	dir = 8;
 	req_access = list(105);
-	req_one_access = list(105,231,236)
+	req_one_access = list(105,231,236);
+	req_one_access_txt = "104;105;106"
 	},
 /turf/open/floor/interior/plastic/alt,
 /area/lazarus/medbay)
@@ -939,6 +940,19 @@
 "adn" = (
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/ancient_temple/south)
+"ado" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/machinery/door/airlock/light_grey_lv/glass{
+	name = "\improper Power Station";
+	req_one_access_txt = "102;104;106"
+	},
+/obj/structure/pipes/standard/simple/hidden/cyan{
+	dir = 4
+	},
+/turf/open/floor/prison/floor_plate,
+/area/lazarus/engineering)
 "adp" = (
 /obj/effect/landmark/xeno_spawn,
 /turf/open/floor/ancient_temple/deco/deco_alt,
@@ -1048,6 +1062,9 @@
 /obj/structure/machinery/body_scanconsole,
 /turf/open/floor/kutjevo/tan/multi_tiles/west,
 /area/lazarus/medbay)
+"adD" = (
+/turf/open/floor/strata/light_purple_edge,
+/area/lazarus/research/storage)
 "adE" = (
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
 /obj/effect/landmark/xeno_spawn,
@@ -2079,7 +2096,8 @@
 /area/lazarus/power_plant)
 "agr" = (
 /obj/structure/machinery/door/airlock/light_grey_lv/glass{
-	name = "\improper Nexus Dome - Cargo Commisary"
+	name = "\improper Nexus Dome - Cargo Commisary";
+	req_one_access_txt = "101;104;106"
 	},
 /obj/structure/pipes/standard/simple/hidden/cyan{
 	dir = 4
@@ -9834,7 +9852,8 @@
 	color = "#8B9490"
 	},
 /obj/structure/machinery/door/window/colorable{
-	color = "#d1cab0"
+	color = "#d1cab0";
+	req_one_access_txt = "103; 203; 204; 206; 207; 210"
 	},
 /obj/structure/window/reinforced/colorable{
 	color = "#d1cab0"
@@ -9870,7 +9889,8 @@
 	},
 /obj/item/device/analyzer/plant_analyzer/yautja,
 /obj/structure/machinery/door/window/colorable{
-	color = "#d1cab0"
+	color = "#d1cab0";
+	req_one_access_txt = "103; 203; 204; 206; 207; 210"
 	},
 /obj/effect/decal/warning_stripes{
 	icon_state = "cargo_red"
@@ -9916,7 +9936,8 @@
 	pixel_y = 7
 	},
 /obj/structure/machinery/door/window/colorable{
-	color = "#d1cab0"
+	color = "#d1cab0";
+	req_one_access_txt = "103; 203; 204; 206; 207; 210"
 	},
 /obj/effect/decal/warning_stripes{
 	icon_state = "cargo_red"
@@ -9974,7 +9995,8 @@
 	color = "#8B9490"
 	},
 /obj/structure/machinery/door/window/colorable{
-	color = "#d1cab0"
+	color = "#d1cab0";
+	req_one_access_txt = "103; 203; 204; 206; 207; 210"
 	},
 /obj/effect/decal/warning_stripes{
 	icon_state = "cargo_red"
@@ -9994,7 +10016,8 @@
 	},
 /obj/structure/machinery/door/window/colorable{
 	color = "#d1cab0";
-	dir = 8
+	dir = 8;
+	req_one_access_txt = "103; 203; 204; 206; 207; 210"
 	},
 /obj/structure/window/reinforced/colorable{
 	color = "#d1cab0";
@@ -10159,7 +10182,7 @@
 "aAm" = (
 /obj/structure/machinery/door/airlock/hybrisa/medical/autoname{
 	name = "\improper Research Dome";
-	req_one_access_txt = "103;236;240;241"
+	req_one_access_txt = "103; 203; 204; 206; 207; 210"
 	},
 /obj/structure/pipes/standard/simple/hidden/cyan{
 	dir = 4
@@ -10219,7 +10242,7 @@
 "aAs" = (
 /obj/structure/machinery/door/airlock/hybrisa/medical/autoname{
 	name = "\improper Research Dome";
-	req_one_access_txt = "103;236;240;241"
+	req_one_access_txt = "103; 203; 204; 206; 207; 210"
 	},
 /obj/structure/machinery/door/poddoor/almayer/white/closed{
 	id = "science_blast";
@@ -10392,7 +10415,8 @@
 	color = "#d1cab0"
 	},
 /obj/structure/machinery/door/window/colorable{
-	color = "#d1cab0"
+	color = "#d1cab0";
+	req_one_access_txt = "103; 203; 204; 206; 207; 210"
 	},
 /obj/effect/decal/warning_stripes{
 	icon_state = "cargo_red"
@@ -10460,7 +10484,8 @@
 	color = "#8B9490"
 	},
 /obj/structure/machinery/door/window/colorable{
-	color = "#d1cab0"
+	color = "#d1cab0";
+	req_one_access_txt = "103; 203; 204; 206; 207; 210"
 	},
 /obj/effect/decal/warning_stripes{
 	icon_state = "cargo_red"
@@ -10479,7 +10504,8 @@
 	},
 /obj/item/weapon/twohanded/yautja/glaive/damaged,
 /obj/structure/machinery/door/window/colorable{
-	color = "#d1cab0"
+	color = "#d1cab0";
+	req_one_access_txt = "103; 203; 204; 206; 207; 210"
 	},
 /obj/effect/decal/warning_stripes{
 	icon_state = "cargo_red"
@@ -10496,7 +10522,8 @@
 	},
 /obj/structure/machinery/door/window/colorable{
 	color = "#d1cab0";
-	dir = 8
+	dir = 8;
+	req_one_access_txt = "103; 203; 204; 206; 207; 210"
 	},
 /obj/structure/window/reinforced/colorable{
 	color = "#d1cab0";
@@ -10543,7 +10570,8 @@
 	color = "#8B9490"
 	},
 /obj/structure/machinery/door/window/colorable{
-	color = "#d1cab0"
+	color = "#d1cab0";
+	req_one_access_txt = "103; 203; 204; 206; 207; 210"
 	},
 /obj/effect/decal/warning_stripes{
 	icon_state = "cargo_red"
@@ -10571,7 +10599,7 @@
 /obj/structure/machinery/door/airlock/hybrisa/medical/autoname{
 	dir = 1;
 	name = "\improper Research Storage Dome";
-	req_one_access_txt = "103;236;240;241"
+	req_one_access_txt = "103; 203; 204; 206; 207; 210"
 	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/pipes/standard/simple/hidden/cyan,
@@ -11077,7 +11105,7 @@
 /obj/structure/pipes/standard/simple/hidden/cyan,
 /obj/structure/machinery/door/airlock/hybrisa/medical/autoname{
 	name = "\improper Research Dome";
-	req_one_access_txt = "103;236;240;241";
+	req_one_access_txt = "103; 203; 204; 206; 207; 210";
 	dir = 1
 	},
 /turf/open/floor/strata/floor3,
@@ -11285,7 +11313,7 @@
 "aDv" = (
 /obj/structure/machinery/door/airlock/hybrisa/medical/autoname{
 	name = "\improper Research Dome";
-	req_one_access_txt = "103;236;240;241";
+	req_one_access_txt = "103; 203; 204; 206; 207; 210";
 	dir = 1
 	},
 /obj/structure/pipes/standard/simple/hidden/cyan,
@@ -11850,7 +11878,7 @@
 	},
 /obj/structure/machinery/door/airlock/hybrisa/medical/autoname{
 	name = "\improper Research Dome";
-	req_one_access_txt = "103;236;240;241";
+	req_one_access_txt = "103; 203; 204; 206; 207; 210";
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment,
@@ -14877,7 +14905,8 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/light_grey_lv/glass{
-	name = "\improper Command Center"
+	name = "\improper Command Center";
+	req_one_access_txt = "104;106"
 	},
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/prison/floor_plate,
@@ -15583,7 +15612,8 @@
 /obj/effect/landmark/objective_landmark/close,
 /obj/item/card/id/marshal{
 	pixel_x = 16;
-	pixel_y = 2
+	pixel_y = 2;
+	access = list(100,101,102,103,104,105,106)
 	},
 /turf/open/floor/prison/bright_clean2,
 /area/lazarus/security)
@@ -19281,7 +19311,8 @@
 /area/lazarus/ground/ancient_temple/south_east/surface)
 "ckb" = (
 /obj/structure/machinery/door/window{
-	dir = 8
+	dir = 8;
+	req_one_access_txt = "103; 203; 204; 206; 207; 210"
 	},
 /obj/structure/prop/server_equipment{
 	icon_state = "rackframe_white";
@@ -20227,7 +20258,7 @@
 "cIA" = (
 /obj/structure/machinery/door/window/colorable/westleft{
 	color = "#8eaeb0";
-	req_one_access_txt = "101"
+	req_one_access_txt = "101;104;106"
 	},
 /turf/open/floor/prison/bright_clean2,
 /area/lazarus/quart)
@@ -20313,7 +20344,8 @@
 "cJV" = (
 /obj/structure/machinery/door/airlock/light_grey_lv/glass{
 	dir = 2;
-	name = "\improper Power Station Office"
+	name = "\improper Power Station Office";
+	req_one_access_txt = "102;104;106"
 	},
 /obj/structure/pipes/standard/simple/hidden/cyan,
 /turf/open/floor/prison/west,
@@ -25473,7 +25505,7 @@
 /obj/structure/machinery/door/airlock/hybrisa/medical/autoname{
 	dir = 1;
 	name = "\improper Research Storage Dome";
-	req_one_access_txt = "103;236;240;241"
+	req_one_access_txt = "103; 203; 204; 206; 207; 210"
 	},
 /turf/open/floor/strata/multi_tiles/southeast,
 /area/lazarus/research/storage)
@@ -27242,7 +27274,8 @@
 	},
 /obj/structure/machinery/door/window/colorable{
 	color = "#d1cab0";
-	dir = 8
+	dir = 8;
+	req_one_access_txt = "103; 203; 204; 206; 207; 210"
 	},
 /obj/structure/window/reinforced/colorable{
 	color = "#d1cab0";
@@ -27262,7 +27295,8 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/light_grey_lv/glass{
-	name = "\improper Colonial Marshals Office"
+	name = "\improper Colonial Marshals Office";
+	req_one_access_txt = "104;106"
 	},
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/security)
@@ -27375,7 +27409,8 @@
 	},
 /obj/structure/machinery/door/window/colorable{
 	color = "#d1cab0";
-	dir = 8
+	dir = 8;
+	req_one_access_txt = "103; 203; 204; 206; 207; 210"
 	},
 /obj/structure/window/reinforced/colorable{
 	color = "#d1cab0";
@@ -27411,7 +27446,8 @@
 /area/lazarus/quartstorage)
 "gtP" = (
 /obj/structure/machinery/door/airlock/multi_tile/lv_double{
-	name = "\improper Power Station"
+	name = "\improper Power Station";
+	req_one_access_txt = "102;104;106"
 	},
 /obj/structure/pipes/standard/simple/hidden/cyan,
 /turf/open/floor/prison/floor_plate,
@@ -27864,7 +27900,8 @@
 "gFH" = (
 /obj/structure/machinery/door/airlock/light_grey_lv/glass{
 	dir = 2;
-	name = "\improper Power Station"
+	name = "\improper Power Station";
+	req_one_access_txt = "102;104;106"
 	},
 /obj/structure/pipes/standard/simple/hidden/cyan,
 /turf/open/floor/prison/floor_plate,
@@ -28237,7 +28274,7 @@
 "gOF" = (
 /obj/structure/machinery/door/airlock/hybrisa/medical/autoname{
 	name = "\improper Research Dome";
-	req_one_access_txt = "103;236;240;241"
+	req_one_access_txt = "103; 203; 204; 206; 207; 210"
 	},
 /obj/structure/pipes/standard/simple/hidden/cyan{
 	dir = 4
@@ -28704,7 +28741,8 @@
 	dir = 2;
 	pixel_y = 13;
 	layer = 2.9;
-	color = "#8eaeb0"
+	color = "#8eaeb0";
+	req_one_access_txt = "203;204;206; 207;210"
 	},
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/corporate_dome)
@@ -29086,7 +29124,8 @@
 "hmQ" = (
 /obj/structure/machinery/door/airlock/light_grey_lv/glass{
 	dir = 2;
-	name = "\improper Command Center"
+	name = "\improper Command Center";
+	req_one_access_txt = "104;106"
 	},
 /obj/structure/platform_decoration/metal/strata/alt/north,
 /turf/open/floor/prison/floor_plate,
@@ -31648,7 +31687,8 @@
 /area/lazarus/ground/ancient_temple/north_east)
 "iAv" = (
 /obj/structure/machinery/door/airlock/multi_tile/lv_double{
-	name = "\improper Nexus Dome - Cargo Sorage"
+	name = "\improper Nexus Dome - Cargo Sorage";
+	req_one_access_txt = "101;104;106"
 	},
 /obj/structure/machinery/door/poddoor/almayer/grey/open{
 	name = "Nexus Dome - Lockdown Shutter";
@@ -35015,7 +35055,7 @@
 /obj/structure/machinery/door/airlock/multi_tile/hybrisa/generic/autoname{
 	name = "\improper Research Dome";
 	dir = 1;
-	req_one_access_txt = "103;236;240;241"
+	req_one_access_txt = "103; 203; 204; 206; 207; 210"
 	},
 /turf/open/floor/strata/light_purple_cover,
 /area/lazarus/research)
@@ -36407,7 +36447,8 @@
 	},
 /obj/structure/machinery/door/window/colorable{
 	color = "#d1cab0";
-	dir = 8
+	dir = 8;
+	req_one_access_txt = "103; 203; 204; 206; 207; 210"
 	},
 /obj/structure/showcase/yautja/alt,
 /obj/structure/window/reinforced/colorable{
@@ -39424,7 +39465,8 @@
 /area/lazarus/ground/ancient_temple/south)
 "mCN" = (
 /obj/structure/machinery/door/airlock/hybrisa/medical_solid/autoname{
-	dir = 1
+	dir = 1;
+	req_one_access_txt = "104;105;106"
 	},
 /turf/open/floor/plating/prison,
 /area/lazarus/medbay)
@@ -40788,7 +40830,7 @@
 "nkq" = (
 /obj/structure/machinery/door/airlock/hybrisa/medical/autoname{
 	name = "\improper Research Dome";
-	req_one_access_txt = "103;236;240;241"
+	req_one_access_txt = "103; 203; 204; 206; 207; 210"
 	},
 /turf/open/floor/strata/floor3,
 /area/lazarus/research)
@@ -41946,10 +41988,6 @@
 	},
 /turf/open/floor/prison/kitchen/alt,
 /area/lazarus/kitchen)
-"nOR" = (
-/obj/effect/decal/hybrisa/warning/redandwhite_N,
-/turf/open/floor/strata/light_purple_edge/north,
-/area/lazarus/research/storage)
 "nOW" = (
 /obj/structure/surface/table,
 /obj/item/clothing/shoes/swimmingfins,
@@ -42461,7 +42499,8 @@
 "obf" = (
 /obj/structure/machinery/door/airlock/hybrisa/personal_solid/autoname{
 	dir = 1;
-	name = "\improper Health and Wellness Cold Room"
+	name = "\improper Health and Wellness Cold Room";
+	req_one_access_txt = "104;105;106"
 	},
 /turf/open/floor/plating/prison,
 /area/lazarus/medbay)
@@ -43069,7 +43108,8 @@
 "opg" = (
 /obj/structure/machinery/door/airlock/light_grey_lv/glass{
 	dir = 2;
-	name = "\improper Power Station"
+	name = "\improper Power Station";
+	req_one_access_txt = "102;104;106"
 	},
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/engineering)
@@ -43804,6 +43844,11 @@
 	},
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/door/poddoor/almayer/grey/closed{
+	dir = 4;
+	id = "cargo_nexus_arrivals";
+	name = "Cargo Nexus Arrivals Shutters"
+	},
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/quart)
 "oHb" = (
@@ -46995,7 +47040,8 @@
 	dir = 8;
 	name = "\improper Health and Wellness Storage Room";
 	req_access = list(105);
-	req_one_access = list(105,231,236)
+	req_one_access = list(105,231,236);
+	req_one_access_txt = "104;105;106"
 	},
 /turf/open/floor/interior/plastic/alt,
 /area/lazarus/medbay)
@@ -47081,10 +47127,10 @@
 	dir = 4
 	},
 /obj/structure/platform/metal/stair_cut/strata_left/alt,
-/obj/structure/machinery/door/poddoor/almayer/grey/open{
-	name = "\improper Secure Armory";
+/obj/structure/machinery/door/poddoor/almayer/grey/closed{
 	dir = 4;
-	id = "cmbarmory"
+	id = "cmbarmory";
+	name = "Armory Shutters"
 	},
 /turf/open/floor/plating/prison,
 /area/lazarus/security)
@@ -49173,7 +49219,8 @@
 	},
 /obj/structure/machinery/door/window/colorable{
 	color = "#d1cab0";
-	dir = 8
+	dir = 8;
+	req_one_access_txt = "103; 203; 204; 206; 207; 210"
 	},
 /obj/structure/window/reinforced/colorable{
 	color = "#d1cab0";
@@ -50540,7 +50587,7 @@
 "sjz" = (
 /obj/structure/machinery/door_control/brbutton{
 	pixel_y = 27;
-	id = "cargo_arrivals_blast";
+	id = "cargo_nexus_arrivals";
 	name = "Cargo Arrivals Shutters"
 	},
 /obj/effect/decal/hybrisa/dirt,
@@ -53053,11 +53100,12 @@
 	dir = 4;
 	id = "nexus_blast"
 	},
-/obj/structure/machinery/door/airlock/multi_tile/lv_double{
-	dir = 1;
-	name = "\improper Nexus Dome - Cargo Commisary"
-	},
 /obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/door/poddoor/almayer/grey/closed{
+	dir = 4;
+	id = "cargo_nexus_arrivals";
+	name = "Cargo Nexus Arrivals Shutters"
+	},
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/quart)
 "tvN" = (
@@ -53688,7 +53736,8 @@
 	dir = 1;
 	name = "\improper Health and Wellness Medical Office";
 	req_access = list(105);
-	req_one_access = list(105,231,236)
+	req_one_access = list(105,231,236);
+	req_one_access_txt = "104;105;106"
 	},
 /turf/open/floor/kutjevo/tan/plate,
 /area/lazarus/medbay)
@@ -53855,7 +53904,7 @@
 /obj/structure/machinery/door/airlock/hybrisa/medical/autoname{
 	dir = 1;
 	name = "\improper Research Storage Dome";
-	req_one_access_txt = "103;236;240;241"
+	req_one_access_txt = "103; 203; 204; 206; 207; 210"
 	},
 /obj/structure/machinery/door/poddoor/almayer/white/closed{
 	id = science_blast
@@ -54255,7 +54304,8 @@
 /area/lazarus/corporate_dome)
 "tYw" = (
 /obj/structure/machinery/door/airlock/multi_tile/lv_double{
-	name = "\improper Nexus Dome - Cargo Commisary"
+	name = "\improper Nexus Dome - Cargo Commisary";
+	req_one_access_txt = "101;104;106"
 	},
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/quart)
@@ -55565,7 +55615,8 @@
 "uDP" = (
 /obj/structure/machinery/door/airlock/light_grey_lv/glass{
 	dir = 1;
-	name = "\improper Office of Colonial Administration"
+	name = "\improper Office of Colonial Administration";
+	req_one_access_txt = "203;204;206; 207;210"
 	},
 /obj/structure/pipes/standard/simple/hidden/cyan,
 /turf/open/floor/prison/floor_plate,
@@ -57116,7 +57167,8 @@
 "vxq" = (
 /obj/structure/machinery/door/airlock/light_grey_lv/glass{
 	dir = 2;
-	name = "\improper Power Station"
+	name = "\improper Power Station";
+	req_one_access_txt = "102;104;106"
 	},
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/lazarus/engineering)
@@ -57973,7 +58025,7 @@
 "vTL" = (
 /obj/structure/machinery/door/airlock/hybrisa/medical/autoname{
 	name = "\improper Research Dome";
-	req_one_access_txt = "103;236;240;241";
+	req_one_access_txt = "103; 203; 204; 206; 207; 210";
 	dir = 1
 	},
 /turf/open/floor/strata/floor3,
@@ -58307,11 +58359,15 @@
 /turf/open/floor/prison/floor_marked,
 /area/lazarus/quartstorage)
 "wdz" = (
-/obj/structure/window/framed/lv_colony/reinforced,
 /obj/structure/machinery/door/poddoor/almayer/grey/open{
 	name = "Nexus Dome - Lockdown Shutter";
 	dir = 4;
 	id = "nexus_blast"
+	},
+/obj/structure/machinery/door/poddoor/almayer/grey/closed{
+	dir = 4;
+	id = "cargo_nexus_arrivals";
+	name = "Cargo Nexus Arrivals Shutters"
 	},
 /turf/open/floor/plating/prison,
 /area/lazarus/quart)
@@ -83341,7 +83397,7 @@ azL
 azB
 imY
 imY
-vuT
+ado
 oQw
 imY
 afv
@@ -89606,9 +89662,9 @@ aBl
 aBf
 aBe
 aAT
-nOR
+oKy
 bLH
-fPD
+adD
 azM
 azE
 azy
@@ -90502,13 +90558,13 @@ fPD
 aBg
 gpu
 lbZ
-nOR
+oKy
 bLH
 fPD
 azN
 gtm
 rBF
-nOR
+oKy
 dtw
 laA
 avs
