@@ -122,6 +122,7 @@
 	icon_state = "m41ae2"
 	max_rounds = 300
 	gun_type = /obj/item/weapon/gun/rifle/bolter/heavy
+	default_ammo = /datum/ammo/bullet/rifle/explosive/bolter
 	flags_magazine = AMMUNITION_CANNOT_REMOVE_BULLETS|AMMUNITION_REFILLABLE|AMMUNITION_SLAP_TRANSFER
 
 /datum/ammo/bullet/rifle/explosive/bolter

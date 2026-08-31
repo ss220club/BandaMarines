@@ -5,8 +5,8 @@
 	icon_state = "lasgun"
 	item_state = "lasgun"
 	item_icons = list(
-		WEAR_WAIST = 'icons/mob/humans/onmob/clothing/suit_storage/guns_by_type/assault_rifles.dmi',
-		WEAR_J_STORE = 'icons/mob/humans/onmob/clothing/suit_storage/guns_by_type/assault_rifles.dmi',
+		WEAR_WAIST = 'modular/ert/icons/clothing/mob/back_mob.dmi',
+		WEAR_J_STORE = 'modular/ert/icons/clothing/mob/back_mob.dmi',
 		WEAR_L_HAND = 'modular/ert/icons/lasgun/lefthand.dmi',
 		WEAR_R_HAND = 'modular/ert/icons/lasgun/righthand.dmi'
 	)
