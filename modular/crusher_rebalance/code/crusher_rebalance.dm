@@ -536,7 +536,7 @@
 				if(airlock_in_path.density)
 					metal_pipe_random(airlock_in_path)
 					airlock_in_path.take_damage(airlock_in_path.damage_cap)
-					. = TRUE
+				. = TRUE
 			//Turrets, Tesla Coil etc. collision
 			else if(istype(target, /obj/structure/machinery/defenses))
 				handled = TRUE
@@ -591,17 +591,21 @@
 					window_framed_in_path = target
 					window_frame_type = window_framed_in_path.window_frame
 					window_loc = window_in_path.loc
-				var/window_reinforce = window_framed_in_path.reinf
+
 				window_in_path.health = 0
 				window_in_path.healthcheck(user = xeno)
+
+				var/reinforced_window_bonk = FALSE
 				if(istype(window_framed_in_path))
-					if(window_reinforce)
+					if(window_framed_in_path.reinf)
+						reinforced_window_bonk = TRUE
 						. = FALSE
 					else
 						var/obj/structure/window_frame/own_window_frame = locate(window_frame_type) in window_loc
 						if(own_window_frame)
 							handle_obj_collision(own_window_frame, xeno)
-				. = TRUE
+				if(!reinforced_window_bonk)
+					. = TRUE
 		//Window frame collision
 		else if(istype(target, /obj/structure/window_frame))
 			handled = TRUE
@@ -712,7 +716,7 @@
 	if(!istype(xeno) || !istype(object_in_path))
 		return
 	if(LAZYLEN(object_in_path.contents)) // So the contents of containers dont delete themselves as well
-		var/turf/turf_for_obj = get_turf(xeno)
+		var/turf/turf_for_obj = get_turf(object_in_path)
 		for(var/atom/movable/stuff_to_move in object_in_path.contents) stuff_to_move.forceMove(turf_for_obj)
 	playsound(object_in_path.loc, "punch", 25, 1)
 	qdel(object_in_path)
