@@ -8493,7 +8493,7 @@
 /obj/structure/pipes/standard/simple/hidden/cyan,
 /obj/structure/machinery/door_control{
 	id = "kitchen powerplant";
-	name = s;
+	name = "Poweplant window shutters controller";
 	pixel_x = 24;
 	pixel_y = -3;
 	req_one_access_txt = "203;204;206; 207;210"
