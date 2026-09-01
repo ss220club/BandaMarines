@@ -11981,10 +11981,10 @@
 /area/lazarus/quartstorage)
 "aFk" = (
 /obj/effect/landmark/nightmare{
-	insert_tag = lz1_north_east
+	insert_tag = "lz1_north_east_blocked"
 	},
 /obj/effect/landmark/nightmare{
-	insert_tag = lz1_north_east
+	insert_tag = "lz1_north_east"
 	},
 /turf/open/floor/plating,
 /area/lazarus/landing_zones/lz1)
