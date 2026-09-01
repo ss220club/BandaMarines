@@ -27,3 +27,4 @@
 		set_stat(CONSCIOUS)
 		icon_state = "moth"
 		wander = 1
+		speak_chance = initial(speak_chance)
