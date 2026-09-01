@@ -83,6 +83,10 @@
 	},
 /turf/open/floor/interior/wood_sat/alt,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
+"aas" = (
+/obj/structure/machinery/power/apc/no_power/west,
+/turf/open/floor/prison/west,
+/area/lazarus/power_plant/core)
 "aat" = (
 /turf/closed/wall/strata_ice/jungle,
 /area/lazarus/ground/ancient_temple/south_east/surface)
@@ -80862,7 +80866,7 @@ ahe
 agV
 aje
 alr
-akh
+aas
 alr
 akh
 akh
