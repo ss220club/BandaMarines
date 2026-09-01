@@ -61,10 +61,6 @@
 /obj/effect/decal/warning_stripes{
 	icon_state = "E"
 	},
-/obj/structure/machinery/light/red{
-	dir = 8;
-	pixel_y = -15
-	},
 /obj/structure/surface/rack{
 	color = "#aaaab5"
 	},
@@ -78,6 +74,11 @@
 /obj/structure/sign/poster/wylogo{
 	pixel_y = 32;
 	pixel_x = 1
+	},
+/obj/structure/machinery/light/red{
+	dir = 8;
+	pixel_y = -15;
+	pixel_x = 30
 	},
 /turf/open/floor/strata/multi_tiles,
 /area/lazarus/security)

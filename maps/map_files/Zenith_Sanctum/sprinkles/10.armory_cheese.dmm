@@ -20,10 +20,6 @@
 /obj/effect/decal/warning_stripes{
 	icon_state = "E"
 	},
-/obj/structure/machinery/light/red{
-	dir = 8;
-	pixel_y = -15
-	},
 /obj/structure/surface/rack{
 	color = "#aaaab5"
 	},
@@ -36,6 +32,11 @@
 /obj/item/weapon/gun/shotgun/pump/dual_tube/cmb{
 	pixel_x = -3;
 	pixel_y = 3
+	},
+/obj/structure/machinery/light/red{
+	dir = 8;
+	pixel_y = -15;
+	pixel_x = 30
 	},
 /turf/open/floor/strata/multi_tiles,
 /area/lazarus/security)
