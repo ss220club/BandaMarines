@@ -408,6 +408,9 @@
 	icon_state = "quartstorage"
 	linked_lz = DROPSHIP_LZ1
 
+/area/lazarus/quartstorage/east
+	name = "\improper Cargo Bay - East"
+
 /area/lazarus/engineering
 	name = "\improper Engineering"
 	icon_state = "engine_smes"

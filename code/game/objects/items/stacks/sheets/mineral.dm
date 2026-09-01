@@ -21,7 +21,7 @@ GLOBAL_LIST_INIT(sandstone_recipes, list ( \
 	new/datum/stack_recipe("temple wall", /turf/closed/wall/mineral/sandstone, 5, time = 50, skill_req = SKILL_CONSTRUCTION, skill_lvl = SKILL_CONSTRUCTION_ENGI, one_per_turf = ONE_TYPE_PER_TURF, on_floor = 1), \
 	new/datum/stack_recipe("temple floor", /turf/open/floor/sandstone/runed, 1, on_floor = 1), \
 	new/datum/stack_recipe("temple handrail (crenellations)", /obj/structure/barricade/handrail/sandstone, 2, time = 2 SECONDS, one_per_turf = ONE_TYPE_PER_BORDER, on_floor = 1, skill_req = SKILL_CONSTRUCTION, skill_lvl = SKILL_CONSTRUCTION_TRAINED, min_time = 1 SECONDS), \
-	new/datum/stack_recipe("stemple handrail (flat)", /obj/structure/barricade/handrail/sandstone/b, 2, time = 2 SECONDS, one_per_turf = ONE_TYPE_PER_BORDER, on_floor = 1, skill_req = SKILL_CONSTRUCTION, skill_lvl = SKILL_CONSTRUCTION_TRAINED, min_time = 1 SECONDS), \
+	new/datum/stack_recipe("temple handrail (flat)", /obj/structure/barricade/handrail/sandstone/b, 2, time = 2 SECONDS, one_per_turf = ONE_TYPE_PER_BORDER, on_floor = 1, skill_req = SKILL_CONSTRUCTION, skill_lvl = SKILL_CONSTRUCTION_TRAINED, min_time = 1 SECONDS), \
 	new/datum/stack_recipe("dark temple handrail (cren.)", /obj/structure/barricade/handrail/sandstone/dark, 2, time = 2 SECONDS, one_per_turf = ONE_TYPE_PER_BORDER, on_floor = 1, skill_req = SKILL_CONSTRUCTION, skill_lvl = SKILL_CONSTRUCTION_TRAINED, min_time = 1 SECONDS), \
 	new/datum/stack_recipe("dark temple handrail (flat)", /obj/structure/barricade/handrail/sandstone/b/dark, 2, time = 2 SECONDS, one_per_turf = ONE_TYPE_PER_BORDER, on_floor = 1, skill_req = SKILL_CONSTRUCTION, skill_lvl = SKILL_CONSTRUCTION_TRAINED, min_time = 1 SECONDS),
 	))
