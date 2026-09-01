@@ -83,14 +83,6 @@
 	},
 /turf/open/floor/interior/wood_sat/alt,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
-"aas" = (
-/obj/structure/window/framed/wood/reinforced/teal,
-/obj/structure/curtain/colorable_transparent{
-	color = "#8bafa4";
-	layer = 3.2
-	},
-/turf/closed/wall/wood/teal,
-/area/lazarus/medbay)
 "aat" = (
 /turf/closed/wall/strata_ice/jungle,
 /area/lazarus/ground/ancient_temple/south_east/surface)
@@ -170,10 +162,7 @@
 "aaJ" = (
 /obj/structure/barricade/handrail/wire,
 /obj/structure/prop/hunter/catwalk/new_alpha,
-/turf/open/gm/river/soro{
-	base_river_slowdown = 0;
-	is_weedable = 1
-	},
+/turf/open/gm/river/soro/weedable,
 /area/lazarus/ground/river/central_river)
 "aaK" = (
 /obj/structure/barricade/handrail/wire,
@@ -2292,10 +2281,7 @@
 /area/lazarus/ground/barrens/north_barrens)
 "agV" = (
 /obj/structure/prop/hunter/catwalk/new_alpha,
-/turf/open/gm/river/soro{
-	base_river_slowdown = 0;
-	is_weedable = 1
-	},
+/turf/open/gm/river/soro/weedable,
 /area/lazarus/ground/river/central_river)
 "agW" = (
 /obj/effect/landmark/big_fog_marker,
@@ -2348,10 +2334,7 @@
 	dir = 1;
 	pixel_y = 7
 	},
-/turf/open/gm/river/soro{
-	base_river_slowdown = 0;
-	is_weedable = 1
-	},
+/turf/open/gm/river/soro/weedable,
 /area/lazarus/ground/river/central_river)
 "ahe" = (
 /obj/structure/prop/hunter/catwalk/new_alpha,
@@ -2360,10 +2343,7 @@
 	dir = 1;
 	pixel_y = 7
 	},
-/turf/open/gm/river/soro{
-	base_river_slowdown = 0;
-	is_weedable = 1
-	},
+/turf/open/gm/river/soro/weedable,
 /area/lazarus/ground/river/central_river)
 "ahf" = (
 /obj/item/stack/sheet/wood,
@@ -2378,10 +2358,7 @@
 	dir = 1;
 	pixel_y = 7
 	},
-/turf/open/gm/river/soro{
-	base_river_slowdown = 0;
-	is_weedable = 1
-	},
+/turf/open/gm/river/soro/weedable,
 /area/lazarus/ground/river/central_river)
 "ahh" = (
 /obj/effect/landmark/big_fog_marker,
@@ -3139,10 +3116,7 @@
 "aja" = (
 /obj/structure/prop/hunter/catwalk/new_alpha,
 /obj/effect/landmark/big_fog_marker,
-/turf/open/gm/river/soro{
-	base_river_slowdown = 0;
-	is_weedable = 1
-	},
+/turf/open/gm/river/soro/weedable,
 /area/lazarus/ground/river/central_river)
 "ajb" = (
 /obj/effect/decal/lv_decals/cave_mud_corner{
@@ -3193,9 +3167,7 @@
 	},
 /obj/structure/prop/hunter/catwalk/new_alpha,
 /obj/effect/landmark/big_fog_marker,
-/turf/open/gm/river/soro/no_overlay{
-	is_weedable = 1
-	},
+/turf/open/gm/river/soro/no_overlay/weedable,
 /area/lazarus/ground/river/central_river)
 "ajg" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble,
@@ -3338,10 +3310,7 @@
 "ajA" = (
 /obj/effect/landmark/big_fog_marker,
 /obj/structure/prop/hunter/catwalk/new_alpha,
-/turf/open/gm/river/soro{
-	base_river_slowdown = 0;
-	is_weedable = 1
-	},
+/turf/open/gm/river/soro/weedable,
 /area/lazarus/ground/river/central_river)
 "ajB" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
@@ -7741,9 +7710,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 8
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 8
-	},
 /turf/open/floor/prison/west,
 /area/lazarus/power_plant)
 "atR" = (
@@ -8113,9 +8079,7 @@
 	dir = 2
 	},
 /obj/structure/prop/hunter/catwalk/new_alpha,
-/turf/open/gm/river/soro/no_overlay{
-	is_weedable = 1
-	},
+/turf/open/gm/river/soro/no_overlay/weedable,
 /area/lazarus/ground/river/central_river)
 "avd" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -8282,18 +8246,6 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/prison/cell_stripe/north,
 /area/lazarus/ground/barrens/central_barrens)
-"avD" = (
-/obj/structure/barricade/handrail/wire{
-	layer = 3.5;
-	dir = 1
-	},
-/obj/structure/barricade/handrail/wire{
-	layer = 3.5;
-	dir = 1
-	},
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/prison/cell_stripe/north,
-/area/lazarus/ground/barrens/central_barrens)
 "avE" = (
 /obj/effect/landmark/crap_item,
 /turf/open/auto_turf/lv_sand/layer0,
@@ -8336,10 +8288,7 @@
 	},
 /obj/structure/barricade/handrail/wire,
 /obj/structure/prop/hunter/catwalk/new_alpha,
-/turf/open/gm/river/soro{
-	base_river_slowdown = 0;
-	is_weedable = 1
-	},
+/turf/open/gm/river/soro/no_overlay/weedable,
 /area/lazarus/ground/river/central_river)
 "avM" = (
 /obj/structure/barricade/handrail/wire,
@@ -9357,7 +9306,6 @@
 	},
 /obj/item/storage/toolbox/electrical,
 /obj/structure/pipes/vents/scrubber_hybrisa,
-/obj/structure/pipes/vents/scrubber_hybrisa,
 /turf/open/floor/prison/west,
 /area/lazarus/power_plant/core)
 "axP" = (
@@ -9608,7 +9556,6 @@
 /turf/open/floor/interior/wood/alt,
 /area/lazarus/ground/cove/south)
 "ayI" = (
-/obj/structure/platform/wood,
 /obj/structure/platform/wood{
 	pixel_y = 12
 	},
@@ -9857,15 +9804,6 @@
 /obj/structure/flora/bush/ausbushes/ywflowers,
 /turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/colony/checkpoint_road)
-"azt" = (
-/obj/structure/window/framed/lv_colony/white/reinforced,
-/obj/structure/window/framed/lv_colony/white/reinforced,
-/obj/structure/machinery/door/poddoor/almayer/white/closed{
-	id = "science_blast";
-	dir = 4
-	},
-/turf/open/floor/plating/prison,
-/area/lazarus/research/storage)
 "azu" = (
 /obj/item/clothing/yautja_cape/damaged,
 /obj/structure/surface/rack{
@@ -10388,8 +10326,6 @@
 /turf/closed/wall/strata_ice/jungle,
 /area/strata/interior/out_of_bounds)
 "aAO" = (
-/obj/structure/pipes/vents/scrubber_hybrisa,
-/obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
 /turf/closed/wall/lv_outpost/reinforced,
 /area/lazarus/comms)
@@ -42432,9 +42368,6 @@
 /obj/structure/platform/metal/strata/alt/east,
 /obj/structure/surface/table/reinforced/prison,
 /obj/effect/decal/hybrisa/dirt,
-/obj/structure/machinery/computer/shuttle/dropship/flight/lz1,
-/obj/structure/machinery/computer/shuttle/dropship/flight/lz1,
-/obj/structure/machinery/computer/shuttle/dropship/flight/lz1,
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/landing/console)
 "nNo" = (
@@ -87455,7 +87388,7 @@ yar
 awR
 yar
 avG
-avD
+tiA
 uLN
 ngV
 rwR
@@ -88598,7 +88531,7 @@ iNl
 aKi
 aKi
 aME
-aas
+aQJ
 qsw
 bmL
 sRN
@@ -90014,9 +89947,9 @@ jex
 aAn
 jXl
 tXl
-azt
-azt
-azt
+dLs
+dLs
+dLs
 tXl
 auw
 gdk
