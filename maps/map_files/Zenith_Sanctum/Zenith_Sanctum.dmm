@@ -8555,7 +8555,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/door_control{
-	id = d;
+	id = "locker room powerplant";
 	name = "Poweplant window shutters controller";
 	pixel_x = -24;
 	pixel_y = -8;
