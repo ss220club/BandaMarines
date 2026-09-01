@@ -1449,6 +1449,7 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 	armor_bio = CLOTHING_ARMOR_MEDIUMHIGH
 	specialty = "M11 pattern commanding officer"
 	flags_atom = NO_NAME_OVERRIDE
+	built_in_visors = list()
 	inserted_visors = list(new /obj/item/device/helmet_visor, new /obj/item/device/helmet_visor/medical/advanced, new /obj/item/device/helmet_visor/security)
 	max_inserted_visors = 3
 
