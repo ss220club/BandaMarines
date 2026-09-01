@@ -163,7 +163,7 @@
 		M.client.images += normal_image
 
 /obj/vehicle/multitile/white_van/Destroy()
-	for(var/I in mobs_under)
+	for(var/I in mobs_under.Copy())
 		remove_under_van(I)
 
 	for(var/I in GLOB.player_list)
