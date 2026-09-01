@@ -1,4 +1,3 @@
-#define MAP_ZENITH_SANCTUM "Zenith Sanctum"
 #define WALL_LV_BASE "lvwall"
 
 // Lazarus Landing Soundscapes
