@@ -11902,7 +11902,7 @@
 /area/lazarus/ground/colony/east_nexus_road)
 "aEY" = (
 /obj/structure/machinery/door/poddoor/almayer/white/closed{
-	id = science_blast
+	id = "science_blast"
 	},
 /obj/structure/machinery/door/airlock/hybrisa/medical/autoname{
 	name = "\improper Research Dome";
@@ -16623,7 +16623,7 @@
 "aSS" = (
 /obj/structure/window/framed/lv_colony/white/reinforced,
 /obj/structure/machinery/door/poddoor/almayer/white/closed{
-	id = science_blast
+	id = "science_blast"
 	},
 /turf/open/floor/plating/prison,
 /area/lazarus/research)
@@ -36860,7 +36860,7 @@
 "laA" = (
 /obj/structure/window/framed/lv_colony/white/reinforced,
 /obj/structure/machinery/door/poddoor/almayer/white/closed{
-	id = science_blast
+	id = "science_blast"
 	},
 /turf/open/floor/plating/prison,
 /area/lazarus/research/storage)
@@ -54477,7 +54477,7 @@
 	req_one_access_txt = "103; 203; 204; 206; 207; 210"
 	},
 /obj/structure/machinery/door/poddoor/almayer/white/closed{
-	id = science_blast
+	id = "science_blast"
 	},
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/strata/floor3,
