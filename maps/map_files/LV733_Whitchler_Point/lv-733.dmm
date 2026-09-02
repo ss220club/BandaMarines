@@ -4561,6 +4561,10 @@
 "bkU" = (
 /turf/open/floor/strata/multi_tiles/southeast,
 /area/lv733/indoors/hospital/patient_ward)
+"bkY" = (
+/obj/structure/machinery/landinglight/delayone,
+/turf/open/floor/plating,
+/area/lv733/outdoors/landing_zone_2)
 "blf" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/structure/barricade/sandbags/weak_wired{
@@ -5317,6 +5321,13 @@
 /obj/structure/prop/ice_colony/dense/planter_box,
 /turf/open/auto_turf/tyrargo_grass/layer0,
 /area/lv733/indoors/main_complex/central_corridor)
+"byE" = (
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/structure/machinery/landinglight{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/lv733/outdoors/landing_zone_2)
 "byZ" = (
 /obj/effect/decal/hybrisa/road/lines3,
 /obj/effect/decal/hybrisa/road/lines1,
@@ -7457,6 +7468,12 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/prison/darkred2/north,
 /area/lv733/indoors/landing_zone_1/roaf_technical_corridor)
+"cll" = (
+/obj/structure/machinery/landinglight{
+	dir = 8
+	},
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/outdoors/landing_zone_2)
 "clr" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "N";
@@ -11836,6 +11853,13 @@
 /obj/structure/prop/ice_colony/dense/planter_box,
 /turf/open/auto_turf/tyrargo_grass/layer0,
 /area/lv733/indoors/main_complex/central_corridor)
+"dLP" = (
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/structure/machinery/landinglight/delaythree{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/lv733/outdoors/landing_zone_2)
 "dLR" = (
 /obj/structure/blocker/invisible_wall,
 /obj/item/ammo_casing/bullet{
@@ -15262,6 +15286,12 @@
 /obj/structure/blocker/invisible_wall,
 /turf/open/hybrisa/street/roadlines4,
 /area/lv733/oob)
+"eUl" = (
+/obj/structure/machinery/landinglight/delayone{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/lv733/outdoors/landing_zone_2)
 "eUr" = (
 /obj/structure/platform/metal/hybrisa/metalplatform1,
 /turf/open/hybrisa/street/asphalt,
@@ -20152,6 +20182,14 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/prison/darkred2/southeast,
 /area/lv733/indoors/base_operations/central_corridor)
+"gDs" = (
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/structure/machinery/landinglight/delaythree{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/lv733/outdoors/landing_zone_2)
 "gDD" = (
 /obj/structure/largecrate/random/mini{
 	layer = 4.12;
@@ -22038,6 +22076,13 @@
 	},
 /turf/open/floor/strata/multi_tiles/southeast,
 /area/lv733/indoors/landing_cargo)
+"hjZ" = (
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/structure/machinery/landinglight/delaythree{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/lv733/outdoors/landing_zone_2)
 "hka" = (
 /obj/structure/closet/cabinet/hybrisa/metal{
 	pixel_y = 12
@@ -26025,6 +26070,12 @@
 /obj/effect/alien/resin/sticky,
 /turf/closed/wall/hybrisa/rock,
 /area/lv733/oob)
+"iCK" = (
+/obj/structure/machinery/landinglight/delaythree{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/lv733/outdoors/landing_zone_2)
 "iCU" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -28185,6 +28236,12 @@
 	},
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/lv733/indoors/wy_research_complex/special_containment)
+"jqs" = (
+/obj/structure/machinery/landinglight/delaythree{
+	dir = 1
+	},
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/outdoors/landing_zone_2)
 "jqx" = (
 /obj/structure/window/framed/hybrisa/research/reinforced,
 /turf/open/floor/prison/ramptop/north,
@@ -30420,6 +30477,10 @@
 /obj/effect/decal/hybrisa/dirt_2,
 /turf/open/floor/hybrisa/carpet/carpetblackdeco,
 /area/lv733/indoors/wy_research_complex/west_corridor)
+"kaD" = (
+/obj/structure/machinery/landinglight,
+/turf/open/floor/plating,
+/area/lv733/outdoors/landing_zone_2)
 "kaP" = (
 /obj/structure/machinery/landinglight/delaythree{
 	dir = 1
@@ -32171,6 +32232,12 @@
 /obj/effect/decal/hybrisa/dirt_2,
 /turf/open/auto_turf/tyrargo_grass/layer0,
 /area/lv733/indoors/wy_research_complex/central_corridor)
+"kGu" = (
+/obj/structure/machinery/landinglight/delayone{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/lv733/outdoors/landing_zone_2)
 "kGw" = (
 /obj/effect/decal/hybrisa/road/lines2{
 	pixel_y = 1;
@@ -33668,6 +33735,14 @@
 	},
 /turf/open/floor/almayer/plating,
 /area/lv733/indoors/landing_zone_1/main_hangar_bay)
+"lgo" = (
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/structure/machinery/landinglight/delayone{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/lv733/outdoors/landing_zone_2)
 "lha" = (
 /turf/closed/shuttle/dropship_wy/HorizonRunner{
 	icon_state = "92"
@@ -37994,6 +38069,12 @@
 /obj/structure/blocker/invisible_wall,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/lv733/oob)
+"mIL" = (
+/obj/structure/machinery/landinglight/delaythree{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/lv733/outdoors/landing_zone_2)
 "mIR" = (
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/hybrisa/tile/tilebeigecheckered,
@@ -40104,6 +40185,11 @@
 /obj/structure/platform/metal/strata/east,
 /turf/open/floor/almayer/silver/east,
 /area/lv733/outdoors/landing_zone_2)
+"nxX" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/landinglight/delayone,
+/turf/open/floor/plating,
+/area/lv733/outdoors/landing_zone_2)
 "nya" = (
 /obj/structure/window/framed/corsat/research,
 /obj/structure/machinery/door/poddoor/almayer/biohazard/white,
@@ -41653,6 +41739,13 @@
 /obj/structure/platform/metal/hybrisa/metalplatform1/north,
 /turf/open/hybrisa/street/asphalt,
 /area/lv733/indoors/outpost/main_checkpoint)
+"obw" = (
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/structure/machinery/landinglight/delayone{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/lv733/outdoors/landing_zone_2)
 "obN" = (
 /obj/structure/barricade/sandbags/wired{
 	dir = 4;
@@ -49585,6 +49678,12 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/hybrisa/street/roadlines4,
 /area/lv733/indoors/main_eng/generator_core)
+"qKo" = (
+/obj/structure/machinery/landinglight{
+	dir = 4
+	},
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/outdoors/landing_zone_2)
 "qKq" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/structure/fence/slim/dark,
@@ -50755,6 +50854,10 @@
 /obj/structure/platform_decoration/metal/almayer/east,
 /turf/open/floor/filtrationside/north,
 /area/lv733/indoors/main_complex/main_vestibule)
+"rgl" = (
+/obj/structure/machinery/landinglight/delaythree,
+/turf/open/floor/plating,
+/area/lv733/outdoors/landing_zone_2)
 "rgp" = (
 /obj/structure/surface/table,
 /obj/item/device/radio{
@@ -52804,6 +52907,12 @@
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/floor/strata/multi_tiles/southeast,
 /area/lv733/indoors/base_operations/south_corridor)
+"rOj" = (
+/obj/structure/machinery/landinglight/delaythree{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/lv733/outdoors/landing_zone_2)
 "rOm" = (
 /turf/open/floor/hybrisa/metal/yellow_warning_floor,
 /area/lv733/indoors/landing_zone_1/roaf_technical_corridor)
@@ -56735,6 +56844,13 @@
 	},
 /turf/open/floor/hybrisa/carpet/carpetblack,
 /area/lv733/indoors/landing_zone_2/whitchler_civ_spaceport_checkpoint_room_secondary)
+"taF" = (
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/structure/machinery/landinglight/delayone{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/lv733/outdoors/landing_zone_2)
 "taI" = (
 /obj/structure/blocker/invisible_wall,
 /turf/open/floor/almayer/whitefull2,
@@ -57346,6 +57462,13 @@
 /obj/structure/pipes/standard/simple/hidden/dark,
 /turf/open/floor/strata/multi_tiles/west,
 /area/lv733/indoors/wy_research_complex/central_corridor)
+"tiP" = (
+/obj/effect/decal/hybrisa/dirt_2,
+/obj/structure/machinery/landinglight/delayone{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/lv733/outdoors/landing_zone_2)
 "tiS" = (
 /obj/item/device/flashlight/lamp/tripod{
 	on = 0;
@@ -58768,6 +58891,13 @@
 /obj/structure/bed/chair/comfy,
 /turf/open/floor/hybrisa/carpet/rug_colorable/blue/northwest,
 /area/lv733/indoors/cafeteriakitchen)
+"tIa" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/landinglight/delaythree{
+	dir = 1
+	},
+/turf/open/floor/hybrisa/metal/yellow_warning_floor,
+/area/lv733/outdoors/landing_zone_2)
 "tIh" = (
 /obj/structure/monorail{
 	dir = 4;
@@ -59636,6 +59766,12 @@
 	},
 /turf/open/floor/strata/multi_tiles/west,
 /area/lv733/indoors/administration/offices)
+"tXj" = (
+/obj/structure/machinery/landinglight/delayone{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/lv733/outdoors/landing_zone_2)
 "tXD" = (
 /obj/structure/prop/invuln/lattice_prop{
 	icon_state = "lattice8";
@@ -63125,6 +63261,12 @@
 	},
 /turf/open/hybrisa/street/asphalt,
 /area/lv733/outdoors/colony_streets/roaf_spaceport_south)
+"vkp" = (
+/obj/structure/machinery/landinglight{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/lv733/outdoors/landing_zone_2)
 "vkr" = (
 /obj/effect/decal/hybrisa/road/corner,
 /obj/effect/decal/hybrisa/road/corner{
@@ -98975,27 +99117,27 @@ mPS
 kJt
 cVG
 ljj
-jYl
-jYl
-jYl
-jYl
-jYl
-jYl
-jYl
-ufh
-ufh
-jYl
-jYl
-gZN
-gZN
-jYl
-jYl
-gZN
-jYl
-jYl
-jYl
-jYl
-jYl
+kGu
+kGu
+iCK
+kGu
+iCK
+kGu
+kGu
+qKo
+qKo
+kGu
+kGu
+obw
+obw
+iCK
+kGu
+obw
+iCK
+kGu
+kGu
+kGu
+kGu
 gZN
 jYl
 sxW
@@ -99176,10 +99318,10 @@ rTv
 mPS
 lbK
 mxN
-uAq
+nxX
 jYl
 jYl
-jYl
+rgl
 ufh
 gZN
 jYl
@@ -99193,12 +99335,12 @@ jYl
 jYl
 jYl
 ufh
-gZN
+dLP
 ufh
-jYl
+rOj
 jYl
 gZN
-gZN
+tiP
 jYl
 sxW
 hoE
@@ -99378,8 +99520,8 @@ rTv
 rGm
 lbK
 fEs
-jYl
-jYl
+kaD
+rgl
 ufh
 jYl
 gZN
@@ -99397,10 +99539,10 @@ gZN
 jYl
 jYl
 peM
+dLP
 gZN
 gZN
-gZN
-gZN
+byE
 jzY
 sxW
 hoE
@@ -99580,8 +99722,8 @@ rTv
 mPS
 lbK
 quJ
-jYl
-jYl
+bkY
+rgl
 peM
 lGs
 hcw
@@ -99599,10 +99741,10 @@ wwc
 peM
 wwc
 inO
-jYl
+rOj
 jYl
 gZN
-bcs
+tIa
 cue
 lyj
 hoE
@@ -99782,7 +99924,7 @@ rTv
 mPS
 lbK
 quJ
-jYl
+rgl
 ufh
 peM
 peM
@@ -99804,7 +99946,7 @@ hcw
 peM
 jYl
 gZN
-ufh
+jqs
 cue
 lyj
 hoE
@@ -99984,8 +100126,8 @@ rTv
 mPS
 lbK
 quJ
-jYl
-jYl
+bkY
+rgl
 peM
 wul
 peM
@@ -100003,10 +100145,10 @@ wul
 ufh
 wul
 ufh
+dLP
 gZN
 gZN
-gZN
-ufh
+jqs
 cue
 lyj
 hoE
@@ -100186,8 +100328,8 @@ rTv
 mPS
 lbK
 mxN
-jYl
-jYl
+kaD
+rgl
 ufh
 jYl
 jYl
@@ -100205,10 +100347,10 @@ jYl
 eEY
 jYl
 ufh
-eEY
+gDs
 jYl
 jYl
-jYl
+vkp
 jzY
 sxW
 hoE
@@ -100388,10 +100530,10 @@ rTv
 mPS
 lbK
 iii
-uAq
+nxX
 jYl
 jYl
-jYl
+rgl
 ufh
 jYl
 jYl
@@ -100405,12 +100547,12 @@ gZN
 gZN
 jYl
 hcw
-eEY
+gDs
 peM
-gZN
+dLP
 jYl
 jYl
-jYl
+eUl
 jYl
 sxW
 hoE
@@ -100591,27 +100733,27 @@ mPS
 vEx
 cVG
 ljj
-jYl
-jYl
-jYl
-jYl
-jYl
-jYl
-jYl
-ufh
-ufh
-jYl
-jYl
-gZN
-jYl
-gZN
-eEY
-jYl
-gZN
-jYl
-jYl
-jYl
-jYl
+tXj
+tXj
+mIL
+tXj
+mIL
+tXj
+tXj
+cll
+cll
+tXj
+tXj
+taF
+tXj
+hjZ
+lgo
+tXj
+hjZ
+tXj
+tXj
+tXj
+tXj
 jYl
 jYl
 sxW
