@@ -15,6 +15,37 @@
 		return FALSE
 	return TRUE
 
+/obj/item/device/helmet_visor/night_vision/normal/activate_visor(obj/item/clothing/head/helmet/marine/attached_helmet, mob/living/carbon/human/user)
+	. = ..()
+	user.clear_fullscreen("nvg_visor")
+	user.clear_fullscreen("nvg_visor_blur")
+	add_vision_overlay(attached_helmet)
+
+/obj/item/device/helmet_visor/night_vision/normal/deactivate_visor(obj/item/clothing/head/helmet/marine/attached_helmet, mob/living/carbon/human/user)
+	. = ..()
+	remove_vision_overlay()
+
+/obj/item/device/helmet_visor/night_vision/normal/var/list/overlay_data = list()
+
+/obj/item/device/helmet_visor/night_vision/normal/proc/add_vision_overlay(obj/item/clothing/head/helmet/marine/attached_helmet)
+	var/list/hud_users = GLOB.huds[MOB_HUD_XENO_STATUS]?.hudusers
+	if(!hud_users)
+		return
+	for(var/mob/M in hud_users)
+		if(M.client)
+			var/image/ov = image('modular/balance/icons/visor.dmi', "nvo_installed")
+			ov.loc = attached_helmet
+			ov.layer = FLOAT_LAYER
+			M.client.images += ov
+			overlay_data += list(list("client" = M.client, "image" = ov))
+
+/obj/item/device/helmet_visor/night_vision/normal/proc/remove_vision_overlay()
+	for(var/list/data in overlay_data)
+		var/client/C = data["client"]
+		var/image/ov = data["image"]
+		C.images -= ov
+	overlay_data.Cut()
+
 /obj/item/device/helmet_visor/night_vision/normal/proc/update_mob_overlay(obj/item/clothing/head/helmet/marine/helmet, add)
 	if(!helmet)
 		return
@@ -36,6 +67,7 @@
 		update_mob_overlay(helmet, TRUE)
 
 /obj/item/device/helmet_visor/night_vision/normal/Destroy()
+	remove_vision_overlay()
 	var/obj/item/clothing/head/helmet/marine/helmet = loc
 	if(istype(helmet))
 		helmet.stored_nvg = null
@@ -43,6 +75,7 @@
 	. = ..()
 
 /obj/item/device/helmet_visor/night_vision/normal/forceMove(atom/destination)
+	remove_vision_overlay()
 	var/obj/item/clothing/head/helmet/marine/old_helmet = loc
 	if(istype(old_helmet))
 		old_helmet.stored_nvg = null
@@ -52,6 +85,7 @@
 		var/obj/item/clothing/head/helmet/marine/new_helmet = destination
 		new_helmet.stored_nvg = src
 		update_mob_overlay(new_helmet, TRUE)
+	. = ..()
 
 /obj/item/clothing/head/helmet/marine
 	var/obj/item/device/helmet_visor/night_vision/normal/stored_nvg = null
