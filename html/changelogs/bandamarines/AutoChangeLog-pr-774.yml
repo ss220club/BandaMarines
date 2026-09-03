@@ -1,6 +1,0 @@
-author: "larentoun"
-delete-after: True
-changes:
-  - admin: "Object Narrate теперь имеет TTS при Object Narrate"
-  - admin: "Change TTS - Player Choice теперь находится под MOB"
-  - admin: "Change TTS теперь работает на все атомы"
