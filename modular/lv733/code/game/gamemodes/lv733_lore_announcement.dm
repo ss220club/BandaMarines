@@ -15,6 +15,18 @@ GLOBAL_DATUM_INIT(lv733_announcer_arakawa, /datum/announcer/lv733_arakawa, new)
 /proc/lv733_announce_arakawa(message, title, sound_to_play)
 	marine_announcement(message, title, sound_to_play, announcer = GLOB.lv733_announcer_arakawa)
 
+#define LV733_SHIP_CRASH_MIN_XENOS 3
+
+/proc/lv733_maybe_trigger_ship_crash(list/post_crash_timers)
+	if(length(GLOB.living_xeno_list) < LV733_SHIP_CRASH_MIN_XENOS)
+		for(var/timer_id in post_crash_timers)
+			deltimer(timer_id)
+		return
+	marine_announcement("МЭЙДЭЙ. Говорит транспорт «Гера», борт два-два. Поражены при наборе высоты. Двигатели отказали.\n\nПадаем в сторону городского сектора— &^@%###--- —на борту— &^@%$sss----", "Транспорт ИТМ «Гера», борт 2-2", 'sound/AI/commandreport.ogg')
+	trigger_lv733_ship_crash()
+
+#undef LV733_SHIP_CRASH_MIN_XENOS
+
 /datum/modpack/lv733/initialize()
 	RegisterSignal(SSdcs, COMSIG_GLOB_POST_SETUP, PROC_REF(on_post_setup))
 
@@ -30,10 +42,10 @@ GLOBAL_DATUM_INIT(lv733_announcer_arakawa, /datum/announcer/lv733_arakawa, new)
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(lv733_announce_rees), "&^!!#---, говорит старший инженер Реес, гарнизон ИТМ «Блэкбуш». Мы #@##s---- периметр у &^@%###---. Состав: @#!!&#&--- заблокированы. Запрашиваем поддержку и эвакуацию !!&#---. Приём.", "Гарнизон ИТМ «Блэкбуш», ст. инженер Реес", 'sound/AI/commandreport.ogg'), 23 MINUTES)
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(lv733_announce_rees), "Алмайер, на связи гарнизон «Блэкбуш». Боеприпасы на исходе. Авиационная поддержка так и не прибыла. Прошу инструкций, приём.", "Гарнизон ИТМ «Блэкбуш», ст. инженер Реес", 'sound/AI/commandreport.ogg'), 35 MINUTES)
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(lv733_announce_arakawa), "Алмаер, говорит Капитан Аракава, ДК ИТМ «Фого». Гарнизон «Блэкбуш» подтверждён на тренировочной ЛЗ «Дельта». Первый рейс уходит через восемь минут.\n\nВсем наземным подразделениям — удержать текущие позиции на время эвакуации.", "ДК ИТМ «Фого», Капитан Кэндзи Аракава", 'sound/AI/commandreport.ogg'), 42 MINUTES)
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "МЭЙДЭЙ. Говорит транспорт «Гера», борт два-два. Поражены при наборе высоты. Двигатели отказали.\n\nПадаем в сторону городского сектора— &^@%###--- —на борту— &^@%$sss----", "Транспорт ИТМ «Гера», борт 2-2", 'sound/AI/commandreport.ogg'), 50 MINUTES)
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_announcement), "Сестры. Нам удалось сбить один из летающих улеев хостов, он упадет где-то в вашем секторе, примерную зону падения вы сможете почувствовать увидев её .. ", "everything", QUEEN_MOTHER_ANNOUNCE), 52 MINUTES)
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(trigger_lv733_ship_crash)), 50 MINUTES)
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_announcement), "Вы чувствуете это, дети мои? Один из летающих ульев носителей упал с неба прямо в городские владения.\n\nТам могут быть выжившие", "everything", QUEEN_MOTHER_ANNOUNCE), 52 MINUTES)
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(lv733_announce_arakawa), "Всем подразделениям, говорит «Фого». Борт два-два потерян. Место крушения — городской сектор, ваш район операций.\n\nРесурсов на немедленную поисково-спасательную операцию нет. Выжившие с борта предоставлены сами себе до прихода подкрепления.", "ДК ИТМ «Фого», Капитан Кэндзи Аракава", 'sound/AI/commandreport.ogg'), 53 MINUTES)
+	var/list/post_crash_timers = list()
+	post_crash_timers += addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_announcement), "Сестры. Нам удалось сбить один из летающих улеев хостов, он упадет где-то в вашем секторе, примерную зону падения вы сможете почувствовать увидев её .. ", "everything", QUEEN_MOTHER_ANNOUNCE), 52 MINUTES, TIMER_STOPPABLE)
+	post_crash_timers += addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_announcement), "Вы чувствуете это, дети мои? Один из летающих ульев носителей упал с неба прямо в городские владения.\n\nТам могут быть выжившие", "everything", QUEEN_MOTHER_ANNOUNCE), 52 MINUTES, TIMER_STOPPABLE)
+	post_crash_timers += addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(lv733_announce_arakawa), "Всем подразделениям, говорит «Фого». Борт два-два потерян. Место крушения — городской сектор, ваш район операций.\n\nРесурсов на немедленную поисково-спасательную операцию нет. Выжившие с борта предоставлены сами себе до прихода подкрепления.", "ДК ИТМ «Фого», Капитан Кэндзи Аракава", 'sound/AI/commandreport.ogg'), 53 MINUTES, TIMER_STOPPABLE)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(lv733_maybe_trigger_ship_crash), post_crash_timers), 50 MINUTES)
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_announcement), "Сестры мои. Я ощущаю усталость их воинов. Их движения стали медленнее. Их решения — хуже, держитесь сделайте эту колонию нашим гнездом.", "everything", QUEEN_MOTHER_ANNOUNCE), 80 MINUTES)
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(lv733_announce_arakawa), "Алмайер, на связи «Фого». Командование флота подтвердило: ближайшие силы поддержки прибудут не ранее чем через сорок восемь — семьдесят два часа.\n\nПодкрепление идёт. Но вам придётся продержаться самостоятельно. Сделайте всё возможное. «Фого» — конец связи.", "ДК ИТМ «Фого», Капитан Кэндзи Аракава", 'sound/AI/commandreport.ogg'), 80 MINUTES)

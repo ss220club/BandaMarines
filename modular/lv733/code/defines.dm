@@ -72,6 +72,8 @@
 
 #define FACTION_RAC "Royal Armored Cavalry"
 #define FACTION_LIST_SURVIVOR_RAC list(FACTION_SURVIVOR, FACTION_RAC, FACTION_TWE)
+#define MOB_HUD_FACTION_RAC 45
+#define RAC_FREQ 1229
 
 #define JOB_TWE_RAC_RIFLEMAN "RAC Rifleman"
 #define JOB_TWE_RAC_DRIVER "RAC Driver"

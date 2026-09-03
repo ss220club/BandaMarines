@@ -266,3 +266,16 @@
 		action_icon_state = "armor_light_off"
 	button.overlays.Cut()
 	button.overlays += image('icons/mob/hud/actions.dmi', button, action_icon_state)
+
+// Гарнитура
+
+/obj/item/device/radio/headset/distress/rac
+	name = "RAC гарнитура"
+	desc = "Компактная гарнитура закрытой связи, используемая Royal Armored Cavalry."
+	frequency = RAC_FREQ
+	icon_state = "vai_headset"
+	initial_keys = list(/obj/item/device/encryptionkey/colony)
+	has_hud = TRUE
+	hud_type = MOB_HUD_FACTION_RAC
+	additional_hud_types = list(MOB_HUD_FACTION_TWE, MOB_HUD_FACTION_IASF, MOB_HUD_FACTION_MARINE, MOB_HUD_FACTION_ROAF)
+	volume = RADIO_VOLUME_IMPORTANT

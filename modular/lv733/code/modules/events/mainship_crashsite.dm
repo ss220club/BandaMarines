@@ -2,6 +2,7 @@
 
 /datum/modpack/lv733/proc/spawn_mainship_crashsite()
 	if(locate(/obj/effect/landmark/mainship_crashsite) in GLOB.landmarks_list)
+		message_admins("[SPAN_NOTICE("LV733 mainship_crashsite: landmark already present, skipping.")]")
 		return
 
 	var/list/candidate_turfs = list()
@@ -11,6 +12,7 @@
 				candidate_turfs += T
 
 	if(!length(candidate_turfs))
+		message_admins("[SPAN_DANGER("LV733 mainship_crashsite: no candidate_turfs found in colony_streets areas - landmark NOT placed, hijack ground-crash will fall back to its unreliable corner-scan.")]")
 		return
 
 	var/list/turf/exclusion_points = list()
@@ -35,5 +37,6 @@
 
 	var/turf/chosen = pick(length(safe_turfs) ? safe_turfs : candidate_turfs)
 	new /obj/effect/landmark/mainship_crashsite(chosen)
+	message_admins("[SPAN_NOTICE("LV733 mainship_crashsite: landmark placed at [ADMIN_VERBOSEJMP(chosen)].")]")
 
 #undef MAINSHIP_CRASHSITE_SAFE_RADIUS

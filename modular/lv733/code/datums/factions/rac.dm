@@ -3,6 +3,9 @@
 	faction_tag = FACTION_RAC
 	base_icon_file = 'modular/lv733/icons/roaf_hud.dmi'
 
+/datum/mob_hud/faction/rac
+	faction_to_check = FACTION_RAC
+
 /datum/faction/rac/modify_hud_holder(image/holder, mob/living/carbon/human/human)
 	var/icon/override_icon_file
 	var/hud_icon_state
