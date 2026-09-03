@@ -38,7 +38,7 @@
 
 // ===== Башня =====
 /obj/item/hardpoint/holder/tank_turret
-	name = "\improper M34A2-A Multipurpose Turret"
+	name = " M34A2-A Multipurpose Turret"
 	desc = "The centerpiece of the tank. Designed to support quick installation and deinstallation of various tank weapon modules. Has inbuilt smoke screen deployment system."
 	icon = 'modular/vehicles/icons/tank_camouflage.dmi'
 	icon_state = "tank_turret_0"
