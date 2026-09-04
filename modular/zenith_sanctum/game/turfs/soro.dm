@@ -1,5 +1,9 @@
-/turf/open/floor/brown_dirt/random_rocks
+/turf/open/floor/brown_dirt
+	name = "red dirt"
 	icon = 'modular/zenith_sanctum/icons/turf/floors/auto_lv_turf.dmi'
+	tool_flags = null
+
+/turf/open/floor/brown_dirt/random_rocks
 	icon_state = "sand_1_1_N"
 
 /turf/open/floor/brown_dirt/random_rocks/New()
@@ -14,7 +18,6 @@
 	return
 
 /turf/open/floor/brown_dirt/random_rocks_alt
-	icon = 'modular/zenith_sanctum/icons/turf/floors/auto_lv_turf.dmi'
 	icon_state = "sand_1_2_N"
 
 /turf/open/floor/brown_dirt/random_rocks_alt/New()
@@ -29,12 +32,54 @@
 	return
 
 /turf/open/gm/river/soro/weedable
-	is_weedable = TRUE
+	is_weedable = 2
 	base_river_slowdown = 0
 
 /turf/open/gm/river/soro/no_overlay
 	no_overlay = TRUE
 
 /turf/open/gm/river/soro/no_overlay/weedable
-	is_weedable = TRUE
+	is_weedable = 2
 	base_river_slowdown = 0
+
+/turf/open/gm/coast/dirt/weedable
+	is_weedable = 2
+
+/turf/open/gm/coast/dirt/weedable/north
+
+/turf/open/gm/coast/dirt/weedable/south
+	dir = 1
+
+/turf/open/gm/coast/dirt/weedable/west
+	dir = 4
+
+/turf/open/gm/coast/dirt/weedable/east
+	dir = 8
+
+/turf/open/gm/coast/dirt/beachcorner/weedable
+	is_weedable = 2
+
+/turf/open/gm/coast/dirt/beachcorner/weedable/north_west
+
+/turf/open/gm/coast/dirt/beachcorner/weedable/north_east
+	dir = 1
+
+/turf/open/gm/coast/dirt/beachcorner/weedable/south_east
+	dir = 4
+
+/turf/open/gm/coast/dirt/beachcorner/weedable/south_west
+	dir = 8
+
+/turf/open/gm/coast/dirt/beachcorner2/weedable
+	is_weedable = 2
+
+/turf/open/gm/coast/dirt/beachcorner2/weedable/north_west
+
+/turf/open/gm/coast/dirt/beachcorner2/weedable/north_east
+	dir = 1
+
+/turf/open/gm/coast/dirt/beachcorner2/weedable/south_west
+	dir = 4
+
+/turf/open/gm/coast/dirt/beachcorner2/weedable/south_east
+	dir = 8

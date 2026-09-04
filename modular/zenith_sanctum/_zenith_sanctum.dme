@@ -1,5 +1,6 @@
 #include "code\modules\cm_marines\equipment\maps.dm"
 #include "code\modules\cm_preds\yaut_weapons.dm"
+#include "code\modules\cm_preds\yaut_mask.dm"
 #include "code\modules\mob\living\simple_animal\moth.dm"
 #include "code\modules\tents\deployed_tents.dm"
 #include "code\modules\vehicles\interior\areas.dm"

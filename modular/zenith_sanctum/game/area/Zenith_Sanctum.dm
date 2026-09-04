@@ -507,4 +507,3 @@
 	icon_state = "blue-red"
 
 /area/lazarus/power_plant/core
-	ceiling = CEILING_UNDERGROUND_METAL_ALLOW_CAS
