@@ -41512,7 +41512,7 @@
 "nVJ" = (
 /obj/structure/prop/hybrisa/boulders/wide_boulderdark/wide_boulder2{
 	unacidable = 1;
-	unslashable = 1s;
+	unslashable = 1;
 	explo_proof = 1
 	},
 /obj/structure/blocker/invisible_wall,

@@ -3,6 +3,7 @@
 /obj/effect/landmark/monkey_spawn,
 /turf/open/floor/plating,
 /area/template_noop)
+
 (1,1,1) = {"
 aaa
 "}

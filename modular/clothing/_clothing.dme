@@ -5,6 +5,7 @@
 #include "code/ponchos.dm"
 #include "code/defines_clf_wy.dm"
 #include "code/defines_isrg.dm"
+#include "code/defines_rac.dm"
 #include "code/lv733_clothing.dm"
 #include "code/lv733_clf_wy.dm"
 #include "code/lv733_isrg.dm"

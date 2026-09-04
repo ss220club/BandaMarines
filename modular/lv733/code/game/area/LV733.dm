@@ -193,6 +193,7 @@
 /area/lv733/indoors/hospital/restroom
 	name = "Whitchler Hospital Complex - Restroom"
 	linked_lz = DROPSHIP_LZ1
+	requires_power = FALSE
 
 /area/lv733/indoors/hospital/patient_ward
 	name = "Whitchler Hospital Complex - Patient Ward"
@@ -759,6 +760,7 @@
 /area/lv733/indoors/wy_research_complex/mess_hall
 	name = "Weyland-Yutani – Research Complex – Mess Hall"
 	ceiling = CEILING_UNDERGROUND_METAL_BLOCK_CAS
+	requires_power = FALSE
 
 /area/lv733/indoors/wy_research_complex/personnel_changing_bay
 	name = "Weyland-Yutani – Research Complex – Personnel Changing Bay"
