@@ -198,7 +198,7 @@
 
 	to_chat(owner, "[rendered]")
 	to_chat(src, "[rendered]")
-	log_say("Imaginary Friend: [dead_rendered]")
+	log_say("Imaginary Friend: [dead_rendered] (AREA: [log_location(owner)])", owner) //BANDAMARINES LOGIS EDIT
 	if(!hidden)
 		var/list/send_to = list()
 		if(!owner.client?.prefs.lang_chat_disabled)

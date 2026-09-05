@@ -1,6 +1,9 @@
 GLOBAL_VAR(log_directory)
 GLOBAL_PROTECT(log_directory)
 
+GLOBAL_VAR(logis_logs_directory) //BANDAMARINES LOGIS EDIT
+GLOBAL_PROTECT(logis_logs_directory) //BANDAMARINES LOGIS EDIT
+
 GLOBAL_VAR(perf_log)
 GLOBAL_PROTECT(perf_log)
 
@@ -12,6 +15,9 @@ GLOBAL_PROTECT(tgui_log)
 
 GLOBAL_VAR(world_game_log)
 GLOBAL_PROTECT(world_game_log)
+
+GLOBAL_VAR(world_logis_game_log) //BANDAMARINES LOGIS EDIT
+GLOBAL_PROTECT(world_logis_game_log) //BANDAMARINES LOGIS EDIT
 
 GLOBAL_VAR(world_attack_log)
 GLOBAL_PROTECT(world_attack_log)
