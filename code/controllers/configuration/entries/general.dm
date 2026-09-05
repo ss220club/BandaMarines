@@ -539,6 +539,12 @@ This maintains a list of ip addresses that are able to bypass topic filtering.
 
 /datum/config_entry/string/profiler_webhook_url
 
+// BANDAMARINES EDIT START: Public bans
+/// Discord webhook URL for notifications about newly issued bans
+/datum/config_entry/string/ban_webhook_url
+	protection = CONFIG_ENTRY_SENSITIVE
+// BANDAMARINES EDIT END: Public bans
+
 /datum/config_entry/string/adminhelp_webhook_pfp
 
 /datum/config_entry/string/adminhelp_webhook_name

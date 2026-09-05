@@ -177,13 +177,24 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 	add_note(ban_text, FALSE, NOTE_ADMIN, TRUE, duration)
 
 	// since this is a timed ban, we need to update the ban
-	time_ban_date = "[time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")]"
+	// BANDAMARINES EDIT START: Public bans
+	var/ban_timestamp = world.realtime
+	time_ban_date = "[time2text(ban_timestamp, "YYYY-MM-DD hh:mm:ss")]"
+	// BANDAMARINES EDIT END: Public bans
 	time_ban_expiration = MINUTES_STAMP + duration
 	time_ban_admin_id = admin.player_data.id
 	time_ban_admin = admin.player_data
 	time_ban_reason = ban_text
 	is_time_banned = TRUE
 	save()
+	// BANDAMARINES EDIT START: Public bans
+	send_ban_webhook("Темпбан", DISCORD_EMBED_COLOR_BAN_TIMED, list(
+		"Игрок" = ckey,
+		"Админ" = admin.ckey,
+		"Причина" = ban_text,
+		"Длительность" = format_ban_duration(duration, ban_timestamp),
+	), time_ban_date)
+	// BANDAMARINES EDIT END: Public bans
 
 	// then we drop the player if they are in
 	if(owning_client)
@@ -235,6 +246,10 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 		return FALSE
 
 	var/total_rank = jointext(ranks, ", ")
+	// BANDAMARINES EDIT START: Public bans
+	var/ban_timestamp = world.realtime
+	var/ban_date = time2text(ban_timestamp, "YYYY-MM-DD hh:mm:ss")
+	// BANDAMARINES EDIT END: Public bans
 
 	var/duration_text = duration?"jobbanned for [duration/60] hours":"perma-jobbanned"
 
@@ -273,13 +288,23 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 		PJB.admin = admin.player_data
 		PJB.player = src
 		PJB.text = ban_text
-		PJB.date = "[time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")]"
+		PJB.date = ban_date // BANDAMARINES EDIT: Public bans proper date
 		PJB.ban_time = duration
 		if(duration)
 			PJB.expiration = MINUTES_STAMP + duration
 		PJB.role = safe_rank
 		PJB.save()
 		job_bans[safe_rank] = PJB
+
+	// BANDAMARINES EDIT START: Public bans
+	send_ban_webhook(duration ? "Джоб бан" : "Перманентный джоб бан", duration ? DISCORD_EMBED_COLOR_BAN_JOB : DISCORD_EMBED_COLOR_BAN_JOB_PERMANENT, list(
+		"Игрок" = ckey,
+		"Админ" = admin.ckey,
+		"Причина" = ban_text,
+		"Роли" = total_rank,
+		"Длительность" = duration ? format_ban_duration(duration, ban_timestamp) : "Навсегда",
+	), ban_date)
+	// BANDAMARINES EDIT START: Public bans
 
 	return TRUE
 
@@ -317,7 +342,10 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 		return FALSE
 
 	is_permabanned = TRUE
-	permaban_date = "[time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")]"
+	// BANDAMARINES EDIT START: Public bans
+	var/ban_timestamp = world.realtime
+	permaban_date = "[time2text(ban_timestamp, "YYYY-MM-DD hh:mm:ss")]"
+	// BANDAMARINES EDIT END: Public bans
 	permaban_reason = reason
 
 	if(banner)
@@ -338,8 +366,36 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 		QDEL_NULL(owning_client)
 
 	save()
+	// BANDAMARINES EDIT START: Public bans
+	if(banner)
+		send_ban_webhook("Перманентный бан", DISCORD_EMBED_COLOR_BAN_PERMANENT, list(
+			"Игрок" = ckey,
+			"Админ" = banner.ckey,
+			"Причина" = reason,
+		), permaban_date)
+	// BANDAMARINES EDIT END: Public bans
 
 	return TRUE
+
+// BANDAMARINES EDIT START: Public bans
+/datum/entity/player/proc/format_ban_duration(duration, ban_timestamp)
+	return "[round(duration MINUTES_TO_HOURS, 0.1)] ч. до [time2text(ban_timestamp + duration MINUTES, "YYYY-MM-DD hh:mm:ss")]"
+
+/datum/entity/player/proc/send_ban_webhook(title, color, list/fields, ban_date)
+	var/webhook = CONFIG_GET(string/ban_webhook_url)
+	if(!webhook)
+		return
+	fields["Раунд"] = GLOB.round_id || "?"
+	var/list/description_lines = list()
+	for(var/name in fields)
+		description_lines += "**[name]:** [fields[name]]"
+	var/datum/discord_embed/embed = new()
+	embed.title = title
+	embed.color = color
+	embed.footer = "[CONFIG_GET(string/servername)] - [ban_date]"
+	embed.description = jointext(description_lines, "\n")
+	send2webhook(embed, webhook)
+// BANDAMARINES EDIT END: Public bans
 
 /datum/entity/player/proc/auto_unban()
 	if(!is_time_banned)

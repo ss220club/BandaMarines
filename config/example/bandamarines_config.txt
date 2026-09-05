@@ -15,6 +15,9 @@ CENTRAL_API_TOKEN 12345678
 SERVER_TYPE default
 #FORCE_DISCORD_VERIFICATION
 
+## Discord webhook for new temporary, permanent, and job bans
+# BAN_WEBHOOK_URL https://discord.com/api/webhooks/...
+
 ## Enables diagonal movement
 # DIAGONAL_MOVE
 
