@@ -174,7 +174,7 @@ GLOBAL_LIST_INIT(reboot_sfx, file2list("config/reboot_sfx.txt"))
 	else if(copytext(topic_decoded, 1, 10) == "adminwho&")
 		var/list/legacy_params = params2list(topic_decoded)
 		var/list/adminwho_response = list()
-		var/topic_key = lowertext(legacy_params["key"])
+		var/topic_key = legacy_params["key"]
 
 		if(!LAZYACCESS(GLOB.topic_tokens[topic_key], "adminwho"))
 			adminwho_response = list("error" = "Unauthorized")

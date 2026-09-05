@@ -378,9 +378,11 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 	return TRUE
 
 // BANDAMARINES EDIT START: Public bans
+/// Formats a ban duration in minutes and its expiration time from a realtime timestamp.
 /datum/entity/player/proc/format_ban_duration(duration, ban_timestamp)
 	return "[round(duration MINUTES_TO_HOURS, 0.1)] ч. до [time2text(ban_timestamp + duration MINUTES, "YYYY-MM-DD hh:mm:ss")]"
 
+/// Sends a public ban notification to the configured Discord webhook.
 /datum/entity/player/proc/send_ban_webhook(title, color, list/fields, ban_date)
 	var/webhook = CONFIG_GET(string/ban_webhook_url)
 	if(!webhook)
