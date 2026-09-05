@@ -153,9 +153,8 @@
 /obj/structure/platform/stone/ancient_temple/alt/north{
 	icon_state = "ancient_platform_alt_broken"
 	},
-/obj/item/prop/torch_frame/ancient{
-	pixel_y = 31;
-	anchored = 1
+/obj/structure/prop/brazier/frame/full/torch/ancient{
+	pixel_y = 31
 	},
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/jungle/south_east_jungle)
@@ -280,9 +279,8 @@
 /obj/structure/platform/stone/ancient_temple/alt/north{
 	icon_state = "ancient_platform_alt_broken"
 	},
-/obj/item/prop/torch_frame/ancient{
-	pixel_y = 31;
-	anchored = 1
+/obj/structure/prop/brazier/frame/full/torch/ancient{
+	pixel_y = 31
 	},
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/jungle/south_east_jungle)

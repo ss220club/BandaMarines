@@ -2,6 +2,12 @@
 "a" = (
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/landing_zones/lz2)
+"b" = (
+/obj/structure/machinery/landinglight/delaytwo{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/lazarus/landing_zones/lz2)
 "c" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
 /turf/open/auto_turf/lv_sand/layer0,
@@ -196,8 +202,8 @@ j
 O
 u
 E
-x
 L
+k
 k
 "}
 (7,1,1) = {"
@@ -205,7 +211,7 @@ d
 m
 m
 E
-a
 v
 r
+b
 "}

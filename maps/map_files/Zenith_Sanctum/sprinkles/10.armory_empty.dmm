@@ -136,11 +136,6 @@
 	},
 /obj/effect/decal/hybrisa/dirt,
 /obj/item/ammo_magazine/smg/mp5,
-/obj/structure/machinery/light/red{
-	dir = 8;
-	pixel_y = -15;
-	pixel_x = 30
-	},
 /turf/open/floor/strata/multi_tiles,
 /area/lazarus/security)
 "K" = (
@@ -158,6 +153,10 @@
 /obj/item/ammo_casing/bullet,
 /obj/item/frame/rack{
 	color = "#aaaab5"
+	},
+/obj/structure/machinery/light/red{
+	dir = 4;
+	pixel_y = 15
 	},
 /turf/open/floor/strata/multi_tiles,
 /area/lazarus/security)

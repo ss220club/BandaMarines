@@ -35,6 +35,10 @@
 /obj/item/ammo_magazine/smg/m39/extended,
 /obj/item/ammo_magazine/smg/m39/extended,
 /obj/item/weapon/gun/smg/m39/corporate/no_lock,
+/obj/structure/machinery/light/red{
+	dir = 4;
+	pixel_y = 15
+	},
 /turf/open/floor/strata/multi_tiles,
 /area/lazarus/security)
 "B" = (
@@ -74,11 +78,6 @@
 /obj/structure/sign/poster/wylogo{
 	pixel_y = 32;
 	pixel_x = 1
-	},
-/obj/structure/machinery/light/red{
-	dir = 8;
-	pixel_y = -15;
-	pixel_x = 30
 	},
 /turf/open/floor/strata/multi_tiles,
 /area/lazarus/security)

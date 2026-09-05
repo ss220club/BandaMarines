@@ -190,10 +190,6 @@
 /obj/effect/hunter/ancient_temple/deco_border/deco_border3{
 	dir = 8
 	},
-/obj/item/prop/torch_frame/ancient{
-	pixel_y = 31;
-	anchored = 1
-	},
 /obj/structure/machinery/floodlight{
 	name = "Floodlight";
 	needs_power = 0
@@ -207,6 +203,9 @@
 	color = "#a98c7c";
 	dir = 1;
 	pixel_y = 7
+	},
+/obj/structure/prop/brazier/frame/full/torch/ancient{
+	pixel_y = 31
 	},
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
@@ -250,10 +249,6 @@
 /obj/effect/hunter/ancient_temple/deco_border/deco_border3{
 	dir = 4
 	},
-/obj/item/prop/torch_frame/ancient{
-	pixel_y = 31;
-	anchored = 1
-	},
 /obj/structure/machinery/floodlight{
 	name = "Floodlight";
 	needs_power = 0
@@ -267,6 +262,9 @@
 	dir = 4;
 	pixel_y = 2;
 	color = "#a98c7c"
+	},
+/obj/structure/prop/brazier/frame/full/torch/ancient{
+	pixel_y = 31
 	},
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
@@ -2549,12 +2547,11 @@
 /obj/effect/hunter/ancient_temple/deco_border/deco_border3{
 	dir = 8
 	},
-/obj/item/prop/torch_frame/ancient{
-	pixel_y = 31;
-	anchored = 1
-	},
 /obj/structure/barricade/metal/wired{
 	dir = 8
+	},
+/obj/structure/prop/brazier/frame/full/torch/ancient{
+	pixel_y = 31
 	},
 /turf/open/floor/ancient_temple/damaged/damage_2,
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
@@ -4317,10 +4314,6 @@
 /obj/effect/hunter/ancient_temple/deco_border/deco_border3{
 	dir = 4
 	},
-/obj/item/prop/torch_frame/ancient{
-	pixel_y = 31;
-	anchored = 1
-	},
 /obj/structure/barricade/metal/wired{
 	dir = 4;
 	icon_state = "metal_1"
@@ -4328,6 +4321,9 @@
 /obj/structure/sign/banners/clf_worn{
 	pixel_y = 32;
 	layer = 4.121
+	},
+/obj/structure/prop/brazier/frame/full/torch/ancient{
+	pixel_y = 31
 	},
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)

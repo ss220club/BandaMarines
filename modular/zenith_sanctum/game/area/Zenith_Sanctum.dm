@@ -158,7 +158,7 @@
 	icon_state = "purple"
 // ambience = list('sound/ambience/jungle_amb1.ogg')
 
-/area/lazarus/ground/river/central_river/lake
+/area/lazarus/ground/river/lake
 	name = "\improper Fisherman's Cove - Lake"
 	icon_state = "bluenew"
 
@@ -172,6 +172,9 @@
 	icon_state = "purple"
 	ambience_exterior = AMBIENCE_ANCIENT_TEMPLE_SURFACE
 	ceiling_muffle = FALSE
+
+/area/lazarus/ground/river/pool
+	name = "\improper Fitness pool"
 
 //Colony Areas
 /area/lazarus/ground/colony

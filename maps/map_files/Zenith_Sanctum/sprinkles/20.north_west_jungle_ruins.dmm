@@ -124,6 +124,9 @@
 	},
 /obj/structure/flora/jungle/vines/dead/light_3,
 /obj/structure/prop/ice_colony/surveying_device,
+/obj/structure/prop/brazier/frame/full/torch/ancient{
+	pixel_y = -19
+	},
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
 "cC" = (
@@ -164,10 +167,6 @@
 /obj/effect/hunter/ancient_temple/deco_border/deco_border3{
 	dir = 4
 	},
-/obj/item/prop/torch_frame/ancient{
-	pixel_y = 31;
-	anchored = 1
-	},
 /obj/structure/closet/coffin/woodencrate/old,
 /obj/item/tool/pickaxe,
 /obj/item/tool/pickaxe,
@@ -177,6 +176,9 @@
 /obj/item/tool/shovel/spade,
 /obj/item/tool/shovel/spade,
 /obj/item/tool/shovel/spade,
+/obj/structure/prop/brazier/frame/full/torch/ancient{
+	pixel_y = 31
+	},
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
 "dn" = (
@@ -1033,16 +1035,15 @@
 /obj/effect/hunter/ancient_temple/deco_border/deco_border3{
 	dir = 8
 	},
-/obj/item/prop/torch_frame/ancient{
-	pixel_y = 31;
-	anchored = 1
-	},
 /obj/item/device/flashlight/lamp/tripod{
 	on = 0
 	},
 /obj/structure/prop/ladder_props/ladder_step{
 	pixel_y = 20;
 	layer = 3.2
+	},
+/obj/structure/prop/brazier/frame/full/torch/ancient{
+	pixel_y = 31
 	},
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
@@ -1503,9 +1504,8 @@
 	dir = 8
 	},
 /obj/structure/flora/jungle/vines/dead/light_3,
-/obj/item/prop/torch_frame/ancient{
-	pixel_y = 31;
-	anchored = 1
+/obj/structure/prop/brazier/frame/full/torch/ancient{
+	pixel_y = 31
 	},
 /turf/open/floor/ancient_temple/damaged/damage_2,
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
@@ -2101,6 +2101,9 @@
 	dir = 1
 	},
 /obj/structure/flora/jungle/vines/dead/light_3,
+/obj/structure/prop/brazier/frame/full/torch/ancient{
+	pixel_y = -19
+	},
 /turf/open/floor/ancient_temple/damaged/damage_2,
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
 "JK" = (
@@ -2224,6 +2227,9 @@
 /obj/item/device/flashlight/lamp/tripod{
 	on = 0
 	},
+/obj/structure/prop/brazier/frame/full/torch/ancient{
+	pixel_y = -19
+	},
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
 "LG" = (
@@ -2240,12 +2246,11 @@
 /obj/effect/hunter/ancient_temple/deco_border/deco_border3{
 	dir = 4
 	},
-/obj/item/prop/torch_frame/ancient{
-	pixel_y = 31;
-	anchored = 1
-	},
 /obj/item/device/flashlight/lamp/tripod{
 	on = 0
+	},
+/obj/structure/prop/brazier/frame/full/torch/ancient{
+	pixel_y = 31
 	},
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)

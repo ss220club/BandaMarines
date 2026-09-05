@@ -1,8 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aa" = (
-/obj/structure/flora/jungle/planttop1,
-/turf/template_noop,
-/area/template_noop)
 "ab" = (
 /obj/structure/window_frame/lv_colony,
 /obj/item/shard,
@@ -16,6 +12,9 @@
 	damaged = 1
 	},
 /turf/template_noop,
+/area/template_noop)
+"ad" = (
+/turf/open/auto_turf/lv_sand/layer0,
 /area/template_noop)
 "aV" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -64,10 +63,6 @@
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/prison/platingdmg2,
-/area/template_noop)
-"cB" = (
-/obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/turf/template_noop,
 /area/template_noop)
 "cM" = (
 /obj/item/shard,
@@ -267,10 +262,6 @@
 /obj/item/ammo_casing/bullet,
 /turf/open/floor/prison/platingdmg2,
 /area/template_noop)
-"nk" = (
-/obj/structure/flora/bush/ausbushes/genericbush,
-/turf/template_noop,
-/area/template_noop)
 "nq" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/pipes/standard/simple/hidden/cyan,
@@ -458,10 +449,6 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/prison/platingdmg2,
 /area/template_noop)
-"xt" = (
-/obj/structure/flora/bush/ausbushes/pointybush,
-/turf/template_noop,
-/area/template_noop)
 "xv" = (
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/plating/prison,
@@ -479,10 +466,6 @@
 	amount = 15
 	},
 /turf/open/floor/prison/platingdmg1,
-/area/template_noop)
-"yf" = (
-/obj/structure/flora/jungle/plantbot1,
-/turf/template_noop,
 /area/template_noop)
 "yV" = (
 /obj/item/reagent_container/glass/watertank,
@@ -860,10 +843,6 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/template_noop,
 /area/template_noop)
-"Pd" = (
-/obj/structure/flora/bush/ausbushes/var3/fullgrass,
-/turf/template_noop,
-/area/template_noop)
 "Po" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
@@ -891,11 +870,6 @@
 	dir = 1
 	},
 /turf/open/floor/prison/platingdmg1,
-/area/template_noop)
-"PO" = (
-/obj/structure/flora/bush/ausbushes/var3/fullgrass,
-/obj/item/shard,
-/turf/template_noop,
 /area/template_noop)
 "PQ" = (
 /obj/effect/decal/cleanable/blood,
@@ -1046,10 +1020,6 @@
 /obj/item/shard,
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/plating/prison,
-/area/template_noop)
-"Tv" = (
-/obj/structure/flora/bush/ausbushes/ywflowers,
-/turf/template_noop,
 /area/template_noop)
 "Ud" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -1214,7 +1184,7 @@
 Zq
 Zq
 Zq
-PO
+Ko
 Zq
 Zq
 Zq
@@ -1225,7 +1195,7 @@ Zq
 Zq
 Ko
 Zq
-nk
+Zq
 Zq
 Zq
 "}
@@ -1398,10 +1368,10 @@ RA
 It
 Hk
 BY
-cB
+Zq
 "}
 (11,1,1) = {"
-Zq
+ad
 Mr
 cy
 yV
@@ -1474,7 +1444,7 @@ tB
 Wk
 Zq
 Zq
-Tv
+Zq
 "}
 (15,1,1) = {"
 Zq
@@ -1491,14 +1461,14 @@ ii
 Ko
 ii
 Ko
-aa
-yf
+Zq
+Zq
 Zq
 "}
 (16,1,1) = {"
 Zq
 Zq
-Pd
+Zq
 Zq
 Zq
 Sm
@@ -1512,5 +1482,5 @@ Ko
 Zq
 Zq
 Zq
-xt
+Zq
 "}

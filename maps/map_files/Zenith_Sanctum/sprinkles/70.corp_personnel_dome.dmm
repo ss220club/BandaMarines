@@ -2294,9 +2294,6 @@
 /area/lazarus/secure_storage)
 "Sf" = (
 /obj/structure/machinery/light/small/blue,
-/obj/structure/machinery/door/airlock/multi_tile/lv_double{
-	name = "\improper Corporate Personnel Complex Mess"
-	},
 /turf/open/floor/prison/darkred2,
 /area/lazarus/secure_storage)
 "Sj" = (

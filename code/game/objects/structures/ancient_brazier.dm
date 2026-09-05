@@ -60,7 +60,6 @@
 
 /obj/structure/prop/brazier_ancient/alt
 	icon_state = "brazier_alt"
-	icon_state = "brazier_alt"
 	pixel_y = 3
 
 /obj/structure/prop/brazier_ancient/frame
@@ -95,13 +94,19 @@
 
 /obj/structure/prop/brazier_ancient/tall
 	icon_state = "tall_small_brazier"
-	icon_state = "tall_small_brazier"
 	layer = BIG_XENO_LAYER
 
 /obj/structure/prop/brazier_ancient/tall/frame
+	name = "empty brazier" //SS220 ADDITION
+	desc = "An empty brazier." //SS220 ADDITION
 	icon_state = "tall_small_brazier_frame"
+	light_on = FALSE //SS220 ADDITION
+	frame_type = /obj/structure/prop/brazier_ancient/tall/frame/full //SS220 ADDITION
+	state = STATE_FUEL //SS220 ADDITION
 
 /obj/structure/prop/brazier_ancient/tall/frame/full
+	name = "empty full brazier" //SS220 ADDITION
+	desc = "An empty brazier. Yet it's also full. What???  Use something hot to ignite it, like a welding tool." //SS220 ADDITION
 	icon_state = "tall_small_brazier_frame_filled"
 	frame_type = /obj/structure/prop/brazier_ancient/tall
 	state = STATE_IGNITE

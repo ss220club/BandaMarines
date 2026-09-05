@@ -1,4 +1,11 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/structure/flora/jungle/vines/blue/light_3,
+/obj/structure/prop/brazier/frame/full/torch/ancient{
+	pixel_y = -19
+	},
+/turf/open/auto_turf/lv_grass_weedable/layer0,
+/area/lazarus/ground/jungle/south_west_jungle)
 "as" = (
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_12,
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_4,
@@ -287,9 +294,8 @@
 /turf/closed/wall/strata_ice/jungle,
 /area/strata/interior/out_of_bounds)
 "MB" = (
-/obj/item/prop/torch_frame/ancient{
-	pixel_y = 31;
-	anchored = 1
+/obj/structure/prop/brazier/frame/full/torch/ancient{
+	pixel_y = 31
 	},
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/south_west_jungle)
@@ -482,7 +488,7 @@ LW
 VY
 jC
 AP
-kN
+aa
 lf
 Bq
 iX
