@@ -1,6 +1,8 @@
 /obj/structure/machinery/cm_vending/sorted/cargo_guns/populate_product_list(scale)
 	. = ..()
-	LAZYINSERT(listed_products, list(list("R4T Scout Rifle", (1), /obj/item/storage/box/guncase/r4t_scout, VENDOR_ITEM_REGULAR)), 13)
+	LAZYINSERT(listed_products, list(list("R4T Scout Rifle", (1), /obj/item/storage/box/guncase/r4t_scout, VENDOR_ITEM_REGULAR)), 14)
+	LAZYINSERT(listed_products, list(list("XM51 Breaching Shotgun", (1), /obj/item/storage/box/guncase/xm51, VENDOR_ITEM_REGULAR)), 15)
+	LAZYINSERT(listed_products, list(list("NSG23 Assault Rifle", (1), /obj/item/storage/box/guncase/nsg23_marine, VENDOR_ITEM_REGULAR)), 16)
 
 /datum/gear/weapon/rmr6
 	display_name = "RMR-6 revolver"
