@@ -17,9 +17,9 @@
 	tools = SURGERY_TOOLS_SUTURE
 	//Suturing incisions closed is distinctly faster than cauterise-swaphand-suture, but slower than cautery alone, meaning it's only better if wanting to both close and suture the incision.
 	time = 3.5 SECONDS
-	preop_sound = 'sound/surgery/retractor1.ogg'
-	success_sound = 'sound/surgery/retractor2.ogg'
-	failure_sound = 'sound/surgery/hemostat1.ogg'
+	preop_sound = 'sound/surgery/suture1.ogg'
+	success_sound = 'sound/surgery/suture2.ogg'
+	failure_sound = 'sound/surgery/retractor1.ogg'
 
 /datum/surgery_step/suture_incision/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
 	var/ru_name_affected_limb = declent_ru_initial(surgery.affected_limb.display_name, PREPOSITIONAL, surgery.affected_limb.display_name) // SS220 EDIT ADDICTION
@@ -29,7 +29,7 @@
 		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает зашивать разрез на [ru_name_affected_limb] [target.declent_ru(GENITIVE)], используя [tool.declent_ru(ACCUSATIVE)].")) // SS220 EDIT ADDICTION
 
 	target.custom_pain("Вы чувствуете, как игла прокалывает вашу плоть на [ru_name_affected_limb]!") // SS220 EDIT ADDICTION
-	log_interact(user, target, "[key_name(user)] began suturing an incision in [key_name(target)]'s [surgery.affected_limb.display_name] with \the [tool].")
+	log_interact(user, target, "[key_name(user)] began suturing an incision in [key_name(target)]'s [surgery.affected_limb.display_name] with [tool].")
 
 /datum/surgery_step/suture_incision/success(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
 	var/ru_name_affected_limb = declent_ru_initial(surgery.affected_limb.display_name, PREPOSITIONAL, surgery.affected_limb.display_name) // SS220 EDIT ADDICTION
@@ -48,20 +48,60 @@
 	if(added_sutures & SUTURED_FULLY)
 		user.affected_message(target,
 			SPAN_NOTICE("Вы завершаете зашивать разрез на [ru_name_affected_limb] [target.declent_ru(GENITIVE)]."), // SS220 EDIT ADDICTION
-			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] завершает зашивать разрез на [ru_name_affected_limb]."), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] завершает зашивать разрез на [ru_name_affected_limb]. It stops hurting."), // SS220 EDIT ADDICTION
 			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] завершает зашивать разрез на [ru_name_affected_limb] [target.declent_ru(GENITIVE)].")) // SS220 EDIT ADDICTION
 
-		log_interact(user, target, "[key_name(user)] finished suturing an incision in [key_name(target)]'s [surgery.affected_limb.display_name] with \the [tool], ending [surgery].")
+		log_interact(user, target, "[key_name(user)] finished suturing an incision in [key_name(target)]'s [surgery.affected_limb.display_name] with [tool], ending [surgery].")
 	else
 		user.affected_message(target,
 			SPAN_NOTICE("Вы завершаете зашивать разрез на [ru_name_affected_limb] [target.declent_ru(GENITIVE)], однако некоторые повреждения ещё остаются."), // SS220 EDIT ADDICTION
-			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] завершает зашивать разрез на [ru_name_affected_limb], однако некоторые повреждения ещё остаются."), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] завершает зашивать разрез на [ru_name_affected_limb], однако вам всё ещё больно!"), // SS220 EDIT ADDICTION
 			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] завершает зашивать разрез на [ru_name_affected_limb] [target.declent_ru(GENITIVE)], однако некоторые повреждения ещё остаются.")) // SS220 EDIT ADDICTION
 
-		log_interact(user, target, "[key_name(user)] finished suturing an incision in [key_name(target)]'s [surgery.affected_limb.display_name] with \the [tool], ending [surgery].")
+		log_interact(user, target, "[key_name(user)] finished suturing an incision in [key_name(target)]'s [surgery.affected_limb.display_name] with [tool], ending [surgery].")
 
 	target.incision_depths[target_zone] = SURGERY_DEPTH_SURFACE
 
 /datum/surgery_step/suture_incision/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
-	log_interact(user, target, "[key_name(user)] failed to suture the incision in [key_name(target)]'s [surgery.affected_limb.display_name] with \the [tool].")
+	log_interact(user, target, "[key_name(user)] failed to suture the incision in [key_name(target)]'s [surgery.affected_limb.display_name] with [tool].")
 	return FALSE
+
+//------------------------------------
+//for closing incisions early
+/datum/surgery_step/suture_incision/abort
+	name = "Abort Surgery"
+	desc = "suture the incision early"
+
+/datum/surgery_step/suture_incision/abort/skip_step_criteria(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
+	return TRUE //If you opened the wrong limb or you need to close an autopsy incision; this has you covered. Different from amputation abortion.
+
+/datum/surgery_step/suture_incision/abort/success(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
+	var/added_sutures = SEND_SIGNAL(surgery.affected_limb, COMSIG_LIMB_ADD_SUTURES, TRUE)
+	if(!added_sutures) //No suture datum to answer the signal
+		new /datum/suture_handler(surgery.affected_limb)
+		added_sutures = SEND_SIGNAL(surgery.affected_limb, COMSIG_LIMB_ADD_SUTURES, TRUE) //This time, with feeling.
+
+	switch(target_zone)
+		if("head")
+			target.overlays -= image('icons/mob/humans/dam_human.dmi', "skull_surgery_closed")
+			target.overlays -= image('icons/mob/humans/dam_human.dmi', "skull_surgery_open")
+		if("chest")
+			target.overlays -= image('icons/mob/humans/dam_human.dmi', "chest_surgery_closed")
+			target.overlays -= image('icons/mob/humans/dam_human.dmi', "chest_surgery_open")
+	if(added_sutures & SUTURED_FULLY)
+		user.affected_message(target,
+			SPAN_NOTICE("You close the incision on [target]'s [surgery.affected_limb.display_name] with a line of neat sutures."),
+			SPAN_NOTICE("[user] closes the incision on your [surgery.affected_limb.display_name] with a line of neat sutures. It stops hurting."),
+			SPAN_NOTICE("[user] closes the incision on [target]'s [surgery.affected_limb.display_name] with a line of neat sutures."))
+		complete(target, surgery)
+
+		log_interact(user, target, "[key_name(user)] finished suturing an incision in [key_name(target)]'s [surgery.affected_limb.display_name] with [tool], ending [surgery].")
+	else
+		user.affected_message(target,
+			SPAN_NOTICE("You close the incision on [target]'s [surgery.affected_limb.display_name] with a line of neat sutures, but some injuries remain."),
+			SPAN_NOTICE("[user] closes the incision on your [surgery.affected_limb.display_name] with a line of neat sutures, but you're still hurting!"),
+			SPAN_NOTICE("[user] closes the incision on [target]'s [surgery.affected_limb.display_name] with a line of neat sutures, but some injuries remain."))
+
+		log_interact(user, target, "[key_name(user)] finished suturing an incision in [key_name(target)]'s [surgery.affected_limb.display_name] with [tool], ending [surgery].")
+
+	target.incision_depths[target_zone] = SURGERY_DEPTH_SURFACE

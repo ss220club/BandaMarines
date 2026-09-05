@@ -1,0 +1,4 @@
+author: "gotas221"
+delete-after: True
+changes:
+  - rscadd: "командиры теперь могут снять встроенные визоры со шлема М11С."

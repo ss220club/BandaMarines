@@ -227,16 +227,6 @@
 	forceMove(L.loc)
 	..()
 
-//user: The mob that is suiciding
-//damagetype: The type of damage the item will inflict on the user
-//BRUTELOSS = 1
-//FIRELOSS = 2
-//TOXLOSS = 4
-//OXYLOSS = 8
-//Output a creative message and then return the damagetype done
-/obj/item/proc/suicide_act(mob/user)
-	return
-
 /**
  * Global item proc for all of your unique item skin needs. Works with any
  * item, and will change the skin to whatever you specify here. You can also
@@ -303,20 +293,20 @@
 	var/size
 	switch(w_class)
 		if(SIZE_TINY)
-			size = "крохотного размера" // SS220 EDIT ADDICTION
+			size = SPAN_GREEN("крохотного размера") // SS220 EDIT ADDICTION)
 		if(SIZE_SMALL)
-			size = "маленького размера" // SS220 EDIT ADDICTION
+			size = SPAN_CYAN("маленького размера") // SS220 EDIT ADDICTION)
 		if(SIZE_MEDIUM)
-			size = "обычного размера" // SS220 EDIT ADDICTION
+			size = SPAN_ORANGE("обычного размера") // SS220 EDIT ADDICTION)
 		if(SIZE_LARGE)
-			size = "громоздкого размера" // SS220 EDIT ADDICTION
+			size = SPAN_DANGER("громоздкого размера") // SS220 EDIT ADDICTION)
 		if(SIZE_HUGE)
-			size = "огромного размера" // SS220 EDIT ADDICTION
+			size = SPAN_RED("огромного размера") // SS220 EDIT ADDICTION)
 		if(SIZE_MASSIVE)
-			size = "гигантского размера" // SS220 EDIT ADDICTION
+			size = SPAN_RED("гигантского размера") // SS220 EDIT ADDICTION
 	. += "Это [blood_color ? blood_color == COLOR_OIL ? "замасленн[genderize_ru(gender, "ый", "ая", "ое", "ые")] " : "окровавленн[genderize_ru(gender, "ый", "ая", "ое", "ые")] " : ""][icon2html(src, user)][declent_ru(NOMINATIVE)]. Это предмет [size]." // SS220 EDIT ADDICTION
 	if(desc)
-		. += desc
+		. += SPAN_INFO(desc)
 	if(desc_lore)
 		. += SPAN_NOTICE("This has an <a href='byond://?src=\ref[src];desc_lore=1'>extended lore description</a>.")
 
@@ -415,11 +405,12 @@
 /// Called just as an item is picked up (loc is not yet changed) and will return TRUE if the pickup wasn't canceled.
 /obj/item/proc/pickup(mob/user, silent)
 	SHOULD_CALL_PARENT(TRUE)
-	if((SEND_SIGNAL(src, COMSIG_ITEM_PICKUP, user)) & COMSIG_ITEM_PICKUP_CANCELLED)
+	if(check_pickup_blocked(user))
 		if(!silent)
 			to_chat(user, SPAN_WARNING("Can't pick [src] up!"))
 			balloon_alert(user, "can't pick up")
 		return FALSE
+	SEND_SIGNAL(src, COMSIG_ITEM_PICKUP, user)
 	SEND_SIGNAL(user, COMSIG_MOB_PICKUP_ITEM, src)
 	setDir(SOUTH)//Always rotate it south. This resets it to default position, so you wouldn't be putting things on backwards
 	if(pickup_sound && !silent && src.loc?.z)

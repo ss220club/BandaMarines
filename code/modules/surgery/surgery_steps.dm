@@ -1,7 +1,7 @@
 /datum/surgery_step
 	var/name
 	/**Description of the surgery used for need-different-tool messages,
-	format: (You could/can't )["sever the bone in the patient's limb"]( with \the [tool], or )[next step desc]. Can't refer to outside vars as step datums are global.**/
+	format: (You could/can't )["sever the bone in the patient's limb"]( with [tool], or )[next step desc]. Can't refer to outside vars as step datums are global.**/
 	var/desc
 
 	/**Associative list, tools and their step time multiplier. tools_typecache is assigned from from first to last, so if you have a
@@ -101,8 +101,16 @@ affected_limb, or location vars. Also, in that case there may be a wait between 
 	if(surgery_limb)
 		var/obj/item/blocker = target.get_sharp_obj_blocker(surgery_limb)
 		if(blocker)
-			to_chat(user, SPAN_WARNING("[blocker] [target] is wearing restricts your access to the surgical site, take it off!"))
+			to_chat(user, SPAN_WARNING("[blocker] [target] is wearing restricts your access to the surgical site! Take it off!"))
 			return
+
+		if(surgery_limb.status & LIMB_SPLINTED && surgery.invasiveness != SURGERY_DEPTH_SURFACE)
+			if(surgery_limb.status & LIMB_SPLINTED_INDESTRUCTIBLE)
+				to_chat(user, SPAN_WARNING("The splint [target] is wearing on their [surgery_limb.display_name] restricts your access to the surgical site, and must be manually removed!"))
+				return
+			surgery_limb.status &= ~LIMB_SPLINTED
+			playsound(get_turf(target), 'sound/items/splintbreaks.ogg', 20)
+			user.visible_message(SPAN_DANGER("The splint on [target]'s [surgery_limb.display_name] comes apart!"))
 
 	var/step_duration = time
 	var/self_surgery
@@ -144,28 +152,28 @@ affected_limb, or location vars. Also, in that case there may be a wait between 
 		var/list/message = new() //Duration hint messages.
 
 		if(self_surgery)
-			message += "[pick("проводить операцию", "делать это")] [pick("на себе", "на собственном теле")] [pick("неудобно", "непросто")]" // SS220 EDIT ADDICTION
+			message += "[pick("проводить операцию", "делать это", "operating")] [pick("на себе", "на собственном теле")] [pick("неудобно", "непросто")]" // SS220 EDIT ADDICTION
 
 		switch(tool_modifier) //Implicitly means tool exists as accept_any_item item or accept_hand would = 1x. No message for 1x - that's the default.
 			if(SURGERY_TOOL_MULT_SUBOPTIMAL)
-				message += "[pick("этому инструменту далеко до идеала", "можно было найти инструмент по-лучше")]" // SS220 EDIT ADDICTION
+				message += "this tool [pick("is perfectly serviceable, but less efficient",  "takes some extra patience to work with", "is a bit different than what you're accustomed to using", "could be better, but considering the alternatives, it's fine")]"
 			if(SURGERY_TOOL_MULT_SUBSTITUTE)
-				message += "[pick("этот инструмент не подходит для этого", "этот инструмент не приспособлен для этого", "этот инструмент трудно использовать")]" // SS220 EDIT ADDICTION
+				message += "this tool [pick("is an acceptable substitute, but quite inefficient", "tests your patience and dexterity", "is unorthodox for executing this step", "feels odd in your hand, but it works, you suppose")]"
 			if(SURGERY_TOOL_MULT_BAD_SUBSTITUTE)
-				message += "[pick("этот инструмент ужасен", "этот инструмент едва пригоден для использования")]" // SS220 EDIT ADDICTION
+				message += "this tool [pick("has more favorable applications elsewhere", "is frustrating to work with", "is not appropriate for this surgical step", "could cause harm within unskilled hands")]"
 				failure_penalties += 1
 			if(SURGERY_TOOL_MULT_AWFUL)
-				message += "[pick("этот инструмент ужасен", "этот инструмент едва пригоден для использования")]" // SS220 EDIT ADDICTION
+				message += "this tool [pick("has better uses literally anywhere else", "should never be used for this purpose", "makes you long for the feel of any other instrument", "will almost certainly cause harm within unskilled hands")]"
 				failure_penalties += 2
 
 		switch(surface_modifier)
 			if(SURGERY_SURFACE_MULT_ADEQUATE)
-				message += "[pick("нелегко работать в полевых условиях", "нелегко работать в таких условиях", "нелегко работать без операционной", "сложно проводить операции в полевых условиях", "сложно проводить операции в таких условиях", "сложно проводить операции без операционной", "было бы быстрее, если бы вы не работали в полевых условиях", "было бы быстрее, если бы вы не работали в таких условиях", "было бы быстрее, если бы вы работали в операционной")]" // SS220 EDIT ADDICTION
+				message += "[pick("you feel the need to double check your steps while working", "it's tricky to perform complex surgeries", "you would feel more confident of your pacing if you weren't working")] [pick("in the field", "outside of your element", "without a proper surgical theatre")]"
 			if(SURGERY_SURFACE_MULT_UNSUITED)
-				message += "[pick("трудно ускориться в этих полевых условиях", "трудно ускориться в этих суровых условиях", "трудно ускориться в этих кустарных условиях", "работа в полевых условиях будет медленной", "работа в суровых условиях будет медленной", "работа в кустарных условиях будет медленной", "нельзя торопиться в этих полевых условиях", "нельзя торопиться в этих суровых условиях", "нельзя торопиться в этих кустарных условиях")]" // SS220 EDIT ADDICTION
+				message += "[pick("you feel nervous as you manipulate your tools", "you feel insecure and unsure of yourself", "you feel the need to triple check your steps")] while operating [pick("on non-sterile surfaces", "on a non-surgical bed", "in an unsanitary environment")]"
 				failure_penalties += 1
 			if(SURGERY_SURFACE_MULT_AWFUL)
-				message += "[pick("в этих ужасных условиях нужно работать медленно и осторожно", "в этих сложных условиях нужно работать медленно и осторожно", "в этих неподходящих условиях нужно работать медленно и осторожно", "в этих ужасных условиях нужно быть очень осторожным", "в этих сложных условиях нужно быть очень осторожным", "в этих неподходящих условиях нужно быть очень осторожным", "эта работа превращается в деликатную в таких ужасных условиях", "эта работа превращается в деликатную в таких сложных условиях", "эта работа превращается в деликатную в таких неподходящих условиях")]" // SS220 EDIT ADDICTION
+				message += "[pick("one wrong move and you could cause serious harm", "you have never felt more aware of your slow, careful, deliberate movements", "you are mortified, but you keep an unbreakable focus and the steadiest of hands", "you compulsively quadruple check your body and hand positioning")] while using your tools [pick("on a patient not lying on a secure bed", "on an unstable surface", "in an unsanitary environment", "in the worst conditions imaginable")]"
 				failure_penalties += 2
 
 		if(length(message))
@@ -238,10 +246,7 @@ affected_limb, or location vars. Also, in that case there may be a wait between 
 		tool.update_icon() // in order to not reset shit too far.
 
 	if(advance)
-		if(skipped) //Skipped previous step.
-			surgery.status += 2
-		else
-			surgery.status++
+		surgery.status += max(skipped + 1, 1)
 		if(surgery.status > length(surgery.steps))
 			complete(target, surgery)
 
