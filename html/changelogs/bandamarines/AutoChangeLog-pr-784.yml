@@ -1,4 +1,0 @@
-author: "larentoun"
-delete-after: True
-changes:
-  - rscadd: "Изменено действие ярости Валькирии с QUEUE на CLICK"
