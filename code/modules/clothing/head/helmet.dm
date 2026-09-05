@@ -1449,7 +1449,9 @@ GLOBAL_LIST_INIT(allowed_helmet_items, list(
 	armor_bio = CLOTHING_ARMOR_MEDIUMHIGH
 	specialty = "M11 pattern commanding officer"
 	flags_atom = NO_NAME_OVERRIDE
-	built_in_visors = list(new /obj/item/device/helmet_visor, new /obj/item/device/helmet_visor/medical/advanced, new /obj/item/device/helmet_visor/security)
+	built_in_visors = list() //SS220 EDIT
+	inserted_visors = list(new /obj/item/device/helmet_visor, new /obj/item/device/helmet_visor/medical/advanced, new /obj/item/device/helmet_visor/security) //SS220 EDIT
+	max_inserted_visors = 3 //SS220 EDIT
 
 /obj/item/clothing/head/helmet/marine/leader/CO/general
 	name = "\improper M11 pattern ceremonial helmet"
