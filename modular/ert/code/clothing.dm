@@ -18,13 +18,13 @@
 	item_icons = list(
 		WEAR_JACKET = 'modular/ert/icons/clothing/mob/suits_mob.dmi',
 	)
-	armor_melee = CLOTHING_ARMOR_HIGH
-	armor_bullet = CLOTHING_ARMOR_HIGH
-	armor_bomb = CLOTHING_ARMOR_VERYHIGH
+	armor_melee = CLOTHING_ARMOR_MEDIUM
+	armor_bullet = CLOTHING_ARMOR_MEDIUM
+	armor_bomb = CLOTHING_ARMOR_MEDIUM
 	armor_bio = CLOTHING_ARMOR_MEDIUMLOW
 	armor_rad = CLOTHING_ARMOR_MEDIUMHIGH
 	armor_internaldamage = CLOTHING_ARMOR_MEDIUMHIGH
-	slowdown = SLOWDOWN_ARMOR_LIGHT
+	slowdown = SLOWDOWN_ARMOR_MEDIUM
 	unacidable = TRUE
 	flags_atom = NO_CRYO_STORE|NO_GAMEMODE_SKIN
 	storage_slots = 3
@@ -36,8 +36,8 @@
 	item_icons = list(
 		WEAR_FEET = 'modular/ert/icons/clothing/mob/shoes_mob.dmi',
 	)
-	armor_melee = CLOTHING_ARMOR_MEDIUMLOW
-	armor_bullet = CLOTHING_ARMOR_HIGHPLUS
+	armor_melee = CLOTHING_ARMOR_MEDIUM
+	armor_bullet = CLOTHING_ARMOR_MEDIUM
 	armor_bomb = CLOTHING_ARMOR_MEDIUM
 	armor_internaldamage = CLOTHING_ARMOR_MEDIUMHIGH
 	spawn_item_type = /obj/item/attachable/bayonet/rmc
@@ -272,7 +272,7 @@
 	flags_cold_protection = BODY_FLAG_EYES|BODY_FLAG_HEAD|BODY_FLAG_FACE
 	flags_heat_protection = BODY_FLAG_EYES|BODY_FLAG_HEAD|BODY_FLAG_FACE
 	flags_bodypart_hidden = BODY_FLAG_EYES|BODY_FLAG_HEAD|BODY_FLAG_FACE
-	flags_inventory = BLOCKSHARPOBJ
+	flags_inventory = FULL_DECAP_PROTECTION|BLOCKSHARPOBJ|NOPRESSUREDMAGE|BLOCKGASEFFECT|ALLOWREBREATH|COVEREYES|COVERMOUTH
 	armor_melee = CLOTHING_ARMOR_HIGH
 	armor_bullet = CLOTHING_ARMOR_HIGH
 	armor_bomb = CLOTHING_ARMOR_VERYHIGH
@@ -282,6 +282,8 @@
 	armor_energy = CLOTHING_ARMOR_HIGH
 	eye_protection = EYE_PROTECTION_WELDING
 	built_in_visors = list(new /obj/item/device/helmet_visor/leader, new /obj/item/device/helmet_visor/medical/advanced)
+	flags_inv_hide = HIDEMASK|HIDEEARS|HIDEEYES|HIDEALLHAIR
+
 
 /obj/item/clothing/head/helmet/marine/imperial_guard/spacemarine/cap
 	name = "Ultramarine Captain power armor helmet"
