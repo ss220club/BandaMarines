@@ -72,7 +72,12 @@
 	state = STATE_FUEL
 
 /obj/structure/prop/brazier_ancient/alt/frame
+	name = "empty brazier" //SS220 ADDITION
+	desc = "An empty brazier." //SS220 ADDITION
 	icon_state = "brazier_alt_frame"
+	light_on = FALSE //SS220 ADDITION
+	frame_type = /obj/structure/prop/brazier_ancient/alt/frame/full //SS220 ADDITION
+	state = STATE_FUEL //SS220 ADDITION
 
 /obj/structure/prop/brazier_ancient/frame/full
 	name = "empty full brazier"
@@ -82,7 +87,11 @@
 	state = STATE_IGNITE
 
 /obj/structure/prop/brazier_ancient/alt/frame/full
+	name = "empty full brazier" //SS220 ADDITION
+	desc = "An empty brazier. Yet it's also full. What???  Use something hot to ignite it, like a welding tool." //SS220 ADDITION
 	icon_state = "brazier_alt_frame_filled"
+	frame_type = /obj/structure/prop/brazier_ancient/alt //SS220 ADDITION
+	state = STATE_IGNITE //SS220 ADDITION
 
 /obj/structure/prop/brazier_ancient/tall
 	icon_state = "tall_small_brazier"
