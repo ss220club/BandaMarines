@@ -152,6 +152,13 @@
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
+"aaI" = (
+/obj/structure/prop/power_transformer{
+	density = 1;
+	pixel_x = -16
+	},
+/turf/open/floor/prison/west,
+/area/lazarus/power_plant/core)
 "aaJ" = (
 /obj/structure/barricade/handrail/wire,
 /obj/structure/prop/hunter/catwalk/new_alpha{
@@ -9351,18 +9358,6 @@
 /obj/structure/flora/jungle/vines/blue/light_3,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/south_east_jungle)
-"axW" = (
-/obj/structure/prop/turbine,
-/obj/structure/prop/power_transformer{
-	base_pixel_x = null;
-	pixel_x = 16;
-	unacidable = 1
-	},
-/obj/structure/prop/turbine_extras/border,
-/obj/structure/prop/turbine_extras,
-/obj/structure/prop/turbine_extras/left,
-/turf/open/floor/prison/west,
-/area/lazarus/power_plant/core)
 "axX" = (
 /obj/structure/blocker/invisible_wall,
 /turf/open/floor/prison/west,
@@ -9372,11 +9367,6 @@
 /area/lazarus/ground/ancient_temple/north_east/surface)
 "axZ" = (
 /obj/structure/prop/turbine,
-/obj/structure/prop/power_transformer{
-	base_pixel_x = null;
-	pixel_x = 16;
-	unacidable = 1
-	},
 /turf/open/floor/prison/west,
 /area/lazarus/power_plant/core)
 "aya" = (
@@ -9388,14 +9378,6 @@
 /area/lazarus/power_plant/core)
 "ayb" = (
 /turf/open/floor/prison/cell_stripe/west,
-/area/lazarus/power_plant/core)
-"ayc" = (
-/obj/structure/prop/power_transformer{
-	base_pixel_x = null;
-	pixel_x = 16;
-	unacidable = 1
-	},
-/turf/open/floor/prison/west,
 /area/lazarus/power_plant/core)
 "ayd" = (
 /obj/effect/decal/lv_decals/cave_mud_corner,
@@ -14384,18 +14366,6 @@
 /obj/structure/machinery/power/apc/no_power/north,
 /turf/open/floor/prison/west,
 /area/lazarus/power_plant)
-"aND" = (
-/obj/structure/prop/turbine,
-/obj/structure/prop/turbine_extras/border,
-/obj/structure/prop/turbine_extras,
-/obj/structure/prop/turbine_extras/left,
-/obj/structure/prop/power_transformer{
-	base_pixel_x = null;
-	pixel_x = 16;
-	unacidable = 1
-	},
-/turf/open/floor/prison/west,
-/area/lazarus/power_plant/core)
 "aNE" = (
 /obj/structure/machinery/prop/almayer/computer/PC{
 	dir = 4;
@@ -18112,7 +18082,7 @@
 /obj/structure/machinery/door/airlock/hybrisa/medical_solid/autoname{
 	dir = 1;
 	req_one_access_txt = "100";
-	name = "\improper  Treatment Center"
+	name = "\improper Treatment Center"
 	},
 /turf/open/floor/plating/prison,
 /area/lazarus/medbay)
@@ -35829,7 +35799,6 @@
 /turf/open/floor/prison/west,
 /area/lazarus/engineering)
 "kbq" = (
-/obj/structure/window/framed/lv_colony/reinforced,
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/sleep_male)
 "kbu" = (
@@ -82024,8 +81993,8 @@ ahd
 aja
 auO
 akh
-ayc
-axW
+akh
+aya
 axU
 alr
 akh
@@ -82248,8 +82217,8 @@ ahd
 avc
 auO
 axX
-axX
-axX
+aaI
+aaI
 axU
 akh
 akh
@@ -82472,7 +82441,7 @@ ahd
 avc
 auO
 akh
-ayc
+akh
 axZ
 axU
 akh
@@ -82696,8 +82665,8 @@ ahg
 agV
 auO
 axX
-axX
-axX
+aaI
+aaI
 axU
 alr
 akh
@@ -83816,8 +83785,8 @@ ahd
 avc
 auO
 akh
-ayc
-aND
+akh
+aya
 axU
 akh
 akh
@@ -84040,8 +84009,8 @@ ahd
 agV
 auO
 axX
-axX
-axX
+aaI
+aaI
 axU
 vbx
 akh
@@ -84264,7 +84233,7 @@ ahd
 avc
 auO
 akh
-ayc
+akh
 axZ
 axU
 hVB
@@ -84488,8 +84457,8 @@ ahd
 avc
 auO
 axX
-axX
-axX
+aaI
+aaI
 axU
 akh
 rpR
