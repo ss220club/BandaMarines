@@ -23,10 +23,6 @@
 	},
 /turf/open/floor/ancient_temple/damaged/damage_3,
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
-"aQ" = (
-/obj/structure/flora/jungle/plantbot1,
-/turf/template_noop,
-/area/template_noop)
 "bd" = (
 /obj/structure/flora/jungle/vines/blue/light_3,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
@@ -854,12 +850,6 @@
 /obj/item/stack/sheet/wood,
 /turf/open/gm/dirt/brown/variant_5/west,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
-"oL" = (
-/obj/effect/decal/lv_decals/cave_mud_corner{
-	dir = 6
-	},
-/turf/template_noop,
-/area/lazarus/ground/caves/south_west_caves)
 "oR" = (
 /obj/structure/flora/jungle/vines/blue/light_3,
 /turf/closed/wall/rock/brown,
@@ -1322,10 +1312,6 @@
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
-"xX" = (
-/obj/structure/flora/bush/ausbushes/lavendergrass,
-/turf/template_noop,
-/area/template_noop)
 "xZ" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
 /obj/structure/blocker/forcefield/multitile_vehicles,
@@ -2539,10 +2525,6 @@
 	},
 /turf/open/floor/brown_dirt/random_rocks,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
-"Qm" = (
-/obj/structure/flora/jungle/planttop1,
-/turf/template_noop,
-/area/template_noop)
 "Qt" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
 /turf/open/floor/brown_dirt/random_rocks,
@@ -2711,11 +2693,6 @@
 /obj/effect/hunter/ancient_temple/rubble/rubble_1,
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
-"Tl" = (
-/obj/structure/flora/bush/ausbushes/var3/sparsegrass,
-/obj/structure/flora/jungle/planttop1,
-/turf/template_noop,
-/area/template_noop)
 "Tm" = (
 /obj/effect/landmark/objective_landmark/medium,
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
@@ -2936,11 +2913,6 @@
 /obj/structure/largecrate/random/barrel/blue,
 /turf/open/floor/ancient_temple/damaged/damage_2,
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
-"WU" = (
-/obj/structure/flora/bush/ausbushes/var3/fullgrass,
-/obj/effect/landmark/big_fog_marker,
-/turf/template_noop,
-/area/template_noop)
 "WW" = (
 /obj/structure/prop/ice_colony/ground_wire{
 	dir = 8
@@ -5070,7 +5042,7 @@ wh
 wh
 wh
 wh
-WU
+OZ
 hU
 hU
 hU
@@ -5674,7 +5646,7 @@ hU
 hU
 hU
 hU
-Yp
+hU
 hU
 hU
 hU
@@ -5720,10 +5692,10 @@ hU
 hU
 hU
 yU
-fT
+hU
 OZ
-xX
-fT
+hU
+hU
 hU
 hU
 hU
@@ -5762,18 +5734,18 @@ lZ
 sr
 Bt
 yU
-fT
-Yp
-fT
-Yp
 hU
 hU
 hU
 hU
-fT
-Tl
-aQ
-fT
+hU
+hU
+hU
+hU
+hU
+hU
+hU
+hU
 hU
 hU
 hU
@@ -5813,17 +5785,17 @@ mG
 mG
 HM
 hU
-fT
-hU
-fT
-hU
-fT
-hU
-fT
 hU
 hU
-fT
-fT
+hU
+hU
+hU
+hU
+hU
+hU
+hU
+hU
+hU
 hU
 hU
 hU
@@ -5850,7 +5822,7 @@ pj
 pj
 VL
 iY
-oL
+iY
 ag
 ag
 Lp
@@ -5864,19 +5836,19 @@ VL
 mG
 hU
 hU
-xX
-hU
-hU
-hU
-hU
-Yp
 hU
 hU
 hU
 hU
 hU
 hU
-fT
+hU
+hU
+hU
+hU
+hU
+hU
+hU
 hU
 hU
 hU
@@ -5914,23 +5886,23 @@ hU
 hU
 hU
 hU
-fT
-Qm
-aQ
-fT
-fT
-hU
-hU
-fT
-hU
-hU
-hU
-fT
 hU
 hU
 hU
 hU
-Yp
+hU
+OZ
+hU
+hU
+hU
+hU
+OZ
+hU
+hU
+hU
+hU
+hU
+hU
 hU
 hU
 hU
@@ -5961,20 +5933,20 @@ mG
 mG
 hU
 hU
-xX
+hU
 hU
 iV
 cs
 iV
 zi
-fT
-fT
-OZ
-fT
 hU
 hU
-fT
-OZ
+hU
+hU
+hU
+hU
+hU
+hU
 hU
 hU
 hU

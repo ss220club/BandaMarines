@@ -191,8 +191,8 @@
 	icon_state = "central"
 	ceiling = CEILING_NONE
 
-/area/lazarus/ground/colony/south_medbay_road
-	name = "\improper South Medbay Road"
+/area/lazarus/ground/colony/south_botanics_road
+	name = "\improper South Botanics Road"
 	icon_state = "south"
 	ceiling = CEILING_NONE
 
