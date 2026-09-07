@@ -72,7 +72,25 @@
 	damage_falloff_mult = 0
 	fa_max_scatter = SCATTER_AMOUNT_TIER_5
 
+/obj/item/weapon/gun/rifle/bolter/black
+	icon_state = "bolter_black"
+	item_state = "bolter_black"
+
+/obj/item/weapon/gun/rifle/bolter/sister
+	icon_state = "bolter_saint"
+	item_state = "bolter_saint"
+
+/obj/item/weapon/gun/rifle/bolter/chaos
+	icon_state = "bolter_chaos"
+	item_state = "bolter_chaos"
+
+/obj/item/weapon/gun/rifle/bolter/ultramar
+	icon_state = "ultrabolter"
+	item_state = "ultrabolter"
+
 /obj/item/weapon/gun/rifle/bolter/heavy
+	name = "Heavy Bolter"
+	desc = "When you need more firepower."
 	icon_state = "hbolter"
 	item_state = "hbolter"
 	current_mag = /obj/item/ammo_magazine/rifle/hbolter
@@ -94,6 +112,8 @@
 	fa_max_scatter = SCATTER_AMOUNT_TIER_5
 
 /obj/item/weapon/gun/rifle/bolter/pistol
+	name = "Bolt Pistol"
+	desc = "For The Imperium of Mankind!"
 	icon_state = "bpistol"
 	item_state = "bpistol"
 	current_mag = /obj/item/ammo_magazine/rifle/bolter
@@ -114,6 +134,8 @@
 	damage_falloff_mult = 0
 	fa_max_scatter = SCATTER_AMOUNT_TIER_5
 
+/obj/item/weapon/gun/rifle/bolter/pistol/ultramar
+	icon_state = "ultrabpistol"
 
 /obj/item/ammo_magazine/rifle/bolter
 	name = "\improper Bolter magazine (.75)"

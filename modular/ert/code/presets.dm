@@ -49,6 +49,22 @@
 			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/bolter(new_human), WEAR_IN_ACCESSORY)
 			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/bolter(new_human), WEAR_IN_ACCESSORY)
 
+/datum/equipment_preset/imperial_guard/proc/add_spec_imperial_weapon(mob/living/carbon/human/new_human)
+	var/random_gun = rand(1,3)
+	switch(random_gun)
+		if(1 , 2)
+			new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/lasgun/hellgun(new_human), WEAR_L_HAND)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lasgun/extended(new_human), WEAR_IN_BELT)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lasgun/extended(new_human), WEAR_IN_BELT)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lasgun/extended(new_human), WEAR_IN_BELT)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lasgun/extended(new_human), WEAR_IN_BELT)
+		if(3)
+			new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/lasgun/longlas(new_human), WEAR_L_HAND)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lasgun(new_human), WEAR_IN_BELT)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lasgun(new_human), WEAR_IN_BELT)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lasgun(new_human), WEAR_IN_BELT)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lasgun(new_human), WEAR_IN_BELT)
+
 // /datum/equipment_preset/uscm/imperial_guard/proc/spawn_random_headgear(mob/living/carbon/human/new_human)
 // 	var/i = rand(1,10)
 // 	switch(i)
@@ -90,6 +106,11 @@
 // 		if(5)
 // 			new_human.equip_to_slot_or_del(new /obj/item/device/motiondetector(new_human),WEAR_WAIST)
 
+
+	// spawn_random_headgear(new_human)
+	//add_imperial_weapon(new_human)
+
+
 /datum/equipment_preset/imperial_guard/load_status(mob/living/carbon/human/new_human)
  	new_human.nutrition = NUTRITION_HIGH
 
@@ -129,11 +150,48 @@
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine/imperial_guard(new_human), WEAR_HEAD)
 
 	spawn_weapon(/obj/item/weapon/gun/rifle/lasgun, /obj/item/ammo_magazine/rifle/lasgun, new_human, 0, 3)
-	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lasgun/extended, WEAR_IN_BELT)
-	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lasgun/extended, WEAR_IN_BELT)
+	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lasgun, WEAR_IN_BELT)
+	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lasgun, WEAR_IN_BELT)
 
-	// spawn_random_headgear(new_human)
-	//add_imperial_weapon(new_human)
+/datum/equipment_preset/imperial_guard/heavy
+	name = "Imperial Guard - Spec"
+	assignment = "Imperial Guard Specialist"
+	job_title = "Гвардеец-специалист"
+	role_comm_title = "GrdSpec"
+	paygrades = list(PAY_SHORT_ME4 = JOB_PLAYTIME_TIER_0)
+	job_title = JOB_SQUAD_SPECIALIST
+	skills = /datum/skills/mercenary/elite/heavy //change
+	flags = EQUIPMENT_PRESET_EXTRA
+
+/datum/equipment_preset/imperial_guard/heavy/load_gear(mob/living/carbon/human/new_human)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/marine/veteran/imperial_guard, WEAR_BODY)
+
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/storage/webbing, WEAR_ACCESSORY)
+
+	new_human.equip_to_slot_or_del(new /obj/item/storage/belt/marine, WEAR_WAIST)
+
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/marine/veteran/imperial_guard(new_human), WEAR_JACKET)
+
+	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel(new_human), WEAR_BACK)
+
+	new_human.equip_to_slot_or_del(new /obj/item/storage/pouch/firstaid/full/alternate(new_human), WEAR_R_STORE)
+
+	new_human.equip_to_slot_or_del(new /obj/item/reagent_container/food/drinks/flask/marine(new_human), WEAR_IN_BACK)
+
+	new_human.equip_to_slot_or_del(new /obj/item/storage/box/mre(new_human), WEAR_IN_BACK)
+
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/gloves/marine(new_human), WEAR_HANDS)
+
+	new_human.equip_to_slot_or_del(new /obj/item/tool/crowbar/tactical(new_human), WEAR_IN_JACKET)
+
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/marine/imperial_guard(new_human), WEAR_FEET)
+
+	new_human.equip_to_slot_or_del(new /obj/item/device/radio/headset/almayer/sof(new_human), WEAR_L_EAR)
+
+	new_human.equip_to_slot_or_del(new /obj/item/storage/pouch/firstaid/ert(new_human), WEAR_L_STORE)
+
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine/imperial_guard(new_human), WEAR_HEAD)
+	add_spec_imperial_weapon(new_human)
 
 /datum/equipment_preset/imperial_guard/techpriest
 	name = "Imperial Guard - Techpriest"
@@ -255,7 +313,7 @@
 
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine/imperial_guard/spacemarine(new_human), WEAR_HEAD)
 
-	spawn_weapon(/obj/item/weapon/gun/rifle/bolter, /obj/item/ammo_magazine/rifle/bolter/extended, new_human, 0, 3)
+	spawn_weapon(/obj/item/weapon/gun/rifle/bolter/ultramar, /obj/item/ammo_magazine/rifle/bolter/extended, new_human, 0, 3)
 
 /datum/equipment_preset/imperial_guard/spacemarine/leader
 	name = "Ultramarine - Squad Sergeant"
@@ -291,7 +349,7 @@
 
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine/imperial_guard/spacemarine/cap(new_human), WEAR_HEAD)
 
-	spawn_weapon(/obj/item/weapon/gun/rifle/bolter/pistol, /obj/item/ammo_magazine/rifle/bolter, new_human, 0, 3)
+	spawn_weapon(/obj/item/weapon/gun/rifle/bolter/pistol/ultramar, /obj/item/ammo_magazine/rifle/bolter, new_human, 0, 3)
 
 /datum/equipment_preset/imperial_guard/spacemarine/gunner
 	name = "Ultramarine - Heavy Bolter gunner"
@@ -338,7 +396,7 @@
 
 /datum/emergency_call/imperial_guard/New()
 	..()
-	arrival_message = "[MAIN_SHIP_NAME], это имперский фрегат класса 'Меч', мы приняли ваш сигнал. Высылаем к вам челнок. Во славу Императора!."
+	arrival_message = "[MAIN_SHIP_NAME], это имперский фрегат класса 'Меч', мы приняли ваш сигнал. Высылаем к вам челнок. Во славу Императора!"
 	objectives = "Помогите экипажу [MAIN_SHIP_NAME]. Уничтожьте ксеносов во славу Империума!"
 
 /datum/emergency_call/imperial_guard/create_member(datum/mind/M, turf/override_spawn_loc)
@@ -353,15 +411,15 @@
 	if(!leader && HAS_FLAG(mob.client.prefs.toggles_ert, PLAY_LEADER) && check_timelock(mob.client, JOB_SQUAD_LEADER, time_required_for_job))
 		leader = mob
 		to_chat(mob, SPAN_ROLE_HEADER("Вы Коммисар Имперской Гвардии!"))
-		arm_equipment(mob, /datum/equipment_preset/imperial_guard/commissar, TRUE, TRUE) // DO NOT FORGET TO CHANGE
+		arm_equipment(mob, /datum/equipment_preset/imperial_guard/commissar, TRUE, TRUE)
 //	else if(medics < max_medics && HAS_FLAG(mob.client.prefs.toggles_ert, PLAY_MEDIC) && check_timelock(mob.client, JOB_SQUAD_MEDIC, time_required_for_job))
 //		medics++
 //		to_chat(mob, SPAN_ROLE_HEADER("Вы полевой апотекарий Имперской Гвардии!"))
 //		arm_equipment(mob, /datum/equipment_preset/imperial_guard/standard, TRUE, TRUE) // DO NOT FORGET TO CHANGE
-//	else if(heavies < max_heavies && HAS_FLAG(mob.client.prefs.toggles_ert, PLAY_HEAVY) && check_timelock(mob.client, JOB_SQUAD_SPECIALIST))
-//		heavies++
-//		to_chat(mob, SPAN_ROLE_HEADER("Вы тяжелый пулеметчик Имперской Гвардии!"))
-//		arm_equipment(mob, /datum/equipment_preset/imperial_guard/standard, TRUE, TRUE) // DO NOT FORGET TO CHANGE
+	else if(heavies < max_heavies && HAS_FLAG(mob.client.prefs.toggles_ert, PLAY_HEAVY) && check_timelock(mob.client, JOB_SQUAD_SPECIALIST))
+		heavies++
+		to_chat(mob, SPAN_ROLE_HEADER("Вы гвардеец-специалист Имперской Гвардии!"))
+		arm_equipment(mob, /datum/equipment_preset/imperial_guard/heavy, TRUE, TRUE)
 	else if(engineers < max_engineers && HAS_FLAG(mob.client.prefs.toggles_ert, PLAY_ENGINEER) && check_timelock(mob.client, JOB_SQUAD_ENGI))
 		engineers++
 		to_chat(mob, SPAN_ROLE_HEADER("Вы техножрец Имперской Гвардии!"))

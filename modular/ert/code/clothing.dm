@@ -284,7 +284,6 @@
 	built_in_visors = list(new /obj/item/device/helmet_visor/leader, new /obj/item/device/helmet_visor/medical/advanced)
 	flags_inv_hide = HIDEMASK|HIDEEARS|HIDEEYES|HIDEALLHAIR
 
-
 /obj/item/clothing/head/helmet/marine/imperial_guard/spacemarine/cap
 	name = "Ultramarine Captain power armor helmet"
 	icon_state = "um_helmet_cap"
@@ -324,3 +323,15 @@
 	flags_atom = NO_GAMEMODE_SKIN|NO_NAME_OVERRIDE
 	xeno_types = null
 	flags_item = NODROP
+
+//no sprite for now((
+/obj/item/clothing/suit/storage/marine/specialist/spacemarine/chaos
+	name = "Khorne Berzerker power armor"
+	desc = "BLOOD FOR THE BLOOD GOD!"
+	icon_state = "umpowerarmor"
+	specialty = "Khorne Berzerker power armor"
+
+/obj/item/clothing/head/helmet/marine/imperial_guard/spacemarine/chaos
+	name = "Khorne Berzerker power armor helmet"
+	desc = "BLOOD FOR THE BLOOD GOD!"
+	icon_state = "um_helmet"
