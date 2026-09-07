@@ -103,13 +103,19 @@ export const JOBS_RU = {
   'Combat Correspondent': 'Полевой корреспондент',
   'Civilian Correspondent': 'Гражданский корреспондент',
   'Military Correspondent': 'Военный корреспондент',
+  'Mess Technician': 'Кок',
 
   // Synthetic roles
-  'Mess Technician': 'Кок',
   Synthetic: 'Синтетик',
   'Synthetic K9': 'Синтетик K9',
   'Working Joe': 'Рабочий Джо',
   'Hazmat Joe': 'Хазмат Джо',
+  'Engineering Synthetic': 'Инженерный синтетик',
+  'Medical Synthetic': 'Медицинский синтетик',
+  'Intelligence Synthetic': 'Синтетик разведки',
+  'Military Police Synthetic': 'Синтетик военной полиции',
+  'Command Support Synthetic': 'Синтетик поддержки командования',
+  'Research Synthetic': 'Исследовательский синтетик',
 
   // Command roles
   'Commanding Officer': 'Командующий офицер',

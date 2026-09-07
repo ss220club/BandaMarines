@@ -11,6 +11,7 @@
 	required_surgery_skill = SKILL_SURGERY_TRAINED
 	pain_reduction_required = PAIN_REDUCTION_HEAVY
 	steps = list(
+		/datum/surgery_step/clamp_bleeders_step, //oop i forgor, also cuz you can't clamp bleeders here, normally, for some reason
 		/datum/surgery_step/mend_bones,
 		/datum/surgery_step/set_bones,
 	)
@@ -27,8 +28,8 @@
 			if("groin")
 				affected_bone = "pelvis"
 
-/datum/surgery/bone_repair/can_start(mob/user, mob/living/carbon/patient, obj/limb/L, obj/item/tool)
-	return L.status & LIMB_BROKEN
+/datum/surgery/bone_repair/can_start(mob/user, mob/living/carbon/patient, obj/limb/patient_limb, obj/item/tool)
+	return patient_limb.status & LIMB_BROKEN
 
 //------------------------------------
 
@@ -69,7 +70,7 @@
 				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает наносить гель на вашу [ru_name_affected_bone], используя [tool.declent_ru(ACCUSATIVE)]."), // SS220 EDIT ADDICTION
 				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает наносить гель на [ru_name_affected_bone] [target.declent_ru(GENITIVE)], используя [tool.declent_ru(ACCUSATIVE)].")) // SS220 EDIT ADDICTION
 
-			target.custom_pain("Вы чувствуете, как что-то жжёт внутри вашей [ru_name_affected_bone]!", 1)
+			target.custom_pain("Вы чувствуете, как что-то холодное и желеобразное жжёт внутри вашей [ru_name_affected_bone]!", 1)
 		else
 			user.affected_message(target,
 				SPAN_NOTICE("Вы начинаете вкручивать металлические штифты в сломанные кости на [ru_name_affected_bone] [target.declent_ru(GENITIVE)], используя [tool.declent_ru(ACCUSATIVE)]."), // SS220 EDIT ADDICTION
@@ -85,7 +86,7 @@
 				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает наносить гель на вашу [ru_name_affected_limb], используя [tool.declent_ru(ACCUSATIVE)]."), // SS220 EDIT ADDICTION
 				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает наносить гель на [ru_name_affected_limb] [target.declent_ru(GENITIVE)], используя [tool.declent_ru(ACCUSATIVE)].")) // SS220 EDIT ADDICTION
 
-			target.custom_pain("Вы чувствуете, как что-то жжёт внутри вашей [ru_name_affected_limb]!", 1) // SS220 EDIT ADDICTION
+			target.custom_pain("Вы чувствуете, как что-то холодное и желеобразное жжёт внутри вашей [ru_name_affected_limb]!", 1) // SS220 EDIT ADDICTION
 		else
 			user.affected_message(target,
 				SPAN_NOTICE("Вы начинаете вкручивать металлические штифты в сломанные кости на [ru_name_affected_limb] [target.declent_ru(GENITIVE)], используя [tool.declent_ru(ACCUSATIVE)]."), // SS220 EDIT ADDICTION
@@ -94,7 +95,7 @@
 
 			target.custom_pain("Вы чувствуете, как что-то закручивается внутрь вашей [ru_name_affected_limb]!", 1)
 
-	log_interact(user, target, "[key_name(user)] attempted to begin repairing bones in [key_name(target)]'s [surgery.affected_limb.display_name] with \the [tool].")
+	log_interact(user, target, "[key_name(user)] attempted to begin repairing bones in [key_name(target)]'s [surgery.affected_limb.display_name] with [tool].")
 
 /datum/surgery_step/mend_bones/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/bone_repair/surgery)
 	var/ru_name_affected_limb = declent_ru_initial(surgery.affected_limb.display_name, ACCUSATIVE, surgery.affected_limb.display_name) // SS220 EDIT ADDICTION
@@ -125,7 +126,7 @@
 				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] наспех укрепляет кости вашей [ru_name_affected_limb], словно какой-то [improvised_desc]."), // SS220 EDIT ADDICTION
 				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] наспех укрепляет кости [ru_name_affected_limb] [target.declent_ru(GENITIVE)], словно какой-то [improvised_desc].")) // SS220 EDIT ADDICTION
 
-	log_interact(user, target, "[key_name(user)] successfully began repairing bones in [key_name(target)]'s [surgery.affected_limb.display_name] with \the [tool], starting [surgery].")
+	log_interact(user, target, "[key_name(user)] successfully began repairing bones in [key_name(target)]'s [surgery.affected_limb.display_name] with [tool], starting [surgery].")
 
 /datum/surgery_step/mend_bones/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/bone_repair/surgery)
 	var/ru_name_affected_limb = declent_ru_initial(surgery.affected_limb.display_name, PREPOSITIONAL, surgery.affected_limb.display_name) // SS220 EDIT ADDICTION
@@ -141,7 +142,7 @@
 			SPAN_WARNING("Рука [user.declent_ru(GENITIVE)] дёргается, ещё больше повреждая [ru_name_affected_limb] [target.declent_ru(GENITIVE)]!"))
 
 	target.apply_damage(10, BRUTE, target_zone)
-	log_interact(user, target, "[key_name(user)] failed to begin repairing bones in [key_name(target)]'s [surgery.affected_limb.display_name] with \the [tool], aborting [surgery].")
+	log_interact(user, target, "[key_name(user)] failed to begin repairing bones in [key_name(target)]'s [surgery.affected_limb.display_name] with [tool], aborting [surgery].")
 
 	if(tool_type != /obj/item/tool/surgery/bonegel)
 		to_chat(user, SPAN_NOTICE("Металлические прутья, использованные на [ru_name_affected_limb] [target.declent_ru(GENITIVE)], отваливаются."))
@@ -155,14 +156,14 @@
 
 /datum/surgery_step/set_bones
 	name = "Set Bones"
-	desc = "set the bones"
+	desc = "set the fractured bones back in place"
 	tools = list(
 		/obj/item/tool/surgery/bonesetter = SURGERY_TOOL_MULT_IDEAL,
 		/obj/item/tool/wrench = SURGERY_TOOL_MULT_SUBSTITUTE,
 		/obj/item/maintenance_jack = SURGERY_TOOL_MULT_BAD_SUBSTITUTE,
 	)
 	time = 4 SECONDS
-	preop_sound = 'sound/surgery/hemostat1.ogg'
+	preop_sound = 'sound/surgery/hemostat2.ogg'
 	success_sound = 'sound/effects/bone_break6.ogg'
 	failure_sound = 'sound/effects/bone_break1.ogg'
 
@@ -190,7 +191,7 @@
 				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает вправлять сломанные кости в вашей [ru_name_affected_limb], используя [tool.declent_ru(ACCUSATIVE)]."),
 				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает вправлять сломанные кости [ru_name_affected_limb] [target.declent_ru(GENITIVE)], используя [tool.declent_ru(ACCUSATIVE)]."))
 
-	target.custom_pain("Вы вот-вот потеряете сознание от боли в вашей [ru_name_affected_limb]!", 1)
+	target.custom_pain("Вы чувствуете, как ваши сломанные кости двигаются внутри вашей [ru_name_affected_limb]! Это ужасно!", 1)
 	log_interact(user, target, "[key_name(user)] attempted to begin setting bones in [key_name(target)]'s [surgery.affected_limb.display_name] with \the [tool].")
 
 /datum/surgery_step/set_bones/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/bone_repair/surgery)
@@ -209,10 +210,11 @@
 	user.count_niche_stat(STATISTICS_NICHE_SURGERY_BONES)
 	if(surgery.affected_limb.status & LIMB_SPLINTED_INDESTRUCTIBLE)
 		new /obj/item/stack/medical/splint/nano(get_turf(target), 1)
+
 	surgery.affected_limb.status &= ~(LIMB_SPLINTED|LIMB_SPLINTED_INDESTRUCTIBLE|LIMB_BROKEN)
 	surgery.affected_limb.perma_injury = 0
 	target.pain.recalculate_pain()
-	log_interact(user, target, "[key_name(user)] successfully set bones in [key_name(target)]'s [surgery.affected_limb.display_name] with \the [tool], ending [surgery].")
+	log_interact(user, target, "[key_name(user)] successfully set bones in [key_name(target)]'s [surgery.affected_limb.display_name] with [tool], ending [surgery].")
 
 /datum/surgery_step/set_bones/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/bone_repair/surgery)
 	var/ru_name_affected_limb = declent_ru_initial(surgery.affected_limb.display_name, ACCUSATIVE, surgery.affected_limb.display_name) // SS220 EDIT ADDICTION
@@ -228,5 +230,5 @@
 			SPAN_WARNING("Рука [user.declent_ru(GENITIVE)] дёргается, ещё больше повреждая [ru_name_affected_limb] [target.declent_ru(GENITIVE)]!"))
 
 	target.apply_damage(10, BRUTE, target_zone)
-	log_interact(user, target, "[key_name(user)] failed to set bones in [key_name(target)]'s [surgery.affected_limb.display_name] with \the [tool].")
+	log_interact(user, target, "[key_name(user)] failed to set bones in [key_name(target)]'s [surgery.affected_limb.display_name] with [tool].")
 	return FALSE

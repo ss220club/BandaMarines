@@ -8,6 +8,6 @@
 	controller = TREE_MARINE
 
 /datum/cm_objective/communications/complete()
-	ai_silent_announcement("СИСТЕМНЫЙ ОТЧЁТ: Коммуникационная линия колонии, статус: ОНЛАЙН.", ":v")
+	ai_silent_announcement("СИСТЕМНЫЙ ОТЧЁТ: Коммуникационная линия колонии, статус: ОНЛАЙН.", ".V")
 	state = OBJECTIVE_COMPLETE
 	award_points()

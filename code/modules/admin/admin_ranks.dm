@@ -152,12 +152,19 @@ GLOBAL_LIST_EMPTY(admin_ranks) //list of all ranks with associated rights
 
 	//rank follows the first "-"
 	var/rank = ""
+	var/rights = NONE //SS220 EDIT START
+	var/list/extra_titles = list()
 	if(length(List) >= 2)
 		rank = ckeyEx(List[2])
+		rights |= GLOB.admin_ranks[rank]
 
-	var/list/extra_titles = list()
-	if(length(List) >= 3)
-		extra_titles = List.Copy(3)
+	for(var/i = 3, i <= length(List), i++)
+		var/value = ckeyEx(List[i])
+
+		if(value in GLOB.admin_ranks)
+			rights |= GLOB.admin_ranks[value]
+
+		extra_titles += List[i] //SS220 EDIT END
 
 	if(mentor)
 		if(!(LAZYISIN(MentorRanks, rank)))
@@ -166,7 +173,7 @@ GLOBAL_LIST_EMPTY(admin_ranks) //list of all ranks with associated rights
 			return
 
 	//load permissions associated with this rank
-	var/rights = GLOB.admin_ranks[rank]
+	//var/rights = GLOB.admin_ranks[rank] //SS220 EDIT
 
 	//create the admin datum and store it for later use
 	var/datum/admins/D = new /datum/admins(rank, rights, ckey, extra_titles)

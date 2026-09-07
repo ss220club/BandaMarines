@@ -755,7 +755,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/tool/lighter/zippo
 	name = "\improper Zippo lighter"
-	desc = "A fancy steel Zippo lighter. Ignite in style."
+	desc = "Красивая стальная зажигалка «Zippo». Прикури со стилем." //SS220 EDIT
 	icon_state = "zippo"
 	item_state = "zippo"
 	icon_on = "zippoon"

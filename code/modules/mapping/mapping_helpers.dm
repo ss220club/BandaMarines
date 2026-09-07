@@ -49,6 +49,8 @@
 
 /// Mapping helper placed on turfs to remove the turf after a specified duration.
 /obj/effect/timed_event/scrapeaway
+	var/silent_announce_marine = FALSE
+	var/silent_announce_xeno = FALSE
 	icon_state = "o_blue"
 
 /obj/effect/timed_event/scrapeaway/generate_callback()
@@ -57,17 +59,17 @@
 /obj/effect/timed_event/scrapeaway/announce_event(time_to_grab)
 	var/announcement_areas = english_list(notification_areas[type]["[time_to_grab]"])
 
-	var/marine_announcement_text = SSmapping.configs[GROUND_MAP].environment_traits[ZTRAIT_IN_SPACE] \
-		? "Обнаружено структурное обрушение в [announcement_areas]. Возможно открылся доступ к новым маршрутам." \
-		: "Обнаружены геологические сдвиги в [announcement_areas]. Возможно открылся доступ к новым маршрутам."
+	if(!silent_announce_marine)
+		var/marine_announcement_text = SSmapping.configs[GROUND_MAP].environment_traits[ZTRAIT_IN_SPACE] \
+			? "Обнаружено структурное обрушение в [announcement_areas]. Возможно открылся доступ к новым маршрутам." \
+			: "Обнаружены геологические сдвиги в [announcement_areas]. Возможно открылся доступ к новым маршрутам."
+		marine_announcement(marine_announcement_text, "Приоритетное оповещение")
 
-	marine_announcement(marine_announcement_text, "Приоритетное оповещение") // SS220 EDIT ADDICTION
-
-	var/xeno_announcement_text = SSmapping.configs[GROUND_MAP].environment_traits[ZTRAIT_IN_SPACE] \
-		? "Металл этого места обрушился, предоставляя новые маршруты в [announcement_areas]." \
-		: "Земля этого мира содрогается, открывая новые пути в [announcement_areas]."
-
-	xeno_announcement(SPAN_XENOANNOUNCE(xeno_announcement_text), "everything", XENO_GENERAL_ANNOUNCE) // SS220 EDIT ADDICTION
+	if(!silent_announce_xeno)
+		var/xeno_announcement_text = SSmapping.configs[GROUND_MAP].environment_traits[ZTRAIT_IN_SPACE] \
+			? "Металл этого места обрушился, предоставляя новые маршруты в [announcement_areas]." \
+			: "Земля этого мира содрогается, открывая новые пути в [announcement_areas]."
+		xeno_announcement(SPAN_XENOANNOUNCE(xeno_announcement_text), "everything", XENO_GENERAL_ANNOUNCE)
 
 	qdel(src)
 

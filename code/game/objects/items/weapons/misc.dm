@@ -90,7 +90,7 @@
 
 /obj/item/weapon/aquilastaff
 	name = "Aquila Staff"
-	desc = "A large prestigious staff used by Aquilifers to rally the Roman troops. Can act as a blunt weapon in a pinch but is hard to carry around."
+	desc = "Большой величественный штандарт, который аквилиферы использовали для воодушевления римских войск. В крайнем случае может послужить дробящим оружием, но его тяжело носить с собой." //SS220 EDIT
 	icon = 'icons/obj/items/weapons/melee/misc_64.dmi'
 	icon_state = "aquilastaff"
 	item_state = "aquilastaff"
@@ -115,7 +115,7 @@
 
 /obj/item/weapon/javelin
 	name = "Javelin"
-	desc = "A large spear used by Roman infantry units. Extremely deadly in the right hands but hard to carry around. To throw the spear effectively, you have to raise it."
+	desc = "Длинное копье, используемое отрядами римской пехоты. Крайне опасное оружие в умелых руках, однако его трудно носить с собой. Чтобы эффективно метнуть копье, нужно сначала его поднять." //SS220 EDIT
 	icon = 'icons/obj/items/weapons/melee/spears.dmi'
 	icon_state = "javelin"
 	item_state = "javelin"
@@ -141,14 +141,14 @@
 	var/javelin_readied = FALSE
 
 /obj/item/weapon/javelin/proc/raise_javelin(mob/user as mob)
-	user.visible_message(SPAN_RED("\The [user] raises the [src]."))
+	user.visible_message(SPAN_RED("\The [user] raises [src]."))
 	javelin_readied = TRUE
 	item_state = "javelin_w"
 	force = MELEE_FORCE_TIER_7
 	throw_range = 6
 
 /obj/item/weapon/javelin/proc/lower_javelin(mob/user as mob)
-	user.visible_message(SPAN_BLUE("\The [user] lowers the [src]."))
+	user.visible_message(SPAN_BLUE("\The [user] lowers [src]."))
 	javelin_readied = FALSE
 	item_state = "javelin"
 	force = MELEE_FORCE_TIER_4

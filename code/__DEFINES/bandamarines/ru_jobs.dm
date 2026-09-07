@@ -64,6 +64,13 @@
 #define JOB_WORKING_JOE_RU "Рабочий Джо"
 #define JOB_HAZMAT_JOE_RU "Хазмат Джо"
 
+#define JOB_SYNTH_ENG_RU "Инженерный синтетик"
+#define JOB_SYNTH_MED_RU "Медицинский синтетик"
+#define JOB_SYNTH_INTEL_RU "Синтетик разведки"
+#define JOB_SYNTH_MP_RU "Синтетик военной полиции"
+#define JOB_SYNTH_CMD_RU "Синтетик поддержки командования"
+#define JOB_SYNTH_SCI_RU "Исследовательский синтетик"
+
 #define JOB_CO_RU "Командующий офицер"
 #define JOB_XO_RU "Исполнительный офицер"
 #define JOB_SO_RU "Штаб-офицер"

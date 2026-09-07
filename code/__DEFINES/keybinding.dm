@@ -43,6 +43,7 @@
 //Client
 #define COMSIG_KB_CLIENT_GETHELP_DOWN "keybinding_client_gethelp_down"
 #define COMSIG_KB_CLIENT_SCREENSHOT_DOWN "keybinding_client_screenshot_down"
+#define COMSIG_KB_CLIENT_SCREENSHOT_AS_DOWN "keybinding_client_screenshot_as_down"
 #define COMSIG_KB_CLIENT_TOGGLEFULLSCREEN_DOWN "keybinding_client_togglefullscreen_down"
 #define COMSIG_KB_CLIENT_MINIMALHUD_DOWN "keybinding_client_minimalhud_down"
 #define COMSIG_KB_CLIENT_SWITCHINPUT_DOWN "keybinding_client_switchinput_down"
@@ -182,6 +183,7 @@
 #define COMSIG_KB_XENO_PURCHASE_STRAIN "keybinding_purchase_strain"
 #define COMSIG_KB_XENO_RESET_STRAIN "keybinding_reset_strain"
 #define COMSIG_KB_XENO_BECOME_SEETHROUGH "keybinding_become_seethrough"
+#define COMSIG_KB_XENO_WORD_OF_THE_QUEEN "keybinding_queen_announce"
 #define COMSIG_KB_XENO_RIP_LIMB "keybinding_rip_limb"
 
 // Yautja

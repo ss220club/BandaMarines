@@ -7,3 +7,5 @@
 	skill = SKILL_VEHICLE
 	secondary_skill = SKILL_ENGINEER
 	skill_increment = 1
+	skill_cap = SKILL_VEHICLE_SMALL
+	secondary_skill_cap = SKILL_ENGINEER_NOVICE

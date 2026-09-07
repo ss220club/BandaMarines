@@ -72,7 +72,7 @@
 
 /obj/item/clothing/suit/storage/marine/veteran/dutch
 	name = "\improper D2 armored vest"
-	desc = "A protective vest worn by some seriously experienced mercs."
+	desc = "Бронежилет, который носят некоторые очень опытные наемники." //SS220 EDIT
 	icon_state = "dutch_armor"
 	icon = 'icons/obj/items/clothing/suits/misc_ert.dmi'
 	item_icons = list(
@@ -248,6 +248,11 @@
 	armor_internaldamage = CLOTHING_ARMOR_LOW
 	storage_slots = 3
 	uniform_restricted = list(/obj/item/clothing/under/marine/veteran/UPP/officer)
+
+/obj/item/clothing/suit/storage/marine/faction/UPP/officer/mss
+	name = "\improper UPP MSS field jacket"
+	desc = "A lightweight protective jacket issued to officers of the UPP's Ministry of Space Security. It is plain and largely devoid of decoration. The MSS maintains agents and informants throughout the Middle Heavens, both within the Union and far beyond its borders. Seeing this jacket makes you wonder how long they have been watching you."
+	icon_state = "upp_coat_mss"
 
 /obj/item/clothing/suit/storage/marine/faction/UPP/kapitan
 	name = "\improper UL4 senior officer jacket"

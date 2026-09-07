@@ -48,7 +48,7 @@
 
 /obj/item/clothing/shoes/marine/jungle
 	icon_state = "marine_jungle"
-	desc = "Don't go walkin' slow, the devil's on the loose."
+	desc = "Не мешкай, дьявол на свободе." //SS220 EDIT
 
 /obj/item/clothing/shoes/marine/jungle/knife
 	spawn_item_type = /obj/item/attachable/bayonet
@@ -72,6 +72,13 @@
 
 /obj/item/clothing/shoes/marine/urban
 	icon_state = "marine_grey_alt"
+	desc = "Don't go walkin' slow, the devil's on the loose."
+
+/obj/item/clothing/shoes/marine/snow/knife
+	spawn_item_type = /obj/item/attachable/bayonet
+
+/obj/item/clothing/shoes/marine/snow
+	icon_state = "marine_snow"
 	desc = "Don't go walkin' slow, the devil's on the loose."
 
 /obj/item/clothing/shoes/marine/urban/knife
@@ -136,6 +143,15 @@
 	desc = "A pair of sneakers designed to elicit a morale boosting response within anyone that witnesses them."
 	icon_state = "stompers"
 	flags_inventory = NOSLIPPING
+	allowed_items_typecache = list(
+		/obj/item/attachable/bayonet,
+		/obj/item/weapon/throwing_knife,
+		/obj/item/weapon/gun/pistol/action,
+		/obj/item/weapon/gun/pistol/clfpistol,
+		/obj/item/tool/screwdriver,
+		/obj/item/tool/surgery/scalpel,
+		/obj/item/weapon/straight_razor,
+	)
 
 /obj/item/clothing/shoes/veteran/pmc
 	name = "polished shoes"

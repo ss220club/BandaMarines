@@ -398,7 +398,7 @@
 
 /obj/item/weapon/sword/gladius
 	name = "Gladius sword"
-	desc = "A standard sword used by Roman infantry units. Its remarkable how its still in pristine condition. You are able to raise and lower this sword."
+	desc = "Обычный меч, используемый отрядами римской пехоты. Удивительно, как он сохранился в первозданном виде. Вы можете поднять и опустить клинок." //SS220 EDIT
 	icon = 'icons/obj/items/weapons/melee/swords.dmi'
 	icon_state = "gladius"
 	item_state = "gladius"
@@ -425,13 +425,13 @@
 	var/gladius_readied = FALSE
 
 /obj/item/weapon/sword/gladius/proc/raise_gladius(mob/user as mob)
-	user.visible_message(SPAN_BLUE("\The [user] raises the [src]."))
+	user.visible_message(SPAN_BLUE("\The [user] raises [src]."))
 	gladius_readied = TRUE
 	item_state = "gladius_w"
 	force = MELEE_FORCE_TIER_8
 
 /obj/item/weapon/sword/gladius/proc/lower_gladius(mob/user as mob)
-	user.visible_message(SPAN_BLUE("\The [user] lowers the [src]."))
+	user.visible_message(SPAN_BLUE("\The [user] lowers [src]."))
 	gladius_readied = FALSE
 	item_state = "gladius"
 	force = MELEE_FORCE_TIER_4

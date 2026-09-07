@@ -401,3 +401,12 @@ accusative = "чёрный набедренный подсумок"
 instrumental = "чёрным набедренным подсумком"
 prepositional = "чёрном набедренном подсумке"
 gender = "male"
+
+["old pouch"]
+nominative = "старинный подсумок"
+genitive = "старинного подсумка"
+dative = "старинному подсумку"
+accusative = "старинный подсумок"
+instrumental = "старинным подсумком"
+prepositional = "старинном подсумке"
+gender = "male"

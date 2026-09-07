@@ -79,7 +79,7 @@
 		for(var/datum/reagent/R in reagents.reagent_list)
 			reagents_in_pill += R.name
 		var/contained = english_list(reagents_in_pill)
-		msg_admin_niche("[key_name(user)] swallowed [src] (REAGENTS: [contained]) in [get_area(user)] ([user.loc.x],[user.loc.y],[user.loc.z]).", user.loc.x, user.loc.y, user.loc.z)
+		msg_admin_niche("[key_name(user)] swallowed [src] (REAGENTS: [contained]) in [ADMIN_VERBOSEJMP(user)].")
 		M.drop_inv_item_on_ground(src) //icon update
 		if(reagents && reagents.total_volume)
 			reagents.set_source_mob(user)
@@ -196,7 +196,7 @@
 
 /obj/item/reagent_container/pill/oxycodone/natural
 	name = "numbing herb"
-	pill_desc = "A powerful painkilling herb, eating it will numb the pain."
+	pill_desc = "Это сильнодействующее обезболивающее растение. Его употребление в пищу поможет притупить боль." //SS220 EDIT
 	icon = 'icons/obj/items/harvest.dmi'
 	icon_state = "mtear"
 
@@ -272,7 +272,7 @@
 
 /obj/item/reagent_container/pill/bicaridine/natural
 	name = "healing herb"
-	pill_desc = "A remarkable healing herb, eating it will heal brute damage."
+	pill_desc = "Это необычное целебное растение. Его употребление в пищу способно залечить глубокие раны." //SS220 EDIT
 	icon = 'icons/obj/items/harvest.dmi'
 	icon_state = "shand"
 

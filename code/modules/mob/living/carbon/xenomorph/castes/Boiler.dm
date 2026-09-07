@@ -33,6 +33,8 @@
 
 	minimum_evolve_time = 15 MINUTES
 
+	organ_type = /obj/item/organ/xeno/boiler
+
 	minimap_icon = "boiler"
 
 /mob/living/carbon/xenomorph/boiler
@@ -42,7 +44,6 @@
 	icon = 'icons/mob/xenos/castes/tier_3/boiler.dmi'
 	icon_size = 64
 	icon_state = "Boiler Walking"
-	plasma_types = list(PLASMA_NEUROTOXIN)
 	pixel_x = -16
 	old_x = -16
 	mob_size = MOB_SIZE_BIG
@@ -80,6 +81,16 @@
 	skull = /obj/item/skull/boiler
 	pelt = /obj/item/pelt/boiler
 
+/obj/item/organ/xeno/boiler
+	name = "boiler heart"
+	icon_state = "heart_t3"
+	item_state = "heart_t3"
+	// high research value because obtaining this is not possible
+	// without a corrupted hive
+	research_value = 20000
+
+	xeno_organ_flags = XENO_ORGAN_STRONG|XENO_ORGAN_FRAGILE|XENO_ORGAN_ACID
+
 /mob/living/carbon/xenomorph/boiler/Initialize(mapload, mob/living/carbon/xenomorph/oldxeno, h_number)
 	. = ..()
 	smoke = new /datum/effect_system/smoke_spread/xeno_acid
@@ -97,111 +108,6 @@
 /datum/behavior_delegate/boiler_base
 	name = "Base Boiler Behavior Delegate"
 
-
-/datum/action/xeno_action/activable/acid_lance/use_ability(atom/affected_atom)
-	var/mob/living/carbon/xenomorph/xeno = owner
-
-	if (!istype(xeno) || !xeno.check_state())
-		return
-
-	if (!activated_once && !action_cooldown_check())
-		return
-
-	if(!affected_atom || affected_atom.layer >= FLY_LAYER || !isturf(xeno.loc))
-		return
-
-	if (!activated_once)
-		// Start our 'charging'
-
-		if (!check_and_use_plasma_owner())
-			return
-
-		xeno.create_empower()
-		xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] начинает накапливать кислоту для мощного взрыва!"), SPAN_XENODANGER("Мы начинаем накапливать кислоту для мощного взрыва!")) // SS220 EDIT ADDICTION
-		activated_once = TRUE
-		stack()
-		addtimer(CALLBACK(src, PROC_REF(timeout)), max_stacks*stack_time + time_after_max_before_end)
-		apply_cooldown()
-		return ..()
-
-	else
-		activated_once = FALSE
-		var/range = base_range + stacks*range_per_stack
-		var/damage = base_damage + stacks*damage_per_stack
-		var/turfs_visited = 0
-		for (var/turf/turf in get_line(get_turf(xeno), affected_atom))
-			if(turf.density || turf.opacity)
-				break
-
-			var/should_stop = FALSE
-			for(var/obj/structure/structure in turf)
-				if(istype(structure, /obj/structure/window/framed))
-					var/obj/structure/window/framed/window_frame = structure
-					if(!window_frame.unslashable)
-						window_frame.deconstruct(disassembled = FALSE)
-
-				if(structure.opacity)
-					should_stop = TRUE
-					break
-
-			if (should_stop)
-				break
-
-			if (turfs_visited >= range)
-				break
-
-			turfs_visited++
-
-			new /obj/effect/xenomorph/acid_damage_delay(turf, damage, 7, FALSE, "В вас выпустили струю кислоты!", xeno)
-
-		xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] выпускает мощный кислотный взрыв в сторону [affected_atom.declent_ru(GENITIVE)]!"), SPAN_XENODANGER("Мы выпускаем мощный кислотный взрыв в сторону [affected_atom.declent_ru(GENITIVE)]!")) // SS220 EDIT ADDICTION
-		remove_stack_effects("Мы чувствуем, что наша скорость передвижения снижается!")
-		return TRUE
-
-/datum/action/xeno_action/activable/acid_lance/proc/stack()
-	var/mob/living/carbon/xenomorph/xeno = owner
-	if (!istype(xeno))
-		return
-
-	if (!activated_once)
-		return
-
-	stacks = min(max_stacks, stacks + 1)
-	if (stacks != max_stacks)
-		xeno.speed_modifier += movespeed_per_stack
-		movespeed_nerf_applied += movespeed_per_stack
-		xeno.recalculate_speed()
-		addtimer(CALLBACK(src, PROC_REF(stack)), stack_time)
-		return
-	else
-		to_chat(xeno, SPAN_XENOHIGHDANGER("Мы накопили достаточного количество кислоты для копья!"))
-		return
-
-/datum/action/xeno_action/activable/acid_lance/proc/remove_stack_effects(message = null)
-	var/mob/living/carbon/xenomorph/xeno = owner
-
-	if (!istype(xeno))
-		return
-
-	if (stacks <= 0)
-		return
-
-	if (message)
-		to_chat(xeno, SPAN_XENODANGER(message))
-
-	stacks = 0
-	xeno.speed_modifier -= movespeed_nerf_applied
-	movespeed_nerf_applied = 0
-	xeno.recalculate_speed()
-
-/datum/action/xeno_action/activable/acid_lance/proc/timeout()
-	if (activated_once)
-		activated_once = FALSE
-		remove_stack_effects("Мы слишком долго ждали и больше не можем использовать кислотное копьё!")
-
-
-/datum/action/xeno_action/activable/acid_lance/action_cooldown_check()
-	return (activated_once || ..())
 
 /datum/action/xeno_action/activable/xeno_spit/bombard/use_ability(atom/affected_atom)
 	. = ..()

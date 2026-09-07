@@ -220,9 +220,12 @@ GLOBAL_VAR_INIT(youngblood_timer_yautja, 0)
 	desc = "A battle-worn cape passed down by elder Yautja."
 	icon = 'icons/obj/items/hunter/pred_gear.dmi'
 	icon_state = "fullcape"
+	// SS220 EDIT START
 	item_icons = list(
-		WEAR_BACK = 'icons/mob/humans/onmob/hunter/pred_gear.dmi'
+		WEAR_BACK = 'icons/mob/humans/onmob/hunter/pred_gear.dmi',
+		WEAR_JACKET = 'icons/mob/humans/onmob/hunter/pred_gear.dmi'
 	)
+	// SS220 EDIT END
 	flags_equip_slot = SLOT_BACK
 	flags_item = ITEM_PREDATOR
 	unacidable = TRUE
@@ -449,6 +452,7 @@ GLOBAL_VAR_INIT(youngblood_timer_yautja, 0)
 	siemens_coefficient = 0.9
 	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROT
 	valid_accessory_slots = list(ACCESSORY_SLOT_DEFAULT, ACCESSORY_SLOT_TIE, ACCESSORY_SLOT_PATCH, ACCESSORY_SLOT_STORAGE, ACCESSORY_SLOT_UTILITY, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_RANK, ACCESSORY_SLOT_DECOR, ACCESSORY_SLOT_MEDAL, ACCESSORY_SLOT_ARMOR_C, ACCESSORY_SLOT_WRIST_L, ACCESSORY_SLOT_WRIST_R, ACCESSORY_SLOT_MASK, ACCESSORY_SLOT_TROPHY)
+	is_seethrough = TRUE
 
 	armor_melee = CLOTHING_ARMOR_LOW
 	armor_bullet = CLOTHING_ARMOR_MEDIUMLOW
@@ -1180,6 +1184,7 @@ GLOBAL_VAR_INIT(youngblood_timer_yautja, 0)
 	return COMPONENT_CANCEL_XENO_HEAL
 
 /obj/item/hunting_trap/Crossed(atom/movable/AM)
+	..()
 	if(armed && ismob(AM))
 		var/mob/trap_mob = AM
 		if(!trap_mob.buckled)
@@ -1200,7 +1205,6 @@ GLOBAL_VAR_INIT(youngblood_timer_yautja, 0)
 				armed = FALSE
 				var/mob/living/simple_animal/simple_mob = trap_mob
 				simple_mob.health -= 20
-	..()
 
 /obj/item/hunting_trap/proc/cleanup_tether()
 	if (tether_effect)
@@ -1527,7 +1531,12 @@ GLOBAL_VAR_INIT(youngblood_timer_yautja, 0)
 	desc = "A bone that appears to be of human origin."
 	icon = 'icons/obj/items/skeleton.dmi'
 	inv_overlay_icon = 'icons/obj/items/clothing/accessory/inventory_overlays/yautja.dmi'
-	accessory_icons = list(WEAR_BODY = 'icons/mob/humans/onmob/hunter/pred_gear.dmi')
+	// SS220 EDIT START
+	accessory_icons = list(
+		WEAR_BODY = 'icons/mob/humans/onmob/hunter/pred_gear.dmi',
+		WEAR_JACKET = 'icons/mob/humans/onmob/hunter/pred_gear.dmi'
+		)
+	// SS220 EDIT END
 	icon_state = null
 	worn_accessory_slot = ACCESSORY_SLOT_TROPHY
 	///Has it been cleaned by a polishing rag?
