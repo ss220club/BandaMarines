@@ -14,6 +14,13 @@ import { Window } from 'tgui/layouts';
 
 import type { BeakerProps } from './common/BeakerContents';
 
+type AdditionalChemical = {
+  title: string;
+  amount: number;
+  max_amount: number;
+  id: string;
+};
+
 type Data = {
   beakerTransferAmounts: number[];
   amount: number;
@@ -25,6 +32,7 @@ type Data = {
   beakerMaxVolume: number | null;
   network: string | null;
   chemicals: { title: string; id: string }[];
+  additional_chemicals: AdditionalChemical[];
 };
 
 export const ChemDispenser = (props) => {
@@ -142,6 +150,25 @@ export const ChemDispenser = (props) => {
               ))}
             </LabeledList.Item>
           </LabeledList>
+        </Section>
+        <Section title="Advanced Chemicals">
+          <Box mt={1}>
+            {data.additional_chemicals.map((chemical) => (
+              <Button
+                key={chemical.id}
+                icon="arrow-alt-circle-down"
+                fluid
+                lineHeight={1.75}
+                onClick={() =>
+                  act('dispense_additional', {
+                    reagent: chemical.id,
+                  })
+                }
+              >
+                {chemical.title} ({chemical.amount}u)
+              </Button>
+            ))}
+          </Box>
         </Section>
       </Window.Content>
     </Window>
