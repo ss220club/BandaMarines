@@ -20,7 +20,7 @@
 	scatter = 2
 
 /obj/item/hardpoint/support/smoke_launcher
-	name = "\improper M-39P Smoke Discharger"
+	name = "\improper M-39P Incendiary Smoke Discharger"
 	desc = "A support module for ATVs that shoots M60 incendiary smoke grenades to deter hitchhikers."
 	icon = 'modular/vehicles/icons/aev/apc_hardpoints.dmi'
 
@@ -50,7 +50,7 @@
 	))
 
 /obj/item/hardpoint/primary/aev_launcher
-	name = "\improper M-39Q Smoke Discharger"
+	name = "\improper M-39Q Incendiary Smoke Discharger"
 	desc = "A support module for AEVs that shoots M60 incendiary smoke grenades to deter hitchhikers."
 	icon = 'modular/vehicles/icons/aev/aev_hardpoints.dmi'
 
