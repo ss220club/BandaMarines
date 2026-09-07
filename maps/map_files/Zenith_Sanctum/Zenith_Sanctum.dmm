@@ -1043,7 +1043,8 @@
 /area/lazarus/ground/barrens/central_barrens)
 "adB" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 1
@@ -1054,6 +1055,23 @@
 	},
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/ancient_temple/east)
+"adC" = (
+/obj/structure/surface/rack{
+	color = "#6b675e";
+	layer = 2.79
+	},
+/obj/structure/window/reinforced/colorable{
+	color = "#8eaeb0";
+	dir = 1
+	},
+/obj/structure/window/reinforced/colorable{
+	color = "#8eaeb0"
+	},
+/obj/item/weapon/yautja/scythe/alt{
+	name = "ancient double war scythe"
+	},
+/turf/open/floor/prison/floor_plate_alt,
+/area/lazarus/main_hall)
 "adD" = (
 /turf/open/floor/strata/light_purple_edge,
 /area/lazarus/research/storage)
@@ -3539,7 +3557,8 @@
 "ajX" = (
 /obj/effect/hunter/ancient_temple/deco_border,
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = -19
+	pixel_y = -19;
+	density = 0
 	},
 /turf/open/floor/ancient_temple/damaged/damage_2,
 /area/lazarus/ground/ancient_temple/south/surface)
@@ -3894,7 +3913,8 @@
 "akK" = (
 /obj/effect/landmark/objective_landmark/medium,
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/caves/south_west_caves)
@@ -4243,7 +4263,8 @@
 /area/lazarus/ground/caves/north_west_caves)
 "alD" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = -19
+	pixel_y = -19;
+	density = 0
 	},
 /turf/open/floor/ancient_temple/floor_grille/water,
 /area/lazarus/ground/ancient_temple/south)
@@ -4342,7 +4363,8 @@
 "alP" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_4,
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = -19
+	pixel_y = -19;
+	density = 0
 	},
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/east/surface)
@@ -4558,7 +4580,8 @@
 /area/lazarus/ground/caves/west_caves)
 "amn" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = -19
+	pixel_y = -19;
+	density = 0
 	},
 /turf/open/floor/ancient_temple/floor_grille/water,
 /area/lazarus/ground/ancient_temple/east)
@@ -4741,7 +4764,8 @@
 /area/lazarus/ground/caves/west_caves)
 "amH" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = -19
+	pixel_y = -19;
+	density = 0
 	},
 /turf/open/floor/ancient_temple/floor_13,
 /area/lazarus/ground/ancient_temple/north_east)
@@ -4941,7 +4965,8 @@
 "anj" = (
 /obj/effect/hunter/ancient_temple/deco_border,
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = -19
+	pixel_y = -19;
+	density = 0
 	},
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/ancient_temple/north_east)
@@ -4950,7 +4975,8 @@
 	dir = 1
 	},
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /obj/structure/bed/alien/yautja,
 /turf/open/floor/ancient_temple/deco/deco_1/east,
@@ -5049,7 +5075,8 @@
 /area/lazarus/ground/caves/west_caves)
 "anD" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/west_caves)
@@ -5452,7 +5479,8 @@
 	dir = 1
 	},
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/floor/ancient_temple/damaged/damage_2,
@@ -6169,7 +6197,8 @@
 	dir = 1
 	},
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/floor/ancient_temple/damaged/damage_1,
@@ -6199,7 +6228,8 @@
 /area/lazarus/ground/caves/west_caves)
 "aqF" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/floor/ancient_temple/floor_13/north,
@@ -6722,7 +6752,8 @@
 "arL" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner,
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /obj/effect/landmark/xeno_spawn,
 /turf/open/floor/ancient_temple/damaged/damage_5,
@@ -9963,7 +9994,6 @@
 /area/lazarus/research/storage)
 "azN" = (
 /obj/structure/surface/rack,
-/obj/item/reagent_container/hypospray/autoinjector/yautja,
 /obj/structure/surface/rack{
 	color = "#8B9490"
 	},
@@ -9984,6 +10014,7 @@
 	dir = 1;
 	pixel_y = 13
 	},
+/obj/item/tool/crowbar/yautja,
 /turf/open/floor/strata/light_purple_tile,
 /area/lazarus/research/storage)
 "azO" = (
@@ -10222,7 +10253,8 @@
 /area/lazarus/ground/jungle/west_central_jungle)
 "aAw" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 1
@@ -10452,7 +10484,6 @@
 /obj/structure/surface/rack{
 	color = "#8B9490"
 	},
-/obj/item/weapon/twohanded/yautja/glaive/damaged,
 /obj/structure/machinery/door/window/colorable{
 	color = "#d1cab0";
 	req_one_access_txt = "103; 203; 204; 206; 207; 210"
@@ -10460,6 +10491,7 @@
 /obj/effect/decal/warning_stripes{
 	icon_state = "cargo_red"
 	},
+/obj/item/weapon/twohanded/yautja/glaive/damaged,
 /turf/open/floor/strata/light_purple_tile,
 /area/lazarus/research/storage)
 "aBg" = (
@@ -11062,7 +11094,8 @@
 /area/lazarus/research)
 "aCU" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = -19
+	pixel_y = -19;
+	density = 0
 	},
 /turf/open/floor/ancient_temple/floor_13,
 /area/lazarus/ground/caves/west_caves)
@@ -11121,10 +11154,6 @@
 	},
 /obj/structure/surface/table{
 	color = "#8B7B5B"
-	},
-/obj/item/reagent_container/hypospray/autoinjector/yautja{
-	pixel_x = -3;
-	pixel_y = 9
 	},
 /obj/item/storage/fancy/cigar/matchbook/brown{
 	pixel_x = -5
@@ -14265,7 +14294,8 @@
 /obj/item/prop/torch_frame/ancient,
 /obj/item/prop/torch_frame/ancient,
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /obj/item/prop/torch_frame/ancient,
 /obj/item/prop/torch_frame/ancient,
@@ -17635,7 +17665,8 @@
 /area/lazarus/ground/colony/south_botanics_road)
 "aWZ" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 1
@@ -19738,7 +19769,7 @@
 /obj/effect/hunter/bridge_border/brown/corner,
 /obj/structure/window{
 	dir = 4;
-	invisibility = 101;
+	invisibility = 100;
 	not_damageable = 1
 	},
 /turf/open/floor/ancient_temple/deco/dark/deco_alt/east,
@@ -20913,7 +20944,8 @@
 /area/lazarus/ground/caves/west_caves)
 "cnw" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /turf/open/floor/ancient_temple/floor_19,
 /area/lazarus/ground/ancient_temple/north_east)
@@ -24155,7 +24187,8 @@
 "dWI" = (
 /obj/effect/hunter/ancient_temple/deco_border,
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = -19
+	pixel_y = -19;
+	density = 0
 	},
 /turf/open/floor/ancient_temple/damaged/damage_2,
 /area/lazarus/ground/ancient_temple/north_east)
@@ -26568,7 +26601,8 @@
 /area/lazarus/ground/caves/west_caves)
 "fji" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /turf/open/floor/ancient_temple/floor_13/north,
 /area/lazarus/ground/ancient_temple/east)
@@ -26968,7 +27002,8 @@
 "fsc" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner,
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 1;
@@ -27915,7 +27950,8 @@
 "fTy" = (
 /obj/effect/hunter/ancient_temple/deco_border,
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = -19
+	pixel_y = -19;
+	density = 0
 	},
 /obj/structure/bed/alien/yautja{
 	pixel_y = 17;
@@ -28126,10 +28162,6 @@
 /turf/open/floor/prison/cell_stripe/west,
 /area/lazarus/ground/barrens/central_barrens)
 "fZG" = (
-/obj/item/reagent_container/hypospray/autoinjector/yautja{
-	pixel_x = -3;
-	pixel_y = 9
-	},
 /obj/effect/hunter/ancient_temple/rubble/rubble_4{
 	pixel_x = -12;
 	pixel_y = 8
@@ -28137,6 +28169,9 @@
 /obj/effect/hunter/ancient_temple/rubble/rubble_4{
 	pixel_x = 1;
 	pixel_y = -12
+	},
+/obj/item/weapon/harpoon/yautja{
+	pixel_x = -3
 	},
 /turf/open/floor/ancient_temple/base,
 /area/lazarus/ground/ancient_temple/south)
@@ -28591,7 +28626,8 @@
 /area/strata/interior/out_of_bounds)
 "glO" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /obj/item/device/flashlight/lamp/tripod{
 	on = 0
@@ -28633,10 +28669,6 @@
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 8;
 	pixel_y = -18
-	},
-/obj/item/reagent_container/hypospray/autoinjector/yautja{
-	pixel_x = -3;
-	pixel_y = 9
 	},
 /obj/structure/platform/stone/ancient_temple/alt/already_broken{
 	dir = 4
@@ -29173,7 +29205,8 @@
 /area/lazarus/landing_zones/lz1)
 "gBG" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/floor/ancient_temple/floor_13/north,
@@ -33541,7 +33574,8 @@
 	on = 0
 	},
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /turf/open/floor/ancient_temple/deco/deco_1/east,
 /area/lazarus/ground/ancient_temple/south_east/surface)
@@ -33691,7 +33725,8 @@
 "iWo" = (
 /obj/structure/platform/stone/ancient_temple/north,
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /obj/structure/platform/stone/ancient_temple/west,
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
@@ -36299,7 +36334,8 @@
 /area/lazarus/ground/ancient_temple/south_east/surface)
 "kpe" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /obj/effect/hunter/ancient_temple/rubble/rubble_3,
 /turf/open/floor/ancient_temple/damaged/damage_7,
@@ -37109,7 +37145,8 @@
 /area/lazarus/ground/ancient_temple/south_east/surface)
 "kJg" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /turf/open/floor/ancient_temple/floor_19/north,
 /area/lazarus/ground/ancient_temple/north_east)
@@ -37252,7 +37289,8 @@
 	dir = 6
 	},
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /turf/open/floor/plating/ancient_temple,
 /area/lazarus/ground/caves/north_west_caves)
@@ -37519,7 +37557,8 @@
 /area/lazarus/corporate_dome)
 "kUV" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_2,
 /obj/effect/hunter/ancient_temple/deco_border{
@@ -37541,7 +37580,8 @@
 /area/lazarus/ground/jungle/north_west_jungle)
 "kVm" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /turf/open/floor/ancient_temple/floor_13/north,
 /area/lazarus/ground/ancient_temple/south)
@@ -40374,7 +40414,8 @@
 	icon = 'modular/zenith_sanctum/game/objects/structure/stairs/perspective_stairs.dmi'
 	},
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = -19
+	pixel_y = -19;
+	density = 0
 	},
 /turf/open/floor/ancient_temple/deco/dark/deco_alt/east,
 /area/lazarus/ground/ancient_temple/north_east)
@@ -42732,7 +42773,8 @@
 "nxT" = (
 /obj/effect/hunter/ancient_temple/deco_border,
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = -19
+	pixel_y = -19;
+	density = 0
 	},
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/caves/west_caves)
@@ -43661,7 +43703,8 @@
 /area/lazarus/comms/lz2_north)
 "nXy" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
@@ -49961,6 +50004,7 @@
 	pixel_x = -8;
 	pixel_y = 10
 	},
+/obj/item/reagent_container/hypospray/autoinjector/yautja,
 /turf/open/floor/ancient_temple/deco/dark/deco_0,
 /area/lazarus/ground/ancient_temple/north_east)
 "rmV" = (
@@ -51154,7 +51198,8 @@
 /area/lazarus/ground/caves/south_west_caves)
 "rQa" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 1
@@ -51743,7 +51788,8 @@
 "sgV" = (
 /obj/structure/platform/stone/ancient_temple/alt/north,
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /obj/structure/flora/jungle/vines/dead/light_1,
 /turf/open/floor/ancient_temple/damaged/damage_1,
@@ -52709,7 +52755,8 @@
 /area/lazarus/ground/caves/west_caves)
 "sGl" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_4,
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_11,
@@ -53561,7 +53608,8 @@
 /area/lazarus/research)
 "sYy" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 1
@@ -53770,7 +53818,8 @@
 /area/lazarus/ground/caves/south_west_caves)
 "tei" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /turf/open/floor/ancient_temple/floor_13/north,
 /area/lazarus/ground/ancient_temple/north_east)
@@ -53971,7 +54020,8 @@
 /area/lazarus/research/storage)
 "tla" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 1
@@ -54044,7 +54094,8 @@
 "tpU" = (
 /obj/structure/platform/stone/ancient_temple/alt,
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = -19
+	pixel_y = -19;
+	density = 0
 	},
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/ancient_temple/south/surface)
@@ -54208,7 +54259,8 @@
 /area/lazarus/ground/barrens/east_barrens)
 "tsV" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 5
@@ -54758,7 +54810,8 @@
 /area/lazarus/security)
 "tEQ" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 1
@@ -54931,7 +54984,8 @@
 	dir = 1
 	},
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/ancient_temple/south_east/surface)
@@ -57642,7 +57696,8 @@
 /area/lazarus/landing_zones/lz2)
 "uYq" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/north_west_caves)
@@ -58222,7 +58277,8 @@
 /area/lazarus/ground/ancient_temple/east)
 "vrF" = (
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /turf/open/floor/ancient_temple/damaged/damage_2,
 /area/lazarus/ground/caves/west_caves)
@@ -60741,7 +60797,8 @@
 	icon = 'modular/zenith_sanctum/game/objects/structure/stairs/perspective_stairs.dmi'
 	},
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = -19
+	pixel_y = -19;
+	density = 0
 	},
 /turf/open/floor/ancient_temple/deco/dark/deco_alt/east,
 /area/lazarus/ground/ancient_temple/north_east)
@@ -62349,7 +62406,6 @@
 	color = "#6b675e";
 	layer = 2.79
 	},
-/obj/item/reagent_container/hypospray/autoinjector/yautja,
 /obj/structure/window/reinforced/colorable{
 	color = "#8eaeb0";
 	dir = 1
@@ -62361,6 +62417,7 @@
 /obj/structure/window/reinforced/colorable{
 	color = "#8eaeb0"
 	},
+/obj/item/tool/weldingtool/yautja,
 /turf/open/floor/prison/floor_plate_alt,
 /area/lazarus/main_hall)
 "xDo" = (
@@ -62643,7 +62700,8 @@
 "xMa" = (
 /obj/structure/platform/stone/ancient_temple/north,
 /obj/structure/prop/brazier/frame/full/torch/ancient{
-	pixel_y = 31
+	pixel_y = 31;
+	density = 0
 	},
 /obj/effect/hunter/ancient_temple/rubble/rubble_2{
 	pixel_x = -3;
@@ -86791,7 +86849,7 @@ ahX
 iYk
 veA
 tUo
-hRI
+adC
 dRz
 wNT
 jQu
@@ -92927,7 +92985,7 @@ lSG
 tua
 arn
 vwD
-dQW
+aQL
 aQL
 aQL
 aQL
