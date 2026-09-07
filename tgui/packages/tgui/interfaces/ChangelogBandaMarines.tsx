@@ -1,6 +1,6 @@
 import { classes } from 'common/react';
 import dateformat from 'dateformat';
-import yaml from 'js-yaml';
+import * as yaml from 'js-yaml';
 import { Component, Fragment } from 'react';
 
 import { resolveAsset } from '../assets';
@@ -50,8 +50,7 @@ export class ChangelogBandaMarines extends Component<
   {},
   {
     data:
-      | string
-      | { date: string; authors: { name: string; changes: string[] } };
+      string | { date: string; authors: { name: string; changes: string[] } };
     selectedDate: string;
     selectedIndex: number;
   }
