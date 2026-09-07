@@ -135,7 +135,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 		to_chat(user, SPAN_WARNING("You were interrupted!"))
 		return
 
-	user.visible_message(SPAN_WARNING("[user] climbs down."), SPAN_WARNING("You climb down."))
+	user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] climbs down."), SPAN_WARNING("You climb down."))
 
 	user.forceMove(below)
 	for(var/atom/movable/thing as anything in grabbed_things) // grabbed things aren't moved to the tile immediately to: make the animation better, preserve the grab

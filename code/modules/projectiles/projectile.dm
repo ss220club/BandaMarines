@@ -1094,7 +1094,7 @@
 		damage_result = armor_damage_reduction(GLOB.marine_ranged, damage, armor, bullet.ammo.penetration)
 
 		if(damage_result <= 5)
-			to_chat(src,SPAN_XENONOTICE("Our armor absorbs the force of [bullet]!"))
+			to_chat(src,SPAN_XENONOTICE("Ваша броня поглощает силу удара [bullet.declent_ru(GENITIVE)]!")) // SS220 EDIT ADDICTION
 		if(damage_result <= 3)
 			damage_result = 0
 			bullet_ping(bullet)
@@ -1341,10 +1341,10 @@
 /mob/proc/bullet_message(obj/projectile/bullet, damaging = TRUE, original_intended_target = null)
 	if(!bullet)
 		return
-	var/intended_for = original_intended_target ? " intended for [original_intended_target]" : ""
+	var/intended_for = original_intended_target ? ", вместо [original_intended_target]," : ""
 	if(damaging && COOLDOWN_FINISHED(src, shot_cooldown))
-		visible_message(SPAN_DANGER("[src] is hit by the [bullet.name][intended_for] in the [parse_zone(bullet.def_zone)]!"),
-			SPAN_HIGHDANGER("[isxeno(src) ? "We" : "You"] are hit by the [bullet.name][intended_for] in the [parse_zone(bullet.def_zone)]!"), null, 4, CHAT_TYPE_TAKING_HIT)
+		visible_message(SPAN_DANGER("[capitalize(bullet.declent_ru(NOMINATIVE))] попадает по [declent_ru(DATIVE)][intended_for] в [declent_ru_initial(parse_zone(bullet.def_zone), ACCUSATIVE, parse_zone(bullet.def_zone))]!"),
+			SPAN_HIGHDANGER("[capitalize(bullet.declent_ru(NOMINATIVE))] попадает по [isxeno(src) ? "нам" : "вам"][intended_for] в [declent_ru_initial(parse_zone(bullet.def_zone), ACCUSATIVE, parse_zone(bullet.def_zone))]!"), null, 4, CHAT_TYPE_TAKING_HIT)
 		COOLDOWN_START(src, shot_cooldown, 1 SECONDS)
 
 	var/shot_from = bullet.shot_from ? " from \a [bullet.shot_from]" : ""

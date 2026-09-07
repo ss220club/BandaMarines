@@ -10,6 +10,7 @@ import {
 } from 'tgui/components';
 import { RADIO_CHANNELS } from 'tgui/constants';
 import { Window } from 'tgui/layouts';
+import { RuRadioLabel } from 'tgui-say/constants';
 
 type Data = {
   broadcasting: BooleanLike;
@@ -25,6 +26,12 @@ type Data = {
   subspaceSwitchable: BooleanLike;
   headset: false;
 };
+
+interface RadioChannel {
+  name: string;
+  freq: number;
+  color: string;
+}
 
 export const Radio = (props) => {
   const { act, data } = useBackend<Data>();
@@ -43,9 +50,15 @@ export const Radio = (props) => {
 
   const radioChannels = data.channels;
 
-  const tunedChannel = RADIO_CHANNELS.find(
-    (channel) => channel.freq === frequency,
+  const CHANNELS_BY_FREQ = RADIO_CHANNELS.reduce(
+    (acc, channel: RadioChannel) => {
+      acc[channel.freq] = channel;
+      return acc;
+    },
+    {} as Record<number, (typeof RADIO_CHANNELS)[number]>,
   );
+
+  const tunedChannel = CHANNELS_BY_FREQ[frequency];
 
   // Calculate window height
   let height = 106;
@@ -61,7 +74,7 @@ export const Radio = (props) => {
       <Window.Content>
         <Section>
           <LabeledList>
-            <LabeledList.Item label="Frequency">
+            <LabeledList.Item label="Частота">
               {(freqlock && (
                 <Box inline color="light-gray">
                   {toFixed(frequency / 10, 1) + ' kHz'}
@@ -89,7 +102,7 @@ export const Radio = (props) => {
                 </Box>
               )}
             </LabeledList.Item>
-            <LabeledList.Item label="Audio">
+            <LabeledList.Item label="Настройки">
               <Button
                 textAlign="center"
                 width="37px"
@@ -126,7 +139,7 @@ export const Radio = (props) => {
               )}
             </LabeledList.Item>
             {!!subspace && (
-              <LabeledList.Item label="Channels">
+              <LabeledList.Item label="Каналы">
                 {radioChannels.length === 0 && (
                   <Box inline color="bad">
                     No encryption keys installed.
@@ -143,7 +156,7 @@ export const Radio = (props) => {
                         })
                       }
                     >
-                      {channel.name + ' '}
+                      {RuRadioLabel(channel.name) + ' '}
                       {channel.hotkey
                         ? '[' + channel.hotkey.toUpperCase() + ']'
                         : '[N/A]'}

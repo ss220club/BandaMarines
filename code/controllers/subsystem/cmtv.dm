@@ -648,7 +648,7 @@ SUBSYSTEM_DEF(cmtv)
 
 /client/proc/change_observed_player()
 	set name = "Change Observed Player"
-	set category = "Admin.CMTV"
+	// set category = "Admin.CMTV" // BANDAMARINES 220 CMTV - мы это не используем, нам это не нужно, у нас нет бота-твич стримера.
 
 	if(!SScmtv.online())
 		return to_chat(src, SPAN_WARNING("CMTV is currently offline!"))

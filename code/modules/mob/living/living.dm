@@ -159,7 +159,7 @@
 
 	return
 
-/mob/living/Move(NewLoc, direct)
+/mob/living/Move(NewLoc, direct, glide_size_override) // SS220 EDIT
 	if(lying_angle != 0)
 		lying_angle_on_movement(direct)
 	if (buckled && buckled.loc != NewLoc) //not updating position
@@ -437,6 +437,7 @@
 		SEND_SIGNAL(src, COMSIG_MOB_MOVE_OR_LOOK, TRUE, dir, dir)
 	if(!istype(LM) || !LM.target || !src)
 		return
+	SEND_SIGNAL(src, COMSIG_LIVING_PRE_LAUNCH_TOWARDS, LM) // BANDAMARINES EDIT ADD
 	if(buckled)
 		LM.invoke_end_throw_callbacks(src)
 		return

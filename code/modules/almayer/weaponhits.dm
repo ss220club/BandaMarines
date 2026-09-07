@@ -25,7 +25,7 @@
 		sleep(delay)
 
 	if(announce)
-		shipwide_ai_announcement("WARNING, [hits] HIT SHIP HULL, [missed] MISSED AND [intercepted] INTERCEPTED!", MAIN_AI_SYSTEM, 'sound/effects/double_klaxon.ogg')
+		shipwide_ai_announcement("ВНИМАНИЕ, [hits] ПРОБИЛО ОБШИВКУ КОРАБЛЯ, [missed] БЫЛО ПРОПУЩЕНО И [intercepted] ПЕРЕХВАЧЕНО!", MAIN_AI_SYSTEM, 'sound/effects/double_klaxon.ogg')
 
 /datum/space_weapon/proc/shot_message(quantity, hit_eta)
 	return
@@ -38,7 +38,7 @@
 	)
 
 /datum/space_weapon/rail_gun/shot_message(quantity, hit_eta)
-	shipwide_ai_announcement("DANGER: RAILGUN EMISSIONS DETECTED, INCOMING PROJECTILE[quantity > 1 ? "S" : ""]. BRACE, BRACE, BRACE. [quantity > 1 ? "SALVO SIZE: [quantity]," : ""] ESTIMATED TIME: [hit_eta] SECONDS." , MAIN_AI_SYSTEM, 'sound/effects/missile_warning.ogg')
+	shipwide_ai_announcement("ОПАСНОСТЬ: ОБНАРУЖЕНО ИЗЛУЧЕНИЕ РЕЛЬСОТРОНА, ЗАРЯД[quantity > 1 ? "Ы" : ""] ПРИБЛИЖА[quantity > 1 ? "ЮТСЯ" : "ЕТСЯ"]. ПРИГОТОВИТЬСЯ, ПРИГОТОВИТЬСЯ, ПРИГОТОВИТЬСЯ. [quantity > 1 ? "РАЗМЕР ЗАЛПА: [quantity]," : ""] РАСЧЕТНОЕ ВРЕМЯ: [hit_eta] СЕКУНД." , MAIN_AI_SYSTEM, 'sound/effects/missile_warning.ogg')
 
 /datum/space_weapon/rocket_launcher
 	name = "Rocket Launcher"
@@ -48,7 +48,7 @@
 	)
 
 /datum/space_weapon/rocket_launcher/shot_message(quantity, hit_eta)
-	shipwide_ai_announcement("DANGER: MISSILE WARNING, LAUNCH DETECTED. BRACE, BRACE, BRACE. [quantity > 1 ? "SALVO SIZE: [quantity]," : ""] ESTIMATED TIME: [hit_eta] SECONDS." , MAIN_AI_SYSTEM, 'sound/effects/missile_warning.ogg')
+	shipwide_ai_announcement("ОПАСНОСТЬ: ПРЕДУПРЕЖДЕНИЕ О ЗАПУСКЕ РАКЕТЫ, ЗАПУСК ОБНАРУЖЕН. ПРИГОТОВИТЬСЯ, ПРИГОТОВИТЬСЯ, ПРИГОТОВИТЬСЯ. [quantity > 1 ? "РАЗМЕР ЗАЛПА: [quantity]," : ""] РАСЧЕТНОЕ ВРЕМЯ: [hit_eta] СЕКУНД." , MAIN_AI_SYSTEM, 'sound/effects/missile_warning.ogg')
 
 /**
  * Ammo datum for space weapons
@@ -84,7 +84,7 @@
 		playsound(picked_atom, pick(miss_sound), 5, 1, 100, echo = echo_list)
 
 	if(announce)
-		shipwide_ai_announcement("[capitalize(name)] [intercepted ? "INTERCEPTED" : "MISSED"]!", MAIN_AI_SYSTEM, 'sound/effects/double_klaxon.ogg')
+		shipwide_ai_announcement("[capitalize(name)] [intercepted ? "ПЕРЕХВАЧЕНО" : "ПРОПУЩЕНО"]!", MAIN_AI_SYSTEM, 'sound/effects/double_klaxon.ogg')
 
 /datum/space_weapon_ammo/rail_gun/hit_target(picked_atom, announce)
 	if(!cause_data)
@@ -97,7 +97,7 @@
 	playsound(picked_atom, pick(hit_sound), 50, 1, 200, echo = echo_list)
 
 	if(announce)
-		shipwide_ai_announcement("WARNING, [capitalize(name)] HIT SHIP HULL, CAUSED MASSIVE DAMAGE!", MAIN_AI_SYSTEM, 'sound/effects/double_klaxon.ogg')
+		shipwide_ai_announcement("ВНИМАНИЕ, [capitalize(name)] ПРОБИЛ ОБШИВКУ КОРАБЛЯ, ПРИЧИНВ ОГРОМНЫЙ УЩЕРБ!", MAIN_AI_SYSTEM, 'sound/effects/double_klaxon.ogg')
 
 /datum/space_weapon_ammo/rail_gun/stronk
 	name = "Piercing Near-Lightning Railgun Projectile of Increased Strength"
@@ -120,7 +120,7 @@
 		playsound(picked_atom, pick(miss_sound), 5, 1, 100, echo = echo_list)
 
 	if(announce)
-		shipwide_ai_announcement("[capitalize(name)] [intercepted ? "INTERCEPTED" : "MISSED"]!", MAIN_AI_SYSTEM, 'sound/effects/double_klaxon.ogg')
+		shipwide_ai_announcement("[capitalize(name)] [intercepted ? "ПЕРЕХВАЧЕНО" : "ПРОПУЩЕНО"]!", MAIN_AI_SYSTEM, 'sound/effects/double_klaxon.ogg')
 
 /datum/space_weapon_ammo/rocket_launcher/hit_target(picked_atom, announce)
 	if(!cause_data)
@@ -134,7 +134,7 @@
 	playsound(picked_atom, "pry", 25, 1, 200, echo = echo_list)
 
 	if(announce)
-		shipwide_ai_announcement("WARNING, [capitalize(name)] HIT SHIP HULL, CAUSED MASSIVE DAMAGE!", MAIN_AI_SYSTEM, 'sound/effects/double_klaxon.ogg')
+		shipwide_ai_announcement("ВНИМАНИЕ, [capitalize(name)] ПРОБИЛ ОБШИВКУ КОРАБЛЯ, ПРИЧИНВ ОГРОМНЫЙ УЩЕРБ!", MAIN_AI_SYSTEM, 'sound/effects/double_klaxon.ogg')
 
 /datum/space_weapon_ammo/rocket_launcher/swing_rockets
 	name = "Swing High Pierce Shreder Rockets"
@@ -161,4 +161,4 @@
 		sleep(1)
 
 	if(announce)
-		shipwide_ai_announcement("WARNING, [capitalize(name)] HIT SHIP HULL, CAUSED MASSIVE DOT DAMAGE!", MAIN_AI_SYSTEM, 'sound/effects/double_klaxon.ogg')
+		shipwide_ai_announcement("ВНИМАНИЕ, [capitalize(name)] ПРОБИЛА КОРПУС КОРАБЛЯ, ВЫЗВАВ ОБШИРНЫЕ ТОЧЕЧНЫЕ ПОВРЕЖДЕНИЯ!", MAIN_AI_SYSTEM, 'sound/effects/double_klaxon.ogg')
