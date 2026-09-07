@@ -53,7 +53,6 @@
 				if(stat != DEAD)
 					var/suff = min(getOxyLoss(), 10) //Pre-merge level, less healing, more prevention of dying.
 					apply_damage(-suff, OXY)
-					updatehealth()
 					src.affected_message(attacking_mob,
 						SPAN_HELPFUL("Вы чувствуете, как <b>свежий воздух</b> проникает в ваши легкие, приятно, однако."),
 						SPAN_HELPFUL("Вы выполнили проведение <b>СЛР</b> на <b>[ru_name]</b>. Повторяйте его каждые 7 секунд."), // SS220 EDIT ADDICTION
