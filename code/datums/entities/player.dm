@@ -396,6 +396,7 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 	embed.color = color
 	embed.footer = "[CONFIG_GET(string/servername)] - [ban_date]"
 	embed.description = jointext(description_lines, "\n")
+	embed.allow_link_embeds = TRUE
 	send2webhook(embed, webhook)
 // BANDAMARINES EDIT END: Public bans
 
