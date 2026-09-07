@@ -1,4 +1,0 @@
-author: "Ingakem"
-delete-after: True
-changes:
-  - refactor: "Refactor merge_upstream workflow to use configurable LLM provider with retry logic"

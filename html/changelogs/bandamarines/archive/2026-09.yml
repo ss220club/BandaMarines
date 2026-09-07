@@ -4,3 +4,7 @@
 2026-09-06:
   gotas221:
   - rscadd: командиры теперь могут снять встроенные визоры со шлема М11С.
+2026-09-07:
+  Ingakem:
+  - refactor: Refactor merge_upstream workflow to use configurable LLM provider with
+      retry logic
