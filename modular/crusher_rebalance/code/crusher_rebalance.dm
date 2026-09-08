@@ -72,7 +72,6 @@
 	pounce_pass_flags = PASS_CRUSHER_CHARGE
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/Destroy()
-	activated_once = TRUE //only because charge_reset() won't work without this flag
 	charge_reset()
 	return ..()
 
@@ -106,12 +105,15 @@
 		pre_windup_effects()
 		xeno.xeno_jitter(windup_duration + charge_window)
 		apply_cooldown()
+
 		RegisterSignal(xeno, list(SIGNAL_ADDTRAIT(TRAIT_KNOCKEDOUT), SIGNAL_ADDTRAIT(TRAIT_IMMOBILIZED), SIGNAL_ADDTRAIT(TRAIT_FLOORED), SIGNAL_ADDTRAIT(TRAIT_INCAPACITATED), SIGNAL_ADDTRAIT(TRAIT_DAZED)),  PROC_REF(check_charge_interrupt))
 		if(!do_after(xeno, windup_duration, INTERRUPT_INCAPACITATED|INTERRUPT_CHANGED_LYING, BUSY_ICON_HOSTILE))
 			return
+
 		winding_up = FALSE
 		to_chat(xeno, SPAN_XENOWARNING("Мы готовы к рывку!"))
 		playsound(xeno, 'sound/effects/alien_footstep_charge2.ogg', 50)
+
 		charge_timeout_timer_id = addtimer(CALLBACK(src, PROC_REF(charge_reset)), charge_window, TIMER_STOPPABLE) //have a time window in order to dash somewhere
 		return ..()
 	else
@@ -196,21 +198,25 @@
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/charge_reset()
 	var/mob/living/carbon/xenomorph/xeno = owner
-	if(!istype(xeno) || !activated_once)
+	if(!istype(xeno))
 		return
+
 	UnregisterSignal(xeno, list(SIGNAL_ADDTRAIT(TRAIT_KNOCKEDOUT), SIGNAL_ADDTRAIT(TRAIT_IMMOBILIZED), SIGNAL_ADDTRAIT(TRAIT_FLOORED), SIGNAL_ADDTRAIT(TRAIT_INCAPACITATED), SIGNAL_ADDTRAIT(TRAIT_DAZED)))
 	to_chat(xeno, SPAN_XENOWARNING("Мы больше не удерживаем стойку!"))
-	xeno.fortify = FALSE
+	xeno.fortify = FALSE //order is important
 	xeno.stop_xeno_jitter()
 	remove_charge_slowdown()
 	post_windup_effects(interrupted = FALSE)
 	if(charge_timeout_timer_id != TIMER_ID_NULL)
 		deltimer(charge_timeout_timer_id)
+
 	charge_timeout_timer_id = TIMER_ID_NULL
 	activated_once = FALSE
 	first_target_hit = FALSE
 	first_obstacle_hit = FALSE
 	winding_up = FALSE
+	old_charge_loc = NONE
+	charge_dir_component = NONE
 
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/execute_charge(atom/target)
@@ -307,7 +313,7 @@
 			return A
 	return NONE
 
-/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/bonk_obstacle(atom/bonked_obstacle, mob/living/carbon/xenomorph/xeno)
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/bonk_obstacle(atom/bonked_obstacle, mob/living/carbon/xenomorph/xeno)s
 	if(!istype(bonked_obstacle) || !istype(xeno))
 		return
 	if(istype(bonked_obstacle, /obj))
@@ -326,17 +332,23 @@
 	if(IS_DIAGONAL_DIR(move_dir)) //we dont actually move diagonally therefore we start checking sides before going
 		var/list/collided_obstacle_list = list()
 		var/list/possible_way_turf = list()
-		for(var/direction in list(NORTH, WEST, EAST, SOUTH))
-			if(move_dir & direction)
-				collided_obstacle = find_blocking_atoms(xeno.loc, direction)
-				if(collided_obstacle)
-					collided_obstacle_list += collided_obstacle
+
+		var/dirEW = move_dir & (move_dir-1)
+		var/dirNS = move_dir - dirEW
+		var/list/dirs = list(dirEW, dirNS)
+		for(var/i in 1 to 2)
+			var/direction = pick(dirs)
+			dirs -= direction
+
+			collided_obstacle = find_blocking_atoms(xeno.loc, direction)
+			if(collided_obstacle)
+				collided_obstacle_list += collided_obstacle
+			else
+				var/turf/side_turf = get_step(xeno, direction)
+				if(istype(side_turf) && !side_turf.density)
+					possible_way_turf += side_turf
 				else
-					var/turf/side_turf = get_step(xeno, direction)
-					if(!side_turf.density)
-						possible_way_turf += side_turf
-					else
-						collided_obstacle_list += side_turf
+					collided_obstacle_list += side_turf
 
 		if(LAZYLEN(collided_obstacle_list) == 2) //both sides are blocking
 			if(!first_obstacle_hit)
@@ -391,12 +403,16 @@
 	// Collision for sides when charge diagonally.
 	var/charge_dir = get_dir(old_charge_loc, xeno.loc)
 	if(IS_DIAGONAL_DIR(charge_dir))
-		for(var/dir in list(NORTH, WEST, EAST, SOUTH))
-			if(charge_dir & dir)
-				var/turf/side_turf = get_step(old_charge_loc, dir)
-				if(!side_turf.density)
-					charge_dir_component = dir
-					collide_in_loc(xeno, side_turf)
+		var/dirEW = charge_dir & (charge_dir-1)
+		var/dirNS = charge_dir - dirEW
+		var/list/dirs = list(dirEW, dirNS)
+		for(var/i in 1 to 2)
+			var/dir = pick(dirs)
+			dirs -= dir
+			var/turf/side_turf = get_step(old_charge_loc, dir)
+			if(istype(side_turf) && !side_turf.density)
+				charge_dir_component = dir
+				collide_in_loc(xeno, side_turf)
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/collide_in_loc(mob/living/carbon/xenomorph/xeno, turf/loc)
 	if(!istype(xeno) || !istype(loc))
@@ -449,7 +465,7 @@
 		SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] таранит [human.declent_ru(ACCUSATIVE)]!"),
 		SPAN_XENODANGER("Вы тараните [human.declent_ru(ACCUSATIVE)]!")
 	)
-	if(!(human.body_position_changed - world.time))
+	if(human.body_position_changed == world.time)
 		throw_atom_to_side(xeno, human)
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_xeno_collision(mob/living/carbon/xenomorph/target_xeno, mob/living/carbon/xenomorph/xeno)
@@ -466,7 +482,7 @@
 		target_xeno.apply_effect(knockdown_duration, STUN)
 		target_xeno.apply_damage(direct_hit_damage, BRUTE)
 	if((isqueen(target_xeno) || IS_XENO_LEADER(target_xeno) ||  isboiler(target_xeno))) // boilers because they have long c/d and warmups, get griefed hard if stunned
-		xeno.throw_atom(get_step(xeno, reverse_direction(xeno.dir)), 1, 3, target_xeno)
+		xeno.throw_atom(get_step(xeno, REVERSE_DIR(xeno.dir)), 1, 3, target_xeno)
 		xeno.set_face_dir(get_dir(xeno, target_xeno))
 		return //antigrief
 	if(target_xeno.anchored || target_xeno.mob_size >= MOB_SIZE_IMMOBILE) //big boom for King and other Crushers
@@ -525,7 +541,7 @@
 			if(istype(target, /obj/structure/machinery/m56d_hmg))
 				handled = TRUE
 				var/obj/structure/machinery/m56d_hmg/weapon_in_path = target
-				xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] таранит [weapon_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы тараним [weapon_in_path.declent_ru(ACCUSATIVE)]!"))
+				xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] таранит [weapon_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы тараним [weapon_in_path.declent_ru(ACCUSATIVE)]!"))
 				metal_pipe_random(weapon_in_path)
 				weapon_in_path.CrusherImpact()
 				. = FALSE
@@ -541,7 +557,7 @@
 			else if(istype(target, /obj/structure/machinery/defenses))
 				handled = TRUE
 				var/obj/structure/machinery/defenses/defenses_in_path = target
-				xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] таранит [defenses_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы тараним [defenses_in_path.declent_ru(ACCUSATIVE)]!"))
+				xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] таранит [defenses_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы тараним [defenses_in_path.declent_ru(ACCUSATIVE)]!"))
 				metal_pipe_random(defenses_in_path)
 				if(defenses_in_path.stat & DEFENSE_DAMAGED)
 					. = TRUE
@@ -555,7 +571,7 @@
 				if(vending_in_path.unslashable)
 					. = FALSE
 				else
-					xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается прямо в [vending_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы врезаемся прямо в [vending_in_path.declent_ru(ACCUSATIVE)]!"))
+					xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] врезается прямо в [vending_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы врезаемся прямо в [vending_in_path.declent_ru(ACCUSATIVE)]!"))
 					playsound(vending_in_path.loc, "slam", 25, 1)
 					vending_in_path.tip_over()
 					. = TRUE
@@ -571,7 +587,7 @@
 			handled = TRUE
 			var/obj/structure/barricade/blockade_in_path = target
 			if(blockade_in_path.BlockedExitDirs(xeno, xeno.last_move_dir) || blockade_in_path.BlockedPassDirs(xeno, xeno.last_move_dir))
-				xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [blockade_in_path.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [blockade_in_path.declent_ru(ACCUSATIVE)] и тормозим!"))
+				xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] врезается в [blockade_in_path.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [blockade_in_path.declent_ru(ACCUSATIVE)] и тормозим!"))
 				metal_pipe_random(blockade_in_path)
 				blockade_in_path.Collided(xeno)
 				. = FALSE
@@ -649,7 +665,7 @@
 	else if(istype(target, /obj/vehicle/multitile))
 		handled = TRUE
 		var/obj/vehicle/multitile/vehicle_in_path = target
-		xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозим!"))
+		xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] врезается в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозим!"))
 		metal_pipe_random(vehicle_in_path)
 		vehicle_in_path.Collided(xeno)
 		. = FALSE
@@ -662,7 +678,7 @@
 
 		//Immovable obj
 		else if(object_in_path.anchored)
-			xeno.visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] раздавливает [object_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы раздавливаем [object_in_path.declent_ru(ACCUSATIVE)]!"))
+			xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] раздавливает [object_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы раздавливаем [object_in_path.declent_ru(ACCUSATIVE)]!"))
 			if(istype(object_in_path, /obj/structure/platform))
 				var/obj/structure/platform/platform_in_path = object_in_path
 				platform_in_path.broken()
@@ -675,7 +691,7 @@
 		else  //Canisters, crates etc. go flying
 			if(object_in_path.buckled_mob)
 				object_in_path.unbuckle()
-			xeno.visible_message(SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] отбрасывает [object_in_path.declent_ru(ACCUSATIVE)] в сторону!"), SPAN_XENOWARNING("Мы отбрасываем [object_in_path.declent_ru(ACCUSATIVE)] в сторону."))
+			xeno.visible_message(SPAN_WARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] отбрасывает [object_in_path.declent_ru(ACCUSATIVE)] в сторону!"), SPAN_XENOWARNING("Мы отбрасываем [object_in_path.declent_ru(ACCUSATIVE)] в сторону."))
 
 			var/old_loc = object_in_path.loc
 			throw_atom_to_side(xeno, object_in_path)
@@ -736,7 +752,7 @@
 			playsound(target.loc, 'sound/effects/metalhit.ogg', 25, 1)
 
 /mob/living/carbon/xenomorph/crusher/pounced_turf(turf/pounced_turf)
-	visible_message(SPAN_DANGER("[capitalize(declent_ru(NOMINATIVE))] врезается в [pounced_turf.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [pounced_turf.declent_ru(ACCUSATIVE)] и тормозим!")) // SS220 EDIT ADDICTION
+	visible_message(SPAN_DANGER("[capitalize(src.declent_ru(NOMINATIVE))] врезается в [pounced_turf.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [pounced_turf.declent_ru(ACCUSATIVE)] и тормозим!")) // SS220 EDIT ADDICTION
 	pounced_turf.ex_act(EXPLOSION_THRESHOLD_VLOW, , create_cause_data(caste_type, src))
 	..(pounced_turf)
 
