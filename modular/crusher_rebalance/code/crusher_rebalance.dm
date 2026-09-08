@@ -46,7 +46,6 @@
 	var/first_target_hit = FALSE
 	var/first_obstacle_hit = FALSE
 	var/face_dir = NORTH
-	var/charge_dir_component = NONE
 	var/turf/old_charge_loc = NONE
 	var/frontal_armor = 15
 	// Two-stage activation
@@ -216,7 +215,6 @@
 	first_obstacle_hit = FALSE
 	winding_up = FALSE
 	old_charge_loc = NONE
-	charge_dir_component = NONE
 
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/execute_charge(atom/target)
@@ -313,7 +311,7 @@
 			return A
 	return NONE
 
-/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/bonk_obstacle(atom/bonked_obstacle, mob/living/carbon/xenomorph/xeno)s
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/bonk_obstacle(atom/bonked_obstacle, mob/living/carbon/xenomorph/xeno)
 	if(!istype(bonked_obstacle) || !istype(xeno))
 		return
 	if(istype(bonked_obstacle, /obj))
@@ -411,10 +409,9 @@
 			dirs -= dir
 			var/turf/side_turf = get_step(old_charge_loc, dir)
 			if(istype(side_turf) && !side_turf.density)
-				charge_dir_component = dir
-				collide_in_loc(xeno, side_turf)
+				collide_in_loc(xeno, side_turf, dir)
 
-/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/collide_in_loc(mob/living/carbon/xenomorph/xeno, turf/loc)
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/collide_in_loc(mob/living/carbon/xenomorph/xeno, turf/loc, dir = null)
 	if(!istype(xeno) || !istype(loc))
 		return
 	for(var/atom/A in loc)
@@ -422,13 +419,13 @@
 			continue
 		if(A.can_block_movement)
 			if(ishuman(A))
-				INVOKE_ASYNC(src, PROC_REF(handle_human_collision), A, xeno)
+				INVOKE_ASYNC(src, PROC_REF(handle_human_collision), A, xeno, dir)
 			else if(isxeno(A))
-				INVOKE_ASYNC(src, PROC_REF(handle_xeno_collision), A, xeno)
+				INVOKE_ASYNC(src, PROC_REF(handle_xeno_collision), A, xeno, dir)
 			else if(iscarbon(A))
-				INVOKE_ASYNC(src, PROC_REF(handle_carbon_collision), A, xeno)
+				INVOKE_ASYNC(src, PROC_REF(handle_carbon_collision), A, xeno, dir)
 
-/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_human_collision(mob/living/carbon/human/human, mob/living/carbon/xenomorph/xeno)
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_human_collision(mob/living/carbon/human/human, mob/living/carbon/xenomorph/xeno, dir = null)
 	if(!istype(xeno))
 		xeno = owner
 	if(!istype(xeno) || !istype(human) || human.stat == DEAD || HAS_TRAIT(human, TRAIT_HAULED))
@@ -466,9 +463,9 @@
 		SPAN_XENODANGER("Вы тараните [human.declent_ru(ACCUSATIVE)]!")
 	)
 	if(human.body_position_changed == world.time)
-		throw_atom_to_side(xeno, human)
+		throw_atom_to_side(xeno, human, dir)
 
-/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_xeno_collision(mob/living/carbon/xenomorph/target_xeno, mob/living/carbon/xenomorph/xeno)
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_xeno_collision(mob/living/carbon/xenomorph/target_xeno, mob/living/carbon/xenomorph/xeno, dir = null)
 	if(!istype(xeno))
 		xeno = owner
 	if(!istype(xeno) || !istype(target_xeno) || HAS_TRAIT_FROM(target_xeno, TRAIT_UNDENSE, LYING_DOWN_TRAIT))
@@ -501,9 +498,9 @@
 		)
 	to_chat(target_xeno, SPAN_XENOHIGHDANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] отбрасывает вас в сторону! С дороги!"))
 	target_xeno.set_effect(0.5, WEAKEN)
-	throw_atom_to_side(xeno, target_xeno)
+	throw_atom_to_side(xeno, target_xeno, dir)
 
-/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_carbon_collision(mob/living/carbon/mob, mob/living/carbon/xenomorph/xeno)
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_carbon_collision(mob/living/carbon/mob, mob/living/carbon/xenomorph/xeno, dir = null)
 	if(!istype(xeno))
 		xeno = owner
 	if(!istype(xeno) || !istype(mob) || mob.stat == DEAD)
@@ -525,7 +522,7 @@
 	if(mob.client)
 		shake_camera(mob, 2, 3)
 
-	throw_atom_to_side(xeno, mob)
+	throw_atom_to_side(xeno, mob, dir)
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_obj_collision(obj/target, mob/living/carbon/xenomorph/xeno)
 	if(!istype(xeno))
@@ -705,16 +702,15 @@
 			first_obstacle_hit = TRUE
 			xeno.update_icons()
 
-/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/throw_atom_to_side(mob/living/carbon/xenomorph/xeno, atom/movable/target)
+/datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/throw_atom_to_side(mob/living/carbon/xenomorph/xeno, atom/movable/target, dir = null)
 	if(!istype(xeno) || !istype(target))
 		return
 	var/throw_dir
-	if(!charge_dir_component)
+	if(!dir)
 		var/list/throw_dirs = get_perpen_dir(xeno.dir) //side dirs
 		throw_dir = pick(throw_dirs)
 	else
-		throw_dir = charge_dir_component //for diagonal interaction - obvious dirs for throwing
-		charge_dir_component = NONE
+		throw_dir = dir //for diagonal interaction - obvious dirs for throwing
 
 	var/target_turf = get_step(target.loc, throw_dir)
 	var/throw_range
