@@ -31,6 +31,18 @@ instrumental = "инструкцией для инженера"
 prepositional = "инструкции для инженера"
 gender = "female"
 
+["vehicle pamphlet"]
+nominative = "инструкция по вождению"
+
+["vehicle crewman instructional pamphlet"]
+nominative = "инструкция по вождению"
+genitive = "инструкции по вождению"
+dative = "инструкции по вождению"
+accusative = "инструкцию по вождению"
+instrumental = "инструкцией по вождению"
+prepositional = "инструкции по вождению"
+gender = "female"
+
 ["heavy machinegunner instructional pamphlet"]
 nominative = "руководство по эксплуатации пулемёта"
 genitive = "руководства по эксплуатации пулемёта"

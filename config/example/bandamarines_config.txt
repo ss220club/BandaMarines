@@ -20,3 +20,17 @@ SERVER_TYPE default
 
 ## Amount of players to consider lowpop game
 # lowpop_amount_of_players 50
+
+## Min players for each category of vehicles
+min_players_heavy_support 70
+min_players_medium_support 60
+min_players_light_support 40
+min_players_light_recon 1
+min_players_light_vehicle 40
+
+## Limits for each category of vehicles
+limit_heavy_support_vehicles 1
+limit_medium_support_vehicles 1
+limit_light_support_vehicles 1
+limit_light_recon_vehicles 1
+limit_light_carriers 1

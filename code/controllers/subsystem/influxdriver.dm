@@ -115,7 +115,7 @@ SUBSYSTEM_DEF(influxdriver)
 
 /// Puts a single field or tag value into InfluxDB Line format
 /datum/controller/subsystem/influxdriver/proc/serialize_field(field, value)
-	var/static/regex/whitelistedCharacters = regex(@{"([^a-zA-Z0-9_]+)"}, "g")
+	var/static/regex/whitelistedCharacters = regex(@{"([^a-zA-Z0-9а-яА-ЯёЁ_]+)"}, "g")
 	var/sanitized_field = whitelistedCharacters.Replace("[field]", "")
 	if(!length(sanitized_field) || copytext(sanitized_field, 1, 2) == "_")
 		CRASH("Invalid tag/field for InfluxDB serialization: '[sanitized_field]' (original: '[field]')")

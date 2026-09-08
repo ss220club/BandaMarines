@@ -20,7 +20,7 @@
 	. = ..()
 	shipwide_ai_announcement("Было успешно развернуто [mob_max] морпехов отряда «Фокстрот», из которых [length(members)] готовы к бою.")
 	if(mob_max > length(members))
-		announce_dchat("некоторые криомарины ещё свободны, используйте команду «Join As Freed Mob», чтобы занять одного из них.")
+		announce_dchat("некоторые криомарины ещё свободны, используйте команду «Join As Freed Mob» во кладке Ghost, чтобы занять одного из них.")
 
 /datum/emergency_call/cryo_squad/create_member(datum/mind/mind, turf/override_spawn_loc)
 	set waitfor = 0
