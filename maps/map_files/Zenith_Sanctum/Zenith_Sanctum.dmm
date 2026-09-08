@@ -1060,15 +1060,11 @@
 	color = "#6b675e";
 	layer = 2.79
 	},
-/obj/structure/window/reinforced/colorable{
-	color = "#8eaeb0";
-	dir = 1
+/obj/item/weapon/yautja/scythe/alt{
+	name = "ancient double war scythe"
 	},
 /obj/structure/window/reinforced/colorable{
 	color = "#8eaeb0"
-	},
-/obj/item/weapon/yautja/scythe/alt{
-	name = "ancient double war scythe"
 	},
 /turf/open/floor/prison/floor_plate_alt,
 /area/lazarus/main_hall)
@@ -2506,6 +2502,13 @@
 	},
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/caves/south_west_caves)
+"ahz" = (
+/obj/structure/window/reinforced/colorable{
+	color = "#8eaeb0";
+	pixel_y = -17
+	},
+/turf/open/floor/prison/brown_bright/east,
+/area/lazarus/main_hall)
 "ahA" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_4,
 /obj/effect/decal/lv_decals/cave_mud_corner{
@@ -2953,6 +2956,14 @@
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/caves/south_west_caves)
+"aiE" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/window/reinforced/colorable{
+	color = "#8eaeb0";
+	pixel_y = -17
+	},
+/turf/open/floor/prison/brown_bright/east,
+/area/lazarus/main_hall)
 "aiF" = (
 /obj/structure/prop/colorable_rock/colorable{
 	color = "#ae8686";
@@ -5258,6 +5269,13 @@
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_membrane,
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/caves/west_caves)
+"aok" = (
+/obj/structure/window/reinforced/colorable{
+	color = "#8eaeb0";
+	pixel_y = -17
+	},
+/turf/open/floor/prison/brown_bright/north,
+/area/lazarus/main_hall)
 "aol" = (
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 6
@@ -7287,6 +7305,14 @@
 	},
 /turf/open/floor/strata/multi_tiles/west,
 /area/lazarus/research/storage)
+"asU" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/window/reinforced/colorable{
+	color = "#8eaeb0";
+	pixel_y = -17
+	},
+/turf/open/floor/prison/brown_bright/north,
+/area/lazarus/main_hall)
 "asV" = (
 /obj/effect/decal/lv_decals/red_mud_corner{
 	dir = 5
@@ -19305,13 +19331,6 @@
 	color = "#8eaeb0";
 	dir = 4
 	},
-/obj/structure/window/reinforced/colorable{
-	color = "#8eaeb0";
-	dir = 1
-	},
-/obj/structure/window/reinforced/colorable{
-	color = "#8eaeb0"
-	},
 /obj/item/clothing/suit/armor/yautja_flavor{
 	icon_state = "fullarmor_silver"
 	},
@@ -19319,6 +19338,9 @@
 	pixel_y = 9;
 	icon_state = "pred_mask2_silver";
 	item_state_slots = list("wear_mask" = "pred_mask2_silver")
+	},
+/obj/structure/window/reinforced/colorable{
+	color = "#8eaeb0"
 	},
 /turf/open/floor/prison/floor_plate_alt,
 /area/lazarus/main_hall)
@@ -25725,10 +25747,6 @@
 	},
 /obj/structure/window/reinforced/colorable{
 	color = "#8eaeb0";
-	dir = 1
-	},
-/obj/structure/window/reinforced/colorable{
-	color = "#8eaeb0";
 	dir = 4
 	},
 /obj/structure/window/reinforced/colorable{
@@ -31953,10 +31971,6 @@
 	layer = 2.79
 	},
 /obj/structure/window/reinforced/colorable{
-	color = "#8eaeb0";
-	dir = 1
-	},
-/obj/structure/window/reinforced/colorable{
 	color = "#8eaeb0"
 	},
 /turf/open/floor/prison/floor_plate_alt,
@@ -33213,10 +33227,6 @@
 	layer = 2.79
 	},
 /obj/item/weapon/harpoon/yautja,
-/obj/structure/window/reinforced/colorable{
-	color = "#8eaeb0";
-	dir = 1
-	},
 /obj/structure/window/reinforced/colorable{
 	color = "#8eaeb0"
 	},
@@ -35216,10 +35226,6 @@
 	},
 /obj/item/clothing/yautja_cape/damaged,
 /obj/structure/window/reinforced/colorable{
-	color = "#8eaeb0";
-	dir = 1
-	},
-/obj/structure/window/reinforced/colorable{
 	color = "#8eaeb0"
 	},
 /turf/open/floor/prison/floor_plate_alt,
@@ -35851,10 +35857,6 @@
 /obj/structure/window/reinforced/colorable{
 	color = "#8eaeb0";
 	dir = 8
-	},
-/obj/structure/window/reinforced/colorable{
-	color = "#8eaeb0";
-	dir = 1
 	},
 /obj/structure/window/reinforced/colorable{
 	color = "#8eaeb0"
@@ -39708,16 +39710,12 @@
 /obj/item/clothing/suit/armor/yautja{
 	slowdown = 0.35
 	},
-/obj/structure/window/reinforced/colorable{
-	color = "#8eaeb0";
-	dir = 1
-	},
-/obj/structure/window/reinforced/colorable{
-	color = "#8eaeb0"
-	},
 /obj/item/clothing/mask/gas/yautja/unfunctional{
 	icon_state = "pred_mask17_ebony";
 	item_state_slots = list("wear_mask" = "pred_mask17_ebony")
+	},
+/obj/structure/window/reinforced/colorable{
+	color = "#8eaeb0"
 	},
 /turf/open/floor/prison/floor_plate_alt,
 /area/lazarus/main_hall)
@@ -62408,16 +62406,12 @@
 	},
 /obj/structure/window/reinforced/colorable{
 	color = "#8eaeb0";
-	dir = 1
-	},
-/obj/structure/window/reinforced/colorable{
-	color = "#8eaeb0";
 	dir = 8
 	},
+/obj/item/tool/weldingtool/yautja,
 /obj/structure/window/reinforced/colorable{
 	color = "#8eaeb0"
 	},
-/obj/item/tool/weldingtool/yautja,
 /turf/open/floor/prison/floor_plate_alt,
 /area/lazarus/main_hall)
 "xDo" = (
@@ -81472,7 +81466,7 @@ cDr
 tun
 cxL
 wmN
-uHR
+ahz
 kcv
 jJI
 gkd
@@ -81696,7 +81690,7 @@ bME
 cMU
 cxL
 ryz
-iHt
+aiE
 iDs
 jJI
 rpZ
@@ -81920,7 +81914,7 @@ cxL
 cxL
 cxL
 tFy
-iHt
+aiE
 maU
 jJI
 wNT
@@ -82144,7 +82138,7 @@ ulN
 sbr
 oWW
 sNb
-uHR
+ahz
 hRI
 jJI
 gkd
@@ -82368,7 +82362,7 @@ kFY
 sSF
 gSQ
 gkd
-iHt
+aiE
 bsG
 jJI
 cdM
@@ -86400,7 +86394,7 @@ ggI
 kdh
 rXI
 gkd
-tUo
+aok
 xDd
 vif
 gkd
@@ -86624,7 +86618,7 @@ ggI
 ice
 iYk
 nMy
-vkx
+asU
 jIV
 dRz
 gkd
@@ -86848,7 +86842,7 @@ ggI
 ahX
 iYk
 veA
-tUo
+aok
 adC
 dRz
 wNT
@@ -87072,7 +87066,7 @@ nnH
 wFc
 iYk
 oop
-vkx
+asU
 hRI
 dRz
 rpZ
@@ -87296,7 +87290,7 @@ iYk
 iYk
 iYk
 nMy
-tUo
+aok
 eIP
 dRz
 gkd

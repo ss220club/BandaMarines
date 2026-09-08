@@ -13,3 +13,8 @@
 	anti_hug = 1
 	mask_huds = list()
 	mask_actions = list()
+
+/obj/item/clothing/mask/gas/yautja/unfunctional/Initialize(mapload, ...)
+	. = ..()
+	src.verbs -= /obj/item/clothing/mask/gas/yautja/verb/toggle_zoom
+	src.verbs -= /obj/item/clothing/mask/gas/yautja/verb/togglesight
