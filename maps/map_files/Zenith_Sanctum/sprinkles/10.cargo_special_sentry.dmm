@@ -71,7 +71,7 @@
 /turf/open/floor/prison/darkbrown2/east,
 /area/template_noop)
 "Y" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /turf/open/floor/plating/prison,
 /area/template_noop)
 

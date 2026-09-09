@@ -64,7 +64,7 @@
 /turf/open/floor/prison/cell_stripe/east,
 /area/lazarus/comms/lz1_north)
 "aao" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /turf/open/floor/plating/prison,
 /area/lazarus/ground/barrens/central_barrens/ceiling)
 "aap" = (
@@ -3913,6 +3913,12 @@
 	},
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
+"akK" = (
+/obj/effect/landmark/nightmare{
+	insert_tag = "corporate_dome_goon"
+	},
+/turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/lazarus/ground/jungle/south_west_jungle)
 "akL" = (
 /obj/structure/pipes/standard/simple/hidden/cyan{
 	dir = 4
@@ -4256,6 +4262,10 @@
 "alC" = (
 /turf/open/floor/ancient_temple/damaged/damage_2,
 /area/lazarus/ground/caves/north_west_caves)
+"alD" = (
+/obj/structure/window/framed/lv_colony,
+/turf/open/floor/plating/prison,
+/area/lazarus/corporate_dome)
 "alE" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble_3{
 	pixel_x = 3;
@@ -4348,6 +4358,10 @@
 	},
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/caves/south_west_caves)
+"alP" = (
+/obj/structure/window/framed/lv_colony,
+/turf/open/floor/plating/prison,
+/area/lazarus/quartstorage)
 "alQ" = (
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 6
@@ -4558,6 +4572,14 @@
 "amm" = (
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/caves/west_caves)
+"amn" = (
+/obj/structure/curtain/colorable_transparent{
+	color = "#8bafa4";
+	layer = 3.2
+	},
+/obj/structure/window/framed/wood/reinforced/teal,
+/turf/open/floor/plating/prison,
+/area/lazarus/medbay)
 "amo" = (
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
@@ -4735,6 +4757,10 @@
 /obj/effect/hunter/ancient_temple/deco_border,
 /turf/open/floor/ancient_temple/damaged/damage_6,
 /area/lazarus/ground/caves/west_caves)
+"amH" = (
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/prison,
+/area/lazarus/hydroponics)
 "amI" = (
 /obj/effect/landmark/xeno_spawn,
 /turf/open/floor/ancient_temple/floor_19/west,
@@ -4928,6 +4954,11 @@
 	},
 /turf/open/floor/ancient_temple/floor_19,
 /area/lazarus/ground/ancient_temple/south_east/surface)
+"anj" = (
+/obj/effect/landmark/corpsespawner/colonist/random,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/prison,
+/area/lazarus/hydroponics)
 "ank" = (
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 1
@@ -5027,6 +5058,12 @@
 	},
 /turf/open/floor/ancient_temple/damaged/damage_5,
 /area/lazarus/ground/caves/west_caves)
+"anD" = (
+/obj/item/prop/alien/hugger{
+	pixel_y = 10
+	},
+/turf/open/floor/interior/tatami,
+/area/lazarus/fitness)
 "anE" = (
 /obj/structure/prop/brazier_ancient/alt/frame,
 /turf/open/floor/ancient_temple/base/dark/alt,
@@ -5428,6 +5465,10 @@
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/caves/west_caves)
+"aoP" = (
+/obj/item/toy/beach_ball,
+/turf/open/auto_turf/lv_sand/layer0,
+/area/lazarus/ground/colony/central_beach)
 "aoQ" = (
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 1
@@ -9522,7 +9563,7 @@
 /turf/open/floor/interior/wood/alt,
 /area/lazarus/ground/cove/south)
 "ayG" = (
-/obj/structure/window/framed/wood/reinforced/plain,
+/obj/structure/window/framed/wood/plain,
 /turf/open/floor/interior/wood_sat,
 /area/lazarus/shack)
 "ayH" = (
@@ -9761,7 +9802,7 @@
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/colony/west_tcomms_road)
 "azp" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /turf/open/floor/prison/west,
 /area/lazarus/comms)
 "azq" = (
@@ -10038,15 +10079,6 @@
 	},
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/landing_zones/lz1)
-"aAa" = (
-/obj/structure/flora/grass/tallgrass/jungle_alt_2/corner{
-	dir = 5
-	},
-/obj/effect/landmark/nightmare{
-	insert_tag = "corporate_dome_goon"
-	},
-/turf/open/auto_turf/lv_grass_weedable/layer1,
-/area/lazarus/ground/jungle/south_west_jungle)
 "aAb" = (
 /obj/structure/platform/stone/ancient_temple/alt/west,
 /obj/effect/hunter/ancient_temple/rubble/rubble_1,
@@ -10078,12 +10110,12 @@
 /turf/open/floor/prison/darkbrown3/east,
 /area/lazarus/comms)
 "aAh" = (
-/obj/structure/window/framed/lv_colony/reinforced,
 /obj/structure/curtain/colorable_transparent{
 	color = "#788685";
 	layer = 3.2;
 	alpha = 220
 	},
+/obj/structure/window/framed/lv_colony,
 /turf/open/floor/plating/prison,
 /area/lazarus/engineering)
 "aAi" = (
@@ -10294,7 +10326,7 @@
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/colony/north_tcomms_road)
 "aAM" = (
-/obj/structure/window_frame/lv_colony/reinforced,
+/obj/structure/window_frame/lv_colony,
 /obj/item/shard,
 /obj/item/stack/rods,
 /obj/structure/pipes/standard/simple/hidden/cyan,
@@ -11048,6 +11080,12 @@
 	},
 /turf/open/floor/strata/floor3,
 /area/lazarus/research)
+"aCU" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/open/auto_turf/lv_sand/layer0,
+/area/lazarus/ground/colony/central_beach)
 "aCV" = (
 /obj/structure/pipes/standard/simple/hidden/cyan,
 /turf/open/floor/prison/brown_bright/northeast,
@@ -12275,7 +12313,7 @@
 /turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/colony/east_nexus_road)
 "aGq" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /turf/open/floor/prison/west,
 /area/lazarus/comms/lz2_north)
 "aGr" = (
@@ -12718,6 +12756,22 @@
 	},
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/colony/north_nexus_road)
+"aHJ" = (
+/obj/item/reagent_container/food/snacks/wrapped/chunk{
+	pixel_x = 4;
+	pixel_y = 13
+	},
+/obj/item/reagent_container/food/drinks/bottle/sake{
+	pixel_x = -6;
+	pixel_y = 7
+	},
+/obj/item/reagent_container/food/drinks/bottle/sake{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/structure/surface/table,
+/turf/open/auto_turf/lv_sand/layer0,
+/area/lazarus/ground/colony/central_beach)
 "aHK" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/pipes/standard/simple/hidden/cyan,
@@ -15015,9 +15069,6 @@
 	},
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/comms/captain)
-"aPj" = (
-/turf/closed/wall/lv_outpost/reinforced,
-/area/lazarus/quartstorage/east)
 "aPk" = (
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 5
@@ -15688,7 +15739,7 @@
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle)
 "aQJ" = (
-/obj/structure/window/framed/wood/reinforced/teal,
+/obj/structure/window/framed/wood/teal,
 /obj/structure/curtain/colorable_transparent{
 	color = "#8bafa4";
 	layer = 3.2
@@ -15820,6 +15871,8 @@
 /obj/structure/flora/bush/ausbushes/lavendergrass,
 /obj/structure/flora/jungle/vines/blue/light_1,
 /obj/structure/flora/jungle/vines/blue/heavy,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/landmark/corpsespawner/colonist/random/burst,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_east_jungle)
 "aRo" = (
@@ -16672,8 +16725,8 @@
 /turf/open/floor/brown_dirt/random_rocks,
 /area/lazarus/ground/ancient_temple/south/surface)
 "aUb" = (
-/obj/effect/landmark/corpsespawner/colonist/random/burst,
 /obj/effect/decal/cleanable/blood,
+/obj/effect/landmark/corpsespawner/colonist/random,
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/colony/south_botanics_road)
 "aUc" = (
@@ -16751,7 +16804,7 @@
 /turf/open/floor/prison/floor_marked,
 /area/lazarus/quartstorage/east)
 "aUn" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /turf/open/floor/plating/prison,
 /area/lazarus/quartstorage/east)
 "aUo" = (
@@ -18586,7 +18639,7 @@
 /turf/open/floor/hybrisa/tile/tilewhite,
 /area/lazarus/kitchen)
 "bat" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /turf/open/floor/plating/prison,
 /area/lazarus/robotics)
 "bav" = (
@@ -19195,13 +19248,6 @@
 	},
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/caves/north_west_caves)
-"bqq" = (
-/obj/structure/window_frame/lv_colony/reinforced,
-/obj/item/shard,
-/obj/item/shard,
-/obj/structure/foamed_metal,
-/turf/open/floor/plating/prison,
-/area/lazarus/engineering)
 "bqO" = (
 /obj/structure/platform/stone/stair_cut/ancient_temple_right,
 /obj/structure/stairs/perspective{
@@ -19677,7 +19723,7 @@
 /area/lazarus/quartstorage/east)
 "bEe" = (
 /obj/structure/disposalpipe/segment,
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /turf/open/floor/plating/prison,
 /area/lazarus/ground/barrens/central_barrens/ceiling)
 "bEM" = (
@@ -20046,7 +20092,7 @@
 /turf/open/floor/ancient_temple/damaged/damage_3,
 /area/lazarus/ground/caves/west_caves)
 "bOs" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /obj/structure/machinery/door/poddoor/almayer/grey/open{
 	name = "Nexus Dome - Lockdown Shutter";
 	id = "nexus_blast"
@@ -20953,7 +20999,7 @@
 /turf/open/floor/ancient_temple/deco/deco_alt/east,
 /area/lazarus/ground/ancient_temple/north_east)
 "cpc" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /turf/open/floor/plating/prison,
 /area/lazarus/yggdrasil)
 "cph" = (
@@ -21428,16 +21474,9 @@
 	},
 /obj/structure/machinery/door_control/brbutton/alt{
 	pixel_y = 14;
-	pixel_x = -21;
+	pixel_x = -6;
 	id = "corparmory";
 	name = "Corporate Dome Armory";
-	req_one_access_txt = "203; 207; 210"
-	},
-/obj/structure/machinery/door_control/brbutton/alt{
-	id = "corp_person_outer";
-	pixel_x = -6;
-	pixel_y = 14;
-	name = "Corporate Personnel Dome Lockdown";
 	req_one_access_txt = "203; 207; 210"
 	},
 /turf/open/floor/strata/fake_wood,
@@ -24192,7 +24231,7 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/turf/closed/wall/lv_outpost/reinforced,
+/turf/closed/wall/lv_outpost,
 /area/lazarus/quartstorage/east)
 "dXK" = (
 /obj/effect/landmark/big_fog_marker,
@@ -24603,7 +24642,7 @@
 /turf/closed/wall/strata_ice/jungle,
 /area/strata/interior/out_of_bounds)
 "ehu" = (
-/obj/structure/window/framed/wood/reinforced/teal,
+/obj/structure/window/framed/wood/teal,
 /turf/open/floor/plating/prison,
 /area/lazarus/fitness)
 "ehz" = (
@@ -28039,7 +28078,7 @@
 /turf/open/gm/river/soro,
 /area/lazarus/yggdrasil)
 "fYD" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /turf/open/floor/plating/prison,
 /area/lazarus/canteen)
 "fYG" = (
@@ -28242,7 +28281,7 @@
 /turf/open/floor/ancient_temple/damaged/damage_1,
 /area/lazarus/ground/ancient_temple/east)
 "ggq" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /obj/structure/curtain/colorable_transparent{
 	color = "#867878";
 	layer = 3.2;
@@ -29077,7 +29116,7 @@
 /turf/open/floor/prison/brown_bright/east,
 /area/lazarus/sleep_male)
 "gAV" = (
-/obj/structure/window/framed/wood/reinforced/plain,
+/obj/structure/window/framed/wood/plain,
 /turf/open/floor/interior/wood_sat,
 /area/lazarus/lodge)
 "gBj" = (
@@ -29831,7 +29870,7 @@
 /turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/barrens/north_barrens)
 "gSQ" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /obj/structure/curtain/colorable_transparent{
 	color = "#788685";
 	layer = 3.2;
@@ -32125,9 +32164,8 @@
 	pixel_y = 7;
 	buckling_y = 7
 	},
-/obj/item/prop/alien/hugger{
-	pixel_y = 10
-	},
+/obj/effect/landmark/corpsespawner/colonist/random/burst,
+/obj/effect/decal/cleanable/blood,
 /turf/open/floor/interior/tatami,
 /area/lazarus/fitness)
 "hZH" = (
@@ -32409,7 +32447,7 @@
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/south)
 "iki" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /turf/open/floor/plating/prison,
 /area/lazarus/comms)
 "ikk" = (
@@ -35388,7 +35426,7 @@
 /turf/closed/wall/lv_outpost/reinforced,
 /area/lazarus/security)
 "jQw" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /obj/structure/machinery/door/poddoor/almayer/grey/open{
 	name = "Nexus Dome - Lockdown Shutter";
 	id = "nexus_blast"
@@ -40701,7 +40739,7 @@
 /turf/open/floor/ancient_temple/damaged/damage_7,
 /area/lazarus/ground/ancient_temple/north_east/surface)
 "mDu" = (
-/obj/structure/window_frame/lv_colony/reinforced,
+/obj/structure/window_frame/lv_colony,
 /obj/item/shard,
 /obj/item/stack/rods,
 /turf/open/floor/plating/prison,
@@ -41478,7 +41516,7 @@
 /turf/open/floor/ancient_temple/damaged/damage_5,
 /area/lazarus/ground/ancient_temple/north_east)
 "mVI" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /obj/structure/machinery/door/poddoor/almayer/grey/open{
 	name = "Nexus Dome - Lockdown Shutter";
 	dir = 4;
@@ -43408,7 +43446,7 @@
 /turf/open/floor/ancient_temple/floor_19/west,
 /area/lazarus/ground/ancient_temple/east)
 "nUF" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /obj/structure/machinery/door/poddoor/almayer/grey/open{
 	name = "Nexus Dome - Lockdown Shutter";
 	id = "nexus_blast"
@@ -43728,7 +43766,7 @@
 /turf/open/floor/ancient_temple/floor_13/west,
 /area/lazarus/ground/ancient_temple/south_east/surface)
 "ocA" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /obj/structure/machinery/door/poddoor/almayer/grey/open{
 	name = "Nexus Dome - Lockdown Shutter";
 	dir = 4;
@@ -45069,6 +45107,10 @@
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment,
+/obj/structure/machinery/door/poddoor/almayer/grey/open{
+	name = "Colonial Administration Lockdown Shutter";
+	id = "admin_blast"
+	},
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/corporate_dome)
 "oJs" = (
@@ -45328,7 +45370,7 @@
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/caves/west_caves)
 "oQw" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /turf/open/floor/plating/prison,
 /area/lazarus/engineering)
 "oQB" = (
@@ -46808,9 +46850,6 @@
 /turf/open/floor/strata/light_purple_edge/east,
 /area/lazarus/research)
 "pBR" = (
-/obj/structure/machinery/light/blue{
-	dir = 1
-	},
 /obj/structure/prop/almayer/computers/sensor_computer3{
 	name = "colonial operations terminal"
 	},
@@ -47064,7 +47103,7 @@
 /turf/open/gm/coast/dirt/beachcorner2/south_east,
 /area/lazarus/ground/river/lake)
 "pLB" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /turf/open/floor/plating/prison,
 /area/lazarus/sleep_male)
 "pLD" = (
@@ -48074,6 +48113,7 @@
 	pixel_x = 1;
 	can_block_movement = 0
 	},
+/obj/structure/machinery/light/blue,
 /turf/open/floor/strata/fake_wood,
 /area/lazarus/corporate_dome)
 "qmV" = (
@@ -48522,9 +48562,10 @@
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/barrens/central_barrens)
 "qyz" = (
-/obj/structure/window_frame/lv_colony/reinforced,
 /obj/item/shard,
 /obj/item/shard,
+/obj/structure/window_frame/lv_colony,
+/obj/structure/foamed_metal,
 /turf/open/floor/plating/prison,
 /area/lazarus/engineering)
 "qyE" = (
@@ -49803,7 +49844,7 @@
 /turf/open/floor/interior/wood/alt,
 /area/lazarus/ground/cove)
 "rjJ" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /turf/open/floor/plating/prison,
 /area/lazarus/comms/lz2_north)
 "rjN" = (
@@ -51276,7 +51317,7 @@
 /turf/open/floor/ancient_temple/damaged/damage_3,
 /area/lazarus/ground/caves/west_caves)
 "rXI" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /turf/open/floor/plating/prison,
 /area/lazarus/quart)
 "rXZ" = (
@@ -51296,7 +51337,7 @@
 /turf/open/floor/interior/wood/alt,
 /area/lazarus/ground/barrens/central_barrens)
 "rYA" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /obj/structure/flora/jungle/planttop1,
 /turf/open/floor/plating/prison,
 /area/lazarus/yggdrasil)
@@ -53297,7 +53338,7 @@
 /turf/open/floor/interior/wood_sat/alt,
 /area/lazarus/shack)
 "sVR" = (
-/obj/structure/window/framed/wood/reinforced/teal,
+/obj/structure/window/framed/wood/teal,
 /turf/open/floor/plating/prison,
 /area/lazarus/medbay)
 "sVS" = (
@@ -53616,7 +53657,7 @@
 /turf/open/floor/interior/plastic/alt,
 /area/lazarus/ground/barrens/central_barrens)
 "tdd" = (
-/obj/structure/window/framed/wood/reinforced/teal,
+/obj/structure/window/framed/wood/teal,
 /obj/structure/curtain/colorable{
 	color = "#44867b"
 	},
@@ -55311,7 +55352,7 @@
 /turf/closed/wall/lv_outpost/white,
 /area/lazarus/research/storage)
 "tXm" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /obj/structure/machinery/door/poddoor/almayer/grey/open{
 	name = "Nexus Dome - Lockdown Shutter";
 	dir = 4;
@@ -56296,7 +56337,7 @@
 /turf/open/floor/ancient_temple/floor_13/east,
 /area/lazarus/ground/ancient_temple/north_east)
 "uvY" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /turf/open/floor/plating/prison,
 /area/lazarus/kitchen)
 "uws" = (
@@ -56567,7 +56608,7 @@
 /turf/open/gm/dirt/brown/variant_6,
 /area/lazarus/ground/barrens/central_barrens)
 "uAy" = (
-/obj/structure/window_frame/lv_colony/reinforced,
+/obj/structure/window_frame/lv_colony,
 /obj/item/shard,
 /obj/item/shard,
 /turf/open/floor/plating/prison,
@@ -57009,7 +57050,7 @@
 /turf/open/floor/prison/bright_clean2,
 /area/lazarus/comms)
 "uMl" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /obj/structure/machinery/door/poddoor/almayer/grey/open{
 	name = "Nexus Dome - Lockdown Shutter";
 	id = "nexus_blast"
@@ -57433,8 +57474,8 @@
 /turf/open/gm/coast/dirt/beachcorner/south_east,
 /area/lazarus/ground/river/central_river)
 "uXB" = (
-/obj/structure/window_frame/lv_colony/reinforced,
 /obj/item/shard,
+/obj/structure/window_frame/lv_colony,
 /obj/structure/foamed_metal,
 /turf/open/floor/plating/prison,
 /area/lazarus/engineering)
@@ -58800,6 +58841,9 @@
 /obj/item/m_gift,
 /obj/item/coin/diamond,
 /obj/effect/landmark/objective_landmark/close,
+/obj/structure/machinery/light/blue{
+	dir = 8
+	},
 /turf/open/floor/strata/fake_wood,
 /area/lazarus/corporate_dome)
 "vLS" = (
@@ -59710,7 +59754,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1
 	},
-/turf/closed/wall/lv_outpost/reinforced,
+/turf/closed/wall/lv_outpost,
 /area/lazarus/quartstorage/east)
 "wjz" = (
 /obj/structure/disposalpipe/segment{
@@ -61832,7 +61876,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/closed/wall/lv_outpost/reinforced,
+/turf/closed/wall/lv_outpost,
 /area/lazarus/quartstorage/east)
 "xtB" = (
 /obj/effect/landmark/monkey_spawn,
@@ -71844,16 +71888,16 @@ nFr
 nFr
 tfZ
 oXW
-oXW
-oXW
-oXW
+alD
+alD
+alD
 oXW
 kqt
 nyg
 nyg
 hNK
 wDh
-wDh
+akK
 hNK
 hNK
 wDh
@@ -72077,7 +72121,7 @@ nyg
 nyg
 hNK
 hNK
-aAa
+cxY
 wDh
 wDh
 wDh
@@ -72511,9 +72555,9 @@ nFr
 kqt
 nLd
 oXW
-cfZ
+alD
 mpc
-cfZ
+alD
 oXW
 mHs
 feW
@@ -80530,7 +80574,7 @@ aYI
 bmL
 sRN
 aYl
-aQJ
+amn
 sRN
 sRN
 bja
@@ -80975,7 +81019,7 @@ hNO
 aqX
 gry
 gry
-aQJ
+amn
 gry
 gry
 gry
@@ -81189,7 +81233,7 @@ lHE
 tha
 ukZ
 cut
-aKi
+aoP
 aZq
 aZf
 aZg
@@ -82089,7 +82133,7 @@ aKi
 aKi
 aKA
 tdd
-vOE
+anD
 hZC
 aaW
 qrb
@@ -82309,7 +82353,7 @@ icD
 tha
 qGM
 ukZ
-aKi
+aCU
 aKi
 aKi
 tdd
@@ -82533,7 +82577,7 @@ qGM
 tha
 tha
 ukZ
-aKi
+aHJ
 cut
 aRE
 qrb
@@ -87311,7 +87355,7 @@ auB
 auw
 imY
 uXB
-bqq
+qyz
 imY
 imY
 rsU
@@ -87320,7 +87364,7 @@ pJO
 imY
 oQw
 oQw
-bqq
+qyz
 imY
 ruT
 afC
@@ -91726,8 +91770,8 @@ sGo
 aLT
 aYX
 wKc
-wKc
-wKc
+anj
+amH
 wKc
 wKc
 wKc
@@ -91983,9 +92027,9 @@ aBG
 aBG
 aBG
 aBG
-qSb
-qSb
-qSb
+pcd
+pcd
+pcd
 aBG
 aFv
 aFm
@@ -92203,17 +92247,17 @@ aBH
 aBH
 aBH
 aBG
-qSb
+pcd
 iJj
 iJj
 iJj
-qSb
-qSb
-qSb
+pcd
+pcd
+pcd
 aFF
 aFw
-qSb
-qSb
+pcd
+pcd
 pjS
 pjS
 aDa
@@ -92438,7 +92482,7 @@ nwW
 aFx
 cLt
 aFg
-qSb
+pcd
 pjS
 fGn
 aEB
@@ -92640,13 +92684,13 @@ hse
 vGP
 aFs
 qDh
-pcd
-pcd
+qSb
+qSb
 aNW
 inB
 xLT
-pcd
-pcd
+qSb
+qSb
 aBB
 arS
 aBC
@@ -92662,7 +92706,7 @@ aFH
 aFy
 jCt
 xIE
-qSb
+pcd
 pjS
 aEM
 jer
@@ -92861,17 +92905,17 @@ hse
 hse
 erP
 cVf
-pcd
-pcd
-pcd
-pcd
+qSb
+qSb
+qSb
+qSb
 rFc
 cLt
 nwW
 pfZ
 gtL
-pcd
-pcd
+qSb
+qSb
 aGw
 aGp
 aBB
@@ -92886,7 +92930,7 @@ svo
 aFz
 svo
 xIE
-qSb
+pcd
 pjS
 aEN
 bTF
@@ -93085,7 +93129,7 @@ hse
 hse
 hse
 cVf
-pcd
+qSb
 sdD
 axA
 eJA
@@ -93095,11 +93139,11 @@ jCt
 jwk
 fPA
 vNl
-pcd
-pcd
+qSb
+qSb
 lDW
 aBC
-qSb
+pcd
 vKl
 vsH
 ciS
@@ -93110,7 +93154,7 @@ jCi
 aFA
 jCt
 aFh
-qSb
+pcd
 pjS
 bvb
 bvb
@@ -93309,7 +93353,7 @@ sQl
 hse
 cVf
 hse
-pcd
+qSb
 tzA
 gIw
 uGU
@@ -93320,8 +93364,8 @@ dKS
 lxA
 fPA
 gVx
-pcd
-pcd
+qSb
+qSb
 aBz
 iJj
 lhc
@@ -93334,7 +93378,7 @@ mAx
 hIp
 svo
 xIE
-qSb
+pcd
 nGV
 wve
 nGV
@@ -93533,7 +93577,7 @@ bQN
 cVf
 hse
 cEk
-pcd
+qSb
 chJ
 nnR
 lkg
@@ -93545,7 +93589,7 @@ mqs
 oow
 riC
 gwx
-pcd
+qSb
 jHz
 iJj
 txZ
@@ -93558,7 +93602,7 @@ oow
 lZN
 aFo
 aFi
-qSb
+pcd
 nGV
 wve
 aEC
@@ -93756,8 +93800,8 @@ sQl
 sQl
 cEk
 erP
-pcd
-pcd
+qSb
+qSb
 vKl
 ydB
 wHy
@@ -93769,9 +93813,9 @@ mqs
 mAx
 jCt
 oBQ
-pcd
-pcd
 qSb
+pcd
+pcd
 aGe
 aGa
 oow
@@ -93980,7 +94024,7 @@ sQl
 cEk
 tuW
 aSY
-iJj
+alP
 tiR
 mYZ
 nnR
@@ -94428,7 +94472,7 @@ ayh
 bpe
 sCr
 sbX
-iJj
+alP
 lWw
 eHF
 nnR
@@ -94454,7 +94498,7 @@ ulZ
 jCt
 rWf
 xIE
-qSb
+pcd
 yfA
 wve
 wve
@@ -94652,8 +94696,8 @@ ayh
 ayh
 ayh
 acZ
-pcd
-pcd
+qSb
+qSb
 fiw
 ydB
 uyW
@@ -94877,7 +94921,7 @@ acZ
 acZ
 acZ
 adc
-pcd
+qSb
 qqM
 ydB
 wHy
@@ -94889,9 +94933,9 @@ mqs
 mAx
 wbO
 kAe
-pcd
-pcd
 qSb
+pcd
+pcd
 wHf
 qmE
 wCq
@@ -95101,7 +95145,7 @@ acZ
 dCH
 ovS
 acZ
-iJj
+alP
 tat
 jCt
 nwW
@@ -95112,21 +95156,21 @@ nSz
 svo
 jRN
 kAe
-pcd
-pcd
+qSb
+qSb
 gdk
-qSb
-qSb
+pcd
+pcd
 iJj
-qSb
-qSb
+pcd
+pcd
 eGk
 fIG
 jgX
-qSb
+pcd
 iJj
 iJj
-qSb
+pcd
 nGV
 wve
 tSq
@@ -95325,7 +95369,7 @@ acZ
 acZ
 aDG
 acZ
-iJj
+alP
 lip
 oAo
 tCq
@@ -95335,19 +95379,19 @@ kyt
 ovx
 uDE
 kAe
-pcd
-pcd
+qSb
+qSb
 gdk
 gdk
 gdk
 wve
 wve
 nGV
-qSb
+pcd
 iJj
 aFL
 iJj
-qSb
+pcd
 nGV
 wve
 nGV
@@ -95549,17 +95593,17 @@ nND
 gdk
 acZ
 acZ
-pcd
-iJj
-pcd
-pcd
-pcd
+qSb
+alP
+qSb
+qSb
+qSb
 lMO
 fIG
 chE
-pcd
-pcd
-pcd
+qSb
+qSb
+qSb
 gdk
 gdk
 gdk
@@ -95777,11 +95821,11 @@ acZ
 ofP
 qGN
 lFA
-pcd
+qSb
 lmh
 qAG
 ejm
-pcd
+qSb
 gdk
 gdk
 gdk
@@ -95997,19 +96041,19 @@ adc
 adc
 ffh
 acZ
-aPj
+aDL
 aUn
 aUn
 aUn
-aPj
+aDL
 ndv
 aUo
 ftw
-aPj
-aPj
-aPj
-aPj
-aPj
+aDL
+aDL
+aDL
+aDL
+aDL
 gdk
 gdk
 gdk
@@ -96233,7 +96277,7 @@ ssj
 pJU
 bvn
 soR
-aPj
+aDL
 gdk
 gdk
 gdk
@@ -96457,7 +96501,7 @@ pzl
 vRn
 fcu
 dBq
-aPj
+aDL
 gdk
 gdk
 oXN
@@ -96681,7 +96725,7 @@ aRF
 aUj
 aST
 fzp
-aPj
+aDL
 gdk
 gdk
 dpB
@@ -96892,8 +96936,8 @@ hNK
 acZ
 acZ
 acZ
-aPj
-aPj
+aDL
+aDL
 xkl
 aUi
 aUv
@@ -96905,8 +96949,8 @@ xXl
 aUk
 aUi
 jsI
-aPj
-aPj
+aDL
+aDL
 gdk
 gdk
 dpB
@@ -97130,7 +97174,7 @@ aUj
 aST
 uak
 lkR
-aPj
+aDL
 gdk
 oXN
 dpB
@@ -97354,7 +97398,7 @@ aUj
 aUi
 aRX
 tPS
-aPj
+aDL
 gdk
 dpB
 kcA
@@ -97578,7 +97622,7 @@ aUj
 nYE
 oBz
 lTk
-aPj
+aDL
 gdk
 oXN
 dpB
@@ -97788,8 +97832,8 @@ gdk
 gdk
 acZ
 acZ
-aPj
-aPj
+aDL
+aDL
 oYm
 aST
 qLf
@@ -97801,8 +97845,8 @@ nbF
 aUj
 aUi
 cNb
-aPj
-aPj
+aDL
+aDL
 gdk
 gdk
 aFX
@@ -98025,7 +98069,7 @@ eiz
 aUk
 aST
 gcn
-aPj
+aDL
 gdk
 gdk
 gdk
@@ -98249,7 +98293,7 @@ irw
 xGL
 voB
 kyP
-aPj
+aDL
 gdk
 gdk
 gdk
@@ -98473,7 +98517,7 @@ aUl
 try
 mfL
 dOX
-aPj
+aDL
 gdk
 gdk
 gdk
@@ -98685,16 +98729,16 @@ acZ
 nND
 vLC
 acZ
-aPj
+aDL
 aUn
 aUn
 aUn
-aPj
+aDL
 eNE
 aUr
 jKa
-aPj
-aPj
+aDL
+aDL
 xtl
 dXJ
 wjs
@@ -98913,11 +98957,11 @@ acZ
 acZ
 acZ
 kpF
-aPj
+aDL
 aUn
 dKE
 aUn
-aPj
+aDL
 aDL
 gCD
 ola

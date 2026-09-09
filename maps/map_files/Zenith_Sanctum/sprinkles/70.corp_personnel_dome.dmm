@@ -107,6 +107,26 @@
 /obj/structure/flora/jungle/vines/dead/heavy,
 /turf/closed/wall/lv_outpost/reinforced,
 /area/lazarus/landing_zones/lz2)
+"ap" = (
+/obj/structure/platform/metal/strata/alt/east,
+/obj/structure/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/lazarus/ground/jungle/south_west_jungle)
+"aq" = (
+/obj/structure/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/lazarus/ground/jungle/south_west_jungle)
+"ar" = (
+/obj/structure/flora/bush/ausbushes/var3/fullgrass,
+/obj/structure/machinery/camera/autoname{
+	dir = 4
+	},
+/turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/lazarus/ground/colony/west_tcomms_road)
 "au" = (
 /obj/structure/pipes/standard/simple/hidden/cyan{
 	dir = 4
@@ -262,9 +282,20 @@
 /obj/structure/surface/table{
 	color = "#8B7B5B"
 	},
-/obj/structure/machinery/computer/cameras/wooden_tv{
-	pixel_y = 6;
-	layer = 4
+/obj/item/map{
+	pixel_y = -3
+	},
+/obj/item/device/radio{
+	pixel_x = -4;
+	pixel_y = 18
+	},
+/obj/item/device/radio{
+	pixel_x = 2;
+	pixel_y = 18
+	},
+/obj/item/device/radio{
+	pixel_x = 8;
+	pixel_y = 18
 	},
 /turf/open/floor/prison/floor_plate_alt/west,
 /area/lazarus/secure_storage)
@@ -345,7 +376,9 @@
 /obj/structure/surface/table{
 	color = "#8B7B5B"
 	},
-/obj/item/reagent_container/food/drinks/coffeecup,
+/obj/item/reagent_container/food/drinks/coffeecup{
+	pixel_y = 13
+	},
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/prison/brown/north,
 /area/lazarus/secure_storage)
@@ -418,6 +451,9 @@
 /obj/structure/sign/safety/security{
 	pixel_x = 4;
 	pixel_y = -24
+	},
+/obj/structure/machinery/camera/autoname{
+	dir = 1
 	},
 /turf/open/floor/brown_dirt/random_rocks_alt,
 /area/lazarus/landing_zones/lz2)
@@ -846,11 +882,9 @@
 	pixel_y = -13
 	},
 /obj/effect/decal/hybrisa/dirt,
-/obj/item/device/radio/intercom{
-	freerange = 1;
-	frequency = 1469;
-	name = "General Listening Channel";
-	pixel_y = 30
+/obj/structure/sign/poster/wylogo{
+	pixel_y = 32;
+	layer = 2.9
 	},
 /turf/open/floor/prison/floor_plate_alt/west,
 /area/lazarus/secure_storage)
@@ -908,6 +942,8 @@
 	pixel_y = -8
 	},
 /obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/corpsespawner/wygoon,
+/obj/effect/decal/cleanable/blood,
 /turf/open/floor/prison/brown/north,
 /area/lazarus/secure_storage)
 "qa" = (
@@ -1018,6 +1054,9 @@
 /obj/structure/sign/safety/security{
 	pixel_x = 11;
 	pixel_y = -24
+	},
+/obj/structure/machinery/camera/autoname{
+	dir = 1
 	},
 /turf/open/floor/brown_dirt/random_rocks,
 /area/lazarus/landing_zones/lz2)
@@ -1151,17 +1190,22 @@
 	color = "#8B7B5B"
 	},
 /obj/item/reagent_container/food/drinks/coffeecup/wy{
-	pixel_x = 16;
-	pixel_y = 6
-	},
-/obj/item/map{
-	pixel_y = 3
-	},
-/obj/item/device/radio{
-	pixel_x = -4;
-	pixel_y = 5
+	pixel_x = 39;
+	pixel_y = 1
 	},
 /obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/computer/cameras/wooden_tv{
+	dir = 4;
+	pixel_y = -4;
+	pixel_x = -3
+	},
+/obj/structure/machinery/door_control/brbutton/alt{
+	id = "corp_person_outer";
+	pixel_x = 12;
+	pixel_y = 7;
+	name = "Corporate Personnel Dome Lockdown";
+	req_one_access_txt = "203; 207; 210"
+	},
 /turf/open/floor/prison/brown/north,
 /area/lazarus/secure_storage)
 "uz" = (
@@ -1240,10 +1284,11 @@
 	dir = 4;
 	pixel_y = -12
 	},
-/obj/structure/sign/poster/ad{
-	pixel_y = 32
-	},
 /obj/effect/decal/hybrisa/dirt,
+/obj/structure/sign/poster/wylogo{
+	pixel_y = 32;
+	layer = 2.9
+	},
 /turf/open/floor/prison/floor_plate_alt/west,
 /area/lazarus/secure_storage)
 "vo" = (
@@ -1471,10 +1516,11 @@
 /obj/effect/hybrisa/misc/fake/wire/red{
 	dir = 1
 	},
-/obj/structure/sign/poster/wylogo{
-	pixel_y = 32;
-	layer = 2.9;
-	pixel_x = 1
+/obj/item/device/radio/intercom{
+	freerange = 1;
+	frequency = 1469;
+	name = "General Listening Channel";
+	pixel_y = 30
 	},
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/lazarus/secure_storage)
@@ -2012,6 +2058,7 @@
 	},
 /obj/effect/decal/hybrisa/dirt,
 /obj/item/ammo_casing/bullet,
+/obj/structure/machinery/camera/autoname,
 /turf/open/floor/prison/darkred2/north,
 /area/lazarus/secure_storage)
 "MS" = (
@@ -2182,6 +2229,10 @@
 	pixel_y = 14
 	},
 /obj/item/trash/cigbutt,
+/obj/item/device/radio{
+	pixel_x = -4;
+	pixel_y = 18
+	},
 /turf/open/floor/prison/brown/north,
 /area/lazarus/secure_storage)
 "Qa" = (
@@ -2469,6 +2520,9 @@
 "VP" = (
 /obj/structure/platform/metal/strata/alt/west,
 /obj/structure/flora/jungle/vines/dead/light_3,
+/obj/structure/machinery/camera/autoname{
+	dir = 4
+	},
 /turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/southern_jungle)
 "VS" = (
@@ -2805,7 +2859,7 @@ JT
 JT
 JT
 jc
-JT
+aq
 sR
 sY
 iA
@@ -2837,7 +2891,7 @@ dD
 dD
 SB
 SB
-mK
+ap
 SB
 mK
 uL
@@ -3216,7 +3270,7 @@ OC
 UG
 Ab
 Ab
-qa
+ar
 qp
 Kd
 dD

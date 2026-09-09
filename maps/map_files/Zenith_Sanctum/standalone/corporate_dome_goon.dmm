@@ -51,10 +51,14 @@
 /turf/open/floor/strata/fake_wood,
 /area/lazarus/corporate_dome)
 "bs" = (
+/obj/effect/decal/large_stain,
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
-/turf/open/auto_turf/lv_grass/layer0,
-/area/lazarus/ground/colony/west_tcomms_road)
+/obj/item/ammo_casing/bullet,
+/obj/item/ammo_casing/bullet,
+/obj/item/ammo_casing/bullet,
+/turf/open/auto_turf/lv_grass/layer1,
+/area/template_noop)
 "bI" = (
 /obj/structure/filingcabinet{
 	density = 0;
@@ -103,6 +107,7 @@
 	pixel_x = -5;
 	pixel_y = 7
 	},
+/obj/item/shard,
 /turf/open/floor/strata/floor3,
 /area/lazarus/corporate_dome)
 "cH" = (
@@ -135,7 +140,7 @@
 /obj/item/trash/cigbutt,
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/prison/cell_stripe/east,
-/area/lazarus/landing_zones/lz2)
+/area/template_noop)
 "dH" = (
 /obj/structure/barricade/sandbags{
 	dir = 4
@@ -204,14 +209,11 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/lazarus/corporate_dome)
 "eC" = (
-/obj/effect/decal/large_stain,
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
-/obj/item/ammo_casing/bullet,
-/obj/item/ammo_casing/bullet,
-/obj/item/ammo_casing/bullet,
+/obj/structure/flora/grass/tallgrass/jungle_alt_2/corner{
+	dir = 8
+	},
 /turf/open/auto_turf/lv_grass/layer1,
-/area/lazarus/ground/colony/west_tcomms_road)
+/area/template_noop)
 "eD" = (
 /obj/item/shard,
 /obj/item/reagent_container/food/drinks/shaker{
@@ -300,7 +302,7 @@
 	icon = 'icons/obj/structures/props/furniture/misc.dmi';
 	icon_state = "jukebox";
 	name = "Rockin Robin 2300 Jukebox";
-	pixel_y = 16
+	pixel_y = 21
 	},
 /obj/structure/closet/bodybag,
 /obj/effect/landmark/corpsespawner/prisoner,
@@ -321,6 +323,12 @@
 /obj/structure/disposalpipe/segment,
 /obj/structure/pipes/standard/simple/hidden/cyan,
 /turf/open/floor/prison/floor_plate,
+/area/lazarus/corporate_dome)
+"hm" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/strata/floor3,
 /area/lazarus/corporate_dome)
 "hu" = (
 /obj/structure/machinery/camera/autoname{
@@ -425,12 +433,9 @@
 /area/lazarus/corporate_dome)
 "kv" = (
 /obj/effect/decal/hybrisa/dirt,
-/obj/item/stack/sheet/metal,
-/obj/item/stack/rods{
-	amount = 15
-	},
+/obj/effect/decal/hybrisa/dirt,
 /turf/open/auto_turf/lv_grass/layer0,
-/area/lazarus/ground/colony/west_tcomms_road)
+/area/template_noop)
 "kw" = (
 /obj/structure/machinery/light/blue{
 	dir = 8
@@ -566,7 +571,7 @@
 "mz" = (
 /obj/structure/flora/grass/tallgrass/jungle_alt_2,
 /turf/open/auto_turf/lv_grass/layer1,
-/area/lazarus/ground/colony/west_tcomms_road)
+/area/template_noop)
 "mI" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 4
@@ -625,6 +630,14 @@
 /obj/structure/barricade/deployable,
 /turf/open/floor/prison/darkred2/southwest,
 /area/lazarus/corporate_dome)
+"oW" = (
+/obj/structure/bed/chair{
+	dir = 8;
+	pixel_y = 6
+	},
+/obj/item/trash/cigbutt,
+/turf/open/floor/strata/floor3,
+/area/lazarus/corporate_dome)
 "pa" = (
 /obj/effect/decal/hybrisa/colorable_rug{
 	color = "#3d3d3d";
@@ -649,6 +662,14 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/prison/darkred2/northeast,
 /area/lazarus/corporate_dome)
+"pp" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/stack/sheet/metal,
+/obj/item/stack/rods{
+	amount = 15
+	},
+/turf/open/auto_turf/lv_grass/layer0,
+/area/template_noop)
 "pv" = (
 /obj/structure/pipes/standard/simple/hidden/cyan,
 /turf/open/floor/plating/plating_catwalk/prison,
@@ -732,7 +753,7 @@
 /area/lazarus/corporate_dome)
 "rc" = (
 /turf/closed/wall/lv_outpost/reinforced,
-/area/lazarus/landing_zones/lz2)
+/area/template_noop)
 "rr" = (
 /obj/item/prop/colony/usedbandage{
 	dir = 9;
@@ -837,6 +858,17 @@
 /obj/structure/machinery/disposal,
 /obj/structure/disposalpipe/trunk,
 /turf/open/floor/prison/darkred2/northeast,
+/area/lazarus/corporate_dome)
+"tF" = (
+/obj/item/shard,
+/obj/structure/machinery/door/poddoor/almayer/grey/open{
+	name = "Colonial Administration Lockdown Shutter";
+	dir = 4;
+	id = "admin_blast"
+	},
+/obj/structure/window_frame/lv_colony,
+/obj/item/shard,
+/turf/open/floor/plating/prison,
 /area/lazarus/corporate_dome)
 "tO" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -1154,7 +1186,7 @@
 /obj/effect/decal/hybrisa/dirt,
 /obj/item/shard,
 /turf/open/floor/prison/floor_plate,
-/area/lazarus/landing_zones/lz2)
+/area/template_noop)
 "BC" = (
 /obj/item/ammo_casing/bullet,
 /obj/item/ammo_casing/bullet,
@@ -1237,6 +1269,18 @@
 	},
 /turf/open/floor/prison/darkred2/west,
 /area/lazarus/corporate_dome)
+"DQ" = (
+/obj/structure/machinery/door/airlock/light_grey_lv/solid{
+	name = "\improper Colonial Administration Washroom";
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment,
+/obj/structure/machinery/door/poddoor/almayer/grey/open{
+	name = "Colonial Administration Lockdown Shutter";
+	id = "admin_blast"
+	},
+/turf/open/floor/prison/floor_plate,
+/area/lazarus/corporate_dome)
 "DT" = (
 /obj/structure/toilet{
 	dir = 4;
@@ -1271,11 +1315,30 @@
 /turf/open/floor/prison/darkred2/southwest,
 /area/lazarus/corporate_dome)
 "Ef" = (
-/obj/structure/barricade/handrail/wire{
-	layer = 3.5
+/obj/structure/safe/floor{
+	name = "safe";
+	spawnkey = 0;
+	pixel_y = -1
 	},
-/turf/template_noop,
-/area/template_noop)
+/obj/item/prop{
+	icon = 'icons/obj/items/disk.dmi';
+	icon_state = "nucleardisk";
+	desc = "A disk containing information valuable to those interested in company intel.";
+	name = "Lazarus Landing invoice disk";
+	w_class = 1
+	},
+/obj/item/clothing/under/marine/veteran/pmc,
+/obj/item/storage/fancy/cigar,
+/obj/item/clothing/head/helmet/marine/veteran/pmc,
+/obj/item/m_gift,
+/obj/item/coin/diamond,
+/obj/effect/landmark/objective_landmark/close,
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/light/blue{
+	dir = 8
+	},
+/turf/open/floor/strata/fake_wood,
+/area/lazarus/corporate_dome)
 "En" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/pipes/standard/simple/hidden/cyan,
@@ -1366,6 +1429,16 @@
 	dir = 4
 	},
 /turf/open/floor/prison/floor_plate,
+/area/lazarus/corporate_dome)
+"Ij" = (
+/obj/item/shard,
+/obj/structure/machinery/door/poddoor/almayer/grey/open{
+	name = "Colonial Administration Lockdown Shutter";
+	dir = 4;
+	id = "admin_blast"
+	},
+/obj/structure/window/framed/lv_colony,
+/turf/open/floor/plating/prison,
 /area/lazarus/corporate_dome)
 "IY" = (
 /obj/effect/hybrisa/misc/fake/wire/blue{
@@ -1480,6 +1553,15 @@
 	},
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/lazarus/corporate_dome)
+"Mh" = (
+/obj/structure/reagent_dispensers/water_cooler/walk_past{
+	pixel_y = 23;
+	pixel_x = 1;
+	can_block_movement = 0
+	},
+/obj/structure/machinery/light/blue,
+/turf/open/floor/strata/fake_wood,
+/area/lazarus/corporate_dome)
 "Ml" = (
 /obj/structure/machinery/light/blue{
 	dir = 4
@@ -1504,17 +1586,11 @@
 /turf/open/floor/strata/multi_tiles/southeast,
 /area/lazarus/corporate_dome)
 "MW" = (
-/obj/structure/machinery/light/blue{
-	dir = 1
+/obj/structure/bed/chair{
+	dir = 8;
+	pixel_y = 6
 	},
-/obj/structure/prop/almayer/computers/sensor_computer3{
-	name = "colonial operations terminal"
-	},
-/obj/item/clock{
-	pixel_x = -6;
-	pixel_y = 19
-	},
-/turf/open/floor/strata/fake_wood,
+/turf/open/floor/strata/floor3,
 /area/lazarus/corporate_dome)
 "Ng" = (
 /obj/structure/machinery/light/blue{
@@ -1536,27 +1612,8 @@
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/corporate_dome)
 "No" = (
-/obj/structure/safe/floor{
-	name = "safe";
-	spawnkey = 0;
-	pixel_y = -1
-	},
-/obj/item/prop{
-	icon = 'icons/obj/items/disk.dmi';
-	icon_state = "nucleardisk";
-	desc = "A disk containing information valuable to those interested in company intel.";
-	name = "Lazarus Landing invoice disk";
-	w_class = 1
-	},
-/obj/item/clothing/under/marine/veteran/pmc,
-/obj/item/storage/fancy/cigar,
-/obj/item/clothing/head/helmet/marine/veteran/pmc,
-/obj/item/m_gift,
-/obj/item/coin/diamond,
-/obj/effect/landmark/objective_landmark/close,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/strata/fake_wood,
-/area/lazarus/corporate_dome)
+/turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/template_noop)
 "NJ" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/item/weapon/twohanded/folded_metal_chair,
@@ -1678,26 +1735,12 @@
 /turf/open/floor/prison/darkredcorners2/west,
 /area/lazarus/corporate_dome)
 "PQ" = (
-/obj/structure/prop/almayer/computers/sensor_computer1{
+/obj/structure/prop/almayer/computers/sensor_computer3{
 	name = "colonial operations terminal"
 	},
-/obj/structure/machinery/door_control/brbutton/alt{
-	pixel_y = 14;
-	pixel_x = 9;
-	id = "admin_blast";
-	name = "Colonial Administration Lockdown"
-	},
-/obj/structure/machinery/door_control/brbutton/alt{
-	pixel_y = 14;
-	pixel_x = -21;
-	id = "corparmory";
-	name = "Corporate Dome Armory"
-	},
-/obj/structure/machinery/door_control/brbutton/alt{
-	id = "corp_person_outer";
+/obj/item/clock{
 	pixel_x = -6;
-	pixel_y = 14;
-	name = "Corporate Personnel Dome Lockdown"
+	pixel_y = 19
 	},
 /turf/open/floor/strata/fake_wood,
 /area/lazarus/corporate_dome)
@@ -1770,12 +1813,14 @@
 /turf/open/floor/prison/platingdmg1,
 /area/lazarus/corporate_dome)
 "RM" = (
-/obj/structure/reagent_dispensers/water_cooler/walk_past{
-	pixel_y = 23;
-	pixel_x = 1;
-	can_block_movement = 0
+/obj/item/shard,
+/obj/structure/machinery/door/poddoor/almayer/grey/open{
+	name = "Colonial Administration Lockdown Shutter";
+	dir = 4;
+	id = "admin_blast"
 	},
-/turf/open/floor/strata/fake_wood,
+/obj/structure/window_frame/lv_colony,
+/turf/open/floor/plating/prison,
 /area/lazarus/corporate_dome)
 "RY" = (
 /obj/structure/window_frame/lv_colony/reinforced,
@@ -1893,6 +1938,26 @@
 /obj/item/stack/sheet/wood,
 /turf/open/floor/prison/floorscorched2,
 /area/lazarus/corporate_dome)
+"UN" = (
+/obj/structure/prop/almayer/computers/sensor_computer1{
+	name = "colonial operations terminal"
+	},
+/obj/structure/machinery/door_control/brbutton/alt{
+	pixel_y = 14;
+	pixel_x = 9;
+	id = "admin_blast";
+	name = "Colonial Administration Lockdown";
+	req_one_access_txt = "203; 207; 210"
+	},
+/obj/structure/machinery/door_control/brbutton/alt{
+	pixel_y = 14;
+	pixel_x = -6;
+	id = "corparmory";
+	name = "Corporate Dome Armory";
+	req_one_access_txt = "203; 207; 210"
+	},
+/turf/open/floor/strata/fake_wood,
+/area/lazarus/corporate_dome)
 "UX" = (
 /obj/structure/bed/chair/office/light{
 	dir = 4;
@@ -1909,11 +1974,10 @@
 /turf/open/floor/strata/fake_wood,
 /area/lazarus/corporate_dome)
 "Vc" = (
-/obj/structure/flora/grass/tallgrass/jungle_alt_2/corner{
-	dir = 8
-	},
-/turf/open/auto_turf/lv_grass/layer1,
-/area/lazarus/ground/colony/west_tcomms_road)
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/computer/arcade/red,
+/turf/open/floor/strata/floor3,
+/area/lazarus/corporate_dome)
 "Vg" = (
 /obj/item/weapon/dart,
 /obj/item/weapon/dart,
@@ -2057,7 +2121,7 @@
 /obj/effect/decal/hybrisa/dirt,
 /obj/item/shard,
 /turf/open/floor/prison/floor_plate,
-/area/lazarus/landing_zones/lz2)
+/area/template_noop)
 "Ys" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/item/ammo_casing/bullet,
@@ -2126,12 +2190,8 @@
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/corporate_dome)
 "Zd" = (
-/obj/structure/machinery/door/airlock/light_grey_lv/solid{
-	name = "\improper Colonial Administration Washroom";
-	dir = 1
-	},
-/obj/structure/disposalpipe/segment,
-/turf/open/floor/prison/floor_plate,
+/obj/item/trash/cigbutt,
+/turf/open/floor/strata/floor3,
 /area/lazarus/corporate_dome)
 "Zq" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -2171,15 +2231,15 @@ Mv
 Mv
 Mv
 Kb
+Ij
+Ij
+tF
 Kb
-Kb
-Kb
-Kb
-Kb
+No
 rc
 rc
 Hy
-Hy
+No
 Mv
 "}
 (2,1,1) = {"
@@ -2193,17 +2253,17 @@ Kb
 yT
 yf
 ch
-uH
 Kb
-ou
-ou
-ou
-mz
+Kb
+rc
+rc
+Hy
+Hy
 Mv
 "}
 (3,1,1) = {"
 Mv
-Ef
+Mv
 Bz
 dp
 XI
@@ -2212,7 +2272,7 @@ KD
 VW
 dQ
 pa
-mq
+uH
 Kb
 ou
 ou
@@ -2223,20 +2283,20 @@ Mv
 (4,1,1) = {"
 Mv
 Kb
-Oi
+RM
 yx
-Oi
+RM
 Kb
 vJ
 eD
 kh
 bW
+mq
 Kb
-Kb
-Kb
-Kb
-Kb
-Vc
+ou
+ou
+ou
+mz
 Mv
 "}
 (5,1,1) = {"
@@ -2251,14 +2311,33 @@ Vg
 Ni
 Uw
 Kb
-xU
-DT
-UH
-yb
+Kb
+Kb
+Kb
+Kb
 eC
 Mv
 "}
 (6,1,1) = {"
+Kb
+Vc
+bW
+Pb
+hm
+MW
+Zd
+oW
+MW
+Zd
+Kb
+xU
+DT
+UH
+yb
+bs
+Mv
+"}
+(7,1,1) = {"
 Kb
 Kb
 hT
@@ -2269,15 +2348,15 @@ pN
 yE
 rA
 Kn
-Zd
+DQ
 lD
 ze
 BS
 Ru
-bs
+kv
 Kg
 "}
-(7,1,1) = {"
+(8,1,1) = {"
 Kb
 Kb
 Vk
@@ -2293,10 +2372,10 @@ JJ
 TX
 YB
 mf
-kv
+pp
 Mv
 "}
-(8,1,1) = {"
+(9,1,1) = {"
 Kb
 Kb
 px
@@ -2315,7 +2394,7 @@ Kb
 Kb
 Mv
 "}
-(9,1,1) = {"
+(10,1,1) = {"
 iM
 kw
 qR
@@ -2334,7 +2413,7 @@ iA
 iM
 Mv
 "}
-(10,1,1) = {"
+(11,1,1) = {"
 aD
 ie
 En
@@ -2353,7 +2432,7 @@ nE
 cR
 Mv
 "}
-(11,1,1) = {"
+(12,1,1) = {"
 pI
 ZI
 Ow
@@ -2372,7 +2451,7 @@ Bf
 pI
 Mv
 "}
-(12,1,1) = {"
+(13,1,1) = {"
 iM
 pd
 mp
@@ -2391,7 +2470,7 @@ Us
 iM
 Mv
 "}
-(13,1,1) = {"
+(14,1,1) = {"
 Kb
 Kb
 Kb
@@ -2410,13 +2489,13 @@ Kb
 Kb
 Mv
 "}
-(14,1,1) = {"
+(15,1,1) = {"
 ou
 ou
 Kb
 Kb
 fG
-No
+Ef
 PX
 lM
 ZG
@@ -2429,7 +2508,7 @@ Kb
 Mv
 Mv
 "}
-(15,1,1) = {"
+(16,1,1) = {"
 ou
 Kb
 Kb
@@ -2448,10 +2527,10 @@ Kb
 Mv
 Mv
 "}
-(16,1,1) = {"
+(17,1,1) = {"
 ou
 Kb
-MW
+PQ
 VT
 Tr
 YO
@@ -2467,10 +2546,10 @@ Kb
 Mv
 Mv
 "}
-(17,1,1) = {"
+(18,1,1) = {"
 ou
 Kb
-PQ
+UN
 VR
 yK
 yD
@@ -2486,12 +2565,12 @@ Kb
 Mv
 Mv
 "}
-(18,1,1) = {"
+(19,1,1) = {"
 ou
 Kb
 Kb
 Kb
-RM
+Mh
 Kb
 Kb
 Kb
@@ -2505,7 +2584,7 @@ Mv
 Mv
 Mv
 "}
-(19,1,1) = {"
+(20,1,1) = {"
 ou
 Kb
 xZ
@@ -2524,7 +2603,7 @@ Mv
 Mv
 Mv
 "}
-(20,1,1) = {"
+(21,1,1) = {"
 ou
 Kb
 FA
@@ -2543,7 +2622,7 @@ Mv
 Mv
 Mv
 "}
-(21,1,1) = {"
+(22,1,1) = {"
 ou
 Kb
 Kb
@@ -2562,7 +2641,7 @@ Mv
 Mv
 Mv
 "}
-(22,1,1) = {"
+(23,1,1) = {"
 ou
 ou
 Kb
@@ -2581,7 +2660,7 @@ Mv
 Mv
 Mv
 "}
-(23,1,1) = {"
+(24,1,1) = {"
 Mv
 ou
 ou
@@ -2600,7 +2679,7 @@ Mv
 Mv
 Mv
 "}
-(24,1,1) = {"
+(25,1,1) = {"
 Mv
 Mv
 Mv

@@ -1,4 +1,23 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/structure/barricade/handrail/kutjevo,
+/obj/structure/bed/chair/wood/normal{
+	pixel_y = 14;
+	buckling_y = 14
+	},
+/obj/item/reagent_container/food/drinks/flask{
+	pixel_x = 13;
+	pixel_y = 12
+	},
+/turf/open/floor/interior/wood/alt,
+/area/lazarus/shack_alt)
+"ab" = (
+/obj/structure/window/framed/wood/blue,
+/obj/structure/curtain/colorable{
+	color = "#657280"
+	},
+/turf/open/floor/interior/wood_sat/damage_6,
+/area/lazarus/shack_alt)
 "az" = (
 /obj/structure/machinery/door/airlock/light_grey_lv/glass/autoname{
 	dir = 8;
@@ -49,10 +68,10 @@
 /turf/closed/wall/strata_ice/jungle,
 /area/strata/interior/out_of_bounds)
 "fF" = (
-/obj/structure/window_frame/wood/plain,
 /obj/structure/curtain/colorable{
 	color = "#657280"
 	},
+/obj/structure/window/framed/wood/blue,
 /turf/open/floor/interior/wood_sat/damage_6,
 /area/lazarus/shack_alt)
 "gc" = (
@@ -325,7 +344,7 @@
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/west_jungle)
 "vT" = (
-/obj/structure/window_frame/wood/blue,
+/obj/structure/window/framed/wood/blue,
 /obj/structure/curtain/colorable{
 	color = "#657280"
 	},
@@ -445,7 +464,7 @@
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/west_jungle)
 "By" = (
-/obj/structure/window_frame/wood/plain,
+/obj/structure/window/framed/wood/blue,
 /obj/structure/curtain/colorable{
 	color = "#657280"
 	},
@@ -684,18 +703,6 @@
 /obj/structure/barricade/wooden,
 /turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/west_jungle)
-"RS" = (
-/obj/structure/bed/chair/wood/normal{
-	pixel_y = 14;
-	buckling_y = 14
-	},
-/obj/item/reagent_container/food/drinks/flask{
-	pixel_x = 2;
-	pixel_y = 14
-	},
-/obj/structure/barricade/handrail/kutjevo,
-/turf/open/floor/interior/wood/alt,
-/area/lazarus/shack_alt)
 "RT" = (
 /turf/closed/wall/lv_outpost/reinforced,
 /area/lazarus/landing_zones/lz2)
@@ -896,11 +903,11 @@ Kg
 JK
 wb
 Aw
-Aw
+JE
 Np
 JE
-JE
-JE
+Aw
+Aw
 SV
 Vz
 qJ
@@ -920,7 +927,7 @@ QK
 wU
 Ge
 nk
-Aw
+JE
 tp
 cm
 gc
@@ -939,7 +946,7 @@ qJ
 AI
 ZV
 JE
-JE
+Aw
 JE
 FR
 sn
@@ -950,7 +957,7 @@ or
 QW
 nM
 JE
-Uz
+aa
 Jz
 ZV
 sX
@@ -963,7 +970,7 @@ DI
 (8,1,1) = {"
 ZV
 Tb
-JE
+Aw
 Mm
 UB
 sX
@@ -989,7 +996,7 @@ Vz
 ZV
 SE
 JE
-JE
+Aw
 JE
 ZV
 ZV
@@ -1024,8 +1031,8 @@ JE
 Eb
 to
 pa
-Aw
-RS
+ab
+Uz
 di
 ZV
 SR
@@ -1046,9 +1053,9 @@ SE
 qJ
 kb
 Aw
-Aw
-Aw
-Aw
+JE
+JE
+JE
 Aw
 Aw
 ob

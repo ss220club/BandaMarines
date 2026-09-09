@@ -25,7 +25,7 @@
 /turf/open/floor/prison/darkbrown2/north,
 /area/template_noop)
 "o" = (
-/obj/structure/window/framed/lv_colony/reinforced,
+/obj/structure/window/framed/lv_colony,
 /turf/open/floor/plating/prison,
 /area/template_noop)
 "q" = (
