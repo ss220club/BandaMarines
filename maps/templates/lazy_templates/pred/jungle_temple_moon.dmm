@@ -1750,13 +1750,6 @@
 	},
 /turf/open/floor/strata/grey_multi_tiles/southwest,
 /area/yautja_grounds/temple)
-"xB" = (
-/obj/effect/decal/cleanable/blood{
-	basecolor = "#20d450";
-	color = "#20d450"
-	},
-/turf/open/gm/dirt,
-/area/yautja_grounds/temple)
 "xC" = (
 /obj/structure/flora/jungle/vines/heavy{
 	pixel_y = 26
@@ -5436,7 +5429,7 @@ ge
 ge
 ge
 ge
-xB
+ge
 ge
 Wr
 Kj
@@ -5631,7 +5624,7 @@ iJ
 CM
 GK
 ge
-xB
+ge
 ge
 ge
 ge
