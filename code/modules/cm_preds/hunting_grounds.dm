@@ -4,11 +4,7 @@
 	map_dir = "maps/templates/lazy_templates/pred"
 	///visible name of the hunting ground on the selection computer
 	var/hunting_ground_name
-// SS220 EDIT START
-/datum/lazy_template/pred/jungle_temple_moon
-	map_name = "jungle_temple_moon"
-	hunting_ground_name = "Jungle Temple Moon"
-// SS220 EDIT END
+
 /datum/lazy_template/pred/jungle_moon
 	map_name = "jungle_moon"
 	hunting_ground_name = "Jungle Moon"

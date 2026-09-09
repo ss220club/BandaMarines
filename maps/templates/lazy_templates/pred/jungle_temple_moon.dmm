@@ -7,7 +7,7 @@
 /obj/structure/machinery/door_control/yautja{
 	pixel_y = 1;
 	pixel_x = 22;
-	id = "arenadoorleft"
+	id = "arenadoorright"
 	},
 /turf/open/floor/strata/grey_multi_tiles/southwest,
 /area/yautja_grounds/temple)
@@ -92,6 +92,22 @@
 	},
 /turf/open/floor/engine/cult,
 /area/yautja_grounds/prep_room)
+"an" = (
+/obj/structure/machinery/door_control/yautja{
+	pixel_y = 1;
+	pixel_x = 22;
+	id = "arenadoorright"
+	},
+/turf/open/floor/engine/cult,
+/area/yautja_grounds/temple)
+"ao" = (
+/obj/structure/machinery/door_control/yautja{
+	pixel_y = 1;
+	pixel_x = -21;
+	id = "arenadoorright"
+	},
+/turf/open/floor/engine/cult,
+/area/yautja_grounds/temple)
 "ar" = (
 /turf/open/gm/dirtgrassborder,
 /area/yautja_grounds/jungle/west)
@@ -5732,7 +5748,7 @@ Wr
 ul
 gN
 gh
-xu
+an
 gN
 gh
 lI
@@ -6419,7 +6435,7 @@ Kn
 zn
 gh
 gh
-Sf
+ao
 ik
 gh
 ik
