@@ -8,3 +8,6 @@
   Ingakem:
   - refactor: Refactor merge_upstream workflow to use configurable LLM provider with
       retry logic
+2026-09-10:
+  Zvezdablya:
+  - bugfix: Исправлена настройка Hunting Trap.
