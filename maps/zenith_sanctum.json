@@ -3,7 +3,7 @@
     "map_path": "map_files/Zenith_Sanctum",
     "map_file": "Zenith_Sanctum.dmm",
     "short_name": "Zenith Temple",
-    "webmap_url": "Zenith_Temple",
+    "webmap_url": "Zenith_Sanctum",
     "weather_holder": "/datum/weather_ss_map_holder/zenith_sanctum",
     "survivor_types": [
         "/datum/equipment_preset/survivor/scientist/lv",

@@ -228,7 +228,7 @@
 /obj/item/clothing/head/hardhat/red/kelland{
 	pixel_y = 11
 	},
-/turf/open/auto_turf/lv_grass/layer0_mud_alt,
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
 "ce" = (
 /obj/effect/decal/lv_decals/red_mud_corner{
@@ -466,7 +466,7 @@
 	pixel_x = -10;
 	pixel_y = 29
 	},
-/turf/open/auto_turf/lv_grass/layer0_mud_alt,
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
 "fk" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
@@ -502,7 +502,7 @@
 	pixel_x = -24;
 	pixel_y = 21
 	},
-/turf/open/auto_turf/lv_grass/layer0_mud_alt,
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
 "fy" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
@@ -850,7 +850,7 @@
 /obj/item/device/flashlight/lamp/tripod{
 	on = 0
 	},
-/turf/open/auto_turf/lv_grass/layer0_mud_alt,
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
 "iU" = (
 /obj/structure/surface/rack{
@@ -1077,7 +1077,7 @@
 "ls" = (
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
 /obj/structure/blocker/forcefield/vehicles,
-/turf/open/auto_turf/lv_grass/layer0_mud_alt,
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
 "lu" = (
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
@@ -1217,7 +1217,9 @@
 /obj/effect/timed_event/scrapeaway{
 	time = 25
 	},
-/turf/closed/wall/rock/brown/mud,
+/turf/closed/wall/rock/brown/mud{
+	baseturfs = /obj/structure/prop/rock/brown
+	},
 /area/lazarus/ground/caves/south_west_caves)
 "nc" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
@@ -1503,7 +1505,7 @@
 	pixel_y = 5;
 	pixel_x = 5
 	},
-/turf/open/auto_turf/lv_grass/layer0_mud_alt,
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "qm" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
@@ -2187,18 +2189,6 @@
 	},
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/barrens/west_barrens)
-"wK" = (
-/obj/effect/decal/lv_decals/cave_mud_corner{
-	dir = 9
-	},
-/obj/effect/decal/lv_decals/cave_mud_corner{
-	dir = 6
-	},
-/obj/effect/timed_event/scrapeaway{
-	time = 25
-	},
-/turf/closed/wall/rock/brown/mud,
-/area/lazarus/ground/caves/south_west_caves)
 "wN" = (
 /turf/closed/wall/rock/grey,
 /area/strata/interior/out_of_bounds)
@@ -2622,7 +2612,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "CW" = (
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_wall,
-/turf/open/auto_turf/lv_grass/layer0_mud_alt,
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
 "CY" = (
 /obj/structure/flora/bush/ausbushes/lavendergrass,
@@ -2759,7 +2749,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Fm" = (
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
-/turf/open/auto_turf/lv_grass/layer0_mud_alt,
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
 "Fn" = (
 /obj/item/weapon/twohanded/folded_metal_chair,
@@ -2889,7 +2879,7 @@
 	color = "#ae8686";
 	dir = 4
 	},
-/turf/open/auto_turf/lv_grass/layer0_mud_alt,
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
 "GK" = (
 /turf/open/floor/interior/wood/alt,
@@ -2990,7 +2980,7 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "HB" = (
 /obj/item/tool/warning_cone,
-/turf/open/auto_turf/lv_grass/layer0_mud_alt,
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
 "HC" = (
 /obj/effect/hunter/ancient_temple/deco_border{
@@ -3069,7 +3059,7 @@
 	pixel_y = 14
 	},
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
-/turf/open/auto_turf/lv_grass/layer0_mud_alt,
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
 "Iu" = (
 /obj/structure/prop/colorable_rock/boulder/small/boulder3{
@@ -3227,7 +3217,7 @@
 	pixel_x = -12;
 	pixel_y = -5
 	},
-/turf/open/auto_turf/lv_grass/layer0_mud_alt,
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
 "JS" = (
 /obj/item/weapon/gun/shotgun/pump/dual_tube/cmb{
@@ -4231,7 +4221,7 @@
 "Wu" = (
 /obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
 /obj/structure/blocker/forcefield/vehicles,
-/turf/open/auto_turf/lv_grass/layer0_mud_alt,
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
 "Wy" = (
 /obj/structure/barricade/sandbags{
@@ -4334,9 +4324,6 @@
 	},
 /turf/open/floor/interior/wood/alt,
 /area/template_noop)
-"Xq" = (
-/turf/open/auto_turf/lv_grass/layer0_mud_alt,
-/area/lazarus/ground/caves/south_west_caves)
 "Xr" = (
 /obj/structure/prop/colorable_rock/colorable{
 	color = "#ae8686";
@@ -5071,7 +5058,7 @@ lu
 vs
 lu
 lu
-Xq
+lu
 QI
 nb
 nb
@@ -5120,13 +5107,13 @@ fm
 (11,1,1) = {"
 lu
 vs
-Xq
 lu
-Xq
+lu
+lu
 sr
 nb
 nb
-wK
+nb
 ql
 ED
 wC
@@ -5223,7 +5210,7 @@ fm
 qt
 vs
 vs
-lu
+vs
 wN
 kK
 vs
@@ -6804,8 +6791,8 @@ fm
 YX
 lu
 cc
-Xq
-Xq
+lu
+lu
 Yu
 vs
 vs
@@ -6855,8 +6842,8 @@ fm
 YX
 lu
 eN
-Xq
-Xq
+lu
+lu
 vs
 vs
 vs
@@ -6907,7 +6894,7 @@ YX
 lu
 Xb
 It
-Xq
+lu
 vs
 vs
 vs
@@ -6957,8 +6944,8 @@ fm
 vs
 vs
 JR
-Xq
-Xq
+lu
+lu
 fg
 wN
 vs
@@ -7007,9 +6994,9 @@ fm
 (48,1,1) = {"
 wN
 Nq
-Xq
+lu
 fw
-Xq
+lu
 HB
 wN
 wN
@@ -7058,11 +7045,11 @@ fm
 (49,1,1) = {"
 wN
 Nq
-Xq
-Xq
-Xq
-Xq
-Xq
+lu
+lu
+lu
+lu
+lu
 wN
 wN
 vs
@@ -7110,10 +7097,10 @@ fm
 Nq
 Nq
 Fm
-Xq
-Xq
-Xq
-Xq
+lu
+lu
+lu
+lu
 wN
 wN
 wN
@@ -7160,9 +7147,9 @@ fm
 (51,1,1) = {"
 Nq
 Nq
-Xq
-Xq
-Xq
+lu
+lu
+lu
 Fm
 CW
 vs
@@ -7263,10 +7250,10 @@ fm
 wN
 vs
 aW
-Xq
-Xq
+lu
+lu
 hV
-Xq
+lu
 Dh
 vs
 vs
@@ -7314,8 +7301,8 @@ fm
 wN
 Nq
 aW
-Xq
-Xq
+lu
+lu
 OC
 lF
 wJ
@@ -7365,7 +7352,7 @@ fm
 vs
 vs
 aW
-Xq
+lu
 OC
 JZ
 mw

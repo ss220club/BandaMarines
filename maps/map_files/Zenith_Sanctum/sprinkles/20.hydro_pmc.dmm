@@ -1,4 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/template_noop)
 "ab" = (
 /obj/structure/window_frame/lv_colony,
 /obj/item/shard,
@@ -15,6 +18,26 @@
 /area/template_noop)
 "ad" = (
 /turf/open/auto_turf/lv_sand/layer0,
+/area/template_noop)
+"ae" = (
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/template_noop)
+"af" = (
+/obj/item/shard,
+/obj/effect/decal/large_stain{
+	dir = 1
+	},
+/turf/open/floor/plating/prison,
+/area/template_noop)
+"ag" = (
+/obj/structure/flora/bush/ausbushes/ywflowers,
+/obj/effect/decal/hybrisa/dirt,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/template_noop)
+"ah" = (
+/obj/structure/flora/bush/ausbushes/var3/fullgrass,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/template_noop)
 "aV" = (
 /obj/effect/decal/hybrisa/dirt,
@@ -295,6 +318,7 @@
 /area/template_noop)
 "qY" = (
 /obj/item/stack/sheet/metal,
+/obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
@@ -1431,7 +1455,7 @@ Zq
 Zq
 ac
 Oz
-cM
+af
 HT
 Hk
 ea
@@ -1449,9 +1473,9 @@ Zq
 (15,1,1) = {"
 Zq
 Zq
-Rl
-Rt
-Ko
+ae
+ag
+aa
 pu
 xv
 xv
@@ -1468,9 +1492,9 @@ Zq
 (16,1,1) = {"
 Zq
 Zq
-Zq
-Zq
-Zq
+ah
+ae
+ae
 Sm
 xv
 nO

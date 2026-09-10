@@ -3510,10 +3510,6 @@
 /turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
 /area/lazarus/ground/caves/south_west_caves)
 "ajT" = (
-/obj/structure/prop/rock/brown{
-	pixel_x = -4;
-	pixel_y = 11
-	},
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 5
 	},
@@ -3591,17 +3587,6 @@
 /area/lazarus/ground/ancient_temple/south/surface)
 "aka" = (
 /turf/open/floor/interior/wood_sat/damage_4,
-/area/lazarus/ground/caves/south_west_caves)
-"akb" = (
-/obj/structure/prop/rock/brown{
-	dir = 4;
-	pixel_x = -3;
-	pixel_y = 2
-	},
-/obj/effect/decal/lv_decals/cave_mud_corner{
-	dir = 10
-	},
-/turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/caves/south_west_caves)
 "akc" = (
 /obj/effect/decal/lv_decals/cave_mud_corner{
@@ -3703,6 +3688,13 @@
 /area/strata/interior/out_of_bounds)
 "akk" = (
 /obj/structure/machinery/big_computers/messaging_server/white,
+/obj/effect/landmark/objective_landmark/medium{
+	pixel_y = 14
+	},
+/obj/effect/landmark/objective_landmark/science{
+	pixel_y = 14;
+	pixel_x = -8
+	},
 /turf/open/floor/prison/west,
 /area/lazarus/power_plant/core)
 "akl" = (
@@ -8453,6 +8445,7 @@
 	pixel_x = -12;
 	pixel_y = 5
 	},
+/obj/effect/landmark/objective_landmark/medium,
 /turf/open/floor/prison/west,
 /area/lazarus/power_plant)
 "awd" = (
@@ -10079,6 +10072,13 @@
 	},
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/landing_zones/lz1)
+"aAa" = (
+/obj/structure/machinery/computer/arcade/green_stripe{
+	pixel_x = -1;
+	pixel_y = 10
+	},
+/turf/closed/wall/lv_outpost,
+/area/lazarus/kitchen)
 "aAb" = (
 /obj/structure/platform/stone/ancient_temple/alt/west,
 /obj/effect/hunter/ancient_temple/rubble/rubble_1,
@@ -12845,6 +12845,14 @@
 	},
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/colony/north_nexus_road)
+"aHV" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/computer/arcade/green_stripe{
+	pixel_x = -1;
+	pixel_y = 10
+	},
+/turf/open/floor/prison/floor_plate,
+/area/lazarus/main_hall)
 "aHW" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -13079,6 +13087,14 @@
 /obj/effect/hunter/ancient_temple/rubble/rubble,
 /turf/open/floor/ancient_temple/ruined/north,
 /area/lazarus/ground/ancient_temple/south)
+"aIG" = (
+/obj/structure/prop/rock/brown{
+	dir = 4;
+	pixel_x = -3;
+	pixel_y = 2
+	},
+/turf/open/auto_turf/lv_grass_weedable/layer0_mud_alt,
+/area/lazarus/ground/caves/south_west_caves)
 "aIH" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
@@ -22799,6 +22815,11 @@
 	},
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 5
+	},
+/obj/structure/prop/rock/brown{
+	dir = 1;
+	pixel_x = -4;
+	pixel_y = 17
 	},
 /turf/open/auto_turf/lv_sand_alt/layer0,
 /area/lazarus/ground/caves/south_west_caves)
@@ -46117,11 +46138,6 @@
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/barrens/central_barrens)
 "pfM" = (
-/obj/structure/prop/rock/brown{
-	dir = 1;
-	pixel_x = -4;
-	pixel_y = 17
-	},
 /obj/structure/prop/colorable_rock/colorable{
 	color = "#ae8686";
 	dir = 1;
@@ -67753,7 +67769,7 @@ gdk
 gdk
 gdk
 tfD
-kec
+aIG
 aNR
 aNR
 aNR
@@ -67978,7 +67994,7 @@ bgo
 tfD
 bgo
 kec
-akb
+gtq
 ajT
 ajN
 ajF
@@ -83298,7 +83314,7 @@ cyt
 eps
 hmi
 jtc
-gih
+aAa
 gih
 aPx
 gih
@@ -83522,7 +83538,7 @@ sFn
 aTL
 tZI
 ncr
-cdM
+aHV
 cdM
 aPy
 cdM
