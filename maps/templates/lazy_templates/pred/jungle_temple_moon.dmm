@@ -108,13 +108,36 @@
 	},
 /turf/open/floor/engine/cult,
 /area/yautja_grounds/temple)
+"ap" = (
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/south_east)
+"aq" = (
+/obj/structure/flora/bush/ausbushes/grassybush,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/south_east)
 "ar" = (
 /turf/open/gm/dirtgrassborder,
 /area/yautja_grounds/jungle/west)
+"as" = (
+/obj/structure/flora/jungle/vines/heavy,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/south_east)
 "at" = (
 /obj/structure/flora/jungle/planttop1,
-/turf/open/gm/grass/grass2,
+/turf/open/auto_turf/strata_grass/layer0,
 /area/yautja_grounds/jungle/north)
+"au" = (
+/obj/effect/landmark/ert_spawns/distress/hunt_spawner,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/south_east)
+"av" = (
+/obj/structure/flora/jungle/vines,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/south_east)
+"aw" = (
+/obj/structure/flora/jungle/alienplant1,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/south_east)
 "ax" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
 /obj/structure/flora/jungle/vines{
@@ -122,10 +145,45 @@
 	},
 /turf/open/gm/grass/grass1,
 /area/yautja_grounds/jungle)
+"ay" = (
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/south)
+"az" = (
+/obj/structure/flora/jungle/vines/heavy{
+	pixel_x = -28
+	},
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/south_east)
+"aA" = (
+/obj/structure/flora/grass/tallgrass/jungle/corner{
+	dir = 5
+	},
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/south_east)
+"aB" = (
+/obj/structure/flora/grass/tallgrass/jungle/corner{
+	dir = 9
+	},
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/south_east)
+"aC" = (
+/obj/structure/flora/grass/tallgrass/jungle,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/south_east)
+"aD" = (
+/obj/structure/flora/jungle/vines{
+	icon_state = "light_3"
+	},
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/south)
 "aE" = (
 /obj/structure/flora/bush/ausbushes/var3/fernybush,
 /turf/open/gm/grass/grass1,
 /area/yautja_grounds/jungle/north_east)
+"aF" = (
+/obj/structure/flora/jungle/vines/heavy,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/south)
 "aG" = (
 /obj/structure/flora/jungle/planttop1,
 /turf/open/gm/grass/grass1,
@@ -140,21 +198,103 @@
 /obj/effect/landmark/ert_spawns/distress/hunt_spawner,
 /turf/open/gm/grass/grass1,
 /area/yautja_grounds/jungle/north_east)
+"aJ" = (
+/mob/living/carbon/human/monkey,
+/turf/open/gm/dirt,
+/area/yautja_grounds/jungle/south_west)
 "aK" = (
 /obj/structure/platform/stone/ancient_temple/alt/north,
 /turf/open/gm/coast/west,
 /area/yautja_grounds/temple/entrance)
+"aL" = (
+/obj/structure/flora/bush/ausbushes/var3/fullgrass,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/south)
+"aM" = (
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/south_east)
+"aN" = (
+/obj/structure/flora/jungle/vines/heavy,
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/south_east)
 "aO" = (
 /turf/open/gm/coast/east,
 /area/yautja_grounds/jungle/south_west)
+"aP" = (
+/obj/structure/flora/bush/ausbushes/var3/ppflowers,
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/south_east)
+"aQ" = (
+/obj/structure/flora/jungle/vines{
+	icon_state = "light_3"
+	},
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/south_east)
+"aR" = (
+/obj/structure/flora/grass/tallgrass/jungle/corner{
+	dir = 6
+	},
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/south)
 "aS" = (
 /obj/structure/flora/jungle/vines,
 /turf/closed/wall/rock/brown,
 /area/yautja_grounds/jungle/north)
+"aT" = (
+/obj/structure/flora/jungle/vines,
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/south_east)
+"aU" = (
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle)
+"aV" = (
+/obj/structure/flora/bush/ausbushes/lavendergrass,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle)
+"aW" = (
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/east)
+"aX" = (
+/obj/structure/flora/jungle/vines/heavy,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/east)
+"aY" = (
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/east)
 "aZ" = (
 /obj/structure/flora/bush/ausbushes/ausbush,
 /turf/open/gm/grass/grass2,
 /area/yautja_grounds/jungle/south)
+"ba" = (
+/obj/structure/flora/jungle/vines{
+	icon_state = "light_2"
+	},
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/east)
+"bb" = (
+/obj/structure/flora/jungle/planttop1,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/east)
+"bc" = (
+/obj/structure/flora/jungle/vines/heavy,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle)
+"bd" = (
+/obj/structure/flora/jungle/vines,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle)
+"be" = (
+/obj/effect/landmark/ert_spawns/distress/hunt_spawner,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/east)
+"bf" = (
+/obj/structure/flora/jungle/vines/heavy,
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/east)
+"bg" = (
+/obj/structure/flora/bush/ausbushes/var3/fullgrass,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/east)
 "bh" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
 /obj/structure/flora/jungle/vines/heavy,
@@ -163,10 +303,24 @@
 "bi" = (
 /turf/closed/wall/rock/brown,
 /area/yautja_grounds/jungle/east)
+"bj" = (
+/obj/structure/flora/grass/tallgrass/jungle/corner{
+	dir = 5
+	},
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/east)
+"bk" = (
+/obj/structure/flora/bush/ausbushes/var3/sparsegrass,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/east)
 "bl" = (
 /obj/structure/machinery/prop/yautja/bubbler,
 /turf/open/floor/strata/grey_multi_tiles/southwest,
 /area/yautja_grounds/prep_room)
+"bm" = (
+/obj/effect/landmark/ert_spawns/distress/hunt_spawner,
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/east)
 "bn" = (
 /obj/structure/flora/bush/ausbushes/var3/ppflowers,
 /turf/open/gm/dirt,
@@ -175,14 +329,59 @@
 /obj/structure/flora/bush/ausbushes/var3/sunnybush,
 /turf/open/gm/grass/grass1,
 /area/yautja_grounds/jungle/north)
+"bp" = (
+/obj/structure/flora/grass/tallgrass/jungle/corner{
+	dir = 6
+	},
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/east)
+"bq" = (
+/obj/structure/flora/jungle/plantbot1,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/east)
+"br" = (
+/obj/structure/platform_decoration/stone/ancient_temple/west,
+/turf/open/gm/river,
+/area/yautja_grounds/temple/entrance)
+"bs" = (
+/obj/structure/platform_decoration/stone/ancient_temple/east,
+/turf/open/gm/river,
+/area/yautja_grounds/temple/entrance)
+"bt" = (
+/obj/structure/flora/bush/ausbushes/grassybush,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/east)
+"bu" = (
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/north_east)
+"bv" = (
+/obj/structure/flora/grass/tallgrass/jungle/corner{
+	dir = 6
+	},
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/north_east)
+"bw" = (
+/turf/closed/wall/cult/dark_temple/hunting_grounds,
+/area/yautja_grounds/jungle/north_west)
 "bx" = (
 /obj/structure/flora/grass/tallgrass/jungle/corner,
 /turf/open/gm/grass/grass1,
 /area/yautja_grounds/jungle/south_east)
+"by" = (
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/north_west)
 "bz" = (
 /obj/structure/flora/jungle/vines,
 /turf/closed/wall/strata_ice/jungle,
 /area/yautja_grounds/jungle)
+"bA" = (
+/obj/structure/prop/brazier/torch,
+/turf/closed/wall/cult/dark_temple/hunting_grounds,
+/area/yautja_grounds/jungle/north_west)
+"bB" = (
+/obj/structure/flora/jungle/vines/heavy,
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/north_west)
 "bC" = (
 /obj/structure/flora/jungle/vines{
 	icon_state = "light_2"
@@ -199,6 +398,10 @@
 	},
 /turf/open/gm/grass/grass1,
 /area/yautja_grounds/jungle/east)
+"bF" = (
+/obj/structure/flora/jungle/plantbot1,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/north)
 "bG" = (
 /obj/structure/kitchenspike{
 	icon_state = "spikebloodygreen"
@@ -212,29 +415,206 @@
 	},
 /turf/open/gm/grass/grass1,
 /area/yautja_grounds/jungle/south_east)
+"bI" = (
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/north)
 "bJ" = (
 /obj/structure/flora/grass/tallgrass/jungle/corner{
 	dir = 4
 	},
 /turf/open/gm/grass/grass1,
 /area/yautja_grounds/jungle/south_east)
+"bK" = (
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/north)
+"bL" = (
+/obj/structure/flora/jungle/alienplant1,
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/north_west)
+"bM" = (
+/obj/structure/flora/bush/ausbushes/var3/sunnybush,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/north)
 "bN" = (
 /turf/open/gm/dirtgrassborder/grassdirt_corner2/north_west,
 /area/yautja_grounds/jungle/west)
+"bO" = (
+/obj/structure/flora/jungle/alienplant1,
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/north)
+"bP" = (
+/obj/structure/flora/jungle/plantbot1,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/north_east)
+"bQ" = (
+/obj/structure/flora/jungle/planttop1,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/north_east)
+"bR" = (
+/obj/effect/landmark/monkey_spawn,
+/turf/open/gm/grass/grass1,
+/area/yautja_grounds/jungle/north_west)
 "bS" = (
 /turf/closed/wall/mineral/sandstone/runed/decor,
 /area/yautja_grounds/jungle/south)
 "bT" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
-/turf/open/gm/grass/grass1,
+/turf/open/auto_turf/strata_grass/layer0,
 /area/yautja_grounds/jungle/north)
+"bU" = (
+/obj/structure/flora/grass/tallgrass/jungle/corner{
+	dir = 5
+	},
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/north_east)
+"bV" = (
+/obj/structure/flora/grass/tallgrass/jungle/corner{
+	dir = 1
+	},
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/north_east)
+"bW" = (
+/obj/structure/flora/grass/tallgrass/jungle/corner{
+	dir = 9
+	},
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/north_east)
+"bX" = (
+/obj/structure/flora/jungle/vines{
+	icon_state = "light_3"
+	},
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/north)
+"bY" = (
+/obj/structure/flora/grass/tallgrass/jungle,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/north_east)
+"bZ" = (
+/obj/structure/flora/jungle/vines/heavy,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/north_west)
+"ca" = (
+/obj/structure/flora/jungle/vines{
+	icon_state = "light_2"
+	},
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/north_west)
+"cb" = (
+/obj/structure/flora/jungle/vines,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/north)
+"cc" = (
+/obj/structure/flora/jungle/vines{
+	icon_state = "light_2"
+	},
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/north)
+"cd" = (
+/obj/structure/flora/bush/ausbushes/genericbush,
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/north)
+"ce" = (
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/north_west)
+"cf" = (
+/obj/structure/flora/jungle/vines{
+	icon_state = "light_3"
+	},
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/north_west)
+"cg" = (
+/obj/effect/landmark/ert_spawns/distress/hunt_spawner,
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/north_west)
 "ch" = (
 /obj/effect/landmark/ert_spawns/distress/hunt_spawner/xeno,
 /turf/open/gm/grass/grass1,
 /area/yautja_grounds/jungle/north)
+"ci" = (
+/obj/structure/flora/bush/ausbushes/var3/brflowers,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/north)
+"cj" = (
+/obj/structure/flora/jungle/vines{
+	icon_state = "light_3"
+	},
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/north_west)
+"ck" = (
+/obj/structure/flora/grass/tallgrass/jungle/corner{
+	dir = 9
+	},
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/north)
+"cl" = (
+/obj/structure/flora/jungle/vines,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/north_west)
+"cm" = (
+/obj/structure/flora/grass/tallgrass/jungle,
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/north)
+"cn" = (
+/obj/structure/flora/jungle/vines/heavy,
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/north)
+"co" = (
+/obj/structure/flora/bush/ausbushes/var3/brflowers,
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/north)
+"cp" = (
+/obj/structure/flora/jungle/vines{
+	icon_state = "light_3"
+	},
+/turf/open/auto_turf/strata_grass/layer0,
+/area/yautja_grounds/jungle/north_east)
+"cq" = (
+/obj/structure/flora/jungle/plantbot1,
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/north)
 "cr" = (
 /turf/open/gm/dirt,
 /area/yautja_grounds/temple/entrance)
+"cs" = (
+/obj/structure/flora/grass/tallgrass/jungle/corner{
+	dir = 9
+	},
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/north)
+"ct" = (
+/obj/structure/flora/jungle/vines,
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/north)
+"cu" = (
+/obj/structure/flora/grass/tallgrass/jungle/corner{
+	dir = 2
+	},
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/north)
+"cv" = (
+/obj/structure/flora/jungle/vines{
+	icon_state = "light_3"
+	},
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/north)
+"cw" = (
+/obj/effect/landmark/ert_spawns/distress/hunt_spawner,
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/north)
+"cx" = (
+/obj/structure/flora/jungle/vines{
+	icon_state = "light_2"
+	},
+/turf/open/auto_turf/strata_grass/layer0_mud,
+/area/yautja_grounds/jungle/north)
+"cy" = (
+/obj/structure/prop/hunter/fake_platform/hunter/west,
+/turf/open/floor/corsat/squareswood,
+/area/yautja_grounds/temple)
+"cz" = (
+/obj/structure/prop/hunter/fake_platform/hunter,
+/turf/open/gm/river,
+/area/yautja_grounds/temple)
 "cA" = (
 /obj/structure/flora/jungle/vines{
 	icon_state = "light_3"
@@ -242,6 +622,18 @@
 /obj/structure/flora/jungle/vines/heavy,
 /turf/open/gm/grass/grass1,
 /area/yautja_grounds/jungle/south)
+"cB" = (
+/obj/structure/machinery/door/poddoor/yautja/hunting_grounds,
+/obj/structure/flora/jungle/vines{
+	icon_state = "light_2"
+	},
+/turf/open/gm/grass/grass1,
+/area/yautja_grounds/jungle/north)
+"cC" = (
+/obj/structure/prop/hunter/fake_platform/hunter/west,
+/obj/structure/prop/hunter/fake_platform/hunter,
+/turf/open/floor/corsat/squareswood,
+/area/yautja_grounds/temple)
 "cG" = (
 /turf/open/gm/river,
 /area/yautja_grounds/temple)
@@ -531,7 +923,7 @@
 /obj/structure/flora/jungle/vines/heavy{
 	pixel_y = 24
 	},
-/turf/open/gm/grass/grass1,
+/turf/open/auto_turf/strata_grass/layer0,
 /area/yautja_grounds/jungle/south)
 "gE" = (
 /obj/structure/flora/bush/ausbushes/var3/brflowers,
@@ -563,7 +955,7 @@
 /area/yautja_grounds/jungle)
 "hw" = (
 /obj/structure/flora/bush/ausbushes/ywflowers,
-/turf/open/gm/grass/grass1,
+/turf/open/auto_turf/strata_grass/layer0_mud,
 /area/yautja_grounds/jungle/east)
 "hx" = (
 /obj/structure/flora/bush/ausbushes/lavendergrass,
@@ -577,10 +969,6 @@
 "hN" = (
 /turf/open/gm/grass/grass1,
 /area/yautja_grounds/jungle)
-"hR" = (
-/obj/structure/platform/stone/ancient_temple/east,
-/turf/open/gm/river,
-/area/yautja_grounds/temple)
 "hW" = (
 /obj/structure/prop/hunter/fake_platform/hunter/east,
 /turf/open/predship/tile/red,
@@ -692,7 +1080,7 @@
 	icon_state = "light_2"
 	},
 /obj/structure/flora/jungle/vines/heavy,
-/turf/closed/wall/strata_ice/jungle,
+/turf/open/auto_turf/strata_grass/layer0,
 /area/yautja_grounds/jungle/north)
 "jl" = (
 /obj/structure/platform_decoration/stone/ancient_temple/west,
@@ -741,10 +1129,6 @@
 	},
 /turf/open/floor/strata/grey_multi_tiles/southwest,
 /area/yautja_grounds/temple)
-"jN" = (
-/obj/effect/alien/weeds/node/pylon/hunted,
-/turf/open/gm/grass/grass1,
-/area/yautja_grounds/jungle/north)
 "jO" = (
 /obj/structure/flora/jungle/vines/heavy,
 /turf/open/gm/grass/grass2,
@@ -965,7 +1349,7 @@
 	dir = 5
 	},
 /obj/effect/landmark/ert_spawns/distress/hunt_spawner,
-/turf/open/gm/grass/grass1,
+/turf/open/auto_turf/strata_grass/layer0,
 /area/yautja_grounds/jungle/north_east)
 "mI" = (
 /obj/effect/landmark/yautja_young_teleport,
@@ -1043,6 +1427,7 @@
 "nH" = (
 /obj/structure/flora/jungle/vines/heavy,
 /obj/structure/flora/bush/ausbushes/var3/ppflowers,
+/obj/effect/alien/weeds/node/pylon/hunted,
 /turf/open/gm/grass/grass1,
 /area/yautja_grounds/jungle)
 "nI" = (
@@ -1091,7 +1476,7 @@
 /area/yautja_grounds/jungle/north_east)
 "oF" = (
 /obj/structure/flora/bush/ausbushes/var3/sunnybush,
-/turf/open/gm/grass/grass1,
+/turf/open/auto_turf/strata_grass/layer0,
 /area/yautja_grounds/jungle/north_east)
 "oG" = (
 /obj/structure/flora/jungle/alienplant1,
@@ -1458,10 +1843,6 @@
 /obj/structure/flora/jungle/vines/heavy,
 /turf/open/gm/dirtgrassborder/north,
 /area/yautja_grounds/jungle/north_east)
-"ts" = (
-/obj/structure/platform/stone/ancient_temple/alt/west,
-/turf/open/gm/river,
-/area/yautja_grounds/temple)
 "tw" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
 /turf/open/gm/dirt/desert1,
@@ -1532,7 +1913,7 @@
 /obj/structure/flora/jungle/vines{
 	icon_state = "light_3"
 	},
-/turf/open/gm/grass/grass1,
+/turf/open/auto_turf/strata_grass/layer0,
 /area/yautja_grounds/jungle/south)
 "ur" = (
 /obj/structure/prop/hunter/fake_platform/hunter,
@@ -1676,7 +2057,7 @@
 	icon_state = "light_3"
 	},
 /obj/structure/flora/jungle/vines/heavy,
-/turf/closed/wall/strata_ice/jungle,
+/turf/open/auto_turf/strata_grass/layer0_mud,
 /area/yautja_grounds/jungle/south_east)
 "wN" = (
 /obj/structure/flora/jungle/vines/heavy{
@@ -1713,7 +2094,7 @@
 /area/yautja_grounds/jungle/north_west)
 "xe" = (
 /obj/structure/flora/bush/ausbushes/ausbush,
-/turf/open/gm/grass/grass1,
+/turf/open/auto_turf/strata_grass/layer0,
 /area/yautja_grounds/jungle/east)
 "xh" = (
 /obj/structure/flora/jungle/vines{
@@ -1934,11 +2315,8 @@
 /obj/structure/flora/jungle/vines{
 	icon_state = "light_2"
 	},
-/turf/open/gm/grass/grass2,
+/turf/open/auto_turf/strata_grass/layer0,
 /area/yautja_grounds/jungle/south_east)
-"Ae" = (
-/turf/open/gm/dirtgrassborder/grassdirt_corner/south_west,
-/area/yautja_grounds/jungle/east)
 "Af" = (
 /obj/structure/flora/jungle/vines/heavy,
 /turf/closed/wall/strata_ice/jungle,
@@ -2050,7 +2428,7 @@
 /area/yautja_grounds/jungle/south)
 "BB" = (
 /obj/structure/flora/grass/tallgrass/jungle,
-/turf/open/gm/grass/grass1,
+/turf/open/auto_turf/strata_grass/layer0,
 /area/yautja_grounds/jungle/south)
 "BI" = (
 /obj/structure/flora/jungle/vines/heavy{
@@ -2113,7 +2491,7 @@
 /area/yautja_grounds/jungle)
 "Cq" = (
 /obj/structure/prop/hunter/fake_platform/hunter/north,
-/turf/open/floor/engine/cult,
+/turf/open/predship/tile/red,
 /area/yautja_grounds/temple)
 "Cv" = (
 /obj/structure/flora/bush/ausbushes/reedbush,
@@ -2175,7 +2553,8 @@
 /turf/open/gm/grass/grass1,
 /area/yautja_grounds/jungle/north)
 "Di" = (
-/obj/structure/platform/stone/ancient_temple/alt,
+/obj/structure/prop/hunter/fake_platform/hunter/east,
+/obj/structure/prop/hunter/fake_platform/hunter,
 /turf/open/floor/corsat/squareswood,
 /area/yautja_grounds/temple)
 "Dj" = (
@@ -2438,7 +2817,7 @@
 /obj/structure/flora/grass/tallgrass/jungle/corner{
 	dir = 5
 	},
-/turf/open/gm/grass/grass1,
+/turf/open/auto_turf/strata_grass/layer0,
 /area/yautja_grounds/jungle/south)
 "GJ" = (
 /obj/structure/flora/jungle/vines{
@@ -2525,7 +2904,7 @@
 /area/yautja_grounds/prep_room)
 "HK" = (
 /obj/structure/flora/jungle/alienplant1,
-/turf/open/gm/grass/grass1,
+/turf/open/auto_turf/strata_grass/layer0,
 /area/yautja_grounds/jungle/south)
 "HL" = (
 /obj/structure/flora/jungle/vines,
@@ -2554,7 +2933,7 @@
 /area/yautja_grounds/temple)
 "Ia" = (
 /obj/structure/flora/bush/ausbushes/var3/leafybush,
-/turf/open/gm/grass/grass1,
+/turf/open/auto_turf/strata_grass/layer0,
 /area/yautja_grounds/jungle/north_east)
 "Ib" = (
 /turf/open/gm/coast/south,
@@ -2654,7 +3033,7 @@
 "JA" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
 /obj/structure/flora/jungle/vines/heavy,
-/turf/open/gm/grass/grass2,
+/turf/open/auto_turf/strata_grass/layer0_mud,
 /area/yautja_grounds/jungle/north_west)
 "JC" = (
 /obj/structure/flora/bush/ausbushes/reedbush,
@@ -2742,7 +3121,7 @@
 /area/yautja_grounds/prep_room)
 "KB" = (
 /obj/structure/flora/bush/ausbushes/var3/sunnybush,
-/turf/open/gm/grass/grass1,
+/turf/open/auto_turf/strata_grass/layer0_mud,
 /area/yautja_grounds/jungle/north_west)
 "KD" = (
 /turf/open/gm/dirt/desert1,
@@ -2831,11 +3210,6 @@
 "LN" = (
 /turf/open/gm/coast/beachcorner/north_west,
 /area/yautja_grounds/jungle/south_west)
-"LS" = (
-/obj/structure/platform/stone/ancient_temple/east,
-/obj/structure/platform/stone/ancient_temple/north,
-/turf/open/gm/river,
-/area/yautja_grounds/temple)
 "LV" = (
 /obj/structure/flora/bush/ausbushes/ywflowers,
 /obj/structure/flora/jungle/vines/heavy,
@@ -2925,7 +3299,7 @@
 /area/yautja_grounds/jungle/north_east)
 "NA" = (
 /obj/structure/flora/bush/ausbushes/ywflowers,
-/turf/open/gm/grass/grass2,
+/turf/open/auto_turf/strata_grass/layer0,
 /area/yautja_grounds/jungle/north)
 "NE" = (
 /obj/structure/flora/jungle/vines,
@@ -2949,6 +3323,7 @@
 /obj/structure/flora/jungle/vines{
 	icon_state = "light_3"
 	},
+/obj/effect/alien/weeds/node/pylon/hunted,
 /turf/open/gm/grass/grass1,
 /area/yautja_grounds/jungle)
 "Od" = (
@@ -2994,7 +3369,7 @@
 /area/yautja_grounds/jungle/north_west)
 "OJ" = (
 /obj/structure/flora/bush/ausbushes/var3/stalkybush,
-/turf/open/gm/grass/grass1,
+/turf/open/auto_turf/strata_grass/layer0,
 /area/yautja_grounds/jungle/east)
 "OK" = (
 /obj/structure/flora/jungle/vines,
@@ -3026,7 +3401,7 @@
 /obj/structure/flora/jungle/vines{
 	icon_state = "light_3"
 	},
-/turf/open/gm/grass/grass1,
+/turf/open/auto_turf/strata_grass/layer0,
 /area/yautja_grounds/jungle/south_east)
 "Pe" = (
 /turf/open/gm/river,
@@ -3050,7 +3425,7 @@
 /obj/structure/flora/jungle/vines{
 	icon_state = "light_3"
 	},
-/obj/effect/landmark/monkey_spawn,
+/mob/living/carbon/human/monkey,
 /turf/open/gm/grass/grass1,
 /area/yautja_grounds/jungle/south_east)
 "PA" = (
@@ -3059,7 +3434,7 @@
 /area/yautja_grounds/jungle)
 "PC" = (
 /obj/structure/flora/jungle/plantbot1,
-/turf/open/gm/grass/grass1,
+/turf/open/auto_turf/strata_grass/layer0,
 /area/yautja_grounds/jungle)
 "PJ" = (
 /obj/structure/machinery/door/airlock/sandstone/runed/dark,
@@ -3101,15 +3476,9 @@
 /obj/structure/flora/bush/ausbushes/ausbush,
 /turf/open/gm/dirt,
 /area/yautja_grounds/jungle/south)
-"Qv" = (
-/obj/structure/flora/jungle/vines{
-	icon_state = "light_3"
-	},
-/turf/closed/wall/strata_ice/jungle,
-/area/yautja_grounds/jungle/north_west)
 "Qx" = (
 /obj/structure/flora/jungle/alienplant1,
-/turf/open/gm/grass/grass1,
+/turf/open/auto_turf/strata_grass/layer0_mud,
 /area/yautja_grounds/jungle/east)
 "Qz" = (
 /obj/structure/prop/brazier{
@@ -3153,7 +3522,7 @@
 /area/yautja_grounds/jungle)
 "QW" = (
 /obj/structure/flora/bush/ausbushes/var3/fernybush,
-/turf/open/gm/grass/grass1,
+/turf/open/auto_turf/strata_grass/layer0_mud,
 /area/yautja_grounds/jungle/north_west)
 "QY" = (
 /obj/structure/flora/grass/tallgrass/jungle/corner{
@@ -3194,16 +3563,9 @@
 	dir = 8;
 	health = 80
 	},
-/obj/item/xeno_egg/forsaken,
-/obj/item/xeno_egg/forsaken,
-/obj/item/xeno_egg/forsaken,
-/obj/item/xeno_egg/forsaken,
-/obj/item/xeno_egg/forsaken,
-/obj/item/xeno_egg/forsaken,
-/obj/item/xeno_egg/forsaken,
-/obj/item/xeno_egg/forsaken,
-/obj/item/xeno_egg/forsaken,
-/obj/item/xeno_egg/forsaken,
+/obj/item/weapon/twohanded/yautja/glaive/alt{
+	anchored = 1
+	},
 /turf/open/floor/strata/grey_multi_tiles/southwest,
 /area/yautja_grounds/prep_room)
 "RB" = (
@@ -3307,7 +3669,7 @@
 /area/yautja_grounds/jungle/south)
 "SF" = (
 /obj/structure/flora/jungle/alienplant1,
-/turf/open/gm/grass/grass1,
+/turf/open/auto_turf/strata_grass/layer0,
 /area/yautja_grounds/jungle/north_east)
 "SG" = (
 /obj/structure/platform/stone/ancient_temple/west,
@@ -3318,7 +3680,7 @@
 /area/yautja_grounds/jungle/east)
 "SQ" = (
 /obj/structure/flora/bush/ausbushes/var3/fernybush,
-/turf/open/gm/grass/grass1,
+/turf/open/auto_turf/strata_grass/layer0,
 /area/yautja_grounds/jungle/east)
 "ST" = (
 /turf/open/gm/dirt/desert2,
@@ -3332,7 +3694,7 @@
 /area/yautja_grounds/jungle/east)
 "SY" = (
 /obj/structure/flora/bush/ausbushes/genericbush,
-/turf/open/gm/grass/grass2,
+/turf/open/auto_turf/strata_grass/layer0_mud,
 /area/yautja_grounds/jungle/east)
 "Tf" = (
 /obj/structure/barricade/handrail/sandstone/b/dark,
@@ -3461,10 +3823,6 @@
 	},
 /turf/open/floor/engine/cult,
 /area/yautja_grounds/temple)
-"UW" = (
-/obj/effect/alien/weeds/node/pylon/hunted,
-/turf/open/gm/grass/grass1,
-/area/yautja_grounds/jungle)
 "Vg" = (
 /obj/structure/stairs/perspective{
 	color = "#6b675e";
@@ -3510,22 +3868,6 @@
 	dir = 4;
 	health = 80
 	},
-/obj/item/storage/box/monkeycubes/yautja{
-	pixel_y = 10;
-	pixel_x = -5
-	},
-/obj/item/storage/box/monkeycubes/yautja{
-	pixel_y = 10;
-	pixel_x = 8
-	},
-/obj/item/storage/box/monkeycubes/yautja{
-	pixel_y = -1;
-	pixel_x = -5
-	},
-/obj/item/storage/box/monkeycubes/yautja{
-	pixel_y = -1;
-	pixel_x = 8
-	},
 /turf/open/floor/strata/grey_multi_tiles/southwest,
 /area/yautja_grounds/prep_room)
 "Vz" = (
@@ -3549,7 +3891,7 @@
 /obj/structure/flora/jungle/vines{
 	icon_state = "light_3"
 	},
-/turf/open/gm/grass/grass1,
+/turf/open/auto_turf/strata_grass/layer0,
 /area/yautja_grounds/jungle/north_west)
 "VS" = (
 /obj/item/clothing/accessory/limb/skeleton/head{
@@ -3697,7 +4039,7 @@
 /obj/structure/flora/grass/tallgrass/jungle/corner{
 	dir = 5
 	},
-/turf/open/gm/grass/grass1,
+/turf/open/auto_turf/strata_grass/layer0_mud,
 /area/yautja_grounds/jungle/north)
 "Xj" = (
 /obj/structure/surface/table/reinforced/prison{
@@ -3721,11 +4063,6 @@
 /obj/structure/flora/jungle/vines/heavy,
 /turf/open/gm/grass/grass1,
 /area/yautja_grounds/jungle/north_east)
-"Xp" = (
-/obj/structure/platform/stone/ancient_temple/alt/west,
-/obj/structure/platform/stone/ancient_temple/north,
-/turf/open/gm/river,
-/area/yautja_grounds/temple)
 "Xv" = (
 /obj/structure/flora/jungle/vines/heavy,
 /turf/open/gm/dirt,
@@ -3808,7 +4145,7 @@
 /area/yautja_grounds/jungle/south_east)
 "Yv" = (
 /obj/structure/flora/jungle/planttop1,
-/turf/open/gm/grass/grass1,
+/turf/open/auto_turf/strata_grass/layer0,
 /area/yautja_grounds/jungle)
 "Yw" = (
 /turf/open/gm/dirtgrassborder/north,
@@ -3937,6 +4274,7 @@
 /turf/open/floor/strata/grey_multi_tiles/southwest,
 /area/yautja_grounds/temple)
 "ZM" = (
+/obj/structure/prop/hunter/fake_platform/hunter/east,
 /turf/open/floor/corsat/squareswood,
 /area/yautja_grounds/temple)
 "ZZ" = (
@@ -4577,12 +4915,12 @@ gN
 zn
 Kn
 Kn
-Kn
-wh
-wh
-wh
-wh
-wh
+zn
+bw
+bw
+bA
+bw
+bw
 wh
 wh
 wh
@@ -4676,13 +5014,13 @@ gN
 zn
 Kn
 lr
-lr
+qz
+AM
+Hp
+Hp
+jl
 qz
 qz
-qz
-qz
-qz
-lr
 lr
 lr
 lr
@@ -4776,14 +5114,14 @@ zn
 Kn
 lr
 qz
-AM
-Hp
-Hp
-jl
+tH
+se
+gx
+rn
+SU
 qz
-qz
-nq
-nq
+su
+br
 nq
 lr
 lr
@@ -4876,8 +5214,8 @@ Kn
 qz
 Pr
 tH
-se
-gx
+jx
+YU
 rn
 SU
 SU
@@ -4946,12 +5284,12 @@ Kn
 zn
 KX
 Di
-ts
-ts
-ts
-ts
-ts
-ts
+cG
+cG
+cG
+cG
+cG
+cz
 ZM
 Qz
 zn
@@ -4974,10 +5312,10 @@ Kn
 zn
 qz
 SU
-tH
-jx
-YU
-rn
+MZ
+sn
+sn
+ri
 SU
 SU
 ZA
@@ -5044,7 +5382,6 @@ Kn
 zn
 zn
 Di
-ts
 cG
 cG
 cG
@@ -5052,6 +5389,7 @@ cG
 cG
 cG
 cG
+cz
 ZM
 zn
 zn
@@ -5076,7 +5414,7 @@ SG
 SG
 SG
 sG
-ri
+SU
 SU
 eG
 ZA
@@ -5142,7 +5480,7 @@ Kn
 Kn
 zn
 Xy
-Xp
+CM
 LL
 Ni
 Ni
@@ -5602,7 +5940,7 @@ XC
 Ev
 Ev
 Ev
-Ev
+aJ
 Ev
 Ev
 Ev
@@ -5934,7 +6272,7 @@ Kn
 Kn
 zn
 Xy
-LS
+CM
 lR
 nO
 nO
@@ -6033,8 +6371,7 @@ Kn
 Kn
 zn
 zn
-Di
-hR
+cC
 cG
 cG
 cG
@@ -6042,7 +6379,8 @@ cG
 cG
 cG
 cG
-ZM
+cz
+cy
 zn
 zn
 zn
@@ -6066,7 +6404,7 @@ su
 su
 su
 dB
-jl
+SU
 SU
 eG
 ZA
@@ -6133,14 +6471,14 @@ Kn
 Kn
 zn
 KX
-Di
-hR
-hR
-hR
-hR
-hR
-hR
-ZM
+cC
+cG
+cG
+cG
+cG
+cG
+cz
+cy
 Qz
 zn
 Kn
@@ -6162,10 +6500,10 @@ Kn
 zn
 qz
 SU
-tH
-QE
-yk
-rn
+AM
+Hp
+Hp
+jl
 SU
 SU
 ZA
@@ -6262,8 +6600,8 @@ Kn
 qz
 Pr
 tH
-se
-SU
+QE
+yk
 rn
 SU
 SU
@@ -6360,14 +6698,14 @@ zn
 Kn
 qz
 qz
-MZ
-sn
-sn
-ri
+tH
+se
+SU
+rn
+SU
 qz
-qz
-nq
-nq
+SG
+bs
 nq
 nq
 vA
@@ -6458,13 +6796,13 @@ gh
 zn
 Kn
 lr
-lr
+qz
+MZ
+sn
+sn
+ri
 qz
 qz
-qz
-qz
-qz
-lr
 lr
 lr
 lr
@@ -6557,12 +6895,12 @@ gh
 zn
 Kn
 lr
-lr
-lr
-lr
-lr
-lr
-lr
+qz
+qz
+qz
+Pr
+qz
+qz
 lr
 lr
 lr
@@ -8534,8 +8872,8 @@ il
 il
 il
 WY
-mC
-nS
+ce
+bZ
 nS
 mC
 wh
@@ -8627,12 +8965,12 @@ mC
 wh
 il
 nS
-nS
-lq
-mC
-il
-ZZ
-lE
+bZ
+ca
+ce
+ce
+ca
+cf
 lE
 nS
 nS
@@ -8725,14 +9063,14 @@ mC
 wh
 wh
 il
-sY
+cl
 nS
-WY
-il
-il
-nS
-nS
-nS
+cl
+ce
+ce
+bZ
+bZ
+bZ
 nS
 il
 il
@@ -8825,19 +9163,19 @@ wh
 wh
 il
 ZZ
-nS
-nS
-il
+bZ
+bZ
+ce
 mC
 nS
 pV
-nS
-ZZ
+bZ
+ca
 CC
+bR
 il
 il
-il
-il
+by
 il
 IZ
 Vs
@@ -8922,10 +9260,10 @@ mC
 wh
 wh
 wh
-il
+ce
 WY
-nS
-nS
+bZ
+bZ
 mC
 mC
 nS
@@ -8935,9 +9273,9 @@ WY
 il
 il
 CC
-CC
+by
 il
-il
+by
 wr
 wr
 IZ
@@ -9021,11 +9359,11 @@ wh
 wh
 wh
 il
-il
-Qv
+ce
+cf
 VJ
 nS
-mC
+ce
 il
 mC
 nS
@@ -9035,8 +9373,8 @@ lq
 nS
 nS
 JA
-nS
-il
+bB
+by
 IZ
 IZ
 IZ
@@ -9121,21 +9459,21 @@ wh
 nS
 il
 il
-mC
+ce
 lE
-nS
-lq
-il
-il
+bZ
+ca
+ce
+ce
 il
 sY
 nS
 nS
-nS
-nS
+bB
+bB
 il
-CC
-il
+by
+by
 mC
 fb
 Lg
@@ -9221,19 +9559,19 @@ il
 il
 il
 il
-lq
-nS
+ca
+bZ
 WY
 ib
-il
-il
+ce
+ce
 il
 nS
 mC
 mC
-il
-ib
-CC
+by
+bL
+by
 il
 mC
 fb
@@ -9320,20 +9658,20 @@ il
 CC
 CC
 il
-il
+ce
 sY
 il
-lE
+cj
 CC
 il
 eP
-il
-il
-il
-il
-il
-il
-CC
+by
+by
+by
+by
+by
+by
+by
 mC
 fb
 fb
@@ -9421,15 +9759,15 @@ eU
 mC
 il
 il
-il
+by
 il
 DJ
 mC
 mC
-il
+by
 KB
-il
-il
+by
+by
 ld
 jy
 il
@@ -9518,16 +9856,16 @@ il
 il
 CC
 il
-il
-il
-CC
-il
+by
+by
+by
+by
 il
 hx
 il
-il
-il
-mC
+by
+by
+by
 il
 EK
 il
@@ -9545,8 +9883,8 @@ YO
 Ss
 Ss
 lZ
-hN
-Uu
+aU
+aU
 hN
 jF
 IZ
@@ -9615,15 +9953,15 @@ Ut
 xb
 OE
 il
-il
-CC
-CC
-CC
-il
-il
-il
-wF
-il
+by
+by
+by
+by
+by
+by
+by
+cg
+by
 QW
 TJ
 OE
@@ -9645,8 +9983,8 @@ Ss
 Tp
 hN
 Uu
-hN
-Uu
+aU
+aU
 hN
 hN
 hN
@@ -9660,9 +9998,9 @@ aZ
 WA
 WT
 WA
+ay
 WA
-WA
-WA
+ay
 Qq
 Qq
 Ld
@@ -9709,19 +10047,19 @@ PT
 ih
 ih
 fp
-ih
-As
+bK
+cu
 Vn
 Vn
 Xh
-kO
-ih
-gE
-ih
-ih
-ih
-ih
-ih
+cq
+bK
+co
+bK
+bK
+bK
+bK
+bK
 ih
 ih
 lN
@@ -9743,11 +10081,11 @@ Or
 lZ
 hN
 hN
-hN
-hN
-hN
-hN
-Uu
+aU
+aU
+aU
+aU
+aU
 hN
 hN
 hN
@@ -9759,9 +10097,9 @@ WA
 uS
 vN
 aH
-WA
+ay
 HK
-WA
+ay
 Qq
 Qq
 Qq
@@ -9807,15 +10145,15 @@ PT
 ih
 JF
 JF
-HP
-No
+cv
+cw
 Db
 Vn
 Vn
-yM
+cs
 PT
 ih
-ih
+bK
 ih
 ih
 ih
@@ -9844,11 +10182,11 @@ fb
 fb
 hN
 hN
-hN
-hN
-hN
-hN
-hN
+aU
+aU
+aU
+aU
+aU
 hN
 WA
 vN
@@ -9859,8 +10197,8 @@ yc
 Qq
 Qq
 Qq
-Ln
-WA
+aD
+ay
 Qq
 Qq
 Qq
@@ -9905,12 +10243,12 @@ PT
 us
 ih
 us
-uJ
+ct
 ih
-ih
-ih
+bK
+bK
 Db
-yM
+cs
 ih
 ih
 ih
@@ -9943,23 +10281,23 @@ fb
 fb
 fb
 fb
+aU
+aU
+aU
 hN
-hN
-hN
-hN
-pO
-hN
-WA
+aV
+aU
+ay
 WA
 vN
+ay
 WA
-WA
 Qq
 Qq
 Qq
 Qq
-uS
-Ln
+aF
+aD
 WA
 Qq
 Qq
@@ -10005,10 +10343,10 @@ us
 bo
 GJ
 HP
-ih
+bK
 PT
 ih
-PT
+bK
 ih
 ih
 JS
@@ -10019,12 +10357,12 @@ Vn
 QY
 ih
 GJ
-uJ
-PT
+cb
+bI
 ih
 Ts
-ih
-md
+bI
+bI
 ih
 ih
 hj
@@ -10048,17 +10386,17 @@ hN
 hN
 hN
 hN
+ay
+ay
 WA
+ay
 vN
-WA
-WA
-vN
 Qq
 Qq
 Qq
 Qq
-WA
-uS
+ay
+aF
 Ln
 WA
 Qq
@@ -10101,30 +10439,30 @@ PT
 PT
 PT
 md
-ih
+bK
 us
-uJ
+ct
 JF
 PT
-uJ
+ct
 uJ
 PT
 PT
 ih
 ih
 As
-Vn
+cm
 Vn
 yM
 ih
 us
 hM
-uJ
-ih
-ih
-ih
+cb
+bI
+bI
+bI
 at
-kO
+bF
 ih
 hj
 hj
@@ -10148,8 +10486,8 @@ fb
 hN
 hN
 WA
-WA
-WA
+ay
+ay
 WA
 vN
 Qq
@@ -10157,8 +10495,8 @@ Qq
 Qq
 Qq
 WA
-WA
-WA
+ay
+ay
 WA
 WA
 Qq
@@ -10199,13 +10537,13 @@ PT
 PT
 PT
 PT
-md
-ih
-JF
-GJ
+bK
+bK
+cn
+cx
 us
 PT
-HP
+cv
 uJ
 PT
 ih
@@ -10213,16 +10551,16 @@ ih
 Ts
 Db
 RR
-yM
+ck
 ih
 ih
 jj
 GJ
-GJ
-HP
-PT
-ih
-md
+cc
+bX
+bI
+bI
+bI
 ih
 ih
 hj
@@ -10248,20 +10586,20 @@ fb
 uL
 WR
 Ln
-WA
-vN
+ay
+ay
 Qq
 Qq
 Qq
 Qq
 Qq
-WA
-WA
-WA
-Qq
+ay
+ay
 WA
 Qq
+WA
 Qq
+ay
 Qq
 Qq
 Qq
@@ -10296,11 +10634,11 @@ PT
 af
 ae
 bo
-ih
+cB
 us
-md
-ih
-JF
+bK
+bK
+cn
 PT
 uJ
 HP
@@ -10312,15 +10650,15 @@ ih
 ih
 ih
 ih
-ih
+bI
 No
-ih
-PT
+bI
+bI
 us
 HP
 tY
-ih
-ih
+bI
+bI
 bT
 ih
 hj
@@ -10347,20 +10685,20 @@ fb
 fb
 fb
 WA
-WA
-WA
+ay
+ay
 WA
 Qq
-Qq
-WA
-WA
-oY
-WA
-WA
 Qq
 WA
 WA
+aL
 WA
+WA
+Qq
+WA
+ay
+ay
 WA
 Qq
 Qq
@@ -10395,10 +10733,10 @@ PT
 ag
 ad
 md
+cB
 ih
-us
-GJ
-ih
+cx
+oG
 PT
 PT
 uJ
@@ -10410,18 +10748,18 @@ ih
 PT
 PT
 bo
-ih
-ih
-ih
-ih
+bI
+bI
+bI
+bI
 GJ
 PT
 PT
 GJ
 ih
-ih
-ih
-ih
+bI
+bI
+bI
 hj
 hj
 XX
@@ -10446,19 +10784,19 @@ fb
 fb
 KZ
 WA
+ay
+ay
+ay
 WA
 WA
 WA
-WA
-WA
-WA
-WA
-WA
+ay
+ay
 WA
 sB
 WA
-WA
-WA
+ay
+ay
 WA
 WA
 WA
@@ -10493,12 +10831,12 @@ oh
 PT
 ai
 ad
+bI
+cB
 ih
-ih
-uJ
-ih
-gf
-ih
+bK
+bK
+bK
 PT
 PT
 us
@@ -10509,10 +10847,10 @@ ih
 ih
 PT
 PT
-aG
+at
 kO
-ih
-ih
+bI
+bI
 PT
 PT
 us
@@ -10536,7 +10874,7 @@ fb
 fb
 hN
 hN
-iV
+bd
 Xk
 iV
 sf
@@ -10544,14 +10882,14 @@ fb
 fb
 fb
 WA
-Ww
+aR
 Gz
-WA
-WA
-WA
+ay
+ay
+ay
+aD
 Ln
-Ln
-uS
+aF
 uS
 uS
 WA
@@ -10593,10 +10931,10 @@ PT
 af
 ae
 md
-ih
-ih
-md
-ih
+cB
+bK
+bK
+bK
 ih
 PT
 GJ
@@ -10608,11 +10946,11 @@ PT
 ih
 ih
 ih
+bI
+bI
 ih
-ih
-ih
-gE
-PT
+ci
+bI
 us
 us
 HP
@@ -10634,8 +10972,8 @@ hj
 fb
 fb
 tj
-IZ
-IZ
+bc
+bc
 hN
 fr
 wr
@@ -10648,7 +10986,7 @@ qT
 WA
 Qq
 uq
-Ln
+aD
 LV
 Qq
 fq
@@ -10693,12 +11031,12 @@ PT
 PT
 PT
 ac
-ih
-ih
-ih
-ih
+bK
+bK
+bK
+bK
 QF
-us
+cn
 JF
 PT
 us
@@ -10706,18 +11044,18 @@ PT
 PT
 jo
 oG
-ih
-ih
+bI
+bI
 ih
 md
 ih
-PT
+bI
 PT
 us
 Wx
 uJ
 PT
-ih
+bI
 NA
 GJ
 gy
@@ -10732,8 +11070,8 @@ hj
 fb
 fb
 fr
-hN
-hN
+aU
+aU
 fr
 hN
 uL
@@ -10795,16 +11133,16 @@ PT
 us
 jo
 ih
-oG
-ih
-GJ
+bK
+bK
+cx
 us
 uJ
 us
 us
 ih
 ih
-ih
+bI
 PT
 tb
 md
@@ -10813,12 +11151,12 @@ us
 us
 us
 ih
+bI
+bI
+bI
+bM
 ih
 ih
-ih
-bo
-ih
-jN
 QK
 us
 nH
@@ -10830,8 +11168,8 @@ hj
 hj
 fb
 fb
-IZ
-IZ
+bc
+bc
 hN
 hN
 hN
@@ -10893,20 +11231,20 @@ PT
 PT
 PT
 us
-ih
-ih
-ih
-ih
+gf
+bK
+bK
+bK
 Wx
 us
 PT
 PT
 PT
 ih
-ih
-ih
-ih
-md
+bI
+bI
+bI
+bI
 PT
 PT
 ih
@@ -10993,8 +11331,8 @@ PT
 PT
 RB
 ih
-ih
-us
+bK
+cn
 us
 PT
 PT
@@ -11092,8 +11430,8 @@ PT
 PT
 PT
 us
-ih
-ih
+bK
+bK
 PT
 PT
 PT
@@ -11153,8 +11491,8 @@ xj
 xj
 zd
 RK
-Iv
-Iv
+ap
+ap
 Iv
 pi
 pi
@@ -11192,12 +11530,12 @@ PT
 PT
 RB
 ih
-ih
-us
+bK
+cn
 PT
 HP
-uJ
-ih
+ct
+bK
 My
 us
 PT
@@ -11225,10 +11563,10 @@ Sm
 hj
 fb
 fb
-hN
+aU
 tj
 hN
-hN
+aU
 fb
 fb
 fb
@@ -11254,7 +11592,7 @@ zd
 fq
 CU
 kT
-Iv
+ap
 pi
 pi
 pq
@@ -11293,12 +11631,12 @@ ih
 ih
 No
 uJ
-HP
-uJ
+cv
+ct
 GJ
-us
-us
-ih
+cn
+cn
+bK
 ih
 ih
 ih
@@ -11318,13 +11656,13 @@ vL
 Ss
 Ss
 Qb
-UW
+hN
 hN
 hN
 fb
 fb
 fb
-hN
+aU
 Yv
 PC
 hN
@@ -11394,10 +11732,10 @@ ih
 uJ
 uJ
 ih
-ih
+bK
 JF
 Wx
-ih
+bK
 ih
 wo
 HP
@@ -11424,7 +11762,7 @@ fb
 fb
 fb
 fr
-IZ
+bc
 IZ
 fb
 fb
@@ -11497,9 +11835,9 @@ ih
 PT
 PT
 ih
-ih
-PT
-us
+bK
+bK
+cn
 ih
 ih
 HP
@@ -11527,7 +11865,7 @@ IZ
 hN
 hN
 fb
-hN
+aU
 fb
 fb
 IZ
@@ -11549,8 +11887,8 @@ fC
 oL
 zj
 oL
-OK
-KP
+av
+aq
 Iv
 pi
 pi
@@ -11599,9 +11937,9 @@ PT
 uJ
 aG
 kO
-ih
-ih
-ih
+bK
+bK
+bK
 WF
 PT
 HP
@@ -11626,7 +11964,7 @@ iV
 fb
 hN
 hN
-hN
+aU
 fb
 IZ
 uL
@@ -11644,11 +11982,11 @@ pi
 pi
 oL
 Nq
-oL
+ap
 oL
 zl
-Ir
-Iv
+az
+ap
 Iv
 Iv
 pi
@@ -11699,7 +12037,7 @@ us
 GJ
 vL
 EP
-ih
+bK
 HP
 ih
 PT
@@ -11725,7 +12063,7 @@ fb
 fb
 hN
 hN
-hN
+aU
 fb
 IZ
 MW
@@ -11746,7 +12084,7 @@ pz
 Ir
 OW
 Iv
-pi
+ap
 pi
 Iv
 Iv
@@ -11799,13 +12137,13 @@ GJ
 Db
 QY
 ih
+bK
+bK
 ih
-ih
-ih
-jo
-ih
-ih
-md
+cd
+bK
+bK
+bK
 ih
 ih
 fb
@@ -11824,7 +12162,7 @@ Yk
 Yk
 fr
 IZ
-IZ
+bc
 fb
 iV
 IZ
@@ -11843,8 +12181,8 @@ Iv
 Iv
 pi
 pi
-pi
-Iv
+ap
+ap
 Iv
 Iv
 Iv
@@ -11900,12 +12238,12 @@ ih
 ch
 Fo
 No
-ih
-ih
+bK
+bK
 GJ
-ih
-ih
-oG
+bK
+bK
+bO
 ih
 hN
 fb
@@ -11944,7 +12282,7 @@ Iv
 Iv
 pi
 VC
-VC
+as
 VC
 Iv
 pi
@@ -12005,15 +12343,15 @@ PT
 HP
 ih
 ih
-ih
+bK
 fb
 IZ
 IZ
 IZ
 BS
 bC
-uh
-MC
+aW
+bm
 SY
 uh
 uh
@@ -12113,8 +12451,8 @@ BS
 Yk
 uh
 hw
-uh
-uh
+aW
+aW
 CS
 kW
 BS
@@ -12122,8 +12460,8 @@ BS
 uh
 Yk
 uh
-uh
-uh
+aY
+aY
 bC
 bC
 OK
@@ -12212,16 +12550,16 @@ BS
 kW
 uh
 hc
-bE
-uh
-uh
-uh
-BS
-uh
-uh
-MC
-uh
-uh
+bj
+aW
+aW
+aW
+bf
+aY
+aY
+be
+aY
+aY
 PK
 Yk
 pi
@@ -12312,12 +12650,12 @@ Aq
 rv
 jL
 jL
-bE
-uh
-uh
+bj
+aW
+aW
 Qx
 uh
-Yk
+aY
 Aq
 uh
 ui
@@ -12387,7 +12725,7 @@ kF
 kF
 kF
 aI
-yT
+bu
 kF
 kF
 lO
@@ -12414,7 +12752,7 @@ mt
 VB
 uh
 uh
-uh
+aW
 Yk
 Yk
 Yk
@@ -12430,7 +12768,7 @@ pi
 pi
 VC
 VC
-dS
+aM
 pi
 Yz
 Iv
@@ -12441,7 +12779,7 @@ qW
 zN
 Iv
 Iv
-VC
+as
 VC
 pi
 pi
@@ -12485,10 +12823,10 @@ RT
 kF
 kF
 kF
-kF
-kF
-kF
-Rr
+bu
+bu
+bu
+cp
 ei
 Rr
 GO
@@ -12526,13 +12864,13 @@ VC
 wt
 pi
 pi
-Iv
-VC
-Bj
-dS
+aM
+aN
+aP
+aM
 Iv
 yF
-Iv
+ap
 Yn
 OO
 Yd
@@ -12540,7 +12878,7 @@ Yz
 mK
 dS
 dS
-Iv
+ap
 VC
 pi
 pi
@@ -12583,9 +12921,9 @@ ym
 dj
 kF
 kF
-kF
-kF
-kF
+bu
+bu
+bu
 Rr
 lO
 GO
@@ -12606,13 +12944,13 @@ GO
 GO
 GO
 GO
-lQ
+aY
+aY
+aY
 uh
 uh
-uh
-uh
-Yk
-uh
+aY
+aY
 uh
 BS
 BS
@@ -12622,23 +12960,23 @@ Aq
 Jr
 RL
 LZ
-VC
+aN
 wI
-kT
-Iv
-Iv
-dS
+aQ
+aM
+aM
+aM
 pi
 Iv
 Iv
 Yn
-OO
-OO
-XQ
+aC
+aC
+aA
 Iv
 Iv
-Iv
-Es
+ap
+aw
 Iv
 Iv
 nh
@@ -12684,8 +13022,8 @@ kF
 kF
 GO
 GO
-kF
-kF
+bu
+bu
 yZ
 yZ
 yZ
@@ -12706,10 +13044,10 @@ GO
 GO
 uh
 uh
-lQ
-MC
-uh
-pU
+aY
+be
+aY
+bg
 Yk
 Yk
 uh
@@ -12720,25 +13058,25 @@ lQ
 lQ
 lQ
 yd
-dS
-Iv
-Iv
-Iv
-Iv
-dS
-Iv
-VC
+aM
+aM
+aM
+aM
+aM
+aM
+aM
+aN
 VC
 Iv
 bx
 OO
 OO
-Yd
-Iv
-Iv
+aB
+ap
+ap
 dS
 Iv
-Yz
+au
 Iv
 OK
 pi
@@ -12784,8 +13122,8 @@ GO
 GO
 GO
 kF
-kF
-kF
+bu
+bu
 yZ
 kF
 kF
@@ -12805,9 +13143,9 @@ GO
 uh
 uh
 SQ
-lQ
-lQ
-lQ
+aY
+aY
+aY
 uh
 Yk
 Yk
@@ -12816,28 +13154,28 @@ uh
 MC
 Aq
 kW
-FE
+bb
 mN
-uh
-dS
-dS
-OK
-VC
-Iv
-dS
-VC
-VC
-Iv
+aW
+aM
+aM
+aT
+aN
+aM
+aM
+aN
+aN
+aM
 Iv
 bx
 OO
 Yd
 Iv
-pi
+ap
 VC
 vo
-Iv
-Iv
+ap
+ap
 VC
 wt
 pi
@@ -12884,8 +13222,8 @@ GO
 GO
 kF
 yT
-kF
-kF
+bu
+bu
 kF
 aE
 kF
@@ -12902,11 +13240,11 @@ mQ
 lO
 Aq
 uh
+aY
 uh
+aY
 uh
 lQ
-uh
-lQ
 lQ
 Yk
 Yk
@@ -12915,8 +13253,8 @@ Yk
 BS
 BS
 BS
-BS
-uh
+aX
+aY
 uh
 VC
 nh
@@ -12935,8 +13273,8 @@ VC
 pi
 OK
 zQ
-Iv
-Iv
+ap
+ap
 Iv
 pi
 pi
@@ -12983,10 +13321,10 @@ lb
 GO
 GO
 kF
-kF
-kF
-kF
-kF
+bu
+bu
+bu
+bu
 kF
 kF
 GO
@@ -13001,7 +13339,7 @@ GO
 Rr
 uh
 uh
-hc
+bp
 gs
 Ki
 uh
@@ -13012,11 +13350,11 @@ Yk
 Yk
 Yk
 Aq
-uh
+aY
 uh
 Yk
-kW
-BS
+ba
+aX
 Iv
 Iv
 wt
@@ -13033,8 +13371,8 @@ VC
 wt
 pi
 pi
-Iv
-Iv
+ap
+ap
 Iv
 pi
 pi
@@ -13099,7 +13437,7 @@ lO
 DZ
 kF
 MC
-uh
+aY
 Ex
 Se
 tI
@@ -13112,8 +13450,8 @@ Yk
 Yk
 Yk
 uh
-uh
-uh
+aY
+aY
 uh
 uh
 Iv
@@ -13131,8 +13469,8 @@ pi
 VC
 pi
 Iv
-Iv
-Iv
+ap
+ap
 Iv
 pi
 pi
@@ -13196,12 +13534,12 @@ kF
 mQ
 rV
 Rr
-kF
-PK
-uh
+bu
+bt
+aY
 Yk
 lQ
-uh
+aY
 uh
 px
 Yk
@@ -13212,7 +13550,7 @@ Yk
 Yk
 Yk
 uh
-uh
+aY
 BS
 kW
 VC
@@ -13230,7 +13568,7 @@ pi
 pi
 Yz
 Iv
-Iv
+ap
 pi
 Iv
 pi
@@ -13295,12 +13633,12 @@ kF
 GO
 DZ
 kF
-yT
-lQ
-lQ
+bu
+aY
+aY
 uh
 lQ
-lQ
+aY
 gY
 BS
 BS
@@ -13328,7 +13666,7 @@ VC
 VC
 pi
 Iv
-Iv
+ap
 Iv
 Iv
 Iv
@@ -13396,10 +13734,10 @@ GO
 GO
 Kl
 uh
-FE
-mN
+bb
+bq
 OJ
-BS
+aX
 BS
 JC
 BS
@@ -13426,7 +13764,7 @@ Iv
 Iv
 VC
 VC
-Iv
+ap
 Iv
 Yz
 Iv
@@ -13486,8 +13824,8 @@ Wq
 Nv
 kP
 rQ
-kF
-kF
+bu
+bu
 kF
 kF
 rV
@@ -13495,9 +13833,9 @@ GO
 GO
 GO
 GO
-uh
-uh
-uh
+aY
+aY
+aY
 Yk
 uh
 BS
@@ -13584,20 +13922,20 @@ ym
 ym
 xh
 mQ
-ox
+bv
 mE
-kF
-kF
+bu
+bu
 kF
 kF
 GO
 kF
-kF
-uh
-uh
-Yk
-uh
-uh
+bu
+aY
+aY
+aY
+aY
+aY
 kW
 kW
 BS
@@ -13684,20 +14022,20 @@ ym
 dO
 Rr
 rj
-Mf
-Jb
-kP
-rQ
+bY
+bU
+bQ
+bP
 kF
 kF
 kF
-ox
+bv
 gs
 bE
-uh
-uh
+aY
+aY
 SQ
-uh
+aY
 kW
 zu
 BS
@@ -13784,10 +14122,10 @@ xh
 lO
 rj
 Mf
-zw
-kF
-kF
-kF
+bV
+bu
+bu
+bu
 ox
 iG
 Mf
@@ -13796,7 +14134,7 @@ VB
 CI
 CS
 uh
-GN
+bk
 uh
 Yk
 Yk
@@ -13884,8 +14222,8 @@ lO
 rq
 Mf
 zw
-kF
-kF
+bu
+bu
 kF
 rq
 RO
@@ -13895,8 +14233,8 @@ Jv
 uh
 uh
 uh
-uh
-uh
+aY
+aY
 uh
 Yk
 Yk
@@ -13982,11 +14320,11 @@ IV
 Rr
 yT
 BR
-Im
-kF
-kF
+bW
+bu
+bu
 oF
-GO
+bu
 kF
 rq
 Jv
@@ -13996,7 +14334,7 @@ uh
 MC
 uh
 xe
-uh
+aY
 kW
 Yk
 Yk
@@ -14080,13 +14418,13 @@ ym
 tm
 rV
 lO
-yT
+bu
 Ia
 wO
 kF
-kF
-yT
-yT
+bu
+bu
+bu
 oF
 uh
 uh
@@ -14095,7 +14433,7 @@ Yk
 ot
 ot
 ot
-Ae
+aY
 FE
 Yk
 Yk
@@ -14184,7 +14522,7 @@ yT
 yT
 yT
 aI
-kF
+bu
 kF
 yT
 kF
