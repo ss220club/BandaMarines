@@ -192,7 +192,8 @@
 	},
 /obj/structure/machinery/floodlight{
 	name = "Floodlight";
-	needs_power = 0
+	needs_power = 0;
+	turned_on = 1
 	},
 /obj/structure/barricade/sandbags{
 	dir = 8;
@@ -241,7 +242,8 @@
 /obj/structure/flora/jungle/vines/dead/light_3,
 /obj/structure/machinery/floodlight{
 	name = "Floodlight";
-	needs_power = 0
+	needs_power = 0;
+	turned_on = 1
 	},
 /turf/open/floor/ancient_temple/ruined/east,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
@@ -251,7 +253,8 @@
 	},
 /obj/structure/machinery/floodlight{
 	name = "Floodlight";
-	needs_power = 0
+	needs_power = 0;
+	turned_on = 1
 	},
 /obj/structure/barricade/sandbags{
 	color = "#a98c7c";
@@ -372,7 +375,8 @@
 "ei" = (
 /obj/structure/machinery/floodlight{
 	name = "Floodlight";
-	needs_power = 0
+	needs_power = 0;
+	turned_on = 1
 	},
 /obj/effect/decal/lv_decals/red_mud_corner{
 	dir = 8
@@ -720,7 +724,7 @@
 	level = 2;
 	color = "#550d0d"
 	},
-/obj/effect/landmark/survivor_spawner/clf_lead,
+/obj/effect/landmark/survivor_spawner/clf_synth,
 /turf/open/floor/interior/wood/alt,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "hP" = (
@@ -1830,7 +1834,8 @@
 /obj/structure/flora/jungle/vines/dead/light_3,
 /obj/structure/machinery/floodlight{
 	name = "Floodlight";
-	needs_power = 0
+	needs_power = 0;
+	turned_on = 1
 	},
 /obj/structure/barricade/sandbags{
 	dir = 8;
@@ -2167,7 +2172,11 @@
 /turf/open/floor/brown_dirt/random_rocks_alt,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "wF" = (
-/obj/structure/barricade/plasteel/wired,
+/obj/structure/barricade/plasteel/wired{
+	icon_state = "plasteel_1";
+	closed = 0;
+	density = 1
+	},
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "wI" = (
@@ -2520,7 +2529,8 @@
 	name = "Floodlight";
 	needs_power = 0;
 	pixel_x = 4;
-	pixel_y = 2
+	pixel_y = 2;
+	turned_on = 1
 	},
 /obj/effect/decal/lv_decals/red_mud_corner{
 	dir = 8
@@ -2598,7 +2608,10 @@
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Cw" = (
 /obj/structure/barricade/plasteel/wired{
-	dir = 4
+	dir = 4;
+	density = 1;
+	closed = 0;
+	icon_state = "plasteel_0"
 	},
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
@@ -3206,7 +3219,8 @@
 	name = "Floodlight";
 	needs_power = 0;
 	pixel_x = -5;
-	pixel_y = 3
+	pixel_y = 3;
+	turned_on = 1
 	},
 /turf/open/floor/interior/wood/alt,
 /area/lazarus/ground/jungle/north_west_jungle/dense/roof)
@@ -3397,6 +3411,7 @@
 /obj/item/weapon/twohanded/folded_metal_chair,
 /obj/item/trash/cigbutt,
 /obj/item/trash/cigbutt,
+/obj/effect/landmark/survivor_spawner/clf_coordinator,
 /turf/open/floor/interior/wood/alt,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "MB" = (
@@ -3460,7 +3475,8 @@
 /obj/effect/hunter/ancient_temple/deco_border/deco_border3,
 /obj/structure/machinery/floodlight{
 	name = "Floodlight";
-	needs_power = 0
+	needs_power = 0;
+	turned_on = 1
 	},
 /obj/structure/barricade/sandbags{
 	dir = 4;
@@ -3514,8 +3530,12 @@
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Oe" = (
-/obj/structure/barricade/plasteel/wired,
 /obj/item/trash/cigbutt,
+/obj/structure/barricade/plasteel/wired{
+	icon_state = "plasteel_2";
+	density = 1;
+	closed = 0
+	},
 /turf/open/gm/dirt/brown/variant_5/south,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Op" = (
@@ -3611,7 +3631,8 @@
 /obj/structure/machinery/floodlight{
 	name = "Floodlight";
 	needs_power = 0;
-	pixel_x = -3
+	pixel_x = -3;
+	turned_on = 1
 	},
 /obj/effect/decal/lv_decals/red_mud_corner{
 	dir = 4
@@ -3785,7 +3806,9 @@
 "Rc" = (
 /obj/structure/barricade/plasteel/wired{
 	dir = 4;
-	icon_state = "plasteel_closed_1"
+	icon_state = "plasteel_1";
+	closed = 0;
+	density = 1
 	},
 /turf/open/floor/brown_dirt/random_rocks,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
@@ -3801,7 +3824,8 @@
 "Rr" = (
 /obj/structure/machinery/floodlight{
 	name = "Floodlight";
-	needs_power = 0
+	needs_power = 0;
+	turned_on = 1
 	},
 /obj/effect/decal/lv_decals/red_mud_corner{
 	dir = 6
@@ -3840,6 +3864,7 @@
 	color = "#a98c7c"
 	},
 /obj/item/trash/cigbutt,
+/obj/effect/landmark/survivor_spawner/clf_lead,
 /turf/open/floor/interior/wood/alt,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
 "Sb" = (
@@ -4042,7 +4067,8 @@
 "Ui" = (
 /obj/structure/machinery/floodlight{
 	name = "Floodlight";
-	needs_power = 0
+	needs_power = 0;
+	turned_on = 1
 	},
 /obj/effect/decal/lv_decals/red_mud_corner{
 	dir = 5
@@ -4151,6 +4177,10 @@
 	},
 /obj/item/tool/pen{
 	pixel_x = -8;
+	pixel_y = 3
+	},
+/obj/item/device/flashlight/lamp{
+	pixel_x = 6;
 	pixel_y = 3
 	},
 /turf/open/floor/interior/wood/alt,
@@ -4398,7 +4428,8 @@
 	name = "Floodlight";
 	needs_power = 0;
 	pixel_x = -4;
-	pixel_y = 5
+	pixel_y = 5;
+	turned_on = 1
 	},
 /turf/open/floor/interior/wood/alt,
 /area/lazarus/ground/jungle/north_west_jungle/dense)
@@ -4529,7 +4560,8 @@
 	name = "Floodlight";
 	needs_power = 0;
 	pixel_x = 4;
-	pixel_y = 2
+	pixel_y = 2;
+	turned_on = 1
 	},
 /obj/effect/decal/lv_decals/red_mud_corner,
 /turf/open/floor/interior/wood/alt,
@@ -6851,7 +6883,7 @@ Nq
 VR
 Nq
 VR
-bI
+fy
 iR
 Cn
 fF
@@ -7060,7 +7092,7 @@ wN
 jJ
 Mq
 fO
-jJ
+Mq
 vs
 vs
 vs
@@ -7110,7 +7142,7 @@ wN
 wN
 wN
 wN
-jJ
+Mq
 Mq
 vs
 vs
@@ -7506,29 +7538,29 @@ fm
 fm
 fm
 fm
-fm
-fm
-fm
-fm
-fm
-fm
-fm
-fm
-fm
-fm
-fm
-ZM
-ZM
 ZM
 fm
 fm
 fm
 fm
+Zc
+ZM
+ZM
+ZM
 fm
 fm
-fm
-fm
-fm
+ZM
+ZM
+ZM
+ZM
+ZM
+ZM
+Zc
+Zc
+Zc
+Zc
+Zc
+Zc
 fm
 fm
 fm

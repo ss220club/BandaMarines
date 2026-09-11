@@ -3588,6 +3588,15 @@
 "aka" = (
 /turf/open/floor/interior/wood_sat/damage_4,
 /area/lazarus/ground/caves/south_west_caves)
+"akb" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/bed/chair{
+	dir = 8;
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/turf/open/floor/prison/sterile_white,
+/area/lazarus/canteen)
 "akc" = (
 /obj/effect/decal/lv_decals/cave_mud_corner{
 	dir = 5
@@ -10072,13 +10081,6 @@
 	},
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/landing_zones/lz1)
-"aAa" = (
-/obj/structure/machinery/computer/arcade/green_stripe{
-	pixel_x = -1;
-	pixel_y = 10
-	},
-/turf/closed/wall/lv_outpost,
-/area/lazarus/kitchen)
 "aAb" = (
 /obj/structure/platform/stone/ancient_temple/alt/west,
 /obj/effect/hunter/ancient_temple/rubble/rubble_1,
@@ -12845,14 +12847,6 @@
 	},
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/colony/north_nexus_road)
-"aHV" = (
-/obj/effect/decal/hybrisa/dirt,
-/obj/structure/machinery/computer/arcade/green_stripe{
-	pixel_x = -1;
-	pixel_y = 10
-	},
-/turf/open/floor/prison/floor_plate,
-/area/lazarus/main_hall)
 "aHW" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -13165,6 +13159,11 @@
 "aIR" = (
 /obj/structure/flora/bush/ausbushes/var3/sparsegrass,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/lazarus/ground/colony/north_nexus_road)
+"aIS" = (
+/obj/structure/fence/dark/overgrown,
+/obj/structure/fence/dark,
+/turf/open/floor/brown_dirt/random_rocks_alt,
 /area/lazarus/ground/colony/north_nexus_road)
 "aIU" = (
 /obj/structure/flora/bush/ausbushes/ywflowers,
@@ -15497,7 +15496,6 @@
 /area/lazarus/canteen)
 "aPU" = (
 /obj/structure/machinery/disposal{
-	pixel_x = -3;
 	pixel_y = 9
 	},
 /obj/structure/disposalpipe/trunk{
@@ -81745,7 +81743,7 @@ maU
 jJI
 wNT
 fYD
-bQx
+akb
 taL
 bhv
 gxS
@@ -83314,7 +83312,7 @@ cyt
 eps
 hmi
 jtc
-aAa
+gih
 gih
 aPx
 gih
@@ -83538,7 +83536,7 @@ sFn
 aTL
 tZI
 ncr
-aHV
+cdM
 cdM
 aPy
 cdM
@@ -83937,7 +83935,7 @@ tha
 tha
 apm
 veg
-apm
+ukZ
 aZr
 aKi
 aKm
@@ -84161,7 +84159,7 @@ qGM
 saA
 dCq
 qGM
-tha
+ukZ
 aZr
 aRE
 aZn
@@ -84385,7 +84383,7 @@ saA
 qMo
 lHE
 tha
-cNt
+pek
 aZr
 aKi
 aKi
@@ -84609,7 +84607,7 @@ ukZ
 aMY
 mwT
 nXD
-nXD
+qMo
 aZr
 dYs
 aMi
@@ -85299,7 +85297,7 @@ qrb
 ehu
 ehu
 qrb
-hPs
+aIS
 aWI
 aIL
 vgY
@@ -85522,8 +85520,8 @@ ehu
 qrb
 aIQ
 aIQ
+aIQ
 mlW
-vgY
 vgY
 aIL
 vgY

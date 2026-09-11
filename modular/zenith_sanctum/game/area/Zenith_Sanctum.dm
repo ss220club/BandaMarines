@@ -180,55 +180,47 @@
 /area/lazarus/ground/colony
 	name = "\improper Weyland-Yutani Compound"
 	icon_state = "green"
+	ceiling = CEILING_NONE
 
 /area/lazarus/ground/colony/north_nexus_road
 	name = "\improper North Nexus Road"
 	icon_state = "north"
-	ceiling = CEILING_NONE
 
 /area/lazarus/ground/colony/central_beach
 	name = "\improper Central Beach"
 	icon_state = "central"
-	ceiling = CEILING_NONE
 
 /area/lazarus/ground/colony/south_botanics_road
 	name = "\improper South Botanics Road"
 	icon_state = "south"
-	ceiling = CEILING_NONE
 
 /area/lazarus/ground/colony/checkpoint_road
 	name = "\improper Checkpoint Road"
 	icon_state = "central"
-	ceiling = CEILING_NONE
 	linked_lz = DROPSHIP_LZ1
 
 /area/lazarus/ground/colony/south_nexus_road
 	name = "\improper South Nexus Road"
 	icon_state = "south"
-	ceiling = CEILING_NONE
 
 /area/lazarus/ground/colony/west_nexus_road
 	name = "\improper West Nexus Road"
 	icon_state = "west"
-	ceiling = CEILING_NONE
 	linked_lz = DROPSHIP_LZ1
 
 /area/lazarus/ground/colony/north_tcomms_road
 	name = "\improper North T-Comms Road"
 	icon_state = "north"
 	linked_lz = DROPSHIP_LZ2
-	ceiling = CEILING_NONE
 
 /area/lazarus/ground/colony/west_tcomms_road
 	name = "\improper West T-Comms Road"
 	icon_state = "west"
 	linked_lz = DROPSHIP_LZ2
-	ceiling = CEILING_NONE
 
 /area/lazarus/ground/colony/east_nexus_road
 	name = "\improper North East Nexus Road"
 	icon_state = "east"
-	ceiling = CEILING_NONE
 	linked_lz = DROPSHIP_LZ1
 
 // ambience = list('sound/ambience/jungle_amb1.ogg')
