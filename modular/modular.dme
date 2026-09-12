@@ -41,4 +41,5 @@
 #include "balance/_balance.dme"
 #include "emojis220/_emojis.dme"
 #include "yaut_leap/_leap.dme"
+#include "ert/_ert.dme"
 #include "necoarc/_arc.dme"
