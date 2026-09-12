@@ -4,7 +4,7 @@
 
 /datum/config_entry/string/central_api_token
 	config_entry_value = ""
-	protection = CONFIG_ENTRY_HIDDEN
+	protection = CONFIG_ENTRY_HIDDEN | CONFIG_ENTRY_LOCKED
 
 /datum/config_entry/string/server_type
 
