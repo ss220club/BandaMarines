@@ -31,7 +31,6 @@
 #include "skills/_skills.dme"
 #include "supply_packs/_supply_packs.dme"
 #include "roundstart_spawns/_roundstart_spawns.dme"
-#include "attachments/_attachments.dme"
 #include "clothing/_clothing.dme"
 #include "loadout_preferences_gear/_loadout.dme"
 #include "tank_rebalance/_tank_rebalance.dme"
@@ -42,3 +41,4 @@
 #include "emojis220/_emojis.dme"
 #include "yaut_leap/_leap.dme"
 #include "necoarc/_arc.dme"
+#include "weapons/_weapons.dme"
