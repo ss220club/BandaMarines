@@ -8,3 +8,12 @@
   Ingakem:
   - refactor: Refactor merge_upstream workflow to use configurable LLM provider with
       retry logic
+2026-09-10:
+  Zvezdablya:
+  - bugfix: Исправлена настройка Hunting Trap.
+2026-09-12:
+  PetyaFX:
+  - rscadd: Добавлена поддержа старых topic-запросов статуса сервера для интеграции
+      с SS220Manager.
+  - qol: Актуальный статус сервера теперь отображается при помощи дискорд бота.
+  - rscadd: Добавлена отправка публичных уведомлений о банах в Discord через webhook.
