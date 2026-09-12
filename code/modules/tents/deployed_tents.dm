@@ -68,6 +68,9 @@
 		var/mob/hologram/hologram_mob = subject_mob
 		subject_mob = hologram_mob.linked_mob
 
+	if(!subject_mob.hud_used)
+		return
+
 	var/atom/movable/screen/plane_master/roof/roof_plane = subject_mob.hud_used?.plane_masters["[ROOF_PLANE]"]
 	roof_plane?.invisibility = INVISIBILITY_MAXIMUM
 	if(ishuman(subject))
@@ -92,6 +95,9 @@
 	if(istype(subject, /mob/hologram))
 		var/mob/hologram/hologram_mob = subject
 		subject = hologram_mob.linked_mob
+
+	if(!subject.hud_used)
+		return
 
 	var/atom/movable/screen/plane_master/roof/roof_plane = subject.hud_used?.plane_masters["[ROOF_PLANE]"]
 	roof_plane?.invisibility = 0
@@ -194,5 +200,17 @@
 /obj/structure/tent/mess
 	icon_state = "reqs_interior"
 	roof_state = "mess_top"
+	x_dim = 4
+	y_dim = 4
+
+/obj/structure/tent/big_blank
+	icon_state = "reqs_interior"
+	roof_state = "bigblank_top"
+	x_dim = 4
+	y_dim = 4
+
+/obj/structure/tent/big_wy
+	icon_state = "reqs_interior"
+	roof_state = "bigwy_top"
 	x_dim = 4
 	y_dim = 4

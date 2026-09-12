@@ -312,6 +312,8 @@
 	V.pixel_y = pixel_y
 	V.layer = layer
 	V.alpha = alpha
+	V.icon = icon
+	V.icon_state = icon_state
 
 	qdel(src)
 
@@ -332,5 +334,6 @@
 	V.pixel_y = pixel_y
 	V.alpha = alpha
 	V.icon = icon
+	V.icon_state = icon_state
 
 	qdel(src)

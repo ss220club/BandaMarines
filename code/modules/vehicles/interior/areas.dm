@@ -30,6 +30,10 @@
 	name = "van interior"
 	icon_state = "van"
 
+/area/interior/vehicle/white_van
+	name = "WY van interior"
+	icon_state = "van"
+
 /area/interior/vehicle/clf_van
 	name = "CLF van interior"
 	icon_state = "van"
@@ -45,3 +49,7 @@
 /area/interior/vehicle/arc
 	name = "\improper ARC interior"
 	icon_state = "arc"
+
+/area/interior/vehicle/hovercraft
+	name = "hovercraft interior"
+	icon_state = "van"

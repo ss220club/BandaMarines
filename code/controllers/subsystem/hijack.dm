@@ -365,12 +365,12 @@ SUBSYSTEM_DEF(hijack)
 	for(var/area/cycled_area as anything in progress_areas)
 		var/new_area_state = cycled_area.power_equip
 		var/repairable = TRUE
-		var/obj/structure/machinery/machine = SShijack.area_machinery_lookup[cycled_area]
+		var/obj/structure/machinery/machine = SShijack.area_machinery_lookup[cycled_area.declent_ru(NOMINATIVE)]
 		if(machine)
 			// Pumps don't care about area power but health
 			repairable = FALSE
 			new_area_state = machine.operable()
-		progress_areas[cycled_area] = new_area_state
+		progress_areas[cycled_area.declent_ru(NOMINATIVE)] = new_area_state
 		if(new_area_state)
 			// Powered: xenos interested to know this
 			xeno_warning_areas += "[cycled_area.declent_ru(NOMINATIVE)], "

@@ -200,6 +200,8 @@ SUBSYSTEM_DEF(weather)
 	else
 		message_admins(SPAN_BLUE("Неизвестная погода типа «[weather_event_type]» закончится через [DisplayTimeText(world.time - current_event_start_time)].")) // SS220 EDIT ADDICTION
 
+	weather_event_instance.end_weather_event()
+
 	for(var/area/area as anything in weather_areas)
 		area.overlays -= curr_master_turf_overlay
 
