@@ -132,3 +132,138 @@
 		/obj/item/hardpoint/secondary/humvee_launcher,
 		/obj/item/ammo_magazine/hardpoint/humvee_launcher,
 	)
+
+//aev
+/datum/ammo/grenade_container/incen
+	name = "incendiary smoke grenade shell"
+	nade_type = /obj/item/explosive/grenade/phosphorus
+
+/obj/item/ammo_magazine/hardpoint/turret_smoke/incen
+	name = "Incendiary Smoke Discharger Magazine"
+	desc = "A magazine of modified M60 incendiary smoke grenades used by the AEVs discharger array."
+	default_ammo = /datum/ammo/grenade_container/incen
+	max_rounds = 12
+
+/obj/item/ammo_magazine/hardpoint/m56_cupola/aev
+	name = "M56 RWS box"
+	desc = "An expanded box of 700, 10x28mm caseless rounds for the M56 heavy machine gun system."
+	max_rounds = 700
+	gun_type = /obj/item/hardpoint/secondary/m56cupola/aev
+
+/obj/effect/essentials_set/aev/m56_cupola
+	desc = "Основное оружие поддержки пехоты для ИРМ М34E1, по факту является той же системой М56 но с увеличенным боезапасом."
+	spawned_gear_list = list(
+		/obj/item/hardpoint/secondary/m56cupola/aev,
+		/obj/item/ammo_magazine/hardpoint/m56_cupola/aev,
+		/obj/item/ammo_magazine/hardpoint/m56_cupola/aev,
+		/obj/item/ammo_magazine/hardpoint/m56_cupola/aev,
+	)
+
+/obj/effect/essentials_set/aev/smoke_launcher
+	desc = "Вспомогательный модуль поддержки пехоты для ИРМ М34E1, выстреливает несколькими зажигательно-дымовыми гранатами М60 для защиты от безбилетников."
+	spawned_gear_list = list(
+		/obj/item/hardpoint/primary/aev_launcher,
+		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
+		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
+		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
+	)
+
+/obj/effect/essentials_set/apc/smoke_launcher
+	desc = "Вспомогательный модуль поддержки пехоты для БТРов, выстреливает несколькими зажигательно-дымовыми гранатами М60 для защиты от безбилетников."
+	spawned_gear_list = list(
+		/obj/item/hardpoint/support/smoke_launcher,
+		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
+		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
+		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
+	)
+
+/obj/effect/essentials_set/tank/turret_smoke
+	spawned_gear_list = list(
+		/obj/item/ammo_magazine/hardpoint/turret_smoke,
+		/obj/item/ammo_magazine/hardpoint/turret_smoke,
+	)
+
+/datum/supply_packs/ammo_m56_cupola/aev
+	name = "M56 Cupola RWC boxes (x2)"
+	contains = list(
+		/obj/item/ammo_magazine/hardpoint/m56_cupola/aev,
+		/obj/item/ammo_magazine/hardpoint/m56_cupola/aev,
+	)
+	cost = 20
+	containertype = /obj/structure/closet/crate/ammo
+	containername = "M56 Cupola RWC ammo crate"
+	group = "Vehicle Ammo"
+
+/datum/supply_packs/ammo_smoke/incendiary
+	name = "M-33P/Q Smoke Launcher magazines (x4)"
+	contains = list(
+		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
+		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
+		/obj/item/ammo_magazine/hardpoint/turret_smoke/incen,
+	)
+	cost = 20
+	containertype = /obj/structure/closet/crate/ammo
+	containername = "M-33P/Q Smoke Launcher ammo crate"
+	group = "Vehicle Ammo"
+
+/datum/supply_packs/ammo_humvee_cannon
+	name = "M24-RC1 Remote Cannon magazine (x3)"
+	contains = list(
+		/obj/item/ammo_magazine/hardpoint/humvee_cannon,
+		/obj/item/ammo_magazine/hardpoint/humvee_cannon,
+		/obj/item/ammo_magazine/hardpoint/humvee_cannon,
+	)
+	cost = 30
+	containertype = /obj/structure/closet/crate/ammo
+	containername = "Ящик с боеприпасами дистанционно управляемой автопушки M24-RC1 для бронеавтомобилей"
+	group = "Vehicle Ammo"
+
+/datum/supply_packs/ammo_humvee_launcher
+	name = "M24-RC1 Thermobaric magazine (x1)"
+	contains = list(
+		/obj/item/ammo_magazine/hardpoint/humvee_launcher,
+	)
+	cost = 40
+	containertype = /obj/structure/closet/crate/ammo
+	containername = "Ящик с гранатами реактивного огнемёта M24-RC1 для бронеавтомобилей"
+	group = "Vehicle Ammo"
+
+/datum/supply_packs/humvee_cannon_replacement
+	name = "Replacement M24-RC1 Remote Cannon (x1)"
+	contains = list(
+		/obj/item/hardpoint/primary/humvee_cannon,
+	)
+	cost = 40
+	containertype = /obj/structure/closet/crate/weapon
+	containername = "Ящик с дистанционно управляемой автопушкой M24-RC1 для бронеавтомобилей"
+	group = "Vehicle Equipment"
+
+/datum/supply_packs/humvee_flare_replacement
+	name = "Replacement M-77F Flare Launcher (x1)"
+	contains = list(
+		/obj/item/hardpoint/secondary/humvee_flare_launcher,
+	)
+	cost = 15
+	containertype = /obj/structure/closet/crate/weapon
+	containername = "Ящик с пусковой установкой осветительных ракет M-77F для бронеавтомобилей"
+	group = "Vehicle Equipment"
+
+/datum/supply_packs/humvee_wheels_replacement
+	name = "Replacement M24 Series Wheels (x1)"
+	contains = list(
+		/obj/item/hardpoint/locomotion/humvee_wheels,
+	)
+	cost = 20
+	containertype = /obj/structure/closet/crate/weapon
+	containername = "Ящик с колёсами серии M24 для бронеавтомобилей"
+	group = "Vehicle Equipment"
+
+/datum/supply_packs/humvee_overhead_lights
+	name = "M24 Series Overhead Lights (x1)"
+	contains = list(
+		/obj/item/hardpoint/support/humvee_overhead_lights,
+	)
+	cost = 15
+	containertype = /obj/structure/closet/crate/weapon
+	containername = "Ящик с навесными прожекторами серии M24 для бронеавтомобилей"
+	group = "Vehicle Equipment"

@@ -14,7 +14,7 @@
 	if(targ) targ = get_step(targ, owner.dir) // шаг уже от targ
 	if(targ) targ = get_step(targ, owner.dir) // и еще один шаг от targ
 	M.throw_atom(targ, 4, SPEED_FAST, src, 1)
-	M.apply_damage(50 + rand(25, 25), BRUTE)
+	M.apply_damage(25, BRUTE)
 
 /obj/item/hardpoint/armor/humvee_snowplow/on_move(turf/old, turf/new_turf, move_dir)
 	if(health <= 0)
@@ -39,7 +39,6 @@
 				continue
 			new /obj/item/stack/snow(S, S.bleed_layer)
 			S.changing_layer(0)
-
 
 // turret
 /obj/item/hardpoint/holder/humvee_turret
@@ -126,12 +125,12 @@
 
 /obj/item/hardpoint/holder/humvee_turret/get_tgui_info()
 	var/list/data = list()
-	
+
 	data += list(list(
 		"name" = name,
 		"health" = health <= 0 ? null : floor(get_integrity_percent()),
 	))
-	
+
 	for(var/obj/item/hardpoint/H in hardpoints)
 		data += list(H.get_tgui_info())
 
@@ -183,7 +182,7 @@
 	icon_state = "humveecannon"
 	disp_icon = "humvee"
 	disp_icon_state = "humveecannon"
-	activation_sounds = list('modular/sounds/sound/vehicles/humvee/humvee_cannon.ogg')
+	activation_sounds = list('modular/vehicles/sound/humvee/humvee_cannon.ogg')
 
 	damage_multiplier = 0.2
 
@@ -272,7 +271,7 @@
 	..()
 	LAZYADD(traits_to_give, list(
 		BULLET_TRAIT_ENTRY(/datum/element/bullet_trait_iff)
-	)) 
+	))
 
 // Thermobaric launcher
 /obj/item/hardpoint/secondary/humvee_launcher
@@ -324,7 +323,7 @@
 	var/light_power_upgrade = 8
 
 /obj/item/hardpoint/support/humvee_overhead_lights/proc/turn_off_lights()
-	var/obj/vehicle/multitile/modul/humvee_owner = owner
+	var/obj/vehicle/multitile/modular/humvee_owner = owner
 	if(!istype(humvee_owner))
 		return
 
@@ -342,7 +341,7 @@
 
 /obj/item/hardpoint/support/humvee_overhead_lights/on_destroy()
 	. = ..()
-	var/obj/vehicle/multitile/modul/humvee_owner = owner
+	var/obj/vehicle/multitile/modular/humvee_owner = owner
 	if(!istype(humvee_owner))
 		return
 	turn_off_lights()

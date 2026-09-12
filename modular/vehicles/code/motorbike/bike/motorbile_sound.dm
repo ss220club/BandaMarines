@@ -1,21 +1,21 @@
 /obj/vehicle/motorbike
 	// Стартер
-	var/start_sound = 'modular/sounds/sound/vehicles/bike/sound_bike_start.ogg'
+	var/start_sound = 'modular/vehicles/sound/bike/sound_bike_start.ogg'
 	var/start_sound_delay = 2 SECONDS // На 1 сек меньше чем аудиофайл
 	var/start_sound_vol = 20
 	var/start_sound_range = 45
 
 	// Движение
-	var/movement_sound = 'modular/sounds/sound/vehicles/bike/sound_bike_move_fade.ogg'
+	var/movement_sound = 'modular/vehicles/sound/bike/sound_bike_move_fade.ogg'
 	var/move_sound_delay = 1 SECONDS	// 10 децисекунд ОК если FADE
-	var/rotate_sound = 'modular/sounds/sound/vehicles/bike/sound_bike_rotate_fade.ogg'
+	var/rotate_sound = 'modular/vehicles/sound/bike/sound_bike_rotate_fade.ogg'
 	var/rotate_sound_delay = 7 DECISECONDS // на 3 децисекунды меньше
 	var/move_sound_vol = 20
 	var/move_sound_range = 30
 	var/next_move_sound_play = 0	//Cooldown for next sound to play
 
 	// Выпендреж
-	var/show_sound = 'modular/sounds/sound/vehicles/bike/sound_bike_show.ogg'
+	var/show_sound = 'modular/vehicles/sound/bike/sound_bike_show.ogg'
 	var/show_sound_delay = 3 SECONDS
 	var/show_sound_vol = 20
 	var/show_sound_range = 45
