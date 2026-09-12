@@ -13,6 +13,10 @@ Format:
 endmap
 
 map lv624
+	disabled
+endmap
+
+map zenith_sanctum
 	default
 endmap
 
