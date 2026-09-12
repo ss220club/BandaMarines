@@ -1,0 +1,4 @@
+author: "Ingakem"
+delete-after: True
+changes:
+  - rscdel: "Админ кнопки связанные с выдачей Вайтлиста для VPN были скрыты."
