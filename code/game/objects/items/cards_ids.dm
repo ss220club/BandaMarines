@@ -121,7 +121,7 @@
 
 /obj/item/card/id/attack_self(mob/user as mob)
 	..()
-	user.visible_message("[user] shows you: [icon2html(src, viewers(user))] [name]: assignment: [assignment]")
+	user.visible_message("[capitalize(user.declent_ru(NOMINATIVE))] shows you: [icon2html(src, viewers(user))] [name]: assignment: [assignment]")
 	src.add_fingerprint(user)
 
 /obj/item/card/id/proc/set_user_data(mob/living/carbon/human/H)
@@ -450,7 +450,7 @@
 
 /obj/item/card/id/dogtag
 	name = "dog tags"
-	desc = "A marine dog tags."
+	desc = "Солдатский жетон морпеха." //SS220 EDIT
 	icon_state = "dogtag"
 	item_state = "dogtag"
 	id_type = "Dogtags"
@@ -473,7 +473,7 @@
 
 /obj/item/card/id/dogtag/roman
 	name = "Signaculum dog tag"
-	desc = "A soldier dog tag from ancient times."
+	desc = "Солдатский жетон из древних времён." //SS220 EDIT
 	icon_state = "dogtag_upp"
 	tags_taken_icon = "dogtag_upp_taken"
 

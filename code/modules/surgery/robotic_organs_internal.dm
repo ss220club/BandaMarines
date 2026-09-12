@@ -61,13 +61,13 @@ and organ transplant code which may come in handy in future but haven't been edi
 	if(length(damaged_organs) > 1)
 		user.affected_message(target,
 			SPAN_NOTICE("You begin treating the damaged organs in [target]'s [surgery.affected_limb.display_name] with [toolname]."),
-			SPAN_NOTICE("[user] begins to treat the damaged organs in your [surgery.affected_limb.display_name] with [toolname]."),
-			SPAN_NOTICE("[user] begins to treat the damaged organs in [target]'s [surgery.affected_limb.display_name] with [toolname]."))
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins to treat the damaged organs in your [surgery.affected_limb.display_name] with [toolname]."),
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins to treat the damaged organs in [target]'s [surgery.affected_limb.display_name] with [toolname]."))
 	else
 		user.affected_message(target,
 			SPAN_NOTICE("You begin treating [target]'s damaged [damaged_organs[1]] with [toolname]."),
-			SPAN_NOTICE("[user] begins to treat your damaged [damaged_organs[1]] with [toolname]."),
-			SPAN_NOTICE("[user] begins to treat [target]'s damaged [damaged_organs[1]] with [toolname]."))
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins to treat your damaged [damaged_organs[1]] with [toolname]."),
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins to treat [target]'s damaged [damaged_organs[1]] with [toolname]."))
 
 	playsound(target.loc, 'sound/handling/bandage.ogg', 25, TRUE)
 	log_interact(user, target, "[key_name(user)] began mending organs in [key_name(target)]'s [surgery.affected_limb.display_name], beginning [surgery].")
@@ -78,8 +78,8 @@ and organ transplant code which may come in handy in future but haven't been edi
 		if(int_organ && int_organ.damage > 0 && int_organ.robotic == ORGAN_ROBOT)
 			user.affected_message(target,
 				SPAN_NOTICE("You finish treating [target]'s damaged [int_organ.name]."),
-				SPAN_NOTICE("[user] finishes treating your damaged [int_organ.name]."),
-				SPAN_NOTICE("[user] finishes treating [target]'s damaged [int_organ.name]."))
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] finishes treating your damaged [int_organ.name]."),
+				SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] finishes treating [target]'s damaged [int_organ.name]."))
 
 			user.count_niche_stat(STATISTICS_NICHE_SURGERY_ORGAN_REPAIR)
 			int_organ.rejuvenate()

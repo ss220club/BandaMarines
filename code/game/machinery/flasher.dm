@@ -37,9 +37,9 @@
 		add_fingerprint(user)
 		src.disable = !src.disable
 		if (src.disable)
-			user.visible_message(SPAN_DANGER("[user] has disconnected [src]'s flashbulb!"), SPAN_DANGER("You disconnect [src]'s flashbulb!"))
+			user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] has disconnected [src]'s flashbulb!"), SPAN_DANGER("You disconnect [src]'s flashbulb!"))
 		if (!src.disable)
-			user.visible_message(SPAN_DANGER("[user] has connected [src]'s flashbulb!"), SPAN_DANGER("You connect [src]'s flashbulb!"))
+			user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] has connected [src]'s flashbulb!"), SPAN_DANGER("You connect [src]'s flashbulb!"))
 
 //Let the AI trigger them directly.
 /obj/structure/machinery/flasher/attack_remote()
@@ -127,7 +127,7 @@
 		return
 
 	if(!allowed(user))
-		to_chat(user, SPAN_WARNING("Access Denied."))
+		to_chat(user, SPAN_WARNING("Доступ запрещён."))
 		return
 
 	use_power(5)

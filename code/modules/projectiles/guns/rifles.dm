@@ -975,7 +975,7 @@
 
 /obj/item/weapon/gun/rifle/m16
 	name = "\improper M16 rifle"
-	desc = "An old, reliable design first adopted by the U.S. military in the 1960s. Something like this belongs in a museum of war history. It is chambered in 5.56x45mm."
+	desc = "Проверенная временем конструкция, впервые принятая на вооружение американскими военными в 1960-х годах. Подобное оружие должно находиться в музее военной истории. Используется патрон калибра 5,56x45 мм." //SS220 EDIT
 	icon = 'icons/obj/items/weapons/guns/guns_by_faction/colony/assault_rifles.dmi'
 	icon_state = "m16"
 	item_state = "m16"
@@ -2760,8 +2760,8 @@
 	user.drop_inv_item_to_loc(magazine, src) //Click!
 	current_mag = magazine
 	replace_ammo(user,magazine)
-	user.visible_message(SPAN_NOTICE("[user] loads [magazine] into [src]!"),
-		SPAN_NOTICE("You load [magazine] into [src]!"), null, 3, CHAT_TYPE_COMBAT_ACTION)
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] заряжает [magazine.declent_ru(ACCUSATIVE)] в [declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
+		SPAN_NOTICE("Вы заряжаете [magazine.declent_ru(ACCUSATIVE)] в [declent_ru(ACCUSATIVE)]!"), null, 3, CHAT_TYPE_COMBAT_ACTION) // SS220 EDIT ADDICTION
 	if(reload_sound)
 		playsound(user, reload_sound, 25, 1, 5)
 
@@ -2780,4 +2780,3 @@
 	current_mag = /obj/item/ammo_magazine/rifle/xm51/cmb
 	map_specific_decoration = FALSE
 	starting_attachment_types = list(/obj/item/attachable/flashlight/grip, /obj/item/attachable/reflex)
-

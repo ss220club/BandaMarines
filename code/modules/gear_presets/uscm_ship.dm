@@ -505,6 +505,7 @@
 	new_human.equip_to_slot_or_del(new /obj/item/device/binoculars(new_human), WEAR_L_HAND)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/device/whistle(new_human), WEAR_IN_BACK)
 
+
 /datum/equipment_preset/uscm_ship/sea/load_rank(mob/living/carbon/human/rankee, client/mob_client)
 	mob_client?.toggle_newplayer_ic_hud(TRUE)
 	if(rankee?.client?.prefs?.pref_special_job_options[job_title])

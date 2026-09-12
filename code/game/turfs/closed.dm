@@ -35,7 +35,7 @@
 	if(user.action_busy)
 		return
 
-	user.visible_message(SPAN_WARNING("[user] starts climbing up [src]."), SPAN_WARNING("You start climbing up [src]."))
+	user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] starts climbing up [src]."), SPAN_WARNING("You start climbing up [src]."))
 	var/climb_up_time = 1 SECONDS
 	if(isxeno(user))
 		var/mob/living/carbon/xenomorph/xeno = user
@@ -59,7 +59,7 @@
 				if(human)
 					climb_up_time = 3 SECONDS
 					INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(do_after), human, 3 SECONDS, INTERRUPT_MOVED, EMOTE_ICON_WALLBOOSTING)
-					user.visible_message(SPAN_WARNING("[user] is being boosted up [src] by [human]."), SPAN_WARNING("[human] tries to boost you up."))
+					user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] is being boosted up [src] by [human]."), SPAN_WARNING("[human] tries to boost you up."))
 	var/hands_full = FALSE
 	var/list/grabbed_things = list()
 	for(var/obj/item/in_hand in list(user.l_hand, user.r_hand))
@@ -81,7 +81,7 @@
 	if(human)
 		human.flags_emote &= ~EMOTING_WALL_BOOSTING
 
-	user.visible_message(SPAN_WARNING("[user] climbs up [src]."), SPAN_WARNING("You climb up [src]."))
+	user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] climbs up [src]."), SPAN_WARNING("You climb up [src]."))
 
 	user.forceMove(above_current)
 	for(var/atom/movable/thing as anything in grabbed_things) // grabbed things aren't moved to the tile immediately to: make the animation better, preserve the grab

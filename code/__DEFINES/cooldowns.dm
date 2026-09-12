@@ -12,6 +12,10 @@
 
 #define COOLDOWN_POSTHIJACK_ERT "hijack_ert"
 
+// BANDASTATION EDIT ADDITION - Bump Attacks
+#define COOLDOWN_BUMP_ATTACK "bump_attack"
+// BANDASTATION EDIT END
+
 
 //// COOLDOWN SYSTEMS
 /*

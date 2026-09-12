@@ -55,6 +55,7 @@
 	var/selection_categories = list()
 	/// Doesn't automatically become included in the Faction category.
 	var/no_faction_category = FALSE
+	var/remove_tts = FALSE // BANDAMARINES ADD
 
 /datum/equipment_preset/New()
 	if(!manifest_title)

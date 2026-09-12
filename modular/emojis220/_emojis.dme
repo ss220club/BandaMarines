@@ -1,0 +1,3 @@
+#include "_emojis.dm"
+
+#include "code/emojipedia.dm"

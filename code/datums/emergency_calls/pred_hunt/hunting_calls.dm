@@ -6,7 +6,7 @@
 	probability = 0
 	name_of_spawn = /obj/effect/landmark/ert_spawns/distress/hunt_spawner
 	shuttle_id = ""
-	ert_message = "Prey is being set loose in the Yautja Hunting Grounds"
+	ert_message = "На охотничьи угодья Яутжа выпущена добыча." //SS220 EDIT
 	ignore_ftl_or_crash = TRUE
 	alert_sound = 'sound/items/pred_bracer.ogg'
 	/// Multiplier on the base RESERVE_HUNT_COOLDOWN when a given ERT is selected; 1 is no change.
@@ -308,7 +308,7 @@
 	probability = 0
 	mob_max = 3
 	mob_min = 1
-	ert_message = "A group of Yautja Youngbloods are being awakened for a hunt"
+	ert_message = "Молодая Кровь Яутжа пробуждается для охоты." //SS220 EDIT
 	name_of_spawn = /obj/effect/landmark/ert_spawns/distress/hunt_spawner/pred
 	shuttle_id = ""
 	ignore_ftl_or_crash = TRUE
@@ -323,9 +323,11 @@
 		if(youngblood_candidate.current?.client?.check_whitelist_status(WHITELIST_YAUTJA) || jobban_isbanned(youngblood_candidate.current, ERT_JOB_YOUNGBLOOD))
 			to_chat(youngblood_candidate.current, SPAN_WARNING("You didn't qualify for the ERT beacon because you are already whitelisted for predator or you are job banned from youngblood."))
 			continue
+		/* BANDAMARINES - Remove - Start
 		if(check_timelock(youngblood_candidate.current?.client, JOB_YOUNGBLOOD_ROLES_LIST, youngblood_time))
 			to_chat(youngblood_candidate.current, SPAN_WARNING("You did not qualify for the ERT beacon because you have already reached the maximum time allowed for Youngblood, please consider applying for Predator on the forums."))
 			continue
+		BANDAMARINES - Remove - End */
 		if(check_timelock(youngblood_candidate.current?.client, JOB_SQUAD_ROLES_LIST, time_required_for_job) && (youngblood_candidate.current?.client.get_total_xeno_playtime() >= time_required_for_job))
 			youngblood_candidates_clean.Add(youngblood_candidate)
 			continue

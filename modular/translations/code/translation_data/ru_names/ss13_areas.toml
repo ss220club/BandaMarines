@@ -1,0 +1,3189 @@
+["delivery office"]
+nominative = "офис доставки"
+genitive = "офиса доставки"
+dative = "офису доставки"
+accusative = "офис доставки"
+instrumental = "офисом доставки"
+prepositional = "офисе доставки"
+gender = "male"
+tags = [ "ss13",]
+
+[warehouse]
+nominative = "склад"
+genitive = "склада"
+dative = "складу"
+accusative = "склад"
+instrumental = "складом"
+prepositional = "складе"
+gender = "male"
+tags = [ "ss13",]
+
+["drone bay"]
+nominative = "отсек для дронов"
+genitive = "отсека для дронов"
+dative = "отсеку для дронов"
+accusative = "отсек для дронов"
+instrumental = "отсеком для дронов"
+prepositional = "отсеке для дронов"
+gender = "male"
+tags = [ "ss13",]
+
+[boutique]
+nominative = "бутик"
+genitive = "бутика"
+dative = "бутику"
+accusative = "бутик"
+instrumental = "бутиком"
+prepositional = "бутике"
+gender = "male"
+tags = [ "ss13",]
+
+["upper warehouse"]
+nominative = "верхний склад"
+genitive = "верхнего склада"
+dative = "верхнему складу"
+accusative = "верхний склад"
+instrumental = "верхним складом"
+prepositional = "верхнем складе"
+gender = "male"
+tags = [ "ss13",]
+
+["cargo office"]
+nominative = "офис отдела снабжения"
+genitive = "офиса отдела снабжения"
+dative = "офису отдела снабжения"
+accusative = "офис отдела снабжения"
+instrumental = "офисом отдела снабжения"
+prepositional = "офисе отдела снабжения"
+gender = "male"
+tags = [ "ss13",]
+
+["lower cargo bay"]
+nominative = "нижний отсек отдела снабжения"
+genitive = "нижнего отсека отдела снабжения"
+dative = "нижнему отсеку отдела снабжения"
+accusative = "нижний отсек отдела снабжения"
+instrumental = "нижним отсеком отдела снабжения"
+prepositional = "нижнем отсеке отдела снабжения"
+gender = "male"
+tags = [ "ss13",]
+
+["cargo break room"]
+nominative = "комната отдыха отдела снабжения"
+genitive = "комнаты отдыха отдела снабжения"
+dative = "комнате отдыха отдела снабжения"
+accusative = "комнату отдыха отдела снабжения"
+instrumental = "комнатой отдыха отдела снабжения"
+prepositional = "комнате отдыха отдела снабжения"
+gender = "female"
+tags = [ "ss13",]
+
+["cargo bay"]
+nominative = "отдел снабжения"
+genitive = "отдела снабжения"
+dative = "отделу снабжения"
+accusative = "отдел снабжения"
+instrumental = "отделом снабжения"
+prepositional = "отделе снабжения"
+gender = "male"
+tags = [ "ss13",]
+
+["cargo lobby"]
+nominative = "лобби отдела снабжения"
+genitive = "лобби отдела снабжения"
+dative = "лобби отдела снабжения"
+accusative = "лобби отдела снабжения"
+instrumental = "лобби отдела снабжения"
+prepositional = "лобби отдела снабжения"
+gender = "neuter"
+tags = [ "ss13",]
+
+["mining dock"]
+nominative = "шахтерский док"
+genitive = "шахтерского дока"
+dative = "шахтерскому доку"
+accusative = "шахтерский док"
+instrumental = "шахтерским доком"
+prepositional = "шахтерском доке"
+gender = "male"
+tags = [ "ss13",]
+
+["mining cafeteria"]
+nominative = "шахтерский кафетерий"
+genitive = "шахтерского кафетерия"
+dative = "шахтерскому кафетерию"
+accusative = "шахтерский кафетерий"
+instrumental = "шахтерским кафетерием"
+prepositional = "шахтерском кафетерии"
+gender = "male"
+tags = [ "ss13",]
+
+["mining ore silo storage"]
+nominative = "силосное хранилище шахтерской руды"
+genitive = "силосного хранилища шахтерской руды"
+dative = "силосному хранилищу шахтерской руды"
+accusative = "силосное хранилище шахтерской руды"
+instrumental = "силосним хранилищем шахтерской руды"
+prepositional = "силосном хранилище шахтерской руды"
+gender = "neuter"
+tags = [ "ss13",]
+
+["mining office"]
+nominative = "шахтерский офис"
+genitive = "шахтерского офиса"
+dative = "шахтерскому офису"
+accusative = "шахтерский офис"
+instrumental = "шахтерским офисом"
+prepositional = "шахтерском офисе"
+gender = "male"
+tags = [ "ss13",]
+
+["mining break room"]
+nominative = "комната отдыха шахтеров"
+genitive = "комнаты отдыха щахтеров"
+dative = "комнате отдыха щахтерово"
+accusative = "комнату отдыха шахтеров"
+instrumental = "комнатой отдыха шахтеров"
+prepositional = "комнате отдыха шахтеров"
+gender = "male"
+tags = [ "ss13",]
+
+["bitrunning den"]
+nominative = "битраннерская"
+genitive = "битраннерской"
+dative = "битраннерской"
+accusative = "битраннерскую"
+instrumental = "битраннерской"
+prepositional = "битраннерской"
+gender = "female"
+tags = [ "ss13",]
+
+["cargo bay lower floor"]
+nominative = "нижний этаж отдела снабжения"
+genitive = "нижнего этажа отдела снабжения"
+dative = "нижнему этажу отдела снабжения"
+accusative = "нижний этаж отдела снабжения"
+instrumental = "нижним этажом отдела снабжения"
+prepositional = "нижнем этаже отдела снабжения"
+gender = "male"
+tags = [ "ss13",]
+
+["cargo bay depot lower floor"]
+nominative = "нижний этаж склада отдела снабжения"
+genitive = "нижнего этажа склада отдела снабжения"
+dative = "нижнему этажу склада отдела снабжения"
+accusative = "нижний этаж склада отдела снабжения"
+instrumental = "нижним этажом склада отдела снабжения"
+prepositional = "нижнем этаже склада отдела снабжения"
+gender = "male"
+tags = [ "ss13",]
+
+["quartermaster's office"]
+nominative = "кабинет Квартирмейстера"
+genitive = "кабинета Квартирмейстера"
+dative = "кабинету Квартирмейстера"
+accusative = "кабинет Квартирмейстера"
+instrumental = "кабинетом Квартирмейстера"
+prepositional = "кабинете Квартирмейстера"
+gender = "male"
+tags = [ "ss13",]
+
+["abandoned medbay"]
+nominative = "заброшенный медицинский отдел"
+genitive = "заброшенного медицинского отдела"
+dative = "заброшенному медицинскому отделу"
+accusative = "заброшенный медицинский отдел"
+instrumental = "заброшенным медицинским отделом"
+prepositional = "заброшенном медицинском отделе"
+gender = "male"
+tags = [ "ss13",]
+
+[medical]
+nominative = "медицинский отдел"
+genitive = "медицинского отдела"
+dative = "медицинскому отделу"
+accusative = "медицинский отдел"
+instrumental = "медицинским отделом"
+prepositional = "медицинском отделе"
+gender = "male"
+tags = [ "ss13",]
+
+["medbay central"]
+nominative = "центральный медицинский отдел"
+genitive = "центрального медицинского отдела"
+dative = "центральному медицинскому отделу"
+accusative = "центральный медицинский отдел"
+instrumental = "центральным медицинским отделом"
+prepositional = "центральном медицинском отделе"
+gender = "male"
+tags = [ "ss13",]
+
+["lower medbay"]
+nominative = "нижний медицинский отдел"
+genitive = "нижнего медицинского отдела"
+dative = "нижнему медицинскому отделу"
+accusative = "нижний медицинский отдел"
+instrumental = "нижним медицинским отделом"
+prepositional = "нижнем медицинском отделе"
+gender = "male"
+tags = [ "ss13",]
+
+["medbay lobby"]
+nominative = "лобби медицинского отдела"
+genitive = "лобби медицинского отдела"
+dative = "лобби медицинского отдела"
+accusative = "лобби медицинского отдела"
+instrumental = "лобби медицинского отдела"
+prepositional = "лобби медицинского отдела"
+gender = "neuter"
+tags = [ "ss13",]
+
+["medbay aft"]
+nominative = "южный медицинский отдел"
+genitive = "южного медицинского отдела"
+dative = "южному медицинскому отделу"
+accusative = "южный медицинский отдел"
+instrumental = "южным медицинским отделом"
+prepositional = "южном медицинском отделе"
+gender = "male"
+tags = [ "ss13",]
+
+["medbay storage"]
+nominative = "склад медицинского отдела"
+genitive = "склада медицинского отдела"
+dative = "складу медицинского отдела"
+accusative = "склад медицинского отдела"
+instrumental = "складом медицинского отдела"
+prepositional = "складе медицинского отдела"
+gender = "male"
+tags = [ "ss13",]
+
+["paramedic dispatch"]
+nominative = "диспетчерская парамедика"
+genitive = "диспетчерской парамедика"
+dative = "диспетчерской парамедика"
+accusative = "диспетчерскую парамедика"
+instrumental = "диспетчерской парамедика"
+prepositional = "диспетчерской парамедика"
+gender = "female"
+tags = [ "ss13",]
+
+["medical office"]
+nominative = "медицинский офис"
+genitive = "медицинского офиса"
+dative = "медицинскому офису"
+accusative = "медицинский офис"
+instrumental = "медицинским офисом"
+prepositional = "медицинском офисе"
+gender = "male"
+tags = [ "ss13",]
+
+["medical break room"]
+nominative = "комната отдыха медицинского отдела"
+genitive = "комнаты отдыха медицинского отдела"
+dative = "комнате отдыха медицинского отдела"
+accusative = "комнату отдыха медицинского отдела"
+instrumental = "комнатой отдыха медицинского отдела"
+prepositional = "комнате отдыха медицинского отдела"
+gender = "female"
+tags = [ "ss13",]
+
+["medical cold room"]
+nominative = "морозильная камера медицинского отдела"
+genitive = "морозильной камеры медицинского отдела"
+dative = "морозильной камере медицинского отдела"
+accusative = "морозильную камеру медицинского отдела"
+instrumental = "морозильной камерой медицинского отдела"
+prepositional = "морозильной камере медицинского отдела"
+gender = "female"
+tags = [ "ss13",]
+
+["patient room a"]
+nominative = "первая палата пациента"
+genitive = "первой палаты пациента"
+dative = "первой палате пациента"
+accusative = "первую палату пациента"
+instrumental = "первой палатой пациента"
+prepositional = "первой палате пациента"
+gender = "female"
+tags = [ "ss13",]
+
+["patient room b"]
+nominative = "вторая палата пациента"
+genitive = "второй палаты пациента"
+dative = "второй палате пациента"
+accusative = "вторую палату пациента"
+instrumental = "второй палатой пациента"
+prepositional = "второй палате пациента"
+gender = "female"
+tags = [ "ss13",]
+
+[virology]
+nominative = "вирусология"
+genitive = "вирусологии"
+dative = "вирусологии"
+accusative = "вирусологию"
+instrumental = "вирусологией"
+prepositional = "вирусологии"
+gender = "female"
+tags = [ "ss13",]
+
+[morgue]
+nominative = "морг"
+genitive = "морга"
+dative = "моргу"
+accusative = "морг"
+instrumental = "моргом"
+prepositional = "морге"
+gender = "male"
+tags = [ "ss13",]
+
+[chemistry]
+nominative = "химическая лаборатория"
+genitive = "химической лаборатории"
+dative = "химической лаборатории"
+accusative = "химическую лабораторию"
+instrumental = "химической лабораторией"
+prepositional = "химической лаборатории"
+gender = "female"
+tags = [ "ss13",]
+
+["chemistry lower floor"]
+nominative = "нижний этаж химической лаборатории"
+genitive = "нижнего этажа химической лаборатории"
+dative = "нижнему этажу химической лаборатории"
+accusative = "нижний этаж химической лаборатории"
+instrumental = "нижним этажом химической лаборатории"
+prepositional = "нижнем этаже химической лаборатории"
+gender = "female"
+tags = [ "ss13",]
+
+[pharmacy]
+nominative = "аптека"
+genitive = "аптеки"
+dative = "аптеке"
+accusative = "аптеку"
+instrumental = "аптекой"
+prepositional = "аптеке"
+gender = "female"
+tags = [ "ss13",]
+
+["chemical storage"]
+nominative = "склад химикатов"
+genitive = "склада химикатов"
+dative = "складу химикатов"
+accusative = "склад химикатов"
+instrumental = "складом химикатов"
+prepositional = "складе химикатов"
+gender = "male"
+tags = [ "ss13",]
+
+["operating room"]
+nominative = "операционная"
+genitive = "операционной"
+dative = "операционной"
+accusative = "операционную"
+instrumental = "операционной"
+prepositional = "операционной"
+gender = "female"
+tags = [ "ss13",]
+
+["fore operating room"]
+nominative = "северная операционная"
+genitive = "северной операционной"
+dative = "северной операционной"
+accusative = "северную операционную"
+instrumental = "северной операционной"
+prepositional = "северной операционной"
+gender = "female"
+tags = [ "ss13",]
+
+["aft operating room"]
+nominative = "южная операционная"
+genitive = "южной операционной"
+dative = "южной операционной"
+accusative = "южную операционную"
+instrumental = "южной операционной"
+prepositional = "южной операционной"
+gender = "female"
+tags = [ "ss13",]
+
+["grand surgery theatre"]
+nominative = "главный операционный зал"
+genitive = "главного операционного зала"
+dative = "главному операционному залу"
+accusative = "главный операционный зал"
+instrumental = "главным оперативным залом"
+prepositional = "главном операционном зале"
+gender = "male"
+tags = [ "ss13",]
+
+[cryogenics]
+nominative = "криогеника"
+genitive = "криогеники"
+dative = "криогенике"
+accusative = "криогенику"
+instrumental = "криогеникой"
+prepositional = "криогенике"
+gender = "female"
+tags = [ "ss13",]
+
+["medbay treatment center"]
+nominative = "лечебный центр медицинского отдела"
+genitive = "лечебного центра медицинского отдела"
+dative = "лечебному центру медицинского отдела"
+accusative = "лечебный центр медицинского отдела"
+instrumental = "лечебным центром медицинского отдела"
+prepositional = "лечебном центре медицинского отдела"
+gender = "male"
+tags = [ "ss13",]
+
+["psychology office"]
+nominative = "кабинет психолога"
+genitive = "кабинета психолога"
+dative = "кабинету психолога"
+accusative = "кабинет психолога"
+instrumental = "кабинетом психолога"
+prepositional = "кабинете психолога"
+gender = "male"
+tags = [ "ss13",]
+
+["chief medical officer's office"]
+nominative = "кабинет главного врача"
+genitive = "кабинета главного врача"
+dative = "кабинету главного врача"
+accusative = "кабинет главного врача"
+instrumental = "кабинетом главного врача"
+prepositional = "кабинете главного врача"
+gender = "male"
+tags = [ "ss13",]
+
+["science division"]
+nominative = "научный отдел"
+genitive = "научного отдела"
+dative = "научному отделу"
+accusative = "научный отдел"
+instrumental = "научным отделом"
+prepositional = "научном отделе"
+gender = "male"
+tags = [ "ss13",]
+
+["science lobby"]
+nominative = "лобби научного отдела"
+genitive = "лобби научного отдела"
+dative = "лобби научного отдела"
+accusative = "лобби научного отдела"
+instrumental = "лобби научного отдела"
+prepositional = "лобби научного отдела"
+gender = "neuter"
+tags = [ "ss13",]
+
+["lower science division"]
+nominative = "нижний научный отдел"
+genitive = "нижнего научного отдела"
+dative = "нижнему научному отделу"
+accusative = "нижний научный отдел"
+instrumental = "нижним научным отделом"
+prepositional = "нижнем научном отделе"
+gender = "male"
+tags = [ "ss13",]
+
+["science break room"]
+nominative = "комната отдыха научного отдела"
+genitive = "комнаты отдыха научного отдела"
+dative = "комнате отдыха научного отдела"
+accusative = "комнату отдыха научного отдела"
+instrumental = "комнатой отдыха научного отдела"
+prepositional = "комнате отдыха научного отдела"
+gender = "female"
+tags = [ "ss13",]
+
+["research and development"]
+nominative = "отдел исследования и разработки"
+genitive = "отдела исследования и разработки"
+dative = "отделу исследования и разработки"
+accusative = "отдел исследования и разработки"
+instrumental = "отделом исследования и разработки"
+prepositional = "отделе исследования и разработки"
+gender = "male"
+tags = [ "ss13",]
+
+["xenobiology lab"]
+nominative = "лаборатория ксенобиологии"
+genitive = "лаборатории ксенобиологии"
+dative = "лаборатории ксенобиологии"
+accusative = "лабораторию ксенобиологии"
+instrumental = "лабораторией ксенобиологии"
+prepositional = "лаборатории ксенобиологии"
+gender = "female"
+tags = [ "ss13",]
+
+["xenobiology hallway"]
+nominative = "коридор ксенобиологии"
+genitive = "коридора ксенобиологии"
+dative = "коридору ксенобиологии"
+accusative = "коридор ксенобиологии"
+instrumental = "коридором ксенобиологии"
+prepositional = "коридоре ксенобиологии"
+gender = "male"
+tags = [ "ss13",]
+
+["cytology lab"]
+nominative = "лаборатория цитологии"
+genitive = "лаборатории цитологии"
+dative = "лаборатории цитологии"
+accusative = "лабораторию цитологии"
+instrumental = "лабораторией цитологии"
+prepositional = "лаборатории цитологии"
+gender = "female"
+tags = [ "ss13",]
+
+["genetics lab"]
+nominative = "лаборатория генетики"
+genitive = "лаборатории генетики"
+dative = "лаборатории генетики"
+accusative = "лабораторию генетики"
+instrumental = "лабораторией генетики"
+prepositional = "лаборатории генетики"
+gender = "female"
+tags = [ "ss13",]
+
+["research division server room"]
+nominative = "серверная комната исследовательского отдела"
+genitive = "серверной комнаты исследовательского отдела"
+dative = "серверной комнате исследовательского отдела"
+accusative = "серверную комнату исследовательского отдела"
+instrumental = "серверной комнатой исследовательского отдела"
+prepositional = "серверной комнате исследовательского отдела"
+gender = "female"
+tags = [ "ss13",]
+
+["circuit lab"]
+nominative = "лаборатория интегральных схем"
+genitive = "лаборатории интегральных схем"
+dative = "лаборатории интегральных схем"
+accusative = "лабораторию интегральных схем"
+instrumental = "лабораторией интегральных схем"
+prepositional = "лаборатории интегральных схем"
+gender = "female"
+tags = [ "ss13",]
+
+["experimentation lab"]
+nominative = "лаборатория экспериментов"
+genitive = "лаборатории экспериментов"
+dative = "лаборатории экспериментов"
+accusative = "лабораторию экспериментов"
+instrumental = "лабораторией экспериментов"
+prepositional = "лаборатории экспериментов"
+gender = "female"
+tags = [ "ss13",]
+
+["research firing range"]
+nominative = "исследовательский стрелковый полигон"
+genitive = "исследовательского стрелкового полигона"
+dative = "исследовательскому стрелковому полигону"
+accusative = "исследовательский стрелковый полигон"
+instrumental = "исследовательским стрелковым полигоном"
+prepositional = "исследовательском стрелковом полигоне"
+gender = "male"
+tags = [ "ss13",]
+
+[robotics]
+nominative = "робототехника"
+genitive = "робототехники"
+dative = "робототехнике"
+accusative = "робототехнику"
+instrumental = "робототехникой"
+prepositional = "робототехнике"
+gender = "female"
+tags = [ "ss13",]
+
+["mech bay"]
+nominative = "мехдок"
+genitive = "мехдока"
+dative = "мехдоку"
+accusative = "мехдок"
+instrumental = "мехдоком"
+prepositional = "мехдоке"
+gender = "male"
+tags = [ "ss13",]
+
+["robotics lab"]
+nominative = "лаборатория робототехники"
+genitive = "лаборатории робототехники"
+dative = "лаборатории робототехники"
+accusative = "лабораторию робототехники"
+instrumental = "лабораторией робототехники"
+prepositional = "лаборатории робототехники"
+gender = "female"
+tags = [ "ss13",]
+
+["research division"]
+nominative = "исследовательский отдел"
+genitive = "исследовательского отдела"
+dative = "исследовательскому отделу"
+accusative = "исследовательский отдел"
+instrumental = "исследовательским отделом"
+prepositional = "исследовательском отделе"
+gender = "male"
+tags = [ "ss13",]
+
+["abandoned research lab"]
+nominative = "заброшенная исследовательская лаборатория"
+genitive = "заброшенной исследовательской лаборатории"
+dative = "заброшенной исследовательской лаборатории"
+accusative = "заброшенную исследовательскую лабораторию"
+instrumental = "заброшенной исследовательской лабораторией"
+prepositional = "заброшенной исследовательской лаборатории"
+gender = "female"
+tags = [ "ss13",]
+
+["ordnance lab"]
+nominative = "лаборатория токсинов"
+genitive = "лаборатории токсинов"
+dative = "лаборатории токсинов"
+accusative = "лабораторию токсинов"
+instrumental = "лабораторией токсинов"
+prepositional = "лаборатории токсинов"
+gender = "female"
+tags = [ "ss13",]
+
+["ordnance office"]
+nominative = "офис токсинов"
+genitive = "офиса токсинов"
+dative = "офису токсинов"
+accusative = "офис токсинов"
+instrumental = "офисом токсинов"
+prepositional = "офисе токсинов"
+gender = "male"
+tags = [ "ss13",]
+
+["ordnance storage"]
+nominative = "склад токсинов"
+genitive = "склада токсинов"
+dative = "складу токсинов"
+accusative = "склад токсинов"
+instrumental = "складом токсинов"
+prepositional = "складе токсинов"
+gender = "male"
+tags = [ "ss13",]
+
+["ordnance burn chamber"]
+nominative = "камера сгорания токсинов"
+genitive = "камеры сгорания токсинов"
+dative = "камере сгорания токсинов"
+accusative = "камеру сгорания токсинов"
+instrumental = "камерой сгорания токсинов"
+prepositional = "камере сгорания токсинов"
+gender = "female"
+tags = [ "ss13",]
+
+["ordnance freezer chamber"]
+nominative = "морозильная камера токсинов"
+genitive = "морозильной камеры токсинов"
+dative = "морозильной камере токсинов"
+accusative = "морозильную камеру токсинов"
+instrumental = "морозильной камерой токсинов"
+prepositional = "морозильной камере токсинов"
+gender = "female"
+tags = [ "ss13",]
+
+["ordnance testing lab"]
+nominative = "лаборатория по испытанию токсинов"
+genitive = "лаборатории по испытанию токсинов"
+dative = "лаборатории по испытанию токсинов"
+accusative = "лабораторию по испытанию токсинов"
+instrumental = "лабораторией по испытанию токсинов"
+prepositional = "лаборатории по испытанию токсинов"
+gender = "female"
+tags = [ "ss13",]
+
+["research director's office"]
+nominative = "кабинет директора исследований"
+genitive = "кабинета директора исследований"
+dative = "кабинету директора исследований"
+accusative = "кабинет директора исследований"
+instrumental = "кабинетом директора исследований"
+prepositional = "кабинете директора исследований"
+gender = "male"
+tags = [ "ss13",]
+
+["engineering smes"]
+nominative = "инженерные СМЕСы"
+genitive = "инженерных СМЕСов"
+dative = "инженерным СМЕСам"
+accusative = "инженерные СМЕСы"
+instrumental = "инженерными СМЕСами"
+prepositional = "инженерных СМЕСах"
+gender = "plural"
+tags = [ "ss13",]
+
+[engineering]
+nominative = "инженерный отдел"
+genitive = "инженерного отдела"
+dative = "инженерному отделу"
+accusative = "инженерный отдел"
+instrumental = "инженерным отделом"
+prepositional = "инженерном отделе"
+gender = "female"
+tags = [ "ss13",]
+
+["engineering foyer"]
+nominative = "фойе инженерного отдела"
+genitive = "фойе инженерного отдела"
+dative = "фойе инженерному отделу"
+accusative = "фойе инженерного отдела"
+instrumental = "фойе инженерного отделам"
+prepositional = "фойе инженерного отдела"
+gender = "neuter"
+tags = [ "ss13",]
+
+["engineering hallway"]
+nominative = "коридор инженерного отдела"
+genitive = "коридора инженерного отдела"
+dative = "коридору инженерного отдела"
+accusative = "коридор инженерного отдела"
+instrumental = "коридором инженерного отдела"
+prepositional = "коридоре инженерного отдела"
+gender = "male"
+tags = [ "ss13",]
+
+[atmospherics]
+nominative = "атмосферный отдел"
+genitive = "атмосферного отдела"
+dative = "атмосферному отделу"
+accusative = "атмосферный отдел"
+instrumental = "атмосферным отделом"
+prepositional = "атмосферном отделе"
+gender = "male"
+tags = [ "ss13",]
+
+["atmospherics project room"]
+nominative = "проектировочная атмосферного отдела"
+genitive = "проектировочной атмосферного отдела"
+dative = "проектировочной атмосферного отдела"
+accusative = "проектировочную атмосферного отдела"
+instrumental = "проектировочной атмосферного отдела"
+prepositional = "проектировочной атмосферного отдела"
+gender = "female"
+tags = [ "ss13",]
+
+["atmospherics pumping room"]
+nominative = "компрессорная атмосферного отдела"
+genitive = "компрессорной атмосферного отдела"
+dative = "компрессорной атмосферного отдела"
+accusative = "компрессорную атмосферного отдела"
+instrumental = "компрессорной атмосферного отдела"
+prepositional = "компрессорной атмосферного отдела"
+gender = "female"
+tags = [ "ss13",]
+
+["atmospherics mixing room"]
+nominative = "комната смешивания газов атмосферного отдела"
+genitive = "комнаты смешивания газов атмосферного отдела"
+dative = "комнате смешивания газов атмосферного отдела"
+accusative = "комнату смешивания газов атмосферного отдела"
+instrumental = "комнатой смешивания газов атмосферного отдела"
+prepositional = "комнате смешивания газов атмосферного отдела"
+gender = "female"
+tags = [ "ss13",]
+
+["atmospherics storage room"]
+nominative = "склад атмосферного отдела"
+genitive = "склада атмосферного отдела"
+dative = "складу атмосферного отдела"
+accusative = "склад атмосферного отдела"
+instrumental = "складом атмосферного отдела"
+prepositional = "складе атмосферного отдела"
+gender = "male"
+tags = [ "ss13",]
+
+["atmospherics gas storage"]
+nominative = "газохранилище атмосферного отдела"
+genitive = "газохранилища атмосферного отдела"
+dative = "газохранилищу атмосферного отдела"
+accusative = "газохранилище атмосферного отдела"
+instrumental = "газохранилищем атмосферного отдела"
+prepositional = "газохранилище атмосферного отдела"
+gender = "female"
+tags = [ "ss13",]
+
+["atmospherics hfr room"]
+nominative = "реакторная атмосферного отдела"
+genitive = "реакторной атмосферного отдела"
+dative = "реакторной атмосферного отдела"
+accusative = "реакторную атмосферного отдела"
+instrumental = "реакторной атмосферного отдела"
+prepositional = "реакторной атмосферного отдела"
+gender = "female"
+tags = [ "ss13",]
+
+["atmospherics engine"]
+nominative = "двигатель атмосферного отдела"
+genitive = "двигателя атмосферного отдела"
+dative = "двигателю атмосферного отдела"
+accusative = "двигатель атмосферного отдела"
+instrumental = "двигателем атмосферного отдела"
+prepositional = "двигателе атмосферного отдела"
+gender = "male"
+tags = [ "ss13",]
+
+["engineering lobby"]
+nominative = "лобби инженерного отдела"
+genitive = "лобби инженерного отдела"
+dative = "лобби инженерного отдела"
+accusative = "лобби инженерного отдела"
+instrumental = "лобби инженерного отдела"
+prepositional = "лобби инженерного отдела"
+gender = "neuter"
+tags = [ "ss13",]
+
+["supermatter engine"]
+nominative = "двигатель Суперматерии"
+genitive = "двигателя Суперматерии"
+dative = "двигателю Суперматерии"
+accusative = "двигатель Суперматерии"
+instrumental = "двигателем Суперматерии"
+prepositional = "двигателе Суперматерии"
+gender = "male"
+tags = [ "ss13",]
+
+["supermatter engine room"]
+nominative = "машинное отделение Суперматерии"
+genitive = "машинного отделения Суперматерии"
+dative = "машинному отделению Суперматерии"
+accusative = "машинное отделение Суперматерии"
+instrumental = "машинным отделением Суперматерии"
+prepositional = "машинном отделении Суперматерии"
+gender = "neuter"
+tags = [ "ss13",]
+
+["gravity generator room"]
+nominative = "комната генератора гравитации"
+genitive = "комнаты генератора гравитации"
+dative = "комнате генератора гравитации"
+accusative = "комнату генератора гравитации"
+instrumental = "комнатой генератора гравитации"
+prepositional = "комнате генератора гравитации"
+gender = "female"
+tags = [ "ss13",]
+
+["engineering storage"]
+nominative = "склад инженерного отдела"
+genitive = "склада инженерного отдела"
+dative = "складу инженерного отдела"
+accusative = "склад инженерного отдела"
+instrumental = "складом инженерного отдела"
+prepositional = "складе инженерного отдела"
+gender = "male"
+tags = [ "ss13",]
+
+["shared engineering storage"]
+nominative = "общее инженерное хранилище"
+genitive = "общего инженерного хранилища"
+dative = "общему инженерному хранилищу"
+accusative = "общее инженерное хранилище"
+instrumental = "общим инженерным хранилищем"
+prepositional = "общем инженерном хранилище"
+gender = "neuter"
+tags = [ "ss13",]
+
+["transit tube"]
+nominative = "транзитная труба"
+genitive = "транзитной трубы"
+dative = "транзитной трубе"
+accusative = "транзитную трубу"
+instrumental = "транзитной трубой"
+prepositional = "транзитной трубе"
+gender = "female"
+tags = [ "ss13",]
+
+["technical storage"]
+nominative = "техническое хранилище"
+genitive = "технического хранилища"
+dative = "техническому хранилищу"
+accusative = "техническое хранилище"
+instrumental = "техническим хранилищем"
+prepositional = "техническом хранилище"
+gender = "neuter"
+tags = [ "ss13",]
+
+["telecomms storage"]
+nominative = "хранилище телекоммуникационной"
+genitive = "хранилища телекоммуникационной"
+dative = "хранилищу телекоммуникационной"
+accusative = "хранилище телекоммуникационной"
+instrumental = "хранилищем телекоммуникационной"
+prepositional = "хранилище телекоммуникационной"
+gender = "neuter"
+tags = [ "ss13",]
+
+["construction area"]
+nominative = "зона строительства"
+genitive = "зоны строительства"
+dative = "зоне строительства"
+accusative = "зону строительства"
+instrumental = "зоной строительства"
+prepositional = "зоне строительства"
+gender = "female"
+tags = [ "ss13",]
+
+["auxiliary base construction"]
+nominative = "вспомогательная строительная база"
+genitive = "вспомогательной строительной базы"
+dative = "вспомогательной строительной базе"
+accusative = "вспомогательную строительную базу"
+instrumental = "вспомогательной строительной базой"
+prepositional = "вспомогательной строительной базе"
+gender = "female"
+tags = [ "ss13",]
+
+["storage wing"]
+nominative = "складское крыло"
+genitive = "складского крыла"
+dative = "складскому крылу"
+accusative = "складское крыло"
+instrumental = "складским крылом"
+prepositional = "складском крыле"
+gender = "neuter"
+tags = [ "ss13",]
+
+["drone fabricator"]
+nominative = "фабрика дронов"
+genitive = "фабрики дронов"
+dative = "фабрике дронов"
+accusative = "фабрику дронов"
+instrumental = "фабрикой дронов"
+prepositional = "фабрике дронов"
+gender = "female"
+tags = [ "ss13",]
+
+["engineering hallway west"]
+nominative = "западный инженерный коридор"
+genitive = "западного инженерного коридора"
+dative = "западному инженерному коридору"
+accusative = "западный инженерный коридор"
+instrumental = "западным инженерным коридором"
+prepositional = "западном инженерном коридоре"
+gender = "male"
+tags = [ "ss13",]
+
+["chief engineer's office"]
+nominative = "кабинет главного инженера"
+genitive = "кабинета главного инженера"
+dative = "кабинету главного инженера"
+accusative = "кабинет главного инженера"
+instrumental = "кабинетом главного инженера"
+prepositional = "кабинете главного инженера"
+gender = "male"
+tags = [ "ss13",]
+
+["security office"]
+nominative = "офис службы безопасности"
+genitive = "офиса службы безопасности"
+dative = "офису службы безопасности"
+accusative = "офис службы безопасности"
+instrumental = "офисом службы безопасности"
+prepositional = "офисе службы безопасности"
+gender = "male"
+tags = [ "ss13",]
+
+["security break room"]
+nominative = "комната отдыха службы безопасности"
+genitive = "комнаты отдыха службы безопасности"
+dative = "комнате отдыха службы безопасности"
+accusative = "комнату отдыха службы безопасности"
+instrumental = "комнатой отдыха службы безопасности"
+prepositional = "комнате отдыха службы безопасности"
+gender = "female"
+tags = [ "ss13",]
+
+["security locker room"]
+nominative = "раздевалка службы безопасности"
+genitive = "раздевалки службы безопасности"
+dative = "раздевалке службы безопасности"
+accusative = "раздевалку службы безопасности"
+instrumental = "раздевалкой службы безопасности"
+prepositional = "раздевалке службы безопасности"
+gender = "female"
+tags = [ "ss13",]
+
+[brig]
+nominative = "бриг"
+genitive = "брига"
+dative = "бригy"
+accusative = "бриг"
+instrumental = "бригoм"
+prepositional = "бригe"
+gender = "male"
+tags = [ "ss13",]
+
+["brig lower floor"]
+nominative = "нижний этаж брига"
+genitive = "нижнего этажа брига"
+dative = "нижнему этажу брига"
+accusative = "нижний этаж брига"
+instrumental = "нижним этажом брига"
+prepositional = "нижнем этаже брига"
+gender = "male"
+tags = [ "ss13",]
+
+["holding cell"]
+nominative = "камера предварительного заключения"
+genitive = "камеры предварительного заключения"
+dative = "камере предварительного заключения"
+accusative = "камеру предварительного заключения"
+instrumental = "камерой предварительного заключения"
+prepositional = "камере предварительного заключения"
+gender = "female"
+tags = [ "ss13",]
+
+["security medical"]
+nominative = "медицинский отсек службы безопасности"
+genitive = "медицинского отсека службы безопасности"
+dative = "медицинскому отсеку службы безопасности"
+accusative = "медицинский отсек службы безопасности"
+instrumental = "медицинским отсеком службы безопасности"
+prepositional = "медицинском отсеке службы безопасности"
+gender = "male"
+tags = [ "ss13",]
+
+["brig overlook"]
+nominative = "смотровая площадка брига"
+genitive = "смотровой площадки брига"
+dative = "смотровой площадке брига"
+accusative = "смотровую площадку брига"
+instrumental = "смотровой площадкой брига"
+prepositional = "смотровой площадке брига"
+gender = "female"
+tags = [ "ss13",]
+
+["brig entrance"]
+nominative = "проходная брига"
+genitive = "проходной брига"
+dative = "проходной брига"
+accusative = "проходную брига"
+instrumental = "проходной брига"
+prepositional = "проходной брига"
+gender = "female"
+tags = [ "ss13",]
+
+[courtroom]
+nominative = "зал суда"
+genitive = "зала суда"
+dative = "залу суда"
+accusative = "зал суда"
+instrumental = "залом суда"
+prepositional = "зале суда"
+gender = "male"
+tags = [ "ss13",]
+
+["courtroom prisoner holding room"]
+nominative = "комната содержания подсудимых"
+genitive = "комнаты содержания подсудимых"
+dative = "комнате содержания подсудимых"
+accusative = "комнату содержания подсудимых"
+instrumental = "комнатой содержания подсудимых"
+prepositional = "комнате содержания подсудимых"
+gender = "female"
+tags = [ "ss13",]
+
+["labor shuttle dock"]
+nominative = "док трудового шаттла"
+genitive = "дока трудового шаттла"
+dative = "доку трудового шаттла"
+accusative = "док трудового шаттла"
+instrumental = "доком трудового шаттла"
+prepositional = "доке трудового шаттла"
+gender = "male"
+tags = [ "ss13",]
+
+["interrogation room"]
+nominative = "комната для допросов"
+genitive = "комнаты для допросов"
+dative = "комнате для допросов"
+accusative = "комнату для допросов"
+instrumental = "комнатой для допросов"
+prepositional = "комнате для допросов"
+gender = "female"
+tags = [ "ss13",]
+
+["in-depth interrogation room lower floor"]
+nominative = "комната для углубленных допросов нижнего этажа"
+genitive = "комнаты для углубленных допросов нижнего этажа"
+dative = "комнате для углубленных допросов нижнего этажа"
+accusative = "комнату для углубленных допросов нижнего этажа"
+instrumental = "комнатой для углубленных допросов нижнего этажа"
+prepositional = "комнате для углубленных допросов нижнего этажа"
+gender = "female"
+tags = [ "ss13",]
+
+["brig control"]
+nominative = "офис смотрителя"
+genitive = "офиса смотрителя"
+dative = "офису смотрителя"
+accusative = "офис смотрителя"
+instrumental = "офисом смотрителя"
+prepositional = "офисе смотрителя"
+gender = "male"
+tags = [ "ss13",]
+
+["evidence storage"]
+nominative = "комната хранения улик"
+genitive = "комнаты хранения улик"
+dative = "комнате хранения улик"
+accusative = "комнату хранения улик"
+instrumental = "комнатой хранения улик"
+prepositional = "комнате хранения улик"
+gender = "female"
+tags = [ "ss13",]
+
+["detective's office"]
+nominative = "офис детектива"
+genitive = "офиса детектива"
+dative = "офису детектива"
+accusative = "офис детектива"
+instrumental = "офисом детектива"
+prepositional = "офисе детектива"
+gender = "male"
+tags = [ "ss13",]
+
+["private investigator's office"]
+nominative = "офис частного детектива"
+genitive = "офиса частного детектива"
+dative = "офису частного детектива"
+accusative = "офис частного детектива"
+instrumental = "офисом частного детектива"
+prepositional = "офисе частного детектива"
+gender = "male"
+tags = [ "ss13",]
+
+["firing range"]
+nominative = "стрельбище брига"
+genitive = "стрельбища брига"
+dative = "стрельбищу брига"
+accusative = "стрельбище брига"
+instrumental = "стрельбищем брига"
+prepositional = "стрельбище брига"
+gender = "neuter"
+tags = [ "ss13",]
+
+["transfer centre"]
+nominative = "трансферный центр"
+genitive = "трансферного центра"
+dative = "трансферному центру"
+accusative = "трансферный центр"
+instrumental = "трансферным центром"
+prepositional = "трансферном центре"
+gender = "male"
+tags = [ "ss13",]
+
+["prisoner education chamber"]
+nominative = "камера перевоспитания заключенных"
+genitive = "камеры перевоспитания заключенных"
+dative = "камере перевоспитания заключенных"
+accusative = "камеру перевоспитания заключенных"
+instrumental = "камерой перевоспитания заключенных"
+prepositional = "камере перевоспитания заключенных"
+gender = "female"
+tags = [ "ss13",]
+
+["security mechbay"]
+nominative = "мехдок службы безопасности"
+genitive = "мехдока службы безопасности"
+dative = "мехдоку службы безопасности"
+accusative = "мехдок службы безопасности"
+instrumental = "мехдоком службы безопасности"
+prepositional = "мехдоке службы безопасности"
+gender = "male"
+tags = [ "ss13",]
+
+["security maintenance fore lower floor"]
+nominative = "северные техтоннели нижнего этажа службы безопасности"
+genitive = "северных техтоннелей нижнего этажа службы безопасности"
+dative = "северным техтоннелям нижнего этажа службы безопасности"
+accusative = "северные техтоннели нижнего этажа службы безопасности"
+instrumental = "северными техтоннелями нижнего этажа службы безопасности"
+prepositional = "северных техтоннелях нижнего этажа службы безопасности"
+gender = "plural"
+tags = [ "ss13",]
+
+["security maintenance aft lower floor"]
+nominative = "южные техтоннели нижнего этажа службы безопасности"
+genitive = "южных техтоннелей нижнего этажа службы безопасности"
+dative = "южным техтоннелям нижнего этажа службы безопасности"
+accusative = "южные техтоннели нижнего этажа службы безопасности"
+instrumental = "южными техтоннелями нижнего этажа службы безопасности"
+prepositional = "южных техтоннелях нижнего этажа службы безопасности"
+gender = "plural"
+tags = [ "ss13",]
+
+["departures security checkpoint"]
+nominative = "контрольно-пропускной пункт отбытия"
+genitive = "контрольно-пропускного пункта отбытия"
+dative = "контрольно-пропускному пункту отбытия"
+accusative = "контрольно-пропускной пункт отбытия"
+instrumental = "контрольно-пропускным пунктом отбытия"
+prepositional = "контрольно-пропускном пункте отбытия"
+gender = "male"
+tags = [ "ss13",]
+
+["arrivals security checkpoint"]
+nominative = "контрольно-пропускной пункт прибытия"
+genitive = "контрольно-пропускного пункта прибытия"
+dative = "контрольно-пропускному пункту прибытия"
+accusative = "контрольно-пропускной пункт прибытия"
+instrumental = "контрольно-пропускным пунктом прибытия"
+prepositional = "контрольно-пропускном пункте прибытия"
+gender = "male"
+tags = [ "ss13",]
+
+["security post - cargo bay"]
+nominative = "пост охраны отдела снабжения"
+genitive = "поста охраны отдела снабжения"
+dative = "посту охраны отдела снабжения"
+accusative = "пост охраны отдела снабжения"
+instrumental = "постом охраны отдела снабжения"
+prepositional = "посту охраны отдела снабжения"
+gender = "male"
+tags = [ "ss13",]
+
+["security post - engineering"]
+nominative = "пост охраны инженерного отдела"
+genitive = "поста охраны инженерного отдела"
+dative = "посту охраны инженерного отдела"
+accusative = "пост охраны инженерного отдела"
+instrumental = "постом охраны инженерного отдела"
+prepositional = "посту охраны инженерного отдела"
+gender = "male"
+tags = [ "ss13",]
+
+["security post - medbay"]
+nominative = "пост охраны медицинского отдела"
+genitive = "поста охраны медицинского отдела"
+dative = "посту охраны медицинского отдела"
+accusative = "пост охраны медицинского отдела"
+instrumental = "постом охраны медицинского отдела"
+prepositional = "посту охраны медицинского отдела"
+gender = "male"
+tags = [ "ss13",]
+
+["security post - medsci"]
+nominative = "пост охраны медицинско-научного отдела"
+genitive = "поста охраны медицинско-научного отдела"
+dative = "посту охраны медицинско-научного отдела"
+accusative = "пост охраны медицинско-научного отдела"
+instrumental = "постом охраны медицинско-научного отдела"
+prepositional = "посту охраны медицинско-научного отдела"
+gender = "male"
+tags = [ "ss13",]
+
+["security post - science"]
+nominative = "пост охраны научного отдела"
+genitive = "поста охраны научного отдела"
+dative = "посту охраны научного отдела"
+accusative = "пост охраны научного отдела"
+instrumental = "постом охраны научного отдела"
+prepositional = "посту охраны научного отдела"
+gender = "male"
+tags = [ "ss13",]
+
+[customs]
+nominative = "таможня"
+genitive = "таможни"
+dative = "таможне"
+accusative = "таможню"
+instrumental = "таможней"
+prepositional = "таможне"
+gender = "female"
+tags = [ "ss13",]
+
+["auxiliary customs"]
+nominative = "вспомогательная таможня"
+genitive = "вспомогательной таможни"
+dative = "вспомогательной таможне"
+accusative = "вспомогательную таможню"
+instrumental = "вспомогательной таможней"
+prepositional = "вспомогательной таможне"
+gender = "female"
+tags = [ "ss13",]
+
+["fore customs"]
+nominative = "северная таможня"
+genitive = "северной таможни"
+dative = "северной таможне"
+accusative = "северную таможню"
+instrumental = "северной таможней"
+prepositional = "северной таможне"
+gender = "female"
+tags = [ "ss13",]
+
+["aft customs"]
+nominative = "южная таможня"
+genitive = "южной таможни"
+dative = "южной таможне"
+accusative = "южную таможню"
+instrumental = "южной таможней"
+prepositional = "южной таможне"
+gender = "female"
+tags = [ "ss13",]
+
+["prison wing"]
+nominative = "тюремное крыло"
+genitive = "тюремного крыла"
+dative = "тюремному крылу"
+accusative = "тюремное крыло"
+instrumental = "тюремным крылом"
+prepositional = "тюремном крыле"
+gender = "neuter"
+tags = [ "ss13",]
+
+["prison wing lower floor"]
+nominative = "нижний этаж тюремного крыла"
+genitive = "нижнего этажа тюремного крыла"
+dative = "нижнему этажу тюремного крыла"
+accusative = "нижний этаж тюремного крыла"
+instrumental = "нижним этажом тюремного крыла"
+prepositional = "нижнем этаже тюремного крыла"
+gender = "male"
+tags = [ "ss13",]
+
+["prison toilet"]
+nominative = "тюремный туалет"
+genitive = "тюремного туалета"
+dative = "тюремному туалету"
+accusative = "тюремный туалет"
+instrumental = "тюремным туалетом"
+prepositional = "тюремном туалете"
+gender = "male"
+tags = [ "ss13",]
+
+["prison wing cells"]
+nominative = "камеры тюремного крыла"
+genitive = "камер тюремного крыла"
+dative = "камерам тюремного крыла"
+accusative = "камеры тюремного крыла"
+instrumental = "камерами тюремного крыла"
+prepositional = "камерах тюремного крыла"
+gender = "plural"
+tags = [ "ss13",]
+
+["prison visitation area"]
+nominative = "комната свиданий тюремного крыла"
+genitive = "комнаты свиданий тюремного крыла"
+dative = "комнате свиданий тюремного крыла"
+accusative = "комнату свиданий тюремного крыла"
+instrumental = "комнатой свиданий тюремного крыла"
+prepositional = "комнате свиданий тюремного крыла"
+gender = "female"
+tags = [ "ss13",]
+
+["prison rec room"]
+nominative = "комната отдыха тюремного крыла"
+genitive = "комнаты отдыха тюремного крыла"
+dative = "комнате отдыха тюремного крыла"
+accusative = "комнату отдыха тюремного крыла"
+instrumental = "комнатой отдыха тюремного крыла"
+prepositional = "комнате отдыха тюремного крыла"
+gender = "female"
+tags = [ "ss13",]
+
+["prison mess hall"]
+nominative = "столовая тюремного крыла"
+genitive = "столовой тюремного крыла"
+dative = "столовой тюремного крыла"
+accusative = "столовую тюремного крыла"
+instrumental = "столовой тюремного крыла"
+prepositional = "столовой тюремного крыла"
+gender = "female"
+tags = [ "ss13",]
+
+["prison work room"]
+nominative = "трудовая комната тюремного крыла"
+genitive = "трудовой комнаты тюремного крыла"
+dative = "трудовой комнате тюремного крыла"
+accusative = "трудовую комнату тюремного крыла"
+instrumental = "трудовой комнатой тюремного крыла"
+prepositional = "трудовой комнате тюремного крыла"
+gender = "female"
+tags = [ "ss13",]
+
+["prison shower"]
+nominative = "душ тюремного крыла"
+genitive = "душа тюремного крыла"
+dative = "душу тюремного крыла"
+accusative = "душ тюремного крыла"
+instrumental = "душем тюремного крыла"
+prepositional = "душе тюремного крыла"
+gender = "male"
+tags = [ "ss13",]
+
+["prison gym"]
+nominative = "спортзал тюремного крыла"
+genitive = "спортзала тюремного крыла"
+dative = "спортзалу тюремного крыла"
+accusative = "спортзал тюремного крыла"
+instrumental = "спортзалом тюремного крыла"
+prepositional = "спортзале тюремного крыла"
+gender = "male"
+tags = [ "ss13",]
+
+["prison garden"]
+nominative = "сад тюремного крыла"
+genitive = "сада тюремного крыла"
+dative = "саду тюремного крыла"
+accusative = "сад тюремного крыла"
+instrumental = "садом тюремного крыла"
+prepositional = "саду тюремного крыла"
+gender = "male"
+tags = [ "ss13",]
+
+[armory]
+nominative = "оружейная брига"
+genitive = "оружейной брига"
+dative = "оружейной брига"
+accusative = "оружейную брига"
+instrumental = "оружейной брига"
+prepositional = "оружейной брига"
+gender = "female"
+tags = [ "ss13",]
+
+["upper armory"]
+nominative = "верхняя оружейная брига"
+genitive = "верхней оружейной брига"
+dative = "верхней оружейной брига"
+accusative = "верхнюю оружейную брига"
+instrumental = "верхней оружейной брига"
+prepositional = "верхней оружейной брига"
+gender = "female"
+tags = [ "ss13",]
+
+["head of security's office"]
+nominative = "кабинет главы службы безопасности"
+genitive = "кабинета главы службы безопасности"
+dative = "кабинету главы службы безопасности"
+accusative = "кабинет главы службы безопасности"
+instrumental = "кабинетом главы службы безопасности"
+prepositional = "кабинете главы службы безопасности"
+gender = "male"
+tags = [ "ss13",]
+
+[cafeteria]
+nominative = "кафетерий"
+genitive = "кафетерия"
+dative = "кафетерию"
+accusative = "кафетерий"
+instrumental = "кафетерием"
+prepositional = "кафетерии"
+gender = "male"
+tags = [ "ss13",]
+
+[kitchen]
+nominative = "кухня"
+genitive = "кухни"
+dative = "кухне"
+accusative = "кухню"
+instrumental = "кухней"
+prepositional = "кухне"
+gender = "female"
+tags = [ "ss13",]
+
+["kitchen cold room"]
+nominative = "морозильная камера кухни"
+genitive = "морозильной камеры кухни"
+dative = "морозильной камере кухни"
+accusative = "морозильную камеру кухни"
+instrumental = "морозильной камерой кухни"
+prepositional = "морозильной камере кухни"
+gender = "female"
+tags = [ "ss13",]
+
+["kitchen backroom"]
+nominative = "подсобное помещение кухни"
+genitive = "подсобного помещения кухни"
+dative = "подсобному помещению кухни"
+accusative = "подсобное помещение кухни"
+instrumental = "подсобным помещением кухни"
+prepositional = "подсобном помещении кухни"
+gender = "neuter"
+tags = [ "ss13",]
+
+[bar]
+nominative = "бар"
+genitive = "бара"
+dative = "бару"
+accusative = "бар"
+instrumental = "баром"
+prepositional = "баре"
+gender = "male"
+tags = [ "ss13",]
+
+[atrium]
+nominative = "атриум"
+genitive = "атриума"
+dative = "атриуму"
+accusative = "атриум"
+instrumental = "атриумом"
+prepositional = "атриуме"
+gender = "male"
+tags = [ "ss13",]
+
+["bar backroom"]
+nominative = "подсобное помещение бара"
+genitive = "подсобного помещения бара"
+dative = "подсобному помещению бара"
+accusative = "подсобное помещение бара"
+instrumental = "подсобным помещением бара"
+prepositional = "подсобном помещении бара"
+gender = "neuter"
+tags = [ "ss13",]
+
+[theater]
+nominative = "театр"
+genitive = "театра"
+dative = "театру"
+accusative = "театр"
+instrumental = "театром"
+prepositional = "театре"
+gender = "male"
+tags = [ "ss13",]
+
+[library]
+nominative = "библиотека"
+genitive = "библиотеки"
+dative = "библиотеке"
+accusative = "библиотеку"
+instrumental = "библиотекой"
+prepositional = "библиотеке"
+gender = "female"
+tags = [ "ss13",]
+
+["art gallery"]
+nominative = "художественная галерея"
+genitive = "художественной галереи"
+dative = "художественной галерее"
+accusative = "художественную галерею"
+instrumental = "художественной галереей"
+prepositional = "художественной галерее"
+gender = "female"
+tags = [ "ss13",]
+
+["library private study"]
+nominative = "частный кабинет библиотеки"
+genitive = "частного кабинета библиотеки"
+dative = "частному кабинету библиотеки"
+accusative = "частный кабинет библиотеки"
+instrumental = "частным кабинетом библиотеки"
+prepositional = "частном кабинете библиотеки"
+gender = "male"
+tags = [ "ss13",]
+
+["library printer room"]
+nominative = "печатная комната библиотеки"
+genitive = "печатной комнаты библиотеки"
+dative = "печатной комнате библиотеки"
+accusative = "печатную комнату библиотеки"
+instrumental = "печатной комнатой библиотеки"
+prepositional = "печатной комнате библиотеки"
+gender = "female"
+tags = [ "ss13",]
+
+[chapel]
+nominative = "церковь"
+genitive = "церкви"
+dative = "церкви"
+accusative = "церковь"
+instrumental = "церковью"
+prepositional = "церкви"
+gender = "female"
+tags = [ "ss13",]
+
+["chapel office"]
+nominative = "офис священника"
+genitive = "офиса священника"
+dative = "офису священника"
+accusative = "офис священника"
+instrumental = "офисом священника"
+prepositional = "офисе священника"
+gender = "male"
+tags = [ "ss13",]
+
+[monastery]
+nominative = "монастырь"
+genitive = "монастыря"
+dative = "монастырю"
+accusative = "монастырь"
+instrumental = "монастырем"
+prepositional = "монастыре"
+gender = "male"
+tags = [ "ss13",]
+
+["chapel storage"]
+nominative = "хранилище церкви"
+genitive = "хранилища церкви"
+dative = "хранилищу церкви"
+accusative = "хранилище церкви"
+instrumental = "хранилищем церкви"
+prepositional = "хранилище церкви"
+gender = "neuter"
+tags = [ "ss13",]
+
+["chapel funeral room"]
+nominative = "похоронный зал церкви"
+genitive = "похоронного зала церкви"
+dative = "похоронному залу церкви"
+accusative = "похоронный зал церкви"
+instrumental = "похоронным залом церкви"
+prepositional = "похоронном зале церкви"
+gender = "male"
+tags = [ "ss13",]
+
+[hydroponics]
+nominative = "гидропоника"
+genitive = "гидропоники"
+dative = "гидропонке"
+accusative = "гидропонику"
+instrumental = "гидропоникой"
+prepositional = "гидропонке"
+gender = "female"
+tags = [ "ss13",]
+
+[garden]
+nominative = "сад"
+genitive = "сада"
+dative = "саду"
+accusative = "сад"
+instrumental = "садом"
+prepositional = "саде"
+gender = "male"
+tags = [ "ss13",]
+
+["law office"]
+nominative = "юридический офис"
+genitive = "юридического офиса"
+dative = "юридическому офису"
+accusative = "юридический офис"
+instrumental = "юридическим офисом"
+prepositional = "юридическом офисе"
+gender = "male"
+tags = [ "ss13",]
+
+["custodial closet"]
+nominative = "коморка уборщика"
+genitive = "коморки уборщика"
+dative = "коморке уборщика"
+accusative = "коморку уборщика"
+instrumental = "коморкой уборщика"
+prepositional = "коморке уборщика"
+gender = "female"
+tags = [ "ss13",]
+
+[barber]
+nominative = "парикмахерская"
+genitive = "парикмахерской"
+dative = "парикмахерской"
+accusative = "парикмахерскую"
+instrumental = "парикмахерской"
+prepositional = "парикмахерской"
+gender = "female"
+tags = [ "ss13",]
+
+["abandoned garden"]
+nominative = "заброшенный сад"
+genitive = "заброшенного сада"
+dative = "заброшенному саду"
+accusative = "заброшенный сад"
+instrumental = "заброшенным садом"
+prepositional = "заброшенном саде"
+gender = "male"
+tags = [ "ss13",]
+
+["abandoned kitchen"]
+nominative = "заброшенная кухня"
+genitive = "заброшенной кухни"
+dative = "заброшенной кухне"
+accusative = "заброшенную кухню"
+instrumental = "заброшенной кухней"
+prepositional = "заброшенной кухне"
+gender = "female"
+tags = [ "ss13",]
+
+["abandoned gambling den"]
+nominative = "заброшенный игорный дом"
+genitive = "заброшенного игорного дома"
+dative = "заброшенному игорному дому"
+accusative = "заброшенный игорный дом"
+instrumental = "заброшенным игорным домом"
+prepositional = "заброшенном игорном доме"
+gender = "male"
+tags = [ "ss13",]
+
+["abandoned gaming den"]
+nominative = "заброшенная игровая комната"
+genitive = "заброшенной игровой комнаты"
+dative = "заброшенной игровой комнате"
+accusative = "заброшенную игровую комнату"
+instrumental = "заброшенной игровой комнатой"
+prepositional = "заброшенной игровой комнате"
+gender = "female"
+tags = [ "ss13",]
+
+["abandoned theater"]
+nominative = "заброшенный театр"
+genitive = "заброшенного театра"
+dative = "заброшенному театру"
+accusative = "заброшенный театр"
+instrumental = "заброшенным театром"
+prepositional = "заброшенном театре"
+gender = "male"
+tags = [ "ss13",]
+
+["abandoned library"]
+nominative = "заброшенная библиотека"
+genitive = "заброшенной библиотеки"
+dative = "заброшенной библиотеке"
+accusative = "заброшенную библиотеку"
+instrumental = "заброшенной библиотекой"
+prepositional = "заброшенной библиотеке"
+gender = "female"
+tags = [ "ss13",]
+
+["electronic marketing den"]
+nominative = "отдел электронного маркетинга"
+genitive = "отдела электронного маркетинга"
+dative = "отделу электронного маркетинга"
+accusative = "отдел электронного маркетинга"
+instrumental = "отделом электронного маркетинга"
+prepositional = "отделе электронного маркетинга"
+gender = "male"
+tags = [ "ss13",]
+
+["head of personnel's office"]
+nominative = "кабинет главы персонала"
+genitive = "кабинета главы персонала"
+dative = "кабинету главы персонала"
+accusative = "кабинет главы персонала"
+instrumental = "кабинетом главы персонала"
+prepositional = "кабинете главы персонала"
+gender = "male"
+tags = [ "ss13",]
+
+["captain's office"]
+nominative = "кабинет капитана"
+genitive = "кабинета капитана"
+dative = "кабинету капитана"
+accusative = "кабинет капитана"
+instrumental = "кабинетом капитана"
+prepositional = "кабинете капитана"
+gender = "male"
+tags = [ "ss13",]
+
+["captain's quarters"]
+nominative = "каюта капитана"
+genitive = "каюты капитана"
+dative = "каюте капитана"
+accusative = "каюту капитана"
+instrumental = "каютой капитана"
+prepositional = "каюте капитана"
+gender = "female"
+tags = [ "ss13",]
+
+["nanotrasen representative's office"]
+nominative = "кабинет представителя Нанотрейзен"
+genitive = "кабинета представителя Нанотрейзен"
+dative = "кабинету представителя Нанотрейзен"
+accusative = "кабинет представителя Нанотрейзен"
+instrumental = "кабинетом представителя Нанотрейзен"
+prepositional = "кабинете представителя Нанотрейзен"
+gender = "male"
+tags = [ "ss13",]
+
+["magistrate's office"]
+nominative = "кабинет магистрата"
+genitive = "кабинета магистрата"
+dative = "кабинету магистрата"
+accusative = "кабинет магистрата"
+instrumental = "кабинетом магистрата"
+prepositional = "кабинете магистрата"
+gender = "male"
+tags = [ "ss13",]
+
+["blueshield's office"]
+nominative = "кабинет Синего щита"
+genitive = "кабинета Синего щита"
+dative = "кабинету Синего щита"
+accusative = "кабинет Синего щита"
+instrumental = "кабинетом Синего щита"
+prepositional = "кабинете Синего щита"
+gender = "male"
+tags = [ "ss13",]
+
+["teleporter room"]
+nominative = "телепортерная"
+genitive = "телепортерной"
+dative = "телепортерной"
+accusative = "телепортерной"
+instrumental = "телепортерной"
+prepositional = "телепортерной"
+gender = "female"
+tags = [ "ss13",]
+
+[gateway]
+nominative = "врата"
+genitive = "врат"
+dative = "вратам"
+accusative = "врата"
+instrumental = "вратами"
+prepositional = "вратах"
+gender = "plural"
+tags = [ "ss13",]
+
+[bridge]
+nominative = "мостик"
+genitive = "мостика"
+dative = "мостику"
+accusative = "мостик"
+instrumental = "мостиком"
+prepositional = "мостике"
+gender = "male"
+tags = [ "ss13",]
+
+["heads of staff meeting room"]
+nominative = "конференц-зал командования"
+genitive = "конференц-зала командования"
+dative = "конференц-залу командования"
+accusative = "конференц-зал командования"
+instrumental = "конференц-залом командования"
+prepositional = "конференц-зале командования"
+gender = "male"
+tags = [ "ss13",]
+
+["council chamber"]
+nominative = "зал заседаний совета"
+genitive = "зала заседаний совета"
+dative = "залу заседаний совета"
+accusative = "зал заседаний совета"
+instrumental = "залом заседаний совета"
+prepositional = "зале заседаний совета"
+gender = "male"
+tags = [ "ss13",]
+
+["eva storage"]
+nominative = "хранилище ВКД"
+genitive = "хранилища ВКД"
+dative = "хранилищу ВКД"
+accusative = "хранилище ВКД"
+instrumental = "хранилищем ВКД"
+prepositional = "хранилище ВКД"
+gender = "neuter"
+tags = [ "ss13",]
+
+[vault]
+nominative = "хранилище"
+genitive = "хранилища"
+dative = "хранилищу"
+accusative = "хранилище"
+instrumental = "хранилищем"
+prepositional = "хранилище"
+gender = "neuter"
+tags = [ "ss13",]
+
+["ai upload chamber"]
+nominative = "отсек загрузки ИИ"
+genitive = "отсека загрузки ИИ"
+dative = "отсеку загрузки ИИ"
+accusative = "отсек загрузки ИИ"
+instrumental = "отсеком загрузки ИИ"
+prepositional = "отсеке загрузки ИИ"
+gender = "male"
+tags = [ "ss13",]
+
+["ai upload access"]
+nominative = "фойе отсека загрузки ИИ"
+genitive = "фойе отсека загрузки ИИ"
+dative = "фойе отсеку загрузки ИИ"
+accusative = "фойе отсека загрузки ИИ"
+instrumental = "фойе отсека загрузки ИИ"
+prepositional = "фойе отсека загрузки ИИ"
+gender = "neuter"
+tags = [ "ss13",]
+
+["ai satellite"]
+nominative = "спутник ИИ"
+genitive = "спутника ИИ"
+dative = "спутнику ИИ"
+accusative = "спутник ИИ"
+instrumental = "спутником ИИ"
+prepositional = "спутнике ИИ"
+gender = "male"
+tags = [ "ss13",]
+
+["ai chamber"]
+nominative = "отсек ИИ"
+genitive = "отсека ИИ"
+dative = "отсеку ИИ"
+accusative = "отсек ИИ"
+instrumental = "отсеком ИИ"
+prepositional = "отсеке ИИ"
+gender = "male"
+tags = [ "ss13",]
+
+["ai satellite exterior"]
+nominative = "внешний контур спутника ИИ"
+genitive = "внешнего контура спутника ИИ"
+dative = "внешнему контуру спутника ИИ"
+accusative = "внешний контур спутника ИИ"
+instrumental = "внешним контуром спутника ИИ"
+prepositional = "внешнем контуре спутника ИИ"
+gender = "male"
+tags = [ "ss13",]
+
+["ai satellite maintenance"]
+nominative = "техтоннели спутника ИИ"
+genitive = "тех. тоннелей спутника ИИ"
+dative = "тех. тоннелям спутника ИИ"
+accusative = "тех. тоннели спутника ИИ"
+instrumental = "тех. тоннелями спутника ИИ"
+prepositional = "тех. тоннелях спутника ИИ"
+gender = "male"
+tags = [ "ss13",]
+
+["ai satellite storage"]
+nominative = "хранилище спутника ИИ"
+genitive = "хранилища спутника ИИ"
+dative = "хранилищу спутника ИИ"
+accusative = "хранилище спутника ИИ"
+instrumental = "хранилищем спутника ИИ"
+prepositional = "хранилище спутника ИИ"
+gender = "male"
+tags = [ "ss13",]
+
+["ai satellite antechamber"]
+nominative = "приемная спутника ИИ"
+genitive = "приемной спутника ИИ"
+dative = "приемной спутника ИИ"
+accusative = "приемную спутника ИИ"
+instrumental = "приемной спутника ИИ"
+prepositional = "приемной спутника ИИ"
+gender = "female"
+tags = [ "ss13",]
+
+["ai satellite foyer"]
+nominative = "фойе спутника ИИ"
+genitive = "фойе спутника ИИ"
+dative = "фойе спутника ИИ"
+accusative = "фойе спутника ИИ"
+instrumental = "фойе спутника ИИ"
+prepositional = "фойе спутника ИИ"
+gender = "neuter"
+tags = [ "ss13",]
+
+["ai satellite hallway"]
+nominative = "коридор спутника ИИ"
+genitive = "коридора спутника ИИ"
+dative = "коридору спутника ИИ"
+accusative = "коридор спутника ИИ"
+instrumental = "коридором спутника ИИ"
+prepositional = "коридоре спутника ИИ"
+gender = "male"
+tags = [ "ss13",]
+
+["ai satellite atmospherics"]
+nominative = "атмосферный отдел спутника ИИ"
+genitive = "атмосферного отдела спутника ИИ"
+dative = "атмосферному отделу спутника ИИ"
+accusative = "атмосферный отдел спутника ИИ"
+instrumental = "атмосферным отделом спутника ИИ"
+prepositional = "атмосферном отделе спутника ИИ"
+gender = "male"
+tags = [ "ss13",]
+
+["ai satellite service"]
+nominative = "комната обслуживания спутника ИИ"
+genitive = "комнаты обслуживания спутника ИИ"
+dative = "комнате обслуживания спутника ИИ"
+accusative = "комнату обслуживания спутника ИИ"
+instrumental = "комнатой обслуживания спутника ИИ"
+prepositional = "комнате обслуживания спутника ИИ"
+gender = "female"
+tags = [ "ss13",]
+
+["ai satellite teleporter"]
+nominative = "телепортерная спутника ИИ"
+genitive = "телепортерной спутника ИИ"
+dative = "телепортерной спутника ИИ"
+accusative = "телепортерную спутника ИИ"
+instrumental = "телепортерной спутника ИИ"
+prepositional = "телепортерной спутника ИИ"
+gender = "female"
+tags = [ "ss13",]
+
+[dormitories]
+nominative = "дормитории"
+genitive = "дормиториев"
+dative = "дормитиориям"
+accusative = "дормитории"
+instrumental = "дормиториями"
+prepositional = "дормиториях"
+gender = "plural"
+tags = [ "ss13",]
+
+["dorms room 1"]
+nominative = "первая комната дормиториев"
+genitive = "первой комнаты дормиториев"
+dative = "первой комнате дормиториев"
+accusative = "первую комнату дормиториев"
+instrumental = "первой комнатой дормиториев"
+prepositional = "первой комнате дормиториев"
+gender = "female"
+tags = [ "ss13",]
+
+["dorms room 2"]
+nominative = "вторая комната дормиториев"
+genitive = "второй комнаты дормиториев"
+dative = "второй комнате дормиториев"
+accusative = "вторую комнату дормиториев"
+instrumental = "второй комнатой дормиториев"
+prepositional = "второй комнате дормиториев"
+gender = "female"
+tags = [ "ss13",]
+
+["dorms room 3"]
+nominative = "третья комната дормиториев"
+genitive = "третьей комнаты дормиториев"
+dative = "третьей комнате дормиториев"
+accusative = "третью комнату дормиториев"
+instrumental = "третьей комнатой дормиториев"
+prepositional = "третьей комнате дормиториев"
+gender = "female"
+tags = [ "ss13",]
+
+["dorms room 4"]
+nominative = "четвертая комната дормиториев"
+genitive = "четвертой комнаты дормиториев"
+dative = "четвертой комнате дормиториев"
+accusative = "четвертую комнату дормиториев"
+instrumental = "четвертой комнатой дормиториев"
+prepositional = "четвертой комнате дормиториев"
+gender = "female"
+tags = [ "ss13",]
+
+["dorms apartment 1"]
+nominative = "первые апартаменты дормиториев"
+genitive = "первых апартаментов дормиториев"
+dative = "первым апартаментам дормиториев"
+accusative = "первые апартаменты дормиториев"
+instrumental = "первыми апартаментами дормиториев"
+prepositional = "первых апартаментах дормиториев"
+gender = "plural"
+tags = [ "ss13",]
+
+["dorms apartment 2"]
+nominative = "вторые апартаменты дормиториев"
+genitive = "вторых апартаментов дормиториев"
+dative = "вторым апартаментам дормиториев"
+accusative = "вторые апартаменты дормиториев"
+instrumental = "вторыми апартаментами дормиториев"
+prepositional = "вторых апартаментах дормиториев"
+gender = "plural"
+tags = [ "ss13",]
+
+["laundry room"]
+nominative = "прачечная"
+genitive = "прачечной"
+dative = "прачечной"
+accusative = "прачечную"
+instrumental = "прачечной"
+prepositional = "прачечной"
+gender = "female"
+tags = [ "ss13",]
+
+["dormitory toilets"]
+nominative = "санузел дормиторий"
+genitive = "санузла дормиторий"
+dative = "санузлу дормиторий"
+accusative = "санузел дормиторий"
+instrumental = "санузлом дормиторий"
+prepositional = "санузле дормиторий"
+gender = "male"
+tags = [ "ss13",]
+
+["auxiliary restrooms"]
+nominative = "резервный санузел"
+genitive = "резервного санузла"
+dative = "резервному санузлу"
+accusative = "резервный санузел"
+instrumental = "резервным санузлом"
+prepositional = "резервном санузле"
+gender = "male"
+tags = [ "ss13",]
+
+["locker toilets"]
+nominative = "санузел раздевальной комнаты"
+genitive = "санузла раздевальной комнаты"
+dative = "санузлу раздевальной комнаты"
+accusative = "санузел раздевальной комнаты"
+instrumental = "санузлом раздевальной комнаты"
+prepositional = "санузле раздевальной комнаты"
+gender = "male"
+tags = [ "ss13",]
+
+[restrooms]
+nominative = "санузел"
+genitive = "санузла"
+dative = "санузлу"
+accusative = "санузел"
+instrumental = "санузлом"
+prepositional = "санузле"
+gender = "male"
+tags = [ "ss13",]
+
+["shower room"]
+nominative = "душевая"
+genitive = "душевой"
+dative = "душевой"
+accusative = "душевую"
+instrumental = "душевой"
+prepositional = "душевой"
+gender = "female"
+tags = [ "ss13",]
+
+["locker room"]
+nominative = "раздевальная комната"
+genitive = "раздевальной комнаты"
+dative = "раздевальной комнате"
+accusative = "раздевальную комнату"
+instrumental = "раздевальной комнатой"
+prepositional = "раздевальной комнате"
+gender = "female"
+tags = [ "ss13",]
+
+["bar lounge"]
+nominative = "лаундж-бар"
+genitive = "лаундж-бара"
+dative = "лаундж-бару"
+accusative = "лаундж-бар"
+instrumental = "лаундж-баром"
+prepositional = "лаундж-баре"
+gender = "male"
+tags = [ "ss13",]
+
+["fitness room"]
+nominative = "фитнес-зал"
+genitive = "фитнес-зала"
+dative = "фитнес-залу"
+accusative = "фитнес-зал"
+instrumental = "фитнес-залом"
+prepositional = "фитнес-зале"
+gender = "male"
+tags = [ "ss13",]
+
+["recreation area"]
+nominative = "зона отдыха"
+genitive = "зоны отдыха"
+dative = "зоне отдыха"
+accusative = "зону отдыха"
+instrumental = "зоной отдыха"
+prepositional = "зоне отдыха"
+gender = "female"
+tags = [ "ss13",]
+
+["entertainment center"]
+nominative = "развлекательный центр"
+genitive = "развлекательного центра"
+dative = "развлекательному центру"
+accusative = "развлекательный центр"
+instrumental = "развлекательным центром"
+prepositional = "развлекательном центре"
+gender = "male"
+tags = [ "ss13",]
+
+["vacant room"]
+nominative = "свободная комната"
+genitive = "свободной комнаты"
+dative = "свободной комнате"
+accusative = "свободную комнату"
+instrumental = "свободной комнатой"
+prepositional = "свободной комнате"
+gender = "female"
+tags = [ "ss13",]
+
+["vacant office"]
+nominative = "вакантный офис"
+genitive = "вакантного офиса"
+dative = "вакантному офису"
+accusative = "вакантный офис"
+instrumental = "вакантным офисом"
+prepositional = "вакантном офисе"
+gender = "female"
+tags = [ "ss13",]
+
+["vacant commissary"]
+nominative = "вакантный магазин"
+genitive = "вакантного магазина"
+dative = "вакантному магазину"
+accusative = "вакантный магазин"
+instrumental = "вакантным магазином"
+prepositional = "вакантном магазине"
+gender = "male"
+tags = [ "ss13",]
+
+["auxiliary tool storage"]
+nominative = "вспомогательное хранилище инструментов"
+genitive = "вспомогательного хранилища инструментов"
+dative = "вспомогательному хранилищу инструментов"
+accusative = "вспомогательное хранилище инструментов"
+instrumental = "вспомогательным хранилищем инструментов"
+prepositional = "вспомогательном хранилище инструментов"
+gender = "neuter"
+tags = [ "ss13",]
+
+["primary tool storage"]
+nominative = "основное хранилище инструментов"
+genitive = "основного хранилища инструментов"
+dative = "основному хранилищу инструментов"
+accusative = "основное хранилище инструментов"
+instrumental = "основным хранилищем инструментов"
+prepositional = "основном хранилище инструментов"
+gender = "neuter"
+tags = [ "ss13",]
+
+["art supply storage"]
+nominative = "хранилище художественных принадлежностей"
+genitive = "хранилища художественных принадлежностей"
+dative = "хранилищу художественных принадлежностей"
+accusative = "хранилище художественных принадлежностей"
+instrumental = "хранилищем художественных принадлежностей"
+prepositional = "хранилище художественных принадлежностей"
+gender = "neuter"
+tags = [ "ss13",]
+
+["commons storage"]
+nominative = "хранилище общего пользования"
+genitive = "хранилища общего пользования"
+dative = "хранилищу общего пользования"
+accusative = "хранилище общего пользования"
+instrumental = "хранилищем общего пользования"
+prepositional = "хранилище общего пользования"
+gender = "neuter"
+tags = [ "ss13",]
+
+["public mining storage"]
+nominative = "общественное шахтерское хранилище"
+genitive = "общественного шахтерского хранилища"
+dative = "общественному шахтерскому хранилищу"
+accusative = "общественное шахтерское хранилище"
+instrumental = "общественным шахтерским хранилищем"
+prepositional = "общественном шахтерском хранилище"
+gender = "neuter"
+tags = [ "ss13",]
+
+["port emergency storage"]
+nominative = "западное аварийное хранилище"
+genitive = "западного аварийного хранилища"
+dative = "западному аварийному хранилищу"
+accusative = "западное аварийное хранилище"
+instrumental = "западным аварийным хранилищем"
+prepositional = "западном аварийном хранилище"
+gender = "neuter"
+tags = [ "ss13",]
+
+["cryopods room"]
+nominative = "криохранилище"
+genitive = "криохранилища"
+dative = "криохранилищу"
+accusative = "криохранилище"
+instrumental = "криохранилищем"
+prepositional = "криохранилище"
+gender = "neuter"
+tags = [ "ss13",]
+
+["primary hallway"]
+nominative = "основной коридор"
+genitive = "основного коридора"
+dative = "основному коридору"
+accusative = "основной коридор"
+instrumental = "основным коридором"
+prepositional = "основном коридоре"
+gender = "male"
+tags = [ "ss13",]
+
+["aft primary hallway"]
+nominative = "южный основной коридор"
+genitive = "южного основного коридора"
+dative = "южному основному коридору"
+accusative = "южный основной коридор"
+instrumental = "южным основным коридором"
+prepositional = "южном основном коридоре"
+gender = "male"
+tags = [ "ss13",]
+
+["fore primary hallway"]
+nominative = "северный основной коридор"
+genitive = "северного основного коридора"
+dative = "северному основному коридору"
+accusative = "северный основной коридор"
+instrumental = "северным основным коридором"
+prepositional = "северном основном коридоре"
+gender = "male"
+tags = [ "ss13",]
+
+["starboard primary hallway"]
+nominative = "восточный основной коридор"
+genitive = "восточного основного коридора"
+dative = "восточному основному коридору"
+accusative = "восточный основной коридор"
+instrumental = "восточным основным коридором"
+prepositional = "восточном основном коридоре"
+gender = "male"
+tags = [ "ss13",]
+
+["port primary hallway"]
+nominative = "западный основной коридор"
+genitive = "западного основного коридора"
+dative = "западному основному коридору"
+accusative = "западный основной коридор"
+instrumental = "западным основным коридором"
+prepositional = "западном основном коридоре"
+gender = "male"
+tags = [ "ss13",]
+
+["central primary hallway"]
+nominative = "центральный основной коридор"
+genitive = "центрального основного коридора"
+dative = "центральному основному коридору"
+accusative = "центральный основной коридор"
+instrumental = "центральным основным коридором"
+prepositional = "центральном основном коридоре"
+gender = "male"
+tags = [ "ss13",]
+
+["fore central primary hallway"]
+nominative = "северный центральный основной коридор"
+genitive = "северного центрального основного коридора"
+dative = "северному центральному основному коридору"
+accusative = "северный центральный основной коридор"
+instrumental = "северным центральным основным коридором"
+prepositional = "северном центральном основном коридоре"
+gender = "male"
+tags = [ "ss13",]
+
+["aft central primary hallway"]
+nominative = "южный центральный основной коридор"
+genitive = "южного центрального основного коридора"
+dative = "южному центральному основному коридору"
+accusative = "южный центральный основной коридор"
+instrumental = "южным центральным основным коридором"
+prepositional = "южном центральном основном коридоре"
+gender = "male"
+tags = [ "ss13",]
+
+["starboard primary hallway west"]
+nominative = "восточно-западный основной коридор"
+genitive = "восточно-западного основного коридора"
+dative = "восточно-западному основному коридору"
+accusative = "восточно-западный основной коридор"
+instrumental = "восточно-западным основным коридором"
+prepositional = "восточно-западном основном коридоре"
+gender = "male"
+tags = [ "ss13",]
+
+["port tram dock"]
+nominative = "западный трамвайный док"
+genitive = "западного трамвайного дока"
+dative = "западному трамвайному доку"
+accusative = "западный трамвайный док"
+instrumental = "западным трамвайным доком"
+prepositional = "западном трамвайном доке"
+gender = "male"
+tags = [ "ss13",]
+
+["central tram dock"]
+nominative = "центральный трамвайный док"
+genitive = "центрального трамвайного дока"
+dative = "центральному трамвайному доку"
+accusative = "центральный трамвайный док"
+instrumental = "центральным трамвайным доком"
+prepositional = "центральном трамвайном доке"
+gender = "male"
+tags = [ "ss13",]
+
+["starboard tram dock"]
+nominative = "восточный трамвайный док"
+genitive = "восточного трамвайного дока"
+dative = "восточному трамвайному доку"
+accusative = "восточный трамвайный док"
+instrumental = "восточным трамвайным доком"
+prepositional = "восточном трамвайном доке"
+gender = "male"
+tags = [ "ss13",]
+
+["command hallway"]
+nominative = "командный коридор"
+genitive = "командного коридора"
+dative = "командному коридору"
+accusative = "командный коридор"
+instrumental = "командным коридором"
+prepositional = "командном коридоре"
+gender = "male"
+tags = [ "ss13",]
+
+["escape shuttle hallway"]
+nominative = "коридор эвакуационного шаттла"
+genitive = "коридора эвакуационного шаттла"
+dative = "коридору эвакуационного шаттла"
+accusative = "коридор эвакуационного шаттла"
+instrumental = "коридором эвакуационного шаттла"
+prepositional = "коридоре эвакуационного шаттла"
+gender = "male"
+tags = [ "ss13",]
+
+["escape pod bay"]
+nominative = "отсек спасательных капсул"
+genitive = "отсека спасательных капсул"
+dative = "отсеку спасательных капсул"
+accusative = "отсек спасательных капсул"
+instrumental = "отсеком спасательных капсул"
+prepositional = "отсеке спасательных капсул"
+gender = "male"
+tags = [ "ss13",]
+
+["departure lounge"]
+nominative = "зал отбытия"
+genitive = "зала отбытия"
+dative = "залу отбытия"
+accusative = "зал отбытия"
+instrumental = "залом отбытия"
+prepositional = "зале отбытия"
+gender = "male"
+tags = [ "ss13",]
+
+["arrival shuttle hallway"]
+nominative = "коридор шаттла прибытия"
+genitive = "коридора шаттла прибытия"
+dative = "коридору шаттла прибытия"
+accusative = "коридор шаттла прибытия"
+instrumental = "коридором шаттла прибытия"
+prepositional = "коридоре шаттла прибытия"
+gender = "male"
+tags = [ "ss13",]
+
+["secondary station dock hallway"]
+nominative = "коридор вторичной док-станции"
+genitive = "коридора вторичной док-станции"
+dative = "коридору вторичной док-станции"
+accusative = "коридор вторичной док-станции"
+instrumental = "коридором вторичной док-станции"
+prepositional = "коридоре вторичной док-станции"
+gender = "male"
+tags = [ "ss13",]
+
+["service hallway"]
+nominative = "коридор отдела обслуживания"
+genitive = "коридора отдела обслуживания"
+dative = "коридору отдела обслуживания"
+accusative = "коридор отдела обслуживания"
+instrumental = "коридором отдела обслуживания"
+prepositional = "коридоре отдела обслуживания"
+gender = "male"
+tags = [ "ss13",]
+
+["fore solar array"]
+nominative = "северные солнечные панели"
+genitive = "северных солнечных панелей"
+dative = "северным солнечным панелям"
+accusative = "северные солнечные панели"
+instrumental = "северными солнечными панелями"
+prepositional = "северных солнечных панелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["aft solar array"]
+nominative = "южные солнечные панели"
+genitive = "южных солнечных панелей"
+dative = "южным солнечным панелям"
+accusative = "южные солнечные панели"
+instrumental = "южными солнечными панелями"
+prepositional = "южных солнечных панелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["starboard solar array"]
+nominative = "восточные солнечные панели"
+genitive = "восточных солнечных панелей"
+dative = "восточным солнечным панелям"
+accusative = "восточные солнечные панели"
+instrumental = "восточными солнечными панелями"
+prepositional = "восточных солнечных панелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["starboard quarter solar array"]
+nominative = "юго-восточные солнечные панели"
+genitive = "юго-восточных солнечных панелей"
+dative = "юго-восточным солнечным панелям"
+accusative = "юго-восточные солнечные панели"
+instrumental = "юго-восточными солнечными панелями"
+prepositional = "юго-восточных солнечных панелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["starboard bow solar array"]
+nominative = "северо-восточные солнечные панели"
+genitive = "северо-восточных солнечных панелей"
+dative = "северо-восточным солнечным панелям"
+accusative = "северо-восточные солнечные панели"
+instrumental = "северо-восточными солнечными панелями"
+prepositional = "северо-восточных солнечных панелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["starboard bow asteriod solar array"]
+nominative = "северо-восточные солнечные панели астероида"
+genitive = "северо-восточных солнечных панелей астероида"
+dative = "северо-восточным солнечным панелям астероида"
+accusative = "северо-восточные солнечные панели астероида"
+instrumental = "северо-восточными солнечными панелями астероида"
+prepositional = "северо-восточных солнечных панелях астероида"
+gender = "plural"
+tags = [ "ss13",]
+
+["port solar array"]
+nominative = "западные солнечные панели"
+genitive = "западных солнечных панелей"
+dative = "западным солнечным панелям"
+accusative = "западные солнечные панели"
+instrumental = "западными солнечными панелями"
+prepositional = "западных солнечных панелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["port asteriod solar array"]
+nominative = "западные солнечные панели астероида"
+genitive = "западных солнечных панелей астероида"
+dative = "западным солнечным панелям астероида"
+accusative = "западные солнечные панели астероида"
+instrumental = "западными солнечными панелями астероида"
+prepositional = "западных солнечных панелях астероида"
+gender = "plural"
+tags = [ "ss13",]
+
+["port quarter solar array"]
+nominative = "юго-западные солнечные панели"
+genitive = "юго-западных солнечных панелей"
+dative = "юго-западным солнечным панелям"
+accusative = "юго-западные солнечные панели"
+instrumental = "юго-западными солнечными панелями"
+prepositional = "юго-западных солнечных панелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["port bow solar array"]
+nominative = "северо-западные солнечные панели"
+genitive = "северо-западных солнечных панелей"
+dative = "северо-западным солнечным панелям"
+accusative = "северо-западные солнечные панели"
+instrumental = "северо-западными солнечными панелями"
+prepositional = "северо-западных солнечных панелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["ai satellite solars"]
+nominative = "солнечные панели спутника ИИ"
+genitive = "солнечных панелей спутника ИИ"
+dative = "солнечным панелям спутника ИИ"
+accusative = "солнечные панели спутника ИИ"
+instrumental = "солнечными панелями спутника ИИ"
+prepositional = "солнечных панелях спутника ИИ"
+gender = "plural"
+tags = [ "ss13",]
+
+["solar maintenance"]
+nominative = "техтоннели у солнечных панелей"
+genitive = "техтоннелей у солнечных панелей"
+dative = "техтоннелям у солнечных панелей"
+accusative = "техтоннели у солнечных панелей"
+instrumental = "техтоннелями у солнечных панелей"
+prepositional = "техтоннелях у солнечных панелей"
+gender = "plural"
+tags = [ "ss13",]
+
+["port solar maintenance"]
+nominative = "техтоннели у западных солнечных панелей"
+genitive = "техтоннелей у западных солнечных панелей"
+dative = "техтоннелям у западных солнечных панелей"
+accusative = "техтоннели у западных солнечных панелей"
+instrumental = "техтоннелями у западных солнечных панелей"
+prepositional = "техтоннелях у западных солнечных панелей"
+gender = "plural"
+tags = [ "ss13",]
+
+["port quarter solar maintenance"]
+nominative = "техтоннели у юго-западных солнечных панелей"
+genitive = "техтоннелей у юго-западных солнечных панелей"
+dative = "техтоннелям у юго-западных солнечных панелей"
+accusative = "техтоннели у юго-западных солнечных панелей"
+instrumental = "техтоннелями у юго-западных солнечных панелей"
+prepositional = "техтоннелях у юго-западных солнечных панелей"
+gender = "plural"
+tags = [ "ss13",]
+
+["port bow solar maintenance"]
+nominative = "техтоннели у северо-западных солнечных панелей"
+genitive = "техтоннелей у северо-западных солнечных панелей"
+dative = "техтоннелям у северо-западных солнечных панелей"
+accusative = "техтоннели у северо-западных солнечных панелей"
+instrumental = "техтоннелями у северо-западных солнечных панелей"
+prepositional = "техтоннелях у северо-западных солнечных панелей"
+gender = "plural"
+tags = [ "ss13",]
+
+["starboard solar maintenance"]
+nominative = "техтоннели у восточных солнечных панелей"
+genitive = "техтоннелей у восточных солнечных панелей"
+dative = "техтоннелям у восточных солнечных панелей"
+accusative = "техтоннели у восточных солнечных панелей"
+instrumental = "техтоннелями у восточных солнечных панелей"
+prepositional = "техтоннелях у восточных солнечных панелей"
+gender = "plural"
+tags = [ "ss13",]
+
+["starboard quarter solar maintenance"]
+nominative = "техтоннели у юго-восточных солнечных панелей"
+genitive = "техтоннелей у юго-восточных солнечных панелей"
+dative = "техтоннелям у юго-восточных солнечных панелей"
+accusative = "техтоннели у юго-восточных солнечных панелей"
+instrumental = "техтоннелями у юго-восточных солнечных панелей"
+prepositional = "техтоннелях у юго-восточных солнечных панелей"
+gender = "plural"
+tags = [ "ss13",]
+
+["starboard bow solar maintenance"]
+nominative = "техтоннели у северо-восточных солнечных панелей"
+genitive = "техтоннелей у северо-восточных солнечных панелей"
+dative = "техтоннелям у северо-восточных солнечных панелей"
+accusative = "техтоннели у северо-восточных солнечных панелей"
+instrumental = "техтоннелями у северо-восточных солнечных панелей"
+prepositional = "техтоннелях у северо-восточных солнечных панелей"
+gender = "plural"
+tags = [ "ss13",]
+
+["chapel maintenance"]
+nominative = "техтоннели церкви"
+genitive = "техтоннелей церкви"
+dative = "техтоннелям церкви"
+accusative = "техтоннели церкви"
+instrumental = "техтоннелями церкви"
+prepositional = "техтоннелях церкви"
+gender = "plural"
+tags = [ "ss13",]
+
+["monastery maintenance"]
+nominative = "техтоннели монастыря"
+genitive = "техтоннелей монастыря"
+dative = "техтоннелям монастыря"
+accusative = "техтоннели монастыря"
+instrumental = "техтоннелями монастыря"
+prepositional = "техтоннелях монастыря"
+gender = "plural"
+tags = [ "ss13",]
+
+["bar maintenance"]
+nominative = "техтоннели бара"
+genitive = "техтоннелей бара"
+dative = "техтоннелям бара"
+accusative = "техтоннели бара"
+instrumental = "техтоннелями бара"
+prepositional = "техтоннелях бара"
+gender = "plural"
+tags = [ "ss13",]
+
+["dormitory maintenance"]
+nominative = "техтоннели дормиторий"
+genitive = "техтоннелей дормиторий"
+dative = "техтоннелям дормиторий"
+accusative = "техтоннели дормиторий"
+instrumental = "техтоннелями дормиторий"
+prepositional = "техтоннелях дормиторий"
+gender = "plural"
+tags = [ "ss13",]
+
+["eva maintenance"]
+nominative = "техтоннели хранилища ВКД"
+genitive = "техтоннелей хранилища ВКД"
+dative = "техтоннелям хранилища ВКД"
+accusative = "техтоннели хранилища ВКД"
+instrumental = "техтоннелями хранилища ВКД"
+prepositional = "техтоннелях хранилища ВКД"
+gender = "plural"
+tags = [ "ss13",]
+
+["electrical maintenance"]
+nominative = "электротехническое помещение"
+genitive = "электротехнического помещения"
+dative = "электротехническому помещению"
+accusative = "электротехническое помещение"
+instrumental = "электротехническим помещением"
+prepositional = "электротехническом помещении"
+gender = "neuter"
+tags = [ "ss13",]
+
+["atmospherics maintenance"]
+nominative = "техтоннели атмосферного отдела"
+genitive = "техтоннелей атмосферного отдела"
+dative = "техтоннелям атмосферного отдела"
+accusative = "техтоннели атмосферного отдела"
+instrumental = "техтоннелями атмосферного отдела"
+prepositional = "техтоннелях атмосферного отдела"
+gender = "plural"
+tags = [ "ss13",]
+
+["security maintenance"]
+nominative = "техтоннели службы безопасности"
+genitive = "техтоннелей службы безопасности"
+dative = "техтоннелям службы безопасности"
+accusative = "техтоннели службы безопасности"
+instrumental = "техтоннелями службы безопасности"
+prepositional = "техтоннелях службы безопасности"
+gender = "plural"
+tags = [ "ss13",]
+
+["brig maintenance"]
+nominative = "техтоннели брига"
+genitive = "техтоннелей брига"
+dative = "техтоннелям брига"
+accusative = "техтоннели брига"
+instrumental = "техтоннелями брига"
+prepositional = "техтоннелях брига"
+gender = "plural"
+tags = [ "ss13",]
+
+["medbay maintenance"]
+nominative = "техтоннели медицинского отдела"
+genitive = "техтоннелей медицинского отдела"
+dative = "техтоннелям медицинского отдела"
+accusative = "техтоннели медицинского отдела"
+instrumental = "техтоннелями медицинского отдела"
+prepositional = "техтоннелях медицинского отдела"
+gender = "plural"
+tags = [ "ss13",]
+
+["central medbay maintenance"]
+nominative = "центральные техтоннели медицинского отдела"
+genitive = "центральных техтоннелей медицинского отдела"
+dative = "центральным техтоннелям медицинского отдела"
+accusative = "центральные техтоннели медицинского отдела"
+instrumental = "центральными техтоннелями медицинского отдела"
+prepositional = "центральных техтоннелях медицинского отдела"
+gender = "plural"
+tags = [ "ss13",]
+
+["morgue maintenance"]
+nominative = "техтоннели морга"
+genitive = "техтоннелей морга"
+dative = "техтоннелям морга"
+accusative = "техтоннели морга"
+instrumental = "техтоннелями морга"
+prepositional = "техтоннелях морга"
+gender = "plural"
+tags = [ "ss13",]
+
+["science maintenance"]
+nominative = "техтоннели научного отдела"
+genitive = "техтоннелей научного отдела"
+dative = "техтоннелям научного отдела"
+accusative = "техтоннели научного отдела"
+instrumental = "техтоннелями научного отдела"
+prepositional = "техтоннелях научного отдела"
+gender = "plural"
+tags = [ "ss13",]
+
+["central science maintenance"]
+nominative = "центральные техтоннели научного отдела"
+genitive = "центральных техтоннелей научного отдела"
+dative = "центральным техтоннелям научного отдела"
+accusative = "центральные техтоннели научного отдела"
+instrumental = "центральными техтоннелями научного отдела"
+prepositional = "центральных техтоннелях научного отдела"
+gender = "plural"
+tags = [ "ss13",]
+
+["cargo maintenance"]
+nominative = "техтоннели отдела снабжения"
+genitive = "техтоннелей отдела снабжения"
+dative = "техтоннелям отдела снабжения"
+accusative = "техтоннели отдела снабжения"
+instrumental = "техтоннелями отдела снабжения"
+prepositional = "техтоннелях отдела снабжения"
+gender = "plural"
+tags = [ "ss13",]
+
+["bridge maintenance"]
+nominative = "техтоннели мостика"
+genitive = "техтоннелей мостика"
+dative = "техтоннелям мостика"
+accusative = "техтоннели мостика"
+instrumental = "техтоннелями мостика"
+prepositional = "техтоннелях мостика"
+gender = "plural"
+tags = [ "ss13",]
+
+["engineering maintenance"]
+nominative = "техтоннели инженерного отдела"
+genitive = "техтоннелей инженерного отдела"
+dative = "техтоннелям инженерного отдела"
+accusative = "техтоннели инженерного отдела"
+instrumental = "техтоннелями инженерного отдела"
+prepositional = "техтоннелях инженерного отдела"
+gender = "plural"
+tags = [ "ss13",]
+
+["prison maintenance"]
+nominative = "техтоннели тюремного крыла"
+genitive = "техтоннелей тюремного крыла"
+dative = "техтоннелям тюремного крыла"
+accusative = "техтоннели тюремного крыла"
+instrumental = "техтоннелями тюремного крыла"
+prepositional = "техтоннелях тюремного крыла"
+gender = "plural"
+tags = [ "ss13",]
+
+["xenobiology maintenance"]
+nominative = "техтоннели ксенобиологии"
+genitive = "техтоннелей ксенобиологии"
+dative = "техтоннелям ксенобиологии"
+accusative = "техтоннели ксенобиологии"
+instrumental = "техтоннелями ксенобиологии"
+prepositional = "техтоннелях ксенобиологии"
+gender = "plural"
+tags = [ "ss13",]
+
+["aft maintenance"]
+nominative = "южные техтоннели"
+genitive = "южных техтоннелей"
+dative = "южным техтоннелям"
+accusative = "южные техтоннели"
+instrumental = "южными техтоннелями"
+prepositional = "южных техтоннелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["upper aft maintenance"]
+nominative = "верхние южные техтоннели"
+genitive = "верхних южных техтоннелей"
+dative = "верхним южным техтоннелям"
+accusative = "верхние южные техтоннели"
+instrumental = "верхними южными техтоннелями"
+prepositional = "верхних южных техтоннелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["greater aft maintenance"]
+nominative = "большие южные техтоннели"
+genitive = "больших южных техтоннелей"
+dative = "большим южным техтоннелям"
+accusative = "большие южные техтоннели"
+instrumental = "большими южными техтоннелями"
+prepositional = "больших южных техтоннелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["lesser aft maintenance"]
+nominative = "маленькие южные техтоннели"
+genitive = "маленьких южных техтоннелей"
+dative = "маленьким южным техтоннелям"
+accusative = "маленькие южные техтоннели"
+instrumental = "маленькими южными техтоннелями"
+prepositional = "маленьких южных техтоннелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["central maintenance"]
+nominative = "центральные техтоннели"
+genitive = "центральных техтоннелей"
+dative = "центральным техтоннелям"
+accusative = "центральные техтоннели"
+instrumental = "центральными техтоннелями"
+prepositional = "центральных техтоннелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["greater central maintenance"]
+nominative = "большие центральные техтоннели"
+genitive = "больших центральных техтоннелей"
+dative = "большим центральным техтоннелям"
+accusative = "большие центральные техтоннели"
+instrumental = "большими центральными техтоннелями"
+prepositional = "больших центральных техтоннелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["lesser central maintenance"]
+nominative = "маленькие центральные техтоннели"
+genitive = "маленьких центральных техтоннелей"
+dative = "маленьким центральным техтоннелям"
+accusative = "маленькие центральные техтоннели"
+instrumental = "маленькими центральными техтоннелями"
+prepositional = "маленьких центральных техтоннелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["fore maintenance"]
+nominative = "северные техтоннели"
+genitive = "северных техтоннелей"
+dative = "северным техтоннелям"
+accusative = "северные техтоннели"
+instrumental = "северными техтоннелями"
+prepositional = "северных техтоннелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["upper fore maintenance"]
+nominative = "верхние северные техтоннели"
+genitive = "верхних северных техтоннелей"
+dative = "верхним северным техтоннелям"
+accusative = "верхние северные техтоннели"
+instrumental = "верхними северными техтоннелями"
+prepositional = "верхних северных техтоннелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["greater fore maintenance"]
+nominative = "большие северные техтоннели"
+genitive = "больших северных техтоннелей"
+dative = "большим северным техтоннелям"
+accusative = "большие северные техтоннели"
+instrumental = "большими северными техтоннелями"
+prepositional = "больших северных техтоннелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["lesser fore maintenance"]
+nominative = "маленькие северные техтоннели"
+genitive = "маленьких северных техтоннелей"
+dative = "маленьким северным техтоннелям"
+accusative = "маленькие северные техтоннели"
+instrumental = "маленькими северными техтоннелями"
+prepositional = "маленьких северных техтоннелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["starboard maintenance"]
+nominative = "восточные техтоннели"
+genitive = "восточных техтоннелей"
+dative = "восточным техтоннелям"
+accusative = "восточные техтоннели"
+instrumental = "восточными техтоннелями"
+prepositional = "восточных техтоннелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["upper starboard maintenance"]
+nominative = "верхние восточные техтоннели"
+genitive = "верхних восточных техтоннелей"
+dative = "верхним восточным техтоннелям"
+accusative = "верхние восточные техтоннели"
+instrumental = "верхними восточными техтоннелями"
+prepositional = "верхних восточных техтоннелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["central starboard maintenance"]
+nominative = "центральные восточные техтоннели"
+genitive = "центральных восточных техтоннелей"
+dative = "центральным восточным техтоннелям"
+accusative = "центральные восточные техтоннели"
+instrumental = "центральными восточными техтоннелями"
+prepositional = "центральных восточных техтоннелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["greater starboard maintenance"]
+nominative = "большие восточные техтоннели"
+genitive = "больших восточных техтоннелей"
+dative = "большим восточным техтоннелям"
+accusative = "большие восточные техтоннели"
+instrumental = "большими восточными техтоннелями"
+prepositional = "больших восточных техтоннелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["lesser starboard maintenance"]
+nominative = "маленькие восточные техтоннели"
+genitive = "маленьких восточных техтоннелей"
+dative = "маленьким восточным техтоннелям"
+accusative = "маленькие восточные техтоннели"
+instrumental = "маленькими восточными техтоннелями"
+prepositional = "маленьких восточных техтоннелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["aft starboard maintenance"]
+nominative = "юго-восточные техтоннели"
+genitive = "юго-восточных техтоннелей"
+dative = "юго-восточным техтоннелям"
+accusative = "юго-восточные техтоннели"
+instrumental = "юго-восточными техтоннелями"
+prepositional = "юго-восточных техтоннелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["fore starboard maintenance"]
+nominative = "северо-восточные техтоннели"
+genitive = "северо-восточных техтоннелей"
+dative = "северо-восточным техтоннелям"
+accusative = "северо-восточные техтоннели"
+instrumental = "северо-восточными техтоннелями"
+prepositional = "северо-восточных техтоннелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["port maintenance"]
+nominative = "западные техтоннели"
+genitive = "западных техтоннелей"
+dative = "западным техтоннелям"
+accusative = "западные техтоннели"
+instrumental = "западными техтоннелями"
+prepositional = "западных техтоннелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["central port maintenance"]
+nominative = "центральные западные техтоннели"
+genitive = "центральных западных техтоннелей"
+dative = "центральным западным техтоннелям"
+accusative = "центральные западные техтоннели"
+instrumental = "центральными западными техтоннелями"
+prepositional = "центральных западных техтоннелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["greater port maintenance"]
+nominative = "большие западные техтоннели"
+genitive = "больших западных техтоннелей"
+dative = "большим западным техтоннелям"
+accusative = "большие западные техтоннели"
+instrumental = "большими западными техтоннелями"
+prepositional = "больших западных техтоннелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["lesser port maintenance"]
+nominative = "маленькие западные техтоннели"
+genitive = "маленьких западных техтоннелей"
+dative = "маленьким западным техтоннелям"
+accusative = "маленькие западные техтоннели"
+instrumental = "маленькими западными техтоннелями"
+prepositional = "маленьких западных техтоннелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["aft port maintenance"]
+nominative = "юго-западные техтоннели"
+genitive = "юго-западных техтоннелей"
+dative = "юго-западным техтоннелям"
+accusative = "юго-западные техтоннели"
+instrumental = "юго-западными техтоннелями"
+prepositional = "юго-западных техтоннелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["fore port maintenance"]
+nominative = "северо-западные техтоннели"
+genitive = "северо-западных техтоннелей"
+dative = "северо-западным техтоннелям"
+accusative = "северо-западные техтоннели"
+instrumental = "северо-западными техтоннелями"
+prepositional = "северо-западных техтоннелях"
+gender = "plural"
+tags = [ "ss13",]
+
+["port tram underpass"]
+nominative = "западный трамвайный подземный переход"
+genitive = "западного трамвайного подземного перехода"
+dative = "западному трамвайному подземному переходум"
+accusative = "западный трамвайный подземный переход"
+instrumental = "западным трамвайным подземным переходом"
+prepositional = "западном трамвайном подземном переходе"
+gender = "male"
+tags = [ "ss13",]
+
+["central tram underpass"]
+nominative = "центральный трамвайный подземный переход"
+genitive = "центрального трамвайного подземного перехода"
+dative = "центральному трамвайному подземному переходум"
+accusative = "центральный трамвайный подземный переход"
+instrumental = "центральным трамвайным подземным переходом"
+prepositional = "центральном трамвайном подземном переходе"
+gender = "male"
+tags = [ "ss13",]
+
+["starboard tram underpass"]
+nominative = "восточный трамвайный подземный переход"
+genitive = "восточного трамвайного подземного перехода"
+dative = "восточному трамвайному подземному переходум"
+accusative = "восточный трамвайный подземный переход"
+instrumental = "восточным трамвайным подземным переходом"
+prepositional = "восточном трамвайном подземном переходе"
+gender = "male"
+tags = [ "ss13",]
+
+["waste disposal"]
+nominative = "комната переработки отходов"
+genitive = "комнаты переработки отходов"
+dative = "комнате переработки отходов"
+accusative = "комнату переработки отходов"
+instrumental = "комнатой переработки отходов"
+prepositional = "комнате переработки отходов"
+gender = "female"
+tags = [ "ss13",]
+
+["abandoned command hallway"]
+nominative = "заброшенный командный коридор"
+genitive = "заброшенного командного коридора"
+dative = "заброшенному командному коридору"
+accusative = "заброшенный командный коридор"
+instrumental = "заброшенным командным коридором"
+prepositional = "заброшенном командном коридоре"
+gender = "male"
+tags = [ "ss13",]
+
+["abandoned recreation hallway"]
+nominative = "заброшенный коридор для отдыха"
+genitive = "заброшенного коридора для отдыха"
+dative = "заброшенному коридору для отдыха"
+accusative = "заброшенный коридор для отдыха"
+instrumental = "заброшенным коридором для отдыха"
+prepositional = "заброшенном коридоре для отдыха"
+gender = "male"
+tags = [ "ss13",]
+
+[incinerator]
+nominative = "камера сгорания"
+genitive = "камеры сгорания"
+dative = "камере сгорания"
+accusative = "камеру сгорания"
+instrumental = "камерой сгорания"
+prepositional = "камере сгорания"
+gender = "female"
+tags = [ "ss13",]
+
+["space hut"]
+nominative = "космическая хижина"
+genitive = "космической хижины"
+dative = "космической хижине"
+accusative = "космическую хижину"
+instrumental = "космической хижиной"
+prepositional = "космической хижине"
+gender = "female"
+tags = [ "ss13",]
+
+["abandoned cabin"]
+nominative = "заброшенная хижина"
+genitive = "заброшенной хижины"
+dative = "заброшенной хижине"
+accusative = "заброшенную хижину"
+instrumental = "заброшенной хижиной"
+prepositional = "заброшенной хижине"
+gender = "female"
+tags = [ "ss13",]

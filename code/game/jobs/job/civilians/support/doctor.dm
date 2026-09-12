@@ -1,8 +1,8 @@
 //Job options for doctors based on their specialty. They can all manufacture chemicals, administer medication, and operate on patients, but the variants have specialities that they prioritize in.
 
-#define DOCTOR_VARIANT "Doctor" // "I do not have a specialty; I go where I am needed most."
-#define PHARMACIST_VARIANT "Pharmaceutical Physician" // "I specialize in chemistry and medicine."
-#define SURGEON_VARIANT "Surgeon" // "I specialize in surgery and triage."
+#define DOCTOR_VARIANT JOB_DOCTOR_RU // SS220 EDIT TRANSLATE - Original: // "Doctor" // "I do not have a specialty; I go where I am needed most."
+#define PHARMACIST_VARIANT JOB_PHARMACIST_RU // SS220 EDIT TRANSLATE - Original: "Pharmaceutical Physician" // "I specialize in chemistry and medicine."
+#define SURGEON_VARIANT JOB_SURGEON_RU // SS220 EDIT TRANSLATE - Original: "Surgeon" // "I specialize in surgery and triage."
 
 // Doctor
 /datum/job/civilian/doctor
@@ -17,7 +17,7 @@
 	gear_preset = /datum/equipment_preset/uscm_ship/uscm_medical/doctor
 
 	// job option
-	job_options = list(DOCTOR_VARIANT = "Doc", PHARMACIST_VARIANT = "Pharm", SURGEON_VARIANT = "Surg")
+	job_options = list(DOCTOR_VARIANT = "Врч", PHARMACIST_VARIANT = "Фрм", SURGEON_VARIANT = "Хир")
 	/// The doctor variant of the doctor role that was selected in handle_job_options
 	var/doctor_variant
 
@@ -27,10 +27,13 @@
 	switch(option)
 		if(SURGEON_VARIANT)
 			gear_preset = /datum/equipment_preset/uscm_ship/uscm_medical/doctor/surgeon
+			disp_title = JOB_SURGEON_RU
 		if(PHARMACIST_VARIANT)
 			gear_preset = /datum/equipment_preset/uscm_ship/uscm_medical/doctor/pharmacist
+			disp_title = JOB_PHARMACIST_RU
 		else
 			gear_preset = /datum/equipment_preset/uscm_ship/uscm_medical/doctor
+			disp_title = JOB_DOCTOR_RU
 
 //check what job option you took and generate the corresponding the good texte.
 /datum/job/civilian/doctor/generate_entry_message(mob/living/carbon/human/target)
