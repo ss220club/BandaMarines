@@ -7972,11 +7972,6 @@
 /obj/effect/landmark/monkey_spawn,
 /turf/open/floor/prison/west,
 /area/lazarus/power_plant)
-"auK" = (
-/obj/structure/machinery/camera/autoname,
-/obj/effect/decal/hybrisa/dirt,
-/turf/open/floor/prison/floor_plate,
-/area/lazarus/quartstorage)
 "auL" = (
 /turf/open/gm/dirt/brown/variant_5/west,
 /area/lazarus/ground/jungle/west_jungle)
@@ -10081,6 +10076,13 @@
 	},
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/landing_zones/lz1)
+"aAa" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/structure/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/open/floor/prison/cell_stripe/north,
+/area/lazarus/quartstorage)
 "aAb" = (
 /obj/structure/platform/stone/ancient_temple/alt/west,
 /obj/effect/hunter/ancient_temple/rubble/rubble_1,
@@ -94725,8 +94727,8 @@ svo
 huH
 nnR
 rZM
-dJQ
-auK
+aAa
+jCt
 ewQ
 uyW
 mAQ

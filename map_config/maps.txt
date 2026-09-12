@@ -13,10 +13,11 @@ Format:
 endmap
 
 map lv624
-	default
+	disabled
 endmap
 
 map zenith_sanctum
+	default
 endmap
 
 map bigredv2
