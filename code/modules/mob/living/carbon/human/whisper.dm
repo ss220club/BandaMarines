@@ -2,7 +2,7 @@
 /mob/living/carbon/human/whisper(message as text)
 	var/alt_name = ""
 
-	log_whisper("[src.name]/[src.key] : [message]")
+	log_whisper(logis_speech_line(src, message, "Whisper"), src) //BANDAMARINES LOGIS EDIT
 
 	if (src.client)
 		if (src.client.prefs.muted & MUTE_IC)
@@ -112,7 +112,7 @@
 			possible_listening_mob.hear_say(new_message, verb, speaking, alt_name, italics, src)
 			langchat_speech(message, listening, speaking, langchat_color, FALSE, LANGCHAT_DEFAULT_POP, list("langchat_italic"))
 
-	log_say("[name != "Unknown" ? name : "([real_name])"] \[Whisper\]: [message] (CKEY: [ckey]) (JOB: [job]) (AREA: [get_area_name(loc)])")
+	log_say(logis_speech_line(src, message, "Whisper"), src) //BANDAMARINES LOGIS EDIT
 
 	if (length(watching))
 		var/rendered = "<span class='game say'><span class='name'>[src.name]</span> whispers something.</span>"
