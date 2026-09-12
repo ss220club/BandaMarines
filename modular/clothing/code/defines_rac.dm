@@ -1,0 +1,2 @@
+#define MOB_HUD_FACTION_RAC 45
+#define RAC_FREQ 1229

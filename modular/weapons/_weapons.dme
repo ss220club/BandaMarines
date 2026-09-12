@@ -1,0 +1,7 @@
+#include "_weapons.dm"
+
+#include "code/lv733/l86.dm"
+#include "code/lv733/l86_m1.dm"
+#include "code/lv733/mirai7.dm"
+#include "code/lv733/t3_raiko.dm"
+#include "code/lv733/glowstick_attachable.dm"
