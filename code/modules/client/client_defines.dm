@@ -30,6 +30,7 @@
 	var/time_died_as_mouse = null //when the client last died as a mouse
 
 	var/donator = FALSE
+	var/donator_level = 0 // BANDAMARINES EDIT: Central benefit tier
 	var/adminhelped = 0
 
 	var/datum/click_intercept = null
