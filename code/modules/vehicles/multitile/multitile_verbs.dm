@@ -6,7 +6,7 @@
 //Used to swap which module a position is using
 //e.g. swapping primary gunner from the minigun to the smoke launcher
 /obj/vehicle/multitile/proc/switch_hardpoint()
-	set name = "Change Active Hardpoint"
+	set name = "Сменить активный модуль"	//SS220 EDIT
 	set category = "Vehicle"
 
 	var/mob/M = usr
@@ -42,7 +42,7 @@
 
 //cycles through hardpoints in a activatable hardpoints list without asking anything
 /obj/vehicle/multitile/proc/cycle_hardpoint()
-	set name = "Cycle Active Hardpoint"
+	set name = "Выбрать следующий активный модуль"	//SS220 EDIT
 	set category = "Vehicle"
 
 	var/mob/M = usr
@@ -82,7 +82,7 @@
 
 // Used to lock/unlock the vehicle doors to anyone without proper access
 /obj/vehicle/multitile/proc/toggle_door_lock()
-	set name = "Toggle Door Locks"
+	set name = "Переключить дверные замки"	//SS220 EDIT
 	set category = "Vehicle"
 
 	var/mob/M = usr
@@ -104,8 +104,8 @@
 
 //opens vehicle status window with HP and ammo of hardpoints
 /obj/vehicle/multitile/proc/get_status_info()
-	set name = "Get Status Info"
-	set desc = "Displays all available information about your vehicle in a small window."
+	set name = "Получить информацию о статусе"	//SS220 EDIT
+	set desc = "Отображает всю доступную информацию о Вашей технике в малом окне."	//SS220 EDIT
 	set category = "Vehicle"
 
 	var/mob/user = usr
@@ -184,8 +184,8 @@
 
 //opens vehicle controls guide, that contains description of all verbs and shortcuts in it
 /obj/vehicle/multitile/proc/open_controls_guide()
-	set name = "Vehicle Controls Guide"
-	set desc = "MANDATORY FOR FIRST PLAY AS VEHICLE CREWMAN OR AFTER UPDATES."
+	set name = "Справочник по управлению техникой"	//SS220 EDIT
+	set desc = "Обязателен к просмотру для новых игроков на роли экипажа бронетехники или после обновлений"	//SS220 EDIT
 	set category = "Vehicle"
 
 	var/mob/user = usr
@@ -203,27 +203,26 @@
 			break
 	if(!seat)
 		return
+	//SS220 EDIT START
+	var/dat = "<b><i>Обычные действия:</i></b><br>1. <b>\"Сменить активный модуль\"</b> - выводит список всех не уничтоженных и доступных вам активируемых модулей, в том числе оружия, позволяя переключить текущий активный модуль на другой из списка. Чтобы активировать выбранный модуль, кликните по нему. УБЕДИТЕСЬ, ЧТО ВЫ НЕ ПОПАДЕТЕ ПО МОРПЕХАМ.</b></font><br>\
+	2. <b>\"Дать имя технике\"</b> - позволяет дать произвольное имя технике. Единоразовое использование. Максимум 28 символов.<br> \
+	3. <b>\"Получить информацию о статусе\"</b> - появляется окно \"Информация о статусе техники\" со всей доступной информации о Вашей технике<br> \
+	<font color='#cd6500'><b><i>Действия водителя:</i></b></font><br> 1. <b>\"Активация гудка\"</b> - задействует звуковой сигнал техники. Учтите, что гудок техники очень громкий, его могут услышать издалека как союзники, так и противники.<br> \
+	2. <b>\"Переключить дверные замки\"</b> - переключает ограничения доступа к технике. Доступы командных ролей, брига и самого экипажа обходят эти ограничения.<br> \
+	<font color=\"red\"><b><i>Действия стрелка:</i></b></font><br> 1. <b>\"Выбрать следующий активный модуль\"</b> - работает аналогично смене активного модуля, за исключением того, что эта функция автоматически переключается на следующий модуль в списке, позволяя делать это быстрее.<br> \
+	2. <b>\"Переключить гиростабилизатор турели\"</b> - переключает гиростабилизатор турели, позволяя ей удерживать текущее направление и игнорировать поворот корпуса. (Доступно только на технике с вращающейся турелью, например, на легком танке M34A2 «Лонгстрит».)</i><br> \
+	<font color='#2cc42c'><b><i>Действия стрелка поддержки:</i></b></font><br> 1. <b>\"Перезарядка бортового оружия\"</b> - запускает автоматический процесс перезарядки для M56 FPW. Требуется подтверждение.<br> \
+	<font color='#cd6500'><b><i>Горячие клавиши водителя:</i></b></font><br> 1. <b>\"CTRL + Click\"</b> - активирует гудок техники.<br> \
+	<font color=\"red\"><b><i>Горячие клавиши стрелка:</i></b></font><br> 1. <b>\"ALT + Click\"</b> - Переключить гиростабилизатор турели. <i>(Доступно только на технике с вращающейся турелью, например, на легком танке M34A2 «Лонгстрит».)</i><br>"
 
-	var/dat = "<b><i>Common verbs:</i></b><br>1. <b>\"A: Change Active Hardpoint\"</b> - brings up a list of all not destroyed activatable hardpoints you have access to and allows you to switch your current active hardpoint to one from the list. To activate currently selected hardpoint, click on your target. <font color='#cd6500'><b>MAKE SURE NOT TO HIT MARINES.</b></font><br>\
-	2. <b>\"G: Name Vehicle\"</b> - used to add a custom name to the vehicle. Single use. 26 characters maximum.<br> \
-	3. <b>\"I: Get Status Info\"</b> - brings up \"Vehicle Status Info\" window with all available information about your vehicle.<br> \
-	<font color='#cd6500'><b><i>Driver verbs:</i></b></font><br> 1. <b>\"G: Activate Horn\"</b> - activates vehicle horn. Keep in mind, that vehicle horn is very loud and can be heard from afar by both allies and foes.<br> \
-	2. <b>\"G: Toggle Door Locks\"</b> - toggles vehicle's access restrictions. Crewman, Brig and Command accesses bypass these restrictions.<br> \
-	<font color=\"red\"><b><i>Gunner verbs:</i></b></font><br> 1. <b>\"A: Cycle Active Hardpoint\"</b> - works similarly to one above, except it automatically switches to next hardpoint in a list allowing you to switch faster.<br> \
-	2. <b>\"G: Toggle Middle/Shift Clicking\"</b> - toggles between using <i>Middle Mouse Button</i> click and <i>Shift + Click</i> to fire not currently selected weapon if possible.<br> \
-	3. <b>\"G: Toggle Turret Gyrostabilizer\"</b> - toggles Turret Gyrostabilizer allowing it to keep current direction ignoring hull turning. <i>(Exists only on vehicles with rotating turret, e.g. M34A2 Longstreet Light Tank)</i><br> \
-	<font color='#003300'><b><i>Support Gunner verbs:</i></b></font><br> 1. <b>\"Reload Firing Port Weapon\"</b> - initiates automated reloading process for M56 FPW. Requires a confirmation.<br> \
-	<font color='#cd6500'><b><i>Driver shortcuts:</i></b></font><br> 1. <b>\"CTRL + Click\"</b> - activates vehicle horn.<br> \
-	<font color=\"red\"><b><i>Gunner shortcuts:</i></b></font><br> 1. <b>\"ALT + Click\"</b> - toggles Turret Gyrostabilizer. <i>(Exists only on vehicles with rotating turret, e.g. M34A2 Longstreet Light Tank)</i><br>"
-
-	show_browser(user, dat, "Vehicle Controls Guide", "vehicle_help", width = 900, height = 500)
+	show_browser(user, dat, "Справочник по управлению техникой", "vehicle_help", width = 900, height = 500) //SS220 EDIT FINISH
 	onclose(user, "vehicle_help")
 	return
 
 //toggles gyrostabilizer for vehicles that have turret, allowing it to keep direction regardless hull rotations
 /obj/vehicle/multitile/proc/toggle_gyrostabilizer()
-	set name = "Toggle Turret Gyrostabilizer"
-	set desc = "Toggles Turret Gyrostabilizer allowing it independent movement regardless of hull direction."
+	set name = "Переключить гиростабилизатор турели"	//SS220 EDIT
+	set desc = "переключает гиростабилизатор турели, позволяя ей двигаться независимо от направления движений корпуса."	//SS220 EDIT
 	set category = "Vehicle"
 
 	var/mob/M = usr
@@ -244,8 +243,8 @@
 
 //single use verb that allows VCs to add a nickname in "" at the end of their vehicle name
 /obj/vehicle/multitile/proc/name_vehicle()
-	set name = "Name Vehicle"
-	set desc = "Allows you to add a custom name to your vehicle. Single use. 26 characters maximum."
+	set name = "Дать имя технике"	//SS220 EDIT
+	set desc = "Позволяет дать произвольное имя технике. Единоразовое использование. Максимум 26 символов."	//SS220 EDIT
 	set category = "Vehicle"
 
 	var/mob/user = usr
@@ -296,8 +295,8 @@
 
 //Activates vehicle horn. Yes, it is annoying.
 /obj/vehicle/multitile/proc/activate_horn()
-	set name = "Activate Horn"
-	set desc = "Activates vehicle signal. Beep-beep."
+	set name = "Активация гудка"	//SS220 EDIT
+	set desc = "Задействует звуковой сигнал техники. Бип-бип."	//SS220 EDIT
 	set category = "Vehicle"
 
 	var/mob/user = usr
@@ -331,8 +330,8 @@
 //Support gunner verbs
 
 /obj/vehicle/multitile/proc/reload_firing_port_weapon()
-	set name = "Reload Firing Port Weapon"
-	set desc = "Initiates firing port weapon automated reload process."
+	set name = "Перезарядка бортового оружия"	//SS220 EDIT
+	set desc = "Запускает автоматический процесс перезарядки бортового оружия."	//SS220 EDIT
 	set category = "Vehicle"
 
 	var/mob/user = usr

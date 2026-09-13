@@ -1,6 +1,6 @@
 /obj/vehicle/multitile/arc/proc/toggle_antenna(mob/toggler)
-	set name = "Toggle Sensor Antenna"
-	set desc = "Raises or lowers the external sensor antenna. While raised, the ARC cannot move."
+	set name = "Переключить сенсорную антенну"	//SS220 EDIT
+	set desc = "выдвигает или убирает сенсорную антенну ARC. Если выдвинута, то ARC не может передвигаться."	//SS220 EDIT
 	set category = "Vehicle"
 
 	var/mob/user = toggler || usr
@@ -87,8 +87,8 @@
 	SEND_SIGNAL(src, COMSIG_ARC_ANTENNA_TOGGLED)
 
 /obj/vehicle/multitile/arc/proc/open_arc_controls_guide()
-	set name = "Vehicle Controls Guide"
-	set desc = "MANDATORY FOR FIRST PLAY AS VEHICLE CREWMAN OR AFTER UPDATES."
+	set name = "Справочник по управлению техникой"	//SS220 EDIT
+	set desc = "Обязателен к просмотру для новых игроков на роли экипажа бронетехники или после обновлений"	//SS220 EDIT
 	set category = "Vehicle"
 
 	var/mob/user = usr
@@ -107,15 +107,15 @@
 
 	if(!seat)
 		return
+	//SS220 EDIT START
+	var/dat = "<b><i>Обычные действия:</i></b><br>\
+	1. <b>\"Дать имя технике\"</b> - позволяет дать произвольное имя технике. Единоразовое использование. Максимум 28 символов.<br> \
+	2. <b>\"Получить информацию о статусе\"</b> - появляется окно \"Информация о статусе техники\" со всей доступной информации о Вашей технике<br> \
+	3. <b>\"Переключить сенсорную антенну\"</b> - выдвигает или убирает сенсорную антенну ARC. Если выдвинута, то все неизвестные формы жизни в большом радиусе (45) будут видны на тактической карте, однако ARC не сможет передвигаться. В дополнение активирует автоматическое орудие RE700.<br> \
+	<font color='#cd6500'><b><i>Действия водителя:</i></b></font><br> 1. <b>\"G: Активация гудка\"</b> - задействует звуковой сигнал техники. Учтите, что гудок техники очень громкий, его могут услышать издалека как союзники, так и противники.<br> \
+	2. <b>\"Переключить дверные замки\"</b> - переключает ограничения доступа к технике. Доступы командных ролей, брига и самого экипажа обходят эти ограничения.<br> \
+	<font color='#cd6500'><b><i>Горячие клавиши водителя:</i></b></font><br> 1. <b>\"CTRL + Click\"</b> - активирует гудок техники.<br>"
 
-	var/dat = "<b><i>Common verbs:</i></b><br>\
-	1. <b>\"G: Name Vehicle\"</b> - used to add a custom name to the vehicle. Single use. 26 characters maximum.<br> \
-	2. <b>\"I: Get Status Info\"</b> - brings up \"Vehicle Status Info\" window with all available information about your vehicle.<br> \
-	3. <b>\"G: Toggle Sensor Antenna\"</b> - extend or retract the ARC's sensor antenna. While extended, all unknown lifeforms within a large range can be seen by all on the tacmap, but the ARC cannot move. Additionally enables the automated RE700 cannon.<br> \
-	<font color='#cd6500'><b><i>Driver verbs:</i></b></font><br> 1. <b>\"G: Activate Horn\"</b> - activates vehicle horn. Keep in mind, that vehicle horn is very loud and can be heard from afar by both allies and foes.<br> \
-	2. <b>\"G: Toggle Door Locks\"</b> - toggles vehicle's access restrictions. Crewman, Brig and Command accesses bypass these restrictions.<br> \
-	<font color='#cd6500'><b><i>Driver shortcuts:</i></b></font><br> 1. <b>\"CTRL + Click\"</b> - activates vehicle horn.<br>"
-
-	show_browser(user, dat, "Vehicle Controls Guide", "vehicle_help", width = 900, height = 500)
+	show_browser(user, dat, "Справочник по управлению техникой", "vehicle_help", width = 900, height = 500)	//SS220 EDIT FINISH
 	onclose(user, "vehicle_help")
 	return
