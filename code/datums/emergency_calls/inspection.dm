@@ -335,6 +335,6 @@
 
 	print_backstory(mob)
 	to_chat(mob, SPAN_ROLE_HEADER("Вы здесь не для того, чтобы самостоятельно производить аресты. У вас нет полномочий делать это, если только такие полномочия не были предоставлены Командиром [MAIN_SHIP_NAME] или Высшим командованием ККМП."))
-	to_chat(mob, SPAN_ROLE_HEADER("Работайте совместно с командиром [MAIN_SHIP_NAME] и военной полицией."))
+	to_chat(mob, SPAN_ROLE_HEADER("Работайте совместно с Командиром [MAIN_SHIP_NAME] и военной полицией."))
 
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), mob, SPAN_BOLD("Objectives:</b> [objectives]")), 1 SECONDS)
