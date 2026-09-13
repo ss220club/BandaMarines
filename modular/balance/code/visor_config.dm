@@ -30,8 +30,7 @@
 	if(istype(loc, /obj/item/clothing/head/helmet/marine))
 		var/obj/item/clothing/head/helmet/marine/helmet = loc
 		helmet.stored_nvg = src
-		if(istype(helmet.loc, /mob/living/carbon/human))
-			helmet.update_nvg_overlay(TRUE)
+		helmet.refresh_nvg_overlay()
 
 /obj/item/device/helmet_visor/night_vision/normal/Destroy()
 	var/obj/item/clothing/head/helmet/marine/helmet = loc
@@ -51,39 +50,36 @@
 	if(istype(destination, /obj/item/clothing/head/helmet/marine))
 		var/obj/item/clothing/head/helmet/marine/new_helmet = destination
 		new_helmet.stored_nvg = src
-		if(istype(new_helmet.loc, /mob/living/carbon/human))
-			new_helmet.update_nvg_overlay(TRUE)
+		new_helmet.refresh_nvg_overlay()
 
 /obj/item/clothing/head/helmet/marine
 	var/obj/item/device/helmet_visor/night_vision/normal/stored_nvg = null
-	var/mob/living/carbon/human/nvg_overlay_holder = null
 	var/image/nvg_overlay_image = null
-
-/obj/item/clothing/head/helmet/marine/proc/update_nvg_overlay(add)
-	if(add)
-		var/mob/living/carbon/human/H = loc
-		if(!istype(H))
-			return
-		if(nvg_overlay_holder == H && nvg_overlay_image)
-			return
-		remove_nvg_overlay()
-		nvg_overlay_image = image('modular/balance/icons/visor.dmi', "nvo_installed")
-		H.overlays += nvg_overlay_image
-		nvg_overlay_holder = H
-	else
-		remove_nvg_overlay()
+	var/mob/living/carbon/human/nvg_overlay_mob = null
 
 /obj/item/clothing/head/helmet/marine/proc/remove_nvg_overlay()
-	if(nvg_overlay_holder && nvg_overlay_image)
-		nvg_overlay_holder.overlays -= nvg_overlay_image
-	nvg_overlay_holder = null
+	if(nvg_overlay_mob && nvg_overlay_image)
+		nvg_overlay_mob.overlays -= nvg_overlay_image
 	nvg_overlay_image = null
+	nvg_overlay_mob = null
+
+/obj/item/clothing/head/helmet/marine/proc/refresh_nvg_overlay()
+	remove_nvg_overlay()
+	if(!stored_nvg)
+		return
+	var/mob/living/carbon/human/H = loc
+	if(!istype(H) || H.head != src)
+		return
+	nvg_overlay_image = image('modular/balance/icons/visor.dmi', "nvo_installed")
+	nvg_overlay_image.layer = 10
+	nvg_overlay_image.appearance_flags = RESET_COLOR | RESET_ALPHA
+	H.overlays += nvg_overlay_image
+	nvg_overlay_mob = H
 
 /obj/item/clothing/head/helmet/marine/equipped(mob/user, slot)
 	. = ..()
 	if(slot == SLOT_HEAD)
-		if(stored_nvg)
-			update_nvg_overlay(TRUE)
+		refresh_nvg_overlay()
 
 /obj/item/clothing/head/helmet/marine/unequipped(mob/user, slot)
 	. = ..()
@@ -97,22 +93,24 @@
 /obj/item/device/helmet_visor/night_vision/normal/var/list/overlay_data = list()
 
 /obj/item/device/helmet_visor/night_vision/normal/proc/add_vision_overlay(obj/item/clothing/head/helmet/marine/attached_helmet)
-	var/list/hud_users = GLOB.huds[MOB_HUD_XENO_STATUS]?.hudusers
-	if(!hud_users)
+	var/mob/living/carbon/human/wearer = attached_helmet.loc
+	if(!istype(wearer))
 		return
-	for(var/mob/M in hud_users)
-		if(!M.client)
+	for(var/client/C in GLOB.clients)
+		var/mob/M = C.mob
+		if(!M)
+			continue
+		if(!(GLOB.huds[HEALTH_HUD_XENO]?.hudusers[M]) && !isxeno(M))
 			continue
 		var/image/glow = image('modular/balance/icons/visor.dmi', "nvo_installed")
 		glow.appearance_flags = RESET_COLOR | RESET_ALPHA
 		glow.color = "#00FF00"
-		glow.alpha = 200
+		glow.alpha = 220
 		glow.blend_mode = BLEND_ADD
-		glow.pixel_x = -16
-		glow.pixel_y = -16
-		glow.loc = attached_helmet
-		M.client.images += glow
-		overlay_data += list(list("client" = M.client, "image" = glow))
+		glow.layer = 10
+		glow.loc = wearer
+		C.images += glow
+		overlay_data += list(list("client" = C, "image" = glow))
 
 /obj/item/device/helmet_visor/night_vision/normal/proc/remove_vision_overlay()
 	for(var/list/data in overlay_data)
