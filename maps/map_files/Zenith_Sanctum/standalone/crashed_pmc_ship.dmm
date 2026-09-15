@@ -234,6 +234,7 @@
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/survivor_spawner/zenith_sanctum_crashed_pmc_commander,
 /turf/open/floor/platingdmg3,
 /area/lazarus/ground/barrens/north_barrens)
 "cD" = (
@@ -710,6 +711,7 @@
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/cleanable/dirt/alt_dirt,
 /obj/effect/decal/cleanable/blood/oil,
+/obj/effect/landmark/survivor_spawner/zenith_sanctum_pmc_engineer,
 /turf/open/floor/brown_dirt/random_rocks,
 /area/lazarus/ground/barrens/north_barrens)
 "iB" = (
@@ -782,6 +784,7 @@
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/survivor_spawner/zenith_sanctum_crashed_pmc,
 /turf/open/gm/coast/dirt/south,
 /area/lazarus/ground/river/central_river)
 "jJ" = (
@@ -814,6 +817,10 @@
 /obj/item/ammo_casing/bullet,
 /turf/open/floor/platingdmg1,
 /area/lazarus/crashed_shuttle)
+"kE" = (
+/obj/effect/landmark/survivor_spawner/zenith_sanctum_crashed_pmc,
+/turf/open/gm/river/soro,
+/area/lazarus/ground/river/central_river)
 "kQ" = (
 /obj/structure/prop/colorable_rock/colorable{
 	color = "#ae8686";
@@ -1023,6 +1030,7 @@
 	amount = 15
 	},
 /obj/item/shard,
+/obj/item/defenses/handheld/planted_flag/wy,
 /turf/open/floor/plating/platingdmg2,
 /area/lazarus/crashed_shuttle)
 "oh" = (
@@ -1205,6 +1213,7 @@
 	dir = 1
 	},
 /obj/item/explosive/grenade/high_explosive/pmc,
+/obj/effect/landmark/survivor_spawner/zenith_sanctum_crashed_pmc_synth,
 /turf/open/floor/platingdmg3,
 /area/lazarus/crashed_shuttle)
 "qr" = (
@@ -1330,6 +1339,14 @@
 /obj/effect/decal/cleanable/dirt/alt_dirt,
 /turf/open/floor/brown_dirt/random_rocks,
 /area/lazarus/ground/barrens/west_barrens)
+"sn" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/survivor_spawner/zenith_sanctum_crashed_pmc,
+/turf/open/floor/brown_dirt/random_rocks,
+/area/lazarus/ground/barrens/north_barrens)
 "st" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble_4{
 	pixel_x = -3;
@@ -1425,6 +1442,7 @@
 /obj/item/ammo_casing/bullet,
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/survivor_spawner/zenith_sanctum_pmc_medic,
 /turf/open/shuttle/dropship/can_surgery/light_grey_single_wide_up_to_down,
 /area/lazarus/crashed_shuttle)
 "uq" = (
@@ -2545,6 +2563,7 @@
 /obj/item/ammo_casing/bullet,
 /obj/item/ammo_casing/bullet,
 /obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/survivor_spawner/zenith_sanctum_crashed_pmc_leader,
 /turf/open/shuttle/dropship/can_surgery/light_grey_single_wide_up_to_down,
 /area/lazarus/crashed_shuttle)
 "Kt" = (
@@ -3783,7 +3802,7 @@ il
 yo
 hn
 oh
-PJ
+sn
 fy
 SX
 rr
@@ -4074,7 +4093,7 @@ kQ
 Mp
 ad
 IO
-HQ
+kE
 HQ
 HQ
 an

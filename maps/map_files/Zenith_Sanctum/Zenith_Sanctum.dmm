@@ -640,10 +640,7 @@
 "act" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/lv_decals/red_mud_corner{
-	dir = 1
-	},
-/obj/effect/decal/lv_decals/red_mud_corner{
-	dir = 8
+	dir = 9
 	},
 /turf/open/floor/prison/floor_plate,
 /area/lazarus/power_plant)
@@ -7697,6 +7694,14 @@
 	name = "fridge";
 	pixel_y = 6
 	},
+/obj/item/reagent_container/food/snacks/mre_food/wy/entree/ham,
+/obj/item/reagent_container/food/snacks/mre_food/wy/entree/ham,
+/obj/item/reagent_container/food/snacks/mre_food/wy/entree/smokyribs,
+/obj/item/reagent_container/food/snacks/mre_food/wy/entree/smokyribs,
+/obj/item/reagent_container/food/snacks/mre_food/wy/dessert/croissant,
+/obj/item/reagent_container/food/snacks/mre_food/wy/dessert/strawberrycake,
+/obj/item/reagent_container/food/snacks/mre_food/wy/dessert/eclair,
+/obj/item/reagent_container/food/snacks/mre_food/wy/dessert/strawberrycake,
 /turf/open/floor/prison/west,
 /area/lazarus/power_plant)
 "atO" = (
@@ -7883,6 +7888,12 @@
 	},
 /obj/structure/sign/poster/corporate{
 	pixel_y = 32
+	},
+/obj/structure/interior_viewport/wy{
+	pixel_x = -3
+	},
+/obj/item/trash/wy_chips_pepper{
+	pixel_x = 15
 	},
 /turf/open/floor/prison/west,
 /area/lazarus/power_plant)
@@ -8368,6 +8379,10 @@
 /obj/structure/sign/poster/propaganda{
 	pixel_y = -23
 	},
+/obj/item/reagent_container/food/snacks/mre_food/wy/dessert/cherrypie{
+	pixel_x = -2;
+	pixel_y = 12
+	},
 /turf/open/floor/prison/west,
 /area/lazarus/power_plant)
 "avT" = (
@@ -8384,6 +8399,11 @@
 	},
 /obj/structure/sign/poster/kellandmining{
 	pixel_y = -23
+	},
+/obj/item/reagent_container/food/snacks/mre_food/wy/dessert/eclair,
+/obj/item/reagent_container/food/snacks/mre_food/wy/entree/beefstake{
+	pixel_x = -4;
+	pixel_y = 6
 	},
 /turf/open/floor/prison/west,
 /area/lazarus/power_plant)
@@ -8403,6 +8423,10 @@
 /obj/structure/sign/poster/hero/voteno{
 	pixel_y = -23
 	},
+/obj/item/reagent_container/food/drinks/coffeecup/wy{
+	pixel_x = -12;
+	pixel_y = 5
+	},
 /turf/open/floor/prison/west,
 /area/lazarus/power_plant)
 "avW" = (
@@ -8419,6 +8443,9 @@
 	},
 /obj/structure/sign/poster/ad{
 	pixel_y = -23
+	},
+/obj/item/paper_bin/wy{
+	pixel_x = 9
 	},
 /turf/open/floor/prison/west,
 /area/lazarus/power_plant)
@@ -8584,6 +8611,7 @@
 /obj/structure/pipes/standard/simple/hidden/cyan{
 	dir = 4
 	},
+/obj/item/clothing/head/cmcap/wy_cap,
 /turf/open/floor/prison/west,
 /area/lazarus/power_plant)
 "awq" = (
@@ -9111,13 +9139,6 @@
 	},
 /obj/structure/surface/table/almayer{
 	color = "#d4cfcd"
-	},
-/obj/structure/machinery/door_control{
-	id = "side room powerplant";
-	name = "Poweplant window shutters controller";
-	pixel_x = 24;
-	pixel_y = -3;
-	req_one_access_txt = "203;204;206; 207;210"
 	},
 /turf/open/floor/prison/west,
 /area/lazarus/power_plant)
@@ -10711,9 +10732,9 @@
 "aBK" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/item/clothing/suit/storage/jacket/marine/vest,
-/obj/item/clothing/suit/storage/labcoat,
 /obj/effect/landmark/objective_landmark/science,
 /obj/effect/decal/hybrisa/dirt,
+/obj/item/clothing/suit/storage/labcoat/wy,
 /turf/open/floor/strata/light_purple_edge,
 /area/lazarus/research)
 "aBL" = (
@@ -10944,11 +10965,14 @@
 /obj/structure/surface/table/almayer{
 	color = "#8B9490"
 	},
+/obj/item/clothing/head/cmcap/wy_cap{
+	pixel_x = 3;
+	pixel_y = -2
+	},
 /turf/open/floor/strata/floor3,
 /area/lazarus/research)
 "aCu" = (
 /obj/structure/closet/secure_closet/personal,
-/obj/item/clothing/suit/storage/jacket/marine/vest/tan,
 /obj/item/prop{
 	desc = "An issue of The Pioneer's Standard, the newspaper circulating in UA-controlled space.";
 	icon = 'icons/obj/items/paper.dmi';
@@ -10957,6 +10981,7 @@
 	pixel_x = -6;
 	pixel_y = 1
 	},
+/obj/item/clothing/suit/storage/labcoat/wy,
 /turf/open/floor/strata/light_purple_edge/north,
 /area/lazarus/research)
 "aCv" = (
@@ -10966,9 +10991,9 @@
 /area/lazarus/ground/caves/south_west_caves)
 "aCw" = (
 /obj/structure/closet/secure_closet/personal,
-/obj/item/clothing/suit/storage/jacket/marine/vest/grey,
 /obj/effect/landmark/objective_landmark/science,
 /obj/effect/decal/hybrisa/dirt,
+/obj/item/clothing/suit/storage/labcoat/wy,
 /turf/open/floor/strata/light_purple_edge/north,
 /area/lazarus/research)
 "aCx" = (
@@ -16058,10 +16083,19 @@
 /obj/structure/flora/jungle/vines/blue/light_1,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_west_jungle)
+"aQW" = (
+/obj/structure/closet/secure_closet/wy/goon,
+/turf/open/floor/prison/west,
+/area/lazarus/power_plant)
 "aQX" = (
 /obj/effect/hunter/ancient_temple/tile_edge_corner/tile_edge_corner_2,
 /turf/open/floor/ancient_temple/damaged/damage_5,
 /area/lazarus/ground/ancient_temple/south)
+"aQY" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/item/clothing/under/lawyer/bluesuit,
+/turf/open/floor/prison/west,
+/area/lazarus/power_plant)
 "aQZ" = (
 /obj/structure/pipes/standard/simple/hidden/cyan{
 	dir = 4
@@ -16076,6 +16110,11 @@
 /obj/structure/prop/brazier_ancient/alt/frame,
 /turf/open/floor/ancient_temple/base/dark/alt,
 /area/lazarus/ground/ancient_temple/south)
+"aRb" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/item/clothing/under/lawyer/female,
+/turf/open/floor/prison/west,
+/area/lazarus/power_plant)
 "aRc" = (
 /obj/effect/landmark/crap_item,
 /turf/open/auto_turf/lv_sand/layer0,
@@ -16088,6 +16127,13 @@
 /obj/structure/flora/jungle/vines/blue/light_2,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_east_jungle)
+"aRf" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/lv_decals/red_mud_corner{
+	dir = 6
+	},
+/turf/open/floor/prison/floor_plate,
+/area/lazarus/power_plant)
 "aRg" = (
 /obj/effect/hunter/ancient_temple/tile_edge/tile_edge_5,
 /turf/open/floor/ancient_temple/damaged/damage_5,
@@ -16186,6 +16232,9 @@
 	},
 /turf/open/gm/coast/dirt/beachcorner/north_west,
 /area/lazarus/ground/cove/south)
+"aRs" = (
+/turf/open/floor/brown_dirt/random_rocks,
+/area/lazarus/power_plant)
 "aRt" = (
 /obj/structure/flora/jungle/vines/blue/light_1,
 /obj/structure/flora/jungle/vines/blue/light_2,
@@ -16259,6 +16308,9 @@
 	},
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/colony/central_beach)
+"aRH" = (
+/turf/open/auto_turf/lv_sand/layer0,
+/area/lazarus/power_plant)
 "aRI" = (
 /obj/structure/grille,
 /obj/effect/decal/hybrisa/dirt,
@@ -17453,6 +17505,17 @@
 /obj/structure/flora/jungle/vines/blue/light_1,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/north_east_jungle)
+"aVJ" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/lv_decals/red_mud_corner{
+	dir = 4
+	},
+/obj/effect/decal/lv_decals/red_mud_corner,
+/turf/open/floor/prison/floor_plate,
+/area/lazarus/power_plant)
+"aVK" = (
+/turf/open/auto_turf/lv_sand/layer0,
+/area/lazarus/power_plant/core)
 "aVL" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
 /obj/structure/flora/jungle/vines/blue/heavy,
@@ -17940,6 +18003,13 @@
 /obj/structure/pipes/standard/simple/hidden/cyan,
 /turf/open/floor/prison/cell_stripe/north,
 /area/lazarus/ground/colony/south_botanics_road)
+"aWZ" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/lv_decals/red_mud_corner{
+	dir = 5
+	},
+/turf/open/floor/prison/floor_plate,
+/area/lazarus/power_plant/core)
 "aXa" = (
 /obj/structure/curtain/medical,
 /obj/effect/decal/cleanable/blood/drip{
@@ -31645,15 +31715,6 @@
 /obj/structure/platform/stone/ancient_temple/alt,
 /turf/open/gm/river/soro,
 /area/lazarus/ground/ancient_temple/north_east)
-"hGR" = (
-/obj/structure/window/framed/lv_colony/reinforced,
-/obj/structure/machinery/door/poddoor/shutters/almayer{
-	dir = 4;
-	id = "side room powerplant";
-	name = "\improper Engineering Shutters"
-	},
-/turf/open/floor/plating/prison,
-/area/lazarus/power_plant)
 "hGT" = (
 /obj/effect/hunter/ancient_temple/deco_border{
 	dir = 4
@@ -80734,7 +80795,7 @@ aca
 mgn
 mgn
 abw
-mgn
+cdo
 mgn
 mgn
 agf
@@ -80941,9 +81002,9 @@ aca
 aje
 aje
 ald
-ald
-aje
-aje
+aWZ
+aVK
+aVK
 aje
 aje
 aca
@@ -80955,11 +81016,11 @@ aca
 aca
 awW
 aca
-avO
-avO
-avO
-avO
-avO
+aRH
+aRH
+aRH
+aRH
+aRs
 mgn
 agf
 mgn
@@ -81166,25 +81227,25 @@ aje
 aje
 aJh
 akU
+alx
+alx
 aje
 aje
-aje
-aje
 acy
 acy
 avO
 avO
 avO
-avO
-avO
+aRH
+aRH
+aVJ
 acy
-acy
 avO
 avO
 avO
-avO
-avO
-acy
+aRH
+aRH
+aRf
 aaP
 mgn
 agf
@@ -81399,15 +81460,15 @@ ahu
 avO
 avO
 avO
-avO
-avO
+iPt
+iPt
 avD
 ahu
 avO
 avO
 avO
-avO
-avO
+iPt
+iPt
 avD
 ahu
 avO
@@ -85441,7 +85502,7 @@ awy
 awl
 avR
 avR
-avY
+aQW
 avO
 aaM
 ijw
@@ -85665,7 +85726,7 @@ avD
 awm
 avR
 avR
-avY
+aQY
 avO
 avL
 tha
@@ -85881,15 +85942,15 @@ avO
 avO
 avO
 avO
-hGR
-hGR
+iPt
+iPt
 axE
 avQ
 avO
 awn
 avR
 avR
-avY
+aRb
 avO
 aaJ
 tha

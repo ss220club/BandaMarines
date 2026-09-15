@@ -1,3 +1,4 @@
+#include "code\game\objects\effects\landmarks\survivor_spawner.dm"
 #include "code\modules\cm_marines\equipment\maps.dm"
 #include "code\modules\cm_preds\yaut_weapons.dm"
 #include "code\modules\cm_preds\yaut_mask.dm"
