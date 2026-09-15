@@ -905,7 +905,7 @@
 
 	xeno.use_plasma(400)
 	xeno.place_construction(target_turf, structure_template)
-
+	log_game("XENO CONSTRUCTION: [key_name(owner)] built a [choice]. (Location: [AREACOORD(target)])")
 	return ..()
 
 // XSS Spacecheck
