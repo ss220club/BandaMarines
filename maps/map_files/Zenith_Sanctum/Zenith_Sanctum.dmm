@@ -304,6 +304,12 @@
 /obj/effect/decal/hybrisa/tiretrack,
 /turf/open/gm/dirt/brown/variant_5,
 /area/lazarus/ground/colony/north_nexus_road)
+"abh" = (
+/obj/structure/machinery/colony_floodlight_switch{
+	pixel_y = 30
+	},
+/turf/open/floor/prison/west,
+/area/lazarus/engineering)
 "abi" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = -19;
@@ -31314,9 +31320,12 @@
 	pixel_x = -8
 	},
 /obj/structure/pipes/vents/scrubber_hybrisa,
-/obj/structure/machinery/colony_floodlight_switch{
-	pixel_y = 30;
-	pixel_x = 5
+/obj/structure/transmitter/colony_net{
+	phone_category = "Lazarus Landing";
+	phone_color = "yellow";
+	phone_id = "Engineering";
+	pixel_y = 33;
+	pixel_x = 6
 	},
 /turf/open/floor/strata/fake_wood,
 /area/lazarus/engineering)
@@ -36707,15 +36716,6 @@
 /obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/prison/floor_plate_alt/south,
 /area/lazarus/robotics)
-"kuw" = (
-/obj/structure/transmitter/colony_net{
-	phone_category = "Lazarus Landing";
-	phone_color = "yellow";
-	phone_id = "Engineering";
-	pixel_y = 33
-	},
-/turf/open/floor/prison/west,
-/area/lazarus/engineering)
 "kuA" = (
 /obj/effect/hunter/ancient_temple/rubble/rubble_6{
 	pixel_x = 10;
@@ -40910,7 +40910,8 @@
 /obj/structure/machinery/prop/almayer/computer/PC{
 	wrenchable = 1;
 	pixel_y = 5;
-	pixel_x = -2
+	pixel_x = -2;
+	dir = 1
 	},
 /obj/item/prop/tableflag{
 	pixel_y = 4;
@@ -86440,7 +86441,7 @@ imY
 imY
 imY
 imY
-oes
+abh
 vQJ
 kbi
 gtP
@@ -86888,7 +86889,7 @@ uop
 fnq
 uOw
 imY
-kuw
+oes
 pBt
 cKf
 imY
