@@ -605,10 +605,6 @@
 				if(istype(window_framed_in_path))
 					if(window_framed_in_path.reinf)
 						first_obstacle_hit = TRUE
-					// else
-					// 	var/obj/structure/window_frame/own_window_frame = locate(window_frame_type) in window_loc
-					// 	if(own_window_frame)
-					// 		handle_obj_collision(own_window_frame, xeno)
 		//Window frame collision
 		else if(istype(target, /obj/structure/window_frame))
 			handled = TRUE
@@ -617,6 +613,8 @@
 				first_obstacle_hit = TRUE
 			else
 				metal_pipe_random(window_frame_in_path)
+				var/obj/effect/alien/weeds/weedwall/frame/WF = locate(/obj/effect/alien/weeds/weedwall/frame) in window_frame_in_path.loc
+				qdel(WF)
 				window_frame_in_path.deconstruct()
 		//Grille collision
 		else if(istype(target, /obj/structure/grille))
