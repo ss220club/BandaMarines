@@ -206,7 +206,7 @@
 /area/lazarus/ground/colony/west_nexus_road
 	name = "\improper West Nexus Road"
 	icon_state = "west"
-	linked_lz = DROPSHIP_LZ1
+	linked_lz = DROPSHIP_LZ2
 
 /area/lazarus/ground/colony/north_tcomms_road
 	name = "\improper North T-Comms Road"
