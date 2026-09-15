@@ -414,16 +414,16 @@
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/collide_in_loc(mob/living/carbon/xenomorph/xeno, turf/loc, dir = null)
 	if(!istype(xeno) || !istype(loc))
 		return
-	for(var/atom/A in loc)
-		if(A == xeno)
+	for(var/atom/collided_atom in loc)
+		if(collided_atom == xeno)
 			continue
-		if(A.can_block_movement)
-			if(ishuman(A))
-				INVOKE_ASYNC(src, PROC_REF(handle_human_collision), A, xeno, dir)
-			else if(isxeno(A))
-				INVOKE_ASYNC(src, PROC_REF(handle_xeno_collision), A, xeno, dir)
-			else if(iscarbon(A))
-				INVOKE_ASYNC(src, PROC_REF(handle_carbon_collision), A, xeno, dir)
+		if(collided_atom.can_block_movement)
+			if(ishuman(collided_atom))
+				INVOKE_ASYNC(src, PROC_REF(handle_human_collision), collided_atom, xeno, dir)
+			else if(isxeno(collided_atom))
+				INVOKE_ASYNC(src, PROC_REF(handle_xeno_collision), collided_atom, xeno, dir)
+			else if(iscarbon(collided_atom))
+				INVOKE_ASYNC(src, PROC_REF(handle_carbon_collision), collided_atom, xeno, dir)
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_human_collision(mob/living/carbon/human/human, mob/living/carbon/xenomorph/xeno, dir = null)
 	if(!istype(xeno))
@@ -541,7 +541,7 @@
 				xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] таранит [weapon_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы тараним [weapon_in_path.declent_ru(ACCUSATIVE)]!"))
 				metal_pipe_random(weapon_in_path)
 				weapon_in_path.CrusherImpact()
-				. = FALSE
+				first_obstacle_hit = TRUE
 			//Airlocks collision
 			else if(istype(target, /obj/structure/machinery/door/airlock))
 				handled = TRUE
@@ -549,36 +549,32 @@
 				if(airlock_in_path.density)
 					metal_pipe_random(airlock_in_path)
 					airlock_in_path.take_damage(airlock_in_path.damage_cap)
-				. = TRUE
 			//Turrets, Tesla Coil etc. collision
 			else if(istype(target, /obj/structure/machinery/defenses))
 				handled = TRUE
 				var/obj/structure/machinery/defenses/defenses_in_path = target
 				xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] таранит [defenses_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы тараним [defenses_in_path.declent_ru(ACCUSATIVE)]!"))
 				metal_pipe_random(defenses_in_path)
-				if(defenses_in_path.stat & DEFENSE_DAMAGED)
-					. = TRUE
-				else
+				if(!(defenses_in_path.stat & DEFENSE_DAMAGED))
 					defenses_in_path.update_health(direct_hit_damage)
-					. = FALSE
+					first_obstacle_hit = TRUE
 			//Vending machines collision
 			else if(istype(target, /obj/structure/machinery/vending) || istype(target, /obj/structure/machinery/cm_vending))
 				handled = TRUE
 				var/obj/structure/machinery/vending/vending_in_path = target
 				if(vending_in_path.unslashable)
-					. = FALSE
+					first_obstacle_hit = TRUE
 				else
 					xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] врезается прямо в [vending_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы врезаемся прямо в [vending_in_path.declent_ru(ACCUSATIVE)]!"))
 					playsound(vending_in_path.loc, "slam", 25, 1)
 					vending_in_path.tip_over()
-					. = TRUE
 			else if(istype(target, /obj/structure/machinery/fuelpump))
 				handled = TRUE
 				var/obj/structure/machinery/fuelpump/pump_in_path = target
 				xeno.visible_message(SPAN_DANGER("[src] врезается прямо в [pump_in_path.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы врезаемся прямо в [pump_in_path.declent_ru(ACCUSATIVE)]!"))
 				metal_pipe_random(pump_in_path)
 				pump_in_path.update_health(direct_hit_damage)
-				. = FALSE
+				first_obstacle_hit = TRUE
 		//Barricade collision
 		else if(istype(target, /obj/structure/barricade))
 			handled = TRUE
@@ -587,15 +583,13 @@
 				xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] врезается в [blockade_in_path.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [blockade_in_path.declent_ru(ACCUSATIVE)] и тормозим!"))
 				metal_pipe_random(blockade_in_path)
 				blockade_in_path.Collided(xeno)
-				. = FALSE
-			else
-				. = TRUE
+				first_obstacle_hit = TRUE
 		//Window collision
 		else if(istype(target, /obj/structure/window))
 			handled = TRUE
 			var/obj/structure/window/window_in_path = target
 			if(window_in_path.unacidable)
-				. = FALSE
+				first_obstacle_hit = TRUE
 			else
 				var/obj/structure/window/framed/window_framed_in_path
 				var/window_frame_type
@@ -608,55 +602,44 @@
 				window_in_path.health = 0
 				window_in_path.healthcheck(user = xeno)
 
-				var/reinforced_window_bonk = FALSE
 				if(istype(window_framed_in_path))
 					if(window_framed_in_path.reinf)
-						reinforced_window_bonk = TRUE
-						. = FALSE
-					else
-						var/obj/structure/window_frame/own_window_frame = locate(window_frame_type) in window_loc
-						if(own_window_frame)
-							handle_obj_collision(own_window_frame, xeno)
-				if(!reinforced_window_bonk)
-					. = TRUE
+						first_obstacle_hit = TRUE
+					// else
+					// 	var/obj/structure/window_frame/own_window_frame = locate(window_frame_type) in window_loc
+					// 	if(own_window_frame)
+					// 		handle_obj_collision(own_window_frame, xeno)
 		//Window frame collision
 		else if(istype(target, /obj/structure/window_frame))
 			handled = TRUE
 			var/obj/structure/window_frame/window_frame_in_path = target
 			if(window_frame_in_path.unacidable)
-				. = FALSE
+				first_obstacle_hit = TRUE
 			else
 				metal_pipe_random(window_frame_in_path)
-				window_frame_in_path.deconstruct(FALSE)
-				. = TRUE
+				window_frame_in_path.deconstruct()
 		//Grille collision
 		else if(istype(target, /obj/structure/grille))
 			handled = TRUE
 			var/obj/structure/grille/grille_in_path = target
 			if(grille_in_path.unacidable)
-				. = FALSE
+				first_obstacle_hit = TRUE
 			else
 				playsound(xeno.loc, 'sound/effects/grillehit.ogg', 25, 1)
 				grille_in_path.health -=  80 //Usually knocks it down.
 				grille_in_path.healthcheck()
-				. = TRUE
 		//Fences collision
 		else if(istype(target, /obj/structure/fence))
 			handled = TRUE
-			var/obj/structure/fence/fence = target
-			if(fence.cut)
-				. = FALSE
-			else
-				xeno.visible_message(SPAN_DANGER("[src] врезается прямо в [fence]!"))
-				playsound(fence.loc, 'sound/effects/fencehit.ogg', 25, 1)
-				fence.cut_grille()
-				. = TRUE
+			var/obj/structure/fence/fence_in_path = target
+			if(!fence_in_path.cut)
+				fence_in_path.health -=  80 //Usually knocks it down.
+				fence_in_path.healthcheck(TRUE, TRUE, xeno)
 		//Table collision
 		else if(istype(target, /obj/structure/surface/table))
 			handled = TRUE
 			var/obj/structure/surface/table/table_in_path = target
 			table_in_path.Crossed(xeno)
-			. = TRUE
 
 	//Vehicle collision
 	else if(istype(target, /obj/vehicle/multitile))
@@ -665,13 +648,13 @@
 		xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] врезается в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозит!"), SPAN_XENOWARNING("Мы врезаемся в [vehicle_in_path.declent_ru(ACCUSATIVE)] и тормозим!"))
 		metal_pipe_random(vehicle_in_path)
 		vehicle_in_path.Collided(xeno)
-		. = FALSE
+		first_obstacle_hit = TRUE
 
 	// Anything else?
 	if(!handled && isobj(target))
 		var/obj/object_in_path = target
 		if(object_in_path.unacidable)
-			. = FALSE
+			first_obstacle_hit = TRUE
 
 		//Immovable obj
 		else if(object_in_path.anchored)
@@ -679,10 +662,9 @@
 			if(istype(object_in_path, /obj/structure/platform))
 				var/obj/structure/platform/platform_in_path = object_in_path
 				platform_in_path.broken()
-				. = TRUE
 			else
 				destroy_obj_in_path(xeno, object_in_path)
-				. = FALSE
+				first_obstacle_hit = TRUE
 
 		//Movable obj
 		else  //Canisters, crates etc. go flying
@@ -696,11 +678,6 @@
 			if(old_loc == object_in_path.loc) //if obj do not move from the way it will be destroyed
 				xeno.visible_message(SPAN_WARNING("[object_in_path.declent_ru(ACCUSATIVE)] разбит[genderize_ru(object_in_path.gender, "", "а", "о", "ы")] вдребезги!"), SPAN_XENOWARNING("Мы разбиваем [object_in_path.declent_ru(ACCUSATIVE)]!"))
 				destroy_obj_in_path(xeno, object_in_path)
-			. = TRUE
-
-		if(!.)
-			first_obstacle_hit = TRUE
-			xeno.update_icons()
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/throw_atom_to_side(mob/living/carbon/xenomorph/xeno, atom/movable/target, dir = null)
 	if(!istype(xeno) || !istype(target))
