@@ -1,4 +1,95 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/structure/flora/bush/ausbushes/var3/sparsegrass,
+/obj/structure/flora/jungle/vines/blue/light_1,
+/turf/closed/wall/strata_ice/jungle,
+/area/strata/interior/out_of_bounds)
+"ab" = (
+/obj/structure/flora/bush/ausbushes/lavendergrass,
+/obj/structure/flora/grass/tallgrass/jungle_alt_2/corner{
+	dir = 1
+	},
+/turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/lazarus/ground/jungle/west_jungle)
+"ac" = (
+/obj/structure/flora/jungle/vines/blue/light_1,
+/obj/structure/flora/jungle/vines/blue/light_1,
+/turf/closed/wall/strata_ice/jungle,
+/area/strata/interior/out_of_bounds)
+"ad" = (
+/obj/structure/flora/grass/tallgrass/jungle_alt_2,
+/obj/structure/flora/jungle/vines/blue/light_2,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
+/area/lazarus/ground/jungle/west_jungle)
+"ae" = (
+/obj/structure/flora/jungle/vines/blue/light_1,
+/obj/structure/flora/grass/tallgrass/jungle_alt_2,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
+/area/lazarus/ground/jungle/west_jungle)
+"af" = (
+/obj/structure/flora/grass/tallgrass/jungle_alt_2/corner{
+	dir = 10
+	},
+/obj/structure/flora/jungle/vines/blue/light_1,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
+/area/lazarus/ground/jungle/west_jungle)
+"ag" = (
+/obj/structure/flora/jungle/vines/blue/light_1,
+/obj/structure/flora/grass/tallgrass/jungle_alt_2,
+/obj/structure/flora/jungle/vines/blue/heavy,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/lazarus/ground/jungle/west_jungle)
+"ah" = (
+/obj/structure/flora/bush/ausbushes/var3/sparsegrass,
+/obj/structure/flora/jungle/vines/blue/light_1,
+/obj/structure/flora/grass/tallgrass/jungle_alt_2/corner{
+	dir = 8
+	},
+/obj/structure/flora/jungle/vines/blue/heavy,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
+/area/lazarus/ground/jungle/west_jungle)
+"ai" = (
+/obj/structure/flora/bush/ausbushes/var3/sparsegrass,
+/obj/structure/flora/jungle/vines/blue/light_1,
+/obj/structure/flora/jungle/vines/blue/heavy,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
+/area/lazarus/ground/jungle/west_jungle)
+"aj" = (
+/obj/structure/flora/bush/ausbushes/genericbush,
+/obj/structure/flora/jungle/vines/blue/light_1,
+/obj/structure/flora/grass/tallgrass/jungle_alt_2/corner,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/lazarus/ground/jungle/west_jungle)
+"ak" = (
+/obj/structure/flora/jungle/vines/blue/light_1,
+/obj/structure/flora/grass/tallgrass/jungle_alt_2/corner,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/lazarus/ground/jungle/west_jungle)
+"al" = (
+/obj/structure/flora/grass/tallgrass/jungle_alt_2/corner{
+	dir = 10
+	},
+/obj/structure/flora/jungle/vines/blue/light_1,
+/obj/structure/flora/jungle/vines/blue/heavy,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
+/area/lazarus/ground/jungle/west_jungle)
+"am" = (
+/obj/structure/flora/bush/ausbushes/var3/sparsegrass,
+/obj/structure/flora/jungle/vines/blue/light_1,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
+/area/lazarus/ground/jungle/west_jungle)
+"an" = (
+/obj/structure/flora/jungle/vines/blue/heavy,
+/turf/open/auto_turf/lv_grass_weedable/layer0,
+/area/lazarus/ground/jungle/west_jungle)
+"ao" = (
+/obj/structure/flora/jungle/vines/blue/heavy,
+/turf/closed/wall/strata_ice/jungle,
+/area/strata/interior/out_of_bounds)
+"ap" = (
+/obj/structure/flora/jungle/vines/blue/light_3,
+/turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/lazarus/ground/jungle/west_jungle)
 "aN" = (
 /obj/structure/window/framed/lv_colony/reinforced,
 /turf/open/floor/plating/prison,
@@ -58,10 +149,6 @@
 /obj/structure/flora/grass/tallgrass/jungle_alt_2/corner{
 	dir = 10
 	},
-/turf/open/auto_turf/lv_grass_weedable/layer0,
-/area/lazarus/ground/jungle/west_jungle)
-"pW" = (
-/obj/structure/flora/bush/ausbushes,
 /turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/west_jungle)
 "sl" = (
@@ -162,9 +249,6 @@
 /obj/structure/flora/jungle/vines/blue/light_2,
 /turf/open/auto_turf/lv_grass_weedable/layer0,
 /area/lazarus/ground/jungle/west_jungle)
-"DZ" = (
-/turf/closed/wall/rock/brown,
-/area/strata/interior/out_of_bounds)
 "Es" = (
 /obj/structure/flora/grass/tallgrass/jungle_alt_2/corner{
 	dir = 6
@@ -213,8 +297,8 @@
 /area/lazarus/ground/jungle/west_jungle)
 "Ka" = (
 /obj/structure/flora/jungle/vines/blue/heavy,
-/turf/closed/wall/rock/brown,
-/area/strata/interior/out_of_bounds)
+/turf/open/auto_turf/lv_grass_weedable/layer1,
+/area/lazarus/ground/jungle/west_jungle)
 "MH" = (
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/lazarus/ground/jungle/west_jungle)
@@ -294,8 +378,8 @@ iN
 Pl
 Pl
 Pl
-Pl
-Pl
+iN
+iN
 Pl
 Pl
 Pl
@@ -304,9 +388,9 @@ Pl
 "}
 (2,1,1) = {"
 jg
-DZ
-DZ
-DZ
+Pl
+Pl
+Pl
 Pl
 Pl
 Pl
@@ -317,10 +401,10 @@ MH
 wo
 iN
 Pl
-sW
-MH
-MH
-Ru
+iN
+iN
+ac
+aa
 Pl
 Pl
 Pl
@@ -329,8 +413,8 @@ bs
 "}
 (3,1,1) = {"
 Pl
-Ka
-DZ
+ao
+Pl
 Pl
 Pl
 Pl
@@ -341,9 +425,9 @@ Jv
 Zx
 Zx
 te
-he
-MH
-FP
+aj
+ac
+aa
 cR
 MH
 Jv
@@ -366,9 +450,9 @@ MH
 MH
 Zx
 Sm
-MH
-MH
-hE
+ak
+ag
+ad
 kl
 ZA
 MH
@@ -390,13 +474,13 @@ Ai
 Pl
 Zx
 wI
-iN
-Pl
-Ru
-pr
-UR
-Ai
-bu
+am
+al
+ah
+ae
+uD
+ab
+MH
 MH
 bu
 MH
@@ -405,8 +489,8 @@ Jv
 (6,1,1) = {"
 MH
 GO
-Zx
-Zx
+an
+an
 MH
 PU
 Zx
@@ -415,14 +499,14 @@ wI
 FP
 yh
 yh
-ZA
-Zx
+iN
+iN
+ai
+af
+iN
+iN
+bu
 MH
-Pl
-Pl
-Zx
-VW
-Pl
 MH
 Ru
 Ru
@@ -440,15 +524,15 @@ Es
 Co
 Co
 kl
-Co
-cR
-Ru
+ZA
 Zx
-Ru
-Jv
-Jv
+te
+iN
+ac
+aa
+VW
 MH
-Pl
+Ru
 Ru
 MH
 "}
@@ -466,29 +550,54 @@ VF
 pr
 kl
 Co
-kl
-ZA
+iN
+iN
+ac
+aa
+Jv
+Jv
+Jv
 Ru
-wI
-Jv
-Ux
-Jv
-Pl
 MH
 sV
 "}
 (9,1,1) = {"
 MH
-DZ
-Ka
-SV
+MH
+ao
+bs
 Dd
 Jv
 Zx
-pr
+Pl
 VF
 Zx
 Zx
+hE
+Co
+ac
+aa
+Ru
+wI
+Jv
+Ux
+bu
+MH
+bu
+cJ
+"}
+(10,1,1) = {"
+vk
+yB
+Ka
+Ka
+MH
+wI
+PU
+Ru
+MH
+MH
+Pl
 pr
 UR
 UR
@@ -497,31 +606,6 @@ UL
 cf
 Zx
 MH
-bu
-MH
-bu
-cJ
-"}
-(10,1,1) = {"
-vk
-DZ
-Ka
-Ka
-MH
-wI
-PU
-Ru
-MH
-Pl
-MH
-Zx
-MH
-MH
-Zx
-pW
-Ru
-MH
-bu
 MH
 sV
 MH
@@ -529,9 +613,9 @@ bu
 "}
 (11,1,1) = {"
 vk
-MH
-MH
-MH
+ap
+Ka
+yB
 SV
 Ru
 Jv
@@ -547,8 +631,8 @@ wI
 MH
 sV
 MH
-Pl
-Pl
+MH
+MH
 Zx
 he
 "}
