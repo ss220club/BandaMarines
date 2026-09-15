@@ -373,7 +373,7 @@
 			ticks_left = 10
 	handle_weather()
 	RegisterSignal(SSdcs, COMSIG_GLOB_WEATHER_CHANGE, PROC_REF(handle_weather))
-	RegisterSignal(acid_t, COMSIG_ITEM_PICKUP, PROC_REF(attempt_pickup))
+	RegisterSignal(acid_t, COMSIG_MOVABLE_PRE_PICKUP, PROC_REF(attempt_pickup))
 	RegisterSignal(acid_t, COMSIG_MOVABLE_MOVED, PROC_REF(move_acid))
 	RegisterSignal(acid_t, COMSIG_PARENT_QDELETING, PROC_REF(cleanup))
 	START_PROCESSING(SSoldeffects, src)
@@ -396,10 +396,10 @@
 		return
 	forceMove(new_loc)
 
-/// Called by COMSIG_ITEM_PICKUP when an item is attempted to be picked up but has acid
+/// Called by COMSIG_MOVABLE_PRE_PICKUP to signal that acid_t can't be picked up because of acid
 /obj/effect/xenomorph/acid/proc/attempt_pickup()
 	SIGNAL_HANDLER
-	return COMSIG_ITEM_PICKUP_CANCELLED
+	return COMPONENT_PICKUP_CANCELED_ACID
 
 /obj/effect/xenomorph/acid/proc/handle_weather()
 	SIGNAL_HANDLER
@@ -420,7 +420,7 @@
 		visible_message(SPAN_XENOWARNING("Кислота на [acid_t.declent_ru(PREPOSITIONAL)] перестаёт шипеть!")) // SS220 EDIT ADDICTION
 		return NONE
 	var/obj/structure/barricade/cade = acid_t
-	cade.take_acid_damage(barricade_damage)
+	cade.corrosive_acid_act(barricade_damage)
 	return (5 SECONDS)
 
 /obj/effect/xenomorph/acid/proc/handle_flashlight()
@@ -434,6 +434,11 @@
 	var/obj/structure/dropship_equipment/module = acid_t
 	module.update_health(module_damage)
 	return (5 SECONDS) * acid_delay
+
+/obj/effect/xenomorph/acid/proc/handle_fuelpump()
+	var/obj/structure/machinery/fuelpump/pump = acid_t
+	pump.update_health(barricade_damage)
+	return (5 SECONDS)
 
 /obj/effect/xenomorph/acid/process(delta_time)
 	remaining -= delta_time * (1 SECONDS)
@@ -450,6 +455,8 @@
 		var/obj/structure/dropship_equipment/module = acid_t
 		if(module.ship_base) //If its not installed then we dont give it any special handling
 			return_delay = handle_dropship_module()
+	else if(istype(acid_t, /obj/structure/machinery/fuelpump))
+		return_delay = handle_fuelpump()
 
 	if(!ticks_left)
 		finish_melting()
@@ -480,11 +487,12 @@
 			visible_message(SPAN_XENODANGER("[capitalize(acid_t.declent_ru(NOMINATIVE))] теряет свой блеск, когда кислота начинает пузыриться на [genderize_ru(acid_t.gender, "нём", "ней", "нём", "них")].")) // SS220 EDIT ADDICTION
 			acid_gun.has_second_wind = FALSE
 			playsound(src, 'sound/weapons/handling/gun_jam_click.ogg', 25, TRUE)
-			qdel(src)
-			return
+		else
+			visible_message(SPAN_XENODANGER("[acid_t] collapses under its own weight into a puddle of goop and undigested debris!"))
+			qdel(acid_t)
 
-	if(istype(acid_t, /turf))
-		visible_message(SPAN_XENODANGER("[capitalize(acid_t.declent_ru(NOMINATIVE))] сильно повреждается покрывающей [genderize_ru(acid_t.gender, "его", "её", "его", "их")] кислотой!")) // SS220 EDIT ADDICTION
+	else if(istype(acid_t, /turf))
+		visible_message(SPAN_XENODANGER("[capitalize(acid_t.declent_ru(NOMINATIVE))] сильно повреждается покрывающей [genderize_ru(acid_t.gender, "его", "её", "его", "их")] кислотой!"))
 		if(istype(acid_t, /turf/closed/wall))
 			var/turf/closed/wall/wall = acid_t
 			new /obj/effect/acid_hole(wall)
@@ -492,7 +500,7 @@
 			var/turf/turf = acid_t
 			turf.ScrapeAway()
 
-	else if (istype(acid_t, /obj/structure/girder))
+	else if(istype(acid_t, /obj/structure/girder))
 		var/obj/structure/girder/girder = acid_t
 		visible_message(SPAN_XENODANGER("[capitalize(acid_t.declent_ru(NOMINATIVE))] рушится и падает, когда кислота полностью разъедает [genderize_ru(acid_t.gender, "его", "её", "его", "их")] каркас!")) // SS220 EDIT ADDICTION
 		girder.dismantle()
@@ -503,8 +511,11 @@
 		window.deconstruct(disassembled = FALSE)
 
 	else if(istype(acid_t, /obj/structure/barricade))
-		visible_message(SPAN_XENODANGER("[capitalize(acid_t.declent_ru(NOMINATIVE))] трещит и рассыпается, когда кислота полностью разъедает [genderize_ru(acid_t.gender, "его", "её", "его", "их")]!")) // SS220 EDIT ADDICTION
-		pass() // Don't delete it, just damaj
+		visible_message(SPAN_XENODANGER("[capitalize(acid_t.declent_ru(NOMINATIVE))] трещит и рассыпается, когда кислота полностью разъедает [genderize_ru(acid_t.gender, "его", "её", "его", "их")]!"))
+		// Don't delete it, just damaj
+
+	else if(istype(acid_t, /obj/structure/machinery/fuelpump))
+		visible_message(SPAN_XENODANGER("[capitalize(acid_t.declent_ru(NOMINATIVE))] трещит и рассыпается, когда кислота полностью разъедает [genderize_ru(acid_t.gender, "его", "её", "его", "их")]!"))
 
 	else if(istype(acid_t, /obj/structure/dropship_equipment))
 		var/obj/structure/dropship_equipment/module = acid_t
@@ -526,6 +537,7 @@
 			mob.forceMove(loc)
 		visible_message(SPAN_XENODANGER("[capitalize(acid_t.declent_ru(NOMINATIVE))] обрушивается под собственной тяжестью в лужу из слизи и не разъевшихся обломков!")) // SS220 EDIT ADDICTION
 		qdel(acid_t)
+
 	qdel(src)
 
 /obj/effect/xenomorph/acid/extinguish_acid()
@@ -707,11 +719,11 @@
 
 /obj/effect/xenomorph/acid_damage_delay/boiler_landmine/deal_damage()
 	var/total_hits = 0
-	for (var/obj/structure/barricade/B in loc)
-		B.take_acid_damage(damage*(1.15 + 0.55 * empowered))
+	for(var/obj/structure/barricade/cade in loc)
+		cade.corrosive_acid_act(damage*(1.15 + 0.55 * empowered))
 
-	for (var/mob/living/carbon/human in loc)
-		if (human.stat == DEAD)
+	for(var/mob/living/carbon/human in loc)
+		if(human.stat == DEAD)
 			continue
 
 		if(human.ally_of_hivenumber(hivenumber))

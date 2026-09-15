@@ -103,7 +103,7 @@
 		var/obj/item/weapon/attacking_weapon = attacking_item
 		if(attacking_weapon.shield_flags & CAN_SHIELD_BASH)
 			user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] [ru_attack_verb("bashes")] [declent_ru(ACCUSATIVE)] [attacking_weapon.declent_ru(INSTRUMENTAL)]!"))
-			playsound(user.loc, 'sound/effects/shieldbash.ogg', 25, 1)
+			playsound(user.loc, prob(5) ? 'modular/shield/sound/shieldbash_rare.ogg' : 'sound/effects/shieldbash.ogg', 25, 1) //SS220 EDIT
 			COOLDOWN_START(src, bash_cooldown, SHIELD_BASH_COOLDOWN)
 	else
 		..()
