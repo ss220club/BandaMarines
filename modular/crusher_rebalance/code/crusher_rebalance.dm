@@ -424,6 +424,10 @@
 				INVOKE_ASYNC(src, PROC_REF(handle_xeno_collision), collided_atom, xeno, dir)
 			else if(iscarbon(collided_atom))
 				INVOKE_ASYNC(src, PROC_REF(handle_carbon_collision), collided_atom, xeno, dir)
+			else if(isobj(collided_atom))
+				var/obj/collided_obj = collided_atom
+				if(istype(collided_obj, /obj/structure/surface/table) || !collided_obj.anchored && !collided_obj.unacidable)
+					INVOKE_ASYNC(src, PROC_REF(handle_obj_collision), collided_obj, xeno)
 
 /datum/action/xeno_action/activable/pounce/crushing_onslaught/proc/handle_human_collision(mob/living/carbon/human/human, mob/living/carbon/xenomorph/xeno, dir = null)
 	if(!istype(xeno))
@@ -591,20 +595,13 @@
 			if(window_in_path.unacidable)
 				first_obstacle_hit = TRUE
 			else
-				var/obj/structure/window/framed/window_framed_in_path
-				var/window_frame_type
-				var/turf/window_loc
 				if(istype(window_in_path, /obj/structure/window/framed))
-					window_framed_in_path = target
-					window_frame_type = window_framed_in_path.window_frame
-					window_loc = window_in_path.loc
+					var/obj/structure/window/framed/window_framed_in_path = target
+					if(window_framed_in_path.reinf)
+						first_obstacle_hit = TRUE
 
 				window_in_path.health = 0
 				window_in_path.healthcheck(user = xeno)
-
-				if(istype(window_framed_in_path))
-					if(window_framed_in_path.reinf)
-						first_obstacle_hit = TRUE
 		//Window frame collision
 		else if(istype(target, /obj/structure/window_frame))
 			handled = TRUE
@@ -613,8 +610,6 @@
 				first_obstacle_hit = TRUE
 			else
 				metal_pipe_random(window_frame_in_path)
-				var/obj/effect/alien/weeds/weedwall/frame/WF = locate(/obj/effect/alien/weeds/weedwall/frame) in window_frame_in_path.loc
-				qdel(WF)
 				window_frame_in_path.deconstruct()
 		//Grille collision
 		else if(istype(target, /obj/structure/grille))

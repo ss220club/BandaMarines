@@ -1166,9 +1166,11 @@ GLOBAL_DATUM(action_purple_power_up, /image)
 
 //Returns the 2 dirs perpendicular to the arg
 /proc/get_perpen_dir(dir)
-	if(dir & (dir-1))
-		return 0 //diagonals
-	if(dir & (EAST|WEST))
+	if(dir == NORTHEAST || dir == SOUTHWEST) //SS220 EDIT till upstream
+		return list(NORTHWEST, SOUTHEAST)	//SS220 EDIT
+	else if (dir == NORTHWEST || dir == SOUTHEAST) //SS220 EDIT
+		return list(NORTHEAST, SOUTHWEST) 	//SS220 EDIT
+	else if(dir & (EAST|WEST))
 		return list(SOUTH, NORTH)
 	else
 		return list(EAST, WEST)
