@@ -123,6 +123,10 @@ SUBSYSTEM_DEF(tts220)
 		return SS_INIT_NO_NEED
 
 	load_replacements()
+	if(!CONFIG_GET(flag/tts_cache_enabled))
+		remove_tts_cache()
+	else
+		remove_tts_filters_cache()
 
 	return SS_INIT_SUCCESS
 
@@ -620,6 +624,35 @@ SUBSYSTEM_DEF(tts220)
 	src.cb = cb
 	if(length(effects))
 		src.effects |= effects
+
+/datum/controller/subsystem/tts220/proc/remove_tts_cache()
+	var/root = "data/tts_cache/"
+	var/list/cache_folders = flist(root)
+	if(!length(cache_folders))
+		return
+	for(var/cache_folder in cache_folders)
+		var/list/cache_folder_content = flist(root + cache_folder)
+		for(var/cached_tts in cache_folder_content)
+			fdel(root + cache_folder + cached_tts)
+
+/datum/controller/subsystem/tts220/proc/remove_tts_filters_cache()
+	var/static/list/suffixes = list()
+	if(!length(suffixes))
+		for(var/datum/singleton/sound_effect/effect as anything in subtypesof(/datum/singleton/sound_effect))
+			if(!effect::suffix)
+				continue
+			suffixes.Add(effect::suffix)
+	var/root = "data/tts_cache/"
+	var/list/cache_folders = flist(root)
+	if(!length(cache_folders))
+		return
+	for(var/cache_folder in cache_folders)
+		var/list/cache_folder_content = flist(root + cache_folder)
+		for(var/cached_tts in cache_folder_content)
+			for(var/suffix in suffixes)
+				if(findtext_char(cached_tts, suffix))
+					fdel(root + cache_folder + cached_tts)
+
 
 #undef TTS_REPLACEMENTS_FILE_PATH
 #undef TTS_REPLACEMENTS_FALLBACK_FILE_PATH
