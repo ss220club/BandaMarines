@@ -17,6 +17,9 @@
 /obj/item/clothing/mask/gas/clown_hat
 	voice_effect = null
 
+/obj/item/clothing/mask/gas/yautja
+	voice_effect = null
+
 /obj/item/clothing/head/welding/should_apply_voice_effect()
 	return !up
 
