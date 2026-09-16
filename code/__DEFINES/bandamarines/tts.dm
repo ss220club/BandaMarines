@@ -19,3 +19,11 @@ GLOBAL_LIST_INIT_TYPED(tts_announcers, /datum/announcer, list(
 	TTS_SILENT_ANNOUNCER_KEY = new /datum/announcer/silent,
 	TTS_CUSTOM_ANNOUNCER_KEY = new /datum/announcer/custom,
 ))
+
+#define TTS_SOUND_EFFECT_PRIORITY_TONGUE 1
+#define TTS_SOUND_EFFECT_PRIORITY_MASK 2
+#define TTS_SOUND_EFFECT_PRIORITY_MEGAPHONE 3
+#define TTS_SOUND_EFFECT_PRIORITY_RADIO 4
+
+//from base of atom/movable/update_voice_effect(): (should_apply_voice_effect)
+#define COMSIG_MOVABLE_UPDATE_VOICE_EFFECT "movable_update_voice_effect"
