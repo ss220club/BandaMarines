@@ -130,8 +130,9 @@
 /datum/component/tts_component/proc/get_effects(list/additional_effects)
 	var/list/resulting_effects = effects.Copy()
 	if(length(additional_effects))
-		additional_effects = sort_effects(additional_effects)
 		resulting_effects |= additional_effects
+	if(length(resulting_effects))
+		resulting_effects = sort_effects(resulting_effects)
 
 	return resulting_effects
 
@@ -141,7 +142,7 @@
 	return sort_list(effects_to_sort, GLOBAL_PROC_REF(cmp_sound_effect_priority_asc))
 
 /proc/cmp_sound_effect_priority_asc(datum/singleton/sound_effect/A, datum/singleton/sound_effect/B)
-	return A.priority - B.priority
+	return A::priority - B::priority
 
 /datum/component/tts_component/proc/cast_tts(
 	atom/speaker,
@@ -236,7 +237,7 @@
 	RegisterSignal(equipped_item, COMSIG_MOVABLE_UPDATE_VOICE_EFFECT, PROC_REF(on_item_update_voice_effect))
 
 // Item got removed from us
-/datum/component/tts_component/proc/on_item_unequip(obj/item/item_dropping, force, newloc, no_move, invdrop, silent)
+/datum/component/tts_component/proc/on_item_unequip(obj/item/item_dropping, mob/user, slot)
 	SIGNAL_HANDLER
 	tts_effects_remove(item_dropping.voice_effect)
 	UnregisterSignal(item_dropping, COMSIG_ITEM_UNEQUIPPED)
