@@ -41,7 +41,6 @@
 		ui.set_autoupdate(FALSE)
 		ui.open()
 
-
 /obj/structure/machinery/computer/supply/asrs/vehicle/ui_status(mob/user)
 	. = ..()
 	if(inoperable(MAINT))
