@@ -333,6 +333,8 @@ Additionally, weapons that are way too good to put in the basically-flavor black
 	dollar_cost = 5
 	containertype = /obj/structure/largecrate/black_market
 
+/* SS220 EDIT START
+
 /datum/supply_packs/contraband/seized/pps43
 	name = "Type-19 submachinegun crate (x5 magazines included)"
 	contains = list(
@@ -345,6 +347,8 @@ Additionally, weapons that are way too good to put in the basically-flavor black
 	)
 	dollar_cost = 15
 	containertype = /obj/structure/largecrate/black_market
+
+*/ // SS220 EDIT END
 
 //Pistols
 
@@ -866,11 +870,15 @@ USCM spare items, miscellaneous gear that's too niche and distant (or restricted
 	contains = list(/obj/item/ammo_box/magazine/mac15)
 	containertype = /obj/structure/largecrate/black_market
 
+/* SS220 EDIT START
+
 /datum/supply_packs/contraband/ammo/pps43
 	name = "Magazines box (Type-19, 10x regular mags)"
 	dollar_cost = 40
 	contains = list(/obj/item/ammo_box/magazine/type19)
 	containertype = /obj/structure/largecrate/black_market
+
+*/ // SS220 EDIT END
 
 /datum/supply_packs/contraband/ammo/b92fs
 	name = "Magazines box (Beretta 92FS, 16x mags)"
@@ -1279,11 +1287,13 @@ Things that don't fit anywhere else. If they're meant for shipside use, they pro
 			new /obj/item/ammo_magazine/revolver/webley(loc)
 			loot_message = SPAN_NOTICE("It's some CLF pistol armaments!")
 		if(16 to 20)
-			// Type 19
-			new /obj/item/weapon/gun/smg/pps43/extended_mag(loc)
-			new /obj/item/ammo_magazine/smg/pps43/extended(loc)
-			new /obj/item/ammo_magazine/smg/pps43/extended(loc)
-			new /obj/item/ammo_magazine/smg/pps43/extended(loc)
+			// SS220 EDIT START
+			//Type 64
+			new /obj/item/weapon/gun/smg/bizon(loc)
+			new /obj/item/ammo_magazine/smg/bizon(loc)
+			new /obj/item/ammo_magazine/smg/bizon(loc)
+			new /obj/item/ammo_magazine/smg/bizon(loc)
+			// SS220 EDIT END
 			// MAC-15
 			new /obj/item/weapon/gun/smg/mac15/extended(loc)
 			new /obj/item/ammo_magazine/smg/mac15/extended(loc)
