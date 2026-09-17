@@ -83,3 +83,19 @@
 
 /turf/open/gm/coast/dirt/beachcorner2/weedable/south_east
 	dir = 8
+
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk
+	icon = 'modular/zenith_sanctum/icons/turf/floors/ground_map_dirt.dmi'
+	icon_state = "soro_catwalk"
+
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/pipe
+	icon_state = "soro_pipe_catwalk"
+
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner
+	icon_state = "soro_beachcorner_catwalk"
+
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/beachcorner2
+	icon_state = "soro_beachcorner2_catwalk"
+
+/turf/open/gm/river/soro/no_overlay/weedable/catwalk/sand
+	icon_state = "sand_catwalk"
