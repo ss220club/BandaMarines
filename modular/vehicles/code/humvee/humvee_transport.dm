@@ -1,4 +1,4 @@
-/obj/vehicle/multitile/modul/humvee/transport
+/obj/vehicle/multitile/modular/humvee/transport
 	name = "\improper Грузовой автомобиль M2422 JTMV"
 	desc = "Вспомогательный автомобиль M2422 JTMV. Легкобронированная машина. Входы сзади и по бокам."
 
@@ -13,9 +13,7 @@
 	bound_x = -32
 	bound_y = -32
 
-// Прочность и модификаторы урона
 	health = 600
-
 	dmg_multipliers = list(
 		"all" = 1,
 		"acid" = 1.8,
@@ -26,11 +24,9 @@
 		"abstract" = 1,
 	)
 
-	interior_map = /datum/map_template/interior/modul/humvee/transport
-
+	interior_map = /datum/map_template/interior/modular/humvee/transport
 	passengers_slots = 8
 	xenos_slots = 4
-
 	misc_multipliers = list(
 		"move" = 0.9,
 		"accuracy" = 1,

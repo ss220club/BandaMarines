@@ -29,9 +29,9 @@
             qdel(marker)
 
         to_chat(user, SPAN_WARNING("Наводим орудие на цель"))
-        playsound(owner,'modular/tank_rebalance/sound/turret.ogg', 80, TRUE, 8)
+        playsound(owner,'modular/vehicles/sound/turret.ogg', 80, TRUE, 8)
         spawn(10)
-            playsound(target_turf, 'modular/tank_rebalance/sound/shell.ogg', 70, FALSE, 5)
+            playsound(target_turf, 'modular/vehicles/sound/shell.ogg', 70, FALSE, 5)
         spawn(20)
             making_shot = FALSE
             handle_fire(target_turf, user, params)

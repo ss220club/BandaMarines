@@ -1675,6 +1675,7 @@
 		return
 	xeno.visible_message(SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] вырывает [xeno.iff_tag.declent_ru(ACCUSATIVE)]!"), SPAN_XENOWARNING("Мы вырываем из своего тела [xeno.iff_tag]! Во имя улья!")) // SS220 EDIT ADDICTION
 	xeno.adjustBruteLoss(50)
+	xeno.updatehealth()
 	xeno.iff_tag.forceMove(get_turf(xeno))
 	xeno.iff_tag = null
 
@@ -1688,6 +1689,7 @@
 			continue
 		xeno.visible_message(SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] вырывает [xeno.iff_tag.declent_ru(ACCUSATIVE)]!"), SPAN_XENOWARNING("Мы вырываем из своего тела [xeno.iff_tag]! Во имя улья!")) // SS220 EDIT ADDICTION
 		xeno.adjustBruteLoss(50)
+		xeno.updatehealth()
 		xeno.iff_tag.forceMove(get_turf(xeno))
 		xeno.iff_tag = null
 	if(!length(defectors))
