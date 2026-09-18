@@ -39,6 +39,56 @@
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
 /turf/open/auto_turf/lv_grass_weedable/layer1,
 /area/template_noop)
+"ai" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/tool/minihoe{
+	pixel_y = -2
+	},
+/obj/item/tool/shovel/spade,
+/turf/open/floor/plating/prison,
+/area/template_noop)
+"aj" = (
+/obj/effect/decal/large_stain,
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/stack/rods{
+	amount = 15
+	},
+/obj/structure/barricade/deployable{
+	damage_state = 3;
+	health = 50;
+	icon_state = "folding_3"
+	},
+/obj/item/ammo_casing/bullet,
+/obj/item/ammo_casing/bullet,
+/turf/open/floor/prison/platingdmg2,
+/area/template_noop)
+"ak" = (
+/obj/item/stack/sheet/metal,
+/obj/item/explosive/mine/pmc/active{
+	dir = 8
+	},
+/turf/open/floor/plating/prison,
+/area/template_noop)
+"al" = (
+/obj/structure/prop/ice_colony/dense/planter_box/plated{
+	color = "#aaaab5"
+	},
+/obj/item/device/motiondetector/hacked/pmc,
+/turf/open/floor/prison/platingdmg2,
+/area/template_noop)
+"am" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_magazine/rifle/nsg23{
+	current_rounds = 13
+	},
+/turf/open/floor/prison/platingdmg2,
+/area/template_noop)
+"an" = (
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/corpsespawner/pmc,
+/turf/open/floor/plating/prison,
+/area/template_noop)
 "aV" = (
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
@@ -106,6 +156,7 @@
 /obj/effect/decal/large_stain,
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/survivor_spawner/zenith_sanctum_crashed_pmc,
 /turf/open/floor/prison/platingdmg2,
 /area/template_noop)
 "cY" = (
@@ -139,10 +190,10 @@
 /area/template_noop)
 "dV" = (
 /obj/item/stack/sheet/metal,
-/obj/effect/spawner/random/claymore/midchance{
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/explosive/mine/pmc/active{
 	dir = 1
 	},
-/obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/prison/panelscorched,
 /area/template_noop)
 "ea" = (
@@ -182,7 +233,10 @@
 	},
 /obj/item/ammo_casing/bullet,
 /obj/item/ammo_casing/bullet,
-/turf/open/floor/prison,
+/obj/item/ammo_magazine/smg/fp9000{
+	pixel_x = 1
+	},
+/turf/open/floor/prison/panelscorched,
 /area/template_noop)
 "gA" = (
 /obj/item/shard,
@@ -201,6 +255,7 @@
 	color = "#aaaab5"
 	},
 /obj/effect/decal/hybrisa/dirt,
+/obj/item/reagent_container/food/drinks/flask/weylandyutani,
 /turf/open/floor/prison/platingdmg2,
 /area/template_noop)
 "ii" = (
@@ -221,17 +276,21 @@
 /turf/open/floor/plating/prison,
 /area/template_noop)
 "jC" = (
-/obj/structure/barricade/deployable{
-	damage_state = 3;
-	health = 50;
-	icon_state = "folding_3"
+/obj/structure/closet/crate/secure/weyland,
+/obj/item/ammo_magazine/rifle/nsg23/extended,
+/obj/item/ammo_magazine/rifle/nsg23/extended,
+/obj/item/ammo_magazine/rifle/nsg23,
+/obj/item/ammo_magazine/rifle,
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/explosive/grenade/high_explosive/pmc{
+	pixel_x = 6
 	},
 /obj/item/ammo_magazine/rifle/nsg23,
 /obj/item/ammo_magazine/rifle/nsg23,
 /obj/item/ammo_magazine/rifle/nsg23,
-/obj/item/ammo_casing/bullet,
-/obj/item/ammo_casing/bullet,
-/turf/open/floor/prison/panelscorched,
+/obj/item/ammo_magazine/smg/m39,
+/obj/item/ammo_magazine/smg/m39,
+/turf/open/floor/plating/prison,
 /area/template_noop)
 "jJ" = (
 /obj/item/stack/rods{
@@ -244,11 +303,18 @@
 /obj/structure/surface/rack{
 	color = "#aaaab5"
 	},
-/obj/item/clothing/suit/apron,
-/obj/item/tool/shovel,
-/obj/item/clothing/gloves/botanic_leather,
 /obj/effect/decal/large_stain,
 /obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_magazine/rifle,
+/obj/item/ammo_magazine/rifle{
+	pixel_x = 7
+	},
+/obj/item/ammo_magazine/rifle{
+	pixel_x = -6
+	},
+/obj/item/ammo_magazine/rifle{
+	pixel_x = 5
+	},
 /turf/open/floor/prison/panelscorched,
 /area/template_noop)
 "lk" = (
@@ -358,11 +424,9 @@
 /turf/open/floor/prison/platingdmg1,
 /area/template_noop)
 "sn" = (
-/obj/effect/spawner/random/claymore/lowchance{
-	dir = 8
-	},
 /obj/effect/decal/hybrisa/dirt,
 /obj/item/shard,
+/obj/item/explosive/mine/pmc/active,
 /turf/open/floor/prison/platingdmg2,
 /area/template_noop)
 "so" = (
@@ -449,16 +513,15 @@
 /area/template_noop)
 "wE" = (
 /obj/item/device/analyzer/plant_analyzer,
-/obj/effect/spawner/random/claymore,
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
+/obj/item/explosive/mine/pmc/active,
 /turf/open/floor/prison,
 /area/template_noop)
 "wY" = (
 /obj/structure/surface/rack{
 	color = "#aaaab5"
 	},
-/obj/item/tool/shovel/spade,
 /obj/item/tool/hatchet{
 	pixel_x = 6;
 	pixel_y = 4
@@ -466,11 +529,15 @@
 /obj/item/tool/hatchet{
 	pixel_x = 6;
 	pixel_y = 4
-	},
-/obj/item/tool/minihoe{
-	pixel_y = -2
 	},
 /obj/effect/decal/hybrisa/dirt,
+/obj/item/ammo_magazine/smg/m39,
+/obj/item/ammo_magazine/smg/m39{
+	pixel_x = 3
+	},
+/obj/item/ammo_magazine/smg/m39{
+	pixel_x = -5
+	},
 /turf/open/floor/prison/platingdmg2,
 /area/template_noop)
 "xv" = (
@@ -553,11 +620,11 @@
 	pixel_y = 6
 	},
 /obj/item/stack/sheet/metal,
-/obj/effect/spawner/random/claymore/midchance{
-	dir = 1
+/obj/effect/decal/hybrisa/dirt,
+/obj/effect/decal/hybrisa/dirt,
+/obj/item/explosive/mine/pmc/active{
+	dir = 4
 	},
-/obj/effect/decal/hybrisa/dirt,
-/obj/effect/decal/hybrisa/dirt,
 /turf/open/floor/prison/platingdmg1,
 /area/template_noop)
 "Cp" = (
@@ -656,7 +723,7 @@
 	},
 /obj/item/reagent_container/glass/fertilizer,
 /obj/item/stack/sheet/metal,
-/obj/effect/spawner/random/claymore/midchance,
+/obj/item/explosive/mine/pmc/active,
 /turf/open/floor/prison/platingdmg1,
 /area/template_noop)
 "GU" = (
@@ -733,6 +800,7 @@
 	pixel_y = 8
 	},
 /obj/effect/decal/hybrisa/dirt,
+/obj/effect/landmark/corpsespawner/pmc,
 /turf/open/floor/prison/platingdmg2,
 /area/template_noop)
 "IL" = (
@@ -855,8 +923,8 @@
 /area/template_noop)
 "OM" = (
 /obj/item/stack/sheet/metal,
-/obj/effect/spawner/random/claymore/midchance,
 /obj/effect/decal/hybrisa/dirt,
+/obj/item/explosive/mine/pmc/active,
 /turf/open/floor/prison/panelscorched,
 /area/template_noop)
 "OT" = (
@@ -933,6 +1001,7 @@
 "QY" = (
 /obj/effect/decal/cleanable/blood/xeno,
 /obj/effect/decal/hybrisa/dirt,
+/obj/item/storage/belt/marine/wy,
 /turf/open/floor/prison/platingdmg2,
 /area/template_noop)
 "Rl" = (
@@ -948,11 +1017,11 @@
 /area/template_noop)
 "RA" = (
 /obj/item/stack/sheet/metal,
-/obj/effect/spawner/random/claymore/lowchance,
 /obj/effect/decal/hybrisa/dirt,
 /obj/item/shard,
 /obj/item/ammo_casing/bullet,
 /obj/item/ammo_casing/bullet,
+/obj/item/explosive/mine/pmc/active,
 /turf/open/floor/plating/prison,
 /area/template_noop)
 "RE" = (
@@ -1022,15 +1091,15 @@
 /area/template_noop)
 "SV" = (
 /obj/item/tool/crowbar,
-/obj/effect/spawner/random/claymore/midchance{
-	dir = 4
-	},
 /obj/effect/decal/large_stain,
 /obj/effect/decal/hybrisa/dirt,
 /obj/effect/decal/hybrisa/dirt,
 /obj/item/ammo_casing/bullet,
 /obj/item/ammo_casing/bullet,
 /obj/item/ammo_casing/bullet,
+/obj/item/explosive/mine/pmc/active{
+	dir = 8
+	},
 /turf/open/floor/prison/panelscorched,
 /area/template_noop)
 "Tm" = (
@@ -1065,8 +1134,10 @@
 /area/template_noop)
 "UM" = (
 /obj/item/stack/sheet/metal,
-/obj/effect/spawner/random/claymore/lowchance,
 /obj/effect/decal/hybrisa/dirt,
+/obj/item/explosive/mine/pmc/active{
+	dir = 4
+	},
 /turf/open/floor/prison/platingdmg1,
 /area/template_noop)
 "UT" = (
@@ -1132,9 +1203,10 @@
 /area/template_noop)
 "WR" = (
 /obj/item/stack/sheet/metal,
-/obj/effect/spawner/random/claymore/midchance{
-	dir = 4
-	},
+/obj/item/explosive/mine/pmc/active,
+/obj/item/clothing/gloves/botanic_leather,
+/obj/item/tool/shovel,
+/obj/item/clothing/suit/apron,
 /turf/open/floor/plating/prison,
 /area/template_noop)
 "WV" = (
@@ -1174,10 +1246,13 @@
 /area/template_noop)
 "YE" = (
 /obj/item/stack/sheet/metal,
-/obj/effect/spawner/random/claymore/lowchance{
-	dir = 4
-	},
 /obj/effect/decal/hybrisa/dirt,
+/obj/item/explosive/mine/pmc/active{
+	dir = 1
+	},
+/obj/item/explosive/mine/pmc/active{
+	dir = 1
+	},
 /turf/open/floor/prison/platingdmg1,
 /area/template_noop)
 "Zj" = (
@@ -1233,7 +1308,7 @@ yd
 be
 fc
 Mo
-WR
+ak
 Wk
 Rl
 Zq
@@ -1309,7 +1384,7 @@ ri
 cq
 Sb
 PQ
-mG
+al
 gu
 QY
 wY
@@ -1330,7 +1405,7 @@ Wa
 IU
 ID
 cq
-xv
+ai
 OM
 GU
 cY
@@ -1348,7 +1423,7 @@ lM
 wk
 dr
 jC
-xK
+aj
 Dn
 pb
 WA
@@ -1386,7 +1461,7 @@ Xi
 gW
 cA
 dS
-Dn
+gu
 Dn
 RA
 It
@@ -1403,8 +1478,8 @@ dT
 RE
 xv
 cS
-xv
-Qc
+an
+am
 HH
 XA
 sZ

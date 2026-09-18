@@ -358,7 +358,7 @@
 	name = "\improper Yggdrasil Tree"
 	icon_state = "atmos"
 	ceiling = CEILING_GLASS
-	linked_lz = DROPSHIP_LZ1
+	linked_lz = DROPSHIP_LZ2
 
 /area/lazarus/medbay
 	name = "\improper Health and Wellness Facility - Medbay"

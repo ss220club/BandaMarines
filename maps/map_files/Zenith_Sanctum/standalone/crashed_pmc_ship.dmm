@@ -791,6 +791,7 @@
 /obj/item/frame/rack,
 /obj/effect/landmark/objective_landmark/far,
 /obj/effect/decal/hybrisa/dirt,
+/obj/item/device/binoculars,
 /turf/open/floor/almayer/plate,
 /area/lazarus/crashed_shuttle)
 "jL" = (
@@ -1820,6 +1821,7 @@
 	dir = 1;
 	icon_state = "shuttle_chair_destroyed"
 	},
+/obj/effect/spawner/gibspawner/human,
 /turf/open/floor/plating/platingdmg2,
 /area/lazarus/crashed_shuttle)
 "Af" = (
@@ -1903,6 +1905,10 @@
 /obj/item/weapon/gun/shotgun/pump/dual_tube/cmb,
 /obj/effect/landmark/objective_landmark/far,
 /obj/item/shard,
+/obj/item/ammo_magazine/shotgun/buckshot{
+	pixel_x = 6;
+	pixel_y = 8
+	},
 /turf/open/floor/platingdmg3,
 /area/lazarus/crashed_shuttle)
 "AP" = (
