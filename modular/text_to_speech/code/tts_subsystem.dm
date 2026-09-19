@@ -652,6 +652,7 @@ SUBSYSTEM_DEF(tts220)
 			for(var/suffix in suffixes)
 				if(findtext_char(cached_tts, suffix))
 					fdel(root + cache_folder + cached_tts)
+					CHECK_TICK
 
 
 #undef TTS_REPLACEMENTS_FILE_PATH
