@@ -631,7 +631,7 @@ SUBSYSTEM_DEF(tts220)
 	if(!length(cache_folders))
 		return
 	for(var/cache_folder in cache_folders)
-		to_chat(world, "Deleting [root + cache_folder]]")
+		log_debug("TTS Cache - Deleting [root + cache_folder]")
 		fdel(root + cache_folder)
 		CHECK_TICK
 
@@ -651,8 +651,9 @@ SUBSYSTEM_DEF(tts220)
 		for(var/cached_tts in cache_folder_content)
 			for(var/suffix in suffixes)
 				if(findtext_char(cached_tts, suffix))
+					log_debug("TTS Cache - Deleting [root + cache_folder + cached_tts]")
 					fdel(root + cache_folder + cached_tts)
-				CHECK_TICK
+			CHECK_TICK
 
 
 #undef TTS_REPLACEMENTS_FILE_PATH
