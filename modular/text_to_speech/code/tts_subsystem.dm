@@ -518,7 +518,8 @@ SUBSYSTEM_DEF(tts220)
 	addtimer(CALLBACK(src, PROC_REF(cleanup_tts_file), filename), FILE_CLEANUP_DELAY)
 
 /datum/controller/subsystem/tts220/proc/cleanup_tts_file(filename)
-	fdel(filename)
+	if(fexists(filename))
+		fdel(filename)
 
 /datum/controller/subsystem/tts220/proc/get_available_seeds(owner)
 	var/list/_tts_seeds_names = list()
