@@ -631,9 +631,9 @@ SUBSYSTEM_DEF(tts220)
 	if(!length(cache_folders))
 		return
 	for(var/cache_folder in cache_folders)
-		var/list/cache_folder_content = flist(root + cache_folder)
-		for(var/cached_tts in cache_folder_content)
-			fdel(root + cache_folder + cached_tts)
+		to_chat(world, "Deleting [root + cache_folder]]")
+		fdel(root + cache_folder)
+		CHECK_TICK
 
 /datum/controller/subsystem/tts220/proc/remove_tts_filters_cache()
 	var/static/list/suffixes = list()
@@ -652,7 +652,7 @@ SUBSYSTEM_DEF(tts220)
 			for(var/suffix in suffixes)
 				if(findtext_char(cached_tts, suffix))
 					fdel(root + cache_folder + cached_tts)
-					CHECK_TICK
+				CHECK_TICK
 
 
 #undef TTS_REPLACEMENTS_FILE_PATH
