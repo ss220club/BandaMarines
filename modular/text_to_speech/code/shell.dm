@@ -29,7 +29,6 @@
 	// TODO: acquire correct TTS provider and their sample rate. 24000 is silero.
 	filter = replacetext(filter, "%SAMPLE_RATE%", "24000")
 	var/command = {"[taskset] ffmpeg -y -hide_banner -loglevel error -i [filename_modifying].ogg [filter] [output_name]"}
-	log_debug("TTS: apply_sound_effects executing: [command]")
 	var/list/output = world.shelleo(command)
 
 	var/errorlevel = output[SHELLEO_ERRORLEVEL]
@@ -38,14 +37,10 @@
 	if(errorlevel)
 		var/effect_types = effects.Join("; ")
 		log_runtime("Error: apply_sound_effects([effect_types], [filename_input], [filename_output]) - See debug logs.")
-		log_debug("apply_sound_effects([effect_types], [filename_input], [filename_output]) STDOUT: [stdout]")
-		log_debug("apply_sound_effects([effect_types], [filename_input], [filename_output]) STDERR: [stderr]")
 		return FALSE
 
 	if(!CONFIG_GET(flag/tts_cache_enabled))
 		SStts220.add_tts_file_to_cleanup(output_name)
-
-	log_debug("TTS: apply_sound_effects OK: output=[filename_output], stdout_len=[length(stdout)], stderr_len=[length(stderr)]")
 	return TRUE
 
 /datum/singleton/sound_effect
