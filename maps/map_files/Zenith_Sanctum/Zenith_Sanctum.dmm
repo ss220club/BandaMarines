@@ -17865,10 +17865,6 @@
 /obj/effect/landmark/corpsespawner/colonist/random,
 /turf/open/auto_turf/lv_sand/layer0,
 /area/lazarus/ground/colony/north_nexus_road)
-"aWI" = (
-/obj/structure/barricade/handrail/wire,
-/turf/open/gm/dirt/brown/variant_5/west,
-/area/lazarus/ground/colony/north_nexus_road)
 "aWJ" = (
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
 /obj/effect/landmark/nightmare{
@@ -86006,7 +86002,7 @@ ehu
 ehu
 qrb
 aIS
-aWI
+aId
 aIL
 vgY
 goY
