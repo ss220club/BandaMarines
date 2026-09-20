@@ -1,9 +1,9 @@
-/obj/vehicle/multitile/modul/humvee/medical
+/obj/vehicle/multitile/modular/humvee/medical
 	name = "\improper Санитарный автомобиль M2421 JTMV"
 	desc = "Санитарный автомобиль M2421 JTMV. Легкобронированная машина. Входы сзади и по бокам."
-
 	icon = 'modular/vehicles/icons/humvee/humvee_medical.dmi'
 	icon_state = "humvee_base"
+
 	pixel_x = -48
 	pixel_y = -48
 
@@ -13,9 +13,7 @@
 	bound_x = -32
 	bound_y = -32
 
-// Прочность и модификаторы урона
 	health = 600
-
 	dmg_multipliers = list(
 		"all" = 1,
 		"acid" = 1.8,
@@ -26,11 +24,9 @@
 		"abstract" = 1,
 	)
 
-	interior_map = /datum/map_template/interior/modul/humvee/medical
-
+	interior_map = /datum/map_template/interior/modular/humvee/medical
 	passengers_slots = 6
 	xenos_slots = 4
-
 	misc_multipliers = list(
 		"move" = 0.9,
 		"accuracy" = 1,
