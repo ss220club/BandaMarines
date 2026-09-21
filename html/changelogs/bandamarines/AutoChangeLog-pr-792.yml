@@ -1,0 +1,4 @@
+author: "PetyaFX"
+delete-after: True
+changes:
+  - code_imp: "Добавлена поддержка донатных тиров для использования в игровом коде."
