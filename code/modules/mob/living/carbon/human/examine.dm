@@ -66,15 +66,14 @@
 	if(wear_mask)
 		skipface |= wear_mask.flags_inv_hide & HIDEFACE
 
-	var/t_He = ru_p_they(TRUE) // SS220 EDIT ADDICTION
-	var/t_he = ru_p_they() // SS220 EDIT ADDICTION
-	var/t_His = ru_p_them(TRUE) // SS220 EDIT ADDICTION
-	var/t_his = ru_p_them() // SS220 EDIT ADDICTION
-	var/t_theirs = ru_p_theirs() // SS220 EDIT ADDICTION
-	//var/t_has = "has" // SS220 EDIT ADDICTION
-	//var/t_is = "is" // SS220 EDIT ADDICTION
-	//var/t_do = "does" // SS220 EDIT ADDITION
-	//var/t_seem = "seems" // SS220 EDIT ADDITION
+	var/t_He = ru_p_they(TRUE)
+	var/t_his = ru_p_them()
+	var/t_him = "it" // BANDAMARINES NOTE - unused
+	var/t_has = "has" // BANDAMARINES NOTE - unused
+	var/t_is = "is" // BANDAMARINES NOTE - unused
+	//var/t_do = "does" // BANDAMARINES NOTE - unused
+	//var/t_seem = "seems" // BANDAMARINES NOTE - unused
+	var/t_theirs = ru_p_theirs()
 
 	var/id_paygrade = ""
 	var/obj/item/card/id/I = get_idcard()
@@ -242,7 +241,7 @@
 					msg += SPAN_DANGER("[t_He] is not compatible with your weapon's IFF. They will be shot by your weapon!\n")
 	//Restraints
 	if(handcuffed)
-		msg += SPAN_ORANGE("[t_His] руки в [handcuffed.declent_ru(PREPOSITIONAL)].\n")
+		msg += SPAN_ORANGE("[capitalize(t_his)] руки в [handcuffed.declent_ru(PREPOSITIONAL)].\n")
 
 	if(legcuffed)
 		msg += SPAN_ORANGE("[capitalize(t_his)] ноги в [handcuffed.declent_ru(PREPOSITIONAL)].\n")
@@ -315,7 +314,7 @@
 
 	if((species && !species.has_organ["brain"] || has_brain()) && stat != DEAD && stat != CONSCIOUS)
 		if(!key)
-			msg += SPAN_DEADSAY("[t_He] глубоко спит. Не похоже, что [t_he] скоро проснется.\n")
+			msg += SPAN_DEADSAY("[t_He] глубоко спит, и не похоже, что скоро проснется.\n")
 		else if(!client)
 			msg += "[t_He] внезапно засыпает.\n"
 
