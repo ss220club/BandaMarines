@@ -8,8 +8,6 @@
 	var/whitelist_status
 	var/whitelist_flags
 
-	var/discord_link_id
-
 	var/last_login
 
 	var/is_permabanned = FALSE
@@ -45,7 +43,6 @@
 	var/migrating_bans = FALSE
 	var/migrating_jobbans = FALSE
 
-	var/datum/entity/discord_link/discord_link
 	var/datum/entity/player/permaban_admin
 	var/datum/entity/player/time_ban_admin
 	var/list/datum/entity/player_note/notes
@@ -70,7 +67,6 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 		"permaban_reason" = DB_FIELDTYPE_STRING_MAX,
 		"permaban_date" = DB_FIELDTYPE_STRING_LARGE,
 		"whitelist_status" = DB_FIELDTYPE_STRING_MAX,
-		"discord_link_id" = DB_FIELDTYPE_BIGINT,
 		"permaban_admin_id" = DB_FIELDTYPE_BIGINT,
 		"is_time_banned" = DB_FIELDTYPE_INT,
 		"time_ban_reason" = DB_FIELDTYPE_STRING_MAX,
@@ -105,10 +101,10 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 		// notes_add already sends a message
 		message_admins("[key_name_admin(admin.mob)] has edited [ckey]'s [GLOB.note_categories[note_category]] notes: [sanitize(note_text)]")
 	if(!is_confidential && note_category == NOTE_ADMIN && owning_client)
-		to_chat_immediate(owning_client, SPAN_WARNING(FONT_SIZE_LARGE("You have been noted by [key_name_admin(admin.mob, FALSE)].")))
-		to_chat_immediate(owning_client, SPAN_WARNING(FONT_SIZE_BIG("The note is : [sanitize(note_text)]")))
-		to_chat_immediate(owning_client, SPAN_WARNING(FONT_SIZE_BIG("If you believe this was filed in error or misplaced, make a staff report at <a href='[CONFIG_GET(string/staffreport)]'><b>The CM Forums</b></a>")))
-		to_chat_immediate(owning_client, SPAN_WARNING(FONT_SIZE_BIG("You can also click the name of the staff member noting you to PM them.")))
+		to_chat_immediate(owning_client, SPAN_WARNING(FONT_SIZE_LARGE("Вас отметил [key_name_admin(admin.mob, FALSE)]."))) // SS220 EDIT ADDICTION
+		to_chat_immediate(owning_client, SPAN_WARNING(FONT_SIZE_BIG("Заметка: [sanitize(note_text)]"))) // SS220 EDIT ADDICTION
+		to_chat_immediate(owning_client, SPAN_WARNING(FONT_SIZE_BIG("Если вы считаете, что это было сделано по ошибке или неуместно, создайте отчёт для администрации на нашем <a href=[CONFIG_GET(string/discordurl)]><b>Discord-сервере SS220</b></a>"))) // SS220 EDIT ADDICTION
+		to_chat_immediate(owning_client, SPAN_WARNING(FONT_SIZE_BIG("Вы также можете нажать на имя сотрудника, чтобы отправить ему личное сообщение.")))
 	// create new instance of player_note entity
 	var/datum/entity/player_note/note = DB_ENTITY(/datum/entity/player_note)
 	// set its related data
@@ -181,13 +177,24 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 	add_note(ban_text, FALSE, NOTE_ADMIN, TRUE, duration)
 
 	// since this is a timed ban, we need to update the ban
-	time_ban_date = "[time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")]"
+	// BANDAMARINES EDIT START: Public bans
+	var/ban_timestamp = world.realtime
+	time_ban_date = "[time2text(ban_timestamp, "YYYY-MM-DD hh:mm:ss")]"
+	// BANDAMARINES EDIT END: Public bans
 	time_ban_expiration = MINUTES_STAMP + duration
 	time_ban_admin_id = admin.player_data.id
 	time_ban_admin = admin.player_data
 	time_ban_reason = ban_text
 	is_time_banned = TRUE
 	save()
+	// BANDAMARINES EDIT START: Public bans
+	send_ban_webhook("Темпбан", DISCORD_EMBED_COLOR_BAN_TIMED, list(
+		"Игрок" = ckey,
+		"Админ" = admin.ckey,
+		"Причина" = ban_text,
+		"Длительность" = format_ban_duration(duration, ban_timestamp),
+	), time_ban_date)
+	// BANDAMARINES EDIT END: Public bans
 
 	// then we drop the player if they are in
 	if(owning_client)
@@ -239,6 +246,10 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 		return FALSE
 
 	var/total_rank = jointext(ranks, ", ")
+	// BANDAMARINES EDIT START: Public bans
+	var/ban_timestamp = world.realtime
+	var/ban_date = time2text(ban_timestamp, "YYYY-MM-DD hh:mm:ss")
+	// BANDAMARINES EDIT END: Public bans
 
 	var/duration_text = duration?"jobbanned for [duration/60] hours":"perma-jobbanned"
 
@@ -277,13 +288,23 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 		PJB.admin = admin.player_data
 		PJB.player = src
 		PJB.text = ban_text
-		PJB.date = "[time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")]"
+		PJB.date = ban_date // BANDAMARINES EDIT: Public bans proper date
 		PJB.ban_time = duration
 		if(duration)
 			PJB.expiration = MINUTES_STAMP + duration
 		PJB.role = safe_rank
 		PJB.save()
 		job_bans[safe_rank] = PJB
+
+	// BANDAMARINES EDIT START: Public bans
+	send_ban_webhook(duration ? "Джоб бан" : "Перманентный джоб бан", duration ? DISCORD_EMBED_COLOR_BAN_JOB : DISCORD_EMBED_COLOR_BAN_JOB_PERMANENT, list(
+		"Игрок" = ckey,
+		"Админ" = admin.ckey,
+		"Причина" = ban_text,
+		"Роли" = total_rank,
+		"Длительность" = duration ? format_ban_duration(duration, ban_timestamp) : "Навсегда",
+	), ban_date)
+	// BANDAMARINES EDIT START: Public bans
 
 	return TRUE
 
@@ -321,7 +342,10 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 		return FALSE
 
 	is_permabanned = TRUE
-	permaban_date = "[time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")]"
+	// BANDAMARINES EDIT START: Public bans
+	var/ban_timestamp = world.realtime
+	permaban_date = "[time2text(ban_timestamp, "YYYY-MM-DD hh:mm:ss")]"
+	// BANDAMARINES EDIT END: Public bans
 	permaban_reason = reason
 
 	if(banner)
@@ -342,8 +366,39 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 		QDEL_NULL(owning_client)
 
 	save()
+	// BANDAMARINES EDIT START: Public bans
+	if(banner)
+		send_ban_webhook("Перманентный бан", DISCORD_EMBED_COLOR_BAN_PERMANENT, list(
+			"Игрок" = ckey,
+			"Админ" = banner.ckey,
+			"Причина" = reason,
+		), permaban_date)
+	// BANDAMARINES EDIT END: Public bans
 
 	return TRUE
+
+// BANDAMARINES EDIT START: Public bans
+/// Formats a ban duration in minutes and its expiration time from a realtime timestamp.
+/datum/entity/player/proc/format_ban_duration(duration, ban_timestamp)
+	return "[round(duration MINUTES_TO_HOURS, 0.1)] ч. до [time2text(ban_timestamp + duration MINUTES, "YYYY-MM-DD hh:mm:ss")]"
+
+/// Sends a public ban notification to the configured Discord webhook.
+/datum/entity/player/proc/send_ban_webhook(title, color, list/fields, ban_date)
+	var/webhook = CONFIG_GET(string/ban_webhook_url)
+	if(!webhook)
+		return
+	fields["Раунд"] = GLOB.round_id || "?"
+	var/list/description_lines = list()
+	for(var/name in fields)
+		description_lines += "**[name]:** [fields[name]]"
+	var/datum/discord_embed/embed = new()
+	embed.title = title
+	embed.color = color
+	embed.footer = "[CONFIG_GET(string/servername)] - [ban_date]"
+	embed.description = jointext(description_lines, "\n")
+	embed.allow_link_embeds = TRUE
+	send2webhook(embed, webhook)
+// BANDAMARINES EDIT END: Public bans
 
 /datum/entity/player/proc/auto_unban()
 	if(!is_time_banned)
@@ -418,8 +473,6 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 		permaban_admin = DB_ENTITY(/datum/entity/player, permaban_admin_id)
 	if(time_ban_admin_id)
 		time_ban_admin = DB_ENTITY(/datum/entity/player, time_ban_admin_id)
-	if(discord_link_id)
-		discord_link = DB_ENTITY(/datum/entity/discord_link, discord_link_id)
 
 	if(whitelist_status)
 		var/list/whitelists = splittext(whitelist_status, "|")
@@ -783,7 +836,6 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 	var/admin
 	var/last_known_cid
 	var/last_known_ip
-	var/discord_link_id
 	var/whitelist_status
 
 /datum/entity_view_meta/players
@@ -801,6 +853,5 @@ BSQL_PROTECT_DATUM(/datum/entity/player)
 		"admin" = DB_CASE(DB_COMP("is_permabanned", DB_EQUALS, 1), "permabanning_admin.ckey", "banning_admin.ckey"),
 		"last_known_ip",
 		"last_known_cid",
-		"discord_link_id",
 		"whitelist_status"
 		)

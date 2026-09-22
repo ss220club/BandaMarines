@@ -128,19 +128,27 @@
 		"logo_uscm.png" = 'html/paper_assets/logo_uscm.png',
 		"logo_provost.png" = 'html/paper_assets/logo_provost.png',
 		"logo_upp.png" = 'html/paper_assets/logo_upp.png',
+		"logo_twe.png" = 'html/paper_assets/logo_twe.png',
 		"logo_cmb.png" = 'html/paper_assets/logo_cmb.png',
+		"logo_wy_carbon.png" = 'html/paper_assets/logo_wy_carbon.png',
+		"logo_hd_carbon.png" = 'html/paper_assets/logo_hd_carbon.png',
 		"background_white.jpg" = 'html/paper_assets/background_white.jpg',
 		"background_dark.jpg" = 'html/paper_assets/background_dark.jpg',
 		"background_dark2.jpg" = 'html/paper_assets/background_dark2.jpg',
 		"background_dark_fractal.png" = 'html/paper_assets/background_dark_fractal.png',
+		"background_card.png" = 'html/paper_assets/background_card.png',
+		"background_card_ribbed.png" = 'html/paper_assets/background_card_ribbed.png',
 		"colonialspacegruntsEZ.png" = 'html/paper_assets/colonialspacegruntsEZ.png',
+		"wy_punch_card.png" = 'html/paper_assets/wy_punch_card.png',
+		"hd_punch_card.png" = 'html/paper_assets/hd_punch_card.png',
+		"punch_card_punch.png" = 'html/paper_assets/punch_card_punch.png',
 	)
 
 /datum/asset/spritesheet/chat
 	name = "chat"
 
 /datum/asset/spritesheet/chat/register()
-	InsertAll("emoji", 'icons/emoji.dmi')
+	InsertAll("emoji", EMOJI_SET) // SS220 EDIT emojis
 	// pre-loading all lanugage icons also helps to avoid meta
 /* InsertAll("language", 'icons/misc/language.dmi')
 	// catch languages which are pulling icons from another file
@@ -160,7 +168,7 @@
 	for (var/k in GLOB.resin_constructions_list)
 		var/datum/resin_construction/RC = k
 
-		var/icon_file = 'icons/mob/hud/actions_xeno.dmi'
+		var/icon_file = 'icons/mob/hud/xeno_building.dmi'
 		var/icon_state = initial(RC.construction_name)
 		var/icon_name = replacetext(icon_state, " ", "-")
 
@@ -259,12 +267,13 @@
 	name = "squadranks"
 
 /datum/asset/spritesheet/ranks/register()
-	var/icon_file = 'icons/mob/hud/marine_hud.dmi'
+	var/icon_file = 'icons/mob/hud/factions/marine.dmi'
 
 	var/list/icon_data = list(
 		list("Mar", null),
 		list("ass", "hudsquad_ass"),
 		list("load", "hudsquad_load"),
+		list("mortar", "hudsquad_mortar"),
 		list("Eng", "hudsquad_engi"),
 		list("Med", "hudsquad_med"),
 		list("medk9", "hudsquad_medk9"),
@@ -273,16 +282,19 @@
 		list("SpcDem", "hudsquad_spec_demo"),
 		list("SpcSn", "hudsquad_spec_sniper"),
 		list("SpcGr", "hudsquad_spec_grenadier"),
+		list("SpcShp", "hudsquad_spec_sharp"),
+		list("SpcHvy", "hudsquad_spec_heavy"),
 		list("SpcPy", "hudsquad_spec_pyro"),
 		list("TL", "hudsquad_tl"),
 		list("SL", "hudsquad_leader"),
+		list("hg", "hudsquad_hg"),
 	)
 
 	for(var/datum/squad/marine/squad in GLOB.RoleAuthority.squads)
 		var/color = squad.equipment_color
 		for(var/iref in icon_data)
 			var/list/iconref = iref
-			var/icon/background = icon('icons/mob/hud/marine_hud.dmi', "hudsquad", SOUTH)
+			var/icon/background = icon('icons/mob/hud/factions/marine.dmi', "hudsquad", SOUTH)
 			background.Blend(color, ICON_MULTIPLY)
 			if(iconref[2])
 				var/icon/squad_icon = icon(icon_file, iconref[2], SOUTH)
@@ -316,6 +328,11 @@
 
 	var/list/icons_to_always_load = list(
 		/obj/item/storage/pill_bottle,
+		/obj/item/clothing/under/chainshirt/hunter/scalable,
+		/obj/item/clothing/suit/armor/yautja/hunter/scalable,
+		/obj/item/falcon_drone,
+		/obj/item/storage/belt/gun/quiver,
+		/obj/item/arrow,
 	)
 
 /datum/asset/spritesheet/vending_products/register()
@@ -397,6 +414,38 @@
 				else
 					icon_states_string += ", [json_encode(an_icon_state)](\ref[an_icon_state])"
 			stack_trace("[fruit] does not have a valid icon state, icon=[icon_file], icon_state=[json_encode(icon_state)](\ref[icon_state]), icon_states=[icon_states_string]")
+			icon_file = 'icons/turf/floors/floors.dmi'
+			icon_state = ""
+
+		var/icon/iconNormal = icon(icon_file, icon_state, SOUTH)
+		Insert(icon_name, iconNormal)
+
+		var/icon/iconBig = icon(icon_file, icon_state, SOUTH)
+		iconBig.Scale(iconNormal.Width()*2, iconNormal.Height()*2)
+		Insert("[icon_name]_big", iconBig)
+	return ..()
+
+/datum/asset/spritesheet/choose_design
+	name = "choosedesign"
+
+/datum/asset/spritesheet/choose_design/register()
+	var/icon_file = 'icons/mob/hud/actions_xeno.dmi'
+	var/icon_states_list = icon_states(icon_file)
+	for(var/obj/effect/alien/resin/design/design as anything in typesof(/obj/effect/alien/resin/design))
+		var/icon_state = initial(design.icon_state)
+		var/icon_name = replacetext(icon_state, " ", "-")
+
+		if (sprites[icon_name])
+			continue
+
+		if(!(icon_state in icon_states_list))
+			var/icon_states_string
+			for (var/an_icon_state in icon_states_list)
+				if (!icon_states_string)
+					icon_states_string = "[json_encode(an_icon_state)](\ref[an_icon_state])"
+				else
+					icon_states_string += ", [json_encode(an_icon_state)](\ref[an_icon_state])"
+			stack_trace("[design] does not have a valid icon state, icon=[icon_file], icon_state=[json_encode(icon_state)](\ref[icon_state]), icon_states=[icon_states_string]")
 			icon_file = 'icons/turf/floors/floors.dmi'
 			icon_state = ""
 
@@ -495,3 +544,42 @@
 	common_dirs = list(
 		"html/book_assets/",
 	)
+
+/datum/asset/spritesheet/role_icons
+	name = "role_icons"
+
+/datum/asset/spritesheet/role_icons/register()
+	// Default to the rifleman/grunt icon
+	var/icon/default_icon = icon('icons/mob/hud/factions/marine.dmi', icon_state = "hudsquad")
+	default_icon.Blend("#5A934A", ICON_MULTIPLY)
+	default_icon.Blend(icon('icons/mob/hud/factions/marine.dmi', icon_state = "hudsquad_grunt"), ICON_OVERLAY)
+	default_icon.Crop(25, 25, 32, 32)
+
+	for(var/title in GLOB.RoleAuthority.roles_by_name)
+		var/datum/job/job = GLOB.RoleAuthority.roles_by_name[title]
+		var/normalized_title = replacetext(lowertext(title), " ", "_")
+		var/icon/role_icon
+		// Jobs are weakly linked to factions through their gear preset,
+		var/datum/equipment_preset/job_preset = GLOB.equipment_presets.gear_path_presets_list[job.gear_preset]
+		if(!isnull(job_preset))
+			// Using the faction from the job's gear preset, render the HUD into our holder
+			var/datum/faction/faction = GLOB.faction_datums[job_preset.faction]
+			if(!isnull(faction))
+				var/image/holder = new()
+				var/rank = job_preset.job_title
+				var/paygrade = length(job_preset.paygrades) ? job_preset.paygrades[1] : null
+				var/assignment = job_preset.assignment
+				faction.modify_hud_holder_from_data(holder, null, rank, paygrade, assignment)
+				// Finally, flatten the role overlays into a single icon
+				role_icon = getFlatIcon(holder)
+				// Use only the upper right 8x8, the rest should be empty or uninteresting
+				if(!isnull(role_icon))
+					role_icon.Crop(25, 25, 32, 32)
+
+		// Use the default icon for roles that we couldn't generate an icon for
+		if(isnull(role_icon))
+			role_icon = default_icon
+
+		Insert(normalized_title, role_icon)
+
+	return ..()

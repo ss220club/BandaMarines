@@ -1,18 +1,15 @@
 /datum/faction/pmc
 	name = "Private Military Company"
 	faction_tag = FACTION_PMC
+	base_icon_file = 'icons/mob/hud/factions/wy.dmi'
 
-/datum/faction/pmc/modify_hud_holder(image/holder, mob/living/carbon/human/H)
-	var/hud_icon_state
-	var/obj/item/card/id/ID = H.get_idcard()
-	var/_role
-	if(H.mind)
-		_role = H.job
-	else if(ID)
-		_role = ID.rank
-	switch(_role)
+/datum/faction/pmc/modify_hud_holder_from_data(image/holder, location, job_rank, paygrade, assignment, rank_fallback, rank_override, datum/squad/squad)
+	var/hud_icon_state = null
+	switch(job_rank)
 		if(JOB_PMC_DIRECTOR)
 			hud_icon_state = "sd"
+		if(JOB_PMC_FIELD_OP_LEADER)
+			hud_icon_state = "fol"
 		if(JOB_PMC_LEADER)
 			hud_icon_state = "ld"
 		if(JOB_PMC_LEAD_INVEST)
@@ -29,7 +26,7 @@
 			hud_icon_state = "syn"
 		if(JOB_PMC_GUNNER)
 			hud_icon_state = "sg"
-		if(JOB_PMC_DETAINER)
+		if(JOB_PMC_SECURITY)
 			hud_icon_state = "mp"
 		if(JOB_PMC_CROWD_CONTROL)
 			hud_icon_state = "riot"
@@ -45,10 +42,11 @@
 			hud_icon_state = "commando_leader"
 		if(JOB_WY_COMMANDO_GUNNER)
 			hud_icon_state = "commando_sg"
-		if(JOB_WY_COMMANDO_DOGCATHER)
+		if(JOB_WY_COMMANDO_DOGCATCHER)
 			hud_icon_state = "commando_dogcatcher"
+
 	if(hud_icon_state)
-		holder.overlays += image('icons/mob/hud/marine_hud.dmi', H, "pmc_[hud_icon_state]")
+		holder.overlays += image(base_icon_file, location, "pmc_[hud_icon_state]")
 
 /datum/faction/pmc/get_antag_guns_snowflake_equipment()
 	return list(

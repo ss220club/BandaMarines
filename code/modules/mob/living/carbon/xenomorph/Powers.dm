@@ -22,13 +22,13 @@
 	if(use_plasma && !check_plasma(total_resin_cost))
 		return SECRETE_RESIN_FAIL
 	if(SSinterior.in_interior(src))
-		to_chat(src, SPAN_XENOWARNING("Здесь слишком тесно для постройки."))
+		to_chat(src, SPAN_XENOWARNING("Здесь недостаточно места для постройки."))
 		return SECRETE_RESIN_FAIL
 
 	if(resin_construct.max_per_xeno != RESIN_CONSTRUCTION_NO_MAX)
 		var/current_amount = length(built_structures[resin_construct.build_path])
 		if(current_amount >= resin_construct.max_per_xeno)
-			to_chat(src, SPAN_XENOWARNING("Мы уже построили максимум возможных конструкций!"))
+			to_chat(src, SPAN_XENOWARNING("Мы уже создали максимально возможное количество построек!"))
 			return SECRETE_RESIN_FAIL
 
 	var/turf/current_turf = get_turf(target)
@@ -42,15 +42,15 @@
 			var/turf/closed/wall/resin/wall = target
 
 			if(istype(target, /turf/closed/wall/resin/weak))
-				to_chat(src, SPAN_XENOWARNING("[capitalize(wall.declent_ru(NOMINATIVE))] слишком хлипкая, чтобы ее можно было укрепить."))
+				to_chat(src, SPAN_XENOWARNING("Хлипкость [wall.declent_ru(GENITIVE)] не позволяет укрепление.")) // SS220 EDIT ADDICTION
 				return SECRETE_RESIN_FAIL
 
 			for(var/datum/effects/xeno_structure_reinforcement/sf in wall.effects_list)
-				to_chat(src, SPAN_XENOWARNING("Лишняя смола мешает нам укрепить [wall.declent_ru(ACCUSATIVE)]. Подождите, пока она не пропадет."))
+				to_chat(src, SPAN_XENOWARNING("Лишняя смола мешает нам укрепить [wall.declent_ru(ACCUSATIVE)]. Подождите, пока она не пропадёт.")) // SS220 EDIT ADDICTION
 				return SECRETE_RESIN_FAIL
 
 			if (wall.hivenumber != hivenumber)
-				to_chat(src, SPAN_XENOWARNING("[capitalize(wall.declent_ru(NOMINATIVE))] не принадлежит вашему улью!"))
+				to_chat(src, SPAN_XENOWARNING("[capitalize(wall.declent_ru(NOMINATIVE))] не принадлежит вашему улью!")) // SS220 EDIT ADDICTION
 				return SECRETE_RESIN_FAIL
 
 			if(wall.type == /turf/closed/wall/resin)
@@ -60,18 +60,18 @@
 				wall.ChangeTurf(/turf/closed/wall/resin/membrane/thick)
 				total_resin_cost = XENO_THICKEN_MEMBRANE_COST
 			else
-				to_chat(src, SPAN_XENOWARNING("[capitalize(wall.declent_ru(ACCUSATIVE))] нельзя сделать плотнее."))
+				to_chat(src, SPAN_XENOWARNING("[capitalize(wall.declent_ru(ACCUSATIVE))] нельзя сделать ещё плотнее.")) // SS220 EDIT ADDICTION
 				return SECRETE_RESIN_FAIL
 			thickened = TRUE
 
 		else if(istype(target, /obj/structure/mineral_door/resin))
 			var/obj/structure/mineral_door/resin/door = target
 			if (door.hivenumber != hivenumber)
-				to_chat(src, SPAN_XENOWARNING("[capitalize(door.declent_ru(NOMINATIVE))] не принадлежит вашему улью!"))
+				to_chat(src, SPAN_XENOWARNING("[capitalize(door.declent_ru(NOMINATIVE))] не принадлежит вашему улью!")) // SS220 EDIT ADDICTION
 				return SECRETE_RESIN_FAIL
 
 			for(var/datum/effects/xeno_structure_reinforcement/sf in door.effects_list)
-				to_chat(src, SPAN_XENOWARNING("Лишняя смола мешает нам укрепить [door.declent_ru(ACCUSATIVE)]. Подождите, пока она не пропадет."))
+				to_chat(src, SPAN_XENOWARNING("Лишняя смола мешает нам укрепить [door.declent_ru(ACCUSATIVE)]. Подождите, пока она не пропадёт.")) // SS220 EDIT ADDICTION
 				return SECRETE_RESIN_FAIL
 
 			if(door.hardness == 1.5) //non thickened
@@ -80,27 +80,33 @@
 				new /obj/structure/mineral_door/resin/thick (oldloc, door.hivenumber)
 				total_resin_cost = XENO_THICKEN_DOOR_COST
 			else
-				to_chat(src, SPAN_XENOWARNING("[capitalize(door.declent_ru(ACCUSATIVE))] нельзя сделать плотнее."))
+				to_chat(src, SPAN_XENOWARNING("[capitalize(door.declent_ru(ACCUSATIVE))] нельзя сделать ещё плотнее.")) // SS220 EDIT ADDICTION
 				return SECRETE_RESIN_FAIL
 			thickened = TRUE
 
 		if(thickened)
 			if(message)
-				visible_message(SPAN_XENONOTICE("[capitalize(declent_ru(NOMINATIVE))] извергает густую субстанцию и уплотняет [target.declent_ru(ACCUSATIVE)]."),
-					SPAN_XENONOTICE("Мы извергаем немного смолы и уплотняем [target.declent_ru(NOMINATIVE)], используя [total_resin_cost] плазмы."), null, 5)
+				visible_message(SPAN_XENONOTICE("[capitalize(declent_ru(NOMINATIVE))] извергает густую субстанцию и уплотняет [target.declent_ru(ACCUSATIVE)]."), // SS220 EDIT ADDICTION
+					SPAN_XENONOTICE("Мы извергаем немного смолы и уплотняем [target.declent_ru(ACCUSATIVE)], используя [total_resin_cost] плазмы."), null, 5) // SS220 EDIT ADDICTION
 				if(use_plasma)
 					use_plasma(total_resin_cost)
 				playsound(loc, "alien_resin_build", 25)
 			target.add_hiddenprint(src) //so admins know who thickened the walls
 			return TRUE
 
-	if(!resin_construct.can_build_here(current_turf, src))
-		return SECRETE_RESIN_FAIL
-
 	var/wait_time = resin_construct.build_time * caste.build_time_mult * add_build_mod
 
 	var/obj/effect/alien/weeds/alien_weeds = current_turf.weeds
 	if(!alien_weeds || alien_weeds.secreting)
+		return SECRETE_RESIN_FAIL
+
+	for(var/obj/effect/alien/resin/design/speed_node/sn in current_turf.contents)
+		wait_time -= ((resin_construct.build_time * caste.build_time_mult) / 2)
+
+	for(var/obj/effect/alien/resin/design/cost_node/cn in current_turf.contents)
+		total_resin_cost -= (total_resin_cost / 2)
+
+	if(!resin_construct.can_build_here(current_turf, src))
 		return SECRETE_RESIN_FAIL
 
 	var/obj/warning
@@ -117,8 +123,6 @@
 			if(4 SECONDS)
 				warning.icon_state = "[warning.icon_state]Slow"
 
-		update_icons(warning)
-
 	alien_weeds.secreting = TRUE
 	alien_weeds.update_icon()
 
@@ -134,17 +138,29 @@
 	if(!succeeded)
 		return SECRETE_RESIN_INTERRUPT
 
-	if (!resin_construct.can_build_here(current_turf, src))
+	if(maybe_convert_to_weedbound(current_turf, resin_construct, thick))
+		if(use_plasma)
+			use_plasma(total_resin_cost)
+		if(message)
+			visible_message(SPAN_XENONOTICE("[capitalize(declent_ru(NOMINATIVE))] извергает густую субстанцию и формирует её в [declent_ru_initial(resin_construct.construction_name, ACCUSATIVE, resin_construct.construction_name)]!"), // SS220 EDIT ADDICTION
+				SPAN_XENONOTICE("Мы извергаем немного смолы и формируем её в [declent_ru_initial(resin_construct.construction_name, ACCUSATIVE, resin_construct.construction_name)][use_plasma ? ", используя [total_resin_cost] ед. плазмы" : ""]."), null, 5) // SS220 EDIT ADDICTION
+			playsound(loc, "alien_resin_build", 25)
+		return SECRETE_RESIN_SUCCESS
+
+	if(!resin_construct.can_build_here(current_turf, src))
 		return SECRETE_RESIN_FAIL
 
 	if(use_plasma)
 		use_plasma(total_resin_cost)
 	if(message)
-		visible_message(SPAN_XENONOTICE("[capitalize(declent_ru(NOMINATIVE))] извергает густую субстанцию и придает ей форму [declent_ru_initial(resin_construct.construction_name, GENITIVE, resin_construct.construction_name)]!"),
-			SPAN_XENONOTICE("Мы извергаем немного смолы и придаем ей форму [declent_ru_initial(resin_construct.construction_name, GENITIVE, resin_construct.construction_name)][use_plasma ? ", используя [total_resin_cost] плазмы" : ""]."), null, 5)
+		visible_message(SPAN_XENONOTICE("[capitalize(declent_ru(NOMINATIVE))] извергает густую субстанцию и формирует её в [declent_ru_initial(resin_construct.construction_name, ACCUSATIVE, resin_construct.construction_name)]!"), // SS220 EDIT ADDICTION
+			SPAN_XENONOTICE("Мы извергаем немного смолы и формируем её в [declent_ru_initial(resin_construct.construction_name, ACCUSATIVE, resin_construct.construction_name)][use_plasma ? ", используя [total_resin_cost] ед. плазмы" : ""]."), null, 5) // SS220 EDIT ADDICTION
 		playsound(loc, "alien_resin_build", 25)
 
 	var/atom/new_resin = resin_construct.build(current_turf, hivenumber, src)
+	if(succeeded)
+		for(var/obj/effect/alien/resin/design/node in current_turf)
+			qdel(node)
 	if(resin_construct.max_per_xeno != RESIN_CONSTRUCTION_NO_MAX)
 		LAZYADD(built_structures[resin_construct.build_path], new_resin)
 		RegisterSignal(new_resin, COMSIG_PARENT_QDELETING, PROC_REF(remove_built_structure))
@@ -161,6 +177,39 @@
 				msg_admin_niche("[src.ckey]/([src]) has built a closed resin structure, [new_resin.name], on top of a dead human, [enclosed_human.ckey]/([enclosed_human]), at [new_resin.x],[new_resin.y],[new_resin.z] [ADMIN_JMP(new_resin)]")
 
 	return SECRETE_RESIN_SUCCESS
+
+/mob/living/carbon/xenomorph/proc/maybe_convert_to_weedbound(turf/current_turf, datum/resin_construction/resin_construct, thick = FALSE)
+	if(current_turf.is_weedable != SEMI_WEEDABLE)
+		return FALSE
+
+	var/obj/effect/alien/resin/design/the_node = null
+	for(var/obj/effect/alien/resin/design/node in current_turf)
+		the_node = node
+		break
+
+	if(!the_node)
+		return FALSE
+
+	if(istype(resin_construct, /datum/resin_construction/resin_turf/wall))
+		if(thick)
+			current_turf.place_on_top(/turf/closed/wall/resin/weedbound/thick)
+		else
+			current_turf.place_on_top(/turf/closed/wall/resin/weedbound/normal)
+
+		qdel(the_node)
+		return TRUE
+
+	else if(istype(resin_construct, /datum/resin_construction/resin_obj/door))
+		if(thick)
+			new /obj/structure/mineral_door/resin/weedbound/thick(current_turf)
+		else
+			new /obj/structure/mineral_door/resin/weedbound/normal(current_turf)
+
+		qdel(the_node)
+		return TRUE
+
+	to_chat(src, SPAN_XENOWARNING("Этот узел принимает только прочные стены или двери."))
+	return FALSE
 
 /mob/living/carbon/xenomorph/proc/remove_built_structure(atom/A)
 	SIGNAL_HANDLER
@@ -179,8 +228,8 @@
 
 	var/max_constructions = hive.hive_structures_limit[structure_template.name]
 	var/remaining_constructions = max_constructions - hive.get_structure_count(structure_template.name)
-	visible_message(SPAN_XENONOTICE("Из земли появляется густая субстанция и принимает форму [declent_ru_initial(structure_template.name, GENITIVE, structure_template.name)]."),
-		SPAN_XENONOTICE("Мы обозначаем [declent_ru_initial(structure_template.name, ACCUSATIVE, structure_template.name)]. ([remaining_constructions]/[max_constructions] осталось)"), null, 5)
+	visible_message(SPAN_XENONOTICE("Из земли появляется густая субстанция и формируется в [declent_ru_initial(structure_template.name, GENITIVE, structure_template.name)]."), // SS220 EDIT ADDICTION
+		SPAN_XENONOTICE("Мы обозначаем новую конструкцию [declent_ru_initial(structure_template.name, GENITIVE, structure_template.name)] (осталось [remaining_constructions]/[max_constructions])."), null, 5) // SS220 EDIT ADDICTION
 	playsound(new_structure, "alien_resin_build", 25)
 
 	if(hive.living_xeno_queen)
@@ -190,23 +239,25 @@
 	if(!target_turf)
 		return FALSE
 	if(istype(target_turf, /turf/open/space/transit))
-		to_chat(src, SPAN_NOTICE("What would that achieve?!"))
+		to_chat(src, SPAN_NOTICE("Чего бы это достигло?!"))
 		return
 	var/found_weeds = FALSE
 	if(!selected_mark)
-		to_chat(src, SPAN_NOTICE("Прежде чем сделать метку, нужно придать ей смысл."))
+		to_chat(src, SPAN_NOTICE("Прежде чем создать метку, нужно придать ей смысл."))
 		hive.mark_ui.open_mark_menu(src)
 		return FALSE
-	if(target_turf.z != src.z)
-		to_chat(src, SPAN_NOTICE("У нас нет психического присутствия в этом мире."))
-		return FALSE
+
+	if(!SSmapping.same_z_map(z, target_turf.loc.z))
+		to_chat(src, SPAN_XENOWARNING("Наш разум не может достать так далеко."))
+		return
+
 	if(!(istype(target_turf)) || target_turf.density)
 		return FALSE
 	for(var/atom/movable/AM  in target_turf.contents)
 		if(istype(AM, /obj/effect/alien/weeds))
 			found_weeds = TRUE
 		if(AM.density || istype(AM, /obj/effect/alien/resin))
-			to_chat(src, SPAN_XENONOTICE("Там не хватает места для метки"))
+			to_chat(src, SPAN_XENONOTICE("Здесь недостаточно места для смоляной метки."))
 			return FALSE
 
 	var/obj/effect/alien/resin/marker/NM = new /obj/effect/alien/resin/marker(target_turf, src)
@@ -223,6 +274,6 @@
 		var/current_area_name = get_area_name(target_turf)
 
 		for(var/mob/living/carbon/xenomorph/X in hive.totalXenos)
-			to_chat(X, SPAN_XENOANNOUNCE("[capitalize(declent_ru(NOMINATIVE))] объявляет: [NM.mark_meaning.desc] в [sanitize_area(current_area_name)]! (<a href='byond://?src=\ref[X];overwatch=1;target=\ref[NM]'>Смотреть</a>) (<a href='byond://?src=\ref[X];track=1;target=\ref[NM]'>Отслеживать</a>)"))
-			//this is killing the tgui chat and I dont know why
+			to_chat(X, SPAN_XENOANNOUNCE("[capitalize(declent_ru(NOMINATIVE))] объявляет: [NM.mark_meaning.desc] около «[sanitize_area(current_area_name)]»! (<a href='byond://?src=\ref[X];overwatch=1;target=\ref[NM]'>Посмотреть</a>) (<a href='byond://?src=\ref[X];track=1;target=\ref[NM]'>Отслеживать</a>)"))
+			//this is killing the tgui chat and I don't know why
 	return TRUE

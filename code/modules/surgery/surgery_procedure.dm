@@ -33,7 +33,6 @@
 	var/pain_reduction_required = PAIN_REDUCTION_FULL
 	///How much training is needed to do this surgery?
 	var/required_surgery_skill = SKILL_SURGERY_TRAINED
-
 	var/step_in_progress = FALSE
 	///The step the surgery is currently on. When status > number of steps, the surgery ends.
 	var/status = 1
@@ -63,7 +62,7 @@
 	. = ..()
 
 ///Catch-all proc for additional preconditions for starting the surgery. Return FALSE if the surgery can't be done.
-/datum/surgery/proc/can_start(mob/user, mob/living/carbon/patient, obj/limb/L, obj/item/tool)
+/datum/surgery/proc/can_start(mob/user, mob/living/carbon/patient, obj/limb/patient_limb, obj/item/tool)
 	return TRUE
 	//Might add the surgery computer later
 
@@ -77,52 +76,63 @@
 		return TRUE //So that you don't poke them with a tool you're already using.
 
 	if(user.action_busy)
-		to_chat(user, SPAN_WARNING("You're too busy to perform surgery on [user == target ? "yourself" : "[target]"]!"))
+		to_chat(user, SPAN_WARNING("Вы уже заняты, поэтому не можете проводить эту операцию с [user == target ? "собой" : "[target]"]!")) // SS220 EDIT ADDICTION
 		return FALSE
 
 	if((target.mob_flags & EASY_SURGERY) ? !skillcheck(user, SKILL_SURGERY, SKILL_SURGERY_NOVICE) : !skillcheck(user, SKILL_SURGERY, required_surgery_skill))
-		to_chat(user, SPAN_WARNING("This operation is more complex than you're trained for!"))
+		to_chat(user, SPAN_WARNING("Ваши навыки не позволяют провести эту операцию!"))
 		return FALSE
 
 	if(target.pulledby?.grab_level == GRAB_CARRY)
 		if(target.pulledby == user)
-			to_chat(user, SPAN_WARNING("You need to set [target] down before you can operate on \him!"))
+			to_chat(user, SPAN_WARNING("Вам нужно уложить [target] на спину, прежде чем проводить операцию!")) // SS220 EDIT ADDICTION
 		else
-			to_chat(user, SPAN_WARNING("You can't operate on [target], \he is being carried by [target.pulledby]!"))
+			to_chat(user, SPAN_WARNING("Вы не можете проводить операцию над [target], пока его несёт [target.pulledby]!")) // SS220 EDIT ADDICTION
 		return FALSE
 
 	if(lying_required && target.body_position != LYING_DOWN)
-		to_chat(user, SPAN_WARNING("[user == target ? "You need" : "[target] needs"] to be lying down for this operation!"))
+		to_chat(user, SPAN_WARNING("[user == target ? "Вам нужно" : "[target] нужно"] лечь, прежде чем проводить операцию!"))
 		return FALSE
 
 	for(var/mob/living/potential_blocker in get_turf(target))
 		if(potential_blocker == user || potential_blocker == target)
 			continue
-		to_chat(user, SPAN_WARNING("You can't operate when you don't have enough space! Remove everybody else."))
+		to_chat(user, SPAN_WARNING("Вы не можете проводить операцию пока вам что-то мешает! Уберите всех остальных отсюда!"))
 		return FALSE
 
 	if(user == target)
 		if(!self_operable)
-			to_chat(user, SPAN_WARNING("You can't perform this operation on yourself!"))
+			to_chat(user, SPAN_WARNING("Вы не можете проводить эту операцию на себе!"))
 			return FALSE
 		if((!user.hand && (user.zone_selected in list("r_arm", "r_hand"))) || (user.hand && (user.zone_selected in list("l_arm", "l_hand"))))
 			to_chat(user, SPAN_WARNING("You can't perform surgery on the same \
 				[user.zone_selected == "r_hand"||user.zone_selected == "l_hand" ? "hand":"arm"] you're using!"))
 			return FALSE
-	var/datum/surgery_step/current_step = GLOB.surgery_step_list[steps[status]]
-	if(current_step)
-		if(current_step.attempt_step(user, target, user.zone_selected, tool, src, repeating)) //First, try this step.
+	var/next = status
+	var/datum/surgery_step/current_step = GLOB.surgery_step_list[steps[next]]
+	var/list/attempted_steps = list()
+	while(current_step)
+		// attempt the step
+		if(current_step.attempt_step(user, target, user.zone_selected, tool, src, repeating, next-status))
 			return TRUE
-		var/datum/surgery_step/next_step
-		if(current_step.skip_step_criteria(user, target, user.zone_selected, tool, src) && status < length(steps)) //If that doesn't work but the step is optional and not the last in the list, try the next step.
-			next_step = GLOB.surgery_step_list[steps[status + 1]]
-			if(next_step.attempt_step(user, target, user.zone_selected, tool, src, skipped = TRUE))
-				return TRUE
-		if(tool && is_surgery_tool(tool)) //Just because you used the wrong tool doesn't mean you meant to whack the patient with it...
-			if(next_step)
-				to_chat(user, SPAN_WARNING("You can't [current_step.desc] with \the [tool], or [next_step.desc]."))
-			else
-				to_chat(user, SPAN_WARNING("You can't [current_step.desc] with \the [tool]."))
-			return FALSE //...but you might be wanting to use it on them anyway. If on help intent, the help-intent safety will apply for this attack.
-	return FALSE
+		attempted_steps += current_step
+		// check if its an optional step
+		if(!current_step.skip_step_criteria(user, target, user.zone_selected, tool, src))
+			if(tool && is_surgery_tool(tool)) //Just because you used the wrong tool doesn't mean you meant to whack the patient with it...
+				var/hint_msg
+				for(var/datum/surgery_step/step as anything in attempted_steps)
+					if(hint_msg)
+						if(step == current_step)
+							hint_msg += ", или [step.desc]"
+						else
+							hint_msg += ", [step.desc]"
+					else
+						hint_msg = "Вы не можете [step.desc] с помощью [tool.declent_ru(GENITIVE)]"
+				to_chat(user, SPAN_WARNING("[hint_msg]."))
+			return FALSE
+		// step was optional, try the next if it exists
+		if(++next > length(steps))
+			break
+		current_step = GLOB.surgery_step_list[steps[next]]
 
+	return FALSE

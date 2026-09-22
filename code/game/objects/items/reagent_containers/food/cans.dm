@@ -8,7 +8,7 @@
 	//Can open sound
 	var/open_sound = 'sound/effects/canopen.ogg'
 	//Can open message
-	var/open_message = "You open the drink with an audible pop!"
+	var/open_message = "Вы открываете напиток с громким щелчком!"
 	//Eating sound
 	var/consume_sound = 'sound/items/drink.ogg'
 	//What this object is, used during interactions
@@ -116,37 +116,38 @@
 		to_chat(user, SPAN_NOTICE("You need to open the [object_fluff]!"))
 		return
 	var/datum/reagents/R = src.reagents
+	var/ru_name = declent_ru(GENITIVE) // SS220 EDIT ADDICTION
 
 	if(!R.total_volume || !R)
 		if(M == user && M.a_intent == INTENT_HARM && M.zone_selected == "head" && crushable)
 			crush_can(M)
 			return
-		to_chat(user, SPAN_DANGER("The [src.name] is empty!"))
+		to_chat(user, SPAN_DANGER("Содержимое [ru_name] закончилось!")) // SS220 EDIT ADDICTION
 		return 0
 
 	if(M == user)
-		to_chat(M, SPAN_NOTICE("You swallow a gulp of [src]."))
+		to_chat(M, SPAN_NOTICE("Вы делаете глоток [ru_name]")) // SS220 EDIT ADDICTION
 		if(reagents.total_volume)
 			reagents.set_source_mob(user)
 			reagents.trans_to_ingest(M, gulp_size)
 
 		playsound(M.loc, consume_sound, 15, 1)
 		return 1
-	else if( istype(M, /mob/living/carbon/human) )
+	else if( istype(M, /mob/living/carbon) )
 		if (!open)
 			to_chat(user, SPAN_NOTICE("You need to open the [object_fluff]!"))
 			return
 
 		user.affected_message(M,
 			SPAN_HELPFUL("You <b>start feeding</b> [user == M ? "yourself" : "[M]"] <b>[src]</b>."),
-			SPAN_HELPFUL("[user] <b>starts feeding</b> you <b>[src]</b>."),
-			SPAN_NOTICE("[user] starts feeding [user == M ? "themselves" : "[M]"] [src]."))
+			SPAN_HELPFUL("[capitalize(user.declent_ru(NOMINATIVE))] <b>starts feeding</b> you <b>[src]</b>."),
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts feeding [user == M ? "themselves" : "[M]"] [src]."))
 		if(!do_after(user, 30, INTERRUPT_ALL, BUSY_ICON_FRIENDLY, M))
 			return
 		user.affected_message(M,
 			SPAN_HELPFUL("You <b>fed</b> [user == M ? "yourself" : "[M]"] <b>[src]</b>."),
-			SPAN_HELPFUL("[user] <b>fed</b> you <b>[src]</b>."),
-			SPAN_NOTICE("[user] fed [user == M ? "themselves" : "[M]"] [src]."))
+			SPAN_HELPFUL("[capitalize(user.declent_ru(NOMINATIVE))] <b>fed</b> you <b>[src]</b>."),
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] fed [user == M ? "themselves" : "[M]"] [src]."))
 
 		var/rgt_list_text = get_reagent_list_text()
 
@@ -198,7 +199,7 @@
 			to_chat(user, SPAN_DANGER("You can't add any more to [target]."))
 			return
 		var/trans = src.reagents.trans_to(target, amount_per_transfer_from_this)
-		to_chat(user, SPAN_NOTICE(" You transfer [trans] units of the contents to [target]."))
+		to_chat(user, SPAN_NOTICE("You transfer [trans] units of the contents to [target]."))
 
 	return ..()
 
@@ -215,7 +216,7 @@
 	L = H.get_limb(H.zone_selected)
 
 	if(src == H.get_inactive_hand())
-		message = "between [user.gender == MALE ? "his" : "her"] hands"
+		message = "between [user.p_their()] hands"
 		to_chat(user, SPAN_NOTICE("You start crushing the [name] between your hands!"))
 		if(!do_after(user, 2 SECONDS, INTERRUPT_ALL, BUSY_ICON_GENERIC)) //crushing with hands takes great effort and might
 			return
@@ -225,14 +226,13 @@
 				if(!L)
 					to_chat(user, SPAN_WARNING("You don't have a [H.zone_selected], can't crush yer can on nothing!"))
 					return
-				message = "against [user.gender == MALE ? "his" : "her"] head!"
+				message = "against [user.p_their()] head!"
 				L.take_damage(brute = 3) //ouch! but you're a tough badass so it barely hurts
-				H.UpdateDamageIcon()
 			if("l_foot" , "r_foot")
 				if(!L)
 					to_chat(user, SPAN_WARNING("You don't have a [H.zone_selected], can't crush yer can under nothing!"))
 					return
-				message = "under [user.gender == MALE ? "his" : "her"] foot!"
+				message = "under [user.p_their()] foot!"
 
 	crushed = TRUE
 	flags_atom &= ~OPENCONTAINER
@@ -241,7 +241,7 @@
 		icon_state = "[icon_state]_crushed"
 	else
 		icon_state = crushed_icon
-	user.visible_message(SPAN_BOLDNOTICE("[user] crushed the [name] [message]"), null, null, CHAT_TYPE_FLUFF_ACTION)
+	user.visible_message(SPAN_BOLDNOTICE("[capitalize(user.declent_ru(NOMINATIVE))] crushed the [name] [message]"), null, null, CHAT_TYPE_FLUFF_ACTION)
 	playsound(src,"sound/items/can_crush.ogg", 20, FALSE, 15)
 
 /obj/item/reagent_container/food/drinks/cans/on_reagent_change()
@@ -413,13 +413,18 @@
 /obj/item/reagent_container/food/drinks/cans/waterbottle/Initialize()
 	. = ..()
 	reagents.add_reagent("water", 30)
+	AddElement(/datum/element/corp_label/wy)
 
 /obj/item/reagent_container/food/drinks/cans/waterbottle/upp
 	name = "\improper Gerolsteiner Bottled Sparkling Water"
 	desc = "German bottled, sparkling water popular among germanic population of UPP."
-	desc_lore = "After Gerolsteiner company becoming an intergrated state enterprise, their products became a common thing in military rations and in other places."
+	desc_lore = "After Gerolsteiner company becoming an integrated state enterprise, their products became a common thing in military rations and in other places."
 	icon_state = "upp_water"
 	crushed_icon = "upp_water_crushed"
+
+/obj/item/reagent_container/food/drinks/cans/waterbottle/upp/Initialize()
+	. = ..()
+	RemoveElement(/datum/element/corp_label/wy)
 
 /obj/item/reagent_container/food/drinks/cans/coconutmilk
 	name = "\improper Weyland-Yutani Bottled Coconut Milk"
@@ -436,6 +441,7 @@
 /obj/item/reagent_container/food/drinks/cans/coconutmilk/Initialize()
 	. = ..()
 	reagents.add_reagent("coconutmilk", 30)
+	AddElement(/datum/element/corp_label/wy)
 
 /obj/item/reagent_container/food/drinks/cans/soylent
 	name = "\improper Weyland-Yutani Premium Choco Soylent"
@@ -456,6 +462,7 @@
 	reagents.add_reagent("nutriment", 10)
 	reagents.add_reagent("soymilk", 10)
 	reagents.add_reagent("coco_drink", 10)
+	AddElement(/datum/element/corp_label/wy)
 
 /obj/item/reagent_container/food/drinks/cans/bugjuice
 	name = "\improper Weyland-Yutani Bug Juice Protein Drink"
@@ -474,6 +481,7 @@
 /obj/item/reagent_container/food/drinks/cans/bugjuice/Initialize()
 	. = ..()
 	reagents.add_reagent("bugjuice", 30)
+	AddElement(/datum/element/corp_label/wy)
 
 /obj/item/reagent_container/food/drinks/cans/beer
 	name = "\improper Weyland-Yutani Lite"
@@ -484,6 +492,7 @@
 /obj/item/reagent_container/food/drinks/cans/beer/Initialize()
 	. = ..()
 	reagents.add_reagent("beer", 30)
+	AddElement(/datum/element/corp_label/wy)
 
 /obj/item/reagent_container/food/drinks/cans/ale
 	name = "\improper Weyland-Yutani IPA"
@@ -495,6 +504,7 @@
 /obj/item/reagent_container/food/drinks/cans/ale/Initialize()
 	. = ..()
 	reagents.add_reagent("ale", 30)
+	AddElement(/datum/element/corp_label/wy)
 
 //SOUTO
 
@@ -506,9 +516,13 @@
 	center_of_mass = "x=16;y=10"
 	embeddable = 1
 
+/obj/item/reagent_container/food/drinks/cans/souto/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/souta)
+
 /obj/item/reagent_container/food/drinks/cans/souto/diet
 	name = "\improper Diet Souto"
-	desc = "Now with 0% fruit juice! Canned in Havana"
+	desc = "Now with 0% fruit juice! Canned in Havana."
 	icon_state = "souto_diet_classic"
 	item_state = "souto_diet_classic"
 
@@ -528,7 +542,7 @@
 
 /obj/item/reagent_container/food/drinks/cans/souto/diet/classic
 	name = "\improper Diet Souto"
-	desc = "Now with 0% fruit juice! Canned in Havana"
+	desc = "Now with 0% fruit juice! Canned in Havana."
 	icon_state = "souto_diet_classic"
 	item_state = "souto_diet_classic"
 
@@ -538,7 +552,7 @@
 
 /obj/item/reagent_container/food/drinks/cans/souto/cherry
 	name = "\improper Cherry Souto"
-	desc = "Now with more artificial flavors! Canned in Havana"
+	desc = "Now with more artificial flavors! Canned in Havana."
 	icon_state = "souto_cherry"
 	item_state = "souto_cherry"
 
@@ -712,3 +726,4 @@
 /obj/item/reagent_container/food/drinks/cans/aspen/Initialize()
 	. = ..()
 	reagents.add_reagent("beer", 50)
+	AddElement(/datum/element/corp_label/wy)

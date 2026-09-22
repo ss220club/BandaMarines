@@ -13,11 +13,15 @@
 
 
 
-	GLOB.data_core.manifest_modify(real_name, WEAKREF(src), null, null, "*Deceased*")
+	GLOB.data_core.manifest_modify(real_name, WEAKREF(src), null, null, "Deceased")
 
 	if(is_a_synth)
 		spawn_gibs()
 		return
+
+	var/turf/death_turf = get_turf(src)
+	if(!should_block_game_interaction(src, TRUE) && (is_ground_level(death_turf.z) || is_mainship_level(death_turf.z) || is_reserved_level(death_turf.z)))
+		new /mob/dead/mob_marker(death_turf, src)
 
 	undefibbable = TRUE
 
@@ -50,7 +54,7 @@
 
 	if(!gibbed)
 		if(HAS_TRAIT(src, TRAIT_HARDCORE) || MODE_HAS_MODIFIER(/datum/gamemode_modifier/permadeath))
-			if(!(species.flags & IS_SYNTHETIC)) // Synths wont perma
+			if(!(species.flags & IS_SYNTHETIC)) // Synths won't perma
 				status_flags |= PERMANENTLY_DEAD
 		if(HAS_TRAIT(src, TRAIT_INTENT_EYES)) //their eyes need to be 'offline'
 			r_eyes = 0
@@ -98,6 +102,9 @@
 		if(!see_humans_on_tacmap && shipside_humans_count < (main_hive.get_real_total_xeno_count() * HIJACK_RATIO_FOR_TACMAP))
 			xeno_announcement("Осталась лишь небольшая горстка носителей, и теперь они видны на карте нашего улья.", XENO_HIVE_NORMAL, SPAN_ANNOUNCEMENT_HEADER_BLUE("[QUEEN_MOTHER_ANNOUNCE]"))
 			main_hive.see_humans_on_tacmap = TRUE
+			main_hive.tacmap_requires_queen_ovi = FALSE
+			SEND_SIGNAL(main_hive, COMSIG_XENO_REVEAL_TACMAP)
+
 		if(last_living_human && shipside_humans_count == 1)
 			if((GLOB.last_qm_callout + 2 MINUTES) < world.time)
 				GLOB.last_qm_callout = world.time

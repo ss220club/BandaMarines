@@ -14,11 +14,10 @@
 			M.flick_attack_overlay(src, "punch")
 			visible_message(SPAN_DANGER("[S] [S.attacktext] [src]!"), null, null, 5, CHAT_TYPE_MELEE_HIT)
 			var/damage = rand(S.melee_damage_lower, S.melee_damage_upper)
-			apply_damage(damage, BRUTE)
+			apply_damage(damage, BRUTE, enviro=TRUE)
 			last_damage_data = create_cause_data(initial(M.name), M)
 			S.attack_log += text("\[[time_stamp()]\] <font color='red'>attacked [key_name(src)]</font>")
 			attack_log += text("\[[time_stamp()]\] <font color='orange'>was attacked by [key_name(S)]</font>")
-			updatehealth()
 
 /mob/living/carbon/xenomorph/attack_hand(mob/living/carbon/human/M)
 	if(..())
@@ -31,7 +30,7 @@
 				back.add_fingerprint(M)
 				var/obj/item/storage/backpack = back
 				if(backpack && !M.action_busy)
-					if(stat != DEAD) // If the Xeno is alive, fight back
+					if((stat != DEAD) && !legcuffed) // If the Xeno is alive, fight back
 						if(!M.ally_of_hivenumber(hivenumber))
 							M.KnockDown(rand(caste.tacklestrength_min, caste.tacklestrength_max))
 							playsound(M.loc, 'sound/weapons/pierce.ogg', 25, TRUE)
@@ -70,13 +69,13 @@
 			//friendly lessers, huggers and larva can be pushed around
 			if(M.ally_of_hivenumber(hivenumber) && mob_size < MOB_SIZE_XENO_SMALL && prob(85))
 				playsound(loc, 'sound/weapons/alien_knockdown.ogg', 25, 1)
-				M.visible_message(SPAN_DANGER("[M] shoves [src]!"), null, null, 5, CHAT_TYPE_COMBAT_ACTION)
+				M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] shoves [src]!"), null, null, 5, CHAT_TYPE_COMBAT_ACTION)
 				apply_effect(1, WEAKEN)
 				return
 
 			var/shove_sound = pick('sound/weapons/punchmiss.ogg', 'sound/weapons/thudswoosh.ogg')
 			playsound(loc, shove_sound, 25, 1, 7)
-			visible_message(SPAN_DANGER("[M] tries to shove [src]!"), null, null, 5, CHAT_TYPE_COMBAT_ACTION)
+			visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] tries to shove [src]!"), null, null, 5, CHAT_TYPE_COMBAT_ACTION)
 
 		if(INTENT_HARM)
 			var/datum/unarmed_attack/attack = M.species.unarmed
@@ -94,29 +93,28 @@
 
 				playsound(loc, attack.attack_sound, 25, 1)
 				var/picked_verb = pick(attack.attack_verb)
-				visible_message(SPAN_DANGER("[M] [picked_verb]ed [src]!"), null, null, 5, CHAT_TYPE_MELEE_HIT)
+				visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] [picked_verb]ed [src]!"), null, null, 5, CHAT_TYPE_MELEE_HIT)
 				log_attack("[key_name(M)] [picked_verb]ed [key_name(src)] at [get_area_name(M)]")
 				attack_log += text("\[[time_stamp()]\] <font color='orange'>was [picked_verb]ed by [key_name(M)]</font>")
 				M.attack_log += text("\[[time_stamp()]\] <font color='red'>[picked_verb]ed [key_name(src)]</font>")
 				apply_damage(damage, BRUTE)
-				updatehealth()
 			else
 				playsound(loc, attack.miss_sound, 25, 1)
-				visible_message(SPAN_DANGER("[M] tried to [pick(attack.attack_verb)] [src]!"), null, null, 5, CHAT_TYPE_MELEE_HIT)
+				visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] tried to [pick(attack.attack_verb)] [src]!"), null, null, 5, CHAT_TYPE_MELEE_HIT)
 
 	return
 
 //Hot hot Aliens on Aliens action.
 //Actually just used for eating people.
 /mob/living/carbon/xenomorph/attack_alien(mob/living/carbon/xenomorph/xeno)
-	if (xeno.fortify || HAS_TRAIT(xeno, TRAIT_ABILITY_BURROWED))
+	if(xeno.fortify || HAS_TRAIT(xeno, TRAIT_ABILITY_BURROWED) || HAS_TRAIT(xeno, TRAIT_ABILITY_REFLECTIVE_PLATES))
 		return XENO_NO_DELAY_ACTION
 
 	if(HAS_TRAIT(src, TRAIT_ABILITY_BURROWED))
 		return XENO_NO_DELAY_ACTION
 
 	if(islarva(xeno)) //Larvas can't eat people
-		xeno.visible_message(SPAN_DANGER("[xeno] nudges its head against \the [src]."),
+		xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] nudges its head against \the [src]."),
 		SPAN_DANGER("We nudge our head against \the [src]."), null, null, CHAT_TYPE_XENO_FLUFF)
 		return
 
@@ -147,7 +145,7 @@
 			if(Adjacent(xeno)) //Logic!
 				xeno.start_pulling(src)
 
-				xeno.visible_message(SPAN_WARNING("[xeno] grabs \the [src]!"),
+				xeno.visible_message(SPAN_WARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] grabs \the [src]!"),
 				SPAN_WARNING("You grab \the [src]!"), null, 5, CHAT_TYPE_XENO_FLUFF)
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
 
@@ -172,7 +170,7 @@
 			if(xeno.behavior_delegate)
 				damage = xeno.behavior_delegate.melee_attack_modify_damage(damage, src)
 
-			//Frenzy auras stack in a way, then the raw value is multipled by two to get the additive modifier
+			//Frenzy auras stack in a way, then the raw value is multiplied by two to get the additive modifier
 			if(xeno.frenzy_aura > 0)
 				damage += (xeno.frenzy_aura * FRENZY_DAMAGE_MULTIPLIER)
 
@@ -225,7 +223,7 @@
 	//Responding to a raised head
 	if(target.flags_emote & EMOTING_HEADBUTT && do_after(src, 5, INTERRUPT_MOVED, EMOTE_ICON_HEADBUTT))
 		if(!(target.flags_emote & EMOTING_HEADBUTT)) //Additional check for if the target moved or was already headbutted.
-			to_chat(src, SPAN_NOTICE("Too slow!"))
+			to_chat(src, SPAN_NOTICE("Слишком медленно!"))
 			return
 		target.flags_emote &= ~EMOTING_HEADBUTT
 		visible_message(SPAN_NOTICE("[src] slams their head into [target]!"),
@@ -239,21 +237,21 @@
 
 	//Initiate headbutt
 	if(recent_audio_emote)
-		to_chat(src, "You just did an audible emote. Wait a while.")
+		to_chat(src, "Вы только что использовали эмоцию. Подождите немного.")
 		return
 
 	visible_message(SPAN_NOTICE("[src] raises their head for a headbutt from [target]."),
 		SPAN_NOTICE("We raise our head for a headbutt from [target]."), null, 4)
 	flags_emote |= EMOTING_HEADBUTT
 	if(do_after(src, 50, INTERRUPT_ALL|INTERRUPT_EMOTE, EMOTE_ICON_HEADBUTT) && flags_emote & EMOTING_HEADBUTT)
-		to_chat(src, SPAN_NOTICE("You were left hanging!"))
+		to_chat(src, SPAN_NOTICE("Вам не ответили взаимностью!"))
 	flags_emote &= ~EMOTING_HEADBUTT
 
 /mob/living/carbon/xenomorph/proc/attempt_tailswipe(mob/living/carbon/xenomorph/target)
 	//Responding to a raised tail
 	if(target.flags_emote & EMOTING_TAIL_SWIPE && do_after(src, 5, INTERRUPT_MOVED, EMOTE_ICON_TAILSWIPE))
 		if(!(target.flags_emote & EMOTING_TAIL_SWIPE)) //Additional check for if the target moved or was already tail swiped.
-			to_chat(src, SPAN_NOTICE("Too slow!"))
+			to_chat(src, SPAN_NOTICE("Слишком медленно!"))
 			return
 		target.flags_emote &= ~EMOTING_TAIL_SWIPE
 		visible_message(SPAN_NOTICE("[src] clashes their tail with [target]!"),
@@ -267,12 +265,12 @@
 
 	//Initiate tail swipe
 	if(recent_audio_emote)
-		to_chat(src, "You just did an audible emote. Wait a while.")
+		to_chat(src, "Вы только что использовали эмоцию. Подождите немного.")
 		return
 
 	visible_message(SPAN_NOTICE("[src] raises their tail out for a swipe from [target]."),
 		SPAN_NOTICE("We raise our tail out for a tail swipe from [target]."), null, 4)
 	flags_emote |= EMOTING_TAIL_SWIPE
 	if(do_after(src, 50, INTERRUPT_ALL|INTERRUPT_EMOTE, EMOTE_ICON_TAILSWIPE) && flags_emote & EMOTING_TAIL_SWIPE)
-		to_chat(src, SPAN_NOTICE("You were left hanging!"))
+		to_chat(src, SPAN_NOTICE("Вам не ответили взаимностью!"))
 	flags_emote &= ~EMOTING_TAIL_SWIPE

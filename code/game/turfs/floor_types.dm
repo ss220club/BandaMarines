@@ -210,9 +210,7 @@
 
 /turf/open/floor/plating/almayer/no_build
 	allow_construction = FALSE
-
-/turf/open/floor/plating/almayer/no_build/is_weedable()
-	return NOT_WEEDABLE
+	is_weedable = NOT_WEEDABLE
 
 /turf/open/floor/plating/airless
 	icon_state = "plating"
@@ -316,6 +314,10 @@
 		covered = 0
 		update_icon()
 	..()
+
+/turf/open/floor/plating/plating_catwalk/no_build
+	allow_construction = FALSE
+	turf_flags = parent_type::turf_flags|TURF_HULL
 
 /turf/open/floor/plating/plating_catwalk/prison
 	icon = 'icons/turf/floors/prison.dmi'
@@ -1122,29 +1124,56 @@
 /turf/open/floor/almayer/silver
 	icon_state = "silver"
 
+/turf/open/floor/almayer/silver/no_build
+	allow_construction = FALSE
+
 /turf/open/floor/almayer/silver/north
 	dir = NORTH
+
+/turf/open/floor/almayer/silver/north/no_build
+	allow_construction = FALSE
 
 /turf/open/floor/almayer/silver/south
 	dir = SOUTH
 
+/turf/open/floor/almayer/silver/south/no_build
+	allow_construction = FALSE
+
 /turf/open/floor/almayer/silver/east
 	dir = EAST
+
+/turf/open/floor/almayer/silver/east/no_build
+	allow_construction = FALSE
 
 /turf/open/floor/almayer/silver/west
 	dir = WEST
 
+/turf/open/floor/almayer/silver/west/no_build
+	allow_construction = FALSE
+
 /turf/open/floor/almayer/silver/northeast
 	dir = NORTHEAST
+
+/turf/open/floor/almayer/silver/northeast/no_build
+	allow_construction = FALSE
 
 /turf/open/floor/almayer/silver/northwest
 	dir = NORTHWEST
 
+/turf/open/floor/almayer/silver/northwest/no_build
+	allow_construction = FALSE
+
 /turf/open/floor/almayer/silver/southeast
 	dir = SOUTHEAST
 
+/turf/open/floor/almayer/silver/southeast/no_build
+	allow_construction = FALSE
+
 /turf/open/floor/almayer/silver/southwest
 	dir = SOUTHWEST
+
+/turf/open/floor/almayer/silver/southwest/no_build
+	allow_construction = FALSE
 
 /turf/open/floor/almayer/silver2
 	icon_state = "silver2"
@@ -1236,14 +1265,26 @@
 /turf/open/floor/almayer/silvercorner/north
 	dir = NORTH
 
+/turf/open/floor/almayer/silvercorner/north/no_build
+	allow_construction = FALSE
+
 /turf/open/floor/almayer/silvercorner/south
 	dir = SOUTH
+
+/turf/open/floor/almayer/silvercorner/south/no_build
+	allow_construction = FALSE
 
 /turf/open/floor/almayer/silvercorner/east
 	dir = EAST
 
+/turf/open/floor/almayer/silvercorner/east/no_build
+	allow_construction = FALSE
+
 /turf/open/floor/almayer/silvercorner/west
 	dir = WEST
+
+/turf/open/floor/almayer/silvercorner/west/no_build
+	allow_construction = FALSE
 
 /turf/open/floor/almayer/silvercornersmooth
 	icon_state = "silvercorner_smooth"
@@ -1565,6 +1606,9 @@
 /turf/open/floor/almayer/cargo
 	icon_state = "cargo"
 
+/turf/open/floor/almayer/cargo/no_build
+	allow_construction = FALSE
+
 /turf/open/floor/almayer/cargo/southwest
 	dir = SOUTHWEST
 
@@ -1582,6 +1626,9 @@
 
 /turf/open/floor/almayer/plating
 	icon_state = "plating"
+
+/turf/open/floor/almayer/plating/no_build
+	allow_construction = FALSE
 
 /turf/open/floor/almayer/plating/northeast
 	dir = NORTHEAST
@@ -1702,26 +1749,50 @@
 /turf/open/floor/almayer/flooredge/north
 	dir = NORTH
 
+/turf/open/floor/almayer/flooredge/north/no_build
+	allow_construction = FALSE
+
 /turf/open/floor/almayer/flooredge/south
 	dir = SOUTH
+
+/turf/open/floor/almayer/flooredge/south/no_build
+	allow_construction = FALSE
 
 /turf/open/floor/almayer/flooredge/east
 	dir = EAST
 
+/turf/open/floor/almayer/flooredge/east/no_build
+	allow_construction = FALSE
+
 /turf/open/floor/almayer/flooredge/west
 	dir = WEST
+
+/turf/open/floor/almayer/flooredge/west/no_build
+	allow_construction = FALSE
 
 /turf/open/floor/almayer/flooredge/northeast
 	dir = NORTHEAST
 
+/turf/open/floor/almayer/flooredge/northeast/no_build
+	allow_construction = FALSE
+
 /turf/open/floor/almayer/flooredge/northwest
 	dir = NORTHWEST
+
+/turf/open/floor/almayer/flooredge/northwest/no_build
+	allow_construction = FALSE
 
 /turf/open/floor/almayer/flooredge/southwest
 	dir = SOUTHWEST
 
+/turf/open/floor/almayer/flooredge/southwest/no_build
+	allow_construction = FALSE
+
 /turf/open/floor/almayer/flooredge/southeast
 	dir = SOUTHEAST
+
+/turf/open/floor/almayer/flooredge/southeast/no_build
+	allow_construction = FALSE
 
 /turf/open/floor/almayer/flooredgesmooth
 	icon_state = "floor_edge_smooth"
@@ -1784,6 +1855,9 @@
 
 /turf/open/floor/almayer/mono
 	icon_state = "mono"
+
+/turf/open/floor/almayer/mono/no_build
+	allow_construction = FALSE
 
 /turf/open/floor/almayer/plate
 	icon_state = "plate"
@@ -1886,9 +1960,7 @@
 	desc = "There seems to be an awful lot of machinery down below..."
 	icon = 'icons/turf/floors/floors.dmi'
 	icon_state = "black"
-
-/turf/open/floor/almayer/empty/is_weedable()
-	return NOT_WEEDABLE
+	is_weedable = NOT_WEEDABLE
 
 /turf/open/floor/almayer/empty/ex_act(severity) //Should make it indestructible
 	return
@@ -1910,7 +1982,7 @@
 	return
 
 /turf/open/floor/almayer/empty/proc/enter_depths(atom/movable/AM)
-	if(AM.throwing == 0 && istype(get_turf(AM), /turf/open/floor/almayer/empty))
+	if(!HAS_TRAIT(AM, TRAIT_LAUNCHED) && istype(get_turf(AM), /turf/open/floor/almayer/empty))
 		AM.visible_message(SPAN_WARNING("[AM] falls into the depths!"), SPAN_WARNING("You fall into the depths!"))
 		if(!ishuman(AM))
 			qdel(AM)
@@ -1966,6 +2038,9 @@
 	icon_state = "logo_c"
 	name = "\improper USCM Logo"
 
+/turf/open/floor/almayer/uscm/southface
+	dir = NORTH
+
 /turf/open/floor/almayer/uscm/directional
 	icon_state = "logo_directional"
 
@@ -1995,6 +2070,33 @@
 
 /turf/open/floor/almayer/uscm/directional/northwest
 	dir = NORTHWEST
+
+/turf/open/floor/almayer/uscm/south_face
+	icon_state = "logo_directional1"
+
+/turf/open/floor/almayer/uscm/south_face/north
+	dir = WEST
+
+/turf/open/floor/almayer/uscm/south_face/south
+	dir = EAST
+
+/turf/open/floor/almayer/uscm/south_face/east
+	dir = NORTH
+
+/turf/open/floor/almayer/uscm/south_face/west
+	dir = SOUTH
+
+/turf/open/floor/almayer/uscm/south_face/northwest
+	dir = SOUTHWEST
+
+/turf/open/floor/almayer/uscm/south_face/northeast
+	dir = NORTHWEST
+
+/turf/open/floor/almayer/uscm/south_face/southeast
+	dir = NORTHEAST
+
+/turf/open/floor/almayer/uscm/south_face/southwest
+	dir = SOUTHEAST
 
 /turf/open/floor/almayer/no_build
 	allow_construction = FALSE
@@ -2080,8 +2182,18 @@
 	icon_state = "ai_floor3"
 
 // RESEARCH STUFF
+
 /turf/open/floor/almayer/research/containment/entrance
 	icon_state = "containment_entrance"
+
+/turf/open/floor/almayer/research/containment/entrance/north
+	dir = NORTH
+
+/turf/open/floor/almayer/research/containment/entrance/east
+	dir = EAST
+
+/turf/open/floor/almayer/research/containment/entrance/west
+	dir = WEST
 
 /turf/open/floor/almayer/research/containment/floor1
 	icon_state = "containment_floor_1"
@@ -2089,8 +2201,20 @@
 /turf/open/floor/almayer/research/containment/floor2
 	icon_state = "containment_floor_2"
 
+/turf/open/floor/almayer/research/containment/floor2/west
+	dir = WEST
+
 /turf/open/floor/almayer/research/containment/corner
 	icon_state = "containment_corner"
+
+/turf/open/floor/almayer/research/containment/corner/north
+	dir = NORTH
+
+/turf/open/floor/almayer/research/containment/corner/east
+	dir = EAST
+
+/turf/open/floor/almayer/research/containment/corner/west
+	dir = WEST
 
 /turf/open/floor/almayer/research/containment/corner1
 	icon_state = "containment_corner_1"
@@ -2107,31 +2231,25 @@
 /turf/open/floor/almayer/research/containment/corner_var1
 	icon_state = "containment_corner_variant_1"
 
-/turf/open/floor/almayer/research/containment/corner_var2
-	icon_state = "containment_corner_variant_2"
-
 /turf/open/floor/almayer/research/containment/corner_var1/north
 	dir = NORTH
 
 /turf/open/floor/almayer/research/containment/corner_var1/east
 	dir = EAST
 
-/turf/open/floor/almayer/research/containment/corner_var1/containment_corner_variant_2
-	icon_state = "containment_corner_variant_2"
-
-/turf/open/floor/almayer/research/containment/corner/north
-	dir = NORTH
-
-/turf/open/floor/almayer/research/containment/corner/east
-	dir = EAST
-
-/turf/open/floor/almayer/research/containment/entrance/west
+/turf/open/floor/almayer/research/containment/corner_var1/west
 	dir = WEST
 
-/turf/open/floor/almayer/research/containment/floor2/north
+/turf/open/floor/almayer/research/containment/corner_var2
+	icon_state = "containment_corner_variant_2"
+
+/turf/open/floor/almayer/research/containment/corner_var2/north
 	dir = NORTH
 
-/turf/open/floor/almayer/research/containment/floor2/west
+/turf/open/floor/almayer/research/containment/corner_var2/east
+	dir = EAST
+
+/turf/open/floor/almayer/research/containment/corner_var2/west
 	dir = WEST
 
 /turf/open/floor/almayer/fake_outerhull
@@ -2152,9 +2270,7 @@
 	name = "hull"
 	turf_flags = TURF_HULL
 	allow_construction = FALSE
-
-/turf/open/floor/almayer_hull/is_weedable()
-	return NOT_WEEDABLE
+	is_weedable = NOT_WEEDABLE
 
 /turf/open/floor/almayer_hull/outerhull_dir
 	icon_state = "outerhull_dir"
@@ -2180,7 +2296,29 @@
 /turf/open/floor/almayer_hull/outerhull_dir/northwest
 	dir = NORTHWEST
 
+/turf/open/floor/almayer_hull/outerhull_dir_alt
+	icon_state = "outerhull_dir_alt"
 
+/turf/open/floor/almayer_hull/outerhull_dir_alt/southwest
+	dir = SOUTHWEST
+
+/turf/open/floor/almayer_hull/outerhull_dir_alt/north
+	dir = NORTH
+
+/turf/open/floor/almayer_hull/outerhull_dir_alt/east
+	dir = EAST
+
+/turf/open/floor/almayer_hull/outerhull_dir_alt/northeast
+	dir = NORTHEAST
+
+/turf/open/floor/almayer_hull/outerhull_dir_alt/southeast
+	dir = SOUTHEAST
+
+/turf/open/floor/almayer_hull/outerhull_dir_alt/west
+	dir = WEST
+
+/turf/open/floor/almayer_hull/outerhull_dir_alt/northwest
+	dir = NORTHWEST
 
 //////////////////////////////////////////////////////////////////////
 
@@ -2350,27 +2488,38 @@
 	turf_flags = NO_FLAGS
 	baseturfs = /turf/open/floor
 
+	///Whether this turf is currently being manipulated to prevent doubling up
+	var/busy = FALSE
+
 /turf/open/floor/engine/simulator_center
 	color = "#AAAAAA"
 
 /turf/open/floor/engine/make_plating()
 	return
 
-/turf/open/floor/engine/attackby(obj/item/C as obj, mob/user as mob)
-	if(!C)
+/turf/open/floor/engine/attackby(obj/item/hitting_item, mob/user)
+	if(!hitting_item)
 		return
 	if(!user)
 		return
-	if(HAS_TRAIT(C, TRAIT_TOOL_WRENCH))
-		user.visible_message(SPAN_NOTICE("[user] starts removing [src]'s protective cover."),
+	if(busy)
+		to_chat(user, SPAN_WARNING("Someone else is already working on [src]."))
+		return
+
+	if(HAS_TRAIT(hitting_item, TRAIT_TOOL_WRENCH))
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts removing [src]'s protective cover."),
 		SPAN_NOTICE("You start removing [src]'s protective cover."))
 		playsound(src, 'sound/items/Ratchet.ogg', 25, 1)
+		busy = TRUE
 		if(do_after(user, 30 * user.get_skill_duration_multiplier(SKILL_CONSTRUCTION), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
+			busy = FALSE
+			if(!istype(src, /turf/open/floor/engine))
+				return
 			new /obj/item/stack/rods(src, 2)
-			var/turf/open/floor/F = ScrapeAway()
-			if(istype(/turf/open/floor, F))
-				F.make_plating()
-
+			var/turf/open/floor/floor = ScrapeAway()
+			if(istype(/turf/open/floor, floor))
+				floor.make_plating()
+		busy = FALSE
 
 /turf/open/floor/engine/ex_act(severity)
 	switch(severity)

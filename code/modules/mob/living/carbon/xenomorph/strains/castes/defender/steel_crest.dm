@@ -36,22 +36,6 @@
 		xeno.ability_speed_modifier -= 3
 		xeno.damage_modifier += XENO_DAMAGE_MOD_SMALL
 
-/datum/action/xeno_action/activable/fortify/proc/check_directional_armor(mob/living/carbon/xenomorph/defendy, list/damagedata)
-	SIGNAL_HANDLER
-	var/projectile_direction = damagedata["direction"]
-	// If the defender is facing the projectile.
-	if(defendy.dir & REVERSE_DIR(projectile_direction))
-		damagedata["armor"] += frontal_armor
-
-/datum/action/xeno_action/activable/fortify/proc/unconscious_check()
-	SIGNAL_HANDLER
-
-	if(QDELETED(owner))
-		return
-
-	UnregisterSignal(owner, COMSIG_XENO_ENTER_CRIT)
-	UnregisterSignal(owner, COMSIG_MOB_DEATH)
-	fortify_switch(owner, FALSE)
 
 /datum/action/xeno_action/onclick/soak/use_ability(atom/A)
 	var/mob/living/carbon/xenomorph/steelcrest = owner
@@ -65,12 +49,12 @@
 	if(!check_and_use_plasma_owner())
 		return
 
-	RegisterSignal(steelcrest, COMSIG_XENO_TAKE_DAMAGE, PROC_REF(damage_accumulate))
+	RegisterSignal(steelcrest, COMSIG_MOB_TAKE_DAMAGE, PROC_REF(damage_accumulate))
 	addtimer(CALLBACK(src, PROC_REF(stop_accumulating)), 6 SECONDS)
 
 	steelcrest.balloon_alert(steelcrest, "begins to tank incoming damage!")
 
-	to_chat(steelcrest, SPAN_XENONOTICE("We begin to tank incoming damage!"))
+	to_chat(steelcrest, SPAN_XENONOTICE("Мы начинаем поглощать входящий урон!"))
 
 	steelcrest.add_filter("steelcrest_enraging", 1, list("type" = "outline", "color" = "#421313", "size" = 1))
 
@@ -85,20 +69,20 @@
 
 	if(damage_accumulated >= damage_threshold)
 		addtimer(CALLBACK(src, PROC_REF(enraged), owner))
-		UnregisterSignal(owner, COMSIG_XENO_TAKE_DAMAGE) // Two Unregistersignal because if the enrage proc doesnt happen, then it needs to stop counting
+		UnregisterSignal(owner, COMSIG_MOB_TAKE_DAMAGE) // Two Unregistersignal because if the enrage proc doesnt happen, then it needs to stop counting
 
 /datum/action/xeno_action/onclick/soak/proc/stop_accumulating()
-	UnregisterSignal(owner, COMSIG_XENO_TAKE_DAMAGE)
+	UnregisterSignal(owner, COMSIG_MOB_TAKE_DAMAGE)
 
 	damage_accumulated = 0
-	to_chat(owner, SPAN_XENONOTICE("We stop taking incoming damage."))
+	to_chat(owner, SPAN_XENONOTICE("Мы перестаём поглощать входящий урон."))
 	owner.remove_filter("steelcrest_enraging")
 
 /datum/action/xeno_action/onclick/soak/proc/enraged()
 
 	owner.remove_filter("steelcrest_enraging")
 	owner.add_filter("steelcrest_enraged", 1, list("type" = "outline", "color" = "#ad1313", "size" = 1))
-	owner.visible_message(SPAN_XENOWARNING("[owner] gets enraged after being damaged enough!"), SPAN_XENOWARNING("We feel enraged after taking in oncoming damage! Our tail slam's cooldown is reset and we heal!"))
+	owner.visible_message(SPAN_XENOWARNING("[owner] приходит в ярость после того, как получил достаточно урона!"), SPAN_XENOWARNING("Мы чувствуем как ярость переполняет нас после того, как мы получили достаточно урона! Время восстановления нашего удара хвостом сбрасывается и мы исцеляемся!")) // SS220 EDIT ADDICTION
 
 	var/mob/living/carbon/xenomorph/enraged_mob = owner
 	enraged_mob.gain_health(75) // pretty reasonable amount of health recovered
@@ -115,4 +99,3 @@
 
 /datum/action/xeno_action/onclick/soak/proc/remove_enrage()
 	owner.remove_filter("steelcrest_enraged")
-

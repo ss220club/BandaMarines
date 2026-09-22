@@ -3,6 +3,8 @@ import { useBackend } from 'tgui/backend';
 import { Button, Input, Section, Stack, Tabs } from 'tgui/components';
 import { Window } from 'tgui/layouts';
 
+import { replaceRegexChars } from './helpers';
+
 type Data = {
   availability: number;
   last_caller: string | null;
@@ -12,6 +14,7 @@ type Data = {
     phone_color: string;
     phone_id: string;
     phone_icon: string;
+    phone_id_en: string; // BANDAMARINES EDIT - Translations
   }[];
 };
 
@@ -46,18 +49,18 @@ const GeneralPanel = (props) => {
   const [selectedPhone, setSelectedPhone] = useState('');
   const [currentCategory, setCategory] = useState(categories[0]);
 
-  let dnd_tooltip = 'Do Not Disturb is DISABLED';
+  let dnd_tooltip = 'Режим «Не беспокоить» ОТКЛЮЧЕН';
   let dnd_locked = 'No';
   let dnd_icon = 'volume-high';
   if (availability === 1) {
-    dnd_tooltip = 'Do Not Disturb is ENABLED';
+    dnd_tooltip = 'Режим «Не беспокоить» ВКЛЮЧЕН';
     dnd_icon = 'volume-xmark';
   } else if (availability >= 2) {
-    dnd_tooltip = 'Do Not Disturb is ENABLED (LOCKED)';
+    dnd_tooltip = 'Режим «Не беспокоить» ВКЛЮЧЕН (ЗАБЛОКИРОВАНО)';
     dnd_locked = 'Yes';
     dnd_icon = 'volume-xmark';
   } else if (availability < 0) {
-    dnd_tooltip = 'Do Not Disturb is DISABLED (LOCKED)';
+    dnd_tooltip = 'Режим «Не беспокоить» ОТКЛЮЧЕН (ЗАБЛОКИРОВАНО)';
     dnd_locked = 'Yes';
   }
 
@@ -65,7 +68,7 @@ const GeneralPanel = (props) => {
     <Section fill>
       <Stack vertical fill>
         <Stack.Item>
-          <Tabs>
+          <Tabs style={{ flexWrap: 'wrap' }}>
             {categories.map((val) => (
               <Tabs.Tab
                 selected={val === currentCategory}
@@ -81,7 +84,7 @@ const GeneralPanel = (props) => {
           <Input
             fluid
             value={currentSearch}
-            placeholder="Search for a phone"
+            placeholder="Поиск телефона"
             onInput={(e, value) => setSearch(value.toLowerCase())}
           />
         </Stack.Item>
@@ -90,8 +93,14 @@ const GeneralPanel = (props) => {
             <Tabs vertical>
               {transmitters.map((val) => {
                 if (
-                  val.phone_category !== currentCategory ||
-                  !val.phone_id.toLowerCase().match(currentSearch)
+                  currentSearch
+                    ? !val.phone_id
+                        .toLowerCase()
+                        .match(replaceRegexChars(currentSearch)) &&
+                      !val.phone_id_en
+                        .toLowerCase()
+                        .match(replaceRegexChars(currentSearch))
+                    : val.phone_category !== currentCategory
                 ) {
                   return;
                 }
@@ -129,11 +138,13 @@ const GeneralPanel = (props) => {
               textAlign="center"
               onClick={() => act('call_phone', { phone_id: selectedPhone })}
             >
-              Dial
+              Звонить
             </Button>
           </Stack.Item>
         )}
-        {!!last_caller && <Stack.Item>Last Caller: {last_caller}</Stack.Item>}
+        {!!last_caller && (
+          <Stack.Item>Последний звонок от: {last_caller}</Stack.Item>
+        )}
         <Stack.Item>
           <Button
             color="red"
@@ -144,7 +155,7 @@ const GeneralPanel = (props) => {
             textAlign="center"
             onClick={() => act('toggle_dnd')}
           >
-            Do Not Disturb
+            Не беспокоить
           </Button>
         </Stack.Item>
       </Stack>

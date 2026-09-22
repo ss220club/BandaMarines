@@ -29,6 +29,7 @@
 	innate_healing = TRUE
 
 	minimap_icon = "hellhound"
+	organ_type = /obj/item/organ/xeno/hellhound
 
 /mob/living/carbon/xenomorph/hellhound
 	AUTOWIKI_SKIP(TRUE)
@@ -42,7 +43,6 @@
 	pixel_x = -16
 	old_x = -16
 	layer = MOB_LAYER
-	plasma_types = list(PLASMA_CHITIN)
 	tier = 0
 	acid_blood_damage = 0
 	pull_speed = -0.5
@@ -57,8 +57,9 @@
 	slash_verb = "bite"
 	slashes_verb = "rips"
 	slash_sound = 'sound/weapons/bite.ogg'
-	organ_value = 1500
+
 	mob_size = MOB_SIZE_XENO_SMALL
+	var/obj/structure/machinery/camera/camera
 
 	base_actions = list(
 		/datum/action/xeno_action/onclick/xeno_resting,
@@ -67,7 +68,6 @@
 		/datum/action/xeno_action/activable/pounce/gorge,
 		/datum/action/xeno_action/onclick/sense_owner,
 		/datum/action/xeno_action/onclick/toggle_long_range/runner,
-		/datum/action/xeno_action/onclick/tacmap,
 	)
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
@@ -79,6 +79,14 @@
 	weed_food_states = list("Hellhound_1","Hellhound_2","Hellhound_3")
 	weed_food_states_flipped = list("Hellhound_1","Hellhound_2","Hellhound_3")
 
+/obj/item/organ/xeno/hellhound
+	name = "hellhound heart"
+	icon_state = "heart_t2"
+	item_state = "heart_t2"
+	research_value = 1500
+
+	xeno_organ_flags = XENO_ORGAN_STRONG|XENO_ORGAN_TACHYCARDIA
+
 /mob/living/carbon/xenomorph/hellhound/Initialize(mapload, mob/living/carbon/xenomorph/oldXeno, h_number)
 	. = ..(mapload, oldXeno, h_number || XENO_HIVE_YAUTJA)
 
@@ -88,6 +96,8 @@
 	SSmob.living_misc_mobs += src
 	GLOB.hellhound_list += src
 	RegisterSignal(src, COMSIG_MOB_WEED_SLOWDOWN, PROC_REF(handle_weed_slowdown))
+	camera = new /obj/structure/machinery/camera/autoname/yautja(src)
+	camera.c_tag = real_name
 
 /mob/living/carbon/xenomorph/hellhound/initialize_pass_flags(datum/pass_flags_container/PF)
 	..()
@@ -97,7 +107,7 @@
 /mob/living/carbon/xenomorph/hellhound/Login()
 	. = ..()
 	if(SSticker.mode) SSticker.mode.xenomorphs -= mind
-	to_chat(src, SPAN_RED("Attention!! You are playing as a hellhound. This is a roleplay role which means you must maintain a high degree of roleplay or you risk getting job banned. LISTEN TO THE YAUTJA THAT CALLED YOU. Their order takes priority. If you dont, you will be ghosted and replaced and potentially punished if you are breaking the rules. If the yautja who called you dies, try to listen to other yautja or otherwise ask for one to give you a fight that will surely end in your demise. You are loyal to yautja above all else, do not act without their permission and do not disturb the round too much!"))
+	to_chat(src, SPAN_RED("Attention!! You are playing as a hellhound. This is a roleplay role which means you must maintain a high degree of roleplay or you risk getting job banned. LISTEN TO THE YAUTJA THAT CALLED YOU. Their order takes priority. If you don't, you will be ghosted and replaced and potentially punished if you are breaking the rules. If the yautja who called you dies, try to listen to other yautja or otherwise ask for one to give you a fight that will surely end in your demise. You are loyal to yautja above all else, do not act without their permission and do not disturb the round too much!"))
 
 /mob/living/carbon/xenomorph/hellhound/death(cause, gibbed)
 	. = ..(cause, gibbed, "lets out a horrible roar as it collapses and stops moving...")
@@ -108,9 +118,6 @@
 	SSmob.living_misc_mobs -= src
 	UnregisterSignal(src, COMSIG_MOB_WEED_SLOWDOWN, PROC_REF(handle_weed_slowdown))
 
-/mob/living/carbon/xenomorph/hellhound/get_organ_icon()
-	return "heart_t3"
-
 /mob/living/carbon/xenomorph/hellhound/rejuvenate()
 	..()
 	GLOB.hellhound_list |= src
@@ -119,13 +126,15 @@
 /mob/living/carbon/xenomorph/hellhound/Destroy()
 	GLOB.hellhound_list -= src
 	SSmob.living_misc_mobs -= src
+	QDEL_NULL(camera)
 	return ..()
 
 /mob/living/carbon/xenomorph/hellhound/resist_fire()
 	..()
 	SetKnockDown(0.5 SECONDS) // faster because theyre already slow as hell
 
-/mob/living/carbon/xenomorph/hellhound/proc/handle_weed_slowdown(mob/user, list/slowdata)
+/// Signal handler for COMSIG_MOB_WEED_SLOWDOWN that when registered causes the xeno to ignore weed slowdown.
+/mob/living/carbon/xenomorph/proc/handle_weed_slowdown(mob/user, list/slowdata)
 	SIGNAL_HANDLER
 	slowdata["movement_slowdown"] *= 0
 
@@ -164,7 +173,7 @@
 	var/mob/living/carbon = target_living
 	var/mob/living/carbon/xenomorph/hellhound/hellhound_gorger = owner
 
-	hellhound_gorger.visible_message(SPAN_XENODANGER("[hellhound_gorger] gorges at [carbon] with it's spikes."))
+	hellhound_gorger.visible_message(SPAN_XENODANGER("[hellhound_gorger] набрасывается на [carbon] своими шипами.")) // SS220 EDIT ADDICTION
 	carbon.apply_armoured_damage(gorge_damage, BRUTE)
 	playsound(hellhound_gorger, "giant_lizard_growl", 30)
 	playsound(carbon, "alien_bite", 30)
@@ -178,17 +187,17 @@
 	direction = Get_Compass_Dir(xeno, hound_owner.pred_owner)
 
 	if(!hound_owner.pred_owner)
-		to_chat(xeno, SPAN_XENOWARNING("You do not have an owner."))
+		to_chat(xeno, SPAN_XENOWARNING("У вас нет хозяина."))
 		return
 
 	if(hound_owner.pred_owner.z != xeno.z)
-		to_chat(xeno, SPAN_XENOWARNING("You do not sense your owner in this place."))
+		to_chat(xeno, SPAN_XENOWARNING("Вы не чувствуете своего хозяина в этом месте."))
 		return
 
 	for(var/mob/living/carbon/viewer in orange(xeno, 5))
-		to_chat(viewer, SPAN_WARNING("[xeno] sniffs the ground in a hurry."))
-		to_chat(xeno, SPAN_XENOWARNING("You sniff the ground in a hurry to find where your master is."))
-		to_chat(xeno, SPAN_XENOWARNING("Your owner is [dist] meters to the [dir2text(direction)]"))
+		to_chat(viewer, SPAN_WARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] бегло обнюхивает землю, чтобы найти своего хозяина.")) // SS220 EDIT ADDICTION
+		to_chat(xeno, SPAN_XENOWARNING("Вы бегло обнюхиваете землю, чтобы найти своего хозяина."))
+		to_chat(xeno, SPAN_XENOWARNING("Ваш хозяин в [dist] метрах к [dir2text(direction)]")) // SS220 EDIT ADDICTION
 
 	apply_cooldown()
 	..()

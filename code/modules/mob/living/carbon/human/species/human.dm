@@ -45,29 +45,29 @@
 			if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
 				if(species.flags & IS_SYNTHETIC)
 					if(prob(1))
-						to_chat(src, SPAN_DANGER("Subdermal damage detected in critical region. Operational impact minimal. Diagnosis queued for maintenance cycle."))
+						to_chat(src, SPAN_DANGER("Обнаружена несущественная неисправность элемента питания.\nЗапланирована диагностика для следующего цикла обслуживания."))
 				else
 					if(prob(1))
-						var/word = pick("dizzy","woozy","faint")
-						to_chat(src, SPAN_DANGER("You feel [word]."))
+						var/word = pick("тошноту","слабость","головокружение")
+						to_chat(src, SPAN_DANGER("Вы чувствуете [word]."))
 			if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
 				if(species.flags & IS_SYNTHETIC)
 					if(prob(3))
 						apply_effect(rand(1, 2), WEAKEN)
-						to_chat(src, SPAN_DANGER("Internal power cell fault detected.\nSeek nearest recharging station."))
+						to_chat(src, SPAN_DANGER("Обнаружена неисправность элемента питания.\nПомните, что вам необходима регулярная подзарядка."))
 				else
 					if(eye_blurry < 50)
 						AdjustEyeBlur(6)
 						oxyloss += 3
 					if(prob(15))
 						apply_effect(rand(1,3), PARALYZE)
-						var/word = pick("dizzy","woozy","faint")
-						to_chat(src, SPAN_DANGER("You feel very [word]."))
+						var/word = pick("тошноту","слабость","головокружение")
+						to_chat(src, SPAN_DANGER("Вы чувствуете сильную [word]."))
 			if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
 				if(species.flags & IS_SYNTHETIC)
 					if(prob(5))
 						apply_effect(rand(1, 2), PARALYZE)
-						to_chat(src, SPAN_DANGER("Critical power cell failure detected.\nSeek recharging station immediately."))
+						to_chat(src, SPAN_DANGER("Обнаружена критическая неисправность элемента питания.\nНемедленно найдите станцию подзарядки."))
 				else
 					if(eye_blurry < 50)
 						AdjustEyeBlur(6)
@@ -75,8 +75,8 @@
 						toxloss += 3
 					if(prob(15))
 						apply_effect(rand(1, 3), PARALYZE)
-						var/word = pick("dizzy", "woozy", "faint")
-						to_chat(src, SPAN_DANGER("You feel extremely [word]."))
+						var/word = pick("тошноту","слабость","головокружение")
+						to_chat(src, SPAN_DANGER("Вы чувствуете невыносимую [word]."))
 			if(0 to BLOOD_VOLUME_SURVIVE)
 				death(create_cause_data(species.flags & IS_SYNTHETIC ? "power failure" : "blood loss"))
 
@@ -127,12 +127,34 @@
 /datum/species/human/hero/thrall
 	name = "Thrall"
 	name_plural = "Thralls"
+	pain_type = /datum/pain/yautja
+	stamina_type = /datum/stamina/none
+	flags = HAS_SKIN_TONE|HAS_LIPS|HAS_UNDERWEAR|HAS_HARDCRIT|HAS_SKIN_COLOR|NO_SHRAPNEL
+	mob_inherent_traits = list(
+		TRAIT_DEXTROUS,
+		TRAIT_IRON_TEETH,
+		TRAIT_SUPER_STRONG,
+	)
 	weed_slowdown_mult = 0
 	acid_blood_dodge_chance = 70
+	total_health = 150
+
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/butcher,
+		/mob/living/carbon/human/proc/mark_for_hunt,
+		/mob/living/carbon/human/proc/remove_from_hunt,
+	)
 
 /datum/species/human/hero/thrall/handle_post_spawn(mob/living/carbon/human/thrall)
-	thrall.universal_understand = FALSE
-	return ..()
+	thrall.universal_understand = TRUE
+	thrall.status_flags |= NO_PERMANENT_DAMAGE
+
+/datum/species/human/hero/thrall/handle_death(mob/living/carbon/human/thrall)
+	GLOB.yautja_mob_list -= thrall
+
+	var/obj/item/clothing/gloves/yautja/hunter/bracer = thrall.gloves
+	if(istype(bracer))
+		message_all_yautja("[thrall.real_name] has died at \the [get_area_name(thrall)].", bracer.received_networks)
 
 //Various horrors that spawn in and haunt the living.
 /datum/species/human/spook

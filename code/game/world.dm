@@ -10,6 +10,12 @@ GLOBAL_LIST_INIT(reboot_sfx, file2list("config/reboot_sfx.txt"))
 	view = "15x15"
 	cache_lifespan = 0 //stops player uploaded stuff from being kept in the rsc past the current session
 	hub = "Exadv1.spacestation13"
+// tick checking during reference finding in unit tests can cause knock-on failures elsewhere
+// and really loop checks in CI can just do that too, so it's best to have them off
+// todo: determine if this should just be #ifdef UNIT_TESTS for simplicity
+#ifdef FIND_REF_NO_CHECK_TICK
+	loop_checks = FALSE
+#endif
 
 /world/New()
 	var/debug_server = world.GetConfig("env", "AUXTOOLS_DEBUG_DLL")
@@ -54,25 +60,20 @@ GLOBAL_LIST_INIT(reboot_sfx, file2list("config/reboot_sfx.txt"))
 
 	init_global_referenced_datums()
 
-	var/testing_locally = (world.params && world.params["local_test"])
-	var/running_tests = (world.params && world.params["run_tests"])
 	#if defined(AUTOWIKI) || defined(UNIT_TESTS)
-	running_tests = TRUE
+	sleep_offline = FALSE
 	#endif
-	// Only do offline sleeping when the server isn't running unit tests or hosting a local dev test
-	sleep_offline = (!running_tests && !testing_locally)
 
 	if(!GLOB.RoleAuthority)
 		GLOB.RoleAuthority = new /datum/authority/branch/role()
-		to_world(SPAN_DANGER("\b Job setup complete"))
+		to_world(SPAN_DANGER("\b Job setup complete."))
 
 	initiate_minimap_icons()
 
 	change_tick_lag(CONFIG_GET(number/ticklag))
 
-	// As of byond 515.1637 time2text now treats 0 like it does negative numbers so the hour is wrong
-	// We could instead use world.timezone but IMO better to not assume lummox will keep time2text in parity with it
-	GLOB.timezoneOffset = text2num(time2text(10,"hh")) * 36000
+	// I hate that this logic keeps having to change
+	GLOB.timezoneOffset = world.timezone * 36000
 
 	Master.Initialize(10, FALSE, TRUE)
 
@@ -90,19 +91,6 @@ GLOBAL_LIST_INIT(reboot_sfx, file2list("config/reboot_sfx.txt"))
 	GLOB.obfs_x = rand(-500, 500) //A number between -500 and 500
 	GLOB.obfs_y = rand(-500, 500) //A number between -500 and 500
 	GLOB.obfs_z = rand(-10, 10)   //A number between -10 and 10
-
-	// If the server's configured for local testing, get everything set up ASAP.
-	// Shamelessly stolen from the test manager's host_tests() proc
-	if(testing_locally)
-		GLOB.master_mode = "Extended"
-
-		// Wait for the game ticker to initialize
-		while(!SSticker.initialized)
-			sleep(10)
-
-		// Start the game ASAP
-		SSticker.request_start()
-	return
 
 /proc/start_logging()
 	GLOB.round_id = SSentity_manager.round.id
@@ -168,6 +156,49 @@ GLOBAL_LIST_INIT(reboot_sfx, file2list("config/reboot_sfx.txt"))
 
 	var/logging = CONFIG_GET(flag/log_world_topic)
 	var/topic_decoded = rustg_url_decode(T)
+	// BANDAMARINES EDIT START: SS220Manager topic integration
+	if(copytext(topic_decoded, 1, 8) == "status&")
+		var/list/legacy_params = params2list(topic_decoded)
+		var/list/status_response = list(
+			"players" = length(GLOB.clients),
+			"stationtime" = duration2text(),
+			"roundtime" = duration2text(),
+			"map" = SSmapping?.configs[GROUND_MAP]?.map_name || "Loading...",
+			"admins" = length(GLOB.admins),
+			"round_id" = text2num(GLOB.round_id),
+		)
+
+		if(logging)
+			log_topic("(LEGACY STATUS), from:[addr], master:[master], key:[key]")
+		return legacy_params["format"] == "json" ? json_encode(status_response) : list2params(status_response)
+	else if(copytext(topic_decoded, 1, 10) == "adminwho&")
+		var/list/legacy_params = params2list(topic_decoded)
+		var/list/adminwho_response = list()
+		var/topic_key = lowertext(legacy_params["key"])
+
+		if(!LAZYACCESS(GLOB.topic_tokens[topic_key], "adminwho"))
+			adminwho_response = list("error" = "Unauthorized")
+		else
+			for(var/client/admin as anything in GLOB.admins)
+				if(!admin.admin_holder)
+					continue
+				var/list/admin_info = list(
+					"ckey" = admin.ckey,
+					"key" = admin.key,
+					"rank" = admin.admin_holder.rank,
+					"afk" = admin.is_afk(),
+					"stealth" = "NONE",
+					"skey" = "NONE",
+				)
+				if(admin.admin_holder.fakekey)
+					admin_info["stealth"] = "STEALTH"
+					admin_info["skey"] = admin.admin_holder.fakekey
+				adminwho_response += list(admin_info)
+
+		if(logging)
+			log_topic("(LEGACY ADMINWHO), from:[addr], master:[master], key:[key]")
+		return legacy_params["format"] == "json" ? json_encode(adminwho_response) : list2params(adminwho_response)
+	// BANDAMARINES EDIT END: SS220Manager topic integration
 	if(!rustg_json_is_valid(topic_decoded))
 		if(logging)
 			log_topic("(NON-JSON) \"[topic_decoded]\", from:[addr], master:[master], key:[key]")
@@ -226,30 +257,34 @@ GLOBAL_LIST_INIT(reboot_sfx, file2list("config/reboot_sfx.txt"))
 	if(reason == 1 || reason == 2) // host/topic
 		return
 
-	Master.Shutdown()
 	send_reboot_sound()
-	var/server = CONFIG_GET(string/server)
-	for(var/thing in GLOB.clients)
-		if(!thing)
-			continue
-		var/client/C = thing
-		C?.tgui_panel?.send_roundrestart()
-		if(server) //if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
-			C << link("byond://[server]")
+	spawn(30)
+		Master.Shutdown()
+		var/server = CONFIG_GET(string/server)
 
-	#ifdef UNIT_TESTS
-	FinishTestRun()
-	return
-	#endif
+		for(var/thing in GLOB.clients)
+			if(!thing)
+				continue
+			var/client/C = thing
+			C.control_server?.restart("Server restarting...")
 
-	shutdown_logging()
+			C?.tgui_panel?.send_roundrestart()
+			if(server) //if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
+				C << link("byond://[server]")
 
-	if(TgsAvailable())
-		send_tgs_restart()
-		TgsReboot()
-		TgsEndProcess()
-	else
-		shutdown()
+		#ifdef UNIT_TESTS
+		FinishTestRun()
+		return
+		#endif
+
+		shutdown_logging()
+
+		if(TgsAvailable())
+			send_tgs_restart()
+			TgsReboot()
+			TgsEndProcess()
+		else
+			shutdown()
 
 /world/proc/send_tgs_restart()
 	if(!CONFIG_GET(string/new_round_alert_channel))
@@ -327,7 +362,7 @@ GLOBAL_LIST_INIT(reboot_sfx, file2list("config/reboot_sfx.txt"))
 	SStimer.reset_buckets()
 
 /**
- * Handles incresing the world's maxx var and intializing the new turfs and assigning them to the global area.
+ * Handles incresing the world's maxx var and initializing the new turfs and assigning them to the global area.
  * If map_load_z_cutoff is passed in, it will only load turfs up to that z level, inclusive.
  * This is because maploading will handle the turfs it loads itself.
  */
@@ -385,7 +420,7 @@ GLOBAL_LIST_INIT(reboot_sfx, file2list("config/reboot_sfx.txt"))
 #endif
 	UNTIL(SSticker.initialized)
 
-	// Run unit tests on lobby as neeeded
+	// Run unit tests on lobby as needed
 #ifdef UNIT_TESTS
 	RunUnitTests(TEST_STAGE_PREGAME)
 	UNTIL(!SSticker.delay_start)

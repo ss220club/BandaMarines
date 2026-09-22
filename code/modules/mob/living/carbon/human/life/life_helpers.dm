@@ -165,6 +165,7 @@
 	see_in_dark += G.darkness_view
 	if(G.vision_flags)
 		sight |= G.vision_flags
+
 	if(G.lighting_alpha < lighting_alpha)
 		lighting_alpha = G.lighting_alpha
 
@@ -196,6 +197,7 @@
 
 
 /mob/living/carbon/human/proc/handle_revive()
+	revive_grace_period = initial(revive_grace_period)
 	SEND_SIGNAL(src, COMSIG_HUMAN_REVIVED)
 	track_revive(job)
 	GLOB.alive_mob_list += src
@@ -209,7 +211,6 @@
 	last_damage_data = null
 	statistic_tracked = FALSE
 	tod = null
-	revive_grace_period = initial(revive_grace_period)
 	set_stat(UNCONSCIOUS)
 	emote("gasp")
 	regenerate_icons()
@@ -217,4 +218,10 @@
 	flash_eyes()
 	apply_effect(10, EYE_BLUR)
 	apply_effect(10, PARALYZE)
-	updatehealth() //One more time, so it doesn't show the target as dead on HUDs
+	// The Health HUD updates on changing health, but since we did that while we were still dead,
+	// it didn't put the correct icon. So we re-run HUD updates to show the correct ones now
+	// that we are fully alive. Rest thrown on for good measure.
+	med_hud_set_health()
+	med_hud_set_armor()
+	med_hud_set_status()
+

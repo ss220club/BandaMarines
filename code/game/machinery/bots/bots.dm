@@ -77,7 +77,7 @@
 		if(health < maxhealth)
 			if(open)
 				health = min(maxhealth, health+10)
-				user.visible_message(SPAN_DANGER("[user] repairs [src]!"),SPAN_NOTICE("You repair [src]!"))
+				user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] repairs [src]!"),SPAN_NOTICE("You repair [src]!"))
 			else
 				to_chat(user, SPAN_NOTICE("Unable to repair with the maintenance panel closed."))
 		else
@@ -137,7 +137,7 @@
 
 	if(user.species.can_shred(user))
 		src.health -= rand(15,30)*brute_dam_coeff
-		src.visible_message(SPAN_DANGER("[user] has slashed [src]!"))
+		src.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] has slashed [src]!"))
 		playsound(src.loc, 'sound/weapons/slice.ogg', 25, 1)
 		if(prob(10))
 			new /obj/effect/decal/cleanable/blood/oil(src.loc)
@@ -168,7 +168,7 @@
 		return 1
 	var/adir = get_dir(A,B)
 	var/rdir = get_dir(B,A)
-	if((adir & (NORTH|SOUTH)) && (adir & (EAST|WEST))) //diagonal
+	if(IS_DIAGONAL_DIR(adir)) //diagonal
 		var/iStep = get_step(A,adir&(NORTH|SOUTH))
 		if(!LinkBlockedWithAccess(A,iStep, ID) && !LinkBlockedWithAccess(iStep,B,ID))
 			return 0

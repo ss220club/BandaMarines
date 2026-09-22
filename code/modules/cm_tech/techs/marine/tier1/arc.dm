@@ -1,7 +1,7 @@
 /datum/tech/arc
 	name = "M540-B Armored Recon Carrier"
 	desc = "Purchase an M540-B Armored Recon Carrier, specialized in assisting groundside command. Able to be driven by Staff Officers, Executive Officers, and Commanding Officers."
-	icon_state = "upgrade"
+	icon_state = "arc"
 
 	required_points = 5
 
@@ -35,10 +35,15 @@
 		return FALSE
 
 	comp.spent = FALSE
+	/* //BANDAMARINES EDIT START - ORIGINAL:
 	QDEL_NULL_LIST(comp.vehicles)
 	comp.vehicles = list(
 		new /datum/vehicle_order/arc()
 	)
+	*/
+	comp.vehicles += new /datum/vehicle_order/arc()
+	/*
+
 	comp.allowed_roles = list(JOB_SYNTH, JOB_SEA, JOB_SO, JOB_XO, JOB_CO, JOB_GENERAL)
 	comp.req_access = list(ACCESS_MARINE_COMMAND)
 	comp.req_one_access = list()
@@ -49,5 +54,6 @@
 	gearcomp.vendor_role = list()
 	gearcomp.selected_vehicle = "ARC"
 	gearcomp.available_categories = VEHICLE_ALL_AVAILABLE
-
+	*/
+	// BANDAMARINES EDIT END
 	return TRUE

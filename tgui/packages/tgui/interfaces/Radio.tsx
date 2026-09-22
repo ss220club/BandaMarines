@@ -10,6 +10,7 @@ import {
 } from 'tgui/components';
 import { RADIO_CHANNELS } from 'tgui/constants';
 import { Window } from 'tgui/layouts';
+import { RuRadioLabel } from 'tgui-say/constants';
 
 type Data = {
   broadcasting: BooleanLike;
@@ -19,12 +20,19 @@ type Data = {
   maxFrequency: number;
   freqlock: BooleanLike;
   channels: { name: string; status: BooleanLike; hotkey: string }[];
+  hear_channels: { name: string; status: BooleanLike }[];
   command: number;
   useCommand: BooleanLike;
   subspace: BooleanLike;
   subspaceSwitchable: BooleanLike;
   headset: false;
 };
+
+interface RadioChannel {
+  name: string;
+  freq: number;
+  color: string;
+}
 
 export const Radio = (props) => {
   const { act, data } = useBackend<Data>();
@@ -42,16 +50,23 @@ export const Radio = (props) => {
   } = data;
 
   const radioChannels = data.channels;
+  const hearChannels = data.hear_channels || [];
 
-  const tunedChannel = RADIO_CHANNELS.find(
-    (channel) => channel.freq === frequency,
+  const CHANNELS_BY_FREQ = RADIO_CHANNELS.reduce(
+    (acc, channel: RadioChannel) => {
+      acc[channel.freq] = channel;
+      return acc;
+    },
+    {} as Record<number, (typeof RADIO_CHANNELS)[number]>,
   );
+
+  const tunedChannel = CHANNELS_BY_FREQ[frequency];
 
   // Calculate window height
   let height = 106;
   if (subspace) {
-    if (radioChannels.length > 0) {
-      height += radioChannels.length * 21 + 6;
+    if (radioChannels.length > 0 || hearChannels.length > 0) {
+      height += (radioChannels.length + hearChannels.length) * 21 + 6;
     } else {
       height += 24;
     }
@@ -61,7 +76,7 @@ export const Radio = (props) => {
       <Window.Content>
         <Section>
           <LabeledList>
-            <LabeledList.Item label="Frequency">
+            <LabeledList.Item label="Частота">
               {(freqlock && (
                 <Box inline color="light-gray">
                   {toFixed(frequency / 10, 1) + ' kHz'}
@@ -89,7 +104,7 @@ export const Radio = (props) => {
                 </Box>
               )}
             </LabeledList.Item>
-            <LabeledList.Item label="Audio">
+            <LabeledList.Item label="Настройки">
               <Button
                 textAlign="center"
                 width="37px"
@@ -126,8 +141,8 @@ export const Radio = (props) => {
               )}
             </LabeledList.Item>
             {!!subspace && (
-              <LabeledList.Item label="Channels">
-                {radioChannels.length === 0 && (
+              <LabeledList.Item label="Каналы">
+                {radioChannels.length === 0 && hearChannels.length === 0 && (
                   <Box inline color="bad">
                     No encryption keys installed.
                   </Box>
@@ -143,10 +158,33 @@ export const Radio = (props) => {
                         })
                       }
                     >
-                      {channel.name + ' ' + channel.hotkey}
+                      {RuRadioLabel(channel.name) + ' '}
+                      {channel.hotkey
+                        ? '[' + channel.hotkey.toUpperCase() + ']'
+                        : '[N/A]'}
                     </Button>
                   </Box>
                 ))}
+                {hearChannels.length > 0 && (
+                  <Box mt={1}>
+                    {hearChannels.map((channel) => (
+                      <Box key={'hear-' + channel.name}>
+                        <Button
+                          icon={channel.status ? 'volume-up' : 'volume-mute'}
+                          selected={channel.status}
+                          onClick={() =>
+                            act('channel', {
+                              channel: channel.name,
+                            })
+                          }
+                        >
+                          {channel.name + ' '}
+                          {'[Receive Only]'}
+                        </Button>
+                      </Box>
+                    ))}
+                  </Box>
+                )}
               </LabeledList.Item>
             )}
           </LabeledList>

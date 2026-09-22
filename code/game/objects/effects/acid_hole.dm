@@ -11,11 +11,16 @@
 /obj/effect/acid_hole/Initialize()
 	. = ..()
 	if(istype(loc, /turf/closed/wall))
-		var/turf/closed/wall/W = loc
-		W.acided_hole = src
-		holed_wall = W
+		var/turf/closed/wall/acided_wall = loc
+		acided_wall.acided_hole = src
+		holed_wall = acided_wall
 		holed_wall.opacity = FALSE
-		setDir(W.acided_hole_dir)
+		// Original intended way for mappers to set the direction was to set wall.acided_hole_dir, but mappers didnt know that, so we will just handle all ways they could have set it.
+		// Since holes can only have two states (vertical/horizontal), default is vertical.
+		if(icon_state != initial(icon_state)) // Mapper varedited icon_state to horizontal, so we update code to reflect it.
+			holed_wall.acided_hole_dir = EAST
+		if(dir != EAST && dir != WEST) // Mapper didnt varedit dir to horizontal, so we will use acided_hole_dir.
+			setDir(acided_wall.acided_hole_dir)
 
 /obj/effect/acid_hole/Destroy()
 	if(holed_wall)
@@ -31,11 +36,19 @@
 	return
 
 
-/obj/effect/acid_hole/MouseDrop_T(mob/M, mob/user)
+/obj/effect/acid_hole/MouseDrop_T(mob/entity, mob/user)
 	if (!holed_wall)
 		return
 
-	if(M == user && isxeno(user))
+	if(entity == user && isxeno(user))
+		if (entity.resting)
+			to_chat(user, SPAN_WARNING("You cannot do that while resting!"))
+			return
+
+		if (entity.is_mob_incapacitated())
+			to_chat(user, SPAN_WARNING("You cannot do that while incapacitated!"))
+			return
+
 		use_wall_hole(user)
 
 
@@ -140,7 +153,7 @@
 		if(do_after(user,10, INTERRUPT_ALL, BUSY_ICON_HOSTILE))
 			if(Target.density)
 				return
-			user.visible_message(SPAN_WARNING("[user] throws [G] through [src]!"),
+			user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] throws [G] through [src]!"),
 								SPAN_WARNING("You throw [G] through [src]"))
 			user.drop_held_item()
 			G.forceMove(Target)
@@ -162,7 +175,7 @@
 		if(do_after(user,10, INTERRUPT_ALL, BUSY_ICON_HOSTILE))
 			if(Target.density)
 				return
-			user.visible_message(SPAN_WARNING("[user] throws [F] through [src]!"),
+			user.visible_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] throws [F] through [src]!"),
 								SPAN_WARNING("You throw [F] through [src]"))
 			user.drop_held_item()
 			F.forceMove(Target)

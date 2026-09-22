@@ -30,12 +30,6 @@
 	halbody = null
 
 
-/mob/living/carbon/Move(NewLoc, direct)
-	. = ..()
-	if(.)
-		if(nutrition && stat != DEAD)
-			nutrition -= HUNGER_FACTOR/5
-
 /mob/living/carbon/relaymove(mob/user, direction)
 	if(user.is_mob_incapacitated(TRUE))
 		return
@@ -43,14 +37,14 @@
 		var/mob/living/carbon/xenomorph/larva/larva_burst = user
 		larva_burst.chest_burst(src)
 
-/mob/living/carbon/ex_act(severity, direction, datum/cause_data/cause_data)
+/mob/living/carbon/ex_act(severity, direction, datum/cause_data/cause_data, pierce=0, enviro=FALSE)
 	last_damage_data = istype(cause_data) ? cause_data : create_cause_data(cause_data)
 	var/gibbing = FALSE
 
 	if(severity >= health && severity >= EXPLOSION_THRESHOLD_GIB)
 		gibbing = TRUE
 
-	if(body_position == LYING_DOWN && direction)
+	if(body_position == LYING_DOWN && direction > 0)
 		severity *= EXPLOSION_PRONE_MULTIPLIER
 
 	if(HAS_TRAIT(src, TRAIT_HAULED) && !gibbing) // We still probably wanna gib them as well if they were supposed to be gibbed by the explosion in the first place
@@ -66,10 +60,9 @@
 		gib(last_damage_data)
 		return
 
-	apply_damage(severity, BRUTE)
-	updatehealth()
+	apply_damage(severity, BRUTE, enviro=enviro)
 
-	var/knock_value = min( round( severity*0.1 ,1) ,10)
+	var/knock_value = min(round(severity*0.1, 1), 10)
 	if(knock_value > 0)
 		apply_effect(knock_value, PARALYZE)
 		explosion_throw(severity, direction)
@@ -132,8 +125,15 @@
 	next_haul_resist = world.time + 1.4 SECONDS
 	if(istype(get_active_hand(), /obj/item))
 		var/obj/item/item = get_active_hand()
-		if(item.force)
-			var/damage_of_item = rand(floor(item.force / 4), item.force)
+		if(item.force > 0)
+			var/force_range = clamp(item.force, MELEE_FORCE_NORMAL, MELEE_FORCE_STRONG)
+			var/damage_of_item = rand(floor(force_range / 2), force_range)
+
+			xeno.last_damage_data = create_cause_data("scuffling", src)
+			attack_log += "\[[time_stamp()]\]<font color='red'> Attacked [key_name(xeno)] with [item.name] (INTENT: [uppertext(intent_text(a_intent))]) (DAMTYPE: [uppertext(BRUTE)])</font>"
+			xeno.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [key_name(src)] with [item.name] (INTENT: [uppertext(intent_text(a_intent))]) (DAMTYPE: [uppertext(BRUTE)])</font>"
+			msg_admin_attack("[key_name(src)] attacked [key_name(xeno)] with [item.name] (INTENT: [uppertext(intent_text(a_intent))]) (DAMTYPE: [uppertext(BRUTE)]) in [get_area(xeno)] ([xeno.loc.x],[xeno.loc.y],[xeno.loc.z]).", xeno.loc.x, xeno.loc.y, xeno.loc.z)
+
 			xeno.take_limb_damage(damage_of_item)
 			for(var/mob/mobs_in_view as anything in viewers(src, null))
 				if(mobs_in_view.client)
@@ -145,8 +145,7 @@
 				var/hit_sound = pick('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg')
 				playsound(loc, hit_sound, 25, 1)
 			if(prob(max(4*(100*xeno.getBruteLoss()/xeno.maxHealth - 75),0))) //4% at 24% health, 80% at 5% health
-				xeno.last_damage_data = create_cause_data("scuffling", src)
-				xeno.gib(last_damage_data)
+				xeno.release_haul(stuns=FALSE)
 		else
 			for(var/mob/mobs_can_hear in hearers(4, xeno))
 				if(mobs_can_hear.client)
@@ -191,7 +190,7 @@
 	// Super bio armor
 	var/bio_hardcore = 0
 
-	var/list/worn_clothes = list(head, wear_suit, hands, glasses, w_uniform, shoes, wear_mask)
+	var/list/worn_clothes = list(head, wear_suit, glasses, w_uniform, shoes, wear_mask)
 
 	for(var/obj/item/clothing/worn_item in worn_clothes)
 		total_prot += worn_item.armor_bio
@@ -217,7 +216,7 @@
 	if(shock_damage<1)
 		return FALSE
 
-	src.apply_damage(shock_damage, BURN, def_zone, used_weapon="Electrocution")
+	apply_damage(shock_damage, BURN, def_zone, used_weapon="Electrocution", enviro=TRUE)
 
 	playsound(loc, "sparks", 25, 1)
 	if(shock_damage > 10)
@@ -254,9 +253,6 @@
 	if(wielded_item && (wielded_item.flags_item & WIELDED)) //this segment checks if the item in your hand is twohanded.
 		var/obj/item/weapon/twohanded/offhand/offhand = get_inactive_hand()
 		if(offhand && (offhand.flags_item & WIELDED))
-			to_chat(src, SPAN_WARNING("Your other hand is too busy holding \the [offhand.name]")) //So it's an offhand.
-			return
-		else
 			wielded_item.unwield(src) //Get rid of it.
 	if(wielded_item && wielded_item.zoom) //Adding this here while we're at it
 		wielded_item.zoom(src)
@@ -290,7 +286,7 @@
 /mob/living/carbon/proc/help_shake_act(mob/living/carbon/M)
 	if(src == M)
 		return
-	var/t_him = p_them()
+	var/t_him = ru_p_thereto()
 
 	var/shake_action
 	if(stat == DEAD || HAS_TRAIT(src, TRAIT_INCAPACITATED) || sleeping) // incap implies also unconscious or knockedout
@@ -301,11 +297,11 @@
 	if(shake_action) // We are incapacitated in some fashion
 		if(client)
 			sleeping = max(0,sleeping-5)
-		M.visible_message(SPAN_NOTICE("[M] shakes [src] trying to [shake_action]"),
+		M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] shakes [src] trying to [shake_action]"),
 			SPAN_NOTICE("You shake [src] trying to [shake_action]"), null, 4)
 
 	else if(body_position == LYING_DOWN) // We're just chilling on the ground, let us be
-		M.visible_message(SPAN_NOTICE("[M] stares and waves impatiently at [src] lying on the ground."),
+		M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] stares and waves impatiently at [src] lying on the ground."),
 			SPAN_NOTICE("You stare and wave at [src] just lying on the ground."), null, 4)
 
 	else
@@ -313,8 +309,8 @@
 		if(istype(H))
 			H.species.hug(H, src, H.zone_selected)
 		else
-			M.visible_message(SPAN_NOTICE("[M] pats [src] on the back to make [t_him] feel better!"),
-				SPAN_NOTICE("You pat [src] on the back to make [t_him] feel better!"), null, 4)
+			M.visible_message(SPAN_NOTICE("[capitalize(M.declent_ru(NOMINATIVE))] похлопывает [declent_ru(ACCUSATIVE)] по спине, чтобы [t_him] стало лучше!"), // SS220 EDIT ADDICTION
+				SPAN_NOTICE("Вы похлопываете [src] по спине, чтобы [t_him] стало лучше!"), null, 4)
 			playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 5)
 		return
 
@@ -405,7 +401,7 @@
 
 		if(!(thrown_thing.try_to_throw(src)))
 			return
-		visible_message(SPAN_WARNING("[src] has thrown [thrown_thing]."), null, null, 5)
+		visible_message(SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] бросает [thrown_thing.declent_ru(ACCUSATIVE)]."), null, null, 5) // SS220 EDIT ADDICTION
 
 		if(!lastarea)
 			lastarea = get_area(src.loc)
@@ -465,7 +461,7 @@
 	set category = "IC"
 
 	if(sleeping)
-		to_chat(usr, SPAN_DANGER("You are already sleeping"))
+		to_chat(usr, SPAN_DANGER("You are already sleeping."))
 		return
 	if(alert(src,"You sure you want to sleep for a while?","Sleep","Yes","No") == "Yes")
 		sleeping = 20 //Short nap
@@ -498,12 +494,16 @@
 
 // Adding traits, etc after xeno restrains and hauls us
 /mob/living/carbon/human/proc/handle_haul(mob/living/carbon/xenomorph/xeno)
+	SetStun(0, ignore_canstun=TRUE)
+	SetKnockDown(0, ignore_canstun=TRUE)
+
 	ADD_TRAIT(src, TRAIT_FLOORED, TRAIT_SOURCE_XENO_HAUL)
 	ADD_TRAIT(src, TRAIT_HAULED, TRAIT_SOURCE_XENO_HAUL)
 	ADD_TRAIT(src, TRAIT_NO_STRAY, TRAIT_SOURCE_XENO_HAUL)
 
 	hauling_xeno = xeno
 	RegisterSignal(xeno, COMSIG_MOB_DEATH, PROC_REF(release_haul_death))
+	RegisterSignal(src, COMSIG_ATTEMPT_MOB_PULL, PROC_REF(haul_grab_attempt))
 	RegisterSignal(src, COMSIG_LIVING_PREIGNITION, PROC_REF(haul_fire_shield))
 	RegisterSignal(src, list(COMSIG_LIVING_FLAMER_CROSSED, COMSIG_LIVING_FLAMER_FLAMED), PROC_REF(haul_fire_shield_callback))
 	layer = LYING_BETWEEN_MOB_LAYER
@@ -515,30 +515,36 @@
 	SIGNAL_HANDLER
 	handle_unhaul()
 
+/mob/living/carbon/human/proc/haul_grab_attempt()
+	SIGNAL_HANDLER
+	return COMPONENT_CANCEL_MOB_PULL
+
 /mob/living/carbon/human/proc/haul_fire_shield(mob/living/burning_mob) //Stealing it from the pyro spec armor, xenos shield us from fire
 	SIGNAL_HANDLER
 	return COMPONENT_CANCEL_IGNITION
 
-
 /mob/living/carbon/human/proc/haul_fire_shield_callback(mob/living/burning_mob)
 	SIGNAL_HANDLER
-	. = COMPONENT_NO_IGNITE|COMPONENT_NO_BURN
+	return COMPONENT_NO_IGNITE|COMPONENT_NO_BURN
 
 // Removing traits and other stuff after xeno releases us from haul
 /mob/living/carbon/human/proc/handle_unhaul()
 	var/location = get_turf(loc)
 	remove_traits(list(TRAIT_HAULED, TRAIT_NO_STRAY, TRAIT_FLOORED, TRAIT_IMMOBILIZED), TRAIT_SOURCE_XENO_HAUL)
 	pixel_y = 0
-	UnregisterSignal(src, list(COMSIG_LIVING_PREIGNITION, COMSIG_LIVING_FLAMER_CROSSED, COMSIG_LIVING_FLAMER_FLAMED))
+	UnregisterSignal(src, list(COMSIG_ATTEMPT_MOB_PULL, COMSIG_LIVING_PREIGNITION, COMSIG_LIVING_FLAMER_CROSSED, COMSIG_LIVING_FLAMER_FLAMED))
 	UnregisterSignal(hauling_xeno, COMSIG_MOB_DEATH)
 	hauling_xeno = null
 	layer = MOB_LAYER
 	remove_filter("hauled_shadow")
 	forceMove(location)
 	for(var/obj/object in location)
-		if(istype(object, /obj/effect/alien/resin/trap) || istype(object, /obj/effect/alien/egg))
+		if(istype(object, /obj/effect/alien/resin/trap) || istype(object, /obj/effect/alien/egg) || istype(object, /obj/effect/alien/resin/special/eggmorph))
 			object.HasProximity(src)
+		if(istype(object, /obj/effect/egg_trigger))
+			object.Crossed(src)
 	next_haul_resist = 0
+	SEND_SIGNAL(src, COMSIG_MOB_UNHAULED)
 
 
 /mob/living/carbon/proc/extinguish_mob(mob/living/carbon/C)
@@ -582,6 +588,9 @@
 			. += SPAN_GREEN("[src] was thralled by [src.hunter_data.thralled_set.real_name] for '[src.hunter_data.thralled_reason]'.")
 		else if(src.hunter_data.gear)
 			. += SPAN_RED("[src] was marked as carrying gear by [src.hunter_data.gear_set].")
+
+		if(src.hunter_data.youngblood)
+			. += SPAN_GREEN("[src] is being taught by [src.hunter_data.hunter.real_name].")
 
 
 /mob/living/carbon/on_lying_down(new_lying_angle)

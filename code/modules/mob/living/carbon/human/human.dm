@@ -16,10 +16,20 @@
 	AddElement(/datum/element/strippable, GLOB.strippable_human_items, TYPE_PROC_REF(/mob/living/carbon/human, should_strip))
 	. = ..()
 
-	prev_gender = gender // Debug for plural genders
-
 	if(SSticker?.mode?.hardcore)
 		hardcore = TRUE //For WO disposing of corpses
+
+	if(MODE_HAS_MODIFIER(/datum/gamemode_modifier/more_crit))
+		health_threshold_dead = -150
+		health_threshold_crit = -100
+
+/mob/living/carbon/human/clicked(mob/user, list/mods)
+	if(..())
+		return TRUE
+	if(mods[ALT_CLICK] && ishuman(user))
+		check_for_injuries(user)
+		return TRUE
+	return FALSE
 
 /mob/living/carbon/human/initialize_pass_flags(datum/pass_flags_container/PF)
 	..()
@@ -52,7 +62,7 @@
 	stamina = new /datum/stamina(src)
 
 /mob/living/carbon/human/Destroy()
-	SSround_recording.recorder.stop_tracking(src)
+	SSround_recording?.recorder?.stop_tracking(src)
 	remove_from_all_mob_huds()
 	despawn_fax_responder()
 	assigned_equipment_preset = null
@@ -96,8 +106,8 @@
 	. = ..()
 
 	. += ""
-	if(ishumansynth_strict(src)) // So that yautja or other species dont see the ships security alert
-		. += "Security Level: [uppertext(get_security_level())]"
+	if(ishumansynth_strict(src)) // So that yautja or other species don't see the ships security alert
+		. += "Уровень тревоги: [uppertext(get_security_level())]"
 
 	if(species?.has_species_tab_items)
 		var/list/species_tab_items = species.get_status_tab_items(src)
@@ -105,27 +115,33 @@
 			. += tab_item
 
 	if(faction == FACTION_MARINE & !isnull(SSticker) && !isnull(SSticker.mode) && !isnull(SSticker.mode.active_lz) && !isnull(SSticker.mode.active_lz.loc) && !isnull(SSticker.mode.active_lz.loc.loc))
-		. += "Primary LZ: [SSticker.mode.active_lz.loc.loc.name]"
+		. += "Основная ЗП: [SSticker.mode.active_lz.loc.loc.name]"
 
 	if(faction == FACTION_MARINE & !isnull(SSticker) && !isnull(SSticker.mode))
-		. += "Operation Name: [GLOB.round_statistics.round_name]"
+		. += "Название операции: [GLOB.round_statistics.round_name]"
 
 	if(assigned_squad)
 		if(assigned_squad.overwatch_officer)
-			. += "Overwatch Officer: [assigned_squad.overwatch_officer.get_paygrade()][assigned_squad.overwatch_officer.name]"
-		if(assigned_squad.primary_objective)
-			. += "Primary Objective: [html_decode(assigned_squad.primary_objective)]"
-		if(assigned_squad.secondary_objective)
-			. += "Secondary Objective: [html_decode(assigned_squad.secondary_objective)]"
-	if(faction == FACTION_MARINE)
-		. += ""
-		. += "<a href='byond://?MapView=1'>View Tactical Map</a>"
+			. += "Координатор: [assigned_squad.overwatch_officer.get_paygrade()][assigned_squad.overwatch_officer.name]"
+		if(assigned_squad.primary_objective || assigned_squad.secondary_objective)
+			var/turf/current_turf = get_turf(src)
+			var/is_shipside = is_mainship_level(current_turf?.z)
+			var/garbled = !is_shipside && !(current_turf?.z in SSradio.last_command_zs)
+			if(!garbled) // They've now gotten a connection
+				squad_primary_objective_ungarbled = TRUE
+				squad_secondary_objective_ungarbled = TRUE
+			var/primary_garbled = garbled && !squad_primary_objective_ungarbled
+			var/secondary_garbled = garbled && !squad_secondary_objective_ungarbled
+			if(assigned_squad.primary_objective)
+				. += "Основная задача: [html_decode(primary_garbled ? assigned_squad.primary_objective_garbled : assigned_squad.primary_objective)]"
+			if(assigned_squad.secondary_objective)
+				. += "Вторичная задача: [html_decode(secondary_garbled ? assigned_squad.secondary_objective_garbled : assigned_squad.secondary_objective)]"
 	if(mobility_aura)
-		. += "Active Order: MOVE"
+		. += "Активный приказ: MOVE"
 	if(protection_aura)
-		. += "Active Order: HOLD"
+		. += "Активный приказ: HOLD"
 	if(marksman_aura)
-		. += "Active Order: FOCUS"
+		. += "Активный приказ: FOCUS"
 
 	if(SShijack)
 		var/eta_status = SShijack.get_evac_eta()
@@ -134,8 +150,8 @@
 		if(SShijack.sd_unlocked)
 			. += "Self Destruct Status: [SShijack.get_sd_eta()]"
 
-/mob/living/carbon/human/ex_act(severity, direction, datum/cause_data/cause_data)
-	if(body_position == LYING_DOWN && direction)
+/mob/living/carbon/human/ex_act(severity, direction, datum/cause_data/cause_data, pierce=0, enviro=FALSE)
+	if(body_position == LYING_DOWN && direction > 0)
 		severity *= EXPLOSION_PRONE_MULTIPLIER
 
 	var/b_loss = 0
@@ -204,13 +220,11 @@
 	else
 		return
 
-	var/update = 0
-
 	//Focus half the blast on one organ
 	var/mob/attack_source = last_damage_data?.resolve_mob()
 	var/obj/limb/take_blast = pick(limbs)
 	if(take_blast)
-		update |= take_blast.take_damage(b_loss * 0.5, f_loss * 0.5, used_weapon = "Explosive blast", attack_source = attack_source)
+		take_blast.take_damage(b_loss * 0.5, f_loss * 0.5, used_weapon = "Explosive blast", attack_source = attack_source)
 	pain?.apply_pain(b_loss * 0.5, BRUTE)
 	pain?.apply_pain(f_loss * 0.5, BURN)
 
@@ -242,11 +256,9 @@
 				limb_multiplier = 0.05
 			if("l_arm")
 				limb_multiplier = 0.05
-		update |= temp.take_damage(b_loss * limb_multiplier, f_loss * limb_multiplier, used_weapon = weapon_message, attack_source = attack_source)
+		temp.take_damage(b_loss * limb_multiplier, f_loss * limb_multiplier, used_weapon = weapon_message, attack_source = attack_source)
 		pain.apply_pain(b_loss * limb_multiplier, BRUTE)
 		pain.apply_pain(f_loss * limb_multiplier, BURN)
-	if(update)
-		UpdateDamageIcon()
 	return TRUE
 
 
@@ -264,7 +276,7 @@
 		var/damage = rand(M.melee_damage_lower, M.melee_damage_upper)
 		var/dam_zone = pick("chest", "l_hand", "r_hand", "l_leg", "r_leg")
 		var/obj/limb/affecting = get_limb(rand_zone(dam_zone))
-		apply_damage(damage, BRUTE, affecting)
+		apply_damage(damage, BRUTE, affecting, enviro=TRUE)
 
 
 /mob/living/carbon/human/proc/implant_loyalty(mob/living/carbon/human/M, override = FALSE) // Won't override by default.
@@ -310,18 +322,6 @@
 		observer.client.add_to_screen(s_active.storage_start)
 		observer.client.add_to_screen(s_active.storage_continue)
 		observer.client.add_to_screen(s_active.storage_end)
-
-// called when something steps onto a human
-// this handles mulebots and vehicles
-/mob/living/carbon/human/Crossed(atom/movable/AM)
-	if(istype(AM, /obj/structure/machinery/bot/mulebot))
-		var/obj/structure/machinery/bot/mulebot/MB = AM
-		MB.RunOver(src)
-
-	if(istype(AM, /obj/vehicle))
-		var/obj/vehicle/V = AM
-		V.RunOver(src)
-
 
 //gets assignment from ID or ID inside PDA or PDA itself
 //Useful when player do something with computers
@@ -414,14 +414,14 @@
 	if(href_list["item"])
 		if(!usr.is_mob_incapacitated() && Adjacent(usr))
 			if(href_list["item"] == "id")
-				if(MODE_HAS_MODIFIER(/datum/gamemode_modifier/disable_stripdrag_enemy) && (stat == DEAD || health < HEALTH_THRESHOLD_CRIT) && !get_target_lock(usr.faction_group))
+				if(MODE_HAS_MODIFIER(/datum/gamemode_modifier/disable_stripdrag_enemy) && (stat == DEAD || health < health_threshold_crit) && !get_target_lock(usr.faction_group))
 					to_chat(usr, SPAN_WARNING("You can't strip a crit or dead member of another faction!"))
 					return
 				if(istype(wear_id, /obj/item/card/id/dogtag) && (undefibbable || !skillcheck(usr, SKILL_POLICE, SKILL_POLICE_SKILLED)))
 					var/obj/item/card/id/dogtag/DT = wear_id
 					if(!DT.dogtag_taken)
 						if(stat == DEAD)
-							to_chat(usr, SPAN_NOTICE("You take [src]'s information tag, leaving the ID tag"))
+							to_chat(usr, SPAN_NOTICE("You take [src]'s information tag, leaving the ID tag."))
 							DT.dogtag_taken = TRUE
 							DT.icon_state = DT.tags_taken_icon
 							var/obj/item/dogtag/D = new(loc)
@@ -439,7 +439,7 @@
 			if(!usr.action_busy || skillcheck(usr, SKILL_POLICE, SKILL_POLICE_SKILLED))
 				var/slot = href_list["item"]
 				var/obj/item/what = get_item_by_slot(slot)
-				if(MODE_HAS_MODIFIER(/datum/gamemode_modifier/disable_stripdrag_enemy) && (stat == DEAD || health < HEALTH_THRESHOLD_CRIT) && !get_target_lock(usr.faction_group))
+				if(MODE_HAS_MODIFIER(/datum/gamemode_modifier/disable_stripdrag_enemy) && (stat == DEAD || health < health_threshold_crit) && !get_target_lock(usr.faction_group))
 					if(!MODE_HAS_MODIFIER(/datum/gamemode_modifier/disable_strip_essentials) || (what in list(head, wear_suit, w_uniform, shoes)))
 						to_chat(usr, SPAN_WARNING("You can't strip a crit or dead member of another faction!"))
 						return
@@ -451,7 +451,7 @@
 
 	if(href_list["sensor"])
 		if(!usr.action_busy && !usr.is_mob_incapacitated() && Adjacent(usr))
-			if(MODE_HAS_MODIFIER(/datum/gamemode_modifier/disable_stripdrag_enemy) && (stat == DEAD || health < HEALTH_THRESHOLD_CRIT) && !get_target_lock(usr.faction_group))
+			if(MODE_HAS_MODIFIER(/datum/gamemode_modifier/disable_stripdrag_enemy) && (stat == DEAD || health < health_threshold_crit) && !get_target_lock(usr.faction_group))
 				to_chat(usr, SPAN_WARNING("You can't tweak the sensors of a crit or dead member of another faction!"))
 				return
 			attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had their sensors toggled by [key_name(usr)]</font>")
@@ -492,7 +492,7 @@
 			return
 
 		if(target.squad_status == "K.I.A.")
-			to_chat(sl, "[FONT_SIZE_BIG("<font color='red'>You can't assign K.I.A. marines to fireteams.</font>")]")
+			to_chat(sl, "[FONT_SIZE_BIG("<font color='red'>Вы не можете назначать погибших в бою морпехов в группы.</font>")]")
 			return
 
 		target.assigned_squad.manage_fireteams(target)
@@ -644,7 +644,7 @@
 						for(var/datum/data/record/R in GLOB.data_core.general)
 							if(R.fields["id"] == E.fields["id"])
 
-								var/setmedical = tgui_input_list(usr, "Specify a new medical status for this person.", "Medical HUD", R.fields["p_stat"], list("*SSD*", "*Deceased*", "Physically Unfit", "Active", "Disabled", "Cancel"))
+								var/setmedical = tgui_input_list(usr, "Specify a new medical status for this person.", "Medical HUD", R.fields["p_stat"], list("SSD", "Deceased", "Injured", "Inactive", "Active", "Disabled", "Cancel"))
 
 								if(hasHUD(usr,"medical"))
 									if(setmedical != "Cancel")
@@ -675,11 +675,11 @@
 						for(var/datum/data/record/R as anything in GLOB.data_core.medical)
 							if(R.fields["id"] == E.fields["id"])
 								if(hasHUD(usr,"medical"))
-									to_chat(usr, "<b>Name:</b> [R.fields["name"]] <b>Blood Type:</b> [R.fields["b_type"]]")
-									to_chat(usr, "<b>Minor Disabilities:</b> [R.fields["mi_dis"]]")
-									to_chat(usr, "<b>Details:</b> [R.fields["mi_dis_d"]]")
-									to_chat(usr, "<b>Major Disabilities:</b> [R.fields["ma_dis"]]")
-									to_chat(usr, "<b>Details:</b> [R.fields["ma_dis_d"]]")
+									to_chat(usr, "<b>Name:</b> [R.fields["name"]] <b>Blood Type:</b> [R.fields["blood_type"]]")
+									to_chat(usr, "<b>Minor Disabilities:</b> [R.fields["minor_disability"]]")
+									to_chat(usr, "<b>Details:</b> [R.fields["minor_disability_details"]]")
+									to_chat(usr, "<b>Major Disabilities:</b> [R.fields["major_disability"]]")
+									to_chat(usr, "<b>Details:</b> [R.fields["major_disability_details"]]")
 									to_chat(usr, "<b>Notes:</b> [R.fields["notes"]]")
 									to_chat(usr, "<a href='byond://?src=\ref[src];medrecordComment=1'>\[View Comment Log\]</a>")
 									read = 1
@@ -709,7 +709,7 @@
 										to_chat(usr, R.fields["com_[counter]"])
 										counter++
 									if(counter == 1)
-										to_chat(usr, "No comment found")
+										to_chat(usr, "No comment found.")
 									to_chat(usr, "<a href='byond://?src=\ref[src];medrecordadd=1'>\[Add comment\]</a>")
 
 			if(!read)
@@ -774,7 +774,7 @@
 	if(href_list["scanreport"])
 		if(hasHUD(usr,"medical"))
 			if(!skillcheck(usr, SKILL_MEDICAL, SKILL_MEDICAL_MEDIC))
-				to_chat(usr, SPAN_WARNING("You're not trained to use this."))
+				to_chat(usr, SPAN_WARNING("Вы не знаете как использовать это."))
 				return
 			if(!has_species(src, "Human"))
 				to_chat(usr, SPAN_WARNING("This only works on humans."))
@@ -803,7 +803,9 @@
 			return
 
 		stethoscope.attack(src, user)
-
+	if(href_list["remove_splint"])
+		var/part_to_remove = href_list["remove_splint"]
+		remove_splints(usr, part_to_remove)
 	..()
 	return
 
@@ -813,35 +815,189 @@
 	if(!skillcheck(user, SKILL_MEDICAL, SKILL_MEDICAL_MEDIC))
 		// Removing your own holocard when you are not trained
 		if(user == src && holo_card_color)
-			if(tgui_alert(user, "Are you sure you want to reset your own holocard?", "Resetting Holocard", list("Yes", "No")) != "Yes")
+			if(tgui_alert(user, "Вы уверены, что хотите сбросить статус своей медголокарты?", "Сброс статуса медголокарты", list("Да", "Нет")) == "Нет") // SS220 EDIT ADDICTION
 				return
 			holo_card_color = null
-			to_chat(user, SPAN_NOTICE("You reset your holocard."))
+			to_chat(user, SPAN_NOTICE("Вы сбрасываете статус своей медголокарты."))
 			hud_set_holocard()
 			return
-		to_chat(user, SPAN_WARNING("You're not trained to use this."))
+		to_chat(user, SPAN_WARNING("Вы не знаете как использовать это."))
 		return
 	if(!has_species(src, "Human"))
-		to_chat(user, SPAN_WARNING("Triage holocards only works on humans."))
+		to_chat(user, SPAN_WARNING("Статус медголокарты можно изменить только у людей."))
 		return
-	var/newcolor = tgui_input_list(user, "Choose a triage holo card to add to the patient:", "Triage holo card", list("black", "red", "orange", "purple", "none"))
+
+	// SS220 START EDIT ADDICTION
+	var/holocard_translations = list(
+		"black" = "Скончался",
+		"red" = "Необходима срочная помощь",
+		"orange" = "Необходима операция",
+		"purple" = "Заражён паразитом XX-121",
+		"none" = "Нет данных"
+	)
+	var/newcolor = tgui_input_list(user, "Укажите причину болезни пациента:", "Медголокарта", holocard_translations, associative_list = TRUE)
+	// SS220 EDIT ADDICTION
 	if(!newcolor)
 		return
+	var/translated_value = holocard_translations[newcolor] // SS220 EDIT ADDICTION
 	if(get_dist(user, src) > 7)
-		to_chat(user, SPAN_WARNING("[src] is too far away."))
+		to_chat(user, SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] слишком далеко от вас.")) // SS220 EDIT ADDICTION
 		return
 	if(newcolor == "none")
+		holo_card_accuracy = 0
 		if(!holo_card_color)
 			return
 		holo_card_color = null
-		to_chat(user, SPAN_NOTICE("You remove the holo card on [src]."))
+		to_chat(user, SPAN_NOTICE("Вы убираете статус из медголокарты [declent_ru(GENITIVE)].")) // SS220 EDIT ADDICTION
 	else if(newcolor != holo_card_color)
 		if(newcolor == "black" && is_revivable() && check_tod())
-			to_chat(user, SPAN_WARNING("They are yet saveable."))
+			to_chat(user, SPAN_WARNING("Пациента ещё можно спасти!"))
 			return
 		holo_card_color = newcolor
-		to_chat(user, SPAN_NOTICE("You add a [newcolor] holo card on [src]."))
+		to_chat(user, SPAN_NOTICE("Вы устанавливаете статус «[translated_value]» в медголокарте [declent_ru(GENITIVE)].")) // SS220 EDIT ADDICTION
+
+	holo_card_accuracy = HOLOCARD_ACCURACY_MANUAL
 	hud_set_holocard()
+
+// Scans the health of a human, then assigns an appropriate holotag based on their injuries
+// Will use new_accuracy to determine both:
+//  - What injuries should be included (for example, organ damage would not show up on a handheld scan)
+//  - Whether to update a holotag to a more accurate reading, or to keep the old one
+// Manual assignments will not change the color of the holotag, but will change the recorded accuracy
+//
+// If a manual assignment or body scanner determines there are no injuries worthy of a holotag, it will reset the accuracy rating (clean slate)
+/mob/living/carbon/human/proc/auto_assign_holotag(mob/user, new_accuracy)
+	if (new_accuracy == HOLOCARD_ACCURACY_MANUAL)
+		holo_card_accuracy = HOLOCARD_ACCURACY_MANUAL
+		return
+
+	// Only handle automatic holotags if the user has the skill to
+	if (skillcheck(user, SKILL_MEDICAL, SKILL_MEDICAL_MEDIC))
+		var/tag_severity = 0
+
+		if (blood_volume < BLOOD_VOLUME_OKAY)
+			tag_severity = 2
+		else if (blood_volume < BLOOD_VOLUME_SAFE)
+			tag_severity = 1 // Severity could only ever be 0 at this point, safe to directly assign
+
+		// Overdoses are life-threatening
+		for (var/datum/reagent/reagent as anything in reagents.reagent_list)
+			if (reagent.volume > reagent.overdose && reagent.overdose != 0)
+				// Regulating chems can't harmfully overdose
+				if (!reagent.get_property(PROPERTY_REGULATING))
+					tag_severity = 2
+
+		// The highest holotag you can get from limbs is red, so we can safely break out of the limb loop if we find a red-worthy injury
+		for (var/obj/limb/limb as anything in limbs)
+			// Uncleaned amputations, while technically not life threatening because amputations
+			// don't bleed, cause an incredible amount of pain, usually enough to paincrit the injured human.
+			if (limb.status & LIMB_DESTROYED)
+				tag_severity = 2
+				break
+
+			// An argument could be made for cleaned and dressed amputations to be red tag, but at that point
+			// it no longer causes any pain and only applies the slowdown/missing hand, so nonlethal
+			if (limb.status & LIMB_AMPUTATED)
+				tag_severity = max(tag_severity, 1)
+
+			// Internal bleeding requires immediate surgery
+			var/internal_bleeding = FALSE
+			for(var/datum/effects/bleeding/internal/ib in limb.bleeding_effects_list)
+				tag_severity = 2
+				internal_bleeding = TRUE
+				break
+			if (internal_bleeding)
+				break
+
+			// Splinted fractures do not require immediate surgical intervention
+			// Unsplinted fractures should be handled immediately before more damage is done
+			if (limb.status & LIMB_BROKEN)
+				tag_severity = max(tag_severity, 1)
+
+			// Severe burns and eschars are not immediately life-threatening
+			if (limb.status & LIMB_ESCHAR)
+				tag_severity = max(tag_severity, 1)
+
+		// Check if this new scan would have had the accuracy to view organs
+		if (new_accuracy >= HOLOCARD_ACCURACY_BODYSCANNER)
+			// Heartbroken marines should be operated on IMMEDIATELY
+			var/datum/internal_organ/kidneys/heart = internal_organs_by_name["heart"]
+			if (heart.organ_status >= ORGAN_BROKEN)
+				tag_severity = 2
+			else if (heart.organ_status >= ORGAN_BRUISED)
+				tag_severity = max(tag_severity, 1)
+
+			// Ditto for ruptured lungs
+			var/datum/internal_organ/kidneys/lungs = internal_organs_by_name["lungs"]
+			if (is_lung_ruptured())
+				tag_severity = 2
+			else if (lungs.organ_status >= ORGAN_BRUISED)
+				tag_severity = max(tag_severity, 1)
+
+			// Bruised livers and kidneys will accumulate toxin damage
+			var/datum/internal_organ/kidneys/kidneys = internal_organs_by_name["kidneys"]
+			if (kidneys.organ_status >= ORGAN_BROKEN)
+				tag_severity = 2
+			else if (kidneys.organ_status >= ORGAN_BRUISED)
+				tag_severity = max(tag_severity, 1)
+
+			var/datum/internal_organ/liver/liver = internal_organs_by_name["liver"]
+			if (liver.organ_status >= ORGAN_BROKEN)
+				tag_severity = 2
+			else if (liver.organ_status >= ORGAN_BRUISED)
+				tag_severity = max(tag_severity, 1)
+
+			// Brainrot is bad
+			var/datum/internal_organ/brain/brain = internal_organs_by_name["brain"]
+			if (brain.organ_status >= ORGAN_BRUISED)
+				tag_severity = 2
+
+			// Eye damage is not nearly as bad as the previous three organs, and isn't NECESSARY to be fixed, technically
+			var/datum/internal_organ/eyes/eyes = internal_organs_by_name["eyes"]
+			if (eyes.organ_status >= ORGAN_BRUISED)
+				tag_severity = max(tag_severity, 1)
+
+		if (status_flags & PERMANENTLY_DEAD) tag_severity = 3
+
+		// For some reason, decapitated humans don't have the permanently dead tag
+		var/obj/limb/head/head
+		for (var/obj/limb/limb in src.limbs)
+			if (istype(limb, /obj/limb/head))
+				head = limb
+		if (head == null || head.status & (LIMB_DESTROYED | LIMB_AMPUTATED))
+			tag_severity = 3
+
+		if (status_flags & XENO_HOST && new_accuracy >= HOLOCARD_ACCURACY_BODYSCANNER)
+			tag_severity = 4
+
+		var/old_severity
+		// Yes, switching between strings and numbers like this is terrible and I should be using a custom define, but I don't want to touch the code already in place
+		// Technical debt schmectical debt
+		switch (holo_card_color)
+			if("", null) old_severity = 0
+			if("orange") old_severity = 1
+			if("red") old_severity = 2
+			if("black") old_severity = 3
+			if("purple") old_severity = 4 // Even if they're unrevivable, we need to get the larva out
+			else old_severity = 0
+
+		// If the scan's accuracy is equal to or greater than the previous scan, or if the severity is higher than the old severity, update the card
+		if (tag_severity > old_severity || new_accuracy >= holo_card_accuracy)
+			holo_card_accuracy = new_accuracy
+			// See previous comment
+			switch (tag_severity)
+				if (0)
+					holo_card_color = ""
+					holo_card_accuracy = HOLOCARD_ACCURACY_HANDHELD // Reset accuracy for new wounds
+				if (1)
+					holo_card_color = "orange"
+				if (2)
+					holo_card_color = "red"
+				if (3)
+					holo_card_color = "black"
+				if (4)
+					holo_card_color = "purple"
+			hud_set_holocard()
 
 /mob/living/carbon/human/tgui_interact(mob/user, datum/tgui/ui) // I'M SORRY, SO FUCKING SORRY
 	. = ..()
@@ -861,34 +1017,35 @@
 /mob/living/carbon/human/ui_state(mob/user)
 	return GLOB.not_incapacitated_state
 
-///get_eye_protection()
-///Returns a number between -1 to 2
+/// Gets a value between EYE_PROTECTION_NEGATIVE (-1) and EYE_PROTECTION_WELDING (3) based on whether there are eyes
+/// to blind or how much clothing protects them
 /mob/living/carbon/human/get_eye_protection()
-	var/number = 0
+	var/number = EYE_PROTECTION_NONE
 
 	if(species && !species.has_organ["eyes"])
 		return EYE_PROTECTION_WELDING //No eyes, can't hurt them.
 
 	if(!internal_organs_by_name)
 		return EYE_PROTECTION_WELDING
-	var/datum/internal_organ/eyes/I = internal_organs_by_name["eyes"]
-	if(I)
-		if(I.cut_away)
+	var/datum/internal_organ/eyes/eyes_organ = internal_organs_by_name["eyes"]
+	if(eyes_organ)
+		if(eyes_organ.cut_away)
 			return EYE_PROTECTION_WELDING
-		if(I.robotic == ORGAN_ROBOT)
+		if(eyes_organ.robotic == ORGAN_ROBOT)
 			return EYE_PROTECTION_WELDING
 	else
 		return EYE_PROTECTION_WELDING
 
 	if(istype(head, /obj/item/clothing))
-		var/obj/item/clothing/C = head
-		number += C.eye_protection
+		var/obj/item/clothing/cloth_item = head
+		number += cloth_item.eye_protection
 	if(istype(wear_mask, /obj/item/clothing))
-		number += wear_mask.eye_protection
+		var/obj/item/clothing/cloth_item = wear_mask
+		number += cloth_item.eye_protection
 	if(glasses)
 		number += glasses.eye_protection
 
-	return number
+	return clamp(number, EYE_PROTECTION_NEGATIVE, EYE_PROTECTION_WELDING)
 
 
 /mob/living/carbon/human/abiotic(full_body = 0)
@@ -923,7 +1080,7 @@
 	apply_effect(5, STUN)
 	if(stat == 2) //One last corpse check
 		return
-	src.visible_message(SPAN_WARNING("[src] throws up!"), SPAN_WARNING("You throw up!"), null, 5)
+	src.visible_message(SPAN_WARNING("[capitalize(declent_ru(NOMINATIVE))] блюёт!"), SPAN_WARNING("Вы блюёте!"), null, 5)
 	playsound(loc, 'sound/effects/splat.ogg', 25, 1, 7)
 
 	var/turf/location = loc
@@ -1000,6 +1157,8 @@
 	for(var/obj/item/W in embedded_items)
 		if(!istype(W, /obj/item/shard/shrapnel))
 			visible_objects += W
+			// временно отключаю перевод до выяснения обстоятельств крашей
+			// visible_objects[capitalize(W.declent_ru())] = W // SS220 EDIT ADDICTION
 	return visible_objects
 
 
@@ -1015,6 +1174,9 @@
 			embedded.on_embedded_movement(src)
 		else if(istype(W, /obj/item/shard/shrapnel))
 			var/obj/item/shard/shrapnel/embedded = W
+			embedded.on_embedded_movement(src)
+		else if(istype(W, /obj/item/sharp))
+			var/obj/item/sharp/embedded = W
 			embedded.on_embedded_movement(src)
 		// Check if its a sharp weapon
 		else if(is_sharp(W))
@@ -1032,35 +1194,35 @@
 	var/msg
 	///Is the target the user or somebody else?
 	var/self = (target == src)
-	to_chat(usr,SPAN_NOTICE("You [self ? "take a moment to analyze yourself." : "start analyzing [target.name]."]"))
+	to_chat(usr, SPAN_NOTICE("Используя свои медицинские навыки вы проверяете [self ? "своё состояние." : "состояние [target.name]."]")) // SS220 EDIT ADDICTION
 
 	if(self)
 		var/list/broken_limbs = target.get_broken_limbs() - list("chest","head","groin")
 		if(length(broken_limbs))
-			msg += "Your [english_list(broken_limbs)] [length(broken_limbs) > 1 ? "are" : "is"] broken.\n"
+			msg += "У вас перелом [english_list(broken_limbs, declent = GENITIVE)].\n" // SS220 EDIT ADDICTION
 	if(target.toxloss > 20)
-		msg += "[self ? "Your" : "Their"] skin is slightly green.\n"
+		msg += "[self ? "Ваша" : target.ru_p_them(TRUE)] кожа слегка позеленела.\n" // SS220 EDIT ADDICTION
 
 	if(target.is_bleeding())
-		msg += "[self ? "You" : "They"] have bleeding wounds on [self ? "your" : "their"] body.\n"
+		msg += "У [self ? "вас" : target.ru_p_theirs()] кровотечение.\n" // SS220 EDIT ADDICTION
 
 	if(!self && skillcheck(usr, SKILL_SURGERY, SKILL_SURGERY_NOVICE))
 		for(var/datum/effects/bleeding/internal/internal_bleed in target.effects_list)
-			msg += "They have bloating and discoloration on their [internal_bleed.limb.display_name].\n"
+			msg += "У [target.ru_p_theirs()] изменился цвет кожи и наблюдается припухлость в [declent_ru_initial(internal_bleed.limb.display_name, DATIVE, internal_bleed.limb.display_name)].\n" // SS220 EDIT ADDICTION
 
 	switch(target.stat)
 		if(DEAD)
 			if(target.check_tod() && target.is_revivable())
-				msg += "They're not breathing."
+				msg += "[target.ru_p_they(TRUE)] не дышит." // SS220 EDIT ADDICTION
 			else
 				if(has_limb("head"))
-					msg += "Their eyes have gone blank, there are no signs of life."
+					msg += "[target.ru_p_them(TRUE)] взгляд потускнел и [target.ru_p_they()] не подаёт признаков жизни." // SS220 EDIT ADDICTION
 				else
-					msg += "They are definitely dead."
+					msg += "[target.ru_p_they(TRUE)] определённо [target.gender == MALE ? "мёртв" : "мертва"]." // SS220 EDIT ADDICTION
 		if(UNCONSCIOUS)
-			msg += "They seem to be unconscious.\n"
+			msg += "[target.ru_p_they(TRUE)], похоже, без сознания.\n" // SS220 EDIT ADDICTION
 		if(CONSCIOUS)
-			msg += "[self ? "You're" : "They're"] alive and breathing."
+			msg += "У [self ? "вас" : target.ru_p_theirs()], в целом, всё в порядке." // SS220 EDIT ADDICTION
 
 	to_chat(src, SPAN_WARNING(msg))
 
@@ -1073,6 +1235,16 @@
 		to_chat(usr, SPAN_WARNING("You have no access to [MAIN_SHIP_NAME] crew manifest."))
 		return
 	GLOB.crew_manifest.open_ui(src)
+
+/mob/living/carbon/human/verb/view_tacmaps()
+	set name = "View Tacmap"
+	set category = "IC"
+
+	if(faction != FACTION_MARINE && !(FACTION_MARINE in faction_group))
+		to_chat(usr, SPAN_WARNING("You have no access to [MAIN_SHIP_NAME] tactical map."))
+		return
+
+	GLOB.tacmap_viewer.tgui_interact(src)
 
 /mob/living/carbon/human/verb/view_objective_memory()
 	set name = "View intel objectives"
@@ -1121,7 +1293,14 @@
 		for(var/datum/cm_objective/Objective in src.mind.objective_memory.disks)
 			src.mind.objective_memory.disks -= Objective
 
-/mob/living/carbon/human/proc/set_species(new_species, default_color)
+/mob/living/carbon/human/look_up()
+	if(is_zoomed)
+		to_chat(src, SPAN_WARNING("You cannot look up while zoomed!"))
+		return
+
+	. = ..()
+
+/mob/living/carbon/human/proc/set_species(new_species, default_color, default_species = "Human")
 	if(!new_species)
 		new_species = "Human"
 
@@ -1136,9 +1315,11 @@
 
 	species = GLOB.all_species[new_species]
 
-	// If an invalid new_species value is passed, just default to human
-	if (!istype(species))
-		species = GLOB.all_species["Human"]
+	// If an invalid new_species value is passed, defualt to set defualt, if that fails fallback just default to human
+	if(!istype(species))
+		species = GLOB.all_species[default_species]
+		if(!istype(species))
+			species = GLOB.all_species["Human"]
 
 	if(oldspecies)
 		//additional things to change when we're no longer that species
@@ -1157,19 +1338,23 @@
 
 	if(species.base_color && default_color)
 		//Apply color.
-		r_skin = hex2num(copytext(species.base_color,2,4))
-		g_skin = hex2num(copytext(species.base_color,4,6))
-		b_skin = hex2num(copytext(species.base_color,6,8))
+		var/list/color_list = rgb2num(species.base_color)
+		r_skin = color_list[1]
+		g_skin = color_list[2]
+		b_skin = color_list[3]
 	else
 		r_skin = 0
 		g_skin = 0
 		b_skin = 0
 
 	if(species.hair_color)
-		r_hair = hex2num(copytext(species.hair_color, 2, 4))
-		g_hair = hex2num(copytext(species.hair_color, 4, 6))
-		b_hair = hex2num(copytext(species.hair_color, 6, 8))
+		var/list/color_list = rgb2num(species.hair_color)
+		r_hair = color_list[1]
+		g_hair = color_list[2]
+		b_hair = color_list[3]
 
+	if(species.no_grad_style)
+		grad_style = "None"
 	// Switches old pain and stamina over
 	species.initialize_pain(src)
 	species.initialize_stamina(src)
@@ -1203,32 +1388,46 @@
 	var/legs_exposed = 1
 	var/hands_exposed = 1
 	var/feet_exposed = 1
+	var/armor_on = 0
+	var/helmet_on = 0
 
 	for(var/obj/item/clothing/C in equipment)
-		if(C.flags_armor_protection & BODY_FLAG_HEAD)
+		if(C.flags_bodypart_hidden & BODY_FLAG_HEAD)
 			head_exposed = 0
-		if(C.flags_armor_protection & BODY_FLAG_FACE)
+		if(C.flags_inv_hide & HIDEFACE)
 			face_exposed = 0
-		if(C.flags_armor_protection & BODY_FLAG_EYES)
+		if(C.flags_inv_hide & HIDEEYES)
 			eyes_exposed = 0
-		if(C.flags_armor_protection & BODY_FLAG_CHEST)
+		if(C.flags_bodypart_hidden & BODY_FLAG_CHEST)
 			torso_exposed = 0
-		if(C.flags_armor_protection & BODY_FLAG_ARMS)
+		if(C.flags_bodypart_hidden & BODY_FLAG_ARMS)
 			arms_exposed = 0
-		if(C.flags_armor_protection & BODY_FLAG_HANDS)
+		if(C.flags_bodypart_hidden & BODY_FLAG_HANDS)
 			hands_exposed = 0
-		if(C.flags_armor_protection & BODY_FLAG_LEGS)
+		if(C.flags_bodypart_hidden & BODY_FLAG_LEGS)
 			legs_exposed = 0
-		if(C.flags_armor_protection & BODY_FLAG_FEET)
+		if(C.flags_bodypart_hidden & BODY_FLAG_FEET)
 			feet_exposed = 0
+		if(istype(C, /obj/item/clothing/suit/storage/marine))
+			armor_on = 1
+		if(istype(C, /obj/item/clothing/head/helmet/marine))
+			helmet_on = 1
 
 	flavor_text = flavor_texts["general"]
 	flavor_text += "\n\n"
 	for(var/T in flavor_texts)
 		if(flavor_texts[T] && flavor_texts[T] != "")
-			if((T == "head" && head_exposed) || (T == "face" && face_exposed) || (T == "eyes" && eyes_exposed) || (T == "torso" && torso_exposed) || (T == "arms" && arms_exposed) || (T == "hands" && hands_exposed) || (T == "legs" && legs_exposed) || (T == "feet" && feet_exposed))
+			if((T == "head" && head_exposed) || (T == "face" && face_exposed) || (T == "eyes" && eyes_exposed) || (T == "torso" && torso_exposed) || (T == "arms" && arms_exposed) || (T == "hands" && hands_exposed) || (T == "legs" && legs_exposed) || (T == "feet" && feet_exposed) || (T == "armor" && armor_on) || (T == "helmet" && helmet_on))
+				flavor_text += "[capitalize(T)]: "
+				flavor_text += "\n\n"
 				flavor_text += flavor_texts[T]
 				flavor_text += "\n\n"
+
+	// Variable inserts
+	flavor_text = replacetext(flavor_text, "%bloodtype%", blood_type)
+	flavor_text = replacetext(flavor_text, "%rank%", get_paygrade())
+	flavor_text = replacetext(flavor_text, "%name%", name)
+
 	return ..()
 
 
@@ -1266,21 +1465,29 @@
 		TRACKER_CSL = /datum/squad/marine/charlie,
 		TRACKER_DSL = /datum/squad/marine/delta,
 		TRACKER_ESL = /datum/squad/marine/echo,
-		TRACKER_FSL = /datum/squad/marine/cryo
+		TRACKER_FSL = /datum/squad/marine/cryo,
+		TRACKER_ISL = /datum/squad/marine/intel
 	)
+
+	hud_used.locate_leader.overlays.Cut()
+
 	switch(tracker_setting)
 		if(TRACKER_SL)
 			if(assigned_squad)
 				H = assigned_squad.squad_leader
 		if(TRACKER_LZ)
-			var/obj/structure/machinery/computer/shuttle_control/C = SSticker.mode.active_lz
-			if(!C) //no LZ selected
+			var/obj/structure/machinery/computer/shuttle/dropship/flight/primary_lz_console = SSticker.mode.active_lz
+			if(!primary_lz_console) //no LZ selected
 				hud_used.locate_leader.icon_state = "trackoff"
-			else if(C.z != src.z || get_dist(src,C) < 1)
+			else if(!SSmapping.same_z_map(src.z, primary_lz_console.z) || get_dist(src,primary_lz_console) < 1)
 				hud_used.locate_leader.icon_state = "trackondirect_lz"
 			else
-				hud_used.locate_leader.setDir(Get_Compass_Dir(src,C))
+				hud_used.locate_leader.setDir(Get_Compass_Dir(src,primary_lz_console))
 				hud_used.locate_leader.icon_state = "trackon_lz"
+				if(primary_lz_console.z > z)
+					hud_used.locate_leader.overlays |= image('icons/mob/hud/screen1.dmi', "up")
+				if(primary_lz_console.z < z)
+					hud_used.locate_leader.overlays |= image('icons/mob/hud/screen1.dmi', "down")
 			return
 		if(TRACKER_FTL)
 			if(assigned_squad)
@@ -1318,17 +1525,21 @@
 		return
 
 	var/atom/tracking_atom = H
-	if(tracking_atom.z != src.z && SSinterior.in_interior(tracking_atom))
+	if(tracking_atom.z != z && SSinterior.in_interior(tracking_atom))
 		var/datum/interior/interior = SSinterior.get_interior_by_coords(tracking_atom.x, tracking_atom.y, tracking_atom.z)
 		var/atom/exterior = interior.exterior
 		if(exterior)
 			tracking_atom = exterior
 
-	if(tracking_atom.z != src.z || get_dist(src, tracking_atom) < 1 || src == tracking_atom)
+	if(!SSmapping.same_z_map(z, tracking_atom.z) || get_dist(src, tracking_atom) < 1 || src == tracking_atom)
 		hud_used.locate_leader.icon_state = "trackondirect[tracking_suffix]"
 	else
 		hud_used.locate_leader.setDir(Get_Compass_Dir(src, tracking_atom))
 		hud_used.locate_leader.icon_state = "trackon[tracking_suffix]"
+		if(tracking_atom.z > z)
+			hud_used.locate_leader.overlays |= image('icons/mob/hud/human_bronze.dmi', "up")
+		if(tracking_atom.z < z)
+			hud_used.locate_leader.overlays |= image('icons/mob/hud/human_bronze.dmi', "down")
 
 /mob/living/carbon/proc/locate_nearest_nuke()
 	if(!GLOB.bomb_set)
@@ -1359,14 +1570,13 @@
 	if(SEND_SIGNAL(src, COMSIG_HUMAN_UPDATE_SIGHT) & COMPONENT_OVERRIDE_UPDATE_SIGHT)
 		return
 
-	sight &= ~BLIND // Never have blind on by default
-
 	lighting_alpha = default_lighting_alpha
-	sight &= ~(SEE_TURFS|SEE_MOBS|SEE_OBJS|SEE_BLACKNESS)
+	sight &= ~(SEE_TURFS|SEE_MOBS|SEE_OBJS|SEE_BLACKNESS|BLIND)
+
 	see_in_dark = species.darksight
 	sight |= species.flags_sight
-	if(glasses)
-		process_glasses(glasses)
+
+	process_glasses(glasses)
 
 	if(!(sight & SEE_TURFS) && !(sight & SEE_MOBS) && !(sight & SEE_OBJS))
 		sight |= SEE_BLACKNESS
@@ -1422,7 +1632,8 @@
 
 // target = person whose splints are being removed
 // user = person removing the splints
-/mob/living/carbon/human/proc/remove_splints(mob/living/carbon/human/user)
+/// part refers to the specific limb that is targetted for interaction (splints, tourniquettes, etc)
+/mob/living/carbon/human/proc/remove_splints(mob/living/carbon/human/user, part)
 	var/mob/living/carbon/human/target = src
 
 	if(!istype(user))
@@ -1435,15 +1646,16 @@
 		cur_hand = "r_hand"
 
 	if(!user.action_busy)
-		var/list/obj/limb/to_splint = list()
-		var/same_arm_side = FALSE // If you are trying to splint yourself, need opposite hand to splint an arm/hand
 		if(user.get_limb(cur_hand).status & LIMB_DESTROYED)
 			to_chat(user, SPAN_WARNING("You cannot remove splints without a hand."))
 			return
-		var/is_splint = FALSE
-		for(var/bodypart in list("l_leg","r_leg","l_arm","r_arm","r_hand","l_hand","r_foot","l_foot","chest","head","groin")) //check for any splints before do_after
-			var/obj/limb/l = target.get_limb(bodypart)
-			if(l && (l.status & LIMB_SPLINTED))
+
+		var/list/obj/limb/to_splint = list()
+		var/same_arm_side = FALSE // If you are trying to splint yourself, need opposite hand to splint an arm/hand
+		var/list/parts_to_check = part ? list(part) : list("l_leg","r_leg","l_arm","r_arm","r_hand","l_hand","r_foot","l_foot","chest","head","groin")
+		for(var/bodypart in parts_to_check)
+			var/obj/limb/limbus = target.get_limb(bodypart)
+			if(limbus && (limbus.status & LIMB_SPLINTED))
 				if(user == target)
 					if((bodypart in list("l_arm", "l_hand")) && (cur_hand == "l_hand"))
 						same_arm_side = TRUE
@@ -1451,67 +1663,60 @@
 					if((bodypart in list("r_arm", "r_hand")) && (cur_hand == "r_hand"))
 						same_arm_side = TRUE
 						continue
-				is_splint = TRUE
-				break
+				to_splint += limbus
 
-		var/msg = "" // Have to use this because there are issues with the to_chat macros and text macros and quotation marks
-		if(is_splint)
-			if(do_after(user, HUMAN_STRIP_DELAY * user.get_skill_duration_multiplier(SKILL_MEDICAL), INTERRUPT_ALL, BUSY_ICON_GENERIC, target, INTERRUPT_MOVED, BUSY_ICON_GENERIC))
-				var/can_reach_splints = TRUE
-				var/amount_removed = 0
-				for(var/bodypart in list("l_leg","r_leg","l_arm","r_arm","r_hand","l_hand","r_foot","l_foot","chest","head","groin")) // make sure the splints still exist before removing
-					var/obj/limb/target_limb = target.get_limb(bodypart)
-					if(target_limb && (target_limb.status & LIMB_SPLINTED))
-						if(user == target)
-							if((bodypart in list("l_arm", "l_hand")) && (cur_hand == "l_hand"))
-								same_arm_side = TRUE
-								continue
-							if((bodypart in list("r_arm", "r_hand")) && (cur_hand == "r_hand"))
-								same_arm_side = TRUE
-								continue
-						to_splint += target_limb
-				if(!length(to_splint))
-					if(same_arm_side)
-						to_chat(user, SPAN_WARNING("You need to use the opposite hand to remove the splints on your arm and hand!"))
-					else
-						to_chat(user, SPAN_WARNING("There are no splints to remove."))
-					return
-				if(wear_suit && istype(wear_suit,/obj/item/clothing/suit/space))
-					var/obj/item/clothing/suit/space/suit = target.wear_suit
-					if(LAZYLEN(suit.supporting_limbs))
-						msg = "[user == target ? "your":"\proper [target]'s"]"
-						to_chat(user, SPAN_WARNING("You cannot remove the splints, [msg] [suit] is supporting some of the breaks."))
-						can_reach_splints = FALSE
-				if(can_reach_splints)
-					var/obj/item/stack/medical/splint/new_splint = new(user.loc)
-					new_splint.amount = 0 //we checked that we have at least one bodypart splinted, so we can create it no prob. Also we need amount to be 0
-					new_splint.add_fingerprint(user)
-					for(var/obj/limb/cur_limb in to_splint)
-						amount_removed++
-						cur_limb.status &= ~LIMB_SPLINTED
-						pain.recalculate_pain()
-						if(cur_limb.status & LIMB_SPLINTED_INDESTRUCTIBLE)
-							new /obj/item/stack/medical/splint/nano(user.loc, 1)
-							cur_limb.status &= ~LIMB_SPLINTED_INDESTRUCTIBLE
-						else if(!new_splint.add(1))
-							new_splint = new(user.loc)//old stack is dropped, time for new one
-							new_splint.amount = 0
-							new_splint.add_fingerprint(user)
-							new_splint.add(1)
-					if(new_splint.amount == 0)
-						qdel(new_splint) //we only removed nano splints
-					msg = "[user == target ? "their own":"\proper [target]'s"]"
-					target.visible_message(SPAN_NOTICE("[user] removes [msg] [amount_removed>1 ? "splints":"splint"]."),
-						SPAN_NOTICE("Your [amount_removed>1 ? "splints are":"splint is"] removed."))
-					target.update_med_icon()
-			else
-				msg = "[user == target ? "your":"\proper [target]'s"]"
-				to_chat(user, SPAN_NOTICE("You stop trying to remove [msg] splints."))
-		else
+		if(!length(to_splint))
 			if(same_arm_side)
 				to_chat(user, SPAN_WARNING("You need to use the opposite hand to remove the splints on your arm and hand!"))
 			else
 				to_chat(user, SPAN_WARNING("There are no splints to remove."))
+			return
+
+		var/splint_text = part ? "splint on their [target.get_limb(part).display_name]" : "splints"
+		if(user == target)
+			user.visible_message(SPAN_NOTICE("[user] starts to remove the [splint_text]."),
+				SPAN_NOTICE("You start to remove the [splint_text]."))
+		else
+			user.visible_message(SPAN_NOTICE("[user] starts to remove \the [target]'s [splint_text]."),
+				SPAN_NOTICE("You start to remove \the [target]'s [splint_text]."))
+
+		if(do_after(user, HUMAN_STRIP_DELAY * user.get_skill_duration_multiplier(SKILL_MEDICAL), INTERRUPT_ALL, BUSY_ICON_GENERIC, target, INTERRUPT_MOVED, BUSY_ICON_GENERIC))
+			var/obj/item/stack/medical/splint/new_splint = new(user.loc)
+			new_splint.amount = 0 //we checked that we have at least one bodypart splinted, so we can create it no prob. Also we need amount to be 0
+			new_splint.add_fingerprint(user)
+
+			var/amount_removed = 0
+			for(var/obj/limb/cur_limb in to_splint)
+				// Check if the splint still exists after the do_after
+				if(!(cur_limb.status & LIMB_SPLINTED))
+					continue
+
+				amount_removed++
+				cur_limb.status &= ~LIMB_SPLINTED
+				pain.recalculate_pain()
+				if(cur_limb.status & LIMB_SPLINTED_INDESTRUCTIBLE)
+					new /obj/item/stack/medical/splint/nano(user.loc, 1)
+					cur_limb.status &= ~LIMB_SPLINTED_INDESTRUCTIBLE
+				else if(!new_splint.add(1))
+					new_splint = new(user.loc, 1) //old stack is dropped, time for new one
+					new_splint.add_fingerprint(user)
+
+			if(!amount_removed)
+				to_chat(user, SPAN_WARNING("The splints were removed before you could finish."))
+				qdel(new_splint)
+				return
+
+			if(new_splint.amount == 0)
+				qdel(new_splint) //we only removed nano splints
+			var/msg = (user == target ? "their own" : "\proper [target]'s")
+			target.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] removes [msg] [part ? "splint on their [target.get_limb(part).display_name]" : (amount_removed > 1 ? "splints" : "splint")]."), SPAN_NOTICE("Your [part ? "[splint_text] is" : (amount_removed > 1 ? "splints are" : "splint is")] removed."))
+			target.update_med_icon()
+			user.put_in_hands(new_splint)
+
+		else if(user == target)
+			to_chat(user, SPAN_NOTICE("You stop trying to remove your [splint_text]."))
+		else
+			to_chat(user, SPAN_NOTICE("You stop trying to remove \the [target]'s [splint_text]."))
 
 /mob/living/carbon/human/yautja/Initialize(mapload)
 	. = ..(mapload, new_species = "Yautja")
@@ -1519,10 +1724,8 @@
 /mob/living/carbon/human/monkey/Initialize(mapload)
 	. = ..(mapload, new_species = "Monkey")
 
-
 /mob/living/carbon/human/farwa/Initialize(mapload)
 	. = ..(mapload, new_species = "Farwa")
-
 
 /mob/living/carbon/human/neaera/Initialize(mapload)
 	. = ..(mapload, new_species = "Neaera")
@@ -1537,7 +1740,7 @@
 	. = ..(mapload, SYNTH_GEN_THREE)
 
 /mob/living/carbon/human/synthetic/old/Initialize(mapload)
-	. = ..(mapload, SYNTH_COLONY)
+	. = ..(mapload, SYNTH_GEN_TWO)
 
 /mob/living/carbon/human/synthetic/combat/Initialize(mapload)
 	. = ..(mapload, SYNTH_COMBAT)
@@ -1555,7 +1758,7 @@
 	. = ..(mapload, SYNTH_K9)
 
 /mob/living/carbon/human/resist_fire()
-	if(isyautja(src))
+	if(isyautja(src) || isthrall(src))
 		adjust_fire_stacks(HUNTER_FIRE_RESIST_AMOUNT, min_stacks = 0)
 		apply_effect(1, WEAKEN) // actually 0.5
 		spin(5, 1)
@@ -1568,7 +1771,7 @@
 		visible_message(SPAN_DANGER("[src] rolls on the floor, trying to put themselves out!"),
 			SPAN_NOTICE("You stop, drop, and roll!"), null, 5)
 
-	if(istype(get_turf(src), /turf/open/gm/river))
+	if(istype(get_turf(src), /turf/open/gm/river) || (/obj/effect/blocker/water in loc) || istype(get_turf(src), /turf/open/beach/coastline) || istype(get_turf(src), /turf/open/gm/coast))
 		ExtinguishMob()
 
 	if(fire_stacks > 0)
@@ -1579,7 +1782,7 @@
 
 /mob/living/carbon/human/resist_acid()
 	var/sleep_amount = 1
-	if(isyautja(src))
+	if(isyautja(src) || isthrall(src))
 		apply_effect(1, WEAKEN)
 		spin(10, 2)
 		visible_message(SPAN_DANGER("[src] expertly rolls on the floor!"),
@@ -1667,11 +1870,11 @@
 			return // time leniency for lag which also might make this whole thing pointless but the server
 		for(var/mob/O in viewers(src))//  lags so hard that 40s isn't lenient enough - Quarxink
 			O.show_message(SPAN_DANGER("<B>[src] manages to remove [restraint]!</B>"), SHOW_MESSAGE_VISIBLE)
-		to_chat(src, SPAN_NOTICE(" You successfully remove [restraint]."))
+		to_chat(src, SPAN_NOTICE("You successfully remove [restraint]."))
 		drop_inv_item_on_ground(restraint)
 
 /mob/living/carbon/human/equip_to_appropriate_slot(obj/item/W, ignore_delay = 1, list/slot_equipment_priority)
-	if(species)
+	if(species && !slot_equipment_priority)
 		slot_equipment_priority = species.slot_equipment_priority
 	return ..(W,ignore_delay,slot_equipment_priority)
 
@@ -1688,6 +1891,10 @@
 	set category = "IC"
 
 	var/HTML = "<body>"
+	HTML += "You may include %bloodtype% %rank% or %name% as inserts."
+	HTML += "<br>"
+	HTML += "The %rank% will include a space after if applicable."
+	HTML += "<br>"
 	HTML += "<tt>"
 	HTML += "<a href='byond://?src=\ref[src];flavor_change=general'>General:</a> "
 	HTML += TextPreview(flavor_texts["general"])
@@ -1716,10 +1923,13 @@
 	HTML += "<a href='byond://?src=\ref[src];flavor_change=feet'>Feet:</a> "
 	HTML += TextPreview(flavor_texts["feet"])
 	HTML += "<br>"
+	HTML += "<a href='byond://?src=\ref[src];flavor_change=armor'>Armor:</a> "
+	HTML += TextPreview(flavor_texts["armor"])
+	HTML += "<br>"
 	HTML += "<hr />"
 	HTML +="<a href='byond://?src=\ref[src];flavor_change=done'>\[Done\]</a>"
 	HTML += "<tt>"
-	show_browser(src, HTML, "Update Flavor Text", "flavor_changes", width = 430, height = 300)
+	show_browser(src, HTML, "Update Flavor Text", "flavor_changes", width = 430, height = 430)
 
 /mob/living/carbon/human/throw_item(atom/target)
 	if(!throw_allowed)
@@ -1728,6 +1938,13 @@
 			to_chat(src, SPAN_DANGER("You are currently unable to throw harmful items."))
 			return
 	. = ..()
+
+/mob/living/carbon/human/throw_atom(atom/target, range, speed = 0, atom/thrower, spin, launch_type = NORMAL_LAUNCH, pass_flags = NO_FLAGS, list/end_throw_callbacks, list/collision_callbacks, tracking = FALSE)
+	var/turf/above = SSmapping.get_turf_above(thrower)
+	if(above && above.z == target.z)
+		to_chat(thrower, SPAN_WARNING("You can't throw someone that high!"))
+		return
+	..()
 
 /mob/living/carbon/human/equip_to_slot_if_possible(obj/item/equipping_item, slot, ignore_delay = 1, del_on_fail = 0, disable_warning = 0, redraw_mob = 1, permanent = 0)
 
@@ -1766,6 +1983,8 @@
 	INVOKE_ASYNC(target, TYPE_PROC_REF(/mob/living/carbon/human, regenerate_icons))
 	INVOKE_ASYNC(target, TYPE_PROC_REF(/mob/living/carbon/human, update_body), 1, 0)
 	INVOKE_ASYNC(target, TYPE_PROC_REF(/mob/living/carbon/human, update_hair))
+
+	qdel(new_player)
 
 /mob/living/carbon/human/point_to_atom(atom/A, turf/T)
 	if(isitem(A))
@@ -1824,5 +2043,3 @@
 		if(PULSE_THREADY)
 			return method ? ">250" : "extremely weak and fast, patient's artery feels like a thread"
 // output for machines^ ^^^^^^^output for people^^^^^^^^^
-
-

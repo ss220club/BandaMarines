@@ -49,6 +49,8 @@
 
 /// Mapping helper placed on turfs to remove the turf after a specified duration.
 /obj/effect/timed_event/scrapeaway
+	var/silent_announce_marine = FALSE
+	var/silent_announce_xeno = FALSE
 	icon_state = "o_blue"
 
 /obj/effect/timed_event/scrapeaway/generate_callback()
@@ -57,17 +59,17 @@
 /obj/effect/timed_event/scrapeaway/announce_event(time_to_grab)
 	var/announcement_areas = english_list(notification_areas[type]["[time_to_grab]"])
 
-	var/marine_announcement_text = SSmapping.configs[GROUND_MAP].environment_traits[ZTRAIT_IN_SPACE] \
-		? "Обнаружено обрушение конструкций в [announcement_areas]. Обратите внимание, что могут оказаться доступные новые маршруты." \
-		: "Обнаружены геологические сдвиги в [announcement_areas]. Обратите внимание, что могут оказаться доступные новые маршруты."
+	if(!silent_announce_marine)
+		var/marine_announcement_text = SSmapping.configs[GROUND_MAP].environment_traits[ZTRAIT_IN_SPACE] \
+			? "Обнаружено структурное обрушение в [announcement_areas]. Возможно открылся доступ к новым маршрутам." \
+			: "Обнаружены геологические сдвиги в [announcement_areas]. Возможно открылся доступ к новым маршрутам."
+		marine_announcement(marine_announcement_text, "Приоритетное оповещение")
 
-	marine_announcement(marine_announcement_text, "Приоритетное оповещение")
-
-	var/xeno_announcement_text = SSmapping.configs[GROUND_MAP].environment_traits[ZTRAIT_IN_SPACE] \
-		? "Осколки металла обрушились в этом месте, они открыли новые пути в [announcement_areas]." \
-		: "Земля этого мира содрогается, открывая новые пути в [announcement_areas]."
-
-	xeno_announcement(SPAN_XENOANNOUNCE(xeno_announcement_text), "everything", XENO_GENERAL_ANNOUNCE)
+	if(!silent_announce_xeno)
+		var/xeno_announcement_text = SSmapping.configs[GROUND_MAP].environment_traits[ZTRAIT_IN_SPACE] \
+			? "Металл этого места обрушился, предоставляя новые маршруты в [announcement_areas]." \
+			: "Земля этого мира содрогается, открывая новые пути в [announcement_areas]."
+		xeno_announcement(SPAN_XENOANNOUNCE(xeno_announcement_text), "everything", XENO_GENERAL_ANNOUNCE)
 
 	qdel(src)
 
@@ -87,20 +89,20 @@
 	var/announcement_areas = english_list(notification_areas[type]["[time_to_grab]"])
 
 	var/marine_announcement_text = SSmapping.configs[GROUND_MAP].environment_traits[ZTRAIT_IN_SPACE] \
-		? "Обнаружено обрушение конструкций в [announcement_areas]. Обратите внимание, что могут оказаться доступные новые маршруты." \
-		: "Обнаружены геологические сдвиги в [announcement_areas]. Обратите внимание, что могут оказаться доступные новые маршруты."
+		? "Обнаружено структурное обрушение в [announcement_areas], позволяющее демонтировать конструкции. Возможно открылся доступ к новым маршрутам." \
+		: "Обнаружены геологические сдвиги в [announcement_areas], позволяющие проводить раскопки. Возможно открылся доступ к новым маршрутам."
 
-	marine_announcement(marine_announcement_text, "Приоритетное оповещение")
+	marine_announcement(marine_announcement_text, "Приоритетное оповещение") // SS220 EDIT ADDICTION
 
 	var/xeno_announcement_text = SSmapping.configs[GROUND_MAP].environment_traits[ZTRAIT_IN_SPACE] \
-		? "Осколки металла обрушились в этом месте, они открыли новые пути в [announcement_areas]." \
-		: "Земля этого мира содрогается, открывая новые пути в [announcement_areas]."
+		? "Металл этого места обрушился, и мы можем создать новые маршруты через [announcement_areas]." \
+		: "Земля этого мира содрогается, и мы можем создать новые маршруты через [announcement_areas]."
 
-	xeno_announcement(SPAN_XENOANNOUNCE(xeno_announcement_text), "everything", XENO_GENERAL_ANNOUNCE)
+	xeno_announcement(SPAN_XENOANNOUNCE(xeno_announcement_text), "everything", XENO_GENERAL_ANNOUNCE) // SS220 EDIT ADDICTION
 
 	qdel(src)
 
-GLOBAL_LIST_INIT_TYPED(sentry_spawns, /obj/effect/sentry_landmark, list())
+GLOBAL_LIST_INIT_TYPED(sentry_spawns, /list/obj/effect/sentry_landmark, list())
 
 /// Allows a mapper to override the location of turrets on specific LZs, in specific placements. If multiple
 /// are placed, it picks randomly.

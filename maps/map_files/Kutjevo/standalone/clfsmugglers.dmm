@@ -1,4 +1,35 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/item/flag/plantable/clf,
+/turf/open/floor/kutjevo/tan,
+/area/kutjevo/exterior/clf_lz)
+"ab" = (
+/obj/structure/surface/rack,
+/obj/item/storage/belt/medical/full,
+/obj/item/storage/belt/medical/full{
+	pixel_x = 2;
+	pixel_y = 4
+	},
+/obj/item/storage/firstaid/regular,
+/turf/open/auto_turf/sand/layer1,
+/area/kutjevo/exterior/clf_lz)
+"ac" = (
+/obj/structure/surface/rack,
+/obj/item/roller,
+/obj/item/roller{
+	pixel_x = 3;
+	pixel_y = 2
+	},
+/turf/open/auto_turf/sand/layer1,
+/area/kutjevo/exterior/clf_lz)
+"ad" = (
+/obj/effect/landmark/survivor_spawner/clf_synth/kutjevo,
+/turf/open/auto_turf/sand/layer1,
+/area/kutjevo/exterior/clf_lz)
+"ae" = (
+/obj/effect/landmark/survivor_spawner/clf_coordinator/kutjevo,
+/turf/open/floor/almayer,
+/area/kutjevo/interior/colony/clf_shuttle)
 "am" = (
 /obj/structure/machinery/door/airlock/almayer/generic/autoname,
 /turf/open/floor/almayer,
@@ -30,6 +61,9 @@
 	},
 /turf/open/floor/plating/warnplate/east,
 /area/kutjevo/interior/colony/clf_shuttle)
+"aY" = (
+/turf/closed/wall/kutjevo/colony/reinforced/hull,
+/area/kutjevo/interior/oob)
 "bj" = (
 /obj/item/attachable/verticalgrip,
 /obj/item/attachable/verticalgrip,
@@ -64,7 +98,7 @@
 /turf/open/auto_turf/sand/layer1,
 /area/kutjevo/exterior/clf_lz)
 "cp" = (
-/turf/closed/shuttle/ert{
+/turf/closed/shuttle/ert/transparent{
 	icon_state = "rightengine_2"
 	},
 /area/kutjevo/interior/colony/clf_shuttle)
@@ -154,7 +188,7 @@
 	},
 /area/kutjevo/interior/colony/clf_shuttle)
 "hv" = (
-/turf/closed/shuttle/ert{
+/turf/closed/shuttle/ert/transparent{
 	icon_state = "stan27"
 	},
 /area/kutjevo/interior/colony/clf_shuttle)
@@ -203,17 +237,20 @@
 /turf/open/auto_turf/sand/layer2,
 /area/kutjevo/exterior/stonyfields)
 "iN" = (
-/obj/structure/machinery/defenses/sentry/premade/dumb{
-	dir = 8;
-	faction_group = list("CLF")
+/obj/structure/machinery/defenses/sentry/premade/lowammo/random/dumb{
+	dir = 8
 	},
 /turf/open/asphalt/cement_sunbleached,
 /area/kutjevo/interior/colony/landing_zone_checkpoint)
 "kM" = (
-/turf/closed/shuttle/ert{
-	icon_state = "rightengine_1"
-	},
+/obj/structure/shuttle/part/ert/transparent/right_engine,
+/turf/open/floor/plating/kutjevo,
 /area/kutjevo/interior/colony/clf_shuttle)
+"kV" = (
+/obj/effect/landmark/structure_spawner/xvx_hive/xeno_door,
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_door,
+/turf/open/auto_turf/sand/layer1,
+/area/kutjevo/interior/colony_south)
 "kZ" = (
 /obj/structure/closet,
 /obj/item/weapon/gun/smg/fp9000,
@@ -223,7 +260,7 @@
 /turf/open/floor/kutjevo/colors/orange/inner_corner/west,
 /area/kutjevo/interior/colony/landing_zone_checkpoint)
 "lc" = (
-/turf/closed/shuttle/ert{
+/turf/closed/shuttle/ert/transparent{
 	icon_state = "rightengine_3"
 	},
 /area/kutjevo/interior/colony/clf_shuttle)
@@ -348,13 +385,6 @@
 "qx" = (
 /turf/open/auto_turf/sand/layer1,
 /area/kutjevo/exterior/stonyfields)
-"qP" = (
-/obj/structure/surface/rack,
-/obj/item/storage/belt/medical/full,
-/obj/item/storage/belt/medical/full,
-/obj/item/storage/firstaid/regular,
-/turf/open/auto_turf/sand/layer1,
-/area/kutjevo/exterior/clf_lz)
 "ru" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -375,6 +405,10 @@
 /obj/structure/flora/grass/tallgrass/desert,
 /turf/open/auto_turf/sand/layer2,
 /area/kutjevo/exterior/clf_lz)
+"st" = (
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/plating/kutjevo,
+/area/kutjevo/interior/oob)
 "sz" = (
 /turf/closed/wall/kutjevo/colony,
 /area/kutjevo/exterior/clf_lz)
@@ -436,9 +470,8 @@
 /turf/open/floor/kutjevo/colors/orange,
 /area/kutjevo/exterior/clf_lz)
 "wb" = (
-/turf/closed/shuttle/ert{
-	icon_state = "stan25"
-	},
+/obj/structure/shuttle/part/ert/front_right_stan,
+/turf/open/floor/plating/kutjevo,
 /area/kutjevo/interior/colony/clf_shuttle)
 "wh" = (
 /obj/vehicle/powerloader/jd,
@@ -464,7 +497,7 @@
 /area/kutjevo/exterior/clf_lz)
 "xS" = (
 /turf/closed/shuttle/ert{
-	icon_state = "stan_leftengine"
+	icon_state = "stan_leftengine_clean"
 	},
 /area/kutjevo/interior/colony/clf_shuttle)
 "xY" = (
@@ -486,6 +519,10 @@
 /obj/effect/landmark/survivor_spawner/clf/kutjevo,
 /turf/open/asphalt/cement_sunbleached,
 /area/kutjevo/interior/colony/landing_zone_checkpoint)
+"yI" = (
+/obj/structure/prop/dam/boulder/boulder2,
+/turf/open/auto_turf/sand/layer0,
+/area/kutjevo/exterior/spring)
 "yT" = (
 /obj/structure/surface/table,
 /obj/item/ammo_box/magazine/misc/mre/wy{
@@ -497,20 +534,26 @@
 /turf/open/floor/kutjevo/tan/alt_edge,
 /area/kutjevo/exterior/clf_lz)
 "zv" = (
-/turf/closed/shuttle/ert{
-	icon_state = "leftengine_3";
-	opacity = 0
+/turf/closed/shuttle/ert/transparent{
+	icon_state = "leftengine_3_clean"
 	},
 /area/kutjevo/interior/colony/clf_shuttle)
+"Ad" = (
+/turf/open/auto_turf/sand/layer0,
+/area/kutjevo/exterior/spring)
 "Aj" = (
 /turf/closed/shuttle/ert{
 	icon_state = "stan8"
 	},
 /area/kutjevo/interior/colony/clf_shuttle)
+"Ax" = (
+/obj/structure/machinery/iv_drip,
+/obj/item/reagent_container/blood/OMinus,
+/turf/open/auto_turf/sand/layer1,
+/area/kutjevo/exterior/clf_lz)
 "AT" = (
-/obj/structure/machinery/defenses/sentry/premade/dumb{
-	dir = 8;
-	faction_group = list("CLF")
+/obj/structure/machinery/defenses/sentry/premade/lowammo/random/dumb{
+	dir = 8
 	},
 /turf/open/auto_turf/sand/layer1,
 /area/kutjevo/exterior/clf_lz)
@@ -552,6 +595,9 @@
 	},
 /turf/open/floor/almayer,
 /area/kutjevo/interior/colony/clf_shuttle)
+"Dg" = (
+/turf/open/auto_turf/sand/layer0,
+/area/kutjevo/interior/colony_south)
 "Do" = (
 /obj/structure/largecrate/random/barrel/green,
 /turf/open/floor/kutjevo/colors/orange,
@@ -593,6 +639,10 @@
 	},
 /turf/open/floor/kutjevo/colors/orange,
 /area/kutjevo/exterior/clf_lz)
+"Eq" = (
+/obj/effect/landmark/structure_spawner/setup/distress/xeno_weed_node,
+/turf/open/auto_turf/sand/layer2,
+/area/kutjevo/interior/colony_south)
 "Ex" = (
 /obj/structure/largecrate/random/secure,
 /turf/open/floor/almayer/research/containment/floor2,
@@ -603,6 +653,9 @@
 "EW" = (
 /turf/open/floor/almayer/research/containment/floor2,
 /area/kutjevo/exterior/clf_lz)
+"Fc" = (
+/turf/open/auto_turf/sand/layer1,
+/area/kutjevo/exterior/spring)
 "Fd" = (
 /turf/open/floor/plating/warnplate/northwest,
 /area/kutjevo/interior/colony/clf_shuttle)
@@ -697,6 +750,9 @@
 "Kn" = (
 /turf/open/auto_turf/sand/layer0,
 /area/kutjevo/exterior/stonyfields)
+"KC" = (
+/turf/open/auto_turf/sand/layer2,
+/area/kutjevo/interior/colony_south)
 "KU" = (
 /obj/structure/prop/dam/crane/cargo{
 	layer = 3.3
@@ -714,6 +770,9 @@
 	},
 /turf/open/floor/kutjevo/colors/orange/edge/west,
 /area/kutjevo/interior/colony/landing_zone_checkpoint)
+"LS" = (
+/turf/closed/wall/kutjevo/colony/reinforced,
+/area/kutjevo/interior/colony_south/power2)
 "Mh" = (
 /obj/structure/flora/bush/desert{
 	icon_state = "tree_4"
@@ -753,16 +812,14 @@
 /turf/open/floor/almayer/blue/northwest,
 /area/kutjevo/interior/colony/clf_shuttle)
 "Nw" = (
-/obj/structure/machinery/defenses/sentry/premade/dumb{
-	dir = 1;
-	faction_group = list("CLF")
+/obj/structure/machinery/defenses/sentry/premade/lowammo/random/dumb{
+	dir = 1
 	},
 /turf/open/auto_turf/sand/layer1,
 /area/kutjevo/exterior/clf_lz)
 "NE" = (
-/turf/closed/shuttle/ert{
-	icon_state = "leftengine_2";
-	opacity = 0
+/turf/closed/shuttle/ert/transparent{
+	icon_state = "leftengine_2"
 	},
 /area/kutjevo/interior/colony/clf_shuttle)
 "NP" = (
@@ -772,6 +829,7 @@
 /obj/item/ammo_magazine/rifle/mar40,
 /obj/item/ammo_magazine/rifle/mar40,
 /obj/item/ammo_magazine/rifle/mar40,
+/obj/item/defenses/handheld/planted_flag/clf,
 /turf/open/floor/almayer/research/containment/floor2,
 /area/kutjevo/exterior/clf_lz)
 "NR" = (
@@ -789,7 +847,7 @@
 /turf/open/floor/almayer/research/containment/floor1,
 /area/kutjevo/exterior/clf_lz)
 "Ou" = (
-/obj/structure/reagent_dispensers/fueltank,
+/obj/structure/reagent_dispensers/tank/fuel,
 /turf/open/auto_turf/sand/layer1,
 /area/kutjevo/exterior/clf_lz)
 "OE" = (
@@ -805,6 +863,9 @@
 /obj/structure/largecrate/random/case/double,
 /turf/open/floor/kutjevo/colors/orange,
 /area/kutjevo/exterior/clf_lz)
+"PD" = (
+/turf/open/auto_turf/sand/layer2,
+/area/kutjevo/exterior/spring)
 "PU" = (
 /obj/structure/largecrate/random/barrel/yellow,
 /turf/open/auto_turf/sand/layer1,
@@ -889,11 +950,11 @@
 /area/kutjevo/interior/colony/landing_zone_checkpoint)
 "Rp" = (
 /obj/structure/surface/table,
-/obj/item/weapon/gun/pistol/heavy,
-/obj/item/ammo_magazine/pistol/heavy,
-/obj/item/ammo_magazine/pistol/heavy,
-/obj/item/ammo_magazine/pistol/heavy,
-/obj/item/ammo_magazine/pistol/heavy,
+/obj/item/weapon/gun/pistol/deagle,
+/obj/item/ammo_magazine/pistol/deagle,
+/obj/item/ammo_magazine/pistol/deagle,
+/obj/item/ammo_magazine/pistol/deagle,
+/obj/item/ammo_magazine/pistol/deagle,
 /turf/open/auto_turf/sand/layer1,
 /area/kutjevo/exterior/clf_lz)
 "RB" = (
@@ -938,6 +999,9 @@
 /obj/effect/vehicle_spawner/clf_van/fixed,
 /turf/open/floor/plating/warnplate/west,
 /area/kutjevo/interior/colony/clf_shuttle)
+"Vf" = (
+/turf/template_noop,
+/area/template_noop)
 "VG" = (
 /obj/structure/bed/chair/office/light{
 	dir = 8
@@ -966,6 +1030,9 @@
 	},
 /turf/open/floor/kutjevo/colors/orange/inner_corner/east,
 /area/kutjevo/interior/colony/landing_zone_checkpoint)
+"Wl" = (
+/turf/open/auto_turf/sand/layer1,
+/area/kutjevo/interior/colony_south)
 "WD" = (
 /obj/structure/flora/grass/tallgrass/desert,
 /turf/open/auto_turf/sand/layer1,
@@ -991,9 +1058,8 @@
 /turf/open/floor/kutjevo/colors,
 /area/kutjevo/interior/colony/landing_zone_checkpoint)
 "Yi" = (
-/turf/closed/shuttle/ert{
-	icon_state = "stan20"
-	},
+/obj/structure/shuttle/part/ert/front_left_stan,
+/turf/open/floor/plating/kutjevo,
 /area/kutjevo/interior/colony/clf_shuttle)
 "Ys" = (
 /turf/open/floor/plating/warnplate/southeast,
@@ -1029,11 +1095,16 @@
 	icon_state = "stan3"
 	},
 /area/kutjevo/interior/colony/clf_shuttle)
-"Zt" = (
-/turf/closed/shuttle/ert{
-	icon_state = "leftengine_1";
-	opacity = 0
+"Zo" = (
+/obj/structure/machinery/door/poddoor/shutters/almayer{
+	explo_proof = 1
 	},
+/obj/structure/blocker/invisible_wall,
+/turf/open/floor/plating/kutjevo,
+/area/kutjevo/interior/oob)
+"Zt" = (
+/obj/structure/shuttle/part/ert/transparent/left_engine,
+/turf/open/floor/plating/kutjevo,
 /area/kutjevo/interior/colony/clf_shuttle)
 "ZQ" = (
 /obj/effect/landmark/survivor_spawner/clf/kutjevo,
@@ -1050,6 +1121,20 @@
 /area/kutjevo/interior/colony/clf_shuttle)
 
 (1,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+qx
 qx
 gP
 gP
@@ -1082,8 +1167,29 @@ mn
 mn
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (2,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+qx
 iE
 qx
 gP
@@ -1116,8 +1222,29 @@ mn
 mn
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (3,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Kn
 qx
 qx
 qx
@@ -1150,8 +1277,29 @@ mn
 mn
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (4,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Kn
 qx
 Kn
 qx
@@ -1184,8 +1332,29 @@ WD
 mn
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (5,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Kn
 qx
 hw
 qx
@@ -1218,8 +1387,29 @@ WD
 WD
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (6,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+qx
 qx
 Kn
 qx
@@ -1252,8 +1442,29 @@ yu
 Cd
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (7,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+qx
 Kn
 qx
 Kn
@@ -1286,8 +1497,29 @@ cf
 BE
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (8,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+qx
 Kn
 qx
 qx
@@ -1320,8 +1552,29 @@ PU
 PU
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (9,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Kn
 qx
 qx
 qx
@@ -1354,8 +1607,29 @@ KU
 mn
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (10,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Kn
 qx
 qx
 qx
@@ -1388,8 +1662,29 @@ cf
 mn
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (11,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Kn
 qx
 qx
 qx
@@ -1422,8 +1717,29 @@ cf
 Xt
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (12,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Kn
+qx
 qx
 qx
 qx
@@ -1456,8 +1772,29 @@ cf
 du
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (13,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Kn
+qx
 qx
 qx
 qx
@@ -1490,8 +1827,29 @@ Ql
 Ou
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (14,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Kn
+qx
 iE
 qx
 qx
@@ -1524,8 +1882,29 @@ Ql
 Ou
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (15,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+qx
+qx
 qx
 iE
 iE
@@ -1558,8 +1937,29 @@ Ql
 cf
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (16,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+iE
+mn
 qx
 qx
 iE
@@ -1592,8 +1992,29 @@ Ql
 cf
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (17,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+mn
+mn
+mn
 mn
 mn
 qx
@@ -1619,15 +2040,36 @@ cf
 zp
 EW
 vZ
-RN
+aa
 Pp
 EW
 Ql
 cf
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (18,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+mn
+mn
+mn
+mn
 mn
 mn
 mn
@@ -1660,8 +2102,29 @@ Ql
 cf
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (19,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+mn
+mn
+mn
+mn
 mn
 mn
 mn
@@ -1694,8 +2157,29 @@ Ql
 cf
 du
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (20,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+mn
+mn
+mn
+mn
 mn
 mn
 mn
@@ -1728,8 +2212,29 @@ Ql
 cf
 du
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (21,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+mn
+mn
+mn
+mn
 mn
 mn
 mn
@@ -1762,8 +2267,29 @@ Ql
 du
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (22,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+mn
+mn
+mn
+mn
 mn
 mn
 mn
@@ -1779,7 +2305,7 @@ mr
 cf
 cf
 gl
-cf
+Ax
 cf
 cf
 cf
@@ -1796,8 +2322,29 @@ Ql
 cf
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (23,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+mn
+mn
+mn
+mn
 mn
 mn
 mn
@@ -1812,13 +2359,13 @@ mr
 mr
 cf
 oH
-cf
+ac
+ab
 tZ
-qP
 cf
 cf
 cf
-cf
+ad
 cf
 zp
 Ok
@@ -1830,8 +2377,29 @@ Ql
 cf
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (24,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+mn
+mn
+mn
+mn
 mn
 mn
 mn
@@ -1864,8 +2432,29 @@ cf
 cf
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (25,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+mn
+mn
+mn
+mn
 mn
 mn
 mn
@@ -1898,8 +2487,29 @@ cf
 cf
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (26,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+mn
+mn
+mn
+mn
 mn
 mn
 mn
@@ -1930,10 +2540,31 @@ EW
 EW
 Ok
 cf
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 mn
 mn
 "}
 (27,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+mn
+mn
+mn
+mn
 mn
 mn
 mn
@@ -1966,8 +2597,29 @@ EW
 cf
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (28,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+mn
+mn
+mn
+mn
 mn
 mn
 mn
@@ -2000,8 +2652,29 @@ EW
 cf
 du
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (29,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+mn
+mn
+mn
+mn
+mn
 mn
 mn
 mn
@@ -2034,8 +2707,29 @@ EW
 du
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (30,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+mn
+mn
+mn
+mn
+mn
 mn
 mn
 mn
@@ -2068,8 +2762,29 @@ EW
 cf
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (31,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+mn
+mn
+mn
+mn
+mn
 mn
 mn
 mn
@@ -2082,7 +2797,7 @@ SV
 QI
 YQ
 Nk
-RW
+ae
 Qy
 Ni
 YQ
@@ -2102,8 +2817,29 @@ EW
 cf
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (32,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+mn
+mn
+mn
+mn
+mn
 mn
 mn
 mn
@@ -2136,8 +2872,29 @@ EW
 cf
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (33,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+mn
+mn
+mn
+mn
+mn
 mn
 mn
 mn
@@ -2170,8 +2927,29 @@ EW
 cf
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (34,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+Vf
+mn
+mn
+mn
+mn
+mn
+mn
 mn
 mn
 mn
@@ -2204,8 +2982,29 @@ EW
 cf
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (35,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 mn
 mn
 mn
@@ -2238,8 +3037,29 @@ EW
 cf
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (36,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 mn
 mn
 mn
@@ -2272,8 +3092,29 @@ EW
 cf
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (37,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 mn
 mn
 mn
@@ -2306,8 +3147,29 @@ EW
 du
 mn
 mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 "}
 (38,1,1) = {"
+Vf
+Vf
+Vf
+Vf
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 mn
 mn
 mn
@@ -2338,10 +3200,31 @@ SV
 mB
 EW
 cf
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 mn
 mn
 "}
 (39,1,1) = {"
+aY
+aY
+aY
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 mn
 mn
 mn
@@ -2372,10 +3255,31 @@ EW
 EW
 Ok
 cf
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 mn
 mn
 "}
 (40,1,1) = {"
+Zo
+st
+aY
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 mn
 mn
 mn
@@ -2406,6 +3310,563 @@ cf
 cf
 cf
 cf
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+"}
+(41,1,1) = {"
+Zo
+st
+aY
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+"}
+(42,1,1) = {"
+Zo
+st
+aY
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+"}
+(43,1,1) = {"
+Zo
+st
+aY
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+"}
+(44,1,1) = {"
+aY
+aY
+aY
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+"}
+(45,1,1) = {"
+LS
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+"}
+(46,1,1) = {"
+LS
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+"}
+(47,1,1) = {"
+LS
+mn
+mn
+mn
+mn
+mn
+Dg
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+"}
+(48,1,1) = {"
+LS
+mn
+mn
+mn
+Dg
+Dg
+Wl
+Dg
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+"}
+(49,1,1) = {"
+KC
+mn
+mn
+Dg
+Wl
+Eq
+Wl
+Dg
+mn
+Dg
+Dg
+Dg
+mn
+mn
+Ad
+Ad
+Ad
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+"}
+(50,1,1) = {"
+Dg
+KC
+kV
+Wl
+KC
+KC
+Wl
+Wl
+Dg
+Wl
+Wl
+Wl
+Ad
+PD
+Ad
+Fc
+PD
+yI
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
+mn
 mn
 mn
 "}

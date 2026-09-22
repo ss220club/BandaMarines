@@ -8,13 +8,16 @@
 
 	var/ready = FALSE
 	var/spawning = FALSE//Referenced when you want to delete the new_player later on in the code.
-	///The last message for this player with their larva queue information
-	var/larva_queue_cached_message
-	///The time when the larva_queue_cached_message should be considered stale
-	var/larva_queue_message_stale_time
+	///The last message for this player with their larva pool information
+	var/larva_pool_cached_message
+	///The time when the larva_pool_cached_message should be considered stale
+	var/larva_pool_message_stale_time
 
 	/// The window that we display the main menu in
 	var/datum/tgui_window/lobby_window
+
+	/// Late join UI for this player
+	var/datum/late_join/late_join_ui
 
 	/// The message that we are displaying to the user. If a list, each list element is displayed on its own line
 	var/lobby_confirmation_message
@@ -23,6 +26,10 @@
 	var/datum/callback/execute_on_confirm
 
 /mob/new_player/Initialize()
+	#ifdef QUICK_START
+	ready = TRUE
+	#endif
+
 	. = ..()
 	GLOB.dead_mob_list -= src
 	ADD_TRAIT(src, TRAIT_IMMOBILIZED, TRAIT_SOURCE_INHERENT)
@@ -31,22 +38,6 @@
 	if(ready)
 		GLOB.readied_players--
 	return ..()
-
-/mob/new_player/Topic(href, href_list[])
-	. = ..()
-	if(.)
-		return
-	if(!client)
-		return
-
-	switch(href_list["lobby_choice"])
-		if("SelectedJob")
-			if(!GLOB.enter_allowed)
-				to_chat(usr, SPAN_WARNING("There is an administrative lock on entering the game! (The dropship likely crashed into the Almayer. This should take at most 20 minutes.)"))
-				return
-
-			AttemptLateSpawn(href_list["job_selected"])
-			return
 
 /mob/new_player/var/datum/tutorial_menu/tutorial_menu
 
@@ -104,6 +95,7 @@
 
 	if(observer.client)
 		observer.client.change_view(GLOB.world_view_size)
+		send_tacmap_assets_latejoin(observer)
 
 	observer.set_huds_from_prefs()
 
@@ -112,20 +104,20 @@
 /mob/new_player/proc/AttemptLateSpawn(rank)
 	var/datum/job/player_rank = GLOB.RoleAuthority.roles_for_mode[rank]
 	if (src != usr)
-		return
+		return FALSE
 	if(SSticker.current_state != GAME_STATE_PLAYING)
 		to_chat(usr, SPAN_WARNING("The round is either not ready, or has already finished!"))
-		return
+		return FALSE
 	if(!GLOB.enter_allowed)
 		to_chat(usr, SPAN_WARNING("There is an administrative lock on entering the game! (The dropship likely crashed into the Almayer. This should take at most 20 minutes.)"))
-		return
+		return FALSE
 
 	if(!client?.prefs.update_slot(player_rank.title))
-		return
+		return FALSE
 
 	if(!GLOB.RoleAuthority.assign_role(src, player_rank, latejoin = TRUE))
 		to_chat(src, SPAN_WARNING("[rank] is not available. Please try another."))
-		return
+		return FALSE
 
 	spawning = TRUE
 	close_spawn_windows()
@@ -143,15 +135,11 @@
 	SSticker.minds += character.mind//Cyborgs and AIs handle this in the transform proc. //TODO!!!!! ~Carn
 	SSticker.mode.latejoin_update(player_rank)
 	SSticker.mode.update_gear_scale()
-
-	for(var/datum/squad/target_squad in GLOB.RoleAuthority.squads)
-		if(target_squad)
-			target_squad.roles_cap[JOB_SQUAD_ENGI] = engi_slot_formula(length(GLOB.clients))
-			target_squad.roles_cap[JOB_SQUAD_MEDIC] = medic_slot_formula(length(GLOB.clients))
+	SSticker.mode.update_energy_scale()
 
 	var/latejoin_larva_drop = SSticker.mode.latejoin_larva_drop
 
-	if (ROUND_TIME < XENO_ROUNDSTART_PROGRESS_TIME_2)
+	if(ROUND_TIME < XENO_ROUNDSTART_LATEJOIN_LARVA_TIME)
 		latejoin_larva_drop = SSticker.mode.latejoin_larva_drop_early
 
 	if(latejoin_larva_drop && SSticker.mode.latejoin_tally - SSticker.mode.latejoin_larva_used >= latejoin_larva_drop)
@@ -160,7 +148,7 @@
 		for(var/hivenumber in GLOB.hive_datum)
 			hive = GLOB.hive_datum[hivenumber]
 			if(hive.latejoin_burrowed == TRUE)
-				if(length(hive.totalXenos) && (hive.hive_location || ROUND_TIME < XENO_ROUNDSTART_PROGRESS_TIME_2))
+				if(length(hive.totalXenos) && (hive.hive_location || ROUND_TIME < XENO_ROUNDSTART_LATEJOIN_LARVA_TIME))
 					hive.stored_larva++
 					hive.hive_ui.update_burrowed_larva()
 
@@ -174,73 +162,11 @@
 				msg_admin_niche("NEW PLAYER: <b>[key_name(character, 1, 1, 0)]</b>. IP: [character.lastKnownIP], CID: [character.computer_id]")
 			if(client.player_data && client.player_data.playtime_loaded && ((round(client.get_total_human_playtime() DECISECONDS_TO_HOURS, 0.1)) <= CONFIG_GET(number/notify_new_player_age)))
 				msg_sea("NEW PLAYER: <b>[key_name(character, 0, 1, 0)]</b> only has [(round(client.get_total_human_playtime() DECISECONDS_TO_HOURS, 0.1))] hours as a human. Current role: [get_actual_job_name(character)] - Current location: [get_area(character)]")
+			send_tacmap_assets_latejoin(character)
 
 	character.client.init_verbs()
 	qdel(src)
-
-
-/mob/new_player/proc/late_choices()
-	var/mills = world.time // 1/10 of a second, not real milliseconds but whatever
-	//var/secs = ((mills % 36000) % 600) / 10 //Not really needed, but I'll leave it here for refrence... or something
-	var/mins = (mills % 36000) / 600
-	var/hours = mills / 36000
-
-	var/dat = "<html><body onselectstart='return false;'><center>"
-	dat += "Round Duration: [floor(hours)]h [floor(mins)]m<br>"
-
-	if(SShijack)
-		switch(SShijack.evac_status)
-			if(EVACUATION_STATUS_INITIATED)
-				dat += "<font color='red'><b>The [MAIN_SHIP_NAME] is being evacuated.</b></font><br>"
-
-	dat += "Choose from the following open positions:<br>"
-	var/roles_show = FLAG_SHOW_ALL_JOBS
-
-	for(var/i in GLOB.RoleAuthority.roles_for_mode)
-		var/datum/job/J = GLOB.RoleAuthority.roles_for_mode[i]
-		if(!GLOB.RoleAuthority.check_role_entry(src, J, latejoin = TRUE, faction = FACTION_NEUTRAL))
-			continue
-		var/active = 0
-		// Only players with the job assigned and AFK for less than 10 minutes count as active
-		for(var/mob/M in GLOB.player_list)
-			if(M.client && M.job == J.title)
-				active++
-		if(roles_show & FLAG_SHOW_CIC && GLOB.ROLES_CIC.Find(J.title))
-			dat += "Command:<br>"
-			roles_show ^= FLAG_SHOW_CIC
-
-		else if(roles_show & FLAG_SHOW_AUXIL_SUPPORT && GLOB.ROLES_AUXIL_SUPPORT.Find(J.title))
-			dat += "<hr>Auxiliary Combat Support:<br>"
-			roles_show ^= FLAG_SHOW_AUXIL_SUPPORT
-
-		else if(roles_show & FLAG_SHOW_MISC && GLOB.ROLES_MISC.Find(J.title))
-			dat += "<hr>Other:<br>"
-			roles_show ^= FLAG_SHOW_MISC
-
-		else if(roles_show & FLAG_SHOW_POLICE && GLOB.ROLES_POLICE.Find(J.title))
-			dat += "<hr>Military Police:<br>"
-			roles_show ^= FLAG_SHOW_POLICE
-
-		else if(roles_show & FLAG_SHOW_ENGINEERING && GLOB.ROLES_ENGINEERING.Find(J.title))
-			dat += "<hr>Engineering:<br>"
-			roles_show ^= FLAG_SHOW_ENGINEERING
-
-		else if(roles_show & FLAG_SHOW_REQUISITION && GLOB.ROLES_REQUISITION.Find(J.title))
-			dat += "<hr>Requisitions:<br>"
-			roles_show ^= FLAG_SHOW_REQUISITION
-
-		else if(roles_show & FLAG_SHOW_MEDICAL && GLOB.ROLES_MEDICAL.Find(J.title))
-			dat += "<hr>Medbay:<br>"
-			roles_show ^= FLAG_SHOW_MEDICAL
-
-		else if(roles_show & FLAG_SHOW_MARINES && GLOB.ROLES_MARINES.Find(J.title))
-			dat += "<hr>Marines:<br>"
-			roles_show ^= FLAG_SHOW_MARINES
-
-		dat += "<a href='byond://?src=\ref[src];lobby_choice=SelectedJob;antag=0;job_selected=[J.title]'>[J.disp_title] ([J.current_positions]) (Active: [active])</a><br>"
-
-	dat += "</center>"
-	show_browser(src, dat, "Late Join", "latechoices", width = 420, height = 700)
+	return TRUE
 
 /mob/new_player/proc/late_choices_upp()
 	var/mills = world.time // 1/10 of a second, not real milliseconds but whatever

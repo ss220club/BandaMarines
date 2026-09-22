@@ -8,12 +8,16 @@ import {
   Input,
   LabeledControls,
   NumberInput,
+  ProgressBar,
   Section,
   Stack,
   Table,
   Tabs,
 } from 'tgui/components';
 import { Window } from 'tgui/layouts';
+
+import { NoticeBox } from '../components';
+import { replaceRegexChars } from './helpers';
 
 type MarineData = {
   name: string;
@@ -66,6 +70,9 @@ type Data = {
   ob_safety: Boolean;
   supply_cooldown: number;
   operator: string;
+  radio_clarity: number;
+  clarity_color: string;
+  clarity_status: string;
 };
 
 export const OverwatchConsole = (props) => {
@@ -73,7 +80,7 @@ export const OverwatchConsole = (props) => {
 
   return (
     <Window
-      width={800}
+      width={860}
       height={600}
       theme={data.theme ? data.theme : 'crtblue'}
     >
@@ -121,6 +128,12 @@ const HomePanel = (props) => {
             </Stack.Item>
           );
         })}
+        {data.squad_list.length === 0 && (
+          <NoticeBox warning>
+            No squads available for Overwatch! Please log-out of an existing
+            console to start Overwatching here.
+          </NoticeBox>
+        )}
       </Stack>
     </Section>
   );
@@ -204,77 +217,140 @@ const MainDashboard = (props) => {
         </>
       }
     >
-      <Table mb="5px">
-        <Table.Row bold>
-          <Table.Cell textAlign="center">PRIMARY ORDERS</Table.Cell>
-          <Table.Cell textAlign="center">SECONDARY ORDERS</Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell textAlign="center">
-            {primary_objective ? primary_objective : 'NONE'}
-          </Table.Cell>
-          <Table.Cell textAlign="center">
-            {secondary_objective ? secondary_objective : 'NONE'}
-          </Table.Cell>
-        </Table.Row>
-      </Table>
-      <Box textAlign="center">
-        <Button
-          inline
-          width="23%"
-          icon="envelope"
-          onClick={() => act('set_primary')}
-        >
-          SET PRIMARY
-        </Button>
-        {primary_objective && (
-          <Button
-            inline
-            width="23%"
-            icon="person"
-            onClick={() => act('remind_primary')}
-          >
-            REMIND PRIMARY
-          </Button>
-        )}
-        <Button
-          inline
-          width="23%"
-          icon="envelope"
-          onClick={() => act('set_secondary')}
-        >
-          SET SECONDARY
-        </Button>
-        {secondary_objective && (
-          <Button
-            inline
-            width="23%"
-            icon="person"
-            onClick={() => act('remind_secondary')}
-          >
-            REMIND SECONDARY
-          </Button>
-        )}
-      </Box>
-
-      <Box textAlign="center">
-        <Button
-          inline
-          width="45%"
-          icon="envelope"
-          onClick={() => act('message')}
-        >
-          MESSAGE SQUAD
-        </Button>
-        <Button
-          inline
-          width="45%"
-          icon="person"
-          onClick={() => act('sl_message')}
-        >
-          MESSAGE SQUAD LEADER
-        </Button>
-      </Box>
+      <Stack vertical={false} justify="space-between" align="stretch">
+        <Stack.Item grow={1} mr={1}>
+          <Table mb="5px">
+            <Table.Row bold>
+              <Table.Cell width="50%" textAlign="center">
+                PRIMARY ORDERS
+              </Table.Cell>
+              <Table.Cell textAlign="center">SECONDARY ORDERS</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell textAlign="center">
+                {primary_objective ? primary_objective : 'NONE'}
+              </Table.Cell>
+              <Table.Cell textAlign="center">
+                {secondary_objective ? secondary_objective : 'NONE'}
+              </Table.Cell>
+            </Table.Row>
+          </Table>
+          <Table style={{ border: 'none', background: 'none' }}>
+            <Table.Row style={{ border: 'none', background: 'none' }}>
+              <Table.Cell
+                width="50%"
+                style={{ border: 'none' }}
+                textAlign="right"
+              >
+                <Stack vertical={false} justify="flex-end">
+                  <Button
+                    inline
+                    mt={0.5}
+                    width="49%"
+                    icon="envelope"
+                    style={{ textAlign: 'Center' }}
+                    onClick={() => act('set_primary')}
+                  >
+                    SET PRIMARY
+                  </Button>
+                  {primary_objective && (
+                    <Button
+                      width="49%"
+                      inline
+                      mt={0.5}
+                      icon="person"
+                      style={{ textAlign: 'Center' }}
+                      onClick={() => act('remind_primary')}
+                    >
+                      REMIND PRIMARY
+                    </Button>
+                  )}
+                </Stack>
+              </Table.Cell>
+              <Table.Cell style={{ border: 'none' }} textAlign="left">
+                <Stack vertical={false} justify="flex-start">
+                  <Button
+                    inline
+                    mt={0.5}
+                    width="49%"
+                    icon="envelope"
+                    style={{ textAlign: 'Center' }}
+                    onClick={() => act('set_secondary')}
+                  >
+                    SET SECONDARY
+                  </Button>
+                  {secondary_objective && (
+                    <Button
+                      inline
+                      mt={0.5}
+                      width="49%"
+                      style={{ textAlign: 'Center' }}
+                      icon="person"
+                      onClick={() => act('remind_secondary')}
+                    >
+                      REMIND SECONDARY
+                    </Button>
+                  )}
+                </Stack>
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row style={{ border: 'none', background: 'none' }}>
+              <Table.Cell
+                width="50%"
+                style={{ border: 'none' }}
+                textAlign="right"
+              >
+                <Button
+                  inline
+                  mt={0.5}
+                  width="65%"
+                  icon="envelope"
+                  style={{ textAlign: 'Center' }}
+                  onClick={() => act('message')}
+                >
+                  MESSAGE SQUAD
+                </Button>
+              </Table.Cell>
+              <Table.Cell
+                width="50%"
+                style={{ border: 'none' }}
+                textAlign="left"
+              >
+                <Button
+                  inline
+                  mt={0.5}
+                  width="65%"
+                  icon="envelope"
+                  style={{ textAlign: 'Center' }}
+                  onClick={() => act('sl_message')}
+                >
+                  MESSAGE SQUAD LEADER
+                </Button>
+              </Table.Cell>
+            </Table.Row>
+          </Table>
+        </Stack.Item>
+        <Stack.Item width="120px">
+          <Box>
+            <Box textAlign="center" bold color="label" mb={0.5}>
+              SIGNAL CLARITY
+            </Box>
+            <Box textAlign="center" mb={1} fontSize="12px">
+              {data.clarity_status}
+            </Box>
+            <ProgressBar
+              value={Number(data.radio_clarity) / 100}
+              color={data.clarity_color || 'red'}
+              height="18px"
+            >
+              {''}
+            </ProgressBar>
+            <Box textAlign="center" mt={0.5} bold color="white">
+              {data.radio_clarity}%
+            </Box>
+          </Box>
+        </Stack.Item>
+      </Stack>
     </Section>
   );
 };
@@ -514,11 +590,12 @@ const SquadMonitor = (props) => {
       <Input
         fluid
         placeholder="Search.."
+        m="0"
         mb="4px"
         value={marineSearch}
         onInput={(e, value) => setMarineSearch(value)}
       />
-      <Section m="2px" pb="2px" fill scrollable>
+      <Section m="0" pb="2px" fill scrollable>
         <Table>
           <Table.Row bold fontSize="14px">
             <Table.Cell textAlign="center">Name</Table.Cell>
@@ -563,9 +640,11 @@ const SquadMonitor = (props) => {
             marines
               .sort(sortByRole)
               .filter((marine) => {
-                if (marineSearch && !marineSearch.includes('\\')) {
+                if (marineSearch) {
                   const searchableString = String(marine.name).toLowerCase();
-                  return searchableString.match(new RegExp(marineSearch, 'i'));
+                  return searchableString.match(
+                    new RegExp(replaceRegexChars(marineSearch), 'i'),
+                  );
                 }
                 return marine;
               })
@@ -660,7 +739,7 @@ const SupplyDrop = (props) => {
       <Stack justify={'space-between'} m="10px">
         <Stack.Item fontSize="14px">
           <LabeledControls mb="5px">
-            <LabeledControls.Item label="LONGITUDE">
+            <LabeledControls.Item label="ДОЛГОТА">
               <NumberInput
                 step={1}
                 value={supplyX}
@@ -670,7 +749,7 @@ const SupplyDrop = (props) => {
                 width="75px"
               />
             </LabeledControls.Item>
-            <LabeledControls.Item label="LATITUDE">
+            <LabeledControls.Item label="ШИРОТА">
               <NumberInput
                 step={1}
                 value={supplyY}
@@ -680,7 +759,7 @@ const SupplyDrop = (props) => {
                 width="75px"
               />
             </LabeledControls.Item>
-            <LabeledControls.Item label="HEIGHT">
+            <LabeledControls.Item label="ВЫСОТА">
               <NumberInput
                 step={1}
                 value={supplyZ}
@@ -690,7 +769,7 @@ const SupplyDrop = (props) => {
                 width="75px"
               />
             </LabeledControls.Item>
-            <LabeledControls.Item label="STATUS">
+            <LabeledControls.Item label="СТАТУС">
               <Box color={crate_color} bold>
                 {crate_status}
               </Box>
@@ -706,7 +785,7 @@ const SupplyDrop = (props) => {
                 act('dropsupply', { x: supplyX, y: supplyY, z: supplyZ })
               }
             >
-              Launch
+              Отправить
             </Button>
             <Button
               fontSize="20px"
@@ -717,7 +796,7 @@ const SupplyDrop = (props) => {
                 act('save_coordinates', { x: supplyX, y: supplyY, z: supplyZ })
               }
             >
-              Save
+              Сохранить
             </Button>
           </Box>
         </Stack.Item>
@@ -756,7 +835,7 @@ const OrbitalBombardment = (props) => {
       <Stack justify={'space-between'} m="10px">
         <Stack.Item fontSize="14px">
           <LabeledControls mb="5px">
-            <LabeledControls.Item label="LONGITUDE">
+            <LabeledControls.Item label="ДОЛГОТА">
               <NumberInput
                 step={1}
                 value={OBX}
@@ -766,7 +845,7 @@ const OrbitalBombardment = (props) => {
                 width="75px"
               />
             </LabeledControls.Item>
-            <LabeledControls.Item label="LATITUDE">
+            <LabeledControls.Item label="ШИРОТА">
               <NumberInput
                 step={1}
                 value={OBY}
@@ -776,7 +855,7 @@ const OrbitalBombardment = (props) => {
                 width="75px"
               />
             </LabeledControls.Item>
-            <LabeledControls.Item label="HEIGHT">
+            <LabeledControls.Item label="ВЫСОТА">
               <NumberInput
                 step={1}
                 value={OBZ}
@@ -787,7 +866,7 @@ const OrbitalBombardment = (props) => {
               />
             </LabeledControls.Item>
 
-            <LabeledControls.Item label="STATUS">
+            <LabeledControls.Item label="СТАТУС">
               <Box color={ob_color} bold>
                 {ob_status}
               </Box>
@@ -801,7 +880,7 @@ const OrbitalBombardment = (props) => {
               color={data.ob_safety ? 'transperant' : 'red'}
               onClick={() => act('dropbomb', { x: OBX, y: OBY, z: OBZ })}
             >
-              Fire
+              Запуск
             </Button>
             <Button
               fontSize="20px"
@@ -812,7 +891,7 @@ const OrbitalBombardment = (props) => {
                 act('save_coordinates', { x: OBX, y: OBY, z: OBZ })
               }
             >
-              Save
+              Сохранить
             </Button>
           </Box>
         </Stack.Item>
@@ -858,13 +937,13 @@ const SavedCoordinates = (props) => {
       <Table>
         <Table.Row bold>
           <Table.Cell p="5px" collapsing>
-            LONG.
+            ДОЛ.
           </Table.Cell>
           <Table.Cell p="5px" collapsing>
-            LAT.
+            ШИР.
           </Table.Cell>
           <Table.Cell p="5px" collapsing>
-            HEIGHT
+            ВЫСОТА
           </Table.Cell>
           <Table.Cell p="5px">COMMENT</Table.Cell>
           <Table.Cell p="5px" collapsing />

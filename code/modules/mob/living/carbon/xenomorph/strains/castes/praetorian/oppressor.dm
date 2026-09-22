@@ -12,6 +12,7 @@
 		/datum/action/xeno_action/activable/prae_acid_ball,
 		/datum/action/xeno_action/activable/spray_acid/base_prae_spray_acid,
 		/datum/action/xeno_action/activable/corrosive_acid,
+		/datum/action/xeno_action/activable/xeno_spit/praetorian,
 	)
 	actions_to_add = list(
 		/datum/action/xeno_action/activable/tail_stab/tail_seize,
@@ -27,7 +28,6 @@
 	prae.explosivearmor_modifier += XENO_EXPOSIVEARMOR_MOD_SMALL
 	prae.small_explosives_stun = FALSE
 	prae.speed_modifier += XENO_SPEED_SLOWMOD_TIER_5
-	prae.plasma_types = list(PLASMA_NEUROTOXIN, PLASMA_CHITIN)
 	prae.claw_type = CLAW_TYPE_SHARP
 
 	prae.recalculate_everything()
@@ -50,19 +50,12 @@
 /datum/action/xeno_action/activable/tail_stab/tail_seize/use_ability(atom/targetted_atom)
 	var/mob/living/carbon/xenomorph/stabbing_xeno = owner
 
-	if(!action_cooldown_check())
+	if(world.time <= stabbing_xeno.next_move)
 		return FALSE
 
-	if(!stabbing_xeno.check_state())
-		return FALSE
+	XENO_ACTION_CHECK_USE_PLASMA(stabbing_xeno)
 
-	if (world.time <= stabbing_xeno.next_move)
-		return FALSE
-
-	if(!check_and_use_plasma_owner())
-		return FALSE
-
-	stabbing_xeno.visible_message(SPAN_XENODANGER("\The [stabbing_xeno] uncoils and wildly throws out its tail!"), SPAN_XENODANGER("We uncoil our tail wildly in front of us!"))
+	stabbing_xeno.visible_message(SPAN_XENODANGER("[stabbing_xeno] разворачивает хвост и дико размахивает им!"), SPAN_XENODANGER("Мы разворачиваем хвост и дико размахиваем им!")) // SS220 EDIT ADDICTION
 
 	var/obj/projectile/hook_projectile = new /obj/projectile(stabbing_xeno.loc, create_cause_data(initial(stabbing_xeno.caste_type), stabbing_xeno))
 
@@ -78,25 +71,21 @@
 	xeno_attack_delay(stabbing_xeno)
 	return ..()
 
-/datum/action/xeno_action/activable/prae_abduct/use_ability(atom/atom)
+/datum/action/xeno_action/activable/prae_abduct/use_ability(atom/target_atom)
 	var/mob/living/carbon/xenomorph/abduct_user = owner
 
-	if(!atom || atom.layer >= FLY_LAYER || !isturf(abduct_user.loc))
+	if(!target_atom || target_atom.layer >= FLY_LAYER || !isturf(abduct_user.loc))
 		return
 
-	if(!action_cooldown_check() || abduct_user.action_busy)
+	if(abduct_user.action_busy)
 		return
 
-	if(!abduct_user.check_state())
-		return
-
-	if(!check_plasma_owner())
-		return
+	XENO_ACTION_CHECK(abduct_user)
 
 	// Build our turflist
 	var/list/turf/turflist = list()
 	var/list/telegraph_atom_list = list()
-	var/facing = get_dir(abduct_user, atom)
+	var/facing = get_dir(abduct_user, target_atom)
 	var/turf/turf = abduct_user.loc
 	var/turf/temp = abduct_user.loc
 	for(var/distance in 0 to max_distance)
@@ -111,37 +100,73 @@
 			break
 
 		var/blocked = FALSE
-		for(var/obj/structure/structure in temp)
-			if(structure.opacity || ((istype(structure, /obj/structure/barricade) || istype(structure, /obj/structure/girder) && structure.density || istype(structure, /obj/structure/machinery/door)) && structure.density))
+		var/allow_one_more_step = FALSE
+		for(var/obj/structure in temp)
+			if(istype(structure, /obj/effect/particle_effect/smoke))
+				continue
+			if(!structure.density && !structure.opacity)
+				continue
+			if(istype(structure, /obj/structure/girder))
 				blocked = TRUE
-				break
+				continue
+			if(istype(structure, /obj/structure/window/reinforced))
+				var/obj/structure/window/reinforced/pane_glass = structure
+				var/pane_facing = pane_glass.dir
+				if(pane_facing == turn(facing, 180))
+					blocked = TRUE
+				else if(pane_facing == facing)
+					allow_one_more_step = TRUE
+				continue
+			if(istype(structure, /obj/structure/surface/table))
+				var/obj/structure/surface/table/flip_table = structure
+				var/table_facing = flip_table.dir
+				if(flip_table.flipped)
+					if(table_facing == turn(facing, 180))
+						blocked = TRUE
+					else if(table_facing == facing)
+						allow_one_more_step = TRUE
+				continue
+			if(istype(structure, /obj/structure/barricade))
+				var/obj/structure/barricade/cade = structure
+				var/cade_facing = cade.dir
+				if(cade_facing & turn(facing, 180))
+					blocked = TRUE
+				else if(cade_facing == facing)
+					allow_one_more_step = TRUE
+				continue
+			if(structure.pass_flags.flags_can_pass_all & PASS_HIGH_OVER)
+				continue
+			blocked = TRUE
 		if(blocked)
 			break
 
 		turf = temp
 
-		if (turf in turflist)
+		if(turf in turflist)
 			break
 
 		turflist += turf
-		facing = get_dir(turf, atom)
+		facing = get_dir(turf, target_atom)
 		telegraph_atom_list += new /obj/effect/xenomorph/xeno_telegraph/abduct_hook(turf, windup)
 
+		if(allow_one_more_step)
+			break
+
 	if(!length(turflist))
-		to_chat(abduct_user, SPAN_XENOWARNING("We don't have any room to do our abduction!"))
+		to_chat(abduct_user, SPAN_XENOWARNING("Нам не хватает места, чтобы развернуть хвост!"))
 		return
 
-	abduct_user.visible_message(SPAN_XENODANGER("\The [abduct_user]'s segmented tail starts coiling..."), SPAN_XENODANGER("We begin coiling our tail, aiming towards \the [atom]..."))
+	abduct_user.visible_message(SPAN_XENODANGER("Сегментированный хвост [abduct_user] начинает сворачиваться..."), SPAN_XENODANGER("Мы начинаем сворачивать хвост, целясь в [target_atom]...")) // SS220 EDIT ADDICTION
 	abduct_user.emote("roar")
 
 	var/throw_target_turf = get_step(abduct_user, facing)
 
 	ADD_TRAIT(abduct_user, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Abduct"))
 	if(!do_after(abduct_user, windup, INTERRUPT_NO_NEEDHAND, BUSY_ICON_HOSTILE, numticks = 1))
-		to_chat(abduct_user, SPAN_XENOWARNING("You relax your tail."))
+		to_chat(abduct_user, SPAN_XENOWARNING("Вы расслабляете хвост."))
 		apply_cooldown()
 
-		for (var/obj/effect/xenomorph/xeno_telegraph/xenotelegraph in telegraph_atom_list)
+		for(var/obj/effect/xenomorph/xeno_telegraph/xenotelegraph in telegraph_atom_list)
 			telegraph_atom_list -= xenotelegraph
 			qdel(xenotelegraph)
 
@@ -149,51 +174,55 @@
 
 		return
 
-	if(!check_and_use_plasma_owner())
-		return
+	XENO_ACTION_CHECK_USE_PLASMA(abduct_user)
 
 	REMOVE_TRAIT(abduct_user, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Abduct"))
 
 	playsound(get_turf(abduct_user), 'sound/effects/bang.ogg', 25, 0)
-	abduct_user.visible_message(SPAN_XENODANGER("\The [abduct_user] suddenly uncoils its tail, firing it towards [atom]!"), SPAN_XENODANGER("We uncoil our tail, sending it out towards \the [atom]!"))
+	abduct_user.visible_message(SPAN_XENODANGER("[abduct_user] молниеносно разворачивает хвост и выпускает его в сторону [target_atom]!"), SPAN_XENODANGER("Мы молниеносно разворачиваем хвост и выпускаем его в сторону [target_atom]!")) // SS220 EDIT ADDICTION
 
 	var/list/targets = list()
-	for (var/turf/target_turf in turflist)
-		for (var/mob/living/carbon/target in target_turf)
+	for(var/turf/target_turf in turflist)
+		for(var/mob/living/carbon/target in target_turf)
 			if(!isxeno_human(target) || abduct_user.can_not_harm(target) || target.is_dead() || target.is_mob_incapacitated(TRUE) || target.mob_size >= MOB_SIZE_BIG)
 				continue
-
 			targets += target
-	if (LAZYLEN(targets) == 1)
-		abduct_user.balloon_alert(abduct_user, "our tail catches and slows one target!", text_color = "#51a16c")
-	else if (LAZYLEN(targets) == 2)
-		abduct_user.balloon_alert(abduct_user, "our tail catches and roots two targets!", text_color = "#51a16c")
-	else if (LAZYLEN(targets) >= 3)
-		abduct_user.balloon_alert(abduct_user, "our tail catches and stuns [LAZYLEN(targets)] targets!", text_color = "#51a16c")
+
+	var/target_count = length(targets)
+	var/captured_message = null
+	switch(target_count)
+		if(1)
+			captured_message = "slowed one target"
+		if(2)
+			captured_message = "rooted two targets"
+		if(3 to INFINITY)
+			captured_message = "stunned [target_count] targets"
+
+	if(captured_message)
+		abduct_user.balloon_alert(abduct_user, captured_message, text_color = "#51a16c")
 
 	apply_cooldown()
 
-	for (var/mob/living/carbon/target in targets)
-		abduct_user.visible_message(SPAN_XENODANGER("\The [abduct_user]'s hooked tail coils itself around [target]!"), SPAN_XENODANGER("Our hooked tail coils itself around [target]!"))
+	for(var/mob/living/carbon/target in targets)
+		abduct_user.visible_message(SPAN_XENODANGER("Сегментированный хвост [abduct_user] обвивается вокруг [target]!"), SPAN_XENODANGER("Наш хвост обвивается вокруг [target]!"))
 
 		target.apply_effect(0.2, WEAKEN)
 
-		if (LAZYLEN(targets) == 1)
+		if(LAZYLEN(targets) == 1)
 			new /datum/effects/xeno_slow(target, abduct_user, null, null, 2.5 SECONDS)
 			target.apply_effect(1, SLOW)
-		else if (LAZYLEN(targets) == 2)
+		else if(LAZYLEN(targets) == 2)
 			ADD_TRAIT(target, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Abduct"))
-			if (ishuman(target))
+			if(ishuman(target))
 				var/mob/living/carbon/human/target_human = target
 				target_human.update_xeno_hostile_hud()
 			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(unroot_human), target, TRAIT_SOURCE_ABILITY("Abduct")), get_xeno_stun_duration(target, 2.5 SECONDS))
-			to_chat(target, SPAN_XENOHIGHDANGER("[abduct_user] has pinned you to the ground! You cannot move!"))
+			to_chat(target, SPAN_XENOHIGHDANGER("[abduct_user] прижал вас к земле из-за чего вы обездвижены!")) // SS220 EDIT ADDICTION
 
 			target.set_effect(2, DAZE)
-		else if (LAZYLEN(targets) >= 3)
+		else if(LAZYLEN(targets) >= 3)
 			target.apply_effect(get_xeno_stun_duration(target, 1.3), WEAKEN)
-			to_chat(target, SPAN_XENOHIGHDANGER("You are slammed into the other victims of [abduct_user]!"))
-
+			to_chat(target, SPAN_XENOHIGHDANGER("Вы врезаетесь в других жертв [abduct_user]!")) // SS220 EDIT ADDICTION
 
 		shake_camera(target, 10, 1)
 
@@ -214,18 +243,12 @@
 /datum/action/xeno_action/activable/oppressor_punch/use_ability(atom/target_atom)
 	var/mob/living/carbon/xenomorph/oppressor_user = owner
 
-	if (!action_cooldown_check())
-		return
-
-	if (!isxeno_human(target_atom) || oppressor_user.can_not_harm(target_atom))
-		return
-
-	if (!oppressor_user.check_state() || oppressor_user.agility)
+	if(!isxeno_human(target_atom) || oppressor_user.can_not_harm(target_atom))
 		return
 
 	var/mob/living/carbon/target_carbon = target_atom
 
-	if (!oppressor_user.Adjacent(target_carbon))
+	if(!oppressor_user.Adjacent(target_carbon))
 		return
 
 	if(target_carbon.stat == DEAD)
@@ -233,15 +256,14 @@
 
 	var/obj/limb/target_limb = target_carbon.get_limb(check_zone(oppressor_user.zone_selected))
 
-	if (ishuman(target_carbon) && (!target_limb || (target_limb.status & LIMB_DESTROYED)))
+	if(ishuman(target_carbon) && (!target_limb || (target_limb.status & LIMB_DESTROYED)))
 		target_limb = target_carbon.get_limb("chest")
 
-	if (!check_and_use_plasma_owner())
-		return
+	XENO_ACTION_CHECK_USE_PLASMA(oppressor_user)
 
 	target_carbon.last_damage_data = create_cause_data(oppressor_user.caste_type, oppressor_user)
 
-	oppressor_user.visible_message(SPAN_XENOWARNING("\The [oppressor_user] hits [target_carbon] in the [target_limb? target_limb.display_name : "chest"] with a devastatingly powerful punch!"),
+	oppressor_user.visible_message(SPAN_XENOWARNING("\The [oppressor_user] hits [target_carbon] in the [target_limb? target_limb.display_name : "chest"] with a devastatingly powerful punch!"), // SS220 EDIT ADDICTION
 	SPAN_XENOWARNING("We hit [target_carbon] in the [target_limb ? target_limb.display_name : "chest"] with a devastatingly powerful punch!"))
 	var/hitsound = pick('sound/weapons/punch1.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/punch4.ogg')
 	playsound(target_carbon,hitsound, 50, 1)
@@ -250,16 +272,16 @@
 	oppressor_user.animation_attack_on(target_carbon)
 	oppressor_user.flick_attack_overlay(target_carbon, "punch")
 
-	if (!(target_carbon.mobility_flags & MOBILITY_MOVE) || !(target_carbon.mobility_flags & MOBILITY_STAND) || target_carbon.slowed)
+	if(!(target_carbon.mobility_flags & MOBILITY_MOVE) || !(target_carbon.mobility_flags & MOBILITY_STAND) || target_carbon.slowed)
 		target_carbon.apply_damage(get_xeno_damage_slash(target_carbon, damage), BRUTE, target_limb? target_limb.name : "chest")
 		ADD_TRAIT(target_carbon, TRAIT_IMMOBILIZED, TRAIT_SOURCE_ABILITY("Oppressor Punch"))
 
-		if (ishuman(target_carbon))
+		if(ishuman(target_carbon))
 			var/mob/living/carbon/human/human_to_update = target_carbon
 			human_to_update.update_xeno_hostile_hud()
 
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(unroot_human), target_carbon, TRAIT_SOURCE_ABILITY("Oppressor Punch")), get_xeno_stun_duration(target_carbon, 1.2 SECONDS))
-		to_chat(target_carbon, SPAN_XENOHIGHDANGER("[oppressor_user] has pinned you to the ground! You cannot move!"))
+		to_chat(target_carbon, SPAN_XENOHIGHDANGER("[oppressor_user] прижал вас к земле из-за чего вы обездвижены!")) // SS220 EDIT ADDICTION
 	else
 		target_carbon.apply_armoured_damage(get_xeno_damage_slash(target_carbon, damage), ARMOR_MELEE, BRUTE, target_limb? target_limb.name : "chest")
 		step_away(target_carbon, oppressor_user, 2)
@@ -276,17 +298,16 @@
 	apply_cooldown()
 	return ..()
 
-/datum/action/xeno_action/activable/tail_lash/use_ability(atom/atoms)
+/datum/action/xeno_action/activable/tail_lash/use_ability(atom/target_atom)
 	var/mob/living/carbon/xenomorph/lash_user = owner
 
-	if (!istype(lash_user) || !lash_user.check_state() || !action_cooldown_check())
+	if(!istype(lash_user) || !target_atom)
 		return
 
-	if(!atoms || atoms.layer >= FLY_LAYER || !isturf(lash_user.loc))
+	if(target_atom.layer >= FLY_LAYER || !isturf(lash_user.loc))
 		return
 
-	if (!check_plasma_owner())
-		return
+	XENO_ACTION_CHECK(lash_user)
 
 	// Transient turf list
 	var/list/target_turfs = list()
@@ -295,7 +316,7 @@
 
 	// Code to get a 2x3 area of turfs
 	var/turf/root = get_turf(lash_user)
-	var/facing = Get_Compass_Dir(lash_user, atoms)
+	var/facing = Get_Compass_Dir(lash_user, target_atom)
 	var/turf/infront = get_step(root, facing)
 	var/turf/left = get_step(root, turn(facing, 90))
 	var/turf/right = get_step(root, turn(facing, -90))
@@ -307,18 +328,18 @@
 	if(!(!infront || infront.density) && !(!right || right.density))
 		temp_turfs += infront_right
 
-	for(var/turf/turfs_to_check in temp_turfs)
-		if (!istype(turfs_to_check))
+	for(var/turf/turfs_to_check as anything in temp_turfs)
+		if(!istype(turfs_to_check))
 			continue
 
-		if (turfs_to_check.density)
+		if(turfs_to_check.density)
 			continue
 
 		target_turfs += turfs_to_check
 		telegraph_atom_list += new /obj/effect/xenomorph/xeno_telegraph/lash(turfs_to_check, windup)
 
 		var/turf/next_turf = get_step(turfs_to_check, facing)
-		if (!istype(next_turf) || next_turf.density)
+		if(!istype(next_turf) || next_turf.density)
 			continue
 
 		target_turfs += next_turf
@@ -336,18 +357,17 @@
 			qdel(tail_telegraph)
 		return
 
-	if(!action_cooldown_check() || !check_and_use_plasma_owner())
-		return
+	XENO_ACTION_CHECK_USE_PLASMA(lash_user)
 
 	apply_cooldown()
 
-	lash_user.visible_message(SPAN_XENODANGER("[lash_user] lashes its tail furiously, hitting everything in front of it!"), SPAN_XENODANGER("We lash our tail furiously, hitting everything in front of us!"))
+	lash_user.visible_message(SPAN_XENODANGER("[lash_user] яростно хлыщет хвостом по области перед собой!"), SPAN_XENODANGER("Мы яростно хлыщем хвостом по области перед собой!")) // SS220 EDIT ADDICTION
 	lash_user.spin_circle()
 	lash_user.emote("tail")
 
-	for (var/turf/targets_in_turf in target_turfs)
-		for (var/mob/living/carbon/possible_targets in targets_in_turf)
-			if (possible_targets.stat == DEAD)
+	for(var/turf/targets_in_turf in target_turfs)
+		for(var/mob/living/carbon/possible_targets in targets_in_turf)
+			if(possible_targets.stat == DEAD)
 				continue
 
 			if(!isxeno_human(possible_targets) || lash_user.can_not_harm(possible_targets))

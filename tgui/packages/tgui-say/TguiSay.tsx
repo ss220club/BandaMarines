@@ -2,40 +2,50 @@ import './styles/main.scss';
 
 import { isEscape, KEY } from 'common/keys';
 import { type BooleanLike, classes } from 'common/react';
-import {
-  type FormEvent,
-  type KeyboardEvent,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { dragStartHandler } from 'tgui/drag';
 
-import { type Channel, ChannelIterator } from './ChannelIterator';
+import { type Channel, ChannelIterator, CHANNELS } from './ChannelIterator';
 import { ChatHistory } from './ChatHistory';
-import { LineLength, RADIO_PREFIXES, WindowSize } from './constants';
-import { getPrefix, windowClose, windowOpen, windowSet } from './helpers';
+import {
+  EnChannelLabel,
+  LARGE_WINDOW_SIZE,
+  type LivingType,
+  MEDIUM_LINE_SIZE,
+  MEDIUM_WINDOW_SIZE,
+  RuPrefixLabel,
+  SMALL_LINE_SIZE,
+  SMALL_WINDOW_SIZE,
+} from './constants';
+import {
+  getPrefix,
+  isLanguagePrefix,
+  type PrefixType,
+  resolvePrefixData,
+  windowClose,
+  windowOpen,
+  windowSet,
+} from './helpers';
 import { byondMessages } from './timers';
 
-type ByondOpen = {
+type ByondOpenType = {
   channel: Channel;
-  mapfocus: BooleanLike;
-  lobbyfocus: BooleanLike;
 };
 
-type ByondProps = {
+type AvailableChannels = Record<string, number>;
+
+type ByondPropsType = {
   maxLength: number;
   lightMode: BooleanLike;
   scale: BooleanLike;
-  extraChannels: Array<Channel>;
 };
 
-const ROWS: Record<keyof typeof WindowSize, number> = {
-  Small: 1,
-  Medium: 2,
-  Large: 3,
-  Width: 1, // not used
-} as const;
+type ByondUpdateChannelsType = {
+  availableChannels: AvailableChannels;
+  livingType: LivingType;
+};
+
+const CHANNEL_ID_NORMALIZE_REGEX = /[\s._-]+/g;
 
 export function TguiSay() {
   const innerRef = useRef<HTMLTextAreaElement>(null);
@@ -47,19 +57,25 @@ export function TguiSay() {
   // I initially wanted to make these an object or a reducer, but it's not really worth it.
   // You lose the granulatity and add a lot of boilerplate.
   const [buttonContent, setButtonContent] = useState('');
-  const [currentPrefix, setCurrentPrefix] = useState<
-    keyof typeof RADIO_PREFIXES | null
-  >(null);
-  const [size, setSize] = useState(WindowSize.Small);
-  const [maxLength, setMaxLength] = useState(1024);
+  const [currentPrefix, setCurrentPrefix] = useState<PrefixType | null>(null);
   const [lightMode, setLightMode] = useState(false);
-  const [position, setPosition] = useState([window.screenX, window.screenY]);
+  const [maxLength, setMaxLength] = useState(1024);
+  const [size, setSize] = useState(SMALL_WINDOW_SIZE);
   const [value, setValue] = useState('');
-  const [extraChannels, setExtraChennels] = useState<Array<Channel>>([]);
+  const [availableChannels, setAvailableChannels] = useState<AvailableChannels>(
+    {},
+  );
+
+  const position = useRef([window.screenX, window.screenY]);
+  const isDragging = useRef(false);
+  const translateChannelLabel = channelIterator.current.translate();
+  const theme = currentPrefix
+    ? resolvePrefixData(currentPrefix)?.id ||
+      EnChannelLabel(translateChannelLabel)
+    : EnChannelLabel(translateChannelLabel);
 
   function handleArrowKeys(direction: KEY.Up | KEY.Down): void {
     const chat = chatHistory.current;
-    const iterator = channelIterator.current;
 
     if (direction === KEY.Up) {
       if (chat.isAtLatest() && value) {
@@ -77,7 +93,7 @@ export function TguiSay() {
       const nextMessage = chat.getNewerMessage() || chat.getTemp() || '';
 
       const newContent = chat.isAtLatest()
-        ? iterator.current()
+        ? channelIterator.current.translate()
         : chat.getIndex().toString();
 
       setButtonContent(newContent);
@@ -87,18 +103,50 @@ export function TguiSay() {
 
   function handleBackspaceDelete(): void {
     const chat = chatHistory.current;
-    const iterator = channelIterator.current;
 
     // User is on a chat history message
     if (!chat.isAtLatest()) {
       chat.reset();
-      setButtonContent(currentPrefix ?? iterator.current());
+      const prefixLabel = resolvePrefixData(currentPrefix)?.label;
+      setButtonContent(
+        prefixLabel
+          ? RuPrefixLabel(prefixLabel)
+          : channelIterator.current.translate(),
+      );
 
       // Empty input, resets the channel
-    } else if (currentPrefix && iterator.isSay() && value?.length === 0) {
+    } else if (
+      currentPrefix &&
+      channelIterator.current.isSay() &&
+      value?.length === 0
+    ) {
       setCurrentPrefix(null);
-      setButtonContent(iterator.current());
+      setButtonContent(channelIterator.current.translate());
     }
+  }
+
+  function handleButtonClick(event: React.MouseEvent<HTMLButtonElement>): void {
+    isDragging.current = true;
+
+    setTimeout(() => {
+      // So the button doesn't jump around accidentally
+      if (isDragging.current) {
+        dragStartHandler(event.nativeEvent);
+      }
+    }, 50);
+  }
+
+  // Prevents the button from changing channels if it's dragged
+  function handleButtonRelease(): void {
+    isDragging.current = false;
+    const currentPosition = [window.screenX, window.screenY];
+
+    if (JSON.stringify(position.current) !== JSON.stringify(currentPosition)) {
+      position.current = currentPosition;
+      return;
+    }
+
+    handleIncrementChannel();
   }
 
   function handleClose(): void {
@@ -131,7 +179,9 @@ export function TguiSay() {
     const iterator = channelIterator.current;
 
     // Only force say if we're on a visible channel and have typed something
-    if (!value || iterator.isVisible()) return;
+    if (!value || iterator.isVisible()) {
+      return;
+    }
 
     const prefix = currentPrefix ?? '';
     const grunt = iterator.isSay() ? prefix + value : value;
@@ -141,44 +191,76 @@ export function TguiSay() {
   }
 
   function handleIncrementChannel(): void {
-    const xPos = window.screenX;
-    const yPos = window.screenY;
-    if (JSON.stringify(position) !== JSON.stringify([xPos, yPos])) return;
-    const iterator = channelIterator.current;
-
-    iterator.next(extraChannels);
-    setButtonContent(iterator.current());
+    setButtonContent(channelIterator.current.getNextTranslated());
     setCurrentPrefix(null);
-    messages.current.channelIncrementMsg(iterator.isVisible());
+    messages.current.channelIncrementMsg(channelIterator.current.isVisible());
   }
 
-  function handleInput(event: FormEvent<HTMLTextAreaElement>): void {
+  function handleInput(event: React.FormEvent<HTMLTextAreaElement>): void {
     const iterator = channelIterator.current;
     let newValue = event.currentTarget.value;
 
-    let newPrefix = getPrefix(newValue) || currentPrefix;
-    // Handles switching prefixes
-    if (newPrefix && newPrefix !== currentPrefix) {
-      setButtonContent(RADIO_PREFIXES[newPrefix]?.label);
+    if (newValue.startsWith(';')) {
+      iterator.set(CHANNELS.COMMS);
+      setCurrentPrefix(null);
+      setButtonContent(iterator.translate());
+      newValue = newValue.slice(1);
+    }
+
+    const newPrefix = getPrefix(newValue) ?? currentPrefix;
+    if (canChangePrefix(newPrefix)) {
+      const prefixLabel = resolvePrefixData(newPrefix)?.label;
+      setButtonContent(
+        prefixLabel
+          ? RuPrefixLabel(prefixLabel)
+          : channelIterator.current.translate(),
+      );
       setCurrentPrefix(newPrefix);
       newValue = newValue.slice(3);
-      iterator.set('Say');
-
-      if (newPrefix === ':b ') {
-        Byond.sendMessage('thinking', { visible: false });
-      }
+      iterator.set(CHANNELS.SAY);
     }
 
     // Handles typing indicators
-    if (channelIterator.current.isVisible() && newPrefix !== ':b ') {
+    if (channelIterator.current.isVisible()) {
       messages.current.typingMsg();
     }
 
     setValue(newValue);
   }
 
-  function handleKeyDown(event: KeyboardEvent<HTMLTextAreaElement>): void {
-    if (event.getModifierState('AltGraph')) return;
+  function canChangePrefix(newPrefix: PrefixType | null): boolean {
+    if (!newPrefix || newPrefix === currentPrefix) {
+      return false;
+    }
+
+    if (isLanguagePrefix(newPrefix)) {
+      return true;
+    }
+
+    const channelId = resolvePrefixData(newPrefix)?.id ?? null;
+    if (channelId === null) {
+      return true;
+    }
+
+    const normalizedId = channelId
+      .toString()
+      .toLowerCase()
+      .replace(CHANNEL_ID_NORMALIZE_REGEX, '');
+
+    return Object.keys(availableChannels).some(
+      (availableChannel) =>
+        availableChannel
+          .toLowerCase()
+          .replace(CHANNEL_ID_NORMALIZE_REGEX, '') === normalizedId,
+    );
+  }
+
+  function handleKeyDown(
+    event: React.KeyboardEvent<HTMLTextAreaElement>,
+  ): void {
+    if (event.getModifierState('AltGraph')) {
+      return;
+    }
 
     switch (event.key) {
       case KEY.Up:
@@ -209,43 +291,36 @@ export function TguiSay() {
     }
   }
 
-  function handleButtonDrag(e: React.MouseEvent<Element, MouseEvent>): void {
-    const xPos = window.screenX;
-    const yPos = window.screenY;
-    setPosition([xPos, yPos]);
-    dragStartHandler(e);
+  function handleOpen(data: ByondOpenType): void {
+    channelIterator.current.set(data.channel);
+    setCurrentPrefix(null);
+    setButtonContent(channelIterator.current.translate());
+    windowOpen(channelIterator.current.current(), scale.current);
+    innerRef.current?.focus();
   }
 
-  function handleOpen(data: ByondOpen): void {
-    setTimeout(() => {
-      innerRef.current?.focus();
-    }, 1);
-
-    const { channel, mapfocus, lobbyfocus } = data;
-
-    if (!mapfocus && !lobbyfocus) {
-      return;
-    }
-    const iterator = channelIterator.current;
-    // Catches the case where the modal is already open
-    if (iterator.isSay()) {
-      iterator.set(channel);
-    }
-
-    setButtonContent(iterator.current());
-    windowOpen(iterator.current(), scale.current);
-  }
-
-  function handleProps(data: ByondProps): void {
+  function handleProps(data: ByondPropsType): void {
     setMaxLength(data.maxLength);
     setLightMode(!!data.lightMode);
-    setExtraChennels(data.extraChannels);
     scale.current = !!data.scale;
+  }
+
+  function handleUpdateChannels(data: ByondUpdateChannelsType): void {
+    const currentChannel = channelIterator.current.current();
+    channelIterator.current = new ChannelIterator(data.livingType);
+    channelIterator.current.set(currentChannel);
+
+    setAvailableChannels(
+      typeof data.availableChannels === 'object' ? data.availableChannels : {},
+    );
+    if (!currentPrefix) {
+      setButtonContent(channelIterator.current.translate());
+    }
   }
 
   function unloadChat(): void {
     setCurrentPrefix(null);
-    setButtonContent(channelIterator.current.current());
+    setButtonContent(channelIterator.current.translate());
     setValue('');
   }
 
@@ -254,77 +329,55 @@ export function TguiSay() {
     Byond.subscribeTo('props', handleProps);
     Byond.subscribeTo('force', handleForceSay);
     Byond.subscribeTo('open', handleOpen);
+    Byond.subscribeTo('update_channels', handleUpdateChannels);
   }, []);
 
   /** Value has changed, we need to check if the size of the window is ok */
   useEffect(() => {
-    const len = value?.length || 0;
-
-    let newSize: WindowSize;
-    if (len > LineLength.Medium) {
-      newSize = WindowSize.Large;
-    } else if (len <= LineLength.Medium && len > LineLength.Small) {
-      newSize = WindowSize.Medium;
-    } else {
-      newSize = WindowSize.Small;
-    }
+    const newSize =
+      value?.length > MEDIUM_LINE_SIZE
+        ? LARGE_WINDOW_SIZE
+        : value?.length > SMALL_LINE_SIZE
+          ? MEDIUM_WINDOW_SIZE
+          : SMALL_WINDOW_SIZE;
 
     if (size !== newSize) {
-      setSize(newSize);
       windowSet(newSize, scale.current);
+      setSize(newSize);
     }
   }, [value]);
 
-  const theme =
-    (lightMode && 'lightMode') ||
-    (currentPrefix && RADIO_PREFIXES[currentPrefix])?.id ||
-    channelIterator.current.current().toLowerCase();
-
   return (
-    <>
-      <div
-        className={`window window-${theme} window-${size}`}
-        style={{
-          zoom: scale.current ? '' : `${100 / window.devicePixelRatio}%`,
-        }}
-        onMouseDown={dragStartHandler}
-      >
-        {!lightMode && <div className={`shine shine-${theme}`} />}
-      </div>
-      <div
-        className={classes(['content', lightMode && 'content-lightMode'])}
-        style={{
-          zoom: scale.current ? '' : `${100 / window.devicePixelRatio}%`,
-        }}
-      >
+    <div
+      className={classes([
+        'window',
+        `window-${theme}`,
+        lightMode && 'window-light',
+      ])}
+      style={{
+        zoom: scale.current ? '' : `${100 / window.devicePixelRatio}%`,
+      }}
+    >
+      <div className="content">
         <button
-          className={`button button-${theme}`}
-          onClick={handleIncrementChannel}
-          onMouseDown={handleButtonDrag}
+          className="button"
+          onMouseDown={handleButtonClick}
+          onMouseUp={handleButtonRelease}
           type="button"
         >
           {buttonContent}
         </button>
         <textarea
           autoCorrect="off"
-          className={`textarea textarea-${theme}`}
+          className="textarea"
           maxLength={maxLength}
           onInput={handleInput}
           onKeyDown={handleKeyDown}
           ref={innerRef}
-          spellCheck={false}
-          rows={ROWS[size] || 1}
+          spellCheck
           value={value}
         />
-        <button
-          key="escape"
-          className={`button button-${theme}`}
-          onClick={handleClose}
-          type="submit"
-        >
-          X
-        </button>
       </div>
-    </>
+    </div>
   );
 }

@@ -22,8 +22,10 @@
 	var/total_friendly_fire_instances = 0
 	var/total_slashes = 0
 
-	// untracked data
+	// Sub entities
 	var/datum/entity/statistic/map/current_map // reference to current map
+
+	// untracked data
 	var/list/datum/entity/statistic/death/death_stats_list = list()
 
 	var/list/abilities_used = list() // types of /datum/entity/statistic, "tail sweep" = 10, "screech" = 2
@@ -63,6 +65,10 @@
 	QDEL_LIST_ASSOC_VAL(weapon_stats_list)
 	QDEL_LIST_ASSOC_VAL(job_stats_list)
 
+/datum/entity/statistic/round/save()
+	. = ..()
+	current_map?.save()
+
 /datum/entity_meta/statistic_round
 	entity_type = /datum/entity/statistic/round
 	table_name = "rounds"
@@ -95,8 +101,8 @@
 	if(!round_stats)
 		var/operation_name
 		operation_name = "[pick(GLOB.operation_titles)]"
-		operation_name += " [pick(GLOB.operation_prefixes)]"
-		operation_name += "-[pick(GLOB.operation_postfixes)]"
+		operation_name += " «[pick(GLOB.operation_prefixes)]" // SS220 EDIT ADDICTION
+		operation_name += "-[pick(GLOB.operation_postfixes)]»" // SS220 EDIT ADDICTION
 
 		// Round stats
 		round_stats = DB_ENTITY(/datum/entity/statistic/round)
@@ -112,6 +118,8 @@
 
 		// Map stats
 		var/datum/entity/statistic/map/new_map = DB_EKEY(/datum/entity/statistic/map, SSmapping.configs[GROUND_MAP].map_name)
+		new_map.save()
+		new_map.sync()
 		new_map.total_rounds++
 		new_map.save()
 

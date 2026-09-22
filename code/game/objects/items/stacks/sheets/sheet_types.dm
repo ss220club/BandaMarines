@@ -238,6 +238,14 @@ GLOBAL_LIST_INIT_TYPED(cardboard_recipes, /datum/stack_recipe, list ( \
 		new/datum/stack_recipe("empty speed loader box (M44 Heavy)", /obj/item/ammo_box/magazine/m44/heavy/empty), \
 		new/datum/stack_recipe("empty speed loader box (M44 Marksman)", /obj/item/ammo_box/magazine/m44/marksman/empty), \
 		null, \
+		new/datum/stack_recipe("empty magazine box (M10)", /obj/item/ammo_box/magazine/m10/empty), \
+		new/datum/stack_recipe("empty magazine box (M10 Ext)", /obj/item/ammo_box/magazine/m10/extended/empty), \
+		new/datum/stack_recipe("empty magazine box (M10 Drum)", /obj/item/ammo_box/magazine/m10/drum/empty), \
+		null, \
+		new/datum/stack_recipe("empty magazine box (M10 AP)", /obj/item/ammo_box/magazine/m10/ap/empty), \
+		new/datum/stack_recipe("empty magazine box (M10 AP Ext)", /obj/item/ammo_box/magazine/m10/ap/extended/empty), \
+		new/datum/stack_recipe("empty magazine box (M10 AP Drum)", /obj/item/ammo_box/magazine/m10/ap/drum/empty), \
+		null, \
 		new/datum/stack_recipe("empty magazine box (M39)", /obj/item/ammo_box/magazine/m39/empty), \
 		new/datum/stack_recipe("empty magazine box (M39 AP)", /obj/item/ammo_box/magazine/m39/ap/empty), \
 		new/datum/stack_recipe("empty magazine box (M39 Ext)", /obj/item/ammo_box/magazine/m39/ext/empty), \
@@ -253,6 +261,7 @@ GLOBAL_LIST_INIT_TYPED(cardboard_recipes, /datum/stack_recipe, list ( \
 		new/datum/stack_recipe("empty magazine box (M4RA)", /obj/item/ammo_box/magazine/m4ra/empty), \
 		new/datum/stack_recipe("empty magazine box (M4RA AP)", /obj/item/ammo_box/magazine/m4ra/ap/empty), \
 		new/datum/stack_recipe("empty magazine box (M4RA Incen)", /obj/item/ammo_box/magazine/m4ra/incen/empty), \
+		new/datum/stack_recipe("empty magazine box (M4RA Ext)", /obj/item/ammo_box/magazine/m4ra/ext/empty), \
 		null, \
 		new/datum/stack_recipe("empty magazine box (M41A)", /obj/item/ammo_box/magazine/empty), \
 		new/datum/stack_recipe("empty magazine box (M41A AP)", /obj/item/ammo_box/magazine/ap/empty), \
@@ -266,8 +275,8 @@ GLOBAL_LIST_INIT_TYPED(cardboard_recipes, /datum/stack_recipe, list ( \
 		new/datum/stack_recipe("empty magazine box (M41A MK1)", /obj/item/ammo_box/magazine/mk1/empty), \
 		new/datum/stack_recipe("empty magazine box (M41A MK1 AP)", /obj/item/ammo_box/magazine/mk1/ap/empty), \
 		null, \
-		new/datum/stack_recipe("empty drum box (M56B)", /obj/item/ammo_box/magazine/m56b/empty), \
-		new/datum/stack_recipe("empty drum box (M56B Irradiated)", /obj/item/ammo_box/magazine/m56b/dirty/empty), \
+		new/datum/stack_recipe("empty drum box (M56)", /obj/item/ammo_box/magazine/m56a2/empty), \
+		new/datum/stack_recipe("empty drum box (M56 Irradiated)", /obj/item/ammo_box/magazine/m56a2/dirty/empty), \
 		new/datum/stack_recipe("empty drum box (M56D)", /obj/item/ammo_box/magazine/m56d/empty), \
 		null, \
 		new/datum/stack_recipe("empty drum box (M2C)", /obj/item/ammo_box/magazine/m2c/empty), \
@@ -334,6 +343,8 @@ GLOBAL_LIST_INIT_TYPED(cardboard_recipes, /datum/stack_recipe, list ( \
 		new/datum/stack_recipe("empty magazine box (M16)", /obj/item/ammo_box/magazine/M16/empty), \
 		new/datum/stack_recipe("empty magazine box (M16 AP)", /obj/item/ammo_box/magazine/M16/ap/empty), \
 		null, \
+		new/datum/stack_recipe("empty magazine box (M20A)", /obj/item/ammo_box/magazine/m20a/empty), \
+		null, \
 		new/datum/stack_recipe("empty magazine box (AR10)", /obj/item/ammo_box/magazine/ar10/empty), \
 		null, \
 		new/datum/stack_recipe("empty magazine box (MP5)", /obj/item/ammo_box/magazine/mp5/empty), \
@@ -359,6 +370,7 @@ GLOBAL_LIST_INIT_TYPED(cardboard_recipes, /datum/stack_recipe, list ( \
 		new/datum/stack_recipe("empty magazine box (FN FP9000)", /obj/item/ammo_box/magazine/fp9000/empty), \
 		null, \
 		new/datum/stack_recipe("empty magazine box (FN P90)", /obj/item/ammo_box/magazine/p90/empty), \
+		new/datum/stack_recipe("empty magazine box (FN P90 AP)", /obj/item/ammo_box/magazine/p90/ap/empty), \
 		null, \
 		new/datum/stack_recipe("empty magazine box (Type19)", /obj/item/ammo_box/magazine/type19/empty), \
 		null, \
@@ -386,7 +398,9 @@ GLOBAL_LIST_INIT_TYPED(cardboard_recipes, /datum/stack_recipe, list ( \
 		null, \
 		new/datum/stack_recipe("empty rifle ammo box (5.45x39mm)", /obj/item/ammo_box/rounds/type71/empty), \
 		new/datum/stack_recipe("empty rifle ammo box (5.45x39mm AP)", /obj/item/ammo_box/rounds/type71/ap/empty), \
-
+		null, \
+		new/datum/stack_recipe("empty auto-pistol ammo box (10x20mm-APC)", /obj/item/ammo_box/rounds/pistol/m10/empty), \
+		new/datum/stack_recipe("empty auto-pistol ammo box (10x20mm-APC (AP))", /obj/item/ammo_box/rounds/pistol/m10/ap/empty), \
 
 		)) \
 ))
@@ -421,7 +435,7 @@ GLOBAL_LIST_INIT_TYPED(aluminium_recipes, /datum/stack_recipe, list ( \
 
 /obj/item/stack/sheet/aluminum
 	name = "aluminum"
-	desc = "A silvery-white soft metal of the boron group. Because of its low density it is often uses as a structural material in aircrafts."
+	desc = "A silvery-white soft metal of the boron group. Because of its low density it is often used as a structural material in aircraft."
 	singular_name = "aluminum sheet"
 	icon_state = "sheet-aluminum"
 	sheettype = "aluminum"

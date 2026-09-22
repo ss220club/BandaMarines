@@ -16,6 +16,8 @@
 
 	/// Whether or not the pipe will explode (when on the Almayer) during hijack
 	var/explodey = TRUE
+	/// Whether the pipe is currently exploding
+	var/exploding = FALSE
 	/// The grenade subtypes that pipes will use when they explode
 	var/static/list/exploding_types = list(/obj/item/explosive/grenade/high_explosive/bursting_pipe, /obj/item/explosive/grenade/incendiary/bursting_pipe)
 
@@ -67,12 +69,12 @@
 		return
 
 	playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
-	user.visible_message(SPAN_NOTICE("[user] begins unfastening [src]."), SPAN_NOTICE("You begin unfastening [src]."))
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins unfastening [src]."), SPAN_NOTICE("You begin unfastening [src]."))
 	if(!do_after(user, 40 * user.get_skill_duration_multiplier(SKILL_CONSTRUCTION), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
 		return
 
 	playsound(loc, 'sound/items/Ratchet.ogg', 25, 1)
-	user.visible_message(SPAN_NOTICE("[user] unfastens [src]."),
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] unfastens [src]."),
 	SPAN_NOTICE("You unfasten [src]."))
 	new /obj/item/pipe(loc, null, null, src)
 	qdel(src)
@@ -123,7 +125,7 @@
 			if(W)
 				var/mob/living/carbon/xenomorph/X = user
 				if(!istype(X) || X.hivenumber != W.linked_hive.hivenumber)
-					to_chat(user, SPAN_WARNING("The weeds are blocking the exit of this vent"))
+					to_chat(user, SPAN_WARNING("The weeds are blocking the exit of this vent."))
 					return
 
 		if(ventcrawl_message_busy > world.time)
@@ -143,13 +145,13 @@
 		animate_ventcrawl_reset()
 		user.remove_ventcrawl()
 		user.forceMove(src.loc)
-		user.visible_message(SPAN_HIGHDANGER("[user] climbs out of [src]."), SPAN_NOTICE("You climb out of [src]."))
+		user.visible_message(SPAN_HIGHDANGER("[capitalize(user.declent_ru(NOMINATIVE))] climbs out of [src]."), SPAN_NOTICE("You climb out of [src]."))
 		playsound(user, pick('sound/effects/alien_ventpass1.ogg', 'sound/effects/alien_ventpass2.ogg'), 35, 1)
 
 		return
 
 	user.forceMove(next_pipe)
-	user.client.eye = next_pipe //if we don't do this, Byond only updates the eye every tick - required for smooth movement
+	user.client?.set_eye(next_pipe) //if we don't do this, Byond only updates the eye every tick - required for smooth movement
 	user.update_pipe_icons(next_pipe)
 
 	if(world.time - user.last_played_vent > VENT_SOUND_DELAY)
@@ -199,6 +201,9 @@
  * time_till: required, the time until the explosion occurs. The sound file lasts 5 seconds.
  */
 /obj/structure/pipes/proc/warning_explode(time_till)
+	if(exploding)
+		return // Already going to happen
+
 	if(!time_till)
 		CRASH("No time given to /warning_explode.")
 	var/turf/position = get_turf(src)
@@ -209,6 +214,7 @@
 	playsound(src, 'sound/effects/pipe_hissing.ogg', vol = 40)
 	addtimer(CALLBACK(src, PROC_REF(kablooie)), time_till)
 	visible_message(SPAN_HIGHDANGER("[src] begins hissing violently!"))
+	exploding = TRUE
 
 /**
  * Makes the pipe go boom.

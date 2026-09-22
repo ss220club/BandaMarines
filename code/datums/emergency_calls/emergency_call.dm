@@ -49,26 +49,19 @@
 	var/max_engineers = 1
 	var/max_heavies = 1
 	var/max_smartgunners = 1
-	///xeno roles
+	//xeno roles
 	var/xeno_t3 = 0
 	var/xeno_t2 = 0
 	var/max_xeno_t3 = 1
 	var/max_xeno_t2 = 1
-	///Hunting Grounds
-	var/mercs = 0
-	var/royal_marines= 0
-	var/upp = 0
-	var/clf = 0
-	var/max_mercs = 1
-	var/max_royal_marines= 1
-	var/max_upp = 1
-	var/max_clf = 1
 
 	var/shuttle_id = MOBILE_SHUTTLE_ID_ERT1 //Empty shuttle ID means we're not using shuttles (aka spawn straight into cryo)
 	var/auto_shuttle_launch = TRUE
 	var/spawn_max_amount = FALSE
+	/// Whether this ERT can occur even during FTL or on a ground crash
+	var/ignore_ftl_or_crash = FALSE
 
-	var/ert_message = "An emergency beacon has been activated"
+	var/ert_message = "Был активирован аварийный маяк бедствия." //SS220 EDIT
 
 	var/time_required_for_job = 5 HOURS
 
@@ -77,6 +70,9 @@
 
 	/// the [/datum/lazy_template] we should attempt to spawn in for the return journey
 	var/home_base = /datum/lazy_template/ert/freelancer_station
+
+	/// What sound plays to ghosts when this rolls? Silent if null
+	var/alert_sound
 
 /datum/game_mode/proc/initialize_emergency_calls()
 	if(length(all_calls)) //It's already been set up.
@@ -141,10 +137,13 @@
 
 	for(var/mob/dead/observer/M in GLOB.observer_list)
 		if(M.client)
-			to_chat(M, SPAN_WARNING(FONT_SIZE_LARGE("\n[ert_message]. &gt; <a href='byond://?src=\ref[M];joinresponseteam=1;'><b>Join Response Team</b></a> &lt; </span>")))
-			to_chat(M, SPAN_WARNING(FONT_SIZE_LARGE("You cannot join if you have Ghosted recently. Click the link in chat, or use the verb in the ghost tab to join.</span>\n")))
+			to_chat(M, SPAN_WARNING(FONT_SIZE_LARGE("<br>[ert_message]. &gt; <a href=\"byond://?src=\ref[M];joinresponseteam=1;\"><b>Присоединиться к команде реагирования</b></a> &lt; </span>"))) // SS220 EDIT ADDICTION
+			to_chat(M, SPAN_WARNING(FONT_SIZE_LARGE("Вы не можете присоединиться, если недавно были в режиме призрака. Нажмите на ссылку в чате или используйте команду во вкладке «Ghost», чтобы присоединиться.</span><br>"))) // SS220 EDIT ADDICTION
 
 			give_action(M, /datum/action/join_ert, src)
+
+			if(!isnull(alert_sound))
+				playsound_client(M.client, alert_sound, vol = 50)
 
 /datum/game_mode/proc/activate_distress()
 	ert_dispatched = TRUE
@@ -260,6 +259,11 @@
 			marine_announcement("Сигнал бедствия не получил ответа, пусковые трубы сейчас проходят повторную калибровку.", "Маяк бедствия", logging = ARES_LOG_SECURITY)
 		return
 
+	if(!ignore_ftl_or_crash && (SShijack.in_ftl || SShijack.crashed || SShijack.hijack_status == HIJACK_OBJECTIVES_GROUND_CRASH))
+		members = list()
+		candidates = list()
+		return
+
 	//We've got enough!
 	//Trim down the list
 	var/list/datum/mind/picked_candidates = list()
@@ -314,10 +318,9 @@
 			return
 
 		var/list/active_lzs = list()
-		var/list/z_levels = SSmapping.levels_by_any_trait(list(ZTRAIT_MARINE_MAIN_SHIP))
 		for(var/obj/docking_port/stationary/dock as anything in lzs)
 			// filter for almayer only
-			if(!(dock.z in z_levels))
+			if(!is_mainship_level(dock.z))
 				continue
 			// filter for free lzs
 			if(shuttle.canDock(dock) != SHUTTLE_CAN_DOCK)

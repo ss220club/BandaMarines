@@ -25,7 +25,7 @@
 	internal_max_w_class = SIZE_MEDIUM //MEDIUM = M15.
 
 	aim_slowdown = SLOWDOWN_ADS_SPECIALIST
-	wield_delay = WIELD_DELAY_SLOW
+	wield_delay = WEAPON_DELAY_SLOW
 	flags_gun_features = GUN_UNUSUAL_DESIGN|GUN_SPECIALIST|GUN_WIELDED_FIRING_ONLY
 	///Can you access the storage by clicking it, put things into it, or take things out? Meant for break-actions mostly but useful for any state where you want access to be toggleable. Make sure to call cylinder.close(user) so they don't still have the screen open!
 	var/open_chamber = TRUE
@@ -46,7 +46,7 @@
 /obj/item/weapon/gun/launcher/grenade/set_gun_config_values()
 	..()
 	recoil = RECOIL_AMOUNT_TIER_4 //Same as m37 shotgun.
-
+	set_fire_delay(FIRE_DELAY_TIER_GL)
 
 /obj/item/weapon/gun/launcher/grenade/on_pocket_insertion() //Plays load sfx whenever a nade is put into storage.
 	playsound(usr, reload_sound, 25, 1)
@@ -103,16 +103,16 @@
 	else
 		user.put_in_hands(nade)
 
-	user.visible_message(SPAN_NOTICE("[user] unloads [nade] from [src]."),
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] unloads [nade] from [src]."),
 	SPAN_NOTICE("You unload [nade] from [src]."), null, 4, CHAT_TYPE_COMBAT_ACTION)
 	playsound(user, unload_sound, 30, 1)
 
 
-/obj/item/weapon/gun/launcher/grenade/attackby(obj/item/I, mob/user)
-	if(istype(I,/obj/item/attachable) && check_inactive_hand(user))
-		attach_to_gun(user,I)
+/obj/item/weapon/gun/launcher/grenade/attackby(obj/item/attacking_obj, mob/user)
+	if(istype(attacking_obj, /obj/item/attachable) && check_inactive_hand(user))
+		attach_to_gun(user, attacking_obj)
 		return
-	return cylinder.attackby(I, user)
+	return cylinder.attackby(attacking_obj, user)
 
 /obj/item/weapon/gun/launcher/grenade/unique_action(mob/user)
 	if(isobserver(usr) || isxeno(usr))
@@ -145,7 +145,7 @@
 	if(!cylinder.can_be_inserted(I, user)) //Technically includes whether there's room for it, but the above gives a tailored message.
 		return
 
-	user.visible_message(SPAN_NOTICE("[user] loads [I] into [src]."),
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] loads [I] into [src]."),
 	SPAN_NOTICE("You load [I] into the grenade launcher."), null, 4, CHAT_TYPE_COMBAT_ACTION)
 	playsound(usr, reload_sound, 75, 1)
 	if(internal_slots > 1)
@@ -184,7 +184,7 @@
 	var/to_firer = "You fire the [name]!"
 	if(internal_slots > 1)
 		to_firer += " [length(cylinder.contents)-1]/[internal_slots] grenades remaining."
-	user.visible_message(SPAN_DANGER("[user] fired a grenade!"),
+	user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] fired a grenade!"),
 	SPAN_WARNING("[to_firer]"), message_flags = CHAT_TYPE_WEAPON_USE)
 	playsound(user.loc, fire_sound, 50, 1)
 
@@ -200,7 +200,7 @@
 			if(ishuman(user))
 				var/mob/living/carbon/human/human_user = user
 				human_user.remember_dropped_object(fired)
-				fired.fingerprintslast = key_name(user)
+				fired.fingerprintslast = user.ckey
 			pass_flags |= PASS_MOB_THRU_HUMAN|PASS_MOB_IS_OTHER|PASS_OVER
 		else
 			pass_flags |= PASS_MOB_THRU|PASS_HIGH_OVER
@@ -214,9 +214,10 @@
 	fired.forceMove(get_turf(src))
 	fired.throw_atom(target, 20, SPEED_VERY_FAST, user, null, NORMAL_LAUNCH, pass_flags)
 
+/obj/item/weapon/gun/launcher/grenade/start_fire(datum/source, atom/object, turf/location, control, params, bypass_checks = FALSE)
+	return FALSE
 
-
-//Doesn't use these. Listed for reference.
+//Doesn't use these. Listed for reference. - Really should just actually write these out so it can use Autofire
 /obj/item/weapon/gun/launcher/grenade/load_into_chamber()
 	return
 /obj/item/weapon/gun/launcher/grenade/reload_into_chamber()
@@ -282,12 +283,13 @@
 	internal_slots = 6
 	direct_draw = FALSE
 
+/obj/item/weapon/gun/launcher/grenade/m92/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/armat)
+
 /obj/item/weapon/gun/launcher/grenade/m92/set_gun_attachment_offsets()
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 14, "rail_y" = 22, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
 
-/obj/item/weapon/gun/launcher/grenade/m92/set_gun_config_values()
-	..()
-	set_fire_delay(FIRE_DELAY_TIER_4*4)
 
 /obj/item/weapon/gun/launcher/grenade/m92/able_to_fire(mob/living/user)
 	. = ..()
@@ -312,9 +314,6 @@
 /obj/item/weapon/gun/launcher/grenade/m81/set_gun_attachment_offsets()
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 14, "rail_y" = 22, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
 
-/obj/item/weapon/gun/launcher/grenade/m81/set_gun_config_values()
-	..()
-	set_fire_delay(FIRE_DELAY_TIER_4 * 1.5)
 
 /obj/item/weapon/gun/launcher/grenade/m81/on_pocket_removal()
 	..()
@@ -328,6 +327,7 @@
 	desc = "A lightweight, multiple-shot variant of the M81 grenade launcher retrofitted to launch non-lethal or concussive ammunition. Used by the Colonial Marines Military Police during riots."
 	icon = 'icons/obj/items/weapons/guns/guns_by_faction/colony/grenade_launchers.dmi'
 	icon_state = "m81"
+	item_state = "m81"
 	valid_munitions = list(
 		/obj/item/explosive/grenade/custom/teargas,
 		/obj/item/explosive/grenade/slug/baton,
@@ -344,9 +344,6 @@
 	is_lobbing = TRUE
 	internal_slots = 3
 
-/obj/item/weapon/gun/launcher/grenade/m84/set_gun_config_values()
-	..()
-	set_fire_delay(FIRE_DELAY_TIER_4*4)
 
 /obj/item/weapon/gun/launcher/grenade/m84/able_to_fire(mob/living/user)
 	. = ..()
@@ -356,18 +353,21 @@
 			return FALSE
 
 //-------------------------------------------------------
-//M79 Grenade Launcher subtype of the M81
+//M85A1 Grenade Launcher subtype of the M81
 
-/obj/item/weapon/gun/launcher/grenade/m81/m79//m79 variant for marines
-	name = "\improper M79 grenade launcher"
-	desc = "A heavy, low-angle 40mm grenade launcher. It's been in use since the Vietnam War, though this version has been modernized with an IFF enabled micro-computer. The wooden furniture is, in fact, made of painted hardened polykevlon."
+/obj/item/weapon/gun/launcher/grenade/m81/m85a1//m85a1 variant for marines
+	name = "\improper M85A1 grenade launcher"
+	desc = "A heavy, low-angle, break-action 40mm grenade launcher. Archaic in core design, inferior to more modern semi-automatic M92, M95 grenade launchers and M94 impact launcher, but doesn't require a magnetic armature or an advanced expertise to operate, not to mention near flawless reliability, extremely low cost and low weight due to mostly being made out of polymer materials."
 	icon = 'icons/obj/items/weapons/guns/guns_by_faction/USCM/grenade_launchers.dmi'
-	icon_state = "m79"
-	item_state = "m79"
+	icon_state = "m85a1"
+	item_state = "m85a1"
 	flags_equip_slot = SLOT_BACK
 	preload = /obj/item/explosive/grenade/slug/baton
 	is_lobbing = TRUE
 	actions_types = list(/datum/action/item_action/toggle_firing_level)
+
+	pixel_x = -4
+	hud_offset = -4
 
 	fire_sound = 'sound/weapons/handling/m79_shoot.ogg'
 	cocked_sound = 'sound/weapons/handling/m79_break_open.ogg'
@@ -379,21 +379,22 @@
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/reflex,
-		/obj/item/attachable/stock/m79,
 	)
 
-/obj/item/weapon/gun/launcher/grenade/m81/m79/handle_starting_attachment()
-	..()
-	var/obj/item/attachable/stock/m79/S = new(src)
-	S.hidden = FALSE
-	S.flags_attach_features &= ~ATTACH_REMOVABLE
-	S.Attach(src)
-	update_attachable(S.slot)
+/obj/item/weapon/gun/launcher/grenade/m81/m85a1/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/armat)
 
-/obj/item/weapon/gun/launcher/grenade/m81/m79/set_gun_attachment_offsets()
-	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18, "rail_x" = 11, "rail_y" = 21, "under_x" = 19, "under_y" = 14, "stock_x" = 14, "stock_y" = 14)
+/obj/item/weapon/gun/launcher/grenade/m81/m85a1/set_gun_attachment_offsets()
+	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18, "rail_x" = 18, "rail_y" = 21, "under_x" = 19, "under_y" = 14, "stock_x" = 14, "stock_y" = 14)
 
-/obj/item/weapon/gun/launcher/grenade/m81/m79/set_bullet_traits()
+/obj/item/weapon/gun/launcher/grenade/m81/m85a1/set_bullet_traits()
 	LAZYADD(traits_to_give, list(
 		BULLET_TRAIT_ENTRY(/datum/element/bullet_trait_iff)//might not need this because of is_lobbing, but let's keep it just incase
 	))
+
+/obj/item/weapon/gun/launcher/grenade/m81/m85a1/m79
+	name = "\improper M79 grenade launcher"
+	desc = "A heavy, low-angle 40mm grenade launcher. Looks to be a hobbyist modification made to resemble a Vietnam War prop. This version has been modernized with an IFF enabled micro-computer. The wooden furniture is, in fact, made of painted hardened polykevlon."
+	icon_state = "m79"
+	icon_state = "m79"

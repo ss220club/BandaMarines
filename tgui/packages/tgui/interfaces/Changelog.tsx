@@ -1,6 +1,6 @@
 import { classes } from 'common/react';
 import dateformat from 'dateformat';
-import yaml from 'js-yaml';
+import { CORE_SCHEMA, load } from 'js-yaml';
 import { Component, Fragment } from 'react';
 import { resolveAsset } from 'tgui/assets';
 import { useBackend } from 'tgui/backend';
@@ -23,15 +23,19 @@ const changeTypes = {
   qol: { icon: 'hand-holding-heart', color: 'green', desc: 'QOL' },
   soundadd: { icon: 'tg-sound-plus', color: 'green', desc: 'Sound add' },
   sounddel: { icon: 'tg-sound-minus', color: 'red', desc: 'Sound del' },
+  soundtweak: { icon: 'wrench', color: 'green', desc: 'Sound tweak' },
   add: { icon: 'check-circle', color: 'green', desc: 'Addition' },
   expansion: { icon: 'check-circle', color: 'green', desc: 'Addition' },
   rscadd: { icon: 'check-circle', color: 'green', desc: 'Addition' },
   rscdel: { icon: 'times-circle', color: 'red', desc: 'Removal' },
+  del: { icon: 'times-circle', color: 'red', desc: 'Removal' },
   imageadd: { icon: 'tg-image-plus', color: 'green', desc: 'Sprite add' },
   imagedel: { icon: 'tg-image-minus', color: 'red', desc: 'Sprite del' },
+  imagetweak: { icon: 'wrench', color: 'green', desc: 'Sprite tweak' },
   spellcheck: { icon: 'spell-check', color: 'green', desc: 'Spellcheck' },
   experiment: { icon: 'radiation', color: 'yellow', desc: 'Experiment' },
   balance: { icon: 'balance-scale-right', color: 'yellow', desc: 'Balance' },
+  code: { icon: 'code', color: 'green', desc: 'Code improvement' },
   code_imp: { icon: 'code', color: 'green', desc: 'Code improvement' },
   refactor: { icon: 'tools', color: 'green', desc: 'Code refactor' },
   config: { icon: 'cogs', color: 'purple', desc: 'Config' },
@@ -51,8 +55,7 @@ export class Changelog extends Component<
   {},
   {
     data:
-      | string
-      | { date: string; authors: { name: string; changes: string[] } };
+      string | { date: string; authors: { name: string; changes: string[] } };
     selectedDate: string;
     selectedIndex: number;
   }
@@ -105,7 +108,7 @@ export class Changelog extends Component<
           self.getData(date, attemptNumber + 1);
         }, timeout);
       } else {
-        self.setData(yaml.load(result, { schema: yaml.CORE_SCHEMA }));
+        self.setData(load(result, { schema: CORE_SCHEMA }));
       }
     });
   };

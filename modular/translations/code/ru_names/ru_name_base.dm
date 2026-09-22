@@ -17,24 +17,38 @@ GLOBAL_LIST_EMPTY(ru_names)
 /proc/ru_names_list(base, nominative, genitive, dative, accusative, instrumental, prepositional, gender)
 	if(!base || !nominative || !genitive || !dative || !accusative || !instrumental || !prepositional)
 		CRASH("ru_names_list() received incomplete declent list!")
-	return list("base" = base, NOMINATIVE = nominative, GENITIVE = genitive, DATIVE = dative, ACCUSATIVE = accusative, INSTRUMENTAL = instrumental, PREPOSITIONAL = prepositional, "gender" = gender)
+	return list(
+		"base" = base,
+		NOMINATIVE = nominative,
+		GENITIVE = genitive,
+		DATIVE = dative,
+		ACCUSATIVE = accusative,
+		INSTRUMENTAL = instrumental,
+		PREPOSITIONAL = prepositional,
+		"gender" = gender,
+	)
 
+/// Берёт значения из toml файлов перевода (склонения). Можно передать prefix и suffix, которые так же будут применены к base значению
 /proc/ru_names_toml(name, prefix, suffix, override_base)
 	. = list()
 	var/formatted_name = format_text(name)
+	formatted_name = lowertext(formatted_name)
+	// The world didn't initialize properly yet
+	if(isnull(GLOB.ru_names))
+		return .
+	// Fill ru_names
 	if(!length(GLOB.ru_names))
-		var/toml_path = "[PATH_TO_TRANSLATE_DATA]/ru_names.toml"
-		if(!fexists(file(toml_path)))
-			return .
-		GLOB.ru_names = rustg_read_toml_file("[PATH_TO_TRANSLATE_DATA]/ru_names.toml")
+		_ru_names_toml_init()
 	if(GLOB.ru_names[formatted_name])
+		var/list/entry = GLOB.ru_names[formatted_name]
+
 		var/base = override_base || "[prefix][name][suffix]"
-		var/nominative_form = GLOB.ru_names[formatted_name]["nominative"] || name
-		var/genitive_form = GLOB.ru_names[formatted_name]["genitive"] || nominative_form
-		var/dative_form = GLOB.ru_names[formatted_name]["dative"] || nominative_form
-		var/accusative_form = GLOB.ru_names[formatted_name]["accusative"] || nominative_form
-		var/instrumental_form = GLOB.ru_names[formatted_name]["instrumental"] || nominative_form
-		var/prepositional_form = GLOB.ru_names[formatted_name]["prepositional"] || nominative_form
+		var/nominative_form = entry["nominative"] || name
+		var/genitive_form = entry["genitive"] || nominative_form
+		var/dative_form = entry["dative"] || nominative_form
+		var/accusative_form = entry["accusative"] || nominative_form
+		var/instrumental_form = entry["instrumental"] || nominative_form
+		var/prepositional_form = entry["prepositional"] || nominative_form
 		. = ru_names_list(
 			base,
 			"[prefix][nominative_form][suffix]",
@@ -43,7 +57,31 @@ GLOBAL_LIST_EMPTY(ru_names)
 			"[prefix][accusative_form][suffix]",
 			"[prefix][instrumental_form][suffix]",
 			"[prefix][prepositional_form][suffix]",
-			gender = "[GLOB.ru_names[formatted_name]["gender"] || null]",)
+			gender = "[entry["gender"] || null]",
+		)
+
+/proc/_ru_names_toml_init()
+	var/root = "[PATH_TO_TRANSLATE_DATA]/ru_names/"
+	var/list/tomls_path = flist(root)
+	if(!length(tomls_path))
+		return .
+	for(var/toml_file in tomls_path)
+		var/full_path = root + toml_file
+		if(!fexists(full_path))
+			continue
+		var/list/file_data = rustg_read_toml_file(full_path)
+		for(var/key in file_data)
+			var/ignore = FALSE
+			if(GLOB.ru_names[key])
+				continue
+			if(file_data[key]["tags"])
+				for(var/tag in TRANSLATE_TAGS_TO_IGNORE)
+					if(tag in file_data[key]["tags"])
+						ignore = TRUE
+						break
+			if(ignore)
+				continue
+			GLOB.ru_names[key] = file_data[key]
 
 /atom/Initialize(mapload, ...)
 	. = ..()

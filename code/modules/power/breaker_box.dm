@@ -31,7 +31,7 @@
 	if(on)
 		. += SPAN_XENOWARNING("It seems to be online.")
 	else
-		. += SPAN_DANGER("It seems to be offline")
+		. += SPAN_DANGER("It seems to be offline.")
 
 /obj/structure/machinery/power/breakerbox/attack_remote(mob/user)
 	if(busy)
@@ -39,10 +39,10 @@
 		return
 
 	busy = TRUE
-	to_chat(user, SPAN_XENOWARNING(" Updating power settings..."))
+	to_chat(user, SPAN_XENOWARNING("Updating power settings..."))
 	if(do_after(user, 50, INTERRUPT_NO_NEEDHAND, BUSY_ICON_GENERIC)) //5s for AI as AIs can manipulate electronics much faster.
 		set_state(!on)
-		to_chat(user, SPAN_XENOWARNING(" Update Completed. New setting:[on ? "on": "off"]"))
+		to_chat(user, SPAN_XENOWARNING("Update Completed. New setting:[on ? "on": "off"]"))
 	busy = FALSE
 
 
@@ -54,7 +54,7 @@
 
 	busy = TRUE
 	for(var/mob/O in viewers(user))
-		O.show_message(text(SPAN_DANGER("[user] started reprogramming [src]!")), SHOW_MESSAGE_VISIBLE)
+		O.show_message(text(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] started reprogramming [src]!")), SHOW_MESSAGE_VISIBLE)
 
 	if(do_after(user, 300, INTERRUPT_NO_NEEDHAND|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD)) // 30s for non-AIs as humans have to manually reprogram it and rapid switching may cause some lag / powernet updates flood. If AIs spam it they can be easily traced.
 		set_state(!on)

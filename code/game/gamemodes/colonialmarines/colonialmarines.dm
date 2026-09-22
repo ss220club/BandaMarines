@@ -4,6 +4,8 @@
 #define PODLOCKS_OPEN_WAIT (45 MINUTES) // CORSAT pod doors drop at 12:45
 /// How many pipes explode at a time during hijack?
 #define HIJACK_EXPLOSION_COUNT 5
+/// How many pipes explode at a time after a ship ground crash?
+#define HIJACK_CRASHED_EXPLOSION_COUNT 10
 /// What percent do we consider a 'majority?' to win
 #define MAJORITY 0.5
 /// How long to delay the round completion (command is immediately notified)
@@ -12,18 +14,14 @@
 #define GROUNDSIDE_XENO_MULTIPLIER 1.0
 
 /datum/game_mode/colonialmarines
-	name = "Distress Signal"
-	config_tag = "Distress Signal"
+	name = GAMEMODE_DISTRESS_SIGNAL
+	config_tag = GAMEMODE_DISTRESS_SIGNAL
 	required_players = 1 //Need at least one player, but really we need 2.
-	xeno_required_num = 1 //Need at least one xeno.
 	monkey_amount = 5
 	corpses_to_spawn = 0
 	flags_round_type = MODE_INFESTATION|MODE_FOG_ACTIVATED|MODE_NEW_SPAWN
-	static_comms_amount = 1
+	static_comms_amount = 2
 	var/round_status_flags
-
-	var/research_allocation_interval = 10 MINUTES
-	var/next_research_allocation = 0
 	var/next_stat_check = 0
 	var/list/running_round_stats = list()
 	var/list/lz_smoke = list()
@@ -33,12 +31,9 @@
 	 */
 	var/near_lz_protection_delay = 8 MINUTES
 
-////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////
 
 /* Pre-pre-startup */
 /datum/game_mode/colonialmarines/can_start(bypass_checks = FALSE)
-	initialize_special_clamps()
 	return TRUE
 
 /datum/game_mode/colonialmarines/announce()
@@ -47,7 +42,7 @@
 /datum/game_mode/colonialmarines/get_roles_list()
 	return GLOB.ROLES_DISTRESS_SIGNAL
 
-////////////////////////////////////////////////////////////////////////////////////////
+
 //Temporary, until we sort this out properly.
 /obj/effect/landmark/lv624
 	icon = 'icons/landmarks.dmi'
@@ -61,6 +56,12 @@
 /obj/effect/landmark/lv624/fog_blocker/short
 	time_to_dispel = 15 MINUTES
 
+/obj/effect/landmark/lv624/fog_blocker/long
+	time_to_dispel = 24 HOURS
+
+/obj/effect/landmark/lv624/fog_blocker/very_short
+	time_to_dispel = 10 SECONDS
+
 /obj/effect/landmark/lv624/fog_blocker/Initialize(mapload, ...)
 	. = ..()
 
@@ -72,6 +73,27 @@
 
 	new /obj/structure/blocker/fog(loc, time_to_dispel)
 	qdel(src)
+
+/obj/effect/landmark/lv624/door_blocker
+	name = "door blocker"
+	icon_state = "o_red"
+
+	var/time_to_dispel = 85 SECONDS
+
+/obj/effect/landmark/lv624/door_blocker/Initialize(mapload, ...)
+	. = ..()
+
+	return INITIALIZE_HINT_ROUNDSTART
+
+/obj/effect/landmark/lv624/door_blocker/LateInitialize()
+	if(!(SSticker.mode.flags_round_type & MODE_FOG_ACTIVATED) || !SSmapping.configs[GROUND_MAP].environment_traits[ZTRAIT_FOG])
+		return
+
+	new /obj/structure/blocker/door(loc, time_to_dispel)
+	qdel(src)
+
+/obj/effect/landmark/lv624/door_blocker/xeno
+	time_to_dispel = 180 SECONDS
 
 /obj/effect/landmark/lv624/xeno_tunnel
 	name = "xeno tunnel"
@@ -85,7 +107,6 @@
 	GLOB.xeno_tunnels -= src
 	return ..()
 
-////////////////////////////////////////////////////////////////////////////////////////
 
 /* Pre-setup */
 /datum/game_mode/colonialmarines/pre_setup()
@@ -120,8 +141,7 @@
 		T.id = "hole[i]"
 	return TRUE
 
-////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////
+
 
 /* Post-setup */
 //This happens after create_character, so our mob SHOULD be valid and built by now, but without job data.
@@ -137,7 +157,10 @@
 	addtimer(CALLBACK(src, PROC_REF(ares_online)), 5 SECONDS)
 	addtimer(CALLBACK(src, PROC_REF(map_announcement)), 20 SECONDS)
 	addtimer(CALLBACK(src, PROC_REF(start_lz_hazards)), DISTRESS_LZ_HAZARD_START)
+	addtimer(CALLBACK(src, PROC_REF(ares_command_check)), 2 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(ares_autodoc_check)), 15 MINUTES) // 5 MINUTE LOBBY + 15 MINUTE DROPSHIP REFUEL
 	addtimer(CALLBACK(SSentity_manager, TYPE_PROC_REF(/datum/controller/subsystem/entity_manager, select), /datum/entity/survivor_survival), 7 MINUTES)
+	GLOB.chemical_data.reroll_chemicals()
 
 	return ..()
 
@@ -243,8 +266,8 @@
 	warhead.clear_falloff = 400
 	warhead.standard_power = 0
 	warhead.standard_falloff = 30
-	warhead.clear_delay = 3
-	warhead.double_explosion_delay = 6
+	warhead.clear_delay = 0
+	warhead.double_explosion_delay = 0 // No third explosion please
 	warhead.warhead_impact(target) // This is a blocking call
 	playsound(target, 'sound/effects/smoke.ogg', vol=50, vary=1, sound_range=75)
 
@@ -293,6 +316,9 @@
  */
 /datum/game_mode/colonialmarines/proc/clear_proximity_resin()
 	var/datum/cause_data/cause_data = create_cause_data(/obj/effect/particle_effect/smoke/weedkiller::name)
+
+	if(!active_lz)
+		pick_a_lz()
 
 	for(var/area/near_area as anything in GLOB.all_areas)
 		var/area_lz = near_area.linked_lz
@@ -357,14 +383,132 @@
 	if(SSmapping.configs[GROUND_MAP].announce_text)
 		var/rendered_announce_text = replacetext(SSmapping.configs[GROUND_MAP].announce_text, "###SHIPNAME###", MAIN_SHIP_NAME)
 		marine_announcement(rendered_announce_text, "[MAIN_SHIP_NAME]")
+		lore_announcement()
+
+/datum/game_mode/proc/ares_command_check(mob/living/carbon/human/commander = null, force = FALSE)
+	/// Job of the person being auto-promoted.
+	var/role_in_charge
+	/// human being auto-promoted.
+	var/mob/living/carbon/human/person_in_charge
+	/// Extra info to add to the ARES announcement announcing the promotion.
+	var/announce_addendum
+
+	//Basically this follows the list of command staff in order of CoC,
+	//then if the role lacks senior command access it gives the person that access
+
+	if(SSticker.mode.acting_commander && !force) // If there's already an aCO; don't set a new one, unless forced.
+		return
+
+	if((GLOB.marine_leaders[JOB_CO] || GLOB.marine_leaders[JOB_XO]) && !commander)
+		return
+	//If we have a CO or XO, we're good no need to announce anything.
+
+	if(commander) // pre-provided commander overrides the automatic selection.
+		person_in_charge = commander
+	else
+		var/list/all_leaders = deep_copy_list(GLOB.marine_leaders + GLOB.marine_officers)
+		for(var/job_by_chain in CHAIN_OF_COMMAND_ROLES)
+			//Checks for non-unique roles
+			if(job_by_chain in list(JOB_SO, JOB_INTEL, JOB_DOCTOR))
+				var/list/mob/living/candidates = list()
+				for(var/mob/living/candidate as anything in all_leaders[job_by_chain])
+					if(!is_mob_cryoing(candidate))
+						candidates += candidate
+				if(length(candidates))
+					person_in_charge = pick(candidates)
+					break
+			else
+				//Checks for unique roles
+				var/datum/job/job_datum = GLOB.RoleAuthority.roles_for_mode[job_by_chain]
+				person_in_charge = job_datum?.get_active_player_on_job()
+				if(person_in_charge)
+					if(!is_mob_cryoing(person_in_charge))
+						break
+
+	if(!person_in_charge)
+		return log_admin("No valid commander found for automatic promotion.")
+
+	role_in_charge = person_in_charge.job
+	SSticker.mode.acting_commander = person_in_charge // Prevents double-dipping.
+
+	var/obj/item/card/id/card = person_in_charge.get_idcard()
+	if(card)
+		var/static/to_add = list(ACCESS_MARINE_SENIOR, ACCESS_MARINE_DATABASE, ACCESS_MARINE_COMMAND)
+		var/new_access = card.access | to_add
+		if(card.access ~! new_access)
+			card.access = new_access
+			announce_addendum += "\nДоступ командного уровня добавлен к вашему идентификатору." //SS220 EDIT START
+	if(person_in_charge.skills)
+		if(person_in_charge.skills.get_skill_level(SKILL_ENGINEER) < SKILL_ENGINEER_TRAINED)
+			person_in_charge.skills.set_skill(SKILL_ENGINEER, SKILL_ENGINEER_TRAINED)
+		if(person_in_charge.skills.get_skill_level(SKILL_OVERWATCH) < SKILL_OVERWATCH_TRAINED)
+			person_in_charge.skills.set_skill(SKILL_OVERWATCH, SKILL_OVERWATCH_TRAINED)
+
+	announce_addendum += "\nГарнитура и планшет командования доступны в боевом информационном центре." //SS220 EDIT END
+
+	//does an announcement to the crew about the commander & alerts admins to that change for logs.
+	shipwide_ai_announcement("Полномочия исполняющего обязанности командира переданы: [role_in_charge] [person_in_charge.declent_ru(DATIVE)]. Данное лицо принимает на себя командование до дальнейших распоряжений. Пожалуйста, направляйте все запросы и выполняйте инструкции соответствующим образом. [announce_addendum]", MAIN_AI_SYSTEM, 'sound/misc/interference.ogg') //SS220 EDIT
+	message_admins("[key_name(person_in_charge, TRUE)] [ADMIN_JMP_USER(person_in_charge)] has been designated the operation commander.")
+	return
+
+/datum/game_mode/proc/ares_autodoc_check()
+	var/list/surgery_roles = JOB_SURGERY_ROLES_LIST
+	var/surgeon_found = FALSE
+	for(var/mob/living/carbon/human/surgeon in GLOB.alive_human_list)
+		if(surgeon.job in surgery_roles)
+			surgeon_found = TRUE
+			break
+	if(!surgeon_found)
+		var/datum/supply_order/new_order = new()
+		new_order.ordernum = GLOB.supply_controller.ordernum++
+		var/actual_type = GLOB.supply_packs_types["ARES Emergency Autodoc Supplies"]
+		new_order.objects = list(GLOB.supply_packs_datums[actual_type])
+		new_order.orderedby = MAIN_AI_SYSTEM
+		new_order.approvedby = MAIN_AI_SYSTEM
+		GLOB.supply_controller.shoppinglist += new_order
+		for(var/obj/structure/machinery/medical_pod/autodoc/target in GLOB.machines)
+			if(is_mainship_level(target.z))
+				target.skilllock = SKILL_SURGERY_DEFAULT // lowers skill-lock to 0
+		ai_silent_announcement("ВНИМАНИЕ: Цикл выхода из криокапсул для МЕДИЦИНСКОГО ПЕРСОНАЛА ЗАДЕРЖИВАЕТСЯ. Выпускаются диски аварийной перезаписи систем «АВТОДОК».", ".G")
+		return log_admin("No Shipside Doctor found = Autodoc Upgrade Supplies ordered and AutoDoc skill locks released.")
 
 /datum/game_mode/colonialmarines/proc/ares_conclude()
 	ai_silent_announcement("Биосканирование завершено. Признаков неизвестных форм жизни не обнаружено.", ".V")
 	ai_silent_announcement("Сохранение оперативного отчета в архив.", ".V")
 	ai_silent_announcement("Начало финального сканирования систем через 3 минуты.", ".V")
+	log_game("Distress Signal ARES commencing final system scan in 3 minutes!")
 
-////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////
+/datum/game_mode/colonialmarines/proc/end_of_round_ert()
+	//A proc for calling end of round ERTs.
+	switch(SSmapping.configs[GROUND_MAP].map_name)
+		if(MAP_TYRARGO_RIFT)
+			SSticker.mode.get_specific_call(/datum/emergency_call/us_army, TRUE, TRUE)
+
+/datum/game_mode/colonialmarines/proc/lore_announcement()
+	//A proc that will queue up announcements for the lore of the map.
+	switch(SSmapping.configs[GROUND_MAP].map_name)
+		if(MAP_TYRARGO_RIFT)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_announcement), "Дети мои. В этом мире, кишащем носителями и уже готовом к тому, чтобы мы его захватили, бушует великая битва! Однако эти носители оказывают, хоть и бессмысленное, но яростное сопротивление. Я направила ваш под-улей в этот район: вы создадите здесь мощный форпост и прикроете наш западный фланг, пока другой под-улей захватит крепость к востоку от вас, заполненную тысячами носителей!\n\nЧтобы помочь вам, я отправила перед вами легион низших дронов, они гораздо менее разумны, чем вы, но их будет достаточно, чтобы задержать любых оставшихся враждебных носителей к западу от вас, пока вы не обеспечите себе безопасность.", "everything", QUEEN_MOTHER_ANNOUNCE), 20 SECONDS) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "«Алмаер», это пункт эвакуации гражданского населения из музея Тирарго. Мы подвергаемся атаке скопления XX-121, но держимся. На нас надвигаются большие скопления XX-121 с северо-востока, и мы находимся под сильным огнём противника. Наши эвакуационные суда заблокированы дальнобойными ударами бойлеров, западные выходы из города слишком опасны для передвижения наземной техники.\nМы запрашиваем вас взять под контроль западные подходы - нам нужно подавить силы противника и эвакуировать гражданское население. Приём.", "Эвакуационное подразделение Тирарго, штаб первого воздушно-кавалерийского", 'sound/AI/commandreport.ogg'), 15 MINUTES) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_announcement), "Будьте начеку, дети мои. Я почувствовала, что зловонные канализационные трубы этого так называемого города могут быть затоплены в любой момент, если носители восстановят электроснабжение в этом районе. Кнопка для сброса этой гнилой воды находится в металлической конструкции, которую носители называют очистными сооружениями.", "everything", QUEEN_MOTHER_ANNOUNCE), 15 MINUTES) // SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "Внимание: анализ планов городской застройки выявил потенциальное тактическое преимущество. В городской очистной станции можно активировать выпускной клапан, который затопит нижние канализационные туннели водой, уничтожив значительное количество ксенобиологических организмов.\n\nОднако для работы этого клапана необходимо отремонтировать специальный ЛКП, расположенный в подземной электроподстанции, к востоку от подземных очистных сооружений", "ARES 3.2: стратегическое замечание", 'sound/AI/commandreport.ogg'), 20 MINUTES) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "«Алмаер», мы наблюдаем усиление активности XX-121 на эвакуационном пункте Тирарго. Дополнительные особи приближаются с севера.\n\nВражеские бойлеры достаточно близко, чтобы подавить нашу авиационную поддержку, мы перенаправляем танки Лонгстрит для прикрытия наших флангов. Запрашиваем немедленное подавление вражеских сил, сосредоточенных у западного входа в город, вблизи нашего местоположения. Приём.", "Эвакуационное подразделение Тирарго, штаб первого воздушно-кавалерийского", 'sound/AI/commandreport.ogg'), 35 MINUTES) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "Всем подразделениям, всё больше скоплений XX-121 приближается с востока. Мы подвергаемся массированному обстрелу со всех сторон и потеряли половину танков Лонгстрит из-за крушителей.\n\nУ нас закончились бронебойно-осколочно-фугасные боеприпасы, и нам пришлось перейти на боеприпасы с мягким наконечником. Мы больше не можем их сдерживать, запрашиваем срочную поддержку у «Алмаера». Приём.", "Эвакуационное подразделение Тирарго, штаб первого воздушно-кавалерийского", 'sound/AI/commandreport.ogg'), 60 MINUTES) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "Это Тирарго. Ксеносы начали наступление с южного фланга. У нас остался всего один танк. Мы отступаем в центральный коридор и уже перебросили мирных жителей во внутренний периметр.\n\nСитуация критическая, нас уничтожают. Нам нужна поддержка. Приём.", "Эвакуационное подразделение Тирарго, штаб первого воздушно-кавалерийского", 'sound/AI/commandreport.ogg'), 80 MINUTES) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "Всем подразделениям! Это эвакуационный пункт Тирарго, наше положение критическое. Жуки окружили нас со всех сторон, наша бронетехника уничтожена, и теперь нас прижали вражеские опустошители.\n\nНам срочно нужна огневая поддержка, мы больше не можем удерживать позиции.", "Эвакуационное подразделение Тирарго, штаб первого воздушно-кавалерийского", 'sound/AI/commandreport.ogg'), 100 MINUTES) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "«Алмаер»! Жуки прорвались во внутренний периметр! Гражданские берут в руки оружие для защиты, но они не обучены.\n\nНас уничтожают, нам нужна огневая поддержка прямо сейчас! Сейчас же, чёрт возьми!", "Эвакуационное подразделение Тирарго, штаб первого воздушно-кавалерийского", 'sound/AI/commandreport.ogg'), 120 MINUTES) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "##&@* все мертвы! Тирарго пал! Т&^@%###--- штаб командования вот-вот, %$#* нам нужн--------------------", "Эвакуационное подразделение Тирарго, штаб первого воздушно-кавалерийского", 'sound/AI/commandreport.ogg'), 140 MINUTES) //SS220 EDIT
+		if(MAP_WHITE_ANTRE_RESEARCH_FACILITY)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(venir_announcement), "Внимание всему персоналу «Белого грота»! В северном квадранте уже идут испытания улья серии K. Сейчас мы начинаем вторичные испытания прайм-улья в восточном секторе.\n\nПерсонал восточного сектора, будьте готовы принять грудоломов прайм-улья в свою зону содержания.\n\nКроме того, напоминаем всему персоналу, что подразделение «Лазурь-15» из ЧВК «Белая гвардия» и отряд морской пехоты США находятся в пути для оказания помощи в испытаниях и доставки важного груза. Конец связи.", "Объявление управляющего центра «Белый грот»", 'sound/AI/commandreport.ogg'), 5 SECONDS) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(venir_announcement), "Внимание! На объекте произошел масштабный инцидент с нарушением условий содержания! Инициализирована полная изоляция объекта.", "Объявление управляющего центра «Белый грот»", 'sound/ambience/containment_breach1.ogg'), 30 SECONDS) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(venir_announcement), "Внимание! Мы полагаем, что «Лазурь-15» выманила основную часть K-серии за пределы объекта, но у нас происходят масштабные перебои в электроснабжении - зона содержания прайм-улья находится под угрозой. Весь выживший персонал, пригото#^@!&*------", "Объявление управляющего центра «Белый грот»", 'sound/AI/commandreport.ogg'), 65 SECONDS) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(venir_announcement), "Нарушение в работе разделяющего заслона сектора прайм-улья неминуема.", "Автоматическая система объявлений комплекса", 'sound/AI/commandreport.ogg'), 165 SECONDS) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "«Алмаер», это командир взвода «Лазурь-15». Мы только что получили сигнал бедствия из «Белого грота». Похоже, происходит масштабное нарушение условий содержания, оттуда массово вырываются какие-то желтоватые ксеноморфы. Персонал объекта несёт огромные потери, и мы находимся в невыгодной оборонительной позиции. Мы попытаемся выманить эти цели с объекта на открытую местность к северу.\n\nКак только мы переместимся к северу от объекта, связь прервётся. Моя рекомендация — отправиться в «Белый грот» и попытаться спасти оставшихся учёных и захватить то, за чем нас послали. Может быть, заодно спасёте и Кадинского, если его ещё не прибили к стене.\n\nСвои позиции мы удержим. «Лазурь-15». Конец связи.", "Командир взвода «Лазурь-15»", 'sound/AI/commandreport.ogg'), 4 MINUTES) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_lore_announcement), "Что-то происходит... Будьте начеку.", "everything", QUEEN_MOTHER_ANNOUNCE, 'sound/ambience/containment_breach1.ogg'), 30 SECONDS) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_announcement), "Ещё один враждебный улей пытается вырваться из этой металлической клетки, приготовьтесь, ведь скоро и у вас может появиться шанс на побег.", "everything", QUEEN_MOTHER_ANNOUNCE), 1.5 MINUTES) //SS220 EDIT
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(xeno_announcement), "Дети мои. Я чувствую, что враждебный гнилостный улей уже покинул это место. Однако некоторые из тех, кто вас заточил, остались в живых в этой металлической коробке, и я чувствую, что ещё больше из них приближается. Победите носителей, чтобы продемонстрировать наше превосходство!", "everything", QUEEN_MOTHER_ANNOUNCE), 165 SECONDS) //SS220 EDIT
+		if(MAP_LV_624)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(marine_announcement), "Внимание: первоначальное сканирование зоны боевых действий выявило локальную атмосферную аномалию - над руслом реки и вокруг образуется густой туман.\nАлгоритм первичной оценки прогнозирует его рассеивание через 20 минут.", "ARES V3.2", 'sound/AI/commandreport.ogg'), 5 MINUTES) // 5 minute lobby + 5 minutes into the game means the fog drops 20 minutes from now. SS220 EDIT
 
 //This is processed each tick, but check_win is only checked 5 ticks, so we don't go crazy with scanning for mobs.
 /datum/game_mode/colonialmarines/process()
@@ -376,9 +520,8 @@
 		check_hijack_explosions()
 		check_ground_humans()
 
-	if(next_research_allocation < world.time)
-		GLOB.chemical_data.update_credits(GLOB.chemical_data.research_allocation_amount)
-		next_research_allocation = world.time + research_allocation_interval
+	if(GLOB.chemical_data.next_reroll < world.time)
+		GLOB.chemical_data.reroll_chemicals()
 
 	if(!round_finished)
 		var/datum/hive_status/hive
@@ -386,12 +529,17 @@
 			hive = GLOB.hive_datum[hivenumber]
 			if(!hive.xeno_queen_timer)
 				continue
-
 			if(!hive.living_xeno_queen && hive.xeno_queen_timer < world.time)
-				xeno_message("The Hive is ready for a new Queen to evolve.", 3, hive.hivenumber)
+				var/time_remaining = (QUEEN_DEATH_COUNTDOWN + hive.xeno_queen_timer) - world.time
+				if(time_remaining <= 59 SECONDS)
+					var/seconds_left = round(time_remaining / 10)
+					xeno_message("The Hive is ready for a new Queen to evolve. The Hive will collapse in [seconds_left] seconds without a Queen.", 3, hive.hivenumber)
+				else
+					xeno_message("The Hive is ready for a new Queen to evolve. The Hive can only survive for a limited time without a Queen!", 3, hive.hivenumber)
 
-		if(!active_lz && world.time > lz_selection_timer)
-			select_lz(locate(/obj/structure/machinery/computer/shuttle/dropship/flight/lz1))
+
+		if(!active_lz && ROUND_TIME > lz_selection_timer)
+			pick_a_lz()
 
 		// Automated bioscan / Queen Mother message
 		if(world.time > bioscan_current_interval) //If world time is greater than required bioscan time.
@@ -411,20 +559,20 @@
 						for(var/i in GLOB.living_xeno_list)
 							var/mob/M = i
 							sound_to(M, sound(get_sfx("queen"), wait = 0, volume = 50))
-							to_chat(M, SPAN_XENOANNOUNCE("The Queen Mother reaches into your mind from worlds away."))
-							to_chat(M, SPAN_XENOANNOUNCE("To my children and their Queen. I sense the large doors that trap us will open in 30 seconds."))
+							to_chat(M, SPAN_XENOANNOUNCE("Королева-мать проникает в ваш разум издалека."))
+							to_chat(M, SPAN_XENOANNOUNCE("Моим детям и их Королеве: я чувствую, что большие двери, которые нас сдерживают, откроются через 30 секунд."))
 						addtimer(CALLBACK(src, PROC_REF(open_podlocks), "map_lockdown"), 300)
 
 			if(GLOB.round_should_check_for_win)
 				check_win()
 			round_checkwin = 0
 
-		if(!evolution_ovipositor_threshold && world.time >= SSticker.round_start_time + round_time_evolution_ovipositor)
+		if(!evolution_ovipositor_threshold && ROUND_TIME >= round_time_evolution_ovipositor)
 			for(var/hivenumber in GLOB.hive_datum)
 				hive = GLOB.hive_datum[hivenumber]
 				hive.evolution_without_ovipositor = FALSE
 				if(hive.living_xeno_queen && !hive.living_xeno_queen.ovipositor)
-					to_chat(hive.living_xeno_queen, SPAN_XENODANGER("It is time to settle down and let your children grow."))
+					to_chat(hive.living_xeno_queen, SPAN_XENODANGER("Пора успокоиться и позволить вашим детям расти."))
 			evolution_ovipositor_threshold = TRUE
 			msg_admin_niche("Xenomorphs now require the queen's ovipositor for evolution progress.")
 
@@ -443,7 +591,8 @@
 		return
 
 	var/list/shortly_exploding_pipes = list()
-	for(var/i = 1 to HIJACK_EXPLOSION_COUNT)
+	var/explode_count = SShijack?.hijack_status == HIJACK_OBJECTIVES_GROUND_CRASH ? HIJACK_CRASHED_EXPLOSION_COUNT : HIJACK_EXPLOSION_COUNT
+	for(var/i = 1 to explode_count)
 		shortly_exploding_pipes += pick(GLOB.mainship_pipes)
 
 	for(var/obj/structure/pipes/exploding_pipe as anything in shortly_exploding_pipes)
@@ -468,6 +617,10 @@
 			groundside_humans++
 			continue
 
+		if(isyautja(current_mob))
+			groundside_humans += 2 // Yautja are a bigger threat
+			continue
+
 		if(isxeno(current_mob))
 			groundside_xenos++
 			continue
@@ -486,11 +639,16 @@
 			continue
 		shake_camera(current_mob, 3, 1)
 
-	playsound_z(SSmapping.levels_by_any_trait(list(ZTRAIT_MARINE_MAIN_SHIP)), 'sound/effects/double_klaxon.ogg', volume = 10)
-
-// Resource Towers
+	playsound_z(SSmapping.levels_by_trait(ZTRAIT_MARINE_MAIN_SHIP), 'sound/effects/double_klaxon.ogg', volume = 10)
 
 /datum/game_mode/colonialmarines/ds_first_drop(obj/docking_port/mobile/marine_dropship)
+	if(!active_lz)
+		var/dest_id = marine_dropship.destination?.id
+		if(dest_id == DROPSHIP_LZ1)
+			select_lz(locate(/obj/structure/machinery/computer/shuttle/dropship/flight/lz1))
+		else if (dest_id == DROPSHIP_LZ2)
+			select_lz(locate(/obj/structure/machinery/computer/shuttle/dropship/flight/lz2))
+
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(show_blurb_uscm)), DROPSHIP_DROP_MSG_DELAY)
 	addtimer(CALLBACK(src, PROC_REF(warn_resin_clear), marine_dropship), DROPSHIP_DROP_FIRE_DELAY)
 	DB_ENTITY(/datum/entity/survivor_survival) // Record surv survival right now
@@ -499,35 +657,45 @@
 	add_current_round_status_to_end_results("First Drop")
 	clear_lz_hazards()
 
-///////////////////////////
-//Checks to see who won///
-//////////////////////////
+/**
+ * Checks to see who won
+ */
 /datum/game_mode/colonialmarines/check_win()
 	if(SSticker.current_state != GAME_STATE_PLAYING)
 		return
 	if(ROUND_TIME < 10 MINUTES)
 		return
-	var/living_player_list[] = count_humans_and_xenos(get_affected_zlevels())
+
+	if(SShijack?.sd_detonated)
+		round_finished = MODE_INFESTATION_DRAW_DEATH // Self destruction.
+		return
+	if(SShijack?.hijack_status == HIJACK_OBJECTIVES_GROUND_CRASH && !MODE_HAS_MODIFIER(/datum/gamemode_modifier/continue_on_ground_crash))
+		if(SShijack.crashed)
+			round_finished = MODE_INFESTATION_X_MAJOR // Ship crashed into ground and modifier doesn't disable this
+		return
+
+	var/list/living_player_list = count_humans_and_xenos(get_affected_zlevels())
 	var/num_humans = living_player_list[1]
 	var/num_xenos = living_player_list[2]
 
-	if(force_end_at && world.time > force_end_at)
-		round_finished = MODE_INFESTATION_X_MINOR
-
-	if(!num_humans && num_xenos) //No humans remain alive.
-		round_finished = MODE_INFESTATION_X_MAJOR //Evacuation did not take place. Everyone died.
+	if(!num_humans && num_xenos)
+		round_finished = MODE_INFESTATION_X_MAJOR //No humans remain alive.
 	else if(num_humans && !num_xenos)
-		if(SSticker.mode && SSticker.mode.is_in_endgame)
+		if(SSticker.mode?.is_in_endgame)
 			round_finished = MODE_INFESTATION_X_MINOR //Evacuation successfully took place.
 		else
 			SSticker.roundend_check_paused = TRUE
 			round_finished = MODE_INFESTATION_M_MAJOR //Humans destroyed the xenomorphs.
 			ares_conclude()
+			end_of_round_ert()
+
 			addtimer(VARSET_CALLBACK(SSticker, roundend_check_paused, FALSE), MARINE_MAJOR_ROUND_END_DELAY)
 	else if(!num_humans && !num_xenos)
 		round_finished = MODE_INFESTATION_DRAW_DEATH //Both were somehow destroyed.
+	else if (force_end_at && world.time > force_end_at)
+		round_finished = MODE_INFESTATION_X_MINOR // Times up.
 
-/datum/game_mode/colonialmarines/count_humans_and_xenos(list/z_levels)
+/datum/game_mode/colonialmarines/count_humans_and_xenos(list/z_levels = SSmapping.levels_by_any_trait(list(ZTRAIT_GROUND, ZTRAIT_RESERVED, ZTRAIT_MARINE_MAIN_SHIP)))
 	. = ..()
 	if(.[2] != 0) // index 2 = num_xenos
 		return .
@@ -539,13 +707,18 @@
 		if(hive.need_round_end_check && !hive.can_delay_round_end())
 			continue
 		if(hive.living_xeno_queen && !should_block_game_interaction(hive.living_xeno_queen.loc))
-			//Some Queen is alive, we shouldn't end the game yet
-			.[2]++
+			var/turf/queen_turf = get_turf(hive.living_xeno_queen)
+			if(queen_turf?.z in z_levels)
+				//Some Queen is alive, we shouldn't end the game yet
+				.[2]++
 	return .
 
 /datum/game_mode/colonialmarines/check_queen_status(hivenumber, immediately = FALSE)
 	if(!(flags_round_type & MODE_INFESTATION))
 		return
+
+	if(is_in_endgame)
+		return // Don't handle hive collapse for hijack
 
 	var/datum/hive_status/hive = GLOB.hive_datum[hivenumber]
 	if(hive.need_round_end_check && !hive.can_delay_round_end())
@@ -571,18 +744,19 @@
 		round_finished = MODE_INFESTATION_M_MAJOR
 	else
 		round_finished = MODE_INFESTATION_M_MINOR
+	log_game("Distress Signal Hive collapse!")
 
-///////////////////////////////
-//Checks if the round is over//
-///////////////////////////////
+/**
+ * Checks if the round is over
+ */
 /datum/game_mode/colonialmarines/check_finished()
 	if(round_finished)
-		return 1
+		return TRUE
+	return FALSE
 
-//////////////////////////////////////////////////////////////////////
-//Announces the end of the game with all relevant information stated//
-//////////////////////////////////////////////////////////////////////
-
+/**
+ * Announces the end of the game with all relevant information stated
+ */
 /datum/game_mode/colonialmarines/declare_completion()
 	announce_ending()
 	var/musical_track
@@ -595,7 +769,7 @@
 				GLOB.round_statistics.current_map.total_xeno_victories++
 				GLOB.round_statistics.current_map.total_xeno_majors++
 		if(MODE_INFESTATION_M_MAJOR)
-			musical_track = pick('sound/theme/winning_triumph1.ogg','sound/theme/winning_triumph2.ogg')
+			musical_track = pick('sound/theme/winning_triumph1.ogg','sound/theme/winning_triumph2.ogg','sound/theme/winning_triumph3.ogg')
 			end_icon = "marine_major"
 			if(GLOB.round_statistics && GLOB.round_statistics.current_map)
 				GLOB.round_statistics.current_map.total_marine_victories++
@@ -604,25 +778,46 @@
 			var/list/living_player_list = count_humans_and_xenos(get_affected_zlevels())
 			end_icon = "xeno_minor"
 			if(living_player_list[1] && !living_player_list[2]) // If Xeno Minor but Xenos are dead and Humans are alive, see which faction is the last standing
-				var/headcount = count_per_faction()
+				var/static/list/faction_victories = list(
+					"WY_headcount" = list(
+						"musical_track" = 'sound/theme/lastmanstanding_wy.ogg',
+						"end_icon" = "wy_major",
+						"name" = "Weyland-Yutani",
+					),
+					"UPP_headcount" = list(
+						"musical_track" = 'sound/theme/lastmanstanding_upp.ogg',
+						"end_icon" = "upp_major",
+						"name" = "Union of Progressive Peoples",
+					),
+					"CLF_headcount" = list(
+						"musical_track" = 'sound/theme/lastmanstanding_clf.ogg',
+						"end_icon" = "clf_major",
+						"name" = "Colonial Liberation Front",
+					),
+					"TWE_headcount" = list(
+						"musical_track" = 'sound/theme/lastmanstanding_twe.ogg',
+						"end_icon" = "twe_major",
+						"name" = "Three World Empire",
+					),
+					"marine_headcount" = list(
+						"musical_track" = 'sound/theme/neutral_melancholy2.ogg', // This is the theme song for Colonial Marines the game, fitting
+						"end_icon" = "xeno_minor",
+					),
+				)
+				var/list/headcount = count_per_faction()
 				var/living = headcount["total_headcount"]
-				if ((headcount["WY_headcount"] / living) > MAJORITY)
-					musical_track = pick('sound/theme/lastmanstanding_wy.ogg')
-					end_icon = "wy_major"
-					log_game("3rd party victory: Weyland-Yutani")
-					message_admins("3rd party victory: Weyland-Yutani")
-				else if ((headcount["UPP_headcount"] / living) > MAJORITY)
-					musical_track = pick('sound/theme/lastmanstanding_upp.ogg')
-					end_icon = "upp_major"
-					log_game("3rd party victory: Union of Progressive Peoples")
-					message_admins("3rd party victory: Union of Progressive Peoples")
-				else if ((headcount["CLF_headcount"] / living) > MAJORITY)
-					musical_track = pick('sound/theme/lastmanstanding_clf.ogg')
-					end_icon = "upp_major"
-					log_game("3rd party victory: Colonial Liberation Front")
-					message_admins("3rd party victory: Colonial Liberation Front")
-				else if ((headcount["marine_headcount"] / living) > MAJORITY)
-					musical_track = pick('sound/theme/neutral_melancholy2.ogg') //This is the theme song for Colonial Marines the game, fitting
+				for(var/faction in faction_victories)
+					if((headcount[faction] / living) <= MAJORITY)
+						continue
+					var/list/victory = faction_victories[faction]
+					musical_track = victory["musical_track"]
+					end_icon = victory["end_icon"]
+					var/faction_name = victory["name"]
+					if(faction_name)
+						var/victory_message = "3rd party victory: [faction_name]"
+						log_game(victory_message)
+						message_admins(victory_message)
+					break
 			else
 				musical_track = pick('sound/theme/neutral_melancholy1.ogg')
 			if(GLOB.round_statistics && GLOB.round_statistics.current_map)
@@ -640,9 +835,7 @@
 		else
 			end_icon = "draw"
 			musical_track = 'sound/theme/neutral_hopeful2.ogg'
-	var/sound/theme = sound(musical_track, channel = SOUND_CHANNEL_LOBBY)
-	theme.status = SOUND_STREAM
-	sound_to(world, theme)
+	send_end_round_music(musical_track)
 	if(GLOB.round_statistics)
 		GLOB.round_statistics.game_mode = name
 		GLOB.round_statistics.round_length = world.time
@@ -651,12 +844,16 @@
 
 		GLOB.round_statistics.log_round_statistics()
 
+	for(var/mob/mob as anything in GLOB.alive_human_list)
+		SEND_SIGNAL(mob, COMSIG_HUMAN_FINISHED_ROUND)
+
 	calculate_end_statistics()
 	show_end_statistics(end_icon)
 
 	declare_completion_announce_fallen_soldiers()
 	declare_completion_announce_xenomorphs()
 	declare_completion_announce_predators()
+	addtimer(CALLBACK(src, PROC_REF(declare_completion_announce_colony_joes)), 2 SECONDS)
 	declare_completion_announce_medal_awards()
 	declare_fun_facts()
 

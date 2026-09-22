@@ -14,8 +14,8 @@
 	requires_bodypart_type = LIMB_ROBOT
 	lying_required = FALSE
 
-/datum/surgery/prosthetic_recalibration/can_start(mob/user, mob/living/carbon/patient, obj/limb/L, obj/item/tool)
-	if(L.status & LIMB_UNCALIBRATED_PROSTHETIC)
+/datum/surgery/prosthetic_recalibration/can_start(mob/user, mob/living/carbon/patient, obj/limb/patient_limb, obj/item/tool)
+	if(patient_limb.status & LIMB_UNCALIBRATED_PROSTHETIC)
 		return TRUE
 	return FALSE
 
@@ -35,16 +35,16 @@
 	var/nerves = (target.species && (target.species.flags & IS_SYNTHETIC)) ? "control wiring" : "nervous system"
 	user.affected_message(target,
 		SPAN_NOTICE("You start recalibrating [target]'s prosthesis to \his [nerves]."),
-		SPAN_NOTICE("[user] starts recalibrating your prosthesis to your [nerves]."),
-		SPAN_NOTICE("[user] starts recalibrating [target]'s prosthesis to \his [nerves]."))
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts recalibrating your prosthesis to your [nerves]."),
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts recalibrating [target]'s prosthesis to \his [nerves]."))
 
 	log_interact(user, target, "[key_name(user)] began recalibrating a prosthesis on [key_name(target)]'s [surgery.affected_limb.display_name].")
 
 /datum/surgery_step/recalibrate_prosthesis/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
 	user.affected_message(target,
 		SPAN_NOTICE("You finish recalibrating [target]'s prosthesis, and it now moves as \he commands once again."),
-		SPAN_NOTICE("[user] finishes recalibrating your prosthesis, and it now moves as you command once again."),
-		SPAN_NOTICE("[user] finishes recalibrating [target]'s prosthesis, and it now moves as \he commands once again."))
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] finishes recalibrating your prosthesis, and it now moves as you command once again."),
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] finishes recalibrating [target]'s prosthesis, and it now moves as \he commands once again."))
 
 	log_interact(user, target, "[key_name(user)] recalibrated a prosthesis on [key_name(target)]'s [surgery.affected_limb.display_name], ending [surgery].")
 	if(surgery.affected_limb.parent.status & LIMB_UNCALIBRATED_PROSTHETIC)
@@ -57,12 +57,12 @@
 	if(target_zone in HANDLING_LIMBS) //Arm/hand
 		failure_mode = pick("flails wildly", "gestures rudely", "attempts to throttle its owner")
 	else //Leg/foot
-		failure_mode = pick("kicks wildly", "contorts inhumanly", "almost crushes something with its toes")
+		failure_mode = pick("kicks wildly", "contorts inhumanly", "almost kicks [user] with its toes")
 
 	user.affected_message(target,
 		SPAN_WARNING("You make a mistake recalibrating the prosthetic [parse_zone(target_zone)], and it [failure_mode]!"),
-		SPAN_WARNING("[user] makes a mistake recalibrating the prosthetic [parse_zone(target_zone)], and it [failure_mode]!"),
-		SPAN_WARNING("[user] makes a mistake recalibrating the prosthetic [parse_zone(target_zone)], and it [failure_mode]!"))
+		SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] makes a mistake recalibrating the prosthetic [parse_zone(target_zone)], and it [failure_mode]!"),
+		SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] makes a mistake recalibrating the prosthetic [parse_zone(target_zone)], and it [failure_mode]!"))
 
 	log_interact(user, target, "[key_name(user)] failed to recalibrate a prosthesis on [key_name(target)]'s [surgery.affected_limb.display_name].")
 	return FALSE

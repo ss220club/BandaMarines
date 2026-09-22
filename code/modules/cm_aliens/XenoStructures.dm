@@ -30,8 +30,7 @@
 		construction_data = create_cause_data(initial(name), builder)
 	if(block_range)
 		for(var/turf/turf in range(block_range, src))
-			var/obj/effect/build_blocker/blocker = new(turf, src)
-			blockers.Add(blocker)
+			blockers += WEAKREF(new /obj/effect/build_blocker(turf, src))
 
 	var/area/current_area = get_area(src)
 	if(current_area.linked_lz)
@@ -86,8 +85,8 @@
 		return XENO_NO_DELAY_ACTION
 	else
 		M.animation_attack_on(src)
-		M.visible_message(SPAN_XENONOTICE("\The [M] claws \the [src]!"),
-		SPAN_XENONOTICE("We claw \the [src]."))
+		M.visible_message(SPAN_XENONOTICE("[capitalize(M.declent_ru(NOMINATIVE))] царапает [declent_ru(ACCUSATIVE)]!"), // SS220 EDIT ADDICTION
+		SPAN_XENONOTICE("Мы царапаем [declent_ru(ACCUSATIVE)].")) // SS220 EDIT ADDICTION
 		if(istype(src, /obj/effect/alien/resin/sticky))
 			playsound(loc, "alien_resin_move", 25)
 		else
@@ -103,8 +102,8 @@
 	return XENO_ATTACK_ACTION
 
 /obj/effect/alien/resin/attack_animal(mob/living/M as mob)
-	M.visible_message(SPAN_DANGER("[M] tears \the [src]!"),
-	SPAN_DANGER("You tear \the [name]."))
+	M.visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] [ru_attack_verb("tears")] [declent_ru(ACCUSATIVE)]!"),
+	SPAN_DANGER("Вы [ru_attack_verb("tear")] [declent_ru(ACCUSATIVE)]."))
 	if(istype(src, /obj/effect/alien/resin/sticky))
 		playsound(loc, "alien_resin_move", 25)
 	else
@@ -136,6 +135,7 @@
 	explo_proof = TRUE
 	invisibility = 101
 	alpha = 0
+	flags_atom = NO_ZFALL
 	/// The atom we are blocking for
 	var/atom/linked_structure
 
@@ -168,15 +168,15 @@
 		RegisterSignal(SSdcs, COMSIG_GLOB_GROUNDSIDE_FORSAKEN_HANDLING, PROC_REF(forsaken_handling))
 
 /obj/effect/alien/resin/sticky/Crossed(atom/movable/AM)
-	. = ..()
+	..()
 	var/mob/living/carbon/human/H = AM
 	if(istype(H) && !H.ally_of_hivenumber(hivenumber))
 		H.next_move_slowdown = max(H.next_move_slowdown, slow_amt)
-		return .
+		return
 	var/mob/living/carbon/xenomorph/X = AM
 	if(istype(X) && !X.ally_of_hivenumber(hivenumber))
 		X.next_move_slowdown = max(X.next_move_slowdown, slow_amt)
-		return .
+		return
 
 /obj/effect/alien/resin/sticky/proc/forsaken_handling()
 	SIGNAL_HANDLER
@@ -217,7 +217,7 @@
 		RegisterSignal(SSdcs, COMSIG_GLOB_GROUNDSIDE_FORSAKEN_HANDLING, PROC_REF(forsaken_handling))
 
 /obj/effect/alien/resin/spike/Crossed(atom/movable/AM)
-	. = ..()
+	..()
 	var/mob/living/carbon/H = AM
 	if(!istype(H))
 		return
@@ -261,11 +261,8 @@
 	desc = "A layer of disgusting sleek slime."
 	icon_state = "fast"
 	health = HEALTH_RESIN_XENO_FAST
+	slow_amt = 0
 	var/speed_amt = 0.7
-
-/obj/effect/alien/resin/sticky/fast/Crossed(atom/movable/AM)
-	return
-
 
 //xeno marker :0)
 /obj/effect/alien/resin/marker
@@ -361,8 +358,11 @@
 	mineralType = "resin"
 	hardness = 1.5
 	health = HEALTH_DOOR_XENO
+	unacidable = TRUE
 	var/close_delay = 100
 	var/hivenumber = XENO_HIVE_NORMAL
+	var/upgrading_now = FALSE //flag to track upgrading/thickening process
+	var/turf/closed/wall/resin/above/upper_wall
 
 	flags_obj = OBJ_ORGANIC
 	layer = DOOR_CLOSED_LAYER
@@ -390,6 +390,11 @@
 			AddComponent(/datum/component/resin_cleanup)
 		area.current_resin_count++
 
+	var/turf/above = SSmapping.get_turf_above(loc)
+	if(istype(above, /turf/open_space))
+		above.place_on_top(/turf/closed/wall/resin/above)
+		upper_wall = above
+
 /obj/structure/mineral_door/resin/flamer_fire_act(dam = BURN_LEVEL_TIER_1)
 	health -= dam
 	healthcheck()
@@ -399,6 +404,10 @@
 	..()
 	healthcheck()
 	return 1
+
+/obj/structure/mineral_door/resin/proc/take_damage(dam, mob/mob)
+	health -= dam
+	healthcheck()
 
 /obj/structure/mineral_door/resin/attackby(obj/item/W, mob/living/user)
 	if(W.pry_capable == IS_PRY_CAPABLE_FORCE && user.a_intent != INTENT_HARM)
@@ -423,7 +432,7 @@
 		return ..()
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
-		if (C.ally_of_hivenumber(hivenumber))
+		if (C.ally_of_hivenumber(hivenumber) || HAS_TRAIT(C, TRAIT_XENO_RECOGNIZED))
 			return ..()
 
 /obj/structure/mineral_door/resin/open()
@@ -488,11 +497,21 @@
 	..()
 
 /obj/structure/mineral_door/resin/Destroy()
+	if(!QDESTROYING(upper_wall))
+		upper_wall.dismantle_wall()
+	var/turf/above = SSmapping.get_turf_above(src)
+	while(above && istransparentturf(above))
+		above.update_vis_contents()
+		above = SSmapping.get_turf_above(above)
 	relativewall_neighbours()
 	var/area/area = get_area(src)
 	area?.current_resin_count--
 	var/turf/base_turf = loc
-	spawn(0)
+
+	if(!QDESTROYING(upper_wall)) // Why is this done twice? Hell if i know.
+		upper_wall.dismantle_wall()
+
+	spawn(0) // <--- Don't do that, src probably won't even be valid anymore when it executes
 		var/turf/adjacent_turf
 		for(var/cardinal in GLOB.cardinals)
 			adjacent_turf = get_step(base_turf, cardinal)
@@ -764,7 +783,7 @@
 		T = i
 		if(T.density)
 			continue
-		T.PlaceOnTop(resin_wall_type)
+		T.place_on_top(resin_wall_type)
 		T.walltype = turf_icon
 		T.update_connections(TRUE)
 		T.update_icon()
@@ -857,8 +876,8 @@
 /obj/effect/alien/resin/resin_pillar/attack_alien(mob/living/carbon/xenomorph/M)
 	if(!brittle)
 		M.animation_attack_on(src)
-		M.visible_message(SPAN_XENONOTICE("\The [M] claws \the [src], but the slash bounces off!"),
-		SPAN_XENONOTICE("You claw \the [src], but the slash bounces off!"))
+		M.visible_message(SPAN_XENONOTICE("[capitalize(M.declent_ru(NOMINATIVE))] царапает [declent_ru(ACCUSATIVE)], но удар отскакивает!"), // SS220 EDIT ADDICTION
+		SPAN_XENONOTICE("Вы царапаете [declent_ru(ACCUSATIVE)], но удар отскакивает!")) // SS220 EDIT ADDICTION
 		return XENO_ATTACK_ACTION
 
 	return ..()
@@ -866,8 +885,8 @@
 /obj/effect/alien/resin/resin_pillar/attackby(obj/item/W, mob/living/user)
 	user.animation_attack_on(src)
 	if(!brittle)
-		user.visible_message(SPAN_DANGER("[user] hits \the [src], but \the [W] bounces off!"),
-			SPAN_DANGER("You hit \the [name], but \the [W] bounces off!"))
+		user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] [ru_attack_verb("hits")] [declent_ru(ACCUSATIVE)], но [W.declent_ru(NOMINATIVE)] отскакивает!"),
+			SPAN_DANGER("Вы [ru_attack_verb("hit")] [declent_ru(ACCUSATIVE)], но [W.declent_ru(NOMINATIVE)] отскакивает!"))
 		return
 
 	return ..()
@@ -905,14 +924,14 @@
 /obj/effect/alien/resin/king_cocoon/Destroy()
 	if(!hatched)
 		marine_announcement("ВНИМАНИЕ.\n\nНЕОБЫЧНОЕ НАКОПЛЕНИЕ ЭНЕРГИИ В [uppertext(get_area_name(loc))] БЫЛО ОСТАНОВЛЕНО.", "[MAIN_AI_SYSTEM]: Биологический сканер", 'sound/misc/notice1.ogg')
-		elder_overseer_message("Инкубатор Короля Змей был уничтожен.")
+		elder_overseer_message("Гнездо Короля Змей было уничтожено.")
 		var/datum/hive_status/hive
 		for(var/cur_hive_num in GLOB.hive_datum)
 			hive = GLOB.hive_datum[cur_hive_num]
 			if(!length(hive.totalXenos))
 				continue
 			if(cur_hive_num == hive_number)
-				xeno_announcement(SPAN_XENOANNOUNCE("НАШЕ ГНЕЗДО УНИЧТОЖЕНО! МЫ ОТОМСТИМ!"), cur_hive_num, XENO_GENERAL_ANNOUNCE)
+				xeno_announcement(SPAN_XENOANNOUNCE("НАШЕ ГНЕЗДО УНИЧТОЖЕНО! МЫ ДОЛЖНЫ ОТОМСТИТЬ!"), cur_hive_num, XENO_GENERAL_ANNOUNCE)
 			else
 				xeno_announcement(SPAN_XENOANNOUNCE("НАШЕ ГНЕЗДО УНИЧТОЖЕНО!"), cur_hive_num, XENO_GENERAL_ANNOUNCE)
 
@@ -940,22 +959,21 @@
 	for(var/x_offset in -1 to 1)
 		for(var/y_offset in -1 to 1)
 			var/turf/turf_to_block = locate(x + x_offset, y + y_offset, z)
-			var/obj/effect/build_blocker/blocker = new(turf_to_block, src)
-			blockers += blocker
+			blockers += WEAKREF(new /obj/effect/build_blocker(turf_to_block, src))
 
 	START_PROCESSING(SSobj, src)
 
 	marine_announcement("ВНИМАНИЕ.\n\nБЫЛО ОБНАРУЖЕНО НЕОБЫЧНОЕ НАКОПЛЕНИЕ ЭНЕРГИИ В [uppertext(get_area_name(loc))].\n\nРАСЧЕТНОЕ ВРЕМЯ ДО ЗАВЕРШЕНИЯ - 10 МИНУТ. РЕКОМЕНДУЕТСЯ ЛИКВИДИРОВАТЬ СООРУЖЕНИЯ КСЕНОМОРФОВ В ЭТОМ УЧАСТКЕ, ИЛИ ЛИКВИДИРОВАТЬ ПИЛОН КСЕНОМОРФОВ НА ЛЮБОМ ИЗ КОММУНИКАЦИОННЫХ РЕЛЕ.", "[MAIN_AI_SYSTEM]: Биологический сканер", 'sound/misc/notice1.ogg')
-	elder_overseer_message("Король Змей выращивается в [get_area_name(loc)].")
+	elder_overseer_message("Король Змей растёт около «[get_area_name(loc)]».")
 	var/datum/hive_status/hive
 	for(var/cur_hive_num in GLOB.hive_datum)
 		hive = GLOB.hive_datum[cur_hive_num]
 		if(!length(hive.totalXenos))
 			continue
 		if(cur_hive_num == hive_number)
-			xeno_announcement(SPAN_XENOANNOUNCE("Наш Король сейчас взращивается в [get_area_name(loc)]. Защищайте его, а также наши пилоны на коммуникационных реле. Любой ценой!"), cur_hive_num, XENO_GENERAL_ANNOUNCE)
+			xeno_announcement(SPAN_XENOANNOUNCE("Король растёт около «[get_area_name(loc)]». Защитите его, а также наши пилоны у их коммуникационных реле, любой ценой!"), cur_hive_num, XENO_GENERAL_ANNOUNCE) // SS220 EDIT ADDICTION
 		else
-			xeno_announcement(SPAN_XENOANNOUNCE("Король другого улья сейчас взращивается в [get_area_name(loc)]."), cur_hive_num, XENO_GENERAL_ANNOUNCE)
+			xeno_announcement(SPAN_XENOANNOUNCE("Король другого улья растёт около [get_area_name(loc)]. Нам необходимо уничтожить инкубатор!"), cur_hive_num, XENO_GENERAL_ANNOUNCE)
 
 
 #define STAGE_GROWING 1
@@ -971,15 +989,15 @@
 	if(length(hive.active_endgame_pylons) < 2)
 		if(!announced_paused)
 			marine_announcement("ALERT.\n\nUNUSUAL ENERGY BUILDUP IN [uppertext(get_area_name(loc))] HAS BEEN PAUSED.", "[MAIN_AI_SYSTEM] Biological Scanner", 'sound/misc/notice1.ogg')
-			elder_overseer_message("The progress of the Serpent King's hatchery has been paused.")
+			elder_overseer_message("Рост Короля Змей приостановлен.")
 			for(var/cur_hive_num in GLOB.hive_datum)
 				hive = GLOB.hive_datum[cur_hive_num]
 				if(!length(hive.totalXenos))
 					continue
 				if(cur_hive_num == hive_number)
-					xeno_announcement(SPAN_XENOANNOUNCE("One of our pylons was destroyed, the hatchery has paused its progress!"), cur_hive_num, XENO_GENERAL_ANNOUNCE)
+					xeno_announcement(SPAN_XENOANNOUNCE("Один из наших пилонов был уничтожен, гнездо приостановило свой рост!"), cur_hive_num, XENO_GENERAL_ANNOUNCE)
 				else
-					xeno_announcement(SPAN_XENOANNOUNCE("One of another hive's pylons was destroyed, the hatchery has paused its progress!"), cur_hive_num, XENO_GENERAL_ANNOUNCE)
+					xeno_announcement(SPAN_XENOANNOUNCE("Один из пилонов другого улья был уничтожен, гнездо приостановило свой рост!"), cur_hive_num, XENO_GENERAL_ANNOUNCE)
 
 			announced_paused = TRUE
 			icon_state = "static"
@@ -990,10 +1008,10 @@
 			if(!length(hive.totalXenos))
 				continue
 			if(cur_hive_num == hive_number)
-				xeno_announcement(SPAN_XENOANNOUNCE("The hatchery's progress has resumed!"), cur_hive_num, XENO_GENERAL_ANNOUNCE)
+				xeno_announcement(SPAN_XENOANNOUNCE("Рост гнезда возобновлён!"), cur_hive_num, XENO_GENERAL_ANNOUNCE)
 			else
-				xeno_announcement(SPAN_XENOANNOUNCE("Another hive's hatchery progress has resumed!"), cur_hive_num, XENO_GENERAL_ANNOUNCE)
-		elder_overseer_message("The progress of the Serpent King's hatchery has resumed.")
+				xeno_announcement(SPAN_XENOANNOUNCE("Рост гнезда другого улья возобновлён! Мы должны остановить их!"), cur_hive_num, XENO_GENERAL_ANNOUNCE)
+		elder_overseer_message("Рост Короля Змей возобновлён.")
 		marine_announcement("ALERT.\n\nUNUSUAL ENERGY BUILDUP IN [uppertext(get_area_name(loc))] HAS BEEN RESUMED.", "[MAIN_AI_SYSTEM] Biological Scanner", 'sound/misc/notice1.ogg')
 		announced_paused = FALSE
 		icon_state = "growing"
@@ -1057,16 +1075,16 @@
 /// Causes the halfway announcements and initiates the next timer.
 /obj/effect/alien/resin/king_cocoon/proc/announce_halfway()
 	marine_announcement("ВНИМАНИЕ.\n\nБЫЛО ОБНАРУЖЕНО НЕОБЫЧНОЕ НАКОПЛЕНИЕ ЭНЕРГИИ В [uppertext(get_area_name(loc))].\n\nРАСЧЕТНОЕ ВРЕМЯ ДО ЗАВЕРШЕНИЯ - 5 МИНУТ. РЕКОМЕНДУЕТСЯ ЛИКВИДИРОВАТЬ СООРУЖЕНИЯ КСЕНОМОРФОВ В ЭТОМ УЧАСТКЕ, ИЛИ ЛИКВИДИРОВАТЬ ПИЛОН КСЕНОМОРФОВ НА ЛЮБОМ ИЗ КОММУНИКАЦИОННЫХ РЕЛЕ.", "[MAIN_AI_SYSTEM]: Биологический сканер", 'sound/misc/notice1.ogg')
-	elder_overseer_message("Король Змей вылупится через 5 минут.")
+	elder_overseer_message("Король Змей появится через 5 минут.")
 	var/datum/hive_status/hive
 	for(var/cur_hive_num in GLOB.hive_datum)
 		hive = GLOB.hive_datum[cur_hive_num]
 		if(!length(hive.totalXenos))
 			continue
 		if(cur_hive_num == hive_number)
-			xeno_announcement(SPAN_XENOANNOUNCE("Король должен появиться на свет примерно через 5 минут."), cur_hive_num, XENO_GENERAL_ANNOUNCE)
+			xeno_announcement(SPAN_XENOANNOUNCE("Король появится примерно через 5 минут."), cur_hive_num, XENO_GENERAL_ANNOUNCE)
 		else
-			xeno_announcement(SPAN_XENOANNOUNCE("Король другого улья должен появиться на свет примерно через 5 минут."), cur_hive_num, XENO_GENERAL_ANNOUNCE)
+			xeno_announcement(SPAN_XENOANNOUNCE("Король другого улья должен появиться на свет примерно через 5 минут. Мы должны остановить их!"), cur_hive_num, XENO_GENERAL_ANNOUNCE)
 
 #define KING_PLAYTIME_HOURS (50 HOURS)
 
@@ -1141,7 +1159,7 @@
 
 	for(var/mob/living/carbon/xenomorph/candidate in hive.totalXenos)
 		if(is_candidate_valid(hive, candidate, playtime_restricted = FALSE, skip_playtime = FALSE))
-			INVOKE_ASYNC(src, PROC_REF(cast_vote), candidate, voting_candidates)
+			INVOKE_ASYNC(src, PROC_REF(cast_vote), candidate, shuffle(voting_candidates))
 
 	candidates = voting_candidates
 
@@ -1166,6 +1184,8 @@
 
 	for(var/mob/living/carbon/xenomorph/candidate in votes)
 		if(votes[candidate] > primary_votes)
+			secondary_votes = primary_votes
+			secondary_candidate = primary_candidate
 			primary_votes = votes[candidate]
 			primary_candidate = candidate
 		else if(votes[candidate] > secondary_votes)
@@ -1228,7 +1248,7 @@
 		animate_hatch_king()
 		return
 
-	elder_overseer_message("Вылупился Король-Змей; Советую проявить осторожность.")
+	elder_overseer_message("Король Змей появится через 20 секунд.")
 	marine_announcement("ВНИМАНИЕ.\n\nБЫЛО ОБНАРУЖЕНО НЕОБЫЧНОЕ НАКОПЛЕНИЕ ЭНЕРГИИ В [get_area_name(loc)].\n\nРАСЧЕТНОЕ ВРЕМЯ ДО ЗАВЕРШЕНИЯ - 20 СЕКУНД. РЕКОМЕНДУЕТСЯ ЛИКВИДИРОВАТЬ СООРУЖЕНИЯ КСЕНОМОРФОВ В ЭТОМ УЧАСТКЕ, ИЛИ ЛИКВИДИРОВАТЬ ПИЛОН КСЕНОМОРФОВ НА ЛЮБОМ ИЗ КОММУНИКАЦИОННЫХ РЕЛЕ.", "[MAIN_AI_SYSTEM]: Биологический сканер", 'sound/misc/notice1.ogg')
 	var/datum/hive_status/hive
 	for(var/cur_hive_num in GLOB.hive_datum)
@@ -1236,16 +1256,16 @@
 		if(!length(hive.totalXenos))
 			continue
 		if(cur_hive_num == hive_number)
-			xeno_announcement(SPAN_XENOANNOUNCE("Король появится на свет примерно 20 секунд."), cur_hive_num, XENO_GENERAL_ANNOUNCE)
+			xeno_announcement(SPAN_XENOANNOUNCE("Король появится примерно через 20 секунд."), cur_hive_num, XENO_GENERAL_ANNOUNCE)
 		else
-			xeno_announcement(SPAN_XENOANNOUNCE("Король другого улья появится на свет примерно 20 секунд."), cur_hive_num, XENO_GENERAL_ANNOUNCE)
+			xeno_announcement(SPAN_XENOANNOUNCE("Король другого улья появится примерно 20 секунд. ОСТАНОВИТЕ ИХ!"), cur_hive_num, XENO_GENERAL_ANNOUNCE)
 
 /// Causes the cocoon to change visually for hatching and initiates the next timer.
 /obj/effect/alien/resin/king_cocoon/proc/animate_hatch_king()
 	flick("hatching", src)
 	addtimer(CALLBACK(src, PROC_REF(hatch_king)), 2 SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
 
-	elder_overseer_message("Вылупился Король-Змей; Советую проявить осторожность.")
+	elder_overseer_message("Король Змей появился, советую проявлять осторожность.")
 	marine_announcement("ВНИМАНИЕ.\n\nЗАФИКСИРОВАН ЭКСТРЕМАЛЬНЫЙ ПОТОК ЭНЕРГИИ В [get_area_name(loc)].\n\nБУДЬТЕ БДИТЕЛЬНЫ.", "[MAIN_AI_SYSTEM]: Биологический сканер", 'sound/misc/notice1.ogg')
 	var/datum/hive_status/hive
 	for(var/cur_hive_num in GLOB.hive_datum)
@@ -1255,7 +1275,7 @@
 		if(cur_hive_num == hive_number)
 			xeno_announcement(SPAN_XENOANNOUNCE("Да здравствует Король!"), cur_hive_num, XENO_GENERAL_ANNOUNCE)
 		else
-			xeno_announcement(SPAN_XENOANNOUNCE("Король другого улья появился на свет!"), cur_hive_num, XENO_GENERAL_ANNOUNCE)
+			xeno_announcement(SPAN_XENOANNOUNCE("Король другого улья появился! Мы должны сравнять его с землей!"), cur_hive_num, XENO_GENERAL_ANNOUNCE)
 
 /// Actually hatches the King transferring the candidate into the spawned mob and initiates the next timer.
 /obj/effect/alien/resin/king_cocoon/proc/hatch_king()
@@ -1295,7 +1315,7 @@
 
 /obj/item/explosive/grenade/alien
 	name = "alien grenade"
-	desc = "an alien grenade."
+	desc = "An alien grenade."
 	icon_state = "neuro_nade_greyscale"
 	item_state = "neuro_nade_greyscale"
 
@@ -1330,7 +1350,7 @@
 		to_chat(user, SPAN_WARNING("You don't know how to activate this!"))
 		return FALSE
 
-	to_chat(user, SPAN_XENOWARNING("You need to throw this to activate it!"))
+	to_chat(user, SPAN_XENOWARNING("Вам нужно бросить это, чтобы активировать!"))
 	return FALSE
 
 /obj/item/explosive/grenade/alien/update_icon()
@@ -1348,7 +1368,7 @@
 	if(!active)
 		attack_hand(M)
 	else
-		to_chat(M, SPAN_XENOWARNING("It's about to burst!"))
+		to_chat(M, SPAN_XENOWARNING("Сейчас оно вот-вот лопнет!"))
 	return XENO_NO_DELAY_ACTION
 
 /obj/item/explosive/grenade/alien/acid

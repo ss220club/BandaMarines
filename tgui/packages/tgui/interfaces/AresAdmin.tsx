@@ -1,6 +1,6 @@
 import type { BooleanLike } from 'common/react';
 import { useBackend } from 'tgui/backend';
-import { Box, Button, Flex, Section, Stack } from 'tgui/components';
+import { Box, Button, Dropdown, Flex, Section, Stack } from 'tgui/components';
 import { Window } from 'tgui/layouts';
 
 import type { DataCoreData } from './common/commonTypes';
@@ -110,6 +110,8 @@ const MainMenu = (props) => {
     local_current_menu,
     ares_sudo,
     local_admin_login,
+    faction_options,
+    sentry_setting,
   } = data;
 
   return (
@@ -158,7 +160,7 @@ const MainMenu = (props) => {
 
         <Stack>
           <Stack.Item grow>
-            <h3>Access Level 1</h3>
+            <h3>Уровень доступа 1</h3>
           </Stack.Item>
           <Stack.Item>
             <Button
@@ -190,7 +192,7 @@ const MainMenu = (props) => {
 
         <Stack>
           <Stack.Item grow>
-            <h3>Access Level 2</h3>
+            <h3>Уровень доступа 2</h3>
           </Stack.Item>
           <Stack.Item>
             <Button
@@ -235,7 +237,7 @@ const MainMenu = (props) => {
 
         <Stack>
           <Stack.Item grow>
-            <h3>Access Level 3</h3>
+            <h3>Уровень доступа 3</h3>
           </Stack.Item>
           <Stack.Item>
             <Button
@@ -267,7 +269,7 @@ const MainMenu = (props) => {
 
         <Stack>
           <Stack.Item grow>
-            <h3>Access Level 5</h3>
+            <h3>Уровень доступа 5</h3>
           </Stack.Item>
           <Stack.Item>
             <Button
@@ -313,7 +315,7 @@ const MainMenu = (props) => {
 
         <Stack>
           <Stack.Item grow>
-            <h3>Access Level 6</h3>
+            <h3>Уровень доступа 6</h3>
           </Stack.Item>
           <Stack.Item>
             <Button
@@ -331,7 +333,7 @@ const MainMenu = (props) => {
         </Stack>
         <Stack>
           <Stack.Item grow>
-            <h3>Access Level 9</h3>
+            <h3>Уровень доступа 9</h3>
           </Stack.Item>
           <Stack.Item>
             <Button
@@ -412,6 +414,17 @@ const MainMenu = (props) => {
             >
               Nerve Gas Control
             </Button>
+          </Stack.Item>
+          <Stack.Item ml="0" mr="0">
+            <Dropdown
+              options={faction_options}
+              selected={sentry_setting}
+              color="red"
+              onSelected={(value) =>
+                act('update_sentries', { chosen_iff: value })
+              }
+              width="90px"
+            />
           </Stack.Item>
         </Stack>
       </Section>

@@ -3,7 +3,6 @@
 
 /datum/ammo/rocket/he_c
 	damage_falloff = 0
-	flags_ammo_behavior = AMMO_EXPLOSIVE|AMMO_ROCKET
 
 	// Accuracy and range
 	accuracy = HIT_ACCURACY_TIER_8
@@ -75,7 +74,8 @@
 		null,
 		projectile.weapon_cause_data
 	)
-	smoke.set_up(smoke_radius, target_turf)
+	var/datum/effect_system/smoke_spread/smoke = new()
+	smoke.set_up(smoke_radius, loca = target_turf, new_cause_data = projectile.weapon_cause_data)
 	smoke.start()
 
 /datum/ammo/rocket/he_c/on_hit_mob(mob/mob, obj/projectile/projectile)

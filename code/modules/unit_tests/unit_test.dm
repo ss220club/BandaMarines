@@ -62,8 +62,8 @@ GLOBAL_VAR_INIT(focused_test, focused_test())
 	run_loc_floor_bottom_left = get_turf(locate(/obj/effect/landmark/unit_test_bottom_left) in GLOB.landmarks_list)
 	run_loc_floor_top_right = get_turf(locate(/obj/effect/landmark/unit_test_top_right) in GLOB.landmarks_list)
 
-	TEST_ASSERT(isfloorturf(run_loc_floor_bottom_left), "run_loc_floor_bottom_left was not a floor ([run_loc_floor_bottom_left])")
-	TEST_ASSERT(isfloorturf(run_loc_floor_top_right), "run_loc_floor_top_right was not a floor ([run_loc_floor_top_right])")
+	TEST_ASSERT(isfloorturf(run_loc_floor_bottom_left), "run_loc_floor_bottom_left was not a floor ([run_loc_floor_bottom_left] - [run_loc_floor_bottom_left?.type])")
+	TEST_ASSERT(isfloorturf(run_loc_floor_top_right), "run_loc_floor_top_right was not a floor ([run_loc_floor_top_right] - [run_loc_floor_top_right?.type])")
 
 /datum/unit_test/Destroy()
 	QDEL_LIST(allocated)
@@ -181,12 +181,12 @@ GLOBAL_VAR_INIT(focused_test, focused_test())
 		test.log_for_test(text, "error", file, line)
 
 		// Normal log message
-		log_entry += "\tFAILURE #[reasonID]: [text] at [file]:[line]"
+		log_entry += "\t[test_path]::FAILURE #[reasonID]: [text] at [file]:[line]"
 
 	var/message = log_entry.Join("\n")
 	log_test(message)
 
-	var/test_output_desc = "[test_path] [duration / 10]s"
+	var/test_output_desc = "[test_path] [duration / 10]s."
 	if (test.succeeded)
 		log_world("[TEST_OUTPUT_GREEN("PASS")] [test_output_desc]")
 
@@ -206,7 +206,7 @@ GLOBAL_VAR_INIT(focused_test, focused_test())
 			test.log_for_test(text, "warning", file, line)
 
 			// Normal log message
-			log_entry += "\tWARNING #[reasonID]: [text] at [file]:[line]"
+			log_entry += "\t[test_path]::WARNING #[reasonID]: [text] at [file]:[line]"
 
 		var/warn_messages = log_entry.Join("\n")
 		log_test(warn_messages)

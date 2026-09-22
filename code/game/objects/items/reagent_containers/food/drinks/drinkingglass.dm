@@ -1,7 +1,7 @@
 
 
 /obj/item/reagent_container/food/drinks/drinkingglass
-	name = "glass"
+	name = "стакан" // SS220 EDIT ADDICTION
 	desc = "Your standard drinking glass."
 	icon_state = "glass_empty"
 	item_icons = list(
@@ -28,17 +28,17 @@
 			if("beer")
 				icon_state = "beerglass"
 				name = "Beer glass"
-				desc = "A freezing pint of beer"
+				desc = "A freezing pint of beer."
 				center_of_mass = "x=16;y=8"
 			if("beer2")
 				icon_state = "beerglass"
 				name = "Beer glass"
-				desc = "A freezing pint of beer"
+				desc = "A freezing pint of beer."
 				center_of_mass = "x=16;y=8"
 			if("ale")
 				icon_state = "aleglass"
 				name = "Ale glass"
-				desc = "A freezing pint of delicious Ale"
+				desc = "A freezing pint of delicious Ale."
 				center_of_mass = "x=16;y=8"
 			if("milk")
 				icon_state = "glass_white"
@@ -50,10 +50,15 @@
 				name = "Glass of cream"
 				desc = "Ewwww..."
 				center_of_mass = "x=16;y=10"
-			if("chocolate")
+			if("chocolatesyrup")
 				icon_state  = "chocolateglass"
-				name = "Glass of chocolate"
-				desc = "Tasty"
+				name = "Glass of chocolate syrup"
+				desc = "So indulgent!"
+				center_of_mass = "x=16;y=10"
+			if("chocolate_milk")
+				icon_state  = "chocomilk_glass"
+				name = "Chocolate Milk"
+				desc = "A childhood classic that makes even the most hardened marines smile."
 				center_of_mass = "x=16;y=10"
 			if("lemonjuice")
 				icon_state  = "lemonglass"
@@ -63,12 +68,12 @@
 			if("cola")
 				icon_state  = "glass_brown"
 				name = "Glass of Space Cola"
-				desc = "A glass of refreshing Space Cola"
+				desc = "A glass of refreshing Space Cola."
 				center_of_mass = "x=16;y=10"
 			if("nuka_cola")
 				icon_state = "nuka_colaglass"
 				name = "Nuka Cola"
-				desc = "Don't cry, Don't raise your eye, It's only nuclear wasteland"
+				desc = "Don't cry, Don't raise your eye, It's only nuclear wasteland."
 				center_of_mass = "x=16;y=6"
 			if("orangejuice")
 				icon_state = "glass_orange"
@@ -198,7 +203,7 @@
 			if("bravebull")
 				icon_state = "bravebullglass"
 				name = "Brave Bull"
-				desc = "tequila and Coffee liquor, brought together in a mouthwatering mixture. Drink up."
+				desc = "Tequila and Coffee liquor, brought together in a mouthwatering mixture. Drink up."
 				center_of_mass = "x=15;y=8"
 			if("tequilasunrise")
 				icon_state = "tequilasunriseglass"
@@ -317,7 +322,7 @@
 			if("thirteenloko")
 				icon_state = "thirteen_loko_glass"
 				name = "Glass of Thirteen Loko"
-				desc = "This is a glass of Thirteen Loko, it appears to be of the highest quality. The drink, not the glass"
+				desc = "This is a glass of Thirteen Loko, it appears to be of the highest quality. The drink, not the glass."
 				center_of_mass = "x=16;y=10"
 			if("dr_gibb")
 				icon_state = "dr_gibb_glass"
@@ -351,7 +356,7 @@
 				center_of_mass = "x=16;y=10"
 			if("carrotjuice")
 				icon_state = "carrotjuice"
-				name = "Glass of  carrot juice"
+				name = "Glass of carrot juice"
 				desc = "It is just like a carrot but without crunching."
 				center_of_mass = "x=16;y=10"
 			if("banana")
@@ -362,7 +367,7 @@
 			if("bahama_mama")
 				icon_state = "bahama_mama"
 				name = "Bahama Mama"
-				desc = "Tropic cocktail"
+				desc = "Tropic cocktail."
 				center_of_mass = "x=16;y=5"
 			if("singulo")
 				icon_state = "singulo"
@@ -382,7 +387,7 @@
 			if("barefoot")
 				icon_state = "b&p"
 				name = "Barefoot"
-				desc = "Barefoot and pregnant"
+				desc = "Barefoot and pregnant."
 				center_of_mass = "x=17;y=8"
 			if("demonsblood")
 				icon_state = "demonsblood"
@@ -564,6 +569,11 @@
 				name = "Milkshake"
 				desc = "Glorious brainfreezing mixture."
 				center_of_mass = "x=16;y=7"
+			if("chocolate_milkshake")
+				icon_state = "chocolate_milkshake"
+				name = "Chocolate Milkshake"
+				desc = "Glorious brainfreezing mixture in classic chocolate flavor."
+				center_of_mass = "x=16;y=7"
 			if("lemonade")
 				icon_state = "lemonadeglass"
 				name = "Lemonade"
@@ -624,9 +634,10 @@
 				if(istype(R, /datum/reagent/drink) && R.volume >= 0.5*reagents.total_volume)
 					icon_state ="glass_brown"
 					if(R.volume >= 0.75*reagents.total_volume)
-						name = "Glass of [R.id]"
+						name = "[R.id]" // SS220 EDIT ADDICTION
 					else
-						name = "Glass of ..[R.id]?"
+						name = "[R.id]" // SS220 EDIT ADDICTION
+						name = "[R.declent_reagent_ru()] (микс)" // SS220 EDIT ADDICTION
 						desc = "This looks like mostly [R.id] mixed with something."
 					center_of_mass = "x=16;y=10"
 				else
@@ -634,9 +645,10 @@
 					name = "Glass of ..what?"
 					desc = "You can't really tell what this is."
 					center_of_mass = "x=16;y=10"
+		name = R.declent_reagent_ru() // SS220 EDIT ADDICTION
 	else
 		icon_state = "glass_empty"
-		name = "glass"
+		name = "стакан" // SS220 EDIT ADDICTION
 		desc = "Your standard drinking glass."
 		center_of_mass = "x=16;y=10"
 		return

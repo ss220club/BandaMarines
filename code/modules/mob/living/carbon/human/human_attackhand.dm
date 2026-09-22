@@ -9,8 +9,10 @@
 
 	SEND_SIGNAL(attacking_mob, COMSIG_LIVING_ATTACKHAND_HUMAN, src)
 
-	if((attacking_mob != src) && check_shields(0, attacking_mob.name))
-		visible_message(SPAN_DANGER("<B>[attacking_mob] attempted to touch [src]!</B>"), null, null, 5)
+	var/is_male = attacking_mob.gender == MALE ? "" : "а" // SS220 EDUT ADDICTION
+	var/ru_name = declent_ru(GENITIVE)
+	if((attacking_mob != src) && check_shields(attacking_mob.name, get_dir(src, attacking_mob), custom_response = TRUE))
+		visible_message(SPAN_DANGER("<B>[capitalize(attacking_mob.declent_ru(NOMINATIVE))] не удаётся прикоснуться к [declent_ru(DATIVE)]!</B>"), null, null, 5)
 		return FALSE
 
 	switch(attacking_mob.a_intent)
@@ -19,11 +21,11 @@
 			if(on_fire && attacking_mob != src)
 				adjust_fire_stacks(-10, min_stacks = 0)
 				playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
-				attacking_mob.visible_message(SPAN_DANGER("[attacking_mob] tries to put out the fire on [src]!"),
-					SPAN_WARNING("You try to put out the fire on [src]!"), null, 5)
+				attacking_mob.visible_message(SPAN_DANGER("[attacking_mob] пытается потушить огонь на [ru_name]!"),
+					SPAN_WARNING("Вы пытаетесь потушить огонь на [ru_name]!"), null, 5)
 				if(fire_stacks <= 0)
-					attacking_mob.visible_message(SPAN_DANGER("[attacking_mob] has successfully extinguished the fire on [src]!"),
-						SPAN_NOTICE("You extinguished the fire on [src]."), null, 5)
+					attacking_mob.visible_message(SPAN_DANGER("[attacking_mob] потушил огонь на [ru_name]!"),
+						SPAN_NOTICE("Вы потушили огонь на [ru_name]."), null, 5)
 				return 1
 
 			// If unconscious with oxygen damage, do CPR. If dead, we do CPR
@@ -31,44 +33,47 @@
 				help_shake_act(attacking_mob)
 				return 1
 
+			if(species.flags & IS_SYNTHETIC)
+				to_chat(attacking_mob, SPAN_DANGER("Синтетикам бесполезно проводить <b>СЛР</b>..."))
+				return 0
+
 			if(cpr_attempt_timer >= world.time)
-				to_chat(attacking_mob, SPAN_NOTICE("<B>CPR is already being performed on [src]!</B>"))
+				to_chat(attacking_mob, SPAN_NOTICE("<B>Кто-то уже проводит <b>СЛР</b> на [ru_name]!</B>"))
 				return 0
 
 			//CPR
 			if(attacking_mob.action_busy)
 				return 1
 
-			attacking_mob.visible_message(SPAN_NOTICE("<b>[attacking_mob]</b> starts performing <b>CPR</b> on <b>[src]</b>."),
-				SPAN_HELPFUL("You start <b>performing CPR</b> on <b>[src]</b>."))
+			attacking_mob.visible_message(SPAN_NOTICE("<b>[attacking_mob]</b> начал[is_male] проводить <b>СЛР</b> на <b>[ru_name]</b>."), // SS220 EDIT ADDICTION
+				SPAN_HELPFUL("Вы начали проводить <b>СЛР</b> на <b>[ru_name]</b>.")) // SS220 EDIT ADDICTION
 
 			cpr_attempt_timer = world.time + HUMAN_STRIP_DELAY * attacking_mob.get_skill_duration_multiplier(SKILL_MEDICAL)
 			if(do_after(attacking_mob, HUMAN_STRIP_DELAY * attacking_mob.get_skill_duration_multiplier(SKILL_MEDICAL), INTERRUPT_ALL, BUSY_ICON_GENERIC, src, INTERRUPT_MOVED, BUSY_ICON_MEDICAL))
 				if(stat != DEAD)
-					var/suff = min(getOxyLoss(), 10) //Pre-merge level, less healing, more prevention of dieing.
+					var/suff = min(getOxyLoss(), 10) //Pre-merge level, less healing, more prevention of dying.
 					apply_damage(-suff, OXY)
-					updatehealth()
 					src.affected_message(attacking_mob,
-						SPAN_HELPFUL("You feel a <b>breath of fresh air</b> enter your lungs. It feels good."),
-						SPAN_HELPFUL("You <b>perform CPR</b> on <b>[src]</b>. Repeat at least every <b>7 seconds</b>."),
-						SPAN_NOTICE("<b>[attacking_mob]</b> performs <b>CPR</b> on <b>[src]</b>."))
+						SPAN_HELPFUL("Вы чувствуете, как <b>свежий воздух</b> проникает в ваши легкие, приятно, однако."),
+						SPAN_HELPFUL("Вы выполнили проведение <b>СЛР</b> на <b>[ru_name]</b>. Повторяйте его каждые 7 секунд."), // SS220 EDIT ADDICTION
+						SPAN_NOTICE("<b>[attacking_mob]</b> выполнил[is_male] проведение <b>СЛР</b> на <b>[ru_name]</b>.")) // SS220 EDIT ADDICTION
 				if(is_revivable() && stat == DEAD)
 					if(cpr_cooldown < world.time)
 						revive_grace_period += 7 SECONDS
-						attacking_mob.visible_message(SPAN_NOTICE("<b>[attacking_mob]</b> performs <b>CPR</b> on <b>[src]</b>."),
-							SPAN_HELPFUL("You perform <b>CPR</b> on <b>[src]</b>."))
-						balloon_alert(attacking_mob, "you perform cpr")
+						attacking_mob.visible_message(SPAN_NOTICE("<b>[attacking_mob]</b> выполнил[is_male] проведение <b>СЛР</b> на <b>[ru_name]</b>."), // SS220 EDIT ADDICTION
+							SPAN_HELPFUL("Вы выполнили проведение <b>СЛР</b> на <b>[ru_name]</b>.")) // SS220 EDIT ADDICTION
+						balloon_alert(attacking_mob, "СЛР успешно проведено")
 					else
-						attacking_mob.visible_message(SPAN_NOTICE("<b>[attacking_mob]</b> fails to perform CPR on <b>[src]</b>."),
-							SPAN_HELPFUL("You <b>fail</b> to perform <b>CPR</b> on <b>[src]</b>. Incorrect rhythm. Do it <b>slower</b>."))
-						balloon_alert(attacking_mob, "incorrect rhythm. do it slower")
+						attacking_mob.visible_message(SPAN_WARNING("<b>[attacking_mob]</b> провалил[is_male] проведение <b>СЛР</b> на <b>[ru_name]</b>."), // SS220 EDIT ADDICTION
+							SPAN_WARNING("Вы провалили проведение <b>СЛР</b> на <b>[ru_name]</b>. Не проводите <b>СЛР</b> слишком часто. Подождите перед следующей попыткой.")) // SS220 EDIT ADDICTION
+						balloon_alert(attacking_mob, "Подождите перед следующей попыткой")
 					cpr_cooldown = world.time + 7 SECONDS
 			cpr_attempt_timer = 0
 			return 1
 
 		if(INTENT_GRAB)
 			if(attacking_mob == src)
-				check_for_injuries()
+				check_for_injuries(src)
 				return 1
 
 			if(anchored)
@@ -113,7 +118,7 @@
 
 		if(INTENT_DISARM)
 			if(attacking_mob == src)
-				check_for_injuries()
+				check_for_injuries(src)
 				return 1
 
 			attacking_mob.attack_log += text("\[[time_stamp()]\] <font color='red'>Disarmed [key_name(src)]</font>")
@@ -142,19 +147,17 @@
 						chance = !hand ? 40 : 20
 
 					if (prob(chance))
-						visible_message(SPAN_DANGER("[attacking_mob] accidentally discharges [src]'s [held_weapon.name] during the struggle!"), SPAN_DANGER("[attacking_mob] accidentally discharge your [held_weapon.name] during the struggle!"), null, 5)
+						visible_message(SPAN_DANGER("[attacking_mob] accidentally discharges [src]'s [held_weapon.name] during the struggle!"), SPAN_DANGER("[attacking_mob] accidentally discharges your [held_weapon.name] during the struggle!"), null, 5)
 						var/list/turfs = list()
 						for(var/turf/turfs_to_discharge in view())
 							turfs += turfs_to_discharge
 						var/turf/target = pick(turfs)
 						count_niche_stat(STATISTICS_NICHE_DISCHARGE)
-						held_weapon.handle_fire(target, src)
+						held_weapon.Fire(target, src)
 
-						attack_log += "\[[time_stamp()]\] <b>[key_name(src)]</b> accidentally fired <b>[held_weapon.name]</b> in [get_area(src)] triggered by <b>[key_name(attacking_mob)]</b>."
+						attack_log += "\[[time_stamp()]\] <b>[key_name(src)]</b> accidentally discharged <b>[held_weapon.name]</b> in [get_area(src)] triggered by <b>[key_name(attacking_mob)]</b>."
 						attacking_mob.attack_log += "\[[time_stamp()]\] <b>[key_name(src)]</b> accidentally fired <b>[held_weapon.name]</b> in [get_area(src)] triggered by <b>[key_name(attacking_mob)]</b>."
-						msg_admin_attack("[key_name(src)] accidentally fired <b>[held_weapon.name]</b> in [get_area(attacking_mob)] ([attacking_mob.loc.x],[attacking_mob.loc.y],[attacking_mob.loc.z]) triggered by <b>[key_name(attacking_mob)]</b>.", attacking_mob.loc.x, attacking_mob.loc.y, attacking_mob.loc.z)
-
-						return
+						msg_admin_ff("[key_name(src)][ADMIN_JMP(src)] [ADMIN_PM(src)] accidentally discharged <b>[held_weapon.name]</b> in [get_area(src)] ([src.loc.x],[src.loc.y],[src.loc.z]) triggered by <b>[key_name(attacking_mob)][ADMIN_JMP(attacking_mob)] [ADMIN_PM(attacking_mob)]</b>.", TRUE, loc.z)
 
 			var/disarm_chance = rand(1, 100)
 			var/attacker_skill_level = attacking_mob.skills ? attacking_mob.skills.get_skill_level(SKILL_CQC) : SKILL_CQC_MAX // No skills, so assume max
@@ -167,8 +170,8 @@
 				KnockDown(strength)
 				Stun(strength)
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
-				var/shove_text = attacker_skill_level > 1 ? "tackled" : pick("pushed", "shoved")
-				visible_message(SPAN_DANGER("<B>[attacking_mob] has [shove_text] [src]!</B>"), null, null, 5)
+				var/shove_text = attacker_skill_level > 1 ? "сбивает с ног" : pick("толкает", "отталкивает")
+				visible_message(SPAN_DANGER_BOLD("[attacking_mob] [shove_text] [src]!"), null, null, 5) // SS220 EDIT ADDICTION
 				return
 
 			if(disarm_chance <= 60)
@@ -178,53 +181,67 @@
 					stop_pulling()
 				else
 					drop_held_item()
-					visible_message(SPAN_DANGER("<B>[attacking_mob] has disarmed [src]!</B>"), null, null, 5)
+					visible_message(SPAN_DANGER_BOLD("[attacking_mob] обезоруживает [src]!"), null, null, 5)
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, 7)
 				return
 
 			playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, 7)
-			visible_message(SPAN_DANGER("<B>[attacking_mob] attempted to disarm [src]!</B>"), null, null, 5)
+			visible_message(SPAN_DANGER_BOLD("[attacking_mob] пытается обезоружить [src]!"), null, null, 5) // SS220 EDIT ADDICTION
 
 /mob/living/carbon/human/proc/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, inrange, params)
 	return
 
-/mob/living/carbon/human/help_shake_act(mob/living/carbon/M)
+/mob/living/carbon/human/help_shake_act(mob/living/carbon/mob)
 	//Target is us
-	if(src == M)
-		check_for_injuries()
+	if(src == mob)
+		check_for_injuries(src)
 		return
 
 	//Target is not us
-	var/t_him = "it"
-	if (gender == MALE)
-		t_him = "him"
-	else if (gender == FEMALE)
-		t_him = "her"
-	if (w_uniform)
-		w_uniform.add_fingerprint(M)
+	// SS220 START EDIT ADDICTION
+	var/t_him = ru_p_them()
+	//var/t_him = "it"
+	//switch(gender)
+	//	if(MALE)
+	//		t_him = "him"
+	//	if(FEMALE)
+	//		t_him = "her"
+	//	if(PLURAL)
+	//		t_him = "them"
+	// SS220 END EDIT ADDICTION
+
+	if(w_uniform)
+		w_uniform.add_fingerprint(mob)
+
+	var/shaken_friend = FALSE
 
 	if(HAS_TRAIT(src, TRAIT_FLOORED) || HAS_TRAIT(src, TRAIT_KNOCKEDOUT) || body_position == LYING_DOWN || sleeping)
 		if(client)
 			sleeping = max(0,src.sleeping-5)
 		if(!sleeping)
 			if(is_dizzy)
-				to_chat(M, SPAN_WARNING("[src] looks dizzy. Maybe you should let [t_him] rest a bit longer."))
+				to_chat(mob, SPAN_WARNING("Похоже у [declent_ru(GENITIVE)] кружится голова. Не стоит [t_him] сейчас беспокоить."))
 			else
 				set_resting(FALSE)
-		M.visible_message(SPAN_NOTICE("[M] shakes [src] trying to wake [t_him] up!"),
-			SPAN_NOTICE("You shake [src] trying to wake [t_him] up!"), null, 4)
+		shaken_friend = TRUE
+		mob.visible_message(SPAN_NOTICE("[capitalize(mob.declent_ru(NOMINATIVE))] трясёт [declent_ru(ACCUSATIVE)], пытаясь разбудить [t_him]!"), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("Вы трясёте [declent_ru(ACCUSATIVE)], пытаясь разбудить [t_him]!"), null, 4) // SS220 EDIT ADDICTION
 	else if(HAS_TRAIT(src, TRAIT_INCAPACITATED))
-		M.visible_message(SPAN_NOTICE("[M] shakes [src], trying to shake [t_him] out of his stupor!"),
-			SPAN_NOTICE("You shake [src], trying to shake [t_him] out of his stupor!"), null, 4)
+		mob.visible_message(SPAN_NOTICE("[capitalize(mob.declent_ru(NOMINATIVE))] трясёт [declent_ru(ACCUSATIVE)], пытаясь вывести [t_him] из ступора!"),
+			SPAN_NOTICE("Вы трясёте [declent_ru(ACCUSATIVE)], пытаясь вывести [t_him] из ступора!"), null, 4)
+		shaken_friend = TRUE
 	else
-		var/mob/living/carbon/human/H = M
-		if(istype(H))
-			H.species.hug(H, src, H.zone_selected)
+		var/mob/living/carbon/human/human = mob
+		if(istype(human))
+			human.species.hug(human, src, human.zone_selected)
 		else
-			M.visible_message(SPAN_NOTICE("[M] pats [src] on the back to make [t_him] feel better!"),
-				SPAN_NOTICE("You pat [src] on the back to make [t_him] feel better!"), null, 4)
+			mob.visible_message(SPAN_NOTICE("[capitalize(mob.declent_ru(NOMINATIVE))] похлопывает [declent_ru(ACCUSATIVE)] по спине, чтобы [t_him] стало лучше!"),
+				SPAN_NOTICE("Вы похлопываете [declent_ru(ACCUSATIVE)] по спине, чтобы [t_him] стало лучше!"), null, 4)
 			playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 5)
 		return
+
+	if(shaken_friend)
+		SEND_SIGNAL(mob, COMSIG_HUMAN_HELPING_UP)
 
 	adjust_effect(-6, PARALYZE)
 	adjust_effect(-6, STUN)
@@ -232,12 +249,30 @@
 
 	playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
 
-/mob/living/carbon/human/proc/check_for_injuries()
-	visible_message(SPAN_NOTICE("[capitalize(declent_ru(NOMINATIVE))] осматривает себя."),
-	SPAN_NOTICE("Вы осматриваете себя на наличие травм."), null, 3)
+/mob/living/carbon/human/proc/check_for_injuries(mob/living/carbon/human/checker)
+	if(!checker)
+		return
+
+	if((checker != src && (checker.sdisabilities & DISABILITY_BLIND || checker.blinded)) || checker.stat != CONSCIOUS)
+		to_chat(checker, boxed_message(SPAN_NOTICE("Вы не можете с уверенностью выявить проблему.")))
+		return
+
+	if(checker == src) // this probably would be better off in a separate, universal proc so itll be easier for everyone involved i think
+		var/pronoun = "себя"
+		switch(gender)
+			if(MALE)
+				pronoun = "себя"
+			if(FEMALE)
+				pronoun = "себя"
+			if(PLURAL)
+				pronoun = "себя"
+		visible_message(SPAN_NOTICE("[capitalize(declent_ru(NOMINATIVE))] осматривает [pronoun] в поисках ран."),
+			SPAN_NOTICE("Вы осматриваете своё тело в поисках ран."), null, 3)
+	else
+		checker.visible_message(SPAN_NOTICE("[capitalize(checker.declent_ru(NOMINATIVE))] осматривает [declent_ru(NOMINATIVE)]."), SPAN_NOTICE("Вы осматриваете [declent_ru(NOMINATIVE)] в поисках ран."), null, 3)
 
 	var/list/limb_message = list()
-	for(var/obj/limb/org in limbs)
+	for(var/obj/limb/org as anything in limbs)
 		var/list/status = list()
 		var/brutedamage = org.brute_dam
 		var/burndamage = org.burn_dam
@@ -296,17 +331,26 @@
 			status += "OK"
 
 		var/postscript
-		if(org.status & LIMB_UNCALIBRATED_PROSTHETIC)
-			postscript += " <b>(НЕ ФУНКЦИОНИРУЕТ)</b>"
-		if(org.status & LIMB_BROKEN)
-			postscript += " <b>(ПЕРЕЛОМ)</b>"
+		if(checker == src) // obviously it wont come off as obvious to other people, unless its dislocated or w/e
+			if(org.status & LIMB_UNCALIBRATED_PROSTHETIC)
+				postscript += " [SPAN_BOLD("(НЕ ФУНКЦИОНИРУЕТ)")]"
+			if(org.status & LIMB_BROKEN)
+				postscript += " [SPAN_BOLD("(ПЕРЕЛОМ)")]"
+
 		if(org.status & LIMB_SPLINTED_INDESTRUCTIBLE)
-			postscript += " <b>(НАНОШИНА)</b>"
+			postscript += " [SPAN_BOLD("(<a href='byond://?src=\ref[src];remove_splint=[org.name]'><span class='corp_label_red'>НАНОШИНА</a>)")]"
 		else if(org.status & LIMB_SPLINTED)
-			postscript += " <b>(ШИНА)</b>"
+			postscript += " [SPAN_BOLD("(<a href='byond://?src=\ref[src];remove_splint=[org.name]'><span class='corp_label_red'>ШИНА</a>)")]"
+
+		if(org.status & LIMB_THIRD_DEGREE_BURNS)
+			postscript += SPAN_BOLD("(ТЯЖЕЛЫЙ ОЖОГ)")
+		if(org.status & LIMB_ESCHAR)
+			postscript += " [SPAN_BOLD("(СТРУП)")]"
+
 
 		if(postscript)
-			limb_message += "\t [capitalize(org.declent_ru(NOMINATIVE))] [SPAN_WARNING("[english_list(status)].[postscript]")]"
+			limb_message += "\t [capitalize(org.declent_ru(NOMINATIVE))] [checker == src ? "" : "[src.declent_ru(GENITIVE)]"] [SPAN_WARNING("[english_list(status, final_comma_text = ",")].[postscript]")]"
 		else
-			limb_message += "\t [capitalize(org.declent_ru(NOMINATIVE))] [status[1] == "OK" ? SPAN_NOTICE("в полном порядке.") : SPAN_WARNING("[english_list(status)].")]"
-	to_chat(src, boxed_message(limb_message.Join("\n")))
+			limb_message += "\t [capitalize(org.declent_ru(NOMINATIVE))] [checker == src ? "" : "[src.declent_ru(GENITIVE)]"] [status[1] == "OK" ? SPAN_NOTICE("OK.") : SPAN_WARNING("[english_list(status, final_comma_text = ",")].")]"
+	limb_message += "\t \n<span class = 'deptradio'>Медицинские действия: <a href='byond://?src=\ref[src];check_status=1'>\[Проверить статус\]</a>\n"
+	to_chat(checker, boxed_message(limb_message.Join("<br>")))

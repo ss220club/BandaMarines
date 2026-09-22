@@ -5,11 +5,14 @@
 	mob_max = 1
 	mob_min = 1
 	arrival_message = "'Так... шестнадцать порций сырной картошки фри, восемь больших пицц с двойной начинкой, девять бутылок \"Четырех Локо\"... Алло? Кто-нибудь есть на этом корабле? Ваша пицца остывает.'"
-	objectives = "Обязательно возьмите чаевые!"
 	shuttle_id = MOBILE_SHUTTLE_ID_ERT_SMALL
 	name_of_spawn = /obj/effect/landmark/ert_spawns/distress_pizza
 	home_base = /datum/lazy_template/ert/pizza_station
 	probability = 2
+
+/datum/emergency_call/pizza/New()
+	. = ..()
+	objectives = "Обязательно возьмите чаевые!"
 
 /datum/emergency_call/pizza/create_member(datum/mind/M, turf/override_spawn_loc)
 	var/turf/spawn_loc = override_spawn_loc ? override_spawn_loc : get_spawn_point()

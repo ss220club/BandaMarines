@@ -76,11 +76,11 @@
 				return
 			M.forceMove(loc)
 			M.apply_effect(5, WEAKEN)
-			user.visible_message(SPAN_DANGER("[user] puts [M] on the table."))
+			user.visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] puts [M] on the table."))
 		return
 
 	if (HAS_TRAIT(W, TRAIT_TOOL_WRENCH))
-		to_chat(user, "It's a holotable!  There are no bolts!")
+		to_chat(user, "It's a holotable! There are no bolts!")
 		return
 
 	. = ..()
@@ -129,6 +129,8 @@
 	anchored = TRUE
 	density = TRUE
 	throwpass = 1
+
+	var/enable_shimmy = TRUE
 	var/side = ""
 	var/id = ""
 
@@ -146,7 +148,7 @@
 				if(X.id == id)
 					X.score(side, 3)// 3 points for dunking a mob
 					// no break, to update multiple scoreboards
-			visible_message(SPAN_DANGER("[user] dunks [M] into [src]!"))
+			visible_message(SPAN_DANGER("[capitalize(user.declent_ru(NOMINATIVE))] dunks [M] into [src]!"))
 		return
 	else if (istype(W, /obj/item) && get_dist(src,user)<2)
 		user.drop_inv_item_to_loc(W, loc)
@@ -154,11 +156,11 @@
 			if(X.id == id)
 				X.score(side)
 				// no break, to update multiple scoreboards
-		visible_message(SPAN_NOTICE("[user] dunks [W] into [src]!"))
+		visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] dunks [W] into [src]!"))
 		return
 
 /obj/structure/holohoop/BlockedPassDirs(atom/movable/mover, target_dir)
-	if(istype(mover,/obj/item) && mover.throwing)
+	if(istype(mover,/obj/item) && HAS_TRAIT(mover, TRAIT_LAUNCHED))
 		var/obj/item/I = mover
 		if(istype(I, /obj/projectile))
 			return BLOCKED_MOVEMENT
@@ -168,13 +170,20 @@
 				if(X.id == id)
 					X.score(side)
 					// no break, to update multiple scoreboards
-			visible_message(SPAN_NOTICE("Swish! \the [I] lands in \the [src]."), null, null, 3)
+			visible_message(SPAN_NOTICE("Swish! \The [I] lands in \the [src]."), null, null, 3)
 		else
-			visible_message(SPAN_DANGER("\the [I] bounces off of \the [src]'s rim!"), null, null, 3)
+			visible_message(SPAN_DANGER("\The [I] bounces off of \the [src]'s rim!"), null, null, 3)
 		return NO_BLOCKED_MOVEMENT
 
 	return ..()
 
+/obj/structure/holohoop/noshimmy
+	enable_shimmy = FALSE
+
+/obj/structure/holohoop/Initialize(mapload, ...)
+	. = ..()
+	if (enable_shimmy)
+		AddComponent(/datum/component/shimmy_around, east_offset = -15, west_offset = -15, north_offset = 15, south_offset = 15)
 
 /obj/structure/machinery/readybutton
 	name = "Ready Declaration Device"

@@ -42,8 +42,14 @@
 	/// The required level of a skill for opening this storage if it is inside another storage type
 	var/required_skill_level_for_nest_opening = null
 
+	/// Can this storage be used to instantly grab pills from
+	var/instant_pill_grabbable = FALSE
+
+	/// What mode is the storage instant grab mode in if you are grabbing pills from it
+	var/instant_pill_grab_mode = 1 //On by default
+
 /obj/item/storage/MouseDrop(obj/over_object as obj)
-	if(CAN_PICKUP(usr, src))
+	if(CAN_PICKUP(usr, src) && !HAS_TRAIT(usr, TRAIT_HAULED))
 		if(over_object == usr) // this must come before the screen objects only block
 			open(usr)
 			return
@@ -67,14 +73,14 @@
 			add_fingerprint(usr)
 
 /obj/item/storage/clicked(mob/user, list/mods)
-	if(!mods[SHIFT_CLICK] && mods[MIDDLE_CLICK] && CAN_PICKUP(user, src))
+	if(!mods[SHIFT_CLICK] && mods[MIDDLE_CLICK] && !mods[ALT_CLICK] && CAN_PICKUP(user, src))
 		handle_mmb_open(user)
 		return TRUE
 
 	//Allow alt-clicking to remove items directly from storage.
 	//Does so by passing the alt mod back to do_click(), which eventually delivers it to attack_hand().
 	//This ensures consistent click behaviour between alt-click and left-mouse drawing.
-	if(mods[ALT_CLICK]  && loc == user && !user.get_active_hand())
+	if(mods[ALT_CLICK] && mods[LEFT_CLICK] && loc == user && !user.get_active_hand())
 		return FALSE
 
 	return ..()
@@ -217,7 +223,7 @@ GLOBAL_LIST_EMPTY_TYPED(item_storage_box_cache, /datum/item_storage_box)
 	var/atom/movable/screen/storage/start
 	var/atom/movable/screen/storage/continued
 	var/atom/movable/screen/storage/end
-	/// The index that indentifies me inside GLOB.item_storage_box_cache
+	/// The index that identifies me inside GLOB.item_storage_box_cache
 	var/index
 
 /datum/item_storage_box/New()
@@ -453,50 +459,53 @@ GLOBAL_LIST_EMPTY_TYPED(item_storage_box_cache, /datum/item_storage_box)
 
 //This proc return 1 if the item can be picked up and 0 if it can't.
 //Set the stop_messages to stop it from printing messages
-/obj/item/storage/proc/can_be_inserted(obj/item/W, mob/user, stop_messages = FALSE)
-	if(!istype(W) || (W.flags_item & NODROP))
+/obj/item/storage/proc/can_be_inserted(obj/item/tool, mob/user, stop_messages = FALSE)
+	if(!istype(tool) || (tool.flags_item & NODROP))
 		return //Not an item
 
-	if(src.loc == W)
+	if(src.loc == tool)
 		return 0 //Means the item is already in the storage item
 
 	//specific labeler check
-	if(istype(W, /obj/item/tool/hand_labeler))
-		var/obj/item/tool/hand_labeler/L = W
+	if(istype(tool, /obj/item/tool/hand_labeler))
+		var/obj/item/tool/hand_labeler/L = tool
 		if(L.mode)
 			return 0
 
-	if(W.heat_source && !(W.flags_item & IGNITING_ITEM))
-		to_chat(usr, SPAN_ALERT("[W] is ignited, you can't store it!"))
+	if(istype(tool, /obj/item/tool/yautja_cleaner) && user.a_intent == INTENT_HARM) //Cleaner both needs to be able to melt containers and be stored within them.
 		return
 
-	if(!can_hold_type(W.type, user))
+	if(tool.heat_source && !(tool.flags_item & IGNITING_ITEM))
+		to_chat(usr, SPAN_ALERT("[tool] is ignited, you can't store it!"))
+		return
+
+	if(!can_hold_type(tool.type, user))
 		if(!stop_messages)
-			to_chat(usr, SPAN_NOTICE("[src] cannot hold [W]."))
+			to_chat(usr, SPAN_NOTICE("В [declent_ru(PREPOSITIONAL)] нельзя поместить [tool.declent_ru(ACCUSATIVE)].")) // SS220 EDIT ADDICTION
 		return
 
 	var/w_limit_bypassed = 0
 	if(length(bypass_w_limit))
 		for(var/A in bypass_w_limit)
-			if(istype(W, A))
+			if(istype(tool, A))
 				w_limit_bypassed = 1
 				break
 
-	if (!w_limit_bypassed && W.w_class > max_w_class)
+	if (!w_limit_bypassed && tool.w_class > max_w_class)
 		if(!stop_messages)
-			to_chat(usr, SPAN_NOTICE("[W] is too long for this [src]."))
+			to_chat(usr, SPAN_NOTICE("[tool] is too long for [src]."))
 		return 0
 
 	//Checks if there is room for the item.
-	if(!has_room(W))
+	if(!has_room(tool))
 		if(!stop_messages)
 			to_chat(usr, SPAN_NOTICE("[src] is full, make some space."))
 		return 0
 
-	if(W.w_class >= src.w_class && (isstorage(W)))
+	if(tool.w_class >= src.w_class && (isstorage(tool)))
 		if(!istype(src, /obj/item/storage/backpack/holding)) //bohs should be able to hold backpacks again. The override for putting a boh in a boh is in backpack.dm.
 			if(!stop_messages)
-				to_chat(usr, SPAN_NOTICE("[src] cannot hold [W] as it's a storage item of the same size."))
+				to_chat(usr, SPAN_NOTICE("[src] cannot hold [tool] as it's a storage item of the same size."))
 			return 0 //To prevent the stacking of same sized storage items.
 
 	return 1
@@ -565,8 +574,8 @@ W is always an item. stop_warning prevents messaging. user may be null.**/
 		add_fingerprint(user)
 		if(!prevent_warning)
 			var/visidist = W.w_class >= 3 ? 3 : 1
-			user.visible_message(SPAN_NOTICE("[user] puts [W] into [src]."),
-								SPAN_NOTICE("You put \the [W] into [src]."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] помещает [W.declent_ru(ACCUSATIVE)] в [declent_ru(ACCUSATIVE)]."),
+								SPAN_NOTICE("Вы помещаете [W.declent_ru(ACCUSATIVE)] в [declent_ru(ACCUSATIVE)]."),
 								null, visidist)
 	orient2hud()
 	for(var/mob/M in can_see_content())
@@ -586,34 +595,47 @@ W is always an item. stop_warning prevents messaging. user may be null.**/
 	_item_removal(W, new_location, user)
 	return TRUE
 
+/obj/item/storage/proc/remove_item_from_screen(obj/item/item)
+	for(var/mob/player in can_see_content())
+		if(player.client)
+			player.client.remove_from_screen(item)
+
+/obj/item/storage/proc/redraw_items_on_screen(obj/item/item)
+	orient2hud()
+	for(var/mob/player in can_see_content())
+		show_to(player)
+	if(item.maptext && (storage_flags & STORAGE_CONTENT_NUM_DISPLAY))
+		item.maptext = ""
+	item.on_exit_storage(src)
+	update_icon()
+
 ///Separate proc because remove_from_storage isn't guaranteed to finish. Can be called directly if the target atom exists and is an item. Updates icon when done.
-/obj/item/storage/proc/_item_removal(obj/item/W as obj, atom/new_location, mob/user)
-	for(var/mob/M in can_see_content())
-		if(M.client)
-			M.client.remove_from_screen(W)
+/obj/item/storage/proc/_item_removal(obj/item/item, atom/new_location, mob/user)
+	remove_item_from_screen(item)
 
 	if(new_location)
 		if(ismob(new_location))
-			W.pickup(new_location)
-		W.forceMove(new_location)
+			item.pickup(new_location)
+		item.forceMove(new_location)
 	else
-		var/turf/T = get_turf(src)
-		if(T)
-			W.forceMove(T)
+		var/turf/turf = get_turf(src)
+		if(turf)
+			item.forceMove(turf)
 		else
-			W.moveToNullspace()
+			item.moveToNullspace()
 
-	orient2hud()
-	for(var/mob/M in can_see_content())
-		show_to(M)
-	if(W.maptext && (storage_flags & STORAGE_CONTENT_NUM_DISPLAY))
-		W.maptext = ""
-	W.on_exit_storage(src)
-	update_icon()
+	redraw_items_on_screen(item)
 	if(user)
 		user.update_inv_l_hand()
 		user.update_inv_r_hand()
-	W.mouse_opacity = initial(W.mouse_opacity)
+	item.mouse_opacity = initial(item.mouse_opacity)
+
+///Call this proc to just remove item from storage list.
+/obj/item/storage/proc/forced_item_removal(obj/item/item)
+	remove_item_from_screen(item)
+	LAZYREMOVE(contents, item)
+
+	redraw_items_on_screen(item)
 
 //This proc is called when you want to place an item into the storage item.
 /obj/item/storage/attackby(obj/item/W as obj, mob/user as mob)
@@ -638,9 +660,11 @@ W is always an item. stop_warning prevents messaging. user may be null.**/
 	return handle_item_insertion(W, prevent_warning, user)
 
 /obj/item/storage/attack_hand(mob/user, mods)
-	if(HAS_TRAIT(user, TRAIT_HAULED))
+	if(HAS_TRAIT(user, TRAIT_HAULED) && !HAS_FLAG(storage_flags, STORAGE_ALLOW_WHILE_HAULED))
+		if(loc == user)
+			open(user)
 		return
-	if (loc == user)
+	if(loc == user)
 		if((mods && mods[ALT_CLICK] || storage_flags & STORAGE_USING_DRAWING_METHOD) && ishuman(user) && length(contents)) //Alt mod can reach attack_hand through the clicked() override.
 			var/obj/item/I
 			if(storage_flags & STORAGE_USING_FIFO_DRAWING)
@@ -660,8 +684,8 @@ W is always an item. stop_warning prevents messaging. user may be null.**/
 	set name = "Switch Gathering Method"
 	set category = "Object"
 	set src in usr
-	storage_flags ^= STORAGE_GATHER_SIMULTAENOUSLY
-	if (storage_flags & STORAGE_GATHER_SIMULTAENOUSLY)
+	storage_flags ^= STORAGE_GATHER_SIMULTANEOUSLY
+	if (storage_flags & STORAGE_GATHER_SIMULTANEOUSLY)
 		to_chat(usr, "[src] now picks up all items in a tile at once.")
 	else
 		to_chat(usr, "[src] now picks up one item at a time.")
@@ -698,25 +722,26 @@ W is always an item. stop_warning prevents messaging. user may be null.**/
 	if (!isturf(T) || get_dist(src, T) > 1)
 		T = get_turf(src)
 
+	var/ru_name = declent_ru(ACCUSATIVE) // SS220 EDIT ADDICTION
 	if(!can_storage_interact(user))
-		to_chat(user, SPAN_WARNING("Access denied."))
+		to_chat(user, SPAN_WARNING("Доступ запрещён."))
 		return
 
 	if(!length(contents))
-		to_chat(user, SPAN_WARNING("[src] is already empty."))
+		to_chat(user, SPAN_WARNING("[ru_name] уже пустой.")) // SS220 EDIT ADDICTION
 		return
 
 	if (!(storage_flags & STORAGE_QUICK_EMPTY))
-		user.visible_message(SPAN_NOTICE("[user] starts to empty \the [src]..."),
-			SPAN_NOTICE("You start to empty \the [src]..."))
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] начинает опустошать [ru_name]..."), // SS220 EDIT ADDICTION
+			SPAN_NOTICE("Вы начинате опустошать [ru_name]...")) // SS220 EDIT ADDICTION
 		if (!do_after(user, 2 SECONDS, INTERRUPT_ALL, BUSY_ICON_GENERIC))
 			return
 
 	storage_close(user)
 	for (var/obj/item/I in contents)
 		remove_from_storage(I, T, user)
-	user.visible_message(SPAN_NOTICE("[user] empties \the [src]."),
-		SPAN_NOTICE("You empty \the [src]."))
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] опустошает [ru_name]..."), // SS220 EDIT ADDICTION
+		SPAN_NOTICE("Вы опустошаете [ru_name]...")) // SS220 EDIT ADDICTION
 	if (use_sound)
 		playsound(loc, use_sound, 25, TRUE, 3)
 
@@ -746,20 +771,20 @@ W is always an item. stop_warning prevents messaging. user may be null.**/
 	if(!length(contents))
 		if(prob(25) && isxeno(user))
 			user.drop_inv_item_to_loc(src, tile)
-			user.visible_message(SPAN_NOTICE("[user] shakes \the [src] off."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] shakes \the [src] off."),
 				SPAN_NOTICE("You shake \the [src] off."))
 		else
-			user.visible_message(SPAN_NOTICE("[user] shakes \the [src] but nothing falls out."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] shakes \the [src] but nothing falls out."),
 				SPAN_NOTICE("You shake \the [src] but nothing falls out. It feels empty."))
 		return
 
 	if(!can_storage_interact(user))
-		user.visible_message(SPAN_NOTICE("[user] shakes \the [src] but nothing falls out."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] shakes \the [src] but nothing falls out."),
 			SPAN_NOTICE("You shake \the [src] but nothing falls out. Access denied."))
 		return
 
 	if(!prob(75))
-		user.visible_message(SPAN_NOTICE("[user] shakes \the [src] but nothing falls out."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] shakes \the [src] but nothing falls out."),
 			SPAN_NOTICE("You shake \the [src] but nothing falls out."))
 		return
 
@@ -772,7 +797,7 @@ W is always an item. stop_warning prevents messaging. user may be null.**/
 	if(!istype(item_obj))
 		return
 	remove_from_storage(item_obj, tile, user)
-	user.visible_message(SPAN_NOTICE("[user] shakes \the [src] and \a [item_obj] falls out."),
+	user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] shakes \the [src] and \a [item_obj] falls out."),
 		SPAN_NOTICE("You shake \the [src] and \a [item_obj] falls out."))
 
 /obj/item/storage/proc/dump_ammo_to(obj/item/ammo_magazine/ammo_dumping, mob/user, amount_to_dump = 5) //amount_to_dump should never actually need to be used as default value
@@ -795,9 +820,10 @@ W is always an item. stop_warning prevents messaging. user may be null.**/
 						//Hijacked from /obj/item/ammo_magazine/proc/create_handful because it had to be handled differently
 						//All this because shell types are instances and not their own objects :)
 
-						var/obj/item/ammo_magazine/handful/new_handful = new /obj/item/ammo_magazine/handful
+						var/datum/ammo/ammo_listing = GLOB.ammo_list[ammo_dumping.default_ammo]
+						var/obj/item/ammo_magazine/handful/new_handful = new ammo_listing.handful_type()
 						var/transferred_handfuls = min(ammo_dumping.current_rounds, amount_to_dump)
-						new_handful.generate_handful(ammo_dumping.default_ammo, ammo_dumping.caliber, amount_to_dump, transferred_handfuls, ammo_dumping.gun_type)
+						new_handful.generate_handful(ammo_dumping.default_ammo, ammo_dumping.caliber, transferred_handfuls, ammo_dumping.gun_type)
 						ammo_dumping.current_rounds -= transferred_handfuls
 						handle_item_insertion(new_handful, TRUE, user)
 						update_icon(-transferred_handfuls)
@@ -847,6 +873,8 @@ W is always an item. stop_warning prevents messaging. user may be null.**/
 		verbs -= /obj/item/storage/verb/empty_verb
 		verbs -= /obj/item/storage/verb/toggle_click_empty
 		verbs -= /obj/item/storage/verb/shake_verb
+	if (!instant_pill_grabbable) // For removing pills from bottles quickly
+		verbs -= /obj/item/storage/verb/toggle_pill_bottle_mode
 
 	boxes = new
 	boxes.name = "storage"
@@ -878,7 +906,7 @@ W is always an item. stop_warning prevents messaging. user may be null.**/
 /*
  * We need to do this separately from Destroy too...
  * When a mob is deleted, it's first ghostize()ed,
- * then its equipement is deleted. This means that client
+ * then its equipment is deleted. This means that client
  * is already unset and can't be used for clearing
  * screen objects properly.
  */
@@ -994,3 +1022,11 @@ Returns FALSE if no top level turf (a loc was null somewhere, or a non-turf atom
 
 	if(!cur_atom)
 		return FALSE
+
+/obj/item/storage/verb/toggle_pill_bottle_mode() //A verb that can (should) only be used if in hand/equipped
+	set category = "Object"
+	set name = "Toggle pill bottle mode"
+	set src in usr
+	if(src && ishuman(usr))
+		instant_pill_grab_mode = !instant_pill_grab_mode
+		to_chat(usr, SPAN_NOTICE("You will now [instant_pill_grab_mode ? "take pills directly from bottles": "no longer take pills directly from bottles"]."))

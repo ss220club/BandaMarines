@@ -1,19 +1,21 @@
 GLOBAL_DATUM_INIT(ares_datacore, /datum/ares_datacore, new)
 GLOBAL_DATUM_INIT(ares_link, /datum/ares_link, new)
+// SS220 START EDIT ADDICTION
 GLOBAL_LIST_INIT(maintenance_categories, list(
-	"Broken Light",
-	"Shattered Glass",
-	"Minor Structural Damage",
-	"Major Structural Damage",
-	"Janitorial",
-	"Chemical Spill",
-	"Fire",
-	"Communications Failure",
-	"Power Generation Failure",
-	"Electrical Fault",
-	"Support",
-	"Other"
+	"Неисправный свет",
+	"Разбитое стекло",
+	"Незначительные повреждения",
+	"Значительные повреждения",
+	"Уборка",
+	"Разлив химических веществ",
+	"Пожар",
+	"Сбой связи",
+	"Сбой энергоснабжения",
+	"Неисправность электрооборудования",
+	"Техническая поддержка",
+	"Прочее"
 	))
+// SS220 END EDIT ADDICTION
 
 /datum/ares_link
 	/// All motion triggers for the link
@@ -40,6 +42,12 @@ GLOBAL_LIST_INIT(maintenance_categories, list(
 	var/list/waiting_ids = list()
 	var/list/active_ids = list()
 
+	///Sentry faction stuff
+	var/faction_label = "USCM Only"
+	var/list/faction_group = FACTION_LIST_ARES_MARINE
+	var/list/faction_options = list("USCM Only" = FACTION_LIST_ARES_MARINE, "Wey-Yu Only" = FACTION_LIST_ARES_WY, "USCM & Wey-Yu" = FACTION_LIST_ARES_ALL, "ARES Only" = FACTION_LIST_ARES_ALONE)
+	var/list/core_sentries = list()
+
 /datum/ares_link/New()
 	admin_interface = new
 	datacore = GLOB.ares_datacore
@@ -54,6 +62,14 @@ GLOBAL_LIST_INIT(maintenance_categories, list(
 		alert.delink()
 	..()
 
+/datum/ares_link/proc/change_iff(selection)
+	faction_label = selection
+	var/list/new_iff = faction_options[selection]
+
+	faction_group = new_iff
+	ares_apollo_talk("Security IFF systems updated to [selection]")
+	for(var/obj/structure/machinery/defenses/sentry/premade/deployable/almayer/mini/ares/sentry as anything in core_sentries)
+		sentry.sync_iff()
 
 /* BELOW ARE IN AdminAres.dm
 /datum/ares_link/tgui_interact(mob/user, datum/tgui/ui)
@@ -113,6 +129,16 @@ GLOBAL_LIST_INIT(maintenance_categories, list(
 		apollo.broadcast(ai, broadcast_message)
 	for(var/mob/listener in (GLOB.human_mob_list + GLOB.dead_mob_list))
 		if(listener.hear_apollo())//Only plays sound to mobs and not observers, to reduce spam.
+			playsound_client(listener.client, sound('sound/misc/interference.ogg'), listener, vol = 45)
+
+/proc/ares_artemis_talk(broadcast_message)
+	var/datum/language/artemis/artemis = GLOB.all_languages[LANGUAGE_ARTEMIS]
+	for(var/mob/living/silicon/decoy/ship_ai/ai in GLOB.ai_mob_list)
+		if(ai.stat == DEAD)
+			return FALSE
+		artemis.broadcast(ai, broadcast_message)
+	for(var/mob/listener in (GLOB.human_mob_list + GLOB.dead_mob_list))
+		if(listener.hear_artemis())//Only plays sound to mobs and not observers, to reduce spam.
 			playsound_client(listener.client, sound('sound/misc/interference.ogg'), listener, vol = 45)
 
 /proc/ares_can_interface()
@@ -316,19 +342,19 @@ GLOBAL_LIST_INIT(maintenance_categories, list(
 /obj/structure/machinery/computer/working_joe/ares_auth_to_text(access_level)
 	switch(access_level)
 		if(APOLLO_ACCESS_LOGOUT)//0
-			return "Logged Out"
+			return "Выход из системы" // SS220 EDIT ADDICTION
 		if(APOLLO_ACCESS_REQUEST)//1
-			return "Unauthorized Personnel"
+			return "Неавторизованный пользователь" // SS220 EDIT ADDICTION
 		if(APOLLO_ACCESS_REPORTER)//2
-			return "Validated Incident Reporter"
+			return "Авторизованный инцидент-репортер" // SS220 EDIT ADDICTION
 		if(APOLLO_ACCESS_TEMP)//3
-			return "Authorized Visitor"
+			return "Авторизованный посетитель" // SS220 EDIT ADDICTION
 		if(APOLLO_ACCESS_AUTHED)//4
-			return "Certified Personnel"
+			return "Авторизованный персонал" // SS220 EDIT ADDICTION
 		if(APOLLO_ACCESS_JOE)//5
-			return "Working Joe"
+			return "Рабочий Джо" // SS220 EDIT ADDICTION
 		if(APOLLO_ACCESS_DEBUG)//6
-			return "AI Service Technician"
+			return "ИИ-инженер" // SS220 EDIT ADDICTION
 
 /obj/item/device/working_joe_pda/proc/get_ares_access(obj/item/card/id/card)
 	if(ACCESS_ARES_DEBUG in card.access)
@@ -350,16 +376,16 @@ GLOBAL_LIST_INIT(maintenance_categories, list(
 /obj/item/device/working_joe_pda/proc/ares_auth_to_text(access_level)
 	switch(access_level)
 		if(APOLLO_ACCESS_LOGOUT)//0
-			return "Logged Out"
+			return "Выход из системы" // SS220 EDIT ADDICTION
 		if(APOLLO_ACCESS_REQUEST)//1
-			return "Unauthorized Personnel"
+			return "Неавторизованный пользователь" // SS220 EDIT ADDICTION
 		if(APOLLO_ACCESS_REPORTER)//2
-			return "Validated Incident Reporter"
-		if(APOLLO_ACCESS_TEMP)//3
-			return "Authorized Visitor"
+			return "Проверенный инцидент-репортер" // SS220 EDIT ADDICTION
+		if(APOLLO_ACCESS_TEMP)//3 // SS220 EDIT ADDICTION
+			return "Авторизованный посетитель" // SS220 EDIT ADDICTION
 		if(APOLLO_ACCESS_AUTHED)//4
-			return "Certified Personnel"
+			return "Авторизованный персонал" // SS220 EDIT ADDICTION
 		if(APOLLO_ACCESS_JOE)//5
-			return "Working Joe"
+			return "Рабочий Джо" // SS220 EDIT ADDICTION
 		if(APOLLO_ACCESS_DEBUG)//6
-			return "AI Service Technician"
+			return "ИИ-инженер" // SS220 EDIT ADDICTION

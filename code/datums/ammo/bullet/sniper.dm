@@ -24,7 +24,7 @@
 	if((P.projectile_flags & PROJECTILE_BULLSEYE) && M == P.original)
 		var/mob/living/L = M
 		L.apply_armoured_damage(damage*2, ARMOR_BULLET, BRUTE, null, penetration)
-		to_chat(P.firer, SPAN_WARNING("Bullseye!"))
+		to_chat(P.firer, SPAN_WARNING("В яблочко!"))
 
 /datum/ammo/bullet/sniper/incendiary
 	name = "incendiary sniper bullet"
@@ -35,8 +35,6 @@
 	//Removed accuracy = 0, accuracy_var_high = Variance Tier 6, and scatter = 0. -Kaga
 	damage = 60
 	penetration = ARMOR_PENETRATION_TIER_4
-	bullet_duraloss = BULLET_DURABILITY_LOSS_LOW
-	bullet_duramage = BULLET_DURABILITY_DAMAGE_INSUBSTANTIAL
 
 /datum/ammo/bullet/sniper/incendiary/set_bullet_traits()
 	. = ..()
@@ -54,7 +52,7 @@
 				blind_duration = 2
 		L.AdjustEyeBlur(blind_duration)
 		L.adjust_fire_stacks(10)
-		to_chat(P.firer, SPAN_WARNING("Bullseye!"))
+		to_chat(P.firer, SPAN_WARNING("В яблочко!"))
 
 /datum/ammo/bullet/sniper/flak
 	name = "flak sniper bullet"
@@ -66,8 +64,6 @@
 	damage = 55
 	damage_var_high = PROJECTILE_VARIANCE_TIER_8 //Documenting old code: This converts to a variance of 96-109% damage. -Kaga
 	penetration = 0
-	bullet_duraloss = BULLET_DURABILITY_LOSS_LOW
-	bullet_duramage = BULLET_DURABILITY_DAMAGE_INSUBSTANTIAL
 
 /datum/ammo/bullet/sniper/flak/on_hit_mob(mob/M,obj/projectile/P)
 	if((P.projectile_flags & PROJECTILE_BULLSEYE) && M == P.original)
@@ -79,7 +75,7 @@
 				slow_duration = 4
 		M.adjust_effect(slow_duration, SUPERSLOW)
 		L.apply_armoured_damage(damage, ARMOR_BULLET, BRUTE, null, penetration)
-		to_chat(P.firer, SPAN_WARNING("Bullseye!"))
+		to_chat(P.firer, SPAN_WARNING("В яблочко!"))
 	else
 		burst(get_turf(M),P,damage_type, 2 , 2)
 		burst(get_turf(M),P,damage_type, 1 , 2 , 0)
@@ -102,7 +98,6 @@
 	name = "armor-piercing sniper bullet"
 	damage = 80
 	penetration = ARMOR_PENETRATION_TIER_10
-	bullet_duramage = BULLET_DURABILITY_DAMAGE_MEDIUM
 
 /datum/ammo/bullet/sniper/anti_materiel
 	name = "anti-materiel sniper bullet"
@@ -112,8 +107,6 @@
 	damage = 125
 	shell_speed = AMMO_SPEED_TIER_6
 	penetration = ARMOR_PENETRATION_TIER_10 + ARMOR_PENETRATION_TIER_5
-	bullet_duraloss = BULLET_DURABILITY_LOSS_HIGH //while ordinarily i wouldnt add this when theres no subtype of AMR bullets, a .50 cal being fired should have inherent drawbacks
-	bullet_duramage = BULLET_DURABILITY_DAMAGE_SPECIAL
 
 /datum/ammo/bullet/sniper/anti_materiel/proc/stopping_power_knockback(mob/living/living_mob, obj/projectile/fired_projectile)
 	var/stopping_power = min(CEILING((fired_projectile.damage/30), 1), 5) // This is from bullet damage, and does not take Aimed Shot into account.
@@ -133,21 +126,21 @@
 				to_chat(living_mob, SPAN_WARNING("A sudden massive impact strikes you, but your charge will not be stopped!"))
 				return stopping_power
 			if(stopping_power >= 4)
-				to_chat(living_mob, SPAN_XENOHIGHDANGER("You are knocked off-balance by the sudden massive impact!"))
+				to_chat(living_mob, SPAN_XENOHIGHDANGER("Вы теряете равновесие от внезапного мощного удара!"))
 				if(living_mob.mob_size >= MOB_SIZE_IMMOBILE && !((fired_projectile.projectile_flags & PROJECTILE_BULLSEYE) && living_mob == fired_projectile.original)) // Queens and Crushers
 					return stopping_power // For Crushers and Queens, must be aimed at them.
 				living_mob.KnockDown(0.05) // Must deal more than 90 damage to mini-stun big mobs for 0.1s
 				// Can't interrupt a big mob unless it's completely alone with nothing blocking the shot.
 			else
-				to_chat(living_mob, SPAN_XENODANGER("You are shaken by the sudden heavy impact!"))
+				to_chat(living_mob, SPAN_XENODANGER("Вы потрясены внезапным сильным ударом!"))
 		else
 			// If above 60 damage, screenshake. This maxes out at (3,4) like buckshot and heavy rounds. (1,2) (2,3) or (3,4)
 			shake_camera(living_mob, (stopping_power - 2), (stopping_power - 1))
 			if(living_mob.body_position != LYING_DOWN)
-				to_chat(living_mob, SPAN_XENOHIGHDANGER("You are thrown back by the sudden massive force!"))
+				to_chat(living_mob, SPAN_XENOHIGHDANGER("Вы отбрасываетесь назад от внезапной мощной силы!"))
 				slam_back(living_mob, fired_projectile)
 			else
-				to_chat(living_mob, SPAN_XENODANGER("You are shaken by the sudden heavy impact!"))
+				to_chat(living_mob, SPAN_XENODANGER("Вы потрясены внезапным сильным ударом!"))
 
 			if(isxeno(living_mob))
 				living_mob.KnockDown((stopping_power - 2)*0.05) // Up to 0.3s on a solo target.
@@ -260,15 +253,15 @@
 						var/mob/living/carbon/xenomorph/old_xeno = old_target.resolve()
 						var/mob/living/carbon/xenomorph/new_xeno = target_mob
 						if((old_xeno.hive == new_xeno.hive) && !(old_xeno.stat)) // Must be in same hive and conscious
-							to_chat(old_xeno,SPAN_XENOLEADER("The feeling of looming danger fades as we sense that another sister has been targeted instead."))
+							to_chat(old_xeno,SPAN_XENOLEADER("Чувство надвигающейся опасности исчезает, когда понимаем, что целью стала другая сестра."))
 				if(2)
-					to_chat(aimed_projectile.firer, SPAN_WARNING("Two hits! You're starting to get a good read on the target's patterns."))
+					to_chat(aimed_projectile.firer, SPAN_WARNING("Два попадания! Вы начинаете хорошо понимать паттерны движений цели."))
 				if(3)
-					to_chat(aimed_projectile.firer, SPAN_WARNING("Bullseye! You're fully focused on the target. You notice they are starting to change their patterns."))
+					to_chat(aimed_projectile.firer, SPAN_WARNING("В яблочко! Вы полностью сосредоточены на цели. Вы замечаете, что они начинают менять свои паттерны движений."))
 				else
-					to_chat(aimed_projectile.firer, SPAN_WARNING("Bullseye!"))
+					to_chat(aimed_projectile.firer, SPAN_WARNING("В яблочко!"))
 		else
-			to_chat(aimed_projectile.firer, SPAN_WARNING("Bullseye!"))
+			to_chat(aimed_projectile.firer, SPAN_WARNING("В яблочко!"))
 
 /datum/ammo/bullet/sniper/anti_materiel/set_bullet_traits()
 	. = ..()
@@ -282,8 +275,6 @@
 	handful_state = "vulture_bullet"
 	sound_hit = 'sound/bullets/bullet_vulture_impact.ogg'
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SNIPER|AMMO_IGNORE_COVER|AMMO_ANTIVEHICLE
-	bullet_duraloss = BULLET_DURABILITY_LOSS_MEDIUM
-	bullet_duramage = BULLET_DURABILITY_DAMAGE_MEDIUM
 
 /datum/ammo/bullet/sniper/anti_materiel/vulture/on_hit_mob(mob/hit_mob, obj/projectile/bullet)
 	. = ..()
@@ -305,12 +296,11 @@
 	var/bonus_damage_cap_increase = 233
 	/// multiplies the default drain of 5 holo stacks per second by this amount
 	var/stack_loss_multiplier = 2
-	bullet_duramage = BULLET_DURABILITY_DAMAGE_MEDIUM
 
 /datum/ammo/bullet/sniper/anti_materiel/vulture/holo_target/on_hit_mob(mob/hit_mob, obj/projectile/bullet)
 	hit_mob.AddComponent(/datum/component/bonus_damage_stack, holo_stacks, world.time, bonus_damage_cap_increase, stack_loss_multiplier)
 	playsound(hit_mob, 'sound/weapons/gun_vulture_mark.ogg', 40)
-	to_chat(hit_mob, isxeno(hit_mob) ? SPAN_XENOHIGHDANGER("It feels as if we were MARKED FOR DEATH!") : SPAN_HIGHDANGER("It feels as if you were MARKED FOR DEATH!"))
+	to_chat(hit_mob, isxeno(hit_mob) ? SPAN_XENOHIGHDANGER("Кажется, что мы были ОТМЕЧЕНЫ МЕТКОЙ СМЕРТИ!") : SPAN_HIGHDANGER("Кажется, что вы были ОТМЕЧЕНЫ МЕТКОЙ СМЕРТИ!"))
 	hit_mob.balloon_alert_to_viewers("marked for death!")
 
 // the effect should be limited to one target, with IFF to compensate how hard it will be to hit these shots
@@ -327,8 +317,6 @@
 	damage = 150
 	shell_speed = AMMO_SPEED_TIER_6 + AMMO_SPEED_TIER_2
 	penetration = ARMOR_PENETRATION_TIER_10 + ARMOR_PENETRATION_TIER_5
-	bullet_duraloss = BULLET_DURABILITY_LOSS_SPECIAL // if theres any chance this bullet is getting spawned in, its obviously getting some drawbacks
-	bullet_duramage = BULLET_DURABILITY_DAMAGE_SPECIAL
 
 /datum/ammo/bullet/sniper/elite/set_bullet_traits()
 	. = ..()
@@ -350,4 +338,4 @@
 		else
 			L.apply_armoured_damage(damage, ARMOR_BULLET, BRUTE, null, penetration)
 		// 150% damage to runners (225), 300% against Big xenos (450), and 200% against all others (300). -Kaga
-		to_chat(P.firer, SPAN_WARNING("Bullseye!"))
+		to_chat(P.firer, SPAN_WARNING("В яблочко!"))

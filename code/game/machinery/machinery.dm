@@ -112,6 +112,8 @@ Class Procs:
 	var/obj/structure/machinery/colony_floodlight_switch/breaker_switch
 	/// Whether this is toggled on
 	var/is_on = TRUE
+	/// The last calculate_current_power_usage when update_use_power was called
+	var/last_power_usage = 0
 
 /obj/structure/machinery/vv_get_dropdown()
 	. = ..()
@@ -140,9 +142,6 @@ Class Procs:
 	GLOB.machines -= src
 	GLOB.processing_machines -= src
 	GLOB.power_machines -= src
-	var/area/A = get_area(src)
-	if(A)
-		A.remove_machine(src) //takes care of removing machine from power usage
 	if(breaker_switch)
 		breaker_switch.machinery_list -= src
 		breaker_switch = null
@@ -166,7 +165,7 @@ Class Procs:
 		GLOB.processing_machines -= src
 		GLOB.power_machines -= src
 
-/obj/structure/machinery/process()//If you dont use process or power why are you here
+/obj/structure/machinery/process()//If you don't use process or power why are you here
 	return PROCESS_KILL
 
 /obj/structure/machinery/get_examine_text(mob/user)
@@ -204,15 +203,19 @@ Class Procs:
 			return
 	return
 
-//sets the use_power var and then forces an area power update
+///sets the use_power var and then forces an area power update
+///use -1 only for initialization purposes
 /obj/structure/machinery/proc/update_use_power(new_use_power)
-	if (new_use_power == use_power)
+	if(new_use_power == use_power && new_use_power != -1)
 		return //don't need to do anything
+	if(QDELETED(src))
+		return
 
-	var/delta_power = 0 //figuring how much our power delta is
-	delta_power -= calculate_current_power_usage() //current usage
-	use_power = new_use_power
+	var/delta_power = -last_power_usage
+	if(new_use_power != -1)
+		use_power = new_use_power
 	delta_power += calculate_current_power_usage() //updated usage
+	last_power_usage += delta_power
 
 	//we're updating our power over time amount, not just using one-off power usage, hence why we're passing the channel
 	use_power(delta_power, power_channel)
@@ -277,7 +280,7 @@ Class Procs:
 	if (ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.getBrainLoss() >= 60)
-			visible_message(SPAN_DANGER("[H] stares cluelessly at [src] and drools."))
+			visible_message(SPAN_DANGER("[capitalize(H.declent_ru(NOMINATIVE))] stares cluelessly at [src] and drools."))
 			return TRUE
 		else if(prob(H.getBrainLoss()))
 			to_chat(user, SPAN_DANGER("You momentarily forget how to use [src]."))
@@ -303,16 +306,15 @@ Class Procs:
 
 /obj/structure/machinery/proc/shock(mob/user, prb)
 	if(inoperable())
-		return 0
+		return FALSE
 	if(!prob(prb))
-		return 0
+		return FALSE
 	var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
 	s.set_up(5, 1, src)
 	s.start()
-	if (electrocute_mob(user, get_area(src), src, 0.7))
-		return 1
-	else
-		return 0
+	if(electrocute_mob(user, get_area(src), src, 0.7))
+		return TRUE
+	return FALSE
 
 /obj/structure/machinery/proc/dismantle()
 	playsound(loc, 'sound/items/Crowbar.ogg', 25, 1)
@@ -375,72 +377,3 @@ Class Procs:
 	icon = 'icons/obj/structures/machinery/autolathe.dmi'
 	density = TRUE
 	anchored = TRUE
-
-/obj/structure/machinery/fuelpump
-	name = "\improper Fuel Pump"
-	layer = ABOVE_MOB_LAYER
-	desc = "It is a machine that pumps fuel around the ship."
-	icon = 'icons/obj/structures/machinery/fuelpump.dmi'
-	icon_state = "fuelpump_off"
-	health = null
-	explo_proof = TRUE
-	density = TRUE
-	anchored = TRUE
-	unslashable = TRUE
-	unacidable = TRUE
-	wrenchable = FALSE
-
-/obj/structure/machinery/fuelpump/ex_act(severity)
-	return
-
-/obj/structure/machinery/fuelpump/Initialize(mapload, ...)
-	. = ..()
-	RegisterSignal(SSdcs, COMSIG_GLOB_FUEL_PUMP_UPDATE, PROC_REF(on_pump_update))
-
-/obj/structure/machinery/fuelpump/proc/on_pump_update()
-	SIGNAL_HANDLER
-	playsound(src, 'sound/machines/resource_node/node_idle.ogg', 60, TRUE)
-	update_icon()
-
-/obj/structure/machinery/fuelpump/update_icon()
-	if(stat & NOPOWER)
-		icon_state = "fuelpump_off"
-		return
-	if(SShijack.hijack_status < HIJACK_OBJECTIVES_STARTED)
-		icon_state = "fuelpump_on"
-		return
-	switch(SShijack.current_progress)
-		if(-INFINITY to 24)
-			icon_state = "fuelpump_0"
-		if(25 to 49)
-			icon_state = "fuelpump_25"
-		if(50 to 74)
-			icon_state = "fuelpump_50"
-		if(75 to 99)
-			icon_state = "fuelpump_75"
-		if(100 to INFINITY)
-			icon_state = "fuelpump_100"
-		else
-			icon_state = "fuelpump_on" // Never should happen
-
-/obj/structure/machinery/fuelpump/get_examine_text(mob/user)
-	. = ..()
-	if(get_dist(user, src) > 2 && user != loc)
-		return
-	if(inoperable())
-		return
-	if(SShijack.hijack_status < HIJACK_OBJECTIVES_STARTED)
-		return
-	switch(SShijack.current_progress)
-		if(-INFINITY to 24)
-			. += SPAN_NOTICE("It looks like it barely has any fuel yet.")
-		if(25 to 49)
-			. += SPAN_NOTICE("It looks like it has accumulated some fuel.")
-		if(50 to 74)
-			. += SPAN_NOTICE("It looks like the fuel tank is a little over half full.")
-		if(75 to 99)
-			. += SPAN_NOTICE("It looks like the fuel tank is almost full.")
-		if(100 to INFINITY)
-			. += SPAN_NOTICE("It looks like the fuel tank is full.")
-		else
-			. += SPAN_NOTICE("It looks like something is wrong!") // Never should happen

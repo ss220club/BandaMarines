@@ -558,7 +558,7 @@
 /datum/recipe/nettlesoup
 	reagents = list("water" = 10)
 	items = list(
-		/obj/item/grown/nettle,
+		/obj/item/reagent_container/food/snacks/grown/nettle,
 		/obj/item/reagent_container/food/snacks/grown/potato,
 		/obj/item/reagent_container/food/snacks/egg,
 	)
@@ -966,7 +966,7 @@
 
 /datum/recipe/poppypretzel
 	items = list(
-		/obj/item/seeds/poppyseed,
+		/obj/item/reagent_container/food/snacks/grown/poppy,
 		/obj/item/reagent_container/food/snacks/dough,
 	)
 	result = /obj/item/reagent_container/food/snacks/poppypretzel
@@ -996,8 +996,8 @@
 
 /datum/recipe/sausage
 	items = list(
-		/obj/item/reagent_container/food/snacks/meatball,
-		/obj/item/reagent_container/food/snacks/cutlet,
+		/obj/item/reagent_container/food/snacks/rawmeatball,
+		/obj/item/reagent_container/food/snacks/rawcutlet,
 	)
 	result = /obj/item/reagent_container/food/snacks/sausage
 
@@ -1107,9 +1107,9 @@
 	result = /obj/item/reagent_container/food/snacks/taco
 
 /datum/recipe/bun
-	reagents = list("sodiumchloride" = 1)
+	reagents = list("blackpepper" = 1)
 	items = list(
-		/obj/item/reagent_container/food/snacks/dough,
+		/obj/item/reagent_container/food/snacks/doughslice,
 	)
 	result = /obj/item/reagent_container/food/snacks/bun
 

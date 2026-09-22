@@ -5,16 +5,18 @@
 	layer = ABOVE_MOB_LAYER
 	opacity = TRUE
 	density = FALSE
+	var/open = FALSE
+	var/transparent = FALSE
 
 /obj/structure/curtain/open/New()
 	..()
 	toggle()
 
-/obj/structure/curtain/bullet_act(obj/projectile/P, def_zone)
-	if(P.damage)
-		visible_message(SPAN_WARNING("[P] tears [src] down!"))
+/obj/structure/curtain/bullet_act(obj/projectile/bullet)
+	if(bullet.damage)
+		visible_message(SPAN_WARNING("[bullet] tears [src] down!"))
 		qdel(src)
-	return 0
+	return FALSE
 
 /obj/structure/curtain/attack_hand(mob/user)
 	playsound(get_turf(loc), "rustle", 15, 1, 6)
@@ -28,14 +30,25 @@
 	qdel(src)
 	return XENO_ATTACK_ACTION
 
+/obj/structure/curtain/handle_tail_stab(mob/living/carbon/xenomorph/xeno, blunt_stab)
+	if(unslashable)
+		return TAILSTAB_COOLDOWN_NONE
+	xeno.visible_message(SPAN_DANGER("[xeno] slices [src] apart with its tail!"),
+	SPAN_DANGER("We slice [src] apart with our tail!"), null, 5, CHAT_TYPE_XENO_COMBAT)
+	xeno.tail_stab_animation(src, blunt_stab)
+	qdel(src)
+	return TAILSTAB_COOLDOWN_NORMAL
+
 /obj/structure/curtain/proc/toggle()
-	opacity = !opacity
-	if(opacity)
-		icon_state = "[initial(icon_state)]"
-		layer = ABOVE_MOB_LAYER
-	else
+	open = !open
+	if(!transparent)
+		opacity = !opacity
+	if(open)
 		icon_state = "[initial(icon_state)]-o"
 		layer = OBJ_LAYER
+	else
+		icon_state = "[initial(icon_state)]"
+		layer = ABOVE_MOB_LAYER
 
 /obj/structure/curtain/shower
 	name = "shower curtain"
@@ -96,6 +109,7 @@
 	name = "blinds"
 	icon_state = "colorable_transparent"
 	alpha = 200
+	transparent = TRUE
 
 // Open
 
@@ -107,6 +121,7 @@
 	name = "blinds"
 	icon_state = "colorable_transparent"
 	alpha = 200
+	transparent = TRUE
 
 /obj/structure/curtain/open/red
 	name = "red curtain"
@@ -131,5 +146,5 @@
 
 /obj/structure/curtain/Initialize()
 	. = ..()
-	if(alpha)
+	if(transparent)
 		set_opacity(0)

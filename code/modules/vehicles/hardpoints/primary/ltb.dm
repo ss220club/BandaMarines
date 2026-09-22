@@ -1,6 +1,6 @@
 /obj/item/hardpoint/primary/cannon
 	name = "\improper LTB Cannon"
-	desc = "A primary cannon for tanks that shoots explosive rounds"
+	desc = "A primary cannon for tanks that shoots explosive rounds."
 
 	icon_state = "ltb_cannon"
 	disp_icon = "tank"
@@ -29,4 +29,3 @@
 
 	scatter = 2
 	fire_delay = 20.0 SECONDS
-

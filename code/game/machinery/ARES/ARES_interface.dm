@@ -399,6 +399,14 @@
 				to_chat(user, SPAN_WARNING("You have been here for less than six minutes... what could you possibly have done!"))
 				playsound(src, 'sound/machines/buzz-two.ogg', 15, 1)
 				return FALSE
+			if(SShijack.in_ftl)
+				to_chat(user, SPAN_WARNING("The ship's hyperdrive is currently active - a beacon cannot be launched."))
+				playsound(src, 'sound/machines/buzz-two.ogg', 15, 1)
+				return FALSE
+			if(SShijack.crashed || SShijack.hijack_status == HIJACK_OBJECTIVES_GROUND_CRASH)
+				to_chat(user, SPAN_WARNING("The ship's systems are unresponsive - a beacon cannot be launched."))
+				playsound(src, 'sound/machines/buzz-two.ogg', 15, 1)
+				return FALSE
 			if(!COOLDOWN_FINISHED(datacore, ares_distress_cooldown))
 				to_chat(user, SPAN_WARNING("The distress launcher is cooling down!"))
 				playsound(src, 'sound/machines/buzz-two.ogg', 15, 1)
@@ -460,7 +468,7 @@
 
 		if("trigger_vent")
 			playsound = FALSE
-			var/obj/structure/pipes/vents/pump/no_boom/gas/sec_vent = locate(params["vent"])
+			var/obj/structure/pipes/vents/pump/no_boom/gas/ares/sec_vent = locate(params["vent"])
 			if(!istype(sec_vent) || sec_vent.welded)
 				to_chat(user, SPAN_WARNING("ERROR: Gas release failure."))
 				playsound(src, 'sound/machines/buzz-two.ogg', 15, 1)
@@ -482,6 +490,18 @@
 				to_chat(user, SPAN_BOLDWARNING("AI Core Lockdown procedures are on cooldown! They will be ready in [COOLDOWN_SECONDSLEFT(datacore, aicore_lockdown)] seconds!"))
 				return FALSE
 			aicore_lockdown(user)
+			return TRUE
+
+		if("update_sentries")
+			var/new_iff = params["chosen_iff"]
+			if(!new_iff)
+				to_chat(user, SPAN_WARNING("ERROR: Unknown setting."))
+				return FALSE
+			if(new_iff == link.faction_label)
+				return FALSE
+			link.change_iff(new_iff)
+			message_admins("ARES: [key_name(user)] updated ARES Sentry IFF to [new_iff].")
+			to_chat(user, SPAN_WARNING("Sentry IFF settings updated!"))
 			return TRUE
 
 	if(playsound)

@@ -21,6 +21,7 @@
 	icon_state = "m2c"
 	item_state = "m2c"
 	max_rounds = 125
+	flags_magazine = AMMUNITION_REFILLABLE|AMMUNITION_SLAP_TRANSFER
 	default_ammo = /datum/ammo/bullet/machinegun/auto
 	gun_type = null
 
@@ -65,6 +66,8 @@
 	)
 	icon_state = "M2C_gun_mount"
 	item_state = "M2C_gun_mount"
+	pixel_x = -5
+	hud_offset = -5
 	var/rounds = 0
 	var/overheat_value = 0
 	var/anti_cadehugger_range = 1
@@ -88,6 +91,11 @@
 
 	icon_state = icon_name
 
+/obj/item/device/m2c_gun/get_examine_text(mob/user) //Let us see how much ammo we got in this thing.
+	. = ..()
+	if(rounds && (ishuman(user) || HAS_TRAIT(user, TRAIT_OPPOSABLE_THUMBS)))
+		. += SPAN_NOTICE("It has [rounds] round\s out of 125 rounds.")
+
 /obj/item/device/m2c_gun/proc/check_can_setup(mob/user, turf/rotate_check, turf/open/OT, list/ACR)
 	if(!ishuman(user) && !HAS_TRAIT(user, TRAIT_OPPOSABLE_THUMBS))
 		return FALSE
@@ -101,12 +109,13 @@
 	if(!area.allow_construction)
 		to_chat(user, SPAN_WARNING("You can't set up \the [src] here."))
 		return
-	if(OT.density || !isturf(OT) || !OT.allow_construction)
+	if(OT.density || !isturf(OT) || !OT.allow_construction  || !OT.validate_deployment(TURF_DEPLOYABLE_GUN))
 		to_chat(user, SPAN_WARNING("You can't set up \the [src] here."))
 		return FALSE
 	if(rotate_check.density)
 		to_chat(user, SPAN_WARNING("You can't set up \the [src] that way, there's a wall behind you!"))
 		return FALSE
+
 	for(var/obj/structure/potential_blocker in rotate_check)
 		if(potential_blocker.density)
 			to_chat(user, SPAN_WARNING("You can't set up \the [src] that way, there's \a [potential_blocker] behind you!"))
@@ -185,12 +194,12 @@
 	var/obj/item/tool/weldingtool/weldingtool = object
 
 	if(weldingtool.remove_fuel(2, user))
-		user.visible_message(SPAN_NOTICE("[user] begins field recovering \the [src]."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins field recovering \the [src]."),
 			SPAN_NOTICE("You begin repairing the severe damages on \the [src] in an effort to restore its functions."))
 		playsound(src.loc, 'sound/items/Welder2.ogg', 25, 1)
 		if(!do_after(user, field_recovery * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL, BUSY_ICON_FRIENDLY, src))
 			return
-		user.visible_message(SPAN_NOTICE("[user] field recovers \the [src], restoring it back to its original state."),
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] field recovers \the [src], restoring it back to its original state."),
 			SPAN_NOTICE("You repair \the [src] back to a functional state."))
 		broken_gun = FALSE
 		health = 110
@@ -203,13 +212,14 @@
 /obj/structure/machinery/m56d_hmg/auto
 	name = "\improper M2C Heavy Machinegun"
 	desc = "A deployable, heavy machine gun. The M2C 'Chimp' HB is a modified M2 HB reconfigured to fire 10x28 Caseless Tungsten rounds for USCM use. It is capable of recoilless fire and fast-rotating. However it has a debilitating overheating issue due to the poor quality of metals used in the parts, forcing it to be used in decisive, crushing engagements as a squad support weapon. <B> Click its sprite while behind it without holding anything to man it. Click-drag on NON-GRAB intent to disassemble the gun, GRAB INTENT to remove ammo magazines."
-	icon = 'icons/obj/items/weapons/guns/guns_by_faction/USCM/machineguns.dmi'
+	icon = 'icons/obj/items/weapons/guns/guns_by_faction/USCM/hmg.dmi'
 	icon_state = "M2C"
 	icon_full = "M2C"
 	icon_empty = "M2C_e"
 	rounds_max = 125
 	ammo = /datum/ammo/bullet/machinegun/auto
 	fire_delay = 0.1 SECONDS
+	gun_has_gamemode_skin = FALSE
 	var/grip_dir = null
 	var/fold_time = 1.5 SECONDS
 	var/repair_time = 5 SECONDS
@@ -259,7 +269,7 @@
 		cadeblockers.Add(CB)
 
 	if(!barrel_overheat_image)
-		barrel_overheat_image = image('icons/obj/items/weapons/guns/guns_by_faction/USCM/machineguns.dmi', "+M2C_overheat")
+		barrel_overheat_image = image('icons/obj/items/weapons/guns/guns_by_faction/USCM/hmg.dmi', "+M2C_overheat")
 
 /obj/structure/machinery/m56d_hmg/auto/Destroy()
 	QDEL_NULL_LIST(cadeblockers)
@@ -366,7 +376,7 @@
 			return
 		if(user.action_busy)
 			return
-		user.visible_message(SPAN_NOTICE("[user] loads [src] with an ammo box! "), SPAN_NOTICE("You load [src] with an ammo box!"))
+		user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] loads [src] with an ammo box!"), SPAN_NOTICE("You load [src] with an ammo box!"))
 		playsound(src.loc, 'sound/items/m56dauto_load.ogg', 75, 1)
 		rounds = min(rounds + magazine.current_rounds, rounds_max)
 		update_icon()
@@ -389,12 +399,12 @@
 			return
 
 		if(weldingtool.remove_fuel(2, user))
-			user.visible_message(SPAN_NOTICE("[user] begins repairing damage on \the [src]."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] begins repairing damage on \the [src]."),
 				SPAN_NOTICE("You begin repairing the damage on \the [src]."))
 			playsound(src.loc, 'sound/items/Welder2.ogg', 25, 1)
 			if(!do_after(user, repair_time * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL, BUSY_ICON_FRIENDLY, src))
 				return
-			user.visible_message(SPAN_NOTICE("[user] repairs some of the damage on [src]."),
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] repairs some of the damage on [src]."),
 					SPAN_NOTICE("You repair [src]."))
 			update_health(-floor(health_max*0.2))
 			playsound(src.loc, 'sound/items/Welder2.ogg', 25, 1)
@@ -489,11 +499,11 @@
 
 	if(over_object == user && in_range(src, user))
 		if(stationary)
-			to_chat(user, SPAN_WARNING("You cannot disassemble the [src], it is stationary!"))
+			to_chat(user, SPAN_WARNING("You cannot disassemble [src], it is stationary!"))
 			return
 		if((rounds > 0) && (user.a_intent & (INTENT_GRAB)))
 			playsound(src.loc, 'sound/items/m56dauto_load.ogg', 75, 1)
-			user.visible_message(SPAN_NOTICE(" [user] removes [src]'s ammo box."),SPAN_NOTICE(" You remove [src]'s ammo box, preparing the gun for disassembly."))
+			user.visible_message(SPAN_NOTICE("[user] removes [src]'s ammo box."),SPAN_NOTICE("You remove [src]'s ammo box, preparing the gun for disassembly."))
 			var/obj/item/ammo_magazine/m2c/used_ammo = new(user.loc)
 			used_ammo.current_rounds = rounds
 			user.put_in_active_hand(used_ammo)
@@ -502,7 +512,7 @@
 		else
 			if(!do_after(user, fold_time* user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL, BUSY_ICON_FRIENDLY, src)) // disassembly time reduced
 				return
-			user.visible_message(SPAN_NOTICE("[user] disassembles [src]."),SPAN_NOTICE("You fold up the tripod for [src], disassembling it."))
+			user.visible_message(SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] disassembles [src]."),SPAN_NOTICE("You fold up the tripod for [src], disassembling it."))
 			playsound(src.loc, 'sound/items/m56dauto_setup.ogg', 75, 1)
 			var/obj/item/device/m2c_gun/HMG = new(loc)
 			transfer_label_component(HMG)
@@ -545,27 +555,27 @@
 		user.reset_view(src)
 		if(dir == EAST)
 			diff_x = -16 + user_old_x
-			user.client.pixel_x = viewoffset
-			user.client.pixel_y = 0
+			user.client.set_pixel_x(viewoffset)
+			user.client.set_pixel_y(0)
 		if(dir == WEST)
 			diff_x = 16 + user_old_x
-			user.client.pixel_x = -viewoffset
-			user.client.pixel_y = 0
+			user.client.set_pixel_x(-viewoffset)
+			user.client.set_pixel_y(0)
 		if(dir == NORTH)
 			diff_y = -16 + user_old_y
-			user.client.pixel_x = 0
-			user.client.pixel_y = viewoffset
+			user.client.set_pixel_x(0)
+			user.client.set_pixel_y(viewoffset)
 		if(dir == SOUTH)
 			diff_y = 16 + user_old_y
-			user.client.pixel_x = 0
-			user.client.pixel_y = -viewoffset
+			user.client.set_pixel_x(0)
+			user.client.set_pixel_y(-viewoffset)
 
 		animate(user, pixel_x=diff_x, pixel_y=diff_y, 0.4 SECONDS)
 	else
 		if(user.client)
 			user.client.change_view(GLOB.world_view_size)
-			user.client.pixel_x = 0
-			user.client.pixel_y = 0
+			user.client.set_pixel_x(0)
+			user.client.set_pixel_y(0)
 
 		animate(user, pixel_x=user_old_x, pixel_y=user_old_y, 4, 1)
 
@@ -626,7 +636,7 @@
 /obj/structure/machinery/m56d_hmg/auto/t37
 	name = "\improper T37 Medium Machinegun"
 	desc = "A deployable, medium machine gun. The T37 is a UPP machinegun that fires 7.62x64mmR rounds. Unlike the USCM M2C counterpart, it has a much slower firerate in favor of sustained fire. Due to the quality of the design, it has a tendency to explode if it sustains too much damage. <B> Click its sprite while behind it without holding anything to man it. Click-drag on NON-GRAB intent to disassemble the gun, GRAB INTENT to remove ammo magazines."
-	icon = 'icons/obj/items/weapons/guns/guns_by_faction/UPP/machineguns.dmi'
+	icon = 'icons/obj/items/weapons/guns/guns_by_faction/UPP/hmg.dmi'
 	icon_state = "t37"
 	icon_full = "t37"
 	icon_empty = "t37_e"

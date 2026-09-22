@@ -5,31 +5,6 @@
 	handles_movement = FALSE
 	movement_slowdown = XENO_SPEED_SLOWMOD_ZOOM
 
-/datum/action/xeno_action/activable/acid_lance
-	name = "Acid Lance"
-	action_icon_state = "acid_lance"
-	plasma_cost = 50
-	macro_path = /datum/action/xeno_action/verb/verb_acid_lance
-	action_type = XENO_ACTION_CLICK
-	ability_primacy = XENO_PRIMARY_ACTION_2
-	xeno_cooldown = 19 SECONDS
-
-	// Config
-	var/stack_time = 10
-	var/base_range = 6
-	var/range_per_stack = 1
-	var/base_damage = 35
-	var/damage_per_stack = 15
-	var/movespeed_per_stack = 1.25
-
-	var/time_after_max_before_end = 25
-
-	// State
-	var/stacks = 0
-	var/max_stacks = 5
-	var/movespeed_nerf_applied = 0
-	var/activated_once = FALSE
-
 /datum/action/xeno_action/onclick/shift_spits/boiler
 	name = "Toggle Gas Type"
 	action_icon_state = "shift_spit_acid_glob"
@@ -53,6 +28,8 @@
 	cooldown_message = "Our stomach fills with another gas glob. We are ready to bombard again."
 	sound_to_play = 'sound/effects/blobattack.ogg'
 	aim_turf = TRUE
+	xeno_cooldown = 30 SECONDS
+	no_cooldown_msg = FALSE // Boiler spits slow enough that having a cooldown message is justifiable
 	/// These are actions that will be placed on cooldown for the cooldown_duration when activates. Added acid shroud for now because it can be abused
 	var/action_types_to_cd = list(
 		/datum/action/xeno_action/onclick/acid_shroud,
@@ -122,6 +99,7 @@
 	action_type = XENO_ACTION_CLICK
 	ability_primacy = XENO_PRIMARY_ACTION_3
 	xeno_cooldown = 13 SECONDS
+	ability_uses_acid_overlay = TRUE
 
 	var/ammo_type = /datum/ammo/xeno/acid_shotgun
 

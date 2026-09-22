@@ -23,9 +23,7 @@
 /turf/open/desert/dirt
 	name = "desert"
 	icon_state = "desert1"
-
-/turf/open/desert/dirt/is_weedable()
-	return FULLY_WEEDABLE
+	is_weedable = FULLY_WEEDABLE
 
 /turf/open/desert/dirt/desert_transition_edge1
 	icon_state = "desert_transition_edge1"
@@ -86,9 +84,7 @@
 /turf/open/desert/rock
 	name = "rock"
 	icon_state = "rock1"
-
-/turf/open/desert/rock/is_weedable()
-	return FULLY_WEEDABLE
+	is_weedable = FULLY_WEEDABLE
 
 /turf/open/desert/rock/edge1
 	name = "desert"
@@ -168,22 +164,20 @@
 	icon_state = "shore1"
 	var/toxic = 0
 	supports_surgery = FALSE
+	is_weedable = NOT_WEEDABLE
 
 /turf/open/desert/desert_shore/update_icon()
 	..()
 	switch(toxic)
-		if(1)
+		if(/obj/effect/blocker/water/toxic::WATER_TOXIC_YES)
 			set_light(2)
 			icon = 'icons/turf/floors/desert_water_toxic.dmi'
-		if(0)
+		if(/obj/effect/blocker/water/toxic::WATER_TOXIC_NO)
 			set_light(0)
 			icon = 'icons/turf/floors/desert_water.dmi'
-		if(-1)
+		if(/obj/effect/blocker/water/toxic::WATER_TOXIC_DISPERSING)
 			set_light(1)
 			icon = 'icons/turf/floors/desert_water_transition.dmi'
-
-/turf/open/desert/desert_shore/is_weedable()
-	return NOT_WEEDABLE
 
 /turf/open/desert/desert_shore/desert_shore1
 	name = "shore"
@@ -297,13 +291,13 @@
 /turf/open/desert/cave/cave_shore/update_icon()
 	..()
 	switch(toxic)
-		if(1)
+		if(/obj/effect/blocker/water/toxic::WATER_TOXIC_YES)
 			set_light(2)
 			icon = 'icons/turf/floors/desert_water_toxic.dmi'
-		if(0)
+		if(/obj/effect/blocker/water/toxic::WATER_TOXIC_NO)
 			set_light(0)
 			icon = 'icons/turf/floors/desert_water.dmi'
-		if(-1)
+		if(/obj/effect/blocker/water/toxic::WATER_TOXIC_DISPERSING)
 			set_light(1)
 			icon = 'icons/turf/floors/desert_water_transition.dmi'
 
@@ -324,20 +318,18 @@
 	icon_overlay = "_shallow"
 	var/toxic = 0
 	default_name = "water"
-
-/turf/open/gm/river/desert/is_weedable()
-	return NOT_WEEDABLE
+	is_weedable = NOT_WEEDABLE
 
 /turf/open/gm/river/desert/update_icon()
 	..()
 	switch(toxic)
-		if(1)
+		if(/obj/effect/blocker/water/toxic::WATER_TOXIC_YES)
 			set_light(2)
 			icon = 'icons/turf/floors/desert_water_toxic.dmi'
-		if(0)
+		if(/obj/effect/blocker/water/toxic::WATER_TOXIC_NO)
 			set_light(0)
 			icon = 'icons/turf/floors/desert_water.dmi'
-		if(-1)
+		if(/obj/effect/blocker/water/toxic::WATER_TOXIC_DISPERSING)
 			set_light(1)
 			icon = 'icons/turf/floors/desert_water_transition.dmi'
 	update_overlays()
@@ -628,3 +620,28 @@
 
 /turf/open/desert/excavation/component9/west
 	dir = WEST
+
+// Tyrargo
+
+//shallow water
+/turf/open/gm/river/desert/tyrargo
+	icon_state = "seashallow"
+	icon_overlay = "_seashallow"
+
+/turf/open/gm/river/desert/tyrargo/no_slowdown
+	base_river_slowdown = 1
+
+/turf/open/gm/river/desert/tyrargo/covered
+	covered = TRUE
+	icon = 'icons/turf/floors/desert_water_covered.dmi'
+
+/turf/open/gm/river/desert/tyrargo/deep
+	icon_state = "seadeep"
+	icon_overlay = "_seadeep"
+
+/turf/open/gm/river/desert/tyrargo/deep/no_slowdown
+	base_river_slowdown = 1
+
+/turf/open/gm/river/desert/tyrargo/deep/covered
+	covered = TRUE
+	icon = 'icons/turf/floors/desert_water_covered.dmi'

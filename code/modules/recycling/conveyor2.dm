@@ -107,7 +107,9 @@
 			var/mob/GM = G.grabbed_thing
 			step(GM, get_dir(GM, src))
 			return
-	user.drop_inv_item_to_loc(I, loc)
+
+	if(user.a_intent != INTENT_HARM)
+		user.drop_inv_item_to_loc(I, loc)
 
 // attack with hand, move pulled object onto conveyor
 /obj/structure/machinery/conveyor/attack_hand(mob/user as mob)
@@ -228,7 +230,7 @@
 // attack with hand, switch position
 /obj/structure/machinery/conveyor_switch/attack_hand(mob/user)
 	if(!allowed(user))
-		to_chat(user, SPAN_WARNING("Access denied."))
+		to_chat(user, SPAN_WARNING("Доступ запрещён."))
 		return
 
 	if(position == 0)

@@ -1,17 +1,28 @@
 /obj/vehicle/motorbike
-	var/can_drive_when_hands_full = FALSE // Не надо водить когда хотя бы одна рука не свободна, лучше 2
-	 // На будущее потеря контроля когда не можешь водить
-	var/chance_lost_drive_control_when_one_hand = 5 // Ездишь с одной рукой - имеешь шанс нахуй потерять драйв контрол
-	var/lost_drive_control_dir					 // Направление по которому начинает ездить машина потерявшее управление
-	var/lost_drive_control_time_min = 2 SECONDS	 // Нижняя граница времени движения при потере контроля
-	var/lost_drive_control_time_max	= 6 SECONDS // Верхняя граница времени движения при потере контроля
-	var/lost_drive_control_time_temp = 0		 // "Когда" потеря контроля закончится по глобал тайму
-	var/forward_dir = SOUTH // направление движения вперед при поворотах
-	var/forward_dir_saved = SOUTH // Запоминаем куда мы ДВИГАЛИСЬ вперед
 
+	// Неуправляемая езда
+	/// Уровень езды после которого можешь водить с одной рукой, иначе только 2 или потеряешь управление
+	var/skill_vehicle_required_onehand = SKILL_VEHICLE_SMALL
+	/// Проверка на прохождение значения скила skill_vehicle_required_onehand
+	var/can_drive_one_hand = FALSE
+	// TODO: Потеря контроля когда не можешь водить
+	/// Ездишь с одной рукой - имеешь шанс нахуй потерять драйв контрол
+	var/chance_lost_drive_control_when_one_hand = 5
+	/// Направление по которому начинает ездить машина потерявшее управление
+	var/lost_drive_control_dir
+	/// Нижняя граница времени движения при потере контроля
+	var/lost_drive_control_time_min = 2 SECONDS
+	/// Верхняя граница времени движения при потере контроля
+	var/lost_drive_control_time_max	= 6 SECONDS
+	/// "Когда" потеря контроля закончится по глобал тайму
+	var/lost_drive_control_time_temp = 0
+	/// направление движения вперед при поворотах
+	var/forward_dir = SOUTH
+	/// Запоминаем куда мы ДВИГАЛИСЬ вперед
+	var/forward_dir_saved = SOUTH
 
 	// Система ускорения
-	var/current_speed_level = 1 // 1 - начальная, 2 - промежуточная, 3 - максимальная
+	var/current_speed_level = BIKE_SPEED_MIN
 	var/straight_move_timer = 0
 	var/last_move_time = 0
 	var/move_delay_initial = 3
@@ -20,25 +31,33 @@
 	var/lightweight_speed_mod = 0.7 // Модификатор скорости если не прицеплена коляска
 
 	// Скорость
-	var/reset_time = 0.5 SECONDS // Через сколько секунд простоя сбрасываем скорость
-	var/change_speed_time = 1.5 SECONDS // Через сколько времени меняем скорость (увеличиваем)
+	/// Через сколько секунд простоя сбрасываем скорость
+	var/reset_time = 0.5 SECONDS
+	/// Через сколько времени меняем скорость (увеличиваем)
+	var/change_speed_time = 1.5 SECONDS
 
 // ==========================================
 // ========== Параметры движения ============
 
 /obj/vehicle/motorbike/proc/update_drive_skill_parameters()
+	can_drive_one_hand = FALSE
+	chance_lost_drive_control_when_one_hand = initial(chance_lost_drive_control_when_one_hand)
 	if(!buckled_mob)
-		chance_lost_drive_control_when_one_hand = initial(chance_lost_drive_control_when_one_hand)
 		return
-	var/mult = buckled_mob.get_skill_duration_multiplier(SKILL_VEHICLE)
-	chance_lost_drive_control_when_one_hand = round(chance_lost_drive_control_when_one_hand * mult)
+
+	// Проверяем что можем гонять с одной рукой
+	if(skillcheck(buckled_mob, SKILL_VEHICLE, skill_vehicle_required_onehand))
+		can_drive_one_hand = TRUE
+	else
+		// Если не можем, то у нас дебафф модификаторы к гонке одной рукой
+		var/mult = buckled_mob.get_skill_duration_multiplier(SKILL_VEHICLE)
+		chance_lost_drive_control_when_one_hand = round(chance_lost_drive_control_when_one_hand * mult)
 
 // ==========================================
 // =============== Движение =================
 
 /obj/vehicle/motorbike/proc/on_move()
 	SIGNAL_HANDLER
-	handle_acceleration()
 	play_move_sound()
 	set_glide_size(DELAY_TO_GLIDE_SIZE(move_delay)) // плавность
 
@@ -47,11 +66,11 @@
 		return
 
 	if(!direction) // Остановка
-		if(current_speed_level != 1)
+		if(current_speed_level != BIKE_SPEED_MIN)
 			reset_speed()
 		return ..()
 
-	if(!can_drive_when_hands_full && chance_lost_drive_control_when_one_hand >= 0)
+	if(!can_drive_one_hand && chance_lost_drive_control_when_one_hand >= 0)
 		// Проверка движения назад
 		var/back_dir = turn(dir, 180)
 		if(direction == back_dir)
@@ -74,11 +93,12 @@
 				lost_drive_control_time_temp = 0
 				to_chat(user, SPAN_NOTICE("Вы восстановили управление!"))
 
-		forward_dir_saved = direction
-
 	// Движение вперед
 	set_glide_size(DELAY_TO_GLIDE_SIZE(move_delay + 1))
 	. = ..()
+	if(.)
+		forward_dir = dir // Обновление направления движения при любом успешном перемещении
+		handle_acceleration() // Обновление ускорения после поворота
 
 // ==========================================
 // ================ Скорость ================
@@ -91,52 +111,53 @@
 			move_delay = move_delay_intermediate
 		if(3)
 			move_delay = move_delay_maximum
-	if(!stroller)
+	if(!sidecar)
 		move_delay *= lightweight_speed_mod
 
 /obj/vehicle/motorbike/proc/reset_speed()
 	straight_move_timer = 0
-	current_speed_level = 1
+	current_speed_level = BIKE_SPEED_MIN
 	update_speed()
 
 /obj/vehicle/motorbike/proc/handle_acceleration()
 	var/current_time = world.time
 
-	// Сброс скорости при простое более 1 секунды
-	if(current_time - last_move_time > 1 SECONDS && current_speed_level != 1)
+	// Сброс скорости при отпускании педали газа
+	if(current_speed_level != BIKE_SPEED_MIN && current_time - last_move_time > (move_delay + 1))
 		reset_speed()
 		return
 
 	// Движение по прямой
-	if(forward_dir == dir)
+	if(forward_dir_saved == forward_dir)
 		if(current_time - last_move_time > reset_time)
 			straight_move_timer = 0 // Сброс таймера при долгой паузе
 		else
 			straight_move_timer += current_time - last_move_time
 
-		// Повышение скорости каждые 3 секунды
-		if(straight_move_timer >= change_speed_time && current_speed_level < 3)
+		if(current_speed_level < BIKE_SPEED_MAX && straight_move_timer >= change_speed_time)
 			current_speed_level++
 			straight_move_timer = 0
 			update_speed()
 	else // Поворот
-		if(current_speed_level > 2)
-			current_speed_level = 2
+		if(current_speed_level > BIKE_SPEED_MEDIUM)
+			current_speed_level = BIKE_SPEED_MEDIUM
 			update_speed()
 		straight_move_timer = 0
 
 	last_move_time = current_time
 
+	forward_dir_saved = forward_dir
+
 // ==========================================
 // ========== Движение с коляской ===========
 
-/obj/vehicle/motorbike/proc/update_stroller(force_update = FALSE)
-	if(stroller)
-		stroller.update_position(src, force_update)
+/obj/vehicle/motorbike/proc/update_sidecar(force_update = FALSE)
+	if(sidecar)
+		sidecar.update_position(src, force_update)
 
 /obj/vehicle/motorbike/handle_rotation()
 	if(buckled_mob)
 		buckled_mob.setDir(dir)
 	play_rotate_sound()
-	update_stroller()
+	update_sidecar()
 	forward_dir = dir

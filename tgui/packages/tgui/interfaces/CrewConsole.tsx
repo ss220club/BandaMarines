@@ -68,6 +68,9 @@ const jobToColor = (jobId) => {
   if (jobId >= 130 && jobId < 140) {
     return COLORS.shipDeps.raiders;
   }
+  if (jobId >= 140 && jobId < 150) {
+    return COLORS.shipDeps.forecon;
+  }
   if (jobId >= 200 && jobId < 230) {
     return COLORS.department.centcom;
   }
@@ -124,13 +127,13 @@ const CrewTable = (props) => {
   return (
     <Table>
       <Table.Row>
-        <Table.Cell bold>Name</Table.Cell>
+        <Table.Cell bold>Имя</Table.Cell>
         <Table.Cell bold collapsing />
         <Table.Cell bold collapsing textAlign="center">
-          Vitals
+          Показатели
         </Table.Cell>
         <Table.Cell bold textAlign="center">
-          Position
+          Местоположение
         </Table.Cell>
         {!!data.link_allowed && (
           <Table.Cell bold collapsing textAlign="center">

@@ -58,6 +58,7 @@
 	max_w_class = SIZE_MEDIUM
 	cant_hold = list( //Prevent inventory bloat
 		/obj/item/storage/firstaid,
+		/obj/item/storage/toolkit,
 		/obj/item/storage/bible,
 		/obj/item/storage/box,
 	)
@@ -147,7 +148,7 @@
 	storage_slots = 7
 	max_w_class = SIZE_MEDIUM
 	can_hold = list(
-		/obj/item/device/flashlight,
+		/obj/item/device/flashlight/lantern,
 		/obj/item/tool/crowbar,
 		/obj/item/storage/pill_bottle/packet,
 		/obj/item/stack/medical/bruise_pack,
@@ -157,7 +158,7 @@
 	)
 
 /obj/item/storage/pouch/survival/full/fill_preset_inventory()
-	new /obj/item/device/flashlight(src)
+	new /obj/item/device/flashlight/lantern(src)
 	new /obj/item/tool/crowbar/red(src)
 	new /obj/item/storage/pill_bottle/packet/tricordrazine(src)
 	new /obj/item/stack/medical/bruise_pack(src)
@@ -165,8 +166,23 @@
 	new /obj/item/attachable/bayonet(src)
 	new /obj/item/stack/medical/splint(src)
 
+/obj/item/storage/pouch/survival/black
+	icon_state = "soctools"
+
 /obj/item/storage/pouch/survival/full/black
 	icon_state = "soctools"
+
+/obj/item/storage/pouch/survival/full/wy
+	icon_state = "soctools"
+
+/obj/item/storage/pouch/survival/full/wy/fill_preset_inventory()
+	new /obj/item/device/flashlight/combat(src)
+	new /obj/item/tool/crowbar/tactical(src)
+	new /obj/item/storage/pill_bottle/packet/tricordrazine(src)
+	new /obj/item/stack/medical/bruise_pack(src)
+	new /obj/item/device/radio(src)
+	new /obj/item/attachable/bayonet/wy(src)
+	new /obj/item/stack/medical/splint(src)
 
 /obj/item/storage/pouch/survival/synth
 	name = "synth survival pouch"
@@ -192,6 +208,17 @@
 	new /obj/item/device/radio(src)
 	new /obj/item/attachable/bayonet(src)
 
+/obj/item/storage/pouch/survival/synth/black
+	icon_state = "soctools"
+
+/obj/item/storage/pouch/survival/synth/black/full/fill_preset_inventory()
+	new /obj/item/tool/crowbar/red(src)
+	new /obj/item/tool/weldingtool(src)
+	new /obj/item/stack/cable_coil(src)
+	new /obj/item/stack/sheet/metal/large_stack(src)
+	new /obj/item/device/radio(src)
+	new /obj/item/attachable/bayonet(src)
+
 /obj/item/storage/pouch/firstaid
 	name = "first-aid pouch"
 	desc = "A small pouch that can hold basic medical equipment, such as autoinjectors and bandages."
@@ -205,6 +232,9 @@
 		/obj/item/stack/medical/splint,
 	)
 
+/obj/item/storage/pouch/firstaid/wy
+	icon_state = "wy_firstaid"
+
 /obj/item/storage/pouch/firstaid/full
 	desc = "Contains a variety of autoinjectors for quickly treating injuries."
 
@@ -214,12 +244,15 @@
 	new /obj/item/reagent_container/hypospray/autoinjector/tramadol(src)
 	new /obj/item/reagent_container/hypospray/autoinjector/emergency(src)
 
-/obj/item/storage/pouch/firstaid/full/wy
-	name = "W-Y first-aid pouch"
+/obj/item/storage/pouch/firstaid/full/black
 	icon_state = "wy_firstaid"
 
 /obj/item/storage/pouch/firstaid/full/alternate
 	desc = "Contains a first-aid autoinjector, bandages, ointment, and splints."
+
+/obj/item/storage/pouch/firstaid/full/alternate/wy
+	name = "W-Y first-aid pouch"
+	icon_state = "wy_firstaid"
 
 /obj/item/storage/pouch/firstaid/full/alternate/fill_preset_inventory()
 	new /obj/item/reagent_container/hypospray/autoinjector/tricord(src)
@@ -227,8 +260,15 @@
 	new /obj/item/stack/medical/ointment(src)
 	new /obj/item/stack/medical/bruise_pack(src)
 
+/obj/item/storage/pouch/firstaid/full/alternate/wy
+	icon_state = "wy_firstaid"
+
 /obj/item/storage/pouch/firstaid/full/pills
 	desc = "Contains a variety of pill packets for treating many injuries."
+
+/obj/item/storage/pouch/firstaid/full/pills/wy
+	name = "W-Y first-aid pouch"
+	icon_state = "wy_firstaid"
 
 /obj/item/storage/pouch/firstaid/full/pills/fill_preset_inventory()
 	new /obj/item/storage/pill_bottle/packet/bicaridine(src)
@@ -236,8 +276,30 @@
 	new /obj/item/storage/pill_bottle/packet/tramadol(src)
 	new /obj/item/storage/pill_bottle/packet/tramadol(src)
 
+/obj/item/storage/pouch/firstaid/full/pills/wy
+	icon_state = "wy_firstaid"
+
+/obj/item/storage/pouch/firstaid/hunted
+	name = "old pouch"
+	desc = "Подсумок общего назначения для переноски предметов, необходимых для выживания." //SS220 EDIT
+	icon_state = "survival"
+	storage_slots = 5
+	can_hold = list(
+		/obj/item/reagent_container/pill,
+		/obj/item/stack/medical/advanced/bruise_pack/predator,
+		/obj/item/stack/medical/advanced/ointment/predator,
+		/obj/item/stack/medical/splint,
+	)
+
+/obj/item/storage/pouch/firstaid/hunted/fill_preset_inventory()
+	new /obj/item/stack/medical/advanced/bruise_pack/predator(src)
+	new /obj/item/stack/medical/advanced/ointment/predator(src)
+	new /obj/item/stack/medical/splint(src)
+	new /obj/item/reagent_container/pill/oxycodone/natural(src)
+	new /obj/item/reagent_container/pill/bicaridine/natural(src)
+
 /obj/item/storage/pouch/firstaid/ert
-	desc = "It can contain autoinjectors, ointments, and bandages. This one has some extra stuff."
+	desc = "В нём могут быть автоинъекторы, мази и бинты. В этом есть кое-что дополнительное." //SS220 EDIT
 	icon_state = "firstaid"
 	storage_slots = 5
 
@@ -249,7 +311,6 @@
 	new /obj/item/stack/medical/bruise_pack(src)
 
 /obj/item/storage/pouch/firstaid/ert/wy
-	name = "W-Y first-aid pouch"
 	icon_state = "wy_firstaid"
 
 ///Pistol pouch.
@@ -436,7 +497,7 @@
 
 /obj/item/storage/pouch/magazine/large
 	name = "large magazine pouch"
-	desc = "It can carry many magazines."
+	desc = "В него можно поместить много магазинов." //SS220 EDIT
 	icon_state = "large_ammo_mag"
 	storage_slots = 4
 
@@ -452,7 +513,7 @@
 
 	can_hold = list(
 		/obj/item/ammo_magazine/pistol,
-		/obj/item/ammo_magazine/pistol/heavy,
+		/obj/item/ammo_magazine/pistol/deagle,
 		/obj/item/ammo_magazine/revolver,
 	)
 
@@ -543,16 +604,31 @@
 
 /obj/item/storage/pouch/magazine/large/pmc_sg
 	name = "smartgun drum pouch"
-	desc = "A heavy pouch designed for carrying a surplus of smargun drums."
+	desc = "A heavy pouch designed for carrying a surplus of smartgun drums."
 	icon_state = "wy_sgdrums_ammo"
 	storage_slots = 3
 	can_hold = list(
 		/obj/item/ammo_magazine/smartgun,
 	)
 
-/obj/item/storage/pouch/magazine/large/pmc_sg/fill_preset_inventory()
+/obj/item/storage/pouch/magazine/large/pmc_sg/full/fill_preset_inventory()
+	for(var/i = 1 to storage_slots)
+		new /obj/item/ammo_magazine/smartgun(src)
+
+/obj/item/storage/pouch/magazine/large/pmc_sg/commando/fill_preset_inventory()
 	for(var/i = 1 to storage_slots)
 		new /obj/item/ammo_magazine/smartgun/dirty(src)
+
+/obj/item/storage/pouch/magazine/large/pmc_sg/marsoc
+	icon_state = "socdrums"
+
+/obj/item/storage/pouch/magazine/large/pmc_sg/marsoc/full/fill_preset_inventory()
+	for(var/i = 1 to storage_slots)
+		new /obj/item/ammo_magazine/smartgun/heap(src)
+
+/obj/item/storage/pouch/magazine/large/pmc_sg/marsoc/full_low_threat/fill_preset_inventory()
+	for(var/i = 1 to storage_slots)
+		new /obj/item/ammo_magazine/smartgun(src)
 
 /obj/item/storage/pouch/magazine/large/m16/fill_preset_inventory()
 	for(var/i = 1 to storage_slots)
@@ -561,6 +637,9 @@
 /obj/item/storage/pouch/magazine/large/m16/ap/fill_preset_inventory()
 	for(var/i = 1 to storage_slots)
 		new /obj/item/ammo_magazine/rifle/m16/ap(src)
+
+/obj/item/storage/pouch/magazine/large/m16/ap/black
+	icon_state = "wy_ammo_mag"
 
 /obj/item/storage/pouch/magazine/large/rifle_heap
 	icon_state = "wy_ammo_mag"
@@ -682,6 +761,7 @@
 		/obj/item/tool/surgery/surgical_line,
 		/obj/item/tool/surgery/synthgraft,
 	)
+	instant_pill_grabbable = TRUE // If TRUE, pills can be taken directly from bottles while in hand/equipped.
 
 /obj/item/storage/pouch/medical/full/fill_preset_inventory()
 	new /obj/item/device/healthanalyzer(src)
@@ -738,6 +818,21 @@
 	new /obj/item/reagent_container/hypospray/autoinjector/dermaline(src)
 	new /obj/item/reagent_container/hypospray/autoinjector/oxycodone(src)
 	new /obj/item/reagent_container/hypospray/autoinjector/tricord(src)
+	new /obj/item/reagent_container/hypospray/autoinjector/dexalinp(src)
+
+/obj/item/storage/pouch/medical/socmed/commando/deathsquad/fill_preset_inventory()
+	new /obj/item/device/healthanalyzer(src)
+	new /obj/item/stack/medical/splint/nano(src)
+	new /obj/item/stack/medical/advanced/bruise_pack/upgraded(src)
+	new /obj/item/stack/medical/advanced/bruise_pack/upgraded(src)
+	new /obj/item/stack/medical/advanced/ointment/upgraded(src)
+	new /obj/item/stack/medical/advanced/ointment/upgraded(src)
+	new /obj/item/reagent_container/hypospray/autoinjector/meralyne(src)
+	new /obj/item/reagent_container/hypospray/autoinjector/dermaline(src)
+	new /obj/item/reagent_container/hypospray/autoinjector/oxycodone(src)
+	new /obj/item/reagent_container/hypospray/autoinjector/tricord(src)
+	new /obj/item/reagent_container/hypospray/autoinjector/stimulant/speed_stimulant(src)
+	new /obj/item/reagent_container/hypospray/autoinjector/stimulant/brain_stimulant(src)
 	new /obj/item/reagent_container/hypospray/autoinjector/stimulant/redemption_stimulant(src)
 
 /obj/item/storage/pouch/medical/socmed/not_op/fill_preset_inventory()
@@ -792,6 +887,7 @@
 		/obj/item/roller,
 		/obj/item/bodybag,
 	)
+	instant_pill_grabbable = TRUE // If TRUE, pills can be taken directly from bottles while in hand/equipped.
 
 /obj/item/storage/pouch/first_responder/full/fill_preset_inventory()
 	new /obj/item/device/healthanalyzer(src)
@@ -819,7 +915,7 @@
 		new /obj/item/reagent_container/glass/beaker/vial(src)
 
 /obj/item/storage/pouch/chem
-	name = "chemist pouch"
+	name = "chemistry pouch"
 	desc = "A pouch for carrying glass beakers."
 	icon_state = "chemist"
 	storage_slots = 2
@@ -833,8 +929,8 @@
 	new /obj/item/reagent_container/glass/beaker(src)
 
 /obj/item/storage/pouch/autoinjector
-	name = "auto-injector pouch"
-	desc = "A pouch specifically for auto-injectors."
+	name = "autoinjector pouch"
+	desc = "A pouch specifically for autoinjectors."
 	icon_state = "injectors"
 	storage_slots = 7
 	can_hold = list(/obj/item/reagent_container/hypospray/autoinjector)
@@ -882,8 +978,6 @@
 		/obj/item/stock_parts = list(SKILL_ENGINEER, SKILL_ENGINEER_TRAINED),
 		/obj/item/explosive/plastic = list(SKILL_ENGINEER, SKILL_ENGINEER_TRAINED),
 		/obj/item/device/defibrillator/synthetic = list(SKILL_ENGINEER, SKILL_ENGINEER_TRAINED),
-		/obj/item/stack/repairable/gunlube = list(SKILL_ENGINEER, SKILL_ENGINEER_TRAINED),
-		/obj/item/stack/repairable/gunkit = list(SKILL_ENGINEER, SKILL_ENGINEER_TRAINED),
 	)
 	can_hold_skill_only = TRUE
 
@@ -910,8 +1004,12 @@
 		/obj/item/bodybag = list(SKILL_MEDICAL, SKILL_MEDICAL_MEDIC),
 		/obj/item/reagent_container/blood = list(SKILL_MEDICAL, SKILL_MEDICAL_MEDIC),
 		/obj/item/tool/surgery/FixOVein = list(SKILL_MEDICAL, SKILL_MEDICAL_MEDIC),
+		/obj/item/tool/surgery/scalpel = list(SKILL_MEDICAL, SKILL_MEDICAL_MEDIC),
+		/obj/item/tool/surgery/hemostat = list(SKILL_MEDICAL, SKILL_MEDICAL_MEDIC),
+		/obj/item/tool/surgery/retractor = list(SKILL_MEDICAL, SKILL_MEDICAL_MEDIC),
 	)
 	can_hold_skill_only = TRUE
+	instant_pill_grabbable = TRUE // If TRUE, pills can be taken directly from bottles while in hand/equipped.
 
 /obj/item/storage/pouch/medkit/full/fill_preset_inventory()
 	new /obj/item/device/healthanalyzer(src)
@@ -967,6 +1065,17 @@
 	new /obj/item/stack/medical/advanced/bruise_pack(src)
 	new /obj/item/stack/medical/advanced/ointment(src)
 
+/obj/item/storage/pouch/medkit/full/toxin/cbrn
+	can_hold_skill_only = FALSE // Given to non-medically trained personnel.
+
+/obj/item/storage/pouch/medkit/full/toxin/cbrn/fill_preset_inventory()
+	new /obj/item/device/healthanalyzer(src)
+	new /obj/item/storage/pill_bottle/antitox/skillless(src)
+	new /obj/item/storage/pill_bottle/antitox/skillless(src)
+	new /obj/item/roller(src)
+	new /obj/item/stack/medical/splint(src)
+	new /obj/item/stack/medical/advanced/bruise_pack(src)
+	new /obj/item/stack/medical/advanced/ointment(src)
 /obj/item/storage/pouch/medkit/wy
 	icon_state = "wy_medkit"
 
@@ -989,6 +1098,31 @@
 	var/obj/item/reagent_container/glass/pressurized_canister/inner
 	matter = list("plastic" = 2000, "glass" = 2000)
 	flags_item = NOBLUDGEON
+
+
+/obj/item/storage/pouch/pressurized_reagent_canister/bicaridine
+	name = "Pressurized Reagent Canister Pouch (Bicaridine)"
+	desc = "A pressurized reagent canister pouch. It is used to refill custom injectors, and can also store one. May be refilled with a reagent tank or a Chemical Dispenser. This one came pre-filled with the reliable brute-mending Bicaridine."
+
+/obj/item/storage/pouch/pressurized_reagent_canister/kelotane
+	name = "Pressurized Reagent Canister Pouch (Kelotane)"
+	desc = "A pressurized reagent canister pouch. It is used to refill custom injectors, and can also store one. May be refilled with a reagent tank or a Chemical Dispenser. This one came pre-filled with the reliable burn-healing Kelotane."
+
+/obj/item/storage/pouch/pressurized_reagent_canister/tricordrazine
+	name = "Pressurized Reagent Canister Pouch (Tricordrazine)"
+	desc = "A pressurized reagent canister pouch. It is used to refill custom injectors, and can also store one. May be refilled with a reagent tank or a Chemical Dispenser. This one came pre-filled with the reliable medicine that slowly heals brute, burn, toxin, and oxy damage, Tricordrazine."
+
+/obj/item/storage/pouch/pressurized_reagent_canister/oxycodone
+	name = "Pressurized Reagent Canister Pouch (Field Anesthetic)"
+	desc = "A pressurized reagent canister pouch. It is used to refill custom injectors, and can also store one. May be refilled with a reagent tank or a Chemical Dispenser. This one came pre-filled with the most robust painkiller available from your local chem dispenser, Oxycodone."
+
+/obj/item/storage/pouch/pressurized_reagent_canister/revival_tricord
+	name = "Pressurized Reagent Canister Pouch (Tricordrazine Revival Mix)"
+	desc = "A pressurized reagent canister pouch. It is used to refill custom injectors, and can also store one. May be refilled with a reagent tank or a Chemical Dispenser. This one came pre-filled with equal-parts Epinephrine, Inaprovaline, and Tricordrazine for stabilizing and minimizing damage to defibrillated patients."
+
+/obj/item/storage/pouch/pressurized_reagent_canister/revival_peri
+	name = "Pressurized Reagent Canister Pouch (Peridaxon Revival Mix)"
+	desc = "A pressurized reagent canister pouch. It is used to refill custom injectors, and can also store one. May be refilled with a reagent tank or a Chemical Dispenser. This one came pre-filled with equal-parts Epinephrine, Inaprovaline, and Peridaxon to stabilize patients and stave off symptoms of post-defibrillation heart damage."
 
 /obj/item/storage/pouch/pressurized_reagent_canister/Initialize()
 	. = ..()
@@ -1017,9 +1151,12 @@
 	fill_with("kelotane")
 
 /obj/item/storage/pouch/pressurized_reagent_canister/oxycodone/Initialize()
-	new /obj/item/reagent_container/hypospray/autoinjector/empty/skillless/small/(src)
 	. = ..()
 	fill_with("oxycodone")
+
+/obj/item/storage/pouch/pressurized_reagent_canister/tricordrazine/Initialize()
+	. = ..()
+	fill_with("tricordrazine")
 
 /obj/item/storage/pouch/pressurized_reagent_canister/revival_tricord/Initialize()
 	. = ..()
@@ -1050,10 +1187,6 @@
 		A.update_uses_left()
 		A.update_icon()
 	update_icon()
-
-/obj/item/storage/pouch/pressurized_reagent_canister/tricordrazine/Initialize()
-	. = ..()
-	fill_with("tricordrazine")
 
 /obj/item/storage/pouch/pressurized_reagent_canister/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/reagent_container/glass/pressurized_canister))
@@ -1106,36 +1239,36 @@
 			to_chat(user, SPAN_WARNING("[cd] already has a container!"))
 		return
 
-	if(!istype(target, /obj/structure/reagent_dispensers/fueltank))
+	if(!istype(target, /obj/structure/reagent_dispensers/tank/fuel))
 		return ..()
 
 
 
-	var/obj/O = target
-	if(!O.reagents || length(O.reagents.reagent_list) < 1)
-		to_chat(user, SPAN_WARNING("[O] is empty!"))
+	var/obj/container = target
+	if(!container.reagents || length(container.reagents.reagent_list) < 1)
+		to_chat(user, SPAN_WARNING("[container] is empty!"))
 		return
 
-	var/amt_to_remove = clamp(O.reagents.total_volume, 0, inner.volume)
+	var/amt_to_remove = clamp(container.reagents.total_volume, 0, inner.volume)
 	if(!amt_to_remove)
-		to_chat(user, SPAN_WARNING("[O] is empty!"))
+		to_chat(user, SPAN_WARNING("[container] is empty!"))
 		return
 
 	//Fill our inner reagent canister
-	O.reagents.trans_to(inner, amt_to_remove)
+	container.reagents.trans_to(inner, amt_to_remove)
 
 	//Refill our autoinjector
 	if(length(contents) > 0)
 		fill_autoinjector(contents[1])
 
 	//Top up our inner reagent canister after filling up the injector
-	amt_to_remove = clamp(O.reagents.total_volume, 0, inner.volume)
+	amt_to_remove = clamp(container.reagents.total_volume, 0, inner.volume)
 	if(amt_to_remove)
-		O.reagents.trans_to(inner, amt_to_remove)
+		container.reagents.trans_to(inner, amt_to_remove)
 
 	playsound(loc, 'sound/effects/refill.ogg', 25, TRUE, 3)
 
-	to_chat(user, SPAN_NOTICE("You refill the [src]."))
+	to_chat(user, SPAN_NOTICE("You refill [src]."))
 	update_icon()
 
 /obj/item/storage/pouch/pressurized_reagent_canister/get_examine_text(mob/user)
@@ -1146,14 +1279,28 @@
 
 /obj/item/storage/pouch/pressurized_reagent_canister/update_icon()
 	overlays.Cut()
+
 	if(length(contents))
 		overlays += "+[icon_state]_full"
 	if(inner)
-		//tint the inner display based on what chemical is inside
-		var/image/I = image(icon, icon_state="+[icon_state]_loaded")
-		if(inner.reagents)
-			I.color = mix_color_from_reagents(inner.reagents.reagent_list)
-		overlays += I
+		overlays += "+[icon_state]_loaded"
+		if(inner.reagents?.total_volume)
+			var/image/filling
+			var/percent = floor((inner.reagents.total_volume / inner.reagents.maximum_volume) * 100)
+			switch(percent)
+				if(1 to 25)
+					filling = image('icons/obj/items/reagentfillings.dmi', src, "+[icon_state]-25")
+				if(26 to 50)
+					filling = image('icons/obj/items/reagentfillings.dmi', src, "+[icon_state]-50")
+				if(51 to 75)
+					filling = image('icons/obj/items/reagentfillings.dmi', src, "+[icon_state]-75")
+				if(76 to INFINITY)
+					filling = image('icons/obj/items/reagentfillings.dmi', src, "+[icon_state]-100")
+				else
+					return
+
+			filling.color = mix_color_from_reagents(inner.reagents.reagent_list)
+			overlays += filling
 
 
 /obj/item/storage/pouch/pressurized_reagent_canister/empty(mob/user)
@@ -1163,9 +1310,9 @@
 	if(isxeno(user))
 		return
 	if(!inner)
-		return "This [src] has no container inside!"
+		return "[src] has no container inside!"
 	if(skillcheck(user, SKILL_MEDICAL, SKILL_MEDICAL_TRAINED))
-		return "This [src] contains: [get_reagent_list_text()]"
+		return "[src] contains: [get_reagent_list_text()]"
 	else
 		return "You don't know what's in it."
 
@@ -1200,7 +1347,7 @@
 	to_chat(usr, SPAN_NOTICE("You hold down the emergency flush button. Wait 3 seconds..."))
 	if(do_after(usr, 3 SECONDS, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD))
 		if(inner)
-			to_chat(usr, SPAN_NOTICE("You flush the [src]."))
+			to_chat(usr, SPAN_NOTICE("You flush [src]."))
 			inner.reagents.clear_reagents()
 			update_icon()
 
@@ -1366,8 +1513,6 @@
 		/obj/item/explosive/plastic,
 		/obj/item/device/lightreplacer,
 		/obj/item/device/defibrillator/synthetic,
-		/obj/item/stack/repairable/gunlube,
-		/obj/item/stack/repairable/gunkit,
 	)
 	bypass_w_limit = list(
 		/obj/item/tool/shovel/etool,
@@ -1426,6 +1571,15 @@
 	new /obj/item/explosive/plastic(src)
 	new /obj/item/explosive/plastic(src)
 
+/obj/item/storage/pouch/tools/tactical/sof/full/fill_preset_inventory()
+	new /obj/item/tool/screwdriver/tactical(src)
+	new /obj/item/tool/wirecutters/tactical(src)
+	new /obj/item/tool/crowbar/tactical(src)
+	new /obj/item/stack/cable_coil(src)
+	new /obj/item/device/multitool(src)
+	new /obj/item/tool/wrench(src)
+	new /obj/item/tool/weldingtool(src)
+
 /obj/item/storage/pouch/tools/tactical/upp
 	name = "synthetic tools pouch"
 	desc = "Special issue tools pouch for UPP synthetics. Due to the enhanced strength of the synthetic and its inability to feel discomfort, this pouch is designed to maximize internal space with no concern for its wearer's comfort."
@@ -1460,6 +1614,15 @@
 	new /obj/item/stack/cable_coil(src)
 
 /obj/item/storage/pouch/tools/uppsynth/fill_preset_inventory()
+	new /obj/item/tool/crowbar(src)
+	new /obj/item/tool/wirecutters(src)
+	new /obj/item/tool/weldingtool(src)
+	new /obj/item/tool/wrench(src)
+
+/obj/item/storage/pouch/tools/uppsynth/black
+	icon_state = "soctools"
+
+/obj/item/storage/pouch/tools/uppsynth/black/full/fill_preset_inventory()
 	new /obj/item/tool/crowbar(src)
 	new /obj/item/tool/wirecutters(src)
 	new /obj/item/tool/weldingtool(src)
@@ -1588,6 +1751,10 @@
 	storage_slots = 3
 	var/base_icon_state = "cassette_pouch"
 
+/obj/item/storage/pouch/cassette/Initialize()
+	. = ..()
+	AddElement(/datum/element/corp_label/synsound)
+
 /obj/item/storage/pouch/cassette/update_icon()
 	underlays.Cut()
 	if(!content_watchers)
@@ -1622,7 +1789,7 @@
 		WEAR_R_HAND = 'icons/mob/humans/onmob/inhands/clothing/belts_righthand.dmi'
 	)
 	max_w_class = SIZE_LARGE
-	storage_flags = STORAGE_FLAGS_POUCH|STORAGE_USING_DRAWING_METHOD|STORAGE_ALLOW_QUICKDRAW
+	storage_flags = STORAGE_FLAGS_POUCH|STORAGE_USING_DRAWING_METHOD|STORAGE_ALLOW_QUICKDRAW|STORAGE_ALLOW_WHILE_HAULED
 	can_hold = list(/obj/item/weapon/sword/machete)
 
 	var/sheathe_sound = 'sound/weapons/gun_rifle_draw.ogg'

@@ -23,7 +23,6 @@
 	evolution_allowed = FALSE
 	deevolves_to = list(XENO_CASTE_LURKER)
 	caste_desc = "A brutal, devastating front-line attacker."
-	fire_immunity = FIRE_IMMUNITY_NO_DAMAGE|FIRE_IMMUNITY_XENO_FRENZY
 	attack_delay = -1
 
 	available_strains = list(
@@ -34,6 +33,8 @@
 
 	minimum_evolve_time = 15 MINUTES
 
+	organ_type = /obj/item/organ/xeno/ravager
+
 	minimap_icon = "ravager"
 
 /mob/living/carbon/xenomorph/ravager
@@ -43,15 +44,16 @@
 	icon = 'icons/mob/xenos/castes/tier_3/ravager.dmi'
 	icon_size = 64
 	icon_state = "Ravager Walking"
-	plasma_types = list(PLASMA_CATECHOLAMINE)
 	mob_size = MOB_SIZE_BIG
 	drag_delay = 6 //pulling a big dead xeno is hard
 	tier = 3
 	pixel_x = -16
 	old_x = -16
 	claw_type = CLAW_TYPE_VERY_SHARP
-	organ_value = 3000
+	fire_immunity = FIRE_IMMUNITY_NO_DAMAGE|FIRE_IMMUNITY_XENO_FRENZY
+
 	base_actions = list(
+		/datum/action/xeno_action/onclick/toggle_seethrough,
 		/datum/action/xeno_action/onclick/xeno_resting,
 		/datum/action/xeno_action/onclick/release_haul,
 		/datum/action/xeno_action/watch_xeno,
@@ -59,7 +61,6 @@
 		/datum/action/xeno_action/activable/pounce/charge,
 		/datum/action/xeno_action/onclick/empower,
 		/datum/action/xeno_action/activable/scissor_cut,
-		/datum/action/xeno_action/onclick/tacmap,
 	)
 
 	icon_xeno = 'icons/mob/xenos/castes/tier_3/ravager.dmi'
@@ -72,6 +73,18 @@
 	skull = /obj/item/skull/ravager
 	pelt = /obj/item/pelt/ravager
 
+/obj/item/organ/xeno/ravager
+	name = "ravager heart"
+	icon_state = "heart_t3"
+	item_state = "heart_t3"
+	research_value = 3000
+
+	xeno_organ_flags = XENO_ORGAN_STRONG|XENO_ORGAN_TACHYCARDIA|XENO_ORGAN_HARDENED
+
+/mob/living/carbon/xenomorph/ravager/get_examine_text(mob/user)
+	. = ..()
+	if(isxeno(user) || isobserver(user))
+		. += "[SPAN_DANGER("This one's dangerous claws make it very risky to tackle hosts.")]"
 
 // Mutator delegate for base ravager
 /datum/behavior_delegate/ravager_base
@@ -117,7 +130,7 @@
 
 	if (rav_shield && ((rav_shield.last_damage_taken + shield_decay_time) < world.time))
 		QDEL_NULL(rav_shield)
-		to_chat(bound_xeno, SPAN_XENODANGER("We feel our shield decay!"))
+		to_chat(bound_xeno, SPAN_XENODANGER("Мы чувствуем, что наш щит теряет свою силу!"))
 		bound_xeno.overlay_shields()
 
 /datum/behavior_delegate/ravager_base/override_intent(mob/living/carbon/target_carbon)
@@ -127,6 +140,55 @@
 		return
 
 	if(mid_charge && target_carbon)
+		return INTENT_HARM
+
+	// If the ravager fails RNG, they perform an accidental slash instead!
+	if(bound_xeno.a_intent == INTENT_DISARM && prob(25)) // 1/4 chance
+		if(bound_xeno.claw_restrained())
+			bound_xeno.animation_attack_on(target_carbon)
+			bound_xeno.visible_message(SPAN_NOTICE("[bound_xeno] almost slashes [target_carbon]!"),
+			SPAN_XENONOTICE("We feel the strongest urge to destroy [target_carbon], but the Queen holds us back!"))
+			return XENO_ATTACK_ACTION
+
+		if(bound_xeno.can_not_harm(target_carbon, check_hive_flags=FALSE)) // We manually check hive_flags later
+			bound_xeno.animation_attack_on(bound_xeno)
+			bound_xeno.visible_message(SPAN_NOTICE("[bound_xeno] nibbles [target_carbon]"),
+			SPAN_XENONOTICE("We nibble [bound_xeno]"))
+			return XENO_ATTACK_ACTION
+
+		if(bound_xeno.behavior_delegate && bound_xeno.behavior_delegate.handle_slash(bound_xeno))
+			return XENO_NO_DELAY_ACTION
+
+		if(target_carbon.stat == DEAD)
+			to_chat(bound_xeno, SPAN_WARNING("We raise our claws to attack [target_carbon]!- but... they're already dead."))
+			return XENO_NO_DELAY_ACTION
+
+		if(bound_xeno.caste && !bound_xeno.caste.is_intelligent)
+			var/embryo_allied = FALSE
+			if(target_carbon.status_flags & XENO_HOST)
+				for(var/obj/item/alien_embryo/embryo in target_carbon)
+					if(HIVE_ALLIED_TO_HIVE(bound_xeno.hivenumber, embryo.hivenumber))
+						embryo_allied = TRUE
+						break
+
+			if(embryo_allied)
+				if(HAS_TRAIT(bound_xeno, TRAIT_NESTED))
+					bound_xeno.animation_attack_on(target_carbon)
+					bound_xeno.visible_message(SPAN_NOTICE("[bound_xeno] nibbles [target_carbon]"),
+					SPAN_XENONOTICE("ATTACK!!!! Oh- [target_carbon] has a sister inside..."))
+					return XENO_NO_DELAY_ACTION
+				if(!HAS_FLAG(bound_xeno.hive.hive_flags, XENO_SLASH_INFECTED))
+					bound_xeno.animation_attack_on(target_carbon)
+					bound_xeno.visible_message(SPAN_NOTICE("[bound_xeno] nibbles [target_carbon]"),
+					SPAN_XENONOTICE("ATTACK!!!! Oh- [target_carbon] has a sister inside..."))
+					return XENO_ATTACK_ACTION
+			if(!HAS_FLAG(bound_xeno.hive.hive_flags, XENO_SLASH_NORMAL))
+				bound_xeno.animation_attack_on(target_carbon)
+				bound_xeno.visible_message(SPAN_NOTICE("[bound_xeno] nibbles [target_carbon]"),
+				SPAN_XENONOTICE("ATTACK!!!! Wait- we're not allowed to attack hosts anymore..."))
+				return XENO_ATTACK_ACTION
+		bound_xeno.visible_message(SPAN_DANGER("[bound_xeno] fumbles stupidly for a moment, then slashes [target_carbon]!"), 
+			SPAN_HIGHDANGER("Your oversized claws and small mind get in the way of restraining, slashing [target_carbon]!"), message_flags=CHAT_TYPE_XENO_COMBAT)
 		return INTENT_HARM
 
 /datum/action/xeno_action/onclick/empower/use_ability(atom/target)
@@ -141,10 +203,10 @@
 		if (!check_and_use_plasma_owner())
 			return
 
-		xeno.visible_message(SPAN_XENODANGER("[xeno] starts empowering!"), SPAN_XENODANGER("We start empowering ourself!"))
+		xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] начинает усиливаться!"), SPAN_XENODANGER("Мы начинаем усиливаться!")) // SS220 EDIT ADDICTION
 		activated_once = TRUE
 		button.icon_state = "template_active"
-		get_inital_shield()
+		get_initial_shield()
 		addtimer(CALLBACK(src, PROC_REF(timeout)), time_until_timeout)
 		apply_cooldown()
 		return ..()
@@ -156,8 +218,8 @@
 	var/datum/behavior_delegate/ravager_base/behavior = xeno.behavior_delegate
 
 	activated_once = FALSE
-	button.icon_state = "template"
-	xeno.visible_message(SPAN_XENOWARNING("[xeno] gets empowered by the surrounding enemies!"), SPAN_XENOWARNING("We feel a rush of power from the surrounding enemies!"))
+	button.icon_state = "template_xeno"
+	xeno.visible_message(SPAN_XENOWARNING("[capitalize(xeno.declent_ru(NOMINATIVE))] светится от окружающих его врагов!"), SPAN_XENOWARNING("Мы чувствуем прилив сил от окружающих нас врагов!"))
 	xeno.create_empower()
 
 	var/list/mobs_in_range = oviewers(empower_range, xeno)
@@ -189,7 +251,7 @@
 		super_empower(xeno, empower_targets, behavior)
 
 /datum/action/xeno_action/onclick/empower/proc/super_empower(mob/living/carbon/xenomorph/xeno, empower_targets, datum/behavior_delegate/ravager_base/behavior)
-	xeno.visible_message(SPAN_DANGER("[xeno] glows an eerie red as it empowers further with the strength of [empower_targets] hostiles!"), SPAN_XENOHIGHDANGER("We begin to glow an eerie red, empowered by the [empower_targets] enemies!"))
+	xeno.visible_message(SPAN_DANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] светится жутким красным светом, упиваясь [empower_targets] врагами!"), SPAN_XENOHIGHDANGER("Мы начинаем светиться жутким красным светом, упиваясь [empower_targets] врагами!")) // SS220 EDIT ADDICTION
 	xeno.emote("roar")
 
 
@@ -215,10 +277,10 @@
 /datum/action/xeno_action/onclick/empower/proc/remove_superbuff(mob/living/carbon/xenomorph/xeno, datum/behavior_delegate/ravager_base/behavior)
 	behavior.empower_targets = 0
 
-	xeno.visible_message(SPAN_DANGER("[xeno]'s glow slowly dims."), SPAN_XENOHIGHDANGER("Our glow fades away, the power leaving our form!"))
+	xeno.visible_message(SPAN_DANGER("Сияние [xeno.declent_ru(GENITIVE)] медленно ослабевает."), SPAN_XENOHIGHDANGER("Наше сияние ослабевает, силы покидают нас!")) // SS220 EDIT ADDICTION
 	xeno.remove_filter("empower_rage")
 
-/datum/action/xeno_action/onclick/empower/proc/get_inital_shield()
+/datum/action/xeno_action/onclick/empower/proc/get_initial_shield()
 	var/mob/living/carbon/xenomorph/xeno = owner
 
 	if(!activated_once)
@@ -251,9 +313,9 @@
 	if(behavior.empower_targets < behavior.super_empower_threshold)
 		return
 	behavior.mid_charge = TRUE
-	xeno.visible_message(SPAN_XENODANGER("[xeno] uses its shield to bash [human] as it charges at them!"), SPAN_XENODANGER("We use our shield to bash [human] as we charge at them!"))
+	xeno.visible_message(SPAN_XENODANGER("[capitalize(xeno.declent_ru(NOMINATIVE))] использует удар щитом, когда он мчится на [human.declent_ru(ACCUSATIVE)]!"), SPAN_XENODANGER("Мы используем удар щитом, когда мчимся на [human]!")) // SS220 EDIT ADDICTION
 	human.apply_effect(behavior.knockdown_amount, WEAKEN)
-	human.attack_alien(xeno, rand(xeno.melee_damage_lower, xeno.melee_damage_upper))
+	human.attack_alien(xeno, rand(xeno.melee_damage_lower, xeno.melee_damage_upper), unblockable=TRUE)
 	behavior.mid_charge = FALSE
 
 	var/facing = get_dir(xeno, human)
@@ -324,7 +386,7 @@
 	// Hmm today I will kill a marine while looking away from them
 	ravager_user.face_atom(target_atom)
 	ravager_user.emote("roar")
-	ravager_user.visible_message(SPAN_XENODANGER("[ravager_user] sweeps its claws through the area in front of it!"), SPAN_XENODANGER("We sweep our claws through the area in front of us!"))
+	ravager_user.visible_message(SPAN_XENODANGER("[capitalize(ravager_user.declent_ru(NOMINATIVE))] размахивает когтями перед собой!"), SPAN_XENODANGER("Мы размахиваем когтями перед собой!")) // SS220 EDIT ADDICTION
 
 	// Loop through our turfs, finding any humans there and dealing damage to them
 	for (var/turf/target_turf in target_turfs)

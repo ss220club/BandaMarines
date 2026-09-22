@@ -1,7 +1,5 @@
 #define VV_HK_SELECT_TTS_VOICE "select_tts_voice"
-
-#define VV_HK_MODIFY_TTS_TRAITS "changetts"
-#define VV_HK_MODIFY_TTS_TRAITS_PLAYER_CHOICE "changetts_let_player_choose"
+#define VV_HK_SELECT_TTS_VOICE_PLAYER_CHOICE "select_tts_voice_player_choice"
 
 #define TTS_TRAIT_PITCH_WHISPER (1<<1)
 #define TTS_TRAIT_RATE_FASTER (1<<2)
@@ -57,6 +55,7 @@
 #define TTS_CATEGORY_DEEP_ROCK_GALACTIC "Deep Rock Galactic"
 #define TTS_CATEGORY_SUNBOY "Пророк Санбой"
 #define TTS_CATEGORY_WH40k "Warhammer 40k"
+#define TTS_CATEGORY_UNKNOWN "Загадка Силеро"
 
 #define TTS_GENDER_ANY "Любой"
 #define TTS_GENDER_MALE "Мужской"
@@ -84,3 +83,6 @@
 #define BIG_WORKER_TTS_LEVEL 3
 #define LITTLE_WORKER_TTS_LEVEL 1
 #define DONATOR_LEVEL_MAX 5
+
+#define TTS_OVERRIDE_GENDER (1<<0)
+#define TTS_OVERRIDE_TIER (1<<1)

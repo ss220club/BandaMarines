@@ -1,5 +1,5 @@
 import { useBackend } from 'tgui/backend';
-import { Box, Section } from 'tgui/components';
+import { Box, Button, Section } from 'tgui/components';
 import { Window } from 'tgui/layouts';
 
 type Data = { xcoord: number; ycoord: number; zcoord: number };
@@ -11,17 +11,30 @@ export const Binoculars = () => {
   const y_coord = data.ycoord;
   const z_coord = data.zcoord;
 
+  const coordinatesString = `ДОЛГОТА: ${x_coord}, ШИРОТА: ${y_coord}, ВЫСОТА: ${z_coord}`;
+
   return (
-    <Window width={450} height={200}>
+    <Window width={450} height={300}>
       <Window.Content scrollable>
         <Section
-          title="SIMPLIFIED COORDINATES OF TARGET"
+          fill
+          title="УПРОЩЕННЫЕ КООРДИНАТЫ ЦЕЛИ"
           textAlign="center"
           fontSize="15px"
         >
-          <Box fontSize="30px">
-            LONGITUDE : {x_coord}, LATITUDE : {y_coord}, HEIGHT : {z_coord}
+          <Box fontSize="30px" mb={2}>
+            ДОЛГОТА : {x_coord}, ШИРОТА : {y_coord}, ВЫСОТА : {z_coord}
           </Box>
+          <Button
+            align="center"
+            minWidth="70%"
+            icon="clipboard"
+            tooltip="Copies recorded coordinates to clipboard"
+            fontSize="20px"
+            onClick={() => navigator.clipboard.writeText(coordinatesString)}
+          >
+            Copy Coordinates
+          </Button>
         </Section>
       </Window.Content>
     </Window>

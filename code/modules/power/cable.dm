@@ -29,7 +29,7 @@
 	anchored =1
 	var/datum/powernet/powernet
 	name = "power cable"
-	desc = "A flexible superconducting cable for heavy-duty power transfer"
+	desc = "A flexible superconducting cable for heavy-duty power transfer."
 	icon = 'icons/obj/pipes/power_cond_white.dmi'
 	icon_state = "0-1"
 	var/d1 = 0
@@ -121,7 +121,7 @@
 
 		deconstruct()
 		for(var/mob/O in viewers(src, null))
-			O.show_message(SPAN_WARNING("[user] cuts the cable."), SHOW_MESSAGE_VISIBLE)
+			O.show_message(SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] cuts the cable."), SHOW_MESSAGE_VISIBLE)
 		// wires are irrelevant so I have disabled this message for now
 		//message_admins("[key_name(user)] cut a wire at ([x],[y],[z]) [ADMIN_JMP(src)]")
 

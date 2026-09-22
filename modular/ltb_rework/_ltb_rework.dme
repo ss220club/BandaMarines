@@ -1,3 +1,0 @@
-#include "_ltb_rework.dm"
-
-#include "code/ltb_try_fire.dm"

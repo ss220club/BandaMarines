@@ -11,26 +11,24 @@
 	var/list/available_surgeries = list()
 	var/list/valid_steps = list() //Steps that could be performed, if we had the right tool.
 
-	var/turf/open/T = get_turf(target)
+	var/turf/open/turf_of_patient = get_turf(target)
 	if(!istype(user.loc, /turf/open))
-		to_chat(user, SPAN_WARNING("You can't perform surgery here!"))
+		if(is_surgery_init_tool(tool))
+			to_chat(user, SPAN_WARNING("You can't perform surgery here!"))
 		return FALSE
 	else
-		if(!istype(T) || !T.supports_surgery)
-			if(tool.flags_item & CAN_DIG_SHRAPNEL) //Both shrapnel removal and prosthetic repair shouldn't be affected by being on the dropship.
-				tool.dig_out_shrapnel_check(target, user)
-				return TRUE //Otherwise you get 'poked' by the knife.
-			if(HAS_TRAIT(tool, TRAIT_TOOL_BLOWTORCH) && affecting)
-				return FALSE
-			if(!(tool.type in SURGERY_TOOLS_NO_INIT_MSG))
+		if(!istype(turf_of_patient) || !turf_of_patient.supports_surgery)
+			if(is_surgery_init_tool(tool))
 				to_chat(user, SPAN_WARNING("You can't perform surgery under these bad conditions!"))
+				return TRUE
 			return FALSE
 
 	var/obj/limb/surgery_limb = target.get_limb(target_zone)
 	if(surgery_limb)
 		var/obj/item/blocker = target.get_sharp_obj_blocker(surgery_limb)
 		if(blocker)
-			to_chat(user, SPAN_WARNING("[blocker] [target] is wearing restricts your access to the surgical site, take it off!"))
+			if(is_surgery_init_tool(tool))
+				to_chat(user, SPAN_WARNING("[blocker] [target] is wearing restricts your access to the surgical site, take it off!"))
 			return
 
 	if(user.action_busy) //already doing an action
@@ -111,13 +109,13 @@
 			for(var/datum/surgery_step/current_step as anything in valid_steps)
 				if(hint_msg)
 					if(current_step == valid_steps[length(valid_steps)])
-						hint_msg += ", or [current_step.desc]"
+						hint_msg += " или [current_step.desc]" // SS220 EDIT ADDICTION
 					else
-						hint_msg += ", [current_step.desc]"
+						hint_msg += ", [current_step.desc]" // SS220 EDIT ADDICTION
 				else
-					hint_msg = "You can't [current_step.desc] with \the [tool]"
+					hint_msg = "Вы не можете [current_step.desc] с помощью [tool.declent_ru(GENITIVE)]"
 			if(!isnull(hint_msg))
-				to_chat(user, SPAN_WARNING("[hint_msg]."))
+				to_chat(user, SPAN_WARNING("[hint_msg].")) // SS220 EDIT ADDICTION
 		return FALSE
 
 	var/datum/surgery/surgeryinstance
@@ -143,7 +141,7 @@
 		if(surgery_limb)
 			var/obj/item/blocker = target.get_sharp_obj_blocker(surgery_limb)
 			if(blocker)
-				to_chat(user, SPAN_WARNING("[blocker] [target] is wearing restricts your access to the surgical site, take it off!"))
+				to_chat(user, SPAN_WARNING("[blocker] [target] is wearing restricts your access to the surgical site! Take it off!"))
 				return
 
 		if(affecting)

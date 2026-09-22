@@ -204,11 +204,11 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 		current_runlevel = Master.current_runlevel
 		StartProcessing(10)
 	else
-		to_chat(world, SPAN_BOLDANNOUNCE("The Master Controller is having some issues, we will need to re-initialize EVERYTHING"))
+		to_chat(world, SPAN_BOLDANNOUNCE("The Master Controller is having some issues, we will need to re-initialize EVERYTHING!"))
 		Initialize(20, TRUE)
 
 // Please don't stuff random bullshit here,
-// Make a subsystem, give it the SS_NO_FIRE flag, and do your work in it's Initialize()
+// Make a subsystem, give it the SS_NO_FIRE flag, and do your work in its Initialize()
 /datum/controller/master/Initialize(delay, init_sss, tgs_prime)
 	set waitfor = 0
 
@@ -221,7 +221,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	init_stage_completed = 0
 	var/mc_started = FALSE
 
-	to_chat(world, SPAN_BOLDANNOUNCE("Initializing subsystems..."))
+	to_chat(world, SPAN_BOLDANNOUNCE("Инициализация подсистем...")) // SS220 EDIT ADDICTION
 
 	var/list/stage_sorted_subsystems = new(INITSTAGE_MAX)
 	for (var/i in 1 to INITSTAGE_MAX)
@@ -256,11 +256,11 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 			// Loop.
 			Master.StartProcessing(0)
 
-	var/time = (REALTIMEOFDAY - start_timeofday) / 10
+	var/time = round((REALTIMEOFDAY - start_timeofday) / 10, 0.01) // SS220 EDIT ADDICTION
 
 
 
-	var/msg = "Initializations complete within [time] second[time == 1 ? "" : "s"]!"
+	var/msg = "Инициализация завершена за [time] секунд!" // SS220 EDIT ADDICTION
 	to_chat(world, SPAN_BOLDANNOUNCE("[msg]"))
 	log_world(msg)
 
@@ -335,19 +335,19 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 
 	switch(result)
 		if(SS_INIT_FAILURE)
-			message_prefix = "Failed to initialize [subsystem.name] subsystem after"
+			message_prefix = "Ошибка инициализации подсистемы «[subsystem.name]»" // SS220 EDIT ADDICTION
 			chat_warning = TRUE
 		if(SS_INIT_SUCCESS)
-			message_prefix = "Initialized [subsystem.name] subsystem within"
+			message_prefix = "Инициализация подсистемы «[subsystem.name]»" // SS220 EDIT ADDICTION
 		if(SS_INIT_NO_NEED)
 			// This SS is disabled or is otherwise shy.
 			return
 		else
 			// SS_INIT_NONE or an invalid value.
-			message_prefix = "Initialized [subsystem.name] subsystem with errors within"
+			message_prefix = "Инициализация подсистемы «[subsystem.name]» произошла с ошибками" // SS220 EDIT ADDICTION
 			chat_warning = TRUE
 
-	var/message = "[message_prefix] [seconds] second[seconds == 1 ? "" : "s"]!"
+	var/message = "[message_prefix] ([seconds] сек.)" // SS220 EDIT ADDICTION
 	var/chat_message = chat_warning ? SPAN_WARNING(message) : SPAN_BOLDANNOUNCE(message)
 
 	to_chat(world, chat_message)
@@ -608,7 +608,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	. = 1
 
 
-/// RunQueue - Run thru the queue of subsystems to run, running them while balancing out their allocated tick precentage
+/// RunQueue - Run thru the queue of subsystems to run, running them while balancing out their allocated tick percentage
 /// Returns 0 if runtimed, a negitive number for logic errors, and a positive number if the operation completed without errors
 /datum/controller/master/proc/RunQueue()
 	. = 0
@@ -618,7 +618,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	var/queue_node_paused
 
 	var/current_tick_budget
-	var/tick_precentage
+	var/tick_percentage
 	var/tick_remaining
 	var/ran = TRUE //this is right
 	var/bg_calc //have we swtiched current_tick_budget to background mode yet?
@@ -657,18 +657,18 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 			tick_remaining = TICK_LIMIT_RUNNING - TICK_USAGE
 
 			if (queue_node_priority >= 0 && current_tick_budget > 0 && current_tick_budget >= queue_node_priority)
-				//Give the subsystem a precentage of the remaining tick based on the remaining priority
-				tick_precentage = tick_remaining * (queue_node_priority / current_tick_budget)
+				//Give the subsystem a percentage of the remaining tick based on the remaining priority
+				tick_percentage = tick_remaining * (queue_node_priority / current_tick_budget)
 			else
 				//error state
 				if (. == 0)
 					log_world("MC: tick_budget sync error. [json_encode(list(current_tick_budget, queue_priority_count, queue_priority_count_bg, bg_calc, queue_node, queue_node_priority))]")
 				. = -1
-				tick_precentage = tick_remaining //just because we lost track of priority calculations doesn't mean we can't try to finish off the run, if the error state persists, we don't want to stop ticks from happening
+				tick_percentage = tick_remaining //just because we lost track of priority calculations doesn't mean we can't try to finish off the run, if the error state persists, we don't want to stop ticks from happening
 
-			tick_precentage = max(tick_precentage*0.5, tick_precentage-queue_node.tick_overrun)
+			tick_percentage = max(tick_percentage*0.5, tick_percentage-queue_node.tick_overrun)
 
-			current_ticklimit = floor(TICK_USAGE + tick_precentage)
+			current_ticklimit = floor(TICK_USAGE + tick_percentage)
 
 			ran = TRUE
 
@@ -688,7 +688,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 
 			if (tick_usage < 0)
 				tick_usage = 0
-			queue_node.tick_overrun = max(0, MC_AVG_FAST_UP_SLOW_DOWN(queue_node.tick_overrun, tick_usage-tick_precentage))
+			queue_node.tick_overrun = max(0, MC_AVG_FAST_UP_SLOW_DOWN(queue_node.tick_overrun, tick_usage-tick_percentage))
 			queue_node.state = state
 
 			if (state == SS_PAUSED)

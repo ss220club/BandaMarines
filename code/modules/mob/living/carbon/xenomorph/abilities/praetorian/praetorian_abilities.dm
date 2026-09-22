@@ -15,7 +15,6 @@
 	// Config
 	var/damage = 45
 	var/shield_regen_threshold = 2
-	var/should_spin_instead = FALSE
 
 /datum/action/xeno_action/activable/pounce/prae_dash
 	name = "Dash"
@@ -124,7 +123,7 @@
 	plasma_cost = 180
 
 	// Config
-	var/max_distance = 7
+	var/max_distance = 6
 	var/windup = 8 DECISECONDS
 
 /datum/action/xeno_action/activable/oppressor_punch
@@ -167,6 +166,12 @@
 
 ////////// Dancer Abilities
 
+/datum/action/xeno_action/activable/tail_stab/harpoon_tail
+	name = "Tail Lance"
+	action_icon_state = "tail_harpoon"
+	action_type = XENO_ACTION_CLICK
+	ability_primacy = XENO_TAIL_STAB
+
 /datum/action/xeno_action/activable/prae_impale
 	name = "Impale"
 	action_icon_state = "prae_impale"
@@ -175,8 +180,9 @@
 	action_type = XENO_ACTION_CLICK
 	xeno_cooldown = 13 SECONDS
 	plasma_cost = 80
+	var/range = 2
 
-	var/impale_click_miss_cooldown = 1.5 SECONDS
+	var/impale_click_miss_cooldown = 0.7 SECONDS
 
 /datum/action/xeno_action/onclick/prae_dodge
 	name = "Dodge"
@@ -184,12 +190,12 @@
 	macro_path = /datum/action/xeno_action/verb/verb_prae_dodge
 	ability_primacy = XENO_PRIMARY_ACTION_2
 	action_type = XENO_ACTION_CLICK
-	plasma_cost = 200
-	xeno_cooldown = 19 SECONDS
 
 	// Config
-	var/duration = 70
+	var/duration = DANCER_DODGE_TIME
+	var/dodge_timer = TIMER_ID_NULL
 	var/speed_buff_amount = 0.5
+	var/afterimage_interval = 1 DECISECONDS
 
 /datum/action/xeno_action/activable/prae_tail_trip
 	name = "Tail Trip"
@@ -200,7 +206,7 @@
 	xeno_cooldown = 13 SECONDS
 	plasma_cost = 30
 
-	var/tail_click_miss_cooldown = 1.5 SECONDS
+	var/tail_click_miss_cooldown = 0.7 SECONDS
 
 	// Config
 	var/range = 2
@@ -211,6 +217,11 @@
 	var/daze_duration_buffed = 2
 
 ////////// BASE PRAE
+
+/datum/action/xeno_action/activable/xeno_spit/praetorian
+	name = "Spit Acid"
+	xeno_cooldown = 2 SECONDS
+
 
 /datum/action/xeno_action/activable/pounce/base_prae_dash
 	name = "Dash"
@@ -238,7 +249,39 @@
 	plasma_cost = 80
 
 	var/activation_delay = 1 SECONDS
-	var/prime_delay = 1 SECONDS
+	var/prime_delay = 1.25 SECONDS
+
+/datum/action/xeno_action/activable/prae_acid_ball/use_ability(atom/target_atom)
+	var/mob/living/carbon/xenomorph/acid_ball_user = owner
+
+	if(acid_ball_user.action_busy)
+		return
+
+	XENO_ACTION_CHECK(acid_ball_user)
+
+	var/turf/current_turf = get_turf(acid_ball_user)
+
+	if(!current_turf)
+		return
+
+	if(!do_after(acid_ball_user, activation_delay, INTERRUPT_ALL | BEHAVIOR_IMMOBILE, BUSY_ICON_HOSTILE))
+		to_chat(acid_ball_user, SPAN_XENODANGER("Мы прекращаем подготовку к выпуску кислотного шара."))
+		return
+
+	XENO_ACTION_CHECK_USE_PLASMA(acid_ball_user)
+
+	apply_cooldown()
+
+	to_chat(acid_ball_user, SPAN_XENOWARNING("Мы выбрасываем сжатый шар кислоты в воздух!"))
+
+	var/obj/item/explosive/grenade/xeno_acid_grenade/grenade = new /obj/item/explosive/grenade/xeno_acid_grenade
+	grenade.cause_data = create_cause_data(initial(acid_ball_user.caste_type), acid_ball_user)
+	grenade.forceMove(get_turf(acid_ball_user))
+	grenade.throw_atom(target_atom, 5, SPEED_AVERAGE, acid_ball_user, TRUE, launch_type = HIGH_LAUNCH, pass_flags = PASS_ACID_GRENADE)
+	addtimer(CALLBACK(grenade, TYPE_PROC_REF(/obj/item/explosive, prime)), prime_delay)
+
+	return ..()
+
 
 /datum/action/xeno_action/activable/spray_acid/base_prae_spray_acid
 	name = "Spray Acid"
@@ -254,8 +297,6 @@
 	spray_type = ACID_SPRAY_LINE
 	spray_distance = 7
 	spray_effect_type = /obj/effect/xenomorph/spray/praetorian
-	activation_delay = TRUE
-	activation_delay_length = 5
 
 ///////////////////////// VALKYRIE PRAE
 
@@ -270,7 +311,7 @@
 /datum/action/xeno_action/activable/valkyrie_rage
 	name = "Tantrum"
 	action_icon_state = "warden_heal"
-	action_type = XENO_ACTION_CLICK
+	action_type = XENO_ACTION_CLICK // BANDAMARINES EDIT - Quickcasts
 	ability_primacy = XENO_PRIMARY_ACTION_1
 	macro_path = /datum/action/xeno_action/verb/verb_prae_rage
 	plasma_cost = 100
@@ -329,7 +370,7 @@
 	xeno_cooldown = 10 SECONDS
 	plasma_cost = 180
 
-	confing
+	//Config variables
 	var/max_distance = 7
 	var/windup = 6
 	var/retrieve_cost = 100

@@ -1,7 +1,7 @@
 /mob/living/carbon/human/proc/parse_say_modes(message)
 	. = list("message_and_language", "modes" = list())
 	if(length(message) >= 1 && message[1] == ";")
-		.["message_and_language"] = copytext_char(message, 2) // SS220 EDIT - RU fix
+		.["message_and_language"] = trim_left(copytext_char(message, 2)) // SS220 EDIT - RU fix
 		.["modes"] += "headset"
 		return
 
@@ -15,8 +15,8 @@
 			if(current_channel == " " || current_channel == ":" || current_channel == ".")
 				i--
 				break
-			.["modes"] += GLOB.department_radio_keys[":[current_channel]"]
-		.["message_and_language"] = copytext_char(message, i+1) // SS220 EDIT - RU fix
+			.["modes"] += GLOB.department_radio_keys[":[lowertext(current_channel)]"]
+		.["message_and_language"] = trim_left(copytext_char(message, i+1)) // SS220 EDIT - RU fix
 		var/multibroadcast_cooldown = 0
 		for(var/obj/item/device/radio/headset/headset in list(wear_l_ear, wear_r_ear))
 			if(world.time - headset.last_multi_broadcast < headset.multibroadcast_cooldown)
@@ -30,9 +30,9 @@
 		return
 
 	if(length(message) >= 2 && (message[1] == "." || message[1] == ":" || message[1] == "#" || message[1] == "№")) // BANDAMARINES EDIT
-		var/channel_prefix = copytext_char(message, 1, 3)
+		var/channel_prefix = lowertext(copytext_char(message, 1, 3)) // SS220 EDIT - RU fix
 		if(channel_prefix in GLOB.department_radio_keys)
-			.["message_and_language"] = copytext_char(message, 3) // SS220 EDIT - RU fix
+			.["message_and_language"] = trim_left(copytext_char(message, 3)) // SS220 EDIT - RU fix
 			.["modes"] += GLOB.department_radio_keys[channel_prefix]
 			return
 
@@ -51,14 +51,15 @@
 		.["language"] = parsed_language
 		.["message"] = copytext_char(message_and_language, 3) // SS220 EDIT - RU fix
 	else
-		.["message"] = message_and_language
+		.["message"] = strip_language(message_and_language)
 
 /mob/living/carbon/human/say(message)
 
 	var/verb = "says"
 	var/alt_name = ""
 	var/message_range = GLOB.world_view_size
-	var/italics = 0
+	var/italics = FALSE
+	var/langchat_override
 
 	if(!able_to_speak)
 		to_chat(src, SPAN_DANGER("You try to speak, but nothing comes out!"))
@@ -67,6 +68,9 @@
 	if(client)
 		if(client.prefs.muted & MUTE_IC)
 			to_chat(src, SPAN_DANGER("You cannot speak in IC (Muted)."))
+			return
+		if(HAS_TRAIT_FROM(src, TRAIT_KNOCKEDOUT, TRAIT_STATUS_EFFECT(TRAIT_SOURCE_ADMIN)))
+			to_chat(src, SPAN_HIGHDANGER("You cannot speak. You have been slept by admins. You should respond to them."))
 			return
 
 	message = trim(strip_html(message))
@@ -91,6 +95,9 @@
 		return
 	message = parsed["message"]
 
+	if(hushed)
+		parsed["modes"] = list(RADIO_MODE_WHISPER)
+
 	if(!filter_message(src, message))
 		return
 
@@ -98,8 +105,14 @@
 	if(!speaking)
 		speaking = get_default_language()
 
-	var/ending = copytext_char(message, length(message)) // SS220 EDIT - RU fix
 	if (speaking)
+		var/ending = copytext_char(message, length(message)) // SS220 EDIT - RU fix
+		if(ending=="!")
+			verb = pick(speaking.exclaim_verb)
+		else if(ending=="?")
+			verb = pick(speaking.ask_verb)
+		else
+			verb = pick(speaking.speech_verb)
 		// This is broadcast to all mobs with the language,
 		// irrespective of distance or anything else.
 		if(speaking.flags & HIVEMIND)
@@ -109,12 +122,8 @@
 			speaking.broadcast(src, trim(message))
 			return
 		//If we've gotten this far, keep going!
-		verb = speaking.get_spoken_verb(ending)
 	else
-		if(ending=="!")
-			verb=pick("exclaims","shouts","yells")
-		if(ending=="?")
-			verb="asks"
+		verb = "says"
 
 	if (istype(wear_mask, /obj/item/clothing/mask/muzzle))
 		return
@@ -125,14 +134,14 @@
 	message = capitalize(trim(message))
 	message = process_chat_markup(message, list("~", "_"))
 
-	var/list/handle_r = handle_speech_problems(message)
+	var/list/handle_r = handle_speech_problems(message, verb)
 	message = handle_r[1]
 	verb = handle_r[2]
 	if(!message)
 		return
 
 	// Automatic punctuation
-	if(client && client.prefs && client.prefs.toggle_prefs & TOGGLE_AUTOMATIC_PUNCTUATION)
+	if(client?.prefs?.toggle_prefs & TOGGLE_AUTOMATIC_PUNCTUATION)
 		if(!(copytext_char(message, -1) in ENDING_PUNCT)) // SS220 EDIT - RU fix
 			message += "."
 
@@ -153,6 +162,18 @@
 					var/earpiece = get_type_in_ears(/obj/item/device/radio)
 					if(earpiece)
 						used_radios += earpiece
+				else
+					var/obj/item/device/megaphone/megaphone = get_active_hand()
+					if(istype(megaphone) && megaphone.amplifying) //istype necessary here
+						if(!COOLDOWN_FINISHED(megaphone, spam_cooldown))
+							to_chat(src, SPAN_DANGER("\The [megaphone] needs to recharge! Wait [COOLDOWN_SECONDSLEFT(megaphone, spam_cooldown)] second(s)."))
+						else
+							COOLDOWN_START(megaphone, spam_cooldown, megaphone.spam_cooldown_time * 3)
+							message = FONT_SIZE_LARGE(message)
+							message_range = GLOB.world_view_size * 2 // this means you can hear it from off screen by a good bit
+							playsound(loc, 'sound/items/megaphone.ogg', 100, FALSE, TRUE)
+							verb = "broadcasts"
+							langchat_override = "langchat_announce"
 
 		var/sound/speech_sound
 		var/sound_vol
@@ -173,10 +194,34 @@
 			if(ishumansynth_strict(src))
 				playsound(src.loc, 'sound/effects/radiostatic.ogg', 15, 1)
 
-			italics = 1
+			italics = TRUE
 			message_range = 2
 
-		..(message, speaking, verb, alt_name, italics, message_range, speech_sound, sound_vol, 0, message_mode) //ohgod we should really be passing a datum here.
+		var/far_message_range = message_range
+		if(message_range > GLOB.world_view_size)
+			message_range = GLOB.world_view_size
+
+		..(message, speaking, verb, alt_name, italics, message_range, speech_sound, sound_vol, 0, message_mode, langchat_override = langchat_override) //ohgod we should really be passing a datum here.
+
+		// strange as it is, but we gotta handle it slightly differently if we wanna add a far_verb. also allows for possible implementation for far message disruption via shouting or w/e
+		if(far_message_range > GLOB.world_view_size)
+			var/far_verb = "[verb] from afar"
+			var/list/far_listeners = list()
+			for(var/mob/listener in hearers(far_message_range, src)) // hopefully this wont cause too much lag
+				if(get_dist(src, listener) > GLOB.world_view_size)
+					far_listeners += listener
+
+			if(length(far_listeners))
+				for(var/mob/listener in far_listeners)
+					var/far_message = message
+					if(speaking)
+						if(!listener.say_understands(src, speaking))
+							far_message = speaking.scramble(message)
+						far_message = "<span class='[speaking.color]'>\"[far_message]\"</span>"
+					else
+						far_message = "\"[far_message]\""
+
+					listener.show_message("<span class='game say'><span class='name'>[src]</span> <span class='message'>[far_verb], [far_message]</span></span>", SHOW_MESSAGE_AUDIBLE)
 
 		INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/carbon/human, say_to_radios), used_radios, message, message_mode, verb, speaking)
 
@@ -231,19 +276,6 @@
 /mob/living/carbon/human/GetVoice()
 	return real_name
 
-/mob/living/carbon/human/proc/SetSpecialVoice(new_voice)
-	if(new_voice)
-		special_voice = new_voice
-	return
-
-/mob/living/carbon/human/proc/UnsetSpecialVoice()
-	special_voice = ""
-	return
-
-/mob/living/carbon/human/proc/GetSpecialVoice()
-	return special_voice
-
-
 /*
 ***Deprecated***
 let this be handled at the hear_say or hear_radio proc
@@ -257,19 +289,15 @@ for it but just ignore it.
 	var/verb = "says"
 	var/ending = copytext_char(message, length(message)) // SS220 EDIT - RU fix
 
-	if(speaking)
-		verb = speaking.get_spoken_verb(ending)
-	else
-		if(ending == "!")
-			verb=pick("exclaims","shouts","yells")
-		else if(ending == "?")
-			verb="asks"
+	if(ending == "!")
+		verb = pick("exclaims","shouts","yells")
+	if(ending == "?")
+		verb = "asks"
 
 	return verb
 
-/mob/living/carbon/human/proc/handle_speech_problems(message)
+/mob/living/carbon/human/proc/handle_speech_problems(message, verb)
 	var/list/returns[2]
-	var/verb = "says"
 	if(silent)
 		message = ""
 	if(sdisabilities & DISABILITY_MUTE)
@@ -308,5 +336,13 @@ for it but just ignore it.
 	if (dongle && dongle.translate_apollo)
 		return TRUE
 	for(var/datum/language/apollo/link in languages)
+		return TRUE
+	return FALSE
+
+/mob/living/carbon/human/hear_artemis()
+	var/obj/item/device/radio/headset/dongle = get_type_in_ears(/obj/item/device/radio/headset)
+	if (dongle && dongle.translate_artemis)
+		return TRUE
+	for(var/datum/language/artemis/link in languages)
 		return TRUE
 	return FALSE
