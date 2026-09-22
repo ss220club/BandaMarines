@@ -78,8 +78,8 @@
 	for(var/mob/living/carbon/xenomorph/lesser_drone/lesser in linked_hive.totalXenos)
 		lesser_count++
 
-	. += "Currently holding [SPAN_NOTICE("[floor(lesser_drone_spawns)]")]/[SPAN_NOTICE("[lesser_drone_spawn_limit]")] lesser drones."
-	. += "There are currently [SPAN_NOTICE("[lesser_count]")] lesser drones in the hive. The hive can support a total of [SPAN_NOTICE("[linked_hive.lesser_drone_limit]")] lesser drones at present."
+	. += "Содержит внутри [SPAN_NOTICE("[floor(lesser_drone_spawns)]")]/[SPAN_NOTICE("[lesser_drone_spawn_limit]")] трутней."
+	. += "В улье сейчас активны [SPAN_NOTICE("[lesser_count]")] трутней. Улей может содержать единовременно [SPAN_NOTICE("[linked_hive.lesser_drone_limit]")] трутней."
 
 /obj/effect/alien/resin/special/pylon/attack_ghost(mob/dead/observer/user)
 	. = ..()
@@ -92,10 +92,10 @@
 		return
 	var/can_repair = damaged || health < maxhealth
 	if(!can_repair)
-		to_chat(xeno, SPAN_XENONOTICE("\The [name] is in good condition, you don't need to repair it."))
+		to_chat(xeno, SPAN_XENONOTICE("[name] в хорошем состоянии и не нуждается в ремонте.")) // SS220 EDIt ADDICTION
 		return
 
-	to_chat(xeno, SPAN_XENONOTICE("We begin adding the plasma to \the [name] to repair it."))
+	to_chat(xeno, SPAN_XENONOTICE("Мы начинаем ремонтировать [name], используя плазму.")) // SS220 EDIt ADDICTION
 	xeno_attack_delay(xeno)
 	if(!do_after(xeno, PYLON_REPAIR_TIME, INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_BUILD, src) || !can_repair)
 		return
@@ -122,7 +122,7 @@
 			continue
 		addtimer(CALLBACK(W, TYPE_PROC_REF(/obj/effect/alien/weeds, weed_expand), N), PYLON_WEEDS_REGROWTH_TIME, TIMER_UNIQUE)
 
-	to_chat(xeno, SPAN_XENONOTICE("We have successfully repaired \the [name]."))
+	to_chat(xeno, SPAN_XENONOTICE("Мы успешно отремонтировали [name].")) // SS220 EDIt ADDICTION
 	playsound(loc, "alien_resin_build", 25)
 
 /obj/effect/alien/resin/special/pylon/proc/place_node()
@@ -134,7 +134,7 @@
 	if(!linked_hive.can_spawn_as_lesser_drone(xeno_candidate, src))
 		return FALSE
 
-	if(tgui_alert(xeno_candidate, "Are you sure you want to become a lesser drone?", "Confirmation", list("Yes", "No")) != "Yes")
+	if(tgui_alert(xeno_candidate, "Вы уверены, что хотите стать трутнем?", "Подтверждение", list("Да", "Нет")) == "Нет") // SS220 EDIT ADDICTION
 		return FALSE
 
 	if(!linked_hive.can_spawn_as_lesser_drone(xeno_candidate, src))
@@ -143,7 +143,7 @@
 	var/mob/living/carbon/xenomorph/lesser_drone/new_drone = new(loc, null, linked_hive.hivenumber)
 	xeno_candidate.mind.transfer_to(new_drone, TRUE)
 	lesser_drone_spawns -= 1
-	new_drone.visible_message(SPAN_XENODANGER("A lesser drone emerges out of [src]!"), SPAN_XENODANGER("You emerge out of [src] and awaken from your slumber. For the Hive!"))
+	new_drone.visible_message(SPAN_XENODANGER("Из [declent_ru(GENITIVE)] появляется трутень!"), SPAN_XENODANGER("Вы вылезаете из [declent_ru(GENITIVE)] и пробуждаетесь от сна. Во имя улья!")) // SS220 EDIT ADDICTION
 	playsound(new_drone, 'sound/effects/xeno_newlarva.ogg', 25, TRUE)
 	new_drone.generate_name()
 
@@ -168,7 +168,7 @@
 		if(hijack_delete)
 			return ..()
 
-		marine_announcement("ALERT.\n\nEnergy build up around communication relay at [get_area_name(src)] halted.", "[MAIN_AI_SYSTEM] Biological Scanner")
+		marine_announcement("ВНИМАНИЕ.\n\nНакопление энергии вокруг коммуникационного реле в [get_area_name(src)] остановлено.", "[MAIN_AI_SYSTEM]: Биологический сканер")
 
 		for(var/hivenumber in GLOB.hive_datum)
 			var/datum/hive_status/checked_hive = GLOB.hive_datum[hivenumber]
@@ -176,15 +176,15 @@
 				continue
 
 			if(checked_hive == linked_hive)
-				xeno_announcement(SPAN_XENOANNOUNCE("We have lost our control of the tall's communication relay at [get_area_name(src)]."), hivenumber, XENO_GENERAL_ANNOUNCE)
+				xeno_announcement(SPAN_XENOANNOUNCE("Мы потеряли контроль над коммуникационным реле носителей около «[get_area_name(src)]»."), hivenumber, XENO_GENERAL_ANNOUNCE) // SS220 EDIT ADDICTION
 			else
-				xeno_announcement(SPAN_XENOANNOUNCE("Another hive has lost control of the tall's communication relay at [get_area_name(src)]."), hivenumber, XENO_GENERAL_ANNOUNCE)
+				xeno_announcement(SPAN_XENOANNOUNCE("Другой улей потерял контроль над коммуникационным реле носителей около «[get_area_name(src)]»."), hivenumber, XENO_GENERAL_ANNOUNCE) // SS220 EDIT ADDICTION
 		linked_hive.hive_ui.update_pylon_status()
 	return ..()
 
 /// Checks if all comms towers are connected and then starts end game content on all pylons if they are
 /obj/effect/alien/resin/special/pylon/endgame/proc/comms_relay_connection()
-	marine_announcement("ALERT.\n\nIrregular build up of energy around communication relays at [get_area_name(src)], biological hazard detected.\n\nDANGER: Hazard is strengthening xenomorphs, advise urgent termination of hazard by ground forces.", "[MAIN_AI_SYSTEM] Biological Scanner")
+	marine_announcement("ВНИМАНИЕ.\n\nНерегулярное накопление энергии вокруг коммуникационных реле в [get_area_name(src)], обнаружена биологическая угроза.\n\nТРЕВОГА: Возникает опасность усиления ксеноморфов, рекомендация: срочно ликвидировать угрозу наземными силами.", "[MAIN_AI_SYSTEM]: Биологический сканер")
 
 	for(var/hivenumber in GLOB.hive_datum)
 		var/datum/hive_status/checked_hive = GLOB.hive_datum[hivenumber]
@@ -192,9 +192,9 @@
 			continue
 
 		if(checked_hive == linked_hive)
-			xeno_announcement(SPAN_XENOANNOUNCE("We have harnessed the tall's communication relay at [get_area_name(src)].\n\nWe will now grow royal resin from this pylon. Hold it!"), hivenumber, XENO_GENERAL_ANNOUNCE)
+			xeno_announcement(SPAN_XENOANNOUNCE("Мы захватили коммуникационное реле носителей около «[get_area_name(src)]».<br><br>Теперь мы будем выращивать королевскую смолу из этого пилона. Защитите его!"), hivenumber, XENO_GENERAL_ANNOUNCE) // SS220 EDIT ADDICTION
 		else
-			xeno_announcement(SPAN_XENOANNOUNCE("Another hive has harnessed the tall's communication relay at [get_area_name(src)].[linked_hive.faction_is_ally(checked_hive.name) ? "" : " Stop them!"]"), hivenumber, XENO_GENERAL_ANNOUNCE)
+			xeno_announcement(SPAN_XENOANNOUNCE("Другой улей захватил коммуникационное реле носителей около «[get_area_name(src)]». [linked_hive.faction_is_ally(checked_hive.name) ? "" : "Остановите их!"]"), hivenumber, XENO_GENERAL_ANNOUNCE) // SS220 EDIT ADDICTION
 
 	activated = TRUE
 	linked_hive.check_if_hit_larva_from_pylon_limit()
@@ -265,7 +265,7 @@
 	if(linked_hive)
 		for(var/mob/living/carbon/xenomorph/larva/worm in range(2, src))
 			if((!worm.ckey || worm.stat == DEAD) && worm.burrowable && (worm.hivenumber == linked_hive.hivenumber) && !QDELETED(worm))
-				visible_message(SPAN_XENODANGER("[worm] quickly burrows into \the [src]."))
+				visible_message(SPAN_XENODANGER("[capitalize(worm.declent_ru(NOMINATIVE))] быстро зарывается в [declent_ru(ACCUSATIVE)].")) // SS220 EDIT ADDICTION
 				if(!worm.banished)
 					// Goob job bringing her back home, but no doubling please
 					linked_hive.stored_larva++
@@ -298,7 +298,7 @@
 				surge_cooldown = surge_cooldown - surge_incremental_reduction //ramps up over time
 			if(linked_hive.hijack_burrowed_left < 1)
 				linked_hive.hijack_burrowed_surge = FALSE
-				xeno_message(SPAN_XENOANNOUNCE("The hive's power wanes. We will no longer gain burrowed larva over time."), 3, linked_hive.hivenumber)
+				xeno_message(SPAN_XENOANNOUNCE("Сила улья ослабевает. Мы больше не будем получать новых грудоломов."), 3, linked_hive.hivenumber)
 
 	// Hive core can repair itself over time
 	if(health < maxhealth && last_healed <= world.time)
@@ -317,15 +317,15 @@
 		if(isnull(new_xeno))
 			return FALSE
 
-		new_xeno.visible_message(SPAN_XENODANGER("A larva suddenly emerges from [src]!"),
-		SPAN_XENODANGER("We emerge from [src] and awaken from our slumber. For the Hive!"))
+		new_xeno.visible_message(SPAN_XENODANGER("Грудолом внезапно вылезает из [declent_ru(GENITIVE)]!"), // SS220 EDIT ADDICTION
+		SPAN_XENODANGER("Мы вылезаем из [declent_ru(GENITIVE)] и пробуждаемся от сна. Во имя улья!")) // SS220 EDIT ADDICTION
 		msg_admin_niche("[key_name(new_xeno)] emerged from \a [src]. [ADMIN_JMP(src)]")
 		playsound(new_xeno, 'sound/effects/xeno_newlarva.ogg', 50, 1)
 		if(!SSticker.mode.transfer_xeno(xeno_candidate, new_xeno))
 			qdel(new_xeno)
 			return FALSE
-		to_chat(new_xeno, SPAN_XENOANNOUNCE("You are a xenomorph larva awakened from slumber!"))
-		to_chat(new_xeno, SPAN_XENOANNOUNCE("Remember you should not be leaving the safety of the hive unless under threat, and should be keeping yourself safe until you evolve!"))
+		to_chat(new_xeno, SPAN_XENOANNOUNCE("Вы - грудолом, пробудившийся от сна!"))
+		to_chat(new_xeno, SPAN_XENOANNOUNCE("Помните, что вам не следует покидать безопасность улья при отсутствии угроз, и что вам следует беречь себя до эволюции!"))
 		playsound(new_xeno, 'sound/effects/xeno_newlarva.ogg', 50, 1)
 		if(new_xeno.client)
 			if(new_xeno.client.prefs.toggles_flashing & FLASH_POOLSPAWN)
@@ -348,7 +348,7 @@
 		return
 	var/mob/living/carbon/carbon_mob = grab.grabbed_thing
 	if(carbon_mob.buckled)
-		to_chat(user, SPAN_XENOWARNING("Unbuckle first!"))
+		to_chat(user, SPAN_XENOWARNING("Сначала отстегните ремни!"))
 		return
 	if(!linked_hive || carbon_mob.stat != DEAD)
 		return
@@ -386,14 +386,14 @@
 			return XENO_NO_DELAY_ACTION
 
 		else if(warn && world.time > XENOMORPH_PRE_SETUP_CUTOFF)
-			if((alert(M, "Are we sure that you want to destroy the hive core? (There will be a 5 minute cooldown before you can build another one.)", , "Yes", "No") != "Yes"))
+			if((tgui_alert(M, "Are we sure that you want to destroy the hive core? (There will be a 5 minute cooldown before you can build another one.)", "Destroy Core", list("Yes", "No")) != "Yes"))  // BANDASTATION EDIT - Bump Attacks
 				return XENO_NO_DELAY_ACTION
 
 			INVOKE_ASYNC(src, PROC_REF(startDestroying),M)
 			return XENO_NO_DELAY_ACTION
 
 		else if(world.time < XENOMORPH_PRE_SETUP_CUTOFF)
-			if((alert(M, "Are we sure that we want to remove the hive core? No cooldown will be applied.", , "Yes", "No") != "Yes"))
+			if((tgui_alert(M, "Are we sure that we want to remove the hive core? No cooldown will be applied.", "Remove Core", list("Yes", "No")) != "Yes")) // BANDASTATION EDIT - Bump Attacks
 				return XENO_NO_DELAY_ACTION
 
 			INVOKE_ASYNC(src, PROC_REF(startDestroying),M)
@@ -406,14 +406,14 @@
 		. = ..()
 
 		if(hardcore && last_attacked_message < world.time && current_health > health)
-			xeno_message(SPAN_XENOANNOUNCE("The hive core is under attack!"), 2, linked_hive.hivenumber)
+			xeno_message(SPAN_XENOANNOUNCE("Ядро улья атаковано!"), 2, linked_hive.hivenumber)
 			last_attacked_message = world.time + next_attacked_message
 	else
 		. = ..()
 
 /obj/effect/alien/resin/special/pylon/core/Destroy()
 	if(linked_hive)
-		visible_message(SPAN_XENOHIGHDANGER("The resin roof withers away as \the [src] dies!"), max_distance = WEED_RANGE_CORE)
+		visible_message(SPAN_XENOHIGHDANGER("Смоляная крыша увядает, когда [declent_ru(NOMINATIVE)] умирает!"), max_distance = WEED_RANGE_CORE) // SS220 EDIT ADDICTION
 		linked_hive.hive_location = null
 		if(world.time < XENOMORPH_PRE_SETUP_CUTOFF && !hardcore)
 			. = ..()
@@ -421,27 +421,27 @@
 		linked_hive.hivecore_cooldown = TRUE
 		INVOKE_ASYNC(src, PROC_REF(cooldownFinish),linked_hive) // start cooldown
 		if(hardcore)
-			xeno_message(SPAN_XENOANNOUNCE("We can no longer gain new sisters or another Queen. Additionally, we are unable to heal if our Queen is dead."), 2, linked_hive.hivenumber)
+			xeno_message(SPAN_XENOANNOUNCE("Мы больше не можем получать новых сестёр или другую Королеву. Кроме того, мы не можем лечиться, если наша Королева мертва."), 2, linked_hive.hivenumber)
 			linked_hive.hardcore = TRUE
 			linked_hive.allow_queen_evolve = FALSE
 			linked_hive.hive_structures_limit[XENO_STRUCTURE_CORE] = 0
-			xeno_announcement("\The [linked_hive.name] has lost their hive core!", "everything", HIGHER_FORCE_ANNOUNCE)
+			xeno_announcement("Ядро улья '[linked_hive.name]' погибло!", "everything", HIGHER_FORCE_ANNOUNCE)
 
 		if(linked_hive.hijack_burrowed_surge)
-			visible_message(SPAN_XENODANGER("We hear something resembling a scream from [src] as it's destroyed!"))
-			xeno_message(SPAN_XENOANNOUNCE("Psychic pain storms throughout the hive as [src] is destroyed! We will no longer gain burrowed larva over time."), 3, linked_hive.hivenumber)
+			visible_message(SPAN_XENODANGER("Мы слышим что-то похожее на крик из [declent_ru(GENITIVE)], когда оно уничтожается!")) // SS220 EDIT ADDICTION
+			xeno_message(SPAN_XENOANNOUNCE("Пси-боль охватывает улей, когда [declent_ru(NOMINATIVE)] уничтожается! Мы больше не будем получать новых грудоломов."), 3, linked_hive.hivenumber) // SS220 EDIT ADDICTION
 			linked_hive.hijack_burrowed_surge = FALSE
 
 	SSminimaps.remove_marker(src)
 	. = ..()
 
 /obj/effect/alien/resin/special/pylon/core/proc/startDestroying(mob/living/carbon/xenomorph/M)
-	xeno_message(SPAN_XENOANNOUNCE("[M] is destroying \the [src]!"), 3, linked_hive.hivenumber)
-	visible_message(SPAN_DANGER("[M] starts destroying \the [src]!"))
+	xeno_message(SPAN_XENOANNOUNCE("[capitalize(M.declent_ru(NOMINATIVE))] начинает уничтожать [declent_ru(ACCUSATIVE)]!"), 3, linked_hive.hivenumber) // SS220 EDIT ADDICTION
+	visible_message(SPAN_DANGER("[capitalize(M.declent_ru(NOMINATIVE))] начинает уничтожать [declent_ru(ACCUSATIVE)]!")) // SS220 EDIT ADDICTION
 	last_attempt = world.time //spamcheck
 	if(!do_after(M, 5 SECONDS , INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_HOSTILE))
-		to_chat(M,SPAN_WARNING("You stop destroying \the [src]."))
-		visible_message(SPAN_WARNING("[M] stops destroying \the [src]."))
+		to_chat(M,SPAN_WARNING("Вы перестаёте уничтожать [declent_ru(ACCUSATIVE)].")) // SS220 EDIT ADDICTION
+		visible_message(SPAN_WARNING("[capitalize(M.declent_ru(NOMINATIVE))] перестаёт уничтожать [declent_ru(ACCUSATIVE)].")) // SS220 EDIT ADDICTION
 		last_attempt = world.time // update the spam check
 		return XENO_NO_DELAY_ACTION
 	qdel(src)
@@ -450,7 +450,7 @@
 	sleep(HIVECORE_COOLDOWN)
 	if(linked_hive.hivecore_cooldown) // check if its true so we don't double set it.
 		linked_hive.hivecore_cooldown = FALSE
-		xeno_message(SPAN_XENOANNOUNCE("The weeds have recovered! A new hive core can be built!"), 3, linked_hive.hivenumber)
+		xeno_message(SPAN_XENOANNOUNCE("Трава восстановилась! Можно построить новое ядро улья!"), 3, linked_hive.hivenumber)
 	else
 		log_admin("Hivecore cooldown reset proc aborted due to hivecore cooldown var being set to false before the cooldown has finished!")
 		// Tell admins that this condition is reached so they know what has happened if it fails somehow

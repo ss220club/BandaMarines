@@ -72,7 +72,7 @@
 
 /obj/item/clothing/suit/storage/marine/veteran/dutch
 	name = "\improper D2 armored vest"
-	desc = "A protective vest worn by some seriously experienced mercs."
+	desc = "Бронежилет, который носят некоторые очень опытные наемники." //SS220 EDIT
 	icon_state = "dutch_armor"
 	icon = 'icons/obj/items/clothing/suits/misc_ert.dmi'
 	item_icons = list(

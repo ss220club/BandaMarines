@@ -268,7 +268,7 @@
 
 	var/list/atom/movable/targets = SSmapgrids.get_movables_in_region(M.z, M.x - area_range, M.x + area_range, M.y - area_range, M.y + area_range)
 	for(var/mob/living/carbon/xenomorph/X in targets)
-		to_chat(X, SPAN_XENOWARNING("Augh! You are slowed by the incessant ringing!"))
+		to_chat(X, SPAN_XENOWARNING("Аааа! Вас дезориентирует непрекращающийся звон!"))
 		X.set_effect(slowdown_amount, SUPERSLOW)
 		playsound(X, 'sound/misc/bell.ogg', 25, 0, 13)
 

@@ -85,11 +85,11 @@
 	var/mob/living/carbon/human/human_owner = owner
 
 	if(human_owner.client.prefs.muted & MUTE_IC)
-		to_chat(human_owner, SPAN_DANGER("You cannot whisper (muted)."))
+		to_chat(human_owner, SPAN_DANGER("Вы не можете шептать (вы заглушены)."))
 		return FALSE
 
 	if(human_owner.stat == DEAD)
-		to_chat(human_owner, SPAN_WARNING("You cannot talk while dead."))
+		to_chat(human_owner, SPAN_WARNING("Вы не можете говорить, будучи мёртвым."))
 		return FALSE
 
 	var/list/target_list = list()
@@ -116,11 +116,11 @@
 	var/mob/living/carbon/human/human_owner = owner
 
 	if(human_owner.client.prefs.muted & MUTE_IC)
-		to_chat(human_owner, SPAN_DANGER("You cannot whisper (muted)."))
+		to_chat(human_owner, SPAN_DANGER("Вы не можете шептать (вы заглушены)."))
 		return FALSE
 
 	if(human_owner.stat == DEAD)
-		to_chat(human_owner, SPAN_WARNING("You cannot talk while dead."))
+		to_chat(human_owner, SPAN_WARNING("Вы не можете говорить, будучи мёртвым."))
 		return FALSE
 
 	human_owner.psychic_radiance()
@@ -297,7 +297,7 @@ CULT
 	message = capitalize(trim(message))
 	message = process_chat_markup(message, list("~", "_"))
 
-	if(!(copytext(message, -1) in ENDING_PUNCT))
+	if(!(copytext_char(message, -1) in ENDING_PUNCT)) // SS220 Edit - RU fix
 		message += "."
 
 	var/datum/hive_status/hive = GLOB.hive_datum[H.hivenumber]
@@ -324,7 +324,7 @@ CULT
 		to_chat(H, SPAN_WARNING("You have decided not to obtain your equipment."))
 		return
 
-	H.visible_message(SPAN_DANGER("[H] gets onto their knees and begins praying."),
+	H.visible_message(SPAN_DANGER("[capitalize(H.declent_ru(NOMINATIVE))] gets onto their knees and begins praying."),
 	SPAN_WARNING("You get onto your knees to pray."))
 
 	if(!do_after(H, 3 SECONDS, INTERRUPT_ALL, BUSY_ICON_HOSTILE))
@@ -346,7 +346,7 @@ CULT
 
 	playsound(H.loc, 'sound/voice/scream_horror1.ogg', 25)
 
-	H.visible_message(SPAN_HIGHDANGER("[H] puts on their robes."), SPAN_WARNING("You put on your robes."))
+	H.visible_message(SPAN_HIGHDANGER("[capitalize(H.declent_ru(NOMINATIVE))] puts on their robes."), SPAN_WARNING("You put on your robes."))
 	for(var/datum/action/human_action/activable/cult/obtain_equipment/O in H.actions)
 		O.remove_from(H)
 
@@ -488,10 +488,10 @@ CULT
 	playsound(get_turf(chosen), 'sound/scp/scare1.ogg', 25)
 
 /datum/action/human_action/activable/mutineer
-	name = "Mutiny abilities"
+	name = "Убеждения мятежника"
 
 /datum/action/human_action/activable/mutineer/mutineer_convert
-	name = "Convert"
+	name = "Убедить"
 	action_icon_state = "mutineer_convert"
 
 	var/list/converted = list()
@@ -507,21 +507,21 @@ CULT
 		return
 
 	if(skillcheck(chosen, SKILL_POLICE, SKILL_POLICE_MAX) || (chosen in converted))
-		to_chat(H, SPAN_WARNING("You can't convert [chosen]!"))
+		to_chat(H, SPAN_WARNING("Вы не можете убедить [chosen]!"))
 		return
 
-	to_chat(H, SPAN_NOTICE("Mutiny join request sent to [chosen]!"))
+	to_chat(H, SPAN_NOTICE("Запрос на присоединение к мятежку отправлен [chosen]!"))
 
-	if(tgui_alert(chosen, "Do you want to be a mutineer?", "Become Mutineer", list("Yes", "No")) != "Yes")
+	if(tgui_alert(chosen, "Желаете стать мятежником?", "Стать мятежником", list("Да", "Нет")) != "Да")
 		return
 
 	converted += chosen
-	to_chat(chosen, SPAN_WARNING("You'll become a mutineer when the mutiny begins. Prepare yourself and do not cause any harm until you've been made into a mutineer."))
+	to_chat(chosen, SPAN_WARNING("Когда начнется мятеж, ты присоединишься к нему. Подготовься и не причиняй вреда, пока тебя не сделают мятежником."))
 
 	message_admins("[key_name_admin(chosen)] has been converted into a mutineer by [key_name_admin(H)].")
 
 /datum/action/human_action/activable/mutineer/mutineer_begin
-	name = "Begin Mutiny"
+	name = "Стать мятежником"
 	action_icon_state = "mutineer_begin"
 
 /datum/action/human_action/activable/mutineer/mutineer_begin/action_activate()
@@ -531,7 +531,7 @@ CULT
 
 	var/mob/living/carbon/human/human_owner = owner
 
-	if(tgui_alert(human_owner, "Are you sure you want to begin the mutiny?", "Begin Mutiny?", list("Yes", "No")) != "Yes")
+	if(tgui_alert(human_owner, "Вы уверены что хотите стать мятежником?", "Стать мятежником?", list("Да", "Нет")) != "Да")
 		return
 
 	for(var/datum/action/human_action/activable/mutineer/mutineer_convert/converted in human_owner.actions)
@@ -542,6 +542,7 @@ CULT
 	human_owner.join_mutiny(TRUE, MUTINY_MUTINEER)
 	start_mutiny(human_owner.faction)
 	message_admins("[key_name_admin(human_owner)] has begun the mutiny.")
+	human_owner.set_selected_ability(null) // BANDAMARINES ADD
 	remove_from(human_owner)
 
 /proc/start_mutiny(mutiny_faction = FACTION_MARINE)
@@ -560,7 +561,7 @@ CULT
 		INVOKE_ASYNC(person, TYPE_PROC_REF(/mob/living/carbon/human, join_mutiny))
 
 	if(mutiny_faction == FACTION_MARINE)
-		shipwide_ai_announcement("DANGER: Communications received; a mutiny is in progress. Code: Detain, Arrest, Defend.")
+		shipwide_ai_announcement("ОПАСНОСТЬ: Получено сообщение, на корабле происходит мятеж. Код: Задержать, Арестовать, Защитить.")
 		set_security_level(SEC_LEVEL_RED, TRUE)
 
 /mob/living/carbon/human/proc/join_mutiny(forced = FALSE, forced_side = MUTINY_MUTINEER)
@@ -581,15 +582,15 @@ CULT
 				preset.load_status(src)
 				return TRUE
 
-	var/options = list("MUTINEERS", "LOYALISTS", "REFUSE TO FIGHT")
+	var/options = list("МЯТЕЖНИКИ", "ЛОЯЛИСТЫ", "БЕЗДЕЙСТВУЮЩИЕ")
 	if(job == JOB_SYNTH)
-		options -= "MUTINEERS"
-	switch(tgui_alert(src, "A mutiny has been started, with whom do you stand?", "Choose a Side", options, 20 SECONDS))
-		if("MUTINEERS")
+		options -= "МЯТЕЖНИКИ"
+	switch(tgui_alert(src, "Начался мятеж, с кем вы останетесь?", "Выберите сторону", options, 20 SECONDS))
+		if("МЯТЕЖНИКИ")
 			var/datum/equipment_preset/other/mutiny/mutineer/preset = new()
 			preset.load_status(src)
 			return TRUE
-		if("LOYALISTS")
+		if("ЛОЯЛИСТЫ")
 			var/datum/equipment_preset/other/mutiny/loyalist/preset = new()
 			preset.load_status(src)
 			return TRUE

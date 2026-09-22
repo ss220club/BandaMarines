@@ -66,8 +66,8 @@
 /datum/surgery_step/cut_larval_pseudoroots/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, tool_type, datum/surgery/surgery)
 	user.affected_message(target,
 		SPAN_NOTICE("You start carefully cutting the larva's pseudoroots away from [target]'s vital organs with [tool]."),
-		SPAN_NOTICE("[user] starts to carefully cut the tubes connecting the alien larva to your vital organs with [tool]."),
-		SPAN_NOTICE("[user] starts to carefully cut the tubes connecting the alien larva to [target]'s vital organs with [tool]."))
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts to carefully cut the tubes connecting the alien larva to your vital organs with [tool]."),
+		SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] starts to carefully cut the tubes connecting the alien larva to [target]'s vital organs with [tool]."))
 
 	target.custom_pain("The larva is flailing and struggling in your [surgery.affected_limb.display_name]! It hurts so much!", 1)
 	log_interact(user, target, "[key_name(user)] began cutting the roots of a larva in [key_name(target)]'s [surgery.affected_limb.display_name] with [tool], attempting to begin [surgery].")
@@ -160,13 +160,13 @@
 	if(tool)
 		user.affected_message(target,
 			SPAN_NOTICE("You try to extract the writhing larva from [target]'s chest with [tool]."),
-			SPAN_NOTICE("[user] tries to extract the writhing larva from your chest with [tool]."),
-			SPAN_NOTICE("[user] tries to extract the larva from [target]'s chest with [tool]."))
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] tries to extract the writhing larva from your chest with [tool]."),
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] tries to extract the larva from [target]'s chest with [tool]."))
 	else
 		user.affected_message(target,
 			SPAN_NOTICE("You try to forcefully rip the writhing larva from [target]'s chest with your [user.hand ? "left" : "right"] hand."),
-			SPAN_NOTICE("[user] tries to forcefully rip the writhing larva from your chest with \his [user.hand ? "left" : "right"] hand."),
-			SPAN_NOTICE("[user], with \his [user.hand ? "left" : "right"] hand, tries to forcefully rip the writhing larva from [target]'s chest!"))
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))] tries to forcefully rip the writhing larva from your chest with \his [user.hand ? "left" : "right"] hand."),
+			SPAN_NOTICE("[capitalize(user.declent_ru(NOMINATIVE))], with \his [user.hand ? "left" : "right"] hand, tries to forcefully rip the writhing larva from [target]'s chest!"))
 
 	to_chat(target, SPAN_HIGHDANGER("IT'S COMING OUT! BRACE YOURSELF!"))
 	if(target.stat == CONSCIOUS) //larba is fighting inside your chest
@@ -180,8 +180,8 @@
 		if(tool)
 			user.affected_message(target,
 				SPAN_WARNING("You pull a wriggling parasite out of [target]'s ribcage!"),
-				SPAN_WARNING("[user] pulls a wriggling parasite out of your ribcage!"),
-				SPAN_WARNING("[user] pulls a wriggling parasite out of [target]'s ribcage!"))
+				SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] pulls a wriggling parasite out of your ribcage!"),
+				SPAN_WARNING("[capitalize(user.declent_ru(NOMINATIVE))] pulls a wriggling parasite out of [target]'s ribcage!"))
 		else
 			var/datum/internal_organ/impacted_organ = pick(surgery.affected_limb.internal_organs)
 			impacted_organ.take_damage(5, FALSE)

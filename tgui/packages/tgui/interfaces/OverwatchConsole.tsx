@@ -739,7 +739,7 @@ const SupplyDrop = (props) => {
       <Stack justify={'space-between'} m="10px">
         <Stack.Item fontSize="14px">
           <LabeledControls mb="5px">
-            <LabeledControls.Item label="LONGITUDE">
+            <LabeledControls.Item label="ДОЛГОТА">
               <NumberInput
                 step={1}
                 value={supplyX}
@@ -749,7 +749,7 @@ const SupplyDrop = (props) => {
                 width="75px"
               />
             </LabeledControls.Item>
-            <LabeledControls.Item label="LATITUDE">
+            <LabeledControls.Item label="ШИРОТА">
               <NumberInput
                 step={1}
                 value={supplyY}
@@ -759,7 +759,7 @@ const SupplyDrop = (props) => {
                 width="75px"
               />
             </LabeledControls.Item>
-            <LabeledControls.Item label="HEIGHT">
+            <LabeledControls.Item label="ВЫСОТА">
               <NumberInput
                 step={1}
                 value={supplyZ}
@@ -769,7 +769,7 @@ const SupplyDrop = (props) => {
                 width="75px"
               />
             </LabeledControls.Item>
-            <LabeledControls.Item label="STATUS">
+            <LabeledControls.Item label="СТАТУС">
               <Box color={crate_color} bold>
                 {crate_status}
               </Box>
@@ -785,7 +785,7 @@ const SupplyDrop = (props) => {
                 act('dropsupply', { x: supplyX, y: supplyY, z: supplyZ })
               }
             >
-              Launch
+              Отправить
             </Button>
             <Button
               fontSize="20px"
@@ -796,7 +796,7 @@ const SupplyDrop = (props) => {
                 act('save_coordinates', { x: supplyX, y: supplyY, z: supplyZ })
               }
             >
-              Save
+              Сохранить
             </Button>
           </Box>
         </Stack.Item>
@@ -835,7 +835,7 @@ const OrbitalBombardment = (props) => {
       <Stack justify={'space-between'} m="10px">
         <Stack.Item fontSize="14px">
           <LabeledControls mb="5px">
-            <LabeledControls.Item label="LONGITUDE">
+            <LabeledControls.Item label="ДОЛГОТА">
               <NumberInput
                 step={1}
                 value={OBX}
@@ -845,7 +845,7 @@ const OrbitalBombardment = (props) => {
                 width="75px"
               />
             </LabeledControls.Item>
-            <LabeledControls.Item label="LATITUDE">
+            <LabeledControls.Item label="ШИРОТА">
               <NumberInput
                 step={1}
                 value={OBY}
@@ -855,7 +855,7 @@ const OrbitalBombardment = (props) => {
                 width="75px"
               />
             </LabeledControls.Item>
-            <LabeledControls.Item label="HEIGHT">
+            <LabeledControls.Item label="ВЫСОТА">
               <NumberInput
                 step={1}
                 value={OBZ}
@@ -866,7 +866,7 @@ const OrbitalBombardment = (props) => {
               />
             </LabeledControls.Item>
 
-            <LabeledControls.Item label="STATUS">
+            <LabeledControls.Item label="СТАТУС">
               <Box color={ob_color} bold>
                 {ob_status}
               </Box>
@@ -880,7 +880,7 @@ const OrbitalBombardment = (props) => {
               color={data.ob_safety ? 'transperant' : 'red'}
               onClick={() => act('dropbomb', { x: OBX, y: OBY, z: OBZ })}
             >
-              Fire
+              Запуск
             </Button>
             <Button
               fontSize="20px"
@@ -891,7 +891,7 @@ const OrbitalBombardment = (props) => {
                 act('save_coordinates', { x: OBX, y: OBY, z: OBZ })
               }
             >
-              Save
+              Сохранить
             </Button>
           </Box>
         </Stack.Item>
@@ -937,13 +937,13 @@ const SavedCoordinates = (props) => {
       <Table>
         <Table.Row bold>
           <Table.Cell p="5px" collapsing>
-            LONG.
+            ДОЛ.
           </Table.Cell>
           <Table.Cell p="5px" collapsing>
-            LAT.
+            ШИР.
           </Table.Cell>
           <Table.Cell p="5px" collapsing>
-            HEIGHT
+            ВЫСОТА
           </Table.Cell>
           <Table.Cell p="5px">COMMENT</Table.Cell>
           <Table.Cell p="5px" collapsing />

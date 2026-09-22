@@ -4,6 +4,8 @@ import { Icon, Input, Section, Table, Tooltip } from 'tgui/components';
 import { TableCell, TableRow } from 'tgui/components/Table';
 import { Window } from 'tgui/layouts';
 
+import { JobsRu } from './BandaMarines/MarineJobs';
+
 type ManifestData = {
   departments_with_jobs: {
     [department: string]: string[];
@@ -65,7 +67,7 @@ export const CrewManifest = (props, context) => {
             value={searchTerm}
             onInput={(_, value) => setSearchTerm(value.toLowerCase())}
             width="100%"
-            placeholder="Search..."
+            placeholder="Поиск..."
           />
         </Section>
 
@@ -102,7 +104,7 @@ export const CrewManifest = (props, context) => {
           return (
             <Section
               key={department}
-              title={department}
+              title={JobsRu(department)}
               textAlign="center"
               className={
                 'border-dept-' + department.toLowerCase().replace(/\s+/g, '-')
@@ -145,7 +147,7 @@ export const CrewManifest = (props, context) => {
                       pb="5px"
                       nowrap
                     >
-                      {crew.rank}
+                      {JobsRu(crew.rank)}
                     </TableCell>
                     <TableCell
                       textAlign="right"

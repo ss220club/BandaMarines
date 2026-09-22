@@ -75,11 +75,13 @@ let bigButtons = [
 		command: "wiki",
 		icon: "book"
 	},
+/*
 	{
 		name: "Forum",
 		command: "forum",
 		icon: "envelope"
 	},
+*/
 	{
 		name: "Submit Bug",
 		command: "submit-bug",
