@@ -1,5 +1,6 @@
 /datum/supply_packs/rockets_launchers_common
 	name = "RPG M83A2-C Crate (x2)"
+	buyable = FALSE // Set after configuration loads, in the weapons modpack's pre_initialize().
 	contains = list(
 		/obj/item/prop/folded_anti_tank_sadar/common,
 		/obj/item/prop/folded_anti_tank_sadar/common,

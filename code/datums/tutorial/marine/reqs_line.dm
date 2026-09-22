@@ -238,6 +238,9 @@
 	// We make a custom catalogue copy to increase weighting of already requested items;
 	// this avoids getting huge lists too quickly
 	for(var/typepath in shopping_catalogue)
+		// SS220 EDIT - RPG WEAPON: disabled items cannot be supplied by the tutorial vendor.
+		if(typepath == /obj/item/prop/folded_anti_tank_sadar/common && !GLOB.m83a2c_rpg_enabled)
+			continue
 		catalogue += typepath
 	for(var/i in 1 to items_to_request)
 		request += pick(catalogue)
